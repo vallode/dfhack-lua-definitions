@@ -1,12 +1,23 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias init_display_flags_keys
+---| '"USE_GRAPHICS"'
+---| '"SOFTWARE"'
+---| '"TEXT"'
+---| '"NOT_RESIZABLE"'
+---| '"INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"'
+
+---@alias init_display_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias init_display_flags
----| 0 # USE_GRAPHICS
----| 1 # SOFTWARE
----| 2 # TEXT
----| 3 # NOT_RESIZABLE
----| 4 # INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH
+---| init_display_flags_keys
+---| init_display_flags_values
 
 -- -- init.h
 ---@class _init_display_flags: DFEnum
@@ -22,10 +33,19 @@
 ---@field [4] "INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"
 df.init_display_flags = {}
 
+---@alias init_display_filter_mode_keys
+---| '"AUTO"'
+---| '"NEAREST"'
+---| '"LANCZOS"'
+
+---@alias init_display_filter_mode_values
+---| 0
+---| 1
+---| 2
+
 ---@alias init_display_filter_mode
----| 0 # AUTO
----| 1 # NEAREST
----| 2 # LANCZOS
+---| init_display_filter_mode_keys
+---| init_display_filter_mode_values
 
 ---@class _init_display_filter_mode: DFEnum
 ---@field AUTO 0
@@ -62,11 +82,21 @@ df.init_display_filter_mode = {}
 ---@field _kind 'struct-type'
 df.init_display = {}
 
+---@alias init_display.T_windowed_keys
+---| '"True"'
+---| '"False"'
+---| '"Prompt"'
+---| '"Exclusive"'
+
+---@alias init_display.T_windowed_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias init_display.T_windowed
----| 0 # True
----| 1 # False
----| 2 # Prompt
----| 3 # Exclusive
+---| init_display.T_windowed_keys
+---| init_display.T_windowed_values
 
 ---@class _init_display.T_windowed: DFEnum
 ---@field True 0
@@ -79,10 +109,19 @@ df.init_display = {}
 ---@field [3] "Exclusive"
 df.init_display.T_windowed = {}
 
+---@alias init_media_flags_keys
+---| '"SOUND_OFF"'
+---| '"UNUSED_01_02"'
+---| '"COMPRESS_SAVES"'
+
+---@alias init_media_flags_values
+---| 0
+---| 1
+---| 2
+
 ---@alias init_media_flags
----| 0 # SOUND_OFF
----| 1 # UNUSED_01_02
----| 2 # COMPRESS_SAVES
+---| init_media_flags_keys
+---| init_media_flags_values
 
 ---@class _init_media_flags: DFEnum
 ---@field SOUND_OFF 0
@@ -107,9 +146,17 @@ df.init_media_flags = {}
 ---@field _kind 'struct-type'
 df.init_media = {}
 
+---@alias init_input_flags_keys
+---| '"MOUSE_OFF"'
+---| '"MOUSE_PICTURE"'
+
+---@alias init_input_flags_values
+---| 0
+---| 1
+
 ---@alias init_input_flags
----| 0 # MOUSE_OFF
----| 1 # MOUSE_PICTURE
+---| init_input_flags_keys
+---| init_input_flags_values
 
 ---@class _init_input_flags: DFEnum
 ---@field MOUSE_OFF 0
@@ -166,10 +213,19 @@ df.init_input = {}
 ---@field _kind 'struct-type'
 df.init_font = {}
 
+---@alias init_window_flags_keys
+---| '"VSYNC_ON"'
+---| '"VSYNC_OFF"'
+---| '"TEXTURE_LINEAR"'
+
+---@alias init_window_flags_values
+---| 0
+---| 1
+---| 2
+
 ---@alias init_window_flags
----| 0 # VSYNC_ON
----| 1 # VSYNC_OFF
----| 2 # TEXTURE_LINEAR
+---| init_window_flags_keys
+---| init_window_flags_values
 
 ---@class _init_window_flags: DFEnum
 ---@field VSYNC_ON 0

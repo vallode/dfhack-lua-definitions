@@ -34,20 +34,43 @@ df.entity_occasion_info = {}
 ---@field _kind 'struct-type'
 df.entity_occasion = {}
 
+---@alias occasion_schedule_type_keys
+---| '"DANCE_PERFORMANCE"'
+---| '"MUSICAL_PERFORMANCE"'
+---| '"POETRY_RECITAL"'
+---| '"STORYTELLING"'
+---| '"DANCE_COMPETITION"'
+---| '"MUSICAL_COMPETITION"'
+---| '"POETRY_COMPETITION"'
+---| '"FOOT_RACE"'
+---| '""'
+---| '""'
+---| '"WRESTLING_COMPETITION"'
+---| '"THROWING_COMPETITION"'
+---| '"GLADIATORY_COMPETITION"'
+---| '"PROCESSION"'
+---| '"CEREMONY"'
+
+---@alias occasion_schedule_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+
 ---@alias occasion_schedule_type
----| 0 # DANCE_PERFORMANCE
----| 1 # MUSICAL_PERFORMANCE
----| 2 # POETRY_RECITAL
----| 3 # STORYTELLING
----| 4 # DANCE_COMPETITION
----| 5 # MUSICAL_COMPETITION
----| 6 # POETRY_COMPETITION
----| 7 # FOOT_RACE
----| 10 # WRESTLING_COMPETITION
----| 11 # THROWING_COMPETITION
----| 12 # GLADIATORY_COMPETITION
----| 13 # PROCESSION
----| 14 # CEREMONY
+---| occasion_schedule_type_keys
+---| occasion_schedule_type_values
 
 ---@class _occasion_schedule_type: DFEnum
 ---@field DANCE_PERFORMANCE 0
@@ -95,21 +118,51 @@ df.occasion_schedule_type = {}
 ---@field _kind 'struct-type'
 df.entity_occasion_schedule = {}
 
+---@alias occasion_schedule_feature_keys
+---| '""'
+---| '""'
+---| '"STORYTELLING"'
+---| '"POETRY_RECITAL"'
+---| '"MUSICAL_PERFORMANCE"'
+---| '"DANCE_PERFORMANCE"'
+---| '""'
+---| '"CRIERS_IN_FRONT"'
+---| '"ORDER_OF_PRECEDENCE"'
+---| '"BANNERS"'
+---| '"IMAGES"'
+---| '""'
+---| '""'
+---| '"ACROBATS"'
+---| '"INCENSE_BURNING"'
+---| '"COSTUMES"'
+---| '"CANDLES"'
+---| '"THE_GIVING_OF_ITEMS"'
+---| '"THE_SACRIFICE_OF_ITEMS"'
+
+---@alias occasion_schedule_feature_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+
 ---@alias occasion_schedule_feature
----| 2 # STORYTELLING
----| 3 # POETRY_RECITAL
----| 4 # MUSICAL_PERFORMANCE
----| 5 # DANCE_PERFORMANCE
----| 7 # CRIERS_IN_FRONT
----| 8 # ORDER_OF_PRECEDENCE
----| 9 # BANNERS
----| 10 # IMAGES
----| 13 # ACROBATS
----| 14 # INCENSE_BURNING
----| 15 # COSTUMES
----| 16 # CANDLES
----| 17 # THE_GIVING_OF_ITEMS
----| 18 # THE_SACRIFICE_OF_ITEMS
+---| occasion_schedule_feature_keys
+---| occasion_schedule_feature_values
 
 ---@class _occasion_schedule_feature: DFEnum
 ---@field STORYTELLING 2
@@ -270,12 +323,23 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field _kind 'struct-type'
 df.caravan_state = {}
 
+---@alias caravan_state.T_trade_state_keys
+---| '"None"'
+---| '"Approaching"'
+---| '"AtDepot"'
+---| '"Leaving"'
+---| '"Stuck"'
+
+---@alias caravan_state.T_trade_state_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias caravan_state.T_trade_state
----| 0 # None
----| 1 # Approaching
----| 2 # AtDepot
----| 3 # Leaving
----| 4 # Stuck
+---| caravan_state.T_trade_state_keys
+---| caravan_state.T_trade_state_values
 
 -- bay12: stage
 ---@class _caravan_state.T_trade_state: DFEnum
@@ -358,71 +422,141 @@ df.entity_buy_prices = {}
 ---@field _kind 'struct-type'
 df.entity_buy_requests = {}
 
+---@alias entity_sell_category_keys
+---| '"Leather"'
+---| '"ClothPlant"'
+---| '"ClothSilk"'
+---| '"Crafts"'
+---| '"Wood"'
+---| '"MetalBars"'
+---| '"SmallCutGems"'
+---| '"LargeCutGems"'
+---| '"StoneBlocks"'
+---| '"Seeds"'
+---| '"Anvils"'
+---| '"Weapons"'
+---| '"TrainingWeapons"'
+---| '"Ammo"'
+---| '"TrapComponents"'
+---| '"DiggingImplements"'
+---| '"Bodywear"'
+---| '"Headwear"'
+---| '"Handwear"'
+---| '"Footwear"'
+---| '"Legwear"'
+---| '"Shields"'
+---| '"Toys"'
+---| '"Instruments"'
+---| '"Pets"'
+---| '"Drinks"'
+---| '"Cheese"'
+---| '"Powders"'
+---| '"Extracts"'
+---| '"Meat"'
+---| '"Fish"'
+---| '"Plants"'
+---| '"FruitsNuts"'
+---| '"GardenVegetables"'
+---| '"MeatFishRecipes"'
+---| '"OtherRecipes"'
+---| '"Stone"'
+---| '"Cages"'
+---| '"BagsLeather"'
+---| '"BagsPlant"'
+---| '"BagsSilk"'
+---| '"ThreadPlant"'
+---| '"ThreadSilk"'
+---| '"RopesPlant"'
+---| '"RopesSilk"'
+---| '"Barrels"'
+---| '"FlasksWaterskins"'
+---| '"Quivers"'
+---| '"Backpacks"'
+---| '"Sand"'
+---| '"Glass"'
+---| '"Miscellaneous"'
+---| '"Buckets"'
+---| '"Splints"'
+---| '"Crutches"'
+---| '"Eggs"'
+---| '"BagsYarn"'
+---| '"RopesYarn"'
+---| '"ClothYarn"'
+---| '"ThreadYarn"'
+---| '"Tools"'
+---| '"Clay"'
+---| '"Parchment"'
+---| '"CupsMugsGoblets"'
+
+---@alias entity_sell_category_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+
 ---@alias entity_sell_category
----| 0 # Leather
----| 1 # ClothPlant
----| 2 # ClothSilk
----| 3 # Crafts
----| 4 # Wood
----| 5 # MetalBars
----| 6 # SmallCutGems
----| 7 # LargeCutGems
----| 8 # StoneBlocks
----| 9 # Seeds
----| 10 # Anvils
----| 11 # Weapons
----| 12 # TrainingWeapons
----| 13 # Ammo
----| 14 # TrapComponents
----| 15 # DiggingImplements
----| 16 # Bodywear
----| 17 # Headwear
----| 18 # Handwear
----| 19 # Footwear
----| 20 # Legwear
----| 21 # Shields
----| 22 # Toys
----| 23 # Instruments
----| 24 # Pets
----| 25 # Drinks
----| 26 # Cheese
----| 27 # Powders
----| 28 # Extracts
----| 29 # Meat
----| 30 # Fish
----| 31 # Plants
----| 32 # FruitsNuts
----| 33 # GardenVegetables
----| 34 # MeatFishRecipes
----| 35 # OtherRecipes
----| 36 # Stone
----| 37 # Cages
----| 38 # BagsLeather
----| 39 # BagsPlant
----| 40 # BagsSilk
----| 41 # ThreadPlant
----| 42 # ThreadSilk
----| 43 # RopesPlant
----| 44 # RopesSilk
----| 45 # Barrels
----| 46 # FlasksWaterskins
----| 47 # Quivers
----| 48 # Backpacks
----| 49 # Sand
----| 50 # Glass
----| 51 # Miscellaneous
----| 52 # Buckets
----| 53 # Splints
----| 54 # Crutches
----| 55 # Eggs
----| 56 # BagsYarn
----| 57 # RopesYarn
----| 58 # ClothYarn
----| 59 # ThreadYarn
----| 60 # Tools
----| 61 # Clay
----| 62 # Parchment
----| 63 # CupsMugsGoblets
+---| entity_sell_category_keys
+---| entity_sell_category_values
 
 ---@class _entity_sell_category: DFEnum
 ---@field Leather 0
@@ -587,18 +721,35 @@ df.entity_sell_requests = {}
 ---@field _kind 'struct-type'
 df.entity_recipe = {}
 
+---@alias historical_entity_type_keys
+---| '"Civilization"'
+---| '"SiteGovernment"'
+---| '"VesselCrew"'
+---| '"MigratingGroup"'
+---| '"NomadicGroup"'
+---| '"Religion"'
+---| '"MilitaryUnit"'
+---| '"Outcast"'
+---| '"PerformanceTroupe"'
+---| '"MerchantCompany"'
+---| '"Guild"'
+
+---@alias historical_entity_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+
 ---@alias historical_entity_type
----| 0 # Civilization
----| 1 # SiteGovernment
----| 2 # VesselCrew
----| 3 # MigratingGroup
----| 4 # NomadicGroup
----| 5 # Religion
----| 6 # MilitaryUnit
----| 7 # Outcast
----| 8 # PerformanceTroupe
----| 9 # MerchantCompany
----| 10 # Guild
+---| historical_entity_type_keys
+---| historical_entity_type_values
 
 ---@class _historical_entity_type: DFEnum
 ---@field Civilization 0
@@ -1313,13 +1464,25 @@ df.historical_entity.T_claims = {}
 ---@field _kind 'struct-type'
 df.entity_tissue_style = {}
 
+---@alias training_knowledge_level_keys
+---| '"None"'
+---| '"FewFacts"'
+---| '"GeneralFamiliarity"'
+---| '"Knowledgeable"'
+---| '"Expert"'
+---| '"Domesticated"'
+
+---@alias training_knowledge_level_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias training_knowledge_level
----| 0 # None
----| 1 # FewFacts
----| 2 # GeneralFamiliarity
----| 3 # Knowledgeable
----| 4 # Expert
----| 5 # Domesticated
+---| training_knowledge_level_keys
+---| training_knowledge_level_values
 
 ---@class _training_knowledge_level: DFEnum
 ---@field None 0
@@ -1336,39 +1499,77 @@ df.entity_tissue_style = {}
 ---@field [5] "Domesticated"
 df.training_knowledge_level = {}
 
+---@alias entity_position_flags_keys
+---| '"IS_LAW_MAKER"'
+---| '"ELECTED"'
+---| '"DUTY_BOUND"'
+---| '"MILITARY_SCREEN_ONLY"'
+---| '"GENDER_MALE"'
+---| '"GENDER_FEMALE"'
+---| '"SUCCESSION_BY_HEIR"'
+---| '"HAS_RESPONSIBILITIES"'
+---| '"FLASHES"'
+---| '"BRAG_ON_KILL"'
+---| '"CHAT_WORTHY"'
+---| '"DO_NOT_CULL"'
+---| '"KILL_QUEST"'
+---| '"IS_LEADER"'
+---| '"IS_DIPLOMAT"'
+---| '"EXPORTED_IN_LEGENDS"'
+---| '"DETERMINES_COIN_DESIGN"'
+---| '"ACCOUNT_EXEMPT"'
+---| '"HAS_MET_POP_REQ"'
+---| '"HAS_BEEN_REPLACED"'
+---| '"COLOR"'
+---| '"RULES_FROM_LOCATION"'
+---| '"MENIAL_WORK_EXEMPTION"'
+---| '"MENIAL_WORK_EXEMPTION_SPOUSE"'
+---| '"SLEEP_PRETENSION"'
+---| '"PUNISHMENT_EXEMPTION"'
+---| '"HAS_RECEIVED_POSITIONS"'
+---| '"ACTIVE"'
+---| '"QUEST_GIVER"'
+---| '"SPECIAL_BURIAL"'
+---| '"REQUIRES_MARKET"'
+---| '"HAS_MET_MARKET_REQ"'
+
+---@alias entity_position_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+
 ---@alias entity_position_flags
----| 0 # IS_LAW_MAKER
----| 1 # ELECTED
----| 2 # DUTY_BOUND
----| 3 # MILITARY_SCREEN_ONLY
----| 4 # GENDER_MALE
----| 5 # GENDER_FEMALE
----| 6 # SUCCESSION_BY_HEIR
----| 7 # HAS_RESPONSIBILITIES
----| 8 # FLASHES
----| 9 # BRAG_ON_KILL
----| 10 # CHAT_WORTHY
----| 11 # DO_NOT_CULL
----| 12 # KILL_QUEST
----| 13 # IS_LEADER
----| 14 # IS_DIPLOMAT
----| 15 # EXPORTED_IN_LEGENDS
----| 16 # DETERMINES_COIN_DESIGN
----| 17 # ACCOUNT_EXEMPT
----| 18 # HAS_MET_POP_REQ
----| 19 # HAS_BEEN_REPLACED
----| 20 # COLOR
----| 21 # RULES_FROM_LOCATION
----| 22 # MENIAL_WORK_EXEMPTION
----| 23 # MENIAL_WORK_EXEMPTION_SPOUSE
----| 24 # SLEEP_PRETENSION
----| 25 # PUNISHMENT_EXEMPTION
----| 26 # HAS_RECEIVED_POSITIONS
----| 27 # ACTIVE
----| 28 # QUEST_GIVER
----| 29 # SPECIAL_BURIAL
----| 30 # REQUIRES_MARKET
----| 31 # HAS_MET_MARKET_REQ
+---| entity_position_flags_keys
+---| entity_position_flags_values
 
 -- bay12: EntityPositionFlag
 ---@class _entity_position_flags: DFEnum
@@ -1518,40 +1719,79 @@ df.entity_position_profile_claimst = {}
 ---@field _kind 'struct-type'
 df.entity_position_assignment = {}
 
+---@alias entity_material_category_keys
+---| '"None"'
+---| '"Clothing"'
+---| '"Leather"'
+---| '"Cloth"'
+---| '"Wood"'
+---| '"Crafts"'
+---| '"Stone"'
+---| '"Improvement"'
+---| '"Glass"'
+---| '"Wood2"'
+---| '"Bag"'
+---| '"Cage"'
+---| '"WeaponMelee"'
+---| '"WeaponRanged"'
+---| '"Ammo"'
+---| '"Ammo2"'
+---| '"Pick"'
+---| '"Armor"'
+---| '"Gem"'
+---| '"Bone"'
+---| '"Shell"'
+---| '"Pearl"'
+---| '"Ivory"'
+---| '"Horn"'
+---| '"Other"'
+---| '"Anvil"'
+---| '"Booze"'
+---| '"Metal"'
+---| '"PlantFiber"'
+---| '"Silk"'
+---| '"Wool"'
+---| '"Furniture"'
+---| '"MiscWood2"'
+
+---@alias entity_material_category_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+
 ---@alias entity_material_category
----| -1 # None
----| 0 # Clothing
----| 1 # Leather
----| 2 # Cloth
----| 3 # Wood
----| 4 # Crafts
----| 5 # Stone
----| 6 # Improvement
----| 7 # Glass
----| 8 # Wood2
----| 9 # Bag
----| 10 # Cage
----| 11 # WeaponMelee
----| 12 # WeaponRanged
----| 13 # Ammo
----| 14 # Ammo2
----| 15 # Pick
----| 16 # Armor
----| 17 # Gem
----| 18 # Bone
----| 19 # Shell
----| 20 # Pearl
----| 21 # Ivory
----| 22 # Horn
----| 23 # Other
----| 24 # Anvil
----| 25 # Booze
----| 26 # Metal
----| 27 # PlantFiber
----| 28 # Silk
----| 29 # Wool
----| 30 # Furniture
----| 31 # MiscWood2
+---| entity_material_category_keys
+---| entity_material_category_values
 
 ---@class _entity_material_category: DFEnum
 ---@field None -1
@@ -1657,41 +1897,81 @@ df.entity_uniform_item = {}
 ---@field _kind 'struct-type'
 df.entity_uniform = {}
 
+---@alias entity_event_type_keys
+---| '"invasion"'
+---| '"abduction"'
+---| '"incident"'
+---| '"occupation"'
+---| '"beast"'
+---| '"group"'
+---| '"harass"'
+---| '"flee"'
+---| '"abandon"'
+---| '"reclaimed"'
+---| '"founded"'
+---| '"reclaiming"'
+---| '"founding"'
+---| '"leave"'
+---| '"insurrection"'
+---| '"insurrection_end"'
+---| '"succession"'
+---| '"claim"'
+---| '"accept_tribute_offer"'
+---| '"refuse_tribute_offer"'
+---| '"accept_tribute_demand"'
+---| '"refuse_tribute_demand"'
+---| '"accept_peace_offer"'
+---| '"refuse_peace_offer"'
+---| '"cease_tribute_offer"'
+---| '"artifact_in_site"'
+---| '"artifact_in_subregion"'
+---| '"artifact_in_feature_layer"'
+---| '"artifact_in_inventory"'
+---| '"artifact_not_in_site"'
+---| '"artifact_not_in_subregion"'
+---| '"artifact_not_in_feature_layer"'
+---| '"artifact_not_in_inventory"'
+---| '"artifact_was_destroyed"'
+
+---@alias entity_event_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+
 ---@alias entity_event_type
----| 0 # invasion
----| 1 # abduction
----| 2 # incident
----| 3 # occupation
----| 4 # beast
----| 5 # group
----| 6 # harass
----| 7 # flee
----| 8 # abandon
----| 9 # reclaimed
----| 10 # founded
----| 11 # reclaiming
----| 12 # founding
----| 13 # leave
----| 14 # insurrection
----| 15 # insurrection_end
----| 16 # succession
----| 17 # claim
----| 18 # accept_tribute_offer
----| 19 # refuse_tribute_offer
----| 20 # accept_tribute_demand
----| 21 # refuse_tribute_demand
----| 22 # accept_peace_offer
----| 23 # refuse_peace_offer
----| 24 # cease_tribute_offer
----| 25 # artifact_in_site
----| 26 # artifact_in_subregion
----| 27 # artifact_in_feature_layer
----| 28 # artifact_in_inventory
----| 29 # artifact_not_in_site
----| 30 # artifact_not_in_subregion
----| 31 # artifact_not_in_feature_layer
----| 32 # artifact_not_in_inventory
----| 33 # artifact_was_destroyed
+---| entity_event_type_keys
+---| entity_event_type_values
 
 ---@class _entity_event_type: DFEnum
 ---@field invasion 0
@@ -2001,10 +2281,19 @@ df.entity_event.T_data.T_insurrection = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_insurrection_end = {}
 
+---@alias entity_event.T_data.T_insurrection_end.T_result_keys
+---| '"Overthrow"'
+---| '"Failure"'
+---| '"Crushing"'
+
+---@alias entity_event.T_data.T_insurrection_end.T_result_values
+---| 0
+---| 1
+---| 2
+
 ---@alias entity_event.T_data.T_insurrection_end.T_result
----| 0 # Overthrow
----| 1 # Failure
----| 2 # Crushing
+---| entity_event.T_data.T_insurrection_end.T_result_keys
+---| entity_event.T_data.T_insurrection_end.T_result_values
 
 ---@class _entity_event.T_data.T_insurrection_end.T_result: DFEnum
 ---@field Overthrow 0
@@ -2282,18 +2571,35 @@ df.agreement.T_flags = {}
 ---@field _kind 'struct-type'
 df.agreement_party = {}
 
+---@alias crime_type_keys
+---| '"NONE"'
+---| '"PLOTTER_BRIBERY_ATTEMPT"'
+---| '"PLOTTER_SEDITION_ATTEMPT"'
+---| '"PLOTTER_SKIM_EMBEZZLEMENT_ATTEMPT"'
+---| '"PLOTTER_ASSASSINATION_ATTEMPT"'
+---| '"PLOTTER_ABDUCTION_ATTEMPT"'
+---| '"PLOTTER_SABOTAGE_ATTEMPT"'
+---| '"PLOTTER_THEFT_ATTEMPT"'
+---| '"CAUGHT_INFILTRATING"'
+---| '"SUSPECT_CONFESSED_AGREEMENT"'
+---| '"CAUGHT_UNDER_SURVEILLANCE"'
+
+---@alias crime_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+
 ---@alias crime_type
----| -1 # NONE
----| 0 # PLOTTER_BRIBERY_ATTEMPT
----| 1 # PLOTTER_SEDITION_ATTEMPT
----| 2 # PLOTTER_SKIM_EMBEZZLEMENT_ATTEMPT
----| 3 # PLOTTER_ASSASSINATION_ATTEMPT
----| 4 # PLOTTER_ABDUCTION_ATTEMPT
----| 5 # PLOTTER_SABOTAGE_ATTEMPT
----| 6 # PLOTTER_THEFT_ATTEMPT
----| 7 # CAUGHT_INFILTRATING
----| 8 # SUSPECT_CONFESSED_AGREEMENT
----| 9 # CAUGHT_UNDER_SURVEILLANCE
+---| crime_type_keys
+---| crime_type_values
 
 -- bay12: EvidenceType
 ---@class _crime_type: DFEnum
@@ -2321,23 +2627,45 @@ df.agreement_party = {}
 ---@field [9] "CAUGHT_UNDER_SURVEILLANCE"
 df.crime_type = {}
 
+---@alias agreement_details_type_keys
+---| '"JoinParty"'
+---| '"DemonicBinding"'
+---| '"Residency"'
+---| '"Citizenship"'
+---| '"Parley"'
+---| '"PositionCorruption"'
+---| '"PlotStealArtifact"'
+---| '"PromisePosition"'
+---| '"PlotAssassination"'
+---| '"PlotAbduct"'
+---| '"PlotSabotage"'
+---| '"PlotConviction"'
+---| '"Location"'
+---| '"PlotInfiltrationCoup"'
+---| '"PlotFrameTreason"'
+---| '"PlotInduceWar"'
+
+---@alias agreement_details_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+
 ---@alias agreement_details_type
----| 0 # JoinParty
----| 1 # DemonicBinding
----| 2 # Residency
----| 3 # Citizenship
----| 4 # Parley
----| 5 # PositionCorruption
----| 6 # PlotStealArtifact
----| 7 # PromisePosition
----| 8 # PlotAssassination
----| 9 # PlotAbduct
----| 10 # PlotSabotage
----| 11 # PlotConviction
----| 12 # Location
----| 13 # PlotInfiltrationCoup
----| 14 # PlotFrameTreason
----| 15 # PlotInduceWar
+---| agreement_details_type_keys
+---| agreement_details_type_values
 
 ---@class _agreement_details_type: DFEnum
 ---@field JoinParty 0

@@ -1,143 +1,285 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias profession_keys
+---| '"NONE"'
+---| '"MINER"'
+---| '"WOODWORKER"'
+---| '"CARPENTER"'
+---| '"BOWYER"'
+---| '"WOODCUTTER"'
+---| '"STONEWORKER"'
+---| '"STONECUTTER"'
+---| '"STONE_CARVER"'
+---| '"ENGRAVER"'
+---| '"MASON"'
+---| '"RANGER"'
+---| '"ANIMAL_CARETAKER"'
+---| '"ANIMAL_TRAINER"'
+---| '"HUNTER"'
+---| '"TRAPPER"'
+---| '"ANIMAL_DISSECTOR"'
+---| '"METALSMITH"'
+---| '"FURNACE_OPERATOR"'
+---| '"WEAPONSMITH"'
+---| '"ARMORER"'
+---| '"BLACKSMITH"'
+---| '"METALCRAFTER"'
+---| '"JEWELER"'
+---| '"GEM_CUTTER"'
+---| '"GEM_SETTER"'
+---| '"CRAFTSMAN"'
+---| '"WOODCRAFTER"'
+---| '"STONECRAFTER"'
+---| '"LEATHERWORKER"'
+---| '"BONE_CARVER"'
+---| '"WEAVER"'
+---| '"CLOTHIER"'
+---| '"GLASSMAKER"'
+---| '"POTTER"'
+---| '"GLAZER"'
+---| '"WAX_WORKER"'
+---| '"STRAND_EXTRACTOR"'
+---| '"FISHERY_WORKER"'
+---| '"FISHERMAN"'
+---| '"FISH_DISSECTOR"'
+---| '"FISH_CLEANER"'
+---| '"FARMER"'
+---| '"CHEESE_MAKER"'
+---| '"MILKER"'
+---| '"COOK"'
+---| '"THRESHER"'
+---| '"MILLER"'
+---| '"BUTCHER"'
+---| '"TANNER"'
+---| '"DYER"'
+---| '"PLANTER"'
+---| '"HERBALIST"'
+---| '"BREWER"'
+---| '"SOAP_MAKER"'
+---| '"POTASH_MAKER"'
+---| '"LYE_MAKER"'
+---| '"WOOD_BURNER"'
+---| '"SHEARER"'
+---| '"SPINNER"'
+---| '"PRESSER"'
+---| '"BEEKEEPER"'
+---| '"ENGINEER"'
+---| '"MECHANIC"'
+---| '"SIEGE_ENGINEER"'
+---| '"SIEGE_OPERATOR"'
+---| '"PUMP_OPERATOR"'
+---| '"CLERK"'
+---| '"ADMINISTRATOR"'
+---| '"TRADER"'
+---| '"DOCTOR"'
+---| '"DIAGNOSER"'
+---| '"BONE_SETTER"'
+---| '"SUTURER"'
+---| '"SURGEON"'
+---| '"MERCHANT"'
+---| '"HAMMERMAN"'
+---| '"MASTER_HAMMERMAN"'
+---| '"SPEARMAN"'
+---| '"MASTER_SPEARMAN"'
+---| '"CROSSBOWMAN"'
+---| '"MASTER_CROSSBOWMAN"'
+---| '"WRESTLER"'
+---| '"MASTER_WRESTLER"'
+---| '"AXEMAN"'
+---| '"MASTER_AXEMAN"'
+---| '"SWORDSMAN"'
+---| '"MASTER_SWORDSMAN"'
+---| '"MACEMAN"'
+---| '"MASTER_MACEMAN"'
+---| '"PIKEMAN"'
+---| '"MASTER_PIKEMAN"'
+---| '"BOWMAN"'
+---| '"MASTER_BOWMAN"'
+---| '"BLOWGUNMAN"'
+---| '"MASTER_BLOWGUNMAN"'
+---| '"LASHER"'
+---| '"MASTER_LASHER"'
+---| '"RECRUIT"'
+---| '"TRAINED_HUNTER"'
+---| '"TRAINED_WAR"'
+---| '"MASTER_THIEF"'
+---| '"THIEF"'
+---| '"STANDARD"'
+---| '"CHILD"'
+---| '"BABY"'
+---| '"DRUNK"'
+---| '"MONSTER_SLAYER"'
+---| '"SCOUT"'
+---| '"BEAST_HUNTER"'
+---| '"SNATCHER"'
+---| '"MERCENARY"'
+---| '"GELDER"'
+---| '"PERFORMER"'
+---| '"POET"'
+---| '"BARD"'
+---| '"DANCER"'
+---| '"SAGE"'
+---| '"SCHOLAR"'
+---| '"PHILOSOPHER"'
+---| '"MATHEMATICIAN"'
+---| '"HISTORIAN"'
+---| '"ASTRONOMER"'
+---| '"NATURALIST"'
+---| '"CHEMIST"'
+---| '"GEOGRAPHER"'
+---| '"SCRIBE"'
+---| '"PAPERMAKER"'
+---| '"BOOKBINDER"'
+---| '"TAVERN_KEEPER"'
+---| '"CRIMINAL"'
+---| '"PEDDLER"'
+---| '"PROPHET"'
+---| '"PILGRIM"'
+---| '"MONK"'
+---| '"MESSENGER"'
+
+---@alias profession_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+
 ---@alias profession
----| -1 # NONE
----| 0 # MINER
----| 1 # WOODWORKER
----| 2 # CARPENTER
----| 3 # BOWYER
----| 4 # WOODCUTTER
----| 5 # STONEWORKER
----| 6 # STONECUTTER
----| 7 # STONE_CARVER
----| 8 # ENGRAVER
----| 9 # MASON
----| 10 # RANGER
----| 11 # ANIMAL_CARETAKER
----| 12 # ANIMAL_TRAINER
----| 13 # HUNTER
----| 14 # TRAPPER
----| 15 # ANIMAL_DISSECTOR
----| 16 # METALSMITH
----| 17 # FURNACE_OPERATOR
----| 18 # WEAPONSMITH
----| 19 # ARMORER
----| 20 # BLACKSMITH
----| 21 # METALCRAFTER
----| 22 # JEWELER
----| 23 # GEM_CUTTER
----| 24 # GEM_SETTER
----| 25 # CRAFTSMAN
----| 26 # WOODCRAFTER
----| 27 # STONECRAFTER
----| 28 # LEATHERWORKER
----| 29 # BONE_CARVER
----| 30 # WEAVER
----| 31 # CLOTHIER
----| 32 # GLASSMAKER
----| 33 # POTTER
----| 34 # GLAZER
----| 35 # WAX_WORKER
----| 36 # STRAND_EXTRACTOR
----| 37 # FISHERY_WORKER
----| 38 # FISHERMAN
----| 39 # FISH_DISSECTOR
----| 40 # FISH_CLEANER
----| 41 # FARMER
----| 42 # CHEESE_MAKER
----| 43 # MILKER
----| 44 # COOK
----| 45 # THRESHER
----| 46 # MILLER
----| 47 # BUTCHER
----| 48 # TANNER
----| 49 # DYER
----| 50 # PLANTER
----| 51 # HERBALIST
----| 52 # BREWER
----| 53 # SOAP_MAKER
----| 54 # POTASH_MAKER
----| 55 # LYE_MAKER
----| 56 # WOOD_BURNER
----| 57 # SHEARER
----| 58 # SPINNER
----| 59 # PRESSER
----| 60 # BEEKEEPER
----| 61 # ENGINEER
----| 62 # MECHANIC
----| 63 # SIEGE_ENGINEER
----| 64 # SIEGE_OPERATOR
----| 65 # PUMP_OPERATOR
----| 66 # CLERK
----| 67 # ADMINISTRATOR
----| 68 # TRADER
----| 69 # DOCTOR
----| 70 # DIAGNOSER
----| 71 # BONE_SETTER
----| 72 # SUTURER
----| 73 # SURGEON
----| 74 # MERCHANT
----| 75 # HAMMERMAN
----| 76 # MASTER_HAMMERMAN
----| 77 # SPEARMAN
----| 78 # MASTER_SPEARMAN
----| 79 # CROSSBOWMAN
----| 80 # MASTER_CROSSBOWMAN
----| 81 # WRESTLER
----| 82 # MASTER_WRESTLER
----| 83 # AXEMAN
----| 84 # MASTER_AXEMAN
----| 85 # SWORDSMAN
----| 86 # MASTER_SWORDSMAN
----| 87 # MACEMAN
----| 88 # MASTER_MACEMAN
----| 89 # PIKEMAN
----| 90 # MASTER_PIKEMAN
----| 91 # BOWMAN
----| 92 # MASTER_BOWMAN
----| 93 # BLOWGUNMAN
----| 94 # MASTER_BLOWGUNMAN
----| 95 # LASHER
----| 96 # MASTER_LASHER
----| 97 # RECRUIT
----| 98 # TRAINED_HUNTER
----| 99 # TRAINED_WAR
----| 100 # MASTER_THIEF
----| 101 # THIEF
----| 102 # STANDARD
----| 103 # CHILD
----| 104 # BABY
----| 105 # DRUNK
----| 106 # MONSTER_SLAYER
----| 107 # SCOUT
----| 108 # BEAST_HUNTER
----| 109 # SNATCHER
----| 110 # MERCENARY
----| 111 # GELDER
----| 112 # PERFORMER
----| 113 # POET
----| 114 # BARD
----| 115 # DANCER
----| 116 # SAGE
----| 117 # SCHOLAR
----| 118 # PHILOSOPHER
----| 119 # MATHEMATICIAN
----| 120 # HISTORIAN
----| 121 # ASTRONOMER
----| 122 # NATURALIST
----| 123 # CHEMIST
----| 124 # GEOGRAPHER
----| 125 # SCRIBE
----| 126 # PAPERMAKER
----| 127 # BOOKBINDER
----| 128 # TAVERN_KEEPER
----| 129 # CRIMINAL
----| 130 # PEDDLER
----| 131 # PROPHET
----| 132 # PILGRIM
----| 133 # MONK
----| 134 # MESSENGER
+---| profession_keys
+---| profession_values
 
 -- ----- PROFESSION -----
 ---@class _profession: DFEnum
@@ -567,20 +709,39 @@ df.profession._attr_entry_type._fields = {}
 ---@field MESSENGER { caption: "Messenger", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
 df.profession.attrs = {}
 
+---@alias unit_labor_category_keys
+---| '"Other"'
+---| '"Hauling"'
+---| '"Engineering"'
+---| '"Crafts"'
+---| '"Jewelry"'
+---| '"Metalsmithing"'
+---| '"Fishing"'
+---| '"Farming"'
+---| '"Healthcare"'
+---| '"Hunting"'
+---| '"Stoneworking"'
+---| '"Woodworking"'
+---| '"None"'
+
+---@alias unit_labor_category_values
+---| -13
+---| -12
+---| -11
+---| -10
+---| -9
+---| -8
+---| -7
+---| -6
+---| -5
+---| -4
+---| -3
+---| -2
+---| -1
+
 ---@alias unit_labor_category
----| -13 # Other
----| -12 # Hauling
----| -11 # Engineering
----| -10 # Crafts
----| -9 # Jewelry
----| -8 # Metalsmithing
----| -7 # Fishing
----| -6 # Farming
----| -5 # Healthcare
----| -4 # Hunting
----| -3 # Stoneworking
----| -2 # Woodworking
----| -1 # None
+---| unit_labor_category_keys
+---| unit_labor_category_values
 
 -- ----- LABOR -----
 ---@class _unit_labor_category: DFEnum
@@ -612,102 +773,203 @@ df.profession.attrs = {}
 ---@field [-1] "None"
 df.unit_labor_category = {}
 
+---@alias unit_labor_keys
+---| '"NONE"'
+---| '"MINE"'
+---| '"HAUL_STONE"'
+---| '"HAUL_WOOD"'
+---| '"HAUL_BODY"'
+---| '"HAUL_FOOD"'
+---| '"HAUL_REFUSE"'
+---| '"HAUL_ITEM"'
+---| '"HAUL_FURNITURE"'
+---| '"HAUL_ANIMALS"'
+---| '"CLEAN"'
+---| '"CUTWOOD"'
+---| '"CARPENTER"'
+---| '"STONECUTTER"'
+---| '"STONE_CARVER"'
+---| '"ENGRAVER"'
+---| '"MASON"'
+---| '"ANIMALTRAIN"'
+---| '"ANIMALCARE"'
+---| '"DIAGNOSE"'
+---| '"SURGERY"'
+---| '"BONE_SETTING"'
+---| '"SUTURING"'
+---| '"DRESSING_WOUNDS"'
+---| '"FEED_WATER_CIVILIANS"'
+---| '"RECOVER_WOUNDED"'
+---| '"BUTCHER"'
+---| '"TRAPPER"'
+---| '"DISSECT_VERMIN"'
+---| '"LEATHER"'
+---| '"TANNER"'
+---| '"BREWER"'
+---| '"SOAP_MAKER"'
+---| '"WEAVER"'
+---| '"CLOTHESMAKER"'
+---| '"MILLER"'
+---| '"PROCESS_PLANT"'
+---| '"MAKE_CHEESE"'
+---| '"MILK"'
+---| '"COOK"'
+---| '"PLANT"'
+---| '"HERBALIST"'
+---| '"FISH"'
+---| '"CLEAN_FISH"'
+---| '"DISSECT_FISH"'
+---| '"HUNT"'
+---| '"SMELT"'
+---| '"FORGE_WEAPON"'
+---| '"FORGE_ARMOR"'
+---| '"FORGE_FURNITURE"'
+---| '"METAL_CRAFT"'
+---| '"CUT_GEM"'
+---| '"ENCRUST_GEM"'
+---| '"WOOD_CRAFT"'
+---| '"STONE_CRAFT"'
+---| '"BONE_CARVE"'
+---| '"GLASSMAKER"'
+---| '"EXTRACT_STRAND"'
+---| '"SIEGECRAFT"'
+---| '"SIEGEOPERATE"'
+---| '"BOWYER"'
+---| '"MECHANIC"'
+---| '"POTASH_MAKING"'
+---| '"LYE_MAKING"'
+---| '"DYER"'
+---| '"BURN_WOOD"'
+---| '"OPERATE_PUMP"'
+---| '"SHEARER"'
+---| '"SPINNER"'
+---| '"POTTERY"'
+---| '"GLAZING"'
+---| '"PRESSING"'
+---| '"BEEKEEPING"'
+---| '"WAX_WORKING"'
+---| '"HANDLE_VEHICLES"'
+---| '"HAUL_TRADE"'
+---| '"PULL_LEVER"'
+---| '"REMOVE_CONSTRUCTION"'
+---| '"HAUL_WATER"'
+---| '"GELD"'
+---| '"BUILD_ROAD"'
+---| '"BUILD_CONSTRUCTION"'
+---| '"PAPERMAKING"'
+---| '"BOOKBINDING"'
+---| '"ANON_LABOR_83"'
+---| '"ANON_LABOR_84"'
+---| '"ANON_LABOR_85"'
+---| '"ANON_LABOR_86"'
+---| '"ANON_LABOR_87"'
+---| '"ANON_LABOR_88"'
+---| '"ANON_LABOR_89"'
+---| '"ANON_LABOR_90"'
+---| '"ANON_LABOR_91"'
+---| '"ANON_LABOR_92"'
+---| '"ANON_LABOR_93"'
+
+---@alias unit_labor_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+
 ---@alias unit_labor
----| -1 # NONE
----| 0 # MINE
----| 1 # HAUL_STONE
----| 2 # HAUL_WOOD
----| 3 # HAUL_BODY
----| 4 # HAUL_FOOD
----| 5 # HAUL_REFUSE
----| 6 # HAUL_ITEM
----| 7 # HAUL_FURNITURE
----| 8 # HAUL_ANIMALS
----| 9 # CLEAN
----| 10 # CUTWOOD
----| 11 # CARPENTER
----| 12 # STONECUTTER
----| 13 # STONE_CARVER
----| 14 # ENGRAVER
----| 15 # MASON
----| 16 # ANIMALTRAIN
----| 17 # ANIMALCARE
----| 18 # DIAGNOSE
----| 19 # SURGERY
----| 20 # BONE_SETTING
----| 21 # SUTURING
----| 22 # DRESSING_WOUNDS
----| 23 # FEED_WATER_CIVILIANS
----| 24 # RECOVER_WOUNDED
----| 25 # BUTCHER
----| 26 # TRAPPER
----| 27 # DISSECT_VERMIN
----| 28 # LEATHER
----| 29 # TANNER
----| 30 # BREWER
----| 31 # SOAP_MAKER
----| 32 # WEAVER
----| 33 # CLOTHESMAKER
----| 34 # MILLER
----| 35 # PROCESS_PLANT
----| 36 # MAKE_CHEESE
----| 37 # MILK
----| 38 # COOK
----| 39 # PLANT
----| 40 # HERBALIST
----| 41 # FISH
----| 42 # CLEAN_FISH
----| 43 # DISSECT_FISH
----| 44 # HUNT
----| 45 # SMELT
----| 46 # FORGE_WEAPON
----| 47 # FORGE_ARMOR
----| 48 # FORGE_FURNITURE
----| 49 # METAL_CRAFT
----| 50 # CUT_GEM
----| 51 # ENCRUST_GEM
----| 52 # WOOD_CRAFT
----| 53 # STONE_CRAFT
----| 54 # BONE_CARVE
----| 55 # GLASSMAKER
----| 56 # EXTRACT_STRAND
----| 57 # SIEGECRAFT
----| 58 # SIEGEOPERATE
----| 59 # BOWYER
----| 60 # MECHANIC
----| 61 # POTASH_MAKING
----| 62 # LYE_MAKING
----| 63 # DYER
----| 64 # BURN_WOOD
----| 65 # OPERATE_PUMP
----| 66 # SHEARER
----| 67 # SPINNER
----| 68 # POTTERY
----| 69 # GLAZING
----| 70 # PRESSING
----| 71 # BEEKEEPING
----| 72 # WAX_WORKING
----| 73 # HANDLE_VEHICLES
----| 74 # HAUL_TRADE
----| 75 # PULL_LEVER
----| 76 # REMOVE_CONSTRUCTION
----| 77 # HAUL_WATER
----| 78 # GELD
----| 79 # BUILD_ROAD
----| 80 # BUILD_CONSTRUCTION
----| 81 # PAPERMAKING
----| 82 # BOOKBINDING
----| 83 # ANON_LABOR_83
----| 84 # ANON_LABOR_84
----| 85 # ANON_LABOR_85
----| 86 # ANON_LABOR_86
----| 87 # ANON_LABOR_87
----| 88 # ANON_LABOR_88
----| 89 # ANON_LABOR_89
----| 90 # ANON_LABOR_90
----| 91 # ANON_LABOR_91
----| 92 # ANON_LABOR_92
----| 93 # ANON_LABOR_93
+---| unit_labor_keys
+---| unit_labor_values
 
 ---@class _unit_labor: DFEnum
 ---@field NONE -1
@@ -1009,17 +1271,33 @@ df.unit_labor._attr_entry_type._fields = {}
 ---@field ANON_LABOR_93 { category: "None" }
 df.unit_labor.attrs = {}
 
+---@alias job_skill_class_keys
+---| '"Normal"'
+---| '"Medical"'
+---| '"Personal"'
+---| '"Social"'
+---| '"Cultural"'
+---| '"MilitaryWeapon"'
+---| '"MilitaryUnarmed"'
+---| '"MilitaryAttack"'
+---| '"MilitaryDefense"'
+---| '"MilitaryMisc"'
+
+---@alias job_skill_class_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+
 ---@alias job_skill_class
----| 0 # Normal
----| 1 # Medical
----| 2 # Personal
----| 3 # Social
----| 4 # Cultural
----| 5 # MilitaryWeapon
----| 6 # MilitaryUnarmed
----| 7 # MilitaryAttack
----| 8 # MilitaryDefense
----| 9 # MilitaryMisc
+---| job_skill_class_keys
+---| job_skill_class_values
 
 -- ----- SKILL -----
 ---@class _job_skill_class: DFEnum
@@ -1045,157 +1323,313 @@ df.unit_labor.attrs = {}
 ---@field [9] "MilitaryMisc"
 df.job_skill_class = {}
 
+---@alias job_skill_keys
+---| '"NONE"'
+---| '"MINING"'
+---| '"WOODCUTTING"'
+---| '"CARPENTRY"'
+---| '"ENGRAVE_STONE"'
+---| '"MASONRY"'
+---| '"ANIMALTRAIN"'
+---| '"ANIMALCARE"'
+---| '"DISSECT_FISH"'
+---| '"DISSECT_VERMIN"'
+---| '"PROCESSFISH"'
+---| '"BUTCHER"'
+---| '"TRAPPING"'
+---| '"TANNER"'
+---| '"WEAVING"'
+---| '"BREWING"'
+---| '"CLOTHESMAKING"'
+---| '"MILLING"'
+---| '"PROCESSPLANTS"'
+---| '"CHEESEMAKING"'
+---| '"MILK"'
+---| '"COOK"'
+---| '"PLANT"'
+---| '"HERBALISM"'
+---| '"FISH"'
+---| '"SMELT"'
+---| '"EXTRACT_STRAND"'
+---| '"FORGE_WEAPON"'
+---| '"FORGE_ARMOR"'
+---| '"FORGE_FURNITURE"'
+---| '"CUTGEM"'
+---| '"ENCRUSTGEM"'
+---| '"WOODCRAFT"'
+---| '"STONECRAFT"'
+---| '"METALCRAFT"'
+---| '"GLASSMAKER"'
+---| '"LEATHERWORK"'
+---| '"BONECARVE"'
+---| '"AXE"'
+---| '"SWORD"'
+---| '"DAGGER"'
+---| '"MACE"'
+---| '"HAMMER"'
+---| '"SPEAR"'
+---| '"CROSSBOW"'
+---| '"SHIELD"'
+---| '"ARMOR"'
+---| '"SIEGECRAFT"'
+---| '"SIEGEOPERATE"'
+---| '"BOWYER"'
+---| '"PIKE"'
+---| '"WHIP"'
+---| '"BOW"'
+---| '"BLOWGUN"'
+---| '"THROW"'
+---| '"MECHANICS"'
+---| '"MAGIC_NATURE"'
+---| '"SNEAK"'
+---| '"DRESS_WOUNDS"'
+---| '"DIAGNOSE"'
+---| '"SURGERY"'
+---| '"SET_BONE"'
+---| '"SUTURE"'
+---| '"CRUTCH_WALK"'
+---| '"WOOD_BURNING"'
+---| '"LYE_MAKING"'
+---| '"SOAP_MAKING"'
+---| '"POTASH_MAKING"'
+---| '"DYER"'
+---| '"OPERATE_PUMP"'
+---| '"SWIMMING"'
+---| '"PERSUASION"'
+---| '"NEGOTIATION"'
+---| '"JUDGING_INTENT"'
+---| '"APPRAISAL"'
+---| '"ORGANIZATION"'
+---| '"RECORD_KEEPING"'
+---| '"LYING"'
+---| '"INTIMIDATION"'
+---| '"CONVERSATION"'
+---| '"COMEDY"'
+---| '"FLATTERY"'
+---| '"CONSOLE"'
+---| '"PACIFY"'
+---| '"TRACKING"'
+---| '"KNOWLEDGE_ACQUISITION"'
+---| '"CONCENTRATION"'
+---| '"DISCIPLINE"'
+---| '"SITUATIONAL_AWARENESS"'
+---| '"WRITING"'
+---| '"PROSE"'
+---| '"POETRY"'
+---| '"READING"'
+---| '"SPEAKING"'
+---| '"COORDINATION"'
+---| '"BALANCE"'
+---| '"LEADERSHIP"'
+---| '"TEACHING"'
+---| '"MELEE_COMBAT"'
+---| '"RANGED_COMBAT"'
+---| '"WRESTLING"'
+---| '"BITE"'
+---| '"GRASP_STRIKE"'
+---| '"STANCE_STRIKE"'
+---| '"DODGING"'
+---| '"MISC_WEAPON"'
+---| '"KNAPPING"'
+---| '"MILITARY_TACTICS"'
+---| '"SHEARING"'
+---| '"SPINNING"'
+---| '"POTTERY"'
+---| '"GLAZING"'
+---| '"PRESSING"'
+---| '"BEEKEEPING"'
+---| '"WAX_WORKING"'
+---| '"CLIMBING"'
+---| '"GELD"'
+---| '"DANCE"'
+---| '"MAKE_MUSIC"'
+---| '"SING_MUSIC"'
+---| '"PLAY_KEYBOARD_INSTRUMENT"'
+---| '"PLAY_STRINGED_INSTRUMENT"'
+---| '"PLAY_WIND_INSTRUMENT"'
+---| '"PLAY_PERCUSSION_INSTRUMENT"'
+---| '"CRITICAL_THINKING"'
+---| '"LOGIC"'
+---| '"MATHEMATICS"'
+---| '"ASTRONOMY"'
+---| '"CHEMISTRY"'
+---| '"GEOGRAPHY"'
+---| '"OPTICS_ENGINEER"'
+---| '"FLUID_ENGINEER"'
+---| '"PAPERMAKING"'
+---| '"BOOKBINDING"'
+---| '"INTRIGUE"'
+---| '"RIDING"'
+---| '"CUT_STONE"'
+---| '"CARVE_STONE"'
+---| '"MODSKILL01"'
+---| '"MODSKILL02"'
+---| '"MODSKILL03"'
+---| '"MODSKILL04"'
+---| '"MODSKILL05"'
+---| '"MODSKILL06"'
+---| '"MODSKILL07"'
+---| '"MODSKILL08"'
+---| '"MODSKILL09"'
+---| '"MODSKILL10"'
+---| '"UNUSED_01"'
+---| '"UNUSED_02"'
+
+---@alias job_skill_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+
 ---@alias job_skill
----| -1 # NONE
----| 0 # MINING
----| 1 # WOODCUTTING
----| 2 # CARPENTRY
----| 3 # ENGRAVE_STONE
----| 4 # MASONRY
----| 5 # ANIMALTRAIN
----| 6 # ANIMALCARE
----| 7 # DISSECT_FISH
----| 8 # DISSECT_VERMIN
----| 9 # PROCESSFISH
----| 10 # BUTCHER
----| 11 # TRAPPING
----| 12 # TANNER
----| 13 # WEAVING
----| 14 # BREWING
----| 15 # CLOTHESMAKING
----| 16 # MILLING
----| 17 # PROCESSPLANTS
----| 18 # CHEESEMAKING
----| 19 # MILK
----| 20 # COOK
----| 21 # PLANT
----| 22 # HERBALISM
----| 23 # FISH
----| 24 # SMELT
----| 25 # EXTRACT_STRAND
----| 26 # FORGE_WEAPON
----| 27 # FORGE_ARMOR
----| 28 # FORGE_FURNITURE
----| 29 # CUTGEM
----| 30 # ENCRUSTGEM
----| 31 # WOODCRAFT
----| 32 # STONECRAFT
----| 33 # METALCRAFT
----| 34 # GLASSMAKER
----| 35 # LEATHERWORK
----| 36 # BONECARVE
----| 37 # AXE
----| 38 # SWORD
----| 39 # DAGGER
----| 40 # MACE
----| 41 # HAMMER
----| 42 # SPEAR
----| 43 # CROSSBOW
----| 44 # SHIELD
----| 45 # ARMOR
----| 46 # SIEGECRAFT
----| 47 # SIEGEOPERATE
----| 48 # BOWYER
----| 49 # PIKE
----| 50 # WHIP
----| 51 # BOW
----| 52 # BLOWGUN
----| 53 # THROW
----| 54 # MECHANICS
----| 55 # MAGIC_NATURE
----| 56 # SNEAK
----| 57 # DRESS_WOUNDS
----| 58 # DIAGNOSE
----| 59 # SURGERY
----| 60 # SET_BONE
----| 61 # SUTURE
----| 62 # CRUTCH_WALK
----| 63 # WOOD_BURNING
----| 64 # LYE_MAKING
----| 65 # SOAP_MAKING
----| 66 # POTASH_MAKING
----| 67 # DYER
----| 68 # OPERATE_PUMP
----| 69 # SWIMMING
----| 70 # PERSUASION
----| 71 # NEGOTIATION
----| 72 # JUDGING_INTENT
----| 73 # APPRAISAL
----| 74 # ORGANIZATION
----| 75 # RECORD_KEEPING
----| 76 # LYING
----| 77 # INTIMIDATION
----| 78 # CONVERSATION
----| 79 # COMEDY
----| 80 # FLATTERY
----| 81 # CONSOLE
----| 82 # PACIFY
----| 83 # TRACKING
----| 84 # KNOWLEDGE_ACQUISITION
----| 85 # CONCENTRATION
----| 86 # DISCIPLINE
----| 87 # SITUATIONAL_AWARENESS
----| 88 # WRITING
----| 89 # PROSE
----| 90 # POETRY
----| 91 # READING
----| 92 # SPEAKING
----| 93 # COORDINATION
----| 94 # BALANCE
----| 95 # LEADERSHIP
----| 96 # TEACHING
----| 97 # MELEE_COMBAT
----| 98 # RANGED_COMBAT
----| 99 # WRESTLING
----| 100 # BITE
----| 101 # GRASP_STRIKE
----| 102 # STANCE_STRIKE
----| 103 # DODGING
----| 104 # MISC_WEAPON
----| 105 # KNAPPING
----| 106 # MILITARY_TACTICS
----| 107 # SHEARING
----| 108 # SPINNING
----| 109 # POTTERY
----| 110 # GLAZING
----| 111 # PRESSING
----| 112 # BEEKEEPING
----| 113 # WAX_WORKING
----| 114 # CLIMBING
----| 115 # GELD
----| 116 # DANCE
----| 117 # MAKE_MUSIC
----| 118 # SING_MUSIC
----| 119 # PLAY_KEYBOARD_INSTRUMENT
----| 120 # PLAY_STRINGED_INSTRUMENT
----| 121 # PLAY_WIND_INSTRUMENT
----| 122 # PLAY_PERCUSSION_INSTRUMENT
----| 123 # CRITICAL_THINKING
----| 124 # LOGIC
----| 125 # MATHEMATICS
----| 126 # ASTRONOMY
----| 127 # CHEMISTRY
----| 128 # GEOGRAPHY
----| 129 # OPTICS_ENGINEER
----| 130 # FLUID_ENGINEER
----| 131 # PAPERMAKING
----| 132 # BOOKBINDING
----| 133 # INTRIGUE
----| 134 # RIDING
----| 135 # CUT_STONE
----| 136 # CARVE_STONE
----| 137 # MODSKILL01
----| 138 # MODSKILL02
----| 139 # MODSKILL03
----| 140 # MODSKILL04
----| 141 # MODSKILL05
----| 142 # MODSKILL06
----| 143 # MODSKILL07
----| 144 # MODSKILL08
----| 145 # MODSKILL09
----| 146 # MODSKILL10
----| 147 # UNUSED_01
----| 148 # UNUSED_02
+---| job_skill_keys
+---| job_skill_values
 
 ---@class _job_skill: DFEnum
 ---@field NONE -1

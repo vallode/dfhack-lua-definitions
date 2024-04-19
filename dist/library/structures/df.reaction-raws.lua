@@ -1,10 +1,19 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias reaction_flags_keys
+---| '"FUEL"'
+---| '"AUTOMATIC"'
+---| '"ADVENTURE_MODE_ENABLED"'
+
+---@alias reaction_flags_values
+---| 0
+---| 1
+---| 2
+
 ---@alias reaction_flags
----| 0 # FUEL
----| 1 # AUTOMATIC
----| 2 # ADVENTURE_MODE_ENABLED
+---| reaction_flags_keys
+---| reaction_flags_values
 
 ---@class _reaction_flags: DFEnum
 ---@field FUEL 0
@@ -87,8 +96,15 @@ df.reaction_category = {}
 ---@field _kind 'struct-type'
 df.reaction_description = {}
 
+---@alias reaction_reagent_type_keys
+---| '"item"'
+
+---@alias reaction_reagent_type_values
+---| 0
+
 ---@alias reaction_reagent_type
----| 0 # item
+---| reaction_reagent_type_keys
+---| reaction_reagent_type_values
 
 ---@class _reaction_reagent_type: DFEnum
 ---@field item 0
@@ -152,9 +168,17 @@ df.reaction_reagent_flags = {}
 ---@field _kind 'class-type'
 df.reaction_reagent_itemst = {}
 
+---@alias reaction_product_type_keys
+---| '"item"'
+---| '"improvement"'
+
+---@alias reaction_product_type_values
+---| 0
+---| 1
+
 ---@alias reaction_product_type
----| 0 # item
----| 1 # improvement
+---| reaction_product_type_keys
+---| reaction_product_type_values
 
 ---@class _reaction_product_type: DFEnum
 ---@field item 0
@@ -173,13 +197,25 @@ df.reaction_product_type = {}
 ---@field _kind 'class-type'
 df.reaction_product = {}
 
+---@alias reaction_product_item_flags_keys
+---| '"GET_MATERIAL_SAME"'
+---| '"GET_MATERIAL_PRODUCT"'
+---| '"FORCE_EDGE"'
+---| '"PASTE"'
+---| '"PRESSED"'
+---| '"CRAFTS"'
+
+---@alias reaction_product_item_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias reaction_product_item_flags
----| 0 # GET_MATERIAL_SAME
----| 1 # GET_MATERIAL_PRODUCT
----| 2 # FORCE_EDGE
----| 3 # PASTE
----| 4 # PRESSED
----| 5 # CRAFTS
+---| reaction_product_item_flags_keys
+---| reaction_product_item_flags_values
 
 ---@class _reaction_product_item_flags: DFEnum
 ---@field GET_MATERIAL_SAME 0
@@ -225,10 +261,19 @@ df.reaction_product_itemst = {}
 ---@field _kind 'struct-type'
 df.reaction_product_itemst.T_get_material = {}
 
+---@alias reaction_product_improvement_flags_keys
+---| '"GET_MATERIAL_SAME"'
+---| '"GET_MATERIAL_PRODUCT"'
+---| '"GLAZED"'
+
+---@alias reaction_product_improvement_flags_values
+---| 0
+---| 1
+---| 2
+
 ---@alias reaction_product_improvement_flags
----| 0 # GET_MATERIAL_SAME
----| 1 # GET_MATERIAL_PRODUCT
----| 2 # GLAZED
+---| reaction_product_improvement_flags_keys
+---| reaction_product_improvement_flags_values
 
 ---@class _reaction_product_improvement_flags: DFEnum
 ---@field GET_MATERIAL_SAME 0

@@ -1,137 +1,353 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias emotion_type_keys
+---| '"ANYTHING"'
+---| '"ACCEPTANCE"'
+---| '"ADORATION"'
+---| '"AFFECTION"'
+---| '"AGITATION"'
+---| '"AGGRAVATION"'
+---| '"AGONY"'
+---| '"ALARM"'
+---| '"ALIENATION"'
+---| '"AMAZEMENT"'
+---| '"AMBIVALENCE"'
+---| '"AMUSEMENT"'
+---| '"ANGER"'
+---| '"ANGST"'
+---| '"ANGUISH"'
+---| '"ANNOYANCE"'
+---| '""'
+---| '"ANXIETY"'
+---| '"APATHY"'
+---| '""'
+---| '"AROUSAL"'
+---| '"ASTONISHMENT"'
+---| '""'
+---| '"AVERSION"'
+---| '"AWE"'
+---| '"BITTERNESS"'
+---| '"BLISS"'
+---| '"BOREDOM"'
+---| '"CARING"'
+---| '""'
+---| '"CONFUSION"'
+---| '"CONTEMPT"'
+---| '"CONTENTMENT"'
+---| '""'
+---| '""'
+---| '"DEFEAT"'
+---| '"DEJECTION"'
+---| '"DELIGHT"'
+---| '""'
+---| '""'
+---| '"DESPAIR"'
+---| '"DISAPPOINTMENT"'
+---| '"DISGUST"'
+---| '"DISILLUSIONMENT"'
+---| '"DISLIKE"'
+---| '"DISMAY"'
+---| '"DISPLEASURE"'
+---| '"DISTRESS"'
+---| '"DOUBT"'
+---| '""'
+---| '"EAGERNESS"'
+---| '""'
+---| '"ELATION"'
+---| '"EMBARRASSMENT"'
+---| '"EMPATHY"'
+---| '"EMPTINESS"'
+---| '"ENJOYMENT"'
+---| '""'
+---| '"ENTHUSIASM"'
+---| '""'
+---| '"EUPHORIA"'
+---| '"EXASPERATION"'
+---| '"EXCITEMENT"'
+---| '"EXHILARATION"'
+---| '"EXPECTANCY"'
+---| '"FEAR"'
+---| '"FEROCITY"'
+---| '"FONDNESS"'
+---| '"FREEDOM"'
+---| '"FRIGHT"'
+---| '"FRUSTRATION"'
+---| '""'
+---| '"GAIETY"'
+---| '""'
+---| '"GLEE"'
+---| '"GLOOM"'
+---| '"GLUMNESS"'
+---| '"GRATITUDE"'
+---| '""'
+---| '"GRIEF"'
+---| '"GRIM_SATISFACTION"'
+---| '"GROUCHINESS"'
+---| '"GRUMPINESS"'
+---| '"GUILT"'
+---| '"HAPPINESS"'
+---| '"HATRED"'
+---| '""'
+---| '"HOPE"'
+---| '"HOPELESSNESS"'
+---| '"HORROR"'
+---| '""'
+---| '"HUMILIATION"'
+---| '""'
+---| '""'
+---| '""'
+---| '""'
+---| '"INSULT"'
+---| '"INTEREST"'
+---| '"IRRITATION"'
+---| '"ISOLATION"'
+---| '""'
+---| '"JOLLINESS"'
+---| '"JOVIALITY"'
+---| '"JOY"'
+---| '"JUBILATION"'
+---| '"LOATHING"'
+---| '"LONELINESS"'
+---| '""'
+---| '"LOVE"'
+---| '""'
+---| '"LUST"'
+---| '""'
+---| '"MISERY"'
+---| '"MORTIFICATION"'
+---| '""'
+---| '"NERVOUSNESS"'
+---| '"NOSTALGIA"'
+---| '"OPTIMISM"'
+---| '"OUTRAGE"'
+---| '"PANIC"'
+---| '"PATIENCE"'
+---| '"PASSION"'
+---| '"PESSIMISM"'
+---| '""'
+---| '"PLEASURE"'
+---| '"PRIDE"'
+---| '"RAGE"'
+---| '"RAPTURE"'
+---| '"REJECTION"'
+---| '"RELIEF"'
+---| '"REGRET"'
+---| '"REMORSE"'
+---| '"REPENTANCE"'
+---| '"RESENTMENT"'
+---| '""'
+---| '"RIGHTEOUS_INDIGNATION"'
+---| '"SADNESS"'
+---| '"SATISFACTION"'
+---| '""'
+---| '"SELF_PITY"'
+---| '""'
+---| '"SERVILE"'
+---| '"SHAKEN"'
+---| '"SHAME"'
+---| '"SHOCK"'
+---| '""'
+---| '""'
+---| '""'
+---| '""'
+---| '"SUSPICION"'
+---| '"SYMPATHY"'
+---| '"TENDERNESS"'
+---| '""'
+---| '"TERROR"'
+---| '"THRILL"'
+---| '""'
+---| '"TRIUMPH"'
+---| '"UNEASINESS"'
+---| '"UNHAPPINESS"'
+---| '"VENGEFULNESS"'
+---| '""'
+---| '"WONDER"'
+---| '"WORRY"'
+---| '"WRATH"'
+---| '"ZEAL"'
+---| '""'
+---| '""'
+---| '""'
+---| '"RESTLESS"'
+---| '"ADMIRATION"'
+
+---@alias emotion_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+
 ---@alias emotion_type
----| -1 # ANYTHING
----| 0 # ACCEPTANCE
----| 1 # ADORATION
----| 2 # AFFECTION
----| 3 # AGITATION
----| 4 # AGGRAVATION
----| 5 # AGONY
----| 6 # ALARM
----| 7 # ALIENATION
----| 8 # AMAZEMENT
----| 9 # AMBIVALENCE
----| 10 # AMUSEMENT
----| 11 # ANGER
----| 12 # ANGST
----| 13 # ANGUISH
----| 14 # ANNOYANCE
----| 16 # ANXIETY
----| 17 # APATHY
----| 19 # AROUSAL
----| 20 # ASTONISHMENT
----| 22 # AVERSION
----| 23 # AWE
----| 24 # BITTERNESS
----| 25 # BLISS
----| 26 # BOREDOM
----| 27 # CARING
----| 29 # CONFUSION
----| 30 # CONTEMPT
----| 31 # CONTENTMENT
----| 34 # DEFEAT
----| 35 # DEJECTION
----| 36 # DELIGHT
----| 39 # DESPAIR
----| 40 # DISAPPOINTMENT
----| 41 # DISGUST
----| 42 # DISILLUSIONMENT
----| 43 # DISLIKE
----| 44 # DISMAY
----| 45 # DISPLEASURE
----| 46 # DISTRESS
----| 47 # DOUBT
----| 49 # EAGERNESS
----| 51 # ELATION
----| 52 # EMBARRASSMENT
----| 53 # EMPATHY
----| 54 # EMPTINESS
----| 55 # ENJOYMENT
----| 57 # ENTHUSIASM
----| 59 # EUPHORIA
----| 60 # EXASPERATION
----| 61 # EXCITEMENT
----| 62 # EXHILARATION
----| 63 # EXPECTANCY
----| 64 # FEAR
----| 65 # FEROCITY
----| 66 # FONDNESS
----| 67 # FREEDOM
----| 68 # FRIGHT
----| 69 # FRUSTRATION
----| 71 # GAIETY
----| 73 # GLEE
----| 74 # GLOOM
----| 75 # GLUMNESS
----| 76 # GRATITUDE
----| 78 # GRIEF
----| 79 # GRIM_SATISFACTION
----| 80 # GROUCHINESS
----| 81 # GRUMPINESS
----| 82 # GUILT
----| 83 # HAPPINESS
----| 84 # HATRED
----| 86 # HOPE
----| 87 # HOPELESSNESS
----| 88 # HORROR
----| 90 # HUMILIATION
----| 95 # INSULT
----| 96 # INTEREST
----| 97 # IRRITATION
----| 98 # ISOLATION
----| 100 # JOLLINESS
----| 101 # JOVIALITY
----| 102 # JOY
----| 103 # JUBILATION
----| 104 # LOATHING
----| 105 # LONELINESS
----| 107 # LOVE
----| 109 # LUST
----| 111 # MISERY
----| 112 # MORTIFICATION
----| 114 # NERVOUSNESS
----| 115 # NOSTALGIA
----| 116 # OPTIMISM
----| 117 # OUTRAGE
----| 118 # PANIC
----| 119 # PATIENCE
----| 120 # PASSION
----| 121 # PESSIMISM
----| 123 # PLEASURE
----| 124 # PRIDE
----| 125 # RAGE
----| 126 # RAPTURE
----| 127 # REJECTION
----| 128 # RELIEF
----| 129 # REGRET
----| 130 # REMORSE
----| 131 # REPENTANCE
----| 132 # RESENTMENT
----| 134 # RIGHTEOUS_INDIGNATION
----| 135 # SADNESS
----| 136 # SATISFACTION
----| 138 # SELF_PITY
----| 140 # SERVILE
----| 141 # SHAKEN
----| 142 # SHAME
----| 143 # SHOCK
----| 148 # SUSPICION
----| 149 # SYMPATHY
----| 150 # TENDERNESS
----| 152 # TERROR
----| 153 # THRILL
----| 155 # TRIUMPH
----| 156 # UNEASINESS
----| 157 # UNHAPPINESS
----| 158 # VENGEFULNESS
----| 160 # WONDER
----| 161 # WORRY
----| 162 # WRATH
----| 163 # ZEAL
----| 167 # RESTLESS
----| 168 # ADMIRATION
+---| emotion_type_keys
+---| emotion_type_values
 
 -- bay12: Emotion
 ---@class _emotion_type: DFEnum
@@ -539,288 +755,575 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field ADMIRATION { color: "11", divider: "-8" }
 df.emotion_type.attrs = {}
 
+---@alias unit_thought_type_keys
+---| '"None"'
+---| '"Conflict"'
+---| '"Trauma"'
+---| '"WitnessDeath"'
+---| '"UnexpectedDeath"'
+---| '"Death"'
+---| '"Kill"'
+---| '"LoveSeparated"'
+---| '"LoveReunited"'
+---| '"JoinConflict"'
+---| '"MakeMasterwork"'
+---| '"MadeArtifact"'
+---| '"MasterSkill"'
+---| '"NewRomance"'
+---| '"BecomeParent"'
+---| '"NearConflict"'
+---| '"CancelAgreement"'
+---| '"JoinTravel"'
+---| '"SiteControlled"'
+---| '"TributeCancel"'
+---| '"Incident"'
+---| '"HearRumor"'
+---| '"MilitaryRemoved"'
+---| '"StrangerWeapon"'
+---| '"StrangerSneaking"'
+---| '"SawDrinkBlood"'
+---| '"Complained"'
+---| '"ReceivedComplaint"'
+---| '"AdmireBuilding"'
+---| '"AdmireOwnBuilding"'
+---| '"AdmireArrangedBuilding"'
+---| '"AdmireOwnArrangedBuilding"'
+---| '"LostPet"'
+---| '"ThrownStuff"'
+---| '"JailReleased"'
+---| '"Miscarriage"'
+---| '"SpouseMiscarriage"'
+---| '"OldClothing"'
+---| '"TatteredClothing"'
+---| '"RottedClothing"'
+---| '"GhostNightmare"'
+---| '"GhostHaunt"'
+---| '"Spar"'
+---| '"UnableComplain"'
+---| '"LongPatrol"'
+---| '"SunNausea"'
+---| '"SunIrritated"'
+---| '"Drowsy"'
+---| '"VeryDrowsy"'
+---| '"Thirsty"'
+---| '"Dehydrated"'
+---| '"Hungry"'
+---| '"Starving"'
+---| '"MajorInjuries"'
+---| '"MinorInjuries"'
+---| '"SleepNoise"'
+---| '"Rest"'
+---| '"FreakishWeather"'
+---| '"Rain"'
+---| '"SnowStorm"'
+---| '"Miasma"'
+---| '"Smoke"'
+---| '"Waterfall"'
+---| '"Dust"'
+---| '"Demands"'
+---| '"ImproperPunishment"'
+---| '"PunishmentReduced"'
+---| '"Elected"'
+---| '"Reelected"'
+---| '"RequestApproved"'
+---| '"RequestIgnored"'
+---| '"NoPunishment"'
+---| '"PunishmentDelayed"'
+---| '"DelayedPunishment"'
+---| '"ScarceCageChain"'
+---| '"MandateIgnored"'
+---| '"MandateDeadlineMissed"'
+---| '"LackWork"'
+---| '"SmashedBuilding"'
+---| '"ToppledStuff"'
+---| '"NoblePromotion"'
+---| '"BecomeNoble"'
+---| '"Cavein"'
+---| '"MandateDeadlineMet"'
+---| '"Uncovered"'
+---| '"NoShirt"'
+---| '"NoShoes"'
+---| '"EatPet"'
+---| '"EatLikedCreature"'
+---| '"EatVermin"'
+---| '"FistFight"'
+---| '"GaveBeating"'
+---| '"GotBeaten"'
+---| '"GaveHammering"'
+---| '"GotHammered"'
+---| '"NoHammer"'
+---| '"SameFood"'
+---| '"AteRotten"'
+---| '"GoodMeal"'
+---| '"GoodDrink"'
+---| '"MoreChests"'
+---| '"MoreCabinets"'
+---| '"MoreWeaponRacks"'
+---| '"MoreArmorStands"'
+---| '"RoomPretension"'
+---| '"LackTables"'
+---| '"CrowdedTables"'
+---| '"DiningQuality"'
+---| '"NoDining"'
+---| '"LackChairs"'
+---| '"TrainingBond"'
+---| '"Rescued"'
+---| '"RescuedOther"'
+---| '"SatisfiedAtWork"'
+---| '"TaxedLostProperty"'
+---| '"Taxed"'
+---| '"LackProtection"'
+---| '"TaxRoomUnreachable"'
+---| '"TaxRoomMisinformed"'
+---| '"PleasedNoble"'
+---| '"TaxCollectionSmooth"'
+---| '"DisappointedNoble"'
+---| '"TaxCollectionRough"'
+---| '"MadeFriend"'
+---| '"FormedGrudge"'
+---| '"AnnoyedVermin"'
+---| '"NearVermin"'
+---| '"PesteredVermin"'
+---| '"AcquiredItem"'
+---| '"AdoptedPet"'
+---| '"Jailed"'
+---| '"Bath"'
+---| '"SoapyBath"'
+---| '"SparringAccident"'
+---| '"Attacked"'
+---| '"AttackedByDead"'
+---| '"SameBooze"'
+---| '"DrinkBlood"'
+---| '"DrinkSlime"'
+---| '"DrinkVomit"'
+---| '"DrinkGoo"'
+---| '"DrinkIchor"'
+---| '"DrinkPus"'
+---| '"NastyWater"'
+---| '"DrankSpoiled"'
+---| '"LackWell"'
+---| '"NearCaged"'
+---| '"NearCagedHated"'
+---| '"LackBedroom"'
+---| '"BedroomQuality"'
+---| '"SleptFloor"'
+---| '"SleptMud"'
+---| '"SleptGrass"'
+---| '"SleptRoughFloor"'
+---| '"SleptRocks"'
+---| '"SleptIce"'
+---| '"SleptDirt"'
+---| '"SleptDriftwood"'
+---| '"ArtDefacement"'
+---| '"Evicted"'
+---| '"GaveBirth"'
+---| '"SpouseGaveBirth"'
+---| '"ReceivedWater"'
+---| '"GaveWater"'
+---| '"ReceivedFood"'
+---| '"GaveFood"'
+---| '"Talked"'
+---| '"OfficeQuality"'
+---| '"MeetingInBedroom"'
+---| '"MeetingInDiningRoom"'
+---| '"NoRooms"'
+---| '"TombQuality"'
+---| '"TombLack"'
+---| '"TalkToNoble"'
+---| '"InteractPet"'
+---| '"ConvictionCorpse"'
+---| '"ConvictionAnimal"'
+---| '"ConvictionVictim"'
+---| '"ConvictionJusticeSelf"'
+---| '"ConvictionJusticeFamily"'
+---| '"Decay"'
+---| '"NeedsUnfulfilled"'
+---| '"Prayer"'
+---| '"DrinkWithoutCup"'
+---| '"ResearchBreakthrough"'
+---| '"ResearchStalled"'
+---| '"PonderTopic"'
+---| '"DiscussTopic"'
+---| '"Syndrome"'
+---| '"Perform"'
+---| '"WatchPerform"'
+---| '"RemoveTroupe"'
+---| '"LearnTopic"'
+---| '"LearnSkill"'
+---| '"LearnBook"'
+---| '"LearnInteraction"'
+---| '"LearnPoetry"'
+---| '"LearnMusic"'
+---| '"LearnDance"'
+---| '"TeachTopic"'
+---| '"TeachSkill"'
+---| '"ReadBook"'
+---| '"WriteBook"'
+---| '"BecomeResident"'
+---| '"BecomeCitizen"'
+---| '"DenyResident"'
+---| '"DenyCitizen"'
+---| '"LeaveTroupe"'
+---| '"MakeBelieve"'
+---| '"PlayToy"'
+---| '"DreamAbout"'
+---| '"Dream"'
+---| '"Nightmare"'
+---| '"Argument"'
+---| '"CombatDrills"'
+---| '"ArcheryPractice"'
+---| '"ImproveSkill"'
+---| '"WearItem"'
+---| '"RealizeValue"'
+---| '"OpinionStoryteller"'
+---| '"OpinionRecitation"'
+---| '"OpinionInstrumentSimulation"'
+---| '"OpinionInstrumentPlayer"'
+---| '"OpinionSinger"'
+---| '"OpinionChanter"'
+---| '"OpinionDancer"'
+---| '"OpinionStory"'
+---| '"OpinionPoetry"'
+---| '"OpinionMusic"'
+---| '"OpinionDance"'
+---| '"Defeated"'
+---| '"FavoritePossession"'
+---| '"PreserveBody"'
+---| '"Murdered"'
+---| '"HistEventCollection"'
+---| '"ViewOwnDisplay"'
+---| '"ViewDisplay"'
+---| '"AcquireArtifact"'
+---| '"DenySanctuary"'
+---| '"CaughtSneaking"'
+---| '"GaveArtifact"'
+---| '"SawDeadBody"'
+---| '"Expelled"'
+---| '"RelativeExpelled"'
+---| '"PromisedVampireImmortality"'
+---| '"PromisedNecroImmortality"'
+---| '"SiteLecture"'
+---| '"SitePerformance"'
+---| '"AcceptedBribe"'
+---| '"EmbezzledFunds"'
+---| '"CutOfCorruptFunds"'
+---| '"Abducted"'
+---| '"FromAfar"'
+---| '"AcceptedTemplePetition"'
+---| '"EstablishedTemple"'
+---| '"RejectedTemplePetition"'
+---| '"IgnoredTemplePetition"'
+---| '"AbandonedTemplePetition"'
+---| '"DeferredToSuperior"'
+---| '"AcceptedGuildhallPetition"'
+---| '"EstablishedGuildhallPetition"'
+---| '"RejectedGuildhallPetition"'
+---| '"IgnoredGuildhallPetition"'
+---| '"AbandonedGuildhallPetition"'
+---| '"InfiltrationMission"'
+---| '"BreakUp"'
+---| '"Divorce"'
+---| '"Unk266"'
+---| '"Unk267"'
+---| '"Unk268"'
+---| '"Unk269"'
+---| '"Unk270"'
+---| '"IntellectualDiscussion"'
+---| '"SharePersonalInsight"'
+---| '"ShareOthersPersonalInsight"'
+---| '"DiscussProblems"'
+---| '"DiscussOthersProblems"'
+---| '"PerformedRiteDedicatedTemple"'
+---| '"PerformedRiteImproperlyDedicatedTemple"'
+---| '"PerformedRiteUndedicatedTemple"'
+---| '"PrayedDedicatedTemple"'
+
+---@alias unit_thought_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+---| 189
+---| 190
+---| 191
+---| 192
+---| 193
+---| 194
+---| 195
+---| 196
+---| 197
+---| 198
+---| 199
+---| 200
+---| 201
+---| 202
+---| 203
+---| 204
+---| 205
+---| 206
+---| 207
+---| 208
+---| 209
+---| 210
+---| 211
+---| 212
+---| 213
+---| 214
+---| 215
+---| 216
+---| 217
+---| 218
+---| 219
+---| 220
+---| 221
+---| 222
+---| 223
+---| 224
+---| 225
+---| 226
+---| 227
+---| 228
+---| 229
+---| 230
+---| 231
+---| 232
+---| 233
+---| 234
+---| 235
+---| 236
+---| 237
+---| 238
+---| 239
+---| 240
+---| 241
+---| 242
+---| 243
+---| 244
+---| 245
+---| 246
+---| 247
+---| 248
+---| 249
+---| 250
+---| 251
+---| 252
+---| 253
+---| 254
+---| 255
+---| 256
+---| 257
+---| 258
+---| 259
+---| 260
+---| 261
+---| 262
+---| 263
+---| 264
+---| 265
+---| 266
+---| 267
+---| 268
+---| 269
+---| 270
+---| 271
+---| 272
+---| 273
+---| 274
+---| 275
+---| 276
+---| 277
+---| 278
+---| 279
+
 ---@alias unit_thought_type
----| -1 # None
----| 0 # Conflict
----| 1 # Trauma
----| 2 # WitnessDeath
----| 3 # UnexpectedDeath
----| 4 # Death
----| 5 # Kill
----| 6 # LoveSeparated
----| 7 # LoveReunited
----| 8 # JoinConflict
----| 9 # MakeMasterwork
----| 10 # MadeArtifact
----| 11 # MasterSkill
----| 12 # NewRomance
----| 13 # BecomeParent
----| 14 # NearConflict
----| 15 # CancelAgreement
----| 16 # JoinTravel
----| 17 # SiteControlled
----| 18 # TributeCancel
----| 19 # Incident
----| 20 # HearRumor
----| 21 # MilitaryRemoved
----| 22 # StrangerWeapon
----| 23 # StrangerSneaking
----| 24 # SawDrinkBlood
----| 25 # Complained
----| 26 # ReceivedComplaint
----| 27 # AdmireBuilding
----| 28 # AdmireOwnBuilding
----| 29 # AdmireArrangedBuilding
----| 30 # AdmireOwnArrangedBuilding
----| 31 # LostPet
----| 32 # ThrownStuff
----| 33 # JailReleased
----| 34 # Miscarriage
----| 35 # SpouseMiscarriage
----| 36 # OldClothing
----| 37 # TatteredClothing
----| 38 # RottedClothing
----| 39 # GhostNightmare
----| 40 # GhostHaunt
----| 41 # Spar
----| 42 # UnableComplain
----| 43 # LongPatrol
----| 44 # SunNausea
----| 45 # SunIrritated
----| 46 # Drowsy
----| 47 # VeryDrowsy
----| 48 # Thirsty
----| 49 # Dehydrated
----| 50 # Hungry
----| 51 # Starving
----| 52 # MajorInjuries
----| 53 # MinorInjuries
----| 54 # SleepNoise
----| 55 # Rest
----| 56 # FreakishWeather
----| 57 # Rain
----| 58 # SnowStorm
----| 59 # Miasma
----| 60 # Smoke
----| 61 # Waterfall
----| 62 # Dust
----| 63 # Demands
----| 64 # ImproperPunishment
----| 65 # PunishmentReduced
----| 66 # Elected
----| 67 # Reelected
----| 68 # RequestApproved
----| 69 # RequestIgnored
----| 70 # NoPunishment
----| 71 # PunishmentDelayed
----| 72 # DelayedPunishment
----| 73 # ScarceCageChain
----| 74 # MandateIgnored
----| 75 # MandateDeadlineMissed
----| 76 # LackWork
----| 77 # SmashedBuilding
----| 78 # ToppledStuff
----| 79 # NoblePromotion
----| 80 # BecomeNoble
----| 81 # Cavein
----| 82 # MandateDeadlineMet
----| 83 # Uncovered
----| 84 # NoShirt
----| 85 # NoShoes
----| 86 # EatPet
----| 87 # EatLikedCreature
----| 88 # EatVermin
----| 89 # FistFight
----| 90 # GaveBeating
----| 91 # GotBeaten
----| 92 # GaveHammering
----| 93 # GotHammered
----| 94 # NoHammer
----| 95 # SameFood
----| 96 # AteRotten
----| 97 # GoodMeal
----| 98 # GoodDrink
----| 99 # MoreChests
----| 100 # MoreCabinets
----| 101 # MoreWeaponRacks
----| 102 # MoreArmorStands
----| 103 # RoomPretension
----| 104 # LackTables
----| 105 # CrowdedTables
----| 106 # DiningQuality
----| 107 # NoDining
----| 108 # LackChairs
----| 109 # TrainingBond
----| 110 # Rescued
----| 111 # RescuedOther
----| 112 # SatisfiedAtWork
----| 113 # TaxedLostProperty
----| 114 # Taxed
----| 115 # LackProtection
----| 116 # TaxRoomUnreachable
----| 117 # TaxRoomMisinformed
----| 118 # PleasedNoble
----| 119 # TaxCollectionSmooth
----| 120 # DisappointedNoble
----| 121 # TaxCollectionRough
----| 122 # MadeFriend
----| 123 # FormedGrudge
----| 124 # AnnoyedVermin
----| 125 # NearVermin
----| 126 # PesteredVermin
----| 127 # AcquiredItem
----| 128 # AdoptedPet
----| 129 # Jailed
----| 130 # Bath
----| 131 # SoapyBath
----| 132 # SparringAccident
----| 133 # Attacked
----| 134 # AttackedByDead
----| 135 # SameBooze
----| 136 # DrinkBlood
----| 137 # DrinkSlime
----| 138 # DrinkVomit
----| 139 # DrinkGoo
----| 140 # DrinkIchor
----| 141 # DrinkPus
----| 142 # NastyWater
----| 143 # DrankSpoiled
----| 144 # LackWell
----| 145 # NearCaged
----| 146 # NearCagedHated
----| 147 # LackBedroom
----| 148 # BedroomQuality
----| 149 # SleptFloor
----| 150 # SleptMud
----| 151 # SleptGrass
----| 152 # SleptRoughFloor
----| 153 # SleptRocks
----| 154 # SleptIce
----| 155 # SleptDirt
----| 156 # SleptDriftwood
----| 157 # ArtDefacement
----| 158 # Evicted
----| 159 # GaveBirth
----| 160 # SpouseGaveBirth
----| 161 # ReceivedWater
----| 162 # GaveWater
----| 163 # ReceivedFood
----| 164 # GaveFood
----| 165 # Talked
----| 166 # OfficeQuality
----| 167 # MeetingInBedroom
----| 168 # MeetingInDiningRoom
----| 169 # NoRooms
----| 170 # TombQuality
----| 171 # TombLack
----| 172 # TalkToNoble
----| 173 # InteractPet
----| 174 # ConvictionCorpse
----| 175 # ConvictionAnimal
----| 176 # ConvictionVictim
----| 177 # ConvictionJusticeSelf
----| 178 # ConvictionJusticeFamily
----| 179 # Decay
----| 180 # NeedsUnfulfilled
----| 181 # Prayer
----| 182 # DrinkWithoutCup
----| 183 # ResearchBreakthrough
----| 184 # ResearchStalled
----| 185 # PonderTopic
----| 186 # DiscussTopic
----| 187 # Syndrome
----| 188 # Perform
----| 189 # WatchPerform
----| 190 # RemoveTroupe
----| 191 # LearnTopic
----| 192 # LearnSkill
----| 193 # LearnBook
----| 194 # LearnInteraction
----| 195 # LearnPoetry
----| 196 # LearnMusic
----| 197 # LearnDance
----| 198 # TeachTopic
----| 199 # TeachSkill
----| 200 # ReadBook
----| 201 # WriteBook
----| 202 # BecomeResident
----| 203 # BecomeCitizen
----| 204 # DenyResident
----| 205 # DenyCitizen
----| 206 # LeaveTroupe
----| 207 # MakeBelieve
----| 208 # PlayToy
----| 209 # DreamAbout
----| 210 # Dream
----| 211 # Nightmare
----| 212 # Argument
----| 213 # CombatDrills
----| 214 # ArcheryPractice
----| 215 # ImproveSkill
----| 216 # WearItem
----| 217 # RealizeValue
----| 218 # OpinionStoryteller
----| 219 # OpinionRecitation
----| 220 # OpinionInstrumentSimulation
----| 221 # OpinionInstrumentPlayer
----| 222 # OpinionSinger
----| 223 # OpinionChanter
----| 224 # OpinionDancer
----| 225 # OpinionStory
----| 226 # OpinionPoetry
----| 227 # OpinionMusic
----| 228 # OpinionDance
----| 229 # Defeated
----| 230 # FavoritePossession
----| 231 # PreserveBody
----| 232 # Murdered
----| 233 # HistEventCollection
----| 234 # ViewOwnDisplay
----| 235 # ViewDisplay
----| 236 # AcquireArtifact
----| 237 # DenySanctuary
----| 238 # CaughtSneaking
----| 239 # GaveArtifact
----| 240 # SawDeadBody
----| 241 # Expelled
----| 242 # RelativeExpelled
----| 243 # PromisedVampireImmortality
----| 244 # PromisedNecroImmortality
----| 245 # SiteLecture
----| 246 # SitePerformance
----| 247 # AcceptedBribe
----| 248 # EmbezzledFunds
----| 249 # CutOfCorruptFunds
----| 250 # Abducted
----| 251 # FromAfar
----| 252 # AcceptedTemplePetition
----| 253 # EstablishedTemple
----| 254 # RejectedTemplePetition
----| 255 # IgnoredTemplePetition
----| 256 # AbandonedTemplePetition
----| 257 # DeferredToSuperior
----| 258 # AcceptedGuildhallPetition
----| 259 # EstablishedGuildhallPetition
----| 260 # RejectedGuildhallPetition
----| 261 # IgnoredGuildhallPetition
----| 262 # AbandonedGuildhallPetition
----| 263 # InfiltrationMission
----| 264 # BreakUp
----| 265 # Divorce
----| 266 # Unk266
----| 267 # Unk267
----| 268 # Unk268
----| 269 # Unk269
----| 270 # Unk270
----| 271 # IntellectualDiscussion
----| 272 # SharePersonalInsight
----| 273 # ShareOthersPersonalInsight
----| 274 # DiscussProblems
----| 275 # DiscussOthersProblems
----| 276 # PerformedRiteDedicatedTemple
----| 277 # PerformedRiteImproperlyDedicatedTemple
----| 278 # PerformedRiteUndedicatedTemple
----| 279 # PrayedDedicatedTemple
+---| unit_thought_type_keys
+---| unit_thought_type_values
 
 ---@class _unit_thought_type: DFEnum
 ---@field None -1

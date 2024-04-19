@@ -1,141 +1,281 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias items_other_id_keys
+---| '"ANY"'
+---| '"IN_PLAY"'
+---| '"ANY_ARTIFACT"'
+---| '"WEAPON"'
+---| '"ANY_WEAPON"'
+---| '"ANY_SPIKE"'
+---| '"ANY_TRUE_ARMOR"'
+---| '"ANY_ARMOR_HELM"'
+---| '"ANY_ARMOR_SHOES"'
+---| '"SHIELD"'
+---| '"ANY_ARMOR_GLOVES"'
+---| '"ANY_ARMOR_PANTS"'
+---| '"QUIVER"'
+---| '"SPLINT"'
+---| '"ORTHOPEDIC_CAST"'
+---| '"CRUTCH"'
+---| '"BACKPACK"'
+---| '"AMMO"'
+---| '"WOOD"'
+---| '"BRANCH"'
+---| '"BOULDER"'
+---| '"ROCK"'
+---| '"ANY_REFUSE"'
+---| '"ANY_GOOD_FOOD"'
+---| '"ANY_AUTO_CLEAN"'
+---| '"ANY_GENERIC24"'
+---| '"ANY_BUTCHERABLE"'
+---| '"ANY_FURNITURE"'
+---| '"ANY_CAGE_OR_TRAP"'
+---| '"ANY_EDIBLE_RAW"'
+---| '"ANY_EDIBLE_CARNIVORE"'
+---| '"ANY_EDIBLE_BONECARN"'
+---| '"ANY_EDIBLE_VERMIN"'
+---| '"ANY_EDIBLE_VERMIN_BOX"'
+---| '"ANY_CAN_ROT"'
+---| '"ANY_MURDERED"'
+---| '"ANY_DEAD_DWARF"'
+---| '"ANY_GENERIC36"'
+---| '"ANY_GENERIC37"'
+---| '"ANY_GENERIC38"'
+---| '"ANY_GENERIC39"'
+---| '"DOOR"'
+---| '"FLOODGATE"'
+---| '"HATCH_COVER"'
+---| '"GRATE"'
+---| '"CAGE"'
+---| '"FLASK"'
+---| '"WINDOW"'
+---| '"GOBLET"'
+---| '"INSTRUMENT"'
+---| '"INSTRUMENT_STATIONARY"'
+---| '"TOY"'
+---| '"TOOL"'
+---| '"BUCKET"'
+---| '"BARREL"'
+---| '"CHAIN"'
+---| '"ANIMALTRAP"'
+---| '"BED"'
+---| '"TRACTION_BENCH"'
+---| '"CHAIR"'
+---| '"COFFIN"'
+---| '"TABLE"'
+---| '"STATUE"'
+---| '"SLAB"'
+---| '"QUERN"'
+---| '"MILLSTONE"'
+---| '"BOX"'
+---| '"BAG"'
+---| '"BIN"'
+---| '"ARMORSTAND"'
+---| '"WEAPONRACK"'
+---| '"CABINET"'
+---| '"ANVIL"'
+---| '"CATAPULTPARTS"'
+---| '"BALLISTAPARTS"'
+---| '"SIEGEAMMO"'
+---| '"TRAPPARTS"'
+---| '"ANY_WEBS"'
+---| '"PIPE_SECTION"'
+---| '"ANY_ENCASED"'
+---| '"ANY_IN_CONSTRUCTION"'
+---| '"DRINK"'
+---| '"ANY_DRINK"'
+---| '"LIQUID_MISC"'
+---| '"POWDER_MISC"'
+---| '"ANY_COOKABLE"'
+---| '"ANY_GENERIC84"'
+---| '"VERMIN"'
+---| '"PET"'
+---| '"ANY_CRITTER"'
+---| '"COIN"'
+---| '"GLOB"'
+---| '"TRAPCOMP"'
+---| '"BAR"'
+---| '"SMALLGEM"'
+---| '"BLOCKS"'
+---| '"ROUGH"'
+---| '"ANY_CORPSE"'
+---| '"CORPSE"'
+---| '"BOOK"'
+---| '"FIGURINE"'
+---| '"AMULET"'
+---| '"SCEPTER"'
+---| '"CROWN"'
+---| '"RING"'
+---| '"EARRING"'
+---| '"BRACELET"'
+---| '"GEM"'
+---| '"CORPSEPIECE"'
+---| '"REMAINS"'
+---| '"MEAT"'
+---| '"FISH"'
+---| '"FISH_RAW"'
+---| '"EGG"'
+---| '"SEEDS"'
+---| '"PLANT"'
+---| '"SKIN_TANNED"'
+---| '"PLANT_GROWTH"'
+---| '"THREAD"'
+---| '"CLOTH"'
+---| '"SHEET"'
+---| '"TOTEM"'
+---| '"PANTS"'
+---| '"CHEESE"'
+---| '"FOOD"'
+---| '"BALLISTAARROWHEAD"'
+---| '"ARMOR"'
+---| '"SHOES"'
+---| '"HELM"'
+---| '"GLOVES"'
+---| '"ANY_GENERIC128"'
+---| '"FOOD_STORAGE"'
+---| '"ANY_RECENTLY_DROPPED"'
+---| '"ANY_MELT_DESIGNATED"'
+
+---@alias items_other_id_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+
 ---@alias items_other_id
----| -1 # ANY
----| 0 # IN_PLAY
----| 1 # ANY_ARTIFACT
----| 2 # WEAPON
----| 3 # ANY_WEAPON
----| 4 # ANY_SPIKE
----| 5 # ANY_TRUE_ARMOR
----| 6 # ANY_ARMOR_HELM
----| 7 # ANY_ARMOR_SHOES
----| 8 # SHIELD
----| 9 # ANY_ARMOR_GLOVES
----| 10 # ANY_ARMOR_PANTS
----| 11 # QUIVER
----| 12 # SPLINT
----| 13 # ORTHOPEDIC_CAST
----| 14 # CRUTCH
----| 15 # BACKPACK
----| 16 # AMMO
----| 17 # WOOD
----| 18 # BRANCH
----| 19 # BOULDER
----| 20 # ROCK
----| 21 # ANY_REFUSE
----| 22 # ANY_GOOD_FOOD
----| 23 # ANY_AUTO_CLEAN
----| 24 # ANY_GENERIC24
----| 25 # ANY_BUTCHERABLE
----| 26 # ANY_FURNITURE
----| 27 # ANY_CAGE_OR_TRAP
----| 28 # ANY_EDIBLE_RAW
----| 29 # ANY_EDIBLE_CARNIVORE
----| 30 # ANY_EDIBLE_BONECARN
----| 31 # ANY_EDIBLE_VERMIN
----| 32 # ANY_EDIBLE_VERMIN_BOX
----| 33 # ANY_CAN_ROT
----| 34 # ANY_MURDERED
----| 35 # ANY_DEAD_DWARF
----| 36 # ANY_GENERIC36
----| 37 # ANY_GENERIC37
----| 38 # ANY_GENERIC38
----| 39 # ANY_GENERIC39
----| 40 # DOOR
----| 41 # FLOODGATE
----| 42 # HATCH_COVER
----| 43 # GRATE
----| 44 # CAGE
----| 45 # FLASK
----| 46 # WINDOW
----| 47 # GOBLET
----| 48 # INSTRUMENT
----| 49 # INSTRUMENT_STATIONARY
----| 50 # TOY
----| 51 # TOOL
----| 52 # BUCKET
----| 53 # BARREL
----| 54 # CHAIN
----| 55 # ANIMALTRAP
----| 56 # BED
----| 57 # TRACTION_BENCH
----| 58 # CHAIR
----| 59 # COFFIN
----| 60 # TABLE
----| 61 # STATUE
----| 62 # SLAB
----| 63 # QUERN
----| 64 # MILLSTONE
----| 65 # BOX
----| 66 # BAG
----| 67 # BIN
----| 68 # ARMORSTAND
----| 69 # WEAPONRACK
----| 70 # CABINET
----| 71 # ANVIL
----| 72 # CATAPULTPARTS
----| 73 # BALLISTAPARTS
----| 74 # SIEGEAMMO
----| 75 # TRAPPARTS
----| 76 # ANY_WEBS
----| 77 # PIPE_SECTION
----| 78 # ANY_ENCASED
----| 79 # ANY_IN_CONSTRUCTION
----| 80 # DRINK
----| 81 # ANY_DRINK
----| 82 # LIQUID_MISC
----| 83 # POWDER_MISC
----| 84 # ANY_COOKABLE
----| 85 # ANY_GENERIC84
----| 86 # VERMIN
----| 87 # PET
----| 88 # ANY_CRITTER
----| 89 # COIN
----| 90 # GLOB
----| 91 # TRAPCOMP
----| 92 # BAR
----| 93 # SMALLGEM
----| 94 # BLOCKS
----| 95 # ROUGH
----| 96 # ANY_CORPSE
----| 97 # CORPSE
----| 98 # BOOK
----| 99 # FIGURINE
----| 100 # AMULET
----| 101 # SCEPTER
----| 102 # CROWN
----| 103 # RING
----| 104 # EARRING
----| 105 # BRACELET
----| 106 # GEM
----| 107 # CORPSEPIECE
----| 108 # REMAINS
----| 109 # MEAT
----| 110 # FISH
----| 111 # FISH_RAW
----| 112 # EGG
----| 113 # SEEDS
----| 114 # PLANT
----| 115 # SKIN_TANNED
----| 116 # PLANT_GROWTH
----| 117 # THREAD
----| 118 # CLOTH
----| 119 # SHEET
----| 120 # TOTEM
----| 121 # PANTS
----| 122 # CHEESE
----| 123 # FOOD
----| 124 # BALLISTAARROWHEAD
----| 125 # ARMOR
----| 126 # SHOES
----| 127 # HELM
----| 128 # GLOVES
----| 129 # ANY_GENERIC128
----| 130 # FOOD_STORAGE
----| 131 # ANY_RECENTLY_DROPPED
----| 132 # ANY_MELT_DESIGNATED
+---| items_other_id_keys
+---| items_other_id_values
 
 ---@class _items_other_id: DFEnum
 ---@field ANY -1
@@ -554,138 +694,281 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANY_MELT_DESIGNATED { item: "NONE" }
 df.items_other_id.attrs = {}
 
+---@alias job_item_vector_id_keys
+---| '"ANY"'
+---| '"IN_PLAY"'
+---| '"ANY_ARTIFACT"'
+---| '"WEAPON"'
+---| '"ANY_WEAPON"'
+---| '"ANY_SPIKE"'
+---| '"ANY_TRUE_ARMOR"'
+---| '"ANY_ARMOR_HELM"'
+---| '"ANY_ARMOR_SHOES"'
+---| '"SHIELD"'
+---| '"ANY_ARMOR_GLOVES"'
+---| '"ANY_ARMOR_PANTS"'
+---| '"QUIVER"'
+---| '"SPLINT"'
+---| '"ANY_14"'
+---| '"CRUTCH"'
+---| '"BACKPACK"'
+---| '"AMMO"'
+---| '"WOOD"'
+---| '"BOULDER"'
+---| '"ROCK"'
+---| '"ANY_REFUSE"'
+---| '"ANY_GOOD_FOOD"'
+---| '"ANY_AUTO_CLEAN"'
+---| '"ANY_GENERIC24"'
+---| '"ANY_BUTCHERABLE"'
+---| '"ANY_FURNITURE"'
+---| '"ANY_CAGE_OR_TRAP"'
+---| '"ANY_EDIBLE_RAW"'
+---| '"ANY_EDIBLE_CARNIVORE"'
+---| '"ANY_EDIBLE_BONECARN"'
+---| '"ANY_EDIBLE_VERMIN"'
+---| '"ANY_EDIBLE_VERMIN_BOX"'
+---| '"ANY_CAN_ROT"'
+---| '"ANY_MURDERED"'
+---| '"ANY_DEAD_DWARF"'
+---| '"ANY_GENERIC36"'
+---| '"ANY_GENERIC37"'
+---| '"ANY_GENERIC38"'
+---| '"ANY_GENERIC39"'
+---| '"DOOR"'
+---| '"FLOODGATE"'
+---| '"HATCH_COVER"'
+---| '"GRATE"'
+---| '"CAGE"'
+---| '"FLASK"'
+---| '"WINDOW"'
+---| '"GOBLET"'
+---| '"INSTRUMENT"'
+---| '"TOY"'
+---| '"BUCKET"'
+---| '"BARREL"'
+---| '"CHAIN"'
+---| '"ANIMALTRAP"'
+---| '"BED"'
+---| '"TRACTION_BENCH"'
+---| '"CHAIR"'
+---| '"COFFIN"'
+---| '"TABLE"'
+---| '"STATUE"'
+---| '"QUERN"'
+---| '"MILLSTONE"'
+---| '"BOX"'
+---| '"BIN"'
+---| '"ARMORSTAND"'
+---| '"WEAPONRACK"'
+---| '"CABINET"'
+---| '"ANVIL"'
+---| '"CATAPULTPARTS"'
+---| '"BALLISTAPARTS"'
+---| '"SIEGEAMMO"'
+---| '"TRAPPARTS"'
+---| '"ANY_WEBS"'
+---| '"PIPE_SECTION"'
+---| '"ANY_ENCASED"'
+---| '"ANY_IN_CONSTRUCTION"'
+---| '"DRINK"'
+---| '"ANY_DRINK"'
+---| '"LIQUID_MISC"'
+---| '"POWDER_MISC"'
+---| '"ANY_COOKABLE"'
+---| '"ANY_GENERIC84"'
+---| '"VERMIN"'
+---| '"PET"'
+---| '"ANY_CRITTER"'
+---| '"COIN"'
+---| '"GLOB"'
+---| '"ANY_RECENTLY_DROPPED"'
+---| '"ANY_MELT_DESIGNATED"'
+---| '""'
+---| '"TRAPCOMP"'
+---| '"BAR"'
+---| '"SMALLGEM"'
+---| '"BLOCKS"'
+---| '"ROUGH"'
+---| '"CORPSE"'
+---| '"FIGURINE"'
+---| '"AMULET"'
+---| '"SCEPTER"'
+---| '"CROWN"'
+---| '"RING"'
+---| '"EARRING"'
+---| '"BRACELET"'
+---| '"GEM"'
+---| '"CORPSEPIECE"'
+---| '"REMAINS"'
+---| '"MEAT"'
+---| '"FISH"'
+---| '"FISH_RAW"'
+---| '"SEEDS"'
+---| '"PLANT"'
+---| '"SKIN_TANNED"'
+---| '"PLANT_GROWTH"'
+---| '"THREAD"'
+---| '"CLOTH"'
+---| '"TOTEM"'
+---| '"PANTS"'
+---| '"CHEESE"'
+---| '"FOOD"'
+---| '"BALLISTAARROWHEAD"'
+---| '"ARMOR"'
+---| '"SHOES"'
+---| '"HELM"'
+---| '"GLOVES"'
+---| '"ANY_124"'
+---| '"ANY_125"'
+---| '"EGG"'
+---| '"ANY_127"'
+---| '"ANY_CORPSE"'
+---| '"BOOK"'
+---| '""'
+---| '""'
+---| '"SHEET"'
+---| '"BRANCH"'
+
+---@alias job_item_vector_id_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+
 ---@alias job_item_vector_id
----| 0 # ANY
----| 1 # IN_PLAY
----| 2 # ANY_ARTIFACT
----| 3 # WEAPON
----| 4 # ANY_WEAPON
----| 5 # ANY_SPIKE
----| 6 # ANY_TRUE_ARMOR
----| 7 # ANY_ARMOR_HELM
----| 8 # ANY_ARMOR_SHOES
----| 9 # SHIELD
----| 10 # ANY_ARMOR_GLOVES
----| 11 # ANY_ARMOR_PANTS
----| 12 # QUIVER
----| 13 # SPLINT
----| 14 # ANY_14
----| 15 # CRUTCH
----| 16 # BACKPACK
----| 17 # AMMO
----| 18 # WOOD
----| 19 # BOULDER
----| 20 # ROCK
----| 21 # ANY_REFUSE
----| 22 # ANY_GOOD_FOOD
----| 23 # ANY_AUTO_CLEAN
----| 24 # ANY_GENERIC24
----| 25 # ANY_BUTCHERABLE
----| 26 # ANY_FURNITURE
----| 27 # ANY_CAGE_OR_TRAP
----| 28 # ANY_EDIBLE_RAW
----| 29 # ANY_EDIBLE_CARNIVORE
----| 30 # ANY_EDIBLE_BONECARN
----| 31 # ANY_EDIBLE_VERMIN
----| 32 # ANY_EDIBLE_VERMIN_BOX
----| 33 # ANY_CAN_ROT
----| 34 # ANY_MURDERED
----| 35 # ANY_DEAD_DWARF
----| 36 # ANY_GENERIC36
----| 37 # ANY_GENERIC37
----| 38 # ANY_GENERIC38
----| 39 # ANY_GENERIC39
----| 40 # DOOR
----| 41 # FLOODGATE
----| 42 # HATCH_COVER
----| 43 # GRATE
----| 44 # CAGE
----| 45 # FLASK
----| 46 # WINDOW
----| 47 # GOBLET
----| 48 # INSTRUMENT
----| 49 # TOY
----| 50 # BUCKET
----| 51 # BARREL
----| 52 # CHAIN
----| 53 # ANIMALTRAP
----| 54 # BED
----| 55 # TRACTION_BENCH
----| 56 # CHAIR
----| 57 # COFFIN
----| 58 # TABLE
----| 59 # STATUE
----| 60 # QUERN
----| 61 # MILLSTONE
----| 62 # BOX
----| 63 # BIN
----| 64 # ARMORSTAND
----| 65 # WEAPONRACK
----| 66 # CABINET
----| 67 # ANVIL
----| 68 # CATAPULTPARTS
----| 69 # BALLISTAPARTS
----| 70 # SIEGEAMMO
----| 71 # TRAPPARTS
----| 72 # ANY_WEBS
----| 73 # PIPE_SECTION
----| 74 # ANY_ENCASED
----| 75 # ANY_IN_CONSTRUCTION
----| 76 # DRINK
----| 77 # ANY_DRINK
----| 78 # LIQUID_MISC
----| 79 # POWDER_MISC
----| 80 # ANY_COOKABLE
----| 81 # ANY_GENERIC84
----| 82 # VERMIN
----| 83 # PET
----| 84 # ANY_CRITTER
----| 85 # COIN
----| 86 # GLOB
----| 87 # ANY_RECENTLY_DROPPED
----| 88 # ANY_MELT_DESIGNATED
----| 90 # TRAPCOMP
----| 91 # BAR
----| 92 # SMALLGEM
----| 93 # BLOCKS
----| 94 # ROUGH
----| 95 # CORPSE
----| 96 # FIGURINE
----| 97 # AMULET
----| 98 # SCEPTER
----| 99 # CROWN
----| 100 # RING
----| 101 # EARRING
----| 102 # BRACELET
----| 103 # GEM
----| 104 # CORPSEPIECE
----| 105 # REMAINS
----| 106 # MEAT
----| 107 # FISH
----| 108 # FISH_RAW
----| 109 # SEEDS
----| 110 # PLANT
----| 111 # SKIN_TANNED
----| 112 # PLANT_GROWTH
----| 113 # THREAD
----| 114 # CLOTH
----| 115 # TOTEM
----| 116 # PANTS
----| 117 # CHEESE
----| 118 # FOOD
----| 119 # BALLISTAARROWHEAD
----| 120 # ARMOR
----| 121 # SHOES
----| 122 # HELM
----| 123 # GLOVES
----| 124 # ANY_124
----| 125 # ANY_125
----| 126 # EGG
----| 127 # ANY_127
----| 128 # ANY_CORPSE
----| 129 # BOOK
----| 132 # SHEET
----| 133 # BRANCH
+---| job_item_vector_id_keys
+---| job_item_vector_id_values
 
 ---@class _job_item_vector_id: DFEnum
 ---@field ANY 0

@@ -1,24 +1,47 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias job_type_class_keys
+---| '"Misc"'
+---| '"Digging"'
+---| '"Building"'
+---| '"Hauling"'
+---| '"LifeSupport"'
+---| '"TidyUp"'
+---| '"Leisure"'
+---| '"Gathering"'
+---| '"Manufacture"'
+---| '"Improvement"'
+---| '"Crime"'
+---| '"LawEnforcement"'
+---| '"StrangeMood"'
+---| '"UnitHandling"'
+---| '"SiegeWeapon"'
+---| '"Medicine"'
+---| '"Carving"'
+
+---@alias job_type_class_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+
 ---@alias job_type_class
----| 0 # Misc
----| 1 # Digging
----| 2 # Building
----| 3 # Hauling
----| 4 # LifeSupport
----| 5 # TidyUp
----| 6 # Leisure
----| 7 # Gathering
----| 8 # Manufacture
----| 9 # Improvement
----| 10 # Crime
----| 11 # LawEnforcement
----| 12 # StrangeMood
----| 13 # UnitHandling
----| 14 # SiegeWeapon
----| 15 # Medicine
----| 16 # Carving
+---| job_type_class_keys
+---| job_type_class_values
 
 -- not in DF
 ---@class _job_type_class: DFEnum
@@ -58,250 +81,499 @@
 ---@field [16] "Carving"
 df.job_type_class = {}
 
+---@alias job_type_keys
+---| '"NONE"'
+---| '"CarveFortification"'
+---| '"SmoothWall"'
+---| '"SmoothFloor"'
+---| '"DetailWall"'
+---| '"DetailFloor"'
+---| '"Dig"'
+---| '"CarveUpwardStaircase"'
+---| '"CarveDownwardStaircase"'
+---| '"CarveUpDownStaircase"'
+---| '"CarveRamp"'
+---| '"DigChannel"'
+---| '"FellTree"'
+---| '"GatherPlants"'
+---| '"RemoveConstruction"'
+---| '"CollectWebs"'
+---| '"BringItemToDepot"'
+---| '"BringItemToShop"'
+---| '"Eat"'
+---| '"GetProvisions"'
+---| '"Drink"'
+---| '"Drink2"'
+---| '"FillWaterskin"'
+---| '"FillWaterskin2"'
+---| '"Sleep"'
+---| '"CollectSand"'
+---| '"Fish"'
+---| '"Hunt"'
+---| '"HuntVermin"'
+---| '"Kidnap"'
+---| '"BeatCriminal"'
+---| '"StartingFistFight"'
+---| '"CollectTaxes"'
+---| '"GuardTaxCollector"'
+---| '"CatchLiveLandAnimal"'
+---| '"CatchLiveFish"'
+---| '"ReturnKill"'
+---| '"StoreOwnedItem"'
+---| '"PlaceItemInTomb"'
+---| '"StoreItemInStockpile"'
+---| '"StoreItemInBag"'
+---| '"StoreItemInLocation"'
+---| '"StoreWeapon"'
+---| '"StoreArmor"'
+---| '"StoreItemInBarrel"'
+---| '"StoreItemInBin"'
+---| '"SeekArtifact"'
+---| '"SeekInfant"'
+---| '"GoShopping"'
+---| '"GoShopping2"'
+---| '"Clean"'
+---| '"Rest"'
+---| '"PickupEquipment"'
+---| '"DumpItem"'
+---| '"StrangeMoodCrafter"'
+---| '"StrangeMoodJeweller"'
+---| '"StrangeMoodForge"'
+---| '"StrangeMoodMagmaForge"'
+---| '"StrangeMoodBrooding"'
+---| '"StrangeMoodFell"'
+---| '"StrangeMoodCarpenter"'
+---| '"StrangeMoodMason"'
+---| '"StrangeMoodBowyer"'
+---| '"StrangeMoodTanner"'
+---| '"StrangeMoodWeaver"'
+---| '"StrangeMoodGlassmaker"'
+---| '"StrangeMoodMechanics"'
+---| '"ConstructBuilding"'
+---| '"ConstructDoor"'
+---| '"ConstructFloodgate"'
+---| '"ConstructBed"'
+---| '"ConstructThrone"'
+---| '"ConstructCoffin"'
+---| '"ConstructTable"'
+---| '"ConstructChest"'
+---| '"ConstructBag"'
+---| '"ConstructBin"'
+---| '"ConstructArmorStand"'
+---| '"ConstructWeaponRack"'
+---| '"ConstructCabinet"'
+---| '"ConstructStatue"'
+---| '"ConstructBlocks"'
+---| '"MakeRawGlass"'
+---| '"MakeCrafts"'
+---| '"MintCoins"'
+---| '"CutGems"'
+---| '"CutGlass"'
+---| '"EncrustWithGems"'
+---| '"EncrustWithGlass"'
+---| '"DestroyBuilding"'
+---| '"SmeltOre"'
+---| '"MeltMetalObject"'
+---| '"ExtractMetalStrands"'
+---| '"PlantSeeds"'
+---| '"HarvestPlants"'
+---| '"TrainHuntingAnimal"'
+---| '"TrainWarAnimal"'
+---| '"MakeWeapon"'
+---| '"ForgeAnvil"'
+---| '"ConstructCatapultParts"'
+---| '"ConstructBallistaParts"'
+---| '"MakeArmor"'
+---| '"MakeHelm"'
+---| '"MakePants"'
+---| '"StudWith"'
+---| '"ButcherAnimal"'
+---| '"PrepareRawFish"'
+---| '"MillPlants"'
+---| '"BaitTrap"'
+---| '"MilkCreature"'
+---| '"MakeCheese"'
+---| '"ProcessPlants"'
+---| '"PolishStones"'
+---| '"ProcessPlantsVial"'
+---| '"ProcessPlantsBarrel"'
+---| '"PrepareMeal"'
+---| '"WeaveCloth"'
+---| '"MakeGloves"'
+---| '"MakeShoes"'
+---| '"MakeShield"'
+---| '"MakeCage"'
+---| '"MakeChain"'
+---| '"MakeFlask"'
+---| '"MakeGoblet"'
+---| '"MakeToy"'
+---| '"MakeAnimalTrap"'
+---| '"MakeBarrel"'
+---| '"MakeBucket"'
+---| '"MakeWindow"'
+---| '"MakeTotem"'
+---| '"MakeAmmo"'
+---| '"DecorateWith"'
+---| '"MakeBackpack"'
+---| '"MakeQuiver"'
+---| '"MakeBallistaArrowHead"'
+---| '"AssembleSiegeAmmo"'
+---| '"LoadCatapult"'
+---| '"LoadBallista"'
+---| '"FireCatapult"'
+---| '"FireBallista"'
+---| '"ConstructMechanisms"'
+---| '"MakeTrapComponent"'
+---| '"LoadCageTrap"'
+---| '"LoadStoneTrap"'
+---| '"LoadWeaponTrap"'
+---| '"CleanTrap"'
+---| '"EncrustWithStones"'
+---| '"LinkBuildingToTrigger"'
+---| '"PullLever"'
+---| '"_unk_0x94"'
+---| '"ExtractFromPlants"'
+---| '"ExtractFromRawFish"'
+---| '"ExtractFromLandAnimal"'
+---| '"TameVermin"'
+---| '"TameAnimal"'
+---| '"ChainAnimal"'
+---| '"UnchainAnimal"'
+---| '"UnchainPet"'
+---| '"ReleaseLargeCreature"'
+---| '"ReleasePet"'
+---| '"ReleaseSmallCreature"'
+---| '"HandleSmallCreature"'
+---| '"HandleLargeCreature"'
+---| '"CageLargeCreature"'
+---| '"CageSmallCreature"'
+---| '"RecoverWounded"'
+---| '"DiagnosePatient"'
+---| '"ImmobilizeBreak"'
+---| '"DressWound"'
+---| '"CleanPatient"'
+---| '"Surgery"'
+---| '"Suture"'
+---| '"SetBone"'
+---| '"PlaceInTraction"'
+---| '"DrainAquarium"'
+---| '"FillAquarium"'
+---| '"FillPond"'
+---| '"GiveWater"'
+---| '"GiveFood"'
+---| '"GiveWater2"'
+---| '"GiveFood2"'
+---| '"RecoverPet"'
+---| '"PitLargeAnimal"'
+---| '"PitSmallAnimal"'
+---| '"SlaughterAnimal"'
+---| '"MakeCharcoal"'
+---| '"MakeAsh"'
+---| '"MakeLye"'
+---| '"MakePotashFromLye"'
+---| '"FertilizeField"'
+---| '"MakePotashFromAsh"'
+---| '"DyeThread"'
+---| '"DyeCloth"'
+---| '"SewImage"'
+---| '"MakePipeSection"'
+---| '"OperatePump"'
+---| '"ManageWorkOrders"'
+---| '"UpdateStockpileRecords"'
+---| '"TradeAtDepot"'
+---| '"ConstructHatchCover"'
+---| '"ConstructGrate"'
+---| '"RemoveStairs"'
+---| '"ConstructQuern"'
+---| '"ConstructMillstone"'
+---| '"ConstructSplint"'
+---| '"ConstructCrutch"'
+---| '"ConstructTractionBench"'
+---| '"CleanSelf"'
+---| '"BringCrutch"'
+---| '"ApplyCast"'
+---| '"CustomReaction"'
+---| '"ConstructSlab"'
+---| '"EngraveSlab"'
+---| '"ShearCreature"'
+---| '"SpinThread"'
+---| '"PenLargeAnimal"'
+---| '"PenSmallAnimal"'
+---| '"MakeTool"'
+---| '"CollectClay"'
+---| '"InstallColonyInHive"'
+---| '"CollectHiveProducts"'
+---| '"CauseTrouble"'
+---| '"DrinkBlood"'
+---| '"ReportCrime"'
+---| '"ExecuteCriminal"'
+---| '"TrainAnimal"'
+---| '"CarveTrack"'
+---| '"PushTrackVehicle"'
+---| '"PlaceTrackVehicle"'
+---| '"StoreItemInVehicle"'
+---| '"GeldAnimal"'
+---| '"MakeFigurine"'
+---| '"MakeAmulet"'
+---| '"MakeScepter"'
+---| '"MakeCrown"'
+---| '"MakeRing"'
+---| '"MakeEarring"'
+---| '"MakeBracelet"'
+---| '"MakeGem"'
+---| '"PutItemOnDisplay"'
+---| '"unk_fake_no_job"'
+---| '"InterrogateSubject"'
+---| '"unk_fake_no_activity"'
+
+---@alias job_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+---| 189
+---| 190
+---| 191
+---| 192
+---| 193
+---| 194
+---| 195
+---| 196
+---| 197
+---| 198
+---| 199
+---| 200
+---| 201
+---| 202
+---| 203
+---| 204
+---| 205
+---| 206
+---| 207
+---| 208
+---| 209
+---| 210
+---| 211
+---| 212
+---| 213
+---| 214
+---| 215
+---| 216
+---| 217
+---| 218
+---| 219
+---| 220
+---| 221
+---| 222
+---| 223
+---| 224
+---| 225
+---| 226
+---| 227
+---| 228
+---| 229
+---| 230
+---| 231
+---| 232
+---| 233
+---| 234
+---| 235
+---| 236
+---| 237
+---| 238
+---| 239
+---| 240
+---| 241
+
 ---@alias job_type
----| -1 # NONE
----| 0 # CarveFortification
----| 1 # SmoothWall
----| 2 # SmoothFloor
----| 3 # DetailWall
----| 4 # DetailFloor
----| 5 # Dig
----| 6 # CarveUpwardStaircase
----| 7 # CarveDownwardStaircase
----| 8 # CarveUpDownStaircase
----| 9 # CarveRamp
----| 10 # DigChannel
----| 11 # FellTree
----| 12 # GatherPlants
----| 13 # RemoveConstruction
----| 14 # CollectWebs
----| 15 # BringItemToDepot
----| 16 # BringItemToShop
----| 17 # Eat
----| 18 # GetProvisions
----| 19 # Drink
----| 20 # Drink2
----| 21 # FillWaterskin
----| 22 # FillWaterskin2
----| 23 # Sleep
----| 24 # CollectSand
----| 25 # Fish
----| 26 # Hunt
----| 27 # HuntVermin
----| 28 # Kidnap
----| 29 # BeatCriminal
----| 30 # StartingFistFight
----| 31 # CollectTaxes
----| 32 # GuardTaxCollector
----| 33 # CatchLiveLandAnimal
----| 34 # CatchLiveFish
----| 35 # ReturnKill
----| 36 # StoreOwnedItem
----| 37 # PlaceItemInTomb
----| 38 # StoreItemInStockpile
----| 39 # StoreItemInBag
----| 40 # StoreItemInLocation
----| 41 # StoreWeapon
----| 42 # StoreArmor
----| 43 # StoreItemInBarrel
----| 44 # StoreItemInBin
----| 45 # SeekArtifact
----| 46 # SeekInfant
----| 47 # GoShopping
----| 48 # GoShopping2
----| 49 # Clean
----| 50 # Rest
----| 51 # PickupEquipment
----| 52 # DumpItem
----| 53 # StrangeMoodCrafter
----| 54 # StrangeMoodJeweller
----| 55 # StrangeMoodForge
----| 56 # StrangeMoodMagmaForge
----| 57 # StrangeMoodBrooding
----| 58 # StrangeMoodFell
----| 59 # StrangeMoodCarpenter
----| 60 # StrangeMoodMason
----| 61 # StrangeMoodBowyer
----| 62 # StrangeMoodTanner
----| 63 # StrangeMoodWeaver
----| 64 # StrangeMoodGlassmaker
----| 65 # StrangeMoodMechanics
----| 66 # ConstructBuilding
----| 67 # ConstructDoor
----| 68 # ConstructFloodgate
----| 69 # ConstructBed
----| 70 # ConstructThrone
----| 71 # ConstructCoffin
----| 72 # ConstructTable
----| 73 # ConstructChest
----| 74 # ConstructBag
----| 75 # ConstructBin
----| 76 # ConstructArmorStand
----| 77 # ConstructWeaponRack
----| 78 # ConstructCabinet
----| 79 # ConstructStatue
----| 80 # ConstructBlocks
----| 81 # MakeRawGlass
----| 82 # MakeCrafts
----| 83 # MintCoins
----| 84 # CutGems
----| 85 # CutGlass
----| 86 # EncrustWithGems
----| 87 # EncrustWithGlass
----| 88 # DestroyBuilding
----| 89 # SmeltOre
----| 90 # MeltMetalObject
----| 91 # ExtractMetalStrands
----| 92 # PlantSeeds
----| 93 # HarvestPlants
----| 94 # TrainHuntingAnimal
----| 95 # TrainWarAnimal
----| 96 # MakeWeapon
----| 97 # ForgeAnvil
----| 98 # ConstructCatapultParts
----| 99 # ConstructBallistaParts
----| 100 # MakeArmor
----| 101 # MakeHelm
----| 102 # MakePants
----| 103 # StudWith
----| 104 # ButcherAnimal
----| 105 # PrepareRawFish
----| 106 # MillPlants
----| 107 # BaitTrap
----| 108 # MilkCreature
----| 109 # MakeCheese
----| 110 # ProcessPlants
----| 111 # PolishStones
----| 112 # ProcessPlantsVial
----| 113 # ProcessPlantsBarrel
----| 114 # PrepareMeal
----| 115 # WeaveCloth
----| 116 # MakeGloves
----| 117 # MakeShoes
----| 118 # MakeShield
----| 119 # MakeCage
----| 120 # MakeChain
----| 121 # MakeFlask
----| 122 # MakeGoblet
----| 123 # MakeToy
----| 124 # MakeAnimalTrap
----| 125 # MakeBarrel
----| 126 # MakeBucket
----| 127 # MakeWindow
----| 128 # MakeTotem
----| 129 # MakeAmmo
----| 130 # DecorateWith
----| 131 # MakeBackpack
----| 132 # MakeQuiver
----| 133 # MakeBallistaArrowHead
----| 134 # AssembleSiegeAmmo
----| 135 # LoadCatapult
----| 136 # LoadBallista
----| 137 # FireCatapult
----| 138 # FireBallista
----| 139 # ConstructMechanisms
----| 140 # MakeTrapComponent
----| 141 # LoadCageTrap
----| 142 # LoadStoneTrap
----| 143 # LoadWeaponTrap
----| 144 # CleanTrap
----| 145 # EncrustWithStones
----| 146 # LinkBuildingToTrigger
----| 147 # PullLever
----| 148 # _unk_0x94
----| 149 # ExtractFromPlants
----| 150 # ExtractFromRawFish
----| 151 # ExtractFromLandAnimal
----| 152 # TameVermin
----| 153 # TameAnimal
----| 154 # ChainAnimal
----| 155 # UnchainAnimal
----| 156 # UnchainPet
----| 157 # ReleaseLargeCreature
----| 158 # ReleasePet
----| 159 # ReleaseSmallCreature
----| 160 # HandleSmallCreature
----| 161 # HandleLargeCreature
----| 162 # CageLargeCreature
----| 163 # CageSmallCreature
----| 164 # RecoverWounded
----| 165 # DiagnosePatient
----| 166 # ImmobilizeBreak
----| 167 # DressWound
----| 168 # CleanPatient
----| 169 # Surgery
----| 170 # Suture
----| 171 # SetBone
----| 172 # PlaceInTraction
----| 173 # DrainAquarium
----| 174 # FillAquarium
----| 175 # FillPond
----| 176 # GiveWater
----| 177 # GiveFood
----| 178 # GiveWater2
----| 179 # GiveFood2
----| 180 # RecoverPet
----| 181 # PitLargeAnimal
----| 182 # PitSmallAnimal
----| 183 # SlaughterAnimal
----| 184 # MakeCharcoal
----| 185 # MakeAsh
----| 186 # MakeLye
----| 187 # MakePotashFromLye
----| 188 # FertilizeField
----| 189 # MakePotashFromAsh
----| 190 # DyeThread
----| 191 # DyeCloth
----| 192 # SewImage
----| 193 # MakePipeSection
----| 194 # OperatePump
----| 195 # ManageWorkOrders
----| 196 # UpdateStockpileRecords
----| 197 # TradeAtDepot
----| 198 # ConstructHatchCover
----| 199 # ConstructGrate
----| 200 # RemoveStairs
----| 201 # ConstructQuern
----| 202 # ConstructMillstone
----| 203 # ConstructSplint
----| 204 # ConstructCrutch
----| 205 # ConstructTractionBench
----| 206 # CleanSelf
----| 207 # BringCrutch
----| 208 # ApplyCast
----| 209 # CustomReaction
----| 210 # ConstructSlab
----| 211 # EngraveSlab
----| 212 # ShearCreature
----| 213 # SpinThread
----| 214 # PenLargeAnimal
----| 215 # PenSmallAnimal
----| 216 # MakeTool
----| 217 # CollectClay
----| 218 # InstallColonyInHive
----| 219 # CollectHiveProducts
----| 220 # CauseTrouble
----| 221 # DrinkBlood
----| 222 # ReportCrime
----| 223 # ExecuteCriminal
----| 224 # TrainAnimal
----| 225 # CarveTrack
----| 226 # PushTrackVehicle
----| 227 # PlaceTrackVehicle
----| 228 # StoreItemInVehicle
----| 229 # GeldAnimal
----| 230 # MakeFigurine
----| 231 # MakeAmulet
----| 232 # MakeScepter
----| 233 # MakeCrown
----| 234 # MakeRing
----| 235 # MakeEarring
----| 236 # MakeBracelet
----| 237 # MakeGem
----| 238 # PutItemOnDisplay
----| 239 # unk_fake_no_job
----| 240 # InterrogateSubject
----| 241 # unk_fake_no_activity
+---| job_type_keys
+---| job_type_values
 
 ---@class _job_type: DFEnum
 ---@field NONE -1 unused

@@ -63,22 +63,43 @@ function df.plant.get_vector() end
 ---@field [2] "is_dead"
 df.plant.T_damage_flags = {}
 
+---@alias plant_tree_tile_branches_dir_keys
+---| '"NONE"'
+---| '"BRANCH_W"'
+---| '"BRANCH_N"'
+---| '"BRANCH_WN"'
+---| '"BRANCH_E"'
+---| '"BRANCH_WE"'
+---| '"BRANCH_NE"'
+---| '"BRANCH_WNE"'
+---| '"BRANCH_S"'
+---| '"BRANCH_WS"'
+---| '"BRANCH_NS"'
+---| '"BRANCH_WNS"'
+---| '"BRANCH_ES"'
+---| '"BRANCH_WES"'
+---| '"BRANCH_NES"'
+
+---@alias plant_tree_tile_branches_dir_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+
 ---@alias plant_tree_tile_branches_dir
----| 0 # NONE
----| 1 # BRANCH_W
----| 2 # BRANCH_N
----| 3 # BRANCH_WN
----| 4 # BRANCH_E
----| 5 # BRANCH_WE
----| 6 # BRANCH_NE
----| 7 # BRANCH_WNE
----| 8 # BRANCH_S
----| 9 # BRANCH_WS
----| 10 # BRANCH_NS
----| 11 # BRANCH_WNS
----| 12 # BRANCH_ES
----| 13 # BRANCH_WES
----| 14 # BRANCH_NES
+---| plant_tree_tile_branches_dir_keys
+---| plant_tree_tile_branches_dir_values
 
 ---@class _plant_tree_tile_branches_dir: DFEnum
 ---@field NONE 0
@@ -113,14 +134,27 @@ df.plant.T_damage_flags = {}
 ---@field [14] "BRANCH_NES"
 df.plant_tree_tile_branches_dir = {}
 
+---@alias plant_tree_tile_parent_dir_keys
+---| '"NONE"'
+---| '"PARENT_IS_N"'
+---| '"PARENT_IS_S"'
+---| '"PARENT_IS_W"'
+---| '"PARENT_IS_E"'
+---| '"PARENT_IS_UP"'
+---| '"PARENT_IS_DOWN"'
+
+---@alias plant_tree_tile_parent_dir_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+
 ---@alias plant_tree_tile_parent_dir
----| 0 # NONE
----| 1 # PARENT_IS_N
----| 2 # PARENT_IS_S
----| 3 # PARENT_IS_W
----| 4 # PARENT_IS_E
----| 5 # PARENT_IS_UP
----| 6 # PARENT_IS_DOWN
+---| plant_tree_tile_parent_dir_keys
+---| plant_tree_tile_parent_dir_values
 
 ---@class _plant_tree_tile_parent_dir: DFEnum
 ---@field NONE 0

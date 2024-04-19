@@ -1,17 +1,33 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias hauler_type_keys
+---| '"Any"'
+---| '"Stone"'
+---| '"Wood"'
+---| '"Item"'
+---| '"Bin"'
+---| '"Body"'
+---| '"Food"'
+---| '"Refuse"'
+---| '"Furniture"'
+---| '"Animal"'
+
+---@alias hauler_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+
 ---@alias hauler_type
----| 0 # Any
----| 1 # Stone
----| 2 # Wood
----| 3 # Item
----| 4 # Bin
----| 5 # Body
----| 6 # Food
----| 7 # Refuse
----| 8 # Furniture
----| 9 # Animal
+---| hauler_type_keys
+---| hauler_type_values
 
 ---@class _hauler_type: DFEnum
 ---@field Any 0
@@ -36,41 +52,81 @@
 ---@field [9] "Animal"
 df.hauler_type = {}
 
+---@alias furniture_type_keys
+---| '"FLOODGATE"'
+---| '"HATCH_COVER"'
+---| '"GRATE"'
+---| '"DOOR"'
+---| '"CATAPULTPARTS"'
+---| '"BALLISTAPARTS"'
+---| '"TRAPPARTS"'
+---| '"BED"'
+---| '"TRACTION_BENCH"'
+---| '"WINDOW"'
+---| '"CHAIR"'
+---| '"TABLE"'
+---| '"COFFIN"'
+---| '"STATUE"'
+---| '"SLAB"'
+---| '"QUERN"'
+---| '"MILLSTONE"'
+---| '"ARMORSTAND"'
+---| '"WEAPONRACK"'
+---| '"CABINET"'
+---| '"ANVIL"'
+---| '"BUCKET"'
+---| '"BIN"'
+---| '"BOX"'
+---| '"BAG"'
+---| '"SIEGEAMMO"'
+---| '"BARREL"'
+---| '"BALLISTAARROWHEAD"'
+---| '"PIPE_SECTION"'
+---| '"FOOD_STORAGE"'
+---| '"MINECART"'
+---| '"WHEELBARROW"'
+---| '"OTHER_LARGE_TOOLS"'
+---| '"SAND_BAG"'
+
+---@alias furniture_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+
 ---@alias furniture_type
----| 0 # FLOODGATE
----| 1 # HATCH_COVER
----| 2 # GRATE
----| 3 # DOOR
----| 4 # CATAPULTPARTS
----| 5 # BALLISTAPARTS
----| 6 # TRAPPARTS
----| 7 # BED
----| 8 # TRACTION_BENCH
----| 9 # WINDOW
----| 10 # CHAIR
----| 11 # TABLE
----| 12 # COFFIN
----| 13 # STATUE
----| 14 # SLAB
----| 15 # QUERN
----| 16 # MILLSTONE
----| 17 # ARMORSTAND
----| 18 # WEAPONRACK
----| 19 # CABINET
----| 20 # ANVIL
----| 21 # BUCKET
----| 22 # BIN
----| 23 # BOX
----| 24 # BAG
----| 25 # SIEGEAMMO
----| 26 # BARREL
----| 27 # BALLISTAARROWHEAD
----| 28 # PIPE_SECTION
----| 29 # FOOD_STORAGE
----| 30 # MINECART
----| 31 # WHEELBARROW
----| 32 # OTHER_LARGE_TOOLS
----| 33 # SAND_BAG
+---| furniture_type_keys
+---| furniture_type_values
 
 ---@class _furniture_type: DFEnum
 ---@field FLOODGATE 0 subset of item_type
@@ -143,27 +199,53 @@ df.hauler_type = {}
 ---@field [33] "SAND_BAG"
 df.furniture_type = {}
 
+---@alias stockpile_category_keys
+---| '"Remove"'
+---| '"Animals"'
+---| '"Food"'
+---| '"Furniture"'
+---| '"Corpses"'
+---| '"Refuse"'
+---| '"Stone"'
+---| '"Ore"'
+---| '"Ammo"'
+---| '"Coins"'
+---| '"Bars"'
+---| '"Gems"'
+---| '"Goods"'
+---| '"Leather"'
+---| '"Cloth"'
+---| '"Wood"'
+---| '"Weapons"'
+---| '"Armor"'
+---| '"Sheets"'
+---| '"Custom"'
+
+---@alias stockpile_category_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+
 ---@alias stockpile_category
----| -1 # Remove
----| 0 # Animals
----| 1 # Food
----| 2 # Furniture
----| 3 # Corpses
----| 4 # Refuse
----| 5 # Stone
----| 6 # Ore
----| 7 # Ammo
----| 8 # Coins
----| 9 # Bars
----| 10 # Gems
----| 11 # Goods
----| 12 # Leather
----| 13 # Cloth
----| 14 # Wood
----| 15 # Weapons
----| 16 # Armor
----| 17 # Sheets
----| 18 # Custom
+---| stockpile_category_keys
+---| stockpile_category_values
 
 ---@class _stockpile_category: DFEnum
 ---@field Remove -1
@@ -549,112 +631,223 @@ df.stockpile_settings.T_armor = {}
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_sheet = {}
 
+---@alias stockpile_list_keys
+---| '"Animals"'
+---| '"Food"'
+---| '"FoodMeat"'
+---| '"FoodFish"'
+---| '"FoodUnpreparedFish"'
+---| '"FoodEgg"'
+---| '"FoodPlants"'
+---| '"FoodDrinkPlant"'
+---| '"FoodDrinkAnimal"'
+---| '"FoodCheesePlant"'
+---| '"FoodCheeseAnimal"'
+---| '"FoodSeeds"'
+---| '"FoodLeaves"'
+---| '"FoodMilledPlant"'
+---| '"FoodBoneMeal"'
+---| '"FoodFat"'
+---| '"FoodPaste"'
+---| '"FoodPressedMaterial"'
+---| '"FoodExtractPlant"'
+---| '"FoodExtractAnimal"'
+---| '"FoodMiscLiquid"'
+---| '"Furniture"'
+---| '"FurnitureType"'
+---| '"FurnitureStoneClay"'
+---| '"FurnitureMetal"'
+---| '"FurnitureOtherMaterials"'
+---| '"FurnitureCoreQuality"'
+---| '"FurnitureTotalQuality"'
+---| '"Corpses"'
+---| '"Refuse"'
+---| '"RefuseItems"'
+---| '"RefuseCorpses"'
+---| '"RefuseParts"'
+---| '"RefuseSkulls"'
+---| '"RefuseBones"'
+---| '"RefuseShells"'
+---| '"RefuseTeeth"'
+---| '"RefuseHorns"'
+---| '"RefuseHair"'
+---| '"Stone"'
+---| '"StoneOres"'
+---| '"StoneEconomic"'
+---| '"StoneOther"'
+---| '"StoneClay"'
+---| '"Ammo"'
+---| '"AmmoType"'
+---| '"AmmoMetal"'
+---| '"AmmoOther"'
+---| '"AmmoCoreQuality"'
+---| '"AmmoTotalQuality"'
+---| '"Coins"'
+---| '"BarsBlocks"'
+---| '"BarsMetal"'
+---| '"BarsOther"'
+---| '"BlocksStone"'
+---| '"BlocksMetal"'
+---| '"BlocksOther"'
+---| '"Gems"'
+---| '"RoughGem"'
+---| '"RoughGlass"'
+---| '"CutGem"'
+---| '"CutGlass"'
+---| '"CutStone"'
+---| '"Goods"'
+---| '"GoodsType"'
+---| '"GoodsStone"'
+---| '"GoodsMetal"'
+---| '"GoodsGem"'
+---| '"GoodsOther"'
+---| '"GoodsCoreQuality"'
+---| '"GoodsTotalQuality"'
+---| '"Leather"'
+---| '"Cloth"'
+---| '"ThreadSilk"'
+---| '"ThreadPlant"'
+---| '"ThreadYarn"'
+---| '"ThreadMetal"'
+---| '"ClothSilk"'
+---| '"ClothPlant"'
+---| '"ClothYarn"'
+---| '"ClothMetal"'
+---| '"Wood"'
+---| '"Weapons"'
+---| '"WeaponsType"'
+---| '"WeaponsTrapcomp"'
+---| '"WeaponsMetal"'
+---| '"WeaponsStone"'
+---| '"WeaponsOther"'
+---| '"WeaponsCoreQuality"'
+---| '"WeaponsTotalQuality"'
+---| '"Armor"'
+---| '"ArmorBody"'
+---| '"ArmorHead"'
+---| '"ArmorFeet"'
+---| '"ArmorHands"'
+---| '"ArmorLegs"'
+---| '"ArmorShield"'
+---| '"ArmorMetal"'
+---| '"ArmorOther"'
+---| '"ArmorCoreQuality"'
+---| '"ArmorTotalQuality"'
+---| '"Sheet"'
+---| '"SheetPaper"'
+---| '"SheetParchment"'
+---| '"AdditionalOptions"'
+
+---@alias stockpile_list_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+
 ---@alias stockpile_list
----| 0 # Animals
----| 1 # Food
----| 2 # FoodMeat
----| 3 # FoodFish
----| 4 # FoodUnpreparedFish
----| 5 # FoodEgg
----| 6 # FoodPlants
----| 7 # FoodDrinkPlant
----| 8 # FoodDrinkAnimal
----| 9 # FoodCheesePlant
----| 10 # FoodCheeseAnimal
----| 11 # FoodSeeds
----| 12 # FoodLeaves
----| 13 # FoodMilledPlant
----| 14 # FoodBoneMeal
----| 15 # FoodFat
----| 16 # FoodPaste
----| 17 # FoodPressedMaterial
----| 18 # FoodExtractPlant
----| 19 # FoodExtractAnimal
----| 20 # FoodMiscLiquid
----| 21 # Furniture
----| 22 # FurnitureType
----| 23 # FurnitureStoneClay
----| 24 # FurnitureMetal
----| 25 # FurnitureOtherMaterials
----| 26 # FurnitureCoreQuality
----| 27 # FurnitureTotalQuality
----| 28 # Corpses
----| 29 # Refuse
----| 30 # RefuseItems
----| 31 # RefuseCorpses
----| 32 # RefuseParts
----| 33 # RefuseSkulls
----| 34 # RefuseBones
----| 35 # RefuseShells
----| 36 # RefuseTeeth
----| 37 # RefuseHorns
----| 38 # RefuseHair
----| 39 # Stone
----| 40 # StoneOres
----| 41 # StoneEconomic
----| 42 # StoneOther
----| 43 # StoneClay
----| 44 # Ammo
----| 45 # AmmoType
----| 46 # AmmoMetal
----| 47 # AmmoOther
----| 48 # AmmoCoreQuality
----| 49 # AmmoTotalQuality
----| 50 # Coins
----| 51 # BarsBlocks
----| 52 # BarsMetal
----| 53 # BarsOther
----| 54 # BlocksStone
----| 55 # BlocksMetal
----| 56 # BlocksOther
----| 57 # Gems
----| 58 # RoughGem
----| 59 # RoughGlass
----| 60 # CutGem
----| 61 # CutGlass
----| 62 # CutStone
----| 63 # Goods
----| 64 # GoodsType
----| 65 # GoodsStone
----| 66 # GoodsMetal
----| 67 # GoodsGem
----| 68 # GoodsOther
----| 69 # GoodsCoreQuality
----| 70 # GoodsTotalQuality
----| 71 # Leather
----| 72 # Cloth
----| 73 # ThreadSilk
----| 74 # ThreadPlant
----| 75 # ThreadYarn
----| 76 # ThreadMetal
----| 77 # ClothSilk
----| 78 # ClothPlant
----| 79 # ClothYarn
----| 80 # ClothMetal
----| 81 # Wood
----| 82 # Weapons
----| 83 # WeaponsType
----| 84 # WeaponsTrapcomp
----| 85 # WeaponsMetal
----| 86 # WeaponsStone
----| 87 # WeaponsOther
----| 88 # WeaponsCoreQuality
----| 89 # WeaponsTotalQuality
----| 90 # Armor
----| 91 # ArmorBody
----| 92 # ArmorHead
----| 93 # ArmorFeet
----| 94 # ArmorHands
----| 95 # ArmorLegs
----| 96 # ArmorShield
----| 97 # ArmorMetal
----| 98 # ArmorOther
----| 99 # ArmorCoreQuality
----| 100 # ArmorTotalQuality
----| 101 # Sheet
----| 102 # SheetPaper
----| 103 # SheetParchment
----| 104 # AdditionalOptions
+---| stockpile_list_keys
+---| stockpile_list_values
 
 ---@class _stockpile_list: DFEnum
 ---@field Animals 0
@@ -950,11 +1143,21 @@ df.hauling_stop = {}
 ---@field _kind 'struct-type'
 df.stop_depart_condition = {}
 
+---@alias stop_depart_condition.T_direction_keys
+---| '"North"'
+---| '"South"'
+---| '"East"'
+---| '"West"'
+
+---@alias stop_depart_condition.T_direction_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias stop_depart_condition.T_direction
----| 0 # North
----| 1 # South
----| 2 # East
----| 3 # West
+---| stop_depart_condition.T_direction_keys
+---| stop_depart_condition.T_direction_values
 
 ---@class _stop_depart_condition.T_direction: DFEnum
 ---@field North 0
@@ -967,10 +1170,19 @@ df.stop_depart_condition = {}
 ---@field [3] "West"
 df.stop_depart_condition.T_direction = {}
 
+---@alias stop_depart_condition.T_mode_keys
+---| '"Push"'
+---| '"Ride"'
+---| '"Guide"'
+
+---@alias stop_depart_condition.T_mode_values
+---| 0
+---| 1
+---| 2
+
 ---@alias stop_depart_condition.T_mode
----| 0 # Push
----| 1 # Ride
----| 2 # Guide
+---| stop_depart_condition.T_mode_keys
+---| stop_depart_condition.T_mode_values
 
 ---@class _stop_depart_condition.T_mode: DFEnum
 ---@field Push 0

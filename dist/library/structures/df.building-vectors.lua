@@ -1,197 +1,393 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias buildings_other_id_keys
+---| '"ANY"'
+---| '"IN_PLAY"'
+---| '"STOCKPILE"'
+---| '"ANY_ZONE"'
+---| '"ACTIVITY_ZONE"'
+---| '"ZONE_HOME"'
+---| '"ZONE_DEPOT"'
+---| '"ZONE_STOCKPILE"'
+---| '"ZONE_NOBLE_QUARTERS"'
+---| '"ZONE_INVALID4"'
+---| '"ZONE_INVALID5"'
+---| '"ZONE_INVALID6"'
+---| '"ZONE_MEAD_HALL"'
+---| '"ZONE_THRONE_ROOM"'
+---| '"ZONE_INVALID9"'
+---| '"ZONE_TEMPLE"'
+---| '"ZONE_KITCHEN"'
+---| '"ZONE_CAPTIVE_ROOM"'
+---| '"ZONE_TOWER_TOP"'
+---| '"ZONE_COURTYARD"'
+---| '"ZONE_TREASURY"'
+---| '"ZONE_GUARD_POST"'
+---| '"ZONE_ENTRANCE"'
+---| '"ZONE_SECRET_LIBRARY"'
+---| '"ZONE_LIBRARY"'
+---| '"ZONE_PLOT"'
+---| '"ZONE_MARKET_STALL"'
+---| '"ZONE_INVALID22"'
+---| '"ZONE_CAMPGROUND"'
+---| '"ZONE_COMMAND_TENT"'
+---| '"ZONE_TENT"'
+---| '"ZONE_COMMAND_TENT_BLD"'
+---| '"ZONE_TENT_BLD"'
+---| '"ZONE_MECHANISM_ROOM"'
+---| '"ZONE_DUNGEON_CELL"'
+---| '"ZONE_ANIMAL_PIT"'
+---| '"ZONE_CLOTH_PIT"'
+---| '"ZONE_TANNING_PIT"'
+---| '"ZONE_CLOTH_CLOTHING_PIT"'
+---| '"ZONE_LEATHER_CLOTHING_PIT"'
+---| '"ZONE_BONE_CARVING_PIT"'
+---| '"ZONE_GEM_CUTTING_PIT"'
+---| '"ZONE_WEAPONSMITHING_PIT"'
+---| '"ZONE_BOWMAKING_PIT"'
+---| '"ZONE_BLACKSMITHING_PIT"'
+---| '"ZONE_ARMORSMITHING_PIT"'
+---| '"ZONE_METAL_CRAFTING_PIT"'
+---| '"ZONE_LEATHERWORKING_PIT"'
+---| '"ZONE_CARPENTRY_PIT"'
+---| '"ZONE_STONEWORKING_PIT"'
+---| '"ZONE_FORGING_PIT"'
+---| '"ZONE_FIGHTING_PIT"'
+---| '"ZONE_INVALID47"'
+---| '"ZONE_INVALID48"'
+---| '"ZONE_INVALID49"'
+---| '"ZONE_INVALID50"'
+---| '"ZONE_INVALID51"'
+---| '"ZONE_INVALID52"'
+---| '"ZONE_ANIMAL_WORKSHOP"'
+---| '"ZONE_CLOTH_WORKSHOP"'
+---| '"ZONE_TANNING_WORKSHOP"'
+---| '"ZONE_CLOTH_CLOTHING_WORKSHOP"'
+---| '"ZONE_LEATHER_CLOTHING_WORKSHOP"'
+---| '"ZONE_BONE_CARVING_WORKSHOP"'
+---| '"ZONE_GEM_CUTTING_WORKSHOP"'
+---| '"ZONE_WEAPONSMITHING_WORKSHOP"'
+---| '"ZONE_BOWMAKING_WORKSHOP"'
+---| '"ZONE_BLACKSMITHING_WORKSHOP"'
+---| '"ZONE_ARMORSMITHING_WORKSHOP"'
+---| '"ZONE_METAL_CRAFTING_WORKSHOP"'
+---| '"ZONE_LEATHERWORKING_SHOP"'
+---| '"ZONE_CARPENTRY_WORKSHOP"'
+---| '"ZONE_STONEWORKING_WORKSHOP"'
+---| '"ZONE_FORGING_WORKSHOP"'
+---| '"ZONE_COUNTING_HOUSE_OFFICES"'
+---| '"ZONE_COUNTING_HOUSE_STORAGE"'
+---| '"ZONE_GUILDHALL_OFFICES"'
+---| '"ZONE_GUILDHALL_STORAGE"'
+---| '"ZONE_TOWER_ENTRANCE"'
+---| '"ZONE_TOWER_FEASTHALL"'
+---| '"ZONE_TOWER_BEDROOM"'
+---| '"ZONE_TOWER_TREASURY"'
+---| '"ZONE_TOWER_DUNGEON"'
+---| '"ZONE_TOWER_ATTIC"'
+---| '"ZONE_DORMITORY"'
+---| '"ZONE_DINING_HALL"'
+---| '"ZONE_INVALID81"'
+---| '"ZONE_WATER_SOURCE"'
+---| '"ZONE_DUMP"'
+---| '"ZONE_SAND_COLLECTION"'
+---| '"ZONE_FISHING_AREA"'
+---| '"ZONE_POND"'
+---| '"ZONE_MEETING_HALL"'
+---| '"ZONE_PEN"'
+---| '"ZONE_CLAY_COLLECTION"'
+---| '"ZONE_ANIMAL_TRAINING"'
+---| '"ZONE_PLANT_GATHERING"'
+---| '"ZONE_BEDROOM"'
+---| '"ZONE_OFFICE"'
+---| '"ZONE_ARCHERY_RANGE"'
+---| '"ZONE_BARRACKS"'
+---| '"ZONE_DUNGEON"'
+---| '"ZONE_TOMB"'
+---| '"LOCATION_ASSIGNED"'
+---| '"ANY_ACTUAL"'
+---| '"ANY_MACHINE"'
+---| '"ANY_HOSPITAL_STORAGE"'
+---| '"ANY_STORAGE"'
+---| '"ANY_BARRACKS"'
+---| '"ANY_HOSPITAL"'
+---| '"BOX"'
+---| '"CABINET"'
+---| '"TRAP"'
+---| '"DOOR"'
+---| '"FLOODGATE"'
+---| '"HATCH"'
+---| '"GRATE_WALL"'
+---| '"GRATE_FLOOR"'
+---| '"BARS_VERTICAL"'
+---| '"BARS_FLOOR"'
+---| '"WINDOW_ANY"'
+---| '"WELL"'
+---| '"TABLE"'
+---| '"BRIDGE"'
+---| '"CHAIR"'
+---| '"TRADE_DEPOT"'
+---| '"NEST"'
+---| '"NEST_BOX"'
+---| '"BOOKCASE"'
+---| '"DISPLAY_CASE"'
+---| '"HIVE"'
+---| '"WAGON"'
+---| '"SHOP"'
+---| '"BED"'
+---| '"TRACTION_BENCH"'
+---| '"ANY_ROAD"'
+---| '"FARM_PLOT"'
+---| '"GEAR_ASSEMBLY"'
+---| '"ROLLERS"'
+---| '"AXLE_HORIZONTAL"'
+---| '"AXLE_VERTICAL"'
+---| '"SUPPORT"'
+---| '"ARCHERY_TARGET"'
+---| '"SCREW_PUMP"'
+---| '"WATER_WHEEL"'
+---| '"WINDMILL"'
+---| '"CHAIN"'
+---| '"CAGE"'
+---| '"STATUE"'
+---| '"SLAB"'
+---| '"COFFIN"'
+---| '"WEAPON_RACK"'
+---| '"ARMOR_STAND"'
+---| '"FURNACE_ANY"'
+---| '"FURNACE_WOOD"'
+---| '"FURNACE_SMELTER_ANY"'
+---| '"FURNACE_SMELTER_MAGMA"'
+---| '"FURNACE_KILN_ANY"'
+---| '"FURNACE_GLASS_ANY"'
+---| '"FURNACE_CUSTOM"'
+---| '"WORKSHOP_ANY"'
+---| '"WORKSHOP_BUTCHER"'
+---| '"WORKSHOP_MASON"'
+---| '"WORKSHOP_KENNEL"'
+---| '"WORKSHOP_FISHERY"'
+---| '"WORKSHOP_JEWELER"'
+---| '"WORKSHOP_LOOM"'
+---| '"WORKSHOP_TANNER"'
+---| '"WORKSHOP_DYER"'
+---| '"WORKSHOP_MILL_ANY"'
+---| '"WORKSHOP_QUERN"'
+---| '"WORKSHOP_TOOL"'
+---| '"WORKSHOP_MILLSTONE"'
+---| '"WORKSHOP_KITCHEN"'
+---| '"WORKSHOP_STILL"'
+---| '"WORKSHOP_FARMER"'
+---| '"WORKSHOP_ASHERY"'
+---| '"WORKSHOP_CARPENTER"'
+---| '"WORKSHOP_CRAFTSDWARF"'
+---| '"WORKSHOP_MECHANIC"'
+---| '"WORKSHOP_SIEGE"'
+---| '"WORKSHOP_CLOTHIER"'
+---| '"WORKSHOP_LEATHER"'
+---| '"WORKSHOP_BOWYER"'
+---| '"WORKSHOP_MAGMA_FORGE"'
+---| '"WORKSHOP_FORGE_ANY"'
+---| '"WORKSHOP_CUSTOM"'
+---| '"WEAPON_UPRIGHT"'
+---| '"INSTRUMENT_STATIONARY"'
+---| '"OFFERING_PLACE"'
+
+---@alias buildings_other_id_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+
 ---@alias buildings_other_id
----| -1 # ANY
----| 0 # IN_PLAY
----| 1 # STOCKPILE
----| 2 # ANY_ZONE
----| 3 # ACTIVITY_ZONE
----| 4 # ZONE_HOME
----| 5 # ZONE_DEPOT
----| 6 # ZONE_STOCKPILE
----| 7 # ZONE_NOBLE_QUARTERS
----| 8 # ZONE_INVALID4
----| 9 # ZONE_INVALID5
----| 10 # ZONE_INVALID6
----| 11 # ZONE_MEAD_HALL
----| 12 # ZONE_THRONE_ROOM
----| 13 # ZONE_INVALID9
----| 14 # ZONE_TEMPLE
----| 15 # ZONE_KITCHEN
----| 16 # ZONE_CAPTIVE_ROOM
----| 17 # ZONE_TOWER_TOP
----| 18 # ZONE_COURTYARD
----| 19 # ZONE_TREASURY
----| 20 # ZONE_GUARD_POST
----| 21 # ZONE_ENTRANCE
----| 22 # ZONE_SECRET_LIBRARY
----| 23 # ZONE_LIBRARY
----| 24 # ZONE_PLOT
----| 25 # ZONE_MARKET_STALL
----| 26 # ZONE_INVALID22
----| 27 # ZONE_CAMPGROUND
----| 28 # ZONE_COMMAND_TENT
----| 29 # ZONE_TENT
----| 30 # ZONE_COMMAND_TENT_BLD
----| 31 # ZONE_TENT_BLD
----| 32 # ZONE_MECHANISM_ROOM
----| 33 # ZONE_DUNGEON_CELL
----| 34 # ZONE_ANIMAL_PIT
----| 35 # ZONE_CLOTH_PIT
----| 36 # ZONE_TANNING_PIT
----| 37 # ZONE_CLOTH_CLOTHING_PIT
----| 38 # ZONE_LEATHER_CLOTHING_PIT
----| 39 # ZONE_BONE_CARVING_PIT
----| 40 # ZONE_GEM_CUTTING_PIT
----| 41 # ZONE_WEAPONSMITHING_PIT
----| 42 # ZONE_BOWMAKING_PIT
----| 43 # ZONE_BLACKSMITHING_PIT
----| 44 # ZONE_ARMORSMITHING_PIT
----| 45 # ZONE_METAL_CRAFTING_PIT
----| 46 # ZONE_LEATHERWORKING_PIT
----| 47 # ZONE_CARPENTRY_PIT
----| 48 # ZONE_STONEWORKING_PIT
----| 49 # ZONE_FORGING_PIT
----| 50 # ZONE_FIGHTING_PIT
----| 51 # ZONE_INVALID47
----| 52 # ZONE_INVALID48
----| 53 # ZONE_INVALID49
----| 54 # ZONE_INVALID50
----| 55 # ZONE_INVALID51
----| 56 # ZONE_INVALID52
----| 57 # ZONE_ANIMAL_WORKSHOP
----| 58 # ZONE_CLOTH_WORKSHOP
----| 59 # ZONE_TANNING_WORKSHOP
----| 60 # ZONE_CLOTH_CLOTHING_WORKSHOP
----| 61 # ZONE_LEATHER_CLOTHING_WORKSHOP
----| 62 # ZONE_BONE_CARVING_WORKSHOP
----| 63 # ZONE_GEM_CUTTING_WORKSHOP
----| 64 # ZONE_WEAPONSMITHING_WORKSHOP
----| 65 # ZONE_BOWMAKING_WORKSHOP
----| 66 # ZONE_BLACKSMITHING_WORKSHOP
----| 67 # ZONE_ARMORSMITHING_WORKSHOP
----| 68 # ZONE_METAL_CRAFTING_WORKSHOP
----| 69 # ZONE_LEATHERWORKING_SHOP
----| 70 # ZONE_CARPENTRY_WORKSHOP
----| 71 # ZONE_STONEWORKING_WORKSHOP
----| 72 # ZONE_FORGING_WORKSHOP
----| 73 # ZONE_COUNTING_HOUSE_OFFICES
----| 74 # ZONE_COUNTING_HOUSE_STORAGE
----| 75 # ZONE_GUILDHALL_OFFICES
----| 76 # ZONE_GUILDHALL_STORAGE
----| 77 # ZONE_TOWER_ENTRANCE
----| 78 # ZONE_TOWER_FEASTHALL
----| 79 # ZONE_TOWER_BEDROOM
----| 80 # ZONE_TOWER_TREASURY
----| 81 # ZONE_TOWER_DUNGEON
----| 82 # ZONE_TOWER_ATTIC
----| 83 # ZONE_DORMITORY
----| 84 # ZONE_DINING_HALL
----| 85 # ZONE_INVALID81
----| 86 # ZONE_WATER_SOURCE
----| 87 # ZONE_DUMP
----| 88 # ZONE_SAND_COLLECTION
----| 89 # ZONE_FISHING_AREA
----| 90 # ZONE_POND
----| 91 # ZONE_MEETING_HALL
----| 92 # ZONE_PEN
----| 93 # ZONE_CLAY_COLLECTION
----| 94 # ZONE_ANIMAL_TRAINING
----| 95 # ZONE_PLANT_GATHERING
----| 96 # ZONE_BEDROOM
----| 97 # ZONE_OFFICE
----| 98 # ZONE_ARCHERY_RANGE
----| 99 # ZONE_BARRACKS
----| 100 # ZONE_DUNGEON
----| 101 # ZONE_TOMB
----| 102 # LOCATION_ASSIGNED
----| 103 # ANY_ACTUAL
----| 104 # ANY_MACHINE
----| 105 # ANY_HOSPITAL_STORAGE
----| 106 # ANY_STORAGE
----| 107 # ANY_BARRACKS
----| 108 # ANY_HOSPITAL
----| 109 # BOX
----| 110 # CABINET
----| 111 # TRAP
----| 112 # DOOR
----| 113 # FLOODGATE
----| 114 # HATCH
----| 115 # GRATE_WALL
----| 116 # GRATE_FLOOR
----| 117 # BARS_VERTICAL
----| 118 # BARS_FLOOR
----| 119 # WINDOW_ANY
----| 120 # WELL
----| 121 # TABLE
----| 122 # BRIDGE
----| 123 # CHAIR
----| 124 # TRADE_DEPOT
----| 125 # NEST
----| 126 # NEST_BOX
----| 127 # BOOKCASE
----| 128 # DISPLAY_CASE
----| 129 # HIVE
----| 130 # WAGON
----| 131 # SHOP
----| 132 # BED
----| 133 # TRACTION_BENCH
----| 134 # ANY_ROAD
----| 135 # FARM_PLOT
----| 136 # GEAR_ASSEMBLY
----| 137 # ROLLERS
----| 138 # AXLE_HORIZONTAL
----| 139 # AXLE_VERTICAL
----| 140 # SUPPORT
----| 141 # ARCHERY_TARGET
----| 142 # SCREW_PUMP
----| 143 # WATER_WHEEL
----| 144 # WINDMILL
----| 145 # CHAIN
----| 146 # CAGE
----| 147 # STATUE
----| 148 # SLAB
----| 149 # COFFIN
----| 150 # WEAPON_RACK
----| 151 # ARMOR_STAND
----| 152 # FURNACE_ANY
----| 153 # FURNACE_WOOD
----| 154 # FURNACE_SMELTER_ANY
----| 155 # FURNACE_SMELTER_MAGMA
----| 156 # FURNACE_KILN_ANY
----| 157 # FURNACE_GLASS_ANY
----| 158 # FURNACE_CUSTOM
----| 159 # WORKSHOP_ANY
----| 160 # WORKSHOP_BUTCHER
----| 161 # WORKSHOP_MASON
----| 162 # WORKSHOP_KENNEL
----| 163 # WORKSHOP_FISHERY
----| 164 # WORKSHOP_JEWELER
----| 165 # WORKSHOP_LOOM
----| 166 # WORKSHOP_TANNER
----| 167 # WORKSHOP_DYER
----| 168 # WORKSHOP_MILL_ANY
----| 169 # WORKSHOP_QUERN
----| 170 # WORKSHOP_TOOL
----| 171 # WORKSHOP_MILLSTONE
----| 172 # WORKSHOP_KITCHEN
----| 173 # WORKSHOP_STILL
----| 174 # WORKSHOP_FARMER
----| 175 # WORKSHOP_ASHERY
----| 176 # WORKSHOP_CARPENTER
----| 177 # WORKSHOP_CRAFTSDWARF
----| 178 # WORKSHOP_MECHANIC
----| 179 # WORKSHOP_SIEGE
----| 180 # WORKSHOP_CLOTHIER
----| 181 # WORKSHOP_LEATHER
----| 182 # WORKSHOP_BOWYER
----| 183 # WORKSHOP_MAGMA_FORGE
----| 184 # WORKSHOP_FORGE_ANY
----| 185 # WORKSHOP_CUSTOM
----| 186 # WEAPON_UPRIGHT
----| 187 # INSTRUMENT_STATIONARY
----| 188 # OFFERING_PLACE
+---| buildings_other_id_keys
+---| buildings_other_id_values
 
 ---@class _buildings_other_id: DFEnum
 ---@field ANY -1

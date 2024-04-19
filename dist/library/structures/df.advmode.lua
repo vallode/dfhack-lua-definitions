@@ -1,58 +1,115 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias ui_advmode_menu_keys
+---| '"Default"'
+---| '"Look"'
+---| '"ConversationAddress"'
+---| '"ConversationSelect"'
+---| '"ConversationSpeak"'
+---| '"Inventory"'
+---| '"Drop"'
+---| '"ThrowItem"'
+---| '"Wear"'
+---| '"Remove"'
+---| '"Interact"'
+---| '"Put"'
+---| '"PutContainer"'
+---| '"Eat"'
+---| '"ThrowAim"'
+---| '"Fire"'
+---| '"Get"'
+---| '"GetAmount"'
+---| '"CombatPrefs"'
+---| '"Companions"'
+---| '"MovementPrefs"'
+---| '"SpeedPrefs"'
+---| '"InteractAction"'
+---| '"MoveCarefully"'
+---| '"Announcements"'
+---| '"UseBuilding"'
+---| '"Travel"'
+---| '"TravelSleep"'
+---| '"ViewFreshestTrack"'
+---| '"SleepConfirm"'
+---| '"SelectInteractionTarget"'
+---| '"InteractChoices"'
+---| '"InteractVehicle"'
+---| '"FallAction"'
+---| '"ViewTracks"'
+---| '"Jump"'
+---| '"AttackCreature"'
+---| '"AttackConfirm"'
+---| '"AttackType"'
+---| '"AttackBodypart"'
+---| '"AttackStrike"'
+---| '"DefendParry"'
+---| '"DefendBlock"'
+---| '"DodgeDirection"'
+---| '"PerformanceSelect"'
+---| '"InterruptPerformanceConfirm"'
+---| '"Build"'
+---| '"AssumeIdentity"'
+---| '"NameItem"'
+---| '"BecomePartyMember"'
+---| '"PartyTacticalSettings"'
+
+---@alias ui_advmode_menu_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+
 ---@alias ui_advmode_menu
----| 0 # Default
----| 1 # Look
----| 2 # ConversationAddress
----| 3 # ConversationSelect
----| 4 # ConversationSpeak
----| 5 # Inventory
----| 6 # Drop
----| 7 # ThrowItem
----| 8 # Wear
----| 9 # Remove
----| 10 # Interact
----| 11 # Put
----| 12 # PutContainer
----| 13 # Eat
----| 14 # ThrowAim
----| 15 # Fire
----| 16 # Get
----| 17 # GetAmount
----| 18 # CombatPrefs
----| 19 # Companions
----| 20 # MovementPrefs
----| 21 # SpeedPrefs
----| 22 # InteractAction
----| 23 # MoveCarefully
----| 24 # Announcements
----| 25 # UseBuilding
----| 26 # Travel
----| 27 # TravelSleep
----| 28 # ViewFreshestTrack
----| 29 # SleepConfirm
----| 30 # SelectInteractionTarget
----| 31 # InteractChoices
----| 32 # InteractVehicle
----| 33 # FallAction
----| 34 # ViewTracks
----| 35 # Jump
----| 36 # AttackCreature
----| 37 # AttackConfirm
----| 38 # AttackType
----| 39 # AttackBodypart
----| 40 # AttackStrike
----| 41 # DefendParry
----| 42 # DefendBlock
----| 43 # DodgeDirection
----| 44 # PerformanceSelect
----| 45 # InterruptPerformanceConfirm
----| 46 # Build
----| 47 # AssumeIdentity
----| 48 # NameItem
----| 49 # BecomePartyMember
----| 50 # PartyTacticalSettings
+---| ui_advmode_menu_keys
+---| ui_advmode_menu_values
 
 ---@class _ui_advmode_menu: DFEnum
 ---@field Default 0 original name is 'AdventureViewModes'
@@ -192,11 +249,21 @@ df.ui_advmode_menu = {}
 ---@field _kind 'struct-type'
 df.conversation = {}
 
+---@alias conversation.T_state_keys
+---| '"started"'
+---| '"active"'
+---| '"finished"'
+---| '"quit"'
+
+---@alias conversation.T_state_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias conversation.T_state
----| 0 # started
----| 1 # active
----| 2 # finished
----| 3 # quit
+---| conversation.T_state_keys
+---| conversation.T_state_values
 
 ---@class _conversation.T_state: DFEnum
 ---@field started 0
@@ -209,227 +276,463 @@ df.conversation = {}
 ---@field [3] "quit"
 df.conversation.T_state = {}
 
+---@alias talk_choice_type_keys
+---| '"Greet"'
+---| '"Nevermind"'
+---| '"Trade"'
+---| '"AskJoin"'
+---| '"AskSurroundings"'
+---| '"SayGoodbye"'
+---| '"AskStructure"'
+---| '"AskFamily"'
+---| '"AskProfession"'
+---| '"AskPermissionSleep"'
+---| '"AccuseNightCreature"'
+---| '"AskTroubles"'
+---| '"BringUpEvent"'
+---| '"SpreadRumor"'
+---| '"ReplyGreeting"'
+---| '"RefuseConversation"'
+---| '"ReplyImpersonate"'
+---| '"BringUpIncident"'
+---| '"TellNothingChanged"'
+---| '"Goodbye2"'
+---| '"ReturnTopic"'
+---| '"ChangeSubject"'
+---| '"AskTargetAction"'
+---| '"RequestSuggestAction"'
+---| '"AskJoinInsurrection"'
+---| '"AskJoinRescue"'
+---| '"StateOpinion"'
+---| '"RespondJoinInsurrection"'
+---| '""'
+---| '"AllowPermissionSleep"'
+---| '"DenyPermissionSleep"'
+---| '""'
+---| '"AskJoinAdventure"'
+---| '"AskGuideLocation"'
+---| '"RespondJoin"'
+---| '"RespondJoin2"'
+---| '"OfferCondolences"'
+---| '"StateNotAcquainted"'
+---| '"SuggestTravel"'
+---| '"SuggestTalk"'
+---| '"RequestSelfRescue"'
+---| '"AskWhatHappened"'
+---| '"AskBeRescued"'
+---| '"SayNotRemember"'
+---| '""'
+---| '"SayNoFamily"'
+---| '"StateUnitLocation"'
+---| '"ReferToElder"'
+---| '"AskComeCloser"'
+---| '"DoBusiness"'
+---| '"AskComeStoreLater"'
+---| '"AskComeMarketLater"'
+---| '"TellTryShopkeeper"'
+---| '"DescribeSurroundings"'
+---| '"AskWaitUntilHome"'
+---| '"DescribeFamily"'
+---| '"StateAge"'
+---| '"DescribeProfession"'
+---| '"AnnounceNightCreature"'
+---| '"StateIncredulity"'
+---| '"BypassGreeting"'
+---| '"AskCeaseHostilities"'
+---| '"DemandYield"'
+---| '"HawkWares"'
+---| '"YieldTerror"'
+---| '"Yield"'
+---| '"ExpressOverwhelmingEmotion"'
+---| '"ExpressGreatEmotion"'
+---| '"ExpressEmotion"'
+---| '"ExpressMinorEmotion"'
+---| '"ExpressLackEmotion"'
+---| '"OutburstFleeConflict"'
+---| '"StateFleeConflict"'
+---| '"MentionJourney"'
+---| '"SummarizeTroubles"'
+---| '"AskAboutIncident"'
+---| '"AskDirectionsPerson"'
+---| '"AskDirectionsPlace"'
+---| '"AskWhereabouts"'
+---| '"RequestGuide"'
+---| '"RequestGuide2"'
+---| '"ProvideDirections"'
+---| '"ProvideWhereabouts"'
+---| '"TellTargetSelf"'
+---| '"TellTargetDead"'
+---| '"RecommendGuide"'
+---| '"ProfessIgnorance"'
+---| '"TellAboutPlace"'
+---| '"AskFavorMenu"'
+---| '"AskWait"'
+---| '"AskFollow"'
+---| '"ApologizeBusy"'
+---| '"ComplyOrder"'
+---| '"AgreeFollow"'
+---| '"ExchangeItems"'
+---| '"AskComeCloser2"'
+---| '"InitiateBarter"'
+---| '"AgreeCeaseHostile"'
+---| '"RefuseCeaseHostile"'
+---| '"RefuseCeaseHostile2"'
+---| '"RefuseYield"'
+---| '"RefuseYield2"'
+---| '"Brag"'
+---| '"DescribeRelation"'
+---| '"ClaimSite"'
+---| '"AnnounceLairHunt"'
+---| '"RequestDuty"'
+---| '"AskJoinService"'
+---| '"AcceptService"'
+---| '"TellRemainVigilant"'
+---| '"GiveServiceOrder"'
+---| '"WelcomeSelfHome"'
+---| '""'
+---| '"AskTravelReason"'
+---| '"TellTravelReason"'
+---| '"AskLocalRuler"'
+---| '"ComplainAgreement"'
+---| '"CancelAgreement"'
+---| '"SummarizeConflict"'
+---| '"SummarizeViews"'
+---| '"AskClaimStrength"'
+---| '"AskArmyPosition"'
+---| '"AskOtherClaims"'
+---| '"AskDeserters"'
+---| '"AskSiteNeighbors"'
+---| '"DescribeSiteNeighbors"'
+---| '"RaiseAlarm"'
+---| '"DemandDropWeapon"'
+---| '"AgreeComplyDemand"'
+---| '"RefuseComplyDemand"'
+---| '"AskLocationObject"'
+---| '"DemandTribute"'
+---| '"AgreeGiveTribute"'
+---| '"RefuseGiveTribute"'
+---| '"OfferGiveTribute"'
+---| '"AgreeAcceptTribute"'
+---| '"RefuseAcceptTribute"'
+---| '"CancelTribute"'
+---| '"OfferPeace"'
+---| '"AgreePeace"'
+---| '"RefusePeace"'
+---| '"AskTradeDepotLater"'
+---| '"ExpressAstonishment"'
+---| '"CommentWeather"'
+---| '"CommentNature"'
+---| '"SummarizeTerritory"'
+---| '"SummarizePatrols"'
+---| '"SummarizeOpposition"'
+---| '"DescribeRefugees"'
+---| '"AccuseTroublemaker"'
+---| '"AskAdopt"'
+---| '"AgreeAdopt"'
+---| '"RefuseAdopt"'
+---| '"RevokeService"'
+---| '"InviteService"'
+---| '"AcceptInviteService"'
+---| '"RefuseShareInformation"'
+---| '"RefuseInviteService"'
+---| '"RefuseRequestService"'
+---| '"OfferService"'
+---| '"AcceptPositionService"'
+---| '"RefusePositionService"'
+---| '"InvokeNameBanish"'
+---| '"InvokeNameService"'
+---| '"GrovelMaster"'
+---| '"DemandItem"'
+---| '"GiveServiceReport"'
+---| '"OfferEncouragement"'
+---| '"PraiseTaskCompleter"'
+---| '"AskAboutPersonMenu"'
+---| '"AskAboutPerson"'
+---| '"TellAboutPerson"'
+---| '"AskFeelings"'
+---| '"TellThoughts"'
+---| '"AskServices"'
+---| '"TellServices"'
+---| '"OrderDrink"'
+---| '"RentRoom"'
+---| '"ExtendRoomRental"'
+---| '"ConfirmServiceOrder"'
+---| '"AskJoinEntertain"'
+---| '"RespondJoinEntertain"'
+---| '"AskJoinTroupe"'
+---| '""'
+---| '"RefuseTroupeApplication"'
+---| '"InviteJoinTroupe"'
+---| '"AcceptTroupeInvitation"'
+---| '"RefuseTroupeInvitation"'
+---| '"KickOutOfTroupe"'
+---| '"CreateTroupe"'
+---| '"LeaveTroupe"'
+---| '"YellServiceOrder"'
+---| '"TellBePatientForService"'
+---| '"TellNoServices"'
+---| '"AskWaitUntilThere"'
+---| '"DenyWorkingHere"'
+---| '"ExpressEmotionMenu"'
+---| '"StateValueMenu"'
+---| '"StateValue"'
+---| '"SayNoOrderYet"'
+---| '"ProvideDirectionsBuilding"'
+---| '"Argue"'
+---| '"Flatter"'
+---| '"DismissArgument"'
+---| '"RespondPassively"'
+---| '"Acquiesce"'
+---| '"DerideFlattery"'
+---| '"ExpressOutrageAtDismissal"'
+---| '"PressArgument"'
+---| '"DropArgument"'
+---| '"AskWork"'
+---| '"AskWorkGroup"'
+---| '"GrantWork"'
+---| '"RefuseWork"'
+---| '"GrantWorkGroup"'
+---| '"RefuseWorkGroup"'
+---| '"GiveSquadOrder"'
+---| '"Artifact"'
+---| '"PraiseReturn"'
+---| '"ProvideLocation"'
+---| '"Prophesize"'
+---| '"TalkAboutAncestor"'
+---| '"SuggestTrade"'
+---| '"AcceptNotTrade"'
+---| '"DemandIdentity"'
+
+---@alias talk_choice_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+---| 189
+---| 190
+---| 191
+---| 192
+---| 193
+---| 194
+---| 195
+---| 196
+---| 197
+---| 198
+---| 199
+---| 200
+---| 201
+---| 202
+---| 203
+---| 204
+---| 205
+---| 206
+---| 207
+---| 208
+---| 209
+---| 210
+---| 211
+---| 212
+---| 213
+---| 214
+---| 215
+---| 216
+---| 217
+---| 218
+---| 219
+---| 220
+---| 221
+---| 222
+---| 223
+---| 224
+
 ---@alias talk_choice_type
----| 0 # Greet
----| 1 # Nevermind
----| 2 # Trade
----| 3 # AskJoin
----| 4 # AskSurroundings
----| 5 # SayGoodbye
----| 6 # AskStructure
----| 7 # AskFamily
----| 8 # AskProfession
----| 9 # AskPermissionSleep
----| 10 # AccuseNightCreature
----| 11 # AskTroubles
----| 12 # BringUpEvent
----| 13 # SpreadRumor
----| 14 # ReplyGreeting
----| 15 # RefuseConversation
----| 16 # ReplyImpersonate
----| 17 # BringUpIncident
----| 18 # TellNothingChanged
----| 19 # Goodbye2
----| 20 # ReturnTopic
----| 21 # ChangeSubject
----| 22 # AskTargetAction
----| 23 # RequestSuggestAction
----| 24 # AskJoinInsurrection
----| 25 # AskJoinRescue
----| 26 # StateOpinion
----| 27 # RespondJoinInsurrection
----| 29 # AllowPermissionSleep
----| 30 # DenyPermissionSleep
----| 32 # AskJoinAdventure
----| 33 # AskGuideLocation
----| 34 # RespondJoin
----| 35 # RespondJoin2
----| 36 # OfferCondolences
----| 37 # StateNotAcquainted
----| 38 # SuggestTravel
----| 39 # SuggestTalk
----| 40 # RequestSelfRescue
----| 41 # AskWhatHappened
----| 42 # AskBeRescued
----| 43 # SayNotRemember
----| 45 # SayNoFamily
----| 46 # StateUnitLocation
----| 47 # ReferToElder
----| 48 # AskComeCloser
----| 49 # DoBusiness
----| 50 # AskComeStoreLater
----| 51 # AskComeMarketLater
----| 52 # TellTryShopkeeper
----| 53 # DescribeSurroundings
----| 54 # AskWaitUntilHome
----| 55 # DescribeFamily
----| 56 # StateAge
----| 57 # DescribeProfession
----| 58 # AnnounceNightCreature
----| 59 # StateIncredulity
----| 60 # BypassGreeting
----| 61 # AskCeaseHostilities
----| 62 # DemandYield
----| 63 # HawkWares
----| 64 # YieldTerror
----| 65 # Yield
----| 66 # ExpressOverwhelmingEmotion
----| 67 # ExpressGreatEmotion
----| 68 # ExpressEmotion
----| 69 # ExpressMinorEmotion
----| 70 # ExpressLackEmotion
----| 71 # OutburstFleeConflict
----| 72 # StateFleeConflict
----| 73 # MentionJourney
----| 74 # SummarizeTroubles
----| 75 # AskAboutIncident
----| 76 # AskDirectionsPerson
----| 77 # AskDirectionsPlace
----| 78 # AskWhereabouts
----| 79 # RequestGuide
----| 80 # RequestGuide2
----| 81 # ProvideDirections
----| 82 # ProvideWhereabouts
----| 83 # TellTargetSelf
----| 84 # TellTargetDead
----| 85 # RecommendGuide
----| 86 # ProfessIgnorance
----| 87 # TellAboutPlace
----| 88 # AskFavorMenu
----| 89 # AskWait
----| 90 # AskFollow
----| 91 # ApologizeBusy
----| 92 # ComplyOrder
----| 93 # AgreeFollow
----| 94 # ExchangeItems
----| 95 # AskComeCloser2
----| 96 # InitiateBarter
----| 97 # AgreeCeaseHostile
----| 98 # RefuseCeaseHostile
----| 99 # RefuseCeaseHostile2
----| 100 # RefuseYield
----| 101 # RefuseYield2
----| 102 # Brag
----| 103 # DescribeRelation
----| 104 # ClaimSite
----| 105 # AnnounceLairHunt
----| 106 # RequestDuty
----| 107 # AskJoinService
----| 108 # AcceptService
----| 109 # TellRemainVigilant
----| 110 # GiveServiceOrder
----| 111 # WelcomeSelfHome
----| 113 # AskTravelReason
----| 114 # TellTravelReason
----| 115 # AskLocalRuler
----| 116 # ComplainAgreement
----| 117 # CancelAgreement
----| 118 # SummarizeConflict
----| 119 # SummarizeViews
----| 120 # AskClaimStrength
----| 121 # AskArmyPosition
----| 122 # AskOtherClaims
----| 123 # AskDeserters
----| 124 # AskSiteNeighbors
----| 125 # DescribeSiteNeighbors
----| 126 # RaiseAlarm
----| 127 # DemandDropWeapon
----| 128 # AgreeComplyDemand
----| 129 # RefuseComplyDemand
----| 130 # AskLocationObject
----| 131 # DemandTribute
----| 132 # AgreeGiveTribute
----| 133 # RefuseGiveTribute
----| 134 # OfferGiveTribute
----| 135 # AgreeAcceptTribute
----| 136 # RefuseAcceptTribute
----| 137 # CancelTribute
----| 138 # OfferPeace
----| 139 # AgreePeace
----| 140 # RefusePeace
----| 141 # AskTradeDepotLater
----| 142 # ExpressAstonishment
----| 143 # CommentWeather
----| 144 # CommentNature
----| 145 # SummarizeTerritory
----| 146 # SummarizePatrols
----| 147 # SummarizeOpposition
----| 148 # DescribeRefugees
----| 149 # AccuseTroublemaker
----| 150 # AskAdopt
----| 151 # AgreeAdopt
----| 152 # RefuseAdopt
----| 153 # RevokeService
----| 154 # InviteService
----| 155 # AcceptInviteService
----| 156 # RefuseShareInformation
----| 157 # RefuseInviteService
----| 158 # RefuseRequestService
----| 159 # OfferService
----| 160 # AcceptPositionService
----| 161 # RefusePositionService
----| 162 # InvokeNameBanish
----| 163 # InvokeNameService
----| 164 # GrovelMaster
----| 165 # DemandItem
----| 166 # GiveServiceReport
----| 167 # OfferEncouragement
----| 168 # PraiseTaskCompleter
----| 169 # AskAboutPersonMenu
----| 170 # AskAboutPerson
----| 171 # TellAboutPerson
----| 172 # AskFeelings
----| 173 # TellThoughts
----| 174 # AskServices
----| 175 # TellServices
----| 176 # OrderDrink
----| 177 # RentRoom
----| 178 # ExtendRoomRental
----| 179 # ConfirmServiceOrder
----| 180 # AskJoinEntertain
----| 181 # RespondJoinEntertain
----| 182 # AskJoinTroupe
----| 184 # RefuseTroupeApplication
----| 185 # InviteJoinTroupe
----| 186 # AcceptTroupeInvitation
----| 187 # RefuseTroupeInvitation
----| 188 # KickOutOfTroupe
----| 189 # CreateTroupe
----| 190 # LeaveTroupe
----| 191 # YellServiceOrder
----| 192 # TellBePatientForService
----| 193 # TellNoServices
----| 194 # AskWaitUntilThere
----| 195 # DenyWorkingHere
----| 196 # ExpressEmotionMenu
----| 197 # StateValueMenu
----| 198 # StateValue
----| 199 # SayNoOrderYet
----| 200 # ProvideDirectionsBuilding
----| 201 # Argue
----| 202 # Flatter
----| 203 # DismissArgument
----| 204 # RespondPassively
----| 205 # Acquiesce
----| 206 # DerideFlattery
----| 207 # ExpressOutrageAtDismissal
----| 208 # PressArgument
----| 209 # DropArgument
----| 210 # AskWork
----| 211 # AskWorkGroup
----| 212 # GrantWork
----| 213 # RefuseWork
----| 214 # GrantWorkGroup
----| 215 # RefuseWorkGroup
----| 216 # GiveSquadOrder
----| 217 # Artifact
----| 218 # PraiseReturn
----| 219 # ProvideLocation
----| 220 # Prophesize
----| 221 # TalkAboutAncestor
----| 222 # SuggestTrade
----| 223 # AcceptNotTrade
----| 224 # DemandIdentity
+---| talk_choice_type_keys
+---| talk_choice_type_values
 
 ---@class _talk_choice_type: DFEnum
 ---@field Greet 0 0
@@ -874,12 +1177,23 @@ df.conversation.T_state = {}
 ---@field [224] "DemandIdentity"
 df.talk_choice_type = {}
 
+---@alias assume_identity_mode_keys
+---| '"SelectIdentity"'
+---| '"CreateIdentity"'
+---| '"SelectProfession"'
+---| '"SelectWorship"'
+---| '"SelectOrigin"'
+
+---@alias assume_identity_mode_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias assume_identity_mode
----| 0 # SelectIdentity
----| 1 # CreateIdentity
----| 2 # SelectProfession
----| 3 # SelectWorship
----| 4 # SelectOrigin
+---| assume_identity_mode_keys
+---| assume_identity_mode_values
 
 ---@class _assume_identity_mode: DFEnum
 ---@field SelectIdentity 0
@@ -932,10 +1246,19 @@ df.talk_choice.T_unk = {}
 ---@field _kind 'struct-type'
 df.adventure_workingst = {}
 
+---@alias adventure_workingst.T_type_keys
+---| '"NONE"'
+---| '"CHOP_TREE"'
+---| '"BUILD_SITE"'
+
+---@alias adventure_workingst.T_type_values
+---| -1
+---| 0
+---| 1
+
 ---@alias adventure_workingst.T_type
----| -1 # NONE
----| 0 # CHOP_TREE
----| 1 # BUILD_SITE
+---| adventure_workingst.T_type_keys
+---| adventure_workingst.T_type_values
 
 -- bay12: AdventureWork
 ---@class _adventure_workingst.T_type: DFEnum
@@ -971,15 +1294,29 @@ df.adventure_workingst.T_type = {}
 ---@field _kind 'struct-type'
 df.adventure_rumor_datast = {}
 
+---@alias adventure_construction_mode_type_keys
+---| '"NONE"'
+---| '"CONSTRUCTION"'
+---| '"MATERIAL"'
+---| '"BUILDING"'
+---| '"ZONE_LIST"'
+---| '"ZONE_NEW_EDIT"'
+---| '"ZONE_ASSIGN"'
+---| '"ZONE_LOCATION"'
+
+---@alias adventure_construction_mode_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+
 ---@alias adventure_construction_mode_type
----| -1 # NONE
----| 0 # CONSTRUCTION
----| 1 # MATERIAL
----| 2 # BUILDING
----| 3 # ZONE_LIST
----| 4 # ZONE_NEW_EDIT
----| 5 # ZONE_ASSIGN
----| 6 # ZONE_LOCATION
+---| adventure_construction_mode_type_keys
+---| adventure_construction_mode_type_values
 
 ---@class _adventure_construction_mode_type: DFEnum
 ---@field NONE -1
@@ -1139,10 +1476,19 @@ df.adventure_construction_mode_type = {}
 ---@field _kind 'struct-type'
 df.adventurest = {}
 
+---@alias adventurest.T_travel_right_map_keys
+---| '"MapNone"'
+---| '"MapSite"'
+---| '"MapWorld"'
+
+---@alias adventurest.T_travel_right_map_values
+---| 0
+---| 1
+---| 2
+
 ---@alias adventurest.T_travel_right_map
----| 0 # MapNone
----| 1 # MapSite
----| 2 # MapWorld
+---| adventurest.T_travel_right_map_keys
+---| adventurest.T_travel_right_map_values
 
 -- bay12: traveL_map; is an int8_t
 ---@class _adventurest.T_travel_right_map: DFEnum
@@ -1154,12 +1500,23 @@ df.adventurest = {}
 ---@field [2] "MapWorld"
 df.adventurest.T_travel_right_map = {}
 
+---@alias adventurest.T_show_menu_keys
+---| '"TwoBlankRows"'
+---| '"Hidden"'
+---| '"TwoRowsWithKeybindingHints"'
+---| '"TwoRows"'
+---| '"OneRow"'
+
+---@alias adventurest.T_show_menu_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias adventurest.T_show_menu
----| -1 # TwoBlankRows
----| 0 # Hidden
----| 1 # TwoRowsWithKeybindingHints
----| 2 # TwoRows
----| 3 # OneRow
+---| adventurest.T_show_menu_keys
+---| adventurest.T_show_menu_values
 
 -- bay12: travel_instructions; is an int8_t; bottom menu in travel mode
 ---@class _adventurest.T_show_menu: DFEnum
@@ -1219,12 +1576,23 @@ df.adventurest.T_exemplar_track_data = {}
 ---@field [7] "level"
 df.adventurest.T_exemplar_track_data.T_flag = {}
 
+---@alias adventurest.T_exemplar_track_data.T_type_keys
+---| '"NONE"'
+---| '"BROKEN_VEGETATION"'
+---| '"HFID_COMBINEDCASTE_BP"'
+---| '"ITEMT_ITEMST_ORIENT"'
+---| '"MESS"'
+
+---@alias adventurest.T_exemplar_track_data.T_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias adventurest.T_exemplar_track_data.T_type
----| -1 # NONE
----| 0 # BROKEN_VEGETATION
----| 1 # HFID_COMBINEDCASTE_BP
----| 2 # ITEMT_ITEMST_ORIENT
----| 3 # MESS
+---| adventurest.T_exemplar_track_data.T_type_keys
+---| adventurest.T_exemplar_track_data.T_type_values
 
 -- bay12 type: SpoorFlag
 ---@class _adventurest.T_exemplar_track_data.T_type: DFEnum
@@ -1329,26 +1697,51 @@ df.adventurest.T_rumor_info = {}
 ---@field _kind 'struct-type'
 df.adventurest.T_construction = {}
 
+---@alias adventurest.T_charge_forbidden_keys
+---| '"None"'
+---| '"NoTarget"'
+---| '"SelfProne"'
+---| '"SelfMounted"'
+---| '"SelfChained"'
+---| '"SelfUncontrolledFlight"'
+---| '"SelfVehicle"'
+---| '"SelfProjectile"'
+---| '"SelfClimbing"'
+---| '"TargetProne"'
+---| '"TargetMounted"'
+---| '"TargetChained"'
+---| '"TargetUncontrolledFlight"'
+---| '"TargetVehicle"'
+---| '"TargetProjectile"'
+---| '"TargetClimbing"'
+---| '"TargetSharesLocation"'
+---| '"TargetLocationInaccessible"'
+---| '"TargetTooFarAway"'
+
+---@alias adventurest.T_charge_forbidden_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+
 ---@alias adventurest.T_charge_forbidden
----| -1 # None
----| 0 # NoTarget
----| 1 # SelfProne
----| 2 # SelfMounted
----| 3 # SelfChained
----| 4 # SelfUncontrolledFlight
----| 5 # SelfVehicle
----| 6 # SelfProjectile
----| 7 # SelfClimbing
----| 8 # TargetProne
----| 9 # TargetMounted
----| 10 # TargetChained
----| 11 # TargetUncontrolledFlight
----| 12 # TargetVehicle
----| 13 # TargetProjectile
----| 14 # TargetClimbing
----| 15 # TargetSharesLocation
----| 16 # TargetLocationInaccessible
----| 17 # TargetTooFarAway
+---| adventurest.T_charge_forbidden_keys
+---| adventurest.T_charge_forbidden_values
 
 -- bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
 ---@class _adventurest.T_charge_forbidden: DFEnum
@@ -1413,10 +1806,19 @@ df.adventurest.T_charge_forbidden = {}
 ---@field _kind 'struct-type'
 df.adventurest.T_conversation = {}
 
+---@alias adventurest.T_conversation.T_conv_tact_keys
+---| '"NONE"'
+---| '"Persuade"'
+---| '"Intimidate"'
+
+---@alias adventurest.T_conversation.T_conv_tact_values
+---| -1
+---| 0
+---| 1
+
 ---@alias adventurest.T_conversation.T_conv_tact
----| -1 # NONE
----| 0 # Persuade
----| 1 # Intimidate
+---| adventurest.T_conversation.T_conv_tact_keys
+---| adventurest.T_conversation.T_conv_tact_values
 
 ---@class _adventurest.T_conversation.T_conv_tact: DFEnum
 ---@field NONE -1
@@ -1427,9 +1829,17 @@ df.adventurest.T_conversation = {}
 ---@field [1] "Intimidate"
 df.adventurest.T_conversation.T_conv_tact = {}
 
+---@alias adventurest.T_rest_mode_keys
+---| '"Wait"'
+---| '"Sleep"'
+
+---@alias adventurest.T_rest_mode_values
+---| 0
+---| 1
+
 ---@alias adventurest.T_rest_mode
----| 0 # Wait
----| 1 # Sleep
+---| adventurest.T_rest_mode_keys
+---| adventurest.T_rest_mode_values
 
 ---@class _adventurest.T_rest_mode: DFEnum
 ---@field Wait 0

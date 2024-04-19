@@ -1,12 +1,23 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias art_image_element_type_keys
+---| '"CREATURE"'
+---| '"PLANT"'
+---| '"TREE"'
+---| '"SHAPE"'
+---| '"ITEM"'
+
+---@alias art_image_element_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias art_image_element_type
----| 0 # CREATURE
----| 1 # PLANT
----| 2 # TREE
----| 3 # SHAPE
----| 4 # ITEM
+---| art_image_element_type_keys
+---| art_image_element_type_values
 
 ---@class _art_image_element_type: DFEnum
 ---@field CREATURE 0
@@ -83,9 +94,17 @@ df.art_image_element_shapest = {}
 ---@field _kind 'class-type'
 df.art_image_element_itemst = {}
 
+---@alias art_image_property_type_keys
+---| '"transitive_verb"'
+---| '"intransitive_verb"'
+
+---@alias art_image_property_type_values
+---| 0
+---| 1
+
 ---@alias art_image_property_type
----| 0 # transitive_verb
----| 1 # intransitive_verb
+---| art_image_property_type_keys
+---| art_image_property_type_values
 
 ---@class _art_image_property_type: DFEnum
 ---@field transitive_verb 0
@@ -103,55 +122,109 @@ df.art_image_property_type = {}
 ---@field _kind 'class-type'
 df.art_image_property = {}
 
+---@alias art_image_property_verb_keys
+---| '"Withering"'
+---| '"SurroundedBy"'
+---| '"Massacring"'
+---| '"Fighting"'
+---| '"Laboring"'
+---| '"Greeting"'
+---| '"Refusing"'
+---| '"Speaking"'
+---| '"Embracing"'
+---| '"StrikingDown"'
+---| '"MenacingPose"'
+---| '"Traveling"'
+---| '"Raising"'
+---| '"Hiding"'
+---| '"LookingConfused"'
+---| '"LookingTerrified"'
+---| '"Devouring"'
+---| '"Admiring"'
+---| '"Burning"'
+---| '"Weeping"'
+---| '"LookingDejected"'
+---| '"Cringing"'
+---| '"Screaming"'
+---| '"SubmissiveGesture"'
+---| '"FetalPosition"'
+---| '"SmearedIntoSpiral"'
+---| '"Falling"'
+---| '"Dead"'
+---| '"Laughing"'
+---| '"LookingOffended"'
+---| '"BeingShot"'
+---| '"PlaintiveGesture"'
+---| '"Melting"'
+---| '"Shooting"'
+---| '"Torturing"'
+---| '"CommittingDepravedAct"'
+---| '"Praying"'
+---| '"Contemplating"'
+---| '"Cooking"'
+---| '"Engraving"'
+---| '"Prostrating"'
+---| '"Suffering"'
+---| '"BeingImpaled"'
+---| '"BeingContorted"'
+---| '"BeingFlayed"'
+---| '"HangingFrom"'
+---| '"BeingMutilated"'
+---| '"TriumphantPose"'
+
+---@alias art_image_property_verb_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+
 ---@alias art_image_property_verb
----| 0 # Withering
----| 1 # SurroundedBy
----| 2 # Massacring
----| 3 # Fighting
----| 4 # Laboring
----| 5 # Greeting
----| 6 # Refusing
----| 7 # Speaking
----| 8 # Embracing
----| 9 # StrikingDown
----| 10 # MenacingPose
----| 11 # Traveling
----| 12 # Raising
----| 13 # Hiding
----| 14 # LookingConfused
----| 15 # LookingTerrified
----| 16 # Devouring
----| 17 # Admiring
----| 18 # Burning
----| 19 # Weeping
----| 20 # LookingDejected
----| 21 # Cringing
----| 22 # Screaming
----| 23 # SubmissiveGesture
----| 24 # FetalPosition
----| 25 # SmearedIntoSpiral
----| 26 # Falling
----| 27 # Dead
----| 28 # Laughing
----| 29 # LookingOffended
----| 30 # BeingShot
----| 31 # PlaintiveGesture
----| 32 # Melting
----| 33 # Shooting
----| 34 # Torturing
----| 35 # CommittingDepravedAct
----| 36 # Praying
----| 37 # Contemplating
----| 38 # Cooking
----| 39 # Engraving
----| 40 # Prostrating
----| 41 # Suffering
----| 42 # BeingImpaled
----| 43 # BeingContorted
----| 44 # BeingFlayed
----| 45 # HangingFrom
----| 46 # BeingMutilated
----| 47 # TriumphantPose
+---| art_image_property_verb_keys
+---| art_image_property_verb_values
 
 ---@class _art_image_property_verb: DFEnum
 ---@field Withering 0
@@ -273,11 +346,21 @@ df.art_image_property_transitive_verbst = {}
 ---@field _kind 'class-type'
 df.art_image_property_intransitive_verbst = {}
 
+---@alias art_facet_type_keys
+---| '"OWN_RACE"'
+---| '"FANCIFUL"'
+---| '"GOOD"'
+---| '"EVIL"'
+
+---@alias art_facet_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias art_facet_type
----| 0 # OWN_RACE
----| 1 # FANCIFUL
----| 2 # GOOD
----| 3 # EVIL
+---| art_facet_type_keys
+---| art_facet_type_values
 
 ---@class _art_facet_type: DFEnum
 ---@field OWN_RACE 0
@@ -344,31 +427,61 @@ function df.art_image_chunk.get_vector() end
 ---@field _kind 'struct-type'
 df.art_image_ref = {}
 
+---@alias poetic_form_action_keys
+---| '"None"'
+---| '"Describe"'
+---| '"Satirize"'
+---| '"AmuseAudience"'
+---| '"Complain"'
+---| '"Renounce"'
+---| '"MakeApology"'
+---| '"ExpressPleasure"'
+---| '"ExpressGrief"'
+---| '"Praise"'
+---| '"TeachMoralLesson"'
+---| '"MakeAssertion"'
+---| '"MakeCounterAssertion"'
+---| '"MakeConsession"'
+---| '"SynthesizePreviousIdeas"'
+---| '"DevelopPreviousIdea"'
+---| '"InvertTheAssertion"'
+---| '"UndercutAssertion"'
+---| '"MoveAwayFromPreviousIdeas"'
+---| '"ReflectPreviousIdeas"'
+---| '"ConsoleAudience"'
+---| '"RefuseConsolation"'
+---| '"OfferDifferentPerspective"'
+---| '"Beseech"'
+
+---@alias poetic_form_action_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+
 ---@alias poetic_form_action
----| -1 # None
----| 0 # Describe
----| 1 # Satirize
----| 2 # AmuseAudience
----| 3 # Complain
----| 4 # Renounce
----| 5 # MakeApology
----| 6 # ExpressPleasure
----| 7 # ExpressGrief
----| 8 # Praise
----| 9 # TeachMoralLesson
----| 10 # MakeAssertion
----| 11 # MakeCounterAssertion
----| 12 # MakeConsession
----| 13 # SynthesizePreviousIdeas
----| 14 # DevelopPreviousIdea
----| 15 # InvertTheAssertion
----| 16 # UndercutAssertion
----| 17 # MoveAwayFromPreviousIdeas
----| 18 # ReflectPreviousIdeas
----| 19 # ConsoleAudience
----| 20 # RefuseConsolation
----| 21 # OfferDifferentPerspective
----| 22 # Beseech
+---| poetic_form_action_keys
+---| poetic_form_action_values
 
 ---@class _poetic_form_action: DFEnum
 ---@field None -1
@@ -421,20 +534,39 @@ df.art_image_ref = {}
 ---@field [22] "Beseech"
 df.poetic_form_action = {}
 
+---@alias poetic_form_pattern_keys
+---| '"None"'
+---| '"AA"'
+---| '"AB"'
+---| '"BA"'
+---| '"BB"'
+---| '"AAA"'
+---| '"BAA"'
+---| '"ABA"'
+---| '"AAB"'
+---| '"ABB"'
+---| '"BBA"'
+---| '"BAB"'
+---| '"BBB"'
+
+---@alias poetic_form_pattern_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+
 ---@alias poetic_form_pattern
----| -1 # None
----| 0 # AA
----| 1 # AB
----| 2 # BA
----| 3 # BB
----| 4 # AAA
----| 5 # BAA
----| 6 # ABA
----| 7 # AAB
----| 8 # ABB
----| 9 # BBA
----| 10 # BAB
----| 11 # BBB
+---| poetic_form_pattern_keys
+---| poetic_form_pattern_values
 
 -- A - even, B - uneven for tone patterns, A - unstressed, B - stressed for accent patterns
 ---@class _poetic_form_pattern: DFEnum
@@ -466,11 +598,21 @@ df.poetic_form_action = {}
 ---@field [11] "BBB"
 df.poetic_form_pattern = {}
 
+---@alias poetic_form_caesura_position_keys
+---| '"None"'
+---| '"Initial"'
+---| '"Medial"'
+---| '"Terminal"'
+
+---@alias poetic_form_caesura_position_values
+---| -1
+---| 0
+---| 1
+---| 2
+
 ---@alias poetic_form_caesura_position
----| -1 # None
----| 0 # Initial
----| 1 # Medial
----| 2 # Terminal
+---| poetic_form_caesura_position_keys
+---| poetic_form_caesura_position_values
 
 ---@class _poetic_form_caesura_position: DFEnum
 ---@field None -1
@@ -483,15 +625,29 @@ df.poetic_form_pattern = {}
 ---@field [2] "Terminal"
 df.poetic_form_caesura_position = {}
 
+---@alias poetic_form_mood_keys
+---| '"None"'
+---| '"Narrative"'
+---| '"Dramatic"'
+---| '"Reflective"'
+---| '"Riddle"'
+---| '"Ribald"'
+---| '"Light"'
+---| '"Solemn"'
+
+---@alias poetic_form_mood_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+
 ---@alias poetic_form_mood
----| -1 # None
----| 0 # Narrative
----| 1 # Dramatic
----| 2 # Reflective
----| 3 # Riddle
----| 4 # Ribald
----| 5 # Light
----| 6 # Solemn
+---| poetic_form_mood_keys
+---| poetic_form_mood_values
 
 ---@class _poetic_form_mood: DFEnum
 ---@field None -1
@@ -512,29 +668,57 @@ df.poetic_form_caesura_position = {}
 ---@field [6] "Solemn"
 df.poetic_form_mood = {}
 
+---@alias poetic_form_subject_keys
+---| '"None"'
+---| '"Past"'
+---| '"CurrentEvents"'
+---| '"Future"'
+---| '"SomeoneRecentlyDeceased"'
+---| '"SomeoneRecentlyRetired"'
+---| '"Religion"'
+---| '"SpecificPlace"'
+---| '"SpecificWildernessRegion"'
+---| '"Nature"'
+---| '"Lover"'
+---| '"Family"'
+---| '"AlcoholicBeverages"'
+---| '"Journey"'
+---| '"War"'
+---| '"Hunt"'
+---| '"Mining"'
+---| '"Death"'
+---| '"Immortality"'
+---| '"SomeonesCharacter"'
+---| '"Histfig"'
+---| '"Concept"'
+
+---@alias poetic_form_subject_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+
 ---@alias poetic_form_subject
----| -1 # None
----| 0 # Past
----| 1 # CurrentEvents
----| 2 # Future
----| 3 # SomeoneRecentlyDeceased
----| 4 # SomeoneRecentlyRetired
----| 5 # Religion
----| 6 # SpecificPlace
----| 7 # SpecificWildernessRegion
----| 8 # Nature
----| 9 # Lover
----| 10 # Family
----| 11 # AlcoholicBeverages
----| 12 # Journey
----| 13 # War
----| 14 # Hunt
----| 15 # Mining
----| 16 # Death
----| 17 # Immortality
----| 18 # SomeonesCharacter
----| 19 # Histfig
----| 20 # Concept
+---| poetic_form_subject_keys
+---| poetic_form_subject_values
 
 ---@class _poetic_form_subject: DFEnum
 ---@field None -1
@@ -706,16 +890,31 @@ df.poetic_form_subject_target.T_Concept = {}
 ---@field [21] "Juxtaposision"
 df.poetic_form_feature = {}
 
+---@alias poetic_form_additional_feature_keys
+---| '"SharesUnderlyingMeaning"'
+---| '"ContrastsUnderlyingMeaning"'
+---| '"RequiredToMaintainPhrasing"'
+---| '"SameGrammaticalStructure"'
+---| '"SamePlacementOfAllusions"'
+---| '"ReverseWordOrder"'
+---| '"ReverseGrammaticalStructure"'
+---| '"PresentsDifferentView"'
+---| '"MustExpandIdea"'
+
+---@alias poetic_form_additional_feature_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+
 ---@alias poetic_form_additional_feature
----| 0 # SharesUnderlyingMeaning
----| 1 # ContrastsUnderlyingMeaning
----| 2 # RequiredToMaintainPhrasing
----| 3 # SameGrammaticalStructure
----| 4 # SamePlacementOfAllusions
----| 5 # ReverseWordOrder
----| 6 # ReverseGrammaticalStructure
----| 7 # PresentsDifferentView
----| 8 # MustExpandIdea
+---| poetic_form_additional_feature_keys
+---| poetic_form_additional_feature_values
 
 ---@class _poetic_form_additional_feature: DFEnum
 ---@field SharesUnderlyingMeaning 0
@@ -849,15 +1048,29 @@ df.poetic_form_part.T_flags = {}
 ---@field _kind 'struct-type'
 df.poetic_form_perspective = {}
 
+---@alias poetic_form_perspective.T_type_keys
+---| '"Author"'
+---| '"Soldier"'
+---| '"Traveller"'
+---| '"RelativeOfAuthor"'
+---| '"PartyOfDebate"'
+---| '"FictionalPoet"'
+---| '"Histfig"'
+---| '"Animal"'
+
+---@alias poetic_form_perspective.T_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+
 ---@alias poetic_form_perspective.T_type
----| 0 # Author
----| 1 # Soldier
----| 2 # Traveller
----| 3 # RelativeOfAuthor
----| 4 # PartyOfDebate
----| 5 # FictionalPoet
----| 6 # Histfig
----| 7 # Animal
+---| poetic_form_perspective.T_type_keys
+---| poetic_form_perspective.T_type_values
 
 -- "written from the perspective of ..."
 ---@class _poetic_form_perspective.T_type: DFEnum
@@ -879,11 +1092,21 @@ df.poetic_form_perspective = {}
 ---@field [7] "Animal"
 df.poetic_form_perspective.T_type = {}
 
+---@alias musical_form_purpose_keys
+---| '"Entertainment"'
+---| '"Commemoration"'
+---| '"Devotion"'
+---| '"Military"'
+
+---@alias musical_form_purpose_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias musical_form_purpose
----| 0 # Entertainment
----| 1 # Commemoration
----| 2 # Devotion
----| 3 # Military
+---| musical_form_purpose_keys
+---| musical_form_purpose_values
 
 ---@class _musical_form_purpose: DFEnum
 ---@field Entertainment 0
@@ -896,81 +1119,161 @@ df.poetic_form_perspective.T_type = {}
 ---@field [3] "Military"
 df.musical_form_purpose = {}
 
+---@alias musical_form_style_keys
+---| '"None"'
+---| '"FreeTempo"'
+---| '"VerySlow"'
+---| '"Slow"'
+---| '"WalkingPace"'
+---| '"ModeratelyPaced"'
+---| '"ModeratelyFast"'
+---| '"Fast"'
+---| '"VeryFast"'
+---| '"ExtremelyFast"'
+---| '"DoubleTempo"'
+---| '"HalfTempo"'
+---| '"Faster"'
+---| '"Slower"'
+---| '"ResumeTempo"'
+---| '"OriginalTempo"'
+---| '"Accelerates"'
+---| '"SlowsAndBroadens"'
+---| '"ConsistentlySlowing"'
+---| '"HurriedPace"'
+---| '"GraduallySlowsAtEnd"'
+---| '"WhisperedUndertones"'
+---| '"VerySoft"'
+---| '"Soft"'
+---| '"ModeratelySoft"'
+---| '"ModeratelyLoud"'
+---| '"Loud"'
+---| '"VeryLoud"'
+---| '"BecomeLouderAndLouder"'
+---| '"BecomeSofterAndSofter"'
+---| '"FadeIntoSilence"'
+---| '"StartLoudThenImmediatelySoft"'
+---| '"SlowsAndDiesAwayAtEnd"'
+---| '"BecomesCalmerAtEnd"'
+---| '"BecomesFrenzied"'
+---| '"StressRhythm"'
+---| '"BeStately"'
+---| '"BeBright"'
+---| '"BeLively"'
+---| '"BeSkilled"'
+---| '"BeVigorous"'
+---| '"BeSpirited"'
+---| '"BeDelicate"'
+---| '"BeFiery"'
+---| '"BringSenseOfMotion"'
+---| '"BeFiery2"'
+---| '"WithFeeling"'
+---| '"FeelAgitated"'
+---| '"BePassionate"'
+---| '"Sparkle"'
+---| '"BeBroad"'
+---| '"BeMadeSweetly"'
+---| '"BeStrong"'
+---| '"BeEnergetic"'
+---| '"BeForceful"'
+---| '"FeelHeroic"'
+---| '"BeMadeExpressively"'
+---| '"FeelFurious"'
+---| '"BeJoyful"'
+---| '"BeGrand"'
+---| '"BeMerry"'
+---| '"BeGraceful"'
+---| '"BuildAsItProceeds"'
+---| '"EvokeTears"'
+---| '"BeMelancholic"'
+---| '"FeelMournful"'
+---| '"BeMadeWithLightTouch"'
+---| '"FeelHeavy"'
+---| '"FeelMysterious"'
+---| '"BeJumpy"'
+---| '"FeelPlayful"'
+---| '"FeelTender"'
+---| '"FeelCalm"'
+---| '"BeTriumphant"'
+
+---@alias musical_form_style_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+
 ---@alias musical_form_style
----| -1 # None
----| 0 # FreeTempo
----| 1 # VerySlow
----| 2 # Slow
----| 3 # WalkingPace
----| 4 # ModeratelyPaced
----| 5 # ModeratelyFast
----| 6 # Fast
----| 7 # VeryFast
----| 8 # ExtremelyFast
----| 9 # DoubleTempo
----| 10 # HalfTempo
----| 11 # Faster
----| 12 # Slower
----| 13 # ResumeTempo
----| 14 # OriginalTempo
----| 15 # Accelerates
----| 16 # SlowsAndBroadens
----| 17 # ConsistentlySlowing
----| 18 # HurriedPace
----| 19 # GraduallySlowsAtEnd
----| 20 # WhisperedUndertones
----| 21 # VerySoft
----| 22 # Soft
----| 23 # ModeratelySoft
----| 24 # ModeratelyLoud
----| 25 # Loud
----| 26 # VeryLoud
----| 27 # BecomeLouderAndLouder
----| 28 # BecomeSofterAndSofter
----| 29 # FadeIntoSilence
----| 30 # StartLoudThenImmediatelySoft
----| 31 # SlowsAndDiesAwayAtEnd
----| 32 # BecomesCalmerAtEnd
----| 33 # BecomesFrenzied
----| 34 # StressRhythm
----| 35 # BeStately
----| 36 # BeBright
----| 37 # BeLively
----| 38 # BeSkilled
----| 39 # BeVigorous
----| 40 # BeSpirited
----| 41 # BeDelicate
----| 42 # BeFiery
----| 43 # BringSenseOfMotion
----| 44 # BeFiery2
----| 45 # WithFeeling
----| 46 # FeelAgitated
----| 47 # BePassionate
----| 48 # Sparkle
----| 49 # BeBroad
----| 50 # BeMadeSweetly
----| 51 # BeStrong
----| 52 # BeEnergetic
----| 53 # BeForceful
----| 54 # FeelHeroic
----| 55 # BeMadeExpressively
----| 56 # FeelFurious
----| 57 # BeJoyful
----| 58 # BeGrand
----| 59 # BeMerry
----| 60 # BeGraceful
----| 61 # BuildAsItProceeds
----| 62 # EvokeTears
----| 63 # BeMelancholic
----| 64 # FeelMournful
----| 65 # BeMadeWithLightTouch
----| 66 # FeelHeavy
----| 67 # FeelMysterious
----| 68 # BeJumpy
----| 69 # FeelPlayful
----| 70 # FeelTender
----| 71 # FeelCalm
----| 72 # BeTriumphant
+---| musical_form_style_keys
+---| musical_form_style_values
 
 ---@class _musical_form_style: DFEnum
 ---@field None -1
@@ -1123,13 +1426,25 @@ df.musical_form_purpose = {}
 ---@field [72] "BeTriumphant"
 df.musical_form_style = {}
 
+---@alias musical_form_pitch_style_keys
+---| '"None"'
+---| '"SinglePitchesOnly"'
+---| '"IntervalsOnly"'
+---| '"SparseChords"'
+---| '"PitchClusters"'
+---| '"ChordLayers"'
+
+---@alias musical_form_pitch_style_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias musical_form_pitch_style
----| -1 # None
----| 0 # SinglePitchesOnly
----| 1 # IntervalsOnly
----| 2 # SparseChords
----| 3 # PitchClusters
----| 4 # ChordLayers
+---| musical_form_pitch_style_keys
+---| musical_form_pitch_style_values
 
 ---@class _musical_form_pitch_style: DFEnum
 ---@field None -1
@@ -1217,12 +1532,23 @@ df.musical_form_pitch_style = {}
 ---@field [15] "FreelyAdjustBeats"
 df.musical_form_feature = {}
 
+---@alias musical_form_passage_component_type_keys
+---| '"Melody"'
+---| '"Counterpoint"'
+---| '"Harmony"'
+---| '"Rhythm"'
+---| '"Unspecified"'
+
+---@alias musical_form_passage_component_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias musical_form_passage_component_type
----| 0 # Melody
----| 1 # Counterpoint
----| 2 # Harmony
----| 3 # Rhythm
----| 4 # Unspecified
+---| musical_form_passage_component_type_keys
+---| musical_form_passage_component_type_values
 
 ---@class _musical_form_passage_component_type: DFEnum
 ---@field Melody 0
@@ -1237,19 +1563,37 @@ df.musical_form_feature = {}
 ---@field [4] "Unspecified"
 df.musical_form_passage_component_type = {}
 
+---@alias musical_form_passage_type_keys
+---| '"Unrelated"'
+---| '"Introduction"'
+---| '"Exposition"'
+---| '"Recapitulation"'
+---| '"Synthesis"'
+---| '"Verse"'
+---| '"Chorus"'
+---| '"Finale"'
+---| '"Coda"'
+---| '"BridgePassage"'
+---| '"Theme"'
+---| '"Variation"'
+
+---@alias musical_form_passage_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+
 ---@alias musical_form_passage_type
----| 0 # Unrelated
----| 1 # Introduction
----| 2 # Exposition
----| 3 # Recapitulation
----| 4 # Synthesis
----| 5 # Verse
----| 6 # Chorus
----| 7 # Finale
----| 8 # Coda
----| 9 # BridgePassage
----| 10 # Theme
----| 11 # Variation
+---| musical_form_passage_type_keys
+---| musical_form_passage_type_values
 
 ---@class _musical_form_passage_type: DFEnum
 ---@field Unrelated 0
@@ -1278,12 +1622,23 @@ df.musical_form_passage_component_type = {}
 ---@field [11] "Variation"
 df.musical_form_passage_type = {}
 
+---@alias musical_form_passage_length_type_keys
+---| '"NONE"'
+---| '"Short"'
+---| '"MidLength"'
+---| '"Long"'
+---| '"Varied"'
+
+---@alias musical_form_passage_length_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias musical_form_passage_length_type
----| -1 # NONE
----| 0 # Short
----| 1 # MidLength
----| 2 # Long
----| 3 # Varied
+---| musical_form_passage_length_type_keys
+---| musical_form_passage_length_type_values
 
 ---@class _musical_form_passage_length_type: DFEnum
 ---@field NONE -1
@@ -1298,11 +1653,21 @@ df.musical_form_passage_type = {}
 ---@field [3] "Varied"
 df.musical_form_passage_length_type = {}
 
+---@alias musical_form_melody_style_keys
+---| '"Rising"'
+---| '"Falling"'
+---| '"RisingFalling"'
+---| '"FallingRising"'
+
+---@alias musical_form_melody_style_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias musical_form_melody_style
----| 0 # Rising
----| 1 # Falling
----| 2 # RisingFalling
----| 3 # FallingRising
+---| musical_form_melody_style_keys
+---| musical_form_melody_style_values
 
 ---@class _musical_form_melody_style: DFEnum
 ---@field Rising 0
@@ -1315,10 +1680,19 @@ df.musical_form_passage_length_type = {}
 ---@field [3] "FallingRising"
 df.musical_form_melody_style = {}
 
+---@alias musical_form_melody_frequency_keys
+---| '"Always"'
+---| '"Often"'
+---| '"Sometimes"'
+
+---@alias musical_form_melody_frequency_values
+---| 0
+---| 1
+---| 2
+
 ---@alias musical_form_melody_frequency
----| 0 # Always
----| 1 # Often
----| 2 # Sometimes
+---| musical_form_melody_frequency_keys
+---| musical_form_melody_frequency_values
 
 ---@class _musical_form_melody_frequency: DFEnum
 ---@field Always 0
@@ -1506,13 +1880,25 @@ function df.musical_form.get_vector() end
 ---@field [1] "repeats_as_necessary" 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
 df.musical_form.T_flags = {}
 
+---@alias dance_form_context_keys
+---| '"Sacred"'
+---| '"Celebration"'
+---| '"Participation"'
+---| '"Social"'
+---| '"Performance"'
+---| '"War"'
+
+---@alias dance_form_context_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias dance_form_context
----| 0 # Sacred
----| 1 # Celebration
----| 2 # Participation
----| 3 # Social
----| 4 # Performance
----| 5 # War
+---| dance_form_context_keys
+---| dance_form_context_values
 
 ---@class _dance_form_context: DFEnum
 ---@field Sacred 0
@@ -1529,10 +1915,19 @@ df.musical_form.T_flags = {}
 ---@field [5] "War"
 df.dance_form_context = {}
 
+---@alias dance_form_group_size_keys
+---| '"Solo"'
+---| '"Partner"'
+---| '"Group"'
+
+---@alias dance_form_group_size_values
+---| 0
+---| 1
+---| 2
+
 ---@alias dance_form_group_size
----| 0 # Solo
----| 1 # Partner
----| 2 # Group
+---| dance_form_group_size_keys
+---| dance_form_group_size_values
 
 ---@class _dance_form_group_size: DFEnum
 ---@field Solo 0
@@ -1543,13 +1938,25 @@ df.dance_form_context = {}
 ---@field [2] "Group"
 df.dance_form_group_size = {}
 
+---@alias dance_form_configuration_keys
+---| '"NONE"'
+---| '"SingleLine"'
+---| '"SeveralLines"'
+---| '"Circle"'
+---| '"DoubleCircle"'
+---| '"LooselyMingled"'
+
+---@alias dance_form_configuration_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias dance_form_configuration
----| -1 # NONE
----| 0 # SingleLine
----| 1 # SeveralLines
----| 2 # Circle
----| 3 # DoubleCircle
----| 4 # LooselyMingled
+---| dance_form_configuration_keys
+---| dance_form_configuration_values
 
 ---@class _dance_form_configuration: DFEnum
 ---@field NONE -1 hard to have a configuration with a solo performer
@@ -1566,12 +1973,23 @@ df.dance_form_group_size = {}
 ---@field [4] "LooselyMingled"
 df.dance_form_configuration = {}
 
+---@alias dance_form_movement_path_keys
+---| '"NONE"'
+---| '"TurnClockwise"'
+---| '"TurnCounterClockwise"'
+---| '"ImprovisedPath"'
+---| '"IntricatePath"'
+
+---@alias dance_form_movement_path_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias dance_form_movement_path
----| -1 # NONE
----| 0 # TurnClockwise
----| 1 # TurnCounterClockwise
----| 2 # ImprovisedPath
----| 3 # IntricatePath
+---| dance_form_movement_path_keys
+---| dance_form_movement_path_values
 
 ---@class _dance_form_movement_path: DFEnum
 ---@field NONE -1
@@ -1586,11 +2004,21 @@ df.dance_form_configuration = {}
 ---@field [3] "IntricatePath"
 df.dance_form_movement_path = {}
 
+---@alias dance_form_partner_distance_keys
+---| '"NONE"'
+---| '"Closely"'
+---| '"OpenContact"'
+---| '"RareContact"'
+
+---@alias dance_form_partner_distance_values
+---| -1
+---| 0
+---| 1
+---| 2
+
 ---@alias dance_form_partner_distance
----| -1 # NONE
----| 0 # Closely
----| 1 # OpenContact
----| 2 # RareContact
+---| dance_form_partner_distance_keys
+---| dance_form_partner_distance_values
 
 ---@class _dance_form_partner_distance: DFEnum
 ---@field NONE -1
@@ -1603,14 +2031,27 @@ df.dance_form_movement_path = {}
 ---@field [2] "RareContact"
 df.dance_form_partner_distance = {}
 
+---@alias dance_form_partner_intent_keys
+---| '"NONE"'
+---| '"PushingTogether"'
+---| '"PullingAway"'
+---| '"Touch"'
+---| '"LightTouch"'
+---| '"VisualCues"'
+---| '"SpokenCues"'
+
+---@alias dance_form_partner_intent_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias dance_form_partner_intent
----| -1 # NONE
----| 0 # PushingTogether
----| 1 # PullingAway
----| 2 # Touch
----| 3 # LightTouch
----| 4 # VisualCues
----| 5 # SpokenCues
+---| dance_form_partner_intent_keys
+---| dance_form_partner_intent_values
 
 ---@class _dance_form_partner_intent: DFEnum
 ---@field NONE -1
@@ -1629,10 +2070,19 @@ df.dance_form_partner_distance = {}
 ---@field [5] "SpokenCues"
 df.dance_form_partner_intent = {}
 
+---@alias dance_form_partner_cue_frequency_keys
+---| '"NONE"'
+---| '"Constantly"'
+---| '"Briefly"'
+
+---@alias dance_form_partner_cue_frequency_values
+---| -1
+---| 0
+---| 1
+
 ---@alias dance_form_partner_cue_frequency
----| -1 # NONE
----| 0 # Constantly
----| 1 # Briefly
+---| dance_form_partner_cue_frequency_keys
+---| dance_form_partner_cue_frequency_values
 
 ---@class _dance_form_partner_cue_frequency: DFEnum
 ---@field NONE -1
@@ -1643,12 +2093,23 @@ df.dance_form_partner_intent = {}
 ---@field [1] "Briefly"
 df.dance_form_partner_cue_frequency = {}
 
+---@alias dance_form_partner_change_type_keys
+---| '"NONE"'
+---| '"LeadAdvanceAlongMainLineOfMotion"'
+---| '"LeadAdvanceAgainstMainLineOfMotion"'
+---| '"LeadTurningOutClockwise"'
+---| '"LeadTurningOutCounterClockwise"'
+
+---@alias dance_form_partner_change_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias dance_form_partner_change_type
----| -1 # NONE
----| 0 # LeadAdvanceAlongMainLineOfMotion
----| 1 # LeadAdvanceAgainstMainLineOfMotion
----| 2 # LeadTurningOutClockwise
----| 3 # LeadTurningOutCounterClockwise
+---| dance_form_partner_change_type_keys
+---| dance_form_partner_change_type_values
 
 ---@class _dance_form_partner_change_type: DFEnum
 ---@field NONE -1
@@ -1663,41 +2124,81 @@ df.dance_form_partner_cue_frequency = {}
 ---@field [3] "LeadTurningOutCounterClockwise"
 df.dance_form_partner_change_type = {}
 
+---@alias dance_form_move_type_keys
+---| '"SquareStep"'
+---| '"CircularStep"'
+---| '"TriangleStep"'
+---| '"FigureEightStep"'
+---| '"IntricateStep"'
+---| '"Dance"'
+---| '"Turn"'
+---| '"FacialExpression"'
+---| '"HandGesture"'
+---| '"StraightWalk"'
+---| '"CurvedWalk"'
+---| '"Run"'
+---| '"Leap"'
+---| '"Kick"'
+---| '"LeftKick"'
+---| '"RightKick"'
+---| '"LegLift"'
+---| '"LeftLegLift"'
+---| '"RightLegLift"'
+---| '"BodyLevel"'
+---| '"BodyLevelChange"'
+---| '"ArmCarriage"'
+---| '"RaisedLeftArm"'
+---| '"RaisedRightArm"'
+---| '"RaisedArms"'
+---| '"Spin"'
+---| '"IndependentBodyMovement"'
+---| '"Sway"'
+---| '"ForwardBend"'
+---| '"BackwardBend"'
+---| '"LeftwardBend"'
+---| '"RightwardBend"'
+---| '"Footwork"'
+---| '"MovementAlongLineOfDance"'
+
+---@alias dance_form_move_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+
 ---@alias dance_form_move_type
----| 0 # SquareStep
----| 1 # CircularStep
----| 2 # TriangleStep
----| 3 # FigureEightStep
----| 4 # IntricateStep
----| 5 # Dance
----| 6 # Turn
----| 7 # FacialExpression
----| 8 # HandGesture
----| 9 # StraightWalk
----| 10 # CurvedWalk
----| 11 # Run
----| 12 # Leap
----| 13 # Kick
----| 14 # LeftKick
----| 15 # RightKick
----| 16 # LegLift
----| 17 # LeftLegLift
----| 18 # RightLegLift
----| 19 # BodyLevel
----| 20 # BodyLevelChange
----| 21 # ArmCarriage
----| 22 # RaisedLeftArm
----| 23 # RaisedRightArm
----| 24 # RaisedArms
----| 25 # Spin
----| 26 # IndependentBodyMovement
----| 27 # Sway
----| 28 # ForwardBend
----| 29 # BackwardBend
----| 30 # LeftwardBend
----| 31 # RightwardBend
----| 32 # Footwork
----| 33 # MovementAlongLineOfDance
+---| dance_form_move_type_keys
+---| dance_form_move_type_values
 
 ---@class _dance_form_move_type: DFEnum
 ---@field SquareStep 0
@@ -1770,54 +2271,107 @@ df.dance_form_partner_change_type = {}
 ---@field [33] "MovementAlongLineOfDance"
 df.dance_form_move_type = {}
 
+---@alias dance_form_move_modifier_keys
+---| '"NONE"'
+---| '"Graceful"'
+---| '"Serene"'
+---| '"SharpEdged"'
+---| '"Grotesque"'
+---| '"Crude"'
+---| '"Refined"'
+---| '"Understated"'
+---| '"Delicate"'
+---| '"Elaborate"'
+---| '"Expressive"'
+---| '"Strong"'
+---| '"Large"'
+---| '"Weightless"'
+---| '"Fluid"'
+---| '"Undulating"'
+---| '"Soft"'
+---| '"Jerking"'
+---| '"Calm"'
+---| '"StraightLined"'
+---| '"High"'
+---| '"Low"'
+---| '"LoudlyPercussive"'
+---| '"SoftlyPercussive"'
+---| '"Aborted"'
+---| '"PartiallyRealized"'
+---| '"Energetic"'
+---| '"Passionate"'
+---| '"Vivacious"'
+---| '"Joyous"'
+---| '"Proud"'
+---| '"Flamboyant"'
+---| '"Lively"'
+---| '"Spirited"'
+---| '"Vigorous"'
+---| '"Intense"'
+---| '"Aggressive"'
+---| '"Powerful"'
+---| '"Sluggish"'
+---| '"Relaxed"'
+---| '"Passive"'
+---| '"Subtle"'
+---| '"Sensual"'
+---| '"Debauched"'
+---| '"Twisting"'
+---| '"Sprightly"'
+---| '"Sinuous"'
+
+---@alias dance_form_move_modifier_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+
 ---@alias dance_form_move_modifier
----| -1 # NONE
----| 0 # Graceful
----| 1 # Serene
----| 2 # SharpEdged
----| 3 # Grotesque
----| 4 # Crude
----| 5 # Refined
----| 6 # Understated
----| 7 # Delicate
----| 8 # Elaborate
----| 9 # Expressive
----| 10 # Strong
----| 11 # Large
----| 12 # Weightless
----| 13 # Fluid
----| 14 # Undulating
----| 15 # Soft
----| 16 # Jerking
----| 17 # Calm
----| 18 # StraightLined
----| 19 # High
----| 20 # Low
----| 21 # LoudlyPercussive
----| 22 # SoftlyPercussive
----| 23 # Aborted
----| 24 # PartiallyRealized
----| 25 # Energetic
----| 26 # Passionate
----| 27 # Vivacious
----| 28 # Joyous
----| 29 # Proud
----| 30 # Flamboyant
----| 31 # Lively
----| 32 # Spirited
----| 33 # Vigorous
----| 34 # Intense
----| 35 # Aggressive
----| 36 # Powerful
----| 37 # Sluggish
----| 38 # Relaxed
----| 39 # Passive
----| 40 # Subtle
----| 41 # Sensual
----| 42 # Debauched
----| 43 # Twisting
----| 44 # Sprightly
----| 45 # Sinuous
+---| dance_form_move_modifier_keys
+---| dance_form_move_modifier_values
 
 ---@class _dance_form_move_modifier: DFEnum
 ---@field NONE -1
@@ -1976,10 +2530,23 @@ df.dance_form_move_location = {}
 ---@field _kind 'struct-type'
 df.dance_form_section = {}
 
+---@alias dance_form_move_group_type_keys
+---| '""'
+---| '"BasicMovement"'
+---| '"DancePosition"'
+---| '""'
+---| '"DanceMove"'
+
+---@alias dance_form_move_group_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias dance_form_move_group_type
----| 1 # BasicMovement
----| 2 # DancePosition
----| 4 # DanceMove
+---| dance_form_move_group_type_keys
+---| dance_form_move_group_type_values
 
 ---@class _dance_form_move_group_type: DFEnum
 ---@field BasicMovement 1
@@ -2049,10 +2616,19 @@ function df.dance_form.find(key) end
 ---@return dance_form_vector # df.global.world.dance_forms.all
 function df.dance_form.get_vector() end
 
+---@alias scale_type_keys
+---| '"Octave"'
+---| '"Variable"'
+---| '"PerfectFourth"'
+
+---@alias scale_type_values
+---| 0
+---| 1
+---| 2
+
 ---@alias scale_type
----| 0 # Octave
----| 1 # Variable
----| 2 # PerfectFourth
+---| scale_type_keys
+---| scale_type_values
 
 ---@class _scale_type: DFEnum
 ---@field Octave 0 The octave is divided into X steps of even length
@@ -2161,19 +2737,37 @@ function df.rhythm.find(key) end
 ---@return rhythm_vector # df.global.world.rhythms.all
 function df.rhythm.get_vector() end
 
+---@alias beat_type_keys
+---| '"Silent"'
+---| '"AccentedBeat"'
+---| '"Beat"'
+---| '"PrimaryAccent"'
+---| '"SilentEarly"'
+---| '"AccentedBeatEarly"'
+---| '"BeatEarly"'
+---| '"AccentedEarly"'
+---| '"SilentSyncopated"'
+---| '"AccentedBeatSyncopated"'
+---| '"BeatSyncopated"'
+---| '"AccentedSyncopated"'
+
+---@alias beat_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+
 ---@alias beat_type
----| 0 # Silent
----| 1 # AccentedBeat
----| 2 # Beat
----| 3 # PrimaryAccent
----| 4 # SilentEarly
----| 5 # AccentedBeatEarly
----| 6 # BeatEarly
----| 7 # AccentedEarly
----| 8 # SilentSyncopated
----| 9 # AccentedBeatSyncopated
----| 10 # BeatSyncopated
----| 11 # AccentedSyncopated
+---| beat_type_keys
+---| beat_type_values
 
 ---@class _beat_type: DFEnum
 ---@field Silent 0 -
@@ -2227,18 +2821,35 @@ df.rhythm_pattern = {}
 ---@field _kind 'struct-type'
 df.sub_rhythm = {}
 
+---@alias occupation_type_keys
+---| '"TAVERN_KEEPER"'
+---| '"PERFORMER"'
+---| '"SCHOLAR"'
+---| '"MERCENARY"'
+---| '"MONSTER_SLAYER"'
+---| '"SCRIBE"'
+---| '"UNUSED_01"'
+---| '"DOCTOR"'
+---| '"DIAGNOSTICIAN"'
+---| '"SURGEON"'
+---| '"BONE_DOCTOR"'
+
+---@alias occupation_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+
 ---@alias occupation_type
----| 0 # TAVERN_KEEPER
----| 1 # PERFORMER
----| 2 # SCHOLAR
----| 3 # MERCENARY
----| 4 # MONSTER_SLAYER
----| 5 # SCRIBE
----| 6 # UNUSED_01
----| 7 # DOCTOR
----| 8 # DIAGNOSTICIAN
----| 9 # SURGEON
----| 10 # BONE_DOCTOR
+---| occupation_type_keys
+---| occupation_type_values
 
 -- bay12: Occupation
 ---@class _occupation_type: DFEnum
@@ -2294,11 +2905,21 @@ function df.occupation.find(key) end
 ---@return occupation_vector # df.global.world.occupations.all
 function df.occupation.get_vector() end
 
+---@alias service_order_type_keys
+---| '"NONE"'
+---| '"DRINK"'
+---| '"ROOM_RENTAL"'
+---| '"EXTEND_ROOM_RENTAL"'
+
+---@alias service_order_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+
 ---@alias service_order_type
----| -1 # NONE
----| 0 # DRINK
----| 1 # ROOM_RENTAL
----| 2 # EXTEND_ROOM_RENTAL
+---| service_order_type_keys
+---| service_order_type_values
 
 -- bay12: ServiceOrder
 ---@class _service_order_type: DFEnum

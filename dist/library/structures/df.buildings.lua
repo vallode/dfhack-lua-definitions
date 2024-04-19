@@ -1,63 +1,125 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias building_type_keys
+---| '"NONE"'
+---| '"Chair"'
+---| '"Bed"'
+---| '"Table"'
+---| '"Coffin"'
+---| '"FarmPlot"'
+---| '"Furnace"'
+---| '"TradeDepot"'
+---| '"Shop"'
+---| '"Door"'
+---| '"Floodgate"'
+---| '"Box"'
+---| '"Weaponrack"'
+---| '"Armorstand"'
+---| '"Workshop"'
+---| '"Cabinet"'
+---| '"Statue"'
+---| '"WindowGlass"'
+---| '"WindowGem"'
+---| '"Well"'
+---| '"Bridge"'
+---| '"RoadDirt"'
+---| '"RoadPaved"'
+---| '"SiegeEngine"'
+---| '"Trap"'
+---| '"AnimalTrap"'
+---| '"Support"'
+---| '"ArcheryTarget"'
+---| '"Chain"'
+---| '"Cage"'
+---| '"Stockpile"'
+---| '"Civzone"'
+---| '"Weapon"'
+---| '"Wagon"'
+---| '"ScrewPump"'
+---| '"Construction"'
+---| '"Hatch"'
+---| '"GrateWall"'
+---| '"GrateFloor"'
+---| '"BarsVertical"'
+---| '"BarsFloor"'
+---| '"GearAssembly"'
+---| '"AxleHorizontal"'
+---| '"AxleVertical"'
+---| '"WaterWheel"'
+---| '"Windmill"'
+---| '"TractionBench"'
+---| '"Slab"'
+---| '"Nest"'
+---| '"NestBox"'
+---| '"Hive"'
+---| '"Rollers"'
+---| '"Instrument"'
+---| '"Bookcase"'
+---| '"DisplayFurniture"'
+---| '"OfferingPlace"'
+
+---@alias building_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+
 ---@alias building_type
----| -1 # NONE
----| 0 # Chair
----| 1 # Bed
----| 2 # Table
----| 3 # Coffin
----| 4 # FarmPlot
----| 5 # Furnace
----| 6 # TradeDepot
----| 7 # Shop
----| 8 # Door
----| 9 # Floodgate
----| 10 # Box
----| 11 # Weaponrack
----| 12 # Armorstand
----| 13 # Workshop
----| 14 # Cabinet
----| 15 # Statue
----| 16 # WindowGlass
----| 17 # WindowGem
----| 18 # Well
----| 19 # Bridge
----| 20 # RoadDirt
----| 21 # RoadPaved
----| 22 # SiegeEngine
----| 23 # Trap
----| 24 # AnimalTrap
----| 25 # Support
----| 26 # ArcheryTarget
----| 27 # Chain
----| 28 # Cage
----| 29 # Stockpile
----| 30 # Civzone
----| 31 # Weapon
----| 32 # Wagon
----| 33 # ScrewPump
----| 34 # Construction
----| 35 # Hatch
----| 36 # GrateWall
----| 37 # GrateFloor
----| 38 # BarsVertical
----| 39 # BarsFloor
----| 40 # GearAssembly
----| 41 # AxleHorizontal
----| 42 # AxleVertical
----| 43 # WaterWheel
----| 44 # Windmill
----| 45 # TractionBench
----| 46 # Slab
----| 47 # Nest
----| 48 # NestBox
----| 49 # Hive
----| 50 # Rollers
----| 51 # Instrument
----| 52 # Bookcase
----| 53 # DisplayFurniture
----| 54 # OfferingPlace
+---| building_type_keys
+---| building_type_values
 
 ---@class _building_type: DFEnum
 ---@field NONE -1
@@ -336,12 +398,23 @@ df.door_flags = {}
 ---@field [4] "has_support" bridge
 df.gate_flags = {}
 
+---@alias building_extents_type_keys
+---| '"None"'
+---| '"Stockpile"'
+---| '"Wall"'
+---| '"Interior"'
+---| '"DistanceBoundary"'
+
+---@alias building_extents_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias building_extents_type
----| 0 # None
----| 1 # Stockpile
----| 2 # Wall
----| 3 # Interior
----| 4 # DistanceBoundary
+---| building_extents_type_keys
+---| building_extents_type_values
 
 ---@class _building_extents_type: DFEnum
 ---@field None 0
@@ -525,93 +598,209 @@ df.hospital_supplies = {}
 ---@field [6] "soap"
 df.hospital_supplies.T_supplies_needed = {}
 
+---@alias civzone_type_keys
+---| '"Home"'
+---| '"Depot"'
+---| '"Stockpile"'
+---| '"NobleQuarters"'
+---| '""'
+---| '""'
+---| '""'
+---| '"MeadHall"'
+---| '"ThroneRoom"'
+---| '""'
+---| '"Temple"'
+---| '"Kitchen"'
+---| '"CaptiveRoom"'
+---| '"TowerTop"'
+---| '"Courtyard"'
+---| '"Treasury"'
+---| '"GuardPost"'
+---| '"Entrance"'
+---| '"SecretLibrary"'
+---| '"Library"'
+---| '"Plot"'
+---| '"MarketStall"'
+---| '""'
+---| '"Campground"'
+---| '"CommandTent"'
+---| '"Tent"'
+---| '"CommandTentBld"'
+---| '"TentBld"'
+---| '"MechanismRoom"'
+---| '"DungeonCell"'
+---| '"AnimalPit"'
+---| '"ClothPit"'
+---| '"TanningPit"'
+---| '"ClothClothingPit"'
+---| '"LeatherClothingPit"'
+---| '"BoneCarvingPit"'
+---| '"GemCuttingPit"'
+---| '"WeaponsmithingPit"'
+---| '"BowmakingPit"'
+---| '"BlacksmithingPit"'
+---| '"ArmorsmithingPit"'
+---| '"MetalCraftingPit"'
+---| '"LeatherworkingPit"'
+---| '"CarpentryPit"'
+---| '"StoneworkingPit"'
+---| '"ForgingPit"'
+---| '"FightingPit"'
+---| '""'
+---| '""'
+---| '""'
+---| '""'
+---| '""'
+---| '""'
+---| '"AnimalWorkshop"'
+---| '"ClothWorkshop"'
+---| '"TanningWorkshop"'
+---| '"ClothClothingWorkshop"'
+---| '"LeatherClothingWorkshop"'
+---| '"BoneCarvingWorkshop"'
+---| '"GemCuttingWorkshop"'
+---| '"WeaponsmithingWorkshop"'
+---| '"BowmakingWorkshop"'
+---| '"BlacksmithingWorkshop"'
+---| '"ArmorsmithingWorkshop"'
+---| '"MetalCraftingWorkshop"'
+---| '"LeatherworkingShop"'
+---| '"CarpentryWorkshop"'
+---| '"StoneworkingWorkshop"'
+---| '"ForgingWorkshop"'
+---| '"CountingHouseOffices"'
+---| '"CountingHouseStorage"'
+---| '"GuildhallOffices"'
+---| '"GuildhallStorage"'
+---| '"TowerEntrance"'
+---| '"TowerFeasthall"'
+---| '"TowerBedroom"'
+---| '"TowerTreasury"'
+---| '"TowerDungeon"'
+---| '"TowerAttic"'
+---| '"Dormitory"'
+---| '"DiningHall"'
+---| '""'
+---| '"WaterSource"'
+---| '"Dump"'
+---| '"SandCollection"'
+---| '"FishingArea"'
+---| '"Pond"'
+---| '"MeetingHall"'
+---| '"Pen"'
+---| '"ClayCollection"'
+---| '"AnimalTraining"'
+---| '"PlantGathering"'
+---| '"Bedroom"'
+---| '"Office"'
+---| '"ArcheryRange"'
+---| '"Barracks"'
+---| '"Dungeon"'
+---| '"Tomb"'
+
+---@alias civzone_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+
 ---@alias civzone_type
----| 0 # Home
----| 1 # Depot
----| 2 # Stockpile
----| 3 # NobleQuarters
----| 7 # MeadHall
----| 8 # ThroneRoom
----| 10 # Temple
----| 11 # Kitchen
----| 12 # CaptiveRoom
----| 13 # TowerTop
----| 14 # Courtyard
----| 15 # Treasury
----| 16 # GuardPost
----| 17 # Entrance
----| 18 # SecretLibrary
----| 19 # Library
----| 20 # Plot
----| 21 # MarketStall
----| 23 # Campground
----| 24 # CommandTent
----| 25 # Tent
----| 26 # CommandTentBld
----| 27 # TentBld
----| 28 # MechanismRoom
----| 29 # DungeonCell
----| 30 # AnimalPit
----| 31 # ClothPit
----| 32 # TanningPit
----| 33 # ClothClothingPit
----| 34 # LeatherClothingPit
----| 35 # BoneCarvingPit
----| 36 # GemCuttingPit
----| 37 # WeaponsmithingPit
----| 38 # BowmakingPit
----| 39 # BlacksmithingPit
----| 40 # ArmorsmithingPit
----| 41 # MetalCraftingPit
----| 42 # LeatherworkingPit
----| 43 # CarpentryPit
----| 44 # StoneworkingPit
----| 45 # ForgingPit
----| 46 # FightingPit
----| 53 # AnimalWorkshop
----| 54 # ClothWorkshop
----| 55 # TanningWorkshop
----| 56 # ClothClothingWorkshop
----| 57 # LeatherClothingWorkshop
----| 58 # BoneCarvingWorkshop
----| 59 # GemCuttingWorkshop
----| 60 # WeaponsmithingWorkshop
----| 61 # BowmakingWorkshop
----| 62 # BlacksmithingWorkshop
----| 63 # ArmorsmithingWorkshop
----| 64 # MetalCraftingWorkshop
----| 65 # LeatherworkingShop
----| 66 # CarpentryWorkshop
----| 67 # StoneworkingWorkshop
----| 68 # ForgingWorkshop
----| 69 # CountingHouseOffices
----| 70 # CountingHouseStorage
----| 71 # GuildhallOffices
----| 72 # GuildhallStorage
----| 73 # TowerEntrance
----| 74 # TowerFeasthall
----| 75 # TowerBedroom
----| 76 # TowerTreasury
----| 77 # TowerDungeon
----| 78 # TowerAttic
----| 79 # Dormitory
----| 80 # DiningHall
----| 82 # WaterSource
----| 83 # Dump
----| 84 # SandCollection
----| 85 # FishingArea
----| 86 # Pond
----| 87 # MeetingHall
----| 88 # Pen
----| 89 # ClayCollection
----| 90 # AnimalTraining
----| 91 # PlantGathering
----| 92 # Bedroom
----| 93 # Office
----| 94 # ArcheryRange
----| 95 # Barracks
----| 96 # Dungeon
----| 97 # Tomb
+---| civzone_type_keys
+---| civzone_type_values
 
 ---@class _civzone_type: DFEnum
 ---@field Home 0
@@ -884,9 +1073,17 @@ df.building_civzonest.T_zone_settings.T_tomb = {}
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_archery = {}
 
+---@alias building_civzonest.T_zone_settings.T_pit_pond_keys
+---| '"top_of_pit"'
+---| '"top_of_pond"'
+
+---@alias building_civzonest.T_zone_settings.T_pit_pond_values
+---| 2
+---| 3
+
 ---@alias building_civzonest.T_zone_settings.T_pit_pond
----| 2 # top_of_pit
----| 3 # top_of_pond
+---| building_civzonest.T_zone_settings.T_pit_pond_keys
+---| building_civzonest.T_zone_settings.T_pit_pond_values
 
 ---@class _building_civzonest.T_zone_settings.T_pit_pond: DFEnum
 ---@field top_of_pit 2
@@ -895,10 +1092,19 @@ df.building_civzonest.T_zone_settings.T_archery = {}
 ---@field [3] "top_of_pond"
 df.building_civzonest.T_zone_settings.T_pit_pond = {}
 
+---@alias building_item_role_type_keys
+---| '"TEMP"'
+---| '"TEMP_PRINTHIDDEN"'
+---| '"PERM"'
+
+---@alias building_item_role_type_values
+---| 0
+---| 1
+---| 2
+
 ---@alias building_item_role_type
----| 0 # TEMP
----| 1 # TEMP_PRINTHIDDEN
----| 2 # PERM
+---| building_item_role_type_keys
+---| building_item_role_type_values
 
 -- -- actual --
 ---@class _building_item_role_type: DFEnum
@@ -958,15 +1164,29 @@ df.building_design = {}
 ---@field [2] "designed"
 df.building_design.T_flags = {}
 
+---@alias furnace_type_keys
+---| '"WoodFurnace"'
+---| '"Smelter"'
+---| '"GlassFurnace"'
+---| '"Kiln"'
+---| '"MagmaSmelter"'
+---| '"MagmaGlassFurnace"'
+---| '"MagmaKiln"'
+---| '"Custom"'
+
+---@alias furnace_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+
 ---@alias furnace_type
----| 0 # WoodFurnace
----| 1 # Smelter
----| 2 # GlassFurnace
----| 3 # Kiln
----| 4 # MagmaSmelter
----| 5 # MagmaGlassFurnace
----| 6 # MagmaKiln
----| 7 # Custom
+---| furnace_type_keys
+---| furnace_type_values
 
 -- -- workshops --
 ---@class _furnace_type: DFEnum
@@ -1020,32 +1240,63 @@ df.furnace_type.attrs = {}
 ---@field _kind 'class-type'
 df.building_furnacest = {}
 
+---@alias workshop_type_keys
+---| '"Carpenters"'
+---| '"Farmers"'
+---| '"Masons"'
+---| '"Craftsdwarfs"'
+---| '"Jewelers"'
+---| '"MetalsmithsForge"'
+---| '"MagmaForge"'
+---| '"Bowyers"'
+---| '"Mechanics"'
+---| '"Siege"'
+---| '"Butchers"'
+---| '"Leatherworks"'
+---| '"Tanners"'
+---| '"Clothiers"'
+---| '"Fishery"'
+---| '"Still"'
+---| '"Loom"'
+---| '"Quern"'
+---| '"Kennels"'
+---| '"Kitchen"'
+---| '"Ashery"'
+---| '"Dyers"'
+---| '"Millstone"'
+---| '"Custom"'
+---| '"Tool"'
+
+---@alias workshop_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+
 ---@alias workshop_type
----| 0 # Carpenters
----| 1 # Farmers
----| 2 # Masons
----| 3 # Craftsdwarfs
----| 4 # Jewelers
----| 5 # MetalsmithsForge
----| 6 # MagmaForge
----| 7 # Bowyers
----| 8 # Mechanics
----| 9 # Siege
----| 10 # Butchers
----| 11 # Leatherworks
----| 12 # Tanners
----| 13 # Clothiers
----| 14 # Fishery
----| 15 # Still
----| 16 # Loom
----| 17 # Quern
----| 18 # Kennels
----| 19 # Kitchen
----| 20 # Ashery
----| 21 # Dyers
----| 22 # Millstone
----| 23 # Custom
----| 24 # Tool
+---| workshop_type_keys
+---| workshop_type_values
 
 ---@class _workshop_type: DFEnum
 ---@field Carpenters 0
@@ -1265,12 +1516,23 @@ df.building_boxst = {}
 ---@field _kind 'class-type'
 df.building_bridgest = {}
 
+---@alias building_bridgest.T_direction_keys
+---| '"Retracting"'
+---| '"Left"'
+---| '"Right"'
+---| '"Up"'
+---| '"Down"'
+
+---@alias building_bridgest.T_direction_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias building_bridgest.T_direction
----| -1 # Retracting
----| 0 # Left
----| 1 # Right
----| 2 # Up
----| 3 # Down
+---| building_bridgest.T_direction_keys
+---| building_bridgest.T_direction_values
 
 ---@class _building_bridgest.T_direction: DFEnum
 ---@field Retracting -1
@@ -1359,45 +1621,89 @@ df.building_chairst = {}
 ---@field _kind 'class-type'
 df.building_coffinst = {}
 
+---@alias construction_type_keys
+---| '"NONE"'
+---| '"Fortification"'
+---| '"Wall"'
+---| '"Floor"'
+---| '"UpStair"'
+---| '"DownStair"'
+---| '"UpDownStair"'
+---| '"Ramp"'
+---| '"TrackN"'
+---| '"TrackS"'
+---| '"TrackE"'
+---| '"TrackW"'
+---| '"TrackNS"'
+---| '"TrackNE"'
+---| '"TrackNW"'
+---| '"TrackSE"'
+---| '"TrackSW"'
+---| '"TrackEW"'
+---| '"TrackNSE"'
+---| '"TrackNSW"'
+---| '"TrackNEW"'
+---| '"TrackSEW"'
+---| '"TrackNSEW"'
+---| '"TrackRampN"'
+---| '"TrackRampS"'
+---| '"TrackRampE"'
+---| '"TrackRampW"'
+---| '"TrackRampNS"'
+---| '"TrackRampNE"'
+---| '"TrackRampNW"'
+---| '"TrackRampSE"'
+---| '"TrackRampSW"'
+---| '"TrackRampEW"'
+---| '"TrackRampNSE"'
+---| '"TrackRampNSW"'
+---| '"TrackRampNEW"'
+---| '"TrackRampSEW"'
+---| '"TrackRampNSEW"'
+
+---@alias construction_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+
 ---@alias construction_type
----| -1 # NONE
----| 0 # Fortification
----| 1 # Wall
----| 2 # Floor
----| 3 # UpStair
----| 4 # DownStair
----| 5 # UpDownStair
----| 6 # Ramp
----| 7 # TrackN
----| 8 # TrackS
----| 9 # TrackE
----| 10 # TrackW
----| 11 # TrackNS
----| 12 # TrackNE
----| 13 # TrackNW
----| 14 # TrackSE
----| 15 # TrackSW
----| 16 # TrackEW
----| 17 # TrackNSE
----| 18 # TrackNSW
----| 19 # TrackNEW
----| 20 # TrackSEW
----| 21 # TrackNSEW
----| 22 # TrackRampN
----| 23 # TrackRampS
----| 24 # TrackRampE
----| 25 # TrackRampW
----| 26 # TrackRampNS
----| 27 # TrackRampNE
----| 28 # TrackRampNW
----| 29 # TrackRampSE
----| 30 # TrackRampSW
----| 31 # TrackRampEW
----| 32 # TrackRampNSE
----| 33 # TrackRampNSW
----| 34 # TrackRampNEW
----| 35 # TrackRampSEW
----| 36 # TrackRampNSEW
+---| construction_type_keys
+---| construction_type_values
 
 ---@class _construction_type: DFEnum
 ---@field NONE -1 unused
@@ -1666,11 +1972,21 @@ df.building_road_dirtst = {}
 ---@field _kind 'class-type'
 df.building_road_pavedst = {}
 
+---@alias shop_type_keys
+---| '"GeneralStore"'
+---| '"CraftsMarket"'
+---| '"ClothingShop"'
+---| '"ExoticClothingShop"'
+
+---@alias shop_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias shop_type
----| 0 # GeneralStore
----| 1 # CraftsMarket
----| 2 # ClothingShop
----| 3 # ExoticClothingShop
+---| shop_type_keys
+---| shop_type_values
 
 ---@class _shop_type: DFEnum
 ---@field GeneralStore 0
@@ -1706,9 +2022,17 @@ df.building_shopst = {}
 ---@field [0] "for_sale"
 df.building_shopst.T_shop_flags = {}
 
+---@alias siegeengine_type_keys
+---| '"Catapult"'
+---| '"Ballista"'
+
+---@alias siegeengine_type_values
+---| 0
+---| 1
+
 ---@alias siegeengine_type
----| 0 # Catapult
----| 1 # Ballista
+---| siegeengine_type_keys
+---| siegeengine_type_values
 
 ---@class _siegeengine_type: DFEnum
 ---@field Catapult 0
@@ -1730,11 +2054,21 @@ df.siegeengine_type = {}
 ---@field _kind 'class-type'
 df.building_siegeenginest = {}
 
+---@alias building_siegeenginest.T_facing_keys
+---| '"Left"'
+---| '"Up"'
+---| '"Right"'
+---| '"Down"'
+
+---@alias building_siegeenginest.T_facing_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias building_siegeenginest.T_facing
----| 0 # Left
----| 1 # Up
----| 2 # Right
----| 3 # Down
+---| building_siegeenginest.T_facing_keys
+---| building_siegeenginest.T_facing_values
 
 ---@class _building_siegeenginest.T_facing: DFEnum
 ---@field Left 0
@@ -1747,10 +2081,19 @@ df.building_siegeenginest = {}
 ---@field [3] "Down"
 df.building_siegeenginest.T_facing = {}
 
+---@alias building_siegeenginest.T_action_keys
+---| '"NotInUse"'
+---| '"PrepareToFire"'
+---| '"FireAtWill"'
+
+---@alias building_siegeenginest.T_action_values
+---| 0
+---| 1
+---| 2
+
 ---@alias building_siegeenginest.T_action
----| 0 # NotInUse
----| 1 # PrepareToFire
----| 2 # FireAtWill
+---| building_siegeenginest.T_action_keys
+---| building_siegeenginest.T_action_values
 
 ---@class _building_siegeenginest.T_action: DFEnum
 ---@field NotInUse 0
@@ -1855,13 +2198,25 @@ df.building_tradedepotst = {}
 ---@field [1] "anyone_can_trade"
 df.building_tradedepotst.T_trade_flags = {}
 
+---@alias trap_type_keys
+---| '"Lever"'
+---| '"PressurePlate"'
+---| '"CageTrap"'
+---| '"StoneFallTrap"'
+---| '"WeaponTrap"'
+---| '"TrackStop"'
+
+---@alias trap_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias trap_type
----| 0 # Lever
----| 1 # PressurePlate
----| 2 # CageTrap
----| 3 # StoneFallTrap
----| 4 # WeaponTrap
----| 5 # TrackStop
+---| trap_type_keys
+---| trap_type_values
 
 ---@class _trap_type: DFEnum
 ---@field Lever 0
@@ -2058,15 +2413,29 @@ df.building_window_glassst = {}
 ---@field _kind 'class-type'
 df.building_window_gemst = {}
 
+---@alias dfhack_room_quality_level_keys
+---| '"Meager"'
+---| '"Modest"'
+---| '"Normal"'
+---| '"Decent"'
+---| '"Fine"'
+---| '"Great"'
+---| '"Grand"'
+---| '"Royal"'
+
+---@alias dfhack_room_quality_level_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+
 ---@alias dfhack_room_quality_level
----| 0 # Meager
----| 1 # Modest
----| 2 # Normal
----| 3 # Decent
----| 4 # Fine
----| 5 # Great
----| 6 # Grand
----| 7 # Royal
+---| dfhack_room_quality_level_keys
+---| dfhack_room_quality_level_values
 
 -- Not in DF<br>Royal Throne Room   | Royal Bedroom   | Royal Dining Room  | Royal Mausoleum<br>Opulent Throne Room | Grand Bedroom   | Grand Dining Room  | Grand Mausoleum<br>Throne Room         | Great Bedroom   | Great Dining Room  | Mausoleum<br>Splendid Office     | Fine Quarters   | Fine Dining Room   | Fine Tomb<br>Decent Office       | Decent Quarters | Decent Dining Room | Tomb<br>Office              | Quarters        | Dining Room        | Burial Chamber<br>Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber<br>Meager Office       | Meager Quarters | Meager Dining Room | Grave
 ---@class _dfhack_room_quality_level: DFEnum

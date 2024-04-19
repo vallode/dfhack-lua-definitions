@@ -190,10 +190,19 @@ df.global.T_cursor = {}
 ---@field _kind 'struct-type'
 df.global.T_selection_rect = {}
 
+---@alias weather_type_keys
+---| '"None"'
+---| '"Rain"'
+---| '"Snow"'
+
+---@alias weather_type_values
+---| 0
+---| 1
+---| 2
+
 ---@alias weather_type
----| 0 # None
----| 1 # Rain
----| 2 # Snow
+---| weather_type_keys
+---| weather_type_values
 
 ---@class _weather_type: DFEnum
 ---@field None 0
@@ -204,48 +213,95 @@ df.global.T_selection_rect = {}
 ---@field [2] "Snow"
 df.weather_type = {}
 
+---@alias next_global_id_keys
+---| '"unit"'
+---| '"soul"'
+---| '"item"'
+---| '"civ"'
+---| '"nem"'
+---| '"artifact"'
+---| '"job"'
+---| '"schedule"'
+---| '"proj"'
+---| '"building"'
+---| '"machine"'
+---| '"flow_guide"'
+---| '"histfig"'
+---| '"histevent"'
+---| '"histeventcol"'
+---| '"unitchunk"'
+---| '"imagechunk"'
+---| '"task"'
+---| '"squad"'
+---| '"formation"'
+---| '"activity"'
+---| '"interaction_instance"'
+---| '"written_content"'
+---| '"identity"'
+---| '"incident"'
+---| '"crime"'
+---| '"vehicle"'
+---| '"army"'
+---| '"army_controller"'
+---| '"army_tracking_info"'
+---| '"cultural_identity"'
+---| '"agreement"'
+---| '"poetic_form"'
+---| '"musical_form"'
+---| '"dance_form"'
+---| '"scale"'
+---| '"rhythm"'
+---| '"occupation"'
+---| '"belief_system"'
+---| '"image_set"'
+---| '"divination_set"'
+
+---@alias next_global_id_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+
 ---@alias next_global_id
----| 0 # unit
----| 1 # soul
----| 2 # item
----| 3 # civ
----| 4 # nem
----| 5 # artifact
----| 6 # job
----| 7 # schedule
----| 8 # proj
----| 9 # building
----| 10 # machine
----| 11 # flow_guide
----| 12 # histfig
----| 13 # histevent
----| 14 # histeventcol
----| 15 # unitchunk
----| 16 # imagechunk
----| 17 # task
----| 18 # squad
----| 19 # formation
----| 20 # activity
----| 21 # interaction_instance
----| 22 # written_content
----| 23 # identity
----| 24 # incident
----| 25 # crime
----| 26 # vehicle
----| 27 # army
----| 28 # army_controller
----| 29 # army_tracking_info
----| 30 # cultural_identity
----| 31 # agreement
----| 32 # poetic_form
----| 33 # musical_form
----| 34 # dance_form
----| 35 # scale
----| 36 # rhythm
----| 37 # occupation
----| 38 # belief_system
----| 39 # image_set
----| 40 # divination_set
+---| next_global_id_keys
+---| next_global_id_values
 
 -- The storage order of "next ID" fields in the save file.<br>Followed by game type. The enum item name is the part between<br>next_ and _global_id in the Dwarf Fortress global variable table.
 ---@class _next_global_id: DFEnum
@@ -344,10 +400,19 @@ df.next_global_id = {}
 ---@field _kind 'struct-type'
 df.global_table_entry = {}
 
+---@alias game_mode_keys
+---| '"NONE"'
+---| '"DWARF"'
+---| '"ADVENTURE"'
+
+---@alias game_mode_values
+---| -1
+---| 0
+---| 1
+
 ---@alias game_mode
----| -1 # NONE
----| 0 # DWARF
----| 1 # ADVENTURE
+---| game_mode_keys
+---| game_mode_values
 
 ---@class _game_mode: DFEnum
 ---@field NONE -1
@@ -358,18 +423,35 @@ df.global_table_entry = {}
 ---@field [1] "ADVENTURE"
 df.game_mode = {}
 
+---@alias game_type_keys
+---| '"NONE"'
+---| '"DWARF_MAIN"'
+---| '"ADVENTURE_MAIN"'
+---| '"VIEW_LEGENDS"'
+---| '"DWARF_RECLAIM"'
+---| '"DWARF_ARENA"'
+---| '"ADVENTURE_ARENA"'
+---| '"ADVENTURE_DUNGEON"'
+---| '"DWARF_TUTORIAL"'
+---| '"DWARF_UNRETIRE"'
+---| '"ADVENTURE_WORLD_DEBUG"'
+
+---@alias game_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+
 ---@alias game_type
----| -1 # NONE
----| 0 # DWARF_MAIN
----| 1 # ADVENTURE_MAIN
----| 2 # VIEW_LEGENDS
----| 3 # DWARF_RECLAIM
----| 4 # DWARF_ARENA
----| 5 # ADVENTURE_ARENA
----| 6 # ADVENTURE_DUNGEON
----| 7 # DWARF_TUTORIAL
----| 8 # DWARF_UNRETIRE
----| 9 # ADVENTURE_WORLD_DEBUG
+---| game_type_keys
+---| game_type_values
 
 -- bay12: GameType
 ---@class _game_type: DFEnum
@@ -397,25 +479,49 @@ df.game_mode = {}
 ---@field [9] "ADVENTURE_WORLD_DEBUG"
 df.game_type = {}
 
+---@alias lever_target_type_keys
+---| '"NONE"'
+---| '"BarsVertical"'
+---| '"BarsFloor"'
+---| '"SpearsSpikes"'
+---| '"TrackStop"'
+---| '"GearAssembly"'
+---| '"Bridge"'
+---| '"Chain"'
+---| '"Door"'
+---| '"EncrustGems"'
+---| '"Floodgate"'
+---| '"GrateFloor"'
+---| '"Hatch"'
+---| '"Cage"'
+---| '"LeverMechanism"'
+---| '"Support"'
+---| '"TargetMechanism"'
+---| '"GrateWall"'
+
+---@alias lever_target_type_values
+---| -1
+---| 66
+---| 70
+---| 83
+---| 84
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 106
+---| 108
+---| 115
+---| 116
+---| 119
+
 ---@alias lever_target_type
----| -1 # NONE
----| 66 # BarsVertical
----| 70 # BarsFloor
----| 83 # SpearsSpikes
----| 84 # TrackStop
----| 97 # GearAssembly
----| 98 # Bridge
----| 99 # Chain
----| 100 # Door
----| 101 # EncrustGems
----| 102 # Floodgate
----| 103 # GrateFloor
----| 104 # Hatch
----| 106 # Cage
----| 108 # LeverMechanism
----| 115 # Support
----| 116 # TargetMechanism
----| 119 # GrateWall
+---| lever_target_type_keys
+---| lever_target_type_values
 
 ---@class _lever_target_type: DFEnum
 ---@field NONE -1

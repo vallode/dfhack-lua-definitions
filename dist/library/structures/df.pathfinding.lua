@@ -1,222 +1,443 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias unit_path_goal_keys
+---| '"None"'
+---| '"ComeToJobBuilding"'
+---| '"ValidPondDumpUnit"'
+---| '"ValidPondDump"'
+---| '"ConflictDefense"'
+---| '"AdventureMove"'
+---| '"MarauderMill"'
+---| '"WildernessCuriousStealTarget"'
+---| '"WildernessRoamer"'
+---| '"ThiefTarget"'
+---| '"Owner"'
+---| '"CheckChest"'
+---| '"SleepBed"'
+---| '"SleepBarracks"'
+---| '"SleepGround"'
+---| '"LeaveWall"'
+---| '"FleeTerrain"'
+---| '"TaxRoom"'
+---| '"GuardTaxes"'
+---| '"RansackTaxes"'
+---| '"GetEmptySandBag"'
+---| '"SandZone"'
+---| '"GrabCage"'
+---| '"UncageAnimal"'
+---| '"CaptureSmallPet"'
+---| '"GrabCageUnit"'
+---| '"GoToCage"'
+---| '"GrabAnimalTrap"'
+---| '"CageVermin"'
+---| '"GrabUnfillBucket"'
+---| '"SeekFillBucket"'
+---| '"SeekPatientForCarry"'
+---| '"SeekPatientForDiagnosis"'
+---| '"SeekPatientForImmobilizeBreak"'
+---| '"SeekPatientForCrutch"'
+---| '"SeekPatientForSuturing"'
+---| '"SeekSurgerySite"'
+---| '"CarryPatientToBed"'
+---| '"SeekGiveWaterBucket"'
+---| '"SeekJobItem"'
+---| '"SeekUnitForItemDrop"'
+---| '"SeekUnitForJob"'
+---| '"SeekSplint"'
+---| '"SeekCrutch"'
+---| '"SeekSutureThread"'
+---| '"SeekDressingCloth"'
+---| '"GoToGiveWaterTarget"'
+---| '"SeekFoodForTarget"'
+---| '"SeekTargetForFood"'
+---| '"SeekAnimalForSlaughter"'
+---| '"SeekSlaughterBuilding"'
+---| '"SeekAnimalForChain"'
+---| '"SeekChainForAnimal"'
+---| '"SeekCageForUnchain"'
+---| '"SeekAnimalForUnchain"'
+---| '"GrabFoodForTaming"'
+---| '"SeekAnimalForTaming"'
+---| '"SeekDrinkItem"'
+---| '"SeekFoodItem"'
+---| '"SeekEatingChair"'
+---| '"SeekEatingChair2"'
+---| '"SeekBadMoodBuilding"'
+---| '"SetGlassMoodBuilding"'
+---| '"SetMoodBuilding"'
+---| '"SeekFellVictim"'
+---| '"CleanBuildingSite"'
+---| '"ResetPriorityGoal"'
+---| '"MainJobBuilding"'
+---| '"DropOffJobItems"'
+---| '"GrabJobResources"'
+---| '"WorkAtBuilding"'
+---| '"GrabUniform"'
+---| '"GrabClothing"'
+---| '"GrabWeapon"'
+---| '"GrabAmmunition"'
+---| '"GrabShield"'
+---| '"GrabArmor"'
+---| '"GrabHelm"'
+---| '"GrabBoots"'
+---| '"GrabGloves"'
+---| '"GrabPants"'
+---| '"GrabQuiver"'
+---| '"GrabBackpack"'
+---| '"GrabWaterskin"'
+---| '"StartHunt"'
+---| '"StartFish"'
+---| '"Clean"'
+---| '"HuntVermin"'
+---| '"Patrol"'
+---| '"SquadStation"'
+---| '"SeekInfant"'
+---| '"ShopSpecific"'
+---| '"MillInShop"'
+---| '"GoToShop"'
+---| '"SeekTrainingAmmunition"'
+---| '"ArcheryTrainingSite"'
+---| '"SparringPartner"'
+---| '"SparringSite"'
+---| '"SeekArtifact"'
+---| '"GrabAmmunitionForBuilding"'
+---| '"SeekBuildingForAmmunition"'
+---| '"SeekItemForStorage"'
+---| '"StoreItem"'
+---| '"GrabKill"'
+---| '"DropKillAtButcher"'
+---| '"DropKillOutFront"'
+---| '"GoToBeatingTarget"'
+---| '"SeekKidnapVictim"'
+---| '"SeekHuntingTarget"'
+---| '"SeekTargetMechanism"'
+---| '"SeekTargetForMechanism"'
+---| '"SeekMechanismForTrigger"'
+---| '"SeekTriggerForMechanism"'
+---| '"SeekTrapForVerminCatch"'
+---| '"SeekVerminForCatching"'
+---| '"SeekVerminCatchLocation"'
+---| '"WanderVerminCatchLocation"'
+---| '"SeekVerminForHunting"'
+---| '"SeekVerminHuntingSpot"'
+---| '"WanderVerminHuntingSpot"'
+---| '"SeekFishTrap"'
+---| '"SeekFishCatchLocation"'
+---| '"SeekWellForWater"'
+---| '"SeekDrinkAreaForWater"'
+---| '"UpgradeSquadEquipment"'
+---| '"PrepareEquipmentManifests"'
+---| '"WanderDepot"'
+---| '"SeekUpdateOffice"'
+---| '"SeekManageOffice"'
+---| '"AssignedBuildingJob"'
+---| '"ChaseOpponent"'
+---| '"FleeFromOpponent"'
+---| '"AttackBuilding"'
+---| '"StartBedCarry"'
+---| '"StartGiveFoodWater"'
+---| '"StartMedicalAid"'
+---| '"SeekStationFlood"'
+---| '"SeekStation"'
+---| '"StartWaterJobWell"'
+---| '"StartWaterJobDrinkArea"'
+---| '"StartEatJob"'
+---| '"ScheduledMeal"'
+---| '"ScheduledSleepBed"'
+---| '"ScheduledSleepGround"'
+---| '"Rest"'
+---| '"RemoveConstruction"'
+---| '"Chop"'
+---| '"Detail"'
+---| '"GatherPlant"'
+---| '"Dig"'
+---| '"Mischief"'
+---| '"ChaseOpponentSameSquare"'
+---| '"RestRecovered"'
+---| '"RestReset"'
+---| '"CombatTraining"'
+---| '"SkillDemonstration"'
+---| '"IndividualSkillDrill"'
+---| '"SeekBuildingForItemDrop"'
+---| '"SeekBuildingForJob"'
+---| '"GrabMilkUnit"'
+---| '"GoToMilkStation"'
+---| '"SeekPatientForDressWound"'
+---| '"UndeadHunt"'
+---| '"GrabShearUnit"'
+---| '"GoToShearStation"'
+---| '"LayEggNestBox"'
+---| '"ClayZone"'
+---| '"ColonyToInstall"'
+---| '"ReturnColonyToInstall"'
+---| '"Nonsense"'
+---| '"SeekBloodSuckVictim"'
+---| '"SeekSheriff"'
+---| '"GrabExecutionWeapon"'
+---| '"TrainAnimal"'
+---| '"GuardPath"'
+---| '"Harass"'
+---| '"SiteWalk"'
+---| '"SiteWalkToBuilding"'
+---| '"Reunion"'
+---| '"ArmyWalk"'
+---| '"ChaseOpponentFlood"'
+---| '"ChargeAttack"'
+---| '"FleeFromOpponentClimb"'
+---| '"SeekLadderToClimb"'
+---| '"SeekLadderToMove"'
+---| '"PlaceLadder"'
+---| '"SeekAnimalForGelding"'
+---| '"SeekGeldingBuilding"'
+---| '"Prayer"'
+---| '"Socialize"'
+---| '"Performance"'
+---| '"Research"'
+---| '"PonderTopic"'
+---| '"FillServiceOrder"'
+---| '"GetWrittenContent"'
+---| '"GoToReadingPlace"'
+---| '"GetWritingMaterials"'
+---| '"GoToWritingPlace"'
+---| '"Worship"'
+---| '"GrabInstrument"'
+---| '"Play"'
+---| '"MakeBelieve"'
+---| '"PlayWithToy"'
+---| '"GrabToy"'
+---| '"Encounter"'
+---| '"StoreObject"'
+---| '"LeaveSiteSquadOrder"'
+---| '"ParleyUnit"'
+---| '"ParleyItem"'
+---| '"FollowCommand"'
+---| '"SeekHeistItem"'
+---| '"SeekHeistMaster"'
+---| '"GoToInterrogationTarget"'
+---| '"InterrogationOffice"'
+---| '"SeekHeistHandoff"'
+
+---@alias unit_path_goal_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+---| 189
+---| 190
+---| 191
+---| 192
+---| 193
+---| 194
+---| 195
+---| 196
+---| 197
+---| 198
+---| 199
+---| 200
+---| 201
+---| 202
+---| 203
+---| 204
+---| 205
+---| 206
+---| 207
+---| 208
+---| 209
+---| 210
+---| 211
+---| 212
+---| 213
+
 ---@alias unit_path_goal
----| -1 # None
----| 0 # ComeToJobBuilding
----| 1 # ValidPondDumpUnit
----| 2 # ValidPondDump
----| 3 # ConflictDefense
----| 4 # AdventureMove
----| 5 # MarauderMill
----| 6 # WildernessCuriousStealTarget
----| 7 # WildernessRoamer
----| 8 # ThiefTarget
----| 9 # Owner
----| 10 # CheckChest
----| 11 # SleepBed
----| 12 # SleepBarracks
----| 13 # SleepGround
----| 14 # LeaveWall
----| 15 # FleeTerrain
----| 16 # TaxRoom
----| 17 # GuardTaxes
----| 18 # RansackTaxes
----| 19 # GetEmptySandBag
----| 20 # SandZone
----| 21 # GrabCage
----| 22 # UncageAnimal
----| 23 # CaptureSmallPet
----| 24 # GrabCageUnit
----| 25 # GoToCage
----| 26 # GrabAnimalTrap
----| 27 # CageVermin
----| 28 # GrabUnfillBucket
----| 29 # SeekFillBucket
----| 30 # SeekPatientForCarry
----| 31 # SeekPatientForDiagnosis
----| 32 # SeekPatientForImmobilizeBreak
----| 33 # SeekPatientForCrutch
----| 34 # SeekPatientForSuturing
----| 35 # SeekSurgerySite
----| 36 # CarryPatientToBed
----| 37 # SeekGiveWaterBucket
----| 38 # SeekJobItem
----| 39 # SeekUnitForItemDrop
----| 40 # SeekUnitForJob
----| 41 # SeekSplint
----| 42 # SeekCrutch
----| 43 # SeekSutureThread
----| 44 # SeekDressingCloth
----| 45 # GoToGiveWaterTarget
----| 46 # SeekFoodForTarget
----| 47 # SeekTargetForFood
----| 48 # SeekAnimalForSlaughter
----| 49 # SeekSlaughterBuilding
----| 50 # SeekAnimalForChain
----| 51 # SeekChainForAnimal
----| 52 # SeekCageForUnchain
----| 53 # SeekAnimalForUnchain
----| 54 # GrabFoodForTaming
----| 55 # SeekAnimalForTaming
----| 56 # SeekDrinkItem
----| 57 # SeekFoodItem
----| 58 # SeekEatingChair
----| 59 # SeekEatingChair2
----| 60 # SeekBadMoodBuilding
----| 61 # SetGlassMoodBuilding
----| 62 # SetMoodBuilding
----| 63 # SeekFellVictim
----| 64 # CleanBuildingSite
----| 65 # ResetPriorityGoal
----| 66 # MainJobBuilding
----| 67 # DropOffJobItems
----| 68 # GrabJobResources
----| 69 # WorkAtBuilding
----| 70 # GrabUniform
----| 71 # GrabClothing
----| 72 # GrabWeapon
----| 73 # GrabAmmunition
----| 74 # GrabShield
----| 75 # GrabArmor
----| 76 # GrabHelm
----| 77 # GrabBoots
----| 78 # GrabGloves
----| 79 # GrabPants
----| 80 # GrabQuiver
----| 81 # GrabBackpack
----| 82 # GrabWaterskin
----| 83 # StartHunt
----| 84 # StartFish
----| 85 # Clean
----| 86 # HuntVermin
----| 87 # Patrol
----| 88 # SquadStation
----| 89 # SeekInfant
----| 90 # ShopSpecific
----| 91 # MillInShop
----| 92 # GoToShop
----| 93 # SeekTrainingAmmunition
----| 94 # ArcheryTrainingSite
----| 95 # SparringPartner
----| 96 # SparringSite
----| 97 # SeekArtifact
----| 98 # GrabAmmunitionForBuilding
----| 99 # SeekBuildingForAmmunition
----| 100 # SeekItemForStorage
----| 101 # StoreItem
----| 102 # GrabKill
----| 103 # DropKillAtButcher
----| 104 # DropKillOutFront
----| 105 # GoToBeatingTarget
----| 106 # SeekKidnapVictim
----| 107 # SeekHuntingTarget
----| 108 # SeekTargetMechanism
----| 109 # SeekTargetForMechanism
----| 110 # SeekMechanismForTrigger
----| 111 # SeekTriggerForMechanism
----| 112 # SeekTrapForVerminCatch
----| 113 # SeekVerminForCatching
----| 114 # SeekVerminCatchLocation
----| 115 # WanderVerminCatchLocation
----| 116 # SeekVerminForHunting
----| 117 # SeekVerminHuntingSpot
----| 118 # WanderVerminHuntingSpot
----| 119 # SeekFishTrap
----| 120 # SeekFishCatchLocation
----| 121 # SeekWellForWater
----| 122 # SeekDrinkAreaForWater
----| 123 # UpgradeSquadEquipment
----| 124 # PrepareEquipmentManifests
----| 125 # WanderDepot
----| 126 # SeekUpdateOffice
----| 127 # SeekManageOffice
----| 128 # AssignedBuildingJob
----| 129 # ChaseOpponent
----| 130 # FleeFromOpponent
----| 131 # AttackBuilding
----| 132 # StartBedCarry
----| 133 # StartGiveFoodWater
----| 134 # StartMedicalAid
----| 135 # SeekStationFlood
----| 136 # SeekStation
----| 137 # StartWaterJobWell
----| 138 # StartWaterJobDrinkArea
----| 139 # StartEatJob
----| 140 # ScheduledMeal
----| 141 # ScheduledSleepBed
----| 142 # ScheduledSleepGround
----| 143 # Rest
----| 144 # RemoveConstruction
----| 145 # Chop
----| 146 # Detail
----| 147 # GatherPlant
----| 148 # Dig
----| 149 # Mischief
----| 150 # ChaseOpponentSameSquare
----| 151 # RestRecovered
----| 152 # RestReset
----| 153 # CombatTraining
----| 154 # SkillDemonstration
----| 155 # IndividualSkillDrill
----| 156 # SeekBuildingForItemDrop
----| 157 # SeekBuildingForJob
----| 158 # GrabMilkUnit
----| 159 # GoToMilkStation
----| 160 # SeekPatientForDressWound
----| 161 # UndeadHunt
----| 162 # GrabShearUnit
----| 163 # GoToShearStation
----| 164 # LayEggNestBox
----| 165 # ClayZone
----| 166 # ColonyToInstall
----| 167 # ReturnColonyToInstall
----| 168 # Nonsense
----| 169 # SeekBloodSuckVictim
----| 170 # SeekSheriff
----| 171 # GrabExecutionWeapon
----| 172 # TrainAnimal
----| 173 # GuardPath
----| 174 # Harass
----| 175 # SiteWalk
----| 176 # SiteWalkToBuilding
----| 177 # Reunion
----| 178 # ArmyWalk
----| 179 # ChaseOpponentFlood
----| 180 # ChargeAttack
----| 181 # FleeFromOpponentClimb
----| 182 # SeekLadderToClimb
----| 183 # SeekLadderToMove
----| 184 # PlaceLadder
----| 185 # SeekAnimalForGelding
----| 186 # SeekGeldingBuilding
----| 187 # Prayer
----| 188 # Socialize
----| 189 # Performance
----| 190 # Research
----| 191 # PonderTopic
----| 192 # FillServiceOrder
----| 193 # GetWrittenContent
----| 194 # GoToReadingPlace
----| 195 # GetWritingMaterials
----| 196 # GoToWritingPlace
----| 197 # Worship
----| 198 # GrabInstrument
----| 199 # Play
----| 200 # MakeBelieve
----| 201 # PlayWithToy
----| 202 # GrabToy
----| 203 # Encounter
----| 204 # StoreObject
----| 205 # LeaveSiteSquadOrder
----| 206 # ParleyUnit
----| 207 # ParleyItem
----| 208 # FollowCommand
----| 209 # SeekHeistItem
----| 210 # SeekHeistMaster
----| 211 # GoToInterrogationTarget
----| 212 # InterrogationOffice
----| 213 # SeekHeistHandoff
+---| unit_path_goal_keys
+---| unit_path_goal_values
 
 ---@class _unit_path_goal: DFEnum
 ---@field None -1
@@ -651,50 +872,99 @@
 ---@field [213] "SeekHeistHandoff"
 df.unit_path_goal = {}
 
+---@alias unit_station_type_keys
+---| '"None"'
+---| '"Nonsense"'
+---| '"DungeonCommander"'
+---| '"InsaneMood"'
+---| '"UndeadHunt"'
+---| '"SiegerPatrol"'
+---| '"MaraudeTarget"'
+---| '"SiegerBasepoint"'
+---| '"SiegerMill"'
+---| '"AmbushPatrol"'
+---| '"MarauderMill"'
+---| '"WildernessCuriousWander"'
+---| '"WildernessCuriousStealTarget"'
+---| '"WildernessRoamer"'
+---| '"PatternPatrol"'
+---| '"InactiveMarauder"'
+---| '"Owner"'
+---| '"Commander"'
+---| '"ChainedAnimal"'
+---| '"MeetingLocation"'
+---| '"MeetingLocationBuilding"'
+---| '"Depot"'
+---| '"VerminHunting"'
+---| '"SeekCommander"'
+---| '"ReturnToBase"'
+---| '"MillAnywhere"'
+---| '"Wagon"'
+---| '"MillBuilding"'
+---| '"HeadForEdge"'
+---| '"MillingFlood"'
+---| '"MillingBurrow"'
+---| '"SquadMove"'
+---| '"SquadKillList"'
+---| '"SquadPatrol"'
+---| '"SquadDefendBurrow"'
+---| '"SquadDefendBurrowFromTarget"'
+---| '"LairHunter"'
+---| '"Graze"'
+---| '"Guard"'
+---| '"Alarm"'
+---| '"MoveToSite"'
+---| '"ClaimSite"'
+---| '"WaitOrder"'
+
+---@alias unit_station_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+
 ---@alias unit_station_type
----| -1 # None
----| 0 # Nonsense
----| 1 # DungeonCommander
----| 2 # InsaneMood
----| 3 # UndeadHunt
----| 4 # SiegerPatrol
----| 5 # MaraudeTarget
----| 6 # SiegerBasepoint
----| 7 # SiegerMill
----| 8 # AmbushPatrol
----| 9 # MarauderMill
----| 10 # WildernessCuriousWander
----| 11 # WildernessCuriousStealTarget
----| 12 # WildernessRoamer
----| 13 # PatternPatrol
----| 14 # InactiveMarauder
----| 15 # Owner
----| 16 # Commander
----| 17 # ChainedAnimal
----| 18 # MeetingLocation
----| 19 # MeetingLocationBuilding
----| 20 # Depot
----| 21 # VerminHunting
----| 22 # SeekCommander
----| 23 # ReturnToBase
----| 24 # MillAnywhere
----| 25 # Wagon
----| 26 # MillBuilding
----| 27 # HeadForEdge
----| 28 # MillingFlood
----| 29 # MillingBurrow
----| 30 # SquadMove
----| 31 # SquadKillList
----| 32 # SquadPatrol
----| 33 # SquadDefendBurrow
----| 34 # SquadDefendBurrowFromTarget
----| 35 # LairHunter
----| 36 # Graze
----| 37 # Guard
----| 38 # Alarm
----| 39 # MoveToSite
----| 40 # ClaimSite
----| 41 # WaitOrder
+---| unit_station_type_keys
+---| unit_station_type_values
 
 ---@class _unit_station_type: DFEnum
 ---@field None -1

@@ -1,51 +1,101 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias resource_allotment_specifier_type_keys
+---| '"CROP"'
+---| '"STONE"'
+---| '"METAL"'
+---| '"WOOD"'
+---| '"ARMOR_BODY"'
+---| '"ARMOR_PANTS"'
+---| '"ARMOR_GLOVES"'
+---| '"ARMOR_BOOTS"'
+---| '"ARMOR_HELM"'
+---| '"CLOTHING_BODY"'
+---| '"CLOTHING_PANTS"'
+---| '"CLOTHING_GLOVES"'
+---| '"CLOTHING_BOOTS"'
+---| '"CLOTHING_HELM"'
+---| '"WEAPON_MELEE"'
+---| '"WEAPON_RANGED"'
+---| '"ANVIL"'
+---| '"GEMS"'
+---| '"THREAD"'
+---| '"CLOTH"'
+---| '"LEATHER"'
+---| '"QUIVER"'
+---| '"BACKPACK"'
+---| '"FLASK"'
+---| '"BAG"'
+---| '"TABLE"'
+---| '"CABINET"'
+---| '"CHAIR"'
+---| '"BOX"'
+---| '"BED"'
+---| '"CRAFTS"'
+---| '"MEAT"'
+---| '"BONE"'
+---| '"HORN"'
+---| '"SHELL"'
+---| '"TALLOW"'
+---| '"TOOTH"'
+---| '"PEARL"'
+---| '"SOAP"'
+---| '"EXTRACT"'
+---| '"CHEESE"'
+---| '"SKIN"'
+---| '"POWDER"'
+---| '"AMMO"'
+
+---@alias resource_allotment_specifier_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+
 ---@alias resource_allotment_specifier_type
----| 0 # CROP
----| 1 # STONE
----| 2 # METAL
----| 3 # WOOD
----| 4 # ARMOR_BODY
----| 5 # ARMOR_PANTS
----| 6 # ARMOR_GLOVES
----| 7 # ARMOR_BOOTS
----| 8 # ARMOR_HELM
----| 9 # CLOTHING_BODY
----| 10 # CLOTHING_PANTS
----| 11 # CLOTHING_GLOVES
----| 12 # CLOTHING_BOOTS
----| 13 # CLOTHING_HELM
----| 14 # WEAPON_MELEE
----| 15 # WEAPON_RANGED
----| 16 # ANVIL
----| 17 # GEMS
----| 18 # THREAD
----| 19 # CLOTH
----| 20 # LEATHER
----| 21 # QUIVER
----| 22 # BACKPACK
----| 23 # FLASK
----| 24 # BAG
----| 25 # TABLE
----| 26 # CABINET
----| 27 # CHAIR
----| 28 # BOX
----| 29 # BED
----| 30 # CRAFTS
----| 31 # MEAT
----| 32 # BONE
----| 33 # HORN
----| 34 # SHELL
----| 35 # TALLOW
----| 36 # TOOTH
----| 37 # PEARL
----| 38 # SOAP
----| 39 # EXTRACT
----| 40 # CHEESE
----| 41 # SKIN
----| 42 # POWDER
----| 43 # AMMO
+---| resource_allotment_specifier_type_keys
+---| resource_allotment_specifier_type_values
 
 ---@class _resource_allotment_specifier_type: DFEnum
 ---@field CROP 0

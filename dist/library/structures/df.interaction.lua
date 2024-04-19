@@ -1,9 +1,17 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias interaction_flags_keys
+---| '"GENERATED"'
+---| '"EXPERIMENT_ONLY"'
+
+---@alias interaction_flags_values
+---| 0
+---| 1
+
 ---@alias interaction_flags
----| 0 # GENERATED
----| 1 # EXPERIMENT_ONLY
+---| interaction_flags_keys
+---| interaction_flags_values
 
 ---@class _interaction_flags: DFEnum
 ---@field GENERATED 0
@@ -38,20 +46,39 @@ function df.interaction.find(key) end
 ---@return interaction_vector # df.global.world.raws.interactions
 function df.interaction.get_vector() end
 
+---@alias interaction_effect_type_keys
+---| '"ANIMATE"'
+---| '"ADD_SYNDROME"'
+---| '"RESURRECT"'
+---| '"CLEAN"'
+---| '"CONTACT"'
+---| '"MATERIAL_EMISSION"'
+---| '"HIDE"'
+---| '"PROPEL_UNIT"'
+---| '"SUMMON_UNIT"'
+---| '"CHANGE_WEATHER"'
+---| '"RAISE_GHOST"'
+---| '"CREATE_ITEM"'
+---| '"CHANGE_ITEM_QUALITY"'
+
+---@alias interaction_effect_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+
 ---@alias interaction_effect_type
----| 0 # ANIMATE
----| 1 # ADD_SYNDROME
----| 2 # RESURRECT
----| 3 # CLEAN
----| 4 # CONTACT
----| 5 # MATERIAL_EMISSION
----| 6 # HIDE
----| 7 # PROPEL_UNIT
----| 8 # SUMMON_UNIT
----| 9 # CHANGE_WEATHER
----| 10 # RAISE_GHOST
----| 11 # CREATE_ITEM
----| 12 # CHANGE_ITEM_QUALITY
+---| interaction_effect_type_keys
+---| interaction_effect_type_values
 
 ---@class _interaction_effect_type: DFEnum
 ---@field ANIMATE 0
@@ -82,13 +109,25 @@ function df.interaction.get_vector() end
 ---@field [12] "CHANGE_ITEM_QUALITY"
 df.interaction_effect_type = {}
 
+---@alias interaction_effect_location_hint_keys
+---| '"IN_WATER"'
+---| '"IN_MAGMA"'
+---| '"NO_WATER"'
+---| '"NO_MAGMA"'
+---| '"NO_THICK_FOG"'
+---| '"OUTSIDE"'
+
+---@alias interaction_effect_location_hint_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias interaction_effect_location_hint
----| 0 # IN_WATER
----| 1 # IN_MAGMA
----| 2 # NO_WATER
----| 3 # NO_MAGMA
----| 4 # NO_THICK_FOG
----| 5 # OUTSIDE
+---| interaction_effect_location_hint_keys
+---| interaction_effect_location_hint_values
 
 ---@class _interaction_effect_location_hint: DFEnum
 ---@field IN_WATER 0
@@ -283,16 +322,31 @@ df.interaction_effect_propel_unitst = {}
 ---@field _kind 'class-type'
 df.interaction_effect_summon_unitst = {}
 
+---@alias interaction_source_type_keys
+---| '"REGION"'
+---| '"SECRET"'
+---| '"DISTURBANCE"'
+---| '"DEITY"'
+---| '"ATTACK"'
+---| '"INGESTION"'
+---| '"CREATURE_ACTION"'
+---| '"UNDERGROUND_SPECIAL"'
+---| '"EXPERIMENT"'
+
+---@alias interaction_source_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+
 ---@alias interaction_source_type
----| 0 # REGION
----| 1 # SECRET
----| 2 # DISTURBANCE
----| 3 # DEITY
----| 4 # ATTACK
----| 5 # INGESTION
----| 6 # CREATURE_ACTION
----| 7 # UNDERGROUND_SPECIAL
----| 8 # EXPERIMENT
+---| interaction_source_type_keys
+---| interaction_source_type_values
 
 ---@class _interaction_source_type: DFEnum
 ---@field REGION 0
@@ -423,20 +477,39 @@ df.interaction_source_secretst.T_learn_flags = {}
 ---@field _kind 'class-type'
 df.interaction_source_disturbancest = {}
 
+---@alias interaction_source_usage_hint_keys
+---| '"MAJOR_CURSE"'
+---| '"GREETING"'
+---| '"CLEAN_SELF"'
+---| '"CLEAN_FRIEND"'
+---| '"ATTACK"'
+---| '"FLEEING"'
+---| '"NEGATIVE_SOCIAL_RESPONSE"'
+---| '"TORMENT"'
+---| '"DEFEND"'
+---| '"MEDIUM_CURSE"'
+---| '"MINOR_CURSE"'
+---| '"MEDIUM_BLESSING"'
+---| '"MINOR_BLESSING"'
+
+---@alias interaction_source_usage_hint_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+
 ---@alias interaction_source_usage_hint
----| 0 # MAJOR_CURSE
----| 1 # GREETING
----| 2 # CLEAN_SELF
----| 3 # CLEAN_FRIEND
----| 4 # ATTACK
----| 5 # FLEEING
----| 6 # NEGATIVE_SOCIAL_RESPONSE
----| 7 # TORMENT
----| 8 # DEFEND
----| 9 # MEDIUM_CURSE
----| 10 # MINOR_CURSE
----| 11 # MEDIUM_BLESSING
----| 12 # MINOR_BLESSING
+---| interaction_source_usage_hint_keys
+---| interaction_source_usage_hint_values
 
 ---@class _interaction_source_usage_hint: DFEnum
 ---@field MAJOR_CURSE 0
@@ -521,11 +594,21 @@ df.interaction_source_underground_specialst = {}
 ---@field _kind 'class-type'
 df.interaction_source_experimentst = {}
 
+---@alias interaction_target_type_keys
+---| '"CORPSE"'
+---| '"CREATURE"'
+---| '"MATERIAL"'
+---| '"LOCATION"'
+
+---@alias interaction_target_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+
 ---@alias interaction_target_type
----| 0 # CORPSE
----| 1 # CREATURE
----| 2 # MATERIAL
----| 3 # LOCATION
+---| interaction_target_type_keys
+---| interaction_target_type_values
 
 ---@class _interaction_target_type: DFEnum
 ---@field CORPSE 0
@@ -538,15 +621,29 @@ df.interaction_source_experimentst = {}
 ---@field [3] "LOCATION"
 df.interaction_target_type = {}
 
+---@alias interaction_target_location_type_keys
+---| '"CONTEXT_NONE"'
+---| '"CONTEXT_REGION"'
+---| '"CONTEXT_CREATURE"'
+---| '"CONTEXT_ITEM"'
+---| '"CONTEXT_BP"'
+---| '"CONTEXT_LOCATION"'
+---| '"CONTEXT_CREATURE_OR_LOCATION"'
+---| '"RANDOM_NEARBY_LOCATION"'
+
+---@alias interaction_target_location_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+
 ---@alias interaction_target_location_type
----| -1 # CONTEXT_NONE
----| 0 # CONTEXT_REGION
----| 1 # CONTEXT_CREATURE
----| 2 # CONTEXT_ITEM
----| 3 # CONTEXT_BP
----| 4 # CONTEXT_LOCATION
----| 5 # CONTEXT_CREATURE_OR_LOCATION
----| 6 # RANDOM_NEARBY_LOCATION
+---| interaction_target_location_type_keys
+---| interaction_target_location_type_values
 
 ---@class _interaction_target_location_type: DFEnum
 ---@field CONTEXT_NONE -1
@@ -630,29 +727,57 @@ df.interaction_target_corpsest = {}
 ---@field _kind 'class-type'
 df.interaction_target_creaturest = {}
 
+---@alias breath_attack_type_keys
+---| '"TRAILING_DUST_FLOW"'
+---| '"TRAILING_VAPOR_FLOW"'
+---| '"TRAILING_GAS_FLOW"'
+---| '"SOLID_GLOB"'
+---| '"LIQUID_GLOB"'
+---| '"UNDIRECTED_GAS"'
+---| '"UNDIRECTED_VAPOR"'
+---| '"UNDIRECTED_DUST"'
+---| '"WEB_SPRAY"'
+---| '"DRAGONFIRE"'
+---| '"FIREJET"'
+---| '"FIREBALL"'
+---| '"WEATHER_CREEPING_GAS"'
+---| '"WEATHER_CREEPING_VAPOR"'
+---| '"WEATHER_CREEPING_DUST"'
+---| '"WEATHER_FALLING_MATERIAL"'
+---| '"SPATTER_POWDER"'
+---| '"SPATTER_LIQUID"'
+---| '"UNDIRECTED_ITEM_CLOUD"'
+---| '"TRAILING_ITEM_FLOW"'
+---| '"SHARP_ROCK"'
+---| '"OTHER"'
+
+---@alias breath_attack_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+
 ---@alias breath_attack_type
----| 0 # TRAILING_DUST_FLOW
----| 1 # TRAILING_VAPOR_FLOW
----| 2 # TRAILING_GAS_FLOW
----| 3 # SOLID_GLOB
----| 4 # LIQUID_GLOB
----| 5 # UNDIRECTED_GAS
----| 6 # UNDIRECTED_VAPOR
----| 7 # UNDIRECTED_DUST
----| 8 # WEB_SPRAY
----| 9 # DRAGONFIRE
----| 10 # FIREJET
----| 11 # FIREBALL
----| 12 # WEATHER_CREEPING_GAS
----| 13 # WEATHER_CREEPING_VAPOR
----| 14 # WEATHER_CREEPING_DUST
----| 15 # WEATHER_FALLING_MATERIAL
----| 16 # SPATTER_POWDER
----| 17 # SPATTER_LIQUID
----| 18 # UNDIRECTED_ITEM_CLOUD
----| 19 # TRAILING_ITEM_FLOW
----| 20 # SHARP_ROCK
----| 21 # OTHER
+---| breath_attack_type_keys
+---| breath_attack_type_values
 
 ---@class _breath_attack_type: DFEnum
 ---@field TRAILING_DUST_FLOW 0

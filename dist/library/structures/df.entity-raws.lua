@@ -1,80 +1,161 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias entity_raw_flags_keys
+---| '"CIV_CONTROLLABLE"'
+---| '"INDIV_CONTROLLABLE"'
+---| '"LAYER_LINKED"'
+---| '"INDOOR_WOOD"'
+---| '"WOOD_ARMOR"'
+---| '"SIEGER"'
+---| '"AMBUSHER"'
+---| '"BABYSNATCHER"'
+---| '"ITEM_THIEF"'
+---| '"CLOTHING"'
+---| '"CURRENCY_BY_YEAR"'
+---| '"METAL_PREF"'
+---| '"GEM_PREF"'
+---| '"STONE_PREF"'
+---| '"WOOD_WEAPONS"'
+---| '"BUILDS_OUTDOOR_FORTIFICATIONS"'
+---| '"RIVER_PRODUCTS"'
+---| '"OCEAN_PRODUCTS"'
+---| '"INDOOR_FARMING"'
+---| '"OUTDOOR_FARMING"'
+---| '"USE_CAVE_ANIMALS"'
+---| '"USE_EVIL_ANIMALS"'
+---| '"USE_ANIMAL_PRODUCTS"'
+---| '"COMMON_DOMESTIC_PACK"'
+---| '"COMMON_DOMESTIC_PULL"'
+---| '"COMMON_DOMESTIC_MOUNT"'
+---| '"COMMON_DOMESTIC_PET"'
+---| '"SUBTERRANEAN_CLOTHING"'
+---| '"USE_EVIL_WOOD"'
+---| '"USE_GOOD_WOOD"'
+---| '"USE_EVIL_PLANTS"'
+---| '"USE_GOOD_PLANTS"'
+---| '"USE_GOOD_ANIMALS"'
+---| '"USE_ANY_PET_RACE"'
+---| '"USE_MISC_PROCESSED_WOOD_PRODUCTS"'
+---| '"IMPROVED_BOWS"'
+---| '"OUTDOOR_WOOD"'
+---| '"LOCAL_BANDITRY"'
+---| '"BUILDS_OUTDOOR_TOMBS"'
+---| '"INVADERS_IGNORE_NEUTRALS"'
+---| '"AT_PEACE_WITH_WILDLIFE"'
+---| '"EQUIPMENT_IMPROVEMENTS"'
+---| '"ABUSE_BODIES"'
+---| '"UNDEAD_CANDIDATE"'
+---| '"GENERATED"'
+---| '"SKULKING"'
+---| '""'
+---| '"MERCHANT_NOBILITY"'
+---| '"TREE_CAP_DIPLOMACY"'
+---| '"DIPLOMAT_BODYGUARDS"'
+---| '"MERCHANT_BODYGUARDS"'
+---| '"INDOOR_ORCHARDS"'
+---| '"OUTDOOR_ORCHARDS"'
+---| '"WANDERER"'
+---| '"BEAST_HUNTER"'
+---| '"SCOUT"'
+---| '"WILL_ACCEPT_TRIBUTE"'
+---| '"INDOOR_GARDENS"'
+---| '"OUTDOOR_GARDENS"'
+---| '"MERCENARY"'
+---| '"SITE_GUARDIAN"'
+---| '"DIVINE_MAT_WEAPONS"'
+---| '"DIVINE_MAT_ARMOR"'
+---| '"DIVINE_MAT_CRAFTS"'
+---| '"DIVINE_MAT_CLOTHING"'
+---| '"GENERATE_KEYBOARD_INSTRUMENTS"'
+---| '"GENERATE_STRINGED_INSTRUMENTS"'
+---| '"GENERATE_WIND_INSTRUMENTS"'
+---| '"GENERATE_PERCUSSION_INSTRUMENTS"'
+---| '"GENERATE_POETIC_FORMS"'
+---| '"GENERATE_MUSICAL_FORMS"'
+---| '"GENERATE_DANCE_FORMS"'
+---| '"SET_SCHOLARS_ON_VALUES_AND_JOBS"'
+---| '"NO_ARTIFACT_CLAIMS"'
+
+---@alias entity_raw_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+
 ---@alias entity_raw_flags
----| 0 # CIV_CONTROLLABLE
----| 1 # INDIV_CONTROLLABLE
----| 2 # LAYER_LINKED
----| 3 # INDOOR_WOOD
----| 4 # WOOD_ARMOR
----| 5 # SIEGER
----| 6 # AMBUSHER
----| 7 # BABYSNATCHER
----| 8 # ITEM_THIEF
----| 9 # CLOTHING
----| 10 # CURRENCY_BY_YEAR
----| 11 # METAL_PREF
----| 12 # GEM_PREF
----| 13 # STONE_PREF
----| 14 # WOOD_WEAPONS
----| 15 # BUILDS_OUTDOOR_FORTIFICATIONS
----| 16 # RIVER_PRODUCTS
----| 17 # OCEAN_PRODUCTS
----| 18 # INDOOR_FARMING
----| 19 # OUTDOOR_FARMING
----| 20 # USE_CAVE_ANIMALS
----| 21 # USE_EVIL_ANIMALS
----| 22 # USE_ANIMAL_PRODUCTS
----| 23 # COMMON_DOMESTIC_PACK
----| 24 # COMMON_DOMESTIC_PULL
----| 25 # COMMON_DOMESTIC_MOUNT
----| 26 # COMMON_DOMESTIC_PET
----| 27 # SUBTERRANEAN_CLOTHING
----| 28 # USE_EVIL_WOOD
----| 29 # USE_GOOD_WOOD
----| 30 # USE_EVIL_PLANTS
----| 31 # USE_GOOD_PLANTS
----| 32 # USE_GOOD_ANIMALS
----| 33 # USE_ANY_PET_RACE
----| 34 # USE_MISC_PROCESSED_WOOD_PRODUCTS
----| 35 # IMPROVED_BOWS
----| 36 # OUTDOOR_WOOD
----| 37 # LOCAL_BANDITRY
----| 38 # BUILDS_OUTDOOR_TOMBS
----| 39 # INVADERS_IGNORE_NEUTRALS
----| 40 # AT_PEACE_WITH_WILDLIFE
----| 41 # EQUIPMENT_IMPROVEMENTS
----| 42 # ABUSE_BODIES
----| 43 # UNDEAD_CANDIDATE
----| 44 # GENERATED
----| 45 # SKULKING
----| 47 # MERCHANT_NOBILITY
----| 48 # TREE_CAP_DIPLOMACY
----| 49 # DIPLOMAT_BODYGUARDS
----| 50 # MERCHANT_BODYGUARDS
----| 51 # INDOOR_ORCHARDS
----| 52 # OUTDOOR_ORCHARDS
----| 53 # WANDERER
----| 54 # BEAST_HUNTER
----| 55 # SCOUT
----| 56 # WILL_ACCEPT_TRIBUTE
----| 57 # INDOOR_GARDENS
----| 58 # OUTDOOR_GARDENS
----| 59 # MERCENARY
----| 60 # SITE_GUARDIAN
----| 61 # DIVINE_MAT_WEAPONS
----| 62 # DIVINE_MAT_ARMOR
----| 63 # DIVINE_MAT_CRAFTS
----| 64 # DIVINE_MAT_CLOTHING
----| 65 # GENERATE_KEYBOARD_INSTRUMENTS
----| 66 # GENERATE_STRINGED_INSTRUMENTS
----| 67 # GENERATE_WIND_INSTRUMENTS
----| 68 # GENERATE_PERCUSSION_INSTRUMENTS
----| 69 # GENERATE_POETIC_FORMS
----| 70 # GENERATE_MUSICAL_FORMS
----| 71 # GENERATE_DANCE_FORMS
----| 72 # SET_SCHOLARS_ON_VALUES_AND_JOBS
----| 73 # NO_ARTIFACT_CLAIMS
+---| entity_raw_flags_keys
+---| entity_raw_flags_values
 
 ---@class _entity_raw_flags: DFEnum
 ---@field CIV_CONTROLLABLE 0
@@ -225,15 +306,35 @@
 ---@field [73] "NO_ARTIFACT_CLAIMS"
 df.entity_raw_flags = {}
 
+---@alias site_type_keys
+---| '"PLAYER_FORTRESS"'
+---| '"DARK_FORTRESS"'
+---| '"CAVE"'
+---| '"CAVE_DETAILED"'
+---| '"TREE_CITY"'
+---| '"CITY"'
+---| '""'
+---| '""'
+---| '"FORTRESS"'
+---| '""'
+---| '"MONUMENT"'
+
+---@alias site_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+
 ---@alias site_type
----| 0 # PLAYER_FORTRESS
----| 1 # DARK_FORTRESS
----| 2 # CAVE
----| 3 # CAVE_DETAILED
----| 4 # TREE_CITY
----| 5 # CITY
----| 8 # FORTRESS
----| 10 # MONUMENT
+---| site_type_keys
+---| site_type_values
 
 ---@class _site_type: DFEnum
 ---@field PLAYER_FORTRESS 0
@@ -254,30 +355,59 @@ df.entity_raw_flags = {}
 ---@field [10] "MONUMENT"
 df.site_type = {}
 
+---@alias ethic_type_keys
+---| '"NONE"'
+---| '"KILL_ENTITY_MEMBER"'
+---| '"KILL_NEUTRAL"'
+---| '"KILL_ENEMY"'
+---| '"KILL_ANIMAL"'
+---| '"KILL_PLANT"'
+---| '"TORTURE_AS_EXAMPLE"'
+---| '"TORTURE_FOR_INFORMATION"'
+---| '"TORTURE_FOR_FUN"'
+---| '"TORTURE_ANIMALS"'
+---| '"TREASON"'
+---| '"OATH_BREAKING"'
+---| '"LYING"'
+---| '"VANDALISM"'
+---| '"TRESPASSING"'
+---| '"THEFT"'
+---| '"ASSAULT"'
+---| '"SLAVERY"'
+---| '"EAT_SAPIENT_OTHER"'
+---| '"EAT_SAPIENT_KILL"'
+---| '"MAKE_TROPHY_SAME_RACE"'
+---| '"MAKE_TROPHY_SAPIENT"'
+---| '"MAKE_TROPHY_ANIMAL"'
+
+---@alias ethic_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+
 ---@alias ethic_type
----| -1 # NONE
----| 0 # KILL_ENTITY_MEMBER
----| 1 # KILL_NEUTRAL
----| 2 # KILL_ENEMY
----| 3 # KILL_ANIMAL
----| 4 # KILL_PLANT
----| 5 # TORTURE_AS_EXAMPLE
----| 6 # TORTURE_FOR_INFORMATION
----| 7 # TORTURE_FOR_FUN
----| 8 # TORTURE_ANIMALS
----| 9 # TREASON
----| 10 # OATH_BREAKING
----| 11 # LYING
----| 12 # VANDALISM
----| 13 # TRESPASSING
----| 14 # THEFT
----| 15 # ASSAULT
----| 16 # SLAVERY
----| 17 # EAT_SAPIENT_OTHER
----| 18 # EAT_SAPIENT_KILL
----| 19 # MAKE_TROPHY_SAME_RACE
----| 20 # MAKE_TROPHY_SAPIENT
----| 21 # MAKE_TROPHY_ANIMAL
+---| ethic_type_keys
+---| ethic_type_values
 
 ---@class _ethic_type: DFEnum
 ---@field NONE -1
@@ -328,24 +458,47 @@ df.site_type = {}
 ---@field [21] "MAKE_TROPHY_ANIMAL"
 df.ethic_type = {}
 
+---@alias ethic_response_keys
+---| '"NOT_APPLICABLE"'
+---| '"ACCEPTABLE"'
+---| '"PERSONAL_MATTER"'
+---| '"JUSTIFIED_IF_NO_REPERCUSSIONS"'
+---| '"JUSTIFIED_IF_GOOD_REASON"'
+---| '"JUSTIFIED_IF_EXTREME_REASON"'
+---| '"JUSTIFIED_IF_SELF_DEFENSE"'
+---| '"ONLY_IF_SANCTIONED"'
+---| '"MISGUIDED"'
+---| '"SHUN"'
+---| '"APPALLING"'
+---| '"PUNISH_REPRIMAND"'
+---| '"PUNISH_SERIOUS"'
+---| '"PUNISH_EXILE"'
+---| '"PUNISH_CAPITAL"'
+---| '"UNTHINKABLE"'
+---| '"REQUIRED"'
+
+---@alias ethic_response_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+
 ---@alias ethic_response
----| 0 # NOT_APPLICABLE
----| 1 # ACCEPTABLE
----| 2 # PERSONAL_MATTER
----| 3 # JUSTIFIED_IF_NO_REPERCUSSIONS
----| 4 # JUSTIFIED_IF_GOOD_REASON
----| 5 # JUSTIFIED_IF_EXTREME_REASON
----| 6 # JUSTIFIED_IF_SELF_DEFENSE
----| 7 # ONLY_IF_SANCTIONED
----| 8 # MISGUIDED
----| 9 # SHUN
----| 10 # APPALLING
----| 11 # PUNISH_REPRIMAND
----| 12 # PUNISH_SERIOUS
----| 13 # PUNISH_EXILE
----| 14 # PUNISH_CAPITAL
----| 15 # UNTHINKABLE
----| 16 # REQUIRED
+---| ethic_response_keys
+---| ethic_response_values
 
 ---@class _ethic_response: DFEnum
 ---@field NOT_APPLICABLE 0
@@ -384,26 +537,51 @@ df.ethic_type = {}
 ---@field [16] "REQUIRED"
 df.ethic_response = {}
 
+---@alias entity_name_type_keys
+---| '"OTHER"'
+---| '"CIV"'
+---| '"SITE"'
+---| '"VESSEL"'
+---| '"MILITARY_UNIT"'
+---| '"RELIGION"'
+---| '"TEMPLE"'
+---| '"WAR"'
+---| '"BATTLE"'
+---| '"SIEGE"'
+---| '"ROAD"'
+---| '"BRIDGE"'
+---| '"TUNNEL"'
+---| '"WALL"'
+---| '"LIBRARY"'
+---| '"FESTIVAL"'
+---| '"MERCHANT_COMPANY"'
+---| '"CRAFT_GUILD"'
+---| '"HOSPITAL"'
+
+---@alias entity_name_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+
 ---@alias entity_name_type
----| 0 # OTHER
----| 1 # CIV
----| 2 # SITE
----| 3 # VESSEL
----| 4 # MILITARY_UNIT
----| 5 # RELIGION
----| 6 # TEMPLE
----| 7 # WAR
----| 8 # BATTLE
----| 9 # SIEGE
----| 10 # ROAD
----| 11 # BRIDGE
----| 12 # TUNNEL
----| 13 # WALL
----| 14 # LIBRARY
----| 15 # FESTIVAL
----| 16 # MERCHANT_COMPANY
----| 17 # CRAFT_GUILD
----| 18 # HOSPITAL
+---| entity_name_type_keys
+---| entity_name_type_values
 
 ---@class _entity_name_type: DFEnum
 ---@field OTHER 0
@@ -710,32 +888,63 @@ df.entity_animal_raw = {}
 ---@field [10] "ALWAYS_PACK_ANIMAL"
 df.entity_animal_raw.T_flags = {}
 
+---@alias entity_position_raw_flags_keys
+---| '"SITE"'
+---| '"ELECTED"'
+---| '"CONQUERED_SITE"'
+---| '"MILITARY_SCREEN_ONLY"'
+---| '"GENDER_MALE"'
+---| '"GENDER_FEMALE"'
+---| '"SUCCESSION_BY_HEIR"'
+---| '"EXPORTED_IN_LEGENDS"'
+---| '"FLASHES"'
+---| '"BRAG_ON_KILL"'
+---| '"CHAT_WORTHY"'
+---| '"DO_NOT_CULL"'
+---| '"KILL_QUEST"'
+---| '"DETERMINES_COIN_DESIGN"'
+---| '"ACCOUNT_EXEMPT"'
+---| '"DUTY_BOUND"'
+---| '"COLOR"'
+---| '"RULES_FROM_LOCATION"'
+---| '"MENIAL_WORK_EXEMPTION"'
+---| '"MENIAL_WORK_EXEMPTION_SPOUSE"'
+---| '"SLEEP_PRETENSION"'
+---| '"PUNISHMENT_EXEMPTION"'
+---| '"QUEST_GIVER"'
+---| '"SPECIAL_BURIAL"'
+---| '"REQUIRES_MARKET"'
+
+---@alias entity_position_raw_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+
 ---@alias entity_position_raw_flags
----| 0 # SITE
----| 1 # ELECTED
----| 2 # CONQUERED_SITE
----| 3 # MILITARY_SCREEN_ONLY
----| 4 # GENDER_MALE
----| 5 # GENDER_FEMALE
----| 6 # SUCCESSION_BY_HEIR
----| 7 # EXPORTED_IN_LEGENDS
----| 8 # FLASHES
----| 9 # BRAG_ON_KILL
----| 10 # CHAT_WORTHY
----| 11 # DO_NOT_CULL
----| 12 # KILL_QUEST
----| 13 # DETERMINES_COIN_DESIGN
----| 14 # ACCOUNT_EXEMPT
----| 15 # DUTY_BOUND
----| 16 # COLOR
----| 17 # RULES_FROM_LOCATION
----| 18 # MENIAL_WORK_EXEMPTION
----| 19 # MENIAL_WORK_EXEMPTION_SPOUSE
----| 20 # SLEEP_PRETENSION
----| 21 # PUNISHMENT_EXEMPTION
----| 22 # QUEST_GIVER
----| 23 # SPECIAL_BURIAL
----| 24 # REQUIRES_MARKET
+---| entity_position_raw_flags_keys
+---| entity_position_raw_flags_values
 
 ---@class _entity_position_raw_flags: DFEnum
 ---@field SITE 0
@@ -790,51 +999,101 @@ df.entity_animal_raw.T_flags = {}
 ---@field [24] "REQUIRES_MARKET"
 df.entity_position_raw_flags = {}
 
+---@alias entity_position_responsibility_keys
+---| '"NONE"'
+---| '"LAW_MAKING"'
+---| '"LAW_ENFORCEMENT"'
+---| '"RECEIVE_DIPLOMATS"'
+---| '"MEET_WORKERS"'
+---| '"MANAGE_PRODUCTION"'
+---| '"TRADE"'
+---| '"ACCOUNTING"'
+---| '"ESTABLISH_COLONY_TRADE_AGREEMENTS"'
+---| '"MAKE_INTRODUCTIONS"'
+---| '"MAKE_PEACE_AGREEMENTS"'
+---| '"MAKE_TOPIC_AGREEMENTS"'
+---| '"COLLECT_TAXES"'
+---| '"ESCORT_TAX_COLLECTOR"'
+---| '"EXECUTIONS"'
+---| '"TAME_EXOTICS"'
+---| '"RELIGION"'
+---| '"ATTACK_ENEMIES"'
+---| '"PATROL_TERRITORY"'
+---| '"MILITARY_GOALS"'
+---| '"MILITARY_STRATEGY"'
+---| '"UPGRADE_SQUAD_EQUIPMENT"'
+---| '"EQUIPMENT_MANIFESTS"'
+---| '"SORT_AMMUNITION"'
+---| '"BUILD_MORALE"'
+---| '"HEALTH_MANAGEMENT"'
+---| '"ESPIONAGE"'
+---| '"ADVISE_LEADERS"'
+---| '"OVERSEE_LEADER_HOUSEHOLD"'
+---| '"MANAGE_ANIMALS"'
+---| '"MANAGE_LEADER_HOUSEHOLD_FOOD"'
+---| '"MANAGE_LEADER_HOUSEHOLD_DRINKS"'
+---| '"PREPARE_LEADER_MEALS"'
+---| '"MANAGE_LEADER_HOUSEHOLD_CLEANLINESS"'
+---| '"MAINTAIN_SEWERS"'
+---| '"FOOD_SUPPLY"'
+---| '"FIRE_SAFETY"'
+---| '"JUDGE"'
+---| '"BUILDING_SAFETY"'
+---| '"CONSTRUCTION_PERMITS"'
+---| '"MAINTAIN_ROADS"'
+---| '"MAINTAIN_BRIDGES"'
+---| '"MAINTAIN_TUNNELS"'
+---| '"DELIVER_MESSAGES"'
+
+---@alias entity_position_responsibility_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+
 ---@alias entity_position_responsibility
----| -1 # NONE
----| 0 # LAW_MAKING
----| 1 # LAW_ENFORCEMENT
----| 2 # RECEIVE_DIPLOMATS
----| 3 # MEET_WORKERS
----| 4 # MANAGE_PRODUCTION
----| 5 # TRADE
----| 6 # ACCOUNTING
----| 7 # ESTABLISH_COLONY_TRADE_AGREEMENTS
----| 8 # MAKE_INTRODUCTIONS
----| 9 # MAKE_PEACE_AGREEMENTS
----| 10 # MAKE_TOPIC_AGREEMENTS
----| 11 # COLLECT_TAXES
----| 12 # ESCORT_TAX_COLLECTOR
----| 13 # EXECUTIONS
----| 14 # TAME_EXOTICS
----| 15 # RELIGION
----| 16 # ATTACK_ENEMIES
----| 17 # PATROL_TERRITORY
----| 18 # MILITARY_GOALS
----| 19 # MILITARY_STRATEGY
----| 20 # UPGRADE_SQUAD_EQUIPMENT
----| 21 # EQUIPMENT_MANIFESTS
----| 22 # SORT_AMMUNITION
----| 23 # BUILD_MORALE
----| 24 # HEALTH_MANAGEMENT
----| 25 # ESPIONAGE
----| 26 # ADVISE_LEADERS
----| 27 # OVERSEE_LEADER_HOUSEHOLD
----| 28 # MANAGE_ANIMALS
----| 29 # MANAGE_LEADER_HOUSEHOLD_FOOD
----| 30 # MANAGE_LEADER_HOUSEHOLD_DRINKS
----| 31 # PREPARE_LEADER_MEALS
----| 32 # MANAGE_LEADER_HOUSEHOLD_CLEANLINESS
----| 33 # MAINTAIN_SEWERS
----| 34 # FOOD_SUPPLY
----| 35 # FIRE_SAFETY
----| 36 # JUDGE
----| 37 # BUILDING_SAFETY
----| 38 # CONSTRUCTION_PERMITS
----| 39 # MAINTAIN_ROADS
----| 40 # MAINTAIN_BRIDGES
----| 41 # MAINTAIN_TUNNELS
----| 42 # DELIVER_MESSAGES
+---| entity_position_responsibility_keys
+---| entity_position_responsibility_values
 
 ---@class _entity_position_responsibility: DFEnum
 ---@field NONE -1

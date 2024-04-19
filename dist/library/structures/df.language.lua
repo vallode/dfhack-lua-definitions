@@ -72,16 +72,31 @@
 ---@field [15] "standard_verb"
 df.language_word_flags = {}
 
+---@alias part_of_speech_keys
+---| '"Noun"'
+---| '"NounPlural"'
+---| '"Adjective"'
+---| '"Prefix"'
+---| '"Verb"'
+---| '"Verb3rdPerson"'
+---| '"VerbPast"'
+---| '"VerbPassive"'
+---| '"VerbGerund"'
+
+---@alias part_of_speech_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+
 ---@alias part_of_speech
----| 0 # Noun
----| 1 # NounPlural
----| 2 # Adjective
----| 3 # Prefix
----| 4 # Verb
----| 5 # Verb3rdPerson
----| 6 # VerbPast
----| 7 # VerbPassive
----| 8 # VerbGerund
+---| part_of_speech_keys
+---| part_of_speech_values
 
 ---@class _part_of_speech: DFEnum
 ---@field Noun 0
@@ -104,13 +119,25 @@ df.language_word_flags = {}
 ---@field [8] "VerbGerund"
 df.part_of_speech = {}
 
+---@alias language_word_table_index_keys
+---| '"FrontCompound"'
+---| '"RearCompound"'
+---| '"FirstName"'
+---| '"Adjectives"'
+---| '"TheX"'
+---| '"OfX"'
+
+---@alias language_word_table_index_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+
 ---@alias language_word_table_index
----| 0 # FrontCompound
----| 1 # RearCompound
----| 2 # FirstName
----| 3 # Adjectives
----| 4 # TheX
----| 5 # OfX
+---| language_word_table_index_keys
+---| language_word_table_index_values
 
 ---@class _language_word_table_index: DFEnum
 ---@field FrontCompound 0
@@ -127,138 +154,275 @@ df.part_of_speech = {}
 ---@field [5] "OfX"
 df.language_word_table_index = {}
 
+---@alias sphere_type_keys
+---| '"NONE"'
+---| '"AGRICULTURE"'
+---| '"ANIMALS"'
+---| '"ART"'
+---| '"BALANCE"'
+---| '"BEAUTY"'
+---| '"BIRTH"'
+---| '"BLIGHT"'
+---| '"BOUNDARIES"'
+---| '"CAVERNS"'
+---| '"CHAOS"'
+---| '"CHARITY"'
+---| '"CHILDREN"'
+---| '"COASTS"'
+---| '"CONSOLATION"'
+---| '"COURAGE"'
+---| '"CRAFTS"'
+---| '"CREATION"'
+---| '"DANCE"'
+---| '"DARKNESS"'
+---| '"DAWN"'
+---| '"DAY"'
+---| '"DEATH"'
+---| '"DEFORMITY"'
+---| '"DEPRAVITY"'
+---| '"DISCIPLINE"'
+---| '"DISEASE"'
+---| '"DREAMS"'
+---| '"DUSK"'
+---| '"DUTY"'
+---| '"EARTH"'
+---| '"FAMILY"'
+---| '"FAME"'
+---| '"FATE"'
+---| '"FERTILITY"'
+---| '"FESTIVALS"'
+---| '"FIRE"'
+---| '"FISH"'
+---| '"FISHING"'
+---| '"FOOD"'
+---| '"FORGIVENESS"'
+---| '"FORTRESSES"'
+---| '"FREEDOM"'
+---| '"GAMBLING"'
+---| '"GAMES"'
+---| '"GENEROSITY"'
+---| '"HAPPINESS"'
+---| '"HEALING"'
+---| '"HOSPITALITY"'
+---| '"HUNTING"'
+---| '"INSPIRATION"'
+---| '"JEALOUSY"'
+---| '"JEWELS"'
+---| '"JUSTICE"'
+---| '"LABOR"'
+---| '"LAKES"'
+---| '"LAWS"'
+---| '"LIES"'
+---| '"LIGHT"'
+---| '"LIGHTNING"'
+---| '"LONGEVITY"'
+---| '"LOVE"'
+---| '"LOYALTY"'
+---| '"LUCK"'
+---| '"LUST"'
+---| '"MARRIAGE"'
+---| '"MERCY"'
+---| '"METALS"'
+---| '"MINERALS"'
+---| '"MISERY"'
+---| '"MIST"'
+---| '"MOON"'
+---| '"MOUNTAINS"'
+---| '"MUCK"'
+---| '"MURDER"'
+---| '"MUSIC"'
+---| '"NATURE"'
+---| '"NIGHT"'
+---| '"NIGHTMARES"'
+---| '"OATHS"'
+---| '"OCEANS"'
+---| '"ORDER"'
+---| '"PAINTING"'
+---| '"PEACE"'
+---| '"PERSUASION"'
+---| '"PLANTS"'
+---| '"POETRY"'
+---| '"PREGNANCY"'
+---| '"RAIN"'
+---| '"RAINBOWS"'
+---| '"REBIRTH"'
+---| '"REVELRY"'
+---| '"REVENGE"'
+---| '"RIVERS"'
+---| '"RULERSHIP"'
+---| '"RUMORS"'
+---| '"SACRIFICE"'
+---| '"SALT"'
+---| '"SCHOLARSHIP"'
+---| '"SEASONS"'
+---| '"SILENCE"'
+---| '"SKY"'
+---| '"SONG"'
+---| '"SPEECH"'
+---| '"STARS"'
+---| '"STORMS"'
+---| '"STRENGTH"'
+---| '"SUICIDE"'
+---| '"SUN"'
+---| '"THEFT"'
+---| '"THRALLDOM"'
+---| '"THUNDER"'
+---| '"TORTURE"'
+---| '"TRADE"'
+---| '"TRAVELERS"'
+---| '"TREACHERY"'
+---| '"TREES"'
+---| '"TRICKERY"'
+---| '"TRUTH"'
+---| '"TWILIGHT"'
+---| '"VALOR"'
+---| '"VICTORY"'
+---| '"VOLCANOS"'
+---| '"WAR"'
+---| '"WATER"'
+---| '"WEALTH"'
+---| '"WEATHER"'
+---| '"WIND"'
+---| '"WISDOM"'
+---| '"WRITING"'
+---| '"YOUTH"'
+
+---@alias sphere_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+
 ---@alias sphere_type
----| -1 # NONE
----| 0 # AGRICULTURE
----| 1 # ANIMALS
----| 2 # ART
----| 3 # BALANCE
----| 4 # BEAUTY
----| 5 # BIRTH
----| 6 # BLIGHT
----| 7 # BOUNDARIES
----| 8 # CAVERNS
----| 9 # CHAOS
----| 10 # CHARITY
----| 11 # CHILDREN
----| 12 # COASTS
----| 13 # CONSOLATION
----| 14 # COURAGE
----| 15 # CRAFTS
----| 16 # CREATION
----| 17 # DANCE
----| 18 # DARKNESS
----| 19 # DAWN
----| 20 # DAY
----| 21 # DEATH
----| 22 # DEFORMITY
----| 23 # DEPRAVITY
----| 24 # DISCIPLINE
----| 25 # DISEASE
----| 26 # DREAMS
----| 27 # DUSK
----| 28 # DUTY
----| 29 # EARTH
----| 30 # FAMILY
----| 31 # FAME
----| 32 # FATE
----| 33 # FERTILITY
----| 34 # FESTIVALS
----| 35 # FIRE
----| 36 # FISH
----| 37 # FISHING
----| 38 # FOOD
----| 39 # FORGIVENESS
----| 40 # FORTRESSES
----| 41 # FREEDOM
----| 42 # GAMBLING
----| 43 # GAMES
----| 44 # GENEROSITY
----| 45 # HAPPINESS
----| 46 # HEALING
----| 47 # HOSPITALITY
----| 48 # HUNTING
----| 49 # INSPIRATION
----| 50 # JEALOUSY
----| 51 # JEWELS
----| 52 # JUSTICE
----| 53 # LABOR
----| 54 # LAKES
----| 55 # LAWS
----| 56 # LIES
----| 57 # LIGHT
----| 58 # LIGHTNING
----| 59 # LONGEVITY
----| 60 # LOVE
----| 61 # LOYALTY
----| 62 # LUCK
----| 63 # LUST
----| 64 # MARRIAGE
----| 65 # MERCY
----| 66 # METALS
----| 67 # MINERALS
----| 68 # MISERY
----| 69 # MIST
----| 70 # MOON
----| 71 # MOUNTAINS
----| 72 # MUCK
----| 73 # MURDER
----| 74 # MUSIC
----| 75 # NATURE
----| 76 # NIGHT
----| 77 # NIGHTMARES
----| 78 # OATHS
----| 79 # OCEANS
----| 80 # ORDER
----| 81 # PAINTING
----| 82 # PEACE
----| 83 # PERSUASION
----| 84 # PLANTS
----| 85 # POETRY
----| 86 # PREGNANCY
----| 87 # RAIN
----| 88 # RAINBOWS
----| 89 # REBIRTH
----| 90 # REVELRY
----| 91 # REVENGE
----| 92 # RIVERS
----| 93 # RULERSHIP
----| 94 # RUMORS
----| 95 # SACRIFICE
----| 96 # SALT
----| 97 # SCHOLARSHIP
----| 98 # SEASONS
----| 99 # SILENCE
----| 100 # SKY
----| 101 # SONG
----| 102 # SPEECH
----| 103 # STARS
----| 104 # STORMS
----| 105 # STRENGTH
----| 106 # SUICIDE
----| 107 # SUN
----| 108 # THEFT
----| 109 # THRALLDOM
----| 110 # THUNDER
----| 111 # TORTURE
----| 112 # TRADE
----| 113 # TRAVELERS
----| 114 # TREACHERY
----| 115 # TREES
----| 116 # TRICKERY
----| 117 # TRUTH
----| 118 # TWILIGHT
----| 119 # VALOR
----| 120 # VICTORY
----| 121 # VOLCANOS
----| 122 # WAR
----| 123 # WATER
----| 124 # WEALTH
----| 125 # WEATHER
----| 126 # WIND
----| 127 # WISDOM
----| 128 # WRITING
----| 129 # YOUTH
+---| sphere_type_keys
+---| sphere_type_values
 
 ---@class _sphere_type: DFEnum
 ---@field NONE -1
@@ -618,75 +782,149 @@ df.language_name = {}
 ---@field _kind 'struct-type'
 df.language_word_table = {}
 
+---@alias language_name_category_keys
+---| '"Unit"'
+---| '"Artifact"'
+---| '"ArtifactEvil"'
+---| '"Swamp"'
+---| '"Desert"'
+---| '"Forest"'
+---| '"Mountains"'
+---| '"Lake"'
+---| '"Ocean"'
+---| '"Glacier"'
+---| '"Tundra"'
+---| '"Grassland"'
+---| '"Hills"'
+---| '"Region"'
+---| '"Cave"'
+---| '"SwampEvil"'
+---| '"DesertEvil"'
+---| '"ForestEvil"'
+---| '"MountainsEvil"'
+---| '"LakeEvil"'
+---| '"OceanEvil"'
+---| '"GlacierEvil"'
+---| '"TundraEvil"'
+---| '"GrasslandEvil"'
+---| '"HillsEvil"'
+---| '"SwampGood"'
+---| '"DesertGood"'
+---| '"ForestGood"'
+---| '"MountainsGood"'
+---| '"LakeGood"'
+---| '"OceanGood"'
+---| '"GlacierGood"'
+---| '"TundraGood"'
+---| '"GrasslandGood"'
+---| '"HillsGood"'
+---| '"ArtImage"'
+---| '"MountainPeak"'
+---| '"River"'
+---| '"Volcano"'
+---| '"SmallIsland"'
+---| '"Island"'
+---| '"Continent"'
+---| '"CommonReligion"'
+---| '"Temple"'
+---| '"Keep"'
+---| '"Unknown2"'
+---| '"SymbolArtifice"'
+---| '"SymbolViolent"'
+---| '"SymbolProtect"'
+---| '"SymbolDomestic"'
+---| '"SymbolFood"'
+---| '"War"'
+---| '"Battle"'
+---| '"Siege"'
+---| '"Road"'
+---| '"Wall"'
+---| '"Bridge"'
+---| '"Tunnel"'
+---| '"Tomb"'
+---| '"SymbolProtect2"'
+---| '"Library"'
+---| '"Festival"'
+---| '"EntityMerchantCompany"'
+---| '"CountingHouse"'
+---| '"EntityMerchantCompany2"'
+---| '"Guildhall"'
+---| '"NecromancerTower"'
+---| '"Hospital"'
+
+---@alias language_name_category_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+
 ---@alias language_name_category
----| 0 # Unit
----| 1 # Artifact
----| 2 # ArtifactEvil
----| 3 # Swamp
----| 4 # Desert
----| 5 # Forest
----| 6 # Mountains
----| 7 # Lake
----| 8 # Ocean
----| 9 # Glacier
----| 10 # Tundra
----| 11 # Grassland
----| 12 # Hills
----| 13 # Region
----| 14 # Cave
----| 15 # SwampEvil
----| 16 # DesertEvil
----| 17 # ForestEvil
----| 18 # MountainsEvil
----| 19 # LakeEvil
----| 20 # OceanEvil
----| 21 # GlacierEvil
----| 22 # TundraEvil
----| 23 # GrasslandEvil
----| 24 # HillsEvil
----| 25 # SwampGood
----| 26 # DesertGood
----| 27 # ForestGood
----| 28 # MountainsGood
----| 29 # LakeGood
----| 30 # OceanGood
----| 31 # GlacierGood
----| 32 # TundraGood
----| 33 # GrasslandGood
----| 34 # HillsGood
----| 35 # ArtImage
----| 36 # MountainPeak
----| 37 # River
----| 38 # Volcano
----| 39 # SmallIsland
----| 40 # Island
----| 41 # Continent
----| 42 # CommonReligion
----| 43 # Temple
----| 44 # Keep
----| 45 # Unknown2
----| 46 # SymbolArtifice
----| 47 # SymbolViolent
----| 48 # SymbolProtect
----| 49 # SymbolDomestic
----| 50 # SymbolFood
----| 51 # War
----| 52 # Battle
----| 53 # Siege
----| 54 # Road
----| 55 # Wall
----| 56 # Bridge
----| 57 # Tunnel
----| 58 # Tomb
----| 59 # SymbolProtect2
----| 60 # Library
----| 61 # Festival
----| 62 # EntityMerchantCompany
----| 63 # CountingHouse
----| 64 # EntityMerchantCompany2
----| 65 # Guildhall
----| 66 # NecromancerTower
----| 67 # Hospital
+---| language_name_category_keys
+---| language_name_category_values
 
 ---@class _language_name_category: DFEnum
 ---@field Unit 0
@@ -827,63 +1065,125 @@ df.language_word_table = {}
 ---@field [67] "Hospital"
 df.language_name_category = {}
 
+---@alias language_name_type_keys
+---| '"NONE"'
+---| '"Figure"'
+---| '"Artifact"'
+---| '"Civilization"'
+---| '"Squad"'
+---| '"Site"'
+---| '"World"'
+---| '"Region"'
+---| '"Dungeon"'
+---| '"LegendaryFigure"'
+---| '"FigureNoFirst"'
+---| '"FigureFirstOnly"'
+---| '"ArtImage"'
+---| '"AdventuringGroup"'
+---| '"ElfTree"'
+---| '"SiteGovernment"'
+---| '"NomadicGroup"'
+---| '"Vessel"'
+---| '"MilitaryUnit"'
+---| '"Religion"'
+---| '"MountainPeak"'
+---| '"River"'
+---| '"Temple"'
+---| '"Keep"'
+---| '"MeadHall"'
+---| '"SymbolArtifice"'
+---| '"SymbolViolent"'
+---| '"SymbolProtect"'
+---| '"SymbolDomestic"'
+---| '"SymbolFood"'
+---| '"War"'
+---| '"Battle"'
+---| '"Siege"'
+---| '"Road"'
+---| '"Wall"'
+---| '"Bridge"'
+---| '"Tunnel"'
+---| '"PretentiousEntityPosition"'
+---| '"Monument"'
+---| '"Tomb"'
+---| '"OutcastGroup"'
+---| '"TrueName"'
+---| '"SymbolProtect2"'
+---| '"PerformanceTroupe"'
+---| '"Library"'
+---| '"PoeticForm"'
+---| '"MusicalForm"'
+---| '"DanceForm"'
+---| '"Festival"'
+---| '"FalseIdentity"'
+---| '"MerchantCompany"'
+---| '"CountingHouse"'
+---| '"CraftGuild"'
+---| '"Guildhall"'
+---| '"NecromancerTower"'
+---| '"Hospital"'
+
+---@alias language_name_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+
 ---@alias language_name_type
----| -1 # NONE
----| 0 # Figure
----| 1 # Artifact
----| 2 # Civilization
----| 3 # Squad
----| 4 # Site
----| 5 # World
----| 6 # Region
----| 7 # Dungeon
----| 8 # LegendaryFigure
----| 9 # FigureNoFirst
----| 10 # FigureFirstOnly
----| 11 # ArtImage
----| 12 # AdventuringGroup
----| 13 # ElfTree
----| 14 # SiteGovernment
----| 15 # NomadicGroup
----| 16 # Vessel
----| 17 # MilitaryUnit
----| 18 # Religion
----| 19 # MountainPeak
----| 20 # River
----| 21 # Temple
----| 22 # Keep
----| 23 # MeadHall
----| 24 # SymbolArtifice
----| 25 # SymbolViolent
----| 26 # SymbolProtect
----| 27 # SymbolDomestic
----| 28 # SymbolFood
----| 29 # War
----| 30 # Battle
----| 31 # Siege
----| 32 # Road
----| 33 # Wall
----| 34 # Bridge
----| 35 # Tunnel
----| 36 # PretentiousEntityPosition
----| 37 # Monument
----| 38 # Tomb
----| 39 # OutcastGroup
----| 40 # TrueName
----| 41 # SymbolProtect2
----| 42 # PerformanceTroupe
----| 43 # Library
----| 44 # PoeticForm
----| 45 # MusicalForm
----| 46 # DanceForm
----| 47 # Festival
----| 48 # FalseIdentity
----| 49 # MerchantCompany
----| 50 # CountingHouse
----| 51 # CraftGuild
----| 52 # Guildhall
----| 53 # NecromancerTower
----| 54 # Hospital
+---| language_name_type_keys
+---| language_name_type_values
 
 ---@class _language_name_type: DFEnum
 ---@field NONE -1
@@ -1000,14 +1300,27 @@ df.language_name_category = {}
 ---@field [54] "Hospital"
 df.language_name_type = {}
 
+---@alias language_name_component_keys
+---| '"FrontCompound"'
+---| '"RearCompound"'
+---| '"FirstAdjective"'
+---| '"SecondAdjective"'
+---| '"HyphenCompound"'
+---| '"TheX"'
+---| '"OfX"'
+
+---@alias language_name_component_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+
 ---@alias language_name_component
----| 0 # FrontCompound
----| 1 # RearCompound
----| 2 # FirstAdjective
----| 3 # SecondAdjective
----| 4 # HyphenCompound
----| 5 # TheX
----| 6 # OfX
+---| language_name_component_keys
+---| language_name_component_values
 
 ---@class _language_name_component: DFEnum
 ---@field FrontCompound 0

@@ -1,100 +1,199 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias item_type_keys
+---| '"NONE"'
+---| '"BAR"'
+---| '"SMALLGEM"'
+---| '"BLOCKS"'
+---| '"ROUGH"'
+---| '"BOULDER"'
+---| '"WOOD"'
+---| '"DOOR"'
+---| '"FLOODGATE"'
+---| '"BED"'
+---| '"CHAIR"'
+---| '"CHAIN"'
+---| '"FLASK"'
+---| '"GOBLET"'
+---| '"INSTRUMENT"'
+---| '"TOY"'
+---| '"WINDOW"'
+---| '"CAGE"'
+---| '"BARREL"'
+---| '"BUCKET"'
+---| '"ANIMALTRAP"'
+---| '"TABLE"'
+---| '"COFFIN"'
+---| '"STATUE"'
+---| '"CORPSE"'
+---| '"WEAPON"'
+---| '"ARMOR"'
+---| '"SHOES"'
+---| '"SHIELD"'
+---| '"HELM"'
+---| '"GLOVES"'
+---| '"BOX"'
+---| '"BAG"'
+---| '"BIN"'
+---| '"ARMORSTAND"'
+---| '"WEAPONRACK"'
+---| '"CABINET"'
+---| '"FIGURINE"'
+---| '"AMULET"'
+---| '"SCEPTER"'
+---| '"AMMO"'
+---| '"CROWN"'
+---| '"RING"'
+---| '"EARRING"'
+---| '"BRACELET"'
+---| '"GEM"'
+---| '"ANVIL"'
+---| '"CORPSEPIECE"'
+---| '"REMAINS"'
+---| '"MEAT"'
+---| '"FISH"'
+---| '"FISH_RAW"'
+---| '"VERMIN"'
+---| '"PET"'
+---| '"SEEDS"'
+---| '"PLANT"'
+---| '"SKIN_TANNED"'
+---| '"PLANT_GROWTH"'
+---| '"THREAD"'
+---| '"CLOTH"'
+---| '"TOTEM"'
+---| '"PANTS"'
+---| '"BACKPACK"'
+---| '"QUIVER"'
+---| '"CATAPULTPARTS"'
+---| '"BALLISTAPARTS"'
+---| '"SIEGEAMMO"'
+---| '"BALLISTAARROWHEAD"'
+---| '"TRAPPARTS"'
+---| '"TRAPCOMP"'
+---| '"DRINK"'
+---| '"POWDER_MISC"'
+---| '"CHEESE"'
+---| '"FOOD"'
+---| '"LIQUID_MISC"'
+---| '"COIN"'
+---| '"GLOB"'
+---| '"ROCK"'
+---| '"PIPE_SECTION"'
+---| '"HATCH_COVER"'
+---| '"GRATE"'
+---| '"QUERN"'
+---| '"MILLSTONE"'
+---| '"SPLINT"'
+---| '"CRUTCH"'
+---| '"TRACTION_BENCH"'
+---| '"ORTHOPEDIC_CAST"'
+---| '"TOOL"'
+---| '"SLAB"'
+---| '"EGG"'
+---| '"BOOK"'
+---| '"SHEET"'
+---| '"BRANCH"'
+
+---@alias item_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+
 ---@alias item_type
----| -1 # NONE
----| 0 # BAR
----| 1 # SMALLGEM
----| 2 # BLOCKS
----| 3 # ROUGH
----| 4 # BOULDER
----| 5 # WOOD
----| 6 # DOOR
----| 7 # FLOODGATE
----| 8 # BED
----| 9 # CHAIR
----| 10 # CHAIN
----| 11 # FLASK
----| 12 # GOBLET
----| 13 # INSTRUMENT
----| 14 # TOY
----| 15 # WINDOW
----| 16 # CAGE
----| 17 # BARREL
----| 18 # BUCKET
----| 19 # ANIMALTRAP
----| 20 # TABLE
----| 21 # COFFIN
----| 22 # STATUE
----| 23 # CORPSE
----| 24 # WEAPON
----| 25 # ARMOR
----| 26 # SHOES
----| 27 # SHIELD
----| 28 # HELM
----| 29 # GLOVES
----| 30 # BOX
----| 31 # BAG
----| 32 # BIN
----| 33 # ARMORSTAND
----| 34 # WEAPONRACK
----| 35 # CABINET
----| 36 # FIGURINE
----| 37 # AMULET
----| 38 # SCEPTER
----| 39 # AMMO
----| 40 # CROWN
----| 41 # RING
----| 42 # EARRING
----| 43 # BRACELET
----| 44 # GEM
----| 45 # ANVIL
----| 46 # CORPSEPIECE
----| 47 # REMAINS
----| 48 # MEAT
----| 49 # FISH
----| 50 # FISH_RAW
----| 51 # VERMIN
----| 52 # PET
----| 53 # SEEDS
----| 54 # PLANT
----| 55 # SKIN_TANNED
----| 56 # PLANT_GROWTH
----| 57 # THREAD
----| 58 # CLOTH
----| 59 # TOTEM
----| 60 # PANTS
----| 61 # BACKPACK
----| 62 # QUIVER
----| 63 # CATAPULTPARTS
----| 64 # BALLISTAPARTS
----| 65 # SIEGEAMMO
----| 66 # BALLISTAARROWHEAD
----| 67 # TRAPPARTS
----| 68 # TRAPCOMP
----| 69 # DRINK
----| 70 # POWDER_MISC
----| 71 # CHEESE
----| 72 # FOOD
----| 73 # LIQUID_MISC
----| 74 # COIN
----| 75 # GLOB
----| 76 # ROCK
----| 77 # PIPE_SECTION
----| 78 # HATCH_COVER
----| 79 # GRATE
----| 80 # QUERN
----| 81 # MILLSTONE
----| 82 # SPLINT
----| 83 # CRUTCH
----| 84 # TRACTION_BENCH
----| 85 # ORTHOPEDIC_CAST
----| 86 # TOOL
----| 87 # SLAB
----| 88 # EGG
----| 89 # BOOK
----| 90 # SHEET
----| 91 # BRANCH
+---| item_type_keys
+---| item_type_values
 
 ---@class _item_type: DFEnum
 ---@field NONE -1
@@ -425,8 +524,15 @@ df.weapon_attack = {}
 ---@field [1] "bad_multiattack"
 df.weapon_attack.T_flags = {}
 
+---@alias itemdef_flags_keys
+---| '"GENERATED"'
+
+---@alias itemdef_flags_values
+---| 0
+
 ---@alias itemdef_flags
----| 0 # GENERATED
+---| itemdef_flags_keys
+---| itemdef_flags_values
 
 ---@class _itemdef_flags: DFEnum
 ---@field GENERATED 0
@@ -447,8 +553,15 @@ df.itemdef_flags = {}
 ---@field _kind 'class-type'
 df.itemdef = {}
 
+---@alias ammo_flags_keys
+---| '"HAS_EDGE_ATTACK"'
+
+---@alias ammo_flags_values
+---| 0
+
 ---@alias ammo_flags
----| 0 # HAS_EDGE_ATTACK
+---| ammo_flags_keys
+---| ammo_flags_values
 
 ---@class _ammo_flags: DFEnum
 ---@field HAS_EDGE_ATTACK 0
@@ -481,18 +594,35 @@ function df.itemdef_ammost.find(key) end
 ---@return itemdef_ammost_vector # df.global.world.raws.itemdefs.ammo
 function df.itemdef_ammost.get_vector() end
 
+---@alias armor_general_flags_keys
+---| '"SOFT"'
+---| '"HARD"'
+---| '"METAL"'
+---| '"BARRED"'
+---| '"SCALED"'
+---| '"LEATHER"'
+---| '"SHAPED"'
+---| '"CHAIN_METAL_TEXT"'
+---| '"STRUCTURAL_ELASTICITY_WOVEN_THREAD"'
+---| '"STRUCTURAL_ELASTICITY_CHAIN_METAL"'
+---| '"STRUCTURAL_ELASTICITY_CHAIN_ALL"'
+
+---@alias armor_general_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+
 ---@alias armor_general_flags
----| 0 # SOFT
----| 1 # HARD
----| 2 # METAL
----| 3 # BARRED
----| 4 # SCALED
----| 5 # LEATHER
----| 6 # SHAPED
----| 7 # CHAIN_METAL_TEXT
----| 8 # STRUCTURAL_ELASTICITY_WOVEN_THREAD
----| 9 # STRUCTURAL_ELASTICITY_CHAIN_METAL
----| 10 # STRUCTURAL_ELASTICITY_CHAIN_ALL
+---| armor_general_flags_keys
+---| armor_general_flags_values
 
 ---@class _armor_general_flags: DFEnum
 ---@field SOFT 0
@@ -532,8 +662,15 @@ df.armor_general_flags = {}
 ---@field _kind 'struct-type'
 df.armor_properties = {}
 
+---@alias armor_flags_keys
+---| '"METAL_ARMOR_LEVELS"'
+
+---@alias armor_flags_values
+---| 0
+
 ---@alias armor_flags
----| 0 # METAL_ARMOR_LEVELS
+---| armor_flags_keys
+---| armor_flags_values
 
 ---@class _armor_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
@@ -588,8 +725,15 @@ function df.itemdef_foodst.find(key) end
 ---@return itemdef_foodst_vector # df.global.world.raws.itemdefs.food
 function df.itemdef_foodst.get_vector() end
 
+---@alias gloves_flags_keys
+---| '"METAL_ARMOR_LEVELS"'
+
+---@alias gloves_flags_values
+---| 0
+
 ---@alias gloves_flags
----| 0 # METAL_ARMOR_LEVELS
+---| gloves_flags_keys
+---| gloves_flags_values
 
 ---@class _gloves_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
@@ -622,8 +766,15 @@ function df.itemdef_glovesst.find(key) end
 ---@return itemdef_glovesst_vector # df.global.world.raws.itemdefs.gloves
 function df.itemdef_glovesst.get_vector() end
 
+---@alias helm_flags_keys
+---| '"METAL_ARMOR_LEVELS"'
+
+---@alias helm_flags_values
+---| 0
+
 ---@alias helm_flags
----| 0 # METAL_ARMOR_LEVELS
+---| helm_flags_keys
+---| helm_flags_values
 
 ---@class _helm_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
@@ -655,16 +806,31 @@ function df.itemdef_helmst.find(key) end
 ---@return itemdef_helmst_vector # df.global.world.raws.itemdefs.helms
 function df.itemdef_helmst.get_vector() end
 
+---@alias instrument_flags_keys
+---| '"INDEFINITE_PITCH"'
+---| '"PLACED_AS_BUILDING"'
+---| '"METAL_MAT"'
+---| '"STONE_MAT"'
+---| '"WOOD_MAT"'
+---| '"GLASS_MAT"'
+---| '"CERAMIC_MAT"'
+---| '"SHELL_MAT"'
+---| '"BONE_MAT"'
+
+---@alias instrument_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+
 ---@alias instrument_flags
----| 0 # INDEFINITE_PITCH
----| 1 # PLACED_AS_BUILDING
----| 2 # METAL_MAT
----| 3 # STONE_MAT
----| 4 # WOOD_MAT
----| 5 # GLASS_MAT
----| 6 # CERAMIC_MAT
----| 7 # SHELL_MAT
----| 8 # BONE_MAT
+---| instrument_flags_keys
+---| instrument_flags_values
 
 ---@class _instrument_flags: DFEnum
 ---@field INDEFINITE_PITCH 0
@@ -733,28 +899,55 @@ function df.itemdef_instrumentst.find(key) end
 ---@return itemdef_instrumentst_vector # df.global.world.raws.itemdefs.instruments
 function df.itemdef_instrumentst.get_vector() end
 
+---@alias sound_production_type_keys
+---| '"PLUCKED_BY_BP"'
+---| '"PLUCKED"'
+---| '"BOWED"'
+---| '"STRUCK_BY_BP"'
+---| '"STRUCK"'
+---| '"VIBRATE_BP_AGAINST_OPENING"'
+---| '"BLOW_AGAINST_FIPPLE"'
+---| '"BLOW_OVER_OPENING_SIDE"'
+---| '"BLOW_OVER_OPENING_END"'
+---| '"BLOW_OVER_SINGLE_REED"'
+---| '"BLOW_OVER_DOUBLE_REED"'
+---| '"BLOW_OVER_FREE_REED"'
+---| '"STRUCK_TOGETHER"'
+---| '"SHAKEN"'
+---| '"SCRAPED"'
+---| '"FRICTION"'
+---| '"RESONATOR"'
+---| '"BAG_OVER_REED"'
+---| '"AIR_OVER_REED"'
+---| '"AIR_OVER_FREE_REED"'
+---| '"AIR_AGAINST_FIPPLE"'
+
+---@alias sound_production_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+
 ---@alias sound_production_type
----| 0 # PLUCKED_BY_BP
----| 1 # PLUCKED
----| 2 # BOWED
----| 3 # STRUCK_BY_BP
----| 4 # STRUCK
----| 5 # VIBRATE_BP_AGAINST_OPENING
----| 6 # BLOW_AGAINST_FIPPLE
----| 7 # BLOW_OVER_OPENING_SIDE
----| 8 # BLOW_OVER_OPENING_END
----| 9 # BLOW_OVER_SINGLE_REED
----| 10 # BLOW_OVER_DOUBLE_REED
----| 11 # BLOW_OVER_FREE_REED
----| 12 # STRUCK_TOGETHER
----| 13 # SHAKEN
----| 14 # SCRAPED
----| 15 # FRICTION
----| 16 # RESONATOR
----| 17 # BAG_OVER_REED
----| 18 # AIR_OVER_REED
----| 19 # AIR_OVER_FREE_REED
----| 20 # AIR_AGAINST_FIPPLE
+---| sound_production_type_keys
+---| sound_production_type_values
 
 ---@class _sound_production_type: DFEnum
 ---@field PLUCKED_BY_BP 0
@@ -801,19 +994,37 @@ function df.itemdef_instrumentst.get_vector() end
 ---@field [20] "AIR_AGAINST_FIPPLE"
 df.sound_production_type = {}
 
+---@alias pitch_choice_type_keys
+---| '"MEMBRANE_POSITION"'
+---| '"SUBPART_CHOICE"'
+---| '"KEYBOARD"'
+---| '"STOPPING_FRET"'
+---| '"STOPPING_AGAINST_BODY"'
+---| '"STOPPING_HOLE"'
+---| '"STOPPING_HOLE_KEY"'
+---| '"SLIDE"'
+---| '"HARMONIC_SERIES"'
+---| '"VALVE_ROUTES_AIR"'
+---| '"BP_IN_BELL"'
+---| '"FOOT_PEDALS"'
+
+---@alias pitch_choice_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+
 ---@alias pitch_choice_type
----| 0 # MEMBRANE_POSITION
----| 1 # SUBPART_CHOICE
----| 2 # KEYBOARD
----| 3 # STOPPING_FRET
----| 4 # STOPPING_AGAINST_BODY
----| 5 # STOPPING_HOLE
----| 6 # STOPPING_HOLE_KEY
----| 7 # SLIDE
----| 8 # HARMONIC_SERIES
----| 9 # VALVE_ROUTES_AIR
----| 10 # BP_IN_BELL
----| 11 # FOOT_PEDALS
+---| pitch_choice_type_keys
+---| pitch_choice_type_values
 
 ---@class _pitch_choice_type: DFEnum
 ---@field MEMBRANE_POSITION 0
@@ -842,12 +1053,23 @@ df.sound_production_type = {}
 ---@field [11] "FOOT_PEDALS"
 df.pitch_choice_type = {}
 
+---@alias tuning_type_keys
+---| '"PEGS"'
+---| '"ADJUSTABLE_BRIDGES"'
+---| '"CROOKS"'
+---| '"TIGHTENING"'
+---| '"LEVERS"'
+
+---@alias tuning_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias tuning_type
----| 0 # PEGS
----| 1 # ADJUSTABLE_BRIDGES
----| 2 # CROOKS
----| 3 # TIGHTENING
----| 4 # LEVERS
+---| tuning_type_keys
+---| tuning_type_values
 
 ---@class _tuning_type: DFEnum
 ---@field PEGS 0
@@ -862,70 +1084,139 @@ df.pitch_choice_type = {}
 ---@field [4] "LEVERS"
 df.tuning_type = {}
 
+---@alias timbre_type_keys
+---| '"CLEAR"'
+---| '"NOISY"'
+---| '"FULL"'
+---| '"THIN"'
+---| '"ROUND"'
+---| '"SHARP"'
+---| '"SMOOTH"'
+---| '"CHOPPY"'
+---| '"STEADY"'
+---| '"EVOLVING"'
+---| '"STRONG"'
+---| '"DELICATE"'
+---| '"BRIGHT"'
+---| '"GRACEFUL"'
+---| '"SPARSE"'
+---| '"BREATHY"'
+---| '"STRAINED"'
+---| '"BROAD"'
+---| '"LIGHT"'
+---| '"MELLOW"'
+---| '"WOBBLING"'
+---| '"FOCUSED"'
+---| '"EVEN"'
+---| '"FLUID"'
+---| '"VIBRATING"'
+---| '"QUAVERING"'
+---| '"EERIE"'
+---| '"FRAGILE"'
+---| '"BRITTLE"'
+---| '"PURE_"'
+---| '"PIERCING"'
+---| '"STRIDENT"'
+---| '"WAVERING"'
+---| '"HARSH"'
+---| '"REEDY"'
+---| '"NASAL"'
+---| '"BUZZY"'
+---| '"ROUGH"'
+---| '"WARM"'
+---| '"RUGGED"'
+---| '"HEAVY"'
+---| '"FLAT"'
+---| '"DARK"'
+---| '"CRISP"'
+---| '"SONOROUS"'
+---| '"WATERY"'
+---| '"GENTLE"'
+---| '"SLICING"'
+---| '"LIQUID"'
+---| '"RAUCOUS"'
+---| '"BREEZY"'
+---| '"RASPY"'
+---| '"WISPY"'
+---| '"SHRILL"'
+---| '"MUDDY"'
+---| '"RICH"'
+---| '"DULL"'
+---| '"FLOATING"'
+---| '"RINGING"'
+---| '"RESONANT"'
+---| '"SWEET"'
+---| '"RIPPLING"'
+---| '"SPARKLING"'
+
+---@alias timbre_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+
 ---@alias timbre_type
----| 0 # CLEAR
----| 1 # NOISY
----| 2 # FULL
----| 3 # THIN
----| 4 # ROUND
----| 5 # SHARP
----| 6 # SMOOTH
----| 7 # CHOPPY
----| 8 # STEADY
----| 9 # EVOLVING
----| 10 # STRONG
----| 11 # DELICATE
----| 12 # BRIGHT
----| 13 # GRACEFUL
----| 14 # SPARSE
----| 15 # BREATHY
----| 16 # STRAINED
----| 17 # BROAD
----| 18 # LIGHT
----| 19 # MELLOW
----| 20 # WOBBLING
----| 21 # FOCUSED
----| 22 # EVEN
----| 23 # FLUID
----| 24 # VIBRATING
----| 25 # QUAVERING
----| 26 # EERIE
----| 27 # FRAGILE
----| 28 # BRITTLE
----| 29 # PURE_
----| 30 # PIERCING
----| 31 # STRIDENT
----| 32 # WAVERING
----| 33 # HARSH
----| 34 # REEDY
----| 35 # NASAL
----| 36 # BUZZY
----| 37 # ROUGH
----| 38 # WARM
----| 39 # RUGGED
----| 40 # HEAVY
----| 41 # FLAT
----| 42 # DARK
----| 43 # CRISP
----| 44 # SONOROUS
----| 45 # WATERY
----| 46 # GENTLE
----| 47 # SLICING
----| 48 # LIQUID
----| 49 # RAUCOUS
----| 50 # BREEZY
----| 51 # RASPY
----| 52 # WISPY
----| 53 # SHRILL
----| 54 # MUDDY
----| 55 # RICH
----| 56 # DULL
----| 57 # FLOATING
----| 58 # RINGING
----| 59 # RESONANT
----| 60 # SWEET
----| 61 # RIPPLING
----| 62 # SPARKLING
+---| timbre_type_keys
+---| timbre_type_values
 
 ---@class _timbre_type: DFEnum
 ---@field CLEAR 0
@@ -1096,8 +1387,15 @@ df.instrument_piece.T_flags = {}
 ---@field _kind 'struct-type'
 df.instrument_register = {}
 
+---@alias pants_flags_keys
+---| '"METAL_ARMOR_LEVELS"'
+
+---@alias pants_flags_values
+---| 0
+
 ---@alias pants_flags
----| 0 # METAL_ARMOR_LEVELS
+---| pants_flags_keys
+---| pants_flags_values
 
 ---@class _pants_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
@@ -1157,8 +1455,15 @@ function df.itemdef_shieldst.find(key) end
 ---@return itemdef_shieldst_vector # df.global.world.raws.itemdefs.shields
 function df.itemdef_shieldst.get_vector() end
 
+---@alias shoes_flags_keys
+---| '"METAL_ARMOR_LEVELS"'
+
+---@alias shoes_flags_values
+---| 0
+
 ---@alias shoes_flags
----| 0 # METAL_ARMOR_LEVELS
+---| shoes_flags_keys
+---| shoes_flags_values
 
 ---@class _shoes_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
@@ -1212,27 +1517,53 @@ function df.itemdef_siegeammost.find(key) end
 ---@return itemdef_siegeammost_vector # df.global.world.raws.itemdefs.siege_ammo
 function df.itemdef_siegeammost.get_vector() end
 
+---@alias tool_flags_keys
+---| '"HARD_MAT"'
+---| '"METAL_MAT"'
+---| '"HAS_EDGE_ATTACK"'
+---| '"METAL_WEAPON_MAT"'
+---| '"UNIMPROVABLE"'
+---| '"SOFT_MAT"'
+---| '"WOOD_MAT"'
+---| '"INVERTED_TILE"'
+---| '"FURNITURE"'
+---| '"LEATHER_MAT"'
+---| '"SILK_MAT"'
+---| '"THREAD_PLANT_MAT"'
+---| '"GLASS_MAT"'
+---| '"CERAMIC_MAT"'
+---| '"STONE_MAT"'
+---| '"SHELL_MAT"'
+---| '"BONE_MAT"'
+---| '"NO_DEFAULT_JOB"'
+---| '"INCOMPLETE_ITEM"'
+---| '"SHEET_MAT"'
+
+---@alias tool_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+
 ---@alias tool_flags
----| 0 # HARD_MAT
----| 1 # METAL_MAT
----| 2 # HAS_EDGE_ATTACK
----| 3 # METAL_WEAPON_MAT
----| 4 # UNIMPROVABLE
----| 5 # SOFT_MAT
----| 6 # WOOD_MAT
----| 7 # INVERTED_TILE
----| 8 # FURNITURE
----| 9 # LEATHER_MAT
----| 10 # SILK_MAT
----| 11 # THREAD_PLANT_MAT
----| 12 # GLASS_MAT
----| 13 # CERAMIC_MAT
----| 14 # STONE_MAT
----| 15 # SHELL_MAT
----| 16 # BONE_MAT
----| 17 # NO_DEFAULT_JOB
----| 18 # INCOMPLETE_ITEM
----| 19 # SHEET_MAT
+---| tool_flags_keys
+---| tool_flags_values
 
 ---@class _tool_flags: DFEnum
 ---@field HARD_MAT 0
@@ -1277,34 +1608,67 @@ function df.itemdef_siegeammost.get_vector() end
 ---@field [19] "SHEET_MAT"
 df.tool_flags = {}
 
+---@alias tool_uses_keys
+---| '"NONE"'
+---| '"LIQUID_COOKING"'
+---| '"LIQUID_SCOOP"'
+---| '"GRIND_POWDER_RECEPTACLE"'
+---| '"GRIND_POWDER_GRINDER"'
+---| '"MEAT_CARVING"'
+---| '"MEAT_BONING"'
+---| '"MEAT_SLICING"'
+---| '"MEAT_CLEAVING"'
+---| '"HOLD_MEAT_FOR_CARVING"'
+---| '"MEAL_CONTAINER"'
+---| '"LIQUID_CONTAINER"'
+---| '"FOOD_STORAGE"'
+---| '"HIVE"'
+---| '"NEST_BOX"'
+---| '"SMALL_OBJECT_STORAGE"'
+---| '"TRACK_CART"'
+---| '"HEAVY_OBJECT_HAULING"'
+---| '"STAND_AND_WORK_ABOVE"'
+---| '"ROLL_UP_SHEET"'
+---| '"PROTECT_FOLDED_SHEETS"'
+---| '"CONTAIN_WRITING"'
+---| '"BOOKCASE"'
+---| '"DISPLAY_OBJECT"'
+---| '"PLACE_OFFERING"'
+---| '"DIVINATION"'
+---| '"GAMES_OF_CHANCE"'
+
+---@alias tool_uses_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+
 ---@alias tool_uses
----| -1 # NONE
----| 0 # LIQUID_COOKING
----| 1 # LIQUID_SCOOP
----| 2 # GRIND_POWDER_RECEPTACLE
----| 3 # GRIND_POWDER_GRINDER
----| 4 # MEAT_CARVING
----| 5 # MEAT_BONING
----| 6 # MEAT_SLICING
----| 7 # MEAT_CLEAVING
----| 8 # HOLD_MEAT_FOR_CARVING
----| 9 # MEAL_CONTAINER
----| 10 # LIQUID_CONTAINER
----| 11 # FOOD_STORAGE
----| 12 # HIVE
----| 13 # NEST_BOX
----| 14 # SMALL_OBJECT_STORAGE
----| 15 # TRACK_CART
----| 16 # HEAVY_OBJECT_HAULING
----| 17 # STAND_AND_WORK_ABOVE
----| 18 # ROLL_UP_SHEET
----| 19 # PROTECT_FOLDED_SHEETS
----| 20 # CONTAIN_WRITING
----| 21 # BOOKCASE
----| 22 # DISPLAY_OBJECT
----| 23 # PLACE_OFFERING
----| 24 # DIVINATION
----| 25 # GAMES_OF_CHANCE
+---| tool_uses_keys
+---| tool_uses_values
 
 ---@class _tool_uses: DFEnum
 ---@field NONE -1
@@ -1405,8 +1769,15 @@ function df.itemdef_toolst.find(key) end
 ---@return itemdef_toolst_vector # df.global.world.raws.itemdefs.tools
 function df.itemdef_toolst.get_vector() end
 
+---@alias toy_flags_keys
+---| '"HARD_MAT"'
+
+---@alias toy_flags_values
+---| 0
+
 ---@alias toy_flags
----| 0 # HARD_MAT
+---| toy_flags_keys
+---| toy_flags_values
 
 ---@class _toy_flags: DFEnum
 ---@field HARD_MAT 0
@@ -1433,12 +1804,23 @@ function df.itemdef_toyst.find(key) end
 ---@return itemdef_toyst_vector # df.global.world.raws.itemdefs.toys
 function df.itemdef_toyst.get_vector() end
 
+---@alias trapcomp_flags_keys
+---| '"IS_SCREW"'
+---| '"IS_SPIKE"'
+---| '"WOOD"'
+---| '"METAL"'
+---| '"HAS_EDGE_ATTACK"'
+
+---@alias trapcomp_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias trapcomp_flags
----| 0 # IS_SCREW
----| 1 # IS_SPIKE
----| 2 # WOOD
----| 3 # METAL
----| 4 # HAS_EDGE_ATTACK
+---| trapcomp_flags_keys
+---| trapcomp_flags_values
 
 ---@class _trapcomp_flags: DFEnum
 ---@field IS_SCREW 0
@@ -1480,10 +1862,19 @@ function df.itemdef_trapcompst.find(key) end
 ---@return itemdef_trapcompst_vector # df.global.world.raws.itemdefs.trapcomps
 function df.itemdef_trapcompst.get_vector() end
 
+---@alias weapon_flags_keys
+---| '"CAN_STONE"'
+---| '"HAS_EDGE_ATTACK"'
+---| '"TRAINING"'
+
+---@alias weapon_flags_values
+---| 0
+---| 1
+---| 2
+
 ---@alias weapon_flags
----| 0 # CAN_STONE
----| 1 # HAS_EDGE_ATTACK
----| 2 # TRAINING
+---| weapon_flags_keys
+---| weapon_flags_values
 
 ---@class _weapon_flags: DFEnum
 ---@field CAN_STONE 0

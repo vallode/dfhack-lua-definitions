@@ -1,10 +1,19 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias mission_type_keys
+---| '"NONE"'
+---| '"SUPPORT_THIEVES"'
+---| '"KILL_ALL_AT_SITE"'
+
+---@alias mission_type_values
+---| -1
+---| 0
+---| 1
+
 ---@alias mission_type
----| -1 # NONE
----| 0 # SUPPORT_THIEVES
----| 1 # KILL_ALL_AT_SITE
+---| mission_type_keys
+---| mission_type_values
 
 ---@class _mission_type: DFEnum
 ---@field NONE -1
@@ -118,21 +127,41 @@ function df.entity_population.find(key) end
 ---@return entity_population_vector # df.global.world.entity_populations
 function df.entity_population.get_vector() end
 
+---@alias nemesis_flags_keys
+---| '"ACTIVE_ADVENTURER"'
+---| '"RETIRED_ADVENTURER"'
+---| '"ADVENTURER"'
+---| '"TEMP_FLAG_ASSOCIATE_PEOPLE_TO_REALIZATION"'
+---| '"BRAG_ON_KILL"'
+---| '"KILL_QUEST"'
+---| '"CHAT_WORTHY"'
+---| '"FLASHES"'
+---| '"DO_NOT_CULL"'
+---| '"HERO"'
+---| '"DEMIGOD"'
+---| '"POTENTIAL_CIVILIZED_ACTOR"'
+---| '"CHECK_FOR_POSITION_CLAIM"'
+---| '"POTENTIAL_PLOTTER_ACTOR"'
+
+---@alias nemesis_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+
 ---@alias nemesis_flags
----| 0 # ACTIVE_ADVENTURER
----| 1 # RETIRED_ADVENTURER
----| 2 # ADVENTURER
----| 3 # TEMP_FLAG_ASSOCIATE_PEOPLE_TO_REALIZATION
----| 4 # BRAG_ON_KILL
----| 5 # KILL_QUEST
----| 6 # CHAT_WORTHY
----| 7 # FLASHES
----| 8 # DO_NOT_CULL
----| 9 # HERO
----| 10 # DEMIGOD
----| 11 # POTENTIAL_CIVILIZED_ACTOR
----| 12 # CHECK_FOR_POSITION_CLAIM
----| 13 # POTENTIAL_PLOTTER_ACTOR
+---| nemesis_flags_keys
+---| nemesis_flags_values
 
 ---@class _nemesis_flags: DFEnum
 ---@field ACTIVE_ADVENTURER 0 used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.

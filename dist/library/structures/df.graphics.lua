@@ -42,10 +42,19 @@ df.large_integer.T_u = {}
 ---@field _kind 'struct-type'
 df.musicsoundst = {}
 
+---@alias musicsoundst.T_linux_sound_system_keys
+---| '"ALSA"'
+---| '"OSS"'
+---| '"ESD"'
+
+---@alias musicsoundst.T_linux_sound_system_values
+---| 0
+---| 1
+---| 2
+
 ---@alias musicsoundst.T_linux_sound_system
----| 0 # ALSA
----| 1 # OSS
----| 2 # ESD
+---| musicsoundst.T_linux_sound_system_keys
+---| musicsoundst.T_linux_sound_system_values
 
 ---@class _musicsoundst.T_linux_sound_system: DFEnum
 ---@field ALSA 0
@@ -66,15 +75,29 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@field _kind 'struct-type'
 df.fmod_sound = {}
 
+---@alias curses_color_keys
+---| '"Black"'
+---| '"Blue"'
+---| '"Green"'
+---| '"Cyan"'
+---| '"Red"'
+---| '"Magenta"'
+---| '"Yellow"'
+---| '"White"'
+
+---@alias curses_color_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+
 ---@alias curses_color
----| 0 # Black
----| 1 # Blue
----| 2 # Green
----| 3 # Cyan
----| 4 # Red
----| 5 # Magenta
----| 6 # Yellow
----| 7 # White
+---| curses_color_keys
+---| curses_color_values
 
 ---@class _curses_color: DFEnum
 ---@field Black 0 Using the color names without "dark" or "light", favoring primaries.
@@ -651,12 +674,23 @@ df.renderer_2d_base = {}
 ---@field _kind 'class-type'
 df.renderer_2d = {}
 
+---@alias zoom_commands_keys
+---| '"zoom_in"'
+---| '"zoom_out"'
+---| '"zoom_reset"'
+---| '"zoom_fullscreen"'
+---| '"zoom_resetgrid"'
+
+---@alias zoom_commands_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias zoom_commands
----| 0 # zoom_in
----| 1 # zoom_out
----| 2 # zoom_reset
----| 3 # zoom_fullscreen
----| 4 # zoom_resetgrid
+---| zoom_commands_keys
+---| zoom_commands_values
 
 ---@class _zoom_commands: DFEnum
 ---@field zoom_in 0
@@ -768,12 +802,23 @@ df.enabler.T_async_tobox = {}
 ---@field _kind 'struct-type'
 df.enabler.T_async_tobox.T_vals = {}
 
+---@alias enabler.T_async_tobox.T_vals.T_cmd_keys
+---| '"pause"'
+---| '"start"'
+---| '"render"'
+---| '"inc"'
+---| '"set_fps"'
+
+---@alias enabler.T_async_tobox.T_vals.T_cmd_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias enabler.T_async_tobox.T_vals.T_cmd
----| 0 # pause
----| 1 # start
----| 2 # render
----| 3 # inc
----| 4 # set_fps
+---| enabler.T_async_tobox.T_vals.T_cmd_keys
+---| enabler.T_async_tobox.T_vals.T_cmd_values
 
 ---@class _enabler.T_async_tobox.T_vals.T_cmd: DFEnum
 ---@field pause 0
@@ -811,14 +856,27 @@ df.enabler.T_async_frombox = {}
 ---@field _kind 'struct-type'
 df.enabler.T_async_frombox.T_vals = {}
 
+---@alias enabler.T_async_frombox.T_vals.T_msg_keys
+---| '"quit"'
+---| '"complete"'
+---| '"set_fps"'
+---| '"set_gfps"'
+---| '"push_resize"'
+---| '"pop_resize"'
+---| '"reset_textures"'
+
+---@alias enabler.T_async_frombox.T_vals.T_msg_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+
 ---@alias enabler.T_async_frombox.T_vals.T_msg
----| 0 # quit
----| 1 # complete
----| 2 # set_fps
----| 3 # set_gfps
----| 4 # push_resize
----| 5 # pop_resize
----| 6 # reset_textures
+---| enabler.T_async_frombox.T_vals.T_msg_keys
+---| enabler.T_async_frombox.T_vals.T_msg_values
 
 ---@class _enabler.T_async_frombox.T_vals.T_msg: DFEnum
 ---@field quit 0
@@ -875,12 +933,23 @@ df.enabler.T_flag = {}
 ---@field _kind 'struct-type'
 df.enabler.T_textures = {}
 
+---@alias justification_keys
+---| '"justify_left"'
+---| '"justify_center"'
+---| '"justify_right"'
+---| '"justify_cont"'
+---| '"not_truetype"'
+
+---@alias justification_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
 ---@alias justification
----| 0 # justify_left
----| 1 # justify_center
----| 2 # justify_right
----| 3 # justify_cont
----| 4 # not_truetype
+---| justification_keys
+---| justification_values
 
 -- from libgraphics
 ---@class _justification: DFEnum
