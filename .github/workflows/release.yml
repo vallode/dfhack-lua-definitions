@@ -1,5 +1,8 @@
 name: release
 
+# TODO: Figure out a release workflow.
+on: workflow_dispatch
+
 jobs:
   release:
     runs-on: ubuntu-latest
