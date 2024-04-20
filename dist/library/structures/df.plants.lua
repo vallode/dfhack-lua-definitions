@@ -28,7 +28,7 @@ df.plant_flags = {}
 ---@field update_order number
 ---@field site_id number References: `world_site`
 ---@field srb_id number References: `site_realization_building`
----@field contaminants DFVector<spatter_common>
+---@field contaminants plant_contaminants
 ---@field tree_info plant_tree_info
 
 ---@class _plant: DFCompound
@@ -62,6 +62,22 @@ function df.plant.get_vector() end
 ---@field is_dead 2
 ---@field [2] "is_dead"
 df.plant.T_damage_flags = {}
+
+---@class plant_contaminants: DFContainer
+---@field [integer] spatter_common
+local plant_contaminants
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<spatter_common>
+function plant_contaminants:_field(index) end
+
+---@param index integer 
+---@param item spatter_common 
+function plant_contaminants:insert(index, item) end
+
+---@param index integer 
+function plant_contaminants:erase(index) end
 
 ---@alias plant_tree_tile_branches_dir_keys
 ---| '"NONE"'

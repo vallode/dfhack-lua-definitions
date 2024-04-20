@@ -399,7 +399,7 @@ df.stockpile_settings = {}
 ---@field _type _stockpile_settings.T_animals
 ---@field empty_cages boolean
 ---@field empty_traps boolean
----@field enabled DFVector<boolean>
+---@field enabled DFBooleanVector
 
 ---@class _stockpile_settings.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -408,25 +408,25 @@ df.stockpile_settings.T_animals = {}
 ---@class (exact) stockpile_settings.T_food: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_food
----@field meat DFVector<boolean>
----@field fish DFVector<boolean>
----@field unprepared_fish DFVector<boolean>
----@field egg DFVector<boolean>
----@field plants DFVector<boolean>
----@field drink_plant DFVector<boolean>
----@field drink_animal DFVector<boolean>
----@field cheese_plant DFVector<boolean>
----@field cheese_animal DFVector<boolean>
----@field seeds DFVector<boolean>
----@field leaves DFVector<boolean>
----@field powder_plant DFVector<boolean>
----@field powder_creature DFVector<boolean>
----@field glob DFVector<boolean>
----@field glob_paste DFVector<boolean>
----@field glob_pressed DFVector<boolean>
----@field liquid_plant DFVector<boolean>
----@field liquid_animal DFVector<boolean>
----@field liquid_misc DFVector<boolean>
+---@field meat DFBooleanVector
+---@field fish DFBooleanVector
+---@field unprepared_fish DFBooleanVector
+---@field egg DFBooleanVector
+---@field plants DFBooleanVector
+---@field drink_plant DFBooleanVector
+---@field drink_animal DFBooleanVector
+---@field cheese_plant DFBooleanVector
+---@field cheese_animal DFBooleanVector
+---@field seeds DFBooleanVector
+---@field leaves DFBooleanVector
+---@field powder_plant DFBooleanVector
+---@field powder_creature DFBooleanVector
+---@field glob DFBooleanVector
+---@field glob_paste DFBooleanVector
+---@field glob_pressed DFBooleanVector
+---@field liquid_plant DFBooleanVector
+---@field liquid_animal DFBooleanVector
+---@field liquid_misc DFBooleanVector
 ---@field prepared_meals boolean
 
 ---@class _stockpile_settings.T_food: DFCompound
@@ -436,9 +436,9 @@ df.stockpile_settings.T_food = {}
 ---@class (exact) stockpile_settings.T_furniture: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_furniture
----@field type DFVector<boolean>
----@field other_mats DFVector<boolean>
----@field mats DFVector<boolean> 16
+---@field type DFBooleanVector
+---@field other_mats DFBooleanVector
+---@field mats DFBooleanVector 16
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 
@@ -449,7 +449,7 @@ df.stockpile_settings.T_furniture = {}
 ---@class (exact) stockpile_settings.T_corpses: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_corpses
----@field corpses DFVector<boolean>
+---@field corpses DFBooleanVector
 
 ---@class _stockpile_settings.T_corpses: DFCompound
 ---@field _kind 'struct-type'
@@ -458,15 +458,15 @@ df.stockpile_settings.T_corpses = {}
 ---@class (exact) stockpile_settings.T_refuse: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_refuse
----@field type DFVector<boolean>
----@field corpses DFVector<boolean>
----@field body_parts DFVector<boolean>
----@field skulls DFVector<boolean>
----@field bones DFVector<boolean>
----@field hair DFVector<boolean>
----@field shells DFVector<boolean>
----@field teeth DFVector<boolean>
----@field horns DFVector<boolean>
+---@field type DFBooleanVector
+---@field corpses DFBooleanVector
+---@field body_parts DFBooleanVector
+---@field skulls DFBooleanVector
+---@field bones DFBooleanVector
+---@field hair DFBooleanVector
+---@field shells DFBooleanVector
+---@field teeth DFBooleanVector
+---@field horns DFBooleanVector
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
 
@@ -477,7 +477,7 @@ df.stockpile_settings.T_refuse = {}
 ---@class (exact) stockpile_settings.T_stone: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_stone
----@field mats DFVector<boolean>
+---@field mats DFBooleanVector
 
 ---@class _stockpile_settings.T_stone: DFCompound
 ---@field _kind 'struct-type'
@@ -486,7 +486,7 @@ df.stockpile_settings.T_stone = {}
 ---@class (exact) stockpile_settings.T_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_ore
----@field mats DFVector<boolean> unused
+---@field mats DFBooleanVector unused
 
 ---@class _stockpile_settings.T_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -495,9 +495,9 @@ df.stockpile_settings.T_ore = {}
 ---@class (exact) stockpile_settings.T_ammo: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_ammo
----@field type DFVector<boolean>
----@field other_mats DFVector<boolean>
----@field mats DFVector<boolean> 2
+---@field type DFBooleanVector
+---@field other_mats DFBooleanVector
+---@field mats DFBooleanVector 2
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 
@@ -508,7 +508,7 @@ df.stockpile_settings.T_ammo = {}
 ---@class (exact) stockpile_settings.T_coins: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_coins
----@field mats DFVector<boolean>
+---@field mats DFBooleanVector
 
 ---@class _stockpile_settings.T_coins: DFCompound
 ---@field _kind 'struct-type'
@@ -517,10 +517,10 @@ df.stockpile_settings.T_coins = {}
 ---@class (exact) stockpile_settings.T_bars_blocks: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_bars_blocks
----@field bars_other_mats DFVector<boolean>
----@field blocks_other_mats DFVector<boolean>
----@field bars_mats DFVector<boolean>
----@field blocks_mats DFVector<boolean>
+---@field bars_other_mats DFBooleanVector
+---@field blocks_other_mats DFBooleanVector
+---@field bars_mats DFBooleanVector
+---@field blocks_mats DFBooleanVector
 
 ---@class _stockpile_settings.T_bars_blocks: DFCompound
 ---@field _kind 'struct-type'
@@ -529,10 +529,10 @@ df.stockpile_settings.T_bars_blocks = {}
 ---@class (exact) stockpile_settings.T_gems: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_gems
----@field rough_other_mats DFVector<boolean>
----@field cut_other_mats DFVector<boolean>
----@field rough_mats DFVector<boolean>
----@field cut_mats DFVector<boolean>
+---@field rough_other_mats DFBooleanVector
+---@field cut_other_mats DFBooleanVector
+---@field rough_mats DFBooleanVector
+---@field cut_mats DFBooleanVector
 
 ---@class _stockpile_settings.T_gems: DFCompound
 ---@field _kind 'struct-type'
@@ -541,9 +541,9 @@ df.stockpile_settings.T_gems = {}
 ---@class (exact) stockpile_settings.T_finished_goods: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_finished_goods
----@field type DFVector<boolean>
----@field other_mats DFVector<boolean>
----@field mats DFVector<boolean> 17
+---@field type DFBooleanVector
+---@field other_mats DFBooleanVector
+---@field mats DFBooleanVector 17
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 
@@ -554,7 +554,7 @@ df.stockpile_settings.T_finished_goods = {}
 ---@class (exact) stockpile_settings.T_leather: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_leather
----@field mats DFVector<boolean>
+---@field mats DFBooleanVector
 
 ---@class _stockpile_settings.T_leather: DFCompound
 ---@field _kind 'struct-type'
@@ -563,14 +563,14 @@ df.stockpile_settings.T_leather = {}
 ---@class (exact) stockpile_settings.T_cloth: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_cloth
----@field thread_silk DFVector<boolean>
----@field thread_plant DFVector<boolean>
----@field thread_yarn DFVector<boolean>
----@field thread_metal DFVector<boolean>
----@field cloth_silk DFVector<boolean>
----@field cloth_plant DFVector<boolean>
----@field cloth_yarn DFVector<boolean>
----@field cloth_metal DFVector<boolean>
+---@field thread_silk DFBooleanVector
+---@field thread_plant DFBooleanVector
+---@field thread_yarn DFBooleanVector
+---@field thread_metal DFBooleanVector
+---@field cloth_silk DFBooleanVector
+---@field cloth_plant DFBooleanVector
+---@field cloth_yarn DFBooleanVector
+---@field cloth_metal DFBooleanVector
 
 ---@class _stockpile_settings.T_cloth: DFCompound
 ---@field _kind 'struct-type'
@@ -579,7 +579,7 @@ df.stockpile_settings.T_cloth = {}
 ---@class (exact) stockpile_settings.T_wood: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_wood
----@field mats DFVector<boolean>
+---@field mats DFBooleanVector
 
 ---@class _stockpile_settings.T_wood: DFCompound
 ---@field _kind 'struct-type'
@@ -588,10 +588,10 @@ df.stockpile_settings.T_wood = {}
 ---@class (exact) stockpile_settings.T_weapons: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_weapons
----@field weapon_type DFVector<boolean>
----@field trapcomp_type DFVector<boolean>
----@field other_mats DFVector<boolean>
----@field mats DFVector<boolean> 11
+---@field weapon_type DFBooleanVector
+---@field trapcomp_type DFBooleanVector
+---@field other_mats DFBooleanVector
+---@field mats DFBooleanVector 11
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 ---@field usable boolean
@@ -604,14 +604,14 @@ df.stockpile_settings.T_weapons = {}
 ---@class (exact) stockpile_settings.T_armor: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_armor
----@field body DFVector<boolean>
----@field head DFVector<boolean>
----@field feet DFVector<boolean>
----@field hands DFVector<boolean>
----@field legs DFVector<boolean>
----@field shield DFVector<boolean>
----@field other_mats DFVector<boolean>
----@field mats DFVector<boolean> 11
+---@field body DFBooleanVector
+---@field head DFBooleanVector
+---@field feet DFBooleanVector
+---@field hands DFBooleanVector
+---@field legs DFBooleanVector
+---@field shield DFBooleanVector
+---@field other_mats DFBooleanVector
+---@field mats DFBooleanVector 11
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 ---@field usable boolean
@@ -624,8 +624,8 @@ df.stockpile_settings.T_armor = {}
 ---@class (exact) stockpile_settings.T_sheet: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_sheet
----@field paper DFVector<boolean>
----@field parchment DFVector<boolean>
+---@field paper DFBooleanVector
+---@field parchment DFBooleanVector
 
 ---@class _stockpile_settings.T_sheet: DFCompound
 ---@field _kind 'struct-type'
@@ -1096,9 +1096,9 @@ df.stockpile_list.attrs = {}
 ---@field _type _hauling_route
 ---@field id number
 ---@field name string
----@field stops DFVector<hauling_stop>
----@field vehicle_ids DFVector<number>
----@field vehicle_stops DFVector<number>
+---@field stops hauling_route_stops
+---@field vehicle_ids DFNumberVector
+---@field vehicle_stops DFNumberVector
 
 ---@class _hauling_route: DFCompound
 ---@field _kind 'struct-type'
@@ -1113,6 +1113,22 @@ function df.hauling_route.find(key) end
 ---@return hauling_route_vector # df.global.plotinfo.hauling.routes
 function df.hauling_route.get_vector() end
 
+---@class hauling_route_stops: DFContainer
+---@field [integer] hauling_stop
+local hauling_route_stops
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<hauling_stop>
+function hauling_route_stops:_field(index) end
+
+---@param index integer 
+---@param item hauling_stop 
+function hauling_route_stops:insert(index, item) end
+
+---@param index integer 
+function hauling_route_stops:erase(index) end
+
 ---@class (exact) hauling_stop: DFObject
 ---@field _kind 'struct'
 ---@field _type _hauling_stop
@@ -1120,14 +1136,46 @@ function df.hauling_route.get_vector() end
 ---@field name string
 ---@field pos coord
 ---@field settings stockpile_settings
----@field conditions DFVector<stop_depart_condition>
----@field stockpiles DFVector<route_stockpile_link>
+---@field conditions hauling_stop_conditions
+---@field stockpiles hauling_stop_stockpiles
 ---@field time_waiting number
 ---@field cart_id number References: `item`
 
 ---@class _hauling_stop: DFCompound
 ---@field _kind 'struct-type'
 df.hauling_stop = {}
+
+---@class hauling_stop_conditions: DFContainer
+---@field [integer] stop_depart_condition
+local hauling_stop_conditions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<stop_depart_condition>
+function hauling_stop_conditions:_field(index) end
+
+---@param index integer 
+---@param item stop_depart_condition 
+function hauling_stop_conditions:insert(index, item) end
+
+---@param index integer 
+function hauling_stop_conditions:erase(index) end
+
+---@class hauling_stop_stockpiles: DFContainer
+---@field [integer] route_stockpile_link
+local hauling_stop_stockpiles
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<route_stockpile_link>
+function hauling_stop_stockpiles:_field(index) end
+
+---@param index integer 
+---@param item route_stockpile_link 
+function hauling_stop_stockpiles:insert(index, item) end
+
+---@param index integer 
+function hauling_stop_stockpiles:erase(index) end
 
 ---@class (exact) stop_depart_condition: DFObject
 ---@field _kind 'struct'

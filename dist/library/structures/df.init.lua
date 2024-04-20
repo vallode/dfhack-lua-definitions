@@ -59,7 +59,7 @@ df.init_display_filter_mode = {}
 ---@class (exact) init_display: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_display
----@field flag DFVector<table<init_display_flags, boolean>>
+---@field flag init_display_flag
 ---@field windowed init_display.T_windowed
 ---@field grid_x number
 ---@field grid_y number
@@ -81,6 +81,22 @@ df.init_display_filter_mode = {}
 ---@class _init_display: DFCompound
 ---@field _kind 'struct-type'
 df.init_display = {}
+
+---@class init_display_flag: DFContainer
+---@field [integer] table<init_display_flags, boolean>
+local init_display_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<init_display_flags, boolean>>
+function init_display_flag:_field(index) end
+
+---@param index integer 
+---@param item table<init_display_flags, boolean> 
+function init_display_flag:insert(index, item) end
+
+---@param index integer 
+function init_display_flag:erase(index) end
 
 ---@alias init_display.T_windowed_keys
 ---| '"True"'
@@ -135,7 +151,7 @@ df.init_media_flags = {}
 ---@class (exact) init_media: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_media
----@field flag DFVector<table<init_media_flags, boolean>>
+---@field flag init_media_flag
 ---@field volume_master number
 ---@field volume_music number
 ---@field volume_ambience number
@@ -145,6 +161,22 @@ df.init_media_flags = {}
 ---@class _init_media: DFCompound
 ---@field _kind 'struct-type'
 df.init_media = {}
+
+---@class init_media_flag: DFContainer
+---@field [integer] table<init_media_flags, boolean>
+local init_media_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<init_media_flags, boolean>>
+function init_media_flag:_field(index) end
+
+---@param index integer 
+---@param item table<init_media_flags, boolean> 
+function init_media_flag:insert(index, item) end
+
+---@param index integer 
+function init_media_flag:erase(index) end
 
 ---@alias init_input_flags_keys
 ---| '"MOUSE_OFF"'
@@ -172,7 +204,7 @@ df.init_input_flags = {}
 ---@field repeat_time number
 ---@field macro_time number
 ---@field pause_zoom_no_interface_ms number
----@field flag DFVector<table<init_input_flags, boolean>>
+---@field flag init_input_flag
 ---@field zoom_speed number
 ---@field repeat_accel_start number
 ---@field repeat_accel_limit number
@@ -180,6 +212,22 @@ df.init_input_flags = {}
 ---@class _init_input: DFCompound
 ---@field _kind 'struct-type'
 df.init_input = {}
+
+---@class init_input_flag: DFContainer
+---@field [integer] table<init_input_flags, boolean>
+local init_input_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<init_input_flags, boolean>>
+function init_input_flag:_field(index) end
+
+---@param index integer 
+---@param item table<init_input_flags, boolean> 
+function init_input_flag:insert(index, item) end
+
+---@param index integer 
+function init_input_flag:erase(index) end
 
 ---@class (exact) init_font: DFObject
 ---@field _kind 'struct'
@@ -239,11 +287,27 @@ df.init_window_flags = {}
 ---@class (exact) init_window: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_window
----@field flag DFVector<table<init_window_flags, boolean>>
+---@field flag init_window_flag
 
 ---@class _init_window: DFCompound
 ---@field _kind 'struct-type'
 df.init_window = {}
+
+---@class init_window_flag: DFContainer
+---@field [integer] table<init_window_flags, boolean>
+local init_window_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<init_window_flags, boolean>>
+function init_window_flag:_field(index) end
+
+---@param index integer 
+---@param item table<init_window_flags, boolean> 
+function init_window_flag:insert(index, item) end
+
+---@param index integer 
+function init_window_flag:erase(index) end
 
 ---@class (exact) init: DFObject
 ---@field _kind 'struct'

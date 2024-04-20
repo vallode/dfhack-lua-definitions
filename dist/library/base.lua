@@ -1,5 +1,8 @@
 ---@meta _
 
+-- All structure objects inherit from this class.
+--
+-- @see https://docs.dfhack.org/en/stable/library/xml/SYNTAX.html#xml-file-format
 ---@class DFBase
 local DFBase
 
@@ -112,13 +115,51 @@ function DFEnum.next_item(index) end
 ---@field _kind 'bitfield-type'
 local DFBitfield
 
----@class DFVector<T>: { [number]: T } 
-local DFVector
+---@class DFContainer: DFBase
+local DFContainer
+
+---@generic T
+---@param self T
+---@param new_size integer
+function DFContainer:resize(new_size) end
 
 ---@generic T
 ---@param self T
 ---@param index integer
----@return DFPointer<T>
+function DFContainer:erase(index) end
+
+---@class DFNumberVector: DFContainer
+---@field [integer] number
+local DFNumberVector
+
+---@param index integer|'#'
+---@param item number
+function DFNumberVector:insert(index, item) end
+
+---@nodiscard
+---@param index integer
+---@return number
+function DFNumberVector:_field(index) end
+
+---@class DFIntegerVector: DFContainer
+---@field [integer] integer
+local DFIntegerVector
+
+---@param index integer|'#'
+---@param item integer
+function DFIntegerVector:insert(index, item) end
+
+---@nodiscard
+---@param index integer
+---@return integer
+function DFIntegerVector:_field(index) end
+
+---@class DFVector<T>: { [number]: T } 
+local DFVector
+
+---@nodiscard
+---@param index integer
+---@return DFPointer
 function DFVector:_field(index) end
 
 ---@generic T

@@ -254,7 +254,7 @@ df.d_init_autosave = {}
 ---@class (exact) d_init: DFObject
 ---@field _kind 'struct'
 ---@field _type _d_init
----@field flags1 DFVector<table<d_init_flags1, boolean>>
+---@field flags1 d_init_flags1
 ---@field nickname DFEnumVector<game_type, d_init_nickname>
 ---@field sky_tile integer
 ---@field sky_color number[]
@@ -269,7 +269,7 @@ df.d_init_autosave = {}
 ---@field wound_color d_init.T_wound_color
 ---@field show_embark_tunnel d_init_tunnel probably IDLERS
 ---@field number_of_lower_elevations_shown number
----@field flags3 DFVector<table<d_init_flags3, boolean>>
+---@field flags3 d_init_flags3
 ---@field population_cap number
 ---@field strict_population_cap number
 ---@field baby_cap_absolute number
@@ -283,7 +283,7 @@ df.d_init_autosave = {}
 ---@field graze_coefficient number
 ---@field maximum_embark_dim number
 ---@field cull_dead_units_at number
----@field flags4 DFVector<table<d_init_flags4, boolean>>
+---@field flags4 d_init_flags4
 ---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements
@@ -293,6 +293,22 @@ df.d_init_autosave = {}
 ---@class _d_init: DFCompound
 ---@field _kind 'struct-type'
 df.d_init = {}
+
+---@class d_init_flags1: DFContainer
+---@field [integer] table<d_init_flags1, boolean>
+local d_init_flags1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<d_init_flags1, boolean>>
+function d_init_flags1:_field(index) end
+
+---@param index integer 
+---@param item table<d_init_flags1, boolean> 
+function d_init_flags1:insert(index, item) end
+
+---@param index integer 
+function d_init_flags1:erase(index) end
 
 ---@class (exact) d_init.T_wound_color: DFObject
 ---@field _kind 'struct'
@@ -308,6 +324,22 @@ df.d_init = {}
 ---@field _kind 'struct-type'
 df.d_init.T_wound_color = {}
 
+---@class d_init_flags3: DFContainer
+---@field [integer] table<d_init_flags3, boolean>
+local d_init_flags3
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<d_init_flags3, boolean>>
+function d_init_flags3:_field(index) end
+
+---@param index integer 
+---@param item table<d_init_flags3, boolean> 
+function d_init_flags3:insert(index, item) end
+
+---@param index integer 
+function d_init_flags3:erase(index) end
+
 ---@class (exact) d_init.T_store_dist: DFObject
 ---@field _kind 'struct'
 ---@field _type _d_init.T_store_dist
@@ -320,4 +352,20 @@ df.d_init.T_wound_color = {}
 ---@class _d_init.T_store_dist: DFCompound
 ---@field _kind 'struct-type'
 df.d_init.T_store_dist = {}
+
+---@class d_init_flags4: DFContainer
+---@field [integer] table<d_init_flags4, boolean>
+local d_init_flags4
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<d_init_flags4, boolean>>
+function d_init_flags4:_field(index) end
+
+---@param index integer 
+---@param item table<d_init_flags4, boolean> 
+function d_init_flags4:insert(index, item) end
+
+---@param index integer 
+function d_init_flags4:erase(index) end
 

@@ -684,12 +684,12 @@ df.resource_allotment_specifier_powderst = {}
 ---@field _kind 'struct'
 ---@field _type _resource_allotment_data
 ---@field index number
----@field resource_allotments DFVector<resource_allotment_specifier>[]
+---@field resource_allotments resource_allotment_specifier[]
 ---@field unk1 number
 ---@field unk2 number
 ---@field unk3 number
 ---@field unk_650 number
----@field unk_654 DFVector<any>
+---@field unk_654 DFAnyVector
 
 ---@class _resource_allotment_data: DFCompound
 ---@field _kind 'struct-type'
@@ -703,4 +703,20 @@ function df.resource_allotment_data.find(key) end
 
 ---@return resource_allotment_data_vector # df.global.world.world_data.resource_allotments
 function df.resource_allotment_data.get_vector() end
+
+---@class resource_allotment_data_resource_allotments: DFContainer
+---@field [integer] resource_allotment_specifier
+local resource_allotment_data_resource_allotments
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<resource_allotment_specifier>
+function resource_allotment_data_resource_allotments:_field(index) end
+
+---@param index integer 
+---@param item resource_allotment_specifier 
+function resource_allotment_data_resource_allotments:insert(index, item) end
+
+---@param index integer 
+function resource_allotment_data_resource_allotments:erase(index) end
 

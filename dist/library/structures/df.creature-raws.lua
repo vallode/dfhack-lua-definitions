@@ -1523,14 +1523,14 @@ df.appearance_modifier_growth_interval = {}
 ---@field _type _body_part_layer_raw
 ---@field layer_name string
 ---@field tissue_id number
----@field flags DFVector<table<body_part_layer_flags, boolean>>
+---@field flags body_part_layer_raw_flags
 ---@field part_fraction number total 1000
 ---@field healing_rate number
 ---@field vascular number
 ---@field pain_receptors number
 ---@field unk6 number
 ---@field unk7 number
----@field bp_modifiers DFVector<number>
+---@field bp_modifiers DFNumberVector
 ---@field layer_id number across all body parts
 ---@field parent_idx number For subordinate layers:
 ---@field parent_layer_id number
@@ -1543,14 +1543,30 @@ df.appearance_modifier_growth_interval = {}
 ---@field _kind 'struct-type'
 df.body_part_layer_raw = {}
 
+---@class body_part_layer_raw_flags: DFContainer
+---@field [integer] table<body_part_layer_flags, boolean>
+local body_part_layer_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<body_part_layer_flags, boolean>>
+function body_part_layer_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<body_part_layer_flags, boolean> 
+function body_part_layer_raw_flags:insert(index, item) end
+
+---@param index integer 
+function body_part_layer_raw_flags:erase(index) end
+
 ---@class (exact) body_part_raw: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_part_raw
 ---@field token string
 ---@field category string
 ---@field con_part_id number
----@field flags DFVector<table<body_part_raw_flags, boolean>>
----@field layers DFVector<body_part_layer_raw>
+---@field flags body_part_raw_flags
+---@field layers body_part_raw_layers
 ---@field fraction_total number
 ---@field fraction_base number
 ---@field fraction_fat number
@@ -1558,8 +1574,8 @@ df.body_part_layer_raw = {}
 ---@field relsize number
 ---@field number number
 ---@field unk7b number
----@field name_singular DFVector<string>
----@field name_plural DFVector<string>
+---@field name_singular DFStringVector
+---@field name_plural DFStringVector
 ---@field bp_relation_part_id any
 ---@field bp_relation_code any
 ---@field bp_relation_coverage any
@@ -1576,13 +1592,45 @@ df.body_part_layer_raw = {}
 ---@field _kind 'struct-type'
 df.body_part_raw = {}
 
+---@class body_part_raw_flags: DFContainer
+---@field [integer] table<body_part_raw_flags, boolean>
+local body_part_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<body_part_raw_flags, boolean>>
+function body_part_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<body_part_raw_flags, boolean> 
+function body_part_raw_flags:insert(index, item) end
+
+---@param index integer 
+function body_part_raw_flags:erase(index) end
+
+---@class body_part_raw_layers: DFContainer
+---@field [integer] body_part_layer_raw
+local body_part_raw_layers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<body_part_layer_raw>
+function body_part_raw_layers:_field(index) end
+
+---@param index integer 
+---@param item body_part_layer_raw 
+function body_part_raw_layers:insert(index, item) end
+
+---@param index integer 
+function body_part_raw_layers:erase(index) end
+
 ---@class (exact) color_modifier_raw: DFObject
 ---@field _kind 'struct'
 ---@field _type _color_modifier_raw
----@field pattern_index DFVector<number>
----@field pattern_frequency DFVector<number>
----@field body_part_id DFVector<number>
----@field tissue_layer_id DFVector<number>
+---@field pattern_index DFNumberVector
+---@field pattern_frequency DFNumberVector
+---@field body_part_id DFNumberVector
+---@field tissue_layer_id DFNumberVector
 ---@field unk5 number
 ---@field start_date number
 ---@field end_date number
@@ -1592,8 +1640,8 @@ df.body_part_raw = {}
 ---@field unk_6e number
 ---@field unk_70 number
 ---@field id number
----@field unk_78 DFVector<string>
----@field unk_88 DFVector<string>
+---@field unk_78 DFStringVector
+---@field unk_88 DFStringVector
 
 ---@class _color_modifier_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1639,8 +1687,8 @@ df.body_appearance_modifier = {}
 ---@field single_plural number
 ---@field unk1 number
 ---@field id1 number
----@field body_parts DFVector<number>
----@field tissue_layer DFVector<number>
+---@field body_parts DFNumberVector
+---@field tissue_layer DFNumberVector
 ---@field id number
 
 ---@class _bp_appearance_modifier: DFCompound
@@ -1669,23 +1717,23 @@ df.caste_clothing_item = {}
 ---@field verb_3rd string
 ---@field verb_2nd string
 ---@field flags caste_attack.T_flags
----@field specialattack_type DFVector<number> 0 = inject extract, 1 = suck blood, 2 = perform interaction
----@field specialattack_mat_type DFVector<number> extract injected
----@field specialattack_mat_index DFVector<number>
----@field specialattack_mat_state DFVector<matter_state>
----@field specialattack_temp_mat DFVector<string>[] parsed during second pass
----@field specialattack_min DFVector<number> amount of extract injected or blood sucked
----@field specialattack_max DFVector<number>
+---@field specialattack_type DFNumberVector 0 = inject extract, 1 = suck blood, 2 = perform interaction
+---@field specialattack_mat_type DFNumberVector extract injected
+---@field specialattack_mat_index DFNumberVector
+---@field specialattack_mat_state caste_attack_specialattack_mat_state
+---@field specialattack_temp_mat string[] parsed during second pass
+---@field specialattack_min DFNumberVector amount of extract injected or blood sucked
+---@field specialattack_max DFNumberVector
 ---@field contact_perc number
 ---@field penetration_perc number
 ---@field unk_v40_1 number
 ---@field unk_v40_2 number
----@field body_part_idx DFVector<number>
----@field tissue_layer_idx DFVector<number>
+---@field body_part_idx DFNumberVector
+---@field tissue_layer_idx DFNumberVector
 ---@field skill job_skill
 ---@field velocity_modifier number
----@field specialattack_interaction_tmp_name DFVector<string> parsed during second pass
----@field specialattack_interaction_id DFVector<number>
+---@field specialattack_interaction_tmp_name DFStringVector parsed during second pass
+---@field specialattack_interaction_id DFNumberVector
 ---@field unk_v40_3 number
 ---@field unk_v40_4 number
 
@@ -1717,6 +1765,22 @@ df.caste_attack = {}
 ---@field edge 3
 ---@field [3] "edge"
 df.caste_attack.T_flags = {}
+
+---@class caste_attack_specialattack_mat_state: DFContainer
+---@field [integer] matter_state
+local caste_attack_specialattack_mat_state
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<matter_state>
+function caste_attack_specialattack_mat_state:_field(index) end
+
+---@param index integer 
+---@param item matter_state 
+function caste_attack_specialattack_mat_state:insert(index, item) end
+
+---@param index integer 
+function caste_attack_specialattack_mat_state:erase(index) end
 
 ---@alias gait_type_keys
 ---| '"WALK"'
@@ -1814,8 +1878,8 @@ df.creature_interaction_target_flags = {}
 ---@class (exact) creature_interaction: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_interaction
----@field bp_required_type DFVector<string>
----@field bp_required_name DFVector<string>
+---@field bp_required_type DFStringVector
+---@field bp_required_name DFStringVector
 ---@field unk_1 string
 ---@field unk_2 string
 ---@field material_str0 string
@@ -1831,22 +1895,54 @@ df.creature_interaction_target_flags = {}
 ---@field target_verb_3rd string
 ---@field interaction_type string
 ---@field type_id number References: `interaction`
----@field usage_hint DFVector<interaction_source_usage_hint>
----@field location_hint DFVector<interaction_effect_location_hint>
+---@field usage_hint creature_interaction_usage_hint
+---@field location_hint creature_interaction_location_hint
 ---@field flags creature_interaction.T_flags
----@field unk_3 DFVector<string>
----@field target_flags DFVector<creature_interaction_target_flags>
----@field target_ranges DFVector<number>
----@field unk_4 DFVector<string>
----@field max_target_numbers DFVector<number>
----@field verbal_speeches DFVector<number>
----@field unk_5 DFVector<any[]>
+---@field unk_3 DFStringVector
+---@field target_flags creature_interaction_target_flags
+---@field target_ranges DFNumberVector
+---@field unk_4 DFStringVector
+---@field max_target_numbers DFNumberVector
+---@field verbal_speeches DFNumberVector
+---@field unk_5 creature_interaction_unk_5
 ---@field adv_name string
 ---@field wait_period number
 
 ---@class _creature_interaction: DFCompound
 ---@field _kind 'struct-type'
 df.creature_interaction = {}
+
+---@class creature_interaction_usage_hint: DFContainer
+---@field [integer] interaction_source_usage_hint
+local creature_interaction_usage_hint
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_source_usage_hint>
+function creature_interaction_usage_hint:_field(index) end
+
+---@param index integer 
+---@param item interaction_source_usage_hint 
+function creature_interaction_usage_hint:insert(index, item) end
+
+---@param index integer 
+function creature_interaction_usage_hint:erase(index) end
+
+---@class creature_interaction_location_hint: DFContainer
+---@field [integer] interaction_effect_location_hint
+local creature_interaction_location_hint
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_effect_location_hint>
+function creature_interaction_location_hint:_field(index) end
+
+---@param index integer 
+---@param item interaction_effect_location_hint 
+function creature_interaction_location_hint:insert(index, item) end
+
+---@param index integer 
+function creature_interaction_location_hint:erase(index) end
 
 ---@class creature_interaction.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -1867,21 +1963,53 @@ df.creature_interaction = {}
 ---@field [2] "FREE_ACTION"
 df.creature_interaction.T_flags = {}
 
+---@class creature_interaction_target_flags: DFContainer
+---@field [integer] creature_interaction_target_flags
+local creature_interaction_target_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<creature_interaction_target_flags>
+function creature_interaction_target_flags:_field(index) end
+
+---@param index integer 
+---@param item creature_interaction_target_flags 
+function creature_interaction_target_flags:insert(index, item) end
+
+---@param index integer 
+function creature_interaction_target_flags:erase(index) end
+
+---@class creature_interaction_unk_5: DFContainer
+---@field [integer] any[]
+local creature_interaction_unk_5
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function creature_interaction_unk_5:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function creature_interaction_unk_5:insert(index, item) end
+
+---@param index integer 
+function creature_interaction_unk_5:erase(index) end
+
 ---@class (exact) caste_body_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_body_info
----@field body_parts DFVector<body_part_raw>
----@field attacks DFVector<caste_attack>
----@field interactions DFVector<any>
----@field extra_butcher_objects DFVector<any>
+---@field body_parts caste_body_info_body_parts
+---@field attacks caste_body_info_attacks
+---@field interactions DFAnyVector
+---@field extra_butcher_objects DFAnyVector
 ---@field total_relsize number unless INTERNAL or EMBEDDED
----@field layer_part DFVector<number>
----@field layer_idx DFVector<number>
----@field numbered_masks DFVector<integer> 1 bit per instance of a numbered body part
----@field layer_nonsolid DFVector<number>
----@field nonsolid_layers DFVector<number>
+---@field layer_part DFNumberVector
+---@field layer_idx DFNumberVector
+---@field numbered_masks DFIntegerVector 1 bit per instance of a numbered body part
+---@field layer_nonsolid DFNumberVector
+---@field nonsolid_layers DFNumberVector
 ---@field flags caste_body_info.T_flags
----@field gait_info DFEnumVector<gait_type, DFVector<gait_info>>
+---@field gait_info DFEnumVector<gait_type, gait_info>
 ---@field materials material_vec_ref
 ---@field fraction_total number Sums of values in the parts:
 ---@field fraction_base number
@@ -1893,6 +2021,38 @@ df.creature_interaction.T_flags = {}
 ---@field _kind 'struct-type'
 df.caste_body_info = {}
 
+---@class caste_body_info_body_parts: DFContainer
+---@field [integer] body_part_raw
+local caste_body_info_body_parts
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<body_part_raw>
+function caste_body_info_body_parts:_field(index) end
+
+---@param index integer 
+---@param item body_part_raw 
+function caste_body_info_body_parts:insert(index, item) end
+
+---@param index integer 
+function caste_body_info_body_parts:erase(index) end
+
+---@class caste_body_info_attacks: DFContainer
+---@field [integer] caste_attack
+local caste_body_info_attacks
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<caste_attack>
+function caste_body_info_attacks:_field(index) end
+
+---@param index integer 
+---@param item caste_attack 
+function caste_body_info_attacks:insert(index, item) end
+
+---@param index integer 
+function caste_body_info_attacks:erase(index) end
+
 ---@class caste_body_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _caste_body_info.T_flags
@@ -1903,6 +2063,22 @@ df.caste_body_info = {}
 ---@field unk0 0
 ---@field [0] "unk0"
 df.caste_body_info.T_flags = {}
+
+---@class caste_body_info_gait_info: DFContainer
+---@field [integer] gait_info
+local caste_body_info_gait_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<gait_info>
+function caste_body_info_gait_info:_field(index) end
+
+---@param index integer 
+---@param item gait_info 
+function caste_body_info_gait_info:insert(index, item) end
+
+---@param index integer 
+function caste_body_info_gait_info:erase(index) end
 
 ---@class (exact) caste_raw: DFObject
 ---@field _kind 'struct'
@@ -1929,58 +2105,58 @@ df.caste_body_info.T_flags = {}
 ---@field caste_color number[]
 ---@field misc caste_raw.T_misc
 ---@field personality caste_raw.T_personality
----@field flags DFVector<table<caste_raw_flags, boolean>>
+---@field flags caste_raw_flags
 ---@field index number global across creatures
 ---@field body_info caste_body_info
----@field caste_speech_1 DFVector<any[]>
----@field caste_speech_2 DFVector<any[]>
+---@field caste_speech_1 caste_raw_caste_speech_1
+---@field caste_speech_2 caste_raw_caste_speech_2
 ---@field skill_rates DFEnumVector<job_skill, number>[]
 ---@field attributes caste_raw.T_attributes
 ---@field sex pronoun_type
 ---@field orientation_male number[]
 ---@field orientation_female number[]
----@field body_size_1 DFVector<number> age in ticks
----@field body_size_2 DFVector<number> size at the age at the same index in body_size_1
----@field body_appearance_modifiers DFVector<body_appearance_modifier>
+---@field body_size_1 DFNumberVector age in ticks
+---@field body_size_2 DFNumberVector size at the age at the same index in body_size_1
+---@field body_appearance_modifiers caste_raw_body_appearance_modifiers
 ---@field bp_appearance caste_raw.T_bp_appearance
----@field color_modifiers DFVector<color_modifier_raw>
----@field tissue_styles DFVector<tissue_style_raw>
----@field shearable_tissue_layer DFVector<any>
----@field unk16a DFVector<any[]>[]
----@field unk16b DFVector<number>[]
+---@field color_modifiers caste_raw_color_modifiers
+---@field tissue_styles caste_raw_tissue_styles
+---@field shearable_tissue_layer DFAnyVector
+---@field unk16a any[][]
+---@field unk16b number[]
 ---@field appearance_gene_count number
 ---@field color_gene_count number
----@field natural_skill_id DFVector<job_skill>
----@field natural_skill_exp DFVector<number>
----@field natural_skill_lvl DFVector<skill_rating>
+---@field natural_skill_id caste_raw_natural_skill_id
+---@field natural_skill_exp DFNumberVector
+---@field natural_skill_lvl caste_raw_natural_skill_lvl
 ---@field caste_profession_name caste_raw.T_caste_profession_name
 ---@field extracts caste_raw.T_extracts
----@field secretion DFVector<any>
----@field creature_class DFVector<string>
+---@field secretion DFAnyVector
+---@field creature_class DFStringVector
 ---@field unknown2 caste_raw.T_unknown2
 ---@field habit_num number[]
----@field habit_1 DFVector<number>
----@field habit_2 DFVector<number>
----@field lair_1 DFVector<number>
----@field lair_2 DFVector<number>
----@field lair_characteristic_1 DFVector<number>
----@field lair_characteristic_2 DFVector<number>
+---@field habit_1 DFNumberVector
+---@field habit_2 DFNumberVector
+---@field lair_1 DFNumberVector
+---@field lair_2 DFNumberVector
+---@field lair_characteristic_1 DFNumberVector
+---@field lair_characteristic_2 DFNumberVector
 ---@field lair_hunter_speech caste_raw.T_lair_hunter_speech
 ---@field unk29 caste_raw.T_unk29
----@field specific_food DFVector<any[]>[]
----@field sound DFVector<any>
----@field sound_alert DFVector<number>
----@field sound_peaceful_intermittent DFVector<number>
----@field unk_1 DFVector<any>
+---@field specific_food any[][]
+---@field sound DFAnyVector
+---@field sound_alert DFNumberVector
+---@field sound_peaceful_intermittent DFNumberVector
+---@field unk_1 DFAnyVector
 ---@field smell_trigger number -- v0.40.01
 ---@field odor_level number
 ---@field odor_string string
 ---@field low_light_vision number
----@field sense_creature_class_1 DFVector<string>
----@field sense_creature_class_2 DFVector<number>
----@field sense_creature_class_3 DFVector<number>
----@field sense_creature_class_4 DFVector<number>
----@field sense_creature_class_5 DFVector<number>
+---@field sense_creature_class_1 DFStringVector
+---@field sense_creature_class_2 DFNumberVector
+---@field sense_creature_class_3 DFNumberVector
+---@field sense_creature_class_4 DFNumberVector
+---@field sense_creature_class_5 DFNumberVector
 ---@field caste_graphics creature_raw_graphics
 ---@field unk_v50_4300 any
 
@@ -2050,6 +2226,54 @@ df.caste_raw.T_misc = {}
 ---@field _kind 'struct-type'
 df.caste_raw.T_personality = {}
 
+---@class caste_raw_flags: DFContainer
+---@field [integer] table<caste_raw_flags, boolean>
+local caste_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<caste_raw_flags, boolean>>
+function caste_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<caste_raw_flags, boolean> 
+function caste_raw_flags:insert(index, item) end
+
+---@param index integer 
+function caste_raw_flags:erase(index) end
+
+---@class caste_raw_caste_speech_1: DFContainer
+---@field [integer] any[]
+local caste_raw_caste_speech_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function caste_raw_caste_speech_1:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function caste_raw_caste_speech_1:insert(index, item) end
+
+---@param index integer 
+function caste_raw_caste_speech_1:erase(index) end
+
+---@class caste_raw_caste_speech_2: DFContainer
+---@field [integer] any[]
+local caste_raw_caste_speech_2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function caste_raw_caste_speech_2:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function caste_raw_caste_speech_2:insert(index, item) end
+
+---@param index integer 
+function caste_raw_caste_speech_2:erase(index) end
+
 ---@class (exact) caste_raw.T_attributes: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_attributes
@@ -2064,20 +2288,132 @@ df.caste_raw.T_personality = {}
 ---@field _kind 'struct-type'
 df.caste_raw.T_attributes = {}
 
+---@class caste_raw_body_appearance_modifiers: DFContainer
+---@field [integer] body_appearance_modifier
+local caste_raw_body_appearance_modifiers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<body_appearance_modifier>
+function caste_raw_body_appearance_modifiers:_field(index) end
+
+---@param index integer 
+---@param item body_appearance_modifier 
+function caste_raw_body_appearance_modifiers:insert(index, item) end
+
+---@param index integer 
+function caste_raw_body_appearance_modifiers:erase(index) end
+
 ---@class (exact) caste_raw.T_bp_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_bp_appearance
----@field modifiers DFVector<bp_appearance_modifier>
----@field modifier_idx DFVector<number>
----@field part_idx DFVector<number>
----@field layer_idx DFVector<number>
----@field style_part_idx DFVector<number> -- Subset of modifiable layers, i.e. where layer_idx != -1
----@field style_layer_idx DFVector<number>
----@field style_list_idx DFVector<number>
+---@field modifiers caste_raw_bp_appearance_modifiers
+---@field modifier_idx DFNumberVector
+---@field part_idx DFNumberVector
+---@field layer_idx DFNumberVector
+---@field style_part_idx DFNumberVector -- Subset of modifiable layers, i.e. where layer_idx != -1
+---@field style_layer_idx DFNumberVector
+---@field style_list_idx DFNumberVector
 
 ---@class _caste_raw.T_bp_appearance: DFCompound
 ---@field _kind 'struct-type'
 df.caste_raw.T_bp_appearance = {}
+
+---@class caste_raw_bp_appearance_modifiers: DFContainer
+---@field [integer] bp_appearance_modifier
+local caste_raw_bp_appearance_modifiers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<bp_appearance_modifier>
+function caste_raw_bp_appearance_modifiers:_field(index) end
+
+---@param index integer 
+---@param item bp_appearance_modifier 
+function caste_raw_bp_appearance_modifiers:insert(index, item) end
+
+---@param index integer 
+function caste_raw_bp_appearance_modifiers:erase(index) end
+
+---@class caste_raw_color_modifiers: DFContainer
+---@field [integer] color_modifier_raw
+local caste_raw_color_modifiers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<color_modifier_raw>
+function caste_raw_color_modifiers:_field(index) end
+
+---@param index integer 
+---@param item color_modifier_raw 
+function caste_raw_color_modifiers:insert(index, item) end
+
+---@param index integer 
+function caste_raw_color_modifiers:erase(index) end
+
+---@class caste_raw_tissue_styles: DFContainer
+---@field [integer] tissue_style_raw
+local caste_raw_tissue_styles
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<tissue_style_raw>
+function caste_raw_tissue_styles:_field(index) end
+
+---@param index integer 
+---@param item tissue_style_raw 
+function caste_raw_tissue_styles:insert(index, item) end
+
+---@param index integer 
+function caste_raw_tissue_styles:erase(index) end
+
+---@class caste_raw_unk16a: DFContainer
+---@field [integer] any[]
+local caste_raw_unk16a
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function caste_raw_unk16a:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function caste_raw_unk16a:insert(index, item) end
+
+---@param index integer 
+function caste_raw_unk16a:erase(index) end
+
+---@class caste_raw_natural_skill_id: DFContainer
+---@field [integer] job_skill
+local caste_raw_natural_skill_id
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<job_skill>
+function caste_raw_natural_skill_id:_field(index) end
+
+---@param index integer 
+---@param item job_skill 
+function caste_raw_natural_skill_id:insert(index, item) end
+
+---@param index integer 
+function caste_raw_natural_skill_id:erase(index) end
+
+---@class caste_raw_natural_skill_lvl: DFContainer
+---@field [integer] skill_rating
+local caste_raw_natural_skill_lvl
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<skill_rating>
+function caste_raw_natural_skill_lvl:_field(index) end
+
+---@param index integer 
+---@param item skill_rating 
+function caste_raw_natural_skill_lvl:insert(index, item) end
+
+---@param index integer 
+function caste_raw_natural_skill_lvl:erase(index) end
 
 ---@class (exact) caste_raw.T_caste_profession_name: DFObject
 ---@field _kind 'struct'
@@ -2092,9 +2428,9 @@ df.caste_raw.T_caste_profession_name = {}
 ---@class (exact) caste_raw.T_extracts: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_extracts
----@field extract_mat DFVector<number>
----@field extract_matidx DFVector<number>
----@field extract_str DFVector<string>[]
+---@field extract_mat DFNumberVector
+---@field extract_matidx DFNumberVector
+---@field extract_str string[]
 ---@field milkable_mat number
 ---@field milkable_matidx number
 ---@field milkable_str string[]
@@ -2121,33 +2457,49 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field pus_mat number
 ---@field pus_matidx number
 ---@field pus_str string[]
----@field egg_material_mattype DFVector<number>
----@field egg_material_matindex DFVector<number>
----@field egg_material_str DFVector<string>[]
----@field lays_unusual_eggs_itemtype DFVector<item_type>
----@field lays_unusual_eggs_itemsubtype DFVector<number>
----@field lays_unusual_eggs_mattype DFVector<number>
----@field lays_unusual_eggs_matindex DFVector<number>
----@field lays_unusual_eggs_str DFVector<string>[]
+---@field egg_material_mattype DFNumberVector
+---@field egg_material_matindex DFNumberVector
+---@field egg_material_str string[]
+---@field lays_unusual_eggs_itemtype caste_raw_extracts_lays_unusual_eggs_itemtype
+---@field lays_unusual_eggs_itemsubtype DFNumberVector
+---@field lays_unusual_eggs_mattype DFNumberVector
+---@field lays_unusual_eggs_matindex DFNumberVector
+---@field lays_unusual_eggs_str string[]
 
 ---@class _caste_raw.T_extracts: DFCompound
 ---@field _kind 'struct-type'
 df.caste_raw.T_extracts = {}
 
+---@class caste_raw_extracts_lays_unusual_eggs_itemtype: DFContainer
+---@field [integer] item_type
+local caste_raw_extracts_lays_unusual_eggs_itemtype
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function caste_raw_extracts_lays_unusual_eggs_itemtype:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function caste_raw_extracts_lays_unusual_eggs_itemtype:insert(index, item) end
+
+---@param index integer 
+function caste_raw_extracts_lays_unusual_eggs_itemtype:erase(index) end
+
 ---@class (exact) caste_raw.T_unknown2: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_unknown2
----@field syndrome_dilution_identifier DFVector<string> SYNDROME_DILUTION_FACTOR
----@field syndrome_dilution_factor DFVector<number> SYNDROME_DILUTION_FACTOR
----@field gobble_vermin_class DFVector<string>
----@field gobble_vermin_creature_1 DFVector<string>
----@field gobble_vermin_creature_2 DFVector<string>
----@field infect_all DFVector<number> for spatter applied to all bp
----@field infect_local DFVector<number> for spatter applied to one bp
----@field unk23f DFVector<number>
----@field unk23g DFVector<number>
----@field unk24_flags DFVector<table<integer, boolean>>
----@field unk25_flags DFVector<table<integer, boolean>>
+---@field syndrome_dilution_identifier DFStringVector SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_factor DFNumberVector SYNDROME_DILUTION_FACTOR
+---@field gobble_vermin_class DFStringVector
+---@field gobble_vermin_creature_1 DFStringVector
+---@field gobble_vermin_creature_2 DFStringVector
+---@field infect_all DFNumberVector for spatter applied to all bp
+---@field infect_local DFNumberVector for spatter applied to one bp
+---@field unk23f DFNumberVector
+---@field unk23g DFNumberVector
+---@field unk24_flags caste_raw_unknown2_unk24_flags
+---@field unk25_flags caste_raw_unknown2_unk25_flags
 ---@field armor_sizes number[][] index by UBSTEP
 ---@field pants_sizes number[] index by LBSTEP
 ---@field helm_size number
@@ -2155,10 +2507,10 @@ df.caste_raw.T_extracts = {}
 ---@field shoes_sizes number[] index by UPSTEP
 ---@field gloves_sizes number[] index by UPSTEP
 ---@field materials material_vec_ref
----@field unk_2f20 DFVector<number>
----@field unk_2f30 DFVector<number>
----@field unk_2f40 DFVector<number>
----@field unk_2f50 DFVector<number>
+---@field unk_2f20 DFNumberVector
+---@field unk_2f30 DFNumberVector
+---@field unk_2f40 DFNumberVector
+---@field unk_2f50 DFNumberVector
 ---@field mat_type number muscle: References: `material`
 ---@field mat_index number
 
@@ -2166,25 +2518,105 @@ df.caste_raw.T_extracts = {}
 ---@field _kind 'struct-type'
 df.caste_raw.T_unknown2 = {}
 
+---@class caste_raw_unknown2_unk24_flags: DFContainer
+---@field [integer] table<integer, boolean>
+local caste_raw_unknown2_unk24_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function caste_raw_unknown2_unk24_flags:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function caste_raw_unknown2_unk24_flags:insert(index, item) end
+
+---@param index integer 
+function caste_raw_unknown2_unk24_flags:erase(index) end
+
+---@class caste_raw_unknown2_unk25_flags: DFContainer
+---@field [integer] table<integer, boolean>
+local caste_raw_unknown2_unk25_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function caste_raw_unknown2_unk25_flags:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function caste_raw_unknown2_unk25_flags:insert(index, item) end
+
+---@param index integer 
+function caste_raw_unknown2_unk25_flags:erase(index) end
+
 ---@class (exact) caste_raw.T_lair_hunter_speech: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_lair_hunter_speech
----@field unk_1 DFVector<number>
----@field unk_2 DFVector<any[]>
+---@field unk_1 DFNumberVector
+---@field unk_2 caste_raw_lair_hunter_speech_unk_2
 
 ---@class _caste_raw.T_lair_hunter_speech: DFCompound
 ---@field _kind 'struct-type'
 df.caste_raw.T_lair_hunter_speech = {}
 
+---@class caste_raw_lair_hunter_speech_unk_2: DFContainer
+---@field [integer] any[]
+local caste_raw_lair_hunter_speech_unk_2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function caste_raw_lair_hunter_speech_unk_2:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function caste_raw_lair_hunter_speech_unk_2:insert(index, item) end
+
+---@param index integer 
+function caste_raw_lair_hunter_speech_unk_2:erase(index) end
+
 ---@class (exact) caste_raw.T_unk29: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_unk29
----@field unk_1 DFVector<any[]>
----@field unk_2 DFVector<number>
+---@field unk_1 caste_raw_unk29_unk_1
+---@field unk_2 DFNumberVector
 
 ---@class _caste_raw.T_unk29: DFCompound
 ---@field _kind 'struct-type'
 df.caste_raw.T_unk29 = {}
+
+---@class caste_raw_unk29_unk_1: DFContainer
+---@field [integer] any[]
+local caste_raw_unk29_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function caste_raw_unk29_unk_1:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function caste_raw_unk29_unk_1:insert(index, item) end
+
+---@param index integer 
+function caste_raw_unk29_unk_1:erase(index) end
+
+---@class caste_raw_specific_food: DFContainer
+---@field [integer] any[]
+local caste_raw_specific_food
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function caste_raw_specific_food:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function caste_raw_specific_food:insert(index, item) end
+
+---@param index integer 
+function caste_raw_specific_food:erase(index) end
 
 ---@alias creature_graphics_role_keys
 ---| '"DEFAULT"'
@@ -2272,8 +2704,8 @@ df.tissue_style_type = {}
 ---@field profession_add_color DFEnumVector<profession, DFEnumVector<creature_graphics_role, boolean>>
 ---@field profession_unk DFEnumVector<profession, DFEnumVector<creature_graphics_role, number>>[]
 ---@field ptr_unk DFEnumVector<creature_graphics_role, integer>[]
----@field vec_unk DFVector<number>[]
----@field profession_vec_unk DFEnumVector<profession, DFVector<number>>
+---@field vec_unk number[]
+---@field profession_vec_unk DFEnumVector<profession, number>
 
 ---@class _creature_raw_graphics: DFCompound
 ---@field _kind 'struct-type'
@@ -2283,10 +2715,10 @@ df.creature_raw_graphics = {}
 ---@field _kind 'struct'
 ---@field _type _tissue_style_raw
 ---@field token string
----@field part_idx DFVector<number>
----@field layer_idx DFVector<number>
----@field styles DFVector<tissue_style_type>
----@field list_idx DFVector<number>
+---@field part_idx DFNumberVector
+---@field layer_idx DFNumberVector
+---@field styles tissue_style_raw_styles
+---@field list_idx DFNumberVector
 ---@field id number
 ---@field noun string
 ---@field word_type part_of_speech 0 singular, 1 plural
@@ -2294,6 +2726,22 @@ df.creature_raw_graphics = {}
 ---@class _tissue_style_raw: DFCompound
 ---@field _kind 'struct-type'
 df.tissue_style_raw = {}
+
+---@class tissue_style_raw_styles: DFContainer
+---@field [integer] tissue_style_type
+local tissue_style_raw_styles
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<tissue_style_type>
+function tissue_style_raw_styles:_field(index) end
+
+---@param index integer 
+---@param item tissue_style_type 
+function tissue_style_raw_styles:insert(index, item) end
+
+---@param index integer 
+function tissue_style_raw_styles:erase(index) end
 
 ---@class (exact) creature_raw: DFObject
 ---@field _kind 'struct'
@@ -2317,26 +2765,26 @@ df.tissue_style_raw = {}
 ---@field color number[]
 ---@field glowcolor number[]
 ---@field adultsize number
----@field prefstring DFVector<string>
----@field sphere DFVector<number>
----@field caste DFVector<caste_raw>
----@field pop_ratio DFVector<number>
----@field flags DFVector<table<creature_raw_flags, boolean>>
+---@field prefstring DFStringVector
+---@field sphere DFNumberVector
+---@field caste creature_raw_caste
+---@field pop_ratio DFNumberVector
+---@field flags creature_raw_flags
 ---@field graphics creature_raw_graphics
----@field speech1 DFVector<number>
----@field speech2 DFVector<number>
----@field material DFVector<material>
----@field tissue DFVector<tissue>
+---@field speech1 DFNumberVector
+---@field speech2 DFNumberVector
+---@field material creature_raw_material
+---@field tissue creature_raw_tissue
 ---@field profession_name creature_raw.T_profession_name
 ---@field underground_layer_min number
 ---@field underground_layer_max number
----@field modifier_class DFVector<number>
----@field modifier_num_patterns DFVector<number> for color modifiers, == number of items in their pattern_* vectors
+---@field modifier_class DFNumberVector
+---@field modifier_num_patterns DFNumberVector for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw.T_hive_product
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field next_modifier_id number
----@field raws DFVector<string>
+---@field raws DFStringVector
 ---@field statute_texpos number[]
 
 ---@class _creature_raw: DFCompound
@@ -2352,6 +2800,70 @@ function df.creature_raw.find(key) end
 ---@return creature_raw_vector # df.global.world.raws.creatures.all
 function df.creature_raw.get_vector() end
 
+---@class creature_raw_caste: DFContainer
+---@field [integer] caste_raw
+local creature_raw_caste
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<caste_raw>
+function creature_raw_caste:_field(index) end
+
+---@param index integer 
+---@param item caste_raw 
+function creature_raw_caste:insert(index, item) end
+
+---@param index integer 
+function creature_raw_caste:erase(index) end
+
+---@class creature_raw_flags: DFContainer
+---@field [integer] table<creature_raw_flags, boolean>
+local creature_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<creature_raw_flags, boolean>>
+function creature_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<creature_raw_flags, boolean> 
+function creature_raw_flags:insert(index, item) end
+
+---@param index integer 
+function creature_raw_flags:erase(index) end
+
+---@class creature_raw_material: DFContainer
+---@field [integer] material
+local creature_raw_material
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<material>
+function creature_raw_material:_field(index) end
+
+---@param index integer 
+---@param item material 
+function creature_raw_material:insert(index, item) end
+
+---@param index integer 
+function creature_raw_material:erase(index) end
+
+---@class creature_raw_tissue: DFContainer
+---@field [integer] tissue
+local creature_raw_tissue
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<tissue>
+function creature_raw_tissue:_field(index) end
+
+---@param index integer 
+---@param item tissue 
+function creature_raw_tissue:insert(index, item) end
+
+---@param index integer 
+function creature_raw_tissue:erase(index) end
+
 ---@class (exact) creature_raw.T_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_profession_name
@@ -2365,20 +2877,36 @@ df.creature_raw.T_profession_name = {}
 ---@class (exact) creature_raw.T_hive_product: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_hive_product
----@field number DFVector<number>
----@field time DFVector<number>
----@field item_type DFVector<item_type>
----@field item_subtype DFVector<number>
+---@field number DFNumberVector
+---@field time DFNumberVector
+---@field item_type creature_raw_hive_product_item_type
+---@field item_subtype DFNumberVector
 ---@field material material_vec_ref
----@field tmpstr1 DFVector<string>
----@field tmpstr2 DFVector<string>
----@field tmpstr3 DFVector<string>
----@field tmpstr4 DFVector<string>
----@field tmpstr5 DFVector<string>
+---@field tmpstr1 DFStringVector
+---@field tmpstr2 DFStringVector
+---@field tmpstr3 DFStringVector
+---@field tmpstr4 DFStringVector
+---@field tmpstr5 DFStringVector
 
 ---@class _creature_raw.T_hive_product: DFCompound
 ---@field _kind 'struct-type'
 df.creature_raw.T_hive_product = {}
+
+---@class creature_raw_hive_product_item_type: DFContainer
+---@field [integer] item_type
+local creature_raw_hive_product_item_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function creature_raw_hive_product_item_type:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function creature_raw_hive_product_item_type:insert(index, item) end
+
+---@param index integer 
+function creature_raw_hive_product_item_type:erase(index) end
 
 ---@class (exact) creature_variation_convert_tag: DFObject
 ---@field _kind 'struct'
@@ -2397,13 +2925,13 @@ df.creature_variation_convert_tag = {}
 ---@field _kind 'struct'
 ---@field _type _creature_variation
 ---@field id string
----@field cv_convert_tag DFVector<creature_variation_convert_tag>
----@field cv_new_tag DFVector<string>
----@field cv_new_unk_v40_1 DFVector<number>
----@field cv_new_unk_v40_2 DFVector<string>
----@field cv_remove_tag DFVector<string>
----@field cv_remove_unk_v40_1 DFVector<number>
----@field cv_remove_unk_v40_2 DFVector<string>
+---@field cv_convert_tag creature_variation_cv_convert_tag
+---@field cv_new_tag DFStringVector
+---@field cv_new_unk_v40_1 DFNumberVector
+---@field cv_new_unk_v40_2 DFStringVector
+---@field cv_remove_tag DFStringVector
+---@field cv_remove_unk_v40_1 DFNumberVector
+---@field cv_remove_unk_v40_2 DFStringVector
 
 ---@class _creature_variation: DFCompound
 ---@field _kind 'struct-type'
@@ -2417,6 +2945,22 @@ function df.creature_variation.find(key) end
 
 ---@return creature_variation_vector # df.global.world.raws.creature_variations
 function df.creature_variation.get_vector() end
+
+---@class creature_variation_cv_convert_tag: DFContainer
+---@field [integer] creature_variation_convert_tag
+local creature_variation_cv_convert_tag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<creature_variation_convert_tag>
+function creature_variation_cv_convert_tag:_field(index) end
+
+---@param index integer 
+---@param item creature_variation_convert_tag 
+function creature_variation_cv_convert_tag:insert(index, item) end
+
+---@param index integer 
+function creature_variation_cv_convert_tag:erase(index) end
 
 ---@alias body_part_template_flags_keys
 ---| '"HEAD"'
@@ -2604,21 +3148,37 @@ df.body_part_template_contype = {}
 ---@field category string
 ---@field con_cat string
 ---@field contype body_part_template_contype
----@field flags DFVector<table<body_part_template_flags, boolean>>
+---@field flags body_part_template_flags
 ---@field default_relsize number
 ---@field number number
----@field name_singular DFVector<string> first comes from BP, rest come from INDIVIDUAL_NAME
----@field name_plural DFVector<string>
+---@field name_singular DFStringVector first comes from BP, rest come from INDIVIDUAL_NAME
+---@field name_plural DFStringVector
 
 ---@class _body_part_template: DFCompound
 ---@field _kind 'struct-type'
 df.body_part_template = {}
 
+---@class body_part_template_flags: DFContainer
+---@field [integer] table<body_part_template_flags, boolean>
+local body_part_template_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<body_part_template_flags, boolean>>
+function body_part_template_flags:_field(index) end
+
+---@param index integer 
+---@param item table<body_part_template_flags, boolean> 
+function body_part_template_flags:insert(index, item) end
+
+---@param index integer 
+function body_part_template_flags:erase(index) end
+
 ---@class (exact) body_template: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_template
 ---@field id string in bay12 this is a static array with one member
----@field parts DFVector<body_part_template>
+---@field parts body_template_parts
 
 ---@class _body_template: DFCompound
 ---@field _kind 'struct-type'
@@ -2632,6 +3192,22 @@ function df.body_template.find(key) end
 
 ---@return body_template_vector # df.global.world.raws.body_templates
 function df.body_template.get_vector() end
+
+---@class body_template_parts: DFContainer
+---@field [integer] body_part_template
+local body_template_parts
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<body_part_template>
+function body_template_parts:_field(index) end
+
+---@param index integer 
+---@param item body_part_template 
+function body_template_parts:insert(index, item) end
+
+---@param index integer 
+function body_template_parts:erase(index) end
 
 ---@alias tissue_flags_keys
 ---| '"THICKENS_ON_STRENGTH"'
@@ -2736,7 +3312,7 @@ df.tissue_flags = {}
 ---@field _kind 'struct'
 ---@field _type _tissue_template
 ---@field id string
----@field flags DFVector<table<tissue_flags, boolean>>
+---@field flags tissue_template_flags
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -2766,11 +3342,27 @@ function df.tissue_template.find(key) end
 ---@return tissue_template_vector # df.global.world.raws.tissue_templates
 function df.tissue_template.get_vector() end
 
+---@class tissue_template_flags: DFContainer
+---@field [integer] table<tissue_flags, boolean>
+local tissue_template_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<tissue_flags, boolean>>
+function tissue_template_flags:_field(index) end
+
+---@param index integer 
+---@param item table<tissue_flags, boolean> 
+function tissue_template_flags:insert(index, item) end
+
+---@param index integer 
+function tissue_template_flags:erase(index) end
+
 ---@class (exact) tissue: DFObject
 ---@field _kind 'struct'
 ---@field _type _tissue
 ---@field id string
----@field flags DFVector<table<tissue_flags, boolean>>
+---@field flags tissue_flags
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -2798,35 +3390,51 @@ function df.tissue_template.get_vector() end
 ---@field _kind 'struct-type'
 df.tissue = {}
 
+---@class tissue_flags: DFContainer
+---@field [integer] table<tissue_flags, boolean>
+local tissue_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<tissue_flags, boolean>>
+function tissue_flags:_field(index) end
+
+---@param index integer 
+---@param item table<tissue_flags, boolean> 
+function tissue_flags:insert(index, item) end
+
+---@param index integer 
+function tissue_flags:erase(index) end
+
 ---@class (exact) body_detail_plan: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_detail_plan
 ---@field id string
----@field add_material_name DFVector<string>
----@field add_material_template DFVector<string>
----@field add_tissue_name DFVector<string>
----@field add_tissue_template DFVector<string>
----@field unk5c DFVector<number>
----@field unk6c DFVector<string>
----@field unk7c DFVector<string>
----@field bp_layers_selection DFVector<number>
----@field bp_layers_criteria DFVector<number>
----@field bp_layers_tissue DFVector<number>
----@field bp_layers_thickness DFVector<string>
----@field bp_layers_position DFVector<number>
----@field bp_layers_over_under DFVector<number>
----@field bp_relsize_selection DFVector<number>
----@field bp_relsize_criteria DFVector<string>
----@field bp_relsize_value DFVector<number>
----@field bp_position_selection DFVector<number>
----@field bp_position_criteria DFVector<string>
----@field bp_position_value DFVector<number>
----@field bp_relation_selection_1 DFVector<number>
----@field bp_relation_criteria_1 DFVector<string>
----@field bp_relation_value_1 DFVector<number>
----@field bp_relation_selection_2 DFVector<number>
----@field bp_relation_criteria_2 DFVector<string>
----@field bp_relation_extent DFVector<number>
+---@field add_material_name DFStringVector
+---@field add_material_template DFStringVector
+---@field add_tissue_name DFStringVector
+---@field add_tissue_template DFStringVector
+---@field unk5c DFNumberVector
+---@field unk6c DFStringVector
+---@field unk7c DFStringVector
+---@field bp_layers_selection DFNumberVector
+---@field bp_layers_criteria DFNumberVector
+---@field bp_layers_tissue DFNumberVector
+---@field bp_layers_thickness DFStringVector
+---@field bp_layers_position DFNumberVector
+---@field bp_layers_over_under DFNumberVector
+---@field bp_relsize_selection DFNumberVector
+---@field bp_relsize_criteria DFStringVector
+---@field bp_relsize_value DFNumberVector
+---@field bp_position_selection DFNumberVector
+---@field bp_position_criteria DFStringVector
+---@field bp_position_value DFNumberVector
+---@field bp_relation_selection_1 DFNumberVector
+---@field bp_relation_criteria_1 DFStringVector
+---@field bp_relation_value_1 DFNumberVector
+---@field bp_relation_selection_2 DFNumberVector
+---@field bp_relation_criteria_2 DFStringVector
+---@field bp_relation_extent DFNumberVector
 
 ---@class _body_detail_plan: DFCompound
 ---@field _kind 'struct-type'

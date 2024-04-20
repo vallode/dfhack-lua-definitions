@@ -544,14 +544,30 @@ df.itemdef_flags = {}
 ---@field _type _itemdef
 ---@field id string
 ---@field subtype number
----@field base_flags DFVector<table<itemdef_flags, boolean>>
+---@field base_flags itemdef_base_flags
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
----@field raw_strings DFVector<string>
+---@field raw_strings DFStringVector
 
 ---@class _itemdef: DFCompound
 ---@field _kind 'class-type'
 df.itemdef = {}
+
+---@class itemdef_base_flags: DFContainer
+---@field [integer] table<itemdef_flags, boolean>
+local itemdef_base_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<itemdef_flags, boolean>>
+function itemdef_base_flags:_field(index) end
+
+---@param index integer 
+---@param item table<itemdef_flags, boolean> 
+function itemdef_base_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_base_flags:erase(index) end
 
 ---@alias ammo_flags_keys
 ---| '"HAS_EDGE_ATTACK"'
@@ -575,10 +591,10 @@ df.ammo_flags = {}
 ---@field name_plural string
 ---@field adjective string
 ---@field ammo_class string
----@field flags DFVector<table<ammo_flags, boolean>>
+---@field flags itemdef_ammost_flags
 ---@field size number divided by 10
 ---@field value number
----@field attacks DFVector<weapon_attack>
+---@field attacks itemdef_ammost_attacks
 ---@field number number[]
 
 ---@class _itemdef_ammost: DFCompound
@@ -593,6 +609,54 @@ function df.itemdef_ammost.find(key) end
 
 ---@return itemdef_ammost_vector # df.global.world.raws.itemdefs.ammo
 function df.itemdef_ammost.get_vector() end
+
+---@class itemdef_ammost_flags: DFContainer
+---@field [integer] table<ammo_flags, boolean>
+local itemdef_ammost_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<ammo_flags, boolean>>
+function itemdef_ammost_flags:_field(index) end
+
+---@param index integer 
+---@param item table<ammo_flags, boolean> 
+function itemdef_ammost_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_ammost_flags:erase(index) end
+
+---@class itemdef_ammost_attacks: DFContainer
+---@field [integer] weapon_attack
+local itemdef_ammost_attacks
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<weapon_attack>
+function itemdef_ammost_attacks:_field(index) end
+
+---@param index integer 
+---@param item weapon_attack 
+function itemdef_ammost_attacks:insert(index, item) end
+
+---@param index integer 
+function itemdef_ammost_attacks:erase(index) end
+
+---@class itemdef_ammost: DFContainer
+---@field [integer] any[]
+local itemdef_ammost
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_ammost:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_ammost:insert(index, item) end
+
+---@param index integer 
+function itemdef_ammost:erase(index) end
 
 ---@alias armor_general_flags_keys
 ---| '"SOFT"'
@@ -652,7 +716,7 @@ df.armor_general_flags = {}
 ---@class (exact) armor_properties: DFObject
 ---@field _kind 'struct'
 ---@field _type _armor_properties
----@field flags DFVector<table<armor_general_flags, boolean>>
+---@field flags armor_properties_flags
 ---@field layer number
 ---@field layer_size number
 ---@field layer_permit number
@@ -661,6 +725,22 @@ df.armor_general_flags = {}
 ---@class _armor_properties: DFCompound
 ---@field _kind 'struct-type'
 df.armor_properties = {}
+
+---@class armor_properties_flags: DFContainer
+---@field [integer] table<armor_general_flags, boolean>
+local armor_properties_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<armor_general_flags, boolean>>
+function armor_properties_flags:_field(index) end
+
+---@param index integer 
+---@param item table<armor_general_flags, boolean> 
+function armor_properties_flags:insert(index, item) end
+
+---@param index integer 
+function armor_properties_flags:erase(index) end
 
 ---@alias armor_flags_keys
 ---| '"METAL_ARMOR_LEVELS"'
@@ -691,7 +771,7 @@ df.armor_flags = {}
 ---@field lbstep number
 ---@field material_size number
 ---@field props armor_properties
----@field flags DFVector<table<armor_flags, boolean>>
+---@field flags itemdef_armorst_flags
 
 ---@class _itemdef_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -705,6 +785,38 @@ function df.itemdef_armorst.find(key) end
 
 ---@return itemdef_armorst_vector # df.global.world.raws.itemdefs.armor
 function df.itemdef_armorst.get_vector() end
+
+---@class itemdef_armorst_flags: DFContainer
+---@field [integer] table<armor_flags, boolean>
+local itemdef_armorst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<armor_flags, boolean>>
+function itemdef_armorst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<armor_flags, boolean> 
+function itemdef_armorst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_armorst_flags:erase(index) end
+
+---@class itemdef_armorst: DFContainer
+---@field [integer] any[]
+local itemdef_armorst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_armorst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_armorst:insert(index, item) end
+
+---@param index integer 
+function itemdef_armorst:erase(index) end
 
 ---@class (exact) itemdef_foodst: DFObject, itemdef
 ---@field _kind 'struct'
@@ -749,7 +861,7 @@ df.gloves_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
----@field flags DFVector<table<gloves_flags, boolean>>
+---@field flags itemdef_glovesst_flags
 ---@field material_size number
 ---@field props armor_properties
 
@@ -765,6 +877,38 @@ function df.itemdef_glovesst.find(key) end
 
 ---@return itemdef_glovesst_vector # df.global.world.raws.itemdefs.gloves
 function df.itemdef_glovesst.get_vector() end
+
+---@class itemdef_glovesst_flags: DFContainer
+---@field [integer] table<gloves_flags, boolean>
+local itemdef_glovesst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<gloves_flags, boolean>>
+function itemdef_glovesst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<gloves_flags, boolean> 
+function itemdef_glovesst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_glovesst_flags:erase(index) end
+
+---@class itemdef_glovesst: DFContainer
+---@field [integer] any[]
+local itemdef_glovesst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_glovesst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_glovesst:insert(index, item) end
+
+---@param index integer 
+function itemdef_glovesst:erase(index) end
 
 ---@alias helm_flags_keys
 ---| '"METAL_ARMOR_LEVELS"'
@@ -789,7 +933,7 @@ df.helm_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
----@field flags DFVector<table<helm_flags, boolean>>
+---@field flags itemdef_helmst_flags
 ---@field material_size number
 ---@field props armor_properties
 
@@ -805,6 +949,38 @@ function df.itemdef_helmst.find(key) end
 
 ---@return itemdef_helmst_vector # df.global.world.raws.itemdefs.helms
 function df.itemdef_helmst.get_vector() end
+
+---@class itemdef_helmst_flags: DFContainer
+---@field [integer] table<helm_flags, boolean>
+local itemdef_helmst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<helm_flags, boolean>>
+function itemdef_helmst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<helm_flags, boolean> 
+function itemdef_helmst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_helmst_flags:erase(index) end
+
+---@class itemdef_helmst: DFContainer
+---@field [integer] any[]
+local itemdef_helmst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_helmst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_helmst:insert(index, item) end
+
+---@param index integer 
+function itemdef_helmst:erase(index) end
 
 ---@alias instrument_flags_keys
 ---| '"INDEFINITE_PITCH"'
@@ -858,32 +1034,32 @@ df.instrument_flags = {}
 ---@field _type _itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
----@field flags DFVector<table<instrument_flags, boolean>>
+---@field flags itemdef_instrumentst_flags
 ---@field music_skill job_skill
 ---@field size number
 ---@field value number
 ---@field material_size number
----@field pieces DFVector<instrument_piece>
+---@field pieces itemdef_instrumentst_pieces
 ---@field dominant_instrument_piece string
 ---@field pitch_range_min number
 ---@field pitch_range_max number
 ---@field volume_mb_min number
 ---@field volume_mb_max number
----@field sound_production DFVector<sound_production_type>
----@field sound_production_parm1 DFVector<string>
----@field sound_production_parm2 DFVector<string>
----@field unk_100 DFVector<number>
----@field unk_110 DFVector<number>
----@field pitch_choice DFVector<pitch_choice_type>
----@field pitch_choice_parm1 DFVector<string>
----@field pitch_choice_parm2 DFVector<string>
----@field unk_150 DFVector<number>
----@field unk_160 DFVector<number>
----@field tuning DFVector<tuning_type>
----@field tuning_parm DFVector<string>
----@field unk_190 DFVector<number>
----@field registers DFVector<instrument_register>
----@field timbre DFVector<timbre_type>
+---@field sound_production itemdef_instrumentst_sound_production
+---@field sound_production_parm1 DFStringVector
+---@field sound_production_parm2 DFStringVector
+---@field unk_100 DFNumberVector
+---@field unk_110 DFNumberVector
+---@field pitch_choice itemdef_instrumentst_pitch_choice
+---@field pitch_choice_parm1 DFStringVector
+---@field pitch_choice_parm2 DFStringVector
+---@field unk_150 DFNumberVector
+---@field unk_160 DFNumberVector
+---@field tuning itemdef_instrumentst_tuning
+---@field tuning_parm DFStringVector
+---@field unk_190 DFNumberVector
+---@field registers itemdef_instrumentst_registers
+---@field timbre itemdef_instrumentst_timbre
 ---@field description string
 
 ---@class _itemdef_instrumentst: DFCompound
@@ -898,6 +1074,118 @@ function df.itemdef_instrumentst.find(key) end
 
 ---@return itemdef_instrumentst_vector # df.global.world.raws.itemdefs.instruments
 function df.itemdef_instrumentst.get_vector() end
+
+---@class itemdef_instrumentst_flags: DFContainer
+---@field [integer] table<instrument_flags, boolean>
+local itemdef_instrumentst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<instrument_flags, boolean>>
+function itemdef_instrumentst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<instrument_flags, boolean> 
+function itemdef_instrumentst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_flags:erase(index) end
+
+---@class itemdef_instrumentst_pieces: DFContainer
+---@field [integer] instrument_piece
+local itemdef_instrumentst_pieces
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<instrument_piece>
+function itemdef_instrumentst_pieces:_field(index) end
+
+---@param index integer 
+---@param item instrument_piece 
+function itemdef_instrumentst_pieces:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_pieces:erase(index) end
+
+---@class itemdef_instrumentst_sound_production: DFContainer
+---@field [integer] sound_production_type
+local itemdef_instrumentst_sound_production
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<sound_production_type>
+function itemdef_instrumentst_sound_production:_field(index) end
+
+---@param index integer 
+---@param item sound_production_type 
+function itemdef_instrumentst_sound_production:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_sound_production:erase(index) end
+
+---@class itemdef_instrumentst_pitch_choice: DFContainer
+---@field [integer] pitch_choice_type
+local itemdef_instrumentst_pitch_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<pitch_choice_type>
+function itemdef_instrumentst_pitch_choice:_field(index) end
+
+---@param index integer 
+---@param item pitch_choice_type 
+function itemdef_instrumentst_pitch_choice:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_pitch_choice:erase(index) end
+
+---@class itemdef_instrumentst_tuning: DFContainer
+---@field [integer] tuning_type
+local itemdef_instrumentst_tuning
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<tuning_type>
+function itemdef_instrumentst_tuning:_field(index) end
+
+---@param index integer 
+---@param item tuning_type 
+function itemdef_instrumentst_tuning:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_tuning:erase(index) end
+
+---@class itemdef_instrumentst_registers: DFContainer
+---@field [integer] instrument_register
+local itemdef_instrumentst_registers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<instrument_register>
+function itemdef_instrumentst_registers:_field(index) end
+
+---@param index integer 
+---@param item instrument_register 
+function itemdef_instrumentst_registers:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_registers:erase(index) end
+
+---@class itemdef_instrumentst_timbre: DFContainer
+---@field [integer] timbre_type
+local itemdef_instrumentst_timbre
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<timbre_type>
+function itemdef_instrumentst_timbre:_field(index) end
+
+---@param index integer 
+---@param item timbre_type 
+function itemdef_instrumentst_timbre:insert(index, item) end
+
+---@param index integer 
+function itemdef_instrumentst_timbre:erase(index) end
 
 ---@alias sound_production_type_keys
 ---| '"PLUCKED_BY_BP"'
@@ -1381,11 +1669,27 @@ df.instrument_piece.T_flags = {}
 ---@field _type _instrument_register
 ---@field pitch_range_min number
 ---@field pitch_range_max number
----@field timbres DFVector<timbre_type>
+---@field timbres instrument_register_timbres
 
 ---@class _instrument_register: DFCompound
 ---@field _kind 'struct-type'
 df.instrument_register = {}
+
+---@class instrument_register_timbres: DFContainer
+---@field [integer] timbre_type
+local instrument_register_timbres
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<timbre_type>
+function instrument_register_timbres:_field(index) end
+
+---@param index integer 
+---@param item timbre_type 
+function instrument_register_timbres:insert(index, item) end
+
+---@param index integer 
+function instrument_register_timbres:erase(index) end
 
 ---@alias pants_flags_keys
 ---| '"METAL_ARMOR_LEVELS"'
@@ -1412,7 +1716,7 @@ df.pants_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
----@field flags DFVector<table<pants_flags, boolean>>
+---@field flags itemdef_pantsst_flags
 ---@field material_size number
 ---@field lbstep number
 ---@field props armor_properties
@@ -1429,6 +1733,38 @@ function df.itemdef_pantsst.find(key) end
 
 ---@return itemdef_pantsst_vector # df.global.world.raws.itemdefs.pants
 function df.itemdef_pantsst.get_vector() end
+
+---@class itemdef_pantsst_flags: DFContainer
+---@field [integer] table<pants_flags, boolean>
+local itemdef_pantsst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<pants_flags, boolean>>
+function itemdef_pantsst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<pants_flags, boolean> 
+function itemdef_pantsst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_pantsst_flags:erase(index) end
+
+---@class itemdef_pantsst: DFContainer
+---@field [integer] any[]
+local itemdef_pantsst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_pantsst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_pantsst:insert(index, item) end
+
+---@param index integer 
+function itemdef_pantsst:erase(index) end
 
 ---@class (exact) itemdef_shieldst: DFObject, itemdef
 ---@field _kind 'struct'
@@ -1455,6 +1791,22 @@ function df.itemdef_shieldst.find(key) end
 ---@return itemdef_shieldst_vector # df.global.world.raws.itemdefs.shields
 function df.itemdef_shieldst.get_vector() end
 
+---@class itemdef_shieldst: DFContainer
+---@field [integer] any[]
+local itemdef_shieldst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_shieldst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_shieldst:insert(index, item) end
+
+---@param index integer 
+function itemdef_shieldst:erase(index) end
+
 ---@alias shoes_flags_keys
 ---| '"METAL_ARMOR_LEVELS"'
 
@@ -1479,7 +1831,7 @@ df.shoes_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
----@field flags DFVector<table<shoes_flags, boolean>>
+---@field flags itemdef_shoesst_flags
 ---@field material_size number
 ---@field props armor_properties
 
@@ -1495,6 +1847,38 @@ function df.itemdef_shoesst.find(key) end
 
 ---@return itemdef_shoesst_vector # df.global.world.raws.itemdefs.shoes
 function df.itemdef_shoesst.get_vector() end
+
+---@class itemdef_shoesst_flags: DFContainer
+---@field [integer] table<shoes_flags, boolean>
+local itemdef_shoesst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<shoes_flags, boolean>>
+function itemdef_shoesst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<shoes_flags, boolean> 
+function itemdef_shoesst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_shoesst_flags:erase(index) end
+
+---@class itemdef_shoesst: DFContainer
+---@field [integer] any[]
+local itemdef_shoesst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_shoesst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_shoesst:insert(index, item) end
+
+---@param index integer 
+function itemdef_shoesst:erase(index) end
 
 ---@class (exact) itemdef_siegeammost: DFObject, itemdef
 ---@field _kind 'struct'
@@ -1516,6 +1900,22 @@ function df.itemdef_siegeammost.find(key) end
 
 ---@return itemdef_siegeammost_vector # df.global.world.raws.itemdefs.siege_ammo
 function df.itemdef_siegeammost.get_vector() end
+
+---@class itemdef_siegeammost: DFContainer
+---@field [integer] any[]
+local itemdef_siegeammost
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_siegeammost:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_siegeammost:insert(index, item) end
+
+---@param index integer 
+function itemdef_siegeammost:erase(index) end
 
 ---@alias tool_flags_keys
 ---| '"HARD_MAT"'
@@ -1732,10 +2132,10 @@ df.tool_uses = {}
 ---@field _type _itemdef_toolst
 ---@field name string
 ---@field name_plural string
----@field flags DFVector<table<tool_flags, boolean>>
+---@field flags itemdef_toolst_flags
 ---@field value number
 ---@field tile integer
----@field tool_use DFVector<tool_uses>
+---@field tool_use itemdef_toolst_tool_use
 ---@field adjective string
 ---@field size number
 ---@field skill_melee job_skill
@@ -1744,17 +2144,17 @@ df.tool_uses = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
----@field attacks DFVector<weapon_attack>
+---@field attacks itemdef_toolst_attacks
 ---@field shoot_force number
 ---@field shoot_maxvel number
 ---@field container_capacity number
----@field shape_category_str DFVector<string>
----@field shape_category DFVector<number>
+---@field shape_category_str DFStringVector
+---@field shape_category DFNumberVector
 ---@field description string
----@field default_improvements DFVector<any>
+---@field default_improvements DFAnyVector
 ---@field number number[]
----@field number DFVector<number>
----@field number DFVector<number>
+---@field number DFNumberVector
+---@field number DFNumberVector
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -1768,6 +2168,86 @@ function df.itemdef_toolst.find(key) end
 
 ---@return itemdef_toolst_vector # df.global.world.raws.itemdefs.tools
 function df.itemdef_toolst.get_vector() end
+
+---@class itemdef_toolst_flags: DFContainer
+---@field [integer] table<tool_flags, boolean>
+local itemdef_toolst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<tool_flags, boolean>>
+function itemdef_toolst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<tool_flags, boolean> 
+function itemdef_toolst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_toolst_flags:erase(index) end
+
+---@class itemdef_toolst_tool_use: DFContainer
+---@field [integer] tool_uses
+local itemdef_toolst_tool_use
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<tool_uses>
+function itemdef_toolst_tool_use:_field(index) end
+
+---@param index integer 
+---@param item tool_uses 
+function itemdef_toolst_tool_use:insert(index, item) end
+
+---@param index integer 
+function itemdef_toolst_tool_use:erase(index) end
+
+---@class itemdef_toolst_attacks: DFContainer
+---@field [integer] weapon_attack
+local itemdef_toolst_attacks
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<weapon_attack>
+function itemdef_toolst_attacks:_field(index) end
+
+---@param index integer 
+---@param item weapon_attack 
+function itemdef_toolst_attacks:insert(index, item) end
+
+---@param index integer 
+function itemdef_toolst_attacks:erase(index) end
+
+---@class itemdef_toolst: DFContainer
+---@field [integer] any[]
+local itemdef_toolst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_toolst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_toolst:insert(index, item) end
+
+---@param index integer 
+function itemdef_toolst:erase(index) end
+
+---@class itemdef_toolst: DFContainer
+---@field [integer] any[]
+local itemdef_toolst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_toolst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_toolst:insert(index, item) end
+
+---@param index integer 
+function itemdef_toolst:erase(index) end
 
 ---@alias toy_flags_keys
 ---| '"HARD_MAT"'
@@ -1789,7 +2269,7 @@ df.toy_flags = {}
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
----@field flags DFVector<table<toy_flags, boolean>>
+---@field flags itemdef_toyst_flags
 
 ---@class _itemdef_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1803,6 +2283,38 @@ function df.itemdef_toyst.find(key) end
 
 ---@return itemdef_toyst_vector # df.global.world.raws.itemdefs.toys
 function df.itemdef_toyst.get_vector() end
+
+---@class itemdef_toyst_flags: DFContainer
+---@field [integer] table<toy_flags, boolean>
+local itemdef_toyst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<toy_flags, boolean>>
+function itemdef_toyst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<toy_flags, boolean> 
+function itemdef_toyst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_toyst_flags:erase(index) end
+
+---@class itemdef_toyst: DFContainer
+---@field [integer] any[]
+local itemdef_toyst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_toyst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_toyst:insert(index, item) end
+
+---@param index integer 
+function itemdef_toyst:erase(index) end
 
 ---@alias trapcomp_flags_keys
 ---| '"IS_SCREW"'
@@ -1845,8 +2357,8 @@ df.trapcomp_flags = {}
 ---@field value number
 ---@field hits number
 ---@field material_size number
----@field flags DFVector<table<trapcomp_flags, boolean>>
----@field attacks DFVector<weapon_attack>
+---@field flags itemdef_trapcompst_flags
+---@field attacks itemdef_trapcompst_attacks
 ---@field number number[]
 
 ---@class _itemdef_trapcompst: DFCompound
@@ -1861,6 +2373,54 @@ function df.itemdef_trapcompst.find(key) end
 
 ---@return itemdef_trapcompst_vector # df.global.world.raws.itemdefs.trapcomps
 function df.itemdef_trapcompst.get_vector() end
+
+---@class itemdef_trapcompst_flags: DFContainer
+---@field [integer] table<trapcomp_flags, boolean>
+local itemdef_trapcompst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<trapcomp_flags, boolean>>
+function itemdef_trapcompst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<trapcomp_flags, boolean> 
+function itemdef_trapcompst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_trapcompst_flags:erase(index) end
+
+---@class itemdef_trapcompst_attacks: DFContainer
+---@field [integer] weapon_attack
+local itemdef_trapcompst_attacks
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<weapon_attack>
+function itemdef_trapcompst_attacks:_field(index) end
+
+---@param index integer 
+---@param item weapon_attack 
+function itemdef_trapcompst_attacks:insert(index, item) end
+
+---@param index integer 
+function itemdef_trapcompst_attacks:erase(index) end
+
+---@class itemdef_trapcompst: DFContainer
+---@field [integer] any[]
+local itemdef_trapcompst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_trapcompst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_trapcompst:insert(index, item) end
+
+---@param index integer 
+function itemdef_trapcompst:erase(index) end
 
 ---@alias weapon_flags_keys
 ---| '"CAN_STONE"'
@@ -1899,8 +2459,8 @@ df.weapon_flags = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
----@field flags DFVector<table<weapon_flags, boolean>>
----@field attacks DFVector<weapon_attack>
+---@field flags itemdef_weaponst_flags
+---@field attacks itemdef_weaponst_attacks
 ---@field shoot_force number
 ---@field shoot_maxvel number
 ---@field number number[]
@@ -1917,4 +2477,52 @@ function df.itemdef_weaponst.find(key) end
 
 ---@return itemdef_weaponst_vector # df.global.world.raws.itemdefs.weapons
 function df.itemdef_weaponst.get_vector() end
+
+---@class itemdef_weaponst_flags: DFContainer
+---@field [integer] table<weapon_flags, boolean>
+local itemdef_weaponst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<weapon_flags, boolean>>
+function itemdef_weaponst_flags:_field(index) end
+
+---@param index integer 
+---@param item table<weapon_flags, boolean> 
+function itemdef_weaponst_flags:insert(index, item) end
+
+---@param index integer 
+function itemdef_weaponst_flags:erase(index) end
+
+---@class itemdef_weaponst_attacks: DFContainer
+---@field [integer] weapon_attack
+local itemdef_weaponst_attacks
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<weapon_attack>
+function itemdef_weaponst_attacks:_field(index) end
+
+---@param index integer 
+---@param item weapon_attack 
+function itemdef_weaponst_attacks:insert(index, item) end
+
+---@param index integer 
+function itemdef_weaponst_attacks:erase(index) end
+
+---@class itemdef_weaponst: DFContainer
+---@field [integer] any[]
+local itemdef_weaponst
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function itemdef_weaponst:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function itemdef_weaponst:insert(index, item) end
+
+---@param index integer 
+function itemdef_weaponst:erase(index) end
 

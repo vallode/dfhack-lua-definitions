@@ -17,12 +17,12 @@
 ---@field graphics_overlay integer[][][]
 ---@field build_key number
 ---@field needs_magma boolean
----@field build_items DFVector<building_def_item>
+---@field build_items building_def_build_items
 ---@field dim_x number
 ---@field dim_y number
 ---@field workloc_x number
 ---@field workloc_y number
----@field build_labors DFVector<unit_labor>
+---@field build_labors building_def_build_labors
 ---@field labor_description string
 ---@field build_stages number
 
@@ -38,6 +38,38 @@ function df.building_def.find(key) end
 
 ---@return building_def_vector # df.global.world.raws.buildings.all
 function df.building_def.get_vector() end
+
+---@class building_def_build_items: DFContainer
+---@field [integer] building_def_item
+local building_def_build_items
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_def_item>
+function building_def_build_items:_field(index) end
+
+---@param index integer 
+---@param item building_def_item 
+function building_def_build_items:insert(index, item) end
+
+---@param index integer 
+function building_def_build_items:erase(index) end
+
+---@class building_def_build_labors: DFContainer
+---@field [integer] unit_labor
+local building_def_build_labors
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<unit_labor>
+function building_def_build_labors:_field(index) end
+
+---@param index integer 
+---@param item unit_labor 
+function building_def_build_labors:insert(index, item) end
+
+---@param index integer 
+function building_def_build_labors:erase(index) end
 
 ---@class (exact) building_def_item: DFObject
 ---@field _kind 'struct'

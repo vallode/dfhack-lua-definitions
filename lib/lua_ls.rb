@@ -1,8 +1,10 @@
-# frozen_string_literal: false
+# frozen_string_literal: true
 
 module DFHackLuaDefinitions
   # LuaLS annotation generator functions.
   class LuaLS
+    TYPES = %w[nil any boolean string number integer function table thread userdata lightuserdata].freeze
+
     # Keywords reserved by Lua that should not exist as identifiers.
     RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then true
                            until while].freeze

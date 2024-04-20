@@ -4,18 +4,34 @@
 ---@class (exact) historical_kills: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_kills
----@field events DFVector<number> -- Important
----@field killed_race DFVector<number> -- Misc
----@field killed_caste DFVector<number>
----@field killed_underground_region DFVector<number>
----@field killed_region DFVector<number>
----@field killed_site DFVector<number>
----@field killed_undead DFVector<undead_flags>
----@field killed_count DFVector<number>
+---@field events DFNumberVector -- Important
+---@field killed_race DFNumberVector -- Misc
+---@field killed_caste DFNumberVector
+---@field killed_underground_region DFNumberVector
+---@field killed_region DFNumberVector
+---@field killed_site DFNumberVector
+---@field killed_undead historical_kills_killed_undead
+---@field killed_count DFNumberVector
 
 ---@class _historical_kills: DFCompound
 ---@field _kind 'struct-type'
 df.historical_kills = {}
+
+---@class historical_kills_killed_undead: DFContainer
+---@field [integer] undead_flags
+local historical_kills_killed_undead
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<undead_flags>
+function historical_kills_killed_undead:_field(index) end
+
+---@param index integer 
+---@param item undead_flags 
+function historical_kills_killed_undead:insert(index, item) end
+
+---@param index integer 
+function historical_kills_killed_undead:erase(index) end
 
 ---@class (exact) history_hit_item: DFObject
 ---@field _kind 'struct'
@@ -488,34 +504,82 @@ df.state_profilest.T_flags = {}
 ---@class (exact) knowledge_profilest: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_profilest
----@field known_secrets DFVector<interaction> bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
+---@field known_secrets knowledge_profilest_known_secrets bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
 ---@field next_intervention_resistance_year number All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
----@field known_written_contents DFVector<number> bay12: read_written_content_id; ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
----@field known_identities DFVector<number> bay12: identity_known_id; identity ID of identities known to the historical figure, such as demon true names
----@field known_witness_reports DFVector<witness_incidentst> bay12: witness_incident
----@field known_events DFVector<entity_event>
----@field heard_of_guide_hfid DFVector<number>
----@field heard_of_stid DFVector<number>
+---@field known_written_contents DFNumberVector bay12: read_written_content_id; ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
+---@field known_identities DFNumberVector bay12: identity_known_id; identity ID of identities known to the historical figure, such as demon true names
+---@field known_witness_reports knowledge_profilest_known_witness_reports bay12: witness_incident
+---@field known_events knowledge_profilest_known_events
+---@field heard_of_guide_hfid DFNumberVector
+---@field heard_of_stid DFNumberVector
 ---@field opinion_info knowledge_profilest.T_opinion_info
----@field creature_knowledge DFVector<any>
----@field known_poetic_forms DFVector<number> bay12: poetic_form_known_id
----@field known_musical_forms DFVector<number> bay12: musical_form_known_id
----@field known_dance_forms DFVector<number> bay12: dance_form_known_id
+---@field creature_knowledge DFAnyVector
+---@field known_poetic_forms DFNumberVector bay12: poetic_form_known_id
+---@field known_musical_forms DFNumberVector bay12: musical_form_known_id
+---@field known_dance_forms DFNumberVector bay12: dance_form_known_id
 ---@field knowledge any
 ---@field belief_systems any found in prophets; contains the ID of the belief system developed by that particular prophet
 ---@field known_locations any
----@field known_agreement_id DFVector<number>
+---@field known_agreement_id DFNumberVector
 
 ---@class _knowledge_profilest: DFCompound
 ---@field _kind 'struct-type'
 df.knowledge_profilest = {}
 
+---@class knowledge_profilest_known_secrets: DFContainer
+---@field [integer] interaction
+local knowledge_profilest_known_secrets
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction>
+function knowledge_profilest_known_secrets:_field(index) end
+
+---@param index integer 
+---@param item interaction 
+function knowledge_profilest_known_secrets:insert(index, item) end
+
+---@param index integer 
+function knowledge_profilest_known_secrets:erase(index) end
+
+---@class knowledge_profilest_known_witness_reports: DFContainer
+---@field [integer] witness_incidentst
+local knowledge_profilest_known_witness_reports
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<witness_incidentst>
+function knowledge_profilest_known_witness_reports:_field(index) end
+
+---@param index integer 
+---@param item witness_incidentst 
+function knowledge_profilest_known_witness_reports:insert(index, item) end
+
+---@param index integer 
+function knowledge_profilest_known_witness_reports:erase(index) end
+
+---@class knowledge_profilest_known_events: DFContainer
+---@field [integer] entity_event
+local knowledge_profilest_known_events
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_event>
+function knowledge_profilest_known_events:_field(index) end
+
+---@param index integer 
+---@param item entity_event 
+function knowledge_profilest_known_events:insert(index, item) end
+
+---@param index integer 
+function knowledge_profilest_known_events:erase(index) end
+
 -- bay12: type is opinion_infost
 ---@class (exact) knowledge_profilest.T_opinion_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_profilest.T_opinion_info
----@field entity_id DFVector<number> same length as next vector. Some are definitely entities (e.g. player fortress or attacker site government), but others make no such sense
----@field entity_opinion DFVector<number> 5, 7, 8 seen. 7/8 only seen on humanoid experiments
+---@field entity_id DFNumberVector same length as next vector. Some are definitely entities (e.g. player fortress or attacker site government), but others make no such sense
+---@field entity_opinion DFNumberVector 5, 7, 8 seen. 7/8 only seen on humanoid experiments
 
 ---@class _knowledge_profilest.T_opinion_info: DFCompound
 ---@field _kind 'struct-type'
@@ -545,11 +609,11 @@ df.historical_figure_info = {}
 ---@class (exact) historical_figure_relationships: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_relationships
----@field hf_visual DFVector<any>
----@field hf_historical DFVector<any>
----@field unk_1 DFVector<any>
----@field identities DFVector<number>
----@field artifact_claims DFVector<any>
+---@field hf_visual DFAnyVector
+---@field hf_historical DFAnyVector
+---@field unk_1 DFAnyVector
+---@field identities DFNumberVector
+---@field artifact_claims DFAnyVector
 ---@field unk_2 number
 ---@field intrigues any
 
@@ -1080,14 +1144,14 @@ df.vague_relationship_type = {}
 ---@field breed_id number from legends export
 ---@field cultural_identity number References: `cultural_identity`
 ---@field family_head_id number When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor. References: `historical_figure`
----@field flags DFVector<table<histfig_flags, boolean>>
+---@field flags historical_figure_flags
 ---@field unit_id number References: `unit`
 ---@field nemesis_id number sometimes garbage References: `nemesis_record`
 ---@field id number
 ---@field art_count number
----@field entity_links DFVector<histfig_entity_link>
----@field site_links DFVector<histfig_site_link>
----@field histfig_links DFVector<histfig_hf_link>
+---@field entity_links historical_figure_entity_links
+---@field site_links historical_figure_site_links
+---@field histfig_links historical_figure_histfig_links
 ---@field info historical_figure_info bay12: hf_profilest profile
 ---@field vague_relationships any Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@field unk_f0 world_site
@@ -1113,6 +1177,70 @@ function df.historical_figure.find(key) end
 
 ---@return historical_figure_vector # df.global.world.history.figures
 function df.historical_figure.get_vector() end
+
+---@class historical_figure_flags: DFContainer
+---@field [integer] table<histfig_flags, boolean>
+local historical_figure_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<histfig_flags, boolean>>
+function historical_figure_flags:_field(index) end
+
+---@param index integer 
+---@param item table<histfig_flags, boolean> 
+function historical_figure_flags:insert(index, item) end
+
+---@param index integer 
+function historical_figure_flags:erase(index) end
+
+---@class historical_figure_entity_links: DFContainer
+---@field [integer] histfig_entity_link
+local historical_figure_entity_links
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<histfig_entity_link>
+function historical_figure_entity_links:_field(index) end
+
+---@param index integer 
+---@param item histfig_entity_link 
+function historical_figure_entity_links:insert(index, item) end
+
+---@param index integer 
+function historical_figure_entity_links:erase(index) end
+
+---@class historical_figure_site_links: DFContainer
+---@field [integer] histfig_site_link
+local historical_figure_site_links
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<histfig_site_link>
+function historical_figure_site_links:_field(index) end
+
+---@param index integer 
+---@param item histfig_site_link 
+function historical_figure_site_links:insert(index, item) end
+
+---@param index integer 
+function historical_figure_site_links:erase(index) end
+
+---@class historical_figure_histfig_links: DFContainer
+---@field [integer] histfig_hf_link
+local historical_figure_histfig_links
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<histfig_hf_link>
+function historical_figure_histfig_links:_field(index) end
+
+---@param index integer 
+---@param item histfig_hf_link 
+function historical_figure_histfig_links:insert(index, item) end
+
+---@param index integer 
+function historical_figure_histfig_links:erase(index) end
 
 ---@alias identity_type_keys
 ---| '"None"'
@@ -1190,8 +1318,8 @@ df.identity_type.attrs = {}
 ---@field unk_v47_2 number
 ---@field profession profession
 ---@field entity_id number References: `historical_entity`
----@field unk_4 DFVector<identity_unk_94>
----@field unk_5 DFVector<identity_unk_95>
+---@field unk_4 identity_unk_4
+---@field unk_5 identity_unk_5
 
 ---@class _identity: DFCompound
 ---@field _kind 'struct-type'
@@ -1206,12 +1334,44 @@ function df.identity.find(key) end
 ---@return identity_vector # df.global.world.identities.all
 function df.identity.get_vector() end
 
+---@class identity_unk_4: DFContainer
+---@field [integer] identity_unk_94
+local identity_unk_4
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<identity_unk_94>
+function identity_unk_4:_field(index) end
+
+---@param index integer 
+---@param item identity_unk_94 
+function identity_unk_4:insert(index, item) end
+
+---@param index integer 
+function identity_unk_4:erase(index) end
+
+---@class identity_unk_5: DFContainer
+---@field [integer] identity_unk_95
+local identity_unk_5
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<identity_unk_95>
+function identity_unk_5:_field(index) end
+
+---@param index integer 
+---@param item identity_unk_95 
+function identity_unk_5:insert(index, item) end
+
+---@param index integer 
+function identity_unk_5:erase(index) end
+
 ---@class (exact) identity_unk_94: DFObject
 ---@field _kind 'struct'
 ---@field _type _identity_unk_94
 ---@field unk_0 number
----@field unk_1 DFVector<number>
----@field unk_2 DFVector<number>
+---@field unk_1 DFNumberVector
+---@field unk_2 DFNumberVector
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
@@ -1228,8 +1388,8 @@ df.identity_unk_94 = {}
 ---@field _kind 'struct'
 ---@field _type _identity_unk_95
 ---@field unk_0 number
----@field unk_1 DFVector<number>
----@field unk_2 DFVector<number>
+---@field unk_1 DFNumberVector
+---@field unk_2 DFNumberVector
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
@@ -2712,7 +2872,7 @@ df.merc_role_type = {}
 ---@field _type _history_event
 ---@field year number
 ---@field seconds number
----@field flags DFVector<table<history_event_flags, boolean>>
+---@field flags history_event_flags
 ---@field id number
 
 ---@class _history_event: DFCompound
@@ -2727,6 +2887,22 @@ function df.history_event.find(key) end
 
 ---@return history_event_vector # df.global.world.history.events
 function df.history_event.get_vector() end
+
+---@class history_event_flags: DFContainer
+---@field [integer] table<history_event_flags, boolean>
+local history_event_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<history_event_flags, boolean>>
+function history_event_flags:_field(index) end
+
+---@param index integer 
+---@param item table<history_event_flags, boolean> 
+function history_event_flags:insert(index, item) end
+
+---@param index integer 
+function history_event_flags:erase(index) end
 
 ---@class (exact) history_event_war_attacked_sitest: DFObject, history_event
 ---@field _kind 'struct'
@@ -3171,11 +3347,27 @@ df.history_event_agreements_voidedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
----@field flags2 DFVector<table<history_event_merchant_flags, boolean>>
+---@field flags2 history_event_merchantst_flags2
 
 ---@class _history_event_merchantst: DFCompound
 ---@field _kind 'class-type'
 df.history_event_merchantst = {}
+
+---@class history_event_merchantst_flags2: DFContainer
+---@field [integer] table<history_event_merchant_flags, boolean>
+local history_event_merchantst_flags2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<history_event_merchant_flags, boolean>>
+function history_event_merchantst_flags2:_field(index) end
+
+---@param index integer 
+---@param item table<history_event_merchant_flags, boolean> 
+function history_event_merchantst_flags2:insert(index, item) end
+
+---@param index integer 
+function history_event_merchantst_flags2:erase(index) end
 
 ---@alias history_event_merchant_flags_keys
 ---| '"vanished"'
@@ -3316,11 +3508,27 @@ df.history_event_artifact_recoveredst = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
----@field flags2 DFVector<table<integer, boolean>>
+---@field flags2 history_event_artifact_droppedst_flags2
 
 ---@class _history_event_artifact_droppedst: DFCompound
 ---@field _kind 'class-type'
 df.history_event_artifact_droppedst = {}
+
+---@class history_event_artifact_droppedst_flags2: DFContainer
+---@field [integer] table<integer, boolean>
+local history_event_artifact_droppedst_flags2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function history_event_artifact_droppedst_flags2:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function history_event_artifact_droppedst_flags2:insert(index, item) end
+
+---@param index integer 
+function history_event_artifact_droppedst_flags2:erase(index) end
 
 ---@class (exact) history_event_reclaim_sitest: DFObject, history_event
 ---@field _kind 'struct'
@@ -3751,7 +3959,7 @@ df.history_event_war_plundered_sitest = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
----@field new_leaders DFVector<number>
+---@field new_leaders DFNumberVector
 
 ---@class _history_event_war_site_new_leaderst: DFCompound
 ---@field _kind 'class-type'
@@ -3810,7 +4018,7 @@ df.history_event_site_surrenderedst = {}
 ---@class (exact) history_event_body_abusedst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_body_abusedst
----@field bodies DFVector<number>
+---@field bodies DFNumberVector
 ---@field victim_entity number References: `historical_entity`
 ---@field civ number References: `historical_entity`
 ---@field histfig number References: `historical_figure`
@@ -4190,8 +4398,8 @@ df.artifact_claim_type = {}
 ---@class (exact) history_event_hist_figure_simple_battle_eventst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_simple_battle_eventst
----@field group1 DFVector<number>
----@field group2 DFVector<number>
+---@field group1 DFNumberVector
+---@field group2 DFNumberVector
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -4218,8 +4426,8 @@ df.history_event_created_world_constructionst = {}
 ---@class (exact) history_event_hist_figure_reunionst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_reunionst
----@field missing DFVector<number>
----@field reunited_with DFVector<number>
+---@field missing DFNumberVector
+---@field reunited_with DFNumberVector
 ---@field assistant number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
@@ -4232,7 +4440,7 @@ df.history_event_hist_figure_reunionst = {}
 ---@class (exact) history_event_hist_figure_reach_summitst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_reach_summitst
----@field group DFVector<number>
+---@field group DFNumberVector
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
@@ -4244,7 +4452,7 @@ df.history_event_hist_figure_reach_summitst = {}
 ---@class (exact) history_event_hist_figure_travelst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_travelst
----@field group DFVector<number>
+---@field group DFNumberVector
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -4281,8 +4489,8 @@ df.history_event_hist_figure_travelst.T_reason = {}
 ---@class (exact) history_event_hist_figure_new_petst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_new_petst
----@field group DFVector<number>
----@field pets DFVector<number>
+---@field group DFNumberVector
+---@field pets DFNumberVector
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -4511,7 +4719,7 @@ df.history_event_hf_does_interactionst = {}
 ---@field _type _history_event_hf_confrontedst
 ---@field target number References: `historical_figure`
 ---@field accuser number References: `historical_figure`
----@field reasons DFVector<number> 0 = ageless, 1 = murder
+---@field reasons DFNumberVector 0 = ageless, 1 = murder
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -4731,8 +4939,8 @@ df.history_event_performancest = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
----@field competitor_hf DFVector<number>
----@field winner_hf DFVector<number>
+---@field competitor_hf DFNumberVector
+---@field winner_hf DFNumberVector
 
 ---@class _history_event_competitionst: DFCompound
 ---@field _kind 'class-type'
@@ -4781,7 +4989,7 @@ df.history_event_knowledge_discoveredst = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_artifact_transformedst
 ---@field new_artifact number References: `artifact_record`
----@field old_artifact DFVector<number>
+---@field old_artifact DFNumberVector
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
@@ -5071,7 +5279,7 @@ df.history_event_entity_searched_sitest = {}
 ---@field holding_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
----@field rescued_hfs DFVector<number>
+---@field rescued_hfs DFNumberVector
 
 ---@class _history_event_hf_freedst: DFCompound
 ---@field _kind 'class-type'
@@ -5119,7 +5327,7 @@ df.simple_action_type = {}
 ---@class (exact) history_event_hist_figure_simple_actionst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_simple_actionst
----@field group_hfs DFVector<number>
+---@field group_hfs DFNumberVector
 ---@field type simple_action_type
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
@@ -5223,7 +5431,7 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field _type _history_event_squad_vs_squadst
 ---@field a_leader_hfid number References: `historical_figure`
 ---@field a_leadership_roll number
----@field a_hfid DFVector<number>
+---@field a_hfid DFNumberVector
 ---@field a_squad_id number
 ---@field a_race number References: `creature_raw`
 ---@field a_interaction number
@@ -5232,7 +5440,7 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field a_slain number
 ---@field d_leader_hfid number References: `historical_figure`
 ---@field d_leadership_roll number
----@field d_hfid DFVector<number>
+---@field d_hfid DFNumberVector
 ---@field d_squad_id number
 ---@field d_race number References: `creature_raw`
 ---@field d_interaction number
@@ -5315,7 +5523,7 @@ df.history_event_entity_dissolvedst = {}
 ---@field _type _history_event_entity_equipment_purchasest
 ---@field entity number References: `historical_entity`
 ---@field quality item_quality
----@field hfs DFVector<number>
+---@field hfs DFNumberVector
 
 ---@class _history_event_entity_equipment_purchasest: DFCompound
 ---@field _kind 'class-type'
@@ -5392,13 +5600,13 @@ df.history_event_hf_preachst = {}
 ---@field persecuting_entity number References: `historical_entity`
 ---@field target_entity number References: `historical_entity`
 ---@field site number References: `world_site`
----@field property_confiscated_from_hfs DFVector<number>
----@field destroyed_structures DFVector<number>
+---@field property_confiscated_from_hfs DFNumberVector
+---@field destroyed_structures DFNumberVector
 ---@field shrines_destroyed number
----@field expelled_hfs DFVector<number>
----@field expelled_populations DFVector<number>
----@field expelled_races DFVector<number>
----@field expelled_counts DFVector<number>
+---@field expelled_hfs DFNumberVector
+---@field expelled_populations DFNumberVector
+---@field expelled_races DFNumberVector
+---@field expelled_counts DFNumberVector
 
 ---@class _history_event_entity_persecutedst: DFCompound
 ---@field _kind 'class-type'
@@ -5420,7 +5628,7 @@ df.history_event_entity_breach_feature_layerst = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_entity_alliance_formedst
 ---@field entity number References: `historical_entity`
----@field joining_entities DFVector<number>
+---@field joining_entities DFNumberVector
 
 ---@class _history_event_entity_alliance_formedst: DFCompound
 ---@field _kind 'class-type'
@@ -5471,7 +5679,7 @@ df.history_event_sabotagest = {}
 ---@field instigator_hf number References: `historical_figure`
 ---@field entity number References: `historical_entity`
 ---@field position_profile_id number
----@field conspirator_hfs DFVector<number>
+---@field conspirator_hfs DFNumberVector
 ---@field site number References: `world_site`
 
 ---@class _history_event_entity_overthrownst: DFCompound
@@ -5517,7 +5725,7 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field convicter_entity number References: `historical_entity`
 ---@field recognized_by_entity number References: `historical_entity`
 ---@field recognized_by_hf number References: `historical_figure`
----@field implicated_hfs DFVector<number>
+---@field implicated_hfs DFNumberVector
 ---@field corrupt_hf number References: `historical_figure`
 ---@field behest_of_hf number References: `historical_figure`
 ---@field fooled_hf number References: `historical_figure`
@@ -5613,7 +5821,7 @@ df.history_event_failed_frame_attemptst = {}
 ---@field target_hf number References: `historical_figure`
 ---@field arresting_entity number References: `historical_entity`
 ---@field interrogator_hf number References: `historical_figure`
----@field implicated_hfs DFVector<number>
+---@field implicated_hfs DFNumberVector
 ---@field interrogation_flags history_event_hf_interrogatedst.T_interrogation_flags
 
 ---@class _history_event_hf_interrogatedst: DFCompound
@@ -5721,13 +5929,13 @@ df.history_event_collection_type = {}
 ---@class (exact) history_event_collection: DFObject
 ---@field _kind 'struct'
 ---@field _type _history_event_collection
----@field events DFVector<number>
----@field collections DFVector<number>
+---@field events DFNumberVector
+---@field collections DFNumberVector
 ---@field start_year number
 ---@field end_year number
 ---@field start_seconds number
 ---@field end_seconds number
----@field flags DFVector<table<integer, boolean>>
+---@field flags history_event_collection_flags
 ---@field id number
 
 ---@class _history_event_collection: DFCompound
@@ -5743,13 +5951,29 @@ function df.history_event_collection.find(key) end
 ---@return history_event_collection_vector # df.global.world.history.event_collections.all
 function df.history_event_collection.get_vector() end
 
+---@class history_event_collection_flags: DFContainer
+---@field [integer] table<integer, boolean>
+local history_event_collection_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function history_event_collection_flags:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function history_event_collection_flags:insert(index, item) end
+
+---@param index integer 
+function history_event_collection_flags:erase(index) end
+
 ---@class (exact) history_event_collection_warst: DFObject, history_event_collection
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_warst
 ---@field name language_name
----@field attacker_civ DFVector<number>
----@field defender_civ DFVector<number>
----@field unk_1 DFVector<number> when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
+---@field attacker_civ DFNumberVector
+---@field defender_civ DFNumberVector
+---@field unk_1 DFNumberVector when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
 ---@field unk history_event_collection_warst.T_unk
 
 ---@class _history_event_collection_warst: DFCompound
@@ -5759,25 +5983,41 @@ df.history_event_collection_warst = {}
 ---@class (exact) history_event_collection_warst.T_unk: DFObject
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_warst.T_unk
----@field unk_1 DFVector<number> These 5 vectors are the same length,0 or 1. Only 0 seen
----@field attacker_entity_leader DFVector<number>
----@field unk_2 DFVector<number> 25, 25, 46 seen. All on the first few (oldest) collections.
----@field unk_3 DFVector<number> only -1 seen
----@field unk_4 DFVector<number> -5,-6, -14 -15 seen
+---@field unk_1 DFNumberVector These 5 vectors are the same length,0 or 1. Only 0 seen
+---@field attacker_entity_leader DFNumberVector
+---@field unk_2 DFNumberVector 25, 25, 46 seen. All on the first few (oldest) collections.
+---@field unk_3 DFNumberVector only -1 seen
+---@field unk_4 DFNumberVector -5,-6, -14 -15 seen
 ---@field unk_5 number same as previous vector single element or zero. Sum?
----@field ethics_unk1 DFVector<number> these three vectors are of the same length
----@field disputed_ethics DFVector<ethic_type>
----@field ethics_unk3 DFVector<number> not seen other value
----@field dispute_severities DFVector<number>
+---@field ethics_unk1 DFNumberVector these three vectors are of the same length
+---@field disputed_ethics history_event_collection_warst_unk_disputed_ethics
+---@field ethics_unk3 DFNumberVector not seen other value
+---@field dispute_severities DFNumberVector
 ---@field accumulated_ethics_severity number
----@field event_unk DFVector<number> values 5 and 10 seen. These three vectors are the same length
----@field negative_events DFVector<number> Site dispute, war attack site, created site, and culled seen
----@field event_severities DFVector<number> Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
+---@field event_unk DFNumberVector values 5 and 10 seen. These three vectors are the same length
+---@field negative_events DFNumberVector Site dispute, war attack site, created site, and culled seen
+---@field event_severities DFNumberVector Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
 ---@field accumulated_event_severity number sum of previous vector values
 
 ---@class _history_event_collection_warst.T_unk: DFCompound
 ---@field _kind 'struct-type'
 df.history_event_collection_warst.T_unk = {}
+
+---@class history_event_collection_warst_unk_disputed_ethics: DFContainer
+---@field [integer] ethic_type
+local history_event_collection_warst_unk_disputed_ethics
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<ethic_type>
+function history_event_collection_warst_unk_disputed_ethics:_field(index) end
+
+---@param index integer 
+---@param item ethic_type 
+function history_event_collection_warst_unk_disputed_ethics:insert(index, item) end
+
+---@param index integer 
+function history_event_collection_warst_unk_disputed_ethics:erase(index) end
 
 ---@class (exact) history_event_collection_battlest: DFObject, history_event_collection
 ---@field _kind 'struct'
@@ -5788,30 +6028,30 @@ df.history_event_collection_warst.T_unk = {}
 ---@field layer number References: `world_underground_region`
 ---@field site number References: `world_site`
 ---@field region_pos coord2d
----@field attacker_civ DFVector<number>
----@field defender_civ DFVector<number>
----@field attacker_hf DFVector<number>
----@field attacker_role DFVector<number> Tentatively 0: regular, 1/2 merc
----@field defender_hf DFVector<number>
----@field defender_role DFVector<number> same as for attacker role, i.e. 0-2, with 1/2 being mercs
----@field noncombat_hf DFVector<number> saw being beheaded, but that's only one checked
+---@field attacker_civ DFNumberVector
+---@field defender_civ DFNumberVector
+---@field attacker_hf DFNumberVector
+---@field attacker_role DFNumberVector Tentatively 0: regular, 1/2 merc
+---@field defender_hf DFNumberVector
+---@field defender_role DFNumberVector same as for attacker role, i.e. 0-2, with 1/2 being mercs
+---@field noncombat_hf DFNumberVector saw being beheaded, but that's only one checked
 ---@field merc_roles merc_role_type
 ---@field attacker_mercs number References: `historical_entity`
 ---@field defender_mercs number References: `historical_entity`
----@field attacker_merc_hfs DFVector<number>
----@field defender_merc_hfs DFVector<number>
----@field attacker_squad_entity_pop DFVector<number>
----@field attacker_squad_counts DFVector<number>
----@field attacker_squad_deaths DFVector<number>
----@field attacker_squad_races DFVector<number>
----@field attacker_squad_sites DFVector<number>
----@field unk_3 DFVector<number> probably a boolean, as only 0/1 seen
----@field defender_squad_entity_pops DFVector<number>
----@field defender_squad_counts DFVector<number>
----@field defender_squad_deaths DFVector<number>
----@field defender_squad_races DFVector<number>
----@field defender_squad_sites DFVector<number>
----@field unk_4 DFVector<number> probably a boolean, as only 0/1 seen
+---@field attacker_merc_hfs DFNumberVector
+---@field defender_merc_hfs DFNumberVector
+---@field attacker_squad_entity_pop DFNumberVector
+---@field attacker_squad_counts DFNumberVector
+---@field attacker_squad_deaths DFNumberVector
+---@field attacker_squad_races DFNumberVector
+---@field attacker_squad_sites DFNumberVector
+---@field unk_3 DFNumberVector probably a boolean, as only 0/1 seen
+---@field defender_squad_entity_pops DFNumberVector
+---@field defender_squad_counts DFNumberVector
+---@field defender_squad_deaths DFNumberVector
+---@field defender_squad_races DFNumberVector
+---@field defender_squad_sites DFNumberVector
+---@field unk_4 DFNumberVector probably a boolean, as only 0/1 seen
 ---@field outcome number 0 = attacker won, 1 = defender won
 
 ---@class _history_event_collection_battlest: DFCompound
@@ -5840,8 +6080,8 @@ df.history_event_collection_duelst = {}
 ---@field _type _history_event_collection_site_conqueredst
 ---@field parent_collection number References: `history_event_collection`
 ---@field site number References: `world_site`
----@field attacker_civ DFVector<number>
----@field defender_civ DFVector<number>
+---@field attacker_civ DFNumberVector
+---@field defender_civ DFNumberVector
 ---@field unk_1 number uninitialized
 ---@field ordinal number
 
@@ -5859,9 +6099,9 @@ df.history_event_collection_site_conqueredst = {}
 ---@field region_pos coord2d
 ---@field attacker_civ number References: `historical_entity`
 ---@field defender_civ number References: `historical_entity`
----@field snatcher_hf DFVector<number>
----@field victim_hf DFVector<number>
----@field unk_1 DFVector<number>
+---@field snatcher_hf DFNumberVector
+---@field victim_hf DFNumberVector
+---@field unk_1 DFNumberVector
 ---@field ordinal number
 
 ---@class _history_event_collection_abductionst: DFCompound
@@ -5878,24 +6118,40 @@ df.history_event_collection_abductionst = {}
 ---@field region_pos coord2d
 ---@field thief_civ number References: `historical_entity`
 ---@field victim_civ number References: `historical_entity`
----@field thief_hf DFVector<number>
----@field stolen_item_types DFVector<item_type>
----@field stolen_item_subtypes DFVector<number>
----@field stolen_mat_types DFVector<number>
----@field stolen_mat_indices DFVector<number>
----@field stolen_item_ids DFVector<number>
----@field unk_1 DFVector<number>
----@field unk_2 DFVector<number> most likely the same format as above
----@field unk_3 DFVector<number>
----@field unk_4 DFVector<number>
----@field unk_5 DFVector<number>
----@field unk_6 DFVector<number>
----@field unk_7 DFVector<number>
+---@field thief_hf DFNumberVector
+---@field stolen_item_types history_event_collection_theftst_stolen_item_types
+---@field stolen_item_subtypes DFNumberVector
+---@field stolen_mat_types DFNumberVector
+---@field stolen_mat_indices DFNumberVector
+---@field stolen_item_ids DFNumberVector
+---@field unk_1 DFNumberVector
+---@field unk_2 DFNumberVector most likely the same format as above
+---@field unk_3 DFNumberVector
+---@field unk_4 DFNumberVector
+---@field unk_5 DFNumberVector
+---@field unk_6 DFNumberVector
+---@field unk_7 DFNumberVector
 ---@field ordinal number
 
 ---@class _history_event_collection_theftst: DFCompound
 ---@field _kind 'class-type'
 df.history_event_collection_theftst = {}
+
+---@class history_event_collection_theftst_stolen_item_types: DFContainer
+---@field [integer] item_type
+local history_event_collection_theftst_stolen_item_types
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function history_event_collection_theftst_stolen_item_types:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function history_event_collection_theftst_stolen_item_types:insert(index, item) end
+
+---@param index integer 
+function history_event_collection_theftst_stolen_item_types:erase(index) end
 
 ---@class (exact) history_event_collection_beast_attackst: DFObject, history_event_collection
 ---@field _kind 'struct'
@@ -5906,7 +6162,7 @@ df.history_event_collection_theftst = {}
 ---@field site number References: `world_site`
 ---@field region_pos coord2d
 ---@field defender_civ number References: `historical_entity`
----@field attacker_hf DFVector<number>
+---@field attacker_hf DFNumberVector
 ---@field ordinal number
 
 ---@class _history_event_collection_beast_attackst: DFCompound
@@ -5916,7 +6172,7 @@ df.history_event_collection_beast_attackst = {}
 ---@class (exact) history_event_collection_journeyst: DFObject, history_event_collection
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_journeyst
----@field traveler_hf DFVector<number>
+---@field traveler_hf DFNumberVector
 ---@field ordinal number
 
 ---@class _history_event_collection_journeyst: DFCompound
@@ -6018,7 +6274,7 @@ df.history_event_collection_purgest = {}
 ---@field region_pos coord2d
 ---@field attacker_civ number References: `historical_entity`
 ---@field defender_civ number References: `historical_entity`
----@field thieves DFVector<number> all of the ones examined were mentioned stealing things during the same raid on the site
+---@field thieves DFNumberVector all of the ones examined were mentioned stealing things during the same raid on the site
 ---@field ordinal number
 
 ---@class _history_event_collection_raidst: DFCompound
@@ -6144,7 +6400,7 @@ df.history_era.T_title = {}
 ---@field power_hf1 number References: `historical_figure`
 ---@field power_hf2 number References: `historical_figure`
 ---@field power_hf3 number References: `historical_figure`
----@field civilized_races DFVector<number>
+---@field civilized_races DFNumberVector
 ---@field civilized_total number
 ---@field civilized_mundane number
 
@@ -6183,20 +6439,20 @@ df.relationship_event_supplement = {}
 ---@class (exact) world_history: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history
----@field events DFVector<history_event> dtor 8532fa0
----@field events_death DFVector<history_event>
----@field relationship_events DFVector<relationship_event>
----@field relationship_event_supplements DFVector<relationship_event_supplement> supplemental info for artistic/scholar buddies
----@field figures DFVector<historical_figure>
+---@field events world_history_events dtor 8532fa0
+---@field events_death world_history_events_death
+---@field relationship_events world_history_relationship_events
+---@field relationship_event_supplements world_history_relationship_event_supplements supplemental info for artistic/scholar buddies
+---@field figures world_history_figures
 ---@field event_collections world_history.T_event_collections
----@field eras DFVector<history_era>
----@field discovered_art_image_id DFVector<number>
----@field discovered_art_image_subid DFVector<number>
+---@field eras world_history_eras
+---@field discovered_art_image_id DFNumberVector
+---@field discovered_art_image_subid DFNumberVector
 ---@field total_art number
 ---@field total_powers number some value during worldgen, and at the end equals to the number of entities plus that value
 ---@field total_megabeasts number
 ---@field total_semimegabeasts number
----@field secret_heid DFVector<any[]>
+---@field secret_heid world_history_secret_heid
 ---@field first_philosophy_flag integer
 ---@field first_philosophy_flag2 integer
 ---@field first_mathematics_flag integer
@@ -6211,29 +6467,29 @@ df.relationship_event_supplement = {}
 ---@field first_medicine_flag3 integer
 ---@field first_engineering_flag integer
 ---@field first_engineering_flag2 integer
----@field intrigues DFVector<intrigue> bay12: history_support_event
----@field live_megabeasts DFVector<historical_figure>
----@field live_semimegabeasts DFVector<historical_figure>
----@field unk_histfig_3 DFVector<historical_figure>
----@field unk_histfig_4 DFVector<historical_figure>
----@field unk_histfig_5 DFVector<historical_figure>
----@field unk_1 DFVector<historical_figure>
----@field unk_v40_1 DFVector<historical_figure>[] 11 - necromancers
----@field unk_histfig_6 DFVector<historical_figure>
----@field unk_histfig_7 DFVector<historical_figure>
----@field unk_histfig_8 DFVector<historical_figure>
----@field unk_histfig_9 DFVector<historical_figure>
----@field unk_histfig_10 DFVector<historical_figure>
----@field unk_histfig_11 DFVector<historical_figure>
----@field unk_histfig_12 DFVector<historical_figure>
----@field unk_histfig_13 DFVector<historical_figure>
----@field unk_3 DFVector<historical_figure>
----@field unk_4 DFVector<any[]>
----@field unk_5 DFVector<historical_figure>
----@field unk_6 DFVector<any[]>
----@field unk_7 DFVector<number>
+---@field intrigues world_history_intrigues bay12: history_support_event
+---@field live_megabeasts world_history_live_megabeasts
+---@field live_semimegabeasts world_history_live_semimegabeasts
+---@field unk_histfig_3 world_history_unk_histfig_3
+---@field unk_histfig_4 world_history_unk_histfig_4
+---@field unk_histfig_5 world_history_unk_histfig_5
+---@field unk_1 world_history_unk_1
+---@field unk_v40_1 historical_figure[] 11 - necromancers
+---@field unk_histfig_6 world_history_unk_histfig_6
+---@field unk_histfig_7 world_history_unk_histfig_7
+---@field unk_histfig_8 world_history_unk_histfig_8
+---@field unk_histfig_9 world_history_unk_histfig_9
+---@field unk_histfig_10 world_history_unk_histfig_10
+---@field unk_histfig_11 world_history_unk_histfig_11
+---@field unk_histfig_12 world_history_unk_histfig_12
+---@field unk_histfig_13 world_history_unk_histfig_13
+---@field unk_3 world_history_unk_3
+---@field unk_4 world_history_unk_4
+---@field unk_5 world_history_unk_5
+---@field unk_6 world_history_unk_6
+---@field unk_7 DFNumberVector
 ---@field unk_8 number
----@field active_event_collections DFVector<history_event_collection>
+---@field active_event_collections world_history_active_event_collections
 ---@field unk_10 number
 ---@field unk_11 number
 ---@field unk_12 number
@@ -6243,15 +6499,495 @@ df.relationship_event_supplement = {}
 ---@field _kind 'struct-type'
 df.world_history = {}
 
+---@class world_history_events: DFContainer
+---@field [integer] history_event
+local world_history_events
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<history_event>
+function world_history_events:_field(index) end
+
+---@param index integer 
+---@param item history_event 
+function world_history_events:insert(index, item) end
+
+---@param index integer 
+function world_history_events:erase(index) end
+
+---@class world_history_events_death: DFContainer
+---@field [integer] history_event
+local world_history_events_death
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<history_event>
+function world_history_events_death:_field(index) end
+
+---@param index integer 
+---@param item history_event 
+function world_history_events_death:insert(index, item) end
+
+---@param index integer 
+function world_history_events_death:erase(index) end
+
+---@class world_history_relationship_events: DFContainer
+---@field [integer] relationship_event
+local world_history_relationship_events
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<relationship_event>
+function world_history_relationship_events:_field(index) end
+
+---@param index integer 
+---@param item relationship_event 
+function world_history_relationship_events:insert(index, item) end
+
+---@param index integer 
+function world_history_relationship_events:erase(index) end
+
+---@class world_history_relationship_event_supplements: DFContainer
+---@field [integer] relationship_event_supplement
+local world_history_relationship_event_supplements
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<relationship_event_supplement>
+function world_history_relationship_event_supplements:_field(index) end
+
+---@param index integer 
+---@param item relationship_event_supplement 
+function world_history_relationship_event_supplements:insert(index, item) end
+
+---@param index integer 
+function world_history_relationship_event_supplements:erase(index) end
+
+---@class world_history_figures: DFContainer
+---@field [integer] historical_figure
+local world_history_figures
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_figures:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_figures:insert(index, item) end
+
+---@param index integer 
+function world_history_figures:erase(index) end
+
 ---@class (exact) world_history.T_event_collections: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history.T_event_collections
----@field all DFVector<history_event_collection>
----@field other DFEnumVector<history_event_collection_type, DFVector<history_event_collection>>
+---@field all world_history_event_collections_all
+---@field other DFEnumVector<history_event_collection_type, history_event_collection>
 
 ---@class _world_history.T_event_collections: DFCompound
 ---@field _kind 'struct-type'
 df.world_history.T_event_collections = {}
+
+---@class world_history_event_collections_all: DFContainer
+---@field [integer] history_event_collection
+local world_history_event_collections_all
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<history_event_collection>
+function world_history_event_collections_all:_field(index) end
+
+---@param index integer 
+---@param item history_event_collection 
+function world_history_event_collections_all:insert(index, item) end
+
+---@param index integer 
+function world_history_event_collections_all:erase(index) end
+
+---@class world_history_event_collections_other: DFContainer
+---@field [integer] history_event_collection
+local world_history_event_collections_other
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<history_event_collection>
+function world_history_event_collections_other:_field(index) end
+
+---@param index integer 
+---@param item history_event_collection 
+function world_history_event_collections_other:insert(index, item) end
+
+---@param index integer 
+function world_history_event_collections_other:erase(index) end
+
+---@class world_history_eras: DFContainer
+---@field [integer] history_era
+local world_history_eras
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<history_era>
+function world_history_eras:_field(index) end
+
+---@param index integer 
+---@param item history_era 
+function world_history_eras:insert(index, item) end
+
+---@param index integer 
+function world_history_eras:erase(index) end
+
+---@class world_history_secret_heid: DFContainer
+---@field [integer] any[]
+local world_history_secret_heid
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_history_secret_heid:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_history_secret_heid:insert(index, item) end
+
+---@param index integer 
+function world_history_secret_heid:erase(index) end
+
+---@class world_history_intrigues: DFContainer
+---@field [integer] intrigue
+local world_history_intrigues
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<intrigue>
+function world_history_intrigues:_field(index) end
+
+---@param index integer 
+---@param item intrigue 
+function world_history_intrigues:insert(index, item) end
+
+---@param index integer 
+function world_history_intrigues:erase(index) end
+
+---@class world_history_live_megabeasts: DFContainer
+---@field [integer] historical_figure
+local world_history_live_megabeasts
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_live_megabeasts:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_live_megabeasts:insert(index, item) end
+
+---@param index integer 
+function world_history_live_megabeasts:erase(index) end
+
+---@class world_history_live_semimegabeasts: DFContainer
+---@field [integer] historical_figure
+local world_history_live_semimegabeasts
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_live_semimegabeasts:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_live_semimegabeasts:insert(index, item) end
+
+---@param index integer 
+function world_history_live_semimegabeasts:erase(index) end
+
+---@class world_history_unk_histfig_3: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_3
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_3:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_3:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_3:erase(index) end
+
+---@class world_history_unk_histfig_4: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_4
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_4:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_4:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_4:erase(index) end
+
+---@class world_history_unk_histfig_5: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_5
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_5:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_5:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_5:erase(index) end
+
+---@class world_history_unk_1: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_1:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_1:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_1:erase(index) end
+
+---@class world_history_unk_v40_1: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_v40_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_v40_1:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_v40_1:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_v40_1:erase(index) end
+
+---@class world_history_unk_histfig_6: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_6
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_6:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_6:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_6:erase(index) end
+
+---@class world_history_unk_histfig_7: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_7
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_7:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_7:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_7:erase(index) end
+
+---@class world_history_unk_histfig_8: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_8
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_8:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_8:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_8:erase(index) end
+
+---@class world_history_unk_histfig_9: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_9
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_9:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_9:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_9:erase(index) end
+
+---@class world_history_unk_histfig_10: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_10
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_10:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_10:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_10:erase(index) end
+
+---@class world_history_unk_histfig_11: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_11
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_11:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_11:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_11:erase(index) end
+
+---@class world_history_unk_histfig_12: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_12
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_12:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_12:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_12:erase(index) end
+
+---@class world_history_unk_histfig_13: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_histfig_13
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_histfig_13:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_histfig_13:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_histfig_13:erase(index) end
+
+---@class world_history_unk_3: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_3
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_3:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_3:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_3:erase(index) end
+
+---@class world_history_unk_4: DFContainer
+---@field [integer] any[]
+local world_history_unk_4
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_history_unk_4:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_history_unk_4:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_4:erase(index) end
+
+---@class world_history_unk_5: DFContainer
+---@field [integer] historical_figure
+local world_history_unk_5
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_history_unk_5:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_history_unk_5:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_5:erase(index) end
+
+---@class world_history_unk_6: DFContainer
+---@field [integer] any[]
+local world_history_unk_6
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_history_unk_6:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_history_unk_6:insert(index, item) end
+
+---@param index integer 
+function world_history_unk_6:erase(index) end
+
+---@class world_history_active_event_collections: DFContainer
+---@field [integer] history_event_collection
+local world_history_active_event_collections
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<history_event_collection>
+function world_history_active_event_collections:_field(index) end
+
+---@param index integer 
+---@param item history_event_collection 
+function world_history_active_event_collections:insert(index, item) end
+
+---@param index integer 
+function world_history_active_event_collections:erase(index) end
 
 ---@class (exact) intrigue: DFObject
 ---@field _kind 'struct'

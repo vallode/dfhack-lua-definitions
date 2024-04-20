@@ -5,7 +5,7 @@
 ---@field _kind 'struct'
 ---@field _type _world_site_unk130
 ---@field index number
----@field unk_4 DFVector<any>[]
+---@field unk_4 any[]
 
 ---@class _world_site_unk130: DFCompound
 ---@field _kind 'struct-type'
@@ -158,8 +158,8 @@ df.world_population = {}
 ---@field max_x number
 ---@field min_y number
 ---@field max_y number
----@field unk_74 DFVector<number>
----@field unk_84 DFVector<number>
+---@field unk_74 DFNumberVector
+---@field unk_84 DFNumberVector
 
 ---@class _world_landmass: DFCompound
 ---@field _kind 'struct-type'
@@ -237,14 +237,14 @@ df.world_region_type = {}
 ---@field unk_9c number
 ---@field unk_a0 number
 ---@field unk_a4 number
----@field population DFVector<world_population>
+---@field population world_region_population
 ---@field biome_tile_counts DFEnumVector<biome_type, number>
----@field tree_biomes DFVector<biome_type>
----@field tree_tiles_1 DFVector<number>
----@field tree_tiles_2 DFVector<number>
----@field tree_tiles_good DFVector<number>
----@field tree_tiles_evil DFVector<number>
----@field tree_tiles_savage DFVector<number>
+---@field tree_biomes world_region_tree_biomes
+---@field tree_tiles_1 DFNumberVector
+---@field tree_tiles_2 DFNumberVector
+---@field tree_tiles_good DFNumberVector
+---@field tree_tiles_evil DFNumberVector
+---@field tree_tiles_savage DFNumberVector
 ---@field dead_percentage number % vegetation dead on embark. The number increases during world gen history, with the new ones always at 100%
 ---@field unk_1e5 boolean Probably optionally set only on good and evil regions during world gen. Number set increases during world gen history and can affect neutral.
 ---@field unk_1e6 boolean Probably optionally set only on neutral regions
@@ -253,7 +253,7 @@ df.world_region_type = {}
 ---@field evil boolean
 ---@field good boolean
 ---@field lake_surface number -- At most one of 'evil' and 'good' is set at a time by DF.
----@field forces DFVector<number> historical figure IDs of force deities associated with the region. Number set increases during civ placement
+---@field forces DFNumberVector historical figure IDs of force deities associated with the region. Number set increases during civ placement
 ---@field unk_v47_2 number Number set increases during civ placement
 ---@field mid_x number
 ---@field mid_y number
@@ -275,6 +275,38 @@ function df.world_region.find(key) end
 ---@return world_region_vector # df.global.world.world_data.regions
 function df.world_region.get_vector() end
 
+---@class world_region_population: DFContainer
+---@field [integer] world_population
+local world_region_population
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_population>
+function world_region_population:_field(index) end
+
+---@param index integer 
+---@param item world_population 
+function world_region_population:insert(index, item) end
+
+---@param index integer 
+function world_region_population:erase(index) end
+
+---@class world_region_tree_biomes: DFContainer
+---@field [integer] biome_type
+local world_region_tree_biomes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<biome_type>
+function world_region_tree_biomes:_field(index) end
+
+---@param index integer 
+---@param item biome_type 
+function world_region_tree_biomes:insert(index, item) end
+
+---@param index integer 
+function world_region_tree_biomes:erase(index) end
+
 ---@class (exact) world_underground_region: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_underground_region
@@ -291,9 +323,9 @@ function df.world_region.get_vector() end
 ---@field passage_density_min number --  the similar world gen parameters.
 ---@field passage_density_max number --
 ---@field region_coords coord2d_path --
----@field region_min_z DFVector<number>
----@field region_max_z DFVector<number>
----@field unk_c8 DFVector<any[]>
+---@field region_min_z DFNumberVector
+---@field region_max_z DFNumberVector
+---@field unk_c8 world_underground_region_unk_c8
 ---@field feature_init feature_init
 
 ---@class _world_underground_region: DFCompound
@@ -332,21 +364,53 @@ function df.world_underground_region.get_vector() end
 ---@field [2] "Underworld"
 df.world_underground_region.T_type = {}
 
+---@class world_underground_region_unk_c8: DFContainer
+---@field [integer] any[]
+local world_underground_region_unk_c8
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_underground_region_unk_c8:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_underground_region_unk_c8:insert(index, item) end
+
+---@param index integer 
+function world_underground_region_unk_c8:erase(index) end
+
 -- Additional river information:<br>The flow element affects the width of the river and seems to follow the<br>formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and<br>a maximum width of 47. DF uses specific names for rivers with certain flows:<br>- Stream:      less than 5000<br>- Minor River  5000 - 9999<br>- River        10000 - 19999<br>- Major River: greather than 20000<br>Brooks tend to have a flow of 0, but DF has divided the controlling information<br>between this structure, the region map entry (below), and the feature map.<br>Thus, the region map flag 'is_brook' controls whether a water course actually<br>is a (potentially broad) brook or an open water course. Likewise, the 'has_river'<br>flag is needed for DF to properly understand a water course should be present.<br>The exit tile holds the information on which mid level tile the river should<br>exit the region. Presumably the path controls which edge to apply this to.<br>Note that the river up/down/left/right flags of the region map entry should<br>align with the sides rivers enter/exit.<br>The feature map has to have a river entry for the corresponding world tile<br>for a river to be implemented properly. All this is done by DF, but needs<br>to be known if hacking.<br>The world region details (below) data on rivers are generated as the regions<br>are generated.<br>The elevation element affects the level of the river. If the river elevation<br>is lower than the surrounding area DF tends to generate a valley around the<br>river to allow it to reach the correct elevation.
 ---@class (exact) world_river: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_river
 ---@field name language_name
 ---@field path coord2d_path
----@field flow DFVector<number>
----@field exit_tile DFVector<number>
----@field elevation DFVector<number> --  0 - 15
+---@field flow DFNumberVector
+---@field exit_tile DFNumberVector
+---@field elevation DFNumberVector --  0 - 15
 ---@field end_pos coord2d
----@field flags DFVector<table<integer, boolean>>
+---@field flags world_river_flags
 
 ---@class _world_river: DFCompound
 ---@field _kind 'struct-type'
 df.world_river = {}
+
+---@class world_river_flags: DFContainer
+---@field [integer] table<integer, boolean>
+local world_river_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function world_river_flags:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function world_river_flags:insert(index, item) end
+
+---@param index integer 
+function world_river_flags:erase(index) end
 
 ---@alias geo_layer_type_keys
 ---| '"SOIL"'
@@ -420,10 +484,10 @@ df.geo_layer_type.attrs = {}
 ---@field _type _world_geo_layer
 ---@field type geo_layer_type
 ---@field mat_index number References: `inorganic_raw`
----@field vein_mat DFVector<number>
----@field vein_nested_in DFVector<number> Index of the other vein this one is nested in, or -1
----@field vein_type DFVector<inclusion_type>
----@field vein_unk_38 DFVector<number> density??
+---@field vein_mat DFNumberVector
+---@field vein_nested_in DFNumberVector Index of the other vein this one is nested in, or -1
+---@field vein_type world_geo_layer_vein_type
+---@field vein_unk_38 DFNumberVector density??
 ---@field top_height number negative
 ---@field bottom_height number
 
@@ -431,12 +495,28 @@ df.geo_layer_type.attrs = {}
 ---@field _kind 'struct-type'
 df.world_geo_layer = {}
 
+---@class world_geo_layer_vein_type: DFContainer
+---@field [integer] inclusion_type
+local world_geo_layer_vein_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<inclusion_type>
+function world_geo_layer_vein_type:_field(index) end
+
+---@param index integer 
+---@param item inclusion_type 
+function world_geo_layer_vein_type:insert(index, item) end
+
+---@param index integer 
+function world_geo_layer_vein_type:erase(index) end
+
 ---@class (exact) world_geo_biome: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_geo_biome
 ---@field unk1 number
 ---@field index number
----@field layers DFVector<world_geo_layer>
+---@field layers world_geo_biome_layers
 
 ---@class _world_geo_biome: DFCompound
 ---@field _kind 'struct-type'
@@ -451,6 +531,22 @@ function df.world_geo_biome.find(key) end
 ---@return world_geo_biome_vector # df.global.world.world_data.geo_biomes
 function df.world_geo_biome.get_vector() end
 
+---@class world_geo_biome_layers: DFContainer
+---@field [integer] world_geo_layer
+local world_geo_biome_layers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_geo_layer>
+function world_geo_biome_layers:_field(index) end
+
+---@param index integer 
+---@param item world_geo_layer 
+function world_geo_biome_layers:insert(index, item) end
+
+---@param index integer 
+function world_geo_biome_layers:erase(index) end
+
 ---@class (exact) world_region_feature: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_feature
@@ -462,13 +558,29 @@ function df.world_geo_biome.get_vector() end
 ---@field unk_c coord2d[]
 ---@field unk_28 number
 ---@field seed integer looks random
----@field unk_30 DFVector<table<integer, boolean>>
+---@field unk_30 world_region_feature_unk_30
 ---@field unk_38 number[]
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 
 ---@class _world_region_feature: DFCompound
 ---@field _kind 'struct-type'
 df.world_region_feature = {}
+
+---@class world_region_feature_unk_30: DFContainer
+---@field [integer] table<integer, boolean>
+local world_region_feature_unk_30
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function world_region_feature_unk_30:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function world_region_feature_unk_30:insert(index, item) end
+
+---@param index integer 
+function world_region_feature_unk_30:erase(index) end
 
 ---@class (exact) world_region_details: DFObject
 ---@field _kind 'struct'
@@ -486,7 +598,7 @@ df.world_region_feature = {}
 ---@field rivers_vertical world_region_details.T_rivers_vertical
 ---@field rivers_horizontal world_region_details.T_rivers_horizontal
 ---@field other_features world_region_details.T_other_features.T_flags[][]
----@field features DFVector<world_region_feature>[][]
+---@field features world_region_feature[][]
 ---@field lava_stone number References: `inorganic_raw`
 ---@field unk_12 number[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
 ---@field elevation2 number[][]
@@ -553,6 +665,22 @@ df.world_region_details.T_rivers_horizontal = {}
 ---@field river 2 Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
 ---@field [2] "river" Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
 df.world_region_details.T_other_features.T_flags = {}
+
+---@class world_region_details_features: DFContainer
+---@field [integer] world_region_feature
+local world_region_details_features
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_region_feature>
+function world_region_details_features:_field(index) end
+
+---@param index integer 
+---@param item world_region_feature 
+function world_region_details_features:insert(index, item) end
+
+---@param index integer 
+function world_region_details_features:erase(index) end
 
 ---@alias region_map_entry_flags_keys
 ---| '"has_river"'
@@ -752,8 +880,8 @@ df.fog_type = {}
 ---@field _type _region_map_entry
 ---@field unk_0 number
 ---@field finder_rank number
----@field sites DFVector<world_site>
----@field flags DFVector<table<region_map_entry_flags, boolean>>
+---@field sites region_map_entry_sites
+---@field flags region_map_entry_flags
 ---@field elevation number 0-99=Ocean, 150+=Mountains, 100-149: all other biomes. Note that PSV elevation uses 100-299 for normal biomes, with range later cut to 1/4, and Mountains shifted down
 ---@field rainfall number 0-100
 ---@field vegetation number 0-100
@@ -779,6 +907,38 @@ df.fog_type = {}
 ---@class _region_map_entry: DFCompound
 ---@field _kind 'struct-type'
 df.region_map_entry = {}
+
+---@class region_map_entry_sites: DFContainer
+---@field [integer] world_site
+local region_map_entry_sites
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site>
+function region_map_entry_sites:_field(index) end
+
+---@param index integer 
+---@param item world_site 
+function region_map_entry_sites:insert(index, item) end
+
+---@param index integer 
+function region_map_entry_sites:erase(index) end
+
+---@class region_map_entry_flags: DFContainer
+---@field [integer] table<region_map_entry_flags, boolean>
+local region_map_entry_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<region_map_entry_flags, boolean>>
+function region_map_entry_flags:_field(index) end
+
+---@param index integer 
+---@param item table<region_map_entry_flags, boolean> 
+function region_map_entry_flags:insert(index, item) end
+
+---@param index integer 
+function region_map_entry_flags:erase(index) end
 
 ---@class region_map_entry.T_clouds: DFObject
 ---@field _kind 'bitfield'
@@ -868,11 +1028,11 @@ df.entity_claim_mask = {}
 ---@field unk_4 number
 ---@field unk_c number
 ---@field unk_10 number
----@field members DFVector<any>
+---@field members DFAnyVector
 ---@field entity_id number References: `historical_entity`
----@field flags DFVector<table<integer, boolean>>
----@field unk_30 DFVector<any[]>
----@field unk_40 DFVector<any[]>
+---@field flags moving_party_flags
+---@field unk_30 moving_party_unk_30
+---@field unk_40 moving_party_unk_40
 ---@field unk_70 number
 ---@field unk_72 number
 ---@field unk_74 number
@@ -884,21 +1044,69 @@ df.entity_claim_mask = {}
 ---@field _kind 'struct-type'
 df.moving_party = {}
 
+---@class moving_party_flags: DFContainer
+---@field [integer] table<integer, boolean>
+local moving_party_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function moving_party_flags:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function moving_party_flags:insert(index, item) end
+
+---@param index integer 
+function moving_party_flags:erase(index) end
+
+---@class moving_party_unk_30: DFContainer
+---@field [integer] any[]
+local moving_party_unk_30
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function moving_party_unk_30:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function moving_party_unk_30:insert(index, item) end
+
+---@param index integer 
+function moving_party_unk_30:erase(index) end
+
+---@class moving_party_unk_40: DFContainer
+---@field [integer] any[]
+local moving_party_unk_40
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function moving_party_unk_40:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function moving_party_unk_40:insert(index, item) end
+
+---@param index integer 
+function moving_party_unk_40:erase(index) end
+
 ---@class (exact) world_object_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data
 ---@field id number World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
----@field altered_items DFVector<number> world_data_subid
----@field offloaded_items DFVector<any>
----@field unk_24 DFVector<number>
----@field unk_34 DFVector<number>
----@field unk_44 DFVector<number>
----@field unk_54 DFVector<number>
----@field unk_64 DFVector<number>
----@field altered_buildings DFVector<number> world_data_subid
----@field offloaded_buildings DFVector<any>
----@field unk_94 DFVector<any>
----@field creation_zone_alterations DFVector<creation_zone_pwg_alterationst>
+---@field altered_items DFNumberVector world_data_subid
+---@field offloaded_items DFAnyVector
+---@field unk_24 DFNumberVector
+---@field unk_34 DFNumberVector
+---@field unk_44 DFNumberVector
+---@field unk_54 DFNumberVector
+---@field unk_64 DFNumberVector
+---@field altered_buildings DFNumberVector world_data_subid
+---@field offloaded_buildings DFAnyVector
+---@field unk_94 DFAnyVector
+---@field creation_zone_alterations world_object_data_creation_zone_alterations
 ---@field unk_v40_1 number
 ---@field year number
 ---@field year_tick number
@@ -918,16 +1126,32 @@ function df.world_object_data.find(key) end
 ---@return world_object_data_vector # df.global.world.world_data.object_data
 function df.world_object_data.get_vector() end
 
+---@class world_object_data_creation_zone_alterations: DFContainer
+---@field [integer] creation_zone_pwg_alterationst
+local world_object_data_creation_zone_alterations
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<creation_zone_pwg_alterationst>
+function world_object_data_creation_zone_alterations:_field(index) end
+
+---@param index integer 
+---@param item creation_zone_pwg_alterationst 
+function world_object_data_creation_zone_alterations:insert(index, item) end
+
+---@param index integer 
+function world_object_data_creation_zone_alterations:erase(index) end
+
 -- also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
 ---@class (exact) world_object_data.T_picked_growths: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_picked_growths
----@field x DFVector<number> 0 - 47, within the MLT
----@field y DFVector<number> 0 - 47, within the MLT
----@field z DFVector<number> z coordinate using the elevation coordinate system
----@field subtype DFVector<number> subtype of the growth picked within the raws of the implicit plant
----@field density DFVector<number> copy of the density field of the growth raws
----@field year DFVector<number> presumably to know whether it's the current year's harvest or the previous one's
+---@field x DFNumberVector 0 - 47, within the MLT
+---@field y DFNumberVector 0 - 47, within the MLT
+---@field z DFNumberVector z coordinate using the elevation coordinate system
+---@field subtype DFNumberVector subtype of the growth picked within the raws of the implicit plant
+---@field density DFNumberVector copy of the density field of the growth raws
+---@field year DFNumberVector presumably to know whether it's the current year's harvest or the previous one's
 
 ---@class _world_object_data.T_picked_growths: DFCompound
 ---@field _kind 'struct-type'
@@ -937,10 +1161,10 @@ df.world_object_data.T_picked_growths = {}
 ---@class (exact) world_object_data.T_unk_v43: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_unk_v43
----@field x DFVector<number> probably MLT relative x coordinate
----@field y DFVector<number> probably MLT relative y coordinate
----@field z DFVector<number> probably z coordinate using the elevation coordinate system
----@field unk_4 DFVector<number> 233/234 seen
+---@field x DFNumberVector probably MLT relative x coordinate
+---@field y DFNumberVector probably MLT relative y coordinate
+---@field z DFNumberVector probably z coordinate using the elevation coordinate system
+---@field unk_4 DFNumberVector 233/234 seen
 
 ---@class _world_object_data.T_unk_v43: DFCompound
 ---@field _kind 'struct-type'
@@ -966,7 +1190,7 @@ df.mountain_peak_flags = {}
 ---@field _type _world_mountain_peak
 ---@field name language_name
 ---@field pos coord2d
----@field flags DFVector<table<mountain_peak_flags, boolean>>
+---@field flags world_mountain_peak_flags
 ---@field height number
 
 ---@class _world_mountain_peak: DFCompound
@@ -981,6 +1205,22 @@ function df.world_mountain_peak.find(key) end
 
 ---@return world_mountain_peak_vector # df.global.world.world_data.mountain_peaks
 function df.world_mountain_peak.get_vector() end
+
+---@class world_mountain_peak_flags: DFContainer
+---@field [integer] table<mountain_peak_flags, boolean>
+local world_mountain_peak_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<mountain_peak_flags, boolean>>
+function world_mountain_peak_flags:_field(index) end
+
+---@param index integer 
+---@param item table<mountain_peak_flags, boolean> 
+function world_mountain_peak_flags:insert(index, item) end
+
+---@param index integer 
+function world_mountain_peak_flags:erase(index) end
 
 ---@class (exact) world_data: DFObject
 ---@field _kind 'struct'
@@ -1006,7 +1246,7 @@ function df.world_mountain_peak.get_vector() end
 ---@field unk_v34_2 number
 ---@field unk_v34_3 number
 ---@field unk_b4 world_data.T_unk_b4
----@field region_details DFVector<world_region_details>
+---@field region_details world_data_region_details
 ---@field adv_region_x number
 ---@field adv_region_y number
 ---@field adv_emb_x number
@@ -1015,26 +1255,26 @@ function df.world_mountain_peak.get_vector() end
 ---@field unk_y1 number
 ---@field unk_x2 number
 ---@field unk_y2 number
----@field midmap_place DFVector<any[]> not saved
+---@field midmap_place world_data_midmap_place not saved
 ---@field constructions world_data.T_constructions
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
----@field sites DFVector<world_site>
----@field site_unk130 DFVector<world_site_unk130>
----@field resource_allotments DFVector<resource_allotment_data>
----@field breeds DFVector<breed>
----@field battlefields DFVector<battlefield>
----@field region_weather DFVector<region_weather>
----@field object_data DFVector<world_object_data>
----@field landmasses DFVector<world_landmass>
----@field regions DFVector<world_region>
----@field underground_regions DFVector<world_underground_region>
----@field geo_biomes DFVector<world_geo_biome>
----@field mountain_peaks DFVector<world_mountain_peak>
----@field rivers DFVector<world_river>
+---@field sites world_data_sites
+---@field site_unk130 world_data_site_unk130
+---@field resource_allotments world_data_resource_allotments
+---@field breeds world_data_breeds
+---@field battlefields world_data_battlefields
+---@field region_weather world_data_region_weather
+---@field object_data world_data_object_data
+---@field landmasses world_data_landmasses
+---@field regions world_data_regions
+---@field underground_regions world_data_underground_regions
+---@field geo_biomes world_data_geo_biomes
+---@field mountain_peaks world_data_mountain_peaks
+---@field rivers world_data_rivers
 ---@field region_map any
 ---@field unk_1c4 number
----@field embark_notes DFVector<embark_note>
+---@field embark_notes world_data_embark_notes
 ---@field unk_1dc any
 ---@field unk_1e0 any
 ---@field unk_1e4 any
@@ -1059,18 +1299,18 @@ function df.world_mountain_peak.get_vector() end
 ---@field unk_16 any
 ---@field unk_17 number
 ---@field unk_18 number
----@field active_site DFVector<world_site>
+---@field active_site world_data_active_site
 ---@field feature_map any Additional feature_map information:<br>The feature_map is a two dimensional structure dividing the world into 16 * 16<br>world tile "feature shells" (and remember that there's a single tile wide shell<br>at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br>These shells are loaded and unloaded dynamically, which means trying to access a<br>shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br>cursor is) is invalid and can lead to DF crashing.<br>The "features.feature_init" 16 * 16 structure contains the features of each of<br>the corresponding world tiles within the shell. However, DF only loads the<br>feature vectors for the world tiles in focus, although they seem to remain<br>loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br>Manipulation of the features is usually preserved as feature vectors are<br>unloaded/reloaded, so spires can be elongated and rivers added, but some<br>details, such as river fauna, seem to be generated on loading. Added features<br>may not necessarily be reloaded at the vector index they were created at.
----@field old_sites DFVector<number>
----@field old_site_x DFVector<number>
----@field old_site_y DFVector<number>
+---@field old_sites DFNumberVector
+---@field old_site_x DFNumberVector
+---@field old_site_y DFNumberVector
 ---@field land_rgns coord2d_path
 ---@field unk_260 number
 ---@field unk_264 number
 ---@field unk_268 number
 ---@field unk_26c number
 ---@field unk_270 number
----@field unk_274 DFVector<any> exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
+---@field unk_274 DFAnyVector exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
 ---@field unk_482f8 world_data.T_unk_482f8
 
 ---@class _world_data: DFCompound
@@ -1118,18 +1358,306 @@ df.world_data.T_flip_latitude = {}
 ---@field _kind 'struct-type'
 df.world_data.T_unk_b4 = {}
 
+---@class world_data_region_details: DFContainer
+---@field [integer] world_region_details
+local world_data_region_details
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_region_details>
+function world_data_region_details:_field(index) end
+
+---@param index integer 
+---@param item world_region_details 
+function world_data_region_details:insert(index, item) end
+
+---@param index integer 
+function world_data_region_details:erase(index) end
+
+---@class world_data_midmap_place: DFContainer
+---@field [integer] any[]
+local world_data_midmap_place
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_data_midmap_place:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_data_midmap_place:insert(index, item) end
+
+---@param index integer 
+function world_data_midmap_place:erase(index) end
+
 ---@class (exact) world_data.T_constructions: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_data.T_constructions
 ---@field width number
 ---@field height number
 ---@field map any
----@field list DFVector<world_construction>
+---@field list world_data_constructions_list
 ---@field next_id number
 
 ---@class _world_data.T_constructions: DFCompound
 ---@field _kind 'struct-type'
 df.world_data.T_constructions = {}
+
+---@class world_data_constructions_list: DFContainer
+---@field [integer] world_construction
+local world_data_constructions_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_construction>
+function world_data_constructions_list:_field(index) end
+
+---@param index integer 
+---@param item world_construction 
+function world_data_constructions_list:insert(index, item) end
+
+---@param index integer 
+function world_data_constructions_list:erase(index) end
+
+---@class world_data_sites: DFContainer
+---@field [integer] world_site
+local world_data_sites
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site>
+function world_data_sites:_field(index) end
+
+---@param index integer 
+---@param item world_site 
+function world_data_sites:insert(index, item) end
+
+---@param index integer 
+function world_data_sites:erase(index) end
+
+---@class world_data_site_unk130: DFContainer
+---@field [integer] world_site_unk130
+local world_data_site_unk130
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site_unk130>
+function world_data_site_unk130:_field(index) end
+
+---@param index integer 
+---@param item world_site_unk130 
+function world_data_site_unk130:insert(index, item) end
+
+---@param index integer 
+function world_data_site_unk130:erase(index) end
+
+---@class world_data_resource_allotments: DFContainer
+---@field [integer] resource_allotment_data
+local world_data_resource_allotments
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<resource_allotment_data>
+function world_data_resource_allotments:_field(index) end
+
+---@param index integer 
+---@param item resource_allotment_data 
+function world_data_resource_allotments:insert(index, item) end
+
+---@param index integer 
+function world_data_resource_allotments:erase(index) end
+
+---@class world_data_breeds: DFContainer
+---@field [integer] breed
+local world_data_breeds
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<breed>
+function world_data_breeds:_field(index) end
+
+---@param index integer 
+---@param item breed 
+function world_data_breeds:insert(index, item) end
+
+---@param index integer 
+function world_data_breeds:erase(index) end
+
+---@class world_data_battlefields: DFContainer
+---@field [integer] battlefield
+local world_data_battlefields
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<battlefield>
+function world_data_battlefields:_field(index) end
+
+---@param index integer 
+---@param item battlefield 
+function world_data_battlefields:insert(index, item) end
+
+---@param index integer 
+function world_data_battlefields:erase(index) end
+
+---@class world_data_region_weather: DFContainer
+---@field [integer] region_weather
+local world_data_region_weather
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<region_weather>
+function world_data_region_weather:_field(index) end
+
+---@param index integer 
+---@param item region_weather 
+function world_data_region_weather:insert(index, item) end
+
+---@param index integer 
+function world_data_region_weather:erase(index) end
+
+---@class world_data_object_data: DFContainer
+---@field [integer] world_object_data
+local world_data_object_data
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_object_data>
+function world_data_object_data:_field(index) end
+
+---@param index integer 
+---@param item world_object_data 
+function world_data_object_data:insert(index, item) end
+
+---@param index integer 
+function world_data_object_data:erase(index) end
+
+---@class world_data_landmasses: DFContainer
+---@field [integer] world_landmass
+local world_data_landmasses
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_landmass>
+function world_data_landmasses:_field(index) end
+
+---@param index integer 
+---@param item world_landmass 
+function world_data_landmasses:insert(index, item) end
+
+---@param index integer 
+function world_data_landmasses:erase(index) end
+
+---@class world_data_regions: DFContainer
+---@field [integer] world_region
+local world_data_regions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_region>
+function world_data_regions:_field(index) end
+
+---@param index integer 
+---@param item world_region 
+function world_data_regions:insert(index, item) end
+
+---@param index integer 
+function world_data_regions:erase(index) end
+
+---@class world_data_underground_regions: DFContainer
+---@field [integer] world_underground_region
+local world_data_underground_regions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_underground_region>
+function world_data_underground_regions:_field(index) end
+
+---@param index integer 
+---@param item world_underground_region 
+function world_data_underground_regions:insert(index, item) end
+
+---@param index integer 
+function world_data_underground_regions:erase(index) end
+
+---@class world_data_geo_biomes: DFContainer
+---@field [integer] world_geo_biome
+local world_data_geo_biomes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_geo_biome>
+function world_data_geo_biomes:_field(index) end
+
+---@param index integer 
+---@param item world_geo_biome 
+function world_data_geo_biomes:insert(index, item) end
+
+---@param index integer 
+function world_data_geo_biomes:erase(index) end
+
+---@class world_data_mountain_peaks: DFContainer
+---@field [integer] world_mountain_peak
+local world_data_mountain_peaks
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_mountain_peak>
+function world_data_mountain_peaks:_field(index) end
+
+---@param index integer 
+---@param item world_mountain_peak 
+function world_data_mountain_peaks:insert(index, item) end
+
+---@param index integer 
+function world_data_mountain_peaks:erase(index) end
+
+---@class world_data_rivers: DFContainer
+---@field [integer] world_river
+local world_data_rivers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_river>
+function world_data_rivers:_field(index) end
+
+---@param index integer 
+---@param item world_river 
+function world_data_rivers:insert(index, item) end
+
+---@param index integer 
+function world_data_rivers:erase(index) end
+
+---@class world_data_embark_notes: DFContainer
+---@field [integer] embark_note
+local world_data_embark_notes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<embark_note>
+function world_data_embark_notes:_field(index) end
+
+---@param index integer 
+---@param item embark_note 
+function world_data_embark_notes:insert(index, item) end
+
+---@param index integer 
+function world_data_embark_notes:erase(index) end
+
+---@class world_data_active_site: DFContainer
+---@field [integer] world_site
+local world_data_active_site
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site>
+function world_data_active_site:_field(index) end
+
+---@param index integer 
+---@param item world_site 
+function world_data_active_site:insert(index, item) end
+
+---@param index integer 
+function world_data_active_site:erase(index) end
 
 ---@class (exact) world_data.T_unk_482f8: DFObject
 ---@field _kind 'struct'
@@ -1152,9 +1680,9 @@ df.world_data.T_unk_482f8 = {}
 ---@field _type _breed
 ---@field id number
 ---@field unk_4 number
----@field unk_8 DFVector<any>
----@field unk_18 DFVector<any>
----@field unk_28 DFVector<any>
+---@field unk_8 DFAnyVector
+---@field unk_18 DFAnyVector
+---@field unk_28 DFAnyVector
 
 ---@class _breed: DFCompound
 ---@field _kind 'struct-type'
@@ -1173,14 +1701,14 @@ function df.breed.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _battlefield
 ---@field id number
----@field sapient_deaths DFVector<any> Seems to be by squad. Trolls/Blizzard Men not counted
----@field hfs_killed DFVector<number> some victims are not listed, for some reason, and culled HFs can be present
+---@field sapient_deaths DFAnyVector Seems to be by squad. Trolls/Blizzard Men not counted
+---@field hfs_killed DFNumberVector some victims are not listed, for some reason, and culled HFs can be present
 ---@field x1 number
 ---@field y1 number
 ---@field x2 number
 ---@field y2 number
 ---@field unk_34 number wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
----@field event_collections DFVector<number>
+---@field event_collections DFNumberVector
 
 ---@class _battlefield: DFCompound
 ---@field _kind 'struct-type'

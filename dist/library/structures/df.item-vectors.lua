@@ -1380,141 +1380,2269 @@ df.job_item_vector_id.attrs = {}
 ---@class (exact) items_other: DFObject
 ---@field _kind 'struct'
 ---@field _type _items_other
----@field IN_PLAY DFVector<item>
----@field ANY_ARTIFACT DFVector<item>
----@field WEAPON DFVector<item_weaponst>
----@field ANY_WEAPON DFVector<item>
----@field ANY_SPIKE DFVector<item>
----@field ANY_TRUE_ARMOR DFVector<item_armorst>
----@field ANY_ARMOR_HELM DFVector<item_helmst>
----@field ANY_ARMOR_SHOES DFVector<item_shoesst>
----@field SHIELD DFVector<item_shieldst>
----@field ANY_ARMOR_GLOVES DFVector<item_glovesst>
----@field ANY_ARMOR_PANTS DFVector<item_pantsst>
----@field QUIVER DFVector<item_quiverst>
----@field SPLINT DFVector<item_splintst>
----@field ORTHOPEDIC_CAST DFVector<item_orthopedic_castst>
----@field CRUTCH DFVector<item_crutchst>
----@field BACKPACK DFVector<item_backpackst>
----@field AMMO DFVector<item_ammost>
----@field WOOD DFVector<item_woodst>
----@field BRANCH DFVector<item_branchst>
----@field BOULDER DFVector<item_boulderst>
----@field ROCK DFVector<item_rockst>
----@field ANY_REFUSE DFVector<item>
----@field ANY_GOOD_FOOD DFVector<item>
----@field ANY_AUTO_CLEAN DFVector<item>
----@field ANY_GENERIC24 DFVector<item>
----@field ANY_BUTCHERABLE DFVector<item>
----@field ANY_FURNITURE DFVector<item>
----@field ANY_CAGE_OR_TRAP DFVector<item>
----@field ANY_EDIBLE_RAW DFVector<item>
----@field ANY_EDIBLE_CARNIVORE DFVector<item>
----@field ANY_EDIBLE_BONECARN DFVector<item>
----@field ANY_EDIBLE_VERMIN DFVector<item>
----@field ANY_EDIBLE_VERMIN_BOX DFVector<item>
----@field ANY_CAN_ROT DFVector<item>
----@field ANY_MURDERED DFVector<item>
----@field ANY_DEAD_DWARF DFVector<item>
----@field ANY_GENERIC36 DFVector<item>
----@field ANY_GENERIC37 DFVector<item>
----@field ANY_GENERIC38 DFVector<item>
----@field ANY_GENERIC39 DFVector<item>
----@field DOOR DFVector<item_doorst>
----@field FLOODGATE DFVector<item_floodgatest>
----@field HATCH_COVER DFVector<item_hatch_coverst>
----@field GRATE DFVector<item_gratest>
----@field CAGE DFVector<item_cagest>
----@field FLASK DFVector<item_flaskst>
----@field WINDOW DFVector<item_windowst>
----@field GOBLET DFVector<item_gobletst>
----@field INSTRUMENT DFVector<item_instrumentst>
----@field INSTRUMENT_STATIONARY DFVector<item_instrumentst>
----@field TOY DFVector<item_toyst>
----@field TOOL DFVector<item_toolst>
----@field BUCKET DFVector<item_bucketst>
----@field BARREL DFVector<item_barrelst>
----@field CHAIN DFVector<item_chainst>
----@field ANIMALTRAP DFVector<item_animaltrapst>
----@field BED DFVector<item_bedst>
----@field TRACTION_BENCH DFVector<item_traction_benchst>
----@field CHAIR DFVector<item_chairst>
----@field COFFIN DFVector<item_coffinst>
----@field TABLE DFVector<item_tablest>
----@field STATUE DFVector<item_statuest>
----@field SLAB DFVector<item_slabst>
----@field QUERN DFVector<item_quernst>
----@field MILLSTONE DFVector<item_millstonest>
----@field BOX DFVector<item_boxst>
----@field BAG DFVector<item>
----@field BIN DFVector<item_binst>
----@field ARMORSTAND DFVector<item_armorstandst>
----@field WEAPONRACK DFVector<item_weaponrackst>
----@field CABINET DFVector<item_cabinetst>
----@field ANVIL DFVector<item_anvilst>
----@field CATAPULTPARTS DFVector<item_catapultpartsst>
----@field BALLISTAPARTS DFVector<item_ballistapartsst>
----@field SIEGEAMMO DFVector<item_siegeammost>
----@field TRAPPARTS DFVector<item_trappartsst>
----@field ANY_WEBS DFVector<item_threadst>
----@field PIPE_SECTION DFVector<item_pipe_sectionst>
----@field ANY_ENCASED DFVector<item>
----@field ANY_IN_CONSTRUCTION DFVector<item>
----@field DRINK DFVector<item_drinkst>
----@field ANY_DRINK DFVector<item_drinkst>
----@field LIQUID_MISC DFVector<item_liquid_miscst>
----@field POWDER_MISC DFVector<item_powder_miscst>
----@field ANY_COOKABLE DFVector<item>
----@field ANY_GENERIC84 DFVector<item>
----@field VERMIN DFVector<item_verminst>
----@field PET DFVector<item_petst>
----@field ANY_CRITTER DFVector<item>
----@field COIN DFVector<item_coinst>
----@field GLOB DFVector<item_globst>
----@field TRAPCOMP DFVector<item_trapcompst>
----@field BAR DFVector<item_barst>
----@field SMALLGEM DFVector<item_smallgemst>
----@field BLOCKS DFVector<item_blocksst>
----@field ROUGH DFVector<item_roughst>
----@field ANY_CORPSE DFVector<item_body_component>
----@field CORPSE DFVector<item_corpsest>
----@field BOOK DFVector<item_bookst>
----@field FIGURINE DFVector<item_figurinest>
----@field AMULET DFVector<item_amuletst>
----@field SCEPTER DFVector<item_scepterst>
----@field CROWN DFVector<item_crownst>
----@field RING DFVector<item_ringst>
----@field EARRING DFVector<item_earringst>
----@field BRACELET DFVector<item_braceletst>
----@field GEM DFVector<item_gemst>
----@field CORPSEPIECE DFVector<item_corpsepiecest>
----@field REMAINS DFVector<item_remainsst>
----@field MEAT DFVector<item_meatst>
----@field FISH DFVector<item_fishst>
----@field FISH_RAW DFVector<item_fish_rawst>
----@field EGG DFVector<item_eggst>
----@field SEEDS DFVector<item_seedsst>
----@field PLANT DFVector<item_plantst>
----@field SKIN_TANNED DFVector<item_skin_tannedst>
----@field PLANT_GROWTH DFVector<item_plant_growthst>
----@field THREAD DFVector<item_threadst>
----@field CLOTH DFVector<item_clothst>
----@field SHEET DFVector<item_sheetst>
----@field TOTEM DFVector<item_totemst>
----@field PANTS DFVector<item_pantsst>
----@field CHEESE DFVector<item_cheesest>
----@field FOOD DFVector<item_foodst>
----@field BALLISTAARROWHEAD DFVector<item_ballistaarrowheadst>
----@field ARMOR DFVector<item_armorst>
----@field SHOES DFVector<item_shoesst>
----@field HELM DFVector<item_helmst>
----@field GLOVES DFVector<item_glovesst>
----@field ANY_GENERIC128 DFVector<item>
----@field FOOD_STORAGE DFVector<item>
----@field ANY_RECENTLY_DROPPED DFVector<item>
----@field ANY_MELT_DESIGNATED DFVector<item>
+---@field IN_PLAY items_other_IN_PLAY
+---@field ANY_ARTIFACT items_other_ANY_ARTIFACT
+---@field WEAPON items_other_WEAPON
+---@field ANY_WEAPON items_other_ANY_WEAPON
+---@field ANY_SPIKE items_other_ANY_SPIKE
+---@field ANY_TRUE_ARMOR items_other_ANY_TRUE_ARMOR
+---@field ANY_ARMOR_HELM items_other_ANY_ARMOR_HELM
+---@field ANY_ARMOR_SHOES items_other_ANY_ARMOR_SHOES
+---@field SHIELD items_other_SHIELD
+---@field ANY_ARMOR_GLOVES items_other_ANY_ARMOR_GLOVES
+---@field ANY_ARMOR_PANTS items_other_ANY_ARMOR_PANTS
+---@field QUIVER items_other_QUIVER
+---@field SPLINT items_other_SPLINT
+---@field ORTHOPEDIC_CAST items_other_ORTHOPEDIC_CAST
+---@field CRUTCH items_other_CRUTCH
+---@field BACKPACK items_other_BACKPACK
+---@field AMMO items_other_AMMO
+---@field WOOD items_other_WOOD
+---@field BRANCH items_other_BRANCH
+---@field BOULDER items_other_BOULDER
+---@field ROCK items_other_ROCK
+---@field ANY_REFUSE items_other_ANY_REFUSE
+---@field ANY_GOOD_FOOD items_other_ANY_GOOD_FOOD
+---@field ANY_AUTO_CLEAN items_other_ANY_AUTO_CLEAN
+---@field ANY_GENERIC24 items_other_ANY_GENERIC24
+---@field ANY_BUTCHERABLE items_other_ANY_BUTCHERABLE
+---@field ANY_FURNITURE items_other_ANY_FURNITURE
+---@field ANY_CAGE_OR_TRAP items_other_ANY_CAGE_OR_TRAP
+---@field ANY_EDIBLE_RAW items_other_ANY_EDIBLE_RAW
+---@field ANY_EDIBLE_CARNIVORE items_other_ANY_EDIBLE_CARNIVORE
+---@field ANY_EDIBLE_BONECARN items_other_ANY_EDIBLE_BONECARN
+---@field ANY_EDIBLE_VERMIN items_other_ANY_EDIBLE_VERMIN
+---@field ANY_EDIBLE_VERMIN_BOX items_other_ANY_EDIBLE_VERMIN_BOX
+---@field ANY_CAN_ROT items_other_ANY_CAN_ROT
+---@field ANY_MURDERED items_other_ANY_MURDERED
+---@field ANY_DEAD_DWARF items_other_ANY_DEAD_DWARF
+---@field ANY_GENERIC36 items_other_ANY_GENERIC36
+---@field ANY_GENERIC37 items_other_ANY_GENERIC37
+---@field ANY_GENERIC38 items_other_ANY_GENERIC38
+---@field ANY_GENERIC39 items_other_ANY_GENERIC39
+---@field DOOR items_other_DOOR
+---@field FLOODGATE items_other_FLOODGATE
+---@field HATCH_COVER items_other_HATCH_COVER
+---@field GRATE items_other_GRATE
+---@field CAGE items_other_CAGE
+---@field FLASK items_other_FLASK
+---@field WINDOW items_other_WINDOW
+---@field GOBLET items_other_GOBLET
+---@field INSTRUMENT items_other_INSTRUMENT
+---@field INSTRUMENT_STATIONARY items_other_INSTRUMENT_STATIONARY
+---@field TOY items_other_TOY
+---@field TOOL items_other_TOOL
+---@field BUCKET items_other_BUCKET
+---@field BARREL items_other_BARREL
+---@field CHAIN items_other_CHAIN
+---@field ANIMALTRAP items_other_ANIMALTRAP
+---@field BED items_other_BED
+---@field TRACTION_BENCH items_other_TRACTION_BENCH
+---@field CHAIR items_other_CHAIR
+---@field COFFIN items_other_COFFIN
+---@field TABLE items_other_TABLE
+---@field STATUE items_other_STATUE
+---@field SLAB items_other_SLAB
+---@field QUERN items_other_QUERN
+---@field MILLSTONE items_other_MILLSTONE
+---@field BOX items_other_BOX
+---@field BAG items_other_BAG
+---@field BIN items_other_BIN
+---@field ARMORSTAND items_other_ARMORSTAND
+---@field WEAPONRACK items_other_WEAPONRACK
+---@field CABINET items_other_CABINET
+---@field ANVIL items_other_ANVIL
+---@field CATAPULTPARTS items_other_CATAPULTPARTS
+---@field BALLISTAPARTS items_other_BALLISTAPARTS
+---@field SIEGEAMMO items_other_SIEGEAMMO
+---@field TRAPPARTS items_other_TRAPPARTS
+---@field ANY_WEBS items_other_ANY_WEBS
+---@field PIPE_SECTION items_other_PIPE_SECTION
+---@field ANY_ENCASED items_other_ANY_ENCASED
+---@field ANY_IN_CONSTRUCTION items_other_ANY_IN_CONSTRUCTION
+---@field DRINK items_other_DRINK
+---@field ANY_DRINK items_other_ANY_DRINK
+---@field LIQUID_MISC items_other_LIQUID_MISC
+---@field POWDER_MISC items_other_POWDER_MISC
+---@field ANY_COOKABLE items_other_ANY_COOKABLE
+---@field ANY_GENERIC84 items_other_ANY_GENERIC84
+---@field VERMIN items_other_VERMIN
+---@field PET items_other_PET
+---@field ANY_CRITTER items_other_ANY_CRITTER
+---@field COIN items_other_COIN
+---@field GLOB items_other_GLOB
+---@field TRAPCOMP items_other_TRAPCOMP
+---@field BAR items_other_BAR
+---@field SMALLGEM items_other_SMALLGEM
+---@field BLOCKS items_other_BLOCKS
+---@field ROUGH items_other_ROUGH
+---@field ANY_CORPSE items_other_ANY_CORPSE
+---@field CORPSE items_other_CORPSE
+---@field BOOK items_other_BOOK
+---@field FIGURINE items_other_FIGURINE
+---@field AMULET items_other_AMULET
+---@field SCEPTER items_other_SCEPTER
+---@field CROWN items_other_CROWN
+---@field RING items_other_RING
+---@field EARRING items_other_EARRING
+---@field BRACELET items_other_BRACELET
+---@field GEM items_other_GEM
+---@field CORPSEPIECE items_other_CORPSEPIECE
+---@field REMAINS items_other_REMAINS
+---@field MEAT items_other_MEAT
+---@field FISH items_other_FISH
+---@field FISH_RAW items_other_FISH_RAW
+---@field EGG items_other_EGG
+---@field SEEDS items_other_SEEDS
+---@field PLANT items_other_PLANT
+---@field SKIN_TANNED items_other_SKIN_TANNED
+---@field PLANT_GROWTH items_other_PLANT_GROWTH
+---@field THREAD items_other_THREAD
+---@field CLOTH items_other_CLOTH
+---@field SHEET items_other_SHEET
+---@field TOTEM items_other_TOTEM
+---@field PANTS items_other_PANTS
+---@field CHEESE items_other_CHEESE
+---@field FOOD items_other_FOOD
+---@field BALLISTAARROWHEAD items_other_BALLISTAARROWHEAD
+---@field ARMOR items_other_ARMOR
+---@field SHOES items_other_SHOES
+---@field HELM items_other_HELM
+---@field GLOVES items_other_GLOVES
+---@field ANY_GENERIC128 items_other_ANY_GENERIC128
+---@field FOOD_STORAGE items_other_FOOD_STORAGE
+---@field ANY_RECENTLY_DROPPED items_other_ANY_RECENTLY_DROPPED
+---@field ANY_MELT_DESIGNATED items_other_ANY_MELT_DESIGNATED
 
 ---@class _items_other: DFCompound
 ---@field _kind 'struct-type'
 df.items_other = {}
+
+---@class items_other_IN_PLAY: DFContainer
+---@field [integer] item
+local items_other_IN_PLAY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_IN_PLAY:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_IN_PLAY:insert(index, item) end
+
+---@param index integer 
+function items_other_IN_PLAY:erase(index) end
+
+---@class items_other_ANY_ARTIFACT: DFContainer
+---@field [integer] item
+local items_other_ANY_ARTIFACT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_ARTIFACT:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_ARTIFACT:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_ARTIFACT:erase(index) end
+
+---@class items_other_WEAPON: DFContainer
+---@field [integer] item_weaponst
+local items_other_WEAPON
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_weaponst>
+function items_other_WEAPON:_field(index) end
+
+---@param index integer 
+---@param item item_weaponst 
+function items_other_WEAPON:insert(index, item) end
+
+---@param index integer 
+function items_other_WEAPON:erase(index) end
+
+---@class items_other_ANY_WEAPON: DFContainer
+---@field [integer] item
+local items_other_ANY_WEAPON
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_WEAPON:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_WEAPON:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_WEAPON:erase(index) end
+
+---@class items_other_ANY_SPIKE: DFContainer
+---@field [integer] item
+local items_other_ANY_SPIKE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_SPIKE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_SPIKE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_SPIKE:erase(index) end
+
+---@class items_other_ANY_TRUE_ARMOR: DFContainer
+---@field [integer] item_armorst
+local items_other_ANY_TRUE_ARMOR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_armorst>
+function items_other_ANY_TRUE_ARMOR:_field(index) end
+
+---@param index integer 
+---@param item item_armorst 
+function items_other_ANY_TRUE_ARMOR:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_TRUE_ARMOR:erase(index) end
+
+---@class items_other_ANY_ARMOR_HELM: DFContainer
+---@field [integer] item_helmst
+local items_other_ANY_ARMOR_HELM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_helmst>
+function items_other_ANY_ARMOR_HELM:_field(index) end
+
+---@param index integer 
+---@param item item_helmst 
+function items_other_ANY_ARMOR_HELM:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_ARMOR_HELM:erase(index) end
+
+---@class items_other_ANY_ARMOR_SHOES: DFContainer
+---@field [integer] item_shoesst
+local items_other_ANY_ARMOR_SHOES
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_shoesst>
+function items_other_ANY_ARMOR_SHOES:_field(index) end
+
+---@param index integer 
+---@param item item_shoesst 
+function items_other_ANY_ARMOR_SHOES:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_ARMOR_SHOES:erase(index) end
+
+---@class items_other_SHIELD: DFContainer
+---@field [integer] item_shieldst
+local items_other_SHIELD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_shieldst>
+function items_other_SHIELD:_field(index) end
+
+---@param index integer 
+---@param item item_shieldst 
+function items_other_SHIELD:insert(index, item) end
+
+---@param index integer 
+function items_other_SHIELD:erase(index) end
+
+---@class items_other_ANY_ARMOR_GLOVES: DFContainer
+---@field [integer] item_glovesst
+local items_other_ANY_ARMOR_GLOVES
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_glovesst>
+function items_other_ANY_ARMOR_GLOVES:_field(index) end
+
+---@param index integer 
+---@param item item_glovesst 
+function items_other_ANY_ARMOR_GLOVES:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_ARMOR_GLOVES:erase(index) end
+
+---@class items_other_ANY_ARMOR_PANTS: DFContainer
+---@field [integer] item_pantsst
+local items_other_ANY_ARMOR_PANTS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_pantsst>
+function items_other_ANY_ARMOR_PANTS:_field(index) end
+
+---@param index integer 
+---@param item item_pantsst 
+function items_other_ANY_ARMOR_PANTS:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_ARMOR_PANTS:erase(index) end
+
+---@class items_other_QUIVER: DFContainer
+---@field [integer] item_quiverst
+local items_other_QUIVER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_quiverst>
+function items_other_QUIVER:_field(index) end
+
+---@param index integer 
+---@param item item_quiverst 
+function items_other_QUIVER:insert(index, item) end
+
+---@param index integer 
+function items_other_QUIVER:erase(index) end
+
+---@class items_other_SPLINT: DFContainer
+---@field [integer] item_splintst
+local items_other_SPLINT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_splintst>
+function items_other_SPLINT:_field(index) end
+
+---@param index integer 
+---@param item item_splintst 
+function items_other_SPLINT:insert(index, item) end
+
+---@param index integer 
+function items_other_SPLINT:erase(index) end
+
+---@class items_other_ORTHOPEDIC_CAST: DFContainer
+---@field [integer] item_orthopedic_castst
+local items_other_ORTHOPEDIC_CAST
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_orthopedic_castst>
+function items_other_ORTHOPEDIC_CAST:_field(index) end
+
+---@param index integer 
+---@param item item_orthopedic_castst 
+function items_other_ORTHOPEDIC_CAST:insert(index, item) end
+
+---@param index integer 
+function items_other_ORTHOPEDIC_CAST:erase(index) end
+
+---@class items_other_CRUTCH: DFContainer
+---@field [integer] item_crutchst
+local items_other_CRUTCH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_crutchst>
+function items_other_CRUTCH:_field(index) end
+
+---@param index integer 
+---@param item item_crutchst 
+function items_other_CRUTCH:insert(index, item) end
+
+---@param index integer 
+function items_other_CRUTCH:erase(index) end
+
+---@class items_other_BACKPACK: DFContainer
+---@field [integer] item_backpackst
+local items_other_BACKPACK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_backpackst>
+function items_other_BACKPACK:_field(index) end
+
+---@param index integer 
+---@param item item_backpackst 
+function items_other_BACKPACK:insert(index, item) end
+
+---@param index integer 
+function items_other_BACKPACK:erase(index) end
+
+---@class items_other_AMMO: DFContainer
+---@field [integer] item_ammost
+local items_other_AMMO
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_ammost>
+function items_other_AMMO:_field(index) end
+
+---@param index integer 
+---@param item item_ammost 
+function items_other_AMMO:insert(index, item) end
+
+---@param index integer 
+function items_other_AMMO:erase(index) end
+
+---@class items_other_WOOD: DFContainer
+---@field [integer] item_woodst
+local items_other_WOOD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_woodst>
+function items_other_WOOD:_field(index) end
+
+---@param index integer 
+---@param item item_woodst 
+function items_other_WOOD:insert(index, item) end
+
+---@param index integer 
+function items_other_WOOD:erase(index) end
+
+---@class items_other_BRANCH: DFContainer
+---@field [integer] item_branchst
+local items_other_BRANCH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_branchst>
+function items_other_BRANCH:_field(index) end
+
+---@param index integer 
+---@param item item_branchst 
+function items_other_BRANCH:insert(index, item) end
+
+---@param index integer 
+function items_other_BRANCH:erase(index) end
+
+---@class items_other_BOULDER: DFContainer
+---@field [integer] item_boulderst
+local items_other_BOULDER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_boulderst>
+function items_other_BOULDER:_field(index) end
+
+---@param index integer 
+---@param item item_boulderst 
+function items_other_BOULDER:insert(index, item) end
+
+---@param index integer 
+function items_other_BOULDER:erase(index) end
+
+---@class items_other_ROCK: DFContainer
+---@field [integer] item_rockst
+local items_other_ROCK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_rockst>
+function items_other_ROCK:_field(index) end
+
+---@param index integer 
+---@param item item_rockst 
+function items_other_ROCK:insert(index, item) end
+
+---@param index integer 
+function items_other_ROCK:erase(index) end
+
+---@class items_other_ANY_REFUSE: DFContainer
+---@field [integer] item
+local items_other_ANY_REFUSE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_REFUSE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_REFUSE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_REFUSE:erase(index) end
+
+---@class items_other_ANY_GOOD_FOOD: DFContainer
+---@field [integer] item
+local items_other_ANY_GOOD_FOOD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GOOD_FOOD:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GOOD_FOOD:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GOOD_FOOD:erase(index) end
+
+---@class items_other_ANY_AUTO_CLEAN: DFContainer
+---@field [integer] item
+local items_other_ANY_AUTO_CLEAN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_AUTO_CLEAN:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_AUTO_CLEAN:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_AUTO_CLEAN:erase(index) end
+
+---@class items_other_ANY_GENERIC24: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC24
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC24:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC24:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC24:erase(index) end
+
+---@class items_other_ANY_BUTCHERABLE: DFContainer
+---@field [integer] item
+local items_other_ANY_BUTCHERABLE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_BUTCHERABLE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_BUTCHERABLE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_BUTCHERABLE:erase(index) end
+
+---@class items_other_ANY_FURNITURE: DFContainer
+---@field [integer] item
+local items_other_ANY_FURNITURE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_FURNITURE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_FURNITURE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_FURNITURE:erase(index) end
+
+---@class items_other_ANY_CAGE_OR_TRAP: DFContainer
+---@field [integer] item
+local items_other_ANY_CAGE_OR_TRAP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_CAGE_OR_TRAP:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_CAGE_OR_TRAP:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_CAGE_OR_TRAP:erase(index) end
+
+---@class items_other_ANY_EDIBLE_RAW: DFContainer
+---@field [integer] item
+local items_other_ANY_EDIBLE_RAW
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_EDIBLE_RAW:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_EDIBLE_RAW:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_EDIBLE_RAW:erase(index) end
+
+---@class items_other_ANY_EDIBLE_CARNIVORE: DFContainer
+---@field [integer] item
+local items_other_ANY_EDIBLE_CARNIVORE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_EDIBLE_CARNIVORE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_EDIBLE_CARNIVORE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_EDIBLE_CARNIVORE:erase(index) end
+
+---@class items_other_ANY_EDIBLE_BONECARN: DFContainer
+---@field [integer] item
+local items_other_ANY_EDIBLE_BONECARN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_EDIBLE_BONECARN:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_EDIBLE_BONECARN:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_EDIBLE_BONECARN:erase(index) end
+
+---@class items_other_ANY_EDIBLE_VERMIN: DFContainer
+---@field [integer] item
+local items_other_ANY_EDIBLE_VERMIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_EDIBLE_VERMIN:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_EDIBLE_VERMIN:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_EDIBLE_VERMIN:erase(index) end
+
+---@class items_other_ANY_EDIBLE_VERMIN_BOX: DFContainer
+---@field [integer] item
+local items_other_ANY_EDIBLE_VERMIN_BOX
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_EDIBLE_VERMIN_BOX:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_EDIBLE_VERMIN_BOX:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_EDIBLE_VERMIN_BOX:erase(index) end
+
+---@class items_other_ANY_CAN_ROT: DFContainer
+---@field [integer] item
+local items_other_ANY_CAN_ROT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_CAN_ROT:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_CAN_ROT:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_CAN_ROT:erase(index) end
+
+---@class items_other_ANY_MURDERED: DFContainer
+---@field [integer] item
+local items_other_ANY_MURDERED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_MURDERED:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_MURDERED:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_MURDERED:erase(index) end
+
+---@class items_other_ANY_DEAD_DWARF: DFContainer
+---@field [integer] item
+local items_other_ANY_DEAD_DWARF
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_DEAD_DWARF:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_DEAD_DWARF:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_DEAD_DWARF:erase(index) end
+
+---@class items_other_ANY_GENERIC36: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC36
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC36:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC36:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC36:erase(index) end
+
+---@class items_other_ANY_GENERIC37: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC37
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC37:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC37:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC37:erase(index) end
+
+---@class items_other_ANY_GENERIC38: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC38
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC38:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC38:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC38:erase(index) end
+
+---@class items_other_ANY_GENERIC39: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC39
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC39:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC39:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC39:erase(index) end
+
+---@class items_other_DOOR: DFContainer
+---@field [integer] item_doorst
+local items_other_DOOR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_doorst>
+function items_other_DOOR:_field(index) end
+
+---@param index integer 
+---@param item item_doorst 
+function items_other_DOOR:insert(index, item) end
+
+---@param index integer 
+function items_other_DOOR:erase(index) end
+
+---@class items_other_FLOODGATE: DFContainer
+---@field [integer] item_floodgatest
+local items_other_FLOODGATE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_floodgatest>
+function items_other_FLOODGATE:_field(index) end
+
+---@param index integer 
+---@param item item_floodgatest 
+function items_other_FLOODGATE:insert(index, item) end
+
+---@param index integer 
+function items_other_FLOODGATE:erase(index) end
+
+---@class items_other_HATCH_COVER: DFContainer
+---@field [integer] item_hatch_coverst
+local items_other_HATCH_COVER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_hatch_coverst>
+function items_other_HATCH_COVER:_field(index) end
+
+---@param index integer 
+---@param item item_hatch_coverst 
+function items_other_HATCH_COVER:insert(index, item) end
+
+---@param index integer 
+function items_other_HATCH_COVER:erase(index) end
+
+---@class items_other_GRATE: DFContainer
+---@field [integer] item_gratest
+local items_other_GRATE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_gratest>
+function items_other_GRATE:_field(index) end
+
+---@param index integer 
+---@param item item_gratest 
+function items_other_GRATE:insert(index, item) end
+
+---@param index integer 
+function items_other_GRATE:erase(index) end
+
+---@class items_other_CAGE: DFContainer
+---@field [integer] item_cagest
+local items_other_CAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_cagest>
+function items_other_CAGE:_field(index) end
+
+---@param index integer 
+---@param item item_cagest 
+function items_other_CAGE:insert(index, item) end
+
+---@param index integer 
+function items_other_CAGE:erase(index) end
+
+---@class items_other_FLASK: DFContainer
+---@field [integer] item_flaskst
+local items_other_FLASK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_flaskst>
+function items_other_FLASK:_field(index) end
+
+---@param index integer 
+---@param item item_flaskst 
+function items_other_FLASK:insert(index, item) end
+
+---@param index integer 
+function items_other_FLASK:erase(index) end
+
+---@class items_other_WINDOW: DFContainer
+---@field [integer] item_windowst
+local items_other_WINDOW
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_windowst>
+function items_other_WINDOW:_field(index) end
+
+---@param index integer 
+---@param item item_windowst 
+function items_other_WINDOW:insert(index, item) end
+
+---@param index integer 
+function items_other_WINDOW:erase(index) end
+
+---@class items_other_GOBLET: DFContainer
+---@field [integer] item_gobletst
+local items_other_GOBLET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_gobletst>
+function items_other_GOBLET:_field(index) end
+
+---@param index integer 
+---@param item item_gobletst 
+function items_other_GOBLET:insert(index, item) end
+
+---@param index integer 
+function items_other_GOBLET:erase(index) end
+
+---@class items_other_INSTRUMENT: DFContainer
+---@field [integer] item_instrumentst
+local items_other_INSTRUMENT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_instrumentst>
+function items_other_INSTRUMENT:_field(index) end
+
+---@param index integer 
+---@param item item_instrumentst 
+function items_other_INSTRUMENT:insert(index, item) end
+
+---@param index integer 
+function items_other_INSTRUMENT:erase(index) end
+
+---@class items_other_INSTRUMENT_STATIONARY: DFContainer
+---@field [integer] item_instrumentst
+local items_other_INSTRUMENT_STATIONARY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_instrumentst>
+function items_other_INSTRUMENT_STATIONARY:_field(index) end
+
+---@param index integer 
+---@param item item_instrumentst 
+function items_other_INSTRUMENT_STATIONARY:insert(index, item) end
+
+---@param index integer 
+function items_other_INSTRUMENT_STATIONARY:erase(index) end
+
+---@class items_other_TOY: DFContainer
+---@field [integer] item_toyst
+local items_other_TOY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_toyst>
+function items_other_TOY:_field(index) end
+
+---@param index integer 
+---@param item item_toyst 
+function items_other_TOY:insert(index, item) end
+
+---@param index integer 
+function items_other_TOY:erase(index) end
+
+---@class items_other_TOOL: DFContainer
+---@field [integer] item_toolst
+local items_other_TOOL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_toolst>
+function items_other_TOOL:_field(index) end
+
+---@param index integer 
+---@param item item_toolst 
+function items_other_TOOL:insert(index, item) end
+
+---@param index integer 
+function items_other_TOOL:erase(index) end
+
+---@class items_other_BUCKET: DFContainer
+---@field [integer] item_bucketst
+local items_other_BUCKET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_bucketst>
+function items_other_BUCKET:_field(index) end
+
+---@param index integer 
+---@param item item_bucketst 
+function items_other_BUCKET:insert(index, item) end
+
+---@param index integer 
+function items_other_BUCKET:erase(index) end
+
+---@class items_other_BARREL: DFContainer
+---@field [integer] item_barrelst
+local items_other_BARREL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_barrelst>
+function items_other_BARREL:_field(index) end
+
+---@param index integer 
+---@param item item_barrelst 
+function items_other_BARREL:insert(index, item) end
+
+---@param index integer 
+function items_other_BARREL:erase(index) end
+
+---@class items_other_CHAIN: DFContainer
+---@field [integer] item_chainst
+local items_other_CHAIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_chainst>
+function items_other_CHAIN:_field(index) end
+
+---@param index integer 
+---@param item item_chainst 
+function items_other_CHAIN:insert(index, item) end
+
+---@param index integer 
+function items_other_CHAIN:erase(index) end
+
+---@class items_other_ANIMALTRAP: DFContainer
+---@field [integer] item_animaltrapst
+local items_other_ANIMALTRAP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_animaltrapst>
+function items_other_ANIMALTRAP:_field(index) end
+
+---@param index integer 
+---@param item item_animaltrapst 
+function items_other_ANIMALTRAP:insert(index, item) end
+
+---@param index integer 
+function items_other_ANIMALTRAP:erase(index) end
+
+---@class items_other_BED: DFContainer
+---@field [integer] item_bedst
+local items_other_BED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_bedst>
+function items_other_BED:_field(index) end
+
+---@param index integer 
+---@param item item_bedst 
+function items_other_BED:insert(index, item) end
+
+---@param index integer 
+function items_other_BED:erase(index) end
+
+---@class items_other_TRACTION_BENCH: DFContainer
+---@field [integer] item_traction_benchst
+local items_other_TRACTION_BENCH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_traction_benchst>
+function items_other_TRACTION_BENCH:_field(index) end
+
+---@param index integer 
+---@param item item_traction_benchst 
+function items_other_TRACTION_BENCH:insert(index, item) end
+
+---@param index integer 
+function items_other_TRACTION_BENCH:erase(index) end
+
+---@class items_other_CHAIR: DFContainer
+---@field [integer] item_chairst
+local items_other_CHAIR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_chairst>
+function items_other_CHAIR:_field(index) end
+
+---@param index integer 
+---@param item item_chairst 
+function items_other_CHAIR:insert(index, item) end
+
+---@param index integer 
+function items_other_CHAIR:erase(index) end
+
+---@class items_other_COFFIN: DFContainer
+---@field [integer] item_coffinst
+local items_other_COFFIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_coffinst>
+function items_other_COFFIN:_field(index) end
+
+---@param index integer 
+---@param item item_coffinst 
+function items_other_COFFIN:insert(index, item) end
+
+---@param index integer 
+function items_other_COFFIN:erase(index) end
+
+---@class items_other_TABLE: DFContainer
+---@field [integer] item_tablest
+local items_other_TABLE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_tablest>
+function items_other_TABLE:_field(index) end
+
+---@param index integer 
+---@param item item_tablest 
+function items_other_TABLE:insert(index, item) end
+
+---@param index integer 
+function items_other_TABLE:erase(index) end
+
+---@class items_other_STATUE: DFContainer
+---@field [integer] item_statuest
+local items_other_STATUE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_statuest>
+function items_other_STATUE:_field(index) end
+
+---@param index integer 
+---@param item item_statuest 
+function items_other_STATUE:insert(index, item) end
+
+---@param index integer 
+function items_other_STATUE:erase(index) end
+
+---@class items_other_SLAB: DFContainer
+---@field [integer] item_slabst
+local items_other_SLAB
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_slabst>
+function items_other_SLAB:_field(index) end
+
+---@param index integer 
+---@param item item_slabst 
+function items_other_SLAB:insert(index, item) end
+
+---@param index integer 
+function items_other_SLAB:erase(index) end
+
+---@class items_other_QUERN: DFContainer
+---@field [integer] item_quernst
+local items_other_QUERN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_quernst>
+function items_other_QUERN:_field(index) end
+
+---@param index integer 
+---@param item item_quernst 
+function items_other_QUERN:insert(index, item) end
+
+---@param index integer 
+function items_other_QUERN:erase(index) end
+
+---@class items_other_MILLSTONE: DFContainer
+---@field [integer] item_millstonest
+local items_other_MILLSTONE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_millstonest>
+function items_other_MILLSTONE:_field(index) end
+
+---@param index integer 
+---@param item item_millstonest 
+function items_other_MILLSTONE:insert(index, item) end
+
+---@param index integer 
+function items_other_MILLSTONE:erase(index) end
+
+---@class items_other_BOX: DFContainer
+---@field [integer] item_boxst
+local items_other_BOX
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_boxst>
+function items_other_BOX:_field(index) end
+
+---@param index integer 
+---@param item item_boxst 
+function items_other_BOX:insert(index, item) end
+
+---@param index integer 
+function items_other_BOX:erase(index) end
+
+---@class items_other_BAG: DFContainer
+---@field [integer] item
+local items_other_BAG
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_BAG:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_BAG:insert(index, item) end
+
+---@param index integer 
+function items_other_BAG:erase(index) end
+
+---@class items_other_BIN: DFContainer
+---@field [integer] item_binst
+local items_other_BIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_binst>
+function items_other_BIN:_field(index) end
+
+---@param index integer 
+---@param item item_binst 
+function items_other_BIN:insert(index, item) end
+
+---@param index integer 
+function items_other_BIN:erase(index) end
+
+---@class items_other_ARMORSTAND: DFContainer
+---@field [integer] item_armorstandst
+local items_other_ARMORSTAND
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_armorstandst>
+function items_other_ARMORSTAND:_field(index) end
+
+---@param index integer 
+---@param item item_armorstandst 
+function items_other_ARMORSTAND:insert(index, item) end
+
+---@param index integer 
+function items_other_ARMORSTAND:erase(index) end
+
+---@class items_other_WEAPONRACK: DFContainer
+---@field [integer] item_weaponrackst
+local items_other_WEAPONRACK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_weaponrackst>
+function items_other_WEAPONRACK:_field(index) end
+
+---@param index integer 
+---@param item item_weaponrackst 
+function items_other_WEAPONRACK:insert(index, item) end
+
+---@param index integer 
+function items_other_WEAPONRACK:erase(index) end
+
+---@class items_other_CABINET: DFContainer
+---@field [integer] item_cabinetst
+local items_other_CABINET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_cabinetst>
+function items_other_CABINET:_field(index) end
+
+---@param index integer 
+---@param item item_cabinetst 
+function items_other_CABINET:insert(index, item) end
+
+---@param index integer 
+function items_other_CABINET:erase(index) end
+
+---@class items_other_ANVIL: DFContainer
+---@field [integer] item_anvilst
+local items_other_ANVIL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_anvilst>
+function items_other_ANVIL:_field(index) end
+
+---@param index integer 
+---@param item item_anvilst 
+function items_other_ANVIL:insert(index, item) end
+
+---@param index integer 
+function items_other_ANVIL:erase(index) end
+
+---@class items_other_CATAPULTPARTS: DFContainer
+---@field [integer] item_catapultpartsst
+local items_other_CATAPULTPARTS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_catapultpartsst>
+function items_other_CATAPULTPARTS:_field(index) end
+
+---@param index integer 
+---@param item item_catapultpartsst 
+function items_other_CATAPULTPARTS:insert(index, item) end
+
+---@param index integer 
+function items_other_CATAPULTPARTS:erase(index) end
+
+---@class items_other_BALLISTAPARTS: DFContainer
+---@field [integer] item_ballistapartsst
+local items_other_BALLISTAPARTS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_ballistapartsst>
+function items_other_BALLISTAPARTS:_field(index) end
+
+---@param index integer 
+---@param item item_ballistapartsst 
+function items_other_BALLISTAPARTS:insert(index, item) end
+
+---@param index integer 
+function items_other_BALLISTAPARTS:erase(index) end
+
+---@class items_other_SIEGEAMMO: DFContainer
+---@field [integer] item_siegeammost
+local items_other_SIEGEAMMO
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_siegeammost>
+function items_other_SIEGEAMMO:_field(index) end
+
+---@param index integer 
+---@param item item_siegeammost 
+function items_other_SIEGEAMMO:insert(index, item) end
+
+---@param index integer 
+function items_other_SIEGEAMMO:erase(index) end
+
+---@class items_other_TRAPPARTS: DFContainer
+---@field [integer] item_trappartsst
+local items_other_TRAPPARTS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_trappartsst>
+function items_other_TRAPPARTS:_field(index) end
+
+---@param index integer 
+---@param item item_trappartsst 
+function items_other_TRAPPARTS:insert(index, item) end
+
+---@param index integer 
+function items_other_TRAPPARTS:erase(index) end
+
+---@class items_other_ANY_WEBS: DFContainer
+---@field [integer] item_threadst
+local items_other_ANY_WEBS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_threadst>
+function items_other_ANY_WEBS:_field(index) end
+
+---@param index integer 
+---@param item item_threadst 
+function items_other_ANY_WEBS:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_WEBS:erase(index) end
+
+---@class items_other_PIPE_SECTION: DFContainer
+---@field [integer] item_pipe_sectionst
+local items_other_PIPE_SECTION
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_pipe_sectionst>
+function items_other_PIPE_SECTION:_field(index) end
+
+---@param index integer 
+---@param item item_pipe_sectionst 
+function items_other_PIPE_SECTION:insert(index, item) end
+
+---@param index integer 
+function items_other_PIPE_SECTION:erase(index) end
+
+---@class items_other_ANY_ENCASED: DFContainer
+---@field [integer] item
+local items_other_ANY_ENCASED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_ENCASED:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_ENCASED:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_ENCASED:erase(index) end
+
+---@class items_other_ANY_IN_CONSTRUCTION: DFContainer
+---@field [integer] item
+local items_other_ANY_IN_CONSTRUCTION
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_IN_CONSTRUCTION:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_IN_CONSTRUCTION:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_IN_CONSTRUCTION:erase(index) end
+
+---@class items_other_DRINK: DFContainer
+---@field [integer] item_drinkst
+local items_other_DRINK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_drinkst>
+function items_other_DRINK:_field(index) end
+
+---@param index integer 
+---@param item item_drinkst 
+function items_other_DRINK:insert(index, item) end
+
+---@param index integer 
+function items_other_DRINK:erase(index) end
+
+---@class items_other_ANY_DRINK: DFContainer
+---@field [integer] item_drinkst
+local items_other_ANY_DRINK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_drinkst>
+function items_other_ANY_DRINK:_field(index) end
+
+---@param index integer 
+---@param item item_drinkst 
+function items_other_ANY_DRINK:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_DRINK:erase(index) end
+
+---@class items_other_LIQUID_MISC: DFContainer
+---@field [integer] item_liquid_miscst
+local items_other_LIQUID_MISC
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_liquid_miscst>
+function items_other_LIQUID_MISC:_field(index) end
+
+---@param index integer 
+---@param item item_liquid_miscst 
+function items_other_LIQUID_MISC:insert(index, item) end
+
+---@param index integer 
+function items_other_LIQUID_MISC:erase(index) end
+
+---@class items_other_POWDER_MISC: DFContainer
+---@field [integer] item_powder_miscst
+local items_other_POWDER_MISC
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_powder_miscst>
+function items_other_POWDER_MISC:_field(index) end
+
+---@param index integer 
+---@param item item_powder_miscst 
+function items_other_POWDER_MISC:insert(index, item) end
+
+---@param index integer 
+function items_other_POWDER_MISC:erase(index) end
+
+---@class items_other_ANY_COOKABLE: DFContainer
+---@field [integer] item
+local items_other_ANY_COOKABLE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_COOKABLE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_COOKABLE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_COOKABLE:erase(index) end
+
+---@class items_other_ANY_GENERIC84: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC84
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC84:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC84:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC84:erase(index) end
+
+---@class items_other_VERMIN: DFContainer
+---@field [integer] item_verminst
+local items_other_VERMIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_verminst>
+function items_other_VERMIN:_field(index) end
+
+---@param index integer 
+---@param item item_verminst 
+function items_other_VERMIN:insert(index, item) end
+
+---@param index integer 
+function items_other_VERMIN:erase(index) end
+
+---@class items_other_PET: DFContainer
+---@field [integer] item_petst
+local items_other_PET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_petst>
+function items_other_PET:_field(index) end
+
+---@param index integer 
+---@param item item_petst 
+function items_other_PET:insert(index, item) end
+
+---@param index integer 
+function items_other_PET:erase(index) end
+
+---@class items_other_ANY_CRITTER: DFContainer
+---@field [integer] item
+local items_other_ANY_CRITTER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_CRITTER:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_CRITTER:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_CRITTER:erase(index) end
+
+---@class items_other_COIN: DFContainer
+---@field [integer] item_coinst
+local items_other_COIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_coinst>
+function items_other_COIN:_field(index) end
+
+---@param index integer 
+---@param item item_coinst 
+function items_other_COIN:insert(index, item) end
+
+---@param index integer 
+function items_other_COIN:erase(index) end
+
+---@class items_other_GLOB: DFContainer
+---@field [integer] item_globst
+local items_other_GLOB
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_globst>
+function items_other_GLOB:_field(index) end
+
+---@param index integer 
+---@param item item_globst 
+function items_other_GLOB:insert(index, item) end
+
+---@param index integer 
+function items_other_GLOB:erase(index) end
+
+---@class items_other_TRAPCOMP: DFContainer
+---@field [integer] item_trapcompst
+local items_other_TRAPCOMP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_trapcompst>
+function items_other_TRAPCOMP:_field(index) end
+
+---@param index integer 
+---@param item item_trapcompst 
+function items_other_TRAPCOMP:insert(index, item) end
+
+---@param index integer 
+function items_other_TRAPCOMP:erase(index) end
+
+---@class items_other_BAR: DFContainer
+---@field [integer] item_barst
+local items_other_BAR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_barst>
+function items_other_BAR:_field(index) end
+
+---@param index integer 
+---@param item item_barst 
+function items_other_BAR:insert(index, item) end
+
+---@param index integer 
+function items_other_BAR:erase(index) end
+
+---@class items_other_SMALLGEM: DFContainer
+---@field [integer] item_smallgemst
+local items_other_SMALLGEM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_smallgemst>
+function items_other_SMALLGEM:_field(index) end
+
+---@param index integer 
+---@param item item_smallgemst 
+function items_other_SMALLGEM:insert(index, item) end
+
+---@param index integer 
+function items_other_SMALLGEM:erase(index) end
+
+---@class items_other_BLOCKS: DFContainer
+---@field [integer] item_blocksst
+local items_other_BLOCKS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_blocksst>
+function items_other_BLOCKS:_field(index) end
+
+---@param index integer 
+---@param item item_blocksst 
+function items_other_BLOCKS:insert(index, item) end
+
+---@param index integer 
+function items_other_BLOCKS:erase(index) end
+
+---@class items_other_ROUGH: DFContainer
+---@field [integer] item_roughst
+local items_other_ROUGH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_roughst>
+function items_other_ROUGH:_field(index) end
+
+---@param index integer 
+---@param item item_roughst 
+function items_other_ROUGH:insert(index, item) end
+
+---@param index integer 
+function items_other_ROUGH:erase(index) end
+
+---@class items_other_ANY_CORPSE: DFContainer
+---@field [integer] item_body_component
+local items_other_ANY_CORPSE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_body_component>
+function items_other_ANY_CORPSE:_field(index) end
+
+---@param index integer 
+---@param item item_body_component 
+function items_other_ANY_CORPSE:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_CORPSE:erase(index) end
+
+---@class items_other_CORPSE: DFContainer
+---@field [integer] item_corpsest
+local items_other_CORPSE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_corpsest>
+function items_other_CORPSE:_field(index) end
+
+---@param index integer 
+---@param item item_corpsest 
+function items_other_CORPSE:insert(index, item) end
+
+---@param index integer 
+function items_other_CORPSE:erase(index) end
+
+---@class items_other_BOOK: DFContainer
+---@field [integer] item_bookst
+local items_other_BOOK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_bookst>
+function items_other_BOOK:_field(index) end
+
+---@param index integer 
+---@param item item_bookst 
+function items_other_BOOK:insert(index, item) end
+
+---@param index integer 
+function items_other_BOOK:erase(index) end
+
+---@class items_other_FIGURINE: DFContainer
+---@field [integer] item_figurinest
+local items_other_FIGURINE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_figurinest>
+function items_other_FIGURINE:_field(index) end
+
+---@param index integer 
+---@param item item_figurinest 
+function items_other_FIGURINE:insert(index, item) end
+
+---@param index integer 
+function items_other_FIGURINE:erase(index) end
+
+---@class items_other_AMULET: DFContainer
+---@field [integer] item_amuletst
+local items_other_AMULET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_amuletst>
+function items_other_AMULET:_field(index) end
+
+---@param index integer 
+---@param item item_amuletst 
+function items_other_AMULET:insert(index, item) end
+
+---@param index integer 
+function items_other_AMULET:erase(index) end
+
+---@class items_other_SCEPTER: DFContainer
+---@field [integer] item_scepterst
+local items_other_SCEPTER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_scepterst>
+function items_other_SCEPTER:_field(index) end
+
+---@param index integer 
+---@param item item_scepterst 
+function items_other_SCEPTER:insert(index, item) end
+
+---@param index integer 
+function items_other_SCEPTER:erase(index) end
+
+---@class items_other_CROWN: DFContainer
+---@field [integer] item_crownst
+local items_other_CROWN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_crownst>
+function items_other_CROWN:_field(index) end
+
+---@param index integer 
+---@param item item_crownst 
+function items_other_CROWN:insert(index, item) end
+
+---@param index integer 
+function items_other_CROWN:erase(index) end
+
+---@class items_other_RING: DFContainer
+---@field [integer] item_ringst
+local items_other_RING
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_ringst>
+function items_other_RING:_field(index) end
+
+---@param index integer 
+---@param item item_ringst 
+function items_other_RING:insert(index, item) end
+
+---@param index integer 
+function items_other_RING:erase(index) end
+
+---@class items_other_EARRING: DFContainer
+---@field [integer] item_earringst
+local items_other_EARRING
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_earringst>
+function items_other_EARRING:_field(index) end
+
+---@param index integer 
+---@param item item_earringst 
+function items_other_EARRING:insert(index, item) end
+
+---@param index integer 
+function items_other_EARRING:erase(index) end
+
+---@class items_other_BRACELET: DFContainer
+---@field [integer] item_braceletst
+local items_other_BRACELET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_braceletst>
+function items_other_BRACELET:_field(index) end
+
+---@param index integer 
+---@param item item_braceletst 
+function items_other_BRACELET:insert(index, item) end
+
+---@param index integer 
+function items_other_BRACELET:erase(index) end
+
+---@class items_other_GEM: DFContainer
+---@field [integer] item_gemst
+local items_other_GEM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_gemst>
+function items_other_GEM:_field(index) end
+
+---@param index integer 
+---@param item item_gemst 
+function items_other_GEM:insert(index, item) end
+
+---@param index integer 
+function items_other_GEM:erase(index) end
+
+---@class items_other_CORPSEPIECE: DFContainer
+---@field [integer] item_corpsepiecest
+local items_other_CORPSEPIECE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_corpsepiecest>
+function items_other_CORPSEPIECE:_field(index) end
+
+---@param index integer 
+---@param item item_corpsepiecest 
+function items_other_CORPSEPIECE:insert(index, item) end
+
+---@param index integer 
+function items_other_CORPSEPIECE:erase(index) end
+
+---@class items_other_REMAINS: DFContainer
+---@field [integer] item_remainsst
+local items_other_REMAINS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_remainsst>
+function items_other_REMAINS:_field(index) end
+
+---@param index integer 
+---@param item item_remainsst 
+function items_other_REMAINS:insert(index, item) end
+
+---@param index integer 
+function items_other_REMAINS:erase(index) end
+
+---@class items_other_MEAT: DFContainer
+---@field [integer] item_meatst
+local items_other_MEAT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_meatst>
+function items_other_MEAT:_field(index) end
+
+---@param index integer 
+---@param item item_meatst 
+function items_other_MEAT:insert(index, item) end
+
+---@param index integer 
+function items_other_MEAT:erase(index) end
+
+---@class items_other_FISH: DFContainer
+---@field [integer] item_fishst
+local items_other_FISH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_fishst>
+function items_other_FISH:_field(index) end
+
+---@param index integer 
+---@param item item_fishst 
+function items_other_FISH:insert(index, item) end
+
+---@param index integer 
+function items_other_FISH:erase(index) end
+
+---@class items_other_FISH_RAW: DFContainer
+---@field [integer] item_fish_rawst
+local items_other_FISH_RAW
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_fish_rawst>
+function items_other_FISH_RAW:_field(index) end
+
+---@param index integer 
+---@param item item_fish_rawst 
+function items_other_FISH_RAW:insert(index, item) end
+
+---@param index integer 
+function items_other_FISH_RAW:erase(index) end
+
+---@class items_other_EGG: DFContainer
+---@field [integer] item_eggst
+local items_other_EGG
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_eggst>
+function items_other_EGG:_field(index) end
+
+---@param index integer 
+---@param item item_eggst 
+function items_other_EGG:insert(index, item) end
+
+---@param index integer 
+function items_other_EGG:erase(index) end
+
+---@class items_other_SEEDS: DFContainer
+---@field [integer] item_seedsst
+local items_other_SEEDS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_seedsst>
+function items_other_SEEDS:_field(index) end
+
+---@param index integer 
+---@param item item_seedsst 
+function items_other_SEEDS:insert(index, item) end
+
+---@param index integer 
+function items_other_SEEDS:erase(index) end
+
+---@class items_other_PLANT: DFContainer
+---@field [integer] item_plantst
+local items_other_PLANT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_plantst>
+function items_other_PLANT:_field(index) end
+
+---@param index integer 
+---@param item item_plantst 
+function items_other_PLANT:insert(index, item) end
+
+---@param index integer 
+function items_other_PLANT:erase(index) end
+
+---@class items_other_SKIN_TANNED: DFContainer
+---@field [integer] item_skin_tannedst
+local items_other_SKIN_TANNED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_skin_tannedst>
+function items_other_SKIN_TANNED:_field(index) end
+
+---@param index integer 
+---@param item item_skin_tannedst 
+function items_other_SKIN_TANNED:insert(index, item) end
+
+---@param index integer 
+function items_other_SKIN_TANNED:erase(index) end
+
+---@class items_other_PLANT_GROWTH: DFContainer
+---@field [integer] item_plant_growthst
+local items_other_PLANT_GROWTH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_plant_growthst>
+function items_other_PLANT_GROWTH:_field(index) end
+
+---@param index integer 
+---@param item item_plant_growthst 
+function items_other_PLANT_GROWTH:insert(index, item) end
+
+---@param index integer 
+function items_other_PLANT_GROWTH:erase(index) end
+
+---@class items_other_THREAD: DFContainer
+---@field [integer] item_threadst
+local items_other_THREAD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_threadst>
+function items_other_THREAD:_field(index) end
+
+---@param index integer 
+---@param item item_threadst 
+function items_other_THREAD:insert(index, item) end
+
+---@param index integer 
+function items_other_THREAD:erase(index) end
+
+---@class items_other_CLOTH: DFContainer
+---@field [integer] item_clothst
+local items_other_CLOTH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_clothst>
+function items_other_CLOTH:_field(index) end
+
+---@param index integer 
+---@param item item_clothst 
+function items_other_CLOTH:insert(index, item) end
+
+---@param index integer 
+function items_other_CLOTH:erase(index) end
+
+---@class items_other_SHEET: DFContainer
+---@field [integer] item_sheetst
+local items_other_SHEET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_sheetst>
+function items_other_SHEET:_field(index) end
+
+---@param index integer 
+---@param item item_sheetst 
+function items_other_SHEET:insert(index, item) end
+
+---@param index integer 
+function items_other_SHEET:erase(index) end
+
+---@class items_other_TOTEM: DFContainer
+---@field [integer] item_totemst
+local items_other_TOTEM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_totemst>
+function items_other_TOTEM:_field(index) end
+
+---@param index integer 
+---@param item item_totemst 
+function items_other_TOTEM:insert(index, item) end
+
+---@param index integer 
+function items_other_TOTEM:erase(index) end
+
+---@class items_other_PANTS: DFContainer
+---@field [integer] item_pantsst
+local items_other_PANTS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_pantsst>
+function items_other_PANTS:_field(index) end
+
+---@param index integer 
+---@param item item_pantsst 
+function items_other_PANTS:insert(index, item) end
+
+---@param index integer 
+function items_other_PANTS:erase(index) end
+
+---@class items_other_CHEESE: DFContainer
+---@field [integer] item_cheesest
+local items_other_CHEESE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_cheesest>
+function items_other_CHEESE:_field(index) end
+
+---@param index integer 
+---@param item item_cheesest 
+function items_other_CHEESE:insert(index, item) end
+
+---@param index integer 
+function items_other_CHEESE:erase(index) end
+
+---@class items_other_FOOD: DFContainer
+---@field [integer] item_foodst
+local items_other_FOOD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_foodst>
+function items_other_FOOD:_field(index) end
+
+---@param index integer 
+---@param item item_foodst 
+function items_other_FOOD:insert(index, item) end
+
+---@param index integer 
+function items_other_FOOD:erase(index) end
+
+---@class items_other_BALLISTAARROWHEAD: DFContainer
+---@field [integer] item_ballistaarrowheadst
+local items_other_BALLISTAARROWHEAD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_ballistaarrowheadst>
+function items_other_BALLISTAARROWHEAD:_field(index) end
+
+---@param index integer 
+---@param item item_ballistaarrowheadst 
+function items_other_BALLISTAARROWHEAD:insert(index, item) end
+
+---@param index integer 
+function items_other_BALLISTAARROWHEAD:erase(index) end
+
+---@class items_other_ARMOR: DFContainer
+---@field [integer] item_armorst
+local items_other_ARMOR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_armorst>
+function items_other_ARMOR:_field(index) end
+
+---@param index integer 
+---@param item item_armorst 
+function items_other_ARMOR:insert(index, item) end
+
+---@param index integer 
+function items_other_ARMOR:erase(index) end
+
+---@class items_other_SHOES: DFContainer
+---@field [integer] item_shoesst
+local items_other_SHOES
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_shoesst>
+function items_other_SHOES:_field(index) end
+
+---@param index integer 
+---@param item item_shoesst 
+function items_other_SHOES:insert(index, item) end
+
+---@param index integer 
+function items_other_SHOES:erase(index) end
+
+---@class items_other_HELM: DFContainer
+---@field [integer] item_helmst
+local items_other_HELM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_helmst>
+function items_other_HELM:_field(index) end
+
+---@param index integer 
+---@param item item_helmst 
+function items_other_HELM:insert(index, item) end
+
+---@param index integer 
+function items_other_HELM:erase(index) end
+
+---@class items_other_GLOVES: DFContainer
+---@field [integer] item_glovesst
+local items_other_GLOVES
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_glovesst>
+function items_other_GLOVES:_field(index) end
+
+---@param index integer 
+---@param item item_glovesst 
+function items_other_GLOVES:insert(index, item) end
+
+---@param index integer 
+function items_other_GLOVES:erase(index) end
+
+---@class items_other_ANY_GENERIC128: DFContainer
+---@field [integer] item
+local items_other_ANY_GENERIC128
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_GENERIC128:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_GENERIC128:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_GENERIC128:erase(index) end
+
+---@class items_other_FOOD_STORAGE: DFContainer
+---@field [integer] item
+local items_other_FOOD_STORAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_FOOD_STORAGE:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_FOOD_STORAGE:insert(index, item) end
+
+---@param index integer 
+function items_other_FOOD_STORAGE:erase(index) end
+
+---@class items_other_ANY_RECENTLY_DROPPED: DFContainer
+---@field [integer] item
+local items_other_ANY_RECENTLY_DROPPED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_RECENTLY_DROPPED:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_RECENTLY_DROPPED:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_RECENTLY_DROPPED:erase(index) end
+
+---@class items_other_ANY_MELT_DESIGNATED: DFContainer
+---@field [integer] item
+local items_other_ANY_MELT_DESIGNATED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function items_other_ANY_MELT_DESIGNATED:_field(index) end
+
+---@param index integer 
+---@param item item 
+function items_other_ANY_MELT_DESIGNATED:insert(index, item) end
+
+---@param index integer 
+function items_other_ANY_MELT_DESIGNATED:erase(index) end
 

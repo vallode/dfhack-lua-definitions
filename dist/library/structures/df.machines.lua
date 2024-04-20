@@ -83,11 +83,27 @@ df.machine_conn_modes = {}
 ---@field _kind 'struct'
 ---@field _type _machine_tile_set
 ---@field tiles coord_path
----@field can_connect DFVector<machine_conn_modes>
+---@field can_connect machine_tile_set_can_connect
 
 ---@class _machine_tile_set: DFCompound
 ---@field _kind 'struct-type'
 df.machine_tile_set = {}
+
+---@class machine_tile_set_can_connect: DFContainer
+---@field [integer] machine_conn_modes
+local machine_tile_set_can_connect
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<machine_conn_modes>
+function machine_tile_set_can_connect:_field(index) end
+
+---@param index integer 
+---@param item machine_conn_modes 
+function machine_tile_set_can_connect:insert(index, item) end
+
+---@param index integer 
+function machine_tile_set_can_connect:erase(index) end
 
 ---@class (exact) machine: DFObject
 ---@field _kind 'struct'
@@ -96,7 +112,7 @@ df.machine_tile_set = {}
 ---@field y number
 ---@field z number
 ---@field id number
----@field components DFVector<any>
+---@field components DFAnyVector
 ---@field cur_power number
 ---@field min_power number
 ---@field visual_phase number

@@ -34,16 +34,32 @@ df.site_reputation_report = {}
 ---@class (exact) site_reputation_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_reputation_info
----@field reports DFVector<site_reputation_report>
+---@field reports site_reputation_info_reports
 
 ---@class _site_reputation_info: DFCompound
 ---@field _kind 'struct-type'
 df.site_reputation_info = {}
 
+---@class site_reputation_info_reports: DFContainer
+---@field [integer] site_reputation_report
+local site_reputation_info_reports
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_reputation_report>
+function site_reputation_info_reports:_field(index) end
+
+---@param index integer 
+---@param item site_reputation_report 
+function site_reputation_info_reports:insert(index, item) end
+
+---@param index integer 
+function site_reputation_info_reports:erase(index) end
+
 ---@class (exact) location_scribe_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _location_scribe_jobs
----@field scribejobs DFVector<scribejob>
+---@field scribejobs location_scribe_jobs_scribejobs
 ---@field nextidmaybe number
 ---@field year number
 ---@field unk_1 integer
@@ -55,6 +71,22 @@ df.site_reputation_info = {}
 ---@class _location_scribe_jobs: DFCompound
 ---@field _kind 'struct-type'
 df.location_scribe_jobs = {}
+
+---@class location_scribe_jobs_scribejobs: DFContainer
+---@field [integer] scribejob
+local location_scribe_jobs_scribejobs
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<scribejob>
+function location_scribe_jobs_scribejobs:_field(index) end
+
+---@param index integer 
+---@param item scribejob 
+function location_scribe_jobs_scribejobs:insert(index, item) end
+
+---@param index integer 
+function location_scribe_jobs_scribejobs:erase(index) end
 
 ---@alias abstract_building_type_keys
 ---| '"MEAD_HALL"'
@@ -170,8 +202,8 @@ df.abstract_building_flags = {}
 ---@class (exact) abstract_building_entombed: DFObject
 ---@field _kind 'struct'
 ---@field _type _abstract_building_entombed
----@field populations DFVector<any>
----@field histfigs DFVector<number>
+---@field populations DFAnyVector
+---@field histfigs DFNumberVector
 
 ---@class _abstract_building_entombed: DFCompound
 ---@field _kind 'struct-type'
@@ -208,7 +240,7 @@ df.abstract_building_entombed = {}
 ---@field count_soap number
 ---@field unk_v47_2 number
 ---@field unk_v47_3 number
----@field building_ids DFVector<number>
+---@field building_ids DFNumberVector
 
 ---@class _abstract_building_contents: DFCompound
 ---@field _kind 'struct-type'
@@ -266,23 +298,55 @@ df.abstract_building_contents.T_need_more = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building
 ---@field id number
----@field inhabitants DFVector<any>
----@field flags DFVector<table<abstract_building_flags, boolean>>
+---@field inhabitants DFAnyVector
+---@field flags abstract_building_flags
 ---@field unk1 any in temples; hfig is the god
----@field unk2 DFVector<number>
+---@field unk2 DFNumberVector
 ---@field parent_building_id number Tombs use this to hold which catacomb they are part of. References: `abstract_building`
----@field child_building_ids DFVector<number> Used by catacombs to hold their tombs
+---@field child_building_ids DFNumberVector Used by catacombs to hold their tombs
 ---@field site_owner_id number entity that constructed the building References: `historical_entity`
 ---@field scribeinfo location_scribe_jobs
 ---@field reputation_reports site_reputation_info
 ---@field unk_v42_3 any
 ---@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
 ---@field pos coord2d
----@field occupations DFVector<occupation>
+---@field occupations abstract_building_occupations
 
 ---@class _abstract_building: DFCompound
 ---@field _kind 'class-type'
 df.abstract_building = {}
+
+---@class abstract_building_flags: DFContainer
+---@field [integer] table<abstract_building_flags, boolean>
+local abstract_building_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<abstract_building_flags, boolean>>
+function abstract_building_flags:_field(index) end
+
+---@param index integer 
+---@param item table<abstract_building_flags, boolean> 
+function abstract_building_flags:insert(index, item) end
+
+---@param index integer 
+function abstract_building_flags:erase(index) end
+
+---@class abstract_building_occupations: DFContainer
+---@field [integer] occupation
+local abstract_building_occupations
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<occupation>
+function abstract_building_occupations:_field(index) end
+
+---@param index integer 
+---@param item occupation 
+function abstract_building_occupations:insert(index, item) end
+
+---@param index integer 
+function abstract_building_occupations:erase(index) end
 
 ---@class (exact) abstract_building_mead_hallst: DFObject, abstract_building
 ---@field _kind 'struct'
@@ -431,7 +495,7 @@ df.abstract_building_underworld_spirest = {}
 ---@field _type _abstract_building_inn_tavernst
 ---@field name language_name
 ---@field contents abstract_building_contents
----@field room_info DFVector<any>
+---@field room_info DFAnyVector
 ---@field next_room_info_id number
 
 ---@class _abstract_building_inn_tavernst: DFCompound
@@ -442,7 +506,7 @@ df.abstract_building_inn_tavernst = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building_libraryst
 ---@field name language_name
----@field copied_artifacts DFVector<number>
+---@field copied_artifacts DFNumberVector
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
@@ -668,39 +732,247 @@ df.unit_placement_infost = {}
 ---@class (exact) populacest: DFObject
 ---@field _kind 'struct'
 ---@field _type _populacest
----@field nemesis DFVector<number>
----@field artifacts DFVector<artifact_record>
----@field animals DFVector<world_population>
----@field inhabitants DFVector<world_site_inhabitant>
----@field units DFVector<unit_placement_infost>
----@field hist_fig_id DFVector<number> worldgen only
----@field hist_fig DFVector<historical_figure> worldgen only
+---@field nemesis DFNumberVector
+---@field artifacts populacest_artifacts
+---@field animals populacest_animals
+---@field inhabitants populacest_inhabitants
+---@field units populacest_units
+---@field hist_fig_id DFNumberVector worldgen only
+---@field hist_fig populacest_hist_fig worldgen only
 ---@field births_wanted number
----@field pregnancy_candidate DFVector<nemesis_record>
----@field marriage_candidate_f_f DFVector<nemesis_record>
----@field marriage_candidate_f_m DFVector<nemesis_record>
----@field marriage_candidate_f_fm DFVector<nemesis_record>
----@field marriage_candidate_m_f DFVector<nemesis_record>
----@field marriage_candidate_m_m DFVector<nemesis_record>
----@field marriage_candidate_m_fm DFVector<nemesis_record>
+---@field pregnancy_candidate populacest_pregnancy_candidate
+---@field marriage_candidate_f_f populacest_marriage_candidate_f_f
+---@field marriage_candidate_f_m populacest_marriage_candidate_f_m
+---@field marriage_candidate_f_fm populacest_marriage_candidate_f_fm
+---@field marriage_candidate_m_f populacest_marriage_candidate_m_f
+---@field marriage_candidate_m_m populacest_marriage_candidate_m_m
+---@field marriage_candidate_m_fm populacest_marriage_candidate_m_fm
 
 ---@class _populacest: DFCompound
 ---@field _kind 'struct-type'
 df.populacest = {}
 
+---@class populacest_artifacts: DFContainer
+---@field [integer] artifact_record
+local populacest_artifacts
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<artifact_record>
+function populacest_artifacts:_field(index) end
+
+---@param index integer 
+---@param item artifact_record 
+function populacest_artifacts:insert(index, item) end
+
+---@param index integer 
+function populacest_artifacts:erase(index) end
+
+---@class populacest_animals: DFContainer
+---@field [integer] world_population
+local populacest_animals
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_population>
+function populacest_animals:_field(index) end
+
+---@param index integer 
+---@param item world_population 
+function populacest_animals:insert(index, item) end
+
+---@param index integer 
+function populacest_animals:erase(index) end
+
+---@class populacest_inhabitants: DFContainer
+---@field [integer] world_site_inhabitant
+local populacest_inhabitants
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site_inhabitant>
+function populacest_inhabitants:_field(index) end
+
+---@param index integer 
+---@param item world_site_inhabitant 
+function populacest_inhabitants:insert(index, item) end
+
+---@param index integer 
+function populacest_inhabitants:erase(index) end
+
+---@class populacest_units: DFContainer
+---@field [integer] unit_placement_infost
+local populacest_units
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<unit_placement_infost>
+function populacest_units:_field(index) end
+
+---@param index integer 
+---@param item unit_placement_infost 
+function populacest_units:insert(index, item) end
+
+---@param index integer 
+function populacest_units:erase(index) end
+
+---@class populacest_hist_fig: DFContainer
+---@field [integer] historical_figure
+local populacest_hist_fig
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function populacest_hist_fig:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function populacest_hist_fig:insert(index, item) end
+
+---@param index integer 
+function populacest_hist_fig:erase(index) end
+
+---@class populacest_pregnancy_candidate: DFContainer
+---@field [integer] nemesis_record
+local populacest_pregnancy_candidate
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_pregnancy_candidate:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_pregnancy_candidate:insert(index, item) end
+
+---@param index integer 
+function populacest_pregnancy_candidate:erase(index) end
+
+---@class populacest_marriage_candidate_f_f: DFContainer
+---@field [integer] nemesis_record
+local populacest_marriage_candidate_f_f
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_marriage_candidate_f_f:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_marriage_candidate_f_f:insert(index, item) end
+
+---@param index integer 
+function populacest_marriage_candidate_f_f:erase(index) end
+
+---@class populacest_marriage_candidate_f_m: DFContainer
+---@field [integer] nemesis_record
+local populacest_marriage_candidate_f_m
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_marriage_candidate_f_m:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_marriage_candidate_f_m:insert(index, item) end
+
+---@param index integer 
+function populacest_marriage_candidate_f_m:erase(index) end
+
+---@class populacest_marriage_candidate_f_fm: DFContainer
+---@field [integer] nemesis_record
+local populacest_marriage_candidate_f_fm
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_marriage_candidate_f_fm:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_marriage_candidate_f_fm:insert(index, item) end
+
+---@param index integer 
+function populacest_marriage_candidate_f_fm:erase(index) end
+
+---@class populacest_marriage_candidate_m_f: DFContainer
+---@field [integer] nemesis_record
+local populacest_marriage_candidate_m_f
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_marriage_candidate_m_f:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_marriage_candidate_m_f:insert(index, item) end
+
+---@param index integer 
+function populacest_marriage_candidate_m_f:erase(index) end
+
+---@class populacest_marriage_candidate_m_m: DFContainer
+---@field [integer] nemesis_record
+local populacest_marriage_candidate_m_m
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_marriage_candidate_m_m:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_marriage_candidate_m_m:insert(index, item) end
+
+---@param index integer 
+function populacest_marriage_candidate_m_m:erase(index) end
+
+---@class populacest_marriage_candidate_m_fm: DFContainer
+---@field [integer] nemesis_record
+local populacest_marriage_candidate_m_fm
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function populacest_marriage_candidate_m_fm:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function populacest_marriage_candidate_m_fm:insert(index, item) end
+
+---@param index integer 
+function populacest_marriage_candidate_m_fm:erase(index) end
+
 ---@class (exact) site_first_calc_special_itemsst: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_first_calc_special_itemsst
----@field type DFVector<item_type>
----@field subtype DFVector<number>
----@field mat DFVector<number>
----@field matgloss DFVector<number>
----@field civ_id DFVector<number>
----@field site_id DFVector<number>
+---@field type site_first_calc_special_itemsst_type
+---@field subtype DFNumberVector
+---@field mat DFNumberVector
+---@field matgloss DFNumberVector
+---@field civ_id DFNumberVector
+---@field site_id DFNumberVector
 
 ---@class _site_first_calc_special_itemsst: DFCompound
 ---@field _kind 'struct-type'
 df.site_first_calc_special_itemsst = {}
+
+---@class site_first_calc_special_itemsst_type: DFContainer
+---@field [integer] item_type
+local site_first_calc_special_itemsst_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function site_first_calc_special_itemsst_type:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function site_first_calc_special_itemsst_type:insert(index, item) end
+
+---@param index integer 
+function site_first_calc_special_itemsst_type:erase(index) end
 
 ---@class (exact) site_cropst: DFObject
 ---@field _kind 'struct'
@@ -709,8 +981,8 @@ df.site_first_calc_special_itemsst = {}
 ---@field allotment_index number
 ---@field count number
 ---@field planting_week number
----@field growth_allotment_index DFVector<number>
----@field growth_num_multiplier DFVector<number>
+---@field growth_allotment_index DFNumberVector
+---@field growth_num_multiplier DFNumberVector
 ---@field flag site_cropst.T_flag
 
 ---@class _site_cropst: DFCompound
@@ -786,11 +1058,27 @@ df.site_religious_structure_batchst = {}
 ---@class (exact) site_culture_infrastructurest: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_culture_infrastructurest
----@field religious_structure_batch DFVector<site_religious_structure_batchst>
+---@field religious_structure_batch site_culture_infrastructurest_religious_structure_batch
 
 ---@class _site_culture_infrastructurest: DFCompound
 ---@field _kind 'struct-type'
 df.site_culture_infrastructurest = {}
+
+---@class site_culture_infrastructurest_religious_structure_batch: DFContainer
+---@field [integer] site_religious_structure_batchst
+local site_culture_infrastructurest_religious_structure_batch
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_religious_structure_batchst>
+function site_culture_infrastructurest_religious_structure_batch:_field(index) end
+
+---@param index integer 
+---@param item site_religious_structure_batchst 
+function site_culture_infrastructurest_religious_structure_batch:insert(index, item) end
+
+---@param index integer 
+function site_culture_infrastructurest_religious_structure_batch:erase(index) end
 
 ---@alias site_flag_type_keys
 ---| '"HIDDEN"'
@@ -966,12 +1254,28 @@ df.location_death_batchst = {}
 ---@class (exact) location_deathst: DFObject
 ---@field _kind 'struct'
 ---@field _type _location_deathst
----@field batch DFVector<location_death_batchst>
----@field hfid DFVector<number> killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
+---@field batch location_deathst_batch
+---@field hfid DFNumberVector killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 
 ---@class _location_deathst: DFCompound
 ---@field _kind 'struct-type'
 df.location_deathst = {}
+
+---@class location_deathst_batch: DFContainer
+---@field [integer] location_death_batchst
+local location_deathst_batch
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<location_death_batchst>
+function location_deathst_batch:_field(index) end
+
+---@param index integer 
+---@param item location_death_batchst 
+function location_deathst_batch:insert(index, item) end
+
+---@param index integer 
+function location_deathst_batch:erase(index) end
 
 ---@class (exact) site_map_infost: DFObject
 ---@field _kind 'struct'
@@ -979,7 +1283,7 @@ df.location_deathst = {}
 ---@field fortress_type fortress_type Only when site.type=Fortress
 ---@field monument_type monument_type Only when site.type=Monument
 ---@field lair_type lair_type Only when site.type=LairShrine
----@field unk_night_creature_lair DFVector<number> only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
+---@field unk_night_creature_lair DFNumberVector only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
 ---@field unk_14 number
 ---@field unk_18 number
 ---@field unk_1c number
@@ -1074,12 +1378,44 @@ df.wg_site_culture_identity_religious_practicest.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _wg_site_culture_identityst
 ---@field entity_id number
----@field religious_practice DFVector<wg_site_culture_identity_religious_practicest>
----@field interaction DFVector<wg_site_culture_identity_interactionst>
+---@field religious_practice wg_site_culture_identityst_religious_practice
+---@field interaction wg_site_culture_identityst_interaction
 
 ---@class _wg_site_culture_identityst: DFCompound
 ---@field _kind 'struct-type'
 df.wg_site_culture_identityst = {}
+
+---@class wg_site_culture_identityst_religious_practice: DFContainer
+---@field [integer] wg_site_culture_identity_religious_practicest
+local wg_site_culture_identityst_religious_practice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<wg_site_culture_identity_religious_practicest>
+function wg_site_culture_identityst_religious_practice:_field(index) end
+
+---@param index integer 
+---@param item wg_site_culture_identity_religious_practicest 
+function wg_site_culture_identityst_religious_practice:insert(index, item) end
+
+---@param index integer 
+function wg_site_culture_identityst_religious_practice:erase(index) end
+
+---@class wg_site_culture_identityst_interaction: DFContainer
+---@field [integer] wg_site_culture_identity_interactionst
+local wg_site_culture_identityst_interaction
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<wg_site_culture_identity_interactionst>
+function wg_site_culture_identityst_interaction:_field(index) end
+
+---@param index integer 
+---@param item wg_site_culture_identity_interactionst 
+function wg_site_culture_identityst_interaction:insert(index, item) end
+
+---@param index integer 
+function wg_site_culture_identityst_interaction:erase(index) end
 
 ---@alias cultural_interaction_type_keys
 ---| '"NONE"'
@@ -1128,11 +1464,27 @@ df.wg_site_culture_identity_interactionst = {}
 ---@class (exact) wg_site_culturest: DFObject
 ---@field _kind 'struct'
 ---@field _type _wg_site_culturest
----@field identity DFVector<wg_site_culture_identityst>
+---@field identity wg_site_culturest_identity
 
 ---@class _wg_site_culturest: DFCompound
 ---@field _kind 'struct-type'
 df.wg_site_culturest = {}
+
+---@class wg_site_culturest_identity: DFContainer
+---@field [integer] wg_site_culture_identityst
+local wg_site_culturest_identity
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<wg_site_culture_identityst>
+function wg_site_culturest_identity:_field(index) end
+
+---@param index integer 
+---@param item wg_site_culture_identityst 
+function wg_site_culturest_identity:insert(index, item) end
+
+---@param index integer 
+function wg_site_culturest_identity:erase(index) end
 
 ---@class (exact) world_site: DFObject
 ---@field _kind 'struct'
@@ -1166,13 +1518,13 @@ df.wg_site_culturest = {}
 ---@field infrastructure_pop_level number Monument 0, LairShrine 5, Camp 20, others varying
 ---@field base_infrastructure_pop_level number  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
 ---@field infrastructure number[] Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
----@field small_crop DFVector<site_cropst> MountainHall, Town, DarkFortress, but not all
----@field orchard DFVector<site_cropst> forest retreat
+---@field small_crop world_site_small_crop MountainHall, Town, DarkFortress, but not all
+---@field orchard world_site_orchard forest retreat
 ---@field culture_infrastructure site_culture_infrastructurest
----@field flag DFVector<table<site_flag_type, boolean>>
----@field buildings DFVector<abstract_building>
+---@field flag world_site_flag
+---@field buildings world_site_buildings
 ---@field next_building_id number
----@field property_ownership DFVector<property_ownership> bay12: site_building_profile
+---@field property_ownership world_site_property_ownership bay12: site_building_profile
 ---@field next_property_ownership_id number
 ---@field created_tick number bay12: lastvisited not created
 ---@field created_year number bay12: lastvisited not created
@@ -1185,24 +1537,24 @@ df.wg_site_culturest = {}
 ---@field is_mountain_halls number bay12: min_depth
 ---@field is_fortress number bay12: max_depth
 ---@field mined_hours number only MountainHalls, but only subset of them
----@field architecture_change DFVector<site_architecture_changest>
----@field unk_v40_4b DFVector<any> -- TODO: progress marker --
----@field unk_v40_4c DFVector<any>
----@field unk_v40_4d DFVector<any> only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
+---@field architecture_change world_site_architecture_change
+---@field unk_v40_4b DFAnyVector -- TODO: progress marker --
+---@field unk_v40_4c DFAnyVector
+---@field unk_v40_4d DFAnyVector only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field unk_v40_4d_next_id number only single non zero entry, matching vector above. Might guess 'since' is scrambled
----@field unk_v43_2 DFVector<any>
+---@field unk_v43_2 DFAnyVector
 ---@field unk_v43_3 number constant 0?
 ---@field unk_v40_5 number constant -1?
 ---@field unk_188 any Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 number
 ---@field unk_3b0 world_site_unk130
----@field unk_18c DFVector<any[]>
----@field unk_19c DFVector<any[]>
----@field entity_links DFVector<entity_site_link>
----@field cultural_identities DFVector<cultural_identity>
----@field unk_v42_1 DFVector<occupation>
+---@field unk_18c world_site_unk_18c
+---@field unk_19c world_site_unk_19c
+---@field entity_links world_site_entity_links
+---@field cultural_identities world_site_cultural_identities
+---@field unk_v42_1 world_site_unk_v42_1
 ---@field unk_v43_4 number during worldgen only
----@field unk_3 DFVector<any[]>
+---@field unk_3 world_site_unk_3
 ---@field unk_4 historical_figure
 ---@field unk_5 historical_figure
 ---@field unk_6 historical_figure
@@ -1239,23 +1591,215 @@ function df.world_site.find(key) end
 ---@return world_site_vector # df.global.world.world_data.sites
 function df.world_site.get_vector() end
 
+---@class world_site_small_crop: DFContainer
+---@field [integer] site_cropst
+local world_site_small_crop
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_cropst>
+function world_site_small_crop:_field(index) end
+
+---@param index integer 
+---@param item site_cropst 
+function world_site_small_crop:insert(index, item) end
+
+---@param index integer 
+function world_site_small_crop:erase(index) end
+
+---@class world_site_orchard: DFContainer
+---@field [integer] site_cropst
+local world_site_orchard
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_cropst>
+function world_site_orchard:_field(index) end
+
+---@param index integer 
+---@param item site_cropst 
+function world_site_orchard:insert(index, item) end
+
+---@param index integer 
+function world_site_orchard:erase(index) end
+
+---@class world_site_flag: DFContainer
+---@field [integer] table<site_flag_type, boolean>
+local world_site_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<site_flag_type, boolean>>
+function world_site_flag:_field(index) end
+
+---@param index integer 
+---@param item table<site_flag_type, boolean> 
+function world_site_flag:insert(index, item) end
+
+---@param index integer 
+function world_site_flag:erase(index) end
+
+---@class world_site_buildings: DFContainer
+---@field [integer] abstract_building
+local world_site_buildings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<abstract_building>
+function world_site_buildings:_field(index) end
+
+---@param index integer 
+---@param item abstract_building 
+function world_site_buildings:insert(index, item) end
+
+---@param index integer 
+function world_site_buildings:erase(index) end
+
+---@class world_site_property_ownership: DFContainer
+---@field [integer] property_ownership
+local world_site_property_ownership
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<property_ownership>
+function world_site_property_ownership:_field(index) end
+
+---@param index integer 
+---@param item property_ownership 
+function world_site_property_ownership:insert(index, item) end
+
+---@param index integer 
+function world_site_property_ownership:erase(index) end
+
+---@class world_site_architecture_change: DFContainer
+---@field [integer] site_architecture_changest
+local world_site_architecture_change
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_architecture_changest>
+function world_site_architecture_change:_field(index) end
+
+---@param index integer 
+---@param item site_architecture_changest 
+function world_site_architecture_change:insert(index, item) end
+
+---@param index integer 
+function world_site_architecture_change:erase(index) end
+
+---@class world_site_unk_18c: DFContainer
+---@field [integer] any[]
+local world_site_unk_18c
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_site_unk_18c:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_site_unk_18c:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_18c:erase(index) end
+
+---@class world_site_unk_19c: DFContainer
+---@field [integer] any[]
+local world_site_unk_19c
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_site_unk_19c:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_site_unk_19c:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_19c:erase(index) end
+
+---@class world_site_entity_links: DFContainer
+---@field [integer] entity_site_link
+local world_site_entity_links
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_site_link>
+function world_site_entity_links:_field(index) end
+
+---@param index integer 
+---@param item entity_site_link 
+function world_site_entity_links:insert(index, item) end
+
+---@param index integer 
+function world_site_entity_links:erase(index) end
+
+---@class world_site_cultural_identities: DFContainer
+---@field [integer] cultural_identity
+local world_site_cultural_identities
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<cultural_identity>
+function world_site_cultural_identities:_field(index) end
+
+---@param index integer 
+---@param item cultural_identity 
+function world_site_cultural_identities:insert(index, item) end
+
+---@param index integer 
+function world_site_cultural_identities:erase(index) end
+
+---@class world_site_unk_v42_1: DFContainer
+---@field [integer] occupation
+local world_site_unk_v42_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<occupation>
+function world_site_unk_v42_1:_field(index) end
+
+---@param index integer 
+---@param item occupation 
+function world_site_unk_v42_1:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_v42_1:erase(index) end
+
+---@class world_site_unk_3: DFContainer
+---@field [integer] any[]
+local world_site_unk_3
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_site_unk_3:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_site_unk_3:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_3:erase(index) end
+
 ---@class (exact) cultural_identity: DFObject
 ---@field _kind 'struct'
 ---@field _type _cultural_identity
 ---@field id number
 ---@field site_id number References: `world_site`
 ---@field civ_id number References: `historical_entity`
----@field group_log DFVector<any> the circumstances of groups joining or leaving this culture
+---@field group_log DFAnyVector the circumstances of groups joining or leaving this culture
 ---@field ethic DFEnumVector<ethic_type, ethic_response>
 ---@field values DFEnumVector<value_type, number>
----@field events DFVector<entity_event>
+---@field events cultural_identity_events
 ---@field unk_d8 number
----@field unk_dc DFVector<number>
+---@field unk_dc DFNumberVector
 ---@field unk_ec number
 ---@field unk_f0 number
 ---@field unk_f4 number 0 or 800000
----@field unk_1 DFVector<any>
----@field unk_2 DFVector<any>
+---@field unk_1 DFAnyVector
+---@field unk_2 DFAnyVector
 ---@field unk_f8 number
 
 ---@class _cultural_identity: DFCompound
@@ -1270,6 +1814,22 @@ function df.cultural_identity.find(key) end
 
 ---@return cultural_identity_vector # df.global.world.cultural_identities.all
 function df.cultural_identity.get_vector() end
+
+---@class cultural_identity_events: DFContainer
+---@field [integer] entity_event
+local cultural_identity_events
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_event>
+function cultural_identity_events:_field(index) end
+
+---@param index integer 
+---@param item entity_event 
+function cultural_identity_events:insert(index, item) end
+
+---@param index integer 
+function cultural_identity_events:erase(index) end
 
 ---@class (exact) world_site_inhabitant: DFObject
 ---@field _kind 'struct'
@@ -1293,7 +1853,7 @@ df.world_site_inhabitant = {}
 ---@class (exact) world_site_realization: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_site_realization
----@field buildings DFVector<site_realization_building>
+---@field buildings world_site_realization_buildings
 ---@field num_buildings number
 ---@field unk_14 number
 ---@field num_areas number
@@ -1309,7 +1869,7 @@ df.world_site_inhabitant = {}
 ---@field zoom_colors number[][]
 ---@field zoom_movemask number[][]
 ---@field area_map number[][] 2704 = 52*52
----@field areas DFVector<any>
+---@field areas DFAnyVector
 ---@field unk_1 number
 ---@field army_controller_pos_x number
 ---@field army_controller_pos_y number
@@ -1345,11 +1905,27 @@ df.world_site_inhabitant = {}
 ---@field num_building_type21 number
 ---@field unk_23 integer[]
 ---@field unk_24 number
----@field unk_wsr_vector DFVector<any[]>
+---@field unk_wsr_vector world_site_realization_unk_wsr_vector
 
 ---@class _world_site_realization: DFCompound
 ---@field _kind 'struct-type'
 df.world_site_realization = {}
+
+---@class world_site_realization_buildings: DFContainer
+---@field [integer] site_realization_building
+local world_site_realization_buildings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_realization_building>
+function world_site_realization_buildings:_field(index) end
+
+---@param index integer 
+---@param item site_realization_building 
+function world_site_realization_buildings:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_buildings:erase(index) end
 
 ---@class (exact) world_site_realization.T_unk_55e8: DFObject
 ---@field _kind 'struct'
@@ -1360,8 +1936,8 @@ df.world_site_realization = {}
 ---@field unk_v40_1b number
 ---@field unk_v40_1c number
 ---@field unk_v40_1d number
----@field unk_v40_2 DFVector<any>
----@field unk_1 DFVector<any[]>
+---@field unk_v40_2 DFAnyVector
+---@field unk_1 world_site_realization_unk_55e8_unk_1
 ---@field unk_55f0 number
 ---@field unk_55f4 number
 ---@field unk_55f8 number
@@ -1373,7 +1949,7 @@ df.world_site_realization = {}
 ---@field unk_560c number
 ---@field unk_5610 number
 ---@field unk_5614 number
----@field unk_5618 DFVector<any[]>
+---@field unk_5618 world_site_realization_unk_55e8_unk_5618
 ---@field unk_5628 number
 ---@field unk_562c number
 ---@field unk_5630 number
@@ -1387,18 +1963,66 @@ df.world_site_realization = {}
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_55e8 = {}
 
+---@class world_site_realization_unk_55e8_unk_1: DFContainer
+---@field [integer] any[]
+local world_site_realization_unk_55e8_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_site_realization_unk_55e8_unk_1:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_site_realization_unk_55e8_unk_1:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_unk_55e8_unk_1:erase(index) end
+
+---@class world_site_realization_unk_55e8_unk_5618: DFContainer
+---@field [integer] any[]
+local world_site_realization_unk_55e8_unk_5618
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_site_realization_unk_55e8_unk_5618:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_site_realization_unk_55e8_unk_5618:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_unk_55e8_unk_5618:erase(index) end
+
 ---@class (exact) world_site_realization.T_building_map: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_site_realization.T_building_map
 ---@field unk0 number
----@field buildings DFVector<site_realization_building>
+---@field buildings world_site_realization_building_map_buildings
 ---@field unk4 number
 ---@field unk5 integer
----@field unk6 DFVector<number>
+---@field unk6 DFNumberVector
 
 ---@class _world_site_realization.T_building_map: DFCompound
 ---@field _kind 'struct-type'
 df.world_site_realization.T_building_map = {}
+
+---@class world_site_realization_building_map_buildings: DFContainer
+---@field [integer] site_realization_building
+local world_site_realization_building_map_buildings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<site_realization_building>
+function world_site_realization_building_map_buildings:_field(index) end
+
+---@param index integer 
+---@param item site_realization_building 
+function world_site_realization_building_map_buildings:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_building_map_buildings:erase(index) end
 
 ---@class (exact) world_site_realization.T_unk_193bc: DFObject
 ---@field _kind 'struct'
@@ -1440,6 +2064,22 @@ df.world_site_realization.T_unk_193bc = {}
 ---@class _world_site_realization.T_unk_193bc.T_unk_8: DFCompound
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_193bc.T_unk_8 = {}
+
+---@class world_site_realization_unk_wsr_vector: DFContainer
+---@field [integer] any[]
+local world_site_realization_unk_wsr_vector
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function world_site_realization_unk_wsr_vector:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function world_site_realization_unk_wsr_vector:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_unk_wsr_vector:erase(index) end
 
 ---@class (exact) site_realization_crossroads: DFObject
 ---@field _kind 'struct'
@@ -1631,20 +2271,52 @@ df.site_realization_building_type = {}
 ---@field max_x number
 ---@field max_y number
 ---@field unk_18 number
----@field inhabitants DFVector<world_site_inhabitant>
+---@field inhabitants site_realization_building_inhabitants
 ---@field unk_2c number
 ---@field item site_building_item
 ---@field abstract_building_id number used for temple and mead hall
 ---@field unk_44 number
 ---@field building_info site_realization_building_infost
----@field unk_4c DFVector<any>
+---@field unk_4c DFAnyVector
 ---@field unk_5c number bit 0x01 == abandoned
----@field unk_60 DFVector<any[]>
+---@field unk_60 site_realization_building_unk_60
 ---@field unk_v40_1 number
 
 ---@class _site_realization_building: DFCompound
 ---@field _kind 'struct-type'
 df.site_realization_building = {}
+
+---@class site_realization_building_inhabitants: DFContainer
+---@field [integer] world_site_inhabitant
+local site_realization_building_inhabitants
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site_inhabitant>
+function site_realization_building_inhabitants:_field(index) end
+
+---@param index integer 
+---@param item world_site_inhabitant 
+function site_realization_building_inhabitants:insert(index, item) end
+
+---@param index integer 
+function site_realization_building_inhabitants:erase(index) end
+
+---@class site_realization_building_unk_60: DFContainer
+---@field [integer] any[]
+local site_realization_building_unk_60
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function site_realization_building_unk_60:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function site_realization_building_unk_60:insert(index, item) end
+
+---@param index integer 
+function site_realization_building_unk_60:erase(index) end
 
 ---@class (exact) site_realization_building_infost: DFObject
 ---@field _kind 'struct'
@@ -2109,8 +2781,8 @@ df.creation_zone_pwg_alteration_location_deathst = {}
 ---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
 ---@field _kind 'struct'
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
----@field unk_1a DFVector<any>
----@field unk_2a DFVector<number>
+---@field unk_1a DFAnyVector
+---@field unk_2a DFNumberVector
 
 ---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
 ---@field _kind 'struct-type'

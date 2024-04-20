@@ -39,7 +39,7 @@ df.item_filter_spec = {}
 ---@field item number References: `item`
 ---@field item_filter item_filter_spec
 ---@field color number
----@field assigned DFVector<number>
+---@field assigned DFNumberVector
 ---@field indiv_choice uniform_indiv_choice
 
 ---@class _squad_uniform_spec: DFCompound
@@ -52,7 +52,7 @@ df.squad_uniform_spec = {}
 ---@field item_filter item_filter_spec
 ---@field amount number
 ---@field flags squad_ammo_spec.T_flags
----@field assigned DFVector<number>
+---@field assigned DFNumberVector
 
 ---@class _squad_ammo_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -208,12 +208,12 @@ df.squad_event_type = {}
 ---@field _kind 'struct'
 ---@field _type _squad_position
 ---@field occupant number References: `historical_figure`
----@field orders DFVector<squad_order>
----@field preferences DFEnumVector<barrack_preference_category, DFVector<number>>
----@field uniform DFEnumVector<uniform_category, DFVector<squad_uniform_spec>>
+---@field orders squad_position_orders
+---@field preferences DFEnumVector<barrack_preference_category, number>
+---@field uniform DFEnumVector<uniform_category, squad_uniform_spec>
 ---@field unk_c4 string
 ---@field flags uniform_flags
----@field assigned_items DFVector<number>
+---@field assigned_items DFNumberVector
 ---@field quiver number References: `item`
 ---@field backpack number References: `item`
 ---@field flask number References: `item`
@@ -226,16 +226,64 @@ df.squad_event_type = {}
 ---@field _kind 'struct-type'
 df.squad_position = {}
 
+---@class squad_position_orders: DFContainer
+---@field [integer] squad_order
+local squad_position_orders
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<squad_order>
+function squad_position_orders:_field(index) end
+
+---@param index integer 
+---@param item squad_order 
+function squad_position_orders:insert(index, item) end
+
+---@param index integer 
+function squad_position_orders:erase(index) end
+
+---@class squad_position_uniform: DFContainer
+---@field [integer] squad_uniform_spec
+local squad_position_uniform
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<squad_uniform_spec>
+function squad_position_uniform:_field(index) end
+
+---@param index integer 
+---@param item squad_uniform_spec 
+function squad_position_uniform:insert(index, item) end
+
+---@param index integer 
+function squad_position_uniform:erase(index) end
+
 ---@class (exact) squad_schedule_order: DFObject
 ---@field _kind 'struct'
 ---@field _type _squad_schedule_order
 ---@field order squad_order
 ---@field min_count number
----@field positions DFVector<any[]>
+---@field positions squad_schedule_order_positions
 
 ---@class _squad_schedule_order: DFCompound
 ---@field _kind 'struct-type'
 df.squad_schedule_order = {}
+
+---@class squad_schedule_order_positions: DFContainer
+---@field [integer] any[]
+local squad_schedule_order_positions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function squad_schedule_order_positions:_field(index) end
+
+---@param index integer 
+---@param item any[] 
+function squad_schedule_order_positions:insert(index, item) end
+
+---@param index integer 
+function squad_schedule_order_positions:erase(index) end
 
 ---@class (exact) squad_schedule_entry: DFObject
 ---@field _kind 'struct'
@@ -243,12 +291,28 @@ df.squad_schedule_order = {}
 ---@field name string
 ---@field sleep_mode number 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode number 0 uniformed, 1 civ clothes
----@field orders DFVector<squad_schedule_order>
----@field order_assignments DFVector<any>
+---@field orders squad_schedule_entry_orders
+---@field order_assignments DFAnyVector
 
 ---@class _squad_schedule_entry: DFCompound
 ---@field _kind 'struct-type'
 df.squad_schedule_entry = {}
+
+---@class squad_schedule_entry_orders: DFContainer
+---@field [integer] squad_schedule_order
+local squad_schedule_entry_orders
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<squad_schedule_order>
+function squad_schedule_entry_orders:_field(index) end
+
+---@param index integer 
+---@param item squad_schedule_order 
+function squad_schedule_entry_orders:insert(index, item) end
+
+---@param index integer 
+function squad_schedule_entry_orders:erase(index) end
 
 ---@class (exact) squad: DFObject
 ---@field _kind 'struct'
@@ -256,13 +320,13 @@ df.squad_schedule_entry = {}
 ---@field id number
 ---@field name language_name
 ---@field alias string if not empty, used instead of name
----@field positions DFVector<squad_position>
----@field orders DFVector<squad_order>
----@field schedule DFVector<any>
+---@field positions squad_positions
+---@field orders squad_orders
+---@field schedule DFAnyVector
 ---@field cur_routine_idx number
----@field rooms DFVector<any>
----@field rack_combat DFVector<number>
----@field rack_training DFVector<number>
+---@field rooms DFAnyVector
+---@field rack_combat DFNumberVector
+---@field rack_training DFNumberVector
 ---@field uniform_priority number
 ---@field activity number References: `activity_entry`
 ---@field ammo squad.T_ammo
@@ -295,19 +359,67 @@ function df.squad.find(key) end
 ---@return squad_vector # df.global.world.squads.all
 function df.squad.get_vector() end
 
+---@class squad_positions: DFContainer
+---@field [integer] squad_position
+local squad_positions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<squad_position>
+function squad_positions:_field(index) end
+
+---@param index integer 
+---@param item squad_position 
+function squad_positions:insert(index, item) end
+
+---@param index integer 
+function squad_positions:erase(index) end
+
+---@class squad_orders: DFContainer
+---@field [integer] squad_order
+local squad_orders
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<squad_order>
+function squad_orders:_field(index) end
+
+---@param index integer 
+---@param item squad_order 
+function squad_orders:insert(index, item) end
+
+---@param index integer 
+function squad_orders:erase(index) end
+
 ---@class (exact) squad.T_ammo: DFObject
 ---@field _kind 'struct'
 ---@field _type _squad.T_ammo
----@field ammunition DFVector<squad_ammo_spec>
----@field train_weapon_free DFVector<number>
----@field train_weapon_inuse DFVector<number>
----@field ammo_items DFVector<number>
----@field ammo_units DFVector<number>
+---@field ammunition squad_ammo_ammunition
+---@field train_weapon_free DFNumberVector
+---@field train_weapon_inuse DFNumberVector
+---@field ammo_items DFNumberVector
+---@field ammo_units DFNumberVector
 ---@field update equipment_update
 
 ---@class _squad.T_ammo: DFCompound
 ---@field _kind 'struct-type'
 df.squad.T_ammo = {}
+
+---@class squad_ammo_ammunition: DFContainer
+---@field [integer] squad_ammo_spec
+local squad_ammo_ammunition
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<squad_ammo_spec>
+function squad_ammo_ammunition:_field(index) end
+
+---@param index integer 
+---@param item squad_ammo_spec 
+function squad_ammo_ammunition:insert(index, item) end
+
+---@param index integer 
+function squad_ammo_ammunition:erase(index) end
 
 ---@alias squad_order_type_keys
 ---| '"MOVE"'
@@ -490,8 +602,8 @@ df.squad_order_movest = {}
 ---@class (exact) squad_order_kill_listst: DFObject, squad_order
 ---@field _kind 'struct'
 ---@field _type _squad_order_kill_listst
----@field units DFVector<number>
----@field histfigs DFVector<number>
+---@field units DFNumberVector
+---@field histfigs DFNumberVector
 ---@field title string
 
 ---@class _squad_order_kill_listst: DFCompound
@@ -501,7 +613,7 @@ df.squad_order_kill_listst = {}
 ---@class (exact) squad_order_defend_burrowsst: DFObject, squad_order
 ---@field _kind 'struct'
 ---@field _type _squad_order_defend_burrowsst
----@field burrows DFVector<number>
+---@field burrows DFNumberVector
 
 ---@class _squad_order_defend_burrowsst: DFCompound
 ---@field _kind 'class-type'
@@ -808,7 +920,7 @@ df.army_controller_goal_type = {}
 ---@field pos_y number
 ---@field percentage_pop number
 ---@field number_pop number
----@field activity_id DFVector<number>
+---@field activity_id DFNumberVector
 ---@field year number
 ---@field year_tick number
 ---@field parent_id number id of other army controller (Invasion) from same entity seen here References: `army_controller`
@@ -819,11 +931,11 @@ df.army_controller_goal_type = {}
 ---@field origin_task_id number
 ---@field origin_plot_holder_nemesis_id number References: `nemesis_record`
 ---@field origin_plot_id number
----@field ignore_track_entity_id DFVector<number>
+---@field ignore_track_entity_id DFNumberVector
 ---@field flag army_controller.T_flag
----@field assigned_squads DFVector<number>
----@field assigned_epp_entity_id DFVector<number>
----@field assigned_epp_epp_id DFVector<number>
+---@field assigned_squads DFNumberVector
+---@field assigned_epp_entity_id DFNumberVector
+---@field assigned_epp_epp_id DFNumberVector
 ---@field mission_report mission_report
 ---@field data army_controller.T_data
 ---@field goal army_controller_goal_type
@@ -917,17 +1029,33 @@ df.army_camp_profilest = {}
 ---@field invasion_stage invasion_stage_type
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile DFVector<army_camp_profilest>
----@field connected_hamlet_site_id DFVector<number> not sorted
----@field connected_hamlet_site_flag DFVector<integer>
+---@field camp_profile army_controller_goal_site_invasionst_camp_profile
+---@field connected_hamlet_site_id DFNumberVector not sorted
+---@field connected_hamlet_site_flag DFIntegerVector
 ---@field flag army_controller_goal_site_invasionst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
----@field rampaged_ac DFVector<number>
+---@field rampaged_ac DFNumberVector
 
 ---@class _army_controller_goal_site_invasionst: DFCompound
 ---@field _kind 'struct-type'
 df.army_controller_goal_site_invasionst = {}
+
+---@class army_controller_goal_site_invasionst_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_site_invasionst_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_site_invasionst_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_site_invasionst_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_site_invasionst_camp_profile:erase(index) end
 
 ---@class army_controller_goal_site_invasionst.T_flag: DFObject
 ---@field _kind 'bitfield'
@@ -1093,7 +1221,7 @@ df.army_controller_goal_huntingst.T_flag = {}
 ---@field _type _army_controller_goal_patrolst
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile DFVector<army_camp_profilest>
+---@field camp_profile army_controller_goal_patrolst_camp_profile
 ---@field flag army_controller_goal_patrolst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
@@ -1105,6 +1233,22 @@ df.army_controller_goal_huntingst.T_flag = {}
 ---@class _army_controller_goal_patrolst: DFCompound
 ---@field _kind 'struct-type'
 df.army_controller_goal_patrolst = {}
+
+---@class army_controller_goal_patrolst_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_patrolst_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_patrolst_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_patrolst_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_patrolst_camp_profile:erase(index) end
 
 ---@class army_controller_goal_patrolst.T_flag: DFObject
 ---@field _kind 'bitfield'
@@ -1126,11 +1270,27 @@ df.army_controller_goal_patrolst.T_flag = {}
 ---@field _type _army_controller_goal_escapest
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile DFVector<army_camp_profilest>
+---@field camp_profile army_controller_goal_escapest_camp_profile
 
 ---@class _army_controller_goal_escapest: DFCompound
 ---@field _kind 'struct-type'
 df.army_controller_goal_escapest = {}
+
+---@class army_controller_goal_escapest_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_escapest_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_escapest_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_escapest_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_escapest_camp_profile:erase(index) end
 
 ---@class (exact) army_controller_goal_move_to_sitest: DFObject
 ---@field _kind 'struct'
@@ -1138,7 +1298,7 @@ df.army_controller_goal_escapest = {}
 ---@field goal_hfid number
 ---@field goal_srbid number
 ---@field flag army_controller_goal_move_to_sitest.T_flag
----@field camp_profile DFVector<army_camp_profilest>
+---@field camp_profile army_controller_goal_move_to_sitest_camp_profile
 ---@field goal_ent_id number
 ---@field goal_epp_id number
 ---@field goal_ab_id number abstract building id; monster slayers have -1
@@ -1163,13 +1323,29 @@ df.army_controller_goal_move_to_sitest = {}
 ---@field [1] "RETURNING_TO_CURRENT_HOME"
 df.army_controller_goal_move_to_sitest.T_flag = {}
 
+---@class army_controller_goal_move_to_sitest_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_move_to_sitest_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_move_to_sitest_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_move_to_sitest_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_move_to_sitest_camp_profile:erase(index) end
+
 ---@class (exact) army_controller_goal_reclaim_sitest: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller_goal_reclaim_sitest
 ---@field flag army_controller_goal_reclaim_sitest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
----@field camp_profile DFVector<army_camp_profilest>
+---@field camp_profile army_controller_goal_reclaim_sitest_camp_profile
 
 ---@class _army_controller_goal_reclaim_sitest: DFCompound
 ---@field _kind 'struct-type'
@@ -1186,13 +1362,29 @@ df.army_controller_goal_reclaim_sitest = {}
 ---@field [0] "RETURNING_HOME"
 df.army_controller_goal_reclaim_sitest.T_flag = {}
 
+---@class army_controller_goal_reclaim_sitest_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_reclaim_sitest_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_reclaim_sitest_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_reclaim_sitest_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_reclaim_sitest_camp_profile:erase(index) end
+
 ---@class (exact) army_controller_goal_create_new_sitest: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller_goal_create_new_sitest
 ---@field flag army_controller_goal_create_new_sitest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
----@field camp_profile DFVector<army_camp_profilest>
+---@field camp_profile army_controller_goal_create_new_sitest_camp_profile
 ---@field desired_parent_stid number
 
 ---@class _army_controller_goal_create_new_sitest: DFCompound
@@ -1210,12 +1402,28 @@ df.army_controller_goal_create_new_sitest = {}
 ---@field [0] "RETURNING_HOME"
 df.army_controller_goal_create_new_sitest.T_flag = {}
 
+---@class army_controller_goal_create_new_sitest_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_create_new_sitest_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_create_new_sitest_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_create_new_sitest_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_create_new_sitest_camp_profile:erase(index) end
+
 ---@class (exact) army_controller_goal_possest: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller_goal_possest
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile DFVector<army_camp_profilest>
+---@field camp_profile army_controller_goal_possest_camp_profile
 ---@field flag army_controller_goal_possest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
@@ -1230,6 +1438,22 @@ df.army_controller_goal_create_new_sitest.T_flag = {}
 ---@class _army_controller_goal_possest: DFCompound
 ---@field _kind 'struct-type'
 df.army_controller_goal_possest = {}
+
+---@class army_controller_goal_possest_camp_profile: DFContainer
+---@field [integer] army_camp_profilest
+local army_controller_goal_possest_camp_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_camp_profilest>
+function army_controller_goal_possest_camp_profile:_field(index) end
+
+---@param index integer 
+---@param item army_camp_profilest 
+function army_controller_goal_possest_camp_profile:insert(index, item) end
+
+---@param index integer 
+function army_controller_goal_possest_camp_profile:erase(index) end
 
 ---@class army_controller_goal_possest.T_flag: DFObject
 ---@field _kind 'bitfield'
@@ -1302,7 +1526,7 @@ df.army_controller_goal_rescue_hfst.T_flag = {}
 ---@class (exact) army_controller_goal_make_requestst: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller_goal_make_requestst
----@field requested_hfid DFVector<number> sorted
+---@field requested_hfid DFNumberVector sorted
 ---@field flag army_controller_goal_make_requestst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
@@ -1445,31 +1669,31 @@ df.army_flags = {}
 ---@field unk_10 number 1, 2, 5, 10, 15, 20, 21 seen
 ---@field unk_14 number When set, large value like army or army_controller id, but no match found
 ---@field unk_18 number
----@field members DFVector<any>
----@field squads DFVector<world_site_inhabitant>
+---@field members DFAnyVector
+---@field squads army_squads
 ---@field unk_3c number
 ---@field unk_1 number
 ---@field unk_2 number 16 only value seen
 ---@field controller_id number References: `army_controller`
 ---@field controller army_controller
----@field flags DFVector<table<army_flags, boolean>>
----@field block_path_x DFVector<number> path in map_block coordinates. Seems to be the near term
----@field block_path_y DFVector<number>
----@field path_x DFVector<number> path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
----@field path_y DFVector<number>
+---@field flags army_flags
+---@field block_path_x DFNumberVector path in map_block coordinates. Seems to be the near term
+---@field block_path_y DFNumberVector
+---@field path_x DFNumberVector path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
+---@field path_y DFNumberVector
 ---@field unk_90 number
 ---@field unk_94 number Number counting down. In examined save starts at 80 for id 38 counting down to 0 at 113, obviously with missing numbers somewhere
 ---@field unk_98 number
 ---@field min_smell_trigger number
 ---@field max_odor_level number 1000 if undead are present
 ---@field max_low_light_vision number
----@field sense_creature_classes DFVector<string>
----@field creature_class DFVector<string> Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
+---@field sense_creature_classes DFStringVector
+---@field creature_class DFStringVector Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
 ---@field item_type item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field unk_4407_1 DFVector<item>
+---@field unk_4407_1 army_unk_4407_1
 
 ---@class _army: DFCompound
 ---@field _kind 'struct-type'
@@ -1483,4 +1707,52 @@ function df.army.find(key) end
 
 ---@return army_vector # df.global.world.armies.all
 function df.army.get_vector() end
+
+---@class army_squads: DFContainer
+---@field [integer] world_site_inhabitant
+local army_squads
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_site_inhabitant>
+function army_squads:_field(index) end
+
+---@param index integer 
+---@param item world_site_inhabitant 
+function army_squads:insert(index, item) end
+
+---@param index integer 
+function army_squads:erase(index) end
+
+---@class army_flags: DFContainer
+---@field [integer] table<army_flags, boolean>
+local army_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<army_flags, boolean>>
+function army_flags:_field(index) end
+
+---@param index integer 
+---@param item table<army_flags, boolean> 
+function army_flags:insert(index, item) end
+
+---@param index integer 
+function army_flags:erase(index) end
+
+---@class army_unk_4407_1: DFContainer
+---@field [integer] item
+local army_unk_4407_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function army_unk_4407_1:_field(index) end
+
+---@param index integer 
+---@param item item 
+function army_unk_4407_1:insert(index, item) end
+
+---@param index integer 
+function army_unk_4407_1:erase(index) end
 

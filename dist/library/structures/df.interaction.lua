@@ -25,11 +25,11 @@ df.interaction_flags = {}
 ---@field _type _interaction
 ---@field name string
 ---@field id number
----@field str DFVector<string> interaction raws
----@field flags DFVector<table<interaction_flags, boolean>>
----@field sources DFVector<interaction_source> I_SOURCE
----@field targets DFVector<interaction_target> I_TARGET
----@field effects DFVector<interaction_effect> I_EFFECT
+---@field str DFStringVector interaction raws
+---@field flags interaction_flags
+---@field sources interaction_sources I_SOURCE
+---@field targets interaction_targets I_TARGET
+---@field effects interaction_effects I_EFFECT
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
 
@@ -45,6 +45,70 @@ function df.interaction.find(key) end
 
 ---@return interaction_vector # df.global.world.raws.interactions
 function df.interaction.get_vector() end
+
+---@class interaction_flags: DFContainer
+---@field [integer] table<interaction_flags, boolean>
+local interaction_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<interaction_flags, boolean>>
+function interaction_flags:_field(index) end
+
+---@param index integer 
+---@param item table<interaction_flags, boolean> 
+function interaction_flags:insert(index, item) end
+
+---@param index integer 
+function interaction_flags:erase(index) end
+
+---@class interaction_sources: DFContainer
+---@field [integer] interaction_source
+local interaction_sources
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_source>
+function interaction_sources:_field(index) end
+
+---@param index integer 
+---@param item interaction_source 
+function interaction_sources:insert(index, item) end
+
+---@param index integer 
+function interaction_sources:erase(index) end
+
+---@class interaction_targets: DFContainer
+---@field [integer] interaction_target
+local interaction_targets
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_target>
+function interaction_targets:_field(index) end
+
+---@param index integer 
+---@param item interaction_target 
+function interaction_targets:insert(index, item) end
+
+---@param index integer 
+function interaction_targets:erase(index) end
+
+---@class interaction_effects: DFContainer
+---@field [integer] interaction_effect
+local interaction_effects
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_effect>
+function interaction_effects:_field(index) end
+
+---@param index integer 
+---@param item interaction_effect 
+function interaction_effects:insert(index, item) end
+
+---@param index integer 
+function interaction_effects:erase(index) end
 
 ---@alias interaction_effect_type_keys
 ---| '"ANIMATE"'
@@ -148,10 +212,10 @@ df.interaction_effect_location_hint = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect
 ---@field index number index of the effect within the parent interaction.effects
----@field targets DFVector<string>
----@field targets_index DFVector<number> for each target used in this effect, list the index of that target within the parent interaction.targets
+---@field targets DFStringVector
+---@field targets_index DFNumberVector for each target used in this effect, list the index of that target within the parent interaction.targets
 ---@field intermittent number IE_INTERMITTENT, 0 = weekly
----@field locations DFVector<interaction_effect_location_hint> IE_LOCATION
+---@field locations interaction_effect_locations IE_LOCATION
 ---@field flags interaction_effect.T_flags
 ---@field interaction_id number References: `interaction`
 ---@field arena_name string IE_ARENA_NAME
@@ -159,6 +223,22 @@ df.interaction_effect_location_hint = {}
 ---@class _interaction_effect: DFCompound
 ---@field _kind 'class-type'
 df.interaction_effect = {}
+
+---@class interaction_effect_locations: DFContainer
+---@field [integer] interaction_effect_location_hint
+local interaction_effect_locations
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_effect_location_hint>
+function interaction_effect_locations:_field(index) end
+
+---@param index integer 
+---@param item interaction_effect_location_hint 
+function interaction_effect_locations:insert(index, item) end
+
+---@param index integer 
+function interaction_effect_locations:erase(index) end
 
 ---@class interaction_effect.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -175,31 +255,79 @@ df.interaction_effect.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_animatest
 ---@field unk_1 number
----@field syndrome DFVector<syndrome>
+---@field syndrome interaction_effect_animatest_syndrome
 
 ---@class _interaction_effect_animatest: DFCompound
 ---@field _kind 'class-type'
 df.interaction_effect_animatest = {}
 
+---@class interaction_effect_animatest_syndrome: DFContainer
+---@field [integer] syndrome
+local interaction_effect_animatest_syndrome
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<syndrome>
+function interaction_effect_animatest_syndrome:_field(index) end
+
+---@param index integer 
+---@param item syndrome 
+function interaction_effect_animatest_syndrome:insert(index, item) end
+
+---@param index integer 
+function interaction_effect_animatest_syndrome:erase(index) end
+
 ---@class (exact) interaction_effect_add_syndromest: DFObject, interaction_effect
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_add_syndromest
 ---@field unk_1 number
----@field syndrome DFVector<syndrome>
+---@field syndrome interaction_effect_add_syndromest_syndrome
 
 ---@class _interaction_effect_add_syndromest: DFCompound
 ---@field _kind 'class-type'
 df.interaction_effect_add_syndromest = {}
 
+---@class interaction_effect_add_syndromest_syndrome: DFContainer
+---@field [integer] syndrome
+local interaction_effect_add_syndromest_syndrome
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<syndrome>
+function interaction_effect_add_syndromest_syndrome:_field(index) end
+
+---@param index integer 
+---@param item syndrome 
+function interaction_effect_add_syndromest_syndrome:insert(index, item) end
+
+---@param index integer 
+function interaction_effect_add_syndromest_syndrome:erase(index) end
+
 ---@class (exact) interaction_effect_resurrectst: DFObject, interaction_effect
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_resurrectst
 ---@field unk_1 number
----@field syndrome DFVector<syndrome>
+---@field syndrome interaction_effect_resurrectst_syndrome
 
 ---@class _interaction_effect_resurrectst: DFCompound
 ---@field _kind 'class-type'
 df.interaction_effect_resurrectst = {}
+
+---@class interaction_effect_resurrectst_syndrome: DFContainer
+---@field [integer] syndrome
+local interaction_effect_resurrectst_syndrome
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<syndrome>
+function interaction_effect_resurrectst_syndrome:_field(index) end
+
+---@param index integer 
+---@param item syndrome 
+function interaction_effect_resurrectst_syndrome:insert(index, item) end
+
+---@param index integer 
+function interaction_effect_resurrectst_syndrome:erase(index) end
 
 ---@class (exact) interaction_effect_cleanst: DFObject, interaction_effect
 ---@field _kind 'struct'
@@ -263,11 +391,27 @@ df.interaction_effect_change_weatherst = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_raise_ghostst
 ---@field unk_1 number
----@field syndrome DFVector<syndrome> assumed based on vmethod reference
+---@field syndrome interaction_effect_raise_ghostst_syndrome assumed based on vmethod reference
 
 ---@class _interaction_effect_raise_ghostst: DFCompound
 ---@field _kind 'class-type'
 df.interaction_effect_raise_ghostst = {}
+
+---@class interaction_effect_raise_ghostst_syndrome: DFContainer
+---@field [integer] syndrome
+local interaction_effect_raise_ghostst_syndrome
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<syndrome>
+function interaction_effect_raise_ghostst_syndrome:_field(index) end
+
+---@param index integer 
+---@param item syndrome 
+function interaction_effect_raise_ghostst_syndrome:insert(index, item) end
+
+---@param index integer 
+function interaction_effect_raise_ghostst_syndrome:erase(index) end
 
 ---@class (exact) interaction_effect_create_itemst: DFObject, interaction_effect
 ---@field _kind 'struct'
@@ -307,12 +451,12 @@ df.interaction_effect_propel_unitst = {}
 ---@field make_pet number IE_MAKE_PET_IF_POSSIBLE
 ---@field race_str string CREATURE
 ---@field caste_str string CREATURE
----@field unk_1 DFVector<number> seen 4 bytes allocated
----@field unk_2 DFVector<number> seen 2 bytes allocate
----@field required_creature_flags DFVector<number> contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
----@field forbidden_creature_flags DFVector<number> contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
----@field required_caste_flags DFVector<number> contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
----@field forbidden_caste_flags DFVector<number> contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
+---@field unk_1 DFNumberVector seen 4 bytes allocated
+---@field unk_2 DFNumberVector seen 2 bytes allocate
+---@field required_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
+---@field forbidden_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
+---@field required_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
+---@field forbidden_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field time_range_min number IE_TIME_RANGE
@@ -434,8 +578,8 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_source_secretst
 ---@field learn_flags interaction_source_secretst.T_learn_flags
----@field spheres DFVector<sphere_type>
----@field goals DFVector<goal_type>
+---@field spheres interaction_source_secretst_spheres
+---@field goals interaction_source_secretst_goals
 ---@field book_title_filename string
 ---@field book_name_filename string
 ---@field unk_1 number
@@ -467,6 +611,38 @@ df.interaction_source_secretst = {}
 ---@field MUNDANE_TEACHING_POSSIBLE 3
 ---@field [3] "MUNDANE_TEACHING_POSSIBLE"
 df.interaction_source_secretst.T_learn_flags = {}
+
+---@class interaction_source_secretst_spheres: DFContainer
+---@field [integer] sphere_type
+local interaction_source_secretst_spheres
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<sphere_type>
+function interaction_source_secretst_spheres:_field(index) end
+
+---@param index integer 
+---@param item sphere_type 
+function interaction_source_secretst_spheres:insert(index, item) end
+
+---@param index integer 
+function interaction_source_secretst_spheres:erase(index) end
+
+---@class interaction_source_secretst_goals: DFContainer
+---@field [integer] goal_type
+local interaction_source_secretst_goals
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<goal_type>
+function interaction_source_secretst_goals:_field(index) end
+
+---@param index integer 
+---@param item goal_type 
+function interaction_source_secretst_goals:insert(index, item) end
+
+---@param index integer 
+function interaction_source_secretst_goals:erase(index) end
 
 ---@class (exact) interaction_source_disturbancest: DFObject, interaction_source
 ---@field _kind 'struct'
@@ -544,11 +720,27 @@ df.interaction_source_usage_hint = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_source_deityst
 ---@field unk_1 number
----@field usage_hint DFVector<interaction_source_usage_hint> IS_USAGE_HINT
+---@field usage_hint interaction_source_deityst_usage_hint IS_USAGE_HINT
 
 ---@class _interaction_source_deityst: DFCompound
 ---@field _kind 'class-type'
 df.interaction_source_deityst = {}
+
+---@class interaction_source_deityst_usage_hint: DFContainer
+---@field [integer] interaction_source_usage_hint
+local interaction_source_deityst_usage_hint
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<interaction_source_usage_hint>
+function interaction_source_deityst_usage_hint:_field(index) end
+
+---@param index integer 
+---@param item interaction_source_usage_hint 
+function interaction_source_deityst_usage_hint:insert(index, item) end
+
+---@param index integer 
+function interaction_source_deityst_usage_hint:erase(index) end
 
 ---@class (exact) interaction_source_attackst: DFObject, interaction_source
 ---@field _kind 'struct'
@@ -681,13 +873,13 @@ df.interaction_target = {}
 ---@class (exact) interaction_target_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _interaction_target_info
----@field affected_creature_str DFVector<string>[]
----@field affected_creature DFVector<number> IT_AFFECTED_CREATURE
----@field affected_class DFVector<string> IT_AFFECTED_CLASS
----@field immune_creature_str DFVector<string>[]
----@field immune_creature DFVector<number> IT_IMMUNE_CREATURE
----@field immune_class DFVector<string> IT_IMMUNE_CLASS
----@field forbidden_syndrome_class DFVector<string>
+---@field affected_creature_str string[]
+---@field affected_creature DFNumberVector IT_AFFECTED_CREATURE
+---@field affected_class DFStringVector IT_AFFECTED_CLASS
+---@field immune_creature_str string[]
+---@field immune_creature DFNumberVector IT_IMMUNE_CREATURE
+---@field immune_class DFStringVector IT_IMMUNE_CLASS
+---@field forbidden_syndrome_class DFStringVector
 ---@field requires_1 number IT_REQUIRES
 ---@field requires_2 number IT_REQUIRES
 ---@field forbidden_1 number IT_FORBIDDEN
@@ -866,7 +1058,7 @@ df.interaction_target_locationst = {}
 ---@field interaction_id number References: `interaction`
 ---@field unk_1 number
 ---@field region_index number
----@field affected_units DFVector<number> IDs of units affected by the regional interaction
+---@field affected_units DFNumberVector IDs of units affected by the regional interaction
 
 ---@class _interaction_instance: DFCompound
 ---@field _kind 'struct-type'

@@ -980,197 +980,3221 @@ df.buildings_other_id.attrs = {}
 ---@class (exact) buildings_other: DFObject
 ---@field _kind 'struct'
 ---@field _type _buildings_other
----@field IN_PLAY DFVector<building>
----@field STOCKPILE DFVector<building_stockpilest>
----@field ANY_ZONE DFVector<building_civzonest>
----@field ACTIVITY_ZONE DFVector<building_civzonest>
----@field ZONE_HOME DFVector<building_civzonest>
----@field ZONE_DEPOT DFVector<building_civzonest>
----@field ZONE_STOCKPILE DFVector<building_civzonest>
----@field ZONE_NOBLE_QUARTERS DFVector<building_civzonest>
----@field ZONE_INVALID4 DFVector<building_civzonest>
----@field ZONE_INVALID5 DFVector<building_civzonest>
----@field ZONE_INVALID6 DFVector<building_civzonest>
----@field ZONE_MEAD_HALL DFVector<building_civzonest>
----@field ZONE_THRONE_ROOM DFVector<building_civzonest>
----@field ZONE_INVALID9 DFVector<building_civzonest>
----@field ZONE_TEMPLE DFVector<building_civzonest>
----@field ZONE_KITCHEN DFVector<building_civzonest>
----@field ZONE_CAPTIVE_ROOM DFVector<building_civzonest>
----@field ZONE_TOWER_TOP DFVector<building_civzonest>
----@field ZONE_COURTYARD DFVector<building_civzonest>
----@field ZONE_TREASURY DFVector<building_civzonest>
----@field ZONE_GUARD_POST DFVector<building_civzonest>
----@field ZONE_ENTRANCE DFVector<building_civzonest>
----@field ZONE_SECRET_LIBRARY DFVector<building_civzonest>
----@field ZONE_LIBRARY DFVector<building_civzonest>
----@field ZONE_PLOT DFVector<building_civzonest>
----@field ZONE_MARKET_STALL DFVector<building_civzonest>
----@field ZONE_INVALID22 DFVector<building_civzonest>
----@field ZONE_CAMPGROUND DFVector<building_civzonest>
----@field ZONE_COMMAND_TENT DFVector<building_civzonest>
----@field ZONE_TENT DFVector<building_civzonest>
----@field ZONE_COMMAND_TENT_BLD DFVector<building_civzonest>
----@field ZONE_TENT_BLD DFVector<building_civzonest>
----@field ZONE_MECHANISM_ROOM DFVector<building_civzonest>
----@field ZONE_DUNGEON_CELL DFVector<building_civzonest>
----@field ZONE_ANIMAL_PIT DFVector<building_civzonest>
----@field ZONE_CLOTH_PIT DFVector<building_civzonest>
----@field ZONE_TANNING_PIT DFVector<building_civzonest>
----@field ZONE_CLOTH_CLOTHING_PIT DFVector<building_civzonest>
----@field ZONE_LEATHER_CLOTHING_PIT DFVector<building_civzonest>
----@field ZONE_BONE_CARVING_PIT DFVector<building_civzonest>
----@field ZONE_GEM_CUTTING_PIT DFVector<building_civzonest>
----@field ZONE_WEAPONSMITHING_PIT DFVector<building_civzonest>
----@field ZONE_BOWMAKING_PIT DFVector<building_civzonest>
----@field ZONE_BLACKSMITHING_PIT DFVector<building_civzonest>
----@field ZONE_ARMORSMITHING_PIT DFVector<building_civzonest>
----@field ZONE_METAL_CRAFTING_PIT DFVector<building_civzonest>
----@field ZONE_LEATHERWORKING_PIT DFVector<building_civzonest>
----@field ZONE_CARPENTRY_PIT DFVector<building_civzonest>
----@field ZONE_STONEWORKING_PIT DFVector<building_civzonest>
----@field ZONE_FORGING_PIT DFVector<building_civzonest>
----@field ZONE_FIGHTING_PIT DFVector<building_civzonest>
----@field ZONE_INVALID47 DFVector<building_civzonest>
----@field ZONE_INVALID48 DFVector<building_civzonest>
----@field ZONE_INVALID49 DFVector<building_civzonest>
----@field ZONE_INVALID50 DFVector<building_civzonest>
----@field ZONE_INVALID51 DFVector<building_civzonest>
----@field ZONE_INVALID52 DFVector<building_civzonest>
----@field ZONE_ANIMAL_WORKSHOP DFVector<building_civzonest>
----@field ZONE_CLOTH_WORKSHOP DFVector<building_civzonest>
----@field ZONE_TANNING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_CLOTH_CLOTHING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_LEATHER_CLOTHING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_BONE_CARVING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_GEM_CUTTING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_WEAPONSMITHING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_BOWMAKING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_BLACKSMITHING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_ARMORSMITHING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_METAL_CRAFTING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_LEATHERWORKING_SHOP DFVector<building_civzonest>
----@field ZONE_CARPENTRY_WORKSHOP DFVector<building_civzonest>
----@field ZONE_STONEWORKING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_FORGING_WORKSHOP DFVector<building_civzonest>
----@field ZONE_COUNTING_HOUSE_OFFICES DFVector<building_civzonest>
----@field ZONE_COUNTING_HOUSE_STORAGE DFVector<building_civzonest>
----@field ZONE_GUILDHALL_OFFICES DFVector<building_civzonest>
----@field ZONE_GUILDHALL_STORAGE DFVector<building_civzonest>
----@field ZONE_TOWER_ENTRANCE DFVector<building_civzonest>
----@field ZONE_TOWER_FEASTHALL DFVector<building_civzonest>
----@field ZONE_TOWER_BEDROOM DFVector<building_civzonest>
----@field ZONE_TOWER_TREASURY DFVector<building_civzonest>
----@field ZONE_TOWER_DUNGEON DFVector<building_civzonest>
----@field ZONE_TOWER_ATTIC DFVector<building_civzonest>
----@field ZONE_DORMITORY DFVector<building_civzonest>
----@field ZONE_DINING_HALL DFVector<building_civzonest>
----@field ZONE_INVALID81 DFVector<building_civzonest>
----@field ZONE_WATER_SOURCE DFVector<building_civzonest>
----@field ZONE_DUMP DFVector<building_civzonest>
----@field ZONE_SAND_COLLECTION DFVector<building_civzonest>
----@field ZONE_FISHING_AREA DFVector<building_civzonest>
----@field ZONE_POND DFVector<building_civzonest>
----@field ZONE_MEETING_HALL DFVector<building_civzonest>
----@field ZONE_PEN DFVector<building_civzonest>
----@field ZONE_CLAY_COLLECTION DFVector<building_civzonest>
----@field ZONE_ANIMAL_TRAINING DFVector<building_civzonest>
----@field ZONE_PLANT_GATHERING DFVector<building_civzonest>
----@field ZONE_BEDROOM DFVector<building_civzonest>
----@field ZONE_OFFICE DFVector<building_civzonest>
----@field ZONE_ARCHERY_RANGE DFVector<building_civzonest>
----@field ZONE_BARRACKS DFVector<building_civzonest>
----@field ZONE_DUNGEON DFVector<building_civzonest>
----@field ZONE_TOMB DFVector<building_civzonest>
----@field LOCATION_ASSIGNED DFVector<building_civzonest>
----@field ANY_ACTUAL DFVector<building_actual>
----@field ANY_MACHINE DFVector<building_actual>
----@field ANY_HOSPITAL_STORAGE DFVector<building_actual>
----@field ANY_STORAGE DFVector<building_actual>
----@field ANY_BARRACKS DFVector<building_actual>
----@field ANY_HOSPITAL DFVector<building_actual>
----@field BOX DFVector<building_boxst>
----@field CABINET DFVector<building_cabinetst>
----@field TRAP DFVector<building_trapst>
----@field DOOR DFVector<building_doorst>
----@field FLOODGATE DFVector<building_floodgatest>
----@field HATCH DFVector<building_hatchst>
----@field GRATE_WALL DFVector<building_grate_wallst>
----@field GRATE_FLOOR DFVector<building_grate_floorst>
----@field BARS_VERTICAL DFVector<building_bars_verticalst>
----@field BARS_FLOOR DFVector<building_bars_floorst>
----@field WINDOW_ANY DFVector<building>
----@field WELL DFVector<building_wellst>
----@field TABLE DFVector<building_tablest>
----@field BRIDGE DFVector<building_bridgest>
----@field CHAIR DFVector<building_chairst>
----@field TRADE_DEPOT DFVector<building_tradedepotst>
----@field NEST DFVector<building_nestst>
----@field NEST_BOX DFVector<building_nest_boxst>
----@field BOOKCASE DFVector<building_bookcasest>
----@field DISPLAY_CASE DFVector<building_display_furniturest>
----@field HIVE DFVector<building_hivest>
----@field WAGON DFVector<building_wagonst>
----@field SHOP DFVector<building_shopst>
----@field BED DFVector<building_bedst>
----@field TRACTION_BENCH DFVector<building_traction_benchst>
----@field ANY_ROAD DFVector<building_roadst>
----@field FARM_PLOT DFVector<building_farmplotst>
----@field GEAR_ASSEMBLY DFVector<building_gear_assemblyst>
----@field ROLLERS DFVector<building_rollersst>
----@field AXLE_HORIZONTAL DFVector<building_axle_horizontalst>
----@field AXLE_VERTICAL DFVector<building_axle_verticalst>
----@field SUPPORT DFVector<building_supportst>
----@field ARCHERY_TARGET DFVector<building_archerytargetst>
----@field SCREW_PUMP DFVector<building_screw_pumpst>
----@field WATER_WHEEL DFVector<building_water_wheelst>
----@field WINDMILL DFVector<building_windmillst>
----@field CHAIN DFVector<building_chainst>
----@field CAGE DFVector<building_cagest>
----@field STATUE DFVector<building_statuest>
----@field SLAB DFVector<building_slabst>
----@field COFFIN DFVector<building_coffinst>
----@field WEAPON_RACK DFVector<building_weaponrackst>
----@field ARMOR_STAND DFVector<building_armorstandst>
----@field FURNACE_ANY DFVector<building_furnacest>
----@field FURNACE_WOOD DFVector<building_furnacest>
----@field FURNACE_SMELTER_ANY DFVector<building_furnacest>
----@field FURNACE_SMELTER_MAGMA DFVector<building_furnacest>
----@field FURNACE_KILN_ANY DFVector<building_furnacest>
----@field FURNACE_GLASS_ANY DFVector<building_furnacest>
----@field FURNACE_CUSTOM DFVector<building_furnacest>
----@field WORKSHOP_ANY DFVector<building_workshopst>
----@field WORKSHOP_BUTCHER DFVector<building_workshopst>
----@field WORKSHOP_MASON DFVector<building_workshopst>
----@field WORKSHOP_KENNEL DFVector<building_workshopst>
----@field WORKSHOP_FISHERY DFVector<building_workshopst>
----@field WORKSHOP_JEWELER DFVector<building_workshopst>
----@field WORKSHOP_LOOM DFVector<building_workshopst>
----@field WORKSHOP_TANNER DFVector<building_workshopst>
----@field WORKSHOP_DYER DFVector<building_workshopst>
----@field WORKSHOP_MILL_ANY DFVector<building_workshopst>
----@field WORKSHOP_QUERN DFVector<building_workshopst>
----@field WORKSHOP_TOOL DFVector<building_workshopst>
----@field WORKSHOP_MILLSTONE DFVector<building_workshopst>
----@field WORKSHOP_KITCHEN DFVector<building_workshopst>
----@field WORKSHOP_STILL DFVector<building_workshopst>
----@field WORKSHOP_FARMER DFVector<building_workshopst>
----@field WORKSHOP_ASHERY DFVector<building_workshopst>
----@field WORKSHOP_CARPENTER DFVector<building_workshopst>
----@field WORKSHOP_CRAFTSDWARF DFVector<building_workshopst>
----@field WORKSHOP_MECHANIC DFVector<building_workshopst>
----@field WORKSHOP_SIEGE DFVector<building_workshopst>
----@field WORKSHOP_CLOTHIER DFVector<building_workshopst>
----@field WORKSHOP_LEATHER DFVector<building_workshopst>
----@field WORKSHOP_BOWYER DFVector<building_workshopst>
----@field WORKSHOP_MAGMA_FORGE DFVector<building_workshopst>
----@field WORKSHOP_FORGE_ANY DFVector<building_workshopst>
----@field WORKSHOP_CUSTOM DFVector<building_workshopst>
----@field WEAPON_UPRIGHT DFVector<building_weaponst>
----@field INSTRUMENT_STATIONARY DFVector<building_instrumentst>
----@field OFFERING_PLACE DFVector<building_offering_placest>
+---@field IN_PLAY buildings_other_IN_PLAY
+---@field STOCKPILE buildings_other_STOCKPILE
+---@field ANY_ZONE buildings_other_ANY_ZONE
+---@field ACTIVITY_ZONE buildings_other_ACTIVITY_ZONE
+---@field ZONE_HOME buildings_other_ZONE_HOME
+---@field ZONE_DEPOT buildings_other_ZONE_DEPOT
+---@field ZONE_STOCKPILE buildings_other_ZONE_STOCKPILE
+---@field ZONE_NOBLE_QUARTERS buildings_other_ZONE_NOBLE_QUARTERS
+---@field ZONE_INVALID4 buildings_other_ZONE_INVALID4
+---@field ZONE_INVALID5 buildings_other_ZONE_INVALID5
+---@field ZONE_INVALID6 buildings_other_ZONE_INVALID6
+---@field ZONE_MEAD_HALL buildings_other_ZONE_MEAD_HALL
+---@field ZONE_THRONE_ROOM buildings_other_ZONE_THRONE_ROOM
+---@field ZONE_INVALID9 buildings_other_ZONE_INVALID9
+---@field ZONE_TEMPLE buildings_other_ZONE_TEMPLE
+---@field ZONE_KITCHEN buildings_other_ZONE_KITCHEN
+---@field ZONE_CAPTIVE_ROOM buildings_other_ZONE_CAPTIVE_ROOM
+---@field ZONE_TOWER_TOP buildings_other_ZONE_TOWER_TOP
+---@field ZONE_COURTYARD buildings_other_ZONE_COURTYARD
+---@field ZONE_TREASURY buildings_other_ZONE_TREASURY
+---@field ZONE_GUARD_POST buildings_other_ZONE_GUARD_POST
+---@field ZONE_ENTRANCE buildings_other_ZONE_ENTRANCE
+---@field ZONE_SECRET_LIBRARY buildings_other_ZONE_SECRET_LIBRARY
+---@field ZONE_LIBRARY buildings_other_ZONE_LIBRARY
+---@field ZONE_PLOT buildings_other_ZONE_PLOT
+---@field ZONE_MARKET_STALL buildings_other_ZONE_MARKET_STALL
+---@field ZONE_INVALID22 buildings_other_ZONE_INVALID22
+---@field ZONE_CAMPGROUND buildings_other_ZONE_CAMPGROUND
+---@field ZONE_COMMAND_TENT buildings_other_ZONE_COMMAND_TENT
+---@field ZONE_TENT buildings_other_ZONE_TENT
+---@field ZONE_COMMAND_TENT_BLD buildings_other_ZONE_COMMAND_TENT_BLD
+---@field ZONE_TENT_BLD buildings_other_ZONE_TENT_BLD
+---@field ZONE_MECHANISM_ROOM buildings_other_ZONE_MECHANISM_ROOM
+---@field ZONE_DUNGEON_CELL buildings_other_ZONE_DUNGEON_CELL
+---@field ZONE_ANIMAL_PIT buildings_other_ZONE_ANIMAL_PIT
+---@field ZONE_CLOTH_PIT buildings_other_ZONE_CLOTH_PIT
+---@field ZONE_TANNING_PIT buildings_other_ZONE_TANNING_PIT
+---@field ZONE_CLOTH_CLOTHING_PIT buildings_other_ZONE_CLOTH_CLOTHING_PIT
+---@field ZONE_LEATHER_CLOTHING_PIT buildings_other_ZONE_LEATHER_CLOTHING_PIT
+---@field ZONE_BONE_CARVING_PIT buildings_other_ZONE_BONE_CARVING_PIT
+---@field ZONE_GEM_CUTTING_PIT buildings_other_ZONE_GEM_CUTTING_PIT
+---@field ZONE_WEAPONSMITHING_PIT buildings_other_ZONE_WEAPONSMITHING_PIT
+---@field ZONE_BOWMAKING_PIT buildings_other_ZONE_BOWMAKING_PIT
+---@field ZONE_BLACKSMITHING_PIT buildings_other_ZONE_BLACKSMITHING_PIT
+---@field ZONE_ARMORSMITHING_PIT buildings_other_ZONE_ARMORSMITHING_PIT
+---@field ZONE_METAL_CRAFTING_PIT buildings_other_ZONE_METAL_CRAFTING_PIT
+---@field ZONE_LEATHERWORKING_PIT buildings_other_ZONE_LEATHERWORKING_PIT
+---@field ZONE_CARPENTRY_PIT buildings_other_ZONE_CARPENTRY_PIT
+---@field ZONE_STONEWORKING_PIT buildings_other_ZONE_STONEWORKING_PIT
+---@field ZONE_FORGING_PIT buildings_other_ZONE_FORGING_PIT
+---@field ZONE_FIGHTING_PIT buildings_other_ZONE_FIGHTING_PIT
+---@field ZONE_INVALID47 buildings_other_ZONE_INVALID47
+---@field ZONE_INVALID48 buildings_other_ZONE_INVALID48
+---@field ZONE_INVALID49 buildings_other_ZONE_INVALID49
+---@field ZONE_INVALID50 buildings_other_ZONE_INVALID50
+---@field ZONE_INVALID51 buildings_other_ZONE_INVALID51
+---@field ZONE_INVALID52 buildings_other_ZONE_INVALID52
+---@field ZONE_ANIMAL_WORKSHOP buildings_other_ZONE_ANIMAL_WORKSHOP
+---@field ZONE_CLOTH_WORKSHOP buildings_other_ZONE_CLOTH_WORKSHOP
+---@field ZONE_TANNING_WORKSHOP buildings_other_ZONE_TANNING_WORKSHOP
+---@field ZONE_CLOTH_CLOTHING_WORKSHOP buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP
+---@field ZONE_LEATHER_CLOTHING_WORKSHOP buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP
+---@field ZONE_BONE_CARVING_WORKSHOP buildings_other_ZONE_BONE_CARVING_WORKSHOP
+---@field ZONE_GEM_CUTTING_WORKSHOP buildings_other_ZONE_GEM_CUTTING_WORKSHOP
+---@field ZONE_WEAPONSMITHING_WORKSHOP buildings_other_ZONE_WEAPONSMITHING_WORKSHOP
+---@field ZONE_BOWMAKING_WORKSHOP buildings_other_ZONE_BOWMAKING_WORKSHOP
+---@field ZONE_BLACKSMITHING_WORKSHOP buildings_other_ZONE_BLACKSMITHING_WORKSHOP
+---@field ZONE_ARMORSMITHING_WORKSHOP buildings_other_ZONE_ARMORSMITHING_WORKSHOP
+---@field ZONE_METAL_CRAFTING_WORKSHOP buildings_other_ZONE_METAL_CRAFTING_WORKSHOP
+---@field ZONE_LEATHERWORKING_SHOP buildings_other_ZONE_LEATHERWORKING_SHOP
+---@field ZONE_CARPENTRY_WORKSHOP buildings_other_ZONE_CARPENTRY_WORKSHOP
+---@field ZONE_STONEWORKING_WORKSHOP buildings_other_ZONE_STONEWORKING_WORKSHOP
+---@field ZONE_FORGING_WORKSHOP buildings_other_ZONE_FORGING_WORKSHOP
+---@field ZONE_COUNTING_HOUSE_OFFICES buildings_other_ZONE_COUNTING_HOUSE_OFFICES
+---@field ZONE_COUNTING_HOUSE_STORAGE buildings_other_ZONE_COUNTING_HOUSE_STORAGE
+---@field ZONE_GUILDHALL_OFFICES buildings_other_ZONE_GUILDHALL_OFFICES
+---@field ZONE_GUILDHALL_STORAGE buildings_other_ZONE_GUILDHALL_STORAGE
+---@field ZONE_TOWER_ENTRANCE buildings_other_ZONE_TOWER_ENTRANCE
+---@field ZONE_TOWER_FEASTHALL buildings_other_ZONE_TOWER_FEASTHALL
+---@field ZONE_TOWER_BEDROOM buildings_other_ZONE_TOWER_BEDROOM
+---@field ZONE_TOWER_TREASURY buildings_other_ZONE_TOWER_TREASURY
+---@field ZONE_TOWER_DUNGEON buildings_other_ZONE_TOWER_DUNGEON
+---@field ZONE_TOWER_ATTIC buildings_other_ZONE_TOWER_ATTIC
+---@field ZONE_DORMITORY buildings_other_ZONE_DORMITORY
+---@field ZONE_DINING_HALL buildings_other_ZONE_DINING_HALL
+---@field ZONE_INVALID81 buildings_other_ZONE_INVALID81
+---@field ZONE_WATER_SOURCE buildings_other_ZONE_WATER_SOURCE
+---@field ZONE_DUMP buildings_other_ZONE_DUMP
+---@field ZONE_SAND_COLLECTION buildings_other_ZONE_SAND_COLLECTION
+---@field ZONE_FISHING_AREA buildings_other_ZONE_FISHING_AREA
+---@field ZONE_POND buildings_other_ZONE_POND
+---@field ZONE_MEETING_HALL buildings_other_ZONE_MEETING_HALL
+---@field ZONE_PEN buildings_other_ZONE_PEN
+---@field ZONE_CLAY_COLLECTION buildings_other_ZONE_CLAY_COLLECTION
+---@field ZONE_ANIMAL_TRAINING buildings_other_ZONE_ANIMAL_TRAINING
+---@field ZONE_PLANT_GATHERING buildings_other_ZONE_PLANT_GATHERING
+---@field ZONE_BEDROOM buildings_other_ZONE_BEDROOM
+---@field ZONE_OFFICE buildings_other_ZONE_OFFICE
+---@field ZONE_ARCHERY_RANGE buildings_other_ZONE_ARCHERY_RANGE
+---@field ZONE_BARRACKS buildings_other_ZONE_BARRACKS
+---@field ZONE_DUNGEON buildings_other_ZONE_DUNGEON
+---@field ZONE_TOMB buildings_other_ZONE_TOMB
+---@field LOCATION_ASSIGNED buildings_other_LOCATION_ASSIGNED
+---@field ANY_ACTUAL buildings_other_ANY_ACTUAL
+---@field ANY_MACHINE buildings_other_ANY_MACHINE
+---@field ANY_HOSPITAL_STORAGE buildings_other_ANY_HOSPITAL_STORAGE
+---@field ANY_STORAGE buildings_other_ANY_STORAGE
+---@field ANY_BARRACKS buildings_other_ANY_BARRACKS
+---@field ANY_HOSPITAL buildings_other_ANY_HOSPITAL
+---@field BOX buildings_other_BOX
+---@field CABINET buildings_other_CABINET
+---@field TRAP buildings_other_TRAP
+---@field DOOR buildings_other_DOOR
+---@field FLOODGATE buildings_other_FLOODGATE
+---@field HATCH buildings_other_HATCH
+---@field GRATE_WALL buildings_other_GRATE_WALL
+---@field GRATE_FLOOR buildings_other_GRATE_FLOOR
+---@field BARS_VERTICAL buildings_other_BARS_VERTICAL
+---@field BARS_FLOOR buildings_other_BARS_FLOOR
+---@field WINDOW_ANY buildings_other_WINDOW_ANY
+---@field WELL buildings_other_WELL
+---@field TABLE buildings_other_TABLE
+---@field BRIDGE buildings_other_BRIDGE
+---@field CHAIR buildings_other_CHAIR
+---@field TRADE_DEPOT buildings_other_TRADE_DEPOT
+---@field NEST buildings_other_NEST
+---@field NEST_BOX buildings_other_NEST_BOX
+---@field BOOKCASE buildings_other_BOOKCASE
+---@field DISPLAY_CASE buildings_other_DISPLAY_CASE
+---@field HIVE buildings_other_HIVE
+---@field WAGON buildings_other_WAGON
+---@field SHOP buildings_other_SHOP
+---@field BED buildings_other_BED
+---@field TRACTION_BENCH buildings_other_TRACTION_BENCH
+---@field ANY_ROAD buildings_other_ANY_ROAD
+---@field FARM_PLOT buildings_other_FARM_PLOT
+---@field GEAR_ASSEMBLY buildings_other_GEAR_ASSEMBLY
+---@field ROLLERS buildings_other_ROLLERS
+---@field AXLE_HORIZONTAL buildings_other_AXLE_HORIZONTAL
+---@field AXLE_VERTICAL buildings_other_AXLE_VERTICAL
+---@field SUPPORT buildings_other_SUPPORT
+---@field ARCHERY_TARGET buildings_other_ARCHERY_TARGET
+---@field SCREW_PUMP buildings_other_SCREW_PUMP
+---@field WATER_WHEEL buildings_other_WATER_WHEEL
+---@field WINDMILL buildings_other_WINDMILL
+---@field CHAIN buildings_other_CHAIN
+---@field CAGE buildings_other_CAGE
+---@field STATUE buildings_other_STATUE
+---@field SLAB buildings_other_SLAB
+---@field COFFIN buildings_other_COFFIN
+---@field WEAPON_RACK buildings_other_WEAPON_RACK
+---@field ARMOR_STAND buildings_other_ARMOR_STAND
+---@field FURNACE_ANY buildings_other_FURNACE_ANY
+---@field FURNACE_WOOD buildings_other_FURNACE_WOOD
+---@field FURNACE_SMELTER_ANY buildings_other_FURNACE_SMELTER_ANY
+---@field FURNACE_SMELTER_MAGMA buildings_other_FURNACE_SMELTER_MAGMA
+---@field FURNACE_KILN_ANY buildings_other_FURNACE_KILN_ANY
+---@field FURNACE_GLASS_ANY buildings_other_FURNACE_GLASS_ANY
+---@field FURNACE_CUSTOM buildings_other_FURNACE_CUSTOM
+---@field WORKSHOP_ANY buildings_other_WORKSHOP_ANY
+---@field WORKSHOP_BUTCHER buildings_other_WORKSHOP_BUTCHER
+---@field WORKSHOP_MASON buildings_other_WORKSHOP_MASON
+---@field WORKSHOP_KENNEL buildings_other_WORKSHOP_KENNEL
+---@field WORKSHOP_FISHERY buildings_other_WORKSHOP_FISHERY
+---@field WORKSHOP_JEWELER buildings_other_WORKSHOP_JEWELER
+---@field WORKSHOP_LOOM buildings_other_WORKSHOP_LOOM
+---@field WORKSHOP_TANNER buildings_other_WORKSHOP_TANNER
+---@field WORKSHOP_DYER buildings_other_WORKSHOP_DYER
+---@field WORKSHOP_MILL_ANY buildings_other_WORKSHOP_MILL_ANY
+---@field WORKSHOP_QUERN buildings_other_WORKSHOP_QUERN
+---@field WORKSHOP_TOOL buildings_other_WORKSHOP_TOOL
+---@field WORKSHOP_MILLSTONE buildings_other_WORKSHOP_MILLSTONE
+---@field WORKSHOP_KITCHEN buildings_other_WORKSHOP_KITCHEN
+---@field WORKSHOP_STILL buildings_other_WORKSHOP_STILL
+---@field WORKSHOP_FARMER buildings_other_WORKSHOP_FARMER
+---@field WORKSHOP_ASHERY buildings_other_WORKSHOP_ASHERY
+---@field WORKSHOP_CARPENTER buildings_other_WORKSHOP_CARPENTER
+---@field WORKSHOP_CRAFTSDWARF buildings_other_WORKSHOP_CRAFTSDWARF
+---@field WORKSHOP_MECHANIC buildings_other_WORKSHOP_MECHANIC
+---@field WORKSHOP_SIEGE buildings_other_WORKSHOP_SIEGE
+---@field WORKSHOP_CLOTHIER buildings_other_WORKSHOP_CLOTHIER
+---@field WORKSHOP_LEATHER buildings_other_WORKSHOP_LEATHER
+---@field WORKSHOP_BOWYER buildings_other_WORKSHOP_BOWYER
+---@field WORKSHOP_MAGMA_FORGE buildings_other_WORKSHOP_MAGMA_FORGE
+---@field WORKSHOP_FORGE_ANY buildings_other_WORKSHOP_FORGE_ANY
+---@field WORKSHOP_CUSTOM buildings_other_WORKSHOP_CUSTOM
+---@field WEAPON_UPRIGHT buildings_other_WEAPON_UPRIGHT
+---@field INSTRUMENT_STATIONARY buildings_other_INSTRUMENT_STATIONARY
+---@field OFFERING_PLACE buildings_other_OFFERING_PLACE
 
 ---@class _buildings_other: DFCompound
 ---@field _kind 'struct-type'
 df.buildings_other = {}
+
+---@class buildings_other_IN_PLAY: DFContainer
+---@field [integer] building
+local buildings_other_IN_PLAY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building>
+function buildings_other_IN_PLAY:_field(index) end
+
+---@param index integer 
+---@param item building 
+function buildings_other_IN_PLAY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_IN_PLAY:erase(index) end
+
+---@class buildings_other_STOCKPILE: DFContainer
+---@field [integer] building_stockpilest
+local buildings_other_STOCKPILE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_stockpilest>
+function buildings_other_STOCKPILE:_field(index) end
+
+---@param index integer 
+---@param item building_stockpilest 
+function buildings_other_STOCKPILE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_STOCKPILE:erase(index) end
+
+---@class buildings_other_ANY_ZONE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ANY_ZONE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ANY_ZONE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ANY_ZONE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_ZONE:erase(index) end
+
+---@class buildings_other_ACTIVITY_ZONE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ACTIVITY_ZONE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ACTIVITY_ZONE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ACTIVITY_ZONE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ACTIVITY_ZONE:erase(index) end
+
+---@class buildings_other_ZONE_HOME: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_HOME
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_HOME:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_HOME:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_HOME:erase(index) end
+
+---@class buildings_other_ZONE_DEPOT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_DEPOT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_DEPOT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_DEPOT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_DEPOT:erase(index) end
+
+---@class buildings_other_ZONE_STOCKPILE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_STOCKPILE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_STOCKPILE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_STOCKPILE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_STOCKPILE:erase(index) end
+
+---@class buildings_other_ZONE_NOBLE_QUARTERS: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_NOBLE_QUARTERS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_NOBLE_QUARTERS:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_NOBLE_QUARTERS:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_NOBLE_QUARTERS:erase(index) end
+
+---@class buildings_other_ZONE_INVALID4: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID4
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID4:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID4:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID4:erase(index) end
+
+---@class buildings_other_ZONE_INVALID5: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID5
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID5:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID5:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID5:erase(index) end
+
+---@class buildings_other_ZONE_INVALID6: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID6
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID6:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID6:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID6:erase(index) end
+
+---@class buildings_other_ZONE_MEAD_HALL: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_MEAD_HALL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_MEAD_HALL:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_MEAD_HALL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_MEAD_HALL:erase(index) end
+
+---@class buildings_other_ZONE_THRONE_ROOM: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_THRONE_ROOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_THRONE_ROOM:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_THRONE_ROOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_THRONE_ROOM:erase(index) end
+
+---@class buildings_other_ZONE_INVALID9: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID9
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID9:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID9:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID9:erase(index) end
+
+---@class buildings_other_ZONE_TEMPLE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TEMPLE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TEMPLE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TEMPLE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TEMPLE:erase(index) end
+
+---@class buildings_other_ZONE_KITCHEN: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_KITCHEN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_KITCHEN:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_KITCHEN:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_KITCHEN:erase(index) end
+
+---@class buildings_other_ZONE_CAPTIVE_ROOM: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CAPTIVE_ROOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CAPTIVE_ROOM:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CAPTIVE_ROOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CAPTIVE_ROOM:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_TOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_TOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_TOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_TOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_TOP:erase(index) end
+
+---@class buildings_other_ZONE_COURTYARD: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_COURTYARD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_COURTYARD:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_COURTYARD:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_COURTYARD:erase(index) end
+
+---@class buildings_other_ZONE_TREASURY: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TREASURY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TREASURY:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TREASURY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TREASURY:erase(index) end
+
+---@class buildings_other_ZONE_GUARD_POST: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_GUARD_POST
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_GUARD_POST:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_GUARD_POST:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_GUARD_POST:erase(index) end
+
+---@class buildings_other_ZONE_ENTRANCE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ENTRANCE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ENTRANCE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ENTRANCE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ENTRANCE:erase(index) end
+
+---@class buildings_other_ZONE_SECRET_LIBRARY: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_SECRET_LIBRARY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_SECRET_LIBRARY:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_SECRET_LIBRARY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_SECRET_LIBRARY:erase(index) end
+
+---@class buildings_other_ZONE_LIBRARY: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_LIBRARY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_LIBRARY:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_LIBRARY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_LIBRARY:erase(index) end
+
+---@class buildings_other_ZONE_PLOT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_PLOT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_PLOT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_PLOT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_PLOT:erase(index) end
+
+---@class buildings_other_ZONE_MARKET_STALL: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_MARKET_STALL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_MARKET_STALL:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_MARKET_STALL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_MARKET_STALL:erase(index) end
+
+---@class buildings_other_ZONE_INVALID22: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID22
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID22:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID22:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID22:erase(index) end
+
+---@class buildings_other_ZONE_CAMPGROUND: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CAMPGROUND
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CAMPGROUND:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CAMPGROUND:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CAMPGROUND:erase(index) end
+
+---@class buildings_other_ZONE_COMMAND_TENT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_COMMAND_TENT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_COMMAND_TENT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_COMMAND_TENT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_COMMAND_TENT:erase(index) end
+
+---@class buildings_other_ZONE_TENT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TENT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TENT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TENT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TENT:erase(index) end
+
+---@class buildings_other_ZONE_COMMAND_TENT_BLD: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_COMMAND_TENT_BLD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_COMMAND_TENT_BLD:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_COMMAND_TENT_BLD:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_COMMAND_TENT_BLD:erase(index) end
+
+---@class buildings_other_ZONE_TENT_BLD: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TENT_BLD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TENT_BLD:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TENT_BLD:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TENT_BLD:erase(index) end
+
+---@class buildings_other_ZONE_MECHANISM_ROOM: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_MECHANISM_ROOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_MECHANISM_ROOM:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_MECHANISM_ROOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_MECHANISM_ROOM:erase(index) end
+
+---@class buildings_other_ZONE_DUNGEON_CELL: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_DUNGEON_CELL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_DUNGEON_CELL:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_DUNGEON_CELL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_DUNGEON_CELL:erase(index) end
+
+---@class buildings_other_ZONE_ANIMAL_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ANIMAL_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ANIMAL_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ANIMAL_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ANIMAL_PIT:erase(index) end
+
+---@class buildings_other_ZONE_CLOTH_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CLOTH_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CLOTH_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CLOTH_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CLOTH_PIT:erase(index) end
+
+---@class buildings_other_ZONE_TANNING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TANNING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TANNING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TANNING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TANNING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_CLOTH_CLOTHING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CLOTH_CLOTHING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CLOTH_CLOTHING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CLOTH_CLOTHING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CLOTH_CLOTHING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_LEATHER_CLOTHING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_LEATHER_CLOTHING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_LEATHER_CLOTHING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_LEATHER_CLOTHING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_LEATHER_CLOTHING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_BONE_CARVING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BONE_CARVING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BONE_CARVING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BONE_CARVING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BONE_CARVING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_GEM_CUTTING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_GEM_CUTTING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_GEM_CUTTING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_GEM_CUTTING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_GEM_CUTTING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_WEAPONSMITHING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_WEAPONSMITHING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_WEAPONSMITHING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_WEAPONSMITHING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_WEAPONSMITHING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_BOWMAKING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BOWMAKING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BOWMAKING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BOWMAKING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BOWMAKING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_BLACKSMITHING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BLACKSMITHING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BLACKSMITHING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BLACKSMITHING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BLACKSMITHING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_ARMORSMITHING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ARMORSMITHING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ARMORSMITHING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ARMORSMITHING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ARMORSMITHING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_METAL_CRAFTING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_METAL_CRAFTING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_METAL_CRAFTING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_METAL_CRAFTING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_METAL_CRAFTING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_LEATHERWORKING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_LEATHERWORKING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_LEATHERWORKING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_LEATHERWORKING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_LEATHERWORKING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_CARPENTRY_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CARPENTRY_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CARPENTRY_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CARPENTRY_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CARPENTRY_PIT:erase(index) end
+
+---@class buildings_other_ZONE_STONEWORKING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_STONEWORKING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_STONEWORKING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_STONEWORKING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_STONEWORKING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_FORGING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_FORGING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_FORGING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_FORGING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_FORGING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_FIGHTING_PIT: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_FIGHTING_PIT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_FIGHTING_PIT:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_FIGHTING_PIT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_FIGHTING_PIT:erase(index) end
+
+---@class buildings_other_ZONE_INVALID47: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID47
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID47:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID47:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID47:erase(index) end
+
+---@class buildings_other_ZONE_INVALID48: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID48
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID48:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID48:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID48:erase(index) end
+
+---@class buildings_other_ZONE_INVALID49: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID49
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID49:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID49:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID49:erase(index) end
+
+---@class buildings_other_ZONE_INVALID50: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID50
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID50:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID50:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID50:erase(index) end
+
+---@class buildings_other_ZONE_INVALID51: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID51
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID51:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID51:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID51:erase(index) end
+
+---@class buildings_other_ZONE_INVALID52: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID52
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID52:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID52:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID52:erase(index) end
+
+---@class buildings_other_ZONE_ANIMAL_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ANIMAL_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ANIMAL_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ANIMAL_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ANIMAL_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_CLOTH_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CLOTH_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CLOTH_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CLOTH_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CLOTH_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_TANNING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TANNING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TANNING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TANNING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TANNING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_BONE_CARVING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BONE_CARVING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BONE_CARVING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BONE_CARVING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BONE_CARVING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_GEM_CUTTING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_GEM_CUTTING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_GEM_CUTTING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_GEM_CUTTING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_GEM_CUTTING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_WEAPONSMITHING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_WEAPONSMITHING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_WEAPONSMITHING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_WEAPONSMITHING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_WEAPONSMITHING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_BOWMAKING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BOWMAKING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BOWMAKING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BOWMAKING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BOWMAKING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_BLACKSMITHING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BLACKSMITHING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BLACKSMITHING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BLACKSMITHING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BLACKSMITHING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_ARMORSMITHING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ARMORSMITHING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ARMORSMITHING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ARMORSMITHING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ARMORSMITHING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_METAL_CRAFTING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_METAL_CRAFTING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_METAL_CRAFTING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_METAL_CRAFTING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_METAL_CRAFTING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_LEATHERWORKING_SHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_LEATHERWORKING_SHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_LEATHERWORKING_SHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_LEATHERWORKING_SHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_LEATHERWORKING_SHOP:erase(index) end
+
+---@class buildings_other_ZONE_CARPENTRY_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CARPENTRY_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CARPENTRY_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CARPENTRY_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CARPENTRY_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_STONEWORKING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_STONEWORKING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_STONEWORKING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_STONEWORKING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_STONEWORKING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_FORGING_WORKSHOP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_FORGING_WORKSHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_FORGING_WORKSHOP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_FORGING_WORKSHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_FORGING_WORKSHOP:erase(index) end
+
+---@class buildings_other_ZONE_COUNTING_HOUSE_OFFICES: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_COUNTING_HOUSE_OFFICES
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_COUNTING_HOUSE_OFFICES:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_COUNTING_HOUSE_OFFICES:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_COUNTING_HOUSE_OFFICES:erase(index) end
+
+---@class buildings_other_ZONE_COUNTING_HOUSE_STORAGE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_COUNTING_HOUSE_STORAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_COUNTING_HOUSE_STORAGE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_COUNTING_HOUSE_STORAGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_COUNTING_HOUSE_STORAGE:erase(index) end
+
+---@class buildings_other_ZONE_GUILDHALL_OFFICES: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_GUILDHALL_OFFICES
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_GUILDHALL_OFFICES:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_GUILDHALL_OFFICES:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_GUILDHALL_OFFICES:erase(index) end
+
+---@class buildings_other_ZONE_GUILDHALL_STORAGE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_GUILDHALL_STORAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_GUILDHALL_STORAGE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_GUILDHALL_STORAGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_GUILDHALL_STORAGE:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_ENTRANCE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_ENTRANCE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_ENTRANCE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_ENTRANCE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_ENTRANCE:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_FEASTHALL: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_FEASTHALL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_FEASTHALL:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_FEASTHALL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_FEASTHALL:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_BEDROOM: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_BEDROOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_BEDROOM:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_BEDROOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_BEDROOM:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_TREASURY: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_TREASURY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_TREASURY:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_TREASURY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_TREASURY:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_DUNGEON: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_DUNGEON
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_DUNGEON:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_DUNGEON:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_DUNGEON:erase(index) end
+
+---@class buildings_other_ZONE_TOWER_ATTIC: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOWER_ATTIC
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOWER_ATTIC:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOWER_ATTIC:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOWER_ATTIC:erase(index) end
+
+---@class buildings_other_ZONE_DORMITORY: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_DORMITORY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_DORMITORY:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_DORMITORY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_DORMITORY:erase(index) end
+
+---@class buildings_other_ZONE_DINING_HALL: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_DINING_HALL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_DINING_HALL:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_DINING_HALL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_DINING_HALL:erase(index) end
+
+---@class buildings_other_ZONE_INVALID81: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_INVALID81
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_INVALID81:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_INVALID81:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_INVALID81:erase(index) end
+
+---@class buildings_other_ZONE_WATER_SOURCE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_WATER_SOURCE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_WATER_SOURCE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_WATER_SOURCE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_WATER_SOURCE:erase(index) end
+
+---@class buildings_other_ZONE_DUMP: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_DUMP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_DUMP:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_DUMP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_DUMP:erase(index) end
+
+---@class buildings_other_ZONE_SAND_COLLECTION: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_SAND_COLLECTION
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_SAND_COLLECTION:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_SAND_COLLECTION:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_SAND_COLLECTION:erase(index) end
+
+---@class buildings_other_ZONE_FISHING_AREA: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_FISHING_AREA
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_FISHING_AREA:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_FISHING_AREA:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_FISHING_AREA:erase(index) end
+
+---@class buildings_other_ZONE_POND: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_POND
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_POND:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_POND:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_POND:erase(index) end
+
+---@class buildings_other_ZONE_MEETING_HALL: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_MEETING_HALL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_MEETING_HALL:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_MEETING_HALL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_MEETING_HALL:erase(index) end
+
+---@class buildings_other_ZONE_PEN: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_PEN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_PEN:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_PEN:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_PEN:erase(index) end
+
+---@class buildings_other_ZONE_CLAY_COLLECTION: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_CLAY_COLLECTION
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_CLAY_COLLECTION:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_CLAY_COLLECTION:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_CLAY_COLLECTION:erase(index) end
+
+---@class buildings_other_ZONE_ANIMAL_TRAINING: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ANIMAL_TRAINING
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ANIMAL_TRAINING:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ANIMAL_TRAINING:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ANIMAL_TRAINING:erase(index) end
+
+---@class buildings_other_ZONE_PLANT_GATHERING: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_PLANT_GATHERING
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_PLANT_GATHERING:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_PLANT_GATHERING:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_PLANT_GATHERING:erase(index) end
+
+---@class buildings_other_ZONE_BEDROOM: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BEDROOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BEDROOM:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BEDROOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BEDROOM:erase(index) end
+
+---@class buildings_other_ZONE_OFFICE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_OFFICE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_OFFICE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_OFFICE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_OFFICE:erase(index) end
+
+---@class buildings_other_ZONE_ARCHERY_RANGE: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_ARCHERY_RANGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_ARCHERY_RANGE:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_ARCHERY_RANGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_ARCHERY_RANGE:erase(index) end
+
+---@class buildings_other_ZONE_BARRACKS: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_BARRACKS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_BARRACKS:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_BARRACKS:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_BARRACKS:erase(index) end
+
+---@class buildings_other_ZONE_DUNGEON: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_DUNGEON
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_DUNGEON:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_DUNGEON:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_DUNGEON:erase(index) end
+
+---@class buildings_other_ZONE_TOMB: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_ZONE_TOMB
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_ZONE_TOMB:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_ZONE_TOMB:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ZONE_TOMB:erase(index) end
+
+---@class buildings_other_LOCATION_ASSIGNED: DFContainer
+---@field [integer] building_civzonest
+local buildings_other_LOCATION_ASSIGNED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_civzonest>
+function buildings_other_LOCATION_ASSIGNED:_field(index) end
+
+---@param index integer 
+---@param item building_civzonest 
+function buildings_other_LOCATION_ASSIGNED:insert(index, item) end
+
+---@param index integer 
+function buildings_other_LOCATION_ASSIGNED:erase(index) end
+
+---@class buildings_other_ANY_ACTUAL: DFContainer
+---@field [integer] building_actual
+local buildings_other_ANY_ACTUAL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_actual>
+function buildings_other_ANY_ACTUAL:_field(index) end
+
+---@param index integer 
+---@param item building_actual 
+function buildings_other_ANY_ACTUAL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_ACTUAL:erase(index) end
+
+---@class buildings_other_ANY_MACHINE: DFContainer
+---@field [integer] building_actual
+local buildings_other_ANY_MACHINE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_actual>
+function buildings_other_ANY_MACHINE:_field(index) end
+
+---@param index integer 
+---@param item building_actual 
+function buildings_other_ANY_MACHINE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_MACHINE:erase(index) end
+
+---@class buildings_other_ANY_HOSPITAL_STORAGE: DFContainer
+---@field [integer] building_actual
+local buildings_other_ANY_HOSPITAL_STORAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_actual>
+function buildings_other_ANY_HOSPITAL_STORAGE:_field(index) end
+
+---@param index integer 
+---@param item building_actual 
+function buildings_other_ANY_HOSPITAL_STORAGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_HOSPITAL_STORAGE:erase(index) end
+
+---@class buildings_other_ANY_STORAGE: DFContainer
+---@field [integer] building_actual
+local buildings_other_ANY_STORAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_actual>
+function buildings_other_ANY_STORAGE:_field(index) end
+
+---@param index integer 
+---@param item building_actual 
+function buildings_other_ANY_STORAGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_STORAGE:erase(index) end
+
+---@class buildings_other_ANY_BARRACKS: DFContainer
+---@field [integer] building_actual
+local buildings_other_ANY_BARRACKS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_actual>
+function buildings_other_ANY_BARRACKS:_field(index) end
+
+---@param index integer 
+---@param item building_actual 
+function buildings_other_ANY_BARRACKS:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_BARRACKS:erase(index) end
+
+---@class buildings_other_ANY_HOSPITAL: DFContainer
+---@field [integer] building_actual
+local buildings_other_ANY_HOSPITAL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_actual>
+function buildings_other_ANY_HOSPITAL:_field(index) end
+
+---@param index integer 
+---@param item building_actual 
+function buildings_other_ANY_HOSPITAL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_HOSPITAL:erase(index) end
+
+---@class buildings_other_BOX: DFContainer
+---@field [integer] building_boxst
+local buildings_other_BOX
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_boxst>
+function buildings_other_BOX:_field(index) end
+
+---@param index integer 
+---@param item building_boxst 
+function buildings_other_BOX:insert(index, item) end
+
+---@param index integer 
+function buildings_other_BOX:erase(index) end
+
+---@class buildings_other_CABINET: DFContainer
+---@field [integer] building_cabinetst
+local buildings_other_CABINET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_cabinetst>
+function buildings_other_CABINET:_field(index) end
+
+---@param index integer 
+---@param item building_cabinetst 
+function buildings_other_CABINET:insert(index, item) end
+
+---@param index integer 
+function buildings_other_CABINET:erase(index) end
+
+---@class buildings_other_TRAP: DFContainer
+---@field [integer] building_trapst
+local buildings_other_TRAP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_trapst>
+function buildings_other_TRAP:_field(index) end
+
+---@param index integer 
+---@param item building_trapst 
+function buildings_other_TRAP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_TRAP:erase(index) end
+
+---@class buildings_other_DOOR: DFContainer
+---@field [integer] building_doorst
+local buildings_other_DOOR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_doorst>
+function buildings_other_DOOR:_field(index) end
+
+---@param index integer 
+---@param item building_doorst 
+function buildings_other_DOOR:insert(index, item) end
+
+---@param index integer 
+function buildings_other_DOOR:erase(index) end
+
+---@class buildings_other_FLOODGATE: DFContainer
+---@field [integer] building_floodgatest
+local buildings_other_FLOODGATE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_floodgatest>
+function buildings_other_FLOODGATE:_field(index) end
+
+---@param index integer 
+---@param item building_floodgatest 
+function buildings_other_FLOODGATE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FLOODGATE:erase(index) end
+
+---@class buildings_other_HATCH: DFContainer
+---@field [integer] building_hatchst
+local buildings_other_HATCH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_hatchst>
+function buildings_other_HATCH:_field(index) end
+
+---@param index integer 
+---@param item building_hatchst 
+function buildings_other_HATCH:insert(index, item) end
+
+---@param index integer 
+function buildings_other_HATCH:erase(index) end
+
+---@class buildings_other_GRATE_WALL: DFContainer
+---@field [integer] building_grate_wallst
+local buildings_other_GRATE_WALL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_grate_wallst>
+function buildings_other_GRATE_WALL:_field(index) end
+
+---@param index integer 
+---@param item building_grate_wallst 
+function buildings_other_GRATE_WALL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_GRATE_WALL:erase(index) end
+
+---@class buildings_other_GRATE_FLOOR: DFContainer
+---@field [integer] building_grate_floorst
+local buildings_other_GRATE_FLOOR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_grate_floorst>
+function buildings_other_GRATE_FLOOR:_field(index) end
+
+---@param index integer 
+---@param item building_grate_floorst 
+function buildings_other_GRATE_FLOOR:insert(index, item) end
+
+---@param index integer 
+function buildings_other_GRATE_FLOOR:erase(index) end
+
+---@class buildings_other_BARS_VERTICAL: DFContainer
+---@field [integer] building_bars_verticalst
+local buildings_other_BARS_VERTICAL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_bars_verticalst>
+function buildings_other_BARS_VERTICAL:_field(index) end
+
+---@param index integer 
+---@param item building_bars_verticalst 
+function buildings_other_BARS_VERTICAL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_BARS_VERTICAL:erase(index) end
+
+---@class buildings_other_BARS_FLOOR: DFContainer
+---@field [integer] building_bars_floorst
+local buildings_other_BARS_FLOOR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_bars_floorst>
+function buildings_other_BARS_FLOOR:_field(index) end
+
+---@param index integer 
+---@param item building_bars_floorst 
+function buildings_other_BARS_FLOOR:insert(index, item) end
+
+---@param index integer 
+function buildings_other_BARS_FLOOR:erase(index) end
+
+---@class buildings_other_WINDOW_ANY: DFContainer
+---@field [integer] building
+local buildings_other_WINDOW_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building>
+function buildings_other_WINDOW_ANY:_field(index) end
+
+---@param index integer 
+---@param item building 
+function buildings_other_WINDOW_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WINDOW_ANY:erase(index) end
+
+---@class buildings_other_WELL: DFContainer
+---@field [integer] building_wellst
+local buildings_other_WELL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_wellst>
+function buildings_other_WELL:_field(index) end
+
+---@param index integer 
+---@param item building_wellst 
+function buildings_other_WELL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WELL:erase(index) end
+
+---@class buildings_other_TABLE: DFContainer
+---@field [integer] building_tablest
+local buildings_other_TABLE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_tablest>
+function buildings_other_TABLE:_field(index) end
+
+---@param index integer 
+---@param item building_tablest 
+function buildings_other_TABLE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_TABLE:erase(index) end
+
+---@class buildings_other_BRIDGE: DFContainer
+---@field [integer] building_bridgest
+local buildings_other_BRIDGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_bridgest>
+function buildings_other_BRIDGE:_field(index) end
+
+---@param index integer 
+---@param item building_bridgest 
+function buildings_other_BRIDGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_BRIDGE:erase(index) end
+
+---@class buildings_other_CHAIR: DFContainer
+---@field [integer] building_chairst
+local buildings_other_CHAIR
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_chairst>
+function buildings_other_CHAIR:_field(index) end
+
+---@param index integer 
+---@param item building_chairst 
+function buildings_other_CHAIR:insert(index, item) end
+
+---@param index integer 
+function buildings_other_CHAIR:erase(index) end
+
+---@class buildings_other_TRADE_DEPOT: DFContainer
+---@field [integer] building_tradedepotst
+local buildings_other_TRADE_DEPOT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_tradedepotst>
+function buildings_other_TRADE_DEPOT:_field(index) end
+
+---@param index integer 
+---@param item building_tradedepotst 
+function buildings_other_TRADE_DEPOT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_TRADE_DEPOT:erase(index) end
+
+---@class buildings_other_NEST: DFContainer
+---@field [integer] building_nestst
+local buildings_other_NEST
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_nestst>
+function buildings_other_NEST:_field(index) end
+
+---@param index integer 
+---@param item building_nestst 
+function buildings_other_NEST:insert(index, item) end
+
+---@param index integer 
+function buildings_other_NEST:erase(index) end
+
+---@class buildings_other_NEST_BOX: DFContainer
+---@field [integer] building_nest_boxst
+local buildings_other_NEST_BOX
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_nest_boxst>
+function buildings_other_NEST_BOX:_field(index) end
+
+---@param index integer 
+---@param item building_nest_boxst 
+function buildings_other_NEST_BOX:insert(index, item) end
+
+---@param index integer 
+function buildings_other_NEST_BOX:erase(index) end
+
+---@class buildings_other_BOOKCASE: DFContainer
+---@field [integer] building_bookcasest
+local buildings_other_BOOKCASE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_bookcasest>
+function buildings_other_BOOKCASE:_field(index) end
+
+---@param index integer 
+---@param item building_bookcasest 
+function buildings_other_BOOKCASE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_BOOKCASE:erase(index) end
+
+---@class buildings_other_DISPLAY_CASE: DFContainer
+---@field [integer] building_display_furniturest
+local buildings_other_DISPLAY_CASE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_display_furniturest>
+function buildings_other_DISPLAY_CASE:_field(index) end
+
+---@param index integer 
+---@param item building_display_furniturest 
+function buildings_other_DISPLAY_CASE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_DISPLAY_CASE:erase(index) end
+
+---@class buildings_other_HIVE: DFContainer
+---@field [integer] building_hivest
+local buildings_other_HIVE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_hivest>
+function buildings_other_HIVE:_field(index) end
+
+---@param index integer 
+---@param item building_hivest 
+function buildings_other_HIVE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_HIVE:erase(index) end
+
+---@class buildings_other_WAGON: DFContainer
+---@field [integer] building_wagonst
+local buildings_other_WAGON
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_wagonst>
+function buildings_other_WAGON:_field(index) end
+
+---@param index integer 
+---@param item building_wagonst 
+function buildings_other_WAGON:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WAGON:erase(index) end
+
+---@class buildings_other_SHOP: DFContainer
+---@field [integer] building_shopst
+local buildings_other_SHOP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_shopst>
+function buildings_other_SHOP:_field(index) end
+
+---@param index integer 
+---@param item building_shopst 
+function buildings_other_SHOP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_SHOP:erase(index) end
+
+---@class buildings_other_BED: DFContainer
+---@field [integer] building_bedst
+local buildings_other_BED
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_bedst>
+function buildings_other_BED:_field(index) end
+
+---@param index integer 
+---@param item building_bedst 
+function buildings_other_BED:insert(index, item) end
+
+---@param index integer 
+function buildings_other_BED:erase(index) end
+
+---@class buildings_other_TRACTION_BENCH: DFContainer
+---@field [integer] building_traction_benchst
+local buildings_other_TRACTION_BENCH
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_traction_benchst>
+function buildings_other_TRACTION_BENCH:_field(index) end
+
+---@param index integer 
+---@param item building_traction_benchst 
+function buildings_other_TRACTION_BENCH:insert(index, item) end
+
+---@param index integer 
+function buildings_other_TRACTION_BENCH:erase(index) end
+
+---@class buildings_other_ANY_ROAD: DFContainer
+---@field [integer] building_roadst
+local buildings_other_ANY_ROAD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_roadst>
+function buildings_other_ANY_ROAD:_field(index) end
+
+---@param index integer 
+---@param item building_roadst 
+function buildings_other_ANY_ROAD:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ANY_ROAD:erase(index) end
+
+---@class buildings_other_FARM_PLOT: DFContainer
+---@field [integer] building_farmplotst
+local buildings_other_FARM_PLOT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_farmplotst>
+function buildings_other_FARM_PLOT:_field(index) end
+
+---@param index integer 
+---@param item building_farmplotst 
+function buildings_other_FARM_PLOT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FARM_PLOT:erase(index) end
+
+---@class buildings_other_GEAR_ASSEMBLY: DFContainer
+---@field [integer] building_gear_assemblyst
+local buildings_other_GEAR_ASSEMBLY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_gear_assemblyst>
+function buildings_other_GEAR_ASSEMBLY:_field(index) end
+
+---@param index integer 
+---@param item building_gear_assemblyst 
+function buildings_other_GEAR_ASSEMBLY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_GEAR_ASSEMBLY:erase(index) end
+
+---@class buildings_other_ROLLERS: DFContainer
+---@field [integer] building_rollersst
+local buildings_other_ROLLERS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_rollersst>
+function buildings_other_ROLLERS:_field(index) end
+
+---@param index integer 
+---@param item building_rollersst 
+function buildings_other_ROLLERS:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ROLLERS:erase(index) end
+
+---@class buildings_other_AXLE_HORIZONTAL: DFContainer
+---@field [integer] building_axle_horizontalst
+local buildings_other_AXLE_HORIZONTAL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_axle_horizontalst>
+function buildings_other_AXLE_HORIZONTAL:_field(index) end
+
+---@param index integer 
+---@param item building_axle_horizontalst 
+function buildings_other_AXLE_HORIZONTAL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_AXLE_HORIZONTAL:erase(index) end
+
+---@class buildings_other_AXLE_VERTICAL: DFContainer
+---@field [integer] building_axle_verticalst
+local buildings_other_AXLE_VERTICAL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_axle_verticalst>
+function buildings_other_AXLE_VERTICAL:_field(index) end
+
+---@param index integer 
+---@param item building_axle_verticalst 
+function buildings_other_AXLE_VERTICAL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_AXLE_VERTICAL:erase(index) end
+
+---@class buildings_other_SUPPORT: DFContainer
+---@field [integer] building_supportst
+local buildings_other_SUPPORT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_supportst>
+function buildings_other_SUPPORT:_field(index) end
+
+---@param index integer 
+---@param item building_supportst 
+function buildings_other_SUPPORT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_SUPPORT:erase(index) end
+
+---@class buildings_other_ARCHERY_TARGET: DFContainer
+---@field [integer] building_archerytargetst
+local buildings_other_ARCHERY_TARGET
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_archerytargetst>
+function buildings_other_ARCHERY_TARGET:_field(index) end
+
+---@param index integer 
+---@param item building_archerytargetst 
+function buildings_other_ARCHERY_TARGET:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ARCHERY_TARGET:erase(index) end
+
+---@class buildings_other_SCREW_PUMP: DFContainer
+---@field [integer] building_screw_pumpst
+local buildings_other_SCREW_PUMP
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_screw_pumpst>
+function buildings_other_SCREW_PUMP:_field(index) end
+
+---@param index integer 
+---@param item building_screw_pumpst 
+function buildings_other_SCREW_PUMP:insert(index, item) end
+
+---@param index integer 
+function buildings_other_SCREW_PUMP:erase(index) end
+
+---@class buildings_other_WATER_WHEEL: DFContainer
+---@field [integer] building_water_wheelst
+local buildings_other_WATER_WHEEL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_water_wheelst>
+function buildings_other_WATER_WHEEL:_field(index) end
+
+---@param index integer 
+---@param item building_water_wheelst 
+function buildings_other_WATER_WHEEL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WATER_WHEEL:erase(index) end
+
+---@class buildings_other_WINDMILL: DFContainer
+---@field [integer] building_windmillst
+local buildings_other_WINDMILL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_windmillst>
+function buildings_other_WINDMILL:_field(index) end
+
+---@param index integer 
+---@param item building_windmillst 
+function buildings_other_WINDMILL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WINDMILL:erase(index) end
+
+---@class buildings_other_CHAIN: DFContainer
+---@field [integer] building_chainst
+local buildings_other_CHAIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_chainst>
+function buildings_other_CHAIN:_field(index) end
+
+---@param index integer 
+---@param item building_chainst 
+function buildings_other_CHAIN:insert(index, item) end
+
+---@param index integer 
+function buildings_other_CHAIN:erase(index) end
+
+---@class buildings_other_CAGE: DFContainer
+---@field [integer] building_cagest
+local buildings_other_CAGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_cagest>
+function buildings_other_CAGE:_field(index) end
+
+---@param index integer 
+---@param item building_cagest 
+function buildings_other_CAGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_CAGE:erase(index) end
+
+---@class buildings_other_STATUE: DFContainer
+---@field [integer] building_statuest
+local buildings_other_STATUE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_statuest>
+function buildings_other_STATUE:_field(index) end
+
+---@param index integer 
+---@param item building_statuest 
+function buildings_other_STATUE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_STATUE:erase(index) end
+
+---@class buildings_other_SLAB: DFContainer
+---@field [integer] building_slabst
+local buildings_other_SLAB
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_slabst>
+function buildings_other_SLAB:_field(index) end
+
+---@param index integer 
+---@param item building_slabst 
+function buildings_other_SLAB:insert(index, item) end
+
+---@param index integer 
+function buildings_other_SLAB:erase(index) end
+
+---@class buildings_other_COFFIN: DFContainer
+---@field [integer] building_coffinst
+local buildings_other_COFFIN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_coffinst>
+function buildings_other_COFFIN:_field(index) end
+
+---@param index integer 
+---@param item building_coffinst 
+function buildings_other_COFFIN:insert(index, item) end
+
+---@param index integer 
+function buildings_other_COFFIN:erase(index) end
+
+---@class buildings_other_WEAPON_RACK: DFContainer
+---@field [integer] building_weaponrackst
+local buildings_other_WEAPON_RACK
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_weaponrackst>
+function buildings_other_WEAPON_RACK:_field(index) end
+
+---@param index integer 
+---@param item building_weaponrackst 
+function buildings_other_WEAPON_RACK:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WEAPON_RACK:erase(index) end
+
+---@class buildings_other_ARMOR_STAND: DFContainer
+---@field [integer] building_armorstandst
+local buildings_other_ARMOR_STAND
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_armorstandst>
+function buildings_other_ARMOR_STAND:_field(index) end
+
+---@param index integer 
+---@param item building_armorstandst 
+function buildings_other_ARMOR_STAND:insert(index, item) end
+
+---@param index integer 
+function buildings_other_ARMOR_STAND:erase(index) end
+
+---@class buildings_other_FURNACE_ANY: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_ANY:erase(index) end
+
+---@class buildings_other_FURNACE_WOOD: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_WOOD
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_WOOD:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_WOOD:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_WOOD:erase(index) end
+
+---@class buildings_other_FURNACE_SMELTER_ANY: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_SMELTER_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_SMELTER_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_SMELTER_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_SMELTER_ANY:erase(index) end
+
+---@class buildings_other_FURNACE_SMELTER_MAGMA: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_SMELTER_MAGMA
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_SMELTER_MAGMA:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_SMELTER_MAGMA:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_SMELTER_MAGMA:erase(index) end
+
+---@class buildings_other_FURNACE_KILN_ANY: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_KILN_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_KILN_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_KILN_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_KILN_ANY:erase(index) end
+
+---@class buildings_other_FURNACE_GLASS_ANY: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_GLASS_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_GLASS_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_GLASS_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_GLASS_ANY:erase(index) end
+
+---@class buildings_other_FURNACE_CUSTOM: DFContainer
+---@field [integer] building_furnacest
+local buildings_other_FURNACE_CUSTOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_furnacest>
+function buildings_other_FURNACE_CUSTOM:_field(index) end
+
+---@param index integer 
+---@param item building_furnacest 
+function buildings_other_FURNACE_CUSTOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_FURNACE_CUSTOM:erase(index) end
+
+---@class buildings_other_WORKSHOP_ANY: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_ANY:erase(index) end
+
+---@class buildings_other_WORKSHOP_BUTCHER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_BUTCHER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_BUTCHER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_BUTCHER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_BUTCHER:erase(index) end
+
+---@class buildings_other_WORKSHOP_MASON: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_MASON
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_MASON:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_MASON:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_MASON:erase(index) end
+
+---@class buildings_other_WORKSHOP_KENNEL: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_KENNEL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_KENNEL:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_KENNEL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_KENNEL:erase(index) end
+
+---@class buildings_other_WORKSHOP_FISHERY: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_FISHERY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_FISHERY:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_FISHERY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_FISHERY:erase(index) end
+
+---@class buildings_other_WORKSHOP_JEWELER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_JEWELER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_JEWELER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_JEWELER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_JEWELER:erase(index) end
+
+---@class buildings_other_WORKSHOP_LOOM: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_LOOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_LOOM:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_LOOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_LOOM:erase(index) end
+
+---@class buildings_other_WORKSHOP_TANNER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_TANNER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_TANNER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_TANNER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_TANNER:erase(index) end
+
+---@class buildings_other_WORKSHOP_DYER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_DYER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_DYER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_DYER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_DYER:erase(index) end
+
+---@class buildings_other_WORKSHOP_MILL_ANY: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_MILL_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_MILL_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_MILL_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_MILL_ANY:erase(index) end
+
+---@class buildings_other_WORKSHOP_QUERN: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_QUERN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_QUERN:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_QUERN:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_QUERN:erase(index) end
+
+---@class buildings_other_WORKSHOP_TOOL: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_TOOL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_TOOL:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_TOOL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_TOOL:erase(index) end
+
+---@class buildings_other_WORKSHOP_MILLSTONE: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_MILLSTONE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_MILLSTONE:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_MILLSTONE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_MILLSTONE:erase(index) end
+
+---@class buildings_other_WORKSHOP_KITCHEN: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_KITCHEN
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_KITCHEN:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_KITCHEN:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_KITCHEN:erase(index) end
+
+---@class buildings_other_WORKSHOP_STILL: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_STILL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_STILL:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_STILL:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_STILL:erase(index) end
+
+---@class buildings_other_WORKSHOP_FARMER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_FARMER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_FARMER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_FARMER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_FARMER:erase(index) end
+
+---@class buildings_other_WORKSHOP_ASHERY: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_ASHERY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_ASHERY:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_ASHERY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_ASHERY:erase(index) end
+
+---@class buildings_other_WORKSHOP_CARPENTER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_CARPENTER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_CARPENTER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_CARPENTER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_CARPENTER:erase(index) end
+
+---@class buildings_other_WORKSHOP_CRAFTSDWARF: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_CRAFTSDWARF
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_CRAFTSDWARF:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_CRAFTSDWARF:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_CRAFTSDWARF:erase(index) end
+
+---@class buildings_other_WORKSHOP_MECHANIC: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_MECHANIC
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_MECHANIC:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_MECHANIC:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_MECHANIC:erase(index) end
+
+---@class buildings_other_WORKSHOP_SIEGE: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_SIEGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_SIEGE:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_SIEGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_SIEGE:erase(index) end
+
+---@class buildings_other_WORKSHOP_CLOTHIER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_CLOTHIER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_CLOTHIER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_CLOTHIER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_CLOTHIER:erase(index) end
+
+---@class buildings_other_WORKSHOP_LEATHER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_LEATHER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_LEATHER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_LEATHER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_LEATHER:erase(index) end
+
+---@class buildings_other_WORKSHOP_BOWYER: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_BOWYER
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_BOWYER:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_BOWYER:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_BOWYER:erase(index) end
+
+---@class buildings_other_WORKSHOP_MAGMA_FORGE: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_MAGMA_FORGE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_MAGMA_FORGE:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_MAGMA_FORGE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_MAGMA_FORGE:erase(index) end
+
+---@class buildings_other_WORKSHOP_FORGE_ANY: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_FORGE_ANY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_FORGE_ANY:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_FORGE_ANY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_FORGE_ANY:erase(index) end
+
+---@class buildings_other_WORKSHOP_CUSTOM: DFContainer
+---@field [integer] building_workshopst
+local buildings_other_WORKSHOP_CUSTOM
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_workshopst>
+function buildings_other_WORKSHOP_CUSTOM:_field(index) end
+
+---@param index integer 
+---@param item building_workshopst 
+function buildings_other_WORKSHOP_CUSTOM:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WORKSHOP_CUSTOM:erase(index) end
+
+---@class buildings_other_WEAPON_UPRIGHT: DFContainer
+---@field [integer] building_weaponst
+local buildings_other_WEAPON_UPRIGHT
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_weaponst>
+function buildings_other_WEAPON_UPRIGHT:_field(index) end
+
+---@param index integer 
+---@param item building_weaponst 
+function buildings_other_WEAPON_UPRIGHT:insert(index, item) end
+
+---@param index integer 
+function buildings_other_WEAPON_UPRIGHT:erase(index) end
+
+---@class buildings_other_INSTRUMENT_STATIONARY: DFContainer
+---@field [integer] building_instrumentst
+local buildings_other_INSTRUMENT_STATIONARY
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_instrumentst>
+function buildings_other_INSTRUMENT_STATIONARY:_field(index) end
+
+---@param index integer 
+---@param item building_instrumentst 
+function buildings_other_INSTRUMENT_STATIONARY:insert(index, item) end
+
+---@param index integer 
+function buildings_other_INSTRUMENT_STATIONARY:erase(index) end
+
+---@class buildings_other_OFFERING_PLACE: DFContainer
+---@field [integer] building_offering_placest
+local buildings_other_OFFERING_PLACE
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<building_offering_placest>
+function buildings_other_OFFERING_PLACE:_field(index) end
+
+---@param index integer 
+---@param item building_offering_placest 
+function buildings_other_OFFERING_PLACE:insert(index, item) end
+
+---@param index integer 
+function buildings_other_OFFERING_PLACE:erase(index) end
 

@@ -4,7 +4,7 @@
 ---@class (exact) entity_occasion_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_occasion_info
----@field occasions DFVector<entity_occasion>
+---@field occasions entity_occasion_info_occasions
 ---@field next_occasion_id number
 ---@field events number[]
 ---@field count number number of elements used in array above
@@ -12,6 +12,22 @@
 ---@class _entity_occasion_info: DFCompound
 ---@field _kind 'struct-type'
 df.entity_occasion_info = {}
+
+---@class entity_occasion_info_occasions: DFContainer
+---@field [integer] entity_occasion
+local entity_occasion_info_occasions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_occasion>
+function entity_occasion_info_occasions:_field(index) end
+
+---@param index integer 
+---@param item entity_occasion 
+function entity_occasion_info_occasions:insert(index, item) end
+
+---@param index integer 
+function entity_occasion_info_occasions:erase(index) end
 
 -- some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
 ---@class (exact) entity_occasion: DFObject
@@ -27,12 +43,28 @@ df.entity_occasion_info = {}
 ---@field unk_3 number 0-2 seen
 ---@field event number References: `history_event`
 ---@field unk_4 number only seen with unk_3=2, but is usually not set
----@field schedule DFVector<entity_occasion_schedule>
+---@field schedule entity_occasion_schedule
 ---@field unk_5 number only value seen
 
 ---@class _entity_occasion: DFCompound
 ---@field _kind 'struct-type'
 df.entity_occasion = {}
+
+---@class entity_occasion_schedule: DFContainer
+---@field [integer] entity_occasion_schedule
+local entity_occasion_schedule
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_occasion_schedule>
+function entity_occasion_schedule:_field(index) end
+
+---@param index integer 
+---@param item entity_occasion_schedule 
+function entity_occasion_schedule:insert(index, item) end
+
+---@param index integer 
+function entity_occasion_schedule:erase(index) end
 
 ---@alias occasion_schedule_type_keys
 ---| '"DANCE_PERFORMANCE"'
@@ -110,13 +142,29 @@ df.occasion_schedule_type = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
----@field features DFVector<entity_occasion_schedule_feature>
+---@field features entity_occasion_schedule_features
 ---@field start_year_tick number
 ---@field end_year_tick number
 
 ---@class _entity_occasion_schedule: DFCompound
 ---@field _kind 'struct-type'
 df.entity_occasion_schedule = {}
+
+---@class entity_occasion_schedule_features: DFContainer
+---@field [integer] entity_occasion_schedule_feature
+local entity_occasion_schedule_features
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_occasion_schedule_feature>
+function entity_occasion_schedule_features:_field(index) end
+
+---@param index integer 
+---@param item entity_occasion_schedule_feature 
+function entity_occasion_schedule_features:insert(index, item) end
+
+---@param index integer 
+function entity_occasion_schedule_features:erase(index) end
 
 ---@alias occasion_schedule_feature_keys
 ---| '""'
@@ -222,7 +270,7 @@ df.entity_occasion_schedule_feature = {}
 ---@field potential_soldiers number
 ---@field combat_aptitude number
 ---@field item_counts DFEnumVector<item_type, number>
----@field created_weapons DFVector<number>
+---@field created_weapons DFNumberVector
 ---@field wealth entity_activity_statistics.T_wealth
 ---@field recent_jobs DFEnumVector<job_type, number>[]
 ---@field excavated_tiles number unhidden, subterranean, and excluding map features
@@ -235,17 +283,17 @@ df.entity_occasion_schedule_feature = {}
 ---@field total_executions number
 ---@field num_artifacts number 0.50.01
 ---@field unk_6 number in 0.23, total siegers
----@field discovered_creature_foods DFVector<boolean>
----@field discovered_creatures DFVector<boolean>
----@field discovered_plant_foods DFVector<boolean>
----@field discovered_plants DFVector<boolean> allows planting of seeds
+---@field discovered_creature_foods DFBooleanVector
+---@field discovered_creatures DFBooleanVector
+---@field discovered_plant_foods DFBooleanVector
+---@field discovered_plants DFBooleanVector allows planting of seeds
 ---@field discovered_water_features number
 ---@field discovered_subterranean_features number
 ---@field discovered_chasm_features number unused since 40d
 ---@field discovered_magma_features number
 ---@field discovered_feature_layers number back in 40d, this counted HFS
 ---@field migrant_wave_idx number when >= 2, no migrants
----@field found_minerals DFVector<number> Added after 'you have struck' announcement
+---@field found_minerals DFNumberVector Added after 'you have struck' announcement
 ---@field found_misc entity_activity_statistics.T_found_misc
 
 ---@class _entity_activity_statistics: DFCompound
@@ -312,10 +360,10 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field export_value_total number bay12: goodsvalue_end
 ---@field export_value_personal number bay12: exportvalue_end; excluding foreign-produced items
 ---@field offer_value number bay12: offervalue_end
----@field animals DFVector<number> bay12: unitroster
+---@field animals DFNumberVector bay12: unitroster
 ---@field sell_prices entity_sell_prices bay12: tradeagreement
 ---@field buy_prices entity_buy_prices bay12: requestagreement
----@field goods DFVector<number> bay12: already_appraised_item_id
+---@field goods DFNumberVector bay12: already_appraised_item_id
 ---@field mood number bay12: tolerance; reflects satisfaction with last trading session
 ---@field haggle_fail_count number
 
@@ -402,7 +450,7 @@ df.caravan_state.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _entity_buy_prices
 ---@field items entity_buy_requests
----@field price DFVector<number>
+---@field price DFNumberVector
 
 ---@class _entity_buy_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -411,16 +459,48 @@ df.entity_buy_prices = {}
 ---@class (exact) entity_buy_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_buy_requests
----@field item_type DFVector<item_type> guess
----@field item_subtype DFVector<number> guess
----@field mat_types DFVector<number>
----@field mat_indices DFVector<number>
----@field mat_cats DFVector<job_material_category>
----@field priority DFVector<number>
+---@field item_type entity_buy_requests_item_type guess
+---@field item_subtype DFNumberVector guess
+---@field mat_types DFNumberVector
+---@field mat_indices DFNumberVector
+---@field mat_cats entity_buy_requests_mat_cats
+---@field priority DFNumberVector
 
 ---@class _entity_buy_requests: DFCompound
 ---@field _kind 'struct-type'
 df.entity_buy_requests = {}
+
+---@class entity_buy_requests_item_type: DFContainer
+---@field [integer] item_type
+local entity_buy_requests_item_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function entity_buy_requests_item_type:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function entity_buy_requests_item_type:insert(index, item) end
+
+---@param index integer 
+function entity_buy_requests_item_type:erase(index) end
+
+---@class entity_buy_requests_mat_cats: DFContainer
+---@field [integer] job_material_category
+local entity_buy_requests_mat_cats
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<job_material_category>
+function entity_buy_requests_mat_cats:_field(index) end
+
+---@param index integer 
+---@param item job_material_category 
+function entity_buy_requests_mat_cats:insert(index, item) end
+
+---@param index integer 
+function entity_buy_requests_mat_cats:erase(index) end
 
 ---@alias entity_sell_category_keys
 ---| '"Leather"'
@@ -693,7 +773,7 @@ df.entity_sell_category = {}
 ---@field _kind 'struct'
 ---@field _type _entity_sell_prices
 ---@field items entity_sell_requests
----@field price DFEnumVector<entity_sell_category, DFVector<number>>
+---@field price DFEnumVector<entity_sell_category, number>
 
 ---@class _entity_sell_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -702,7 +782,7 @@ df.entity_sell_prices = {}
 ---@class (exact) entity_sell_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_sell_requests
----@field priority DFEnumVector<entity_sell_category, DFVector<number>>
+---@field priority DFEnumVector<entity_sell_category, number>
 
 ---@class _entity_sell_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -712,14 +792,30 @@ df.entity_sell_requests = {}
 ---@field _kind 'struct'
 ---@field _type _entity_recipe
 ---@field subtype number References: `itemdef_foodst`
----@field item_types DFVector<item_type>
----@field item_subtypes DFVector<number>
----@field mat_types DFVector<number>
----@field mat_indices DFVector<number>
+---@field item_types entity_recipe_item_types
+---@field item_subtypes DFNumberVector
+---@field mat_types DFNumberVector
+---@field mat_indices DFNumberVector
 
 ---@class _entity_recipe: DFCompound
 ---@field _kind 'struct-type'
 df.entity_recipe = {}
+
+---@class entity_recipe_item_types: DFContainer
+---@field [integer] item_type
+local entity_recipe_item_types
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function entity_recipe_item_types:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function entity_recipe_item_types:insert(index, item) end
+
+---@param index integer 
+function entity_recipe_item_types:erase(index) end
 
 ---@alias historical_entity_type_keys
 ---| '"Civilization"'
@@ -789,9 +885,9 @@ df.historical_entity_type = {}
 ---@field required_kills number
 ---@field required_battles number
 ---@field required_years_of_membership number
----@field honored DFVector<number>
----@field required_position DFVector<number>
----@field required_former_position DFVector<number>
+---@field honored DFNumberVector
+---@field required_position DFNumberVector
+---@field required_former_position DFNumberVector
 
 ---@class _honors_type: DFCompound
 ---@field _kind 'struct-type'
@@ -855,12 +951,12 @@ df.artifact_claim = {}
 ---@field _type _entity_unk_v47_1
 ---@field unk_v47_1 number seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled References: `historical_figure`
 ---@field unk_v47_2 number some enum?
----@field unk_v47_3 DFVector<number> some enum?
----@field agreement DFVector<number>
----@field unk_v47_5 DFVector<number> boolean?
----@field unk_v47_6 DFVector<number>
----@field unk_v47_7 DFVector<number>
----@field unk_v47_8 DFVector<number>
+---@field unk_v47_3 DFNumberVector some enum?
+---@field agreement DFNumberVector
+---@field unk_v47_5 DFNumberVector boolean?
+---@field unk_v47_6 DFNumberVector
+---@field unk_v47_7 DFNumberVector
+---@field unk_v47_8 DFNumberVector
 ---@field unk_v47_9 number
 
 ---@class _entity_unk_v47_1: DFCompound
@@ -898,9 +994,9 @@ df.world_gen_entity_populationst = {}
 ---@class (exact) world_gen_wandering_groupst: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_gen_wandering_groupst
----@field wanderer DFVector<historical_figure>
----@field ent_pop DFVector<world_gen_entity_populationst>
----@field rpop DFVector<world_population>
+---@field wanderer world_gen_wandering_groupst_wanderer
+---@field ent_pop world_gen_wandering_groupst_ent_pop
+---@field rpop world_gen_wandering_groupst_rpop
 ---@field ent historical_entity
 ---@field cur_location world_site
 ---@field cur_location_sr world_region
@@ -911,6 +1007,54 @@ df.world_gen_entity_populationst = {}
 ---@class _world_gen_wandering_groupst: DFCompound
 ---@field _kind 'struct-type'
 df.world_gen_wandering_groupst = {}
+
+---@class world_gen_wandering_groupst_wanderer: DFContainer
+---@field [integer] historical_figure
+local world_gen_wandering_groupst_wanderer
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function world_gen_wandering_groupst_wanderer:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function world_gen_wandering_groupst_wanderer:insert(index, item) end
+
+---@param index integer 
+function world_gen_wandering_groupst_wanderer:erase(index) end
+
+---@class world_gen_wandering_groupst_ent_pop: DFContainer
+---@field [integer] world_gen_entity_populationst
+local world_gen_wandering_groupst_ent_pop
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_gen_entity_populationst>
+function world_gen_wandering_groupst_ent_pop:_field(index) end
+
+---@param index integer 
+---@param item world_gen_entity_populationst 
+function world_gen_wandering_groupst_ent_pop:insert(index, item) end
+
+---@param index integer 
+function world_gen_wandering_groupst_ent_pop:erase(index) end
+
+---@class world_gen_wandering_groupst_rpop: DFContainer
+---@field [integer] world_population
+local world_gen_wandering_groupst_rpop
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<world_population>
+function world_gen_wandering_groupst_rpop:_field(index) end
+
+---@param index integer 
+---@param item world_population 
+function world_gen_wandering_groupst_rpop:insert(index, item) end
+
+---@param index integer 
+function world_gen_wandering_groupst_rpop:erase(index) end
 
 ---@class (exact) historical_entity: DFObject
 ---@field _kind 'struct'
@@ -924,48 +1068,48 @@ df.world_gen_wandering_groupst = {}
 ---@field name language_name
 ---@field race number References: `creature_raw`
 ---@field flags historical_entity.T_flags
----@field guild_professions DFVector<any> Only seen 1, and only for guilds
----@field entity_links DFVector<entity_entity_link>
----@field site_links DFVector<entity_site_link>
----@field histfig_ids DFVector<number>
----@field populations DFVector<number> 1st entry copies to unit.population_id for Adventurer?
----@field nemesis_ids DFVector<number>
+---@field guild_professions DFAnyVector Only seen 1, and only for guilds
+---@field entity_links historical_entity_entity_links
+---@field site_links historical_entity_site_links
+---@field histfig_ids DFNumberVector
+---@field populations DFNumberVector 1st entry copies to unit.population_id for Adventurer?
+---@field nemesis_ids DFNumberVector
 ---@field resources historical_entity.T_resources
----@field uniforms DFVector<entity_uniform>
+---@field uniforms historical_entity_uniforms
 ---@field next_uniform_id number
 ---@field relations historical_entity.T_relations
 ---@field positions historical_entity.T_positions
 ---@field tissue_styles historical_entity.T_tissue_styles
----@field squads DFVector<number>
+---@field squads DFNumberVector
 ---@field global_event_knowledge_year number
----@field local_known_events DFVector<number> since the above year
+---@field local_known_events DFNumberVector since the above year
 ---@field production_zone_id number not sure what this refers to
 ---@field conquered_site_group_flags historical_entity.T_conquered_site_group_flags
 ---@field worldgen_can_make_guildhall DFEnumVector<town_labor_type, number>
 ---@field training_knowledge any
----@field events DFVector<entity_event> -- bay12: rumor_info
+---@field events historical_entity_events -- bay12: rumor_info
 ---@field unk_v40_1a number -- these are part of bay12's rumor_info struct
 ---@field unk_v40_1b number
 ---@field unk_v40_1c number
 ---@field unk_v40_1d number
 ---@field unk_v40_1e number
----@field performed_poetic_forms DFVector<number>
----@field performed_musical_forms DFVector<number>
----@field performed_dance_forms DFVector<number>
----@field performed_scale_id DFVector<number>
----@field performed_rhythm_id DFVector<number>
----@field well_known_wcid DFVector<number> -- wcid == written content ID
+---@field performed_poetic_forms DFNumberVector
+---@field performed_musical_forms DFNumberVector
+---@field performed_dance_forms DFNumberVector
+---@field performed_scale_id DFNumberVector
+---@field performed_rhythm_id DFNumberVector
+---@field well_known_wcid DFNumberVector -- wcid == written content ID
 ---@field occasion_info entity_occasion_info -- bay12: entity_calendarst *calendar
----@field artifact_claims DFVector<artifact_claim> sorted on artifact id
----@field honors DFVector<honors_type> Only merc companies. Matches #Honors groups in Legends Viewer
+---@field artifact_claims historical_entity_artifact_claims sorted on artifact id
+---@field honors historical_entity_honors Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
 ---@field equipment_purchases number only seen on military units
 ---@field attack number only seen on military units
 ---@field total_battles number attacks + defenses. Only seen on military units
 ---@field unk_v47_1 any -- bay12: evidence_repository
----@field divination_sets DFVector<number> Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
+---@field divination_sets DFNumberVector Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
 ---@field founding_site_government number -- bay12: material_source_enid References: `historical_entity`
----@field meeting_events DFVector<meeting_event>
+---@field meeting_events historical_entity_meeting_events
 ---@field activity_stats entity_activity_statistics -- bay12: reportst *lastreport
 ---@field last_report_season number in 0.23, last communicate season
 ---@field last_report_year number in 0.23, last communicate year
@@ -978,21 +1122,21 @@ df.world_gen_wandering_groupst = {}
 ---@field dwf_attack_schedule_check_timer number
 ---@field last_petition_year number
 ---@field last_petition_season_count number
----@field armies DFVector<army>
----@field army_controllers DFVector<army_controller>
----@field hist_figures DFVector<historical_figure>
----@field nemesis DFVector<nemesis_record>
+---@field armies historical_entity_armies
+---@field army_controllers historical_entity_army_controllers
+---@field hist_figures historical_entity_hist_figures
+---@field nemesis historical_entity_nemesis
 ---@field derived_resources historical_entity.T_derived_resources
----@field assignments_by_type DFEnumVector<entity_position_responsibility, DFVector<entity_position_assignment>>
+---@field assignments_by_type DFEnumVector<entity_position_responsibility, entity_position_assignment>
 ---@field claims historical_entity.T_claims
----@field children DFVector<number> includes self
+---@field children DFNumberVector includes self
 ---@field metal_proficiency number -- bay12: army_strength_material_bonus
----@field weapon_proficiencies DFVector<job_skill>
+---@field weapon_proficiencies historical_entity_weapon_proficiencies
 ---@field resource_allotment resource_allotment_data -- bay12: production_zonest *production_zone
----@field local_poetic_form DFVector<poetic_form>
----@field local_musical_form DFVector<musical_form>
----@field local_dance_form DFVector<dance_form>
----@field well_known_wc DFVector<written_content>
+---@field local_poetic_form historical_entity_local_poetic_form
+---@field local_musical_form historical_entity_local_musical_form
+---@field local_dance_form historical_entity_local_dance_form
+---@field well_known_wc historical_entity_well_known_wc
 ---@field settlement_x number
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
@@ -1000,14 +1144,14 @@ df.world_gen_wandering_groupst = {}
 ---@field region world_region -- Civ entities. Nil for sites.
 ---@field world_gen_army_strength number -- Civ entities. Non pointers for sites.
 ---@field connect_two_site_throttle_time number 0
----@field construct_shortest_con_throttle_stid DFVector<number> used during world gen
----@field construct_shortest_con_throttle_time DFVector<number> used during world gen
+---@field construct_shortest_con_throttle_stid DFNumberVector used during world gen
+---@field construct_shortest_con_throttle_time DFNumberVector used during world gen
 ---@field snatcher_site_toggle_count number 0
 ---@field war_fatigue number 0
 ---@field army_reeling_attack number 0
 ---@field unkarmy_reeling_defense number 0
----@field attacked_site_id DFVector<number> used during world gen
----@field attacked_site_timer DFVector<number> used during world gen
+---@field attacked_site_id DFNumberVector used during world gen
+---@field attacked_site_timer DFNumberVector used during world gen
 ---@field did_wg_variable_position number
 ---@field did_wg_variable_market_position number
 ---@field dig_caution_end_year number
@@ -1026,9 +1170,9 @@ df.world_gen_wandering_groupst = {}
 ---@field trade_wanted_amount number[]
 ---@field trade_maximum_buy_price number[]
 ---@field town_labor_hours number[]
----@field world_gen_entity_debt DFVector<any> -- bay12: world_gen_entity_debt
+---@field world_gen_entity_debt DFAnyVector -- bay12: world_gen_entity_debt
 ---@field account number
----@field burial_request DFVector<any> ?
+---@field burial_request DFAnyVector ?
 ---@field current_wgwg any
 ---@field total_outcast_strength number
 ---@field pool_id integer -- protected --
@@ -1161,63 +1305,95 @@ function df.historical_entity.get_vector() end
 ---@field [26] "unk26" Set for a significant number of entities
 df.historical_entity.T_flags = {}
 
+---@class historical_entity_entity_links: DFContainer
+---@field [integer] entity_entity_link
+local historical_entity_entity_links
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_entity_link>
+function historical_entity_entity_links:_field(index) end
+
+---@param index integer 
+---@param item entity_entity_link 
+function historical_entity_entity_links:insert(index, item) end
+
+---@param index integer 
+function historical_entity_entity_links:erase(index) end
+
+---@class historical_entity_site_links: DFContainer
+---@field [integer] entity_site_link
+local historical_entity_site_links
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_site_link>
+function historical_entity_site_links:_field(index) end
+
+---@param index integer 
+---@param item entity_site_link 
+function historical_entity_site_links:insert(index, item) end
+
+---@param index integer 
+function historical_entity_site_links:erase(index) end
+
 ---@class (exact) historical_entity.T_resources: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources
----@field digger_type DFVector<number>
----@field weapon_type DFVector<number>
----@field training_weapon_type DFVector<number>
----@field armor_type DFVector<number>
----@field ammo_type DFVector<number>
----@field helm_type DFVector<number>
----@field gloves_type DFVector<number>
----@field shoes_type DFVector<number>
----@field pants_type DFVector<number>
----@field shield_type DFVector<number>
----@field trapcomp_type DFVector<number>
----@field toy_type DFVector<number>
----@field instrument_type DFVector<number>
----@field siegeammo_type DFVector<number>
----@field tool_type DFVector<number>
----@field unk_1 DFVector<number> -- bay12: reaction_ind
+---@field digger_type DFNumberVector
+---@field weapon_type DFNumberVector
+---@field training_weapon_type DFNumberVector
+---@field armor_type DFNumberVector
+---@field ammo_type DFNumberVector
+---@field helm_type DFNumberVector
+---@field gloves_type DFNumberVector
+---@field shoes_type DFNumberVector
+---@field pants_type DFNumberVector
+---@field shield_type DFNumberVector
+---@field trapcomp_type DFNumberVector
+---@field toy_type DFNumberVector
+---@field instrument_type DFNumberVector
+---@field siegeammo_type DFNumberVector
+---@field tool_type DFNumberVector
+---@field unk_1 DFNumberVector -- bay12: reaction_ind
 ---@field metal historical_entity.T_resources.T_metal
 ---@field organic historical_entity.T_resources.T_organic
----@field metals DFVector<number> bars
----@field stones DFVector<number> boulders and blocks
----@field gems DFVector<number> small and large cut
+---@field metals DFNumberVector bars
+---@field stones DFNumberVector boulders and blocks
+---@field gems DFNumberVector small and large cut
 ---@field refuse historical_entity.T_resources.T_refuse
 ---@field misc_mat historical_entity.T_resources.T_misc_mat
----@field fish_races DFVector<number>
----@field fish_castes DFVector<number>
----@field egg_races DFVector<number>
----@field egg_castes DFVector<number>
+---@field fish_races DFNumberVector
+---@field fish_castes DFNumberVector
+---@field egg_races DFNumberVector
+---@field egg_castes DFNumberVector
 ---@field plants material_vec_ref
----@field tree_fruit_plants DFVector<number>
----@field tree_fruit_growths DFVector<number>
----@field shrub_fruit_plants DFVector<number>
----@field shrub_fruit_growths DFVector<number>
+---@field tree_fruit_plants DFNumberVector
+---@field tree_fruit_growths DFNumberVector
+---@field shrub_fruit_plants DFNumberVector
+---@field shrub_fruit_growths DFNumberVector
 ---@field seeds material_vec_ref
 ---@field wood_products historical_entity.T_resources.T_wood_products
 ---@field animals historical_entity.T_resources.T_animals
----@field meat_fish_recipes DFVector<entity_recipe>
----@field other_recipes DFVector<entity_recipe>
+---@field meat_fish_recipes historical_entity_resources_meat_fish_recipes
+---@field other_recipes historical_entity_resources_other_recipes
 ---@field unk13 historical_entity.T_resources.T_unk13[] in 0.23, these were material/matgloss pairs, never used for anything
----@field unk14 DFVector<item> in 0.23, items that would be equipped by the arriving King, never used
+---@field unk14 historical_entity_resources_unk14 in 0.23, items that would be equipped by the arriving King, never used
 ---@field unk15a number in 0.23, minimum temperature
 ---@field unk15b number in 0.23, maximum temperature
 ---@field ethic DFEnumVector<ethic_type, ethic_response>
 ---@field values DFEnumVector<value_type, number>
 ---@field unk_2 number
 ---@field permitted_skill DFEnumVector<job_skill, boolean>
----@field art_image_types DFVector<number> 0 = civilization symbol
----@field art_image_ids DFVector<number>
----@field art_image_subids DFVector<number>
----@field color_ref_type DFVector<general_ref_type>
----@field foreground_color_curses DFVector<curses_color>
----@field foreground_color_curses_bright DFVector<boolean>
----@field background_color_curses DFVector<curses_color>
----@field foreground_color DFVector<number> foreground color used for the entity symbol in legends mode and the historical maps.
----@field background_color DFVector<number> background color used for the entity symbol in legends mode and the historical maps.
+---@field art_image_types DFNumberVector 0 = civilization symbol
+---@field art_image_ids DFNumberVector
+---@field art_image_subids DFNumberVector
+---@field color_ref_type historical_entity_resources_color_ref_type
+---@field foreground_color_curses historical_entity_resources_foreground_color_curses
+---@field foreground_color_curses_bright DFBooleanVector
+---@field background_color_curses historical_entity_resources_background_color_curses
+---@field foreground_color DFNumberVector foreground color used for the entity symbol in legends mode and the historical maps.
+---@field background_color DFNumberVector background color used for the entity symbol in legends mode and the historical maps.
 
 ---@class _historical_entity.T_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1295,35 +1471,83 @@ df.historical_entity.T_resources.T_misc_mat = {}
 ---@class (exact) historical_entity.T_resources.T_wood_products: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_wood_products
----@field item_type DFVector<item_type>
----@field item_subtype DFVector<number>
+---@field item_type historical_entity_resources_wood_products_item_type
+---@field item_subtype DFNumberVector
 ---@field material material_vec_ref
 
 ---@class _historical_entity.T_resources.T_wood_products: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_wood_products = {}
 
+---@class historical_entity_resources_wood_products_item_type: DFContainer
+---@field [integer] item_type
+local historical_entity_resources_wood_products_item_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function historical_entity_resources_wood_products_item_type:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function historical_entity_resources_wood_products_item_type:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_wood_products_item_type:erase(index) end
+
 ---@class (exact) historical_entity.T_resources.T_animals: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_animals
----@field pet_races DFVector<number>
----@field wagon_races DFVector<number>
----@field pack_animal_races DFVector<number>
----@field wagon_puller_races DFVector<number>
----@field mount_races DFVector<number>
----@field minion_races DFVector<number>
----@field exotic_pet_races DFVector<number>
----@field pet_castes DFVector<number>
----@field wagon_castes DFVector<number>
----@field pack_animal_castes DFVector<number>
----@field wagon_puller_castes DFVector<number>
----@field mount_castes DFVector<number>
----@field minion_castes DFVector<number>
----@field exotic_pet_castes DFVector<number>
+---@field pet_races DFNumberVector
+---@field wagon_races DFNumberVector
+---@field pack_animal_races DFNumberVector
+---@field wagon_puller_races DFNumberVector
+---@field mount_races DFNumberVector
+---@field minion_races DFNumberVector
+---@field exotic_pet_races DFNumberVector
+---@field pet_castes DFNumberVector
+---@field wagon_castes DFNumberVector
+---@field pack_animal_castes DFNumberVector
+---@field wagon_puller_castes DFNumberVector
+---@field mount_castes DFNumberVector
+---@field minion_castes DFNumberVector
+---@field exotic_pet_castes DFNumberVector
 
 ---@class _historical_entity.T_resources.T_animals: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_animals = {}
+
+---@class historical_entity_resources_meat_fish_recipes: DFContainer
+---@field [integer] entity_recipe
+local historical_entity_resources_meat_fish_recipes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_recipe>
+function historical_entity_resources_meat_fish_recipes:_field(index) end
+
+---@param index integer 
+---@param item entity_recipe 
+function historical_entity_resources_meat_fish_recipes:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_meat_fish_recipes:erase(index) end
+
+---@class historical_entity_resources_other_recipes: DFContainer
+---@field [integer] entity_recipe
+local historical_entity_resources_other_recipes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_recipe>
+function historical_entity_resources_other_recipes:_field(index) end
+
+---@param index integer 
+---@param item entity_recipe 
+function historical_entity_resources_other_recipes:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_other_recipes:erase(index) end
 
 ---@class (exact) historical_entity.T_resources.T_unk13: DFObject
 ---@field _kind 'struct'
@@ -1335,21 +1559,101 @@ df.historical_entity.T_resources.T_animals = {}
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_unk13 = {}
 
+---@class historical_entity_resources_unk14: DFContainer
+---@field [integer] item
+local historical_entity_resources_unk14
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item>
+function historical_entity_resources_unk14:_field(index) end
+
+---@param index integer 
+---@param item item 
+function historical_entity_resources_unk14:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_unk14:erase(index) end
+
+---@class historical_entity_resources_color_ref_type: DFContainer
+---@field [integer] general_ref_type
+local historical_entity_resources_color_ref_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<general_ref_type>
+function historical_entity_resources_color_ref_type:_field(index) end
+
+---@param index integer 
+---@param item general_ref_type 
+function historical_entity_resources_color_ref_type:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_color_ref_type:erase(index) end
+
+---@class historical_entity_resources_foreground_color_curses: DFContainer
+---@field [integer] curses_color
+local historical_entity_resources_foreground_color_curses
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<curses_color>
+function historical_entity_resources_foreground_color_curses:_field(index) end
+
+---@param index integer 
+---@param item curses_color 
+function historical_entity_resources_foreground_color_curses:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_foreground_color_curses:erase(index) end
+
+---@class historical_entity_resources_background_color_curses: DFContainer
+---@field [integer] curses_color
+local historical_entity_resources_background_color_curses
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<curses_color>
+function historical_entity_resources_background_color_curses:_field(index) end
+
+---@param index integer 
+---@param item curses_color 
+function historical_entity_resources_background_color_curses:insert(index, item) end
+
+---@param index integer 
+function historical_entity_resources_background_color_curses:erase(index) end
+
+---@class historical_entity_uniforms: DFContainer
+---@field [integer] entity_uniform
+local historical_entity_uniforms
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_uniform>
+function historical_entity_uniforms:_field(index) end
+
+---@param index integer 
+---@param item entity_uniform 
+function historical_entity_uniforms:insert(index, item) end
+
+---@param index integer 
+function historical_entity_uniforms:erase(index) end
+
 ---@class (exact) historical_entity.T_relations: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_relations
----@field known_sites DFVector<number> only civs and site government. Fresh player site government has empty vector
----@field deities DFVector<number>
----@field worship DFVector<number> Same length as deities(?). Some kind of relationship strength?
----@field belief_systems DFVector<number> In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
----@field constructions DFVector<any> only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
----@field diplomacy DFVector<any>
+---@field known_sites DFNumberVector only civs and site government. Fresh player site government has empty vector
+---@field deities DFNumberVector
+---@field worship DFNumberVector Same length as deities(?). Some kind of relationship strength?
+---@field belief_systems DFNumberVector In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
+---@field constructions DFAnyVector only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field diplomacy DFAnyVector
 ---@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
----@field unk34a DFVector<number> same length as unk34b and unk34c
----@field unk34b DFVector<number>
----@field unk34c DFVector<number>
----@field position DFVector<number> position index (not id)
----@field official DFVector<number> holder of office of corresponding position index
+---@field unk34a DFNumberVector same length as unk34b and unk34c
+---@field unk34b DFNumberVector
+---@field unk34c DFNumberVector
+---@field position DFNumberVector position index (not id)
+---@field official DFNumberVector holder of office of corresponding position index
 
 ---@class _historical_entity.T_relations: DFCompound
 ---@field _kind 'struct-type'
@@ -1358,31 +1662,191 @@ df.historical_entity.T_relations = {}
 ---@class (exact) historical_entity.T_positions: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_positions
----@field own DFVector<entity_position>
----@field site DFVector<entity_position>
----@field conquered_site DFVector<entity_position>
+---@field own historical_entity_positions_own
+---@field site historical_entity_positions_site
+---@field conquered_site historical_entity_positions_conquered_site
 ---@field next_position_id number
----@field assignments DFVector<entity_position_assignment>
+---@field assignments historical_entity_positions_assignments
 ---@field next_assignment_id number
----@field possible_evaluate DFVector<entity_position_assignment>
----@field possible_succession DFVector<entity_position_assignment>
----@field possible_appointable DFVector<entity_position_assignment>
----@field possible_elected DFVector<entity_position_assignment>
----@field possible_claimable DFVector<entity_position_assignment>
+---@field possible_evaluate historical_entity_positions_possible_evaluate
+---@field possible_succession historical_entity_positions_possible_succession
+---@field possible_appointable historical_entity_positions_possible_appointable
+---@field possible_elected historical_entity_positions_possible_elected
+---@field possible_claimable historical_entity_positions_possible_claimable
 
 ---@class _historical_entity.T_positions: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_positions = {}
 
+---@class historical_entity_positions_own: DFContainer
+---@field [integer] entity_position
+local historical_entity_positions_own
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position>
+function historical_entity_positions_own:_field(index) end
+
+---@param index integer 
+---@param item entity_position 
+function historical_entity_positions_own:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_own:erase(index) end
+
+---@class historical_entity_positions_site: DFContainer
+---@field [integer] entity_position
+local historical_entity_positions_site
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position>
+function historical_entity_positions_site:_field(index) end
+
+---@param index integer 
+---@param item entity_position 
+function historical_entity_positions_site:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_site:erase(index) end
+
+---@class historical_entity_positions_conquered_site: DFContainer
+---@field [integer] entity_position
+local historical_entity_positions_conquered_site
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position>
+function historical_entity_positions_conquered_site:_field(index) end
+
+---@param index integer 
+---@param item entity_position 
+function historical_entity_positions_conquered_site:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_conquered_site:erase(index) end
+
+---@class historical_entity_positions_assignments: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_positions_assignments
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_positions_assignments:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_positions_assignments:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_assignments:erase(index) end
+
+---@class historical_entity_positions_possible_evaluate: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_positions_possible_evaluate
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_positions_possible_evaluate:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_positions_possible_evaluate:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_possible_evaluate:erase(index) end
+
+---@class historical_entity_positions_possible_succession: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_positions_possible_succession
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_positions_possible_succession:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_positions_possible_succession:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_possible_succession:erase(index) end
+
+---@class historical_entity_positions_possible_appointable: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_positions_possible_appointable
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_positions_possible_appointable:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_positions_possible_appointable:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_possible_appointable:erase(index) end
+
+---@class historical_entity_positions_possible_elected: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_positions_possible_elected
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_positions_possible_elected:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_positions_possible_elected:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_possible_elected:erase(index) end
+
+---@class historical_entity_positions_possible_claimable: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_positions_possible_claimable
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_positions_possible_claimable:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_positions_possible_claimable:insert(index, item) end
+
+---@param index integer 
+function historical_entity_positions_possible_claimable:erase(index) end
+
 ---@class (exact) historical_entity.T_tissue_styles: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_tissue_styles
----@field all DFVector<entity_tissue_style>
+---@field all historical_entity_tissue_styles_all
 ---@field next_style_id number
 
 ---@class _historical_entity.T_tissue_styles: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_tissue_styles = {}
+
+---@class historical_entity_tissue_styles_all: DFContainer
+---@field [integer] entity_tissue_style
+local historical_entity_tissue_styles_all
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_tissue_style>
+function historical_entity_tissue_styles_all:_field(index) end
+
+---@param index integer 
+---@param item entity_tissue_style 
+function historical_entity_tissue_styles_all:insert(index, item) end
+
+---@param index integer 
+function historical_entity_tissue_styles_all:erase(index) end
 
 ---@class historical_entity.T_conquered_site_group_flags: DFObject
 ---@field _kind 'bitfield'
@@ -1399,45 +1863,189 @@ df.historical_entity.T_tissue_styles = {}
 ---@field [1] "hostile_occupation"
 df.historical_entity.T_conquered_site_group_flags = {}
 
+---@class historical_entity_events: DFContainer
+---@field [integer] entity_event
+local historical_entity_events
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_event>
+function historical_entity_events:_field(index) end
+
+---@param index integer 
+---@param item entity_event 
+function historical_entity_events:insert(index, item) end
+
+---@param index integer 
+function historical_entity_events:erase(index) end
+
+---@class historical_entity_artifact_claims: DFContainer
+---@field [integer] artifact_claim
+local historical_entity_artifact_claims
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<artifact_claim>
+function historical_entity_artifact_claims:_field(index) end
+
+---@param index integer 
+---@param item artifact_claim 
+function historical_entity_artifact_claims:insert(index, item) end
+
+---@param index integer 
+function historical_entity_artifact_claims:erase(index) end
+
+---@class historical_entity_honors: DFContainer
+---@field [integer] honors_type
+local historical_entity_honors
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<honors_type>
+function historical_entity_honors:_field(index) end
+
+---@param index integer 
+---@param item honors_type 
+function historical_entity_honors:insert(index, item) end
+
+---@param index integer 
+function historical_entity_honors:erase(index) end
+
+---@class historical_entity_meeting_events: DFContainer
+---@field [integer] meeting_event
+local historical_entity_meeting_events
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<meeting_event>
+function historical_entity_meeting_events:_field(index) end
+
+---@param index integer 
+---@param item meeting_event 
+function historical_entity_meeting_events:insert(index, item) end
+
+---@param index integer 
+function historical_entity_meeting_events:erase(index) end
+
+---@class historical_entity_armies: DFContainer
+---@field [integer] army
+local historical_entity_armies
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army>
+function historical_entity_armies:_field(index) end
+
+---@param index integer 
+---@param item army 
+function historical_entity_armies:insert(index, item) end
+
+---@param index integer 
+function historical_entity_armies:erase(index) end
+
+---@class historical_entity_army_controllers: DFContainer
+---@field [integer] army_controller
+local historical_entity_army_controllers
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<army_controller>
+function historical_entity_army_controllers:_field(index) end
+
+---@param index integer 
+---@param item army_controller 
+function historical_entity_army_controllers:insert(index, item) end
+
+---@param index integer 
+function historical_entity_army_controllers:erase(index) end
+
+---@class historical_entity_hist_figures: DFContainer
+---@field [integer] historical_figure
+local historical_entity_hist_figures
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<historical_figure>
+function historical_entity_hist_figures:_field(index) end
+
+---@param index integer 
+---@param item historical_figure 
+function historical_entity_hist_figures:insert(index, item) end
+
+---@param index integer 
+function historical_entity_hist_figures:erase(index) end
+
+---@class historical_entity_nemesis: DFContainer
+---@field [integer] nemesis_record
+local historical_entity_nemesis
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<nemesis_record>
+function historical_entity_nemesis:_field(index) end
+
+---@param index integer 
+---@param item nemesis_record 
+function historical_entity_nemesis:insert(index, item) end
+
+---@param index integer 
+function historical_entity_nemesis:erase(index) end
+
 ---@class (exact) historical_entity.T_derived_resources: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_derived_resources
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
----@field armor_leather DFVector<number>
----@field armor_chain DFVector<number>
----@field armor_plate DFVector<number>
----@field armor_under DFVector<number>
----@field armor_over DFVector<number>
----@field armor_cover DFVector<number>
----@field pants_leather DFVector<number>
----@field pants_chain DFVector<number>
----@field pants_plate DFVector<number>
----@field pants_under DFVector<number>
----@field pants_over DFVector<number>
----@field pants_cover DFVector<number>
----@field helm_leather DFVector<number>
----@field helm_chain DFVector<number>
----@field helm_plate DFVector<number>
----@field helm_under DFVector<number>
----@field helm_over DFVector<number>
----@field helm_cover DFVector<number>
----@field shoes_leather DFVector<number>
----@field shoes_chain DFVector<number>
----@field shoes_plate DFVector<number>
----@field shoes_under DFVector<number>
----@field shoes_over DFVector<number>
----@field shoes_cover DFVector<number>
----@field gloves_leather DFVector<number>
----@field gloves_chain DFVector<number>
----@field gloves_plate DFVector<number>
----@field gloves_under DFVector<number>
----@field gloves_over DFVector<number>
----@field gloves_cover DFVector<number>
+---@field armor_leather DFNumberVector
+---@field armor_chain DFNumberVector
+---@field armor_plate DFNumberVector
+---@field armor_under DFNumberVector
+---@field armor_over DFNumberVector
+---@field armor_cover DFNumberVector
+---@field pants_leather DFNumberVector
+---@field pants_chain DFNumberVector
+---@field pants_plate DFNumberVector
+---@field pants_under DFNumberVector
+---@field pants_over DFNumberVector
+---@field pants_cover DFNumberVector
+---@field helm_leather DFNumberVector
+---@field helm_chain DFNumberVector
+---@field helm_plate DFNumberVector
+---@field helm_under DFNumberVector
+---@field helm_over DFNumberVector
+---@field helm_cover DFNumberVector
+---@field shoes_leather DFNumberVector
+---@field shoes_chain DFNumberVector
+---@field shoes_plate DFNumberVector
+---@field shoes_under DFNumberVector
+---@field shoes_over DFNumberVector
+---@field shoes_cover DFNumberVector
+---@field gloves_leather DFNumberVector
+---@field gloves_chain DFNumberVector
+---@field gloves_plate DFNumberVector
+---@field gloves_under DFNumberVector
+---@field gloves_over DFNumberVector
+---@field gloves_cover DFNumberVector
 
 ---@class _historical_entity.T_derived_resources: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_derived_resources = {}
+
+---@class historical_entity_assignments_by_type: DFContainer
+---@field [integer] entity_position_assignment
+local historical_entity_assignments_by_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_assignment>
+function historical_entity_assignments_by_type:_field(index) end
+
+---@param index integer 
+---@param item entity_position_assignment 
+function historical_entity_assignments_by_type:insert(index, item) end
+
+---@param index integer 
+function historical_entity_assignments_by_type:erase(index) end
 
 ---@class (exact) historical_entity.T_claims: DFObject
 ---@field _kind 'struct'
@@ -1450,12 +2058,92 @@ df.historical_entity.T_derived_resources = {}
 ---@field _kind 'struct-type'
 df.historical_entity.T_claims = {}
 
+---@class historical_entity_weapon_proficiencies: DFContainer
+---@field [integer] job_skill
+local historical_entity_weapon_proficiencies
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<job_skill>
+function historical_entity_weapon_proficiencies:_field(index) end
+
+---@param index integer 
+---@param item job_skill 
+function historical_entity_weapon_proficiencies:insert(index, item) end
+
+---@param index integer 
+function historical_entity_weapon_proficiencies:erase(index) end
+
+---@class historical_entity_local_poetic_form: DFContainer
+---@field [integer] poetic_form
+local historical_entity_local_poetic_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<poetic_form>
+function historical_entity_local_poetic_form:_field(index) end
+
+---@param index integer 
+---@param item poetic_form 
+function historical_entity_local_poetic_form:insert(index, item) end
+
+---@param index integer 
+function historical_entity_local_poetic_form:erase(index) end
+
+---@class historical_entity_local_musical_form: DFContainer
+---@field [integer] musical_form
+local historical_entity_local_musical_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<musical_form>
+function historical_entity_local_musical_form:_field(index) end
+
+---@param index integer 
+---@param item musical_form 
+function historical_entity_local_musical_form:insert(index, item) end
+
+---@param index integer 
+function historical_entity_local_musical_form:erase(index) end
+
+---@class historical_entity_local_dance_form: DFContainer
+---@field [integer] dance_form
+local historical_entity_local_dance_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<dance_form>
+function historical_entity_local_dance_form:_field(index) end
+
+---@param index integer 
+---@param item dance_form 
+function historical_entity_local_dance_form:insert(index, item) end
+
+---@param index integer 
+function historical_entity_local_dance_form:erase(index) end
+
+---@class historical_entity_well_known_wc: DFContainer
+---@field [integer] written_content
+local historical_entity_well_known_wc
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<written_content>
+function historical_entity_well_known_wc:_field(index) end
+
+---@param index integer 
+---@param item written_content 
+function historical_entity_well_known_wc:insert(index, item) end
+
+---@param index integer 
+function historical_entity_well_known_wc:erase(index) end
+
 ---@class (exact) entity_tissue_style: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_tissue_style
 ---@field name string
----@field preferred_shapings DFVector<number>
----@field unk_1 DFVector<number> maybe probability?
+---@field preferred_shapings DFNumberVector
+---@field unk_1 DFNumberVector maybe probability?
 ---@field maintain_length_min number
 ---@field maintain_length_max number
 ---@field id number
@@ -1644,11 +2332,11 @@ df.entity_position_flags = {}
 ---@field _type _entity_position
 ---@field code string
 ---@field id number
----@field flags DFVector<table<entity_position_flags, boolean>>
----@field allowed_creature DFVector<number>
----@field allowed_class DFVector<string>
----@field rejected_creature DFVector<number>
----@field rejected_class DFVector<string>
+---@field flags entity_position_flags
+---@field allowed_creature DFNumberVector
+---@field allowed_class DFStringVector
+---@field rejected_creature DFNumberVector
+---@field rejected_class DFStringVector
 ---@field name string[]
 ---@field name_female string[]
 ---@field name_male string[]
@@ -1658,18 +2346,18 @@ df.entity_position_flags = {}
 ---@field squad string[]
 ---@field land_name string
 ---@field squad_size number
----@field commander_id DFVector<number>
----@field commander_civ DFVector<number>
----@field commander_types DFVector<number>
+---@field commander_id DFNumberVector
+---@field commander_civ DFNumberVector
+---@field commander_types DFNumberVector
 ---@field land_holder number
 ---@field requires_population number
 ---@field unk_1 number
 ---@field precedence number
 ---@field replaced_by number
 ---@field number number
----@field appointed_by DFVector<number>
----@field appointed_by_civ DFVector<number>
----@field succession_by_position DFVector<number>
+---@field appointed_by DFNumberVector
+---@field appointed_by_civ DFNumberVector
+---@field succession_by_position DFNumberVector
 ---@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
 ---@field unk_v50_358 string
 ---@field color number[]
@@ -1689,6 +2377,22 @@ df.entity_position_flags = {}
 ---@field _kind 'struct-type'
 df.entity_position = {}
 
+---@class entity_position_flags: DFContainer
+---@field [integer] table<entity_position_flags, boolean>
+local entity_position_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<entity_position_flags, boolean>>
+function entity_position_flags:_field(index) end
+
+---@param index integer 
+---@param item table<entity_position_flags, boolean> 
+function entity_position_flags:insert(index, item) end
+
+---@param index integer 
+function entity_position_flags:erase(index) end
+
 ---@class (exact) entity_position_profile_claimst: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_position_profile_claimst
@@ -1706,18 +2410,50 @@ df.entity_position_profile_claimst = {}
 ---@field histfig2 number bay12: last_holder_hfid References: `historical_figure`
 ---@field position_id number position within relevant entity
 ---@field position_vector_idx number bay12: position_cache_index
----@field flags DFVector<table<integer, boolean>> bay12: flag
+---@field flags entity_position_assignment_flags bay12: flag
 ---@field squad_id number bay12: leads_squad_id References: `squad`
 ---@field st_id number
 ---@field ab_id number
 ---@field vassal_of_entity_id number
 ---@field vassal_of_position_profile_id number
----@field claim DFVector<entity_position_profile_claimst> not saved
+---@field claim entity_position_assignment_claim not saved
 ---@field assigned_army_controller_id number unknown size, not initialized or saved
 
 ---@class _entity_position_assignment: DFCompound
 ---@field _kind 'struct-type'
 df.entity_position_assignment = {}
+
+---@class entity_position_assignment_flags: DFContainer
+---@field [integer] table<integer, boolean>
+local entity_position_assignment_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<integer, boolean>>
+function entity_position_assignment_flags:_field(index) end
+
+---@param index integer 
+---@param item table<integer, boolean> 
+function entity_position_assignment_flags:insert(index, item) end
+
+---@param index integer 
+function entity_position_assignment_flags:erase(index) end
+
+---@class entity_position_assignment_claim: DFContainer
+---@field [integer] entity_position_profile_claimst
+local entity_position_assignment_claim
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_profile_claimst>
+function entity_position_assignment_claim:_field(index) end
+
+---@param index integer 
+---@param item entity_position_profile_claimst 
+function entity_position_assignment_claim:insert(index, item) end
+
+---@param index integer 
+function entity_position_assignment_claim:erase(index) end
 
 ---@alias entity_material_category_keys
 ---| '"None"'
@@ -1887,15 +2623,47 @@ df.entity_uniform_item = {}
 ---@field _type _entity_uniform
 ---@field id number
 ---@field unk_4 number
----@field uniform_item_types DFEnumVector<uniform_category, DFVector<item_type>>
----@field uniform_item_subtypes DFEnumVector<uniform_category, DFVector<number>>
----@field uniform_item_info DFEnumVector<uniform_category, DFVector<entity_uniform_item>>
+---@field uniform_item_types DFEnumVector<uniform_category, item_type>
+---@field uniform_item_subtypes DFEnumVector<uniform_category, number>
+---@field uniform_item_info DFEnumVector<uniform_category, entity_uniform_item>
 ---@field name string
 ---@field flags uniform_flags
 
 ---@class _entity_uniform: DFCompound
 ---@field _kind 'struct-type'
 df.entity_uniform = {}
+
+---@class entity_uniform_uniform_item_types: DFContainer
+---@field [integer] item_type
+local entity_uniform_uniform_item_types
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<item_type>
+function entity_uniform_uniform_item_types:_field(index) end
+
+---@param index integer 
+---@param item item_type 
+function entity_uniform_uniform_item_types:insert(index, item) end
+
+---@param index integer 
+function entity_uniform_uniform_item_types:erase(index) end
+
+---@class entity_uniform_uniform_item_info: DFContainer
+---@field [integer] entity_uniform_item
+local entity_uniform_uniform_item_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_uniform_item>
+function entity_uniform_uniform_item_info:_field(index) end
+
+---@param index integer 
+---@param item entity_uniform_item 
+function entity_uniform_uniform_item_info:insert(index, item) end
+
+---@param index integer 
+function entity_uniform_uniform_item_info:erase(index) end
 
 ---@alias entity_event_type_keys
 ---| '"invasion"'
@@ -2523,9 +3291,9 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@field _kind 'struct'
 ---@field _type _agreement
 ---@field id number
----@field parties DFVector<agreement_party>
+---@field parties agreement_parties
 ---@field next_party_id number
----@field details DFVector<agreement_details>
+---@field details agreement_details
 ---@field next_details_id number
 ---@field unk_1 number
 ---@field unk_2 number
@@ -2543,6 +3311,38 @@ function df.agreement.find(key) end
 
 ---@return agreement_vector # df.global.world.agreements.all
 function df.agreement.get_vector() end
+
+---@class agreement_parties: DFContainer
+---@field [integer] agreement_party
+local agreement_parties
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<agreement_party>
+function agreement_parties:_field(index) end
+
+---@param index integer 
+---@param item agreement_party 
+function agreement_parties:insert(index, item) end
+
+---@param index integer 
+function agreement_parties:erase(index) end
+
+---@class agreement_details: DFContainer
+---@field [integer] agreement_details
+local agreement_details
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<agreement_details>
+function agreement_details:_field(index) end
+
+---@param index integer 
+---@param item agreement_details 
+function agreement_details:insert(index, item) end
+
+---@param index integer 
+function agreement_details:erase(index) end
 
 ---@class agreement.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -2563,9 +3363,9 @@ df.agreement.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _agreement_party
 ---@field id number
----@field histfig_ids DFVector<number>
----@field entity_ids DFVector<number>
----@field unk_1 DFVector<any>
+---@field histfig_ids DFNumberVector
+---@field entity_ids DFNumberVector
+---@field unk_1 DFAnyVector
 
 ---@class _agreement_party: DFCompound
 ---@field _kind 'struct-type'
@@ -2843,7 +3643,7 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field actor_index number agreement.parties index
 ---@field promisee_index number agreement.parties index
 ---@field influencer_index number agreement.parties index. May be swapped with beneficiary
----@field intermediary_indices DFVector<number> agreement.parties index
+---@field intermediary_indices DFNumberVector agreement.parties index
 ---@field entity_id number References: `historical_entity`
 
 ---@class _agreement_details_data_promise_position: DFCompound
@@ -2891,7 +3691,7 @@ df.agreement_details_data_plot_sabotage = {}
 ---@class (exact) agreement_details_data_plot_conviction: DFObject
 ---@field _kind 'struct'
 ---@field _type _agreement_details_data_plot_conviction
----@field criminal_indices DFVector<number> agreement.parties index. All indices listed, regardless of confessions
+---@field criminal_indices DFNumberVector agreement.parties index. All indices listed, regardless of confessions
 ---@field crime crime_type
 
 ---@class _agreement_details_data_plot_conviction: DFCompound

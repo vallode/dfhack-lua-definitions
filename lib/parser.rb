@@ -57,6 +57,8 @@ module DFHackLuaDefinitions
         @local_name = @path.join('_').gsub('T_', '')
         # @name = @path.join('.').gsub('.T_', '_')
       end
+
+      @class_name = @path.join('.')
     end
   end
 
@@ -477,6 +479,8 @@ module DFHackLuaDefinitions
     end
   end
 
+  # LuaLS lacks a great generic interface so we are stuck having to create
+  # classes that house methods for each container.
   class Container < Type
     attr_accessor :type
 
@@ -536,7 +540,50 @@ module DFHackLuaDefinitions
       super(node, path)
 
       @type = @child&.type || @type
-      @type = "DFVector<#{@type}>"
+      @class_name = class_name
+    end
+
+    def primitive?
+      LuaLS::TYPES.include?(@type)
+    end
+
+    def class_name
+      return "DF#{@type.capitalize}Vector" if primitive?
+
+      @path.join('.').gsub('.T_', '_')
+    end
+
+    def to_field
+      return '' unless @name
+
+      LuaLS.field(@name, @class_name, @comment)
+    end
+
+    def render
+      annotation = []
+
+      unless primitive?
+        annotation << "---@class #{@class_name}: DFContainer\n"
+        annotation << "---@field [integer] #{@type}\n"
+        # TODO: Lua has a hard-cap of 256 (or 200, depending on system)
+        # local variables, this seems to be on a per-file basis, however.
+        annotation << "local #{@class_name}\n\n"
+
+        annotation << "---@nodiscard\n"
+        annotation << "---@param index integer\n"
+        annotation << "---@return DFPointer<#{@type}>\n"
+        annotation << "function #{@class_name}:_field(index) end\n\n"
+
+        annotation << "---@param index integer \n"
+        annotation << "---@param item #{@type} \n"
+        annotation << "function #{@class_name}:insert(index, item) end\n\n"
+
+        annotation << "---@param index integer \n"
+        annotation << "function #{@class_name}:erase(index) end\n\n"
+      end
+
+      annotation << @child.render if @child&.render?
+      annotation.join
     end
   end
 

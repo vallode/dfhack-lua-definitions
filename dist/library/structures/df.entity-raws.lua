@@ -629,12 +629,12 @@ df.entity_name_type = {}
 ---@field _type _entity_raw
 ---@field code string
 ---@field index number into instace-vector
----@field raws DFVector<string>
----@field creature_ids DFVector<number>
----@field creatures DFVector<string>
+---@field raws DFStringVector
+---@field creature_ids DFNumberVector
+---@field creatures DFStringVector
 ---@field equipment entity_raw.T_equipment
----@field currency_value DFVector<number>
----@field flags DFVector<table<entity_raw_flags, boolean>>
+---@field currency_value DFNumberVector
+---@field flags entity_raw_flags
 ---@field translation string
 ---@field symbols entity_raw.T_symbols
 ---@field sphere_alignment DFEnumVector<sphere_type, number>
@@ -658,24 +658,24 @@ df.entity_name_type = {}
 ---@field max_site_pop_number number
 ---@field max_pop_number number
 ---@field max_starting_civ_number number
----@field religion DFVector<number>
----@field religion_sphere DFVector<sphere_type>
+---@field religion DFNumberVector
+---@field religion_sphere entity_raw_religion_sphere
 ---@field jobs entity_raw.T_jobs
----@field positions DFVector<entity_position_raw>
+---@field positions entity_raw_positions
 ---@field variable_positions DFEnumVector<entity_position_responsibility, number>
 ---@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
----@field tissue_styles DFVector<any>
+---@field tissue_styles DFAnyVector
 ---@field workshops entity_raw.T_workshops
 ---@field banditry number
----@field gem_shapes_str DFVector<string>
----@field stone_shapes_str DFVector<string>
----@field gem_shapes DFVector<number>
----@field stone_shapes DFVector<number>
+---@field gem_shapes_str DFStringVector
+---@field stone_shapes_str DFStringVector
+---@field gem_shapes DFNumberVector
+---@field stone_shapes DFNumberVector
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
----@field currency_str1 DFVector<string>
----@field currency_str2 DFVector<string>
----@field animal DFVector<entity_animal_raw>
+---@field currency_str1 DFStringVector
+---@field currency_str2 DFStringVector
+---@field animal entity_raw_animal
 
 ---@class _entity_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -693,52 +693,68 @@ function df.entity_raw.get_vector() end
 ---@class (exact) entity_raw.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_equipment
----@field digger_id DFVector<number>
----@field weapon_id DFVector<number>
----@field armor_id DFVector<number>
----@field ammo_id DFVector<number>
----@field helm_id DFVector<number>
----@field gloves_id DFVector<number>
----@field shoes_id DFVector<number>
----@field pants_id DFVector<number>
----@field shield_id DFVector<number>
----@field trapcomp_id DFVector<number>
----@field toy_id DFVector<number>
----@field instrument_id DFVector<number>
----@field tool_id DFVector<number>
----@field siegeammo_id DFVector<number>
----@field armor_rarity DFVector<number>
----@field helm_rarity DFVector<number>
----@field gloves_rarity DFVector<number>
----@field shoes_rarity DFVector<number>
----@field pants_rarity DFVector<number>
----@field digger_str DFVector<string>
----@field weapon_str DFVector<string>
----@field armor_str DFVector<string>
----@field ammo_str DFVector<string>
----@field helm_str DFVector<string>
----@field gloves_str DFVector<string>
----@field shoes_str DFVector<string>
----@field pants_str DFVector<string>
----@field shield_str DFVector<string>
----@field trapcomp_str DFVector<string>
----@field toy_str DFVector<string>
----@field instrument_str DFVector<string>
----@field siegeammo_str DFVector<string>
----@field tool_str DFVector<string>
+---@field digger_id DFNumberVector
+---@field weapon_id DFNumberVector
+---@field armor_id DFNumberVector
+---@field ammo_id DFNumberVector
+---@field helm_id DFNumberVector
+---@field gloves_id DFNumberVector
+---@field shoes_id DFNumberVector
+---@field pants_id DFNumberVector
+---@field shield_id DFNumberVector
+---@field trapcomp_id DFNumberVector
+---@field toy_id DFNumberVector
+---@field instrument_id DFNumberVector
+---@field tool_id DFNumberVector
+---@field siegeammo_id DFNumberVector
+---@field armor_rarity DFNumberVector
+---@field helm_rarity DFNumberVector
+---@field gloves_rarity DFNumberVector
+---@field shoes_rarity DFNumberVector
+---@field pants_rarity DFNumberVector
+---@field digger_str DFStringVector
+---@field weapon_str DFStringVector
+---@field armor_str DFStringVector
+---@field ammo_str DFStringVector
+---@field helm_str DFStringVector
+---@field gloves_str DFStringVector
+---@field shoes_str DFStringVector
+---@field pants_str DFStringVector
+---@field shield_str DFStringVector
+---@field trapcomp_str DFStringVector
+---@field toy_str DFStringVector
+---@field instrument_str DFStringVector
+---@field siegeammo_str DFStringVector
+---@field tool_str DFStringVector
 
 ---@class _entity_raw.T_equipment: DFCompound
 ---@field _kind 'struct-type'
 df.entity_raw.T_equipment = {}
+
+---@class entity_raw_flags: DFContainer
+---@field [integer] table<entity_raw_flags, boolean>
+local entity_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<entity_raw_flags, boolean>>
+function entity_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<entity_raw_flags, boolean> 
+function entity_raw_flags:insert(index, item) end
+
+---@param index integer 
+function entity_raw_flags:erase(index) end
 
 ---@class (exact) entity_raw.T_symbols: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_symbols
 ---@field symbols1 DFEnumVector<entity_name_type, language_word_table>
 ---@field symbols2 DFEnumVector<entity_name_type, language_word_table>
----@field select_symbol DFEnumVector<entity_name_type, DFVector<string>>
----@field subselect_symbol DFEnumVector<entity_name_type, DFVector<string>>
----@field cull_symbol DFEnumVector<entity_name_type, DFVector<string>>
+---@field select_symbol DFEnumVector<entity_name_type, string>
+---@field subselect_symbol DFEnumVector<entity_name_type, string>
+---@field cull_symbol DFEnumVector<entity_name_type, string>
 
 ---@class _entity_raw.T_symbols: DFCompound
 ---@field _kind 'struct-type'
@@ -801,6 +817,22 @@ df.entity_raw.T_progress_trigger = {}
 ---@field [8] "ENGINEER"
 df.entity_raw.T_scholar = {}
 
+---@class entity_raw_religion_sphere: DFContainer
+---@field [integer] sphere_type
+local entity_raw_religion_sphere
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<sphere_type>
+function entity_raw_religion_sphere:_field(index) end
+
+---@param index integer 
+---@param item sphere_type 
+function entity_raw_religion_sphere:insert(index, item) end
+
+---@param index integer 
+function entity_raw_religion_sphere:erase(index) end
+
 ---@class (exact) entity_raw.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_jobs
@@ -812,25 +844,57 @@ df.entity_raw.T_scholar = {}
 ---@field _kind 'struct-type'
 df.entity_raw.T_jobs = {}
 
+---@class entity_raw_positions: DFContainer
+---@field [integer] entity_position_raw
+local entity_raw_positions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_raw>
+function entity_raw_positions:_field(index) end
+
+---@param index integer 
+---@param item entity_position_raw 
+function entity_raw_positions:insert(index, item) end
+
+---@param index integer 
+function entity_raw_positions:erase(index) end
+
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_workshops
----@field permitted_building_str DFVector<string>
----@field permitted_building_id DFVector<number>
----@field permitted_reaction_str DFVector<string>
----@field permitted_reaction_id DFVector<number>
+---@field permitted_building_str DFStringVector
+---@field permitted_building_id DFNumberVector
+---@field permitted_reaction_str DFStringVector
+---@field permitted_reaction_id DFNumberVector
 
 ---@class _entity_raw.T_workshops: DFCompound
 ---@field _kind 'struct-type'
 df.entity_raw.T_workshops = {}
 
+---@class entity_raw_animal: DFContainer
+---@field [integer] entity_animal_raw
+local entity_raw_animal
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_animal_raw>
+function entity_raw_animal:_field(index) end
+
+---@param index integer 
+---@param item entity_animal_raw 
+function entity_raw_animal:insert(index, item) end
+
+---@param index integer 
+function entity_raw_animal:erase(index) end
+
 ---@class (exact) entity_animal_raw: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_animal_raw
 ---@field token string
----@field caste_token DFVector<string>
----@field animal_class DFVector<string>
----@field forbidden_class DFVector<string>
+---@field caste_token DFStringVector
+---@field animal_class DFStringVector
+---@field forbidden_class DFStringVector
 ---@field flags entity_animal_raw.T_flags
 
 ---@class _entity_animal_raw: DFCompound
@@ -1191,13 +1255,13 @@ df.entity_position_responsibility = {}
 ---@field _type _entity_position_raw
 ---@field code string
 ---@field id number
----@field flags DFVector<table<entity_position_raw_flags, boolean>>
----@field allowed_creature_str DFVector<string>[]
----@field allowed_creature DFVector<number>
----@field allowed_class DFVector<string>
----@field rejected_creature_str DFVector<string>[]
----@field rejected_creature DFVector<number>
----@field rejected_class DFVector<string>
+---@field flags entity_position_raw_flags
+---@field allowed_creature_str string[]
+---@field allowed_creature DFNumberVector
+---@field allowed_class DFStringVector
+---@field rejected_creature_str string[]
+---@field rejected_creature DFNumberVector
+---@field rejected_class DFStringVector
 ---@field name string[]
 ---@field name_female string[]
 ---@field name_male string[]
@@ -1207,9 +1271,9 @@ df.entity_position_responsibility = {}
 ---@field squad string[]
 ---@field land_name string
 ---@field squad_size number
----@field commander_str DFVector<string>
----@field commander_id DFVector<number>
----@field commander_types DFVector<number>
+---@field commander_str DFStringVector
+---@field commander_id DFNumberVector
+---@field commander_types DFNumberVector
 ---@field land_holder number
 ---@field number number
 ---@field requires_population number
@@ -1217,10 +1281,10 @@ df.entity_position_responsibility = {}
 ---@field precedence number
 ---@field replaced_by_str string
 ---@field replaced_by number
----@field appointed_by_str DFVector<string>
----@field appointed_by DFVector<number>
----@field succession_by_position_str DFVector<string>
----@field succession_by_position DFVector<number>
+---@field appointed_by_str DFStringVector
+---@field appointed_by DFNumberVector
+---@field succession_by_position_str DFStringVector
+---@field succession_by_position DFNumberVector
 ---@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
 ---@field color number[]
 ---@field required_boxes number
@@ -1237,4 +1301,20 @@ df.entity_position_responsibility = {}
 ---@class _entity_position_raw: DFCompound
 ---@field _kind 'struct-type'
 df.entity_position_raw = {}
+
+---@class entity_position_raw_flags: DFContainer
+---@field [integer] table<entity_position_raw_flags, boolean>
+local entity_position_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<entity_position_raw_flags, boolean>>
+function entity_position_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<entity_position_raw_flags, boolean> 
+function entity_position_raw_flags:insert(index, item) end
+
+---@param index integer 
+function entity_position_raw_flags:erase(index) end
 
