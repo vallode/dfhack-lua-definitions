@@ -1,4 +1,5 @@
 name: release
+run-name: Update library files
 
 # TODO: Figure out a release workflow.
 on: workflow_dispatch
