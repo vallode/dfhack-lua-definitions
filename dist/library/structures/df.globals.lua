@@ -190,85 +190,85 @@ df.global.T_cursor = {}
 ---@field _kind 'struct-type'
 df.global.T_selection_rect = {}
 
----@class global_created_item_type: DFContainer
+---@class _global_created_item_type: DFContainer
 ---@field [integer] item_type
-local global_created_item_type
+local _global_created_item_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item_type>
-function global_created_item_type:_field(index) end
+function _global_created_item_type:_field(index) end
 
 ---@param index integer 
 ---@param item item_type 
-function global_created_item_type:insert(index, item) end
+function _global_created_item_type:insert(index, item) end
 
 ---@param index integer 
-function global_created_item_type:erase(index) end
+function _global_created_item_type:erase(index) end
 
----@class global_flows: DFContainer
+---@class _global_flows: DFContainer
 ---@field [integer] flow_info
-local global_flows
+local _global_flows
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<flow_info>
-function global_flows:_field(index) end
+function _global_flows:_field(index) end
 
 ---@param index integer 
 ---@param item flow_info 
-function global_flows:insert(index, item) end
+function _global_flows:insert(index, item) end
 
 ---@param index integer 
-function global_flows:erase(index) end
+function _global_flows:erase(index) end
 
----@class global_timed_events: DFContainer
+---@class _global_timed_events: DFContainer
 ---@field [integer] timed_event
-local global_timed_events
+local _global_timed_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<timed_event>
-function global_timed_events:_field(index) end
+function _global_timed_events:_field(index) end
 
 ---@param index integer 
 ---@param item timed_event 
-function global_timed_events:insert(index, item) end
+function _global_timed_events:insert(index, item) end
 
 ---@param index integer 
-function global_timed_events:erase(index) end
+function _global_timed_events:erase(index) end
 
----@class global_ui_building_assign_units: DFContainer
+---@class _global_ui_building_assign_units: DFContainer
 ---@field [integer] unit
-local global_ui_building_assign_units
+local _global_ui_building_assign_units
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function global_ui_building_assign_units:_field(index) end
+function _global_ui_building_assign_units:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function global_ui_building_assign_units:insert(index, item) end
+function _global_ui_building_assign_units:insert(index, item) end
 
 ---@param index integer 
-function global_ui_building_assign_units:erase(index) end
+function _global_ui_building_assign_units:erase(index) end
 
----@class global_ui_building_assign_items: DFContainer
+---@class _global_ui_building_assign_items: DFContainer
 ---@field [integer] item
-local global_ui_building_assign_items
+local _global_ui_building_assign_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function global_ui_building_assign_items:_field(index) end
+function _global_ui_building_assign_items:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function global_ui_building_assign_items:insert(index, item) end
+function _global_ui_building_assign_items:insert(index, item) end
 
 ---@param index integer 
-function global_ui_building_assign_items:erase(index) end
+function _global_ui_building_assign_items:erase(index) end
 
 ---@alias weather_type_keys
 ---| '"None"'

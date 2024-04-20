@@ -576,8 +576,8 @@ df.block_burrow_link = {}
 ---@field _kind 'struct'
 ---@field _type _map_block
 ---@field flags block_flags
----@field block_events map_block_block_events
----@field block_burrows map_block_block_burrows
+---@field block_events _map_block_block_events
+---@field block_burrows _map_block_block_burrows
 ---@field local_feature number index into world_data.region_map
 ---@field global_feature number References: `world_underground_region`
 ---@field global_feature_sq number
@@ -585,7 +585,7 @@ df.block_burrow_link = {}
 ---@field dsgn_check_cooldown number
 ---@field default_liquid tile_designation
 ---@field items DFNumberVector
----@field flows map_block_flows
+---@field flows _map_block_flows
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
@@ -607,53 +607,53 @@ df.block_burrow_link = {}
 ---@field _kind 'struct-type'
 df.map_block = {}
 
----@class map_block_block_events: DFContainer
+---@class _map_block_block_events: DFContainer
 ---@field [integer] block_square_event
-local map_block_block_events
+local _map_block_block_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<block_square_event>
-function map_block_block_events:_field(index) end
+function _map_block_block_events:_field(index) end
 
 ---@param index integer 
 ---@param item block_square_event 
-function map_block_block_events:insert(index, item) end
+function _map_block_block_events:insert(index, item) end
 
 ---@param index integer 
-function map_block_block_events:erase(index) end
+function _map_block_block_events:erase(index) end
 
----@class map_block_block_burrows: DFContainer
+---@class _map_block_block_burrows: DFContainer
 ---@field [integer] block_burrow_link
-local map_block_block_burrows
+local _map_block_block_burrows
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<block_burrow_link>
-function map_block_block_burrows:_field(index) end
+function _map_block_block_burrows:_field(index) end
 
 ---@param index integer 
 ---@param item block_burrow_link 
-function map_block_block_burrows:insert(index, item) end
+function _map_block_block_burrows:insert(index, item) end
 
 ---@param index integer 
-function map_block_block_burrows:erase(index) end
+function _map_block_block_burrows:erase(index) end
 
----@class map_block_flows: DFContainer
+---@class _map_block_flows: DFContainer
 ---@field [integer] flow_info
-local map_block_flows
+local _map_block_flows
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<flow_info>
-function map_block_flows:_field(index) end
+function _map_block_flows:_field(index) end
 
 ---@param index integer 
 ---@param item flow_info 
-function map_block_flows:insert(index, item) end
+function _map_block_flows:insert(index, item) end
 
 ---@param index integer 
-function map_block_flows:erase(index) end
+function _map_block_flows:erase(index) end
 
 ---@class (exact) cave_column_link: DFObject
 ---@field _kind 'struct'
@@ -736,101 +736,101 @@ df.cave_column_rectangle.T_flags = {}
 ---@field sink_level number water at or above this level sinks into aquifer tiles
 ---@field beach_level number water at this level disappears if above more water
 ---@field ground_level number for coloring unallocated blocks
----@field unmined_glyphs map_block_column_unmined_glyphs
+---@field unmined_glyphs _map_block_column_unmined_glyphs
 ---@field z_base number
 ---@field cave_columns cave_column_link[][]
----@field column_rectangles map_block_column_column_rectangles
+---@field column_rectangles _map_block_column_column_rectangles
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
----@field flags map_block_column_flags 0 process cave columns for caveins
+---@field flags _map_block_column_flags 0 process cave columns for caveins
 ---@field elevation number[][]
 ---@field map_pos coord2d top left in tiles
 ---@field unk_c3c number uninitialized
 ---@field region_pos coord2d
----@field plants map_block_column_plants Only populated for the top left column in each mid level tile
+---@field plants _map_block_column_plants Only populated for the top left column in each mid level tile
 
 ---@class _map_block_column: DFCompound
 ---@field _kind 'struct-type'
 df.map_block_column = {}
 
----@class map_block_column_unmined_glyphs: DFContainer
+---@class _map_block_column_unmined_glyphs: DFContainer
 ---@field [integer] DFPointer<integer>
-local map_block_column_unmined_glyphs
+local _map_block_column_unmined_glyphs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function map_block_column_unmined_glyphs:_field(index) end
+function _map_block_column_unmined_glyphs:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function map_block_column_unmined_glyphs:insert(index, item) end
+function _map_block_column_unmined_glyphs:insert(index, item) end
 
 ---@param index integer 
-function map_block_column_unmined_glyphs:erase(index) end
+function _map_block_column_unmined_glyphs:erase(index) end
 
----@class map_block_column_cave_columns_cave_column_link: DFContainer
+---@class _map_block_column_cave_columns_cave_column_link: DFContainer
 ---@field [integer] cave_column_link
-local map_block_column_cave_columns_cave_column_link
+local _map_block_column_cave_columns_cave_column_link
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<cave_column_link>
-function map_block_column_cave_columns_cave_column_link:_field(index) end
+function _map_block_column_cave_columns_cave_column_link:_field(index) end
 
 ---@param index integer 
 ---@param item cave_column_link 
-function map_block_column_cave_columns_cave_column_link:insert(index, item) end
+function _map_block_column_cave_columns_cave_column_link:insert(index, item) end
 
 ---@param index integer 
-function map_block_column_cave_columns_cave_column_link:erase(index) end
+function _map_block_column_cave_columns_cave_column_link:erase(index) end
 
----@class map_block_column_column_rectangles: DFContainer
+---@class _map_block_column_column_rectangles: DFContainer
 ---@field [integer] cave_column_rectangle
-local map_block_column_column_rectangles
+local _map_block_column_column_rectangles
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<cave_column_rectangle>
-function map_block_column_column_rectangles:_field(index) end
+function _map_block_column_column_rectangles:_field(index) end
 
 ---@param index integer 
 ---@param item cave_column_rectangle 
-function map_block_column_column_rectangles:insert(index, item) end
+function _map_block_column_column_rectangles:insert(index, item) end
 
 ---@param index integer 
-function map_block_column_column_rectangles:erase(index) end
+function _map_block_column_column_rectangles:erase(index) end
 
----@class map_block_column_flags: DFContainer
+---@class _map_block_column_flags: DFContainer
 ---@field [integer] table<integer, boolean>
-local map_block_column_flags
+local _map_block_column_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function map_block_column_flags:_field(index) end
+function _map_block_column_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<integer, boolean> 
-function map_block_column_flags:insert(index, item) end
+function _map_block_column_flags:insert(index, item) end
 
 ---@param index integer 
-function map_block_column_flags:erase(index) end
+function _map_block_column_flags:erase(index) end
 
----@class map_block_column_plants: DFContainer
+---@class _map_block_column_plants: DFContainer
 ---@field [integer] plant
-local map_block_column_plants
+local _map_block_column_plants
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plant>
-function map_block_column_plants:_field(index) end
+function _map_block_column_plants:_field(index) end
 
 ---@param index integer 
 ---@param item plant 
-function map_block_column_plants:insert(index, item) end
+function _map_block_column_plants:insert(index, item) end
 
 ---@param index integer 
-function map_block_column_plants:erase(index) end
+function _map_block_column_plants:erase(index) end
 
 ---@alias block_square_event_type_keys
 ---| '"mineral"'
@@ -1104,7 +1104,7 @@ df.feature_type = {}
 ---@class (exact) feature: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature
----@field population feature_population
+---@field population _feature_population
 ---@field irritation_level number divide by 10k for attack chance, max 100k
 ---@field irritation_attacks number maxes at 10?
 ---@field embark_pos coord2d_path
@@ -1115,21 +1115,21 @@ df.feature_type = {}
 ---@field _kind 'class-type'
 df.feature = {}
 
----@class feature_population: DFContainer
+---@class _feature_population: DFContainer
 ---@field [integer] world_population
-local feature_population
+local _feature_population
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<world_population>
-function feature_population:_field(index) end
+function _feature_population:_field(index) end
 
 ---@param index integer 
 ---@param item world_population 
-function feature_population:insert(index, item) end
+function _feature_population:insert(index, item) end
 
 ---@param index integer 
-function feature_population:erase(index) end
+function _feature_population:erase(index) end
 
 ---@class (exact) feature_outdoor_riverst: DFObject, feature
 ---@field _kind 'struct'
@@ -1286,8 +1286,8 @@ df.layer_type = {}
 ---@class (exact) feature_init: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature_init
----@field flags feature_init_flags
----@field alterations feature_init_alterations
+---@field flags _feature_init_flags
+---@field alterations _feature_init_alterations
 ---@field start_x number
 ---@field start_y number
 ---@field end_x number
@@ -1299,37 +1299,37 @@ df.layer_type = {}
 ---@field _kind 'class-type'
 df.feature_init = {}
 
----@class feature_init_flags: DFContainer
+---@class _feature_init_flags: DFContainer
 ---@field [integer] table<feature_init_flags, boolean>
-local feature_init_flags
+local _feature_init_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<feature_init_flags, boolean>>
-function feature_init_flags:_field(index) end
+function _feature_init_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<feature_init_flags, boolean> 
-function feature_init_flags:insert(index, item) end
+function _feature_init_flags:insert(index, item) end
 
 ---@param index integer 
-function feature_init_flags:erase(index) end
+function _feature_init_flags:erase(index) end
 
----@class feature_init_alterations: DFContainer
+---@class _feature_init_alterations: DFContainer
 ---@field [integer] feature_alteration
-local feature_init_alterations
+local _feature_init_alterations
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<feature_alteration>
-function feature_init_alterations:_field(index) end
+function _feature_init_alterations:_field(index) end
 
 ---@param index integer 
 ---@param item feature_alteration 
-function feature_init_alterations:insert(index, item) end
+function _feature_init_alterations:insert(index, item) end
 
 ---@param index integer 
-function feature_init_alterations:erase(index) end
+function _feature_init_alterations:erase(index) end
 
 ---@class (exact) feature_init_outdoor_riverst: DFObject, feature_init
 ---@field _kind 'struct'
@@ -1566,7 +1566,7 @@ df.world_construction_square_wallst = {}
 ---@field _kind 'struct'
 ---@field _type _world_construction
 ---@field id number
----@field square_obj world_construction_square_obj
+---@field square_obj _world_construction_square_obj
 ---@field square_pos coord2d_path
 
 ---@class _world_construction: DFCompound
@@ -1582,21 +1582,21 @@ function df.world_construction.find(key) end
 ---@return world_construction_vector # df.global.world.world_data.constructions.list
 function df.world_construction.get_vector() end
 
----@class world_construction_square_obj: DFContainer
+---@class _world_construction_square_obj: DFContainer
 ---@field [integer] world_construction_square
-local world_construction_square_obj
+local _world_construction_square_obj
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<world_construction_square>
-function world_construction_square_obj:_field(index) end
+function _world_construction_square_obj:_field(index) end
 
 ---@param index integer 
 ---@param item world_construction_square 
-function world_construction_square_obj:insert(index, item) end
+function _world_construction_square_obj:insert(index, item) end
 
 ---@param index integer 
-function world_construction_square_obj:erase(index) end
+function _world_construction_square_obj:erase(index) end
 
 ---@class (exact) world_construction_roadst: DFObject, world_construction
 ---@field _kind 'struct'

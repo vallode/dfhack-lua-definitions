@@ -231,19 +231,19 @@ df.ui_advmode_menu = {}
 ---@field unk_48 number References: `unit`
 ---@field unk_4c number References: `historical_figure`
 ---@field unk_50 number
----@field unk_54 conversation_unk_54
----@field unk_64 conversation_unk_64
+---@field unk_54 _conversation_unk_54
+---@field unk_64 _conversation_unk_64
 ---@field unk_74 number
 ---@field unk_78 number
 ---@field unk_7c number
 ---@field unk_80 number
----@field unk_84 conversation_unk_84
----@field unk_94 conversation_unk_94
----@field unk_a4 conversation_unk_a4
+---@field unk_84 _conversation_unk_84
+---@field unk_94 _conversation_unk_94
+---@field unk_a4 _conversation_unk_a4
 ---@field location building civzone
 ---@field unk_b8 number
 ---@field unk_bc number
----@field speech conversation_speech
+---@field speech _conversation_speech
 
 ---@class _conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -276,101 +276,101 @@ df.conversation = {}
 ---@field [3] "quit"
 df.conversation.T_state = {}
 
----@class conversation_unk_54: DFContainer
+---@class _conversation_unk_54: DFContainer
 ---@field [integer] nemesis_record
-local conversation_unk_54
+local _conversation_unk_54
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<nemesis_record>
-function conversation_unk_54:_field(index) end
+function _conversation_unk_54:_field(index) end
 
 ---@param index integer 
 ---@param item nemesis_record 
-function conversation_unk_54:insert(index, item) end
+function _conversation_unk_54:insert(index, item) end
 
 ---@param index integer 
-function conversation_unk_54:erase(index) end
+function _conversation_unk_54:erase(index) end
 
----@class conversation_unk_64: DFContainer
+---@class _conversation_unk_64: DFContainer
 ---@field [integer] historical_entity
-local conversation_unk_64
+local _conversation_unk_64
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_entity>
-function conversation_unk_64:_field(index) end
+function _conversation_unk_64:_field(index) end
 
 ---@param index integer 
 ---@param item historical_entity 
-function conversation_unk_64:insert(index, item) end
+function _conversation_unk_64:insert(index, item) end
 
 ---@param index integer 
-function conversation_unk_64:erase(index) end
+function _conversation_unk_64:erase(index) end
 
----@class conversation_unk_84: DFContainer
+---@class _conversation_unk_84: DFContainer
 ---@field [integer] any[]
-local conversation_unk_84
+local _conversation_unk_84
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function conversation_unk_84:_field(index) end
+function _conversation_unk_84:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function conversation_unk_84:insert(index, item) end
+function _conversation_unk_84:insert(index, item) end
 
 ---@param index integer 
-function conversation_unk_84:erase(index) end
+function _conversation_unk_84:erase(index) end
 
----@class conversation_unk_94: DFContainer
+---@class _conversation_unk_94: DFContainer
 ---@field [integer] any[]
-local conversation_unk_94
+local _conversation_unk_94
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function conversation_unk_94:_field(index) end
+function _conversation_unk_94:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function conversation_unk_94:insert(index, item) end
+function _conversation_unk_94:insert(index, item) end
 
 ---@param index integer 
-function conversation_unk_94:erase(index) end
+function _conversation_unk_94:erase(index) end
 
----@class conversation_unk_a4: DFContainer
+---@class _conversation_unk_a4: DFContainer
 ---@field [integer] any[]
-local conversation_unk_a4
+local _conversation_unk_a4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function conversation_unk_a4:_field(index) end
+function _conversation_unk_a4:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function conversation_unk_a4:insert(index, item) end
+function _conversation_unk_a4:insert(index, item) end
 
 ---@param index integer 
-function conversation_unk_a4:erase(index) end
+function _conversation_unk_a4:erase(index) end
 
----@class conversation_speech: DFContainer
+---@class _conversation_speech: DFContainer
 ---@field [integer] DFPointer<integer>
-local conversation_speech
+local _conversation_speech
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function conversation_speech:_field(index) end
+function _conversation_speech:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function conversation_speech:insert(index, item) end
+function _conversation_speech:insert(index, item) end
 
 ---@param index integer 
-function conversation_speech:erase(index) end
+function _conversation_speech:erase(index) end
 
 ---@alias talk_choice_type_keys
 ---| '"Greet"'
@@ -1509,7 +1509,7 @@ df.adventure_construction_mode_type = {}
 ---@field world_debug_pass_time number
 ---@field world_debug_loaded_center_abs_smm_x number
 ---@field world_debug_loaded_center_abs_smm_y number ?
----@field world_debug_army adventurest_world_debug_army ?
+---@field world_debug_army _adventurest_world_debug_army ?
 ---@field world_debug_army_scroll number
 ---@field world_debug_viewing_army_details boolean ?
 ---@field long_action_duration number bay12: travel_goal_count; Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
@@ -1522,13 +1522,13 @@ df.adventure_construction_mode_type = {}
 ---@field viewing_spoor_z number
 ---@field viewing_spoor_bse block_square_event_spoorst
 ---@field conversation adventurest.T_conversation
----@field unk_70 adventurest_unk_70 only canonicalized up to here --
+---@field unk_70 _adventurest_unk_70 only canonicalized up to here --
 ---@field unk_71 number
----@field unk_72 adventurest_unk_72
----@field interacts adventurest_interacts
----@field commands adventurest_commands
----@field movements adventurest_movements
----@field unk_75 adventurest_unk_75
+---@field unk_72 _adventurest_unk_72
+---@field interacts _adventurest_interacts
+---@field commands _adventurest_commands
+---@field movements _adventurest_movements
+---@field unk_75 _adventurest_unk_75
 ---@field sleep_hours number
 ---@field sleep_until_dawn boolean
 ---@field unk_78 number
@@ -1709,44 +1709,44 @@ df.adventurest.T_exemplar_track_data.T_type = {}
 ---@class (exact) adventurest.T_rumor_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_rumor_info
----@field base_data adventurest_rumor_info_base_data
+---@field base_data _adventurest_rumor_info_base_data
 ---@field data adventure_rumor_datast[]
 
 ---@class _adventurest.T_rumor_info: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_rumor_info = {}
 
----@class adventurest_rumor_info_base_data: DFContainer
+---@class _adventurest_rumor_info_base_data: DFContainer
 ---@field [integer] adventure_rumor_datast
-local adventurest_rumor_info_base_data
+local _adventurest_rumor_info_base_data
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<adventure_rumor_datast>
-function adventurest_rumor_info_base_data:_field(index) end
+function _adventurest_rumor_info_base_data:_field(index) end
 
 ---@param index integer 
 ---@param item adventure_rumor_datast 
-function adventurest_rumor_info_base_data:insert(index, item) end
+function _adventurest_rumor_info_base_data:insert(index, item) end
 
 ---@param index integer 
-function adventurest_rumor_info_base_data:erase(index) end
+function _adventurest_rumor_info_base_data:erase(index) end
 
----@class adventurest_rumor_info_data: DFContainer
+---@class _adventurest_rumor_info_data: DFContainer
 ---@field [integer] adventure_rumor_datast
-local adventurest_rumor_info_data
+local _adventurest_rumor_info_data
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<adventure_rumor_datast>
-function adventurest_rumor_info_data:_field(index) end
+function _adventurest_rumor_info_data:_field(index) end
 
 ---@param index integer 
 ---@param item adventure_rumor_datast 
-function adventurest_rumor_info_data:insert(index, item) end
+function _adventurest_rumor_info_data:insert(index, item) end
 
 ---@param index integer 
-function adventurest_rumor_info_data:erase(index) end
+function _adventurest_rumor_info_data:erase(index) end
 
 -- bay12 type: adventure_constructionst
 ---@class (exact) adventurest.T_construction: DFObject
@@ -1771,7 +1771,7 @@ function adventurest_rumor_info_data:erase(index) end
 ---@field removing_planned boolean
 ---@field removing_existing boolean
 ---@field choosing_workshop boolean
----@field civzone adventurest_construction_civzone
+---@field civzone _adventurest_construction_civzone
 ---@field selected_civzone number
 ---@field edit_zone_flag number[]
 ---@field doing_zone_flow boolean 144x144
@@ -1780,9 +1780,9 @@ function adventurest_rumor_info_data:erase(index) end
 ---@field zone_sy number
 ---@field zone_sz number
 ---@field editing_zone building_civzonest
----@field zone_assign_hf adventurest_construction_zone_assign_hf
+---@field zone_assign_hf _adventurest_construction_zone_assign_hf
 ---@field selected_zone_assign number
----@field valid_ab adventurest_construction_valid_ab
+---@field valid_ab _adventurest_construction_valid_ab
 ---@field selected_ab number
 ---@field valid_religious_practice DFNumberVector bay12 type: ReligiousPractice
 ---@field valid_religious_practice_id DFNumberVector
@@ -1790,7 +1790,7 @@ function adventurest_rumor_info_data:erase(index) end
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
----@field valid_craft_guild_type adventurest_construction_valid_craft_guild_type bay12 type: Unit (profession)
+---@field valid_craft_guild_type _adventurest_construction_valid_craft_guild_type bay12 type: Unit (profession)
 ---@field selected_craft_guild number
 ---@field material DFNumberVector
 ---@field matgloss DFNumberVector
@@ -1805,9 +1805,9 @@ function adventurest_rumor_info_data:erase(index) end
 ---@field material_doing_filter number
 ---@field doing_start_menu boolean
 ---@field start_menu_you_will_work boolean
----@field start_menu_worker adventurest_construction_start_menu_worker
----@field start_menu_can_work adventurest_construction_start_menu_can_work
----@field start_menu_will_work adventurest_construction_start_menu_will_work
+---@field start_menu_worker _adventurest_construction_start_menu_worker
+---@field start_menu_can_work _adventurest_construction_start_menu_can_work
+---@field start_menu_will_work _adventurest_construction_start_menu_will_work
 ---@field start_menu_selected_worker number
 ---@field start_menu_used_mat_item DFNumberVector
 ---@field start_menu_used_mat_item_st DFNumberVector
@@ -1826,117 +1826,117 @@ function adventurest_rumor_info_data:erase(index) end
 ---@field _kind 'struct-type'
 df.adventurest.T_construction = {}
 
----@class adventurest_construction_civzone: DFContainer
+---@class _adventurest_construction_civzone: DFContainer
 ---@field [integer] building_civzonest
-local adventurest_construction_civzone
+local _adventurest_construction_civzone
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building_civzonest>
-function adventurest_construction_civzone:_field(index) end
+function _adventurest_construction_civzone:_field(index) end
 
 ---@param index integer 
 ---@param item building_civzonest 
-function adventurest_construction_civzone:insert(index, item) end
+function _adventurest_construction_civzone:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_civzone:erase(index) end
+function _adventurest_construction_civzone:erase(index) end
 
----@class adventurest_construction_zone_assign_hf: DFContainer
+---@class _adventurest_construction_zone_assign_hf: DFContainer
 ---@field [integer] historical_figure
-local adventurest_construction_zone_assign_hf
+local _adventurest_construction_zone_assign_hf
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function adventurest_construction_zone_assign_hf:_field(index) end
+function _adventurest_construction_zone_assign_hf:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function adventurest_construction_zone_assign_hf:insert(index, item) end
+function _adventurest_construction_zone_assign_hf:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_zone_assign_hf:erase(index) end
+function _adventurest_construction_zone_assign_hf:erase(index) end
 
----@class adventurest_construction_valid_ab: DFContainer
+---@class _adventurest_construction_valid_ab: DFContainer
 ---@field [integer] abstract_building
-local adventurest_construction_valid_ab
+local _adventurest_construction_valid_ab
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<abstract_building>
-function adventurest_construction_valid_ab:_field(index) end
+function _adventurest_construction_valid_ab:_field(index) end
 
 ---@param index integer 
 ---@param item abstract_building 
-function adventurest_construction_valid_ab:insert(index, item) end
+function _adventurest_construction_valid_ab:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_valid_ab:erase(index) end
+function _adventurest_construction_valid_ab:erase(index) end
 
----@class adventurest_construction_valid_craft_guild_type: DFContainer
+---@class _adventurest_construction_valid_craft_guild_type: DFContainer
 ---@field [integer] profession
-local adventurest_construction_valid_craft_guild_type
+local _adventurest_construction_valid_craft_guild_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<profession>
-function adventurest_construction_valid_craft_guild_type:_field(index) end
+function _adventurest_construction_valid_craft_guild_type:_field(index) end
 
 ---@param index integer 
 ---@param item profession 
-function adventurest_construction_valid_craft_guild_type:insert(index, item) end
+function _adventurest_construction_valid_craft_guild_type:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_valid_craft_guild_type:erase(index) end
+function _adventurest_construction_valid_craft_guild_type:erase(index) end
 
----@class adventurest_construction_start_menu_worker: DFContainer
+---@class _adventurest_construction_start_menu_worker: DFContainer
 ---@field [integer] unit
-local adventurest_construction_start_menu_worker
+local _adventurest_construction_start_menu_worker
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function adventurest_construction_start_menu_worker:_field(index) end
+function _adventurest_construction_start_menu_worker:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function adventurest_construction_start_menu_worker:insert(index, item) end
+function _adventurest_construction_start_menu_worker:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_start_menu_worker:erase(index) end
+function _adventurest_construction_start_menu_worker:erase(index) end
 
----@class adventurest_construction_start_menu_can_work: DFContainer
+---@class _adventurest_construction_start_menu_can_work: DFContainer
 ---@field [integer] any[]
-local adventurest_construction_start_menu_can_work
+local _adventurest_construction_start_menu_can_work
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_construction_start_menu_can_work:_field(index) end
+function _adventurest_construction_start_menu_can_work:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_construction_start_menu_can_work:insert(index, item) end
+function _adventurest_construction_start_menu_can_work:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_start_menu_can_work:erase(index) end
+function _adventurest_construction_start_menu_can_work:erase(index) end
 
----@class adventurest_construction_start_menu_will_work: DFContainer
+---@class _adventurest_construction_start_menu_will_work: DFContainer
 ---@field [integer] any[]
-local adventurest_construction_start_menu_will_work
+local _adventurest_construction_start_menu_will_work
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_construction_start_menu_will_work:_field(index) end
+function _adventurest_construction_start_menu_will_work:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_construction_start_menu_will_work:insert(index, item) end
+function _adventurest_construction_start_menu_will_work:insert(index, item) end
 
 ---@param index integer 
-function adventurest_construction_start_menu_will_work:erase(index) end
+function _adventurest_construction_start_menu_will_work:erase(index) end
 
 ---@alias adventurest.T_charge_forbidden_keys
 ---| '"None"'
@@ -2026,90 +2026,90 @@ function adventurest_construction_start_menu_will_work:erase(index) end
 ---@field [17] "TargetTooFarAway"
 df.adventurest.T_charge_forbidden = {}
 
----@class adventurest_world_debug_army: DFContainer
+---@class _adventurest_world_debug_army: DFContainer
 ---@field [integer] army
-local adventurest_world_debug_army
+local _adventurest_world_debug_army
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<army>
-function adventurest_world_debug_army:_field(index) end
+function _adventurest_world_debug_army:_field(index) end
 
 ---@param index integer 
 ---@param item army 
-function adventurest_world_debug_army:insert(index, item) end
+function _adventurest_world_debug_army:insert(index, item) end
 
 ---@param index integer 
-function adventurest_world_debug_army:erase(index) end
+function _adventurest_world_debug_army:erase(index) end
 
 -- not actually a compound
 ---@class (exact) adventurest.T_conversation: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_conversation
----@field activity adventurest_conversation_activity bay12: conv_act_list
----@field activity_event adventurest_conversation_activity_event bay12: conv_actev_list
+---@field activity _adventurest_conversation_activity bay12: conv_act_list
+---@field activity_event _adventurest_conversation_activity_event bay12: conv_actev_list
 ---@field cursor_activity number bay12: conv_sel
 ---@field cursor_choice number bay12: choice_sel
 ---@field current_page number bay12: conv_choice_page_index
 ---@field page_top_choices DFNumberVector bay12: conv_choice_page_top
 ---@field page_bottom_choices DFNumberVector bay12: conv_choicE_page_bottom
----@field choices adventurest_conversation_choices bay12: conv_choice info; type adventure_conversation_choice_infost
+---@field choices _adventurest_conversation_choices bay12: conv_choice info; type adventure_conversation_choice_infost
 ---@field filter string bay12: conv_string_filter
 ---@field conv_tact adventurest.T_conversation.T_conv_tact
----@field targets adventurest_conversation_targets bay12: talk_list; type talk_list_optionst
+---@field targets _adventurest_conversation_targets bay12: talk_list; type talk_list_optionst
 ---@field cursor_target number bay12: talk_sel
 
 ---@class _adventurest.T_conversation: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_conversation = {}
 
----@class adventurest_conversation_activity: DFContainer
+---@class _adventurest_conversation_activity: DFContainer
 ---@field [integer] activity_entry
-local adventurest_conversation_activity
+local _adventurest_conversation_activity
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<activity_entry>
-function adventurest_conversation_activity:_field(index) end
+function _adventurest_conversation_activity:_field(index) end
 
 ---@param index integer 
 ---@param item activity_entry 
-function adventurest_conversation_activity:insert(index, item) end
+function _adventurest_conversation_activity:insert(index, item) end
 
 ---@param index integer 
-function adventurest_conversation_activity:erase(index) end
+function _adventurest_conversation_activity:erase(index) end
 
----@class adventurest_conversation_activity_event: DFContainer
+---@class _adventurest_conversation_activity_event: DFContainer
 ---@field [integer] activity_event
-local adventurest_conversation_activity_event
+local _adventurest_conversation_activity_event
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<activity_event>
-function adventurest_conversation_activity_event:_field(index) end
+function _adventurest_conversation_activity_event:_field(index) end
 
 ---@param index integer 
 ---@param item activity_event 
-function adventurest_conversation_activity_event:insert(index, item) end
+function _adventurest_conversation_activity_event:insert(index, item) end
 
 ---@param index integer 
-function adventurest_conversation_activity_event:erase(index) end
+function _adventurest_conversation_activity_event:erase(index) end
 
----@class adventurest_conversation_choices: DFContainer
+---@class _adventurest_conversation_choices: DFContainer
 ---@field [integer] DFPointer<integer>
-local adventurest_conversation_choices
+local _adventurest_conversation_choices
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function adventurest_conversation_choices:_field(index) end
+function _adventurest_conversation_choices:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function adventurest_conversation_choices:insert(index, item) end
+function _adventurest_conversation_choices:insert(index, item) end
 
 ---@param index integer 
-function adventurest_conversation_choices:erase(index) end
+function _adventurest_conversation_choices:erase(index) end
 
 ---@alias adventurest.T_conversation.T_conv_tact_keys
 ---| '"NONE"'
@@ -2134,117 +2134,117 @@ function adventurest_conversation_choices:erase(index) end
 ---@field [1] "Intimidate"
 df.adventurest.T_conversation.T_conv_tact = {}
 
----@class adventurest_conversation_targets: DFContainer
+---@class _adventurest_conversation_targets: DFContainer
 ---@field [integer] DFPointer<integer>
-local adventurest_conversation_targets
+local _adventurest_conversation_targets
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function adventurest_conversation_targets:_field(index) end
+function _adventurest_conversation_targets:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function adventurest_conversation_targets:insert(index, item) end
+function _adventurest_conversation_targets:insert(index, item) end
 
 ---@param index integer 
-function adventurest_conversation_targets:erase(index) end
+function _adventurest_conversation_targets:erase(index) end
 
----@class adventurest_unk_70: DFContainer
+---@class _adventurest_unk_70: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_70
+local _adventurest_unk_70
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_70:_field(index) end
+function _adventurest_unk_70:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_70:insert(index, item) end
+function _adventurest_unk_70:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_70:erase(index) end
+function _adventurest_unk_70:erase(index) end
 
----@class adventurest_unk_72: DFContainer
+---@class _adventurest_unk_72: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_72
+local _adventurest_unk_72
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_72:_field(index) end
+function _adventurest_unk_72:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_72:insert(index, item) end
+function _adventurest_unk_72:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_72:erase(index) end
+function _adventurest_unk_72:erase(index) end
 
----@class adventurest_interacts: DFContainer
+---@class _adventurest_interacts: DFContainer
 ---@field [integer] adventure_item_interact_choicest
-local adventurest_interacts
+local _adventurest_interacts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<adventure_item_interact_choicest>
-function adventurest_interacts:_field(index) end
+function _adventurest_interacts:_field(index) end
 
 ---@param index integer 
 ---@param item adventure_item_interact_choicest 
-function adventurest_interacts:insert(index, item) end
+function _adventurest_interacts:insert(index, item) end
 
 ---@param index integer 
-function adventurest_interacts:erase(index) end
+function _adventurest_interacts:erase(index) end
 
----@class adventurest_commands: DFContainer
+---@class _adventurest_commands: DFContainer
 ---@field [integer] adventure_optionst
-local adventurest_commands
+local _adventurest_commands
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<adventure_optionst>
-function adventurest_commands:_field(index) end
+function _adventurest_commands:_field(index) end
 
 ---@param index integer 
 ---@param item adventure_optionst 
-function adventurest_commands:insert(index, item) end
+function _adventurest_commands:insert(index, item) end
 
 ---@param index integer 
-function adventurest_commands:erase(index) end
+function _adventurest_commands:erase(index) end
 
----@class adventurest_movements: DFContainer
+---@class _adventurest_movements: DFContainer
 ---@field [integer] adventure_movement_optionst
-local adventurest_movements
+local _adventurest_movements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<adventure_movement_optionst>
-function adventurest_movements:_field(index) end
+function _adventurest_movements:_field(index) end
 
 ---@param index integer 
 ---@param item adventure_movement_optionst 
-function adventurest_movements:insert(index, item) end
+function _adventurest_movements:insert(index, item) end
 
 ---@param index integer 
-function adventurest_movements:erase(index) end
+function _adventurest_movements:erase(index) end
 
----@class adventurest_unk_75: DFContainer
+---@class _adventurest_unk_75: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_75
+local _adventurest_unk_75
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_75:_field(index) end
+function _adventurest_unk_75:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_75:insert(index, item) end
+function _adventurest_unk_75:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_75:erase(index) end
+function _adventurest_unk_75:erase(index) end
 
 ---@alias adventurest.T_rest_mode_keys
 ---| '"Wait"'
@@ -2268,8 +2268,8 @@ df.adventurest.T_rest_mode = {}
 ---@class (exact) adventurest.T_companions: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_companions
----@field unit adventurest_companions_unit
----@field unit_visible adventurest_companions_unit_visible
+---@field unit _adventurest_companions_unit
+---@field unit_visible _adventurest_companions_unit_visible
 ---@field unit_position coord_path
 ---@field all_histfigs DFNumberVector includes dead
 
@@ -2277,37 +2277,37 @@ df.adventurest.T_rest_mode = {}
 ---@field _kind 'struct-type'
 df.adventurest.T_companions = {}
 
----@class adventurest_companions_unit: DFContainer
+---@class _adventurest_companions_unit: DFContainer
 ---@field [integer] unit
-local adventurest_companions_unit
+local _adventurest_companions_unit
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function adventurest_companions_unit:_field(index) end
+function _adventurest_companions_unit:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function adventurest_companions_unit:insert(index, item) end
+function _adventurest_companions_unit:insert(index, item) end
 
 ---@param index integer 
-function adventurest_companions_unit:erase(index) end
+function _adventurest_companions_unit:erase(index) end
 
----@class adventurest_companions_unit_visible: DFContainer
+---@class _adventurest_companions_unit_visible: DFContainer
 ---@field [integer] any[]
-local adventurest_companions_unit_visible
+local _adventurest_companions_unit_visible
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_companions_unit_visible:_field(index) end
+function _adventurest_companions_unit_visible:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_companions_unit_visible:insert(index, item) end
+function _adventurest_companions_unit_visible:insert(index, item) end
 
 ---@param index integer 
-function adventurest_companions_unit_visible:erase(index) end
+function _adventurest_companions_unit_visible:erase(index) end
 
 ---@class (exact) adventurest.T_interactions: DFObject
 ---@field _kind 'struct'
@@ -2315,8 +2315,8 @@ function adventurest_companions_unit_visible:erase(index) end
 ---@field party_core_members DFNumberVector Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
 ---@field party_pets DFNumberVector Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
 ---@field party_extra_members DFNumberVector Contains IDs of non-pet historical figures who joined the player party later on.
----@field unk_86 adventurest_interactions_unk_86
----@field unk_1 adventurest_interactions_unk_1
+---@field unk_86 _adventurest_interactions_unk_86
+---@field unk_1 _adventurest_interactions_unk_1
 ---@field unk_1e4 number
 ---@field unk_1e8 number
 ---@field selected_ability number natural ability
@@ -2331,174 +2331,174 @@ function adventurest_companions_unit_visible:erase(index) end
 ---@field _kind 'struct-type'
 df.adventurest.T_interactions = {}
 
----@class adventurest_interactions_unk_86: DFContainer
+---@class _adventurest_interactions_unk_86: DFContainer
 ---@field [integer] any[]
-local adventurest_interactions_unk_86
+local _adventurest_interactions_unk_86
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_interactions_unk_86:_field(index) end
+function _adventurest_interactions_unk_86:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_interactions_unk_86:insert(index, item) end
+function _adventurest_interactions_unk_86:insert(index, item) end
 
 ---@param index integer 
-function adventurest_interactions_unk_86:erase(index) end
+function _adventurest_interactions_unk_86:erase(index) end
 
----@class adventurest_interactions_unk_1: DFContainer
+---@class _adventurest_interactions_unk_1: DFContainer
 ---@field [integer] any[]
-local adventurest_interactions_unk_1
+local _adventurest_interactions_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_interactions_unk_1:_field(index) end
+function _adventurest_interactions_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_interactions_unk_1:insert(index, item) end
+function _adventurest_interactions_unk_1:insert(index, item) end
 
 ---@param index integer 
-function adventurest_interactions_unk_1:erase(index) end
+function _adventurest_interactions_unk_1:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v40_2: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_2
----@field unk_s1 adventurest_unk_v40_2_unk_s1
----@field unk_s2 adventurest_unk_v40_2_unk_s2
----@field unk_s3 adventurest_unk_v40_2_unk_s3
----@field unk_s4 adventurest_unk_v40_2_unk_s4
+---@field unk_s1 _adventurest_unk_v40_2_unk_s1
+---@field unk_s2 _adventurest_unk_v40_2_unk_s2
+---@field unk_s3 _adventurest_unk_v40_2_unk_s3
+---@field unk_s4 _adventurest_unk_v40_2_unk_s4
 ---@field unk_s5 number
----@field unk_s6 adventurest_unk_v40_2_unk_s6
----@field unk_s7 adventurest_unk_v40_2_unk_s7
+---@field unk_s6 _adventurest_unk_v40_2_unk_s6
+---@field unk_s7 _adventurest_unk_v40_2_unk_s7
 
 ---@class _adventurest.T_unk_v40_2: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_2 = {}
 
----@class adventurest_unk_v40_2_unk_s1: DFContainer
+---@class _adventurest_unk_v40_2_unk_s1: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_2_unk_s1
+local _adventurest_unk_v40_2_unk_s1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_2_unk_s1:_field(index) end
+function _adventurest_unk_v40_2_unk_s1:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_2_unk_s1:insert(index, item) end
+function _adventurest_unk_v40_2_unk_s1:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_2_unk_s1:erase(index) end
+function _adventurest_unk_v40_2_unk_s1:erase(index) end
 
----@class adventurest_unk_v40_2_unk_s2: DFContainer
+---@class _adventurest_unk_v40_2_unk_s2: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_2_unk_s2
+local _adventurest_unk_v40_2_unk_s2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_2_unk_s2:_field(index) end
+function _adventurest_unk_v40_2_unk_s2:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_2_unk_s2:insert(index, item) end
+function _adventurest_unk_v40_2_unk_s2:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_2_unk_s2:erase(index) end
+function _adventurest_unk_v40_2_unk_s2:erase(index) end
 
----@class adventurest_unk_v40_2_unk_s3: DFContainer
+---@class _adventurest_unk_v40_2_unk_s3: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_2_unk_s3
+local _adventurest_unk_v40_2_unk_s3
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_2_unk_s3:_field(index) end
+function _adventurest_unk_v40_2_unk_s3:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_2_unk_s3:insert(index, item) end
+function _adventurest_unk_v40_2_unk_s3:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_2_unk_s3:erase(index) end
+function _adventurest_unk_v40_2_unk_s3:erase(index) end
 
----@class adventurest_unk_v40_2_unk_s4: DFContainer
+---@class _adventurest_unk_v40_2_unk_s4: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_2_unk_s4
+local _adventurest_unk_v40_2_unk_s4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_2_unk_s4:_field(index) end
+function _adventurest_unk_v40_2_unk_s4:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_2_unk_s4:insert(index, item) end
+function _adventurest_unk_v40_2_unk_s4:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_2_unk_s4:erase(index) end
+function _adventurest_unk_v40_2_unk_s4:erase(index) end
 
----@class adventurest_unk_v40_2_unk_s6: DFContainer
+---@class _adventurest_unk_v40_2_unk_s6: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_2_unk_s6
+local _adventurest_unk_v40_2_unk_s6
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_2_unk_s6:_field(index) end
+function _adventurest_unk_v40_2_unk_s6:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_2_unk_s6:insert(index, item) end
+function _adventurest_unk_v40_2_unk_s6:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_2_unk_s6:erase(index) end
+function _adventurest_unk_v40_2_unk_s6:erase(index) end
 
----@class adventurest_unk_v40_2_unk_s7: DFContainer
+---@class _adventurest_unk_v40_2_unk_s7: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_2_unk_s7
+local _adventurest_unk_v40_2_unk_s7
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_2_unk_s7:_field(index) end
+function _adventurest_unk_v40_2_unk_s7:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_2_unk_s7:insert(index, item) end
+function _adventurest_unk_v40_2_unk_s7:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_2_unk_s7:erase(index) end
+function _adventurest_unk_v40_2_unk_s7:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v40_3: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_3
 ---@field unk_s1 number
----@field unk_s2 adventurest_unk_v40_3_unk_s2
+---@field unk_s2 _adventurest_unk_v40_3_unk_s2
 
 ---@class _adventurest.T_unk_v40_3: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_3 = {}
 
----@class adventurest_unk_v40_3_unk_s2: DFContainer
+---@class _adventurest_unk_v40_3_unk_s2: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_3_unk_s2
+local _adventurest_unk_v40_3_unk_s2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_3_unk_s2:_field(index) end
+function _adventurest_unk_v40_3_unk_s2:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_3_unk_s2:insert(index, item) end
+function _adventurest_unk_v40_3_unk_s2:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_3_unk_s2:erase(index) end
+function _adventurest_unk_v40_3_unk_s2:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v40_4: DFObject
 ---@field _kind 'struct'
@@ -2527,161 +2527,161 @@ df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
 ---@class (exact) adventurest.T_unk_v40_5: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_5
----@field unk_s1 adventurest_unk_v40_5_unk_s1
----@field unk_s2 adventurest_unk_v40_5_unk_s2
----@field unk_s3 adventurest_unk_v40_5_unk_s3
+---@field unk_s1 _adventurest_unk_v40_5_unk_s1
+---@field unk_s2 _adventurest_unk_v40_5_unk_s2
+---@field unk_s3 _adventurest_unk_v40_5_unk_s3
 ---@field unk_s4 number
----@field unk_s5 adventurest_unk_v40_5_unk_s5
----@field unk_s6 adventurest_unk_v40_5_unk_s6
+---@field unk_s5 _adventurest_unk_v40_5_unk_s5
+---@field unk_s6 _adventurest_unk_v40_5_unk_s6
 
 ---@class _adventurest.T_unk_v40_5: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_5 = {}
 
----@class adventurest_unk_v40_5_unk_s1: DFContainer
+---@class _adventurest_unk_v40_5_unk_s1: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_5_unk_s1
+local _adventurest_unk_v40_5_unk_s1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_5_unk_s1:_field(index) end
+function _adventurest_unk_v40_5_unk_s1:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_5_unk_s1:insert(index, item) end
+function _adventurest_unk_v40_5_unk_s1:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_5_unk_s1:erase(index) end
+function _adventurest_unk_v40_5_unk_s1:erase(index) end
 
----@class adventurest_unk_v40_5_unk_s2: DFContainer
+---@class _adventurest_unk_v40_5_unk_s2: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_5_unk_s2
+local _adventurest_unk_v40_5_unk_s2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_5_unk_s2:_field(index) end
+function _adventurest_unk_v40_5_unk_s2:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_5_unk_s2:insert(index, item) end
+function _adventurest_unk_v40_5_unk_s2:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_5_unk_s2:erase(index) end
+function _adventurest_unk_v40_5_unk_s2:erase(index) end
 
----@class adventurest_unk_v40_5_unk_s3: DFContainer
+---@class _adventurest_unk_v40_5_unk_s3: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_5_unk_s3
+local _adventurest_unk_v40_5_unk_s3
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_5_unk_s3:_field(index) end
+function _adventurest_unk_v40_5_unk_s3:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_5_unk_s3:insert(index, item) end
+function _adventurest_unk_v40_5_unk_s3:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_5_unk_s3:erase(index) end
+function _adventurest_unk_v40_5_unk_s3:erase(index) end
 
----@class adventurest_unk_v40_5_unk_s5: DFContainer
+---@class _adventurest_unk_v40_5_unk_s5: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_5_unk_s5
+local _adventurest_unk_v40_5_unk_s5
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_5_unk_s5:_field(index) end
+function _adventurest_unk_v40_5_unk_s5:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_5_unk_s5:insert(index, item) end
+function _adventurest_unk_v40_5_unk_s5:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_5_unk_s5:erase(index) end
+function _adventurest_unk_v40_5_unk_s5:erase(index) end
 
----@class adventurest_unk_v40_5_unk_s6: DFContainer
+---@class _adventurest_unk_v40_5_unk_s6: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v40_5_unk_s6
+local _adventurest_unk_v40_5_unk_s6
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v40_5_unk_s6:_field(index) end
+function _adventurest_unk_v40_5_unk_s6:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v40_5_unk_s6:insert(index, item) end
+function _adventurest_unk_v40_5_unk_s6:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v40_5_unk_s6:erase(index) end
+function _adventurest_unk_v40_5_unk_s6:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v42_1: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v42_1
 ---@field unk_s1 number
----@field unk_s2 adventurest_unk_v42_1_unk_s2
----@field unk_s3 adventurest_unk_v42_1_unk_s3
+---@field unk_s2 _adventurest_unk_v42_1_unk_s2
+---@field unk_s3 _adventurest_unk_v42_1_unk_s3
 ---@field unk_s4 string
 ---@field unk_s5 number
 ---@field unk_s6 number
 ---@field unk_s7 number
 ---@field unk_s8 number
----@field unk_s9 adventurest_unk_v42_1_unk_s9
+---@field unk_s9 _adventurest_unk_v42_1_unk_s9
 
 ---@class _adventurest.T_unk_v42_1: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v42_1 = {}
 
----@class adventurest_unk_v42_1_unk_s2: DFContainer
+---@class _adventurest_unk_v42_1_unk_s2: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v42_1_unk_s2
+local _adventurest_unk_v42_1_unk_s2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v42_1_unk_s2:_field(index) end
+function _adventurest_unk_v42_1_unk_s2:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v42_1_unk_s2:insert(index, item) end
+function _adventurest_unk_v42_1_unk_s2:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v42_1_unk_s2:erase(index) end
+function _adventurest_unk_v42_1_unk_s2:erase(index) end
 
----@class adventurest_unk_v42_1_unk_s3: DFContainer
+---@class _adventurest_unk_v42_1_unk_s3: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v42_1_unk_s3
+local _adventurest_unk_v42_1_unk_s3
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v42_1_unk_s3:_field(index) end
+function _adventurest_unk_v42_1_unk_s3:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v42_1_unk_s3:insert(index, item) end
+function _adventurest_unk_v42_1_unk_s3:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v42_1_unk_s3:erase(index) end
+function _adventurest_unk_v42_1_unk_s3:erase(index) end
 
----@class adventurest_unk_v42_1_unk_s9: DFContainer
+---@class _adventurest_unk_v42_1_unk_s9: DFContainer
 ---@field [integer] any[]
-local adventurest_unk_v42_1_unk_s9
+local _adventurest_unk_v42_1_unk_s9
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_unk_v42_1_unk_s9:_field(index) end
+function _adventurest_unk_v42_1_unk_s9:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_unk_v42_1_unk_s9:insert(index, item) end
+function _adventurest_unk_v42_1_unk_s9:insert(index, item) end
 
 ---@param index integer 
-function adventurest_unk_v42_1_unk_s9:erase(index) end
+function _adventurest_unk_v42_1_unk_s9:erase(index) end
 
 -- Manages the Assume Identity UI when the AssumeIdentity menu is open
 ---@class (exact) adventurest.T_assume_identity: DFObject
@@ -2692,8 +2692,8 @@ function adventurest_unk_v42_1_unk_s9:erase(index) end
 ---@field worship_object number References: `historical_figure`
 ---@field profession profession
 ---@field origin number References: `historical_entity`
----@field unk_1 adventurest_assume_identity_unk_1
----@field unk_2 adventurest_assume_identity_unk_2
+---@field unk_1 _adventurest_assume_identity_unk_1
+---@field unk_2 _adventurest_assume_identity_unk_2
 ---@field filter string
 ---@field unk_3 number
 ---@field unk_4 number
@@ -2702,37 +2702,37 @@ function adventurest_unk_v42_1_unk_s9:erase(index) end
 ---@field _kind 'struct-type'
 df.adventurest.T_assume_identity = {}
 
----@class adventurest_assume_identity_unk_1: DFContainer
+---@class _adventurest_assume_identity_unk_1: DFContainer
 ---@field [integer] any[]
-local adventurest_assume_identity_unk_1
+local _adventurest_assume_identity_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_assume_identity_unk_1:_field(index) end
+function _adventurest_assume_identity_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_assume_identity_unk_1:insert(index, item) end
+function _adventurest_assume_identity_unk_1:insert(index, item) end
 
 ---@param index integer 
-function adventurest_assume_identity_unk_1:erase(index) end
+function _adventurest_assume_identity_unk_1:erase(index) end
 
----@class adventurest_assume_identity_unk_2: DFContainer
+---@class _adventurest_assume_identity_unk_2: DFContainer
 ---@field [integer] any[]
-local adventurest_assume_identity_unk_2
+local _adventurest_assume_identity_unk_2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function adventurest_assume_identity_unk_2:_field(index) end
+function _adventurest_assume_identity_unk_2:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function adventurest_assume_identity_unk_2:insert(index, item) end
+function _adventurest_assume_identity_unk_2:insert(index, item) end
 
 ---@param index integer 
-function adventurest_assume_identity_unk_2:erase(index) end
+function _adventurest_assume_identity_unk_2:erase(index) end
 
 ---@class (exact) text_info_elementst: DFObject
 ---@field _kind 'struct'

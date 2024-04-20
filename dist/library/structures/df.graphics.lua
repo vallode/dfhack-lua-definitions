@@ -300,10 +300,10 @@ df.texblitst = {}
 ---@class (exact) graphic: DFObject
 ---@field _kind 'struct'
 ---@field _type _graphic
----@field viewport graphic_viewport
+---@field viewport _graphic_viewport
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
----@field map_port graphic_map_port
+---@field map_port _graphic_map_port
 ---@field main_map_port graphic_map_portst
 ---@field viewport_zoom_factor number
 ---@field screenx number
@@ -355,7 +355,7 @@ df.texblitst = {}
 ---@field clipx number[]
 ---@field clipy number[]
 ---@field tex cached_texturest[]
----@field texblits graphic_texblits
+---@field texblits _graphic_texblits
 ---@field rect_id number
 ---@field print_time large_integer[]
 ---@field print_index number
@@ -372,53 +372,53 @@ df.texblitst = {}
 ---@field _kind 'struct-type'
 df.graphic = {}
 
----@class graphic_viewport: DFContainer
+---@class _graphic_viewport: DFContainer
 ---@field [integer] graphic_viewportst
-local graphic_viewport
+local _graphic_viewport
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<graphic_viewportst>
-function graphic_viewport:_field(index) end
+function _graphic_viewport:_field(index) end
 
 ---@param index integer 
 ---@param item graphic_viewportst 
-function graphic_viewport:insert(index, item) end
+function _graphic_viewport:insert(index, item) end
 
 ---@param index integer 
-function graphic_viewport:erase(index) end
+function _graphic_viewport:erase(index) end
 
----@class graphic_map_port: DFContainer
+---@class _graphic_map_port: DFContainer
 ---@field [integer] graphic_map_portst
-local graphic_map_port
+local _graphic_map_port
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<graphic_map_portst>
-function graphic_map_port:_field(index) end
+function _graphic_map_port:_field(index) end
 
 ---@param index integer 
 ---@param item graphic_map_portst 
-function graphic_map_port:insert(index, item) end
+function _graphic_map_port:insert(index, item) end
 
 ---@param index integer 
-function graphic_map_port:erase(index) end
+function _graphic_map_port:erase(index) end
 
----@class graphic_texblits: DFContainer
+---@class _graphic_texblits: DFContainer
 ---@field [integer] texblitst
-local graphic_texblits
+local _graphic_texblits
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<texblitst>
-function graphic_texblits:_field(index) end
+function _graphic_texblits:_field(index) end
 
 ---@param index integer 
 ---@param item texblitst 
-function graphic_texblits:insert(index, item) end
+function _graphic_texblits:insert(index, item) end
 
 ---@param index integer 
-function graphic_texblits:erase(index) end
+function _graphic_texblits:erase(index) end
 
 ---@class (exact) graphic.T_tileset: DFObject
 ---@field _kind 'struct'
@@ -691,7 +691,7 @@ df.renderer = {}
 ---@field window DFPointer<integer> SDL_Window*
 ---@field sdl_renderer DFPointer<integer> SDL_Renderer*
 ---@field screen_tex DFPointer<integer> SDL_Texture*
----@field tile_cache renderer_2d_base_tile_cache unordered_map<texture_fullid, SDL_Texture*\>
+---@field tile_cache _renderer_2d_base_tile_cache unordered_map<texture_fullid, SDL_Texture*\>
 ---@field dispx number
 ---@field dispy number
 ---@field dimx number
@@ -704,7 +704,7 @@ df.renderer = {}
 ---@field cur_h number
 ---@field use_viewport_zoom boolean
 ---@field viewport_zoom_factor number
----@field textures_to_destroy renderer_2d_base_textures_to_destroy svector<texture_fullid>
+---@field textures_to_destroy _renderer_2d_base_textures_to_destroy svector<texture_fullid>
 ---@field zoom_steps number
 ---@field forced_steps number
 ---@field natural_w number
@@ -714,37 +714,37 @@ df.renderer = {}
 ---@field _kind 'class-type'
 df.renderer_2d_base = {}
 
----@class renderer_2d_base_tile_cache: DFContainer
+---@class _renderer_2d_base_tile_cache: DFContainer
 ---@field [integer] any[]
-local renderer_2d_base_tile_cache
+local _renderer_2d_base_tile_cache
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function renderer_2d_base_tile_cache:_field(index) end
+function _renderer_2d_base_tile_cache:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function renderer_2d_base_tile_cache:insert(index, item) end
+function _renderer_2d_base_tile_cache:insert(index, item) end
 
 ---@param index integer 
-function renderer_2d_base_tile_cache:erase(index) end
+function _renderer_2d_base_tile_cache:erase(index) end
 
----@class renderer_2d_base_textures_to_destroy: DFContainer
+---@class _renderer_2d_base_textures_to_destroy: DFContainer
 ---@field [integer] any[]
-local renderer_2d_base_textures_to_destroy
+local _renderer_2d_base_textures_to_destroy
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function renderer_2d_base_textures_to_destroy:_field(index) end
+function _renderer_2d_base_textures_to_destroy:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function renderer_2d_base_textures_to_destroy:insert(index, item) end
+function _renderer_2d_base_textures_to_destroy:insert(index, item) end
 
 ---@param index integer 
-function renderer_2d_base_textures_to_destroy:erase(index) end
+function _renderer_2d_base_textures_to_destroy:erase(index) end
 
 ---@class (exact) renderer_2d: DFObject, renderer_2d_base
 ---@field _kind 'struct'
@@ -789,7 +789,7 @@ df.zoom_commands = {}
 ---@field _kind 'struct'
 ---@field _type _enabler
 ---@field fullscreen_state enabler.T_fullscreen_state
----@field overridden_grid_sizes enabler_overridden_grid_sizes
+---@field overridden_grid_sizes _enabler_overridden_grid_sizes
 ---@field renderer renderer
 ---@field calculated_fps number
 ---@field calculated_gfps number
@@ -851,21 +851,21 @@ df.enabler = {}
 ---@field [1] "exclusive"
 df.enabler.T_fullscreen_state = {}
 
----@class enabler_overridden_grid_sizes: DFContainer
+---@class _enabler_overridden_grid_sizes: DFContainer
 ---@field [integer] enabler.T_overridden_grid_sizes
-local enabler_overridden_grid_sizes
+local _enabler_overridden_grid_sizes
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<enabler.T_overridden_grid_sizes>
-function enabler_overridden_grid_sizes:_field(index) end
+function _enabler_overridden_grid_sizes:_field(index) end
 
 ---@param index integer 
 ---@param item enabler.T_overridden_grid_sizes 
-function enabler_overridden_grid_sizes:insert(index, item) end
+function _enabler_overridden_grid_sizes:insert(index, item) end
 
 ---@param index integer 
-function enabler_overridden_grid_sizes:erase(index) end
+function _enabler_overridden_grid_sizes:erase(index) end
 
 ---@class (exact) enabler.T_overridden_grid_sizes: DFObject
 ---@field _kind 'struct'
@@ -882,27 +882,27 @@ df.enabler.T_overridden_grid_sizes = {}
 ---@field _type _enabler.T_async_tobox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
----@field vals enabler_async_tobox_vals
+---@field vals _enabler_async_tobox_vals
 
 ---@class _enabler.T_async_tobox: DFCompound
 ---@field _kind 'struct-type'
 df.enabler.T_async_tobox = {}
 
----@class enabler_async_tobox_vals: DFContainer
+---@class _enabler_async_tobox_vals: DFContainer
 ---@field [integer] enabler.T_async_tobox.T_vals
-local enabler_async_tobox_vals
+local _enabler_async_tobox_vals
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<enabler.T_async_tobox.T_vals>
-function enabler_async_tobox_vals:_field(index) end
+function _enabler_async_tobox_vals:_field(index) end
 
 ---@param index integer 
 ---@param item enabler.T_async_tobox.T_vals 
-function enabler_async_tobox_vals:insert(index, item) end
+function _enabler_async_tobox_vals:insert(index, item) end
 
 ---@param index integer 
-function enabler_async_tobox_vals:erase(index) end
+function _enabler_async_tobox_vals:erase(index) end
 
 ---@class (exact) enabler.T_async_tobox.T_vals: DFObject
 ---@field _kind 'struct'
@@ -950,27 +950,27 @@ df.enabler.T_async_tobox.T_vals.T_cmd = {}
 ---@field _type _enabler.T_async_frombox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
----@field vals enabler_async_frombox_vals
+---@field vals _enabler_async_frombox_vals
 
 ---@class _enabler.T_async_frombox: DFCompound
 ---@field _kind 'struct-type'
 df.enabler.T_async_frombox = {}
 
----@class enabler_async_frombox_vals: DFContainer
+---@class _enabler_async_frombox_vals: DFContainer
 ---@field [integer] enabler.T_async_frombox.T_vals
-local enabler_async_frombox_vals
+local _enabler_async_frombox_vals
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<enabler.T_async_frombox.T_vals>
-function enabler_async_frombox_vals:_field(index) end
+function _enabler_async_frombox_vals:_field(index) end
 
 ---@param index integer 
 ---@param item enabler.T_async_frombox.T_vals 
-function enabler_async_frombox_vals:insert(index, item) end
+function _enabler_async_frombox_vals:insert(index, item) end
 
 ---@param index integer 
-function enabler_async_frombox_vals:erase(index) end
+function _enabler_async_frombox_vals:erase(index) end
 
 ---@class (exact) enabler.T_async_frombox.T_vals: DFObject
 ---@field _kind 'struct'
@@ -1028,27 +1028,27 @@ df.enabler.T_async_frombox.T_vals.T_msg = {}
 ---@field _type _enabler.T_async_zoom
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
----@field vals enabler_async_zoom_vals
+---@field vals _enabler_async_zoom_vals
 
 ---@class _enabler.T_async_zoom: DFCompound
 ---@field _kind 'struct-type'
 df.enabler.T_async_zoom = {}
 
----@class enabler_async_zoom_vals: DFContainer
+---@class _enabler_async_zoom_vals: DFContainer
 ---@field [integer] zoom_commands
-local enabler_async_zoom_vals
+local _enabler_async_zoom_vals
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<zoom_commands>
-function enabler_async_zoom_vals:_field(index) end
+function _enabler_async_zoom_vals:_field(index) end
 
 ---@param index integer 
 ---@param item zoom_commands 
-function enabler_async_zoom_vals:insert(index, item) end
+function _enabler_async_zoom_vals:insert(index, item) end
 
 ---@param index integer 
-function enabler_async_zoom_vals:erase(index) end
+function _enabler_async_zoom_vals:erase(index) end
 
 ---@class enabler.T_flag: DFObject
 ---@field _kind 'bitfield'
@@ -1147,42 +1147,42 @@ df.palette_pagest = {}
 ---@class (exact) texture_handlerst: DFObject
 ---@field _kind 'struct'
 ---@field _type _texture_handlerst
----@field page texture_handlerst_page
----@field palette texture_handlerst_palette
+---@field page _texture_handlerst_page
+---@field palette _texture_handlerst_palette
 
 ---@class _texture_handlerst: DFCompound
 ---@field _kind 'struct-type'
 df.texture_handlerst = {}
 
----@class texture_handlerst_page: DFContainer
+---@class _texture_handlerst_page: DFContainer
 ---@field [integer] tile_pagest
-local texture_handlerst_page
+local _texture_handlerst_page
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<tile_pagest>
-function texture_handlerst_page:_field(index) end
+function _texture_handlerst_page:_field(index) end
 
 ---@param index integer 
 ---@param item tile_pagest 
-function texture_handlerst_page:insert(index, item) end
+function _texture_handlerst_page:insert(index, item) end
 
 ---@param index integer 
-function texture_handlerst_page:erase(index) end
+function _texture_handlerst_page:erase(index) end
 
----@class texture_handlerst_palette: DFContainer
+---@class _texture_handlerst_palette: DFContainer
 ---@field [integer] palette_pagest
-local texture_handlerst_palette
+local _texture_handlerst_palette
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<palette_pagest>
-function texture_handlerst_palette:_field(index) end
+function _texture_handlerst_palette:_field(index) end
 
 ---@param index integer 
 ---@param item palette_pagest 
-function texture_handlerst_palette:insert(index, item) end
+function _texture_handlerst_palette:insert(index, item) end
 
 ---@param index integer 
-function texture_handlerst_palette:erase(index) end
+function _texture_handlerst_palette:erase(index) end
 

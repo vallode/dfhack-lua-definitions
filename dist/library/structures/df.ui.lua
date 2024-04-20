@@ -633,7 +633,7 @@ df.equipment_update = {}
 ---@field _kind 'struct'
 ---@field _type _labor_infost
 ---@field flags labor_infost.T_flags
----@field work_details labor_infost_work_details
+---@field work_details _labor_infost_work_details
 ---@field chores DFEnumVector<unit_labor, boolean>
 ---@field chores_exempted_children DFNumberVector toady: no_chore_child_unid
 
@@ -652,21 +652,21 @@ df.labor_infost = {}
 ---@field [0] "children_do_chores"
 df.labor_infost.T_flags = {}
 
----@class labor_infost_work_details: DFContainer
+---@class _labor_infost_work_details: DFContainer
 ---@field [integer] work_detail
-local labor_infost_work_details
+local _labor_infost_work_details
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<work_detail>
-function labor_infost_work_details:_field(index) end
+function _labor_infost_work_details:_field(index) end
 
 ---@param index integer 
 ---@param item work_detail 
-function labor_infost_work_details:insert(index, item) end
+function _labor_infost_work_details:insert(index, item) end
 
 ---@param index integer 
-function labor_infost_work_details:erase(index) end
+function _labor_infost_work_details:erase(index) end
 
 ---@class (exact) plotinfost: DFObject
 ---@field _kind 'struct'
@@ -675,7 +675,7 @@ function labor_infost_work_details:erase(index) end
 ---@field lost_to_siege_civ number References: `historical_entity`
 ---@field tax_collection plotinfost.T_tax_collection
 ---@field nobles plotinfost.T_nobles
----@field caravans plotinfost_caravans bay12: merchant
+---@field caravans _plotinfost_caravans bay12: merchant
 ---@field unk_2 number
 ---@field fortress_rank number
 ---@field progress_population number outpost/hamlet/village/town/city/metropolis
@@ -697,15 +697,15 @@ function labor_infost_work_details:erase(index) end
 ---@field fortress_age number ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
 ---@field meeting_requests DFNumberVector guild complaints and diplomats
----@field activities plotinfost_activities
----@field dip_meeting_info plotinfost_dip_meeting_info
+---@field activities _plotinfost_activities
+---@field dip_meeting_info _plotinfost_dip_meeting_info
 ---@field aid_requesters DFNumberVector
 ---@field game_over boolean
 ---@field invasions plotinfost.T_invasions
----@field punishments plotinfost_punishments
----@field dipscripts plotinfost_dipscripts
----@field dipscript_texts plotinfost_dipscript_texts
----@field dipscript_popups plotinfost_dipscript_popups bay12: meetingmoment; cause viewscreen_meetingst to pop up
+---@field punishments _plotinfost_punishments
+---@field dipscripts _plotinfost_dipscripts
+---@field dipscript_texts _plotinfost_dipscript_texts
+---@field dipscript_popups _plotinfost_dipscript_popups bay12: meetingmoment; cause viewscreen_meetingst to pop up
 ---@field kitchen plotinfost.T_kitchen
 ---@field economic_stone DFBooleanVector
 ---@field flags plotinfost.T_flags
@@ -716,7 +716,7 @@ function labor_infost_work_details:erase(index) end
 ---@field race_id number References: `creature_raw`
 ---@field unk_races DFNumberVector
 ---@field farm_crops DFNumberVector
----@field farm_seasons plotinfost_farm_seasons
+---@field farm_seasons _plotinfost_farm_seasons
 ---@field economy_prices plotinfost.T_economy_prices
 ---@field stockpile plotinfost.T_stockpile
 ---@field unk2a8c plotinfost.T_unk2a8c[][]
@@ -739,13 +739,13 @@ function labor_infost_work_details:erase(index) end
 ---@field labor_info labor_infost
 ---@field petitions DFNumberVector related to agreements
 ---@field unk_6 DFNumberVector observed allocating 4 bytes
----@field unk_7 plotinfost_unk_7
----@field theft_intrigues plotinfost_theft_intrigues related to job_type unk_fake_no_activity
+---@field unk_7 _plotinfost_unk_7
+---@field theft_intrigues _plotinfost_theft_intrigues related to job_type unk_fake_no_activity
 ---@field infiltrator_histfigs DFNumberVector
 ---@field infiltrator_years DFNumberVector
 ---@field infiltrator_year_ticks DFNumberVector
----@field tutorial_hide plotinfost_tutorial_hide
----@field tutorial_seen plotinfost_tutorial_seen 0.50.01
+---@field tutorial_hide _plotinfost_tutorial_hide
+---@field tutorial_seen _plotinfost_tutorial_seen 0.50.01
 ---@field food_warn_year number 0.50.01
 ---@field food_warn_year_tick number
 ---@field main plotinfost.T_main
@@ -753,7 +753,7 @@ function labor_infost_work_details:erase(index) end
 ---@field follow_unit number References: `unit`
 ---@field follow_item number References: `item`
 ---@field selected_farm_crops DFNumberVector valid for the currently queried farm plot
----@field available_seeds plotinfost_available_seeds
+---@field available_seeds _plotinfost_available_seeds
 
 ---@class _plotinfost: DFCompound
 ---@field _kind 'struct-type'
@@ -828,188 +828,188 @@ df.plotinfost.T_nobles = {}
 ---@field [4] "all_accurate"
 df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 
----@class plotinfost_caravans: DFContainer
+---@class _plotinfost_caravans: DFContainer
 ---@field [integer] caravan_state
-local plotinfost_caravans
+local _plotinfost_caravans
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<caravan_state>
-function plotinfost_caravans:_field(index) end
+function _plotinfost_caravans:_field(index) end
 
 ---@param index integer 
 ---@param item caravan_state 
-function plotinfost_caravans:insert(index, item) end
+function _plotinfost_caravans:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_caravans:erase(index) end
+function _plotinfost_caravans:erase(index) end
 
----@class plotinfost_activities: DFContainer
+---@class _plotinfost_activities: DFContainer
 ---@field [integer] activity_info
-local plotinfost_activities
+local _plotinfost_activities
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<activity_info>
-function plotinfost_activities:_field(index) end
+function _plotinfost_activities:_field(index) end
 
 ---@param index integer 
 ---@param item activity_info 
-function plotinfost_activities:insert(index, item) end
+function _plotinfost_activities:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_activities:erase(index) end
+function _plotinfost_activities:erase(index) end
 
----@class plotinfost_dip_meeting_info: DFContainer
+---@class _plotinfost_dip_meeting_info: DFContainer
 ---@field [integer] meeting_diplomat_info
-local plotinfost_dip_meeting_info
+local _plotinfost_dip_meeting_info
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<meeting_diplomat_info>
-function plotinfost_dip_meeting_info:_field(index) end
+function _plotinfost_dip_meeting_info:_field(index) end
 
 ---@param index integer 
 ---@param item meeting_diplomat_info 
-function plotinfost_dip_meeting_info:insert(index, item) end
+function _plotinfost_dip_meeting_info:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_dip_meeting_info:erase(index) end
+function _plotinfost_dip_meeting_info:erase(index) end
 
 ---@class (exact) plotinfost.T_invasions: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_invasions
----@field list plotinfost_invasions_list
+---@field list _plotinfost_invasions_list
 ---@field next_id number
 
 ---@class _plotinfost.T_invasions: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_invasions = {}
 
----@class plotinfost_invasions_list: DFContainer
+---@class _plotinfost_invasions_list: DFContainer
 ---@field [integer] invasion_info
-local plotinfost_invasions_list
+local _plotinfost_invasions_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<invasion_info>
-function plotinfost_invasions_list:_field(index) end
+function _plotinfost_invasions_list:_field(index) end
 
 ---@param index integer 
 ---@param item invasion_info 
-function plotinfost_invasions_list:insert(index, item) end
+function _plotinfost_invasions_list:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_invasions_list:erase(index) end
+function _plotinfost_invasions_list:erase(index) end
 
----@class plotinfost_punishments: DFContainer
+---@class _plotinfost_punishments: DFContainer
 ---@field [integer] punishment
-local plotinfost_punishments
+local _plotinfost_punishments
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<punishment>
-function plotinfost_punishments:_field(index) end
+function _plotinfost_punishments:_field(index) end
 
 ---@param index integer 
 ---@param item punishment 
-function plotinfost_punishments:insert(index, item) end
+function _plotinfost_punishments:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_punishments:erase(index) end
+function _plotinfost_punishments:erase(index) end
 
----@class plotinfost_dipscripts: DFContainer
+---@class _plotinfost_dipscripts: DFContainer
 ---@field [integer] dipscript_info
-local plotinfost_dipscripts
+local _plotinfost_dipscripts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dipscript_info>
-function plotinfost_dipscripts:_field(index) end
+function _plotinfost_dipscripts:_field(index) end
 
 ---@param index integer 
 ---@param item dipscript_info 
-function plotinfost_dipscripts:insert(index, item) end
+function _plotinfost_dipscripts:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_dipscripts:erase(index) end
+function _plotinfost_dipscripts:erase(index) end
 
----@class plotinfost_dipscript_texts: DFContainer
+---@class _plotinfost_dipscript_texts: DFContainer
 ---@field [integer] dipscript_text
-local plotinfost_dipscript_texts
+local _plotinfost_dipscript_texts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dipscript_text>
-function plotinfost_dipscript_texts:_field(index) end
+function _plotinfost_dipscript_texts:_field(index) end
 
 ---@param index integer 
 ---@param item dipscript_text 
-function plotinfost_dipscript_texts:insert(index, item) end
+function _plotinfost_dipscript_texts:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_dipscript_texts:erase(index) end
+function _plotinfost_dipscript_texts:erase(index) end
 
----@class plotinfost_dipscript_popups: DFContainer
+---@class _plotinfost_dipscript_popups: DFContainer
 ---@field [integer] dipscript_popup
-local plotinfost_dipscript_popups
+local _plotinfost_dipscript_popups
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dipscript_popup>
-function plotinfost_dipscript_popups:_field(index) end
+function _plotinfost_dipscript_popups:_field(index) end
 
 ---@param index integer 
 ---@param item dipscript_popup 
-function plotinfost_dipscript_popups:insert(index, item) end
+function _plotinfost_dipscript_popups:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_dipscript_popups:erase(index) end
+function _plotinfost_dipscript_popups:erase(index) end
 
 ---@class (exact) plotinfost.T_kitchen: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_kitchen
----@field item_types plotinfost_kitchen_item_types
+---@field item_types _plotinfost_kitchen_item_types
 ---@field item_subtypes DFNumberVector
 ---@field mat_types DFNumberVector
 ---@field mat_indices DFNumberVector
----@field exc_types plotinfost_kitchen_exc_types
+---@field exc_types _plotinfost_kitchen_exc_types
 
 ---@class _plotinfost.T_kitchen: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_kitchen = {}
 
----@class plotinfost_kitchen_item_types: DFContainer
+---@class _plotinfost_kitchen_item_types: DFContainer
 ---@field [integer] item_type
-local plotinfost_kitchen_item_types
+local _plotinfost_kitchen_item_types
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item_type>
-function plotinfost_kitchen_item_types:_field(index) end
+function _plotinfost_kitchen_item_types:_field(index) end
 
 ---@param index integer 
 ---@param item item_type 
-function plotinfost_kitchen_item_types:insert(index, item) end
+function _plotinfost_kitchen_item_types:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_kitchen_item_types:erase(index) end
+function _plotinfost_kitchen_item_types:erase(index) end
 
----@class plotinfost_kitchen_exc_types: DFContainer
+---@class _plotinfost_kitchen_exc_types: DFContainer
 ---@field [integer] kitchen_exc_type
-local plotinfost_kitchen_exc_types
+local _plotinfost_kitchen_exc_types
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<kitchen_exc_type>
-function plotinfost_kitchen_exc_types:_field(index) end
+function _plotinfost_kitchen_exc_types:_field(index) end
 
 ---@param index integer 
 ---@param item kitchen_exc_type 
-function plotinfost_kitchen_exc_types:insert(index, item) end
+function _plotinfost_kitchen_exc_types:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_kitchen_exc_types:erase(index) end
+function _plotinfost_kitchen_exc_types:erase(index) end
 
 ---@class plotinfost.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -1050,21 +1050,21 @@ function plotinfost_kitchen_exc_types:erase(index) end
 ---@field [7] "did_first_cavern_announcement" (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
 df.plotinfost.T_flags = {}
 
----@class plotinfost_farm_seasons: DFContainer
+---@class _plotinfost_farm_seasons: DFContainer
 ---@field [integer] season
-local plotinfost_farm_seasons
+local _plotinfost_farm_seasons
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<season>
-function plotinfost_farm_seasons:_field(index) end
+function _plotinfost_farm_seasons:_field(index) end
 
 ---@param index integer 
 ---@param item season 
-function plotinfost_farm_seasons:insert(index, item) end
+function _plotinfost_farm_seasons:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_farm_seasons:erase(index) end
+function _plotinfost_farm_seasons:erase(index) end
 
 ---@class (exact) plotinfost.T_economy_prices: DFObject
 ---@field _kind 'struct'
@@ -1119,554 +1119,554 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
----@field general_items plotinfost_economy_prices_price_setter_general_items
----@field weapons plotinfost_economy_prices_price_setter_weapons
----@field armor plotinfost_economy_prices_price_setter_armor
----@field handwear plotinfost_economy_prices_price_setter_handwear
----@field footwear plotinfost_economy_prices_price_setter_footwear
----@field headwear plotinfost_economy_prices_price_setter_headwear
----@field legwear plotinfost_economy_prices_price_setter_legwear
----@field prepared_food plotinfost_economy_prices_price_setter_prepared_food
----@field wood plotinfost_economy_prices_price_setter_wood
----@field thread_cloth plotinfost_economy_prices_price_setter_thread_cloth
----@field paper plotinfost_economy_prices_price_setter_paper
----@field parchment plotinfost_economy_prices_price_setter_parchment
----@field bone plotinfost_economy_prices_price_setter_bone
----@field tooth plotinfost_economy_prices_price_setter_tooth
----@field horn plotinfost_economy_prices_price_setter_horn
----@field pearl plotinfost_economy_prices_price_setter_pearl
----@field shell plotinfost_economy_prices_price_setter_shell
----@field leather plotinfost_economy_prices_price_setter_leather
----@field silk plotinfost_economy_prices_price_setter_silk
----@field yarn plotinfost_economy_prices_price_setter_yarn
----@field inorganic plotinfost_economy_prices_price_setter_inorganic
----@field meat plotinfost_economy_prices_price_setter_meat
----@field fish plotinfost_economy_prices_price_setter_fish
----@field plants plotinfost_economy_prices_price_setter_plants
----@field drinks plotinfost_economy_prices_price_setter_drinks
----@field extract_animal plotinfost_economy_prices_price_setter_extract_animal
----@field extract_plant plotinfost_economy_prices_price_setter_extract_plant
----@field mill_animal plotinfost_economy_prices_price_setter_mill_animal
----@field mill_plant plotinfost_economy_prices_price_setter_mill_plant
----@field cheese_animal plotinfost_economy_prices_price_setter_cheese_animal
----@field cheese_plant plotinfost_economy_prices_price_setter_cheese_plant
----@field pets plotinfost_economy_prices_price_setter_pets
+---@field general_items _plotinfost_economy_prices_price_setter_general_items
+---@field weapons _plotinfost_economy_prices_price_setter_weapons
+---@field armor _plotinfost_economy_prices_price_setter_armor
+---@field handwear _plotinfost_economy_prices_price_setter_handwear
+---@field footwear _plotinfost_economy_prices_price_setter_footwear
+---@field headwear _plotinfost_economy_prices_price_setter_headwear
+---@field legwear _plotinfost_economy_prices_price_setter_legwear
+---@field prepared_food _plotinfost_economy_prices_price_setter_prepared_food
+---@field wood _plotinfost_economy_prices_price_setter_wood
+---@field thread_cloth _plotinfost_economy_prices_price_setter_thread_cloth
+---@field paper _plotinfost_economy_prices_price_setter_paper
+---@field parchment _plotinfost_economy_prices_price_setter_parchment
+---@field bone _plotinfost_economy_prices_price_setter_bone
+---@field tooth _plotinfost_economy_prices_price_setter_tooth
+---@field horn _plotinfost_economy_prices_price_setter_horn
+---@field pearl _plotinfost_economy_prices_price_setter_pearl
+---@field shell _plotinfost_economy_prices_price_setter_shell
+---@field leather _plotinfost_economy_prices_price_setter_leather
+---@field silk _plotinfost_economy_prices_price_setter_silk
+---@field yarn _plotinfost_economy_prices_price_setter_yarn
+---@field inorganic _plotinfost_economy_prices_price_setter_inorganic
+---@field meat _plotinfost_economy_prices_price_setter_meat
+---@field fish _plotinfost_economy_prices_price_setter_fish
+---@field plants _plotinfost_economy_prices_price_setter_plants
+---@field drinks _plotinfost_economy_prices_price_setter_drinks
+---@field extract_animal _plotinfost_economy_prices_price_setter_extract_animal
+---@field extract_plant _plotinfost_economy_prices_price_setter_extract_plant
+---@field mill_animal _plotinfost_economy_prices_price_setter_mill_animal
+---@field mill_plant _plotinfost_economy_prices_price_setter_mill_plant
+---@field cheese_animal _plotinfost_economy_prices_price_setter_cheese_animal
+---@field cheese_plant _plotinfost_economy_prices_price_setter_cheese_plant
+---@field pets _plotinfost_economy_prices_price_setter_pets
 
 ---@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_setter = {}
 
----@class plotinfost_economy_prices_price_setter_general_items: DFContainer
+---@class _plotinfost_economy_prices_price_setter_general_items: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_general_items
+local _plotinfost_economy_prices_price_setter_general_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_general_items:_field(index) end
+function _plotinfost_economy_prices_price_setter_general_items:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_general_items:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_general_items:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_general_items:erase(index) end
+function _plotinfost_economy_prices_price_setter_general_items:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_weapons: DFContainer
+---@class _plotinfost_economy_prices_price_setter_weapons: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_weapons
+local _plotinfost_economy_prices_price_setter_weapons
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_weapons:_field(index) end
+function _plotinfost_economy_prices_price_setter_weapons:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_weapons:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_weapons:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_weapons:erase(index) end
+function _plotinfost_economy_prices_price_setter_weapons:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_armor: DFContainer
+---@class _plotinfost_economy_prices_price_setter_armor: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_armor
+local _plotinfost_economy_prices_price_setter_armor
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_armor:_field(index) end
+function _plotinfost_economy_prices_price_setter_armor:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_armor:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_armor:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_armor:erase(index) end
+function _plotinfost_economy_prices_price_setter_armor:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_handwear: DFContainer
+---@class _plotinfost_economy_prices_price_setter_handwear: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_handwear
+local _plotinfost_economy_prices_price_setter_handwear
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_handwear:_field(index) end
+function _plotinfost_economy_prices_price_setter_handwear:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_handwear:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_handwear:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_handwear:erase(index) end
+function _plotinfost_economy_prices_price_setter_handwear:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_footwear: DFContainer
+---@class _plotinfost_economy_prices_price_setter_footwear: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_footwear
+local _plotinfost_economy_prices_price_setter_footwear
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_footwear:_field(index) end
+function _plotinfost_economy_prices_price_setter_footwear:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_footwear:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_footwear:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_footwear:erase(index) end
+function _plotinfost_economy_prices_price_setter_footwear:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_headwear: DFContainer
+---@class _plotinfost_economy_prices_price_setter_headwear: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_headwear
+local _plotinfost_economy_prices_price_setter_headwear
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_headwear:_field(index) end
+function _plotinfost_economy_prices_price_setter_headwear:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_headwear:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_headwear:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_headwear:erase(index) end
+function _plotinfost_economy_prices_price_setter_headwear:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_legwear: DFContainer
+---@class _plotinfost_economy_prices_price_setter_legwear: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_legwear
+local _plotinfost_economy_prices_price_setter_legwear
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_legwear:_field(index) end
+function _plotinfost_economy_prices_price_setter_legwear:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_legwear:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_legwear:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_legwear:erase(index) end
+function _plotinfost_economy_prices_price_setter_legwear:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_prepared_food: DFContainer
+---@class _plotinfost_economy_prices_price_setter_prepared_food: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_prepared_food
+local _plotinfost_economy_prices_price_setter_prepared_food
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_prepared_food:_field(index) end
+function _plotinfost_economy_prices_price_setter_prepared_food:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_prepared_food:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_prepared_food:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_prepared_food:erase(index) end
+function _plotinfost_economy_prices_price_setter_prepared_food:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_wood: DFContainer
+---@class _plotinfost_economy_prices_price_setter_wood: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_wood
+local _plotinfost_economy_prices_price_setter_wood
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_wood:_field(index) end
+function _plotinfost_economy_prices_price_setter_wood:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_wood:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_wood:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_wood:erase(index) end
+function _plotinfost_economy_prices_price_setter_wood:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_thread_cloth: DFContainer
+---@class _plotinfost_economy_prices_price_setter_thread_cloth: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_thread_cloth
+local _plotinfost_economy_prices_price_setter_thread_cloth
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_thread_cloth:_field(index) end
+function _plotinfost_economy_prices_price_setter_thread_cloth:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_thread_cloth:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_thread_cloth:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_thread_cloth:erase(index) end
+function _plotinfost_economy_prices_price_setter_thread_cloth:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_paper: DFContainer
+---@class _plotinfost_economy_prices_price_setter_paper: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_paper
+local _plotinfost_economy_prices_price_setter_paper
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_paper:_field(index) end
+function _plotinfost_economy_prices_price_setter_paper:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_paper:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_paper:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_paper:erase(index) end
+function _plotinfost_economy_prices_price_setter_paper:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_parchment: DFContainer
+---@class _plotinfost_economy_prices_price_setter_parchment: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_parchment
+local _plotinfost_economy_prices_price_setter_parchment
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_parchment:_field(index) end
+function _plotinfost_economy_prices_price_setter_parchment:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_parchment:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_parchment:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_parchment:erase(index) end
+function _plotinfost_economy_prices_price_setter_parchment:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_bone: DFContainer
+---@class _plotinfost_economy_prices_price_setter_bone: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_bone
+local _plotinfost_economy_prices_price_setter_bone
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_bone:_field(index) end
+function _plotinfost_economy_prices_price_setter_bone:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_bone:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_bone:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_bone:erase(index) end
+function _plotinfost_economy_prices_price_setter_bone:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_tooth: DFContainer
+---@class _plotinfost_economy_prices_price_setter_tooth: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_tooth
+local _plotinfost_economy_prices_price_setter_tooth
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_tooth:_field(index) end
+function _plotinfost_economy_prices_price_setter_tooth:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_tooth:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_tooth:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_tooth:erase(index) end
+function _plotinfost_economy_prices_price_setter_tooth:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_horn: DFContainer
+---@class _plotinfost_economy_prices_price_setter_horn: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_horn
+local _plotinfost_economy_prices_price_setter_horn
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_horn:_field(index) end
+function _plotinfost_economy_prices_price_setter_horn:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_horn:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_horn:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_horn:erase(index) end
+function _plotinfost_economy_prices_price_setter_horn:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_pearl: DFContainer
+---@class _plotinfost_economy_prices_price_setter_pearl: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_pearl
+local _plotinfost_economy_prices_price_setter_pearl
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_pearl:_field(index) end
+function _plotinfost_economy_prices_price_setter_pearl:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_pearl:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_pearl:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_pearl:erase(index) end
+function _plotinfost_economy_prices_price_setter_pearl:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_shell: DFContainer
+---@class _plotinfost_economy_prices_price_setter_shell: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_shell
+local _plotinfost_economy_prices_price_setter_shell
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_shell:_field(index) end
+function _plotinfost_economy_prices_price_setter_shell:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_shell:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_shell:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_shell:erase(index) end
+function _plotinfost_economy_prices_price_setter_shell:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_leather: DFContainer
+---@class _plotinfost_economy_prices_price_setter_leather: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_leather
+local _plotinfost_economy_prices_price_setter_leather
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_leather:_field(index) end
+function _plotinfost_economy_prices_price_setter_leather:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_leather:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_leather:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_leather:erase(index) end
+function _plotinfost_economy_prices_price_setter_leather:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_silk: DFContainer
+---@class _plotinfost_economy_prices_price_setter_silk: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_silk
+local _plotinfost_economy_prices_price_setter_silk
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_silk:_field(index) end
+function _plotinfost_economy_prices_price_setter_silk:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_silk:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_silk:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_silk:erase(index) end
+function _plotinfost_economy_prices_price_setter_silk:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_yarn: DFContainer
+---@class _plotinfost_economy_prices_price_setter_yarn: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_yarn
+local _plotinfost_economy_prices_price_setter_yarn
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_yarn:_field(index) end
+function _plotinfost_economy_prices_price_setter_yarn:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_yarn:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_yarn:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_yarn:erase(index) end
+function _plotinfost_economy_prices_price_setter_yarn:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_inorganic: DFContainer
+---@class _plotinfost_economy_prices_price_setter_inorganic: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_inorganic
+local _plotinfost_economy_prices_price_setter_inorganic
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_inorganic:_field(index) end
+function _plotinfost_economy_prices_price_setter_inorganic:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_inorganic:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_inorganic:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_inorganic:erase(index) end
+function _plotinfost_economy_prices_price_setter_inorganic:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_meat: DFContainer
+---@class _plotinfost_economy_prices_price_setter_meat: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_meat
+local _plotinfost_economy_prices_price_setter_meat
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_meat:_field(index) end
+function _plotinfost_economy_prices_price_setter_meat:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_meat:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_meat:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_meat:erase(index) end
+function _plotinfost_economy_prices_price_setter_meat:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_fish: DFContainer
+---@class _plotinfost_economy_prices_price_setter_fish: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_fish
+local _plotinfost_economy_prices_price_setter_fish
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_fish:_field(index) end
+function _plotinfost_economy_prices_price_setter_fish:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_fish:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_fish:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_fish:erase(index) end
+function _plotinfost_economy_prices_price_setter_fish:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_plants: DFContainer
+---@class _plotinfost_economy_prices_price_setter_plants: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_plants
+local _plotinfost_economy_prices_price_setter_plants
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_plants:_field(index) end
+function _plotinfost_economy_prices_price_setter_plants:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_plants:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_plants:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_plants:erase(index) end
+function _plotinfost_economy_prices_price_setter_plants:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_drinks: DFContainer
+---@class _plotinfost_economy_prices_price_setter_drinks: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_drinks
+local _plotinfost_economy_prices_price_setter_drinks
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_drinks:_field(index) end
+function _plotinfost_economy_prices_price_setter_drinks:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_drinks:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_drinks:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_drinks:erase(index) end
+function _plotinfost_economy_prices_price_setter_drinks:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_extract_animal: DFContainer
+---@class _plotinfost_economy_prices_price_setter_extract_animal: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_extract_animal
+local _plotinfost_economy_prices_price_setter_extract_animal
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_extract_animal:_field(index) end
+function _plotinfost_economy_prices_price_setter_extract_animal:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_extract_animal:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_extract_animal:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_extract_animal:erase(index) end
+function _plotinfost_economy_prices_price_setter_extract_animal:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_extract_plant: DFContainer
+---@class _plotinfost_economy_prices_price_setter_extract_plant: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_extract_plant
+local _plotinfost_economy_prices_price_setter_extract_plant
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_extract_plant:_field(index) end
+function _plotinfost_economy_prices_price_setter_extract_plant:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_extract_plant:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_extract_plant:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_extract_plant:erase(index) end
+function _plotinfost_economy_prices_price_setter_extract_plant:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_mill_animal: DFContainer
+---@class _plotinfost_economy_prices_price_setter_mill_animal: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_mill_animal
+local _plotinfost_economy_prices_price_setter_mill_animal
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_mill_animal:_field(index) end
+function _plotinfost_economy_prices_price_setter_mill_animal:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_mill_animal:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_mill_animal:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_mill_animal:erase(index) end
+function _plotinfost_economy_prices_price_setter_mill_animal:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_mill_plant: DFContainer
+---@class _plotinfost_economy_prices_price_setter_mill_plant: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_mill_plant
+local _plotinfost_economy_prices_price_setter_mill_plant
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_mill_plant:_field(index) end
+function _plotinfost_economy_prices_price_setter_mill_plant:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_mill_plant:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_mill_plant:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_mill_plant:erase(index) end
+function _plotinfost_economy_prices_price_setter_mill_plant:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_cheese_animal: DFContainer
+---@class _plotinfost_economy_prices_price_setter_cheese_animal: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_cheese_animal
+local _plotinfost_economy_prices_price_setter_cheese_animal
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_cheese_animal:_field(index) end
+function _plotinfost_economy_prices_price_setter_cheese_animal:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_cheese_animal:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_cheese_animal:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_cheese_animal:erase(index) end
+function _plotinfost_economy_prices_price_setter_cheese_animal:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_cheese_plant: DFContainer
+---@class _plotinfost_economy_prices_price_setter_cheese_plant: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_cheese_plant
+local _plotinfost_economy_prices_price_setter_cheese_plant
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_cheese_plant:_field(index) end
+function _plotinfost_economy_prices_price_setter_cheese_plant:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_cheese_plant:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_cheese_plant:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_cheese_plant:erase(index) end
+function _plotinfost_economy_prices_price_setter_cheese_plant:erase(index) end
 
----@class plotinfost_economy_prices_price_setter_pets: DFContainer
+---@class _plotinfost_economy_prices_price_setter_pets: DFContainer
 ---@field [integer] unit
-local plotinfost_economy_prices_price_setter_pets
+local _plotinfost_economy_prices_price_setter_pets
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_economy_prices_price_setter_pets:_field(index) end
+function _plotinfost_economy_prices_price_setter_pets:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_economy_prices_price_setter_pets:insert(index, item) end
+function _plotinfost_economy_prices_price_setter_pets:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_economy_prices_price_setter_pets:erase(index) end
+function _plotinfost_economy_prices_price_setter_pets:erase(index) end
 
 ---@class (exact) plotinfost.T_stockpile: DFObject
 ---@field _kind 'struct'
@@ -1706,8 +1706,8 @@ df.plotinfost.T_map_edge = {}
 ---@class (exact) plotinfost.T_waypoints: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_waypoints
----@field points plotinfost_waypoints_points
----@field routes plotinfost_waypoints_routes
+---@field points _plotinfost_waypoints_points
+---@field routes _plotinfost_waypoints_routes
 ---@field sym_selector number
 ---@field unk_1 number
 ---@field cur_point_index number
@@ -1722,71 +1722,71 @@ df.plotinfost.T_map_edge = {}
 ---@field sel_route_idx number
 ---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
----@field unk_42_06 plotinfost_waypoints_unk_42_06
+---@field unk_42_06 _plotinfost_waypoints_unk_42_06
 
 ---@class _plotinfost.T_waypoints: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_waypoints = {}
 
----@class plotinfost_waypoints_points: DFContainer
+---@class _plotinfost_waypoints_points: DFContainer
 ---@field [integer] DFPointer<integer>
-local plotinfost_waypoints_points
+local _plotinfost_waypoints_points
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function plotinfost_waypoints_points:_field(index) end
+function _plotinfost_waypoints_points:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function plotinfost_waypoints_points:insert(index, item) end
+function _plotinfost_waypoints_points:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_waypoints_points:erase(index) end
+function _plotinfost_waypoints_points:erase(index) end
 
----@class plotinfost_waypoints_routes: DFContainer
+---@class _plotinfost_waypoints_routes: DFContainer
 ---@field [integer] DFPointer<integer>
-local plotinfost_waypoints_routes
+local _plotinfost_waypoints_routes
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function plotinfost_waypoints_routes:_field(index) end
+function _plotinfost_waypoints_routes:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function plotinfost_waypoints_routes:insert(index, item) end
+function _plotinfost_waypoints_routes:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_waypoints_routes:erase(index) end
+function _plotinfost_waypoints_routes:erase(index) end
 
----@class plotinfost_waypoints_unk_42_06: DFContainer
+---@class _plotinfost_waypoints_unk_42_06: DFContainer
 ---@field [integer] any[]
-local plotinfost_waypoints_unk_42_06
+local _plotinfost_waypoints_unk_42_06
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_waypoints_unk_42_06:_field(index) end
+function _plotinfost_waypoints_unk_42_06:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_waypoints_unk_42_06:insert(index, item) end
+function _plotinfost_waypoints_unk_42_06:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_waypoints_unk_42_06:erase(index) end
+function _plotinfost_waypoints_unk_42_06:erase(index) end
 
 ---@class (exact) plotinfost.T_burrows: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_burrows
----@field list plotinfost_burrows_list
+---@field list _plotinfost_burrows_list
 ---@field next_id number
 ---@field sel_index number
 ---@field sel_id number References: `burrow`
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
----@field list_units plotinfost_burrows_list_units
----@field sel_units plotinfost_burrows_sel_units
+---@field list_units _plotinfost_burrows_list_units
+---@field sel_units _plotinfost_burrows_sel_units
 ---@field unit_cursor_pos number
 ---@field in_define_mode boolean
 ---@field brush_erasing boolean
@@ -1802,60 +1802,60 @@ function plotinfost_waypoints_unk_42_06:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_burrows = {}
 
----@class plotinfost_burrows_list: DFContainer
+---@class _plotinfost_burrows_list: DFContainer
 ---@field [integer] burrow
-local plotinfost_burrows_list
+local _plotinfost_burrows_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<burrow>
-function plotinfost_burrows_list:_field(index) end
+function _plotinfost_burrows_list:_field(index) end
 
 ---@param index integer 
 ---@param item burrow 
-function plotinfost_burrows_list:insert(index, item) end
+function _plotinfost_burrows_list:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_burrows_list:erase(index) end
+function _plotinfost_burrows_list:erase(index) end
 
----@class plotinfost_burrows_list_units: DFContainer
+---@class _plotinfost_burrows_list_units: DFContainer
 ---@field [integer] unit
-local plotinfost_burrows_list_units
+local _plotinfost_burrows_list_units
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_burrows_list_units:_field(index) end
+function _plotinfost_burrows_list_units:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_burrows_list_units:insert(index, item) end
+function _plotinfost_burrows_list_units:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_burrows_list_units:erase(index) end
+function _plotinfost_burrows_list_units:erase(index) end
 
----@class plotinfost_burrows_sel_units: DFContainer
+---@class _plotinfost_burrows_sel_units: DFContainer
 ---@field [integer] any[]
-local plotinfost_burrows_sel_units
+local _plotinfost_burrows_sel_units
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_burrows_sel_units:_field(index) end
+function _plotinfost_burrows_sel_units:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_burrows_sel_units:insert(index, item) end
+function _plotinfost_burrows_sel_units:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_burrows_sel_units:erase(index) end
+function _plotinfost_burrows_sel_units:erase(index) end
 
 ---@class (exact) plotinfost.T_alerts: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_alerts
----@field list plotinfost_alerts_list
+---@field list _plotinfost_alerts_list
 ---@field next_id number
----@field routines plotinfost_alerts_routines
+---@field routines _plotinfost_alerts_routines
 ---@field next_routine_id number
 ---@field civ_alert_idx number
 
@@ -1863,37 +1863,37 @@ function plotinfost_burrows_sel_units:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_alerts = {}
 
----@class plotinfost_alerts_list: DFContainer
+---@class _plotinfost_alerts_list: DFContainer
 ---@field [integer] DFPointer<integer>
-local plotinfost_alerts_list
+local _plotinfost_alerts_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function plotinfost_alerts_list:_field(index) end
+function _plotinfost_alerts_list:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function plotinfost_alerts_list:insert(index, item) end
+function _plotinfost_alerts_list:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_alerts_list:erase(index) end
+function _plotinfost_alerts_list:erase(index) end
 
----@class plotinfost_alerts_routines: DFContainer
+---@class _plotinfost_alerts_routines: DFContainer
 ---@field [integer] DFPointer<integer>
-local plotinfost_alerts_routines
+local _plotinfost_alerts_routines
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function plotinfost_alerts_routines:_field(index) end
+function _plotinfost_alerts_routines:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function plotinfost_alerts_routines:insert(index, item) end
+function _plotinfost_alerts_routines:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_alerts_routines:erase(index) end
+function _plotinfost_alerts_routines:erase(index) end
 
 ---@class (exact) plotinfost.T_equipment: DFObject
 ---@field _kind 'struct'
@@ -1904,57 +1904,57 @@ function plotinfost_alerts_routines:erase(index) end
 ---@field update equipment_update
 ---@field work_weapons DFNumberVector i.e. woodcutter axes, and miner picks
 ---@field work_units DFNumberVector
----@field hunter_ammunition plotinfost_equipment_hunter_ammunition
+---@field hunter_ammunition _plotinfost_equipment_hunter_ammunition
 ---@field ammo_items DFNumberVector
 ---@field ammo_units DFNumberVector
----@field training_assignments plotinfost_equipment_training_assignments sorted by animal_id
+---@field training_assignments _plotinfost_equipment_training_assignments sorted by animal_id
 
 ---@class _plotinfost.T_equipment: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_equipment = {}
 
----@class plotinfost_equipment_hunter_ammunition: DFContainer
+---@class _plotinfost_equipment_hunter_ammunition: DFContainer
 ---@field [integer] squad_ammo_spec
-local plotinfost_equipment_hunter_ammunition
+local _plotinfost_equipment_hunter_ammunition
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<squad_ammo_spec>
-function plotinfost_equipment_hunter_ammunition:_field(index) end
+function _plotinfost_equipment_hunter_ammunition:_field(index) end
 
 ---@param index integer 
 ---@param item squad_ammo_spec 
-function plotinfost_equipment_hunter_ammunition:insert(index, item) end
+function _plotinfost_equipment_hunter_ammunition:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_equipment_hunter_ammunition:erase(index) end
+function _plotinfost_equipment_hunter_ammunition:erase(index) end
 
----@class plotinfost_equipment_training_assignments: DFContainer
+---@class _plotinfost_equipment_training_assignments: DFContainer
 ---@field [integer] training_assignment
-local plotinfost_equipment_training_assignments
+local _plotinfost_equipment_training_assignments
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<training_assignment>
-function plotinfost_equipment_training_assignments:_field(index) end
+function _plotinfost_equipment_training_assignments:_field(index) end
 
 ---@param index integer 
 ---@param item training_assignment 
-function plotinfost_equipment_training_assignments:insert(index, item) end
+function _plotinfost_equipment_training_assignments:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_equipment_training_assignments:erase(index) end
+function _plotinfost_equipment_training_assignments:erase(index) end
 
 ---@class (exact) plotinfost.T_hauling: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_hauling
----@field routes plotinfost_hauling_routes
+---@field routes _plotinfost_hauling_routes
 ---@field next_id number
 ---@field scroll_position number
 ---@field scrolling boolean
----@field view_routes plotinfost_hauling_view_routes
----@field view_stops plotinfost_hauling_view_stops
----@field view_bad plotinfost_hauling_view_bad
+---@field view_routes _plotinfost_hauling_view_routes
+---@field view_stops _plotinfost_hauling_view_stops
+---@field view_bad _plotinfost_hauling_view_bad
 ---@field in_stop boolean
 ---@field adding_stop_route_id number
 ---@field entering_nickname boolean
@@ -1965,69 +1965,69 @@ function plotinfost_equipment_training_assignments:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_hauling = {}
 
----@class plotinfost_hauling_routes: DFContainer
+---@class _plotinfost_hauling_routes: DFContainer
 ---@field [integer] hauling_route
-local plotinfost_hauling_routes
+local _plotinfost_hauling_routes
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<hauling_route>
-function plotinfost_hauling_routes:_field(index) end
+function _plotinfost_hauling_routes:_field(index) end
 
 ---@param index integer 
 ---@param item hauling_route 
-function plotinfost_hauling_routes:insert(index, item) end
+function _plotinfost_hauling_routes:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_hauling_routes:erase(index) end
+function _plotinfost_hauling_routes:erase(index) end
 
----@class plotinfost_hauling_view_routes: DFContainer
+---@class _plotinfost_hauling_view_routes: DFContainer
 ---@field [integer] hauling_route
-local plotinfost_hauling_view_routes
+local _plotinfost_hauling_view_routes
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<hauling_route>
-function plotinfost_hauling_view_routes:_field(index) end
+function _plotinfost_hauling_view_routes:_field(index) end
 
 ---@param index integer 
 ---@param item hauling_route 
-function plotinfost_hauling_view_routes:insert(index, item) end
+function _plotinfost_hauling_view_routes:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_hauling_view_routes:erase(index) end
+function _plotinfost_hauling_view_routes:erase(index) end
 
----@class plotinfost_hauling_view_stops: DFContainer
+---@class _plotinfost_hauling_view_stops: DFContainer
 ---@field [integer] hauling_stop
-local plotinfost_hauling_view_stops
+local _plotinfost_hauling_view_stops
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<hauling_stop>
-function plotinfost_hauling_view_stops:_field(index) end
+function _plotinfost_hauling_view_stops:_field(index) end
 
 ---@param index integer 
 ---@param item hauling_stop 
-function plotinfost_hauling_view_stops:insert(index, item) end
+function _plotinfost_hauling_view_stops:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_hauling_view_stops:erase(index) end
+function _plotinfost_hauling_view_stops:erase(index) end
 
----@class plotinfost_hauling_view_bad: DFContainer
+---@class _plotinfost_hauling_view_bad: DFContainer
 ---@field [integer] plotinfost.T_hauling.T_view_bad
-local plotinfost_hauling_view_bad
+local _plotinfost_hauling_view_bad
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plotinfost.T_hauling.T_view_bad>
-function plotinfost_hauling_view_bad:_field(index) end
+function _plotinfost_hauling_view_bad:_field(index) end
 
 ---@param index integer 
 ---@param item plotinfost.T_hauling.T_view_bad 
-function plotinfost_hauling_view_bad:insert(index, item) end
+function _plotinfost_hauling_view_bad:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_hauling_view_bad:erase(index) end
+function _plotinfost_hauling_view_bad:erase(index) end
 
 ---@class plotinfost.T_hauling.T_view_bad: DFObject
 ---@field _kind 'bitfield'
@@ -2040,69 +2040,69 @@ function plotinfost_hauling_view_bad:erase(index) end
 ---@field [0] "DISCONNECTED_TRACK"
 df.plotinfost.T_hauling.T_view_bad = {}
 
----@class plotinfost_unk_7: DFContainer
+---@class _plotinfost_unk_7: DFContainer
 ---@field [integer] any[]
-local plotinfost_unk_7
+local _plotinfost_unk_7
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_unk_7:_field(index) end
+function _plotinfost_unk_7:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_unk_7:insert(index, item) end
+function _plotinfost_unk_7:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_unk_7:erase(index) end
+function _plotinfost_unk_7:erase(index) end
 
----@class plotinfost_theft_intrigues: DFContainer
+---@class _plotinfost_theft_intrigues: DFContainer
 ---@field [integer] DFPointer<integer>
-local plotinfost_theft_intrigues
+local _plotinfost_theft_intrigues
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function plotinfost_theft_intrigues:_field(index) end
+function _plotinfost_theft_intrigues:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function plotinfost_theft_intrigues:insert(index, item) end
+function _plotinfost_theft_intrigues:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_theft_intrigues:erase(index) end
+function _plotinfost_theft_intrigues:erase(index) end
 
----@class plotinfost_tutorial_hide: DFContainer
+---@class _plotinfost_tutorial_hide: DFContainer
 ---@field [integer] help_context_type
-local plotinfost_tutorial_hide
+local _plotinfost_tutorial_hide
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<help_context_type>
-function plotinfost_tutorial_hide:_field(index) end
+function _plotinfost_tutorial_hide:_field(index) end
 
 ---@param index integer 
 ---@param item help_context_type 
-function plotinfost_tutorial_hide:insert(index, item) end
+function _plotinfost_tutorial_hide:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_tutorial_hide:erase(index) end
+function _plotinfost_tutorial_hide:erase(index) end
 
----@class plotinfost_tutorial_seen: DFContainer
+---@class _plotinfost_tutorial_seen: DFContainer
 ---@field [integer] help_context_type
-local plotinfost_tutorial_seen
+local _plotinfost_tutorial_seen
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<help_context_type>
-function plotinfost_tutorial_seen:_field(index) end
+function _plotinfost_tutorial_seen:_field(index) end
 
 ---@param index integer 
 ---@param item help_context_type 
-function plotinfost_tutorial_seen:insert(index, item) end
+function _plotinfost_tutorial_seen:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_tutorial_seen:erase(index) end
+function _plotinfost_tutorial_seen:erase(index) end
 
 ---@class (exact) plotinfost.T_main: DFObject
 ---@field _kind 'struct'
@@ -2112,7 +2112,7 @@ function plotinfost_tutorial_seen:erase(index) end
 ---@field traffic_cost_normal number
 ---@field traffic_cost_low number
 ---@field traffic_cost_restricted number
----@field dead_citizens plotinfost_main_dead_citizens ?
+---@field dead_citizens _plotinfost_main_dead_citizens ?
 ---@field custom_difficulty difficultyst
 ---@field fortress_entity historical_entity entity pointed to by group_id
 ---@field fortress_site world_site
@@ -2134,21 +2134,21 @@ function plotinfost_tutorial_seen:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_main = {}
 
----@class plotinfost_main_dead_citizens: DFContainer
+---@class _plotinfost_main_dead_citizens: DFContainer
 ---@field [integer] DFPointer<integer>
-local plotinfost_main_dead_citizens
+local _plotinfost_main_dead_citizens
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function plotinfost_main_dead_citizens:_field(index) end
+function _plotinfost_main_dead_citizens:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function plotinfost_main_dead_citizens:insert(index, item) end
+function _plotinfost_main_dead_citizens:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_main_dead_citizens:erase(index) end
+function _plotinfost_main_dead_citizens:erase(index) end
 
 ---@class (exact) plotinfost.T_main.T_save_progress: DFObject
 ---@field _kind 'struct'
@@ -2164,9 +2164,9 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@class (exact) plotinfost.T_squads: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_squads
----@field list plotinfost_squads_list valid only when ui is displayed
----@field unk6e08 plotinfost_squads_unk6e08
----@field sel_squads plotinfost_squads_sel_squads
+---@field list _plotinfost_squads_list valid only when ui is displayed
+---@field unk6e08 _plotinfost_squads_unk6e08
+---@field sel_squads _plotinfost_squads_sel_squads
 ---@field indiv_selected DFNumberVector
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad number
@@ -2177,11 +2177,11 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field in_move_order boolean
 ---@field point_list_scroll number
 ---@field in_kill_order boolean
----@field kill_rect_targets plotinfost_squads_kill_rect_targets
+---@field kill_rect_targets _plotinfost_squads_kill_rect_targets
 ---@field kill_rect_targets_scroll number also used for the list of targets at cursor
 ---@field in_kill_list boolean
----@field kill_targets plotinfost_squads_kill_targets
----@field sel_kill_targets plotinfost_squads_sel_kill_targets
+---@field kill_targets _plotinfost_squads_kill_targets
+---@field sel_kill_targets _plotinfost_squads_sel_kill_targets
 ---@field kill_list_scroll number
 ---@field in_kill_rect boolean
 ---@field rect_start coord
@@ -2190,117 +2190,117 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field _kind 'struct-type'
 df.plotinfost.T_squads = {}
 
----@class plotinfost_squads_list: DFContainer
+---@class _plotinfost_squads_list: DFContainer
 ---@field [integer] squad
-local plotinfost_squads_list
+local _plotinfost_squads_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<squad>
-function plotinfost_squads_list:_field(index) end
+function _plotinfost_squads_list:_field(index) end
 
 ---@param index integer 
 ---@param item squad 
-function plotinfost_squads_list:insert(index, item) end
+function _plotinfost_squads_list:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_squads_list:erase(index) end
+function _plotinfost_squads_list:erase(index) end
 
----@class plotinfost_squads_unk6e08: DFContainer
+---@class _plotinfost_squads_unk6e08: DFContainer
 ---@field [integer] any[]
-local plotinfost_squads_unk6e08
+local _plotinfost_squads_unk6e08
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_squads_unk6e08:_field(index) end
+function _plotinfost_squads_unk6e08:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_squads_unk6e08:insert(index, item) end
+function _plotinfost_squads_unk6e08:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_squads_unk6e08:erase(index) end
+function _plotinfost_squads_unk6e08:erase(index) end
 
----@class plotinfost_squads_sel_squads: DFContainer
+---@class _plotinfost_squads_sel_squads: DFContainer
 ---@field [integer] any[]
-local plotinfost_squads_sel_squads
+local _plotinfost_squads_sel_squads
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_squads_sel_squads:_field(index) end
+function _plotinfost_squads_sel_squads:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_squads_sel_squads:insert(index, item) end
+function _plotinfost_squads_sel_squads:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_squads_sel_squads:erase(index) end
+function _plotinfost_squads_sel_squads:erase(index) end
 
----@class plotinfost_squads_kill_rect_targets: DFContainer
+---@class _plotinfost_squads_kill_rect_targets: DFContainer
 ---@field [integer] unit
-local plotinfost_squads_kill_rect_targets
+local _plotinfost_squads_kill_rect_targets
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_squads_kill_rect_targets:_field(index) end
+function _plotinfost_squads_kill_rect_targets:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_squads_kill_rect_targets:insert(index, item) end
+function _plotinfost_squads_kill_rect_targets:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_squads_kill_rect_targets:erase(index) end
+function _plotinfost_squads_kill_rect_targets:erase(index) end
 
----@class plotinfost_squads_kill_targets: DFContainer
+---@class _plotinfost_squads_kill_targets: DFContainer
 ---@field [integer] unit
-local plotinfost_squads_kill_targets
+local _plotinfost_squads_kill_targets
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function plotinfost_squads_kill_targets:_field(index) end
+function _plotinfost_squads_kill_targets:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function plotinfost_squads_kill_targets:insert(index, item) end
+function _plotinfost_squads_kill_targets:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_squads_kill_targets:erase(index) end
+function _plotinfost_squads_kill_targets:erase(index) end
 
----@class plotinfost_squads_sel_kill_targets: DFContainer
+---@class _plotinfost_squads_sel_kill_targets: DFContainer
 ---@field [integer] any[]
-local plotinfost_squads_sel_kill_targets
+local _plotinfost_squads_sel_kill_targets
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_squads_sel_kill_targets:_field(index) end
+function _plotinfost_squads_sel_kill_targets:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_squads_sel_kill_targets:insert(index, item) end
+function _plotinfost_squads_sel_kill_targets:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_squads_sel_kill_targets:erase(index) end
+function _plotinfost_squads_sel_kill_targets:erase(index) end
 
----@class plotinfost_available_seeds: DFContainer
+---@class _plotinfost_available_seeds: DFContainer
 ---@field [integer] any[]
-local plotinfost_available_seeds
+local _plotinfost_available_seeds
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function plotinfost_available_seeds:_field(index) end
+function _plotinfost_available_seeds:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function plotinfost_available_seeds:insert(index, item) end
+function _plotinfost_available_seeds:insert(index, item) end
 
 ---@param index integer 
-function plotinfost_available_seeds:erase(index) end
+function _plotinfost_available_seeds:erase(index) end
 
 ---@alias timed_event_type_keys
 ---| '"Caravan"'
@@ -2394,7 +2394,7 @@ df.map_viewport = {}
 ---@field _type _map_renderer
 ---@field entity integer[][]
 ---@field unk_v50_1 number[][]
----@field cursor_units map_renderer_cursor_units
+---@field cursor_units _map_renderer_cursor_units
 ---@field cursor_guts unit
 ---@field multiple_guts boolean
 ---@field cursor_corpse item
@@ -2422,21 +2422,21 @@ df.map_viewport = {}
 ---@field _kind 'struct-type'
 df.map_renderer = {}
 
----@class map_renderer_cursor_units: DFContainer
+---@class _map_renderer_cursor_units: DFContainer
 ---@field [integer] unit
-local map_renderer_cursor_units
+local _map_renderer_cursor_units
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function map_renderer_cursor_units:_field(index) end
+function _map_renderer_cursor_units:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function map_renderer_cursor_units:insert(index, item) end
+function _map_renderer_cursor_units:insert(index, item) end
 
 ---@param index integer 
-function map_renderer_cursor_units:erase(index) end
+function _map_renderer_cursor_units:erase(index) end
 
 ---@class (exact) map_renderer.T_unk_4: DFObject
 ---@field _kind 'struct'

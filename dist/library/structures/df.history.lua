@@ -10,28 +10,28 @@
 ---@field killed_underground_region DFNumberVector
 ---@field killed_region DFNumberVector
 ---@field killed_site DFNumberVector
----@field killed_undead historical_kills_killed_undead
+---@field killed_undead _historical_kills_killed_undead
 ---@field killed_count DFNumberVector
 
 ---@class _historical_kills: DFCompound
 ---@field _kind 'struct-type'
 df.historical_kills = {}
 
----@class historical_kills_killed_undead: DFContainer
+---@class _historical_kills_killed_undead: DFContainer
 ---@field [integer] undead_flags
-local historical_kills_killed_undead
+local _historical_kills_killed_undead
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<undead_flags>
-function historical_kills_killed_undead:_field(index) end
+function _historical_kills_killed_undead:_field(index) end
 
 ---@param index integer 
 ---@param item undead_flags 
-function historical_kills_killed_undead:insert(index, item) end
+function _historical_kills_killed_undead:insert(index, item) end
 
 ---@param index integer 
-function historical_kills_killed_undead:erase(index) end
+function _historical_kills_killed_undead:erase(index) end
 
 ---@class (exact) history_hit_item: DFObject
 ---@field _kind 'struct'
@@ -504,16 +504,16 @@ df.state_profilest.T_flags = {}
 ---@class (exact) knowledge_profilest: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_profilest
----@field known_secrets knowledge_profilest_known_secrets bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
+---@field known_secrets _knowledge_profilest_known_secrets bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
 ---@field next_intervention_resistance_year number All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
 ---@field known_written_contents DFNumberVector bay12: read_written_content_id; ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
 ---@field known_identities DFNumberVector bay12: identity_known_id; identity ID of identities known to the historical figure, such as demon true names
----@field known_witness_reports knowledge_profilest_known_witness_reports bay12: witness_incident
----@field known_events knowledge_profilest_known_events
+---@field known_witness_reports _knowledge_profilest_known_witness_reports bay12: witness_incident
+---@field known_events _knowledge_profilest_known_events
 ---@field heard_of_guide_hfid DFNumberVector
 ---@field heard_of_stid DFNumberVector
 ---@field opinion_info knowledge_profilest.T_opinion_info
----@field creature_knowledge knowledge_profilest_creature_knowledge
+---@field creature_knowledge _knowledge_profilest_creature_knowledge
 ---@field known_poetic_forms DFNumberVector bay12: poetic_form_known_id
 ---@field known_musical_forms DFNumberVector bay12: musical_form_known_id
 ---@field known_dance_forms DFNumberVector bay12: dance_form_known_id
@@ -526,53 +526,53 @@ df.state_profilest.T_flags = {}
 ---@field _kind 'struct-type'
 df.knowledge_profilest = {}
 
----@class knowledge_profilest_known_secrets: DFContainer
+---@class _knowledge_profilest_known_secrets: DFContainer
 ---@field [integer] interaction
-local knowledge_profilest_known_secrets
+local _knowledge_profilest_known_secrets
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interaction>
-function knowledge_profilest_known_secrets:_field(index) end
+function _knowledge_profilest_known_secrets:_field(index) end
 
 ---@param index integer 
 ---@param item interaction 
-function knowledge_profilest_known_secrets:insert(index, item) end
+function _knowledge_profilest_known_secrets:insert(index, item) end
 
 ---@param index integer 
-function knowledge_profilest_known_secrets:erase(index) end
+function _knowledge_profilest_known_secrets:erase(index) end
 
----@class knowledge_profilest_known_witness_reports: DFContainer
+---@class _knowledge_profilest_known_witness_reports: DFContainer
 ---@field [integer] witness_incidentst
-local knowledge_profilest_known_witness_reports
+local _knowledge_profilest_known_witness_reports
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<witness_incidentst>
-function knowledge_profilest_known_witness_reports:_field(index) end
+function _knowledge_profilest_known_witness_reports:_field(index) end
 
 ---@param index integer 
 ---@param item witness_incidentst 
-function knowledge_profilest_known_witness_reports:insert(index, item) end
+function _knowledge_profilest_known_witness_reports:insert(index, item) end
 
 ---@param index integer 
-function knowledge_profilest_known_witness_reports:erase(index) end
+function _knowledge_profilest_known_witness_reports:erase(index) end
 
----@class knowledge_profilest_known_events: DFContainer
+---@class _knowledge_profilest_known_events: DFContainer
 ---@field [integer] entity_event
-local knowledge_profilest_known_events
+local _knowledge_profilest_known_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_event>
-function knowledge_profilest_known_events:_field(index) end
+function _knowledge_profilest_known_events:_field(index) end
 
 ---@param index integer 
 ---@param item entity_event 
-function knowledge_profilest_known_events:insert(index, item) end
+function _knowledge_profilest_known_events:insert(index, item) end
 
 ---@param index integer 
-function knowledge_profilest_known_events:erase(index) end
+function _knowledge_profilest_known_events:erase(index) end
 
 -- bay12: type is opinion_infost
 ---@class (exact) knowledge_profilest.T_opinion_info: DFObject
@@ -585,21 +585,21 @@ function knowledge_profilest_known_events:erase(index) end
 ---@field _kind 'struct-type'
 df.knowledge_profilest.T_opinion_info = {}
 
----@class knowledge_profilest_creature_knowledge: DFContainer
+---@class _knowledge_profilest_creature_knowledge: DFContainer
 ---@field [integer] DFPointer<integer>
-local knowledge_profilest_creature_knowledge
+local _knowledge_profilest_creature_knowledge
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function knowledge_profilest_creature_knowledge:_field(index) end
+function _knowledge_profilest_creature_knowledge:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function knowledge_profilest_creature_knowledge:insert(index, item) end
+function _knowledge_profilest_creature_knowledge:insert(index, item) end
 
 ---@param index integer 
-function knowledge_profilest_creature_knowledge:erase(index) end
+function _knowledge_profilest_creature_knowledge:erase(index) end
 
 ---@class (exact) historical_figure_info: DFObject
 ---@field _kind 'struct'
@@ -625,11 +625,11 @@ df.historical_figure_info = {}
 ---@class (exact) historical_figure_relationships: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_relationships
----@field hf_visual historical_figure_relationships_hf_visual
----@field hf_historical historical_figure_relationships_hf_historical
----@field unk_1 historical_figure_relationships_unk_1
+---@field hf_visual _historical_figure_relationships_hf_visual
+---@field hf_historical _historical_figure_relationships_hf_historical
+---@field unk_1 _historical_figure_relationships_unk_1
 ---@field identities DFNumberVector
----@field artifact_claims historical_figure_relationships_artifact_claims
+---@field artifact_claims _historical_figure_relationships_artifact_claims
 ---@field unk_2 number
 ---@field intrigues DFPointer<integer>
 
@@ -637,69 +637,69 @@ df.historical_figure_info = {}
 ---@field _kind 'struct-type'
 df.historical_figure_relationships = {}
 
----@class historical_figure_relationships_hf_visual: DFContainer
+---@class _historical_figure_relationships_hf_visual: DFContainer
 ---@field [integer] DFPointer<integer>
-local historical_figure_relationships_hf_visual
+local _historical_figure_relationships_hf_visual
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function historical_figure_relationships_hf_visual:_field(index) end
+function _historical_figure_relationships_hf_visual:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function historical_figure_relationships_hf_visual:insert(index, item) end
+function _historical_figure_relationships_hf_visual:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_relationships_hf_visual:erase(index) end
+function _historical_figure_relationships_hf_visual:erase(index) end
 
----@class historical_figure_relationships_hf_historical: DFContainer
+---@class _historical_figure_relationships_hf_historical: DFContainer
 ---@field [integer] DFPointer<integer>
-local historical_figure_relationships_hf_historical
+local _historical_figure_relationships_hf_historical
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function historical_figure_relationships_hf_historical:_field(index) end
+function _historical_figure_relationships_hf_historical:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function historical_figure_relationships_hf_historical:insert(index, item) end
+function _historical_figure_relationships_hf_historical:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_relationships_hf_historical:erase(index) end
+function _historical_figure_relationships_hf_historical:erase(index) end
 
----@class historical_figure_relationships_unk_1: DFContainer
+---@class _historical_figure_relationships_unk_1: DFContainer
 ---@field [integer] DFPointer<integer>
-local historical_figure_relationships_unk_1
+local _historical_figure_relationships_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function historical_figure_relationships_unk_1:_field(index) end
+function _historical_figure_relationships_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function historical_figure_relationships_unk_1:insert(index, item) end
+function _historical_figure_relationships_unk_1:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_relationships_unk_1:erase(index) end
+function _historical_figure_relationships_unk_1:erase(index) end
 
----@class historical_figure_relationships_artifact_claims: DFContainer
+---@class _historical_figure_relationships_artifact_claims: DFContainer
 ---@field [integer] DFPointer<integer>
-local historical_figure_relationships_artifact_claims
+local _historical_figure_relationships_artifact_claims
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function historical_figure_relationships_artifact_claims:_field(index) end
+function _historical_figure_relationships_artifact_claims:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function historical_figure_relationships_artifact_claims:insert(index, item) end
+function _historical_figure_relationships_artifact_claims:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_relationships_artifact_claims:erase(index) end
+function _historical_figure_relationships_artifact_claims:erase(index) end
 
 ---@alias histfig_flags_keys
 ---| '"reveal_artwork"'
@@ -1224,14 +1224,14 @@ df.vague_relationship_type = {}
 ---@field breed_id number from legends export
 ---@field cultural_identity number References: `cultural_identity`
 ---@field family_head_id number When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor. References: `historical_figure`
----@field flags historical_figure_flags
+---@field flags _historical_figure_flags
 ---@field unit_id number References: `unit`
 ---@field nemesis_id number sometimes garbage References: `nemesis_record`
 ---@field id number
 ---@field art_count number
----@field entity_links historical_figure_entity_links
----@field site_links historical_figure_site_links
----@field histfig_links historical_figure_histfig_links
+---@field entity_links _historical_figure_entity_links
+---@field site_links _historical_figure_site_links
+---@field histfig_links _historical_figure_histfig_links
 ---@field info historical_figure_info bay12: hf_profilest profile
 ---@field vague_relationships DFPointer<integer> Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@field unk_f0 world_site
@@ -1258,69 +1258,69 @@ function df.historical_figure.find(key) end
 ---@return historical_figure_vector # df.global.world.history.figures
 function df.historical_figure.get_vector() end
 
----@class historical_figure_flags: DFContainer
+---@class _historical_figure_flags: DFContainer
 ---@field [integer] table<histfig_flags, boolean>
-local historical_figure_flags
+local _historical_figure_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<histfig_flags, boolean>>
-function historical_figure_flags:_field(index) end
+function _historical_figure_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<histfig_flags, boolean> 
-function historical_figure_flags:insert(index, item) end
+function _historical_figure_flags:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_flags:erase(index) end
+function _historical_figure_flags:erase(index) end
 
----@class historical_figure_entity_links: DFContainer
+---@class _historical_figure_entity_links: DFContainer
 ---@field [integer] histfig_entity_link
-local historical_figure_entity_links
+local _historical_figure_entity_links
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<histfig_entity_link>
-function historical_figure_entity_links:_field(index) end
+function _historical_figure_entity_links:_field(index) end
 
 ---@param index integer 
 ---@param item histfig_entity_link 
-function historical_figure_entity_links:insert(index, item) end
+function _historical_figure_entity_links:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_entity_links:erase(index) end
+function _historical_figure_entity_links:erase(index) end
 
----@class historical_figure_site_links: DFContainer
+---@class _historical_figure_site_links: DFContainer
 ---@field [integer] histfig_site_link
-local historical_figure_site_links
+local _historical_figure_site_links
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<histfig_site_link>
-function historical_figure_site_links:_field(index) end
+function _historical_figure_site_links:_field(index) end
 
 ---@param index integer 
 ---@param item histfig_site_link 
-function historical_figure_site_links:insert(index, item) end
+function _historical_figure_site_links:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_site_links:erase(index) end
+function _historical_figure_site_links:erase(index) end
 
----@class historical_figure_histfig_links: DFContainer
+---@class _historical_figure_histfig_links: DFContainer
 ---@field [integer] histfig_hf_link
-local historical_figure_histfig_links
+local _historical_figure_histfig_links
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<histfig_hf_link>
-function historical_figure_histfig_links:_field(index) end
+function _historical_figure_histfig_links:_field(index) end
 
 ---@param index integer 
 ---@param item histfig_hf_link 
-function historical_figure_histfig_links:insert(index, item) end
+function _historical_figure_histfig_links:insert(index, item) end
 
 ---@param index integer 
-function historical_figure_histfig_links:erase(index) end
+function _historical_figure_histfig_links:erase(index) end
 
 ---@alias identity_type_keys
 ---| '"None"'
@@ -1398,8 +1398,8 @@ df.identity_type.attrs = {}
 ---@field unk_v47_2 number
 ---@field profession profession
 ---@field entity_id number References: `historical_entity`
----@field unk_4 identity_unk_4
----@field unk_5 identity_unk_5
+---@field unk_4 _identity_unk_4
+---@field unk_5 _identity_unk_5
 
 ---@class _identity: DFCompound
 ---@field _kind 'struct-type'
@@ -1414,37 +1414,37 @@ function df.identity.find(key) end
 ---@return identity_vector # df.global.world.identities.all
 function df.identity.get_vector() end
 
----@class identity_unk_4: DFContainer
+---@class _identity_unk_4: DFContainer
 ---@field [integer] identity_unk_94
-local identity_unk_4
+local _identity_unk_4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<identity_unk_94>
-function identity_unk_4:_field(index) end
+function _identity_unk_4:_field(index) end
 
 ---@param index integer 
 ---@param item identity_unk_94 
-function identity_unk_4:insert(index, item) end
+function _identity_unk_4:insert(index, item) end
 
 ---@param index integer 
-function identity_unk_4:erase(index) end
+function _identity_unk_4:erase(index) end
 
----@class identity_unk_5: DFContainer
+---@class _identity_unk_5: DFContainer
 ---@field [integer] identity_unk_95
-local identity_unk_5
+local _identity_unk_5
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<identity_unk_95>
-function identity_unk_5:_field(index) end
+function _identity_unk_5:_field(index) end
 
 ---@param index integer 
 ---@param item identity_unk_95 
-function identity_unk_5:insert(index, item) end
+function _identity_unk_5:insert(index, item) end
 
 ---@param index integer 
-function identity_unk_5:erase(index) end
+function _identity_unk_5:erase(index) end
 
 ---@class (exact) identity_unk_94: DFObject
 ---@field _kind 'struct'
@@ -2953,7 +2953,7 @@ df.merc_role_type = {}
 ---@field _type _history_event
 ---@field year number
 ---@field seconds number
----@field flags history_event_flags
+---@field flags _history_event_flags
 ---@field id number
 
 ---@class _history_event: DFCompound
@@ -2969,21 +2969,21 @@ function df.history_event.find(key) end
 ---@return history_event_vector # df.global.world.history.events
 function df.history_event.get_vector() end
 
----@class history_event_flags: DFContainer
+---@class _history_event_flags: DFContainer
 ---@field [integer] table<history_event_flags, boolean>
-local history_event_flags
+local _history_event_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<history_event_flags, boolean>>
-function history_event_flags:_field(index) end
+function _history_event_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<history_event_flags, boolean> 
-function history_event_flags:insert(index, item) end
+function _history_event_flags:insert(index, item) end
 
 ---@param index integer 
-function history_event_flags:erase(index) end
+function _history_event_flags:erase(index) end
 
 ---@class (exact) history_event_war_attacked_sitest: DFObject, history_event
 ---@field _kind 'struct'
@@ -3428,27 +3428,27 @@ df.history_event_agreements_voidedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
----@field flags2 history_event_merchantst_flags2
+---@field flags2 _history_event_merchantst_flags2
 
 ---@class _history_event_merchantst: DFCompound
 ---@field _kind 'class-type'
 df.history_event_merchantst = {}
 
----@class history_event_merchantst_flags2: DFContainer
+---@class _history_event_merchantst_flags2: DFContainer
 ---@field [integer] table<history_event_merchant_flags, boolean>
-local history_event_merchantst_flags2
+local _history_event_merchantst_flags2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<history_event_merchant_flags, boolean>>
-function history_event_merchantst_flags2:_field(index) end
+function _history_event_merchantst_flags2:_field(index) end
 
 ---@param index integer 
 ---@param item table<history_event_merchant_flags, boolean> 
-function history_event_merchantst_flags2:insert(index, item) end
+function _history_event_merchantst_flags2:insert(index, item) end
 
 ---@param index integer 
-function history_event_merchantst_flags2:erase(index) end
+function _history_event_merchantst_flags2:erase(index) end
 
 ---@alias history_event_merchant_flags_keys
 ---| '"vanished"'
@@ -3589,27 +3589,27 @@ df.history_event_artifact_recoveredst = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
----@field flags2 history_event_artifact_droppedst_flags2
+---@field flags2 _history_event_artifact_droppedst_flags2
 
 ---@class _history_event_artifact_droppedst: DFCompound
 ---@field _kind 'class-type'
 df.history_event_artifact_droppedst = {}
 
----@class history_event_artifact_droppedst_flags2: DFContainer
+---@class _history_event_artifact_droppedst_flags2: DFContainer
 ---@field [integer] table<integer, boolean>
-local history_event_artifact_droppedst_flags2
+local _history_event_artifact_droppedst_flags2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function history_event_artifact_droppedst_flags2:_field(index) end
+function _history_event_artifact_droppedst_flags2:_field(index) end
 
 ---@param index integer 
 ---@param item table<integer, boolean> 
-function history_event_artifact_droppedst_flags2:insert(index, item) end
+function _history_event_artifact_droppedst_flags2:insert(index, item) end
 
 ---@param index integer 
-function history_event_artifact_droppedst_flags2:erase(index) end
+function _history_event_artifact_droppedst_flags2:erase(index) end
 
 ---@class (exact) history_event_reclaim_sitest: DFObject, history_event
 ---@field _kind 'struct'
@@ -6017,7 +6017,7 @@ df.history_event_collection_type = {}
 ---@field end_year number
 ---@field start_seconds number
 ---@field end_seconds number
----@field flags history_event_collection_flags
+---@field flags _history_event_collection_flags
 ---@field id number
 
 ---@class _history_event_collection: DFCompound
@@ -6033,21 +6033,21 @@ function df.history_event_collection.find(key) end
 ---@return history_event_collection_vector # df.global.world.history.event_collections.all
 function df.history_event_collection.get_vector() end
 
----@class history_event_collection_flags: DFContainer
+---@class _history_event_collection_flags: DFContainer
 ---@field [integer] table<integer, boolean>
-local history_event_collection_flags
+local _history_event_collection_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function history_event_collection_flags:_field(index) end
+function _history_event_collection_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<integer, boolean> 
-function history_event_collection_flags:insert(index, item) end
+function _history_event_collection_flags:insert(index, item) end
 
 ---@param index integer 
-function history_event_collection_flags:erase(index) end
+function _history_event_collection_flags:erase(index) end
 
 ---@class (exact) history_event_collection_warst: DFObject, history_event_collection
 ---@field _kind 'struct'
@@ -6072,7 +6072,7 @@ df.history_event_collection_warst = {}
 ---@field unk_4 DFNumberVector -5,-6, -14 -15 seen
 ---@field unk_5 number same as previous vector single element or zero. Sum?
 ---@field ethics_unk1 DFNumberVector these three vectors are of the same length
----@field disputed_ethics history_event_collection_warst_unk_disputed_ethics
+---@field disputed_ethics _history_event_collection_warst_unk_disputed_ethics
 ---@field ethics_unk3 DFNumberVector not seen other value
 ---@field dispute_severities DFNumberVector
 ---@field accumulated_ethics_severity number
@@ -6085,21 +6085,21 @@ df.history_event_collection_warst = {}
 ---@field _kind 'struct-type'
 df.history_event_collection_warst.T_unk = {}
 
----@class history_event_collection_warst_unk_disputed_ethics: DFContainer
+---@class _history_event_collection_warst_unk_disputed_ethics: DFContainer
 ---@field [integer] ethic_type
-local history_event_collection_warst_unk_disputed_ethics
+local _history_event_collection_warst_unk_disputed_ethics
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<ethic_type>
-function history_event_collection_warst_unk_disputed_ethics:_field(index) end
+function _history_event_collection_warst_unk_disputed_ethics:_field(index) end
 
 ---@param index integer 
 ---@param item ethic_type 
-function history_event_collection_warst_unk_disputed_ethics:insert(index, item) end
+function _history_event_collection_warst_unk_disputed_ethics:insert(index, item) end
 
 ---@param index integer 
-function history_event_collection_warst_unk_disputed_ethics:erase(index) end
+function _history_event_collection_warst_unk_disputed_ethics:erase(index) end
 
 ---@class (exact) history_event_collection_battlest: DFObject, history_event_collection
 ---@field _kind 'struct'
@@ -6201,7 +6201,7 @@ df.history_event_collection_abductionst = {}
 ---@field thief_civ number References: `historical_entity`
 ---@field victim_civ number References: `historical_entity`
 ---@field thief_hf DFNumberVector
----@field stolen_item_types history_event_collection_theftst_stolen_item_types
+---@field stolen_item_types _history_event_collection_theftst_stolen_item_types
 ---@field stolen_item_subtypes DFNumberVector
 ---@field stolen_mat_types DFNumberVector
 ---@field stolen_mat_indices DFNumberVector
@@ -6219,21 +6219,21 @@ df.history_event_collection_abductionst = {}
 ---@field _kind 'class-type'
 df.history_event_collection_theftst = {}
 
----@class history_event_collection_theftst_stolen_item_types: DFContainer
+---@class _history_event_collection_theftst_stolen_item_types: DFContainer
 ---@field [integer] item_type
-local history_event_collection_theftst_stolen_item_types
+local _history_event_collection_theftst_stolen_item_types
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item_type>
-function history_event_collection_theftst_stolen_item_types:_field(index) end
+function _history_event_collection_theftst_stolen_item_types:_field(index) end
 
 ---@param index integer 
 ---@param item item_type 
-function history_event_collection_theftst_stolen_item_types:insert(index, item) end
+function _history_event_collection_theftst_stolen_item_types:insert(index, item) end
 
 ---@param index integer 
-function history_event_collection_theftst_stolen_item_types:erase(index) end
+function _history_event_collection_theftst_stolen_item_types:erase(index) end
 
 ---@class (exact) history_event_collection_beast_attackst: DFObject, history_event_collection
 ---@field _kind 'struct'
@@ -6521,20 +6521,20 @@ df.relationship_event_supplement = {}
 ---@class (exact) world_history: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history
----@field events world_history_events dtor 8532fa0
----@field events_death world_history_events_death
----@field relationship_events world_history_relationship_events
----@field relationship_event_supplements world_history_relationship_event_supplements supplemental info for artistic/scholar buddies
----@field figures world_history_figures
+---@field events _world_history_events dtor 8532fa0
+---@field events_death _world_history_events_death
+---@field relationship_events _world_history_relationship_events
+---@field relationship_event_supplements _world_history_relationship_event_supplements supplemental info for artistic/scholar buddies
+---@field figures _world_history_figures
 ---@field event_collections world_history.T_event_collections
----@field eras world_history_eras
+---@field eras _world_history_eras
 ---@field discovered_art_image_id DFNumberVector
 ---@field discovered_art_image_subid DFNumberVector
 ---@field total_art number
 ---@field total_powers number some value during worldgen, and at the end equals to the number of entities plus that value
 ---@field total_megabeasts number
 ---@field total_semimegabeasts number
----@field secret_heid world_history_secret_heid
+---@field secret_heid _world_history_secret_heid
 ---@field first_philosophy_flag integer
 ---@field first_philosophy_flag2 integer
 ---@field first_mathematics_flag integer
@@ -6549,29 +6549,29 @@ df.relationship_event_supplement = {}
 ---@field first_medicine_flag3 integer
 ---@field first_engineering_flag integer
 ---@field first_engineering_flag2 integer
----@field intrigues world_history_intrigues bay12: history_support_event
----@field live_megabeasts world_history_live_megabeasts
----@field live_semimegabeasts world_history_live_semimegabeasts
----@field unk_histfig_3 world_history_unk_histfig_3
----@field unk_histfig_4 world_history_unk_histfig_4
----@field unk_histfig_5 world_history_unk_histfig_5
----@field unk_1 world_history_unk_1
+---@field intrigues _world_history_intrigues bay12: history_support_event
+---@field live_megabeasts _world_history_live_megabeasts
+---@field live_semimegabeasts _world_history_live_semimegabeasts
+---@field unk_histfig_3 _world_history_unk_histfig_3
+---@field unk_histfig_4 _world_history_unk_histfig_4
+---@field unk_histfig_5 _world_history_unk_histfig_5
+---@field unk_1 _world_history_unk_1
 ---@field unk_v40_1 historical_figure[] 11 - necromancers
----@field unk_histfig_6 world_history_unk_histfig_6
----@field unk_histfig_7 world_history_unk_histfig_7
----@field unk_histfig_8 world_history_unk_histfig_8
----@field unk_histfig_9 world_history_unk_histfig_9
----@field unk_histfig_10 world_history_unk_histfig_10
----@field unk_histfig_11 world_history_unk_histfig_11
----@field unk_histfig_12 world_history_unk_histfig_12
----@field unk_histfig_13 world_history_unk_histfig_13
----@field unk_3 world_history_unk_3
----@field unk_4 world_history_unk_4
----@field unk_5 world_history_unk_5
----@field unk_6 world_history_unk_6
+---@field unk_histfig_6 _world_history_unk_histfig_6
+---@field unk_histfig_7 _world_history_unk_histfig_7
+---@field unk_histfig_8 _world_history_unk_histfig_8
+---@field unk_histfig_9 _world_history_unk_histfig_9
+---@field unk_histfig_10 _world_history_unk_histfig_10
+---@field unk_histfig_11 _world_history_unk_histfig_11
+---@field unk_histfig_12 _world_history_unk_histfig_12
+---@field unk_histfig_13 _world_history_unk_histfig_13
+---@field unk_3 _world_history_unk_3
+---@field unk_4 _world_history_unk_4
+---@field unk_5 _world_history_unk_5
+---@field unk_6 _world_history_unk_6
 ---@field unk_7 DFNumberVector
 ---@field unk_8 number
----@field active_event_collections world_history_active_event_collections
+---@field active_event_collections _world_history_active_event_collections
 ---@field unk_10 number
 ---@field unk_11 number
 ---@field unk_12 number
@@ -6581,495 +6581,495 @@ df.relationship_event_supplement = {}
 ---@field _kind 'struct-type'
 df.world_history = {}
 
----@class world_history_events: DFContainer
+---@class _world_history_events: DFContainer
 ---@field [integer] history_event
-local world_history_events
+local _world_history_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_event>
-function world_history_events:_field(index) end
+function _world_history_events:_field(index) end
 
 ---@param index integer 
 ---@param item history_event 
-function world_history_events:insert(index, item) end
+function _world_history_events:insert(index, item) end
 
 ---@param index integer 
-function world_history_events:erase(index) end
+function _world_history_events:erase(index) end
 
----@class world_history_events_death: DFContainer
+---@class _world_history_events_death: DFContainer
 ---@field [integer] history_event
-local world_history_events_death
+local _world_history_events_death
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_event>
-function world_history_events_death:_field(index) end
+function _world_history_events_death:_field(index) end
 
 ---@param index integer 
 ---@param item history_event 
-function world_history_events_death:insert(index, item) end
+function _world_history_events_death:insert(index, item) end
 
 ---@param index integer 
-function world_history_events_death:erase(index) end
+function _world_history_events_death:erase(index) end
 
----@class world_history_relationship_events: DFContainer
+---@class _world_history_relationship_events: DFContainer
 ---@field [integer] relationship_event
-local world_history_relationship_events
+local _world_history_relationship_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<relationship_event>
-function world_history_relationship_events:_field(index) end
+function _world_history_relationship_events:_field(index) end
 
 ---@param index integer 
 ---@param item relationship_event 
-function world_history_relationship_events:insert(index, item) end
+function _world_history_relationship_events:insert(index, item) end
 
 ---@param index integer 
-function world_history_relationship_events:erase(index) end
+function _world_history_relationship_events:erase(index) end
 
----@class world_history_relationship_event_supplements: DFContainer
+---@class _world_history_relationship_event_supplements: DFContainer
 ---@field [integer] relationship_event_supplement
-local world_history_relationship_event_supplements
+local _world_history_relationship_event_supplements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<relationship_event_supplement>
-function world_history_relationship_event_supplements:_field(index) end
+function _world_history_relationship_event_supplements:_field(index) end
 
 ---@param index integer 
 ---@param item relationship_event_supplement 
-function world_history_relationship_event_supplements:insert(index, item) end
+function _world_history_relationship_event_supplements:insert(index, item) end
 
 ---@param index integer 
-function world_history_relationship_event_supplements:erase(index) end
+function _world_history_relationship_event_supplements:erase(index) end
 
----@class world_history_figures: DFContainer
+---@class _world_history_figures: DFContainer
 ---@field [integer] historical_figure
-local world_history_figures
+local _world_history_figures
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_figures:_field(index) end
+function _world_history_figures:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_figures:insert(index, item) end
+function _world_history_figures:insert(index, item) end
 
 ---@param index integer 
-function world_history_figures:erase(index) end
+function _world_history_figures:erase(index) end
 
 ---@class (exact) world_history.T_event_collections: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history.T_event_collections
----@field all world_history_event_collections_all
+---@field all _world_history_event_collections_all
 ---@field other DFEnumVector<history_event_collection_type, history_event_collection>
 
 ---@class _world_history.T_event_collections: DFCompound
 ---@field _kind 'struct-type'
 df.world_history.T_event_collections = {}
 
----@class world_history_event_collections_all: DFContainer
+---@class _world_history_event_collections_all: DFContainer
 ---@field [integer] history_event_collection
-local world_history_event_collections_all
+local _world_history_event_collections_all
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_event_collection>
-function world_history_event_collections_all:_field(index) end
+function _world_history_event_collections_all:_field(index) end
 
 ---@param index integer 
 ---@param item history_event_collection 
-function world_history_event_collections_all:insert(index, item) end
+function _world_history_event_collections_all:insert(index, item) end
 
 ---@param index integer 
-function world_history_event_collections_all:erase(index) end
+function _world_history_event_collections_all:erase(index) end
 
----@class world_history_event_collections_other: DFContainer
+---@class _world_history_event_collections_other: DFContainer
 ---@field [integer] history_event_collection
-local world_history_event_collections_other
+local _world_history_event_collections_other
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_event_collection>
-function world_history_event_collections_other:_field(index) end
+function _world_history_event_collections_other:_field(index) end
 
 ---@param index integer 
 ---@param item history_event_collection 
-function world_history_event_collections_other:insert(index, item) end
+function _world_history_event_collections_other:insert(index, item) end
 
 ---@param index integer 
-function world_history_event_collections_other:erase(index) end
+function _world_history_event_collections_other:erase(index) end
 
----@class world_history_eras: DFContainer
+---@class _world_history_eras: DFContainer
 ---@field [integer] history_era
-local world_history_eras
+local _world_history_eras
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_era>
-function world_history_eras:_field(index) end
+function _world_history_eras:_field(index) end
 
 ---@param index integer 
 ---@param item history_era 
-function world_history_eras:insert(index, item) end
+function _world_history_eras:insert(index, item) end
 
 ---@param index integer 
-function world_history_eras:erase(index) end
+function _world_history_eras:erase(index) end
 
----@class world_history_secret_heid: DFContainer
+---@class _world_history_secret_heid: DFContainer
 ---@field [integer] any[]
-local world_history_secret_heid
+local _world_history_secret_heid
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function world_history_secret_heid:_field(index) end
+function _world_history_secret_heid:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function world_history_secret_heid:insert(index, item) end
+function _world_history_secret_heid:insert(index, item) end
 
 ---@param index integer 
-function world_history_secret_heid:erase(index) end
+function _world_history_secret_heid:erase(index) end
 
----@class world_history_intrigues: DFContainer
+---@class _world_history_intrigues: DFContainer
 ---@field [integer] intrigue
-local world_history_intrigues
+local _world_history_intrigues
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<intrigue>
-function world_history_intrigues:_field(index) end
+function _world_history_intrigues:_field(index) end
 
 ---@param index integer 
 ---@param item intrigue 
-function world_history_intrigues:insert(index, item) end
+function _world_history_intrigues:insert(index, item) end
 
 ---@param index integer 
-function world_history_intrigues:erase(index) end
+function _world_history_intrigues:erase(index) end
 
----@class world_history_live_megabeasts: DFContainer
+---@class _world_history_live_megabeasts: DFContainer
 ---@field [integer] historical_figure
-local world_history_live_megabeasts
+local _world_history_live_megabeasts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_live_megabeasts:_field(index) end
+function _world_history_live_megabeasts:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_live_megabeasts:insert(index, item) end
+function _world_history_live_megabeasts:insert(index, item) end
 
 ---@param index integer 
-function world_history_live_megabeasts:erase(index) end
+function _world_history_live_megabeasts:erase(index) end
 
----@class world_history_live_semimegabeasts: DFContainer
+---@class _world_history_live_semimegabeasts: DFContainer
 ---@field [integer] historical_figure
-local world_history_live_semimegabeasts
+local _world_history_live_semimegabeasts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_live_semimegabeasts:_field(index) end
+function _world_history_live_semimegabeasts:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_live_semimegabeasts:insert(index, item) end
+function _world_history_live_semimegabeasts:insert(index, item) end
 
 ---@param index integer 
-function world_history_live_semimegabeasts:erase(index) end
+function _world_history_live_semimegabeasts:erase(index) end
 
----@class world_history_unk_histfig_3: DFContainer
+---@class _world_history_unk_histfig_3: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_3
+local _world_history_unk_histfig_3
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_3:_field(index) end
+function _world_history_unk_histfig_3:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_3:insert(index, item) end
+function _world_history_unk_histfig_3:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_3:erase(index) end
+function _world_history_unk_histfig_3:erase(index) end
 
----@class world_history_unk_histfig_4: DFContainer
+---@class _world_history_unk_histfig_4: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_4
+local _world_history_unk_histfig_4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_4:_field(index) end
+function _world_history_unk_histfig_4:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_4:insert(index, item) end
+function _world_history_unk_histfig_4:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_4:erase(index) end
+function _world_history_unk_histfig_4:erase(index) end
 
----@class world_history_unk_histfig_5: DFContainer
+---@class _world_history_unk_histfig_5: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_5
+local _world_history_unk_histfig_5
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_5:_field(index) end
+function _world_history_unk_histfig_5:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_5:insert(index, item) end
+function _world_history_unk_histfig_5:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_5:erase(index) end
+function _world_history_unk_histfig_5:erase(index) end
 
----@class world_history_unk_1: DFContainer
+---@class _world_history_unk_1: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_1
+local _world_history_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_1:_field(index) end
+function _world_history_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_1:insert(index, item) end
+function _world_history_unk_1:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_1:erase(index) end
+function _world_history_unk_1:erase(index) end
 
----@class world_history_unk_v40_1: DFContainer
+---@class _world_history_unk_v40_1: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_v40_1
+local _world_history_unk_v40_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_v40_1:_field(index) end
+function _world_history_unk_v40_1:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_v40_1:insert(index, item) end
+function _world_history_unk_v40_1:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_v40_1:erase(index) end
+function _world_history_unk_v40_1:erase(index) end
 
----@class world_history_unk_histfig_6: DFContainer
+---@class _world_history_unk_histfig_6: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_6
+local _world_history_unk_histfig_6
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_6:_field(index) end
+function _world_history_unk_histfig_6:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_6:insert(index, item) end
+function _world_history_unk_histfig_6:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_6:erase(index) end
+function _world_history_unk_histfig_6:erase(index) end
 
----@class world_history_unk_histfig_7: DFContainer
+---@class _world_history_unk_histfig_7: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_7
+local _world_history_unk_histfig_7
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_7:_field(index) end
+function _world_history_unk_histfig_7:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_7:insert(index, item) end
+function _world_history_unk_histfig_7:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_7:erase(index) end
+function _world_history_unk_histfig_7:erase(index) end
 
----@class world_history_unk_histfig_8: DFContainer
+---@class _world_history_unk_histfig_8: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_8
+local _world_history_unk_histfig_8
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_8:_field(index) end
+function _world_history_unk_histfig_8:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_8:insert(index, item) end
+function _world_history_unk_histfig_8:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_8:erase(index) end
+function _world_history_unk_histfig_8:erase(index) end
 
----@class world_history_unk_histfig_9: DFContainer
+---@class _world_history_unk_histfig_9: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_9
+local _world_history_unk_histfig_9
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_9:_field(index) end
+function _world_history_unk_histfig_9:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_9:insert(index, item) end
+function _world_history_unk_histfig_9:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_9:erase(index) end
+function _world_history_unk_histfig_9:erase(index) end
 
----@class world_history_unk_histfig_10: DFContainer
+---@class _world_history_unk_histfig_10: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_10
+local _world_history_unk_histfig_10
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_10:_field(index) end
+function _world_history_unk_histfig_10:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_10:insert(index, item) end
+function _world_history_unk_histfig_10:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_10:erase(index) end
+function _world_history_unk_histfig_10:erase(index) end
 
----@class world_history_unk_histfig_11: DFContainer
+---@class _world_history_unk_histfig_11: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_11
+local _world_history_unk_histfig_11
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_11:_field(index) end
+function _world_history_unk_histfig_11:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_11:insert(index, item) end
+function _world_history_unk_histfig_11:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_11:erase(index) end
+function _world_history_unk_histfig_11:erase(index) end
 
----@class world_history_unk_histfig_12: DFContainer
+---@class _world_history_unk_histfig_12: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_12
+local _world_history_unk_histfig_12
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_12:_field(index) end
+function _world_history_unk_histfig_12:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_12:insert(index, item) end
+function _world_history_unk_histfig_12:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_12:erase(index) end
+function _world_history_unk_histfig_12:erase(index) end
 
----@class world_history_unk_histfig_13: DFContainer
+---@class _world_history_unk_histfig_13: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_histfig_13
+local _world_history_unk_histfig_13
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_histfig_13:_field(index) end
+function _world_history_unk_histfig_13:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_histfig_13:insert(index, item) end
+function _world_history_unk_histfig_13:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_histfig_13:erase(index) end
+function _world_history_unk_histfig_13:erase(index) end
 
----@class world_history_unk_3: DFContainer
+---@class _world_history_unk_3: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_3
+local _world_history_unk_3
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_3:_field(index) end
+function _world_history_unk_3:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_3:insert(index, item) end
+function _world_history_unk_3:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_3:erase(index) end
+function _world_history_unk_3:erase(index) end
 
----@class world_history_unk_4: DFContainer
+---@class _world_history_unk_4: DFContainer
 ---@field [integer] any[]
-local world_history_unk_4
+local _world_history_unk_4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function world_history_unk_4:_field(index) end
+function _world_history_unk_4:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function world_history_unk_4:insert(index, item) end
+function _world_history_unk_4:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_4:erase(index) end
+function _world_history_unk_4:erase(index) end
 
----@class world_history_unk_5: DFContainer
+---@class _world_history_unk_5: DFContainer
 ---@field [integer] historical_figure
-local world_history_unk_5
+local _world_history_unk_5
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function world_history_unk_5:_field(index) end
+function _world_history_unk_5:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_history_unk_5:insert(index, item) end
+function _world_history_unk_5:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_5:erase(index) end
+function _world_history_unk_5:erase(index) end
 
----@class world_history_unk_6: DFContainer
+---@class _world_history_unk_6: DFContainer
 ---@field [integer] any[]
-local world_history_unk_6
+local _world_history_unk_6
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function world_history_unk_6:_field(index) end
+function _world_history_unk_6:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function world_history_unk_6:insert(index, item) end
+function _world_history_unk_6:insert(index, item) end
 
 ---@param index integer 
-function world_history_unk_6:erase(index) end
+function _world_history_unk_6:erase(index) end
 
----@class world_history_active_event_collections: DFContainer
+---@class _world_history_active_event_collections: DFContainer
 ---@field [integer] history_event_collection
-local world_history_active_event_collections
+local _world_history_active_event_collections
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_event_collection>
-function world_history_active_event_collections:_field(index) end
+function _world_history_active_event_collections:_field(index) end
 
 ---@param index integer 
 ---@param item history_event_collection 
-function world_history_active_event_collections:insert(index, item) end
+function _world_history_active_event_collections:insert(index, item) end
 
 ---@param index integer 
-function world_history_active_event_collections:erase(index) end
+function _world_history_active_event_collections:erase(index) end
 
 ---@class (exact) intrigue: DFObject
 ---@field _kind 'struct'

@@ -701,7 +701,7 @@ df.strain_type = {}
 ---@field state_adj DFEnumVector<matter_state, string>
 ---@field strength material_common.T_strength
 ---@field material_value number
----@field flags material_common_flags
+---@field flags _material_common_flags
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype number
@@ -744,21 +744,21 @@ df.material_common.T_heat = {}
 ---@field _kind 'struct-type'
 df.material_common.T_strength = {}
 
----@class material_common_flags: DFContainer
+---@class _material_common_flags: DFContainer
 ---@field [integer] table<material_flags, boolean>
-local material_common_flags
+local _material_common_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<material_flags, boolean>>
-function material_common_flags:_field(index) end
+function _material_common_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<material_flags, boolean> 
-function material_common_flags:insert(index, item) end
+function _material_common_flags:insert(index, item) end
 
 ---@param index integer 
-function material_common_flags:erase(index) end
+function _material_common_flags:erase(index) end
 
 ---@class (exact) material_common.T_reaction_product: DFObject
 ---@field _kind 'struct'
@@ -794,7 +794,7 @@ df.material_common.T_hardens_with_water = {}
 ---@field item_symbol integer
 ---@field powder_dye number 0.50.01
 ---@field temp_diet_info number // color token index
----@field syndrome material_syndrome
+---@field syndrome _material_syndrome
 ---@field soap_level number
 ---@field unk_41c DFNumberVector
 ---@field prefix string
@@ -814,21 +814,21 @@ df.material_common.T_hardens_with_water = {}
 ---@field _kind 'struct-type'
 df.material = {}
 
----@class material_syndrome: DFContainer
+---@class _material_syndrome: DFContainer
 ---@field [integer] syndrome
-local material_syndrome
+local _material_syndrome
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<syndrome>
-function material_syndrome:_field(index) end
+function _material_syndrome:_field(index) end
 
 ---@param index integer 
 ---@param item syndrome 
-function material_syndrome:insert(index, item) end
+function _material_syndrome:insert(index, item) end
 
 ---@param index integer 
-function material_syndrome:erase(index) end
+function _material_syndrome:erase(index) end
 
 ---@class (exact) material_vec_ref: DFObject
 ---@field _kind 'struct'
@@ -850,7 +850,7 @@ df.material_vec_ref = {}
 ---@field item_symbol integer
 ---@field powder_dye number
 ---@field temp_diet_info number // color token index
----@field syndrome material_template_syndrome
+---@field syndrome _material_template_syndrome
 ---@field soap_level number
 ---@field unk_41c DFNumberVector
 ---@field powder_dye_str string temporary
@@ -860,21 +860,21 @@ df.material_vec_ref = {}
 ---@field _kind 'struct-type'
 df.material_template = {}
 
----@class material_template_syndrome: DFContainer
+---@class _material_template_syndrome: DFContainer
 ---@field [integer] syndrome
-local material_template_syndrome
+local _material_template_syndrome
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<syndrome>
-function material_template_syndrome:_field(index) end
+function _material_template_syndrome:_field(index) end
 
 ---@param index integer 
 ---@param item syndrome 
-function material_template_syndrome:insert(index, item) end
+function _material_template_syndrome:insert(index, item) end
 
 ---@param index integer 
-function material_template_syndrome:erase(index) end
+function _material_template_syndrome:erase(index) end
 
 ---@alias inorganic_flags_keys
 ---| '"LAVA"'
@@ -1070,7 +1070,7 @@ df.inclusion_type = {}
 ---@field _type _inorganic_raw
 ---@field id string
 ---@field str DFStringVector
----@field flags inorganic_raw_flags
+---@field flags _inorganic_raw_flags
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field metal_ore inorganic_raw.T_metal_ore
@@ -1095,21 +1095,21 @@ function df.inorganic_raw.find(key) end
 ---@return inorganic_raw_vector # df.global.world.raws.inorganics
 function df.inorganic_raw.get_vector() end
 
----@class inorganic_raw_flags: DFContainer
+---@class _inorganic_raw_flags: DFContainer
 ---@field [integer] table<inorganic_flags, boolean>
-local inorganic_raw_flags
+local _inorganic_raw_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<inorganic_flags, boolean>>
-function inorganic_raw_flags:_field(index) end
+function _inorganic_raw_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<inorganic_flags, boolean> 
-function inorganic_raw_flags:insert(index, item) end
+function _inorganic_raw_flags:insert(index, item) end
 
 ---@param index integer 
-function inorganic_raw_flags:erase(index) end
+function _inorganic_raw_flags:erase(index) end
 
 ---@class (exact) inorganic_raw.T_metal_ore: DFObject
 ---@field _kind 'struct'
@@ -1138,71 +1138,71 @@ df.inorganic_raw.T_thread_metal = {}
 ---@field _type _inorganic_raw.T_environment_spec
 ---@field str DFStringVector only during parsing
 ---@field mat_index DFNumberVector
----@field inclusion_type inorganic_raw_environment_spec_inclusion_type
+---@field inclusion_type _inorganic_raw_environment_spec_inclusion_type
 ---@field probability DFNumberVector
 
 ---@class _inorganic_raw.T_environment_spec: DFCompound
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_environment_spec = {}
 
----@class inorganic_raw_environment_spec_inclusion_type: DFContainer
+---@class _inorganic_raw_environment_spec_inclusion_type: DFContainer
 ---@field [integer] inclusion_type
-local inorganic_raw_environment_spec_inclusion_type
+local _inorganic_raw_environment_spec_inclusion_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<inclusion_type>
-function inorganic_raw_environment_spec_inclusion_type:_field(index) end
+function _inorganic_raw_environment_spec_inclusion_type:_field(index) end
 
 ---@param index integer 
 ---@param item inclusion_type 
-function inorganic_raw_environment_spec_inclusion_type:insert(index, item) end
+function _inorganic_raw_environment_spec_inclusion_type:insert(index, item) end
 
 ---@param index integer 
-function inorganic_raw_environment_spec_inclusion_type:erase(index) end
+function _inorganic_raw_environment_spec_inclusion_type:erase(index) end
 
 ---@class (exact) inorganic_raw.T_environment: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment
----@field location inorganic_raw_environment_location
----@field type inorganic_raw_environment_type
+---@field location _inorganic_raw_environment_location
+---@field type _inorganic_raw_environment_type
 ---@field probability DFNumberVector
 
 ---@class _inorganic_raw.T_environment: DFCompound
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_environment = {}
 
----@class inorganic_raw_environment_location: DFContainer
+---@class _inorganic_raw_environment_location: DFContainer
 ---@field [integer] environment_type
-local inorganic_raw_environment_location
+local _inorganic_raw_environment_location
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<environment_type>
-function inorganic_raw_environment_location:_field(index) end
+function _inorganic_raw_environment_location:_field(index) end
 
 ---@param index integer 
 ---@param item environment_type 
-function inorganic_raw_environment_location:insert(index, item) end
+function _inorganic_raw_environment_location:insert(index, item) end
 
 ---@param index integer 
-function inorganic_raw_environment_location:erase(index) end
+function _inorganic_raw_environment_location:erase(index) end
 
----@class inorganic_raw_environment_type: DFContainer
+---@class _inorganic_raw_environment_type: DFContainer
 ---@field [integer] inclusion_type
-local inorganic_raw_environment_type
+local _inorganic_raw_environment_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<inclusion_type>
-function inorganic_raw_environment_type:_field(index) end
+function _inorganic_raw_environment_type:_field(index) end
 
 ---@param index integer 
 ---@param item inclusion_type 
-function inorganic_raw_environment_type:insert(index, item) end
+function _inorganic_raw_environment_type:insert(index, item) end
 
 ---@param index integer 
-function inorganic_raw_environment_type:erase(index) end
+function _inorganic_raw_environment_type:erase(index) end
 
 ---@alias organic_mat_category_keys
 ---| '"Meat"'

@@ -2102,27 +2102,27 @@ df.popup_message = {}
 ---@field type announcement_alert_type
 ---@field announcement_id DFNumberVector
 ---@field report_unid DFNumberVector unit id
----@field report_unit_announcement_category announcement_alertst_report_unit_announcement_category vector must be same length as report_unid
+---@field report_unit_announcement_category _announcement_alertst_report_unit_announcement_category vector must be same length as report_unid
 
 ---@class _announcement_alertst: DFCompound
 ---@field _kind 'struct-type'
 df.announcement_alertst = {}
 
----@class announcement_alertst_report_unit_announcement_category: DFContainer
+---@class _announcement_alertst_report_unit_announcement_category: DFContainer
 ---@field [integer] unit_report_type
-local announcement_alertst_report_unit_announcement_category
+local _announcement_alertst_report_unit_announcement_category
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_report_type>
-function announcement_alertst_report_unit_announcement_category:_field(index) end
+function _announcement_alertst_report_unit_announcement_category:_field(index) end
 
 ---@param index integer 
 ---@param item unit_report_type 
-function announcement_alertst_report_unit_announcement_category:insert(index, item) end
+function _announcement_alertst_report_unit_announcement_category:insert(index, item) end
 
 ---@param index integer 
-function announcement_alertst_report_unit_announcement_category:erase(index) end
+function _announcement_alertst_report_unit_announcement_category:erase(index) end
 
 -- allocated on the stack, included in df-structures to assist with disassembly
 ---@class (exact) announcement_infost: DFObject

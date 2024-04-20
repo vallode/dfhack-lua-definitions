@@ -6,7 +6,7 @@
 ---@field _kind 'struct'
 ---@field _type _ui_build_item_req
 ---@field filter job_item_filter
----@field candidates ui_build_item_req_candidates
+---@field candidates _ui_build_item_req_candidates
 ---@field candidate_selected DFBooleanVector
 ---@field unk_a0 DFNumberVector
 ---@field candidate_enabled DFBooleanVector
@@ -18,21 +18,21 @@
 ---@field _kind 'struct-type'
 df.ui_build_item_req = {}
 
----@class ui_build_item_req_candidates: DFContainer
+---@class _ui_build_item_req_candidates: DFContainer
 ---@field [integer] item
-local ui_build_item_req_candidates
+local _ui_build_item_req_candidates
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function ui_build_item_req_candidates:_field(index) end
+function _ui_build_item_req_candidates:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function ui_build_item_req_candidates:insert(index, item) end
+function _ui_build_item_req_candidates:insert(index, item) end
 
 ---@param index integer 
-function ui_build_item_req_candidates:erase(index) end
+function _ui_build_item_req_candidates:erase(index) end
 
 ---@alias build_req_choice_type_keys
 ---| '"General"'
@@ -91,8 +91,8 @@ df.build_req_choice_specst = {}
 ---@class (exact) buildreq: DFObject
 ---@field _kind 'struct'
 ---@field _type _buildreq
----@field requirements buildreq_requirements
----@field choices buildreq_choices
+---@field requirements _buildreq_requirements
+---@field choices _buildreq_choices
 ---@field building_type building_type if -1, in Build menu; otherwise select item
 ---@field building_subtype number
 ---@field custom_type number References: `building_def`
@@ -121,37 +121,37 @@ df.build_req_choice_specst = {}
 ---@field _kind 'class-type'
 df.buildreq = {}
 
----@class buildreq_requirements: DFContainer
+---@class _buildreq_requirements: DFContainer
 ---@field [integer] ui_build_item_req
-local buildreq_requirements
+local _buildreq_requirements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<ui_build_item_req>
-function buildreq_requirements:_field(index) end
+function _buildreq_requirements:_field(index) end
 
 ---@param index integer 
 ---@param item ui_build_item_req 
-function buildreq_requirements:insert(index, item) end
+function _buildreq_requirements:insert(index, item) end
 
 ---@param index integer 
-function buildreq_requirements:erase(index) end
+function _buildreq_requirements:erase(index) end
 
----@class buildreq_choices: DFContainer
+---@class _buildreq_choices: DFContainer
 ---@field [integer] build_req_choicest
-local buildreq_choices
+local _buildreq_choices
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<build_req_choicest>
-function buildreq_choices:_field(index) end
+function _buildreq_choices:_field(index) end
 
 ---@param index integer 
 ---@param item build_req_choicest 
-function buildreq_choices:insert(index, item) end
+function _buildreq_choices:insert(index, item) end
 
 ---@param index integer 
-function buildreq_choices:erase(index) end
+function _buildreq_choices:erase(index) end
 
 ---@alias interface_category_building_keys
 ---| '"NONE"'
@@ -432,7 +432,7 @@ df.construction_interface_page_status_type = {}
 ---@field _kind 'struct'
 ---@field _type _construction_interface_pagest
 ---@field category construction_category_type
----@field bb_button construction_interface_pagest_bb_button
+---@field bb_button _construction_interface_pagest_bb_button
 ---@field last_main_sx number
 ---@field last_main_ex number
 ---@field last_main_sy number
@@ -449,21 +449,21 @@ df.construction_interface_page_status_type = {}
 ---@field _kind 'struct-type'
 df.construction_interface_pagest = {}
 
----@class construction_interface_pagest_bb_button: DFContainer
+---@class _construction_interface_pagest_bb_button: DFContainer
 ---@field [integer] bb_buttonst
-local construction_interface_pagest_bb_button
+local _construction_interface_pagest_bb_button
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<bb_buttonst>
-function construction_interface_pagest_bb_button:_field(index) end
+function _construction_interface_pagest_bb_button:_field(index) end
 
 ---@param index integer 
 ---@param item bb_buttonst 
-function construction_interface_pagest_bb_button:insert(index, item) end
+function _construction_interface_pagest_bb_button:insert(index, item) end
 
 ---@param index integer 
-function construction_interface_pagest_bb_button:erase(index) end
+function _construction_interface_pagest_bb_button:erase(index) end
 
 ---@alias room_flow_shape_type_keys
 ---| '"NONE"'
@@ -2546,10 +2546,10 @@ df.labor_kitchen_interface_type_filter = {}
 ---@field _kind 'struct'
 ---@field _type _labor_kitchen_interfacest
 ---@field current_category kitchen_pref_category_type
----@field known labor_kitchen_interfacest_known std::unordered_map<labor_kitchen_interface_food_key,labor_kitchen_interface_food_value>
----@field sorting_by labor_kitchen_interfacest_sorting_by
+---@field known _labor_kitchen_interfacest_known std::unordered_map<labor_kitchen_interface_food_key,labor_kitchen_interface_food_value>
+---@field sorting_by _labor_kitchen_interfacest_sorting_by
 ---@field ascending_sort DFNumberVector std::unordered_map<std::string,bool>
----@field filter_func labor_kitchen_interfacest_filter_func
+---@field filter_func _labor_kitchen_interfacest_filter_func
 ---@field filter_str string
 ---@field filter_type labor_kitchen_interface_type_filter
 ---@field filter_perm integer
@@ -2560,59 +2560,59 @@ df.labor_kitchen_interface_type_filter = {}
 ---@field _kind 'class-type'
 df.labor_kitchen_interfacest = {}
 
----@class labor_kitchen_interfacest_known: DFContainer
+---@class _labor_kitchen_interfacest_known: DFContainer
 ---@field [integer] labor_kitchen_interface_food_value
-local labor_kitchen_interfacest_known
+local _labor_kitchen_interfacest_known
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<labor_kitchen_interface_food_value>
-function labor_kitchen_interfacest_known:_field(index) end
+function _labor_kitchen_interfacest_known:_field(index) end
 
 ---@param index integer 
 ---@param item labor_kitchen_interface_food_value 
-function labor_kitchen_interfacest_known:insert(index, item) end
+function _labor_kitchen_interfacest_known:insert(index, item) end
 
 ---@param index integer 
-function labor_kitchen_interfacest_known:erase(index) end
+function _labor_kitchen_interfacest_known:erase(index) end
 
----@class labor_kitchen_interfacest_sorting_by: DFContainer
+---@class _labor_kitchen_interfacest_sorting_by: DFContainer
 ---@field [integer] labor_kitchen_interface_food_sort_entry
-local labor_kitchen_interfacest_sorting_by
+local _labor_kitchen_interfacest_sorting_by
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<labor_kitchen_interface_food_sort_entry>
-function labor_kitchen_interfacest_sorting_by:_field(index) end
+function _labor_kitchen_interfacest_sorting_by:_field(index) end
 
 ---@param index integer 
 ---@param item labor_kitchen_interface_food_sort_entry 
-function labor_kitchen_interfacest_sorting_by:insert(index, item) end
+function _labor_kitchen_interfacest_sorting_by:insert(index, item) end
 
 ---@param index integer 
-function labor_kitchen_interfacest_sorting_by:erase(index) end
+function _labor_kitchen_interfacest_sorting_by:erase(index) end
 
----@class labor_kitchen_interfacest_filter_func: DFContainer
+---@class _labor_kitchen_interfacest_filter_func: DFContainer
 ---@field [integer] function[]
-local labor_kitchen_interfacest_filter_func
+local _labor_kitchen_interfacest_filter_func
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<function[]>
-function labor_kitchen_interfacest_filter_func:_field(index) end
+function _labor_kitchen_interfacest_filter_func:_field(index) end
 
 ---@param index integer 
 ---@param item function[] 
-function labor_kitchen_interfacest_filter_func:insert(index, item) end
+function _labor_kitchen_interfacest_filter_func:insert(index, item) end
 
 ---@param index integer 
-function labor_kitchen_interfacest_filter_func:erase(index) end
+function _labor_kitchen_interfacest_filter_func:erase(index) end
 
 ---@class (exact) labor_standing_orders_interfacest: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _labor_standing_orders_interfacest
 ---@field current_category standing_orders_category_type
----@field unit labor_standing_orders_interfacest_unit
+---@field unit _labor_standing_orders_interfacest_unit
 ---@field labor_list DFNumberVector
 ---@field scrolling_labor_list boolean
 ---@field scroll_position_units number
@@ -2622,21 +2622,21 @@ function labor_kitchen_interfacest_filter_func:erase(index) end
 ---@field _kind 'class-type'
 df.labor_standing_orders_interfacest = {}
 
----@class labor_standing_orders_interfacest_unit: DFContainer
+---@class _labor_standing_orders_interfacest_unit: DFContainer
 ---@field [integer] unit
-local labor_standing_orders_interfacest_unit
+local _labor_standing_orders_interfacest_unit
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function labor_standing_orders_interfacest_unit:_field(index) end
+function _labor_standing_orders_interfacest_unit:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function labor_standing_orders_interfacest_unit:insert(index, item) end
+function _labor_standing_orders_interfacest_unit:insert(index, item) end
 
 ---@param index integer 
-function labor_standing_orders_interfacest_unit:erase(index) end
+function _labor_standing_orders_interfacest_unit:erase(index) end
 
 ---@class (exact) labor_stone_use_interfacest: DFObject, widget
 ---@field _kind 'struct'
@@ -2655,78 +2655,78 @@ df.labor_stone_use_interfacest = {}
 ---@class (exact) labor_interfacest: DFObject, widget_container
 ---@field _kind 'struct'
 ---@field _type _labor_interfacest
----@field work_details labor_interfacest_work_details
----@field standing_orders labor_interfacest_standing_orders
----@field kitchen labor_interfacest_kitchen
----@field stone_use labor_interfacest_stone_use
+---@field work_details _labor_interfacest_work_details
+---@field standing_orders _labor_interfacest_standing_orders
+---@field kitchen _labor_interfacest_kitchen
+---@field stone_use _labor_interfacest_stone_use
 
 ---@class _labor_interfacest: DFCompound
 ---@field _kind 'class-type'
 df.labor_interfacest = {}
 
----@class labor_interfacest_work_details: DFContainer
+---@class _labor_interfacest_work_details: DFContainer
 ---@field [integer] labor_work_details_interfacest
-local labor_interfacest_work_details
+local _labor_interfacest_work_details
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<labor_work_details_interfacest>
-function labor_interfacest_work_details:_field(index) end
+function _labor_interfacest_work_details:_field(index) end
 
 ---@param index integer 
 ---@param item labor_work_details_interfacest 
-function labor_interfacest_work_details:insert(index, item) end
+function _labor_interfacest_work_details:insert(index, item) end
 
 ---@param index integer 
-function labor_interfacest_work_details:erase(index) end
+function _labor_interfacest_work_details:erase(index) end
 
----@class labor_interfacest_standing_orders: DFContainer
+---@class _labor_interfacest_standing_orders: DFContainer
 ---@field [integer] labor_standing_orders_interfacest
-local labor_interfacest_standing_orders
+local _labor_interfacest_standing_orders
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<labor_standing_orders_interfacest>
-function labor_interfacest_standing_orders:_field(index) end
+function _labor_interfacest_standing_orders:_field(index) end
 
 ---@param index integer 
 ---@param item labor_standing_orders_interfacest 
-function labor_interfacest_standing_orders:insert(index, item) end
+function _labor_interfacest_standing_orders:insert(index, item) end
 
 ---@param index integer 
-function labor_interfacest_standing_orders:erase(index) end
+function _labor_interfacest_standing_orders:erase(index) end
 
----@class labor_interfacest_kitchen: DFContainer
+---@class _labor_interfacest_kitchen: DFContainer
 ---@field [integer] labor_kitchen_interfacest
-local labor_interfacest_kitchen
+local _labor_interfacest_kitchen
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<labor_kitchen_interfacest>
-function labor_interfacest_kitchen:_field(index) end
+function _labor_interfacest_kitchen:_field(index) end
 
 ---@param index integer 
 ---@param item labor_kitchen_interfacest 
-function labor_interfacest_kitchen:insert(index, item) end
+function _labor_interfacest_kitchen:insert(index, item) end
 
 ---@param index integer 
-function labor_interfacest_kitchen:erase(index) end
+function _labor_interfacest_kitchen:erase(index) end
 
----@class labor_interfacest_stone_use: DFContainer
+---@class _labor_interfacest_stone_use: DFContainer
 ---@field [integer] labor_stone_use_interfacest
-local labor_interfacest_stone_use
+local _labor_interfacest_stone_use
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<labor_stone_use_interfacest>
-function labor_interfacest_stone_use:_field(index) end
+function _labor_interfacest_stone_use:_field(index) end
 
 ---@param index integer 
 ---@param item labor_stone_use_interfacest 
-function labor_interfacest_stone_use:insert(index, item) end
+function _labor_interfacest_stone_use:insert(index, item) end
 
 ---@param index integer 
-function labor_interfacest_stone_use:erase(index) end
+function _labor_interfacest_stone_use:erase(index) end
 
 ---@class justice_screen_interrogation_list_flag: DFObject
 ---@field _kind 'bitfield'
@@ -2749,31 +2749,31 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field current_mode justice_interface_mode_type
 ---@field cage_chain_needed number
 ---@field cage_chain_count number
----@field cri_fortress_guard justice_interfacest_cri_fortress_guard
+---@field cri_fortress_guard _justice_interfacest_cri_fortress_guard
 ---@field scroll_position_fortress_guard number
 ---@field scrolling_fortress_guard boolean
 ---@field sorting_guard_nameprof boolean
 ---@field sorting_guard_nameprof_is_ascending boolean
 ---@field sorting_guard_nameprof_doing_name boolean
 ---@field sorting_guard_nameprof_doing_prof boolean
----@field convicts justice_interfacest_convicts
+---@field convicts _justice_interfacest_convicts
 ---@field selected_convict unit
----@field convict_crime justice_interfacest_convict_crime
+---@field convict_crime _justice_interfacest_convict_crime
 ---@field convict_lawaction DFPointer<integer> lawactionst
 ---@field convicting boolean
 ---@field interrogating boolean
 ---@field interrogation_list_flag DFIntegerVector
 ---@field interrogation_report_box DFStringVector
 ---@field interrogation_report_box_width number
----@field interrogation_report justice_interfacest_interrogation_report interrogation_reportst
+---@field interrogation_report _justice_interfacest_interrogation_report interrogation_reportst
 ---@field viewing_interrogation_report DFPointer<integer> interrogation_reportst
 ---@field scroll_position_interrogation_list number
 ---@field scrolling_interrogation_list boolean
 ---@field scroll_position_interrogation_report number
 ---@field scrolling_interrogation_report boolean
----@field base_actor_entry justice_interfacest_base_actor_entry
----@field base_organization_entry justice_interfacest_base_organization_entry
----@field base_plot_entry justice_interfacest_base_plot_entry
+---@field base_actor_entry _justice_interfacest_base_actor_entry
+---@field base_organization_entry _justice_interfacest_base_organization_entry
+---@field base_plot_entry _justice_interfacest_base_plot_entry
 ---@field counterintelligence_mode counterintelligence_mode_type
 ---@field counterintelligence_selected number
 ---@field counterintelligence_filter_str string
@@ -2781,14 +2781,14 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field selected_counterintelligence_oen DFPointer<integer> organization_entry_nodest
 ---@field scroll_position_counterintelligence number
 ---@field scrolling_counterintelligence boolean
----@field value_actor_entry justice_interfacest_value_actor_entry
----@field value_organization_entry justice_interfacest_value_organization_entry
----@field value_plot_entry justice_interfacest_value_plot_entry
----@field actor_entry justice_interfacest_actor_entry
----@field organization_entry justice_interfacest_organization_entry
----@field plot_entry justice_interfacest_plot_entry
+---@field value_actor_entry _justice_interfacest_value_actor_entry
+---@field value_organization_entry _justice_interfacest_value_organization_entry
+---@field value_plot_entry _justice_interfacest_value_plot_entry
+---@field actor_entry _justice_interfacest_actor_entry
+---@field organization_entry _justice_interfacest_organization_entry
+---@field plot_entry _justice_interfacest_plot_entry
 ---@field crimevals DFNumberVector std::unordered_map<unitst *,int32_t>
----@field crimeflag justice_interfacest_crimeflag std::unordered_map<unitst *,int32_t>
+---@field crimeflag _justice_interfacest_crimeflag std::unordered_map<unitst *,int32_t>
 ---@field guardvals DFNumberVector std::unordered_map<unitst *,int32_t>
 ---@field do_init boolean
 
@@ -2796,229 +2796,229 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field _kind 'class-type'
 df.justice_interfacest = {}
 
----@class justice_interfacest_cri_fortress_guard: DFContainer
+---@class _justice_interfacest_cri_fortress_guard: DFContainer
 ---@field [integer] cri_unitst
-local justice_interfacest_cri_fortress_guard
+local _justice_interfacest_cri_fortress_guard
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<cri_unitst>
-function justice_interfacest_cri_fortress_guard:_field(index) end
+function _justice_interfacest_cri_fortress_guard:_field(index) end
 
 ---@param index integer 
 ---@param item cri_unitst 
-function justice_interfacest_cri_fortress_guard:insert(index, item) end
+function _justice_interfacest_cri_fortress_guard:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_cri_fortress_guard:erase(index) end
+function _justice_interfacest_cri_fortress_guard:erase(index) end
 
----@class justice_interfacest_convicts: DFContainer
+---@class _justice_interfacest_convicts: DFContainer
 ---@field [integer] unit
-local justice_interfacest_convicts
+local _justice_interfacest_convicts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function justice_interfacest_convicts:_field(index) end
+function _justice_interfacest_convicts:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function justice_interfacest_convicts:insert(index, item) end
+function _justice_interfacest_convicts:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_convicts:erase(index) end
+function _justice_interfacest_convicts:erase(index) end
 
----@class justice_interfacest_convict_crime: DFContainer
+---@class _justice_interfacest_convict_crime: DFContainer
 ---@field [integer] crime
-local justice_interfacest_convict_crime
+local _justice_interfacest_convict_crime
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<crime>
-function justice_interfacest_convict_crime:_field(index) end
+function _justice_interfacest_convict_crime:_field(index) end
 
 ---@param index integer 
 ---@param item crime 
-function justice_interfacest_convict_crime:insert(index, item) end
+function _justice_interfacest_convict_crime:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_convict_crime:erase(index) end
+function _justice_interfacest_convict_crime:erase(index) end
 
----@class justice_interfacest_interrogation_report: DFContainer
+---@class _justice_interfacest_interrogation_report: DFContainer
 ---@field [integer] any[]
-local justice_interfacest_interrogation_report
+local _justice_interfacest_interrogation_report
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function justice_interfacest_interrogation_report:_field(index) end
+function _justice_interfacest_interrogation_report:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function justice_interfacest_interrogation_report:insert(index, item) end
+function _justice_interfacest_interrogation_report:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_interrogation_report:erase(index) end
+function _justice_interfacest_interrogation_report:erase(index) end
 
----@class justice_interfacest_base_actor_entry: DFContainer
+---@class _justice_interfacest_base_actor_entry: DFContainer
 ---@field [integer] actor_entryst
-local justice_interfacest_base_actor_entry
+local _justice_interfacest_base_actor_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<actor_entryst>
-function justice_interfacest_base_actor_entry:_field(index) end
+function _justice_interfacest_base_actor_entry:_field(index) end
 
 ---@param index integer 
 ---@param item actor_entryst 
-function justice_interfacest_base_actor_entry:insert(index, item) end
+function _justice_interfacest_base_actor_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_base_actor_entry:erase(index) end
+function _justice_interfacest_base_actor_entry:erase(index) end
 
----@class justice_interfacest_base_organization_entry: DFContainer
+---@class _justice_interfacest_base_organization_entry: DFContainer
 ---@field [integer] organization_entryst
-local justice_interfacest_base_organization_entry
+local _justice_interfacest_base_organization_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<organization_entryst>
-function justice_interfacest_base_organization_entry:_field(index) end
+function _justice_interfacest_base_organization_entry:_field(index) end
 
 ---@param index integer 
 ---@param item organization_entryst 
-function justice_interfacest_base_organization_entry:insert(index, item) end
+function _justice_interfacest_base_organization_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_base_organization_entry:erase(index) end
+function _justice_interfacest_base_organization_entry:erase(index) end
 
----@class justice_interfacest_base_plot_entry: DFContainer
+---@class _justice_interfacest_base_plot_entry: DFContainer
 ---@field [integer] plot_entryst
-local justice_interfacest_base_plot_entry
+local _justice_interfacest_base_plot_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plot_entryst>
-function justice_interfacest_base_plot_entry:_field(index) end
+function _justice_interfacest_base_plot_entry:_field(index) end
 
 ---@param index integer 
 ---@param item plot_entryst 
-function justice_interfacest_base_plot_entry:insert(index, item) end
+function _justice_interfacest_base_plot_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_base_plot_entry:erase(index) end
+function _justice_interfacest_base_plot_entry:erase(index) end
 
----@class justice_interfacest_value_actor_entry: DFContainer
+---@class _justice_interfacest_value_actor_entry: DFContainer
 ---@field [integer] actor_entryst
-local justice_interfacest_value_actor_entry
+local _justice_interfacest_value_actor_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<actor_entryst>
-function justice_interfacest_value_actor_entry:_field(index) end
+function _justice_interfacest_value_actor_entry:_field(index) end
 
 ---@param index integer 
 ---@param item actor_entryst 
-function justice_interfacest_value_actor_entry:insert(index, item) end
+function _justice_interfacest_value_actor_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_value_actor_entry:erase(index) end
+function _justice_interfacest_value_actor_entry:erase(index) end
 
----@class justice_interfacest_value_organization_entry: DFContainer
+---@class _justice_interfacest_value_organization_entry: DFContainer
 ---@field [integer] organization_entryst
-local justice_interfacest_value_organization_entry
+local _justice_interfacest_value_organization_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<organization_entryst>
-function justice_interfacest_value_organization_entry:_field(index) end
+function _justice_interfacest_value_organization_entry:_field(index) end
 
 ---@param index integer 
 ---@param item organization_entryst 
-function justice_interfacest_value_organization_entry:insert(index, item) end
+function _justice_interfacest_value_organization_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_value_organization_entry:erase(index) end
+function _justice_interfacest_value_organization_entry:erase(index) end
 
----@class justice_interfacest_value_plot_entry: DFContainer
+---@class _justice_interfacest_value_plot_entry: DFContainer
 ---@field [integer] plot_entryst
-local justice_interfacest_value_plot_entry
+local _justice_interfacest_value_plot_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plot_entryst>
-function justice_interfacest_value_plot_entry:_field(index) end
+function _justice_interfacest_value_plot_entry:_field(index) end
 
 ---@param index integer 
 ---@param item plot_entryst 
-function justice_interfacest_value_plot_entry:insert(index, item) end
+function _justice_interfacest_value_plot_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_value_plot_entry:erase(index) end
+function _justice_interfacest_value_plot_entry:erase(index) end
 
----@class justice_interfacest_actor_entry: DFContainer
+---@class _justice_interfacest_actor_entry: DFContainer
 ---@field [integer] actor_entryst
-local justice_interfacest_actor_entry
+local _justice_interfacest_actor_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<actor_entryst>
-function justice_interfacest_actor_entry:_field(index) end
+function _justice_interfacest_actor_entry:_field(index) end
 
 ---@param index integer 
 ---@param item actor_entryst 
-function justice_interfacest_actor_entry:insert(index, item) end
+function _justice_interfacest_actor_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_actor_entry:erase(index) end
+function _justice_interfacest_actor_entry:erase(index) end
 
----@class justice_interfacest_organization_entry: DFContainer
+---@class _justice_interfacest_organization_entry: DFContainer
 ---@field [integer] organization_entryst
-local justice_interfacest_organization_entry
+local _justice_interfacest_organization_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<organization_entryst>
-function justice_interfacest_organization_entry:_field(index) end
+function _justice_interfacest_organization_entry:_field(index) end
 
 ---@param index integer 
 ---@param item organization_entryst 
-function justice_interfacest_organization_entry:insert(index, item) end
+function _justice_interfacest_organization_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_organization_entry:erase(index) end
+function _justice_interfacest_organization_entry:erase(index) end
 
----@class justice_interfacest_plot_entry: DFContainer
+---@class _justice_interfacest_plot_entry: DFContainer
 ---@field [integer] plot_entryst
-local justice_interfacest_plot_entry
+local _justice_interfacest_plot_entry
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plot_entryst>
-function justice_interfacest_plot_entry:_field(index) end
+function _justice_interfacest_plot_entry:_field(index) end
 
 ---@param index integer 
 ---@param item plot_entryst 
-function justice_interfacest_plot_entry:insert(index, item) end
+function _justice_interfacest_plot_entry:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_plot_entry:erase(index) end
+function _justice_interfacest_plot_entry:erase(index) end
 
----@class justice_interfacest_crimeflag: DFContainer
+---@class _justice_interfacest_crimeflag: DFContainer
 ---@field [integer] justice_screen_interrogation_list_flag
-local justice_interfacest_crimeflag
+local _justice_interfacest_crimeflag
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<justice_screen_interrogation_list_flag>
-function justice_interfacest_crimeflag:_field(index) end
+function _justice_interfacest_crimeflag:_field(index) end
 
 ---@param index integer 
 ---@param item justice_screen_interrogation_list_flag 
-function justice_interfacest_crimeflag:insert(index, item) end
+function _justice_interfacest_crimeflag:insert(index, item) end
 
 ---@param index integer 
-function justice_interfacest_crimeflag:erase(index) end
+function _justice_interfacest_crimeflag:erase(index) end
 
 ---@class (exact) info_interfacest: DFObject, widget_tabs
 ---@field _kind 'struct'
@@ -3041,7 +3041,7 @@ df.info_interfacest = {}
 ---@class (exact) info_interfacest.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_jobs
----@field cri_job info_interfacest_jobs_cri_job
+---@field cri_job _info_interfacest_jobs_cri_job
 ---@field scrolling_cri_job boolean
 ---@field scroll_position_cri_job number
 
@@ -3049,21 +3049,21 @@ df.info_interfacest = {}
 ---@field _kind 'struct-type'
 df.info_interfacest.T_jobs = {}
 
----@class info_interfacest_jobs_cri_job: DFContainer
+---@class _info_interfacest_jobs_cri_job: DFContainer
 ---@field [integer] cri_unitst
-local info_interfacest_jobs_cri_job
+local _info_interfacest_jobs_cri_job
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<cri_unitst>
-function info_interfacest_jobs_cri_job:_field(index) end
+function _info_interfacest_jobs_cri_job:_field(index) end
 
 ---@param index integer 
 ---@param item cri_unitst 
-function info_interfacest_jobs_cri_job:insert(index, item) end
+function _info_interfacest_jobs_cri_job:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_jobs_cri_job:erase(index) end
+function _info_interfacest_jobs_cri_job:erase(index) end
 
 ---@class (exact) info_interfacest.T_buildings: DFObject
 ---@field _kind 'struct'
@@ -3077,21 +3077,21 @@ function info_interfacest_jobs_cri_job:erase(index) end
 ---@field _kind 'struct-type'
 df.info_interfacest.T_buildings = {}
 
----@class info_interfacest_buildings_list: DFContainer
+---@class _info_interfacest_buildings_list: DFContainer
 ---@field [integer] building
-local info_interfacest_buildings_list
+local _info_interfacest_buildings_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function info_interfacest_buildings_list:_field(index) end
+function _info_interfacest_buildings_list:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function info_interfacest_buildings_list:insert(index, item) end
+function _info_interfacest_buildings_list:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_buildings_list:erase(index) end
+function _info_interfacest_buildings_list:erase(index) end
 
 ---@class (exact) info_interfacest.T_work_orders: DFObject
 ---@field _kind 'struct'
@@ -3115,11 +3115,11 @@ df.info_interfacest.T_work_orders = {}
 ---@field _type _info_interfacest.T_work_orders.T_conditions
 ---@field open boolean
 ---@field wq manager_order
----@field item_condition_satisfied info_interfacest_work_orders_conditions_item_condition_satisfied
----@field order_condition_satisfied info_interfacest_work_orders_conditions_order_condition_satisfied
+---@field item_condition_satisfied _info_interfacest_work_orders_conditions_item_condition_satisfied
+---@field order_condition_satisfied _info_interfacest_work_orders_conditions_order_condition_satisfied
 ---@field scroll_position_conditions number
 ---@field scrolling_conditions boolean
----@field suggested_item_condition info_interfacest_work_orders_conditions_suggested_item_condition workquota_item_conditionst
+---@field suggested_item_condition _info_interfacest_work_orders_conditions_suggested_item_condition workquota_item_conditionst
 ---@field scroll_position_suggested number
 ---@field scrolling_suggested boolean
 ---@field filter string
@@ -3130,14 +3130,14 @@ df.info_interfacest.T_work_orders = {}
 ---@field scrolling_change number
 ---@field item_type_master DFNumberVector
 ---@field item_subtype_master DFNumberVector
----@field item_type_on info_interfacest_work_orders_conditions_item_type_on
+---@field item_type_on _info_interfacest_work_orders_conditions_item_type_on
 ---@field item_material_master DFNumberVector
 ---@field item_matgloss_master DFNumberVector
 ---@field item_matstate_master DFNumberVector
----@field item_material_on info_interfacest_work_orders_conditions_item_material_on
----@field item_trait_master info_interfacest_work_orders_conditions_item_trait_master
+---@field item_material_on _info_interfacest_work_orders_conditions_item_material_on
+---@field item_trait_master _info_interfacest_work_orders_conditions_item_trait_master
 ---@field selecting_order_condition boolean
----@field condition_wq info_interfacest_work_orders_conditions_condition_wq
+---@field condition_wq _info_interfacest_work_orders_conditions_condition_wq
 ---@field scroll_position_condition_wq number
 ---@field scrolling_condition_wq boolean
 ---@field entering_logic_number boolean
@@ -3148,123 +3148,123 @@ df.info_interfacest.T_work_orders = {}
 ---@field _kind 'struct-type'
 df.info_interfacest.T_work_orders.T_conditions = {}
 
----@class info_interfacest_work_orders_conditions_item_condition_satisfied: DFContainer
+---@class _info_interfacest_work_orders_conditions_item_condition_satisfied: DFContainer
 ---@field [integer] any[]
-local info_interfacest_work_orders_conditions_item_condition_satisfied
+local _info_interfacest_work_orders_conditions_item_condition_satisfied
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function info_interfacest_work_orders_conditions_item_condition_satisfied:_field(index) end
+function _info_interfacest_work_orders_conditions_item_condition_satisfied:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function info_interfacest_work_orders_conditions_item_condition_satisfied:insert(index, item) end
+function _info_interfacest_work_orders_conditions_item_condition_satisfied:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_item_condition_satisfied:erase(index) end
+function _info_interfacest_work_orders_conditions_item_condition_satisfied:erase(index) end
 
----@class info_interfacest_work_orders_conditions_order_condition_satisfied: DFContainer
+---@class _info_interfacest_work_orders_conditions_order_condition_satisfied: DFContainer
 ---@field [integer] any[]
-local info_interfacest_work_orders_conditions_order_condition_satisfied
+local _info_interfacest_work_orders_conditions_order_condition_satisfied
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function info_interfacest_work_orders_conditions_order_condition_satisfied:_field(index) end
+function _info_interfacest_work_orders_conditions_order_condition_satisfied:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function info_interfacest_work_orders_conditions_order_condition_satisfied:insert(index, item) end
+function _info_interfacest_work_orders_conditions_order_condition_satisfied:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_order_condition_satisfied:erase(index) end
+function _info_interfacest_work_orders_conditions_order_condition_satisfied:erase(index) end
 
----@class info_interfacest_work_orders_conditions_suggested_item_condition: DFContainer
+---@class _info_interfacest_work_orders_conditions_suggested_item_condition: DFContainer
 ---@field [integer] any[]
-local info_interfacest_work_orders_conditions_suggested_item_condition
+local _info_interfacest_work_orders_conditions_suggested_item_condition
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function info_interfacest_work_orders_conditions_suggested_item_condition:_field(index) end
+function _info_interfacest_work_orders_conditions_suggested_item_condition:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function info_interfacest_work_orders_conditions_suggested_item_condition:insert(index, item) end
+function _info_interfacest_work_orders_conditions_suggested_item_condition:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_suggested_item_condition:erase(index) end
+function _info_interfacest_work_orders_conditions_suggested_item_condition:erase(index) end
 
----@class info_interfacest_work_orders_conditions_item_type_on: DFContainer
+---@class _info_interfacest_work_orders_conditions_item_type_on: DFContainer
 ---@field [integer] any[]
-local info_interfacest_work_orders_conditions_item_type_on
+local _info_interfacest_work_orders_conditions_item_type_on
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function info_interfacest_work_orders_conditions_item_type_on:_field(index) end
+function _info_interfacest_work_orders_conditions_item_type_on:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function info_interfacest_work_orders_conditions_item_type_on:insert(index, item) end
+function _info_interfacest_work_orders_conditions_item_type_on:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_item_type_on:erase(index) end
+function _info_interfacest_work_orders_conditions_item_type_on:erase(index) end
 
----@class info_interfacest_work_orders_conditions_item_material_on: DFContainer
+---@class _info_interfacest_work_orders_conditions_item_material_on: DFContainer
 ---@field [integer] any[]
-local info_interfacest_work_orders_conditions_item_material_on
+local _info_interfacest_work_orders_conditions_item_material_on
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function info_interfacest_work_orders_conditions_item_material_on:_field(index) end
+function _info_interfacest_work_orders_conditions_item_material_on:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function info_interfacest_work_orders_conditions_item_material_on:insert(index, item) end
+function _info_interfacest_work_orders_conditions_item_material_on:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_item_material_on:erase(index) end
+function _info_interfacest_work_orders_conditions_item_material_on:erase(index) end
 
----@class info_interfacest_work_orders_conditions_item_trait_master: DFContainer
+---@class _info_interfacest_work_orders_conditions_item_trait_master: DFContainer
 ---@field [integer] wqc_item_traitst
-local info_interfacest_work_orders_conditions_item_trait_master
+local _info_interfacest_work_orders_conditions_item_trait_master
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<wqc_item_traitst>
-function info_interfacest_work_orders_conditions_item_trait_master:_field(index) end
+function _info_interfacest_work_orders_conditions_item_trait_master:_field(index) end
 
 ---@param index integer 
 ---@param item wqc_item_traitst 
-function info_interfacest_work_orders_conditions_item_trait_master:insert(index, item) end
+function _info_interfacest_work_orders_conditions_item_trait_master:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_item_trait_master:erase(index) end
+function _info_interfacest_work_orders_conditions_item_trait_master:erase(index) end
 
----@class info_interfacest_work_orders_conditions_condition_wq: DFContainer
+---@class _info_interfacest_work_orders_conditions_condition_wq: DFContainer
 ---@field [integer] manager_order
-local info_interfacest_work_orders_conditions_condition_wq
+local _info_interfacest_work_orders_conditions_condition_wq
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<manager_order>
-function info_interfacest_work_orders_conditions_condition_wq:_field(index) end
+function _info_interfacest_work_orders_conditions_condition_wq:_field(index) end
 
 ---@param index integer 
 ---@param item manager_order 
-function info_interfacest_work_orders_conditions_condition_wq:insert(index, item) end
+function _info_interfacest_work_orders_conditions_condition_wq:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_work_orders_conditions_condition_wq:erase(index) end
+function _info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 
 ---@class (exact) info_interfacest.T_administrators: DFObject
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_administrators
----@field noblelist info_interfacest_administrators_noblelist
----@field spec_prof info_interfacest_administrators_spec_prof
+---@field noblelist _info_interfacest_administrators_noblelist
+---@field spec_prof _info_interfacest_administrators_spec_prof
 ---@field spec_hfid DFNumberVector
 ---@field spec_enid DFNumberVector
 ---@field scroll_position_noblelist number
@@ -3275,12 +3275,12 @@ function info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@field last_hover_ep_id number
 ---@field choosing_candidate boolean
 ---@field candidate_noblelist_ind number
----@field candidate info_interfacest_administrators_candidate
+---@field candidate _info_interfacest_administrators_candidate
 ---@field scroll_position_candidate number
 ---@field scrolling_candidate boolean
 ---@field assigning_symbol boolean
 ---@field symbol_noblelist_ind number
----@field cand_symbol info_interfacest_administrators_cand_symbol
+---@field cand_symbol _info_interfacest_administrators_cand_symbol
 ---@field cand_symbol_new_ind DFNumberVector
 ---@field cand_symbol_is_symbol_of_ind DFNumberVector
 ---@field cand_symbol_value DFNumberVector
@@ -3292,69 +3292,69 @@ function info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@field _kind 'struct-type'
 df.info_interfacest.T_administrators = {}
 
----@class info_interfacest_administrators_noblelist: DFContainer
+---@class _info_interfacest_administrators_noblelist: DFContainer
 ---@field [integer] DFPointer<integer>
-local info_interfacest_administrators_noblelist
+local _info_interfacest_administrators_noblelist
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function info_interfacest_administrators_noblelist:_field(index) end
+function _info_interfacest_administrators_noblelist:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function info_interfacest_administrators_noblelist:insert(index, item) end
+function _info_interfacest_administrators_noblelist:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_administrators_noblelist:erase(index) end
+function _info_interfacest_administrators_noblelist:erase(index) end
 
----@class info_interfacest_administrators_spec_prof: DFContainer
+---@class _info_interfacest_administrators_spec_prof: DFContainer
 ---@field [integer] entity_position_assignment
-local info_interfacest_administrators_spec_prof
+local _info_interfacest_administrators_spec_prof
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position_assignment>
-function info_interfacest_administrators_spec_prof:_field(index) end
+function _info_interfacest_administrators_spec_prof:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position_assignment 
-function info_interfacest_administrators_spec_prof:insert(index, item) end
+function _info_interfacest_administrators_spec_prof:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_administrators_spec_prof:erase(index) end
+function _info_interfacest_administrators_spec_prof:erase(index) end
 
----@class info_interfacest_administrators_candidate: DFContainer
+---@class _info_interfacest_administrators_candidate: DFContainer
 ---@field [integer] DFPointer<integer>
-local info_interfacest_administrators_candidate
+local _info_interfacest_administrators_candidate
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function info_interfacest_administrators_candidate:_field(index) end
+function _info_interfacest_administrators_candidate:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function info_interfacest_administrators_candidate:insert(index, item) end
+function _info_interfacest_administrators_candidate:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_administrators_candidate:erase(index) end
+function _info_interfacest_administrators_candidate:erase(index) end
 
----@class info_interfacest_administrators_cand_symbol: DFContainer
+---@class _info_interfacest_administrators_cand_symbol: DFContainer
 ---@field [integer] item
-local info_interfacest_administrators_cand_symbol
+local _info_interfacest_administrators_cand_symbol
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function info_interfacest_administrators_cand_symbol:_field(index) end
+function _info_interfacest_administrators_cand_symbol:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function info_interfacest_administrators_cand_symbol:insert(index, item) end
+function _info_interfacest_administrators_cand_symbol:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_administrators_cand_symbol:erase(index) end
+function _info_interfacest_administrators_cand_symbol:erase(index) end
 
 ---@class (exact) info_interfacest.T_artifacts: DFObject
 ---@field _kind 'struct'
@@ -3368,21 +3368,21 @@ function info_interfacest_administrators_cand_symbol:erase(index) end
 ---@field _kind 'struct-type'
 df.info_interfacest.T_artifacts = {}
 
----@class info_interfacest_artifacts_list: DFContainer
+---@class _info_interfacest_artifacts_list: DFContainer
 ---@field [integer] artifact_record
-local info_interfacest_artifacts_list
+local _info_interfacest_artifacts_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<artifact_record>
-function info_interfacest_artifacts_list:_field(index) end
+function _info_interfacest_artifacts_list:_field(index) end
 
 ---@param index integer 
 ---@param item artifact_record 
-function info_interfacest_artifacts_list:insert(index, item) end
+function _info_interfacest_artifacts_list:insert(index, item) end
 
 ---@param index integer 
-function info_interfacest_artifacts_list:erase(index) end
+function _info_interfacest_artifacts_list:erase(index) end
 
 ---@class (exact) announcements_interfacest: DFObject
 ---@field _kind 'struct'
@@ -3454,16 +3454,16 @@ df.announcements_interfacest = {}
 ---@field skill_labor boolean
 ---@field skill_misc boolean
 ---@field barracks_selected_squad_ind number formerly barracks
----@field barracks_squad main_interface_barracks_squad
+---@field barracks_squad _main_interface_barracks_squad
 ---@field barracks_squad_flag DFNumberVector
 ---@field entering_building_name boolean
 ---@field assigning_position boolean
 ---@field ap_squad squad
 ---@field ap_sel number
 ---@field assigning_position_squad boolean
----@field ap_squad_list main_interface_ap_squad_list
+---@field ap_squad_list _main_interface_ap_squad_list
 ---@field ap_squad_sel number
----@field pref_occupation main_interface_pref_occupation
+---@field pref_occupation _main_interface_pref_occupation
 ---@field selected_pref_occupation number
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -3540,9 +3540,9 @@ df.main_interface.T_designation = {}
 ---@class (exact) main_interface.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_building
----@field button main_interface_building_button
----@field press_button main_interface_building_press_button
----@field filtered_button main_interface_building_filtered_button
+---@field button _main_interface_building_button
+---@field press_button _main_interface_building_press_button
+---@field filtered_button _main_interface_building_filtered_button
 ---@field selected number
 ---@field category interface_category_building
 ---@field material number References: `material`
@@ -3555,62 +3555,62 @@ df.main_interface.T_designation = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_building = {}
 
----@class main_interface_building_button: DFContainer
+---@class _main_interface_building_button: DFContainer
 ---@field [integer] interface_button
-local main_interface_building_button
+local _main_interface_building_button
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interface_button>
-function main_interface_building_button:_field(index) end
+function _main_interface_building_button:_field(index) end
 
 ---@param index integer 
 ---@param item interface_button 
-function main_interface_building_button:insert(index, item) end
+function _main_interface_building_button:insert(index, item) end
 
 ---@param index integer 
-function main_interface_building_button:erase(index) end
+function _main_interface_building_button:erase(index) end
 
----@class main_interface_building_press_button: DFContainer
+---@class _main_interface_building_press_button: DFContainer
 ---@field [integer] interface_button
-local main_interface_building_press_button
+local _main_interface_building_press_button
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interface_button>
-function main_interface_building_press_button:_field(index) end
+function _main_interface_building_press_button:_field(index) end
 
 ---@param index integer 
 ---@param item interface_button 
-function main_interface_building_press_button:insert(index, item) end
+function _main_interface_building_press_button:insert(index, item) end
 
 ---@param index integer 
-function main_interface_building_press_button:erase(index) end
+function _main_interface_building_press_button:erase(index) end
 
----@class main_interface_building_filtered_button: DFContainer
+---@class _main_interface_building_filtered_button: DFContainer
 ---@field [integer] interface_button
-local main_interface_building_filtered_button
+local _main_interface_building_filtered_button
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interface_button>
-function main_interface_building_filtered_button:_field(index) end
+function _main_interface_building_filtered_button:_field(index) end
 
 ---@param index integer 
 ---@param item interface_button 
-function main_interface_building_filtered_button:insert(index, item) end
+function _main_interface_building_filtered_button:insert(index, item) end
 
 ---@param index integer 
-function main_interface_building_filtered_button:erase(index) end
+function _main_interface_building_filtered_button:erase(index) end
 
 ---@class (exact) main_interface.T_construction: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_construction
----@field button main_interface_construction_button
----@field press_button main_interface_construction_press_button
+---@field button _main_interface_construction_button
+---@field press_button _main_interface_construction_press_button
 ---@field category interface_category_construction
 ---@field selected number
----@field page main_interface_construction_page
+---@field page _main_interface_construction_page
 ---@field max_height number
 ---@field total_width number
 ---@field must_update_buttons boolean
@@ -3626,53 +3626,53 @@ function main_interface_building_filtered_button:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_construction = {}
 
----@class main_interface_construction_button: DFContainer
+---@class _main_interface_construction_button: DFContainer
 ---@field [integer] interface_button
-local main_interface_construction_button
+local _main_interface_construction_button
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interface_button>
-function main_interface_construction_button:_field(index) end
+function _main_interface_construction_button:_field(index) end
 
 ---@param index integer 
 ---@param item interface_button 
-function main_interface_construction_button:insert(index, item) end
+function _main_interface_construction_button:insert(index, item) end
 
 ---@param index integer 
-function main_interface_construction_button:erase(index) end
+function _main_interface_construction_button:erase(index) end
 
----@class main_interface_construction_press_button: DFContainer
+---@class _main_interface_construction_press_button: DFContainer
 ---@field [integer] interface_button
-local main_interface_construction_press_button
+local _main_interface_construction_press_button
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interface_button>
-function main_interface_construction_press_button:_field(index) end
+function _main_interface_construction_press_button:_field(index) end
 
 ---@param index integer 
 ---@param item interface_button 
-function main_interface_construction_press_button:insert(index, item) end
+function _main_interface_construction_press_button:insert(index, item) end
 
 ---@param index integer 
-function main_interface_construction_press_button:erase(index) end
+function _main_interface_construction_press_button:erase(index) end
 
----@class main_interface_construction_page: DFContainer
+---@class _main_interface_construction_page: DFContainer
 ---@field [integer] construction_interface_pagest
-local main_interface_construction_page
+local _main_interface_construction_page
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<construction_interface_pagest>
-function main_interface_construction_page:_field(index) end
+function _main_interface_construction_page:_field(index) end
 
 ---@param index integer 
 ---@param item construction_interface_pagest 
-function main_interface_construction_page:insert(index, item) end
+function _main_interface_construction_page:insert(index, item) end
 
 ---@param index integer 
-function main_interface_construction_page:erase(index) end
+function _main_interface_construction_page:erase(index) end
 
 ---@class (exact) main_interface.T_civzone: DFObject
 ---@field _kind 'struct'
@@ -3686,8 +3686,8 @@ function main_interface_construction_page:erase(index) end
 ---@field erasing boolean
 ---@field adding_new_type number
 ---@field cur_bld building_civzonest
----@field list main_interface_civzone_list
----@field zone_just_created main_interface_civzone_zone_just_created
+---@field list _main_interface_civzone_list
+---@field zone_just_created _main_interface_civzone_zone_just_created
 ---@field furniture_rejected_in_use number
 ---@field furniture_rejected_not_enclosed number
 ---@field repainting number
@@ -3696,37 +3696,37 @@ function main_interface_construction_page:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_civzone = {}
 
----@class main_interface_civzone_list: DFContainer
+---@class _main_interface_civzone_list: DFContainer
 ---@field [integer] building_civzonest
-local main_interface_civzone_list
+local _main_interface_civzone_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building_civzonest>
-function main_interface_civzone_list:_field(index) end
+function _main_interface_civzone_list:_field(index) end
 
 ---@param index integer 
 ---@param item building_civzonest 
-function main_interface_civzone_list:insert(index, item) end
+function _main_interface_civzone_list:insert(index, item) end
 
 ---@param index integer 
-function main_interface_civzone_list:erase(index) end
+function _main_interface_civzone_list:erase(index) end
 
----@class main_interface_civzone_zone_just_created: DFContainer
+---@class _main_interface_civzone_zone_just_created: DFContainer
 ---@field [integer] building_civzonest
-local main_interface_civzone_zone_just_created
+local _main_interface_civzone_zone_just_created
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building_civzonest>
-function main_interface_civzone_zone_just_created:_field(index) end
+function _main_interface_civzone_zone_just_created:_field(index) end
 
 ---@param index integer 
 ---@param item building_civzonest 
-function main_interface_civzone_zone_just_created:insert(index, item) end
+function _main_interface_civzone_zone_just_created:insert(index, item) end
 
 ---@param index integer 
-function main_interface_civzone_zone_just_created:erase(index) end
+function _main_interface_civzone_zone_just_created:erase(index) end
 
 ---@class (exact) main_interface.T_burrow: DFObject
 ---@field _kind 'struct'
@@ -3746,16 +3746,16 @@ df.main_interface.T_burrow = {}
 ---@class (exact) main_interface.T_view: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_view
----@field inv main_interface_view_inv
----@field contam main_interface_view_contam
----@field guest_text main_interface_view_guest_text
+---@field inv _main_interface_view_inv
+---@field contam _main_interface_view_contam
+---@field guest_text _main_interface_view_guest_text
 ---@field uniform_selection boolean
 ---@field selected_uniform number
 ---@field selected_squad number
----@field squad_list_sq main_interface_view_squad_list_sq
----@field squad_list_ep main_interface_view_squad_list_ep
----@field squad_list_epp main_interface_view_squad_list_epp
----@field squad_list_has_subord_pos main_interface_view_squad_list_has_subord_pos
+---@field squad_list_sq _main_interface_view_squad_list_sq
+---@field squad_list_ep _main_interface_view_squad_list_ep
+---@field squad_list_epp _main_interface_view_squad_list_epp
+---@field squad_list_has_subord_pos _main_interface_view_squad_list_has_subord_pos
 ---@field squad_list_add_index DFNumberVector
 ---@field create_ep entity_position
 ---@field create_epp entity_position_assignment
@@ -3765,8 +3765,8 @@ df.main_interface.T_burrow = {}
 ---@field have_calced_info boolean
 ---@field naming_squad boolean
 ---@field name_squad squad
----@field expel_total_list main_interface_view_expel_total_list
----@field expel_outskirt_list main_interface_view_expel_outskirt_list
+---@field expel_total_list _main_interface_view_expel_total_list
+---@field expel_outskirt_list _main_interface_view_expel_outskirt_list
 ---@field expel_outskirt_list_selected number
 ---@field expel_selecting_destination number
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
@@ -3775,149 +3775,149 @@ df.main_interface.T_burrow = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_view = {}
 
----@class main_interface_view_inv: DFContainer
+---@class _main_interface_view_inv: DFContainer
 ---@field [integer] unit_inventory_item
-local main_interface_view_inv
+local _main_interface_view_inv
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_inventory_item>
-function main_interface_view_inv:_field(index) end
+function _main_interface_view_inv:_field(index) end
 
 ---@param index integer 
 ---@param item unit_inventory_item 
-function main_interface_view_inv:insert(index, item) end
+function _main_interface_view_inv:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_inv:erase(index) end
+function _main_interface_view_inv:erase(index) end
 
----@class main_interface_view_contam: DFContainer
+---@class _main_interface_view_contam: DFContainer
 ---@field [integer] spatter
-local main_interface_view_contam
+local _main_interface_view_contam
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<spatter>
-function main_interface_view_contam:_field(index) end
+function _main_interface_view_contam:_field(index) end
 
 ---@param index integer 
 ---@param item spatter 
-function main_interface_view_contam:insert(index, item) end
+function _main_interface_view_contam:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_contam:erase(index) end
+function _main_interface_view_contam:erase(index) end
 
----@class main_interface_view_guest_text: DFContainer
+---@class _main_interface_view_guest_text: DFContainer
 ---@field [integer] any[]
-local main_interface_view_guest_text
+local _main_interface_view_guest_text
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_view_guest_text:_field(index) end
+function _main_interface_view_guest_text:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_view_guest_text:insert(index, item) end
+function _main_interface_view_guest_text:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_guest_text:erase(index) end
+function _main_interface_view_guest_text:erase(index) end
 
----@class main_interface_view_squad_list_sq: DFContainer
+---@class _main_interface_view_squad_list_sq: DFContainer
 ---@field [integer] squad
-local main_interface_view_squad_list_sq
+local _main_interface_view_squad_list_sq
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<squad>
-function main_interface_view_squad_list_sq:_field(index) end
+function _main_interface_view_squad_list_sq:_field(index) end
 
 ---@param index integer 
 ---@param item squad 
-function main_interface_view_squad_list_sq:insert(index, item) end
+function _main_interface_view_squad_list_sq:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_squad_list_sq:erase(index) end
+function _main_interface_view_squad_list_sq:erase(index) end
 
----@class main_interface_view_squad_list_ep: DFContainer
+---@class _main_interface_view_squad_list_ep: DFContainer
 ---@field [integer] entity_position
-local main_interface_view_squad_list_ep
+local _main_interface_view_squad_list_ep
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position>
-function main_interface_view_squad_list_ep:_field(index) end
+function _main_interface_view_squad_list_ep:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position 
-function main_interface_view_squad_list_ep:insert(index, item) end
+function _main_interface_view_squad_list_ep:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_squad_list_ep:erase(index) end
+function _main_interface_view_squad_list_ep:erase(index) end
 
----@class main_interface_view_squad_list_epp: DFContainer
+---@class _main_interface_view_squad_list_epp: DFContainer
 ---@field [integer] entity_position_assignment
-local main_interface_view_squad_list_epp
+local _main_interface_view_squad_list_epp
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position_assignment>
-function main_interface_view_squad_list_epp:_field(index) end
+function _main_interface_view_squad_list_epp:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position_assignment 
-function main_interface_view_squad_list_epp:insert(index, item) end
+function _main_interface_view_squad_list_epp:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_squad_list_epp:erase(index) end
+function _main_interface_view_squad_list_epp:erase(index) end
 
----@class main_interface_view_squad_list_has_subord_pos: DFContainer
+---@class _main_interface_view_squad_list_has_subord_pos: DFContainer
 ---@field [integer] any[]
-local main_interface_view_squad_list_has_subord_pos
+local _main_interface_view_squad_list_has_subord_pos
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_view_squad_list_has_subord_pos:_field(index) end
+function _main_interface_view_squad_list_has_subord_pos:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_view_squad_list_has_subord_pos:insert(index, item) end
+function _main_interface_view_squad_list_has_subord_pos:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_squad_list_has_subord_pos:erase(index) end
+function _main_interface_view_squad_list_has_subord_pos:erase(index) end
 
----@class main_interface_view_expel_total_list: DFContainer
+---@class _main_interface_view_expel_total_list: DFContainer
 ---@field [integer] unit
-local main_interface_view_expel_total_list
+local _main_interface_view_expel_total_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function main_interface_view_expel_total_list:_field(index) end
+function _main_interface_view_expel_total_list:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function main_interface_view_expel_total_list:insert(index, item) end
+function _main_interface_view_expel_total_list:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_expel_total_list:erase(index) end
+function _main_interface_view_expel_total_list:erase(index) end
 
----@class main_interface_view_expel_outskirt_list: DFContainer
+---@class _main_interface_view_expel_outskirt_list: DFContainer
 ---@field [integer] world_site
-local main_interface_view_expel_outskirt_list
+local _main_interface_view_expel_outskirt_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<world_site>
-function main_interface_view_expel_outskirt_list:_field(index) end
+function _main_interface_view_expel_outskirt_list:_field(index) end
 
 ---@param index integer 
 ---@param item world_site 
-function main_interface_view_expel_outskirt_list:insert(index, item) end
+function _main_interface_view_expel_outskirt_list:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_expel_outskirt_list:erase(index) end
+function _main_interface_view_expel_outskirt_list:erase(index) end
 
 ---@class (exact) main_interface.T_hospital: DFObject
 ---@field _kind 'struct'
@@ -3935,84 +3935,84 @@ df.main_interface.T_hospital = {}
 ---@class (exact) main_interface.T_location_list: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_location_list
----@field valid_ab main_interface_location_list_valid_ab
+---@field valid_ab _main_interface_location_list_valid_ab
 ---@field selected_ab number
----@field valid_religious_practice main_interface_location_list_valid_religious_practice
----@field valid_religious_practice_id main_interface_location_list_valid_religious_practice_id
+---@field valid_religious_practice _main_interface_location_list_valid_religious_practice
+---@field valid_religious_practice_id _main_interface_location_list_valid_religious_practice_id
 ---@field selected_religious_practice number
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
----@field valid_craft_guild_type main_interface_location_list_valid_craft_guild_type
+---@field valid_craft_guild_type _main_interface_location_list_valid_craft_guild_type
 ---@field selected_craft_guild number
 
 ---@class _main_interface.T_location_list: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_location_list = {}
 
----@class main_interface_location_list_valid_ab: DFContainer
+---@class _main_interface_location_list_valid_ab: DFContainer
 ---@field [integer] abstract_building
-local main_interface_location_list_valid_ab
+local _main_interface_location_list_valid_ab
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<abstract_building>
-function main_interface_location_list_valid_ab:_field(index) end
+function _main_interface_location_list_valid_ab:_field(index) end
 
 ---@param index integer 
 ---@param item abstract_building 
-function main_interface_location_list_valid_ab:insert(index, item) end
+function _main_interface_location_list_valid_ab:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_list_valid_ab:erase(index) end
+function _main_interface_location_list_valid_ab:erase(index) end
 
----@class main_interface_location_list_valid_religious_practice: DFContainer
+---@class _main_interface_location_list_valid_religious_practice: DFContainer
 ---@field [integer] temple_deity_type
-local main_interface_location_list_valid_religious_practice
+local _main_interface_location_list_valid_religious_practice
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<temple_deity_type>
-function main_interface_location_list_valid_religious_practice:_field(index) end
+function _main_interface_location_list_valid_religious_practice:_field(index) end
 
 ---@param index integer 
 ---@param item temple_deity_type 
-function main_interface_location_list_valid_religious_practice:insert(index, item) end
+function _main_interface_location_list_valid_religious_practice:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_list_valid_religious_practice:erase(index) end
+function _main_interface_location_list_valid_religious_practice:erase(index) end
 
----@class main_interface_location_list_valid_religious_practice_id: DFContainer
+---@class _main_interface_location_list_valid_religious_practice_id: DFContainer
 ---@field [integer] temple_deity_data
-local main_interface_location_list_valid_religious_practice_id
+local _main_interface_location_list_valid_religious_practice_id
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<temple_deity_data>
-function main_interface_location_list_valid_religious_practice_id:_field(index) end
+function _main_interface_location_list_valid_religious_practice_id:_field(index) end
 
 ---@param index integer 
 ---@param item temple_deity_data 
-function main_interface_location_list_valid_religious_practice_id:insert(index, item) end
+function _main_interface_location_list_valid_religious_practice_id:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_list_valid_religious_practice_id:erase(index) end
+function _main_interface_location_list_valid_religious_practice_id:erase(index) end
 
----@class main_interface_location_list_valid_craft_guild_type: DFContainer
+---@class _main_interface_location_list_valid_craft_guild_type: DFContainer
 ---@field [integer] profession
-local main_interface_location_list_valid_craft_guild_type
+local _main_interface_location_list_valid_craft_guild_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<profession>
-function main_interface_location_list_valid_craft_guild_type:_field(index) end
+function _main_interface_location_list_valid_craft_guild_type:_field(index) end
 
 ---@param index integer 
 ---@param item profession 
-function main_interface_location_list_valid_craft_guild_type:insert(index, item) end
+function _main_interface_location_list_valid_craft_guild_type:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_list_valid_craft_guild_type:erase(index) end
+function _main_interface_location_list_valid_craft_guild_type:erase(index) end
 
 ---@class (exact) main_interface.T_job_details: DFObject
 ---@field _kind 'struct'
@@ -4023,7 +4023,7 @@ function main_interface_location_list_valid_craft_guild_type:erase(index) end
 ---@field wq manager_order
 ---@field current_option job_details_option_type
 ---@field current_option_index number
----@field option main_interface_job_details_option
+---@field option _main_interface_job_details_option
 ---@field option_index DFNumberVector
 ---@field scroll_position_option number
 ---@field scrolling_option boolean
@@ -4045,7 +4045,7 @@ function main_interface_location_list_valid_craft_guild_type:erase(index) end
 ---@field scrolling_race boolean
 ---@field clothing_size_race_filter string
 ---@field clothing_size_race_doing_filter boolean
----@field improvement_type main_interface_job_details_improvement_type
+---@field improvement_type _main_interface_job_details_improvement_type
 ---@field scroll_position_improvement number
 ---@field scrolling_improvement boolean
 
@@ -4053,37 +4053,37 @@ function main_interface_location_list_valid_craft_guild_type:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_job_details = {}
 
----@class main_interface_job_details_option: DFContainer
+---@class _main_interface_job_details_option: DFContainer
 ---@field [integer] job_details_option_type
-local main_interface_job_details_option
+local _main_interface_job_details_option
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<job_details_option_type>
-function main_interface_job_details_option:_field(index) end
+function _main_interface_job_details_option:_field(index) end
 
 ---@param index integer 
 ---@param item job_details_option_type 
-function main_interface_job_details_option:insert(index, item) end
+function _main_interface_job_details_option:insert(index, item) end
 
 ---@param index integer 
-function main_interface_job_details_option:erase(index) end
+function _main_interface_job_details_option:erase(index) end
 
----@class main_interface_job_details_improvement_type: DFContainer
+---@class _main_interface_job_details_improvement_type: DFContainer
 ---@field [integer] improvement_type
-local main_interface_job_details_improvement_type
+local _main_interface_job_details_improvement_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<improvement_type>
-function main_interface_job_details_improvement_type:_field(index) end
+function _main_interface_job_details_improvement_type:_field(index) end
 
 ---@param index integer 
 ---@param item improvement_type 
-function main_interface_job_details_improvement_type:insert(index, item) end
+function _main_interface_job_details_improvement_type:insert(index, item) end
 
 ---@param index integer 
-function main_interface_job_details_improvement_type:erase(index) end
+function _main_interface_job_details_improvement_type:erase(index) end
 
 ---@class (exact) main_interface.T_buildjob: DFObject
 ---@field _kind 'struct'
@@ -4111,21 +4111,21 @@ df.main_interface.T_buildjob = {}
 ---@field entering_item_filter boolean
 ---@field storeamount DFNumberVector
 ---@field badamount DFNumberVector
----@field unk_a8 main_interface_assign_trade_unk_a8
+---@field unk_a8 _main_interface_assign_trade_unk_a8
 ---@field unk_c0 DFNumberVector
 ---@field unk_d8 DFNumberVector
 ---@field unk_f0 DFNumberVector
 ---@field unk_108 DFNumberVector
 ---@field unk_120 DFNumberVector
----@field unk_138 main_interface_assign_trade_unk_138
+---@field unk_138 _main_interface_assign_trade_unk_138
 ---@field i_height number
----@field current_type_tgi main_interface_assign_trade_current_type_tgi
+---@field current_type_tgi _main_interface_assign_trade_current_type_tgi
 ---@field current_type_a_subtype DFNumberVector
 ---@field current_type_a_subcat1 DFNumberVector
 ---@field current_type_a_subcat2 DFNumberVector
 ---@field current_type_a_amount DFNumberVector
----@field current_type_a_expanded main_interface_assign_trade_current_type_a_expanded
----@field current_type_a_on main_interface_assign_trade_current_type_a_on
+---@field current_type_a_expanded _main_interface_assign_trade_current_type_a_expanded
+---@field current_type_a_on _main_interface_assign_trade_current_type_a_on
 ---@field current_type_a_flag DFIntegerVector
 ---@field sort_by_distance boolean
 ---@field pending_on_top boolean
@@ -4135,92 +4135,92 @@ df.main_interface.T_buildjob = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_trade = {}
 
----@class main_interface_assign_trade_unk_a8: DFContainer
+---@class _main_interface_assign_trade_unk_a8: DFContainer
 ---@field [integer] DFPointer<integer>
-local main_interface_assign_trade_unk_a8
+local _main_interface_assign_trade_unk_a8
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function main_interface_assign_trade_unk_a8:_field(index) end
+function _main_interface_assign_trade_unk_a8:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function main_interface_assign_trade_unk_a8:insert(index, item) end
+function _main_interface_assign_trade_unk_a8:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_trade_unk_a8:erase(index) end
+function _main_interface_assign_trade_unk_a8:erase(index) end
 
----@class main_interface_assign_trade_unk_138: DFContainer
+---@class _main_interface_assign_trade_unk_138: DFContainer
 ---@field [integer] any[]
-local main_interface_assign_trade_unk_138
+local _main_interface_assign_trade_unk_138
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_assign_trade_unk_138:_field(index) end
+function _main_interface_assign_trade_unk_138:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_assign_trade_unk_138:insert(index, item) end
+function _main_interface_assign_trade_unk_138:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_trade_unk_138:erase(index) end
+function _main_interface_assign_trade_unk_138:erase(index) end
 
----@class main_interface_assign_trade_current_type_tgi: DFContainer
+---@class _main_interface_assign_trade_current_type_tgi: DFContainer
 ---@field [integer] any[]
-local main_interface_assign_trade_current_type_tgi
+local _main_interface_assign_trade_current_type_tgi
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_assign_trade_current_type_tgi:_field(index) end
+function _main_interface_assign_trade_current_type_tgi:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_assign_trade_current_type_tgi:insert(index, item) end
+function _main_interface_assign_trade_current_type_tgi:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_trade_current_type_tgi:erase(index) end
+function _main_interface_assign_trade_current_type_tgi:erase(index) end
 
----@class main_interface_assign_trade_current_type_a_expanded: DFContainer
+---@class _main_interface_assign_trade_current_type_a_expanded: DFContainer
 ---@field [integer] any[]
-local main_interface_assign_trade_current_type_a_expanded
+local _main_interface_assign_trade_current_type_a_expanded
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_assign_trade_current_type_a_expanded:_field(index) end
+function _main_interface_assign_trade_current_type_a_expanded:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_assign_trade_current_type_a_expanded:insert(index, item) end
+function _main_interface_assign_trade_current_type_a_expanded:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_trade_current_type_a_expanded:erase(index) end
+function _main_interface_assign_trade_current_type_a_expanded:erase(index) end
 
----@class main_interface_assign_trade_current_type_a_on: DFContainer
+---@class _main_interface_assign_trade_current_type_a_on: DFContainer
 ---@field [integer] any[]
-local main_interface_assign_trade_current_type_a_on
+local _main_interface_assign_trade_current_type_a_on
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_assign_trade_current_type_a_on:_field(index) end
+function _main_interface_assign_trade_current_type_a_on:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_assign_trade_current_type_a_on:insert(index, item) end
+function _main_interface_assign_trade_current_type_a_on:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_trade_current_type_a_on:erase(index) end
+function _main_interface_assign_trade_current_type_a_on:erase(index) end
 
 ---@class (exact) main_interface.T_trade: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_trade
 ---@field open boolean
 ---@field choosing_merchant boolean
----@field merlist main_interface_trade_merlist
+---@field merlist _main_interface_trade_merlist
 ---@field scroll_position_merlist number
 ---@field scrolling_merlist boolean
 ---@field title string
@@ -4255,7 +4255,7 @@ function main_interface_assign_trade_current_type_a_on:erase(index) end
 ---@field buildlists number
 ---@field handle_appraisal number
 ---@field counter_offer boolean
----@field counter_offer_item main_interface_trade_counter_offer_item
+---@field counter_offer_item _main_interface_trade_counter_offer_item
 ---@field scroll_position_counter_offer number
 ---@field scrolling_counter_offer boolean
 ---@field entering_amount number
@@ -4268,53 +4268,53 @@ function main_interface_assign_trade_current_type_a_on:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_trade = {}
 
----@class main_interface_trade_merlist: DFContainer
+---@class _main_interface_trade_merlist: DFContainer
 ---@field [integer] caravan_state
-local main_interface_trade_merlist
+local _main_interface_trade_merlist
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<caravan_state>
-function main_interface_trade_merlist:_field(index) end
+function _main_interface_trade_merlist:_field(index) end
 
 ---@param index integer 
 ---@param item caravan_state 
-function main_interface_trade_merlist:insert(index, item) end
+function _main_interface_trade_merlist:insert(index, item) end
 
 ---@param index integer 
-function main_interface_trade_merlist:erase(index) end
+function _main_interface_trade_merlist:erase(index) end
 
----@class main_interface_trade_good: DFContainer
+---@class _main_interface_trade_good: DFContainer
 ---@field [integer] item
-local main_interface_trade_good
+local _main_interface_trade_good
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function main_interface_trade_good:_field(index) end
+function _main_interface_trade_good:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function main_interface_trade_good:insert(index, item) end
+function _main_interface_trade_good:insert(index, item) end
 
 ---@param index integer 
-function main_interface_trade_good:erase(index) end
+function _main_interface_trade_good:erase(index) end
 
----@class main_interface_trade_counter_offer_item: DFContainer
+---@class _main_interface_trade_counter_offer_item: DFContainer
 ---@field [integer] item
-local main_interface_trade_counter_offer_item
+local _main_interface_trade_counter_offer_item
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function main_interface_trade_counter_offer_item:_field(index) end
+function _main_interface_trade_counter_offer_item:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function main_interface_trade_counter_offer_item:insert(index, item) end
+function _main_interface_trade_counter_offer_item:insert(index, item) end
 
 ---@param index integer 
-function main_interface_trade_counter_offer_item:erase(index) end
+function _main_interface_trade_counter_offer_item:erase(index) end
 
 ---@class (exact) main_interface.T_diplomacy: DFObject
 ---@field _kind 'struct'
@@ -4385,66 +4385,66 @@ df.main_interface.T_petitions = {}
 ---@field storeamount DFNumberVector
 ---@field badamount DFNumberVector
 ---@field i_height number
----@field current_type_i_list main_interface_stocks_current_type_i_list
+---@field current_type_i_list _main_interface_stocks_current_type_i_list
 ---@field current_type_a_subtype DFNumberVector
 ---@field current_type_a_subcat1 DFNumberVector
 ---@field current_type_a_subcat2 DFNumberVector
 ---@field current_type_a_amount DFNumberVector
----@field current_type_a_expanded main_interface_stocks_current_type_a_expanded
----@field current_type_a_on main_interface_stocks_current_type_a_on
+---@field current_type_a_expanded _main_interface_stocks_current_type_a_expanded
+---@field current_type_a_on _main_interface_stocks_current_type_a_on
 ---@field current_type_a_flag DFIntegerVector
 
 ---@class _main_interface.T_stocks: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_stocks = {}
 
----@class main_interface_stocks_current_type_i_list: DFContainer
+---@class _main_interface_stocks_current_type_i_list: DFContainer
 ---@field [integer] item
-local main_interface_stocks_current_type_i_list
+local _main_interface_stocks_current_type_i_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function main_interface_stocks_current_type_i_list:_field(index) end
+function _main_interface_stocks_current_type_i_list:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function main_interface_stocks_current_type_i_list:insert(index, item) end
+function _main_interface_stocks_current_type_i_list:insert(index, item) end
 
 ---@param index integer 
-function main_interface_stocks_current_type_i_list:erase(index) end
+function _main_interface_stocks_current_type_i_list:erase(index) end
 
----@class main_interface_stocks_current_type_a_expanded: DFContainer
+---@class _main_interface_stocks_current_type_a_expanded: DFContainer
 ---@field [integer] any[]
-local main_interface_stocks_current_type_a_expanded
+local _main_interface_stocks_current_type_a_expanded
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_stocks_current_type_a_expanded:_field(index) end
+function _main_interface_stocks_current_type_a_expanded:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_stocks_current_type_a_expanded:insert(index, item) end
+function _main_interface_stocks_current_type_a_expanded:insert(index, item) end
 
 ---@param index integer 
-function main_interface_stocks_current_type_a_expanded:erase(index) end
+function _main_interface_stocks_current_type_a_expanded:erase(index) end
 
----@class main_interface_stocks_current_type_a_on: DFContainer
+---@class _main_interface_stocks_current_type_a_on: DFContainer
 ---@field [integer] any[]
-local main_interface_stocks_current_type_a_on
+local _main_interface_stocks_current_type_a_on
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_stocks_current_type_a_on:_field(index) end
+function _main_interface_stocks_current_type_a_on:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_stocks_current_type_a_on:insert(index, item) end
+function _main_interface_stocks_current_type_a_on:insert(index, item) end
 
 ---@param index integer 
-function main_interface_stocks_current_type_a_on:erase(index) end
+function _main_interface_stocks_current_type_a_on:erase(index) end
 
 ---@class (exact) main_interface.T_assign_display_item: DFObject
 ---@field _kind 'struct'
@@ -4464,65 +4464,65 @@ function main_interface_stocks_current_type_a_on:erase(index) end
 ---@field storeamount DFNumberVector
 ---@field badamount DFNumberVector
 ---@field i_height number
----@field current_type_i_list main_interface_assign_display_item_current_type_i_list
+---@field current_type_i_list _main_interface_assign_display_item_current_type_i_list
 ---@field current_type_a_subtype DFNumberVector
 ---@field current_type_a_subcat1 DFNumberVector
 ---@field current_type_a_subcat2 DFNumberVector
 ---@field current_type_a_amount DFNumberVector
----@field current_type_a_expanded main_interface_assign_display_item_current_type_a_expanded
----@field current_type_a_on main_interface_assign_display_item_current_type_a_on
+---@field current_type_a_expanded _main_interface_assign_display_item_current_type_a_expanded
+---@field current_type_a_on _main_interface_assign_display_item_current_type_a_on
 
 ---@class _main_interface.T_assign_display_item: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_display_item = {}
 
----@class main_interface_assign_display_item_current_type_i_list: DFContainer
+---@class _main_interface_assign_display_item_current_type_i_list: DFContainer
 ---@field [integer] item
-local main_interface_assign_display_item_current_type_i_list
+local _main_interface_assign_display_item_current_type_i_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function main_interface_assign_display_item_current_type_i_list:_field(index) end
+function _main_interface_assign_display_item_current_type_i_list:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function main_interface_assign_display_item_current_type_i_list:insert(index, item) end
+function _main_interface_assign_display_item_current_type_i_list:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_display_item_current_type_i_list:erase(index) end
+function _main_interface_assign_display_item_current_type_i_list:erase(index) end
 
----@class main_interface_assign_display_item_current_type_a_expanded: DFContainer
+---@class _main_interface_assign_display_item_current_type_a_expanded: DFContainer
 ---@field [integer] any[]
-local main_interface_assign_display_item_current_type_a_expanded
+local _main_interface_assign_display_item_current_type_a_expanded
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_assign_display_item_current_type_a_expanded:_field(index) end
+function _main_interface_assign_display_item_current_type_a_expanded:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_assign_display_item_current_type_a_expanded:insert(index, item) end
+function _main_interface_assign_display_item_current_type_a_expanded:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_display_item_current_type_a_expanded:erase(index) end
+function _main_interface_assign_display_item_current_type_a_expanded:erase(index) end
 
----@class main_interface_assign_display_item_current_type_a_on: DFContainer
+---@class _main_interface_assign_display_item_current_type_a_on: DFContainer
 ---@field [integer] any[]
-local main_interface_assign_display_item_current_type_a_on
+local _main_interface_assign_display_item_current_type_a_on
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_assign_display_item_current_type_a_on:_field(index) end
+function _main_interface_assign_display_item_current_type_a_on:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_assign_display_item_current_type_a_on:insert(index, item) end
+function _main_interface_assign_display_item_current_type_a_on:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_display_item_current_type_a_on:erase(index) end
+function _main_interface_assign_display_item_current_type_a_on:erase(index) end
 
 ---@class (exact) main_interface.T_name_creator: DFObject
 ---@field _kind 'struct'
@@ -4571,24 +4571,24 @@ df.main_interface.T_name_creator = {}
 ---@field artifact_master DFIntegerVector artifact ptr, native name, translated name
 ---@field hf_master DFIntegerVector histfig ptr, native name, translated name
 ---@field property_master DFIntegerVector art property type, bool transitive, name
----@field hf main_interface_image_creator_hf
----@field st main_interface_image_creator_st
----@field ent main_interface_image_creator_ent
----@field hist_event main_interface_image_creator_hist_event
----@field art_image main_interface_image_creator_art_image
+---@field hf _main_interface_image_creator_hf
+---@field st _main_interface_image_creator_st
+---@field ent _main_interface_image_creator_ent
+---@field hist_event _main_interface_image_creator_hist_event
+---@field art_image _main_interface_image_creator_art_image
 ---@field new_image art_image
 ---@field new_image_race DFNumberVector
 ---@field new_image_caste DFNumberVector
----@field new_image_hf main_interface_image_creator_new_image_hf
+---@field new_image_hf _main_interface_image_creator_new_image_hf
 ---@field new_image_plant DFNumberVector
 ---@field new_image_tree DFNumberVector
 ---@field new_image_shape DFNumberVector
 ---@field new_image_shape_adj DFNumberVector
 ---@field new_image_item DFNumberVector
 ---@field new_image_item_subtype DFNumberVector
----@field new_image_artifact main_interface_image_creator_new_image_artifact
+---@field new_image_artifact _main_interface_image_creator_new_image_artifact
 ---@field new_image_property DFNumberVector
----@field new_image_property_transitive main_interface_image_creator_new_image_property_transitive
+---@field new_image_property_transitive _main_interface_image_creator_new_image_property_transitive
 ---@field new_image_property_actor_target DFNumberVector
 ---@field new_image_active_property number
 ---@field new_image_active_property_transitive boolean
@@ -4610,133 +4610,133 @@ df.main_interface.T_name_creator = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_image_creator = {}
 
----@class main_interface_image_creator_hf: DFContainer
+---@class _main_interface_image_creator_hf: DFContainer
 ---@field [integer] historical_figure
-local main_interface_image_creator_hf
+local _main_interface_image_creator_hf
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function main_interface_image_creator_hf:_field(index) end
+function _main_interface_image_creator_hf:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function main_interface_image_creator_hf:insert(index, item) end
+function _main_interface_image_creator_hf:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_hf:erase(index) end
+function _main_interface_image_creator_hf:erase(index) end
 
----@class main_interface_image_creator_st: DFContainer
+---@class _main_interface_image_creator_st: DFContainer
 ---@field [integer] world_site
-local main_interface_image_creator_st
+local _main_interface_image_creator_st
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<world_site>
-function main_interface_image_creator_st:_field(index) end
+function _main_interface_image_creator_st:_field(index) end
 
 ---@param index integer 
 ---@param item world_site 
-function main_interface_image_creator_st:insert(index, item) end
+function _main_interface_image_creator_st:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_st:erase(index) end
+function _main_interface_image_creator_st:erase(index) end
 
----@class main_interface_image_creator_ent: DFContainer
+---@class _main_interface_image_creator_ent: DFContainer
 ---@field [integer] historical_entity
-local main_interface_image_creator_ent
+local _main_interface_image_creator_ent
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_entity>
-function main_interface_image_creator_ent:_field(index) end
+function _main_interface_image_creator_ent:_field(index) end
 
 ---@param index integer 
 ---@param item historical_entity 
-function main_interface_image_creator_ent:insert(index, item) end
+function _main_interface_image_creator_ent:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_ent:erase(index) end
+function _main_interface_image_creator_ent:erase(index) end
 
----@class main_interface_image_creator_hist_event: DFContainer
+---@class _main_interface_image_creator_hist_event: DFContainer
 ---@field [integer] history_event
-local main_interface_image_creator_hist_event
+local _main_interface_image_creator_hist_event
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<history_event>
-function main_interface_image_creator_hist_event:_field(index) end
+function _main_interface_image_creator_hist_event:_field(index) end
 
 ---@param index integer 
 ---@param item history_event 
-function main_interface_image_creator_hist_event:insert(index, item) end
+function _main_interface_image_creator_hist_event:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_hist_event:erase(index) end
+function _main_interface_image_creator_hist_event:erase(index) end
 
----@class main_interface_image_creator_art_image: DFContainer
+---@class _main_interface_image_creator_art_image: DFContainer
 ---@field [integer] art_image
-local main_interface_image_creator_art_image
+local _main_interface_image_creator_art_image
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<art_image>
-function main_interface_image_creator_art_image:_field(index) end
+function _main_interface_image_creator_art_image:_field(index) end
 
 ---@param index integer 
 ---@param item art_image 
-function main_interface_image_creator_art_image:insert(index, item) end
+function _main_interface_image_creator_art_image:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_art_image:erase(index) end
+function _main_interface_image_creator_art_image:erase(index) end
 
----@class main_interface_image_creator_new_image_hf: DFContainer
+---@class _main_interface_image_creator_new_image_hf: DFContainer
 ---@field [integer] historical_figure
-local main_interface_image_creator_new_image_hf
+local _main_interface_image_creator_new_image_hf
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function main_interface_image_creator_new_image_hf:_field(index) end
+function _main_interface_image_creator_new_image_hf:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function main_interface_image_creator_new_image_hf:insert(index, item) end
+function _main_interface_image_creator_new_image_hf:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_new_image_hf:erase(index) end
+function _main_interface_image_creator_new_image_hf:erase(index) end
 
----@class main_interface_image_creator_new_image_artifact: DFContainer
+---@class _main_interface_image_creator_new_image_artifact: DFContainer
 ---@field [integer] artifact_record
-local main_interface_image_creator_new_image_artifact
+local _main_interface_image_creator_new_image_artifact
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<artifact_record>
-function main_interface_image_creator_new_image_artifact:_field(index) end
+function _main_interface_image_creator_new_image_artifact:_field(index) end
 
 ---@param index integer 
 ---@param item artifact_record 
-function main_interface_image_creator_new_image_artifact:insert(index, item) end
+function _main_interface_image_creator_new_image_artifact:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_new_image_artifact:erase(index) end
+function _main_interface_image_creator_new_image_artifact:erase(index) end
 
----@class main_interface_image_creator_new_image_property_transitive: DFContainer
+---@class _main_interface_image_creator_new_image_property_transitive: DFContainer
 ---@field [integer] any[]
-local main_interface_image_creator_new_image_property_transitive
+local _main_interface_image_creator_new_image_property_transitive
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_image_creator_new_image_property_transitive:_field(index) end
+function _main_interface_image_creator_new_image_property_transitive:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_image_creator_new_image_property_transitive:insert(index, item) end
+function _main_interface_image_creator_new_image_property_transitive:insert(index, item) end
 
 ---@param index integer 
-function main_interface_image_creator_new_image_property_transitive:erase(index) end
+function _main_interface_image_creator_new_image_property_transitive:erase(index) end
 
 ---@class (exact) main_interface.T_image_creator.T_ics: DFObject
 ---@field _kind 'struct'
@@ -4761,9 +4761,9 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field open boolean
 ---@field viewing_alert report
 ---@field viewing_alert_button boolean
----@field zoom_line_is_start main_interface_announcement_alert_zoom_line_is_start
----@field zoom_line_ann main_interface_announcement_alert_zoom_line_ann
----@field zoom_line_unit main_interface_announcement_alert_zoom_line_unit
+---@field zoom_line_is_start _main_interface_announcement_alert_zoom_line_is_start
+---@field zoom_line_ann _main_interface_announcement_alert_zoom_line_ann
+---@field zoom_line_unit _main_interface_announcement_alert_zoom_line_unit
 ---@field zoom_line_unit_uac DFNumberVector
 ---@field alert_text DFStringVector
 ---@field alert_width number
@@ -4772,8 +4772,8 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field scrolling_alert boolean
 ---@field viewing_unit unit
 ---@field viewing_unit_uac number
----@field uac_zoom_line_is_start main_interface_announcement_alert_uac_zoom_line_is_start
----@field uac_zoom_line_ann main_interface_announcement_alert_uac_zoom_line_ann
+---@field uac_zoom_line_is_start _main_interface_announcement_alert_uac_zoom_line_is_start
+---@field uac_zoom_line_ann _main_interface_announcement_alert_uac_zoom_line_ann
 ---@field uac_text DFStringVector
 ---@field uac_width number
 ---@field uac_list_size number
@@ -4784,85 +4784,85 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_announcement_alert = {}
 
----@class main_interface_announcement_alert_zoom_line_is_start: DFContainer
+---@class _main_interface_announcement_alert_zoom_line_is_start: DFContainer
 ---@field [integer] any[]
-local main_interface_announcement_alert_zoom_line_is_start
+local _main_interface_announcement_alert_zoom_line_is_start
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_announcement_alert_zoom_line_is_start:_field(index) end
+function _main_interface_announcement_alert_zoom_line_is_start:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_announcement_alert_zoom_line_is_start:insert(index, item) end
+function _main_interface_announcement_alert_zoom_line_is_start:insert(index, item) end
 
 ---@param index integer 
-function main_interface_announcement_alert_zoom_line_is_start:erase(index) end
+function _main_interface_announcement_alert_zoom_line_is_start:erase(index) end
 
----@class main_interface_announcement_alert_zoom_line_ann: DFContainer
+---@class _main_interface_announcement_alert_zoom_line_ann: DFContainer
 ---@field [integer] report
-local main_interface_announcement_alert_zoom_line_ann
+local _main_interface_announcement_alert_zoom_line_ann
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<report>
-function main_interface_announcement_alert_zoom_line_ann:_field(index) end
+function _main_interface_announcement_alert_zoom_line_ann:_field(index) end
 
 ---@param index integer 
 ---@param item report 
-function main_interface_announcement_alert_zoom_line_ann:insert(index, item) end
+function _main_interface_announcement_alert_zoom_line_ann:insert(index, item) end
 
 ---@param index integer 
-function main_interface_announcement_alert_zoom_line_ann:erase(index) end
+function _main_interface_announcement_alert_zoom_line_ann:erase(index) end
 
----@class main_interface_announcement_alert_zoom_line_unit: DFContainer
+---@class _main_interface_announcement_alert_zoom_line_unit: DFContainer
 ---@field [integer] unit
-local main_interface_announcement_alert_zoom_line_unit
+local _main_interface_announcement_alert_zoom_line_unit
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit>
-function main_interface_announcement_alert_zoom_line_unit:_field(index) end
+function _main_interface_announcement_alert_zoom_line_unit:_field(index) end
 
 ---@param index integer 
 ---@param item unit 
-function main_interface_announcement_alert_zoom_line_unit:insert(index, item) end
+function _main_interface_announcement_alert_zoom_line_unit:insert(index, item) end
 
 ---@param index integer 
-function main_interface_announcement_alert_zoom_line_unit:erase(index) end
+function _main_interface_announcement_alert_zoom_line_unit:erase(index) end
 
----@class main_interface_announcement_alert_uac_zoom_line_is_start: DFContainer
+---@class _main_interface_announcement_alert_uac_zoom_line_is_start: DFContainer
 ---@field [integer] any[]
-local main_interface_announcement_alert_uac_zoom_line_is_start
+local _main_interface_announcement_alert_uac_zoom_line_is_start
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_announcement_alert_uac_zoom_line_is_start:_field(index) end
+function _main_interface_announcement_alert_uac_zoom_line_is_start:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_announcement_alert_uac_zoom_line_is_start:insert(index, item) end
+function _main_interface_announcement_alert_uac_zoom_line_is_start:insert(index, item) end
 
 ---@param index integer 
-function main_interface_announcement_alert_uac_zoom_line_is_start:erase(index) end
+function _main_interface_announcement_alert_uac_zoom_line_is_start:erase(index) end
 
----@class main_interface_announcement_alert_uac_zoom_line_ann: DFContainer
+---@class _main_interface_announcement_alert_uac_zoom_line_ann: DFContainer
 ---@field [integer] report
-local main_interface_announcement_alert_uac_zoom_line_ann
+local _main_interface_announcement_alert_uac_zoom_line_ann
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<report>
-function main_interface_announcement_alert_uac_zoom_line_ann:_field(index) end
+function _main_interface_announcement_alert_uac_zoom_line_ann:_field(index) end
 
 ---@param index integer 
 ---@param item report 
-function main_interface_announcement_alert_uac_zoom_line_ann:insert(index, item) end
+function _main_interface_announcement_alert_uac_zoom_line_ann:insert(index, item) end
 
 ---@param index integer 
-function main_interface_announcement_alert_uac_zoom_line_ann:erase(index) end
+function _main_interface_announcement_alert_uac_zoom_line_ann:erase(index) end
 
 ---@class (exact) main_interface.T_custom_symbol: DFObject
 ---@field _kind 'struct'
@@ -4894,7 +4894,7 @@ df.main_interface.T_custom_symbol = {}
 ---@field new_route_name string
 ---@field entering_new_route_name boolean
 ---@field new_point coord_path
----@field route_line main_interface_patrol_routes_route_line patrol_route_linest
+---@field route_line _main_interface_patrol_routes_route_line patrol_route_linest
 ---@field add_is_edit_of_route_id number
 ---@field changed_points_on_edit boolean
 
@@ -4902,21 +4902,21 @@ df.main_interface.T_custom_symbol = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_patrol_routes = {}
 
----@class main_interface_patrol_routes_route_line: DFContainer
+---@class _main_interface_patrol_routes_route_line: DFContainer
 ---@field [integer] coord_path
-local main_interface_patrol_routes_route_line
+local _main_interface_patrol_routes_route_line
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<coord_path>
-function main_interface_patrol_routes_route_line:_field(index) end
+function _main_interface_patrol_routes_route_line:_field(index) end
 
 ---@param index integer 
 ---@param item coord_path 
-function main_interface_patrol_routes_route_line:insert(index, item) end
+function _main_interface_patrol_routes_route_line:insert(index, item) end
 
 ---@param index integer 
-function main_interface_patrol_routes_route_line:erase(index) end
+function _main_interface_patrol_routes_route_line:erase(index) end
 
 ---@class (exact) main_interface.T_squad_equipment: DFObject
 ---@field _kind 'struct'
@@ -4953,7 +4953,7 @@ function main_interface_patrol_routes_route_line:erase(index) end
 ---@field cs_add_list_type DFNumberVector
 ---@field cs_add_list_subtype DFNumberVector
 ---@field cs_add_list_flag DFIntegerVector
----@field cs_add_list_is_foreign main_interface_squad_equipment_cs_add_list_is_foreign
+---@field cs_add_list_is_foreign _main_interface_squad_equipment_cs_add_list_is_foreign
 ---@field cs_setting_material boolean
 ---@field cs_setting_list_ind number
 ---@field cs_setting_material_ent DFNumberVector EntityMaterial
@@ -4961,7 +4961,7 @@ function main_interface_patrol_routes_route_line:erase(index) end
 ---@field cs_setting_material_matg DFNumberVector
 ---@field cs_setting_color_pattern boolean
 ---@field cs_setting_color_pattern_index DFNumberVector ColoredPattern
----@field cs_setting_color_pattern_is_dye main_interface_squad_equipment_cs_setting_color_pattern_is_dye
+---@field cs_setting_color_pattern_is_dye _main_interface_squad_equipment_cs_setting_color_pattern_is_dye
 ---@field cs_adding_specific_item boolean
 ---@field cs_add_spec_id DFNumberVector
 
@@ -4969,37 +4969,37 @@ function main_interface_patrol_routes_route_line:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_equipment = {}
 
----@class main_interface_squad_equipment_cs_add_list_is_foreign: DFContainer
+---@class _main_interface_squad_equipment_cs_add_list_is_foreign: DFContainer
 ---@field [integer] any[]
-local main_interface_squad_equipment_cs_add_list_is_foreign
+local _main_interface_squad_equipment_cs_add_list_is_foreign
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_squad_equipment_cs_add_list_is_foreign:_field(index) end
+function _main_interface_squad_equipment_cs_add_list_is_foreign:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_squad_equipment_cs_add_list_is_foreign:insert(index, item) end
+function _main_interface_squad_equipment_cs_add_list_is_foreign:insert(index, item) end
 
 ---@param index integer 
-function main_interface_squad_equipment_cs_add_list_is_foreign:erase(index) end
+function _main_interface_squad_equipment_cs_add_list_is_foreign:erase(index) end
 
----@class main_interface_squad_equipment_cs_setting_color_pattern_is_dye: DFContainer
+---@class _main_interface_squad_equipment_cs_setting_color_pattern_is_dye: DFContainer
 ---@field [integer] any[]
-local main_interface_squad_equipment_cs_setting_color_pattern_is_dye
+local _main_interface_squad_equipment_cs_setting_color_pattern_is_dye
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_squad_equipment_cs_setting_color_pattern_is_dye:_field(index) end
+function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_squad_equipment_cs_setting_color_pattern_is_dye:insert(index, item) end
+function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:insert(index, item) end
 
 ---@param index integer 
-function main_interface_squad_equipment_cs_setting_color_pattern_is_dye:erase(index) end
+function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:erase(index) end
 
 ---@class (exact) main_interface.T_squad_schedule: DFObject
 ---@field _kind 'struct'
@@ -5049,7 +5049,7 @@ df.main_interface.T_squad_selector = {}
 ---@field open boolean
 ---@field context burrow_selector_context_type
 ---@field burrow_id DFNumberVector
----@field selected main_interface_burrow_selector_selected
+---@field selected _main_interface_burrow_selector_selected
 ---@field scroll_position number
 ---@field scrolling number
 
@@ -5057,28 +5057,28 @@ df.main_interface.T_squad_selector = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_burrow_selector = {}
 
----@class main_interface_burrow_selector_selected: DFContainer
+---@class _main_interface_burrow_selector_selected: DFContainer
 ---@field [integer] any[]
-local main_interface_burrow_selector_selected
+local _main_interface_burrow_selector_selected
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_burrow_selector_selected:_field(index) end
+function _main_interface_burrow_selector_selected:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_burrow_selector_selected:insert(index, item) end
+function _main_interface_burrow_selector_selected:insert(index, item) end
 
 ---@param index integer 
-function main_interface_burrow_selector_selected:erase(index) end
+function _main_interface_burrow_selector_selected:erase(index) end
 
 ---@class (exact) main_interface.T_location_selector: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_location_selector
 ---@field open boolean
 ---@field context location_selector_context_type
----@field valid_ab main_interface_location_selector_valid_ab
+---@field valid_ab _main_interface_location_selector_valid_ab
 ---@field scroll_position_location number
 ---@field scrolling_location boolean
 ---@field current_hover_index number
@@ -5088,7 +5088,7 @@ function main_interface_burrow_selector_selected:erase(index) end
 ---@field scrolling_deity boolean
 ---@field choosing_craft_guild boolean
 ---@field valid_religious_practice_id DFNumberVector
----@field valid_craft_guild_type main_interface_location_selector_valid_craft_guild_type
+---@field valid_craft_guild_type _main_interface_location_selector_valid_craft_guild_type
 ---@field scroll_position_guild number
 ---@field scrolling_guild boolean
 
@@ -5096,37 +5096,37 @@ function main_interface_burrow_selector_selected:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_location_selector = {}
 
----@class main_interface_location_selector_valid_ab: DFContainer
+---@class _main_interface_location_selector_valid_ab: DFContainer
 ---@field [integer] abstract_building
-local main_interface_location_selector_valid_ab
+local _main_interface_location_selector_valid_ab
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<abstract_building>
-function main_interface_location_selector_valid_ab:_field(index) end
+function _main_interface_location_selector_valid_ab:_field(index) end
 
 ---@param index integer 
 ---@param item abstract_building 
-function main_interface_location_selector_valid_ab:insert(index, item) end
+function _main_interface_location_selector_valid_ab:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_selector_valid_ab:erase(index) end
+function _main_interface_location_selector_valid_ab:erase(index) end
 
----@class main_interface_location_selector_valid_craft_guild_type: DFContainer
+---@class _main_interface_location_selector_valid_craft_guild_type: DFContainer
 ---@field [integer] profession
-local main_interface_location_selector_valid_craft_guild_type
+local _main_interface_location_selector_valid_craft_guild_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<profession>
-function main_interface_location_selector_valid_craft_guild_type:_field(index) end
+function _main_interface_location_selector_valid_craft_guild_type:_field(index) end
 
 ---@param index integer 
 ---@param item profession 
-function main_interface_location_selector_valid_craft_guild_type:insert(index, item) end
+function _main_interface_location_selector_valid_craft_guild_type:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_selector_valid_craft_guild_type:erase(index) end
+function _main_interface_location_selector_valid_craft_guild_type:erase(index) end
 
 ---@class (exact) main_interface.T_location_details: DFObject
 ---@field _kind 'struct'
@@ -5137,10 +5137,10 @@ function main_interface_location_selector_valid_craft_guild_type:erase(index) en
 ---@field open_area_dx number
 ---@field open_area_dy number
 ---@field wc_count number
----@field loc_occupation main_interface_location_details_loc_occupation
----@field loc_ent main_interface_location_details_loc_ent
----@field loc_position main_interface_location_details_loc_position
----@field loc_epp main_interface_location_details_loc_epp
+---@field loc_occupation _main_interface_location_details_loc_occupation
+---@field loc_ent _main_interface_location_details_loc_ent
+---@field loc_position _main_interface_location_details_loc_position
+---@field loc_epp _main_interface_location_details_loc_epp
 ---@field scroll_position_occupation number
 ---@field scrolling_occupation boolean
 ---@field desired_number_str string
@@ -5150,69 +5150,69 @@ function main_interface_location_selector_valid_craft_guild_type:erase(index) en
 ---@field _kind 'struct-type'
 df.main_interface.T_location_details = {}
 
----@class main_interface_location_details_loc_occupation: DFContainer
+---@class _main_interface_location_details_loc_occupation: DFContainer
 ---@field [integer] occupation
-local main_interface_location_details_loc_occupation
+local _main_interface_location_details_loc_occupation
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<occupation>
-function main_interface_location_details_loc_occupation:_field(index) end
+function _main_interface_location_details_loc_occupation:_field(index) end
 
 ---@param index integer 
 ---@param item occupation 
-function main_interface_location_details_loc_occupation:insert(index, item) end
+function _main_interface_location_details_loc_occupation:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_details_loc_occupation:erase(index) end
+function _main_interface_location_details_loc_occupation:erase(index) end
 
----@class main_interface_location_details_loc_ent: DFContainer
+---@class _main_interface_location_details_loc_ent: DFContainer
 ---@field [integer] historical_entity
-local main_interface_location_details_loc_ent
+local _main_interface_location_details_loc_ent
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_entity>
-function main_interface_location_details_loc_ent:_field(index) end
+function _main_interface_location_details_loc_ent:_field(index) end
 
 ---@param index integer 
 ---@param item historical_entity 
-function main_interface_location_details_loc_ent:insert(index, item) end
+function _main_interface_location_details_loc_ent:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_details_loc_ent:erase(index) end
+function _main_interface_location_details_loc_ent:erase(index) end
 
----@class main_interface_location_details_loc_position: DFContainer
+---@class _main_interface_location_details_loc_position: DFContainer
 ---@field [integer] entity_position
-local main_interface_location_details_loc_position
+local _main_interface_location_details_loc_position
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position>
-function main_interface_location_details_loc_position:_field(index) end
+function _main_interface_location_details_loc_position:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position 
-function main_interface_location_details_loc_position:insert(index, item) end
+function _main_interface_location_details_loc_position:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_details_loc_position:erase(index) end
+function _main_interface_location_details_loc_position:erase(index) end
 
----@class main_interface_location_details_loc_epp: DFContainer
+---@class _main_interface_location_details_loc_epp: DFContainer
 ---@field [integer] entity_position_assignment
-local main_interface_location_details_loc_epp
+local _main_interface_location_details_loc_epp
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position_assignment>
-function main_interface_location_details_loc_epp:_field(index) end
+function _main_interface_location_details_loc_epp:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position_assignment 
-function main_interface_location_details_loc_epp:insert(index, item) end
+function _main_interface_location_details_loc_epp:insert(index, item) end
 
 ---@param index integer 
-function main_interface_location_details_loc_epp:erase(index) end
+function _main_interface_location_details_loc_epp:erase(index) end
 
 ---@class (exact) main_interface.T_hauling_stop_conditions: DFObject
 ---@field _kind 'struct'
@@ -5233,7 +5233,7 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@field _type _main_interface.T_assign_vehicle
 ---@field open boolean
 ---@field context assign_vehicle_context_type
----@field i_vehicle main_interface_assign_vehicle_i_vehicle
+---@field i_vehicle _main_interface_assign_vehicle_i_vehicle
 ---@field route_id number
 ---@field scroll_position number
 ---@field scrolling boolean
@@ -5242,21 +5242,21 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_vehicle = {}
 
----@class main_interface_assign_vehicle_i_vehicle: DFContainer
+---@class _main_interface_assign_vehicle_i_vehicle: DFContainer
 ---@field [integer] vehicle
-local main_interface_assign_vehicle_i_vehicle
+local _main_interface_assign_vehicle_i_vehicle
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<vehicle>
-function main_interface_assign_vehicle_i_vehicle:_field(index) end
+function _main_interface_assign_vehicle_i_vehicle:_field(index) end
 
 ---@param index integer 
 ---@param item vehicle 
-function main_interface_assign_vehicle_i_vehicle:insert(index, item) end
+function _main_interface_assign_vehicle_i_vehicle:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_vehicle_i_vehicle:erase(index) end
+function _main_interface_assign_vehicle_i_vehicle:erase(index) end
 
 ---@class (exact) main_interface.T_stockpile: DFObject
 ---@field _kind 'struct'
@@ -5320,12 +5320,12 @@ df.main_interface.T_stockpile_tools = {}
 ---@field cur_main_mode stockpile_list
 ---@field cur_main_mode_flag integer
 ---@field cur_sub_mode stockpile_list
----@field main_mode main_interface_custom_stockpile_main_mode
+---@field main_mode _main_interface_custom_stockpile_main_mode
 ---@field main_mode_flag DFIntegerVector
----@field sub_mode main_interface_custom_stockpile_sub_mode
----@field sub_mode_ptr_type main_interface_custom_stockpile_sub_mode_ptr_type
+---@field sub_mode _main_interface_custom_stockpile_sub_mode
+---@field sub_mode_ptr_type _main_interface_custom_stockpile_sub_mode_ptr_type
 ---@field sub_mode_ptr DFNumberVector
----@field spec_item main_interface_custom_stockpile_spec_item
+---@field spec_item _main_interface_custom_stockpile_spec_item
 ---@field cur_spec_item_sz number
 ---@field counted_cur_spec_item_sz number
 
@@ -5333,69 +5333,69 @@ df.main_interface.T_stockpile_tools = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_custom_stockpile = {}
 
----@class main_interface_custom_stockpile_main_mode: DFContainer
+---@class _main_interface_custom_stockpile_main_mode: DFContainer
 ---@field [integer] stockpile_list
-local main_interface_custom_stockpile_main_mode
+local _main_interface_custom_stockpile_main_mode
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<stockpile_list>
-function main_interface_custom_stockpile_main_mode:_field(index) end
+function _main_interface_custom_stockpile_main_mode:_field(index) end
 
 ---@param index integer 
 ---@param item stockpile_list 
-function main_interface_custom_stockpile_main_mode:insert(index, item) end
+function _main_interface_custom_stockpile_main_mode:insert(index, item) end
 
 ---@param index integer 
-function main_interface_custom_stockpile_main_mode:erase(index) end
+function _main_interface_custom_stockpile_main_mode:erase(index) end
 
----@class main_interface_custom_stockpile_sub_mode: DFContainer
+---@class _main_interface_custom_stockpile_sub_mode: DFContainer
 ---@field [integer] stockpile_list
-local main_interface_custom_stockpile_sub_mode
+local _main_interface_custom_stockpile_sub_mode
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<stockpile_list>
-function main_interface_custom_stockpile_sub_mode:_field(index) end
+function _main_interface_custom_stockpile_sub_mode:_field(index) end
 
 ---@param index integer 
 ---@param item stockpile_list 
-function main_interface_custom_stockpile_sub_mode:insert(index, item) end
+function _main_interface_custom_stockpile_sub_mode:insert(index, item) end
 
 ---@param index integer 
-function main_interface_custom_stockpile_sub_mode:erase(index) end
+function _main_interface_custom_stockpile_sub_mode:erase(index) end
 
----@class main_interface_custom_stockpile_sub_mode_ptr_type: DFContainer
+---@class _main_interface_custom_stockpile_sub_mode_ptr_type: DFContainer
 ---@field [integer] stock_pile_pointer_type
-local main_interface_custom_stockpile_sub_mode_ptr_type
+local _main_interface_custom_stockpile_sub_mode_ptr_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<stock_pile_pointer_type>
-function main_interface_custom_stockpile_sub_mode_ptr_type:_field(index) end
+function _main_interface_custom_stockpile_sub_mode_ptr_type:_field(index) end
 
 ---@param index integer 
 ---@param item stock_pile_pointer_type 
-function main_interface_custom_stockpile_sub_mode_ptr_type:insert(index, item) end
+function _main_interface_custom_stockpile_sub_mode_ptr_type:insert(index, item) end
 
 ---@param index integer 
-function main_interface_custom_stockpile_sub_mode_ptr_type:erase(index) end
+function _main_interface_custom_stockpile_sub_mode_ptr_type:erase(index) end
 
----@class main_interface_custom_stockpile_spec_item: DFContainer
+---@class _main_interface_custom_stockpile_spec_item: DFContainer
 ---@field [integer] DFPointer<integer>
-local main_interface_custom_stockpile_spec_item
+local _main_interface_custom_stockpile_spec_item
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function main_interface_custom_stockpile_spec_item:_field(index) end
+function _main_interface_custom_stockpile_spec_item:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function main_interface_custom_stockpile_spec_item:insert(index, item) end
+function _main_interface_custom_stockpile_spec_item:insert(index, item) end
 
 ---@param index integer 
-function main_interface_custom_stockpile_spec_item:erase(index) end
+function _main_interface_custom_stockpile_spec_item:erase(index) end
 
 ---@class (exact) main_interface.T_view_sheets: DFObject
 ---@field _kind 'struct'
@@ -5412,7 +5412,7 @@ function main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field viewing_z number
 ---@field scroll_position number
 ---@field scrolling boolean
----@field tab main_interface_view_sheets_tab
+---@field tab _main_interface_view_sheets_tab
 ---@field tab_id DFNumberVector
 ---@field active_sub_tab number
 ---@field trait view_sheet_trait_type[]
@@ -5434,9 +5434,9 @@ function main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field other_skill_val DFEnumVector<job_skill, number>
 ---@field other_skill_w_rust DFEnumVector<job_skill, number>
 ---@field other_skill_num number
----@field ent_vect main_interface_view_sheets_ent_vect
----@field ep_vect main_interface_view_sheets_ep_vect
----@field ep_vect_spouse main_interface_view_sheets_ep_vect_spouse
+---@field ent_vect _main_interface_view_sheets_ent_vect
+---@field ep_vect _main_interface_view_sheets_ep_vect
+---@field ep_vect_spouse _main_interface_view_sheets_ep_vect_spouse
 ---@field unmet_need_type DFEnumVector<need_type, number>
 ---@field unmet_need_spec_id DFEnumVector<need_type, number>
 ---@field unmet_need_se DFEnumVector<need_type, number>
@@ -5452,9 +5452,9 @@ function main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field relation DFNumberVector
 ---@field relation_f DFNumberVector
 ---@field rel_unid DFNumberVector
----@field rel_hf main_interface_view_sheets_rel_hf
----@field rel_rphv main_interface_view_sheets_rel_rphv relationship_profile_hf_visualst
----@field rel_rphh main_interface_view_sheets_rel_rphh relationship_profile_hf_historicalst
+---@field rel_hf _main_interface_view_sheets_rel_hf
+---@field rel_rphv _main_interface_view_sheets_rel_rphv relationship_profile_hf_visualst
+---@field rel_rphh _main_interface_view_sheets_rel_rphh relationship_profile_hf_historicalst
 ---@field rel_value DFNumberVector
 ---@field unit_overview_customizing boolean
 ---@field unit_overview_entering_nickname boolean
@@ -5474,7 +5474,7 @@ function main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field unit_group_hfel DFNumberVector
 ---@field unit_group_epid DFNumberVector
 ---@field unit_group_eppid DFNumberVector
----@field unit_group_ep_is_spouse main_interface_view_sheets_unit_group_ep_is_spouse
+---@field unit_group_ep_is_spouse _main_interface_view_sheets_unit_group_ep_is_spouse
 ---@field unit_group_rep DFNumberVector
 ---@field unit_group_rep_level DFNumberVector
 ---@field scroll_position_thoughts number
@@ -5500,10 +5500,10 @@ function main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field scroll_position_skill_description number
 ---@field scrolling_skill_description boolean
 ---@field unit_skill_active_tab number
----@field unit_skill main_interface_view_sheets_unit_skill
+---@field unit_skill _main_interface_view_sheets_unit_skill
 ---@field unit_skill_val DFNumberVector
 ---@field unit_skill_val_w_rust DFNumberVector
----@field unit_knowledge_type main_interface_view_sheets_unit_knowledge_type
+---@field unit_knowledge_type _main_interface_view_sheets_unit_knowledge_type
 ---@field unit_knowledge_id DFNumberVector
 ---@field unit_knowledge_bits DFIntegerVector
 ---@field skill_description_raw_str DFStringVector
@@ -5573,165 +5573,165 @@ function main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_view_sheets = {}
 
----@class main_interface_view_sheets_tab: DFContainer
+---@class _main_interface_view_sheets_tab: DFContainer
 ---@field [integer] view_sheet_type
-local main_interface_view_sheets_tab
+local _main_interface_view_sheets_tab
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<view_sheet_type>
-function main_interface_view_sheets_tab:_field(index) end
+function _main_interface_view_sheets_tab:_field(index) end
 
 ---@param index integer 
 ---@param item view_sheet_type 
-function main_interface_view_sheets_tab:insert(index, item) end
+function _main_interface_view_sheets_tab:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_tab:erase(index) end
+function _main_interface_view_sheets_tab:erase(index) end
 
----@class main_interface_view_sheets_ent_vect: DFContainer
+---@class _main_interface_view_sheets_ent_vect: DFContainer
 ---@field [integer] historical_entity
-local main_interface_view_sheets_ent_vect
+local _main_interface_view_sheets_ent_vect
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_entity>
-function main_interface_view_sheets_ent_vect:_field(index) end
+function _main_interface_view_sheets_ent_vect:_field(index) end
 
 ---@param index integer 
 ---@param item historical_entity 
-function main_interface_view_sheets_ent_vect:insert(index, item) end
+function _main_interface_view_sheets_ent_vect:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_ent_vect:erase(index) end
+function _main_interface_view_sheets_ent_vect:erase(index) end
 
----@class main_interface_view_sheets_ep_vect: DFContainer
+---@class _main_interface_view_sheets_ep_vect: DFContainer
 ---@field [integer] entity_position
-local main_interface_view_sheets_ep_vect
+local _main_interface_view_sheets_ep_vect
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position>
-function main_interface_view_sheets_ep_vect:_field(index) end
+function _main_interface_view_sheets_ep_vect:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position 
-function main_interface_view_sheets_ep_vect:insert(index, item) end
+function _main_interface_view_sheets_ep_vect:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_ep_vect:erase(index) end
+function _main_interface_view_sheets_ep_vect:erase(index) end
 
----@class main_interface_view_sheets_ep_vect_spouse: DFContainer
+---@class _main_interface_view_sheets_ep_vect_spouse: DFContainer
 ---@field [integer] any[]
-local main_interface_view_sheets_ep_vect_spouse
+local _main_interface_view_sheets_ep_vect_spouse
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_view_sheets_ep_vect_spouse:_field(index) end
+function _main_interface_view_sheets_ep_vect_spouse:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_view_sheets_ep_vect_spouse:insert(index, item) end
+function _main_interface_view_sheets_ep_vect_spouse:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_ep_vect_spouse:erase(index) end
+function _main_interface_view_sheets_ep_vect_spouse:erase(index) end
 
----@class main_interface_view_sheets_rel_hf: DFContainer
+---@class _main_interface_view_sheets_rel_hf: DFContainer
 ---@field [integer] historical_figure
-local main_interface_view_sheets_rel_hf
+local _main_interface_view_sheets_rel_hf
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<historical_figure>
-function main_interface_view_sheets_rel_hf:_field(index) end
+function _main_interface_view_sheets_rel_hf:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function main_interface_view_sheets_rel_hf:insert(index, item) end
+function _main_interface_view_sheets_rel_hf:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_rel_hf:erase(index) end
+function _main_interface_view_sheets_rel_hf:erase(index) end
 
----@class main_interface_view_sheets_rel_rphv: DFContainer
+---@class _main_interface_view_sheets_rel_rphv: DFContainer
 ---@field [integer] any[]
-local main_interface_view_sheets_rel_rphv
+local _main_interface_view_sheets_rel_rphv
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_view_sheets_rel_rphv:_field(index) end
+function _main_interface_view_sheets_rel_rphv:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_view_sheets_rel_rphv:insert(index, item) end
+function _main_interface_view_sheets_rel_rphv:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_rel_rphv:erase(index) end
+function _main_interface_view_sheets_rel_rphv:erase(index) end
 
----@class main_interface_view_sheets_rel_rphh: DFContainer
+---@class _main_interface_view_sheets_rel_rphh: DFContainer
 ---@field [integer] any[]
-local main_interface_view_sheets_rel_rphh
+local _main_interface_view_sheets_rel_rphh
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_view_sheets_rel_rphh:_field(index) end
+function _main_interface_view_sheets_rel_rphh:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_view_sheets_rel_rphh:insert(index, item) end
+function _main_interface_view_sheets_rel_rphh:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_rel_rphh:erase(index) end
+function _main_interface_view_sheets_rel_rphh:erase(index) end
 
----@class main_interface_view_sheets_unit_group_ep_is_spouse: DFContainer
+---@class _main_interface_view_sheets_unit_group_ep_is_spouse: DFContainer
 ---@field [integer] any[]
-local main_interface_view_sheets_unit_group_ep_is_spouse
+local _main_interface_view_sheets_unit_group_ep_is_spouse
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_view_sheets_unit_group_ep_is_spouse:_field(index) end
+function _main_interface_view_sheets_unit_group_ep_is_spouse:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_view_sheets_unit_group_ep_is_spouse:insert(index, item) end
+function _main_interface_view_sheets_unit_group_ep_is_spouse:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_unit_group_ep_is_spouse:erase(index) end
+function _main_interface_view_sheets_unit_group_ep_is_spouse:erase(index) end
 
----@class main_interface_view_sheets_unit_skill: DFContainer
+---@class _main_interface_view_sheets_unit_skill: DFContainer
 ---@field [integer] job_skill
-local main_interface_view_sheets_unit_skill
+local _main_interface_view_sheets_unit_skill
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<job_skill>
-function main_interface_view_sheets_unit_skill:_field(index) end
+function _main_interface_view_sheets_unit_skill:_field(index) end
 
 ---@param index integer 
 ---@param item job_skill 
-function main_interface_view_sheets_unit_skill:insert(index, item) end
+function _main_interface_view_sheets_unit_skill:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_unit_skill:erase(index) end
+function _main_interface_view_sheets_unit_skill:erase(index) end
 
----@class main_interface_view_sheets_unit_knowledge_type: DFContainer
+---@class _main_interface_view_sheets_unit_knowledge_type: DFContainer
 ---@field [integer] view_sheet_unit_knowledge_type
-local main_interface_view_sheets_unit_knowledge_type
+local _main_interface_view_sheets_unit_knowledge_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<view_sheet_unit_knowledge_type>
-function main_interface_view_sheets_unit_knowledge_type:_field(index) end
+function _main_interface_view_sheets_unit_knowledge_type:_field(index) end
 
 ---@param index integer 
 ---@param item view_sheet_unit_knowledge_type 
-function main_interface_view_sheets_unit_knowledge_type:insert(index, item) end
+function _main_interface_view_sheets_unit_knowledge_type:insert(index, item) end
 
 ---@param index integer 
-function main_interface_view_sheets_unit_knowledge_type:erase(index) end
+function _main_interface_view_sheets_unit_knowledge_type:erase(index) end
 
 ---@class (exact) main_interface.T_squads: DFObject
 ---@field _kind 'struct'
@@ -5740,7 +5740,7 @@ function main_interface_view_sheets_unit_knowledge_type:erase(index) end
 ---@field scroll_position number
 ---@field scrolling boolean
 ---@field squad_id DFNumberVector
----@field squad_selected main_interface_squads_squad_selected
+---@field squad_selected _main_interface_squads_squad_selected
 ---@field viewing_squad_index number
 ---@field squad_hfid_selected DFNumberVector
 ---@field entering_squad_nickname boolean
@@ -5766,21 +5766,21 @@ function main_interface_view_sheets_unit_knowledge_type:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_squads = {}
 
----@class main_interface_squads_squad_selected: DFContainer
+---@class _main_interface_squads_squad_selected: DFContainer
 ---@field [integer] any[]
-local main_interface_squads_squad_selected
+local _main_interface_squads_squad_selected
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_squads_squad_selected:_field(index) end
+function _main_interface_squads_squad_selected:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_squads_squad_selected:insert(index, item) end
+function _main_interface_squads_squad_selected:insert(index, item) end
 
 ---@param index integer 
-function main_interface_squads_squad_selected:erase(index) end
+function _main_interface_squads_squad_selected:erase(index) end
 
 ---@class (exact) main_interface.T_create_squad: DFObject
 ---@field _kind 'struct'
@@ -5788,11 +5788,11 @@ function main_interface_squads_squad_selected:erase(index) end
 ---@field open boolean
 ---@field scroll_position number
 ---@field scrolling boolean
----@field cand_new_squad_appoint_epp main_interface_create_squad_cand_new_squad_appoint_epp
----@field cand_new_squad_appoint_epp_ep main_interface_create_squad_cand_new_squad_appoint_epp_ep
----@field cand_new_squad_existing_epp main_interface_create_squad_cand_new_squad_existing_epp
----@field cand_new_squad_existing_epp_ep main_interface_create_squad_cand_new_squad_existing_epp_ep
----@field cand_new_squad_new_epp_from_ep main_interface_create_squad_cand_new_squad_new_epp_from_ep
+---@field cand_new_squad_appoint_epp _main_interface_create_squad_cand_new_squad_appoint_epp
+---@field cand_new_squad_appoint_epp_ep _main_interface_create_squad_cand_new_squad_appoint_epp_ep
+---@field cand_new_squad_existing_epp _main_interface_create_squad_cand_new_squad_existing_epp
+---@field cand_new_squad_existing_epp_ep _main_interface_create_squad_cand_new_squad_existing_epp_ep
+---@field cand_new_squad_new_epp_from_ep _main_interface_create_squad_cand_new_squad_new_epp_from_ep
 ---@field new_squad_appoint_epp entity_position_assignment
 ---@field new_squad_appoint_epp_ep entity_position
 ---@field new_squad_existing_epp entity_position_assignment
@@ -5803,85 +5803,85 @@ function main_interface_squads_squad_selected:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_create_squad = {}
 
----@class main_interface_create_squad_cand_new_squad_appoint_epp: DFContainer
+---@class _main_interface_create_squad_cand_new_squad_appoint_epp: DFContainer
 ---@field [integer] entity_position_assignment
-local main_interface_create_squad_cand_new_squad_appoint_epp
+local _main_interface_create_squad_cand_new_squad_appoint_epp
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position_assignment>
-function main_interface_create_squad_cand_new_squad_appoint_epp:_field(index) end
+function _main_interface_create_squad_cand_new_squad_appoint_epp:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position_assignment 
-function main_interface_create_squad_cand_new_squad_appoint_epp:insert(index, item) end
+function _main_interface_create_squad_cand_new_squad_appoint_epp:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_squad_cand_new_squad_appoint_epp:erase(index) end
+function _main_interface_create_squad_cand_new_squad_appoint_epp:erase(index) end
 
----@class main_interface_create_squad_cand_new_squad_appoint_epp_ep: DFContainer
+---@class _main_interface_create_squad_cand_new_squad_appoint_epp_ep: DFContainer
 ---@field [integer] entity_position
-local main_interface_create_squad_cand_new_squad_appoint_epp_ep
+local _main_interface_create_squad_cand_new_squad_appoint_epp_ep
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position>
-function main_interface_create_squad_cand_new_squad_appoint_epp_ep:_field(index) end
+function _main_interface_create_squad_cand_new_squad_appoint_epp_ep:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position 
-function main_interface_create_squad_cand_new_squad_appoint_epp_ep:insert(index, item) end
+function _main_interface_create_squad_cand_new_squad_appoint_epp_ep:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_squad_cand_new_squad_appoint_epp_ep:erase(index) end
+function _main_interface_create_squad_cand_new_squad_appoint_epp_ep:erase(index) end
 
----@class main_interface_create_squad_cand_new_squad_existing_epp: DFContainer
+---@class _main_interface_create_squad_cand_new_squad_existing_epp: DFContainer
 ---@field [integer] entity_position_assignment
-local main_interface_create_squad_cand_new_squad_existing_epp
+local _main_interface_create_squad_cand_new_squad_existing_epp
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position_assignment>
-function main_interface_create_squad_cand_new_squad_existing_epp:_field(index) end
+function _main_interface_create_squad_cand_new_squad_existing_epp:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position_assignment 
-function main_interface_create_squad_cand_new_squad_existing_epp:insert(index, item) end
+function _main_interface_create_squad_cand_new_squad_existing_epp:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_squad_cand_new_squad_existing_epp:erase(index) end
+function _main_interface_create_squad_cand_new_squad_existing_epp:erase(index) end
 
----@class main_interface_create_squad_cand_new_squad_existing_epp_ep: DFContainer
+---@class _main_interface_create_squad_cand_new_squad_existing_epp_ep: DFContainer
 ---@field [integer] entity_position
-local main_interface_create_squad_cand_new_squad_existing_epp_ep
+local _main_interface_create_squad_cand_new_squad_existing_epp_ep
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position>
-function main_interface_create_squad_cand_new_squad_existing_epp_ep:_field(index) end
+function _main_interface_create_squad_cand_new_squad_existing_epp_ep:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position 
-function main_interface_create_squad_cand_new_squad_existing_epp_ep:insert(index, item) end
+function _main_interface_create_squad_cand_new_squad_existing_epp_ep:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_squad_cand_new_squad_existing_epp_ep:erase(index) end
+function _main_interface_create_squad_cand_new_squad_existing_epp_ep:erase(index) end
 
----@class main_interface_create_squad_cand_new_squad_new_epp_from_ep: DFContainer
+---@class _main_interface_create_squad_cand_new_squad_new_epp_from_ep: DFContainer
 ---@field [integer] entity_position
-local main_interface_create_squad_cand_new_squad_new_epp_from_ep
+local _main_interface_create_squad_cand_new_squad_new_epp_from_ep
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position>
-function main_interface_create_squad_cand_new_squad_new_epp_from_ep:_field(index) end
+function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position 
-function main_interface_create_squad_cand_new_squad_new_epp_from_ep:insert(index, item) end
+function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_squad_cand_new_squad_new_epp_from_ep:erase(index) end
+function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:erase(index) end
 
 ---@class (exact) main_interface.T_squad_supplies: DFObject
 ---@field _kind 'struct'
@@ -5900,35 +5900,35 @@ df.main_interface.T_squad_supplies = {}
 ---@field context assign_uniform_context_type
 ---@field scroll_position number
 ---@field scrolling boolean
----@field cand_uniform main_interface_assign_uniform_cand_uniform
+---@field cand_uniform _main_interface_assign_uniform_cand_uniform
 
 ---@class _main_interface.T_assign_uniform: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_uniform = {}
 
----@class main_interface_assign_uniform_cand_uniform: DFContainer
+---@class _main_interface_assign_uniform_cand_uniform: DFContainer
 ---@field [integer] entity_uniform
-local main_interface_assign_uniform_cand_uniform
+local _main_interface_assign_uniform_cand_uniform
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_uniform>
-function main_interface_assign_uniform_cand_uniform:_field(index) end
+function _main_interface_assign_uniform_cand_uniform:_field(index) end
 
 ---@param index integer 
 ---@param item entity_uniform 
-function main_interface_assign_uniform_cand_uniform:insert(index, item) end
+function _main_interface_assign_uniform_cand_uniform:insert(index, item) end
 
 ---@param index integer 
-function main_interface_assign_uniform_cand_uniform:erase(index) end
+function _main_interface_assign_uniform_cand_uniform:erase(index) end
 
 ---@class (exact) main_interface.T_create_work_order: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_create_work_order
 ---@field open boolean
 ---@field forced_bld_id number
----@field jminfo_master main_interface_create_work_order_jminfo_master
----@field building main_interface_create_work_order_building
+---@field jminfo_master _main_interface_create_work_order_jminfo_master
+---@field building _main_interface_create_work_order_building
 ---@field scroll_position_building number
 ---@field scrolling_building boolean
 ---@field selected_building_index number
@@ -5941,37 +5941,37 @@ function main_interface_assign_uniform_cand_uniform:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_create_work_order = {}
 
----@class main_interface_create_work_order_jminfo_master: DFContainer
+---@class _main_interface_create_work_order_jminfo_master: DFContainer
 ---@field [integer] manager_order_template
-local main_interface_create_work_order_jminfo_master
+local _main_interface_create_work_order_jminfo_master
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<manager_order_template>
-function main_interface_create_work_order_jminfo_master:_field(index) end
+function _main_interface_create_work_order_jminfo_master:_field(index) end
 
 ---@param index integer 
 ---@param item manager_order_template 
-function main_interface_create_work_order_jminfo_master:insert(index, item) end
+function _main_interface_create_work_order_jminfo_master:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_work_order_jminfo_master:erase(index) end
+function _main_interface_create_work_order_jminfo_master:erase(index) end
 
----@class main_interface_create_work_order_building: DFContainer
+---@class _main_interface_create_work_order_building: DFContainer
 ---@field [integer] cwo_buildingst
-local main_interface_create_work_order_building
+local _main_interface_create_work_order_building
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<cwo_buildingst>
-function main_interface_create_work_order_building:_field(index) end
+function _main_interface_create_work_order_building:_field(index) end
 
 ---@param index integer 
 ---@param item cwo_buildingst 
-function main_interface_create_work_order_building:insert(index, item) end
+function _main_interface_create_work_order_building:insert(index, item) end
 
 ---@param index integer 
-function main_interface_create_work_order_building:erase(index) end
+function _main_interface_create_work_order_building:erase(index) end
 
 ---@class (exact) main_interface.T_hotkey: DFObject
 ---@field _kind 'struct'
@@ -5996,7 +5996,7 @@ df.main_interface.T_hotkey = {}
 ---@field fort_retirement_confirm boolean
 ---@field fort_abandon_confirm boolean
 ---@field fort_quit_without_saving_confirm boolean
----@field option main_interface_options_option
+---@field option _main_interface_options_option
 ---@field option_index DFNumberVector
 ---@field entering_manual_folder boolean
 ---@field entering_manual_str string
@@ -6022,21 +6022,21 @@ df.main_interface.T_hotkey = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_options = {}
 
----@class main_interface_options_option: DFContainer
+---@class _main_interface_options_option: DFContainer
 ---@field [integer] main_menu_option_type
-local main_interface_options_option
+local _main_interface_options_option
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<main_menu_option_type>
-function main_interface_options_option:_field(index) end
+function _main_interface_options_option:_field(index) end
 
 ---@param index integer 
 ---@param item main_menu_option_type 
-function main_interface_options_option:insert(index, item) end
+function _main_interface_options_option:insert(index, item) end
 
 ---@param index integer 
-function main_interface_options_option:erase(index) end
+function _main_interface_options_option:erase(index) end
 
 -- saverst
 ---@class (exact) main_interface.T_options.T_saver: DFObject
@@ -6078,50 +6078,50 @@ df.main_interface.T_help = {}
 ---@field castes_filtered DFNumberVector
 ---@field races_all DFNumberVector
 ---@field castes_all DFNumberVector
----@field skills main_interface_arena_unit_skills
+---@field skills _main_interface_arena_unit_skills
 ---@field skill_levels DFNumberVector
 ---@field equipment_item_type DFNumberVector
 ---@field equipment_item_subtype DFNumberVector
 ---@field equipment_mat_type DFNumberVector
 ---@field equipment_mat_index DFNumberVector
 ---@field equipment_quantity DFNumberVector
----@field interactions main_interface_arena_unit_interactions
+---@field interactions _main_interface_arena_unit_interactions
 
 ---@class _main_interface.T_arena_unit: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_arena_unit = {}
 
----@class main_interface_arena_unit_skills: DFContainer
+---@class _main_interface_arena_unit_skills: DFContainer
 ---@field [integer] job_skill
-local main_interface_arena_unit_skills
+local _main_interface_arena_unit_skills
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<job_skill>
-function main_interface_arena_unit_skills:_field(index) end
+function _main_interface_arena_unit_skills:_field(index) end
 
 ---@param index integer 
 ---@param item job_skill 
-function main_interface_arena_unit_skills:insert(index, item) end
+function _main_interface_arena_unit_skills:insert(index, item) end
 
 ---@param index integer 
-function main_interface_arena_unit_skills:erase(index) end
+function _main_interface_arena_unit_skills:erase(index) end
 
----@class main_interface_arena_unit_interactions: DFContainer
+---@class _main_interface_arena_unit_interactions: DFContainer
 ---@field [integer] interaction_effect
-local main_interface_arena_unit_interactions
+local _main_interface_arena_unit_interactions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interaction_effect>
-function main_interface_arena_unit_interactions:_field(index) end
+function _main_interface_arena_unit_interactions:_field(index) end
 
 ---@param index integer 
 ---@param item interaction_effect 
-function main_interface_arena_unit_interactions:insert(index, item) end
+function _main_interface_arena_unit_interactions:insert(index, item) end
 
 ---@param index integer 
-function main_interface_arena_unit_interactions:erase(index) end
+function _main_interface_arena_unit_interactions:erase(index) end
 
 ---@class (exact) main_interface.T_arena_tree: DFObject
 ---@field _kind 'struct'
@@ -6132,92 +6132,92 @@ function main_interface_arena_unit_interactions:erase(index) end
 ---@field age_str string string representation of age field
 ---@field editing_filter boolean
 ---@field filter string
----@field tree_types_filtered main_interface_arena_tree_tree_types_filtered
----@field tree_types_all main_interface_arena_tree_tree_types_all
+---@field tree_types_filtered _main_interface_arena_tree_tree_types_filtered
+---@field tree_types_all _main_interface_arena_tree_tree_types_all
 
 ---@class _main_interface.T_arena_tree: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_arena_tree = {}
 
----@class main_interface_arena_tree_tree_types_filtered: DFContainer
+---@class _main_interface_arena_tree_tree_types_filtered: DFContainer
 ---@field [integer] any[]
-local main_interface_arena_tree_tree_types_filtered
+local _main_interface_arena_tree_tree_types_filtered
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_arena_tree_tree_types_filtered:_field(index) end
+function _main_interface_arena_tree_tree_types_filtered:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_arena_tree_tree_types_filtered:insert(index, item) end
+function _main_interface_arena_tree_tree_types_filtered:insert(index, item) end
 
 ---@param index integer 
-function main_interface_arena_tree_tree_types_filtered:erase(index) end
+function _main_interface_arena_tree_tree_types_filtered:erase(index) end
 
----@class main_interface_arena_tree_tree_types_all: DFContainer
+---@class _main_interface_arena_tree_tree_types_all: DFContainer
 ---@field [integer] any[]
-local main_interface_arena_tree_tree_types_all
+local _main_interface_arena_tree_tree_types_all
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function main_interface_arena_tree_tree_types_all:_field(index) end
+function _main_interface_arena_tree_tree_types_all:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function main_interface_arena_tree_tree_types_all:insert(index, item) end
+function _main_interface_arena_tree_tree_types_all:insert(index, item) end
 
 ---@param index integer 
-function main_interface_arena_tree_tree_types_all:erase(index) end
+function _main_interface_arena_tree_tree_types_all:erase(index) end
 
----@class main_interface_barracks_squad: DFContainer
+---@class _main_interface_barracks_squad: DFContainer
 ---@field [integer] squad
-local main_interface_barracks_squad
+local _main_interface_barracks_squad
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<squad>
-function main_interface_barracks_squad:_field(index) end
+function _main_interface_barracks_squad:_field(index) end
 
 ---@param index integer 
 ---@param item squad 
-function main_interface_barracks_squad:insert(index, item) end
+function _main_interface_barracks_squad:insert(index, item) end
 
 ---@param index integer 
-function main_interface_barracks_squad:erase(index) end
+function _main_interface_barracks_squad:erase(index) end
 
----@class main_interface_ap_squad_list: DFContainer
+---@class _main_interface_ap_squad_list: DFContainer
 ---@field [integer] squad
-local main_interface_ap_squad_list
+local _main_interface_ap_squad_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<squad>
-function main_interface_ap_squad_list:_field(index) end
+function _main_interface_ap_squad_list:_field(index) end
 
 ---@param index integer 
 ---@param item squad 
-function main_interface_ap_squad_list:insert(index, item) end
+function _main_interface_ap_squad_list:insert(index, item) end
 
 ---@param index integer 
-function main_interface_ap_squad_list:erase(index) end
+function _main_interface_ap_squad_list:erase(index) end
 
----@class main_interface_pref_occupation: DFContainer
+---@class _main_interface_pref_occupation: DFContainer
 ---@field [integer] occupation
-local main_interface_pref_occupation
+local _main_interface_pref_occupation
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<occupation>
-function main_interface_pref_occupation:_field(index) end
+function _main_interface_pref_occupation:_field(index) end
 
 ---@param index integer 
 ---@param item occupation 
-function main_interface_pref_occupation:insert(index, item) end
+function _main_interface_pref_occupation:insert(index, item) end
 
 ---@param index integer 
-function main_interface_pref_occupation:erase(index) end
+function _main_interface_pref_occupation:erase(index) end
 
 ---@class (exact) gamest: DFObject
 ---@field _kind 'struct'
@@ -6275,10 +6275,10 @@ df.gamest.T_minimap = {}
 ---@class (exact) gamest.T_mod_manager: DFObject
 ---@field _kind 'struct'
 ---@field _type _gamest.T_mod_manager
----@field mod_header gamest_mod_manager_mod_header
+---@field mod_header _gamest_mod_manager_mod_header
 ---@field subscribed_file_id DFPointer<integer> Begin Steam-only stuff<br>These fields exist in other versions but aren't actually used
 ---@field doing_mod_upload boolean
----@field mod_upload_header gamest_mod_manager_mod_upload_header
+---@field mod_upload_header _gamest_mod_manager_mod_upload_header
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index number
 ---@field CreateItemResult DFPointer<integer>
@@ -6288,44 +6288,44 @@ df.gamest.T_minimap = {}
 ---@field _kind 'struct-type'
 df.gamest.T_mod_manager = {}
 
----@class gamest_mod_manager_mod_header: DFContainer
+---@class _gamest_mod_manager_mod_header: DFContainer
 ---@field [integer] mod_headerst
-local gamest_mod_manager_mod_header
+local _gamest_mod_manager_mod_header
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<mod_headerst>
-function gamest_mod_manager_mod_header:_field(index) end
+function _gamest_mod_manager_mod_header:_field(index) end
 
 ---@param index integer 
 ---@param item mod_headerst 
-function gamest_mod_manager_mod_header:insert(index, item) end
+function _gamest_mod_manager_mod_header:insert(index, item) end
 
 ---@param index integer 
-function gamest_mod_manager_mod_header:erase(index) end
+function _gamest_mod_manager_mod_header:erase(index) end
 
----@class gamest_mod_manager_mod_upload_header: DFContainer
+---@class _gamest_mod_manager_mod_upload_header: DFContainer
 ---@field [integer] mod_headerst
-local gamest_mod_manager_mod_upload_header
+local _gamest_mod_manager_mod_upload_header
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<mod_headerst>
-function gamest_mod_manager_mod_upload_header:_field(index) end
+function _gamest_mod_manager_mod_upload_header:_field(index) end
 
 ---@param index integer 
 ---@param item mod_headerst 
-function gamest_mod_manager_mod_upload_header:insert(index, item) end
+function _gamest_mod_manager_mod_upload_header:insert(index, item) end
 
 ---@param index integer 
-function gamest_mod_manager_mod_upload_header:erase(index) end
+function _gamest_mod_manager_mod_upload_header:erase(index) end
 
 ---@class (exact) main_interface_settings: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface_settings
 ---@field open boolean needs to be a separate type so that widget_tabs can forward-declare this type as a friend
 ---@field context settings_context_type
----@field tab main_interface_settings_tab
+---@field tab _main_interface_settings_tab
 ---@field current_mode settings_tab_type
 ---@field container_widget widget_container
 ---@field scroll_position_params number
@@ -6333,7 +6333,7 @@ function gamest_mod_manager_mod_upload_header:erase(index) end
 ---@field entering_value_str boolean
 ---@field entering_value_index number
 ---@field value_str string
----@field member main_interface_settings_member
+---@field member _main_interface_settings_member
 ---@field fullscreen_resolution_open boolean
 ---@field permitted_fullscreen_w DFNumberVector
 ---@field permitted_fullscreen_h DFNumberVector
@@ -6360,53 +6360,53 @@ function gamest_mod_manager_mod_upload_header:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface_settings = {}
 
----@class main_interface_settings_tab: DFContainer
+---@class _main_interface_settings_tab: DFContainer
 ---@field [integer] settings_tab_type
-local main_interface_settings_tab
+local _main_interface_settings_tab
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<settings_tab_type>
-function main_interface_settings_tab:_field(index) end
+function _main_interface_settings_tab:_field(index) end
 
 ---@param index integer 
 ---@param item settings_tab_type 
-function main_interface_settings_tab:insert(index, item) end
+function _main_interface_settings_tab:insert(index, item) end
 
 ---@param index integer 
-function main_interface_settings_tab:erase(index) end
+function _main_interface_settings_tab:erase(index) end
 
----@class main_interface_settings_member: DFContainer
+---@class _main_interface_settings_member: DFContainer
 ---@field [integer] world_gen_param_basest
-local main_interface_settings_member
+local _main_interface_settings_member
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<world_gen_param_basest>
-function main_interface_settings_member:_field(index) end
+function _main_interface_settings_member:_field(index) end
 
 ---@param index integer 
 ---@param item world_gen_param_basest 
-function main_interface_settings_member:insert(index, item) end
+function _main_interface_settings_member:insert(index, item) end
 
 ---@param index integer 
-function main_interface_settings_member:erase(index) end
+function _main_interface_settings_member:erase(index) end
 
----@class main_interface_settings_keybinding_key_interface_key: DFContainer
+---@class _main_interface_settings_keybinding_key_interface_key: DFContainer
 ---@field [integer] interface_key
-local main_interface_settings_keybinding_key_interface_key
+local _main_interface_settings_keybinding_key_interface_key
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<interface_key>
-function main_interface_settings_keybinding_key_interface_key:_field(index) end
+function _main_interface_settings_keybinding_key_interface_key:_field(index) end
 
 ---@param index integer 
 ---@param item interface_key 
-function main_interface_settings_keybinding_key_interface_key:insert(index, item) end
+function _main_interface_settings_keybinding_key_interface_key:insert(index, item) end
 
 ---@param index integer 
-function main_interface_settings_keybinding_key_interface_key:erase(index) end
+function _main_interface_settings_keybinding_key_interface_key:erase(index) end
 
 ---@class (exact) hash_rngst: DFObject
 ---@field _kind 'struct'
@@ -6613,8 +6613,8 @@ df.script_environmentst = {}
 ---@class (exact) markup_text_boxst: DFObject
 ---@field _kind 'struct'
 ---@field _type _markup_text_boxst
----@field word markup_text_boxst_word
----@field link markup_text_boxst_link
+---@field word _markup_text_boxst_word
+---@field link _markup_text_boxst_link
 ---@field current_width number
 ---@field max_y number
 ---@field environment script_environmentst not saved
@@ -6623,37 +6623,37 @@ df.script_environmentst = {}
 ---@field _kind 'struct-type'
 df.markup_text_boxst = {}
 
----@class markup_text_boxst_word: DFContainer
+---@class _markup_text_boxst_word: DFContainer
 ---@field [integer] markup_text_wordst
-local markup_text_boxst_word
+local _markup_text_boxst_word
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<markup_text_wordst>
-function markup_text_boxst_word:_field(index) end
+function _markup_text_boxst_word:_field(index) end
 
 ---@param index integer 
 ---@param item markup_text_wordst 
-function markup_text_boxst_word:insert(index, item) end
+function _markup_text_boxst_word:insert(index, item) end
 
 ---@param index integer 
-function markup_text_boxst_word:erase(index) end
+function _markup_text_boxst_word:erase(index) end
 
----@class markup_text_boxst_link: DFContainer
+---@class _markup_text_boxst_link: DFContainer
 ---@field [integer] markup_text_linkst
-local markup_text_boxst_link
+local _markup_text_boxst_link
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<markup_text_linkst>
-function markup_text_boxst_link:_field(index) end
+function _markup_text_boxst_link:_field(index) end
 
 ---@param index integer 
 ---@param item markup_text_linkst 
-function markup_text_boxst_link:insert(index, item) end
+function _markup_text_boxst_link:insert(index, item) end
 
 ---@param index integer 
-function markup_text_boxst_link:erase(index) end
+function _markup_text_boxst_link:erase(index) end
 
 ---@class (exact) wqc_item_traitst: DFObject
 ---@field _kind 'struct'
@@ -6679,28 +6679,28 @@ df.wqc_item_traitst = {}
 ---@field type number
 ---@field subtype number
 ---@field custom_id number
----@field jminfo cwo_buildingst_jminfo
+---@field jminfo _cwo_buildingst_jminfo
 ---@field name string
 
 ---@class _cwo_buildingst: DFCompound
 ---@field _kind 'struct-type'
 df.cwo_buildingst = {}
 
----@class cwo_buildingst_jminfo: DFContainer
+---@class _cwo_buildingst_jminfo: DFContainer
 ---@field [integer] manager_order_template
-local cwo_buildingst_jminfo
+local _cwo_buildingst_jminfo
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<manager_order_template>
-function cwo_buildingst_jminfo:_field(index) end
+function _cwo_buildingst_jminfo:_field(index) end
 
 ---@param index integer 
 ---@param item manager_order_template 
-function cwo_buildingst_jminfo:insert(index, item) end
+function _cwo_buildingst_jminfo:insert(index, item) end
 
 ---@param index integer 
-function cwo_buildingst_jminfo:erase(index) end
+function _cwo_buildingst_jminfo:erase(index) end
 
 ---@class (exact) cri_unitst: DFObject
 ---@field _kind 'struct'
@@ -6735,45 +6735,45 @@ df.cri_unitst = {}
 ---@field identity_id number
 ---@field alias_identity_id DFNumberVector
 ---@field principle_org DFPointer<integer> organization_entryst
----@field associated_org actor_entryst_associated_org organization_entryst
----@field associated_plot actor_entryst_associated_plot
+---@field associated_org _actor_entryst_associated_org organization_entryst
+---@field associated_plot _actor_entryst_associated_plot
 ---@field flag integer
 
 ---@class _actor_entryst: DFCompound
 ---@field _kind 'struct-type'
 df.actor_entryst = {}
 
----@class actor_entryst_associated_org: DFContainer
+---@class _actor_entryst_associated_org: DFContainer
 ---@field [integer] any[]
-local actor_entryst_associated_org
+local _actor_entryst_associated_org
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function actor_entryst_associated_org:_field(index) end
+function _actor_entryst_associated_org:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function actor_entryst_associated_org:insert(index, item) end
+function _actor_entryst_associated_org:insert(index, item) end
 
 ---@param index integer 
-function actor_entryst_associated_org:erase(index) end
+function _actor_entryst_associated_org:erase(index) end
 
----@class actor_entryst_associated_plot: DFContainer
+---@class _actor_entryst_associated_plot: DFContainer
 ---@field [integer] plot_entryst
-local actor_entryst_associated_plot
+local _actor_entryst_associated_plot
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plot_entryst>
-function actor_entryst_associated_plot:_field(index) end
+function _actor_entryst_associated_plot:_field(index) end
 
 ---@param index integer 
 ---@param item plot_entryst 
-function actor_entryst_associated_plot:insert(index, item) end
+function _actor_entryst_associated_plot:insert(index, item) end
 
 ---@param index integer 
-function actor_entryst_associated_plot:erase(index) end
+function _actor_entryst_associated_plot:erase(index) end
 
 ---@class (exact) organization_entry_nodest: DFObject
 ---@field _kind 'struct'
@@ -6798,7 +6798,7 @@ df.organization_entry_nodest = {}
 ---@class (exact) organization_entryst: DFObject
 ---@field _kind 'struct'
 ---@field _type _organization_entryst
----@field node organization_entryst_node
+---@field node _organization_entryst_node
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
@@ -6810,21 +6810,21 @@ df.organization_entry_nodest = {}
 ---@field _kind 'struct-type'
 df.organization_entryst = {}
 
----@class organization_entryst_node: DFContainer
+---@class _organization_entryst_node: DFContainer
 ---@field [integer] organization_entry_nodest
-local organization_entryst_node
+local _organization_entryst_node
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<organization_entry_nodest>
-function organization_entryst_node:_field(index) end
+function _organization_entryst_node:_field(index) end
 
 ---@param index integer 
 ---@param item organization_entry_nodest 
-function organization_entryst_node:insert(index, item) end
+function _organization_entryst_node:insert(index, item) end
 
 ---@param index integer 
-function organization_entryst_node:erase(index) end
+function _organization_entryst_node:erase(index) end
 
 ---@class (exact) plot_entryst: DFObject
 ---@field _kind 'struct'
@@ -6896,27 +6896,27 @@ df.mod_headerst.T_flags = {}
 ---@class (exact) ui_look_list: DFObject
 ---@field _kind 'struct'
 ---@field _type _ui_look_list
----@field items ui_look_list_items
+---@field items _ui_look_list_items
 
 ---@class _ui_look_list: DFCompound
 ---@field _kind 'struct-type'
 df.ui_look_list = {}
 
----@class ui_look_list_items: DFContainer
+---@class _ui_look_list_items: DFContainer
 ---@field [integer] DFPointer<integer>
-local ui_look_list_items
+local _ui_look_list_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function ui_look_list_items:_field(index) end
+function _ui_look_list_items:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function ui_look_list_items:insert(index, item) end
+function _ui_look_list_items:insert(index, item) end
 
 ---@param index integer 
-function ui_look_list_items:erase(index) end
+function _ui_look_list_items:erase(index) end
 
 ---@class (exact) ui_unit_view_mode: DFObject
 ---@field _kind 'struct'

@@ -479,13 +479,13 @@ df.building_drawbuffer = {}
 ---@field age number
 ---@field race number References: `creature_raw`
 ---@field id number
----@field jobs building_jobs
----@field specific_refs building_specific_refs
----@field general_refs building_general_refs
----@field relations building_relations zone(s) this building is in
----@field job_claim_suppress building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
+---@field jobs _building_jobs
+---@field specific_refs _building_specific_refs
+---@field general_refs _building_general_refs
+---@field relations _building_relations zone(s) this building is in
+---@field job_claim_suppress _building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
----@field activities building_activities
+---@field activities _building_activities
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field unk_v40_2 number
@@ -505,178 +505,178 @@ function df.building.find(key) end
 ---@return building_vector # df.global.world.buildings.all
 function df.building.get_vector() end
 
----@class building_jobs: DFContainer
+---@class _building_jobs: DFContainer
 ---@field [integer] job
-local building_jobs
+local _building_jobs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<job>
-function building_jobs:_field(index) end
+function _building_jobs:_field(index) end
 
 ---@param index integer 
 ---@param item job 
-function building_jobs:insert(index, item) end
+function _building_jobs:insert(index, item) end
 
 ---@param index integer 
-function building_jobs:erase(index) end
+function _building_jobs:erase(index) end
 
----@class building_specific_refs: DFContainer
+---@class _building_specific_refs: DFContainer
 ---@field [integer] specific_ref
-local building_specific_refs
+local _building_specific_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<specific_ref>
-function building_specific_refs:_field(index) end
+function _building_specific_refs:_field(index) end
 
 ---@param index integer 
 ---@param item specific_ref 
-function building_specific_refs:insert(index, item) end
+function _building_specific_refs:insert(index, item) end
 
 ---@param index integer 
-function building_specific_refs:erase(index) end
+function _building_specific_refs:erase(index) end
 
----@class building_general_refs: DFContainer
+---@class _building_general_refs: DFContainer
 ---@field [integer] general_ref
-local building_general_refs
+local _building_general_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<general_ref>
-function building_general_refs:_field(index) end
+function _building_general_refs:_field(index) end
 
 ---@param index integer 
 ---@param item general_ref 
-function building_general_refs:insert(index, item) end
+function _building_general_refs:insert(index, item) end
 
 ---@param index integer 
-function building_general_refs:erase(index) end
+function _building_general_refs:erase(index) end
 
----@class building_relations: DFContainer
+---@class _building_relations: DFContainer
 ---@field [integer] building_civzonest
-local building_relations
+local _building_relations
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building_civzonest>
-function building_relations:_field(index) end
+function _building_relations:_field(index) end
 
 ---@param index integer 
 ---@param item building_civzonest 
-function building_relations:insert(index, item) end
+function _building_relations:insert(index, item) end
 
 ---@param index integer 
-function building_relations:erase(index) end
+function _building_relations:erase(index) end
 
----@class building_job_claim_suppress: DFContainer
+---@class _building_job_claim_suppress: DFContainer
 ---@field [integer] DFPointer<integer>
-local building_job_claim_suppress
+local _building_job_claim_suppress
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function building_job_claim_suppress:_field(index) end
+function _building_job_claim_suppress:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function building_job_claim_suppress:insert(index, item) end
+function _building_job_claim_suppress:insert(index, item) end
 
 ---@param index integer 
-function building_job_claim_suppress:erase(index) end
+function _building_job_claim_suppress:erase(index) end
 
----@class building_activities: DFContainer
+---@class _building_activities: DFContainer
 ---@field [integer] DFPointer<integer>
-local building_activities
+local _building_activities
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function building_activities:_field(index) end
+function _building_activities:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function building_activities:insert(index, item) end
+function _building_activities:insert(index, item) end
 
 ---@param index integer 
-function building_activities:erase(index) end
+function _building_activities:erase(index) end
 
 -- stockpile --
 ---@class (exact) stockpile_links: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_links
----@field give_to_pile stockpile_links_give_to_pile
----@field take_from_pile stockpile_links_take_from_pile
----@field give_to_workshop stockpile_links_give_to_workshop
----@field take_from_workshop stockpile_links_take_from_workshop
+---@field give_to_pile _stockpile_links_give_to_pile
+---@field take_from_pile _stockpile_links_take_from_pile
+---@field give_to_workshop _stockpile_links_give_to_workshop
+---@field take_from_workshop _stockpile_links_take_from_workshop
 
 ---@class _stockpile_links: DFCompound
 ---@field _kind 'struct-type'
 df.stockpile_links = {}
 
----@class stockpile_links_give_to_pile: DFContainer
+---@class _stockpile_links_give_to_pile: DFContainer
 ---@field [integer] building
-local stockpile_links_give_to_pile
+local _stockpile_links_give_to_pile
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function stockpile_links_give_to_pile:_field(index) end
+function _stockpile_links_give_to_pile:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function stockpile_links_give_to_pile:insert(index, item) end
+function _stockpile_links_give_to_pile:insert(index, item) end
 
 ---@param index integer 
-function stockpile_links_give_to_pile:erase(index) end
+function _stockpile_links_give_to_pile:erase(index) end
 
----@class stockpile_links_take_from_pile: DFContainer
+---@class _stockpile_links_take_from_pile: DFContainer
 ---@field [integer] building
-local stockpile_links_take_from_pile
+local _stockpile_links_take_from_pile
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function stockpile_links_take_from_pile:_field(index) end
+function _stockpile_links_take_from_pile:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function stockpile_links_take_from_pile:insert(index, item) end
+function _stockpile_links_take_from_pile:insert(index, item) end
 
 ---@param index integer 
-function stockpile_links_take_from_pile:erase(index) end
+function _stockpile_links_take_from_pile:erase(index) end
 
----@class stockpile_links_give_to_workshop: DFContainer
+---@class _stockpile_links_give_to_workshop: DFContainer
 ---@field [integer] building
-local stockpile_links_give_to_workshop
+local _stockpile_links_give_to_workshop
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function stockpile_links_give_to_workshop:_field(index) end
+function _stockpile_links_give_to_workshop:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function stockpile_links_give_to_workshop:insert(index, item) end
+function _stockpile_links_give_to_workshop:insert(index, item) end
 
 ---@param index integer 
-function stockpile_links_give_to_workshop:erase(index) end
+function _stockpile_links_give_to_workshop:erase(index) end
 
----@class stockpile_links_take_from_workshop: DFContainer
+---@class _stockpile_links_take_from_workshop: DFContainer
 ---@field [integer] building
-local stockpile_links_take_from_workshop
+local _stockpile_links_take_from_workshop
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function stockpile_links_take_from_workshop:_field(index) end
+function _stockpile_links_take_from_workshop:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function stockpile_links_take_from_workshop:insert(index, item) end
+function _stockpile_links_take_from_workshop:insert(index, item) end
 
 ---@param index integer 
-function stockpile_links_take_from_workshop:erase(index) end
+function _stockpile_links_take_from_workshop:erase(index) end
 
 ---@class (exact) building_stockpilest: DFObject, building
 ---@field _kind 'struct'
@@ -685,50 +685,50 @@ function stockpile_links_take_from_workshop:erase(index) end
 ---@field max_barrels number
 ---@field max_bins number
 ---@field max_wheelbarrows number
----@field container_type building_stockpilest_container_type
+---@field container_type _building_stockpilest_container_type
 ---@field container_item_id DFNumberVector
 ---@field container_x DFNumberVector
 ---@field container_y DFNumberVector
 ---@field links stockpile_links
 ---@field use_links_only number
 ---@field stockpile_number number
----@field linked_stops building_stockpilest_linked_stops
+---@field linked_stops _building_stockpilest_linked_stops
 
 ---@class _building_stockpilest: DFCompound
 ---@field _kind 'class-type'
 df.building_stockpilest = {}
 
----@class building_stockpilest_container_type: DFContainer
+---@class _building_stockpilest_container_type: DFContainer
 ---@field [integer] item_type
-local building_stockpilest_container_type
+local _building_stockpilest_container_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item_type>
-function building_stockpilest_container_type:_field(index) end
+function _building_stockpilest_container_type:_field(index) end
 
 ---@param index integer 
 ---@param item item_type 
-function building_stockpilest_container_type:insert(index, item) end
+function _building_stockpilest_container_type:insert(index, item) end
 
 ---@param index integer 
-function building_stockpilest_container_type:erase(index) end
+function _building_stockpilest_container_type:erase(index) end
 
----@class building_stockpilest_linked_stops: DFContainer
+---@class _building_stockpilest_linked_stops: DFContainer
 ---@field [integer] hauling_stop
-local building_stockpilest_linked_stops
+local _building_stockpilest_linked_stops
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<hauling_stop>
-function building_stockpilest_linked_stops:_field(index) end
+function _building_stockpilest_linked_stops:_field(index) end
 
 ---@param index integer 
 ---@param item hauling_stop 
-function building_stockpilest_linked_stops:insert(index, item) end
+function _building_stockpilest_linked_stops:insert(index, item) end
 
 ---@param index integer 
-function building_stockpilest_linked_stops:erase(index) end
+function _building_stockpilest_linked_stops:erase(index) end
 
 -- zone --
 ---@class (exact) hospital_supplies: DFObject
@@ -1178,10 +1178,10 @@ df.civzone_type = {}
 ---@field is_active number 0 is paused, 8 is active
 ---@field zone_num number
 ---@field zone_settings building_civzonest.T_zone_settings
----@field contained_buildings building_civzonest_contained_buildings includes eg workshops and beds
+---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds
 ---@field assigned_unit_id number
 ---@field assigned_unit unit
----@field squad_room_info building_civzonest_squad_room_info
+---@field squad_room_info _building_civzonest_squad_room_info
 
 ---@class _building_civzonest: DFCompound
 ---@field _kind 'class-type'
@@ -1283,37 +1283,37 @@ df.building_civzonest.T_zone_settings.T_archery = {}
 ---@field [3] "top_of_pond"
 df.building_civzonest.T_zone_settings.T_pit_pond = {}
 
----@class building_civzonest_contained_buildings: DFContainer
+---@class _building_civzonest_contained_buildings: DFContainer
 ---@field [integer] building
-local building_civzonest_contained_buildings
+local _building_civzonest_contained_buildings
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function building_civzonest_contained_buildings:_field(index) end
+function _building_civzonest_contained_buildings:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function building_civzonest_contained_buildings:insert(index, item) end
+function _building_civzonest_contained_buildings:insert(index, item) end
 
 ---@param index integer 
-function building_civzonest_contained_buildings:erase(index) end
+function _building_civzonest_contained_buildings:erase(index) end
 
----@class building_civzonest_squad_room_info: DFContainer
+---@class _building_civzonest_squad_room_info: DFContainer
 ---@field [integer] DFPointer<integer>
-local building_civzonest_squad_room_info
+local _building_civzonest_squad_room_info
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function building_civzonest_squad_room_info:_field(index) end
+function _building_civzonest_squad_room_info:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function building_civzonest_squad_room_info:insert(index, item) end
+function _building_civzonest_squad_room_info:insert(index, item) end
 
 ---@param index integer 
-function building_civzonest_squad_room_info:erase(index) end
+function _building_civzonest_squad_room_info:erase(index) end
 
 ---@alias building_item_role_type_keys
 ---| '"TEMP"'
@@ -1343,28 +1343,28 @@ df.building_item_role_type = {}
 ---@field _kind 'struct'
 ---@field _type _building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
----@field contained_items building_actual_contained_items
+---@field contained_items _building_actual_contained_items
 ---@field design building_design
 
 ---@class _building_actual: DFCompound
 ---@field _kind 'class-type'
 df.building_actual = {}
 
----@class building_actual_contained_items: DFContainer
+---@class _building_actual_contained_items: DFContainer
 ---@field [integer] DFPointer<integer>
-local building_actual_contained_items
+local _building_actual_contained_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function building_actual_contained_items:_field(index) end
+function _building_actual_contained_items:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function building_actual_contained_items:insert(index, item) end
+function _building_actual_contained_items:insert(index, item) end
 
 ---@param index integer 
-function building_actual_contained_items:erase(index) end
+function _building_actual_contained_items:erase(index) end
 
 ---@class (exact) building_design: DFObject
 ---@field _kind 'struct'
@@ -2528,7 +2528,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field ready_timeout number plate not active if > 0
 ---@field fill_timer number
 ---@field stop_flags building_trapst.T_stop_flags
----@field linked_mechanisms building_trapst_linked_mechanisms
+---@field linked_mechanisms _building_trapst_linked_mechanisms
 ---@field observed_by_civs DFNumberVector
 ---@field profile workshop_profile
 ---@field plate_info pressure_plate_info
@@ -2561,21 +2561,21 @@ df.building_trapst = {}
 ---@field [2] "enabling"
 df.building_trapst.T_stop_flags = {}
 
----@class building_trapst_linked_mechanisms: DFContainer
+---@class _building_trapst_linked_mechanisms: DFContainer
 ---@field [integer] item
-local building_trapst_linked_mechanisms
+local _building_trapst_linked_mechanisms
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function building_trapst_linked_mechanisms:_field(index) end
+function _building_trapst_linked_mechanisms:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function building_trapst_linked_mechanisms:insert(index, item) end
+function _building_trapst_linked_mechanisms:insert(index, item) end
 
 ---@param index integer 
-function building_trapst_linked_mechanisms:erase(index) end
+function _building_trapst_linked_mechanisms:erase(index) end
 
 ---@class (exact) building_wagonst: DFObject, building_actual
 ---@field _kind 'struct'

@@ -557,7 +557,7 @@ module DFHackLuaDefinitions
     def class_name
       return "DF#{@type.capitalize}Vector" if primitive?
 
-      @path.join('.').gsub('.T_', '_')
+      @path.join('.').gsub('.T_', '_').prepend('_')
     end
 
     def to_field

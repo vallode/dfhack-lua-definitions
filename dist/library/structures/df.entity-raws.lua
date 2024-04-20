@@ -634,7 +634,7 @@ df.entity_name_type = {}
 ---@field creatures DFStringVector
 ---@field equipment entity_raw.T_equipment
 ---@field currency_value DFNumberVector
----@field flags entity_raw_flags
+---@field flags _entity_raw_flags
 ---@field translation string
 ---@field symbols entity_raw.T_symbols
 ---@field sphere_alignment DFEnumVector<sphere_type, number>
@@ -659,12 +659,12 @@ df.entity_name_type = {}
 ---@field max_pop_number number
 ---@field max_starting_civ_number number
 ---@field religion DFNumberVector
----@field religion_sphere entity_raw_religion_sphere
+---@field religion_sphere _entity_raw_religion_sphere
 ---@field jobs entity_raw.T_jobs
----@field positions entity_raw_positions
+---@field positions _entity_raw_positions
 ---@field variable_positions DFEnumVector<entity_position_responsibility, number>
 ---@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
----@field tissue_styles entity_raw_tissue_styles
+---@field tissue_styles _entity_raw_tissue_styles
 ---@field workshops entity_raw.T_workshops
 ---@field banditry number
 ---@field gem_shapes_str DFStringVector
@@ -675,7 +675,7 @@ df.entity_name_type = {}
 ---@field unk_v4201_1 number
 ---@field currency_str1 DFStringVector
 ---@field currency_str2 DFStringVector
----@field animal entity_raw_animal
+---@field animal _entity_raw_animal
 
 ---@class _entity_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -731,21 +731,21 @@ function df.entity_raw.get_vector() end
 ---@field _kind 'struct-type'
 df.entity_raw.T_equipment = {}
 
----@class entity_raw_flags: DFContainer
+---@class _entity_raw_flags: DFContainer
 ---@field [integer] table<entity_raw_flags, boolean>
-local entity_raw_flags
+local _entity_raw_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<entity_raw_flags, boolean>>
-function entity_raw_flags:_field(index) end
+function _entity_raw_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<entity_raw_flags, boolean> 
-function entity_raw_flags:insert(index, item) end
+function _entity_raw_flags:insert(index, item) end
 
 ---@param index integer 
-function entity_raw_flags:erase(index) end
+function _entity_raw_flags:erase(index) end
 
 ---@class (exact) entity_raw.T_symbols: DFObject
 ---@field _kind 'struct'
@@ -817,21 +817,21 @@ df.entity_raw.T_progress_trigger = {}
 ---@field [8] "ENGINEER"
 df.entity_raw.T_scholar = {}
 
----@class entity_raw_religion_sphere: DFContainer
+---@class _entity_raw_religion_sphere: DFContainer
 ---@field [integer] sphere_type
-local entity_raw_religion_sphere
+local _entity_raw_religion_sphere
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<sphere_type>
-function entity_raw_religion_sphere:_field(index) end
+function _entity_raw_religion_sphere:_field(index) end
 
 ---@param index integer 
 ---@param item sphere_type 
-function entity_raw_religion_sphere:insert(index, item) end
+function _entity_raw_religion_sphere:insert(index, item) end
 
 ---@param index integer 
-function entity_raw_religion_sphere:erase(index) end
+function _entity_raw_religion_sphere:erase(index) end
 
 ---@class (exact) entity_raw.T_jobs: DFObject
 ---@field _kind 'struct'
@@ -844,37 +844,37 @@ function entity_raw_religion_sphere:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_raw.T_jobs = {}
 
----@class entity_raw_positions: DFContainer
+---@class _entity_raw_positions: DFContainer
 ---@field [integer] entity_position_raw
-local entity_raw_positions
+local _entity_raw_positions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_position_raw>
-function entity_raw_positions:_field(index) end
+function _entity_raw_positions:_field(index) end
 
 ---@param index integer 
 ---@param item entity_position_raw 
-function entity_raw_positions:insert(index, item) end
+function _entity_raw_positions:insert(index, item) end
 
 ---@param index integer 
-function entity_raw_positions:erase(index) end
+function _entity_raw_positions:erase(index) end
 
----@class entity_raw_tissue_styles: DFContainer
+---@class _entity_raw_tissue_styles: DFContainer
 ---@field [integer] DFPointer<integer>
-local entity_raw_tissue_styles
+local _entity_raw_tissue_styles
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function entity_raw_tissue_styles:_field(index) end
+function _entity_raw_tissue_styles:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function entity_raw_tissue_styles:insert(index, item) end
+function _entity_raw_tissue_styles:insert(index, item) end
 
 ---@param index integer 
-function entity_raw_tissue_styles:erase(index) end
+function _entity_raw_tissue_styles:erase(index) end
 
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'
@@ -888,21 +888,21 @@ function entity_raw_tissue_styles:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_raw.T_workshops = {}
 
----@class entity_raw_animal: DFContainer
+---@class _entity_raw_animal: DFContainer
 ---@field [integer] entity_animal_raw
-local entity_raw_animal
+local _entity_raw_animal
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_animal_raw>
-function entity_raw_animal:_field(index) end
+function _entity_raw_animal:_field(index) end
 
 ---@param index integer 
 ---@param item entity_animal_raw 
-function entity_raw_animal:insert(index, item) end
+function _entity_raw_animal:insert(index, item) end
 
 ---@param index integer 
-function entity_raw_animal:erase(index) end
+function _entity_raw_animal:erase(index) end
 
 ---@class (exact) entity_animal_raw: DFObject
 ---@field _kind 'struct'
@@ -1271,7 +1271,7 @@ df.entity_position_responsibility = {}
 ---@field _type _entity_position_raw
 ---@field code string
 ---@field id number
----@field flags entity_position_raw_flags
+---@field flags _entity_position_raw_flags
 ---@field allowed_creature_str string[]
 ---@field allowed_creature DFNumberVector
 ---@field allowed_class DFStringVector
@@ -1318,19 +1318,19 @@ df.entity_position_responsibility = {}
 ---@field _kind 'struct-type'
 df.entity_position_raw = {}
 
----@class entity_position_raw_flags: DFContainer
+---@class _entity_position_raw_flags: DFContainer
 ---@field [integer] table<entity_position_raw_flags, boolean>
-local entity_position_raw_flags
+local _entity_position_raw_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<entity_position_raw_flags, boolean>>
-function entity_position_raw_flags:_field(index) end
+function _entity_position_raw_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<entity_position_raw_flags, boolean> 
-function entity_position_raw_flags:insert(index, item) end
+function _entity_position_raw_flags:insert(index, item) end
 
 ---@param index integer 
-function entity_position_raw_flags:erase(index) end
+function _entity_position_raw_flags:erase(index) end
 

@@ -2052,8 +2052,8 @@ df.unit_active_animation_flags = {}
 ---@field invasion_id number References: `invasion_info`
 ---@field patrol_route coord_path used by necromancers for corpse locations, siegers etc
 ---@field patrol_index number from 23a
----@field specific_refs unit_specific_refs
----@field general_refs unit_general_refs
+---@field specific_refs _unit_specific_refs
+---@field general_refs _unit_general_refs
 ---@field military unit.T_military
 ---@field social_activities DFNumberVector
 ---@field conversations DFNumberVector
@@ -2083,15 +2083,15 @@ df.unit_active_animation_flags = {}
 ---@field relationship_ids DFEnumVector<unit_relationship_type, number>
 ---@field mount_type rider_positions_type TODO: find correct location and enumify
 ---@field last_hit history_hit_item
----@field inventory unit_inventory
+---@field inventory _unit_inventory
 ---@field owned_items DFNumberVector
 ---@field traded_items DFNumberVector items brought to trade depot
----@field owned_buildings unit_owned_buildings bay12: zone_assigned
+---@field owned_buildings _unit_owned_buildings bay12: zone_assigned
 ---@field corpse_parts DFNumberVector entries remain even when items are destroyed
 ---@field job unit.T_job
 ---@field body unit.T_body
 ---@field appearance unit.T_appearance
----@field actions unit_actions
+---@field actions _unit_actions
 ---@field next_action_id number
 ---@field counters unit.T_counters
 ---@field curse unit.T_curse
@@ -2104,7 +2104,7 @@ df.unit_active_animation_flags = {}
 ---@field syndromes unit.T_syndromes
 ---@field reports unit.T_reports
 ---@field health unit_health_info
----@field used_items unit_used_items unit_patient_profilest *patient_profile
+---@field used_items _unit_used_items unit_patient_profilest *patient_profile
 ---@field enemy unit.T_enemy
 ---@field healing_rate DFNumberVector
 ---@field effective_rate number bay12: heal_rate_recuperation
@@ -2115,7 +2115,7 @@ df.unit_active_animation_flags = {}
 ---@field burrows DFNumberVector
 ---@field inactive_burrows DFNumberVector
 ---@field vision_cone DFPointer<integer>
----@field occupations unit_occupations
+---@field occupations _unit_occupations
 ---@field adjective string from physical descriptions for use in adv
 ---@field texpos number[][]
 ---@field sheet_icon_texpos number
@@ -2186,37 +2186,37 @@ df.unit.T_meeting = {}
 ---@field [3] "LeaveMap"
 df.unit.T_meeting.T_state = {}
 
----@class unit_specific_refs: DFContainer
+---@class _unit_specific_refs: DFContainer
 ---@field [integer] specific_ref
-local unit_specific_refs
+local _unit_specific_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<specific_ref>
-function unit_specific_refs:_field(index) end
+function _unit_specific_refs:_field(index) end
 
 ---@param index integer 
 ---@param item specific_ref 
-function unit_specific_refs:insert(index, item) end
+function _unit_specific_refs:insert(index, item) end
 
 ---@param index integer 
-function unit_specific_refs:erase(index) end
+function _unit_specific_refs:erase(index) end
 
----@class unit_general_refs: DFContainer
+---@class _unit_general_refs: DFContainer
 ---@field [integer] general_ref
-local unit_general_refs
+local _unit_general_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<general_ref>
-function unit_general_refs:_field(index) end
+function _unit_general_refs:_field(index) end
 
 ---@param index integer 
 ---@param item general_ref 
-function unit_general_refs:insert(index, item) end
+function _unit_general_refs:insert(index, item) end
 
 ---@param index integer 
-function unit_general_refs:erase(index) end
+function _unit_general_refs:erase(index) end
 
 ---@class (exact) unit.T_military: DFObject
 ---@field _kind 'struct'
@@ -2270,37 +2270,37 @@ df.unit.T_animal = {}
 ---@field _kind 'struct-type'
 df.unit.T_opponent = {}
 
----@class unit_inventory: DFContainer
+---@class _unit_inventory: DFContainer
 ---@field [integer] unit_inventory_item
-local unit_inventory
+local _unit_inventory
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_inventory_item>
-function unit_inventory:_field(index) end
+function _unit_inventory:_field(index) end
 
 ---@param index integer 
 ---@param item unit_inventory_item 
-function unit_inventory:insert(index, item) end
+function _unit_inventory:insert(index, item) end
 
 ---@param index integer 
-function unit_inventory:erase(index) end
+function _unit_inventory:erase(index) end
 
----@class unit_owned_buildings: DFContainer
+---@class _unit_owned_buildings: DFContainer
 ---@field [integer] building_civzonest
-local unit_owned_buildings
+local _unit_owned_buildings
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building_civzonest>
-function unit_owned_buildings:_field(index) end
+function _unit_owned_buildings:_field(index) end
 
 ---@param index integer 
 ---@param item building_civzonest 
-function unit_owned_buildings:insert(index, item) end
+function _unit_owned_buildings:insert(index, item) end
 
 ---@param index integer 
-function unit_owned_buildings:erase(index) end
+function _unit_owned_buildings:erase(index) end
 
 ---@class (exact) unit.T_job: DFObject
 ---@field _kind 'struct'
@@ -2332,7 +2332,7 @@ df.unit.T_job = {}
 ---@field _kind 'struct'
 ---@field _type _unit.T_body
 ---@field components body_component_info
----@field wounds unit_body_wounds
+---@field wounds _unit_body_wounds
 ---@field wound_next_id number
 ---@field unk_39c number[]
 ---@field body_plan caste_body_info
@@ -2342,43 +2342,43 @@ df.unit.T_job = {}
 ---@field blood_max integer
 ---@field blood_count integer
 ---@field infection_level number GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
----@field spatters unit_body_spatters
+---@field spatters _unit_body_spatters
 
 ---@class _unit.T_body: DFCompound
 ---@field _kind 'struct-type'
 df.unit.T_body = {}
 
----@class unit_body_wounds: DFContainer
+---@class _unit_body_wounds: DFContainer
 ---@field [integer] unit_wound
-local unit_body_wounds
+local _unit_body_wounds
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_wound>
-function unit_body_wounds:_field(index) end
+function _unit_body_wounds:_field(index) end
 
 ---@param index integer 
 ---@param item unit_wound 
-function unit_body_wounds:insert(index, item) end
+function _unit_body_wounds:insert(index, item) end
 
 ---@param index integer 
-function unit_body_wounds:erase(index) end
+function _unit_body_wounds:erase(index) end
 
----@class unit_body_spatters: DFContainer
+---@class _unit_body_spatters: DFContainer
 ---@field [integer] spatter
-local unit_body_spatters
+local _unit_body_spatters
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<spatter>
-function unit_body_spatters:_field(index) end
+function _unit_body_spatters:_field(index) end
 
 ---@param index integer 
 ---@param item spatter 
-function unit_body_spatters:insert(index, item) end
+function _unit_body_spatters:insert(index, item) end
 
 ---@param index integer 
-function unit_body_spatters:erase(index) end
+function _unit_body_spatters:erase(index) end
 
 ---@class (exact) unit.T_appearance: DFObject
 ---@field _kind 'struct'
@@ -2398,21 +2398,21 @@ function unit_body_spatters:erase(index) end
 ---@field _kind 'struct-type'
 df.unit.T_appearance = {}
 
----@class unit_actions: DFContainer
+---@class _unit_actions: DFContainer
 ---@field [integer] unit_action
-local unit_actions
+local _unit_actions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_action>
-function unit_actions:_field(index) end
+function _unit_actions:_field(index) end
 
 ---@param index integer 
 ---@param item unit_action 
-function unit_actions:insert(index, item) end
+function _unit_actions:insert(index, item) end
 
 ---@param index integer 
-function unit_actions:erase(index) end
+function _unit_actions:erase(index) end
 
 ---@class (exact) unit.T_counters: DFObject
 ---@field _kind 'struct'
@@ -2530,7 +2530,7 @@ df.unit.T_counters2 = {}
 ---@class (exact) unit.T_status: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_status
----@field misc_traits unit_status_misc_traits
+---@field misc_traits _unit_status_misc_traits
 ---@field eat_history DFPointer<integer>
 ---@field demand_timeout number also used for wagon trampling
 ---@field mandate_timeout number
@@ -2538,17 +2538,17 @@ df.unit.T_counters2 = {}
 ---@field attacker_cntdn DFNumberVector
 ---@field face_direction number for wagons
 ---@field artifact_name language_name
----@field souls unit_status_souls
+---@field souls _unit_status_souls
 ---@field current_soul unit_soul
----@field demands unit_status_demands
+---@field demands _unit_status_demands
 ---@field labors DFEnumVector<unit_labor, boolean>
----@field wrestle_items unit_status_wrestle_items
+---@field wrestle_items _unit_status_wrestle_items
 ---@field observed_traps DFNumberVector
----@field complaints unit_status_complaints
----@field parleys unit_status_parleys
----@field requests unit_status_requests
----@field coin_debts unit_status_coin_debts
----@field commands unit_status_commands
+---@field complaints _unit_status_complaints
+---@field parleys _unit_status_parleys
+---@field requests _unit_status_requests
+---@field coin_debts _unit_status_coin_debts
+---@field commands _unit_status_commands
 ---@field last_command_received_year number
 ---@field last_command_received_season_count number
 ---@field command_gait_index DFEnumVector<gait_type, number> initialized together with enemy.gait_index
@@ -2561,149 +2561,149 @@ df.unit.T_counters2 = {}
 ---@field _kind 'struct-type'
 df.unit.T_status = {}
 
----@class unit_status_misc_traits: DFContainer
+---@class _unit_status_misc_traits: DFContainer
 ---@field [integer] unit_misc_trait
-local unit_status_misc_traits
+local _unit_status_misc_traits
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_misc_trait>
-function unit_status_misc_traits:_field(index) end
+function _unit_status_misc_traits:_field(index) end
 
 ---@param index integer 
 ---@param item unit_misc_trait 
-function unit_status_misc_traits:insert(index, item) end
+function _unit_status_misc_traits:insert(index, item) end
 
 ---@param index integer 
-function unit_status_misc_traits:erase(index) end
+function _unit_status_misc_traits:erase(index) end
 
----@class unit_status_souls: DFContainer
+---@class _unit_status_souls: DFContainer
 ---@field [integer] unit_soul
-local unit_status_souls
+local _unit_status_souls
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_soul>
-function unit_status_souls:_field(index) end
+function _unit_status_souls:_field(index) end
 
 ---@param index integer 
 ---@param item unit_soul 
-function unit_status_souls:insert(index, item) end
+function _unit_status_souls:insert(index, item) end
 
 ---@param index integer 
-function unit_status_souls:erase(index) end
+function _unit_status_souls:erase(index) end
 
----@class unit_status_demands: DFContainer
+---@class _unit_status_demands: DFContainer
 ---@field [integer] unit_demand
-local unit_status_demands
+local _unit_status_demands
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_demand>
-function unit_status_demands:_field(index) end
+function _unit_status_demands:_field(index) end
 
 ---@param index integer 
 ---@param item unit_demand 
-function unit_status_demands:insert(index, item) end
+function _unit_status_demands:insert(index, item) end
 
 ---@param index integer 
-function unit_status_demands:erase(index) end
+function _unit_status_demands:erase(index) end
 
----@class unit_status_wrestle_items: DFContainer
+---@class _unit_status_wrestle_items: DFContainer
 ---@field [integer] unit_item_wrestle
-local unit_status_wrestle_items
+local _unit_status_wrestle_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_item_wrestle>
-function unit_status_wrestle_items:_field(index) end
+function _unit_status_wrestle_items:_field(index) end
 
 ---@param index integer 
 ---@param item unit_item_wrestle 
-function unit_status_wrestle_items:insert(index, item) end
+function _unit_status_wrestle_items:insert(index, item) end
 
 ---@param index integer 
-function unit_status_wrestle_items:erase(index) end
+function _unit_status_wrestle_items:erase(index) end
 
----@class unit_status_complaints: DFContainer
+---@class _unit_status_complaints: DFContainer
 ---@field [integer] unit_complaint
-local unit_status_complaints
+local _unit_status_complaints
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_complaint>
-function unit_status_complaints:_field(index) end
+function _unit_status_complaints:_field(index) end
 
 ---@param index integer 
 ---@param item unit_complaint 
-function unit_status_complaints:insert(index, item) end
+function _unit_status_complaints:insert(index, item) end
 
 ---@param index integer 
-function unit_status_complaints:erase(index) end
+function _unit_status_complaints:erase(index) end
 
----@class unit_status_parleys: DFContainer
+---@class _unit_status_parleys: DFContainer
 ---@field [integer] unit_parley
-local unit_status_parleys
+local _unit_status_parleys
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_parley>
-function unit_status_parleys:_field(index) end
+function _unit_status_parleys:_field(index) end
 
 ---@param index integer 
 ---@param item unit_parley 
-function unit_status_parleys:insert(index, item) end
+function _unit_status_parleys:insert(index, item) end
 
 ---@param index integer 
-function unit_status_parleys:erase(index) end
+function _unit_status_parleys:erase(index) end
 
----@class unit_status_requests: DFContainer
+---@class _unit_status_requests: DFContainer
 ---@field [integer] unit_request
-local unit_status_requests
+local _unit_status_requests
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_request>
-function unit_status_requests:_field(index) end
+function _unit_status_requests:_field(index) end
 
 ---@param index integer 
 ---@param item unit_request 
-function unit_status_requests:insert(index, item) end
+function _unit_status_requests:insert(index, item) end
 
 ---@param index integer 
-function unit_status_requests:erase(index) end
+function _unit_status_requests:erase(index) end
 
----@class unit_status_coin_debts: DFContainer
+---@class _unit_status_coin_debts: DFContainer
 ---@field [integer] unit_coin_debt
-local unit_status_coin_debts
+local _unit_status_coin_debts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_coin_debt>
-function unit_status_coin_debts:_field(index) end
+function _unit_status_coin_debts:_field(index) end
 
 ---@param index integer 
 ---@param item unit_coin_debt 
-function unit_status_coin_debts:insert(index, item) end
+function _unit_status_coin_debts:insert(index, item) end
 
 ---@param index integer 
-function unit_status_coin_debts:erase(index) end
+function _unit_status_coin_debts:erase(index) end
 
----@class unit_status_commands: DFContainer
+---@class _unit_status_commands: DFContainer
 ---@field [integer] command
-local unit_status_commands
+local _unit_status_commands
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<command>
-function unit_status_commands:_field(index) end
+function _unit_status_commands:_field(index) end
 
 ---@param index integer 
 ---@param item command 
-function unit_status_commands:insert(index, item) end
+function _unit_status_commands:insert(index, item) end
 
 ---@param index integer 
-function unit_status_commands:erase(index) end
+function _unit_status_commands:erase(index) end
 
 ---@class (exact) unit.T_status2: DFObject
 ---@field _kind 'struct'
@@ -2714,7 +2714,7 @@ function unit_status_commands:erase(index) end
 ---@field limbs_grasp_count number
 ---@field limbs_fly_max number
 ---@field limbs_fly_count number
----@field body_part_temperature unit_status2_body_part_temperature
+---@field body_part_temperature _unit_status2_body_part_temperature
 ---@field add_path_flags pathfinding_flags bay12: override_permit; pathing flags to OR, set to None after move
 ---@field liquid_type tile_designation
 ---@field liquid_depth integer
@@ -2724,21 +2724,21 @@ function unit_status_commands:erase(index) end
 ---@field _kind 'struct-type'
 df.unit.T_status2 = {}
 
----@class unit_status2_body_part_temperature: DFContainer
+---@class _unit_status2_body_part_temperature: DFContainer
 ---@field [integer] temperaturest
-local unit_status2_body_part_temperature
+local _unit_status2_body_part_temperature
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<temperaturest>
-function unit_status2_body_part_temperature:_field(index) end
+function _unit_status2_body_part_temperature:_field(index) end
 
 ---@param index integer 
 ---@param item temperaturest 
-function unit_status2_body_part_temperature:insert(index, item) end
+function _unit_status2_body_part_temperature:insert(index, item) end
 
 ---@param index integer 
-function unit_status2_body_part_temperature:erase(index) end
+function _unit_status2_body_part_temperature:erase(index) end
 
 ---@class (exact) unit.T_syndrome_advancement: DFObject
 ---@field _kind 'struct'
@@ -2753,7 +2753,7 @@ df.unit.T_syndrome_advancement = {}
 ---@class (exact) unit.T_syndromes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndromes
----@field active unit_syndromes_active Sorted by type:
+---@field active _unit_syndromes_active Sorted by type:
 ---@field reinfection_type DFNumberVector Seems to be incremented every new infection:
 ---@field reinfection_count DFNumberVector
 
@@ -2761,21 +2761,21 @@ df.unit.T_syndrome_advancement = {}
 ---@field _kind 'struct-type'
 df.unit.T_syndromes = {}
 
----@class unit_syndromes_active: DFContainer
+---@class _unit_syndromes_active: DFContainer
 ---@field [integer] unit_syndrome
-local unit_syndromes_active
+local _unit_syndromes_active
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_syndrome>
-function unit_syndromes_active:_field(index) end
+function _unit_syndromes_active:_field(index) end
 
 ---@param index integer 
 ---@param item unit_syndrome 
-function unit_syndromes_active:insert(index, item) end
+function _unit_syndromes_active:insert(index, item) end
 
 ---@param index integer 
-function unit_syndromes_active:erase(index) end
+function _unit_syndromes_active:erase(index) end
 
 ---@class (exact) unit.T_reports: DFObject
 ---@field _kind 'struct'
@@ -2788,21 +2788,21 @@ function unit_syndromes_active:erase(index) end
 ---@field _kind 'struct-type'
 df.unit.T_reports = {}
 
----@class unit_used_items: DFContainer
+---@class _unit_used_items: DFContainer
 ---@field [integer] unit_item_use
-local unit_used_items
+local _unit_used_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_item_use>
-function unit_used_items:_field(index) end
+function _unit_used_items:_field(index) end
 
 ---@param index integer 
 ---@param item unit_item_use 
-function unit_used_items:insert(index, item) end
+function _unit_used_items:insert(index, item) end
 
 ---@param index integer 
-function unit_used_items:erase(index) end
+function _unit_used_items:erase(index) end
 
 -- svector((item_familiarityst *)) item_familiarity
 -- !!this is not actually a compound!!
@@ -2816,9 +2816,9 @@ function unit_used_items:erase(index) end
 ---@field normal_race number transform_caste References: `creature_raw`
 ---@field normal_caste number birth_race References: `caste_raw`
 ---@field interaction number birth_caste
----@field appearances unit_enemy_appearances retraction_body_action_index (???)
----@field witness_reports unit_enemy_witness_reports svector((physical_formst *)) physical_form
----@field rumor unit_enemy_rumor
+---@field appearances _unit_enemy_appearances retraction_body_action_index (???)
+---@field witness_reports _unit_enemy_witness_reports svector((physical_formst *)) physical_form
+---@field rumor _unit_enemy_rumor
 ---@field gait_index DFEnumVector<gait_type, number> rumor_infost rumor_info
 ---@field attack_awareness unit.T_enemy.T_attack_awareness
 ---@field detection_info unit.T_enemy.T_detection_info
@@ -2836,7 +2836,7 @@ function unit_used_items:erase(index) end
 ---@field travel_log DFPointer<integer>
 ---@field combat_side_id number
 ---@field histfig_vector_idx number arena_side<br>below here unsaved --
----@field caste_flags unit_enemy_caste_flags
+---@field caste_flags _unit_enemy_caste_flags
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
 ---@field motor_nervenet DFIntegerVector
@@ -2853,53 +2853,53 @@ function unit_used_items:erase(index) end
 ---@field _kind 'struct-type'
 df.unit.T_enemy = {}
 
----@class unit_enemy_appearances: DFContainer
+---@class _unit_enemy_appearances: DFContainer
 ---@field [integer] unit_appearance
-local unit_enemy_appearances
+local _unit_enemy_appearances
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_appearance>
-function unit_enemy_appearances:_field(index) end
+function _unit_enemy_appearances:_field(index) end
 
 ---@param index integer 
 ---@param item unit_appearance 
-function unit_enemy_appearances:insert(index, item) end
+function _unit_enemy_appearances:insert(index, item) end
 
 ---@param index integer 
-function unit_enemy_appearances:erase(index) end
+function _unit_enemy_appearances:erase(index) end
 
----@class unit_enemy_witness_reports: DFContainer
+---@class _unit_enemy_witness_reports: DFContainer
 ---@field [integer] witness_incidentst
-local unit_enemy_witness_reports
+local _unit_enemy_witness_reports
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<witness_incidentst>
-function unit_enemy_witness_reports:_field(index) end
+function _unit_enemy_witness_reports:_field(index) end
 
 ---@param index integer 
 ---@param item witness_incidentst 
-function unit_enemy_witness_reports:insert(index, item) end
+function _unit_enemy_witness_reports:insert(index, item) end
 
 ---@param index integer 
-function unit_enemy_witness_reports:erase(index) end
+function _unit_enemy_witness_reports:erase(index) end
 
----@class unit_enemy_rumor: DFContainer
+---@class _unit_enemy_rumor: DFContainer
 ---@field [integer] entity_event
-local unit_enemy_rumor
+local _unit_enemy_rumor
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_event>
-function unit_enemy_rumor:_field(index) end
+function _unit_enemy_rumor:_field(index) end
 
 ---@param index integer 
 ---@param item entity_event 
-function unit_enemy_rumor:insert(index, item) end
+function _unit_enemy_rumor:insert(index, item) end
 
 ---@param index integer 
-function unit_enemy_rumor:erase(index) end
+function _unit_enemy_rumor:erase(index) end
 
 -- int32_t gait_index[GAITNUM]
 ---@class (exact) unit.T_enemy.T_attack_awareness: DFObject
@@ -2925,37 +2925,37 @@ df.unit.T_enemy.T_attack_awareness = {}
 ---@field _kind 'struct-type'
 df.unit.T_enemy.T_detection_info = {}
 
----@class unit_enemy_caste_flags: DFContainer
+---@class _unit_enemy_caste_flags: DFContainer
 ---@field [integer] table<caste_raw_flags, boolean>
-local unit_enemy_caste_flags
+local _unit_enemy_caste_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<caste_raw_flags, boolean>>
-function unit_enemy_caste_flags:_field(index) end
+function _unit_enemy_caste_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<caste_raw_flags, boolean> 
-function unit_enemy_caste_flags:insert(index, item) end
+function _unit_enemy_caste_flags:insert(index, item) end
 
 ---@param index integer 
-function unit_enemy_caste_flags:erase(index) end
+function _unit_enemy_caste_flags:erase(index) end
 
----@class unit_occupations: DFContainer
+---@class _unit_occupations: DFContainer
 ---@field [integer] occupation
-local unit_occupations
+local _unit_occupations
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<occupation>
-function unit_occupations:_field(index) end
+function _unit_occupations:_field(index) end
 
 ---@param index integer 
 ---@param item occupation 
-function unit_occupations:insert(index, item) end
+function _unit_occupations:insert(index, item) end
 
 ---@param index integer 
-function unit_occupations:erase(index) end
+function _unit_occupations:erase(index) end
 
 ---@class witness_report_flags: DFObject
 ---@field _kind 'bitfield'
@@ -3197,7 +3197,7 @@ df.unit_attribute = {}
 ---@field ticks number
 ---@field wounds DFNumberVector refers to unit_wound by id
 ---@field wound_id number
----@field symptoms unit_syndrome_symptoms
+---@field symptoms _unit_syndrome_symptoms
 ---@field reinfection_count number set from unit.reinfection_count[i]++
 ---@field flags unit_syndrome.T_flags
 ---@field unk4 DFNumberVector
@@ -3206,21 +3206,21 @@ df.unit_attribute = {}
 ---@field _kind 'struct-type'
 df.unit_syndrome = {}
 
----@class unit_syndrome_symptoms: DFContainer
+---@class _unit_syndrome_symptoms: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_syndrome_symptoms
+local _unit_syndrome_symptoms
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_syndrome_symptoms:_field(index) end
+function _unit_syndrome_symptoms:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_syndrome_symptoms:insert(index, item) end
+function _unit_syndrome_symptoms:insert(index, item) end
 
 ---@param index integer 
-function unit_syndrome_symptoms:erase(index) end
+function _unit_syndrome_symptoms:erase(index) end
 
 ---@class unit_syndrome.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -3448,7 +3448,7 @@ df.wound_damage_flags2 = {}
 ---@field _kind 'struct'
 ---@field _type _unit_wound
 ---@field id number
----@field parts unit_wound_parts
+---@field parts _unit_wound_parts
 ---@field age number
 ---@field attacker_unit_id number References: `unit`
 ---@field attacker_hist_figure_id number References: `historical_figure`
@@ -3468,21 +3468,21 @@ df.wound_damage_flags2 = {}
 ---@field _kind 'struct-type'
 df.unit_wound = {}
 
----@class unit_wound_parts: DFContainer
+---@class _unit_wound_parts: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_wound_parts
+local _unit_wound_parts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_wound_parts:_field(index) end
+function _unit_wound_parts:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_wound_parts:insert(index, item) end
+function _unit_wound_parts:insert(index, item) end
 
 ---@param index integer 
-function unit_wound_parts:erase(index) end
+function _unit_wound_parts:erase(index) end
 
 ---@class unit_wound.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -3964,67 +3964,67 @@ df.unit_bp_health_flags = {}
 ---@field _type _unit_health_info
 ---@field unit_id number References: `unit`
 ---@field flags unit_health_flags
----@field body_part_flags unit_health_info_body_part_flags
+---@field body_part_flags _unit_health_info_body_part_flags
 ---@field try_for_cast_cntdn number
 ---@field immobilize_cntdn number
 ---@field dressing_cntdn number
 ---@field suture_cntdn number
 ---@field crutch_cntdn number
 ---@field get_out_of_traction_diagnosis_timer number
----@field op_history unit_health_info_op_history
----@field syndrome_diagnosis unit_health_info_syndrome_diagnosis
+---@field op_history _unit_health_info_op_history
+---@field syndrome_diagnosis _unit_health_info_syndrome_diagnosis
 
 ---@class _unit_health_info: DFCompound
 ---@field _kind 'struct-type'
 df.unit_health_info = {}
 
----@class unit_health_info_body_part_flags: DFContainer
+---@class _unit_health_info_body_part_flags: DFContainer
 ---@field [integer] unit_bp_health_flags
-local unit_health_info_body_part_flags
+local _unit_health_info_body_part_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_bp_health_flags>
-function unit_health_info_body_part_flags:_field(index) end
+function _unit_health_info_body_part_flags:_field(index) end
 
 ---@param index integer 
 ---@param item unit_bp_health_flags 
-function unit_health_info_body_part_flags:insert(index, item) end
+function _unit_health_info_body_part_flags:insert(index, item) end
 
 ---@param index integer 
-function unit_health_info_body_part_flags:erase(index) end
+function _unit_health_info_body_part_flags:erase(index) end
 
----@class unit_health_info_op_history: DFContainer
+---@class _unit_health_info_op_history: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_health_info_op_history
+local _unit_health_info_op_history
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_health_info_op_history:_field(index) end
+function _unit_health_info_op_history:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_health_info_op_history:insert(index, item) end
+function _unit_health_info_op_history:insert(index, item) end
 
 ---@param index integer 
-function unit_health_info_op_history:erase(index) end
+function _unit_health_info_op_history:erase(index) end
 
----@class unit_health_info_syndrome_diagnosis: DFContainer
+---@class _unit_health_info_syndrome_diagnosis: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_health_info_syndrome_diagnosis
+local _unit_health_info_syndrome_diagnosis
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_health_info_syndrome_diagnosis:_field(index) end
+function _unit_health_info_syndrome_diagnosis:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_health_info_syndrome_diagnosis:insert(index, item) end
+function _unit_health_info_syndrome_diagnosis:insert(index, item) end
 
 ---@param index integer 
-function unit_health_info_syndrome_diagnosis:erase(index) end
+function _unit_health_info_syndrome_diagnosis:erase(index) end
 
 ---@class orientation_flags: DFObject
 ---@field _kind 'bitfield'
@@ -4071,8 +4071,8 @@ df.orientation_flags = {}
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field mental_attrs DFEnumVector<mental_attribute_type, unit_attribute>
----@field skills unit_soul_skills
----@field preferences unit_soul_preferences
+---@field skills _unit_soul_skills
+---@field preferences _unit_soul_preferences
 ---@field personality unit_personality
 ---@field performance_skills DFPointer<integer>
 
@@ -4080,37 +4080,37 @@ df.orientation_flags = {}
 ---@field _kind 'struct-type'
 df.unit_soul = {}
 
----@class unit_soul_skills: DFContainer
+---@class _unit_soul_skills: DFContainer
 ---@field [integer] unit_skill
-local unit_soul_skills
+local _unit_soul_skills
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_skill>
-function unit_soul_skills:_field(index) end
+function _unit_soul_skills:_field(index) end
 
 ---@param index integer 
 ---@param item unit_skill 
-function unit_soul_skills:insert(index, item) end
+function _unit_soul_skills:insert(index, item) end
 
 ---@param index integer 
-function unit_soul_skills:erase(index) end
+function _unit_soul_skills:erase(index) end
 
----@class unit_soul_preferences: DFContainer
+---@class _unit_soul_preferences: DFContainer
 ---@field [integer] unit_preference
-local unit_soul_preferences
+local _unit_soul_preferences
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_preference>
-function unit_soul_preferences:_field(index) end
+function _unit_soul_preferences:_field(index) end
 
 ---@param index integer 
 ---@param item unit_preference 
-function unit_soul_preferences:insert(index, item) end
+function _unit_soul_preferences:insert(index, item) end
 
 ---@param index integer 
-function unit_soul_preferences:erase(index) end
+function _unit_soul_preferences:erase(index) end
 
 ---@class (exact) unit_instrument_skill: DFObject
 ---@field _kind 'struct'
@@ -4239,16 +4239,16 @@ df.personality_moodst.T_flags = {}
 ---@class (exact) unit_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_personality
----@field values unit_personality_values
----@field ethics unit_personality_ethics
----@field emotions unit_personality_emotions bay12: mood
----@field dreams unit_personality_dreams
+---@field values _unit_personality_values
+---@field ethics _unit_personality_ethics
+---@field emotions _unit_personality_emotions bay12: mood
+---@field dreams _unit_personality_dreams
 ---@field next_dream_id number
----@field unk_v40_6 unit_personality_unk_v40_6
+---@field unk_v40_6 _unit_personality_unk_v40_6
 ---@field traits DFEnumVector<personality_facet_type, integer>
 ---@field civ_id number References: `historical_entity`
 ---@field cultural_identity number References: `cultural_identity`
----@field mannerism unit_personality_mannerism
+---@field mannerism _unit_personality_mannerism
 ---@field habit DFNumberVector
 ---@field stress number
 ---@field time_without_distress number range 0-806400, higher values cause stress to decrease quicker
@@ -4256,7 +4256,7 @@ df.personality_moodst.T_flags = {}
 ---@field likes_outdoors number migrated from misc_traits
 ---@field combat_hardened number migrated from misc_traits
 ---@field outdoor_dislike_counter number incremented when unit is in rain
----@field needs unit_personality_needs
+---@field needs _unit_personality_needs
 ---@field flags unit_personality.T_flags
 ---@field temporary_trait_changes DFPointer<integer> sum of inebriation or so personality changing effects
 ---@field slack_end_year number
@@ -4274,117 +4274,117 @@ df.personality_moodst.T_flags = {}
 ---@field _kind 'struct-type'
 df.unit_personality = {}
 
----@class unit_personality_values: DFContainer
+---@class _unit_personality_values: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_personality_values
+local _unit_personality_values
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_personality_values:_field(index) end
+function _unit_personality_values:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_personality_values:insert(index, item) end
+function _unit_personality_values:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_values:erase(index) end
+function _unit_personality_values:erase(index) end
 
----@class unit_personality_ethics: DFContainer
+---@class _unit_personality_ethics: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_personality_ethics
+local _unit_personality_ethics
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_personality_ethics:_field(index) end
+function _unit_personality_ethics:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_personality_ethics:insert(index, item) end
+function _unit_personality_ethics:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_ethics:erase(index) end
+function _unit_personality_ethics:erase(index) end
 
----@class unit_personality_emotions: DFContainer
+---@class _unit_personality_emotions: DFContainer
 ---@field [integer] personality_moodst
-local unit_personality_emotions
+local _unit_personality_emotions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<personality_moodst>
-function unit_personality_emotions:_field(index) end
+function _unit_personality_emotions:_field(index) end
 
 ---@param index integer 
 ---@param item personality_moodst 
-function unit_personality_emotions:insert(index, item) end
+function _unit_personality_emotions:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_emotions:erase(index) end
+function _unit_personality_emotions:erase(index) end
 
----@class unit_personality_dreams: DFContainer
+---@class _unit_personality_dreams: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_personality_dreams
+local _unit_personality_dreams
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_personality_dreams:_field(index) end
+function _unit_personality_dreams:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_personality_dreams:insert(index, item) end
+function _unit_personality_dreams:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_dreams:erase(index) end
+function _unit_personality_dreams:erase(index) end
 
----@class unit_personality_unk_v40_6: DFContainer
+---@class _unit_personality_unk_v40_6: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_personality_unk_v40_6
+local _unit_personality_unk_v40_6
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_personality_unk_v40_6:_field(index) end
+function _unit_personality_unk_v40_6:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_personality_unk_v40_6:insert(index, item) end
+function _unit_personality_unk_v40_6:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_unk_v40_6:erase(index) end
+function _unit_personality_unk_v40_6:erase(index) end
 
----@class unit_personality_mannerism: DFContainer
+---@class _unit_personality_mannerism: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_personality_mannerism
+local _unit_personality_mannerism
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_personality_mannerism:_field(index) end
+function _unit_personality_mannerism:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_personality_mannerism:insert(index, item) end
+function _unit_personality_mannerism:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_mannerism:erase(index) end
+function _unit_personality_mannerism:erase(index) end
 
----@class unit_personality_needs: DFContainer
+---@class _unit_personality_needs: DFContainer
 ---@field [integer] DFPointer<integer>
-local unit_personality_needs
+local _unit_personality_needs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function unit_personality_needs:_field(index) end
+function _unit_personality_needs:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function unit_personality_needs:insert(index, item) end
+function _unit_personality_needs:insert(index, item) end
 
 ---@param index integer 
-function unit_personality_needs:erase(index) end
+function _unit_personality_needs:erase(index) end
 
 ---@class unit_personality.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -5240,28 +5240,28 @@ function df.unit_chunk.get_vector() end
 ---@class (exact) unit_chunk.T_units: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_chunk.T_units
----@field items unit_chunk_units_items
+---@field items _unit_chunk_units_items
 ---@field unit unit
 
 ---@class _unit_chunk.T_units: DFCompound
 ---@field _kind 'struct-type'
 df.unit_chunk.T_units = {}
 
----@class unit_chunk_units_items: DFContainer
+---@class _unit_chunk_units_items: DFContainer
 ---@field [integer] item
-local unit_chunk_units_items
+local _unit_chunk_units_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<item>
-function unit_chunk_units_items:_field(index) end
+function _unit_chunk_units_items:_field(index) end
 
 ---@param index integer 
 ---@param item item 
-function unit_chunk_units_items:insert(index, item) end
+function _unit_chunk_units_items:insert(index, item) end
 
 ---@param index integer 
-function unit_chunk_units_items:erase(index) end
+function _unit_chunk_units_items:erase(index) end
 
 -- physical_formst
 ---@class (exact) unit_appearance: DFObject

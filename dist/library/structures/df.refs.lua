@@ -1884,7 +1884,7 @@ df.entity_site_link_flags = {}
 ---@field link_strength number Summary: 0 seems to be active, 1, 2, 3, 5, 131, various cessations of activity. 8, 16, 128, 144, 8192 something unrelated, and the 129, 195 possible cessations"<br>0: Civilization/SiteGovernment/NomadicGroup/Religion/Outcast/MerchantCompany/Guild. Seems to be 'Active'. Civ can have 'Active' claim on site not held, while others seem to be currently active.<br>1: SiteGovernment/NomadicGroup/Outcast. Seems to be defeated and losing presence at the site. Nomads/Outcasts might not have been the masters of the site as single rampage can cause enmity of two entities.<br>2: Civilization: type = None/Active, (failed to find difference). All sites seen were either destroyed or abandoned, can be reclaimed, but without that flag set. No flags set except a possible 'fortress'. Note that no conquest was seen.<br>Outcast: type = Local_Activity. All have criminal flags. Some may have indications of having left, but some don't...<br>3: Outcast, all with type = Local_Activity. All seen were fully incorporated into other criminal gangs.<br>5: SiteGovernment/MilitaryUnit. All Fortress. All type = Claim. SiteGovernment just replaced w/o event. MercenaryCompay abandoned or were replaced silently, and no flags set.<br>8: All SiteGovernment with type = None. Seems to be references to SiteGovernments without any known relations. No flags set.<br>16: SiteGovernment/NomadicGroup with type = None. Seems to be references to entities without any known relations. No flags set.<br>128: SiteGovernment/NomadicGroup/Outcast with type = None. Seems to be references to entities without any known relations. No flags set.<br>129: NomadicGroup settling in destroyed site/site horribly experimented on, being present silently, and site getting destroyed again. type = Claim.<br>131: Outcast, type = Local_Activity. No flags. All relocated to site location, typically catacombs. All fully incorporated into other organization, as per 3.<br>144: NomadicGroup (only one entry). type = None. No flags. No apparent connection.<br>195: Outcast (only 2 entries). type = Local_Activity. No flags. Both moved to inn and became primary criminal org. One had lots of members moving from the inn. Different site destroyed in both cases. No incorporation seen, though.<br>8192: Civilization/SiteGovernment. type = None. No flags. No apparent connection.<br>former_flag is an accumulation of every flag the entity has ever had, any operation that clears part of flag also adds that flag to former_flag
 ---@field initial_controlling_population number all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
 ---@field last_check_controlling_population number same value as previous field
----@field ab_profile entity_site_link_ab_profile the above are related to army.squads in some way
+---@field ab_profile _entity_site_link_ab_profile the above are related to army.squads in some way
 ---@field target_site_x number target site world coordinate x
 ---@field target_site_y number target site world coordinate y
 ---@field last_checked_army_year number all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
@@ -1894,21 +1894,21 @@ df.entity_site_link_flags = {}
 ---@field _kind 'struct-type'
 df.entity_site_link = {}
 
----@class entity_site_link_ab_profile: DFContainer
+---@class _entity_site_link_ab_profile: DFContainer
 ---@field [integer] DFPointer<integer>
-local entity_site_link_ab_profile
+local _entity_site_link_ab_profile
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function entity_site_link_ab_profile:_field(index) end
+function _entity_site_link_ab_profile:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function entity_site_link_ab_profile:insert(index, item) end
+function _entity_site_link_ab_profile:insert(index, item) end
 
 ---@param index integer 
-function entity_site_link_ab_profile:erase(index) end
+function _entity_site_link_ab_profile:erase(index) end
 
 ---@class undead_flags: DFObject
 ---@field _kind 'bitfield'

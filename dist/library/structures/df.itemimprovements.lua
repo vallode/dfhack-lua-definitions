@@ -479,13 +479,13 @@ df.written_content_style = {}
 ---@field title string
 ---@field page_start number
 ---@field page_end number
----@field refs written_content_refs interactions learned
+---@field refs _written_content_refs interactions learned
 ---@field ref_aux DFNumberVector if nonzero, corresponding ref is ignored
 ---@field unk1 number
 ---@field unk2 number
 ---@field type written_content_type
 ---@field poetic_form number References: `poetic_form`
----@field styles written_content_styles
+---@field styles _written_content_styles
 ---@field style_strength DFNumberVector 0 = maximum, 1 = significant, 2 = partial
 ---@field author number References: `historical_figure`
 ---@field author_roll number
@@ -503,37 +503,37 @@ function df.written_content.find(key) end
 ---@return written_content_vector # df.global.world.written_contents.all
 function df.written_content.get_vector() end
 
----@class written_content_refs: DFContainer
+---@class _written_content_refs: DFContainer
 ---@field [integer] general_ref
-local written_content_refs
+local _written_content_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<general_ref>
-function written_content_refs:_field(index) end
+function _written_content_refs:_field(index) end
 
 ---@param index integer 
 ---@param item general_ref 
-function written_content_refs:insert(index, item) end
+function _written_content_refs:insert(index, item) end
 
 ---@param index integer 
-function written_content_refs:erase(index) end
+function _written_content_refs:erase(index) end
 
----@class written_content_styles: DFContainer
+---@class _written_content_styles: DFContainer
 ---@field [integer] written_content_style
-local written_content_styles
+local _written_content_styles
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<written_content_style>
-function written_content_styles:_field(index) end
+function _written_content_styles:_field(index) end
 
 ---@param index integer 
 ---@param item written_content_style 
-function written_content_styles:insert(index, item) end
+function _written_content_styles:insert(index, item) end
 
 ---@param index integer 
-function written_content_styles:erase(index) end
+function _written_content_styles:erase(index) end
 
 ---@class engraving_flags: DFObject
 ---@field _kind 'bitfield'

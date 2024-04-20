@@ -531,8 +531,8 @@ df.trade_good_purpose = {}
 ---@field flags2 item_flags2
 ---@field age integer
 ---@field id number
----@field specific_refs item_specific_refs
----@field general_refs item_general_refs
+---@field specific_refs _item_specific_refs
+---@field general_refs _item_general_refs
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field stockpile_countdown integer -1 per 50 frames; then check if needs moving
@@ -563,37 +563,37 @@ function df.item.find(key) end
 ---@return item_vector # df.global.world.items.all
 function df.item.get_vector() end
 
----@class item_specific_refs: DFContainer
+---@class _item_specific_refs: DFContainer
 ---@field [integer] specific_ref
-local item_specific_refs
+local _item_specific_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<specific_ref>
-function item_specific_refs:_field(index) end
+function _item_specific_refs:_field(index) end
 
 ---@param index integer 
 ---@param item specific_ref 
-function item_specific_refs:insert(index, item) end
+function _item_specific_refs:insert(index, item) end
 
 ---@param index integer 
-function item_specific_refs:erase(index) end
+function _item_specific_refs:erase(index) end
 
----@class item_general_refs: DFContainer
+---@class _item_general_refs: DFContainer
 ---@field [integer] general_ref
-local item_general_refs
+local _item_general_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<general_ref>
-function item_general_refs:_field(index) end
+function _item_general_refs:_field(index) end
 
 ---@param index integer 
 ---@param item general_ref 
-function item_general_refs:insert(index, item) end
+function _item_general_refs:insert(index, item) end
 
 ---@param index integer 
-function item_general_refs:erase(index) end
+function _item_general_refs:erase(index) end
 
 -- ACTUAL ITEM
 ---@class (exact) item_kill_info: DFObject
@@ -655,27 +655,27 @@ df.item_crafted = {}
 ---@class (exact) item_constructed: DFObject, item_crafted
 ---@field _kind 'struct'
 ---@field _type _item_constructed
----@field improvements item_constructed_improvements
+---@field improvements _item_constructed_improvements
 
 ---@class _item_constructed: DFCompound
 ---@field _kind 'class-type'
 df.item_constructed = {}
 
----@class item_constructed_improvements: DFContainer
+---@class _item_constructed_improvements: DFContainer
 ---@field [integer] itemimprovement
-local item_constructed_improvements
+local _item_constructed_improvements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<itemimprovement>
-function item_constructed_improvements:_field(index) end
+function _item_constructed_improvements:_field(index) end
 
 ---@param index integer 
 ---@param item itemimprovement 
-function item_constructed_improvements:insert(index, item) end
+function _item_constructed_improvements:insert(index, item) end
 
 ---@param index integer 
-function item_constructed_improvements:erase(index) end
+function _item_constructed_improvements:erase(index) end
 
 -- BODY COMPONENT
 ---@class body_part_status: DFObject
@@ -791,10 +791,10 @@ df.body_layer_status = {}
 ---@class (exact) body_component_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_component_info
----@field body_part_status body_component_info_body_part_status
+---@field body_part_status _body_component_info_body_part_status
 ---@field numbered_masks DFIntegerVector 1 bit per instance of a numbered body part
 ---@field nonsolid_remaining DFIntegerVector 0-100%
----@field layer_status body_component_info_layer_status
+---@field layer_status _body_component_info_layer_status
 ---@field layer_wound_area DFIntegerVector
 ---@field layer_cut_fraction DFIntegerVector Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
 ---@field layer_dent_fraction DFIntegerVector 0-10000
@@ -804,37 +804,37 @@ df.body_layer_status = {}
 ---@field _kind 'struct-type'
 df.body_component_info = {}
 
----@class body_component_info_body_part_status: DFContainer
+---@class _body_component_info_body_part_status: DFContainer
 ---@field [integer] body_part_status
-local body_component_info_body_part_status
+local _body_component_info_body_part_status
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<body_part_status>
-function body_component_info_body_part_status:_field(index) end
+function _body_component_info_body_part_status:_field(index) end
 
 ---@param index integer 
 ---@param item body_part_status 
-function body_component_info_body_part_status:insert(index, item) end
+function _body_component_info_body_part_status:insert(index, item) end
 
 ---@param index integer 
-function body_component_info_body_part_status:erase(index) end
+function _body_component_info_body_part_status:erase(index) end
 
----@class body_component_info_layer_status: DFContainer
+---@class _body_component_info_layer_status: DFContainer
 ---@field [integer] body_layer_status
-local body_component_info_layer_status
+local _body_component_info_layer_status
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<body_layer_status>
-function body_component_info_layer_status:_field(index) end
+function _body_component_info_layer_status:_field(index) end
 
 ---@param index integer 
 ---@param item body_layer_status 
-function body_component_info_layer_status:insert(index, item) end
+function _body_component_info_layer_status:insert(index, item) end
 
 ---@param index integer 
-function body_component_info_layer_status:erase(index) end
+function _body_component_info_layer_status:erase(index) end
 
 ---@class (exact) body_size_info: DFObject
 ---@field _kind 'struct'
@@ -947,7 +947,7 @@ df.item_body_component = {}
 ---@class (exact) item_body_component.T_body: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_body
----@field wounds item_body_component_body_wounds
+---@field wounds _item_body_component_body_wounds
 ---@field unk_100 number[] unit.body.unk_39c
 ---@field wound_next_id number
 ---@field components body_component_info
@@ -962,21 +962,21 @@ df.item_body_component = {}
 ---@field _kind 'struct-type'
 df.item_body_component.T_body = {}
 
----@class item_body_component_body_wounds: DFContainer
+---@class _item_body_component_body_wounds: DFContainer
 ---@field [integer] unit_wound
-local item_body_component_body_wounds
+local _item_body_component_body_wounds
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<unit_wound>
-function item_body_component_body_wounds:_field(index) end
+function _item_body_component_body_wounds:_field(index) end
 
 ---@param index integer 
 ---@param item unit_wound 
-function item_body_component_body_wounds:insert(index, item) end
+function _item_body_component_body_wounds:insert(index, item) end
 
 ---@param index integer 
-function item_body_component_body_wounds:erase(index) end
+function _item_body_component_body_wounds:erase(index) end
 
 ---@class (exact) item_body_component.T_appearance: DFObject
 ---@field _kind 'struct'
@@ -1372,28 +1372,28 @@ df.item_fish_rawst = {}
 ---@field subtype itemdef_foodst
 ---@field entity number References: `historical_entity`
 ---@field recipe_id number
----@field ingredients item_foodst_ingredients
+---@field ingredients _item_foodst_ingredients
 ---@field rot_timer number
 
 ---@class _item_foodst: DFCompound
 ---@field _kind 'class-type'
 df.item_foodst = {}
 
----@class item_foodst_ingredients: DFContainer
+---@class _item_foodst_ingredients: DFContainer
 ---@field [integer] DFPointer<integer>
-local item_foodst_ingredients
+local _item_foodst_ingredients
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function item_foodst_ingredients:_field(index) end
+function _item_foodst_ingredients:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function item_foodst_ingredients:insert(index, item) end
+function _item_foodst_ingredients:insert(index, item) end
 
 ---@param index integer 
-function item_foodst_ingredients:erase(index) end
+function _item_foodst_ingredients:erase(index) end
 
 ---@class (exact) item_verminst: DFObject, item_critter
 ---@field _kind 'struct'
@@ -1874,27 +1874,27 @@ df.item_helmst = {}
 ---@field _kind 'struct'
 ---@field _type _item_glovesst
 ---@field subtype itemdef_glovesst
----@field handedness item_glovesst_handedness 1 right, 2 left
+---@field handedness _item_glovesst_handedness 1 right, 2 left
 
 ---@class _item_glovesst: DFCompound
 ---@field _kind 'class-type'
 df.item_glovesst = {}
 
----@class item_glovesst_handedness: DFContainer
+---@class _item_glovesst_handedness: DFContainer
 ---@field [integer] table<integer, boolean>
-local item_glovesst_handedness
+local _item_glovesst_handedness
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function item_glovesst_handedness:_field(index) end
+function _item_glovesst_handedness:_field(index) end
 
 ---@param index integer 
 ---@param item table<integer, boolean> 
-function item_glovesst_handedness:insert(index, item) end
+function _item_glovesst_handedness:insert(index, item) end
 
 ---@param index integer 
-function item_glovesst_handedness:erase(index) end
+function _item_glovesst_handedness:erase(index) end
 
 ---@class (exact) item_pantsst: DFObject, item_constructed
 ---@field _kind 'struct'

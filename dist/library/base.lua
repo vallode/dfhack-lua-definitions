@@ -154,6 +154,19 @@ function DFIntegerVector:insert(index, item) end
 ---@return integer
 function DFIntegerVector:_field(index) end
 
+---@class DFStringVector: DFContainer
+---@field [integer] string
+local DFStringVector
+
+---@param index integer|'#'
+---@param item string
+function DFStringVector:insert(index, item) end
+
+---@nodiscard
+---@param index integer
+---@return string
+function DFStringVector:_field(index) end
+
 ---@class DFVector<T>: { [number]: T } 
 local DFVector
 

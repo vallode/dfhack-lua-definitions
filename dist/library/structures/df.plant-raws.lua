@@ -356,7 +356,7 @@ df.plant_raw_flags = {}
 ---@field id string
 ---@field index number
 ---@field raws DFStringVector
----@field flags plant_raw_flags
+---@field flags _plant_raw_flags
 ---@field name string
 ---@field name_plural string
 ---@field adj string
@@ -379,11 +379,11 @@ df.plant_raw_flags = {}
 ---@field frequency number
 ---@field clustersize number
 ---@field prefstring DFStringVector
----@field material plant_raw_material
+---@field material _plant_raw_material
 ---@field material_defs plant_raw.T_material_defs
 ---@field underground_depth_min number
 ---@field underground_depth_max number
----@field growths plant_raw_growths
+---@field growths _plant_raw_growths
 ---@field root_name string
 ---@field trunk_name string
 ---@field heavy_branch_name string
@@ -404,7 +404,7 @@ df.plant_raw_flags = {}
 ---@field root_density number
 ---@field root_radius number
 ---@field stockpile_growths DFNumberVector indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
----@field stockpile_growth_flags plant_raw_stockpile_growth_flags
+---@field stockpile_growth_flags _plant_raw_stockpile_growth_flags
 
 ---@class _plant_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -419,21 +419,21 @@ function df.plant_raw.find(key) end
 ---@return plant_raw_vector # df.global.world.raws.plants.all
 function df.plant_raw.get_vector() end
 
----@class plant_raw_flags: DFContainer
+---@class _plant_raw_flags: DFContainer
 ---@field [integer] table<plant_raw_flags, boolean>
-local plant_raw_flags
+local _plant_raw_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<plant_raw_flags, boolean>>
-function plant_raw_flags:_field(index) end
+function _plant_raw_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<plant_raw_flags, boolean> 
-function plant_raw_flags:insert(index, item) end
+function _plant_raw_flags:insert(index, item) end
 
 ---@param index integer 
-function plant_raw_flags:erase(index) end
+function _plant_raw_flags:erase(index) end
 
 ---@class (exact) plant_raw.T_tiles: DFObject
 ---@field _kind 'struct'
@@ -475,21 +475,21 @@ df.plant_raw.T_tiles = {}
 ---@field _kind 'struct-type'
 df.plant_raw.T_colors = {}
 
----@class plant_raw_material: DFContainer
+---@class _plant_raw_material: DFContainer
 ---@field [integer] material
-local plant_raw_material
+local _plant_raw_material
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<material>
-function plant_raw_material:_field(index) end
+function _plant_raw_material:_field(index) end
 
 ---@param index integer 
 ---@param item material 
-function plant_raw_material:insert(index, item) end
+function _plant_raw_material:insert(index, item) end
 
 ---@param index integer 
-function plant_raw_material:erase(index) end
+function _plant_raw_material:erase(index) end
 
 ---@class (exact) plant_raw.T_material_defs: DFObject
 ---@field _kind 'struct'
@@ -502,37 +502,37 @@ function plant_raw_material:erase(index) end
 ---@field _kind 'struct-type'
 df.plant_raw.T_material_defs = {}
 
----@class plant_raw_growths: DFContainer
+---@class _plant_raw_growths: DFContainer
 ---@field [integer] plant_growth
-local plant_raw_growths
+local _plant_raw_growths
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plant_growth>
-function plant_raw_growths:_field(index) end
+function _plant_raw_growths:_field(index) end
 
 ---@param index integer 
 ---@param item plant_growth 
-function plant_raw_growths:insert(index, item) end
+function _plant_raw_growths:insert(index, item) end
 
 ---@param index integer 
-function plant_raw_growths:erase(index) end
+function _plant_raw_growths:erase(index) end
 
----@class plant_raw_stockpile_growth_flags: DFContainer
+---@class _plant_raw_stockpile_growth_flags: DFContainer
 ---@field [integer] plant_raw.T_stockpile_growth_flags
-local plant_raw_stockpile_growth_flags
+local _plant_raw_stockpile_growth_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plant_raw.T_stockpile_growth_flags>
-function plant_raw_stockpile_growth_flags:_field(index) end
+function _plant_raw_stockpile_growth_flags:_field(index) end
 
 ---@param index integer 
 ---@param item plant_raw.T_stockpile_growth_flags 
-function plant_raw_stockpile_growth_flags:insert(index, item) end
+function _plant_raw_stockpile_growth_flags:insert(index, item) end
 
 ---@param index integer 
-function plant_raw_stockpile_growth_flags:erase(index) end
+function _plant_raw_stockpile_growth_flags:erase(index) end
 
 ---@class plant_raw.T_stockpile_growth_flags: DFObject
 ---@field _kind 'bitfield'
@@ -607,7 +607,7 @@ df.plant_material_def = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field prints plant_growth_prints
+---@field prints _plant_growth_prints
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 ---@field unk_v50_3 number
@@ -625,21 +625,21 @@ df.plant_material_def = {}
 ---@field _kind 'struct-type'
 df.plant_growth = {}
 
----@class plant_growth_prints: DFContainer
+---@class _plant_growth_prints: DFContainer
 ---@field [integer] plant_growth_print
-local plant_growth_prints
+local _plant_growth_prints
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<plant_growth_print>
-function plant_growth_prints:_field(index) end
+function _plant_growth_prints:_field(index) end
 
 ---@param index integer 
 ---@param item plant_growth_print 
-function plant_growth_prints:insert(index, item) end
+function _plant_growth_prints:insert(index, item) end
 
 ---@param index integer 
-function plant_growth_prints:erase(index) end
+function _plant_growth_prints:erase(index) end
 
 ---@class plant_growth.T_locations: DFObject
 ---@field _kind 'bitfield'

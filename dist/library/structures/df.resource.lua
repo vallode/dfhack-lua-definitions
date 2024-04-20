@@ -689,7 +689,7 @@ df.resource_allotment_specifier_powderst = {}
 ---@field unk2 number
 ---@field unk3 number
 ---@field unk_650 number
----@field unk_654 resource_allotment_data_unk_654
+---@field unk_654 _resource_allotment_data_unk_654
 
 ---@class _resource_allotment_data: DFCompound
 ---@field _kind 'struct-type'
@@ -704,35 +704,35 @@ function df.resource_allotment_data.find(key) end
 ---@return resource_allotment_data_vector # df.global.world.world_data.resource_allotments
 function df.resource_allotment_data.get_vector() end
 
----@class resource_allotment_data_resource_allotments: DFContainer
+---@class _resource_allotment_data_resource_allotments: DFContainer
 ---@field [integer] resource_allotment_specifier
-local resource_allotment_data_resource_allotments
+local _resource_allotment_data_resource_allotments
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<resource_allotment_specifier>
-function resource_allotment_data_resource_allotments:_field(index) end
+function _resource_allotment_data_resource_allotments:_field(index) end
 
 ---@param index integer 
 ---@param item resource_allotment_specifier 
-function resource_allotment_data_resource_allotments:insert(index, item) end
+function _resource_allotment_data_resource_allotments:insert(index, item) end
 
 ---@param index integer 
-function resource_allotment_data_resource_allotments:erase(index) end
+function _resource_allotment_data_resource_allotments:erase(index) end
 
----@class resource_allotment_data_unk_654: DFContainer
+---@class _resource_allotment_data_unk_654: DFContainer
 ---@field [integer] DFPointer<integer>
-local resource_allotment_data_unk_654
+local _resource_allotment_data_unk_654
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function resource_allotment_data_unk_654:_field(index) end
+function _resource_allotment_data_unk_654:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function resource_allotment_data_unk_654:insert(index, item) end
+function _resource_allotment_data_unk_654:insert(index, item) end
 
 ---@param index integer 
-function resource_allotment_data_unk_654:erase(index) end
+function _resource_allotment_data_unk_654:erase(index) end
 

@@ -29,9 +29,9 @@ df.reaction_flags = {}
 ---@field _type _reaction
 ---@field code string
 ---@field name string
----@field flags reaction_flags
----@field reagents reaction_reagents
----@field products reaction_products
+---@field flags _reaction_flags
+---@field reagents _reaction_reagents
+---@field products _reaction_products
 ---@field skill job_skill
 ---@field max_multiplier number
 ---@field building reaction.T_building
@@ -40,7 +40,7 @@ df.reaction_flags = {}
 ---@field source_enid number References: `historical_entity`
 ---@field raw_strings DFStringVector
 ---@field category string
----@field descriptions reaction_descriptions
+---@field descriptions _reaction_descriptions
 ---@field quality_adj1 number
 ---@field quality_adj2 number
 ---@field unk_1 number
@@ -59,59 +59,59 @@ function df.reaction.find(key) end
 ---@return reaction_vector # df.global.world.raws.reactions.reactions
 function df.reaction.get_vector() end
 
----@class reaction_flags: DFContainer
+---@class _reaction_flags: DFContainer
 ---@field [integer] table<reaction_flags, boolean>
-local reaction_flags
+local _reaction_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<reaction_flags, boolean>>
-function reaction_flags:_field(index) end
+function _reaction_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<reaction_flags, boolean> 
-function reaction_flags:insert(index, item) end
+function _reaction_flags:insert(index, item) end
 
 ---@param index integer 
-function reaction_flags:erase(index) end
+function _reaction_flags:erase(index) end
 
----@class reaction_reagents: DFContainer
+---@class _reaction_reagents: DFContainer
 ---@field [integer] reaction_reagent
-local reaction_reagents
+local _reaction_reagents
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<reaction_reagent>
-function reaction_reagents:_field(index) end
+function _reaction_reagents:_field(index) end
 
 ---@param index integer 
 ---@param item reaction_reagent 
-function reaction_reagents:insert(index, item) end
+function _reaction_reagents:insert(index, item) end
 
 ---@param index integer 
-function reaction_reagents:erase(index) end
+function _reaction_reagents:erase(index) end
 
----@class reaction_products: DFContainer
+---@class _reaction_products: DFContainer
 ---@field [integer] reaction_product
-local reaction_products
+local _reaction_products
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<reaction_product>
-function reaction_products:_field(index) end
+function _reaction_products:_field(index) end
 
 ---@param index integer 
 ---@param item reaction_product 
-function reaction_products:insert(index, item) end
+function _reaction_products:insert(index, item) end
 
 ---@param index integer 
-function reaction_products:erase(index) end
+function _reaction_products:erase(index) end
 
 ---@class (exact) reaction.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _reaction.T_building
 ---@field str string[]
----@field type reaction_building_type
+---@field type _reaction_building_type
 ---@field subtype DFNumberVector
 ---@field custom DFNumberVector
 ---@field hotkey DFNumberVector
@@ -120,37 +120,37 @@ function reaction_products:erase(index) end
 ---@field _kind 'struct-type'
 df.reaction.T_building = {}
 
----@class reaction_building_type: DFContainer
+---@class _reaction_building_type: DFContainer
 ---@field [integer] building_type
-local reaction_building_type
+local _reaction_building_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building_type>
-function reaction_building_type:_field(index) end
+function _reaction_building_type:_field(index) end
 
 ---@param index integer 
 ---@param item building_type 
-function reaction_building_type:insert(index, item) end
+function _reaction_building_type:insert(index, item) end
 
 ---@param index integer 
-function reaction_building_type:erase(index) end
+function _reaction_building_type:erase(index) end
 
----@class reaction_descriptions: DFContainer
+---@class _reaction_descriptions: DFContainer
 ---@field [integer] reaction_description
-local reaction_descriptions
+local _reaction_descriptions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<reaction_description>
-function reaction_descriptions:_field(index) end
+function _reaction_descriptions:_field(index) end
 
 ---@param index integer 
 ---@param item reaction_description 
-function reaction_descriptions:insert(index, item) end
+function _reaction_descriptions:insert(index, item) end
 
 ---@param index integer 
-function reaction_descriptions:erase(index) end
+function _reaction_descriptions:erase(index) end
 
 ---@class (exact) reaction_category: DFObject
 ---@field _kind 'struct'
@@ -322,7 +322,7 @@ df.reaction_product_item_flags = {}
 ---@field probability number
 ---@field count number
 ---@field product_dimension number
----@field flags reaction_product_itemst_flags
+---@field flags _reaction_product_itemst_flags
 ---@field get_material reaction_product_itemst.T_get_material
 ---@field item_str string[]
 ---@field material_str string[]
@@ -331,21 +331,21 @@ df.reaction_product_item_flags = {}
 ---@field _kind 'class-type'
 df.reaction_product_itemst = {}
 
----@class reaction_product_itemst_flags: DFContainer
+---@class _reaction_product_itemst_flags: DFContainer
 ---@field [integer] table<reaction_product_item_flags, boolean>
-local reaction_product_itemst_flags
+local _reaction_product_itemst_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<reaction_product_item_flags, boolean>>
-function reaction_product_itemst_flags:_field(index) end
+function _reaction_product_itemst_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<reaction_product_item_flags, boolean> 
-function reaction_product_itemst_flags:insert(index, item) end
+function _reaction_product_itemst_flags:insert(index, item) end
 
 ---@param index integer 
-function reaction_product_itemst_flags:erase(index) end
+function _reaction_product_itemst_flags:erase(index) end
 
 ---@class (exact) reaction_product_itemst.T_get_material: DFObject
 ---@field _kind 'struct'
@@ -389,7 +389,7 @@ df.reaction_product_improvement_flags = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field probability number
----@field flags reaction_product_item_improvementst_flags
+---@field flags _reaction_product_item_improvementst_flags
 ---@field get_material reaction_product_item_improvementst.T_get_material
 ---@field material_str string[]
 ---@field unk_v4201_2 string
@@ -398,21 +398,21 @@ df.reaction_product_improvement_flags = {}
 ---@field _kind 'class-type'
 df.reaction_product_item_improvementst = {}
 
----@class reaction_product_item_improvementst_flags: DFContainer
+---@class _reaction_product_item_improvementst_flags: DFContainer
 ---@field [integer] table<reaction_product_improvement_flags, boolean>
-local reaction_product_item_improvementst_flags
+local _reaction_product_item_improvementst_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<reaction_product_improvement_flags, boolean>>
-function reaction_product_item_improvementst_flags:_field(index) end
+function _reaction_product_item_improvementst_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<reaction_product_improvement_flags, boolean> 
-function reaction_product_item_improvementst_flags:insert(index, item) end
+function _reaction_product_item_improvementst_flags:insert(index, item) end
 
 ---@param index integer 
-function reaction_product_item_improvementst_flags:erase(index) end
+function _reaction_product_item_improvementst_flags:erase(index) end
 
 ---@class (exact) reaction_product_item_improvementst.T_get_material: DFObject
 ---@field _kind 'struct'

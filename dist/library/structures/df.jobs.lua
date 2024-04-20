@@ -296,10 +296,10 @@ df.job_subtype_surgery = {}
 ---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
 ---@field recheck_cntdn number toady: auxilary_counter; for process_jobs
 ---@field aux_id number
----@field items job_items
----@field specific_refs job_specific_refs
----@field general_refs job_general_refs
----@field job_items job_job_items
+---@field items _job_items
+---@field specific_refs _job_specific_refs
+---@field general_refs _job_general_refs
+---@field job_items _job_job_items
 ---@field guide_path coord_path
 ---@field cur_path_index number
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
@@ -310,69 +310,69 @@ df.job_subtype_surgery = {}
 ---@field _kind 'struct-type'
 df.job = {}
 
----@class job_items: DFContainer
+---@class _job_items: DFContainer
 ---@field [integer] job_item_ref
-local job_items
+local _job_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<job_item_ref>
-function job_items:_field(index) end
+function _job_items:_field(index) end
 
 ---@param index integer 
 ---@param item job_item_ref 
-function job_items:insert(index, item) end
+function _job_items:insert(index, item) end
 
 ---@param index integer 
-function job_items:erase(index) end
+function _job_items:erase(index) end
 
----@class job_specific_refs: DFContainer
+---@class _job_specific_refs: DFContainer
 ---@field [integer] specific_ref
-local job_specific_refs
+local _job_specific_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<specific_ref>
-function job_specific_refs:_field(index) end
+function _job_specific_refs:_field(index) end
 
 ---@param index integer 
 ---@param item specific_ref 
-function job_specific_refs:insert(index, item) end
+function _job_specific_refs:insert(index, item) end
 
 ---@param index integer 
-function job_specific_refs:erase(index) end
+function _job_specific_refs:erase(index) end
 
----@class job_general_refs: DFContainer
+---@class _job_general_refs: DFContainer
 ---@field [integer] general_ref
-local job_general_refs
+local _job_general_refs
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<general_ref>
-function job_general_refs:_field(index) end
+function _job_general_refs:_field(index) end
 
 ---@param index integer 
 ---@param item general_ref 
-function job_general_refs:insert(index, item) end
+function _job_general_refs:insert(index, item) end
 
 ---@param index integer 
-function job_general_refs:erase(index) end
+function _job_general_refs:erase(index) end
 
----@class job_job_items: DFContainer
+---@class _job_job_items: DFContainer
 ---@field [integer] job_item
-local job_job_items
+local _job_job_items
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<job_item>
-function job_job_items:_field(index) end
+function _job_job_items:_field(index) end
 
 ---@param index integer 
 ---@param item job_item 
-function job_job_items:insert(index, item) end
+function _job_job_items:insert(index, item) end
 
 ---@param index integer 
-function job_job_items:erase(index) end
+function _job_job_items:erase(index) end
 
 ---@class (exact) job_item_ref: DFObject
 ---@field _kind 'struct'
@@ -945,8 +945,8 @@ df.job_art_specification.T_type = {}
 ---@field finished_year_tick number
 ---@field workshop_id number References: `building`
 ---@field max_workshops number 0 is unlimited
----@field item_conditions manager_order_item_conditions
----@field order_conditions manager_order_order_conditions
+---@field item_conditions _manager_order_item_conditions
+---@field order_conditions _manager_order_order_conditions
 ---@field items DFPointer<integer>
 
 ---@class _manager_order: DFCompound
@@ -984,37 +984,37 @@ df.manager_order = {}
 ---@field [4] "Yearly"
 df.manager_order.T_frequency = {}
 
----@class manager_order_item_conditions: DFContainer
+---@class _manager_order_item_conditions: DFContainer
 ---@field [integer] manager_order_condition_item
-local manager_order_item_conditions
+local _manager_order_item_conditions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<manager_order_condition_item>
-function manager_order_item_conditions:_field(index) end
+function _manager_order_item_conditions:_field(index) end
 
 ---@param index integer 
 ---@param item manager_order_condition_item 
-function manager_order_item_conditions:insert(index, item) end
+function _manager_order_item_conditions:insert(index, item) end
 
 ---@param index integer 
-function manager_order_item_conditions:erase(index) end
+function _manager_order_item_conditions:erase(index) end
 
----@class manager_order_order_conditions: DFContainer
+---@class _manager_order_order_conditions: DFContainer
 ---@field [integer] manager_order_condition_order
-local manager_order_order_conditions
+local _manager_order_order_conditions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<manager_order_condition_order>
-function manager_order_order_conditions:_field(index) end
+function _manager_order_order_conditions:_field(index) end
 
 ---@param index integer 
 ---@param item manager_order_condition_order 
-function manager_order_order_conditions:insert(index, item) end
+function _manager_order_order_conditions:insert(index, item) end
 
 ---@param index integer 
-function manager_order_order_conditions:erase(index) end
+function _manager_order_order_conditions:erase(index) end
 
 ---@class (exact) manager_order_condition_item: DFObject
 ---@field _kind 'struct'

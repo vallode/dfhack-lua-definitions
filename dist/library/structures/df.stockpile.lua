@@ -1096,7 +1096,7 @@ df.stockpile_list.attrs = {}
 ---@field _type _hauling_route
 ---@field id number
 ---@field name string
----@field stops hauling_route_stops
+---@field stops _hauling_route_stops
 ---@field vehicle_ids DFNumberVector
 ---@field vehicle_stops DFNumberVector
 
@@ -1113,21 +1113,21 @@ function df.hauling_route.find(key) end
 ---@return hauling_route_vector # df.global.plotinfo.hauling.routes
 function df.hauling_route.get_vector() end
 
----@class hauling_route_stops: DFContainer
+---@class _hauling_route_stops: DFContainer
 ---@field [integer] hauling_stop
-local hauling_route_stops
+local _hauling_route_stops
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<hauling_stop>
-function hauling_route_stops:_field(index) end
+function _hauling_route_stops:_field(index) end
 
 ---@param index integer 
 ---@param item hauling_stop 
-function hauling_route_stops:insert(index, item) end
+function _hauling_route_stops:insert(index, item) end
 
 ---@param index integer 
-function hauling_route_stops:erase(index) end
+function _hauling_route_stops:erase(index) end
 
 ---@class (exact) hauling_stop: DFObject
 ---@field _kind 'struct'
@@ -1136,8 +1136,8 @@ function hauling_route_stops:erase(index) end
 ---@field name string
 ---@field pos coord
 ---@field settings stockpile_settings
----@field conditions hauling_stop_conditions
----@field stockpiles hauling_stop_stockpiles
+---@field conditions _hauling_stop_conditions
+---@field stockpiles _hauling_stop_stockpiles
 ---@field time_waiting number
 ---@field cart_id number References: `item`
 
@@ -1145,37 +1145,37 @@ function hauling_route_stops:erase(index) end
 ---@field _kind 'struct-type'
 df.hauling_stop = {}
 
----@class hauling_stop_conditions: DFContainer
+---@class _hauling_stop_conditions: DFContainer
 ---@field [integer] stop_depart_condition
-local hauling_stop_conditions
+local _hauling_stop_conditions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<stop_depart_condition>
-function hauling_stop_conditions:_field(index) end
+function _hauling_stop_conditions:_field(index) end
 
 ---@param index integer 
 ---@param item stop_depart_condition 
-function hauling_stop_conditions:insert(index, item) end
+function _hauling_stop_conditions:insert(index, item) end
 
 ---@param index integer 
-function hauling_stop_conditions:erase(index) end
+function _hauling_stop_conditions:erase(index) end
 
----@class hauling_stop_stockpiles: DFContainer
+---@class _hauling_stop_stockpiles: DFContainer
 ---@field [integer] route_stockpile_link
-local hauling_stop_stockpiles
+local _hauling_stop_stockpiles
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<route_stockpile_link>
-function hauling_stop_stockpiles:_field(index) end
+function _hauling_stop_stockpiles:_field(index) end
 
 ---@param index integer 
 ---@param item route_stockpile_link 
-function hauling_stop_stockpiles:insert(index, item) end
+function _hauling_stop_stockpiles:insert(index, item) end
 
 ---@param index integer 
-function hauling_stop_stockpiles:erase(index) end
+function _hauling_stop_stockpiles:erase(index) end
 
 ---@class (exact) stop_depart_condition: DFObject
 ---@field _kind 'struct'

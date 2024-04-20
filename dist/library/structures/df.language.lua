@@ -738,7 +738,7 @@ function df.language_translation.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _language_symbol
 ---@field name string
----@field unknown language_symbol_unknown empty
+---@field unknown _language_symbol_unknown empty
 ---@field words DFNumberVector
 ---@field flags number
 ---@field str DFStringVector
@@ -756,21 +756,21 @@ function df.language_symbol.find(key) end
 ---@return language_symbol_vector # df.global.world.raws.language.symbols
 function df.language_symbol.get_vector() end
 
----@class language_symbol_unknown: DFContainer
+---@class _language_symbol_unknown: DFContainer
 ---@field [integer] any[]
-local language_symbol_unknown
+local _language_symbol_unknown
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function language_symbol_unknown:_field(index) end
+function _language_symbol_unknown:_field(index) end
 
 ---@param index integer 
 ---@param item any[] 
-function language_symbol_unknown:insert(index, item) end
+function _language_symbol_unknown:insert(index, item) end
 
 ---@param index integer 
-function language_symbol_unknown:erase(index) end
+function _language_symbol_unknown:erase(index) end
 
 ---@class (exact) language_name: DFObject
 ---@field _kind 'struct'
@@ -798,21 +798,21 @@ df.language_name = {}
 ---@field _kind 'struct-type'
 df.language_word_table = {}
 
----@class language_word_table_parts: DFContainer
+---@class _language_word_table_parts: DFContainer
 ---@field [integer] part_of_speech
-local language_word_table_parts
+local _language_word_table_parts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<part_of_speech>
-function language_word_table_parts:_field(index) end
+function _language_word_table_parts:_field(index) end
 
 ---@param index integer 
 ---@param item part_of_speech 
-function language_word_table_parts:insert(index, item) end
+function _language_word_table_parts:insert(index, item) end
 
 ---@param index integer 
-function language_word_table_parts:erase(index) end
+function _language_word_table_parts:erase(index) end
 
 ---@alias language_name_category_keys
 ---| '"Unit"'

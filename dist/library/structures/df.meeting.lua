@@ -5,45 +5,45 @@
 ---@field _kind 'struct'
 ---@field _type _dipscript_info
 ---@field id number assigned during Save
----@field script_steps dipscript_info_script_steps
----@field script_vars dipscript_info_script_vars
+---@field script_steps _dipscript_info_script_steps
+---@field script_vars _dipscript_info_script_vars
 ---@field code string DWARF_LIAISON etc
 
 ---@class _dipscript_info: DFCompound
 ---@field _kind 'struct-type'
 df.dipscript_info = {}
 
----@class dipscript_info_script_steps: DFContainer
+---@class _dipscript_info_script_steps: DFContainer
 ---@field [integer] script_stepst
-local dipscript_info_script_steps
+local _dipscript_info_script_steps
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<script_stepst>
-function dipscript_info_script_steps:_field(index) end
+function _dipscript_info_script_steps:_field(index) end
 
 ---@param index integer 
 ---@param item script_stepst 
-function dipscript_info_script_steps:insert(index, item) end
+function _dipscript_info_script_steps:insert(index, item) end
 
 ---@param index integer 
-function dipscript_info_script_steps:erase(index) end
+function _dipscript_info_script_steps:erase(index) end
 
----@class dipscript_info_script_vars: DFContainer
+---@class _dipscript_info_script_vars: DFContainer
 ---@field [integer] script_varst
-local dipscript_info_script_vars
+local _dipscript_info_script_vars
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<script_varst>
-function dipscript_info_script_vars:_field(index) end
+function _dipscript_info_script_vars:_field(index) end
 
 ---@param index integer 
 ---@param item script_varst 
-function dipscript_info_script_vars:insert(index, item) end
+function _dipscript_info_script_vars:insert(index, item) end
 
 ---@param index integer 
-function dipscript_info_script_vars:erase(index) end
+function _dipscript_info_script_vars:erase(index) end
 
 ---@class (exact) dipscript_text: DFObject
 ---@field _kind 'struct'
@@ -281,19 +281,19 @@ df.meeting_variable = {}
 ---@field unk1 number maybe is_first_contact
 ---@field diplomat_id number References: `historical_figure`
 ---@field associate_id number References: `historical_figure`
----@field topic_list meeting_diplomat_info_topic_list
+---@field topic_list _meeting_diplomat_info_topic_list
 ---@field topic_parms DFNumberVector
 ---@field sell_requests entity_sell_requests
 ---@field buy_requests entity_buy_requests
 ---@field dipscript dipscript_info
 ---@field cur_step number
----@field active_script_vars meeting_diplomat_info_active_script_vars
+---@field active_script_vars _meeting_diplomat_info_active_script_vars
 ---@field unk_50 string
 ---@field unk_6c string
 ---@field flags meeting_diplomat_info.T_flags
----@field events meeting_diplomat_info_events
+---@field events _meeting_diplomat_info_events
 ---@field agreement_entity DFNumberVector
----@field agreement_topic meeting_diplomat_info_agreement_topic
+---@field agreement_topic _meeting_diplomat_info_agreement_topic
 ---@field agreement_year DFNumberVector
 ---@field agreement_tick DFNumberVector
 ---@field agreement_outcome DFNumberVector
@@ -305,37 +305,37 @@ df.meeting_variable = {}
 ---@field _kind 'struct-type'
 df.meeting_diplomat_info = {}
 
----@class meeting_diplomat_info_topic_list: DFContainer
+---@class _meeting_diplomat_info_topic_list: DFContainer
 ---@field [integer] meeting_topic
-local meeting_diplomat_info_topic_list
+local _meeting_diplomat_info_topic_list
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<meeting_topic>
-function meeting_diplomat_info_topic_list:_field(index) end
+function _meeting_diplomat_info_topic_list:_field(index) end
 
 ---@param index integer 
 ---@param item meeting_topic 
-function meeting_diplomat_info_topic_list:insert(index, item) end
+function _meeting_diplomat_info_topic_list:insert(index, item) end
 
 ---@param index integer 
-function meeting_diplomat_info_topic_list:erase(index) end
+function _meeting_diplomat_info_topic_list:erase(index) end
 
----@class meeting_diplomat_info_active_script_vars: DFContainer
+---@class _meeting_diplomat_info_active_script_vars: DFContainer
 ---@field [integer] active_script_varst
-local meeting_diplomat_info_active_script_vars
+local _meeting_diplomat_info_active_script_vars
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<active_script_varst>
-function meeting_diplomat_info_active_script_vars:_field(index) end
+function _meeting_diplomat_info_active_script_vars:_field(index) end
 
 ---@param index integer 
 ---@param item active_script_varst 
-function meeting_diplomat_info_active_script_vars:insert(index, item) end
+function _meeting_diplomat_info_active_script_vars:insert(index, item) end
 
 ---@param index integer 
-function meeting_diplomat_info_active_script_vars:erase(index) end
+function _meeting_diplomat_info_active_script_vars:erase(index) end
 
 ---@class meeting_diplomat_info.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -356,37 +356,37 @@ function meeting_diplomat_info_active_script_vars:erase(index) end
 ---@field [2] "success"
 df.meeting_diplomat_info.T_flags = {}
 
----@class meeting_diplomat_info_events: DFContainer
+---@class _meeting_diplomat_info_events: DFContainer
 ---@field [integer] meeting_event
-local meeting_diplomat_info_events
+local _meeting_diplomat_info_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<meeting_event>
-function meeting_diplomat_info_events:_field(index) end
+function _meeting_diplomat_info_events:_field(index) end
 
 ---@param index integer 
 ---@param item meeting_event 
-function meeting_diplomat_info_events:insert(index, item) end
+function _meeting_diplomat_info_events:insert(index, item) end
 
 ---@param index integer 
-function meeting_diplomat_info_events:erase(index) end
+function _meeting_diplomat_info_events:erase(index) end
 
----@class meeting_diplomat_info_agreement_topic: DFContainer
+---@class _meeting_diplomat_info_agreement_topic: DFContainer
 ---@field [integer] meeting_topic
-local meeting_diplomat_info_agreement_topic
+local _meeting_diplomat_info_agreement_topic
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<meeting_topic>
-function meeting_diplomat_info_agreement_topic:_field(index) end
+function _meeting_diplomat_info_agreement_topic:_field(index) end
 
 ---@param index integer 
 ---@param item meeting_topic 
-function meeting_diplomat_info_agreement_topic:insert(index, item) end
+function _meeting_diplomat_info_agreement_topic:insert(index, item) end
 
 ---@param index integer 
-function meeting_diplomat_info_agreement_topic:erase(index) end
+function _meeting_diplomat_info_agreement_topic:erase(index) end
 
 ---@alias meeting_topic_keys
 ---| '"DiscussCurrent"'
@@ -539,7 +539,7 @@ df.activity_info.T_flags = {}
 ---@class (exact) room_rent_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _room_rent_info
----@field elements room_rent_info_elements
+---@field elements _room_rent_info_elements
 ---@field rent_value number
 ---@field flags room_rent_info.T_flags
 
@@ -547,21 +547,21 @@ df.activity_info.T_flags = {}
 ---@field _kind 'struct-type'
 df.room_rent_info = {}
 
----@class room_rent_info_elements: DFContainer
+---@class _room_rent_info_elements: DFContainer
 ---@field [integer] building
-local room_rent_info_elements
+local _room_rent_info_elements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<building>
-function room_rent_info_elements:_field(index) end
+function _room_rent_info_elements:_field(index) end
 
 ---@param index integer 
 ---@param item building 
-function room_rent_info_elements:insert(index, item) end
+function _room_rent_info_elements:insert(index, item) end
 
 ---@param index integer 
-function room_rent_info_elements:erase(index) end
+function _room_rent_info_elements:erase(index) end
 
 ---@class room_rent_info.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -640,7 +640,7 @@ df.activity_entry_type = {}
 ---@field _type _activity_entry
 ---@field id number
 ---@field type activity_entry_type
----@field events activity_entry_events
+---@field events _activity_entry_events
 ---@field next_event_id number
 ---@field army_controller number References: `army_controller`
 
@@ -657,21 +657,21 @@ function df.activity_entry.find(key) end
 ---@return activity_entry_vector # df.global.world.activities.all
 function df.activity_entry.get_vector() end
 
----@class activity_entry_events: DFContainer
+---@class _activity_entry_events: DFContainer
 ---@field [integer] activity_event
-local activity_entry_events
+local _activity_entry_events
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<activity_event>
-function activity_entry_events:_field(index) end
+function _activity_entry_events:_field(index) end
 
 ---@param index integer 
 ---@param item activity_event 
-function activity_entry_events:insert(index, item) end
+function _activity_entry_events:insert(index, item) end
 
 ---@param index integer 
-function activity_entry_events:erase(index) end
+function _activity_entry_events:erase(index) end
 
 ---@alias activity_event_type_keys
 ---| '"TrainingSession"'
@@ -891,8 +891,8 @@ df.activity_event_building_role_type = {}
 ---@field activity_id number bay12: source_activity_id References: `activity_entry`
 ---@field parent_event_id number bay12: source_activity_event_id References: `activity_event`
 ---@field flags activity_event.T_flags
----@field item activity_event_item
----@field building activity_event_building
+---@field item _activity_event_item
+---@field building _activity_event_building
 
 ---@class _activity_event: DFCompound
 ---@field _kind 'class-type'
@@ -913,37 +913,37 @@ df.activity_event = {}
 ---@field [1] "squad" bay12: SQUAD; for all in training session, but not ind.drill
 df.activity_event.T_flags = {}
 
----@class activity_event_item: DFContainer
+---@class _activity_event_item: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_item
+local _activity_event_item
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_item:_field(index) end
+function _activity_event_item:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_item:insert(index, item) end
+function _activity_event_item:insert(index, item) end
 
 ---@param index integer 
-function activity_event_item:erase(index) end
+function _activity_event_item:erase(index) end
 
----@class activity_event_building: DFContainer
+---@class _activity_event_building: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_building
+local _activity_event_building
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_building:_field(index) end
+function _activity_event_building:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_building:insert(index, item) end
+function _activity_event_building:insert(index, item) end
 
 ---@param index integer 
-function activity_event_building:erase(index) end
+function _activity_event_building:erase(index) end
 
 ---@class (exact) activity_event_training_sessionst: DFObject, activity_event
 ---@field _kind 'struct'
@@ -1000,28 +1000,28 @@ df.activity_event_individual_skill_drillst = {}
 ---@field _type _activity_event_sparringst
 ---@field participants activity_event_participants
 ---@field building_id number References: `building`
----@field groups activity_event_sparringst_groups
+---@field groups _activity_event_sparringst_groups
 ---@field countdown number
 
 ---@class _activity_event_sparringst: DFCompound
 ---@field _kind 'class-type'
 df.activity_event_sparringst = {}
 
----@class activity_event_sparringst_groups: DFContainer
+---@class _activity_event_sparringst_groups: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_sparringst_groups
+local _activity_event_sparringst_groups
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_sparringst_groups:_field(index) end
+function _activity_event_sparringst_groups:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_sparringst_groups:insert(index, item) end
+function _activity_event_sparringst_groups:insert(index, item) end
 
 ---@param index integer 
-function activity_event_sparringst_groups:erase(index) end
+function _activity_event_sparringst_groups:erase(index) end
 
 ---@class (exact) activity_event_ranged_practicest: DFObject, activity_event
 ---@field _kind 'struct'
@@ -1037,7 +1037,7 @@ df.activity_event_ranged_practicest = {}
 ---@field _kind 'struct'
 ---@field _type _activity_event_harassmentst
 ---@field unk_1 DFNumberVector
----@field unk_2 activity_event_harassmentst_unk_2
+---@field unk_2 _activity_event_harassmentst_unk_2
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
@@ -1049,21 +1049,21 @@ df.activity_event_ranged_practicest = {}
 ---@field _kind 'class-type'
 df.activity_event_harassmentst = {}
 
----@class activity_event_harassmentst_unk_2: DFContainer
+---@class _activity_event_harassmentst_unk_2: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_harassmentst_unk_2
+local _activity_event_harassmentst_unk_2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_harassmentst_unk_2:_field(index) end
+function _activity_event_harassmentst_unk_2:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_harassmentst_unk_2:insert(index, item) end
+function _activity_event_harassmentst_unk_2:insert(index, item) end
 
 ---@param index integer 
-function activity_event_harassmentst_unk_2:erase(index) end
+function _activity_event_harassmentst_unk_2:erase(index) end
 
 ---@alias conversation_menu_keys
 ---| '"None"'
@@ -1303,7 +1303,7 @@ df.conversation_menu = {}
 ---@class (exact) activity_event_conversationst: DFObject, activity_event
 ---@field _kind 'struct'
 ---@field _type _activity_event_conversationst
----@field participants activity_event_conversationst_participants
+---@field participants _activity_event_conversationst_participants
 ---@field menu conversation_menu
 ---@field unk1 entity_event
 ---@field unk_1 number
@@ -1313,17 +1313,17 @@ df.conversation_menu = {}
 ---@field unk_v42_3 number
 ---@field unk_v42_4 DFNumberVector
 ---@field unk_5 DFNumberVector
----@field unk_6 activity_event_conversationst_unk_6
+---@field unk_6 _activity_event_conversationst_unk_6
 ---@field unk_7 DFNumberVector
 ---@field unk_8 DFNumberVector
 ---@field unk_b4 activity_event_conversationst.T_unk_b4
----@field turns activity_event_conversationst_turns
+---@field turns _activity_event_conversationst_turns
 ---@field floor_holder number -1 = no one's turn References: `unit`
 ---@field floor_holder_hfid number -1 = no one's turn References: `historical_figure`
 ---@field pause number ticks since the last turn
 ---@field flags2 activity_event_conversationst.T_flags2
 ---@field unk2 activity_event_conversationst.T_unk2
----@field choices activity_event_conversationst_choices
+---@field choices _activity_event_conversationst_choices
 ---@field unk3 conversation_menu
 ---@field unk4 number[] uninitialized
 
@@ -1331,37 +1331,37 @@ df.conversation_menu = {}
 ---@field _kind 'class-type'
 df.activity_event_conversationst = {}
 
----@class activity_event_conversationst_participants: DFContainer
+---@class _activity_event_conversationst_participants: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_conversationst_participants
+local _activity_event_conversationst_participants
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_conversationst_participants:_field(index) end
+function _activity_event_conversationst_participants:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_conversationst_participants:insert(index, item) end
+function _activity_event_conversationst_participants:insert(index, item) end
 
 ---@param index integer 
-function activity_event_conversationst_participants:erase(index) end
+function _activity_event_conversationst_participants:erase(index) end
 
----@class activity_event_conversationst_unk_6: DFContainer
+---@class _activity_event_conversationst_unk_6: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_conversationst_unk_6
+local _activity_event_conversationst_unk_6
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_conversationst_unk_6:_field(index) end
+function _activity_event_conversationst_unk_6:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_conversationst_unk_6:insert(index, item) end
+function _activity_event_conversationst_unk_6:insert(index, item) end
 
 ---@param index integer 
-function activity_event_conversationst_unk_6:erase(index) end
+function _activity_event_conversationst_unk_6:erase(index) end
 
 ---@class (exact) activity_event_conversationst.T_unk_b4: DFObject
 ---@field _kind 'struct'
@@ -1376,21 +1376,21 @@ function activity_event_conversationst_unk_6:erase(index) end
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk_b4 = {}
 
----@class activity_event_conversationst_turns: DFContainer
+---@class _activity_event_conversationst_turns: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_conversationst_turns
+local _activity_event_conversationst_turns
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_conversationst_turns:_field(index) end
+function _activity_event_conversationst_turns:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_conversationst_turns:insert(index, item) end
+function _activity_event_conversationst_turns:insert(index, item) end
 
 ---@param index integer 
-function activity_event_conversationst_turns:erase(index) end
+function _activity_event_conversationst_turns:erase(index) end
 
 ---@class activity_event_conversationst.T_flags2: DFObject
 ---@field _kind 'bitfield'
@@ -1407,7 +1407,7 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@class (exact) activity_event_conversationst.T_unk2: DFObject
 ---@field _kind 'struct'
 ---@field _type _activity_event_conversationst.T_unk2
----@field unk_1 activity_event_conversationst_unk2_unk_1
+---@field unk_1 _activity_event_conversationst_unk2_unk_1
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 DFNumberVector
@@ -1441,42 +1441,42 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk2 = {}
 
----@class activity_event_conversationst_unk2_unk_1: DFContainer
+---@class _activity_event_conversationst_unk2_unk_1: DFContainer
 ---@field [integer] incident
-local activity_event_conversationst_unk2_unk_1
+local _activity_event_conversationst_unk2_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<incident>
-function activity_event_conversationst_unk2_unk_1:_field(index) end
+function _activity_event_conversationst_unk2_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item incident 
-function activity_event_conversationst_unk2_unk_1:insert(index, item) end
+function _activity_event_conversationst_unk2_unk_1:insert(index, item) end
 
 ---@param index integer 
-function activity_event_conversationst_unk2_unk_1:erase(index) end
+function _activity_event_conversationst_unk2_unk_1:erase(index) end
 
----@class activity_event_conversationst_choices: DFContainer
+---@class _activity_event_conversationst_choices: DFContainer
 ---@field [integer] talk_choice
-local activity_event_conversationst_choices
+local _activity_event_conversationst_choices
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<talk_choice>
-function activity_event_conversationst_choices:_field(index) end
+function _activity_event_conversationst_choices:_field(index) end
 
 ---@param index integer 
 ---@param item talk_choice 
-function activity_event_conversationst_choices:insert(index, item) end
+function _activity_event_conversationst_choices:insert(index, item) end
 
 ---@param index integer 
-function activity_event_conversationst_choices:erase(index) end
+function _activity_event_conversationst_choices:erase(index) end
 
 ---@class (exact) activity_event_conflictst: DFObject, activity_event
 ---@field _kind 'struct'
 ---@field _type _activity_event_conflictst
----@field sides activity_event_conflictst_sides
+---@field sides _activity_event_conflictst_sides
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
@@ -1486,21 +1486,21 @@ function activity_event_conversationst_choices:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_conflictst = {}
 
----@class activity_event_conflictst_sides: DFContainer
+---@class _activity_event_conflictst_sides: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_conflictst_sides
+local _activity_event_conflictst_sides
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_conflictst_sides:_field(index) end
+function _activity_event_conflictst_sides:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_conflictst_sides:insert(index, item) end
+function _activity_event_conflictst_sides:insert(index, item) end
 
 ---@param index integer 
-function activity_event_conflictst_sides:erase(index) end
+function _activity_event_conflictst_sides:erase(index) end
 
 ---@class (exact) activity_event_guardst: DFObject, activity_event
 ---@field _kind 'struct'
@@ -1663,7 +1663,7 @@ df.performance_participant_type = {}
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field unk_6 number
----@field participant_actions activity_event_performancest_participant_actions
+---@field participant_actions _activity_event_performancest_participant_actions
 ---@field pos_performer_2d coord2d
 ---@field pos_performer coord
 ---@field unk_pos_1_x0 number
@@ -1676,7 +1676,7 @@ df.performance_participant_type = {}
 ---@field unk_pos_2_x1 number
 ---@field unk_pos_2_y1 number
 ---@field unk_pos_2_z number
----@field play_orders activity_event_performancest_play_orders
+---@field play_orders _activity_event_performancest_play_orders
 ---@field unk_11 number
 ---@field unk_12 number[]
 ---@field unk_13 coord
@@ -1688,37 +1688,37 @@ df.performance_participant_type = {}
 ---@field _kind 'class-type'
 df.activity_event_performancest = {}
 
----@class activity_event_performancest_participant_actions: DFContainer
+---@class _activity_event_performancest_participant_actions: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_performancest_participant_actions
+local _activity_event_performancest_participant_actions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_performancest_participant_actions:_field(index) end
+function _activity_event_performancest_participant_actions:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_performancest_participant_actions:insert(index, item) end
+function _activity_event_performancest_participant_actions:insert(index, item) end
 
 ---@param index integer 
-function activity_event_performancest_participant_actions:erase(index) end
+function _activity_event_performancest_participant_actions:erase(index) end
 
----@class activity_event_performancest_play_orders: DFContainer
+---@class _activity_event_performancest_play_orders: DFContainer
 ---@field [integer] performance_play_orderst
-local activity_event_performancest_play_orders
+local _activity_event_performancest_play_orders
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<performance_play_orderst>
-function activity_event_performancest_play_orders:_field(index) end
+function _activity_event_performancest_play_orders:_field(index) end
 
 ---@param index integer 
 ---@param item performance_play_orderst 
-function activity_event_performancest_play_orders:insert(index, item) end
+function _activity_event_performancest_play_orders:insert(index, item) end
 
 ---@param index integer 
-function activity_event_performancest_play_orders:erase(index) end
+function _activity_event_performancest_play_orders:erase(index) end
 
 ---@class (exact) performance_play_orderst: DFObject
 ---@field _kind 'struct'
@@ -1726,28 +1726,28 @@ function activity_event_performancest_play_orders:erase(index) end
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
----@field unk_4 performance_play_orderst_unk_4
+---@field unk_4 _performance_play_orderst_unk_4
 ---@field unk_5 number
 
 ---@class _performance_play_orderst: DFCompound
 ---@field _kind 'class-type'
 df.performance_play_orderst = {}
 
----@class performance_play_orderst_unk_4: DFContainer
+---@class _performance_play_orderst_unk_4: DFContainer
 ---@field [integer] DFPointer<integer>
-local performance_play_orderst_unk_4
+local _performance_play_orderst_unk_4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function performance_play_orderst_unk_4:_field(index) end
+function _performance_play_orderst_unk_4:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function performance_play_orderst_unk_4:insert(index, item) end
+function _performance_play_orderst_unk_4:insert(index, item) end
 
 ---@param index integer 
-function performance_play_orderst_unk_4:erase(index) end
+function _performance_play_orderst_unk_4:erase(index) end
 
 ---@class (exact) activity_event_researchst: DFObject, activity_event
 ---@field _kind 'struct'
@@ -1971,8 +1971,8 @@ df.activity_event_play_with_toyst.T_unk = {}
 ---@class (exact) activity_event_encounterst: DFObject, activity_event
 ---@field _kind 'struct'
 ---@field _type _activity_event_encounterst
----@field unk_1 activity_event_encounterst_unk_1
----@field unk_2 activity_event_encounterst_unk_2
+---@field unk_1 _activity_event_encounterst_unk_1
+---@field unk_2 _activity_event_encounterst_unk_2
 ---@field unk_3 DFNumberVector
 ---@field unk_4 DFNumberVector
 ---@field unk_5 number
@@ -1985,37 +1985,37 @@ df.activity_event_play_with_toyst.T_unk = {}
 ---@field _kind 'class-type'
 df.activity_event_encounterst = {}
 
----@class activity_event_encounterst_unk_1: DFContainer
+---@class _activity_event_encounterst_unk_1: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_encounterst_unk_1
+local _activity_event_encounterst_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_encounterst_unk_1:_field(index) end
+function _activity_event_encounterst_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_encounterst_unk_1:insert(index, item) end
+function _activity_event_encounterst_unk_1:insert(index, item) end
 
 ---@param index integer 
-function activity_event_encounterst_unk_1:erase(index) end
+function _activity_event_encounterst_unk_1:erase(index) end
 
----@class activity_event_encounterst_unk_2: DFContainer
+---@class _activity_event_encounterst_unk_2: DFContainer
 ---@field [integer] DFPointer<integer>
-local activity_event_encounterst_unk_2
+local _activity_event_encounterst_unk_2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function activity_event_encounterst_unk_2:_field(index) end
+function _activity_event_encounterst_unk_2:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function activity_event_encounterst_unk_2:insert(index, item) end
+function _activity_event_encounterst_unk_2:insert(index, item) end
 
 ---@param index integer 
-function activity_event_encounterst_unk_2:erase(index) end
+function _activity_event_encounterst_unk_2:erase(index) end
 
 ---@class (exact) activity_event_store_objectst: DFObject, activity_event
 ---@field _kind 'struct'
@@ -2035,7 +2035,7 @@ df.activity_event_store_objectst = {}
 ---@field _type _schedule_info
 ---@field id number
 ---@field unk_1 number
----@field slots schedule_info_slots
+---@field slots _schedule_info_slots
 
 ---@class _schedule_info: DFCompound
 ---@field _kind 'struct-type'
@@ -2050,21 +2050,21 @@ function df.schedule_info.find(key) end
 ---@return schedule_info_vector # df.global.world.schedules.all
 function df.schedule_info.get_vector() end
 
----@class schedule_info_slots: DFContainer
+---@class _schedule_info_slots: DFContainer
 ---@field [integer] schedule_slot
-local schedule_info_slots
+local _schedule_info_slots
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<schedule_slot>
-function schedule_info_slots:_field(index) end
+function _schedule_info_slots:_field(index) end
 
 ---@param index integer 
 ---@param item schedule_slot 
-function schedule_info_slots:insert(index, item) end
+function _schedule_info_slots:insert(index, item) end
 
 ---@param index integer 
-function schedule_info_slots:erase(index) end
+function _schedule_info_slots:erase(index) end
 
 ---@class (exact) schedule_slot: DFObject
 ---@field _kind 'struct'

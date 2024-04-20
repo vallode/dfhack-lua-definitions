@@ -116,27 +116,27 @@ df.art_image_property_type = {}
 ---@class (exact) art_image_property: DFObject
 ---@field _kind 'struct'
 ---@field _type _art_image_property
----@field flags art_image_property_flags
+---@field flags _art_image_property_flags
 
 ---@class _art_image_property: DFCompound
 ---@field _kind 'class-type'
 df.art_image_property = {}
 
----@class art_image_property_flags: DFContainer
+---@class _art_image_property_flags: DFContainer
 ---@field [integer] table<integer, boolean>
-local art_image_property_flags
+local _art_image_property_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function art_image_property_flags:_field(index) end
+function _art_image_property_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<integer, boolean> 
-function art_image_property_flags:insert(index, item) end
+function _art_image_property_flags:insert(index, item) end
 
 ---@param index integer 
-function art_image_property_flags:erase(index) end
+function _art_image_property_flags:erase(index) end
 
 ---@alias art_image_property_verb_keys
 ---| '"Withering"'
@@ -392,8 +392,8 @@ df.art_facet_type = {}
 ---@class (exact) art_image: DFObject
 ---@field _kind 'struct'
 ---@field _type _art_image
----@field elements art_image_elements
----@field properties art_image_properties
+---@field elements _art_image_elements
+---@field properties _art_image_properties
 ---@field event number References: `history_event`
 ---@field name language_name
 ---@field spec_ref_type specific_ref_type
@@ -412,37 +412,37 @@ df.art_facet_type = {}
 ---@field _kind 'struct-type'
 df.art_image = {}
 
----@class art_image_elements: DFContainer
+---@class _art_image_elements: DFContainer
 ---@field [integer] art_image_element
-local art_image_elements
+local _art_image_elements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<art_image_element>
-function art_image_elements:_field(index) end
+function _art_image_elements:_field(index) end
 
 ---@param index integer 
 ---@param item art_image_element 
-function art_image_elements:insert(index, item) end
+function _art_image_elements:insert(index, item) end
 
 ---@param index integer 
-function art_image_elements:erase(index) end
+function _art_image_elements:erase(index) end
 
----@class art_image_properties: DFContainer
+---@class _art_image_properties: DFContainer
 ---@field [integer] art_image_property
-local art_image_properties
+local _art_image_properties
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<art_image_property>
-function art_image_properties:_field(index) end
+function _art_image_properties:_field(index) end
 
 ---@param index integer 
 ---@param item art_image_property 
-function art_image_properties:insert(index, item) end
+function _art_image_properties:insert(index, item) end
 
 ---@param index integer 
-function art_image_properties:erase(index) end
+function _art_image_properties:erase(index) end
 
 ---@class (exact) art_image_chunk: DFObject
 ---@field _kind 'struct'
@@ -994,18 +994,18 @@ df.poetic_form_additional_feature = {}
 ---@field original_author number "originating in ..." References: `historical_figure`
 ---@field subject_hf number "originally devised by ..." References: `historical_figure`
 ---@field flags poetic_form.T_flags
----@field parts poetic_form_parts
+---@field parts _poetic_form_parts
 ---@field each_line_feet number
 ---@field each_line_pattern poetic_form_pattern
 ---@field every_line_caesura_position poetic_form_caesura_position
----@field common_features poetic_form_common_features "certain lines often ... and they sometimes ..."
+---@field common_features _poetic_form_common_features "certain lines often ... and they sometimes ..."
 ---@field mood poetic_form_mood "is a narrative/... poetic form"
 ---@field subject poetic_form_subject
 ---@field subject_target poetic_form_subject_target
 ---@field action poetic_form_action
 ---@field preferred_perspective number if not -1, ALWAYS written from that perspective
 ---@field features poetic_form_feature "use of ... is characteristic of the form" or "must feature lines which ..."
----@field perspectives poetic_form_perspectives
+---@field perspectives _poetic_form_perspectives
 
 ---@class _poetic_form: DFCompound
 ---@field _kind 'struct-type'
@@ -1035,53 +1035,53 @@ function df.poetic_form.get_vector() end
 ---@field [1] "produces_individual_poems" patterns will be tone patterns if set, otherwise accent patterns
 df.poetic_form.T_flags = {}
 
----@class poetic_form_parts: DFContainer
+---@class _poetic_form_parts: DFContainer
 ---@field [integer] poetic_form_part
-local poetic_form_parts
+local _poetic_form_parts
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_part>
-function poetic_form_parts:_field(index) end
+function _poetic_form_parts:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_part 
-function poetic_form_parts:insert(index, item) end
+function _poetic_form_parts:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_parts:erase(index) end
+function _poetic_form_parts:erase(index) end
 
----@class poetic_form_common_features: DFContainer
+---@class _poetic_form_common_features: DFContainer
 ---@field [integer] poetic_form_additional_feature
-local poetic_form_common_features
+local _poetic_form_common_features
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_additional_feature>
-function poetic_form_common_features:_field(index) end
+function _poetic_form_common_features:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_additional_feature 
-function poetic_form_common_features:insert(index, item) end
+function _poetic_form_common_features:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_common_features:erase(index) end
+function _poetic_form_common_features:erase(index) end
 
----@class poetic_form_perspectives: DFContainer
+---@class _poetic_form_perspectives: DFContainer
 ---@field [integer] poetic_form_perspective
-local poetic_form_perspectives
+local _poetic_form_perspectives
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_perspective>
-function poetic_form_perspectives:_field(index) end
+function _poetic_form_perspectives:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_perspective 
-function poetic_form_perspectives:insert(index, item) end
+function _poetic_form_perspectives:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_perspectives:erase(index) end
+function _poetic_form_perspectives:erase(index) end
 
 ---@class (exact) poetic_form_part: DFObject
 ---@field _kind 'struct'
@@ -1096,21 +1096,21 @@ function poetic_form_perspectives:erase(index) end
 ---@field unk_4 number
 ---@field line_endings DFNumberVector
 ---@field line_feet DFNumberVector
----@field line_patterns poetic_form_part_line_patterns "the Nth line has XX feet"
----@field line_caesura_positions poetic_form_part_line_caesura_positions
----@field line_features poetic_form_part_line_features "first line must make use of ..."
----@field additional_features poetic_form_part_additional_features "The XX line ZZ of ... on YY line"
+---@field line_patterns _poetic_form_part_line_patterns "the Nth line has XX feet"
+---@field line_caesura_positions _poetic_form_part_line_caesura_positions
+---@field line_features _poetic_form_part_line_features "first line must make use of ..."
+---@field additional_features _poetic_form_part_additional_features "The XX line ZZ of ... on YY line"
 ---@field additional_targets DFNumberVector
 ---@field additional_lines DFNumberVector YY
----@field line_mood poetic_form_part_line_mood XX
----@field line_subject poetic_form_part_line_subject
----@field line_subject_target poetic_form_part_line_subject_target
----@field line_action poetic_form_part_line_action
+---@field line_mood _poetic_form_part_line_mood XX
+---@field line_subject _poetic_form_part_line_subject
+---@field line_subject_target _poetic_form_part_line_subject_target
+---@field line_action _poetic_form_part_line_action
 ---@field unk_5 DFNumberVector
 ---@field some_lines_syllables number
 ---@field some_lines_pattern number "it has lines with ... syllables"
 ---@field each_line_caesura_position poetic_form_caesura_position "it has lines with a tone/accent pattern of ..."<br>"it has ... caesura in each line"
----@field certain_lines_additional_features poetic_form_part_certain_lines_additional_features "certain lines have ..." same as additional_features above
+---@field certain_lines_additional_features _poetic_form_part_certain_lines_additional_features "certain lines have ..." same as additional_features above
 ---@field mood poetic_form_mood
 ---@field unk_6 number
 ---@field unk_7 number
@@ -1133,149 +1133,149 @@ df.poetic_form_part = {}
 ---@field [0] "size_in_lines"
 df.poetic_form_part.T_flags = {}
 
----@class poetic_form_part_line_patterns: DFContainer
+---@class _poetic_form_part_line_patterns: DFContainer
 ---@field [integer] poetic_form_pattern
-local poetic_form_part_line_patterns
+local _poetic_form_part_line_patterns
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_pattern>
-function poetic_form_part_line_patterns:_field(index) end
+function _poetic_form_part_line_patterns:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_pattern 
-function poetic_form_part_line_patterns:insert(index, item) end
+function _poetic_form_part_line_patterns:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_patterns:erase(index) end
+function _poetic_form_part_line_patterns:erase(index) end
 
----@class poetic_form_part_line_caesura_positions: DFContainer
+---@class _poetic_form_part_line_caesura_positions: DFContainer
 ---@field [integer] poetic_form_caesura_position
-local poetic_form_part_line_caesura_positions
+local _poetic_form_part_line_caesura_positions
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_caesura_position>
-function poetic_form_part_line_caesura_positions:_field(index) end
+function _poetic_form_part_line_caesura_positions:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_caesura_position 
-function poetic_form_part_line_caesura_positions:insert(index, item) end
+function _poetic_form_part_line_caesura_positions:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_caesura_positions:erase(index) end
+function _poetic_form_part_line_caesura_positions:erase(index) end
 
----@class poetic_form_part_line_features: DFContainer
+---@class _poetic_form_part_line_features: DFContainer
 ---@field [integer] poetic_form_feature
-local poetic_form_part_line_features
+local _poetic_form_part_line_features
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_feature>
-function poetic_form_part_line_features:_field(index) end
+function _poetic_form_part_line_features:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_feature 
-function poetic_form_part_line_features:insert(index, item) end
+function _poetic_form_part_line_features:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_features:erase(index) end
+function _poetic_form_part_line_features:erase(index) end
 
----@class poetic_form_part_additional_features: DFContainer
+---@class _poetic_form_part_additional_features: DFContainer
 ---@field [integer] poetic_form_additional_feature
-local poetic_form_part_additional_features
+local _poetic_form_part_additional_features
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_additional_feature>
-function poetic_form_part_additional_features:_field(index) end
+function _poetic_form_part_additional_features:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_additional_feature 
-function poetic_form_part_additional_features:insert(index, item) end
+function _poetic_form_part_additional_features:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_additional_features:erase(index) end
+function _poetic_form_part_additional_features:erase(index) end
 
----@class poetic_form_part_line_mood: DFContainer
+---@class _poetic_form_part_line_mood: DFContainer
 ---@field [integer] poetic_form_mood
-local poetic_form_part_line_mood
+local _poetic_form_part_line_mood
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_mood>
-function poetic_form_part_line_mood:_field(index) end
+function _poetic_form_part_line_mood:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_mood 
-function poetic_form_part_line_mood:insert(index, item) end
+function _poetic_form_part_line_mood:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_mood:erase(index) end
+function _poetic_form_part_line_mood:erase(index) end
 
----@class poetic_form_part_line_subject: DFContainer
+---@class _poetic_form_part_line_subject: DFContainer
 ---@field [integer] poetic_form_subject
-local poetic_form_part_line_subject
+local _poetic_form_part_line_subject
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_subject>
-function poetic_form_part_line_subject:_field(index) end
+function _poetic_form_part_line_subject:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_subject 
-function poetic_form_part_line_subject:insert(index, item) end
+function _poetic_form_part_line_subject:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_subject:erase(index) end
+function _poetic_form_part_line_subject:erase(index) end
 
----@class poetic_form_part_line_subject_target: DFContainer
+---@class _poetic_form_part_line_subject_target: DFContainer
 ---@field [integer] poetic_form_subject_target
-local poetic_form_part_line_subject_target
+local _poetic_form_part_line_subject_target
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_subject_target>
-function poetic_form_part_line_subject_target:_field(index) end
+function _poetic_form_part_line_subject_target:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_subject_target 
-function poetic_form_part_line_subject_target:insert(index, item) end
+function _poetic_form_part_line_subject_target:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_subject_target:erase(index) end
+function _poetic_form_part_line_subject_target:erase(index) end
 
----@class poetic_form_part_line_action: DFContainer
+---@class _poetic_form_part_line_action: DFContainer
 ---@field [integer] poetic_form_action
-local poetic_form_part_line_action
+local _poetic_form_part_line_action
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_action>
-function poetic_form_part_line_action:_field(index) end
+function _poetic_form_part_line_action:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_action 
-function poetic_form_part_line_action:insert(index, item) end
+function _poetic_form_part_line_action:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_line_action:erase(index) end
+function _poetic_form_part_line_action:erase(index) end
 
----@class poetic_form_part_certain_lines_additional_features: DFContainer
+---@class _poetic_form_part_certain_lines_additional_features: DFContainer
 ---@field [integer] poetic_form_additional_feature
-local poetic_form_part_certain_lines_additional_features
+local _poetic_form_part_certain_lines_additional_features
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<poetic_form_additional_feature>
-function poetic_form_part_certain_lines_additional_features:_field(index) end
+function _poetic_form_part_certain_lines_additional_features:_field(index) end
 
 ---@param index integer 
 ---@param item poetic_form_additional_feature 
-function poetic_form_part_certain_lines_additional_features:insert(index, item) end
+function _poetic_form_part_certain_lines_additional_features:insert(index, item) end
 
 ---@param index integer 
-function poetic_form_part_certain_lines_additional_features:erase(index) end
+function _poetic_form_part_certain_lines_additional_features:erase(index) end
 
 ---@class (exact) poetic_form_perspective: DFObject
 ---@field _kind 'struct'
@@ -1977,28 +1977,28 @@ df.musical_form_interval.T_flags = {}
 ---@field _type _musical_form_melodies
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
----@field intervals musical_form_melodies_intervals
+---@field intervals _musical_form_melodies_intervals
 ---@field features musical_form_feature
 
 ---@class _musical_form_melodies: DFCompound
 ---@field _kind 'struct-type'
 df.musical_form_melodies = {}
 
----@class musical_form_melodies_intervals: DFContainer
+---@class _musical_form_melodies_intervals: DFContainer
 ---@field [integer] musical_form_interval
-local musical_form_melodies_intervals
+local _musical_form_melodies_intervals
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_interval>
-function musical_form_melodies_intervals:_field(index) end
+function _musical_form_melodies_intervals:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_interval 
-function musical_form_melodies_intervals:insert(index, item) end
+function _musical_form_melodies_intervals:insert(index, item) end
 
 ---@param index integer 
-function musical_form_melodies_intervals:erase(index) end
+function _musical_form_melodies_intervals:erase(index) end
 
 ---@class (exact) musical_form_passage: DFObject
 ---@field _kind 'struct'
@@ -2016,8 +2016,8 @@ function musical_form_melodies_intervals:erase(index) end
 ---@field sub_rhythm number Guess, based on the pattern above
 ---@field rhythm_pattern number references the patterns element of rhythm
 ---@field instruments DFNumberVector indices into the instruments vector
----@field components musical_form_passage_components
----@field passage_lengths musical_form_passage_passage_lengths
+---@field components _musical_form_passage_components
+---@field passage_lengths _musical_form_passage_passage_lengths
 ---@field lowest_register_range DFNumberVector 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field highest_register_range DFNumberVector 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field tempo_style musical_form_style
@@ -2025,7 +2025,7 @@ function musical_form_melodies_intervals:erase(index) end
 ---@field overall_style musical_form_style
 ---@field features musical_form_feature
 ---@field pitch_style musical_form_pitch_style
----@field melodies musical_form_passage_melodies
+---@field melodies _musical_form_passage_melodies
 ---@field unk_22 number 0-40 seen
 ---@field unk_23 number 0-78 seen
 
@@ -2033,53 +2033,53 @@ function musical_form_melodies_intervals:erase(index) end
 ---@field _kind 'struct-type'
 df.musical_form_passage = {}
 
----@class musical_form_passage_components: DFContainer
+---@class _musical_form_passage_components: DFContainer
 ---@field [integer] musical_form_passage_component_type
-local musical_form_passage_components
+local _musical_form_passage_components
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_passage_component_type>
-function musical_form_passage_components:_field(index) end
+function _musical_form_passage_components:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_passage_component_type 
-function musical_form_passage_components:insert(index, item) end
+function _musical_form_passage_components:insert(index, item) end
 
 ---@param index integer 
-function musical_form_passage_components:erase(index) end
+function _musical_form_passage_components:erase(index) end
 
----@class musical_form_passage_passage_lengths: DFContainer
+---@class _musical_form_passage_passage_lengths: DFContainer
 ---@field [integer] musical_form_passage_length_type
-local musical_form_passage_passage_lengths
+local _musical_form_passage_passage_lengths
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_passage_length_type>
-function musical_form_passage_passage_lengths:_field(index) end
+function _musical_form_passage_passage_lengths:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_passage_length_type 
-function musical_form_passage_passage_lengths:insert(index, item) end
+function _musical_form_passage_passage_lengths:insert(index, item) end
 
 ---@param index integer 
-function musical_form_passage_passage_lengths:erase(index) end
+function _musical_form_passage_passage_lengths:erase(index) end
 
----@class musical_form_passage_melodies: DFContainer
+---@class _musical_form_passage_melodies: DFContainer
 ---@field [integer] musical_form_melodies
-local musical_form_passage_melodies
+local _musical_form_passage_melodies
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_melodies>
-function musical_form_passage_melodies:_field(index) end
+function _musical_form_passage_melodies:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_melodies 
-function musical_form_passage_melodies:insert(index, item) end
+function _musical_form_passage_melodies:insert(index, item) end
 
 ---@param index integer 
-function musical_form_passage_melodies:erase(index) end
+function _musical_form_passage_melodies:erase(index) end
 
 ---@class (exact) musical_form_instruments: DFObject
 ---@field _kind 'struct'
@@ -2136,10 +2136,10 @@ df.musical_form_sub4 = {}
 ---@field name language_name
 ---@field originating_entity number ID of the entity from which the musical form originated. References: `historical_entity`
 ---@field original_author number historical figure ID of the composer References: `historical_figure`
----@field passages musical_form_passages
----@field instruments musical_form_instruments
----@field melodies musical_form_melodies
----@field unk_1 musical_form_unk_1
+---@field passages _musical_form_passages
+---@field instruments _musical_form_instruments
+---@field melodies _musical_form_melodies
+---@field unk_1 _musical_form_unk_1
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
@@ -2169,69 +2169,69 @@ function df.musical_form.find(key) end
 ---@return musical_form_vector # df.global.world.musical_forms.all
 function df.musical_form.get_vector() end
 
----@class musical_form_passages: DFContainer
+---@class _musical_form_passages: DFContainer
 ---@field [integer] musical_form_passage
-local musical_form_passages
+local _musical_form_passages
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_passage>
-function musical_form_passages:_field(index) end
+function _musical_form_passages:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_passage 
-function musical_form_passages:insert(index, item) end
+function _musical_form_passages:insert(index, item) end
 
 ---@param index integer 
-function musical_form_passages:erase(index) end
+function _musical_form_passages:erase(index) end
 
----@class musical_form_instruments: DFContainer
+---@class _musical_form_instruments: DFContainer
 ---@field [integer] musical_form_instruments
-local musical_form_instruments
+local _musical_form_instruments
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_instruments>
-function musical_form_instruments:_field(index) end
+function _musical_form_instruments:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_instruments 
-function musical_form_instruments:insert(index, item) end
+function _musical_form_instruments:insert(index, item) end
 
 ---@param index integer 
-function musical_form_instruments:erase(index) end
+function _musical_form_instruments:erase(index) end
 
----@class musical_form_melodies: DFContainer
+---@class _musical_form_melodies: DFContainer
 ---@field [integer] musical_form_melodies
-local musical_form_melodies
+local _musical_form_melodies
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_melodies>
-function musical_form_melodies:_field(index) end
+function _musical_form_melodies:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_melodies 
-function musical_form_melodies:insert(index, item) end
+function _musical_form_melodies:insert(index, item) end
 
 ---@param index integer 
-function musical_form_melodies:erase(index) end
+function _musical_form_melodies:erase(index) end
 
----@class musical_form_unk_1: DFContainer
+---@class _musical_form_unk_1: DFContainer
 ---@field [integer] musical_form_sub4
-local musical_form_unk_1
+local _musical_form_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<musical_form_sub4>
-function musical_form_unk_1:_field(index) end
+function _musical_form_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item musical_form_sub4 
-function musical_form_unk_1:insert(index, item) end
+function _musical_form_unk_1:insert(index, item) end
 
 ---@param index integer 
-function musical_form_unk_1:erase(index) end
+function _musical_form_unk_1:erase(index) end
 
 ---@class musical_form.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -2883,84 +2883,84 @@ df.dance_form_move_location = {}
 ---@field partner_distance dance_form_partner_distance
 ---@field partner_intent dance_form_partner_intent
 ---@field partner_cue_frequency dance_form_partner_cue_frequency
----@field partner_changes dance_form_section_partner_changes
+---@field partner_changes _dance_form_section_partner_changes
 ---@field unk_11 number
 ---@field unk_12 number
 ---@field unk_13 number
 ---@field unk_14 number
----@field type dance_form_section_type
----@field modifier dance_form_section_modifier
+---@field type _dance_form_section_type
+---@field modifier _dance_form_section_modifier
 ---@field parameter DFNumberVector Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field location dance_form_section_location
+---@field location _dance_form_section_location
 ---@field id number
 
 ---@class _dance_form_section: DFCompound
 ---@field _kind 'struct-type'
 df.dance_form_section = {}
 
----@class dance_form_section_partner_changes: DFContainer
+---@class _dance_form_section_partner_changes: DFContainer
 ---@field [integer] dance_form_partner_change_type
-local dance_form_section_partner_changes
+local _dance_form_section_partner_changes
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_partner_change_type>
-function dance_form_section_partner_changes:_field(index) end
+function _dance_form_section_partner_changes:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_partner_change_type 
-function dance_form_section_partner_changes:insert(index, item) end
+function _dance_form_section_partner_changes:insert(index, item) end
 
 ---@param index integer 
-function dance_form_section_partner_changes:erase(index) end
+function _dance_form_section_partner_changes:erase(index) end
 
----@class dance_form_section_type: DFContainer
+---@class _dance_form_section_type: DFContainer
 ---@field [integer] dance_form_move_type
-local dance_form_section_type
+local _dance_form_section_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_type>
-function dance_form_section_type:_field(index) end
+function _dance_form_section_type:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_type 
-function dance_form_section_type:insert(index, item) end
+function _dance_form_section_type:insert(index, item) end
 
 ---@param index integer 
-function dance_form_section_type:erase(index) end
+function _dance_form_section_type:erase(index) end
 
----@class dance_form_section_modifier: DFContainer
+---@class _dance_form_section_modifier: DFContainer
 ---@field [integer] dance_form_move_modifier
-local dance_form_section_modifier
+local _dance_form_section_modifier
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_modifier>
-function dance_form_section_modifier:_field(index) end
+function _dance_form_section_modifier:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_modifier 
-function dance_form_section_modifier:insert(index, item) end
+function _dance_form_section_modifier:insert(index, item) end
 
 ---@param index integer 
-function dance_form_section_modifier:erase(index) end
+function _dance_form_section_modifier:erase(index) end
 
----@class dance_form_section_location: DFContainer
+---@class _dance_form_section_location: DFContainer
 ---@field [integer] dance_form_move_location
-local dance_form_section_location
+local _dance_form_section_location
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_location>
-function dance_form_section_location:_field(index) end
+function _dance_form_section_location:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_location 
-function dance_form_section_location:insert(index, item) end
+function _dance_form_section_location:insert(index, item) end
 
 ---@param index integer 
-function dance_form_section_location:erase(index) end
+function _dance_form_section_location:erase(index) end
 
 ---@alias dance_form_move_group_type_keys
 ---| '""'
@@ -2993,63 +2993,63 @@ df.dance_form_move_group_type = {}
 ---@field _kind 'struct'
 ---@field _type _dance_form_move
 ---@field name string
----@field type dance_form_move_type
----@field modifier dance_form_move_modifier
+---@field type _dance_form_move_type
+---@field modifier _dance_form_move_modifier
 ---@field parameter DFNumberVector Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field location dance_form_move_location
+---@field location _dance_form_move_location
 ---@field group_type dance_form_move_group_type
 
 ---@class _dance_form_move: DFCompound
 ---@field _kind 'struct-type'
 df.dance_form_move = {}
 
----@class dance_form_move_type: DFContainer
+---@class _dance_form_move_type: DFContainer
 ---@field [integer] dance_form_move_type
-local dance_form_move_type
+local _dance_form_move_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_type>
-function dance_form_move_type:_field(index) end
+function _dance_form_move_type:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_type 
-function dance_form_move_type:insert(index, item) end
+function _dance_form_move_type:insert(index, item) end
 
 ---@param index integer 
-function dance_form_move_type:erase(index) end
+function _dance_form_move_type:erase(index) end
 
----@class dance_form_move_modifier: DFContainer
+---@class _dance_form_move_modifier: DFContainer
 ---@field [integer] dance_form_move_modifier
-local dance_form_move_modifier
+local _dance_form_move_modifier
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_modifier>
-function dance_form_move_modifier:_field(index) end
+function _dance_form_move_modifier:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_modifier 
-function dance_form_move_modifier:insert(index, item) end
+function _dance_form_move_modifier:insert(index, item) end
 
 ---@param index integer 
-function dance_form_move_modifier:erase(index) end
+function _dance_form_move_modifier:erase(index) end
 
----@class dance_form_move_location: DFContainer
+---@class _dance_form_move_location: DFContainer
 ---@field [integer] dance_form_move_location
-local dance_form_move_location
+local _dance_form_move_location
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_location>
-function dance_form_move_location:_field(index) end
+function _dance_form_move_location:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_location 
-function dance_form_move_location:insert(index, item) end
+function _dance_form_move_location:insert(index, item) end
 
 ---@param index integer 
-function dance_form_move_location:erase(index) end
+function _dance_form_move_location:erase(index) end
 
 ---@class (exact) dance_form: DFObject
 ---@field _kind 'struct'
@@ -3071,17 +3071,17 @@ function dance_form_move_location:erase(index) end
 ---@field partner_distance dance_form_partner_distance NONE when not pair dance
 ---@field partner_intent dance_form_partner_intent NONE when not pair dance
 ---@field partner_cue_frequency dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
----@field partner_changes dance_form_partner_changes
+---@field partner_changes _dance_form_partner_changes
 ---@field poetry_referenced boolean Weird, but all instances where it was set examined have the dance act out any composition of a named poetic form, without any presence of the form number found
 ---@field unk_14 number
 ---@field hfid number Character whose story the dance acts out References: `historical_figure`
 ---@field race number Creature whose movements are imitated References: `creature_raw`
----@field move_type dance_form_move_type
----@field move_modifier dance_form_move_modifier
+---@field move_type _dance_form_move_type
+---@field move_modifier _dance_form_move_modifier
 ---@field move_parameter DFNumberVector Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field move_location dance_form_move_location
----@field sections dance_form_sections
----@field moves dance_form_moves
+---@field move_location _dance_form_move_location
+---@field sections _dance_form_sections
+---@field moves _dance_form_moves
 
 ---@class _dance_form: DFCompound
 ---@field _kind 'struct-type'
@@ -3096,101 +3096,101 @@ function df.dance_form.find(key) end
 ---@return dance_form_vector # df.global.world.dance_forms.all
 function df.dance_form.get_vector() end
 
----@class dance_form_partner_changes: DFContainer
+---@class _dance_form_partner_changes: DFContainer
 ---@field [integer] dance_form_partner_change_type
-local dance_form_partner_changes
+local _dance_form_partner_changes
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_partner_change_type>
-function dance_form_partner_changes:_field(index) end
+function _dance_form_partner_changes:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_partner_change_type 
-function dance_form_partner_changes:insert(index, item) end
+function _dance_form_partner_changes:insert(index, item) end
 
 ---@param index integer 
-function dance_form_partner_changes:erase(index) end
+function _dance_form_partner_changes:erase(index) end
 
----@class dance_form_move_type: DFContainer
+---@class _dance_form_move_type: DFContainer
 ---@field [integer] dance_form_move_type
-local dance_form_move_type
+local _dance_form_move_type
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_type>
-function dance_form_move_type:_field(index) end
+function _dance_form_move_type:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_type 
-function dance_form_move_type:insert(index, item) end
+function _dance_form_move_type:insert(index, item) end
 
 ---@param index integer 
-function dance_form_move_type:erase(index) end
+function _dance_form_move_type:erase(index) end
 
----@class dance_form_move_modifier: DFContainer
+---@class _dance_form_move_modifier: DFContainer
 ---@field [integer] dance_form_move_modifier
-local dance_form_move_modifier
+local _dance_form_move_modifier
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_modifier>
-function dance_form_move_modifier:_field(index) end
+function _dance_form_move_modifier:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_modifier 
-function dance_form_move_modifier:insert(index, item) end
+function _dance_form_move_modifier:insert(index, item) end
 
 ---@param index integer 
-function dance_form_move_modifier:erase(index) end
+function _dance_form_move_modifier:erase(index) end
 
----@class dance_form_move_location: DFContainer
+---@class _dance_form_move_location: DFContainer
 ---@field [integer] dance_form_move_location
-local dance_form_move_location
+local _dance_form_move_location
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move_location>
-function dance_form_move_location:_field(index) end
+function _dance_form_move_location:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move_location 
-function dance_form_move_location:insert(index, item) end
+function _dance_form_move_location:insert(index, item) end
 
 ---@param index integer 
-function dance_form_move_location:erase(index) end
+function _dance_form_move_location:erase(index) end
 
----@class dance_form_sections: DFContainer
+---@class _dance_form_sections: DFContainer
 ---@field [integer] dance_form_section
-local dance_form_sections
+local _dance_form_sections
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_section>
-function dance_form_sections:_field(index) end
+function _dance_form_sections:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_section 
-function dance_form_sections:insert(index, item) end
+function _dance_form_sections:insert(index, item) end
 
 ---@param index integer 
-function dance_form_sections:erase(index) end
+function _dance_form_sections:erase(index) end
 
----@class dance_form_moves: DFContainer
+---@class _dance_form_moves: DFContainer
 ---@field [integer] dance_form_move
-local dance_form_moves
+local _dance_form_moves
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<dance_form_move>
-function dance_form_moves:_field(index) end
+function _dance_form_moves:_field(index) end
 
 ---@param index integer 
 ---@param item dance_form_move 
-function dance_form_moves:insert(index, item) end
+function _dance_form_moves:insert(index, item) end
 
 ---@param index integer 
-function dance_form_moves:erase(index) end
+function _dance_form_moves:erase(index) end
 
 ---@alias scale_type_keys
 ---| '"Octave"'
@@ -3250,8 +3250,8 @@ df.named_scale = {}
 ---@field type scale_type
 ---@field quartertones_used number[] Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
 ---@field scale_length number Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
----@field chords scale_chords
----@field scales scale_scales Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
+---@field chords _scale_chords
+---@field scales _scale_scales Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
 ---@field notes scale.T_notes
 
 ---@class _scale: DFCompound
@@ -3278,37 +3278,37 @@ function df.scale.get_vector() end
 ---@field [0] "tonic_note_fixed_at_performance" 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
 df.scale.T_flags = {}
 
----@class scale_chords: DFContainer
+---@class _scale_chords: DFContainer
 ---@field [integer] chord
-local scale_chords
+local _scale_chords
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<chord>
-function scale_chords:_field(index) end
+function _scale_chords:_field(index) end
 
 ---@param index integer 
 ---@param item chord 
-function scale_chords:insert(index, item) end
+function _scale_chords:insert(index, item) end
 
 ---@param index integer 
-function scale_chords:erase(index) end
+function _scale_chords:erase(index) end
 
----@class scale_scales: DFContainer
+---@class _scale_scales: DFContainer
 ---@field [integer] named_scale
-local scale_scales
+local _scale_scales
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<named_scale>
-function scale_scales:_field(index) end
+function _scale_scales:_field(index) end
 
 ---@param index integer 
 ---@param item named_scale 
-function scale_scales:insert(index, item) end
+function _scale_scales:insert(index, item) end
 
 ---@param index integer 
-function scale_scales:erase(index) end
+function _scale_scales:erase(index) end
 
 -- Curiously, the named notes do not have to match the number of defined notes
 ---@class (exact) scale.T_notes: DFObject
@@ -3328,8 +3328,8 @@ df.scale.T_notes = {}
 ---@field _kind 'struct'
 ---@field _type _rhythm
 ---@field id number
----@field patterns rhythm_patterns
----@field sub_rhythms rhythm_sub_rhythms
+---@field patterns _rhythm_patterns
+---@field sub_rhythms _rhythm_sub_rhythms
 ---@field unk_2 number
 
 ---@class _rhythm: DFCompound
@@ -3345,37 +3345,37 @@ function df.rhythm.find(key) end
 ---@return rhythm_vector # df.global.world.rhythms.all
 function df.rhythm.get_vector() end
 
----@class rhythm_patterns: DFContainer
+---@class _rhythm_patterns: DFContainer
 ---@field [integer] rhythm_pattern
-local rhythm_patterns
+local _rhythm_patterns
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<rhythm_pattern>
-function rhythm_patterns:_field(index) end
+function _rhythm_patterns:_field(index) end
 
 ---@param index integer 
 ---@param item rhythm_pattern 
-function rhythm_patterns:insert(index, item) end
+function _rhythm_patterns:insert(index, item) end
 
 ---@param index integer 
-function rhythm_patterns:erase(index) end
+function _rhythm_patterns:erase(index) end
 
----@class rhythm_sub_rhythms: DFContainer
+---@class _rhythm_sub_rhythms: DFContainer
 ---@field [integer] sub_rhythm
-local rhythm_sub_rhythms
+local _rhythm_sub_rhythms
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<sub_rhythm>
-function rhythm_sub_rhythms:_field(index) end
+function _rhythm_sub_rhythms:_field(index) end
 
 ---@param index integer 
 ---@param item sub_rhythm 
-function rhythm_sub_rhythms:insert(index, item) end
+function _rhythm_sub_rhythms:insert(index, item) end
 
 ---@param index integer 
-function rhythm_sub_rhythms:erase(index) end
+function _rhythm_sub_rhythms:erase(index) end
 
 ---@alias beat_type_keys
 ---| '"Silent"'
@@ -3440,7 +3440,7 @@ df.beat_type = {}
 ---@field _kind 'struct'
 ---@field _type _rhythm_pattern
 ---@field name string
----@field bars rhythm_pattern_bars
+---@field bars _rhythm_pattern_bars
 ---@field beat_name string length as per length field
 ---@field beat_abbreviation string length as per length field
 ---@field length number
@@ -3449,21 +3449,21 @@ df.beat_type = {}
 ---@field _kind 'struct-type'
 df.rhythm_pattern = {}
 
----@class rhythm_pattern_bars: DFContainer
+---@class _rhythm_pattern_bars: DFContainer
 ---@field [integer] DFPointer<integer>
-local rhythm_pattern_bars
+local _rhythm_pattern_bars
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function rhythm_pattern_bars:_field(index) end
+function _rhythm_pattern_bars:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function rhythm_pattern_bars:insert(index, item) end
+function _rhythm_pattern_bars:insert(index, item) end
 
 ---@param index integer 
-function rhythm_pattern_bars:erase(index) end
+function _rhythm_pattern_bars:erase(index) end
 
 ---@class (exact) sub_rhythm: DFObject
 ---@field _kind 'struct'
@@ -3543,7 +3543,7 @@ df.occupation_type = {}
 ---@field location_id number References: `abstract_building`
 ---@field site_id number References: `world_site`
 ---@field group_id number References: `historical_entity`
----@field service_order occupation_service_order local id vector
+---@field service_order _occupation_service_order local id vector
 ---@field next_service_order_id number
 ---@field wg_site world_site worldgen only
 ---@field wg_ab abstract_building worldgen only
@@ -3561,21 +3561,21 @@ function df.occupation.find(key) end
 ---@return occupation_vector # df.global.world.occupations.all
 function df.occupation.get_vector() end
 
----@class occupation_service_order: DFContainer
+---@class _occupation_service_order: DFContainer
 ---@field [integer] service_orderst
-local occupation_service_order
+local _occupation_service_order
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<service_orderst>
-function occupation_service_order:_field(index) end
+function _occupation_service_order:_field(index) end
 
 ---@param index integer 
 ---@param item service_orderst 
-function occupation_service_order:insert(index, item) end
+function _occupation_service_order:insert(index, item) end
 
 ---@param index integer 
-function occupation_service_order:erase(index) end
+function _occupation_service_order:erase(index) end
 
 ---@alias service_order_type_keys
 ---| '"NONE"'

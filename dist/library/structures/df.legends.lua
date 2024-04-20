@@ -92,61 +92,61 @@ df.invasion_info.T_flags = {}
 ---@class (exact) entity_population_unk4: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_population_unk4
----@field unk_1 entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
----@field unk_2 entity_population_unk4_unk_2
----@field unk_3 entity_population_unk4_unk_3
+---@field unk_1 _entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field unk_2 _entity_population_unk4_unk_2
+---@field unk_3 _entity_population_unk4_unk_3
 
 ---@class _entity_population_unk4: DFCompound
 ---@field _kind 'struct-type'
 df.entity_population_unk4 = {}
 
----@class entity_population_unk4_unk_1: DFContainer
+---@class _entity_population_unk4_unk_1: DFContainer
 ---@field [integer] DFPointer<integer>
-local entity_population_unk4_unk_1
+local _entity_population_unk4_unk_1
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function entity_population_unk4_unk_1:_field(index) end
+function _entity_population_unk4_unk_1:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function entity_population_unk4_unk_1:insert(index, item) end
+function _entity_population_unk4_unk_1:insert(index, item) end
 
 ---@param index integer 
-function entity_population_unk4_unk_1:erase(index) end
+function _entity_population_unk4_unk_1:erase(index) end
 
----@class entity_population_unk4_unk_2: DFContainer
+---@class _entity_population_unk4_unk_2: DFContainer
 ---@field [integer] DFPointer<integer>
-local entity_population_unk4_unk_2
+local _entity_population_unk4_unk_2
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function entity_population_unk4_unk_2:_field(index) end
+function _entity_population_unk4_unk_2:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function entity_population_unk4_unk_2:insert(index, item) end
+function _entity_population_unk4_unk_2:insert(index, item) end
 
 ---@param index integer 
-function entity_population_unk4_unk_2:erase(index) end
+function _entity_population_unk4_unk_2:erase(index) end
 
----@class entity_population_unk4_unk_3: DFContainer
+---@class _entity_population_unk4_unk_3: DFContainer
 ---@field [integer] DFPointer<integer>
-local entity_population_unk4_unk_3
+local _entity_population_unk4_unk_3
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function entity_population_unk4_unk_3:_field(index) end
+function _entity_population_unk4_unk_3:_field(index) end
 
 ---@param index integer 
 ---@param item DFPointer<integer> 
-function entity_population_unk4_unk_3:insert(index, item) end
+function _entity_population_unk4_unk_3:insert(index, item) end
 
 ---@param index integer 
-function entity_population_unk4_unk_3:erase(index) end
+function _entity_population_unk4_unk_3:erase(index) end
 
 ---@class (exact) entity_population: DFObject
 ---@field _kind 'struct'
@@ -155,7 +155,7 @@ function entity_population_unk4_unk_3:erase(index) end
 ---@field races DFNumberVector all the 3 vectors are always the same length, and thus coupled
 ---@field counts DFNumberVector
 ---@field unk3 DFNumberVector Set only for cave civs. When set, >= counts. Pre first embark all those are equal
----@field unk4 entity_population_unk4
+---@field unk4 _entity_population_unk4
 ---@field unk5 number
 ---@field layer_id number References: `world_underground_region`
 ---@field id number
@@ -175,21 +175,21 @@ function df.entity_population.find(key) end
 ---@return entity_population_vector # df.global.world.entity_populations
 function df.entity_population.get_vector() end
 
----@class entity_population_unk4: DFContainer
+---@class _entity_population_unk4: DFContainer
 ---@field [integer] entity_population_unk4
-local entity_population_unk4
+local _entity_population_unk4
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<entity_population_unk4>
-function entity_population_unk4:_field(index) end
+function _entity_population_unk4:_field(index) end
 
 ---@param index integer 
 ---@param item entity_population_unk4 
-function entity_population_unk4:insert(index, item) end
+function _entity_population_unk4:insert(index, item) end
 
 ---@param index integer 
-function entity_population_unk4:erase(index) end
+function _entity_population_unk4:erase(index) end
 
 ---@alias nemesis_flags_keys
 ---| '"ACTIVE_ADVENTURER"'
@@ -274,7 +274,7 @@ df.nemesis_flags = {}
 ---@field ideal_item_container_id number
 ---@field next_plot_year number
 ---@field next_plot_season_count number
----@field flags nemesis_record_flags
+---@field flags _nemesis_record_flags
 
 ---@class _nemesis_record: DFCompound
 ---@field _kind 'struct-type'
@@ -289,28 +289,28 @@ function df.nemesis_record.find(key) end
 ---@return nemesis_record_vector # df.global.world.nemesis.all
 function df.nemesis_record.get_vector() end
 
----@class nemesis_record_flags: DFContainer
+---@class _nemesis_record_flags: DFContainer
 ---@field [integer] table<nemesis_flags, boolean>
-local nemesis_record_flags
+local _nemesis_record_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<nemesis_flags, boolean>>
-function nemesis_record_flags:_field(index) end
+function _nemesis_record_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<nemesis_flags, boolean> 
-function nemesis_record_flags:insert(index, item) end
+function _nemesis_record_flags:insert(index, item) end
 
 ---@param index integer 
-function nemesis_record_flags:erase(index) end
+function _nemesis_record_flags:erase(index) end
 
 ---@class (exact) artifact_record: DFObject
 ---@field _kind 'struct'
 ---@field _type _artifact_record
 ---@field id number
 ---@field name language_name
----@field flags artifact_record_flags
+---@field flags _artifact_record_flags
 ---@field item item
 ---@field abs_tile_x number
 ---@field abs_tile_y number
@@ -347,21 +347,21 @@ function df.artifact_record.find(key) end
 ---@return artifact_record_vector # df.global.world.artifacts.all
 function df.artifact_record.get_vector() end
 
----@class artifact_record_flags: DFContainer
+---@class _artifact_record_flags: DFContainer
 ---@field [integer] table<integer, boolean>
-local artifact_record_flags
+local _artifact_record_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function artifact_record_flags:_field(index) end
+function _artifact_record_flags:_field(index) end
 
 ---@param index integer 
 ---@param item table<integer, boolean> 
-function artifact_record_flags:insert(index, item) end
+function _artifact_record_flags:insert(index, item) end
 
 ---@param index integer 
-function artifact_record_flags:erase(index) end
+function _artifact_record_flags:erase(index) end
 
 ---@class (exact) artifact_rumor_locationst: DFObject
 ---@field _kind 'struct'
