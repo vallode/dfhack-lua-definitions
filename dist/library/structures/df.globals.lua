@@ -475,7 +475,7 @@ df.next_global_id = {}
 ---@field _kind 'struct'
 ---@field _type _global_table_entry
 ---@field name DFPointer<string>
----@field address any
+---@field address DFPointer<integer>
 ---@field size integer
 
 ---@class _global_table_entry: DFCompound

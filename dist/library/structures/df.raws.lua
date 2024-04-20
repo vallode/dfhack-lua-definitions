@@ -106,7 +106,7 @@ function soundst_announcement:erase(index) end
 ---@field tissue_templates world_raws_tissue_templates Creature RAWs
 ---@field body_detail_plans world_raws_body_detail_plans dtor 89bab50
 ---@field body_templates world_raws_body_templates dtor 8527e40
----@field bodyglosses DFAnyVector bay12: creaturebodygloss
+---@field bodyglosses world_raws_bodyglosses bay12: creaturebodygloss
 ---@field creature_variations world_raws_creature_variations dtor 89ba980
 ---@field creatures creature_handler Creatures
 ---@field itemdefs world_raws.T_itemdefs
@@ -302,6 +302,22 @@ function world_raws_body_templates:insert(index, item) end
 
 ---@param index integer 
 function world_raws_body_templates:erase(index) end
+
+---@class world_raws_bodyglosses: DFContainer
+---@field [integer] DFPointer<integer>
+local world_raws_bodyglosses
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_raws_bodyglosses:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_raws_bodyglosses:insert(index, item) end
+
+---@param index integer 
+function world_raws_bodyglosses:erase(index) end
 
 ---@class world_raws_creature_variations: DFContainer
 ---@field [integer] creature_variation

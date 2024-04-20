@@ -740,7 +740,7 @@ function labor_infost_work_details:erase(index) end
 ---@field petitions DFNumberVector related to agreements
 ---@field unk_6 DFNumberVector observed allocating 4 bytes
 ---@field unk_7 plotinfost_unk_7
----@field theft_intrigues DFAnyVector related to job_type unk_fake_no_activity
+---@field theft_intrigues plotinfost_theft_intrigues related to job_type unk_fake_no_activity
 ---@field infiltrator_histfigs DFNumberVector
 ---@field infiltrator_years DFNumberVector
 ---@field infiltrator_year_ticks DFNumberVector
@@ -1706,8 +1706,8 @@ df.plotinfost.T_map_edge = {}
 ---@class (exact) plotinfost.T_waypoints: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_waypoints
----@field points DFAnyVector
----@field routes DFAnyVector
+---@field points plotinfost_waypoints_points
+---@field routes plotinfost_waypoints_routes
 ---@field sym_selector number
 ---@field unk_1 number
 ---@field cur_point_index number
@@ -1727,6 +1727,38 @@ df.plotinfost.T_map_edge = {}
 ---@class _plotinfost.T_waypoints: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_waypoints = {}
+
+---@class plotinfost_waypoints_points: DFContainer
+---@field [integer] DFPointer<integer>
+local plotinfost_waypoints_points
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function plotinfost_waypoints_points:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function plotinfost_waypoints_points:insert(index, item) end
+
+---@param index integer 
+function plotinfost_waypoints_points:erase(index) end
+
+---@class plotinfost_waypoints_routes: DFContainer
+---@field [integer] DFPointer<integer>
+local plotinfost_waypoints_routes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function plotinfost_waypoints_routes:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function plotinfost_waypoints_routes:insert(index, item) end
+
+---@param index integer 
+function plotinfost_waypoints_routes:erase(index) end
 
 ---@class plotinfost_waypoints_unk_42_06: DFContainer
 ---@field [integer] any[]
@@ -1821,15 +1853,47 @@ function plotinfost_burrows_sel_units:erase(index) end
 ---@class (exact) plotinfost.T_alerts: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_alerts
----@field list DFAnyVector
+---@field list plotinfost_alerts_list
 ---@field next_id number
----@field routines DFAnyVector
+---@field routines plotinfost_alerts_routines
 ---@field next_routine_id number
 ---@field civ_alert_idx number
 
 ---@class _plotinfost.T_alerts: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_alerts = {}
+
+---@class plotinfost_alerts_list: DFContainer
+---@field [integer] DFPointer<integer>
+local plotinfost_alerts_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function plotinfost_alerts_list:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function plotinfost_alerts_list:insert(index, item) end
+
+---@param index integer 
+function plotinfost_alerts_list:erase(index) end
+
+---@class plotinfost_alerts_routines: DFContainer
+---@field [integer] DFPointer<integer>
+local plotinfost_alerts_routines
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function plotinfost_alerts_routines:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function plotinfost_alerts_routines:insert(index, item) end
+
+---@param index integer 
+function plotinfost_alerts_routines:erase(index) end
 
 ---@class (exact) plotinfost.T_equipment: DFObject
 ---@field _kind 'struct'
@@ -1992,6 +2056,22 @@ function plotinfost_unk_7:insert(index, item) end
 ---@param index integer 
 function plotinfost_unk_7:erase(index) end
 
+---@class plotinfost_theft_intrigues: DFContainer
+---@field [integer] DFPointer<integer>
+local plotinfost_theft_intrigues
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function plotinfost_theft_intrigues:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function plotinfost_theft_intrigues:insert(index, item) end
+
+---@param index integer 
+function plotinfost_theft_intrigues:erase(index) end
+
 ---@class plotinfost_tutorial_hide: DFContainer
 ---@field [integer] help_context_type
 local plotinfost_tutorial_hide
@@ -2032,7 +2112,7 @@ function plotinfost_tutorial_seen:erase(index) end
 ---@field traffic_cost_normal number
 ---@field traffic_cost_low number
 ---@field traffic_cost_restricted number
----@field dead_citizens DFAnyVector ?
+---@field dead_citizens plotinfost_main_dead_citizens ?
 ---@field custom_difficulty difficultyst
 ---@field fortress_entity historical_entity entity pointed to by group_id
 ---@field fortress_site world_site
@@ -2053,6 +2133,22 @@ function plotinfost_tutorial_seen:erase(index) end
 ---@class _plotinfost.T_main: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_main = {}
+
+---@class plotinfost_main_dead_citizens: DFContainer
+---@field [integer] DFPointer<integer>
+local plotinfost_main_dead_citizens
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function plotinfost_main_dead_citizens:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function plotinfost_main_dead_citizens:insert(index, item) end
+
+---@param index integer 
+function plotinfost_main_dead_citizens:erase(index) end
 
 ---@class (exact) plotinfost.T_main.T_save_progress: DFObject
 ---@field _kind 'struct'

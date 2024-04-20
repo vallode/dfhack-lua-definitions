@@ -938,7 +938,7 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_year number seems to be current year or -1. Matches up with corresponding field of artifact_record
 ---@field unk_2 number only other value seen was 0
 ---@field unk_3 number uninitialized
----@field unk_4 any
+---@field unk_4 DFPointer<integer>
 ---@field unk_5 historical_entity
 ---@field unk_6 historical_entity
 
@@ -1069,7 +1069,7 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field name language_name
 ---@field race number References: `creature_raw`
 ---@field flags historical_entity.T_flags
----@field guild_professions DFAnyVector Only seen 1, and only for guilds
+---@field guild_professions historical_entity_guild_professions Only seen 1, and only for guilds
 ---@field entity_links historical_entity_entity_links
 ---@field site_links historical_entity_site_links
 ---@field histfig_ids DFNumberVector
@@ -1087,7 +1087,7 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field production_zone_id number not sure what this refers to
 ---@field conquered_site_group_flags historical_entity.T_conquered_site_group_flags
 ---@field worldgen_can_make_guildhall DFEnumVector<town_labor_type, number>
----@field training_knowledge any
+---@field training_knowledge DFPointer<integer>
 ---@field events historical_entity_events bay12: rumor_info
 ---@field unk_v40_1a number these are part of bay12's rumor_info struct
 ---@field unk_v40_1b number
@@ -1107,7 +1107,7 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field equipment_purchases number only seen on military units
 ---@field attack number only seen on military units
 ---@field total_battles number attacks + defenses. Only seen on military units
----@field unk_v47_1 any bay12: evidence_repository
+---@field unk_v47_1 DFPointer<integer> bay12: evidence_repository
 ---@field divination_sets DFNumberVector Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
 ---@field founding_site_government number bay12: material_source_enid References: `historical_entity`
 ---@field meeting_events historical_entity_meeting_events
@@ -1171,10 +1171,10 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field trade_wanted_amount number[]
 ---@field trade_maximum_buy_price number[]
 ---@field town_labor_hours number[]
----@field world_gen_entity_debt DFAnyVector bay12: world_gen_entity_debt
+---@field world_gen_entity_debt historical_entity_world_gen_entity_debt bay12: world_gen_entity_debt
 ---@field account number
----@field burial_request DFAnyVector ?
----@field current_wgwg any
+---@field burial_request historical_entity_burial_request ?
+---@field current_wgwg DFPointer<integer>
 ---@field total_outcast_strength number
 ---@field pool_id integer protected --
 
@@ -1305,6 +1305,22 @@ function df.historical_entity.get_vector() end
 ---@field unk26 26 Set for a significant number of entities
 ---@field [26] "unk26" Set for a significant number of entities
 df.historical_entity.T_flags = {}
+
+---@class historical_entity_guild_professions: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_entity_guild_professions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_entity_guild_professions:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_entity_guild_professions:insert(index, item) end
+
+---@param index integer 
+function historical_entity_guild_professions:erase(index) end
 
 ---@class historical_entity_entity_links: DFContainer
 ---@field [integer] entity_entity_link
@@ -1647,8 +1663,8 @@ function historical_entity_uniforms:erase(index) end
 ---@field deities DFNumberVector
 ---@field worship DFNumberVector Same length as deities(?). Some kind of relationship strength?
 ---@field belief_systems DFNumberVector In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
----@field constructions DFAnyVector only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
----@field diplomacy DFAnyVector
+---@field constructions historical_entity_relations_constructions only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field diplomacy historical_entity_relations_diplomacy
 ---@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
 ---@field unk34a DFNumberVector same length as unk34b and unk34c
 ---@field unk34b DFNumberVector
@@ -1659,6 +1675,38 @@ function historical_entity_uniforms:erase(index) end
 ---@class _historical_entity.T_relations: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_relations = {}
+
+---@class historical_entity_relations_constructions: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_entity_relations_constructions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_entity_relations_constructions:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_entity_relations_constructions:insert(index, item) end
+
+---@param index integer 
+function historical_entity_relations_constructions:erase(index) end
+
+---@class historical_entity_relations_diplomacy: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_entity_relations_diplomacy
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_entity_relations_diplomacy:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_entity_relations_diplomacy:insert(index, item) end
+
+---@param index integer 
+function historical_entity_relations_diplomacy:erase(index) end
 
 ---@class (exact) historical_entity.T_positions: DFObject
 ---@field _kind 'struct'
@@ -2139,6 +2187,38 @@ function historical_entity_well_known_wc:insert(index, item) end
 
 ---@param index integer 
 function historical_entity_well_known_wc:erase(index) end
+
+---@class historical_entity_world_gen_entity_debt: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_entity_world_gen_entity_debt
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_entity_world_gen_entity_debt:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_entity_world_gen_entity_debt:insert(index, item) end
+
+---@param index integer 
+function historical_entity_world_gen_entity_debt:erase(index) end
+
+---@class historical_entity_burial_request: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_entity_burial_request
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_entity_burial_request:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_entity_burial_request:insert(index, item) end
+
+---@param index integer 
+function historical_entity_burial_request:erase(index) end
 
 ---@class (exact) entity_tissue_style: DFObject
 ---@field _kind 'struct'
@@ -3367,11 +3447,27 @@ df.agreement.T_flags = {}
 ---@field id number
 ---@field histfig_ids DFNumberVector
 ---@field entity_ids DFNumberVector
----@field unk_1 DFAnyVector
+---@field unk_1 agreement_party_unk_1
 
 ---@class _agreement_party: DFCompound
 ---@field _kind 'struct-type'
 df.agreement_party = {}
+
+---@class agreement_party_unk_1: DFContainer
+---@field [integer] DFPointer<integer>
+local agreement_party_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function agreement_party_unk_1:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function agreement_party_unk_1:insert(index, item) end
+
+---@param index integer 
+function agreement_party_unk_1:erase(index) end
 
 ---@alias crime_type_keys
 ---| '"NONE"'

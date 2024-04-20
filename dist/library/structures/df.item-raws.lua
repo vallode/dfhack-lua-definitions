@@ -2021,7 +2021,7 @@ df.tool_uses = {}
 ---@field shape_category_str DFStringVector
 ---@field shape_category DFNumberVector
 ---@field description string
----@field default_improvements DFAnyVector
+---@field default_improvements itemdef_toolst_default_improvements
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -2083,6 +2083,22 @@ function itemdef_toolst_attacks:insert(index, item) end
 
 ---@param index integer 
 function itemdef_toolst_attacks:erase(index) end
+
+---@class itemdef_toolst_default_improvements: DFContainer
+---@field [integer] DFPointer<integer>
+local itemdef_toolst_default_improvements
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function itemdef_toolst_default_improvements:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function itemdef_toolst_default_improvements:insert(index, item) end
+
+---@param index integer 
+function itemdef_toolst_default_improvements:erase(index) end
 
 ---@alias toy_flags_keys
 ---| '"HARD_MAT"'

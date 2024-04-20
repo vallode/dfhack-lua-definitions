@@ -736,7 +736,7 @@ df.cave_column_rectangle.T_flags = {}
 ---@field sink_level number water at or above this level sinks into aquifer tiles
 ---@field beach_level number water at this level disappears if above more water
 ---@field ground_level number for coloring unallocated blocks
----@field unmined_glyphs DFAnyVector
+---@field unmined_glyphs map_block_column_unmined_glyphs
 ---@field z_base number
 ---@field cave_columns cave_column_link[][]
 ---@field column_rectangles map_block_column_column_rectangles
@@ -751,6 +751,22 @@ df.cave_column_rectangle.T_flags = {}
 ---@class _map_block_column: DFCompound
 ---@field _kind 'struct-type'
 df.map_block_column = {}
+
+---@class map_block_column_unmined_glyphs: DFContainer
+---@field [integer] DFPointer<integer>
+local map_block_column_unmined_glyphs
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function map_block_column_unmined_glyphs:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function map_block_column_unmined_glyphs:insert(index, item) end
+
+---@param index integer 
+function map_block_column_unmined_glyphs:erase(index) end
 
 ---@class map_block_column_cave_columns_cave_column_link: DFContainer
 ---@field [integer] cave_column_link

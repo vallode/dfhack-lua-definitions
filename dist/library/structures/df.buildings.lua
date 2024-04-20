@@ -432,7 +432,7 @@ df.building_extents_type = {}
 ---@class (exact) building_extents: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_extents
----@field extents any
+---@field extents DFPointer<integer>
 ---@field x number
 ---@field y number
 ---@field width number
@@ -483,9 +483,9 @@ df.building_drawbuffer = {}
 ---@field specific_refs building_specific_refs
 ---@field general_refs building_general_refs
 ---@field relations building_relations zone(s) this building is in
----@field job_claim_suppress DFAnyVector after Remv Cre, prevents unit from taking jobs at building
+---@field job_claim_suppress building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
----@field activities DFAnyVector
+---@field activities building_activities
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field unk_v40_2 number
@@ -568,6 +568,38 @@ function building_relations:insert(index, item) end
 
 ---@param index integer 
 function building_relations:erase(index) end
+
+---@class building_job_claim_suppress: DFContainer
+---@field [integer] DFPointer<integer>
+local building_job_claim_suppress
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function building_job_claim_suppress:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function building_job_claim_suppress:insert(index, item) end
+
+---@param index integer 
+function building_job_claim_suppress:erase(index) end
+
+---@class building_activities: DFContainer
+---@field [integer] DFPointer<integer>
+local building_activities
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function building_activities:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function building_activities:insert(index, item) end
+
+---@param index integer 
+function building_activities:erase(index) end
 
 -- stockpile --
 ---@class (exact) stockpile_links: DFObject
@@ -1149,7 +1181,7 @@ df.civzone_type = {}
 ---@field contained_buildings building_civzonest_contained_buildings includes eg workshops and beds
 ---@field assigned_unit_id number
 ---@field assigned_unit unit
----@field squad_room_info DFAnyVector
+---@field squad_room_info building_civzonest_squad_room_info
 
 ---@class _building_civzonest: DFCompound
 ---@field _kind 'class-type'
@@ -1267,6 +1299,22 @@ function building_civzonest_contained_buildings:insert(index, item) end
 ---@param index integer 
 function building_civzonest_contained_buildings:erase(index) end
 
+---@class building_civzonest_squad_room_info: DFContainer
+---@field [integer] DFPointer<integer>
+local building_civzonest_squad_room_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function building_civzonest_squad_room_info:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function building_civzonest_squad_room_info:insert(index, item) end
+
+---@param index integer 
+function building_civzonest_squad_room_info:erase(index) end
+
 ---@alias building_item_role_type_keys
 ---| '"TEMP"'
 ---| '"TEMP_PRINTHIDDEN"'
@@ -1295,12 +1343,28 @@ df.building_item_role_type = {}
 ---@field _kind 'struct'
 ---@field _type _building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
----@field contained_items DFAnyVector
+---@field contained_items building_actual_contained_items
 ---@field design building_design
 
 ---@class _building_actual: DFCompound
 ---@field _kind 'class-type'
 df.building_actual = {}
+
+---@class building_actual_contained_items: DFContainer
+---@field [integer] DFPointer<integer>
+local building_actual_contained_items
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function building_actual_contained_items:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function building_actual_contained_items:insert(index, item) end
+
+---@param index integer 
+function building_actual_contained_items:erase(index) end
 
 ---@class (exact) building_design: DFObject
 ---@field _kind 'struct'

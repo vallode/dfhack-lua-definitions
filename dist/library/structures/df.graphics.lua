@@ -32,8 +32,8 @@ df.large_integer.T_u = {}
 ---@field sound_priority boolean
 ---@field sound_playing number
 ---@field on boolean
----@field fmod_system any
----@field fmod_master_channel_group any
+---@field fmod_system DFPointer<integer>
+---@field fmod_master_channel_group DFPointer<integer>
 ---@field mod fmod_sound[] songs
 ---@field samp fmod_sound[] sound effects
 ---@field linux_sound_system musicsoundst.T_linux_sound_system
@@ -68,8 +68,8 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@class (exact) fmod_sound: DFObject
 ---@field _kind 'struct'
 ---@field _type _fmod_sound
----@field sound any
----@field channel any
+---@field sound DFPointer<integer>
+---@field channel DFPointer<integer>
 
 ---@class _fmod_sound: DFCompound
 ---@field _kind 'struct-type'
@@ -279,7 +279,7 @@ df.graphic_map_portst = {}
 ---@field _type _cached_texturest
 ---@field w number
 ---@field h number
----@field tex any
+---@field tex DFPointer<integer>
 ---@field tex_n number
 
 ---@class _cached_texturest: DFCompound
@@ -688,9 +688,9 @@ df.renderer = {}
 ---@class (exact) renderer_2d_base: DFObject, renderer
 ---@field _kind 'struct'
 ---@field _type _renderer_2d_base
----@field window any SDL_Window*
----@field sdl_renderer any SDL_Renderer*
----@field screen_tex any SDL_Texture*
+---@field window DFPointer<integer> SDL_Window*
+---@field sdl_renderer DFPointer<integer> SDL_Renderer*
+---@field screen_tex DFPointer<integer> SDL_Texture*
 ---@field tile_cache renderer_2d_base_tile_cache unordered_map<texture_fullid, SDL_Texture*\>
 ---@field dispx number
 ---@field dispy number
@@ -810,7 +810,7 @@ df.zoom_commands = {}
 ---@field async_tobox enabler.T_async_tobox
 ---@field async_frombox enabler.T_async_frombox
 ---@field async_zoom enabler.T_async_zoom
----@field async_fromcomplete any
+---@field async_fromcomplete DFPointer<integer>
 ---@field renderer_threadid number
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string

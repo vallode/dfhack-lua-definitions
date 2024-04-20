@@ -92,13 +92,61 @@ df.invasion_info.T_flags = {}
 ---@class (exact) entity_population_unk4: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_population_unk4
----@field unk_1 DFAnyVector all 3 vectors share a single index series, with the third being interleaved with at least the second one
----@field unk_2 DFAnyVector
----@field unk_3 DFAnyVector
+---@field unk_1 entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field unk_2 entity_population_unk4_unk_2
+---@field unk_3 entity_population_unk4_unk_3
 
 ---@class _entity_population_unk4: DFCompound
 ---@field _kind 'struct-type'
 df.entity_population_unk4 = {}
+
+---@class entity_population_unk4_unk_1: DFContainer
+---@field [integer] DFPointer<integer>
+local entity_population_unk4_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function entity_population_unk4_unk_1:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function entity_population_unk4_unk_1:insert(index, item) end
+
+---@param index integer 
+function entity_population_unk4_unk_1:erase(index) end
+
+---@class entity_population_unk4_unk_2: DFContainer
+---@field [integer] DFPointer<integer>
+local entity_population_unk4_unk_2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function entity_population_unk4_unk_2:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function entity_population_unk4_unk_2:insert(index, item) end
+
+---@param index integer 
+function entity_population_unk4_unk_2:erase(index) end
+
+---@class entity_population_unk4_unk_3: DFContainer
+---@field [integer] DFPointer<integer>
+local entity_population_unk4_unk_3
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function entity_population_unk4_unk_3:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function entity_population_unk4_unk_3:insert(index, item) end
+
+---@param index integer 
+function entity_population_unk4_unk_3:erase(index) end
 
 ---@class (exact) entity_population: DFObject
 ---@field _kind 'struct'
@@ -327,7 +375,7 @@ function artifact_record_flags:erase(index) end
 ---@field latest_year number
 ---@field latest_season_count number
 ---@field flag integer
----@field latest_wi any witness_incidentst
+---@field latest_wi DFPointer<integer> witness_incidentst
 
 ---@class _artifact_rumor_locationst: DFCompound
 ---@field _kind 'struct-type'

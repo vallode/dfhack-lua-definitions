@@ -112,7 +112,7 @@ function machine_tile_set_can_connect:erase(index) end
 ---@field y number
 ---@field z number
 ---@field id number
----@field components DFAnyVector
+---@field components machine_components
 ---@field cur_power number
 ---@field min_power number
 ---@field visual_phase number
@@ -131,6 +131,22 @@ function df.machine.find(key) end
 
 ---@return machine_vector # df.global.world.machines.all
 function df.machine.get_vector() end
+
+---@class machine_components: DFContainer
+---@field [integer] DFPointer<integer>
+local machine_components
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function machine_components:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function machine_components:insert(index, item) end
+
+---@param index integer 
+function machine_components:erase(index) end
 
 ---@class machine.T_flags: DFObject
 ---@field _kind 'bitfield'

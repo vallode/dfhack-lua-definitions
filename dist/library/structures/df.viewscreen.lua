@@ -138,7 +138,7 @@ df.extentst = {}
 ---@class (exact) widget: DFObject
 ---@field _kind 'struct'
 ---@field _type _widget
----@field parent any
+---@field parent DFPointer<integer>
 ---@field rect extentst
 ---@field custom_feed widget_custom_feed
 ---@field custom_logic widget_custom_logic
@@ -1239,7 +1239,7 @@ df.widget_item_sheet_button = {}
 ---@class (exact) widget_job_details_button: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_job_details_button
----@field jb any
+---@field jb DFPointer<integer>
 ---@field context number
 
 ---@class _widget_job_details_button: DFCompound
@@ -1704,7 +1704,7 @@ function widget_unit_list_on_select_change:erase(index) end
 ---@field _kind 'struct'
 ---@field _type _widget_sort_widget
 ---@field display_text boolean
----@field list any T*
+---@field list DFPointer<integer> T*
 ---@field sort_fun DFBooleanVector
 
 ---@class _widget_sort_widget: DFCompound
@@ -2437,10 +2437,10 @@ df.mission = {}
 ---@class (exact) mission.T_details: DFObject
 ---@field _kind 'struct'
 ---@field _type _mission.T_details
----@field raid any
----@field recovery any
----@field rescue any
----@field request any
+---@field raid DFPointer<integer>
+---@field recovery DFPointer<integer>
+---@field rescue DFPointer<integer>
+---@field request DFPointer<integer>
 
 ---@class _mission.T_details: DFCompound
 ---@field _kind 'struct-type'
@@ -2868,7 +2868,7 @@ df.world_gen_param_flagst = {}
 ---@class (exact) world_gen_param_flagarrayst: DFObject, world_gen_param_valuest
 ---@field _kind 'struct'
 ---@field _type _world_gen_param_flagarrayst
----@field val_ptr any
+---@field val_ptr DFPointer<integer>
 ---@field flag number
 ---@field value_val DFNumberVector
 
@@ -2885,7 +2885,7 @@ df.world_gen_param_flagarrayst = {}
 ---@field text_box markup_text_boxst
 ---@field scroll_position_list number
 ---@field scrolling_list boolean
----@field lptr any
+---@field lptr DFPointer<integer>
 ---@field scroll_position_text number
 ---@field scrolling_text boolean
 ---@field filter_str string
@@ -2991,7 +2991,7 @@ df.legend_pagest.T_mode = {}
 ---@field era_choice_denom DFNumberVector
 ---@field hec_id DFNumberVector
 ---@field showing_all_era_collections number
----@field region_snapshot DFAnyVector
+---@field region_snapshot viewscreen_legendsst_region_snapshot
 ---@field region_view_x number
 ---@field region_view_y number
 ---@field region_view_mode number
@@ -3017,6 +3017,22 @@ df.legend_pagest.T_mode = {}
 ---@class _viewscreen_legendsst: DFCompound
 ---@field _kind 'class-type'
 df.viewscreen_legendsst = {}
+
+---@class viewscreen_legendsst_region_snapshot: DFContainer
+---@field [integer] DFPointer<integer>
+local viewscreen_legendsst_region_snapshot
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function viewscreen_legendsst_region_snapshot:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function viewscreen_legendsst_region_snapshot:insert(index, item) end
+
+---@param index integer 
+function viewscreen_legendsst_region_snapshot:erase(index) end
 
 ---@class viewscreen_legendsst_page: DFContainer
 ---@field [integer] legend_pagest
@@ -3117,14 +3133,14 @@ df.random_object_batchst = {}
 ---@field _kind 'struct'
 ---@field _type _region_object_datast
 ---@field batch region_object_datast_batch
----@field custom_inorganic DFAnyVector
----@field generated_plants DFAnyVector
----@field generated_items DFAnyVector
----@field generated_creatures DFAnyVector
----@field generated_entities DFAnyVector
----@field generated_reactions DFAnyVector
----@field generated_interactions DFAnyVector
----@field generated_languages DFAnyVector
+---@field custom_inorganic region_object_datast_custom_inorganic
+---@field generated_plants region_object_datast_generated_plants
+---@field generated_items region_object_datast_generated_items
+---@field generated_creatures region_object_datast_generated_creatures
+---@field generated_entities region_object_datast_generated_entities
+---@field generated_reactions region_object_datast_generated_reactions
+---@field generated_interactions region_object_datast_generated_interactions
+---@field generated_languages region_object_datast_generated_languages
 ---@field inorganics DFStringVector
 ---@field plants DFStringVector
 ---@field bodies DFStringVector
@@ -3174,6 +3190,134 @@ function region_object_datast_batch:insert(index, item) end
 
 ---@param index integer 
 function region_object_datast_batch:erase(index) end
+
+---@class region_object_datast_custom_inorganic: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_custom_inorganic
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_custom_inorganic:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_custom_inorganic:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_custom_inorganic:erase(index) end
+
+---@class region_object_datast_generated_plants: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_plants
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_plants:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_plants:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_plants:erase(index) end
+
+---@class region_object_datast_generated_items: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_items
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_items:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_items:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_items:erase(index) end
+
+---@class region_object_datast_generated_creatures: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_creatures
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_creatures:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_creatures:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_creatures:erase(index) end
+
+---@class region_object_datast_generated_entities: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_entities
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_entities:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_entities:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_entities:erase(index) end
+
+---@class region_object_datast_generated_reactions: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_reactions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_reactions:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_reactions:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_reactions:erase(index) end
+
+---@class region_object_datast_generated_interactions: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_interactions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_interactions:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_interactions:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_interactions:erase(index) end
+
+---@class region_object_datast_generated_languages: DFContainer
+---@field [integer] DFPointer<integer>
+local region_object_datast_generated_languages
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function region_object_datast_generated_languages:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function region_object_datast_generated_languages:insert(index, item) end
+
+---@param index integer 
+function region_object_datast_generated_languages:erase(index) end
 
 ---@class (exact) viewscreen_loadgamest: DFObject, viewscreen
 ---@field _kind 'struct'
@@ -3527,7 +3671,7 @@ df.worldgen_parms = {}
 ---@field _type _worldgen_parms_ps
 ---@field width number
 ---@field height number
----@field data DFEnumVector<worldgen_range_type, any>
+---@field data DFEnumVector<worldgen_range_type, DFPointer<integer>>
 
 ---@class _worldgen_parms_ps: DFCompound
 ---@field _kind 'struct-type'
@@ -4290,7 +4434,7 @@ function setup_character_info_pet:erase(index) end
 ---@class (exact) embark_item_choice: DFObject
 ---@field _kind 'struct'
 ---@field _type _embark_item_choice
----@field list DFEnumVector<entity_sell_category, any>
+---@field list DFEnumVector<entity_sell_category, DFPointer<integer>>
 ---@field race DFNumberVector
 ---@field caste DFNumberVector
 ---@field profession embark_item_choice_profession
@@ -4298,6 +4442,22 @@ function setup_character_info_pet:erase(index) end
 ---@class _embark_item_choice: DFCompound
 ---@field _kind 'struct-type'
 df.embark_item_choice = {}
+
+---@class embark_item_choice_list: DFContainer
+---@field [integer] DFPointer<integer>
+local embark_item_choice_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function embark_item_choice_list:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function embark_item_choice_list:insert(index, item) end
+
+---@param index integer 
+function embark_item_choice_list:erase(index) end
 
 ---@class embark_item_choice_profession: DFContainer
 ---@field [integer] profession
@@ -4442,7 +4602,7 @@ function embark_symbol_unk_v43_2:erase(index) end
 ---@field unk_s4 number
 ---@field unk_s5 number
 ---@field unk_s6 number
----@field unk_s7 any
+---@field unk_s7 DFPointer<integer>
 
 ---@class _embark_symbol.T_unk_v43_sub9: DFCompound
 ---@field _kind 'struct-type'
@@ -5002,7 +5162,7 @@ df.world_view_mode_type = {}
 ---@field tribute_report_index DFNumberVector
 ---@field croll_position_report number
 ---@field scrolling_report boolean
----@field active_mission_report any mission_reportst
+---@field active_mission_report DFPointer<integer> mission_reportst
 ---@field mission_cursor_x number
 ---@field mission_cursor_y number
 ---@field mission_path_data_index number
@@ -5019,7 +5179,7 @@ df.world_view_mode_type = {}
 ---@field mission_fade_start_ind number
 ---@field scroll_position_mission number
 ---@field scrolling_mission boolean
----@field active_tribute_report any tribute_reportst
+---@field active_tribute_report DFPointer<integer> tribute_reportst
 ---@field scroll_position_tribute number
 ---@field scrolling_tribute boolean
 ---@field hf viewscreen_worldst_hf
@@ -5032,7 +5192,7 @@ df.world_view_mode_type = {}
 ---@field scrolling_artifacts boolean
 ---@field last_hover_artifact artifact_record
 ---@field artifact_description DFStringVector
----@field artifact_eac any entity_artifact_claimst
+---@field artifact_eac DFPointer<integer> entity_artifact_claimst
 ---@field artifact_rpa_holder historical_figure
 ---@field artifact_fac_holder historical_figure
 

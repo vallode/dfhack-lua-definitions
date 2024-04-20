@@ -513,13 +513,13 @@ df.state_profilest.T_flags = {}
 ---@field heard_of_guide_hfid DFNumberVector
 ---@field heard_of_stid DFNumberVector
 ---@field opinion_info knowledge_profilest.T_opinion_info
----@field creature_knowledge DFAnyVector
+---@field creature_knowledge knowledge_profilest_creature_knowledge
 ---@field known_poetic_forms DFNumberVector bay12: poetic_form_known_id
 ---@field known_musical_forms DFNumberVector bay12: musical_form_known_id
 ---@field known_dance_forms DFNumberVector bay12: dance_form_known_id
----@field knowledge any
----@field belief_systems any found in prophets; contains the ID of the belief system developed by that particular prophet
----@field known_locations any
+---@field knowledge DFPointer<integer>
+---@field belief_systems DFPointer<integer> found in prophets; contains the ID of the belief system developed by that particular prophet
+---@field known_locations DFPointer<integer>
 ---@field known_agreement_id DFNumberVector
 
 ---@class _knowledge_profilest: DFCompound
@@ -585,21 +585,37 @@ function knowledge_profilest_known_events:erase(index) end
 ---@field _kind 'struct-type'
 df.knowledge_profilest.T_opinion_info = {}
 
+---@class knowledge_profilest_creature_knowledge: DFContainer
+---@field [integer] DFPointer<integer>
+local knowledge_profilest_creature_knowledge
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function knowledge_profilest_creature_knowledge:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function knowledge_profilest_creature_knowledge:insert(index, item) end
+
+---@param index integer 
+function knowledge_profilest_creature_knowledge:erase(index) end
+
 ---@class (exact) historical_figure_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_info
----@field spheres any
----@field skills any
----@field pets any
----@field personality any
----@field masterpieces any
+---@field spheres DFPointer<integer>
+---@field skills DFPointer<integer>
+---@field pets DFPointer<integer>
+---@field personality DFPointer<integer>
+---@field masterpieces DFPointer<integer>
 ---@field whereabouts state_profilest
 ---@field kills historical_kills
----@field wounds any
+---@field wounds DFPointer<integer>
 ---@field known_info knowledge_profilest knowledge_profile
----@field curse any
----@field books any seems to be misnamed. Artifacts seen have been of all kinds
----@field reputation any
+---@field curse DFPointer<integer>
+---@field books DFPointer<integer> seems to be misnamed. Artifacts seen have been of all kinds
+---@field reputation DFPointer<integer>
 ---@field relationships historical_figure_relationships
 
 ---@class _historical_figure_info: DFCompound
@@ -609,17 +625,81 @@ df.historical_figure_info = {}
 ---@class (exact) historical_figure_relationships: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_relationships
----@field hf_visual DFAnyVector
----@field hf_historical DFAnyVector
----@field unk_1 DFAnyVector
+---@field hf_visual historical_figure_relationships_hf_visual
+---@field hf_historical historical_figure_relationships_hf_historical
+---@field unk_1 historical_figure_relationships_unk_1
 ---@field identities DFNumberVector
----@field artifact_claims DFAnyVector
+---@field artifact_claims historical_figure_relationships_artifact_claims
 ---@field unk_2 number
----@field intrigues any
+---@field intrigues DFPointer<integer>
 
 ---@class _historical_figure_relationships: DFCompound
 ---@field _kind 'struct-type'
 df.historical_figure_relationships = {}
+
+---@class historical_figure_relationships_hf_visual: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_figure_relationships_hf_visual
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_figure_relationships_hf_visual:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_figure_relationships_hf_visual:insert(index, item) end
+
+---@param index integer 
+function historical_figure_relationships_hf_visual:erase(index) end
+
+---@class historical_figure_relationships_hf_historical: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_figure_relationships_hf_historical
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_figure_relationships_hf_historical:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_figure_relationships_hf_historical:insert(index, item) end
+
+---@param index integer 
+function historical_figure_relationships_hf_historical:erase(index) end
+
+---@class historical_figure_relationships_unk_1: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_figure_relationships_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_figure_relationships_unk_1:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_figure_relationships_unk_1:insert(index, item) end
+
+---@param index integer 
+function historical_figure_relationships_unk_1:erase(index) end
+
+---@class historical_figure_relationships_artifact_claims: DFContainer
+---@field [integer] DFPointer<integer>
+local historical_figure_relationships_artifact_claims
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function historical_figure_relationships_artifact_claims:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function historical_figure_relationships_artifact_claims:insert(index, item) end
+
+---@param index integer 
+function historical_figure_relationships_artifact_claims:erase(index) end
 
 ---@alias histfig_flags_keys
 ---| '"reveal_artwork"'
@@ -1153,12 +1233,12 @@ df.vague_relationship_type = {}
 ---@field site_links historical_figure_site_links
 ---@field histfig_links historical_figure_histfig_links
 ---@field info historical_figure_info bay12: hf_profilest profile
----@field vague_relationships any Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
+---@field vague_relationships DFPointer<integer> Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@field unk_f0 world_site
 ---@field unk_f4 world_region
 ---@field unk_f8 world_underground_region
----@field unk_fc any
----@field unk_v47_2 any
+---@field unk_fc DFPointer<integer>
+---@field unk_v47_2 DFPointer<integer>
 ---@field unk_v47_3 number
 ---@field unk_v47_4 number
 ---@field unk_v4019_1 number
@@ -2700,7 +2780,7 @@ df.history_event_circumstance_info.T_data = {}
 ---@field _type _history_event_context
 ---@field flags history_event_context.T_flags
 ---@field interrogator_relationships historical_figure_relationships
----@field interrogation any evidence_repositoryst
+---@field interrogation DFPointer<integer> evidence_repositoryst
 ---@field artifact_id number References: `artifact_record`
 ---@field entity_id number References: `historical_entity`
 ---@field histfig_id number References: `historical_figure`

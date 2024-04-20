@@ -622,9 +622,9 @@ df.item_history_info = {}
 ---@field _kind 'struct'
 ---@field _type _item_actual
 ---@field stack_size number
----@field history_info any
----@field magic any
----@field contaminants any
+---@field history_info DFPointer<integer>
+---@field magic DFPointer<integer>
+---@field contaminants DFPointer<integer>
 ---@field temperature temperaturest
 ---@field wear number
 ---@field wear_timer number counts up to 806400
@@ -1082,9 +1082,9 @@ df.item_body_component.T_bone2 = {}
 ---@class (exact) item_corpsest: DFObject, item_body_component
 ---@field _kind 'struct'
 ---@field _type _item_corpsest
----@field unused_380 any
----@field unused_388 any
----@field unused_390 any
+---@field unused_380 DFPointer<integer>
+---@field unused_388 DFPointer<integer>
+---@field unused_390 DFPointer<integer>
 ---@field unused_398 number
 ---@field unused_39c number
 ---@field unused_3a0 number
@@ -1372,12 +1372,28 @@ df.item_fish_rawst = {}
 ---@field subtype itemdef_foodst
 ---@field entity number References: `historical_entity`
 ---@field recipe_id number
----@field ingredients DFAnyVector
+---@field ingredients item_foodst_ingredients
 ---@field rot_timer number
 
 ---@class _item_foodst: DFCompound
 ---@field _kind 'class-type'
 df.item_foodst = {}
+
+---@class item_foodst_ingredients: DFContainer
+---@field [integer] DFPointer<integer>
+local item_foodst_ingredients
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function item_foodst_ingredients:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function item_foodst_ingredients:insert(index, item) end
+
+---@param index integer 
+function item_foodst_ingredients:erase(index) end
 
 ---@class (exact) item_verminst: DFObject, item_critter
 ---@field _kind 'struct'

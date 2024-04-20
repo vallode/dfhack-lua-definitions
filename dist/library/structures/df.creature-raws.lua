@@ -1579,9 +1579,9 @@ function body_part_layer_raw_flags:erase(index) end
 ---@field unk7b number
 ---@field name_singular DFStringVector
 ---@field name_plural DFStringVector
----@field bp_relation_part_id any
----@field bp_relation_code any
----@field bp_relation_coverage any
+---@field bp_relation_part_id DFPointer<integer>
+---@field bp_relation_code DFPointer<integer>
+---@field bp_relation_coverage DFPointer<integer>
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field temp_factor integer
@@ -2003,8 +2003,8 @@ function creature_interaction_unk_5:erase(index) end
 ---@field _type _caste_body_info
 ---@field body_parts caste_body_info_body_parts
 ---@field attacks caste_body_info_attacks
----@field interactions DFAnyVector
----@field extra_butcher_objects DFAnyVector
+---@field interactions caste_body_info_interactions
+---@field extra_butcher_objects caste_body_info_extra_butcher_objects
 ---@field total_relsize number unless INTERNAL or EMBEDDED
 ---@field layer_part DFNumberVector
 ---@field layer_idx DFNumberVector
@@ -2055,6 +2055,38 @@ function caste_body_info_attacks:insert(index, item) end
 
 ---@param index integer 
 function caste_body_info_attacks:erase(index) end
+
+---@class caste_body_info_interactions: DFContainer
+---@field [integer] DFPointer<integer>
+local caste_body_info_interactions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function caste_body_info_interactions:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function caste_body_info_interactions:insert(index, item) end
+
+---@param index integer 
+function caste_body_info_interactions:erase(index) end
+
+---@class caste_body_info_extra_butcher_objects: DFContainer
+---@field [integer] DFPointer<integer>
+local caste_body_info_extra_butcher_objects
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function caste_body_info_extra_butcher_objects:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function caste_body_info_extra_butcher_objects:insert(index, item) end
+
+---@param index integer 
+function caste_body_info_extra_butcher_objects:erase(index) end
 
 ---@class caste_body_info.T_flags: DFObject
 ---@field _kind 'bitfield'
@@ -2124,7 +2156,7 @@ function caste_body_info_gait_info:erase(index) end
 ---@field bp_appearance caste_raw.T_bp_appearance
 ---@field color_modifiers caste_raw_color_modifiers
 ---@field tissue_styles caste_raw_tissue_styles
----@field shearable_tissue_layer DFAnyVector
+---@field shearable_tissue_layer caste_raw_shearable_tissue_layer
 ---@field unk16a any[][]
 ---@field unk16b number[]
 ---@field appearance_gene_count number
@@ -2134,7 +2166,7 @@ function caste_body_info_gait_info:erase(index) end
 ---@field natural_skill_lvl caste_raw_natural_skill_lvl
 ---@field caste_profession_name caste_raw.T_caste_profession_name
 ---@field extracts caste_raw.T_extracts
----@field secretion DFAnyVector
+---@field secretion caste_raw_secretion
 ---@field creature_class DFStringVector
 ---@field unknown2 caste_raw.T_unknown2
 ---@field habit_num number[]
@@ -2147,10 +2179,10 @@ function caste_body_info_gait_info:erase(index) end
 ---@field lair_hunter_speech caste_raw.T_lair_hunter_speech
 ---@field unk29 caste_raw.T_unk29
 ---@field specific_food any[][]
----@field sound DFAnyVector
+---@field sound caste_raw_sound
 ---@field sound_alert DFNumberVector
 ---@field sound_peaceful_intermittent DFNumberVector
----@field unk_1 DFAnyVector
+---@field unk_1 caste_raw_unk_1
 ---@field smell_trigger number v0.40.01
 ---@field odor_level number
 ---@field odor_string string
@@ -2161,7 +2193,7 @@ function caste_body_info_gait_info:erase(index) end
 ---@field sense_creature_class_4 DFNumberVector
 ---@field sense_creature_class_5 DFNumberVector
 ---@field caste_graphics creature_raw_graphics
----@field unk_v50_4300 any
+---@field unk_v50_4300 DFPointer<integer>
 
 ---@class _caste_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -2370,6 +2402,22 @@ function caste_raw_tissue_styles:insert(index, item) end
 ---@param index integer 
 function caste_raw_tissue_styles:erase(index) end
 
+---@class caste_raw_shearable_tissue_layer: DFContainer
+---@field [integer] DFPointer<integer>
+local caste_raw_shearable_tissue_layer
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function caste_raw_shearable_tissue_layer:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function caste_raw_shearable_tissue_layer:insert(index, item) end
+
+---@param index integer 
+function caste_raw_shearable_tissue_layer:erase(index) end
+
 ---@class caste_raw_natural_skill_id: DFContainer
 ---@field [integer] job_skill
 local caste_raw_natural_skill_id
@@ -2472,6 +2520,22 @@ function caste_raw_extracts_lays_unusual_eggs_itemtype:insert(index, item) end
 
 ---@param index integer 
 function caste_raw_extracts_lays_unusual_eggs_itemtype:erase(index) end
+
+---@class caste_raw_secretion: DFContainer
+---@field [integer] DFPointer<integer>
+local caste_raw_secretion
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function caste_raw_secretion:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function caste_raw_secretion:insert(index, item) end
+
+---@param index integer 
+function caste_raw_secretion:erase(index) end
 
 ---@class (exact) caste_raw.T_unknown2: DFObject
 ---@field _kind 'struct'
@@ -2588,6 +2652,38 @@ function caste_raw_unk29_unk_1:insert(index, item) end
 
 ---@param index integer 
 function caste_raw_unk29_unk_1:erase(index) end
+
+---@class caste_raw_sound: DFContainer
+---@field [integer] DFPointer<integer>
+local caste_raw_sound
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function caste_raw_sound:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function caste_raw_sound:insert(index, item) end
+
+---@param index integer 
+function caste_raw_sound:erase(index) end
+
+---@class caste_raw_unk_1: DFContainer
+---@field [integer] DFPointer<integer>
+local caste_raw_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function caste_raw_unk_1:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function caste_raw_unk_1:insert(index, item) end
+
+---@param index integer 
+function caste_raw_unk_1:erase(index) end
 
 ---@alias creature_graphics_role_keys
 ---| '"DEFAULT"'

@@ -80,12 +80,12 @@ function df.descriptor_color.get_vector() end
 ---@field category DFStringVector
 ---@field faces number
 ---@field tile integer
----@field unk_v50_1 any
+---@field unk_v50_1 DFPointer<integer>
 ---@field unk_v50_2 DFNumberVector
 ---@field unk_v50_3 DFNumberVector
----@field unk_v50_4 any
----@field unk_v50_5 any
----@field unk_v50_6 any
+---@field unk_v50_4 DFPointer<integer>
+---@field unk_v50_5 DFPointer<integer>
+---@field unk_v50_6 DFPointer<integer>
 
 ---@class _descriptor_shape: DFCompound
 ---@field _kind 'struct-type'

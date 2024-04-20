@@ -689,7 +689,7 @@ df.resource_allotment_specifier_powderst = {}
 ---@field unk2 number
 ---@field unk3 number
 ---@field unk_650 number
----@field unk_654 DFAnyVector
+---@field unk_654 resource_allotment_data_unk_654
 
 ---@class _resource_allotment_data: DFCompound
 ---@field _kind 'struct-type'
@@ -719,4 +719,20 @@ function resource_allotment_data_resource_allotments:insert(index, item) end
 
 ---@param index integer 
 function resource_allotment_data_resource_allotments:erase(index) end
+
+---@class resource_allotment_data_unk_654: DFContainer
+---@field [integer] DFPointer<integer>
+local resource_allotment_data_unk_654
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function resource_allotment_data_unk_654:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function resource_allotment_data_unk_654:insert(index, item) end
+
+---@param index integer 
+function resource_allotment_data_unk_654:erase(index) end
 

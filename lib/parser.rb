@@ -610,9 +610,11 @@ module DFHackLuaDefinitions
       @field = field
       # TODO: Temporary until we add anon indexes.
       @name = field['name'] || 'anon_'
-      @type = field['type-name'] || field['ld:subtype'] || 'any'
+      @type = field['type-name'] || 'any'
       @ref_target = field['ref-target']
       @comment = comment
+
+      @type = 'DFPointer<integer>' if @type == 'any' && node['ld:meta'] == 'pointer'
 
       return unless field.name == 'item'
 

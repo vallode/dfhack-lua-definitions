@@ -3440,7 +3440,7 @@ df.beat_type = {}
 ---@field _kind 'struct'
 ---@field _type _rhythm_pattern
 ---@field name string
----@field bars DFAnyVector
+---@field bars rhythm_pattern_bars
 ---@field beat_name string length as per length field
 ---@field beat_abbreviation string length as per length field
 ---@field length number
@@ -3448,6 +3448,22 @@ df.beat_type = {}
 ---@class _rhythm_pattern: DFCompound
 ---@field _kind 'struct-type'
 df.rhythm_pattern = {}
+
+---@class rhythm_pattern_bars: DFContainer
+---@field [integer] DFPointer<integer>
+local rhythm_pattern_bars
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function rhythm_pattern_bars:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function rhythm_pattern_bars:insert(index, item) end
+
+---@param index integer 
+function rhythm_pattern_bars:erase(index) end
 
 ---@class (exact) sub_rhythm: DFObject
 ---@field _kind 'struct'

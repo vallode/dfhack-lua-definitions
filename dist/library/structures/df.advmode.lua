@@ -243,7 +243,7 @@ df.ui_advmode_menu = {}
 ---@field location building civzone
 ---@field unk_b8 number
 ---@field unk_bc number
----@field speech DFAnyVector
+---@field speech conversation_speech
 
 ---@class _conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -355,6 +355,22 @@ function conversation_unk_a4:insert(index, item) end
 
 ---@param index integer 
 function conversation_unk_a4:erase(index) end
+
+---@class conversation_speech: DFContainer
+---@field [integer] DFPointer<integer>
+local conversation_speech
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function conversation_speech:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function conversation_speech:insert(index, item) end
+
+---@param index integer 
+function conversation_speech:erase(index) end
 
 ---@alias talk_choice_type_keys
 ---| '"Greet"'
@@ -1306,7 +1322,7 @@ df.talk_choice = {}
 ---@field _kind 'struct'
 ---@field _type _talk_choice.T_unk
 ---@field event entity_event
----@field unk_1 any
+---@field unk_1 DFPointer<integer>
 ---@field unk_2 number
 
 ---@class _talk_choice.T_unk: DFCompound
@@ -1530,13 +1546,13 @@ df.adventure_construction_mode_type = {}
 ---@field unk_224 number
 ---@field unk_v40_2 adventurest.T_unk_v40_2
 ---@field unk_v40_3 adventurest.T_unk_v40_3
----@field player_unit_projectile_unk any 3*4 bytes on x86, 4*4 on x64
+---@field player_unit_projectile_unk DFPointer<integer> 3*4 bytes on x86, 4*4 on x64
 ---@field player_unit_projectile_z number Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
 ---@field unk_90 number
 ---@field unk_v40_4 adventurest.T_unk_v40_4
 ---@field unk_v40_5 adventurest.T_unk_v40_5
 ---@field unk_v42_1 adventurest.T_unk_v42_1
----@field unk_91 any
+---@field unk_91 DFPointer<integer>
 ---@field unk_91a number
 ---@field assume_identity adventurest.T_assume_identity
 ---@field move_direction_x number x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
@@ -2037,10 +2053,10 @@ function adventurest_world_debug_army:erase(index) end
 ---@field current_page number bay12: conv_choice_page_index
 ---@field page_top_choices DFNumberVector bay12: conv_choice_page_top
 ---@field page_bottom_choices DFNumberVector bay12: conv_choicE_page_bottom
----@field choices DFAnyVector bay12: conv_choice info; type adventure_conversation_choice_infost
+---@field choices adventurest_conversation_choices bay12: conv_choice info; type adventure_conversation_choice_infost
 ---@field filter string bay12: conv_string_filter
 ---@field conv_tact adventurest.T_conversation.T_conv_tact
----@field targets DFAnyVector bay12: talk_list; type talk_list_optionst
+---@field targets adventurest_conversation_targets bay12: talk_list; type talk_list_optionst
 ---@field cursor_target number bay12: talk_sel
 
 ---@class _adventurest.T_conversation: DFCompound
@@ -2079,6 +2095,22 @@ function adventurest_conversation_activity_event:insert(index, item) end
 ---@param index integer 
 function adventurest_conversation_activity_event:erase(index) end
 
+---@class adventurest_conversation_choices: DFContainer
+---@field [integer] DFPointer<integer>
+local adventurest_conversation_choices
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function adventurest_conversation_choices:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function adventurest_conversation_choices:insert(index, item) end
+
+---@param index integer 
+function adventurest_conversation_choices:erase(index) end
+
 ---@alias adventurest.T_conversation.T_conv_tact_keys
 ---| '"NONE"'
 ---| '"Persuade"'
@@ -2101,6 +2133,22 @@ function adventurest_conversation_activity_event:erase(index) end
 ---@field Intimidate 1
 ---@field [1] "Intimidate"
 df.adventurest.T_conversation.T_conv_tact = {}
+
+---@class adventurest_conversation_targets: DFContainer
+---@field [integer] DFPointer<integer>
+local adventurest_conversation_targets
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function adventurest_conversation_targets:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function adventurest_conversation_targets:insert(index, item) end
+
+---@param index integer 
+function adventurest_conversation_targets:erase(index) end
 
 ---@class adventurest_unk_70: DFContainer
 ---@field [integer] any[]
@@ -2273,11 +2321,11 @@ function adventurest_companions_unit_visible:erase(index) end
 ---@field unk_1e8 number
 ---@field selected_ability number natural ability
 ---@field selected_power number acquired power
----@field unk_1f0 any below 5 fields are 8*4 bytes on x64, 5*4 bytes on x86
+---@field unk_1f0 DFPointer<integer> below 5 fields are 8*4 bytes on x64, 5*4 bytes on x86
 ---@field max_target_number number
 ---@field target_range number
 ---@field target_flags creature_interaction_target_flags
----@field unk_200 any
+---@field unk_200 DFPointer<integer>
 
 ---@class _adventurest.T_interactions: DFCompound
 ---@field _kind 'struct-type'

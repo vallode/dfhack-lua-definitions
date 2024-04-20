@@ -292,7 +292,7 @@ function squad_schedule_order_positions:erase(index) end
 ---@field sleep_mode number 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode number 0 uniformed, 1 civ clothes
 ---@field orders squad_schedule_entry_orders
----@field order_assignments DFAnyVector
+---@field order_assignments squad_schedule_entry_order_assignments
 
 ---@class _squad_schedule_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -314,6 +314,22 @@ function squad_schedule_entry_orders:insert(index, item) end
 ---@param index integer 
 function squad_schedule_entry_orders:erase(index) end
 
+---@class squad_schedule_entry_order_assignments: DFContainer
+---@field [integer] DFPointer<integer>
+local squad_schedule_entry_order_assignments
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function squad_schedule_entry_order_assignments:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function squad_schedule_entry_order_assignments:insert(index, item) end
+
+---@param index integer 
+function squad_schedule_entry_order_assignments:erase(index) end
+
 ---@class (exact) squad: DFObject
 ---@field _kind 'struct'
 ---@field _type _squad
@@ -322,9 +338,9 @@ function squad_schedule_entry_orders:erase(index) end
 ---@field alias string if not empty, used instead of name
 ---@field positions squad_positions
 ---@field orders squad_orders
----@field schedule DFAnyVector
+---@field schedule squad_schedule
 ---@field cur_routine_idx number
----@field rooms DFAnyVector
+---@field rooms squad_rooms
 ---@field rack_combat DFNumberVector
 ---@field rack_training DFNumberVector
 ---@field uniform_priority number
@@ -390,6 +406,38 @@ function squad_orders:insert(index, item) end
 
 ---@param index integer 
 function squad_orders:erase(index) end
+
+---@class squad_schedule: DFContainer
+---@field [integer] DFPointer<integer>
+local squad_schedule
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function squad_schedule:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function squad_schedule:insert(index, item) end
+
+---@param index integer 
+function squad_schedule:erase(index) end
+
+---@class squad_rooms: DFContainer
+---@field [integer] DFPointer<integer>
+local squad_rooms
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function squad_rooms:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function squad_rooms:insert(index, item) end
+
+---@param index integer 
+function squad_rooms:erase(index) end
 
 ---@class (exact) squad.T_ammo: DFObject
 ---@field _kind 'struct'
@@ -1680,7 +1728,7 @@ df.army_flags = {}
 ---@field unk_10 number 1, 2, 5, 10, 15, 20, 21 seen
 ---@field unk_14 number When set, large value like army or army_controller id, but no match found
 ---@field unk_18 number
----@field members DFAnyVector
+---@field members army_members
 ---@field squads army_squads
 ---@field unk_3c number
 ---@field unk_1 number
@@ -1718,6 +1766,22 @@ function df.army.find(key) end
 
 ---@return army_vector # df.global.world.armies.all
 function df.army.get_vector() end
+
+---@class army_members: DFContainer
+---@field [integer] DFPointer<integer>
+local army_members
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function army_members:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function army_members:insert(index, item) end
+
+---@param index integer 
+function army_members:erase(index) end
 
 ---@class army_squads: DFContainer
 ---@field [integer] world_site_inhabitant

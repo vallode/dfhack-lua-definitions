@@ -2759,14 +2759,14 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field convicts justice_interfacest_convicts
 ---@field selected_convict unit
 ---@field convict_crime justice_interfacest_convict_crime
----@field convict_lawaction any lawactionst
+---@field convict_lawaction DFPointer<integer> lawactionst
 ---@field convicting boolean
 ---@field interrogating boolean
 ---@field interrogation_list_flag DFIntegerVector
 ---@field interrogation_report_box DFStringVector
 ---@field interrogation_report_box_width number
 ---@field interrogation_report justice_interfacest_interrogation_report interrogation_reportst
----@field viewing_interrogation_report any interrogation_reportst
+---@field viewing_interrogation_report DFPointer<integer> interrogation_reportst
 ---@field scroll_position_interrogation_list number
 ---@field scrolling_interrogation_list boolean
 ---@field scroll_position_interrogation_report number
@@ -2778,7 +2778,7 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field counterintelligence_selected number
 ---@field counterintelligence_filter_str string
 ---@field entering_counterintelligence_filter boolean
----@field selected_counterintelligence_oen any organization_entry_nodest
+---@field selected_counterintelligence_oen DFPointer<integer> organization_entry_nodest
 ---@field scroll_position_counterintelligence number
 ---@field scrolling_counterintelligence boolean
 ---@field value_actor_entry justice_interfacest_value_actor_entry
@@ -3125,7 +3125,7 @@ df.info_interfacest.T_work_orders = {}
 ---@field filter string
 ---@field compare_master DFStringVector
 ---@field change_type number
----@field change_wqc any workquota_item_conditions
+---@field change_wqc DFPointer<integer> workquota_item_conditions
 ---@field scroll_position_change number
 ---@field scrolling_change number
 ---@field item_type_master DFNumberVector
@@ -3142,7 +3142,7 @@ df.info_interfacest.T_work_orders = {}
 ---@field scrolling_condition_wq boolean
 ---@field entering_logic_number boolean
 ---@field logic_number_str string
----@field entering_logic_wqc any workquota_item_conditionst
+---@field entering_logic_wqc DFPointer<integer> workquota_item_conditionst
 
 ---@class _info_interfacest.T_work_orders.T_conditions: DFCompound
 ---@field _kind 'struct-type'
@@ -3263,7 +3263,7 @@ function info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@class (exact) info_interfacest.T_administrators: DFObject
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_administrators
----@field noblelist DFAnyVector
+---@field noblelist info_interfacest_administrators_noblelist
 ---@field spec_prof info_interfacest_administrators_spec_prof
 ---@field spec_hfid DFNumberVector
 ---@field spec_enid DFNumberVector
@@ -3275,7 +3275,7 @@ function info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@field last_hover_ep_id number
 ---@field choosing_candidate boolean
 ---@field candidate_noblelist_ind number
----@field candidate DFAnyVector
+---@field candidate info_interfacest_administrators_candidate
 ---@field scroll_position_candidate number
 ---@field scrolling_candidate boolean
 ---@field assigning_symbol boolean
@@ -3292,6 +3292,22 @@ function info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@field _kind 'struct-type'
 df.info_interfacest.T_administrators = {}
 
+---@class info_interfacest_administrators_noblelist: DFContainer
+---@field [integer] DFPointer<integer>
+local info_interfacest_administrators_noblelist
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function info_interfacest_administrators_noblelist:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function info_interfacest_administrators_noblelist:insert(index, item) end
+
+---@param index integer 
+function info_interfacest_administrators_noblelist:erase(index) end
+
 ---@class info_interfacest_administrators_spec_prof: DFContainer
 ---@field [integer] entity_position_assignment
 local info_interfacest_administrators_spec_prof
@@ -3307,6 +3323,22 @@ function info_interfacest_administrators_spec_prof:insert(index, item) end
 
 ---@param index integer 
 function info_interfacest_administrators_spec_prof:erase(index) end
+
+---@class info_interfacest_administrators_candidate: DFContainer
+---@field [integer] DFPointer<integer>
+local info_interfacest_administrators_candidate
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function info_interfacest_administrators_candidate:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function info_interfacest_administrators_candidate:insert(index, item) end
+
+---@param index integer 
+function info_interfacest_administrators_candidate:erase(index) end
 
 ---@class info_interfacest_administrators_cand_symbol: DFContainer
 ---@field [integer] item
@@ -4079,7 +4111,7 @@ df.main_interface.T_buildjob = {}
 ---@field entering_item_filter boolean
 ---@field storeamount DFNumberVector
 ---@field badamount DFNumberVector
----@field unk_a8 DFAnyVector
+---@field unk_a8 main_interface_assign_trade_unk_a8
 ---@field unk_c0 DFNumberVector
 ---@field unk_d8 DFNumberVector
 ---@field unk_f0 DFNumberVector
@@ -4102,6 +4134,22 @@ df.main_interface.T_buildjob = {}
 ---@class _main_interface.T_assign_trade: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_trade = {}
+
+---@class main_interface_assign_trade_unk_a8: DFContainer
+---@field [integer] DFPointer<integer>
+local main_interface_assign_trade_unk_a8
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function main_interface_assign_trade_unk_a8:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function main_interface_assign_trade_unk_a8:insert(index, item) end
+
+---@param index integer 
+function main_interface_assign_trade_unk_a8:erase(index) end
 
 ---@class main_interface_assign_trade_unk_138: DFContainer
 ---@field [integer] any[]
@@ -4695,10 +4743,10 @@ function main_interface_image_creator_new_image_property_transitive:erase(index)
 ---@field _type _main_interface.T_image_creator.T_ics
 ---@field jb job
 ---@field wq manager_order
----@field location_detail any
+---@field location_detail DFPointer<integer>
 ---@field image_ent historical_entity
 ---@field art_image art_image
----@field adv_art_specifier any
+---@field adv_art_specifier DFPointer<integer>
 ---@field hf historical_figure
 ---@field exit_flag integer
 ---@field flag integer
@@ -5277,7 +5325,7 @@ df.main_interface.T_stockpile_tools = {}
 ---@field sub_mode main_interface_custom_stockpile_sub_mode
 ---@field sub_mode_ptr_type main_interface_custom_stockpile_sub_mode_ptr_type
 ---@field sub_mode_ptr DFNumberVector
----@field spec_item DFAnyVector
+---@field spec_item main_interface_custom_stockpile_spec_item
 ---@field cur_spec_item_sz number
 ---@field counted_cur_spec_item_sz number
 
@@ -5332,6 +5380,22 @@ function main_interface_custom_stockpile_sub_mode_ptr_type:insert(index, item) e
 
 ---@param index integer 
 function main_interface_custom_stockpile_sub_mode_ptr_type:erase(index) end
+
+---@class main_interface_custom_stockpile_spec_item: DFContainer
+---@field [integer] DFPointer<integer>
+local main_interface_custom_stockpile_spec_item
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function main_interface_custom_stockpile_spec_item:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function main_interface_custom_stockpile_spec_item:insert(index, item) end
+
+---@param index integer 
+function main_interface_custom_stockpile_spec_item:erase(index) end
 
 ---@class (exact) main_interface.T_view_sheets: DFObject
 ---@field _kind 'struct'
@@ -6212,13 +6276,13 @@ df.gamest.T_minimap = {}
 ---@field _kind 'struct'
 ---@field _type _gamest.T_mod_manager
 ---@field mod_header gamest_mod_manager_mod_header
----@field subscribed_file_id any Begin Steam-only stuff<br>These fields exist in other versions but aren't actually used
+---@field subscribed_file_id DFPointer<integer> Begin Steam-only stuff<br>These fields exist in other versions but aren't actually used
 ---@field doing_mod_upload boolean
 ---@field mod_upload_header gamest_mod_manager_mod_upload_header
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index number
----@field CreateItemResult any
----@field SubmitItemUpdateResult any
+---@field CreateItemResult DFPointer<integer>
+---@field SubmitItemUpdateResult DFPointer<integer>
 
 ---@class _gamest.T_mod_manager: DFCompound
 ---@field _kind 'struct-type'
@@ -6539,8 +6603,8 @@ df.markup_text_linkst = {}
 ---@field _type _script_environmentst
 ---@field dipev meeting_diplomat_info note: these are all void* in bay12 code
 ---@field mm dipscript_popup
----@field activeplot any
----@field conv any
+---@field activeplot DFPointer<integer>
+---@field conv DFPointer<integer>
 
 ---@class _script_environmentst: DFCompound
 ---@field _kind 'struct-type'
@@ -6660,7 +6724,7 @@ df.cri_unitst = {}
 ---@field _kind 'struct'
 ---@field _type _actor_entryst
 ---@field hf historical_figure
----@field iden any identityst
+---@field iden DFPointer<integer> identityst
 ---@field name_ptr language_name
 ---@field list_name string
 ---@field simple_list_name string
@@ -6670,7 +6734,7 @@ df.cri_unitst = {}
 ---@field historical_hfid number
 ---@field identity_id number
 ---@field alias_identity_id DFNumberVector
----@field principle_org any organization_entryst
+---@field principle_org DFPointer<integer> organization_entryst
 ---@field associated_org actor_entryst_associated_org organization_entryst
 ---@field associated_plot actor_entryst_associated_plot
 ---@field flag integer
@@ -6768,7 +6832,7 @@ function organization_entryst_node:erase(index) end
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
----@field agreement any agreementst
+---@field agreement DFPointer<integer> agreementst
 ---@field master_hfid number
 ---@field organization_name string
 
@@ -6832,11 +6896,27 @@ df.mod_headerst.T_flags = {}
 ---@class (exact) ui_look_list: DFObject
 ---@field _kind 'struct'
 ---@field _type _ui_look_list
----@field items DFAnyVector
+---@field items ui_look_list_items
 
 ---@class _ui_look_list: DFCompound
 ---@field _kind 'struct-type'
 df.ui_look_list = {}
+
+---@class ui_look_list_items: DFContainer
+---@field [integer] DFPointer<integer>
+local ui_look_list_items
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function ui_look_list_items:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function ui_look_list_items:insert(index, item) end
+
+---@param index integer 
+function ui_look_list_items:erase(index) end
 
 ---@class (exact) ui_unit_view_mode: DFObject
 ---@field _kind 'struct'

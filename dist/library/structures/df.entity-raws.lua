@@ -664,7 +664,7 @@ df.entity_name_type = {}
 ---@field positions entity_raw_positions
 ---@field variable_positions DFEnumVector<entity_position_responsibility, number>
 ---@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
----@field tissue_styles DFAnyVector
+---@field tissue_styles entity_raw_tissue_styles
 ---@field workshops entity_raw.T_workshops
 ---@field banditry number
 ---@field gem_shapes_str DFStringVector
@@ -859,6 +859,22 @@ function entity_raw_positions:insert(index, item) end
 
 ---@param index integer 
 function entity_raw_positions:erase(index) end
+
+---@class entity_raw_tissue_styles: DFContainer
+---@field [integer] DFPointer<integer>
+local entity_raw_tissue_styles
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function entity_raw_tissue_styles:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function entity_raw_tissue_styles:insert(index, item) end
+
+---@param index integer 
+function entity_raw_tissue_styles:erase(index) end
 
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'

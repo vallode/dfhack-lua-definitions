@@ -392,7 +392,7 @@ df.incident.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _incident_data_performance
 ---@field performance_event performance_event_type
----@field participants DFAnyVector
+---@field participants incident_data_performance_participants
 ---@field reference_id number history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id number -1 if not used
 ---@field abstract_location number location at which the performance was held
@@ -403,6 +403,22 @@ df.incident.T_data = {}
 ---@class _incident_data_performance: DFCompound
 ---@field _kind 'struct-type'
 df.incident_data_performance = {}
+
+---@class incident_data_performance_participants: DFContainer
+---@field [integer] DFPointer<integer>
+local incident_data_performance_participants
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function incident_data_performance_participants:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function incident_data_performance_participants:insert(index, item) end
+
+---@param index integer 
+function incident_data_performance_participants:erase(index) end
 
 -- There ought to be either a type specific reference or a written content one. Not both.
 -- Story has only been seen with a history event id, not a written content one, but the sample was small.
@@ -554,8 +570,8 @@ function incident_data_identity_unk_1:erase(index) end
 ---@field site number References: `world_site`
 ---@field entity number References: `historical_entity`
 ---@field item_id number seen with crime of theft References: `item`
----@field reports DFAnyVector
----@field counterintelligence DFAnyVector
+---@field reports crime_reports
+---@field counterintelligence crime_counterintelligence
 ---@field witnesses crime_witnesses
 ---@field agreement_id number References: `agreement`
 
@@ -708,6 +724,38 @@ df.crime.T_victim_data = {}
 ---@field needs_trial 2 i.e. the player chooses whom to convict
 ---@field [2] "needs_trial" i.e. the player chooses whom to convict
 df.crime.T_flags = {}
+
+---@class crime_reports: DFContainer
+---@field [integer] DFPointer<integer>
+local crime_reports
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function crime_reports:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function crime_reports:insert(index, item) end
+
+---@param index integer 
+function crime_reports:erase(index) end
+
+---@class crime_counterintelligence: DFContainer
+---@field [integer] DFPointer<integer>
+local crime_counterintelligence
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function crime_counterintelligence:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function crime_counterintelligence:insert(index, item) end
+
+---@param index integer 
+function crime_counterintelligence:erase(index) end
 
 ---@class crime_witnesses: DFContainer
 ---@field [integer] witness_reportst
@@ -1010,12 +1058,28 @@ df.encased_horror = {}
 ---@field treasures DFNumberVector
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
----@field trigger_regions DFAnyVector normally just one, 3x3 around the coffin
+---@field trigger_regions cursed_tomb_trigger_regions normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 
 ---@class _cursed_tomb: DFCompound
 ---@field _kind 'struct-type'
 df.cursed_tomb = {}
+
+---@class cursed_tomb_trigger_regions: DFContainer
+---@field [integer] DFPointer<integer>
+local cursed_tomb_trigger_regions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function cursed_tomb_trigger_regions:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function cursed_tomb_trigger_regions:insert(index, item) end
+
+---@param index integer 
+function cursed_tomb_trigger_regions:erase(index) end
 
 ---@class (exact) ocean_wave_maker: DFObject
 ---@field _kind 'struct'
@@ -1317,7 +1381,7 @@ df.coin_batch.T_image_back = {}
 ---@field _kind 'struct'
 ---@field _type _job_handler
 ---@field list job_handler_list
----@field postings DFAnyVector entries never removed
+---@field postings job_handler_postings entries never removed
 ---@field job_application_heap job_handler.T_job_application_heap
 
 ---@class _job_handler: DFCompound
@@ -1339,6 +1403,22 @@ function job_handler_list:insert(index, item) end
 
 ---@param index integer 
 function job_handler_list:erase(index) end
+
+---@class job_handler_postings: DFContainer
+---@field [integer] DFPointer<integer>
+local job_handler_postings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function job_handler_postings:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function job_handler_postings:insert(index, item) end
+
+---@param index integer 
+function job_handler_postings:erase(index) end
 
 -- this appears to be a priority queue of some sort
 ---@class (exact) job_handler.T_job_application_heap: DFObject
@@ -1509,7 +1589,7 @@ function mental_picture_unk_properties:erase(index) end
 ---@field _kind 'struct'
 ---@field _type _belief_system
 ---@field id number
----@field mental_pictures DFAnyVector
+---@field mental_pictures belief_system_mental_pictures
 ---@field deities DFNumberVector historical figure ID of gods the belief system is concerned with
 ---@field worship_levels DFNumberVector worship level for each god referenced in the deities field
 ---@field unk_1 number
@@ -1589,6 +1669,22 @@ function df.belief_system.find(key) end
 
 ---@return belief_system_vector # df.global.world.belief_systems.all
 function df.belief_system.get_vector() end
+
+---@class belief_system_mental_pictures: DFContainer
+---@field [integer] DFPointer<integer>
+local belief_system_mental_pictures
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function belief_system_mental_pictures:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function belief_system_mental_pictures:insert(index, item) end
+
+---@param index integer 
+function belief_system_mental_pictures:erase(index) end
 
 ---@class (exact) divination_set_roll: DFObject
 ---@field _kind 'struct'
@@ -1675,7 +1771,7 @@ function divination_set_rolls:erase(index) end
 ---@field _type _image_set
 ---@field id number
 ---@field unk_2 number
----@field unk_vec1 DFAnyVector
+---@field unk_vec1 image_set_unk_vec1
 ---@field unk_vec2 DFNumberVector
 
 ---@class _image_set: DFCompound
@@ -1690,6 +1786,22 @@ function df.image_set.find(key) end
 
 ---@return image_set_vector # df.global.world.image_sets.all
 function df.image_set.get_vector() end
+
+---@class image_set_unk_vec1: DFContainer
+---@field [integer] DFPointer<integer>
+local image_set_unk_vec1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function image_set_unk_vec1:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function image_set_unk_vec1:insert(index, item) end
+
+---@param index integer 
+function image_set_unk_vec1:erase(index) end
 
 ---@class (exact) random_object_infost: DFObject
 ---@field _kind 'struct'
@@ -1817,8 +1929,8 @@ function random_object_infost_batch:erase(index) end
 ---@field entity_populations world_entity_populations
 ---@field daily_events world.T_daily_events
 ---@field random_object_info random_object_infost
----@field languages DFAnyVector
----@field unk_131ef0 DFAnyVector
+---@field languages world_languages
+---@field unk_131ef0 world_unk_131ef0
 ---@field viewport map_viewport
 ---@field artifact_history_suppression_count number
 ---@field reindex_pathfinding boolean forces map_block.passable to be recomputed
@@ -2994,12 +3106,44 @@ function world_squads_bad:erase(index) end
 ---@class (exact) world.T_formations: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_formations
----@field all DFAnyVector
----@field bad DFAnyVector
+---@field all world_formations_all
+---@field bad world_formations_bad
 
 ---@class _world.T_formations: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_formations = {}
+
+---@class world_formations_all: DFContainer
+---@field [integer] DFPointer<integer>
+local world_formations_all
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_formations_all:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_formations_all:insert(index, item) end
+
+---@param index integer 
+function world_formations_all:erase(index) end
+
+---@class world_formations_bad: DFContainer
+---@field [integer] DFPointer<integer>
+local world_formations_bad
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_formations_bad:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_formations_bad:insert(index, item) end
+
+---@param index integer 
+function world_formations_bad:erase(index) end
 
 -- Drills
 ---@class (exact) world.T_activities: DFObject
@@ -4127,9 +4271,9 @@ function world_divination_sets_bad:erase(index) end
 ---@field _kind 'struct'
 ---@field _type _world.T_map
 ---@field map_blocks world_map_map_blocks 52cdc
----@field block_index any
+---@field block_index DFPointer<integer>
 ---@field map_block_columns world_map_map_block_columns
----@field column_index any
+---@field column_index DFPointer<integer>
 ---@field x_count_block number
 ---@field y_count_block number
 ---@field z_count_block number
@@ -4622,11 +4766,27 @@ function world_worldgen_status:erase(index) end
 ---@field _kind 'struct'
 ---@field _type _world.T_area_grasses
 ---@field world_tiles coord2d_path 7*7 world tile area centered around embark, stunted at edges
----@field layer_grasses DFAnyVector one per layer per world tile
+---@field layer_grasses world_area_grasses_layer_grasses one per layer per world tile
 
 ---@class _world.T_area_grasses: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_area_grasses = {}
+
+---@class world_area_grasses_layer_grasses: DFContainer
+---@field [integer] DFPointer<integer>
+local world_area_grasses_layer_grasses
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_area_grasses_layer_grasses:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_area_grasses_layer_grasses:insert(index, item) end
+
+---@param index integer 
+function world_area_grasses_layer_grasses:erase(index) end
 
 ---@class (exact) world.T_flow_engine: DFObject
 ---@field _kind 'struct'
@@ -4706,6 +4866,38 @@ function world_entity_populations:erase(index) end
 ---@class _world.T_daily_events: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_daily_events = {}
+
+---@class world_languages: DFContainer
+---@field [integer] DFPointer<integer>
+local world_languages
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_languages:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_languages:insert(index, item) end
+
+---@param index integer 
+function world_languages:erase(index) end
+
+---@class world_unk_131ef0: DFContainer
+---@field [integer] DFPointer<integer>
+local world_unk_131ef0
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_unk_131ef0:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_unk_131ef0:insert(index, item) end
+
+---@param index integer 
+function world_unk_131ef0:erase(index) end
 
 ---@class world_orphaned_flows: DFContainer
 ---@field [integer] flow_info
@@ -5008,7 +5200,7 @@ function world_features_newpop_from_saved_pop:erase(index) end
 ---@class (exact) world.T_arena: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_arena
----@field templates DFAnyVector
+---@field templates world_arena_templates
 ---@field cur_template_idx number
 ---@field race DFNumberVector
 ---@field caste DFNumberVector
@@ -5040,6 +5232,22 @@ function world_features_newpop_from_saved_pop:erase(index) end
 ---@class _world.T_arena: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_arena = {}
+
+---@class world_arena_templates: DFContainer
+---@field [integer] DFPointer<integer>
+local world_arena_templates
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_arena_templates:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_arena_templates:insert(index, item) end
+
+---@param index integer 
+function world_arena_templates:erase(index) end
 
 ---@class world_arena_skills: DFContainer
 ---@field [integer] job_skill
@@ -5201,9 +5409,9 @@ function world_dungeon_item_types:erase(index) end
 ---@class (exact) world.T_attack_chance_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_attack_chance_info
----@field modifier DFAnyVector
----@field attack DFAnyVector
----@field target DFAnyVector
+---@field modifier world_attack_chance_info_modifier
+---@field attack world_attack_chance_info_attack
+---@field target world_attack_chance_info_target
 ---@field current_modifier_number number
 ---@field current_attack_number number
 ---@field current_target_number number
@@ -5211,6 +5419,54 @@ function world_dungeon_item_types:erase(index) end
 ---@class _world.T_attack_chance_info: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_attack_chance_info = {}
+
+---@class world_attack_chance_info_modifier: DFContainer
+---@field [integer] DFPointer<integer>
+local world_attack_chance_info_modifier
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_attack_chance_info_modifier:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_attack_chance_info_modifier:insert(index, item) end
+
+---@param index integer 
+function world_attack_chance_info_modifier:erase(index) end
+
+---@class world_attack_chance_info_attack: DFContainer
+---@field [integer] DFPointer<integer>
+local world_attack_chance_info_attack
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_attack_chance_info_attack:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_attack_chance_info_attack:insert(index, item) end
+
+---@param index integer 
+function world_attack_chance_info_attack:erase(index) end
+
+---@class world_attack_chance_info_target: DFContainer
+---@field [integer] DFPointer<integer>
+local world_attack_chance_info_target
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_attack_chance_info_target:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_attack_chance_info_target:insert(index, item) end
+
+---@param index integer 
+function world_attack_chance_info_target:erase(index) end
 
 ---@class (exact) world.T_active_tutorial: DFObject
 ---@field _kind 'struct'

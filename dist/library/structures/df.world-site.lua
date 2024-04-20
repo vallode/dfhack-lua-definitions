@@ -202,12 +202,28 @@ df.abstract_building_flags = {}
 ---@class (exact) abstract_building_entombed: DFObject
 ---@field _kind 'struct'
 ---@field _type _abstract_building_entombed
----@field populations DFAnyVector
+---@field populations abstract_building_entombed_populations
 ---@field histfigs DFNumberVector
 
 ---@class _abstract_building_entombed: DFCompound
 ---@field _kind 'struct-type'
 df.abstract_building_entombed = {}
+
+---@class abstract_building_entombed_populations: DFContainer
+---@field [integer] DFPointer<integer>
+local abstract_building_entombed_populations
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function abstract_building_entombed_populations:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function abstract_building_entombed_populations:insert(index, item) end
+
+---@param index integer 
+function abstract_building_entombed_populations:erase(index) end
 
 -- used within Temple, Library, and Inn/Tavern
 ---@class (exact) abstract_building_contents: DFObject
@@ -298,16 +314,16 @@ df.abstract_building_contents.T_need_more = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building
 ---@field id number
----@field inhabitants DFAnyVector
+---@field inhabitants abstract_building_inhabitants
 ---@field flags abstract_building_flags
----@field unk1 any in temples; hfig is the god
+---@field unk1 DFPointer<integer> in temples; hfig is the god
 ---@field unk2 DFNumberVector
 ---@field parent_building_id number Tombs use this to hold which catacomb they are part of. References: `abstract_building`
 ---@field child_building_ids DFNumberVector Used by catacombs to hold their tombs
 ---@field site_owner_id number entity that constructed the building References: `historical_entity`
 ---@field scribeinfo location_scribe_jobs
 ---@field reputation_reports site_reputation_info
----@field unk_v42_3 any
+---@field unk_v42_3 DFPointer<integer>
 ---@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
 ---@field pos coord2d
 ---@field occupations abstract_building_occupations
@@ -315,6 +331,22 @@ df.abstract_building_contents.T_need_more = {}
 ---@class _abstract_building: DFCompound
 ---@field _kind 'class-type'
 df.abstract_building = {}
+
+---@class abstract_building_inhabitants: DFContainer
+---@field [integer] DFPointer<integer>
+local abstract_building_inhabitants
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function abstract_building_inhabitants:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function abstract_building_inhabitants:insert(index, item) end
+
+---@param index integer 
+function abstract_building_inhabitants:erase(index) end
 
 ---@class abstract_building_flags: DFContainer
 ---@field [integer] table<abstract_building_flags, boolean>
@@ -495,12 +527,28 @@ df.abstract_building_underworld_spirest = {}
 ---@field _type _abstract_building_inn_tavernst
 ---@field name language_name
 ---@field contents abstract_building_contents
----@field room_info DFAnyVector
+---@field room_info abstract_building_inn_tavernst_room_info
 ---@field next_room_info_id number
 
 ---@class _abstract_building_inn_tavernst: DFCompound
 ---@field _kind 'class-type'
 df.abstract_building_inn_tavernst = {}
+
+---@class abstract_building_inn_tavernst_room_info: DFContainer
+---@field [integer] DFPointer<integer>
+local abstract_building_inn_tavernst_room_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function abstract_building_inn_tavernst_room_info:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function abstract_building_inn_tavernst_room_info:insert(index, item) end
+
+---@param index integer 
+function abstract_building_inn_tavernst_room_info:erase(index) end
 
 ---@class (exact) abstract_building_libraryst: DFObject, abstract_building
 ---@field _kind 'struct'
@@ -1538,14 +1586,14 @@ function wg_site_culturest_identity:erase(index) end
 ---@field is_fortress number bay12: max_depth
 ---@field mined_hours number only MountainHalls, but only subset of them
 ---@field architecture_change world_site_architecture_change
----@field unk_v40_4b DFAnyVector TODO: progress marker --
----@field unk_v40_4c DFAnyVector
----@field unk_v40_4d DFAnyVector only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
+---@field unk_v40_4b world_site_unk_v40_4b TODO: progress marker --
+---@field unk_v40_4c world_site_unk_v40_4c
+---@field unk_v40_4d world_site_unk_v40_4d only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field unk_v40_4d_next_id number only single non zero entry, matching vector above. Might guess 'since' is scrambled
----@field unk_v43_2 DFAnyVector
+---@field unk_v43_2 world_site_unk_v43_2
 ---@field unk_v43_3 number constant 0?
 ---@field unk_v40_5 number constant -1?
----@field unk_188 any Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
+---@field unk_188 DFPointer<integer> Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 number
 ---@field unk_3b0 world_site_unk130
 ---@field unk_18c world_site_unk_18c
@@ -1560,23 +1608,23 @@ function wg_site_culturest_identity:erase(index) end
 ---@field unk_6 historical_figure
 ---@field unk_7 historical_figure
 ---@field unk_8 historical_figure
----@field unk_9 any
----@field unk_10 any
----@field unk_11 any
----@field unk_12 any
----@field unk_13 any
----@field unk_14 any
----@field unk_15 any
----@field unk_16 any
----@field unk_17 any
----@field unk_18 any
----@field unk_19 any
----@field unk_20 any
----@field unk_21 any
----@field unk_22 any
----@field unk_23 any
+---@field unk_9 DFPointer<integer>
+---@field unk_10 DFPointer<integer>
+---@field unk_11 DFPointer<integer>
+---@field unk_12 DFPointer<integer>
+---@field unk_13 DFPointer<integer>
+---@field unk_14 DFPointer<integer>
+---@field unk_15 DFPointer<integer>
+---@field unk_16 DFPointer<integer>
+---@field unk_17 DFPointer<integer>
+---@field unk_18 DFPointer<integer>
+---@field unk_19 DFPointer<integer>
+---@field unk_20 DFPointer<integer>
+---@field unk_21 DFPointer<integer>
+---@field unk_22 DFPointer<integer>
+---@field unk_23 DFPointer<integer>
 ---@field unk_24 number
----@field unk_25 any
+---@field unk_25 DFPointer<integer>
 
 ---@class _world_site: DFCompound
 ---@field _kind 'struct-type'
@@ -1687,6 +1735,70 @@ function world_site_architecture_change:insert(index, item) end
 ---@param index integer 
 function world_site_architecture_change:erase(index) end
 
+---@class world_site_unk_v40_4b: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_unk_v40_4b
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_unk_v40_4b:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_unk_v40_4b:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_v40_4b:erase(index) end
+
+---@class world_site_unk_v40_4c: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_unk_v40_4c
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_unk_v40_4c:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_unk_v40_4c:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_v40_4c:erase(index) end
+
+---@class world_site_unk_v40_4d: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_unk_v40_4d
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_unk_v40_4d:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_unk_v40_4d:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_v40_4d:erase(index) end
+
+---@class world_site_unk_v43_2: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_unk_v43_2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_unk_v43_2:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_unk_v43_2:insert(index, item) end
+
+---@param index integer 
+function world_site_unk_v43_2:erase(index) end
+
 ---@class world_site_unk_18c: DFContainer
 ---@field [integer] any[]
 local world_site_unk_18c
@@ -1789,7 +1901,7 @@ function world_site_unk_3:erase(index) end
 ---@field id number
 ---@field site_id number References: `world_site`
 ---@field civ_id number References: `historical_entity`
----@field group_log DFAnyVector the circumstances of groups joining or leaving this culture
+---@field group_log cultural_identity_group_log the circumstances of groups joining or leaving this culture
 ---@field ethic DFEnumVector<ethic_type, ethic_response>
 ---@field values DFEnumVector<value_type, number>
 ---@field events cultural_identity_events
@@ -1798,8 +1910,8 @@ function world_site_unk_3:erase(index) end
 ---@field unk_ec number
 ---@field unk_f0 number
 ---@field unk_f4 number 0 or 800000
----@field unk_1 DFAnyVector
----@field unk_2 DFAnyVector
+---@field unk_1 cultural_identity_unk_1
+---@field unk_2 cultural_identity_unk_2
 ---@field unk_f8 number
 
 ---@class _cultural_identity: DFCompound
@@ -1814,6 +1926,22 @@ function df.cultural_identity.find(key) end
 
 ---@return cultural_identity_vector # df.global.world.cultural_identities.all
 function df.cultural_identity.get_vector() end
+
+---@class cultural_identity_group_log: DFContainer
+---@field [integer] DFPointer<integer>
+local cultural_identity_group_log
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function cultural_identity_group_log:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function cultural_identity_group_log:insert(index, item) end
+
+---@param index integer 
+function cultural_identity_group_log:erase(index) end
 
 ---@class cultural_identity_events: DFContainer
 ---@field [integer] entity_event
@@ -1830,6 +1958,38 @@ function cultural_identity_events:insert(index, item) end
 
 ---@param index integer 
 function cultural_identity_events:erase(index) end
+
+---@class cultural_identity_unk_1: DFContainer
+---@field [integer] DFPointer<integer>
+local cultural_identity_unk_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function cultural_identity_unk_1:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function cultural_identity_unk_1:insert(index, item) end
+
+---@param index integer 
+function cultural_identity_unk_1:erase(index) end
+
+---@class cultural_identity_unk_2: DFContainer
+---@field [integer] DFPointer<integer>
+local cultural_identity_unk_2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function cultural_identity_unk_2:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function cultural_identity_unk_2:insert(index, item) end
+
+---@param index integer 
+function cultural_identity_unk_2:erase(index) end
 
 ---@class (exact) world_site_inhabitant: DFObject
 ---@field _kind 'struct'
@@ -1861,7 +2021,7 @@ df.world_site_inhabitant = {}
 ---@field mini_tiles integer[][]
 ---@field mini_colors number[][]
 ---@field road_map site_realization_crossroads[][] 2601 = 51*51 = 17*3*17*3
----@field river_map any[][]
+---@field river_map DFPointer<integer>[][]
 ---@field unk_55e8 world_site_realization.T_unk_55e8[][]
 ---@field building_map world_site_realization.T_building_map[][]
 ---@field flags_map integer[][]
@@ -1869,7 +2029,7 @@ df.world_site_inhabitant = {}
 ---@field zoom_colors number[][]
 ---@field zoom_movemask number[][]
 ---@field area_map number[][] 2704 = 52*52
----@field areas DFAnyVector
+---@field areas world_site_realization_areas
 ---@field unk_1 number
 ---@field army_controller_pos_x number
 ---@field army_controller_pos_y number
@@ -1936,7 +2096,7 @@ function world_site_realization_buildings:erase(index) end
 ---@field unk_v40_1b number
 ---@field unk_v40_1c number
 ---@field unk_v40_1d number
----@field unk_v40_2 DFAnyVector
+---@field unk_v40_2 world_site_realization_unk_55e8_unk_v40_2
 ---@field unk_1 world_site_realization_unk_55e8_unk_1
 ---@field unk_55f0 number
 ---@field unk_55f4 number
@@ -1962,6 +2122,22 @@ function world_site_realization_buildings:erase(index) end
 ---@class _world_site_realization.T_unk_55e8: DFCompound
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_55e8 = {}
+
+---@class world_site_realization_unk_55e8_unk_v40_2: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_realization_unk_55e8_unk_v40_2
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_realization_unk_55e8_unk_v40_2:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_realization_unk_55e8_unk_v40_2:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_unk_55e8_unk_v40_2:erase(index) end
 
 ---@class world_site_realization_unk_55e8_unk_1: DFContainer
 ---@field [integer] any[]
@@ -2023,6 +2199,22 @@ function world_site_realization_building_map_buildings:insert(index, item) end
 
 ---@param index integer 
 function world_site_realization_building_map_buildings:erase(index) end
+
+---@class world_site_realization_areas: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_realization_areas
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_realization_areas:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_realization_areas:insert(index, item) end
+
+---@param index integer 
+function world_site_realization_areas:erase(index) end
 
 ---@class (exact) world_site_realization.T_unk_193bc: DFObject
 ---@field _kind 'struct'
@@ -2277,7 +2469,7 @@ df.site_realization_building_type = {}
 ---@field abstract_building_id number used for temple and mead hall
 ---@field unk_44 number
 ---@field building_info site_realization_building_infost
----@field unk_4c DFAnyVector
+---@field unk_4c site_realization_building_unk_4c
 ---@field unk_5c number bit 0x01 == abandoned
 ---@field unk_60 site_realization_building_unk_60
 ---@field unk_v40_1 number
@@ -2301,6 +2493,22 @@ function site_realization_building_inhabitants:insert(index, item) end
 
 ---@param index integer 
 function site_realization_building_inhabitants:erase(index) end
+
+---@class site_realization_building_unk_4c: DFContainer
+---@field [integer] DFPointer<integer>
+local site_realization_building_unk_4c
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function site_realization_building_unk_4c:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function site_realization_building_unk_4c:insert(index, item) end
+
+---@param index integer 
+function site_realization_building_unk_4c:erase(index) end
 
 ---@class site_realization_building_unk_60: DFContainer
 ---@field [integer] any[]
@@ -2781,12 +2989,28 @@ df.creation_zone_pwg_alteration_location_deathst = {}
 ---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
 ---@field _kind 'struct'
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
----@field unk_1a DFAnyVector
+---@field unk_1a creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a
 ---@field unk_2a DFNumberVector
 
 ---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
 ---@field _kind 'struct-type'
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
+
+---@class creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a: DFContainer
+---@field [integer] DFPointer<integer>
+local creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:insert(index, item) end
+
+---@param index integer 
+function creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:erase(index) end
 
 ---@class (exact) creation_zone_pwg_alteration_campst: DFObject, creation_zone_pwg_alterationst
 ---@field _kind 'struct'

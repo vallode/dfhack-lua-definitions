@@ -829,7 +829,7 @@ df.job_item = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field flags1 job_item_flags1
----@field item_vector any
+---@field item_vector DFPointer<integer>
 ---@field use_mat_index boolean
 ---@field flags2 job_item_flags2
 ---@field use_flags2 boolean
@@ -856,11 +856,11 @@ df.job_item = {}
 ---@field unit unit
 ---@field job job
 ---@field building building
----@field unk_74 any
+---@field unk_74 DFPointer<integer>
 ---@field unk_v4305_1 number
 ---@field burrows DFNumberVector
 ---@field use_burrows boolean
----@field take_from any
+---@field take_from DFPointer<integer>
 
 ---@class _job_item_filter: DFCompound
 ---@field _kind 'struct-type'
@@ -947,7 +947,7 @@ df.job_art_specification.T_type = {}
 ---@field max_workshops number 0 is unlimited
 ---@field item_conditions manager_order_item_conditions
 ---@field order_conditions manager_order_order_conditions
----@field items any
+---@field items DFPointer<integer>
 
 ---@class _manager_order: DFCompound
 ---@field _kind 'struct-type'

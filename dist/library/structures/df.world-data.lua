@@ -5,11 +5,27 @@
 ---@field _kind 'struct'
 ---@field _type _world_site_unk130
 ---@field index number
----@field unk_4 any[]
+---@field unk_4 DFPointer<integer>[]
 
 ---@class _world_site_unk130: DFCompound
 ---@field _kind 'struct-type'
 df.world_site_unk130 = {}
+
+---@class world_site_unk130_unk_4: DFContainer
+---@field [integer] DFPointer<integer>
+local world_site_unk130_unk_4
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_site_unk130_unk_4:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_site_unk130_unk_4:insert(index, item) end
+
+---@param index integer 
+function world_site_unk130_unk_4:erase(index) end
 
 ---@alias world_population_type_keys
 ---| '"Animal"'
@@ -1070,7 +1086,7 @@ df.region_map_entry.T_wind = {}
 ---@class (exact) entity_claim_mask: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_claim_mask
----@field map any
+---@field map DFPointer<integer>
 ---@field width number
 ---@field height number
 
@@ -1085,7 +1101,7 @@ df.entity_claim_mask = {}
 ---@field unk_4 number
 ---@field unk_c number
 ---@field unk_10 number
----@field members DFAnyVector
+---@field members moving_party_members
 ---@field entity_id number References: `historical_entity`
 ---@field flags moving_party_flags
 ---@field unk_30 moving_party_unk_30
@@ -1100,6 +1116,22 @@ df.entity_claim_mask = {}
 ---@class _moving_party: DFCompound
 ---@field _kind 'struct-type'
 df.moving_party = {}
+
+---@class moving_party_members: DFContainer
+---@field [integer] DFPointer<integer>
+local moving_party_members
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function moving_party_members:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function moving_party_members:insert(index, item) end
+
+---@param index integer 
+function moving_party_members:erase(index) end
 
 ---@class moving_party_flags: DFContainer
 ---@field [integer] table<integer, boolean>
@@ -1154,15 +1186,15 @@ function moving_party_unk_40:erase(index) end
 ---@field _type _world_object_data
 ---@field id number World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
 ---@field altered_items DFNumberVector world_data_subid
----@field offloaded_items DFAnyVector
+---@field offloaded_items world_object_data_offloaded_items
 ---@field unk_24 DFNumberVector
 ---@field unk_34 DFNumberVector
 ---@field unk_44 DFNumberVector
 ---@field unk_54 DFNumberVector
 ---@field unk_64 DFNumberVector
 ---@field altered_buildings DFNumberVector world_data_subid
----@field offloaded_buildings DFAnyVector
----@field unk_94 DFAnyVector
+---@field offloaded_buildings world_object_data_offloaded_buildings
+---@field unk_94 world_object_data_unk_94
 ---@field creation_zone_alterations world_object_data_creation_zone_alterations
 ---@field unk_v40_1 number
 ---@field year number
@@ -1182,6 +1214,54 @@ function df.world_object_data.find(key) end
 
 ---@return world_object_data_vector # df.global.world.world_data.object_data
 function df.world_object_data.get_vector() end
+
+---@class world_object_data_offloaded_items: DFContainer
+---@field [integer] DFPointer<integer>
+local world_object_data_offloaded_items
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_object_data_offloaded_items:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_object_data_offloaded_items:insert(index, item) end
+
+---@param index integer 
+function world_object_data_offloaded_items:erase(index) end
+
+---@class world_object_data_offloaded_buildings: DFContainer
+---@field [integer] DFPointer<integer>
+local world_object_data_offloaded_buildings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_object_data_offloaded_buildings:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_object_data_offloaded_buildings:insert(index, item) end
+
+---@param index integer 
+function world_object_data_offloaded_buildings:erase(index) end
+
+---@class world_object_data_unk_94: DFContainer
+---@field [integer] DFPointer<integer>
+local world_object_data_unk_94
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_object_data_unk_94:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_object_data_unk_94:insert(index, item) end
+
+---@param index integer 
+function world_object_data_unk_94:erase(index) end
 
 ---@class world_object_data_creation_zone_alterations: DFContainer
 ---@field [integer] creation_zone_pwg_alterationst
@@ -1329,35 +1409,35 @@ function world_mountain_peak_flags:erase(index) end
 ---@field geo_biomes world_data_geo_biomes
 ---@field mountain_peaks world_data_mountain_peaks
 ---@field rivers world_data_rivers
----@field region_map any
+---@field region_map DFPointer<integer>
 ---@field unk_1c4 number
 ---@field embark_notes world_data_embark_notes
----@field unk_1dc any
----@field unk_1e0 any
----@field unk_1e4 any
----@field unk_1e8 any
----@field unk_1ec any
----@field unk_1f0 any
+---@field unk_1dc DFPointer<integer>
+---@field unk_1e0 DFPointer<integer>
+---@field unk_1e4 DFPointer<integer>
+---@field unk_1e8 DFPointer<integer>
+---@field unk_1ec DFPointer<integer>
+---@field unk_1f0 DFPointer<integer>
 ---@field unk_1 number
----@field unk_2 any
----@field unk_3 any
----@field unk_4 any
----@field unk_5 any
----@field unk_6 any
----@field unk_7 any
----@field unk_8 any
----@field unk_9 any
----@field unk_10 any
----@field unk_11 any
----@field unk_12 any
----@field unk_13 any
----@field unk_14 any
----@field unk_15 any
----@field unk_16 any
+---@field unk_2 DFPointer<integer>
+---@field unk_3 DFPointer<integer>
+---@field unk_4 DFPointer<integer>
+---@field unk_5 DFPointer<integer>
+---@field unk_6 DFPointer<integer>
+---@field unk_7 DFPointer<integer>
+---@field unk_8 DFPointer<integer>
+---@field unk_9 DFPointer<integer>
+---@field unk_10 DFPointer<integer>
+---@field unk_11 DFPointer<integer>
+---@field unk_12 DFPointer<integer>
+---@field unk_13 DFPointer<integer>
+---@field unk_14 DFPointer<integer>
+---@field unk_15 DFPointer<integer>
+---@field unk_16 DFPointer<integer>
 ---@field unk_17 number
 ---@field unk_18 number
 ---@field active_site world_data_active_site
----@field feature_map any Additional feature_map information:<br>The feature_map is a two dimensional structure dividing the world into 16 * 16<br>world tile "feature shells" (and remember that there's a single tile wide shell<br>at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br>These shells are loaded and unloaded dynamically, which means trying to access a<br>shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br>cursor is) is invalid and can lead to DF crashing.<br>The "features.feature_init" 16 * 16 structure contains the features of each of<br>the corresponding world tiles within the shell. However, DF only loads the<br>feature vectors for the world tiles in focus, although they seem to remain<br>loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br>Manipulation of the features is usually preserved as feature vectors are<br>unloaded/reloaded, so spires can be elongated and rivers added, but some<br>details, such as river fauna, seem to be generated on loading. Added features<br>may not necessarily be reloaded at the vector index they were created at.
+---@field feature_map DFPointer<integer> Additional feature_map information:<br>The feature_map is a two dimensional structure dividing the world into 16 * 16<br>world tile "feature shells" (and remember that there's a single tile wide shell<br>at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br>These shells are loaded and unloaded dynamically, which means trying to access a<br>shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br>cursor is) is invalid and can lead to DF crashing.<br>The "features.feature_init" 16 * 16 structure contains the features of each of<br>the corresponding world tiles within the shell. However, DF only loads the<br>feature vectors for the world tiles in focus, although they seem to remain<br>loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br>Manipulation of the features is usually preserved as feature vectors are<br>unloaded/reloaded, so spires can be elongated and rivers added, but some<br>details, such as river fauna, seem to be generated on loading. Added features<br>may not necessarily be reloaded at the vector index they were created at.
 ---@field old_sites DFNumberVector
 ---@field old_site_x DFNumberVector
 ---@field old_site_y DFNumberVector
@@ -1367,7 +1447,7 @@ function world_mountain_peak_flags:erase(index) end
 ---@field unk_268 number
 ---@field unk_26c number
 ---@field unk_270 number
----@field unk_274 DFAnyVector exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
+---@field unk_274 world_data_unk_274 exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
 ---@field unk_482f8 world_data.T_unk_482f8
 
 ---@class _world_data: DFCompound
@@ -1452,7 +1532,7 @@ function world_data_midmap_place:erase(index) end
 ---@field _type _world_data.T_constructions
 ---@field width number
 ---@field height number
----@field map any
+---@field map DFPointer<integer>
 ---@field list world_data_constructions_list
 ---@field next_id number
 
@@ -1716,6 +1796,22 @@ function world_data_active_site:insert(index, item) end
 ---@param index integer 
 function world_data_active_site:erase(index) end
 
+---@class world_data_unk_274: DFContainer
+---@field [integer] DFPointer<integer>
+local world_data_unk_274
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function world_data_unk_274:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function world_data_unk_274:insert(index, item) end
+
+---@param index integer 
+function world_data_unk_274:erase(index) end
+
 ---@class (exact) world_data.T_unk_482f8: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_data.T_unk_482f8
@@ -1737,9 +1833,9 @@ df.world_data.T_unk_482f8 = {}
 ---@field _type _breed
 ---@field id number
 ---@field unk_4 number
----@field unk_8 DFAnyVector
----@field unk_18 DFAnyVector
----@field unk_28 DFAnyVector
+---@field unk_8 breed_unk_8
+---@field unk_18 breed_unk_18
+---@field unk_28 breed_unk_28
 
 ---@class _breed: DFCompound
 ---@field _kind 'struct-type'
@@ -1754,11 +1850,59 @@ function df.breed.find(key) end
 ---@return breed_vector # df.global.world.world_data.breeds
 function df.breed.get_vector() end
 
+---@class breed_unk_8: DFContainer
+---@field [integer] DFPointer<integer>
+local breed_unk_8
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function breed_unk_8:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function breed_unk_8:insert(index, item) end
+
+---@param index integer 
+function breed_unk_8:erase(index) end
+
+---@class breed_unk_18: DFContainer
+---@field [integer] DFPointer<integer>
+local breed_unk_18
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function breed_unk_18:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function breed_unk_18:insert(index, item) end
+
+---@param index integer 
+function breed_unk_18:erase(index) end
+
+---@class breed_unk_28: DFContainer
+---@field [integer] DFPointer<integer>
+local breed_unk_28
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function breed_unk_28:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function breed_unk_28:insert(index, item) end
+
+---@param index integer 
+function breed_unk_28:erase(index) end
+
 ---@class (exact) battlefield: DFObject
 ---@field _kind 'struct'
 ---@field _type _battlefield
 ---@field id number
----@field sapient_deaths DFAnyVector Seems to be by squad. Trolls/Blizzard Men not counted
+---@field sapient_deaths battlefield_sapient_deaths Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field hfs_killed DFNumberVector some victims are not listed, for some reason, and culled HFs can be present
 ---@field x1 number
 ---@field y1 number
@@ -1779,6 +1923,22 @@ function df.battlefield.find(key) end
 
 ---@return battlefield_vector # df.global.world.world_data.battlefields
 function df.battlefield.get_vector() end
+
+---@class battlefield_sapient_deaths: DFContainer
+---@field [integer] DFPointer<integer>
+local battlefield_sapient_deaths
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function battlefield_sapient_deaths:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function battlefield_sapient_deaths:insert(index, item) end
+
+---@param index integer 
+function battlefield_sapient_deaths:erase(index) end
 
 ---@alias region_weather_type_keys
 ---| '"CreepingGas"'

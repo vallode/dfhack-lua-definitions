@@ -243,7 +243,7 @@ df.plant_root_tile = {}
 ---@class (exact) plant_tree_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_tree_info
----@field body any dimension body_height
+---@field body DFPointer<integer> dimension body_height
 ---@field extent_east number dimension body_height
 ---@field extent_south number dimension body_height
 ---@field extent_west number dimension body_height
@@ -251,7 +251,7 @@ df.plant_root_tile = {}
 ---@field body_height number
 ---@field dim_x number
 ---@field dim_y number
----@field roots any dimension roots_depth
+---@field roots DFPointer<integer> dimension roots_depth
 ---@field roots_depth number
 ---@field local_trunk_height number
 
