@@ -595,7 +595,6 @@ df.ammo_flags = {}
 ---@field size number divided by 10
 ---@field value number
 ---@field attacks itemdef_ammost_attacks
----@field number number[]
 
 ---@class _itemdef_ammost: DFCompound
 ---@field _kind 'class-type'
@@ -1774,7 +1773,6 @@ function itemdef_shoesst_flags:erase(index) end
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
----@field number number[]
 
 ---@class _itemdef_siegeammost: DFCompound
 ---@field _kind 'class-type'
@@ -2024,7 +2022,6 @@ df.tool_uses = {}
 ---@field shape_category DFNumberVector
 ---@field description string
 ---@field default_improvements DFAnyVector
----@field number number[]
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -2181,7 +2178,6 @@ df.trapcomp_flags = {}
 ---@field material_size number
 ---@field flags itemdef_trapcompst_flags
 ---@field attacks itemdef_trapcompst_attacks
----@field number number[]
 
 ---@class _itemdef_trapcompst: DFCompound
 ---@field _kind 'class-type'
@@ -2269,7 +2265,6 @@ df.weapon_flags = {}
 ---@field attacks itemdef_weaponst_attacks
 ---@field shoot_force number
 ---@field shoot_maxvel number
----@field number number[]
 
 ---@class _itemdef_weaponst: DFCompound
 ---@field _kind 'class-type'

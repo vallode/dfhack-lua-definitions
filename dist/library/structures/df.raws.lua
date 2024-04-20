@@ -864,7 +864,6 @@ function world_raws_interactions:erase(index) end
 ---@class (exact) world_raws.T_text_set: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_text_set
----@field number number[]
 
 ---@class _world_raws.T_text_set: DFCompound
 ---@field _kind 'struct-type'

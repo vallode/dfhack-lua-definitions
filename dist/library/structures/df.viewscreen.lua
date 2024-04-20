@@ -5236,9 +5236,6 @@ function viewscreen_worldst_rumor_master:erase(index) end
 ---@class (exact) viewscreen_worldst.T_rumor_rpd: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd
----@field number number[]
----@field number number[]
----@field number number[]
 
 ---@class _viewscreen_worldst.T_rumor_rpd: DFCompound
 ---@field _kind 'struct-type'
@@ -5248,14 +5245,6 @@ df.viewscreen_worldst.T_rumor_rpd = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
 
 ---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
 ---@field _kind 'struct-type'

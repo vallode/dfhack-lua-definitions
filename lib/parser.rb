@@ -485,6 +485,7 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
+      @name = node['name']
       @path = @path.slice(0..-1)
       if @node.first_element_child
         @child = child
@@ -529,6 +530,12 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
     end
+
+    def render?
+      return true if @node['ld:level'] != '1'
+
+      !!@name
+    end
   end
 
   class Vector < Container
@@ -537,7 +544,6 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @name = node['name']
       @type = @child&.type || @type
       @class_name = class_name
     end
@@ -553,7 +559,6 @@ module DFHackLuaDefinitions
     end
 
     def to_field
-      p @name
       return '' unless @name
 
       LuaLS.field(@name, @class_name, @comment)

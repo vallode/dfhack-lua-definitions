@@ -4205,7 +4205,6 @@ df.personality_moodst.T_flags = {}
 ---@field longterm_stress number
 ---@field current_focus number weighted sum of needs focus_level-s
 ---@field undistracted_focus number usually number of needs multiplied by 4
----@field number number[]
 
 ---@class _unit_personality: DFCompound
 ---@field _kind 'struct-type'
