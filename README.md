@@ -1,42 +1,44 @@
-# DFHack Lua API definitions
+# DFHack Lua API Definitions
 
-Type definitions for DFHack's Lua API.
+Type definitions for [DFHack](https://docs.dfhack.org/en/stable/)'s Lua API.
 
 > [!NOTE]
 >
-> These definitions are work-in-progress, they can lie to you. You can find
-> up to date documentation on the [DFHack website](https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html).
-> That being said, please raise any problems here or on discord.
+> These definitions are work-in-progress, they can lie to you. You can find up to date documentation on the [DFHack website](https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html). That being said, please raise any problems here or on DFHack's Discord server.
 
 ## Installation
 
-These definitions require [`lua-language-server`](https://github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](https://luals.github.io/#vscode-install).
+Clone this repository or download download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/).
 
-You can either clone this repository locally or download [the latest release](https://github.com/vallode/dfhack-lua-definitions/releases/latest/).
+These definitions require [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](https://luals.github.io/#vscode-install).
+
 
 ### VSCode / Code - OSS
 
-- Add the following lines to your workspace's `.vscode/settings.json`
-  ```
-  {
-    "Lua.workspace.library": [
-      "<library_location>/library"
-    ]
-  }
-  ```
+- Install Lua language server's [VSCode extension](//marketplace.visualstudio.com/items?itemName=sumneko.lua)
+- Code - OSS users can download the VSIX file using the "Download extension" button from the link above
+- Append the following to your `settings.json` file (either user or workspace):
+```json
+{
+  "Lua.workspace.library": [
+    "<library_location>/library"
+  ]
+}
+```
 
 ### Helix
 
-- Add the following lines in a `.luarc.json` file at the root of your workspace
-  ```
-  {
-    "workspace": {
-      "library": [
-        "<library_location>/library"
-      ]
-    }
+- Make sure you have `lua-langauge-server` installed, you can follow [their instructions](//luals.github.io/#other-install).
+- Add the following lines in a `.luarc.json` file at the root of your workspace:
+```json
+{
+  "workspace": {
+    "library": [
+      "<library_location>/library"
+    ]
   }
-  ```
+}
+```
 
 ## Credits
 
@@ -45,8 +47,9 @@ As with all things, development of this library would not be possible without he
 - ab9rf
 - DFHack community
 - Lethosor
+- Lua language server contributors
+- luttje
 - mahahuha/shevernitskiy
 - myk002
-- Thyrus
 - Ramrusher
-- Lua language server contributors
+- Thyrus
