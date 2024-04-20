@@ -4,6 +4,7 @@
 
 require 'nokogiri'
 
+require_relative 'lua_ls'
 require_relative 'parser'
 
 FILE_HEADER = "-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
@@ -121,7 +122,7 @@ def parse_xml_files(files)
     # Squash top level comment elements into parent attributes.
     document.xpath('//comment').each do |comment|
       parent = comment.parent
-      parent['comment'] = comment.text.strip.gsub(/\n\s+/, '<br>')
+      parent['comment'] = DFHackLuaDefinitions::LuaLS.escape_comment(comment.text)
       comment.remove
 
       # Node elements exclude Text nodes, if node only has text children remove
@@ -133,7 +134,7 @@ def parse_xml_files(files)
     document.traverse do |node|
       next unless node.previous&.text? && !node.previous.text.strip.empty?
 
-      node['comment'] = node.previous.text.strip.gsub(/\n\s+/, '<br>')
+      node['comment'] = DFHackLuaDefinitions::LuaLS.escape_comment(node.previous.text)
       node.previous.remove
     end
 

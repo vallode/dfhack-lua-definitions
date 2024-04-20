@@ -11,7 +11,7 @@
 ---| machine_type_keys
 ---| machine_type_values
 
--- -- MACHINE
+-- MACHINE
 ---@class _machine_type: DFEnum
 ---@field standard 0
 ---@field [0] "standard"
@@ -159,7 +159,7 @@ df.machine.T_flags = {}
 ---@field _kind 'class-type'
 df.machine_standardst = {}
 
--- -- MACHINE COMPONENT BUILDINGS
+-- MACHINE COMPONENT BUILDINGS
 ---@class (exact) building_axle_horizontalst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_axle_horizontalst

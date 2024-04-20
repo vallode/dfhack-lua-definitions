@@ -279,7 +279,7 @@ df.incident_hfid = {}
 ---@field event_time number
 ---@field flags incident.T_flags
 ---@field death_cause death_type
----@field conflict_level conflict_level -- v0.40.01
+---@field conflict_level conflict_level v0.40.01
 ---@field activity_id number References: `activity_entry`
 ---@field world_x number Location appears to be in in-game tiles world wide
 ---@field world_y number
@@ -404,7 +404,13 @@ df.incident.T_data = {}
 ---@field _kind 'struct-type'
 df.incident_data_performance = {}
 
--- --  There ought to be either a type specific reference or a written content one. Not both.<br>--  Story has only been seen with a history event id, not a written content one, but the sample was small.<br>--  Poem has been seen with either a poetic form or a written content reference.<br>--  Music has been seen only with a music form reference, but the sample was small.<br>--    Music has been seen to be "sang" and "spoke" in DF displayed thoughts, but no instrument playing<br>--    or simulation. It's still unknown how to determine what action participants took.<br>--  Dance has been seen only with a dance form reference, but the sample was small.
+-- There ought to be either a type specific reference or a written content one. Not both.
+-- Story has only been seen with a history event id, not a written content one, but the sample was small.
+-- Poem has been seen with either a poetic form or a written content reference.
+-- Music has been seen only with a music form reference, but the sample was small.
+-- Music has been seen to be "sang" and "spoke" in DF displayed thoughts, but no instrument playing
+-- or simulation. It's still unknown how to determine what action participants took.
+-- Dance has been seen only with a dance form reference, but the sample was small.
 ---@class (exact) incident_data_artifact: DFObject
 ---@field _kind 'struct'
 ---@field _type _incident_data_artifact
@@ -1046,7 +1052,7 @@ df.coord_rect = {}
 ---@field global_feature_idx number References: `world_underground_region`
 ---@field global_feature_sq number
 ---@field layer layer_type
----@field local coord2d the top left corner of the MLT, in embark relative coordinates
+---@field ["local"] coord2d the top left corner of the MLT, in embark relative coordinates
 ---@field z_min number
 ---@field z_max number
 
@@ -1748,15 +1754,15 @@ function random_object_infost_batch:erase(index) end
 ---@field entities world.T_entities
 ---@field worldgen_coord_buf world.T_worldgen_coord_buf
 ---@field units world.T_units
----@field unit_chunks world_unit_chunks -- Unit and Art Chunks
+---@field unit_chunks world_unit_chunks Unit and Art Chunks
 ---@field art_image_chunks world_art_image_chunks
 ---@field nemesis world.T_nemesis
 ---@field items world.T_items
 ---@field artifacts world.T_artifacts
----@field jobs job_handler -- Jobs and projectiles
+---@field jobs job_handler Jobs and projectiles
 ---@field proj_list world_proj_list
----@field buildings building_handler -- Buildings
----@field machines machine_handler -- Machines (connected groups of gears and so on)
+---@field buildings building_handler Buildings
+---@field machines machine_handler Machines (connected groups of gears and so on)
 ---@field flow_guides world.T_flow_guides
 ---@field stockpile world.T_stockpile
 ---@field plants world.T_plants
@@ -1796,18 +1802,18 @@ function random_object_infost_batch:erase(index) end
 ---@field profession_skills world.T_profession_skills
 ---@field math world.T_math
 ---@field map_extras world.T_map_extras
----@field world_data world_data -- bay12: local_region
+---@field world_data world_data bay12: local_region
 ---@field worldgen_status world.T_worldgen_status
 ---@field orphaned_flow_pool flow_reuse_pool bay12: flow_trackerst flow_tracker
----@field raws world_raws -- raws<br>!! this is not a compound in bay12 !!
+---@field raws world_raws raws<br>!! this is not a compound in bay12 !!
 ---@field area_grasses world.T_area_grasses
 ---@field flow_engine world.T_flow_engine
----@field busy_buildings DFNumberVector -- bay12: building_use_controllerst
+---@field busy_buildings DFNumberVector bay12: building_use_controllerst
 ---@field cavein_flags world_cavein_flags
 ---@field original_save_version save_version DF version on which the world was first created
 ---@field worldgen world.T_worldgen
 ---@field unk_rng hash_rngst
----@field history world_history -- hist figures<br>-- bay12: historyst
+---@field history world_history hist figures<br>bay12: historyst
 ---@field entity_populations world_entity_populations
 ---@field daily_events world.T_daily_events
 ---@field random_object_info random_object_infost
@@ -2359,7 +2365,8 @@ function world_mandates:insert(index, item) end
 ---@param index integer 
 function world_mandates:erase(index) end
 
--- --  Entities<br>-- bay12: entity_handlerst
+-- Entities
+-- bay12: entity_handlerst
 ---@class (exact) world.T_entities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_entities
@@ -2402,7 +2409,7 @@ function world_entities_bad:insert(index, item) end
 ---@param index integer 
 function world_entities_bad:erase(index) end
 
--- -- Apparently a temporary buffer for world construction stuff
+-- Apparently a temporary buffer for world construction stuff
 ---@class (exact) world.T_worldgen_coord_buf: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_worldgen_coord_buf
@@ -2413,7 +2420,7 @@ function world_entities_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_worldgen_coord_buf = {}
 
--- -- Units
+-- Units
 ---@class (exact) world.T_units: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_units
@@ -2523,7 +2530,7 @@ function world_art_image_chunks:insert(index, item) end
 ---@param index integer 
 function world_art_image_chunks:erase(index) end
 
--- -- Nemesis
+-- Nemesis
 ---@class (exact) world.T_nemesis: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_nemesis
@@ -2584,7 +2591,7 @@ function world_nemesis_bad:insert(index, item) end
 ---@param index integer 
 function world_nemesis_bad:erase(index) end
 
--- -- Items
+-- Items
 ---@class (exact) world.T_items: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_items
@@ -2629,7 +2636,7 @@ function world_items_bad:insert(index, item) end
 ---@param index integer 
 function world_items_bad:erase(index) end
 
--- -- Artifacts
+-- Artifacts
 ---@class (exact) world.T_artifacts: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_artifacts
@@ -2688,7 +2695,7 @@ function world_proj_list:insert(index, item) end
 ---@param index integer 
 function world_proj_list:erase(index) end
 
--- -- Flow guides (whatever those are)
+-- Flow guides (whatever those are)
 ---@class (exact) world.T_flow_guides: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_flow_guides
@@ -2731,7 +2738,7 @@ function world_flow_guides_bad:insert(index, item) end
 ---@param index integer 
 function world_flow_guides_bad:erase(index) end
 
--- -- Stockpile classifier
+-- Stockpile classifier
 ---@class (exact) world.T_stockpile: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_stockpile
@@ -2776,7 +2783,7 @@ function world_flow_guides_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_stockpile = {}
 
--- -- Plants
+-- Plants
 ---@class (exact) world.T_plants: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_plants
@@ -2887,7 +2894,8 @@ function world_plants_empty:insert(index, item) end
 ---@param index integer 
 function world_plants_empty:erase(index) end
 
--- -- Adventure quests<br>-- Unknown
+-- Adventure quests
+-- Unknown
 ---@class (exact) world.T_enemy_status_cache: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_enemy_status_cache
@@ -2993,7 +3001,7 @@ function world_squads_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_formations = {}
 
--- -- Drills
+-- Drills
 ---@class (exact) world.T_activities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_activities
@@ -3036,7 +3044,7 @@ function world_activities_bad:insert(index, item) end
 ---@param index integer 
 function world_activities_bad:erase(index) end
 
--- -- Reports and announcements
+-- Reports and announcements
 ---@class (exact) world.T_status: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_status
@@ -4317,8 +4325,8 @@ function world_map_extras_unk_v40_3a:erase(index) end
 ---@field entity_raws world_worldgen_status_entity_raws
 ---@field unk_21 DFNumberVector
 ---@field civ_count number
----@field civs_left_to_place number --  Only valid during civ placement phase
----@field regions1 world_region[] --  Ditto
+---@field civs_left_to_place number Only valid during civ placement phase
+---@field regions1 world_region[] Ditto
 ---@field regions2 world_region[]
 ---@field regions3 world_region[]
 ---@field unk_22 DFNumberVector
@@ -4594,102 +4602,6 @@ function world_worldgen_status_unk_31:insert(index, item) end
 function world_worldgen_status_unk_31:erase(index) end
 
 ---@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
 ---@field [integer] historical_figure
 local world_worldgen_status
 
@@ -4700,70 +4612,6 @@ function world_worldgen_status:_field(index) end
 
 ---@param index integer 
 ---@param item historical_figure 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
-function world_worldgen_status:insert(index, item) end
-
----@param index integer 
-function world_worldgen_status:erase(index) end
-
----@class world_worldgen_status: DFContainer
----@field [integer] any[]
-local world_worldgen_status
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function world_worldgen_status:_field(index) end
-
----@param index integer 
----@param item any[] 
 function world_worldgen_status:insert(index, item) end
 
 ---@param index integer 
@@ -4882,7 +4730,7 @@ function world_orphaned_flows:erase(index) end
 ---@field heap_count number
 ---@field pos1 coord
 ---@field pos2 coord
----@field dist_x number -- Not quite simple distance, it seems:
+---@field dist_x number Not quite simple distance, it seems:
 ---@field dist_y number
 ---@field dist_z number
 ---@field pathstart number
@@ -5169,11 +5017,6 @@ function world_features_newpop_from_saved_pop:erase(index) end
 ---@field skills world_arena_skills
 ---@field skill_levels DFNumberVector
 ---@field equipment world.T_arena.T_equipment
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
 ---@field side number
 ---@field interaction number
 ---@field tame boolean

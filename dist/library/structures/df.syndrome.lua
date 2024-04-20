@@ -471,7 +471,7 @@ function creature_interaction_effect_target_mode:erase(index) end
 ---@field prob number
 ---@field start number
 ---@field peak number
----@field end number
+---@field ["end"] number
 ---@field dwf_stretch number
 ---@field syn_id number References: `syndrome`
 ---@field id number

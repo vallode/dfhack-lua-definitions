@@ -1055,6 +1055,7 @@ df.unit_path_goal = {}
 ---@field [41] "WaitOrder"
 df.unit_station_type = {}
 
+-- bay12: PathPermit
 ---@class pathfinding_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _pathfinding_flags

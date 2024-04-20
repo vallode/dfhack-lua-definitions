@@ -801,9 +801,9 @@ df.activity_event_type = {}
 ---@field _type _activity_event_participants
 ---@field histfigs DFNumberVector
 ---@field units DFNumberVector
----@field free_histfigs DFNumberVector -- Seemingly units that are free to be grouped<br>-- away into subevents or sparring pairs.
+---@field free_histfigs DFNumberVector Seemingly units that are free to be grouped<br>away into subevents or sparring pairs.
 ---@field free_units DFNumberVector
----@field activity_id number -- Holder event References: `activity_entry`
+---@field activity_id number Holder event References: `activity_entry`
 ---@field event_id number
 
 ---@class _activity_event_participants: DFCompound

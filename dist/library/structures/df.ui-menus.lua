@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
--- -- BUILDING COMPONENT ITEM SELECTION
+-- BUILDING COMPONENT ITEM SELECTION
 ---@class (exact) ui_build_item_req: DFObject
 ---@field _kind 'struct'
 ---@field _type _ui_build_item_req
@@ -107,9 +107,6 @@ df.build_req_choice_specst = {}
 ---@field plate_info pressure_plate_info
 ---@field min_weight_races DFNumberVector
 ---@field max_weight_races DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
 ---@field friction number
 ---@field use_dump number
 ---@field dump_x_shift number
@@ -119,7 +116,6 @@ df.build_req_choice_specst = {}
 ---@field direction number
 ---@field selection_pos coord
 ---@field selection_area number
----@field number DFNumberVector
 
 ---@class _buildreq: DFCompound
 ---@field _kind 'class-type'
@@ -183,7 +179,7 @@ function buildreq_choices:erase(index) end
 ---| interface_category_building_keys
 ---| interface_category_building_values
 
--- -- MISC. SIDEBAR MENUS
+-- MISC. SIDEBAR MENUS
 ---@class _interface_category_building: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
@@ -2612,22 +2608,6 @@ function labor_kitchen_interfacest_filter_func:insert(index, item) end
 ---@param index integer 
 function labor_kitchen_interfacest_filter_func:erase(index) end
 
----@class labor_kitchen_interfacest_filter_func: DFContainer
----@field [integer] any[]
-local labor_kitchen_interfacest_filter_func
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function labor_kitchen_interfacest_filter_func:_field(index) end
-
----@param index integer 
----@param item any[] 
-function labor_kitchen_interfacest_filter_func:insert(index, item) end
-
----@param index integer 
-function labor_kitchen_interfacest_filter_func:erase(index) end
-
 ---@class (exact) labor_standing_orders_interfacest: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _labor_standing_orders_interfacest
@@ -3435,13 +3415,13 @@ df.announcements_interfacest = {}
 ---@field viewunit_list DFNumberVector
 ---@field exporting_local number
 ---@field mouse_zone number
----@field skill_ind DFNumberVector -- formerly unit_skills
+---@field skill_ind DFNumberVector formerly unit_skills
 ---@field pract_type DFNumberVector
 ---@field pract_ind DFNumberVector
 ---@field skill_combat boolean
 ---@field skill_labor boolean
 ---@field skill_misc boolean
----@field barracks_selected_squad_ind number -- formerly barracks
+---@field barracks_selected_squad_ind number formerly barracks
 ---@field barracks_squad main_interface_barracks_squad
 ---@field barracks_squad_flag DFNumberVector
 ---@field entering_building_name boolean
@@ -4272,54 +4252,6 @@ function main_interface_trade_good:insert(index, item) end
 ---@param index integer 
 function main_interface_trade_good:erase(index) end
 
----@class main_interface_trade_master_type_a_expanded: DFContainer
----@field [integer] any[]
-local main_interface_trade_master_type_a_expanded
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_trade_master_type_a_expanded:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_trade_master_type_a_expanded:insert(index, item) end
-
----@param index integer 
-function main_interface_trade_master_type_a_expanded:erase(index) end
-
----@class main_interface_trade_current_type_a_expanded: DFContainer
----@field [integer] any[]
-local main_interface_trade_current_type_a_expanded
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_trade_current_type_a_expanded:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_trade_current_type_a_expanded:insert(index, item) end
-
----@param index integer 
-function main_interface_trade_current_type_a_expanded:erase(index) end
-
----@class main_interface_trade_current_type_a_on: DFContainer
----@field [integer] any[]
-local main_interface_trade_current_type_a_on
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_trade_current_type_a_on:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_trade_current_type_a_on:insert(index, item) end
-
----@param index integer 
-function main_interface_trade_current_type_a_on:erase(index) end
-
 ---@class main_interface_trade_counter_offer_item: DFContainer
 ---@field [integer] item
 local main_interface_trade_counter_offer_item
@@ -4404,11 +4336,6 @@ df.main_interface.T_petitions = {}
 ---@field entering_item_filter boolean
 ---@field storeamount DFNumberVector
 ---@field badamount DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
 ---@field i_height number
 ---@field current_type_i_list main_interface_stocks_current_type_i_list
 ---@field current_type_a_subtype DFNumberVector
@@ -4422,38 +4349,6 @@ df.main_interface.T_petitions = {}
 ---@class _main_interface.T_stocks: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_stocks = {}
-
----@class main_interface_stocks: DFContainer
----@field [integer] any[]
-local main_interface_stocks
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_stocks:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_stocks:insert(index, item) end
-
----@param index integer 
-function main_interface_stocks:erase(index) end
-
----@class main_interface_stocks: DFContainer
----@field [integer] any[]
-local main_interface_stocks
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_stocks:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_stocks:insert(index, item) end
-
----@param index integer 
-function main_interface_stocks:erase(index) end
 
 ---@class main_interface_stocks_current_type_i_list: DFContainer
 ---@field [integer] item
@@ -4520,11 +4415,6 @@ function main_interface_stocks_current_type_a_on:erase(index) end
 ---@field entering_item_filter boolean
 ---@field storeamount DFNumberVector
 ---@field badamount DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
----@field number DFNumberVector
 ---@field i_height number
 ---@field current_type_i_list main_interface_assign_display_item_current_type_i_list
 ---@field current_type_a_subtype DFNumberVector
@@ -4537,38 +4427,6 @@ function main_interface_stocks_current_type_a_on:erase(index) end
 ---@class _main_interface.T_assign_display_item: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_display_item = {}
-
----@class main_interface_assign_display_item: DFContainer
----@field [integer] any[]
-local main_interface_assign_display_item
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_assign_display_item:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_assign_display_item:insert(index, item) end
-
----@param index integer 
-function main_interface_assign_display_item:erase(index) end
-
----@class main_interface_assign_display_item: DFContainer
----@field [integer] any[]
-local main_interface_assign_display_item
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_assign_display_item:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_assign_display_item:insert(index, item) end
-
----@param index integer 
-function main_interface_assign_display_item:erase(index) end
 
 ---@class main_interface_assign_display_item_current_type_i_list: DFContainer
 ---@field [integer] item
@@ -6120,28 +5978,10 @@ function main_interface_options_option:erase(index) end
 ---@class (exact) main_interface.T_options.T_saver: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_options.T_saver
----@field number DFNumberVector
----@field number DFNumberVector
 
 ---@class _main_interface.T_options.T_saver: DFCompound
 ---@field _kind 'struct-type'
 df.main_interface.T_options.T_saver = {}
-
----@class main_interface_options_saver: DFContainer
----@field [integer] any[]
-local main_interface_options_saver
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function main_interface_options_saver:_field(index) end
-
----@param index integer 
----@param item any[] 
-function main_interface_options_saver:insert(index, item) end
-
----@param index integer 
-function main_interface_options_saver:erase(index) end
 
 ---@class (exact) main_interface.T_help: DFObject
 ---@field _kind 'struct'
@@ -6176,7 +6016,6 @@ df.main_interface.T_help = {}
 ---@field castes_all DFNumberVector
 ---@field skills main_interface_arena_unit_skills
 ---@field skill_levels DFNumberVector
----@field number DFNumberVector
 ---@field equipment_item_type DFNumberVector
 ---@field equipment_item_subtype DFNumberVector
 ---@field equipment_mat_type DFNumberVector
@@ -6355,11 +6194,11 @@ df.gamest.T_command_line = {}
 ---@class (exact) gamest.T_minimap: DFObject
 ---@field _kind 'struct'
 ---@field _type _gamest.T_minimap
----@field minimap number[][] -- Abstract representation of contents; updated by need_scan
+---@field minimap number[][] Abstract representation of contents; updated by need_scan
 ---@field update number
 ---@field mustmake number
 ---@field printed_z number
----@field buffer_symbol integer[][] -- Cached actual tiles from the screen; updated by need_render
+---@field buffer_symbol integer[][] Cached actual tiles from the screen; updated by need_render
 ---@field buffer_f number[][]
 ---@field buffer_b number[][]
 ---@field buffer_br number[][]
@@ -6373,7 +6212,7 @@ df.gamest.T_minimap = {}
 ---@field _kind 'struct'
 ---@field _type _gamest.T_mod_manager
 ---@field mod_header gamest_mod_manager_mod_header
----@field subscribed_file_id any -- Begin Steam-only stuff<br>-- These fields exist in other versions but aren't actually used
+---@field subscribed_file_id any Begin Steam-only stuff<br>These fields exist in other versions but aren't actually used
 ---@field doing_mod_upload boolean
 ---@field mod_upload_header gamest_mod_manager_mod_upload_header
 ---@field mod_upload_completed boolean
@@ -6963,7 +6802,7 @@ df.plot_entryst = {}
 ---@field steam_value_tag DFStringVector
 ---@field steam_metadata string
 ---@field steam_changelog string
----@field steamapi_1 string -- Steam-specific
+---@field steamapi_1 string Steam-specific
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 

@@ -1471,8 +1471,8 @@ df.skill_rating.attrs = {}
 
 -- Used in unit.relations
 ---@class _unit_relationship_type: DFEnum
----@field None -1 -- Can be checked through viewscreen_layer_unit_relationshipst
----@field [-1] "None" -- Can be checked through viewscreen_layer_unit_relationshipst
+---@field None -1 Can be checked through viewscreen_layer_unit_relationshipst
+---@field [-1] "None" Can be checked through viewscreen_layer_unit_relationshipst
 ---@field Pet 0
 ---@field [0] "Pet"
 ---@field Spouse 1
@@ -2386,7 +2386,7 @@ function unit_body_spatters:erase(index) end
 ---@field body_modifiers DFNumberVector
 ---@field bp_modifiers DFNumberVector
 ---@field size_modifier number product of all H/B/LENGTH body modifiers, in %
----@field tissue_style DFNumberVector -- Something for bp_appearance.layers_*
+---@field tissue_style DFNumberVector Something for bp_appearance.layers_*
 ---@field tissue_style_civ_id DFNumberVector
 ---@field tissue_style_id DFNumberVector
 ---@field tissue_style_type DFNumberVector
@@ -2427,7 +2427,7 @@ function unit_actions:erase(index) end
 ---@field unconscious number // 54c decrements every tick, unstun at 0
 ---@field suffocation number counts up while winded, results in death
 ---@field webbed number
----@field guts_trail1 coord -- When gutted:
+---@field guts_trail1 coord When gutted:
 ---@field guts_trail2 coord
 ---@field soldier_mood_countdown number plus a random amount
 ---@field soldier_mood unit.T_counters.T_soldier_mood
@@ -2554,8 +2554,8 @@ df.unit.T_counters2 = {}
 ---@field command_gait_index DFEnumVector<gait_type, number> initialized together with enemy.gait_index
 ---@field unit_command_flag unit_command_flags
 ---@field adv_sleep_timer number bay12: dungeonlag
----@field recent_job_area coord -- average of the following vector
----@field recent_jobs coord_path -- up to 50 locations where jobs were performed recently by the unit
+---@field recent_job_area coord average of the following vector
+---@field recent_jobs coord_path up to 50 locations where jobs were performed recently by the unit
 
 ---@class _unit.T_status: DFCompound
 ---@field _kind 'struct-type'
@@ -2753,8 +2753,8 @@ df.unit.T_syndrome_advancement = {}
 ---@class (exact) unit.T_syndromes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndromes
----@field active unit_syndromes_active -- Sorted by type:
----@field reinfection_type DFNumberVector -- Seems to be incremented every new infection:
+---@field active unit_syndromes_active Sorted by type:
+---@field reinfection_type DFNumberVector Seems to be incremented every new infection:
 ---@field reinfection_count DFNumberVector
 
 ---@class _unit.T_syndromes: DFCompound
@@ -2781,7 +2781,7 @@ function unit_syndromes_active:erase(index) end
 ---@field _kind 'struct'
 ---@field _type _unit.T_reports
 ---@field log DFEnumVector<unit_report_type, number>
----@field last_year DFEnumVector<unit_report_type, number> -- Garbage when the matching vector is empty:
+---@field last_year DFEnumVector<unit_report_type, number> Garbage when the matching vector is empty:
 ---@field last_year_tick DFEnumVector<unit_report_type, number>
 
 ---@class _unit.T_reports: DFCompound
@@ -2804,7 +2804,8 @@ function unit_used_items:insert(index, item) end
 ---@param index integer 
 function unit_used_items:erase(index) end
 
--- svector((item_familiarityst *)) item_familiarity<br>!!this is not actually a compound!!
+-- svector((item_familiarityst *)) item_familiarity
+-- !!this is not actually a compound!!
 ---@class (exact) unit.T_enemy: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy
@@ -2834,7 +2835,7 @@ function unit_used_items:erase(index) end
 ---@field opinion_info any probably references a unit
 ---@field travel_log any
 ---@field combat_side_id number
----@field histfig_vector_idx number arena_side<br>-- below here unsaved --
+---@field histfig_vector_idx number arena_side<br>below here unsaved --
 ---@field caste_flags unit_enemy_caste_flags
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
@@ -3684,8 +3685,8 @@ df.wound_curse_info.T_timing = {}
 ---| misc_trait_type_values
 
 ---@class _misc_trait_type: DFEnum
----@field RequestWaterCooldown 0 -- 0 --
----@field [0] "RequestWaterCooldown" -- 0 --
+---@field RequestWaterCooldown 0 0 --
+---@field [0] "RequestWaterCooldown" 0 --
 ---@field RequestFoodCooldown 1 for thirsty patients
 ---@field [1] "RequestFoodCooldown" for thirsty patients
 ---@field RequestRescueCooldown 2 for hungry patients
@@ -3704,8 +3705,8 @@ df.wound_curse_info.T_timing = {}
 ---@field [8] "RoomComplaint" auto-decrement
 ---@field UnnamedResident 9 upon reaching zero, resident creature gets named
 ---@field [9] "UnnamedResident" upon reaching zero, resident creature gets named
----@field RentBedroomCooldown 10 handled manually<br>-- 10 --
----@field [10] "RentBedroomCooldown" handled manually<br>-- 10 --
+---@field RentBedroomCooldown 10 handled manually<br>10 --
+---@field [10] "RentBedroomCooldown" handled manually<br>10 --
 ---@field ClaimTrinketCooldown 11 auto-decrement
 ---@field [11] "ClaimTrinketCooldown" auto-decrement
 ---@field ClaimClothingCooldown 12 auto-decrement
@@ -3726,8 +3727,8 @@ df.wound_curse_info.T_timing = {}
 ---@field [27] "IdleAreaCooldown" auto-decrement
 ---@field DiagnosePatientCooldown 29 0-2000, auto-decrement
 ---@field [29] "DiagnosePatientCooldown" 0-2000, auto-decrement
----@field DressWoundCooldown 30 -- 30 --
----@field [30] "DressWoundCooldown" -- 30 --
+---@field DressWoundCooldown 30 30 --
+---@field [30] "DressWoundCooldown" 30 --
 ---@field CleanPatientCooldown 31 auto-decrement
 ---@field [31] "CleanPatientCooldown" auto-decrement
 ---@field SurgeryCooldown 32 auto-decrement
@@ -3744,8 +3745,8 @@ df.wound_curse_info.T_timing = {}
 ---@field [37] "ImmobilizeBreakCooldown" auto-decrement
 ---@field BringCrutchCooldown 38 auto-decrement
 ---@field [38] "BringCrutchCooldown" auto-decrement
----@field MilkCounter 40 -- 40 --
----@field [40] "MilkCounter" -- 40 --
+---@field MilkCounter 40 40 --
+---@field [40] "MilkCounter" 40 --
 ---@field HadDrill 41 auto-decrement
 ---@field [41] "HadDrill" auto-decrement
 ---@field CompletedDrill 42 auto-decrement
@@ -3758,8 +3759,8 @@ df.wound_curse_info.T_timing = {}
 ---@field [46] "TimeSinceSuckedBlood"
 ---@field DrinkingBlood 47 auto-decrement
 ---@field [47] "DrinkingBlood" auto-decrement
----@field RevertWildTimer 50 -- 50 --
----@field [50] "RevertWildTimer" -- 50 --
+---@field RevertWildTimer 50 50 --
+---@field [50] "RevertWildTimer" 50 --
 ---@field NoPantsAnger 52 auto-decrement
 ---@field [52] "NoPantsAnger" auto-decrement
 ---@field NoShirtAnger 53 auto-decrement

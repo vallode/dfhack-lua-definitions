@@ -1518,8 +1518,8 @@ df.musical_form_purpose = {}
 ---@class _musical_form_style: DFEnum
 ---@field None -1
 ---@field [-1] "None"
----@field FreeTempo 0 -- tempo styles
----@field [0] "FreeTempo" -- tempo styles
+---@field FreeTempo 0 tempo styles
+---@field [0] "FreeTempo" tempo styles
 ---@field VerySlow 1
 ---@field [1] "VerySlow"
 ---@field Slow 2
@@ -1538,8 +1538,8 @@ df.musical_form_purpose = {}
 ---@field [8] "ExtremelyFast"
 ---@field DoubleTempo 9 twice the tempo of the last passage
 ---@field [9] "DoubleTempo" twice the tempo of the last passage
----@field HalfTempo 10 --  10
----@field [10] "HalfTempo" --  10
+---@field HalfTempo 10 10
+---@field [10] "HalfTempo" 10
 ---@field Faster 11 more quickly than the last passage
 ---@field [11] "Faster" more quickly than the last passage
 ---@field Slower 12 slower than the last passage
@@ -1558,8 +1558,8 @@ df.musical_form_purpose = {}
 ---@field [18] "HurriedPace"
 ---@field GraduallySlowsAtEnd 19
 ---@field [19] "GraduallySlowsAtEnd"
----@field WhisperedUndertones 20 --  20<br>-- dynamic styles
----@field [20] "WhisperedUndertones" --  20<br>-- dynamic styles
+---@field WhisperedUndertones 20 20<br>dynamic styles
+---@field [20] "WhisperedUndertones" 20<br>dynamic styles
 ---@field VerySoft 21
 ---@field [21] "VerySoft"
 ---@field Soft 22
@@ -1578,16 +1578,16 @@ df.musical_form_purpose = {}
 ---@field [28] "BecomeSofterAndSofter"
 ---@field FadeIntoSilence 29
 ---@field [29] "FadeIntoSilence"
----@field StartLoudThenImmediatelySoft 30 --  30
----@field [30] "StartLoudThenImmediatelySoft" --  30
----@field SlowsAndDiesAwayAtEnd 31 -- more tempo styles
----@field [31] "SlowsAndDiesAwayAtEnd" -- more tempo styles
+---@field StartLoudThenImmediatelySoft 30 30
+---@field [30] "StartLoudThenImmediatelySoft" 30
+---@field SlowsAndDiesAwayAtEnd 31 more tempo styles
+---@field [31] "SlowsAndDiesAwayAtEnd" more tempo styles
 ---@field BecomesCalmerAtEnd 32
 ---@field [32] "BecomesCalmerAtEnd"
 ---@field BecomesFrenzied 33
 ---@field [33] "BecomesFrenzied"
----@field StressRhythm 34 -- overall styles
----@field [34] "StressRhythm" -- overall styles
+---@field StressRhythm 34 overall styles
+---@field [34] "StressRhythm" overall styles
 ---@field BeStately 35
 ---@field [35] "BeStately"
 ---@field BeBright 36
@@ -1598,8 +1598,8 @@ df.musical_form_purpose = {}
 ---@field [38] "BeSkilled"
 ---@field BeVigorous 39
 ---@field [39] "BeVigorous"
----@field BeSpirited 40 --  40
----@field [40] "BeSpirited" --  40
+---@field BeSpirited 40 40
+---@field [40] "BeSpirited" 40
 ---@field BeDelicate 41
 ---@field [41] "BeDelicate"
 ---@field BeFiery 42
@@ -1620,8 +1620,8 @@ df.musical_form_purpose = {}
 ---@field [49] "BeBroad"
 ---@field BeMadeSweetly 50
 ---@field [50] "BeMadeSweetly"
----@field BeStrong 51 --  50
----@field [51] "BeStrong" --  50
+---@field BeStrong 51 50
+---@field [51] "BeStrong" 50
 ---@field BeEnergetic 52
 ---@field [52] "BeEnergetic"
 ---@field BeForceful 53
@@ -1640,8 +1640,8 @@ df.musical_form_purpose = {}
 ---@field [59] "BeMerry"
 ---@field BeGraceful 60
 ---@field [60] "BeGraceful"
----@field BuildAsItProceeds 61 --  60
----@field [61] "BuildAsItProceeds" --  60
+---@field BuildAsItProceeds 61 60
+---@field [61] "BuildAsItProceeds" 60
 ---@field EvokeTears 62
 ---@field [62] "EvokeTears"
 ---@field BeMelancholic 63
@@ -1660,8 +1660,8 @@ df.musical_form_purpose = {}
 ---@field [69] "FeelPlayful"
 ---@field FeelTender 70
 ---@field [70] "FeelTender"
----@field FeelCalm 71 --  70
----@field [71] "FeelCalm" --  70
+---@field FeelCalm 71 70
+---@field [71] "FeelCalm" 70
 ---@field BeTriumphant 72
 ---@field [72] "BeTriumphant"
 df.musical_form_style = {}
@@ -2589,8 +2589,8 @@ df.dance_form_partner_change_type = {}
 ---@field [8] "HandGesture"
 ---@field StraightWalk 9
 ---@field [9] "StraightWalk"
----@field CurvedWalk 10 --  10
----@field [10] "CurvedWalk" --  10
+---@field CurvedWalk 10 10
+---@field [10] "CurvedWalk" 10
 ---@field Run 11
 ---@field [11] "Run"
 ---@field Leap 12
@@ -2609,8 +2609,8 @@ df.dance_form_partner_change_type = {}
 ---@field [18] "RightLegLift"
 ---@field BodyLevel 19
 ---@field [19] "BodyLevel"
----@field BodyLevelChange 20 --  20
----@field [20] "BodyLevelChange" --  20
+---@field BodyLevelChange 20 20
+---@field [20] "BodyLevelChange" 20
 ---@field ArmCarriage 21
 ---@field [21] "ArmCarriage"
 ---@field RaisedLeftArm 22
@@ -2629,8 +2629,8 @@ df.dance_form_partner_change_type = {}
 ---@field [28] "ForwardBend"
 ---@field BackwardBend 29
 ---@field [29] "BackwardBend"
----@field LeftwardBend 30 --  30
----@field [30] "LeftwardBend" --  30
+---@field LeftwardBend 30 30
+---@field [30] "LeftwardBend" 30
 ---@field RightwardBend 31
 ---@field [31] "RightwardBend"
 ---@field Footwork 32
@@ -2744,8 +2744,8 @@ df.dance_form_move_type = {}
 ---@class _dance_form_move_modifier: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
----@field Graceful 0 --  0
----@field [0] "Graceful" --  0
+---@field Graceful 0 0
+---@field [0] "Graceful" 0
 ---@field Serene 1
 ---@field [1] "Serene"
 ---@field SharpEdged 2
@@ -2764,8 +2764,8 @@ df.dance_form_move_type = {}
 ---@field [8] "Elaborate"
 ---@field Expressive 9
 ---@field [9] "Expressive"
----@field Strong 10 --  10
----@field [10] "Strong" --  10
+---@field Strong 10 10
+---@field [10] "Strong" 10
 ---@field Large 11
 ---@field [11] "Large"
 ---@field Weightless 12
@@ -2784,8 +2784,8 @@ df.dance_form_move_type = {}
 ---@field [18] "StraightLined"
 ---@field High 19
 ---@field [19] "High"
----@field Low 20 --  20
----@field [20] "Low" --  20
+---@field Low 20 20
+---@field [20] "Low" 20
 ---@field LoudlyPercussive 21
 ---@field [21] "LoudlyPercussive"
 ---@field SoftlyPercussive 22
@@ -2804,8 +2804,8 @@ df.dance_form_move_type = {}
 ---@field [28] "Joyous"
 ---@field Proud 29
 ---@field [29] "Proud"
----@field Flamboyant 30 --  30
----@field [30] "Flamboyant" --  30
+---@field Flamboyant 30 30
+---@field [30] "Flamboyant" 30
 ---@field Lively 31
 ---@field [31] "Lively"
 ---@field Spirited 32
@@ -2824,8 +2824,8 @@ df.dance_form_move_type = {}
 ---@field [38] "Relaxed"
 ---@field Passive 39
 ---@field [39] "Passive"
----@field Subtle 40 --  40
----@field [40] "Subtle" --  40
+---@field Subtle 40 40
+---@field [40] "Subtle" 40
 ---@field Sensual 41
 ---@field [41] "Sensual"
 ---@field Debauched 42

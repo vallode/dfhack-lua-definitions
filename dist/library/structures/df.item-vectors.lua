@@ -280,8 +280,8 @@
 ---@class _items_other_id: DFEnum
 ---@field ANY -1
 ---@field [-1] "ANY"
----@field IN_PLAY 0 -- 0
----@field [0] "IN_PLAY" -- 0
+---@field IN_PLAY 0 0
+---@field [0] "IN_PLAY" 0
 ---@field ANY_ARTIFACT 1
 ---@field [1] "ANY_ARTIFACT"
 ---@field WEAPON 2
@@ -300,8 +300,8 @@
 ---@field [8] "SHIELD"
 ---@field ANY_ARMOR_GLOVES 9
 ---@field [9] "ANY_ARMOR_GLOVES"
----@field ANY_ARMOR_PANTS 10 -- 10
----@field [10] "ANY_ARMOR_PANTS" -- 10
+---@field ANY_ARMOR_PANTS 10 10
+---@field [10] "ANY_ARMOR_PANTS" 10
 ---@field QUIVER 11
 ---@field [11] "QUIVER"
 ---@field SPLINT 12
@@ -320,8 +320,8 @@
 ---@field [18] "BRANCH"
 ---@field BOULDER 19
 ---@field [19] "BOULDER"
----@field ROCK 20 -- 20
----@field [20] "ROCK" -- 20
+---@field ROCK 20 20
+---@field [20] "ROCK" 20
 ---@field ANY_REFUSE 21
 ---@field [21] "ANY_REFUSE"
 ---@field ANY_GOOD_FOOD 22
@@ -340,8 +340,8 @@
 ---@field [28] "ANY_EDIBLE_RAW"
 ---@field ANY_EDIBLE_CARNIVORE 29
 ---@field [29] "ANY_EDIBLE_CARNIVORE"
----@field ANY_EDIBLE_BONECARN 30 -- 30
----@field [30] "ANY_EDIBLE_BONECARN" -- 30
+---@field ANY_EDIBLE_BONECARN 30 30
+---@field [30] "ANY_EDIBLE_BONECARN" 30
 ---@field ANY_EDIBLE_VERMIN 31
 ---@field [31] "ANY_EDIBLE_VERMIN"
 ---@field ANY_EDIBLE_VERMIN_BOX 32
@@ -360,8 +360,8 @@
 ---@field [38] "ANY_GENERIC38"
 ---@field ANY_GENERIC39 39
 ---@field [39] "ANY_GENERIC39"
----@field DOOR 40 -- 40
----@field [40] "DOOR" -- 40
+---@field DOOR 40 40
+---@field [40] "DOOR" 40
 ---@field FLOODGATE 41
 ---@field [41] "FLOODGATE"
 ---@field HATCH_COVER 42
@@ -380,8 +380,8 @@
 ---@field [48] "INSTRUMENT"
 ---@field INSTRUMENT_STATIONARY 49
 ---@field [49] "INSTRUMENT_STATIONARY"
----@field TOY 50 -- 50
----@field [50] "TOY" -- 50
+---@field TOY 50 50
+---@field [50] "TOY" 50
 ---@field TOOL 51
 ---@field [51] "TOOL"
 ---@field BUCKET 52
@@ -400,8 +400,8 @@
 ---@field [58] "CHAIR"
 ---@field COFFIN 59
 ---@field [59] "COFFIN"
----@field TABLE 60 -- 60
----@field [60] "TABLE" -- 60
+---@field TABLE 60 60
+---@field [60] "TABLE" 60
 ---@field STATUE 61
 ---@field [61] "STATUE"
 ---@field SLAB 62
@@ -422,8 +422,8 @@
 ---@field [69] "WEAPONRACK"
 ---@field CABINET 70
 ---@field [70] "CABINET"
----@field ANVIL 71 -- 70
----@field [71] "ANVIL" -- 70
+---@field ANVIL 71 70
+---@field [71] "ANVIL" 70
 ---@field CATAPULTPARTS 72
 ---@field [72] "CATAPULTPARTS"
 ---@field BALLISTAPARTS 73
@@ -442,8 +442,8 @@
 ---@field [79] "ANY_IN_CONSTRUCTION"
 ---@field DRINK 80
 ---@field [80] "DRINK"
----@field ANY_DRINK 81 -- 80
----@field [81] "ANY_DRINK" -- 80
+---@field ANY_DRINK 81 80
+---@field [81] "ANY_DRINK" 80
 ---@field LIQUID_MISC 82
 ---@field [82] "LIQUID_MISC"
 ---@field POWDER_MISC 83
@@ -462,8 +462,8 @@
 ---@field [89] "COIN"
 ---@field GLOB 90
 ---@field [90] "GLOB"
----@field TRAPCOMP 91 -- 90
----@field [91] "TRAPCOMP" -- 90
+---@field TRAPCOMP 91 90
+---@field [91] "TRAPCOMP" 90
 ---@field BAR 92
 ---@field [92] "BAR"
 ---@field SMALLGEM 93
@@ -482,8 +482,8 @@
 ---@field [99] "FIGURINE"
 ---@field AMULET 100
 ---@field [100] "AMULET"
----@field SCEPTER 101 -- 100
----@field [101] "SCEPTER" -- 100
+---@field SCEPTER 101 100
+---@field [101] "SCEPTER" 100
 ---@field CROWN 102
 ---@field [102] "CROWN"
 ---@field RING 103
@@ -502,8 +502,8 @@
 ---@field [109] "MEAT"
 ---@field FISH 110
 ---@field [110] "FISH"
----@field FISH_RAW 111 -- 110
----@field [111] "FISH_RAW" -- 110
+---@field FISH_RAW 111 110
+---@field [111] "FISH_RAW" 110
 ---@field EGG 112
 ---@field [112] "EGG"
 ---@field SEEDS 113
@@ -522,8 +522,8 @@
 ---@field [119] "SHEET"
 ---@field TOTEM 120
 ---@field [120] "TOTEM"
----@field PANTS 121 -- 120
----@field [121] "PANTS" -- 120
+---@field PANTS 121 120
+---@field [121] "PANTS" 120
 ---@field CHEESE 122
 ---@field [122] "CHEESE"
 ---@field FOOD 123
@@ -542,8 +542,8 @@
 ---@field [129] "ANY_GENERIC128"
 ---@field FOOD_STORAGE 130
 ---@field [130] "FOOD_STORAGE"
----@field ANY_RECENTLY_DROPPED 131 -- 130
----@field [131] "ANY_RECENTLY_DROPPED" -- 130
+---@field ANY_RECENTLY_DROPPED 131 130
+---@field [131] "ANY_RECENTLY_DROPPED" 130
 ---@field ANY_MELT_DESIGNATED 132
 ---@field [132] "ANY_MELT_DESIGNATED"
 df.items_other_id = {}
@@ -973,8 +973,8 @@ df.items_other_id.attrs = {}
 ---@class _job_item_vector_id: DFEnum
 ---@field ANY 0
 ---@field [0] "ANY"
----@field IN_PLAY 1 -- 1
----@field [1] "IN_PLAY" -- 1
+---@field IN_PLAY 1 1
+---@field [1] "IN_PLAY" 1
 ---@field ANY_ARTIFACT 2
 ---@field [2] "ANY_ARTIFACT"
 ---@field WEAPON 3
@@ -993,8 +993,8 @@ df.items_other_id.attrs = {}
 ---@field [9] "SHIELD"
 ---@field ANY_ARMOR_GLOVES 10
 ---@field [10] "ANY_ARMOR_GLOVES"
----@field ANY_ARMOR_PANTS 11 -- 11
----@field [11] "ANY_ARMOR_PANTS" -- 11
+---@field ANY_ARMOR_PANTS 11 11
+---@field [11] "ANY_ARMOR_PANTS" 11
 ---@field QUIVER 12
 ---@field [12] "QUIVER"
 ---@field SPLINT 13
@@ -1013,8 +1013,8 @@ df.items_other_id.attrs = {}
 ---@field [19] "BOULDER"
 ---@field ROCK 20
 ---@field [20] "ROCK"
----@field ANY_REFUSE 21 -- 21
----@field [21] "ANY_REFUSE" -- 21
+---@field ANY_REFUSE 21 21
+---@field [21] "ANY_REFUSE" 21
 ---@field ANY_GOOD_FOOD 22
 ---@field [22] "ANY_GOOD_FOOD"
 ---@field ANY_AUTO_CLEAN 23
@@ -1033,8 +1033,8 @@ df.items_other_id.attrs = {}
 ---@field [29] "ANY_EDIBLE_CARNIVORE"
 ---@field ANY_EDIBLE_BONECARN 30
 ---@field [30] "ANY_EDIBLE_BONECARN"
----@field ANY_EDIBLE_VERMIN 31 -- 31
----@field [31] "ANY_EDIBLE_VERMIN" -- 31
+---@field ANY_EDIBLE_VERMIN 31 31
+---@field [31] "ANY_EDIBLE_VERMIN" 31
 ---@field ANY_EDIBLE_VERMIN_BOX 32
 ---@field [32] "ANY_EDIBLE_VERMIN_BOX"
 ---@field ANY_CAN_ROT 33
@@ -1053,8 +1053,8 @@ df.items_other_id.attrs = {}
 ---@field [39] "ANY_GENERIC39"
 ---@field DOOR 40
 ---@field [40] "DOOR"
----@field FLOODGATE 41 -- 41
----@field [41] "FLOODGATE" -- 41
+---@field FLOODGATE 41 41
+---@field [41] "FLOODGATE" 41
 ---@field HATCH_COVER 42
 ---@field [42] "HATCH_COVER"
 ---@field GRATE 43
@@ -1071,8 +1071,8 @@ df.items_other_id.attrs = {}
 ---@field [48] "INSTRUMENT"
 ---@field TOY 49
 ---@field [49] "TOY"
----@field BUCKET 50 SKIPPED: TOOL<br>-- 50
----@field [50] "BUCKET" SKIPPED: TOOL<br>-- 50
+---@field BUCKET 50 SKIPPED: TOOL<br>50
+---@field [50] "BUCKET" SKIPPED: TOOL<br>50
 ---@field BARREL 51
 ---@field [51] "BARREL"
 ---@field CHAIN 52
@@ -1091,8 +1091,8 @@ df.items_other_id.attrs = {}
 ---@field [58] "TABLE"
 ---@field STATUE 59
 ---@field [59] "STATUE"
----@field QUERN 60 -- 60<br>SKIPPED: SLAB
----@field [60] "QUERN" -- 60<br>SKIPPED: SLAB
+---@field QUERN 60 60<br>SKIPPED: SLAB
+---@field [60] "QUERN" 60<br>SKIPPED: SLAB
 ---@field MILLSTONE 61
 ---@field [61] "MILLSTONE"
 ---@field BOX 62
@@ -1109,8 +1109,8 @@ df.items_other_id.attrs = {}
 ---@field [67] "ANVIL"
 ---@field CATAPULTPARTS 68
 ---@field [68] "CATAPULTPARTS"
----@field BALLISTAPARTS 69 -- 69
----@field [69] "BALLISTAPARTS" -- 69
+---@field BALLISTAPARTS 69 69
+---@field [69] "BALLISTAPARTS" 69
 ---@field SIEGEAMMO 70
 ---@field [70] "SIEGEAMMO"
 ---@field TRAPPARTS 71
@@ -1129,8 +1129,8 @@ df.items_other_id.attrs = {}
 ---@field [77] "ANY_DRINK"
 ---@field LIQUID_MISC 78
 ---@field [78] "LIQUID_MISC"
----@field POWDER_MISC 79 -- 79
----@field [79] "POWDER_MISC" -- 79
+---@field POWDER_MISC 79 79
+---@field [79] "POWDER_MISC" 79
 ---@field ANY_COOKABLE 80
 ---@field [80] "ANY_COOKABLE"
 ---@field ANY_GENERIC84 81
@@ -1145,16 +1145,16 @@ df.items_other_id.attrs = {}
 ---@field [85] "COIN"
 ---@field GLOB 86
 ---@field [86] "GLOB"
----@field ANY_RECENTLY_DROPPED 87 -- 87 -> 125
----@field [87] "ANY_RECENTLY_DROPPED" -- 87 -> 125
+---@field ANY_RECENTLY_DROPPED 87 87 -> 125
+---@field [87] "ANY_RECENTLY_DROPPED" 87 -> 125
 ---@field ANY_MELT_DESIGNATED 88
 ---@field [88] "ANY_MELT_DESIGNATED"
----@field TRAPCOMP 90 -- 90
----@field [90] "TRAPCOMP" -- 90
+---@field TRAPCOMP 90 90
+---@field [90] "TRAPCOMP" 90
 ---@field BAR 91
 ---@field [91] "BAR"
----@field SMALLGEM 92 -- 92
----@field [92] "SMALLGEM" -- 92
+---@field SMALLGEM 92 92
+---@field [92] "SMALLGEM" 92
 ---@field BLOCKS 93
 ---@field [93] "BLOCKS"
 ---@field ROUGH 94
@@ -1173,8 +1173,8 @@ df.items_other_id.attrs = {}
 ---@field [100] "RING"
 ---@field EARRING 101
 ---@field [101] "EARRING"
----@field BRACELET 102 -- 102
----@field [102] "BRACELET" -- 102
+---@field BRACELET 102 102
+---@field [102] "BRACELET" 102
 ---@field GEM 103
 ---@field [103] "GEM"
 ---@field CORPSEPIECE 104
@@ -1191,8 +1191,8 @@ df.items_other_id.attrs = {}
 ---@field [109] "SEEDS" LATER: EGG
 ---@field PLANT 110
 ---@field [110] "PLANT"
----@field SKIN_TANNED 111 -- 111
----@field [111] "SKIN_TANNED" -- 111
+---@field SKIN_TANNED 111 111
+---@field [111] "SKIN_TANNED" 111
 ---@field PLANT_GROWTH 112
 ---@field [112] "PLANT_GROWTH"
 ---@field THREAD 113
@@ -1211,8 +1211,8 @@ df.items_other_id.attrs = {}
 ---@field [119] "BALLISTAARROWHEAD"
 ---@field ARMOR 120
 ---@field [120] "ARMOR"
----@field SHOES 121 -- 121
----@field [121] "SHOES" -- 121
+---@field SHOES 121 121
+---@field [121] "SHOES" 121
 ---@field HELM 122
 ---@field [122] "HELM"
 ---@field GLOVES 123

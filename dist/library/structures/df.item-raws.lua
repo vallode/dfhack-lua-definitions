@@ -642,22 +642,6 @@ function itemdef_ammost_attacks:insert(index, item) end
 ---@param index integer 
 function itemdef_ammost_attacks:erase(index) end
 
----@class itemdef_ammost: DFContainer
----@field [integer] any[]
-local itemdef_ammost
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_ammost:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_ammost:insert(index, item) end
-
----@param index integer 
-function itemdef_ammost:erase(index) end
-
 ---@alias armor_general_flags_keys
 ---| '"SOFT"'
 ---| '"HARD"'
@@ -802,22 +786,6 @@ function itemdef_armorst_flags:insert(index, item) end
 ---@param index integer 
 function itemdef_armorst_flags:erase(index) end
 
----@class itemdef_armorst: DFContainer
----@field [integer] any[]
-local itemdef_armorst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_armorst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_armorst:insert(index, item) end
-
----@param index integer 
-function itemdef_armorst:erase(index) end
-
 ---@class (exact) itemdef_foodst: DFObject, itemdef
 ---@field _kind 'struct'
 ---@field _type _itemdef_foodst
@@ -894,22 +862,6 @@ function itemdef_glovesst_flags:insert(index, item) end
 ---@param index integer 
 function itemdef_glovesst_flags:erase(index) end
 
----@class itemdef_glovesst: DFContainer
----@field [integer] any[]
-local itemdef_glovesst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_glovesst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_glovesst:insert(index, item) end
-
----@param index integer 
-function itemdef_glovesst:erase(index) end
-
 ---@alias helm_flags_keys
 ---| '"METAL_ARMOR_LEVELS"'
 
@@ -965,22 +917,6 @@ function itemdef_helmst_flags:insert(index, item) end
 
 ---@param index integer 
 function itemdef_helmst_flags:erase(index) end
-
----@class itemdef_helmst: DFContainer
----@field [integer] any[]
-local itemdef_helmst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_helmst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_helmst:insert(index, item) end
-
----@param index integer 
-function itemdef_helmst:erase(index) end
 
 ---@alias instrument_flags_keys
 ---| '"INDEFINITE_PITCH"'
@@ -1750,22 +1686,6 @@ function itemdef_pantsst_flags:insert(index, item) end
 ---@param index integer 
 function itemdef_pantsst_flags:erase(index) end
 
----@class itemdef_pantsst: DFContainer
----@field [integer] any[]
-local itemdef_pantsst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_pantsst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_pantsst:insert(index, item) end
-
----@param index integer 
-function itemdef_pantsst:erase(index) end
-
 ---@class (exact) itemdef_shieldst: DFObject, itemdef
 ---@field _kind 'struct'
 ---@field _type _itemdef_shieldst
@@ -1790,22 +1710,6 @@ function df.itemdef_shieldst.find(key) end
 
 ---@return itemdef_shieldst_vector # df.global.world.raws.itemdefs.shields
 function df.itemdef_shieldst.get_vector() end
-
----@class itemdef_shieldst: DFContainer
----@field [integer] any[]
-local itemdef_shieldst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_shieldst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_shieldst:insert(index, item) end
-
----@param index integer 
-function itemdef_shieldst:erase(index) end
 
 ---@alias shoes_flags_keys
 ---| '"METAL_ARMOR_LEVELS"'
@@ -1864,22 +1768,6 @@ function itemdef_shoesst_flags:insert(index, item) end
 ---@param index integer 
 function itemdef_shoesst_flags:erase(index) end
 
----@class itemdef_shoesst: DFContainer
----@field [integer] any[]
-local itemdef_shoesst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_shoesst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_shoesst:insert(index, item) end
-
----@param index integer 
-function itemdef_shoesst:erase(index) end
-
 ---@class (exact) itemdef_siegeammost: DFObject, itemdef
 ---@field _kind 'struct'
 ---@field _type _itemdef_siegeammost
@@ -1900,22 +1788,6 @@ function df.itemdef_siegeammost.find(key) end
 
 ---@return itemdef_siegeammost_vector # df.global.world.raws.itemdefs.siege_ammo
 function df.itemdef_siegeammost.get_vector() end
-
----@class itemdef_siegeammost: DFContainer
----@field [integer] any[]
-local itemdef_siegeammost
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_siegeammost:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_siegeammost:insert(index, item) end
-
----@param index integer 
-function itemdef_siegeammost:erase(index) end
 
 ---@alias tool_flags_keys
 ---| '"HARD_MAT"'
@@ -2153,8 +2025,6 @@ df.tool_uses = {}
 ---@field description string
 ---@field default_improvements DFAnyVector
 ---@field number number[]
----@field number DFNumberVector
----@field number DFNumberVector
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -2217,38 +2087,6 @@ function itemdef_toolst_attacks:insert(index, item) end
 ---@param index integer 
 function itemdef_toolst_attacks:erase(index) end
 
----@class itemdef_toolst: DFContainer
----@field [integer] any[]
-local itemdef_toolst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_toolst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_toolst:insert(index, item) end
-
----@param index integer 
-function itemdef_toolst:erase(index) end
-
----@class itemdef_toolst: DFContainer
----@field [integer] any[]
-local itemdef_toolst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_toolst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_toolst:insert(index, item) end
-
----@param index integer 
-function itemdef_toolst:erase(index) end
-
 ---@alias toy_flags_keys
 ---| '"HARD_MAT"'
 
@@ -2299,22 +2137,6 @@ function itemdef_toyst_flags:insert(index, item) end
 
 ---@param index integer 
 function itemdef_toyst_flags:erase(index) end
-
----@class itemdef_toyst: DFContainer
----@field [integer] any[]
-local itemdef_toyst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_toyst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_toyst:insert(index, item) end
-
----@param index integer 
-function itemdef_toyst:erase(index) end
 
 ---@alias trapcomp_flags_keys
 ---| '"IS_SCREW"'
@@ -2406,22 +2228,6 @@ function itemdef_trapcompst_attacks:insert(index, item) end
 ---@param index integer 
 function itemdef_trapcompst_attacks:erase(index) end
 
----@class itemdef_trapcompst: DFContainer
----@field [integer] any[]
-local itemdef_trapcompst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_trapcompst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_trapcompst:insert(index, item) end
-
----@param index integer 
-function itemdef_trapcompst:erase(index) end
-
 ---@alias weapon_flags_keys
 ---| '"CAN_STONE"'
 ---| '"HAS_EDGE_ATTACK"'
@@ -2509,20 +2315,4 @@ function itemdef_weaponst_attacks:insert(index, item) end
 
 ---@param index integer 
 function itemdef_weaponst_attacks:erase(index) end
-
----@class itemdef_weaponst: DFContainer
----@field [integer] any[]
-local itemdef_weaponst
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function itemdef_weaponst:_field(index) end
-
----@param index integer 
----@param item any[] 
-function itemdef_weaponst:insert(index, item) end
-
----@param index integer 
-function itemdef_weaponst:erase(index) end
 

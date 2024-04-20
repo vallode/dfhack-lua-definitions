@@ -182,38 +182,6 @@ function widget_custom_feed:insert(index, item) end
 ---@param index integer 
 function widget_custom_feed:erase(index) end
 
----@class widget_custom_feed: DFContainer
----@field [integer] any[]
-local widget_custom_feed
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_custom_feed:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_custom_feed:insert(index, item) end
-
----@param index integer 
-function widget_custom_feed:erase(index) end
-
----@class widget_custom_logic: DFContainer
----@field [integer] any[]
-local widget_custom_logic
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_custom_logic:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_custom_logic:insert(index, item) end
-
----@param index integer 
-function widget_custom_logic:erase(index) end
-
 ---@class widget_custom_logic: DFContainer
 ---@field [integer] any[]
 local widget_custom_logic
@@ -245,38 +213,6 @@ function widget_custom_render:insert(index, item) end
 
 ---@param index integer 
 function widget_custom_render:erase(index) end
-
----@class widget_custom_render: DFContainer
----@field [integer] any[]
-local widget_custom_render
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_custom_render:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_custom_render:insert(index, item) end
-
----@param index integer 
-function widget_custom_render:erase(index) end
-
----@class widget_custom_activated: DFContainer
----@field [integer] any[]
-local widget_custom_activated
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_custom_activated:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_custom_activated:insert(index, item) end
-
----@param index integer 
-function widget_custom_activated:erase(index) end
 
 ---@class widget_custom_activated: DFContainer
 ---@field [integer] any[]
@@ -1534,7 +1470,6 @@ function widget_unit_list_deferred_units_builds:erase(index) end
 ---@class (exact) widget_unit_list.T_deferred_units_builds: DFObject
 ---@field _kind 'struct'
 ---@field _type _widget_unit_list.T_deferred_units_builds
----@field widget_container widget_unit_list_deferred_units_builds_widget_container
 
 ---@class _widget_unit_list.T_deferred_units_builds: DFCompound
 ---@field _kind 'struct-type'
@@ -1620,38 +1555,6 @@ function widget_unit_list_preprocess_unit_func:insert(index, item) end
 ---@param index integer 
 function widget_unit_list_preprocess_unit_func:erase(index) end
 
----@class widget_unit_list_preprocess_unit_func: DFContainer
----@field [integer] any[]
-local widget_unit_list_preprocess_unit_func
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_unit_list_preprocess_unit_func:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_unit_list_preprocess_unit_func:insert(index, item) end
-
----@param index integer 
-function widget_unit_list_preprocess_unit_func:erase(index) end
-
----@class widget_unit_list_postprocess_unit_func: DFContainer
----@field [integer] any[]
-local widget_unit_list_postprocess_unit_func
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_unit_list_postprocess_unit_func:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_unit_list_postprocess_unit_func:insert(index, item) end
-
----@param index integer 
-function widget_unit_list_postprocess_unit_func:erase(index) end
-
 ---@class widget_unit_list_postprocess_unit_func: DFContainer
 ---@field [integer] any[]
 local widget_unit_list_postprocess_unit_func
@@ -1683,38 +1586,6 @@ function widget_unit_list_preprocess_item_func:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_preprocess_item_func:erase(index) end
-
----@class widget_unit_list_preprocess_item_func: DFContainer
----@field [integer] any[]
-local widget_unit_list_preprocess_item_func
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_unit_list_preprocess_item_func:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_unit_list_preprocess_item_func:insert(index, item) end
-
----@param index integer 
-function widget_unit_list_preprocess_item_func:erase(index) end
-
----@class widget_unit_list_postprocess_item_func: DFContainer
----@field [integer] any[]
-local widget_unit_list_postprocess_item_func
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_unit_list_postprocess_item_func:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_unit_list_postprocess_item_func:insert(index, item) end
-
----@param index integer 
-function widget_unit_list_postprocess_item_func:erase(index) end
 
 ---@class widget_unit_list_postprocess_item_func: DFContainer
 ---@field [integer] any[]
@@ -1811,22 +1682,6 @@ function widget_unit_list_is_selected:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_is_selected:erase(index) end
-
----@class widget_unit_list_on_select_change: DFContainer
----@field [integer] any[]
-local widget_unit_list_on_select_change
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function widget_unit_list_on_select_change:_field(index) end
-
----@param index integer 
----@param item any[] 
-function widget_unit_list_on_select_change:insert(index, item) end
-
----@param index integer 
-function widget_unit_list_on_select_change:erase(index) end
 
 ---@class widget_unit_list_on_select_change: DFContainer
 ---@field [integer] any[]
@@ -4854,7 +4709,7 @@ df.save_game_sort_type = {}
 ---@field last_hover_mod_id string
 ---@field last_hover_mod_version number
 ---@field last_hover_width number
----@field uploading_mods boolean -- begin Steam Specific
+---@field uploading_mods boolean begin Steam Specific
 ---@field scroll_position_upload_mods number
 ---@field scrolling_upload_mods boolean
 ---@field hover_upload_mod_description DFStringVector

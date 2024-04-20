@@ -281,12 +281,12 @@
 ---| profession_keys
 ---| profession_values
 
--- ----- PROFESSION -----
+-- ---PROFESSION -----
 ---@class _profession: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
----@field MINER 0 -- 0
----@field [0] "MINER" -- 0
+---@field MINER 0 0
+---@field [0] "MINER" 0
 ---@field WOODWORKER 1
 ---@field [1] "WOODWORKER"
 ---@field CARPENTER 2
@@ -309,8 +309,8 @@
 ---@field [10] "RANGER"
 ---@field ANIMAL_CARETAKER 11
 ---@field [11] "ANIMAL_CARETAKER"
----@field ANIMAL_TRAINER 12 -- 12
----@field [12] "ANIMAL_TRAINER" -- 12
+---@field ANIMAL_TRAINER 12 12
+---@field [12] "ANIMAL_TRAINER" 12
 ---@field HUNTER 13
 ---@field [13] "HUNTER"
 ---@field TRAPPER 14
@@ -329,8 +329,8 @@
 ---@field [20] "BLACKSMITH"
 ---@field METALCRAFTER 21
 ---@field [21] "METALCRAFTER"
----@field JEWELER 22 -- 22
----@field [22] "JEWELER" -- 22
+---@field JEWELER 22 22
+---@field [22] "JEWELER" 22
 ---@field GEM_CUTTER 23
 ---@field [23] "GEM_CUTTER"
 ---@field GEM_SETTER 24
@@ -349,8 +349,8 @@
 ---@field [30] "WEAVER"
 ---@field CLOTHIER 31
 ---@field [31] "CLOTHIER"
----@field GLASSMAKER 32 -- 32
----@field [32] "GLASSMAKER" -- 32
+---@field GLASSMAKER 32 32
+---@field [32] "GLASSMAKER" 32
 ---@field POTTER 33
 ---@field [33] "POTTER"
 ---@field GLAZER 34
@@ -369,8 +369,8 @@
 ---@field [40] "FISH_CLEANER"
 ---@field FARMER 41
 ---@field [41] "FARMER"
----@field CHEESE_MAKER 42 -- 42
----@field [42] "CHEESE_MAKER" -- 42
+---@field CHEESE_MAKER 42 42
+---@field [42] "CHEESE_MAKER" 42
 ---@field MILKER 43
 ---@field [43] "MILKER"
 ---@field COOK 44
@@ -389,8 +389,8 @@
 ---@field [50] "PLANTER"
 ---@field HERBALIST 51
 ---@field [51] "HERBALIST"
----@field BREWER 52 -- 52
----@field [52] "BREWER" -- 52
+---@field BREWER 52 52
+---@field [52] "BREWER" 52
 ---@field SOAP_MAKER 53
 ---@field [53] "SOAP_MAKER"
 ---@field POTASH_MAKER 54
@@ -409,8 +409,8 @@
 ---@field [60] "BEEKEEPER"
 ---@field ENGINEER 61
 ---@field [61] "ENGINEER"
----@field MECHANIC 62 -- 62
----@field [62] "MECHANIC" -- 62
+---@field MECHANIC 62 62
+---@field [62] "MECHANIC" 62
 ---@field SIEGE_ENGINEER 63
 ---@field [63] "SIEGE_ENGINEER"
 ---@field SIEGE_OPERATOR 64
@@ -425,8 +425,8 @@
 ---@field [68] "TRADER"
 ---@field DOCTOR 69
 ---@field [69] "DOCTOR"
----@field DIAGNOSER 70 -- 70
----@field [70] "DIAGNOSER" -- 70
+---@field DIAGNOSER 70 70
+---@field [70] "DIAGNOSER" 70
 ---@field BONE_SETTER 71
 ---@field [71] "BONE_SETTER"
 ---@field SUTURER 72
@@ -445,8 +445,8 @@
 ---@field [78] "MASTER_SPEARMAN"
 ---@field CROSSBOWMAN 79
 ---@field [79] "CROSSBOWMAN"
----@field MASTER_CROSSBOWMAN 80 -- 80
----@field [80] "MASTER_CROSSBOWMAN" -- 80
+---@field MASTER_CROSSBOWMAN 80 80
+---@field [80] "MASTER_CROSSBOWMAN" 80
 ---@field WRESTLER 81
 ---@field [81] "WRESTLER"
 ---@field MASTER_WRESTLER 82
@@ -465,8 +465,8 @@
 ---@field [88] "MASTER_MACEMAN"
 ---@field PIKEMAN 89
 ---@field [89] "PIKEMAN"
----@field MASTER_PIKEMAN 90 -- 90
----@field [90] "MASTER_PIKEMAN" -- 90
+---@field MASTER_PIKEMAN 90 90
+---@field [90] "MASTER_PIKEMAN" 90
 ---@field BOWMAN 91
 ---@field [91] "BOWMAN"
 ---@field MASTER_BOWMAN 92
@@ -485,8 +485,8 @@
 ---@field [98] "TRAINED_HUNTER"
 ---@field TRAINED_WAR 99
 ---@field [99] "TRAINED_WAR"
----@field MASTER_THIEF 100 -- 100
----@field [100] "MASTER_THIEF" -- 100
+---@field MASTER_THIEF 100 100
+---@field [100] "MASTER_THIEF" 100
 ---@field THIEF 101
 ---@field [101] "THIEF"
 ---@field STANDARD 102
@@ -505,8 +505,8 @@
 ---@field [108] "BEAST_HUNTER"
 ---@field SNATCHER 109
 ---@field [109] "SNATCHER"
----@field MERCENARY 110 -- 110
----@field [110] "MERCENARY" -- 110
+---@field MERCENARY 110 110
+---@field [110] "MERCENARY" 110
 ---@field GELDER 111
 ---@field [111] "GELDER"
 ---@field PERFORMER 112
@@ -525,8 +525,8 @@
 ---@field [118] "PHILOSOPHER"
 ---@field MATHEMATICIAN 119
 ---@field [119] "MATHEMATICIAN"
----@field HISTORIAN 120 -- 120
----@field [120] "HISTORIAN" -- 120
+---@field HISTORIAN 120 120
+---@field [120] "HISTORIAN" 120
 ---@field ASTRONOMER 121
 ---@field [121] "ASTRONOMER"
 ---@field NATURALIST 122
@@ -545,8 +545,8 @@
 ---@field [128] "TAVERN_KEEPER"
 ---@field CRIMINAL 129
 ---@field [129] "CRIMINAL"
----@field PEDDLER 130 -- 130
----@field [130] "PEDDLER" -- 130
+---@field PEDDLER 130 130
+---@field [130] "PEDDLER" 130
 ---@field PROPHET 131
 ---@field [131] "PROPHET"
 ---@field PILGRIM 132
@@ -743,7 +743,7 @@ df.profession.attrs = {}
 ---| unit_labor_category_keys
 ---| unit_labor_category_values
 
--- ----- LABOR -----
+-- ---LABOR -----
 ---@class _unit_labor_category: DFEnum
 ---@field Other -13 used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field [-13] "Other" used in viewscreen_dwarfmodest::unit_labors_sidemenu
@@ -974,8 +974,8 @@ df.unit_labor_category = {}
 ---@class _unit_labor: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
----@field MINE 0 -- 0
----@field [0] "MINE" -- 0
+---@field MINE 0 0
+---@field [0] "MINE" 0
 ---@field HAUL_STONE 1
 ---@field [1] "HAUL_STONE"
 ---@field HAUL_WOOD 2
@@ -994,8 +994,8 @@ df.unit_labor_category = {}
 ---@field [8] "HAUL_ANIMALS"
 ---@field CLEAN 9
 ---@field [9] "CLEAN"
----@field CUTWOOD 10 -- 10
----@field [10] "CUTWOOD" -- 10
+---@field CUTWOOD 10 10
+---@field [10] "CUTWOOD" 10
 ---@field CARPENTER 11
 ---@field [11] "CARPENTER"
 ---@field STONECUTTER 12
@@ -1016,8 +1016,8 @@ df.unit_labor_category = {}
 ---@field [19] "SURGERY"
 ---@field BONE_SETTING 20
 ---@field [20] "BONE_SETTING"
----@field SUTURING 21 -- 21
----@field [21] "SUTURING" -- 21
+---@field SUTURING 21 21
+---@field [21] "SUTURING" 21
 ---@field DRESSING_WOUNDS 22
 ---@field [22] "DRESSING_WOUNDS"
 ---@field FEED_WATER_CIVILIANS 23
@@ -1036,8 +1036,8 @@ df.unit_labor_category = {}
 ---@field [29] "TANNER"
 ---@field BREWER 30
 ---@field [30] "BREWER"
----@field SOAP_MAKER 31 -- 31
----@field [31] "SOAP_MAKER" -- 31
+---@field SOAP_MAKER 31 31
+---@field [31] "SOAP_MAKER" 31
 ---@field WEAVER 32
 ---@field [32] "WEAVER"
 ---@field CLOTHESMAKER 33
@@ -1054,8 +1054,8 @@ df.unit_labor_category = {}
 ---@field [38] "COOK"
 ---@field PLANT 39
 ---@field [39] "PLANT"
----@field HERBALIST 40 -- 40
----@field [40] "HERBALIST" -- 40
+---@field HERBALIST 40 40
+---@field [40] "HERBALIST" 40
 ---@field FISH 41
 ---@field [41] "FISH"
 ---@field CLEAN_FISH 42
@@ -1074,8 +1074,8 @@ df.unit_labor_category = {}
 ---@field [48] "FORGE_FURNITURE"
 ---@field METAL_CRAFT 49
 ---@field [49] "METAL_CRAFT"
----@field CUT_GEM 50 -- 50
----@field [50] "CUT_GEM" -- 50
+---@field CUT_GEM 50 50
+---@field [50] "CUT_GEM" 50
 ---@field ENCRUST_GEM 51
 ---@field [51] "ENCRUST_GEM"
 ---@field WOOD_CRAFT 52
@@ -1094,8 +1094,8 @@ df.unit_labor_category = {}
 ---@field [58] "SIEGEOPERATE"
 ---@field BOWYER 59
 ---@field [59] "BOWYER"
----@field MECHANIC 60 -- 60
----@field [60] "MECHANIC" -- 60
+---@field MECHANIC 60 60
+---@field [60] "MECHANIC" 60
 ---@field POTASH_MAKING 61
 ---@field [61] "POTASH_MAKING"
 ---@field LYE_MAKING 62
@@ -1114,8 +1114,8 @@ df.unit_labor_category = {}
 ---@field [68] "POTTERY"
 ---@field GLAZING 69
 ---@field [69] "GLAZING"
----@field PRESSING 70 -- 70
----@field [70] "PRESSING" -- 70
+---@field PRESSING 70 70
+---@field [70] "PRESSING" 70
 ---@field BEEKEEPING 71
 ---@field [71] "BEEKEEPING"
 ---@field WAX_WORKING 72
@@ -1134,8 +1134,8 @@ df.unit_labor_category = {}
 ---@field [78] "GELD"
 ---@field BUILD_ROAD 79
 ---@field [79] "BUILD_ROAD"
----@field BUILD_CONSTRUCTION 80 -- 80
----@field [80] "BUILD_CONSTRUCTION" -- 80
+---@field BUILD_CONSTRUCTION 80 80
+---@field [80] "BUILD_CONSTRUCTION" 80
 ---@field PAPERMAKING 81
 ---@field [81] "PAPERMAKING"
 ---@field BOOKBINDING 82
@@ -1299,7 +1299,7 @@ df.unit_labor.attrs = {}
 ---| job_skill_class_keys
 ---| job_skill_class_values
 
--- ----- SKILL -----
+-- ---SKILL -----
 ---@class _job_skill_class: DFEnum
 ---@field Normal 0
 ---@field [0] "Normal"
@@ -1634,8 +1634,8 @@ df.job_skill_class = {}
 ---@class _job_skill: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
----@field MINING 0 -- 0
----@field [0] "MINING" -- 0
+---@field MINING 0 0
+---@field [0] "MINING" 0
 ---@field WOODCUTTING 1
 ---@field [1] "WOODCUTTING"
 ---@field CARPENTRY 2
@@ -1654,8 +1654,8 @@ df.job_skill_class = {}
 ---@field [8] "DISSECT_VERMIN"
 ---@field PROCESSFISH 9
 ---@field [9] "PROCESSFISH"
----@field BUTCHER 10 -- 10
----@field [10] "BUTCHER" -- 10
+---@field BUTCHER 10 10
+---@field [10] "BUTCHER" 10
 ---@field TRAPPING 11
 ---@field [11] "TRAPPING"
 ---@field TANNER 12
@@ -1672,8 +1672,8 @@ df.job_skill_class = {}
 ---@field [17] "PROCESSPLANTS"
 ---@field CHEESEMAKING 18
 ---@field [18] "CHEESEMAKING"
----@field MILK 19 -- 19
----@field [19] "MILK" -- 19
+---@field MILK 19 19
+---@field [19] "MILK" 19
 ---@field COOK 20
 ---@field [20] "COOK"
 ---@field PLANT 21
@@ -1692,8 +1692,8 @@ df.job_skill_class = {}
 ---@field [27] "FORGE_ARMOR"
 ---@field FORGE_FURNITURE 28
 ---@field [28] "FORGE_FURNITURE"
----@field CUTGEM 29 -- 29
----@field [29] "CUTGEM" -- 29
+---@field CUTGEM 29 29
+---@field [29] "CUTGEM" 29
 ---@field ENCRUSTGEM 30
 ---@field [30] "ENCRUSTGEM"
 ---@field WOODCRAFT 31
@@ -1712,8 +1712,8 @@ df.job_skill_class = {}
 ---@field [37] "AXE"
 ---@field SWORD 38
 ---@field [38] "SWORD"
----@field DAGGER 39 -- 39
----@field [39] "DAGGER" -- 39
+---@field DAGGER 39 39
+---@field [39] "DAGGER" 39
 ---@field MACE 40
 ---@field [40] "MACE"
 ---@field HAMMER 41
@@ -1732,8 +1732,8 @@ df.job_skill_class = {}
 ---@field [47] "SIEGEOPERATE"
 ---@field BOWYER 48
 ---@field [48] "BOWYER"
----@field PIKE 49 -- 49
----@field [49] "PIKE" -- 49
+---@field PIKE 49 49
+---@field [49] "PIKE" 49
 ---@field WHIP 50
 ---@field [50] "WHIP"
 ---@field BOW 51
@@ -1750,8 +1750,8 @@ df.job_skill_class = {}
 ---@field [56] "SNEAK"
 ---@field DRESS_WOUNDS 57
 ---@field [57] "DRESS_WOUNDS"
----@field DIAGNOSE 58 -- 58
----@field [58] "DIAGNOSE" -- 58
+---@field DIAGNOSE 58 58
+---@field [58] "DIAGNOSE" 58
 ---@field SURGERY 59
 ---@field [59] "SURGERY"
 ---@field SET_BONE 60
@@ -1770,8 +1770,8 @@ df.job_skill_class = {}
 ---@field [66] "POTASH_MAKING"
 ---@field DYER 67
 ---@field [67] "DYER"
----@field OPERATE_PUMP 68 -- 68
----@field [68] "OPERATE_PUMP" -- 68
+---@field OPERATE_PUMP 68 68
+---@field [68] "OPERATE_PUMP" 68
 ---@field SWIMMING 69
 ---@field [69] "SWIMMING"
 ---@field PERSUASION 70
@@ -1790,8 +1790,8 @@ df.job_skill_class = {}
 ---@field [76] "LYING"
 ---@field INTIMIDATION 77
 ---@field [77] "INTIMIDATION"
----@field CONVERSATION 78 -- 78
----@field [78] "CONVERSATION" -- 78
+---@field CONVERSATION 78 78
+---@field [78] "CONVERSATION" 78
 ---@field COMEDY 79
 ---@field [79] "COMEDY"
 ---@field FLATTERY 80
@@ -1810,8 +1810,8 @@ df.job_skill_class = {}
 ---@field [86] "DISCIPLINE"
 ---@field SITUATIONAL_AWARENESS 87
 ---@field [87] "SITUATIONAL_AWARENESS"
----@field WRITING 88 -- 88
----@field [88] "WRITING" -- 88
+---@field WRITING 88 88
+---@field [88] "WRITING" 88
 ---@field PROSE 89
 ---@field [89] "PROSE"
 ---@field POETRY 90
@@ -1830,8 +1830,8 @@ df.job_skill_class = {}
 ---@field [96] "TEACHING"
 ---@field MELEE_COMBAT 97
 ---@field [97] "MELEE_COMBAT"
----@field RANGED_COMBAT 98 -- 98
----@field [98] "RANGED_COMBAT" -- 98
+---@field RANGED_COMBAT 98 98
+---@field [98] "RANGED_COMBAT" 98
 ---@field WRESTLING 99
 ---@field [99] "WRESTLING"
 ---@field BITE 100
@@ -1850,8 +1850,8 @@ df.job_skill_class = {}
 ---@field [106] "MILITARY_TACTICS"
 ---@field SHEARING 107
 ---@field [107] "SHEARING"
----@field SPINNING 108 -- 108
----@field [108] "SPINNING" -- 108
+---@field SPINNING 108 108
+---@field [108] "SPINNING" 108
 ---@field POTTERY 109
 ---@field [109] "POTTERY"
 ---@field GLAZING 110
@@ -1870,8 +1870,8 @@ df.job_skill_class = {}
 ---@field [116] "DANCE"
 ---@field MAKE_MUSIC 117
 ---@field [117] "MAKE_MUSIC"
----@field SING_MUSIC 118 -- 118
----@field [118] "SING_MUSIC" -- 118
+---@field SING_MUSIC 118 118
+---@field [118] "SING_MUSIC" 118
 ---@field PLAY_KEYBOARD_INSTRUMENT 119
 ---@field [119] "PLAY_KEYBOARD_INSTRUMENT"
 ---@field PLAY_STRINGED_INSTRUMENT 120
@@ -1890,8 +1890,8 @@ df.job_skill_class = {}
 ---@field [126] "ASTRONOMY"
 ---@field CHEMISTRY 127
 ---@field [127] "CHEMISTRY"
----@field GEOGRAPHY 128 -- 128
----@field [128] "GEOGRAPHY" -- 128
+---@field GEOGRAPHY 128 128
+---@field [128] "GEOGRAPHY" 128
 ---@field OPTICS_ENGINEER 129
 ---@field [129] "OPTICS_ENGINEER"
 ---@field FLUID_ENGINEER 130

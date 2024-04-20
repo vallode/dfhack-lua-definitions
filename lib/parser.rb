@@ -152,7 +152,7 @@ module DFHackLuaDefinitions
       annotation << to_values
       annotation << to_alias
       annotation << "\n"
-      annotation << "-- #{@comment}\n" if @comment
+      annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class _#{@class_name}: DFEnum\n"
 
       @items.each do |item|
@@ -226,13 +226,10 @@ module DFHackLuaDefinitions
       # TODO: Ask DFHack folks if this matters, should we be outputting nils.
       return '' unless @name
 
-      annotation = "---@field #{@name} #{@value}"
-      annotation << " #{@comment}" if @comment
-      annotation << "\n"
-
-      annotation << "---@field [#{@value}] \"#{@name}\""
-      annotation << " #{@comment}" if @comment
-      annotation << "\n"
+      annotation = []
+      annotation << LuaLS.field(@name, @value, @comment)
+      annotation << LuaLS.field("[#{@value}]", "\"#{@name}\"", @comment)
+      annotation.join
     end
   end
 
@@ -263,6 +260,7 @@ module DFHackLuaDefinitions
 
     def to_type
       annotation = []
+      annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class #{@class_name}: DFObject\n"
       annotation << "---@field _kind 'bitfield'\n"
       annotation << "---@field _enum _#{@class_name}\n"
@@ -371,7 +369,7 @@ module DFHackLuaDefinitions
 
     def to_object
       annotation = ''
-      annotation << "-- #{@comment}\n" if @comment
+      annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class (exact) #{@class_name}: DFObject"
 
       if @class
@@ -539,6 +537,7 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
+      @name = node['name']
       @type = @child&.type || @type
       @class_name = class_name
     end
@@ -554,9 +553,16 @@ module DFHackLuaDefinitions
     end
 
     def to_field
+      p @name
       return '' unless @name
 
       LuaLS.field(@name, @class_name, @comment)
+    end
+
+    def render?
+      return true if @child
+
+      !!@name
     end
 
     def render
@@ -607,12 +613,11 @@ module DFHackLuaDefinitions
     end
 
     def to_field
+      # return '' unless @name
       # TODO: Temporary until we add anon indexes.
       return '' if @name == 'anon_'
 
-      annotation = "---@field #{@name} #{@type}"
-      annotation << " #{@comment}" if @comment
-      annotation << "\n"
+      LuaLS.field(@name, @type, @comment)
     end
 
     def comment

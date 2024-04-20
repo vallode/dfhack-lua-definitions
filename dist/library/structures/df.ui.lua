@@ -206,8 +206,8 @@ df.ui_hotkey.T_cmd = {}
 ---@field [0] "Default"
 ---@field Squads 1
 ---@field [1] "Squads"
----@field DesignateMine 2 -- 2
----@field [2] "DesignateMine" -- 2
+---@field DesignateMine 2 2
+---@field [2] "DesignateMine" 2
 ---@field DesignateRemoveRamps 3
 ---@field [3] "DesignateRemoveRamps"
 ---@field DesignateUpStair 4
@@ -232,14 +232,14 @@ df.ui_hotkey.T_cmd = {}
 ---@field [13] "DesignateEngrave"
 ---@field DesignateCarveFortification 14
 ---@field [14] "DesignateCarveFortification"
----@field Stockpiles 15 -- 15
----@field [15] "Stockpiles" -- 15
+---@field Stockpiles 15 15
+---@field [15] "Stockpiles" 15
 ---@field Build 16
 ---@field [16] "Build"
 ---@field QueryBuilding 17
 ---@field [17] "QueryBuilding"
----@field Orders 18 -- 18
----@field [18] "Orders" -- 18
+---@field Orders 18 18
+---@field [18] "Orders" 18
 ---@field OrdersForbid 19
 ---@field [19] "OrdersForbid"
 ---@field OrdersRefuse 20
@@ -248,14 +248,14 @@ df.ui_hotkey.T_cmd = {}
 ---@field [21] "OrdersWorkshop"
 ---@field OrdersZone 22
 ---@field [22] "OrdersZone"
----@field BuildingItems 23 -- 23
----@field [23] "BuildingItems" -- 23
+---@field BuildingItems 23 23
+---@field [23] "BuildingItems" 23
 ---@field ViewUnits 24
 ---@field [24] "ViewUnits"
 ---@field LookAround 25
 ---@field [25] "LookAround"
----@field DesignateItemsClaim 26 -- 26
----@field [26] "DesignateItemsClaim" -- 26
+---@field DesignateItemsClaim 26 26
+---@field [26] "DesignateItemsClaim" 26
 ---@field DesignateItemsForbid 27
 ---@field [27] "DesignateItemsForbid"
 ---@field DesignateItemsMelt 28
@@ -270,24 +270,24 @@ df.ui_hotkey.T_cmd = {}
 ---@field [32] "DesignateItemsHide"
 ---@field DesignateItemsUnhide 33
 ---@field [33] "DesignateItemsUnhide"
----@field DesignateChopTrees 34 -- 34
----@field [34] "DesignateChopTrees" -- 34
+---@field DesignateChopTrees 34 34
+---@field [34] "DesignateChopTrees" 34
 ---@field DesignateToggleEngravings 35
 ---@field [35] "DesignateToggleEngravings"
 ---@field DesignateToggleMarker 36
 ---@field [36] "DesignateToggleMarker"
----@field Hotkeys 37 -- 37
----@field [37] "Hotkeys" -- 37
----@field DesignateTrafficHigh 38 -- 38
----@field [38] "DesignateTrafficHigh" -- 38
+---@field Hotkeys 37 37
+---@field [37] "Hotkeys" 37
+---@field DesignateTrafficHigh 38 38
+---@field [38] "DesignateTrafficHigh" 38
 ---@field DesignateTrafficNormal 39
 ---@field [39] "DesignateTrafficNormal"
 ---@field DesignateTrafficLow 40
 ---@field [40] "DesignateTrafficLow"
 ---@field DesignateTrafficRestricted 41
 ---@field [41] "DesignateTrafficRestricted"
----@field Zones 42 -- 42
----@field [42] "Zones" -- 42
+---@field Zones 42 42
+---@field [42] "Zones" 42
 ---@field ZonesPenInfo 43
 ---@field [43] "ZonesPenInfo"
 ---@field ZonesPitInfo 44
@@ -296,8 +296,8 @@ df.ui_hotkey.T_cmd = {}
 ---@field [45] "ZonesHospitalInfo"
 ---@field ZonesGatherInfo 46
 ---@field [46] "ZonesGatherInfo"
----@field DesignateRemoveConstruction 47 -- 47
----@field [47] "DesignateRemoveConstruction" -- 47
+---@field DesignateRemoveConstruction 47 47
+---@field [47] "DesignateRemoveConstruction" 47
 ---@field DepotAccess 48
 ---@field [48] "DepotAccess"
 ---@field NotesPoints 49
@@ -308,12 +308,12 @@ df.ui_hotkey.T_cmd = {}
 ---@field [51] "Burrows"
 ---@field Hauling 52
 ---@field [52] "Hauling"
----@field ArenaWeather 53 -- 53
----@field [53] "ArenaWeather" -- 53
+---@field ArenaWeather 53 53
+---@field [53] "ArenaWeather" 53
 ---@field ArenaTrees 54
 ---@field [54] "ArenaTrees"
----@field BuildingLocationInfo 55 -- 55
----@field [55] "BuildingLocationInfo" -- 55
+---@field BuildingLocationInfo 55 55
+---@field [55] "BuildingLocationInfo" 55
 ---@field ZonesLocationInfo 56
 ---@field [56] "ZonesLocationInfo"
 df.ui_sidebar_mode = {}
@@ -2053,22 +2053,6 @@ function plotinfost_tutorial_seen:erase(index) end
 ---@class _plotinfost.T_main: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_main = {}
-
----@class plotinfost_main: DFContainer
----@field [integer] any[]
-local plotinfost_main
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function plotinfost_main:_field(index) end
-
----@param index integer 
----@param item any[] 
-function plotinfost_main:insert(index, item) end
-
----@param index integer 
-function plotinfost_main:erase(index) end
 
 ---@class (exact) plotinfost.T_main.T_save_progress: DFObject
 ---@field _kind 'struct'

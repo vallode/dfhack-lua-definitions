@@ -1,6 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+-- MISC TYPES
 ---@class item_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_flags
@@ -521,7 +522,7 @@ df.slab_engraving_type = {}
 ---@field [16] "PILLAGE"
 df.trade_good_purpose = {}
 
--- -- CORE ITEM
+-- CORE ITEM
 ---@class (exact) item: DFObject
 ---@field _kind 'struct'
 ---@field _type _item
@@ -594,12 +595,12 @@ function item_general_refs:insert(index, item) end
 ---@param index integer 
 function item_general_refs:erase(index) end
 
--- -- ACTUAL ITEM
+-- ACTUAL ITEM
 ---@class (exact) item_kill_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_kill_info
 ---@field targets historical_kills
----@field slayers DFNumberVector -- Wielders
+---@field slayers DFNumberVector Wielders
 ---@field slayer_kill_counts DFNumberVector
 
 ---@class _item_kill_info: DFCompound
@@ -634,7 +635,7 @@ df.item_history_info = {}
 ---@field _kind 'class-type'
 df.item_actual = {}
 
--- -- CRAFTED ITEM
+-- CRAFTED ITEM
 ---@class (exact) item_crafted: DFObject, item_actual
 ---@field _kind 'struct'
 ---@field _type _item_crafted
@@ -650,7 +651,7 @@ df.item_actual = {}
 ---@field _kind 'class-type'
 df.item_crafted = {}
 
--- -- CONSTRUCTED ITEM
+-- CONSTRUCTED ITEM
 ---@class (exact) item_constructed: DFObject, item_crafted
 ---@field _kind 'struct'
 ---@field _type _item_constructed
@@ -676,6 +677,7 @@ function item_constructed_improvements:insert(index, item) end
 ---@param index integer 
 function item_constructed_improvements:erase(index) end
 
+-- BODY COMPONENT
 ---@class body_part_status: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _body_part_status
@@ -1099,7 +1101,7 @@ df.item_corpsest = {}
 ---@field _kind 'class-type'
 df.item_corpsepiecest = {}
 
--- -- CRITTER
+-- CRITTER
 ---@class (exact) item_critter: DFObject, item_actual
 ---@field _kind 'struct'
 ---@field _type _item_critter
@@ -1113,6 +1115,7 @@ df.item_corpsepiecest = {}
 ---@field _kind 'class-type'
 df.item_critter = {}
 
+-- LIQUID/POWER
 ---@class item_matstate: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_matstate
@@ -1162,7 +1165,7 @@ df.item_liquid = {}
 ---@field _kind 'class-type'
 df.item_powder = {}
 
--- -- MISC
+-- MISC
 ---@class (exact) item_barst: DFObject, item_actual
 ---@field _kind 'struct'
 ---@field _type _item_barst
@@ -1492,7 +1495,7 @@ df.item_eggst = {}
 ---@field [0] "fertile" allows the incubation_counter to be checked/incremented
 df.item_eggst.T_egg_flags = {}
 
--- -- CONSTRUCTED
+-- CONSTRUCTED
 ---@class (exact) item_doorst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_doorst

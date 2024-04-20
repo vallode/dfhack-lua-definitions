@@ -64,6 +64,8 @@
 ---@field [13] "strand"
 df.job_material_category = {}
 
+-- An extended version of job_material_category,
+-- for use in some plugins, like workflow.
 ---@class dfhack_material_category: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _dfhack_material_category
@@ -802,7 +804,7 @@ df.job_item_flags3 = {}
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore number -- Custom: References: `inorganic_raw`
+---@field metal_ore number Custom: References: `inorganic_raw`
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field min_dimension number pure guess by context

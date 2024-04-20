@@ -392,16 +392,16 @@
 ---@class _buildings_other_id: DFEnum
 ---@field ANY -1
 ---@field [-1] "ANY"
----@field IN_PLAY 0 -- 0
----@field [0] "IN_PLAY" -- 0
+---@field IN_PLAY 0 0
+---@field [0] "IN_PLAY" 0
 ---@field STOCKPILE 1
 ---@field [1] "STOCKPILE"
 ---@field ANY_ZONE 2
 ---@field [2] "ANY_ZONE"
 ---@field ACTIVITY_ZONE 3
 ---@field [3] "ACTIVITY_ZONE"
----@field ZONE_HOME 4 -- 98 different civzone subtypes
----@field [4] "ZONE_HOME" -- 98 different civzone subtypes
+---@field ZONE_HOME 4 98 different civzone subtypes
+---@field [4] "ZONE_HOME" 98 different civzone subtypes
 ---@field ZONE_DEPOT 5
 ---@field [5] "ZONE_DEPOT"
 ---@field ZONE_STOCKPILE 6
@@ -608,8 +608,8 @@
 ---@field [106] "ANY_STORAGE"
 ---@field ANY_BARRACKS 107
 ---@field [107] "ANY_BARRACKS"
----@field ANY_HOSPITAL 108 -- 11
----@field [108] "ANY_HOSPITAL" -- 11
+---@field ANY_HOSPITAL 108 11
+---@field [108] "ANY_HOSPITAL" 11
 ---@field BOX 109
 ---@field [109] "BOX"
 ---@field CABINET 110
@@ -628,8 +628,8 @@
 ---@field [116] "GRATE_FLOOR"
 ---@field BARS_VERTICAL 117
 ---@field [117] "BARS_VERTICAL"
----@field BARS_FLOOR 118 -- 21
----@field [118] "BARS_FLOOR" -- 21
+---@field BARS_FLOOR 118 21
+---@field [118] "BARS_FLOOR" 21
 ---@field WINDOW_ANY 119
 ---@field [119] "WINDOW_ANY"
 ---@field WELL 120
@@ -652,8 +652,8 @@
 ---@field [128] "DISPLAY_CASE"
 ---@field HIVE 129
 ---@field [129] "HIVE"
----@field WAGON 130 -- 33
----@field [130] "WAGON" -- 33
+---@field WAGON 130 33
+---@field [130] "WAGON" 33
 ---@field SHOP 131
 ---@field [131] "SHOP"
 ---@field BED 132
@@ -674,8 +674,8 @@
 ---@field [139] "AXLE_VERTICAL"
 ---@field SUPPORT 140
 ---@field [140] "SUPPORT"
----@field ARCHERY_TARGET 141 -- 43
----@field [141] "ARCHERY_TARGET" -- 43
+---@field ARCHERY_TARGET 141 43
+---@field [141] "ARCHERY_TARGET" 43
 ---@field SCREW_PUMP 142
 ---@field [142] "SCREW_PUMP"
 ---@field WATER_WHEEL 143
@@ -694,8 +694,8 @@
 ---@field [149] "COFFIN"
 ---@field WEAPON_RACK 150
 ---@field [150] "WEAPON_RACK"
----@field ARMOR_STAND 151 -- 53
----@field [151] "ARMOR_STAND" -- 53
+---@field ARMOR_STAND 151 53
+---@field [151] "ARMOR_STAND" 53
 ---@field FURNACE_ANY 152
 ---@field [152] "FURNACE_ANY"
 ---@field FURNACE_WOOD 153
@@ -714,8 +714,8 @@
 ---@field [159] "WORKSHOP_ANY"
 ---@field WORKSHOP_BUTCHER 160
 ---@field [160] "WORKSHOP_BUTCHER"
----@field WORKSHOP_MASON 161 -- 63
----@field [161] "WORKSHOP_MASON" -- 63
+---@field WORKSHOP_MASON 161 63
+---@field [161] "WORKSHOP_MASON" 63
 ---@field WORKSHOP_KENNEL 162
 ---@field [162] "WORKSHOP_KENNEL"
 ---@field WORKSHOP_FISHERY 163
@@ -734,8 +734,8 @@
 ---@field [169] "WORKSHOP_QUERN"
 ---@field WORKSHOP_TOOL 170
 ---@field [170] "WORKSHOP_TOOL"
----@field WORKSHOP_MILLSTONE 171 -- 73
----@field [171] "WORKSHOP_MILLSTONE" -- 73
+---@field WORKSHOP_MILLSTONE 171 73
+---@field [171] "WORKSHOP_MILLSTONE" 73
 ---@field WORKSHOP_KITCHEN 172
 ---@field [172] "WORKSHOP_KITCHEN"
 ---@field WORKSHOP_STILL 173
@@ -754,8 +754,8 @@
 ---@field [179] "WORKSHOP_SIEGE"
 ---@field WORKSHOP_CLOTHIER 180
 ---@field [180] "WORKSHOP_CLOTHIER"
----@field WORKSHOP_LEATHER 181 -- 83
----@field [181] "WORKSHOP_LEATHER" -- 83
+---@field WORKSHOP_LEATHER 181 83
+---@field [181] "WORKSHOP_LEATHER" 83
 ---@field WORKSHOP_BOWYER 182
 ---@field [182] "WORKSHOP_BOWYER"
 ---@field WORKSHOP_MAGMA_FORGE 183

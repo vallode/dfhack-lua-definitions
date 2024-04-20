@@ -19,7 +19,7 @@
 ---| init_display_flags_keys
 ---| init_display_flags_values
 
--- -- init.h
+-- init.h
 ---@class _init_display_flags: DFEnum
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"

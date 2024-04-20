@@ -578,8 +578,8 @@ df.job_type_class = {}
 ---@class _job_type: DFEnum
 ---@field NONE -1 unused
 ---@field [-1] "NONE" unused
----@field CarveFortification 0 -- 0
----@field [0] "CarveFortification" -- 0
+---@field CarveFortification 0 0
+---@field [0] "CarveFortification" 0
 ---@field SmoothWall 1
 ---@field [1] "SmoothWall"
 ---@field SmoothFloor 2
@@ -602,8 +602,8 @@ df.job_type_class = {}
 ---@field [10] "DigChannel"
 ---@field FellTree 11
 ---@field [11] "FellTree"
----@field GatherPlants 12 -- 12
----@field [12] "GatherPlants" -- 12
+---@field GatherPlants 12 12
+---@field [12] "GatherPlants" 12
 ---@field RemoveConstruction 13
 ---@field [13] "RemoveConstruction"
 ---@field CollectWebs 14
@@ -622,8 +622,8 @@ df.job_type_class = {}
 ---@field [20] "Drink2"
 ---@field FillWaterskin 21
 ---@field [21] "FillWaterskin"
----@field FillWaterskin2 22 -- 22
----@field [22] "FillWaterskin2" -- 22
+---@field FillWaterskin2 22 22
+---@field [22] "FillWaterskin2" 22
 ---@field Sleep 23
 ---@field [23] "Sleep"
 ---@field CollectSand 24
@@ -642,8 +642,8 @@ df.job_type_class = {}
 ---@field [30] "StartingFistFight"
 ---@field CollectTaxes 31
 ---@field [31] "CollectTaxes"
----@field GuardTaxCollector 32 -- 32
----@field [32] "GuardTaxCollector" -- 32
+---@field GuardTaxCollector 32 32
+---@field [32] "GuardTaxCollector" 32
 ---@field CatchLiveLandAnimal 33
 ---@field [33] "CatchLiveLandAnimal"
 ---@field CatchLiveFish 34
@@ -658,8 +658,8 @@ df.job_type_class = {}
 ---@field [38] "StoreItemInStockpile"
 ---@field StoreItemInBag 39
 ---@field [39] "StoreItemInBag"
----@field StoreItemInLocation 40 -- 40
----@field [40] "StoreItemInLocation" -- 40
+---@field StoreItemInLocation 40 40
+---@field [40] "StoreItemInLocation" 40
 ---@field StoreWeapon 41
 ---@field [41] "StoreWeapon"
 ---@field StoreArmor 42
@@ -674,8 +674,8 @@ df.job_type_class = {}
 ---@field [46] "SeekInfant"
 ---@field GoShopping 47
 ---@field [47] "GoShopping"
----@field GoShopping2 48 -- 48
----@field [48] "GoShopping2" -- 48
+---@field GoShopping2 48 48
+---@field [48] "GoShopping2" 48
 ---@field Clean 49
 ---@field [49] "Clean"
 ---@field Rest 50
@@ -694,8 +694,8 @@ df.job_type_class = {}
 ---@field [56] "StrangeMoodMagmaForge"
 ---@field StrangeMoodBrooding 57
 ---@field [57] "StrangeMoodBrooding"
----@field StrangeMoodFell 58 -- 58
----@field [58] "StrangeMoodFell" -- 58
+---@field StrangeMoodFell 58 58
+---@field [58] "StrangeMoodFell" 58
 ---@field StrangeMoodCarpenter 59
 ---@field [59] "StrangeMoodCarpenter"
 ---@field StrangeMoodMason 60
@@ -714,8 +714,8 @@ df.job_type_class = {}
 ---@field [66] "ConstructBuilding"
 ---@field ConstructDoor 67
 ---@field [67] "ConstructDoor"
----@field ConstructFloodgate 68 -- 68
----@field [68] "ConstructFloodgate" -- 68
+---@field ConstructFloodgate 68 68
+---@field [68] "ConstructFloodgate" 68
 ---@field ConstructBed 69
 ---@field [69] "ConstructBed"
 ---@field ConstructThrone 70
@@ -736,8 +736,8 @@ df.job_type_class = {}
 ---@field [77] "ConstructWeaponRack"
 ---@field ConstructCabinet 78
 ---@field [78] "ConstructCabinet"
----@field ConstructStatue 79 -- 79
----@field [79] "ConstructStatue" -- 79
+---@field ConstructStatue 79 79
+---@field [79] "ConstructStatue" 79
 ---@field ConstructBlocks 80
 ---@field [80] "ConstructBlocks"
 ---@field MakeRawGlass 81
@@ -756,8 +756,8 @@ df.job_type_class = {}
 ---@field [87] "EncrustWithGlass"
 ---@field DestroyBuilding 88
 ---@field [88] "DestroyBuilding"
----@field SmeltOre 89 -- 89
----@field [89] "SmeltOre" -- 89
+---@field SmeltOre 89 89
+---@field [89] "SmeltOre" 89
 ---@field MeltMetalObject 90
 ---@field [90] "MeltMetalObject"
 ---@field ExtractMetalStrands 91
@@ -776,8 +776,8 @@ df.job_type_class = {}
 ---@field [97] "ForgeAnvil"
 ---@field ConstructCatapultParts 98
 ---@field [98] "ConstructCatapultParts"
----@field ConstructBallistaParts 99 -- 99
----@field [99] "ConstructBallistaParts" -- 99
+---@field ConstructBallistaParts 99 99
+---@field [99] "ConstructBallistaParts" 99
 ---@field MakeArmor 100
 ---@field [100] "MakeArmor"
 ---@field MakeHelm 101
@@ -796,8 +796,8 @@ df.job_type_class = {}
 ---@field [107] "BaitTrap"
 ---@field MilkCreature 108
 ---@field [108] "MilkCreature"
----@field MakeCheese 109 -- 109
----@field [109] "MakeCheese" -- 109
+---@field MakeCheese 109 109
+---@field [109] "MakeCheese" 109
 ---@field ProcessPlants 110
 ---@field [110] "ProcessPlants"
 ---@field PolishStones 111
@@ -816,8 +816,8 @@ df.job_type_class = {}
 ---@field [117] "MakeShoes"
 ---@field MakeShield 118
 ---@field [118] "MakeShield"
----@field MakeCage 119 -- 119
----@field [119] "MakeCage" -- 119
+---@field MakeCage 119 119
+---@field [119] "MakeCage" 119
 ---@field MakeChain 120
 ---@field [120] "MakeChain"
 ---@field MakeFlask 121
@@ -834,8 +834,8 @@ df.job_type_class = {}
 ---@field [126] "MakeBucket"
 ---@field MakeWindow 127
 ---@field [127] "MakeWindow"
----@field MakeTotem 128 -- 128
----@field [128] "MakeTotem" -- 128
+---@field MakeTotem 128 128
+---@field [128] "MakeTotem" 128
 ---@field MakeAmmo 129
 ---@field [129] "MakeAmmo"
 ---@field DecorateWith 130
@@ -854,8 +854,8 @@ df.job_type_class = {}
 ---@field [136] "LoadBallista"
 ---@field FireCatapult 137
 ---@field [137] "FireCatapult"
----@field FireBallista 138 -- 138
----@field [138] "FireBallista" -- 138
+---@field FireBallista 138 138
+---@field [138] "FireBallista" 138
 ---@field ConstructMechanisms 139
 ---@field [139] "ConstructMechanisms"
 ---@field MakeTrapComponent 140
@@ -876,8 +876,8 @@ df.job_type_class = {}
 ---@field [147] "PullLever"
 ---@field _unk_0x94 148
 ---@field [148] "_unk_0x94"
----@field ExtractFromPlants 149 -- 149
----@field [149] "ExtractFromPlants" -- 149
+---@field ExtractFromPlants 149 149
+---@field [149] "ExtractFromPlants" 149
 ---@field ExtractFromRawFish 150
 ---@field [150] "ExtractFromRawFish"
 ---@field ExtractFromLandAnimal 151
@@ -894,8 +894,8 @@ df.job_type_class = {}
 ---@field [156] "UnchainPet"
 ---@field ReleaseLargeCreature 157
 ---@field [157] "ReleaseLargeCreature"
----@field ReleasePet 158 -- 158
----@field [158] "ReleasePet" -- 158
+---@field ReleasePet 158 158
+---@field [158] "ReleasePet" 158
 ---@field ReleaseSmallCreature 159
 ---@field [159] "ReleaseSmallCreature"
 ---@field HandleSmallCreature 160
@@ -914,8 +914,8 @@ df.job_type_class = {}
 ---@field [166] "ImmobilizeBreak"
 ---@field DressWound 167
 ---@field [167] "DressWound"
----@field CleanPatient 168 -- 168
----@field [168] "CleanPatient" -- 168
+---@field CleanPatient 168 168
+---@field [168] "CleanPatient" 168
 ---@field Surgery 169
 ---@field [169] "Surgery"
 ---@field Suture 170
@@ -934,8 +934,8 @@ df.job_type_class = {}
 ---@field [176] "GiveWater"
 ---@field GiveFood 177
 ---@field [177] "GiveFood"
----@field GiveWater2 178 -- 178
----@field [178] "GiveWater2" -- 178
+---@field GiveWater2 178 178
+---@field [178] "GiveWater2" 178
 ---@field GiveFood2 179 for pets
 ---@field [179] "GiveFood2" for pets
 ---@field RecoverPet 180
@@ -954,8 +954,8 @@ df.job_type_class = {}
 ---@field [186] "MakeLye"
 ---@field MakePotashFromLye 187
 ---@field [187] "MakePotashFromLye"
----@field FertilizeField 188 -- 188
----@field [188] "FertilizeField" -- 188
+---@field FertilizeField 188 188
+---@field [188] "FertilizeField" 188
 ---@field MakePotashFromAsh 189
 ---@field [189] "MakePotashFromAsh"
 ---@field DyeThread 190
@@ -974,8 +974,8 @@ df.job_type_class = {}
 ---@field [196] "UpdateStockpileRecords"
 ---@field TradeAtDepot 197
 ---@field [197] "TradeAtDepot"
----@field ConstructHatchCover 198 -- 198
----@field [198] "ConstructHatchCover" -- 198
+---@field ConstructHatchCover 198 198
+---@field [198] "ConstructHatchCover" 198
 ---@field ConstructGrate 199
 ---@field [199] "ConstructGrate"
 ---@field RemoveStairs 200
@@ -994,8 +994,8 @@ df.job_type_class = {}
 ---@field [206] "CleanSelf"
 ---@field BringCrutch 207
 ---@field [207] "BringCrutch"
----@field ApplyCast 208 -- 208
----@field [208] "ApplyCast" -- 208
+---@field ApplyCast 208 208
+---@field [208] "ApplyCast" 208
 ---@field CustomReaction 209
 ---@field [209] "CustomReaction"
 ---@field ConstructSlab 210
@@ -1014,8 +1014,8 @@ df.job_type_class = {}
 ---@field [216] "MakeTool"
 ---@field CollectClay 217
 ---@field [217] "CollectClay"
----@field InstallColonyInHive 218 -- 218
----@field [218] "InstallColonyInHive" -- 218
+---@field InstallColonyInHive 218 218
+---@field [218] "InstallColonyInHive" 218
 ---@field CollectHiveProducts 219
 ---@field [219] "CollectHiveProducts"
 ---@field CauseTrouble 220
@@ -1034,8 +1034,8 @@ df.job_type_class = {}
 ---@field [226] "PushTrackVehicle"
 ---@field PlaceTrackVehicle 227
 ---@field [227] "PlaceTrackVehicle"
----@field StoreItemInVehicle 228 -- 228
----@field [228] "StoreItemInVehicle" -- 228
+---@field StoreItemInVehicle 228 228
+---@field [228] "StoreItemInVehicle" 228
 ---@field GeldAnimal 229
 ---@field [229] "GeldAnimal"
 ---@field MakeFigurine 230
@@ -1054,8 +1054,8 @@ df.job_type_class = {}
 ---@field [236] "MakeBracelet"
 ---@field MakeGem 237
 ---@field [237] "MakeGem"
----@field PutItemOnDisplay 238 -- 238
----@field [238] "PutItemOnDisplay" -- 238
+---@field PutItemOnDisplay 238 238
+---@field [238] "PutItemOnDisplay" 238
 ---@field unk_fake_no_job 239
 ---@field [239] "unk_fake_no_job"
 ---@field InterrogateSubject 240
@@ -1069,7 +1069,7 @@ df.job_type = {}
 df.job_type._attr_entry_type = {}
 
 ---@class (exact) job_type_attr_entry_type_fields
----@field caption DFCompoundField -- Declare attributes:
+---@field caption DFCompoundField Declare attributes:
 ---@field type DFCompoundField
 ---@field labor DFCompoundField
 ---@field item DFCompoundField

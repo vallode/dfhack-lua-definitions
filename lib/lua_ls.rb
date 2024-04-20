@@ -10,6 +10,10 @@ module DFHackLuaDefinitions
                            until while].freeze
 
     class << self
+      def escape_comment(string)
+        string.strip.gsub(/--\s+/, '').gsub(/\n\s+/, '<br>')
+      end
+
       def safe_name(name)
         return "[\"#{name}\"]" if RESERVED_KEYWORDS.include?(name)
         return "[#{name}]" if name.is_a? Numeric
@@ -17,14 +21,22 @@ module DFHackLuaDefinitions
         name
       end
 
+      def multiline_comment(string)
+        return '' unless string
+
+        string.gsub('<br>', "\n-- ").prepend('-- ').concat("\n")
+      end
+
       def comment(string)
         return '' unless string
 
-        "-- #{string}\n"
+        "-- #{string}"
       end
 
-      def class(name, parent = nil, exact: false)
-        annotation = ['---@class']
+      def class(name, parent = nil, comment: nil, exact: false)
+        annotation = []
+        annotation << multiline_comment(comment)
+        annotation << '---@class'
         annotation << ' (exact)' if exact
         annotation << " #{name}"
         annotation << ": #{parent}" if parent

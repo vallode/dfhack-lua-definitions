@@ -715,7 +715,7 @@ df.lair_type = {}
 ---@field _kind 'struct-type'
 df.property_ownership = {}
 
--- --  Cannot rule out the type having additional fields, although the 8 following bytes were all 0 in all cases in the save examined.
+-- Cannot rule out the type having additional fields, although the 8 following bytes were all 0 in all cases in the save examined.
 ---@class (exact) unit_placement_infost: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_placement_infost
@@ -1538,7 +1538,7 @@ function wg_site_culturest_identity:erase(index) end
 ---@field is_fortress number bay12: max_depth
 ---@field mined_hours number only MountainHalls, but only subset of them
 ---@field architecture_change world_site_architecture_change
----@field unk_v40_4b DFAnyVector -- TODO: progress marker --
+---@field unk_v40_4b DFAnyVector TODO: progress marker --
 ---@field unk_v40_4c DFAnyVector
 ---@field unk_v40_4d DFAnyVector only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field unk_v40_4d_next_id number only single non zero entry, matching vector above. Might guess 'since' is scrambled

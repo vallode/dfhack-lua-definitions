@@ -403,6 +403,7 @@ df.caravan_state = {}
 ---@field [4] "Stuck"
 df.caravan_state.T_trade_state = {}
 
+-- reportst
 ---@class caravan_state.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _caravan_state.T_flags
@@ -1087,8 +1088,8 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field conquered_site_group_flags historical_entity.T_conquered_site_group_flags
 ---@field worldgen_can_make_guildhall DFEnumVector<town_labor_type, number>
 ---@field training_knowledge any
----@field events historical_entity_events -- bay12: rumor_info
----@field unk_v40_1a number -- these are part of bay12's rumor_info struct
+---@field events historical_entity_events bay12: rumor_info
+---@field unk_v40_1a number these are part of bay12's rumor_info struct
 ---@field unk_v40_1b number
 ---@field unk_v40_1c number
 ---@field unk_v40_1d number
@@ -1098,19 +1099,19 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field performed_dance_forms DFNumberVector
 ---@field performed_scale_id DFNumberVector
 ---@field performed_rhythm_id DFNumberVector
----@field well_known_wcid DFNumberVector -- wcid == written content ID
----@field occasion_info entity_occasion_info -- bay12: entity_calendarst *calendar
+---@field well_known_wcid DFNumberVector wcid == written content ID
+---@field occasion_info entity_occasion_info bay12: entity_calendarst *calendar
 ---@field artifact_claims historical_entity_artifact_claims sorted on artifact id
 ---@field honors historical_entity_honors Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
 ---@field equipment_purchases number only seen on military units
 ---@field attack number only seen on military units
 ---@field total_battles number attacks + defenses. Only seen on military units
----@field unk_v47_1 any -- bay12: evidence_repository
+---@field unk_v47_1 any bay12: evidence_repository
 ---@field divination_sets DFNumberVector Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
----@field founding_site_government number -- bay12: material_source_enid References: `historical_entity`
+---@field founding_site_government number bay12: material_source_enid References: `historical_entity`
 ---@field meeting_events historical_entity_meeting_events
----@field activity_stats entity_activity_statistics -- bay12: reportst *lastreport
+---@field activity_stats entity_activity_statistics bay12: reportst *lastreport
 ---@field last_report_season number in 0.23, last communicate season
 ---@field last_report_year number in 0.23, last communicate year
 ---@field imports_from number
@@ -1130,9 +1131,9 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field assignments_by_type DFEnumVector<entity_position_responsibility, entity_position_assignment>
 ---@field claims historical_entity.T_claims
 ---@field children DFNumberVector includes self
----@field metal_proficiency number -- bay12: army_strength_material_bonus
+---@field metal_proficiency number bay12: army_strength_material_bonus
 ---@field weapon_proficiencies historical_entity_weapon_proficiencies
----@field resource_allotment resource_allotment_data -- bay12: production_zonest *production_zone
+---@field resource_allotment resource_allotment_data bay12: production_zonest *production_zone
 ---@field local_poetic_form historical_entity_local_poetic_form
 ---@field local_musical_form historical_entity_local_musical_form
 ---@field local_dance_form historical_entity_local_dance_form
@@ -1141,8 +1142,8 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
 ---@field landmass world_landmass
----@field region world_region -- Civ entities. Nil for sites.
----@field world_gen_army_strength number -- Civ entities. Non pointers for sites.
+---@field region world_region Civ entities. Nil for sites.
+---@field world_gen_army_strength number Civ entities. Non pointers for sites.
 ---@field connect_two_site_throttle_time number 0
 ---@field construct_shortest_con_throttle_stid DFNumberVector used during world gen
 ---@field construct_shortest_con_throttle_time DFNumberVector used during world gen
@@ -1170,12 +1171,12 @@ function world_gen_wandering_groupst_rpop:erase(index) end
 ---@field trade_wanted_amount number[]
 ---@field trade_maximum_buy_price number[]
 ---@field town_labor_hours number[]
----@field world_gen_entity_debt DFAnyVector -- bay12: world_gen_entity_debt
+---@field world_gen_entity_debt DFAnyVector bay12: world_gen_entity_debt
 ---@field account number
 ---@field burial_request DFAnyVector ?
 ---@field current_wgwg any
 ---@field total_outcast_strength number
----@field pool_id integer -- protected --
+---@field pool_id integer protected --
 
 ---@class _historical_entity: DFCompound
 ---@field _kind 'struct-type'
@@ -1355,7 +1356,7 @@ function historical_entity_site_links:erase(index) end
 ---@field instrument_type DFNumberVector
 ---@field siegeammo_type DFNumberVector
 ---@field tool_type DFNumberVector
----@field unk_1 DFNumberVector -- bay12: reaction_ind
+---@field unk_1 DFNumberVector bay12: reaction_ind
 ---@field metal historical_entity.T_resources.T_metal
 ---@field organic historical_entity.T_resources.T_organic
 ---@field metals DFNumberVector bars
@@ -1848,6 +1849,7 @@ function historical_entity_tissue_styles_all:insert(index, item) end
 ---@param index integer 
 function historical_entity_tissue_styles_all:erase(index) end
 
+-- actually lives inside a class
 ---@class historical_entity.T_conquered_site_group_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _historical_entity.T_conquered_site_group_flags

@@ -247,7 +247,10 @@
 ---| creature_raw_flags_keys
 ---| creature_raw_flags_values
 
--- --  The comments indicate the creature raw tags whose presence/absence are<br>--  correlated with the flags. Tags with parameters, like those indicating<br>--  biomes, are currently not listed.<br>--  Flag names acquired from http://www.bay12forums.com/smf//index.php?topic=169696.msg8099138#msg8099138
+-- The comments indicate the creature raw tags whose presence/absence are
+-- correlated with the flags. Tags with parameters, like those indicating
+-- biomes, are currently not listed.
+-- Flag names acquired from http://www.bay12forums.com/smf//index.php?topic=169696.msg8099138#msg8099138
 ---@class _creature_raw_flags: DFEnum
 ---@field EQUIPMENT 0 [EQUIPMENT_WAGON]
 ---@field [0] "EQUIPMENT" [EQUIPMENT_WAGON]
@@ -2148,7 +2151,7 @@ function caste_body_info_gait_info:erase(index) end
 ---@field sound_alert DFNumberVector
 ---@field sound_peaceful_intermittent DFNumberVector
 ---@field unk_1 DFAnyVector
----@field smell_trigger number -- v0.40.01
+---@field smell_trigger number v0.40.01
 ---@field odor_level number
 ---@field odor_string string
 ---@field low_light_vision number
@@ -2311,7 +2314,7 @@ function caste_raw_body_appearance_modifiers:erase(index) end
 ---@field modifier_idx DFNumberVector
 ---@field part_idx DFNumberVector
 ---@field layer_idx DFNumberVector
----@field style_part_idx DFNumberVector -- Subset of modifiable layers, i.e. where layer_idx != -1
+---@field style_part_idx DFNumberVector Subset of modifiable layers, i.e. where layer_idx != -1
 ---@field style_layer_idx DFNumberVector
 ---@field style_list_idx DFNumberVector
 
@@ -2366,22 +2369,6 @@ function caste_raw_tissue_styles:insert(index, item) end
 
 ---@param index integer 
 function caste_raw_tissue_styles:erase(index) end
-
----@class caste_raw_unk16a: DFContainer
----@field [integer] any[]
-local caste_raw_unk16a
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function caste_raw_unk16a:_field(index) end
-
----@param index integer 
----@param item any[] 
-function caste_raw_unk16a:insert(index, item) end
-
----@param index integer 
-function caste_raw_unk16a:erase(index) end
 
 ---@class caste_raw_natural_skill_id: DFContainer
 ---@field [integer] job_skill
@@ -2601,22 +2588,6 @@ function caste_raw_unk29_unk_1:insert(index, item) end
 
 ---@param index integer 
 function caste_raw_unk29_unk_1:erase(index) end
-
----@class caste_raw_specific_food: DFContainer
----@field [integer] any[]
-local caste_raw_specific_food
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function caste_raw_specific_food:_field(index) end
-
----@param index integer 
----@param item any[] 
-function caste_raw_specific_food:insert(index, item) end
-
----@param index integer 
-function caste_raw_specific_food:erase(index) end
 
 ---@alias creature_graphics_role_keys
 ---| '"DEFAULT"'

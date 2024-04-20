@@ -2,13 +2,13 @@
 ---@meta
 
 ---@class df.global: DFGlobal
----@field global_table global_table_entry[] -- .data
+---@field global_table global_table_entry[] .data
 ---@field cursor global.T_cursor
 ---@field selection_rect global.T_selection_rect
 ---@field gamemode game_mode
 ---@field gametype game_type
 ---@field ui_menu_width number[]
----@field created_item_type item_type -- .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
+---@field created_item_type item_type .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
 ---@field created_item_subtype number
 ---@field created_item_mattype number
 ---@field created_item_matindex number
@@ -32,7 +32,7 @@
 ---@field ui_look_list ui_look_list
 ---@field game gamest
 ---@field world world
----@field version save_version -- .bss primitive
+---@field version save_version .bss primitive
 ---@field min_load_version save_version
 ---@field movie_version cmv_version
 ---@field activity_next_id number
@@ -270,54 +270,6 @@ function global_ui_building_assign_items:insert(index, item) end
 ---@param index integer 
 function global_ui_building_assign_items:erase(index) end
 
----@class global_translate_name: DFContainer
----@field [integer] any[]
-local global_translate_name
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function global_translate_name:_field(index) end
-
----@param index integer 
----@param item any[] 
-function global_translate_name:insert(index, item) end
-
----@param index integer 
-function global_translate_name:erase(index) end
-
----@class global_buildingst_completebuild: DFContainer
----@field [integer] any[]
-local global_buildingst_completebuild
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function global_buildingst_completebuild:_field(index) end
-
----@param index integer 
----@param item any[] 
-function global_buildingst_completebuild:insert(index, item) end
-
----@param index integer 
-function global_buildingst_completebuild:erase(index) end
-
----@class global_unitst_choptree: DFContainer
----@field [integer] any[]
-local global_unitst_choptree
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function global_unitst_choptree:_field(index) end
-
----@param index integer 
----@param item any[] 
-function global_unitst_choptree:insert(index, item) end
-
----@param index integer 
-function global_unitst_choptree:erase(index) end
-
 ---@alias weather_type_keys
 ---| '"None"'
 ---| '"Rain"'
@@ -431,7 +383,9 @@ df.weather_type = {}
 ---| next_global_id_keys
 ---| next_global_id_values
 
--- The storage order of "next ID" fields in the save file.<br>Followed by game type. The enum item name is the part between<br>next_ and _global_id in the Dwarf Fortress global variable table.
+-- The storage order of "next ID" fields in the save file.
+-- Followed by game type. The enum item name is the part between
+-- next_ and _global_id in the Dwarf Fortress global variable table.
 ---@class _next_global_id: DFEnum
 ---@field unit 0
 ---@field [0] "unit"

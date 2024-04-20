@@ -1109,7 +1109,7 @@ df.enabler.T_textures = {}
 ---@field [4] "not_truetype"
 df.justification = {}
 
--- -- texture_handler.h
+-- texture_handler.h
 ---@class (exact) tile_pagest: DFObject
 ---@field _kind 'struct'
 ---@field _type _tile_pagest

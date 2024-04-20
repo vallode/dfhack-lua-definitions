@@ -908,7 +908,18 @@ df.invasion_stage_type = {}
 ---@field [24] "INFILTRATE_SOCIETY"
 df.army_controller_goal_type = {}
 
--- Some army_controller research notes:<br>t1: All seen NomadicGroup. master = group boss, general = leader of army (with troops) referencing controller. Purpose and action unknown.<br>An InvasionOrder (2) is generated at the start of the season, shortly followed by an army that references an Invasion controller. The army disappears from the armies.all<br>vector once it enters the embark.<br>Invasion (4) has been seen via InvasionOrder army_controllers' armies, but only player fortress attacks have been studied. Prior to the army appears in the armies.all vector this controller<br>seems to be available via the army_controllers.all vector referencing the the InvasionOrder via unk_34.<br>t5: unk_34 seen referencing Invasion (4) and unk_38 referencing t5 (player fortress) or t7, disappearing when an army is generated (at least for player fortress).<br>Visit (12) appears in the army_controller vector only very briefly before legitimate visitors arrive, and is also used for exiled residents.<br>Quest (17) doesn't seem to contain any useful info except the site_id, time, and the artifact_id, in particular not anything that looks like<br>references to the questers themselves or their employer. However, prior to arriving at the site, armies in armies.all can reference the controller, and the army members<br>seem to match the questers that show up shortly thereafter, looking for the indicated artifact. As with InvasionOrder armies, quester armies disappear on embark arrival.<br>VillainousVisit (24): Villainous visitors. Legitimate ones use Visit army controllers, but only until they arrive, while villainous ones linger.
+-- Some army_controller research notes:
+-- t1: All seen NomadicGroup. master = group boss, general = leader of army (with troops) referencing controller. Purpose and action unknown.
+-- An InvasionOrder (2) is generated at the start of the season, shortly followed by an army that references an Invasion controller. The army disappears from the armies.all
+-- vector once it enters the embark.
+-- Invasion (4) has been seen via InvasionOrder army_controllers' armies, but only player fortress attacks have been studied. Prior to the army appears in the armies.all vector this controller
+-- seems to be available via the army_controllers.all vector referencing the the InvasionOrder via unk_34.
+-- t5: unk_34 seen referencing Invasion (4) and unk_38 referencing t5 (player fortress) or t7, disappearing when an army is generated (at least for player fortress).
+-- Visit (12) appears in the army_controller vector only very briefly before legitimate visitors arrive, and is also used for exiled residents.
+-- Quest (17) doesn't seem to contain any useful info except the site_id, time, and the artifact_id, in particular not anything that looks like
+-- references to the questers themselves or their employer. However, prior to arriving at the site, armies in armies.all can reference the controller, and the army members
+-- seem to match the questers that show up shortly thereafter, looking for the indicated artifact. As with InvasionOrder armies, quester armies disappear on embark arrival.
+-- VillainousVisit (24): Villainous visitors. Legitimate ones use Visit army controllers, but only until they arrive, while villainous ones linger.
 ---@class (exact) army_controller: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller

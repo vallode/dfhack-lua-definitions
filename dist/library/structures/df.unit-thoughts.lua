@@ -373,8 +373,8 @@
 ---@field [8] "AMAZEMENT"
 ---@field AMBIVALENCE 9
 ---@field [9] "AMBIVALENCE"
----@field AMUSEMENT 10 -- 10
----@field [10] "AMUSEMENT" -- 10
+---@field AMUSEMENT 10 10
+---@field [10] "AMUSEMENT" 10
 ---@field ANGER 11
 ---@field [11] "ANGER"
 ---@field ANGST 12
@@ -389,8 +389,8 @@
 ---@field [17] "APATHY"
 ---@field AROUSAL 19
 ---@field [19] "AROUSAL"
----@field ASTONISHMENT 20 -- 20
----@field [20] "ASTONISHMENT" -- 20
+---@field ASTONISHMENT 20 20
+---@field [20] "ASTONISHMENT" 20
 ---@field AVERSION 22
 ---@field [22] "AVERSION"
 ---@field AWE 23
@@ -405,8 +405,8 @@
 ---@field [27] "CARING"
 ---@field CONFUSION 29
 ---@field [29] "CONFUSION"
----@field CONTEMPT 30 -- 30
----@field [30] "CONTEMPT" -- 30
+---@field CONTEMPT 30 30
+---@field [30] "CONTEMPT" 30
 ---@field CONTENTMENT 31
 ---@field [31] "CONTENTMENT"
 ---@field DEFEAT 34
@@ -417,8 +417,8 @@
 ---@field [36] "DELIGHT"
 ---@field DESPAIR 39
 ---@field [39] "DESPAIR"
----@field DISAPPOINTMENT 40 -- 40
----@field [40] "DISAPPOINTMENT" -- 40
+---@field DISAPPOINTMENT 40 40
+---@field [40] "DISAPPOINTMENT" 40
 ---@field DISGUST 41
 ---@field [41] "DISGUST"
 ---@field DISILLUSIONMENT 42
@@ -449,8 +449,8 @@
 ---@field [57] "ENTHUSIASM"
 ---@field EUPHORIA 59
 ---@field [59] "EUPHORIA"
----@field EXASPERATION 60 -- 60
----@field [60] "EXASPERATION" -- 60
+---@field EXASPERATION 60 60
+---@field [60] "EXASPERATION" 60
 ---@field EXCITEMENT 61
 ---@field [61] "EXCITEMENT"
 ---@field EXHILARATION 62
@@ -483,8 +483,8 @@
 ---@field [78] "GRIEF"
 ---@field GRIM_SATISFACTION 79
 ---@field [79] "GRIM_SATISFACTION"
----@field GROUCHINESS 80 -- 80
----@field [80] "GROUCHINESS" -- 80
+---@field GROUCHINESS 80 80
+---@field [80] "GROUCHINESS" 80
 ---@field GRUMPINESS 81
 ---@field [81] "GRUMPINESS"
 ---@field GUILT 82
@@ -499,8 +499,8 @@
 ---@field [87] "HOPELESSNESS"
 ---@field HORROR 88
 ---@field [88] "HORROR"
----@field HUMILIATION 90 -- 90
----@field [90] "HUMILIATION" -- 90
+---@field HUMILIATION 90 90
+---@field [90] "HUMILIATION" 90
 ---@field INSULT 95
 ---@field [95] "INSULT"
 ---@field INTEREST 96
@@ -509,8 +509,8 @@
 ---@field [97] "IRRITATION"
 ---@field ISOLATION 98
 ---@field [98] "ISOLATION"
----@field JOLLINESS 100 -- 100
----@field [100] "JOLLINESS" -- 100
+---@field JOLLINESS 100 100
+---@field [100] "JOLLINESS" 100
 ---@field JOVIALITY 101
 ---@field [101] "JOVIALITY"
 ---@field JOY 102
@@ -541,8 +541,8 @@
 ---@field [118] "PANIC"
 ---@field PATIENCE 119
 ---@field [119] "PATIENCE"
----@field PASSION 120 -- 120
----@field [120] "PASSION" -- 120
+---@field PASSION 120 120
+---@field [120] "PASSION" 120
 ---@field PESSIMISM 121
 ---@field [121] "PESSIMISM"
 ---@field PLEASURE 123
@@ -559,8 +559,8 @@
 ---@field [128] "RELIEF"
 ---@field REGRET 129
 ---@field [129] "REGRET"
----@field REMORSE 130 -- 130
----@field [130] "REMORSE" -- 130
+---@field REMORSE 130 130
+---@field [130] "REMORSE" 130
 ---@field REPENTANCE 131
 ---@field [131] "REPENTANCE"
 ---@field RESENTMENT 132
@@ -573,8 +573,8 @@
 ---@field [136] "SATISFACTION"
 ---@field SELF_PITY 138
 ---@field [138] "SELF_PITY"
----@field SERVILE 140 -- 140
----@field [140] "SERVILE" -- 140
+---@field SERVILE 140 140
+---@field [140] "SERVILE" 140
 ---@field SHAKEN 141
 ---@field [141] "SHAKEN"
 ---@field SHAME 142
@@ -585,8 +585,8 @@
 ---@field [148] "SUSPICION"
 ---@field SYMPATHY 149
 ---@field [149] "SYMPATHY"
----@field TENDERNESS 150 -- 150
----@field [150] "TENDERNESS" -- 150
+---@field TENDERNESS 150 150
+---@field [150] "TENDERNESS" 150
 ---@field TERROR 152
 ---@field [152] "TERROR"
 ---@field THRILL 153
@@ -599,8 +599,8 @@
 ---@field [157] "UNHAPPINESS"
 ---@field VENGEFULNESS 158
 ---@field [158] "VENGEFULNESS"
----@field WONDER 160 -- 160
----@field [160] "WONDER" -- 160
+---@field WONDER 160 160
+---@field [160] "WONDER" 160
 ---@field WORRY 161
 ---@field [161] "WORRY"
 ---@field WRATH 162

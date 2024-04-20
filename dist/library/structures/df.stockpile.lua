@@ -1286,7 +1286,7 @@ df.route_stockpile_link.T_mode = {}
 ---@field _type _vehicle
 ---@field id number
 ---@field item_id number References: `item`
----@field offset_x number -- Position within tile
+---@field offset_x number Position within tile
 ---@field offset_y number
 ---@field offset_z number
 ---@field speed_x number

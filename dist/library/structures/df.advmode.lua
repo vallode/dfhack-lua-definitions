@@ -1506,7 +1506,7 @@ df.adventure_construction_mode_type = {}
 ---@field viewing_spoor_z number
 ---@field viewing_spoor_bse block_square_event_spoorst
 ---@field conversation adventurest.T_conversation
----@field unk_70 adventurest_unk_70 -- only canonicalized up to here --
+---@field unk_70 adventurest_unk_70 only canonicalized up to here --
 ---@field unk_71 number
 ---@field unk_72 adventurest_unk_72
 ---@field interacts adventurest_interacts
@@ -1625,6 +1625,7 @@ df.adventurest.T_show_menu = {}
 ---@field _kind 'struct-type'
 df.adventurest.T_exemplar_track_data = {}
 
+-- bay12 type: BSESpoor
 ---@class adventurest.T_exemplar_track_data.T_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _adventurest.T_exemplar_track_data.T_flag

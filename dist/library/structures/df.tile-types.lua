@@ -1846,8 +1846,8 @@ df.tiletype_special.attrs = {}
 ---| tiletype_values
 
 ---@class _tiletype: DFEnum
----@field Void 0 -- 0x000
----@field [0] "Void" -- 0x000
+---@field Void 0 0x000
+---@field [0] "Void" 0x000
 ---@field RampTop 1 MAPTILE_RAMPSPACE
 ---@field [1] "RampTop" MAPTILE_RAMPSPACE
 ---@field MurkyPool 2 MAPTILE_POOL
@@ -1878,8 +1878,8 @@ df.tiletype_special.attrs = {}
 ---@field [14] "TreeCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W
 ---@field TreeCapWallThickE 15 MAPTILE_TREE_CAP_WALL_THICK_E
 ---@field [15] "TreeCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E
----@field TreeCapWallNSWE 16 -- 0x010
----@field [16] "TreeCapWallNSWE" -- 0x010
+---@field TreeCapWallNSWE 16 0x010
+---@field [16] "TreeCapWallNSWE" 0x010
 ---@field TreeCapWallNSW 17 MAPTILE_TREE_CAP_WALL_N_S_W
 ---@field [17] "TreeCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W
 ---@field TreeCapWallNSE 18 MAPTILE_TREE_CAP_WALL_N_S_E
@@ -1910,8 +1910,8 @@ df.tiletype_special.attrs = {}
 ---@field [30] "Unused999999" MAPTILE_UNUSED_999999
 ---@field TreeDeadCapInterior 31 MAPTILE_TREE_CAP_INTERIOR_DEAD
 ---@field [31] "TreeDeadCapInterior" MAPTILE_TREE_CAP_INTERIOR_DEAD
----@field OpenSpace 32 -- 0x020
----@field [32] "OpenSpace" -- 0x020
+---@field OpenSpace 32 0x020
+---@field [32] "OpenSpace" 0x020
 ---@field TreeDeadCapWallThickSW 33 MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
 ---@field [33] "TreeDeadCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
 ---@field Shrub 34 MAPTILE_SHRUB
@@ -1942,8 +1942,8 @@ df.tiletype_special.attrs = {}
 ---@field [46] "MineralFloorSmooth" MAPTILE_MINSTONE_FLOOR_DETAILED
 ---@field FrozenFloorSmooth 47 MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
 ---@field [47] "FrozenFloorSmooth" MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
----@field TreeDeadCapWallThickSE 48 -- 0x030
----@field [48] "TreeDeadCapWallThickSE" -- 0x030
+---@field TreeDeadCapWallThickSE 48 0x030
+---@field [48] "TreeDeadCapWallThickSE" 0x030
 ---@field Grass1StairUD 49 MAPTILE_STAIR_UPDOWN_GRASS1
 ---@field [49] "Grass1StairUD" MAPTILE_STAIR_UPDOWN_GRASS1
 ---@field Grass1StairD 50 MAPTILE_STAIR_DOWN_GRASS1
@@ -1974,8 +1974,8 @@ df.tiletype_special.attrs = {}
 ---@field [62] "FeatureStairD" MAPTILE_STAIR_DOWN_FEATSTONE
 ---@field FeatureStairU 63 MAPTILE_STAIR_UP_FEATSTONE
 ---@field [63] "FeatureStairU" MAPTILE_STAIR_UP_FEATSTONE
----@field TreeDeadCapWallThickNW 64 -- 0x040
----@field [64] "TreeDeadCapWallThickNW" -- 0x040
+---@field TreeDeadCapWallThickNW 64 0x040
+---@field [64] "TreeDeadCapWallThickNW" 0x040
 ---@field StoneFortification 65 MAPTILE_STONE_FORTIFICATION
 ---@field [65] "StoneFortification" MAPTILE_STONE_FORTIFICATION
 ---@field TreeDeadCapWallThickNE 66 MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
@@ -2006,8 +2006,8 @@ df.tiletype_special.attrs = {}
 ---@field [78] "TreeDeadCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
 ---@field StonePillar 79 MAPTILE_STONE_PILLAR
 ---@field [79] "StonePillar" MAPTILE_STONE_PILLAR
----@field LavaPillar 80 -- 0x050
----@field [80] "LavaPillar" -- 0x050
+---@field LavaPillar 80 0x050
+---@field [80] "LavaPillar" 0x050
 ---@field FeaturePillar 81 MAPTILE_FEATSTONE_PILLAR
 ---@field [81] "FeaturePillar" MAPTILE_FEATSTONE_PILLAR
 ---@field MineralPillar 82 MAPTILE_MINSTONE_PILLAR
@@ -2038,8 +2038,8 @@ df.tiletype_special.attrs = {}
 ---@field [94] "TreeTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING
 ---@field TreeTrunkThickN 95 MAPTILE_TREE_TRUNK_THICK_N
 ---@field [95] "TreeTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N
----@field TreeTrunkThickS 96 -- 0x060
----@field [96] "TreeTrunkThickS" -- 0x060
+---@field TreeTrunkThickS 96 0x060
+---@field [96] "TreeTrunkThickS" 0x060
 ---@field TreeTrunkThickE 97 MAPTILE_TREE_TRUNK_THICK_E
 ---@field [97] "TreeTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E
 ---@field TreeTrunkThickW 98 MAPTILE_TREE_TRUNK_THICK_W
@@ -2070,8 +2070,8 @@ df.tiletype_special.attrs = {}
 ---@field [110] "TreeDeadBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
 ---@field TreeBranchNW 111 MAPTILE_TREE_BRANCH_NW
 ---@field [111] "TreeBranchNW" MAPTILE_TREE_BRANCH_NW
----@field TreeBranchNE 112 -- 0x070
----@field [112] "TreeBranchNE" -- 0x070
+---@field TreeBranchNE 112 0x070
+---@field [112] "TreeBranchNE" 0x070
 ---@field TreeBranchSW 113 MAPTILE_TREE_BRANCH_SW
 ---@field [113] "TreeBranchSW" MAPTILE_TREE_BRANCH_SW
 ---@field TreeBranchSE 114 MAPTILE_TREE_BRANCH_SE
@@ -2102,8 +2102,8 @@ df.tiletype_special.attrs = {}
 ---@field [126] "TreeCapWallSE" MAPTILE_TREE_CAP_WALL_S_E
 ---@field TreeCapFloor1 127 MAPTILE_TREE_CAP_FLOOR1
 ---@field [127] "TreeCapFloor1" MAPTILE_TREE_CAP_FLOOR1
----@field TreeCapFloor2 128 -- 0x080
----@field [128] "TreeCapFloor2" -- 0x080
+---@field TreeCapFloor2 128 0x080
+---@field [128] "TreeCapFloor2" 0x080
 ---@field TreeCapFloor3 129 MAPTILE_TREE_CAP_FLOOR3
 ---@field [129] "TreeCapFloor3" MAPTILE_TREE_CAP_FLOOR3
 ---@field TreeCapFloor4 130 MAPTILE_TREE_CAP_FLOOR4
@@ -2134,8 +2134,8 @@ df.tiletype_special.attrs = {}
 ---@field [142] "TreeDeadTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE_DEAD
 ---@field TreeDeadTrunkBranchN 143 MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
 ---@field [143] "TreeDeadTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
----@field TreeDeadTrunkBranchS 144 -- 0x090
----@field [144] "TreeDeadTrunkBranchS" -- 0x090
+---@field TreeDeadTrunkBranchS 144 0x090
+---@field [144] "TreeDeadTrunkBranchS" 0x090
 ---@field TreeDeadTrunkBranchE 145 MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
 ---@field [145] "TreeDeadTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
 ---@field TreeDeadTrunkBranchW 146 MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
@@ -2166,8 +2166,8 @@ df.tiletype_special.attrs = {}
 ---@field [158] "TreeDeadCapPillar" MAPTILE_TREE_CAP_PILLAR_DEAD
 ---@field TreeDeadCapWallN 159 MAPTILE_TREE_CAP_WALL_N_DEAD
 ---@field [159] "TreeDeadCapWallN" MAPTILE_TREE_CAP_WALL_N_DEAD
----@field TreeDeadCapWallS 160 -- 0x0A0
----@field [160] "TreeDeadCapWallS" -- 0x0A0
+---@field TreeDeadCapWallS 160 0x0A0
+---@field [160] "TreeDeadCapWallS" 0x0A0
 ---@field TreeDeadCapWallE 161 MAPTILE_TREE_CAP_WALL_E_DEAD
 ---@field [161] "TreeDeadCapWallE" MAPTILE_TREE_CAP_WALL_E_DEAD
 ---@field TreeDeadCapWallW 162 MAPTILE_TREE_CAP_WALL_W_DEAD
@@ -2198,8 +2198,8 @@ df.tiletype_special.attrs = {}
 ---@field [174] "StoneWallWorn3" MAPTILE_STONE_WALL_WORN3
 ---@field TreeBranchNSE 175 MAPTILE_TREE_BRANCH_NSE
 ---@field [175] "TreeBranchNSE" MAPTILE_TREE_BRANCH_NSE
----@field TreeBranchNSW 176 -- 0x0B0
----@field [176] "TreeBranchNSW" -- 0x0B0
+---@field TreeBranchNSW 176 0x0B0
+---@field [176] "TreeBranchNSW" 0x0B0
 ---@field TreeBranchNEW 177 MAPTILE_TREE_BRANCH_NEW
 ---@field [177] "TreeBranchNEW" MAPTILE_TREE_BRANCH_NEW
 ---@field TreeBranchSEW 178 MAPTILE_TREE_BRANCH_SEW
@@ -2230,8 +2230,8 @@ df.tiletype_special.attrs = {}
 ---@field [190] "TreeTrunkEW" MAPTILE_TREE_TRUNK_EW
 ---@field TreeTrunkNSEW 191 MAPTILE_TREE_TRUNK_NSEW
 ---@field [191] "TreeTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW
----@field TreeTrunkInterior 192 -- 0x0C0
----@field [192] "TreeTrunkInterior" -- 0x0C0
+---@field TreeTrunkInterior 192 0x0C0
+---@field [192] "TreeTrunkInterior" 0x0C0
 ---@field TreeDeadTrunkNSE 193 MAPTILE_TREE_TRUNK_NSE_DEAD
 ---@field [193] "TreeDeadTrunkNSE" MAPTILE_TREE_TRUNK_NSE_DEAD
 ---@field TreeDeadTrunkNSW 194 MAPTILE_TREE_TRUNK_NSW_DEAD
@@ -2262,8 +2262,8 @@ df.tiletype_special.attrs = {}
 ---@field [206] "TreeDeadTrunkNE" MAPTILE_TREE_TRUNK_NE_DEAD
 ---@field TreeDeadTrunkSW 207 MAPTILE_TREE_TRUNK_SW_DEAD
 ---@field [207] "TreeDeadTrunkSW" MAPTILE_TREE_TRUNK_SW_DEAD
----@field TreeDeadTrunkSE 208 -- 0x0D0
----@field [208] "TreeDeadTrunkSE" -- 0x0D0
+---@field TreeDeadTrunkSE 208 0x0D0
+---@field [208] "TreeDeadTrunkSE" 0x0D0
 ---@field TreeTrunkN 209 MAPTILE_TREE_TRUNK_N
 ---@field [209] "TreeTrunkN" MAPTILE_TREE_TRUNK_N
 ---@field TreeTrunkS 210 MAPTILE_TREE_TRUNK_S
@@ -2294,8 +2294,8 @@ df.tiletype_special.attrs = {}
 ---@field [222] "TreeDeadBranchS" MAPTILE_TREE_BRANCH_N_DEAD
 ---@field TreeDeadBranchN 223 MAPTILE_TREE_BRANCH_S_DEAD
 ---@field [223] "TreeDeadBranchN" MAPTILE_TREE_BRANCH_S_DEAD
----@field TreeDeadBranchW 224 -- 0x0E0
----@field [224] "TreeDeadBranchW" -- 0x0E0
+---@field TreeDeadBranchW 224 0x0E0
+---@field [224] "TreeDeadBranchW" 0x0E0
 ---@field TreeDeadBranchE 225 MAPTILE_TREE_BRANCH_W_DEAD
 ---@field [225] "TreeDeadBranchE" MAPTILE_TREE_BRANCH_W_DEAD
 ---@field TreeDeadCapPillarWE 226 MAPTILE_TREE_CAP_WALL_W_E_DEAD
@@ -2326,8 +2326,8 @@ df.tiletype_special.attrs = {}
 ---@field [238] "Ashes1" MAPTILE_ASH1
 ---@field Ashes2 239 MAPTILE_ASH2
 ---@field [239] "Ashes2" MAPTILE_ASH2
----@field Ashes3 240 -- 0x0F0
----@field [240] "Ashes3" -- 0x0F0
+---@field Ashes3 240 0x0F0
+---@field [240] "Ashes3" 0x0F0
 ---@field FrozenRamp 241 MAPTILE_RAMP_FROZEN_LIQUID
 ---@field [241] "FrozenRamp" MAPTILE_RAMP_FROZEN_LIQUID
 ---@field Unused8888 242 MAPTILE_UNUSED_8888
@@ -2358,8 +2358,8 @@ df.tiletype_special.attrs = {}
 ---@field [254] "FrozenFloor2" MAPTILE_FROZEN_LIQUID_1
 ---@field FrozenFloor3 255 MAPTILE_FROZEN_LIQUID_2
 ---@field [255] "FrozenFloor3" MAPTILE_FROZEN_LIQUID_2
----@field FrozenFloor4 256 -- 0x100
----@field [256] "FrozenFloor4" -- 0x100
+---@field FrozenFloor4 256 0x100
+---@field [256] "FrozenFloor4" 0x100
 ---@field FurrowedSoil 257 MAPTILE_FURROWED_SOIL
 ---@field [257] "FurrowedSoil" MAPTILE_FURROWED_SOIL
 ---@field FrozenFloor1 258 MAPTILE_FROZEN_LIQUID_0
@@ -2390,8 +2390,8 @@ df.tiletype_special.attrs = {}
 ---@field [270] "LavaWallSmoothLU2" MAPTILE_LAVASTONE_WALL_DET_LU2
 ---@field LavaWallSmoothL2D 271 MAPTILE_LAVASTONE_WALL_DET_L2D
 ---@field [271] "LavaWallSmoothL2D" MAPTILE_LAVASTONE_WALL_DET_L2D
----@field LavaWallSmoothLD2 272 -- 0x110
----@field [272] "LavaWallSmoothLD2" -- 0x110
+---@field LavaWallSmoothLD2 272 0x110
+---@field [272] "LavaWallSmoothLD2" 0x110
 ---@field LavaWallSmoothLRUD 273 MAPTILE_LAVASTONE_WALL_DET_LRUD
 ---@field [273] "LavaWallSmoothLRUD" MAPTILE_LAVASTONE_WALL_DET_LRUD
 ---@field LavaWallSmoothRUD 274 MAPTILE_LAVASTONE_WALL_DET_RUD
@@ -2422,8 +2422,8 @@ df.tiletype_special.attrs = {}
 ---@field [286] "FeatureWallSmoothR2U" MAPTILE_FEATSTONE_WALL_DET_R2U
 ---@field FeatureWallSmoothRU2 287 MAPTILE_FEATSTONE_WALL_DET_RU2
 ---@field [287] "FeatureWallSmoothRU2" MAPTILE_FEATSTONE_WALL_DET_RU2
----@field FeatureWallSmoothL2U 288 -- 0x120
----@field [288] "FeatureWallSmoothL2U" -- 0x120
+---@field FeatureWallSmoothL2U 288 0x120
+---@field [288] "FeatureWallSmoothL2U" 0x120
 ---@field FeatureWallSmoothLU2 289 MAPTILE_FEATSTONE_WALL_DET_LU2
 ---@field [289] "FeatureWallSmoothLU2" MAPTILE_FEATSTONE_WALL_DET_LU2
 ---@field FeatureWallSmoothL2D 290 MAPTILE_FEATSTONE_WALL_DET_L2D
@@ -2454,8 +2454,8 @@ df.tiletype_special.attrs = {}
 ---@field [302] "FeatureWallSmoothLR" MAPTILE_FEATSTONE_WALL_DET_LR
 ---@field StoneWallSmoothRD2 303 MAPTILE_STONE_WALL_DET_RD2
 ---@field [303] "StoneWallSmoothRD2" MAPTILE_STONE_WALL_DET_RD2
----@field StoneWallSmoothR2D 304 -- 0x130
----@field [304] "StoneWallSmoothR2D" -- 0x130
+---@field StoneWallSmoothR2D 304 0x130
+---@field [304] "StoneWallSmoothR2D" 0x130
 ---@field StoneWallSmoothR2U 305 MAPTILE_STONE_WALL_DET_R2U
 ---@field [305] "StoneWallSmoothR2U" MAPTILE_STONE_WALL_DET_R2U
 ---@field StoneWallSmoothRU2 306 MAPTILE_STONE_WALL_DET_RU2
@@ -2486,8 +2486,8 @@ df.tiletype_special.attrs = {}
 ---@field [318] "StoneWallSmoothLU" MAPTILE_STONE_WALL_DET_LU
 ---@field StoneWallSmoothLD 319 MAPTILE_STONE_WALL_DET_LD
 ---@field [319] "StoneWallSmoothLD" MAPTILE_STONE_WALL_DET_LD
----@field StoneWallSmoothUD 320 -- 0x140
----@field [320] "StoneWallSmoothUD" -- 0x140
+---@field StoneWallSmoothUD 320 0x140
+---@field [320] "StoneWallSmoothUD" 0x140
 ---@field StoneWallSmoothLR 321 MAPTILE_STONE_WALL_DET_LR
 ---@field [321] "StoneWallSmoothLR" MAPTILE_STONE_WALL_DET_LR
 ---@field LavaFortification 322 MAPTILE_LAVASTONE_FORTIFICATION
@@ -2518,8 +2518,8 @@ df.tiletype_special.attrs = {}
 ---@field [334] "StoneFloor3" MAPTILE_STONE_FLOOR3
 ---@field StoneFloor4 335 MAPTILE_STONE_FLOOR4
 ---@field [335] "StoneFloor4" MAPTILE_STONE_FLOOR4
----@field LavaFloor1 336 -- 0x150
----@field [336] "LavaFloor1" -- 0x150
+---@field LavaFloor1 336 0x150
+---@field [336] "LavaFloor1" 0x150
 ---@field LavaFloor2 337 MAPTILE_LAVASTONE_FLOOR2
 ---@field [337] "LavaFloor2" MAPTILE_LAVASTONE_FLOOR2
 ---@field LavaFloor3 338 MAPTILE_LAVASTONE_FLOOR3
@@ -2550,8 +2550,8 @@ df.tiletype_special.attrs = {}
 ---@field [350] "SoilFloor3" MAPTILE_SOIL_FLOOR3
 ---@field SoilFloor4 351 MAPTILE_SOIL_FLOOR4
 ---@field [351] "SoilFloor4" MAPTILE_SOIL_FLOOR4
----@field SoilWetFloor1 352 -- 0x160
----@field [352] "SoilWetFloor1" -- 0x160
+---@field SoilWetFloor1 352 0x160
+---@field [352] "SoilWetFloor1" 0x160
 ---@field SoilWetFloor2 353 MAPTILE_SOIL_FLOOR2_WET
 ---@field [353] "SoilWetFloor2" MAPTILE_SOIL_FLOOR2_WET
 ---@field SoilWetFloor3 354 MAPTILE_SOIL_FLOOR3_WET
@@ -2582,8 +2582,8 @@ df.tiletype_special.attrs = {}
 ---@field [366] "RiverNE" MAPTILE_RIVER_NE
 ---@field RiverSW 367 MAPTILE_RIVER_SW
 ---@field [367] "RiverSW" MAPTILE_RIVER_SW
----@field RiverSE 368 -- 0x170
----@field [368] "RiverSE" -- 0x170
+---@field RiverSE 368 0x170
+---@field [368] "RiverSE" 0x170
 ---@field BrookN 369 MAPTILE_STREAM_BED_WALL_N
 ---@field [369] "BrookN" MAPTILE_STREAM_BED_WALL_N
 ---@field BrookS 370 MAPTILE_STREAM_BED_WALL_S
@@ -2614,8 +2614,8 @@ df.tiletype_special.attrs = {}
 ---@field [382] "Unused382" MAPTILE_UNUSED_382
 ---@field GrassDryFloor1 383 MAPTILE_GRASS_FLOOR1_DRY
 ---@field [383] "GrassDryFloor1" MAPTILE_GRASS_FLOOR1_DRY
----@field GrassDryFloor2 384 -- 0x180
----@field [384] "GrassDryFloor2" -- 0x180
+---@field GrassDryFloor2 384 0x180
+---@field [384] "GrassDryFloor2" 0x180
 ---@field GrassDryFloor3 385 MAPTILE_GRASS_FLOOR3_DRY
 ---@field [385] "GrassDryFloor3" MAPTILE_GRASS_FLOOR3_DRY
 ---@field GrassDryFloor4 386 MAPTILE_GRASS_FLOOR4_DRY
@@ -2646,8 +2646,8 @@ df.tiletype_special.attrs = {}
 ---@field [398] "StoneBoulder" MAPTILE_STONE_BOULDER
 ---@field LavaBoulder 399 MAPTILE_LAVASTONE_BOULDER
 ---@field [399] "LavaBoulder" MAPTILE_LAVASTONE_BOULDER
----@field FeatureBoulder 400 -- 0x190
----@field [400] "FeatureBoulder" -- 0x190
+---@field FeatureBoulder 400 0x190
+---@field [400] "FeatureBoulder" 0x190
 ---@field StonePebbles1 401 MAPTILE_STONE_PEBBLE1
 ---@field [401] "StonePebbles1" MAPTILE_STONE_PEBBLE1
 ---@field StonePebbles2 402 MAPTILE_STONE_PEBBLE2
@@ -2676,8 +2676,8 @@ df.tiletype_special.attrs = {}
 ---@field [413] "MineralWallSmoothRD2" MAPTILE_MINSTONE_WALL_DET_RD2
 ---@field MineralWallSmoothR2D 414 MAPTILE_MINSTONE_WALL_DET_R2D
 ---@field [414] "MineralWallSmoothR2D" MAPTILE_MINSTONE_WALL_DET_R2D
----@field MineralWallSmoothR2U 415 -- 0x1A0
----@field [415] "MineralWallSmoothR2U" -- 0x1A0
+---@field MineralWallSmoothR2U 415 0x1A0
+---@field [415] "MineralWallSmoothR2U" 0x1A0
 ---@field MineralWallSmoothRU2 416 MAPTILE_MINSTONE_WALL_DET_RU2
 ---@field [416] "MineralWallSmoothRU2" MAPTILE_MINSTONE_WALL_DET_RU2
 ---@field MineralWallSmoothL2U 417 MAPTILE_MINSTONE_WALL_DET_L2U
@@ -2710,8 +2710,8 @@ df.tiletype_special.attrs = {}
 ---@field [430] "MineralWallSmoothUD" MAPTILE_MINSTONE_WALL_DET_UD
 ---@field MineralWallSmoothLR 431 MAPTILE_MINSTONE_WALL_DET_LR
 ---@field [431] "MineralWallSmoothLR" MAPTILE_MINSTONE_WALL_DET_LR
----@field MineralFortification 432 -- 0x1B0
----@field [432] "MineralFortification" -- 0x1B0
+---@field MineralFortification 432 0x1B0
+---@field [432] "MineralFortification" 0x1B0
 ---@field MineralWallWorn1 433 MAPTILE_MINSTONE_WALL_WORN1
 ---@field [433] "MineralWallWorn1" MAPTILE_MINSTONE_WALL_WORN1
 ---@field MineralWallWorn2 434 MAPTILE_MINSTONE_WALL_WORN2
@@ -2742,8 +2742,8 @@ df.tiletype_special.attrs = {}
 ---@field [446] "FrozenWallSmoothRD2" MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
 ---@field FrozenWallSmoothR2D 447 MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
 ---@field [447] "FrozenWallSmoothR2D" MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
----@field FrozenWallSmoothR2U 448 -- 0x1C0
----@field [448] "FrozenWallSmoothR2U" -- 0x1C0
+---@field FrozenWallSmoothR2U 448 0x1C0
+---@field [448] "FrozenWallSmoothR2U" 0x1C0
 ---@field FrozenWallSmoothRU2 449 MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
 ---@field [449] "FrozenWallSmoothRU2" MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
 ---@field FrozenWallSmoothL2U 450 MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
@@ -2774,8 +2774,8 @@ df.tiletype_special.attrs = {}
 ---@field [462] "FrozenWallSmoothLD" MAPTILE_FROZEN_LIQUID_WALL_DET_LD
 ---@field FrozenWallSmoothUD 463 MAPTILE_FROZEN_LIQUID_WALL_DET_UD
 ---@field [463] "FrozenWallSmoothUD" MAPTILE_FROZEN_LIQUID_WALL_DET_UD
----@field FrozenWallSmoothLR 464 -- 0x1D0
----@field [464] "FrozenWallSmoothLR" -- 0x1D0
+---@field FrozenWallSmoothLR 464 0x1D0
+---@field [464] "FrozenWallSmoothLR" 0x1D0
 ---@field RiverRampN 465 MAPTILE_RIVER_RAMP_N
 ---@field [465] "RiverRampN" MAPTILE_RIVER_RAMP_N
 ---@field RiverRampS 466 MAPTILE_RIVER_RAMP_S
@@ -2806,8 +2806,8 @@ df.tiletype_special.attrs = {}
 ---@field [478] "Unused478" MAPTILE_UNUSED_478
 ---@field Unused479 479 MAPTILE_UNUSED_479
 ---@field [479] "Unused479" MAPTILE_UNUSED_479
----@field Unused480 480 -- 0x1E0
----@field [480] "Unused480" -- 0x1E0
+---@field Unused480 480 0x1E0
+---@field [480] "Unused480" 0x1E0
 ---@field Unused481 481 MAPTILE_UNUSED_481
 ---@field [481] "Unused481" MAPTILE_UNUSED_481
 ---@field Unused482 482 MAPTILE_UNUSED_482
@@ -2838,8 +2838,8 @@ df.tiletype_special.attrs = {}
 ---@field [494] "ConstructedWallR2U" MAPTILE_CONSTRUCTED_WALL_DET_R2U
 ---@field ConstructedWallRU2 495 MAPTILE_CONSTRUCTED_WALL_DET_RU2
 ---@field [495] "ConstructedWallRU2" MAPTILE_CONSTRUCTED_WALL_DET_RU2
----@field ConstructedWallL2U 496 -- 0x1F0
----@field [496] "ConstructedWallL2U" -- 0x1F0
+---@field ConstructedWallL2U 496 0x1F0
+---@field [496] "ConstructedWallL2U" 0x1F0
 ---@field ConstructedWallLU2 497 MAPTILE_CONSTRUCTED_WALL_DET_LU2
 ---@field [497] "ConstructedWallLU2" MAPTILE_CONSTRUCTED_WALL_DET_LU2
 ---@field ConstructedWallL2D 498 MAPTILE_CONSTRUCTED_WALL_DET_L2D
@@ -2870,8 +2870,8 @@ df.tiletype_special.attrs = {}
 ---@field [510] "ConstructedWallLR" MAPTILE_CONSTRUCTED_WALL_DET_LR
 ---@field ConstructedStairUD 511 MAPTILE_STAIR_UPDOWN_CONSTRUCTED
 ---@field [511] "ConstructedStairUD" MAPTILE_STAIR_UPDOWN_CONSTRUCTED
----@field ConstructedStairD 512 -- 0x200
----@field [512] "ConstructedStairD" -- 0x200
+---@field ConstructedStairD 512 0x200
+---@field [512] "ConstructedStairD" 0x200
 ---@field ConstructedStairU 513 MAPTILE_STAIR_UP_CONSTRUCTED
 ---@field [513] "ConstructedStairU" MAPTILE_STAIR_UP_CONSTRUCTED
 ---@field ConstructedRamp 514 MAPTILE_RAMP_CONSTRUCTED
@@ -2902,8 +2902,8 @@ df.tiletype_special.attrs = {}
 ---@field [526] "StoneFloorTrackNSW" MAPTILE_STONE_TRACK_NSW
 ---@field StoneFloorTrackNEW 527 MAPTILE_STONE_TRACK_NEW
 ---@field [527] "StoneFloorTrackNEW" MAPTILE_STONE_TRACK_NEW
----@field StoneFloorTrackSEW 528 -- 0x210
----@field [528] "StoneFloorTrackSEW" -- 0x210
+---@field StoneFloorTrackSEW 528 0x210
+---@field [528] "StoneFloorTrackSEW" 0x210
 ---@field StoneFloorTrackNSEW 529 MAPTILE_STONE_TRACK_NSEW
 ---@field [529] "StoneFloorTrackNSEW" MAPTILE_STONE_TRACK_NSEW
 ---@field LavaFloorTrackN 530 MAPTILE_LAVASTONE_TRACK_N
@@ -2934,8 +2934,8 @@ df.tiletype_special.attrs = {}
 ---@field [542] "LavaFloorTrackNEW" MAPTILE_LAVASTONE_TRACK_NEW
 ---@field LavaFloorTrackSEW 543 MAPTILE_LAVASTONE_TRACK_SEW
 ---@field [543] "LavaFloorTrackSEW" MAPTILE_LAVASTONE_TRACK_SEW
----@field LavaFloorTrackNSEW 544 -- 0x220
----@field [544] "LavaFloorTrackNSEW" -- 0x220
+---@field LavaFloorTrackNSEW 544 0x220
+---@field [544] "LavaFloorTrackNSEW" 0x220
 ---@field FeatureFloorTrackN 545 MAPTILE_FEATSTONE_TRACK_N
 ---@field [545] "FeatureFloorTrackN" MAPTILE_FEATSTONE_TRACK_N
 ---@field FeatureFloorTrackS 546 MAPTILE_FEATSTONE_TRACK_S
@@ -2966,8 +2966,8 @@ df.tiletype_special.attrs = {}
 ---@field [558] "FeatureFloorTrackSEW" MAPTILE_FEATSTONE_TRACK_SEW
 ---@field FeatureFloorTrackNSEW 559 MAPTILE_FEATSTONE_TRACK_NSEW
 ---@field [559] "FeatureFloorTrackNSEW" MAPTILE_FEATSTONE_TRACK_NSEW
----@field MineralFloorTrackN 560 -- 0x230
----@field [560] "MineralFloorTrackN" -- 0x230
+---@field MineralFloorTrackN 560 0x230
+---@field [560] "MineralFloorTrackN" 0x230
 ---@field MineralFloorTrackS 561 MAPTILE_MINSTONE_TRACK_S
 ---@field [561] "MineralFloorTrackS" MAPTILE_MINSTONE_TRACK_S
 ---@field MineralFloorTrackE 562 MAPTILE_MINSTONE_TRACK_E
@@ -2998,8 +2998,8 @@ df.tiletype_special.attrs = {}
 ---@field [574] "MineralFloorTrackNSEW" MAPTILE_MINSTONE_TRACK_NSEW
 ---@field FrozenFloorTrackN 575 MAPTILE_FROZEN_LIQUID_TRACK_N
 ---@field [575] "FrozenFloorTrackN" MAPTILE_FROZEN_LIQUID_TRACK_N
----@field FrozenFloorTrackS 576 -- 0x240
----@field [576] "FrozenFloorTrackS" -- 0x240
+---@field FrozenFloorTrackS 576 0x240
+---@field [576] "FrozenFloorTrackS" 0x240
 ---@field FrozenFloorTrackE 577 MAPTILE_FROZEN_LIQUID_TRACK_E
 ---@field [577] "FrozenFloorTrackE" MAPTILE_FROZEN_LIQUID_TRACK_E
 ---@field FrozenFloorTrackW 578 MAPTILE_FROZEN_LIQUID_TRACK_W
@@ -3030,8 +3030,8 @@ df.tiletype_special.attrs = {}
 ---@field [590] "ConstructedFloorTrackN" MAPTILE_CONSTRUCTED_TRACK_N
 ---@field ConstructedFloorTrackS 591 MAPTILE_CONSTRUCTED_TRACK_S
 ---@field [591] "ConstructedFloorTrackS" MAPTILE_CONSTRUCTED_TRACK_S
----@field ConstructedFloorTrackE 592 -- 0x250
----@field [592] "ConstructedFloorTrackE" -- 0x250
+---@field ConstructedFloorTrackE 592 0x250
+---@field [592] "ConstructedFloorTrackE" 0x250
 ---@field ConstructedFloorTrackW 593 MAPTILE_CONSTRUCTED_TRACK_W
 ---@field [593] "ConstructedFloorTrackW" MAPTILE_CONSTRUCTED_TRACK_W
 ---@field ConstructedFloorTrackNS 594 MAPTILE_CONSTRUCTED_TRACK_NS
@@ -3062,8 +3062,8 @@ df.tiletype_special.attrs = {}
 ---@field [606] "StoneRampTrackS" MAPTILE_RAMP_STONE_TRACK_S
 ---@field StoneRampTrackE 607 MAPTILE_RAMP_STONE_TRACK_E
 ---@field [607] "StoneRampTrackE" MAPTILE_RAMP_STONE_TRACK_E
----@field StoneRampTrackW 608 -- 0x260
----@field [608] "StoneRampTrackW" -- 0x260
+---@field StoneRampTrackW 608 0x260
+---@field [608] "StoneRampTrackW" 0x260
 ---@field StoneRampTrackNS 609 MAPTILE_RAMP_STONE_TRACK_NS
 ---@field [609] "StoneRampTrackNS" MAPTILE_RAMP_STONE_TRACK_NS
 ---@field StoneRampTrackNE 610 MAPTILE_RAMP_STONE_TRACK_NE
@@ -3094,8 +3094,8 @@ df.tiletype_special.attrs = {}
 ---@field [622] "LavaRampTrackE" MAPTILE_RAMP_LAVASTONE_TRACK_E
 ---@field LavaRampTrackW 623 MAPTILE_RAMP_LAVASTONE_TRACK_W
 ---@field [623] "LavaRampTrackW" MAPTILE_RAMP_LAVASTONE_TRACK_W
----@field LavaRampTrackNS 624 -- 0x270
----@field [624] "LavaRampTrackNS" -- 0x270
+---@field LavaRampTrackNS 624 0x270
+---@field [624] "LavaRampTrackNS" 0x270
 ---@field LavaRampTrackNE 625 MAPTILE_RAMP_LAVASTONE_TRACK_NE
 ---@field [625] "LavaRampTrackNE" MAPTILE_RAMP_LAVASTONE_TRACK_NE
 ---@field LavaRampTrackNW 626 MAPTILE_RAMP_LAVASTONE_TRACK_NW
@@ -3126,8 +3126,8 @@ df.tiletype_special.attrs = {}
 ---@field [638] "FeatureRampTrackW" MAPTILE_RAMP_FEATSTONE_TRACK_W
 ---@field FeatureRampTrackNS 639 MAPTILE_RAMP_FEATSTONE_TRACK_NS
 ---@field [639] "FeatureRampTrackNS" MAPTILE_RAMP_FEATSTONE_TRACK_NS
----@field FeatureRampTrackNE 640 -- 0x280
----@field [640] "FeatureRampTrackNE" -- 0x280
+---@field FeatureRampTrackNE 640 0x280
+---@field [640] "FeatureRampTrackNE" 0x280
 ---@field FeatureRampTrackNW 641 MAPTILE_RAMP_FEATSTONE_TRACK_NW
 ---@field [641] "FeatureRampTrackNW" MAPTILE_RAMP_FEATSTONE_TRACK_NW
 ---@field FeatureRampTrackSE 642 MAPTILE_RAMP_FEATSTONE_TRACK_SE
@@ -3158,8 +3158,8 @@ df.tiletype_special.attrs = {}
 ---@field [654] "MineralRampTrackNS" MAPTILE_RAMP_MINSTONE_TRACK_NS
 ---@field MineralRampTrackNE 655 MAPTILE_RAMP_MINSTONE_TRACK_NE
 ---@field [655] "MineralRampTrackNE" MAPTILE_RAMP_MINSTONE_TRACK_NE
----@field MineralRampTrackNW 656 -- 0x290
----@field [656] "MineralRampTrackNW" -- 0x290
+---@field MineralRampTrackNW 656 0x290
+---@field [656] "MineralRampTrackNW" 0x290
 ---@field MineralRampTrackSE 657 MAPTILE_RAMP_MINSTONE_TRACK_SE
 ---@field [657] "MineralRampTrackSE" MAPTILE_RAMP_MINSTONE_TRACK_SE
 ---@field MineralRampTrackSW 658 MAPTILE_RAMP_MINSTONE_TRACK_SW
@@ -3190,8 +3190,8 @@ df.tiletype_special.attrs = {}
 ---@field [670] "FrozenRampTrackNE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
 ---@field FrozenRampTrackNW 671 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
 ---@field [671] "FrozenRampTrackNW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
----@field FrozenRampTrackSE 672 -- 0x2A0
----@field [672] "FrozenRampTrackSE" -- 0x2A0
+---@field FrozenRampTrackSE 672 0x2A0
+---@field [672] "FrozenRampTrackSE" 0x2A0
 ---@field FrozenRampTrackSW 673 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
 ---@field [673] "FrozenRampTrackSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
 ---@field FrozenRampTrackEW 674 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
@@ -3222,8 +3222,8 @@ df.tiletype_special.attrs = {}
 ---@field [686] "ConstructedRampTrackNW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
 ---@field ConstructedRampTrackSE 687 MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
 ---@field [687] "ConstructedRampTrackSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
----@field ConstructedRampTrackSW 688 -- 0x2B0
----@field [688] "ConstructedRampTrackSW" -- 0x2B0
+---@field ConstructedRampTrackSW 688 0x2B0
+---@field [688] "ConstructedRampTrackSW" 0x2B0
 ---@field ConstructedRampTrackEW 689 MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
 ---@field [689] "ConstructedRampTrackEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
 ---@field ConstructedRampTrackNSE 690 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
@@ -3247,7 +3247,7 @@ df.tiletype = {}
 df.tiletype._attr_entry_type = {}
 
 ---@class (exact) tiletype_attr_entry_type_fields
----@field caption DFCompoundField -- Declare attributes:
+---@field caption DFCompoundField Declare attributes:
 ---@field shape DFCompoundField
 ---@field material DFCompoundField
 ---@field variant DFCompoundField

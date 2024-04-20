@@ -569,7 +569,7 @@ function building_relations:insert(index, item) end
 ---@param index integer 
 function building_relations:erase(index) end
 
--- -- stockpile --
+-- stockpile --
 ---@class (exact) stockpile_links: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_links
@@ -698,7 +698,7 @@ function building_stockpilest_linked_stops:insert(index, item) end
 ---@param index integer 
 function building_stockpilest_linked_stops:erase(index) end
 
--- -- zone --
+-- zone --
 ---@class (exact) hospital_supplies: DFObject
 ---@field _kind 'struct'
 ---@field _type _hospital_supplies
@@ -1146,7 +1146,6 @@ df.civzone_type = {}
 ---@field is_active number 0 is paused, 8 is active
 ---@field zone_num number
 ---@field zone_settings building_civzonest.T_zone_settings
----@field number DFNumberVector
 ---@field contained_buildings building_civzonest_contained_buildings includes eg workshops and beds
 ---@field assigned_unit_id number
 ---@field assigned_unit unit
@@ -1282,7 +1281,7 @@ function building_civzonest_contained_buildings:erase(index) end
 ---| building_item_role_type_keys
 ---| building_item_role_type_values
 
--- -- actual --
+-- actual --
 ---@class _building_item_role_type: DFEnum
 ---@field TEMP 0
 ---@field [0] "TEMP"
@@ -1364,7 +1363,7 @@ df.building_design.T_flags = {}
 ---| furnace_type_keys
 ---| furnace_type_values
 
--- -- workshops --
+-- workshops --
 ---@class _furnace_type: DFEnum
 ---@field WoodFurnace 0
 ---@field [0] "WoodFurnace"
@@ -1590,7 +1589,7 @@ df.workshop_profile = {}
 ---@field _kind 'class-type'
 df.building_workshopst = {}
 
--- -- misc --
+-- misc --
 ---@class (exact) building_animaltrapst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_animaltrapst
@@ -2629,7 +2628,15 @@ df.building_window_gemst = {}
 ---| dfhack_room_quality_level_keys
 ---| dfhack_room_quality_level_values
 
--- Not in DF<br>Royal Throne Room   | Royal Bedroom   | Royal Dining Room  | Royal Mausoleum<br>Opulent Throne Room | Grand Bedroom   | Grand Dining Room  | Grand Mausoleum<br>Throne Room         | Great Bedroom   | Great Dining Room  | Mausoleum<br>Splendid Office     | Fine Quarters   | Fine Dining Room   | Fine Tomb<br>Decent Office       | Decent Quarters | Decent Dining Room | Tomb<br>Office              | Quarters        | Dining Room        | Burial Chamber<br>Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber<br>Meager Office       | Meager Quarters | Meager Dining Room | Grave
+-- Not in DF
+-- Royal Throne Room   | Royal Bedroom   | Royal Dining Room  | Royal Mausoleum
+-- Opulent Throne Room | Grand Bedroom   | Grand Dining Room  | Grand Mausoleum
+-- Throne Room         | Great Bedroom   | Great Dining Room  | Mausoleum
+-- Splendid Office     | Fine Quarters   | Fine Dining Room   | Fine Tomb
+-- Decent Office       | Decent Quarters | Decent Dining Room | Tomb
+-- Office              | Quarters        | Dining Room        | Burial Chamber
+-- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
+-- Meager Office       | Meager Quarters | Meager Dining Room | Grave
 ---@class _dfhack_room_quality_level: DFEnum
 ---@field Meager 0
 ---@field [0] "Meager"

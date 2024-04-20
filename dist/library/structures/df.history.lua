@@ -4,8 +4,8 @@
 ---@class (exact) historical_kills: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_kills
----@field events DFNumberVector -- Important
----@field killed_race DFNumberVector -- Misc
+---@field events DFNumberVector Important
+---@field killed_race DFNumberVector Misc
 ---@field killed_caste DFNumberVector
 ---@field killed_underground_region DFNumberVector
 ---@field killed_region DFNumberVector
@@ -41,7 +41,7 @@ function historical_kills_killed_undead:erase(index) end
 ---@field item_subtype number
 ---@field mattype number References: `material`
 ---@field matindex number
----@field shooter_item number -- If shot by a ranged weapon: References: `item`
+---@field shooter_item number If shot by a ranged weapon: References: `item`
 ---@field shooter_item_type item_type
 ---@field shooter_item_subtype number
 ---@field shooter_mattype number References: `material`
@@ -851,8 +851,8 @@ df.histfig_flags = {}
 ---| histfig_relationship_type_values
 
 ---@class _histfig_relationship_type: DFEnum
----@field None -1 -- Can be checked through viewscreen_layer_unit_relationshipst
----@field [-1] "None" -- Can be checked through viewscreen_layer_unit_relationshipst
+---@field None -1 Can be checked through viewscreen_layer_unit_relationshipst
+---@field [-1] "None" Can be checked through viewscreen_layer_unit_relationshipst
 ---@field Mother 0
 ---@field [0] "Mother"
 ---@field Father 1
@@ -873,8 +873,8 @@ df.histfig_flags = {}
 ---@field [8] "SonEldest3"
 ---@field SonEldest4 9
 ---@field [9] "SonEldest4"
----@field SonEldest5 10 --  10
----@field [10] "SonEldest5" --  10
+---@field SonEldest5 10 10
+---@field [10] "SonEldest5" 10
 ---@field SonEldest6 11
 ---@field [11] "SonEldest6"
 ---@field SonEldest7 12
@@ -893,8 +893,8 @@ df.histfig_flags = {}
 ---@field [18] "SonOnly"
 ---@field DaughterEldest 19
 ---@field [19] "DaughterEldest"
----@field DaughterEldest2 20 --  20
----@field [20] "DaughterEldest2" --  20
+---@field DaughterEldest2 20 20
+---@field [20] "DaughterEldest2" 20
 ---@field DaughterEldest3 21
 ---@field [21] "DaughterEldest3"
 ---@field DaughterEldest4 22
@@ -913,8 +913,8 @@ df.histfig_flags = {}
 ---@field [28] "DaughterEldest10"
 ---@field Daughter 29
 ---@field [29] "Daughter"
----@field DaughterOnly 30 --  30
----@field [30] "DaughterOnly" --  30
+---@field DaughterOnly 30 30
+---@field [30] "DaughterOnly" 30
 ---@field DaughterYoungest 31
 ---@field [31] "DaughterYoungest"
 ---@field ChildEldest 32
@@ -933,8 +933,8 @@ df.histfig_flags = {}
 ---@field [38] "ChildEldest7"
 ---@field ChildEldest8 39
 ---@field [39] "ChildEldest8"
----@field ChildEldest9 40 --  40
----@field [40] "ChildEldest9" --  40
+---@field ChildEldest9 40 40
+---@field [40] "ChildEldest9" 40
 ---@field ChildEldest10 41
 ---@field [41] "ChildEldest10"
 ---@field Child 42
@@ -953,8 +953,8 @@ df.histfig_flags = {}
 ---@field [48] "MaternalGrandfather"
 ---@field Grandmother 49
 ---@field [49] "Grandmother"
----@field Grandfather 50 --  50
----@field [50] "Grandfather" --  50
+---@field Grandfather 50 50
+---@field [50] "Grandfather" 50
 ---@field Grandparent 51
 ---@field [51] "Grandparent"
 ---@field OlderBrother 52
@@ -973,8 +973,8 @@ df.histfig_flags = {}
 ---@field [58] "Cousin"
 ---@field Aunt 59
 ---@field [59] "Aunt"
----@field Uncle 60 --  60
----@field [60] "Uncle" --  60
+---@field Uncle 60 60
+---@field [60] "Uncle" 60
 ---@field Niece 61
 ---@field [61] "Niece"
 ---@field Nephew 62
@@ -993,8 +993,8 @@ df.histfig_flags = {}
 ---@field [68] "YoungerHalfBrother"
 ---@field YoungerHalfSister 69
 ---@field [69] "YoungerHalfSister"
----@field YoungerHalfSibling 70 --  70
----@field [70] "YoungerHalfSibling" --  70
+---@field YoungerHalfSibling 70 70
+---@field [70] "YoungerHalfSibling" 70
 ---@field HalfSibling 71
 ---@field [71] "HalfSibling"
 df.histfig_relationship_type = {}
@@ -1163,7 +1163,7 @@ df.vague_relationship_type = {}
 ---@field unk_v47_4 number
 ---@field unk_v4019_1 number
 ---@field unk_5 number
----@field pool_id integer -- protected --
+---@field pool_id integer protected --
 
 ---@class _historical_figure: DFCompound
 ---@field _kind 'struct-type'
@@ -2373,8 +2373,8 @@ df.history_event_type = {}
 ---@field [8] "provide_opportunities_for_courage"
 ---@field bring_death_to_the_world 9
 ---@field [9] "bring_death_to_the_world"
----@field liked_appearance 10 -- 10
----@field [10] "liked_appearance" -- 10
+---@field liked_appearance 10 10
+---@field [10] "liked_appearance" 10
 ---@field because_it_was_destined 11
 ---@field [11] "because_it_was_destined"
 ---@field great_fortresses_built_and_tested 12
@@ -2393,8 +2393,8 @@ df.history_event_type = {}
 ---@field [18] "bring_torture_to_the_world"
 ---@field provide_opportunities_for_acts_of_valor 19
 ---@field [19] "provide_opportunities_for_acts_of_valor"
----@field bring_war_to_the_world 20 -- 20
----@field [20] "bring_war_to_the_world" -- 20
+---@field bring_war_to_the_world 20 20
+---@field [20] "bring_war_to_the_world" 20
 ---@field find_relative 21
 ---@field [21] "find_relative"
 ---@field offer_condolences 22
@@ -2413,8 +2413,8 @@ df.history_event_type = {}
 ---@field [28] "vent_at_boss"
 ---@field cry_on_boss 29
 ---@field [29] "cry_on_boss"
----@field should_have_reached_goal 30 -- 30
----@field [30] "should_have_reached_goal" -- 30
+---@field should_have_reached_goal 30 30
+---@field [30] "should_have_reached_goal" 30
 ---@field insufficient_progress_toward_goal 31
 ---@field [31] "insufficient_progress_toward_goal"
 ---@field going_wrong_direction 32
@@ -2433,8 +2433,8 @@ df.history_event_type = {}
 ---@field [38] "adopted"
 ---@field true_name_invocation 39
 ---@field [39] "true_name_invocation"
----@field arrived_at_person 40 -- 40
----@field [40] "arrived_at_person" -- 40
+---@field arrived_at_person 40 40
+---@field [40] "arrived_at_person" 40
 ---@field eradicate_beasts 41
 ---@field [41] "eradicate_beasts"
 ---@field entertain_people 42
@@ -2453,8 +2453,8 @@ df.history_event_type = {}
 ---@field [48] "become_citizen"
 ---@field prefers_working_alone 49
 ---@field [49] "prefers_working_alone"
----@field jealousy 50 -- 50
----@field [50] "jealousy" -- 50
+---@field jealousy 50 50
+---@field [50] "jealousy" 50
 ---@field glorify_hf 51
 ---@field [51] "glorify_hf"
 ---@field have_not_performed 52
@@ -2473,8 +2473,8 @@ df.history_event_type = {}
 ---@field [58] "drink"
 ---@field admire_architecture 59
 ---@field [59] "admire_architecture"
----@field pray 60 -- 60
----@field [60] "pray" -- 60
+---@field pray 60 60
+---@field [60] "pray" 60
 ---@field relax 61
 ---@field [61] "relax"
 ---@field danger 62
@@ -2493,8 +2493,8 @@ df.history_event_type = {}
 ---@field [68] "unable_to_leave_location"
 ---@field sanctify_hf 69
 ---@field [69] "sanctify_hf"
----@field artifact_is_heirloom_of_family_hfid 70 -- 70
----@field [70] "artifact_is_heirloom_of_family_hfid" -- 70
+---@field artifact_is_heirloom_of_family_hfid 70 70
+---@field [70] "artifact_is_heirloom_of_family_hfid" 70
 ---@field cement_bonds_of_friendship 71
 ---@field [71] "cement_bonds_of_friendship"
 ---@field as_a_symbol_of_everlasting_peace 72
@@ -2513,8 +2513,8 @@ df.history_event_type = {}
 ---@field [78] "fear_of_persecution" The ones below were introduced in 0.47.01 as well
 ---@field smooth_operation 79
 ---@field [79] "smooth_operation"
----@field nuance_belief 80 -- 80
----@field [80] "nuance_belief" -- 80
+---@field nuance_belief 80 80
+---@field [80] "nuance_belief" 80
 ---@field shared_interest 81
 ---@field [81] "shared_interest"
 ---@field envy_living 82
@@ -2533,8 +2533,8 @@ df.history_event_type = {}
 ---@field [88] "death_ambition"
 ---@field lack_of_funds 89
 ---@field [89] "lack_of_funds"
----@field battle_losses 90 -- 90
----@field [90] "battle_losses" -- 90
+---@field battle_losses 90 90
+---@field [90] "battle_losses" 90
 ---@field conviction_exile 91
 ---@field [91] "conviction_exile"
 ---@field priest_vent 92
@@ -2852,6 +2852,7 @@ df.architectural_element = {}
 ---@field [0] "hidden" event is hidden from legends mode when this is set
 df.history_event_flags = {}
 
+-- regular if bit not set
 ---@class merc_role_type: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _merc_role_type
@@ -5542,6 +5543,7 @@ df.history_event_entity_equipment_purchasest = {}
 ---@field _kind 'class-type'
 df.history_event_modified_buildingst = {}
 
+-- always 12?
 ---@class history_event_modified_buildingst.T_modification: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _history_event_modified_buildingst.T_modification
