@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---@class df
 df = {}
@@ -26,8 +26,9 @@ function dfhack.printerr(message) end
 function dfhack.script_help(script_name, extension) end
 
 ---@param message string
----@param level integer
-function dfhack.error(message, level) end
+---@param level? integer
+---@param verbose? boolean
+function dfhack.error(message, level, verbose) end
 
 ---@param message string
 ---@param level? integer
@@ -45,99 +46,11 @@ function printall_recursive(object) end
 ---@return table
 function copyall(table) end
 
----@param pos coord
----@return integer x
----@return integer y
----@return integer z
-function pos2xyz(pos) end
-
----@param x integer
----@param y integer
----@param z integer
----@return coord
-function xyz2pos(x, y, z) end
-
----@param a coord
----@param b coord
----@return boolean
-function same_xyz(a, b) end
-
----@param path coord_path
----@param i integer
----@return integer x
----@return integer y
----@return integer z
-function get_path_xyz(path, i) end
-
----@param pos coord2d
----@return integer x
----@return integer y
-function pos2xy(pos) end
-
----@param x integer
----@param y integer
----@return coord2d
-function xy2pos(x, y) end
-
----@param a coord2d
----@param b coord2d
----@return boolean
-function same_xy(a, b) end
-
----@param path coord2d_path
----@param i integer
----@return coord2d
-function get_path_xy(path, i) end
-
 ---Walks a sequence of dereferences, which may be represented by numbers or strings. Returns nil if any of obj or indices is nil, or a numeric index is out of array bounds.
 ---@param object table
 ---@param index integer|string
 ---@param ... integer|string
 function safe_index(object, index, ...) end
-
----If the Lua table t doesn’t include the specified key, t[key] is set to the value of default_value, which defaults to {} if not set. The new or existing value of t[key] is then returned.
----@generic T
----@param t `T`
----@param key integer|string
----@param default_value? any
----@return table T
-function ensure_key(t, key, default_value) end
-
----@param prefix string
----@return boolean
-function string:startswith(prefix) end
-
----@param suffix string
----@return boolean
-function string:endswith(suffix) end
-
----Split a string by the given delimiter. If no delimiter is specified, space
----(' ') is used. The delimter is treated as a pattern unless a <plain> is
----specified and set to true. To treat multiple successive delimiter characters
----as a single delimiter, e.g. to avoid getting empty string elements, pass a
----pattern like ' +'. Be aware that passing patterns that match empty strings
----(like ' *') will result in improper string splits.
----@param delimiter? string
----@param plain? string
----@return string[]
-function string:split(delimiter, plain) end
-
----Removes spaces (i.e. everything that matches '%s') from the start and end of
----a string. Spaces between non-space characters are left untouched.
----@return string
-function string:trim() end
-
----Inserts newlines into a string so no individual line exceeds the given width.
----Lines are split at space-separated word boundaries. Any existing newlines are
----kept in place. If a single word is longer than width, it is split over
----multiple lines. If width is not specified, 72 is used.
----@param width integer
----@return string
-function string:wrap(width) end
-
----@return string
--- Escapes regex special chars in a string. E.g. "a+b" -> "a%+b"
-function string:escape_pattern() end
 
 dfhack.gui = {}
 
@@ -506,7 +419,7 @@ function dfhack.units.getPhysicalAttrValue(unit, attr_type) end
 function dfhack.units.getMentalAttrValue(unit, attr_type) end
 
 ---@param unit unit
----@param type _misc_trait_type References: misc_trait_type
+---@param type misc_trait_type References: misc_trait_type
 ---@param create? boolean
 ---@return unit_misc_trait
 function dfhack.units.getMiscTrait(unit, type, create) end

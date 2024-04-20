@@ -1,0 +1,3957 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@alias tiletype_shape_basic_keys
+---| '"None"'
+---| '"Open"'
+---| '"Floor"'
+---| '"Ramp"'
+---| '"Wall"'
+---| '"Stair"'
+
+---@alias tiletype_shape_basic_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+
+---@alias tiletype_shape_basic
+---| tiletype_shape_basic_keys
+---| tiletype_shape_basic_values
+
+-- Basic tile shape (not in DF)
+---@class _tiletype_shape_basic: DFEnum
+---@field None -1
+---@field [-1] "None"
+---@field Open 0
+---@field [0] "Open"
+---@field Floor 1
+---@field [1] "Floor"
+---@field Ramp 2
+---@field [2] "Ramp"
+---@field Wall 3
+---@field [3] "Wall"
+---@field Stair 4
+---@field [4] "Stair"
+df.tiletype_shape_basic = {}
+
+---@alias tiletype_shape_keys
+---| '"NONE"'
+---| '"EMPTY"'
+---| '"FLOOR"'
+---| '"BOULDER"'
+---| '"PEBBLES"'
+---| '"WALL"'
+---| '"FORTIFICATION"'
+---| '"STAIR_UP"'
+---| '"STAIR_DOWN"'
+---| '"STAIR_UPDOWN"'
+---| '"RAMP"'
+---| '"RAMP_TOP"'
+---| '"BROOK_BED"'
+---| '"BROOK_TOP"'
+---| '"BRANCH"'
+---| '"TRUNK_BRANCH"'
+---| '"TWIG"'
+---| '"SAPLING"'
+---| '"SHRUB"'
+---| '"ENDLESS_PIT"'
+
+---@alias tiletype_shape_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+
+---@alias tiletype_shape
+---| tiletype_shape_keys
+---| tiletype_shape_values
+
+-- Tile shape (not in DF)
+---@class _tiletype_shape: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field EMPTY 0
+---@field [0] "EMPTY"
+---@field FLOOR 1
+---@field [1] "FLOOR"
+---@field BOULDER 2
+---@field [2] "BOULDER"
+---@field PEBBLES 3
+---@field [3] "PEBBLES"
+---@field WALL 4
+---@field [4] "WALL"
+---@field FORTIFICATION 5
+---@field [5] "FORTIFICATION"
+---@field STAIR_UP 6
+---@field [6] "STAIR_UP"
+---@field STAIR_DOWN 7
+---@field [7] "STAIR_DOWN"
+---@field STAIR_UPDOWN 8
+---@field [8] "STAIR_UPDOWN"
+---@field RAMP 9
+---@field [9] "RAMP"
+---@field RAMP_TOP 10
+---@field [10] "RAMP_TOP"
+---@field BROOK_BED 11
+---@field [11] "BROOK_BED"
+---@field BROOK_TOP 12
+---@field [12] "BROOK_TOP"
+---@field BRANCH 13
+---@field [13] "BRANCH"
+---@field TRUNK_BRANCH 14
+---@field [14] "TRUNK_BRANCH"
+---@field TWIG 15
+---@field [15] "TWIG"
+---@field SAPLING 16
+---@field [16] "SAPLING"
+---@field SHRUB 17
+---@field [17] "SHRUB"
+---@field ENDLESS_PIT 18
+---@field [18] "ENDLESS_PIT"
+df.tiletype_shape = {}
+
+---@class tiletype_shape_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.tiletype_shape._attr_entry_type = {}
+
+---@class (exact) tiletype_shape_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field basic_shape DFCompoundField
+---@field passable_low DFCompoundField tile is missing a floor
+---@field passable_high DFCompoundField tile is missing a roof
+---@field passable_flow DFCompoundField tile is non-solid
+---@field passable_flow_down DFCompoundField floor is non-solid
+---@field walkable DFCompoundField can be stood upon
+---@field walkable_up DFCompoundField can walk to ceiling
+df.tiletype_shape._attr_entry_type._fields = {}
+
+---@class tiletype_shape_attrs
+---@field NONE { basic_shape: "None", passable_low: "false", passable_high: "false", passable_flow: "false", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field EMPTY { basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field FLOOR { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field BOULDER { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field PEBBLES { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field WALL { basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "false", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field FORTIFICATION { basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field STAIR_UP { basic_shape: "Stair", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "true" }
+---@field STAIR_DOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field STAIR_UPDOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "true" }
+---@field RAMP { caption: "ramps have no direction", basic_shape: "Ramp", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "true" }
+---@field RAMP_TOP { caption: "used for pathing?", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field BROOK_BED { caption: "mineable, water-passable rock on the bottom of a brook", basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field BROOK_TOP { caption: "water-passable floor on top of BROOK_BED tiles", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field BRANCH { caption: "small tree branch", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field TRUNK_BRANCH { caption: "large tree branch", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field TWIG { caption: "tiny tree branch, not strong enough to support creatures", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field SAPLING { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field SHRUB { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field ENDLESS_PIT { caption: "a fake endless pit", basic_shape: "Open", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+df.tiletype_shape.attrs = {}
+
+---@alias tiletype_material_keys
+---| '"NONE"'
+---| '"AIR"'
+---| '"SOIL"'
+---| '"STONE"'
+---| '"FEATURE"'
+---| '"LAVA_STONE"'
+---| '"MINERAL"'
+---| '"FROZEN_LIQUID"'
+---| '"CONSTRUCTION"'
+---| '"GRASS_LIGHT"'
+---| '"GRASS_DARK"'
+---| '"GRASS_DRY"'
+---| '"GRASS_DEAD"'
+---| '"PLANT"'
+---| '"HFS"'
+---| '"CAMPFIRE"'
+---| '"FIRE"'
+---| '"ASHES"'
+---| '"MAGMA"'
+---| '"DRIFTWOOD"'
+---| '"POOL"'
+---| '"BROOK"'
+---| '"RIVER"'
+---| '"ROOT"'
+---| '"TREE"'
+---| '"MUSHROOM"'
+---| '"UNDERWORLD_GATE"'
+
+---@alias tiletype_material_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+
+---@alias tiletype_material
+---| tiletype_material_keys
+---| tiletype_material_values
+
+-- Tile material (not in DF)
+---@class _tiletype_material: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field AIR 0
+---@field [0] "AIR"
+---@field SOIL 1
+---@field [1] "SOIL"
+---@field STONE 2
+---@field [2] "STONE"
+---@field FEATURE 3
+---@field [3] "FEATURE"
+---@field LAVA_STONE 4
+---@field [4] "LAVA_STONE"
+---@field MINERAL 5
+---@field [5] "MINERAL"
+---@field FROZEN_LIQUID 6
+---@field [6] "FROZEN_LIQUID"
+---@field CONSTRUCTION 7
+---@field [7] "CONSTRUCTION"
+---@field GRASS_LIGHT 8
+---@field [8] "GRASS_LIGHT"
+---@field GRASS_DARK 9
+---@field [9] "GRASS_DARK"
+---@field GRASS_DRY 10
+---@field [10] "GRASS_DRY"
+---@field GRASS_DEAD 11
+---@field [11] "GRASS_DEAD"
+---@field PLANT 12
+---@field [12] "PLANT"
+---@field HFS 13
+---@field [13] "HFS"
+---@field CAMPFIRE 14
+---@field [14] "CAMPFIRE"
+---@field FIRE 15
+---@field [15] "FIRE"
+---@field ASHES 16
+---@field [16] "ASHES"
+---@field MAGMA 17
+---@field [17] "MAGMA"
+---@field DRIFTWOOD 18
+---@field [18] "DRIFTWOOD"
+---@field POOL 19
+---@field [19] "POOL"
+---@field BROOK 20
+---@field [20] "BROOK"
+---@field RIVER 21
+---@field [21] "RIVER"
+---@field ROOT 22
+---@field [22] "ROOT"
+---@field TREE 23
+---@field [23] "TREE"
+---@field MUSHROOM 24
+---@field [24] "MUSHROOM"
+---@field UNDERWORLD_GATE 25
+---@field [25] "UNDERWORLD_GATE"
+df.tiletype_material = {}
+
+---@class tiletype_material_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.tiletype_material._attr_entry_type = {}
+
+---@class (exact) tiletype_material_attr_entry_type_fields
+---@field caption DFCompoundField
+df.tiletype_material._attr_entry_type._fields = {}
+
+---@class tiletype_material_attrs
+---@field AIR { caption: "empty" }
+---@field SOIL { caption: "ordinary soil. material depends on geology" }
+---@field STONE { caption: "ordinary layer stone. material depends on geology" }
+---@field FEATURE { caption: "map special stone. used for things like hell, curious structures, or adamantine tubes. material depends on local/global special" }
+---@field LAVA_STONE { caption: "lava stone created by mixing magma and water" }
+---@field MINERAL { caption: "vein stone. material depends on mineral veins present" }
+---@field FROZEN_LIQUID { caption: "frozen liquid. material depends on ice vein present (which also indicates what was on the tile before it froze)" }
+---@field CONSTRUCTION { caption: "material depends on the construction present" }
+---@field GRASS_LIGHT { caption: "light grass" }
+---@field GRASS_DARK { caption: "dark grass" }
+---@field GRASS_DRY { caption: "dry grass" }
+---@field GRASS_DEAD { caption: "dead grass" }
+---@field PLANT { caption: "plant" }
+---@field HFS { caption: "the stuff glowing barriers/floors and eerie pits are made of - this makes them different from ordinary walls/floors and chasms" }
+---@field CAMPFIRE { caption: "human armies make them when they siege. original tile is lost?" }
+---@field FIRE { caption: "burning grass" }
+---@field ASHES { caption: "what remains from a fire" }
+---@field MAGMA { caption: "material for semi-molten rock and magma flow tiles" }
+---@field DRIFTWOOD { caption: "driftwood. normally shows up on beaches" }
+---@field POOL { caption: "A pool. Gathers water while it's raining." }
+---@field BROOK { caption: "Brook beds and floors" }
+---@field RIVER { caption: "It's a riverbed. Basically a tile that doesn't get muddy." }
+---@field ROOT { caption: "tree root" }
+---@field TREE { caption: "tree trunk/branch" }
+---@field MUSHROOM { caption: "mushroom cap" }
+---@field UNDERWORLD_GATE { caption: "Underworld Gate" }
+df.tiletype_material.attrs = {}
+
+---@alias tiletype_variant_keys
+---| '"NONE"'
+---| '"VAR_1"'
+---| '"VAR_2"'
+---| '"VAR_3"'
+---| '"VAR_4"'
+
+---@alias tiletype_variant_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+
+---@alias tiletype_variant
+---| tiletype_variant_keys
+---| tiletype_variant_values
+
+-- Cosmetic tile variant (not in DF)
+---@class _tiletype_variant: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field VAR_1 0
+---@field [0] "VAR_1"
+---@field VAR_2 1
+---@field [1] "VAR_2"
+---@field VAR_3 2
+---@field [2] "VAR_3"
+---@field VAR_4 3
+---@field [3] "VAR_4"
+df.tiletype_variant = {}
+
+---@alias tiletype_special_keys
+---| '"NONE"'
+---| '"NORMAL"'
+---| '"RIVER_SOURCE"'
+---| '"WATERFALL"'
+---| '"SMOOTH"'
+---| '"FURROWED"'
+---| '"WET"'
+---| '"DEAD"'
+---| '"WORN_1"'
+---| '"WORN_2"'
+---| '"WORN_3"'
+---| '"TRACK"'
+---| '"SMOOTH_DEAD"'
+
+---@alias tiletype_special_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+
+---@alias tiletype_special
+---| tiletype_special_keys
+---| tiletype_special_values
+
+-- Functional tile variant (not in DF)
+---@class _tiletype_special: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field NORMAL 0
+---@field [0] "NORMAL"
+---@field RIVER_SOURCE 1
+---@field [1] "RIVER_SOURCE"
+---@field WATERFALL 2
+---@field [2] "WATERFALL"
+---@field SMOOTH 3
+---@field [3] "SMOOTH"
+---@field FURROWED 4
+---@field [4] "FURROWED"
+---@field WET 5
+---@field [5] "WET"
+---@field DEAD 6
+---@field [6] "DEAD"
+---@field WORN_1 7
+---@field [7] "WORN_1"
+---@field WORN_2 8
+---@field [8] "WORN_2"
+---@field WORN_3 9
+---@field [9] "WORN_3"
+---@field TRACK 10
+---@field [10] "TRACK"
+---@field SMOOTH_DEAD 11
+---@field [11] "SMOOTH_DEAD"
+df.tiletype_special = {}
+
+---@class tiletype_special_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.tiletype_special._attr_entry_type = {}
+
+---@class (exact) tiletype_special_attr_entry_type_fields
+---@field caption DFCompoundField
+df.tiletype_special._attr_entry_type._fields = {}
+
+---@class tiletype_special_attrs
+---@field NORMAL { caption: "default for all tiles, nothing special about it" }
+---@field RIVER_SOURCE { caption: "river source, when it exists on a map" }
+---@field WATERFALL { caption: "waterfall from nowhere, used by cave rivers back in 40d" }
+---@field SMOOTH { caption: "smooth walls and floors, including constructions" }
+---@field FURROWED { caption: "furrowed soil, left by roads/farms and removing constructions" }
+---@field WET { caption: "wet soil, found on beaches" }
+---@field DEAD { caption: "dead, used by plants" }
+---@field WORN_1 { caption: "partially (25%) mined walls" }
+---@field WORN_2 { caption: "partially (50%) mined walls" }
+---@field WORN_3 { caption: "partially (75%) mined walls" }
+---@field TRACK { caption: "mine cart track" }
+---@field SMOOTH_DEAD { caption: "smooth dead leaves, a unique combination" }
+df.tiletype_special.attrs = {}
+
+---@alias tiletype_keys
+---| '"Void"'
+---| '"RampTop"'
+---| '"MurkyPool"'
+---| '"MurkyPoolRamp"'
+---| '"UnderworldGateStairU"'
+---| '"UnderworldGateStairD"'
+---| '"UnderworldGateStairUD"'
+---| '"TreeCapInterior"'
+---| '"TreeCapWallThickSW"'
+---| '"TreeCapWallThickSE"'
+---| '"TreeCapWallThickNW"'
+---| '"TreeCapWallThickNE"'
+---| '"TreeCapWallThickN"'
+---| '"TreeCapWallThickS"'
+---| '"TreeCapWallThickW"'
+---| '"TreeCapWallThickE"'
+---| '"TreeCapWallNSWE"'
+---| '"TreeCapWallNSW"'
+---| '"TreeCapWallNSE"'
+---| '"Driftwood"'
+---| '"TreeCapWallNWE"'
+---| '"TreeCapWallSWE"'
+---| '"TreeCapWallNS"'
+---| '"TreeCapWallWE"'
+---| '"Unused999"'
+---| '"FrozenStairUD"'
+---| '"FrozenStairD"'
+---| '"FrozenStairU"'
+---| '"Unused9999"'
+---| '"Unused99999"'
+---| '"Unused999999"'
+---| '"TreeDeadCapInterior"'
+---| '"OpenSpace"'
+---| '"TreeDeadCapWallThickSW"'
+---| '"Shrub"'
+---| '"Chasm"'
+---| '"LavaStairUD"'
+---| '"LavaStairD"'
+---| '"LavaStairU"'
+---| '"SoilStairUD"'
+---| '"SoilStairD"'
+---| '"SoilStairU"'
+---| '"EeriePit"'
+---| '"StoneFloorSmooth"'
+---| '"LavaFloorSmooth"'
+---| '"FeatureFloorSmooth"'
+---| '"MineralFloorSmooth"'
+---| '"FrozenFloorSmooth"'
+---| '"TreeDeadCapWallThickSE"'
+---| '"Grass1StairUD"'
+---| '"Grass1StairD"'
+---| '"Grass1StairU"'
+---| '"Grass2StairUD"'
+---| '"Grass2StairD"'
+---| '"Grass2StairU"'
+---| '"StoneStairUD"'
+---| '"StoneStairD"'
+---| '"StoneStairU"'
+---| '"MineralStairUD"'
+---| '"MineralStairD"'
+---| '"MineralStairU"'
+---| '"FeatureStairUD"'
+---| '"FeatureStairD"'
+---| '"FeatureStairU"'
+---| '"TreeDeadCapWallThickNW"'
+---| '"StoneFortification"'
+---| '"TreeDeadCapWallThickNE"'
+---| '"Campfire"'
+---| '"TreeDeadCapWallThickN"'
+---| '"TreeDeadCapWallThickS"'
+---| '"Fire"'
+---| '"BurningTreeTrunk"'
+---| '"BurningTreeBranches"'
+---| '"BurningTreeTwigs"'
+---| '"BurningTreeCapWall"'
+---| '"BurningTreeCapRamp"'
+---| '"BurningTreeCapFloor"'
+---| '"TreeDeadCapWallThickW"'
+---| '"TreeDeadCapWallThickE"'
+---| '"StonePillar"'
+---| '"LavaPillar"'
+---| '"FeaturePillar"'
+---| '"MineralPillar"'
+---| '"FrozenPillar"'
+---| '"TreeDeadCapWallNSWE"'
+---| '"TreeDeadCapWallNSW"'
+---| '"TreeDeadCapWallNSE"'
+---| '"TreeDeadCapWallNWE"'
+---| '"TreeDeadCapWallSWE"'
+---| '"Waterfall"'
+---| '"RiverSource"'
+---| '"TreeRootSloping"'
+---| '"TreeRoots"'
+---| '"TreeTrunkPillar"'
+---| '"TreeTrunkSloping"'
+---| '"TreeTrunkThickN"'
+---| '"TreeTrunkThickS"'
+---| '"TreeTrunkThickE"'
+---| '"TreeTrunkThickW"'
+---| '"TreeTrunkThickNW"'
+---| '"TreeTrunkThickNE"'
+---| '"TreeTrunkThickSW"'
+---| '"TreeTrunkThickSE"'
+---| '"TreeTrunkBranchN"'
+---| '"TreeTrunkBranchS"'
+---| '"TreeTrunkBranchE"'
+---| '"TreeTrunkBranchW"'
+---| '"TreeBranchNS"'
+---| '"TreeBranchEW"'
+---| '"TreeBranchesSmooth"'
+---| '"TreeDeadBranchesSmooth"'
+---| '"TreeBranchNW"'
+---| '"TreeBranchNE"'
+---| '"TreeBranchSW"'
+---| '"TreeBranchSE"'
+---| '"TreeBranches"'
+---| '"TreeTwigs"'
+---| '"TreeCapRamp"'
+---| '"TreeCapPillar"'
+---| '"TreeCapWallN"'
+---| '"TreeCapWallS"'
+---| '"TreeCapWallE"'
+---| '"TreeCapWallW"'
+---| '"TreeCapWallNW"'
+---| '"TreeCapWallNE"'
+---| '"TreeCapWallSW"'
+---| '"TreeCapWallSE"'
+---| '"TreeCapFloor1"'
+---| '"TreeCapFloor2"'
+---| '"TreeCapFloor3"'
+---| '"TreeCapFloor4"'
+---| '"TreeDeadRootSloping"'
+---| '"TreeDeadRoots"'
+---| '"TreeDeadTrunkPillar"'
+---| '"TreeDeadTrunkSloping"'
+---| '"TreeDeadTrunkThickN"'
+---| '"TreeDeadTrunkThickS"'
+---| '"TreeDeadTrunkThickE"'
+---| '"TreeDeadTrunkThickW"'
+---| '"TreeDeadTrunkThickNW"'
+---| '"TreeDeadTrunkThickNE"'
+---| '"TreeDeadTrunkThickSW"'
+---| '"TreeDeadTrunkThickSE"'
+---| '"TreeDeadTrunkBranchN"'
+---| '"TreeDeadTrunkBranchS"'
+---| '"TreeDeadTrunkBranchE"'
+---| '"TreeDeadTrunkBranchW"'
+---| '"TreeDeadBranchNS"'
+---| '"TreeDeadBranchEW"'
+---| '"TreeBranch"'
+---| '"TreeDeadBranch"'
+---| '"TreeDeadBranchNW"'
+---| '"TreeDeadBranchNE"'
+---| '"TreeDeadBranchSW"'
+---| '"TreeDeadBranchSE"'
+---| '"TreeDeadBranches"'
+---| '"TreeDeadTwigs"'
+---| '"TreeDeadCapRamp"'
+---| '"TreeDeadCapPillar"'
+---| '"TreeDeadCapWallN"'
+---| '"TreeDeadCapWallS"'
+---| '"TreeDeadCapWallE"'
+---| '"TreeDeadCapWallW"'
+---| '"TreeDeadCapWallNW"'
+---| '"TreeDeadCapWallNE"'
+---| '"TreeDeadCapWallSW"'
+---| '"TreeDeadCapWallSE"'
+---| '"TreeDeadCapFloor1"'
+---| '"TreeDeadCapFloor2"'
+---| '"TreeDeadCapFloor3"'
+---| '"TreeDeadCapFloor4"'
+---| '"TreeDeadCapWallNS"'
+---| '"StoneWallWorn1"'
+---| '"StoneWallWorn2"'
+---| '"StoneWallWorn3"'
+---| '"TreeBranchNSE"'
+---| '"TreeBranchNSW"'
+---| '"TreeBranchNEW"'
+---| '"TreeBranchSEW"'
+---| '"TreeBranchNSEW"'
+---| '"TreeDeadBranchNSE"'
+---| '"TreeDeadBranchNSW"'
+---| '"TreeDeadBranchNEW"'
+---| '"TreeDeadBranchSEW"'
+---| '"TreeDeadBranchNSEW"'
+---| '"TreeTrunkNSE"'
+---| '"TreeTrunkNSW"'
+---| '"TreeTrunkNEW"'
+---| '"TreeTrunkSEW"'
+---| '"TreeTrunkNS"'
+---| '"TreeTrunkEW"'
+---| '"TreeTrunkNSEW"'
+---| '"TreeTrunkInterior"'
+---| '"TreeDeadTrunkNSE"'
+---| '"TreeDeadTrunkNSW"'
+---| '"TreeDeadTrunkNEW"'
+---| '"TreeDeadTrunkSEW"'
+---| '"TreeDeadTrunkNS"'
+---| '"TreeDeadTrunkEW"'
+---| '"TreeDeadTrunkNSEW"'
+---| '"TreeDeadTrunkInterior"'
+---| '"TreeTrunkNW"'
+---| '"TreeTrunkNE"'
+---| '"TreeTrunkSW"'
+---| '"TreeTrunkSE"'
+---| '"TreeDeadTrunkNW"'
+---| '"TreeDeadTrunkNE"'
+---| '"TreeDeadTrunkSW"'
+---| '"TreeDeadTrunkSE"'
+---| '"TreeTrunkN"'
+---| '"TreeTrunkS"'
+---| '"TreeTrunkW"'
+---| '"TreeTrunkE"'
+---| '"TreeDeadTrunkN"'
+---| '"TreeDeadTrunkS"'
+---| '"StoneWall"'
+---| '"TreeDeadTrunkW"'
+---| '"TreeDeadTrunkE"'
+---| '"TreeBranchS"'
+---| '"TreeBranchN"'
+---| '"TreeBranchW"'
+---| '"TreeBranchE"'
+---| '"TreeDeadBranchS"'
+---| '"TreeDeadBranchN"'
+---| '"TreeDeadBranchW"'
+---| '"TreeDeadBranchE"'
+---| '"TreeDeadCapPillarWE"'
+---| '"Sapling"'
+---| '"Unused888"'
+---| '"GrassDryRamp"'
+---| '"GrassDeadRamp"'
+---| '"GrassLightRamp"'
+---| '"GrassDarkRamp"'
+---| '"StoneRamp"'
+---| '"LavaRamp"'
+---| '"FeatureRamp"'
+---| '"MineralRamp"'
+---| '"SoilRamp"'
+---| '"Ashes1"'
+---| '"Ashes2"'
+---| '"Ashes3"'
+---| '"FrozenRamp"'
+---| '"Unused8888"'
+---| '"Unused88888"'
+---| '"Unused888888"'
+---| '"Unused245"'
+---| '"Unused246"'
+---| '"Unused247"'
+---| '"Unused248"'
+---| '"Unused249"'
+---| '"Unused250"'
+---| '"Unused251"'
+---| '"Unused252"'
+---| '"Unused253"'
+---| '"FrozenFloor2"'
+---| '"FrozenFloor3"'
+---| '"FrozenFloor4"'
+---| '"FurrowedSoil"'
+---| '"FrozenFloor1"'
+---| '"SemiMoltenRock"'
+---| '"MagmaFlow"'
+---| '"SoilWall"'
+---| '"GlowingBarrier"'
+---| '"GlowingFloor"'
+---| '"Unused264"'
+---| '"LavaWallSmoothRD2"'
+---| '"LavaWallSmoothR2D"'
+---| '"LavaWallSmoothR2U"'
+---| '"LavaWallSmoothRU2"'
+---| '"LavaWallSmoothL2U"'
+---| '"LavaWallSmoothLU2"'
+---| '"LavaWallSmoothL2D"'
+---| '"LavaWallSmoothLD2"'
+---| '"LavaWallSmoothLRUD"'
+---| '"LavaWallSmoothRUD"'
+---| '"LavaWallSmoothLRD"'
+---| '"LavaWallSmoothLRU"'
+---| '"LavaWallSmoothLUD"'
+---| '"LavaWallSmoothRD"'
+---| '"LavaWallSmoothRU"'
+---| '"LavaWallSmoothLU"'
+---| '"LavaWallSmoothLD"'
+---| '"LavaWallSmoothUD"'
+---| '"LavaWallSmoothLR"'
+---| '"FeatureWallSmoothRD2"'
+---| '"FeatureWallSmoothR2D"'
+---| '"FeatureWallSmoothR2U"'
+---| '"FeatureWallSmoothRU2"'
+---| '"FeatureWallSmoothL2U"'
+---| '"FeatureWallSmoothLU2"'
+---| '"FeatureWallSmoothL2D"'
+---| '"FeatureWallSmoothLD2"'
+---| '"FeatureWallSmoothLRUD"'
+---| '"FeatureWallSmoothRUD"'
+---| '"FeatureWallSmoothLRD"'
+---| '"FeatureWallSmoothLRU"'
+---| '"FeatureWallSmoothLUD"'
+---| '"FeatureWallSmoothRD"'
+---| '"FeatureWallSmoothRU"'
+---| '"FeatureWallSmoothLU"'
+---| '"FeatureWallSmoothLD"'
+---| '"FeatureWallSmoothUD"'
+---| '"FeatureWallSmoothLR"'
+---| '"StoneWallSmoothRD2"'
+---| '"StoneWallSmoothR2D"'
+---| '"StoneWallSmoothR2U"'
+---| '"StoneWallSmoothRU2"'
+---| '"StoneWallSmoothL2U"'
+---| '"StoneWallSmoothLU2"'
+---| '"StoneWallSmoothL2D"'
+---| '"StoneWallSmoothLD2"'
+---| '"StoneWallSmoothLRUD"'
+---| '"StoneWallSmoothRUD"'
+---| '"StoneWallSmoothLRD"'
+---| '"StoneWallSmoothLRU"'
+---| '"StoneWallSmoothLUD"'
+---| '"StoneWallSmoothRD"'
+---| '"StoneWallSmoothRU"'
+---| '"StoneWallSmoothLU"'
+---| '"StoneWallSmoothLD"'
+---| '"StoneWallSmoothUD"'
+---| '"StoneWallSmoothLR"'
+---| '"LavaFortification"'
+---| '"FeatureFortification"'
+---| '"LavaWallWorn1"'
+---| '"LavaWallWorn2"'
+---| '"LavaWallWorn3"'
+---| '"LavaWall"'
+---| '"FeatureWallWorn1"'
+---| '"FeatureWallWorn2"'
+---| '"FeatureWallWorn3"'
+---| '"FeatureWall"'
+---| '"StoneFloor1"'
+---| '"StoneFloor2"'
+---| '"StoneFloor3"'
+---| '"StoneFloor4"'
+---| '"LavaFloor1"'
+---| '"LavaFloor2"'
+---| '"LavaFloor3"'
+---| '"LavaFloor4"'
+---| '"FeatureFloor1"'
+---| '"FeatureFloor2"'
+---| '"FeatureFloor3"'
+---| '"FeatureFloor4"'
+---| '"GrassDarkFloor1"'
+---| '"GrassDarkFloor2"'
+---| '"GrassDarkFloor3"'
+---| '"GrassDarkFloor4"'
+---| '"SoilFloor1"'
+---| '"SoilFloor2"'
+---| '"SoilFloor3"'
+---| '"SoilFloor4"'
+---| '"SoilWetFloor1"'
+---| '"SoilWetFloor2"'
+---| '"SoilWetFloor3"'
+---| '"SoilWetFloor4"'
+---| '"FrozenFortification"'
+---| '"FrozenWallWorn1"'
+---| '"FrozenWallWorn2"'
+---| '"FrozenWallWorn3"'
+---| '"FrozenWall"'
+---| '"RiverN"'
+---| '"RiverS"'
+---| '"RiverE"'
+---| '"RiverW"'
+---| '"RiverNW"'
+---| '"RiverNE"'
+---| '"RiverSW"'
+---| '"RiverSE"'
+---| '"BrookN"'
+---| '"BrookS"'
+---| '"BrookE"'
+---| '"BrookW"'
+---| '"BrookNW"'
+---| '"BrookNE"'
+---| '"BrookSW"'
+---| '"BrookSE"'
+---| '"BrookTop1"'
+---| '"BrookTop2"'
+---| '"BrookTop3"'
+---| '"BrookTop4"'
+---| '"Unused381"'
+---| '"Unused382"'
+---| '"GrassDryFloor1"'
+---| '"GrassDryFloor2"'
+---| '"GrassDryFloor3"'
+---| '"GrassDryFloor4"'
+---| '"Unused387"'
+---| '"SaplingDead"'
+---| '"ShrubDead"'
+---| '"GrassDeadFloor1"'
+---| '"GrassDeadFloor2"'
+---| '"GrassDeadFloor3"'
+---| '"GrassDeadFloor4"'
+---| '"GrassLightFloor1"'
+---| '"GrassLightFloor2"'
+---| '"GrassLightFloor3"'
+---| '"GrassLightFloor4"'
+---| '"StoneBoulder"'
+---| '"LavaBoulder"'
+---| '"FeatureBoulder"'
+---| '"StonePebbles1"'
+---| '"StonePebbles2"'
+---| '"StonePebbles3"'
+---| '"StonePebbles4"'
+---| '"LavaPebbles1"'
+---| '"LavaPebbles2"'
+---| '"LavaPebbles3"'
+---| '"LavaPebbles4"'
+---| '"FeaturePebbles1"'
+---| '"FeaturePebbles2"'
+---| '"FeaturePebbles3"'
+---| '"FeaturePebbles4"'
+---| '"MineralWallSmoothRD2"'
+---| '"MineralWallSmoothR2D"'
+---| '"MineralWallSmoothR2U"'
+---| '"MineralWallSmoothRU2"'
+---| '"MineralWallSmoothL2U"'
+---| '"MineralWallSmoothLU2"'
+---| '"MineralWallSmoothL2D"'
+---| '"MineralWallSmoothLD2"'
+---| '"MineralWallSmoothLRUD"'
+---| '"MineralWallSmoothRUD"'
+---| '"MineralWallSmoothLRD"'
+---| '"MineralWallSmoothLRU"'
+---| '"MineralWallSmoothLUD"'
+---| '"MineralWallSmoothRD"'
+---| '"MineralWallSmoothRU"'
+---| '"MineralWallSmoothLU"'
+---| '"MineralWallSmoothLD"'
+---| '"MineralWallSmoothUD"'
+---| '"MineralWallSmoothLR"'
+---| '"MineralFortification"'
+---| '"MineralWallWorn1"'
+---| '"MineralWallWorn2"'
+---| '"MineralWallWorn3"'
+---| '"MineralWall"'
+---| '"MineralFloor1"'
+---| '"MineralFloor2"'
+---| '"MineralFloor3"'
+---| '"MineralFloor4"'
+---| '"MineralBoulder"'
+---| '"MineralPebbles1"'
+---| '"MineralPebbles2"'
+---| '"MineralPebbles3"'
+---| '"MineralPebbles4"'
+---| '"FrozenWallSmoothRD2"'
+---| '"FrozenWallSmoothR2D"'
+---| '"FrozenWallSmoothR2U"'
+---| '"FrozenWallSmoothRU2"'
+---| '"FrozenWallSmoothL2U"'
+---| '"FrozenWallSmoothLU2"'
+---| '"FrozenWallSmoothL2D"'
+---| '"FrozenWallSmoothLD2"'
+---| '"FrozenWallSmoothLRUD"'
+---| '"FrozenWallSmoothRUD"'
+---| '"FrozenWallSmoothLRD"'
+---| '"FrozenWallSmoothLRU"'
+---| '"FrozenWallSmoothLUD"'
+---| '"FrozenWallSmoothRD"'
+---| '"FrozenWallSmoothRU"'
+---| '"FrozenWallSmoothLU"'
+---| '"FrozenWallSmoothLD"'
+---| '"FrozenWallSmoothUD"'
+---| '"FrozenWallSmoothLR"'
+---| '"RiverRampN"'
+---| '"RiverRampS"'
+---| '"RiverRampE"'
+---| '"RiverRampW"'
+---| '"RiverRampNW"'
+---| '"RiverRampNE"'
+---| '"RiverRampSW"'
+---| '"RiverRampSE"'
+---| '"Unused473"'
+---| '"Unused474"'
+---| '"Unused475"'
+---| '"Unused476"'
+---| '"Unused477"'
+---| '"Unused478"'
+---| '"Unused479"'
+---| '"Unused480"'
+---| '"Unused481"'
+---| '"Unused482"'
+---| '"Unused483"'
+---| '"Unused484"'
+---| '"Unused485"'
+---| '"Unused486"'
+---| '"Unused487"'
+---| '"Unused488"'
+---| '"ConstructedFloor"'
+---| '"ConstructedFortification"'
+---| '"ConstructedPillar"'
+---| '"ConstructedWallRD2"'
+---| '"ConstructedWallR2D"'
+---| '"ConstructedWallR2U"'
+---| '"ConstructedWallRU2"'
+---| '"ConstructedWallL2U"'
+---| '"ConstructedWallLU2"'
+---| '"ConstructedWallL2D"'
+---| '"ConstructedWallLD2"'
+---| '"ConstructedWallLRUD"'
+---| '"ConstructedWallRUD"'
+---| '"ConstructedWallLRD"'
+---| '"ConstructedWallLRU"'
+---| '"ConstructedWallLUD"'
+---| '"ConstructedWallRD"'
+---| '"ConstructedWallRU"'
+---| '"ConstructedWallLU"'
+---| '"ConstructedWallLD"'
+---| '"ConstructedWallUD"'
+---| '"ConstructedWallLR"'
+---| '"ConstructedStairUD"'
+---| '"ConstructedStairD"'
+---| '"ConstructedStairU"'
+---| '"ConstructedRamp"'
+---| '"StoneFloorTrackN"'
+---| '"StoneFloorTrackS"'
+---| '"StoneFloorTrackE"'
+---| '"StoneFloorTrackW"'
+---| '"StoneFloorTrackNS"'
+---| '"StoneFloorTrackNE"'
+---| '"StoneFloorTrackNW"'
+---| '"StoneFloorTrackSE"'
+---| '"StoneFloorTrackSW"'
+---| '"StoneFloorTrackEW"'
+---| '"StoneFloorTrackNSE"'
+---| '"StoneFloorTrackNSW"'
+---| '"StoneFloorTrackNEW"'
+---| '"StoneFloorTrackSEW"'
+---| '"StoneFloorTrackNSEW"'
+---| '"LavaFloorTrackN"'
+---| '"LavaFloorTrackS"'
+---| '"LavaFloorTrackE"'
+---| '"LavaFloorTrackW"'
+---| '"LavaFloorTrackNS"'
+---| '"LavaFloorTrackNE"'
+---| '"LavaFloorTrackNW"'
+---| '"LavaFloorTrackSE"'
+---| '"LavaFloorTrackSW"'
+---| '"LavaFloorTrackEW"'
+---| '"LavaFloorTrackNSE"'
+---| '"LavaFloorTrackNSW"'
+---| '"LavaFloorTrackNEW"'
+---| '"LavaFloorTrackSEW"'
+---| '"LavaFloorTrackNSEW"'
+---| '"FeatureFloorTrackN"'
+---| '"FeatureFloorTrackS"'
+---| '"FeatureFloorTrackE"'
+---| '"FeatureFloorTrackW"'
+---| '"FeatureFloorTrackNS"'
+---| '"FeatureFloorTrackNE"'
+---| '"FeatureFloorTrackNW"'
+---| '"FeatureFloorTrackSE"'
+---| '"FeatureFloorTrackSW"'
+---| '"FeatureFloorTrackEW"'
+---| '"FeatureFloorTrackNSE"'
+---| '"FeatureFloorTrackNSW"'
+---| '"FeatureFloorTrackNEW"'
+---| '"FeatureFloorTrackSEW"'
+---| '"FeatureFloorTrackNSEW"'
+---| '"MineralFloorTrackN"'
+---| '"MineralFloorTrackS"'
+---| '"MineralFloorTrackE"'
+---| '"MineralFloorTrackW"'
+---| '"MineralFloorTrackNS"'
+---| '"MineralFloorTrackNE"'
+---| '"MineralFloorTrackNW"'
+---| '"MineralFloorTrackSE"'
+---| '"MineralFloorTrackSW"'
+---| '"MineralFloorTrackEW"'
+---| '"MineralFloorTrackNSE"'
+---| '"MineralFloorTrackNSW"'
+---| '"MineralFloorTrackNEW"'
+---| '"MineralFloorTrackSEW"'
+---| '"MineralFloorTrackNSEW"'
+---| '"FrozenFloorTrackN"'
+---| '"FrozenFloorTrackS"'
+---| '"FrozenFloorTrackE"'
+---| '"FrozenFloorTrackW"'
+---| '"FrozenFloorTrackNS"'
+---| '"FrozenFloorTrackNE"'
+---| '"FrozenFloorTrackNW"'
+---| '"FrozenFloorTrackSE"'
+---| '"FrozenFloorTrackSW"'
+---| '"FrozenFloorTrackEW"'
+---| '"FrozenFloorTrackNSE"'
+---| '"FrozenFloorTrackNSW"'
+---| '"FrozenFloorTrackNEW"'
+---| '"FrozenFloorTrackSEW"'
+---| '"FrozenFloorTrackNSEW"'
+---| '"ConstructedFloorTrackN"'
+---| '"ConstructedFloorTrackS"'
+---| '"ConstructedFloorTrackE"'
+---| '"ConstructedFloorTrackW"'
+---| '"ConstructedFloorTrackNS"'
+---| '"ConstructedFloorTrackNE"'
+---| '"ConstructedFloorTrackNW"'
+---| '"ConstructedFloorTrackSE"'
+---| '"ConstructedFloorTrackSW"'
+---| '"ConstructedFloorTrackEW"'
+---| '"ConstructedFloorTrackNSE"'
+---| '"ConstructedFloorTrackNSW"'
+---| '"ConstructedFloorTrackNEW"'
+---| '"ConstructedFloorTrackSEW"'
+---| '"ConstructedFloorTrackNSEW"'
+---| '"StoneRampTrackN"'
+---| '"StoneRampTrackS"'
+---| '"StoneRampTrackE"'
+---| '"StoneRampTrackW"'
+---| '"StoneRampTrackNS"'
+---| '"StoneRampTrackNE"'
+---| '"StoneRampTrackNW"'
+---| '"StoneRampTrackSE"'
+---| '"StoneRampTrackSW"'
+---| '"StoneRampTrackEW"'
+---| '"StoneRampTrackNSE"'
+---| '"StoneRampTrackNSW"'
+---| '"StoneRampTrackNEW"'
+---| '"StoneRampTrackSEW"'
+---| '"StoneRampTrackNSEW"'
+---| '"LavaRampTrackN"'
+---| '"LavaRampTrackS"'
+---| '"LavaRampTrackE"'
+---| '"LavaRampTrackW"'
+---| '"LavaRampTrackNS"'
+---| '"LavaRampTrackNE"'
+---| '"LavaRampTrackNW"'
+---| '"LavaRampTrackSE"'
+---| '"LavaRampTrackSW"'
+---| '"LavaRampTrackEW"'
+---| '"LavaRampTrackNSE"'
+---| '"LavaRampTrackNSW"'
+---| '"LavaRampTrackNEW"'
+---| '"LavaRampTrackSEW"'
+---| '"LavaRampTrackNSEW"'
+---| '"FeatureRampTrackN"'
+---| '"FeatureRampTrackS"'
+---| '"FeatureRampTrackE"'
+---| '"FeatureRampTrackW"'
+---| '"FeatureRampTrackNS"'
+---| '"FeatureRampTrackNE"'
+---| '"FeatureRampTrackNW"'
+---| '"FeatureRampTrackSE"'
+---| '"FeatureRampTrackSW"'
+---| '"FeatureRampTrackEW"'
+---| '"FeatureRampTrackNSE"'
+---| '"FeatureRampTrackNSW"'
+---| '"FeatureRampTrackNEW"'
+---| '"FeatureRampTrackSEW"'
+---| '"FeatureRampTrackNSEW"'
+---| '"MineralRampTrackN"'
+---| '"MineralRampTrackS"'
+---| '"MineralRampTrackE"'
+---| '"MineralRampTrackW"'
+---| '"MineralRampTrackNS"'
+---| '"MineralRampTrackNE"'
+---| '"MineralRampTrackNW"'
+---| '"MineralRampTrackSE"'
+---| '"MineralRampTrackSW"'
+---| '"MineralRampTrackEW"'
+---| '"MineralRampTrackNSE"'
+---| '"MineralRampTrackNSW"'
+---| '"MineralRampTrackNEW"'
+---| '"MineralRampTrackSEW"'
+---| '"MineralRampTrackNSEW"'
+---| '"FrozenRampTrackN"'
+---| '"FrozenRampTrackS"'
+---| '"FrozenRampTrackE"'
+---| '"FrozenRampTrackW"'
+---| '"FrozenRampTrackNS"'
+---| '"FrozenRampTrackNE"'
+---| '"FrozenRampTrackNW"'
+---| '"FrozenRampTrackSE"'
+---| '"FrozenRampTrackSW"'
+---| '"FrozenRampTrackEW"'
+---| '"FrozenRampTrackNSE"'
+---| '"FrozenRampTrackNSW"'
+---| '"FrozenRampTrackNEW"'
+---| '"FrozenRampTrackSEW"'
+---| '"FrozenRampTrackNSEW"'
+---| '"ConstructedRampTrackN"'
+---| '"ConstructedRampTrackS"'
+---| '"ConstructedRampTrackE"'
+---| '"ConstructedRampTrackW"'
+---| '"ConstructedRampTrackNS"'
+---| '"ConstructedRampTrackNE"'
+---| '"ConstructedRampTrackNW"'
+---| '"ConstructedRampTrackSE"'
+---| '"ConstructedRampTrackSW"'
+---| '"ConstructedRampTrackEW"'
+---| '"ConstructedRampTrackNSE"'
+---| '"ConstructedRampTrackNSW"'
+---| '"ConstructedRampTrackNEW"'
+---| '"ConstructedRampTrackSEW"'
+---| '"ConstructedRampTrackNSEW"'
+---| '"Unused695"'
+---| '"Unused696"'
+
+---@alias tiletype_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+---| 189
+---| 190
+---| 191
+---| 192
+---| 193
+---| 194
+---| 195
+---| 196
+---| 197
+---| 198
+---| 199
+---| 200
+---| 201
+---| 202
+---| 203
+---| 204
+---| 205
+---| 206
+---| 207
+---| 208
+---| 209
+---| 210
+---| 211
+---| 212
+---| 213
+---| 214
+---| 215
+---| 216
+---| 217
+---| 218
+---| 219
+---| 220
+---| 221
+---| 222
+---| 223
+---| 224
+---| 225
+---| 226
+---| 227
+---| 228
+---| 229
+---| 230
+---| 231
+---| 232
+---| 233
+---| 234
+---| 235
+---| 236
+---| 237
+---| 238
+---| 239
+---| 240
+---| 241
+---| 242
+---| 243
+---| 244
+---| 245
+---| 246
+---| 247
+---| 248
+---| 249
+---| 250
+---| 251
+---| 252
+---| 253
+---| 254
+---| 255
+---| 256
+---| 257
+---| 258
+---| 259
+---| 260
+---| 261
+---| 262
+---| 263
+---| 264
+---| 265
+---| 266
+---| 267
+---| 268
+---| 269
+---| 270
+---| 271
+---| 272
+---| 273
+---| 274
+---| 275
+---| 276
+---| 277
+---| 278
+---| 279
+---| 280
+---| 281
+---| 282
+---| 283
+---| 284
+---| 285
+---| 286
+---| 287
+---| 288
+---| 289
+---| 290
+---| 291
+---| 292
+---| 293
+---| 294
+---| 295
+---| 296
+---| 297
+---| 298
+---| 299
+---| 300
+---| 301
+---| 302
+---| 303
+---| 304
+---| 305
+---| 306
+---| 307
+---| 308
+---| 309
+---| 310
+---| 311
+---| 312
+---| 313
+---| 314
+---| 315
+---| 316
+---| 317
+---| 318
+---| 319
+---| 320
+---| 321
+---| 322
+---| 323
+---| 324
+---| 325
+---| 326
+---| 327
+---| 328
+---| 329
+---| 330
+---| 331
+---| 332
+---| 333
+---| 334
+---| 335
+---| 336
+---| 337
+---| 338
+---| 339
+---| 340
+---| 341
+---| 342
+---| 343
+---| 344
+---| 345
+---| 346
+---| 347
+---| 348
+---| 349
+---| 350
+---| 351
+---| 352
+---| 353
+---| 354
+---| 355
+---| 356
+---| 357
+---| 358
+---| 359
+---| 360
+---| 361
+---| 362
+---| 363
+---| 364
+---| 365
+---| 366
+---| 367
+---| 368
+---| 369
+---| 370
+---| 371
+---| 372
+---| 373
+---| 374
+---| 375
+---| 376
+---| 377
+---| 378
+---| 379
+---| 380
+---| 381
+---| 382
+---| 383
+---| 384
+---| 385
+---| 386
+---| 387
+---| 388
+---| 389
+---| 390
+---| 391
+---| 392
+---| 393
+---| 394
+---| 395
+---| 396
+---| 397
+---| 398
+---| 399
+---| 400
+---| 401
+---| 402
+---| 403
+---| 404
+---| 405
+---| 406
+---| 407
+---| 408
+---| 409
+---| 410
+---| 411
+---| 412
+---| 413
+---| 414
+---| 415
+---| 416
+---| 417
+---| 418
+---| 419
+---| 420
+---| 421
+---| 422
+---| 423
+---| 424
+---| 425
+---| 426
+---| 427
+---| 428
+---| 429
+---| 430
+---| 431
+---| 432
+---| 433
+---| 434
+---| 435
+---| 436
+---| 437
+---| 438
+---| 439
+---| 440
+---| 441
+---| 442
+---| 443
+---| 444
+---| 445
+---| 446
+---| 447
+---| 448
+---| 449
+---| 450
+---| 451
+---| 452
+---| 453
+---| 454
+---| 455
+---| 456
+---| 457
+---| 458
+---| 459
+---| 460
+---| 461
+---| 462
+---| 463
+---| 464
+---| 465
+---| 466
+---| 467
+---| 468
+---| 469
+---| 470
+---| 471
+---| 472
+---| 473
+---| 474
+---| 475
+---| 476
+---| 477
+---| 478
+---| 479
+---| 480
+---| 481
+---| 482
+---| 483
+---| 484
+---| 485
+---| 486
+---| 487
+---| 488
+---| 489
+---| 490
+---| 491
+---| 492
+---| 493
+---| 494
+---| 495
+---| 496
+---| 497
+---| 498
+---| 499
+---| 500
+---| 501
+---| 502
+---| 503
+---| 504
+---| 505
+---| 506
+---| 507
+---| 508
+---| 509
+---| 510
+---| 511
+---| 512
+---| 513
+---| 514
+---| 515
+---| 516
+---| 517
+---| 518
+---| 519
+---| 520
+---| 521
+---| 522
+---| 523
+---| 524
+---| 525
+---| 526
+---| 527
+---| 528
+---| 529
+---| 530
+---| 531
+---| 532
+---| 533
+---| 534
+---| 535
+---| 536
+---| 537
+---| 538
+---| 539
+---| 540
+---| 541
+---| 542
+---| 543
+---| 544
+---| 545
+---| 546
+---| 547
+---| 548
+---| 549
+---| 550
+---| 551
+---| 552
+---| 553
+---| 554
+---| 555
+---| 556
+---| 557
+---| 558
+---| 559
+---| 560
+---| 561
+---| 562
+---| 563
+---| 564
+---| 565
+---| 566
+---| 567
+---| 568
+---| 569
+---| 570
+---| 571
+---| 572
+---| 573
+---| 574
+---| 575
+---| 576
+---| 577
+---| 578
+---| 579
+---| 580
+---| 581
+---| 582
+---| 583
+---| 584
+---| 585
+---| 586
+---| 587
+---| 588
+---| 589
+---| 590
+---| 591
+---| 592
+---| 593
+---| 594
+---| 595
+---| 596
+---| 597
+---| 598
+---| 599
+---| 600
+---| 601
+---| 602
+---| 603
+---| 604
+---| 605
+---| 606
+---| 607
+---| 608
+---| 609
+---| 610
+---| 611
+---| 612
+---| 613
+---| 614
+---| 615
+---| 616
+---| 617
+---| 618
+---| 619
+---| 620
+---| 621
+---| 622
+---| 623
+---| 624
+---| 625
+---| 626
+---| 627
+---| 628
+---| 629
+---| 630
+---| 631
+---| 632
+---| 633
+---| 634
+---| 635
+---| 636
+---| 637
+---| 638
+---| 639
+---| 640
+---| 641
+---| 642
+---| 643
+---| 644
+---| 645
+---| 646
+---| 647
+---| 648
+---| 649
+---| 650
+---| 651
+---| 652
+---| 653
+---| 654
+---| 655
+---| 656
+---| 657
+---| 658
+---| 659
+---| 660
+---| 661
+---| 662
+---| 663
+---| 664
+---| 665
+---| 666
+---| 667
+---| 668
+---| 669
+---| 670
+---| 671
+---| 672
+---| 673
+---| 674
+---| 675
+---| 676
+---| 677
+---| 678
+---| 679
+---| 680
+---| 681
+---| 682
+---| 683
+---| 684
+---| 685
+---| 686
+---| 687
+---| 688
+---| 689
+---| 690
+---| 691
+---| 692
+---| 693
+---| 694
+---| 695
+---| 696
+
+---@alias tiletype
+---| tiletype_keys
+---| tiletype_values
+
+---@class _tiletype: DFEnum
+---@field Void 0 0x000
+---@field [0] "Void" 0x000
+---@field RampTop 1 MAPTILE_RAMPSPACE
+---@field [1] "RampTop" MAPTILE_RAMPSPACE
+---@field MurkyPool 2 MAPTILE_POOL
+---@field [2] "MurkyPool" MAPTILE_POOL
+---@field MurkyPoolRamp 3 MAPTILE_POOL_RAMP
+---@field [3] "MurkyPoolRamp" MAPTILE_POOL_RAMP
+---@field UnderworldGateStairU 4 MAPTILE_UNDERWORLD_GATE_UP
+---@field [4] "UnderworldGateStairU" MAPTILE_UNDERWORLD_GATE_UP
+---@field UnderworldGateStairD 5 MAPTILE_UNDERWORLD_GATE_DOWN
+---@field [5] "UnderworldGateStairD" MAPTILE_UNDERWORLD_GATE_DOWN
+---@field UnderworldGateStairUD 6 MAPTILE_UNDERWORLD_GATE_UPDOWN
+---@field [6] "UnderworldGateStairUD" MAPTILE_UNDERWORLD_GATE_UPDOWN
+---@field TreeCapInterior 7 MAPTILE_TREE_CAP_INTERIOR
+---@field [7] "TreeCapInterior" MAPTILE_TREE_CAP_INTERIOR
+---@field TreeCapWallThickSW 8 MAPTILE_TREE_CAP_WALL_THICK_SW
+---@field [8] "TreeCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW
+---@field TreeCapWallThickSE 9 MAPTILE_TREE_CAP_WALL_THICK_SE
+---@field [9] "TreeCapWallThickSE" MAPTILE_TREE_CAP_WALL_THICK_SE
+---@field TreeCapWallThickNW 10 MAPTILE_TREE_CAP_WALL_THICK_NW
+---@field [10] "TreeCapWallThickNW" MAPTILE_TREE_CAP_WALL_THICK_NW
+---@field TreeCapWallThickNE 11 MAPTILE_TREE_CAP_WALL_THICK_NE
+---@field [11] "TreeCapWallThickNE" MAPTILE_TREE_CAP_WALL_THICK_NE
+---@field TreeCapWallThickN 12 MAPTILE_TREE_CAP_WALL_THICK_N
+---@field [12] "TreeCapWallThickN" MAPTILE_TREE_CAP_WALL_THICK_N
+---@field TreeCapWallThickS 13 MAPTILE_TREE_CAP_WALL_THICK_S
+---@field [13] "TreeCapWallThickS" MAPTILE_TREE_CAP_WALL_THICK_S
+---@field TreeCapWallThickW 14 MAPTILE_TREE_CAP_WALL_THICK_W
+---@field [14] "TreeCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W
+---@field TreeCapWallThickE 15 MAPTILE_TREE_CAP_WALL_THICK_E
+---@field [15] "TreeCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E
+---@field TreeCapWallNSWE 16 0x010
+---@field [16] "TreeCapWallNSWE" 0x010
+---@field TreeCapWallNSW 17 MAPTILE_TREE_CAP_WALL_N_S_W
+---@field [17] "TreeCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W
+---@field TreeCapWallNSE 18 MAPTILE_TREE_CAP_WALL_N_S_E
+---@field [18] "TreeCapWallNSE" MAPTILE_TREE_CAP_WALL_N_S_E
+---@field Driftwood 19 MAPTILE_DRIFTWOOD_STACK
+---@field [19] "Driftwood" MAPTILE_DRIFTWOOD_STACK
+---@field TreeCapWallNWE 20 MAPTILE_TREE_CAP_WALL_N_W_E
+---@field [20] "TreeCapWallNWE" MAPTILE_TREE_CAP_WALL_N_W_E
+---@field TreeCapWallSWE 21 MAPTILE_TREE_CAP_WALL_S_W_E
+---@field [21] "TreeCapWallSWE" MAPTILE_TREE_CAP_WALL_S_W_E
+---@field TreeCapWallNS 22 MAPTILE_TREE_CAP_WALL_N_S
+---@field [22] "TreeCapWallNS" MAPTILE_TREE_CAP_WALL_N_S
+---@field TreeCapWallWE 23 MAPTILE_TREE_CAP_WALL_W_E
+---@field [23] "TreeCapWallWE" MAPTILE_TREE_CAP_WALL_W_E
+---@field Unused999 24 MAPTILE_UNUSED_999
+---@field [24] "Unused999" MAPTILE_UNUSED_999
+---@field FrozenStairUD 25 MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
+---@field [25] "FrozenStairUD" MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
+---@field FrozenStairD 26 MAPTILE_STAIR_DOWN_FROZEN_LIQUID
+---@field [26] "FrozenStairD" MAPTILE_STAIR_DOWN_FROZEN_LIQUID
+---@field FrozenStairU 27 MAPTILE_STAIR_UP_FROZEN_LIQUID
+---@field [27] "FrozenStairU" MAPTILE_STAIR_UP_FROZEN_LIQUID
+---@field Unused9999 28 MAPTILE_UNUSED_9999
+---@field [28] "Unused9999" MAPTILE_UNUSED_9999
+---@field Unused99999 29 MAPTILE_UNUSED_99999
+---@field [29] "Unused99999" MAPTILE_UNUSED_99999
+---@field Unused999999 30 MAPTILE_UNUSED_999999
+---@field [30] "Unused999999" MAPTILE_UNUSED_999999
+---@field TreeDeadCapInterior 31 MAPTILE_TREE_CAP_INTERIOR_DEAD
+---@field [31] "TreeDeadCapInterior" MAPTILE_TREE_CAP_INTERIOR_DEAD
+---@field OpenSpace 32 0x020
+---@field [32] "OpenSpace" 0x020
+---@field TreeDeadCapWallThickSW 33 MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
+---@field [33] "TreeDeadCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
+---@field Shrub 34 MAPTILE_SHRUB
+---@field [34] "Shrub" MAPTILE_SHRUB
+---@field Chasm 35 MAPTILE_CHASM
+---@field [35] "Chasm" MAPTILE_CHASM
+---@field LavaStairUD 36 MAPTILE_STAIR_UPDOWN_LAVASTONE
+---@field [36] "LavaStairUD" MAPTILE_STAIR_UPDOWN_LAVASTONE
+---@field LavaStairD 37 MAPTILE_STAIR_DOWN_LAVASTONE
+---@field [37] "LavaStairD" MAPTILE_STAIR_DOWN_LAVASTONE
+---@field LavaStairU 38 MAPTILE_STAIR_UP_LAVASTONE
+---@field [38] "LavaStairU" MAPTILE_STAIR_UP_LAVASTONE
+---@field SoilStairUD 39 MAPTILE_STAIR_UPDOWN_SOIL
+---@field [39] "SoilStairUD" MAPTILE_STAIR_UPDOWN_SOIL
+---@field SoilStairD 40 MAPTILE_STAIR_DOWN_SOIL
+---@field [40] "SoilStairD" MAPTILE_STAIR_DOWN_SOIL
+---@field SoilStairU 41 MAPTILE_STAIR_UP_SOIL
+---@field [41] "SoilStairU" MAPTILE_STAIR_UP_SOIL
+---@field EeriePit 42 MAPTILE_EERIE_PIT
+---@field [42] "EeriePit" MAPTILE_EERIE_PIT
+---@field StoneFloorSmooth 43 MAPTILE_STONE_FLOOR_DETAILED
+---@field [43] "StoneFloorSmooth" MAPTILE_STONE_FLOOR_DETAILED
+---@field LavaFloorSmooth 44 MAPTILE_LAVASTONE_FLOOR_DETAILED
+---@field [44] "LavaFloorSmooth" MAPTILE_LAVASTONE_FLOOR_DETAILED
+---@field FeatureFloorSmooth 45 MAPTILE_FEATSTONE_FLOOR_DETAILED
+---@field [45] "FeatureFloorSmooth" MAPTILE_FEATSTONE_FLOOR_DETAILED
+---@field MineralFloorSmooth 46 MAPTILE_MINSTONE_FLOOR_DETAILED
+---@field [46] "MineralFloorSmooth" MAPTILE_MINSTONE_FLOOR_DETAILED
+---@field FrozenFloorSmooth 47 MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
+---@field [47] "FrozenFloorSmooth" MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
+---@field TreeDeadCapWallThickSE 48 0x030
+---@field [48] "TreeDeadCapWallThickSE" 0x030
+---@field Grass1StairUD 49 MAPTILE_STAIR_UPDOWN_GRASS1
+---@field [49] "Grass1StairUD" MAPTILE_STAIR_UPDOWN_GRASS1
+---@field Grass1StairD 50 MAPTILE_STAIR_DOWN_GRASS1
+---@field [50] "Grass1StairD" MAPTILE_STAIR_DOWN_GRASS1
+---@field Grass1StairU 51 MAPTILE_STAIR_UP_GRASS1
+---@field [51] "Grass1StairU" MAPTILE_STAIR_UP_GRASS1
+---@field Grass2StairUD 52 MAPTILE_STAIR_UPDOWN_GRASS2
+---@field [52] "Grass2StairUD" MAPTILE_STAIR_UPDOWN_GRASS2
+---@field Grass2StairD 53 MAPTILE_STAIR_DOWN_GRASS2
+---@field [53] "Grass2StairD" MAPTILE_STAIR_DOWN_GRASS2
+---@field Grass2StairU 54 MAPTILE_STAIR_UP_GRASS2
+---@field [54] "Grass2StairU" MAPTILE_STAIR_UP_GRASS2
+---@field StoneStairUD 55 MAPTILE_STAIR_UPDOWN_STONE
+---@field [55] "StoneStairUD" MAPTILE_STAIR_UPDOWN_STONE
+---@field StoneStairD 56 MAPTILE_STAIR_DOWN_STONE
+---@field [56] "StoneStairD" MAPTILE_STAIR_DOWN_STONE
+---@field StoneStairU 57 MAPTILE_STAIR_UP_STONE
+---@field [57] "StoneStairU" MAPTILE_STAIR_UP_STONE
+---@field MineralStairUD 58 MAPTILE_STAIR_UPDOWN_MINSTONE
+---@field [58] "MineralStairUD" MAPTILE_STAIR_UPDOWN_MINSTONE
+---@field MineralStairD 59 MAPTILE_STAIR_DOWN_MINSTONE
+---@field [59] "MineralStairD" MAPTILE_STAIR_DOWN_MINSTONE
+---@field MineralStairU 60 MAPTILE_STAIR_UP_MINSTONE
+---@field [60] "MineralStairU" MAPTILE_STAIR_UP_MINSTONE
+---@field FeatureStairUD 61 MAPTILE_STAIR_UPDOWN_FEATSTONE
+---@field [61] "FeatureStairUD" MAPTILE_STAIR_UPDOWN_FEATSTONE
+---@field FeatureStairD 62 MAPTILE_STAIR_DOWN_FEATSTONE
+---@field [62] "FeatureStairD" MAPTILE_STAIR_DOWN_FEATSTONE
+---@field FeatureStairU 63 MAPTILE_STAIR_UP_FEATSTONE
+---@field [63] "FeatureStairU" MAPTILE_STAIR_UP_FEATSTONE
+---@field TreeDeadCapWallThickNW 64 0x040
+---@field [64] "TreeDeadCapWallThickNW" 0x040
+---@field StoneFortification 65 MAPTILE_STONE_FORTIFICATION
+---@field [65] "StoneFortification" MAPTILE_STONE_FORTIFICATION
+---@field TreeDeadCapWallThickNE 66 MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
+---@field [66] "TreeDeadCapWallThickNE" MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
+---@field Campfire 67 MAPTILE_CAMPFIRE
+---@field [67] "Campfire" MAPTILE_CAMPFIRE
+---@field TreeDeadCapWallThickN 68 MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
+---@field [68] "TreeDeadCapWallThickN" MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
+---@field TreeDeadCapWallThickS 69 MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
+---@field [69] "TreeDeadCapWallThickS" MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
+---@field Fire 70 MAPTILE_FIRE
+---@field [70] "Fire" MAPTILE_FIRE
+---@field BurningTreeTrunk 71 MAPTILE_FIRE_TREE_TRUNK
+---@field [71] "BurningTreeTrunk" MAPTILE_FIRE_TREE_TRUNK
+---@field BurningTreeBranches 72 MAPTILE_FIRE_TREE_BRANCHES
+---@field [72] "BurningTreeBranches" MAPTILE_FIRE_TREE_BRANCHES
+---@field BurningTreeTwigs 73 MAPTILE_FIRE_TREE_TWIGS
+---@field [73] "BurningTreeTwigs" MAPTILE_FIRE_TREE_TWIGS
+---@field BurningTreeCapWall 74 MAPTILE_FIRE_TREE_CAP_WALL
+---@field [74] "BurningTreeCapWall" MAPTILE_FIRE_TREE_CAP_WALL
+---@field BurningTreeCapRamp 75 MAPTILE_FIRE_TREE_CAP_RAMP
+---@field [75] "BurningTreeCapRamp" MAPTILE_FIRE_TREE_CAP_RAMP
+---@field BurningTreeCapFloor 76 MAPTILE_FIRE_TREE_CAP_FLOOR
+---@field [76] "BurningTreeCapFloor" MAPTILE_FIRE_TREE_CAP_FLOOR
+---@field TreeDeadCapWallThickW 77 MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
+---@field [77] "TreeDeadCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
+---@field TreeDeadCapWallThickE 78 MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
+---@field [78] "TreeDeadCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
+---@field StonePillar 79 MAPTILE_STONE_PILLAR
+---@field [79] "StonePillar" MAPTILE_STONE_PILLAR
+---@field LavaPillar 80 0x050
+---@field [80] "LavaPillar" 0x050
+---@field FeaturePillar 81 MAPTILE_FEATSTONE_PILLAR
+---@field [81] "FeaturePillar" MAPTILE_FEATSTONE_PILLAR
+---@field MineralPillar 82 MAPTILE_MINSTONE_PILLAR
+---@field [82] "MineralPillar" MAPTILE_MINSTONE_PILLAR
+---@field FrozenPillar 83 MAPTILE_FROZEN_LIQUID_PILLAR
+---@field [83] "FrozenPillar" MAPTILE_FROZEN_LIQUID_PILLAR
+---@field TreeDeadCapWallNSWE 84 MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
+---@field [84] "TreeDeadCapWallNSWE" MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
+---@field TreeDeadCapWallNSW 85 MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
+---@field [85] "TreeDeadCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
+---@field TreeDeadCapWallNSE 86 MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
+---@field [86] "TreeDeadCapWallNSE" MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
+---@field TreeDeadCapWallNWE 87 MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
+---@field [87] "TreeDeadCapWallNWE" MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
+---@field TreeDeadCapWallSWE 88 MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
+---@field [88] "TreeDeadCapWallSWE" MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
+---@field Waterfall 89 MAPTILE_WATERFALL_LANDING
+---@field [89] "Waterfall" MAPTILE_WATERFALL_LANDING
+---@field RiverSource 90 MAPTILE_RIVER_SOURCE
+---@field [90] "RiverSource" MAPTILE_RIVER_SOURCE
+---@field TreeRootSloping 91 MAPTILE_TREE_ROOT_SLOPING
+---@field [91] "TreeRootSloping" MAPTILE_TREE_ROOT_SLOPING
+---@field TreeRoots 92 MAPTILE_TREE_ROOTS
+---@field [92] "TreeRoots" MAPTILE_TREE_ROOTS
+---@field TreeTrunkPillar 93 MAPTILE_TREE_TRUNK_PILLAR
+---@field [93] "TreeTrunkPillar" MAPTILE_TREE_TRUNK_PILLAR
+---@field TreeTrunkSloping 94 MAPTILE_TREE_TRUNK_SLOPING
+---@field [94] "TreeTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING
+---@field TreeTrunkThickN 95 MAPTILE_TREE_TRUNK_THICK_N
+---@field [95] "TreeTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N
+---@field TreeTrunkThickS 96 0x060
+---@field [96] "TreeTrunkThickS" 0x060
+---@field TreeTrunkThickE 97 MAPTILE_TREE_TRUNK_THICK_E
+---@field [97] "TreeTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E
+---@field TreeTrunkThickW 98 MAPTILE_TREE_TRUNK_THICK_W
+---@field [98] "TreeTrunkThickW" MAPTILE_TREE_TRUNK_THICK_W
+---@field TreeTrunkThickNW 99 MAPTILE_TREE_TRUNK_THICK_NW
+---@field [99] "TreeTrunkThickNW" MAPTILE_TREE_TRUNK_THICK_NW
+---@field TreeTrunkThickNE 100 MAPTILE_TREE_TRUNK_THICK_NE
+---@field [100] "TreeTrunkThickNE" MAPTILE_TREE_TRUNK_THICK_NE
+---@field TreeTrunkThickSW 101 MAPTILE_TREE_TRUNK_THICK_SW
+---@field [101] "TreeTrunkThickSW" MAPTILE_TREE_TRUNK_THICK_SW
+---@field TreeTrunkThickSE 102 MAPTILE_TREE_TRUNK_THICK_SE
+---@field [102] "TreeTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE
+---@field TreeTrunkBranchN 103 MAPTILE_TREE_TRUNK_BRANCH_N
+---@field [103] "TreeTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N
+---@field TreeTrunkBranchS 104 MAPTILE_TREE_TRUNK_BRANCH_S
+---@field [104] "TreeTrunkBranchS" MAPTILE_TREE_TRUNK_BRANCH_S
+---@field TreeTrunkBranchE 105 MAPTILE_TREE_TRUNK_BRANCH_E
+---@field [105] "TreeTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E
+---@field TreeTrunkBranchW 106 MAPTILE_TREE_TRUNK_BRANCH_W
+---@field [106] "TreeTrunkBranchW" MAPTILE_TREE_TRUNK_BRANCH_W
+---@field TreeBranchNS 107 MAPTILE_TREE_BRANCH_NS
+---@field [107] "TreeBranchNS" MAPTILE_TREE_BRANCH_NS
+---@field TreeBranchEW 108 MAPTILE_TREE_BRANCH_EW
+---@field [108] "TreeBranchEW" MAPTILE_TREE_BRANCH_EW
+---@field TreeBranchesSmooth 109 MAPTILE_TREE_SMOOTH_BRANCHES
+---@field [109] "TreeBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES
+---@field TreeDeadBranchesSmooth 110 MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
+---@field [110] "TreeDeadBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
+---@field TreeBranchNW 111 MAPTILE_TREE_BRANCH_NW
+---@field [111] "TreeBranchNW" MAPTILE_TREE_BRANCH_NW
+---@field TreeBranchNE 112 0x070
+---@field [112] "TreeBranchNE" 0x070
+---@field TreeBranchSW 113 MAPTILE_TREE_BRANCH_SW
+---@field [113] "TreeBranchSW" MAPTILE_TREE_BRANCH_SW
+---@field TreeBranchSE 114 MAPTILE_TREE_BRANCH_SE
+---@field [114] "TreeBranchSE" MAPTILE_TREE_BRANCH_SE
+---@field TreeBranches 115 MAPTILE_TREE_BRANCHES
+---@field [115] "TreeBranches" MAPTILE_TREE_BRANCHES
+---@field TreeTwigs 116 MAPTILE_TREE_TWIGS
+---@field [116] "TreeTwigs" MAPTILE_TREE_TWIGS
+---@field TreeCapRamp 117 MAPTILE_TREE_CAP_RAMP
+---@field [117] "TreeCapRamp" MAPTILE_TREE_CAP_RAMP
+---@field TreeCapPillar 118 MAPTILE_TREE_CAP_PILLAR
+---@field [118] "TreeCapPillar" MAPTILE_TREE_CAP_PILLAR
+---@field TreeCapWallN 119 MAPTILE_TREE_CAP_WALL_N
+---@field [119] "TreeCapWallN" MAPTILE_TREE_CAP_WALL_N
+---@field TreeCapWallS 120 MAPTILE_TREE_CAP_WALL_S
+---@field [120] "TreeCapWallS" MAPTILE_TREE_CAP_WALL_S
+---@field TreeCapWallE 121 MAPTILE_TREE_CAP_WALL_E
+---@field [121] "TreeCapWallE" MAPTILE_TREE_CAP_WALL_E
+---@field TreeCapWallW 122 MAPTILE_TREE_CAP_WALL_W
+---@field [122] "TreeCapWallW" MAPTILE_TREE_CAP_WALL_W
+---@field TreeCapWallNW 123 MAPTILE_TREE_CAP_WALL_N_W
+---@field [123] "TreeCapWallNW" MAPTILE_TREE_CAP_WALL_N_W
+---@field TreeCapWallNE 124 MAPTILE_TREE_CAP_WALL_N_E
+---@field [124] "TreeCapWallNE" MAPTILE_TREE_CAP_WALL_N_E
+---@field TreeCapWallSW 125 MAPTILE_TREE_CAP_WALL_S_W
+---@field [125] "TreeCapWallSW" MAPTILE_TREE_CAP_WALL_S_W
+---@field TreeCapWallSE 126 MAPTILE_TREE_CAP_WALL_S_E
+---@field [126] "TreeCapWallSE" MAPTILE_TREE_CAP_WALL_S_E
+---@field TreeCapFloor1 127 MAPTILE_TREE_CAP_FLOOR1
+---@field [127] "TreeCapFloor1" MAPTILE_TREE_CAP_FLOOR1
+---@field TreeCapFloor2 128 0x080
+---@field [128] "TreeCapFloor2" 0x080
+---@field TreeCapFloor3 129 MAPTILE_TREE_CAP_FLOOR3
+---@field [129] "TreeCapFloor3" MAPTILE_TREE_CAP_FLOOR3
+---@field TreeCapFloor4 130 MAPTILE_TREE_CAP_FLOOR4
+---@field [130] "TreeCapFloor4" MAPTILE_TREE_CAP_FLOOR4
+---@field TreeDeadRootSloping 131 MAPTILE_TREE_ROOT_SLOPING_DEAD
+---@field [131] "TreeDeadRootSloping" MAPTILE_TREE_ROOT_SLOPING_DEAD
+---@field TreeDeadRoots 132 MAPTILE_TREE_ROOTS_DEAD
+---@field [132] "TreeDeadRoots" MAPTILE_TREE_ROOTS_DEAD
+---@field TreeDeadTrunkPillar 133 MAPTILE_TREE_TRUNK_PILLAR_DEAD
+---@field [133] "TreeDeadTrunkPillar" MAPTILE_TREE_TRUNK_PILLAR_DEAD
+---@field TreeDeadTrunkSloping 134 MAPTILE_TREE_TRUNK_SLOPING_DEAD
+---@field [134] "TreeDeadTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING_DEAD
+---@field TreeDeadTrunkThickN 135 MAPTILE_TREE_TRUNK_THICK_N_DEAD
+---@field [135] "TreeDeadTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N_DEAD
+---@field TreeDeadTrunkThickS 136 MAPTILE_TREE_TRUNK_THICK_S_DEAD
+---@field [136] "TreeDeadTrunkThickS" MAPTILE_TREE_TRUNK_THICK_S_DEAD
+---@field TreeDeadTrunkThickE 137 MAPTILE_TREE_TRUNK_THICK_E_DEAD
+---@field [137] "TreeDeadTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E_DEAD
+---@field TreeDeadTrunkThickW 138 MAPTILE_TREE_TRUNK_THICK_W_DEAD
+---@field [138] "TreeDeadTrunkThickW" MAPTILE_TREE_TRUNK_THICK_W_DEAD
+---@field TreeDeadTrunkThickNW 139 MAPTILE_TREE_TRUNK_THICK_NW_DEAD
+---@field [139] "TreeDeadTrunkThickNW" MAPTILE_TREE_TRUNK_THICK_NW_DEAD
+---@field TreeDeadTrunkThickNE 140 MAPTILE_TREE_TRUNK_THICK_NE_DEAD
+---@field [140] "TreeDeadTrunkThickNE" MAPTILE_TREE_TRUNK_THICK_NE_DEAD
+---@field TreeDeadTrunkThickSW 141 MAPTILE_TREE_TRUNK_THICK_SW_DEAD
+---@field [141] "TreeDeadTrunkThickSW" MAPTILE_TREE_TRUNK_THICK_SW_DEAD
+---@field TreeDeadTrunkThickSE 142 MAPTILE_TREE_TRUNK_THICK_SE_DEAD
+---@field [142] "TreeDeadTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE_DEAD
+---@field TreeDeadTrunkBranchN 143 MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
+---@field [143] "TreeDeadTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
+---@field TreeDeadTrunkBranchS 144 0x090
+---@field [144] "TreeDeadTrunkBranchS" 0x090
+---@field TreeDeadTrunkBranchE 145 MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
+---@field [145] "TreeDeadTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
+---@field TreeDeadTrunkBranchW 146 MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
+---@field [146] "TreeDeadTrunkBranchW" MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
+---@field TreeDeadBranchNS 147 MAPTILE_TREE_BRANCH_NS_DEAD
+---@field [147] "TreeDeadBranchNS" MAPTILE_TREE_BRANCH_NS_DEAD
+---@field TreeDeadBranchEW 148 MAPTILE_TREE_BRANCH_EW_DEAD
+---@field [148] "TreeDeadBranchEW" MAPTILE_TREE_BRANCH_EW_DEAD
+---@field TreeBranch 149 MAPTILE_TREE_BRANCH
+---@field [149] "TreeBranch" MAPTILE_TREE_BRANCH
+---@field TreeDeadBranch 150 MAPTILE_TREE_BRANCH_DEAD
+---@field [150] "TreeDeadBranch" MAPTILE_TREE_BRANCH_DEAD
+---@field TreeDeadBranchNW 151 MAPTILE_TREE_BRANCH_NW_DEAD
+---@field [151] "TreeDeadBranchNW" MAPTILE_TREE_BRANCH_NW_DEAD
+---@field TreeDeadBranchNE 152 MAPTILE_TREE_BRANCH_NE_DEAD
+---@field [152] "TreeDeadBranchNE" MAPTILE_TREE_BRANCH_NE_DEAD
+---@field TreeDeadBranchSW 153 MAPTILE_TREE_BRANCH_SW_DEAD
+---@field [153] "TreeDeadBranchSW" MAPTILE_TREE_BRANCH_SW_DEAD
+---@field TreeDeadBranchSE 154 MAPTILE_TREE_BRANCH_SE_DEAD
+---@field [154] "TreeDeadBranchSE" MAPTILE_TREE_BRANCH_SE_DEAD
+---@field TreeDeadBranches 155 MAPTILE_TREE_BRANCHES_DEAD
+---@field [155] "TreeDeadBranches" MAPTILE_TREE_BRANCHES_DEAD
+---@field TreeDeadTwigs 156 MAPTILE_TREE_TWIGS_DEAD
+---@field [156] "TreeDeadTwigs" MAPTILE_TREE_TWIGS_DEAD
+---@field TreeDeadCapRamp 157 MAPTILE_TREE_CAP_RAMP_DEAD
+---@field [157] "TreeDeadCapRamp" MAPTILE_TREE_CAP_RAMP_DEAD
+---@field TreeDeadCapPillar 158 MAPTILE_TREE_CAP_PILLAR_DEAD
+---@field [158] "TreeDeadCapPillar" MAPTILE_TREE_CAP_PILLAR_DEAD
+---@field TreeDeadCapWallN 159 MAPTILE_TREE_CAP_WALL_N_DEAD
+---@field [159] "TreeDeadCapWallN" MAPTILE_TREE_CAP_WALL_N_DEAD
+---@field TreeDeadCapWallS 160 0x0A0
+---@field [160] "TreeDeadCapWallS" 0x0A0
+---@field TreeDeadCapWallE 161 MAPTILE_TREE_CAP_WALL_E_DEAD
+---@field [161] "TreeDeadCapWallE" MAPTILE_TREE_CAP_WALL_E_DEAD
+---@field TreeDeadCapWallW 162 MAPTILE_TREE_CAP_WALL_W_DEAD
+---@field [162] "TreeDeadCapWallW" MAPTILE_TREE_CAP_WALL_W_DEAD
+---@field TreeDeadCapWallNW 163 MAPTILE_TREE_CAP_WALL_N_W_DEAD
+---@field [163] "TreeDeadCapWallNW" MAPTILE_TREE_CAP_WALL_N_W_DEAD
+---@field TreeDeadCapWallNE 164 MAPTILE_TREE_CAP_WALL_N_E_DEAD
+---@field [164] "TreeDeadCapWallNE" MAPTILE_TREE_CAP_WALL_N_E_DEAD
+---@field TreeDeadCapWallSW 165 MAPTILE_TREE_CAP_WALL_S_W_DEAD
+---@field [165] "TreeDeadCapWallSW" MAPTILE_TREE_CAP_WALL_S_W_DEAD
+---@field TreeDeadCapWallSE 166 MAPTILE_TREE_CAP_WALL_S_E_DEAD
+---@field [166] "TreeDeadCapWallSE" MAPTILE_TREE_CAP_WALL_S_E_DEAD
+---@field TreeDeadCapFloor1 167 MAPTILE_TREE_CAP_FLOOR1_DEAD
+---@field [167] "TreeDeadCapFloor1" MAPTILE_TREE_CAP_FLOOR1_DEAD
+---@field TreeDeadCapFloor2 168 MAPTILE_TREE_CAP_FLOOR2_DEAD
+---@field [168] "TreeDeadCapFloor2" MAPTILE_TREE_CAP_FLOOR2_DEAD
+---@field TreeDeadCapFloor3 169 MAPTILE_TREE_CAP_FLOOR3_DEAD
+---@field [169] "TreeDeadCapFloor3" MAPTILE_TREE_CAP_FLOOR3_DEAD
+---@field TreeDeadCapFloor4 170 MAPTILE_TREE_CAP_FLOOR4_DEAD
+---@field [170] "TreeDeadCapFloor4" MAPTILE_TREE_CAP_FLOOR4_DEAD
+---@field TreeDeadCapWallNS 171 MAPTILE_TREE_CAP_WALL_N_S_DEAD
+---@field [171] "TreeDeadCapWallNS" MAPTILE_TREE_CAP_WALL_N_S_DEAD
+---@field StoneWallWorn1 172 MAPTILE_STONE_WALL_WORN1
+---@field [172] "StoneWallWorn1" MAPTILE_STONE_WALL_WORN1
+---@field StoneWallWorn2 173 MAPTILE_STONE_WALL_WORN2
+---@field [173] "StoneWallWorn2" MAPTILE_STONE_WALL_WORN2
+---@field StoneWallWorn3 174 MAPTILE_STONE_WALL_WORN3
+---@field [174] "StoneWallWorn3" MAPTILE_STONE_WALL_WORN3
+---@field TreeBranchNSE 175 MAPTILE_TREE_BRANCH_NSE
+---@field [175] "TreeBranchNSE" MAPTILE_TREE_BRANCH_NSE
+---@field TreeBranchNSW 176 0x0B0
+---@field [176] "TreeBranchNSW" 0x0B0
+---@field TreeBranchNEW 177 MAPTILE_TREE_BRANCH_NEW
+---@field [177] "TreeBranchNEW" MAPTILE_TREE_BRANCH_NEW
+---@field TreeBranchSEW 178 MAPTILE_TREE_BRANCH_SEW
+---@field [178] "TreeBranchSEW" MAPTILE_TREE_BRANCH_SEW
+---@field TreeBranchNSEW 179 MAPTILE_TREE_BRANCH_NSEW
+---@field [179] "TreeBranchNSEW" MAPTILE_TREE_BRANCH_NSEW
+---@field TreeDeadBranchNSE 180 MAPTILE_TREE_BRANCH_NSE_DEAD
+---@field [180] "TreeDeadBranchNSE" MAPTILE_TREE_BRANCH_NSE_DEAD
+---@field TreeDeadBranchNSW 181 MAPTILE_TREE_BRANCH_NSW_DEAD
+---@field [181] "TreeDeadBranchNSW" MAPTILE_TREE_BRANCH_NSW_DEAD
+---@field TreeDeadBranchNEW 182 MAPTILE_TREE_BRANCH_NEW_DEAD
+---@field [182] "TreeDeadBranchNEW" MAPTILE_TREE_BRANCH_NEW_DEAD
+---@field TreeDeadBranchSEW 183 MAPTILE_TREE_BRANCH_SEW_DEAD
+---@field [183] "TreeDeadBranchSEW" MAPTILE_TREE_BRANCH_SEW_DEAD
+---@field TreeDeadBranchNSEW 184 MAPTILE_TREE_BRANCH_NSEW_DEAD
+---@field [184] "TreeDeadBranchNSEW" MAPTILE_TREE_BRANCH_NSEW_DEAD
+---@field TreeTrunkNSE 185 MAPTILE_TREE_TRUNK_NSE
+---@field [185] "TreeTrunkNSE" MAPTILE_TREE_TRUNK_NSE
+---@field TreeTrunkNSW 186 MAPTILE_TREE_TRUNK_NSW
+---@field [186] "TreeTrunkNSW" MAPTILE_TREE_TRUNK_NSW
+---@field TreeTrunkNEW 187 MAPTILE_TREE_TRUNK_NEW
+---@field [187] "TreeTrunkNEW" MAPTILE_TREE_TRUNK_NEW
+---@field TreeTrunkSEW 188 MAPTILE_TREE_TRUNK_SEW
+---@field [188] "TreeTrunkSEW" MAPTILE_TREE_TRUNK_SEW
+---@field TreeTrunkNS 189 MAPTILE_TREE_TRUNK_NS
+---@field [189] "TreeTrunkNS" MAPTILE_TREE_TRUNK_NS
+---@field TreeTrunkEW 190 MAPTILE_TREE_TRUNK_EW
+---@field [190] "TreeTrunkEW" MAPTILE_TREE_TRUNK_EW
+---@field TreeTrunkNSEW 191 MAPTILE_TREE_TRUNK_NSEW
+---@field [191] "TreeTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW
+---@field TreeTrunkInterior 192 0x0C0
+---@field [192] "TreeTrunkInterior" 0x0C0
+---@field TreeDeadTrunkNSE 193 MAPTILE_TREE_TRUNK_NSE_DEAD
+---@field [193] "TreeDeadTrunkNSE" MAPTILE_TREE_TRUNK_NSE_DEAD
+---@field TreeDeadTrunkNSW 194 MAPTILE_TREE_TRUNK_NSW_DEAD
+---@field [194] "TreeDeadTrunkNSW" MAPTILE_TREE_TRUNK_NSW_DEAD
+---@field TreeDeadTrunkNEW 195 MAPTILE_TREE_TRUNK_NEW_DEAD
+---@field [195] "TreeDeadTrunkNEW" MAPTILE_TREE_TRUNK_NEW_DEAD
+---@field TreeDeadTrunkSEW 196 MAPTILE_TREE_TRUNK_SEW_DEAD
+---@field [196] "TreeDeadTrunkSEW" MAPTILE_TREE_TRUNK_SEW_DEAD
+---@field TreeDeadTrunkNS 197 MAPTILE_TREE_TRUNK_NS_DEAD
+---@field [197] "TreeDeadTrunkNS" MAPTILE_TREE_TRUNK_NS_DEAD
+---@field TreeDeadTrunkEW 198 MAPTILE_TREE_TRUNK_EW_DEAD
+---@field [198] "TreeDeadTrunkEW" MAPTILE_TREE_TRUNK_EW_DEAD
+---@field TreeDeadTrunkNSEW 199 MAPTILE_TREE_TRUNK_NSEW_DEAD
+---@field [199] "TreeDeadTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW_DEAD
+---@field TreeDeadTrunkInterior 200 MAPTILE_TREE_TRUNK_INTERIOR_DEAD
+---@field [200] "TreeDeadTrunkInterior" MAPTILE_TREE_TRUNK_INTERIOR_DEAD
+---@field TreeTrunkNW 201 MAPTILE_TREE_TRUNK_NW
+---@field [201] "TreeTrunkNW" MAPTILE_TREE_TRUNK_NW
+---@field TreeTrunkNE 202 MAPTILE_TREE_TRUNK_NE
+---@field [202] "TreeTrunkNE" MAPTILE_TREE_TRUNK_NE
+---@field TreeTrunkSW 203 MAPTILE_TREE_TRUNK_SW
+---@field [203] "TreeTrunkSW" MAPTILE_TREE_TRUNK_SW
+---@field TreeTrunkSE 204 MAPTILE_TREE_TRUNK_SE
+---@field [204] "TreeTrunkSE" MAPTILE_TREE_TRUNK_SE
+---@field TreeDeadTrunkNW 205 MAPTILE_TREE_TRUNK_NW_DEAD
+---@field [205] "TreeDeadTrunkNW" MAPTILE_TREE_TRUNK_NW_DEAD
+---@field TreeDeadTrunkNE 206 MAPTILE_TREE_TRUNK_NE_DEAD
+---@field [206] "TreeDeadTrunkNE" MAPTILE_TREE_TRUNK_NE_DEAD
+---@field TreeDeadTrunkSW 207 MAPTILE_TREE_TRUNK_SW_DEAD
+---@field [207] "TreeDeadTrunkSW" MAPTILE_TREE_TRUNK_SW_DEAD
+---@field TreeDeadTrunkSE 208 0x0D0
+---@field [208] "TreeDeadTrunkSE" 0x0D0
+---@field TreeTrunkN 209 MAPTILE_TREE_TRUNK_N
+---@field [209] "TreeTrunkN" MAPTILE_TREE_TRUNK_N
+---@field TreeTrunkS 210 MAPTILE_TREE_TRUNK_S
+---@field [210] "TreeTrunkS" MAPTILE_TREE_TRUNK_S
+---@field TreeTrunkW 211 MAPTILE_TREE_TRUNK_W
+---@field [211] "TreeTrunkW" MAPTILE_TREE_TRUNK_W
+---@field TreeTrunkE 212 MAPTILE_TREE_TRUNK_E
+---@field [212] "TreeTrunkE" MAPTILE_TREE_TRUNK_E
+---@field TreeDeadTrunkN 213 MAPTILE_TREE_TRUNK_N_DEAD
+---@field [213] "TreeDeadTrunkN" MAPTILE_TREE_TRUNK_N_DEAD
+---@field TreeDeadTrunkS 214 MAPTILE_TREE_TRUNK_S_DEAD
+---@field [214] "TreeDeadTrunkS" MAPTILE_TREE_TRUNK_S_DEAD
+---@field StoneWall 215 MAPTILE_STONE_WALL
+---@field [215] "StoneWall" MAPTILE_STONE_WALL
+---@field TreeDeadTrunkW 216 MAPTILE_TREE_TRUNK_W_DEAD
+---@field [216] "TreeDeadTrunkW" MAPTILE_TREE_TRUNK_W_DEAD
+---@field TreeDeadTrunkE 217 MAPTILE_TREE_TRUNK_E_DEAD
+---@field [217] "TreeDeadTrunkE" MAPTILE_TREE_TRUNK_E_DEAD
+---@field TreeBranchS 218 MAPTILE_TREE_BRANCH_N
+---@field [218] "TreeBranchS" MAPTILE_TREE_BRANCH_N
+---@field TreeBranchN 219 MAPTILE_TREE_BRANCH_S
+---@field [219] "TreeBranchN" MAPTILE_TREE_BRANCH_S
+---@field TreeBranchW 220 MAPTILE_TREE_BRANCH_E
+---@field [220] "TreeBranchW" MAPTILE_TREE_BRANCH_E
+---@field TreeBranchE 221 MAPTILE_TREE_BRANCH_W
+---@field [221] "TreeBranchE" MAPTILE_TREE_BRANCH_W
+---@field TreeDeadBranchS 222 MAPTILE_TREE_BRANCH_N_DEAD
+---@field [222] "TreeDeadBranchS" MAPTILE_TREE_BRANCH_N_DEAD
+---@field TreeDeadBranchN 223 MAPTILE_TREE_BRANCH_S_DEAD
+---@field [223] "TreeDeadBranchN" MAPTILE_TREE_BRANCH_S_DEAD
+---@field TreeDeadBranchW 224 0x0E0
+---@field [224] "TreeDeadBranchW" 0x0E0
+---@field TreeDeadBranchE 225 MAPTILE_TREE_BRANCH_W_DEAD
+---@field [225] "TreeDeadBranchE" MAPTILE_TREE_BRANCH_W_DEAD
+---@field TreeDeadCapPillarWE 226 MAPTILE_TREE_CAP_WALL_W_E_DEAD
+---@field [226] "TreeDeadCapPillarWE" MAPTILE_TREE_CAP_WALL_W_E_DEAD
+---@field Sapling 227 MAPTILE_SAPLING
+---@field [227] "Sapling" MAPTILE_SAPLING
+---@field Unused888 228 MAPTILE_UNUSED_888
+---@field [228] "Unused888" MAPTILE_UNUSED_888
+---@field GrassDryRamp 229 MAPTILE_RAMP_GRASS_DRY
+---@field [229] "GrassDryRamp" MAPTILE_RAMP_GRASS_DRY
+---@field GrassDeadRamp 230 MAPTILE_RAMP_GRASS_DEAD
+---@field [230] "GrassDeadRamp" MAPTILE_RAMP_GRASS_DEAD
+---@field GrassLightRamp 231 MAPTILE_RAMP_GRASS1
+---@field [231] "GrassLightRamp" MAPTILE_RAMP_GRASS1
+---@field GrassDarkRamp 232 MAPTILE_RAMP_GRASS2
+---@field [232] "GrassDarkRamp" MAPTILE_RAMP_GRASS2
+---@field StoneRamp 233 MAPTILE_RAMP_STONE
+---@field [233] "StoneRamp" MAPTILE_RAMP_STONE
+---@field LavaRamp 234 MAPTILE_RAMP_LAVASTONE
+---@field [234] "LavaRamp" MAPTILE_RAMP_LAVASTONE
+---@field FeatureRamp 235 MAPTILE_RAMP_FEATSTONE
+---@field [235] "FeatureRamp" MAPTILE_RAMP_FEATSTONE
+---@field MineralRamp 236 MAPTILE_RAMP_MINSTONE
+---@field [236] "MineralRamp" MAPTILE_RAMP_MINSTONE
+---@field SoilRamp 237 MAPTILE_RAMP_SOIL
+---@field [237] "SoilRamp" MAPTILE_RAMP_SOIL
+---@field Ashes1 238 MAPTILE_ASH1
+---@field [238] "Ashes1" MAPTILE_ASH1
+---@field Ashes2 239 MAPTILE_ASH2
+---@field [239] "Ashes2" MAPTILE_ASH2
+---@field Ashes3 240 0x0F0
+---@field [240] "Ashes3" 0x0F0
+---@field FrozenRamp 241 MAPTILE_RAMP_FROZEN_LIQUID
+---@field [241] "FrozenRamp" MAPTILE_RAMP_FROZEN_LIQUID
+---@field Unused8888 242 MAPTILE_UNUSED_8888
+---@field [242] "Unused8888" MAPTILE_UNUSED_8888
+---@field Unused88888 243 MAPTILE_UNUSED_88888
+---@field [243] "Unused88888" MAPTILE_UNUSED_88888
+---@field Unused888888 244 MAPTILE_UNUSED_888888
+---@field [244] "Unused888888" MAPTILE_UNUSED_888888
+---@field Unused245 245 MAPTILE_UNUSED245
+---@field [245] "Unused245" MAPTILE_UNUSED245
+---@field Unused246 246 MAPTILE_UNUSED246
+---@field [246] "Unused246" MAPTILE_UNUSED246
+---@field Unused247 247 MAPTILE_UNUSED247
+---@field [247] "Unused247" MAPTILE_UNUSED247
+---@field Unused248 248 MAPTILE_UNUSED248
+---@field [248] "Unused248" MAPTILE_UNUSED248
+---@field Unused249 249 MAPTILE_UNUSED249
+---@field [249] "Unused249" MAPTILE_UNUSED249
+---@field Unused250 250 MAPTILE_UNUSED250
+---@field [250] "Unused250" MAPTILE_UNUSED250
+---@field Unused251 251 MAPTILE_UNUSED251
+---@field [251] "Unused251" MAPTILE_UNUSED251
+---@field Unused252 252 MAPTILE_UNUSED252
+---@field [252] "Unused252" MAPTILE_UNUSED252
+---@field Unused253 253 MAPTILE_UNUSED253
+---@field [253] "Unused253" MAPTILE_UNUSED253
+---@field FrozenFloor2 254 MAPTILE_FROZEN_LIQUID_1
+---@field [254] "FrozenFloor2" MAPTILE_FROZEN_LIQUID_1
+---@field FrozenFloor3 255 MAPTILE_FROZEN_LIQUID_2
+---@field [255] "FrozenFloor3" MAPTILE_FROZEN_LIQUID_2
+---@field FrozenFloor4 256 0x100
+---@field [256] "FrozenFloor4" 0x100
+---@field FurrowedSoil 257 MAPTILE_FURROWED_SOIL
+---@field [257] "FurrowedSoil" MAPTILE_FURROWED_SOIL
+---@field FrozenFloor1 258 MAPTILE_FROZEN_LIQUID_0
+---@field [258] "FrozenFloor1" MAPTILE_FROZEN_LIQUID_0
+---@field SemiMoltenRock 259 MAPTILE_LAVA_SOLID
+---@field [259] "SemiMoltenRock" MAPTILE_LAVA_SOLID
+---@field MagmaFlow 260 MAPTILE_LAVA
+---@field [260] "MagmaFlow" MAPTILE_LAVA
+---@field SoilWall 261 MAPTILE_SOIL_WALL
+---@field [261] "SoilWall" MAPTILE_SOIL_WALL
+---@field GlowingBarrier 262 MAPTILE_GLOWING_BARRIER_WALL
+---@field [262] "GlowingBarrier" MAPTILE_GLOWING_BARRIER_WALL
+---@field GlowingFloor 263 MAPTILE_GLOWING_BARRIER_FLOOR
+---@field [263] "GlowingFloor" MAPTILE_GLOWING_BARRIER_FLOOR
+---@field Unused264 264 MAPTILE_UNUSED_264
+---@field [264] "Unused264" MAPTILE_UNUSED_264
+---@field LavaWallSmoothRD2 265 MAPTILE_LAVASTONE_WALL_DET_RD2
+---@field [265] "LavaWallSmoothRD2" MAPTILE_LAVASTONE_WALL_DET_RD2
+---@field LavaWallSmoothR2D 266 MAPTILE_LAVASTONE_WALL_DET_R2D
+---@field [266] "LavaWallSmoothR2D" MAPTILE_LAVASTONE_WALL_DET_R2D
+---@field LavaWallSmoothR2U 267 MAPTILE_LAVASTONE_WALL_DET_R2U
+---@field [267] "LavaWallSmoothR2U" MAPTILE_LAVASTONE_WALL_DET_R2U
+---@field LavaWallSmoothRU2 268 MAPTILE_LAVASTONE_WALL_DET_RU2
+---@field [268] "LavaWallSmoothRU2" MAPTILE_LAVASTONE_WALL_DET_RU2
+---@field LavaWallSmoothL2U 269 MAPTILE_LAVASTONE_WALL_DET_L2U
+---@field [269] "LavaWallSmoothL2U" MAPTILE_LAVASTONE_WALL_DET_L2U
+---@field LavaWallSmoothLU2 270 MAPTILE_LAVASTONE_WALL_DET_LU2
+---@field [270] "LavaWallSmoothLU2" MAPTILE_LAVASTONE_WALL_DET_LU2
+---@field LavaWallSmoothL2D 271 MAPTILE_LAVASTONE_WALL_DET_L2D
+---@field [271] "LavaWallSmoothL2D" MAPTILE_LAVASTONE_WALL_DET_L2D
+---@field LavaWallSmoothLD2 272 0x110
+---@field [272] "LavaWallSmoothLD2" 0x110
+---@field LavaWallSmoothLRUD 273 MAPTILE_LAVASTONE_WALL_DET_LRUD
+---@field [273] "LavaWallSmoothLRUD" MAPTILE_LAVASTONE_WALL_DET_LRUD
+---@field LavaWallSmoothRUD 274 MAPTILE_LAVASTONE_WALL_DET_RUD
+---@field [274] "LavaWallSmoothRUD" MAPTILE_LAVASTONE_WALL_DET_RUD
+---@field LavaWallSmoothLRD 275 MAPTILE_LAVASTONE_WALL_DET_LRD
+---@field [275] "LavaWallSmoothLRD" MAPTILE_LAVASTONE_WALL_DET_LRD
+---@field LavaWallSmoothLRU 276 MAPTILE_LAVASTONE_WALL_DET_LRU
+---@field [276] "LavaWallSmoothLRU" MAPTILE_LAVASTONE_WALL_DET_LRU
+---@field LavaWallSmoothLUD 277 MAPTILE_LAVASTONE_WALL_DET_LUD
+---@field [277] "LavaWallSmoothLUD" MAPTILE_LAVASTONE_WALL_DET_LUD
+---@field LavaWallSmoothRD 278 MAPTILE_LAVASTONE_WALL_DET_RD
+---@field [278] "LavaWallSmoothRD" MAPTILE_LAVASTONE_WALL_DET_RD
+---@field LavaWallSmoothRU 279 MAPTILE_LAVASTONE_WALL_DET_RU
+---@field [279] "LavaWallSmoothRU" MAPTILE_LAVASTONE_WALL_DET_RU
+---@field LavaWallSmoothLU 280 MAPTILE_LAVASTONE_WALL_DET_LU
+---@field [280] "LavaWallSmoothLU" MAPTILE_LAVASTONE_WALL_DET_LU
+---@field LavaWallSmoothLD 281 MAPTILE_LAVASTONE_WALL_DET_LD
+---@field [281] "LavaWallSmoothLD" MAPTILE_LAVASTONE_WALL_DET_LD
+---@field LavaWallSmoothUD 282 MAPTILE_LAVASTONE_WALL_DET_UD
+---@field [282] "LavaWallSmoothUD" MAPTILE_LAVASTONE_WALL_DET_UD
+---@field LavaWallSmoothLR 283 MAPTILE_LAVASTONE_WALL_DET_LR
+---@field [283] "LavaWallSmoothLR" MAPTILE_LAVASTONE_WALL_DET_LR
+---@field FeatureWallSmoothRD2 284 MAPTILE_FEATSTONE_WALL_DET_RD2
+---@field [284] "FeatureWallSmoothRD2" MAPTILE_FEATSTONE_WALL_DET_RD2
+---@field FeatureWallSmoothR2D 285 MAPTILE_FEATSTONE_WALL_DET_R2D
+---@field [285] "FeatureWallSmoothR2D" MAPTILE_FEATSTONE_WALL_DET_R2D
+---@field FeatureWallSmoothR2U 286 MAPTILE_FEATSTONE_WALL_DET_R2U
+---@field [286] "FeatureWallSmoothR2U" MAPTILE_FEATSTONE_WALL_DET_R2U
+---@field FeatureWallSmoothRU2 287 MAPTILE_FEATSTONE_WALL_DET_RU2
+---@field [287] "FeatureWallSmoothRU2" MAPTILE_FEATSTONE_WALL_DET_RU2
+---@field FeatureWallSmoothL2U 288 0x120
+---@field [288] "FeatureWallSmoothL2U" 0x120
+---@field FeatureWallSmoothLU2 289 MAPTILE_FEATSTONE_WALL_DET_LU2
+---@field [289] "FeatureWallSmoothLU2" MAPTILE_FEATSTONE_WALL_DET_LU2
+---@field FeatureWallSmoothL2D 290 MAPTILE_FEATSTONE_WALL_DET_L2D
+---@field [290] "FeatureWallSmoothL2D" MAPTILE_FEATSTONE_WALL_DET_L2D
+---@field FeatureWallSmoothLD2 291 MAPTILE_FEATSTONE_WALL_DET_LD2
+---@field [291] "FeatureWallSmoothLD2" MAPTILE_FEATSTONE_WALL_DET_LD2
+---@field FeatureWallSmoothLRUD 292 MAPTILE_FEATSTONE_WALL_DET_LRUD
+---@field [292] "FeatureWallSmoothLRUD" MAPTILE_FEATSTONE_WALL_DET_LRUD
+---@field FeatureWallSmoothRUD 293 MAPTILE_FEATSTONE_WALL_DET_RUD
+---@field [293] "FeatureWallSmoothRUD" MAPTILE_FEATSTONE_WALL_DET_RUD
+---@field FeatureWallSmoothLRD 294 MAPTILE_FEATSTONE_WALL_DET_LRD
+---@field [294] "FeatureWallSmoothLRD" MAPTILE_FEATSTONE_WALL_DET_LRD
+---@field FeatureWallSmoothLRU 295 MAPTILE_FEATSTONE_WALL_DET_LRU
+---@field [295] "FeatureWallSmoothLRU" MAPTILE_FEATSTONE_WALL_DET_LRU
+---@field FeatureWallSmoothLUD 296 MAPTILE_FEATSTONE_WALL_DET_LUD
+---@field [296] "FeatureWallSmoothLUD" MAPTILE_FEATSTONE_WALL_DET_LUD
+---@field FeatureWallSmoothRD 297 MAPTILE_FEATSTONE_WALL_DET_RD
+---@field [297] "FeatureWallSmoothRD" MAPTILE_FEATSTONE_WALL_DET_RD
+---@field FeatureWallSmoothRU 298 MAPTILE_FEATSTONE_WALL_DET_RU
+---@field [298] "FeatureWallSmoothRU" MAPTILE_FEATSTONE_WALL_DET_RU
+---@field FeatureWallSmoothLU 299 MAPTILE_FEATSTONE_WALL_DET_LU
+---@field [299] "FeatureWallSmoothLU" MAPTILE_FEATSTONE_WALL_DET_LU
+---@field FeatureWallSmoothLD 300 MAPTILE_FEATSTONE_WALL_DET_LD
+---@field [300] "FeatureWallSmoothLD" MAPTILE_FEATSTONE_WALL_DET_LD
+---@field FeatureWallSmoothUD 301 MAPTILE_FEATSTONE_WALL_DET_UD
+---@field [301] "FeatureWallSmoothUD" MAPTILE_FEATSTONE_WALL_DET_UD
+---@field FeatureWallSmoothLR 302 MAPTILE_FEATSTONE_WALL_DET_LR
+---@field [302] "FeatureWallSmoothLR" MAPTILE_FEATSTONE_WALL_DET_LR
+---@field StoneWallSmoothRD2 303 MAPTILE_STONE_WALL_DET_RD2
+---@field [303] "StoneWallSmoothRD2" MAPTILE_STONE_WALL_DET_RD2
+---@field StoneWallSmoothR2D 304 0x130
+---@field [304] "StoneWallSmoothR2D" 0x130
+---@field StoneWallSmoothR2U 305 MAPTILE_STONE_WALL_DET_R2U
+---@field [305] "StoneWallSmoothR2U" MAPTILE_STONE_WALL_DET_R2U
+---@field StoneWallSmoothRU2 306 MAPTILE_STONE_WALL_DET_RU2
+---@field [306] "StoneWallSmoothRU2" MAPTILE_STONE_WALL_DET_RU2
+---@field StoneWallSmoothL2U 307 MAPTILE_STONE_WALL_DET_L2U
+---@field [307] "StoneWallSmoothL2U" MAPTILE_STONE_WALL_DET_L2U
+---@field StoneWallSmoothLU2 308 MAPTILE_STONE_WALL_DET_LU2
+---@field [308] "StoneWallSmoothLU2" MAPTILE_STONE_WALL_DET_LU2
+---@field StoneWallSmoothL2D 309 MAPTILE_STONE_WALL_DET_L2D
+---@field [309] "StoneWallSmoothL2D" MAPTILE_STONE_WALL_DET_L2D
+---@field StoneWallSmoothLD2 310 MAPTILE_STONE_WALL_DET_LD2
+---@field [310] "StoneWallSmoothLD2" MAPTILE_STONE_WALL_DET_LD2
+---@field StoneWallSmoothLRUD 311 MAPTILE_STONE_WALL_DET_LRUD
+---@field [311] "StoneWallSmoothLRUD" MAPTILE_STONE_WALL_DET_LRUD
+---@field StoneWallSmoothRUD 312 MAPTILE_STONE_WALL_DET_RUD
+---@field [312] "StoneWallSmoothRUD" MAPTILE_STONE_WALL_DET_RUD
+---@field StoneWallSmoothLRD 313 MAPTILE_STONE_WALL_DET_LRD
+---@field [313] "StoneWallSmoothLRD" MAPTILE_STONE_WALL_DET_LRD
+---@field StoneWallSmoothLRU 314 MAPTILE_STONE_WALL_DET_LRU
+---@field [314] "StoneWallSmoothLRU" MAPTILE_STONE_WALL_DET_LRU
+---@field StoneWallSmoothLUD 315 MAPTILE_STONE_WALL_DET_LUD
+---@field [315] "StoneWallSmoothLUD" MAPTILE_STONE_WALL_DET_LUD
+---@field StoneWallSmoothRD 316 MAPTILE_STONE_WALL_DET_RD
+---@field [316] "StoneWallSmoothRD" MAPTILE_STONE_WALL_DET_RD
+---@field StoneWallSmoothRU 317 MAPTILE_STONE_WALL_DET_RU
+---@field [317] "StoneWallSmoothRU" MAPTILE_STONE_WALL_DET_RU
+---@field StoneWallSmoothLU 318 MAPTILE_STONE_WALL_DET_LU
+---@field [318] "StoneWallSmoothLU" MAPTILE_STONE_WALL_DET_LU
+---@field StoneWallSmoothLD 319 MAPTILE_STONE_WALL_DET_LD
+---@field [319] "StoneWallSmoothLD" MAPTILE_STONE_WALL_DET_LD
+---@field StoneWallSmoothUD 320 0x140
+---@field [320] "StoneWallSmoothUD" 0x140
+---@field StoneWallSmoothLR 321 MAPTILE_STONE_WALL_DET_LR
+---@field [321] "StoneWallSmoothLR" MAPTILE_STONE_WALL_DET_LR
+---@field LavaFortification 322 MAPTILE_LAVASTONE_FORTIFICATION
+---@field [322] "LavaFortification" MAPTILE_LAVASTONE_FORTIFICATION
+---@field FeatureFortification 323 MAPTILE_FEATSTONE_FORTIFICATION
+---@field [323] "FeatureFortification" MAPTILE_FEATSTONE_FORTIFICATION
+---@field LavaWallWorn1 324 MAPTILE_LAVASTONE_WALL_WORN1
+---@field [324] "LavaWallWorn1" MAPTILE_LAVASTONE_WALL_WORN1
+---@field LavaWallWorn2 325 MAPTILE_LAVASTONE_WALL_WORN2
+---@field [325] "LavaWallWorn2" MAPTILE_LAVASTONE_WALL_WORN2
+---@field LavaWallWorn3 326 MAPTILE_LAVASTONE_WALL_WORN3
+---@field [326] "LavaWallWorn3" MAPTILE_LAVASTONE_WALL_WORN3
+---@field LavaWall 327 MAPTILE_LAVASTONE_WALL
+---@field [327] "LavaWall" MAPTILE_LAVASTONE_WALL
+---@field FeatureWallWorn1 328 MAPTILE_FEATSTONE_WALL_WORN1
+---@field [328] "FeatureWallWorn1" MAPTILE_FEATSTONE_WALL_WORN1
+---@field FeatureWallWorn2 329 MAPTILE_FEATSTONE_WALL_WORN2
+---@field [329] "FeatureWallWorn2" MAPTILE_FEATSTONE_WALL_WORN2
+---@field FeatureWallWorn3 330 MAPTILE_FEATSTONE_WALL_WORN3
+---@field [330] "FeatureWallWorn3" MAPTILE_FEATSTONE_WALL_WORN3
+---@field FeatureWall 331 MAPTILE_FEATSTONE_WALL
+---@field [331] "FeatureWall" MAPTILE_FEATSTONE_WALL
+---@field StoneFloor1 332 MAPTILE_STONE_FLOOR1
+---@field [332] "StoneFloor1" MAPTILE_STONE_FLOOR1
+---@field StoneFloor2 333 MAPTILE_STONE_FLOOR2
+---@field [333] "StoneFloor2" MAPTILE_STONE_FLOOR2
+---@field StoneFloor3 334 MAPTILE_STONE_FLOOR3
+---@field [334] "StoneFloor3" MAPTILE_STONE_FLOOR3
+---@field StoneFloor4 335 MAPTILE_STONE_FLOOR4
+---@field [335] "StoneFloor4" MAPTILE_STONE_FLOOR4
+---@field LavaFloor1 336 0x150
+---@field [336] "LavaFloor1" 0x150
+---@field LavaFloor2 337 MAPTILE_LAVASTONE_FLOOR2
+---@field [337] "LavaFloor2" MAPTILE_LAVASTONE_FLOOR2
+---@field LavaFloor3 338 MAPTILE_LAVASTONE_FLOOR3
+---@field [338] "LavaFloor3" MAPTILE_LAVASTONE_FLOOR3
+---@field LavaFloor4 339 MAPTILE_LAVASTONE_FLOOR4
+---@field [339] "LavaFloor4" MAPTILE_LAVASTONE_FLOOR4
+---@field FeatureFloor1 340 MAPTILE_FEATSTONE_FLOOR1
+---@field [340] "FeatureFloor1" MAPTILE_FEATSTONE_FLOOR1
+---@field FeatureFloor2 341 MAPTILE_FEATSTONE_FLOOR2
+---@field [341] "FeatureFloor2" MAPTILE_FEATSTONE_FLOOR2
+---@field FeatureFloor3 342 MAPTILE_FEATSTONE_FLOOR3
+---@field [342] "FeatureFloor3" MAPTILE_FEATSTONE_FLOOR3
+---@field FeatureFloor4 343 MAPTILE_FEATSTONE_FLOOR4
+---@field [343] "FeatureFloor4" MAPTILE_FEATSTONE_FLOOR4
+---@field GrassDarkFloor1 344 MAPTILE_GRASS_FLOOR1
+---@field [344] "GrassDarkFloor1" MAPTILE_GRASS_FLOOR1
+---@field GrassDarkFloor2 345 MAPTILE_GRASS_FLOOR2
+---@field [345] "GrassDarkFloor2" MAPTILE_GRASS_FLOOR2
+---@field GrassDarkFloor3 346 MAPTILE_GRASS_FLOOR3
+---@field [346] "GrassDarkFloor3" MAPTILE_GRASS_FLOOR3
+---@field GrassDarkFloor4 347 MAPTILE_GRASS_FLOOR4
+---@field [347] "GrassDarkFloor4" MAPTILE_GRASS_FLOOR4
+---@field SoilFloor1 348 MAPTILE_SOIL_FLOOR1
+---@field [348] "SoilFloor1" MAPTILE_SOIL_FLOOR1
+---@field SoilFloor2 349 MAPTILE_SOIL_FLOOR2
+---@field [349] "SoilFloor2" MAPTILE_SOIL_FLOOR2
+---@field SoilFloor3 350 MAPTILE_SOIL_FLOOR3
+---@field [350] "SoilFloor3" MAPTILE_SOIL_FLOOR3
+---@field SoilFloor4 351 MAPTILE_SOIL_FLOOR4
+---@field [351] "SoilFloor4" MAPTILE_SOIL_FLOOR4
+---@field SoilWetFloor1 352 0x160
+---@field [352] "SoilWetFloor1" 0x160
+---@field SoilWetFloor2 353 MAPTILE_SOIL_FLOOR2_WET
+---@field [353] "SoilWetFloor2" MAPTILE_SOIL_FLOOR2_WET
+---@field SoilWetFloor3 354 MAPTILE_SOIL_FLOOR3_WET
+---@field [354] "SoilWetFloor3" MAPTILE_SOIL_FLOOR3_WET
+---@field SoilWetFloor4 355 MAPTILE_SOIL_FLOOR4_WET
+---@field [355] "SoilWetFloor4" MAPTILE_SOIL_FLOOR4_WET
+---@field FrozenFortification 356 MAPTILE_FROZEN_LIQUID_FORTIFICATION
+---@field [356] "FrozenFortification" MAPTILE_FROZEN_LIQUID_FORTIFICATION
+---@field FrozenWallWorn1 357 MAPTILE_FROZEN_LIQUID_WALL_WORN1
+---@field [357] "FrozenWallWorn1" MAPTILE_FROZEN_LIQUID_WALL_WORN1
+---@field FrozenWallWorn2 358 MAPTILE_FROZEN_LIQUID_WALL_WORN2
+---@field [358] "FrozenWallWorn2" MAPTILE_FROZEN_LIQUID_WALL_WORN2
+---@field FrozenWallWorn3 359 MAPTILE_FROZEN_LIQUID_WALL_WORN3
+---@field [359] "FrozenWallWorn3" MAPTILE_FROZEN_LIQUID_WALL_WORN3
+---@field FrozenWall 360 MAPTILE_FROZEN_LIQUID_WALL
+---@field [360] "FrozenWall" MAPTILE_FROZEN_LIQUID_WALL
+---@field RiverN 361 MAPTILE_RIVER_N
+---@field [361] "RiverN" MAPTILE_RIVER_N
+---@field RiverS 362 MAPTILE_RIVER_S
+---@field [362] "RiverS" MAPTILE_RIVER_S
+---@field RiverE 363 MAPTILE_RIVER_E
+---@field [363] "RiverE" MAPTILE_RIVER_E
+---@field RiverW 364 MAPTILE_RIVER_W
+---@field [364] "RiverW" MAPTILE_RIVER_W
+---@field RiverNW 365 MAPTILE_RIVER_NW
+---@field [365] "RiverNW" MAPTILE_RIVER_NW
+---@field RiverNE 366 MAPTILE_RIVER_NE
+---@field [366] "RiverNE" MAPTILE_RIVER_NE
+---@field RiverSW 367 MAPTILE_RIVER_SW
+---@field [367] "RiverSW" MAPTILE_RIVER_SW
+---@field RiverSE 368 0x170
+---@field [368] "RiverSE" 0x170
+---@field BrookN 369 MAPTILE_STREAM_BED_WALL_N
+---@field [369] "BrookN" MAPTILE_STREAM_BED_WALL_N
+---@field BrookS 370 MAPTILE_STREAM_BED_WALL_S
+---@field [370] "BrookS" MAPTILE_STREAM_BED_WALL_S
+---@field BrookE 371 MAPTILE_STREAM_BED_WALL_E
+---@field [371] "BrookE" MAPTILE_STREAM_BED_WALL_E
+---@field BrookW 372 MAPTILE_STREAM_BED_WALL_W
+---@field [372] "BrookW" MAPTILE_STREAM_BED_WALL_W
+---@field BrookNW 373 MAPTILE_STREAM_BED_WALL_NW
+---@field [373] "BrookNW" MAPTILE_STREAM_BED_WALL_NW
+---@field BrookNE 374 MAPTILE_STREAM_BED_WALL_NE
+---@field [374] "BrookNE" MAPTILE_STREAM_BED_WALL_NE
+---@field BrookSW 375 MAPTILE_STREAM_BED_WALL_SW
+---@field [375] "BrookSW" MAPTILE_STREAM_BED_WALL_SW
+---@field BrookSE 376 MAPTILE_STREAM_BED_WALL_SE
+---@field [376] "BrookSE" MAPTILE_STREAM_BED_WALL_SE
+---@field BrookTop1 377 MAPTILE_STREAM_BED_TOP
+---@field [377] "BrookTop1" MAPTILE_STREAM_BED_TOP
+---@field BrookTop2 378 MAPTILE_STREAM_BED_TOP2
+---@field [378] "BrookTop2" MAPTILE_STREAM_BED_TOP2
+---@field BrookTop3 379 MAPTILE_STREAM_BED_TOP3
+---@field [379] "BrookTop3" MAPTILE_STREAM_BED_TOP3
+---@field BrookTop4 380 MAPTILE_STREAM_BED_TOP4
+---@field [380] "BrookTop4" MAPTILE_STREAM_BED_TOP4
+---@field Unused381 381 MAPTILE_UNUSED_381
+---@field [381] "Unused381" MAPTILE_UNUSED_381
+---@field Unused382 382 MAPTILE_UNUSED_382
+---@field [382] "Unused382" MAPTILE_UNUSED_382
+---@field GrassDryFloor1 383 MAPTILE_GRASS_FLOOR1_DRY
+---@field [383] "GrassDryFloor1" MAPTILE_GRASS_FLOOR1_DRY
+---@field GrassDryFloor2 384 0x180
+---@field [384] "GrassDryFloor2" 0x180
+---@field GrassDryFloor3 385 MAPTILE_GRASS_FLOOR3_DRY
+---@field [385] "GrassDryFloor3" MAPTILE_GRASS_FLOOR3_DRY
+---@field GrassDryFloor4 386 MAPTILE_GRASS_FLOOR4_DRY
+---@field [386] "GrassDryFloor4" MAPTILE_GRASS_FLOOR4_DRY
+---@field Unused387 387 MAPTILE_UNUSED_387
+---@field [387] "Unused387" MAPTILE_UNUSED_387
+---@field SaplingDead 388 MAPTILE_SAPLING_DEAD
+---@field [388] "SaplingDead" MAPTILE_SAPLING_DEAD
+---@field ShrubDead 389 MAPTILE_SHRUB_DEAD
+---@field [389] "ShrubDead" MAPTILE_SHRUB_DEAD
+---@field GrassDeadFloor1 390 MAPTILE_GRASS_FLOOR1_DEAD
+---@field [390] "GrassDeadFloor1" MAPTILE_GRASS_FLOOR1_DEAD
+---@field GrassDeadFloor2 391 MAPTILE_GRASS_FLOOR2_DEAD
+---@field [391] "GrassDeadFloor2" MAPTILE_GRASS_FLOOR2_DEAD
+---@field GrassDeadFloor3 392 MAPTILE_GRASS_FLOOR3_DEAD
+---@field [392] "GrassDeadFloor3" MAPTILE_GRASS_FLOOR3_DEAD
+---@field GrassDeadFloor4 393 MAPTILE_GRASS_FLOOR4_DEAD
+---@field [393] "GrassDeadFloor4" MAPTILE_GRASS_FLOOR4_DEAD
+---@field GrassLightFloor1 394 MAPTILE_GRASS_FLOOR1B
+---@field [394] "GrassLightFloor1" MAPTILE_GRASS_FLOOR1B
+---@field GrassLightFloor2 395 MAPTILE_GRASS_FLOOR2B
+---@field [395] "GrassLightFloor2" MAPTILE_GRASS_FLOOR2B
+---@field GrassLightFloor3 396 MAPTILE_GRASS_FLOOR3B
+---@field [396] "GrassLightFloor3" MAPTILE_GRASS_FLOOR3B
+---@field GrassLightFloor4 397 MAPTILE_GRASS_FLOOR4B
+---@field [397] "GrassLightFloor4" MAPTILE_GRASS_FLOOR4B
+---@field StoneBoulder 398 MAPTILE_STONE_BOULDER
+---@field [398] "StoneBoulder" MAPTILE_STONE_BOULDER
+---@field LavaBoulder 399 MAPTILE_LAVASTONE_BOULDER
+---@field [399] "LavaBoulder" MAPTILE_LAVASTONE_BOULDER
+---@field FeatureBoulder 400 0x190
+---@field [400] "FeatureBoulder" 0x190
+---@field StonePebbles1 401 MAPTILE_STONE_PEBBLE1
+---@field [401] "StonePebbles1" MAPTILE_STONE_PEBBLE1
+---@field StonePebbles2 402 MAPTILE_STONE_PEBBLE2
+---@field [402] "StonePebbles2" MAPTILE_STONE_PEBBLE2
+---@field StonePebbles3 403 MAPTILE_STONE_PEBBLE3
+---@field [403] "StonePebbles3" MAPTILE_STONE_PEBBLE3
+---@field StonePebbles4 404 MAPTILE_STONE_PEBBLE4
+---@field [404] "StonePebbles4" MAPTILE_STONE_PEBBLE4
+---@field LavaPebbles1 405 MAPTILE_LAVASTONE_PEBBLE1
+---@field [405] "LavaPebbles1" MAPTILE_LAVASTONE_PEBBLE1
+---@field LavaPebbles2 406 MAPTILE_LAVASTONE_PEBBLE2
+---@field [406] "LavaPebbles2" MAPTILE_LAVASTONE_PEBBLE2
+---@field LavaPebbles3 407 MAPTILE_LAVASTONE_PEBBLE3
+---@field [407] "LavaPebbles3" MAPTILE_LAVASTONE_PEBBLE3
+---@field LavaPebbles4 408 MAPTILE_LAVASTONE_PEBBLE4
+---@field [408] "LavaPebbles4" MAPTILE_LAVASTONE_PEBBLE4
+---@field FeaturePebbles1 409 MAPTILE_FEATSTONE_PEBBLE1
+---@field [409] "FeaturePebbles1" MAPTILE_FEATSTONE_PEBBLE1
+---@field FeaturePebbles2 410 MAPTILE_FEATSTONE_PEBBLE2
+---@field [410] "FeaturePebbles2" MAPTILE_FEATSTONE_PEBBLE2
+---@field FeaturePebbles3 411 MAPTILE_FEATSTONE_PEBBLE3
+---@field [411] "FeaturePebbles3" MAPTILE_FEATSTONE_PEBBLE3
+---@field FeaturePebbles4 412 MAPTILE_FEATSTONE_PEBBLE4
+---@field [412] "FeaturePebbles4" MAPTILE_FEATSTONE_PEBBLE4
+---@field MineralWallSmoothRD2 413 MAPTILE_MINSTONE_WALL_DET_RD2
+---@field [413] "MineralWallSmoothRD2" MAPTILE_MINSTONE_WALL_DET_RD2
+---@field MineralWallSmoothR2D 414 MAPTILE_MINSTONE_WALL_DET_R2D
+---@field [414] "MineralWallSmoothR2D" MAPTILE_MINSTONE_WALL_DET_R2D
+---@field MineralWallSmoothR2U 415 0x1A0
+---@field [415] "MineralWallSmoothR2U" 0x1A0
+---@field MineralWallSmoothRU2 416 MAPTILE_MINSTONE_WALL_DET_RU2
+---@field [416] "MineralWallSmoothRU2" MAPTILE_MINSTONE_WALL_DET_RU2
+---@field MineralWallSmoothL2U 417 MAPTILE_MINSTONE_WALL_DET_L2U
+---@field [417] "MineralWallSmoothL2U" MAPTILE_MINSTONE_WALL_DET_L2U
+---@field MineralWallSmoothLU2 418 MAPTILE_MINSTONE_WALL_DET_LU2
+---@field [418] "MineralWallSmoothLU2" MAPTILE_MINSTONE_WALL_DET_LU2
+---@field MineralWallSmoothL2D 419 MAPTILE_MINSTONE_WALL_DET_L2D
+---@field [419] "MineralWallSmoothL2D" MAPTILE_MINSTONE_WALL_DET_L2D
+---@field MineralWallSmoothLD2 420 MAPTILE_MINSTONE_WALL_DET_LD2
+---@field [420] "MineralWallSmoothLD2" MAPTILE_MINSTONE_WALL_DET_LD2
+---@field MineralWallSmoothLRUD 421 MAPTILE_MINSTONE_WALL_DET_LRUD
+---@field [421] "MineralWallSmoothLRUD" MAPTILE_MINSTONE_WALL_DET_LRUD
+---@field MineralWallSmoothRUD 422 MAPTILE_MINSTONE_WALL_DET_RUD
+---@field [422] "MineralWallSmoothRUD" MAPTILE_MINSTONE_WALL_DET_RUD
+---@field MineralWallSmoothLRD 423 MAPTILE_MINSTONE_WALL_DET_LRD
+---@field [423] "MineralWallSmoothLRD" MAPTILE_MINSTONE_WALL_DET_LRD
+---@field MineralWallSmoothLRU 424 MAPTILE_MINSTONE_WALL_DET_LRU
+---@field [424] "MineralWallSmoothLRU" MAPTILE_MINSTONE_WALL_DET_LRU
+---@field MineralWallSmoothLUD 425 MAPTILE_MINSTONE_WALL_DET_LUD
+---@field [425] "MineralWallSmoothLUD" MAPTILE_MINSTONE_WALL_DET_LUD
+---@field MineralWallSmoothRD 426 MAPTILE_MINSTONE_WALL_DET_RD
+---@field [426] "MineralWallSmoothRD" MAPTILE_MINSTONE_WALL_DET_RD
+---@field MineralWallSmoothRU 427 MAPTILE_MINSTONE_WALL_DET_RU
+---@field [427] "MineralWallSmoothRU" MAPTILE_MINSTONE_WALL_DET_RU
+---@field MineralWallSmoothLU 428 MAPTILE_MINSTONE_WALL_DET_LU
+---@field [428] "MineralWallSmoothLU" MAPTILE_MINSTONE_WALL_DET_LU
+---@field MineralWallSmoothLD 429 MAPTILE_MINSTONE_WALL_DET_LD
+---@field [429] "MineralWallSmoothLD" MAPTILE_MINSTONE_WALL_DET_LD
+---@field MineralWallSmoothUD 430 MAPTILE_MINSTONE_WALL_DET_UD
+---@field [430] "MineralWallSmoothUD" MAPTILE_MINSTONE_WALL_DET_UD
+---@field MineralWallSmoothLR 431 MAPTILE_MINSTONE_WALL_DET_LR
+---@field [431] "MineralWallSmoothLR" MAPTILE_MINSTONE_WALL_DET_LR
+---@field MineralFortification 432 0x1B0
+---@field [432] "MineralFortification" 0x1B0
+---@field MineralWallWorn1 433 MAPTILE_MINSTONE_WALL_WORN1
+---@field [433] "MineralWallWorn1" MAPTILE_MINSTONE_WALL_WORN1
+---@field MineralWallWorn2 434 MAPTILE_MINSTONE_WALL_WORN2
+---@field [434] "MineralWallWorn2" MAPTILE_MINSTONE_WALL_WORN2
+---@field MineralWallWorn3 435 MAPTILE_MINSTONE_WALL_WORN3
+---@field [435] "MineralWallWorn3" MAPTILE_MINSTONE_WALL_WORN3
+---@field MineralWall 436 MAPTILE_MINSTONE_WALL
+---@field [436] "MineralWall" MAPTILE_MINSTONE_WALL
+---@field MineralFloor1 437 MAPTILE_MINSTONE_FLOOR1
+---@field [437] "MineralFloor1" MAPTILE_MINSTONE_FLOOR1
+---@field MineralFloor2 438 MAPTILE_MINSTONE_FLOOR2
+---@field [438] "MineralFloor2" MAPTILE_MINSTONE_FLOOR2
+---@field MineralFloor3 439 MAPTILE_MINSTONE_FLOOR3
+---@field [439] "MineralFloor3" MAPTILE_MINSTONE_FLOOR3
+---@field MineralFloor4 440 MAPTILE_MINSTONE_FLOOR4
+---@field [440] "MineralFloor4" MAPTILE_MINSTONE_FLOOR4
+---@field MineralBoulder 441 MAPTILE_MINSTONE_BOULDER
+---@field [441] "MineralBoulder" MAPTILE_MINSTONE_BOULDER
+---@field MineralPebbles1 442 MAPTILE_MINSTONE_PEBBLE1
+---@field [442] "MineralPebbles1" MAPTILE_MINSTONE_PEBBLE1
+---@field MineralPebbles2 443 MAPTILE_MINSTONE_PEBBLE2
+---@field [443] "MineralPebbles2" MAPTILE_MINSTONE_PEBBLE2
+---@field MineralPebbles3 444 MAPTILE_MINSTONE_PEBBLE3
+---@field [444] "MineralPebbles3" MAPTILE_MINSTONE_PEBBLE3
+---@field MineralPebbles4 445 MAPTILE_MINSTONE_PEBBLE4
+---@field [445] "MineralPebbles4" MAPTILE_MINSTONE_PEBBLE4
+---@field FrozenWallSmoothRD2 446 MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
+---@field [446] "FrozenWallSmoothRD2" MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
+---@field FrozenWallSmoothR2D 447 MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
+---@field [447] "FrozenWallSmoothR2D" MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
+---@field FrozenWallSmoothR2U 448 0x1C0
+---@field [448] "FrozenWallSmoothR2U" 0x1C0
+---@field FrozenWallSmoothRU2 449 MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
+---@field [449] "FrozenWallSmoothRU2" MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
+---@field FrozenWallSmoothL2U 450 MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
+---@field [450] "FrozenWallSmoothL2U" MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
+---@field FrozenWallSmoothLU2 451 MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
+---@field [451] "FrozenWallSmoothLU2" MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
+---@field FrozenWallSmoothL2D 452 MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
+---@field [452] "FrozenWallSmoothL2D" MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
+---@field FrozenWallSmoothLD2 453 MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
+---@field [453] "FrozenWallSmoothLD2" MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
+---@field FrozenWallSmoothLRUD 454 MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
+---@field [454] "FrozenWallSmoothLRUD" MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
+---@field FrozenWallSmoothRUD 455 MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
+---@field [455] "FrozenWallSmoothRUD" MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
+---@field FrozenWallSmoothLRD 456 MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
+---@field [456] "FrozenWallSmoothLRD" MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
+---@field FrozenWallSmoothLRU 457 MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
+---@field [457] "FrozenWallSmoothLRU" MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
+---@field FrozenWallSmoothLUD 458 MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
+---@field [458] "FrozenWallSmoothLUD" MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
+---@field FrozenWallSmoothRD 459 MAPTILE_FROZEN_LIQUID_WALL_DET_RD
+---@field [459] "FrozenWallSmoothRD" MAPTILE_FROZEN_LIQUID_WALL_DET_RD
+---@field FrozenWallSmoothRU 460 MAPTILE_FROZEN_LIQUID_WALL_DET_RU
+---@field [460] "FrozenWallSmoothRU" MAPTILE_FROZEN_LIQUID_WALL_DET_RU
+---@field FrozenWallSmoothLU 461 MAPTILE_FROZEN_LIQUID_WALL_DET_LU
+---@field [461] "FrozenWallSmoothLU" MAPTILE_FROZEN_LIQUID_WALL_DET_LU
+---@field FrozenWallSmoothLD 462 MAPTILE_FROZEN_LIQUID_WALL_DET_LD
+---@field [462] "FrozenWallSmoothLD" MAPTILE_FROZEN_LIQUID_WALL_DET_LD
+---@field FrozenWallSmoothUD 463 MAPTILE_FROZEN_LIQUID_WALL_DET_UD
+---@field [463] "FrozenWallSmoothUD" MAPTILE_FROZEN_LIQUID_WALL_DET_UD
+---@field FrozenWallSmoothLR 464 0x1D0
+---@field [464] "FrozenWallSmoothLR" 0x1D0
+---@field RiverRampN 465 MAPTILE_RIVER_RAMP_N
+---@field [465] "RiverRampN" MAPTILE_RIVER_RAMP_N
+---@field RiverRampS 466 MAPTILE_RIVER_RAMP_S
+---@field [466] "RiverRampS" MAPTILE_RIVER_RAMP_S
+---@field RiverRampE 467 MAPTILE_RIVER_RAMP_E
+---@field [467] "RiverRampE" MAPTILE_RIVER_RAMP_E
+---@field RiverRampW 468 MAPTILE_RIVER_RAMP_W
+---@field [468] "RiverRampW" MAPTILE_RIVER_RAMP_W
+---@field RiverRampNW 469 MAPTILE_RIVER_RAMP_NW
+---@field [469] "RiverRampNW" MAPTILE_RIVER_RAMP_NW
+---@field RiverRampNE 470 MAPTILE_RIVER_RAMP_NE
+---@field [470] "RiverRampNE" MAPTILE_RIVER_RAMP_NE
+---@field RiverRampSW 471 MAPTILE_RIVER_RAMP_SW
+---@field [471] "RiverRampSW" MAPTILE_RIVER_RAMP_SW
+---@field RiverRampSE 472 MAPTILE_RIVER_RAMP_SE
+---@field [472] "RiverRampSE" MAPTILE_RIVER_RAMP_SE
+---@field Unused473 473 MAPTILE_UNUSED_473
+---@field [473] "Unused473" MAPTILE_UNUSED_473
+---@field Unused474 474 MAPTILE_UNUSED_474
+---@field [474] "Unused474" MAPTILE_UNUSED_474
+---@field Unused475 475 MAPTILE_UNUSED_475
+---@field [475] "Unused475" MAPTILE_UNUSED_475
+---@field Unused476 476 MAPTILE_UNUSED_476
+---@field [476] "Unused476" MAPTILE_UNUSED_476
+---@field Unused477 477 MAPTILE_UNUSED_477
+---@field [477] "Unused477" MAPTILE_UNUSED_477
+---@field Unused478 478 MAPTILE_UNUSED_478
+---@field [478] "Unused478" MAPTILE_UNUSED_478
+---@field Unused479 479 MAPTILE_UNUSED_479
+---@field [479] "Unused479" MAPTILE_UNUSED_479
+---@field Unused480 480 0x1E0
+---@field [480] "Unused480" 0x1E0
+---@field Unused481 481 MAPTILE_UNUSED_481
+---@field [481] "Unused481" MAPTILE_UNUSED_481
+---@field Unused482 482 MAPTILE_UNUSED_482
+---@field [482] "Unused482" MAPTILE_UNUSED_482
+---@field Unused483 483 MAPTILE_UNUSED_483
+---@field [483] "Unused483" MAPTILE_UNUSED_483
+---@field Unused484 484 MAPTILE_UNUSED_484
+---@field [484] "Unused484" MAPTILE_UNUSED_484
+---@field Unused485 485 MAPTILE_UNUSED_485
+---@field [485] "Unused485" MAPTILE_UNUSED_485
+---@field Unused486 486 MAPTILE_UNUSED_486
+---@field [486] "Unused486" MAPTILE_UNUSED_486
+---@field Unused487 487 MAPTILE_UNUSED_487
+---@field [487] "Unused487" MAPTILE_UNUSED_487
+---@field Unused488 488 MAPTILE_UNUSED_488
+---@field [488] "Unused488" MAPTILE_UNUSED_488
+---@field ConstructedFloor 489 MAPTILE_CONSTRUCTED_FLOOR_DETAILED
+---@field [489] "ConstructedFloor" MAPTILE_CONSTRUCTED_FLOOR_DETAILED
+---@field ConstructedFortification 490 MAPTILE_CONSTRUCTED_FORTIFICATION
+---@field [490] "ConstructedFortification" MAPTILE_CONSTRUCTED_FORTIFICATION
+---@field ConstructedPillar 491 MAPTILE_CONSTRUCTED_PILLAR
+---@field [491] "ConstructedPillar" MAPTILE_CONSTRUCTED_PILLAR
+---@field ConstructedWallRD2 492 MAPTILE_CONSTRUCTED_WALL_DET_RD2
+---@field [492] "ConstructedWallRD2" MAPTILE_CONSTRUCTED_WALL_DET_RD2
+---@field ConstructedWallR2D 493 MAPTILE_CONSTRUCTED_WALL_DET_R2D
+---@field [493] "ConstructedWallR2D" MAPTILE_CONSTRUCTED_WALL_DET_R2D
+---@field ConstructedWallR2U 494 MAPTILE_CONSTRUCTED_WALL_DET_R2U
+---@field [494] "ConstructedWallR2U" MAPTILE_CONSTRUCTED_WALL_DET_R2U
+---@field ConstructedWallRU2 495 MAPTILE_CONSTRUCTED_WALL_DET_RU2
+---@field [495] "ConstructedWallRU2" MAPTILE_CONSTRUCTED_WALL_DET_RU2
+---@field ConstructedWallL2U 496 0x1F0
+---@field [496] "ConstructedWallL2U" 0x1F0
+---@field ConstructedWallLU2 497 MAPTILE_CONSTRUCTED_WALL_DET_LU2
+---@field [497] "ConstructedWallLU2" MAPTILE_CONSTRUCTED_WALL_DET_LU2
+---@field ConstructedWallL2D 498 MAPTILE_CONSTRUCTED_WALL_DET_L2D
+---@field [498] "ConstructedWallL2D" MAPTILE_CONSTRUCTED_WALL_DET_L2D
+---@field ConstructedWallLD2 499 MAPTILE_CONSTRUCTED_WALL_DET_LD2
+---@field [499] "ConstructedWallLD2" MAPTILE_CONSTRUCTED_WALL_DET_LD2
+---@field ConstructedWallLRUD 500 MAPTILE_CONSTRUCTED_WALL_DET_LRUD
+---@field [500] "ConstructedWallLRUD" MAPTILE_CONSTRUCTED_WALL_DET_LRUD
+---@field ConstructedWallRUD 501 MAPTILE_CONSTRUCTED_WALL_DET_RUD
+---@field [501] "ConstructedWallRUD" MAPTILE_CONSTRUCTED_WALL_DET_RUD
+---@field ConstructedWallLRD 502 MAPTILE_CONSTRUCTED_WALL_DET_LRD
+---@field [502] "ConstructedWallLRD" MAPTILE_CONSTRUCTED_WALL_DET_LRD
+---@field ConstructedWallLRU 503 MAPTILE_CONSTRUCTED_WALL_DET_LRU
+---@field [503] "ConstructedWallLRU" MAPTILE_CONSTRUCTED_WALL_DET_LRU
+---@field ConstructedWallLUD 504 MAPTILE_CONSTRUCTED_WALL_DET_LUD
+---@field [504] "ConstructedWallLUD" MAPTILE_CONSTRUCTED_WALL_DET_LUD
+---@field ConstructedWallRD 505 MAPTILE_CONSTRUCTED_WALL_DET_RD
+---@field [505] "ConstructedWallRD" MAPTILE_CONSTRUCTED_WALL_DET_RD
+---@field ConstructedWallRU 506 MAPTILE_CONSTRUCTED_WALL_DET_RU
+---@field [506] "ConstructedWallRU" MAPTILE_CONSTRUCTED_WALL_DET_RU
+---@field ConstructedWallLU 507 MAPTILE_CONSTRUCTED_WALL_DET_LU
+---@field [507] "ConstructedWallLU" MAPTILE_CONSTRUCTED_WALL_DET_LU
+---@field ConstructedWallLD 508 MAPTILE_CONSTRUCTED_WALL_DET_LD
+---@field [508] "ConstructedWallLD" MAPTILE_CONSTRUCTED_WALL_DET_LD
+---@field ConstructedWallUD 509 MAPTILE_CONSTRUCTED_WALL_DET_UD
+---@field [509] "ConstructedWallUD" MAPTILE_CONSTRUCTED_WALL_DET_UD
+---@field ConstructedWallLR 510 MAPTILE_CONSTRUCTED_WALL_DET_LR
+---@field [510] "ConstructedWallLR" MAPTILE_CONSTRUCTED_WALL_DET_LR
+---@field ConstructedStairUD 511 MAPTILE_STAIR_UPDOWN_CONSTRUCTED
+---@field [511] "ConstructedStairUD" MAPTILE_STAIR_UPDOWN_CONSTRUCTED
+---@field ConstructedStairD 512 0x200
+---@field [512] "ConstructedStairD" 0x200
+---@field ConstructedStairU 513 MAPTILE_STAIR_UP_CONSTRUCTED
+---@field [513] "ConstructedStairU" MAPTILE_STAIR_UP_CONSTRUCTED
+---@field ConstructedRamp 514 MAPTILE_RAMP_CONSTRUCTED
+---@field [514] "ConstructedRamp" MAPTILE_RAMP_CONSTRUCTED
+---@field StoneFloorTrackN 515 MAPTILE_STONE_TRACK_N
+---@field [515] "StoneFloorTrackN" MAPTILE_STONE_TRACK_N
+---@field StoneFloorTrackS 516 MAPTILE_STONE_TRACK_S
+---@field [516] "StoneFloorTrackS" MAPTILE_STONE_TRACK_S
+---@field StoneFloorTrackE 517 MAPTILE_STONE_TRACK_E
+---@field [517] "StoneFloorTrackE" MAPTILE_STONE_TRACK_E
+---@field StoneFloorTrackW 518 MAPTILE_STONE_TRACK_W
+---@field [518] "StoneFloorTrackW" MAPTILE_STONE_TRACK_W
+---@field StoneFloorTrackNS 519 MAPTILE_STONE_TRACK_NS
+---@field [519] "StoneFloorTrackNS" MAPTILE_STONE_TRACK_NS
+---@field StoneFloorTrackNE 520 MAPTILE_STONE_TRACK_NE
+---@field [520] "StoneFloorTrackNE" MAPTILE_STONE_TRACK_NE
+---@field StoneFloorTrackNW 521 MAPTILE_STONE_TRACK_NW
+---@field [521] "StoneFloorTrackNW" MAPTILE_STONE_TRACK_NW
+---@field StoneFloorTrackSE 522 MAPTILE_STONE_TRACK_SE
+---@field [522] "StoneFloorTrackSE" MAPTILE_STONE_TRACK_SE
+---@field StoneFloorTrackSW 523 MAPTILE_STONE_TRACK_SW
+---@field [523] "StoneFloorTrackSW" MAPTILE_STONE_TRACK_SW
+---@field StoneFloorTrackEW 524 MAPTILE_STONE_TRACK_EW
+---@field [524] "StoneFloorTrackEW" MAPTILE_STONE_TRACK_EW
+---@field StoneFloorTrackNSE 525 MAPTILE_STONE_TRACK_NSE
+---@field [525] "StoneFloorTrackNSE" MAPTILE_STONE_TRACK_NSE
+---@field StoneFloorTrackNSW 526 MAPTILE_STONE_TRACK_NSW
+---@field [526] "StoneFloorTrackNSW" MAPTILE_STONE_TRACK_NSW
+---@field StoneFloorTrackNEW 527 MAPTILE_STONE_TRACK_NEW
+---@field [527] "StoneFloorTrackNEW" MAPTILE_STONE_TRACK_NEW
+---@field StoneFloorTrackSEW 528 0x210
+---@field [528] "StoneFloorTrackSEW" 0x210
+---@field StoneFloorTrackNSEW 529 MAPTILE_STONE_TRACK_NSEW
+---@field [529] "StoneFloorTrackNSEW" MAPTILE_STONE_TRACK_NSEW
+---@field LavaFloorTrackN 530 MAPTILE_LAVASTONE_TRACK_N
+---@field [530] "LavaFloorTrackN" MAPTILE_LAVASTONE_TRACK_N
+---@field LavaFloorTrackS 531 MAPTILE_LAVASTONE_TRACK_S
+---@field [531] "LavaFloorTrackS" MAPTILE_LAVASTONE_TRACK_S
+---@field LavaFloorTrackE 532 MAPTILE_LAVASTONE_TRACK_E
+---@field [532] "LavaFloorTrackE" MAPTILE_LAVASTONE_TRACK_E
+---@field LavaFloorTrackW 533 MAPTILE_LAVASTONE_TRACK_W
+---@field [533] "LavaFloorTrackW" MAPTILE_LAVASTONE_TRACK_W
+---@field LavaFloorTrackNS 534 MAPTILE_LAVASTONE_TRACK_NS
+---@field [534] "LavaFloorTrackNS" MAPTILE_LAVASTONE_TRACK_NS
+---@field LavaFloorTrackNE 535 MAPTILE_LAVASTONE_TRACK_NE
+---@field [535] "LavaFloorTrackNE" MAPTILE_LAVASTONE_TRACK_NE
+---@field LavaFloorTrackNW 536 MAPTILE_LAVASTONE_TRACK_NW
+---@field [536] "LavaFloorTrackNW" MAPTILE_LAVASTONE_TRACK_NW
+---@field LavaFloorTrackSE 537 MAPTILE_LAVASTONE_TRACK_SE
+---@field [537] "LavaFloorTrackSE" MAPTILE_LAVASTONE_TRACK_SE
+---@field LavaFloorTrackSW 538 MAPTILE_LAVASTONE_TRACK_SW
+---@field [538] "LavaFloorTrackSW" MAPTILE_LAVASTONE_TRACK_SW
+---@field LavaFloorTrackEW 539 MAPTILE_LAVASTONE_TRACK_EW
+---@field [539] "LavaFloorTrackEW" MAPTILE_LAVASTONE_TRACK_EW
+---@field LavaFloorTrackNSE 540 MAPTILE_LAVASTONE_TRACK_NSE
+---@field [540] "LavaFloorTrackNSE" MAPTILE_LAVASTONE_TRACK_NSE
+---@field LavaFloorTrackNSW 541 MAPTILE_LAVASTONE_TRACK_NSW
+---@field [541] "LavaFloorTrackNSW" MAPTILE_LAVASTONE_TRACK_NSW
+---@field LavaFloorTrackNEW 542 MAPTILE_LAVASTONE_TRACK_NEW
+---@field [542] "LavaFloorTrackNEW" MAPTILE_LAVASTONE_TRACK_NEW
+---@field LavaFloorTrackSEW 543 MAPTILE_LAVASTONE_TRACK_SEW
+---@field [543] "LavaFloorTrackSEW" MAPTILE_LAVASTONE_TRACK_SEW
+---@field LavaFloorTrackNSEW 544 0x220
+---@field [544] "LavaFloorTrackNSEW" 0x220
+---@field FeatureFloorTrackN 545 MAPTILE_FEATSTONE_TRACK_N
+---@field [545] "FeatureFloorTrackN" MAPTILE_FEATSTONE_TRACK_N
+---@field FeatureFloorTrackS 546 MAPTILE_FEATSTONE_TRACK_S
+---@field [546] "FeatureFloorTrackS" MAPTILE_FEATSTONE_TRACK_S
+---@field FeatureFloorTrackE 547 MAPTILE_FEATSTONE_TRACK_E
+---@field [547] "FeatureFloorTrackE" MAPTILE_FEATSTONE_TRACK_E
+---@field FeatureFloorTrackW 548 MAPTILE_FEATSTONE_TRACK_W
+---@field [548] "FeatureFloorTrackW" MAPTILE_FEATSTONE_TRACK_W
+---@field FeatureFloorTrackNS 549 MAPTILE_FEATSTONE_TRACK_NS
+---@field [549] "FeatureFloorTrackNS" MAPTILE_FEATSTONE_TRACK_NS
+---@field FeatureFloorTrackNE 550 MAPTILE_FEATSTONE_TRACK_NE
+---@field [550] "FeatureFloorTrackNE" MAPTILE_FEATSTONE_TRACK_NE
+---@field FeatureFloorTrackNW 551 MAPTILE_FEATSTONE_TRACK_NW
+---@field [551] "FeatureFloorTrackNW" MAPTILE_FEATSTONE_TRACK_NW
+---@field FeatureFloorTrackSE 552 MAPTILE_FEATSTONE_TRACK_SE
+---@field [552] "FeatureFloorTrackSE" MAPTILE_FEATSTONE_TRACK_SE
+---@field FeatureFloorTrackSW 553 MAPTILE_FEATSTONE_TRACK_SW
+---@field [553] "FeatureFloorTrackSW" MAPTILE_FEATSTONE_TRACK_SW
+---@field FeatureFloorTrackEW 554 MAPTILE_FEATSTONE_TRACK_EW
+---@field [554] "FeatureFloorTrackEW" MAPTILE_FEATSTONE_TRACK_EW
+---@field FeatureFloorTrackNSE 555 MAPTILE_FEATSTONE_TRACK_NSE
+---@field [555] "FeatureFloorTrackNSE" MAPTILE_FEATSTONE_TRACK_NSE
+---@field FeatureFloorTrackNSW 556 MAPTILE_FEATSTONE_TRACK_NSW
+---@field [556] "FeatureFloorTrackNSW" MAPTILE_FEATSTONE_TRACK_NSW
+---@field FeatureFloorTrackNEW 557 MAPTILE_FEATSTONE_TRACK_NEW
+---@field [557] "FeatureFloorTrackNEW" MAPTILE_FEATSTONE_TRACK_NEW
+---@field FeatureFloorTrackSEW 558 MAPTILE_FEATSTONE_TRACK_SEW
+---@field [558] "FeatureFloorTrackSEW" MAPTILE_FEATSTONE_TRACK_SEW
+---@field FeatureFloorTrackNSEW 559 MAPTILE_FEATSTONE_TRACK_NSEW
+---@field [559] "FeatureFloorTrackNSEW" MAPTILE_FEATSTONE_TRACK_NSEW
+---@field MineralFloorTrackN 560 0x230
+---@field [560] "MineralFloorTrackN" 0x230
+---@field MineralFloorTrackS 561 MAPTILE_MINSTONE_TRACK_S
+---@field [561] "MineralFloorTrackS" MAPTILE_MINSTONE_TRACK_S
+---@field MineralFloorTrackE 562 MAPTILE_MINSTONE_TRACK_E
+---@field [562] "MineralFloorTrackE" MAPTILE_MINSTONE_TRACK_E
+---@field MineralFloorTrackW 563 MAPTILE_MINSTONE_TRACK_W
+---@field [563] "MineralFloorTrackW" MAPTILE_MINSTONE_TRACK_W
+---@field MineralFloorTrackNS 564 MAPTILE_MINSTONE_TRACK_NS
+---@field [564] "MineralFloorTrackNS" MAPTILE_MINSTONE_TRACK_NS
+---@field MineralFloorTrackNE 565 MAPTILE_MINSTONE_TRACK_NE
+---@field [565] "MineralFloorTrackNE" MAPTILE_MINSTONE_TRACK_NE
+---@field MineralFloorTrackNW 566 MAPTILE_MINSTONE_TRACK_NW
+---@field [566] "MineralFloorTrackNW" MAPTILE_MINSTONE_TRACK_NW
+---@field MineralFloorTrackSE 567 MAPTILE_MINSTONE_TRACK_SE
+---@field [567] "MineralFloorTrackSE" MAPTILE_MINSTONE_TRACK_SE
+---@field MineralFloorTrackSW 568 MAPTILE_MINSTONE_TRACK_SW
+---@field [568] "MineralFloorTrackSW" MAPTILE_MINSTONE_TRACK_SW
+---@field MineralFloorTrackEW 569 MAPTILE_MINSTONE_TRACK_EW
+---@field [569] "MineralFloorTrackEW" MAPTILE_MINSTONE_TRACK_EW
+---@field MineralFloorTrackNSE 570 MAPTILE_MINSTONE_TRACK_NSE
+---@field [570] "MineralFloorTrackNSE" MAPTILE_MINSTONE_TRACK_NSE
+---@field MineralFloorTrackNSW 571 MAPTILE_MINSTONE_TRACK_NSW
+---@field [571] "MineralFloorTrackNSW" MAPTILE_MINSTONE_TRACK_NSW
+---@field MineralFloorTrackNEW 572 MAPTILE_MINSTONE_TRACK_NEW
+---@field [572] "MineralFloorTrackNEW" MAPTILE_MINSTONE_TRACK_NEW
+---@field MineralFloorTrackSEW 573 MAPTILE_MINSTONE_TRACK_SEW
+---@field [573] "MineralFloorTrackSEW" MAPTILE_MINSTONE_TRACK_SEW
+---@field MineralFloorTrackNSEW 574 MAPTILE_MINSTONE_TRACK_NSEW
+---@field [574] "MineralFloorTrackNSEW" MAPTILE_MINSTONE_TRACK_NSEW
+---@field FrozenFloorTrackN 575 MAPTILE_FROZEN_LIQUID_TRACK_N
+---@field [575] "FrozenFloorTrackN" MAPTILE_FROZEN_LIQUID_TRACK_N
+---@field FrozenFloorTrackS 576 0x240
+---@field [576] "FrozenFloorTrackS" 0x240
+---@field FrozenFloorTrackE 577 MAPTILE_FROZEN_LIQUID_TRACK_E
+---@field [577] "FrozenFloorTrackE" MAPTILE_FROZEN_LIQUID_TRACK_E
+---@field FrozenFloorTrackW 578 MAPTILE_FROZEN_LIQUID_TRACK_W
+---@field [578] "FrozenFloorTrackW" MAPTILE_FROZEN_LIQUID_TRACK_W
+---@field FrozenFloorTrackNS 579 MAPTILE_FROZEN_LIQUID_TRACK_NS
+---@field [579] "FrozenFloorTrackNS" MAPTILE_FROZEN_LIQUID_TRACK_NS
+---@field FrozenFloorTrackNE 580 MAPTILE_FROZEN_LIQUID_TRACK_NE
+---@field [580] "FrozenFloorTrackNE" MAPTILE_FROZEN_LIQUID_TRACK_NE
+---@field FrozenFloorTrackNW 581 MAPTILE_FROZEN_LIQUID_TRACK_NW
+---@field [581] "FrozenFloorTrackNW" MAPTILE_FROZEN_LIQUID_TRACK_NW
+---@field FrozenFloorTrackSE 582 MAPTILE_FROZEN_LIQUID_TRACK_SE
+---@field [582] "FrozenFloorTrackSE" MAPTILE_FROZEN_LIQUID_TRACK_SE
+---@field FrozenFloorTrackSW 583 MAPTILE_FROZEN_LIQUID_TRACK_SW
+---@field [583] "FrozenFloorTrackSW" MAPTILE_FROZEN_LIQUID_TRACK_SW
+---@field FrozenFloorTrackEW 584 MAPTILE_FROZEN_LIQUID_TRACK_EW
+---@field [584] "FrozenFloorTrackEW" MAPTILE_FROZEN_LIQUID_TRACK_EW
+---@field FrozenFloorTrackNSE 585 MAPTILE_FROZEN_LIQUID_TRACK_NSE
+---@field [585] "FrozenFloorTrackNSE" MAPTILE_FROZEN_LIQUID_TRACK_NSE
+---@field FrozenFloorTrackNSW 586 MAPTILE_FROZEN_LIQUID_TRACK_NSW
+---@field [586] "FrozenFloorTrackNSW" MAPTILE_FROZEN_LIQUID_TRACK_NSW
+---@field FrozenFloorTrackNEW 587 MAPTILE_FROZEN_LIQUID_TRACK_NEW
+---@field [587] "FrozenFloorTrackNEW" MAPTILE_FROZEN_LIQUID_TRACK_NEW
+---@field FrozenFloorTrackSEW 588 MAPTILE_FROZEN_LIQUID_TRACK_SEW
+---@field [588] "FrozenFloorTrackSEW" MAPTILE_FROZEN_LIQUID_TRACK_SEW
+---@field FrozenFloorTrackNSEW 589 MAPTILE_FROZEN_LIQUID_TRACK_NSEW
+---@field [589] "FrozenFloorTrackNSEW" MAPTILE_FROZEN_LIQUID_TRACK_NSEW
+---@field ConstructedFloorTrackN 590 MAPTILE_CONSTRUCTED_TRACK_N
+---@field [590] "ConstructedFloorTrackN" MAPTILE_CONSTRUCTED_TRACK_N
+---@field ConstructedFloorTrackS 591 MAPTILE_CONSTRUCTED_TRACK_S
+---@field [591] "ConstructedFloorTrackS" MAPTILE_CONSTRUCTED_TRACK_S
+---@field ConstructedFloorTrackE 592 0x250
+---@field [592] "ConstructedFloorTrackE" 0x250
+---@field ConstructedFloorTrackW 593 MAPTILE_CONSTRUCTED_TRACK_W
+---@field [593] "ConstructedFloorTrackW" MAPTILE_CONSTRUCTED_TRACK_W
+---@field ConstructedFloorTrackNS 594 MAPTILE_CONSTRUCTED_TRACK_NS
+---@field [594] "ConstructedFloorTrackNS" MAPTILE_CONSTRUCTED_TRACK_NS
+---@field ConstructedFloorTrackNE 595 MAPTILE_CONSTRUCTED_TRACK_NE
+---@field [595] "ConstructedFloorTrackNE" MAPTILE_CONSTRUCTED_TRACK_NE
+---@field ConstructedFloorTrackNW 596 MAPTILE_CONSTRUCTED_TRACK_NW
+---@field [596] "ConstructedFloorTrackNW" MAPTILE_CONSTRUCTED_TRACK_NW
+---@field ConstructedFloorTrackSE 597 MAPTILE_CONSTRUCTED_TRACK_SE
+---@field [597] "ConstructedFloorTrackSE" MAPTILE_CONSTRUCTED_TRACK_SE
+---@field ConstructedFloorTrackSW 598 MAPTILE_CONSTRUCTED_TRACK_SW
+---@field [598] "ConstructedFloorTrackSW" MAPTILE_CONSTRUCTED_TRACK_SW
+---@field ConstructedFloorTrackEW 599 MAPTILE_CONSTRUCTED_TRACK_EW
+---@field [599] "ConstructedFloorTrackEW" MAPTILE_CONSTRUCTED_TRACK_EW
+---@field ConstructedFloorTrackNSE 600 MAPTILE_CONSTRUCTED_TRACK_NSE
+---@field [600] "ConstructedFloorTrackNSE" MAPTILE_CONSTRUCTED_TRACK_NSE
+---@field ConstructedFloorTrackNSW 601 MAPTILE_CONSTRUCTED_TRACK_NSW
+---@field [601] "ConstructedFloorTrackNSW" MAPTILE_CONSTRUCTED_TRACK_NSW
+---@field ConstructedFloorTrackNEW 602 MAPTILE_CONSTRUCTED_TRACK_NEW
+---@field [602] "ConstructedFloorTrackNEW" MAPTILE_CONSTRUCTED_TRACK_NEW
+---@field ConstructedFloorTrackSEW 603 MAPTILE_CONSTRUCTED_TRACK_SEW
+---@field [603] "ConstructedFloorTrackSEW" MAPTILE_CONSTRUCTED_TRACK_SEW
+---@field ConstructedFloorTrackNSEW 604 MAPTILE_CONSTRUCTED_TRACK_NSEW
+---@field [604] "ConstructedFloorTrackNSEW" MAPTILE_CONSTRUCTED_TRACK_NSEW
+---@field StoneRampTrackN 605 MAPTILE_RAMP_STONE_TRACK_N
+---@field [605] "StoneRampTrackN" MAPTILE_RAMP_STONE_TRACK_N
+---@field StoneRampTrackS 606 MAPTILE_RAMP_STONE_TRACK_S
+---@field [606] "StoneRampTrackS" MAPTILE_RAMP_STONE_TRACK_S
+---@field StoneRampTrackE 607 MAPTILE_RAMP_STONE_TRACK_E
+---@field [607] "StoneRampTrackE" MAPTILE_RAMP_STONE_TRACK_E
+---@field StoneRampTrackW 608 0x260
+---@field [608] "StoneRampTrackW" 0x260
+---@field StoneRampTrackNS 609 MAPTILE_RAMP_STONE_TRACK_NS
+---@field [609] "StoneRampTrackNS" MAPTILE_RAMP_STONE_TRACK_NS
+---@field StoneRampTrackNE 610 MAPTILE_RAMP_STONE_TRACK_NE
+---@field [610] "StoneRampTrackNE" MAPTILE_RAMP_STONE_TRACK_NE
+---@field StoneRampTrackNW 611 MAPTILE_RAMP_STONE_TRACK_NW
+---@field [611] "StoneRampTrackNW" MAPTILE_RAMP_STONE_TRACK_NW
+---@field StoneRampTrackSE 612 MAPTILE_RAMP_STONE_TRACK_SE
+---@field [612] "StoneRampTrackSE" MAPTILE_RAMP_STONE_TRACK_SE
+---@field StoneRampTrackSW 613 MAPTILE_RAMP_STONE_TRACK_SW
+---@field [613] "StoneRampTrackSW" MAPTILE_RAMP_STONE_TRACK_SW
+---@field StoneRampTrackEW 614 MAPTILE_RAMP_STONE_TRACK_EW
+---@field [614] "StoneRampTrackEW" MAPTILE_RAMP_STONE_TRACK_EW
+---@field StoneRampTrackNSE 615 MAPTILE_RAMP_STONE_TRACK_NSE
+---@field [615] "StoneRampTrackNSE" MAPTILE_RAMP_STONE_TRACK_NSE
+---@field StoneRampTrackNSW 616 MAPTILE_RAMP_STONE_TRACK_NSW
+---@field [616] "StoneRampTrackNSW" MAPTILE_RAMP_STONE_TRACK_NSW
+---@field StoneRampTrackNEW 617 MAPTILE_RAMP_STONE_TRACK_NEW
+---@field [617] "StoneRampTrackNEW" MAPTILE_RAMP_STONE_TRACK_NEW
+---@field StoneRampTrackSEW 618 MAPTILE_RAMP_STONE_TRACK_SEW
+---@field [618] "StoneRampTrackSEW" MAPTILE_RAMP_STONE_TRACK_SEW
+---@field StoneRampTrackNSEW 619 MAPTILE_RAMP_STONE_TRACK_NSEW
+---@field [619] "StoneRampTrackNSEW" MAPTILE_RAMP_STONE_TRACK_NSEW
+---@field LavaRampTrackN 620 MAPTILE_RAMP_LAVASTONE_TRACK_N
+---@field [620] "LavaRampTrackN" MAPTILE_RAMP_LAVASTONE_TRACK_N
+---@field LavaRampTrackS 621 MAPTILE_RAMP_LAVASTONE_TRACK_S
+---@field [621] "LavaRampTrackS" MAPTILE_RAMP_LAVASTONE_TRACK_S
+---@field LavaRampTrackE 622 MAPTILE_RAMP_LAVASTONE_TRACK_E
+---@field [622] "LavaRampTrackE" MAPTILE_RAMP_LAVASTONE_TRACK_E
+---@field LavaRampTrackW 623 MAPTILE_RAMP_LAVASTONE_TRACK_W
+---@field [623] "LavaRampTrackW" MAPTILE_RAMP_LAVASTONE_TRACK_W
+---@field LavaRampTrackNS 624 0x270
+---@field [624] "LavaRampTrackNS" 0x270
+---@field LavaRampTrackNE 625 MAPTILE_RAMP_LAVASTONE_TRACK_NE
+---@field [625] "LavaRampTrackNE" MAPTILE_RAMP_LAVASTONE_TRACK_NE
+---@field LavaRampTrackNW 626 MAPTILE_RAMP_LAVASTONE_TRACK_NW
+---@field [626] "LavaRampTrackNW" MAPTILE_RAMP_LAVASTONE_TRACK_NW
+---@field LavaRampTrackSE 627 MAPTILE_RAMP_LAVASTONE_TRACK_SE
+---@field [627] "LavaRampTrackSE" MAPTILE_RAMP_LAVASTONE_TRACK_SE
+---@field LavaRampTrackSW 628 MAPTILE_RAMP_LAVASTONE_TRACK_SW
+---@field [628] "LavaRampTrackSW" MAPTILE_RAMP_LAVASTONE_TRACK_SW
+---@field LavaRampTrackEW 629 MAPTILE_RAMP_LAVASTONE_TRACK_EW
+---@field [629] "LavaRampTrackEW" MAPTILE_RAMP_LAVASTONE_TRACK_EW
+---@field LavaRampTrackNSE 630 MAPTILE_RAMP_LAVASTONE_TRACK_NSE
+---@field [630] "LavaRampTrackNSE" MAPTILE_RAMP_LAVASTONE_TRACK_NSE
+---@field LavaRampTrackNSW 631 MAPTILE_RAMP_LAVASTONE_TRACK_NSW
+---@field [631] "LavaRampTrackNSW" MAPTILE_RAMP_LAVASTONE_TRACK_NSW
+---@field LavaRampTrackNEW 632 MAPTILE_RAMP_LAVASTONE_TRACK_NEW
+---@field [632] "LavaRampTrackNEW" MAPTILE_RAMP_LAVASTONE_TRACK_NEW
+---@field LavaRampTrackSEW 633 MAPTILE_RAMP_LAVASTONE_TRACK_SEW
+---@field [633] "LavaRampTrackSEW" MAPTILE_RAMP_LAVASTONE_TRACK_SEW
+---@field LavaRampTrackNSEW 634 MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
+---@field [634] "LavaRampTrackNSEW" MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
+---@field FeatureRampTrackN 635 MAPTILE_RAMP_FEATSTONE_TRACK_N
+---@field [635] "FeatureRampTrackN" MAPTILE_RAMP_FEATSTONE_TRACK_N
+---@field FeatureRampTrackS 636 MAPTILE_RAMP_FEATSTONE_TRACK_S
+---@field [636] "FeatureRampTrackS" MAPTILE_RAMP_FEATSTONE_TRACK_S
+---@field FeatureRampTrackE 637 MAPTILE_RAMP_FEATSTONE_TRACK_E
+---@field [637] "FeatureRampTrackE" MAPTILE_RAMP_FEATSTONE_TRACK_E
+---@field FeatureRampTrackW 638 MAPTILE_RAMP_FEATSTONE_TRACK_W
+---@field [638] "FeatureRampTrackW" MAPTILE_RAMP_FEATSTONE_TRACK_W
+---@field FeatureRampTrackNS 639 MAPTILE_RAMP_FEATSTONE_TRACK_NS
+---@field [639] "FeatureRampTrackNS" MAPTILE_RAMP_FEATSTONE_TRACK_NS
+---@field FeatureRampTrackNE 640 0x280
+---@field [640] "FeatureRampTrackNE" 0x280
+---@field FeatureRampTrackNW 641 MAPTILE_RAMP_FEATSTONE_TRACK_NW
+---@field [641] "FeatureRampTrackNW" MAPTILE_RAMP_FEATSTONE_TRACK_NW
+---@field FeatureRampTrackSE 642 MAPTILE_RAMP_FEATSTONE_TRACK_SE
+---@field [642] "FeatureRampTrackSE" MAPTILE_RAMP_FEATSTONE_TRACK_SE
+---@field FeatureRampTrackSW 643 MAPTILE_RAMP_FEATSTONE_TRACK_SW
+---@field [643] "FeatureRampTrackSW" MAPTILE_RAMP_FEATSTONE_TRACK_SW
+---@field FeatureRampTrackEW 644 MAPTILE_RAMP_FEATSTONE_TRACK_EW
+---@field [644] "FeatureRampTrackEW" MAPTILE_RAMP_FEATSTONE_TRACK_EW
+---@field FeatureRampTrackNSE 645 MAPTILE_RAMP_FEATSTONE_TRACK_NSE
+---@field [645] "FeatureRampTrackNSE" MAPTILE_RAMP_FEATSTONE_TRACK_NSE
+---@field FeatureRampTrackNSW 646 MAPTILE_RAMP_FEATSTONE_TRACK_NSW
+---@field [646] "FeatureRampTrackNSW" MAPTILE_RAMP_FEATSTONE_TRACK_NSW
+---@field FeatureRampTrackNEW 647 MAPTILE_RAMP_FEATSTONE_TRACK_NEW
+---@field [647] "FeatureRampTrackNEW" MAPTILE_RAMP_FEATSTONE_TRACK_NEW
+---@field FeatureRampTrackSEW 648 MAPTILE_RAMP_FEATSTONE_TRACK_SEW
+---@field [648] "FeatureRampTrackSEW" MAPTILE_RAMP_FEATSTONE_TRACK_SEW
+---@field FeatureRampTrackNSEW 649 MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
+---@field [649] "FeatureRampTrackNSEW" MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
+---@field MineralRampTrackN 650 MAPTILE_RAMP_MINSTONE_TRACK_N
+---@field [650] "MineralRampTrackN" MAPTILE_RAMP_MINSTONE_TRACK_N
+---@field MineralRampTrackS 651 MAPTILE_RAMP_MINSTONE_TRACK_S
+---@field [651] "MineralRampTrackS" MAPTILE_RAMP_MINSTONE_TRACK_S
+---@field MineralRampTrackE 652 MAPTILE_RAMP_MINSTONE_TRACK_E
+---@field [652] "MineralRampTrackE" MAPTILE_RAMP_MINSTONE_TRACK_E
+---@field MineralRampTrackW 653 MAPTILE_RAMP_MINSTONE_TRACK_W
+---@field [653] "MineralRampTrackW" MAPTILE_RAMP_MINSTONE_TRACK_W
+---@field MineralRampTrackNS 654 MAPTILE_RAMP_MINSTONE_TRACK_NS
+---@field [654] "MineralRampTrackNS" MAPTILE_RAMP_MINSTONE_TRACK_NS
+---@field MineralRampTrackNE 655 MAPTILE_RAMP_MINSTONE_TRACK_NE
+---@field [655] "MineralRampTrackNE" MAPTILE_RAMP_MINSTONE_TRACK_NE
+---@field MineralRampTrackNW 656 0x290
+---@field [656] "MineralRampTrackNW" 0x290
+---@field MineralRampTrackSE 657 MAPTILE_RAMP_MINSTONE_TRACK_SE
+---@field [657] "MineralRampTrackSE" MAPTILE_RAMP_MINSTONE_TRACK_SE
+---@field MineralRampTrackSW 658 MAPTILE_RAMP_MINSTONE_TRACK_SW
+---@field [658] "MineralRampTrackSW" MAPTILE_RAMP_MINSTONE_TRACK_SW
+---@field MineralRampTrackEW 659 MAPTILE_RAMP_MINSTONE_TRACK_EW
+---@field [659] "MineralRampTrackEW" MAPTILE_RAMP_MINSTONE_TRACK_EW
+---@field MineralRampTrackNSE 660 MAPTILE_RAMP_MINSTONE_TRACK_NSE
+---@field [660] "MineralRampTrackNSE" MAPTILE_RAMP_MINSTONE_TRACK_NSE
+---@field MineralRampTrackNSW 661 MAPTILE_RAMP_MINSTONE_TRACK_NSW
+---@field [661] "MineralRampTrackNSW" MAPTILE_RAMP_MINSTONE_TRACK_NSW
+---@field MineralRampTrackNEW 662 MAPTILE_RAMP_MINSTONE_TRACK_NEW
+---@field [662] "MineralRampTrackNEW" MAPTILE_RAMP_MINSTONE_TRACK_NEW
+---@field MineralRampTrackSEW 663 MAPTILE_RAMP_MINSTONE_TRACK_SEW
+---@field [663] "MineralRampTrackSEW" MAPTILE_RAMP_MINSTONE_TRACK_SEW
+---@field MineralRampTrackNSEW 664 MAPTILE_RAMP_MINSTONE_TRACK_NSEW
+---@field [664] "MineralRampTrackNSEW" MAPTILE_RAMP_MINSTONE_TRACK_NSEW
+---@field FrozenRampTrackN 665 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
+---@field [665] "FrozenRampTrackN" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
+---@field FrozenRampTrackS 666 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
+---@field [666] "FrozenRampTrackS" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
+---@field FrozenRampTrackE 667 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
+---@field [667] "FrozenRampTrackE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
+---@field FrozenRampTrackW 668 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
+---@field [668] "FrozenRampTrackW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
+---@field FrozenRampTrackNS 669 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
+---@field [669] "FrozenRampTrackNS" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
+---@field FrozenRampTrackNE 670 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
+---@field [670] "FrozenRampTrackNE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
+---@field FrozenRampTrackNW 671 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
+---@field [671] "FrozenRampTrackNW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
+---@field FrozenRampTrackSE 672 0x2A0
+---@field [672] "FrozenRampTrackSE" 0x2A0
+---@field FrozenRampTrackSW 673 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
+---@field [673] "FrozenRampTrackSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
+---@field FrozenRampTrackEW 674 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
+---@field [674] "FrozenRampTrackEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
+---@field FrozenRampTrackNSE 675 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
+---@field [675] "FrozenRampTrackNSE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
+---@field FrozenRampTrackNSW 676 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
+---@field [676] "FrozenRampTrackNSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
+---@field FrozenRampTrackNEW 677 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
+---@field [677] "FrozenRampTrackNEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
+---@field FrozenRampTrackSEW 678 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
+---@field [678] "FrozenRampTrackSEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
+---@field FrozenRampTrackNSEW 679 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
+---@field [679] "FrozenRampTrackNSEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
+---@field ConstructedRampTrackN 680 MAPTILE_RAMP_CONSTRUCTED_TRACK_N
+---@field [680] "ConstructedRampTrackN" MAPTILE_RAMP_CONSTRUCTED_TRACK_N
+---@field ConstructedRampTrackS 681 MAPTILE_RAMP_CONSTRUCTED_TRACK_S
+---@field [681] "ConstructedRampTrackS" MAPTILE_RAMP_CONSTRUCTED_TRACK_S
+---@field ConstructedRampTrackE 682 MAPTILE_RAMP_CONSTRUCTED_TRACK_E
+---@field [682] "ConstructedRampTrackE" MAPTILE_RAMP_CONSTRUCTED_TRACK_E
+---@field ConstructedRampTrackW 683 MAPTILE_RAMP_CONSTRUCTED_TRACK_W
+---@field [683] "ConstructedRampTrackW" MAPTILE_RAMP_CONSTRUCTED_TRACK_W
+---@field ConstructedRampTrackNS 684 MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
+---@field [684] "ConstructedRampTrackNS" MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
+---@field ConstructedRampTrackNE 685 MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
+---@field [685] "ConstructedRampTrackNE" MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
+---@field ConstructedRampTrackNW 686 MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
+---@field [686] "ConstructedRampTrackNW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
+---@field ConstructedRampTrackSE 687 MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
+---@field [687] "ConstructedRampTrackSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
+---@field ConstructedRampTrackSW 688 0x2B0
+---@field [688] "ConstructedRampTrackSW" 0x2B0
+---@field ConstructedRampTrackEW 689 MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
+---@field [689] "ConstructedRampTrackEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
+---@field ConstructedRampTrackNSE 690 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
+---@field [690] "ConstructedRampTrackNSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
+---@field ConstructedRampTrackNSW 691 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
+---@field [691] "ConstructedRampTrackNSW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
+---@field ConstructedRampTrackNEW 692 MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
+---@field [692] "ConstructedRampTrackNEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
+---@field ConstructedRampTrackSEW 693 MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
+---@field [693] "ConstructedRampTrackSEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
+---@field ConstructedRampTrackNSEW 694 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
+---@field [694] "ConstructedRampTrackNSEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
+---@field Unused695 695 MAPTILE_UNUSED_695
+---@field [695] "Unused695" MAPTILE_UNUSED_695
+---@field Unused696 696 MAPTILE_UNUSED_696
+---@field [696] "Unused696" MAPTILE_UNUSED_696
+df.tiletype = {}
+
+---@class tiletype_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.tiletype._attr_entry_type = {}
+
+---@class (exact) tiletype_attr_entry_type_fields
+---@field caption DFCompoundField Declare attributes:
+---@field shape DFCompoundField
+---@field material DFCompoundField
+---@field variant DFCompoundField
+---@field special DFCompoundField
+---@field direction DFCompoundField
+df.tiletype._attr_entry_type._fields = {}
+
+---@class tiletype_attrs
+---@field Void { caption: "void", shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field RampTop { caption: "ramp top", shape: "RAMP_TOP", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MurkyPool { caption: "murky pool", shape: "FLOOR", material: "POOL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MurkyPoolRamp { caption: "murky pool slope", shape: "RAMP", material: "POOL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairU { caption: "underworld gate up", shape: "STAIR_UP", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairD { caption: "underworld gate down", shape: "STAIR_DOWN", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairUD { caption: "underworld gate up/down", shape: "STAIR_UPDOWN", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapInterior { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeCapWallThickSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SW" }
+---@field TreeCapWallThickSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SE" }
+---@field TreeCapWallThickNW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NW" }
+---@field TreeCapWallThickNE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NE" }
+---@field TreeCapWallThickN { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "N" }
+---@field TreeCapWallThickS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "N" }
+---@field TreeCapWallThickW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "W" }
+---@field TreeCapWallThickE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "E" }
+---@field TreeCapWallNSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSWE" }
+---@field TreeCapWallNSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSW" }
+---@field TreeCapWallNSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSE" }
+---@field Driftwood { caption: "driftwood", shape: "FLOOR", material: "DRIFTWOOD", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapWallNWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NWE" }
+---@field TreeCapWallSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SWE" }
+---@field TreeCapWallNS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NS" }
+---@field TreeCapWallWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "WE" }
+---@field Unused999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairUD { caption: "ice stair up/down", shape: "STAIR_UPDOWN", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairD { caption: "ice stair down", shape: "STAIR_DOWN", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairU { caption: "ice stair up", shape: "STAIR_UP", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused9999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused99999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused999999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapInterior { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field OpenSpace { caption: "open space", shape: "EMPTY", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SW" }
+---@field Shrub { caption: "shrub", shape: "SHRUB", material: "PLANT", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field Chasm { caption: "chasm", shape: "ENDLESS_PIT", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairUD { caption: "obsidian stair up/down", shape: "STAIR_UPDOWN", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairD { caption: "obsidian stair down", shape: "STAIR_DOWN", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairU { caption: "obsidian stair up", shape: "STAIR_UP", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairUD { caption: "soil stair up/down", shape: "STAIR_UPDOWN", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairD { caption: "soil stair down", shape: "STAIR_DOWN", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairU { caption: "soil stair up", shape: "STAIR_UP", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field EeriePit { caption: "eerie pit", shape: "ENDLESS_PIT", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneFloorSmooth { caption: "smooth stone floor", shape: "FLOOR", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field LavaFloorSmooth { caption: "smooth obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FeatureFloorSmooth { caption: "smooth featstone floor", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field MineralFloorSmooth { caption: "smooth vein floor", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FrozenFloorSmooth { caption: "smooth ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadCapWallThickSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SE" }
+---@field Grass1StairUD { caption: "light grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass1StairD { caption: "light grass stair down", shape: "STAIR_DOWN", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass1StairU { caption: "light grass stair up", shape: "STAIR_UP", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairUD { caption: "dark grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairD { caption: "dark grass stair down", shape: "STAIR_DOWN", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairU { caption: "dark grass stair up", shape: "STAIR_UP", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairUD { caption: "stone stair up/down", shape: "STAIR_UPDOWN", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairD { caption: "stone stair down", shape: "STAIR_DOWN", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairU { caption: "stone stair up", shape: "STAIR_UP", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairUD { caption: "vein stair up/down", shape: "STAIR_UPDOWN", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairD { caption: "vein stair down", shape: "STAIR_DOWN", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairU { caption: "vein stair up", shape: "STAIR_UP", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairUD { caption: "featstone stair up/down", shape: "STAIR_UPDOWN", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairD { caption: "featstone stair down", shape: "STAIR_DOWN", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairU { caption: "featstone stair up", shape: "STAIR_UP", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickNW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NW" }
+---@field StoneFortification { caption: "stone fortification", shape: "FORTIFICATION", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickNE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NE" }
+---@field Campfire { caption: "campfire", shape: "FLOOR", material: "CAMPFIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickN { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "N" }
+---@field TreeDeadCapWallThickS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "S" }
+---@field Fire { caption: "fire", shape: "FLOOR", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeTrunk { caption: "fire", shape: "WALL", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeBranches { caption: "fire", shape: "BRANCH", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeTwigs { caption: "fire", shape: "TWIG", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapWall { caption: "fire", shape: "WALL", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapRamp { caption: "fire", shape: "RAMP", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapFloor { caption: "fire", shape: "FLOOR", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "W" }
+---@field TreeDeadCapWallThickE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "E" }
+---@field StonePillar { caption: "stone pillar", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field LavaPillar { caption: "obsidian pillar", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FeaturePillar { caption: "featstone pillar", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field MineralPillar { caption: "vein pillar", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FrozenPillar { caption: "ice pillar", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadCapWallNSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSWE" }
+---@field TreeDeadCapWallNSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSW" }
+---@field TreeDeadCapWallNSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSE" }
+---@field TreeDeadCapWallNWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NWE" }
+---@field TreeDeadCapWallSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SWE" }
+---@field Waterfall { caption: "waterfall", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "WATERFALL", direction: "--------" }
+---@field RiverSource { caption: "river source", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "RIVER_SOURCE", direction: "--------" }
+---@field TreeRootSloping { caption: "sloping roots", shape: "RAMP", material: "ROOT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeRoots { caption: "roots", shape: "WALL", material: "ROOT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTrunkPillar { caption: "trunk pillar", shape: "WALL", material: "TREE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeTrunkSloping { caption: "sloping trunk", shape: "RAMP", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTrunkThickN { caption: "trunk (N)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkThickS { caption: "trunk (S)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkThickE { caption: "trunk (E)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeTrunkThickW { caption: "trunk (W)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeTrunkThickNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeTrunkThickNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeTrunkThickSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeTrunkThickSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeTrunkBranchN { caption: "trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkBranchS { caption: "trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkBranchE { caption: "trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeTrunkBranchW { caption: "trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeBranchNS { caption: "branch (NS)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NS" }
+---@field TreeBranchEW { caption: "branch (EW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "EW" }
+---@field TreeBranchesSmooth { caption: "smooth branch", shape: "BRANCH", material: "TREE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadBranchesSmooth { caption: "smooth dead branch", shape: "BRANCH", material: "TREE", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeBranchNW { caption: "branch (NW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeBranchNE { caption: "branch (NE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeBranchSW { caption: "branch (SW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeBranchSE { caption: "branch (SE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeBranches { caption: "branches", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTwigs { caption: "twigs", shape: "TWIG", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapRamp { caption: "cap ramp", shape: "RAMP", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapPillar { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeCapWallN { caption: "cap wall (N)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeCapWallS { caption: "cap wall (S)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeCapWallE { caption: "cap wall (E)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeCapWallW { caption: "cap wall (W)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeCapWallNW { caption: "cap wall (NW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeCapWallNE { caption: "cap wall (NE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeCapWallSW { caption: "cap wall (SW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeCapWallSE { caption: "cap wall (SE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeCapFloor1 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field TreeCapFloor2 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field TreeCapFloor3 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field TreeCapFloor4 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field TreeDeadRootSloping { caption: "dead sloping roots", shape: "RAMP", material: "ROOT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadRoots { caption: "dead roots", shape: "WALL", material: "ROOT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTrunkPillar { caption: "dead trunk pillar", shape: "WALL", material: "TREE", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeDeadTrunkSloping { caption: "dead sloping trunk", shape: "RAMP", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTrunkThickN { caption: "dead trunk (N)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkThickS { caption: "dead trunk (S)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadTrunkThickE { caption: "dead trunk (E)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadTrunkThickW { caption: "dead trunk (W)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadTrunkThickNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadTrunkThickNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadTrunkThickSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadTrunkThickSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadTrunkBranchN { caption: "dead trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkBranchS { caption: "dead trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadTrunkBranchE { caption: "dead trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadTrunkBranchW { caption: "dead trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadBranchNS { caption: "dead branch (NS)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NS" }
+---@field TreeDeadBranchEW { caption: "dead branch (EW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "EW" }
+---@field TreeBranch { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeDeadBranch { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeDeadBranchNW { caption: "dead branch (NW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadBranchNE { caption: "dead branch (NE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadBranchSW { caption: "dead branch (SW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadBranchSE { caption: "dead branch (SE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadBranches { caption: "dead branches", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTwigs { caption: "dead twigs", shape: "TWIG", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapRamp { caption: "dead cap ramp", shape: "RAMP", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapPillar { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeDeadCapWallN { caption: "dead cap wall (N)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadCapWallS { caption: "dead cap wall (S)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadCapWallE { caption: "dead cap wall (E)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadCapWallW { caption: "dead cap wall (W)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadCapWallNW { caption: "dead cap wall (NW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadCapWallNE { caption: "dead cap wall (NE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadCapWallSW { caption: "dead cap wall (SW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadCapWallSE { caption: "dead cap wall (SE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadCapFloor1 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor2 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor3 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor4 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapWallNS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NS" }
+---@field StoneWallWorn1 { caption: "worn 1 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field StoneWallWorn2 { caption: "worn 2 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field StoneWallWorn3 { caption: "worn 3 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field TreeBranchNSE { caption: "branches (NSE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSE" }
+---@field TreeBranchNSW { caption: "branches (NSW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSW" }
+---@field TreeBranchNEW { caption: "branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NEW" }
+---@field TreeBranchSEW { caption: "branches (SEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SEW" }
+---@field TreeBranchNSEW { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeDeadBranchNSE { caption: "dead branches (NSW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSW" }
+---@field TreeDeadBranchNSW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadBranchNEW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadBranchSEW { caption: "dead branches (SEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SEW" }
+---@field TreeDeadBranchNSEW { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeTrunkNSE { caption: "trunk (NSE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSE" }
+---@field TreeTrunkNSW { caption: "trunk (NSW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSW" }
+---@field TreeTrunkNEW { caption: "trunk (NEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NEW" }
+---@field TreeTrunkSEW { caption: "trunk (SEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SEW" }
+---@field TreeTrunkNS { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NS" }
+---@field TreeTrunkEW { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "EW" }
+---@field TreeTrunkNSEW { caption: "trunk (NSEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeTrunkInterior { caption: "trunk interior", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadTrunkNSE { caption: "dead trunk (NSE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSE" }
+---@field TreeDeadTrunkNSW { caption: "dead trunk (NSW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSW" }
+---@field TreeDeadTrunkNEW { caption: "dead trunk (NEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadTrunkSEW { caption: "dead trunk (SEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SEW" }
+---@field TreeDeadTrunkNS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NS" }
+---@field TreeDeadTrunkEW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "EW" }
+---@field TreeDeadTrunkNSEW { caption: "dead trunk (NSEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeDeadTrunkInterior { caption: "dead trunk interior", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeTrunkNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeTrunkNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeTrunkSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeTrunkSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeDeadTrunkNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadTrunkNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadTrunkSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadTrunkSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeTrunkN { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkS { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkW { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeTrunkE { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeDeadTrunkN { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field StoneWall { caption: "stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field TreeDeadTrunkW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadTrunkE { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeDeadBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadCapPillarWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "WE" }
+---@field Sapling { caption: "sapling", shape: "SAPLING", material: "PLANT", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field Unused888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDryRamp { caption: "dry grass ramp", shape: "RAMP", material: "GRASS_DRY", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDeadRamp { caption: "dead grass ramp", shape: "RAMP", material: "GRASS_DEAD", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassLightRamp { caption: "light grass ramp", shape: "RAMP", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDarkRamp { caption: "dark grass ramp", shape: "RAMP", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneRamp { caption: "stone ramp", shape: "RAMP", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaRamp { caption: "obsidian ramp", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureRamp { caption: "featstone ramp", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralRamp { caption: "vein ramp", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilRamp { caption: "soil ramp", shape: "RAMP", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Ashes1 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field Ashes2 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field Ashes3 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field FrozenRamp { caption: "ice ramp", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused8888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused88888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused888888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused245 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused246 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused247 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused248 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused249 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused250 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused251 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused252 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused253 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenFloor2 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field FrozenFloor3 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field FrozenFloor4 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field FurrowedSoil { caption: "furrowed soil", shape: "FLOOR", material: "SOIL", variant: "NONE", special: "FURROWED", direction: "--------" }
+---@field FrozenFloor1 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field SemiMoltenRock { caption: "semi-molten rock", shape: "WALL", material: "MAGMA", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MagmaFlow { caption: "magma flow", shape: "FLOOR", material: "MAGMA", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilWall { caption: "soil wall", shape: "WALL", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GlowingBarrier { caption: "glowing barrier", shape: "WALL", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GlowingFloor { caption: "glowing floor", shape: "FLOOR", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused264 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaWallSmoothRD2 { caption: "smooth obsidian wall RD2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field LavaWallSmoothR2D { caption: "smooth obsidian wall R2D", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field LavaWallSmoothR2U { caption: "smooth obsidian wall R2U", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field LavaWallSmoothRU2 { caption: "smooth obsidian wall RU2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field LavaWallSmoothL2U { caption: "smooth obsidian wall L2U", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field LavaWallSmoothLU2 { caption: "smooth obsidian wall LU2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field LavaWallSmoothL2D { caption: "smooth obsidian wall L2D", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field LavaWallSmoothLD2 { caption: "smooth obsidian wall LD2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field LavaWallSmoothLRUD { caption: "smooth obsidian wall LRUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field LavaWallSmoothRUD { caption: "smooth obsidian wall RUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field LavaWallSmoothLRD { caption: "smooth obsidian wall LRD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field LavaWallSmoothLRU { caption: "smooth obsidian wall LRU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field LavaWallSmoothLUD { caption: "smooth obsidian wall LUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field LavaWallSmoothRD { caption: "smooth obsidian wall RD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field LavaWallSmoothRU { caption: "smooth obsidian wall RU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field LavaWallSmoothLU { caption: "smooth obsidian wall LU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field LavaWallSmoothLD { caption: "smooth obsidian wall LD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field LavaWallSmoothUD { caption: "smooth obsidian wall UD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field LavaWallSmoothLR { caption: "smooth obsidian wall LR", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field FeatureWallSmoothRD2 { caption: "smooth featstone wall RD2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field FeatureWallSmoothR2D { caption: "smooth featstone wall R2D", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field FeatureWallSmoothR2U { caption: "smooth featstone wall R2U", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field FeatureWallSmoothRU2 { caption: "smooth featstone wall RU2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field FeatureWallSmoothL2U { caption: "smooth featstone wall L2U", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field FeatureWallSmoothLU2 { caption: "smooth featstone wall LU2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field FeatureWallSmoothL2D { caption: "smooth featstone wall L2D", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field FeatureWallSmoothLD2 { caption: "smooth featstone wall LD2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field FeatureWallSmoothLRUD { caption: "smooth featstone wall LRUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field FeatureWallSmoothRUD { caption: "smooth featstone wall RUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field FeatureWallSmoothLRD { caption: "smooth featstone wall LRD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field FeatureWallSmoothLRU { caption: "smooth featstone wall LRU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field FeatureWallSmoothLUD { caption: "smooth featstone wall LUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field FeatureWallSmoothRD { caption: "smooth featstone wall RD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field FeatureWallSmoothRU { caption: "smooth featstone wall RU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field FeatureWallSmoothLU { caption: "smooth featstone wall LU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field FeatureWallSmoothLD { caption: "smooth featstone wall LD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field FeatureWallSmoothUD { caption: "smooth featstone wall UD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field FeatureWallSmoothLR { caption: "smooth featstone wall LR", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field StoneWallSmoothRD2 { caption: "smooth stone wall RD2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field StoneWallSmoothR2D { caption: "smooth stone wall R2D", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field StoneWallSmoothR2U { caption: "smooth stone wall R2U", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field StoneWallSmoothRU2 { caption: "smooth stone wall RU2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field StoneWallSmoothL2U { caption: "smooth stone wall L2U", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field StoneWallSmoothLU2 { caption: "smooth stone wall LU2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field StoneWallSmoothL2D { caption: "smooth stone wall L2D", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field StoneWallSmoothLD2 { caption: "smooth stone wall LD2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field StoneWallSmoothLRUD { caption: "smooth stone wall LRUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field StoneWallSmoothRUD { caption: "smooth stone wall RUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field StoneWallSmoothLRD { caption: "smooth stone wall LRD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field StoneWallSmoothLRU { caption: "smooth stone wall LRU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field StoneWallSmoothLUD { caption: "smooth stone wall LUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field StoneWallSmoothRD { caption: "smooth stone wall RD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field StoneWallSmoothRU { caption: "smooth stone wall RU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field StoneWallSmoothLU { caption: "smooth stone wall LU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field StoneWallSmoothLD { caption: "smooth stone wall LD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field StoneWallSmoothUD { caption: "smooth stone wall UD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field StoneWallSmoothLR { caption: "smooth stone wall LR", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field LavaFortification { caption: "obsidian fortification", shape: "FORTIFICATION", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureFortification { caption: "featstone fortification", shape: "FORTIFICATION", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaWallWorn1 { caption: "worn 1 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field LavaWallWorn2 { caption: "worn 2 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field LavaWallWorn3 { caption: "worn 3 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field LavaWall { caption: "obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field FeatureWallWorn1 { caption: "worn 1 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field FeatureWallWorn2 { caption: "worn 2 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field FeatureWallWorn3 { caption: "worn 3 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field FeatureWall { caption: "featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field StoneFloor1 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field StoneFloor2 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field StoneFloor3 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field StoneFloor4 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field LavaFloor1 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field LavaFloor2 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field LavaFloor3 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field LavaFloor4 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor1 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor2 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor3 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor4 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field GrassDarkFloor1 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor2 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor3 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor4 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field SoilFloor1 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field SoilFloor2 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field SoilFloor3 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field SoilFloor4 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field SoilWetFloor1 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "WET", direction: "--------" }
+---@field SoilWetFloor2 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "WET", direction: "--------" }
+---@field SoilWetFloor3 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "WET", direction: "--------" }
+---@field SoilWetFloor4 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "WET", direction: "--------" }
+---@field FrozenFortification { caption: "ice fortification", shape: "FORTIFICATION", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenWallWorn1 { caption: "worn 1 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field FrozenWallWorn2 { caption: "worn 2 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field FrozenWallWorn3 { caption: "worn 3 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field FrozenWall { caption: "ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field RiverN { caption: "river N", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "N" }
+---@field RiverS { caption: "river S", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "S" }
+---@field RiverE { caption: "river E", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "E" }
+---@field RiverW { caption: "river W", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "W" }
+---@field RiverNW { caption: "river NW", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "NW" }
+---@field RiverNE { caption: "river NE", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "NE" }
+---@field RiverSW { caption: "river SW", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "SW" }
+---@field RiverSE { caption: "river SE", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "SE" }
+---@field BrookN { caption: "brook bed N", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "N" }
+---@field BrookS { caption: "brook bed S", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "S" }
+---@field BrookE { caption: "brook bed E", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "E" }
+---@field BrookW { caption: "brook bed W", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "W" }
+---@field BrookNW { caption: "brook bed NW", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "NW" }
+---@field BrookNE { caption: "brook bed NE", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "NE" }
+---@field BrookSW { caption: "brook bed SW", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "SW" }
+---@field BrookSE { caption: "brook bed SE", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "SE" }
+---@field BrookTop1 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field BrookTop2 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field BrookTop3 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field BrookTop4 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field Unused381 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused382 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDryFloor1 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDryFloor2 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDryFloor3 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDryFloor4 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field Unused387 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SaplingDead { caption: "dead sapling", shape: "SAPLING", material: "PLANT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field ShrubDead { caption: "dead shrub", shape: "SHRUB", material: "PLANT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field GrassDeadFloor1 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor2 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor3 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor4 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field GrassLightFloor1 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassLightFloor2 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassLightFloor3 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassLightFloor4 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field StoneBoulder { caption: "boulder", shape: "BOULDER", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaBoulder { caption: "obsidian boulder", shape: "BOULDER", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureBoulder { caption: "featstone boulder", shape: "BOULDER", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StonePebbles1 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field StonePebbles2 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field StonePebbles3 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field StonePebbles4 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field LavaPebbles1 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field LavaPebbles2 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field LavaPebbles3 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field LavaPebbles4 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field FeaturePebbles1 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field FeaturePebbles2 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field FeaturePebbles3 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field FeaturePebbles4 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field MineralWallSmoothRD2 { caption: "smooth vein wall RD2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field MineralWallSmoothR2D { caption: "smooth vein wall R2D", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field MineralWallSmoothR2U { caption: "smooth vein wall R2U", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field MineralWallSmoothRU2 { caption: "smooth vein wall RU2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field MineralWallSmoothL2U { caption: "smooth vein wall L2U", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field MineralWallSmoothLU2 { caption: "smooth vein wall LU2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field MineralWallSmoothL2D { caption: "smooth vein wall L2D", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field MineralWallSmoothLD2 { caption: "smooth vein wall LD2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field MineralWallSmoothLRUD { caption: "smooth vein wall LRUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field MineralWallSmoothRUD { caption: "smooth vein wall RUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field MineralWallSmoothLRD { caption: "smooth vein wall LRD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field MineralWallSmoothLRU { caption: "smooth vein wall LRU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field MineralWallSmoothLUD { caption: "smooth vein wall LUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field MineralWallSmoothRD { caption: "smooth vein wall RD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field MineralWallSmoothRU { caption: "smooth vein wall RU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field MineralWallSmoothLU { caption: "smooth vein wall LU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field MineralWallSmoothLD { caption: "smooth vein wall LD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field MineralWallSmoothUD { caption: "smooth vein wall UD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field MineralWallSmoothLR { caption: "smooth vein wall LR", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field MineralFortification { caption: "vein fortification", shape: "FORTIFICATION", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralWallWorn1 { caption: "worn 1 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field MineralWallWorn2 { caption: "worn 2 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field MineralWallWorn3 { caption: "worn 3 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field MineralWall { caption: "vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field MineralFloor1 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field MineralFloor2 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field MineralFloor3 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field MineralFloor4 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field MineralBoulder { caption: "vein boulder", shape: "BOULDER", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralPebbles1 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field MineralPebbles2 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field MineralPebbles3 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field MineralPebbles4 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field FrozenWallSmoothRD2 { caption: "smooth ice wall RD2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field FrozenWallSmoothR2D { caption: "smooth ice wall R2D", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field FrozenWallSmoothR2U { caption: "smooth ice wall R2U", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field FrozenWallSmoothRU2 { caption: "smooth ice wall RU2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field FrozenWallSmoothL2U { caption: "smooth ice wall L2U", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field FrozenWallSmoothLU2 { caption: "smooth ice wall LU2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field FrozenWallSmoothL2D { caption: "smooth ice wall L2D", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field FrozenWallSmoothLD2 { caption: "smooth ice wall LD2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field FrozenWallSmoothLRUD { caption: "smooth ice wall LRUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field FrozenWallSmoothRUD { caption: "smooth ice wall RUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field FrozenWallSmoothLRD { caption: "smooth ice wall LRD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field FrozenWallSmoothLRU { caption: "smooth ice wall LRU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field FrozenWallSmoothLUD { caption: "smooth ice wall LUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field FrozenWallSmoothRD { caption: "smooth ice wall RD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field FrozenWallSmoothRU { caption: "smooth ice wall RU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field FrozenWallSmoothLU { caption: "smooth ice wall LU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field FrozenWallSmoothLD { caption: "smooth ice wall LD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field FrozenWallSmoothUD { caption: "smooth ice wall UD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field FrozenWallSmoothLR { caption: "smooth ice wall LR", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field RiverRampN { caption: "river ramp N", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "N" }
+---@field RiverRampS { caption: "river ramp S", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "S" }
+---@field RiverRampE { caption: "river ramp E", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "E" }
+---@field RiverRampW { caption: "river ramp W", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "W" }
+---@field RiverRampNW { caption: "river ramp NW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NW" }
+---@field RiverRampNE { caption: "river ramp NE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NE" }
+---@field RiverRampSW { caption: "river ramp SW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SW" }
+---@field RiverRampSE { caption: "river ramp SE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SE" }
+---@field Unused473 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused474 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused475 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused476 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused477 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused478 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused479 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused480 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused481 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused482 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused483 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused484 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused485 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused486 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused487 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused488 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedFloor { caption: "constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field ConstructedFortification { caption: "constructed fortification", shape: "FORTIFICATION", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedPillar { caption: "constructed pillar", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field ConstructedWallRD2 { caption: "constructed wall RD2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field ConstructedWallR2D { caption: "constructed wall R2D", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field ConstructedWallR2U { caption: "constructed wall R2U", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field ConstructedWallRU2 { caption: "constructed wall RU2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field ConstructedWallL2U { caption: "constructed wall L2U", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field ConstructedWallLU2 { caption: "constructed wall LU2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field ConstructedWallL2D { caption: "constructed wall L2D", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field ConstructedWallLD2 { caption: "constructed wall LD2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field ConstructedWallLRUD { caption: "constructed wall LRUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field ConstructedWallRUD { caption: "constructed wall RUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field ConstructedWallLRD { caption: "constructed wall LRD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field ConstructedWallLRU { caption: "constructed wall LRU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field ConstructedWallLUD { caption: "constructed wall LUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field ConstructedWallRD { caption: "constructed wall RD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field ConstructedWallRU { caption: "constructed wall RU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field ConstructedWallLU { caption: "constructed wall LU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field ConstructedWallLD { caption: "constructed wall LD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field ConstructedWallUD { caption: "constructed wall UD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field ConstructedWallLR { caption: "constructed wall LR", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field ConstructedStairUD { caption: "constructed stair up/down", shape: "STAIR_UPDOWN", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedStairD { caption: "constructed stair down", shape: "STAIR_DOWN", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedStairU { caption: "constructed stair up", shape: "STAIR_UP", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedRamp { caption: "constructed ramp", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneFloorTrackN { caption: "stone floor track N", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field StoneFloorTrackS { caption: "stone floor track S", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field StoneFloorTrackE { caption: "stone floor track E", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field StoneFloorTrackW { caption: "stone floor track W", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field StoneFloorTrackNS { caption: "stone floor track NS", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field StoneFloorTrackNE { caption: "stone floor track NE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field StoneFloorTrackNW { caption: "stone floor track NW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field StoneFloorTrackSE { caption: "stone floor track SE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field StoneFloorTrackSW { caption: "stone floor track SW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field StoneFloorTrackEW { caption: "stone floor track EW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field StoneFloorTrackNSE { caption: "stone floor track NSE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field StoneFloorTrackNSW { caption: "stone floor track NSW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field StoneFloorTrackNEW { caption: "stone floor track NEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field StoneFloorTrackSEW { caption: "stone floor track SEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field StoneFloorTrackNSEW { caption: "stone floor track NSEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field LavaFloorTrackN { caption: "obsidian floor track N", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field LavaFloorTrackS { caption: "obsidian floor track S", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field LavaFloorTrackE { caption: "obsidian floor track E", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field LavaFloorTrackW { caption: "obsidian floor track W", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field LavaFloorTrackNS { caption: "obsidian floor track NS", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field LavaFloorTrackNE { caption: "obsidian floor track NE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field LavaFloorTrackNW { caption: "obsidian floor track NW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field LavaFloorTrackSE { caption: "obsidian floor track SE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field LavaFloorTrackSW { caption: "obsidian floor track SW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field LavaFloorTrackEW { caption: "obsidian floor track EW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field LavaFloorTrackNSE { caption: "obsidian floor track NSE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field LavaFloorTrackNSW { caption: "obsidian floor track NSW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field LavaFloorTrackNEW { caption: "obsidian floor track NEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field LavaFloorTrackSEW { caption: "obsidian floor track SEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field LavaFloorTrackNSEW { caption: "obsidian floor track NSEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FeatureFloorTrackN { caption: "featstone floor track N", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FeatureFloorTrackS { caption: "featstone floor track S", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FeatureFloorTrackE { caption: "featstone floor track E", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FeatureFloorTrackW { caption: "featstone floor track W", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FeatureFloorTrackNS { caption: "featstone floor track NS", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FeatureFloorTrackNE { caption: "featstone floor track NE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FeatureFloorTrackNW { caption: "featstone floor track NW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FeatureFloorTrackSE { caption: "featstone floor track SE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FeatureFloorTrackSW { caption: "featstone floor track SW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FeatureFloorTrackEW { caption: "featstone floor track EW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FeatureFloorTrackNSE { caption: "featstone floor track NSE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FeatureFloorTrackNSW { caption: "featstone floor track NSW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FeatureFloorTrackNEW { caption: "featstone floor track NEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FeatureFloorTrackSEW { caption: "featstone floor track SEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FeatureFloorTrackNSEW { caption: "featstone floor track NSEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field MineralFloorTrackN { caption: "vein floor track N", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "N" }
+---@field MineralFloorTrackS { caption: "vein floor track S", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "S" }
+---@field MineralFloorTrackE { caption: "vein floor track E", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "E" }
+---@field MineralFloorTrackW { caption: "vein floor track W", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "W" }
+---@field MineralFloorTrackNS { caption: "vein floor track NS", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field MineralFloorTrackNE { caption: "vein floor track NE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field MineralFloorTrackNW { caption: "vein floor track NW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field MineralFloorTrackSE { caption: "vein floor track SE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field MineralFloorTrackSW { caption: "vein floor track SW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field MineralFloorTrackEW { caption: "vein floor track EW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field MineralFloorTrackNSE { caption: "vein floor track NSE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field MineralFloorTrackNSW { caption: "vein floor track NSW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field MineralFloorTrackNEW { caption: "vein floor track NEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field MineralFloorTrackSEW { caption: "vein floor track SEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field MineralFloorTrackNSEW { caption: "vein floor track NSEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FrozenFloorTrackN { caption: "ice floor track N", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FrozenFloorTrackS { caption: "ice floor track S", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FrozenFloorTrackE { caption: "ice floor track E", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FrozenFloorTrackW { caption: "ice floor track W", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FrozenFloorTrackNS { caption: "ice floor track NS", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FrozenFloorTrackNE { caption: "ice floor track NE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FrozenFloorTrackNW { caption: "ice floor track NW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FrozenFloorTrackSE { caption: "ice floor track SE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FrozenFloorTrackSW { caption: "ice floor track SW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FrozenFloorTrackEW { caption: "ice floor track EW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FrozenFloorTrackNSE { caption: "ice floor track NSE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FrozenFloorTrackNSW { caption: "ice floor track NSW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FrozenFloorTrackNEW { caption: "ice floor track NEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FrozenFloorTrackSEW { caption: "ice floor track SEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FrozenFloorTrackNSEW { caption: "ice floor track NSEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field ConstructedFloorTrackN { caption: "constructed floor track N", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "N" }
+---@field ConstructedFloorTrackS { caption: "constructed floor track S", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "S" }
+---@field ConstructedFloorTrackE { caption: "constructed floor track E", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "E" }
+---@field ConstructedFloorTrackW { caption: "constructed floor track W", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "W" }
+---@field ConstructedFloorTrackNS { caption: "constructed floor track NS", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field ConstructedFloorTrackNE { caption: "constructed floor track NE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field ConstructedFloorTrackNW { caption: "constructed floor track NW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field ConstructedFloorTrackSE { caption: "constructed floor track SE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field ConstructedFloorTrackSW { caption: "constructed floor track SW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field ConstructedFloorTrackEW { caption: "constructed floor track EW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field ConstructedFloorTrackNSE { caption: "constructed floor track NSE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field ConstructedFloorTrackNSW { caption: "constructed floor track NSW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field ConstructedFloorTrackNEW { caption: "constructed floor track NEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field ConstructedFloorTrackSEW { caption: "constructed floor track SEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field ConstructedFloorTrackNSEW { caption: "constructed floor track NSEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field StoneRampTrackN { caption: "stone ramp track N", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field StoneRampTrackS { caption: "stone ramp track S", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field StoneRampTrackE { caption: "stone ramp track E", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field StoneRampTrackW { caption: "stone ramp track W", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field StoneRampTrackNS { caption: "stone ramp track NS", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field StoneRampTrackNE { caption: "stone ramp track NE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field StoneRampTrackNW { caption: "stone ramp track NW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field StoneRampTrackSE { caption: "stone ramp track SE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field StoneRampTrackSW { caption: "stone ramp track SW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field StoneRampTrackEW { caption: "stone ramp track EW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field StoneRampTrackNSE { caption: "stone ramp track NSE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field StoneRampTrackNSW { caption: "stone ramp track NSW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field StoneRampTrackNEW { caption: "stone ramp track NEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field StoneRampTrackSEW { caption: "stone ramp track SEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field StoneRampTrackNSEW { caption: "stone ramp track NSEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field LavaRampTrackN { caption: "obsidian ramp track N", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field LavaRampTrackS { caption: "obsidian ramp track S", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field LavaRampTrackE { caption: "obsidian ramp track E", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field LavaRampTrackW { caption: "obsidian ramp track W", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field LavaRampTrackNS { caption: "obsidian ramp track NS", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field LavaRampTrackNE { caption: "obsidian ramp track NE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field LavaRampTrackNW { caption: "obsidian ramp track NW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field LavaRampTrackSE { caption: "obsidian ramp track SE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field LavaRampTrackSW { caption: "obsidian ramp track SW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field LavaRampTrackEW { caption: "obsidian ramp track EW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field LavaRampTrackNSE { caption: "obsidian ramp track NSE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field LavaRampTrackNSW { caption: "obsidian ramp track NSW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field LavaRampTrackNEW { caption: "obsidian ramp track NEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field LavaRampTrackSEW { caption: "obsidian ramp track SEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field LavaRampTrackNSEW { caption: "obsidian ramp track NSEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FeatureRampTrackN { caption: "featstone ramp track N", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FeatureRampTrackS { caption: "featstone ramp track S", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FeatureRampTrackE { caption: "featstone ramp track E", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FeatureRampTrackW { caption: "featstone ramp track W", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FeatureRampTrackNS { caption: "featstone ramp track NS", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FeatureRampTrackNE { caption: "featstone ramp track NE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FeatureRampTrackNW { caption: "featstone ramp track NW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FeatureRampTrackSE { caption: "featstone ramp track SE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FeatureRampTrackSW { caption: "featstone ramp track SW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FeatureRampTrackEW { caption: "featstone ramp track EW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FeatureRampTrackNSE { caption: "featstone ramp track NSE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FeatureRampTrackNSW { caption: "featstone ramp track NSW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FeatureRampTrackNEW { caption: "featstone ramp track NEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FeatureRampTrackSEW { caption: "featstone ramp track SEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FeatureRampTrackNSEW { caption: "featstone ramp track NSEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field MineralRampTrackN { caption: "vein ramp track N", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "N" }
+---@field MineralRampTrackS { caption: "vein ramp track S", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "S" }
+---@field MineralRampTrackE { caption: "vein ramp track E", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "E" }
+---@field MineralRampTrackW { caption: "vein ramp track W", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "W" }
+---@field MineralRampTrackNS { caption: "vein ramp track NS", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field MineralRampTrackNE { caption: "vein ramp track NE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field MineralRampTrackNW { caption: "vein ramp track NW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field MineralRampTrackSE { caption: "vein ramp track SE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field MineralRampTrackSW { caption: "vein ramp track SW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field MineralRampTrackEW { caption: "vein ramp track EW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field MineralRampTrackNSE { caption: "vein ramp track NSE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field MineralRampTrackNSW { caption: "vein ramp track NSW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field MineralRampTrackNEW { caption: "vein ramp track NEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field MineralRampTrackSEW { caption: "vein ramp track SEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field MineralRampTrackNSEW { caption: "vein ramp track NSEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FrozenRampTrackN { caption: "ice ramp track N", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FrozenRampTrackS { caption: "ice ramp track S", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FrozenRampTrackE { caption: "ice ramp track E", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FrozenRampTrackW { caption: "ice ramp track W", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FrozenRampTrackNS { caption: "ice ramp track NS", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FrozenRampTrackNE { caption: "ice ramp track NE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FrozenRampTrackNW { caption: "ice ramp track NW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FrozenRampTrackSE { caption: "ice ramp track SE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FrozenRampTrackSW { caption: "ice ramp track SW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FrozenRampTrackEW { caption: "ice ramp track EW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FrozenRampTrackNSE { caption: "ice ramp track NSE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FrozenRampTrackNSW { caption: "ice ramp track NSW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FrozenRampTrackNEW { caption: "ice ramp track NEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FrozenRampTrackSEW { caption: "ice ramp track SEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FrozenRampTrackNSEW { caption: "ice ramp track NSEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field ConstructedRampTrackN { caption: "constructed ramp track N", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "N" }
+---@field ConstructedRampTrackS { caption: "constructed ramp track S", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "S" }
+---@field ConstructedRampTrackE { caption: "constructed ramp track E", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "E" }
+---@field ConstructedRampTrackW { caption: "constructed ramp track W", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "W" }
+---@field ConstructedRampTrackNS { caption: "constructed ramp track NS", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field ConstructedRampTrackNE { caption: "constructed ramp track NE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field ConstructedRampTrackNW { caption: "constructed ramp track NW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field ConstructedRampTrackSE { caption: "constructed ramp track SE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field ConstructedRampTrackSW { caption: "constructed ramp track SW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field ConstructedRampTrackEW { caption: "constructed ramp track EW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field ConstructedRampTrackNSE { caption: "constructed ramp track NSE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field ConstructedRampTrackNSW { caption: "constructed ramp track NSW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field ConstructedRampTrackNEW { caption: "constructed ramp track NEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field ConstructedRampTrackSEW { caption: "constructed ramp track SEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field ConstructedRampTrackNSEW { caption: "constructed ramp track NSEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field Unused695 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused696 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+df.tiletype.attrs = {}
+

@@ -1,0 +1,2101 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@alias profession_keys
+---| '"NONE"'
+---| '"MINER"'
+---| '"WOODWORKER"'
+---| '"CARPENTER"'
+---| '"BOWYER"'
+---| '"WOODCUTTER"'
+---| '"STONEWORKER"'
+---| '"STONECUTTER"'
+---| '"STONE_CARVER"'
+---| '"ENGRAVER"'
+---| '"MASON"'
+---| '"RANGER"'
+---| '"ANIMAL_CARETAKER"'
+---| '"ANIMAL_TRAINER"'
+---| '"HUNTER"'
+---| '"TRAPPER"'
+---| '"ANIMAL_DISSECTOR"'
+---| '"METALSMITH"'
+---| '"FURNACE_OPERATOR"'
+---| '"WEAPONSMITH"'
+---| '"ARMORER"'
+---| '"BLACKSMITH"'
+---| '"METALCRAFTER"'
+---| '"JEWELER"'
+---| '"GEM_CUTTER"'
+---| '"GEM_SETTER"'
+---| '"CRAFTSMAN"'
+---| '"WOODCRAFTER"'
+---| '"STONECRAFTER"'
+---| '"LEATHERWORKER"'
+---| '"BONE_CARVER"'
+---| '"WEAVER"'
+---| '"CLOTHIER"'
+---| '"GLASSMAKER"'
+---| '"POTTER"'
+---| '"GLAZER"'
+---| '"WAX_WORKER"'
+---| '"STRAND_EXTRACTOR"'
+---| '"FISHERY_WORKER"'
+---| '"FISHERMAN"'
+---| '"FISH_DISSECTOR"'
+---| '"FISH_CLEANER"'
+---| '"FARMER"'
+---| '"CHEESE_MAKER"'
+---| '"MILKER"'
+---| '"COOK"'
+---| '"THRESHER"'
+---| '"MILLER"'
+---| '"BUTCHER"'
+---| '"TANNER"'
+---| '"DYER"'
+---| '"PLANTER"'
+---| '"HERBALIST"'
+---| '"BREWER"'
+---| '"SOAP_MAKER"'
+---| '"POTASH_MAKER"'
+---| '"LYE_MAKER"'
+---| '"WOOD_BURNER"'
+---| '"SHEARER"'
+---| '"SPINNER"'
+---| '"PRESSER"'
+---| '"BEEKEEPER"'
+---| '"ENGINEER"'
+---| '"MECHANIC"'
+---| '"SIEGE_ENGINEER"'
+---| '"SIEGE_OPERATOR"'
+---| '"PUMP_OPERATOR"'
+---| '"CLERK"'
+---| '"ADMINISTRATOR"'
+---| '"TRADER"'
+---| '"DOCTOR"'
+---| '"DIAGNOSER"'
+---| '"BONE_SETTER"'
+---| '"SUTURER"'
+---| '"SURGEON"'
+---| '"MERCHANT"'
+---| '"HAMMERMAN"'
+---| '"MASTER_HAMMERMAN"'
+---| '"SPEARMAN"'
+---| '"MASTER_SPEARMAN"'
+---| '"CROSSBOWMAN"'
+---| '"MASTER_CROSSBOWMAN"'
+---| '"WRESTLER"'
+---| '"MASTER_WRESTLER"'
+---| '"AXEMAN"'
+---| '"MASTER_AXEMAN"'
+---| '"SWORDSMAN"'
+---| '"MASTER_SWORDSMAN"'
+---| '"MACEMAN"'
+---| '"MASTER_MACEMAN"'
+---| '"PIKEMAN"'
+---| '"MASTER_PIKEMAN"'
+---| '"BOWMAN"'
+---| '"MASTER_BOWMAN"'
+---| '"BLOWGUNMAN"'
+---| '"MASTER_BLOWGUNMAN"'
+---| '"LASHER"'
+---| '"MASTER_LASHER"'
+---| '"RECRUIT"'
+---| '"TRAINED_HUNTER"'
+---| '"TRAINED_WAR"'
+---| '"MASTER_THIEF"'
+---| '"THIEF"'
+---| '"STANDARD"'
+---| '"CHILD"'
+---| '"BABY"'
+---| '"DRUNK"'
+---| '"MONSTER_SLAYER"'
+---| '"SCOUT"'
+---| '"BEAST_HUNTER"'
+---| '"SNATCHER"'
+---| '"MERCENARY"'
+---| '"GELDER"'
+---| '"PERFORMER"'
+---| '"POET"'
+---| '"BARD"'
+---| '"DANCER"'
+---| '"SAGE"'
+---| '"SCHOLAR"'
+---| '"PHILOSOPHER"'
+---| '"MATHEMATICIAN"'
+---| '"HISTORIAN"'
+---| '"ASTRONOMER"'
+---| '"NATURALIST"'
+---| '"CHEMIST"'
+---| '"GEOGRAPHER"'
+---| '"SCRIBE"'
+---| '"PAPERMAKER"'
+---| '"BOOKBINDER"'
+---| '"TAVERN_KEEPER"'
+---| '"CRIMINAL"'
+---| '"PEDDLER"'
+---| '"PROPHET"'
+---| '"PILGRIM"'
+---| '"MONK"'
+---| '"MESSENGER"'
+
+---@alias profession_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+
+---@alias profession
+---| profession_keys
+---| profession_values
+
+-- ---PROFESSION -----
+---@class _profession: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field MINER 0 0
+---@field [0] "MINER" 0
+---@field WOODWORKER 1
+---@field [1] "WOODWORKER"
+---@field CARPENTER 2
+---@field [2] "CARPENTER"
+---@field BOWYER 3
+---@field [3] "BOWYER"
+---@field WOODCUTTER 4
+---@field [4] "WOODCUTTER"
+---@field STONEWORKER 5
+---@field [5] "STONEWORKER"
+---@field STONECUTTER 6
+---@field [6] "STONECUTTER"
+---@field STONE_CARVER 7
+---@field [7] "STONE_CARVER"
+---@field ENGRAVER 8
+---@field [8] "ENGRAVER"
+---@field MASON 9
+---@field [9] "MASON"
+---@field RANGER 10
+---@field [10] "RANGER"
+---@field ANIMAL_CARETAKER 11
+---@field [11] "ANIMAL_CARETAKER"
+---@field ANIMAL_TRAINER 12 12
+---@field [12] "ANIMAL_TRAINER" 12
+---@field HUNTER 13
+---@field [13] "HUNTER"
+---@field TRAPPER 14
+---@field [14] "TRAPPER"
+---@field ANIMAL_DISSECTOR 15
+---@field [15] "ANIMAL_DISSECTOR"
+---@field METALSMITH 16
+---@field [16] "METALSMITH"
+---@field FURNACE_OPERATOR 17
+---@field [17] "FURNACE_OPERATOR"
+---@field WEAPONSMITH 18
+---@field [18] "WEAPONSMITH"
+---@field ARMORER 19
+---@field [19] "ARMORER"
+---@field BLACKSMITH 20
+---@field [20] "BLACKSMITH"
+---@field METALCRAFTER 21
+---@field [21] "METALCRAFTER"
+---@field JEWELER 22 22
+---@field [22] "JEWELER" 22
+---@field GEM_CUTTER 23
+---@field [23] "GEM_CUTTER"
+---@field GEM_SETTER 24
+---@field [24] "GEM_SETTER"
+---@field CRAFTSMAN 25
+---@field [25] "CRAFTSMAN"
+---@field WOODCRAFTER 26
+---@field [26] "WOODCRAFTER"
+---@field STONECRAFTER 27
+---@field [27] "STONECRAFTER"
+---@field LEATHERWORKER 28
+---@field [28] "LEATHERWORKER"
+---@field BONE_CARVER 29
+---@field [29] "BONE_CARVER"
+---@field WEAVER 30
+---@field [30] "WEAVER"
+---@field CLOTHIER 31
+---@field [31] "CLOTHIER"
+---@field GLASSMAKER 32 32
+---@field [32] "GLASSMAKER" 32
+---@field POTTER 33
+---@field [33] "POTTER"
+---@field GLAZER 34
+---@field [34] "GLAZER"
+---@field WAX_WORKER 35
+---@field [35] "WAX_WORKER"
+---@field STRAND_EXTRACTOR 36
+---@field [36] "STRAND_EXTRACTOR"
+---@field FISHERY_WORKER 37
+---@field [37] "FISHERY_WORKER"
+---@field FISHERMAN 38
+---@field [38] "FISHERMAN"
+---@field FISH_DISSECTOR 39
+---@field [39] "FISH_DISSECTOR"
+---@field FISH_CLEANER 40
+---@field [40] "FISH_CLEANER"
+---@field FARMER 41
+---@field [41] "FARMER"
+---@field CHEESE_MAKER 42 42
+---@field [42] "CHEESE_MAKER" 42
+---@field MILKER 43
+---@field [43] "MILKER"
+---@field COOK 44
+---@field [44] "COOK"
+---@field THRESHER 45
+---@field [45] "THRESHER"
+---@field MILLER 46
+---@field [46] "MILLER"
+---@field BUTCHER 47
+---@field [47] "BUTCHER"
+---@field TANNER 48
+---@field [48] "TANNER"
+---@field DYER 49
+---@field [49] "DYER"
+---@field PLANTER 50
+---@field [50] "PLANTER"
+---@field HERBALIST 51
+---@field [51] "HERBALIST"
+---@field BREWER 52 52
+---@field [52] "BREWER" 52
+---@field SOAP_MAKER 53
+---@field [53] "SOAP_MAKER"
+---@field POTASH_MAKER 54
+---@field [54] "POTASH_MAKER"
+---@field LYE_MAKER 55
+---@field [55] "LYE_MAKER"
+---@field WOOD_BURNER 56
+---@field [56] "WOOD_BURNER"
+---@field SHEARER 57
+---@field [57] "SHEARER"
+---@field SPINNER 58
+---@field [58] "SPINNER"
+---@field PRESSER 59
+---@field [59] "PRESSER"
+---@field BEEKEEPER 60
+---@field [60] "BEEKEEPER"
+---@field ENGINEER 61
+---@field [61] "ENGINEER"
+---@field MECHANIC 62 62
+---@field [62] "MECHANIC" 62
+---@field SIEGE_ENGINEER 63
+---@field [63] "SIEGE_ENGINEER"
+---@field SIEGE_OPERATOR 64
+---@field [64] "SIEGE_OPERATOR"
+---@field PUMP_OPERATOR 65
+---@field [65] "PUMP_OPERATOR"
+---@field CLERK 66
+---@field [66] "CLERK"
+---@field ADMINISTRATOR 67
+---@field [67] "ADMINISTRATOR"
+---@field TRADER 68
+---@field [68] "TRADER"
+---@field DOCTOR 69
+---@field [69] "DOCTOR"
+---@field DIAGNOSER 70 70
+---@field [70] "DIAGNOSER" 70
+---@field BONE_SETTER 71
+---@field [71] "BONE_SETTER"
+---@field SUTURER 72
+---@field [72] "SUTURER"
+---@field SURGEON 73
+---@field [73] "SURGEON"
+---@field MERCHANT 74
+---@field [74] "MERCHANT"
+---@field HAMMERMAN 75
+---@field [75] "HAMMERMAN"
+---@field MASTER_HAMMERMAN 76
+---@field [76] "MASTER_HAMMERMAN"
+---@field SPEARMAN 77
+---@field [77] "SPEARMAN"
+---@field MASTER_SPEARMAN 78
+---@field [78] "MASTER_SPEARMAN"
+---@field CROSSBOWMAN 79
+---@field [79] "CROSSBOWMAN"
+---@field MASTER_CROSSBOWMAN 80 80
+---@field [80] "MASTER_CROSSBOWMAN" 80
+---@field WRESTLER 81
+---@field [81] "WRESTLER"
+---@field MASTER_WRESTLER 82
+---@field [82] "MASTER_WRESTLER"
+---@field AXEMAN 83
+---@field [83] "AXEMAN"
+---@field MASTER_AXEMAN 84
+---@field [84] "MASTER_AXEMAN"
+---@field SWORDSMAN 85
+---@field [85] "SWORDSMAN"
+---@field MASTER_SWORDSMAN 86
+---@field [86] "MASTER_SWORDSMAN"
+---@field MACEMAN 87
+---@field [87] "MACEMAN"
+---@field MASTER_MACEMAN 88
+---@field [88] "MASTER_MACEMAN"
+---@field PIKEMAN 89
+---@field [89] "PIKEMAN"
+---@field MASTER_PIKEMAN 90 90
+---@field [90] "MASTER_PIKEMAN" 90
+---@field BOWMAN 91
+---@field [91] "BOWMAN"
+---@field MASTER_BOWMAN 92
+---@field [92] "MASTER_BOWMAN"
+---@field BLOWGUNMAN 93
+---@field [93] "BLOWGUNMAN"
+---@field MASTER_BLOWGUNMAN 94
+---@field [94] "MASTER_BLOWGUNMAN"
+---@field LASHER 95
+---@field [95] "LASHER"
+---@field MASTER_LASHER 96
+---@field [96] "MASTER_LASHER"
+---@field RECRUIT 97
+---@field [97] "RECRUIT"
+---@field TRAINED_HUNTER 98
+---@field [98] "TRAINED_HUNTER"
+---@field TRAINED_WAR 99
+---@field [99] "TRAINED_WAR"
+---@field MASTER_THIEF 100 100
+---@field [100] "MASTER_THIEF" 100
+---@field THIEF 101
+---@field [101] "THIEF"
+---@field STANDARD 102
+---@field [102] "STANDARD"
+---@field CHILD 103
+---@field [103] "CHILD"
+---@field BABY 104
+---@field [104] "BABY"
+---@field DRUNK 105
+---@field [105] "DRUNK"
+---@field MONSTER_SLAYER 106
+---@field [106] "MONSTER_SLAYER"
+---@field SCOUT 107
+---@field [107] "SCOUT"
+---@field BEAST_HUNTER 108
+---@field [108] "BEAST_HUNTER"
+---@field SNATCHER 109
+---@field [109] "SNATCHER"
+---@field MERCENARY 110 110
+---@field [110] "MERCENARY" 110
+---@field GELDER 111
+---@field [111] "GELDER"
+---@field PERFORMER 112
+---@field [112] "PERFORMER"
+---@field POET 113
+---@field [113] "POET"
+---@field BARD 114
+---@field [114] "BARD"
+---@field DANCER 115
+---@field [115] "DANCER"
+---@field SAGE 116
+---@field [116] "SAGE"
+---@field SCHOLAR 117
+---@field [117] "SCHOLAR"
+---@field PHILOSOPHER 118
+---@field [118] "PHILOSOPHER"
+---@field MATHEMATICIAN 119
+---@field [119] "MATHEMATICIAN"
+---@field HISTORIAN 120 120
+---@field [120] "HISTORIAN" 120
+---@field ASTRONOMER 121
+---@field [121] "ASTRONOMER"
+---@field NATURALIST 122
+---@field [122] "NATURALIST"
+---@field CHEMIST 123
+---@field [123] "CHEMIST"
+---@field GEOGRAPHER 124
+---@field [124] "GEOGRAPHER"
+---@field SCRIBE 125
+---@field [125] "SCRIBE"
+---@field PAPERMAKER 126
+---@field [126] "PAPERMAKER"
+---@field BOOKBINDER 127
+---@field [127] "BOOKBINDER"
+---@field TAVERN_KEEPER 128
+---@field [128] "TAVERN_KEEPER"
+---@field CRIMINAL 129
+---@field [129] "CRIMINAL"
+---@field PEDDLER 130 130
+---@field [130] "PEDDLER" 130
+---@field PROPHET 131
+---@field [131] "PROPHET"
+---@field PILGRIM 132
+---@field [132] "PILGRIM"
+---@field MONK 133
+---@field [133] "MONK"
+---@field MESSENGER 134
+---@field [134] "MESSENGER"
+df.profession = {}
+
+---@class profession_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.profession._attr_entry_type = {}
+
+---@class (exact) profession_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field military DFCompoundField
+---@field parent DFCompoundField
+---@field can_assign_labor DFCompoundField Can be assigned any labors, i.e. not child or baby
+---@field color DFCompoundField
+---@field moodable DFCompoundField
+df.profession._attr_entry_type._fields = {}
+
+---@class profession_attrs
+---@field NONE { military: "false", parent: "NONE", can_assign_labor: "true", color: "-1", moodable: "false" }
+---@field MINER { caption: "Miner", military: "false", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "true" }
+---@field WOODWORKER { caption: "Woodworker", military: "false", parent: "NONE", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field CARPENTER { caption: "Carpenter", military: "false", parent: "WOODWORKER", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field BOWYER { caption: "Bowyer", military: "false", parent: "WOODWORKER", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field WOODCUTTER { caption: "Woodcutter", military: "false", parent: "WOODWORKER", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field STONEWORKER { caption: "Stoneworker", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field STONECUTTER { caption: "Stonecutter", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field STONE_CARVER { caption: "Stone Carver", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field ENGRAVER { caption: "Engraver", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field MASON { caption: "Mason", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field RANGER { caption: "Ranger", military: "false", parent: "NONE", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field ANIMAL_CARETAKER { caption: "Animal Caretaker", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field ANIMAL_TRAINER { caption: "Animal Trainer", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field HUNTER { caption: "Hunter", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field TRAPPER { caption: "Trapper", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field ANIMAL_DISSECTOR { caption: "Animal Dissector", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field METALSMITH { caption: "Metalsmith", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field FURNACE_OPERATOR { caption: "Furnace Operator", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field WEAPONSMITH { caption: "Weaponsmith", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field ARMORER { caption: "Armorer", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field BLACKSMITH { caption: "Blacksmith", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field METALCRAFTER { caption: "Metalcrafter", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field JEWELER { caption: "Jeweler", military: "false", parent: "NONE", can_assign_labor: "true", color: "10", moodable: "true" }
+---@field GEM_CUTTER { caption: "Gem Cutter", military: "false", parent: "JEWELER", can_assign_labor: "true", color: "10", moodable: "true" }
+---@field GEM_SETTER { caption: "Gem Setter", military: "false", parent: "JEWELER", can_assign_labor: "true", color: "10", moodable: "true" }
+---@field CRAFTSMAN { caption: "Craftsman", military: "false", parent: "NONE", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field WOODCRAFTER { caption: "Woodcrafter", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field STONECRAFTER { caption: "Stonecrafter", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field LEATHERWORKER { caption: "Leatherworker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field BONE_CARVER { caption: "Bone Carver", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field WEAVER { caption: "Weaver", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field CLOTHIER { caption: "Clothier", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field GLASSMAKER { caption: "Glassmaker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field POTTER { caption: "Potter", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field GLAZER { caption: "Glazer", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field WAX_WORKER { caption: "Wax Worker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field STRAND_EXTRACTOR { caption: "Strand Extractor", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field FISHERY_WORKER { caption: "Fishery Worker", military: "false", parent: "NONE", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FISHERMAN { caption: "Fisherman", military: "false", parent: "FISHERY_WORKER", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FISH_DISSECTOR { caption: "Fish Dissector", military: "false", parent: "FISHERY_WORKER", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FISH_CLEANER { caption: "Fish Cleaner", military: "false", parent: "FISHERY_WORKER", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FARMER { caption: "Farmer", military: "false", parent: "NONE", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field CHEESE_MAKER { caption: "Cheesemaker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field MILKER { caption: "Milker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field COOK { caption: "Cook", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field THRESHER { caption: "Thresher", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field MILLER { caption: "Miller", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field BUTCHER { caption: "Butcher", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field TANNER { caption: "Tanner", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field DYER { caption: "Dyer", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field PLANTER { caption: "Planter", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field HERBALIST { caption: "Herbalist", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field BREWER { caption: "Brewer", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field SOAP_MAKER { caption: "Soap Maker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field POTASH_MAKER { caption: "Potash Maker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field LYE_MAKER { caption: "Lye Maker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field WOOD_BURNER { caption: "Wood Burner", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field SHEARER { caption: "Shearer", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field SPINNER { caption: "Spinner", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field PRESSER { caption: "Presser", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field BEEKEEPER { caption: "Beekeeper", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field ENGINEER { caption: "Engineer", military: "false", parent: "NONE", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field MECHANIC { caption: "Mechanic", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field SIEGE_ENGINEER { caption: "Siege Engineer", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field SIEGE_OPERATOR { caption: "Siege Operator", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field PUMP_OPERATOR { caption: "Pump Operator", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field CLERK { caption: "Clerk", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field ADMINISTRATOR { caption: "Administrator", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field TRADER { caption: "Trader", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field DOCTOR { caption: "Doctor", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field DIAGNOSER { caption: "Diagnoser", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field BONE_SETTER { caption: "Bone Doctor", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SUTURER { caption: "Suturer", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SURGEON { caption: "Surgeon", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field MERCHANT { caption: "Merchant", military: "false", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "false" }
+---@field HAMMERMAN { caption: "Hammerman", military: "true", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "false" }
+---@field MASTER_HAMMERMAN { caption: "Hammer Lord", military: "true", parent: "HAMMERMAN", can_assign_labor: "true", color: "13", moodable: "false" }
+---@field SPEARMAN { caption: "Spearman", military: "true", parent: "NONE", can_assign_labor: "true", color: "6", moodable: "false" }
+---@field MASTER_SPEARMAN { caption: "Spearmaster", military: "true", parent: "SPEARMAN", can_assign_labor: "true", color: "14", moodable: "false" }
+---@field CROSSBOWMAN { caption: "Crossbowman", military: "true", parent: "NONE", can_assign_labor: "true", color: "2", moodable: "false" }
+---@field MASTER_CROSSBOWMAN { caption: "Elite Crossbowman", military: "true", parent: "CROSSBOWMAN", can_assign_labor: "true", color: "10", moodable: "false" }
+---@field WRESTLER { caption: "Wrestler", military: "true", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "false" }
+---@field MASTER_WRESTLER { caption: "Elite Wrestler", military: "true", parent: "WRESTLER", can_assign_labor: "true", color: "15", moodable: "false" }
+---@field AXEMAN { caption: "Axeman", military: "true", parent: "NONE", can_assign_labor: "true", color: "1", moodable: "false" }
+---@field MASTER_AXEMAN { caption: "Axe Lord", military: "true", parent: "AXEMAN", can_assign_labor: "true", color: "9", moodable: "false" }
+---@field SWORDSMAN { caption: "Swordsman", military: "true", parent: "NONE", can_assign_labor: "true", color: "3", moodable: "false" }
+---@field MASTER_SWORDSMAN { caption: "Swordsmaster", military: "true", parent: "SWORDSMAN", can_assign_labor: "true", color: "11", moodable: "false" }
+---@field MACEMAN { caption: "Maceman", military: "true", parent: "NONE", can_assign_labor: "true", color: "4", moodable: "false" }
+---@field MASTER_MACEMAN { caption: "Mace Lord", military: "true", parent: "MACEMAN", can_assign_labor: "true", color: "12", moodable: "false" }
+---@field PIKEMAN { caption: "Pikeman", military: "true", parent: "NONE", can_assign_labor: "true", color: "6", moodable: "false" }
+---@field MASTER_PIKEMAN { caption: "Pikemaster", military: "true", parent: "PIKEMAN", can_assign_labor: "true", color: "14", moodable: "false" }
+---@field BOWMAN { caption: "Bowman", military: "true", parent: "NONE", can_assign_labor: "true", color: "2", moodable: "false" }
+---@field MASTER_BOWMAN { caption: "Elite Bowman", military: "true", parent: "BOWMAN", can_assign_labor: "true", color: "10", moodable: "false" }
+---@field BLOWGUNMAN { caption: "Blowgunner", military: "true", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field MASTER_BLOWGUNMAN { caption: "Master Blowgunner", military: "true", parent: "BLOWGUNMAN", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field LASHER { caption: "Lasher", military: "true", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field MASTER_LASHER { caption: "Master Lasher", military: "true", parent: "LASHER", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field RECRUIT { caption: "Recruit", military: "true", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field TRAINED_HUNTER { caption: "Hunting Animal", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "false" }
+---@field TRAINED_WAR { caption: "War Animal", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field MASTER_THIEF { caption: "Master Thief", military: "false", parent: "THIEF", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field THIEF { caption: "Thief", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field STANDARD { caption: "Peasant", military: "false", parent: "NONE", can_assign_labor: "true", color: "-1", moodable: "true" }
+---@field CHILD { caption: "Child", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "4", moodable: "true" }
+---@field BABY { caption: "Baby", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "4", moodable: "false" }
+---@field DRUNK { caption: "Drunk", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field MONSTER_SLAYER { caption: "Monster slayer", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field SCOUT { caption: "Scout", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field BEAST_HUNTER { caption: "Beast hunter", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field SNATCHER { caption: "Snatcher", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field MERCENARY { caption: "Mercenary", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field GELDER { caption: "Gelder", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field PERFORMER { caption: "Performer", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field POET { caption: "Poet", military: "false", parent: "PERFORMER", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field BARD { caption: "Bard", military: "false", parent: "PERFORMER", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field DANCER { caption: "Dancer", military: "false", parent: "PERFORMER", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SAGE { caption: "Sage", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SCHOLAR { caption: "Scholar", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field PHILOSOPHER { caption: "Philosopher", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field MATHEMATICIAN { caption: "Mathematician", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field HISTORIAN { caption: "Historian", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field ASTRONOMER { caption: "Astronomer", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field NATURALIST { caption: "Naturalist", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field CHEMIST { caption: "Chemist", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field GEOGRAPHER { caption: "Geographer", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SCRIBE { caption: "Scribe", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field PAPERMAKER { caption: "Papermaker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field BOOKBINDER { caption: "Bookbinder", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field TAVERN_KEEPER { caption: "Tavern Keeper", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field CRIMINAL { caption: "Criminal", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field PEDDLER { caption: "Peddler", military: "false", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "true" }
+---@field PROPHET { caption: "Prophet", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field PILGRIM { caption: "Pilgrim", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field MONK { caption: "Monk", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field MESSENGER { caption: "Messenger", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+df.profession.attrs = {}
+
+---@alias unit_labor_category_keys
+---| '"Other"'
+---| '"Hauling"'
+---| '"Engineering"'
+---| '"Crafts"'
+---| '"Jewelry"'
+---| '"Metalsmithing"'
+---| '"Fishing"'
+---| '"Farming"'
+---| '"Healthcare"'
+---| '"Hunting"'
+---| '"Stoneworking"'
+---| '"Woodworking"'
+---| '"None"'
+
+---@alias unit_labor_category_values
+---| -13
+---| -12
+---| -11
+---| -10
+---| -9
+---| -8
+---| -7
+---| -6
+---| -5
+---| -4
+---| -3
+---| -2
+---| -1
+
+---@alias unit_labor_category
+---| unit_labor_category_keys
+---| unit_labor_category_values
+
+-- ---LABOR -----
+---@class _unit_labor_category: DFEnum
+---@field Other -13 used in viewscreen_dwarfmodest::unit_labors_sidemenu
+---@field [-13] "Other" used in viewscreen_dwarfmodest::unit_labors_sidemenu
+---@field Hauling -12
+---@field [-12] "Hauling"
+---@field Engineering -11
+---@field [-11] "Engineering"
+---@field Crafts -10 -10
+---@field [-10] "Crafts" -10
+---@field Jewelry -9
+---@field [-9] "Jewelry"
+---@field Metalsmithing -8
+---@field [-8] "Metalsmithing"
+---@field Fishing -7
+---@field [-7] "Fishing"
+---@field Farming -6
+---@field [-6] "Farming"
+---@field Healthcare -5 -5
+---@field [-5] "Healthcare" -5
+---@field Hunting -4
+---@field [-4] "Hunting"
+---@field Stoneworking -3
+---@field [-3] "Stoneworking"
+---@field Woodworking -2
+---@field [-2] "Woodworking"
+---@field None -1
+---@field [-1] "None"
+df.unit_labor_category = {}
+
+---@alias unit_labor_keys
+---| '"NONE"'
+---| '"MINE"'
+---| '"HAUL_STONE"'
+---| '"HAUL_WOOD"'
+---| '"HAUL_BODY"'
+---| '"HAUL_FOOD"'
+---| '"HAUL_REFUSE"'
+---| '"HAUL_ITEM"'
+---| '"HAUL_FURNITURE"'
+---| '"HAUL_ANIMALS"'
+---| '"CLEAN"'
+---| '"CUTWOOD"'
+---| '"CARPENTER"'
+---| '"STONECUTTER"'
+---| '"STONE_CARVER"'
+---| '"ENGRAVER"'
+---| '"MASON"'
+---| '"ANIMALTRAIN"'
+---| '"ANIMALCARE"'
+---| '"DIAGNOSE"'
+---| '"SURGERY"'
+---| '"BONE_SETTING"'
+---| '"SUTURING"'
+---| '"DRESSING_WOUNDS"'
+---| '"FEED_WATER_CIVILIANS"'
+---| '"RECOVER_WOUNDED"'
+---| '"BUTCHER"'
+---| '"TRAPPER"'
+---| '"DISSECT_VERMIN"'
+---| '"LEATHER"'
+---| '"TANNER"'
+---| '"BREWER"'
+---| '"SOAP_MAKER"'
+---| '"WEAVER"'
+---| '"CLOTHESMAKER"'
+---| '"MILLER"'
+---| '"PROCESS_PLANT"'
+---| '"MAKE_CHEESE"'
+---| '"MILK"'
+---| '"COOK"'
+---| '"PLANT"'
+---| '"HERBALIST"'
+---| '"FISH"'
+---| '"CLEAN_FISH"'
+---| '"DISSECT_FISH"'
+---| '"HUNT"'
+---| '"SMELT"'
+---| '"FORGE_WEAPON"'
+---| '"FORGE_ARMOR"'
+---| '"FORGE_FURNITURE"'
+---| '"METAL_CRAFT"'
+---| '"CUT_GEM"'
+---| '"ENCRUST_GEM"'
+---| '"WOOD_CRAFT"'
+---| '"STONE_CRAFT"'
+---| '"BONE_CARVE"'
+---| '"GLASSMAKER"'
+---| '"EXTRACT_STRAND"'
+---| '"SIEGECRAFT"'
+---| '"SIEGEOPERATE"'
+---| '"BOWYER"'
+---| '"MECHANIC"'
+---| '"POTASH_MAKING"'
+---| '"LYE_MAKING"'
+---| '"DYER"'
+---| '"BURN_WOOD"'
+---| '"OPERATE_PUMP"'
+---| '"SHEARER"'
+---| '"SPINNER"'
+---| '"POTTERY"'
+---| '"GLAZING"'
+---| '"PRESSING"'
+---| '"BEEKEEPING"'
+---| '"WAX_WORKING"'
+---| '"HANDLE_VEHICLES"'
+---| '"HAUL_TRADE"'
+---| '"PULL_LEVER"'
+---| '"REMOVE_CONSTRUCTION"'
+---| '"HAUL_WATER"'
+---| '"GELD"'
+---| '"BUILD_ROAD"'
+---| '"BUILD_CONSTRUCTION"'
+---| '"PAPERMAKING"'
+---| '"BOOKBINDING"'
+---| '"ANON_LABOR_83"'
+---| '"ANON_LABOR_84"'
+---| '"ANON_LABOR_85"'
+---| '"ANON_LABOR_86"'
+---| '"ANON_LABOR_87"'
+---| '"ANON_LABOR_88"'
+---| '"ANON_LABOR_89"'
+---| '"ANON_LABOR_90"'
+---| '"ANON_LABOR_91"'
+---| '"ANON_LABOR_92"'
+---| '"ANON_LABOR_93"'
+
+---@alias unit_labor_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+
+---@alias unit_labor
+---| unit_labor_keys
+---| unit_labor_values
+
+---@class _unit_labor: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field MINE 0 0
+---@field [0] "MINE" 0
+---@field HAUL_STONE 1
+---@field [1] "HAUL_STONE"
+---@field HAUL_WOOD 2
+---@field [2] "HAUL_WOOD"
+---@field HAUL_BODY 3
+---@field [3] "HAUL_BODY"
+---@field HAUL_FOOD 4
+---@field [4] "HAUL_FOOD"
+---@field HAUL_REFUSE 5
+---@field [5] "HAUL_REFUSE"
+---@field HAUL_ITEM 6
+---@field [6] "HAUL_ITEM"
+---@field HAUL_FURNITURE 7
+---@field [7] "HAUL_FURNITURE"
+---@field HAUL_ANIMALS 8
+---@field [8] "HAUL_ANIMALS"
+---@field CLEAN 9
+---@field [9] "CLEAN"
+---@field CUTWOOD 10 10
+---@field [10] "CUTWOOD" 10
+---@field CARPENTER 11
+---@field [11] "CARPENTER"
+---@field STONECUTTER 12
+---@field [12] "STONECUTTER"
+---@field STONE_CARVER 13
+---@field [13] "STONE_CARVER"
+---@field ENGRAVER 14
+---@field [14] "ENGRAVER"
+---@field MASON 15
+---@field [15] "MASON"
+---@field ANIMALTRAIN 16
+---@field [16] "ANIMALTRAIN"
+---@field ANIMALCARE 17
+---@field [17] "ANIMALCARE"
+---@field DIAGNOSE 18
+---@field [18] "DIAGNOSE"
+---@field SURGERY 19
+---@field [19] "SURGERY"
+---@field BONE_SETTING 20
+---@field [20] "BONE_SETTING"
+---@field SUTURING 21 21
+---@field [21] "SUTURING" 21
+---@field DRESSING_WOUNDS 22
+---@field [22] "DRESSING_WOUNDS"
+---@field FEED_WATER_CIVILIANS 23
+---@field [23] "FEED_WATER_CIVILIANS"
+---@field RECOVER_WOUNDED 24
+---@field [24] "RECOVER_WOUNDED"
+---@field BUTCHER 25
+---@field [25] "BUTCHER"
+---@field TRAPPER 26
+---@field [26] "TRAPPER"
+---@field DISSECT_VERMIN 27
+---@field [27] "DISSECT_VERMIN"
+---@field LEATHER 28
+---@field [28] "LEATHER"
+---@field TANNER 29
+---@field [29] "TANNER"
+---@field BREWER 30
+---@field [30] "BREWER"
+---@field SOAP_MAKER 31 31
+---@field [31] "SOAP_MAKER" 31
+---@field WEAVER 32
+---@field [32] "WEAVER"
+---@field CLOTHESMAKER 33
+---@field [33] "CLOTHESMAKER"
+---@field MILLER 34
+---@field [34] "MILLER"
+---@field PROCESS_PLANT 35
+---@field [35] "PROCESS_PLANT"
+---@field MAKE_CHEESE 36
+---@field [36] "MAKE_CHEESE"
+---@field MILK 37
+---@field [37] "MILK"
+---@field COOK 38
+---@field [38] "COOK"
+---@field PLANT 39
+---@field [39] "PLANT"
+---@field HERBALIST 40 40
+---@field [40] "HERBALIST" 40
+---@field FISH 41
+---@field [41] "FISH"
+---@field CLEAN_FISH 42
+---@field [42] "CLEAN_FISH"
+---@field DISSECT_FISH 43
+---@field [43] "DISSECT_FISH"
+---@field HUNT 44
+---@field [44] "HUNT"
+---@field SMELT 45
+---@field [45] "SMELT"
+---@field FORGE_WEAPON 46
+---@field [46] "FORGE_WEAPON"
+---@field FORGE_ARMOR 47
+---@field [47] "FORGE_ARMOR"
+---@field FORGE_FURNITURE 48
+---@field [48] "FORGE_FURNITURE"
+---@field METAL_CRAFT 49
+---@field [49] "METAL_CRAFT"
+---@field CUT_GEM 50 50
+---@field [50] "CUT_GEM" 50
+---@field ENCRUST_GEM 51
+---@field [51] "ENCRUST_GEM"
+---@field WOOD_CRAFT 52
+---@field [52] "WOOD_CRAFT"
+---@field STONE_CRAFT 53
+---@field [53] "STONE_CRAFT"
+---@field BONE_CARVE 54
+---@field [54] "BONE_CARVE"
+---@field GLASSMAKER 55
+---@field [55] "GLASSMAKER"
+---@field EXTRACT_STRAND 56
+---@field [56] "EXTRACT_STRAND"
+---@field SIEGECRAFT 57
+---@field [57] "SIEGECRAFT"
+---@field SIEGEOPERATE 58
+---@field [58] "SIEGEOPERATE"
+---@field BOWYER 59
+---@field [59] "BOWYER"
+---@field MECHANIC 60 60
+---@field [60] "MECHANIC" 60
+---@field POTASH_MAKING 61
+---@field [61] "POTASH_MAKING"
+---@field LYE_MAKING 62
+---@field [62] "LYE_MAKING"
+---@field DYER 63
+---@field [63] "DYER"
+---@field BURN_WOOD 64
+---@field [64] "BURN_WOOD"
+---@field OPERATE_PUMP 65
+---@field [65] "OPERATE_PUMP"
+---@field SHEARER 66
+---@field [66] "SHEARER"
+---@field SPINNER 67
+---@field [67] "SPINNER"
+---@field POTTERY 68
+---@field [68] "POTTERY"
+---@field GLAZING 69
+---@field [69] "GLAZING"
+---@field PRESSING 70 70
+---@field [70] "PRESSING" 70
+---@field BEEKEEPING 71
+---@field [71] "BEEKEEPING"
+---@field WAX_WORKING 72
+---@field [72] "WAX_WORKING"
+---@field HANDLE_VEHICLES 73
+---@field [73] "HANDLE_VEHICLES"
+---@field HAUL_TRADE 74
+---@field [74] "HAUL_TRADE"
+---@field PULL_LEVER 75
+---@field [75] "PULL_LEVER"
+---@field REMOVE_CONSTRUCTION 76
+---@field [76] "REMOVE_CONSTRUCTION"
+---@field HAUL_WATER 77
+---@field [77] "HAUL_WATER"
+---@field GELD 78
+---@field [78] "GELD"
+---@field BUILD_ROAD 79
+---@field [79] "BUILD_ROAD"
+---@field BUILD_CONSTRUCTION 80 80
+---@field [80] "BUILD_CONSTRUCTION" 80
+---@field PAPERMAKING 81
+---@field [81] "PAPERMAKING"
+---@field BOOKBINDING 82
+---@field [82] "BOOKBINDING"
+---@field ANON_LABOR_83 83
+---@field [83] "ANON_LABOR_83"
+---@field ANON_LABOR_84 84
+---@field [84] "ANON_LABOR_84"
+---@field ANON_LABOR_85 85
+---@field [85] "ANON_LABOR_85"
+---@field ANON_LABOR_86 86
+---@field [86] "ANON_LABOR_86"
+---@field ANON_LABOR_87 87
+---@field [87] "ANON_LABOR_87"
+---@field ANON_LABOR_88 88
+---@field [88] "ANON_LABOR_88"
+---@field ANON_LABOR_89 89
+---@field [89] "ANON_LABOR_89"
+---@field ANON_LABOR_90 90
+---@field [90] "ANON_LABOR_90"
+---@field ANON_LABOR_91 91
+---@field [91] "ANON_LABOR_91"
+---@field ANON_LABOR_92 92
+---@field [92] "ANON_LABOR_92"
+---@field ANON_LABOR_93 93
+---@field [93] "ANON_LABOR_93"
+df.unit_labor = {}
+
+---@class unit_labor_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.unit_labor._attr_entry_type = {}
+
+---@class (exact) unit_labor_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field category DFCompoundField
+df.unit_labor._attr_entry_type._fields = {}
+
+---@class unit_labor_attrs
+---@field NONE { category: "None" }
+---@field MINE { caption: "Mining", category: "None" }
+---@field HAUL_STONE { caption: "Stone Hauling", category: "Hauling" }
+---@field HAUL_WOOD { caption: "Wood Hauling", category: "Hauling" }
+---@field HAUL_BODY { caption: "Burial", category: "Hauling" }
+---@field HAUL_FOOD { caption: "Food Hauling", category: "Hauling" }
+---@field HAUL_REFUSE { caption: "Refuse Hauling", category: "Hauling" }
+---@field HAUL_ITEM { caption: "Item Hauling", category: "Hauling" }
+---@field HAUL_FURNITURE { caption: "Furniture Hauling", category: "Hauling" }
+---@field HAUL_ANIMALS { caption: "Animal Hauling", category: "Hauling" }
+---@field CLEAN { caption: "Cleaning", category: "Other" }
+---@field CUTWOOD { caption: "Wood Cutting", category: "Woodworking" }
+---@field CARPENTER { caption: "Carpentry", category: "Woodworking" }
+---@field STONECUTTER { caption: "Stone Cutting", category: "Stoneworking" }
+---@field STONE_CARVER { caption: "Stone Carving", category: "Stoneworking" }
+---@field ENGRAVER { caption: "Stone Engraving", category: "Stoneworking" }
+---@field MASON { caption: "Masonry", category: "Stoneworking" }
+---@field ANIMALTRAIN { caption: "Animal Training", category: "Hunting" }
+---@field ANIMALCARE { caption: "Animal Care", category: "Hunting" }
+---@field DIAGNOSE { caption: "Diagnosis", category: "Healthcare" }
+---@field SURGERY { caption: "Surgery", category: "Healthcare" }
+---@field BONE_SETTING { caption: "Setting Bones", category: "Healthcare" }
+---@field SUTURING { caption: "Suturing", category: "Healthcare" }
+---@field DRESSING_WOUNDS { caption: "Dressing Wounds", category: "Healthcare" }
+---@field FEED_WATER_CIVILIANS { caption: "Feed Patients/Prisoners", category: "Healthcare" }
+---@field RECOVER_WOUNDED { caption: "Recovering Wounded", category: "Healthcare" }
+---@field BUTCHER { caption: "Butchery", category: "Farming" }
+---@field TRAPPER { caption: "Trapping", category: "Hunting" }
+---@field DISSECT_VERMIN { caption: "Small Animal Dissection", category: "Hunting" }
+---@field LEATHER { caption: "Leatherworking", category: "Crafts" }
+---@field TANNER { caption: "Tanning", category: "Farming" }
+---@field BREWER { caption: "Brewing", category: "Farming" }
+---@field SOAP_MAKER { caption: "Soap Maker", category: "Farming" }
+---@field WEAVER { caption: "Weaving", category: "Crafts" }
+---@field CLOTHESMAKER { caption: "Clothesmaking", category: "Crafts" }
+---@field MILLER { caption: "Milling", category: "Farming" }
+---@field PROCESS_PLANT { caption: "Plant Processing", category: "Farming" }
+---@field MAKE_CHEESE { caption: "Cheese Making", category: "Farming" }
+---@field MILK { caption: "Milking", category: "Farming" }
+---@field COOK { caption: "Cooking", category: "Farming" }
+---@field PLANT { caption: "Farming (Fields)", category: "Farming" }
+---@field HERBALIST { caption: "Plant Gathering", category: "Farming" }
+---@field FISH { caption: "Fishing", category: "Fishing" }
+---@field CLEAN_FISH { caption: "Fish Cleaning", category: "Fishing" }
+---@field DISSECT_FISH { caption: "Fish Dissection", category: "Fishing" }
+---@field HUNT { caption: "Hunting", category: "Hunting" }
+---@field SMELT { caption: "Furnace Operating", category: "Metalsmithing" }
+---@field FORGE_WEAPON { caption: "Weaponsmithing", category: "Metalsmithing" }
+---@field FORGE_ARMOR { caption: "Armoring", category: "Metalsmithing" }
+---@field FORGE_FURNITURE { caption: "Blacksmithing", category: "Metalsmithing" }
+---@field METAL_CRAFT { caption: "Metalcrafting", category: "Metalsmithing" }
+---@field CUT_GEM { caption: "Gem Cutting", category: "Jewelry" }
+---@field ENCRUST_GEM { caption: "Gem Setting", category: "Jewelry" }
+---@field WOOD_CRAFT { caption: "Woodcrafting", category: "Crafts" }
+---@field STONE_CRAFT { caption: "Stonecrafting", category: "Crafts" }
+---@field BONE_CARVE { caption: "Bone Carving", category: "Crafts" }
+---@field GLASSMAKER { caption: "Glassmaking", category: "Crafts" }
+---@field EXTRACT_STRAND { caption: "Strand Extraction", category: "Crafts" }
+---@field SIEGECRAFT { caption: "Siege Engineering", category: "Engineering" }
+---@field SIEGEOPERATE { caption: "Siege Operating", category: "Engineering" }
+---@field BOWYER { caption: "Crossbow-making", category: "Woodworking" }
+---@field MECHANIC { caption: "Mechanics", category: "Engineering" }
+---@field POTASH_MAKING { caption: "Potash Making", category: "Farming" }
+---@field LYE_MAKING { caption: "Lye Making", category: "Farming" }
+---@field DYER { caption: "Dyeing", category: "Farming" }
+---@field BURN_WOOD { caption: "Wood Burning", category: "Farming" }
+---@field OPERATE_PUMP { caption: "Pump Operating", category: "Engineering" }
+---@field SHEARER { caption: "Shearing", category: "Farming" }
+---@field SPINNER { caption: "Spinning", category: "Farming" }
+---@field POTTERY { caption: "Pottery", category: "Crafts" }
+---@field GLAZING { caption: "Glazing", category: "Crafts" }
+---@field PRESSING { caption: "Pressing", category: "Farming" }
+---@field BEEKEEPING { caption: "Bee Keeping", category: "Farming" }
+---@field WAX_WORKING { caption: "Wax Working", category: "Crafts" }
+---@field HANDLE_VEHICLES { caption: "Push/Haul Vehicles", category: "Hauling" }
+---@field HAUL_TRADE { caption: "Trade Good Hauling", category: "Hauling" }
+---@field PULL_LEVER { caption: "Lever Operation", category: "Other" }
+---@field REMOVE_CONSTRUCTION { caption: "Construction Removal", category: "Other" }
+---@field HAUL_WATER { caption: "Water Hauling", category: "Hauling" }
+---@field GELD { caption: "Gelding", category: "Farming" }
+---@field BUILD_ROAD { caption: "Road Building", category: "Other" }
+---@field BUILD_CONSTRUCTION { caption: "Wall/Floor Construction", category: "Other" }
+---@field PAPERMAKING { caption: "Papermaking", category: "Crafts" }
+---@field BOOKBINDING { caption: "Bookbinding", category: "Crafts" }
+---@field ANON_LABOR_83 { category: "None" }
+---@field ANON_LABOR_84 { category: "None" }
+---@field ANON_LABOR_85 { category: "None" }
+---@field ANON_LABOR_86 { category: "None" }
+---@field ANON_LABOR_87 { category: "None" }
+---@field ANON_LABOR_88 { category: "None" }
+---@field ANON_LABOR_89 { category: "None" }
+---@field ANON_LABOR_90 { category: "None" }
+---@field ANON_LABOR_91 { category: "None" }
+---@field ANON_LABOR_92 { category: "None" }
+---@field ANON_LABOR_93 { category: "None" }
+df.unit_labor.attrs = {}
+
+---@alias job_skill_class_keys
+---| '"Normal"'
+---| '"Medical"'
+---| '"Personal"'
+---| '"Social"'
+---| '"Cultural"'
+---| '"MilitaryWeapon"'
+---| '"MilitaryUnarmed"'
+---| '"MilitaryAttack"'
+---| '"MilitaryDefense"'
+---| '"MilitaryMisc"'
+
+---@alias job_skill_class_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+
+---@alias job_skill_class
+---| job_skill_class_keys
+---| job_skill_class_values
+
+-- ---SKILL -----
+---@class _job_skill_class: DFEnum
+---@field Normal 0
+---@field [0] "Normal"
+---@field Medical 1
+---@field [1] "Medical"
+---@field Personal 2
+---@field [2] "Personal"
+---@field Social 3
+---@field [3] "Social"
+---@field Cultural 4
+---@field [4] "Cultural"
+---@field MilitaryWeapon 5
+---@field [5] "MilitaryWeapon"
+---@field MilitaryUnarmed 6
+---@field [6] "MilitaryUnarmed"
+---@field MilitaryAttack 7
+---@field [7] "MilitaryAttack"
+---@field MilitaryDefense 8
+---@field [8] "MilitaryDefense"
+---@field MilitaryMisc 9
+---@field [9] "MilitaryMisc"
+df.job_skill_class = {}
+
+---@alias job_skill_keys
+---| '"NONE"'
+---| '"MINING"'
+---| '"WOODCUTTING"'
+---| '"CARPENTRY"'
+---| '"ENGRAVE_STONE"'
+---| '"MASONRY"'
+---| '"ANIMALTRAIN"'
+---| '"ANIMALCARE"'
+---| '"DISSECT_FISH"'
+---| '"DISSECT_VERMIN"'
+---| '"PROCESSFISH"'
+---| '"BUTCHER"'
+---| '"TRAPPING"'
+---| '"TANNER"'
+---| '"WEAVING"'
+---| '"BREWING"'
+---| '"CLOTHESMAKING"'
+---| '"MILLING"'
+---| '"PROCESSPLANTS"'
+---| '"CHEESEMAKING"'
+---| '"MILK"'
+---| '"COOK"'
+---| '"PLANT"'
+---| '"HERBALISM"'
+---| '"FISH"'
+---| '"SMELT"'
+---| '"EXTRACT_STRAND"'
+---| '"FORGE_WEAPON"'
+---| '"FORGE_ARMOR"'
+---| '"FORGE_FURNITURE"'
+---| '"CUTGEM"'
+---| '"ENCRUSTGEM"'
+---| '"WOODCRAFT"'
+---| '"STONECRAFT"'
+---| '"METALCRAFT"'
+---| '"GLASSMAKER"'
+---| '"LEATHERWORK"'
+---| '"BONECARVE"'
+---| '"AXE"'
+---| '"SWORD"'
+---| '"DAGGER"'
+---| '"MACE"'
+---| '"HAMMER"'
+---| '"SPEAR"'
+---| '"CROSSBOW"'
+---| '"SHIELD"'
+---| '"ARMOR"'
+---| '"SIEGECRAFT"'
+---| '"SIEGEOPERATE"'
+---| '"BOWYER"'
+---| '"PIKE"'
+---| '"WHIP"'
+---| '"BOW"'
+---| '"BLOWGUN"'
+---| '"THROW"'
+---| '"MECHANICS"'
+---| '"MAGIC_NATURE"'
+---| '"SNEAK"'
+---| '"DRESS_WOUNDS"'
+---| '"DIAGNOSE"'
+---| '"SURGERY"'
+---| '"SET_BONE"'
+---| '"SUTURE"'
+---| '"CRUTCH_WALK"'
+---| '"WOOD_BURNING"'
+---| '"LYE_MAKING"'
+---| '"SOAP_MAKING"'
+---| '"POTASH_MAKING"'
+---| '"DYER"'
+---| '"OPERATE_PUMP"'
+---| '"SWIMMING"'
+---| '"PERSUASION"'
+---| '"NEGOTIATION"'
+---| '"JUDGING_INTENT"'
+---| '"APPRAISAL"'
+---| '"ORGANIZATION"'
+---| '"RECORD_KEEPING"'
+---| '"LYING"'
+---| '"INTIMIDATION"'
+---| '"CONVERSATION"'
+---| '"COMEDY"'
+---| '"FLATTERY"'
+---| '"CONSOLE"'
+---| '"PACIFY"'
+---| '"TRACKING"'
+---| '"KNOWLEDGE_ACQUISITION"'
+---| '"CONCENTRATION"'
+---| '"DISCIPLINE"'
+---| '"SITUATIONAL_AWARENESS"'
+---| '"WRITING"'
+---| '"PROSE"'
+---| '"POETRY"'
+---| '"READING"'
+---| '"SPEAKING"'
+---| '"COORDINATION"'
+---| '"BALANCE"'
+---| '"LEADERSHIP"'
+---| '"TEACHING"'
+---| '"MELEE_COMBAT"'
+---| '"RANGED_COMBAT"'
+---| '"WRESTLING"'
+---| '"BITE"'
+---| '"GRASP_STRIKE"'
+---| '"STANCE_STRIKE"'
+---| '"DODGING"'
+---| '"MISC_WEAPON"'
+---| '"KNAPPING"'
+---| '"MILITARY_TACTICS"'
+---| '"SHEARING"'
+---| '"SPINNING"'
+---| '"POTTERY"'
+---| '"GLAZING"'
+---| '"PRESSING"'
+---| '"BEEKEEPING"'
+---| '"WAX_WORKING"'
+---| '"CLIMBING"'
+---| '"GELD"'
+---| '"DANCE"'
+---| '"MAKE_MUSIC"'
+---| '"SING_MUSIC"'
+---| '"PLAY_KEYBOARD_INSTRUMENT"'
+---| '"PLAY_STRINGED_INSTRUMENT"'
+---| '"PLAY_WIND_INSTRUMENT"'
+---| '"PLAY_PERCUSSION_INSTRUMENT"'
+---| '"CRITICAL_THINKING"'
+---| '"LOGIC"'
+---| '"MATHEMATICS"'
+---| '"ASTRONOMY"'
+---| '"CHEMISTRY"'
+---| '"GEOGRAPHY"'
+---| '"OPTICS_ENGINEER"'
+---| '"FLUID_ENGINEER"'
+---| '"PAPERMAKING"'
+---| '"BOOKBINDING"'
+---| '"INTRIGUE"'
+---| '"RIDING"'
+---| '"CUT_STONE"'
+---| '"CARVE_STONE"'
+---| '"MODSKILL01"'
+---| '"MODSKILL02"'
+---| '"MODSKILL03"'
+---| '"MODSKILL04"'
+---| '"MODSKILL05"'
+---| '"MODSKILL06"'
+---| '"MODSKILL07"'
+---| '"MODSKILL08"'
+---| '"MODSKILL09"'
+---| '"MODSKILL10"'
+---| '"UNUSED_01"'
+---| '"UNUSED_02"'
+
+---@alias job_skill_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+
+---@alias job_skill
+---| job_skill_keys
+---| job_skill_values
+
+---@class _job_skill: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field MINING 0 0
+---@field [0] "MINING" 0
+---@field WOODCUTTING 1
+---@field [1] "WOODCUTTING"
+---@field CARPENTRY 2
+---@field [2] "CARPENTRY"
+---@field ENGRAVE_STONE 3
+---@field [3] "ENGRAVE_STONE"
+---@field MASONRY 4
+---@field [4] "MASONRY"
+---@field ANIMALTRAIN 5
+---@field [5] "ANIMALTRAIN"
+---@field ANIMALCARE 6
+---@field [6] "ANIMALCARE"
+---@field DISSECT_FISH 7
+---@field [7] "DISSECT_FISH"
+---@field DISSECT_VERMIN 8
+---@field [8] "DISSECT_VERMIN"
+---@field PROCESSFISH 9
+---@field [9] "PROCESSFISH"
+---@field BUTCHER 10 10
+---@field [10] "BUTCHER" 10
+---@field TRAPPING 11
+---@field [11] "TRAPPING"
+---@field TANNER 12
+---@field [12] "TANNER"
+---@field WEAVING 13
+---@field [13] "WEAVING"
+---@field BREWING 14
+---@field [14] "BREWING"
+---@field CLOTHESMAKING 15
+---@field [15] "CLOTHESMAKING"
+---@field MILLING 16
+---@field [16] "MILLING"
+---@field PROCESSPLANTS 17
+---@field [17] "PROCESSPLANTS"
+---@field CHEESEMAKING 18
+---@field [18] "CHEESEMAKING"
+---@field MILK 19 19
+---@field [19] "MILK" 19
+---@field COOK 20
+---@field [20] "COOK"
+---@field PLANT 21
+---@field [21] "PLANT"
+---@field HERBALISM 22
+---@field [22] "HERBALISM"
+---@field FISH 23
+---@field [23] "FISH"
+---@field SMELT 24
+---@field [24] "SMELT"
+---@field EXTRACT_STRAND 25
+---@field [25] "EXTRACT_STRAND"
+---@field FORGE_WEAPON 26
+---@field [26] "FORGE_WEAPON"
+---@field FORGE_ARMOR 27
+---@field [27] "FORGE_ARMOR"
+---@field FORGE_FURNITURE 28
+---@field [28] "FORGE_FURNITURE"
+---@field CUTGEM 29 29
+---@field [29] "CUTGEM" 29
+---@field ENCRUSTGEM 30
+---@field [30] "ENCRUSTGEM"
+---@field WOODCRAFT 31
+---@field [31] "WOODCRAFT"
+---@field STONECRAFT 32
+---@field [32] "STONECRAFT"
+---@field METALCRAFT 33
+---@field [33] "METALCRAFT"
+---@field GLASSMAKER 34
+---@field [34] "GLASSMAKER"
+---@field LEATHERWORK 35
+---@field [35] "LEATHERWORK"
+---@field BONECARVE 36
+---@field [36] "BONECARVE"
+---@field AXE 37
+---@field [37] "AXE"
+---@field SWORD 38
+---@field [38] "SWORD"
+---@field DAGGER 39 39
+---@field [39] "DAGGER" 39
+---@field MACE 40
+---@field [40] "MACE"
+---@field HAMMER 41
+---@field [41] "HAMMER"
+---@field SPEAR 42
+---@field [42] "SPEAR"
+---@field CROSSBOW 43
+---@field [43] "CROSSBOW"
+---@field SHIELD 44
+---@field [44] "SHIELD"
+---@field ARMOR 45
+---@field [45] "ARMOR"
+---@field SIEGECRAFT 46
+---@field [46] "SIEGECRAFT"
+---@field SIEGEOPERATE 47
+---@field [47] "SIEGEOPERATE"
+---@field BOWYER 48
+---@field [48] "BOWYER"
+---@field PIKE 49 49
+---@field [49] "PIKE" 49
+---@field WHIP 50
+---@field [50] "WHIP"
+---@field BOW 51
+---@field [51] "BOW"
+---@field BLOWGUN 52
+---@field [52] "BLOWGUN"
+---@field THROW 53
+---@field [53] "THROW"
+---@field MECHANICS 54
+---@field [54] "MECHANICS"
+---@field MAGIC_NATURE 55
+---@field [55] "MAGIC_NATURE"
+---@field SNEAK 56
+---@field [56] "SNEAK"
+---@field DRESS_WOUNDS 57
+---@field [57] "DRESS_WOUNDS"
+---@field DIAGNOSE 58 58
+---@field [58] "DIAGNOSE" 58
+---@field SURGERY 59
+---@field [59] "SURGERY"
+---@field SET_BONE 60
+---@field [60] "SET_BONE"
+---@field SUTURE 61
+---@field [61] "SUTURE"
+---@field CRUTCH_WALK 62
+---@field [62] "CRUTCH_WALK"
+---@field WOOD_BURNING 63
+---@field [63] "WOOD_BURNING"
+---@field LYE_MAKING 64
+---@field [64] "LYE_MAKING"
+---@field SOAP_MAKING 65
+---@field [65] "SOAP_MAKING"
+---@field POTASH_MAKING 66
+---@field [66] "POTASH_MAKING"
+---@field DYER 67
+---@field [67] "DYER"
+---@field OPERATE_PUMP 68 68
+---@field [68] "OPERATE_PUMP" 68
+---@field SWIMMING 69
+---@field [69] "SWIMMING"
+---@field PERSUASION 70
+---@field [70] "PERSUASION"
+---@field NEGOTIATION 71
+---@field [71] "NEGOTIATION"
+---@field JUDGING_INTENT 72
+---@field [72] "JUDGING_INTENT"
+---@field APPRAISAL 73
+---@field [73] "APPRAISAL"
+---@field ORGANIZATION 74
+---@field [74] "ORGANIZATION"
+---@field RECORD_KEEPING 75
+---@field [75] "RECORD_KEEPING"
+---@field LYING 76
+---@field [76] "LYING"
+---@field INTIMIDATION 77
+---@field [77] "INTIMIDATION"
+---@field CONVERSATION 78 78
+---@field [78] "CONVERSATION" 78
+---@field COMEDY 79
+---@field [79] "COMEDY"
+---@field FLATTERY 80
+---@field [80] "FLATTERY"
+---@field CONSOLE 81
+---@field [81] "CONSOLE"
+---@field PACIFY 82
+---@field [82] "PACIFY"
+---@field TRACKING 83
+---@field [83] "TRACKING"
+---@field KNOWLEDGE_ACQUISITION 84
+---@field [84] "KNOWLEDGE_ACQUISITION"
+---@field CONCENTRATION 85
+---@field [85] "CONCENTRATION"
+---@field DISCIPLINE 86
+---@field [86] "DISCIPLINE"
+---@field SITUATIONAL_AWARENESS 87
+---@field [87] "SITUATIONAL_AWARENESS"
+---@field WRITING 88 88
+---@field [88] "WRITING" 88
+---@field PROSE 89
+---@field [89] "PROSE"
+---@field POETRY 90
+---@field [90] "POETRY"
+---@field READING 91
+---@field [91] "READING"
+---@field SPEAKING 92
+---@field [92] "SPEAKING"
+---@field COORDINATION 93
+---@field [93] "COORDINATION"
+---@field BALANCE 94
+---@field [94] "BALANCE"
+---@field LEADERSHIP 95
+---@field [95] "LEADERSHIP"
+---@field TEACHING 96
+---@field [96] "TEACHING"
+---@field MELEE_COMBAT 97
+---@field [97] "MELEE_COMBAT"
+---@field RANGED_COMBAT 98 98
+---@field [98] "RANGED_COMBAT" 98
+---@field WRESTLING 99
+---@field [99] "WRESTLING"
+---@field BITE 100
+---@field [100] "BITE"
+---@field GRASP_STRIKE 101
+---@field [101] "GRASP_STRIKE"
+---@field STANCE_STRIKE 102
+---@field [102] "STANCE_STRIKE"
+---@field DODGING 103
+---@field [103] "DODGING"
+---@field MISC_WEAPON 104
+---@field [104] "MISC_WEAPON"
+---@field KNAPPING 105
+---@field [105] "KNAPPING"
+---@field MILITARY_TACTICS 106
+---@field [106] "MILITARY_TACTICS"
+---@field SHEARING 107
+---@field [107] "SHEARING"
+---@field SPINNING 108 108
+---@field [108] "SPINNING" 108
+---@field POTTERY 109
+---@field [109] "POTTERY"
+---@field GLAZING 110
+---@field [110] "GLAZING"
+---@field PRESSING 111
+---@field [111] "PRESSING"
+---@field BEEKEEPING 112
+---@field [112] "BEEKEEPING"
+---@field WAX_WORKING 113
+---@field [113] "WAX_WORKING"
+---@field CLIMBING 114
+---@field [114] "CLIMBING"
+---@field GELD 115
+---@field [115] "GELD"
+---@field DANCE 116
+---@field [116] "DANCE"
+---@field MAKE_MUSIC 117
+---@field [117] "MAKE_MUSIC"
+---@field SING_MUSIC 118 118
+---@field [118] "SING_MUSIC" 118
+---@field PLAY_KEYBOARD_INSTRUMENT 119
+---@field [119] "PLAY_KEYBOARD_INSTRUMENT"
+---@field PLAY_STRINGED_INSTRUMENT 120
+---@field [120] "PLAY_STRINGED_INSTRUMENT"
+---@field PLAY_WIND_INSTRUMENT 121
+---@field [121] "PLAY_WIND_INSTRUMENT"
+---@field PLAY_PERCUSSION_INSTRUMENT 122
+---@field [122] "PLAY_PERCUSSION_INSTRUMENT"
+---@field CRITICAL_THINKING 123
+---@field [123] "CRITICAL_THINKING"
+---@field LOGIC 124
+---@field [124] "LOGIC"
+---@field MATHEMATICS 125
+---@field [125] "MATHEMATICS"
+---@field ASTRONOMY 126
+---@field [126] "ASTRONOMY"
+---@field CHEMISTRY 127
+---@field [127] "CHEMISTRY"
+---@field GEOGRAPHY 128 128
+---@field [128] "GEOGRAPHY" 128
+---@field OPTICS_ENGINEER 129
+---@field [129] "OPTICS_ENGINEER"
+---@field FLUID_ENGINEER 130
+---@field [130] "FLUID_ENGINEER"
+---@field PAPERMAKING 131
+---@field [131] "PAPERMAKING"
+---@field BOOKBINDING 132
+---@field [132] "BOOKBINDING"
+---@field INTRIGUE 133
+---@field [133] "INTRIGUE"
+---@field RIDING 134
+---@field [134] "RIDING"
+---@field CUT_STONE 135
+---@field [135] "CUT_STONE"
+---@field CARVE_STONE 136
+---@field [136] "CARVE_STONE"
+---@field MODSKILL01 137
+---@field [137] "MODSKILL01"
+---@field MODSKILL02 138
+---@field [138] "MODSKILL02"
+---@field MODSKILL03 139
+---@field [139] "MODSKILL03"
+---@field MODSKILL04 140
+---@field [140] "MODSKILL04"
+---@field MODSKILL05 141
+---@field [141] "MODSKILL05"
+---@field MODSKILL06 142
+---@field [142] "MODSKILL06"
+---@field MODSKILL07 143
+---@field [143] "MODSKILL07"
+---@field MODSKILL08 144
+---@field [144] "MODSKILL08"
+---@field MODSKILL09 145
+---@field [145] "MODSKILL09"
+---@field MODSKILL10 146
+---@field [146] "MODSKILL10"
+---@field UNUSED_01 147
+---@field [147] "UNUSED_01"
+---@field UNUSED_02 148
+---@field [148] "UNUSED_02"
+df.job_skill = {}
+
+---@class job_skill_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.job_skill._attr_entry_type = {}
+
+---@class (exact) job_skill_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field caption_noun DFCompoundField
+---@field profession DFCompoundField
+---@field labor DFCompoundField
+---@field type DFCompoundField
+df.job_skill._attr_entry_type._fields = {}
+
+---@class job_skill_attrs
+---@field NONE { profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MINING { caption: "Mining", caption_noun: "Miner", profession: "MINER", labor: "MINE", type: "Normal" }
+---@field WOODCUTTING { caption: "Wood Cutting", caption_noun: "Wood Cutter", profession: "WOODCUTTER", labor: "CUTWOOD", type: "Normal" }
+---@field CARPENTRY { caption: "Carpentry", caption_noun: "Carpenter", profession: "CARPENTER", labor: "CARPENTER", type: "Normal" }
+---@field ENGRAVE_STONE { caption: "Engraving", caption_noun: "Engraver", profession: "ENGRAVER", labor: "ENGRAVER", type: "Normal" }
+---@field MASONRY { caption: "Masonry", caption_noun: "Mason", profession: "MASON", labor: "MASON", type: "Normal" }
+---@field ANIMALTRAIN { caption: "Animal Training", caption_noun: "Animal Trainer", profession: "ANIMAL_TRAINER", labor: "ANIMALTRAIN", type: "Normal" }
+---@field ANIMALCARE { caption: "Animal Caretaking", caption_noun: "Animal Caretaker", profession: "ANIMAL_CARETAKER", labor: "ANIMALCARE", type: "Normal" }
+---@field DISSECT_FISH { caption: "Fish Dissection", caption_noun: "Fish Dissector", profession: "FISH_DISSECTOR", labor: "DISSECT_FISH", type: "Normal" }
+---@field DISSECT_VERMIN { caption: "Animal Dissection", caption_noun: "Animal Dissector", profession: "ANIMAL_DISSECTOR", labor: "DISSECT_VERMIN", type: "Normal" }
+---@field PROCESSFISH { caption: "Fish Cleaning", caption_noun: "Fish Cleaner", profession: "FISH_CLEANER", labor: "CLEAN_FISH", type: "Normal" }
+---@field BUTCHER { caption: "Butchery", caption_noun: "Butcher", profession: "BUTCHER", labor: "BUTCHER", type: "Normal" }
+---@field TRAPPING { caption: "Trapping", caption_noun: "Trapper", profession: "TRAPPER", labor: "TRAPPER", type: "Normal" }
+---@field TANNER { caption: "Tanning", caption_noun: "Tanner", profession: "TANNER", labor: "TANNER", type: "Normal" }
+---@field WEAVING { caption: "Weaving", caption_noun: "Weaver", profession: "WEAVER", labor: "WEAVER", type: "Normal" }
+---@field BREWING { caption: "Brewing", caption_noun: "Brewer", profession: "BREWER", labor: "BREWER", type: "Normal" }
+---@field CLOTHESMAKING { caption: "Clothes Making", caption_noun: "Clothier", profession: "CLOTHIER", labor: "CLOTHESMAKER", type: "Normal" }
+---@field MILLING { caption: "Milling", caption_noun: "Miller", profession: "MILLER", labor: "MILLER", type: "Normal" }
+---@field PROCESSPLANTS { caption: "Threshing", caption_noun: "Thresher", profession: "THRESHER", labor: "PROCESS_PLANT", type: "Normal" }
+---@field CHEESEMAKING { caption: "Cheese Making", caption_noun: "Cheese Maker", profession: "CHEESE_MAKER", labor: "MAKE_CHEESE", type: "Normal" }
+---@field MILK { caption: "Milking", caption_noun: "Milker", profession: "MILKER", labor: "MILK", type: "Normal" }
+---@field COOK { caption: "Cooking", caption_noun: "Cook", profession: "COOK", labor: "COOK", type: "Normal" }
+---@field PLANT { caption: "Growing", caption_noun: "Grower", profession: "PLANTER", labor: "PLANT", type: "Normal" }
+---@field HERBALISM { caption: "Herbalism", caption_noun: "Herbalist", profession: "HERBALIST", labor: "HERBALIST", type: "Normal" }
+---@field FISH { caption: "Fishing", caption_noun: "Fisherman", profession: "FISHERMAN", labor: "FISH", type: "Normal" }
+---@field SMELT { caption: "Furnace Operation", caption_noun: "Furnace Operator", profession: "FURNACE_OPERATOR", labor: "SMELT", type: "Normal" }
+---@field EXTRACT_STRAND { caption: "Strand Extraction", caption_noun: "Strand Extractor", profession: "STRAND_EXTRACTOR", labor: "EXTRACT_STRAND", type: "Normal" }
+---@field FORGE_WEAPON { caption: "Weaponsmithing", caption_noun: "Weaponsmith", profession: "WEAPONSMITH", labor: "FORGE_WEAPON", type: "Normal" }
+---@field FORGE_ARMOR { caption: "Armorsmithing", caption_noun: "Armorsmith", profession: "ARMORER", labor: "FORGE_ARMOR", type: "Normal" }
+---@field FORGE_FURNITURE { caption: "Metalsmithing", caption_noun: "Metalsmith", profession: "BLACKSMITH", labor: "FORGE_FURNITURE", type: "Normal" }
+---@field CUTGEM { caption: "Gem Cutting", caption_noun: "Gem Cutter", profession: "GEM_CUTTER", labor: "CUT_GEM", type: "Normal" }
+---@field ENCRUSTGEM { caption: "Gem Setting", caption_noun: "Gem Setter", profession: "GEM_SETTER", labor: "ENCRUST_GEM", type: "Normal" }
+---@field WOODCRAFT { caption: "Wood Crafting", caption_noun: "Wood Crafter", profession: "WOODCRAFTER", labor: "WOOD_CRAFT", type: "Normal" }
+---@field STONECRAFT { caption: "Stone Crafting", caption_noun: "Stone Crafter", profession: "STONECRAFTER", labor: "STONE_CRAFT", type: "Normal" }
+---@field METALCRAFT { caption: "Metal Crafting", caption_noun: "Metal Crafter", profession: "METALCRAFTER", labor: "METAL_CRAFT", type: "Normal" }
+---@field GLASSMAKER { caption: "Glassmaking", caption_noun: "Glassmaker", profession: "GLASSMAKER", labor: "GLASSMAKER", type: "Normal" }
+---@field LEATHERWORK { caption: "Leatherworkering", caption_noun: "Leatherworker", profession: "LEATHERWORKER", labor: "LEATHER", type: "Normal" }
+---@field BONECARVE { caption: "Bone Carving", caption_noun: "Bone Carver", profession: "BONE_CARVER", labor: "BONE_CARVE", type: "Normal" }
+---@field AXE { caption: "Axe", caption_noun: "Axeman", profession: "AXEMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field SWORD { caption: "Sword", caption_noun: "Swordsman", profession: "SWORDSMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field DAGGER { caption: "Knife", caption_noun: "Knife User", profession: "NONE", labor: "NONE", type: "MilitaryWeapon" }
+---@field MACE { caption: "Mace", caption_noun: "Maceman", profession: "MACEMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field HAMMER { caption: "Hammer", caption_noun: "Hammerman", profession: "HAMMERMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field SPEAR { caption: "Spear", caption_noun: "Spearman", profession: "SPEARMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field CROSSBOW { caption: "Crossbow", caption_noun: "Crossbowman", profession: "CROSSBOWMAN", labor: "HUNT", type: "MilitaryWeapon" }
+---@field SHIELD { caption: "Shield", caption_noun: "Shield User", profession: "NONE", labor: "NONE", type: "MilitaryDefense" }
+---@field ARMOR { caption: "Armor", caption_noun: "Armor User", profession: "NONE", labor: "NONE", type: "MilitaryDefense" }
+---@field SIEGECRAFT { caption: "Siege Engineering", caption_noun: "Siege Engineer", profession: "SIEGE_ENGINEER", labor: "SIEGECRAFT", type: "Normal" }
+---@field SIEGEOPERATE { caption: "Siege Operation", caption_noun: "Siege Operator", profession: "SIEGE_OPERATOR", labor: "SIEGEOPERATE", type: "Normal" }
+---@field BOWYER { caption: "Bowmaking", caption_noun: "Bowyer", profession: "BOWYER", labor: "BOWYER", type: "Normal" }
+---@field PIKE { caption: "Pike", caption_noun: "Pikeman", profession: "PIKEMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field WHIP { caption: "Lash", caption_noun: "Lasher", profession: "LASHER", labor: "NONE", type: "MilitaryWeapon" }
+---@field BOW { caption: "Bow", caption_noun: "Bowman", profession: "BOWMAN", labor: "HUNT", type: "MilitaryWeapon" }
+---@field BLOWGUN { caption: "Blowgun", caption_noun: "Blowgunner", profession: "BLOWGUNMAN", labor: "NONE", type: "MilitaryWeapon" }
+---@field THROW { caption: "Throwing", caption_noun: "Thrower", profession: "NONE", labor: "NONE", type: "MilitaryAttack" }
+---@field MECHANICS { caption: "Machinery", caption_noun: "Mechanic", profession: "MECHANIC", labor: "MECHANIC", type: "Normal" }
+---@field MAGIC_NATURE { caption: "Nature", caption_noun: "Druid", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field SNEAK { caption: "Ambush", caption_noun: "Ambusher", profession: "HUNTER", labor: "HUNT", type: "Normal" }
+---@field DRESS_WOUNDS { caption: "Wound Dressing", caption_noun: "Wound Dresser", profession: "NONE", labor: "DRESSING_WOUNDS", type: "Medical" }
+---@field DIAGNOSE { caption: "Diagnostics", caption_noun: "Diagnostician", profession: "DIAGNOSER", labor: "DIAGNOSE", type: "Medical" }
+---@field SURGERY { caption: "Surgery", caption_noun: "Surgeon", profession: "SURGEON", labor: "SURGERY", type: "Medical" }
+---@field SET_BONE { caption: "Bone Setting", caption_noun: "Bone Doctor", profession: "BONE_SETTER", labor: "BONE_SETTING", type: "Medical" }
+---@field SUTURE { caption: "Suturing", caption_noun: "Suturer", profession: "SUTURER", labor: "SUTURING", type: "Medical" }
+---@field CRUTCH_WALK { caption: "Crutch-walking", caption_noun: "Crutch-walker", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field WOOD_BURNING { caption: "Wood Burning", caption_noun: "Wood Burner", profession: "WOOD_BURNER", labor: "BURN_WOOD", type: "Normal" }
+---@field LYE_MAKING { caption: "Lye Making", caption_noun: "Lye Maker", profession: "LYE_MAKER", labor: "LYE_MAKING", type: "Normal" }
+---@field SOAP_MAKING { caption: "Soap Making", caption_noun: "Soaper", profession: "SOAP_MAKER", labor: "SOAP_MAKER", type: "Normal" }
+---@field POTASH_MAKING { caption: "Potash Making", caption_noun: "Potash Maker", profession: "POTASH_MAKER", labor: "POTASH_MAKING", type: "Normal" }
+---@field DYER { caption: "Dyeing", caption_noun: "Dyer", profession: "DYER", labor: "DYER", type: "Normal" }
+---@field OPERATE_PUMP { caption: "Pump Operation", caption_noun: "Pump Operator", profession: "PUMP_OPERATOR", labor: "OPERATE_PUMP", type: "Normal" }
+---@field SWIMMING { caption: "Swimming", caption_noun: "Swimmer", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field PERSUASION { caption: "Persuasion", caption_noun: "Persuader", profession: "NONE", labor: "NONE", type: "Social" }
+---@field NEGOTIATION { caption: "Negotiation", caption_noun: "Negotiator", profession: "NONE", labor: "NONE", type: "Social" }
+---@field JUDGING_INTENT { caption: "Judging Intent", caption_noun: "Judge of Intent", profession: "NONE", labor: "NONE", type: "Social" }
+---@field APPRAISAL { caption: "Appraisal", caption_noun: "Appraiser", profession: "TRADER", labor: "NONE", type: "Normal" }
+---@field ORGANIZATION { caption: "Organization", caption_noun: "Organizer", profession: "ADMINISTRATOR", labor: "NONE", type: "Normal" }
+---@field RECORD_KEEPING { caption: "Record Keeping", caption_noun: "Record Keeper", profession: "CLERK", labor: "NONE", type: "Normal" }
+---@field LYING { caption: "Lying", caption_noun: "Liar", profession: "NONE", labor: "NONE", type: "Social" }
+---@field INTIMIDATION { caption: "Intimidation", caption_noun: "Intimidator", profession: "NONE", labor: "NONE", type: "Social" }
+---@field CONVERSATION { caption: "Conversation", caption_noun: "Conversationalist", profession: "NONE", labor: "NONE", type: "Social" }
+---@field COMEDY { caption: "Comedy", caption_noun: "Comedian", profession: "NONE", labor: "NONE", type: "Social" }
+---@field FLATTERY { caption: "Flattery", caption_noun: "Flatterer", profession: "NONE", labor: "NONE", type: "Social" }
+---@field CONSOLE { caption: "Consoling", caption_noun: "Consoler", profession: "NONE", labor: "NONE", type: "Social" }
+---@field PACIFY { caption: "Pacification", caption_noun: "Pacifier", profession: "NONE", labor: "NONE", type: "Social" }
+---@field TRACKING { caption: "Tracking", caption_noun: "Tracker", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field KNOWLEDGE_ACQUISITION { caption: "Studying", caption_noun: "Student", profession: "NONE", labor: "NONE", type: "Social" }
+---@field CONCENTRATION { caption: "Concentration", caption_noun: "Concentration", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field DISCIPLINE { caption: "Discipline", caption_noun: "Discipline", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field SITUATIONAL_AWARENESS { caption: "Observation", caption_noun: "Observer", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field WRITING { caption: "Writing", caption_noun: "Wordsmith", profession: "NONE", labor: "NONE", type: "Cultural" }
+---@field PROSE { caption: "Prose", caption_noun: "Writer", profession: "NONE", labor: "NONE", type: "Cultural" }
+---@field POETRY { caption: "Poetry", caption_noun: "Poet", profession: "POET", labor: "NONE", type: "Cultural" }
+---@field READING { caption: "Reading", caption_noun: "Reader", profession: "NONE", labor: "NONE", type: "Cultural" }
+---@field SPEAKING { caption: "Speaking", caption_noun: "Speaker", profession: "NONE", labor: "NONE", type: "Cultural" }
+---@field COORDINATION { caption: "Coordination", caption_noun: "Coordination", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field BALANCE { caption: "Balance", caption_noun: "Balance", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field LEADERSHIP { caption: "Leadership", caption_noun: "Leader", profession: "NONE", labor: "NONE", type: "Social" }
+---@field TEACHING { caption: "Teaching", caption_noun: "Teacher", profession: "NONE", labor: "NONE", type: "Social" }
+---@field MELEE_COMBAT { caption: "Fighting", caption_noun: "Fighter", profession: "NONE", labor: "NONE", type: "MilitaryAttack" }
+---@field RANGED_COMBAT { caption: "Archery", caption_noun: "Archer", profession: "NONE", labor: "HUNT", type: "MilitaryAttack" }
+---@field WRESTLING { caption: "Wrestling", caption_noun: "Wrestler", profession: "WRESTLER", labor: "NONE", type: "MilitaryUnarmed" }
+---@field BITE { caption: "Biting", caption_noun: "Biter", profession: "NONE", labor: "NONE", type: "MilitaryUnarmed" }
+---@field GRASP_STRIKE { caption: "Striking", caption_noun: "Striker", profession: "NONE", labor: "NONE", type: "MilitaryUnarmed" }
+---@field STANCE_STRIKE { caption: "Kicking", caption_noun: "Kicker", profession: "NONE", labor: "NONE", type: "MilitaryUnarmed" }
+---@field DODGING { caption: "Dodging", caption_noun: "Dodger", profession: "NONE", labor: "NONE", type: "MilitaryDefense" }
+---@field MISC_WEAPON { caption: "Misc. Object", caption_noun: "Misc. Object User", profession: "NONE", labor: "NONE", type: "MilitaryWeapon" }
+---@field KNAPPING { caption: "Knapping", caption_noun: "Knapper", profession: "NONE", labor: "NONE", type: "MilitaryMisc" }
+---@field MILITARY_TACTICS { caption: "Military Tactics", caption_noun: "Tactician", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field SHEARING { caption: "Shearing", caption_noun: "Shearer", profession: "SHEARER", labor: "SHEARER", type: "Normal" }
+---@field SPINNING { caption: "Spinning", caption_noun: "Spinner", profession: "SPINNER", labor: "SPINNER", type: "Normal" }
+---@field POTTERY { caption: "Pottery", caption_noun: "Potter", profession: "POTTER", labor: "POTTERY", type: "Normal" }
+---@field GLAZING { caption: "Glazing", caption_noun: "Glazer", profession: "GLAZER", labor: "GLAZING", type: "Normal" }
+---@field PRESSING { caption: "Pressing", caption_noun: "Presser", profession: "PRESSER", labor: "PRESSING", type: "Normal" }
+---@field BEEKEEPING { caption: "Beekeeping", caption_noun: "Beekeeper", profession: "BEEKEEPER", labor: "BEEKEEPING", type: "Normal" }
+---@field WAX_WORKING { caption: "Wax Working", caption_noun: "Wax Worker", profession: "WAX_WORKER", labor: "WAX_WORKING", type: "Normal" }
+---@field CLIMBING { caption: "Climbing", caption_noun: "Climber", profession: "NONE", labor: "NONE", type: "Personal" }
+---@field GELD { caption: "Gelding", caption_noun: "Gelder", profession: "GELDER", labor: "GELD", type: "Normal" }
+---@field DANCE { caption: "Dance", caption_noun: "Dancer", profession: "DANCER", labor: "NONE", type: "Normal" }
+---@field MAKE_MUSIC { caption: "Music", caption_noun: "Musician", profession: "BARD", labor: "NONE", type: "Normal" }
+---@field SING_MUSIC { caption: "Singing", caption_noun: "Singer", profession: "BARD", labor: "NONE", type: "Normal" }
+---@field PLAY_KEYBOARD_INSTRUMENT { caption: "Keyboard Instrument", caption_noun: "Keyboardist", profession: "BARD", labor: "NONE", type: "Normal" }
+---@field PLAY_STRINGED_INSTRUMENT { caption: "Stringed Instrument", caption_noun: "Stringed Instrumentalist", profession: "BARD", labor: "NONE", type: "Normal" }
+---@field PLAY_WIND_INSTRUMENT { caption: "Wind Instrument", caption_noun: "Wind Instrumentalist", profession: "BARD", labor: "NONE", type: "Normal" }
+---@field PLAY_PERCUSSION_INSTRUMENT { caption: "Percussion Instrument", caption_noun: "Percussionist", profession: "BARD", labor: "NONE", type: "Normal" }
+---@field CRITICAL_THINKING { caption: "Critical Thinking", caption_noun: "Critical Thinker", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field LOGIC { caption: "Logic", caption_noun: "Logician", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MATHEMATICS { caption: "Mathematics", caption_noun: "Mathematician", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field ASTRONOMY { caption: "Astronomy", caption_noun: "Astronomer", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field CHEMISTRY { caption: "Chemistry", caption_noun: "Chemist", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field GEOGRAPHY { caption: "Geography", caption_noun: "Geographer", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field OPTICS_ENGINEER { caption: "Optics Engineer", caption_noun: "Optics Engineer", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field FLUID_ENGINEER { caption: "Fluid Engineer", caption_noun: "Fluid Engineer", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field PAPERMAKING { caption: "Papermaking", caption_noun: "Papermaker", profession: "PAPERMAKER", labor: "PAPERMAKING", type: "Normal" }
+---@field BOOKBINDING { caption: "Bookbinding", caption_noun: "Bookbinder", profession: "BOOKBINDER", labor: "BOOKBINDING", type: "Normal" }
+---@field INTRIGUE { caption: "Intrigue", caption_noun: "Schemer", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field RIDING { caption: "Riding", caption_noun: "Rider", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field CUT_STONE { caption: "Cut Stone", caption_noun: "Stonecutter", profession: "NONE", labor: "STONECUTTER", type: "Normal" }
+---@field CARVE_STONE { caption: "Carve Stone", caption_noun: "Stonecarver", profession: "NONE", labor: "STONE_CARVER", type: "Normal" }
+---@field MODSKILL01 { caption: "Mod Skill 1", caption_noun: "Mod Skill 1", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL02 { caption: "Mod Skill 2", caption_noun: "Mod Skill 2", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL03 { caption: "Mod Skill 3", caption_noun: "Mod Skill 3", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL04 { caption: "Mod Skill 4", caption_noun: "Mod Skill 4", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL05 { caption: "Mod Skill 5", caption_noun: "Mod Skill 5", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL06 { caption: "Mod Skill 6", caption_noun: "Mod Skill 6", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL07 { caption: "Mod Skill 7", caption_noun: "Mod Skill 7", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL08 { caption: "Mod Skill 8", caption_noun: "Mod Skill 8", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL09 { caption: "Mod Skill 9", caption_noun: "Mod Skill 9", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field MODSKILL10 { caption: "Mod Skill 10", caption_noun: "Mod Skill 10", profession: "NONE", labor: "NONE", type: "Normal" }
+---@field UNUSED_01 { profession: "NONE", labor: "NONE", type: "Normal" }
+---@field UNUSED_02 { profession: "NONE", labor: "NONE", type: "Normal" }
+df.job_skill.attrs = {}
+

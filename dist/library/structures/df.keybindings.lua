@@ -1,0 +1,2619 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@alias interface_key_keys
+---| '"NONE"'
+---| '"SELECT"'
+---| '"SELECT_ALL"'
+---| '"LEAVESCREEN"'
+---| '"CLOSE_MEGA_ANNOUNCEMENT"'
+---| '"OPTIONS"'
+---| '"TOGGLE_FULLSCREEN"'
+---| '"ZOOM_IN"'
+---| '"ZOOM_OUT"'
+---| '"FPS_UP"'
+---| '"FPS_DOWN"'
+---| '"CHANGETAB"'
+---| '"SEC_CHANGETAB"'
+---| '"STANDARDSCROLL_UP"'
+---| '"STANDARDSCROLL_DOWN"'
+---| '"STANDARDSCROLL_LEFT"'
+---| '"STANDARDSCROLL_RIGHT"'
+---| '"STANDARDSCROLL_PAGEUP"'
+---| '"STANDARDSCROLL_PAGEDOWN"'
+---| '"CONTEXT_SCROLL_UP"'
+---| '"CONTEXT_SCROLL_DOWN"'
+---| '"CONTEXT_SCROLL_PAGEUP"'
+---| '"CONTEXT_SCROLL_PAGEDOWN"'
+---| '"CURSOR_UP"'
+---| '"CURSOR_DOWN"'
+---| '"CURSOR_LEFT"'
+---| '"CURSOR_RIGHT"'
+---| '"CURSOR_UPLEFT"'
+---| '"CURSOR_UPRIGHT"'
+---| '"CURSOR_DOWNLEFT"'
+---| '"CURSOR_DOWNRIGHT"'
+---| '"CURSOR_UP_FAST"'
+---| '"CURSOR_DOWN_FAST"'
+---| '"CURSOR_LEFT_FAST"'
+---| '"CURSOR_RIGHT_FAST"'
+---| '"CURSOR_UPLEFT_FAST"'
+---| '"CURSOR_UPRIGHT_FAST"'
+---| '"CURSOR_DOWNLEFT_FAST"'
+---| '"CURSOR_DOWNRIGHT_FAST"'
+---| '"CURSOR_UP_Z"'
+---| '"CURSOR_DOWN_Z"'
+---| '"CURSOR_UP_Z_AUX"'
+---| '"CURSOR_DOWN_Z_AUX"'
+---| '"CURSOR_UP_Z_FAST"'
+---| '"CURSOR_DOWN_Z_FAST"'
+---| '"KEYBOARD_CURSOR_UP"'
+---| '"KEYBOARD_CURSOR_DOWN"'
+---| '"KEYBOARD_CURSOR_LEFT"'
+---| '"KEYBOARD_CURSOR_RIGHT"'
+---| '"KEYBOARD_CURSOR_UPLEFT"'
+---| '"KEYBOARD_CURSOR_UPRIGHT"'
+---| '"KEYBOARD_CURSOR_DOWNLEFT"'
+---| '"KEYBOARD_CURSOR_DOWNRIGHT"'
+---| '"KEYBOARD_CURSOR_UP_FAST"'
+---| '"KEYBOARD_CURSOR_DOWN_FAST"'
+---| '"KEYBOARD_CURSOR_LEFT_FAST"'
+---| '"KEYBOARD_CURSOR_RIGHT_FAST"'
+---| '"KEYBOARD_CURSOR_UPLEFT_FAST"'
+---| '"KEYBOARD_CURSOR_UPRIGHT_FAST"'
+---| '"KEYBOARD_CURSOR_DOWNLEFT_FAST"'
+---| '"KEYBOARD_CURSOR_DOWNRIGHT_FAST"'
+---| '"KEYBOARD_CURSOR_UP_Z"'
+---| '"KEYBOARD_CURSOR_DOWN_Z"'
+---| '"KEYBOARD_CURSOR_UP_Z_AUX"'
+---| '"KEYBOARD_CURSOR_DOWN_Z_AUX"'
+---| '"MACRO_BREAK"'
+---| '"RECORD_MACRO"'
+---| '"PLAY_MACRO"'
+---| '"SAVE_MACRO"'
+---| '"LOAD_MACRO"'
+---| '"PREFIX"'
+---| '"CUSTOM_A"'
+---| '"CUSTOM_B"'
+---| '"CUSTOM_C"'
+---| '"CUSTOM_D"'
+---| '"CUSTOM_E"'
+---| '"CUSTOM_F"'
+---| '"CUSTOM_G"'
+---| '"CUSTOM_H"'
+---| '"CUSTOM_I"'
+---| '"CUSTOM_J"'
+---| '"CUSTOM_K"'
+---| '"CUSTOM_L"'
+---| '"CUSTOM_M"'
+---| '"CUSTOM_N"'
+---| '"CUSTOM_O"'
+---| '"CUSTOM_P"'
+---| '"CUSTOM_Q"'
+---| '"CUSTOM_R"'
+---| '"CUSTOM_S"'
+---| '"CUSTOM_T"'
+---| '"CUSTOM_U"'
+---| '"CUSTOM_V"'
+---| '"CUSTOM_W"'
+---| '"CUSTOM_X"'
+---| '"CUSTOM_Y"'
+---| '"CUSTOM_Z"'
+---| '"CUSTOM_SHIFT_A"'
+---| '"CUSTOM_SHIFT_B"'
+---| '"CUSTOM_SHIFT_C"'
+---| '"CUSTOM_SHIFT_D"'
+---| '"CUSTOM_SHIFT_E"'
+---| '"CUSTOM_SHIFT_F"'
+---| '"CUSTOM_SHIFT_G"'
+---| '"CUSTOM_SHIFT_H"'
+---| '"CUSTOM_SHIFT_I"'
+---| '"CUSTOM_SHIFT_J"'
+---| '"CUSTOM_SHIFT_K"'
+---| '"CUSTOM_SHIFT_L"'
+---| '"CUSTOM_SHIFT_M"'
+---| '"CUSTOM_SHIFT_N"'
+---| '"CUSTOM_SHIFT_O"'
+---| '"CUSTOM_SHIFT_P"'
+---| '"CUSTOM_SHIFT_Q"'
+---| '"CUSTOM_SHIFT_R"'
+---| '"CUSTOM_SHIFT_S"'
+---| '"CUSTOM_SHIFT_T"'
+---| '"CUSTOM_SHIFT_U"'
+---| '"CUSTOM_SHIFT_V"'
+---| '"CUSTOM_SHIFT_W"'
+---| '"CUSTOM_SHIFT_X"'
+---| '"CUSTOM_SHIFT_Y"'
+---| '"CUSTOM_SHIFT_Z"'
+---| '"CUSTOM_CTRL_A"'
+---| '"CUSTOM_CTRL_B"'
+---| '"CUSTOM_CTRL_C"'
+---| '"CUSTOM_CTRL_D"'
+---| '"CUSTOM_CTRL_E"'
+---| '"CUSTOM_CTRL_F"'
+---| '"CUSTOM_CTRL_G"'
+---| '"CUSTOM_CTRL_H"'
+---| '"CUSTOM_CTRL_I"'
+---| '"CUSTOM_CTRL_J"'
+---| '"CUSTOM_CTRL_K"'
+---| '"CUSTOM_CTRL_L"'
+---| '"CUSTOM_CTRL_M"'
+---| '"CUSTOM_CTRL_N"'
+---| '"CUSTOM_CTRL_O"'
+---| '"CUSTOM_CTRL_P"'
+---| '"CUSTOM_CTRL_Q"'
+---| '"CUSTOM_CTRL_R"'
+---| '"CUSTOM_CTRL_S"'
+---| '"CUSTOM_CTRL_T"'
+---| '"CUSTOM_CTRL_U"'
+---| '"CUSTOM_CTRL_V"'
+---| '"CUSTOM_CTRL_W"'
+---| '"CUSTOM_CTRL_X"'
+---| '"CUSTOM_CTRL_Y"'
+---| '"CUSTOM_CTRL_Z"'
+---| '"CUSTOM_ALT_A"'
+---| '"CUSTOM_ALT_B"'
+---| '"CUSTOM_ALT_C"'
+---| '"CUSTOM_ALT_D"'
+---| '"CUSTOM_ALT_E"'
+---| '"CUSTOM_ALT_F"'
+---| '"CUSTOM_ALT_G"'
+---| '"CUSTOM_ALT_H"'
+---| '"CUSTOM_ALT_I"'
+---| '"CUSTOM_ALT_J"'
+---| '"CUSTOM_ALT_K"'
+---| '"CUSTOM_ALT_L"'
+---| '"CUSTOM_ALT_M"'
+---| '"CUSTOM_ALT_N"'
+---| '"CUSTOM_ALT_O"'
+---| '"CUSTOM_ALT_P"'
+---| '"CUSTOM_ALT_Q"'
+---| '"CUSTOM_ALT_R"'
+---| '"CUSTOM_ALT_S"'
+---| '"CUSTOM_ALT_T"'
+---| '"CUSTOM_ALT_U"'
+---| '"CUSTOM_ALT_V"'
+---| '"CUSTOM_ALT_W"'
+---| '"CUSTOM_ALT_X"'
+---| '"CUSTOM_ALT_Y"'
+---| '"CUSTOM_ALT_Z"'
+---| '""'
+---| '""'
+---| '""'
+---| '""'
+---| '"HOTKEY_BUILDING_ARMORSTAND"'
+---| '"HOTKEY_BUILDING_BED"'
+---| '"HOTKEY_BUILDING_CHAIR"'
+---| '"HOTKEY_BUILDING_COFFIN"'
+---| '"HOTKEY_BUILDING_DOOR"'
+---| '"HOTKEY_BUILDING_FLOODGATE"'
+---| '"HOTKEY_BUILDING_HATCH"'
+---| '"HOTKEY_BUILDING_GRATE_WALL"'
+---| '"HOTKEY_BUILDING_GRATE_FLOOR"'
+---| '"HOTKEY_BUILDING_BARS_VERTICAL"'
+---| '"HOTKEY_BUILDING_BARS_FLOOR"'
+---| '"HOTKEY_BUILDING_CABINET"'
+---| '"HOTKEY_BUILDING_BOX"'
+---| '"HOTKEY_BUILDING_KENNEL"'
+---| '"HOTKEY_BUILDING_FARMPLOT"'
+---| '"HOTKEY_BUILDING_WEAPONRACK"'
+---| '"HOTKEY_BUILDING_STATUE"'
+---| '"HOTKEY_BUILDING_TABLE"'
+---| '"HOTKEY_BUILDING_ROAD_DIRT"'
+---| '"HOTKEY_BUILDING_ROAD_PAVED"'
+---| '"HOTKEY_BUILDING_BRIDGE"'
+---| '"HOTKEY_BUILDING_WELL"'
+---| '"HOTKEY_BUILDING_WINDOW_GLASS"'
+---| '"HOTKEY_BUILDING_WINDOW_GEM"'
+---| '"HOTKEY_BUILDING_ANIMALTRAP"'
+---| '"HOTKEY_BUILDING_CHAIN"'
+---| '"HOTKEY_BUILDING_CAGE"'
+---| '"HOTKEY_BUILDING_TRADEDEPOT"'
+---| '"HOTKEY_BUILDING_TRAP"'
+---| '"HOTKEY_BUILDING_MACHINE"'
+---| '"HOTKEY_BUILDING_INSTRUMENT"'
+---| '"HOTKEY_BUILDING_SUPPORT"'
+---| '"HOTKEY_BUILDING_ARCHERYTARGET"'
+---| '"HOTKEY_BUILDING_TRACTION_BENCH"'
+---| '"HOTKEY_BUILDING_SLAB"'
+---| '"HOTKEY_BUILDING_NEST_BOX"'
+---| '"HOTKEY_BUILDING_BOOKCASE"'
+---| '"HOTKEY_BUILDING_HIVE"'
+---| '"HOTKEY_BUILDING_DISPLAY_FURNITURE"'
+---| '"HOTKEY_BUILDING_OFFERING_PLACE"'
+---| '"HOTKEY_BUILDING_FURNITURE"'
+---| '"HOTKEY_BUILDING_PORTALS"'
+---| '"HOTKEY_BUILDING_CAGES_CHAINS"'
+---| '"HOTKEY_BUILDING_MILITARY"'
+---| '"HOTKEY_BUILDING_MACHINE_SCREW_PUMP"'
+---| '"HOTKEY_BUILDING_MACHINE_WATER_WHEEL"'
+---| '"HOTKEY_BUILDING_MACHINE_WINDMILL"'
+---| '"HOTKEY_BUILDING_MACHINE_GEAR_ASSEMBLY"'
+---| '"HOTKEY_BUILDING_MACHINE_AXLE_VERTICAL"'
+---| '"HOTKEY_BUILDING_MACHINE_AXLE_HORIZONTAL"'
+---| '"HOTKEY_BUILDING_MACHINE_ROLLERS"'
+---| '"HOTKEY_BUILDING_SIEGEENGINE_BALLISTA"'
+---| '"HOTKEY_BUILDING_SIEGEENGINE_CATAPULT"'
+---| '"HOTKEY_BUILDING_TRAP_STONE"'
+---| '"HOTKEY_BUILDING_TRAP_WEAPON"'
+---| '"HOTKEY_BUILDING_TRAP_LEVER"'
+---| '"HOTKEY_BUILDING_TRAP_TRIGGER"'
+---| '"HOTKEY_BUILDING_TRAP_CAGE"'
+---| '"HOTKEY_BUILDING_TRAP_SPIKE"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_WALL"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_FLOOR"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_RAMP"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_STAIR_UPDOWN"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_FORTIFICATION"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_TRACK"'
+---| '"HOTKEY_BUILDING_CONSTRUCTION_TRACK_STOP"'
+---| '"HOTKEY_BUILDING_WORKSHOP"'
+---| '"HOTKEY_BUILDING_WORKSHOPS_CLOTHING_LEATHER"'
+---| '"HOTKEY_BUILDING_FARMING"'
+---| '"HOTKEY_BUILDING_FURNACE"'
+---| '"HOTKEY_BUILDING_WORKSHOP_LEATHER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_QUERN"'
+---| '"HOTKEY_BUILDING_WORKSHOP_MILLSTONE"'
+---| '"HOTKEY_BUILDING_WORKSHOP_LOOM"'
+---| '"HOTKEY_BUILDING_WORKSHOP_CLOTHES"'
+---| '"HOTKEY_BUILDING_WORKSHOP_BOWYER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_CARPENTER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_METALSMITH"'
+---| '"HOTKEY_BUILDING_WORKSHOP_LAVAMILL"'
+---| '"HOTKEY_BUILDING_WORKSHOP_JEWELER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_MASON"'
+---| '"HOTKEY_BUILDING_WORKSHOP_BUTCHER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_TANNER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_DYER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_CRAFTSMAN"'
+---| '"HOTKEY_BUILDING_WORKSHOP_SIEGE"'
+---| '"HOTKEY_BUILDING_WORKSHOP_MECHANIC"'
+---| '"HOTKEY_BUILDING_WORKSHOP_STILL"'
+---| '"HOTKEY_BUILDING_WORKSHOP_FARMER"'
+---| '"HOTKEY_BUILDING_WORKSHOP_KITCHEN"'
+---| '"HOTKEY_BUILDING_WORKSHOP_FISHERY"'
+---| '"HOTKEY_BUILDING_WORKSHOP_ASHERY"'
+---| '"HOTKEY_BUILDING_FURNACE_WOOD"'
+---| '"HOTKEY_BUILDING_FURNACE_SMELTER"'
+---| '"HOTKEY_BUILDING_FURNACE_GLASS"'
+---| '"HOTKEY_BUILDING_FURNACE_KILN"'
+---| '"HOTKEY_BUILDING_FURNACE_SMELTER_LAVA"'
+---| '"HOTKEY_BUILDING_FURNACE_GLASS_LAVA"'
+---| '"HOTKEY_BUILDING_FURNACE_KILN_LAVA"'
+---| '""'
+---| '""'
+---| '""'
+---| '"PET_BUTCHER"'
+---| '"PET_GELD"'
+---| '"PET_AVAILABLE"'
+---| '"ANIMAL_SELECT_TRAINER"'
+---| '"ANIMAL_WAR_TRAINING"'
+---| '"ANIMAL_HUNTING_TRAINING"'
+---| '"ANIMAL_ASSIGN_WORKER"'
+---| '"KITCHEN_COOK"'
+---| '"KITCHEN_BREW"'
+---| '"JUSTICE_INTERROGATE"'
+---| '"JUSTICE_COUNTERINTELLIGENCE"'
+---| '"D_ONESTEP"'
+---| '"D_PAUSE"'
+---| '"D_HOT_KEYS"'
+---| '"D_HOTKEY1"'
+---| '"D_HOTKEY2"'
+---| '"D_HOTKEY3"'
+---| '"D_HOTKEY4"'
+---| '"D_HOTKEY5"'
+---| '"D_HOTKEY6"'
+---| '"D_HOTKEY7"'
+---| '"D_HOTKEY8"'
+---| '"D_HOTKEY9"'
+---| '"D_HOTKEY10"'
+---| '"D_HOTKEY11"'
+---| '"D_HOTKEY12"'
+---| '"D_HOTKEY13"'
+---| '"D_HOTKEY14"'
+---| '"D_HOTKEY15"'
+---| '"D_HOTKEY16"'
+---| '"D_TOGGLE_RAMP_INDICATORS"'
+---| '"D_TOGGLE_FLUID_NUMBERS"'
+---| '"D_DESIGNATE_DIG"'
+---| '"D_DESIGNATE_CHOP"'
+---| '"D_DESIGNATE_GATHER"'
+---| '"D_DESIGNATE_SMOOTH"'
+---| '"D_DESIGNATE_ITEMS"'
+---| '"D_DESIGNATE_TRAFFIC"'
+---| '"D_DESIGNATE_ERASE"'
+---| '"DESIGNATE_DIG"'
+---| '"DESIGNATE_STAIR_UPDOWN"'
+---| '"DESIGNATE_RAMP"'
+---| '"DESIGNATE_CHANNEL"'
+---| '"DESIGNATE_DIG_REMOVE_STAIRS_RAMPS"'
+---| '"DESIGNATE_RECTANGLE"'
+---| '"DESIGNATE_FREE_DRAW"'
+---| '"DESIGNATE_TOGGLE_ADVANCED_OPTIONS"'
+---| '"DESIGNATE_MINE_MODE_ALL"'
+---| '"DESIGNATE_MINE_MODE_AUTO"'
+---| '"DESIGNATE_MINE_MODE_ORE_GEM"'
+---| '"DESIGNATE_MINE_MODE_GEM"'
+---| '"DESIGNATE_PRIORITY_UP"'
+---| '"DESIGNATE_PRIORITY_DOWN"'
+---| '"DESIGNATE_TOGGLE_MARKER"'
+---| '"DESIGNATE_MARKER_TO_STANDARD"'
+---| '"DESIGNATE_STANDARD_TO_MARKER"'
+---| '"DESIGNATE_CHOP"'
+---| '"DESIGNATE_PLANTS"'
+---| '"DESIGNATE_SMOOTH"'
+---| '"DESIGNATE_ENGRAVE"'
+---| '"DESIGNATE_TRACK"'
+---| '"DESIGNATE_FORTIFY"'
+---| '"DESIGNATE_CLAIM"'
+---| '"DESIGNATE_UNCLAIM"'
+---| '"DESIGNATE_MELT"'
+---| '"DESIGNATE_NO_MELT"'
+---| '"DESIGNATE_DUMP"'
+---| '"DESIGNATE_NO_DUMP"'
+---| '"DESIGNATE_HIDE"'
+---| '"DESIGNATE_NO_HIDE"'
+---| '"DESIGNATE_TRAFFIC_HIGH"'
+---| '"DESIGNATE_TRAFFIC_NORMAL"'
+---| '"DESIGNATE_TRAFFIC_LOW"'
+---| '"DESIGNATE_TRAFFIC_RESTRICTED"'
+---| '"D_BUILDING"'
+---| '"D_STOCKPILES"'
+---| '"D_CIVZONE"'
+---| '"D_BURROWS"'
+---| '"D_HAULING"'
+---| '"D_UNITLIST"'
+---| '"D_JOBLIST"'
+---| '"D_LOCATIONS"'
+---| '"D_LABOR"'
+---| '"D_ORDERS"'
+---| '"D_NOBLES"'
+---| '"D_ARTLIST"'
+---| '"D_SQUADS"'
+---| '"D_WORLD"'
+---| '"D_JUSTICE"'
+---| '"D_STOCKS"'
+---| '"D_ANNOUNCE"'
+---| '"ARENA_CREATE_CREATURE"'
+---| '"ARENA_CREATURE_RESET"'
+---| '"ARENA_FLUIDS"'
+---| '"ARENA_FLUIDS_WATER"'
+---| '"ARENA_FLUIDS_MAGMA"'
+---| '"ARENA_FLUIDS_SNOW"'
+---| '"ARENA_FLUIDS_MUD"'
+---| '"ARENA_FLUIDS_REMOVE"'
+---| '"ARENA_CREATE_TREE"'
+---| '"ARENA_WEATHER"'
+---| '"ARENA_CONFLICT_STATE1"'
+---| '"ARENA_CONFLICT_STATE2"'
+---| '"ARENA_MORALE"'
+---| '"RECENTER"'
+---| '"OPEN_SHEET"'
+---| '"FILTER"'
+---| '"UNITLIST_RECENTER_JOB"'
+---| '"UNITLIST_JOB_DETAILS"'
+---| '"UNITLIST_SORT_NAME"'
+---| '"UNITLIST_SORT_PROFA"'
+---| '"UNITLIST_SORT_PROFB"'
+---| '"UNITLIST_SORT_JOB"'
+---| '"UNITLIST_SORT_HAPPINESS"'
+---| '"UNITLIST_SORT_SKILLS"'
+---| '"UNITLIST_SPECIALIZE"'
+---| '""'
+---| '"STRING_A000"'
+---| '"STRING_A001"'
+---| '"STRING_A002"'
+---| '"STRING_A003"'
+---| '"STRING_A004"'
+---| '"STRING_A005"'
+---| '"STRING_A006"'
+---| '"STRING_A007"'
+---| '"STRING_A008"'
+---| '"STRING_A009"'
+---| '"STRING_A010"'
+---| '"STRING_A011"'
+---| '"STRING_A012"'
+---| '"STRING_A013"'
+---| '"STRING_A014"'
+---| '"STRING_A015"'
+---| '"STRING_A016"'
+---| '"STRING_A017"'
+---| '"STRING_A018"'
+---| '"STRING_A019"'
+---| '"STRING_A020"'
+---| '"STRING_A021"'
+---| '"STRING_A022"'
+---| '"STRING_A023"'
+---| '"STRING_A024"'
+---| '"STRING_A025"'
+---| '"STRING_A026"'
+---| '"STRING_A027"'
+---| '"STRING_A028"'
+---| '"STRING_A029"'
+---| '"STRING_A030"'
+---| '"STRING_A031"'
+---| '"STRING_A032"'
+---| '"STRING_A033"'
+---| '"STRING_A034"'
+---| '"STRING_A035"'
+---| '"STRING_A036"'
+---| '"STRING_A037"'
+---| '"STRING_A038"'
+---| '"STRING_A039"'
+---| '"STRING_A040"'
+---| '"STRING_A041"'
+---| '"STRING_A042"'
+---| '"STRING_A043"'
+---| '"STRING_A044"'
+---| '"STRING_A045"'
+---| '"STRING_A046"'
+---| '"STRING_A047"'
+---| '"STRING_A048"'
+---| '"STRING_A049"'
+---| '"STRING_A050"'
+---| '"STRING_A051"'
+---| '"STRING_A052"'
+---| '"STRING_A053"'
+---| '"STRING_A054"'
+---| '"STRING_A055"'
+---| '"STRING_A056"'
+---| '"STRING_A057"'
+---| '"STRING_A058"'
+---| '"STRING_A059"'
+---| '"STRING_A060"'
+---| '"STRING_A061"'
+---| '"STRING_A062"'
+---| '"STRING_A063"'
+---| '"STRING_A064"'
+---| '"STRING_A065"'
+---| '"STRING_A066"'
+---| '"STRING_A067"'
+---| '"STRING_A068"'
+---| '"STRING_A069"'
+---| '"STRING_A070"'
+---| '"STRING_A071"'
+---| '"STRING_A072"'
+---| '"STRING_A073"'
+---| '"STRING_A074"'
+---| '"STRING_A075"'
+---| '"STRING_A076"'
+---| '"STRING_A077"'
+---| '"STRING_A078"'
+---| '"STRING_A079"'
+---| '"STRING_A080"'
+---| '"STRING_A081"'
+---| '"STRING_A082"'
+---| '"STRING_A083"'
+---| '"STRING_A084"'
+---| '"STRING_A085"'
+---| '"STRING_A086"'
+---| '"STRING_A087"'
+---| '"STRING_A088"'
+---| '"STRING_A089"'
+---| '"STRING_A090"'
+---| '"STRING_A091"'
+---| '"STRING_A092"'
+---| '"STRING_A093"'
+---| '"STRING_A094"'
+---| '"STRING_A095"'
+---| '"STRING_A096"'
+---| '"STRING_A097"'
+---| '"STRING_A098"'
+---| '"STRING_A099"'
+---| '"STRING_A100"'
+---| '"STRING_A101"'
+---| '"STRING_A102"'
+---| '"STRING_A103"'
+---| '"STRING_A104"'
+---| '"STRING_A105"'
+---| '"STRING_A106"'
+---| '"STRING_A107"'
+---| '"STRING_A108"'
+---| '"STRING_A109"'
+---| '"STRING_A110"'
+---| '"STRING_A111"'
+---| '"STRING_A112"'
+---| '"STRING_A113"'
+---| '"STRING_A114"'
+---| '"STRING_A115"'
+---| '"STRING_A116"'
+---| '"STRING_A117"'
+---| '"STRING_A118"'
+---| '"STRING_A119"'
+---| '"STRING_A120"'
+---| '"STRING_A121"'
+---| '"STRING_A122"'
+---| '"STRING_A123"'
+---| '"STRING_A124"'
+---| '"STRING_A125"'
+---| '"STRING_A126"'
+---| '"STRING_A128"'
+---| '"STRING_A129"'
+---| '"STRING_A130"'
+---| '"STRING_A131"'
+---| '"STRING_A132"'
+---| '"STRING_A133"'
+---| '"STRING_A134"'
+---| '"STRING_A135"'
+---| '"STRING_A136"'
+---| '"STRING_A137"'
+---| '"STRING_A138"'
+---| '"STRING_A139"'
+---| '"STRING_A140"'
+---| '"STRING_A141"'
+---| '"STRING_A142"'
+---| '"STRING_A143"'
+---| '"STRING_A144"'
+---| '"STRING_A145"'
+---| '"STRING_A146"'
+---| '"STRING_A147"'
+---| '"STRING_A148"'
+---| '"STRING_A149"'
+---| '"STRING_A150"'
+---| '"STRING_A151"'
+---| '"STRING_A152"'
+---| '"STRING_A153"'
+---| '"STRING_A154"'
+---| '"STRING_A155"'
+---| '"STRING_A156"'
+---| '"STRING_A157"'
+---| '"STRING_A158"'
+---| '"STRING_A159"'
+---| '"STRING_A160"'
+---| '"STRING_A161"'
+---| '"STRING_A162"'
+---| '"STRING_A163"'
+---| '"STRING_A164"'
+---| '"STRING_A165"'
+---| '"STRING_A166"'
+---| '"STRING_A167"'
+---| '"STRING_A168"'
+---| '"STRING_A169"'
+---| '"STRING_A170"'
+---| '"STRING_A171"'
+---| '"STRING_A172"'
+---| '"STRING_A173"'
+---| '"STRING_A174"'
+---| '"STRING_A175"'
+---| '"STRING_A176"'
+---| '"STRING_A177"'
+---| '"STRING_A178"'
+---| '"STRING_A179"'
+---| '"STRING_A180"'
+---| '"STRING_A181"'
+---| '"STRING_A182"'
+---| '"STRING_A183"'
+---| '"STRING_A184"'
+---| '"STRING_A185"'
+---| '"STRING_A186"'
+---| '"STRING_A187"'
+---| '"STRING_A188"'
+---| '"STRING_A189"'
+---| '"STRING_A190"'
+---| '"STRING_A191"'
+---| '"STRING_A192"'
+---| '"STRING_A193"'
+---| '"STRING_A194"'
+---| '"STRING_A195"'
+---| '"STRING_A196"'
+---| '"STRING_A197"'
+---| '"STRING_A198"'
+---| '"STRING_A199"'
+---| '"STRING_A200"'
+---| '"STRING_A201"'
+---| '"STRING_A202"'
+---| '"STRING_A203"'
+---| '"STRING_A204"'
+---| '"STRING_A205"'
+---| '"STRING_A206"'
+---| '"STRING_A207"'
+---| '"STRING_A208"'
+---| '"STRING_A209"'
+---| '"STRING_A210"'
+---| '"STRING_A211"'
+---| '"STRING_A212"'
+---| '"STRING_A213"'
+---| '"STRING_A214"'
+---| '"STRING_A215"'
+---| '"STRING_A216"'
+---| '"STRING_A217"'
+---| '"STRING_A218"'
+---| '"STRING_A219"'
+---| '"STRING_A220"'
+---| '"STRING_A221"'
+---| '"STRING_A222"'
+---| '"STRING_A223"'
+---| '"STRING_A224"'
+---| '"STRING_A225"'
+---| '"STRING_A226"'
+---| '"STRING_A227"'
+---| '"STRING_A228"'
+---| '"STRING_A229"'
+---| '"STRING_A230"'
+---| '"STRING_A231"'
+---| '"STRING_A232"'
+---| '"STRING_A233"'
+---| '"STRING_A234"'
+---| '"STRING_A235"'
+---| '"STRING_A236"'
+---| '"STRING_A237"'
+---| '"STRING_A238"'
+---| '"STRING_A239"'
+---| '"STRING_A240"'
+---| '"STRING_A241"'
+---| '"STRING_A242"'
+---| '"STRING_A243"'
+---| '"STRING_A244"'
+---| '"STRING_A245"'
+---| '"STRING_A246"'
+---| '"STRING_A247"'
+---| '"STRING_A248"'
+---| '"STRING_A249"'
+---| '"STRING_A250"'
+---| '"STRING_A251"'
+---| '"STRING_A252"'
+---| '"STRING_A253"'
+---| '"STRING_A254"'
+---| '"STRING_A255"'
+---| '"KEYBINDING_COMPLETE"'
+
+---@alias interface_key_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+---| 74
+---| 75
+---| 76
+---| 77
+---| 78
+---| 79
+---| 80
+---| 81
+---| 82
+---| 83
+---| 84
+---| 85
+---| 86
+---| 87
+---| 88
+---| 89
+---| 90
+---| 91
+---| 92
+---| 93
+---| 94
+---| 95
+---| 96
+---| 97
+---| 98
+---| 99
+---| 100
+---| 101
+---| 102
+---| 103
+---| 104
+---| 105
+---| 106
+---| 107
+---| 108
+---| 109
+---| 110
+---| 111
+---| 112
+---| 113
+---| 114
+---| 115
+---| 116
+---| 117
+---| 118
+---| 119
+---| 120
+---| 121
+---| 122
+---| 123
+---| 124
+---| 125
+---| 126
+---| 127
+---| 128
+---| 129
+---| 130
+---| 131
+---| 132
+---| 133
+---| 134
+---| 135
+---| 136
+---| 137
+---| 138
+---| 139
+---| 140
+---| 141
+---| 142
+---| 143
+---| 144
+---| 145
+---| 146
+---| 147
+---| 148
+---| 149
+---| 150
+---| 151
+---| 152
+---| 153
+---| 154
+---| 155
+---| 156
+---| 157
+---| 158
+---| 159
+---| 160
+---| 161
+---| 162
+---| 163
+---| 164
+---| 165
+---| 166
+---| 167
+---| 168
+---| 169
+---| 170
+---| 171
+---| 172
+---| 173
+---| 174
+---| 175
+---| 176
+---| 177
+---| 178
+---| 179
+---| 180
+---| 181
+---| 182
+---| 183
+---| 184
+---| 185
+---| 186
+---| 187
+---| 188
+---| 189
+---| 190
+---| 191
+---| 192
+---| 193
+---| 194
+---| 195
+---| 196
+---| 197
+---| 198
+---| 199
+---| 200
+---| 201
+---| 202
+---| 203
+---| 204
+---| 205
+---| 206
+---| 207
+---| 208
+---| 209
+---| 210
+---| 211
+---| 212
+---| 213
+---| 214
+---| 215
+---| 216
+---| 217
+---| 218
+---| 219
+---| 220
+---| 221
+---| 222
+---| 223
+---| 224
+---| 225
+---| 226
+---| 227
+---| 228
+---| 229
+---| 230
+---| 231
+---| 232
+---| 233
+---| 234
+---| 235
+---| 236
+---| 237
+---| 238
+---| 239
+---| 240
+---| 241
+---| 242
+---| 243
+---| 244
+---| 245
+---| 246
+---| 247
+---| 248
+---| 249
+---| 250
+---| 251
+---| 252
+---| 253
+---| 254
+---| 255
+---| 256
+---| 257
+---| 258
+---| 259
+---| 260
+---| 261
+---| 262
+---| 263
+---| 264
+---| 265
+---| 266
+---| 267
+---| 268
+---| 269
+---| 270
+---| 271
+---| 272
+---| 273
+---| 274
+---| 275
+---| 276
+---| 277
+---| 278
+---| 279
+---| 280
+---| 281
+---| 282
+---| 283
+---| 284
+---| 285
+---| 286
+---| 287
+---| 288
+---| 289
+---| 290
+---| 291
+---| 292
+---| 293
+---| 294
+---| 295
+---| 296
+---| 297
+---| 298
+---| 299
+---| 300
+---| 301
+---| 302
+---| 303
+---| 304
+---| 305
+---| 306
+---| 307
+---| 308
+---| 309
+---| 310
+---| 311
+---| 312
+---| 313
+---| 314
+---| 315
+---| 316
+---| 317
+---| 318
+---| 319
+---| 320
+---| 321
+---| 322
+---| 323
+---| 324
+---| 325
+---| 326
+---| 327
+---| 328
+---| 329
+---| 330
+---| 331
+---| 332
+---| 333
+---| 334
+---| 335
+---| 336
+---| 337
+---| 338
+---| 339
+---| 340
+---| 341
+---| 342
+---| 343
+---| 344
+---| 345
+---| 346
+---| 347
+---| 348
+---| 349
+---| 350
+---| 351
+---| 352
+---| 353
+---| 354
+---| 355
+---| 356
+---| 357
+---| 358
+---| 359
+---| 360
+---| 361
+---| 362
+---| 363
+---| 364
+---| 365
+---| 366
+---| 367
+---| 368
+---| 369
+---| 370
+---| 371
+---| 372
+---| 373
+---| 374
+---| 375
+---| 376
+---| 377
+---| 378
+---| 379
+---| 380
+---| 381
+---| 382
+---| 383
+---| 384
+---| 385
+---| 386
+---| 387
+---| 388
+---| 389
+---| 390
+---| 391
+---| 392
+---| 393
+---| 394
+---| 395
+---| 396
+---| 397
+---| 398
+---| 399
+---| 400
+---| 401
+---| 402
+---| 403
+---| 404
+---| 405
+---| 406
+---| 407
+---| 408
+---| 409
+---| 410
+---| 411
+---| 412
+---| 413
+---| 414
+---| 415
+---| 416
+---| 417
+---| 418
+---| 419
+---| 420
+---| 421
+---| 422
+---| 423
+---| 424
+---| 425
+---| 426
+---| 427
+---| 428
+---| 429
+---| 430
+---| 431
+---| 432
+---| 433
+---| 434
+---| 435
+---| 436
+---| 437
+---| 438
+---| 439
+---| 440
+---| 441
+---| 442
+---| 443
+---| 444
+---| 445
+---| 446
+---| 447
+---| 448
+---| 449
+---| 450
+---| 451
+---| 452
+---| 453
+---| 454
+---| 455
+---| 456
+---| 457
+---| 458
+---| 459
+---| 460
+---| 461
+---| 462
+---| 463
+---| 464
+---| 465
+---| 466
+---| 467
+---| 468
+---| 469
+---| 470
+---| 471
+---| 472
+---| 473
+---| 474
+---| 475
+---| 476
+---| 477
+---| 478
+---| 479
+---| 480
+---| 481
+---| 482
+---| 483
+---| 484
+---| 485
+---| 486
+---| 487
+---| 488
+---| 489
+---| 490
+---| 491
+---| 492
+---| 493
+---| 494
+---| 495
+---| 496
+---| 497
+---| 498
+---| 499
+---| 500
+---| 501
+---| 502
+---| 503
+---| 504
+---| 505
+---| 506
+---| 507
+---| 508
+---| 509
+---| 510
+---| 511
+---| 512
+---| 513
+---| 514
+---| 515
+---| 516
+---| 517
+---| 518
+---| 519
+---| 520
+---| 521
+---| 522
+---| 523
+---| 524
+---| 525
+---| 526
+---| 527
+---| 528
+---| 529
+---| 530
+---| 531
+---| 532
+---| 533
+---| 534
+---| 535
+---| 536
+---| 537
+---| 538
+---| 539
+---| 540
+---| 541
+---| 542
+---| 543
+---| 544
+---| 545
+---| 546
+---| 547
+---| 548
+---| 549
+---| 550
+---| 551
+---| 552
+---| 553
+---| 554
+---| 555
+---| 556
+---| 557
+---| 558
+---| 559
+---| 560
+---| 561
+---| 562
+---| 563
+---| 564
+---| 565
+---| 566
+---| 567
+---| 568
+---| 569
+---| 570
+---| 571
+---| 572
+---| 573
+---| 574
+---| 575
+---| 576
+---| 577
+---| 578
+---| 579
+---| 580
+---| 581
+---| 582
+---| 583
+---| 584
+---| 585
+---| 586
+---| 587
+---| 588
+---| 589
+---| 590
+---| 591
+---| 592
+---| 593
+---| 594
+---| 595
+---| 596
+---| 597
+---| 598
+---| 599
+---| 600
+---| 601
+---| 602
+---| 603
+---| 604
+---| 605
+---| 606
+---| 607
+---| 608
+---| 609
+---| 610
+---| 611
+---| 612
+---| 613
+---| 614
+---| 615
+---| 616
+---| 617
+---| 618
+---| 619
+---| 620
+---| 621
+---| 622
+---| 623
+---| 624
+---| 625
+---| 626
+---| 627
+---| 628
+---| 629
+---| 630
+---| 631
+---| 632
+---| 633
+---| 634
+---| 635
+---| 636
+---| 637
+---| 638
+---| 639
+---| 640
+---| 641
+---| 642
+---| 643
+---| 644
+---| 645
+---| 646
+---| 647
+---| 648
+---| 649
+---| 650
+---| 651
+---| 652
+---| 653
+---| 654
+
+---@alias interface_key
+---| interface_key_keys
+---| interface_key_values
+
+-- WARNING: THIS FILE IS AUTO-GENERATED - DO NOT EDIT
+---@class _interface_key: DFEnum
+---@field NONE 0
+---@field [0] "NONE"
+---@field SELECT 1
+---@field [1] "SELECT"
+---@field SELECT_ALL 2
+---@field [2] "SELECT_ALL"
+---@field LEAVESCREEN 3
+---@field [3] "LEAVESCREEN"
+---@field CLOSE_MEGA_ANNOUNCEMENT 4
+---@field [4] "CLOSE_MEGA_ANNOUNCEMENT"
+---@field OPTIONS 5
+---@field [5] "OPTIONS"
+---@field TOGGLE_FULLSCREEN 6
+---@field [6] "TOGGLE_FULLSCREEN"
+---@field ZOOM_IN 7
+---@field [7] "ZOOM_IN"
+---@field ZOOM_OUT 8
+---@field [8] "ZOOM_OUT"
+---@field FPS_UP 9
+---@field [9] "FPS_UP"
+---@field FPS_DOWN 10
+---@field [10] "FPS_DOWN"
+---@field CHANGETAB 11
+---@field [11] "CHANGETAB"
+---@field SEC_CHANGETAB 12
+---@field [12] "SEC_CHANGETAB"
+---@field STANDARDSCROLL_UP 13
+---@field [13] "STANDARDSCROLL_UP"
+---@field STANDARDSCROLL_DOWN 14
+---@field [14] "STANDARDSCROLL_DOWN"
+---@field STANDARDSCROLL_LEFT 15
+---@field [15] "STANDARDSCROLL_LEFT"
+---@field STANDARDSCROLL_RIGHT 16
+---@field [16] "STANDARDSCROLL_RIGHT"
+---@field STANDARDSCROLL_PAGEUP 17
+---@field [17] "STANDARDSCROLL_PAGEUP"
+---@field STANDARDSCROLL_PAGEDOWN 18
+---@field [18] "STANDARDSCROLL_PAGEDOWN"
+---@field CONTEXT_SCROLL_UP 19
+---@field [19] "CONTEXT_SCROLL_UP"
+---@field CONTEXT_SCROLL_DOWN 20
+---@field [20] "CONTEXT_SCROLL_DOWN"
+---@field CONTEXT_SCROLL_PAGEUP 21
+---@field [21] "CONTEXT_SCROLL_PAGEUP"
+---@field CONTEXT_SCROLL_PAGEDOWN 22
+---@field [22] "CONTEXT_SCROLL_PAGEDOWN"
+---@field CURSOR_UP 23
+---@field [23] "CURSOR_UP"
+---@field CURSOR_DOWN 24
+---@field [24] "CURSOR_DOWN"
+---@field CURSOR_LEFT 25
+---@field [25] "CURSOR_LEFT"
+---@field CURSOR_RIGHT 26
+---@field [26] "CURSOR_RIGHT"
+---@field CURSOR_UPLEFT 27
+---@field [27] "CURSOR_UPLEFT"
+---@field CURSOR_UPRIGHT 28
+---@field [28] "CURSOR_UPRIGHT"
+---@field CURSOR_DOWNLEFT 29
+---@field [29] "CURSOR_DOWNLEFT"
+---@field CURSOR_DOWNRIGHT 30
+---@field [30] "CURSOR_DOWNRIGHT"
+---@field CURSOR_UP_FAST 31
+---@field [31] "CURSOR_UP_FAST"
+---@field CURSOR_DOWN_FAST 32
+---@field [32] "CURSOR_DOWN_FAST"
+---@field CURSOR_LEFT_FAST 33
+---@field [33] "CURSOR_LEFT_FAST"
+---@field CURSOR_RIGHT_FAST 34
+---@field [34] "CURSOR_RIGHT_FAST"
+---@field CURSOR_UPLEFT_FAST 35
+---@field [35] "CURSOR_UPLEFT_FAST"
+---@field CURSOR_UPRIGHT_FAST 36
+---@field [36] "CURSOR_UPRIGHT_FAST"
+---@field CURSOR_DOWNLEFT_FAST 37
+---@field [37] "CURSOR_DOWNLEFT_FAST"
+---@field CURSOR_DOWNRIGHT_FAST 38
+---@field [38] "CURSOR_DOWNRIGHT_FAST"
+---@field CURSOR_UP_Z 39
+---@field [39] "CURSOR_UP_Z"
+---@field CURSOR_DOWN_Z 40
+---@field [40] "CURSOR_DOWN_Z"
+---@field CURSOR_UP_Z_AUX 41
+---@field [41] "CURSOR_UP_Z_AUX"
+---@field CURSOR_DOWN_Z_AUX 42
+---@field [42] "CURSOR_DOWN_Z_AUX"
+---@field CURSOR_UP_Z_FAST 43
+---@field [43] "CURSOR_UP_Z_FAST"
+---@field CURSOR_DOWN_Z_FAST 44
+---@field [44] "CURSOR_DOWN_Z_FAST"
+---@field KEYBOARD_CURSOR_UP 45
+---@field [45] "KEYBOARD_CURSOR_UP"
+---@field KEYBOARD_CURSOR_DOWN 46
+---@field [46] "KEYBOARD_CURSOR_DOWN"
+---@field KEYBOARD_CURSOR_LEFT 47
+---@field [47] "KEYBOARD_CURSOR_LEFT"
+---@field KEYBOARD_CURSOR_RIGHT 48
+---@field [48] "KEYBOARD_CURSOR_RIGHT"
+---@field KEYBOARD_CURSOR_UPLEFT 49
+---@field [49] "KEYBOARD_CURSOR_UPLEFT"
+---@field KEYBOARD_CURSOR_UPRIGHT 50
+---@field [50] "KEYBOARD_CURSOR_UPRIGHT"
+---@field KEYBOARD_CURSOR_DOWNLEFT 51
+---@field [51] "KEYBOARD_CURSOR_DOWNLEFT"
+---@field KEYBOARD_CURSOR_DOWNRIGHT 52
+---@field [52] "KEYBOARD_CURSOR_DOWNRIGHT"
+---@field KEYBOARD_CURSOR_UP_FAST 53
+---@field [53] "KEYBOARD_CURSOR_UP_FAST"
+---@field KEYBOARD_CURSOR_DOWN_FAST 54
+---@field [54] "KEYBOARD_CURSOR_DOWN_FAST"
+---@field KEYBOARD_CURSOR_LEFT_FAST 55
+---@field [55] "KEYBOARD_CURSOR_LEFT_FAST"
+---@field KEYBOARD_CURSOR_RIGHT_FAST 56
+---@field [56] "KEYBOARD_CURSOR_RIGHT_FAST"
+---@field KEYBOARD_CURSOR_UPLEFT_FAST 57
+---@field [57] "KEYBOARD_CURSOR_UPLEFT_FAST"
+---@field KEYBOARD_CURSOR_UPRIGHT_FAST 58
+---@field [58] "KEYBOARD_CURSOR_UPRIGHT_FAST"
+---@field KEYBOARD_CURSOR_DOWNLEFT_FAST 59
+---@field [59] "KEYBOARD_CURSOR_DOWNLEFT_FAST"
+---@field KEYBOARD_CURSOR_DOWNRIGHT_FAST 60
+---@field [60] "KEYBOARD_CURSOR_DOWNRIGHT_FAST"
+---@field KEYBOARD_CURSOR_UP_Z 61
+---@field [61] "KEYBOARD_CURSOR_UP_Z"
+---@field KEYBOARD_CURSOR_DOWN_Z 62
+---@field [62] "KEYBOARD_CURSOR_DOWN_Z"
+---@field KEYBOARD_CURSOR_UP_Z_AUX 63
+---@field [63] "KEYBOARD_CURSOR_UP_Z_AUX"
+---@field KEYBOARD_CURSOR_DOWN_Z_AUX 64
+---@field [64] "KEYBOARD_CURSOR_DOWN_Z_AUX"
+---@field MACRO_BREAK 65
+---@field [65] "MACRO_BREAK"
+---@field RECORD_MACRO 66
+---@field [66] "RECORD_MACRO"
+---@field PLAY_MACRO 67
+---@field [67] "PLAY_MACRO"
+---@field SAVE_MACRO 68
+---@field [68] "SAVE_MACRO"
+---@field LOAD_MACRO 69
+---@field [69] "LOAD_MACRO"
+---@field PREFIX 70
+---@field [70] "PREFIX"
+---@field CUSTOM_A 71
+---@field [71] "CUSTOM_A"
+---@field CUSTOM_B 72
+---@field [72] "CUSTOM_B"
+---@field CUSTOM_C 73
+---@field [73] "CUSTOM_C"
+---@field CUSTOM_D 74
+---@field [74] "CUSTOM_D"
+---@field CUSTOM_E 75
+---@field [75] "CUSTOM_E"
+---@field CUSTOM_F 76
+---@field [76] "CUSTOM_F"
+---@field CUSTOM_G 77
+---@field [77] "CUSTOM_G"
+---@field CUSTOM_H 78
+---@field [78] "CUSTOM_H"
+---@field CUSTOM_I 79
+---@field [79] "CUSTOM_I"
+---@field CUSTOM_J 80
+---@field [80] "CUSTOM_J"
+---@field CUSTOM_K 81
+---@field [81] "CUSTOM_K"
+---@field CUSTOM_L 82
+---@field [82] "CUSTOM_L"
+---@field CUSTOM_M 83
+---@field [83] "CUSTOM_M"
+---@field CUSTOM_N 84
+---@field [84] "CUSTOM_N"
+---@field CUSTOM_O 85
+---@field [85] "CUSTOM_O"
+---@field CUSTOM_P 86
+---@field [86] "CUSTOM_P"
+---@field CUSTOM_Q 87
+---@field [87] "CUSTOM_Q"
+---@field CUSTOM_R 88
+---@field [88] "CUSTOM_R"
+---@field CUSTOM_S 89
+---@field [89] "CUSTOM_S"
+---@field CUSTOM_T 90
+---@field [90] "CUSTOM_T"
+---@field CUSTOM_U 91
+---@field [91] "CUSTOM_U"
+---@field CUSTOM_V 92
+---@field [92] "CUSTOM_V"
+---@field CUSTOM_W 93
+---@field [93] "CUSTOM_W"
+---@field CUSTOM_X 94
+---@field [94] "CUSTOM_X"
+---@field CUSTOM_Y 95
+---@field [95] "CUSTOM_Y"
+---@field CUSTOM_Z 96
+---@field [96] "CUSTOM_Z"
+---@field CUSTOM_SHIFT_A 97
+---@field [97] "CUSTOM_SHIFT_A"
+---@field CUSTOM_SHIFT_B 98
+---@field [98] "CUSTOM_SHIFT_B"
+---@field CUSTOM_SHIFT_C 99
+---@field [99] "CUSTOM_SHIFT_C"
+---@field CUSTOM_SHIFT_D 100
+---@field [100] "CUSTOM_SHIFT_D"
+---@field CUSTOM_SHIFT_E 101
+---@field [101] "CUSTOM_SHIFT_E"
+---@field CUSTOM_SHIFT_F 102
+---@field [102] "CUSTOM_SHIFT_F"
+---@field CUSTOM_SHIFT_G 103
+---@field [103] "CUSTOM_SHIFT_G"
+---@field CUSTOM_SHIFT_H 104
+---@field [104] "CUSTOM_SHIFT_H"
+---@field CUSTOM_SHIFT_I 105
+---@field [105] "CUSTOM_SHIFT_I"
+---@field CUSTOM_SHIFT_J 106
+---@field [106] "CUSTOM_SHIFT_J"
+---@field CUSTOM_SHIFT_K 107
+---@field [107] "CUSTOM_SHIFT_K"
+---@field CUSTOM_SHIFT_L 108
+---@field [108] "CUSTOM_SHIFT_L"
+---@field CUSTOM_SHIFT_M 109
+---@field [109] "CUSTOM_SHIFT_M"
+---@field CUSTOM_SHIFT_N 110
+---@field [110] "CUSTOM_SHIFT_N"
+---@field CUSTOM_SHIFT_O 111
+---@field [111] "CUSTOM_SHIFT_O"
+---@field CUSTOM_SHIFT_P 112
+---@field [112] "CUSTOM_SHIFT_P"
+---@field CUSTOM_SHIFT_Q 113
+---@field [113] "CUSTOM_SHIFT_Q"
+---@field CUSTOM_SHIFT_R 114
+---@field [114] "CUSTOM_SHIFT_R"
+---@field CUSTOM_SHIFT_S 115
+---@field [115] "CUSTOM_SHIFT_S"
+---@field CUSTOM_SHIFT_T 116
+---@field [116] "CUSTOM_SHIFT_T"
+---@field CUSTOM_SHIFT_U 117
+---@field [117] "CUSTOM_SHIFT_U"
+---@field CUSTOM_SHIFT_V 118
+---@field [118] "CUSTOM_SHIFT_V"
+---@field CUSTOM_SHIFT_W 119
+---@field [119] "CUSTOM_SHIFT_W"
+---@field CUSTOM_SHIFT_X 120
+---@field [120] "CUSTOM_SHIFT_X"
+---@field CUSTOM_SHIFT_Y 121
+---@field [121] "CUSTOM_SHIFT_Y"
+---@field CUSTOM_SHIFT_Z 122
+---@field [122] "CUSTOM_SHIFT_Z"
+---@field CUSTOM_CTRL_A 123
+---@field [123] "CUSTOM_CTRL_A"
+---@field CUSTOM_CTRL_B 124
+---@field [124] "CUSTOM_CTRL_B"
+---@field CUSTOM_CTRL_C 125
+---@field [125] "CUSTOM_CTRL_C"
+---@field CUSTOM_CTRL_D 126
+---@field [126] "CUSTOM_CTRL_D"
+---@field CUSTOM_CTRL_E 127
+---@field [127] "CUSTOM_CTRL_E"
+---@field CUSTOM_CTRL_F 128
+---@field [128] "CUSTOM_CTRL_F"
+---@field CUSTOM_CTRL_G 129
+---@field [129] "CUSTOM_CTRL_G"
+---@field CUSTOM_CTRL_H 130
+---@field [130] "CUSTOM_CTRL_H"
+---@field CUSTOM_CTRL_I 131
+---@field [131] "CUSTOM_CTRL_I"
+---@field CUSTOM_CTRL_J 132
+---@field [132] "CUSTOM_CTRL_J"
+---@field CUSTOM_CTRL_K 133
+---@field [133] "CUSTOM_CTRL_K"
+---@field CUSTOM_CTRL_L 134
+---@field [134] "CUSTOM_CTRL_L"
+---@field CUSTOM_CTRL_M 135
+---@field [135] "CUSTOM_CTRL_M"
+---@field CUSTOM_CTRL_N 136
+---@field [136] "CUSTOM_CTRL_N"
+---@field CUSTOM_CTRL_O 137
+---@field [137] "CUSTOM_CTRL_O"
+---@field CUSTOM_CTRL_P 138
+---@field [138] "CUSTOM_CTRL_P"
+---@field CUSTOM_CTRL_Q 139
+---@field [139] "CUSTOM_CTRL_Q"
+---@field CUSTOM_CTRL_R 140
+---@field [140] "CUSTOM_CTRL_R"
+---@field CUSTOM_CTRL_S 141
+---@field [141] "CUSTOM_CTRL_S"
+---@field CUSTOM_CTRL_T 142
+---@field [142] "CUSTOM_CTRL_T"
+---@field CUSTOM_CTRL_U 143
+---@field [143] "CUSTOM_CTRL_U"
+---@field CUSTOM_CTRL_V 144
+---@field [144] "CUSTOM_CTRL_V"
+---@field CUSTOM_CTRL_W 145
+---@field [145] "CUSTOM_CTRL_W"
+---@field CUSTOM_CTRL_X 146
+---@field [146] "CUSTOM_CTRL_X"
+---@field CUSTOM_CTRL_Y 147
+---@field [147] "CUSTOM_CTRL_Y"
+---@field CUSTOM_CTRL_Z 148
+---@field [148] "CUSTOM_CTRL_Z"
+---@field CUSTOM_ALT_A 149
+---@field [149] "CUSTOM_ALT_A"
+---@field CUSTOM_ALT_B 150
+---@field [150] "CUSTOM_ALT_B"
+---@field CUSTOM_ALT_C 151
+---@field [151] "CUSTOM_ALT_C"
+---@field CUSTOM_ALT_D 152
+---@field [152] "CUSTOM_ALT_D"
+---@field CUSTOM_ALT_E 153
+---@field [153] "CUSTOM_ALT_E"
+---@field CUSTOM_ALT_F 154
+---@field [154] "CUSTOM_ALT_F"
+---@field CUSTOM_ALT_G 155
+---@field [155] "CUSTOM_ALT_G"
+---@field CUSTOM_ALT_H 156
+---@field [156] "CUSTOM_ALT_H"
+---@field CUSTOM_ALT_I 157
+---@field [157] "CUSTOM_ALT_I"
+---@field CUSTOM_ALT_J 158
+---@field [158] "CUSTOM_ALT_J"
+---@field CUSTOM_ALT_K 159
+---@field [159] "CUSTOM_ALT_K"
+---@field CUSTOM_ALT_L 160
+---@field [160] "CUSTOM_ALT_L"
+---@field CUSTOM_ALT_M 161
+---@field [161] "CUSTOM_ALT_M"
+---@field CUSTOM_ALT_N 162
+---@field [162] "CUSTOM_ALT_N"
+---@field CUSTOM_ALT_O 163
+---@field [163] "CUSTOM_ALT_O"
+---@field CUSTOM_ALT_P 164
+---@field [164] "CUSTOM_ALT_P"
+---@field CUSTOM_ALT_Q 165
+---@field [165] "CUSTOM_ALT_Q"
+---@field CUSTOM_ALT_R 166
+---@field [166] "CUSTOM_ALT_R"
+---@field CUSTOM_ALT_S 167
+---@field [167] "CUSTOM_ALT_S"
+---@field CUSTOM_ALT_T 168
+---@field [168] "CUSTOM_ALT_T"
+---@field CUSTOM_ALT_U 169
+---@field [169] "CUSTOM_ALT_U"
+---@field CUSTOM_ALT_V 170
+---@field [170] "CUSTOM_ALT_V"
+---@field CUSTOM_ALT_W 171
+---@field [171] "CUSTOM_ALT_W"
+---@field CUSTOM_ALT_X 172
+---@field [172] "CUSTOM_ALT_X"
+---@field CUSTOM_ALT_Y 173
+---@field [173] "CUSTOM_ALT_Y"
+---@field CUSTOM_ALT_Z 174
+---@field [174] "CUSTOM_ALT_Z"
+---@field HOTKEY_BUILDING_ARMORSTAND 179
+---@field [179] "HOTKEY_BUILDING_ARMORSTAND"
+---@field HOTKEY_BUILDING_BED 180
+---@field [180] "HOTKEY_BUILDING_BED"
+---@field HOTKEY_BUILDING_CHAIR 181
+---@field [181] "HOTKEY_BUILDING_CHAIR"
+---@field HOTKEY_BUILDING_COFFIN 182
+---@field [182] "HOTKEY_BUILDING_COFFIN"
+---@field HOTKEY_BUILDING_DOOR 183
+---@field [183] "HOTKEY_BUILDING_DOOR"
+---@field HOTKEY_BUILDING_FLOODGATE 184
+---@field [184] "HOTKEY_BUILDING_FLOODGATE"
+---@field HOTKEY_BUILDING_HATCH 185
+---@field [185] "HOTKEY_BUILDING_HATCH"
+---@field HOTKEY_BUILDING_GRATE_WALL 186
+---@field [186] "HOTKEY_BUILDING_GRATE_WALL"
+---@field HOTKEY_BUILDING_GRATE_FLOOR 187
+---@field [187] "HOTKEY_BUILDING_GRATE_FLOOR"
+---@field HOTKEY_BUILDING_BARS_VERTICAL 188
+---@field [188] "HOTKEY_BUILDING_BARS_VERTICAL"
+---@field HOTKEY_BUILDING_BARS_FLOOR 189
+---@field [189] "HOTKEY_BUILDING_BARS_FLOOR"
+---@field HOTKEY_BUILDING_CABINET 190
+---@field [190] "HOTKEY_BUILDING_CABINET"
+---@field HOTKEY_BUILDING_BOX 191
+---@field [191] "HOTKEY_BUILDING_BOX"
+---@field HOTKEY_BUILDING_KENNEL 192
+---@field [192] "HOTKEY_BUILDING_KENNEL"
+---@field HOTKEY_BUILDING_FARMPLOT 193
+---@field [193] "HOTKEY_BUILDING_FARMPLOT"
+---@field HOTKEY_BUILDING_WEAPONRACK 194
+---@field [194] "HOTKEY_BUILDING_WEAPONRACK"
+---@field HOTKEY_BUILDING_STATUE 195
+---@field [195] "HOTKEY_BUILDING_STATUE"
+---@field HOTKEY_BUILDING_TABLE 196
+---@field [196] "HOTKEY_BUILDING_TABLE"
+---@field HOTKEY_BUILDING_ROAD_DIRT 197
+---@field [197] "HOTKEY_BUILDING_ROAD_DIRT"
+---@field HOTKEY_BUILDING_ROAD_PAVED 198
+---@field [198] "HOTKEY_BUILDING_ROAD_PAVED"
+---@field HOTKEY_BUILDING_BRIDGE 199
+---@field [199] "HOTKEY_BUILDING_BRIDGE"
+---@field HOTKEY_BUILDING_WELL 200
+---@field [200] "HOTKEY_BUILDING_WELL"
+---@field HOTKEY_BUILDING_WINDOW_GLASS 201
+---@field [201] "HOTKEY_BUILDING_WINDOW_GLASS"
+---@field HOTKEY_BUILDING_WINDOW_GEM 202
+---@field [202] "HOTKEY_BUILDING_WINDOW_GEM"
+---@field HOTKEY_BUILDING_ANIMALTRAP 203
+---@field [203] "HOTKEY_BUILDING_ANIMALTRAP"
+---@field HOTKEY_BUILDING_CHAIN 204
+---@field [204] "HOTKEY_BUILDING_CHAIN"
+---@field HOTKEY_BUILDING_CAGE 205
+---@field [205] "HOTKEY_BUILDING_CAGE"
+---@field HOTKEY_BUILDING_TRADEDEPOT 206
+---@field [206] "HOTKEY_BUILDING_TRADEDEPOT"
+---@field HOTKEY_BUILDING_TRAP 207
+---@field [207] "HOTKEY_BUILDING_TRAP"
+---@field HOTKEY_BUILDING_MACHINE 208
+---@field [208] "HOTKEY_BUILDING_MACHINE"
+---@field HOTKEY_BUILDING_INSTRUMENT 209
+---@field [209] "HOTKEY_BUILDING_INSTRUMENT"
+---@field HOTKEY_BUILDING_SUPPORT 210
+---@field [210] "HOTKEY_BUILDING_SUPPORT"
+---@field HOTKEY_BUILDING_ARCHERYTARGET 211
+---@field [211] "HOTKEY_BUILDING_ARCHERYTARGET"
+---@field HOTKEY_BUILDING_TRACTION_BENCH 212
+---@field [212] "HOTKEY_BUILDING_TRACTION_BENCH"
+---@field HOTKEY_BUILDING_SLAB 213
+---@field [213] "HOTKEY_BUILDING_SLAB"
+---@field HOTKEY_BUILDING_NEST_BOX 214
+---@field [214] "HOTKEY_BUILDING_NEST_BOX"
+---@field HOTKEY_BUILDING_BOOKCASE 215
+---@field [215] "HOTKEY_BUILDING_BOOKCASE"
+---@field HOTKEY_BUILDING_HIVE 216
+---@field [216] "HOTKEY_BUILDING_HIVE"
+---@field HOTKEY_BUILDING_DISPLAY_FURNITURE 217
+---@field [217] "HOTKEY_BUILDING_DISPLAY_FURNITURE"
+---@field HOTKEY_BUILDING_OFFERING_PLACE 218
+---@field [218] "HOTKEY_BUILDING_OFFERING_PLACE"
+---@field HOTKEY_BUILDING_FURNITURE 219
+---@field [219] "HOTKEY_BUILDING_FURNITURE"
+---@field HOTKEY_BUILDING_PORTALS 220
+---@field [220] "HOTKEY_BUILDING_PORTALS"
+---@field HOTKEY_BUILDING_CAGES_CHAINS 221
+---@field [221] "HOTKEY_BUILDING_CAGES_CHAINS"
+---@field HOTKEY_BUILDING_MILITARY 222
+---@field [222] "HOTKEY_BUILDING_MILITARY"
+---@field HOTKEY_BUILDING_MACHINE_SCREW_PUMP 223
+---@field [223] "HOTKEY_BUILDING_MACHINE_SCREW_PUMP"
+---@field HOTKEY_BUILDING_MACHINE_WATER_WHEEL 224
+---@field [224] "HOTKEY_BUILDING_MACHINE_WATER_WHEEL"
+---@field HOTKEY_BUILDING_MACHINE_WINDMILL 225
+---@field [225] "HOTKEY_BUILDING_MACHINE_WINDMILL"
+---@field HOTKEY_BUILDING_MACHINE_GEAR_ASSEMBLY 226
+---@field [226] "HOTKEY_BUILDING_MACHINE_GEAR_ASSEMBLY"
+---@field HOTKEY_BUILDING_MACHINE_AXLE_VERTICAL 227
+---@field [227] "HOTKEY_BUILDING_MACHINE_AXLE_VERTICAL"
+---@field HOTKEY_BUILDING_MACHINE_AXLE_HORIZONTAL 228
+---@field [228] "HOTKEY_BUILDING_MACHINE_AXLE_HORIZONTAL"
+---@field HOTKEY_BUILDING_MACHINE_ROLLERS 229
+---@field [229] "HOTKEY_BUILDING_MACHINE_ROLLERS"
+---@field HOTKEY_BUILDING_SIEGEENGINE_BALLISTA 230
+---@field [230] "HOTKEY_BUILDING_SIEGEENGINE_BALLISTA"
+---@field HOTKEY_BUILDING_SIEGEENGINE_CATAPULT 231
+---@field [231] "HOTKEY_BUILDING_SIEGEENGINE_CATAPULT"
+---@field HOTKEY_BUILDING_TRAP_STONE 232
+---@field [232] "HOTKEY_BUILDING_TRAP_STONE"
+---@field HOTKEY_BUILDING_TRAP_WEAPON 233
+---@field [233] "HOTKEY_BUILDING_TRAP_WEAPON"
+---@field HOTKEY_BUILDING_TRAP_LEVER 234
+---@field [234] "HOTKEY_BUILDING_TRAP_LEVER"
+---@field HOTKEY_BUILDING_TRAP_TRIGGER 235
+---@field [235] "HOTKEY_BUILDING_TRAP_TRIGGER"
+---@field HOTKEY_BUILDING_TRAP_CAGE 236
+---@field [236] "HOTKEY_BUILDING_TRAP_CAGE"
+---@field HOTKEY_BUILDING_TRAP_SPIKE 237
+---@field [237] "HOTKEY_BUILDING_TRAP_SPIKE"
+---@field HOTKEY_BUILDING_CONSTRUCTION 238
+---@field [238] "HOTKEY_BUILDING_CONSTRUCTION"
+---@field HOTKEY_BUILDING_CONSTRUCTION_WALL 239
+---@field [239] "HOTKEY_BUILDING_CONSTRUCTION_WALL"
+---@field HOTKEY_BUILDING_CONSTRUCTION_FLOOR 240
+---@field [240] "HOTKEY_BUILDING_CONSTRUCTION_FLOOR"
+---@field HOTKEY_BUILDING_CONSTRUCTION_RAMP 241
+---@field [241] "HOTKEY_BUILDING_CONSTRUCTION_RAMP"
+---@field HOTKEY_BUILDING_CONSTRUCTION_STAIR_UPDOWN 242
+---@field [242] "HOTKEY_BUILDING_CONSTRUCTION_STAIR_UPDOWN"
+---@field HOTKEY_BUILDING_CONSTRUCTION_FORTIFICATION 243
+---@field [243] "HOTKEY_BUILDING_CONSTRUCTION_FORTIFICATION"
+---@field HOTKEY_BUILDING_CONSTRUCTION_TRACK 244
+---@field [244] "HOTKEY_BUILDING_CONSTRUCTION_TRACK"
+---@field HOTKEY_BUILDING_CONSTRUCTION_TRACK_STOP 245
+---@field [245] "HOTKEY_BUILDING_CONSTRUCTION_TRACK_STOP"
+---@field HOTKEY_BUILDING_WORKSHOP 246
+---@field [246] "HOTKEY_BUILDING_WORKSHOP"
+---@field HOTKEY_BUILDING_WORKSHOPS_CLOTHING_LEATHER 247
+---@field [247] "HOTKEY_BUILDING_WORKSHOPS_CLOTHING_LEATHER"
+---@field HOTKEY_BUILDING_FARMING 248
+---@field [248] "HOTKEY_BUILDING_FARMING"
+---@field HOTKEY_BUILDING_FURNACE 249
+---@field [249] "HOTKEY_BUILDING_FURNACE"
+---@field HOTKEY_BUILDING_WORKSHOP_LEATHER 250
+---@field [250] "HOTKEY_BUILDING_WORKSHOP_LEATHER"
+---@field HOTKEY_BUILDING_WORKSHOP_QUERN 251
+---@field [251] "HOTKEY_BUILDING_WORKSHOP_QUERN"
+---@field HOTKEY_BUILDING_WORKSHOP_MILLSTONE 252
+---@field [252] "HOTKEY_BUILDING_WORKSHOP_MILLSTONE"
+---@field HOTKEY_BUILDING_WORKSHOP_LOOM 253
+---@field [253] "HOTKEY_BUILDING_WORKSHOP_LOOM"
+---@field HOTKEY_BUILDING_WORKSHOP_CLOTHES 254
+---@field [254] "HOTKEY_BUILDING_WORKSHOP_CLOTHES"
+---@field HOTKEY_BUILDING_WORKSHOP_BOWYER 255
+---@field [255] "HOTKEY_BUILDING_WORKSHOP_BOWYER"
+---@field HOTKEY_BUILDING_WORKSHOP_CARPENTER 256
+---@field [256] "HOTKEY_BUILDING_WORKSHOP_CARPENTER"
+---@field HOTKEY_BUILDING_WORKSHOP_METALSMITH 257
+---@field [257] "HOTKEY_BUILDING_WORKSHOP_METALSMITH"
+---@field HOTKEY_BUILDING_WORKSHOP_LAVAMILL 258
+---@field [258] "HOTKEY_BUILDING_WORKSHOP_LAVAMILL"
+---@field HOTKEY_BUILDING_WORKSHOP_JEWELER 259
+---@field [259] "HOTKEY_BUILDING_WORKSHOP_JEWELER"
+---@field HOTKEY_BUILDING_WORKSHOP_MASON 260
+---@field [260] "HOTKEY_BUILDING_WORKSHOP_MASON"
+---@field HOTKEY_BUILDING_WORKSHOP_BUTCHER 261
+---@field [261] "HOTKEY_BUILDING_WORKSHOP_BUTCHER"
+---@field HOTKEY_BUILDING_WORKSHOP_TANNER 262
+---@field [262] "HOTKEY_BUILDING_WORKSHOP_TANNER"
+---@field HOTKEY_BUILDING_WORKSHOP_DYER 263
+---@field [263] "HOTKEY_BUILDING_WORKSHOP_DYER"
+---@field HOTKEY_BUILDING_WORKSHOP_CRAFTSMAN 264
+---@field [264] "HOTKEY_BUILDING_WORKSHOP_CRAFTSMAN"
+---@field HOTKEY_BUILDING_WORKSHOP_SIEGE 265
+---@field [265] "HOTKEY_BUILDING_WORKSHOP_SIEGE"
+---@field HOTKEY_BUILDING_WORKSHOP_MECHANIC 266
+---@field [266] "HOTKEY_BUILDING_WORKSHOP_MECHANIC"
+---@field HOTKEY_BUILDING_WORKSHOP_STILL 267
+---@field [267] "HOTKEY_BUILDING_WORKSHOP_STILL"
+---@field HOTKEY_BUILDING_WORKSHOP_FARMER 268
+---@field [268] "HOTKEY_BUILDING_WORKSHOP_FARMER"
+---@field HOTKEY_BUILDING_WORKSHOP_KITCHEN 269
+---@field [269] "HOTKEY_BUILDING_WORKSHOP_KITCHEN"
+---@field HOTKEY_BUILDING_WORKSHOP_FISHERY 270
+---@field [270] "HOTKEY_BUILDING_WORKSHOP_FISHERY"
+---@field HOTKEY_BUILDING_WORKSHOP_ASHERY 271
+---@field [271] "HOTKEY_BUILDING_WORKSHOP_ASHERY"
+---@field HOTKEY_BUILDING_FURNACE_WOOD 272
+---@field [272] "HOTKEY_BUILDING_FURNACE_WOOD"
+---@field HOTKEY_BUILDING_FURNACE_SMELTER 273
+---@field [273] "HOTKEY_BUILDING_FURNACE_SMELTER"
+---@field HOTKEY_BUILDING_FURNACE_GLASS 274
+---@field [274] "HOTKEY_BUILDING_FURNACE_GLASS"
+---@field HOTKEY_BUILDING_FURNACE_KILN 275
+---@field [275] "HOTKEY_BUILDING_FURNACE_KILN"
+---@field HOTKEY_BUILDING_FURNACE_SMELTER_LAVA 276
+---@field [276] "HOTKEY_BUILDING_FURNACE_SMELTER_LAVA"
+---@field HOTKEY_BUILDING_FURNACE_GLASS_LAVA 277
+---@field [277] "HOTKEY_BUILDING_FURNACE_GLASS_LAVA"
+---@field HOTKEY_BUILDING_FURNACE_KILN_LAVA 278
+---@field [278] "HOTKEY_BUILDING_FURNACE_KILN_LAVA"
+---@field PET_BUTCHER 282
+---@field [282] "PET_BUTCHER"
+---@field PET_GELD 283
+---@field [283] "PET_GELD"
+---@field PET_AVAILABLE 284
+---@field [284] "PET_AVAILABLE"
+---@field ANIMAL_SELECT_TRAINER 285
+---@field [285] "ANIMAL_SELECT_TRAINER"
+---@field ANIMAL_WAR_TRAINING 286
+---@field [286] "ANIMAL_WAR_TRAINING"
+---@field ANIMAL_HUNTING_TRAINING 287
+---@field [287] "ANIMAL_HUNTING_TRAINING"
+---@field ANIMAL_ASSIGN_WORKER 288
+---@field [288] "ANIMAL_ASSIGN_WORKER"
+---@field KITCHEN_COOK 289
+---@field [289] "KITCHEN_COOK"
+---@field KITCHEN_BREW 290
+---@field [290] "KITCHEN_BREW"
+---@field JUSTICE_INTERROGATE 291
+---@field [291] "JUSTICE_INTERROGATE"
+---@field JUSTICE_COUNTERINTELLIGENCE 292
+---@field [292] "JUSTICE_COUNTERINTELLIGENCE"
+---@field D_ONESTEP 293
+---@field [293] "D_ONESTEP"
+---@field D_PAUSE 294
+---@field [294] "D_PAUSE"
+---@field D_HOT_KEYS 295
+---@field [295] "D_HOT_KEYS"
+---@field D_HOTKEY1 296
+---@field [296] "D_HOTKEY1"
+---@field D_HOTKEY2 297
+---@field [297] "D_HOTKEY2"
+---@field D_HOTKEY3 298
+---@field [298] "D_HOTKEY3"
+---@field D_HOTKEY4 299
+---@field [299] "D_HOTKEY4"
+---@field D_HOTKEY5 300
+---@field [300] "D_HOTKEY5"
+---@field D_HOTKEY6 301
+---@field [301] "D_HOTKEY6"
+---@field D_HOTKEY7 302
+---@field [302] "D_HOTKEY7"
+---@field D_HOTKEY8 303
+---@field [303] "D_HOTKEY8"
+---@field D_HOTKEY9 304
+---@field [304] "D_HOTKEY9"
+---@field D_HOTKEY10 305
+---@field [305] "D_HOTKEY10"
+---@field D_HOTKEY11 306
+---@field [306] "D_HOTKEY11"
+---@field D_HOTKEY12 307
+---@field [307] "D_HOTKEY12"
+---@field D_HOTKEY13 308
+---@field [308] "D_HOTKEY13"
+---@field D_HOTKEY14 309
+---@field [309] "D_HOTKEY14"
+---@field D_HOTKEY15 310
+---@field [310] "D_HOTKEY15"
+---@field D_HOTKEY16 311
+---@field [311] "D_HOTKEY16"
+---@field D_TOGGLE_RAMP_INDICATORS 312
+---@field [312] "D_TOGGLE_RAMP_INDICATORS"
+---@field D_TOGGLE_FLUID_NUMBERS 313
+---@field [313] "D_TOGGLE_FLUID_NUMBERS"
+---@field D_DESIGNATE_DIG 314
+---@field [314] "D_DESIGNATE_DIG"
+---@field D_DESIGNATE_CHOP 315
+---@field [315] "D_DESIGNATE_CHOP"
+---@field D_DESIGNATE_GATHER 316
+---@field [316] "D_DESIGNATE_GATHER"
+---@field D_DESIGNATE_SMOOTH 317
+---@field [317] "D_DESIGNATE_SMOOTH"
+---@field D_DESIGNATE_ITEMS 318
+---@field [318] "D_DESIGNATE_ITEMS"
+---@field D_DESIGNATE_TRAFFIC 319
+---@field [319] "D_DESIGNATE_TRAFFIC"
+---@field D_DESIGNATE_ERASE 320
+---@field [320] "D_DESIGNATE_ERASE"
+---@field DESIGNATE_DIG 321
+---@field [321] "DESIGNATE_DIG"
+---@field DESIGNATE_STAIR_UPDOWN 322
+---@field [322] "DESIGNATE_STAIR_UPDOWN"
+---@field DESIGNATE_RAMP 323
+---@field [323] "DESIGNATE_RAMP"
+---@field DESIGNATE_CHANNEL 324
+---@field [324] "DESIGNATE_CHANNEL"
+---@field DESIGNATE_DIG_REMOVE_STAIRS_RAMPS 325
+---@field [325] "DESIGNATE_DIG_REMOVE_STAIRS_RAMPS"
+---@field DESIGNATE_RECTANGLE 326
+---@field [326] "DESIGNATE_RECTANGLE"
+---@field DESIGNATE_FREE_DRAW 327
+---@field [327] "DESIGNATE_FREE_DRAW"
+---@field DESIGNATE_TOGGLE_ADVANCED_OPTIONS 328
+---@field [328] "DESIGNATE_TOGGLE_ADVANCED_OPTIONS"
+---@field DESIGNATE_MINE_MODE_ALL 329
+---@field [329] "DESIGNATE_MINE_MODE_ALL"
+---@field DESIGNATE_MINE_MODE_AUTO 330
+---@field [330] "DESIGNATE_MINE_MODE_AUTO"
+---@field DESIGNATE_MINE_MODE_ORE_GEM 331
+---@field [331] "DESIGNATE_MINE_MODE_ORE_GEM"
+---@field DESIGNATE_MINE_MODE_GEM 332
+---@field [332] "DESIGNATE_MINE_MODE_GEM"
+---@field DESIGNATE_PRIORITY_UP 333
+---@field [333] "DESIGNATE_PRIORITY_UP"
+---@field DESIGNATE_PRIORITY_DOWN 334
+---@field [334] "DESIGNATE_PRIORITY_DOWN"
+---@field DESIGNATE_TOGGLE_MARKER 335
+---@field [335] "DESIGNATE_TOGGLE_MARKER"
+---@field DESIGNATE_MARKER_TO_STANDARD 336
+---@field [336] "DESIGNATE_MARKER_TO_STANDARD"
+---@field DESIGNATE_STANDARD_TO_MARKER 337
+---@field [337] "DESIGNATE_STANDARD_TO_MARKER"
+---@field DESIGNATE_CHOP 338
+---@field [338] "DESIGNATE_CHOP"
+---@field DESIGNATE_PLANTS 339
+---@field [339] "DESIGNATE_PLANTS"
+---@field DESIGNATE_SMOOTH 340
+---@field [340] "DESIGNATE_SMOOTH"
+---@field DESIGNATE_ENGRAVE 341
+---@field [341] "DESIGNATE_ENGRAVE"
+---@field DESIGNATE_TRACK 342
+---@field [342] "DESIGNATE_TRACK"
+---@field DESIGNATE_FORTIFY 343
+---@field [343] "DESIGNATE_FORTIFY"
+---@field DESIGNATE_CLAIM 344
+---@field [344] "DESIGNATE_CLAIM"
+---@field DESIGNATE_UNCLAIM 345
+---@field [345] "DESIGNATE_UNCLAIM"
+---@field DESIGNATE_MELT 346
+---@field [346] "DESIGNATE_MELT"
+---@field DESIGNATE_NO_MELT 347
+---@field [347] "DESIGNATE_NO_MELT"
+---@field DESIGNATE_DUMP 348
+---@field [348] "DESIGNATE_DUMP"
+---@field DESIGNATE_NO_DUMP 349
+---@field [349] "DESIGNATE_NO_DUMP"
+---@field DESIGNATE_HIDE 350
+---@field [350] "DESIGNATE_HIDE"
+---@field DESIGNATE_NO_HIDE 351
+---@field [351] "DESIGNATE_NO_HIDE"
+---@field DESIGNATE_TRAFFIC_HIGH 352
+---@field [352] "DESIGNATE_TRAFFIC_HIGH"
+---@field DESIGNATE_TRAFFIC_NORMAL 353
+---@field [353] "DESIGNATE_TRAFFIC_NORMAL"
+---@field DESIGNATE_TRAFFIC_LOW 354
+---@field [354] "DESIGNATE_TRAFFIC_LOW"
+---@field DESIGNATE_TRAFFIC_RESTRICTED 355
+---@field [355] "DESIGNATE_TRAFFIC_RESTRICTED"
+---@field D_BUILDING 356
+---@field [356] "D_BUILDING"
+---@field D_STOCKPILES 357
+---@field [357] "D_STOCKPILES"
+---@field D_CIVZONE 358
+---@field [358] "D_CIVZONE"
+---@field D_BURROWS 359
+---@field [359] "D_BURROWS"
+---@field D_HAULING 360
+---@field [360] "D_HAULING"
+---@field D_UNITLIST 361
+---@field [361] "D_UNITLIST"
+---@field D_JOBLIST 362
+---@field [362] "D_JOBLIST"
+---@field D_LOCATIONS 363
+---@field [363] "D_LOCATIONS"
+---@field D_LABOR 364
+---@field [364] "D_LABOR"
+---@field D_ORDERS 365
+---@field [365] "D_ORDERS"
+---@field D_NOBLES 366
+---@field [366] "D_NOBLES"
+---@field D_ARTLIST 367
+---@field [367] "D_ARTLIST"
+---@field D_SQUADS 368
+---@field [368] "D_SQUADS"
+---@field D_WORLD 369
+---@field [369] "D_WORLD"
+---@field D_JUSTICE 370
+---@field [370] "D_JUSTICE"
+---@field D_STOCKS 371
+---@field [371] "D_STOCKS"
+---@field D_ANNOUNCE 372
+---@field [372] "D_ANNOUNCE"
+---@field ARENA_CREATE_CREATURE 373
+---@field [373] "ARENA_CREATE_CREATURE"
+---@field ARENA_CREATURE_RESET 374
+---@field [374] "ARENA_CREATURE_RESET"
+---@field ARENA_FLUIDS 375
+---@field [375] "ARENA_FLUIDS"
+---@field ARENA_FLUIDS_WATER 376
+---@field [376] "ARENA_FLUIDS_WATER"
+---@field ARENA_FLUIDS_MAGMA 377
+---@field [377] "ARENA_FLUIDS_MAGMA"
+---@field ARENA_FLUIDS_SNOW 378
+---@field [378] "ARENA_FLUIDS_SNOW"
+---@field ARENA_FLUIDS_MUD 379
+---@field [379] "ARENA_FLUIDS_MUD"
+---@field ARENA_FLUIDS_REMOVE 380
+---@field [380] "ARENA_FLUIDS_REMOVE"
+---@field ARENA_CREATE_TREE 381
+---@field [381] "ARENA_CREATE_TREE"
+---@field ARENA_WEATHER 382
+---@field [382] "ARENA_WEATHER"
+---@field ARENA_CONFLICT_STATE1 383
+---@field [383] "ARENA_CONFLICT_STATE1"
+---@field ARENA_CONFLICT_STATE2 384
+---@field [384] "ARENA_CONFLICT_STATE2"
+---@field ARENA_MORALE 385
+---@field [385] "ARENA_MORALE"
+---@field RECENTER 386
+---@field [386] "RECENTER"
+---@field OPEN_SHEET 387
+---@field [387] "OPEN_SHEET"
+---@field FILTER 388
+---@field [388] "FILTER"
+---@field UNITLIST_RECENTER_JOB 389
+---@field [389] "UNITLIST_RECENTER_JOB"
+---@field UNITLIST_JOB_DETAILS 390
+---@field [390] "UNITLIST_JOB_DETAILS"
+---@field UNITLIST_SORT_NAME 391
+---@field [391] "UNITLIST_SORT_NAME"
+---@field UNITLIST_SORT_PROFA 392
+---@field [392] "UNITLIST_SORT_PROFA"
+---@field UNITLIST_SORT_PROFB 393
+---@field [393] "UNITLIST_SORT_PROFB"
+---@field UNITLIST_SORT_JOB 394
+---@field [394] "UNITLIST_SORT_JOB"
+---@field UNITLIST_SORT_HAPPINESS 395
+---@field [395] "UNITLIST_SORT_HAPPINESS"
+---@field UNITLIST_SORT_SKILLS 396
+---@field [396] "UNITLIST_SORT_SKILLS"
+---@field UNITLIST_SPECIALIZE 397
+---@field [397] "UNITLIST_SPECIALIZE"
+---@field STRING_A000 399
+---@field [399] "STRING_A000"
+---@field STRING_A001 400
+---@field [400] "STRING_A001"
+---@field STRING_A002 401
+---@field [401] "STRING_A002"
+---@field STRING_A003 402
+---@field [402] "STRING_A003"
+---@field STRING_A004 403
+---@field [403] "STRING_A004"
+---@field STRING_A005 404
+---@field [404] "STRING_A005"
+---@field STRING_A006 405
+---@field [405] "STRING_A006"
+---@field STRING_A007 406
+---@field [406] "STRING_A007"
+---@field STRING_A008 407
+---@field [407] "STRING_A008"
+---@field STRING_A009 408
+---@field [408] "STRING_A009"
+---@field STRING_A010 409
+---@field [409] "STRING_A010"
+---@field STRING_A011 410
+---@field [410] "STRING_A011"
+---@field STRING_A012 411
+---@field [411] "STRING_A012"
+---@field STRING_A013 412
+---@field [412] "STRING_A013"
+---@field STRING_A014 413
+---@field [413] "STRING_A014"
+---@field STRING_A015 414
+---@field [414] "STRING_A015"
+---@field STRING_A016 415
+---@field [415] "STRING_A016"
+---@field STRING_A017 416
+---@field [416] "STRING_A017"
+---@field STRING_A018 417
+---@field [417] "STRING_A018"
+---@field STRING_A019 418
+---@field [418] "STRING_A019"
+---@field STRING_A020 419
+---@field [419] "STRING_A020"
+---@field STRING_A021 420
+---@field [420] "STRING_A021"
+---@field STRING_A022 421
+---@field [421] "STRING_A022"
+---@field STRING_A023 422
+---@field [422] "STRING_A023"
+---@field STRING_A024 423
+---@field [423] "STRING_A024"
+---@field STRING_A025 424
+---@field [424] "STRING_A025"
+---@field STRING_A026 425
+---@field [425] "STRING_A026"
+---@field STRING_A027 426
+---@field [426] "STRING_A027"
+---@field STRING_A028 427
+---@field [427] "STRING_A028"
+---@field STRING_A029 428
+---@field [428] "STRING_A029"
+---@field STRING_A030 429
+---@field [429] "STRING_A030"
+---@field STRING_A031 430
+---@field [430] "STRING_A031"
+---@field STRING_A032 431
+---@field [431] "STRING_A032"
+---@field STRING_A033 432
+---@field [432] "STRING_A033"
+---@field STRING_A034 433
+---@field [433] "STRING_A034"
+---@field STRING_A035 434
+---@field [434] "STRING_A035"
+---@field STRING_A036 435
+---@field [435] "STRING_A036"
+---@field STRING_A037 436
+---@field [436] "STRING_A037"
+---@field STRING_A038 437
+---@field [437] "STRING_A038"
+---@field STRING_A039 438
+---@field [438] "STRING_A039"
+---@field STRING_A040 439
+---@field [439] "STRING_A040"
+---@field STRING_A041 440
+---@field [440] "STRING_A041"
+---@field STRING_A042 441
+---@field [441] "STRING_A042"
+---@field STRING_A043 442
+---@field [442] "STRING_A043"
+---@field STRING_A044 443
+---@field [443] "STRING_A044"
+---@field STRING_A045 444
+---@field [444] "STRING_A045"
+---@field STRING_A046 445
+---@field [445] "STRING_A046"
+---@field STRING_A047 446
+---@field [446] "STRING_A047"
+---@field STRING_A048 447
+---@field [447] "STRING_A048"
+---@field STRING_A049 448
+---@field [448] "STRING_A049"
+---@field STRING_A050 449
+---@field [449] "STRING_A050"
+---@field STRING_A051 450
+---@field [450] "STRING_A051"
+---@field STRING_A052 451
+---@field [451] "STRING_A052"
+---@field STRING_A053 452
+---@field [452] "STRING_A053"
+---@field STRING_A054 453
+---@field [453] "STRING_A054"
+---@field STRING_A055 454
+---@field [454] "STRING_A055"
+---@field STRING_A056 455
+---@field [455] "STRING_A056"
+---@field STRING_A057 456
+---@field [456] "STRING_A057"
+---@field STRING_A058 457
+---@field [457] "STRING_A058"
+---@field STRING_A059 458
+---@field [458] "STRING_A059"
+---@field STRING_A060 459
+---@field [459] "STRING_A060"
+---@field STRING_A061 460
+---@field [460] "STRING_A061"
+---@field STRING_A062 461
+---@field [461] "STRING_A062"
+---@field STRING_A063 462
+---@field [462] "STRING_A063"
+---@field STRING_A064 463
+---@field [463] "STRING_A064"
+---@field STRING_A065 464
+---@field [464] "STRING_A065"
+---@field STRING_A066 465
+---@field [465] "STRING_A066"
+---@field STRING_A067 466
+---@field [466] "STRING_A067"
+---@field STRING_A068 467
+---@field [467] "STRING_A068"
+---@field STRING_A069 468
+---@field [468] "STRING_A069"
+---@field STRING_A070 469
+---@field [469] "STRING_A070"
+---@field STRING_A071 470
+---@field [470] "STRING_A071"
+---@field STRING_A072 471
+---@field [471] "STRING_A072"
+---@field STRING_A073 472
+---@field [472] "STRING_A073"
+---@field STRING_A074 473
+---@field [473] "STRING_A074"
+---@field STRING_A075 474
+---@field [474] "STRING_A075"
+---@field STRING_A076 475
+---@field [475] "STRING_A076"
+---@field STRING_A077 476
+---@field [476] "STRING_A077"
+---@field STRING_A078 477
+---@field [477] "STRING_A078"
+---@field STRING_A079 478
+---@field [478] "STRING_A079"
+---@field STRING_A080 479
+---@field [479] "STRING_A080"
+---@field STRING_A081 480
+---@field [480] "STRING_A081"
+---@field STRING_A082 481
+---@field [481] "STRING_A082"
+---@field STRING_A083 482
+---@field [482] "STRING_A083"
+---@field STRING_A084 483
+---@field [483] "STRING_A084"
+---@field STRING_A085 484
+---@field [484] "STRING_A085"
+---@field STRING_A086 485
+---@field [485] "STRING_A086"
+---@field STRING_A087 486
+---@field [486] "STRING_A087"
+---@field STRING_A088 487
+---@field [487] "STRING_A088"
+---@field STRING_A089 488
+---@field [488] "STRING_A089"
+---@field STRING_A090 489
+---@field [489] "STRING_A090"
+---@field STRING_A091 490
+---@field [490] "STRING_A091"
+---@field STRING_A092 491
+---@field [491] "STRING_A092"
+---@field STRING_A093 492
+---@field [492] "STRING_A093"
+---@field STRING_A094 493
+---@field [493] "STRING_A094"
+---@field STRING_A095 494
+---@field [494] "STRING_A095"
+---@field STRING_A096 495
+---@field [495] "STRING_A096"
+---@field STRING_A097 496
+---@field [496] "STRING_A097"
+---@field STRING_A098 497
+---@field [497] "STRING_A098"
+---@field STRING_A099 498
+---@field [498] "STRING_A099"
+---@field STRING_A100 499
+---@field [499] "STRING_A100"
+---@field STRING_A101 500
+---@field [500] "STRING_A101"
+---@field STRING_A102 501
+---@field [501] "STRING_A102"
+---@field STRING_A103 502
+---@field [502] "STRING_A103"
+---@field STRING_A104 503
+---@field [503] "STRING_A104"
+---@field STRING_A105 504
+---@field [504] "STRING_A105"
+---@field STRING_A106 505
+---@field [505] "STRING_A106"
+---@field STRING_A107 506
+---@field [506] "STRING_A107"
+---@field STRING_A108 507
+---@field [507] "STRING_A108"
+---@field STRING_A109 508
+---@field [508] "STRING_A109"
+---@field STRING_A110 509
+---@field [509] "STRING_A110"
+---@field STRING_A111 510
+---@field [510] "STRING_A111"
+---@field STRING_A112 511
+---@field [511] "STRING_A112"
+---@field STRING_A113 512
+---@field [512] "STRING_A113"
+---@field STRING_A114 513
+---@field [513] "STRING_A114"
+---@field STRING_A115 514
+---@field [514] "STRING_A115"
+---@field STRING_A116 515
+---@field [515] "STRING_A116"
+---@field STRING_A117 516
+---@field [516] "STRING_A117"
+---@field STRING_A118 517
+---@field [517] "STRING_A118"
+---@field STRING_A119 518
+---@field [518] "STRING_A119"
+---@field STRING_A120 519
+---@field [519] "STRING_A120"
+---@field STRING_A121 520
+---@field [520] "STRING_A121"
+---@field STRING_A122 521
+---@field [521] "STRING_A122"
+---@field STRING_A123 522
+---@field [522] "STRING_A123"
+---@field STRING_A124 523
+---@field [523] "STRING_A124"
+---@field STRING_A125 524
+---@field [524] "STRING_A125"
+---@field STRING_A126 525
+---@field [525] "STRING_A126"
+---@field STRING_A128 526
+---@field [526] "STRING_A128"
+---@field STRING_A129 527
+---@field [527] "STRING_A129"
+---@field STRING_A130 528
+---@field [528] "STRING_A130"
+---@field STRING_A131 529
+---@field [529] "STRING_A131"
+---@field STRING_A132 530
+---@field [530] "STRING_A132"
+---@field STRING_A133 531
+---@field [531] "STRING_A133"
+---@field STRING_A134 532
+---@field [532] "STRING_A134"
+---@field STRING_A135 533
+---@field [533] "STRING_A135"
+---@field STRING_A136 534
+---@field [534] "STRING_A136"
+---@field STRING_A137 535
+---@field [535] "STRING_A137"
+---@field STRING_A138 536
+---@field [536] "STRING_A138"
+---@field STRING_A139 537
+---@field [537] "STRING_A139"
+---@field STRING_A140 538
+---@field [538] "STRING_A140"
+---@field STRING_A141 539
+---@field [539] "STRING_A141"
+---@field STRING_A142 540
+---@field [540] "STRING_A142"
+---@field STRING_A143 541
+---@field [541] "STRING_A143"
+---@field STRING_A144 542
+---@field [542] "STRING_A144"
+---@field STRING_A145 543
+---@field [543] "STRING_A145"
+---@field STRING_A146 544
+---@field [544] "STRING_A146"
+---@field STRING_A147 545
+---@field [545] "STRING_A147"
+---@field STRING_A148 546
+---@field [546] "STRING_A148"
+---@field STRING_A149 547
+---@field [547] "STRING_A149"
+---@field STRING_A150 548
+---@field [548] "STRING_A150"
+---@field STRING_A151 549
+---@field [549] "STRING_A151"
+---@field STRING_A152 550
+---@field [550] "STRING_A152"
+---@field STRING_A153 551
+---@field [551] "STRING_A153"
+---@field STRING_A154 552
+---@field [552] "STRING_A154"
+---@field STRING_A155 553
+---@field [553] "STRING_A155"
+---@field STRING_A156 554
+---@field [554] "STRING_A156"
+---@field STRING_A157 555
+---@field [555] "STRING_A157"
+---@field STRING_A158 556
+---@field [556] "STRING_A158"
+---@field STRING_A159 557
+---@field [557] "STRING_A159"
+---@field STRING_A160 558
+---@field [558] "STRING_A160"
+---@field STRING_A161 559
+---@field [559] "STRING_A161"
+---@field STRING_A162 560
+---@field [560] "STRING_A162"
+---@field STRING_A163 561
+---@field [561] "STRING_A163"
+---@field STRING_A164 562
+---@field [562] "STRING_A164"
+---@field STRING_A165 563
+---@field [563] "STRING_A165"
+---@field STRING_A166 564
+---@field [564] "STRING_A166"
+---@field STRING_A167 565
+---@field [565] "STRING_A167"
+---@field STRING_A168 566
+---@field [566] "STRING_A168"
+---@field STRING_A169 567
+---@field [567] "STRING_A169"
+---@field STRING_A170 568
+---@field [568] "STRING_A170"
+---@field STRING_A171 569
+---@field [569] "STRING_A171"
+---@field STRING_A172 570
+---@field [570] "STRING_A172"
+---@field STRING_A173 571
+---@field [571] "STRING_A173"
+---@field STRING_A174 572
+---@field [572] "STRING_A174"
+---@field STRING_A175 573
+---@field [573] "STRING_A175"
+---@field STRING_A176 574
+---@field [574] "STRING_A176"
+---@field STRING_A177 575
+---@field [575] "STRING_A177"
+---@field STRING_A178 576
+---@field [576] "STRING_A178"
+---@field STRING_A179 577
+---@field [577] "STRING_A179"
+---@field STRING_A180 578
+---@field [578] "STRING_A180"
+---@field STRING_A181 579
+---@field [579] "STRING_A181"
+---@field STRING_A182 580
+---@field [580] "STRING_A182"
+---@field STRING_A183 581
+---@field [581] "STRING_A183"
+---@field STRING_A184 582
+---@field [582] "STRING_A184"
+---@field STRING_A185 583
+---@field [583] "STRING_A185"
+---@field STRING_A186 584
+---@field [584] "STRING_A186"
+---@field STRING_A187 585
+---@field [585] "STRING_A187"
+---@field STRING_A188 586
+---@field [586] "STRING_A188"
+---@field STRING_A189 587
+---@field [587] "STRING_A189"
+---@field STRING_A190 588
+---@field [588] "STRING_A190"
+---@field STRING_A191 589
+---@field [589] "STRING_A191"
+---@field STRING_A192 590
+---@field [590] "STRING_A192"
+---@field STRING_A193 591
+---@field [591] "STRING_A193"
+---@field STRING_A194 592
+---@field [592] "STRING_A194"
+---@field STRING_A195 593
+---@field [593] "STRING_A195"
+---@field STRING_A196 594
+---@field [594] "STRING_A196"
+---@field STRING_A197 595
+---@field [595] "STRING_A197"
+---@field STRING_A198 596
+---@field [596] "STRING_A198"
+---@field STRING_A199 597
+---@field [597] "STRING_A199"
+---@field STRING_A200 598
+---@field [598] "STRING_A200"
+---@field STRING_A201 599
+---@field [599] "STRING_A201"
+---@field STRING_A202 600
+---@field [600] "STRING_A202"
+---@field STRING_A203 601
+---@field [601] "STRING_A203"
+---@field STRING_A204 602
+---@field [602] "STRING_A204"
+---@field STRING_A205 603
+---@field [603] "STRING_A205"
+---@field STRING_A206 604
+---@field [604] "STRING_A206"
+---@field STRING_A207 605
+---@field [605] "STRING_A207"
+---@field STRING_A208 606
+---@field [606] "STRING_A208"
+---@field STRING_A209 607
+---@field [607] "STRING_A209"
+---@field STRING_A210 608
+---@field [608] "STRING_A210"
+---@field STRING_A211 609
+---@field [609] "STRING_A211"
+---@field STRING_A212 610
+---@field [610] "STRING_A212"
+---@field STRING_A213 611
+---@field [611] "STRING_A213"
+---@field STRING_A214 612
+---@field [612] "STRING_A214"
+---@field STRING_A215 613
+---@field [613] "STRING_A215"
+---@field STRING_A216 614
+---@field [614] "STRING_A216"
+---@field STRING_A217 615
+---@field [615] "STRING_A217"
+---@field STRING_A218 616
+---@field [616] "STRING_A218"
+---@field STRING_A219 617
+---@field [617] "STRING_A219"
+---@field STRING_A220 618
+---@field [618] "STRING_A220"
+---@field STRING_A221 619
+---@field [619] "STRING_A221"
+---@field STRING_A222 620
+---@field [620] "STRING_A222"
+---@field STRING_A223 621
+---@field [621] "STRING_A223"
+---@field STRING_A224 622
+---@field [622] "STRING_A224"
+---@field STRING_A225 623
+---@field [623] "STRING_A225"
+---@field STRING_A226 624
+---@field [624] "STRING_A226"
+---@field STRING_A227 625
+---@field [625] "STRING_A227"
+---@field STRING_A228 626
+---@field [626] "STRING_A228"
+---@field STRING_A229 627
+---@field [627] "STRING_A229"
+---@field STRING_A230 628
+---@field [628] "STRING_A230"
+---@field STRING_A231 629
+---@field [629] "STRING_A231"
+---@field STRING_A232 630
+---@field [630] "STRING_A232"
+---@field STRING_A233 631
+---@field [631] "STRING_A233"
+---@field STRING_A234 632
+---@field [632] "STRING_A234"
+---@field STRING_A235 633
+---@field [633] "STRING_A235"
+---@field STRING_A236 634
+---@field [634] "STRING_A236"
+---@field STRING_A237 635
+---@field [635] "STRING_A237"
+---@field STRING_A238 636
+---@field [636] "STRING_A238"
+---@field STRING_A239 637
+---@field [637] "STRING_A239"
+---@field STRING_A240 638
+---@field [638] "STRING_A240"
+---@field STRING_A241 639
+---@field [639] "STRING_A241"
+---@field STRING_A242 640
+---@field [640] "STRING_A242"
+---@field STRING_A243 641
+---@field [641] "STRING_A243"
+---@field STRING_A244 642
+---@field [642] "STRING_A244"
+---@field STRING_A245 643
+---@field [643] "STRING_A245"
+---@field STRING_A246 644
+---@field [644] "STRING_A246"
+---@field STRING_A247 645
+---@field [645] "STRING_A247"
+---@field STRING_A248 646
+---@field [646] "STRING_A248"
+---@field STRING_A249 647
+---@field [647] "STRING_A249"
+---@field STRING_A250 648
+---@field [648] "STRING_A250"
+---@field STRING_A251 649
+---@field [649] "STRING_A251"
+---@field STRING_A252 650
+---@field [650] "STRING_A252"
+---@field STRING_A253 651
+---@field [651] "STRING_A253"
+---@field STRING_A254 652
+---@field [652] "STRING_A254"
+---@field STRING_A255 653
+---@field [653] "STRING_A255"
+---@field KEYBINDING_COMPLETE 654
+---@field [654] "KEYBINDING_COMPLETE"
+df.interface_key = {}
+

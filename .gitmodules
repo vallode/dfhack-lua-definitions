@@ -1,0 +1,10 @@
+[submodule "df-structures"]
+	path = df-structures
+	url = https://github.com/DFHack/df-structures
+	branch = master
+	shallow = true
+[submodule "dfhack"]
+	path = dfhack
+	url = https://github.com/DFHack/dfhack
+	branch = develop
+	shallow = true

@@ -1,0 +1,1336 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@alias entity_raw_flags_keys
+---| '"CIV_CONTROLLABLE"'
+---| '"INDIV_CONTROLLABLE"'
+---| '"LAYER_LINKED"'
+---| '"INDOOR_WOOD"'
+---| '"WOOD_ARMOR"'
+---| '"SIEGER"'
+---| '"AMBUSHER"'
+---| '"BABYSNATCHER"'
+---| '"ITEM_THIEF"'
+---| '"CLOTHING"'
+---| '"CURRENCY_BY_YEAR"'
+---| '"METAL_PREF"'
+---| '"GEM_PREF"'
+---| '"STONE_PREF"'
+---| '"WOOD_WEAPONS"'
+---| '"BUILDS_OUTDOOR_FORTIFICATIONS"'
+---| '"RIVER_PRODUCTS"'
+---| '"OCEAN_PRODUCTS"'
+---| '"INDOOR_FARMING"'
+---| '"OUTDOOR_FARMING"'
+---| '"USE_CAVE_ANIMALS"'
+---| '"USE_EVIL_ANIMALS"'
+---| '"USE_ANIMAL_PRODUCTS"'
+---| '"COMMON_DOMESTIC_PACK"'
+---| '"COMMON_DOMESTIC_PULL"'
+---| '"COMMON_DOMESTIC_MOUNT"'
+---| '"COMMON_DOMESTIC_PET"'
+---| '"SUBTERRANEAN_CLOTHING"'
+---| '"USE_EVIL_WOOD"'
+---| '"USE_GOOD_WOOD"'
+---| '"USE_EVIL_PLANTS"'
+---| '"USE_GOOD_PLANTS"'
+---| '"USE_GOOD_ANIMALS"'
+---| '"USE_ANY_PET_RACE"'
+---| '"USE_MISC_PROCESSED_WOOD_PRODUCTS"'
+---| '"IMPROVED_BOWS"'
+---| '"OUTDOOR_WOOD"'
+---| '"LOCAL_BANDITRY"'
+---| '"BUILDS_OUTDOOR_TOMBS"'
+---| '"INVADERS_IGNORE_NEUTRALS"'
+---| '"AT_PEACE_WITH_WILDLIFE"'
+---| '"EQUIPMENT_IMPROVEMENTS"'
+---| '"ABUSE_BODIES"'
+---| '"UNDEAD_CANDIDATE"'
+---| '"GENERATED"'
+---| '"SKULKING"'
+---| '""'
+---| '"MERCHANT_NOBILITY"'
+---| '"TREE_CAP_DIPLOMACY"'
+---| '"DIPLOMAT_BODYGUARDS"'
+---| '"MERCHANT_BODYGUARDS"'
+---| '"INDOOR_ORCHARDS"'
+---| '"OUTDOOR_ORCHARDS"'
+---| '"WANDERER"'
+---| '"BEAST_HUNTER"'
+---| '"SCOUT"'
+---| '"WILL_ACCEPT_TRIBUTE"'
+---| '"INDOOR_GARDENS"'
+---| '"OUTDOOR_GARDENS"'
+---| '"MERCENARY"'
+---| '"SITE_GUARDIAN"'
+---| '"DIVINE_MAT_WEAPONS"'
+---| '"DIVINE_MAT_ARMOR"'
+---| '"DIVINE_MAT_CRAFTS"'
+---| '"DIVINE_MAT_CLOTHING"'
+---| '"GENERATE_KEYBOARD_INSTRUMENTS"'
+---| '"GENERATE_STRINGED_INSTRUMENTS"'
+---| '"GENERATE_WIND_INSTRUMENTS"'
+---| '"GENERATE_PERCUSSION_INSTRUMENTS"'
+---| '"GENERATE_POETIC_FORMS"'
+---| '"GENERATE_MUSICAL_FORMS"'
+---| '"GENERATE_DANCE_FORMS"'
+---| '"SET_SCHOLARS_ON_VALUES_AND_JOBS"'
+---| '"NO_ARTIFACT_CLAIMS"'
+
+---@alias entity_raw_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+---| 43
+---| 44
+---| 45
+---| 46
+---| 47
+---| 48
+---| 49
+---| 50
+---| 51
+---| 52
+---| 53
+---| 54
+---| 55
+---| 56
+---| 57
+---| 58
+---| 59
+---| 60
+---| 61
+---| 62
+---| 63
+---| 64
+---| 65
+---| 66
+---| 67
+---| 68
+---| 69
+---| 70
+---| 71
+---| 72
+---| 73
+
+---@alias entity_raw_flags
+---| entity_raw_flags_keys
+---| entity_raw_flags_values
+
+---@class _entity_raw_flags: DFEnum
+---@field CIV_CONTROLLABLE 0
+---@field [0] "CIV_CONTROLLABLE"
+---@field INDIV_CONTROLLABLE 1
+---@field [1] "INDIV_CONTROLLABLE"
+---@field LAYER_LINKED 2
+---@field [2] "LAYER_LINKED"
+---@field INDOOR_WOOD 3
+---@field [3] "INDOOR_WOOD"
+---@field WOOD_ARMOR 4
+---@field [4] "WOOD_ARMOR"
+---@field SIEGER 5
+---@field [5] "SIEGER"
+---@field AMBUSHER 6
+---@field [6] "AMBUSHER"
+---@field BABYSNATCHER 7
+---@field [7] "BABYSNATCHER"
+---@field ITEM_THIEF 8
+---@field [8] "ITEM_THIEF"
+---@field CLOTHING 9
+---@field [9] "CLOTHING"
+---@field CURRENCY_BY_YEAR 10
+---@field [10] "CURRENCY_BY_YEAR"
+---@field METAL_PREF 11
+---@field [11] "METAL_PREF"
+---@field GEM_PREF 12
+---@field [12] "GEM_PREF"
+---@field STONE_PREF 13
+---@field [13] "STONE_PREF"
+---@field WOOD_WEAPONS 14
+---@field [14] "WOOD_WEAPONS"
+---@field BUILDS_OUTDOOR_FORTIFICATIONS 15
+---@field [15] "BUILDS_OUTDOOR_FORTIFICATIONS"
+---@field RIVER_PRODUCTS 16
+---@field [16] "RIVER_PRODUCTS"
+---@field OCEAN_PRODUCTS 17
+---@field [17] "OCEAN_PRODUCTS"
+---@field INDOOR_FARMING 18
+---@field [18] "INDOOR_FARMING"
+---@field OUTDOOR_FARMING 19
+---@field [19] "OUTDOOR_FARMING"
+---@field USE_CAVE_ANIMALS 20
+---@field [20] "USE_CAVE_ANIMALS"
+---@field USE_EVIL_ANIMALS 21
+---@field [21] "USE_EVIL_ANIMALS"
+---@field USE_ANIMAL_PRODUCTS 22
+---@field [22] "USE_ANIMAL_PRODUCTS"
+---@field COMMON_DOMESTIC_PACK 23
+---@field [23] "COMMON_DOMESTIC_PACK"
+---@field COMMON_DOMESTIC_PULL 24
+---@field [24] "COMMON_DOMESTIC_PULL"
+---@field COMMON_DOMESTIC_MOUNT 25
+---@field [25] "COMMON_DOMESTIC_MOUNT"
+---@field COMMON_DOMESTIC_PET 26
+---@field [26] "COMMON_DOMESTIC_PET"
+---@field SUBTERRANEAN_CLOTHING 27
+---@field [27] "SUBTERRANEAN_CLOTHING"
+---@field USE_EVIL_WOOD 28
+---@field [28] "USE_EVIL_WOOD"
+---@field USE_GOOD_WOOD 29
+---@field [29] "USE_GOOD_WOOD"
+---@field USE_EVIL_PLANTS 30
+---@field [30] "USE_EVIL_PLANTS"
+---@field USE_GOOD_PLANTS 31
+---@field [31] "USE_GOOD_PLANTS"
+---@field USE_GOOD_ANIMALS 32
+---@field [32] "USE_GOOD_ANIMALS"
+---@field USE_ANY_PET_RACE 33
+---@field [33] "USE_ANY_PET_RACE"
+---@field USE_MISC_PROCESSED_WOOD_PRODUCTS 34
+---@field [34] "USE_MISC_PROCESSED_WOOD_PRODUCTS"
+---@field IMPROVED_BOWS 35
+---@field [35] "IMPROVED_BOWS"
+---@field OUTDOOR_WOOD 36
+---@field [36] "OUTDOOR_WOOD"
+---@field LOCAL_BANDITRY 37
+---@field [37] "LOCAL_BANDITRY"
+---@field BUILDS_OUTDOOR_TOMBS 38
+---@field [38] "BUILDS_OUTDOOR_TOMBS"
+---@field INVADERS_IGNORE_NEUTRALS 39
+---@field [39] "INVADERS_IGNORE_NEUTRALS"
+---@field AT_PEACE_WITH_WILDLIFE 40
+---@field [40] "AT_PEACE_WITH_WILDLIFE"
+---@field EQUIPMENT_IMPROVEMENTS 41
+---@field [41] "EQUIPMENT_IMPROVEMENTS"
+---@field ABUSE_BODIES 42
+---@field [42] "ABUSE_BODIES"
+---@field UNDEAD_CANDIDATE 43
+---@field [43] "UNDEAD_CANDIDATE"
+---@field GENERATED 44
+---@field [44] "GENERATED"
+---@field SKULKING 45
+---@field [45] "SKULKING"
+---@field MERCHANT_NOBILITY 47
+---@field [47] "MERCHANT_NOBILITY"
+---@field TREE_CAP_DIPLOMACY 48
+---@field [48] "TREE_CAP_DIPLOMACY"
+---@field DIPLOMAT_BODYGUARDS 49
+---@field [49] "DIPLOMAT_BODYGUARDS"
+---@field MERCHANT_BODYGUARDS 50
+---@field [50] "MERCHANT_BODYGUARDS"
+---@field INDOOR_ORCHARDS 51
+---@field [51] "INDOOR_ORCHARDS"
+---@field OUTDOOR_ORCHARDS 52
+---@field [52] "OUTDOOR_ORCHARDS"
+---@field WANDERER 53
+---@field [53] "WANDERER"
+---@field BEAST_HUNTER 54
+---@field [54] "BEAST_HUNTER"
+---@field SCOUT 55
+---@field [55] "SCOUT"
+---@field WILL_ACCEPT_TRIBUTE 56
+---@field [56] "WILL_ACCEPT_TRIBUTE"
+---@field INDOOR_GARDENS 57
+---@field [57] "INDOOR_GARDENS"
+---@field OUTDOOR_GARDENS 58
+---@field [58] "OUTDOOR_GARDENS"
+---@field MERCENARY 59
+---@field [59] "MERCENARY"
+---@field SITE_GUARDIAN 60
+---@field [60] "SITE_GUARDIAN"
+---@field DIVINE_MAT_WEAPONS 61
+---@field [61] "DIVINE_MAT_WEAPONS"
+---@field DIVINE_MAT_ARMOR 62
+---@field [62] "DIVINE_MAT_ARMOR"
+---@field DIVINE_MAT_CRAFTS 63
+---@field [63] "DIVINE_MAT_CRAFTS"
+---@field DIVINE_MAT_CLOTHING 64
+---@field [64] "DIVINE_MAT_CLOTHING"
+---@field GENERATE_KEYBOARD_INSTRUMENTS 65
+---@field [65] "GENERATE_KEYBOARD_INSTRUMENTS"
+---@field GENERATE_STRINGED_INSTRUMENTS 66
+---@field [66] "GENERATE_STRINGED_INSTRUMENTS"
+---@field GENERATE_WIND_INSTRUMENTS 67
+---@field [67] "GENERATE_WIND_INSTRUMENTS"
+---@field GENERATE_PERCUSSION_INSTRUMENTS 68
+---@field [68] "GENERATE_PERCUSSION_INSTRUMENTS"
+---@field GENERATE_POETIC_FORMS 69
+---@field [69] "GENERATE_POETIC_FORMS"
+---@field GENERATE_MUSICAL_FORMS 70
+---@field [70] "GENERATE_MUSICAL_FORMS"
+---@field GENERATE_DANCE_FORMS 71
+---@field [71] "GENERATE_DANCE_FORMS"
+---@field SET_SCHOLARS_ON_VALUES_AND_JOBS 72
+---@field [72] "SET_SCHOLARS_ON_VALUES_AND_JOBS"
+---@field NO_ARTIFACT_CLAIMS 73
+---@field [73] "NO_ARTIFACT_CLAIMS"
+df.entity_raw_flags = {}
+
+---@alias site_type_keys
+---| '"PLAYER_FORTRESS"'
+---| '"DARK_FORTRESS"'
+---| '"CAVE"'
+---| '"CAVE_DETAILED"'
+---| '"TREE_CITY"'
+---| '"CITY"'
+---| '""'
+---| '""'
+---| '"FORTRESS"'
+---| '""'
+---| '"MONUMENT"'
+
+---@alias site_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+
+---@alias site_type
+---| site_type_keys
+---| site_type_values
+
+---@class _site_type: DFEnum
+---@field PLAYER_FORTRESS 0
+---@field [0] "PLAYER_FORTRESS"
+---@field DARK_FORTRESS 1
+---@field [1] "DARK_FORTRESS"
+---@field CAVE 2
+---@field [2] "CAVE"
+---@field CAVE_DETAILED 3
+---@field [3] "CAVE_DETAILED"
+---@field TREE_CITY 4
+---@field [4] "TREE_CITY"
+---@field CITY 5
+---@field [5] "CITY"
+---@field FORTRESS 8
+---@field [8] "FORTRESS"
+---@field MONUMENT 10
+---@field [10] "MONUMENT"
+df.site_type = {}
+
+---@alias ethic_type_keys
+---| '"NONE"'
+---| '"KILL_ENTITY_MEMBER"'
+---| '"KILL_NEUTRAL"'
+---| '"KILL_ENEMY"'
+---| '"KILL_ANIMAL"'
+---| '"KILL_PLANT"'
+---| '"TORTURE_AS_EXAMPLE"'
+---| '"TORTURE_FOR_INFORMATION"'
+---| '"TORTURE_FOR_FUN"'
+---| '"TORTURE_ANIMALS"'
+---| '"TREASON"'
+---| '"OATH_BREAKING"'
+---| '"LYING"'
+---| '"VANDALISM"'
+---| '"TRESPASSING"'
+---| '"THEFT"'
+---| '"ASSAULT"'
+---| '"SLAVERY"'
+---| '"EAT_SAPIENT_OTHER"'
+---| '"EAT_SAPIENT_KILL"'
+---| '"MAKE_TROPHY_SAME_RACE"'
+---| '"MAKE_TROPHY_SAPIENT"'
+---| '"MAKE_TROPHY_ANIMAL"'
+
+---@alias ethic_type_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+
+---@alias ethic_type
+---| ethic_type_keys
+---| ethic_type_values
+
+---@class _ethic_type: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field KILL_ENTITY_MEMBER 0
+---@field [0] "KILL_ENTITY_MEMBER"
+---@field KILL_NEUTRAL 1
+---@field [1] "KILL_NEUTRAL"
+---@field KILL_ENEMY 2
+---@field [2] "KILL_ENEMY"
+---@field KILL_ANIMAL 3
+---@field [3] "KILL_ANIMAL"
+---@field KILL_PLANT 4
+---@field [4] "KILL_PLANT"
+---@field TORTURE_AS_EXAMPLE 5
+---@field [5] "TORTURE_AS_EXAMPLE"
+---@field TORTURE_FOR_INFORMATION 6
+---@field [6] "TORTURE_FOR_INFORMATION"
+---@field TORTURE_FOR_FUN 7
+---@field [7] "TORTURE_FOR_FUN"
+---@field TORTURE_ANIMALS 8
+---@field [8] "TORTURE_ANIMALS"
+---@field TREASON 9
+---@field [9] "TREASON"
+---@field OATH_BREAKING 10
+---@field [10] "OATH_BREAKING"
+---@field LYING 11
+---@field [11] "LYING"
+---@field VANDALISM 12
+---@field [12] "VANDALISM"
+---@field TRESPASSING 13
+---@field [13] "TRESPASSING"
+---@field THEFT 14
+---@field [14] "THEFT"
+---@field ASSAULT 15
+---@field [15] "ASSAULT"
+---@field SLAVERY 16
+---@field [16] "SLAVERY"
+---@field EAT_SAPIENT_OTHER 17
+---@field [17] "EAT_SAPIENT_OTHER"
+---@field EAT_SAPIENT_KILL 18
+---@field [18] "EAT_SAPIENT_KILL"
+---@field MAKE_TROPHY_SAME_RACE 19
+---@field [19] "MAKE_TROPHY_SAME_RACE"
+---@field MAKE_TROPHY_SAPIENT 20
+---@field [20] "MAKE_TROPHY_SAPIENT"
+---@field MAKE_TROPHY_ANIMAL 21
+---@field [21] "MAKE_TROPHY_ANIMAL"
+df.ethic_type = {}
+
+---@alias ethic_response_keys
+---| '"NOT_APPLICABLE"'
+---| '"ACCEPTABLE"'
+---| '"PERSONAL_MATTER"'
+---| '"JUSTIFIED_IF_NO_REPERCUSSIONS"'
+---| '"JUSTIFIED_IF_GOOD_REASON"'
+---| '"JUSTIFIED_IF_EXTREME_REASON"'
+---| '"JUSTIFIED_IF_SELF_DEFENSE"'
+---| '"ONLY_IF_SANCTIONED"'
+---| '"MISGUIDED"'
+---| '"SHUN"'
+---| '"APPALLING"'
+---| '"PUNISH_REPRIMAND"'
+---| '"PUNISH_SERIOUS"'
+---| '"PUNISH_EXILE"'
+---| '"PUNISH_CAPITAL"'
+---| '"UNTHINKABLE"'
+---| '"REQUIRED"'
+
+---@alias ethic_response_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+
+---@alias ethic_response
+---| ethic_response_keys
+---| ethic_response_values
+
+---@class _ethic_response: DFEnum
+---@field NOT_APPLICABLE 0
+---@field [0] "NOT_APPLICABLE"
+---@field ACCEPTABLE 1
+---@field [1] "ACCEPTABLE"
+---@field PERSONAL_MATTER 2
+---@field [2] "PERSONAL_MATTER"
+---@field JUSTIFIED_IF_NO_REPERCUSSIONS 3
+---@field [3] "JUSTIFIED_IF_NO_REPERCUSSIONS"
+---@field JUSTIFIED_IF_GOOD_REASON 4
+---@field [4] "JUSTIFIED_IF_GOOD_REASON"
+---@field JUSTIFIED_IF_EXTREME_REASON 5
+---@field [5] "JUSTIFIED_IF_EXTREME_REASON"
+---@field JUSTIFIED_IF_SELF_DEFENSE 6
+---@field [6] "JUSTIFIED_IF_SELF_DEFENSE"
+---@field ONLY_IF_SANCTIONED 7
+---@field [7] "ONLY_IF_SANCTIONED"
+---@field MISGUIDED 8
+---@field [8] "MISGUIDED"
+---@field SHUN 9
+---@field [9] "SHUN"
+---@field APPALLING 10
+---@field [10] "APPALLING"
+---@field PUNISH_REPRIMAND 11
+---@field [11] "PUNISH_REPRIMAND"
+---@field PUNISH_SERIOUS 12
+---@field [12] "PUNISH_SERIOUS"
+---@field PUNISH_EXILE 13
+---@field [13] "PUNISH_EXILE"
+---@field PUNISH_CAPITAL 14
+---@field [14] "PUNISH_CAPITAL"
+---@field UNTHINKABLE 15
+---@field [15] "UNTHINKABLE"
+---@field REQUIRED 16
+---@field [16] "REQUIRED"
+df.ethic_response = {}
+
+---@alias entity_name_type_keys
+---| '"OTHER"'
+---| '"CIV"'
+---| '"SITE"'
+---| '"VESSEL"'
+---| '"MILITARY_UNIT"'
+---| '"RELIGION"'
+---| '"TEMPLE"'
+---| '"WAR"'
+---| '"BATTLE"'
+---| '"SIEGE"'
+---| '"ROAD"'
+---| '"BRIDGE"'
+---| '"TUNNEL"'
+---| '"WALL"'
+---| '"LIBRARY"'
+---| '"FESTIVAL"'
+---| '"MERCHANT_COMPANY"'
+---| '"CRAFT_GUILD"'
+---| '"HOSPITAL"'
+
+---@alias entity_name_type_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+
+---@alias entity_name_type
+---| entity_name_type_keys
+---| entity_name_type_values
+
+---@class _entity_name_type: DFEnum
+---@field OTHER 0
+---@field [0] "OTHER"
+---@field CIV 1
+---@field [1] "CIV"
+---@field SITE 2
+---@field [2] "SITE"
+---@field VESSEL 3
+---@field [3] "VESSEL"
+---@field MILITARY_UNIT 4
+---@field [4] "MILITARY_UNIT"
+---@field RELIGION 5
+---@field [5] "RELIGION"
+---@field TEMPLE 6
+---@field [6] "TEMPLE"
+---@field WAR 7
+---@field [7] "WAR"
+---@field BATTLE 8
+---@field [8] "BATTLE"
+---@field SIEGE 9
+---@field [9] "SIEGE"
+---@field ROAD 10
+---@field [10] "ROAD"
+---@field BRIDGE 11
+---@field [11] "BRIDGE"
+---@field TUNNEL 12
+---@field [12] "TUNNEL"
+---@field WALL 13
+---@field [13] "WALL"
+---@field LIBRARY 14
+---@field [14] "LIBRARY"
+---@field FESTIVAL 15
+---@field [15] "FESTIVAL"
+---@field MERCHANT_COMPANY 16
+---@field [16] "MERCHANT_COMPANY"
+---@field CRAFT_GUILD 17
+---@field [17] "CRAFT_GUILD"
+---@field HOSPITAL 18
+---@field [18] "HOSPITAL"
+df.entity_name_type = {}
+
+---@class (exact) entity_raw: DFObject
+---@field _kind 'struct'
+---@field _type _entity_raw
+---@field code string
+---@field index number into instace-vector
+---@field raws DFStringVector
+---@field creature_ids DFNumberVector
+---@field creatures DFStringVector
+---@field equipment entity_raw.T_equipment
+---@field currency_value DFNumberVector
+---@field flags _entity_raw_flags
+---@field translation string
+---@field symbols entity_raw.T_symbols
+---@field sphere_alignment DFEnumVector<sphere_type, number>
+---@field art_facet_modifier DFEnumVector<art_facet_type, number>
+---@field art_image_element_modifier DFEnumVector<art_image_element_type, number>
+---@field item_improvement_modifier DFEnumVector<improvement_type, number>
+---@field friendly_color number[]
+---@field default_site_type world_site_type
+---@field likes_site DFEnumVector<site_type, number>
+---@field tolerates_site DFEnumVector<site_type, number>
+---@field biome_support DFEnumVector<biome_type, number>
+---@field start_biome DFEnumVector<biome_type, number>
+---@field settlement_biome DFEnumVector<biome_type, number>
+---@field active_season DFEnumVector<season, number>
+---@field progress_trigger entity_raw.T_progress_trigger
+---@field ethic DFEnumVector<ethic_type, ethic_response>
+---@field values DFEnumVector<value_type, number>
+---@field variable_value_min DFEnumVector<value_type, number>
+---@field variable_value_max DFEnumVector<value_type, number>
+---@field scholar entity_raw.T_scholar
+---@field max_site_pop_number number
+---@field max_pop_number number
+---@field max_starting_civ_number number
+---@field religion DFNumberVector
+---@field religion_sphere _entity_raw_religion_sphere
+---@field jobs entity_raw.T_jobs
+---@field positions _entity_raw_positions
+---@field variable_positions DFEnumVector<entity_position_responsibility, number>
+---@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
+---@field tissue_styles _entity_raw_tissue_styles
+---@field workshops entity_raw.T_workshops
+---@field banditry number
+---@field gem_shapes_str DFStringVector
+---@field stone_shapes_str DFStringVector
+---@field gem_shapes DFNumberVector
+---@field stone_shapes DFNumberVector
+---@field source_hfid number References: `historical_figure`
+---@field unk_v4201_1 number
+---@field currency_str1 DFStringVector
+---@field currency_str2 DFStringVector
+---@field animal _entity_raw_animal
+
+---@class _entity_raw: DFCompound
+---@field _kind 'struct-type'
+df.entity_raw = {}
+
+---@param key number
+---@return entity_raw|nil
+function df.entity_raw.find(key) end
+
+---@class entity_raw_vector: DFVector, { [integer]: entity_raw }
+
+---@return entity_raw_vector # df.global.world.raws.entities
+function df.entity_raw.get_vector() end
+
+---@class (exact) entity_raw.T_equipment: DFObject
+---@field _kind 'struct'
+---@field _type _entity_raw.T_equipment
+---@field digger_id DFNumberVector
+---@field weapon_id DFNumberVector
+---@field armor_id DFNumberVector
+---@field ammo_id DFNumberVector
+---@field helm_id DFNumberVector
+---@field gloves_id DFNumberVector
+---@field shoes_id DFNumberVector
+---@field pants_id DFNumberVector
+---@field shield_id DFNumberVector
+---@field trapcomp_id DFNumberVector
+---@field toy_id DFNumberVector
+---@field instrument_id DFNumberVector
+---@field tool_id DFNumberVector
+---@field siegeammo_id DFNumberVector
+---@field armor_rarity DFNumberVector
+---@field helm_rarity DFNumberVector
+---@field gloves_rarity DFNumberVector
+---@field shoes_rarity DFNumberVector
+---@field pants_rarity DFNumberVector
+---@field digger_str DFStringVector
+---@field weapon_str DFStringVector
+---@field armor_str DFStringVector
+---@field ammo_str DFStringVector
+---@field helm_str DFStringVector
+---@field gloves_str DFStringVector
+---@field shoes_str DFStringVector
+---@field pants_str DFStringVector
+---@field shield_str DFStringVector
+---@field trapcomp_str DFStringVector
+---@field toy_str DFStringVector
+---@field instrument_str DFStringVector
+---@field siegeammo_str DFStringVector
+---@field tool_str DFStringVector
+
+---@class _entity_raw.T_equipment: DFCompound
+---@field _kind 'struct-type'
+df.entity_raw.T_equipment = {}
+
+---@class _entity_raw_flags: DFContainer
+---@field [integer] table<entity_raw_flags, boolean>
+local _entity_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<entity_raw_flags, boolean>>
+function _entity_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<entity_raw_flags, boolean> 
+function _entity_raw_flags:insert(index, item) end
+
+---@param index integer 
+function _entity_raw_flags:erase(index) end
+
+---@class (exact) entity_raw.T_symbols: DFObject
+---@field _kind 'struct'
+---@field _type _entity_raw.T_symbols
+---@field symbols1 DFEnumVector<entity_name_type, language_word_table>
+---@field symbols2 DFEnumVector<entity_name_type, language_word_table>
+---@field select_symbol DFEnumVector<entity_name_type, string>
+---@field subselect_symbol DFEnumVector<entity_name_type, string>
+---@field cull_symbol DFEnumVector<entity_name_type, string>
+
+---@class _entity_raw.T_symbols: DFCompound
+---@field _kind 'struct-type'
+df.entity_raw.T_symbols = {}
+
+---@class (exact) entity_raw.T_progress_trigger: DFObject
+---@field _kind 'struct'
+---@field _type _entity_raw.T_progress_trigger
+---@field population number
+---@field production number
+---@field trade number
+---@field pop_siege number
+---@field prod_siege number
+---@field trade_siege number
+
+---@class _entity_raw.T_progress_trigger: DFCompound
+---@field _kind 'struct-type'
+df.entity_raw.T_progress_trigger = {}
+
+---@class entity_raw.T_scholar: DFObject
+---@field _kind 'bitfield'
+---@field _enum _entity_raw.T_scholar
+---@field PHILOSOPHER boolean
+---@field [0] boolean
+---@field MATHEMATICIAN boolean
+---@field [1] boolean
+---@field HISTORIAN boolean
+---@field [2] boolean
+---@field ASTRONOMER boolean
+---@field [3] boolean
+---@field NATURALIST boolean
+---@field [4] boolean
+---@field CHEMIST boolean
+---@field [5] boolean
+---@field GEOGRAPHER boolean
+---@field [6] boolean
+---@field DOCTOR boolean
+---@field [7] boolean
+---@field ENGINEER boolean
+---@field [8] boolean
+
+---@class _entity_raw.T_scholar: DFBitfield
+---@field PHILOSOPHER 0
+---@field [0] "PHILOSOPHER"
+---@field MATHEMATICIAN 1
+---@field [1] "MATHEMATICIAN"
+---@field HISTORIAN 2
+---@field [2] "HISTORIAN"
+---@field ASTRONOMER 3
+---@field [3] "ASTRONOMER"
+---@field NATURALIST 4
+---@field [4] "NATURALIST"
+---@field CHEMIST 5
+---@field [5] "CHEMIST"
+---@field GEOGRAPHER 6
+---@field [6] "GEOGRAPHER"
+---@field DOCTOR 7
+---@field [7] "DOCTOR"
+---@field ENGINEER 8
+---@field [8] "ENGINEER"
+df.entity_raw.T_scholar = {}
+
+---@class _entity_raw_religion_sphere: DFContainer
+---@field [integer] sphere_type
+local _entity_raw_religion_sphere
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<sphere_type>
+function _entity_raw_religion_sphere:_field(index) end
+
+---@param index integer 
+---@param item sphere_type 
+function _entity_raw_religion_sphere:insert(index, item) end
+
+---@param index integer 
+function _entity_raw_religion_sphere:erase(index) end
+
+---@class (exact) entity_raw.T_jobs: DFObject
+---@field _kind 'struct'
+---@field _type _entity_raw.T_jobs
+---@field permitted_job DFEnumVector<profession, boolean>
+---@field permitted_labor DFEnumVector<unit_labor, boolean>
+---@field world_construction DFEnumVector<world_construction_type, boolean>
+
+---@class _entity_raw.T_jobs: DFCompound
+---@field _kind 'struct-type'
+df.entity_raw.T_jobs = {}
+
+---@class _entity_raw_positions: DFContainer
+---@field [integer] entity_position_raw
+local _entity_raw_positions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_position_raw>
+function _entity_raw_positions:_field(index) end
+
+---@param index integer 
+---@param item entity_position_raw 
+function _entity_raw_positions:insert(index, item) end
+
+---@param index integer 
+function _entity_raw_positions:erase(index) end
+
+---@class _entity_raw_tissue_styles: DFContainer
+---@field [integer] DFPointer<integer>
+local _entity_raw_tissue_styles
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function _entity_raw_tissue_styles:_field(index) end
+
+---@param index integer 
+---@param item DFPointer<integer> 
+function _entity_raw_tissue_styles:insert(index, item) end
+
+---@param index integer 
+function _entity_raw_tissue_styles:erase(index) end
+
+---@class (exact) entity_raw.T_workshops: DFObject
+---@field _kind 'struct'
+---@field _type _entity_raw.T_workshops
+---@field permitted_building_str DFStringVector
+---@field permitted_building_id DFNumberVector
+---@field permitted_reaction_str DFStringVector
+---@field permitted_reaction_id DFNumberVector
+
+---@class _entity_raw.T_workshops: DFCompound
+---@field _kind 'struct-type'
+df.entity_raw.T_workshops = {}
+
+---@class _entity_raw_animal: DFContainer
+---@field [integer] entity_animal_raw
+local _entity_raw_animal
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<entity_animal_raw>
+function _entity_raw_animal:_field(index) end
+
+---@param index integer 
+---@param item entity_animal_raw 
+function _entity_raw_animal:insert(index, item) end
+
+---@param index integer 
+function _entity_raw_animal:erase(index) end
+
+---@class (exact) entity_animal_raw: DFObject
+---@field _kind 'struct'
+---@field _type _entity_animal_raw
+---@field token string
+---@field caste_token DFStringVector
+---@field animal_class DFStringVector
+---@field forbidden_class DFStringVector
+---@field flags entity_animal_raw.T_flags
+
+---@class _entity_animal_raw: DFCompound
+---@field _kind 'struct-type'
+df.entity_animal_raw = {}
+
+---@class entity_animal_raw.T_flags: DFObject
+---@field _kind 'bitfield'
+---@field _enum _entity_animal_raw.T_flags
+---@field ALWAYS_PRESENT boolean
+---@field [0] boolean
+---@field NEVER_MOUNT boolean
+---@field [1] boolean
+---@field ALWAYS_MOUNT boolean
+---@field [2] boolean
+---@field NEVER_WAGON_PULLER boolean
+---@field [3] boolean
+---@field ALWAYS_WAGON_PULLER boolean
+---@field [4] boolean
+---@field NEVER_SIEGE boolean
+---@field [5] boolean
+---@field ALWAYS_SIEGE boolean
+---@field [6] boolean
+---@field NEVER_PET boolean
+---@field [7] boolean
+---@field ALWAYS_PET boolean
+---@field [8] boolean
+---@field NEVER_PACK_ANIMAL boolean
+---@field [9] boolean
+---@field ALWAYS_PACK_ANIMAL boolean
+---@field [10] boolean
+
+---@class _entity_animal_raw.T_flags: DFBitfield
+---@field ALWAYS_PRESENT 0
+---@field [0] "ALWAYS_PRESENT"
+---@field NEVER_MOUNT 1
+---@field [1] "NEVER_MOUNT"
+---@field ALWAYS_MOUNT 2
+---@field [2] "ALWAYS_MOUNT"
+---@field NEVER_WAGON_PULLER 3
+---@field [3] "NEVER_WAGON_PULLER"
+---@field ALWAYS_WAGON_PULLER 4
+---@field [4] "ALWAYS_WAGON_PULLER"
+---@field NEVER_SIEGE 5
+---@field [5] "NEVER_SIEGE"
+---@field ALWAYS_SIEGE 6
+---@field [6] "ALWAYS_SIEGE"
+---@field NEVER_PET 7
+---@field [7] "NEVER_PET"
+---@field ALWAYS_PET 8
+---@field [8] "ALWAYS_PET"
+---@field NEVER_PACK_ANIMAL 9
+---@field [9] "NEVER_PACK_ANIMAL"
+---@field ALWAYS_PACK_ANIMAL 10
+---@field [10] "ALWAYS_PACK_ANIMAL"
+df.entity_animal_raw.T_flags = {}
+
+---@alias entity_position_raw_flags_keys
+---| '"SITE"'
+---| '"ELECTED"'
+---| '"CONQUERED_SITE"'
+---| '"MILITARY_SCREEN_ONLY"'
+---| '"GENDER_MALE"'
+---| '"GENDER_FEMALE"'
+---| '"SUCCESSION_BY_HEIR"'
+---| '"EXPORTED_IN_LEGENDS"'
+---| '"FLASHES"'
+---| '"BRAG_ON_KILL"'
+---| '"CHAT_WORTHY"'
+---| '"DO_NOT_CULL"'
+---| '"KILL_QUEST"'
+---| '"DETERMINES_COIN_DESIGN"'
+---| '"ACCOUNT_EXEMPT"'
+---| '"DUTY_BOUND"'
+---| '"COLOR"'
+---| '"RULES_FROM_LOCATION"'
+---| '"MENIAL_WORK_EXEMPTION"'
+---| '"MENIAL_WORK_EXEMPTION_SPOUSE"'
+---| '"SLEEP_PRETENSION"'
+---| '"PUNISHMENT_EXEMPTION"'
+---| '"QUEST_GIVER"'
+---| '"SPECIAL_BURIAL"'
+---| '"REQUIRES_MARKET"'
+
+---@alias entity_position_raw_flags_values
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+
+---@alias entity_position_raw_flags
+---| entity_position_raw_flags_keys
+---| entity_position_raw_flags_values
+
+---@class _entity_position_raw_flags: DFEnum
+---@field SITE 0
+---@field [0] "SITE"
+---@field ELECTED 1
+---@field [1] "ELECTED"
+---@field CONQUERED_SITE 2
+---@field [2] "CONQUERED_SITE"
+---@field MILITARY_SCREEN_ONLY 3
+---@field [3] "MILITARY_SCREEN_ONLY"
+---@field GENDER_MALE 4
+---@field [4] "GENDER_MALE"
+---@field GENDER_FEMALE 5
+---@field [5] "GENDER_FEMALE"
+---@field SUCCESSION_BY_HEIR 6
+---@field [6] "SUCCESSION_BY_HEIR"
+---@field EXPORTED_IN_LEGENDS 7
+---@field [7] "EXPORTED_IN_LEGENDS"
+---@field FLASHES 8
+---@field [8] "FLASHES"
+---@field BRAG_ON_KILL 9
+---@field [9] "BRAG_ON_KILL"
+---@field CHAT_WORTHY 10
+---@field [10] "CHAT_WORTHY"
+---@field DO_NOT_CULL 11
+---@field [11] "DO_NOT_CULL"
+---@field KILL_QUEST 12
+---@field [12] "KILL_QUEST"
+---@field DETERMINES_COIN_DESIGN 13
+---@field [13] "DETERMINES_COIN_DESIGN"
+---@field ACCOUNT_EXEMPT 14
+---@field [14] "ACCOUNT_EXEMPT"
+---@field DUTY_BOUND 15
+---@field [15] "DUTY_BOUND"
+---@field COLOR 16
+---@field [16] "COLOR"
+---@field RULES_FROM_LOCATION 17
+---@field [17] "RULES_FROM_LOCATION"
+---@field MENIAL_WORK_EXEMPTION 18
+---@field [18] "MENIAL_WORK_EXEMPTION"
+---@field MENIAL_WORK_EXEMPTION_SPOUSE 19
+---@field [19] "MENIAL_WORK_EXEMPTION_SPOUSE"
+---@field SLEEP_PRETENSION 20
+---@field [20] "SLEEP_PRETENSION"
+---@field PUNISHMENT_EXEMPTION 21
+---@field [21] "PUNISHMENT_EXEMPTION"
+---@field QUEST_GIVER 22
+---@field [22] "QUEST_GIVER"
+---@field SPECIAL_BURIAL 23
+---@field [23] "SPECIAL_BURIAL"
+---@field REQUIRES_MARKET 24
+---@field [24] "REQUIRES_MARKET"
+df.entity_position_raw_flags = {}
+
+---@alias entity_position_responsibility_keys
+---| '"NONE"'
+---| '"LAW_MAKING"'
+---| '"LAW_ENFORCEMENT"'
+---| '"RECEIVE_DIPLOMATS"'
+---| '"MEET_WORKERS"'
+---| '"MANAGE_PRODUCTION"'
+---| '"TRADE"'
+---| '"ACCOUNTING"'
+---| '"ESTABLISH_COLONY_TRADE_AGREEMENTS"'
+---| '"MAKE_INTRODUCTIONS"'
+---| '"MAKE_PEACE_AGREEMENTS"'
+---| '"MAKE_TOPIC_AGREEMENTS"'
+---| '"COLLECT_TAXES"'
+---| '"ESCORT_TAX_COLLECTOR"'
+---| '"EXECUTIONS"'
+---| '"TAME_EXOTICS"'
+---| '"RELIGION"'
+---| '"ATTACK_ENEMIES"'
+---| '"PATROL_TERRITORY"'
+---| '"MILITARY_GOALS"'
+---| '"MILITARY_STRATEGY"'
+---| '"UPGRADE_SQUAD_EQUIPMENT"'
+---| '"EQUIPMENT_MANIFESTS"'
+---| '"SORT_AMMUNITION"'
+---| '"BUILD_MORALE"'
+---| '"HEALTH_MANAGEMENT"'
+---| '"ESPIONAGE"'
+---| '"ADVISE_LEADERS"'
+---| '"OVERSEE_LEADER_HOUSEHOLD"'
+---| '"MANAGE_ANIMALS"'
+---| '"MANAGE_LEADER_HOUSEHOLD_FOOD"'
+---| '"MANAGE_LEADER_HOUSEHOLD_DRINKS"'
+---| '"PREPARE_LEADER_MEALS"'
+---| '"MANAGE_LEADER_HOUSEHOLD_CLEANLINESS"'
+---| '"MAINTAIN_SEWERS"'
+---| '"FOOD_SUPPLY"'
+---| '"FIRE_SAFETY"'
+---| '"JUDGE"'
+---| '"BUILDING_SAFETY"'
+---| '"CONSTRUCTION_PERMITS"'
+---| '"MAINTAIN_ROADS"'
+---| '"MAINTAIN_BRIDGES"'
+---| '"MAINTAIN_TUNNELS"'
+---| '"DELIVER_MESSAGES"'
+
+---@alias entity_position_responsibility_values
+---| -1
+---| 0
+---| 1
+---| 2
+---| 3
+---| 4
+---| 5
+---| 6
+---| 7
+---| 8
+---| 9
+---| 10
+---| 11
+---| 12
+---| 13
+---| 14
+---| 15
+---| 16
+---| 17
+---| 18
+---| 19
+---| 20
+---| 21
+---| 22
+---| 23
+---| 24
+---| 25
+---| 26
+---| 27
+---| 28
+---| 29
+---| 30
+---| 31
+---| 32
+---| 33
+---| 34
+---| 35
+---| 36
+---| 37
+---| 38
+---| 39
+---| 40
+---| 41
+---| 42
+
+---@alias entity_position_responsibility
+---| entity_position_responsibility_keys
+---| entity_position_responsibility_values
+
+---@class _entity_position_responsibility: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field LAW_MAKING 0
+---@field [0] "LAW_MAKING"
+---@field LAW_ENFORCEMENT 1
+---@field [1] "LAW_ENFORCEMENT"
+---@field RECEIVE_DIPLOMATS 2
+---@field [2] "RECEIVE_DIPLOMATS"
+---@field MEET_WORKERS 3
+---@field [3] "MEET_WORKERS"
+---@field MANAGE_PRODUCTION 4
+---@field [4] "MANAGE_PRODUCTION"
+---@field TRADE 5
+---@field [5] "TRADE"
+---@field ACCOUNTING 6
+---@field [6] "ACCOUNTING"
+---@field ESTABLISH_COLONY_TRADE_AGREEMENTS 7
+---@field [7] "ESTABLISH_COLONY_TRADE_AGREEMENTS"
+---@field MAKE_INTRODUCTIONS 8
+---@field [8] "MAKE_INTRODUCTIONS"
+---@field MAKE_PEACE_AGREEMENTS 9
+---@field [9] "MAKE_PEACE_AGREEMENTS"
+---@field MAKE_TOPIC_AGREEMENTS 10
+---@field [10] "MAKE_TOPIC_AGREEMENTS"
+---@field COLLECT_TAXES 11
+---@field [11] "COLLECT_TAXES"
+---@field ESCORT_TAX_COLLECTOR 12
+---@field [12] "ESCORT_TAX_COLLECTOR"
+---@field EXECUTIONS 13
+---@field [13] "EXECUTIONS"
+---@field TAME_EXOTICS 14
+---@field [14] "TAME_EXOTICS"
+---@field RELIGION 15
+---@field [15] "RELIGION"
+---@field ATTACK_ENEMIES 16
+---@field [16] "ATTACK_ENEMIES"
+---@field PATROL_TERRITORY 17
+---@field [17] "PATROL_TERRITORY"
+---@field MILITARY_GOALS 18
+---@field [18] "MILITARY_GOALS"
+---@field MILITARY_STRATEGY 19
+---@field [19] "MILITARY_STRATEGY"
+---@field UPGRADE_SQUAD_EQUIPMENT 20
+---@field [20] "UPGRADE_SQUAD_EQUIPMENT"
+---@field EQUIPMENT_MANIFESTS 21
+---@field [21] "EQUIPMENT_MANIFESTS"
+---@field SORT_AMMUNITION 22
+---@field [22] "SORT_AMMUNITION"
+---@field BUILD_MORALE 23
+---@field [23] "BUILD_MORALE"
+---@field HEALTH_MANAGEMENT 24
+---@field [24] "HEALTH_MANAGEMENT"
+---@field ESPIONAGE 25
+---@field [25] "ESPIONAGE"
+---@field ADVISE_LEADERS 26
+---@field [26] "ADVISE_LEADERS"
+---@field OVERSEE_LEADER_HOUSEHOLD 27
+---@field [27] "OVERSEE_LEADER_HOUSEHOLD"
+---@field MANAGE_ANIMALS 28
+---@field [28] "MANAGE_ANIMALS"
+---@field MANAGE_LEADER_HOUSEHOLD_FOOD 29
+---@field [29] "MANAGE_LEADER_HOUSEHOLD_FOOD"
+---@field MANAGE_LEADER_HOUSEHOLD_DRINKS 30
+---@field [30] "MANAGE_LEADER_HOUSEHOLD_DRINKS"
+---@field PREPARE_LEADER_MEALS 31
+---@field [31] "PREPARE_LEADER_MEALS"
+---@field MANAGE_LEADER_HOUSEHOLD_CLEANLINESS 32
+---@field [32] "MANAGE_LEADER_HOUSEHOLD_CLEANLINESS"
+---@field MAINTAIN_SEWERS 33
+---@field [33] "MAINTAIN_SEWERS"
+---@field FOOD_SUPPLY 34
+---@field [34] "FOOD_SUPPLY"
+---@field FIRE_SAFETY 35
+---@field [35] "FIRE_SAFETY"
+---@field JUDGE 36
+---@field [36] "JUDGE"
+---@field BUILDING_SAFETY 37
+---@field [37] "BUILDING_SAFETY"
+---@field CONSTRUCTION_PERMITS 38
+---@field [38] "CONSTRUCTION_PERMITS"
+---@field MAINTAIN_ROADS 39
+---@field [39] "MAINTAIN_ROADS"
+---@field MAINTAIN_BRIDGES 40
+---@field [40] "MAINTAIN_BRIDGES"
+---@field MAINTAIN_TUNNELS 41
+---@field [41] "MAINTAIN_TUNNELS"
+---@field DELIVER_MESSAGES 42
+---@field [42] "DELIVER_MESSAGES"
+df.entity_position_responsibility = {}
+
+---@class (exact) entity_position_raw: DFObject
+---@field _kind 'struct'
+---@field _type _entity_position_raw
+---@field code string
+---@field id number
+---@field flags _entity_position_raw_flags
+---@field allowed_creature_str string[]
+---@field allowed_creature DFNumberVector
+---@field allowed_class DFStringVector
+---@field rejected_creature_str string[]
+---@field rejected_creature DFNumberVector
+---@field rejected_class DFStringVector
+---@field name string[]
+---@field name_female string[]
+---@field name_male string[]
+---@field spouse string[]
+---@field spouse_female string[]
+---@field spouse_male string[]
+---@field squad string[]
+---@field land_name string
+---@field squad_size number
+---@field commander_str DFStringVector
+---@field commander_id DFNumberVector
+---@field commander_types DFNumberVector
+---@field land_holder number
+---@field number number
+---@field requires_population number
+---@field execution_skill job_skill
+---@field precedence number
+---@field replaced_by_str string
+---@field replaced_by number
+---@field appointed_by_str DFStringVector
+---@field appointed_by DFNumberVector
+---@field succession_by_position_str DFStringVector
+---@field succession_by_position DFNumberVector
+---@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
+---@field color number[]
+---@field required_boxes number
+---@field required_cabinets number
+---@field required_racks number
+---@field required_stands number
+---@field required_office number
+---@field required_bedroom number
+---@field required_dining number
+---@field required_tomb number
+---@field mandate_max number
+---@field demand_max number
+
+---@class _entity_position_raw: DFCompound
+---@field _kind 'struct-type'
+df.entity_position_raw = {}
+
+---@class _entity_position_raw_flags: DFContainer
+---@field [integer] table<entity_position_raw_flags, boolean>
+local _entity_position_raw_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<entity_position_raw_flags, boolean>>
+function _entity_position_raw_flags:_field(index) end
+
+---@param index integer 
+---@param item table<entity_position_raw_flags, boolean> 
+function _entity_position_raw_flags:insert(index, item) end
+
+---@param index integer 
+function _entity_position_raw_flags:erase(index) end
+

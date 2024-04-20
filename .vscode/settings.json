@@ -1,6 +1,15 @@
 {
+  "[ruby]": {
+    "editor.indentSize": 2
+  },
+  "[xml]": {
+    "editor.indentSize": 4
+  },
   "Lua.workspace.library": [
     "/home/vallode/Documents/dfhack-lua-annotations/dist/library"
   ],
-  "rubyLsp.bundleGemfile": "../src/Gemfile",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "auto"
+  },
+  "rubyLsp.formatter": "rubocop"
 }
