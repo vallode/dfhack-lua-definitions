@@ -160,9 +160,9 @@
 ---@field preserveannounce boolean
 ---@field updatelightstate boolean
 ---@field start_dwarf_count number
----@field translate_name any[]
----@field buildingst_completebuild any[]
----@field unitst_choptree any[]
+---@field translate_name function[]
+---@field buildingst_completebuild function[]
+---@field unitst_choptree function[]
 df.global = {}
 
 ---@class (exact) global.T_cursor: DFObject

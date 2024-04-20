@@ -167,64 +167,64 @@ df.extentst = {}
 df.widget = {}
 
 ---@class widget_custom_feed: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_custom_feed
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_custom_feed:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_custom_feed:insert(index, item) end
 
 ---@param index integer 
 function widget_custom_feed:erase(index) end
 
 ---@class widget_custom_logic: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_custom_logic
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_custom_logic:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_custom_logic:insert(index, item) end
 
 ---@param index integer 
 function widget_custom_logic:erase(index) end
 
 ---@class widget_custom_render: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_custom_render
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_custom_render:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_custom_render:insert(index, item) end
 
 ---@param index integer 
 function widget_custom_render:erase(index) end
 
 ---@class widget_custom_activated: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_custom_activated
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_custom_activated:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_custom_activated:insert(index, item) end
 
 ---@param index integer 
@@ -557,16 +557,16 @@ df.textbox_type = {}
 df.widget_textbox = {}
 
 ---@class widget_textbox_callback: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_textbox_callback
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_textbox_callback:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_textbox_callback:insert(index, item) end
 
 ---@param index integer 
@@ -585,16 +585,16 @@ function widget_textbox_callback:erase(index) end
 df.widget_dropdown = {}
 
 ---@class widget_dropdown_callback: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_dropdown_callback
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_dropdown_callback:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_dropdown_callback:insert(index, item) end
 
 ---@param index integer 
@@ -819,16 +819,16 @@ df.widget_interface_pets_livestock_button = {}
 df.widget_better_button = {}
 
 ---@class widget_better_button_callback: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_better_button_callback
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_better_button_callback:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_better_button_callback:insert(index, item) end
 
 ---@param index integer 
@@ -1540,80 +1540,80 @@ function widget_unit_list_ascending_sort:insert(index, item) end
 function widget_unit_list_ascending_sort:erase(index) end
 
 ---@class widget_unit_list_preprocess_unit_func: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_preprocess_unit_func
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_preprocess_unit_func:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_preprocess_unit_func:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_preprocess_unit_func:erase(index) end
 
 ---@class widget_unit_list_postprocess_unit_func: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_postprocess_unit_func
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_postprocess_unit_func:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_postprocess_unit_func:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_postprocess_unit_func:erase(index) end
 
 ---@class widget_unit_list_preprocess_item_func: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_preprocess_item_func
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_preprocess_item_func:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_preprocess_item_func:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_preprocess_item_func:erase(index) end
 
 ---@class widget_unit_list_postprocess_item_func: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_postprocess_item_func
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_postprocess_item_func:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_postprocess_item_func:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_postprocess_item_func:erase(index) end
 
 ---@class widget_unit_list_close_callback: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_close_callback
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_close_callback:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_close_callback:insert(index, item) end
 
 ---@param index integer 
@@ -1668,32 +1668,32 @@ function widget_unit_list_selected:insert(index, item) end
 function widget_unit_list_selected:erase(index) end
 
 ---@class widget_unit_list_is_selected: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_is_selected
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_is_selected:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_is_selected:insert(index, item) end
 
 ---@param index integer 
 function widget_unit_list_is_selected:erase(index) end
 
 ---@class widget_unit_list_on_select_change: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local widget_unit_list_on_select_change
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function widget_unit_list_on_select_change:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function widget_unit_list_on_select_change:insert(index, item) end
 
 ---@param index integer 

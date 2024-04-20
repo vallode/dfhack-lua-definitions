@@ -2593,16 +2593,16 @@ function labor_kitchen_interfacest_sorting_by:insert(index, item) end
 function labor_kitchen_interfacest_sorting_by:erase(index) end
 
 ---@class labor_kitchen_interfacest_filter_func: DFContainer
----@field [integer] any[]
+---@field [integer] function[]
 local labor_kitchen_interfacest_filter_func
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<function[]>
 function labor_kitchen_interfacest_filter_func:_field(index) end
 
 ---@param index integer 
----@param item any[] 
+---@param item function[] 
 function labor_kitchen_interfacest_filter_func:insert(index, item) end
 
 ---@param index integer 

@@ -498,6 +498,8 @@ module DFHackLuaDefinitions
       elsif @node['ld:subtype'] == 'df-flagarray'
         index = @node['index-enum'] || 'integer'
         @type = "table<#{index}, boolean>"
+      elsif @node['ld:subtype'] == 'stl-function'
+        @type = 'function[]'
       else
         @type = 'any[]'
       end
@@ -608,7 +610,7 @@ module DFHackLuaDefinitions
       @field = field
       # TODO: Temporary until we add anon indexes.
       @name = field['name'] || 'anon_'
-      @type = field['type-name'] || 'any'
+      @type = field['type-name'] || field['ld:subtype'] || 'any'
       @ref_target = field['ref-target']
       @comment = comment
 
