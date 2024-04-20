@@ -1849,6 +1849,69 @@ df.world_construction_wallst = {}
 ---@field [50] "SUBTERRANEAN_LAVA"
 df.biome_type = {}
 
+---@class biome_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.biome_type._attr_entry_type = {}
+
+---@class (exact) biome_type_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field plant_raw_flag DFCompoundField
+df.biome_type._attr_entry_type._fields = {}
+
+---@class biome_type_attrs
+---@field MOUNTAIN { caption: "Mountain", plant_raw_flag: "BIOME_MOUNTAIN" }
+---@field GLACIER { caption: "Glacier", plant_raw_flag: "BIOME_GLACIER" }
+---@field TUNDRA { caption: "Tundra", plant_raw_flag: "BIOME_TUNDRA" }
+---@field SWAMP_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Swamp", plant_raw_flag: "BIOME_SWAMP_TEMPERATE_FRESHWATER" }
+---@field SWAMP_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Swamp", plant_raw_flag: "BIOME_SWAMP_TEMPERATE_SALTWATER" }
+---@field MARSH_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Marsh", plant_raw_flag: "BIOME_MARSH_TEMPERATE_FRESHWATER" }
+---@field MARSH_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Marsh", plant_raw_flag: "BIOME_MARSH_TEMPERATE_SALTWATER" }
+---@field SWAMP_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Swamp", plant_raw_flag: "BIOME_SWAMP_TROPICAL_FRESHWATER" }
+---@field SWAMP_TROPICAL_SALTWATER { caption: "Tropical Saltwater Swamp", plant_raw_flag: "BIOME_SWAMP_TROPICAL_SALTWATER" }
+---@field SWAMP_MANGROVE { caption: "Mangrove Swamp", plant_raw_flag: "BIOME_SWAMP_MANGROVE" }
+---@field MARSH_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Marsh", plant_raw_flag: "BIOME_MARSH_TROPICAL_FRESHWATER" }
+---@field MARSH_TROPICAL_SALTWATER { caption: "Tropical Saltwater Marsh", plant_raw_flag: "BIOME_MARSH_TROPICAL_SALTWATER" }
+---@field FOREST_TAIGA { caption: "Taiga Forest", plant_raw_flag: "BIOME_FOREST_TAIGA" }
+---@field FOREST_TEMPERATE_CONIFER { caption: "Temperate Conifer Forest", plant_raw_flag: "BIOME_FOREST_TEMPERATE_CONIFER" }
+---@field FOREST_TEMPERATE_BROADLEAF { caption: "Temperate Broadleaf Forest", plant_raw_flag: "BIOME_FOREST_TEMPERATE_BROADLEAF" }
+---@field FOREST_TROPICAL_CONIFER { caption: "Tropical Conifer Forest", plant_raw_flag: "BIOME_FOREST_TROPICAL_CONIFER" }
+---@field FOREST_TROPICAL_DRY_BROADLEAF { caption: "Tropical Dry Broadleaf Forest", plant_raw_flag: "BIOME_FOREST_TROPICAL_DRY_BROADLEAF" }
+---@field FOREST_TROPICAL_MOIST_BROADLEAF { caption: "Tropical Moist Broadleaf Forest", plant_raw_flag: "BIOME_FOREST_TROPICAL_MOIST_BROADLEAF" }
+---@field GRASSLAND_TEMPERATE { caption: "Temperate Grassland", plant_raw_flag: "BIOME_GRASSLAND_TEMPERATE" }
+---@field SAVANNA_TEMPERATE { caption: "Temperate Savanna", plant_raw_flag: "BIOME_SAVANNA_TEMPERATE" }
+---@field SHRUBLAND_TEMPERATE { caption: "Temperate Shrubland", plant_raw_flag: "BIOME_SHRUBLAND_TEMPERATE" }
+---@field GRASSLAND_TROPICAL { caption: "Tropical Grassland", plant_raw_flag: "BIOME_GRASSLAND_TROPICAL" }
+---@field SAVANNA_TROPICAL { caption: "Tropical Savanna", plant_raw_flag: "BIOME_SAVANNA_TROPICAL" }
+---@field SHRUBLAND_TROPICAL { caption: "Tropical Shrubland", plant_raw_flag: "BIOME_SHRUBLAND_TROPICAL" }
+---@field DESERT_BADLAND { caption: "Badland Desert", plant_raw_flag: "BIOME_DESERT_BADLAND" }
+---@field DESERT_ROCK { caption: "Rock Desert", plant_raw_flag: "BIOME_DESERT_ROCK" }
+---@field DESERT_SAND { caption: "Sand Desert", plant_raw_flag: "BIOME_DESERT_SAND" }
+---@field OCEAN_TROPICAL { caption: "Tropical Ocean", plant_raw_flag: "BIOME_OCEAN_TROPICAL" }
+---@field OCEAN_TEMPERATE { caption: "Temperate Ocean", plant_raw_flag: "BIOME_OCEAN_TEMPERATE" }
+---@field OCEAN_ARCTIC { caption: "Arctic Ocean", plant_raw_flag: "BIOME_OCEAN_ARCTIC" }
+---@field POOL_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Pool", plant_raw_flag: "BIOME_POOL_TEMPERATE_FRESHWATER" }
+---@field POOL_TEMPERATE_BRACKISHWATER { caption: "Temperate Brackishwater Pool", plant_raw_flag: "BIOME_POOL_TEMPERATE_BRACKISHWATER" }
+---@field POOL_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Pool", plant_raw_flag: "BIOME_POOL_TEMPERATE_SALTWATER" }
+---@field POOL_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Pool", plant_raw_flag: "BIOME_POOL_TROPICAL_FRESHWATER" }
+---@field POOL_TROPICAL_BRACKISHWATER { caption: "Tropical Brackishwater Pool", plant_raw_flag: "BIOME_POOL_TROPICAL_BRACKISHWATER" }
+---@field POOL_TROPICAL_SALTWATER { caption: "Tropical Saltwater Pool", plant_raw_flag: "BIOME_POOL_TROPICAL_SALTWATER" }
+---@field LAKE_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Lake", plant_raw_flag: "BIOME_LAKE_TEMPERATE_FRESHWATER" }
+---@field LAKE_TEMPERATE_BRACKISHWATER { caption: "Temperate Brackishwater Lake", plant_raw_flag: "BIOME_LAKE_TEMPERATE_BRACKISHWATER" }
+---@field LAKE_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Lake", plant_raw_flag: "BIOME_LAKE_TEMPERATE_SALTWATER" }
+---@field LAKE_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Lake", plant_raw_flag: "BIOME_LAKE_TROPICAL_FRESHWATER" }
+---@field LAKE_TROPICAL_BRACKISHWATER { caption: "Tropical Brackishwater Lake", plant_raw_flag: "BIOME_LAKE_TROPICAL_BRACKISHWATER" }
+---@field LAKE_TROPICAL_SALTWATER { caption: "Tropical Saltwater Lake", plant_raw_flag: "BIOME_LAKE_TROPICAL_SALTWATER" }
+---@field RIVER_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater River", plant_raw_flag: "BIOME_RIVER_TEMPERATE_FRESHWATER" }
+---@field RIVER_TEMPERATE_BRACKISHWATER { caption: "Temperate Brackishwater River", plant_raw_flag: "BIOME_RIVER_TEMPERATE_BRACKISHWATER" }
+---@field RIVER_TEMPERATE_SALTWATER { caption: "Temperate Saltwater River", plant_raw_flag: "BIOME_RIVER_TEMPERATE_SALTWATER" }
+---@field RIVER_TROPICAL_FRESHWATER { caption: "Tropical Freshwater River", plant_raw_flag: "BIOME_RIVER_TROPICAL_FRESHWATER" }
+---@field RIVER_TROPICAL_BRACKISHWATER { caption: "Tropical Brackishwater River", plant_raw_flag: "BIOME_RIVER_TROPICAL_BRACKISHWATER" }
+---@field RIVER_TROPICAL_SALTWATER { caption: "Tropical Saltwater River", plant_raw_flag: "BIOME_RIVER_TROPICAL_SALTWATER" }
+---@field SUBTERRANEAN_WATER { caption: "Subterranean Water", plant_raw_flag: "BIOME_SUBTERRANEAN_WATER" }
+---@field SUBTERRANEAN_CHASM { caption: "Subterranean Chasm", plant_raw_flag: "BIOME_SUBTERRANEAN_CHASM" }
+---@field SUBTERRANEAN_LAVA { caption: "Subterranean Lava", plant_raw_flag: "BIOME_SUBTERRANEAN_LAVA" }
+df.biome_type.attrs = {}
+
 ---@class construction_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _construction_flags
