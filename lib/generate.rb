@@ -7,6 +7,8 @@ require 'nokogiri'
 require_relative 'lua_ls'
 require_relative 'parser'
 
+DEBUG = ARGV.intersect?(['--debug', '-D'])
+
 FILE_HEADER = "-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
 
 TYPE_MAP = {
@@ -153,8 +155,10 @@ def parse_xml_files(files)
     document = Nokogiri::XML(document.to_xml, &:noblanks)
 
     # Write the current state of the XML to a file for debugging.
-    File.open(".debug/#{filename}.debug.xml", 'w') do |output|
-      output.write(document)
+    if DEBUG
+      File.open(".debug/#{filename}.debug.xml", 'w') do |output|
+        output.write(document)
+      end
     end
 
     File.open("dist/library/structures/#{filename}.lua", 'w') do |output|

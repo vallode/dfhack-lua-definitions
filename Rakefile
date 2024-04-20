@@ -10,3 +10,7 @@ task default: :spec
 task :build do
   ruby 'lib/generate.rb'
 end
+
+task :debug do
+  ruby 'lib/generate.rb --debug'
+end
