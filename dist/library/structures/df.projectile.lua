@@ -35,8 +35,7 @@ df.projectile_type = {}
 ---@field _kind 'struct-type'
 df.proj_list_link = {}
 
----@class projectile_flags: DFObject
----@field _kind 'bitfield'
+---@class projectile_flags: DFBitfield
 ---@field _enum _projectile_flags
 ---@field no_impact_destroy boolean
 ---@field [0] boolean
@@ -71,7 +70,7 @@ df.proj_list_link = {}
 ---@field item_link_deleted boolean
 ---@field [15] boolean
 
----@class _projectile_flags: DFBitfield
+---@class _projectile_flags: DFBitfieldType
 ---@field no_impact_destroy 0
 ---@field [0] "no_impact_destroy"
 ---@field has_hit_ground 1

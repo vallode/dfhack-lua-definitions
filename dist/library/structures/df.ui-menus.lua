@@ -2728,15 +2728,14 @@ function _labor_interfacest_stone_use:insert(index, item) end
 ---@param index integer 
 function _labor_interfacest_stone_use:erase(index) end
 
----@class justice_screen_interrogation_list_flag: DFObject
----@field _kind 'bitfield'
+---@class justice_screen_interrogation_list_flag: DFBitfield
 ---@field _enum _justice_screen_interrogation_list_flag
 ---@field SCHEDULED_FOR_INTERVIEW boolean
 ---@field [0] boolean
 ---@field ALREADY_INTERVIEWED boolean
 ---@field [1] boolean
 
----@class _justice_screen_interrogation_list_flag: DFBitfield
+---@class _justice_screen_interrogation_list_flag: DFBitfieldType
 ---@field SCHEDULED_FOR_INTERVIEW 0
 ---@field [0] "SCHEDULED_FOR_INTERVIEW"
 ---@field ALREADY_INTERVIEWED 1
@@ -6465,8 +6464,7 @@ df.hash_rngst = {}
 ---@field _kind 'struct-type'
 df.difficultyst = {}
 
----@class difficultyst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class difficultyst.T_flags: DFBitfield
 ---@field _enum _difficultyst.T_flags
 ---@field sieges boolean
 ---@field [0] boolean
@@ -6477,7 +6475,7 @@ df.difficultyst = {}
 ---@field curiousbeasts boolean
 ---@field [3] boolean
 
----@class _difficultyst.T_flags: DFBitfield
+---@class _difficultyst.T_flags: DFBitfieldType
 ---@field sieges 0
 ---@field [0] "sieges"
 ---@field megabeasts 1
@@ -6504,8 +6502,7 @@ df.difficultyst.T_flags = {}
 ---@field _kind 'struct-type'
 df.markup_text_wordst = {}
 
----@class markup_text_wordst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class markup_text_wordst.T_flags: DFBitfield
 ---@field _enum _markup_text_wordst.T_flags
 ---@field NEW_LINE boolean
 ---@field [0] boolean
@@ -6514,7 +6511,7 @@ df.markup_text_wordst = {}
 ---@field INDENT boolean
 ---@field [2] boolean
 
----@class _markup_text_wordst.T_flags: DFBitfield
+---@class _markup_text_wordst.T_flags: DFBitfieldType
 ---@field NEW_LINE 0
 ---@field [0] "NEW_LINE"
 ---@field BLANK_LINE 1
@@ -6874,8 +6871,7 @@ df.plot_entryst = {}
 ---@field _kind 'struct-type'
 df.mod_headerst = {}
 
----@class mod_headerst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class mod_headerst.T_flags: DFBitfield
 ---@field _enum _mod_headerst.T_flags
 ---@field currently_installed boolean
 ---@field [0] boolean
@@ -6884,7 +6880,7 @@ df.mod_headerst = {}
 ---@field vanilla boolean
 ---@field [2] boolean
 
----@class _mod_headerst.T_flags: DFBitfield
+---@class _mod_headerst.T_flags: DFBitfieldType
 ---@field currently_installed 0
 ---@field [0] "currently_installed"
 ---@field have_other_version 1

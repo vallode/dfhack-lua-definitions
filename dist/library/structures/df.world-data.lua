@@ -121,8 +121,7 @@ df.world_population_ref = {}
 ---@field _kind 'struct-type'
 df.local_population = {}
 
----@class local_population.T_flags: DFObject
----@field _kind 'bitfield'
+---@class local_population.T_flags: DFBitfield
 ---@field _enum _local_population.T_flags
 ---@field discovered boolean
 ---@field [0] boolean
@@ -133,7 +132,7 @@ df.local_population = {}
 ---@field unk3 boolean prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
 ---@field [3] boolean prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
 
----@class _local_population.T_flags: DFBitfield
+---@class _local_population.T_flags: DFBitfieldType
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field extinct 1 guessed, based on 23a
@@ -719,8 +718,7 @@ df.world_region_details.T_rivers_vertical = {}
 ---@field _kind 'struct-type'
 df.world_region_details.T_rivers_horizontal = {}
 
----@class world_region_details.T_other_features.T_flags: DFObject
----@field _kind 'bitfield'
+---@class world_region_details.T_other_features.T_flags: DFBitfield
 ---@field _enum _world_region_details.T_other_features.T_flags
 ---@field construction boolean the MLTs of world_data.constructions.all
 ---@field [0] boolean the MLTs of world_data.constructions.all
@@ -729,7 +727,7 @@ df.world_region_details.T_rivers_horizontal = {}
 ---@field river boolean Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
 ---@field [2] boolean Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
 
----@class _world_region_details.T_other_features.T_flags: DFBitfield
+---@class _world_region_details.T_other_features.T_flags: DFBitfieldType
 ---@field construction 0 the MLTs of world_data.constructions.all
 ---@field [0] "construction" the MLTs of world_data.constructions.all
 ---@field minor_site_footprint 1 MLTs with sites other than MountainHall, DarkFortress, ForestRetreat, Town
@@ -1012,8 +1010,7 @@ function _region_map_entry_flags:insert(index, item) end
 ---@param index integer 
 function _region_map_entry_flags:erase(index) end
 
----@class region_map_entry.T_clouds: DFObject
----@field _kind 'bitfield'
+---@class region_map_entry.T_clouds: DFBitfield
 ---@field _enum _region_map_entry.T_clouds
 ---@field front boolean
 ---@field [0] boolean
@@ -1028,7 +1025,7 @@ function _region_map_entry_flags:erase(index) end
 ---@field countdown boolean A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 ---@field [9] boolean A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 
----@class _region_map_entry.T_clouds: DFBitfield
+---@class _region_map_entry.T_clouds: DFBitfieldType
 ---@field front 0
 ---@field [0] "front"
 ---@field cumulus 2
@@ -1044,8 +1041,7 @@ function _region_map_entry_flags:erase(index) end
 df.region_map_entry.T_clouds = {}
 
 -- blows toward direction in morning
----@class region_map_entry.T_wind: DFObject
----@field _kind 'bitfield'
+---@class region_map_entry.T_wind: DFBitfield
 ---@field _enum _region_map_entry.T_wind
 ---@field north_1 boolean
 ---@field [0] boolean
@@ -1064,7 +1060,7 @@ df.region_map_entry.T_clouds = {}
 ---@field west_2 boolean
 ---@field [7] boolean
 
----@class _region_map_entry.T_wind: DFBitfield
+---@class _region_map_entry.T_wind: DFBitfieldType
 ---@field north_1 0
 ---@field [0] "north_1"
 ---@field south_1 1

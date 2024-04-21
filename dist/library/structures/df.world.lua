@@ -356,8 +356,7 @@ function df.incident.get_vector() end
 ---@field [10] "RefusedID"
 df.incident.T_type = {}
 
----@class incident.T_flags: DFObject
----@field _kind 'bitfield'
+---@class incident.T_flags: DFBitfield
 ---@field _enum _incident.T_flags
 ---@field announced_missing boolean
 ---@field [0] boolean
@@ -366,7 +365,7 @@ df.incident.T_type = {}
 ---@field unk2 boolean
 ---@field [2] boolean
 
----@class _incident.T_flags: DFBitfield
+---@class _incident.T_flags: DFBitfieldType
 ---@field announced_missing 0
 ---@field [0] "announced_missing"
 ---@field discovered 1
@@ -706,8 +705,7 @@ df.crime.T_convict_data = {}
 ---@field _kind 'struct-type'
 df.crime.T_victim_data = {}
 
----@class crime.T_flags: DFObject
----@field _kind 'bitfield'
+---@class crime.T_flags: DFBitfield
 ---@field _enum _crime.T_flags
 ---@field sentenced boolean
 ---@field [0] boolean
@@ -716,7 +714,7 @@ df.crime.T_victim_data = {}
 ---@field needs_trial boolean i.e. the player chooses whom to convict
 ---@field [2] boolean i.e. the player chooses whom to convict
 
----@class _crime.T_flags: DFBitfield
+---@class _crime.T_flags: DFBitfieldType
 ---@field sentenced 0
 ---@field [0] "sentenced"
 ---@field discovered 1
@@ -991,12 +989,11 @@ df.interrogation_report = {}
 ---@field _kind 'struct-type'
 df.interrogation_report.T_unk = {}
 
----@class interrogation_report.T_unk.T_flags: DFObject
----@field _kind 'bitfield'
+---@class interrogation_report.T_unk.T_flags: DFBitfield
 ---@field _enum _interrogation_report.T_unk.T_flags
 ---@field [0] boolean
 
----@class _interrogation_report.T_unk.T_flags: DFBitfield
+---@class _interrogation_report.T_unk.T_flags: DFBitfieldType
 df.interrogation_report.T_unk.T_flags = {}
 
 ---@class _interrogation_report_unk_29: DFContainer
@@ -3260,8 +3257,7 @@ function _world_status_popups:insert(index, item) end
 ---@param index integer 
 function _world_status_popups:erase(index) end
 
----@class world.T_status.T_flags: DFObject
----@field _kind 'bitfield'
+---@class world.T_status.T_flags: DFBitfield
 ---@field _enum _world.T_status.T_flags
 ---@field combat boolean
 ---@field [0] boolean
@@ -3270,7 +3266,7 @@ function _world_status_popups:erase(index) end
 ---@field sparring boolean
 ---@field [2] boolean
 
----@class _world.T_status.T_flags: DFBitfield
+---@class _world.T_status.T_flags: DFBitfieldType
 ---@field combat 0
 ---@field [0] "combat"
 ---@field hunting 1
@@ -3379,8 +3375,7 @@ df.world.T_status.T_slots = {}
 ---@field _kind 'struct-type'
 df.world.T_status.T_slots.T_slotdata = {}
 
----@class world.T_status.T_slots.T_slotdata.T_flags: DFObject
----@field _kind 'bitfield'
+---@class world.T_status.T_slots.T_slotdata.T_flags: DFBitfield
 ---@field _enum _world.T_status.T_slots.T_slotdata.T_flags
 ---@field behind boolean
 ---@field [0] boolean
@@ -3395,7 +3390,7 @@ df.world.T_status.T_slots.T_slotdata = {}
 ---@field sever boolean
 ---@field [5] boolean
 
----@class _world.T_status.T_slots.T_slotdata.T_flags: DFBitfield
+---@class _world.T_status.T_slots.T_slotdata.T_flags: DFBitfieldType
 ---@field behind 0
 ---@field [0] "behind"
 ---@field side 1
@@ -5327,13 +5322,12 @@ function _world_arena_interactions:insert(index, item) end
 ---@param index integer 
 function _world_arena_interactions:erase(index) end
 
----@class world.T_arena.T_flag: DFObject
----@field _kind 'bitfield'
+---@class world.T_arena.T_flag: DFBitfield
 ---@field _enum _world.T_arena.T_flag
 ---@field morale_enable boolean
 ---@field [0] boolean
 
----@class _world.T_arena.T_flag: DFBitfield
+---@class _world.T_arena.T_flag: DFBitfieldType
 ---@field morale_enable 0
 ---@field [0] "morale_enable"
 df.world.T_arena.T_flag = {}

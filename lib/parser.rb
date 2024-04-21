@@ -261,8 +261,7 @@ module DFHackLuaDefinitions
     def to_type
       annotation = []
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@class #{@class_name}: DFObject\n"
-      annotation << "---@field _kind 'bitfield'\n"
+      annotation << "---@class #{@class_name}: DFBitfield\n"
       annotation << "---@field _enum _#{@class_name}\n"
       fields = []
       @items.each do |item|
@@ -280,7 +279,7 @@ module DFHackLuaDefinitions
     def render
       annotation = ''
       annotation << to_type
-      annotation << "---@class _#{@class_name}: DFBitfield\n"
+      annotation << "---@class _#{@class_name}: DFBitfieldType\n"
       @items.each do |item|
         annotation << item.to_field
       end

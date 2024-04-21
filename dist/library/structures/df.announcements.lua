@@ -1961,8 +1961,7 @@ df.announcement_type.attrs = {}
 ---@field [36] "HUNTING"
 df.announcement_alert_type = {}
 
----@class announcement_flags: DFObject
----@field _kind 'bitfield'
+---@class announcement_flags: DFBitfield
 ---@field _enum _announcement_flags
 ---@field DO_MEGA boolean BOX
 ---@field [0] boolean BOX
@@ -1981,7 +1980,7 @@ df.announcement_alert_type = {}
 ---@field ALERT boolean ALERT
 ---@field [7] boolean ALERT
 
----@class _announcement_flags: DFBitfield
+---@class _announcement_flags: DFBitfieldType
 ---@field DO_MEGA 0 BOX
 ---@field [0] "DO_MEGA" BOX
 ---@field PAUSE 1 P
@@ -2043,8 +2042,7 @@ function df.report.find(key) end
 ---@return report_vector # df.global.world.status.reports
 function df.report.get_vector() end
 
----@class report.T_flags: DFObject
----@field _kind 'bitfield'
+---@class report.T_flags: DFBitfield
 ---@field _enum _report.T_flags
 ---@field continuation boolean When split into multiple lines, set on all but the first
 ---@field [0] boolean When split into multiple lines, set on all but the first
@@ -2053,7 +2051,7 @@ function df.report.get_vector() end
 ---@field announcement boolean
 ---@field [2] boolean
 
----@class _report.T_flags: DFBitfield
+---@class _report.T_flags: DFBitfieldType
 ---@field continuation 0 When split into multiple lines, set on all but the first
 ---@field [0] "continuation" When split into multiple lines, set on all but the first
 ---@field unconscious 1 units.active[0]
@@ -2147,13 +2145,12 @@ function _announcement_alertst_report_unit_announcement_category:erase(index) en
 ---@field _kind 'struct-type'
 df.announcement_infost = {}
 
----@class announcement_infost.T_flags: DFObject
----@field _kind 'bitfield'
+---@class announcement_infost.T_flags: DFBitfield
 ---@field _enum _announcement_infost.T_flags
 ---@field SPARRING_EVENT boolean determined by unit_action_data_attack.flags.sparring_hit
 ---@field [0] boolean determined by unit_action_data_attack.flags.sparring_hit
 
----@class _announcement_infost.T_flags: DFBitfield
+---@class _announcement_infost.T_flags: DFBitfieldType
 ---@field SPARRING_EVENT 0 determined by unit_action_data_attack.flags.sparring_hit
 ---@field [0] "SPARRING_EVENT" determined by unit_action_data_attack.flags.sparring_hit
 df.announcement_infost.T_flags = {}

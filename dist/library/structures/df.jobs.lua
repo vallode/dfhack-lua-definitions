@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class job_material_category: DFObject
----@field _kind 'bitfield'
+---@class job_material_category: DFBitfield
 ---@field _enum _job_material_category
 ---@field plant boolean
 ---@field [0] boolean
@@ -33,7 +32,7 @@
 ---@field strand boolean
 ---@field [13] boolean
 
----@class _job_material_category: DFBitfield
+---@class _job_material_category: DFBitfieldType
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1 wood log
@@ -66,8 +65,7 @@ df.job_material_category = {}
 
 -- An extended version of job_material_category,
 -- for use in some plugins, like workflow.
----@class dfhack_material_category: DFObject
----@field _kind 'bitfield'
+---@class dfhack_material_category: DFBitfield
 ---@field _enum _dfhack_material_category
 ---@field plant boolean
 ---@field [0] boolean
@@ -112,7 +110,7 @@ df.job_material_category = {}
 ---@field gem boolean
 ---@field [20] boolean
 
----@class _dfhack_material_category: DFBitfield
+---@class _dfhack_material_category: DFBitfieldType
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1
@@ -168,8 +166,7 @@ df.dfhack_material_category = {}
 ---@field _kind 'struct-type'
 df.job_list_link = {}
 
----@class job_flags: DFObject
----@field _kind 'bitfield'
+---@class job_flags: DFBitfield
 ---@field _enum _job_flags
 ---@field ["repeat"] boolean
 ---@field [0] boolean
@@ -204,7 +201,7 @@ df.job_list_link = {}
 ---@field do_now boolean toady: DO_ME_NOW
 ---@field [18] boolean toady: DO_ME_NOW
 
----@class _job_flags: DFBitfield
+---@class _job_flags: DFBitfieldType
 ---@field repeat 0
 ---@field [0] "repeat"
 ---@field suspend 1
@@ -431,8 +428,7 @@ df.job_item_ref = {}
 ---@field [8] "PushHaulVehicle" wheelbarrow
 df.job_item_ref.T_role = {}
 
----@class job_item_flags1: DFObject
----@field _kind 'bitfield'
+---@class job_item_flags1: DFBitfield
 ---@field _enum _job_item_flags1
 ---@field improvable boolean vtable[155]:eax,-1,-1
 ---@field [0] boolean vtable[155]:eax,-1,-1
@@ -499,7 +495,7 @@ df.job_item_ref.T_role = {}
 ---@field lye_bearing boolean
 ---@field [31] boolean
 
----@class _job_item_flags1: DFBitfield
+---@class _job_item_flags1: DFBitfieldType
 ---@field improvable 0 vtable[155]:eax,-1,-1
 ---@field [0] "improvable" vtable[155]:eax,-1,-1
 ---@field butcherable 1 (call 0074c6d0)
@@ -566,8 +562,7 @@ df.job_item_ref.T_role = {}
 ---@field [31] "lye_bearing"
 df.job_item_flags1 = {}
 
----@class job_item_flags2: DFObject
----@field _kind 'bitfield'
+---@class job_item_flags2: DFBitfield
 ---@field _enum _job_item_flags2
 ---@field dye boolean vtable[106]
 ---@field [0] boolean vtable[106]
@@ -633,7 +628,7 @@ df.job_item_flags1 = {}
 ---@field yarn boolean check for material flag YARN
 ---@field [31] boolean check for material flag YARN
 
----@class _job_item_flags2: DFBitfield
+---@class _job_item_flags2: DFBitfieldType
 ---@field dye 0 vtable[106]
 ---@field [0] "dye" vtable[106]
 ---@field dyeable 1 vtable[159]
@@ -698,8 +693,7 @@ df.job_item_flags1 = {}
 ---@field [31] "yarn" check for material flag YARN
 df.job_item_flags2 = {}
 
----@class job_item_flags3: DFObject
----@field _kind 'bitfield'
+---@class job_item_flags3: DFBitfield
 ---@field _enum _job_item_flags3
 ---@field unimproved boolean vtable[176]
 ---@field [0] boolean vtable[176]
@@ -745,7 +739,7 @@ df.job_item_flags2 = {}
 ---@field empty_or_water boolean
 ---@field [21] boolean
 
----@class _job_item_flags3: DFBitfield
+---@class _job_item_flags3: DFBitfieldType
 ---@field unimproved 0 vtable[176]
 ---@field [0] "unimproved" vtable[176]
 ---@field any_raw_material 1 itemtype BAR, BOULDER, POWDER_MISC, or GLOB
@@ -866,15 +860,14 @@ df.job_item = {}
 ---@field _kind 'struct-type'
 df.job_item_filter = {}
 
----@class manager_order_status: DFObject
----@field _kind 'bitfield'
+---@class manager_order_status: DFBitfield
 ---@field _enum _manager_order_status
 ---@field validated boolean
 ---@field [0] boolean
 ---@field active boolean
 ---@field [1] boolean
 
----@class _manager_order_status: DFBitfield
+---@class _manager_order_status: DFBitfieldType
 ---@field validated 0
 ---@field [0] "validated"
 ---@field active 1
@@ -1204,8 +1197,7 @@ function df.training_assignment.find(key) end
 ---@return training_assignment_vector # df.global.plotinfo.equipment.training_assignments
 function df.training_assignment.get_vector() end
 
----@class training_assignment.T_flags: DFObject
----@field _kind 'bitfield'
+---@class training_assignment.T_flags: DFBitfield
 ---@field _enum _training_assignment.T_flags
 ---@field any_trainer boolean
 ---@field [0] boolean
@@ -1216,7 +1208,7 @@ function df.training_assignment.get_vector() end
 ---@field train_hunt boolean
 ---@field [3] boolean
 
----@class _training_assignment.T_flags: DFBitfield
+---@class _training_assignment.T_flags: DFBitfieldType
 ---@field any_trainer 0
 ---@field [0] "any_trainer"
 ---@field any_unassigned_trainer 1

@@ -118,8 +118,7 @@ df.fmod_sound = {}
 ---@field [7] "White"
 df.curses_color = {}
 
----@class cmv_attribute: DFObject
----@field _kind 'bitfield'
+---@class cmv_attribute: DFBitfield
 ---@field _enum _cmv_attribute
 ---@field fg boolean
 ---@field [0] boolean
@@ -128,7 +127,7 @@ df.curses_color = {}
 ---@field bright boolean
 ---@field [6] boolean
 
----@class _cmv_attribute: DFBitfield
+---@class _cmv_attribute: DFBitfieldType
 ---@field fg 0
 ---@field [0] "fg"
 ---@field bg 3
@@ -836,15 +835,14 @@ df.zoom_commands = {}
 ---@field _kind 'class-type'
 df.enabler = {}
 
----@class enabler.T_fullscreen_state: DFObject
----@field _kind 'bitfield'
+---@class enabler.T_fullscreen_state: DFBitfield
 ---@field _enum _enabler.T_fullscreen_state
 ---@field fullscreen boolean
 ---@field [0] boolean
 ---@field exclusive boolean
 ---@field [1] boolean
 
----@class _enabler.T_fullscreen_state: DFBitfield
+---@class _enabler.T_fullscreen_state: DFBitfieldType
 ---@field fullscreen 0
 ---@field [0] "fullscreen"
 ---@field exclusive 1
@@ -1050,15 +1048,14 @@ function _enabler_async_zoom_vals:insert(index, item) end
 ---@param index integer 
 function _enabler_async_zoom_vals:erase(index) end
 
----@class enabler.T_flag: DFObject
----@field _kind 'bitfield'
+---@class enabler.T_flag: DFBitfield
 ---@field _enum _enabler.T_flag
 ---@field render boolean
 ---@field [0] boolean
 ---@field maxfps boolean
 ---@field [1] boolean
 
----@class _enabler.T_flag: DFBitfield
+---@class _enabler.T_flag: DFBitfieldType
 ---@field render 0
 ---@field [0] "render"
 ---@field maxfps 1

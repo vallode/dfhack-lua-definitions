@@ -68,15 +68,14 @@ df.dipscript_text = {}
 ---@field _kind 'struct-type'
 df.dipscript_popup = {}
 
----@class dipscript_popup.T_flags: DFObject
----@field _kind 'bitfield'
+---@class dipscript_popup.T_flags: DFBitfield
 ---@field _enum _dipscript_popup.T_flags
 ---@field close_screen boolean
 ---@field [0] boolean
 ---@field new_screen boolean bay12: DEAD
 ---@field [1] boolean bay12: DEAD
 
----@class _dipscript_popup.T_flags: DFBitfield
+---@class _dipscript_popup.T_flags: DFBitfieldType
 ---@field close_screen 0
 ---@field [0] "close_screen"
 ---@field new_screen 1 bay12: DEAD
@@ -337,8 +336,7 @@ function _meeting_diplomat_info_active_script_vars:insert(index, item) end
 ---@param index integer 
 function _meeting_diplomat_info_active_script_vars:erase(index) end
 
----@class meeting_diplomat_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class meeting_diplomat_info.T_flags: DFBitfield
 ---@field _enum _meeting_diplomat_info.T_flags
 ---@field dynamic_load boolean destroy dipscript_info in destructor
 ---@field [0] boolean destroy dipscript_info in destructor
@@ -347,7 +345,7 @@ function _meeting_diplomat_info_active_script_vars:erase(index) end
 ---@field success boolean
 ---@field [2] boolean
 
----@class _meeting_diplomat_info.T_flags: DFBitfield
+---@class _meeting_diplomat_info.T_flags: DFBitfieldType
 ---@field dynamic_load 0 destroy dipscript_info in destructor
 ---@field [0] "dynamic_load" destroy dipscript_info in destructor
 ---@field failure 1
@@ -509,8 +507,7 @@ df.meeting_event = {}
 ---@field _kind 'struct-type'
 df.activity_info = {}
 
----@class activity_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class activity_info.T_flags: DFBitfield
 ---@field _enum _activity_info.T_flags
 ---@field next_step boolean
 ---@field [0] boolean
@@ -523,7 +520,7 @@ df.activity_info = {}
 ---@field meeting_done boolean bay12: DISCUSSINGTOPIC
 ---@field [4] boolean bay12: DISCUSSINGTOPIC
 
----@class _activity_info.T_flags: DFBitfield
+---@class _activity_info.T_flags: DFBitfieldType
 ---@field next_step 0
 ---@field [0] "next_step"
 ---@field checked_building 1 bay12: SITESEARCHED
@@ -563,15 +560,14 @@ function _room_rent_info_elements:insert(index, item) end
 ---@param index integer 
 function _room_rent_info_elements:erase(index) end
 
----@class room_rent_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class room_rent_info.T_flags: DFBitfield
 ---@field _enum _room_rent_info.T_flags
 ---@field eviction_underway boolean
 ---@field [0] boolean
 ---@field move_underway boolean
 ---@field [1] boolean
 
----@class _room_rent_info.T_flags: DFBitfield
+---@class _room_rent_info.T_flags: DFBitfieldType
 ---@field eviction_underway 0
 ---@field [0] "eviction_underway"
 ---@field move_underway 1
@@ -898,15 +894,14 @@ df.activity_event_building_role_type = {}
 ---@field _kind 'class-type'
 df.activity_event = {}
 
----@class activity_event.T_flags: DFObject
----@field _kind 'bitfield'
+---@class activity_event.T_flags: DFBitfield
 ---@field _enum _activity_event.T_flags
 ---@field dismissed boolean bay12: DEAD; to be removed from squad_position, anyway
 ---@field [0] boolean bay12: DEAD; to be removed from squad_position, anyway
 ---@field squad boolean bay12: SQUAD; for all in training session, but not ind.drill
 ---@field [1] boolean bay12: SQUAD; for all in training session, but not ind.drill
 
----@class _activity_event.T_flags: DFBitfield
+---@class _activity_event.T_flags: DFBitfieldType
 ---@field dismissed 0 bay12: DEAD; to be removed from squad_position, anyway
 ---@field [0] "dismissed" bay12: DEAD; to be removed from squad_position, anyway
 ---@field squad 1 bay12: SQUAD; for all in training session, but not ind.drill
@@ -1392,14 +1387,13 @@ function _activity_event_conversationst_turns:insert(index, item) end
 ---@param index integer 
 function _activity_event_conversationst_turns:erase(index) end
 
----@class activity_event_conversationst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class activity_event_conversationst.T_flags2: DFBitfield
 ---@field _enum _activity_event_conversationst.T_flags2
 ---@field [0] boolean
 ---@field shouting boolean
 ---@field [1] boolean
 
----@class _activity_event_conversationst.T_flags2: DFBitfield
+---@class _activity_event_conversationst.T_flags2: DFBitfieldType
 ---@field shouting 1
 ---@field [1] "shouting"
 df.activity_event_conversationst.T_flags2 = {}
@@ -1837,14 +1831,13 @@ df.activity_event_fill_service_orderst = {}
 ---@field _kind 'class-type'
 df.activity_event_writest = {}
 
----@class activity_event_writest.T_unk_1: DFObject
----@field _kind 'bitfield'
+---@class activity_event_writest.T_unk_1: DFBitfield
 ---@field _enum _activity_event_writest.T_unk_1
 ---@field [0] boolean
 ---@field [1] boolean
 ---@field [2] boolean
 
----@class _activity_event_writest.T_unk_1: DFBitfield
+---@class _activity_event_writest.T_unk_1: DFBitfieldType
 df.activity_event_writest.T_unk_1 = {}
 
 ---@alias activity_event_writest.T_mode_keys
@@ -1879,8 +1872,7 @@ df.activity_event_writest.T_mode = {}
 ---@field _kind 'class-type'
 df.activity_event_copy_written_contentst = {}
 
----@class activity_event_copy_written_contentst.T_flagsmaybe: DFObject
----@field _kind 'bitfield'
+---@class activity_event_copy_written_contentst.T_flagsmaybe: DFBitfield
 ---@field _enum _activity_event_copy_written_contentst.T_flagsmaybe
 ---@field unk0 boolean
 ---@field [0] boolean
@@ -1894,7 +1886,7 @@ df.activity_event_copy_written_contentst = {}
 ---@field [8] boolean
 ---@field [9] boolean
 
----@class _activity_event_copy_written_contentst.T_flagsmaybe: DFBitfield
+---@class _activity_event_copy_written_contentst.T_flagsmaybe: DFBitfieldType
 ---@field unk0 0
 ---@field [0] "unk0"
 df.activity_event_copy_written_contentst.T_flagsmaybe = {}

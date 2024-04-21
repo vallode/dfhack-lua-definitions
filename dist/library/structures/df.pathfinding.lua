@@ -1056,8 +1056,7 @@ df.unit_path_goal = {}
 df.unit_station_type = {}
 
 -- bay12: PathPermit
----@class pathfinding_flags: DFObject
----@field _kind 'bitfield'
+---@class pathfinding_flags: DFBitfield
 ---@field _enum _pathfinding_flags
 ---@field Desperate boolean bay12: FORBIDDENTERRAIN
 ---@field [0] boolean bay12: FORBIDDENTERRAIN
@@ -1110,7 +1109,7 @@ df.unit_station_type = {}
 ---@field Ghostly boolean
 ---@field [24] boolean
 
----@class _pathfinding_flags: DFBitfield
+---@class _pathfinding_flags: DFBitfieldType
 ---@field Desperate 0 bay12: FORBIDDENTERRAIN
 ---@field [0] "Desperate" bay12: FORBIDDENTERRAIN
 ---@field Reckless 1 bay12: BONKERS

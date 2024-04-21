@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class unit_flags1: DFObject
----@field _kind 'bitfield'
+---@class unit_flags1: DFBitfield
 ---@field _enum _unit_flags1
 ---@field move_state boolean (CANMOVE) Can the dwarf move or are they waiting for their movement timer
 ---@field [0] boolean (CANMOVE) Can the dwarf move or are they waiting for their movement timer
@@ -69,7 +68,7 @@
 ---@field important_historical_figure boolean (NEMESIS) Is an important historical figure
 ---@field [31] boolean (NEMESIS) Is an important historical figure
 
----@class _unit_flags1: DFBitfield
+---@class _unit_flags1: DFBitfieldType
 ---@field move_state 0 (CANMOVE) Can the dwarf move or are they waiting for their movement timer
 ---@field [0] "move_state" (CANMOVE) Can the dwarf move or are they waiting for their movement timer
 ---@field inactive 1 (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
@@ -136,8 +135,7 @@
 ---@field [31] "important_historical_figure" (NEMESIS) Is an important historical figure
 df.unit_flags1 = {}
 
----@class unit_flags2: DFObject
----@field _kind 'bitfield'
+---@class unit_flags2: DFBitfield
 ---@field _enum _unit_flags2
 ---@field swimming boolean
 ---@field [0] boolean
@@ -204,7 +202,7 @@ df.unit_flags1 = {}
 ---@field roaming_wilderness_population_source_not_a_map_feature boolean ROAMING_WILDERPOP_NOT_FEATURE
 ---@field [31] boolean ROAMING_WILDERPOP_NOT_FEATURE
 
----@class _unit_flags2: DFBitfield
+---@class _unit_flags2: DFBitfieldType
 ---@field swimming 0
 ---@field [0] "swimming"
 ---@field sparring 1 (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
@@ -271,8 +269,7 @@ df.unit_flags1 = {}
 ---@field [31] "roaming_wilderness_population_source_not_a_map_feature" ROAMING_WILDERPOP_NOT_FEATURE
 df.unit_flags2 = {}
 
----@class unit_flags3: DFObject
----@field _kind 'bitfield'
+---@class unit_flags3: DFBitfield
 ---@field _enum _unit_flags3
 ---@field body_part_relsize_computed boolean (RELSIZES_CALCULATED)
 ---@field [0] boolean (RELSIZES_CALCULATED)
@@ -339,7 +336,7 @@ df.unit_flags2 = {}
 ---@field guest boolean causes No Activity to be displayed
 ---@field [31] boolean causes No Activity to be displayed
 
----@class _unit_flags3: DFBitfield
+---@class _unit_flags3: DFBitfieldType
 ---@field body_part_relsize_computed 0 (RELSIZES_CALCULATED)
 ---@field [0] "body_part_relsize_computed" (RELSIZES_CALCULATED)
 ---@field size_modifier_computed 1 (TOTAL_APP_SIZE_MOD_CALCULATED)
@@ -406,8 +403,7 @@ df.unit_flags2 = {}
 ---@field [31] "guest" causes No Activity to be displayed
 df.unit_flags3 = {}
 
----@class unit_flags4: DFObject
----@field _kind 'bitfield'
+---@class unit_flags4: DFBitfield
 ---@field _enum _unit_flags4
 ---@field lazy_goblet_check boolean
 ---@field [0] boolean
@@ -436,7 +432,7 @@ df.unit_flags3 = {}
 ---@field agitated_wilderness_creature boolean 
 ---@field [12] boolean 
 
----@class _unit_flags4: DFBitfield
+---@class _unit_flags4: DFBitfieldType
 ---@field lazy_goblet_check 0
 ---@field [0] "lazy_goblet_check"
 ---@field urgent_goblet_check 1
@@ -465,8 +461,7 @@ df.unit_flags3 = {}
 ---@field [12] "agitated_wilderness_creature" 
 df.unit_flags4 = {}
 
----@class work_detail_flags: DFObject
----@field _kind 'bitfield'
+---@class work_detail_flags: DFBitfield
 ---@field _enum _work_detail_flags
 ---@field no_modify boolean
 ---@field [0] boolean
@@ -477,7 +472,7 @@ df.unit_flags4 = {}
 ---@field limited boolean by itself is nobody does this
 ---@field [3] boolean by itself is nobody does this
 
----@class _work_detail_flags: DFBitfield
+---@class _work_detail_flags: DFBitfieldType
 ---@field no_modify 0
 ---@field [0] "no_modify"
 ---@field no_everyone_does_this 1
@@ -1939,13 +1934,12 @@ df.unit_owner_type = {}
 ---@field [4] "WAGONLEADER"
 df.rider_positions_type = {}
 
----@class unit_target_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_target_flags: DFBitfield
 ---@field _enum _unit_target_flags
 ---@field INV_BLOCK_WHILE_INCAP boolean if set, the unit will try to remove the helmet of their target
 ---@field [0] boolean if set, the unit will try to remove the helmet of their target
 
----@class _unit_target_flags: DFBitfield
+---@class _unit_target_flags: DFBitfieldType
 ---@field INV_BLOCK_WHILE_INCAP 0 if set, the unit will try to remove the helmet of their target
 ---@field [0] "INV_BLOCK_WHILE_INCAP" if set, the unit will try to remove the helmet of their target
 df.unit_target_flags = {}
@@ -1970,26 +1964,24 @@ df.unit_target_flags = {}
 ---@field [0] "MOVE_TO_TILE"
 df.command_type = {}
 
----@class command_flags: DFObject
----@field _kind 'bitfield'
+---@class command_flags: DFBitfield
 ---@field _enum _command_flags
 ---@field DEAD boolean
 ---@field [0] boolean
 
----@class _command_flags: DFBitfield
+---@class _command_flags: DFBitfieldType
 ---@field DEAD 0
 ---@field [0] "DEAD"
 df.command_flags = {}
 
----@class unit_command_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_command_flags: DFBitfield
 ---@field _enum _unit_command_flags
 ---@field HAVE_COMMAND_GAIT boolean
 ---@field [0] boolean
 ---@field AUTOMATED_TACTICAL boolean
 ---@field [1] boolean
 
----@class _unit_command_flags: DFBitfield
+---@class _unit_command_flags: DFBitfieldType
 ---@field HAVE_COMMAND_GAIT 0
 ---@field [0] "HAVE_COMMAND_GAIT"
 ---@field AUTOMATED_TACTICAL 1
@@ -2009,13 +2001,12 @@ df.unit_command_flags = {}
 ---@field _kind 'struct-type'
 df.command = {}
 
----@class unit_active_animation_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_active_animation_flags: DFBitfield
 ---@field _enum _unit_active_animation_flags
 ---@field CORPSE boolean
 ---@field [0] boolean
 
----@class _unit_active_animation_flags: DFBitfield
+---@class _unit_active_animation_flags: DFBitfieldType
 ---@field CORPSE 0
 ---@field [0] "CORPSE"
 df.unit_active_animation_flags = {}
@@ -2237,13 +2228,12 @@ function _unit_general_refs:erase(index) end
 ---@field _kind 'struct-type'
 df.unit.T_military = {}
 
----@class unit.T_military.T_pickup_flags: DFObject
----@field _kind 'bitfield'
+---@class unit.T_military.T_pickup_flags: DFBitfield
 ---@field _enum _unit.T_military.T_pickup_flags
 ---@field update boolean
 ---@field [0] boolean
 
----@class _unit.T_military.T_pickup_flags: DFBitfield
+---@class _unit.T_military.T_pickup_flags: DFBitfieldType
 ---@field update 0
 ---@field [0] "update"
 df.unit.T_military.T_pickup_flags = {}
@@ -2957,8 +2947,7 @@ function _unit_occupations:insert(index, item) end
 ---@param index integer 
 function _unit_occupations:erase(index) end
 
----@class witness_report_flags: DFObject
----@field _kind 'bitfield'
+---@class witness_report_flags: DFBitfield
 ---@field _enum _witness_report_flags
 ---@field HAVE_SET_RPHS boolean
 ---@field [0] boolean
@@ -2969,7 +2958,7 @@ function _unit_occupations:erase(index) end
 ---@field KNOW_NAME_OF_RELEVANT_HF_BY_OTHER_MEANS boolean
 ---@field [3] boolean
 
----@class _witness_report_flags: DFBitfield
+---@class _witness_report_flags: DFBitfieldType
 ---@field HAVE_SET_RPHS 0
 ---@field [0] "HAVE_SET_RPHS"
 ---@field DO_NOT_SEARCH_WI_IF_NULL 1
@@ -3080,15 +3069,14 @@ df.unit_ghost_info = {}
 ---@field _kind 'struct-type'
 df.unit_ghost_info.T_target = {}
 
----@class unit_ghost_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_ghost_info.T_flags: DFBitfield
 ---@field _enum _unit_ghost_info.T_flags
 ---@field announced boolean
 ---@field [0] boolean
 ---@field was_at_rest boolean
 ---@field [1] boolean
 
----@class _unit_ghost_info.T_flags: DFBitfield
+---@class _unit_ghost_info.T_flags: DFBitfieldType
 ---@field announced 0
 ---@field [0] "announced"
 ---@field was_at_rest 1
@@ -3222,8 +3210,7 @@ function _unit_syndrome_symptoms:insert(index, item) end
 ---@param index integer 
 function _unit_syndrome_symptoms:erase(index) end
 
----@class unit_syndrome.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_syndrome.T_flags: DFBitfield
 ---@field _enum _unit_syndrome.T_flags
 ---@field is_sick boolean cause rq_diagnosis:
 ---@field [0] boolean cause rq_diagnosis:
@@ -3232,7 +3219,7 @@ function _unit_syndrome_symptoms:erase(index) end
 ---@field [2] boolean prevent rq_diagnosis or needs_healthcare:
 ---@field [3] boolean
 
----@class _unit_syndrome.T_flags: DFBitfield
+---@class _unit_syndrome.T_flags: DFBitfieldType
 ---@field is_sick 0 cause rq_diagnosis:
 ---@field [0] "is_sick" cause rq_diagnosis:
 ---@field is_sick_low 1 less sick? fever: 5-19 low, 20-* full
@@ -3290,8 +3277,7 @@ df.unit_syndrome.T_flags = {}
 ---@field [9] "Blister"
 df.wound_effect_type = {}
 
----@class wound_damage_flags1: DFObject
----@field _kind 'bitfield'
+---@class wound_damage_flags1: DFBitfield
 ---@field _enum _wound_damage_flags1
 ---@field cut boolean
 ---@field [0] boolean
@@ -3358,7 +3344,7 @@ df.wound_effect_type = {}
 ---@field overlapping_fracture boolean
 ---@field [31] boolean
 
----@class _wound_damage_flags1: DFBitfield
+---@class _wound_damage_flags1: DFBitfieldType
 ---@field cut 0
 ---@field [0] "cut"
 ---@field smashed 1
@@ -3425,8 +3411,7 @@ df.wound_effect_type = {}
 ---@field [31] "overlapping_fracture"
 df.wound_damage_flags1 = {}
 
----@class wound_damage_flags2: DFObject
----@field _kind 'bitfield'
+---@class wound_damage_flags2: DFBitfield
 ---@field _enum _wound_damage_flags2
 ---@field needs_setting boolean
 ---@field [0] boolean
@@ -3435,7 +3420,7 @@ df.wound_damage_flags1 = {}
 ---@field gelded boolean
 ---@field [2] boolean
 
----@class _wound_damage_flags2: DFBitfield
+---@class _wound_damage_flags2: DFBitfieldType
 ---@field needs_setting 0
 ---@field [0] "needs_setting"
 ---@field entire_surface 1
@@ -3484,8 +3469,7 @@ function _unit_wound_parts:insert(index, item) end
 ---@param index integer 
 function _unit_wound_parts:erase(index) end
 
----@class unit_wound.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_wound.T_flags: DFBitfield
 ---@field _enum _unit_wound.T_flags
 ---@field severed_part boolean
 ---@field [0] boolean
@@ -3500,7 +3484,7 @@ function _unit_wound_parts:erase(index) end
 ---@field infection boolean
 ---@field [5] boolean
 
----@class _unit_wound.T_flags: DFBitfield
+---@class _unit_wound.T_flags: DFBitfieldType
 ---@field severed_part 0
 ---@field [0] "severed_part"
 ---@field mortal_wound 1
@@ -3861,8 +3845,7 @@ df.unit_item_wrestle = {}
 ---@field _kind 'struct-type'
 df.unit_item_use = {}
 
----@class unit_health_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_health_flags: DFBitfield
 ---@field _enum _unit_health_flags
 ---@field rq_diagnosis boolean
 ---@field [0] boolean
@@ -3887,7 +3870,7 @@ df.unit_item_use = {}
 ---@field rq_crutch boolean
 ---@field [10] boolean
 
----@class _unit_health_flags: DFBitfield
+---@class _unit_health_flags: DFBitfieldType
 ---@field rq_diagnosis 0
 ---@field [0] "rq_diagnosis"
 ---@field needs_recovery 1 needs diagnosis but cannot walk
@@ -3912,8 +3895,7 @@ df.unit_item_use = {}
 ---@field [10] "rq_crutch"
 df.unit_health_flags = {}
 
----@class unit_bp_health_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_bp_health_flags: DFBitfield
 ---@field _enum _unit_bp_health_flags
 ---@field rq_immobilize boolean
 ---@field [0] boolean
@@ -3936,7 +3918,7 @@ df.unit_health_flags = {}
 ---@field needs_cast boolean used to remove once not needed
 ---@field [9] boolean used to remove once not needed
 
----@class _unit_bp_health_flags: DFBitfield
+---@class _unit_bp_health_flags: DFBitfieldType
 ---@field rq_immobilize 0
 ---@field [0] "rq_immobilize"
 ---@field rq_dressing 1
@@ -4026,8 +4008,7 @@ function _unit_health_info_syndrome_diagnosis:insert(index, item) end
 ---@param index integer 
 function _unit_health_info_syndrome_diagnosis:erase(index) end
 
----@class orientation_flags: DFObject
----@field _kind 'bitfield'
+---@class orientation_flags: DFBitfield
 ---@field _enum _orientation_flags
 ---@field indeterminate boolean only seen on adventurers
 ---@field [0] boolean only seen on adventurers
@@ -4040,7 +4021,7 @@ function _unit_health_info_syndrome_diagnosis:erase(index) end
 ---@field marry_female boolean
 ---@field [4] boolean
 
----@class _orientation_flags: DFBitfield
+---@class _orientation_flags: DFBitfieldType
 ---@field indeterminate 0 only seen on adventurers
 ---@field [0] "indeterminate" only seen on adventurers
 ---@field romance_male 1
@@ -4193,8 +4174,7 @@ df.unit_emotion_memory = {}
 ---@field _kind 'struct-type'
 df.personality_moodst = {}
 
----@class personality_moodst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class personality_moodst.T_flags: DFBitfield
 ---@field _enum _personality_moodst.T_flags
 ---@field failed_to_overcome boolean
 ---@field [0] boolean
@@ -4215,7 +4195,7 @@ df.personality_moodst = {}
 ---@field value_change boolean
 ---@field [8] boolean
 
----@class _personality_moodst.T_flags: DFBitfield
+---@class _personality_moodst.T_flags: DFBitfieldType
 ---@field failed_to_overcome 0
 ---@field [0] "failed_to_overcome"
 ---@field was_dream_goal 1
@@ -4386,15 +4366,14 @@ function _unit_personality_needs:insert(index, item) end
 ---@param index integer 
 function _unit_personality_needs:erase(index) end
 
----@class unit_personality.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_personality.T_flags: DFBitfield
 ---@field _enum _unit_personality.T_flags
 ---@field distraction_calculated boolean
 ---@field [0] boolean
 ---@field has_unmet_needs boolean focus_level is below -999 for at least one need
 ---@field [1] boolean focus_level is below -999 for at least one need
 
----@class _unit_personality.T_flags: DFBitfield
+---@class _unit_personality.T_flags: DFBitfieldType
 ---@field distraction_calculated 0
 ---@field [0] "distraction_calculated"
 ---@field has_unmet_needs 1 focus_level is below -999 for at least one need
@@ -4640,13 +4619,12 @@ df.unit_action.T_data = {}
 ---@field _kind 'struct-type'
 df.unit_action_data_move = {}
 
----@class unit_action_data_move.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_action_data_move.T_flags: DFBitfield
 ---@field _enum _unit_action_data_move.T_flags
 ---@field charge boolean
 ---@field [0] boolean
 
----@class _unit_action_data_move.T_flags: DFBitfield
+---@class _unit_action_data_move.T_flags: DFBitfieldType
 ---@field charge 0
 ---@field [0] "charge"
 df.unit_action_data_move.T_flags = {}
@@ -4707,8 +4685,7 @@ df.unit_action_data_attack.T_unk_4 = {}
 ---@field [1] "Grab"
 df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 
----@class unit_action_data_attack.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_action_data_attack.T_flags: DFBitfield
 ---@field _enum _unit_action_data_attack.T_flags
 ---@field force_small_aim_minus boolean (FORCE_SMALL_AIM_MINUS)
 ---@field [0] boolean (FORCE_SMALL_AIM_MINUS)
@@ -4741,7 +4718,7 @@ df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 ---@field sparring_hit boolean (SPARRING_HIT)
 ---@field [14] boolean (SPARRING_HIT)
 
----@class _unit_action_data_attack.T_flags: DFBitfield
+---@class _unit_action_data_attack.T_flags: DFBitfieldType
 ---@field force_small_aim_minus 0 (FORCE_SMALL_AIM_MINUS)
 ---@field [0] "force_small_aim_minus" (FORCE_SMALL_AIM_MINUS)
 ---@field can_get_momentum_bonus 1 (CAN_GET_MOMENTUM_BONUS)
@@ -5167,15 +5144,14 @@ df.unit_complaint = {}
 ---@field _kind 'struct-type'
 df.unit_parley = {}
 
----@class unit_parley.T_flags: DFObject
----@field _kind 'bitfield'
+---@class unit_parley.T_flags: DFBitfield
 ---@field _enum _unit_parley.T_flags
 ---@field did_topic_meeting boolean
 ---@field [0] boolean
 ---@field returning_treasure boolean
 ---@field [1] boolean
 
----@class _unit_parley.T_flags: DFBitfield
+---@class _unit_parley.T_flags: DFBitfieldType
 ---@field did_topic_meeting 0
 ---@field [0] "did_topic_meeting"
 ---@field returning_treasure 1
@@ -5330,8 +5306,7 @@ df.work_detail_mode = {}
 ---@field _kind 'struct-type'
 df.work_detail = {}
 
----@class work_detail.T_work_detail_flags: DFObject
----@field _kind 'bitfield'
+---@class work_detail.T_work_detail_flags: DFBitfield
 ---@field _enum _work_detail.T_work_detail_flags
 ---@field no_modify boolean toady: DEFAULT
 ---@field [0] boolean toady: DEFAULT
@@ -5340,7 +5315,7 @@ df.work_detail = {}
 ---@field mode boolean
 ---@field [2] boolean
 
----@class _work_detail.T_work_detail_flags: DFBitfield
+---@class _work_detail.T_work_detail_flags: DFBitfieldType
 ---@field no_modify 0 toady: DEFAULT
 ---@field [0] "no_modify" toady: DEFAULT
 ---@field cannot_be_everybody 1
@@ -5456,8 +5431,7 @@ df.work_detail.T_icon = {}
 ---@field _kind 'struct-type'
 df.dungeon_contextst = {}
 
----@class dungeon_contextst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class dungeon_contextst.T_flags: DFBitfield
 ---@field _enum _dungeon_contextst.T_flags
 ---@field IN_CONFLICT boolean
 ---@field [0] boolean
@@ -5472,7 +5446,7 @@ df.dungeon_contextst = {}
 ---@field ALARMED_BY_UNIT boolean
 ---@field [5] boolean
 
----@class _dungeon_contextst.T_flags: DFBitfield
+---@class _dungeon_contextst.T_flags: DFBitfieldType
 ---@field IN_CONFLICT 0
 ---@field [0] "IN_CONFLICT"
 ---@field CLOSE_OPPONENT 1

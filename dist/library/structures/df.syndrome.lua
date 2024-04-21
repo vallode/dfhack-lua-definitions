@@ -208,8 +208,7 @@
 ---@field [48] "REDUCE_FEVER"
 df.creature_interaction_effect_type = {}
 
----@class creature_interaction_effect_flags: DFObject
----@field _kind 'bitfield'
+---@class creature_interaction_effect_flags: DFBitfield
 ---@field _enum _creature_interaction_effect_flags
 ---@field SIZE_DELAYS boolean
 ---@field [0] boolean
@@ -232,7 +231,7 @@ df.creature_interaction_effect_type = {}
 ---@field ABRUPT_END boolean
 ---@field [9] boolean
 
----@class _creature_interaction_effect_flags: DFBitfield
+---@class _creature_interaction_effect_flags: DFBitfieldType
 ---@field SIZE_DELAYS 0
 ---@field [0] "SIZE_DELAYS"
 ---@field SIZE_DILUTES 1
@@ -255,8 +254,7 @@ df.creature_interaction_effect_type = {}
 ---@field [9] "ABRUPT_END"
 df.creature_interaction_effect_flags = {}
 
----@class cie_add_tag_mask1: DFObject
----@field _kind 'bitfield'
+---@class cie_add_tag_mask1: DFBitfield
 ---@field _enum _cie_add_tag_mask1
 ---@field EXTRAVISION boolean
 ---@field [0] boolean
@@ -322,7 +320,7 @@ df.creature_interaction_effect_flags = {}
 ---@field [30] boolean
 ---@field [31] boolean
 
----@class _cie_add_tag_mask1: DFBitfield
+---@class _cie_add_tag_mask1: DFBitfieldType
 ---@field EXTRAVISION 0
 ---@field [0] "EXTRAVISION"
 ---@field OPPOSED_TO_LIFE 1
@@ -387,8 +385,7 @@ df.creature_interaction_effect_flags = {}
 ---@field [30] "SUPERNATURAL"
 df.cie_add_tag_mask1 = {}
 
----@class cie_add_tag_mask2: DFObject
----@field _kind 'bitfield'
+---@class cie_add_tag_mask2: DFBitfield
 ---@field _enum _cie_add_tag_mask2
 ---@field NO_AGING boolean
 ---@field [0] boolean
@@ -401,7 +398,7 @@ df.cie_add_tag_mask1 = {}
 ---@field FIT_FOR_RESURRECTION boolean
 ---@field [4] boolean
 
----@class _cie_add_tag_mask2: DFBitfield
+---@class _cie_add_tag_mask2: DFBitfieldType
 ---@field NO_AGING 0
 ---@field [0] "NO_AGING"
 ---@field MORTAL 1
@@ -1534,8 +1531,7 @@ function _creature_interaction_effect_cure_infectionst_unk_4:insert(index, item)
 ---@param index integer 
 function _creature_interaction_effect_cure_infectionst_unk_4:erase(index) end
 
----@class syndrome_flags: DFObject
----@field _kind 'bitfield'
+---@class syndrome_flags: DFBitfield
 ---@field _enum _syndrome_flags
 ---@field SYN_INJECTED boolean
 ---@field [0] boolean
@@ -1549,7 +1545,7 @@ function _creature_interaction_effect_cure_infectionst_unk_4:erase(index) end
 ---@field SYN_NO_HOSPITAL boolean
 ---@field [5] boolean
 
----@class _syndrome_flags: DFBitfield
+---@class _syndrome_flags: DFBitfieldType
 ---@field SYN_INJECTED 0
 ---@field [0] "SYN_INJECTED"
 ---@field SYN_CONTACT 1

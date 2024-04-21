@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class vermin_flags: DFObject
----@field _kind 'bitfield'
+---@class vermin_flags: DFBitfield
 ---@field _enum _vermin_flags
 ---@field [0] boolean
 ---@field is_colony boolean A vermin colony. For example an anthill or bee hive.
@@ -12,7 +11,7 @@
 ---@field [3] boolean colony building vermin away from colony
 ---@field [4] boolean
 
----@class _vermin_flags: DFBitfield
+---@class _vermin_flags: DFBitfieldType
 ---@field is_colony 1 A vermin colony. For example an anthill or bee hive.
 ---@field [1] "is_colony" A vermin colony. For example an anthill or bee hive.
 ---@field is_roaming_colony 3 colony building vermin away from colony

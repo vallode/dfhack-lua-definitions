@@ -334,13 +334,12 @@ df.entity_activity_statistics.T_food = {}
 ---@field _kind 'struct-type'
 df.entity_activity_statistics.T_wealth = {}
 
----@class entity_activity_statistics.T_found_misc: DFObject
----@field _kind 'bitfield'
+---@class entity_activity_statistics.T_found_misc: DFBitfield
 ---@field _enum _entity_activity_statistics.T_found_misc
 ---@field deep_special boolean
 ---@field [0] boolean
 
----@class _entity_activity_statistics.T_found_misc: DFBitfield
+---@class _entity_activity_statistics.T_found_misc: DFBitfieldType
 ---@field deep_special 0
 ---@field [0] "deep_special"
 df.entity_activity_statistics.T_found_misc = {}
@@ -404,8 +403,7 @@ df.caravan_state = {}
 df.caravan_state.T_trade_state = {}
 
 -- reportst
----@class caravan_state.T_flags: DFObject
----@field _kind 'bitfield'
+---@class caravan_state.T_flags: DFBitfield
 ---@field _enum _caravan_state.T_flags
 ---@field check_cleanup boolean CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field [0] boolean CHECKANDFINALIZE; set each time a merchant leaves the map or dies
@@ -426,7 +424,7 @@ df.caravan_state.T_trade_state = {}
 ---@field tribute boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 ---@field [8] boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 
----@class _caravan_state.T_flags: DFBitfield
+---@class _caravan_state.T_flags: DFBitfieldType
 ---@field check_cleanup 0 CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field [0] "check_cleanup" CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field casualty 1 JUSTSPOILED
@@ -894,26 +892,24 @@ df.historical_entity_type = {}
 ---@field _kind 'struct-type'
 df.honors_type = {}
 
----@class honors_type.T_flags: DFObject
----@field _kind 'bitfield'
+---@class honors_type.T_flags: DFBitfield
 ---@field _enum _honors_type.T_flags
 ---@field granted_to_all_new_members boolean
 ---@field [0] boolean
 
----@class _honors_type.T_flags: DFBitfield
+---@class _honors_type.T_flags: DFBitfieldType
 ---@field granted_to_all_new_members 0
 ---@field [0] "granted_to_all_new_members"
 df.honors_type.T_flags = {}
 
----@class honors_type.T_required_skill_type: DFObject
----@field _kind 'bitfield'
+---@class honors_type.T_required_skill_type: DFBitfield
 ---@field _enum _honors_type.T_required_skill_type
 ---@field melee_weapon boolean
 ---@field [0] boolean
 ---@field ranged_weapon boolean
 ---@field [1] boolean
 
----@class _honors_type.T_required_skill_type: DFBitfield
+---@class _honors_type.T_required_skill_type: DFBitfieldType
 ---@field melee_weapon 0
 ---@field [0] "melee_weapon"
 ---@field ranged_weapon 1
@@ -1191,8 +1187,7 @@ function df.historical_entity.find(key) end
 ---@return historical_entity_vector # df.global.world.entities.all
 function df.historical_entity.get_vector() end
 
----@class historical_entity.T_flags: DFObject
----@field _kind 'bitfield'
+---@class historical_entity.T_flags: DFBitfield
 ---@field _enum _historical_entity.T_flags
 ---@field neighbor boolean Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field [0] boolean Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
@@ -1249,7 +1244,7 @@ function df.historical_entity.get_vector() end
 ---@field unk26 boolean Set for a significant number of entities
 ---@field [26] boolean Set for a significant number of entities
 
----@class _historical_entity.T_flags: DFBitfield
+---@class _historical_entity.T_flags: DFBitfieldType
 ---@field neighbor 0 Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field [0] "neighbor" Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field player_civ 1 Changes as you change your civ on embark screen
@@ -1898,15 +1893,14 @@ function _historical_entity_tissue_styles_all:insert(index, item) end
 function _historical_entity_tissue_styles_all:erase(index) end
 
 -- actually lives inside a class
----@class historical_entity.T_conquered_site_group_flags: DFObject
----@field _kind 'bitfield'
+---@class historical_entity.T_conquered_site_group_flags: DFBitfield
 ---@field _enum _historical_entity.T_conquered_site_group_flags
 ---@field harsh boolean will TORTURE_FOR_INFORMATION
 ---@field [0] boolean will TORTURE_FOR_INFORMATION
 ---@field hostile_occupation boolean
 ---@field [1] boolean
 
----@class _historical_entity.T_conquered_site_group_flags: DFBitfield
+---@class _historical_entity.T_conquered_site_group_flags: DFBitfieldType
 ---@field harsh 0 will TORTURE_FOR_INFORMATION
 ---@field [0] "harsh" will TORTURE_FOR_INFORMATION
 ---@field hostile_occupation 1
@@ -3426,15 +3420,14 @@ function _agreement_details:insert(index, item) end
 ---@param index integer 
 function _agreement_details:erase(index) end
 
----@class agreement.T_flags: DFObject
----@field _kind 'bitfield'
+---@class agreement.T_flags: DFBitfield
 ---@field _enum _agreement.T_flags
 ---@field petition_not_accepted boolean this gets unset by accepting a petition
 ---@field [0] boolean this gets unset by accepting a petition
 ---@field convicted_accepted boolean convicted for PositionCorruption/accepted for Location
 ---@field [1] boolean convicted for PositionCorruption/accepted for Location
 
----@class _agreement.T_flags: DFBitfield
+---@class _agreement.T_flags: DFBitfieldType
 ---@field petition_not_accepted 0 this gets unset by accepting a petition
 ---@field [0] "petition_not_accepted" this gets unset by accepting a petition
 ---@field convicted_accepted 1 convicted for PositionCorruption/accepted for Location

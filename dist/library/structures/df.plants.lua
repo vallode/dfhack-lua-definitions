@@ -1,15 +1,14 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class plant_flags: DFObject
----@field _kind 'bitfield'
+---@class plant_flags: DFBitfield
 ---@field _enum _plant_flags
 ---@field watery boolean
 ---@field [0] boolean
 ---@field is_shrub boolean If it is not a shrub, then it is a tree
 ---@field [1] boolean If it is not a shrub, then it is a tree
 
----@class _plant_flags: DFBitfield
+---@class _plant_flags: DFBitfieldType
 ---@field watery 0
 ---@field [0] "watery"
 ---@field is_shrub 1 If it is not a shrub, then it is a tree
@@ -44,8 +43,7 @@ function df.plant.find(key) end
 ---@return plant_vector # df.global.world.plants.all
 function df.plant.get_vector() end
 
----@class plant.T_damage_flags: DFObject
----@field _kind 'bitfield'
+---@class plant.T_damage_flags: DFBitfield
 ---@field _enum _plant.T_damage_flags
 ---@field is_burning boolean
 ---@field [0] boolean
@@ -54,7 +52,7 @@ function df.plant.get_vector() end
 ---@field is_dead boolean
 ---@field [2] boolean
 
----@class _plant.T_damage_flags: DFBitfield
+---@class _plant.T_damage_flags: DFBitfieldType
 ---@field is_burning 0
 ---@field [0] "is_burning"
 ---@field is_drowning 1
@@ -189,8 +187,7 @@ df.plant_tree_tile_branches_dir = {}
 ---@field [6] "PARENT_IS_DOWN"
 df.plant_tree_tile_parent_dir = {}
 
----@class plant_tree_tile: DFObject
----@field _kind 'bitfield'
+---@class plant_tree_tile: DFBitfield
 ---@field _enum _plant_tree_tile
 ---@field trunk boolean
 ---@field [0] boolean
@@ -207,7 +204,7 @@ df.plant_tree_tile_parent_dir = {}
 ---@field trunk_is_thick boolean
 ---@field [11] boolean
 
----@class _plant_tree_tile: DFBitfield
+---@class _plant_tree_tile: DFBitfieldType
 ---@field trunk 0
 ---@field [0] "trunk"
 ---@field branches_dir 1
@@ -224,8 +221,7 @@ df.plant_tree_tile_parent_dir = {}
 ---@field [11] "trunk_is_thick"
 df.plant_tree_tile = {}
 
----@class plant_root_tile: DFObject
----@field _kind 'bitfield'
+---@class plant_root_tile: DFBitfield
 ---@field _enum _plant_root_tile
 ---@field regular boolean
 ---@field [0] boolean
@@ -233,7 +229,7 @@ df.plant_tree_tile = {}
 ---@field blocked boolean
 ---@field [7] boolean
 
----@class _plant_root_tile: DFBitfield
+---@class _plant_root_tile: DFBitfieldType
 ---@field regular 0
 ---@field [0] "regular"
 ---@field blocked 7

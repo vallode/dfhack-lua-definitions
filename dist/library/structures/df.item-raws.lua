@@ -509,15 +509,14 @@ df.item_type.attrs = {}
 ---@field _kind 'struct-type'
 df.weapon_attack = {}
 
----@class weapon_attack.T_flags: DFObject
----@field _kind 'bitfield'
+---@class weapon_attack.T_flags: DFBitfield
 ---@field _enum _weapon_attack.T_flags
 ---@field independent_multiattack boolean
 ---@field [0] boolean
 ---@field bad_multiattack boolean
 ---@field [1] boolean
 
----@class _weapon_attack.T_flags: DFBitfield
+---@class _weapon_attack.T_flags: DFBitfieldType
 ---@field independent_multiattack 0
 ---@field [0] "independent_multiattack"
 ---@field bad_multiattack 1
@@ -1584,15 +1583,14 @@ df.timbre_type = {}
 ---@field _kind 'struct-type'
 df.instrument_piece = {}
 
----@class instrument_piece.T_flags: DFObject
----@field _kind 'bitfield'
+---@class instrument_piece.T_flags: DFBitfield
 ---@field _enum _instrument_piece.T_flags
 ---@field always_singular boolean
 ---@field [0] boolean
 ---@field always_plural boolean
 ---@field [1] boolean
 
----@class _instrument_piece.T_flags: DFBitfield
+---@class _instrument_piece.T_flags: DFBitfieldType
 ---@field always_singular 0
 ---@field [0] "always_singular"
 ---@field always_plural 1

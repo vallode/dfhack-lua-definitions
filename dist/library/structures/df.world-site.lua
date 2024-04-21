@@ -262,8 +262,7 @@ function _abstract_building_entombed_populations:erase(index) end
 ---@field _kind 'struct-type'
 df.abstract_building_contents = {}
 
----@class abstract_building_contents.T_need_more: DFObject
----@field _kind 'bitfield'
+---@class abstract_building_contents.T_need_more: DFBitfield
 ---@field _enum _abstract_building_contents.T_need_more
 ---@field goblets boolean
 ---@field [0] boolean
@@ -287,7 +286,7 @@ df.abstract_building_contents = {}
 ---@field soap boolean
 ---@field [10] boolean
 
----@class _abstract_building_contents.T_need_more: DFBitfield
+---@class _abstract_building_contents.T_need_more: DFBitfieldType
 ---@field goblets 0
 ---@field [0] "goblets"
 ---@field instruments 1
@@ -1037,13 +1036,12 @@ function _site_first_calc_special_itemsst_type:erase(index) end
 ---@field _kind 'struct-type'
 df.site_cropst = {}
 
----@class site_cropst.T_flag: DFObject
----@field _kind 'bitfield'
+---@class site_cropst.T_flag: DFBitfield
 ---@field _enum _site_cropst.T_flag
 ---@field has_growths boolean
 ---@field [0] boolean
 
----@class _site_cropst.T_flag: DFBitfield
+---@class _site_cropst.T_flag: DFBitfieldType
 ---@field has_growths 0
 ---@field [0] "has_growths"
 df.site_cropst.T_flag = {}
@@ -2547,8 +2545,7 @@ df.site_realization_building_infost = {}
 ---@field _kind 'struct-type'
 df.site_building_item = {}
 
----@class tower_shape: DFObject
----@field _kind 'bitfield'
+---@class tower_shape: DFBitfield
 ---@field _enum _tower_shape
 ---@field round boolean
 ---@field [0] boolean
@@ -2561,7 +2558,7 @@ df.site_building_item = {}
 ---@field unk10 boolean set on goblin towers. doesnt seem to do anything
 ---@field [4] boolean set on goblin towers. doesnt seem to do anything
 
----@class _tower_shape: DFBitfield
+---@class _tower_shape: DFBitfieldType
 ---@field round 0
 ---@field [0] "round"
 ---@field hollow 1 no internal floors or fortifications

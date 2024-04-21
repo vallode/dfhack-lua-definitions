@@ -54,8 +54,7 @@ function df.invasion_info.find(key) end
 ---@return invasion_info_vector # df.global.plotinfo.invasions.list
 function df.invasion_info.get_vector() end
 
----@class invasion_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class invasion_info.T_flags: DFBitfield
 ---@field _enum _invasion_info.T_flags
 ---@field active boolean
 ---@field [0] boolean
@@ -72,7 +71,7 @@ function df.invasion_info.get_vector() end
 ---@field created_parley boolean
 ---@field [6] boolean
 
----@class _invasion_info.T_flags: DFBitfield
+---@class _invasion_info.T_flags: DFBitfieldType
 ---@field active 0
 ---@field [0] "active"
 ---@field siege 1

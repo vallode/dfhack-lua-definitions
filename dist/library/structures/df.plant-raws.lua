@@ -534,15 +534,14 @@ function _plant_raw_stockpile_growth_flags:insert(index, item) end
 ---@param index integer 
 function _plant_raw_stockpile_growth_flags:erase(index) end
 
----@class plant_raw.T_stockpile_growth_flags: DFObject
----@field _kind 'bitfield'
+---@class plant_raw.T_stockpile_growth_flags: DFBitfield
 ---@field _enum _plant_raw.T_stockpile_growth_flags
 ---@field EDIBLE_RAW boolean
 ---@field [0] boolean
 ---@field EDIBLE_COOKED boolean
 ---@field [1] boolean
 
----@class _plant_raw.T_stockpile_growth_flags: DFBitfield
+---@class _plant_raw.T_stockpile_growth_flags: DFBitfieldType
 ---@field EDIBLE_RAW 0
 ---@field [0] "EDIBLE_RAW"
 ---@field EDIBLE_COOKED 1
@@ -641,8 +640,7 @@ function _plant_growth_prints:insert(index, item) end
 ---@param index integer 
 function _plant_growth_prints:erase(index) end
 
----@class plant_growth.T_locations: DFObject
----@field _kind 'bitfield'
+---@class plant_growth.T_locations: DFBitfield
 ---@field _enum _plant_growth.T_locations
 ---@field twigs boolean
 ---@field [0] boolean
@@ -659,7 +657,7 @@ function _plant_growth_prints:erase(index) end
 ---@field sapling boolean
 ---@field [6] boolean
 
----@class _plant_growth.T_locations: DFBitfield
+---@class _plant_growth.T_locations: DFBitfieldType
 ---@field twigs 0
 ---@field [0] "twigs"
 ---@field light_branches 1
@@ -676,8 +674,7 @@ function _plant_growth_prints:erase(index) end
 ---@field [6] "sapling"
 df.plant_growth.T_locations = {}
 
----@class plant_growth.T_behavior: DFObject
----@field _kind 'bitfield'
+---@class plant_growth.T_behavior: DFBitfield
 ---@field _enum _plant_growth.T_behavior
 ---@field drops_off boolean
 ---@field [0] boolean
@@ -686,7 +683,7 @@ df.plant_growth.T_locations = {}
 ---@field has_seed boolean
 ---@field [2] boolean
 
----@class _plant_growth.T_behavior: DFBitfield
+---@class _plant_growth.T_behavior: DFBitfieldType
 ---@field drops_off 0
 ---@field [0] "drops_off"
 ---@field no_cloud 1

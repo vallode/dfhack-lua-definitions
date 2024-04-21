@@ -128,8 +128,7 @@ df.tile_dig_designation = {}
 ---@field [1] "Magma"
 df.tile_liquid = {}
 
----@class tile_designation: DFObject
----@field _kind 'bitfield'
+---@class tile_designation: DFBitfield
 ---@field _enum _tile_designation
 ---@field flow_size boolean liquid amount
 ---@field [0] boolean liquid amount
@@ -172,7 +171,7 @@ df.tile_liquid = {}
 ---@field water_salt boolean
 ---@field [31] boolean
 
----@class _tile_designation: DFBitfield
+---@class _tile_designation: DFBitfieldType
 ---@field flow_size 0 liquid amount
 ---@field [0] "flow_size" liquid amount
 ---@field pile 3 stockpile; Adventure: lit
@@ -258,8 +257,7 @@ df.tile_designation = {}
 ---@field [7] "Dynamic" doors, grates, etc
 df.tile_building_occ = {}
 
----@class tile_occupancy: DFObject
----@field _kind 'bitfield'
+---@class tile_occupancy: DFBitfield
 ---@field _enum _tile_occupancy
 ---@field building boolean
 ---@field [0] boolean
@@ -306,7 +304,7 @@ df.tile_building_occ = {}
 ---@field heavy_aquifer boolean Light/Heavy aquifer flag
 ---@field [26] boolean Light/Heavy aquifer flag
 
----@class _tile_occupancy: DFBitfield
+---@class _tile_occupancy: DFBitfieldType
 ---@field building 0
 ---@field [0] "building"
 ---@field unit 3 standing
@@ -353,8 +351,7 @@ df.tile_building_occ = {}
 ---@field [26] "heavy_aquifer" Light/Heavy aquifer flag
 df.tile_occupancy = {}
 
----@class block_flags: DFObject
----@field _kind 'bitfield'
+---@class block_flags: DFBitfield
 ---@field _enum _block_flags
 ---@field designated boolean for jobs etc
 ---@field [0] boolean for jobs etc
@@ -389,7 +386,7 @@ df.tile_occupancy = {}
 ---@field has_river_low boolean
 ---@field [15] boolean
 
----@class _block_flags: DFBitfield
+---@class _block_flags: DFBitfieldType
 ---@field designated 0 for jobs etc
 ---@field [0] "designated" for jobs etc
 ---@field update_temperature 1
@@ -424,8 +421,7 @@ df.tile_occupancy = {}
 ---@field [15] "has_river_low"
 df.block_flags = {}
 
----@class z_level_flags: DFObject
----@field _kind 'bitfield'
+---@class z_level_flags: DFBitfield
 ---@field _enum _z_level_flags
 ---@field update boolean
 ---@field [0] boolean
@@ -434,7 +430,7 @@ df.block_flags = {}
 ---@field update_twice boolean
 ---@field [2] boolean
 
----@class _z_level_flags: DFBitfield
+---@class _z_level_flags: DFBitfieldType
 ---@field update 0
 ---@field [0] "update"
 ---@field can_stop 1
@@ -518,8 +514,7 @@ df.z_level_flags = {}
 ---@field [15] "inv_f"
 df.tile_liquid_flow_dir = {}
 
----@class tile_liquid_flow: DFObject
----@field _kind 'bitfield'
+---@class tile_liquid_flow: DFBitfield
 ---@field _enum _tile_liquid_flow
 ---@field temp_flow_timer boolean set when water sloshes around, counts down to zero
 ---@field [0] boolean set when water sloshes around, counts down to zero
@@ -530,7 +525,7 @@ df.tile_liquid_flow_dir = {}
 ---@field sink_dist boolean periodically set whenever perm_flow_dir is nonzero
 ---@field [10] boolean periodically set whenever perm_flow_dir is nonzero
 
----@class _tile_liquid_flow: DFBitfield
+---@class _tile_liquid_flow: DFBitfieldType
 ---@field temp_flow_timer 0 set when water sloshes around, counts down to zero
 ---@field [0] "temp_flow_timer" set when water sloshes around, counts down to zero
 ---@field temp_dir 3
@@ -678,15 +673,14 @@ df.cave_column_link = {}
 ---@field _kind 'class-type'
 df.cave_column = {}
 
----@class cave_column.T_flags: DFObject
----@field _kind 'bitfield'
+---@class cave_column.T_flags: DFBitfield
 ---@field _enum _cave_column.T_flags
 ---@field UNSTABLE boolean
 ---@field [0] boolean
 ---@field ULTRA_SUPPORTED boolean
 ---@field [1] boolean
 
----@class _cave_column.T_flags: DFBitfield
+---@class _cave_column.T_flags: DFBitfieldType
 ---@field UNSTABLE 0
 ---@field [0] "UNSTABLE"
 ---@field ULTRA_SUPPORTED 1
@@ -711,8 +705,7 @@ df.cave_column.T_flags = {}
 ---@field _kind 'class-type'
 df.cave_column_rectangle = {}
 
----@class cave_column_rectangle.T_flags: DFObject
----@field _kind 'bitfield'
+---@class cave_column_rectangle.T_flags: DFBitfield
 ---@field _enum _cave_column_rectangle.T_flags
 ---@field SUPPORTED boolean
 ---@field [0] boolean
@@ -721,7 +714,7 @@ df.cave_column_rectangle = {}
 ---@field ULTRA_SUPPORTED boolean
 ---@field [2] boolean
 
----@class _cave_column_rectangle.T_flags: DFBitfield
+---@class _cave_column_rectangle.T_flags: DFBitfieldType
 ---@field SUPPORTED 0
 ---@field [0] "SUPPORTED"
 ---@field UNSTABLE 1
@@ -894,8 +887,7 @@ df.block_square_event = {}
 ---@field _kind 'class-type'
 df.block_square_event_mineralst = {}
 
----@class block_square_event_mineralst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class block_square_event_mineralst.T_flags: DFBitfield
 ---@field _enum _block_square_event_mineralst.T_flags
 ---@field discovered boolean
 ---@field [0] boolean
@@ -908,7 +900,7 @@ df.block_square_event_mineralst = {}
 ---@field cluster_one boolean
 ---@field [4] boolean
 
----@class _block_square_event_mineralst.T_flags: DFBitfield
+---@class _block_square_event_mineralst.T_flags: DFBitfieldType
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field cluster 1
@@ -981,8 +973,7 @@ df.block_square_event_grassst = {}
 ---@field _kind 'class-type'
 df.block_square_event_spoorst = {}
 
----@class block_square_event_spoorst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class block_square_event_spoorst.T_flags: DFBitfield
 ---@field _enum _block_square_event_spoorst.T_flags
 ---@field [0] boolean
 ---@field [1] boolean
@@ -994,7 +985,7 @@ df.block_square_event_spoorst = {}
 ---@field [7] boolean
 ---@field [8] boolean
 
----@class _block_square_event_spoorst.T_flags: DFBitfield
+---@class _block_square_event_spoorst.T_flags: DFBitfieldType
 df.block_square_event_spoorst.T_flags = {}
 
 ---@alias block_square_event_spoorst.T_unk_2_keys
@@ -1912,15 +1903,14 @@ df.biome_type._attr_entry_type._fields = {}
 ---@field SUBTERRANEAN_LAVA { caption: "Subterranean Lava", plant_raw_flag: "BIOME_SUBTERRANEAN_LAVA" }
 df.biome_type.attrs = {}
 
----@class construction_flags: DFObject
----@field _kind 'bitfield'
+---@class construction_flags: DFBitfield
 ---@field _enum _construction_flags
 ---@field no_build_item boolean build item is created from scratch upon removing construction, does not exist beforehand
 ---@field [0] boolean build item is created from scratch upon removing construction, does not exist beforehand
 ---@field top_of_wall boolean used on the floors above constructed walls so you cannot remove them
 ---@field [1] boolean used on the floors above constructed walls so you cannot remove them
 
----@class _construction_flags: DFBitfield
+---@class _construction_flags: DFBitfieldType
 ---@field no_build_item 0 build item is created from scratch upon removing construction, does not exist beforehand
 ---@field [0] "no_build_item" build item is created from scratch upon removing construction, does not exist beforehand
 ---@field top_of_wall 1 used on the floors above constructed walls so you cannot remove them
@@ -2045,13 +2035,12 @@ df.flow_info = {}
 ---@field _kind 'struct-type'
 df.flow_reuse_pool = {}
 
----@class flow_reuse_pool.T_flags: DFObject
----@field _kind 'bitfield'
+---@class flow_reuse_pool.T_flags: DFBitfield
 ---@field _enum _flow_reuse_pool.T_flags
 ---@field active boolean
 ---@field [0] boolean
 
----@class _flow_reuse_pool.T_flags: DFBitfield
+---@class _flow_reuse_pool.T_flags: DFBitfieldType
 ---@field active 0
 ---@field [0] "active"
 df.flow_reuse_pool.T_flags = {}

@@ -573,8 +573,7 @@ df.kitchen_exc_type = {}
 ---@field [51] "Finishing"
 df.save_substage = {}
 
----@class equipment_update: DFObject
----@field _kind 'bitfield'
+---@class equipment_update: DFBitfield
 ---@field _enum _equipment_update
 ---@field weapon boolean
 ---@field [0] boolean
@@ -602,7 +601,7 @@ df.save_substage = {}
 ---@field buildings boolean
 ---@field [12] boolean
 
----@class _equipment_update: DFBitfield
+---@class _equipment_update: DFBitfieldType
 ---@field weapon 0
 ---@field [0] "weapon"
 ---@field armor 1
@@ -641,13 +640,12 @@ df.equipment_update = {}
 ---@field _kind 'struct-type'
 df.labor_infost = {}
 
----@class labor_infost.T_flags: DFObject
----@field _kind 'bitfield'
+---@class labor_infost.T_flags: DFBitfield
 ---@field _enum _labor_infost.T_flags
 ---@field children_do_chores boolean
 ---@field [0] boolean
 
----@class _labor_infost.T_flags: DFBitfield
+---@class _labor_infost.T_flags: DFBitfieldType
 ---@field children_do_chores 0
 ---@field [0] "children_do_chores"
 df.labor_infost.T_flags = {}
@@ -1011,8 +1009,7 @@ function _plotinfost_kitchen_exc_types:insert(index, item) end
 ---@param index integer 
 function _plotinfost_kitchen_exc_types:erase(index) end
 
----@class plotinfost.T_flags: DFObject
----@field _kind 'bitfield'
+---@class plotinfost.T_flags: DFBitfield
 ---@field _enum _plotinfost.T_flags
 ---@field first_year boolean (FIRSTYEAR)
 ---@field [0] boolean (FIRSTYEAR)
@@ -1031,7 +1028,7 @@ function _plotinfost_kitchen_exc_types:erase(index) end
 ---@field did_first_cavern_announcement boolean (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
 ---@field [7] boolean (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
 
----@class _plotinfost.T_flags: DFBitfield
+---@class _plotinfost.T_flags: DFBitfieldType
 ---@field first_year 0 (FIRSTYEAR)
 ---@field [0] "first_year" (FIRSTYEAR)
 ---@field recheck_aid_requests 1 (EVAL_REQUESTERCANCHECK)
@@ -2029,13 +2026,12 @@ function _plotinfost_hauling_view_bad:insert(index, item) end
 ---@param index integer 
 function _plotinfost_hauling_view_bad:erase(index) end
 
----@class plotinfost.T_hauling.T_view_bad: DFObject
----@field _kind 'bitfield'
+---@class plotinfost.T_hauling.T_view_bad: DFBitfield
 ---@field _enum _plotinfost.T_hauling.T_view_bad
 ---@field DISCONNECTED_TRACK boolean
 ---@field [0] boolean
 
----@class _plotinfost.T_hauling.T_view_bad: DFBitfield
+---@class _plotinfost.T_hauling.T_view_bad: DFBitfieldType
 ---@field DISCONNECTED_TRACK 0
 ---@field [0] "DISCONNECTED_TRACK"
 df.plotinfost.T_hauling.T_view_bad = {}

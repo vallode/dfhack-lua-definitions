@@ -240,13 +240,12 @@ function _interaction_effect_locations:insert(index, item) end
 ---@param index integer 
 function _interaction_effect_locations:erase(index) end
 
----@class interaction_effect.T_flags: DFObject
----@field _kind 'bitfield'
+---@class interaction_effect.T_flags: DFBitfield
 ---@field _enum _interaction_effect.T_flags
 ---@field IMMEDIATE boolean IE_IMMEDIATE
 ---@field [0] boolean IE_IMMEDIATE
 
----@class _interaction_effect.T_flags: DFBitfield
+---@class _interaction_effect.T_flags: DFBitfieldType
 ---@field IMMEDIATE 0 IE_IMMEDIATE
 ---@field [0] "IMMEDIATE" IE_IMMEDIATE
 df.interaction_effect.T_flags = {}
@@ -539,8 +538,7 @@ df.interaction_source = {}
 ---@field _kind 'class-type'
 df.interaction_source_regionst = {}
 
----@class interaction_source_regionst.T_region_flags: DFObject
----@field _kind 'bitfield'
+---@class interaction_source_regionst.T_region_flags: DFBitfield
 ---@field _enum _interaction_source_regionst.T_region_flags
 ---@field NORMAL_ALLOWED boolean
 ---@field [0] boolean
@@ -557,7 +555,7 @@ df.interaction_source_regionst = {}
 ---@field SAVAGE_ONLY boolean
 ---@field [6] boolean
 
----@class _interaction_source_regionst.T_region_flags: DFBitfield
+---@class _interaction_source_regionst.T_region_flags: DFBitfieldType
 ---@field NORMAL_ALLOWED 0
 ---@field [0] "NORMAL_ALLOWED"
 ---@field EVIL_ALLOWED 1
@@ -589,8 +587,7 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field _kind 'class-type'
 df.interaction_source_secretst = {}
 
----@class interaction_source_secretst.T_learn_flags: DFObject
----@field _kind 'bitfield'
+---@class interaction_source_secretst.T_learn_flags: DFBitfield
 ---@field _enum _interaction_source_secretst.T_learn_flags
 ---@field SUPERNATURAL_LEARNING_POSSIBLE boolean
 ---@field [0] boolean
@@ -601,7 +598,7 @@ df.interaction_source_secretst = {}
 ---@field MUNDANE_TEACHING_POSSIBLE boolean
 ---@field [3] boolean
 
----@class _interaction_source_secretst.T_learn_flags: DFBitfield
+---@class _interaction_source_secretst.T_learn_flags: DFBitfieldType
 ---@field SUPERNATURAL_LEARNING_POSSIBLE 0
 ---@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
 ---@field MUNDANE_RESEARCH_POSSIBLE 1
@@ -890,13 +887,12 @@ df.interaction_target = {}
 ---@field _kind 'struct-type'
 df.interaction_target_info = {}
 
----@class interaction_target_info.T_restrictions: DFObject
----@field _kind 'bitfield'
+---@class interaction_target_info.T_restrictions: DFBitfield
 ---@field _enum _interaction_target_info.T_restrictions
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
 ---@field [0] boolean
 
----@class _interaction_target_info.T_restrictions: DFBitfield
+---@class _interaction_target_info.T_restrictions: DFBitfieldType
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
 ---@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
 df.interaction_target_info.T_restrictions = {}
@@ -1032,13 +1028,12 @@ df.breath_attack_type = {}
 ---@field _kind 'class-type'
 df.interaction_target_materialst = {}
 
----@class interaction_target_materialst.T_restrictions: DFObject
----@field _kind 'bitfield'
+---@class interaction_target_materialst.T_restrictions: DFBitfield
 ---@field _enum _interaction_target_materialst.T_restrictions
 ---@field CONTEXT_MATERIAL boolean
 ---@field [0] boolean
 
----@class _interaction_target_materialst.T_restrictions: DFBitfield
+---@class _interaction_target_materialst.T_restrictions: DFBitfieldType
 ---@field CONTEXT_MATERIAL 0
 ---@field [0] "CONTEXT_MATERIAL"
 df.interaction_target_materialst.T_restrictions = {}

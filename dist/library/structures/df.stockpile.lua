@@ -290,8 +290,7 @@ df.furniture_type = {}
 ---@field [18] "Custom"
 df.stockpile_category = {}
 
----@class stockpile_group_set: DFObject
----@field _kind 'bitfield'
+---@class stockpile_group_set: DFBitfield
 ---@field _enum _stockpile_group_set
 ---@field animals boolean
 ---@field [0] boolean
@@ -328,7 +327,7 @@ df.stockpile_category = {}
 ---@field sheet boolean
 ---@field [16] boolean
 
----@class _stockpile_group_set: DFBitfield
+---@class _stockpile_group_set: DFBitfieldType
 ---@field animals 0
 ---@field [0] "animals"
 ---@field food 1
@@ -1241,15 +1240,14 @@ df.stop_depart_condition.T_direction = {}
 ---@field [2] "Guide"
 df.stop_depart_condition.T_mode = {}
 
----@class stop_depart_condition.T_flags: DFObject
----@field _kind 'bitfield'
+---@class stop_depart_condition.T_flags: DFBitfield
 ---@field _enum _stop_depart_condition.T_flags
 ---@field at_most boolean
 ---@field [0] boolean
 ---@field desired boolean
 ---@field [1] boolean
 
----@class _stop_depart_condition.T_flags: DFBitfield
+---@class _stop_depart_condition.T_flags: DFBitfieldType
 ---@field at_most 0
 ---@field [0] "at_most"
 ---@field desired 1
@@ -1266,15 +1264,14 @@ df.stop_depart_condition.T_flags = {}
 ---@field _kind 'struct-type'
 df.route_stockpile_link = {}
 
----@class route_stockpile_link.T_mode: DFObject
----@field _kind 'bitfield'
+---@class route_stockpile_link.T_mode: DFBitfield
 ---@field _enum _route_stockpile_link.T_mode
 ---@field take boolean
 ---@field [0] boolean
 ---@field give boolean
 ---@field [1] boolean
 
----@class _route_stockpile_link.T_mode: DFBitfield
+---@class _route_stockpile_link.T_mode: DFBitfieldType
 ---@field take 0
 ---@field [0] "take"
 ---@field give 1
@@ -1313,13 +1310,12 @@ function df.vehicle.find(key) end
 ---@return vehicle_vector # df.global.world.vehicles.all
 function df.vehicle.get_vector() end
 
----@class vehicle.T_flag: DFObject
----@field _kind 'bitfield'
+---@class vehicle.T_flag: DFBitfield
 ---@field _enum _vehicle.T_flag
 ---@field ON_TRACK boolean
 ---@field [0] boolean
 
----@class _vehicle.T_flag: DFBitfield
+---@class _vehicle.T_flag: DFBitfieldType
 ---@field ON_TRACK 0
 ---@field [0] "ON_TRACK"
 df.vehicle.T_flag = {}

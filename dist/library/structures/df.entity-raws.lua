@@ -774,8 +774,7 @@ df.entity_raw.T_symbols = {}
 ---@field _kind 'struct-type'
 df.entity_raw.T_progress_trigger = {}
 
----@class entity_raw.T_scholar: DFObject
----@field _kind 'bitfield'
+---@class entity_raw.T_scholar: DFBitfield
 ---@field _enum _entity_raw.T_scholar
 ---@field PHILOSOPHER boolean
 ---@field [0] boolean
@@ -796,7 +795,7 @@ df.entity_raw.T_progress_trigger = {}
 ---@field ENGINEER boolean
 ---@field [8] boolean
 
----@class _entity_raw.T_scholar: DFBitfield
+---@class _entity_raw.T_scholar: DFBitfieldType
 ---@field PHILOSOPHER 0
 ---@field [0] "PHILOSOPHER"
 ---@field MATHEMATICIAN 1
@@ -917,8 +916,7 @@ function _entity_raw_animal:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_animal_raw = {}
 
----@class entity_animal_raw.T_flags: DFObject
----@field _kind 'bitfield'
+---@class entity_animal_raw.T_flags: DFBitfield
 ---@field _enum _entity_animal_raw.T_flags
 ---@field ALWAYS_PRESENT boolean
 ---@field [0] boolean
@@ -943,7 +941,7 @@ df.entity_animal_raw = {}
 ---@field ALWAYS_PACK_ANIMAL boolean
 ---@field [10] boolean
 
----@class _entity_animal_raw.T_flags: DFBitfield
+---@class _entity_animal_raw.T_flags: DFBitfieldType
 ---@field ALWAYS_PRESENT 0
 ---@field [0] "ALWAYS_PRESENT"
 ---@field NEVER_MOUNT 1

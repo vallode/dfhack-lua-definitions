@@ -230,8 +230,7 @@ function _widget_custom_activated:insert(index, item) end
 ---@param index integer 
 function _widget_custom_activated:erase(index) end
 
----@class widget.T_visibility_flags: DFObject
----@field _kind 'bitfield'
+---@class widget.T_visibility_flags: DFBitfield
 ---@field _enum _widget.T_visibility_flags
 ---@field WIDGET_VISIBILITY_ACTIVE boolean
 ---@field [0] boolean
@@ -240,7 +239,7 @@ function _widget_custom_activated:erase(index) end
 ---@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE boolean
 ---@field [2] boolean
 
----@class _widget.T_visibility_flags: DFBitfield
+---@class _widget.T_visibility_flags: DFBitfieldType
 ---@field WIDGET_VISIBILITY_ACTIVE 0
 ---@field [0] "WIDGET_VISIBILITY_ACTIVE"
 ---@field WIDGET_VISIBILITY_VISIBLE 1
@@ -355,8 +354,7 @@ df.text_truncated = {}
 ---@field _kind 'class-type'
 df.widget_text_multiline = {}
 
----@class override_tile_type: DFObject
----@field _kind 'bitfield'
+---@class override_tile_type: DFBitfield
 ---@field _enum _override_tile_type
 ---@field OVERRIDE_CHAR boolean
 ---@field [0] boolean
@@ -373,7 +371,7 @@ df.widget_text_multiline = {}
 ---@field OVERRIDE_TOP_ANCHORED_TILE boolean
 ---@field [6] boolean
 
----@class _override_tile_type: DFBitfield
+---@class _override_tile_type: DFBitfieldType
 ---@field OVERRIDE_CHAR 0
 ---@field [0] "OVERRIDE_CHAR"
 ---@field OVERRIDE_TILE 1
@@ -1317,8 +1315,7 @@ df.widget_job_details_button = {}
 ---@field [14] "FORCE_JOB_WIDTH"
 df.unit_list_options = {}
 
----@class unit_list_flag: DFObject
----@field _kind 'bitfield'
+---@class unit_list_flag: DFBitfield
 ---@field _enum _unit_list_flag
 ---@field show_gender boolean
 ---@field [0] boolean
@@ -1329,7 +1326,7 @@ df.unit_list_options = {}
 ---@field activate_on_cursor boolean
 ---@field [3] boolean
 
----@class _unit_list_flag: DFBitfield
+---@class _unit_list_flag: DFBitfieldType
 ---@field show_gender 0
 ---@field [0] "show_gender"
 ---@field custom_build 1
@@ -1340,13 +1337,12 @@ df.unit_list_options = {}
 ---@field [3] "activate_on_cursor"
 df.unit_list_flag = {}
 
----@class unit_list_sort_flag: DFObject
----@field _kind 'bitfield'
+---@class unit_list_sort_flag: DFBitfield
 ---@field _enum _unit_list_sort_flag
 ---@field NEEDS_RESORTED boolean
 ---@field [0] boolean
 
----@class _unit_list_sort_flag: DFBitfield
+---@class _unit_list_sort_flag: DFBitfieldType
 ---@field NEEDS_RESORTED 0
 ---@field [0] "NEEDS_RESORTED"
 df.unit_list_sort_flag = {}
@@ -2301,8 +2297,7 @@ function _viewscreen_choose_start_sitest_def_candidate_nearst:insert(index, item
 ---@param index integer 
 function _viewscreen_choose_start_sitest_def_candidate_nearst:erase(index) end
 
----@class viewscreen_choose_start_sitest.T_warn_flags: DFObject
----@field _kind 'bitfield'
+---@class viewscreen_choose_start_sitest.T_warn_flags: DFBitfield
 ---@field _enum _viewscreen_choose_start_sitest.T_warn_flags
 ---@field GENERIC boolean
 ---@field [0] boolean
@@ -2325,7 +2320,7 @@ function _viewscreen_choose_start_sitest_def_candidate_nearst:erase(index) end
 ---@field UNDEAD boolean
 ---@field [9] boolean
 
----@class _viewscreen_choose_start_sitest.T_warn_flags: DFBitfield
+---@class _viewscreen_choose_start_sitest.T_warn_flags: DFBitfieldType
 ---@field GENERIC 0
 ---@field [0] "GENERIC"
 ---@field WATER_TABLE 1

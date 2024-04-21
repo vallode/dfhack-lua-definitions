@@ -2,8 +2,7 @@
 ---@meta
 
 -- MISC TYPES
----@class item_flags: DFObject
----@field _kind 'bitfield'
+---@class item_flags: DFBitfield
 ---@field _enum _item_flags
 ---@field on_ground boolean Item on ground
 ---@field [0] boolean Item on ground
@@ -68,7 +67,7 @@
 ---@field from_worldgen boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 ---@field [31] boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 
----@class _item_flags: DFBitfield
+---@class _item_flags: DFBitfieldType
 ---@field on_ground 0 Item on ground
 ---@field [0] "on_ground" Item on ground
 ---@field in_job 1 Item currently being used in a job
@@ -131,8 +130,7 @@
 ---@field [31] "from_worldgen" bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 df.item_flags = {}
 
----@class item_flags2: DFObject
----@field _kind 'bitfield'
+---@class item_flags2: DFBitfield
 ---@field _enum _item_flags2
 ---@field has_rider boolean vehicle with a rider
 ---@field [0] boolean vehicle with a rider
@@ -147,7 +145,7 @@ df.item_flags = {}
 ---@field might_contain_artifact boolean
 ---@field [5] boolean
 
----@class _item_flags2: DFBitfield
+---@class _item_flags2: DFBitfieldType
 ---@field has_rider 0 vehicle with a rider
 ---@field [0] "has_rider" vehicle with a rider
 ---@field forbid_on_unretire 1
@@ -245,13 +243,12 @@ df.temperaturest = {}
 ---@field _kind 'struct-type'
 df.spatter_common = {}
 
----@class spatter_common.T_base_flags: DFObject
----@field _kind 'bitfield'
+---@class spatter_common.T_base_flags: DFBitfield
 ---@field _enum _spatter_common.T_base_flags
 ---@field evaporates boolean does not contaminate tile when washed away
 ---@field [0] boolean does not contaminate tile when washed away
 
----@class _spatter_common.T_base_flags: DFBitfield
+---@class _spatter_common.T_base_flags: DFBitfieldType
 ---@field evaporates 0 does not contaminate tile when washed away
 ---@field [0] "evaporates" does not contaminate tile when washed away
 df.spatter_common.T_base_flags = {}
@@ -266,13 +263,12 @@ df.spatter_common.T_base_flags = {}
 ---@field _kind 'struct-type'
 df.spatter = {}
 
----@class spatter.T_flags: DFObject
----@field _kind 'bitfield'
+---@class spatter.T_flags: DFBitfield
 ---@field _enum _spatter.T_flags
 ---@field water_soluble boolean
 ---@field [0] boolean
 
----@class _spatter.T_flags: DFBitfield
+---@class _spatter.T_flags: DFBitfieldType
 ---@field water_soluble 0
 ---@field [0] "water_soluble"
 df.spatter.T_flags = {}
@@ -678,8 +674,7 @@ function _item_constructed_improvements:insert(index, item) end
 function _item_constructed_improvements:erase(index) end
 
 -- BODY COMPONENT
----@class body_part_status: DFObject
----@field _kind 'bitfield'
+---@class body_part_status: DFBitfield
 ---@field _enum _body_part_status
 ---@field on_fire boolean
 ---@field [0] boolean
@@ -726,7 +721,7 @@ function _item_constructed_improvements:erase(index) end
 ---@field gelded boolean set on GELDABLE body parts after a unit has been gelded
 ---@field [23] boolean set on GELDABLE body parts after a unit has been gelded
 
----@class _body_part_status: DFBitfield
+---@class _body_part_status: DFBitfieldType
 ---@field on_fire 0
 ---@field [0] "on_fire"
 ---@field missing 1
@@ -773,15 +768,14 @@ function _item_constructed_improvements:erase(index) end
 ---@field [23] "gelded" set on GELDABLE body parts after a unit has been gelded
 df.body_part_status = {}
 
----@class body_layer_status: DFObject
----@field _kind 'bitfield'
+---@class body_layer_status: DFBitfield
 ---@field _enum _body_layer_status
 ---@field gone boolean
 ---@field [0] boolean
 ---@field leaking boolean
 ---@field [1] boolean
 
----@class _body_layer_status: DFBitfield
+---@class _body_layer_status: DFBitfieldType
 ---@field gone 0
 ---@field [0] "gone"
 ---@field leaking 1
@@ -991,8 +985,7 @@ function _item_body_component_body_wounds:erase(index) end
 ---@field _kind 'struct-type'
 df.item_body_component.T_appearance = {}
 
----@class item_body_component.T_corpse_flags: DFObject
----@field _kind 'bitfield'
+---@class item_body_component.T_corpse_flags: DFBitfield
 ---@field _enum _item_body_component.T_corpse_flags
 ---@field unbutchered boolean
 ---@field [0] boolean
@@ -1026,7 +1019,7 @@ df.item_body_component.T_appearance = {}
 ---@field yarn boolean
 ---@field [15] boolean
 
----@class _item_body_component.T_corpse_flags: DFBitfield
+---@class _item_body_component.T_corpse_flags: DFBitfieldType
 ---@field unbutchered 0
 ---@field [0] "unbutchered"
 ---@field plant 1
@@ -1116,8 +1109,7 @@ df.item_corpsepiecest = {}
 df.item_critter = {}
 
 -- LIQUID/POWER
----@class item_matstate: DFObject
----@field _kind 'bitfield'
+---@class item_matstate: DFBitfield
 ---@field _enum _item_matstate
 ---@field no_auto_clean boolean isAutoClean returns false
 ---@field [0] boolean isAutoClean returns false
@@ -1126,7 +1118,7 @@ df.item_critter = {}
 ---@field paste boolean
 ---@field [2] boolean
 
----@class _item_matstate: DFBitfield
+---@class _item_matstate: DFBitfieldType
 ---@field no_auto_clean 0 isAutoClean returns false
 ---@field [0] "no_auto_clean" isAutoClean returns false
 ---@field pressed 1
@@ -1413,13 +1405,12 @@ df.item_verminst = {}
 ---@field _kind 'class-type'
 df.item_petst = {}
 
----@class item_petst.T_pet_flags: DFObject
----@field _kind 'bitfield'
+---@class item_petst.T_pet_flags: DFBitfield
 ---@field _enum _item_petst.T_pet_flags
 ---@field available_for_adoption boolean
 ---@field [0] boolean
 
----@class _item_petst.T_pet_flags: DFBitfield
+---@class _item_petst.T_pet_flags: DFBitfieldType
 ---@field available_for_adoption 0
 ---@field [0] "available_for_adoption"
 df.item_petst.T_pet_flags = {}
@@ -1500,13 +1491,12 @@ df.item_threadst = {}
 ---@field _kind 'class-type'
 df.item_eggst = {}
 
----@class item_eggst.T_egg_flags: DFObject
----@field _kind 'bitfield'
+---@class item_eggst.T_egg_flags: DFBitfield
 ---@field _enum _item_eggst.T_egg_flags
 ---@field fertile boolean allows the incubation_counter to be checked/incremented
 ---@field [0] boolean allows the incubation_counter to be checked/incremented
 
----@class _item_eggst.T_egg_flags: DFBitfield
+---@class _item_eggst.T_egg_flags: DFBitfieldType
 ---@field fertile 0 allows the incubation_counter to be checked/incremented
 ---@field [0] "fertile" allows the incubation_counter to be checked/incremented
 df.item_eggst.T_egg_flags = {}

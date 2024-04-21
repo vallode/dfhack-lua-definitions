@@ -27,13 +27,12 @@ df.machine_type = {}
 ---@field _kind 'struct-type'
 df.machine_info = {}
 
----@class machine_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class machine_info.T_flags: DFBitfield
 ---@field _enum _machine_info.T_flags
 ---@field frozen boolean
 ---@field [0] boolean
 
----@class _machine_info.T_flags: DFBitfield
+---@class _machine_info.T_flags: DFBitfieldType
 ---@field frozen 0
 ---@field [0] "frozen"
 df.machine_info.T_flags = {}
@@ -48,8 +47,7 @@ df.machine_info.T_flags = {}
 ---@field _kind 'struct-type'
 df.power_info = {}
 
----@class machine_conn_modes: DFObject
----@field _kind 'bitfield'
+---@class machine_conn_modes: DFBitfield
 ---@field _enum _machine_conn_modes
 ---@field up boolean
 ---@field [0] boolean
@@ -64,7 +62,7 @@ df.power_info = {}
 ---@field z_down boolean
 ---@field [5] boolean
 
----@class _machine_conn_modes: DFBitfield
+---@class _machine_conn_modes: DFBitfieldType
 ---@field up 0
 ---@field [0] "up"
 ---@field down 1
@@ -148,8 +146,7 @@ function _machine_components:insert(index, item) end
 ---@param index integer 
 function _machine_components:erase(index) end
 
----@class machine.T_flags: DFObject
----@field _kind 'bitfield'
+---@class machine.T_flags: DFBitfield
 ---@field _enum _machine.T_flags
 ---@field active boolean
 ---@field [0] boolean
@@ -158,7 +155,7 @@ function _machine_components:erase(index) end
 ---@field unfreeze boolean ?
 ---@field [2] boolean ?
 
----@class _machine.T_flags: DFBitfield
+---@class _machine.T_flags: DFBitfieldType
 ---@field active 0
 ---@field [0] "active"
 ---@field frozen 1 ?
@@ -205,13 +202,12 @@ df.building_axle_verticalst = {}
 ---@field _kind 'class-type'
 df.building_gear_assemblyst = {}
 
----@class building_gear_assemblyst.T_gear_flags: DFObject
----@field _kind 'bitfield'
+---@class building_gear_assemblyst.T_gear_flags: DFBitfield
 ---@field _enum _building_gear_assemblyst.T_gear_flags
 ---@field disengaged boolean
 ---@field [0] boolean
 
----@class _building_gear_assemblyst.T_gear_flags: DFBitfield
+---@class _building_gear_assemblyst.T_gear_flags: DFBitfieldType
 ---@field disengaged 0
 ---@field [0] "disengaged"
 df.building_gear_assemblyst.T_gear_flags = {}

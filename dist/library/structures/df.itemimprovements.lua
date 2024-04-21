@@ -120,13 +120,12 @@ df.itemimprovement_art_imagest = {}
 ---@field _kind 'class-type'
 df.itemimprovement_coveredst = {}
 
----@class itemimprovement_coveredst.T_cover_flags: DFObject
----@field _kind 'bitfield'
+---@class itemimprovement_coveredst.T_cover_flags: DFBitfield
 ---@field _enum _itemimprovement_coveredst.T_cover_flags
 ---@field glazed boolean
 ---@field [0] boolean
 
----@class _itemimprovement_coveredst.T_cover_flags: DFBitfield
+---@class _itemimprovement_coveredst.T_cover_flags: DFBitfieldType
 ---@field glazed 0
 ---@field [0] "glazed"
 df.itemimprovement_coveredst.T_cover_flags = {}
@@ -535,8 +534,7 @@ function _written_content_styles:insert(index, item) end
 ---@param index integer 
 function _written_content_styles:erase(index) end
 
----@class engraving_flags: DFObject
----@field _kind 'bitfield'
+---@class engraving_flags: DFBitfield
 ---@field _enum _engraving_flags
 ---@field floor boolean
 ---@field [0] boolean
@@ -559,7 +557,7 @@ function _written_content_styles:erase(index) end
 ---@field southeast boolean
 ---@field [9] boolean
 
----@class _engraving_flags: DFBitfield
+---@class _engraving_flags: DFBitfieldType
 ---@field floor 0
 ---@field [0] "floor"
 ---@field west 1

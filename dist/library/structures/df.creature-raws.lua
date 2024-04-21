@@ -1744,8 +1744,7 @@ df.caste_clothing_item = {}
 ---@field _kind 'struct-type'
 df.caste_attack = {}
 
----@class caste_attack.T_flags: DFObject
----@field _kind 'bitfield'
+---@class caste_attack.T_flags: DFBitfield
 ---@field _enum _caste_attack.T_flags
 ---@field with boolean
 ---@field [0] boolean
@@ -1758,7 +1757,7 @@ df.caste_attack = {}
 ---@field [4] boolean
 ---@field [5] boolean
 
----@class _caste_attack.T_flags: DFBitfield
+---@class _caste_attack.T_flags: DFBitfieldType
 ---@field with 0
 ---@field [0] "with"
 ---@field latch 1
@@ -1832,8 +1831,7 @@ df.gait_type = {}
 ---@field _kind 'struct-type'
 df.gait_info = {}
 
----@class gait_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class gait_info.T_flags: DFBitfield
 ---@field _enum _gait_info.T_flags
 ---@field layers_slow boolean
 ---@field [0] boolean
@@ -1842,7 +1840,7 @@ df.gait_info = {}
 ---@field agility boolean
 ---@field [2] boolean
 
----@class _gait_info.T_flags: DFBitfield
+---@class _gait_info.T_flags: DFBitfieldType
 ---@field layers_slow 0
 ---@field [0] "layers_slow"
 ---@field strength 1
@@ -1851,8 +1849,7 @@ df.gait_info = {}
 ---@field [2] "agility"
 df.gait_info.T_flags = {}
 
----@class creature_interaction_target_flags: DFObject
----@field _kind 'bitfield'
+---@class creature_interaction_target_flags: DFBitfield
 ---@field _enum _creature_interaction_target_flags
 ---@field LINE_OF_SIGHT boolean
 ---@field [0] boolean
@@ -1865,7 +1862,7 @@ df.gait_info.T_flags = {}
 ---@field SELF_ONLY boolean
 ---@field [4] boolean
 
----@class _creature_interaction_target_flags: DFBitfield
+---@class _creature_interaction_target_flags: DFBitfieldType
 ---@field LINE_OF_SIGHT 0
 ---@field [0] "LINE_OF_SIGHT"
 ---@field TOUCHABLE 1
@@ -1947,8 +1944,7 @@ function _creature_interaction_location_hint:insert(index, item) end
 ---@param index integer 
 function _creature_interaction_location_hint:erase(index) end
 
----@class creature_interaction.T_flags: DFObject
----@field _kind 'bitfield'
+---@class creature_interaction.T_flags: DFBitfield
 ---@field _enum _creature_interaction.T_flags
 ---@field CAN_BE_MUTUAL boolean
 ---@field [0] boolean
@@ -1957,7 +1953,7 @@ function _creature_interaction_location_hint:erase(index) end
 ---@field FREE_ACTION boolean
 ---@field [2] boolean
 
----@class _creature_interaction.T_flags: DFBitfield
+---@class _creature_interaction.T_flags: DFBitfieldType
 ---@field CAN_BE_MUTUAL 0
 ---@field [0] "CAN_BE_MUTUAL"
 ---@field VERBAL 1
@@ -2088,13 +2084,12 @@ function _caste_body_info_extra_butcher_objects:insert(index, item) end
 ---@param index integer 
 function _caste_body_info_extra_butcher_objects:erase(index) end
 
----@class caste_body_info.T_flags: DFObject
----@field _kind 'bitfield'
+---@class caste_body_info.T_flags: DFBitfield
 ---@field _enum _caste_body_info.T_flags
 ---@field unk0 boolean
 ---@field [0] boolean
 
----@class _caste_body_info.T_flags: DFBitfield
+---@class _caste_body_info.T_flags: DFBitfieldType
 ---@field unk0 0
 ---@field [0] "unk0"
 df.caste_body_info.T_flags = {}

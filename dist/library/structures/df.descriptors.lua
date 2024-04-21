@@ -100,8 +100,7 @@ function df.descriptor_shape.find(key) end
 ---@return descriptor_shape_vector # df.global.world.raws.descriptors.shapes
 function df.descriptor_shape.get_vector() end
 
----@class descriptor_shape.T_gems_use: DFObject
----@field _kind 'bitfield'
+---@class descriptor_shape.T_gems_use: DFBitfield
 ---@field _enum _descriptor_shape.T_gems_use
 ---@field noun boolean
 ---@field [0] boolean
@@ -110,7 +109,7 @@ function df.descriptor_shape.get_vector() end
 ---@field adj_noun boolean
 ---@field [2] boolean
 
----@class _descriptor_shape.T_gems_use: DFBitfield
+---@class _descriptor_shape.T_gems_use: DFBitfieldType
 ---@field noun 0
 ---@field [0] "noun"
 ---@field adj 1

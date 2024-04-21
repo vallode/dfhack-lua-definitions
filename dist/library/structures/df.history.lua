@@ -486,15 +486,14 @@ df.plot_agreement = {}
 ---@field _kind 'struct-type'
 df.state_profilest = {}
 
----@class state_profilest.T_flags: DFObject
----@field _kind 'bitfield'
+---@class state_profilest.T_flags: DFBitfield
 ---@field _enum _state_profilest.T_flags
 ---@field XY_LOCATION_SMM_LEVEL boolean
 ---@field [0] boolean
 ---@field XY_LOCATION_IN_SUL boolean
 ---@field [1] boolean
 
----@class _state_profilest.T_flags: DFBitfield
+---@class _state_profilest.T_flags: DFBitfieldType
 ---@field XY_LOCATION_SMM_LEVEL 0
 ---@field [0] "XY_LOCATION_SMM_LEVEL"
 ---@field XY_LOCATION_IN_SUL 1
@@ -2835,15 +2834,14 @@ df.history_event_circumstance_info.T_data = {}
 ---@field _kind 'struct-type'
 df.history_event_context = {}
 
----@class history_event_context.T_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_context.T_flags: DFBitfield
 ---@field _enum _history_event_context.T_flags
 ---@field is_interrogation_report boolean
 ---@field [0] boolean
 ---@field do_markup boolean
 ---@field [1] boolean
 
----@class _history_event_context.T_flags: DFBitfield
+---@class _history_event_context.T_flags: DFBitfieldType
 ---@field is_interrogation_report 0
 ---@field [0] "is_interrogation_report"
 ---@field do_markup 1
@@ -2933,15 +2931,14 @@ df.architectural_element = {}
 df.history_event_flags = {}
 
 -- regular if bit not set
----@class merc_role_type: DFObject
----@field _kind 'bitfield'
+---@class merc_role_type: DFBitfield
 ---@field _enum _merc_role_type
 ---@field attacker_scout boolean
 ---@field [0] boolean
 ---@field defender_scout boolean
 ---@field [1] boolean
 
----@class _merc_role_type: DFBitfield
+---@class _merc_role_type: DFBitfieldType
 ---@field attacker_scout 0
 ---@field [0] "attacker_scout"
 ---@field defender_scout 1
@@ -3528,13 +3525,12 @@ df.history_event_artifact_possessedst = {}
 ---@field _kind 'class-type'
 df.history_event_artifact_createdst = {}
 
----@class history_event_artifact_createdst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_artifact_createdst.T_flags2: DFBitfield
 ---@field _enum _history_event_artifact_createdst.T_flags2
 ---@field name_only boolean
 ---@field [0] boolean
 
----@class _history_event_artifact_createdst.T_flags2: DFBitfield
+---@class _history_event_artifact_createdst.T_flags2: DFBitfieldType
 ---@field name_only 0
 ---@field [0] "name_only"
 df.history_event_artifact_createdst.T_flags2 = {}
@@ -3623,13 +3619,12 @@ function _history_event_artifact_droppedst_flags2:erase(index) end
 ---@field _kind 'class-type'
 df.history_event_reclaim_sitest = {}
 
----@class history_event_reclaim_sitest.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_reclaim_sitest.T_flags2: DFBitfield
 ---@field _enum _history_event_reclaim_sitest.T_flags2
 ---@field unretire boolean
 ---@field [0] boolean
 
----@class _history_event_reclaim_sitest.T_flags2: DFBitfield
+---@class _history_event_reclaim_sitest.T_flags2: DFBitfieldType
 ---@field unretire 0
 ---@field [0] "unretire"
 df.history_event_reclaim_sitest.T_flags2 = {}
@@ -3658,13 +3653,12 @@ df.history_event_hf_destroyed_sitest = {}
 ---@field _kind 'class-type'
 df.history_event_site_diedst = {}
 
----@class history_event_site_diedst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_site_diedst.T_flags2: DFBitfield
 ---@field _enum _history_event_site_diedst.T_flags2
 ---@field abandoned boolean
 ---@field [0] boolean
 
----@class _history_event_site_diedst.T_flags2: DFBitfield
+---@class _history_event_site_diedst.T_flags2: DFBitfieldType
 ---@field abandoned 0
 ---@field [0] "abandoned"
 df.history_event_site_diedst.T_flags2 = {}
@@ -3681,13 +3675,12 @@ df.history_event_site_diedst.T_flags2 = {}
 ---@field _kind 'class-type'
 df.history_event_site_retiredst = {}
 
----@class history_event_site_retiredst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_site_retiredst.T_flags2: DFBitfield
 ---@field _enum _history_event_site_retiredst.T_flags2
 ---@field first_time boolean
 ---@field [0] boolean
 
----@class _history_event_site_retiredst.T_flags2: DFBitfield
+---@class _history_event_site_retiredst.T_flags2: DFBitfieldType
 ---@field first_time 0
 ---@field [0] "first_time"
 df.history_event_site_retiredst.T_flags2 = {}
@@ -4060,13 +4053,12 @@ df.history_event_war_site_new_leaderst = {}
 ---@field _kind 'class-type'
 df.history_event_war_site_tribute_forcedst = {}
 
----@class history_event_war_site_tribute_forcedst.T_tribute_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_war_site_tribute_forcedst.T_tribute_flags: DFBitfield
 ---@field _enum _history_event_war_site_tribute_forcedst.T_tribute_flags
 ---@field bled_dry boolean tribute was demanded, but not received
 ---@field [0] boolean tribute was demanded, but not received
 
----@class _history_event_war_site_tribute_forcedst.T_tribute_flags: DFBitfield
+---@class _history_event_war_site_tribute_forcedst.T_tribute_flags: DFBitfieldType
 ---@field bled_dry 0 tribute was demanded, but not received
 ---@field [0] "bled_dry" tribute was demanded, but not received
 df.history_event_war_site_tribute_forcedst.T_tribute_flags = {}
@@ -4379,13 +4371,12 @@ df.history_event_hist_figure_woundedst = {}
 ---@field [4] "Burn"
 df.history_event_hist_figure_woundedst.T_injury_type = {}
 
----@class history_event_hist_figure_woundedst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_hist_figure_woundedst.T_flags2: DFBitfield
 ---@field _enum _history_event_hist_figure_woundedst.T_flags2
 ---@field torture boolean
 ---@field [0] boolean
 
----@class _history_event_hist_figure_woundedst.T_flags2: DFBitfield
+---@class _history_event_hist_figure_woundedst.T_flags2: DFBitfieldType
 ---@field torture 0
 ---@field [0] "torture"
 df.history_event_hist_figure_woundedst.T_flags2 = {}
@@ -4667,13 +4658,12 @@ df.history_event_change_creature_typest = {}
 ---@field _kind 'class-type'
 df.history_event_hist_figure_revivedst = {}
 
----@class history_event_hist_figure_revivedst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_hist_figure_revivedst.T_flags2: DFBitfield
 ---@field _enum _history_event_hist_figure_revivedst.T_flags2
 ---@field again boolean
 ---@field [0] boolean
 
----@class _history_event_hist_figure_revivedst.T_flags2: DFBitfield
+---@class _history_event_hist_figure_revivedst.T_flags2: DFBitfieldType
 ---@field again 0
 ---@field [0] "again"
 df.history_event_hist_figure_revivedst.T_flags2 = {}
@@ -4822,24 +4812,22 @@ df.history_event_hf_confrontedst = {}
 ---@field _kind 'class-type'
 df.history_event_entity_lawst = {}
 
----@class history_event_entity_lawst.T_add_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_entity_lawst.T_add_flags: DFBitfield
 ---@field _enum _history_event_entity_lawst.T_add_flags
 ---@field harsh boolean
 ---@field [0] boolean
 
----@class _history_event_entity_lawst.T_add_flags: DFBitfield
+---@class _history_event_entity_lawst.T_add_flags: DFBitfieldType
 ---@field harsh 0
 ---@field [0] "harsh"
 df.history_event_entity_lawst.T_add_flags = {}
 
----@class history_event_entity_lawst.T_remove_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_entity_lawst.T_remove_flags: DFBitfield
 ---@field _enum _history_event_entity_lawst.T_remove_flags
 ---@field harsh boolean
 ---@field [0] boolean
 
----@class _history_event_entity_lawst.T_remove_flags: DFBitfield
+---@class _history_event_entity_lawst.T_remove_flags: DFBitfieldType
 ---@field harsh 0
 ---@field [0] "harsh"
 df.history_event_entity_lawst.T_remove_flags = {}
@@ -5306,13 +5294,12 @@ df.history_event_hfs_formed_reputation_relationshipst = {}
 ---@field _kind 'class-type'
 df.history_event_artifact_copiedst = {}
 
----@class history_event_artifact_copiedst.T_flags2: DFObject
----@field _kind 'bitfield'
+---@class history_event_artifact_copiedst.T_flags2: DFBitfield
 ---@field _enum _history_event_artifact_copiedst.T_flags2
 ---@field from_original boolean
 ---@field [0] boolean
 
----@class _history_event_artifact_copiedst.T_flags2: DFBitfield
+---@class _history_event_artifact_copiedst.T_flags2: DFBitfieldType
 ---@field from_original 0
 ---@field [0] "from_original"
 df.history_event_artifact_copiedst.T_flags2 = {}
@@ -5496,13 +5483,12 @@ df.tactical_situation = {}
 ---@field _kind 'class-type'
 df.history_event_tactical_situationst = {}
 
----@class history_event_tactical_situationst.T_tactics_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_tactical_situationst.T_tactics_flags: DFBitfield
 ---@field _enum _history_event_tactical_situationst.T_tactics_flags
 ---@field start boolean
 ---@field [0] boolean
 
----@class _history_event_tactical_situationst.T_tactics_flags: DFBitfield
+---@class _history_event_tactical_situationst.T_tactics_flags: DFBitfieldType
 ---@field start 0
 ---@field [0] "start"
 df.history_event_tactical_situationst.T_tactics_flags = {}
@@ -5624,8 +5610,7 @@ df.history_event_entity_equipment_purchasest = {}
 df.history_event_modified_buildingst = {}
 
 -- always 12?
----@class history_event_modified_buildingst.T_modification: DFObject
----@field _kind 'bitfield'
+---@class history_event_modified_buildingst.T_modification: DFBitfield
 ---@field _enum _history_event_modified_buildingst.T_modification
 ---@field dungeon boolean
 ---@field [0] boolean
@@ -5636,7 +5621,7 @@ df.history_event_modified_buildingst = {}
 ---@field feast_hall boolean
 ---@field [3] boolean
 
----@class _history_event_modified_buildingst.T_modification: DFBitfield
+---@class _history_event_modified_buildingst.T_modification: DFBitfieldType
 ---@field dungeon 0
 ---@field [0] "dungeon"
 ---@field fortifications 1
@@ -5825,8 +5810,7 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field _kind 'class-type'
 df.history_event_hf_convictedst = {}
 
----@class history_event_hf_convictedst.T_punishment_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_hf_convictedst.T_punishment_flags: DFBitfield
 ---@field _enum _history_event_hf_convictedst.T_punishment_flags
 ---@field beaten boolean
 ---@field [0] boolean
@@ -5837,7 +5821,7 @@ df.history_event_hf_convictedst = {}
 ---@field no_prison_available boolean would have been imprisoned but for lack of accommodations
 ---@field [3] boolean would have been imprisoned but for lack of accommodations
 
----@class _history_event_hf_convictedst.T_punishment_flags: DFBitfield
+---@class _history_event_hf_convictedst.T_punishment_flags: DFBitfieldType
 ---@field beaten 0
 ---@field [0] "beaten"
 ---@field exiled 1
@@ -5848,8 +5832,7 @@ df.history_event_hf_convictedst = {}
 ---@field [3] "no_prison_available" would have been imprisoned but for lack of accommodations
 df.history_event_hf_convictedst.T_punishment_flags = {}
 
----@class history_event_hf_convictedst.T_plot_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_hf_convictedst.T_plot_flags: DFBitfield
 ---@field _enum _history_event_hf_convictedst.T_plot_flags
 ---@field wrongful boolean wrongful conviction
 ---@field [0] boolean wrongful conviction
@@ -5866,7 +5849,7 @@ df.history_event_hf_convictedst.T_punishment_flags = {}
 ---@field revealed_nothing boolean revealed nothing during interrogation
 ---@field [6] boolean revealed nothing during interrogation
 
----@class _history_event_hf_convictedst.T_plot_flags: DFBitfield
+---@class _history_event_hf_convictedst.T_plot_flags: DFBitfieldType
 ---@field wrongful 0 wrongful conviction
 ---@field [0] "wrongful" wrongful conviction
 ---@field plot_surveillance 1 due to ongoing surveillance as the plot unfolded
@@ -5910,15 +5893,14 @@ df.history_event_failed_frame_attemptst = {}
 ---@field _kind 'class-type'
 df.history_event_hf_interrogatedst = {}
 
----@class history_event_hf_interrogatedst.T_interrogation_flags: DFObject
----@field _kind 'bitfield'
+---@class history_event_hf_interrogatedst.T_interrogation_flags: DFBitfield
 ---@field _enum _history_event_hf_interrogatedst.T_interrogation_flags
 ---@field recognized boolean
 ---@field [0] boolean
 ---@field refused_to_reveal boolean
 ---@field [1] boolean
 
----@class _history_event_hf_interrogatedst.T_interrogation_flags: DFBitfield
+---@class _history_event_hf_interrogatedst.T_interrogation_flags: DFBitfieldType
 ---@field recognized 0
 ---@field [0] "recognized"
 ---@field refused_to_reveal 1
@@ -7199,15 +7181,14 @@ df.intrigue_corruption.T_manipulation_type = {}
 ---@field [4] "Respect"
 df.intrigue_corruption.T_manipulated_emotion = {}
 
----@class intrigue_corruption.T_flags: DFObject
----@field _kind 'bitfield'
+---@class intrigue_corruption.T_flags: DFBitfield
 ---@field _enum _intrigue_corruption.T_flags
 ---@field succeeded boolean
 ---@field [0] boolean
 ---@field misread_target boolean
 ---@field [1] boolean
 
----@class _intrigue_corruption.T_flags: DFBitfield
+---@class _intrigue_corruption.T_flags: DFBitfieldType
 ---@field succeeded 0
 ---@field [0] "succeeded"
 ---@field misread_target 1

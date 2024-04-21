@@ -1642,8 +1642,7 @@ df.adventurest.T_show_menu = {}
 df.adventurest.T_exemplar_track_data = {}
 
 -- bay12 type: BSESpoor
----@class adventurest.T_exemplar_track_data.T_flag: DFObject
----@field _kind 'bitfield'
+---@class adventurest.T_exemplar_track_data.T_flag: DFBitfield
 ---@field _enum _adventurest.T_exemplar_track_data.T_flag
 ---@field present boolean
 ---@field [0] boolean
@@ -1658,7 +1657,7 @@ df.adventurest.T_exemplar_track_data = {}
 ---@field level boolean
 ---@field [7] boolean
 
----@class _adventurest.T_exemplar_track_data.T_flag: DFBitfield
+---@class _adventurest.T_exemplar_track_data.T_flag: DFBitfieldType
 ---@field present 0
 ---@field [0] "present"
 ---@field has_direction 1

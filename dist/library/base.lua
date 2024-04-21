@@ -40,6 +40,10 @@ function DFObject:assign(object) end
 ---@return T
 function DFObject:_displace(index, step) end
 
+---@class DFBitfield: DFObject
+---@field _kind 'bitfield'
+---@field whole integer
+
 -- Named types
 ---@class DFType: DFBase
 ---@field _kind 'struct-type'|'class-type'|'enum-type'|'bitfield-type'|'global'
@@ -111,9 +115,8 @@ local DFEnum
 ---@return number
 function DFEnum.next_item(index) end
 
----@class DFBitfield: DFDescriptor
+---@class DFBitfieldType: DFDescriptor
 ---@field _kind 'bitfield-type'
-local DFBitfield
 
 ---@class DFContainer: DFBase
 local DFContainer

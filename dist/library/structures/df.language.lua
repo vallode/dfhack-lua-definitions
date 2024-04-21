@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class language_word_flags: DFObject
----@field _kind 'bitfield'
+---@class language_word_flags: DFBitfield
 ---@field _enum _language_word_flags
 ---@field front_compound_noun_sing boolean
 ---@field [0] boolean
@@ -37,7 +36,7 @@
 ---@field standard_verb boolean
 ---@field [15] boolean
 
----@class _language_word_flags: DFBitfield
+---@class _language_word_flags: DFBitfieldType
 ---@field front_compound_noun_sing 0
 ---@field [0] "front_compound_noun_sing"
 ---@field front_compound_noun_plur 1

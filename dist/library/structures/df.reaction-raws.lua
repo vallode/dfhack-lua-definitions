@@ -202,8 +202,7 @@ df.reaction_reagent_type = {}
 ---@field _kind 'class-type'
 df.reaction_reagent = {}
 
----@class reaction_reagent_flags: DFObject
----@field _kind 'bitfield'
+---@class reaction_reagent_flags: DFBitfield
 ---@field _enum _reaction_reagent_flags
 ---@field PRESERVE_REAGENT boolean
 ---@field [0] boolean
@@ -212,7 +211,7 @@ df.reaction_reagent = {}
 ---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT boolean
 ---@field [2] boolean
 
----@class _reaction_reagent_flags: DFBitfield
+---@class _reaction_reagent_flags: DFBitfieldType
 ---@field PRESERVE_REAGENT 0
 ---@field [0] "PRESERVE_REAGENT"
 ---@field IN_CONTAINER 1

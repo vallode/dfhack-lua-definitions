@@ -662,13 +662,12 @@ df.general_ref_unit_traineest = {}
 ---@field _kind 'class-type'
 df.general_ref_unit_itemownerst = {}
 
----@class general_ref_unit_itemownerst.T_flags: DFObject
----@field _kind 'bitfield'
+---@class general_ref_unit_itemownerst.T_flags: DFBitfield
 ---@field _enum _general_ref_unit_itemownerst.T_flags
 ---@field litter boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 ---@field [0] boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 
----@class _general_ref_unit_itemownerst.T_flags: DFBitfield
+---@class _general_ref_unit_itemownerst.T_flags: DFBitfieldType
 ---@field litter 0 apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 ---@field [0] "litter" apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 df.general_ref_unit_itemownerst.T_flags = {}
@@ -1794,8 +1793,7 @@ df.entity_entity_link = {}
 ---@field [4] "Local_Activity"
 df.entity_site_link_type = {}
 
----@class entity_site_link_flags: DFObject
----@field _kind 'bitfield'
+---@class entity_site_link_flags: DFBitfield
 ---@field _enum _entity_site_link_flags
 ---@field residence boolean site is residence
 ---@field [0] boolean site is residence
@@ -1832,7 +1830,7 @@ df.entity_site_link_type = {}
 ---@field holy_city boolean for the holy city of a religion
 ---@field [16] boolean for the holy city of a religion
 
----@class _entity_site_link_flags: DFBitfield
+---@class _entity_site_link_flags: DFBitfieldType
 ---@field residence 0 site is residence
 ---@field [0] "residence" site is residence
 ---@field capital 1 site is capital
@@ -1910,15 +1908,14 @@ function _entity_site_link_ab_profile:insert(index, item) end
 ---@param index integer 
 function _entity_site_link_ab_profile:erase(index) end
 
----@class undead_flags: DFObject
----@field _kind 'bitfield'
+---@class undead_flags: DFBitfield
 ---@field _enum _undead_flags
 ---@field zombie boolean
 ---@field [0] boolean
 ---@field ghostly boolean
 ---@field [1] boolean
 
----@class _undead_flags: DFBitfield
+---@class _undead_flags: DFBitfieldType
 ---@field zombie 0
 ---@field [0] "zombie"
 ---@field ghostly 1
