@@ -1,4 +1,4 @@
----@meta _
+---@meta
 
 ---@class df
 df = {}
@@ -41,10 +41,6 @@ function printall(object) end
 ---If the argument is a lua table or DF object reference, prints all fields recursively.
 ---@param object table|userdata
 function printall_recursive(object) end
-
----@param table table
----@return table
-function copyall(table) end
 
 ---Walks a sequence of dereferences, which may be represented by numbers or strings. Returns nil if any of obj or indices is nil, or a numeric index is out of array bounds.
 ---@param object table
