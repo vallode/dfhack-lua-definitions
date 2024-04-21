@@ -65,18 +65,21 @@ def parse_lua_files(files)
     # Not exposed to DFHack scripts.
     next if ignored_files.include? filename
 
-    # Sanitize the filename.
-    filename.gsub!(/[-_]([a-zA-Z])/) do
-      Regexp.last_match(1).capitalize!
-    end
-
     file = File.read(path)
     is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
     functions = file.scan(/^function\s+(.*)$/)
 
-    File.open("dist/library/hack/#{filename}.lua", 'w') do |output|
+    output_path = path.gsub('dfhack/library/lua', 'dist/library/hack')
+    FileUtils.mkdir_p(File.dirname(output_path)) unless Dir.exist?(File.dirname(output_path))
+
+    File.open(path.gsub('dfhack/library/lua', 'dist/library/hack'), 'w') do |output|
       output.write(FILE_HEADER)
       output.write("---@meta\n\n")
+
+      # Sanitize the filename.
+      filename.gsub!(/[-_]([a-zA-Z])/) do
+        Regexp.last_match(1).capitalize!
+      end
 
       # If the file is a module, we do some rather clunky cleaning to it to make it
       # play nicely with LuaLS. Namely we need to namespace the file correctly,
@@ -190,7 +193,7 @@ end
 # https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
 def generate_annotations
   print "Parsing dfhack lua library\n"
-  library_files = Dir.glob('./dfhack/library/lua/*.lua')
+  library_files = Dir.glob('./dfhack/library/lua/**/*.lua')
   parse_lua_files(library_files)
 
   print "Parsing df-structures\n"
