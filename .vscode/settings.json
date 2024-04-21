@@ -11,5 +11,9 @@
   "rubyLsp.rubyVersionManager": {
     "identifier": "auto"
   },
+  "search.exclude": {
+    "dfhack": true,
+    "df-structures": true
+  },
   "rubyLsp.formatter": "rubocop"
 }
