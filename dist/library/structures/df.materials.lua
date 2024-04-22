@@ -208,7 +208,6 @@ df.builtin_mats = {}
 ---| 'TEARS_MAP_DESCRIPTOR'
 ---| 'SPIT_MAP_DESCRIPTOR'
 ---| 'EVAPORATES'
----| ''
 ---| 'IS_CERAMIC'
 ---| 'CARTILAGE'
 ---| 'FEATHER'
@@ -732,18 +731,7 @@ function _material_template_syndrome:erase(index) end
 ---| 'SOIL'
 ---| 'DEEP_SPECIAL'
 ---| 'DIVINE'
----| ''
----| ''
----| ''
----| ''
----| ''
 ---| 'WAFERS'
----| ''
----| ''
----| ''
----| ''
----| ''
----| ''
 
 ---@class _inorganic_flags: DFEnumType
 ---@field LAVA 0
@@ -820,7 +808,6 @@ df.inorganic_flags = {}
 df.environment_type = {}
 
 ---@alias inclusion_type
----| ''
 ---| 'VEIN'
 ---| 'CLUSTER'
 ---| 'CLUSTER_SMALL'

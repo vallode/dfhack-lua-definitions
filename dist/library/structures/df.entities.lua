@@ -73,8 +73,6 @@ function _entity_occasion_schedule:erase(index) end
 ---| 'MUSICAL_COMPETITION'
 ---| 'POETRY_COMPETITION'
 ---| 'FOOT_RACE'
----| ''
----| ''
 ---| 'WRESTLING_COMPETITION'
 ---| 'THROWING_COMPETITION'
 ---| 'GLADIATORY_COMPETITION'
@@ -143,19 +141,14 @@ function _entity_occasion_schedule_features:insert(index, item) end
 function _entity_occasion_schedule_features:erase(index) end
 
 ---@alias occasion_schedule_feature
----| ''
----| ''
 ---| 'STORYTELLING'
 ---| 'POETRY_RECITAL'
 ---| 'MUSICAL_PERFORMANCE'
 ---| 'DANCE_PERFORMANCE'
----| ''
 ---| 'CRIERS_IN_FRONT'
 ---| 'ORDER_OF_PRECEDENCE'
 ---| 'BANNERS'
 ---| 'IMAGES'
----| ''
----| ''
 ---| 'ACROBATS'
 ---| 'INCENSE_BURNING'
 ---| 'COSTUMES'

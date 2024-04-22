@@ -1366,7 +1366,6 @@ df.body_size_info = {}
 ---| 'Leather'
 ---| 'Bone'
 ---| 'Shell'
----| ''
 ---| 'Soap'
 ---| 'Tooth'
 ---| 'Horn'

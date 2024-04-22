@@ -375,7 +375,6 @@ df.job_item_ref = {}
 ---| 'Hauled'
 ---| 'LinkToTarget'
 ---| 'LinkToTrigger'
----| ''
 ---| 'TargetContainer'
 ---| 'QueuedContainer'
 ---| 'PushHaulVehicle'

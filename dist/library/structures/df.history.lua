@@ -246,8 +246,6 @@ df.death_condition_type = {}
 ---| 'Director'
 ---| 'Enemy'
 ---| 'Usable_Snatcher'
----| ''
----| ''
 ---| 'Underworld_Contact'
 ---| 'Possibly_Unknown_Director'
 
@@ -2354,8 +2352,6 @@ df.architectural_element = {}
 
 ---@alias history_event_flags
 ---| 'hidden'
----| ''
----| ''
 
 ---@class _history_event_flags: DFEnumType
 ---@field hidden 0 event is hidden from legends mode when this is set

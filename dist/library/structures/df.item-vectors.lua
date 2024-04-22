@@ -644,7 +644,6 @@ df.items_other_id.attrs = {}
 ---| 'GLOB'
 ---| 'ANY_RECENTLY_DROPPED'
 ---| 'ANY_MELT_DESIGNATED'
----| ''
 ---| 'TRAPCOMP'
 ---| 'BAR'
 ---| 'SMALLGEM'
@@ -685,8 +684,6 @@ df.items_other_id.attrs = {}
 ---| 'ANY_127'
 ---| 'ANY_CORPSE'
 ---| 'BOOK'
----| ''
----| ''
 ---| 'SHEET'
 ---| 'BRANCH'
 

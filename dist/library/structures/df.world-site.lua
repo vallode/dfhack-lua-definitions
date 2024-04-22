@@ -2142,7 +2142,6 @@ df.site_realization_crossroads = {}
 ---| 'guild_hall'
 ---| 'city_tower'
 ---| 'shrine'
----| ''
 ---| 'dormitory'
 ---| 'dininghall'
 ---| 'necromancer_tower'
@@ -2588,7 +2587,6 @@ df.tree_house_type = {}
 df.site_realization_building_info_tree_housest = {}
 
 ---@alias hillock_house_type
----| ''
 ---| 'CivicMound'
 ---| 'CastleMound'
 ---| 'DrinkingMound'

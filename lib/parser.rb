@@ -183,6 +183,8 @@ module DFHackLuaDefinitions
     end
 
     def to_key_alias
+      return '' unless @name
+
       "---| '#{@name}'\n"
     end
 

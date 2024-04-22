@@ -48,7 +48,6 @@
 ---| 'UNDEAD_CANDIDATE'
 ---| 'GENERATED'
 ---| 'SKULKING'
----| ''
 ---| 'MERCHANT_NOBILITY'
 ---| 'TREE_CAP_DIPLOMACY'
 ---| 'DIPLOMAT_BODYGUARDS'
@@ -233,10 +232,7 @@ df.entity_raw_flags = {}
 ---| 'CAVE_DETAILED'
 ---| 'TREE_CITY'
 ---| 'CITY'
----| ''
----| ''
 ---| 'FORTRESS'
----| ''
 ---| 'MONUMENT'
 
 ---@class _site_type: DFEnumType

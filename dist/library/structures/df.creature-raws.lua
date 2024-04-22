@@ -942,16 +942,9 @@ df.caste_raw_flags = {}
 ---| 'APERTURE'
 ---| 'SOCKET'
 ---| 'TOTEMABLE'
----| ''
----| ''
 ---| 'UNDER_PRESSURE'
----| ''
 ---| 'VERMIN_BUTCHER_ITEM'
 ---| 'CONNECTOR'
----| ''
----| ''
----| ''
----| ''
 ---| 'GELDABLE'
 
 ---@class _body_part_raw_flags: DFEnumType

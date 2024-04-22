@@ -2416,10 +2416,8 @@ function _dance_form_section_location:insert(index, item) end
 function _dance_form_section_location:erase(index) end
 
 ---@alias dance_form_move_group_type
----| ''
 ---| 'BasicMovement'
 ---| 'DancePosition'
----| ''
 ---| 'DanceMove'
 
 ---@class _dance_form_move_group_type: DFEnumType
