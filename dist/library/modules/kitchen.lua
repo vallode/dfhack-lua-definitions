@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class kitchen
+---@class kitchen_module
 dfhack.kitchen = {}
 
 ---@param type kitchen_exc_type 
@@ -10,7 +10,7 @@ dfhack.kitchen = {}
 ---@param mattype number 
 ---@param matindex number 
 ---@return integer
-function dfhack.kitchen:findExclusion(type, itemtype, itemsubtype, mattype, matindex) end
+function dfhack.kitchen.findExclusion(type, itemtype, itemsubtype, mattype, matindex) end
 
 ---@param type kitchen_exc_type 
 ---@param itemtype item_type 
@@ -18,7 +18,7 @@ function dfhack.kitchen:findExclusion(type, itemtype, itemsubtype, mattype, mati
 ---@param mattype number 
 ---@param matindex number 
 ---@return boolean
-function dfhack.kitchen:addExclusion(type, itemtype, itemsubtype, mattype, matindex) end
+function dfhack.kitchen.addExclusion(type, itemtype, itemsubtype, mattype, matindex) end
 
 ---@param type kitchen_exc_type 
 ---@param itemtype item_type 
@@ -26,5 +26,5 @@ function dfhack.kitchen:addExclusion(type, itemtype, itemsubtype, mattype, matin
 ---@param mattype number 
 ---@param matindex number 
 ---@return boolean
-function dfhack.kitchen:removeExclusion(type, itemtype, itemsubtype, mattype, matindex) end
+function dfhack.kitchen.removeExclusion(type, itemtype, itemsubtype, mattype, matindex) end
 

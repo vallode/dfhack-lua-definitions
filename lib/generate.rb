@@ -43,7 +43,7 @@ def parse_cpp_modules(files)
       output << FILE_HEADER
       output << "---@meta\n\n"
 
-      output << "---@class #{module_name}\n"
+      output << "---@class #{module_name}_module\n"
       prefix = module_name == 'dfhack' ? '' : 'dfhack.'
       output << "#{prefix}#{module_name} = {}\n\n"
 
@@ -59,9 +59,11 @@ def parse_cpp_modules(files)
 
         arguments = arguments&.map do |argument|
           type, name = argument.split(' ')
+          type = DFHackLuaDefinitions::CPP.parse_type(type)
+
           {
             name: DFHackLuaDefinitions::LuaLS.safe_name(DFHackLuaDefinitions::CPP.sanitize(name)),
-            type: DFHackLuaDefinitions::CPP.parse_type(type)
+            type: type == 'boolean' ? 'boolean|nil' : type
           }
         end
 
@@ -69,7 +71,7 @@ def parse_cpp_modules(files)
           output << "---@param #{argument[:name]} #{argument[:type]} \n"
         end
         output << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
-        output << "function #{prefix}#{module_name}:#{function_name}("
+        output << "function #{prefix}#{module_name}.#{function_name}("
         output << arguments&.map { |arg| arg[:name] }&.join(', ')
         output << ") end\n\n"
       end

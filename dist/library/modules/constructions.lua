@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class constructions
+---@class constructions_module
 dfhack.constructions = {}
 
 ---@param pos coord 
@@ -9,9 +9,9 @@ dfhack.constructions = {}
 ---@param item item_type 
 ---@param matindex integer 
 ---@return boolean
-function dfhack.constructions:designateNew(pos, type, item, matindex) end
+function dfhack.constructions.designateNew(pos, type, item, matindex) end
 
 ---@param constr construction 
 ---@return boolean
-function dfhack.constructions:insert(constr) end
+function dfhack.constructions.insert(constr) end
 

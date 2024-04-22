@@ -1,35 +1,35 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class world
+---@class world_module
 dfhack.world = {}
 
 ---@return boolean
-function dfhack.world:ReadPauseState() end
+function dfhack.world.ReadPauseState() end
 
----@param paused boolean 
+---@param paused boolean|nil 
 ---@return nil
-function dfhack.world:SetPauseState(paused) end
+function dfhack.world.SetPauseState(paused) end
 
 ---@return integer
-function dfhack.world:ReadCurrentTick() end
+function dfhack.world.ReadCurrentTick() end
 
 ---@return integer
-function dfhack.world:ReadCurrentYear() end
+function dfhack.world.ReadCurrentYear() end
 
 ---@return integer
-function dfhack.world:ReadCurrentMonth() end
+function dfhack.world.ReadCurrentMonth() end
 
 ---@return integer
-function dfhack.world:ReadCurrentDay() end
+function dfhack.world.ReadCurrentDay() end
 
 ---@return integer
-function dfhack.world:ReadCurrentWeather() end
+function dfhack.world.ReadCurrentWeather() end
 
 ---@param weather integer 
 ---@return nil
-function dfhack.world:SetCurrentWeather(weather) end
+function dfhack.world.SetCurrentWeather(weather) end
 
 ---@return string
-function dfhack.world:ReadWorldFolder() end
+function dfhack.world.ReadWorldFolder() end
 
