@@ -30,3 +30,9 @@ Using the `Build Task` shortcut `Ctrl+Shift+B` you can automatically run [`gener
 ## LuaLS
 
 The [Lua language server](https://github.com/LuaLS/lua-language-server) provides extra functionality for code editors to make editing Lua easier. Part of this is dynamic type hinting, which can be helpful in the discovery and documentation of code. It can also provide diagnostic errors and warnings when types are misused.
+
+Loosely structure guidelines for creating types that I follow:
+
+- Generics are commonly mis-interpreted by the language server, use explitic classes where possible i.e `---@class MyFooTable` vs. `---@class MyTable<Foo>: { [ integer ]: Foo }`
+- Prefer explicit `nil` declerations over optionals `?` i.e `---@return number|nil` vs. `---@return number?`
+- Use `---@nodiscard` liberally for functions with no side-effects
