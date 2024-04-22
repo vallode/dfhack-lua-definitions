@@ -44,7 +44,7 @@ df.vermin_flags = {}
 ---| vermin_category_keys
 ---| vermin_category_values
 
----@class _vermin_category: DFEnum
+---@class _vermin_category: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Eater 0
@@ -65,8 +65,7 @@ df.vermin_flags = {}
 ---@field [7] "Underworld" last used in 40d for vermin in eerie glowing pits
 df.vermin_category = {}
 
----@class (exact) vermin: DFObject
----@field _kind 'struct'
+---@class (exact) vermin: DFStruct
 ---@field _type _vermin
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
@@ -80,7 +79,7 @@ df.vermin_category = {}
 ---@field category vermin_category
 ---@field id number assigned during Save
 
----@class _vermin: DFCompound
+---@class _vermin: DFCompoundType
 ---@field _kind 'struct-type'
 df.vermin = {}
 

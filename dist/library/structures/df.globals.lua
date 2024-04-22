@@ -165,19 +165,17 @@
 ---@field unitst_choptree function[]
 df.global = {}
 
----@class (exact) global.T_cursor: DFObject
----@field _kind 'struct'
+---@class (exact) global.T_cursor: DFStruct
 ---@field _type _global.T_cursor
 ---@field x number
 ---@field y number
 ---@field z number
 
----@class _global.T_cursor: DFCompound
+---@class _global.T_cursor: DFCompoundType
 ---@field _kind 'struct-type'
 df.global.T_cursor = {}
 
----@class (exact) global.T_selection_rect: DFObject
----@field _kind 'struct'
+---@class (exact) global.T_selection_rect: DFStruct
 ---@field _type _global.T_selection_rect
 ---@field start_x number
 ---@field start_y number
@@ -186,7 +184,7 @@ df.global.T_cursor = {}
 ---@field end_y number
 ---@field end_z number
 
----@class _global.T_selection_rect: DFCompound
+---@class _global.T_selection_rect: DFCompoundType
 ---@field _kind 'struct-type'
 df.global.T_selection_rect = {}
 
@@ -284,7 +282,7 @@ function _global_ui_building_assign_items:erase(index) end
 ---| weather_type_keys
 ---| weather_type_values
 
----@class _weather_type: DFEnum
+---@class _weather_type: DFEnumType
 ---@field None 0
 ---@field [0] "None"
 ---@field Rain 1
@@ -386,7 +384,7 @@ df.weather_type = {}
 -- The storage order of "next ID" fields in the save file.
 -- Followed by game type. The enum item name is the part between
 -- next_ and _global_id in the Dwarf Fortress global variable table.
----@class _next_global_id: DFEnum
+---@class _next_global_id: DFEnumType
 ---@field unit 0
 ---@field [0] "unit"
 ---@field soul 1
@@ -471,14 +469,13 @@ df.weather_type = {}
 ---@field [40] "divination_set"
 df.next_global_id = {}
 
----@class (exact) global_table_entry: DFObject
----@field _kind 'struct'
+---@class (exact) global_table_entry: DFStruct
 ---@field _type _global_table_entry
 ---@field name DFPointer<string>
 ---@field address DFPointer<integer>
 ---@field size integer
 
----@class _global_table_entry: DFCompound
+---@class _global_table_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.global_table_entry = {}
 
@@ -496,7 +493,7 @@ df.global_table_entry = {}
 ---| game_mode_keys
 ---| game_mode_values
 
----@class _game_mode: DFEnum
+---@class _game_mode: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DWARF 0
@@ -536,7 +533,7 @@ df.game_mode = {}
 ---| game_type_values
 
 -- bay12: GameType
----@class _game_type: DFEnum
+---@class _game_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DWARF_MAIN 0
@@ -605,7 +602,7 @@ df.game_type = {}
 ---| lever_target_type_keys
 ---| lever_target_type_values
 
----@class _lever_target_type: DFEnum
+---@class _lever_target_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BarsVertical 66
@@ -644,7 +641,7 @@ df.game_type = {}
 ---@field [119] "GrateWall"
 df.lever_target_type = {}
 
----@class lever_target_type_attr_entry_type: DFCompound
+---@class lever_target_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.lever_target_type._attr_entry_type = {}
 

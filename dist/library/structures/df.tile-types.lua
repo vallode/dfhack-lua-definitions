@@ -22,7 +22,7 @@
 ---| tiletype_shape_basic_values
 
 -- Basic tile shape (not in DF)
----@class _tiletype_shape_basic: DFEnum
+---@class _tiletype_shape_basic: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Open 0
@@ -86,7 +86,7 @@ df.tiletype_shape_basic = {}
 ---| tiletype_shape_values
 
 -- Tile shape (not in DF)
----@class _tiletype_shape: DFEnum
+---@class _tiletype_shape: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field EMPTY 0
@@ -129,7 +129,7 @@ df.tiletype_shape_basic = {}
 ---@field [18] "ENDLESS_PIT"
 df.tiletype_shape = {}
 
----@class tiletype_shape_attr_entry_type: DFCompound
+---@class tiletype_shape_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.tiletype_shape._attr_entry_type = {}
 
@@ -230,7 +230,7 @@ df.tiletype_shape.attrs = {}
 ---| tiletype_material_values
 
 -- Tile material (not in DF)
----@class _tiletype_material: DFEnum
+---@class _tiletype_material: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field AIR 0
@@ -287,7 +287,7 @@ df.tiletype_shape.attrs = {}
 ---@field [25] "UNDERWORLD_GATE"
 df.tiletype_material = {}
 
----@class tiletype_material_attr_entry_type: DFCompound
+---@class tiletype_material_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.tiletype_material._attr_entry_type = {}
 
@@ -343,7 +343,7 @@ df.tiletype_material.attrs = {}
 ---| tiletype_variant_values
 
 -- Cosmetic tile variant (not in DF)
----@class _tiletype_variant: DFEnum
+---@class _tiletype_variant: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field VAR_1 0
@@ -391,7 +391,7 @@ df.tiletype_variant = {}
 ---| tiletype_special_values
 
 -- Functional tile variant (not in DF)
----@class _tiletype_special: DFEnum
+---@class _tiletype_special: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field NORMAL 0
@@ -420,7 +420,7 @@ df.tiletype_variant = {}
 ---@field [11] "SMOOTH_DEAD"
 df.tiletype_special = {}
 
----@class tiletype_special_attr_entry_type: DFCompound
+---@class tiletype_special_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.tiletype_special._attr_entry_type = {}
 
@@ -1845,7 +1845,7 @@ df.tiletype_special.attrs = {}
 ---| tiletype_keys
 ---| tiletype_values
 
----@class _tiletype: DFEnum
+---@class _tiletype: DFEnumType
 ---@field Void 0 0x000
 ---@field [0] "Void" 0x000
 ---@field RampTop 1 MAPTILE_RAMPSPACE
@@ -3242,7 +3242,7 @@ df.tiletype_special.attrs = {}
 ---@field [696] "Unused696" MAPTILE_UNUSED_696
 df.tiletype = {}
 
----@class tiletype_attr_entry_type: DFCompound
+---@class tiletype_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.tiletype._attr_entry_type = {}
 

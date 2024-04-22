@@ -23,7 +23,7 @@
 ---| pattern_type_keys
 ---| pattern_type_values
 
----@class _pattern_type: DFEnum
+---@class _pattern_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MONOTONE 0
@@ -40,8 +40,7 @@
 ---@field [5] "MOTTLED"
 df.pattern_type = {}
 
----@class (exact) descriptor_color: DFObject
----@field _kind 'struct'
+---@class (exact) descriptor_color: DFStruct
 ---@field _type _descriptor_color
 ---@field id string
 ---@field word_unk DFStringVector
@@ -54,7 +53,7 @@ df.pattern_type = {}
 ---@field blue number
 ---@field unk_v50_1 integer[]
 
----@class _descriptor_color: DFCompound
+---@class _descriptor_color: DFCompoundType
 ---@field _kind 'struct-type'
 df.descriptor_color = {}
 
@@ -67,8 +66,7 @@ function df.descriptor_color.find(key) end
 ---@return descriptor_color_vector # df.global.world.raws.descriptors.colors
 function df.descriptor_color.get_vector() end
 
----@class (exact) descriptor_shape: DFObject
----@field _kind 'struct'
+---@class (exact) descriptor_shape: DFStruct
 ---@field _type _descriptor_shape
 ---@field id string
 ---@field words_str DFStringVector temporary storage before resolving to language_word
@@ -87,7 +85,7 @@ function df.descriptor_color.get_vector() end
 ---@field unk_v50_5 DFPointer<integer>
 ---@field unk_v50_6 DFPointer<integer>
 
----@class _descriptor_shape: DFCompound
+---@class _descriptor_shape: DFCompoundType
 ---@field _kind 'struct-type'
 df.descriptor_shape = {}
 
@@ -118,15 +116,14 @@ function df.descriptor_shape.get_vector() end
 ---@field [2] "adj_noun"
 df.descriptor_shape.T_gems_use = {}
 
----@class (exact) descriptor_pattern: DFObject
----@field _kind 'struct'
+---@class (exact) descriptor_pattern: DFStruct
 ---@field _type _descriptor_pattern
 ---@field id string
 ---@field colors DFNumberVector
 ---@field pattern pattern_type
 ---@field cp_color DFStringVector
 
----@class _descriptor_pattern: DFCompound
+---@class _descriptor_pattern: DFCompoundType
 ---@field _kind 'struct-type'
 df.descriptor_pattern = {}
 

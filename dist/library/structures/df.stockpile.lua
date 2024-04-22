@@ -29,7 +29,7 @@
 ---| hauler_type_keys
 ---| hauler_type_values
 
----@class _hauler_type: DFEnum
+---@class _hauler_type: DFEnumType
 ---@field Any 0
 ---@field [0] "Any"
 ---@field Stone 1
@@ -128,7 +128,7 @@ df.hauler_type = {}
 ---| furniture_type_keys
 ---| furniture_type_values
 
----@class _furniture_type: DFEnum
+---@class _furniture_type: DFEnumType
 ---@field FLOODGATE 0 subset of item_type
 ---@field [0] "FLOODGATE" subset of item_type
 ---@field HATCH_COVER 1
@@ -247,7 +247,7 @@ df.furniture_type = {}
 ---| stockpile_category_keys
 ---| stockpile_category_values
 
----@class _stockpile_category: DFEnum
+---@class _stockpile_category: DFEnumType
 ---@field Remove -1
 ---@field [-1] "Remove"
 ---@field Animals 0
@@ -364,8 +364,7 @@ df.stockpile_category = {}
 ---@field [16] "sheet"
 df.stockpile_group_set = {}
 
----@class (exact) stockpile_settings: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings: DFStruct
 ---@field _type _stockpile_settings
 ---@field flags stockpile_group_set
 ---@field animals stockpile_settings.T_animals
@@ -389,23 +388,21 @@ df.stockpile_group_set = {}
 ---@field allow_organic boolean
 ---@field allow_inorganic boolean
 
----@class _stockpile_settings: DFCompound
+---@class _stockpile_settings: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings = {}
 
----@class (exact) stockpile_settings.T_animals: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_animals: DFStruct
 ---@field _type _stockpile_settings.T_animals
 ---@field empty_cages boolean
 ---@field empty_traps boolean
 ---@field enabled DFBooleanVector
 
----@class _stockpile_settings.T_animals: DFCompound
+---@class _stockpile_settings.T_animals: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_animals = {}
 
----@class (exact) stockpile_settings.T_food: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_food: DFStruct
 ---@field _type _stockpile_settings.T_food
 ---@field meat DFBooleanVector
 ---@field fish DFBooleanVector
@@ -428,12 +425,11 @@ df.stockpile_settings.T_animals = {}
 ---@field liquid_misc DFBooleanVector
 ---@field prepared_meals boolean
 
----@class _stockpile_settings.T_food: DFCompound
+---@class _stockpile_settings.T_food: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_food = {}
 
----@class (exact) stockpile_settings.T_furniture: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_furniture: DFStruct
 ---@field _type _stockpile_settings.T_furniture
 ---@field type DFBooleanVector
 ---@field other_mats DFBooleanVector
@@ -441,21 +437,19 @@ df.stockpile_settings.T_food = {}
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 
----@class _stockpile_settings.T_furniture: DFCompound
+---@class _stockpile_settings.T_furniture: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_furniture = {}
 
----@class (exact) stockpile_settings.T_corpses: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_corpses: DFStruct
 ---@field _type _stockpile_settings.T_corpses
 ---@field corpses DFBooleanVector
 
----@class _stockpile_settings.T_corpses: DFCompound
+---@class _stockpile_settings.T_corpses: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_corpses = {}
 
----@class (exact) stockpile_settings.T_refuse: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_refuse: DFStruct
 ---@field _type _stockpile_settings.T_refuse
 ---@field type DFBooleanVector
 ---@field corpses DFBooleanVector
@@ -469,30 +463,27 @@ df.stockpile_settings.T_corpses = {}
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
 
----@class _stockpile_settings.T_refuse: DFCompound
+---@class _stockpile_settings.T_refuse: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_refuse = {}
 
----@class (exact) stockpile_settings.T_stone: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_stone: DFStruct
 ---@field _type _stockpile_settings.T_stone
 ---@field mats DFBooleanVector
 
----@class _stockpile_settings.T_stone: DFCompound
+---@class _stockpile_settings.T_stone: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_stone = {}
 
----@class (exact) stockpile_settings.T_ore: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_ore: DFStruct
 ---@field _type _stockpile_settings.T_ore
 ---@field mats DFBooleanVector unused
 
----@class _stockpile_settings.T_ore: DFCompound
+---@class _stockpile_settings.T_ore: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_ore = {}
 
----@class (exact) stockpile_settings.T_ammo: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_ammo: DFStruct
 ---@field _type _stockpile_settings.T_ammo
 ---@field type DFBooleanVector
 ---@field other_mats DFBooleanVector
@@ -500,45 +491,41 @@ df.stockpile_settings.T_ore = {}
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 
----@class _stockpile_settings.T_ammo: DFCompound
+---@class _stockpile_settings.T_ammo: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_ammo = {}
 
----@class (exact) stockpile_settings.T_coins: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_coins: DFStruct
 ---@field _type _stockpile_settings.T_coins
 ---@field mats DFBooleanVector
 
----@class _stockpile_settings.T_coins: DFCompound
+---@class _stockpile_settings.T_coins: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_coins = {}
 
----@class (exact) stockpile_settings.T_bars_blocks: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_bars_blocks: DFStruct
 ---@field _type _stockpile_settings.T_bars_blocks
 ---@field bars_other_mats DFBooleanVector
 ---@field blocks_other_mats DFBooleanVector
 ---@field bars_mats DFBooleanVector
 ---@field blocks_mats DFBooleanVector
 
----@class _stockpile_settings.T_bars_blocks: DFCompound
+---@class _stockpile_settings.T_bars_blocks: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_bars_blocks = {}
 
----@class (exact) stockpile_settings.T_gems: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_gems: DFStruct
 ---@field _type _stockpile_settings.T_gems
 ---@field rough_other_mats DFBooleanVector
 ---@field cut_other_mats DFBooleanVector
 ---@field rough_mats DFBooleanVector
 ---@field cut_mats DFBooleanVector
 
----@class _stockpile_settings.T_gems: DFCompound
+---@class _stockpile_settings.T_gems: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_gems = {}
 
----@class (exact) stockpile_settings.T_finished_goods: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_finished_goods: DFStruct
 ---@field _type _stockpile_settings.T_finished_goods
 ---@field type DFBooleanVector
 ---@field other_mats DFBooleanVector
@@ -546,21 +533,19 @@ df.stockpile_settings.T_gems = {}
 ---@field quality_core DFEnumVector<item_quality, boolean>
 ---@field quality_total DFEnumVector<item_quality, boolean>
 
----@class _stockpile_settings.T_finished_goods: DFCompound
+---@class _stockpile_settings.T_finished_goods: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_finished_goods = {}
 
----@class (exact) stockpile_settings.T_leather: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_leather: DFStruct
 ---@field _type _stockpile_settings.T_leather
 ---@field mats DFBooleanVector
 
----@class _stockpile_settings.T_leather: DFCompound
+---@class _stockpile_settings.T_leather: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_leather = {}
 
----@class (exact) stockpile_settings.T_cloth: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_cloth: DFStruct
 ---@field _type _stockpile_settings.T_cloth
 ---@field thread_silk DFBooleanVector
 ---@field thread_plant DFBooleanVector
@@ -571,21 +556,19 @@ df.stockpile_settings.T_leather = {}
 ---@field cloth_yarn DFBooleanVector
 ---@field cloth_metal DFBooleanVector
 
----@class _stockpile_settings.T_cloth: DFCompound
+---@class _stockpile_settings.T_cloth: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_cloth = {}
 
----@class (exact) stockpile_settings.T_wood: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_wood: DFStruct
 ---@field _type _stockpile_settings.T_wood
 ---@field mats DFBooleanVector
 
----@class _stockpile_settings.T_wood: DFCompound
+---@class _stockpile_settings.T_wood: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_wood = {}
 
----@class (exact) stockpile_settings.T_weapons: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_weapons: DFStruct
 ---@field _type _stockpile_settings.T_weapons
 ---@field weapon_type DFBooleanVector
 ---@field trapcomp_type DFBooleanVector
@@ -596,12 +579,11 @@ df.stockpile_settings.T_wood = {}
 ---@field usable boolean
 ---@field unusable boolean
 
----@class _stockpile_settings.T_weapons: DFCompound
+---@class _stockpile_settings.T_weapons: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_weapons = {}
 
----@class (exact) stockpile_settings.T_armor: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_armor: DFStruct
 ---@field _type _stockpile_settings.T_armor
 ---@field body DFBooleanVector
 ---@field head DFBooleanVector
@@ -616,17 +598,16 @@ df.stockpile_settings.T_weapons = {}
 ---@field usable boolean
 ---@field unusable boolean
 
----@class _stockpile_settings.T_armor: DFCompound
+---@class _stockpile_settings.T_armor: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_armor = {}
 
----@class (exact) stockpile_settings.T_sheet: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_settings.T_sheet: DFStruct
 ---@field _type _stockpile_settings.T_sheet
 ---@field paper DFBooleanVector
 ---@field parchment DFBooleanVector
 
----@class _stockpile_settings.T_sheet: DFCompound
+---@class _stockpile_settings.T_sheet: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_settings.T_sheet = {}
 
@@ -848,7 +829,7 @@ df.stockpile_settings.T_sheet = {}
 ---| stockpile_list_keys
 ---| stockpile_list_values
 
----@class _stockpile_list: DFEnum
+---@class _stockpile_list: DFEnumType
 ---@field Animals 0
 ---@field [0] "Animals"
 ---@field Food 1
@@ -1061,7 +1042,7 @@ df.stockpile_settings.T_sheet = {}
 ---@field [104] "AdditionalOptions"
 df.stockpile_list = {}
 
----@class stockpile_list_attr_entry_type: DFCompound
+---@class stockpile_list_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_list._attr_entry_type = {}
 
@@ -1090,8 +1071,7 @@ df.stockpile_list._attr_entry_type._fields = {}
 ---@field AdditionalOptions { is_category: "true" }
 df.stockpile_list.attrs = {}
 
----@class (exact) hauling_route: DFObject
----@field _kind 'struct'
+---@class (exact) hauling_route: DFStruct
 ---@field _type _hauling_route
 ---@field id number
 ---@field name string
@@ -1099,7 +1079,7 @@ df.stockpile_list.attrs = {}
 ---@field vehicle_ids DFNumberVector
 ---@field vehicle_stops DFNumberVector
 
----@class _hauling_route: DFCompound
+---@class _hauling_route: DFCompoundType
 ---@field _kind 'struct-type'
 df.hauling_route = {}
 
@@ -1128,8 +1108,7 @@ function _hauling_route_stops:insert(index, item) end
 ---@param index integer 
 function _hauling_route_stops:erase(index) end
 
----@class (exact) hauling_stop: DFObject
----@field _kind 'struct'
+---@class (exact) hauling_stop: DFStruct
 ---@field _type _hauling_stop
 ---@field id number
 ---@field name string
@@ -1140,7 +1119,7 @@ function _hauling_route_stops:erase(index) end
 ---@field time_waiting number
 ---@field cart_id number References: `item`
 
----@class _hauling_stop: DFCompound
+---@class _hauling_stop: DFCompoundType
 ---@field _kind 'struct-type'
 df.hauling_stop = {}
 
@@ -1176,8 +1155,7 @@ function _hauling_stop_stockpiles:insert(index, item) end
 ---@param index integer 
 function _hauling_stop_stockpiles:erase(index) end
 
----@class (exact) stop_depart_condition: DFObject
----@field _kind 'struct'
+---@class (exact) stop_depart_condition: DFStruct
 ---@field _type _stop_depart_condition
 ---@field timeout number
 ---@field direction stop_depart_condition.T_direction
@@ -1186,7 +1164,7 @@ function _hauling_stop_stockpiles:erase(index) end
 ---@field flags stop_depart_condition.T_flags
 ---@field guide_path coord_path initialized on first run, and saved
 
----@class _stop_depart_condition: DFCompound
+---@class _stop_depart_condition: DFCompoundType
 ---@field _kind 'struct-type'
 df.stop_depart_condition = {}
 
@@ -1206,7 +1184,7 @@ df.stop_depart_condition = {}
 ---| stop_depart_condition.T_direction_keys
 ---| stop_depart_condition.T_direction_values
 
----@class _stop_depart_condition.T_direction: DFEnum
+---@class _stop_depart_condition.T_direction: DFEnumType
 ---@field North 0
 ---@field [0] "North"
 ---@field South 1
@@ -1231,7 +1209,7 @@ df.stop_depart_condition.T_direction = {}
 ---| stop_depart_condition.T_mode_keys
 ---| stop_depart_condition.T_mode_values
 
----@class _stop_depart_condition.T_mode: DFEnum
+---@class _stop_depart_condition.T_mode: DFEnumType
 ---@field Push 0
 ---@field [0] "Push"
 ---@field Ride 1
@@ -1254,13 +1232,12 @@ df.stop_depart_condition.T_mode = {}
 ---@field [1] "desired"
 df.stop_depart_condition.T_flags = {}
 
----@class (exact) route_stockpile_link: DFObject
----@field _kind 'struct'
+---@class (exact) route_stockpile_link: DFStruct
 ---@field _type _route_stockpile_link
 ---@field building_id number References: `building`
 ---@field mode route_stockpile_link.T_mode
 
----@class _route_stockpile_link: DFCompound
+---@class _route_stockpile_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.route_stockpile_link = {}
 
@@ -1278,8 +1255,7 @@ df.route_stockpile_link = {}
 ---@field [1] "give"
 df.route_stockpile_link.T_mode = {}
 
----@class (exact) vehicle: DFObject
----@field _kind 'struct'
+---@class (exact) vehicle: DFStruct
 ---@field _type _vehicle
 ---@field id number
 ---@field item_id number References: `item`
@@ -1297,7 +1273,7 @@ df.route_stockpile_link.T_mode = {}
 ---@field last_dump coord
 ---@field time_stopped number bay12: zero_vel_count; frames, up to 1000
 
----@class _vehicle: DFCompound
+---@class _vehicle: DFCompoundType
 ---@field _kind 'struct-type'
 df.vehicle = {}
 

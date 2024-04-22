@@ -15,8 +15,7 @@
 ---@field [1] "is_shrub" If it is not a shrub, then it is a tree
 df.plant_flags = {}
 
----@class (exact) plant: DFObject
----@field _kind 'struct'
+---@class (exact) plant: DFStruct
 ---@field _type _plant
 ---@field flags plant_flags
 ---@field material number References: `plant_raw`
@@ -30,7 +29,7 @@ df.plant_flags = {}
 ---@field contaminants _plant_contaminants
 ---@field tree_info plant_tree_info
 
----@class _plant: DFCompound
+---@class _plant: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant = {}
 
@@ -115,7 +114,7 @@ function _plant_contaminants:erase(index) end
 ---| plant_tree_tile_branches_dir_keys
 ---| plant_tree_tile_branches_dir_values
 
----@class _plant_tree_tile_branches_dir: DFEnum
+---@class _plant_tree_tile_branches_dir: DFEnumType
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field BRANCH_W 1
@@ -170,7 +169,7 @@ df.plant_tree_tile_branches_dir = {}
 ---| plant_tree_tile_parent_dir_keys
 ---| plant_tree_tile_parent_dir_values
 
----@class _plant_tree_tile_parent_dir: DFEnum
+---@class _plant_tree_tile_parent_dir: DFEnumType
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field PARENT_IS_N 1
@@ -236,8 +235,7 @@ df.plant_tree_tile = {}
 ---@field [7] "blocked"
 df.plant_root_tile = {}
 
----@class (exact) plant_tree_info: DFObject
----@field _kind 'struct'
+---@class (exact) plant_tree_info: DFStruct
 ---@field _type _plant_tree_info
 ---@field body DFPointer<integer> dimension body_height
 ---@field extent_east number dimension body_height
@@ -251,7 +249,7 @@ df.plant_root_tile = {}
 ---@field roots_depth number
 ---@field local_trunk_height number
 
----@class _plant_tree_info: DFCompound
+---@class _plant_tree_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_tree_info = {}
 

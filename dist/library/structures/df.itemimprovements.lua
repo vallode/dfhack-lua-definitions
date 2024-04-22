@@ -39,7 +39,7 @@
 ---| improvement_type_keys
 ---| improvement_type_values
 
----@class _improvement_type: DFEnum
+---@class _improvement_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ART_IMAGE 0
@@ -72,8 +72,7 @@
 ---@field [13] "IMAGE_SET"
 df.improvement_type = {}
 
----@class (exact) dye_info: DFObject
----@field _kind 'struct'
+---@class (exact) dye_info: DFStruct
 ---@field _type _dye_info
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -82,12 +81,11 @@ df.improvement_type = {}
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 number
 
----@class _dye_info: DFCompound
+---@class _dye_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.dye_info = {}
 
----@class (exact) itemimprovement: DFObject
----@field _kind 'struct'
+---@class (exact) itemimprovement: DFStruct
 ---@field _type _itemimprovement
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -97,26 +95,24 @@ df.dye_info = {}
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 number
 
----@class _itemimprovement: DFCompound
+---@class _itemimprovement: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement = {}
 
----@class (exact) itemimprovement_art_imagest: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_art_imagest: DFStruct, itemimprovement
 ---@field _type _itemimprovement_art_imagest
 ---@field image art_image_ref
 
----@class _itemimprovement_art_imagest: DFCompound
+---@class _itemimprovement_art_imagest: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_art_imagest = {}
 
----@class (exact) itemimprovement_coveredst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_coveredst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_coveredst
 ---@field cover_flags itemimprovement_coveredst.T_cover_flags
 ---@field shape number References: `descriptor_shape`
 
----@class _itemimprovement_coveredst: DFCompound
+---@class _itemimprovement_coveredst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_coveredst = {}
 
@@ -130,28 +126,25 @@ df.itemimprovement_coveredst = {}
 ---@field [0] "glazed"
 df.itemimprovement_coveredst.T_cover_flags = {}
 
----@class (exact) itemimprovement_rings_hangingst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_rings_hangingst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_rings_hangingst
 
----@class _itemimprovement_rings_hangingst: DFCompound
+---@class _itemimprovement_rings_hangingst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_rings_hangingst = {}
 
----@class (exact) itemimprovement_bandsst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_bandsst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_bandsst
 ---@field shape number References: `descriptor_shape`
 
----@class _itemimprovement_bandsst: DFCompound
+---@class _itemimprovement_bandsst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_bandsst = {}
 
----@class (exact) itemimprovement_spikesst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_spikesst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_spikesst
 
----@class _itemimprovement_spikesst: DFCompound
+---@class _itemimprovement_spikesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_spikesst = {}
 
@@ -167,105 +160,95 @@ df.itemimprovement_spikesst = {}
 ---| itemimprovement_specific_type_keys
 ---| itemimprovement_specific_type_values
 
----@class _itemimprovement_specific_type: DFEnum
+---@class _itemimprovement_specific_type: DFEnumType
 ---@field HANDLE 0
 ---@field [0] "HANDLE"
 ---@field ROLLERS 1
 ---@field [1] "ROLLERS"
 df.itemimprovement_specific_type = {}
 
----@class (exact) itemimprovement_itemspecificst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_itemspecificst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_itemspecificst
 ---@field type itemimprovement_specific_type
 
----@class _itemimprovement_itemspecificst: DFCompound
+---@class _itemimprovement_itemspecificst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_itemspecificst = {}
 
----@class (exact) itemimprovement_threadst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_threadst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_threadst
 ---@field dye dye_info
 
----@class _itemimprovement_threadst: DFCompound
+---@class _itemimprovement_threadst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_threadst = {}
 
----@class (exact) itemimprovement_clothst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_clothst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_clothst
 
----@class _itemimprovement_clothst: DFCompound
+---@class _itemimprovement_clothst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_clothst = {}
 
----@class (exact) itemimprovement_sewn_imagest: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_sewn_imagest: DFStruct, itemimprovement
 ---@field _type _itemimprovement_sewn_imagest
 ---@field image art_image_ref
 ---@field cloth itemimprovement_sewn_imagest.T_cloth
 ---@field dye dye_info
 
----@class _itemimprovement_sewn_imagest: DFCompound
+---@class _itemimprovement_sewn_imagest: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_sewn_imagest = {}
 
----@class (exact) itemimprovement_sewn_imagest.T_cloth: DFObject
----@field _kind 'struct'
+---@class (exact) itemimprovement_sewn_imagest.T_cloth: DFStruct
 ---@field _type _itemimprovement_sewn_imagest.T_cloth
 ---@field unit_id number References: `historical_figure`
 ---@field quality number
 ---@field unk_1 number
 
----@class _itemimprovement_sewn_imagest.T_cloth: DFCompound
+---@class _itemimprovement_sewn_imagest.T_cloth: DFCompoundType
 ---@field _kind 'struct-type'
 df.itemimprovement_sewn_imagest.T_cloth = {}
 
----@class (exact) itemimprovement_pagesst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_pagesst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_pagesst
 ---@field count number
 ---@field contents DFNumberVector
 
----@class _itemimprovement_pagesst: DFCompound
+---@class _itemimprovement_pagesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_pagesst = {}
 
----@class (exact) itemimprovement_illustrationst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_illustrationst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_illustrationst
 ---@field image art_image_ref
 ---@field unk_2 number
 
----@class _itemimprovement_illustrationst: DFCompound
+---@class _itemimprovement_illustrationst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_illustrationst = {}
 
----@class (exact) itemimprovement_instrument_piecest: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_instrument_piecest: DFStruct, itemimprovement
 ---@field _type _itemimprovement_instrument_piecest
 ---@field type string instrument_piece.type
 
----@class _itemimprovement_instrument_piecest: DFCompound
+---@class _itemimprovement_instrument_piecest: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_instrument_piecest = {}
 
----@class (exact) itemimprovement_writingst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_writingst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_writingst
 ---@field contents DFNumberVector
 
----@class _itemimprovement_writingst: DFCompound
+---@class _itemimprovement_writingst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_writingst = {}
 
----@class (exact) itemimprovement_image_setst: DFObject, itemimprovement
----@field _kind 'struct'
+---@class (exact) itemimprovement_image_setst: DFStruct, itemimprovement
 ---@field _type _itemimprovement_image_setst
 ---@field image_set_id number References: `image_set`
 
----@class _itemimprovement_image_setst: DFCompound
+---@class _itemimprovement_image_setst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_image_setst = {}
 
@@ -331,7 +314,7 @@ df.itemimprovement_image_setst = {}
 ---| written_content_type_keys
 ---| written_content_type_values
 
----@class _written_content_type: DFEnum
+---@class _written_content_type: DFEnumType
 ---@field NONE -1 bay12: WritingForm
 ---@field [-1] "NONE" bay12: WritingForm
 ---@field Manual 0
@@ -432,7 +415,7 @@ df.written_content_type = {}
 ---| written_content_style_keys
 ---| written_content_style_values
 
----@class _written_content_style: DFEnum
+---@class _written_content_style: DFEnumType
 ---@field Meandering 0
 ---@field [0] "Meandering"
 ---@field Cheerful 1
@@ -471,8 +454,7 @@ df.written_content_type = {}
 ---@field [17] "Ranting"
 df.written_content_style = {}
 
----@class (exact) written_content: DFObject
----@field _kind 'struct'
+---@class (exact) written_content: DFStruct
 ---@field _type _written_content
 ---@field id number
 ---@field title string
@@ -489,7 +471,7 @@ df.written_content_style = {}
 ---@field author number References: `historical_figure`
 ---@field author_roll number
 
----@class _written_content: DFCompound
+---@class _written_content: DFCompoundType
 ---@field _kind 'struct-type'
 df.written_content = {}
 
@@ -580,8 +562,7 @@ function _written_content_styles:erase(index) end
 ---@field [9] "southeast"
 df.engraving_flags = {}
 
----@class (exact) engraving: DFObject
----@field _kind 'struct'
+---@class (exact) engraving: DFStruct
 ---@field _type _engraving
 ---@field artist number References: `historical_figure`
 ---@field masterpiece_event number References: `history_event`
@@ -595,7 +576,7 @@ df.engraving_flags = {}
 ---@field unk1 number
 ---@field unk2 number
 
----@class _engraving: DFCompound
+---@class _engraving: DFCompoundType
 ---@field _kind 'struct-type'
 df.engraving = {}
 

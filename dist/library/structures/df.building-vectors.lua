@@ -389,7 +389,7 @@
 ---| buildings_other_id_keys
 ---| buildings_other_id_values
 
----@class _buildings_other_id: DFEnum
+---@class _buildings_other_id: DFEnumType
 ---@field ANY -1
 ---@field [-1] "ANY"
 ---@field IN_PLAY 0 0
@@ -772,7 +772,7 @@
 ---@field [188] "OFFERING_PLACE"
 df.buildings_other_id = {}
 
----@class buildings_other_id_attr_entry_type: DFCompound
+---@class buildings_other_id_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.buildings_other_id._attr_entry_type = {}
 
@@ -977,8 +977,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field OFFERING_PLACE { building: "OfferingPlace" }
 df.buildings_other_id.attrs = {}
 
----@class (exact) buildings_other: DFObject
----@field _kind 'struct'
+---@class (exact) buildings_other: DFStruct
 ---@field _type _buildings_other
 ---@field IN_PLAY _buildings_other_IN_PLAY
 ---@field STOCKPILE _buildings_other_STOCKPILE
@@ -1170,7 +1169,7 @@ df.buildings_other_id.attrs = {}
 ---@field INSTRUMENT_STATIONARY _buildings_other_INSTRUMENT_STATIONARY
 ---@field OFFERING_PLACE _buildings_other_OFFERING_PLACE
 
----@class _buildings_other: DFCompound
+---@class _buildings_other: DFCompoundType
 ---@field _kind 'struct-type'
 df.buildings_other = {}
 

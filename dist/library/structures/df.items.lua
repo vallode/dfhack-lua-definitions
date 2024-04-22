@@ -186,7 +186,7 @@ df.item_flags2 = {}
 ---| item_magicness_type_keys
 ---| item_magicness_type_values
 
----@class _item_magicness_type: DFEnum
+---@class _item_magicness_type: DFEnumType
 ---@field Sparkle 0
 ---@field [0] "Sparkle"
 ---@field AirWarped 1
@@ -207,30 +207,27 @@ df.item_flags2 = {}
 ---@field [8] "RustlingLeaves"
 df.item_magicness_type = {}
 
----@class (exact) item_magicness: DFObject
----@field _kind 'struct'
+---@class (exact) item_magicness: DFStruct
 ---@field _type _item_magicness
 ---@field type item_magicness_type
 ---@field value number boosts item value by 50*this
 ---@field unk_1 number
 ---@field flags number 1=does not show up in item description or alter item value
 
----@class _item_magicness: DFCompound
+---@class _item_magicness: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_magicness = {}
 
----@class (exact) temperaturest: DFObject
----@field _kind 'struct'
+---@class (exact) temperaturest: DFStruct
 ---@field _type _temperaturest
 ---@field whole integer seems like a convenient name
 ---@field fraction number
 
----@class _temperaturest: DFCompound
+---@class _temperaturest: DFCompoundType
 ---@field _kind 'struct-type'
 df.temperaturest = {}
 
----@class (exact) spatter_common: DFObject
----@field _kind 'struct'
+---@class (exact) spatter_common: DFStruct
 ---@field _type _spatter_common
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -239,7 +236,7 @@ df.temperaturest = {}
 ---@field size number 1-24=spatter, 25-49=smear, 50-* = coating
 ---@field base_flags spatter_common.T_base_flags
 
----@class _spatter_common: DFCompound
+---@class _spatter_common: DFCompoundType
 ---@field _kind 'struct-type'
 df.spatter_common = {}
 
@@ -253,13 +250,12 @@ df.spatter_common = {}
 ---@field [0] "evaporates" does not contaminate tile when washed away
 df.spatter_common.T_base_flags = {}
 
----@class (exact) spatter: DFObject, spatter_common
----@field _kind 'struct'
+---@class (exact) spatter: DFStruct, spatter_common
 ---@field _type _spatter
 ---@field body_part_id number
 ---@field flags spatter.T_flags
 
----@class _spatter: DFCompound
+---@class _spatter: DFCompoundType
 ---@field _kind 'struct-type'
 df.spatter = {}
 
@@ -295,7 +291,7 @@ df.spatter.T_flags = {}
 ---| item_quality_keys
 ---| item_quality_values
 
----@class _item_quality: DFEnum
+---@class _item_quality: DFEnumType
 ---@field Ordinary 0
 ---@field [0] "Ordinary"
 ---@field WellCrafted 1
@@ -376,7 +372,7 @@ df.item_quality = {}
 ---| slab_engraving_type_keys
 ---| slab_engraving_type_values
 
----@class _slab_engraving_type: DFEnum
+---@class _slab_engraving_type: DFEnumType
 ---@field Slab -1
 ---@field [-1] "Slab"
 ---@field Memorial 0
@@ -479,7 +475,7 @@ df.slab_engraving_type = {}
 ---| trade_good_purpose_keys
 ---| trade_good_purpose_values
 
----@class _trade_good_purpose: DFEnum
+---@class _trade_good_purpose: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MERCHANT 0
@@ -519,8 +515,7 @@ df.slab_engraving_type = {}
 df.trade_good_purpose = {}
 
 -- CORE ITEM
----@class (exact) item: DFObject
----@field _kind 'struct'
+---@class (exact) item: DFStruct
 ---@field _type _item
 ---@field pos coord
 ---@field flags item_flags
@@ -546,7 +541,7 @@ df.trade_good_purpose = {}
 ---@field weight number if flags.weight_computed
 ---@field weight_fraction number 1e-6
 
----@class _item: DFCompound
+---@class _item: DFCompoundType
 ---@field _kind 'class-type'
 df.item = {}
 
@@ -592,30 +587,27 @@ function _item_general_refs:insert(index, item) end
 function _item_general_refs:erase(index) end
 
 -- ACTUAL ITEM
----@class (exact) item_kill_info: DFObject
----@field _kind 'struct'
+---@class (exact) item_kill_info: DFStruct
 ---@field _type _item_kill_info
 ---@field targets historical_kills
 ---@field slayers DFNumberVector Wielders
 ---@field slayer_kill_counts DFNumberVector
 
----@class _item_kill_info: DFCompound
+---@class _item_kill_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_kill_info = {}
 
----@class (exact) item_history_info: DFObject
----@field _kind 'struct'
+---@class (exact) item_history_info: DFStruct
 ---@field _type _item_history_info
 ---@field kills item_kill_info
 ---@field attack_counter number increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter number naming weight 0.001
 
----@class _item_history_info: DFCompound
+---@class _item_history_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_history_info = {}
 
----@class (exact) item_actual: DFObject, item
----@field _kind 'struct'
+---@class (exact) item_actual: DFStruct, item
 ---@field _type _item_actual
 ---@field stack_size number
 ---@field history_info DFPointer<integer>
@@ -627,13 +619,12 @@ df.item_history_info = {}
 ---@field unk_1 number
 ---@field temp_updated_frame number
 
----@class _item_actual: DFCompound
+---@class _item_actual: DFCompoundType
 ---@field _kind 'class-type'
 df.item_actual = {}
 
 -- CRAFTED ITEM
----@class (exact) item_crafted: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_crafted: DFStruct, item_actual
 ---@field _type _item_crafted
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -643,17 +634,16 @@ df.item_actual = {}
 ---@field maker number References: `historical_figure`
 ---@field masterpiece_event number References: `history_event`
 
----@class _item_crafted: DFCompound
+---@class _item_crafted: DFCompoundType
 ---@field _kind 'class-type'
 df.item_crafted = {}
 
 -- CONSTRUCTED ITEM
----@class (exact) item_constructed: DFObject, item_crafted
----@field _kind 'struct'
+---@class (exact) item_constructed: DFStruct, item_crafted
 ---@field _type _item_constructed
 ---@field improvements _item_constructed_improvements
 
----@class _item_constructed: DFCompound
+---@class _item_constructed: DFCompoundType
 ---@field _kind 'class-type'
 df.item_constructed = {}
 
@@ -782,8 +772,7 @@ df.body_part_status = {}
 ---@field [1] "leaking"
 df.body_layer_status = {}
 
----@class (exact) body_component_info: DFObject
----@field _kind 'struct'
+---@class (exact) body_component_info: DFStruct
 ---@field _type _body_component_info
 ---@field body_part_status _body_component_info_body_part_status
 ---@field numbered_masks DFIntegerVector 1 bit per instance of a numbered body part
@@ -794,7 +783,7 @@ df.body_layer_status = {}
 ---@field layer_dent_fraction DFIntegerVector 0-10000
 ---@field layer_effect_fraction DFIntegerVector 0-1000000000
 
----@class _body_component_info: DFCompound
+---@class _body_component_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.body_component_info = {}
 
@@ -830,8 +819,7 @@ function _body_component_info_layer_status:insert(index, item) end
 ---@param index integer 
 function _body_component_info_layer_status:erase(index) end
 
----@class (exact) body_size_info: DFObject
----@field _kind 'struct'
+---@class (exact) body_size_info: DFStruct
 ---@field _type _body_size_info
 ---@field size_cur number
 ---@field size_base number
@@ -840,7 +828,7 @@ function _body_component_info_layer_status:erase(index) end
 ---@field length_cur number (size_cur*10000)^0.333
 ---@field length_base number (size_base*10000)^0.333
 
----@class _body_size_info: DFCompound
+---@class _body_size_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.body_size_info = {}
 
@@ -876,7 +864,7 @@ df.body_size_info = {}
 ---| corpse_material_type_keys
 ---| corpse_material_type_values
 
----@class _corpse_material_type: DFEnum
+---@class _corpse_material_type: DFEnumType
 ---@field Plant 0
 ---@field [0] "Plant"
 ---@field Silk 1
@@ -901,8 +889,7 @@ df.body_size_info = {}
 ---@field [11] "Yarn"
 df.corpse_material_type = {}
 
----@class (exact) item_body_component: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_body_component: DFStruct, item_actual
 ---@field _type _item_body_component
 ---@field race number References: `creature_raw`
 ---@field hist_figure_id number References: `historical_figure`
@@ -934,12 +921,11 @@ df.corpse_material_type = {}
 ---@field bone1 item_body_component.T_bone1
 ---@field bone2 item_body_component.T_bone2
 
----@class _item_body_component: DFCompound
+---@class _item_body_component: DFCompoundType
 ---@field _kind 'class-type'
 df.item_body_component = {}
 
----@class (exact) item_body_component.T_body: DFObject
----@field _kind 'struct'
+---@class (exact) item_body_component.T_body: DFStruct
 ---@field _type _item_body_component.T_body
 ---@field wounds _item_body_component_body_wounds
 ---@field unk_100 number[] unit.body.unk_39c
@@ -952,7 +938,7 @@ df.item_body_component = {}
 ---@field body_modifiers DFNumberVector
 ---@field bp_modifiers DFNumberVector
 
----@class _item_body_component.T_body: DFCompound
+---@class _item_body_component.T_body: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_body = {}
 
@@ -972,8 +958,7 @@ function _item_body_component_body_wounds:insert(index, item) end
 ---@param index integer 
 function _item_body_component_body_wounds:erase(index) end
 
----@class (exact) item_body_component.T_appearance: DFObject
----@field _kind 'struct'
+---@class (exact) item_body_component.T_appearance: DFStruct
 ---@field _type _item_body_component.T_appearance
 ---@field colors DFNumberVector
 ---@field tissue_style DFNumberVector
@@ -981,7 +966,7 @@ function _item_body_component_body_wounds:erase(index) end
 ---@field tissue_style_id DFNumberVector
 ---@field tissue_style_type DFNumberVector
 
----@class _item_body_component.T_appearance: DFCompound
+---@class _item_body_component.T_appearance: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_appearance = {}
 
@@ -1052,28 +1037,25 @@ df.item_body_component.T_appearance = {}
 ---@field [15] "yarn"
 df.item_body_component.T_corpse_flags = {}
 
----@class (exact) item_body_component.T_bone1: DFObject
----@field _kind 'struct'
+---@class (exact) item_body_component.T_bone1: DFStruct
 ---@field _type _item_body_component.T_bone1
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_body_component.T_bone1: DFCompound
+---@class _item_body_component.T_bone1: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_bone1 = {}
 
----@class (exact) item_body_component.T_bone2: DFObject
----@field _kind 'struct'
+---@class (exact) item_body_component.T_bone2: DFStruct
 ---@field _type _item_body_component.T_bone2
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_body_component.T_bone2: DFCompound
+---@class _item_body_component.T_bone2: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_bone2 = {}
 
----@class (exact) item_corpsest: DFObject, item_body_component
----@field _kind 'struct'
+---@class (exact) item_corpsest: DFStruct, item_body_component
 ---@field _type _item_corpsest
 ---@field unused_380 DFPointer<integer>
 ---@field unused_388 DFPointer<integer>
@@ -1082,21 +1064,19 @@ df.item_body_component.T_bone2 = {}
 ---@field unused_39c number
 ---@field unused_3a0 number
 
----@class _item_corpsest: DFCompound
+---@class _item_corpsest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_corpsest = {}
 
----@class (exact) item_corpsepiecest: DFObject, item_body_component
----@field _kind 'struct'
+---@class (exact) item_corpsepiecest: DFStruct, item_body_component
 ---@field _type _item_corpsepiecest
 
----@class _item_corpsepiecest: DFCompound
+---@class _item_corpsepiecest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_corpsepiecest = {}
 
 -- CRITTER
----@class (exact) item_critter: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_critter: DFStruct, item_actual
 ---@field _type _item_critter
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
@@ -1104,7 +1084,7 @@ df.item_corpsepiecest = {}
 ---@field airdrown_timer number
 ---@field name language_name
 
----@class _item_critter: DFCompound
+---@class _item_critter: DFCompoundType
 ---@field _kind 'class-type'
 df.item_critter = {}
 
@@ -1127,169 +1107,153 @@ df.item_critter = {}
 ---@field [2] "paste"
 df.item_matstate = {}
 
----@class (exact) item_liquipowder: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_liquipowder: DFStruct, item_actual
 ---@field _type _item_liquipowder
 ---@field mat_state item_matstate
 ---@field dimension number
 
----@class _item_liquipowder: DFCompound
+---@class _item_liquipowder: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquipowder = {}
 
----@class (exact) item_liquid: DFObject, item_liquipowder
----@field _kind 'struct'
+---@class (exact) item_liquid: DFStruct, item_liquipowder
 ---@field _type _item_liquid
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_liquid: DFCompound
+---@class _item_liquid: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquid = {}
 
----@class (exact) item_powder: DFObject, item_liquipowder
----@field _kind 'struct'
+---@class (exact) item_powder: DFStruct, item_liquipowder
 ---@field _type _item_powder
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_powder: DFCompound
+---@class _item_powder: DFCompoundType
 ---@field _kind 'class-type'
 df.item_powder = {}
 
 -- MISC
----@class (exact) item_barst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_barst: DFStruct, item_actual
 ---@field _type _item_barst
 ---@field subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field dimension number
 
----@class _item_barst: DFCompound
+---@class _item_barst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_barst = {}
 
----@class (exact) item_smallgemst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_smallgemst: DFStruct, item_actual
 ---@field _type _item_smallgemst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field shape number References: `descriptor_shape`
 
----@class _item_smallgemst: DFCompound
+---@class _item_smallgemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_smallgemst = {}
 
----@class (exact) item_blocksst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_blocksst: DFStruct, item_actual
 ---@field _type _item_blocksst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_blocksst: DFCompound
+---@class _item_blocksst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_blocksst = {}
 
----@class (exact) item_roughst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_roughst: DFStruct, item_actual
 ---@field _type _item_roughst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_roughst: DFCompound
+---@class _item_roughst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_roughst = {}
 
----@class (exact) item_boulderst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_boulderst: DFStruct, item_actual
 ---@field _type _item_boulderst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_boulderst: DFCompound
+---@class _item_boulderst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_boulderst = {}
 
----@class (exact) item_woodst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_woodst: DFStruct, item_actual
 ---@field _type _item_woodst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_woodst: DFCompound
+---@class _item_woodst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_woodst = {}
 
----@class (exact) item_branchst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_branchst: DFStruct, item_actual
 ---@field _type _item_branchst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_branchst: DFCompound
+---@class _item_branchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_branchst = {}
 
----@class (exact) item_rockst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_rockst: DFStruct, item_actual
 ---@field _type _item_rockst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field sharpness number
 ---@field unk_84 number
 
----@class _item_rockst: DFCompound
+---@class _item_rockst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_rockst = {}
 
----@class (exact) item_seedsst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_seedsst: DFStruct, item_actual
 ---@field _type _item_seedsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field grow_counter number
 ---@field planting_skill number
 
----@class _item_seedsst: DFCompound
+---@class _item_seedsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_seedsst = {}
 
----@class (exact) item_skin_tannedst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_skin_tannedst: DFStruct, item_actual
 ---@field _type _item_skin_tannedst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_80 number
 
----@class _item_skin_tannedst: DFCompound
+---@class _item_skin_tannedst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_skin_tannedst = {}
 
----@class (exact) item_meatst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_meatst: DFStruct, item_actual
 ---@field _type _item_meatst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_meatst: DFCompound
+---@class _item_meatst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_meatst = {}
 
----@class (exact) item_plantst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_plantst: DFStruct, item_actual
 ---@field _type _item_plantst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_plantst: DFCompound
+---@class _item_plantst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_plantst = {}
 
----@class (exact) item_plant_growthst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_plant_growthst: DFStruct, item_actual
 ---@field _type _item_plant_growthst
 ---@field subtype number
 ---@field growth_print number
@@ -1297,23 +1261,21 @@ df.item_plantst = {}
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_plant_growthst: DFCompound
+---@class _item_plant_growthst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_plant_growthst = {}
 
----@class (exact) item_cheesest: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_cheesest: DFStruct, item_actual
 ---@field _type _item_cheesest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_cheesest: DFCompound
+---@class _item_cheesest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cheesest = {}
 
----@class (exact) item_globst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_globst: DFStruct, item_actual
 ---@field _type _item_globst
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -1321,45 +1283,41 @@ df.item_cheesest = {}
 ---@field mat_state item_matstate
 ---@field dimension number
 
----@class _item_globst: DFCompound
+---@class _item_globst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_globst = {}
 
----@class (exact) item_remainsst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_remainsst: DFStruct, item_actual
 ---@field _type _item_remainsst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
 
----@class _item_remainsst: DFCompound
+---@class _item_remainsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_remainsst = {}
 
----@class (exact) item_fishst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_fishst: DFStruct, item_actual
 ---@field _type _item_fishst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
 
----@class _item_fishst: DFCompound
+---@class _item_fishst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_fishst = {}
 
----@class (exact) item_fish_rawst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_fish_rawst: DFStruct, item_actual
 ---@field _type _item_fish_rawst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
 
----@class _item_fish_rawst: DFCompound
+---@class _item_fish_rawst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_fish_rawst = {}
 
----@class (exact) item_foodst: DFObject, item_crafted
----@field _kind 'struct'
+---@class (exact) item_foodst: DFStruct, item_crafted
 ---@field _type _item_foodst
 ---@field subtype itemdef_foodst
 ---@field entity number References: `historical_entity`
@@ -1367,7 +1325,7 @@ df.item_fish_rawst = {}
 ---@field ingredients _item_foodst_ingredients
 ---@field rot_timer number
 
----@class _item_foodst: DFCompound
+---@class _item_foodst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_foodst = {}
 
@@ -1387,21 +1345,19 @@ function _item_foodst_ingredients:insert(index, item) end
 ---@param index integer 
 function _item_foodst_ingredients:erase(index) end
 
----@class (exact) item_verminst: DFObject, item_critter
----@field _kind 'struct'
+---@class (exact) item_verminst: DFStruct, item_critter
 ---@field _type _item_verminst
 
----@class _item_verminst: DFCompound
+---@class _item_verminst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_verminst = {}
 
----@class (exact) item_petst: DFObject, item_critter
----@field _kind 'struct'
+---@class (exact) item_petst: DFStruct, item_critter
 ---@field _type _item_petst
 ---@field owner_id number References: `unit`
 ---@field pet_flags item_petst.T_pet_flags
 
----@class _item_petst: DFCompound
+---@class _item_petst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_petst = {}
 
@@ -1415,33 +1371,29 @@ df.item_petst = {}
 ---@field [0] "available_for_adoption"
 df.item_petst.T_pet_flags = {}
 
----@class (exact) item_drinkst: DFObject, item_liquid
----@field _kind 'struct'
+---@class (exact) item_drinkst: DFStruct, item_liquid
 ---@field _type _item_drinkst
 
----@class _item_drinkst: DFCompound
+---@class _item_drinkst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_drinkst = {}
 
----@class (exact) item_powder_miscst: DFObject, item_powder
----@field _kind 'struct'
+---@class (exact) item_powder_miscst: DFStruct, item_powder
 ---@field _type _item_powder_miscst
 
----@class _item_powder_miscst: DFCompound
+---@class _item_powder_miscst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_powder_miscst = {}
 
----@class (exact) item_liquid_miscst: DFObject, item_liquid
----@field _kind 'struct'
+---@class (exact) item_liquid_miscst: DFStruct, item_liquid
 ---@field _type _item_liquid_miscst
 ---@field unk_88 number
 
----@class _item_liquid_miscst: DFCompound
+---@class _item_liquid_miscst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquid_miscst = {}
 
----@class (exact) item_threadst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_threadst: DFStruct, item_actual
 ---@field _type _item_threadst
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -1455,12 +1407,11 @@ df.item_liquid_miscst = {}
 ---@field unk_98 number
 ---@field dimension number
 
----@class _item_threadst: DFCompound
+---@class _item_threadst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_threadst = {}
 
----@class (exact) item_eggst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_eggst: DFStruct, item_actual
 ---@field _type _item_eggst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
@@ -1487,7 +1438,7 @@ df.item_threadst = {}
 ---@field hatchling_mother_id number References: `unit`
 ---@field size number
 
----@class _item_eggst: DFCompound
+---@class _item_eggst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_eggst = {}
 
@@ -1502,371 +1453,326 @@ df.item_eggst = {}
 df.item_eggst.T_egg_flags = {}
 
 -- CONSTRUCTED
----@class (exact) item_doorst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_doorst: DFStruct, item_constructed
 ---@field _type _item_doorst
 
----@class _item_doorst: DFCompound
+---@class _item_doorst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_doorst = {}
 
----@class (exact) item_floodgatest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_floodgatest: DFStruct, item_constructed
 ---@field _type _item_floodgatest
 
----@class _item_floodgatest: DFCompound
+---@class _item_floodgatest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_floodgatest = {}
 
----@class (exact) item_bedst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_bedst: DFStruct, item_constructed
 ---@field _type _item_bedst
 
----@class _item_bedst: DFCompound
+---@class _item_bedst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bedst = {}
 
----@class (exact) item_chairst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_chairst: DFStruct, item_constructed
 ---@field _type _item_chairst
 
----@class _item_chairst: DFCompound
+---@class _item_chairst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_chairst = {}
 
----@class (exact) item_chainst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_chainst: DFStruct, item_constructed
 ---@field _type _item_chainst
 
----@class _item_chainst: DFCompound
+---@class _item_chainst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_chainst = {}
 
----@class (exact) item_flaskst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_flaskst: DFStruct, item_constructed
 ---@field _type _item_flaskst
 
----@class _item_flaskst: DFCompound
+---@class _item_flaskst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_flaskst = {}
 
----@class (exact) item_gobletst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_gobletst: DFStruct, item_constructed
 ---@field _type _item_gobletst
 
----@class _item_gobletst: DFCompound
+---@class _item_gobletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gobletst = {}
 
----@class (exact) item_windowst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_windowst: DFStruct, item_constructed
 ---@field _type _item_windowst
 
----@class _item_windowst: DFCompound
+---@class _item_windowst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_windowst = {}
 
----@class (exact) item_cagest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_cagest: DFStruct, item_constructed
 ---@field _type _item_cagest
 
----@class _item_cagest: DFCompound
+---@class _item_cagest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cagest = {}
 
----@class (exact) item_bucketst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_bucketst: DFStruct, item_constructed
 ---@field _type _item_bucketst
 
----@class _item_bucketst: DFCompound
+---@class _item_bucketst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bucketst = {}
 
----@class (exact) item_animaltrapst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_animaltrapst: DFStruct, item_constructed
 ---@field _type _item_animaltrapst
 
----@class _item_animaltrapst: DFCompound
+---@class _item_animaltrapst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_animaltrapst = {}
 
----@class (exact) item_tablest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_tablest: DFStruct, item_constructed
 ---@field _type _item_tablest
 
----@class _item_tablest: DFCompound
+---@class _item_tablest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_tablest = {}
 
----@class (exact) item_coffinst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_coffinst: DFStruct, item_constructed
 ---@field _type _item_coffinst
 
----@class _item_coffinst: DFCompound
+---@class _item_coffinst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_coffinst = {}
 
----@class (exact) item_bagst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_bagst: DFStruct, item_constructed
 ---@field _type _item_bagst
 
----@class _item_bagst: DFCompound
+---@class _item_bagst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bagst = {}
 
----@class (exact) item_boxst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_boxst: DFStruct, item_constructed
 ---@field _type _item_boxst
 
----@class _item_boxst: DFCompound
+---@class _item_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_boxst = {}
 
----@class (exact) item_armorstandst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_armorstandst: DFStruct, item_constructed
 ---@field _type _item_armorstandst
 
----@class _item_armorstandst: DFCompound
+---@class _item_armorstandst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_armorstandst = {}
 
----@class (exact) item_weaponrackst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_weaponrackst: DFStruct, item_constructed
 ---@field _type _item_weaponrackst
 
----@class _item_weaponrackst: DFCompound
+---@class _item_weaponrackst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_weaponrackst = {}
 
----@class (exact) item_cabinetst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_cabinetst: DFStruct, item_constructed
 ---@field _type _item_cabinetst
 
----@class _item_cabinetst: DFCompound
+---@class _item_cabinetst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cabinetst = {}
 
----@class (exact) item_amuletst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_amuletst: DFStruct, item_constructed
 ---@field _type _item_amuletst
 
----@class _item_amuletst: DFCompound
+---@class _item_amuletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_amuletst = {}
 
----@class (exact) item_scepterst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_scepterst: DFStruct, item_constructed
 ---@field _type _item_scepterst
 
----@class _item_scepterst: DFCompound
+---@class _item_scepterst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_scepterst = {}
 
----@class (exact) item_crownst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_crownst: DFStruct, item_constructed
 ---@field _type _item_crownst
 
----@class _item_crownst: DFCompound
+---@class _item_crownst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_crownst = {}
 
----@class (exact) item_ringst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_ringst: DFStruct, item_constructed
 ---@field _type _item_ringst
 
----@class _item_ringst: DFCompound
+---@class _item_ringst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ringst = {}
 
----@class (exact) item_earringst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_earringst: DFStruct, item_constructed
 ---@field _type _item_earringst
 
----@class _item_earringst: DFCompound
+---@class _item_earringst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_earringst = {}
 
----@class (exact) item_braceletst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_braceletst: DFStruct, item_constructed
 ---@field _type _item_braceletst
 
----@class _item_braceletst: DFCompound
+---@class _item_braceletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_braceletst = {}
 
----@class (exact) item_anvilst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_anvilst: DFStruct, item_constructed
 ---@field _type _item_anvilst
 
----@class _item_anvilst: DFCompound
+---@class _item_anvilst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_anvilst = {}
 
----@class (exact) item_backpackst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_backpackst: DFStruct, item_constructed
 ---@field _type _item_backpackst
 
----@class _item_backpackst: DFCompound
+---@class _item_backpackst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_backpackst = {}
 
----@class (exact) item_quiverst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_quiverst: DFStruct, item_constructed
 ---@field _type _item_quiverst
 
----@class _item_quiverst: DFCompound
+---@class _item_quiverst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_quiverst = {}
 
----@class (exact) item_catapultpartsst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_catapultpartsst: DFStruct, item_constructed
 ---@field _type _item_catapultpartsst
 
----@class _item_catapultpartsst: DFCompound
+---@class _item_catapultpartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_catapultpartsst = {}
 
----@class (exact) item_ballistapartsst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_ballistapartsst: DFStruct, item_constructed
 ---@field _type _item_ballistapartsst
 
----@class _item_ballistapartsst: DFCompound
+---@class _item_ballistapartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ballistapartsst = {}
 
----@class (exact) item_trappartsst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_trappartsst: DFStruct, item_constructed
 ---@field _type _item_trappartsst
 
----@class _item_trappartsst: DFCompound
+---@class _item_trappartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_trappartsst = {}
 
----@class (exact) item_pipe_sectionst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_pipe_sectionst: DFStruct, item_constructed
 ---@field _type _item_pipe_sectionst
 
----@class _item_pipe_sectionst: DFCompound
+---@class _item_pipe_sectionst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_pipe_sectionst = {}
 
----@class (exact) item_hatch_coverst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_hatch_coverst: DFStruct, item_constructed
 ---@field _type _item_hatch_coverst
 
----@class _item_hatch_coverst: DFCompound
+---@class _item_hatch_coverst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_hatch_coverst = {}
 
----@class (exact) item_gratest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_gratest: DFStruct, item_constructed
 ---@field _type _item_gratest
 
----@class _item_gratest: DFCompound
+---@class _item_gratest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gratest = {}
 
----@class (exact) item_quernst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_quernst: DFStruct, item_constructed
 ---@field _type _item_quernst
 
----@class _item_quernst: DFCompound
+---@class _item_quernst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_quernst = {}
 
----@class (exact) item_millstonest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_millstonest: DFStruct, item_constructed
 ---@field _type _item_millstonest
 
----@class _item_millstonest: DFCompound
+---@class _item_millstonest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_millstonest = {}
 
----@class (exact) item_splintst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_splintst: DFStruct, item_constructed
 ---@field _type _item_splintst
 
----@class _item_splintst: DFCompound
+---@class _item_splintst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_splintst = {}
 
----@class (exact) item_crutchst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_crutchst: DFStruct, item_constructed
 ---@field _type _item_crutchst
 
----@class _item_crutchst: DFCompound
+---@class _item_crutchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_crutchst = {}
 
----@class (exact) item_traction_benchst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_traction_benchst: DFStruct, item_constructed
 ---@field _type _item_traction_benchst
 
----@class _item_traction_benchst: DFCompound
+---@class _item_traction_benchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_traction_benchst = {}
 
----@class (exact) item_instrumentst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_instrumentst: DFStruct, item_constructed
 ---@field _type _item_instrumentst
 ---@field subtype itemdef_instrumentst
 
----@class _item_instrumentst: DFCompound
+---@class _item_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_instrumentst = {}
 
----@class (exact) item_toyst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_toyst: DFStruct, item_constructed
 ---@field _type _item_toyst
 ---@field subtype itemdef_toyst
 
----@class _item_toyst: DFCompound
+---@class _item_toyst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_toyst = {}
 
----@class (exact) item_armorst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_armorst: DFStruct, item_constructed
 ---@field _type _item_armorst
 ---@field subtype itemdef_armorst
 
----@class _item_armorst: DFCompound
+---@class _item_armorst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_armorst = {}
 
----@class (exact) item_shoesst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_shoesst: DFStruct, item_constructed
 ---@field _type _item_shoesst
 ---@field subtype itemdef_shoesst
 
----@class _item_shoesst: DFCompound
+---@class _item_shoesst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_shoesst = {}
 
----@class (exact) item_shieldst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_shieldst: DFStruct, item_constructed
 ---@field _type _item_shieldst
 ---@field subtype itemdef_shieldst
 
----@class _item_shieldst: DFCompound
+---@class _item_shieldst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_shieldst = {}
 
----@class (exact) item_helmst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_helmst: DFStruct, item_constructed
 ---@field _type _item_helmst
 ---@field subtype itemdef_helmst
 
----@class _item_helmst: DFCompound
+---@class _item_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_helmst = {}
 
----@class (exact) item_glovesst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_glovesst: DFStruct, item_constructed
 ---@field _type _item_glovesst
 ---@field subtype itemdef_glovesst
 ---@field handedness _item_glovesst_handedness 1 right, 2 left
 
----@class _item_glovesst: DFCompound
+---@class _item_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_glovesst = {}
 
@@ -1886,57 +1792,51 @@ function _item_glovesst_handedness:insert(index, item) end
 ---@param index integer 
 function _item_glovesst_handedness:erase(index) end
 
----@class (exact) item_pantsst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_pantsst: DFStruct, item_constructed
 ---@field _type _item_pantsst
 ---@field subtype itemdef_pantsst
 
----@class _item_pantsst: DFCompound
+---@class _item_pantsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_pantsst = {}
 
----@class (exact) item_siegeammost: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_siegeammost: DFStruct, item_constructed
 ---@field _type _item_siegeammost
 ---@field subtype itemdef_siegeammost
 ---@field sharpness number
 
----@class _item_siegeammost: DFCompound
+---@class _item_siegeammost: DFCompoundType
 ---@field _kind 'class-type'
 df.item_siegeammost = {}
 
----@class (exact) item_weaponst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_weaponst: DFStruct, item_constructed
 ---@field _type _item_weaponst
 ---@field subtype itemdef_weaponst
 ---@field sharpness number
 
----@class _item_weaponst: DFCompound
+---@class _item_weaponst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_weaponst = {}
 
----@class (exact) item_ammost: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_ammost: DFStruct, item_constructed
 ---@field _type _item_ammost
 ---@field subtype itemdef_ammost
 ---@field sharpness number
 
----@class _item_ammost: DFCompound
+---@class _item_ammost: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ammost = {}
 
----@class (exact) item_trapcompst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_trapcompst: DFStruct, item_constructed
 ---@field _type _item_trapcompst
 ---@field subtype itemdef_trapcompst
 ---@field sharpness number
 
----@class _item_trapcompst: DFCompound
+---@class _item_trapcompst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_trapcompst = {}
 
----@class (exact) item_toolst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_toolst: DFStruct, item_constructed
 ---@field _type _item_toolst
 ---@field subtype itemdef_toolst
 ---@field sharpness number
@@ -1945,147 +1845,133 @@ df.item_trapcompst = {}
 ---@field unk_2 number
 ---@field unk_3 number
 
----@class _item_toolst: DFCompound
+---@class _item_toolst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_toolst = {}
 
----@class (exact) item_stockpile_ref: DFObject
----@field _kind 'struct'
+---@class (exact) item_stockpile_ref: DFStruct
 ---@field _type _item_stockpile_ref
 ---@field id number References: `building`
 ---@field x number
 ---@field y number
 
----@class _item_stockpile_ref: DFCompound
+---@class _item_stockpile_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_stockpile_ref = {}
 
----@class (exact) item_barrelst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_barrelst: DFStruct, item_constructed
 ---@field _type _item_barrelst
 ---@field stockpile item_stockpile_ref
 
----@class _item_barrelst: DFCompound
+---@class _item_barrelst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_barrelst = {}
 
----@class (exact) item_binst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_binst: DFStruct, item_constructed
 ---@field _type _item_binst
 ---@field stockpile item_stockpile_ref
 
----@class _item_binst: DFCompound
+---@class _item_binst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_binst = {}
 
----@class (exact) item_gemst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_gemst: DFStruct, item_constructed
 ---@field _type _item_gemst
 ---@field shape number References: `descriptor_shape`
 
----@class _item_gemst: DFCompound
+---@class _item_gemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gemst = {}
 
----@class (exact) item_statuest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_statuest: DFStruct, item_constructed
 ---@field _type _item_statuest
 ---@field image art_image_ref
 ---@field description string
 ---@field unk_110 number
 ---@field unk_114 number
 
----@class _item_statuest: DFCompound
+---@class _item_statuest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_statuest = {}
 
----@class (exact) item_figurinest: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_figurinest: DFStruct, item_constructed
 ---@field _type _item_figurinest
 ---@field image art_image_ref
 ---@field description string
 
----@class _item_figurinest: DFCompound
+---@class _item_figurinest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_figurinest = {}
 
----@class (exact) item_slabst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_slabst: DFStruct, item_constructed
 ---@field _type _item_slabst
 ---@field description string
 ---@field topic number or interaction id for secrets? References: `historical_figure`
 ---@field engraving_type slab_engraving_type
 
----@class _item_slabst: DFCompound
+---@class _item_slabst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_slabst = {}
 
----@class (exact) item_orthopedic_castst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_orthopedic_castst: DFStruct, item_constructed
 ---@field _type _item_orthopedic_castst
 ---@field body_part string
 ---@field material string
 
----@class _item_orthopedic_castst: DFCompound
+---@class _item_orthopedic_castst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_orthopedic_castst = {}
 
----@class (exact) item_coinst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_coinst: DFStruct, item_constructed
 ---@field _type _item_coinst
 ---@field coin_batch number References: `coin_batch`
 
----@class _item_coinst: DFCompound
+---@class _item_coinst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_coinst = {}
 
----@class (exact) item_totemst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_totemst: DFStruct, item_constructed
 ---@field _type _item_totemst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field body_part_idx number
 
----@class _item_totemst: DFCompound
+---@class _item_totemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_totemst = {}
 
----@class (exact) item_clothst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_clothst: DFStruct, item_constructed
 ---@field _type _item_clothst
 ---@field dimension number
 
----@class _item_clothst: DFCompound
+---@class _item_clothst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_clothst = {}
 
----@class (exact) item_bookst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_bookst: DFStruct, item_constructed
 ---@field _type _item_bookst
 ---@field title string
 
----@class _item_bookst: DFCompound
+---@class _item_bookst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bookst = {}
 
----@class (exact) item_ballistaarrowheadst: DFObject, item_actual
----@field _kind 'struct'
+---@class (exact) item_ballistaarrowheadst: DFStruct, item_actual
 ---@field _type _item_ballistaarrowheadst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field sharpness number
 
----@class _item_ballistaarrowheadst: DFCompound
+---@class _item_ballistaarrowheadst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ballistaarrowheadst = {}
 
----@class (exact) item_sheetst: DFObject, item_constructed
----@field _kind 'struct'
+---@class (exact) item_sheetst: DFStruct, item_constructed
 ---@field _type _item_sheetst
 ---@field dimension number
 ---@field unk_2 number
 
----@class _item_sheetst: DFCompound
+---@class _item_sheetst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_sheetst = {}
 

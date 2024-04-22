@@ -1,13 +1,12 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) world_site_unk130: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_unk130: DFStruct
 ---@field _type _world_site_unk130
 ---@field index number
 ---@field unk_4 DFPointer<integer>[]
 
----@class _world_site_unk130: DFCompound
+---@class _world_site_unk130: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_unk130 = {}
 
@@ -51,7 +50,7 @@ function _world_site_unk130_unk_4:erase(index) end
 ---| world_population_type_keys
 ---| world_population_type_values
 
----@class _world_population_type: DFEnum
+---@class _world_population_type: DFEnumType
 ---@field Animal 0
 ---@field [0] "Animal"
 ---@field Vermin 1
@@ -70,8 +69,7 @@ function _world_site_unk130_unk_4:erase(index) end
 ---@field [7] "Bush"
 df.world_population_type = {}
 
----@class (exact) embark_note: DFObject
----@field _kind 'struct'
+---@class (exact) embark_note: DFStruct
 ---@field _type _embark_note
 ---@field tile number
 ---@field fg_color number
@@ -83,12 +81,11 @@ df.world_population_type = {}
 ---@field top number
 ---@field bottom number
 
----@class _embark_note: DFCompound
+---@class _embark_note: DFCompoundType
 ---@field _kind 'struct-type'
 df.embark_note = {}
 
----@class (exact) world_population_ref: DFObject
----@field _kind 'struct'
+---@class (exact) world_population_ref: DFStruct
 ---@field _type _world_population_ref
 ---@field region_x number
 ---@field region_y number
@@ -98,12 +95,11 @@ df.embark_note = {}
 ---@field population_idx number
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 
----@class _world_population_ref: DFCompound
+---@class _world_population_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_population_ref = {}
 
----@class (exact) local_population: DFObject
----@field _kind 'struct'
+---@class (exact) local_population: DFStruct
 ---@field _type _local_population
 ---@field type world_population_type
 ---@field race number References: `creature_raw`
@@ -117,7 +113,7 @@ df.world_population_ref = {}
 ---@field wp_unk_1c number only set on subset of animals (including vermin). None seen on fresh embark
 ---@field unk_v47_1 number set on same animals as wp_unk_1c and only seen 0
 
----@class _local_population: DFCompound
+---@class _local_population: DFCompoundType
 ---@field _kind 'struct-type'
 df.local_population = {}
 
@@ -143,8 +139,7 @@ df.local_population = {}
 ---@field [3] "unk3" prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
 df.local_population.T_flags = {}
 
----@class (exact) world_population: DFObject
----@field _kind 'struct'
+---@class (exact) world_population: DFStruct
 ---@field _type _world_population
 ---@field type world_population_type
 ---@field race number References: `creature_raw`
@@ -159,12 +154,11 @@ df.local_population.T_flags = {}
 ---@field unk_1c number
 ---@field unk_20 number
 
----@class _world_population: DFCompound
+---@class _world_population: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_population = {}
 
----@class (exact) world_landmass: DFObject
----@field _kind 'struct'
+---@class (exact) world_landmass: DFStruct
 ---@field _type _world_landmass
 ---@field name language_name
 ---@field index number
@@ -176,7 +170,7 @@ df.world_population = {}
 ---@field unk_74 DFNumberVector
 ---@field unk_84 DFNumberVector
 
----@class _world_landmass: DFCompound
+---@class _world_landmass: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_landmass = {}
 
@@ -217,7 +211,7 @@ function df.world_landmass.get_vector() end
 ---| world_region_type_keys
 ---| world_region_type_values
 
----@class _world_region_type: DFEnum
+---@class _world_region_type: DFEnumType
 ---@field Swamp 0
 ---@field [0] "Swamp"
 ---@field Desert 1
@@ -240,8 +234,7 @@ function df.world_landmass.get_vector() end
 ---@field [9] "Hills" Steppe and Hills share the same set of biomes, differing only in Drainage
 df.world_region_type = {}
 
----@class (exact) world_region: DFObject
----@field _kind 'struct'
+---@class (exact) world_region: DFStruct
 ---@field _type _world_region
 ---@field name language_name
 ---@field index number
@@ -277,7 +270,7 @@ df.world_region_type = {}
 ---@field min_y number
 ---@field max_y number
 
----@class _world_region: DFCompound
+---@class _world_region: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_region = {}
 
@@ -322,8 +315,7 @@ function _world_region_tree_biomes:insert(index, item) end
 ---@param index integer 
 function _world_region_tree_biomes:erase(index) end
 
----@class (exact) world_underground_region: DFObject
----@field _kind 'struct'
+---@class (exact) world_underground_region: DFStruct
 ---@field _type _world_underground_region
 ---@field type world_underground_region.T_type
 ---@field name language_name
@@ -343,7 +335,7 @@ function _world_region_tree_biomes:erase(index) end
 ---@field unk_c8 _world_underground_region_unk_c8
 ---@field feature_init feature_init
 
----@class _world_underground_region: DFCompound
+---@class _world_underground_region: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_underground_region = {}
 
@@ -370,7 +362,7 @@ function df.world_underground_region.get_vector() end
 ---| world_underground_region.T_type_keys
 ---| world_underground_region.T_type_values
 
----@class _world_underground_region.T_type: DFEnum
+---@class _world_underground_region.T_type: DFEnumType
 ---@field Cavern 0
 ---@field [0] "Cavern"
 ---@field MagmaSea 1
@@ -420,8 +412,7 @@ function _world_underground_region_unk_c8:erase(index) end
 -- The elevation element affects the level of the river. If the river elevation
 -- is lower than the surrounding area DF tends to generate a valley around the
 -- river to allow it to reach the correct elevation.
----@class (exact) world_river: DFObject
----@field _kind 'struct'
+---@class (exact) world_river: DFStruct
 ---@field _type _world_river
 ---@field name language_name
 ---@field path coord2d_path
@@ -431,7 +422,7 @@ function _world_underground_region_unk_c8:erase(index) end
 ---@field end_pos coord2d
 ---@field flags _world_river_flags
 
----@class _world_river: DFCompound
+---@class _world_river: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_river = {}
 
@@ -477,7 +468,7 @@ function _world_river_flags:erase(index) end
 ---| geo_layer_type_keys
 ---| geo_layer_type_values
 
----@class _geo_layer_type: DFEnum
+---@class _geo_layer_type: DFEnumType
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SEDIMENTARY 1
@@ -498,7 +489,7 @@ function _world_river_flags:erase(index) end
 ---@field [8] "SEDIMENTARY_OCEAN_DEEP"
 df.geo_layer_type = {}
 
----@class geo_layer_type_attr_entry_type: DFCompound
+---@class geo_layer_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.geo_layer_type._attr_entry_type = {}
 
@@ -518,8 +509,7 @@ df.geo_layer_type._attr_entry_type._fields = {}
 ---@field SEDIMENTARY_OCEAN_DEEP { flag: "SEDIMENTARY_OCEAN_DEEP" }
 df.geo_layer_type.attrs = {}
 
----@class (exact) world_geo_layer: DFObject
----@field _kind 'struct'
+---@class (exact) world_geo_layer: DFStruct
 ---@field _type _world_geo_layer
 ---@field type geo_layer_type
 ---@field mat_index number References: `inorganic_raw`
@@ -530,7 +520,7 @@ df.geo_layer_type.attrs = {}
 ---@field top_height number negative
 ---@field bottom_height number
 
----@class _world_geo_layer: DFCompound
+---@class _world_geo_layer: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_geo_layer = {}
 
@@ -550,14 +540,13 @@ function _world_geo_layer_vein_type:insert(index, item) end
 ---@param index integer 
 function _world_geo_layer_vein_type:erase(index) end
 
----@class (exact) world_geo_biome: DFObject
----@field _kind 'struct'
+---@class (exact) world_geo_biome: DFStruct
 ---@field _type _world_geo_biome
 ---@field unk1 number
 ---@field index number
 ---@field layers _world_geo_biome_layers
 
----@class _world_geo_biome: DFCompound
+---@class _world_geo_biome: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_geo_biome = {}
 
@@ -586,8 +575,7 @@ function _world_geo_biome_layers:insert(index, item) end
 ---@param index integer 
 function _world_geo_biome_layers:erase(index) end
 
----@class (exact) world_region_feature: DFObject
----@field _kind 'struct'
+---@class (exact) world_region_feature: DFStruct
 ---@field _type _world_region_feature
 ---@field feature_idx number
 ---@field layer number References: `world_underground_region`
@@ -601,7 +589,7 @@ function _world_geo_biome_layers:erase(index) end
 ---@field unk_38 number[]
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 
----@class _world_region_feature: DFCompound
+---@class _world_region_feature: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_region_feature = {}
 
@@ -621,8 +609,7 @@ function _world_region_feature_unk_30:insert(index, item) end
 ---@param index integer 
 function _world_region_feature_unk_30:erase(index) end
 
----@class (exact) world_region_details: DFObject
----@field _kind 'struct'
+---@class (exact) world_region_details: DFStruct
 ---@field _type _world_region_details
 ---@field biome number[][] biome field reference:<br>789<br>456<br>123<br>as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field elevation number[][]
@@ -643,7 +630,7 @@ function _world_region_feature_unk_30:erase(index) end
 ---@field elevation2 number[][]
 ---@field undef13 number[]
 
----@class _world_region_details: DFCompound
+---@class _world_region_details: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_region_details = {}
 
@@ -680,8 +667,7 @@ df.world_region_details = {}
 -- it's outside of the world) the same fallback corner selection is
 -- used, with the exception of a northern row selection of NW (0),
 -- where the home corner (3) is selected.
----@class (exact) world_region_details.T_edges: DFObject
----@field _kind 'struct'
+---@class (exact) world_region_details.T_edges: DFStruct
 ---@field _type _world_region_details.T_edges
 ---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
 ---@field split_y coord2d[][] splits for vertical edges, x=min y=max
@@ -689,32 +675,30 @@ df.world_region_details = {}
 ---@field biome_x number[][] 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
 ---@field biome_y number[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 
----@class _world_region_details.T_edges: DFCompound
+---@class _world_region_details.T_edges: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_region_details.T_edges = {}
 
 -- Rivers crossing embark tile edges
----@class (exact) world_region_details.T_rivers_vertical: DFObject
----@field _kind 'struct'
+---@class (exact) world_region_details.T_rivers_vertical: DFStruct
 ---@field _type _world_region_details.T_rivers_vertical
 ---@field x_min number[][]
 ---@field x_max number[][]
 ---@field active number[][]
 ---@field elevation number[][]
 
----@class _world_region_details.T_rivers_vertical: DFCompound
+---@class _world_region_details.T_rivers_vertical: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_region_details.T_rivers_vertical = {}
 
----@class (exact) world_region_details.T_rivers_horizontal: DFObject
----@field _kind 'struct'
+---@class (exact) world_region_details.T_rivers_horizontal: DFStruct
 ---@field _type _world_region_details.T_rivers_horizontal
 ---@field y_min number[][]
 ---@field y_max number[][]
 ---@field active number[][]
 ---@field elevation number[][]
 
----@class _world_region_details.T_rivers_horizontal: DFCompound
+---@class _world_region_details.T_rivers_horizontal: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_region_details.T_rivers_horizontal = {}
 
@@ -808,7 +792,7 @@ function _world_region_details_features:erase(index) end
 ---| region_map_entry_flags_keys
 ---| region_map_entry_flags_values
 
----@class _region_map_entry_flags: DFEnum
+---@class _region_map_entry_flags: DFEnumType
 ---@field has_river 0
 ---@field [0] "has_river"
 ---@field tile_variant 1
@@ -853,7 +837,7 @@ df.region_map_entry_flags = {}
 ---| front_type_keys
 ---| front_type_values
 
----@class _front_type: DFEnum
+---@class _front_type: DFEnumType
 ---@field front_none 0
 ---@field [0] "front_none"
 ---@field front_warm 1
@@ -880,7 +864,7 @@ df.front_type = {}
 ---| cumulus_type_keys
 ---| cumulus_type_values
 
----@class _cumulus_type: DFEnum
+---@class _cumulus_type: DFEnumType
 ---@field cumulus_none 0
 ---@field [0] "cumulus_none"
 ---@field cumulus_medium 1
@@ -907,7 +891,7 @@ df.cumulus_type = {}
 ---| stratus_type_keys
 ---| stratus_type_values
 
----@class _stratus_type: DFEnum
+---@class _stratus_type: DFEnumType
 ---@field stratus_none 0
 ---@field [0] "stratus_none"
 ---@field stratus_alto 1
@@ -934,7 +918,7 @@ df.stratus_type = {}
 ---| fog_type_keys
 ---| fog_type_values
 
----@class _fog_type: DFEnum
+---@class _fog_type: DFEnumType
 ---@field fog_none 0
 ---@field [0] "fog_none"
 ---@field fog_mist 1
@@ -945,8 +929,7 @@ df.stratus_type = {}
 ---@field [3] "fog_thick"
 df.fog_type = {}
 
----@class (exact) region_map_entry: DFObject
----@field _kind 'struct'
+---@class (exact) region_map_entry: DFStruct
 ---@field _type _region_map_entry
 ---@field unk_0 number
 ---@field finder_rank number
@@ -974,7 +957,7 @@ df.fog_type = {}
 ---@field landmass_id number References: `world_landmass`
 ---@field geo_index number References: `world_geo_biome`
 
----@class _region_map_entry: DFCompound
+---@class _region_map_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.region_map_entry = {}
 
@@ -1079,19 +1062,17 @@ df.region_map_entry.T_clouds = {}
 ---@field [7] "west_2"
 df.region_map_entry.T_wind = {}
 
----@class (exact) entity_claim_mask: DFObject
----@field _kind 'struct'
+---@class (exact) entity_claim_mask: DFStruct
 ---@field _type _entity_claim_mask
 ---@field map DFPointer<integer>
 ---@field width number
 ---@field height number
 
----@class _entity_claim_mask: DFCompound
+---@class _entity_claim_mask: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_claim_mask = {}
 
----@class (exact) moving_party: DFObject
----@field _kind 'struct'
+---@class (exact) moving_party: DFStruct
 ---@field _type _moving_party
 ---@field pos coord2d global block x/y
 ---@field unk_4 number
@@ -1109,7 +1090,7 @@ df.entity_claim_mask = {}
 ---@field region_id number References: `world_region`
 ---@field beast_id number for FB
 
----@class _moving_party: DFCompound
+---@class _moving_party: DFCompoundType
 ---@field _kind 'struct-type'
 df.moving_party = {}
 
@@ -1177,8 +1158,7 @@ function _moving_party_unk_40:insert(index, item) end
 ---@param index integer 
 function _moving_party_unk_40:erase(index) end
 
----@class (exact) world_object_data: DFObject
----@field _kind 'struct'
+---@class (exact) world_object_data: DFStruct
 ---@field _type _world_object_data
 ---@field id number World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
 ---@field altered_items DFNumberVector world_data_subid
@@ -1198,7 +1178,7 @@ function _moving_party_unk_40:erase(index) end
 ---@field picked_growths world_object_data.T_picked_growths
 ---@field unk_v43 world_object_data.T_unk_v43
 
----@class _world_object_data: DFCompound
+---@class _world_object_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_object_data = {}
 
@@ -1276,8 +1256,7 @@ function _world_object_data_creation_zone_alterations:insert(index, item) end
 function _world_object_data_creation_zone_alterations:erase(index) end
 
 -- also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
----@class (exact) world_object_data.T_picked_growths: DFObject
----@field _kind 'struct'
+---@class (exact) world_object_data.T_picked_growths: DFStruct
 ---@field _type _world_object_data.T_picked_growths
 ---@field x DFNumberVector 0 - 47, within the MLT
 ---@field y DFNumberVector 0 - 47, within the MLT
@@ -1286,20 +1265,19 @@ function _world_object_data_creation_zone_alterations:erase(index) end
 ---@field density DFNumberVector copy of the density field of the growth raws
 ---@field year DFNumberVector presumably to know whether it's the current year's harvest or the previous one's
 
----@class _world_object_data.T_picked_growths: DFCompound
+---@class _world_object_data.T_picked_growths: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_object_data.T_picked_growths = {}
 
 -- probably used by Adventurer mode
----@class (exact) world_object_data.T_unk_v43: DFObject
----@field _kind 'struct'
+---@class (exact) world_object_data.T_unk_v43: DFStruct
 ---@field _type _world_object_data.T_unk_v43
 ---@field x DFNumberVector probably MLT relative x coordinate
 ---@field y DFNumberVector probably MLT relative y coordinate
 ---@field z DFNumberVector probably z coordinate using the elevation coordinate system
 ---@field unk_4 DFNumberVector 233/234 seen
 
----@class _world_object_data.T_unk_v43: DFCompound
+---@class _world_object_data.T_unk_v43: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_object_data.T_unk_v43 = {}
 
@@ -1313,20 +1291,19 @@ df.world_object_data.T_unk_v43 = {}
 ---| mountain_peak_flags_keys
 ---| mountain_peak_flags_values
 
----@class _mountain_peak_flags: DFEnum
+---@class _mountain_peak_flags: DFEnumType
 ---@field is_volcano 0
 ---@field [0] "is_volcano"
 df.mountain_peak_flags = {}
 
----@class (exact) world_mountain_peak: DFObject
----@field _kind 'struct'
+---@class (exact) world_mountain_peak: DFStruct
 ---@field _type _world_mountain_peak
 ---@field name language_name
 ---@field pos coord2d
 ---@field flags _world_mountain_peak_flags
 ---@field height number
 
----@class _world_mountain_peak: DFCompound
+---@class _world_mountain_peak: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_mountain_peak = {}
 
@@ -1355,8 +1332,7 @@ function _world_mountain_peak_flags:insert(index, item) end
 ---@param index integer 
 function _world_mountain_peak_flags:erase(index) end
 
----@class (exact) world_data: DFObject
----@field _kind 'struct'
+---@class (exact) world_data: DFStruct
 ---@field _type _world_data
 ---@field name language_name name of the world
 ---@field unk1 number[]
@@ -1446,7 +1422,7 @@ function _world_mountain_peak_flags:erase(index) end
 ---@field unk_274 _world_data_unk_274 exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
 ---@field unk_482f8 world_data.T_unk_482f8
 
----@class _world_data: DFCompound
+---@class _world_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_data = {}
 
@@ -1466,7 +1442,7 @@ df.world_data = {}
 ---| world_data.T_flip_latitude_keys
 ---| world_data.T_flip_latitude_values
 
----@class _world_data.T_flip_latitude: DFEnum
+---@class _world_data.T_flip_latitude: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field North 0
@@ -1477,8 +1453,7 @@ df.world_data = {}
 ---@field [2] "Both"
 df.world_data.T_flip_latitude = {}
 
----@class (exact) world_data.T_unk_b4: DFObject
----@field _kind 'struct'
+---@class (exact) world_data.T_unk_b4: DFStruct
 ---@field _type _world_data.T_unk_b4
 ---@field world_width2 number
 ---@field world_height2 number
@@ -1487,7 +1462,7 @@ df.world_data.T_flip_latitude = {}
 ---@field unk_3 integer width*height
 ---@field unk_4 integer align(width,4)*height
 
----@class _world_data.T_unk_b4: DFCompound
+---@class _world_data.T_unk_b4: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_data.T_unk_b4 = {}
 
@@ -1523,8 +1498,7 @@ function _world_data_midmap_place:insert(index, item) end
 ---@param index integer 
 function _world_data_midmap_place:erase(index) end
 
----@class (exact) world_data.T_constructions: DFObject
----@field _kind 'struct'
+---@class (exact) world_data.T_constructions: DFStruct
 ---@field _type _world_data.T_constructions
 ---@field width number
 ---@field height number
@@ -1532,7 +1506,7 @@ function _world_data_midmap_place:erase(index) end
 ---@field list _world_data_constructions_list
 ---@field next_id number
 
----@class _world_data.T_constructions: DFCompound
+---@class _world_data.T_constructions: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_data.T_constructions = {}
 
@@ -1808,8 +1782,7 @@ function _world_data_unk_274:insert(index, item) end
 ---@param index integer 
 function _world_data_unk_274:erase(index) end
 
----@class (exact) world_data.T_unk_482f8: DFObject
----@field _kind 'struct'
+---@class (exact) world_data.T_unk_482f8: DFStruct
 ---@field _type _world_data.T_unk_482f8
 ---@field unk_1 number[]
 ---@field unk_2 number
@@ -1820,12 +1793,11 @@ function _world_data_unk_274:erase(index) end
 ---@field unk_7 number
 ---@field unk_8 number
 
----@class _world_data.T_unk_482f8: DFCompound
+---@class _world_data.T_unk_482f8: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_data.T_unk_482f8 = {}
 
----@class (exact) breed: DFObject
----@field _kind 'struct'
+---@class (exact) breed: DFStruct
 ---@field _type _breed
 ---@field id number
 ---@field unk_4 number
@@ -1833,7 +1805,7 @@ df.world_data.T_unk_482f8 = {}
 ---@field unk_18 _breed_unk_18
 ---@field unk_28 _breed_unk_28
 
----@class _breed: DFCompound
+---@class _breed: DFCompoundType
 ---@field _kind 'struct-type'
 df.breed = {}
 
@@ -1894,8 +1866,7 @@ function _breed_unk_28:insert(index, item) end
 ---@param index integer 
 function _breed_unk_28:erase(index) end
 
----@class (exact) battlefield: DFObject
----@field _kind 'struct'
+---@class (exact) battlefield: DFStruct
 ---@field _type _battlefield
 ---@field id number
 ---@field sapient_deaths _battlefield_sapient_deaths Seems to be by squad. Trolls/Blizzard Men not counted
@@ -1907,7 +1878,7 @@ function _breed_unk_28:erase(index) end
 ---@field unk_34 number wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
 ---@field event_collections DFNumberVector
 
----@class _battlefield: DFCompound
+---@class _battlefield: DFCompoundType
 ---@field _kind 'struct-type'
 df.battlefield = {}
 
@@ -1952,7 +1923,7 @@ function _battlefield_sapient_deaths:erase(index) end
 ---| region_weather_type_keys
 ---| region_weather_type_values
 
----@class _region_weather_type: DFEnum
+---@class _region_weather_type: DFEnumType
 ---@field CreepingGas 0
 ---@field [0] "CreepingGas"
 ---@field CreepingVapor 1 doesn't seem to be generated by DF, but appears if hacked
@@ -1964,8 +1935,7 @@ function _battlefield_sapient_deaths:erase(index) end
 df.region_weather_type = {}
 
 -- only evil weather, not the regular kind
----@class (exact) region_weather: DFObject
----@field _kind 'struct'
+---@class (exact) region_weather: DFStruct
 ---@field _type _region_weather
 ---@field id number
 ---@field type region_weather_type Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'
@@ -1982,7 +1952,7 @@ df.region_weather_type = {}
 ---@field remaining_duration number ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
 ---@field region_id number Set for clouds, -1 for rain References: `world_region`
 
----@class _region_weather: DFCompound
+---@class _region_weather: DFCompoundType
 ---@field _kind 'struct-type'
 df.region_weather = {}
 

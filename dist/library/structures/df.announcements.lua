@@ -719,7 +719,7 @@
 ---| announcement_type_keys
 ---| announcement_type_values
 
----@class _announcement_type: DFEnum
+---@class _announcement_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field REACHED_PEAK 0
@@ -1432,7 +1432,7 @@
 ---@field [353] "UNUSED_50"
 df.announcement_type = {}
 
----@class announcement_type_attr_entry_type: DFCompound
+---@class announcement_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_type._attr_entry_type = {}
 
@@ -1882,7 +1882,7 @@ df.announcement_type.attrs = {}
 ---| announcement_alert_type_keys
 ---| announcement_alert_type_values
 
----@class _announcement_alert_type: DFEnum
+---@class _announcement_alert_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field GENERAL 0
@@ -1999,17 +1999,15 @@ df.announcement_alert_type = {}
 ---@field [7] "ALERT" ALERT
 df.announcement_flags = {}
 
----@class (exact) announcements: DFObject
----@field _kind 'struct'
+---@class (exact) announcements: DFStruct
 ---@field _type _announcements
 ---@field flags DFEnumVector<announcement_type, announcement_flags>
 
----@class _announcements: DFCompound
+---@class _announcements: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcements = {}
 
----@class (exact) report: DFObject
----@field _kind 'struct'
+---@class (exact) report: DFStruct
 ---@field _type _report
 ---@field type announcement_type valid only if coordinates are
 ---@field text string
@@ -2029,7 +2027,7 @@ df.announcements = {}
 ---@field activity_event_id number
 ---@field speaker_id number unit speaking the conversation References: `unit`
 
----@class _report: DFCompound
+---@class _report: DFCompoundType
 ---@field _kind 'struct-type'
 df.report = {}
 
@@ -2074,7 +2072,7 @@ df.report.T_flags = {}
 ---| report_zoom_type_keys
 ---| report_zoom_type_values
 
----@class _report_zoom_type: DFEnum
+---@class _report_zoom_type: DFEnumType
 ---@field Generic 0
 ---@field [0] "Generic"
 ---@field Item 1
@@ -2083,26 +2081,24 @@ df.report.T_flags = {}
 ---@field [2] "Unit"
 df.report_zoom_type = {}
 
----@class (exact) popup_message: DFObject
----@field _kind 'struct'
+---@class (exact) popup_message: DFStruct
 ---@field _type _popup_message
 ---@field text string
 ---@field color number
 ---@field bright boolean
 
----@class _popup_message: DFCompound
+---@class _popup_message: DFCompoundType
 ---@field _kind 'struct-type'
 df.popup_message = {}
 
----@class (exact) announcement_alertst: DFObject
----@field _kind 'struct'
+---@class (exact) announcement_alertst: DFStruct
 ---@field _type _announcement_alertst
 ---@field type announcement_alert_type
 ---@field announcement_id DFNumberVector
 ---@field report_unid DFNumberVector unit id
 ---@field report_unit_announcement_category _announcement_alertst_report_unit_announcement_category vector must be same length as report_unid
 
----@class _announcement_alertst: DFCompound
+---@class _announcement_alertst: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_alertst = {}
 
@@ -2123,8 +2119,7 @@ function _announcement_alertst_report_unit_announcement_category:insert(index, i
 function _announcement_alertst_report_unit_announcement_category:erase(index) end
 
 -- allocated on the stack, included in df-structures to assist with disassembly
----@class (exact) announcement_infost: DFObject
----@field _kind 'struct'
+---@class (exact) announcement_infost: DFStruct
 ---@field _type _announcement_infost
 ---@field type announcement_type
 ---@field color number
@@ -2141,7 +2136,7 @@ function _announcement_alertst_report_unit_announcement_category:erase(index) en
 ---@field speaker_id number References: `unit`
 ---@field flags announcement_infost.T_flags
 
----@class _announcement_infost: DFCompound
+---@class _announcement_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_infost = {}
 

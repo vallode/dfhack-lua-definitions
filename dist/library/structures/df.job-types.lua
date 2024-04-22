@@ -44,7 +44,7 @@
 ---| job_type_class_values
 
 -- not in DF
----@class _job_type_class: DFEnum
+---@class _job_type_class: DFEnumType
 ---@field Misc 0
 ---@field [0] "Misc"
 ---@field Digging 1
@@ -575,7 +575,7 @@ df.job_type_class = {}
 ---| job_type_keys
 ---| job_type_values
 
----@class _job_type: DFEnum
+---@class _job_type: DFEnumType
 ---@field NONE -1 unused
 ---@field [-1] "NONE" unused
 ---@field CarveFortification 0 0
@@ -1064,7 +1064,7 @@ df.job_type_class = {}
 ---@field [241] "unk_fake_no_activity"
 df.job_type = {}
 
----@class job_type_attr_entry_type: DFCompound
+---@class job_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_type._attr_entry_type = {}
 

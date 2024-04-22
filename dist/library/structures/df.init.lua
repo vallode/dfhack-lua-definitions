@@ -20,7 +20,7 @@
 ---| init_display_flags_values
 
 -- init.h
----@class _init_display_flags: DFEnum
+---@class _init_display_flags: DFEnumType
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"
 ---@field SOFTWARE 1
@@ -47,7 +47,7 @@ df.init_display_flags = {}
 ---| init_display_filter_mode_keys
 ---| init_display_filter_mode_values
 
----@class _init_display_filter_mode: DFEnum
+---@class _init_display_filter_mode: DFEnumType
 ---@field AUTO 0
 ---@field [0] "AUTO"
 ---@field NEAREST 1
@@ -56,8 +56,7 @@ df.init_display_flags = {}
 ---@field [2] "LANCZOS"
 df.init_display_filter_mode = {}
 
----@class (exact) init_display: DFObject
----@field _kind 'struct'
+---@class (exact) init_display: DFStruct
 ---@field _type _init_display
 ---@field flag _init_display_flag
 ---@field windowed init_display.T_windowed
@@ -78,7 +77,7 @@ df.init_display_filter_mode = {}
 ---@field partial_print_count number
 ---@field filter_mode init_display_filter_mode
 
----@class _init_display: DFCompound
+---@class _init_display: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_display = {}
 
@@ -114,7 +113,7 @@ function _init_display_flag:erase(index) end
 ---| init_display.T_windowed_keys
 ---| init_display.T_windowed_values
 
----@class _init_display.T_windowed: DFEnum
+---@class _init_display.T_windowed: DFEnumType
 ---@field True 0
 ---@field [0] "True"
 ---@field False 1
@@ -139,7 +138,7 @@ df.init_display.T_windowed = {}
 ---| init_media_flags_keys
 ---| init_media_flags_values
 
----@class _init_media_flags: DFEnum
+---@class _init_media_flags: DFEnumType
 ---@field SOUND_OFF 0
 ---@field [0] "SOUND_OFF"
 ---@field UNUSED_01_02 1
@@ -148,8 +147,7 @@ df.init_display.T_windowed = {}
 ---@field [2] "COMPRESS_SAVES"
 df.init_media_flags = {}
 
----@class (exact) init_media: DFObject
----@field _kind 'struct'
+---@class (exact) init_media: DFStruct
 ---@field _type _init_media
 ---@field flag _init_media_flag
 ---@field volume_master number
@@ -158,7 +156,7 @@ df.init_media_flags = {}
 ---@field volume_sfx number
 ---@field time_between_songs number
 
----@class _init_media: DFCompound
+---@class _init_media: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_media = {}
 
@@ -190,15 +188,14 @@ function _init_media_flag:erase(index) end
 ---| init_input_flags_keys
 ---| init_input_flags_values
 
----@class _init_input_flags: DFEnum
+---@class _init_input_flags: DFEnumType
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
 ---@field MOUSE_PICTURE 1
 ---@field [1] "MOUSE_PICTURE"
 df.init_input_flags = {}
 
----@class (exact) init_input: DFObject
----@field _kind 'struct'
+---@class (exact) init_input: DFStruct
 ---@field _type _init_input
 ---@field hold_time number
 ---@field repeat_time number
@@ -209,7 +206,7 @@ df.init_input_flags = {}
 ---@field repeat_accel_start number
 ---@field repeat_accel_limit number
 
----@class _init_input: DFCompound
+---@class _init_input: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_input = {}
 
@@ -229,8 +226,7 @@ function _init_input_flag:insert(index, item) end
 ---@param index integer 
 function _init_input_flag:erase(index) end
 
----@class (exact) init_font: DFObject
----@field _kind 'struct'
+---@class (exact) init_font: DFStruct
 ---@field _type _init_font
 ---@field basic_font_texpos number[]
 ---@field small_font_texpos number[]
@@ -257,7 +253,7 @@ function _init_input_flag:erase(index) end
 ---@field large_font_dispx number
 ---@field large_font_dispy number
 
----@class _init_font: DFCompound
+---@class _init_font: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_font = {}
 
@@ -275,7 +271,7 @@ df.init_font = {}
 ---| init_window_flags_keys
 ---| init_window_flags_values
 
----@class _init_window_flags: DFEnum
+---@class _init_window_flags: DFEnumType
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
 ---@field VSYNC_OFF 1
@@ -284,12 +280,11 @@ df.init_font = {}
 ---@field [2] "TEXTURE_LINEAR"
 df.init_window_flags = {}
 
----@class (exact) init_window: DFObject
----@field _kind 'struct'
+---@class (exact) init_window: DFStruct
 ---@field _type _init_window
 ---@field flag _init_window_flag
 
----@class _init_window: DFCompound
+---@class _init_window: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_window = {}
 
@@ -309,8 +304,7 @@ function _init_window_flag:insert(index, item) end
 ---@param index integer 
 function _init_window_flag:erase(index) end
 
----@class (exact) init: DFObject
----@field _kind 'struct'
+---@class (exact) init: DFStruct
 ---@field _type _init
 ---@field display init_display
 ---@field media init_media
@@ -448,7 +442,7 @@ function _init_window_flag:erase(index) end
 ---@field classic_texpos_sort_text_active number[]
 ---@field classic_texpos_sort_text_inactive number[]
 
----@class _init: DFCompound
+---@class _init: DFCompoundType
 ---@field _kind 'struct-type'
 df.init = {}
 

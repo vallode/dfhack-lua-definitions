@@ -439,7 +439,7 @@
 ---| unit_path_goal_keys
 ---| unit_path_goal_values
 
----@class _unit_path_goal: DFEnum
+---@class _unit_path_goal: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field ComeToJobBuilding 0
@@ -966,7 +966,7 @@ df.unit_path_goal = {}
 ---| unit_station_type_keys
 ---| unit_station_type_values
 
----@class _unit_station_type: DFEnum
+---@class _unit_station_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Nonsense 0

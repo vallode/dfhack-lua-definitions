@@ -155,14 +155,13 @@ df.job_material_category = {}
 ---@field [20] "gem"
 df.dfhack_material_category = {}
 
----@class (exact) job_list_link: DFObject
----@field _kind 'struct'
+---@class (exact) job_list_link: DFStruct
 ---@field _type _job_list_link
 ---@field item job
 ---@field prev job_list_link
 ---@field next job_list_link
 
----@class _job_list_link: DFCompound
+---@class _job_list_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_list_link = {}
 
@@ -254,7 +253,7 @@ df.job_flags = {}
 ---| job_subtype_surgery_keys
 ---| job_subtype_surgery_values
 
----@class _job_subtype_surgery: DFEnum
+---@class _job_subtype_surgery: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Surgery 0
@@ -267,8 +266,7 @@ df.job_flags = {}
 ---@field [3] "RemoveRottenTissue"
 df.job_subtype_surgery = {}
 
----@class (exact) job: DFObject
----@field _kind 'struct'
+---@class (exact) job: DFStruct
 ---@field _type _job
 ---@field id number
 ---@field list_link job_list_link
@@ -303,7 +301,7 @@ df.job_subtype_surgery = {}
 ---@field art_spec job_art_specification
 ---@field order_id number References: `manager_order`
 
----@class _job: DFCompound
+---@class _job: DFCompoundType
 ---@field _kind 'struct-type'
 df.job = {}
 
@@ -371,15 +369,14 @@ function _job_job_items:insert(index, item) end
 ---@param index integer 
 function _job_job_items:erase(index) end
 
----@class (exact) job_item_ref: DFObject
----@field _kind 'struct'
+---@class (exact) job_item_ref: DFStruct
 ---@field _type _job_item_ref
 ---@field item item
 ---@field role job_item_ref.T_role
 ---@field is_fetching number 0 immediately once taken to be brought
 ---@field job_item_idx number
 
----@class _job_item_ref: DFCompound
+---@class _job_item_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item_ref = {}
 
@@ -409,7 +406,7 @@ df.job_item_ref = {}
 ---| job_item_ref.T_role_keys
 ---| job_item_ref.T_role_values
 
----@class _job_item_ref.T_role: DFEnum
+---@class _job_item_ref.T_role: DFEnumType
 ---@field Other 0 eat, drink, pickup equipment
 ---@field [0] "Other" eat, drink, pickup equipment
 ---@field Reagent 1
@@ -784,8 +781,7 @@ df.job_item_flags2 = {}
 ---@field [21] "empty_or_water"
 df.job_item_flags3 = {}
 
----@class (exact) job_item: DFObject
----@field _kind 'struct'
+---@class (exact) job_item: DFStruct
 ---@field _type _job_item
 ---@field item_type item_type
 ---@field item_subtype number
@@ -811,12 +807,11 @@ df.job_item_flags3 = {}
 ---@field unk_v43_3 number
 ---@field unk_v43_4 number
 
----@class _job_item: DFCompound
+---@class _job_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item = {}
 
----@class (exact) job_item_filter: DFObject
----@field _kind 'struct'
+---@class (exact) job_item_filter: DFStruct
 ---@field _type _job_item_filter
 ---@field item_type item_type
 ---@field item_subtype number
@@ -856,7 +851,7 @@ df.job_item = {}
 ---@field use_burrows boolean
 ---@field take_from DFPointer<integer>
 
----@class _job_item_filter: DFCompound
+---@class _job_item_filter: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item_filter = {}
 
@@ -874,14 +869,13 @@ df.job_item_filter = {}
 ---@field [1] "active"
 df.manager_order_status = {}
 
----@class (exact) job_art_specification: DFObject
----@field _kind 'struct'
+---@class (exact) job_art_specification: DFStruct
 ---@field _type _job_art_specification
 ---@field type job_art_specification.T_type
 ---@field id number
 ---@field subid number
 
----@class _job_art_specification: DFCompound
+---@class _job_art_specification: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_art_specification = {}
 
@@ -903,7 +897,7 @@ df.job_art_specification = {}
 ---| job_art_specification.T_type_keys
 ---| job_art_specification.T_type_values
 
----@class _job_art_specification.T_type: DFEnum
+---@class _job_art_specification.T_type: DFEnumType
 ---@field None -1 bay12: JobArtSpecifierType
 ---@field [-1] "None" bay12: JobArtSpecifierType
 ---@field HistoricalFigure 0
@@ -916,8 +910,7 @@ df.job_art_specification = {}
 ---@field [3] "ArtImage"
 df.job_art_specification.T_type = {}
 
----@class (exact) manager_order: DFObject
----@field _kind 'struct'
+---@class (exact) manager_order: DFStruct
 ---@field _type _manager_order
 ---@field id number
 ---@field job_type job_type
@@ -942,7 +935,7 @@ df.job_art_specification.T_type = {}
 ---@field order_conditions _manager_order_order_conditions
 ---@field items DFPointer<integer>
 
----@class _manager_order: DFCompound
+---@class _manager_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order = {}
 
@@ -964,7 +957,7 @@ df.manager_order = {}
 ---| manager_order.T_frequency_keys
 ---| manager_order.T_frequency_values
 
----@class _manager_order.T_frequency: DFEnum
+---@class _manager_order.T_frequency: DFEnumType
 ---@field OneTime 0
 ---@field [0] "OneTime"
 ---@field Daily 1
@@ -1009,8 +1002,7 @@ function _manager_order_order_conditions:insert(index, item) end
 ---@param index integer 
 function _manager_order_order_conditions:erase(index) end
 
----@class (exact) manager_order_condition_item: DFObject
----@field _kind 'struct'
+---@class (exact) manager_order_condition_item: DFStruct
 ---@field _type _manager_order_condition_item
 ---@field compare_type manager_order_condition_item.T_compare_type
 ---@field compare_val number
@@ -1031,7 +1023,7 @@ function _manager_order_order_conditions:erase(index) end
 ---@field reaction_id number References: `reaction`
 ---@field has_tool_use tool_uses
 
----@class _manager_order_condition_item: DFCompound
+---@class _manager_order_condition_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order_condition_item = {}
 
@@ -1055,7 +1047,7 @@ df.manager_order_condition_item = {}
 ---| manager_order_condition_item.T_compare_type_keys
 ---| manager_order_condition_item.T_compare_type_values
 
----@class _manager_order_condition_item.T_compare_type: DFEnum
+---@class _manager_order_condition_item.T_compare_type: DFEnumType
 ---@field AtLeast 0
 ---@field [0] "AtLeast"
 ---@field AtMost 1
@@ -1070,14 +1062,13 @@ df.manager_order_condition_item = {}
 ---@field [5] "Not"
 df.manager_order_condition_item.T_compare_type = {}
 
----@class (exact) manager_order_condition_order: DFObject
----@field _kind 'struct'
+---@class (exact) manager_order_condition_order: DFStruct
 ---@field _type _manager_order_condition_order
 ---@field order_id number References: `manager_order`
 ---@field condition manager_order_condition_order.T_condition
 ---@field unk_1 number
 
----@class _manager_order_condition_order: DFCompound
+---@class _manager_order_condition_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order_condition_order = {}
 
@@ -1093,7 +1084,7 @@ df.manager_order_condition_order = {}
 ---| manager_order_condition_order.T_condition_keys
 ---| manager_order_condition_order.T_condition_values
 
----@class _manager_order_condition_order.T_condition: DFEnum
+---@class _manager_order_condition_order.T_condition: DFEnumType
 ---@field Activated 0
 ---@field [0] "Activated"
 ---@field Completed 1
@@ -1101,8 +1092,7 @@ df.manager_order_condition_order = {}
 df.manager_order_condition_order.T_condition = {}
 
 -- jminfost
----@class (exact) manager_order_template: DFObject
----@field _kind 'struct'
+---@class (exact) manager_order_template: DFStruct
 ---@field _type _manager_order_template
 ---@field job_type job_type
 ---@field reaction_name string
@@ -1118,12 +1108,11 @@ df.manager_order_condition_order.T_condition = {}
 ---@field compare_str string
 ---@field on boolean
 
----@class _manager_order_template: DFCompound
+---@class _manager_order_template: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order_template = {}
 
----@class (exact) mandate: DFObject
----@field _kind 'struct'
+---@class (exact) mandate: DFStruct
 ---@field _type _mandate
 ---@field unit unit
 ---@field mode mandate.T_mode
@@ -1139,7 +1128,7 @@ df.manager_order_template = {}
 ---@field punish_multiple integer
 ---@field unk4 number
 
----@class _mandate: DFCompound
+---@class _mandate: DFCompoundType
 ---@field _kind 'struct-type'
 df.mandate = {}
 
@@ -1157,7 +1146,7 @@ df.mandate = {}
 ---| mandate.T_mode_keys
 ---| mandate.T_mode_values
 
----@class _mandate.T_mode: DFEnum
+---@class _mandate.T_mode: DFEnumType
 ---@field Export 0
 ---@field [0] "Export"
 ---@field Make 1
@@ -1166,25 +1155,23 @@ df.mandate = {}
 ---@field [2] "Guild"
 df.mandate.T_mode = {}
 
----@class (exact) mandate.T_punishment: DFObject
----@field _kind 'struct'
+---@class (exact) mandate.T_punishment: DFStruct
 ---@field _type _mandate.T_punishment
 ---@field hammerstrikes number
 ---@field prison_time number
 ---@field give_beating number
 
----@class _mandate.T_punishment: DFCompound
+---@class _mandate.T_punishment: DFCompoundType
 ---@field _kind 'struct-type'
 df.mandate.T_punishment = {}
 
----@class (exact) training_assignment: DFObject
----@field _kind 'struct'
+---@class (exact) training_assignment: DFStruct
 ---@field _type _training_assignment
 ---@field animal_id number References: `unit`
 ---@field trainer_id number References: `unit`
 ---@field flags training_assignment.T_flags
 
----@class _training_assignment: DFCompound
+---@class _training_assignment: DFCompoundType
 ---@field _kind 'struct-type'
 df.training_assignment = {}
 
@@ -1219,8 +1206,7 @@ function df.training_assignment.get_vector() end
 ---@field [3] "train_hunt"
 df.training_assignment.T_flags = {}
 
----@class (exact) unit_demand: DFObject
----@field _kind 'struct'
+---@class (exact) unit_demand: DFStruct
 ---@field _type _unit_demand
 ---@field unk_0 number
 ---@field place unit_demand.T_place
@@ -1231,7 +1217,7 @@ df.training_assignment.T_flags = {}
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
 
----@class _unit_demand: DFCompound
+---@class _unit_demand: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_demand = {}
 
@@ -1251,7 +1237,7 @@ df.unit_demand = {}
 ---| unit_demand.T_place_keys
 ---| unit_demand.T_place_values
 
----@class _unit_demand.T_place: DFEnum
+---@class _unit_demand.T_place: DFEnumType
 ---@field Office 0
 ---@field [0] "Office"
 ---@field Bedroom 1
@@ -1540,7 +1526,7 @@ df.unit_demand.T_place = {}
 ---| killjob_exception_type_keys
 ---| killjob_exception_type_values
 
----@class _killjob_exception_type: DFEnum
+---@class _killjob_exception_type: DFEnumType
 ---@field CANNOT_REACH_SITE 0
 ---@field [0] "CANNOT_REACH_SITE"
 ---@field INTERRUPTED 1
@@ -1813,8 +1799,7 @@ df.unit_demand.T_place = {}
 ---@field [134] "NEEDS_SPECIFIC_ITEM_2"
 df.killjob_exception_type = {}
 
----@class (exact) killjob_exceptionst: DFObject
----@field _kind 'struct'
+---@class (exact) killjob_exceptionst: DFStruct
 ---@field _type _killjob_exceptionst
 ---@field type killjob_exception_type
 ---@field item_type item_type
@@ -1836,7 +1821,7 @@ df.killjob_exception_type = {}
 ---@field tool_use tool_uses
 ---@field pos coord
 
----@class _killjob_exceptionst: DFCompound
+---@class _killjob_exceptionst: DFCompoundType
 ---@field _kind 'struct-type'
 df.killjob_exceptionst = {}
 

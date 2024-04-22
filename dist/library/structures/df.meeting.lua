@@ -1,15 +1,14 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) dipscript_info: DFObject
----@field _kind 'struct'
+---@class (exact) dipscript_info: DFStruct
 ---@field _type _dipscript_info
 ---@field id number assigned during Save
 ---@field script_steps _dipscript_info_script_steps
 ---@field script_vars _dipscript_info_script_vars
 ---@field code string DWARF_LIAISON etc
 
----@class _dipscript_info: DFCompound
+---@class _dipscript_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.dipscript_info = {}
 
@@ -45,18 +44,16 @@ function _dipscript_info_script_vars:insert(index, item) end
 ---@param index integer 
 function _dipscript_info_script_vars:erase(index) end
 
----@class (exact) dipscript_text: DFObject
----@field _kind 'struct'
+---@class (exact) dipscript_text: DFStruct
 ---@field _type _dipscript_text
 ---@field name string dwarf_liaison_bye, etc.
 ---@field contents DFStringVector
 
----@class _dipscript_text: DFCompound
+---@class _dipscript_text: DFCompoundType
 ---@field _kind 'struct-type'
 df.dipscript_text = {}
 
----@class (exact) dipscript_popup: DFObject
----@field _kind 'struct'
+---@class (exact) dipscript_popup: DFStruct
 ---@field _type _dipscript_popup
 ---@field meeting_holder_actor number bay12: actor_unid References: `unit`
 ---@field meeting_holder_noble number bay12: noble_unid References: `unit`
@@ -64,7 +61,7 @@ df.dipscript_text = {}
 ---@field flags dipscript_popup.T_flags
 ---@field moment_time_left number
 
----@class _dipscript_popup: DFCompound
+---@class _dipscript_popup: DFCompoundType
 ---@field _kind 'struct-type'
 df.dipscript_popup = {}
 
@@ -82,49 +79,44 @@ df.dipscript_popup = {}
 ---@field [1] "new_screen" bay12: DEAD
 df.dipscript_popup.T_flags = {}
 
----@class (exact) script_stepst: DFObject
----@field _kind 'struct'
+---@class (exact) script_stepst: DFStruct
 ---@field _type _script_stepst
 ---@field next_step_idx number
 
----@class _script_stepst: DFCompound
+---@class _script_stepst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_stepst = {}
 
----@class (exact) script_step_setvarst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_setvarst: DFStruct, script_stepst
 ---@field _type _script_step_setvarst
 ---@field dest_type string
 ---@field dest_name string
 ---@field src_type string
 ---@field src_name string
 
----@class _script_step_setvarst: DFCompound
+---@class _script_step_setvarst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_setvarst = {}
 
----@class (exact) script_step_simpleactionst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_simpleactionst: DFStruct, script_stepst
 ---@field _type _script_step_simpleactionst
 ---@field type string
 ---@field subtype string
 
----@class _script_step_simpleactionst: DFCompound
+---@class _script_step_simpleactionst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_simpleactionst = {}
 
----@class (exact) script_step_conditionalst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_conditionalst: DFStruct, script_stepst
 ---@field _type _script_step_conditionalst
 ---@field condition script_step_conditionalst.T_condition
 ---@field conditional_next_step_idx number
 
----@class _script_step_conditionalst: DFCompound
+---@class _script_step_conditionalst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_conditionalst = {}
 
----@class (exact) script_step_conditionalst.T_condition: DFObject
----@field _kind 'struct'
+---@class (exact) script_step_conditionalst.T_condition: DFStruct
 ---@field _type _script_step_conditionalst.T_condition
 ---@field var1_type string
 ---@field var1_name string
@@ -132,56 +124,50 @@ df.script_step_conditionalst = {}
 ---@field var2_type string
 ---@field var2_name string
 
----@class _script_step_conditionalst.T_condition: DFCompound
+---@class _script_step_conditionalst.T_condition: DFCompoundType
 ---@field _kind 'struct-type'
 df.script_step_conditionalst.T_condition = {}
 
----@class (exact) script_step_textviewerst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_textviewerst: DFStruct, script_stepst
 ---@field _type _script_step_textviewerst
 ---@field filename string
 ---@field outvar_name string
 
----@class _script_step_textviewerst: DFCompound
+---@class _script_step_textviewerst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_textviewerst = {}
 
----@class (exact) script_step_diphistoryst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_diphistoryst: DFStruct, script_stepst
 ---@field _type _script_step_diphistoryst
 ---@field event string
 
----@class _script_step_diphistoryst: DFCompound
+---@class _script_step_diphistoryst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_diphistoryst = {}
 
----@class (exact) script_step_discussst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_discussst: DFStruct, script_stepst
 ---@field _type _script_step_discussst
 ---@field event string
 
----@class _script_step_discussst: DFCompound
+---@class _script_step_discussst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_discussst = {}
 
----@class (exact) script_step_topicdiscussionst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_topicdiscussionst: DFStruct, script_stepst
 ---@field _type _script_step_topicdiscussionst
 
----@class _script_step_topicdiscussionst: DFCompound
+---@class _script_step_topicdiscussionst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_topicdiscussionst = {}
 
----@class (exact) script_step_constructtopiclistst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_constructtopiclistst: DFStruct, script_stepst
 ---@field _type _script_step_constructtopiclistst
 
----@class _script_step_constructtopiclistst: DFCompound
+---@class _script_step_constructtopiclistst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_constructtopiclistst = {}
 
----@class (exact) script_step_dipeventst: DFObject, script_step_eventst
----@field _kind 'struct'
+---@class (exact) script_step_dipeventst: DFStruct, script_step_eventst
 ---@field _type _script_step_dipeventst
 ---@field parm1 string
 ---@field parm2 string
@@ -189,92 +175,82 @@ df.script_step_constructtopiclistst = {}
 ---@field parm4 string
 ---@field parm5 string
 
----@class _script_step_dipeventst: DFCompound
+---@class _script_step_dipeventst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_dipeventst = {}
 
----@class (exact) script_step_invasionst: DFObject, script_step_eventst
----@field _kind 'struct'
+---@class (exact) script_step_invasionst: DFStruct, script_step_eventst
 ---@field _type _script_step_invasionst
 ---@field parm string
 
----@class _script_step_invasionst: DFCompound
+---@class _script_step_invasionst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_invasionst = {}
 
----@class (exact) script_step_eventst: DFObject, script_stepst
----@field _kind 'struct'
+---@class (exact) script_step_eventst: DFStruct, script_stepst
 ---@field _type _script_step_eventst
 
----@class _script_step_eventst: DFCompound
+---@class _script_step_eventst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_eventst = {}
 
----@class (exact) script_varst: DFObject
----@field _kind 'struct'
+---@class (exact) script_varst: DFStruct
 ---@field _type _script_varst
 ---@field name string
 
----@class _script_varst: DFCompound
+---@class _script_varst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_varst = {}
 
----@class (exact) script_var_unitst: DFObject, script_varst
----@field _kind 'struct'
+---@class (exact) script_var_unitst: DFStruct, script_varst
 ---@field _type _script_var_unitst
 
----@class _script_var_unitst: DFCompound
+---@class _script_var_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_var_unitst = {}
 
----@class (exact) script_var_longst: DFObject, script_varst
----@field _kind 'struct'
+---@class (exact) script_var_longst: DFStruct, script_varst
 ---@field _type _script_var_longst
 
----@class _script_var_longst: DFCompound
+---@class _script_var_longst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_var_longst = {}
 
----@class (exact) active_script_varst: DFObject
----@field _kind 'struct'
+---@class (exact) active_script_varst: DFStruct
 ---@field _type _active_script_varst
 ---@field name string
 
----@class _active_script_varst: DFCompound
+---@class _active_script_varst: DFCompoundType
 ---@field _kind 'class-type'
 df.active_script_varst = {}
 
----@class (exact) active_script_var_unitst: DFObject, active_script_varst
----@field _kind 'struct'
+---@class (exact) active_script_var_unitst: DFStruct, active_script_varst
 ---@field _type _active_script_var_unitst
 ---@field unit unit
 
----@class _active_script_var_unitst: DFCompound
+---@class _active_script_var_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.active_script_var_unitst = {}
 
----@class (exact) active_script_var_longst: DFObject, active_script_varst
----@field _kind 'struct'
+---@class (exact) active_script_var_longst: DFStruct, active_script_varst
 ---@field _type _active_script_var_longst
 ---@field value number
 
----@class _active_script_var_longst: DFCompound
+---@class _active_script_var_longst: DFCompoundType
 ---@field _kind 'class-type'
 df.active_script_var_longst = {}
 
----@class (exact) meeting_variable: DFObject
----@field _kind 'struct'
+---@class (exact) meeting_variable: DFStruct
 ---@field _type _meeting_variable
 ---@field value number
 ---@field ref specific_ref
 ---@field active_var active_script_varst
 
----@class _meeting_variable: DFCompound
+---@class _meeting_variable: DFCompoundType
 ---@field _kind 'struct-type'
 df.meeting_variable = {}
 
----@class (exact) meeting_diplomat_info: DFObject
----@field _kind 'struct'
+---@class (exact) meeting_diplomat_info: DFStruct
 ---@field _type _meeting_diplomat_info
 ---@field civ_id number References: `historical_entity`
 ---@field unk1 number maybe is_first_contact
@@ -300,7 +276,7 @@ df.meeting_variable = {}
 ---@field contact_year DFNumberVector
 ---@field contact_tick DFNumberVector
 
----@class _meeting_diplomat_info: DFCompound
+---@class _meeting_diplomat_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.meeting_diplomat_info = {}
 
@@ -414,7 +390,7 @@ function _meeting_diplomat_info_agreement_topic:erase(index) end
 ---| meeting_topic_keys
 ---| meeting_topic_values
 
----@class _meeting_topic: DFEnum
+---@class _meeting_topic: DFEnumType
 ---@field DiscussCurrent 0
 ---@field [0] "DiscussCurrent"
 ---@field RequestPeace 1
@@ -457,7 +433,7 @@ df.meeting_topic = {}
 ---| meeting_event_type_keys
 ---| meeting_event_type_values
 
----@class _meeting_event_type: DFEnum
+---@class _meeting_event_type: DFEnumType
 ---@field AcceptAgreement 0
 ---@field [0] "AcceptAgreement"
 ---@field RejectAgreement 1
@@ -472,8 +448,7 @@ df.meeting_topic = {}
 ---@field [5] "ImportAgreement"
 df.meeting_event_type = {}
 
----@class (exact) meeting_event: DFObject
----@field _kind 'struct'
+---@class (exact) meeting_event: DFStruct
 ---@field _type _meeting_event
 ---@field type meeting_event_type
 ---@field topic meeting_topic
@@ -487,12 +462,11 @@ df.meeting_event_type = {}
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
 
----@class _meeting_event: DFCompound
+---@class _meeting_event: DFCompoundType
 ---@field _kind 'struct-type'
 df.meeting_event = {}
 
----@class (exact) activity_info: DFObject
----@field _kind 'struct'
+---@class (exact) activity_info: DFStruct
 ---@field _type _activity_info
 ---@field id number bay12: save_index; assigned during Save
 ---@field unit_actor number bay12: actor_unid; diplomat or worker References: `unit`
@@ -503,7 +477,7 @@ df.meeting_event = {}
 ---@field delay number bay12: discusscount
 ---@field tree_quota number bay12: tempvalue
 
----@class _activity_info: DFCompound
+---@class _activity_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_info = {}
 
@@ -533,14 +507,13 @@ df.activity_info = {}
 ---@field [4] "meeting_done" bay12: DISCUSSINGTOPIC
 df.activity_info.T_flags = {}
 
----@class (exact) room_rent_info: DFObject
----@field _kind 'struct'
+---@class (exact) room_rent_info: DFStruct
 ---@field _type _room_rent_info
 ---@field elements _room_rent_info_elements
 ---@field rent_value number
 ---@field flags room_rent_info.T_flags
 
----@class _room_rent_info: DFCompound
+---@class _room_rent_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.room_rent_info = {}
 
@@ -608,7 +581,7 @@ df.room_rent_info.T_flags = {}
 ---| activity_entry_type_keys
 ---| activity_entry_type_values
 
----@class _activity_entry_type: DFEnum
+---@class _activity_entry_type: DFEnumType
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
 ---@field IndividualSkillDrill 1
@@ -631,8 +604,7 @@ df.room_rent_info.T_flags = {}
 ---@field [12] "Play"
 df.activity_entry_type = {}
 
----@class (exact) activity_entry: DFObject
----@field _kind 'struct'
+---@class (exact) activity_entry: DFStruct
 ---@field _type _activity_entry
 ---@field id number
 ---@field type activity_entry_type
@@ -640,7 +612,7 @@ df.activity_entry_type = {}
 ---@field next_event_id number
 ---@field army_controller number References: `army_controller`
 
----@class _activity_entry: DFCompound
+---@class _activity_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_entry = {}
 
@@ -733,7 +705,7 @@ function _activity_entry_events:erase(index) end
 ---| activity_event_type_keys
 ---| activity_event_type_values
 
----@class _activity_event_type: DFEnum
+---@class _activity_event_type: DFEnumType
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
 ---@field CombatTraining 1
@@ -792,8 +764,7 @@ function _activity_entry_events:erase(index) end
 ---@field [27] "StoreObject"
 df.activity_event_type = {}
 
----@class (exact) activity_event_participants: DFObject
----@field _kind 'struct'
+---@class (exact) activity_event_participants: DFStruct
 ---@field _type _activity_event_participants
 ---@field histfigs DFNumberVector
 ---@field units DFNumberVector
@@ -802,7 +773,7 @@ df.activity_event_type = {}
 ---@field activity_id number Holder event References: `activity_entry`
 ---@field event_id number
 
----@class _activity_event_participants: DFCompound
+---@class _activity_event_participants: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_event_participants = {}
 
@@ -830,7 +801,7 @@ df.activity_event_participants = {}
 ---| activity_event_item_role_type_keys
 ---| activity_event_item_role_type_values
 
----@class _activity_event_item_role_type: DFEnum
+---@class _activity_event_item_role_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field TARGET_TO_POUR 0
@@ -867,7 +838,7 @@ df.activity_event_item_role_type = {}
 ---| activity_event_building_role_type_keys
 ---| activity_event_building_role_type_values
 
----@class _activity_event_building_role_type: DFEnum
+---@class _activity_event_building_role_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SIT_AND_READ 0
@@ -880,8 +851,7 @@ df.activity_event_item_role_type = {}
 ---@field [3] "PERFORMANCE_INSTRUMENT"
 df.activity_event_building_role_type = {}
 
----@class (exact) activity_event: DFObject
----@field _kind 'struct'
+---@class (exact) activity_event: DFStruct
 ---@field _type _activity_event
 ---@field event_id number bay12: local_id; mostly, but not always, the index in activity.events
 ---@field activity_id number bay12: source_activity_id References: `activity_entry`
@@ -890,7 +860,7 @@ df.activity_event_building_role_type = {}
 ---@field item _activity_event_item
 ---@field building _activity_event_building
 
----@class _activity_event: DFCompound
+---@class _activity_event: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event = {}
 
@@ -940,17 +910,15 @@ function _activity_event_building:insert(index, item) end
 ---@param index integer 
 function _activity_event_building:erase(index) end
 
----@class (exact) activity_event_training_sessionst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_training_sessionst: DFStruct, activity_event
 ---@field _type _activity_event_training_sessionst
 ---@field participants activity_event_participants
 
----@class _activity_event_training_sessionst: DFCompound
+---@class _activity_event_training_sessionst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_training_sessionst = {}
 
----@class (exact) activity_event_combat_trainingst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_combat_trainingst: DFStruct, activity_event
 ---@field _type _activity_event_combat_trainingst
 ---@field participants activity_event_participants
 ---@field building_id number References: `building`
@@ -958,12 +926,11 @@ df.activity_event_training_sessionst = {}
 ---@field unit_id number References: `unit`
 ---@field organize_counter number gt 0 => organizing, lt 0 => done
 
----@class _activity_event_combat_trainingst: DFCompound
+---@class _activity_event_combat_trainingst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_combat_trainingst = {}
 
----@class (exact) activity_event_skill_demonstrationst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_skill_demonstrationst: DFStruct, activity_event
 ---@field _type _activity_event_skill_demonstrationst
 ---@field participants activity_event_participants
 ---@field building_id number References: `building`
@@ -975,30 +942,28 @@ df.activity_event_combat_trainingst = {}
 ---@field train_rounds number
 ---@field train_countdown number
 
----@class _activity_event_skill_demonstrationst: DFCompound
+---@class _activity_event_skill_demonstrationst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_skill_demonstrationst = {}
 
----@class (exact) activity_event_individual_skill_drillst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_individual_skill_drillst: DFStruct, activity_event
 ---@field _type _activity_event_individual_skill_drillst
 ---@field participants activity_event_participants
 ---@field building_id number References: `building`
 ---@field countdown number
 
----@class _activity_event_individual_skill_drillst: DFCompound
+---@class _activity_event_individual_skill_drillst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_individual_skill_drillst = {}
 
----@class (exact) activity_event_sparringst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_sparringst: DFStruct, activity_event
 ---@field _type _activity_event_sparringst
 ---@field participants activity_event_participants
 ---@field building_id number References: `building`
 ---@field groups _activity_event_sparringst_groups
 ---@field countdown number
 
----@class _activity_event_sparringst: DFCompound
+---@class _activity_event_sparringst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_sparringst = {}
 
@@ -1018,18 +983,16 @@ function _activity_event_sparringst_groups:insert(index, item) end
 ---@param index integer 
 function _activity_event_sparringst_groups:erase(index) end
 
----@class (exact) activity_event_ranged_practicest: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_ranged_practicest: DFStruct, activity_event
 ---@field _type _activity_event_ranged_practicest
 ---@field participants activity_event_participants
 ---@field building_id number References: `building`
 
----@class _activity_event_ranged_practicest: DFCompound
+---@class _activity_event_ranged_practicest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_ranged_practicest = {}
 
----@class (exact) activity_event_harassmentst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_harassmentst: DFStruct, activity_event
 ---@field _type _activity_event_harassmentst
 ---@field unk_1 DFNumberVector
 ---@field unk_2 _activity_event_harassmentst_unk_2
@@ -1040,7 +1003,7 @@ df.activity_event_ranged_practicest = {}
 ---@field unk_7 number
 ---@field unk_8 number
 
----@class _activity_event_harassmentst: DFCompound
+---@class _activity_event_harassmentst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_harassmentst = {}
 
@@ -1212,7 +1175,7 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---| conversation_menu_keys
 ---| conversation_menu_values
 
----@class _conversation_menu: DFEnum
+---@class _conversation_menu: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field RespondGreeting 0
@@ -1295,8 +1258,7 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---@field [70] "RespondDismissal"
 df.conversation_menu = {}
 
----@class (exact) activity_event_conversationst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_conversationst: DFStruct, activity_event
 ---@field _type _activity_event_conversationst
 ---@field participants _activity_event_conversationst_participants
 ---@field menu conversation_menu
@@ -1322,7 +1284,7 @@ df.conversation_menu = {}
 ---@field unk3 conversation_menu
 ---@field unk4 number[] uninitialized
 
----@class _activity_event_conversationst: DFCompound
+---@class _activity_event_conversationst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_conversationst = {}
 
@@ -1358,8 +1320,7 @@ function _activity_event_conversationst_unk_6:insert(index, item) end
 ---@param index integer 
 function _activity_event_conversationst_unk_6:erase(index) end
 
----@class (exact) activity_event_conversationst.T_unk_b4: DFObject
----@field _kind 'struct'
+---@class (exact) activity_event_conversationst.T_unk_b4: DFStruct
 ---@field _type _activity_event_conversationst.T_unk_b4
 ---@field unk_1 number
 ---@field unk_2 number
@@ -1367,7 +1328,7 @@ function _activity_event_conversationst_unk_6:erase(index) end
 ---@field unk_4 DFNumberVector
 ---@field unk_5 number
 
----@class _activity_event_conversationst.T_unk_b4: DFCompound
+---@class _activity_event_conversationst.T_unk_b4: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk_b4 = {}
 
@@ -1398,8 +1359,7 @@ function _activity_event_conversationst_turns:erase(index) end
 ---@field [1] "shouting"
 df.activity_event_conversationst.T_flags2 = {}
 
----@class (exact) activity_event_conversationst.T_unk2: DFObject
----@field _kind 'struct'
+---@class (exact) activity_event_conversationst.T_unk2: DFStruct
 ---@field _type _activity_event_conversationst.T_unk2
 ---@field unk_1 _activity_event_conversationst_unk2_unk_1
 ---@field unk_2 number
@@ -1431,7 +1391,7 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@field unk_28 number
 ---@field unk_29 number
 
----@class _activity_event_conversationst.T_unk2: DFCompound
+---@class _activity_event_conversationst.T_unk2: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk2 = {}
 
@@ -1467,8 +1427,7 @@ function _activity_event_conversationst_choices:insert(index, item) end
 ---@param index integer 
 function _activity_event_conversationst_choices:erase(index) end
 
----@class (exact) activity_event_conflictst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_conflictst: DFStruct, activity_event
 ---@field _type _activity_event_conflictst
 ---@field sides _activity_event_conflictst_sides
 ---@field unk_1 number
@@ -1476,7 +1435,7 @@ function _activity_event_conversationst_choices:erase(index) end
 ---@field unk_3 number
 ---@field unk_v42_3 number
 
----@class _activity_event_conflictst: DFCompound
+---@class _activity_event_conflictst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_conflictst = {}
 
@@ -1496,19 +1455,17 @@ function _activity_event_conflictst_sides:insert(index, item) end
 ---@param index integer 
 function _activity_event_conflictst_sides:erase(index) end
 
----@class (exact) activity_event_guardst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_guardst: DFStruct, activity_event
 ---@field _type _activity_event_guardst
 ---@field unk_1 DFNumberVector
 ---@field unk_2 coord
 ---@field unk_3 number
 
----@class _activity_event_guardst: DFCompound
+---@class _activity_event_guardst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_guardst = {}
 
----@class (exact) activity_event_reunionst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_reunionst: DFStruct, activity_event
 ---@field _type _activity_event_reunionst
 ---@field unk_1 DFNumberVector
 ---@field unk_2 DFNumberVector
@@ -1518,12 +1475,11 @@ df.activity_event_guardst = {}
 ---@field unk_6 number
 ---@field unk_7 number
 
----@class _activity_event_reunionst: DFCompound
+---@class _activity_event_reunionst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_reunionst = {}
 
----@class (exact) activity_event_prayerst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_prayerst: DFStruct, activity_event
 ---@field _type _activity_event_prayerst
 ---@field participants activity_event_participants
 ---@field histfig_id number deity References: `historical_figure`
@@ -1533,12 +1489,11 @@ df.activity_event_reunionst = {}
 ---@field building_id number References: `building`
 ---@field timer number
 
----@class _activity_event_prayerst: DFCompound
+---@class _activity_event_prayerst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_prayerst = {}
 
----@class (exact) activity_event_socializest: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_socializest: DFStruct, activity_event
 ---@field _type _activity_event_socializest
 ---@field participants activity_event_participants
 ---@field site_id number References: `world_site`
@@ -1546,12 +1501,11 @@ df.activity_event_prayerst = {}
 ---@field building_id number
 ---@field unk_1 number
 
----@class _activity_event_socializest: DFCompound
+---@class _activity_event_socializest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_socializest = {}
 
----@class (exact) activity_event_worshipst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_worshipst: DFStruct, activity_event
 ---@field _type _activity_event_worshipst
 ---@field participants activity_event_participants
 ---@field site_id number References: `world_site`
@@ -1559,7 +1513,7 @@ df.activity_event_socializest = {}
 ---@field building_id number
 ---@field unk_1 number
 
----@class _activity_event_worshipst: DFCompound
+---@class _activity_event_worshipst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_worshipst = {}
 
@@ -1587,7 +1541,7 @@ df.activity_event_worshipst = {}
 ---| performance_event_type_keys
 ---| performance_event_type_values
 
----@class _performance_event_type: DFEnum
+---@class _performance_event_type: DFEnumType
 ---@field STORY 0
 ---@field [0] "STORY"
 ---@field POETRY 1
@@ -1626,7 +1580,7 @@ df.performance_event_type = {}
 ---| performance_participant_type_keys
 ---| performance_participant_type_values
 
----@class _performance_participant_type: DFEnum
+---@class _performance_participant_type: DFEnumType
 ---@field TELL_STORY 0
 ---@field [0] "TELL_STORY"
 ---@field RECITE_POETRY 1
@@ -1641,8 +1595,7 @@ df.performance_event_type = {}
 ---@field [5] "HEAR"
 df.performance_participant_type = {}
 
----@class (exact) activity_event_performancest: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_performancest: DFStruct, activity_event
 ---@field _type _activity_event_performancest
 ---@field participants activity_event_participants
 ---@field type performance_event_type
@@ -1678,7 +1631,7 @@ df.performance_participant_type = {}
 ---@field unk_17 number
 ---@field unk_18 number
 
----@class _activity_event_performancest: DFCompound
+---@class _activity_event_performancest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_performancest = {}
 
@@ -1714,8 +1667,7 @@ function _activity_event_performancest_play_orders:insert(index, item) end
 ---@param index integer 
 function _activity_event_performancest_play_orders:erase(index) end
 
----@class (exact) performance_play_orderst: DFObject
----@field _kind 'struct'
+---@class (exact) performance_play_orderst: DFStruct
 ---@field _type _performance_play_orderst
 ---@field unk_1 number
 ---@field unk_2 number
@@ -1723,7 +1675,7 @@ function _activity_event_performancest_play_orders:erase(index) end
 ---@field unk_4 _performance_play_orderst_unk_4
 ---@field unk_5 number
 
----@class _performance_play_orderst: DFCompound
+---@class _performance_play_orderst: DFCompoundType
 ---@field _kind 'class-type'
 df.performance_play_orderst = {}
 
@@ -1743,20 +1695,18 @@ function _performance_play_orderst_unk_4:insert(index, item) end
 ---@param index integer 
 function _performance_play_orderst_unk_4:erase(index) end
 
----@class (exact) activity_event_researchst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_researchst: DFStruct, activity_event
 ---@field _type _activity_event_researchst
 ---@field participants activity_event_participants
 ---@field site_id number References: `world_site`
 ---@field location_id number References: `abstract_building`
 ---@field building_id number
 
----@class _activity_event_researchst: DFCompound
+---@class _activity_event_researchst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_researchst = {}
 
----@class (exact) activity_event_ponder_topicst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_ponder_topicst: DFStruct, activity_event
 ---@field _type _activity_event_ponder_topicst
 ---@field participants activity_event_participants
 ---@field site_id number References: `world_site`
@@ -1766,12 +1716,11 @@ df.activity_event_researchst = {}
 ---@field knowledge knowledge_scholar_category_flag
 ---@field timer number
 
----@class _activity_event_ponder_topicst: DFCompound
+---@class _activity_event_ponder_topicst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_ponder_topicst = {}
 
----@class (exact) activity_event_discuss_topicst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_discuss_topicst: DFStruct, activity_event
 ---@field _type _activity_event_discuss_topicst
 ---@field participants activity_event_participants
 ---@field site_id number References: `world_site`
@@ -1783,12 +1732,11 @@ df.activity_event_ponder_topicst = {}
 ---@field unk_2 number
 ---@field unk_3 number References: `historical_figure`
 
----@class _activity_event_discuss_topicst: DFCompound
+---@class _activity_event_discuss_topicst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_discuss_topicst = {}
 
----@class (exact) activity_event_readst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_readst: DFStruct, activity_event
 ---@field _type _activity_event_readst
 ---@field participants activity_event_participants
 ---@field building_id number
@@ -1797,24 +1745,22 @@ df.activity_event_discuss_topicst = {}
 ---@field state number 0 if not in progress, 1 if reading
 ---@field timer number
 
----@class _activity_event_readst: DFCompound
+---@class _activity_event_readst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_readst = {}
 
----@class (exact) activity_event_fill_service_orderst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_fill_service_orderst: DFStruct, activity_event
 ---@field _type _activity_event_fill_service_orderst
 ---@field histfig_id number References: `historical_figure`
 ---@field unit_id number References: `unit`
 ---@field occupation_id number References: `occupation`
 ---@field unk_1 number
 
----@class _activity_event_fill_service_orderst: DFCompound
+---@class _activity_event_fill_service_orderst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_fill_service_orderst = {}
 
----@class (exact) activity_event_writest: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_writest: DFStruct, activity_event
 ---@field _type _activity_event_writest
 ---@field participants activity_event_participants
 ---@field building_id number
@@ -1827,7 +1773,7 @@ df.activity_event_fill_service_orderst = {}
 ---@field mode activity_event_writest.T_mode
 ---@field knowledge knowledge_scholar_category_flag
 
----@class _activity_event_writest: DFCompound
+---@class _activity_event_writest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_writest = {}
 
@@ -1850,13 +1796,12 @@ df.activity_event_writest.T_unk_1 = {}
 ---| activity_event_writest.T_mode_keys
 ---| activity_event_writest.T_mode_values
 
----@class _activity_event_writest.T_mode: DFEnum
+---@class _activity_event_writest.T_mode: DFEnumType
 ---@field WriteAboutKnowledge 0
 ---@field [0] "WriteAboutKnowledge"
 df.activity_event_writest.T_mode = {}
 
----@class (exact) activity_event_copy_written_contentst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_copy_written_contentst: DFStruct, activity_event
 ---@field _type _activity_event_copy_written_contentst
 ---@field unit_id number References: `unit`
 ---@field histfig_id number References: `historical_figure`
@@ -1868,7 +1813,7 @@ df.activity_event_writest.T_mode = {}
 ---@field unk_1 number
 ---@field timer number
 
----@class _activity_event_copy_written_contentst: DFCompound
+---@class _activity_event_copy_written_contentst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_copy_written_contentst = {}
 
@@ -1891,8 +1836,7 @@ df.activity_event_copy_written_contentst = {}
 ---@field [0] "unk0"
 df.activity_event_copy_written_contentst.T_flagsmaybe = {}
 
----@class (exact) activity_event_teach_topicst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_teach_topicst: DFStruct, activity_event
 ---@field _type _activity_event_teach_topicst
 ---@field participants activity_event_participants
 ---@field unk_1 number
@@ -1905,24 +1849,22 @@ df.activity_event_copy_written_contentst.T_flagsmaybe = {}
 ---@field unk_8 number
 ---@field unk_9 number
 
----@class _activity_event_teach_topicst: DFCompound
+---@class _activity_event_teach_topicst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_teach_topicst = {}
 
----@class (exact) activity_event_playst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_playst: DFStruct, activity_event
 ---@field _type _activity_event_playst
 ---@field participants activity_event_participants
 ---@field unk_1 number
 ---@field unk_2 number[]
 ---@field unk_3 coord
 
----@class _activity_event_playst: DFCompound
+---@class _activity_event_playst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_playst = {}
 
----@class (exact) activity_event_make_believest: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_make_believest: DFStruct, activity_event
 ---@field _type _activity_event_make_believest
 ---@field participants activity_event_participants
 ---@field unk_1 number
@@ -1931,12 +1873,11 @@ df.activity_event_playst = {}
 ---@field unk_4 number[]
 ---@field unk_5 coord
 
----@class _activity_event_make_believest: DFCompound
+---@class _activity_event_make_believest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_make_believest = {}
 
----@class (exact) activity_event_play_with_toyst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_play_with_toyst: DFStruct, activity_event
 ---@field _type _activity_event_play_with_toyst
 ---@field participants activity_event_participants
 ---@field unk_1 number
@@ -1946,22 +1887,20 @@ df.activity_event_make_believest = {}
 ---@field unk_4 number
 ---@field unk_5 DFIntegerVector
 
----@class _activity_event_play_with_toyst: DFCompound
+---@class _activity_event_play_with_toyst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_play_with_toyst = {}
 
----@class (exact) activity_event_play_with_toyst.T_unk: DFObject
----@field _kind 'struct'
+---@class (exact) activity_event_play_with_toyst.T_unk: DFStruct
 ---@field _type _activity_event_play_with_toyst.T_unk
 ---@field unk_1 number[]
 ---@field unk_2 coord
 
----@class _activity_event_play_with_toyst.T_unk: DFCompound
+---@class _activity_event_play_with_toyst.T_unk: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_event_play_with_toyst.T_unk = {}
 
----@class (exact) activity_event_encounterst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_encounterst: DFStruct, activity_event
 ---@field _type _activity_event_encounterst
 ---@field unk_1 _activity_event_encounterst_unk_1
 ---@field unk_2 _activity_event_encounterst_unk_2
@@ -1973,7 +1912,7 @@ df.activity_event_play_with_toyst.T_unk = {}
 ---@field unk_8 number
 ---@field unk_9 number
 
----@class _activity_event_encounterst: DFCompound
+---@class _activity_event_encounterst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_encounterst = {}
 
@@ -2009,8 +1948,7 @@ function _activity_event_encounterst_unk_2:insert(index, item) end
 ---@param index integer 
 function _activity_event_encounterst_unk_2:erase(index) end
 
----@class (exact) activity_event_store_objectst: DFObject, activity_event
----@field _kind 'struct'
+---@class (exact) activity_event_store_objectst: DFStruct, activity_event
 ---@field _type _activity_event_store_objectst
 ---@field unk_1 number
 ---@field unk_2 coord
@@ -2018,18 +1956,17 @@ function _activity_event_encounterst_unk_2:erase(index) end
 ---@field unk_3 number
 ---@field unk_4 number
 
----@class _activity_event_store_objectst: DFCompound
+---@class _activity_event_store_objectst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_store_objectst = {}
 
----@class (exact) schedule_info: DFObject
----@field _kind 'struct'
+---@class (exact) schedule_info: DFStruct
 ---@field _type _schedule_info
 ---@field id number
 ---@field unk_1 number
 ---@field slots _schedule_info_slots
 
----@class _schedule_info: DFCompound
+---@class _schedule_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.schedule_info = {}
 
@@ -2058,8 +1995,7 @@ function _schedule_info_slots:insert(index, item) end
 ---@param index integer 
 function _schedule_info_slots:erase(index) end
 
----@class (exact) schedule_slot: DFObject
----@field _kind 'struct'
+---@class (exact) schedule_slot: DFStruct
 ---@field _type _schedule_slot
 ---@field type number 0:Eat, 1:Sleep, 2-4:???
 ---@field start_time number
@@ -2067,7 +2003,7 @@ function _schedule_info_slots:erase(index) end
 ---@field unk_1 number
 ---@field processed number
 
----@class _schedule_slot: DFCompound
+---@class _schedule_slot: DFCompoundType
 ---@field _kind 'struct-type'
 df.schedule_slot = {}
 

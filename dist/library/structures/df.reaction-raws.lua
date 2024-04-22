@@ -15,7 +15,7 @@
 ---| reaction_flags_keys
 ---| reaction_flags_values
 
----@class _reaction_flags: DFEnum
+---@class _reaction_flags: DFEnumType
 ---@field FUEL 0
 ---@field [0] "FUEL"
 ---@field AUTOMATIC 1
@@ -24,8 +24,7 @@
 ---@field [2] "ADVENTURE_MODE_ENABLED"
 df.reaction_flags = {}
 
----@class (exact) reaction: DFObject
----@field _kind 'struct'
+---@class (exact) reaction: DFStruct
 ---@field _type _reaction
 ---@field code string
 ---@field name string
@@ -46,7 +45,7 @@ df.reaction_flags = {}
 ---@field unk_1 number
 ---@field exp_gain number
 
----@class _reaction: DFCompound
+---@class _reaction: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction = {}
 
@@ -107,8 +106,7 @@ function _reaction_products:insert(index, item) end
 ---@param index integer 
 function _reaction_products:erase(index) end
 
----@class (exact) reaction.T_building: DFObject
----@field _kind 'struct'
+---@class (exact) reaction.T_building: DFStruct
 ---@field _type _reaction.T_building
 ---@field str string[]
 ---@field type _reaction_building_type
@@ -116,7 +114,7 @@ function _reaction_products:erase(index) end
 ---@field custom DFNumberVector
 ---@field hotkey DFNumberVector
 
----@class _reaction.T_building: DFCompound
+---@class _reaction.T_building: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction.T_building = {}
 
@@ -152,8 +150,7 @@ function _reaction_descriptions:insert(index, item) end
 ---@param index integer 
 function _reaction_descriptions:erase(index) end
 
----@class (exact) reaction_category: DFObject
----@field _kind 'struct'
+---@class (exact) reaction_category: DFStruct
 ---@field _type _reaction_category
 ---@field id string
 ---@field parent string
@@ -161,18 +158,17 @@ function _reaction_descriptions:erase(index) end
 ---@field key number
 ---@field description string
 
----@class _reaction_category: DFCompound
+---@class _reaction_category: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_category = {}
 
----@class (exact) reaction_description: DFObject
----@field _kind 'struct'
+---@class (exact) reaction_description: DFStruct
 ---@field _type _reaction_description
 ---@field unk_1 string
 ---@field item_type item_type
 ---@field unk_2 string
 
----@class _reaction_description: DFCompound
+---@class _reaction_description: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_description = {}
 
@@ -186,19 +182,18 @@ df.reaction_description = {}
 ---| reaction_reagent_type_keys
 ---| reaction_reagent_type_values
 
----@class _reaction_reagent_type: DFEnum
+---@class _reaction_reagent_type: DFEnumType
 ---@field item 0
 ---@field [0] "item"
 df.reaction_reagent_type = {}
 
----@class (exact) reaction_reagent: DFObject
----@field _kind 'struct'
+---@class (exact) reaction_reagent: DFStruct
 ---@field _type _reaction_reagent
 ---@field code string
 ---@field quantity number
 ---@field flags reaction_reagent_flags
 
----@class _reaction_reagent: DFCompound
+---@class _reaction_reagent: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_reagent = {}
 
@@ -220,8 +215,7 @@ df.reaction_reagent = {}
 ---@field [2] "DOES_NOT_DETERMINE_PRODUCT_AMOUNT"
 df.reaction_reagent_flags = {}
 
----@class (exact) reaction_reagent_itemst: DFObject, reaction_reagent
----@field _kind 'struct'
+---@class (exact) reaction_reagent_itemst: DFStruct, reaction_reagent
 ---@field _type _reaction_reagent_itemst
 ---@field item_type item_type
 ---@field item_subtype number
@@ -243,7 +237,7 @@ df.reaction_reagent_flags = {}
 ---@field metal_ore_str string
 ---@field contains_str DFStringVector
 
----@class _reaction_reagent_itemst: DFCompound
+---@class _reaction_reagent_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_reagent_itemst = {}
 
@@ -259,20 +253,19 @@ df.reaction_reagent_itemst = {}
 ---| reaction_product_type_keys
 ---| reaction_product_type_values
 
----@class _reaction_product_type: DFEnum
+---@class _reaction_product_type: DFEnumType
 ---@field item 0
 ---@field [0] "item"
 ---@field improvement 1
 ---@field [1] "improvement"
 df.reaction_product_type = {}
 
----@class (exact) reaction_product: DFObject
----@field _kind 'struct'
+---@class (exact) reaction_product: DFStruct
 ---@field _type _reaction_product
 ---@field product_token string
 ---@field product_to_container string
 
----@class _reaction_product: DFCompound
+---@class _reaction_product: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_product = {}
 
@@ -296,7 +289,7 @@ df.reaction_product = {}
 ---| reaction_product_item_flags_keys
 ---| reaction_product_item_flags_values
 
----@class _reaction_product_item_flags: DFEnum
+---@class _reaction_product_item_flags: DFEnumType
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1
@@ -311,8 +304,7 @@ df.reaction_product = {}
 ---@field [5] "CRAFTS"
 df.reaction_product_item_flags = {}
 
----@class (exact) reaction_product_itemst: DFObject, reaction_product
----@field _kind 'struct'
+---@class (exact) reaction_product_itemst: DFStruct, reaction_product
 ---@field _type _reaction_product_itemst
 ---@field item_type item_type
 ---@field item_subtype number
@@ -326,7 +318,7 @@ df.reaction_product_item_flags = {}
 ---@field item_str string[]
 ---@field material_str string[]
 
----@class _reaction_product_itemst: DFCompound
+---@class _reaction_product_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_product_itemst = {}
 
@@ -346,13 +338,12 @@ function _reaction_product_itemst_flags:insert(index, item) end
 ---@param index integer 
 function _reaction_product_itemst_flags:erase(index) end
 
----@class (exact) reaction_product_itemst.T_get_material: DFObject
----@field _kind 'struct'
+---@class (exact) reaction_product_itemst.T_get_material: DFStruct
 ---@field _type _reaction_product_itemst.T_get_material
 ---@field reagent_code string
 ---@field product_code string
 
----@class _reaction_product_itemst.T_get_material: DFCompound
+---@class _reaction_product_itemst.T_get_material: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_product_itemst.T_get_material = {}
 
@@ -370,7 +361,7 @@ df.reaction_product_itemst.T_get_material = {}
 ---| reaction_product_improvement_flags_keys
 ---| reaction_product_improvement_flags_values
 
----@class _reaction_product_improvement_flags: DFEnum
+---@class _reaction_product_improvement_flags: DFEnumType
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1
@@ -379,8 +370,7 @@ df.reaction_product_itemst.T_get_material = {}
 ---@field [2] "GLAZED"
 df.reaction_product_improvement_flags = {}
 
----@class (exact) reaction_product_item_improvementst: DFObject, reaction_product
----@field _kind 'struct'
+---@class (exact) reaction_product_item_improvementst: DFStruct, reaction_product
 ---@field _type _reaction_product_item_improvementst
 ---@field target_reagent string
 ---@field improvement_type improvement_type
@@ -393,7 +383,7 @@ df.reaction_product_improvement_flags = {}
 ---@field material_str string[]
 ---@field unk_v4201_2 string
 
----@class _reaction_product_item_improvementst: DFCompound
+---@class _reaction_product_item_improvementst: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_product_item_improvementst = {}
 
@@ -413,13 +403,12 @@ function _reaction_product_item_improvementst_flags:insert(index, item) end
 ---@param index integer 
 function _reaction_product_item_improvementst_flags:erase(index) end
 
----@class (exact) reaction_product_item_improvementst.T_get_material: DFObject
----@field _kind 'struct'
+---@class (exact) reaction_product_item_improvementst.T_get_material: DFStruct
 ---@field _type _reaction_product_item_improvementst.T_get_material
 ---@field reagent_code string
 ---@field product_code string
 
----@class _reaction_product_item_improvementst.T_get_material: DFCompound
+---@class _reaction_product_item_improvementst.T_get_material: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_product_item_improvementst.T_get_material = {}
 

@@ -157,7 +157,7 @@
 ---| entity_raw_flags_keys
 ---| entity_raw_flags_values
 
----@class _entity_raw_flags: DFEnum
+---@class _entity_raw_flags: DFEnumType
 ---@field CIV_CONTROLLABLE 0
 ---@field [0] "CIV_CONTROLLABLE"
 ---@field INDIV_CONTROLLABLE 1
@@ -336,7 +336,7 @@ df.entity_raw_flags = {}
 ---| site_type_keys
 ---| site_type_values
 
----@class _site_type: DFEnum
+---@class _site_type: DFEnumType
 ---@field PLAYER_FORTRESS 0
 ---@field [0] "PLAYER_FORTRESS"
 ---@field DARK_FORTRESS 1
@@ -409,7 +409,7 @@ df.site_type = {}
 ---| ethic_type_keys
 ---| ethic_type_values
 
----@class _ethic_type: DFEnum
+---@class _ethic_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field KILL_ENTITY_MEMBER 0
@@ -500,7 +500,7 @@ df.ethic_type = {}
 ---| ethic_response_keys
 ---| ethic_response_values
 
----@class _ethic_response: DFEnum
+---@class _ethic_response: DFEnumType
 ---@field NOT_APPLICABLE 0
 ---@field [0] "NOT_APPLICABLE"
 ---@field ACCEPTABLE 1
@@ -583,7 +583,7 @@ df.ethic_response = {}
 ---| entity_name_type_keys
 ---| entity_name_type_values
 
----@class _entity_name_type: DFEnum
+---@class _entity_name_type: DFEnumType
 ---@field OTHER 0
 ---@field [0] "OTHER"
 ---@field CIV 1
@@ -624,8 +624,7 @@ df.ethic_response = {}
 ---@field [18] "HOSPITAL"
 df.entity_name_type = {}
 
----@class (exact) entity_raw: DFObject
----@field _kind 'struct'
+---@class (exact) entity_raw: DFStruct
 ---@field _type _entity_raw
 ---@field code string
 ---@field index number into instace-vector
@@ -677,7 +676,7 @@ df.entity_name_type = {}
 ---@field currency_str2 DFStringVector
 ---@field animal _entity_raw_animal
 
----@class _entity_raw: DFCompound
+---@class _entity_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw = {}
 
@@ -690,8 +689,7 @@ function df.entity_raw.find(key) end
 ---@return entity_raw_vector # df.global.world.raws.entities
 function df.entity_raw.get_vector() end
 
----@class (exact) entity_raw.T_equipment: DFObject
----@field _kind 'struct'
+---@class (exact) entity_raw.T_equipment: DFStruct
 ---@field _type _entity_raw.T_equipment
 ---@field digger_id DFNumberVector
 ---@field weapon_id DFNumberVector
@@ -727,7 +725,7 @@ function df.entity_raw.get_vector() end
 ---@field siegeammo_str DFStringVector
 ---@field tool_str DFStringVector
 
----@class _entity_raw.T_equipment: DFCompound
+---@class _entity_raw.T_equipment: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_equipment = {}
 
@@ -747,8 +745,7 @@ function _entity_raw_flags:insert(index, item) end
 ---@param index integer 
 function _entity_raw_flags:erase(index) end
 
----@class (exact) entity_raw.T_symbols: DFObject
----@field _kind 'struct'
+---@class (exact) entity_raw.T_symbols: DFStruct
 ---@field _type _entity_raw.T_symbols
 ---@field symbols1 DFEnumVector<entity_name_type, language_word_table>
 ---@field symbols2 DFEnumVector<entity_name_type, language_word_table>
@@ -756,12 +753,11 @@ function _entity_raw_flags:erase(index) end
 ---@field subselect_symbol DFEnumVector<entity_name_type, string>
 ---@field cull_symbol DFEnumVector<entity_name_type, string>
 
----@class _entity_raw.T_symbols: DFCompound
+---@class _entity_raw.T_symbols: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_symbols = {}
 
----@class (exact) entity_raw.T_progress_trigger: DFObject
----@field _kind 'struct'
+---@class (exact) entity_raw.T_progress_trigger: DFStruct
 ---@field _type _entity_raw.T_progress_trigger
 ---@field population number
 ---@field production number
@@ -770,7 +766,7 @@ df.entity_raw.T_symbols = {}
 ---@field prod_siege number
 ---@field trade_siege number
 
----@class _entity_raw.T_progress_trigger: DFCompound
+---@class _entity_raw.T_progress_trigger: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_progress_trigger = {}
 
@@ -832,14 +828,13 @@ function _entity_raw_religion_sphere:insert(index, item) end
 ---@param index integer 
 function _entity_raw_religion_sphere:erase(index) end
 
----@class (exact) entity_raw.T_jobs: DFObject
----@field _kind 'struct'
+---@class (exact) entity_raw.T_jobs: DFStruct
 ---@field _type _entity_raw.T_jobs
 ---@field permitted_job DFEnumVector<profession, boolean>
 ---@field permitted_labor DFEnumVector<unit_labor, boolean>
 ---@field world_construction DFEnumVector<world_construction_type, boolean>
 
----@class _entity_raw.T_jobs: DFCompound
+---@class _entity_raw.T_jobs: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_jobs = {}
 
@@ -875,15 +870,14 @@ function _entity_raw_tissue_styles:insert(index, item) end
 ---@param index integer 
 function _entity_raw_tissue_styles:erase(index) end
 
----@class (exact) entity_raw.T_workshops: DFObject
----@field _kind 'struct'
+---@class (exact) entity_raw.T_workshops: DFStruct
 ---@field _type _entity_raw.T_workshops
 ---@field permitted_building_str DFStringVector
 ---@field permitted_building_id DFNumberVector
 ---@field permitted_reaction_str DFStringVector
 ---@field permitted_reaction_id DFNumberVector
 
----@class _entity_raw.T_workshops: DFCompound
+---@class _entity_raw.T_workshops: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_workshops = {}
 
@@ -903,8 +897,7 @@ function _entity_raw_animal:insert(index, item) end
 ---@param index integer 
 function _entity_raw_animal:erase(index) end
 
----@class (exact) entity_animal_raw: DFObject
----@field _kind 'struct'
+---@class (exact) entity_animal_raw: DFStruct
 ---@field _type _entity_animal_raw
 ---@field token string
 ---@field caste_token DFStringVector
@@ -912,7 +905,7 @@ function _entity_raw_animal:erase(index) end
 ---@field forbidden_class DFStringVector
 ---@field flags entity_animal_raw.T_flags
 
----@class _entity_animal_raw: DFCompound
+---@class _entity_animal_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_animal_raw = {}
 
@@ -1024,7 +1017,7 @@ df.entity_animal_raw.T_flags = {}
 ---| entity_position_raw_flags_keys
 ---| entity_position_raw_flags_values
 
----@class _entity_position_raw_flags: DFEnum
+---@class _entity_position_raw_flags: DFEnumType
 ---@field SITE 0
 ---@field [0] "SITE"
 ---@field ELECTED 1
@@ -1173,7 +1166,7 @@ df.entity_position_raw_flags = {}
 ---| entity_position_responsibility_keys
 ---| entity_position_responsibility_values
 
----@class _entity_position_responsibility: DFEnum
+---@class _entity_position_responsibility: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LAW_MAKING 0
@@ -1264,8 +1257,7 @@ df.entity_position_raw_flags = {}
 ---@field [42] "DELIVER_MESSAGES"
 df.entity_position_responsibility = {}
 
----@class (exact) entity_position_raw: DFObject
----@field _kind 'struct'
+---@class (exact) entity_position_raw: DFStruct
 ---@field _type _entity_position_raw
 ---@field code string
 ---@field id number
@@ -1312,7 +1304,7 @@ df.entity_position_responsibility = {}
 ---@field mandate_max number
 ---@field demand_max number
 
----@class _entity_position_raw: DFCompound
+---@class _entity_position_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position_raw = {}
 

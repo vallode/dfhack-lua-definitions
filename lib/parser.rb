@@ -134,7 +134,7 @@ module DFHackLuaDefinitions
     end
 
     def to_attrs
-      annotation = "---@class #{@class_name}_attr_entry_type: DFCompound\n"
+      annotation = "---@class #{@class_name}_attr_entry_type: DFCompoundType\n"
       annotation << "---@field _kind 'struct-type'\n"
       annotation << "df.#{@class_name}._attr_entry_type = {}\n\n"
       annotation << attribute_fields
@@ -153,7 +153,7 @@ module DFHackLuaDefinitions
       annotation << to_alias
       annotation << "\n"
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@class _#{@class_name}: DFEnum\n"
+      annotation << "---@class _#{@class_name}: DFEnumType\n"
 
       @items.each do |item|
         annotation << item.to_field
@@ -369,7 +369,7 @@ module DFHackLuaDefinitions
     def to_object
       annotation = ''
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@class (exact) #{@class_name}: DFObject"
+      annotation << "---@class (exact) #{@class_name}: DFStruct"
 
       if @class
         annotation << ", #{@class}\n" if @class
@@ -377,7 +377,6 @@ module DFHackLuaDefinitions
         annotation << "\n"
       end
 
-      annotation << "---@field _kind 'struct'\n"
       annotation << "---@field _type _#{@class_name}\n"
       @fields.each do |field|
         annotation << field.to_field if field
@@ -398,7 +397,7 @@ module DFHackLuaDefinitions
     end
 
     def to_type
-      annotation = "---@class _#{@class_name}: DFCompound\n"
+      annotation = "---@class _#{@class_name}: DFCompoundType\n"
       annotation << "---@field _kind '#{KIND_MAP[node['ld:meta']]}'\n"
       annotation << "df.#{@class_name} = {}\n\n"
       annotation << instance_vector_functions if @node['instance-vector']

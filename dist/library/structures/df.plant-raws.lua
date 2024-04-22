@@ -185,7 +185,7 @@
 ---| plant_raw_flags_keys
 ---| plant_raw_flags_values
 
----@class _plant_raw_flags: DFEnum
+---@class _plant_raw_flags: DFEnumType
 ---@field SPRING 0
 ---@field [0] "SPRING"
 ---@field SUMMER 1
@@ -350,8 +350,7 @@
 ---@field [87] "TWIGS_BELOW_TRUNK"
 df.plant_raw_flags = {}
 
----@class (exact) plant_raw: DFObject
----@field _kind 'struct'
+---@class (exact) plant_raw: DFStruct
 ---@field _type _plant_raw
 ---@field id string
 ---@field index number
@@ -406,7 +405,7 @@ df.plant_raw_flags = {}
 ---@field stockpile_growths DFNumberVector indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
 ---@field stockpile_growth_flags _plant_raw_stockpile_growth_flags
 
----@class _plant_raw: DFCompound
+---@class _plant_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw = {}
 
@@ -435,8 +434,7 @@ function _plant_raw_flags:insert(index, item) end
 ---@param index integer 
 function _plant_raw_flags:erase(index) end
 
----@class (exact) plant_raw.T_tiles: DFObject
----@field _kind 'struct'
+---@class (exact) plant_raw.T_tiles: DFStruct
 ---@field _type _plant_raw.T_tiles
 ---@field picked_tile integer
 ---@field dead_picked_tile integer
@@ -451,12 +449,11 @@ function _plant_raw_flags:erase(index) end
 ---@field tree_tiles integer[]
 ---@field unk_v50_1 integer[]
 
----@class _plant_raw.T_tiles: DFCompound
+---@class _plant_raw.T_tiles: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_tiles = {}
 
----@class (exact) plant_raw.T_colors: DFObject
----@field _kind 'struct'
+---@class (exact) plant_raw.T_colors: DFStruct
 ---@field _type _plant_raw.T_colors
 ---@field picked_color number[]
 ---@field dead_picked_color number[]
@@ -471,7 +468,7 @@ df.plant_raw.T_tiles = {}
 ---@field grass_colors_1 number[]
 ---@field grass_colors_2 number[]
 
----@class _plant_raw.T_colors: DFCompound
+---@class _plant_raw.T_colors: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_colors = {}
 
@@ -491,14 +488,13 @@ function _plant_raw_material:insert(index, item) end
 ---@param index integer 
 function _plant_raw_material:erase(index) end
 
----@class (exact) plant_raw.T_material_defs: DFObject
----@field _kind 'struct'
+---@class (exact) plant_raw.T_material_defs: DFStruct
 ---@field _type _plant_raw.T_material_defs
 ---@field type DFEnumVector<plant_material_def, number>
 ---@field idx DFEnumVector<plant_material_def, number>
 ---@field str DFEnumVector<plant_material_def, string[]>
 
----@class _plant_raw.T_material_defs: DFCompound
+---@class _plant_raw.T_material_defs: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_material_defs = {}
 
@@ -574,7 +570,7 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---| plant_material_def_keys
 ---| plant_material_def_values
 
----@class _plant_material_def: DFEnum
+---@class _plant_material_def: DFEnumType
 ---@field basic_mat 0 TODO: is this the same as another existing enum?
 ---@field [0] "basic_mat" TODO: is this the same as another existing enum?
 ---@field tree 1
@@ -595,8 +591,7 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---@field [8] "extract_still_vial"
 df.plant_material_def = {}
 
----@class (exact) plant_growth: DFObject
----@field _kind 'struct'
+---@class (exact) plant_growth: DFStruct
 ---@field _type _plant_growth
 ---@field id string
 ---@field name string
@@ -620,7 +615,7 @@ df.plant_material_def = {}
 ---@field trunk_height_perc_1 number
 ---@field trunk_height_perc_2 number
 
----@class _plant_growth: DFCompound
+---@class _plant_growth: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_growth = {}
 
@@ -692,8 +687,7 @@ df.plant_growth.T_locations = {}
 ---@field [2] "has_seed"
 df.plant_growth.T_behavior = {}
 
----@class (exact) plant_growth_print: DFObject
----@field _kind 'struct'
+---@class (exact) plant_growth_print: DFStruct
 ---@field _type _plant_growth_print
 ---@field priority number final token in list
 ---@field tile_growth integer
@@ -702,7 +696,7 @@ df.plant_growth.T_behavior = {}
 ---@field timing_start number
 ---@field timing_end number
 
----@class _plant_growth_print: DFCompound
+---@class _plant_growth_print: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_growth_print = {}
 

@@ -121,7 +121,7 @@
 ---| building_type_keys
 ---| building_type_values
 
----@class _building_type: DFEnum
+---@class _building_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Chair 0
@@ -236,7 +236,7 @@
 ---@field [54] "OfferingPlace"
 df.building_type = {}
 
----@class building_type_attr_entry_type: DFCompound
+---@class building_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_type._attr_entry_type = {}
 
@@ -413,7 +413,7 @@ df.gate_flags = {}
 ---| building_extents_type_keys
 ---| building_extents_type_values
 
----@class _building_extents_type: DFEnum
+---@class _building_extents_type: DFEnumType
 ---@field None 0
 ---@field [0] "None"
 ---@field Stockpile 1
@@ -426,8 +426,7 @@ df.gate_flags = {}
 ---@field [4] "DistanceBoundary"
 df.building_extents_type = {}
 
----@class (exact) building_extents: DFObject
----@field _kind 'struct'
+---@class (exact) building_extents: DFStruct
 ---@field _type _building_extents
 ---@field extents DFPointer<integer>
 ---@field x number
@@ -435,12 +434,11 @@ df.building_extents_type = {}
 ---@field width number
 ---@field height number
 
----@class _building_extents: DFCompound
+---@class _building_extents: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_extents = {}
 
----@class (exact) building_drawbuffer: DFObject
----@field _kind 'struct'
+---@class (exact) building_drawbuffer: DFStruct
 ---@field _type _building_drawbuffer
 ---@field signpost_texpos number[]
 ---@field building_one_texpos number[][]
@@ -455,12 +453,11 @@ df.building_extents = {}
 ---@field y1 number
 ---@field y2 number
 
----@class _building_drawbuffer: DFCompound
+---@class _building_drawbuffer: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_drawbuffer = {}
 
----@class (exact) building: DFObject
----@field _kind 'struct'
+---@class (exact) building: DFStruct
 ---@field _type _building
 ---@field x1 number top left
 ---@field y1 number
@@ -489,7 +486,7 @@ df.building_drawbuffer = {}
 ---@field site_id number References: `world_site`
 ---@field location_id number References: `abstract_building`
 
----@class _building: DFCompound
+---@class _building: DFCompoundType
 ---@field _kind 'class-type'
 df.building = {}
 
@@ -599,15 +596,14 @@ function _building_activities:insert(index, item) end
 function _building_activities:erase(index) end
 
 -- stockpile --
----@class (exact) stockpile_links: DFObject
----@field _kind 'struct'
+---@class (exact) stockpile_links: DFStruct
 ---@field _type _stockpile_links
 ---@field give_to_pile _stockpile_links_give_to_pile
 ---@field take_from_pile _stockpile_links_take_from_pile
 ---@field give_to_workshop _stockpile_links_give_to_workshop
 ---@field take_from_workshop _stockpile_links_take_from_workshop
 
----@class _stockpile_links: DFCompound
+---@class _stockpile_links: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_links = {}
 
@@ -675,8 +671,7 @@ function _stockpile_links_take_from_workshop:insert(index, item) end
 ---@param index integer 
 function _stockpile_links_take_from_workshop:erase(index) end
 
----@class (exact) building_stockpilest: DFObject, building
----@field _kind 'struct'
+---@class (exact) building_stockpilest: DFStruct, building
 ---@field _type _building_stockpilest
 ---@field settings stockpile_settings
 ---@field max_barrels number
@@ -691,7 +686,7 @@ function _stockpile_links_take_from_workshop:erase(index) end
 ---@field stockpile_number number
 ---@field linked_stops _building_stockpilest_linked_stops
 
----@class _building_stockpilest: DFCompound
+---@class _building_stockpilest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_stockpilest = {}
 
@@ -728,8 +723,7 @@ function _building_stockpilest_linked_stops:insert(index, item) end
 function _building_stockpilest_linked_stops:erase(index) end
 
 -- zone --
----@class (exact) hospital_supplies: DFObject
----@field _kind 'struct'
+---@class (exact) hospital_supplies: DFStruct
 ---@field _type _hospital_supplies
 ---@field supplies_needed hospital_supplies.T_supplies_needed
 ---@field max_splints number
@@ -748,7 +742,7 @@ function _building_stockpilest_linked_stops:erase(index) end
 ---@field cur_soap number
 ---@field supply_recheck_timer number
 
----@class _hospital_supplies: DFCompound
+---@class _hospital_supplies: DFCompoundType
 ---@field _kind 'struct-type'
 df.hospital_supplies = {}
 
@@ -990,7 +984,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| civzone_type_keys
 ---| civzone_type_values
 
----@class _civzone_type: DFEnum
+---@class _civzone_type: DFEnumType
 ---@field Home 0
 ---@field [0] "Home"
 ---@field Depot 1
@@ -1165,8 +1159,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [97] "Tomb"
 df.civzone_type = {}
 
----@class (exact) building_civzonest: DFObject, building
----@field _kind 'struct'
+---@class (exact) building_civzonest: DFStruct, building
 ---@field _type _building_civzonest
 ---@field assigned_units DFNumberVector
 ---@field assigned_items DFNumberVector
@@ -1179,12 +1172,11 @@ df.civzone_type = {}
 ---@field assigned_unit unit
 ---@field squad_room_info _building_civzonest_squad_room_info
 
----@class _building_civzonest: DFCompound
+---@class _building_civzonest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_civzonest = {}
 
----@class (exact) building_civzonest.T_zone_settings: DFObject
----@field _kind 'struct'
+---@class (exact) building_civzonest.T_zone_settings: DFStruct
 ---@field _type _building_civzonest.T_zone_settings
 ---@field whole building_civzonest.T_zone_settings.T_whole
 ---@field gather building_civzonest.T_zone_settings.T_gather
@@ -1193,17 +1185,16 @@ df.building_civzonest = {}
 ---@field archery building_civzonest.T_zone_settings.T_archery
 ---@field pit_pond building_civzonest.T_zone_settings.T_pit_pond
 
----@class _building_civzonest.T_zone_settings: DFCompound
+---@class _building_civzonest.T_zone_settings: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings = {}
 
----@class (exact) building_civzonest.T_zone_settings.T_whole: DFObject
----@field _kind 'struct'
+---@class (exact) building_civzonest.T_zone_settings.T_whole: DFStruct
 ---@field _type _building_civzonest.T_zone_settings.T_whole
 ---@field i1 number
 ---@field i2 number
 
----@class _building_civzonest.T_zone_settings.T_whole: DFCompound
+---@class _building_civzonest.T_zone_settings.T_whole: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_whole = {}
 
@@ -1225,12 +1216,11 @@ df.building_civzonest.T_zone_settings.T_whole = {}
 ---@field [2] "gather_fallen"
 df.building_civzonest.T_zone_settings.T_gather = {}
 
----@class (exact) building_civzonest.T_zone_settings.T_pen: DFObject
----@field _kind 'struct'
+---@class (exact) building_civzonest.T_zone_settings.T_pen: DFStruct
 ---@field _type _building_civzonest.T_zone_settings.T_pen
 ---@field unk number
 
----@class _building_civzonest.T_zone_settings.T_pen: DFCompound
+---@class _building_civzonest.T_zone_settings.T_pen: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_pen = {}
 
@@ -1248,13 +1238,12 @@ df.building_civzonest.T_zone_settings.T_pen = {}
 ---@field [1] "no_citizens"
 df.building_civzonest.T_zone_settings.T_tomb = {}
 
----@class (exact) building_civzonest.T_zone_settings.T_archery: DFObject
----@field _kind 'struct'
+---@class (exact) building_civzonest.T_zone_settings.T_archery: DFStruct
 ---@field _type _building_civzonest.T_zone_settings.T_archery
 ---@field dir_x number
 ---@field dir_y number
 
----@class _building_civzonest.T_zone_settings.T_archery: DFCompound
+---@class _building_civzonest.T_zone_settings.T_archery: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_archery = {}
 
@@ -1270,7 +1259,7 @@ df.building_civzonest.T_zone_settings.T_archery = {}
 ---| building_civzonest.T_zone_settings.T_pit_pond_keys
 ---| building_civzonest.T_zone_settings.T_pit_pond_values
 
----@class _building_civzonest.T_zone_settings.T_pit_pond: DFEnum
+---@class _building_civzonest.T_zone_settings.T_pit_pond: DFEnumType
 ---@field top_of_pit 2
 ---@field [2] "top_of_pit"
 ---@field top_of_pond 3
@@ -1324,7 +1313,7 @@ function _building_civzonest_squad_room_info:erase(index) end
 ---| building_item_role_type_values
 
 -- actual --
----@class _building_item_role_type: DFEnum
+---@class _building_item_role_type: DFEnumType
 ---@field TEMP 0
 ---@field [0] "TEMP"
 ---@field TEMP_PRINTHIDDEN 1
@@ -1333,14 +1322,13 @@ function _building_civzonest_squad_room_info:erase(index) end
 ---@field [2] "PERM"
 df.building_item_role_type = {}
 
----@class (exact) building_actual: DFObject, building
----@field _kind 'struct'
+---@class (exact) building_actual: DFStruct, building
 ---@field _type _building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
 ---@field contained_items _building_actual_contained_items
 ---@field design building_design
 
----@class _building_actual: DFCompound
+---@class _building_actual: DFCompoundType
 ---@field _kind 'class-type'
 df.building_actual = {}
 
@@ -1360,8 +1348,7 @@ function _building_actual_contained_items:insert(index, item) end
 ---@param index integer 
 function _building_actual_contained_items:erase(index) end
 
----@class (exact) building_design: DFObject
----@field _kind 'struct'
+---@class (exact) building_design: DFStruct
 ---@field _type _building_design
 ---@field builder1 number References: `historical_figure`
 ---@field unk5 number
@@ -1374,7 +1361,7 @@ function _building_actual_contained_items:erase(index) end
 ---@field hitpoints number
 ---@field max_hitpoints number
 
----@class _building_design: DFCompound
+---@class _building_design: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_design = {}
 
@@ -1421,7 +1408,7 @@ df.building_design.T_flags = {}
 ---| furnace_type_values
 
 -- workshops --
----@class _furnace_type: DFEnum
+---@class _furnace_type: DFEnumType
 ---@field WoodFurnace 0
 ---@field [0] "WoodFurnace"
 ---@field Smelter 1
@@ -1440,7 +1427,7 @@ df.building_design.T_flags = {}
 ---@field [7] "Custom"
 df.furnace_type = {}
 
----@class furnace_type_attr_entry_type: DFCompound
+---@class furnace_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.furnace_type._attr_entry_type = {}
 
@@ -1459,8 +1446,7 @@ df.furnace_type._attr_entry_type._fields = {}
 ---@field Custom { name: "Custom Furnace" }
 df.furnace_type.attrs = {}
 
----@class (exact) building_furnacest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_furnacest: DFStruct, building_actual
 ---@field _type _building_furnacest
 ---@field melt_remainder DFNumberVector
 ---@field unk_108 number
@@ -1468,7 +1454,7 @@ df.furnace_type.attrs = {}
 ---@field profile workshop_profile
 ---@field custom_type number References: `building_def`
 
----@class _building_furnacest: DFCompound
+---@class _building_furnacest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_furnacest = {}
 
@@ -1530,7 +1516,7 @@ df.building_furnacest = {}
 ---| workshop_type_keys
 ---| workshop_type_values
 
----@class _workshop_type: DFEnum
+---@class _workshop_type: DFEnumType
 ---@field Carpenters 0
 ---@field [0] "Carpenters"
 ---@field Farmers 1
@@ -1583,7 +1569,7 @@ df.building_furnacest = {}
 ---@field [24] "Tool"
 df.workshop_type = {}
 
----@class workshop_type_attr_entry_type: DFCompound
+---@class workshop_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.workshop_type._attr_entry_type = {}
 
@@ -1619,8 +1605,7 @@ df.workshop_type._attr_entry_type._fields = {}
 ---@field Tool { name: "Tool" }
 df.workshop_type.attrs = {}
 
----@class (exact) workshop_profile: DFObject
----@field _kind 'struct'
+---@class (exact) workshop_profile: DFStruct
 ---@field _type _workshop_profile
 ---@field permitted_workers DFNumberVector
 ---@field min_level number
@@ -1630,121 +1615,110 @@ df.workshop_type.attrs = {}
 ---@field block_general_orders boolean
 ---@field blocked_labors DFEnumVector<unit_labor, boolean>
 
----@class _workshop_profile: DFCompound
+---@class _workshop_profile: DFCompoundType
 ---@field _kind 'struct-type'
 df.workshop_profile = {}
 
----@class (exact) building_workshopst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_workshopst: DFStruct, building_actual
 ---@field _type _building_workshopst
 ---@field type workshop_type
 ---@field profile workshop_profile
 ---@field machine machine_info
 ---@field custom_type number References: `building_def`
 
----@class _building_workshopst: DFCompound
+---@class _building_workshopst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_workshopst = {}
 
 -- misc --
----@class (exact) building_animaltrapst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_animaltrapst: DFStruct, building_actual
 ---@field _type _building_animaltrapst
 ---@field bait_type number
 ---@field fill_timer number
 
----@class _building_animaltrapst: DFCompound
+---@class _building_animaltrapst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_animaltrapst = {}
 
----@class (exact) building_archerytargetst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_archerytargetst: DFStruct, building_actual
 ---@field _type _building_archerytargetst
 
----@class _building_archerytargetst: DFCompound
+---@class _building_archerytargetst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_archerytargetst = {}
 
----@class (exact) building_armorstandst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_armorstandst: DFStruct, building_actual
 ---@field _type _building_armorstandst
 ---@field unk_c0 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
----@class _building_armorstandst: DFCompound
+---@class _building_armorstandst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_armorstandst = {}
 
----@class (exact) building_bars_verticalst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_bars_verticalst: DFStruct, building_actual
 ---@field _type _building_bars_verticalst
 ---@field gate_flags gate_flags
 ---@field timer number
 
----@class _building_bars_verticalst: DFCompound
+---@class _building_bars_verticalst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bars_verticalst = {}
 
----@class (exact) building_bars_floorst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_bars_floorst: DFStruct, building_actual
 ---@field _type _building_bars_floorst
 ---@field gate_flags gate_flags
 ---@field timer number
 
----@class _building_bars_floorst: DFCompound
+---@class _building_bars_floorst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bars_floorst = {}
 
----@class (exact) building_users: DFObject
----@field _kind 'struct'
+---@class (exact) building_users: DFStruct
 ---@field _type _building_users
 ---@field unit DFNumberVector
 ---@field mode DFNumberVector
 
----@class _building_users: DFCompound
+---@class _building_users: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_users = {}
 
----@class (exact) building_bedst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_bedst: DFStruct, building_actual
 ---@field _type _building_bedst
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 ---@field users building_users
 
----@class _building_bedst: DFCompound
+---@class _building_bedst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bedst = {}
 
----@class (exact) building_bookcasest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_bookcasest: DFStruct, building_actual
 ---@field _type _building_bookcasest
 
----@class _building_bookcasest: DFCompound
+---@class _building_bookcasest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bookcasest = {}
 
----@class (exact) building_boxst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_boxst: DFStruct, building_actual
 ---@field _type _building_boxst
 ---@field unk_1 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
----@class _building_boxst: DFCompound
+---@class _building_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_boxst = {}
 
----@class (exact) building_bridgest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_bridgest: DFStruct, building_actual
 ---@field _type _building_bridgest
 ---@field gate_flags gate_flags
 ---@field timer number
 ---@field direction building_bridgest.T_direction
 ---@field material_amount number
 
----@class _building_bridgest: DFCompound
+---@class _building_bridgest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bridgest = {}
 
@@ -1766,7 +1740,7 @@ df.building_bridgest = {}
 ---| building_bridgest.T_direction_keys
 ---| building_bridgest.T_direction_values
 
----@class _building_bridgest.T_direction: DFEnum
+---@class _building_bridgest.T_direction: DFEnumType
 ---@field Retracting -1
 ---@field [-1] "Retracting"
 ---@field Left 0
@@ -1779,26 +1753,24 @@ df.building_bridgest = {}
 ---@field [3] "Down"
 df.building_bridgest.T_direction = {}
 
----@class (exact) building_cabinetst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_cabinetst: DFStruct, building_actual
 ---@field _type _building_cabinetst
 ---@field unk_1 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
----@class _building_cabinetst: DFCompound
+---@class _building_cabinetst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_cabinetst = {}
 
----@class (exact) building_cagest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_cagest: DFStruct, building_actual
 ---@field _type _building_cagest
 ---@field assigned_units DFNumberVector
 ---@field assigned_items DFNumberVector
 ---@field cage_flags building_cagest.T_cage_flags
 ---@field fill_timer number
 
----@class _building_cagest: DFCompound
+---@class _building_cagest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_cagest = {}
 
@@ -1812,14 +1784,13 @@ df.building_cagest = {}
 ---@field [0] "triggered"
 df.building_cagest.T_cage_flags = {}
 
----@class (exact) building_chainst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_chainst: DFStruct, building_actual
 ---@field _type _building_chainst
 ---@field assigned unit
 ---@field chained unit
 ---@field chain_flags building_chainst.T_chain_flags
 
----@class _building_chainst: DFCompound
+---@class _building_chainst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_chainst = {}
 
@@ -1833,21 +1804,19 @@ df.building_chainst = {}
 ---@field [0] "triggered"
 df.building_chainst.T_chain_flags = {}
 
----@class (exact) building_chairst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_chairst: DFStruct, building_actual
 ---@field _type _building_chairst
 ---@field unk_1 number
 ---@field users building_users
 
----@class _building_chairst: DFCompound
+---@class _building_chairst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_chairst = {}
 
----@class (exact) building_coffinst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_coffinst: DFStruct, building_actual
 ---@field _type _building_coffinst
 
----@class _building_coffinst: DFCompound
+---@class _building_coffinst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_coffinst = {}
 
@@ -1935,7 +1904,7 @@ df.building_coffinst = {}
 ---| construction_type_keys
 ---| construction_type_values
 
----@class _construction_type: DFEnum
+---@class _construction_type: DFEnumType
 ---@field NONE -1 unused
 ---@field [-1] "NONE" unused
 ---@field Fortification 0
@@ -2014,36 +1983,32 @@ df.building_coffinst = {}
 ---@field [36] "TrackRampNSEW"
 df.construction_type = {}
 
----@class (exact) building_constructionst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_constructionst: DFStruct, building_actual
 ---@field _type _building_constructionst
 ---@field type construction_type
 
----@class _building_constructionst: DFCompound
+---@class _building_constructionst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_constructionst = {}
 
----@class (exact) building_display_furniturest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_display_furniturest: DFStruct, building_actual
 ---@field _type _building_display_furniturest
 ---@field displayed_items DFNumberVector
 
----@class _building_display_furniturest: DFCompound
+---@class _building_display_furniturest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_display_furniturest = {}
 
----@class (exact) building_doorst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_doorst: DFStruct, building_actual
 ---@field _type _building_doorst
 ---@field door_flags door_flags
 ---@field close_timer number
 
----@class _building_doorst: DFCompound
+---@class _building_doorst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_doorst = {}
 
----@class (exact) building_farmplotst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_farmplotst: DFStruct, building_actual
 ---@field _type _building_farmplotst
 ---@field plant_id number[]
 ---@field material_amount number
@@ -2053,7 +2018,7 @@ df.building_doorst = {}
 ---@field max_fertilization number
 ---@field terrain_purge_timer number
 
----@class _building_farmplotst: DFCompound
+---@class _building_farmplotst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_farmplotst = {}
 
@@ -2067,43 +2032,39 @@ df.building_farmplotst = {}
 ---@field [0] "seasonal_fertilize"
 df.building_farmplotst.T_farm_flags = {}
 
----@class (exact) building_floodgatest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_floodgatest: DFStruct, building_actual
 ---@field _type _building_floodgatest
 ---@field gate_flags gate_flags
 ---@field timer number
 
----@class _building_floodgatest: DFCompound
+---@class _building_floodgatest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_floodgatest = {}
 
----@class (exact) building_grate_floorst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_grate_floorst: DFStruct, building_actual
 ---@field _type _building_grate_floorst
 ---@field gate_flags gate_flags
 ---@field timer number
 
----@class _building_grate_floorst: DFCompound
+---@class _building_grate_floorst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_grate_floorst = {}
 
----@class (exact) building_grate_wallst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_grate_wallst: DFStruct, building_actual
 ---@field _type _building_grate_wallst
 ---@field gate_flags gate_flags
 ---@field timer number
 
----@class _building_grate_wallst: DFCompound
+---@class _building_grate_wallst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_grate_wallst = {}
 
----@class (exact) building_hatchst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_hatchst: DFStruct, building_actual
 ---@field _type _building_hatchst
 ---@field door_flags door_flags
 ---@field close_timer number
 
----@class _building_hatchst: DFCompound
+---@class _building_hatchst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_hatchst = {}
 
@@ -2125,8 +2086,7 @@ df.building_hatchst = {}
 ---@field [2] "ready_split"
 df.hive_flags = {}
 
----@class (exact) building_hivest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_hivest: DFStruct, building_actual
 ---@field _type _building_hivest
 ---@field hive_flags hive_flags
 ---@field split_timer number up to 100800
@@ -2134,69 +2094,62 @@ df.hive_flags = {}
 ---@field install_timer number down from 1200
 ---@field gather_timer number down from 1200
 
----@class _building_hivest: DFCompound
+---@class _building_hivest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_hivest = {}
 
----@class (exact) building_instrumentst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_instrumentst: DFStruct, building_actual
 ---@field _type _building_instrumentst
 ---@field unk_1 number
 
----@class _building_instrumentst: DFCompound
+---@class _building_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_instrumentst = {}
 
----@class (exact) building_nestst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_nestst: DFStruct, building_actual
 ---@field _type _building_nestst
 
----@class _building_nestst: DFCompound
+---@class _building_nestst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_nestst = {}
 
----@class (exact) building_nest_boxst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_nest_boxst: DFStruct, building_actual
 ---@field _type _building_nest_boxst
 ---@field claimed_by number References: `unit`
 ---@field claim_timeout number counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
 
----@class _building_nest_boxst: DFCompound
+---@class _building_nest_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_nest_boxst = {}
 
----@class (exact) building_offering_placest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_offering_placest: DFStruct, building_actual
 ---@field _type _building_offering_placest
 
----@class _building_offering_placest: DFCompound
+---@class _building_offering_placest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_offering_placest = {}
 
----@class (exact) building_roadst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_roadst: DFStruct, building_actual
 ---@field _type _building_roadst
 
----@class _building_roadst: DFCompound
+---@class _building_roadst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_roadst = {}
 
----@class (exact) building_road_dirtst: DFObject, building_roadst
----@field _kind 'struct'
+---@class (exact) building_road_dirtst: DFStruct, building_roadst
 ---@field _type _building_road_dirtst
 ---@field material_amount number
 
----@class _building_road_dirtst: DFCompound
+---@class _building_road_dirtst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_road_dirtst = {}
 
----@class (exact) building_road_pavedst: DFObject, building_roadst
----@field _kind 'struct'
+---@class (exact) building_road_pavedst: DFStruct, building_roadst
 ---@field _type _building_road_pavedst
 ---@field material_amount number
 ---@field terrain_purge_timer number
 
----@class _building_road_pavedst: DFCompound
+---@class _building_road_pavedst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_road_pavedst = {}
 
@@ -2216,7 +2169,7 @@ df.building_road_pavedst = {}
 ---| shop_type_keys
 ---| shop_type_values
 
----@class _shop_type: DFEnum
+---@class _shop_type: DFEnumType
 ---@field GeneralStore 0
 ---@field [0] "GeneralStore"
 ---@field CraftsMarket 1
@@ -2227,15 +2180,14 @@ df.building_road_pavedst = {}
 ---@field [3] "ExoticClothingShop"
 df.shop_type = {}
 
----@class (exact) building_shopst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_shopst: DFStruct, building_actual
 ---@field _type _building_shopst
 ---@field owner unit
 ---@field timer number increments until reaching 200,000,000
 ---@field shop_flags building_shopst.T_shop_flags
 ---@field type shop_type
 
----@class _building_shopst: DFCompound
+---@class _building_shopst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_shopst = {}
 
@@ -2261,15 +2213,14 @@ df.building_shopst.T_shop_flags = {}
 ---| siegeengine_type_keys
 ---| siegeengine_type_values
 
----@class _siegeengine_type: DFEnum
+---@class _siegeengine_type: DFEnumType
 ---@field Catapult 0
 ---@field [0] "Catapult"
 ---@field Ballista 1
 ---@field [1] "Ballista"
 df.siegeengine_type = {}
 
----@class (exact) building_siegeenginest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_siegeenginest: DFStruct, building_actual
 ---@field _type _building_siegeenginest
 ---@field type siegeengine_type
 ---@field facing building_siegeenginest.T_facing
@@ -2277,7 +2228,7 @@ df.siegeengine_type = {}
 ---@field fire_timer number
 ---@field fill_timer number
 
----@class _building_siegeenginest: DFCompound
+---@class _building_siegeenginest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_siegeenginest = {}
 
@@ -2297,7 +2248,7 @@ df.building_siegeenginest = {}
 ---| building_siegeenginest.T_facing_keys
 ---| building_siegeenginest.T_facing_values
 
----@class _building_siegeenginest.T_facing: DFEnum
+---@class _building_siegeenginest.T_facing: DFEnumType
 ---@field Left 0
 ---@field [0] "Left"
 ---@field Up 1
@@ -2322,7 +2273,7 @@ df.building_siegeenginest.T_facing = {}
 ---| building_siegeenginest.T_action_keys
 ---| building_siegeenginest.T_action_values
 
----@class _building_siegeenginest.T_action: DFEnum
+---@class _building_siegeenginest.T_action: DFEnumType
 ---@field NotInUse 0
 ---@field [0] "NotInUse"
 ---@field PrepareToFire 1
@@ -2331,30 +2282,27 @@ df.building_siegeenginest.T_facing = {}
 ---@field [2] "FireAtWill"
 df.building_siegeenginest.T_action = {}
 
----@class (exact) building_slabst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_slabst: DFStruct, building_actual
 ---@field _type _building_slabst
 ---@field unk_1 number
 
----@class _building_slabst: DFCompound
+---@class _building_slabst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_slabst = {}
 
----@class (exact) building_statuest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_statuest: DFStruct, building_actual
 ---@field _type _building_statuest
 ---@field unk_1 number
 
----@class _building_statuest: DFCompound
+---@class _building_statuest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_statuest = {}
 
----@class (exact) building_supportst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_supportst: DFStruct, building_actual
 ---@field _type _building_supportst
 ---@field support_flags building_supportst.T_support_flags
 
----@class _building_supportst: DFCompound
+---@class _building_supportst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_supportst = {}
 
@@ -2368,13 +2316,12 @@ df.building_supportst = {}
 ---@field [0] "triggered"
 df.building_supportst.T_support_flags = {}
 
----@class (exact) building_tablest: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_tablest: DFStruct, building_actual
 ---@field _type _building_tablest
 ---@field table_flags building_tablest.T_table_flags
 ---@field users building_users
 
----@class _building_tablest: DFCompound
+---@class _building_tablest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_tablest = {}
 
@@ -2388,23 +2335,21 @@ df.building_tablest = {}
 ---@field [0] "meeting_hall"
 df.building_tablest.T_table_flags = {}
 
----@class (exact) building_traction_benchst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_traction_benchst: DFStruct, building_actual
 ---@field _type _building_traction_benchst
 ---@field unk_1 number
 ---@field users building_users
 
----@class _building_traction_benchst: DFCompound
+---@class _building_traction_benchst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_traction_benchst = {}
 
----@class (exact) building_tradedepotst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_tradedepotst: DFStruct, building_actual
 ---@field _type _building_tradedepotst
 ---@field trade_flags building_tradedepotst.T_trade_flags
 ---@field accessible number
 
----@class _building_tradedepotst: DFCompound
+---@class _building_tradedepotst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_tradedepotst = {}
 
@@ -2442,7 +2387,7 @@ df.building_tradedepotst.T_trade_flags = {}
 ---| trap_type_keys
 ---| trap_type_values
 
----@class _trap_type: DFEnum
+---@class _trap_type: DFEnumType
 ---@field Lever 0
 ---@field [0] "Lever"
 ---@field PressurePlate 1
@@ -2457,8 +2402,7 @@ df.building_tradedepotst.T_trade_flags = {}
 ---@field [5] "TrackStop"
 df.trap_type = {}
 
----@class (exact) pressure_plate_info: DFObject
----@field _kind 'struct'
+---@class (exact) pressure_plate_info: DFStruct
 ---@field _type _pressure_plate_info
 ---@field unit_min number
 ---@field unit_max number
@@ -2470,7 +2414,7 @@ df.trap_type = {}
 ---@field track_max number
 ---@field flags pressure_plate_info.T_flags
 
----@class _pressure_plate_info: DFCompound
+---@class _pressure_plate_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.pressure_plate_info = {}
 
@@ -2504,8 +2448,7 @@ df.pressure_plate_info = {}
 ---@field [5] "track"
 df.pressure_plate_info.T_flags = {}
 
----@class (exact) building_trapst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_trapst: DFStruct, building_actual
 ---@field _type _building_trapst
 ---@field trap_type trap_type
 ---@field state integer !=0 = pulled, tripped/needs reloading
@@ -2522,7 +2465,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field dump_y_shift number
 ---@field stop_trigger_timer number
 
----@class _building_trapst: DFCompound
+---@class _building_trapst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_trapst = {}
 
@@ -2560,46 +2503,41 @@ function _building_trapst_linked_mechanisms:insert(index, item) end
 ---@param index integer 
 function _building_trapst_linked_mechanisms:erase(index) end
 
----@class (exact) building_wagonst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_wagonst: DFStruct, building_actual
 ---@field _type _building_wagonst
 
----@class _building_wagonst: DFCompound
+---@class _building_wagonst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_wagonst = {}
 
----@class (exact) building_weaponst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_weaponst: DFStruct, building_actual
 ---@field _type _building_weaponst
 ---@field gate_flags gate_flags
 ---@field timer number
 
----@class _building_weaponst: DFCompound
+---@class _building_weaponst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_weaponst = {}
 
----@class (exact) building_squad_use: DFObject
----@field _kind 'struct'
+---@class (exact) building_squad_use: DFStruct
 ---@field _type _building_squad_use
 ---@field squad_id number References: `squad`
 ---@field mode squad_use_flags
 
----@class _building_squad_use: DFCompound
+---@class _building_squad_use: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_squad_use = {}
 
----@class (exact) building_weaponrackst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_weaponrackst: DFStruct, building_actual
 ---@field _type _building_weaponrackst
 ---@field rack_flags number
 ---@field specific_squad number References: `squad`
 
----@class _building_weaponrackst: DFCompound
+---@class _building_weaponrackst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_weaponrackst = {}
 
----@class (exact) building_wellst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_wellst: DFStruct, building_actual
 ---@field _type _building_wellst
 ---@field well_flags building_wellst.T_well_flags
 ---@field unk_1 number
@@ -2607,7 +2545,7 @@ df.building_weaponrackst = {}
 ---@field bucket_timer number 0-9; counts up when raising, down when lowering
 ---@field check_water_timer number
 
----@class _building_wellst: DFCompound
+---@class _building_wellst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_wellst = {}
 
@@ -2625,28 +2563,25 @@ df.building_wellst = {}
 ---@field [1] "just_raised"
 df.building_wellst.T_well_flags = {}
 
----@class (exact) building_windowst: DFObject, building_actual
----@field _kind 'struct'
+---@class (exact) building_windowst: DFStruct, building_actual
 ---@field _type _building_windowst
 ---@field unk_1 number
 
----@class _building_windowst: DFCompound
+---@class _building_windowst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_windowst = {}
 
----@class (exact) building_window_glassst: DFObject, building_windowst
----@field _kind 'struct'
+---@class (exact) building_window_glassst: DFStruct, building_windowst
 ---@field _type _building_window_glassst
 
----@class _building_window_glassst: DFCompound
+---@class _building_window_glassst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_window_glassst = {}
 
----@class (exact) building_window_gemst: DFObject, building_windowst
----@field _kind 'struct'
+---@class (exact) building_window_gemst: DFStruct, building_windowst
 ---@field _type _building_window_gemst
 
----@class _building_window_gemst: DFCompound
+---@class _building_window_gemst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_window_gemst = {}
 
@@ -2683,7 +2618,7 @@ df.building_window_gemst = {}
 -- Office              | Quarters        | Dining Room        | Burial Chamber
 -- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
 -- Meager Office       | Meager Quarters | Meager Dining Room | Grave
----@class _dfhack_room_quality_level: DFEnum
+---@class _dfhack_room_quality_level: DFEnumType
 ---@field Meager 0
 ---@field [0] "Meager"
 ---@field Modest 1
@@ -2702,7 +2637,7 @@ df.building_window_gemst = {}
 ---@field [7] "Royal"
 df.dfhack_room_quality_level = {}
 
----@class dfhack_room_quality_level_attr_entry_type: DFCompound
+---@class dfhack_room_quality_level_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.dfhack_room_quality_level._attr_entry_type = {}
 

@@ -282,7 +282,7 @@
 ---| profession_values
 
 -- ---PROFESSION -----
----@class _profession: DFEnum
+---@class _profession: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINER 0 0
@@ -557,7 +557,7 @@
 ---@field [134] "MESSENGER"
 df.profession = {}
 
----@class profession_attr_entry_type: DFCompound
+---@class profession_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.profession._attr_entry_type = {}
 
@@ -744,7 +744,7 @@ df.profession.attrs = {}
 ---| unit_labor_category_values
 
 -- ---LABOR -----
----@class _unit_labor_category: DFEnum
+---@class _unit_labor_category: DFEnumType
 ---@field Other -13 used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field [-13] "Other" used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field Hauling -12
@@ -971,7 +971,7 @@ df.unit_labor_category = {}
 ---| unit_labor_keys
 ---| unit_labor_values
 
----@class _unit_labor: DFEnum
+---@class _unit_labor: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINE 0 0
@@ -1164,7 +1164,7 @@ df.unit_labor_category = {}
 ---@field [93] "ANON_LABOR_93"
 df.unit_labor = {}
 
----@class unit_labor_attr_entry_type: DFCompound
+---@class unit_labor_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_labor._attr_entry_type = {}
 
@@ -1300,7 +1300,7 @@ df.unit_labor.attrs = {}
 ---| job_skill_class_values
 
 -- ---SKILL -----
----@class _job_skill_class: DFEnum
+---@class _job_skill_class: DFEnumType
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Medical 1
@@ -1631,7 +1631,7 @@ df.job_skill_class = {}
 ---| job_skill_keys
 ---| job_skill_values
 
----@class _job_skill: DFEnum
+---@class _job_skill: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINING 0 0
@@ -1934,7 +1934,7 @@ df.job_skill_class = {}
 ---@field [148] "UNUSED_02"
 df.job_skill = {}
 
----@class job_skill_attr_entry_type: DFCompound
+---@class job_skill_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_skill._attr_entry_type = {}
 

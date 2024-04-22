@@ -36,7 +36,7 @@
 ---| craft_material_class_values
 
 -- not in DF
----@class _craft_material_class: DFEnum
+---@class _craft_material_class: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Metal 0
@@ -65,7 +65,7 @@
 ---@field [11] "Cloth"
 df.craft_material_class = {}
 
----@class craft_material_class_attr_entry_type: DFCompound
+---@class craft_material_class_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.craft_material_class._attr_entry_type = {}
 
@@ -136,7 +136,7 @@ df.craft_material_class.attrs = {}
 ---| builtin_mats_keys
 ---| builtin_mats_values
 
----@class _builtin_mats: DFEnum
+---@class _builtin_mats: DFEnumType
 ---@field INORGANIC 0
 ---@field [0] "INORGANIC"
 ---@field AMBER 1
@@ -351,7 +351,7 @@ df.builtin_mats = {}
 ---| material_flags_keys
 ---| material_flags_values
 
----@class _material_flags: DFEnum
+---@class _material_flags: DFEnumType
 ---@field BONE 0
 ---@field [0] "BONE"
 ---@field MEAT 1
@@ -518,7 +518,7 @@ df.builtin_mats = {}
 ---@field [82] "ANTLER"
 df.material_flags = {}
 
----@class material_flags_attr_entry_type: DFCompound
+---@class material_flags_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_flags._attr_entry_type = {}
 
@@ -633,7 +633,7 @@ df.material_flags.attrs = {}
 ---| matter_state_keys
 ---| matter_state_values
 
----@class _matter_state: DFEnum
+---@class _matter_state: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Solid 0
@@ -670,7 +670,7 @@ df.matter_state = {}
 ---| strain_type_keys
 ---| strain_type_values
 
----@class _strain_type: DFEnum
+---@class _strain_type: DFEnumType
 ---@field BENDING 0
 ---@field [0] "BENDING"
 ---@field SHEAR 1
@@ -685,8 +685,7 @@ df.matter_state = {}
 ---@field [5] "COMPRESSIVE"
 df.strain_type = {}
 
----@class (exact) material_common: DFObject
----@field _kind 'struct'
+---@class (exact) material_common: DFStruct
 ---@field _type _material_common
 ---@field id string
 ---@field gem_name1 string
@@ -712,12 +711,11 @@ df.strain_type = {}
 ---@field hardens_with_water material_common.T_hardens_with_water
 ---@field reaction_class DFStringVector
 
----@class _material_common: DFCompound
+---@class _material_common: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common = {}
 
----@class (exact) material_common.T_heat: DFObject
----@field _kind 'struct'
+---@class (exact) material_common.T_heat: DFStruct
 ---@field _type _material_common.T_heat
 ---@field spec_heat integer
 ---@field heatdam_point integer
@@ -727,12 +725,11 @@ df.material_common = {}
 ---@field boiling_point integer
 ---@field mat_fixed_temp integer
 
----@class _material_common.T_heat: DFCompound
+---@class _material_common.T_heat: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common.T_heat = {}
 
----@class (exact) material_common.T_strength: DFObject
----@field _kind 'struct'
+---@class (exact) material_common.T_strength: DFStruct
 ---@field _type _material_common.T_strength
 ---@field absorption number
 ---@field yield DFEnumVector<strain_type, number>
@@ -740,7 +737,7 @@ df.material_common.T_heat = {}
 ---@field strain_at_yield DFEnumVector<strain_type, number>
 ---@field max_edge number
 
----@class _material_common.T_strength: DFCompound
+---@class _material_common.T_strength: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common.T_strength = {}
 
@@ -760,8 +757,7 @@ function _material_common_flags:insert(index, item) end
 ---@param index integer 
 function _material_common_flags:erase(index) end
 
----@class (exact) material_common.T_reaction_product: DFObject
----@field _kind 'struct'
+---@class (exact) material_common.T_reaction_product: DFStruct
 ---@field _type _material_common.T_reaction_product
 ---@field id DFStringVector
 ---@field item_type DFNumberVector
@@ -769,23 +765,21 @@ function _material_common_flags:erase(index) end
 ---@field material material_vec_ref
 ---@field str string[]
 
----@class _material_common.T_reaction_product: DFCompound
+---@class _material_common.T_reaction_product: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common.T_reaction_product = {}
 
----@class (exact) material_common.T_hardens_with_water: DFObject
----@field _kind 'struct'
+---@class (exact) material_common.T_hardens_with_water: DFStruct
 ---@field _type _material_common.T_hardens_with_water
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field str string[]
 
----@class _material_common.T_hardens_with_water: DFCompound
+---@class _material_common.T_hardens_with_water: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common.T_hardens_with_water = {}
 
----@class (exact) material: DFObject, material_common
----@field _kind 'struct'
+---@class (exact) material: DFStruct, material_common
 ---@field _type _material
 ---@field tile integer
 ---@field basic_color number[]
@@ -810,7 +804,7 @@ df.material_common.T_hardens_with_water = {}
 ---@field cheese_texpos1 number
 ---@field cheese_texpos2 number
 
----@class _material: DFCompound
+---@class _material: DFCompoundType
 ---@field _kind 'struct-type'
 df.material = {}
 
@@ -830,18 +824,16 @@ function _material_syndrome:insert(index, item) end
 ---@param index integer 
 function _material_syndrome:erase(index) end
 
----@class (exact) material_vec_ref: DFObject
----@field _kind 'struct'
+---@class (exact) material_vec_ref: DFStruct
 ---@field _type _material_vec_ref
 ---@field mat_type DFNumberVector
 ---@field mat_index DFNumberVector
 
----@class _material_vec_ref: DFCompound
+---@class _material_vec_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_vec_ref = {}
 
----@class (exact) material_template: DFObject, material_common
----@field _kind 'struct'
+---@class (exact) material_template: DFStruct, material_common
 ---@field _type _material_template
 ---@field tile integer
 ---@field basic_color number[]
@@ -856,7 +848,7 @@ df.material_vec_ref = {}
 ---@field powder_dye_str string temporary
 ---@field state_color_str DFEnumVector<matter_state, string>
 
----@class _material_template: DFCompound
+---@class _material_template: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_template = {}
 
@@ -948,7 +940,7 @@ function _material_template_syndrome:erase(index) end
 ---| inorganic_flags_keys
 ---| inorganic_flags_values
 
----@class _inorganic_flags: DFEnum
+---@class _inorganic_flags: DFEnumType
 ---@field LAVA 0
 ---@field [0] "LAVA"
 ---@field GENERATED 1
@@ -1017,7 +1009,7 @@ df.inorganic_flags = {}
 ---| environment_type_keys
 ---| environment_type_values
 
----@class _environment_type: DFEnum
+---@class _environment_type: DFEnumType
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SOIL_OCEAN 1
@@ -1054,7 +1046,7 @@ df.environment_type = {}
 ---| inclusion_type_keys
 ---| inclusion_type_values
 
----@class _inclusion_type: DFEnum
+---@class _inclusion_type: DFEnumType
 ---@field VEIN 1
 ---@field [1] "VEIN"
 ---@field CLUSTER 2
@@ -1065,8 +1057,7 @@ df.environment_type = {}
 ---@field [4] "CLUSTER_ONE"
 df.inclusion_type = {}
 
----@class (exact) inorganic_raw: DFObject
----@field _kind 'struct'
+---@class (exact) inorganic_raw: DFStruct
 ---@field _type _inorganic_raw
 ---@field id string
 ---@field str DFStringVector
@@ -1082,7 +1073,7 @@ df.inclusion_type = {}
 ---@field times_used_ocean integer
 ---@field material material
 
----@class _inorganic_raw: DFCompound
+---@class _inorganic_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw = {}
 
@@ -1111,37 +1102,34 @@ function _inorganic_raw_flags:insert(index, item) end
 ---@param index integer 
 function _inorganic_raw_flags:erase(index) end
 
----@class (exact) inorganic_raw.T_metal_ore: DFObject
----@field _kind 'struct'
+---@class (exact) inorganic_raw.T_metal_ore: DFStruct
 ---@field _type _inorganic_raw.T_metal_ore
 ---@field str DFStringVector only during parsing
 ---@field mat_index DFNumberVector
 ---@field probability DFNumberVector
 
----@class _inorganic_raw.T_metal_ore: DFCompound
+---@class _inorganic_raw.T_metal_ore: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_metal_ore = {}
 
----@class (exact) inorganic_raw.T_thread_metal: DFObject
----@field _kind 'struct'
+---@class (exact) inorganic_raw.T_thread_metal: DFStruct
 ---@field _type _inorganic_raw.T_thread_metal
 ---@field str DFStringVector only during parsing
 ---@field mat_index DFNumberVector
 ---@field probability DFNumberVector
 
----@class _inorganic_raw.T_thread_metal: DFCompound
+---@class _inorganic_raw.T_thread_metal: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_thread_metal = {}
 
----@class (exact) inorganic_raw.T_environment_spec: DFObject
----@field _kind 'struct'
+---@class (exact) inorganic_raw.T_environment_spec: DFStruct
 ---@field _type _inorganic_raw.T_environment_spec
 ---@field str DFStringVector only during parsing
 ---@field mat_index DFNumberVector
 ---@field inclusion_type _inorganic_raw_environment_spec_inclusion_type
 ---@field probability DFNumberVector
 
----@class _inorganic_raw.T_environment_spec: DFCompound
+---@class _inorganic_raw.T_environment_spec: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_environment_spec = {}
 
@@ -1161,14 +1149,13 @@ function _inorganic_raw_environment_spec_inclusion_type:insert(index, item) end
 ---@param index integer 
 function _inorganic_raw_environment_spec_inclusion_type:erase(index) end
 
----@class (exact) inorganic_raw.T_environment: DFObject
----@field _kind 'struct'
+---@class (exact) inorganic_raw.T_environment: DFStruct
 ---@field _type _inorganic_raw.T_environment
 ---@field location _inorganic_raw_environment_location
 ---@field type _inorganic_raw_environment_type
 ---@field probability DFNumberVector
 
----@class _inorganic_raw.T_environment: DFCompound
+---@class _inorganic_raw.T_environment: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_environment = {}
 
@@ -1290,7 +1277,7 @@ function _inorganic_raw_environment_type:erase(index) end
 ---| organic_mat_category_keys
 ---| organic_mat_category_values
 
----@class _organic_mat_category: DFEnum
+---@class _organic_mat_category: DFEnumType
 ---@field Meat 0
 ---@field [0] "Meat"
 ---@field Fish 1
@@ -1371,15 +1358,14 @@ function _inorganic_raw_environment_type:erase(index) end
 ---@field [38] "Parchment"
 df.organic_mat_category = {}
 
----@class (exact) special_mat_table: DFObject
----@field _kind 'struct'
+---@class (exact) special_mat_table: DFStruct
 ---@field _type _special_mat_table
 ---@field organic_types DFEnumVector<organic_mat_category, number>
 ---@field organic_indexes DFEnumVector<organic_mat_category, number>
 ---@field organic_unknown DFEnumVector<organic_mat_category, number> everything 0
 ---@field builtin DFEnumVector<builtin_mats, material>
 
----@class _special_mat_table: DFCompound
+---@class _special_mat_table: DFCompoundType
 ---@field _kind 'struct-type'
 df.special_mat_table = {}
 

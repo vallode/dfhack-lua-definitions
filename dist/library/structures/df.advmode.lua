@@ -111,7 +111,7 @@
 ---| ui_advmode_menu_keys
 ---| ui_advmode_menu_values
 
----@class _ui_advmode_menu: DFEnum
+---@class _ui_advmode_menu: DFEnumType
 ---@field Default 0 original name is 'AdventureViewModes'
 ---@field [0] "Default" original name is 'AdventureViewModes'
 ---@field Look 1 MAIN
@@ -216,8 +216,7 @@
 ---@field [50] "PartyTacticalSettings" 50
 df.ui_advmode_menu = {}
 
----@class (exact) conversation: DFObject
----@field _kind 'struct'
+---@class (exact) conversation: DFStruct
 ---@field _type _conversation
 ---@field conv_title string
 ---@field state conversation.T_state
@@ -245,7 +244,7 @@ df.ui_advmode_menu = {}
 ---@field unk_bc number
 ---@field speech _conversation_speech
 
----@class _conversation: DFCompound
+---@class _conversation: DFCompoundType
 ---@field _kind 'struct-type'
 df.conversation = {}
 
@@ -265,7 +264,7 @@ df.conversation = {}
 ---| conversation.T_state_keys
 ---| conversation.T_state_values
 
----@class _conversation.T_state: DFEnum
+---@class _conversation.T_state: DFEnumType
 ---@field started 0
 ---@field [0] "started"
 ---@field active 1
@@ -830,7 +829,7 @@ function _conversation_speech:erase(index) end
 ---| talk_choice_type_keys
 ---| talk_choice_type_values
 
----@class _talk_choice_type: DFEnum
+---@class _talk_choice_type: DFEnumType
 ---@field Greet 0 0
 ---@field [0] "Greet" 0
 ---@field Nevermind 1
@@ -1291,7 +1290,7 @@ df.talk_choice_type = {}
 ---| assume_identity_mode_keys
 ---| assume_identity_mode_values
 
----@class _assume_identity_mode: DFEnum
+---@class _assume_identity_mode: DFEnumType
 ---@field SelectIdentity 0
 ---@field [0] "SelectIdentity"
 ---@field CreateIdentity 1
@@ -1304,8 +1303,7 @@ df.talk_choice_type = {}
 ---@field [4] "SelectOrigin"
 df.assume_identity_mode = {}
 
----@class (exact) talk_choice: DFObject
----@field _kind 'struct'
+---@class (exact) talk_choice: DFStruct
 ---@field _type _talk_choice
 ---@field type talk_choice_type
 ---@field unk talk_choice.T_unk
@@ -1314,23 +1312,21 @@ df.assume_identity_mode = {}
 ---@field unk_3 number
 ---@field unk_4 number
 
----@class _talk_choice: DFCompound
+---@class _talk_choice: DFCompoundType
 ---@field _kind 'struct-type'
 df.talk_choice = {}
 
----@class (exact) talk_choice.T_unk: DFObject
----@field _kind 'struct'
+---@class (exact) talk_choice.T_unk: DFStruct
 ---@field _type _talk_choice.T_unk
 ---@field event entity_event
 ---@field unk_1 DFPointer<integer>
 ---@field unk_2 number
 
----@class _talk_choice.T_unk: DFCompound
+---@class _talk_choice.T_unk: DFCompoundType
 ---@field _kind 'struct-type'
 df.talk_choice.T_unk = {}
 
----@class (exact) adventure_workingst: DFObject
----@field _kind 'struct'
+---@class (exact) adventure_workingst: DFStruct
 ---@field _type _adventure_workingst
 ---@field type adventure_workingst.T_type bay12: AdventureWork
 ---@field abs_x number
@@ -1338,7 +1334,7 @@ df.talk_choice.T_unk = {}
 ---@field abs_z number
 ---@field target_site world_site
 
----@class _adventure_workingst: DFCompound
+---@class _adventure_workingst: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventure_workingst = {}
 
@@ -1357,7 +1353,7 @@ df.adventure_workingst = {}
 ---| adventure_workingst.T_type_values
 
 -- bay12: AdventureWork
----@class _adventure_workingst.T_type: DFEnum
+---@class _adventure_workingst.T_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CHOP_TREE 0
@@ -1366,8 +1362,7 @@ df.adventure_workingst = {}
 ---@field [1] "BUILD_SITE"
 df.adventure_workingst.T_type = {}
 
----@class (exact) adventure_rumor_datast: DFObject
----@field _kind 'struct'
+---@class (exact) adventure_rumor_datast: DFStruct
 ---@field _type _adventure_rumor_datast
 ---@field rumor entity_event
 ---@field flag integer
@@ -1386,7 +1381,7 @@ df.adventure_workingst.T_type = {}
 ---@field first_told_abs_tile_y number
 ---@field first_told_abs_tile_z number
 
----@class _adventure_rumor_datast: DFCompound
+---@class _adventure_rumor_datast: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventure_rumor_datast = {}
 
@@ -1414,7 +1409,7 @@ df.adventure_rumor_datast = {}
 ---| adventure_construction_mode_type_keys
 ---| adventure_construction_mode_type_values
 
----@class _adventure_construction_mode_type: DFEnum
+---@class _adventure_construction_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CONSTRUCTION 0
@@ -1433,8 +1428,7 @@ df.adventure_rumor_datast = {}
 ---@field [6] "ZONE_LOCATION"
 df.adventure_construction_mode_type = {}
 
----@class (exact) adventurest: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest: DFStruct
 ---@field _type _adventurest
 ---@field menu ui_advmode_menu
 ---@field site_level_zoom number bay12: viewmode; when set, the travel map is zoomed in to show site details
@@ -1568,7 +1562,7 @@ df.adventure_construction_mode_type = {}
 ---@field name_item language_name used when naming items
 ---@field unk_96 number
 
----@class _adventurest: DFCompound
+---@class _adventurest: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest = {}
 
@@ -1587,7 +1581,7 @@ df.adventurest = {}
 ---| adventurest.T_travel_right_map_values
 
 -- bay12: traveL_map; is an int8_t
----@class _adventurest.T_travel_right_map: DFEnum
+---@class _adventurest.T_travel_right_map: DFEnumType
 ---@field MapNone 0
 ---@field [0] "MapNone"
 ---@field MapSite 1
@@ -1615,7 +1609,7 @@ df.adventurest.T_travel_right_map = {}
 ---| adventurest.T_show_menu_values
 
 -- bay12: travel_instructions; is an int8_t; bottom menu in travel mode
----@class _adventurest.T_show_menu: DFEnum
+---@class _adventurest.T_show_menu: DFEnumType
 ---@field TwoBlankRows -1
 ---@field [-1] "TwoBlankRows"
 ---@field Hidden 0
@@ -1628,8 +1622,7 @@ df.adventurest.T_travel_right_map = {}
 ---@field [3] "OneRow"
 df.adventurest.T_show_menu = {}
 
----@class (exact) adventurest.T_exemplar_track_data: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_exemplar_track_data: DFStruct
 ---@field _type _adventurest.T_exemplar_track_data
 ---@field flag adventurest.T_exemplar_track_data.T_flag
 ---@field type adventurest.T_exemplar_track_data.T_type bay12 type: SpoorFlag
@@ -1637,7 +1630,7 @@ df.adventurest.T_show_menu = {}
 ---@field id2 number
 ---@field id3 number
 
----@class _adventurest.T_exemplar_track_data: DFCompound
+---@class _adventurest.T_exemplar_track_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_exemplar_track_data = {}
 
@@ -1691,7 +1684,7 @@ df.adventurest.T_exemplar_track_data.T_flag = {}
 ---| adventurest.T_exemplar_track_data.T_type_values
 
 -- bay12 type: SpoorFlag
----@class _adventurest.T_exemplar_track_data.T_type: DFEnum
+---@class _adventurest.T_exemplar_track_data.T_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BROKEN_VEGETATION 0
@@ -1705,13 +1698,12 @@ df.adventurest.T_exemplar_track_data.T_flag = {}
 df.adventurest.T_exemplar_track_data.T_type = {}
 
 -- bay12 type: adventure_rumor_infost
----@class (exact) adventurest.T_rumor_info: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_rumor_info: DFStruct
 ---@field _type _adventurest.T_rumor_info
 ---@field base_data _adventurest_rumor_info_base_data
 ---@field data adventure_rumor_datast[]
 
----@class _adventurest.T_rumor_info: DFCompound
+---@class _adventurest.T_rumor_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_rumor_info = {}
 
@@ -1748,8 +1740,7 @@ function _adventurest_rumor_info_data:insert(index, item) end
 function _adventurest_rumor_info_data:erase(index) end
 
 -- bay12 type: adventure_constructionst
----@class (exact) adventurest.T_construction: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_construction: DFStruct
 ---@field _type _adventurest.T_construction
 ---@field min_x number
 ---@field max_x number
@@ -1821,7 +1812,7 @@ function _adventurest_rumor_info_data:erase(index) end
 ---@field start_menu_you_hours number
 ---@field start_menu_you_max_hours number
 
----@class _adventurest.T_construction: DFCompound
+---@class _adventurest.T_construction: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_construction = {}
 
@@ -1984,7 +1975,7 @@ function _adventurest_construction_start_menu_will_work:erase(index) end
 ---| adventurest.T_charge_forbidden_values
 
 -- bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
----@class _adventurest.T_charge_forbidden: DFEnum
+---@class _adventurest.T_charge_forbidden: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field NoTarget 0
@@ -2042,8 +2033,7 @@ function _adventurest_world_debug_army:insert(index, item) end
 function _adventurest_world_debug_army:erase(index) end
 
 -- not actually a compound
----@class (exact) adventurest.T_conversation: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_conversation: DFStruct
 ---@field _type _adventurest.T_conversation
 ---@field activity _adventurest_conversation_activity bay12: conv_act_list
 ---@field activity_event _adventurest_conversation_activity_event bay12: conv_actev_list
@@ -2058,7 +2048,7 @@ function _adventurest_world_debug_army:erase(index) end
 ---@field targets _adventurest_conversation_targets bay12: talk_list; type talk_list_optionst
 ---@field cursor_target number bay12: talk_sel
 
----@class _adventurest.T_conversation: DFCompound
+---@class _adventurest.T_conversation: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_conversation = {}
 
@@ -2124,7 +2114,7 @@ function _adventurest_conversation_choices:erase(index) end
 ---| adventurest.T_conversation.T_conv_tact_keys
 ---| adventurest.T_conversation.T_conv_tact_values
 
----@class _adventurest.T_conversation.T_conv_tact: DFEnum
+---@class _adventurest.T_conversation.T_conv_tact: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Persuade 0
@@ -2257,22 +2247,21 @@ function _adventurest_unk_75:erase(index) end
 ---| adventurest.T_rest_mode_keys
 ---| adventurest.T_rest_mode_values
 
----@class _adventurest.T_rest_mode: DFEnum
+---@class _adventurest.T_rest_mode: DFEnumType
 ---@field Wait 0
 ---@field [0] "Wait"
 ---@field Sleep 1
 ---@field [1] "Sleep"
 df.adventurest.T_rest_mode = {}
 
----@class (exact) adventurest.T_companions: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_companions: DFStruct
 ---@field _type _adventurest.T_companions
 ---@field unit _adventurest_companions_unit
 ---@field unit_visible _adventurest_companions_unit_visible
 ---@field unit_position coord_path
 ---@field all_histfigs DFNumberVector includes dead
 
----@class _adventurest.T_companions: DFCompound
+---@class _adventurest.T_companions: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_companions = {}
 
@@ -2308,8 +2297,7 @@ function _adventurest_companions_unit_visible:insert(index, item) end
 ---@param index integer 
 function _adventurest_companions_unit_visible:erase(index) end
 
----@class (exact) adventurest.T_interactions: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_interactions: DFStruct
 ---@field _type _adventurest.T_interactions
 ---@field party_core_members DFNumberVector Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
 ---@field party_pets DFNumberVector Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
@@ -2326,7 +2314,7 @@ function _adventurest_companions_unit_visible:erase(index) end
 ---@field target_flags creature_interaction_target_flags
 ---@field unk_200 DFPointer<integer>
 
----@class _adventurest.T_interactions: DFCompound
+---@class _adventurest.T_interactions: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_interactions = {}
 
@@ -2362,8 +2350,7 @@ function _adventurest_interactions_unk_1:insert(index, item) end
 ---@param index integer 
 function _adventurest_interactions_unk_1:erase(index) end
 
----@class (exact) adventurest.T_unk_v40_2: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_unk_v40_2: DFStruct
 ---@field _type _adventurest.T_unk_v40_2
 ---@field unk_s1 _adventurest_unk_v40_2_unk_s1
 ---@field unk_s2 _adventurest_unk_v40_2_unk_s2
@@ -2373,7 +2360,7 @@ function _adventurest_interactions_unk_1:erase(index) end
 ---@field unk_s6 _adventurest_unk_v40_2_unk_s6
 ---@field unk_s7 _adventurest_unk_v40_2_unk_s7
 
----@class _adventurest.T_unk_v40_2: DFCompound
+---@class _adventurest.T_unk_v40_2: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_2 = {}
 
@@ -2473,13 +2460,12 @@ function _adventurest_unk_v40_2_unk_s7:insert(index, item) end
 ---@param index integer 
 function _adventurest_unk_v40_2_unk_s7:erase(index) end
 
----@class (exact) adventurest.T_unk_v40_3: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_unk_v40_3: DFStruct
 ---@field _type _adventurest.T_unk_v40_3
 ---@field unk_s1 number
 ---@field unk_s2 _adventurest_unk_v40_3_unk_s2
 
----@class _adventurest.T_unk_v40_3: DFCompound
+---@class _adventurest.T_unk_v40_3: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_3 = {}
 
@@ -2499,18 +2485,16 @@ function _adventurest_unk_v40_3_unk_s2:insert(index, item) end
 ---@param index integer 
 function _adventurest_unk_v40_3_unk_s2:erase(index) end
 
----@class (exact) adventurest.T_unk_v40_4: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_unk_v40_4: DFStruct
 ---@field _type _adventurest.T_unk_v40_4
 ---@field unk_v40_4a adventurest.T_unk_v40_4.T_unk_v40_4a[]
 ---@field unk_v40_4b number
 
----@class _adventurest.T_unk_v40_4: DFCompound
+---@class _adventurest.T_unk_v40_4: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_4 = {}
 
----@class (exact) adventurest.T_unk_v40_4.T_unk_v40_4a: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_unk_v40_4.T_unk_v40_4a: DFStruct
 ---@field _type _adventurest.T_unk_v40_4.T_unk_v40_4a
 ---@field unk_s1 number
 ---@field unk_s2 coord
@@ -2519,12 +2503,11 @@ df.adventurest.T_unk_v40_4 = {}
 ---@field unk_s9 number
 ---@field unk_s10 number
 
----@class _adventurest.T_unk_v40_4.T_unk_v40_4a: DFCompound
+---@class _adventurest.T_unk_v40_4.T_unk_v40_4a: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
 
----@class (exact) adventurest.T_unk_v40_5: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_unk_v40_5: DFStruct
 ---@field _type _adventurest.T_unk_v40_5
 ---@field unk_s1 _adventurest_unk_v40_5_unk_s1
 ---@field unk_s2 _adventurest_unk_v40_5_unk_s2
@@ -2533,7 +2516,7 @@ df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
 ---@field unk_s5 _adventurest_unk_v40_5_unk_s5
 ---@field unk_s6 _adventurest_unk_v40_5_unk_s6
 
----@class _adventurest.T_unk_v40_5: DFCompound
+---@class _adventurest.T_unk_v40_5: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_5 = {}
 
@@ -2617,8 +2600,7 @@ function _adventurest_unk_v40_5_unk_s6:insert(index, item) end
 ---@param index integer 
 function _adventurest_unk_v40_5_unk_s6:erase(index) end
 
----@class (exact) adventurest.T_unk_v42_1: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_unk_v42_1: DFStruct
 ---@field _type _adventurest.T_unk_v42_1
 ---@field unk_s1 number
 ---@field unk_s2 _adventurest_unk_v42_1_unk_s2
@@ -2630,7 +2612,7 @@ function _adventurest_unk_v40_5_unk_s6:erase(index) end
 ---@field unk_s8 number
 ---@field unk_s9 _adventurest_unk_v42_1_unk_s9
 
----@class _adventurest.T_unk_v42_1: DFCompound
+---@class _adventurest.T_unk_v42_1: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v42_1 = {}
 
@@ -2683,8 +2665,7 @@ function _adventurest_unk_v42_1_unk_s9:insert(index, item) end
 function _adventurest_unk_v42_1_unk_s9:erase(index) end
 
 -- Manages the Assume Identity UI when the AssumeIdentity menu is open
----@class (exact) adventurest.T_assume_identity: DFObject
----@field _kind 'struct'
+---@class (exact) adventurest.T_assume_identity: DFStruct
 ---@field _type _adventurest.T_assume_identity
 ---@field mode assume_identity_mode
 ---@field name language_name
@@ -2697,7 +2678,7 @@ function _adventurest_unk_v42_1_unk_s9:erase(index) end
 ---@field unk_3 number
 ---@field unk_4 number
 
----@class _adventurest.T_assume_identity: DFCompound
+---@class _adventurest.T_assume_identity: DFCompoundType
 ---@field _kind 'struct-type'
 df.adventurest.T_assume_identity = {}
 
@@ -2733,326 +2714,290 @@ function _adventurest_assume_identity_unk_2:insert(index, item) end
 ---@param index integer 
 function _adventurest_assume_identity_unk_2:erase(index) end
 
----@class (exact) text_info_elementst: DFObject
----@field _kind 'struct'
+---@class (exact) text_info_elementst: DFStruct
 ---@field _type _text_info_elementst
 
----@class _text_info_elementst: DFCompound
+---@class _text_info_elementst: DFCompoundType
 ---@field _kind 'class-type'
 df.text_info_elementst = {}
 
----@class (exact) text_info_element_longst: DFObject, text_info_elementst
----@field _kind 'struct'
+---@class (exact) text_info_element_longst: DFStruct, text_info_elementst
 ---@field _type _text_info_element_longst
 ---@field val number
 
----@class _text_info_element_longst: DFCompound
+---@class _text_info_element_longst: DFCompoundType
 ---@field _kind 'class-type'
 df.text_info_element_longst = {}
 
----@class (exact) text_info_element_stringst: DFObject, text_info_elementst
----@field _kind 'struct'
+---@class (exact) text_info_element_stringst: DFStruct, text_info_elementst
 ---@field _type _text_info_element_stringst
 ---@field val string
 
----@class _text_info_element_stringst: DFCompound
+---@class _text_info_element_stringst: DFCompoundType
 ---@field _kind 'class-type'
 df.text_info_element_stringst = {}
 
----@class (exact) adventure_optionst: DFObject
----@field _kind 'struct'
+---@class (exact) adventure_optionst: DFStruct
 ---@field _type _adventure_optionst
 
----@class _adventure_optionst: DFCompound
+---@class _adventure_optionst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_optionst = {}
 
----@class (exact) adventure_option_eat_unit_contaminantst: DFObject, adventure_optionst
----@field _kind 'struct'
+---@class (exact) adventure_option_eat_unit_contaminantst: DFStruct, adventure_optionst
 ---@field _type _adventure_option_eat_unit_contaminantst
 ---@field unit unit
 ---@field spatter spatter
 
----@class _adventure_option_eat_unit_contaminantst: DFCompound
+---@class _adventure_option_eat_unit_contaminantst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_option_eat_unit_contaminantst = {}
 
----@class (exact) adventure_option_eat_item_contaminantst: DFObject, adventure_optionst
----@field _kind 'struct'
+---@class (exact) adventure_option_eat_item_contaminantst: DFStruct, adventure_optionst
 ---@field _type _adventure_option_eat_item_contaminantst
 ---@field unit unit
 ---@field inv_item unit_inventory_item
 ---@field spatter spatter
 
----@class _adventure_option_eat_item_contaminantst: DFCompound
+---@class _adventure_option_eat_item_contaminantst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_option_eat_item_contaminantst = {}
 
----@class (exact) adventure_option_view_contaminantst: DFObject, adventure_optionst
----@field _kind 'struct'
+---@class (exact) adventure_option_view_contaminantst: DFStruct, adventure_optionst
 ---@field _type _adventure_option_view_contaminantst
 ---@field unit unit
 ---@field spatter spatter
 
----@class _adventure_option_view_contaminantst: DFCompound
+---@class _adventure_option_view_contaminantst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_option_view_contaminantst = {}
 
----@class (exact) adventure_environment_optionst: DFObject, adventure_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_optionst: DFStruct, adventure_optionst
 ---@field _type _adventure_environment_optionst
 ---@field target_pos coord
 ---@field player_pos coord
 
----@class _adventure_environment_optionst: DFCompound
+---@class _adventure_environment_optionst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_optionst = {}
 
----@class (exact) adventure_environment_place_in_it_containerst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_place_in_it_containerst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_place_in_it_containerst
 ---@field container item
 
----@class _adventure_environment_place_in_it_containerst: DFCompound
+---@class _adventure_environment_place_in_it_containerst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_place_in_it_containerst = {}
 
----@class (exact) adventure_environment_ingest_from_containerst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_ingest_from_containerst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_ingest_from_containerst
 ---@field container item
 ---@field food item
 
----@class _adventure_environment_ingest_from_containerst: DFCompound
+---@class _adventure_environment_ingest_from_containerst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_ingest_from_containerst = {}
 
----@class (exact) adventure_environment_pickup_ignite_vegst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_pickup_ignite_vegst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_pickup_ignite_vegst
 ---@field unk_1 number
 
----@class _adventure_environment_pickup_ignite_vegst: DFCompound
+---@class _adventure_environment_pickup_ignite_vegst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_pickup_ignite_vegst = {}
 
----@class (exact) adventure_environment_ingest_materialst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_ingest_materialst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_ingest_materialst
 ---@field mat_type number
 ---@field mat_index number
 ---@field mat_state matter_state
 
----@class _adventure_environment_ingest_materialst: DFCompound
+---@class _adventure_environment_ingest_materialst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_ingest_materialst = {}
 
----@class (exact) adventure_environment_pickup_make_campfirest: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_pickup_make_campfirest: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_pickup_make_campfirest
 
----@class _adventure_environment_pickup_make_campfirest: DFCompound
+---@class _adventure_environment_pickup_make_campfirest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_pickup_make_campfirest = {}
 
----@class (exact) adventure_environment_place_in_bld_containerst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_place_in_bld_containerst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_place_in_bld_containerst
 ---@field building building
 
----@class _adventure_environment_place_in_bld_containerst: DFCompound
+---@class _adventure_environment_place_in_bld_containerst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_place_in_bld_containerst = {}
 
----@class (exact) adventure_environment_pickup_vermin_eventst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_pickup_vermin_eventst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_pickup_vermin_eventst
 ---@field vermin_idx number
 
----@class _adventure_environment_pickup_vermin_eventst: DFCompound
+---@class _adventure_environment_pickup_vermin_eventst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_pickup_vermin_eventst = {}
 
----@class (exact) adventure_environment_pickup_chop_treest: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_pickup_chop_treest: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_pickup_chop_treest
 
----@class _adventure_environment_pickup_chop_treest: DFCompound
+---@class _adventure_environment_pickup_chop_treest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_pickup_chop_treest = {}
 
----@class (exact) adventure_environment_unit_suck_bloodst: DFObject, adventure_environment_optionst
----@field _kind 'struct'
+---@class (exact) adventure_environment_unit_suck_bloodst: DFStruct, adventure_environment_optionst
 ---@field _type _adventure_environment_unit_suck_bloodst
 ---@field unit_id number References: `unit`
 
----@class _adventure_environment_unit_suck_bloodst: DFCompound
+---@class _adventure_environment_unit_suck_bloodst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_environment_unit_suck_bloodst = {}
 
----@class (exact) adventure_movement_optionst: DFObject
----@field _kind 'struct'
+---@class (exact) adventure_movement_optionst: DFStruct
 ---@field _type _adventure_movement_optionst
 ---@field dest coord
 ---@field source coord
 
----@class _adventure_movement_optionst: DFCompound
+---@class _adventure_movement_optionst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_optionst = {}
 
----@class (exact) adventure_movement_release_hold_itemst: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_release_hold_itemst: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_release_hold_itemst
 
----@class _adventure_movement_release_hold_itemst: DFCompound
+---@class _adventure_movement_release_hold_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_release_hold_itemst = {}
 
----@class (exact) adventure_movement_release_hold_tilest: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_release_hold_tilest: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_release_hold_tilest
 
----@class _adventure_movement_release_hold_tilest: DFCompound
+---@class _adventure_movement_release_hold_tilest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_release_hold_tilest = {}
 
----@class (exact) adventure_movement_attack_creaturest: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_attack_creaturest: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_attack_creaturest
 ---@field targets DFNumberVector
 
----@class _adventure_movement_attack_creaturest: DFCompound
+---@class _adventure_movement_attack_creaturest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_attack_creaturest = {}
 
----@class (exact) adventure_movement_hold_tilest: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_hold_tilest: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_hold_tilest
 ---@field grab coord
 
----@class _adventure_movement_hold_tilest: DFCompound
+---@class _adventure_movement_hold_tilest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_hold_tilest = {}
 
----@class (exact) adventure_movement_movest: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_movest: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_movest
 ---@field override_permit pathfinding_flags
 ---@field aim_attack_flag number
 
----@class _adventure_movement_movest: DFCompound
+---@class _adventure_movement_movest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_movest = {}
 
----@class (exact) adventure_movement_climbst: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_climbst: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_climbst
 ---@field grab coord
 
----@class _adventure_movement_climbst: DFCompound
+---@class _adventure_movement_climbst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_climbst = {}
 
----@class (exact) adventure_movement_hold_itemst: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_hold_itemst: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_hold_itemst
 ---@field item_id number References: `item`
 
----@class _adventure_movement_hold_itemst: DFCompound
+---@class _adventure_movement_hold_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_hold_itemst = {}
 
----@class (exact) adventure_movement_building_interactst: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_building_interactst: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_building_interactst
 ---@field building_id number References: `building`
 
----@class _adventure_movement_building_interactst: DFCompound
+---@class _adventure_movement_building_interactst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_building_interactst = {}
 
----@class (exact) adventure_movement_item_interactst: DFObject, adventure_movement_optionst
----@field _kind 'struct'
+---@class (exact) adventure_movement_item_interactst: DFStruct, adventure_movement_optionst
 ---@field _type _adventure_movement_item_interactst
 ---@field item_id number References: `item`
 
----@class _adventure_movement_item_interactst: DFCompound
+---@class _adventure_movement_item_interactst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_item_interactst = {}
 
----@class (exact) adventure_movement_item_interact_guidest: DFObject, adventure_movement_item_interactst
----@field _kind 'struct'
+---@class (exact) adventure_movement_item_interact_guidest: DFStruct, adventure_movement_item_interactst
 ---@field _type _adventure_movement_item_interact_guidest
 
----@class _adventure_movement_item_interact_guidest: DFCompound
+---@class _adventure_movement_item_interact_guidest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_item_interact_guidest = {}
 
----@class (exact) adventure_movement_item_interact_ridest: DFObject, adventure_movement_item_interactst
----@field _kind 'struct'
+---@class (exact) adventure_movement_item_interact_ridest: DFStruct, adventure_movement_item_interactst
 ---@field _type _adventure_movement_item_interact_ridest
 
----@class _adventure_movement_item_interact_ridest: DFCompound
+---@class _adventure_movement_item_interact_ridest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_item_interact_ridest = {}
 
----@class (exact) adventure_movement_item_interact_pushst: DFObject, adventure_movement_item_interactst
----@field _kind 'struct'
+---@class (exact) adventure_movement_item_interact_pushst: DFStruct, adventure_movement_item_interactst
 ---@field _type _adventure_movement_item_interact_pushst
 
----@class _adventure_movement_item_interact_pushst: DFCompound
+---@class _adventure_movement_item_interact_pushst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_movement_item_interact_pushst = {}
 
----@class (exact) adventure_item_interact_choicest: DFObject
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_choicest: DFStruct
 ---@field _type _adventure_item_interact_choicest
 
----@class _adventure_item_interact_choicest: DFCompound
+---@class _adventure_item_interact_choicest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_choicest = {}
 
----@class (exact) adventure_item_interact_pull_outst: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_pull_outst: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_pull_outst
 
----@class _adventure_item_interact_pull_outst: DFCompound
+---@class _adventure_item_interact_pull_outst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_pull_outst = {}
 
----@class (exact) adventure_item_interact_heat_from_tilest: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_heat_from_tilest: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_heat_from_tilest
 ---@field item item
 ---@field unk_1 coord
 ---@field unk_2 coord
 
----@class _adventure_item_interact_heat_from_tilest: DFCompound
+---@class _adventure_item_interact_heat_from_tilest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_heat_from_tilest = {}
 
----@class (exact) adventure_item_interact_fill_from_containerst: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_fill_from_containerst: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_fill_from_containerst
 ---@field unk_1 item
 ---@field unk_2 item
 ---@field unk_3 coord
 ---@field unk_4 coord
 
----@class _adventure_item_interact_fill_from_containerst: DFCompound
+---@class _adventure_item_interact_fill_from_containerst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_fill_from_containerst = {}
 
----@class (exact) adventure_item_interact_readst: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_readst: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_readst
 
----@class _adventure_item_interact_readst: DFCompound
+---@class _adventure_item_interact_readst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_readst = {}
 
----@class (exact) adventure_item_interact_fill_with_materialst: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_fill_with_materialst: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_fill_with_materialst
 ---@field unk_1 item
 ---@field unk_2 coord
@@ -3061,24 +3006,22 @@ df.adventure_item_interact_readst = {}
 ---@field unk_5 number
 ---@field unk_6 number
 
----@class _adventure_item_interact_fill_with_materialst: DFCompound
+---@class _adventure_item_interact_fill_with_materialst: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_fill_with_materialst = {}
 
----@class (exact) adventure_item_interact_strugglest: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_strugglest: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_strugglest
 
----@class _adventure_item_interact_strugglest: DFCompound
+---@class _adventure_item_interact_strugglest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_strugglest = {}
 
----@class (exact) adventure_item_interact_give_namest: DFObject, adventure_item_interact_choicest
----@field _kind 'struct'
+---@class (exact) adventure_item_interact_give_namest: DFStruct, adventure_item_interact_choicest
 ---@field _type _adventure_item_interact_give_namest
 ---@field item item
 
----@class _adventure_item_interact_give_namest: DFCompound
+---@class _adventure_item_interact_give_namest: DFCompoundType
 ---@field _kind 'class-type'
 df.adventure_item_interact_give_namest = {}
 

@@ -13,7 +13,7 @@
 ---| cmv_version_keys
 ---| cmv_version_values
 
----@class _cmv_version: DFEnum
+---@class _cmv_version: DFEnumType
 ---@field CMV_0 10000
 ---@field [10000] "CMV_0"
 ---@field CMV_1 10001 adds support for sound
@@ -264,7 +264,7 @@ df.cmv_version = {}
 ---| save_version_keys
 ---| save_version_values
 
----@class _save_version: DFEnum
+---@class _save_version: DFEnumType
 ---@field v0_21_93_19a 1107
 ---@field [1107] "v0_21_93_19a"
 ---@field v0_21_93_19c 1108

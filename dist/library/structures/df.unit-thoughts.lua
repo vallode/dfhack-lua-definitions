@@ -350,7 +350,7 @@
 ---| emotion_type_values
 
 -- bay12: Emotion
----@class _emotion_type: DFEnum
+---@class _emotion_type: DFEnumType
 ---@field ANYTHING -1
 ---@field [-1] "ANYTHING"
 ---@field ACCEPTANCE 0
@@ -613,7 +613,7 @@
 ---@field [168] "ADMIRATION"
 df.emotion_type = {}
 
----@class emotion_type_attr_entry_type: DFCompound
+---@class emotion_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.emotion_type._attr_entry_type = {}
 
@@ -1325,7 +1325,7 @@ df.emotion_type.attrs = {}
 ---| unit_thought_type_keys
 ---| unit_thought_type_values
 
----@class _unit_thought_type: DFEnum
+---@class _unit_thought_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Conflict 0
@@ -1890,7 +1890,7 @@ df.emotion_type.attrs = {}
 ---@field [279] "PrayedDedicatedTemple"
 df.unit_thought_type = {}
 
----@class unit_thought_type_attr_entry_type: DFCompound
+---@class unit_thought_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_thought_type._attr_entry_type = {}
 

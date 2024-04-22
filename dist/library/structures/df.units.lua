@@ -559,7 +559,7 @@ df.work_detail_flags = {}
 ---| value_type_keys
 ---| value_type_values
 
----@class _value_type: DFEnum
+---@class _value_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LAW 0
@@ -668,7 +668,7 @@ df.value_type = {}
 ---| goal_type_keys
 ---| goal_type_values
 
----@class _goal_type: DFEnum
+---@class _goal_type: DFEnumType
 ---@field STAY_ALIVE 0
 ---@field [0] "STAY_ALIVE"
 ---@field MAINTAIN_ENTITY_STATUS 1
@@ -701,7 +701,7 @@ df.value_type = {}
 ---@field [14] "BATHE_WORLD_IN_CHAOS"
 df.goal_type = {}
 
----@class goal_type_attr_entry_type: DFCompound
+---@class goal_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.goal_type._attr_entry_type = {}
 
@@ -838,7 +838,7 @@ df.goal_type.attrs = {}
 ---| personality_facet_type_keys
 ---| personality_facet_type_values
 
----@class _personality_facet_type: DFEnum
+---@class _personality_facet_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LOVE_PROPENSITY 0
@@ -963,7 +963,7 @@ df.personality_facet_type = {}
 ---| physical_attribute_type_keys
 ---| physical_attribute_type_values
 
----@class _physical_attribute_type: DFEnum
+---@class _physical_attribute_type: DFEnumType
 ---@field STRENGTH 0
 ---@field [0] "STRENGTH"
 ---@field AGILITY 1
@@ -1012,7 +1012,7 @@ df.physical_attribute_type = {}
 ---| mental_attribute_type_keys
 ---| mental_attribute_type_values
 
----@class _mental_attribute_type: DFEnum
+---@class _mental_attribute_type: DFEnumType
 ---@field ANALYTICAL_ABILITY 0
 ---@field [0] "ANALYTICAL_ABILITY"
 ---@field FOCUS 1
@@ -1071,7 +1071,7 @@ df.mental_attribute_type = {}
 ---| mood_type_keys
 ---| mood_type_values
 
----@class _mood_type: DFEnum
+---@class _mood_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Fey 0
@@ -1128,7 +1128,7 @@ df.mood_type = {}
 ---| ghost_type_keys
 ---| ghost_type_values
 
----@class _ghost_type: DFEnum
+---@class _ghost_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field MurderousGhost 0
@@ -1183,7 +1183,7 @@ df.ghost_type = {}
 ---| animal_training_level_keys
 ---| animal_training_level_values
 
----@class _animal_training_level: DFEnum
+---@class _animal_training_level: DFEnumType
 ---@field SemiWild 0
 ---@field [0] "SemiWild"
 ---@field Trained 1
@@ -1221,7 +1221,7 @@ df.animal_training_level = {}
 ---| unit_report_type_values
 
 -- (UnitAnnouncementCategory)
----@class _unit_report_type: DFEnum
+---@class _unit_report_type: DFEnumType
 ---@field Combat 0
 ---@field [0] "Combat"
 ---@field Sparring 1
@@ -1280,7 +1280,7 @@ df.unit_report_type = {}
 ---| skill_rating_keys
 ---| skill_rating_values
 
----@class _skill_rating: DFEnum
+---@class _skill_rating: DFEnumType
 ---@field Dabbling 0
 ---@field [0] "Dabbling"
 ---@field Novice 1
@@ -1325,7 +1325,7 @@ df.unit_report_type = {}
 ---@field [20] "Legendary5"
 df.skill_rating = {}
 
----@class skill_rating_attr_entry_type: DFCompound
+---@class skill_rating_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.skill_rating._attr_entry_type = {}
 
@@ -1465,7 +1465,7 @@ df.skill_rating.attrs = {}
 ---| unit_relationship_type_values
 
 -- Used in unit.relations
----@class _unit_relationship_type: DFEnum
+---@class _unit_relationship_type: DFEnumType
 ---@field None -1 Can be checked through viewscreen_layer_unit_relationshipst
 ---@field [-1] "None" Can be checked through viewscreen_layer_unit_relationshipst
 ---@field Pet 0
@@ -1634,7 +1634,7 @@ df.unit_relationship_type = {}
 ---| need_type_keys
 ---| need_type_values
 
----@class _need_type: DFEnum
+---@class _need_type: DFEnumType
 ---@field Socialize 0
 ---@field [0] "Socialize"
 ---@field DrinkAlcohol 1
@@ -1711,7 +1711,7 @@ df.need_type = {}
 ---| pronoun_type_keys
 ---| pronoun_type_values
 
----@class _pronoun_type: DFEnum
+---@class _pronoun_type: DFEnumType
 ---@field it -1
 ---@field [-1] "it"
 ---@field she 0
@@ -1720,7 +1720,7 @@ df.need_type = {}
 ---@field [1] "he"
 df.pronoun_type = {}
 
----@class pronoun_type_attr_entry_type: DFCompound
+---@class pronoun_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.pronoun_type._attr_entry_type = {}
 
@@ -1769,7 +1769,7 @@ df.pronoun_type.attrs = {}
 ---| mill_pref_type_values
 
 -- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
----@class _mill_pref_type: DFEnum
+---@class _mill_pref_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field GATE 0
@@ -1813,7 +1813,7 @@ df.mill_pref_type = {}
 ---| unit_uniform_mode_type_values
 
 -- bay12: UnitUniformModeType
----@class _unit_uniform_mode_type: DFEnum
+---@class _unit_uniform_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CLOTHING 0
@@ -1839,7 +1839,7 @@ df.unit_uniform_mode_type = {}
 ---| mood_stage_type_values
 
 -- bay12: MoodStages
----@class _mood_stage_type: DFEnum
+---@class _mood_stage_type: DFEnumType
 ---@field INITIAL 0
 ---@field [0] "INITIAL"
 ---@field WORKING 1
@@ -1877,7 +1877,7 @@ df.mood_stage_type = {}
 ---| unit_owner_type_values
 
 -- bay12: UnitOwner
----@class _unit_owner_type: DFEnum
+---@class _unit_owner_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PET_MASTER 0
@@ -1921,7 +1921,7 @@ df.unit_owner_type = {}
 ---| rider_positions_type_values
 
 -- bay12: RiderPositions
----@class _rider_positions_type: DFEnum
+---@class _rider_positions_type: DFEnumType
 ---@field STANDARD 0
 ---@field [0] "STANDARD"
 ---@field CARRIED 1
@@ -1957,7 +1957,7 @@ df.unit_target_flags = {}
 ---| command_type_values
 
 -- bay12: Command
----@class _command_type: DFEnum
+---@class _command_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MOVE_TO_TILE 0
@@ -1988,8 +1988,7 @@ df.command_flags = {}
 ---@field [1] "AUTOMATED_TACTICAL"
 df.unit_command_flags = {}
 
----@class (exact) command: DFObject
----@field _kind 'struct'
+---@class (exact) command: DFStruct
 ---@field _type _command
 ---@field type command_type
 ---@field commander_unid number References: `unit`
@@ -1997,7 +1996,7 @@ df.unit_command_flags = {}
 ---@field flags command_flags following field not saved:
 ---@field pos coord following field saved if first field is 0
 
----@class _command: DFCompound
+---@class _command: DFCompoundType
 ---@field _kind 'struct-type'
 df.command = {}
 
@@ -2011,8 +2010,7 @@ df.command = {}
 ---@field [0] "CORPSE"
 df.unit_active_animation_flags = {}
 
----@class (exact) unit: DFObject
----@field _kind 'struct'
+---@class (exact) unit: DFStruct
 ---@field _type _unit
 ---@field name language_name
 ---@field custom_profession string
@@ -2115,7 +2113,7 @@ df.unit_active_animation_flags = {}
 ---@field pool_index integer
 ---@field mtx stl-mutex
 
----@class _unit: DFCompound
+---@class _unit: DFCompoundType
 ---@field _kind 'class-type'
 df.unit = {}
 
@@ -2128,25 +2126,23 @@ function df.unit.find(key) end
 ---@return unit_vector # df.global.world.units.all
 function df.unit.get_vector() end
 
----@class (exact) unit.T_path: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_path: DFStruct
 ---@field _type _unit.T_path
 ---@field dest coord
 ---@field goal unit_path_goal
 ---@field path coord_path
 
----@class _unit.T_path: DFCompound
+---@class _unit.T_path: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_path = {}
 
----@class (exact) unit.T_meeting: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_meeting: DFStruct
 ---@field _type _unit.T_meeting
 ---@field state unit.T_meeting.T_state
 ---@field target_entity number References: `historical_entity`
 ---@field target_role entity_position_responsibility
 
----@class _unit.T_meeting: DFCompound
+---@class _unit.T_meeting: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_meeting = {}
 
@@ -2166,7 +2162,7 @@ df.unit.T_meeting = {}
 ---| unit.T_meeting.T_state_keys
 ---| unit.T_meeting.T_state_values
 
----@class _unit.T_meeting.T_state: DFEnum
+---@class _unit.T_meeting.T_state: DFEnumType
 ---@field SelectNoble 0
 ---@field [0] "SelectNoble"
 ---@field FollowNoble 1
@@ -2209,8 +2205,7 @@ function _unit_general_refs:insert(index, item) end
 ---@param index integer 
 function _unit_general_refs:erase(index) end
 
----@class (exact) unit.T_military: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_military: DFStruct
 ---@field _type _unit.T_military
 ---@field squad_id number References: `squad`
 ---@field squad_position number
@@ -2224,7 +2219,7 @@ function _unit_general_refs:erase(index) end
 ---@field uniform_drop DFNumberVector
 ---@field individual_drills DFNumberVector
 
----@class _unit.T_military: DFCompound
+---@class _unit.T_military: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_military = {}
 
@@ -2238,25 +2233,23 @@ df.unit.T_military = {}
 ---@field [0] "update"
 df.unit.T_military.T_pickup_flags = {}
 
----@class (exact) unit.T_animal: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_animal: DFStruct
 ---@field _type _unit.T_animal
 ---@field population world_population_ref
 ---@field leave_countdown number once 0, it heads for the edge and leaves
 ---@field vanish_countdown number once 0, it vanishes in a puff of smoke
 
----@class _unit.T_animal: DFCompound
+---@class _unit.T_animal: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_animal = {}
 
----@class (exact) unit.T_opponent: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_opponent: DFStruct
 ---@field _type _unit.T_opponent
 ---@field unit_id number This was used by a vampire scared of cave creatures and doing FleeFromOpponent panic References: `unit`
 ---@field unit_pos coord
 ---@field timer number
 
----@class _unit.T_opponent: DFCompound
+---@class _unit.T_opponent: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_opponent = {}
 
@@ -2292,8 +2285,7 @@ function _unit_owned_buildings:insert(index, item) end
 ---@param index integer 
 function _unit_owned_buildings:erase(index) end
 
----@class (exact) unit.T_job: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_job: DFStruct
 ---@field _type _unit.T_job
 ---@field account number
 ---@field satisfaction number bay12: seasonpay: amount earned recently for jobs
@@ -2314,12 +2306,11 @@ function _unit_owned_buildings:erase(index) end
 ---@field mood_timeout number counts down from 50000, insanity upon reaching zero
 ---@field attack_chance_modifier number
 
----@class _unit.T_job: DFCompound
+---@class _unit.T_job: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_job = {}
 
----@class (exact) unit.T_body: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_body: DFStruct
 ---@field _type _unit.T_body
 ---@field components body_component_info
 ---@field wounds _unit_body_wounds
@@ -2334,7 +2325,7 @@ df.unit.T_job = {}
 ---@field infection_level number GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
 ---@field spatters _unit_body_spatters
 
----@class _unit.T_body: DFCompound
+---@class _unit.T_body: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_body = {}
 
@@ -2370,8 +2361,7 @@ function _unit_body_spatters:insert(index, item) end
 ---@param index integer 
 function _unit_body_spatters:erase(index) end
 
----@class (exact) unit.T_appearance: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_appearance: DFStruct
 ---@field _type _unit.T_appearance
 ---@field body_modifiers DFNumberVector
 ---@field bp_modifiers DFNumberVector
@@ -2384,7 +2374,7 @@ function _unit_body_spatters:erase(index) end
 ---@field genes unit_genes
 ---@field colors DFNumberVector
 
----@class _unit.T_appearance: DFCompound
+---@class _unit.T_appearance: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_appearance = {}
 
@@ -2404,8 +2394,7 @@ function _unit_actions:insert(index, item) end
 ---@param index integer 
 function _unit_actions:erase(index) end
 
----@class (exact) unit.T_counters: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_counters: DFStruct
 ---@field _type _unit.T_counters
 ---@field think_counter number
 ---@field job_counter number // 53c decrements every job_counter reroll, set when changing jobs
@@ -2425,7 +2414,7 @@ function _unit_actions:erase(index) end
 ---@field nausea integer
 ---@field dizziness integer
 
----@class _unit.T_counters: DFCompound
+---@class _unit.T_counters: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_counters = {}
 
@@ -2449,7 +2438,7 @@ df.unit.T_counters = {}
 ---| unit.T_counters.T_soldier_mood_keys
 ---| unit.T_counters.T_soldier_mood_values
 
----@class _unit.T_counters.T_soldier_mood: DFEnum
+---@class _unit.T_counters.T_soldier_mood: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field MartialTrance 0
@@ -2464,8 +2453,7 @@ df.unit.T_counters = {}
 ---@field [4] "Oblivious"
 df.unit.T_counters.T_soldier_mood = {}
 
----@class (exact) unit.T_curse: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_curse: DFStruct
 ---@field _type _unit.T_curse
 ---@field flags integer moved from end of counters in 0.43.05
 ---@field add_tags1 cie_add_tag_mask1
@@ -2494,12 +2482,11 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field own_interaction DFNumberVector
 ---@field own_interaction_delay DFNumberVector
 
----@class _unit.T_curse: DFCompound
+---@class _unit.T_curse: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_curse = {}
 
----@class (exact) unit.T_counters2: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_counters2: DFStruct
 ---@field _type _unit.T_counters2
 ---@field paralysis integer
 ---@field numbness integer
@@ -2513,12 +2500,11 @@ df.unit.T_curse = {}
 ---@field vomit_timeout integer blocks nausea causing vomit
 ---@field stored_fat integer hunger leads to death only when 0
 
----@class _unit.T_counters2: DFCompound
+---@class _unit.T_counters2: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_counters2 = {}
 
----@class (exact) unit.T_status: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_status: DFStruct
 ---@field _type _unit.T_status
 ---@field misc_traits _unit_status_misc_traits
 ---@field eat_history DFPointer<integer>
@@ -2547,7 +2533,7 @@ df.unit.T_counters2 = {}
 ---@field recent_job_area coord average of the following vector
 ---@field recent_jobs coord_path up to 50 locations where jobs were performed recently by the unit
 
----@class _unit.T_status: DFCompound
+---@class _unit.T_status: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_status = {}
 
@@ -2695,8 +2681,7 @@ function _unit_status_commands:insert(index, item) end
 ---@param index integer 
 function _unit_status_commands:erase(index) end
 
----@class (exact) unit.T_status2: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_status2: DFStruct
 ---@field _type _unit.T_status2
 ---@field limbs_stand_max number
 ---@field limbs_stand_count number
@@ -2710,7 +2695,7 @@ function _unit_status_commands:erase(index) end
 ---@field liquid_depth integer
 ---@field histeventcol_id number linked to an active invasion or kidnapping References: `history_event_collection`
 
----@class _unit.T_status2: DFCompound
+---@class _unit.T_status2: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_status2 = {}
 
@@ -2730,24 +2715,22 @@ function _unit_status2_body_part_temperature:insert(index, item) end
 ---@param index integer 
 function _unit_status2_body_part_temperature:erase(index) end
 
----@class (exact) unit.T_syndrome_advancement: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_syndrome_advancement: DFStruct
 ---@field _type _unit.T_syndrome_advancement
 ---@field pre_hf_active_interaction_index DFNumberVector
 ---@field pre_hf_active_interaction_effect_index DFNumberVector
 
----@class _unit.T_syndrome_advancement: DFCompound
+---@class _unit.T_syndrome_advancement: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_syndrome_advancement = {}
 
----@class (exact) unit.T_syndromes: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_syndromes: DFStruct
 ---@field _type _unit.T_syndromes
 ---@field active _unit_syndromes_active Sorted by type:
 ---@field reinfection_type DFNumberVector Seems to be incremented every new infection:
 ---@field reinfection_count DFNumberVector
 
----@class _unit.T_syndromes: DFCompound
+---@class _unit.T_syndromes: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_syndromes = {}
 
@@ -2767,14 +2750,13 @@ function _unit_syndromes_active:insert(index, item) end
 ---@param index integer 
 function _unit_syndromes_active:erase(index) end
 
----@class (exact) unit.T_reports: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_reports: DFStruct
 ---@field _type _unit.T_reports
 ---@field log DFEnumVector<unit_report_type, number>
 ---@field last_year DFEnumVector<unit_report_type, number> Garbage when the matching vector is empty:
 ---@field last_year_tick DFEnumVector<unit_report_type, number>
 
----@class _unit.T_reports: DFCompound
+---@class _unit.T_reports: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_reports = {}
 
@@ -2796,8 +2778,7 @@ function _unit_used_items:erase(index) end
 
 -- svector((item_familiarityst *)) item_familiarity
 -- !!this is not actually a compound!!
----@class (exact) unit.T_enemy: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_enemy: DFStruct
 ---@field _type _unit.T_enemy
 ---@field sound_cooldown DFNumberVector
 ---@field undead DFPointer<integer> svector((int32_t)) sound_timer
@@ -2839,7 +2820,7 @@ function _unit_used_items:erase(index) end
 ---@field invorder_item_id DFNumberVector
 ---@field invorder_coverage DFNumberVector
 
----@class _unit.T_enemy: DFCompound
+---@class _unit.T_enemy: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_enemy = {}
 
@@ -2892,8 +2873,7 @@ function _unit_enemy_rumor:insert(index, item) end
 function _unit_enemy_rumor:erase(index) end
 
 -- int32_t gait_index[GAITNUM]
----@class (exact) unit.T_enemy.T_attack_awareness: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_enemy.T_attack_awareness: DFStruct
 ---@field _type _unit.T_enemy.T_attack_awareness
 ---@field unit_id number[] attack_awarenessst
 ---@field unit_mvid number[]
@@ -2901,17 +2881,16 @@ function _unit_enemy_rumor:erase(index) end
 ---@field abs_season number[] unused elements probably uninitialized
 ---@field flag number[] unused elements probably uninitialized
 
----@class _unit.T_enemy.T_attack_awareness: DFCompound
+---@class _unit.T_enemy.T_attack_awareness: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_enemy.T_attack_awareness = {}
 
----@class (exact) unit.T_enemy.T_detection_info: DFObject
----@field _kind 'struct'
+---@class (exact) unit.T_enemy.T_detection_info: DFStruct
 ---@field _type _unit.T_enemy.T_detection_info
 ---@field last_spotted_unid number[] detection_infost
 ---@field last_spotted_unid_num number
 
----@class _unit.T_enemy.T_detection_info: DFCompound
+---@class _unit.T_enemy.T_detection_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit.T_enemy.T_detection_info = {}
 
@@ -2969,8 +2948,7 @@ function _unit_occupations:erase(index) end
 ---@field [3] "KNOW_NAME_OF_RELEVANT_HF_BY_OTHER_MEANS"
 df.witness_report_flags = {}
 
----@class (exact) witness_incidentst: DFObject
----@field _kind 'struct'
+---@class (exact) witness_incidentst: DFStruct
 ---@field _type _witness_incidentst
 ---@field incident_id number References: `incident`
 ---@field crime_id number References: `crime`
@@ -2988,7 +2966,7 @@ df.witness_report_flags = {}
 ---@field ic_ident_id number References: `identity`
 ---@field pos coord
 
----@class _witness_incidentst: DFCompound
+---@class _witness_incidentst: DFCompoundType
 ---@field _kind 'struct-type'
 df.witness_incidentst = {}
 
@@ -3018,7 +2996,7 @@ df.witness_incidentst = {}
 ---| ghost_goal_keys
 ---| ghost_goal_values
 
----@class _ghost_goal: DFEnum
+---@class _ghost_goal: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field ScareToDeath 0
@@ -3039,8 +3017,7 @@ df.witness_incidentst = {}
 ---@field [7] "ToppleBuilding"
 df.ghost_goal = {}
 
----@class (exact) unit_ghost_info: DFObject
----@field _kind 'struct'
+---@class (exact) unit_ghost_info: DFStruct
 ---@field _type _unit_ghost_info
 ---@field type ghost_type
 ---@field type2 ghost_type seems to have same value as type
@@ -3054,18 +3031,17 @@ df.ghost_goal = {}
 ---@field death_y number
 ---@field death_z number
 
----@class _unit_ghost_info: DFCompound
+---@class _unit_ghost_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_ghost_info = {}
 
----@class (exact) unit_ghost_info.T_target: DFObject
----@field _kind 'struct'
+---@class (exact) unit_ghost_info.T_target: DFStruct
 ---@field _type _unit_ghost_info.T_target
 ---@field unit number References: `unit`
 ---@field item number References: `item`
 ---@field building number References: `building`
 
----@class _unit_ghost_info.T_target: DFCompound
+---@class _unit_ghost_info.T_target: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_ghost_info.T_target = {}
 
@@ -3083,18 +3059,16 @@ df.unit_ghost_info.T_target = {}
 ---@field [1] "was_at_rest"
 df.unit_ghost_info.T_flags = {}
 
----@class (exact) unit_genes: DFObject
----@field _kind 'struct'
+---@class (exact) unit_genes: DFStruct
 ---@field _type _unit_genes
 ---@field appearance DFIntegerVector
 ---@field colors DFNumberVector
 
----@class _unit_genes: DFCompound
+---@class _unit_genes: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_genes = {}
 
----@class (exact) unit_inventory_item: DFObject
----@field _kind 'struct'
+---@class (exact) unit_inventory_item: DFStruct
 ---@field _type _unit_inventory_item
 ---@field item item
 ---@field mode unit_inventory_item.T_mode
@@ -3102,7 +3076,7 @@ df.unit_genes = {}
 ---@field pet_seed number RNG seed for Pet mode
 ---@field wound_id number -1 unless suture
 
----@class _unit_inventory_item: DFCompound
+---@class _unit_inventory_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_inventory_item = {}
 
@@ -3136,7 +3110,7 @@ df.unit_inventory_item = {}
 ---| unit_inventory_item.T_mode_keys
 ---| unit_inventory_item.T_mode_values
 
----@class _unit_inventory_item.T_mode: DFEnum
+---@class _unit_inventory_item.T_mode: DFEnumType
 ---@field Hauled 0
 ---@field [0] "Hauled"
 ---@field Weapon 1 also shield, crutch
@@ -3161,8 +3135,7 @@ df.unit_inventory_item = {}
 ---@field [10] "Strapped"
 df.unit_inventory_item.T_mode = {}
 
----@class (exact) unit_attribute: DFObject
----@field _kind 'struct'
+---@class (exact) unit_attribute: DFStruct
 ---@field _type _unit_attribute
 ---@field value number effective = value - soft_demotion
 ---@field max_value number
@@ -3172,12 +3145,11 @@ df.unit_inventory_item.T_mode = {}
 ---@field rust_counter number counts to PHYS_ATT_RATES rust; then demotion_counter++
 ---@field demotion_counter number counts to PHYS_ATT_RATES demotion; then value--; soft_demotion++
 
----@class _unit_attribute: DFCompound
+---@class _unit_attribute: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_attribute = {}
 
----@class (exact) unit_syndrome: DFObject
----@field _kind 'struct'
+---@class (exact) unit_syndrome: DFStruct
 ---@field _type _unit_syndrome
 ---@field type number References: `syndrome`
 ---@field year number
@@ -3190,7 +3162,7 @@ df.unit_attribute = {}
 ---@field flags unit_syndrome.T_flags
 ---@field unk4 DFNumberVector
 
----@class _unit_syndrome: DFCompound
+---@class _unit_syndrome: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_syndrome = {}
 
@@ -3254,7 +3226,7 @@ df.unit_syndrome.T_flags = {}
 ---| wound_effect_type_keys
 ---| wound_effect_type_values
 
----@class _wound_effect_type: DFEnum
+---@class _wound_effect_type: DFEnumType
 ---@field Bruise 0
 ---@field [0] "Bruise"
 ---@field Burn 1
@@ -3429,8 +3401,7 @@ df.wound_damage_flags1 = {}
 ---@field [2] "gelded"
 df.wound_damage_flags2 = {}
 
----@class (exact) unit_wound: DFObject
----@field _kind 'struct'
+---@class (exact) unit_wound: DFStruct
 ---@field _type _unit_wound
 ---@field id number
 ---@field parts _unit_wound_parts
@@ -3449,7 +3420,7 @@ df.wound_damage_flags2 = {}
 ---@field unk_v42_1 number
 ---@field unk_v42_2 number
 
----@class _unit_wound: DFCompound
+---@class _unit_wound: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_wound = {}
 
@@ -3499,20 +3470,18 @@ function _unit_wound_parts:erase(index) end
 ---@field [5] "infection"
 df.unit_wound.T_flags = {}
 
----@class (exact) curse_attr_change: DFObject
----@field _kind 'struct'
+---@class (exact) curse_attr_change: DFStruct
 ---@field _type _curse_attr_change
 ---@field phys_att_perc DFEnumVector<physical_attribute_type, number>
 ---@field phys_att_add DFEnumVector<physical_attribute_type, number>
 ---@field ment_att_perc DFEnumVector<mental_attribute_type, number>
 ---@field ment_att_add DFEnumVector<mental_attribute_type, number>
 
----@class _curse_attr_change: DFCompound
+---@class _curse_attr_change: DFCompoundType
 ---@field _kind 'struct-type'
 df.curse_attr_change = {}
 
----@class (exact) wound_curse_info: DFObject
----@field _kind 'struct'
+---@class (exact) wound_curse_info: DFStruct
 ---@field _type _wound_curse_info
 ---@field unk_v40_1 number
 ---@field add_tags1 cie_add_tag_mask1
@@ -3540,17 +3509,16 @@ df.curse_attr_change = {}
 ---@field body_appearance DFNumberVector
 ---@field bp_appearance DFNumberVector
 
----@class _wound_curse_info: DFCompound
+---@class _wound_curse_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.wound_curse_info = {}
 
----@class (exact) wound_curse_info.T_timing: DFObject
----@field _kind 'struct'
+---@class (exact) wound_curse_info.T_timing: DFStruct
 ---@field _type _wound_curse_info.T_timing
 ---@field interaction_time DFNumberVector
 ---@field time_counter number
 
----@class _wound_curse_info.T_timing: DFCompound
+---@class _wound_curse_info.T_timing: DFCompoundType
 ---@field _kind 'struct-type'
 df.wound_curse_info.T_timing = {}
 
@@ -3700,7 +3668,7 @@ df.wound_curse_info.T_timing = {}
 ---| misc_trait_type_keys
 ---| misc_trait_type_values
 
----@class _misc_trait_type: DFEnum
+---@class _misc_trait_type: DFEnumType
 ---@field RequestWaterCooldown 0 0 --
 ---@field [0] "RequestWaterCooldown" 0 --
 ---@field RequestFoodCooldown 1 for thirsty patients
@@ -3787,7 +3755,7 @@ df.wound_curse_info.T_timing = {}
 ---@field [64] "CitizenshipCooldown" starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
 df.misc_trait_type = {}
 
----@class misc_trait_type_attr_entry_type: DFCompound
+---@class misc_trait_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.misc_trait_type._attr_entry_type = {}
 
@@ -3805,18 +3773,16 @@ df.misc_trait_type._attr_entry_type._fields = {}
 ---@field DrinkingBlood { tag: "DRINKING_BLOOD" }
 df.misc_trait_type.attrs = {}
 
----@class (exact) unit_misc_trait: DFObject
----@field _kind 'struct'
+---@class (exact) unit_misc_trait: DFStruct
 ---@field _type _unit_misc_trait
 ---@field id misc_trait_type
 ---@field value number
 
----@class _unit_misc_trait: DFCompound
+---@class _unit_misc_trait: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_misc_trait = {}
 
----@class (exact) unit_item_wrestle: DFObject
----@field _kind 'struct'
+---@class (exact) unit_item_wrestle: DFStruct
 ---@field _type _unit_item_wrestle
 ---@field unit number References: `unit`
 ---@field self_bp number
@@ -3829,19 +3795,18 @@ df.unit_misc_trait = {}
 ---@field unk_1e number 1 grabs, -1 grabbed
 ---@field unk_20 number
 
----@class _unit_item_wrestle: DFCompound
+---@class _unit_item_wrestle: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_item_wrestle = {}
 
----@class (exact) unit_item_use: DFObject
----@field _kind 'struct'
+---@class (exact) unit_item_use: DFStruct
 ---@field _type _unit_item_use
 ---@field id number References: `item`
 ---@field time_in_use number
 ---@field has_grown_attached number
 ---@field affection_level number min 50 for attached, 1000 for name
 
----@class _unit_item_use: DFCompound
+---@class _unit_item_use: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_item_use = {}
 
@@ -3941,8 +3906,7 @@ df.unit_health_flags = {}
 ---@field [9] "needs_cast" used to remove once not needed
 df.unit_bp_health_flags = {}
 
----@class (exact) unit_health_info: DFObject
----@field _kind 'struct'
+---@class (exact) unit_health_info: DFStruct
 ---@field _type _unit_health_info
 ---@field unit_id number References: `unit`
 ---@field flags unit_health_flags
@@ -3956,7 +3920,7 @@ df.unit_bp_health_flags = {}
 ---@field op_history _unit_health_info_op_history
 ---@field syndrome_diagnosis _unit_health_info_syndrome_diagnosis
 
----@class _unit_health_info: DFCompound
+---@class _unit_health_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_health_info = {}
 
@@ -4034,8 +3998,7 @@ function _unit_health_info_syndrome_diagnosis:erase(index) end
 ---@field [4] "marry_female"
 df.orientation_flags = {}
 
----@class (exact) unit_soul: DFObject
----@field _kind 'struct'
+---@class (exact) unit_soul: DFStruct
 ---@field _type _unit_soul
 ---@field id number
 ---@field name language_name
@@ -4057,7 +4020,7 @@ df.orientation_flags = {}
 ---@field personality unit_personality
 ---@field performance_skills DFPointer<integer>
 
----@class _unit_soul: DFCompound
+---@class _unit_soul: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_soul = {}
 
@@ -4093,52 +4056,47 @@ function _unit_soul_preferences:insert(index, item) end
 ---@param index integer 
 function _unit_soul_preferences:erase(index) end
 
----@class (exact) unit_instrument_skill: DFObject
----@field _kind 'struct'
+---@class (exact) unit_instrument_skill: DFStruct
 ---@field _type _unit_instrument_skill
 ---@field id number
 ---@field rating skill_rating
 ---@field experience number
 
----@class _unit_instrument_skill: DFCompound
+---@class _unit_instrument_skill: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_instrument_skill = {}
 
----@class (exact) unit_poetic_skill: DFObject
----@field _kind 'struct'
+---@class (exact) unit_poetic_skill: DFStruct
 ---@field _type _unit_poetic_skill
 ---@field id number
 ---@field rating skill_rating
 ---@field experience number
 
----@class _unit_poetic_skill: DFCompound
+---@class _unit_poetic_skill: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_poetic_skill = {}
 
----@class (exact) unit_musical_skill: DFObject
----@field _kind 'struct'
+---@class (exact) unit_musical_skill: DFStruct
 ---@field _type _unit_musical_skill
 ---@field id number
 ---@field rating skill_rating
 ---@field experience number
 
----@class _unit_musical_skill: DFCompound
+---@class _unit_musical_skill: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_musical_skill = {}
 
----@class (exact) unit_dance_skill: DFObject
----@field _kind 'struct'
+---@class (exact) unit_dance_skill: DFStruct
 ---@field _type _unit_dance_skill
 ---@field id number
 ---@field rating skill_rating
 ---@field experience number
 
----@class _unit_dance_skill: DFCompound
+---@class _unit_dance_skill: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_dance_skill = {}
 
----@class (exact) unit_emotion_memory: DFObject
----@field _kind 'struct'
+---@class (exact) unit_emotion_memory: DFStruct
 ---@field _type _unit_emotion_memory
 ---@field type emotion_type
 ---@field unk2 number
@@ -4152,12 +4110,11 @@ df.unit_dance_skill = {}
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 
----@class _unit_emotion_memory: DFCompound
+---@class _unit_emotion_memory: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_emotion_memory = {}
 
----@class (exact) personality_moodst: DFObject
----@field _kind 'struct'
+---@class (exact) personality_moodst: DFStruct
 ---@field _type _personality_moodst
 ---@field type emotion_type
 ---@field strength number
@@ -4170,7 +4127,7 @@ df.unit_emotion_memory = {}
 ---@field year number bay12: last_used_year
 ---@field year_tick number bay12: last_used_season_count
 
----@class _personality_moodst: DFCompound
+---@class _personality_moodst: DFCompoundType
 ---@field _kind 'struct-type'
 df.personality_moodst = {}
 
@@ -4216,8 +4173,7 @@ df.personality_moodst = {}
 ---@field [8] "value_change"
 df.personality_moodst.T_flags = {}
 
----@class (exact) unit_personality: DFObject
----@field _kind 'struct'
+---@class (exact) unit_personality: DFStruct
 ---@field _type _unit_personality
 ---@field values _unit_personality_values
 ---@field ethics _unit_personality_ethics
@@ -4250,7 +4206,7 @@ df.personality_moodst.T_flags = {}
 ---@field current_focus number weighted sum of needs focus_level-s
 ---@field undistracted_focus number usually number of needs multiplied by 4
 
----@class _unit_personality: DFCompound
+---@class _unit_personality: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_personality = {}
 
@@ -4399,7 +4355,7 @@ df.unit_personality.T_flags = {}
 ---| unit_action_type_group_values
 
 -- for the action timer API, not in DF
----@class _unit_action_type_group: DFEnum
+---@class _unit_action_type_group: DFEnumType
 ---@field All 0
 ---@field [0] "All"
 ---@field Movement 1
@@ -4470,7 +4426,7 @@ df.unit_action_type_group = {}
 ---| unit_action_type_keys
 ---| unit_action_type_values
 
----@class _unit_action_type: DFEnum
+---@class _unit_action_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Move 0
@@ -4523,7 +4479,7 @@ df.unit_action_type_group = {}
 ---@field [23] "Unk23"
 df.unit_action_type = {}
 
----@class unit_action_type_attr_entry_type: DFCompound
+---@class unit_action_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_type._attr_entry_type = {}
 
@@ -4560,19 +4516,17 @@ df.unit_action_type._attr_entry_type._fields = {}
 ---@field Unk23 { tag: "unk23" }
 df.unit_action_type.attrs = {}
 
----@class (exact) unit_action: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action: DFStruct
 ---@field _type _unit_action
 ---@field type unit_action_type
 ---@field id number
 ---@field data unit_action.T_data
 
----@class _unit_action: DFCompound
+---@class _unit_action: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action = {}
 
----@class (exact) unit_action.T_data: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action.T_data: DFStruct
 ---@field _type _unit_action.T_data
 ---@field raw_data number[]
 ---@field move unit_action_data_move
@@ -4600,12 +4554,11 @@ df.unit_action = {}
 ---@field unk22 unit_action_data_unk_sub_22
 ---@field unk23 unit_action_data_unk_sub_23
 
----@class _unit_action.T_data: DFCompound
+---@class _unit_action.T_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action.T_data = {}
 
----@class (exact) unit_action_data_move: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_move: DFStruct
 ---@field _type _unit_action_data_move
 ---@field x number
 ---@field y number
@@ -4615,7 +4568,7 @@ df.unit_action.T_data = {}
 ---@field fatigue number
 ---@field flags unit_action_data_move.T_flags
 
----@class _unit_action_data_move: DFCompound
+---@class _unit_action_data_move: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_move = {}
 
@@ -4629,8 +4582,7 @@ df.unit_action_data_move = {}
 ---@field [0] "charge"
 df.unit_action_data_move.T_flags = {}
 
----@class (exact) unit_action_data_attack: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_attack: DFStruct
 ---@field _type _unit_action_data_attack
 ---@field target_unit_id number References: `unit`
 ---@field unk_4 unit_action_data_attack.T_unk_4
@@ -4647,12 +4599,11 @@ df.unit_action_data_move.T_flags = {}
 ---@field timer1 number prepare
 ---@field timer2 number recover
 
----@class _unit_action_data_attack: DFCompound
+---@class _unit_action_data_attack: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_attack = {}
 
----@class (exact) unit_action_data_attack.T_unk_4: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_attack.T_unk_4: DFStruct
 ---@field _type _unit_action_data_attack.T_unk_4
 ---@field wrestle_type unit_action_data_attack.T_unk_4.T_wrestle_type
 ---@field unk_4 number
@@ -4662,7 +4613,7 @@ df.unit_action_data_attack = {}
 ---@field unk_10 number
 ---@field unk_14 number
 
----@class _unit_action_data_attack.T_unk_4: DFCompound
+---@class _unit_action_data_attack.T_unk_4: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_attack.T_unk_4 = {}
 
@@ -4678,7 +4629,7 @@ df.unit_action_data_attack.T_unk_4 = {}
 ---| unit_action_data_attack.T_unk_4.T_wrestle_type_keys
 ---| unit_action_data_attack.T_unk_4.T_wrestle_type_values
 
----@class _unit_action_data_attack.T_unk_4.T_wrestle_type: DFEnum
+---@class _unit_action_data_attack.T_unk_4.T_wrestle_type: DFEnumType
 ---@field Wrestle 0
 ---@field [0] "Wrestle"
 ---@field Grab 1
@@ -4751,8 +4702,7 @@ df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 ---@field [14] "sparring_hit" (SPARRING_HIT)
 df.unit_action_data_attack.T_flags = {}
 
----@class (exact) unit_action_data_jump: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_jump: DFStruct
 ---@field _type _unit_action_data_jump
 ---@field x1 number
 ---@field y1 number
@@ -4761,12 +4711,11 @@ df.unit_action_data_attack.T_flags = {}
 ---@field y2 number
 ---@field z2 number
 
----@class _unit_action_data_jump: DFCompound
+---@class _unit_action_data_jump: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_jump = {}
 
----@class (exact) unit_action_data_hold_terrain: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_hold_terrain: DFStruct
 ---@field _type _unit_action_data_hold_terrain
 ---@field x1 number
 ---@field y1 number
@@ -4780,23 +4729,21 @@ df.unit_action_data_jump = {}
 ---@field timer number
 ---@field fatigue number
 
----@class _unit_action_data_hold_terrain: DFCompound
+---@class _unit_action_data_hold_terrain: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_hold_terrain = {}
 
----@class (exact) unit_action_data_release_terrain: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_release_terrain: DFStruct
 ---@field _type _unit_action_data_release_terrain
 ---@field x number
 ---@field y number
 ---@field z number
 
----@class _unit_action_data_release_terrain: DFCompound
+---@class _unit_action_data_release_terrain: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_release_terrain = {}
 
----@class (exact) unit_action_data_climb: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_climb: DFStruct
 ---@field _type _unit_action_data_climb
 ---@field x1 number
 ---@field y1 number
@@ -4811,24 +4758,22 @@ df.unit_action_data_release_terrain = {}
 ---@field timer_init number
 ---@field fatigue number
 
----@class _unit_action_data_climb: DFCompound
+---@class _unit_action_data_climb: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_climb = {}
 
----@class (exact) unit_action_data_job: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_job: DFStruct
 ---@field _type _unit_action_data_job
 ---@field x number
 ---@field y number
 ---@field z number
 ---@field timer number
 
----@class _unit_action_data_job: DFCompound
+---@class _unit_action_data_job: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_job = {}
 
----@class (exact) unit_action_data_talk: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_talk: DFStruct
 ---@field _type _unit_action_data_talk
 ---@field unk_0 number
 ---@field activity_id number References: `activity_entry`
@@ -4844,43 +4789,39 @@ df.unit_action_data_job = {}
 ---@field unk_50 number
 ---@field unk_54 number
 
----@class _unit_action_data_talk: DFCompound
+---@class _unit_action_data_talk: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_talk = {}
 
----@class (exact) unit_action_data_unsteady: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_unsteady: DFStruct
 ---@field _type _unit_action_data_unsteady
 ---@field timer number
 
----@class _unit_action_data_unsteady: DFCompound
+---@class _unit_action_data_unsteady: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_unsteady = {}
 
----@class (exact) unit_action_data_parry: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_parry: DFStruct
 ---@field _type _unit_action_data_parry
 ---@field unit_id number References: `unit`
 ---@field target_action number References: `unit_action`
 ---@field parry_item_id number References: `item`
 
----@class _unit_action_data_parry: DFCompound
+---@class _unit_action_data_parry: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_parry = {}
 
----@class (exact) unit_action_data_block: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_block: DFStruct
 ---@field _type _unit_action_data_block
 ---@field unit_id number References: `unit`
 ---@field target_action number References: `unit_action`
 ---@field block_item_id number References: `item`
 
----@class _unit_action_data_block: DFCompound
+---@class _unit_action_data_block: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_block = {}
 
----@class (exact) unit_action_data_dodge: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_dodge: DFStruct
 ---@field _type _unit_action_data_dodge
 ---@field x1 number
 ---@field y1 number
@@ -4890,49 +4831,44 @@ df.unit_action_data_block = {}
 ---@field y2 number
 ---@field z2 number
 
----@class _unit_action_data_dodge: DFCompound
+---@class _unit_action_data_dodge: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_dodge = {}
 
----@class (exact) unit_action_data_recover: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_recover: DFStruct
 ---@field _type _unit_action_data_recover
 ---@field timer number
 ---@field unk_4 number
 
----@class _unit_action_data_recover: DFCompound
+---@class _unit_action_data_recover: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_recover = {}
 
----@class (exact) unit_action_data_stand_up: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_stand_up: DFStruct
 ---@field _type _unit_action_data_stand_up
 ---@field timer number
 
----@class _unit_action_data_stand_up: DFCompound
+---@class _unit_action_data_stand_up: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_stand_up = {}
 
----@class (exact) unit_action_data_lie_down: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_lie_down: DFStruct
 ---@field _type _unit_action_data_lie_down
 ---@field timer number
 
----@class _unit_action_data_lie_down: DFCompound
+---@class _unit_action_data_lie_down: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_lie_down = {}
 
----@class (exact) unit_action_data_job2: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_job2: DFStruct
 ---@field _type _unit_action_data_job2
 ---@field timer number
 
----@class _unit_action_data_job2: DFCompound
+---@class _unit_action_data_job2: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_job2 = {}
 
----@class (exact) unit_action_data_push_object: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_push_object: DFStruct
 ---@field _type _unit_action_data_push_object
 ---@field x1 number
 ---@field y1 number
@@ -4946,22 +4882,20 @@ df.unit_action_data_job2 = {}
 ---@field timer number
 ---@field unk_18 number
 
----@class _unit_action_data_push_object: DFCompound
+---@class _unit_action_data_push_object: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_push_object = {}
 
----@class (exact) unit_action_data_suck_blood: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_suck_blood: DFStruct
 ---@field _type _unit_action_data_suck_blood
 ---@field unit_id number References: `unit`
 ---@field timer number
 
----@class _unit_action_data_suck_blood: DFCompound
+---@class _unit_action_data_suck_blood: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_suck_blood = {}
 
----@class (exact) unit_action_data_hold_item: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_hold_item: DFStruct
 ---@field _type _unit_action_data_hold_item
 ---@field x1 number
 ---@field y1 number
@@ -4973,59 +4907,53 @@ df.unit_action_data_suck_blood = {}
 ---@field unk_10 number
 ---@field unk_14 number
 
----@class _unit_action_data_hold_item: DFCompound
+---@class _unit_action_data_hold_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_hold_item = {}
 
----@class (exact) unit_action_data_release_item: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_release_item: DFStruct
 ---@field _type _unit_action_data_release_item
 ---@field unk_0 number
 
----@class _unit_action_data_release_item: DFCompound
+---@class _unit_action_data_release_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_release_item = {}
 
----@class (exact) unit_action_data_unk_sub_20: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_unk_sub_20: DFStruct
 ---@field _type _unit_action_data_unk_sub_20
 ---@field unk_0 number[]
 ---@field unk_1 number[]
 
----@class _unit_action_data_unk_sub_20: DFCompound
+---@class _unit_action_data_unk_sub_20: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_20 = {}
 
----@class (exact) unit_action_data_unk_sub_21: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_unk_sub_21: DFStruct
 ---@field _type _unit_action_data_unk_sub_21
 ---@field unk_0 number[]
 ---@field unk_1 number[]
 
----@class _unit_action_data_unk_sub_21: DFCompound
+---@class _unit_action_data_unk_sub_21: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_21 = {}
 
----@class (exact) unit_action_data_unk_sub_22: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_unk_sub_22: DFStruct
 ---@field _type _unit_action_data_unk_sub_22
 ---@field unk_0 number
 
----@class _unit_action_data_unk_sub_22: DFCompound
+---@class _unit_action_data_unk_sub_22: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_22 = {}
 
----@class (exact) unit_action_data_unk_sub_23: DFObject
----@field _kind 'struct'
+---@class (exact) unit_action_data_unk_sub_23: DFStruct
 ---@field _type _unit_action_data_unk_sub_23
 ---@field unk_0 number
 
----@class _unit_action_data_unk_sub_23: DFCompound
+---@class _unit_action_data_unk_sub_23: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_23 = {}
 
----@class (exact) unit_skill: DFObject
----@field _kind 'struct'
+---@class (exact) unit_skill: DFStruct
 ---@field _type _unit_skill
 ---@field id job_skill
 ---@field rating skill_rating
@@ -5036,12 +4964,11 @@ df.unit_action_data_unk_sub_23 = {}
 ---@field demotion_counter number
 ---@field natural_skill_lvl number This is the NATURAL_SKILL level for the caste in the raws. This skill cannot rust below this level.
 
----@class _unit_skill: DFCompound
+---@class _unit_skill: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_skill = {}
 
----@class (exact) unit_preference: DFObject
----@field _kind 'struct'
+---@class (exact) unit_preference: DFStruct
 ---@field _type _unit_preference
 ---@field type unit_preference.T_type
 ---@field item_type item_type
@@ -5059,7 +4986,7 @@ df.unit_skill = {}
 ---@field active boolean
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
 
----@class _unit_preference: DFCompound
+---@class _unit_preference: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_preference = {}
 
@@ -5095,7 +5022,7 @@ df.unit_preference = {}
 ---| unit_preference.T_type_keys
 ---| unit_preference.T_type_values
 
----@class _unit_preference.T_type: DFEnum
+---@class _unit_preference.T_type: DFEnumType
 ---@field LikeMaterial 0
 ---@field [0] "LikeMaterial"
 ---@field LikeCreature 1
@@ -5122,25 +5049,23 @@ df.unit_preference = {}
 ---@field [11] "LikeDanceForm"
 df.unit_preference.T_type = {}
 
----@class (exact) unit_complaint: DFObject
----@field _kind 'struct'
+---@class (exact) unit_complaint: DFStruct
 ---@field _type _unit_complaint
 ---@field type history_event_reason
 ---@field age number
 
----@class _unit_complaint: DFCompound
+---@class _unit_complaint: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_complaint = {}
 
----@class (exact) unit_parley: DFObject
----@field _kind 'struct'
+---@class (exact) unit_parley: DFStruct
 ---@field _type _unit_parley
 ---@field invasion number References: `invasion_info`
 ---@field speaker number References: `unit`
 ---@field artifact number References: `artifact_record`
 ---@field flags unit_parley.T_flags
 
----@class _unit_parley: DFCompound
+---@class _unit_parley: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_parley = {}
 
@@ -5158,14 +5083,13 @@ df.unit_parley = {}
 ---@field [1] "returning_treasure"
 df.unit_parley.T_flags = {}
 
----@class (exact) unit_request: DFObject
----@field _kind 'struct'
+---@class (exact) unit_request: DFStruct
 ---@field _type _unit_request
 ---@field type unit_request.T_type
 ---@field source number
 ---@field count number
 
----@class _unit_request: DFCompound
+---@class _unit_request: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_request = {}
 
@@ -5179,28 +5103,26 @@ df.unit_request = {}
 ---| unit_request.T_type_keys
 ---| unit_request.T_type_values
 
----@class _unit_request.T_type: DFEnum
+---@class _unit_request.T_type: DFEnumType
 ---@field DoGuildJobs 0
 ---@field [0] "DoGuildJobs"
 df.unit_request.T_type = {}
 
----@class (exact) unit_coin_debt: DFObject
----@field _kind 'struct'
+---@class (exact) unit_coin_debt: DFStruct
 ---@field _type _unit_coin_debt
 ---@field recipient number References: `unit`
 ---@field amount number
 
----@class _unit_coin_debt: DFCompound
+---@class _unit_coin_debt: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_coin_debt = {}
 
----@class (exact) unit_chunk: DFObject
----@field _kind 'struct'
+---@class (exact) unit_chunk: DFStruct
 ---@field _type _unit_chunk
 ---@field id number unit_*.dat
 ---@field units unit_chunk.T_units[]
 
----@class _unit_chunk: DFCompound
+---@class _unit_chunk: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_chunk = {}
 
@@ -5213,13 +5135,12 @@ function df.unit_chunk.find(key) end
 ---@return unit_chunk_vector # df.global.world.unit_chunks
 function df.unit_chunk.get_vector() end
 
----@class (exact) unit_chunk.T_units: DFObject
----@field _kind 'struct'
+---@class (exact) unit_chunk.T_units: DFStruct
 ---@field _type _unit_chunk.T_units
 ---@field items _unit_chunk_units_items
 ---@field unit unit
 
----@class _unit_chunk.T_units: DFCompound
+---@class _unit_chunk.T_units: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_chunk.T_units = {}
 
@@ -5240,8 +5161,7 @@ function _unit_chunk_units_items:insert(index, item) end
 function _unit_chunk_units_items:erase(index) end
 
 -- physical_formst
----@class (exact) unit_appearance: DFObject
----@field _kind 'struct'
+---@class (exact) unit_appearance: DFStruct
 ---@field _type _unit_appearance
 ---@field unk_1 number
 ---@field caste_index number also refers to $global.world.raws.creatures.list_caste[$]
@@ -5262,7 +5182,7 @@ function _unit_chunk_units_items:erase(index) end
 ---@field unk_18 number
 ---@field unk_19 number
 
----@class _unit_appearance: DFCompound
+---@class _unit_appearance: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_appearance = {}
 
@@ -5282,7 +5202,7 @@ df.unit_appearance = {}
 ---| work_detail_mode_keys
 ---| work_detail_mode_values
 
----@class _work_detail_mode: DFEnum
+---@class _work_detail_mode: DFEnumType
 ---@field Default 0
 ---@field [0] "Default"
 ---@field EverybodyDoesThis 1
@@ -5293,8 +5213,7 @@ df.unit_appearance = {}
 ---@field [3] "OnlySelectedDoesThis"
 df.work_detail_mode = {}
 
----@class (exact) work_detail: DFObject
----@field _kind 'struct'
+---@class (exact) work_detail: DFStruct
 ---@field _type _work_detail
 ---@field name string
 ---@field work_detail_flags work_detail.T_work_detail_flags
@@ -5302,7 +5221,7 @@ df.work_detail_mode = {}
 ---@field allowed_labors DFEnumVector<unit_labor, boolean> toady: profession
 ---@field icon work_detail.T_icon
 
----@class _work_detail: DFCompound
+---@class _work_detail: DFCompoundType
 ---@field _kind 'struct-type'
 df.work_detail = {}
 
@@ -5370,7 +5289,7 @@ df.work_detail.T_work_detail_flags = {}
 ---| work_detail.T_icon_keys
 ---| work_detail.T_icon_values
 
----@class _work_detail.T_icon: DFEnum
+---@class _work_detail.T_icon: DFEnumType
 ---@field ICON_NONE -1
 ---@field [-1] "ICON_NONE"
 ---@field ICON_MINERS 0
@@ -5411,8 +5330,7 @@ df.work_detail.T_work_detail_flags = {}
 ---@field [17] "ICON_CUSTOM_8"
 df.work_detail.T_icon = {}
 
----@class (exact) dungeon_contextst: DFObject
----@field _kind 'struct'
+---@class (exact) dungeon_contextst: DFStruct
 ---@field _type _dungeon_contextst
 ---@field target unit
 ---@field target_conflict_state conflict_level
@@ -5427,7 +5345,7 @@ df.work_detail.T_icon = {}
 ---@field alarm_activity_id number
 ---@field alarm_unit_id number
 
----@class _dungeon_contextst: DFCompound
+---@class _dungeon_contextst: DFCompoundType
 ---@field _kind 'struct-type'
 df.dungeon_contextst = {}
 

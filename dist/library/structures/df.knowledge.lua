@@ -1333,13 +1333,12 @@ df.knowledge_scholar_flags_12 = {}
 ---@field [29] "engineering_machine_trip_hammer"
 df.knowledge_scholar_flags_13 = {}
 
----@class (exact) knowledge_scholar_category_flag: DFObject
----@field _kind 'struct'
+---@class (exact) knowledge_scholar_category_flag: DFStruct
 ---@field _type _knowledge_scholar_category_flag
 ---@field flag_type knowledge_scholar_category_flag.T_flag_type determines which bitflags to use
 ---@field flag_data knowledge_scholar_category_flag.T_flag_data
 
----@class _knowledge_scholar_category_flag: DFCompound
+---@class _knowledge_scholar_category_flag: DFCompoundType
 ---@field _kind 'struct-type'
 df.knowledge_scholar_category_flag = {}
 
@@ -1380,7 +1379,7 @@ df.knowledge_scholar_category_flag = {}
 ---| knowledge_scholar_category_flag.T_flag_type_values
 
 -- determines which bitflags to use
----@class _knowledge_scholar_category_flag.T_flag_type: DFEnum
+---@class _knowledge_scholar_category_flag.T_flag_type: DFEnumType
 ---@field flags_0 0
 ---@field [0] "flags_0"
 ---@field flags_1 1
@@ -1411,8 +1410,7 @@ df.knowledge_scholar_category_flag = {}
 ---@field [13] "flags_13"
 df.knowledge_scholar_category_flag.T_flag_type = {}
 
----@class (exact) knowledge_scholar_category_flag.T_flag_data: DFObject
----@field _kind 'struct'
+---@class (exact) knowledge_scholar_category_flag.T_flag_data: DFStruct
 ---@field _type _knowledge_scholar_category_flag.T_flag_data
 ---@field flags_0 knowledge_scholar_flags_0
 ---@field flags_1 knowledge_scholar_flags_1
@@ -1430,7 +1428,7 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@field flags_13 knowledge_scholar_flags_13
 ---@field whole integer
 
----@class _knowledge_scholar_category_flag.T_flag_data: DFCompound
+---@class _knowledge_scholar_category_flag.T_flag_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.knowledge_scholar_category_flag.T_flag_data = {}
 
@@ -2067,7 +2065,7 @@ df.knowledge_scholar_category_flag.T_flag_data = {}
 ---| dfhack_knowledge_scholar_flag_values
 
 -- not in DF
----@class _dfhack_knowledge_scholar_flag: DFEnum
+---@class _dfhack_knowledge_scholar_flag: DFEnumType
 ---@field philosophy_logic_formal_reasoning 0
 ---@field [0] "philosophy_logic_formal_reasoning"
 ---@field philosophy_logic_deductive_reasoning 1

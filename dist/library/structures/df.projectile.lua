@@ -15,7 +15,7 @@
 ---| projectile_type_keys
 ---| projectile_type_values
 
----@class _projectile_type: DFEnum
+---@class _projectile_type: DFEnumType
 ---@field Item 0
 ---@field [0] "Item"
 ---@field Unit 1
@@ -24,14 +24,13 @@
 ---@field [2] "Magic"
 df.projectile_type = {}
 
----@class (exact) proj_list_link: DFObject
----@field _kind 'struct'
+---@class (exact) proj_list_link: DFStruct
 ---@field _type _proj_list_link
 ---@field item projectile
 ---@field prev proj_list_link
 ---@field next proj_list_link
 
----@class _proj_list_link: DFCompound
+---@class _proj_list_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.proj_list_link = {}
 
@@ -105,8 +104,7 @@ df.proj_list_link = {}
 ---@field [15] "item_link_deleted"
 df.projectile_flags = {}
 
----@class (exact) projectile: DFObject
----@field _kind 'struct'
+---@class (exact) projectile: DFStruct
 ---@field _type _projectile
 ---@field link proj_list_link
 ---@field id number
@@ -139,35 +137,32 @@ df.projectile_flags = {}
 ---@field accel_y number
 ---@field accel_z number
 
----@class _projectile: DFCompound
+---@class _projectile: DFCompoundType
 ---@field _kind 'class-type'
 df.projectile = {}
 
----@class (exact) proj_itemst: DFObject, projectile
----@field _kind 'struct'
+---@class (exact) proj_itemst: DFStruct, projectile
 ---@field _type _proj_itemst
 ---@field item item
 
----@class _proj_itemst: DFCompound
+---@class _proj_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_itemst = {}
 
----@class (exact) proj_unitst: DFObject, projectile
----@field _kind 'struct'
+---@class (exact) proj_unitst: DFStruct, projectile
 ---@field _type _proj_unitst
 ---@field unit unit ?
 
----@class _proj_unitst: DFCompound
+---@class _proj_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_unitst = {}
 
----@class (exact) proj_magicst: DFObject, projectile
----@field _kind 'struct'
+---@class (exact) proj_magicst: DFStruct, projectile
 ---@field _type _proj_magicst
 ---@field type number
 ---@field damage number
 
----@class _proj_magicst: DFCompound
+---@class _proj_magicst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_magicst = {}
 

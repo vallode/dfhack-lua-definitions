@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) building_def: DFObject
----@field _kind 'struct'
+---@class (exact) building_def: DFStruct
 ---@field _type _building_def
 ---@field code string
 ---@field id number
@@ -26,7 +25,7 @@
 ---@field labor_description string
 ---@field build_stages number
 
----@class _building_def: DFCompound
+---@class _building_def: DFCompoundType
 ---@field _kind 'class-type'
 df.building_def = {}
 
@@ -71,8 +70,7 @@ function _building_def_build_labors:insert(index, item) end
 ---@param index integer 
 function _building_def_build_labors:erase(index) end
 
----@class (exact) building_def_item: DFObject
----@field _kind 'struct'
+---@class (exact) building_def_item: DFStruct
 ---@field _type _building_def_item
 ---@field item_type item_type
 ---@field item_subtype number
@@ -93,25 +91,23 @@ function _building_def_build_labors:erase(index) end
 ---@field material_str string[]
 ---@field metal_ore_str string
 
----@class _building_def_item: DFCompound
+---@class _building_def_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_def_item = {}
 
----@class (exact) building_def_workshopst: DFObject, building_def
----@field _kind 'struct'
+---@class (exact) building_def_workshopst: DFStruct, building_def
 ---@field _type _building_def_workshopst
 ---@field list_icon_texpos number
 
----@class _building_def_workshopst: DFCompound
+---@class _building_def_workshopst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_def_workshopst = {}
 
----@class (exact) building_def_furnacest: DFObject, building_def
----@field _kind 'struct'
+---@class (exact) building_def_furnacest: DFStruct, building_def
 ---@field _type _building_def_furnacest
 ---@field list_icon_texpos number
 
----@class _building_def_furnacest: DFCompound
+---@class _building_def_furnacest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_def_furnacest = {}
 

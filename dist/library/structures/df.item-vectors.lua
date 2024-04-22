@@ -277,7 +277,7 @@
 ---| items_other_id_keys
 ---| items_other_id_values
 
----@class _items_other_id: DFEnum
+---@class _items_other_id: DFEnumType
 ---@field ANY -1
 ---@field [-1] "ANY"
 ---@field IN_PLAY 0 0
@@ -548,7 +548,7 @@
 ---@field [132] "ANY_MELT_DESIGNATED"
 df.items_other_id = {}
 
----@class items_other_id_attr_entry_type: DFCompound
+---@class items_other_id_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.items_other_id._attr_entry_type = {}
 
@@ -970,7 +970,7 @@ df.items_other_id.attrs = {}
 ---| job_item_vector_id_keys
 ---| job_item_vector_id_values
 
----@class _job_item_vector_id: DFEnum
+---@class _job_item_vector_id: DFEnumType
 ---@field ANY 0
 ---@field [0] "ANY"
 ---@field IN_PLAY 1 1
@@ -1235,7 +1235,7 @@ df.items_other_id.attrs = {}
 ---@field [133] "BRANCH"
 df.job_item_vector_id = {}
 
----@class job_item_vector_id_attr_entry_type: DFCompound
+---@class job_item_vector_id_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item_vector_id._attr_entry_type = {}
 
@@ -1377,8 +1377,7 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field BRANCH { other: "BRANCH" }
 df.job_item_vector_id.attrs = {}
 
----@class (exact) items_other: DFObject
----@field _kind 'struct'
+---@class (exact) items_other: DFStruct
 ---@field _type _items_other
 ---@field IN_PLAY _items_other_IN_PLAY
 ---@field ANY_ARTIFACT _items_other_ANY_ARTIFACT
@@ -1514,7 +1513,7 @@ df.job_item_vector_id.attrs = {}
 ---@field ANY_RECENTLY_DROPPED _items_other_ANY_RECENTLY_DROPPED
 ---@field ANY_MELT_DESIGNATED _items_other_ANY_MELT_DESIGNATED
 
----@class _items_other: DFCompound
+---@class _items_other: DFCompoundType
 ---@field _kind 'struct-type'
 df.items_other = {}
 

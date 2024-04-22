@@ -1320,7 +1320,7 @@
 ---| interface_key_values
 
 -- WARNING: THIS FILE IS AUTO-GENERATED - DO NOT EDIT
----@class _interface_key: DFEnum
+---@class _interface_key: DFEnumType
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field SELECT 1

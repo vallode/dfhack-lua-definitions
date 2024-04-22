@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) creature_handler: DFObject
----@field _kind 'struct'
+---@class (exact) creature_handler: DFStruct
 ---@field _type _creature_handler
 ---@field alphabetic _creature_handler_alphabetic
 ---@field all _creature_handler_all
@@ -12,7 +11,7 @@
 ---@field action_strings DFStringVector
 ---@field hist_fig_to_creature_map DFNumberVector unordered_map<int32_t,int32_t>
 
----@class _creature_handler: DFCompound
+---@class _creature_handler: DFCompoundType
 ---@field _kind 'class-type'
 df.creature_handler = {}
 
@@ -48,8 +47,7 @@ function _creature_handler_all:insert(index, item) end
 ---@param index integer 
 function _creature_handler_all:erase(index) end
 
----@class (exact) soundst: DFObject
----@field _kind 'struct'
+---@class (exact) soundst: DFStruct
 ---@field _type _soundst
 ---@field token string
 ---@field index number
@@ -60,7 +58,7 @@ function _creature_handler_all:erase(index) end
 ---@field sound number index of sound to be played
 ---@field announcement _soundst_announcement sound can be selected for these announcement types
 
----@class _soundst: DFCompound
+---@class _soundst: DFCompoundType
 ---@field _kind 'struct-type'
 df.soundst = {}
 
@@ -96,8 +94,7 @@ function _soundst_announcement:insert(index, item) end
 ---@param index integer 
 function _soundst_announcement:erase(index) end
 
----@class (exact) world_raws: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws: DFStruct
 ---@field _type _world_raws
 ---@field material_templates _world_raws_material_templates !! in bay12 each of these is its own compound and some of them are classes with their own methods !!<br>Materials
 ---@field inorganics _world_raws_inorganics Inorganic
@@ -123,7 +120,7 @@ function _soundst_announcement:erase(index) end
 ---@field syndromes world_raws.T_syndromes
 ---@field effects world_raws.T_effects
 
----@class _world_raws: DFCompound
+---@class _world_raws: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws = {}
 
@@ -176,8 +173,7 @@ function _world_raws_inorganics_subset:insert(index, item) end
 function _world_raws_inorganics_subset:erase(index) end
 
 -- Plants
----@class (exact) world_raws.T_plants: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_plants: DFStruct
 ---@field _type _world_raws.T_plants
 ---@field all _world_raws_plants_all dtor 852cc20
 ---@field bushes _world_raws_plants_bushes
@@ -187,7 +183,7 @@ function _world_raws_inorganics_subset:erase(index) end
 ---@field grasses _world_raws_plants_grasses
 ---@field grasses_idx DFNumberVector
 
----@class _world_raws.T_plants: DFCompound
+---@class _world_raws.T_plants: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_plants = {}
 
@@ -336,8 +332,7 @@ function _world_raws_creature_variations:insert(index, item) end
 function _world_raws_creature_variations:erase(index) end
 
 -- Item RAWs
----@class (exact) world_raws.T_itemdefs: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_itemdefs: DFStruct
 ---@field _type _world_raws.T_itemdefs
 ---@field all _world_raws_itemdefs_all dtor 852e080
 ---@field weapons _world_raws_itemdefs_weapons
@@ -356,7 +351,7 @@ function _world_raws_creature_variations:erase(index) end
 ---@field pants _world_raws_itemdefs_pants
 ---@field food _world_raws_itemdefs_food
 
----@class _world_raws.T_itemdefs: DFCompound
+---@class _world_raws.T_itemdefs: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_itemdefs = {}
 
@@ -633,15 +628,14 @@ function _world_raws_entities:insert(index, item) end
 function _world_raws_entities:erase(index) end
 
 -- Language RAWs
----@class (exact) world_raws.T_language: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_language: DFStruct
 ---@field _type _world_raws.T_language
 ---@field words _world_raws_language_words dtor 852bc90
 ---@field symbols _world_raws_language_symbols
 ---@field translations _world_raws_language_translations
 ---@field word_table DFEnumVector<language_name_category, language_word_table>[]
 
----@class _world_raws.T_language: DFCompound
+---@class _world_raws.T_language: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_language = {}
 
@@ -694,8 +688,7 @@ function _world_raws_language_translations:insert(index, item) end
 function _world_raws_language_translations:erase(index) end
 
 -- Descriptors
----@class (exact) world_raws.T_descriptors: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_descriptors: DFStruct
 ---@field _type _world_raws.T_descriptors
 ---@field colors _world_raws_descriptors_colors
 ---@field shapes _world_raws_descriptors_shapes
@@ -704,7 +697,7 @@ function _world_raws_language_translations:erase(index) end
 ---@field unk_2 DFNumberVector
 ---@field unk_3 DFNumberVector
 
----@class _world_raws.T_descriptors: DFCompound
+---@class _world_raws.T_descriptors: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_descriptors = {}
 
@@ -757,13 +750,12 @@ function _world_raws_descriptors_patterns:insert(index, item) end
 function _world_raws_descriptors_patterns:erase(index) end
 
 -- Reaction RAWs
----@class (exact) world_raws.T_reactions: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_reactions: DFStruct
 ---@field _type _world_raws.T_reactions
 ---@field reactions _world_raws_reactions_reactions
 ---@field reaction_categories _world_raws_reactions_reaction_categories
 
----@class _world_raws.T_reactions: DFCompound
+---@class _world_raws.T_reactions: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_reactions = {}
 
@@ -800,15 +792,14 @@ function _world_raws_reactions_reaction_categories:insert(index, item) end
 function _world_raws_reactions_reaction_categories:erase(index) end
 
 -- Workshops
----@class (exact) world_raws.T_buildings: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_buildings: DFStruct
 ---@field _type _world_raws.T_buildings
 ---@field all _world_raws_buildings_all
 ---@field workshops _world_raws_buildings_workshops
 ---@field furnaces _world_raws_buildings_furnaces
 ---@field next_id number
 
----@class _world_raws.T_buildings: DFCompound
+---@class _world_raws.T_buildings: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_buildings = {}
 
@@ -877,21 +868,19 @@ function _world_raws_interactions:insert(index, item) end
 function _world_raws_interactions:erase(index) end
 
 -- Text set
----@class (exact) world_raws.T_text_set: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_text_set: DFStruct
 ---@field _type _world_raws.T_text_set
 
----@class _world_raws.T_text_set: DFCompound
+---@class _world_raws.T_text_set: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_text_set = {}
 
 -- Audio
----@class (exact) world_raws.T_music: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_music: DFStruct
 ---@field _type _world_raws.T_music
 ---@field music _world_raws_music_music
 
----@class _world_raws.T_music: DFCompound
+---@class _world_raws.T_music: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_music = {}
 
@@ -911,12 +900,11 @@ function _world_raws_music_music:insert(index, item) end
 ---@param index integer 
 function _world_raws_music_music:erase(index) end
 
----@class (exact) world_raws.T_sound: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_sound: DFStruct
 ---@field _type _world_raws.T_sound
 ---@field sound _world_raws_sound_sound
 
----@class _world_raws.T_sound: DFCompound
+---@class _world_raws.T_sound: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_sound = {}
 
@@ -937,15 +925,14 @@ function _world_raws_sound_sound:insert(index, item) end
 function _world_raws_sound_sound:erase(index) end
 
 -- Interaction effects
----@class (exact) world_raws.T_syndromes: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_syndromes: DFStruct
 ---@field _type _world_raws.T_syndromes
 ---@field mat_types DFNumberVector
 ---@field mat_indexes DFNumberVector
 ---@field interactions DFNumberVector
 ---@field all _world_raws_syndromes_all
 
----@class _world_raws.T_syndromes: DFCompound
+---@class _world_raws.T_syndromes: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_syndromes = {}
 
@@ -965,15 +952,14 @@ function _world_raws_syndromes_all:insert(index, item) end
 ---@param index integer 
 function _world_raws_syndromes_all:erase(index) end
 
----@class (exact) world_raws.T_effects: DFObject
----@field _kind 'struct'
+---@class (exact) world_raws.T_effects: DFStruct
 ---@field _type _world_raws.T_effects
 ---@field mat_types DFNumberVector
 ---@field mat_indexes DFNumberVector
 ---@field interactions DFNumberVector
 ---@field all _world_raws_effects_all
 
----@class _world_raws.T_effects: DFCompound
+---@class _world_raws.T_effects: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_effects = {}
 

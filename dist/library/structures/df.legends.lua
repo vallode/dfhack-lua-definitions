@@ -15,7 +15,7 @@
 ---| mission_type_keys
 ---| mission_type_values
 
----@class _mission_type: DFEnum
+---@class _mission_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SUPPORT_THIEVES 0
@@ -24,8 +24,7 @@
 ---@field [1] "KILL_ALL_AT_SITE"
 df.mission_type = {}
 
----@class (exact) invasion_info: DFObject
----@field _kind 'struct'
+---@class (exact) invasion_info: DFStruct
 ---@field _type _invasion_info
 ---@field id number
 ---@field civ_id number References: `historical_entity`
@@ -41,7 +40,7 @@ df.mission_type = {}
 ---@field refused_demand_start_season_count number
 ---@field origin_master_army_controller_id number References: `army_controller`
 
----@class _invasion_info: DFCompound
+---@class _invasion_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.invasion_info = {}
 
@@ -88,14 +87,13 @@ function df.invasion_info.get_vector() end
 ---@field [6] "created_parley"
 df.invasion_info.T_flags = {}
 
----@class (exact) entity_population_unk4: DFObject
----@field _kind 'struct'
+---@class (exact) entity_population_unk4: DFStruct
 ---@field _type _entity_population_unk4
 ---@field unk_1 _entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@field unk_2 _entity_population_unk4_unk_2
 ---@field unk_3 _entity_population_unk4_unk_3
 
----@class _entity_population_unk4: DFCompound
+---@class _entity_population_unk4: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_population_unk4 = {}
 
@@ -147,8 +145,7 @@ function _entity_population_unk4_unk_3:insert(index, item) end
 ---@param index integer 
 function _entity_population_unk4_unk_3:erase(index) end
 
----@class (exact) entity_population: DFObject
----@field _kind 'struct'
+---@class (exact) entity_population: DFStruct
 ---@field _type _entity_population
 ---@field name language_name
 ---@field races DFNumberVector all the 3 vectors are always the same length, and thus coupled
@@ -161,7 +158,7 @@ function _entity_population_unk4_unk_3:erase(index) end
 ---@field flags number ?; layer_id == -1
 ---@field civ_id number References: `historical_entity`
 
----@class _entity_population: DFCompound
+---@class _entity_population: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_population = {}
 
@@ -226,7 +223,7 @@ function _entity_population_unk4:erase(index) end
 ---| nemesis_flags_keys
 ---| nemesis_flags_values
 
----@class _nemesis_flags: DFEnum
+---@class _nemesis_flags: DFEnumType
 ---@field ACTIVE_ADVENTURER 0 used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.
 ---@field [0] "ACTIVE_ADVENTURER" used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.
 ---@field RETIRED_ADVENTURER 1 allows resuming play
@@ -257,8 +254,7 @@ function _entity_population_unk4:erase(index) end
 ---@field [13] "POTENTIAL_PLOTTER_ACTOR"
 df.nemesis_flags = {}
 
----@class (exact) nemesis_record: DFObject
----@field _kind 'struct'
+---@class (exact) nemesis_record: DFStruct
 ---@field _type _nemesis_record
 ---@field id number sequential index in the array
 ---@field unit_id number References: `unit`
@@ -275,7 +271,7 @@ df.nemesis_flags = {}
 ---@field next_plot_season_count number
 ---@field flags _nemesis_record_flags
 
----@class _nemesis_record: DFCompound
+---@class _nemesis_record: DFCompoundType
 ---@field _kind 'struct-type'
 df.nemesis_record = {}
 
@@ -304,8 +300,7 @@ function _nemesis_record_flags:insert(index, item) end
 ---@param index integer 
 function _nemesis_record_flags:erase(index) end
 
----@class (exact) artifact_record: DFObject
----@field _kind 'struct'
+---@class (exact) artifact_record: DFStruct
 ---@field _type _artifact_record
 ---@field id number
 ---@field name language_name
@@ -333,7 +328,7 @@ function _nemesis_record_flags:erase(index) end
 ---@field unk_4 number
 ---@field unk_5 number Small set of non zero fairly small numbers seen?
 
----@class _artifact_record: DFCompound
+---@class _artifact_record: DFCompoundType
 ---@field _kind 'struct-type'
 df.artifact_record = {}
 
@@ -362,8 +357,7 @@ function _artifact_record_flags:insert(index, item) end
 ---@param index integer 
 function _artifact_record_flags:erase(index) end
 
----@class (exact) artifact_rumor_locationst: DFObject
----@field _kind 'struct'
+---@class (exact) artifact_rumor_locationst: DFStruct
 ---@field _type _artifact_rumor_locationst
 ---@field art artifact_record
 ---@field stid number References: `world_site`
@@ -376,7 +370,7 @@ function _artifact_record_flags:erase(index) end
 ---@field flag integer
 ---@field latest_wi DFPointer<integer> witness_incidentst
 
----@class _artifact_rumor_locationst: DFCompound
+---@class _artifact_rumor_locationst: DFCompoundType
 ---@field _kind 'struct-type'
 df.artifact_rumor_locationst = {}
 

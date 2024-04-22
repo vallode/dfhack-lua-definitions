@@ -19,7 +19,7 @@
 ---| art_image_element_type_keys
 ---| art_image_element_type_values
 
----@class _art_image_element_type: DFEnum
+---@class _art_image_element_type: DFEnumType
 ---@field CREATURE 0
 ---@field [0] "CREATURE"
 ---@field PLANT 1
@@ -32,56 +32,50 @@
 ---@field [4] "ITEM"
 df.art_image_element_type = {}
 
----@class (exact) art_image_element: DFObject
----@field _kind 'struct'
+---@class (exact) art_image_element: DFStruct
 ---@field _type _art_image_element
 ---@field count number
 
----@class _art_image_element: DFCompound
+---@class _art_image_element: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element = {}
 
----@class (exact) art_image_element_creaturest: DFObject, art_image_element
----@field _kind 'struct'
+---@class (exact) art_image_element_creaturest: DFStruct, art_image_element
 ---@field _type _art_image_element_creaturest
 ---@field race number References: `creature_raw`
 ---@field caste number
 ---@field histfig number References: `historical_figure`
 
----@class _art_image_element_creaturest: DFCompound
+---@class _art_image_element_creaturest: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_creaturest = {}
 
----@class (exact) art_image_element_plantst: DFObject, art_image_element
----@field _kind 'struct'
+---@class (exact) art_image_element_plantst: DFStruct, art_image_element
 ---@field _type _art_image_element_plantst
 ---@field plant_id number References: `plant_raw`
 
----@class _art_image_element_plantst: DFCompound
+---@class _art_image_element_plantst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_plantst = {}
 
----@class (exact) art_image_element_treest: DFObject, art_image_element
----@field _kind 'struct'
+---@class (exact) art_image_element_treest: DFStruct, art_image_element
 ---@field _type _art_image_element_treest
 ---@field plant_id number References: `plant_raw`
 
----@class _art_image_element_treest: DFCompound
+---@class _art_image_element_treest: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_treest = {}
 
----@class (exact) art_image_element_shapest: DFObject, art_image_element
----@field _kind 'struct'
+---@class (exact) art_image_element_shapest: DFStruct, art_image_element
 ---@field _type _art_image_element_shapest
 ---@field shape_id number References: `descriptor_shape`
 ---@field shape_adj number
 
----@class _art_image_element_shapest: DFCompound
+---@class _art_image_element_shapest: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_shapest = {}
 
----@class (exact) art_image_element_itemst: DFObject, art_image_element
----@field _kind 'struct'
+---@class (exact) art_image_element_itemst: DFStruct, art_image_element
 ---@field _type _art_image_element_itemst
 ---@field item_type item_type
 ---@field item_subtype number
@@ -90,7 +84,7 @@ df.art_image_element_shapest = {}
 ---@field flags item_flags
 ---@field item_id number References: `item`
 
----@class _art_image_element_itemst: DFCompound
+---@class _art_image_element_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_itemst = {}
 
@@ -106,19 +100,18 @@ df.art_image_element_itemst = {}
 ---| art_image_property_type_keys
 ---| art_image_property_type_values
 
----@class _art_image_property_type: DFEnum
+---@class _art_image_property_type: DFEnumType
 ---@field transitive_verb 0
 ---@field [0] "transitive_verb"
 ---@field intransitive_verb 1
 ---@field [1] "intransitive_verb"
 df.art_image_property_type = {}
 
----@class (exact) art_image_property: DFObject
----@field _kind 'struct'
+---@class (exact) art_image_property: DFStruct
 ---@field _type _art_image_property
 ---@field flags _art_image_property_flags
 
----@class _art_image_property: DFCompound
+---@class _art_image_property: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_property = {}
 
@@ -242,7 +235,7 @@ function _art_image_property_flags:erase(index) end
 ---| art_image_property_verb_keys
 ---| art_image_property_verb_values
 
----@class _art_image_property_verb: DFEnum
+---@class _art_image_property_verb: DFEnumType
 ---@field Withering 0
 ---@field [0] "Withering"
 ---@field SurroundedBy 1
@@ -341,24 +334,22 @@ function _art_image_property_flags:erase(index) end
 ---@field [47] "TriumphantPose"
 df.art_image_property_verb = {}
 
----@class (exact) art_image_property_transitive_verbst: DFObject, art_image_property
----@field _kind 'struct'
+---@class (exact) art_image_property_transitive_verbst: DFStruct, art_image_property
 ---@field _type _art_image_property_transitive_verbst
 ---@field subject number
 ---@field object number
 ---@field verb art_image_property_verb
 
----@class _art_image_property_transitive_verbst: DFCompound
+---@class _art_image_property_transitive_verbst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_property_transitive_verbst = {}
 
----@class (exact) art_image_property_intransitive_verbst: DFObject, art_image_property
----@field _kind 'struct'
+---@class (exact) art_image_property_intransitive_verbst: DFStruct, art_image_property
 ---@field _type _art_image_property_intransitive_verbst
 ---@field subject number
 ---@field verb art_image_property_verb
 
----@class _art_image_property_intransitive_verbst: DFCompound
+---@class _art_image_property_intransitive_verbst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_property_intransitive_verbst = {}
 
@@ -378,7 +369,7 @@ df.art_image_property_intransitive_verbst = {}
 ---| art_facet_type_keys
 ---| art_facet_type_values
 
----@class _art_facet_type: DFEnum
+---@class _art_facet_type: DFEnumType
 ---@field OWN_RACE 0
 ---@field [0] "OWN_RACE"
 ---@field FANCIFUL 1
@@ -389,8 +380,7 @@ df.art_image_property_intransitive_verbst = {}
 ---@field [3] "EVIL"
 df.art_facet_type = {}
 
----@class (exact) art_image: DFObject
----@field _kind 'struct'
+---@class (exact) art_image: DFStruct
 ---@field _type _art_image
 ---@field elements _art_image_elements
 ---@field properties _art_image_properties
@@ -408,7 +398,7 @@ df.art_facet_type = {}
 ---@field id number References: `art_image_chunk`
 ---@field subid number References: `art_image`
 
----@class _art_image: DFCompound
+---@class _art_image: DFCompoundType
 ---@field _kind 'struct-type'
 df.art_image = {}
 
@@ -444,13 +434,12 @@ function _art_image_properties:insert(index, item) end
 ---@param index integer 
 function _art_image_properties:erase(index) end
 
----@class (exact) art_image_chunk: DFObject
----@field _kind 'struct'
+---@class (exact) art_image_chunk: DFStruct
 ---@field _type _art_image_chunk
 ---@field id number art_image_*.dat
 ---@field images art_image[]
 
----@class _art_image_chunk: DFCompound
+---@class _art_image_chunk: DFCompoundType
 ---@field _kind 'struct-type'
 df.art_image_chunk = {}
 
@@ -463,15 +452,14 @@ function df.art_image_chunk.find(key) end
 ---@return art_image_chunk_vector # df.global.world.art_image_chunks
 function df.art_image_chunk.get_vector() end
 
----@class (exact) art_image_ref: DFObject
----@field _kind 'struct'
+---@class (exact) art_image_ref: DFStruct
 ---@field _type _art_image_ref
 ---@field id number References: `art_image_chunk`
 ---@field subid number References: `art_image`
 ---@field civ_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 
----@class _art_image_ref: DFCompound
+---@class _art_image_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.art_image_ref = {}
 
@@ -531,7 +519,7 @@ df.art_image_ref = {}
 ---| poetic_form_action_keys
 ---| poetic_form_action_values
 
----@class _poetic_form_action: DFEnum
+---@class _poetic_form_action: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Describe 0
@@ -617,7 +605,7 @@ df.poetic_form_action = {}
 ---| poetic_form_pattern_values
 
 -- A - even, B - uneven for tone patterns, A - unstressed, B - stressed for accent patterns
----@class _poetic_form_pattern: DFEnum
+---@class _poetic_form_pattern: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field AA 0
@@ -662,7 +650,7 @@ df.poetic_form_pattern = {}
 ---| poetic_form_caesura_position_keys
 ---| poetic_form_caesura_position_values
 
----@class _poetic_form_caesura_position: DFEnum
+---@class _poetic_form_caesura_position: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Initial 0
@@ -697,7 +685,7 @@ df.poetic_form_caesura_position = {}
 ---| poetic_form_mood_keys
 ---| poetic_form_mood_values
 
----@class _poetic_form_mood: DFEnum
+---@class _poetic_form_mood: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Narrative 0
@@ -768,7 +756,7 @@ df.poetic_form_mood = {}
 ---| poetic_form_subject_keys
 ---| poetic_form_subject_values
 
----@class _poetic_form_subject: DFEnum
+---@class _poetic_form_subject: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Past 0 "a chosen subject"
@@ -815,31 +803,28 @@ df.poetic_form_mood = {}
 ---@field [20] "Concept" "a historical figure" or a specific figure
 df.poetic_form_subject = {}
 
----@class (exact) poetic_form_subject_target: DFObject
----@field _kind 'struct'
+---@class (exact) poetic_form_subject_target: DFStruct
 ---@field _type _poetic_form_subject_target
 ---@field Histfig poetic_form_subject_target.T_Histfig
 ---@field Concept poetic_form_subject_target.T_Concept
 
----@class _poetic_form_subject_target: DFCompound
+---@class _poetic_form_subject_target: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target = {}
 
----@class (exact) poetic_form_subject_target.T_Histfig: DFObject
----@field _kind 'struct'
+---@class (exact) poetic_form_subject_target.T_Histfig: DFStruct
 ---@field _type _poetic_form_subject_target.T_Histfig
 ---@field subject_histfig number References: `historical_figure`
 
----@class _poetic_form_subject_target.T_Histfig: DFCompound
+---@class _poetic_form_subject_target.T_Histfig: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target.T_Histfig = {}
 
----@class (exact) poetic_form_subject_target.T_Concept: DFObject
----@field _kind 'struct'
+---@class (exact) poetic_form_subject_target.T_Concept: DFStruct
 ---@field _type _poetic_form_subject_target.T_Concept
 ---@field subject_topic sphere_type
 
----@class _poetic_form_subject_target.T_Concept: DFCompound
+---@class _poetic_form_subject_target.T_Concept: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target.T_Concept = {}
 
@@ -963,7 +948,7 @@ df.poetic_form_feature = {}
 ---| poetic_form_additional_feature_keys
 ---| poetic_form_additional_feature_values
 
----@class _poetic_form_additional_feature: DFEnum
+---@class _poetic_form_additional_feature: DFEnumType
 ---@field SharesUnderlyingMeaning 0
 ---@field [0] "SharesUnderlyingMeaning"
 ---@field ContrastsUnderlyingMeaning 1
@@ -984,8 +969,7 @@ df.poetic_form_feature = {}
 ---@field [8] "MustExpandIdea"
 df.poetic_form_additional_feature = {}
 
----@class (exact) poetic_form: DFObject
----@field _kind 'struct'
+---@class (exact) poetic_form: DFStruct
 ---@field _type _poetic_form
 ---@field id number
 ---@field name language_name
@@ -1006,7 +990,7 @@ df.poetic_form_additional_feature = {}
 ---@field features poetic_form_feature "use of ... is characteristic of the form" or "must feature lines which ..."
 ---@field perspectives _poetic_form_perspectives
 
----@class _poetic_form: DFCompound
+---@class _poetic_form: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form = {}
 
@@ -1081,8 +1065,7 @@ function _poetic_form_perspectives:insert(index, item) end
 ---@param index integer 
 function _poetic_form_perspectives:erase(index) end
 
----@class (exact) poetic_form_part: DFObject
----@field _kind 'struct'
+---@class (exact) poetic_form_part: DFStruct
 ---@field _type _poetic_form_part
 ---@field flags poetic_form_part.T_flags
 ---@field count_min number "has X to Y couplets/..."
@@ -1116,7 +1099,7 @@ function _poetic_form_perspectives:erase(index) end
 ---@field unk_8 number
 ---@field unk_9 number
 
----@class _poetic_form_part: DFCompound
+---@class _poetic_form_part: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_part = {}
 
@@ -1274,14 +1257,13 @@ function _poetic_form_part_certain_lines_additional_features:insert(index, item)
 ---@param index integer 
 function _poetic_form_part_certain_lines_additional_features:erase(index) end
 
----@class (exact) poetic_form_perspective: DFObject
----@field _kind 'struct'
+---@class (exact) poetic_form_perspective: DFStruct
 ---@field _type _poetic_form_perspective
 ---@field type poetic_form_perspective.T_type "written from the perspective of ..."
 ---@field histfig number References: `historical_figure`
 ---@field unk_1 number
 
----@class _poetic_form_perspective: DFCompound
+---@class _poetic_form_perspective: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_perspective = {}
 
@@ -1310,7 +1292,7 @@ df.poetic_form_perspective = {}
 ---| poetic_form_perspective.T_type_values
 
 -- "written from the perspective of ..."
----@class _poetic_form_perspective.T_type: DFEnum
+---@class _poetic_form_perspective.T_type: DFEnumType
 ---@field Author 0
 ---@field [0] "Author"
 ---@field Soldier 1
@@ -1345,7 +1327,7 @@ df.poetic_form_perspective.T_type = {}
 ---| musical_form_purpose_keys
 ---| musical_form_purpose_values
 
----@class _musical_form_purpose: DFEnum
+---@class _musical_form_purpose: DFEnumType
 ---@field Entertainment 0
 ---@field [0] "Entertainment"
 ---@field Commemoration 1
@@ -1512,7 +1494,7 @@ df.musical_form_purpose = {}
 ---| musical_form_style_keys
 ---| musical_form_style_values
 
----@class _musical_form_style: DFEnum
+---@class _musical_form_style: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field FreeTempo 0 tempo styles
@@ -1683,7 +1665,7 @@ df.musical_form_style = {}
 ---| musical_form_pitch_style_keys
 ---| musical_form_pitch_style_values
 
----@class _musical_form_pitch_style: DFEnum
+---@class _musical_form_pitch_style: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field SinglePitchesOnly 0
@@ -1786,7 +1768,7 @@ df.musical_form_feature = {}
 ---| musical_form_passage_component_type_keys
 ---| musical_form_passage_component_type_values
 
----@class _musical_form_passage_component_type: DFEnum
+---@class _musical_form_passage_component_type: DFEnumType
 ---@field Melody 0
 ---@field [0] "Melody"
 ---@field Counterpoint 1
@@ -1831,7 +1813,7 @@ df.musical_form_passage_component_type = {}
 ---| musical_form_passage_type_keys
 ---| musical_form_passage_type_values
 
----@class _musical_form_passage_type: DFEnum
+---@class _musical_form_passage_type: DFEnumType
 ---@field Unrelated 0
 ---@field [0] "Unrelated"
 ---@field Introduction 1
@@ -1876,7 +1858,7 @@ df.musical_form_passage_type = {}
 ---| musical_form_passage_length_type_keys
 ---| musical_form_passage_length_type_values
 
----@class _musical_form_passage_length_type: DFEnum
+---@class _musical_form_passage_length_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Short 0
@@ -1905,7 +1887,7 @@ df.musical_form_passage_length_type = {}
 ---| musical_form_melody_style_keys
 ---| musical_form_melody_style_values
 
----@class _musical_form_melody_style: DFEnum
+---@class _musical_form_melody_style: DFEnumType
 ---@field Rising 0
 ---@field [0] "Rising"
 ---@field Falling 1
@@ -1930,7 +1912,7 @@ df.musical_form_melody_style = {}
 ---| musical_form_melody_frequency_keys
 ---| musical_form_melody_frequency_values
 
----@class _musical_form_melody_frequency: DFEnum
+---@class _musical_form_melody_frequency: DFEnumType
 ---@field Always 0
 ---@field [0] "Always"
 ---@field Often 1
@@ -1939,13 +1921,12 @@ df.musical_form_melody_style = {}
 ---@field [2] "Sometimes"
 df.musical_form_melody_frequency = {}
 
----@class (exact) musical_form_interval: DFObject
----@field _kind 'struct'
+---@class (exact) musical_form_interval: DFStruct
 ---@field _type _musical_form_interval
 ---@field degree number
 ---@field flags musical_form_interval.T_flags
 
----@class _musical_form_interval: DFCompound
+---@class _musical_form_interval: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_interval = {}
 
@@ -1967,15 +1948,14 @@ df.musical_form_interval = {}
 ---@field [2] "sharpened"
 df.musical_form_interval.T_flags = {}
 
----@class (exact) musical_form_melodies: DFObject
----@field _kind 'struct'
+---@class (exact) musical_form_melodies: DFStruct
 ---@field _type _musical_form_melodies
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
 ---@field intervals _musical_form_melodies_intervals
 ---@field features musical_form_feature
 
----@class _musical_form_melodies: DFCompound
+---@class _musical_form_melodies: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_melodies = {}
 
@@ -1995,8 +1975,7 @@ function _musical_form_melodies_intervals:insert(index, item) end
 ---@param index integer 
 function _musical_form_melodies_intervals:erase(index) end
 
----@class (exact) musical_form_passage: DFObject
----@field _kind 'struct'
+---@class (exact) musical_form_passage: DFStruct
 ---@field _type _musical_form_passage
 ---@field type musical_form_passage_type
 ---@field passage_reference number used when doing Exposition, Recapitualation, Synthesis, and Variation
@@ -2024,7 +2003,7 @@ function _musical_form_melodies_intervals:erase(index) end
 ---@field unk_22 number 0-40 seen
 ---@field unk_23 number 0-78 seen
 
----@class _musical_form_passage: DFCompound
+---@class _musical_form_passage: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_passage = {}
 
@@ -2076,8 +2055,7 @@ function _musical_form_passage_melodies:insert(index, item) end
 ---@param index integer 
 function _musical_form_passage_melodies:erase(index) end
 
----@class (exact) musical_form_instruments: DFObject
----@field _kind 'struct'
+---@class (exact) musical_form_instruments: DFStruct
 ---@field _type _musical_form_instruments
 ---@field instrument_subtype number -1 = vocal References: `itemdef_instrumentst`
 ---@field substitutions musical_form_instruments.T_substitutions
@@ -2087,7 +2065,7 @@ function _musical_form_passage_melodies:erase(index) end
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
 
----@class _musical_form_instruments: DFCompound
+---@class _musical_form_instruments: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_instruments = {}
 
@@ -2109,8 +2087,7 @@ df.musical_form_instruments = {}
 ---@field [2] "chanter"
 df.musical_form_instruments.T_substitutions = {}
 
----@class (exact) musical_form_sub4: DFObject
----@field _kind 'struct'
+---@class (exact) musical_form_sub4: DFStruct
 ---@field _type _musical_form_sub4
 ---@field passage number the passage index this structure refers to
 ---@field unk_2 number
@@ -2119,12 +2096,11 @@ df.musical_form_instruments.T_substitutions = {}
 ---@field unk_5 number
 ---@field unk_6 number
 
----@class _musical_form_sub4: DFCompound
+---@class _musical_form_sub4: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_sub4 = {}
 
----@class (exact) musical_form: DFObject
----@field _kind 'struct'
+---@class (exact) musical_form: DFStruct
 ---@field _type _musical_form
 ---@field id number
 ---@field name language_name
@@ -2150,7 +2126,7 @@ df.musical_form_sub4 = {}
 ---@field devotion_target number References: `historical_figure`
 ---@field flags musical_form.T_flags
 
----@class _musical_form: DFCompound
+---@class _musical_form: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form = {}
 
@@ -2261,7 +2237,7 @@ df.musical_form.T_flags = {}
 ---| dance_form_context_keys
 ---| dance_form_context_values
 
----@class _dance_form_context: DFEnum
+---@class _dance_form_context: DFEnumType
 ---@field Sacred 0
 ---@field [0] "Sacred"
 ---@field Celebration 1
@@ -2290,7 +2266,7 @@ df.dance_form_context = {}
 ---| dance_form_group_size_keys
 ---| dance_form_group_size_values
 
----@class _dance_form_group_size: DFEnum
+---@class _dance_form_group_size: DFEnumType
 ---@field Solo 0
 ---@field [0] "Solo"
 ---@field Partner 1
@@ -2319,7 +2295,7 @@ df.dance_form_group_size = {}
 ---| dance_form_configuration_keys
 ---| dance_form_configuration_values
 
----@class _dance_form_configuration: DFEnum
+---@class _dance_form_configuration: DFEnumType
 ---@field NONE -1 hard to have a configuration with a solo performer
 ---@field [-1] "NONE" hard to have a configuration with a solo performer
 ---@field SingleLine 0
@@ -2352,7 +2328,7 @@ df.dance_form_configuration = {}
 ---| dance_form_movement_path_keys
 ---| dance_form_movement_path_values
 
----@class _dance_form_movement_path: DFEnum
+---@class _dance_form_movement_path: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field TurnClockwise 0
@@ -2381,7 +2357,7 @@ df.dance_form_movement_path = {}
 ---| dance_form_partner_distance_keys
 ---| dance_form_partner_distance_values
 
----@class _dance_form_partner_distance: DFEnum
+---@class _dance_form_partner_distance: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Closely 0
@@ -2414,7 +2390,7 @@ df.dance_form_partner_distance = {}
 ---| dance_form_partner_intent_keys
 ---| dance_form_partner_intent_values
 
----@class _dance_form_partner_intent: DFEnum
+---@class _dance_form_partner_intent: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PushingTogether 0
@@ -2445,7 +2421,7 @@ df.dance_form_partner_intent = {}
 ---| dance_form_partner_cue_frequency_keys
 ---| dance_form_partner_cue_frequency_values
 
----@class _dance_form_partner_cue_frequency: DFEnum
+---@class _dance_form_partner_cue_frequency: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Constantly 0
@@ -2472,7 +2448,7 @@ df.dance_form_partner_cue_frequency = {}
 ---| dance_form_partner_change_type_keys
 ---| dance_form_partner_change_type_values
 
----@class _dance_form_partner_change_type: DFEnum
+---@class _dance_form_partner_change_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LeadAdvanceAlongMainLineOfMotion 0
@@ -2561,7 +2537,7 @@ df.dance_form_partner_change_type = {}
 ---| dance_form_move_type_keys
 ---| dance_form_move_type_values
 
----@class _dance_form_move_type: DFEnum
+---@class _dance_form_move_type: DFEnumType
 ---@field SquareStep 0
 ---@field [0] "SquareStep"
 ---@field CircularStep 1
@@ -2734,7 +2710,7 @@ df.dance_form_move_type = {}
 ---| dance_form_move_modifier_keys
 ---| dance_form_move_modifier_values
 
----@class _dance_form_move_modifier: DFEnum
+---@class _dance_form_move_modifier: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Graceful 0 0
@@ -2863,8 +2839,7 @@ df.dance_form_move_modifier = {}
 ---@field [7] "Follower"
 df.dance_form_move_location = {}
 
----@class (exact) dance_form_section: DFObject
----@field _kind 'struct'
+---@class (exact) dance_form_section: DFStruct
 ---@field _type _dance_form_section
 ---@field unk_1 number
 ---@field unk_2 number
@@ -2886,7 +2861,7 @@ df.dance_form_move_location = {}
 ---@field location _dance_form_section_location
 ---@field id number
 
----@class _dance_form_section: DFCompound
+---@class _dance_form_section: DFCompoundType
 ---@field _kind 'struct-type'
 df.dance_form_section = {}
 
@@ -2972,7 +2947,7 @@ function _dance_form_section_location:erase(index) end
 ---| dance_form_move_group_type_keys
 ---| dance_form_move_group_type_values
 
----@class _dance_form_move_group_type: DFEnum
+---@class _dance_form_move_group_type: DFEnumType
 ---@field BasicMovement 1
 ---@field [1] "BasicMovement"
 ---@field DancePosition 2
@@ -2981,8 +2956,7 @@ function _dance_form_section_location:erase(index) end
 ---@field [4] "DanceMove"
 df.dance_form_move_group_type = {}
 
----@class (exact) dance_form_move: DFObject
----@field _kind 'struct'
+---@class (exact) dance_form_move: DFStruct
 ---@field _type _dance_form_move
 ---@field name string
 ---@field type _dance_form_move_type
@@ -2991,7 +2965,7 @@ df.dance_form_move_group_type = {}
 ---@field location _dance_form_move_location
 ---@field group_type dance_form_move_group_type
 
----@class _dance_form_move: DFCompound
+---@class _dance_form_move: DFCompoundType
 ---@field _kind 'struct-type'
 df.dance_form_move = {}
 
@@ -3043,8 +3017,7 @@ function _dance_form_move_location:insert(index, item) end
 ---@param index integer 
 function _dance_form_move_location:erase(index) end
 
----@class (exact) dance_form: DFObject
----@field _kind 'struct'
+---@class (exact) dance_form: DFStruct
 ---@field _type _dance_form
 ---@field id number
 ---@field name language_name
@@ -3075,7 +3048,7 @@ function _dance_form_move_location:erase(index) end
 ---@field sections _dance_form_sections
 ---@field moves _dance_form_moves
 
----@class _dance_form: DFCompound
+---@class _dance_form: DFCompoundType
 ---@field _kind 'struct-type'
 df.dance_form = {}
 
@@ -3198,7 +3171,7 @@ function _dance_form_moves:erase(index) end
 ---| scale_type_keys
 ---| scale_type_values
 
----@class _scale_type: DFEnum
+---@class _scale_type: DFEnumType
 ---@field Octave 0 The octave is divided into X steps of even length
 ---@field [0] "Octave" The octave is divided into X steps of even length
 ---@field Variable 1 The octave is divided into notes at varying intervals, approximated by quartertones
@@ -3207,21 +3180,19 @@ function _dance_form_moves:erase(index) end
 ---@field [2] "PerfectFourth" The perfect fourth interval is divided into steps of even length
 df.scale_type = {}
 
----@class (exact) chord: DFObject
----@field _kind 'struct'
+---@class (exact) chord: DFStruct
 ---@field _type _chord
 ---@field name string
 ---@field notes number[] chord_size entries used. Refers to the notes indices
 ---@field chord_size number
 ---@field unk_3 number 0 and 1 seen
 
----@class _chord: DFCompound
+---@class _chord: DFCompoundType
 ---@field _kind 'struct-type'
 df.chord = {}
 
 -- Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
----@class (exact) named_scale: DFObject
----@field _kind 'struct'
+---@class (exact) named_scale: DFStruct
 ---@field _type _named_scale
 ---@field unk_1 number 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
 ---@field name string
@@ -3230,12 +3201,11 @@ df.chord = {}
 ---@field first_chord number this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
 ---@field second_chord number
 
----@class _named_scale: DFCompound
+---@class _named_scale: DFCompoundType
 ---@field _kind 'struct-type'
 df.named_scale = {}
 
----@class (exact) scale: DFObject
----@field _kind 'struct'
+---@class (exact) scale: DFStruct
 ---@field _type _scale
 ---@field id number
 ---@field flags scale.T_flags
@@ -3246,7 +3216,7 @@ df.named_scale = {}
 ---@field scales _scale_scales Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
 ---@field notes scale.T_notes
 
----@class _scale: DFCompound
+---@class _scale: DFCompoundType
 ---@field _kind 'struct-type'
 df.scale = {}
 
@@ -3302,8 +3272,7 @@ function _scale_scales:insert(index, item) end
 function _scale_scales:erase(index) end
 
 -- Curiously, the named notes do not have to match the number of defined notes
----@class (exact) scale.T_notes: DFObject
----@field _kind 'struct'
+---@class (exact) scale.T_notes: DFStruct
 ---@field _type _scale.T_notes
 ---@field unk_1 number Frequently looks like garbage for all values of type. Suspect it's actually a filler
 ---@field name string[]
@@ -3311,19 +3280,18 @@ function _scale_scales:erase(index) end
 ---@field number number[]
 ---@field length number number of elements of the arrays above used
 
----@class _scale.T_notes: DFCompound
+---@class _scale.T_notes: DFCompoundType
 ---@field _kind 'struct-type'
 df.scale.T_notes = {}
 
----@class (exact) rhythm: DFObject
----@field _kind 'struct'
+---@class (exact) rhythm: DFStruct
 ---@field _type _rhythm
 ---@field id number
 ---@field patterns _rhythm_patterns
 ---@field sub_rhythms _rhythm_sub_rhythms
 ---@field unk_2 number
 
----@class _rhythm: DFCompound
+---@class _rhythm: DFCompoundType
 ---@field _kind 'struct-type'
 df.rhythm = {}
 
@@ -3400,7 +3368,7 @@ function _rhythm_sub_rhythms:erase(index) end
 ---| beat_type_keys
 ---| beat_type_values
 
----@class _beat_type: DFEnum
+---@class _beat_type: DFEnumType
 ---@field Silent 0 -
 ---@field [0] "Silent" -
 ---@field AccentedBeat 1 X
@@ -3427,8 +3395,7 @@ function _rhythm_sub_rhythms:erase(index) end
 ---@field [11] "AccentedSyncopated" !'
 df.beat_type = {}
 
----@class (exact) rhythm_pattern: DFObject
----@field _kind 'struct'
+---@class (exact) rhythm_pattern: DFStruct
 ---@field _type _rhythm_pattern
 ---@field name string
 ---@field bars _rhythm_pattern_bars
@@ -3436,7 +3403,7 @@ df.beat_type = {}
 ---@field beat_abbreviation string length as per length field
 ---@field length number
 
----@class _rhythm_pattern: DFCompound
+---@class _rhythm_pattern: DFCompoundType
 ---@field _kind 'struct-type'
 df.rhythm_pattern = {}
 
@@ -3456,15 +3423,14 @@ function _rhythm_pattern_bars:insert(index, item) end
 ---@param index integer 
 function _rhythm_pattern_bars:erase(index) end
 
----@class (exact) sub_rhythm: DFObject
----@field _kind 'struct'
+---@class (exact) sub_rhythm: DFStruct
 ---@field _type _sub_rhythm
 ---@field name string
 ---@field patterns DFNumberVector indices into patterns
 ---@field unk_2 DFNumberVector Same length as patterns, but with unknown purpose
 ---@field unk_3 number
 
----@class _sub_rhythm: DFCompound
+---@class _sub_rhythm: DFCompoundType
 ---@field _kind 'struct-type'
 df.sub_rhythm = {}
 
@@ -3499,7 +3465,7 @@ df.sub_rhythm = {}
 ---| occupation_type_values
 
 -- bay12: Occupation
----@class _occupation_type: DFEnum
+---@class _occupation_type: DFEnumType
 ---@field TAVERN_KEEPER 0
 ---@field [0] "TAVERN_KEEPER"
 ---@field PERFORMER 1
@@ -3524,8 +3490,7 @@ df.sub_rhythm = {}
 ---@field [10] "BONE_DOCTOR"
 df.occupation_type = {}
 
----@class (exact) occupation: DFObject
----@field _kind 'struct'
+---@class (exact) occupation: DFStruct
 ---@field _type _occupation
 ---@field id number
 ---@field type occupation_type
@@ -3539,7 +3504,7 @@ df.occupation_type = {}
 ---@field wg_site world_site worldgen only
 ---@field wg_ab abstract_building worldgen only
 
----@class _occupation: DFCompound
+---@class _occupation: DFCompoundType
 ---@field _kind 'struct-type'
 df.occupation = {}
 
@@ -3585,7 +3550,7 @@ function _occupation_service_order:erase(index) end
 ---| service_order_type_values
 
 -- bay12: ServiceOrder
----@class _service_order_type: DFEnum
+---@class _service_order_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DRINK 0
@@ -3596,8 +3561,7 @@ function _occupation_service_order:erase(index) end
 ---@field [2] "EXTEND_ROOM_RENTAL"
 df.service_order_type = {}
 
----@class (exact) service_orderst: DFObject
----@field _kind 'struct'
+---@class (exact) service_orderst: DFStruct
 ---@field _type _service_orderst
 ---@field local_id number
 ---@field type service_order_type
@@ -3619,7 +3583,7 @@ df.service_order_type = {}
 ---@field activity_event_id number
 ---@field flag service_orderst.T_flag
 
----@class _service_orderst: DFCompound
+---@class _service_orderst: DFCompoundType
 ---@field _kind 'struct-type'
 df.service_orderst = {}
 

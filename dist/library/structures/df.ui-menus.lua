@@ -2,8 +2,7 @@
 ---@meta
 
 -- BUILDING COMPONENT ITEM SELECTION
----@class (exact) ui_build_item_req: DFObject
----@field _kind 'struct'
+---@class (exact) ui_build_item_req: DFStruct
 ---@field _type _ui_build_item_req
 ---@field filter job_item_filter
 ---@field candidates _ui_build_item_req_candidates
@@ -14,7 +13,7 @@
 ---@field count_max number if 0, fixed at required
 ---@field count_provided number
 
----@class _ui_build_item_req: DFCompound
+---@class _ui_build_item_req: DFCompoundType
 ---@field _kind 'struct-type'
 df.ui_build_item_req = {}
 
@@ -46,7 +45,7 @@ function _ui_build_item_req_candidates:erase(index) end
 ---| build_req_choice_type_keys
 ---| build_req_choice_type_values
 
----@class _build_req_choice_type: DFEnum
+---@class _build_req_choice_type: DFEnumType
 ---@field General 0
 ---@field [0] "General"
 ---@field Specific 1
@@ -54,17 +53,15 @@ function _ui_build_item_req_candidates:erase(index) end
 df.build_req_choice_type = {}
 
 -- One choice in the build item selector.
----@class (exact) build_req_choicest: DFObject
----@field _kind 'struct'
+---@class (exact) build_req_choicest: DFStruct
 ---@field _type _build_req_choicest
 ---@field distance number
 
----@class _build_req_choicest: DFCompound
+---@class _build_req_choicest: DFCompoundType
 ---@field _kind 'class-type'
 df.build_req_choicest = {}
 
----@class (exact) build_req_choice_genst: DFObject, build_req_choicest
----@field _kind 'struct'
+---@class (exact) build_req_choice_genst: DFStruct, build_req_choicest
 ---@field _type _build_req_choice_genst
 ---@field item_type item_type
 ---@field item_subtype number
@@ -74,22 +71,20 @@ df.build_req_choicest = {}
 ---@field used_count number
 ---@field unk_1 boolean
 
----@class _build_req_choice_genst: DFCompound
+---@class _build_req_choice_genst: DFCompoundType
 ---@field _kind 'class-type'
 df.build_req_choice_genst = {}
 
----@class (exact) build_req_choice_specst: DFObject, build_req_choicest
----@field _kind 'struct'
+---@class (exact) build_req_choice_specst: DFStruct, build_req_choicest
 ---@field _type _build_req_choice_specst
 ---@field candidate item
 ---@field candidate_id number
 
----@class _build_req_choice_specst: DFCompound
+---@class _build_req_choice_specst: DFCompoundType
 ---@field _kind 'class-type'
 df.build_req_choice_specst = {}
 
----@class (exact) buildreq: DFObject
----@field _kind 'struct'
+---@class (exact) buildreq: DFStruct
 ---@field _type _buildreq
 ---@field requirements _buildreq_requirements
 ---@field choices _buildreq_choices
@@ -117,7 +112,7 @@ df.build_req_choice_specst = {}
 ---@field selection_pos coord
 ---@field selection_area number
 
----@class _buildreq: DFCompound
+---@class _buildreq: DFCompoundType
 ---@field _kind 'class-type'
 df.buildreq = {}
 
@@ -180,7 +175,7 @@ function _buildreq_choices:erase(index) end
 ---| interface_category_building_values
 
 -- MISC. SIDEBAR MENUS
----@class _interface_category_building: DFEnum
+---@class _interface_category_building: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field WEAPON 0
@@ -227,7 +222,7 @@ df.interface_category_building = {}
 ---| interface_category_construction_keys
 ---| interface_category_construction_values
 
----@class _interface_category_construction: DFEnum
+---@class _interface_category_construction: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MAIN 0
@@ -248,51 +243,46 @@ df.interface_category_building = {}
 ---@field [7] "TRACK"
 df.interface_category_construction = {}
 
----@class (exact) interface_button: DFObject
----@field _kind 'struct'
+---@class (exact) interface_button: DFStruct
 ---@field _type _interface_button
 ---@field hotkey interface_key
 ---@field leave_button boolean
 ---@field flag integer
 ---@field filter_str string
 
----@class _interface_button: DFCompound
+---@class _interface_button: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button = {}
 
----@class (exact) interface_button_buildingst: DFObject, interface_button
----@field _kind 'struct'
+---@class (exact) interface_button_buildingst: DFStruct, interface_button
 ---@field _type _interface_button_buildingst
 ---@field bd building
 
----@class _interface_button_buildingst: DFCompound
+---@class _interface_button_buildingst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_buildingst = {}
 
----@class (exact) interface_button_building_category_selectorst: DFObject, interface_button_buildingst
----@field _kind 'struct'
+---@class (exact) interface_button_building_category_selectorst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_category_selectorst
 ---@field category interface_category_building
 ---@field prepare_interface number
 
----@class _interface_button_building_category_selectorst: DFCompound
+---@class _interface_button_building_category_selectorst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_category_selectorst = {}
 
----@class (exact) interface_button_building_material_selectorst: DFObject, interface_button_buildingst
----@field _kind 'struct'
+---@class (exact) interface_button_building_material_selectorst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_material_selectorst
 ---@field material number References: `material`
 ---@field matgloss number
 ---@field job_item_flag job_material_category
 ---@field prepare_interface number
 
----@class _interface_button_building_material_selectorst: DFCompound
+---@class _interface_button_building_material_selectorst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_material_selectorst = {}
 
----@class (exact) interface_button_building_new_jobst: DFObject, interface_button_buildingst
----@field _kind 'struct'
+---@class (exact) interface_button_building_new_jobst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_new_jobst
 ---@field jobtype job_type
 ---@field mstring string
@@ -308,16 +298,15 @@ df.interface_button_building_material_selectorst = {}
 ---@field objection string
 ---@field info string
 
----@class _interface_button_building_new_jobst: DFCompound
+---@class _interface_button_building_new_jobst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_new_jobst = {}
 
----@class (exact) interface_button_building_custom_category_selectorst: DFObject, interface_button_buildingst
----@field _kind 'struct'
+---@class (exact) interface_button_building_custom_category_selectorst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_custom_category_selectorst
 ---@field custom_category_token string
 
----@class _interface_button_building_custom_category_selectorst: DFCompound
+---@class _interface_button_building_custom_category_selectorst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_custom_category_selectorst = {}
 
@@ -355,7 +344,7 @@ df.interface_button_building_custom_category_selectorst = {}
 ---| construction_category_type_keys
 ---| construction_category_type_values
 
----@class _construction_category_type: DFEnum
+---@class _construction_category_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MAIN 0
@@ -384,8 +373,7 @@ df.interface_button_building_custom_category_selectorst = {}
 ---@field [11] "MILITARY"
 df.construction_category_type = {}
 
----@class (exact) bb_buttonst: DFObject
----@field _kind 'struct'
+---@class (exact) bb_buttonst: DFStruct
 ---@field _type _bb_buttonst
 ---@field category construction_category_type
 ---@field type number
@@ -397,7 +385,7 @@ df.construction_category_type = {}
 ---@field str string
 ---@field hotkey interface_key
 
----@class _bb_buttonst: DFCompound
+---@class _bb_buttonst: DFCompoundType
 ---@field _kind 'struct-type'
 df.bb_buttonst = {}
 
@@ -417,7 +405,7 @@ df.bb_buttonst = {}
 ---| construction_interface_page_status_type_keys
 ---| construction_interface_page_status_type_values
 
----@class _construction_interface_page_status_type: DFEnum
+---@class _construction_interface_page_status_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field FULL 0
@@ -428,8 +416,7 @@ df.bb_buttonst = {}
 ---@field [2] "OFF"
 df.construction_interface_page_status_type = {}
 
----@class (exact) construction_interface_pagest: DFObject
----@field _kind 'struct'
+---@class (exact) construction_interface_pagest: DFStruct
 ---@field _type _construction_interface_pagest
 ---@field category construction_category_type
 ---@field bb_button _construction_interface_pagest_bb_button
@@ -445,7 +432,7 @@ df.construction_interface_page_status_type = {}
 ---@field scrolling boolean
 ---@field scroll_position number
 
----@class _construction_interface_pagest: DFCompound
+---@class _construction_interface_pagest: DFCompoundType
 ---@field _kind 'struct-type'
 df.construction_interface_pagest = {}
 
@@ -481,7 +468,7 @@ function _construction_interface_pagest_bb_button:erase(index) end
 ---| room_flow_shape_type_keys
 ---| room_flow_shape_type_values
 
----@class _room_flow_shape_type: DFEnum
+---@class _room_flow_shape_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field RECTANGLE 0
@@ -524,7 +511,7 @@ df.room_flow_shape_type = {}
 ---| cannot_expel_reason_type_keys
 ---| cannot_expel_reason_type_values
 
----@class _cannot_expel_reason_type: DFEnum
+---@class _cannot_expel_reason_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field HEREDITARY 0
@@ -569,7 +556,7 @@ df.cannot_expel_reason_type = {}
 ---| mine_mode_type_keys
 ---| mine_mode_type_values
 
----@class _mine_mode_type: DFEnum
+---@class _mine_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ALL 0
@@ -600,7 +587,7 @@ df.mine_mode_type = {}
 ---| job_details_option_type_keys
 ---| job_details_option_type_values
 
----@class _job_details_option_type: DFEnum
+---@class _job_details_option_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MATERIAL 0
@@ -633,7 +620,7 @@ df.job_details_option_type = {}
 ---| job_details_context_type_keys
 ---| job_details_context_type_values
 
----@class _job_details_context_type: DFEnum
+---@class _job_details_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BUILDING_TASK_LIST 0
@@ -676,7 +663,7 @@ df.job_details_context_type = {}
 ---| stock_pile_pointer_type_keys
 ---| stock_pile_pointer_type_values
 
----@class _stock_pile_pointer_type: DFEnum
+---@class _stock_pile_pointer_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ANIMAL_EMPTY_CAGES 0
@@ -711,7 +698,7 @@ df.stock_pile_pointer_type = {}
 ---| stockpile_tools_context_type_keys
 ---| stockpile_tools_context_type_values
 
----@class _stockpile_tools_context_type: DFEnum
+---@class _stockpile_tools_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field STOCKPILE 0
@@ -734,7 +721,7 @@ df.stockpile_tools_context_type = {}
 ---| stockpile_link_context_type_keys
 ---| stockpile_link_context_type_values
 
----@class _stockpile_link_context_type: DFEnum
+---@class _stockpile_link_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field STOCKPILE 0
@@ -757,7 +744,7 @@ df.stockpile_link_context_type = {}
 ---| hauling_stop_conditions_context_type_keys
 ---| hauling_stop_conditions_context_type_values
 
----@class _hauling_stop_conditions_context_type: DFEnum
+---@class _hauling_stop_conditions_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field HAULING_MENU 0
@@ -776,7 +763,7 @@ df.hauling_stop_conditions_context_type = {}
 ---| assign_vehicle_context_type_keys
 ---| assign_vehicle_context_type_values
 
----@class _assign_vehicle_context_type: DFEnum
+---@class _assign_vehicle_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field HAULING_MENU 0
@@ -797,7 +784,7 @@ df.assign_vehicle_context_type = {}
 ---| location_details_context_type_keys
 ---| location_details_context_type_values
 
----@class _location_details_context_type: DFEnum
+---@class _location_details_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field FROM_ZONE 0
@@ -818,7 +805,7 @@ df.location_details_context_type = {}
 ---| location_selector_context_type_keys
 ---| location_selector_context_type_values
 
----@class _location_selector_context_type: DFEnum
+---@class _location_selector_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ZONE_MEETING_AREA_ASSIGNMENT 0
@@ -843,7 +830,7 @@ df.location_selector_context_type = {}
 ---| custom_symbol_context_type_keys
 ---| custom_symbol_context_type_values
 
----@class _custom_symbol_context_type: DFEnum
+---@class _custom_symbol_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BURROW 0
@@ -878,7 +865,7 @@ df.custom_symbol_context_type = {}
 ---| name_creator_context_type_keys
 ---| name_creator_context_type_values
 
----@class _name_creator_context_type: DFEnum
+---@class _name_creator_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field EMBARK_FORT_NAME 0
@@ -913,7 +900,7 @@ df.name_creator_context_type = {}
 ---| image_creator_context_type_keys
 ---| image_creator_context_type_values
 
----@class _image_creator_context_type: DFEnum
+---@class _image_creator_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field EMBARK_FORT_SYMBOL 0
@@ -972,7 +959,7 @@ df.image_creator_context_type = {}
 ---| image_creator_option_type_keys
 ---| image_creator_option_type_values
 
----@class _image_creator_option_type: DFEnum
+---@class _image_creator_option_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ALLOW_ARTIST_TO_CHOOSE 0
@@ -1049,7 +1036,7 @@ df.image_creator_option_type = {}
 ---| unit_selector_context_type_keys
 ---| unit_selector_context_type_values
 
----@class _unit_selector_context_type: DFEnum
+---@class _unit_selector_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ZONE_PEN_ASSIGNMENT 0
@@ -1094,7 +1081,7 @@ df.unit_selector_context_type = {}
 ---| squad_selector_context_type_keys
 ---| squad_selector_context_type_values
 
----@class _squad_selector_context_type: DFEnum
+---@class _squad_selector_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ZONE_BARRACKS_ASSIGNMENT 0
@@ -1115,7 +1102,7 @@ df.squad_selector_context_type = {}
 ---| squad_schedule_context_type_keys
 ---| squad_schedule_context_type_values
 
----@class _squad_schedule_context_type: DFEnum
+---@class _squad_schedule_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field FROM_SQUAD_MENU 0
@@ -1134,7 +1121,7 @@ df.squad_schedule_context_type = {}
 ---| squad_equipment_context_type_keys
 ---| squad_equipment_context_type_values
 
----@class _squad_equipment_context_type: DFEnum
+---@class _squad_equipment_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field FROM_SQUAD_MENU 0
@@ -1153,7 +1140,7 @@ df.squad_equipment_context_type = {}
 ---| patrol_routes_context_type_keys
 ---| patrol_routes_context_type_values
 
----@class _patrol_routes_context_type: DFEnum
+---@class _patrol_routes_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field GIVING_SQUAD_PATROL_ORDER 0
@@ -1172,7 +1159,7 @@ df.patrol_routes_context_type = {}
 ---| burrow_selector_context_type_keys
 ---| burrow_selector_context_type_values
 
----@class _burrow_selector_context_type: DFEnum
+---@class _burrow_selector_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field GIVING_SQUAD_ORDER 0
@@ -1205,7 +1192,7 @@ df.burrow_selector_context_type = {}
 ---| view_sheet_trait_type_keys
 ---| view_sheet_trait_type_values
 
----@class _view_sheet_trait_type: DFEnum
+---@class _view_sheet_trait_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PHYS_ATT_PLUS 0
@@ -1272,7 +1259,7 @@ df.view_sheet_trait_type = {}
 ---| view_sheet_unit_knowledge_type_keys
 ---| view_sheet_unit_knowledge_type_values
 
----@class _view_sheet_unit_knowledge_type: DFEnum
+---@class _view_sheet_unit_knowledge_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PHILOSOPHY_FLAG 0
@@ -1327,7 +1314,7 @@ df.view_sheet_unit_knowledge_type = {}
 ---| view_sheets_context_type_keys
 ---| view_sheets_context_type_values
 
----@class _view_sheets_context_type: DFEnum
+---@class _view_sheets_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field REGULAR_PLAY 0
@@ -1360,7 +1347,7 @@ df.view_sheets_context_type = {}
 ---| view_sheet_type_keys
 ---| view_sheet_type_values
 
----@class _view_sheet_type: DFEnum
+---@class _view_sheet_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field UNIT 0
@@ -1397,7 +1384,7 @@ df.view_sheet_type = {}
 ---| unit_list_mode_type_keys
 ---| unit_list_mode_type_values
 
----@class _unit_list_mode_type: DFEnum
+---@class _unit_list_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CITIZEN 0
@@ -1430,7 +1417,7 @@ df.unit_list_mode_type = {}
 ---| buildings_mode_type_keys
 ---| buildings_mode_type_values
 
----@class _buildings_mode_type: DFEnum
+---@class _buildings_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ZONES 0
@@ -1464,7 +1451,7 @@ df.buildings_mode_type = {}
 ---| kitchen_pref_category_type_values
 
 -- bay12: KitchenPrefCategory
----@class _kitchen_pref_category_type: DFEnum
+---@class _kitchen_pref_category_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PLANTS 0
@@ -1500,7 +1487,7 @@ df.kitchen_pref_category_type = {}
 ---| standing_orders_category_type_values
 
 -- bay12: StandingOrdersCategory
----@class _standing_orders_category_type: DFEnum
+---@class _standing_orders_category_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field AUTOMATED_WORKSHOPS 0
@@ -1531,7 +1518,7 @@ df.standing_orders_category_type = {}
 ---| stone_use_category_type_keys
 ---| stone_use_category_type_values
 
----@class _stone_use_category_type: DFEnum
+---@class _stone_use_category_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ECONOMIC 0
@@ -1558,7 +1545,7 @@ df.stone_use_category_type = {}
 ---| labor_mode_type_keys
 ---| labor_mode_type_values
 
----@class _labor_mode_type: DFEnum
+---@class _labor_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field WORK_DETAILS 0
@@ -1589,7 +1576,7 @@ df.labor_mode_type = {}
 ---| artifacts_mode_type_keys
 ---| artifacts_mode_type_values
 
----@class _artifacts_mode_type: DFEnum
+---@class _artifacts_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ARTIFACTS 0
@@ -1620,7 +1607,7 @@ df.artifacts_mode_type = {}
 ---| counterintelligence_mode_type_keys
 ---| counterintelligence_mode_type_values
 
----@class _counterintelligence_mode_type: DFEnum
+---@class _counterintelligence_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field INTERROGATIONS 0
@@ -1656,7 +1643,7 @@ df.counterintelligence_mode_type = {}
 ---| justice_interface_mode_type_values
 
 -- bay12: JusticeInterfaceMode
----@class _justice_interface_mode_type: DFEnum
+---@class _justice_interface_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field OPEN_CASES 0
@@ -1699,7 +1686,7 @@ df.justice_interface_mode_type = {}
 ---| info_interface_mode_type_keys
 ---| info_interface_mode_type_values
 
----@class _info_interface_mode_type: DFEnum
+---@class _info_interface_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CREATURES 0
@@ -1758,7 +1745,7 @@ df.info_interface_mode_type = {}
 ---| main_menu_option_type_keys
 ---| main_menu_option_type_values
 
----@class _main_menu_option_type: DFEnum
+---@class _main_menu_option_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field RETURN 0
@@ -1813,7 +1800,7 @@ df.main_menu_option_type = {}
 ---| options_context_type_keys
 ---| options_context_type_values
 
----@class _options_context_type: DFEnum
+---@class _options_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MAIN_DWARF 0
@@ -1936,7 +1923,7 @@ df.options_context_type = {}
 ---| help_context_type_keys
 ---| help_context_type_values
 
----@class _help_context_type: DFEnum
+---@class _help_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field WORLD_GEN_MESSAGE 0
@@ -2059,7 +2046,7 @@ df.help_context_type = {}
 ---| settings_tab_type_keys
 ---| settings_tab_type_values
 
----@class _settings_tab_type: DFEnum
+---@class _settings_tab_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field VIDEO 0
@@ -2090,7 +2077,7 @@ df.settings_tab_type = {}
 ---| settings_context_type_keys
 ---| settings_context_type_values
 
----@class _settings_context_type: DFEnum
+---@class _settings_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field OUTSIDE_PLAY 0
@@ -2117,7 +2104,7 @@ df.settings_context_type = {}
 ---| arena_context_type_keys
 ---| arena_context_type_values
 
----@class _arena_context_type: DFEnum
+---@class _arena_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CREATURE 0
@@ -2144,7 +2131,7 @@ df.arena_context_type = {}
 ---| assign_uniform_context_type_keys
 ---| assign_uniform_context_type_values
 
----@class _assign_uniform_context_type: DFEnum
+---@class _assign_uniform_context_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CREATE_SQUAD_FROM_SQUAD_MENU 0
@@ -2197,7 +2184,7 @@ df.assign_uniform_context_type = {}
 ---| main_bottom_mode_type_keys
 ---| main_bottom_mode_type_values
 
----@class _main_bottom_mode_type: DFEnum
+---@class _main_bottom_mode_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BUILDING 0
@@ -2318,7 +2305,7 @@ df.main_bottom_mode_type = {}
 ---| main_designation_type_keys
 ---| main_designation_type_values
 
----@class _main_designation_type: DFEnum
+---@class _main_designation_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DIG_DIG 0
@@ -2395,8 +2382,7 @@ df.main_bottom_mode_type = {}
 ---@field [35] "ERASE"
 df.main_designation_type = {}
 
----@class (exact) markup_text_box_widget: DFObject, widget
----@field _kind 'struct'
+---@class (exact) markup_text_box_widget: DFStruct, widget
 ---@field _type _markup_text_box_widget
 ---@field scroll number
 ---@field num_visible number
@@ -2404,7 +2390,7 @@ df.main_designation_type = {}
 ---@field scrollbar scrollbarst
 ---@field box markup_text_boxst
 
----@class _markup_text_box_widget: DFCompound
+---@class _markup_text_box_widget: DFCompoundType
 ---@field _kind 'class-type'
 df.markup_text_box_widget = {}
 
@@ -2423,7 +2409,7 @@ df.markup_text_box_widget = {}
 ---| burrow_unit_selector_filter_type_values
 
 -- bay12: BurrowUnitSelectorFilter
----@class _burrow_unit_selector_filter_type: DFEnum
+---@class _burrow_unit_selector_filter_type: DFEnumType
 ---@field ALL 0
 ---@field [0] "ALL"
 ---@field MILITARY 1
@@ -2432,8 +2418,7 @@ df.markup_text_box_widget = {}
 ---@field [2] "CIVILIAN"
 df.burrow_unit_selector_filter_type = {}
 
----@class (exact) unit_selector_interfacest: DFObject, widget_container
----@field _kind 'struct'
+---@class (exact) unit_selector_interfacest: DFStruct, widget_container
 ---@field _type _unit_selector_interfacest
 ---@field context unit_selector_context_type
 ---@field bld_id number
@@ -2448,66 +2433,60 @@ df.burrow_unit_selector_filter_type = {}
 ---@field scroll_position number
 ---@field scrolling boolean
 
----@class _unit_selector_interfacest: DFCompound
+---@class _unit_selector_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.unit_selector_interfacest = {}
 
----@class (exact) creature_interfacest: DFObject, widget_container
----@field _kind 'struct'
+---@class (exact) creature_interfacest: DFStruct, widget_container
 ---@field _type _creature_interfacest
 ---@field current_mode unit_list_mode_type
 ---@field activity_details_text markup_text_boxst
 
----@class _creature_interfacest: DFCompound
+---@class _creature_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.creature_interfacest = {}
 
----@class (exact) labor_work_details_interfacest: DFObject, widget_container
----@field _kind 'struct'
+---@class (exact) labor_work_details_interfacest: DFStruct, widget_container
 ---@field _type _labor_work_details_interfacest
 
----@class _labor_work_details_interfacest: DFCompound
+---@class _labor_work_details_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_work_details_interfacest = {}
 
----@class (exact) labor_kitchen_interface_food_key: DFObject
----@field _kind 'struct'
+---@class (exact) labor_kitchen_interface_food_key: DFStruct
 ---@field _type _labor_kitchen_interface_food_key
 ---@field type number
 ---@field subtype number
 ---@field mat number
 ---@field matg number
 
----@class _labor_kitchen_interface_food_key: DFCompound
+---@class _labor_kitchen_interface_food_key: DFCompoundType
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_key = {}
 
----@class (exact) labor_kitchen_interface_food_value: DFObject
----@field _kind 'struct'
+---@class (exact) labor_kitchen_interface_food_value: DFStruct
 ---@field _type _labor_kitchen_interface_food_value
 ---@field num number
 ---@field canrest number
 ---@field name string
 
----@class _labor_kitchen_interface_food_value: DFCompound
+---@class _labor_kitchen_interface_food_value: DFCompoundType
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_value = {}
 
----@class (exact) labor_kitchen_food_entry: DFObject
----@field _kind 'struct'
+---@class (exact) labor_kitchen_food_entry: DFStruct
 ---@field _type _labor_kitchen_food_entry
 ---@field first labor_kitchen_interface_food_key
 ---@field second labor_kitchen_interface_food_value
 
----@class _labor_kitchen_food_entry: DFCompound
+---@class _labor_kitchen_food_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.labor_kitchen_food_entry = {}
 
----@class (exact) labor_kitchen_interface_food_sort_entry: DFObject, sort_entry
----@field _kind 'struct'
+---@class (exact) labor_kitchen_interface_food_sort_entry: DFStruct, sort_entry
 ---@field _type _labor_kitchen_interface_food_sort_entry
 
----@class _labor_kitchen_interface_food_sort_entry: DFCompound
+---@class _labor_kitchen_interface_food_sort_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_sort_entry = {}
 
@@ -2529,7 +2508,7 @@ df.labor_kitchen_interface_food_sort_entry = {}
 ---| labor_kitchen_interface_type_filter_keys
 ---| labor_kitchen_interface_type_filter_values
 
----@class _labor_kitchen_interface_type_filter: DFEnum
+---@class _labor_kitchen_interface_type_filter: DFEnumType
 ---@field ALL -1
 ---@field [-1] "ALL"
 ---@field PLANTS 0
@@ -2542,8 +2521,7 @@ df.labor_kitchen_interface_food_sort_entry = {}
 ---@field [3] "OTHER"
 df.labor_kitchen_interface_type_filter = {}
 
----@class (exact) labor_kitchen_interfacest: DFObject, widget_container
----@field _kind 'struct'
+---@class (exact) labor_kitchen_interfacest: DFStruct, widget_container
 ---@field _type _labor_kitchen_interfacest
 ---@field current_category kitchen_pref_category_type
 ---@field known _labor_kitchen_interfacest_known std::unordered_map<labor_kitchen_interface_food_key,labor_kitchen_interface_food_value>
@@ -2556,7 +2534,7 @@ df.labor_kitchen_interface_type_filter = {}
 ---@field sort_flags number
 ---@field cursor_idx number
 
----@class _labor_kitchen_interfacest: DFCompound
+---@class _labor_kitchen_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_kitchen_interfacest = {}
 
@@ -2608,8 +2586,7 @@ function _labor_kitchen_interfacest_filter_func:insert(index, item) end
 ---@param index integer 
 function _labor_kitchen_interfacest_filter_func:erase(index) end
 
----@class (exact) labor_standing_orders_interfacest: DFObject, widget
----@field _kind 'struct'
+---@class (exact) labor_standing_orders_interfacest: DFStruct, widget
 ---@field _type _labor_standing_orders_interfacest
 ---@field current_category standing_orders_category_type
 ---@field unit _labor_standing_orders_interfacest_unit
@@ -2618,7 +2595,7 @@ function _labor_kitchen_interfacest_filter_func:erase(index) end
 ---@field scroll_position_units number
 ---@field scrolling_units boolean
 
----@class _labor_standing_orders_interfacest: DFCompound
+---@class _labor_standing_orders_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_standing_orders_interfacest = {}
 
@@ -2638,8 +2615,7 @@ function _labor_standing_orders_interfacest_unit:insert(index, item) end
 ---@param index integer 
 function _labor_standing_orders_interfacest_unit:erase(index) end
 
----@class (exact) labor_stone_use_interfacest: DFObject, widget
----@field _kind 'struct'
+---@class (exact) labor_stone_use_interfacest: DFStruct, widget
 ---@field _type _labor_stone_use_interfacest
 ---@field current_category stone_use_category_type
 ---@field stone_mg_index DFEnumVector<stone_use_category_type, number>
@@ -2648,19 +2624,18 @@ function _labor_standing_orders_interfacest_unit:erase(index) end
 ---@field scroll_position DFEnumVector<stone_use_category_type, number>
 ---@field scrolling DFEnumVector<stone_use_category_type, boolean>
 
----@class _labor_stone_use_interfacest: DFCompound
+---@class _labor_stone_use_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_stone_use_interfacest = {}
 
----@class (exact) labor_interfacest: DFObject, widget_container
----@field _kind 'struct'
+---@class (exact) labor_interfacest: DFStruct, widget_container
 ---@field _type _labor_interfacest
 ---@field work_details _labor_interfacest_work_details
 ---@field standing_orders _labor_interfacest_standing_orders
 ---@field kitchen _labor_interfacest_kitchen
 ---@field stone_use _labor_interfacest_stone_use
 
----@class _labor_interfacest: DFCompound
+---@class _labor_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_interfacest = {}
 
@@ -2742,8 +2717,7 @@ function _labor_interfacest_stone_use:erase(index) end
 ---@field [1] "ALREADY_INTERVIEWED"
 df.justice_screen_interrogation_list_flag = {}
 
----@class (exact) justice_interfacest: DFObject, widget_container
----@field _kind 'struct'
+---@class (exact) justice_interfacest: DFStruct, widget_container
 ---@field _type _justice_interfacest
 ---@field current_mode justice_interface_mode_type
 ---@field cage_chain_needed number
@@ -2791,7 +2765,7 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field guardvals DFNumberVector std::unordered_map<unitst *,int32_t>
 ---@field do_init boolean
 
----@class _justice_interfacest: DFCompound
+---@class _justice_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.justice_interfacest = {}
 
@@ -3019,8 +2993,7 @@ function _justice_interfacest_crimeflag:insert(index, item) end
 ---@param index integer 
 function _justice_interfacest_crimeflag:erase(index) end
 
----@class (exact) info_interfacest: DFObject, widget_tabs
----@field _kind 'struct'
+---@class (exact) info_interfacest: DFStruct, widget_tabs
 ---@field _type _info_interfacest
 ---@field open boolean
 ---@field current_mode info_interface_mode_type
@@ -3033,18 +3006,17 @@ function _justice_interfacest_crimeflag:erase(index) end
 ---@field artifacts info_interfacest.T_artifacts
 ---@field justice justice_interfacest
 
----@class _info_interfacest: DFCompound
+---@class _info_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.info_interfacest = {}
 
----@class (exact) info_interfacest.T_jobs: DFObject
----@field _kind 'struct'
+---@class (exact) info_interfacest.T_jobs: DFStruct
 ---@field _type _info_interfacest.T_jobs
 ---@field cri_job _info_interfacest_jobs_cri_job
 ---@field scrolling_cri_job boolean
 ---@field scroll_position_cri_job number
 
----@class _info_interfacest.T_jobs: DFCompound
+---@class _info_interfacest.T_jobs: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_jobs = {}
 
@@ -3064,15 +3036,14 @@ function _info_interfacest_jobs_cri_job:insert(index, item) end
 ---@param index integer 
 function _info_interfacest_jobs_cri_job:erase(index) end
 
----@class (exact) info_interfacest.T_buildings: DFObject
----@field _kind 'struct'
+---@class (exact) info_interfacest.T_buildings: DFStruct
 ---@field _type _info_interfacest.T_buildings
 ---@field mode buildings_mode_type
 ---@field list DFEnumVector<buildings_mode_type, building>
 ---@field scrolling_position DFEnumVector<buildings_mode_type, number>
 ---@field scrolling DFEnumVector<buildings_mode_type, boolean>
 
----@class _info_interfacest.T_buildings: DFCompound
+---@class _info_interfacest.T_buildings: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_buildings = {}
 
@@ -3092,8 +3063,7 @@ function _info_interfacest_buildings_list:insert(index, item) end
 ---@param index integer 
 function _info_interfacest_buildings_list:erase(index) end
 
----@class (exact) info_interfacest.T_work_orders: DFObject
----@field _kind 'struct'
+---@class (exact) info_interfacest.T_work_orders: DFStruct
 ---@field _type _info_interfacest.T_work_orders
 ---@field scroll_position_work_orders number
 ---@field scrolling_work_orders boolean
@@ -3105,12 +3075,11 @@ function _info_interfacest_buildings_list:erase(index) end
 ---@field b_number_str string
 ---@field b_entering_wq manager_order
 
----@class _info_interfacest.T_work_orders: DFCompound
+---@class _info_interfacest.T_work_orders: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_work_orders = {}
 
----@class (exact) info_interfacest.T_work_orders.T_conditions: DFObject
----@field _kind 'struct'
+---@class (exact) info_interfacest.T_work_orders.T_conditions: DFStruct
 ---@field _type _info_interfacest.T_work_orders.T_conditions
 ---@field open boolean
 ---@field wq manager_order
@@ -3143,7 +3112,7 @@ df.info_interfacest.T_work_orders = {}
 ---@field logic_number_str string
 ---@field entering_logic_wqc DFPointer<integer> workquota_item_conditionst
 
----@class _info_interfacest.T_work_orders.T_conditions: DFCompound
+---@class _info_interfacest.T_work_orders.T_conditions: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_work_orders.T_conditions = {}
 
@@ -3259,8 +3228,7 @@ function _info_interfacest_work_orders_conditions_condition_wq:insert(index, ite
 ---@param index integer 
 function _info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 
----@class (exact) info_interfacest.T_administrators: DFObject
----@field _kind 'struct'
+---@class (exact) info_interfacest.T_administrators: DFStruct
 ---@field _type _info_interfacest.T_administrators
 ---@field noblelist _info_interfacest_administrators_noblelist
 ---@field spec_prof _info_interfacest_administrators_spec_prof
@@ -3287,7 +3255,7 @@ function _info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@field scrolling_symbol boolean
 ---@field handling_symbol_closure_ind number
 
----@class _info_interfacest.T_administrators: DFCompound
+---@class _info_interfacest.T_administrators: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_administrators = {}
 
@@ -3355,15 +3323,14 @@ function _info_interfacest_administrators_cand_symbol:insert(index, item) end
 ---@param index integer 
 function _info_interfacest_administrators_cand_symbol:erase(index) end
 
----@class (exact) info_interfacest.T_artifacts: DFObject
----@field _kind 'struct'
+---@class (exact) info_interfacest.T_artifacts: DFStruct
 ---@field _type _info_interfacest.T_artifacts
 ---@field mode artifacts_mode_type
 ---@field list DFEnumVector<artifacts_mode_type, artifact_record>
 ---@field scroll_position DFEnumVector<artifacts_mode_type, number>
 ---@field scrolling DFEnumVector<artifacts_mode_type, boolean>
 
----@class _info_interfacest.T_artifacts: DFCompound
+---@class _info_interfacest.T_artifacts: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_artifacts = {}
 
@@ -3383,17 +3350,15 @@ function _info_interfacest_artifacts_list:insert(index, item) end
 ---@param index integer 
 function _info_interfacest_artifacts_list:erase(index) end
 
----@class (exact) announcements_interfacest: DFObject
----@field _kind 'struct'
+---@class (exact) announcements_interfacest: DFStruct
 ---@field _type _announcements_interfacest
 ---@field stack widget_stack
 
----@class _announcements_interfacest: DFCompound
+---@class _announcements_interfacest: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcements_interfacest = {}
 
----@class (exact) main_interface: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface: DFStruct
 ---@field _type _main_interface
 ---@field designation main_interface.T_designation
 ---@field building main_interface.T_building
@@ -3507,12 +3472,11 @@ df.announcements_interfacest = {}
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
 
----@class _main_interface: DFCompound
+---@class _main_interface: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface = {}
 
----@class (exact) main_interface.T_designation: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_designation: DFStruct
 ---@field _type _main_interface.T_designation
 ---@field marker_only boolean
 ---@field show_priorities boolean set to one if using +/-
@@ -3532,12 +3496,11 @@ df.main_interface = {}
 ---@field sliding_traffic_low boolean
 ---@field sliding_traffic_restricted boolean
 
----@class _main_interface.T_designation: DFCompound
+---@class _main_interface.T_designation: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_designation = {}
 
----@class (exact) main_interface.T_building: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_building: DFStruct
 ---@field _type _main_interface.T_building
 ---@field button _main_interface_building_button
 ---@field press_button _main_interface_building_press_button
@@ -3550,7 +3513,7 @@ df.main_interface.T_designation = {}
 ---@field current_custom_category_token string
 ---@field current_tool_tip DFStringVector
 
----@class _main_interface.T_building: DFCompound
+---@class _main_interface.T_building: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_building = {}
 
@@ -3602,8 +3565,7 @@ function _main_interface_building_filtered_button:insert(index, item) end
 ---@param index integer 
 function _main_interface_building_filtered_button:erase(index) end
 
----@class (exact) main_interface.T_construction: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_construction: DFStruct
 ---@field _type _main_interface.T_construction
 ---@field button _main_interface_construction_button
 ---@field press_button _main_interface_construction_press_button
@@ -3621,7 +3583,7 @@ function _main_interface_building_filtered_button:erase(index) end
 ---@field scrolling_item boolean
 ---@field scroll_position_item number
 
----@class _main_interface.T_construction: DFCompound
+---@class _main_interface.T_construction: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_construction = {}
 
@@ -3673,8 +3635,7 @@ function _main_interface_construction_page:insert(index, item) end
 ---@param index integer 
 function _main_interface_construction_page:erase(index) end
 
----@class (exact) main_interface.T_civzone: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_civzone: DFStruct
 ---@field _type _main_interface.T_civzone
 ---@field remove boolean
 ---@field flow_shape room_flow_shape_type
@@ -3691,7 +3652,7 @@ function _main_interface_construction_page:erase(index) end
 ---@field furniture_rejected_not_enclosed number
 ---@field repainting number
 
----@class _main_interface.T_civzone: DFCompound
+---@class _main_interface.T_civzone: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_civzone = {}
 
@@ -3727,8 +3688,7 @@ function _main_interface_civzone_zone_just_created:insert(index, item) end
 ---@param index integer 
 function _main_interface_civzone_zone_just_created:erase(index) end
 
----@class (exact) main_interface.T_burrow: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_burrow: DFStruct
 ---@field _type _main_interface.T_burrow
 ---@field painting_burrow burrow
 ---@field doing_rectangle boolean
@@ -3738,12 +3698,11 @@ function _main_interface_civzone_zone_just_created:erase(index) end
 ---@field entering_name boolean
 ---@field entering_name_index number
 
----@class _main_interface.T_burrow: DFCompound
+---@class _main_interface.T_burrow: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_burrow = {}
 
----@class (exact) main_interface.T_view: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_view: DFStruct
 ---@field _type _main_interface.T_view
 ---@field inv _main_interface_view_inv
 ---@field contam _main_interface_view_contam
@@ -3770,7 +3729,7 @@ df.main_interface.T_burrow = {}
 ---@field expel_selecting_destination number
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
 
----@class _main_interface.T_view: DFCompound
+---@class _main_interface.T_view: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_view = {}
 
@@ -3918,8 +3877,7 @@ function _main_interface_view_expel_outskirt_list:insert(index, item) end
 ---@param index integer 
 function _main_interface_view_expel_outskirt_list:erase(index) end
 
----@class (exact) main_interface.T_hospital: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_hospital: DFStruct
 ---@field _type _main_interface.T_hospital
 ---@field cur_scroll number
 ---@field bed_count number
@@ -3927,12 +3885,11 @@ function _main_interface_view_expel_outskirt_list:erase(index) end
 ---@field traction_bench_count number
 ---@field box_count number
 
----@class _main_interface.T_hospital: DFCompound
+---@class _main_interface.T_hospital: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_hospital = {}
 
----@class (exact) main_interface.T_location_list: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_location_list: DFStruct
 ---@field _type _main_interface.T_location_list
 ---@field valid_ab _main_interface_location_list_valid_ab
 ---@field selected_ab number
@@ -3945,7 +3902,7 @@ df.main_interface.T_hospital = {}
 ---@field valid_craft_guild_type _main_interface_location_list_valid_craft_guild_type
 ---@field selected_craft_guild number
 
----@class _main_interface.T_location_list: DFCompound
+---@class _main_interface.T_location_list: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_location_list = {}
 
@@ -4013,8 +3970,7 @@ function _main_interface_location_list_valid_craft_guild_type:insert(index, item
 ---@param index integer 
 function _main_interface_location_list_valid_craft_guild_type:erase(index) end
 
----@class (exact) main_interface.T_job_details: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_job_details: DFStruct
 ---@field _type _main_interface.T_job_details
 ---@field open boolean
 ---@field context job_details_context_type
@@ -4048,7 +4004,7 @@ function _main_interface_location_list_valid_craft_guild_type:erase(index) end
 ---@field scroll_position_improvement number
 ---@field scrolling_improvement boolean
 
----@class _main_interface.T_job_details: DFCompound
+---@class _main_interface.T_job_details: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_job_details = {}
 
@@ -4084,18 +4040,16 @@ function _main_interface_job_details_improvement_type:insert(index, item) end
 ---@param index integer 
 function _main_interface_job_details_improvement_type:erase(index) end
 
----@class (exact) main_interface.T_buildjob: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_buildjob: DFStruct
 ---@field _type _main_interface.T_buildjob
 ---@field display_furniture_bld building_display_furniturest
 ---@field display_furniture_selected_item number
 
----@class _main_interface.T_buildjob: DFCompound
+---@class _main_interface.T_buildjob: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_buildjob = {}
 
----@class (exact) main_interface.T_assign_trade: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_assign_trade: DFStruct
 ---@field _type _main_interface.T_assign_trade
 ---@field open boolean
 ---@field trade_depot_bld building_tradedepotst
@@ -4130,7 +4084,7 @@ df.main_interface.T_buildjob = {}
 ---@field pending_on_top boolean
 ---@field exclude_prohib boolean
 
----@class _main_interface.T_assign_trade: DFCompound
+---@class _main_interface.T_assign_trade: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_trade = {}
 
@@ -4214,8 +4168,7 @@ function _main_interface_assign_trade_current_type_a_on:insert(index, item) end
 ---@param index integer 
 function _main_interface_assign_trade_current_type_a_on:erase(index) end
 
----@class (exact) main_interface.T_trade: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_trade: DFStruct
 ---@field _type _main_interface.T_trade
 ---@field open boolean
 ---@field choosing_merchant boolean
@@ -4263,7 +4216,7 @@ function _main_interface_assign_trade_current_type_a_on:erase(index) end
 ---@field scroll_position_big_announce number
 ---@field scrolling_big_announce boolean
 
----@class _main_interface.T_trade: DFCompound
+---@class _main_interface.T_trade: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_trade = {}
 
@@ -4315,8 +4268,7 @@ function _main_interface_trade_counter_offer_item:insert(index, item) end
 ---@param index integer 
 function _main_interface_trade_counter_offer_item:erase(index) end
 
----@class (exact) main_interface.T_diplomacy: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_diplomacy: DFStruct
 ---@field _type _main_interface.T_diplomacy
 ---@field open boolean
 ---@field mm dipscript_popup
@@ -4350,12 +4302,11 @@ function _main_interface_trade_counter_offer_item:erase(index) end
 ---@field parley unit_parley
 ---@field environment script_environmentst
 
----@class _main_interface.T_diplomacy: DFCompound
+---@class _main_interface.T_diplomacy: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_diplomacy = {}
 
----@class (exact) main_interface.T_petitions: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_petitions: DFStruct
 ---@field _type _main_interface.T_petitions
 ---@field open boolean
 ---@field have_responsible_person boolean
@@ -4364,12 +4315,11 @@ df.main_interface.T_diplomacy = {}
 ---@field scroll_position number
 ---@field scrolling boolean
 
----@class _main_interface.T_petitions: DFCompound
+---@class _main_interface.T_petitions: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_petitions = {}
 
----@class (exact) main_interface.T_stocks: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_stocks: DFStruct
 ---@field _type _main_interface.T_stocks
 ---@field open boolean
 ---@field type_list DFNumberVector
@@ -4393,7 +4343,7 @@ df.main_interface.T_petitions = {}
 ---@field current_type_a_on _main_interface_stocks_current_type_a_on
 ---@field current_type_a_flag DFIntegerVector
 
----@class _main_interface.T_stocks: DFCompound
+---@class _main_interface.T_stocks: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_stocks = {}
 
@@ -4445,8 +4395,7 @@ function _main_interface_stocks_current_type_a_on:insert(index, item) end
 ---@param index integer 
 function _main_interface_stocks_current_type_a_on:erase(index) end
 
----@class (exact) main_interface.T_assign_display_item: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_assign_display_item: DFStruct
 ---@field _type _main_interface.T_assign_display_item
 ---@field open boolean
 ---@field display_bld building_display_furniturest
@@ -4471,7 +4420,7 @@ function _main_interface_stocks_current_type_a_on:erase(index) end
 ---@field current_type_a_expanded _main_interface_assign_display_item_current_type_a_expanded
 ---@field current_type_a_on _main_interface_assign_display_item_current_type_a_on
 
----@class _main_interface.T_assign_display_item: DFCompound
+---@class _main_interface.T_assign_display_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_display_item = {}
 
@@ -4523,8 +4472,7 @@ function _main_interface_assign_display_item_current_type_a_on:insert(index, ite
 ---@param index integer 
 function _main_interface_assign_display_item_current_type_a_on:erase(index) end
 
----@class (exact) main_interface.T_name_creator: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_name_creator: DFStruct
 ---@field _type _main_interface.T_name_creator
 ---@field open boolean
 ---@field context name_creator_context_type
@@ -4544,12 +4492,11 @@ function _main_interface_assign_display_item_current_type_a_on:erase(index) end
 ---@field adv_naming_pet_actev activity_event_conversationst
 ---@field named_unit unit
 
----@class _main_interface.T_name_creator: DFCompound
+---@class _main_interface.T_name_creator: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_name_creator = {}
 
----@class (exact) main_interface.T_image_creator: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_image_creator: DFStruct
 ---@field _type _main_interface.T_image_creator
 ---@field open boolean
 ---@field context image_creator_context_type
@@ -4605,7 +4552,7 @@ df.main_interface.T_name_creator = {}
 ---@field must_do_image_back_out_warn boolean
 ---@field ics main_interface.T_image_creator.T_ics
 
----@class _main_interface.T_image_creator: DFCompound
+---@class _main_interface.T_image_creator: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_image_creator = {}
 
@@ -4737,8 +4684,7 @@ function _main_interface_image_creator_new_image_property_transitive:insert(inde
 ---@param index integer 
 function _main_interface_image_creator_new_image_property_transitive:erase(index) end
 
----@class (exact) main_interface.T_image_creator.T_ics: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_image_creator.T_ics: DFStruct
 ---@field _type _main_interface.T_image_creator.T_ics
 ---@field jb job
 ---@field wq manager_order
@@ -4750,12 +4696,11 @@ function _main_interface_image_creator_new_image_property_transitive:erase(index
 ---@field exit_flag integer
 ---@field flag integer
 
----@class _main_interface.T_image_creator.T_ics: DFCompound
+---@class _main_interface.T_image_creator.T_ics: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_image_creator.T_ics = {}
 
----@class (exact) main_interface.T_announcement_alert: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_announcement_alert: DFStruct
 ---@field _type _main_interface.T_announcement_alert
 ---@field open boolean
 ---@field viewing_alert report
@@ -4779,7 +4724,7 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field scroll_position_uac number
 ---@field scrolling_uac boolean
 
----@class _main_interface.T_announcement_alert: DFCompound
+---@class _main_interface.T_announcement_alert: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_announcement_alert = {}
 
@@ -4863,8 +4808,7 @@ function _main_interface_announcement_alert_uac_zoom_line_ann:insert(index, item
 ---@param index integer 
 function _main_interface_announcement_alert_uac_zoom_line_ann:erase(index) end
 
----@class (exact) main_interface.T_custom_symbol: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_custom_symbol: DFStruct
 ---@field _type _main_interface.T_custom_symbol
 ---@field open boolean
 ---@field context custom_symbol_context_type
@@ -4878,12 +4822,11 @@ function _main_interface_announcement_alert_uac_zoom_line_ann:erase(index) end
 ---@field swatch_g integer[][]
 ---@field swatch_b integer[][]
 
----@class _main_interface.T_custom_symbol: DFCompound
+---@class _main_interface.T_custom_symbol: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_custom_symbol = {}
 
----@class (exact) main_interface.T_patrol_routes: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_patrol_routes: DFStruct
 ---@field _type _main_interface.T_patrol_routes
 ---@field open boolean
 ---@field context patrol_routes_context_type
@@ -4897,7 +4840,7 @@ df.main_interface.T_custom_symbol = {}
 ---@field add_is_edit_of_route_id number
 ---@field changed_points_on_edit boolean
 
----@class _main_interface.T_patrol_routes: DFCompound
+---@class _main_interface.T_patrol_routes: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_patrol_routes = {}
 
@@ -4917,8 +4860,7 @@ function _main_interface_patrol_routes_route_line:insert(index, item) end
 ---@param index integer 
 function _main_interface_patrol_routes_route_line:erase(index) end
 
----@class (exact) main_interface.T_squad_equipment: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_squad_equipment: DFStruct
 ---@field _type _main_interface.T_squad_equipment
 ---@field open boolean
 ---@field context squad_equipment_context_type
@@ -4964,7 +4906,7 @@ function _main_interface_patrol_routes_route_line:erase(index) end
 ---@field cs_adding_specific_item boolean
 ---@field cs_add_spec_id DFNumberVector
 
----@class _main_interface.T_squad_equipment: DFCompound
+---@class _main_interface.T_squad_equipment: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_equipment = {}
 
@@ -5000,8 +4942,7 @@ function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:insert(
 ---@param index integer 
 function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:erase(index) end
 
----@class (exact) main_interface.T_squad_schedule: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_squad_schedule: DFStruct
 ---@field _type _main_interface.T_squad_schedule
 ---@field open boolean
 ---@field context squad_schedule_context_type
@@ -5024,12 +4965,11 @@ function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:erase(i
 ---@field copying_squad_id number
 ---@field copying_squad_month number
 
----@class _main_interface.T_squad_schedule: DFCompound
+---@class _main_interface.T_squad_schedule: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_schedule = {}
 
----@class (exact) main_interface.T_squad_selector: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_squad_selector: DFStruct
 ---@field _type _main_interface.T_squad_selector
 ---@field open boolean
 ---@field context squad_selector_context_type
@@ -5038,12 +4978,11 @@ df.main_interface.T_squad_schedule = {}
 ---@field scroll_position number
 ---@field scrolling number
 
----@class _main_interface.T_squad_selector: DFCompound
+---@class _main_interface.T_squad_selector: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_selector = {}
 
----@class (exact) main_interface.T_burrow_selector: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_burrow_selector: DFStruct
 ---@field _type _main_interface.T_burrow_selector
 ---@field open boolean
 ---@field context burrow_selector_context_type
@@ -5052,7 +4991,7 @@ df.main_interface.T_squad_selector = {}
 ---@field scroll_position number
 ---@field scrolling number
 
----@class _main_interface.T_burrow_selector: DFCompound
+---@class _main_interface.T_burrow_selector: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_burrow_selector = {}
 
@@ -5072,8 +5011,7 @@ function _main_interface_burrow_selector_selected:insert(index, item) end
 ---@param index integer 
 function _main_interface_burrow_selector_selected:erase(index) end
 
----@class (exact) main_interface.T_location_selector: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_location_selector: DFStruct
 ---@field _type _main_interface.T_location_selector
 ---@field open boolean
 ---@field context location_selector_context_type
@@ -5091,7 +5029,7 @@ function _main_interface_burrow_selector_selected:erase(index) end
 ---@field scroll_position_guild number
 ---@field scrolling_guild boolean
 
----@class _main_interface.T_location_selector: DFCompound
+---@class _main_interface.T_location_selector: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_location_selector = {}
 
@@ -5127,8 +5065,7 @@ function _main_interface_location_selector_valid_craft_guild_type:insert(index, 
 ---@param index integer 
 function _main_interface_location_selector_valid_craft_guild_type:erase(index) end
 
----@class (exact) main_interface.T_location_details: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_location_details: DFStruct
 ---@field _type _main_interface.T_location_details
 ---@field open boolean
 ---@field context location_details_context_type
@@ -5145,7 +5082,7 @@ function _main_interface_location_selector_valid_craft_guild_type:erase(index) e
 ---@field desired_number_str string
 ---@field entering_desired_number number
 
----@class _main_interface.T_location_details: DFCompound
+---@class _main_interface.T_location_details: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_location_details = {}
 
@@ -5213,8 +5150,7 @@ function _main_interface_location_details_loc_epp:insert(index, item) end
 ---@param index integer 
 function _main_interface_location_details_loc_epp:erase(index) end
 
----@class (exact) main_interface.T_hauling_stop_conditions: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_hauling_stop_conditions: DFStruct
 ---@field _type _main_interface.T_hauling_stop_conditions
 ---@field open boolean
 ---@field context hauling_stop_conditions_context_type
@@ -5223,12 +5159,11 @@ function _main_interface_location_details_loc_epp:erase(index) end
 ---@field scroll_position number
 ---@field scrolling boolean
 
----@class _main_interface.T_hauling_stop_conditions: DFCompound
+---@class _main_interface.T_hauling_stop_conditions: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_hauling_stop_conditions = {}
 
----@class (exact) main_interface.T_assign_vehicle: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_assign_vehicle: DFStruct
 ---@field _type _main_interface.T_assign_vehicle
 ---@field open boolean
 ---@field context assign_vehicle_context_type
@@ -5237,7 +5172,7 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@field scroll_position number
 ---@field scrolling boolean
 
----@class _main_interface.T_assign_vehicle: DFCompound
+---@class _main_interface.T_assign_vehicle: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_vehicle = {}
 
@@ -5257,8 +5192,7 @@ function _main_interface_assign_vehicle_i_vehicle:insert(index, item) end
 ---@param index integer 
 function _main_interface_assign_vehicle_i_vehicle:erase(index) end
 
----@class (exact) main_interface.T_stockpile: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_stockpile: DFStruct
 ---@field _type _main_interface.T_stockpile
 ---@field doing_rectangle boolean
 ---@field box_on_left boolean
@@ -5266,12 +5200,11 @@ function _main_interface_assign_vehicle_i_vehicle:erase(index) end
 ---@field repainting boolean
 ---@field cur_bld building_stockpilest
 
----@class _main_interface.T_stockpile: DFCompound
+---@class _main_interface.T_stockpile: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_stockpile = {}
 
----@class (exact) main_interface.T_stockpile_link: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_stockpile_link: DFStruct
 ---@field _type _main_interface.T_stockpile_link
 ---@field open boolean
 ---@field context stockpile_link_context_type
@@ -5283,12 +5216,11 @@ df.main_interface.T_stockpile = {}
 ---@field adding_new_link boolean
 ---@field adding_new_link_type number
 
----@class _main_interface.T_stockpile_link: DFCompound
+---@class _main_interface.T_stockpile_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_stockpile_link = {}
 
----@class (exact) main_interface.T_stockpile_tools: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_stockpile_tools: DFStruct
 ---@field _type _main_interface.T_stockpile_tools
 ---@field open boolean
 ---@field context stockpile_tools_context_type
@@ -5298,12 +5230,11 @@ df.main_interface.T_stockpile_link = {}
 ---@field entering_wheelbarrows boolean
 ---@field number_str string
 
----@class _main_interface.T_stockpile_tools: DFCompound
+---@class _main_interface.T_stockpile_tools: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_stockpile_tools = {}
 
----@class (exact) main_interface.T_custom_stockpile: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_custom_stockpile: DFStruct
 ---@field _type _main_interface.T_custom_stockpile
 ---@field open boolean
 ---@field scroll_position_main number
@@ -5328,7 +5259,7 @@ df.main_interface.T_stockpile_tools = {}
 ---@field cur_spec_item_sz number
 ---@field counted_cur_spec_item_sz number
 
----@class _main_interface.T_custom_stockpile: DFCompound
+---@class _main_interface.T_custom_stockpile: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_custom_stockpile = {}
 
@@ -5396,8 +5327,7 @@ function _main_interface_custom_stockpile_spec_item:insert(index, item) end
 ---@param index integer 
 function _main_interface_custom_stockpile_spec_item:erase(index) end
 
----@class (exact) main_interface.T_view_sheets: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_view_sheets: DFStruct
 ---@field _type _main_interface.T_view_sheets
 ---@field open boolean
 ---@field context view_sheets_context_type
@@ -5568,7 +5498,7 @@ function _main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field item_use DFStringVector
 ---@field item_use_reaction_index DFNumberVector
 
----@class _main_interface.T_view_sheets: DFCompound
+---@class _main_interface.T_view_sheets: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_view_sheets = {}
 
@@ -5732,8 +5662,7 @@ function _main_interface_view_sheets_unit_knowledge_type:insert(index, item) end
 ---@param index integer 
 function _main_interface_view_sheets_unit_knowledge_type:erase(index) end
 
----@class (exact) main_interface.T_squads: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_squads: DFStruct
 ---@field _type _main_interface.T_squads
 ---@field open boolean
 ---@field scroll_position number
@@ -5761,7 +5690,7 @@ function _main_interface_view_sheets_unit_knowledge_type:erase(index) end
 ---@field cell_nickname_str string
 ---@field entering_cell_nickname boolean
 
----@class _main_interface.T_squads: DFCompound
+---@class _main_interface.T_squads: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_squads = {}
 
@@ -5781,8 +5710,7 @@ function _main_interface_squads_squad_selected:insert(index, item) end
 ---@param index integer 
 function _main_interface_squads_squad_selected:erase(index) end
 
----@class (exact) main_interface.T_create_squad: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_create_squad: DFStruct
 ---@field _type _main_interface.T_create_squad
 ---@field open boolean
 ---@field scroll_position number
@@ -5798,7 +5726,7 @@ function _main_interface_squads_squad_selected:erase(index) end
 ---@field new_squad_existing_epp_ep entity_position
 ---@field new_squad_new_epp_from_ep entity_position
 
----@class _main_interface.T_create_squad: DFCompound
+---@class _main_interface.T_create_squad: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_create_squad = {}
 
@@ -5882,18 +5810,16 @@ function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:insert(inde
 ---@param index integer 
 function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:erase(index) end
 
----@class (exact) main_interface.T_squad_supplies: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_squad_supplies: DFStruct
 ---@field _type _main_interface.T_squad_supplies
 ---@field open boolean
 ---@field squad_id number
 
----@class _main_interface.T_squad_supplies: DFCompound
+---@class _main_interface.T_squad_supplies: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_supplies = {}
 
----@class (exact) main_interface.T_assign_uniform: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_assign_uniform: DFStruct
 ---@field _type _main_interface.T_assign_uniform
 ---@field open boolean
 ---@field context assign_uniform_context_type
@@ -5901,7 +5827,7 @@ df.main_interface.T_squad_supplies = {}
 ---@field scrolling boolean
 ---@field cand_uniform _main_interface_assign_uniform_cand_uniform
 
----@class _main_interface.T_assign_uniform: DFCompound
+---@class _main_interface.T_assign_uniform: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_uniform = {}
 
@@ -5921,8 +5847,7 @@ function _main_interface_assign_uniform_cand_uniform:insert(index, item) end
 ---@param index integer 
 function _main_interface_assign_uniform_cand_uniform:erase(index) end
 
----@class (exact) main_interface.T_create_work_order: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_create_work_order: DFStruct
 ---@field _type _main_interface.T_create_work_order
 ---@field open boolean
 ---@field forced_bld_id number
@@ -5936,7 +5861,7 @@ function _main_interface_assign_uniform_cand_uniform:erase(index) end
 ---@field job_filter string
 ---@field entering_job_filter boolean
 
----@class _main_interface.T_create_work_order: DFCompound
+---@class _main_interface.T_create_work_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_create_work_order = {}
 
@@ -5972,8 +5897,7 @@ function _main_interface_create_work_order_building:insert(index, item) end
 ---@param index integer 
 function _main_interface_create_work_order_building:erase(index) end
 
----@class (exact) main_interface.T_hotkey: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_hotkey: DFStruct
 ---@field _type _main_interface.T_hotkey
 ---@field open boolean
 ---@field scroll_position number
@@ -5981,12 +5905,11 @@ function _main_interface_create_work_order_building:erase(index) end
 ---@field entering_index number
 ---@field entering_name boolean
 
----@class _main_interface.T_hotkey: DFCompound
+---@class _main_interface.T_hotkey: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_hotkey = {}
 
----@class (exact) main_interface.T_options: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_options: DFStruct
 ---@field _type _main_interface.T_options
 ---@field open boolean
 ---@field context options_context_type
@@ -6017,7 +5940,7 @@ df.main_interface.T_hotkey = {}
 ---@field filecomp file_compressorst
 ---@field saver main_interface.T_options.T_saver
 
----@class _main_interface.T_options: DFCompound
+---@class _main_interface.T_options: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_options = {}
 
@@ -6038,16 +5961,14 @@ function _main_interface_options_option:insert(index, item) end
 function _main_interface_options_option:erase(index) end
 
 -- saverst
----@class (exact) main_interface.T_options.T_saver: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_options.T_saver: DFStruct
 ---@field _type _main_interface.T_options.T_saver
 
----@class _main_interface.T_options.T_saver: DFCompound
+---@class _main_interface.T_options.T_saver: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_options.T_saver = {}
 
----@class (exact) main_interface.T_help: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_help: DFStruct
 ---@field _type _main_interface.T_help
 ---@field open boolean
 ---@field flag integer
@@ -6057,12 +5978,11 @@ df.main_interface.T_options.T_saver = {}
 ---@field text markup_text_boxst[] tutorials
 ---@field floor_dug number
 
----@class _main_interface.T_help: DFCompound
+---@class _main_interface.T_help: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_help = {}
 
----@class (exact) main_interface.T_arena_unit: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_arena_unit: DFStruct
 ---@field _type _main_interface.T_arena_unit
 ---@field open boolean
 ---@field context arena_context_type
@@ -6086,7 +6006,7 @@ df.main_interface.T_help = {}
 ---@field equipment_quantity DFNumberVector
 ---@field interactions _main_interface_arena_unit_interactions
 
----@class _main_interface.T_arena_unit: DFCompound
+---@class _main_interface.T_arena_unit: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_arena_unit = {}
 
@@ -6122,8 +6042,7 @@ function _main_interface_arena_unit_interactions:insert(index, item) end
 ---@param index integer 
 function _main_interface_arena_unit_interactions:erase(index) end
 
----@class (exact) main_interface.T_arena_tree: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface.T_arena_tree: DFStruct
 ---@field _type _main_interface.T_arena_tree
 ---@field open boolean
 ---@field age number in years
@@ -6134,7 +6053,7 @@ function _main_interface_arena_unit_interactions:erase(index) end
 ---@field tree_types_filtered _main_interface_arena_tree_tree_types_filtered
 ---@field tree_types_all _main_interface_arena_tree_tree_types_all
 
----@class _main_interface.T_arena_tree: DFCompound
+---@class _main_interface.T_arena_tree: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_arena_tree = {}
 
@@ -6218,8 +6137,7 @@ function _main_interface_pref_occupation:insert(index, item) end
 ---@param index integer 
 function _main_interface_pref_occupation:erase(index) end
 
----@class (exact) gamest: DFObject
----@field _kind 'struct'
+---@class (exact) gamest: DFStruct
 ---@field _type _gamest
 ---@field command_line gamest.T_command_line
 ---@field main_interface main_interface
@@ -6235,12 +6153,11 @@ function _main_interface_pref_occupation:erase(index) end
 ---@field flash_4_by_3 number[][][]
 ---@field external_flag number
 
----@class _gamest: DFCompound
+---@class _gamest: DFCompoundType
 ---@field _kind 'struct-type'
 df.gamest = {}
 
----@class (exact) gamest.T_command_line: DFObject
----@field _kind 'struct'
+---@class (exact) gamest.T_command_line: DFStruct
 ---@field _type _gamest.T_command_line
 ---@field original string
 ---@field arg_vect DFStringVector
@@ -6250,12 +6167,11 @@ df.gamest = {}
 ---@field world_param string
 ---@field use_param number
 
----@class _gamest.T_command_line: DFCompound
+---@class _gamest.T_command_line: DFCompoundType
 ---@field _kind 'struct-type'
 df.gamest.T_command_line = {}
 
----@class (exact) gamest.T_minimap: DFObject
----@field _kind 'struct'
+---@class (exact) gamest.T_minimap: DFStruct
 ---@field _type _gamest.T_minimap
 ---@field minimap number[][] Abstract representation of contents; updated by need_scan
 ---@field update number
@@ -6267,12 +6183,11 @@ df.gamest.T_command_line = {}
 ---@field buffer_br number[][]
 ---@field texpos number
 
----@class _gamest.T_minimap: DFCompound
+---@class _gamest.T_minimap: DFCompoundType
 ---@field _kind 'struct-type'
 df.gamest.T_minimap = {}
 
----@class (exact) gamest.T_mod_manager: DFObject
----@field _kind 'struct'
+---@class (exact) gamest.T_mod_manager: DFStruct
 ---@field _type _gamest.T_mod_manager
 ---@field mod_header _gamest_mod_manager_mod_header
 ---@field subscribed_file_id DFPointer<integer> Begin Steam-only stuff<br>These fields exist in other versions but aren't actually used
@@ -6283,7 +6198,7 @@ df.gamest.T_minimap = {}
 ---@field CreateItemResult DFPointer<integer>
 ---@field SubmitItemUpdateResult DFPointer<integer>
 
----@class _gamest.T_mod_manager: DFCompound
+---@class _gamest.T_mod_manager: DFCompoundType
 ---@field _kind 'struct-type'
 df.gamest.T_mod_manager = {}
 
@@ -6319,8 +6234,7 @@ function _gamest_mod_manager_mod_upload_header:insert(index, item) end
 ---@param index integer 
 function _gamest_mod_manager_mod_upload_header:erase(index) end
 
----@class (exact) main_interface_settings: DFObject
----@field _kind 'struct'
+---@class (exact) main_interface_settings: DFStruct
 ---@field _type _main_interface_settings
 ---@field open boolean needs to be a separate type so that widget_tabs can forward-declare this type as a friend
 ---@field context settings_context_type
@@ -6355,7 +6269,7 @@ function _gamest_mod_manager_mod_upload_header:erase(index) end
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
 
----@class _main_interface_settings: DFCompound
+---@class _main_interface_settings: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface_settings = {}
 
@@ -6407,17 +6321,15 @@ function _main_interface_settings_keybinding_key_interface_key:insert(index, ite
 ---@param index integer 
 function _main_interface_settings_keybinding_key_interface_key:erase(index) end
 
----@class (exact) hash_rngst: DFObject
----@field _kind 'struct'
+---@class (exact) hash_rngst: DFStruct
 ---@field _type _hash_rngst
 ---@field splitmix64_state number
 
----@class _hash_rngst: DFCompound
+---@class _hash_rngst: DFCompoundType
 ---@field _kind 'struct-type'
 df.hash_rngst = {}
 
----@class (exact) difficultyst: DFObject
----@field _kind 'struct'
+---@class (exact) difficultyst: DFStruct
 ---@field _type _difficultyst
 ---@field difficulty_enemies number 0=off, 1=normal, 2=hard, 3=custom
 ---@field difficulty_economy number 0=normal, 1=hard, 2=custom
@@ -6460,7 +6372,7 @@ df.hash_rngst = {}
 ---@field mandate_period number
 ---@field demand_period number
 
----@class _difficultyst: DFCompound
+---@class _difficultyst: DFCompoundType
 ---@field _kind 'struct-type'
 df.difficultyst = {}
 
@@ -6486,8 +6398,7 @@ df.difficultyst = {}
 ---@field [3] "curiousbeasts"
 df.difficultyst.T_flags = {}
 
----@class (exact) markup_text_wordst: DFObject
----@field _kind 'struct'
+---@class (exact) markup_text_wordst: DFStruct
 ---@field _type _markup_text_wordst
 ---@field str string read and write serialization is in order as below
 ---@field red integer
@@ -6498,7 +6409,7 @@ df.difficultyst.T_flags = {}
 ---@field py number offset from top of text box (positive is downwards)
 ---@field flags markup_text_wordst.T_flags
 
----@class _markup_text_wordst: DFCompound
+---@class _markup_text_wordst: DFCompoundType
 ---@field _kind 'struct-type'
 df.markup_text_wordst = {}
 
@@ -6555,7 +6466,7 @@ df.markup_text_wordst.T_flags = {}
 ---| markup_text_link_type_values
 
 -- bay12: MarkupTextLink
----@class _markup_text_link_type: DFEnum
+---@class _markup_text_link_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field HIST_FIG 0
@@ -6584,31 +6495,28 @@ df.markup_text_wordst.T_flags = {}
 ---@field [11] "HEC"
 df.markup_text_link_type = {}
 
----@class (exact) markup_text_linkst: DFObject
----@field _kind 'struct'
+---@class (exact) markup_text_linkst: DFStruct
 ---@field _type _markup_text_linkst
 ---@field type markup_text_link_type read and write serialization is in order as below
 ---@field id number
 ---@field subid number only used for type ABSTRACT_BUILDING and ART_IMAGE
 
----@class _markup_text_linkst: DFCompound
+---@class _markup_text_linkst: DFCompoundType
 ---@field _kind 'struct-type'
 df.markup_text_linkst = {}
 
----@class (exact) script_environmentst: DFObject
----@field _kind 'struct'
+---@class (exact) script_environmentst: DFStruct
 ---@field _type _script_environmentst
 ---@field dipev meeting_diplomat_info note: these are all void* in bay12 code
 ---@field mm dipscript_popup
 ---@field activeplot DFPointer<integer>
 ---@field conv DFPointer<integer>
 
----@class _script_environmentst: DFCompound
+---@class _script_environmentst: DFCompoundType
 ---@field _kind 'struct-type'
 df.script_environmentst = {}
 
----@class (exact) markup_text_boxst: DFObject
----@field _kind 'struct'
+---@class (exact) markup_text_boxst: DFStruct
 ---@field _type _markup_text_boxst
 ---@field word _markup_text_boxst_word
 ---@field link _markup_text_boxst_link
@@ -6616,7 +6524,7 @@ df.script_environmentst = {}
 ---@field max_y number
 ---@field environment script_environmentst not saved
 
----@class _markup_text_boxst: DFCompound
+---@class _markup_text_boxst: DFCompoundType
 ---@field _kind 'struct-type'
 df.markup_text_boxst = {}
 
@@ -6652,8 +6560,7 @@ function _markup_text_boxst_link:insert(index, item) end
 ---@param index integer 
 function _markup_text_boxst_link:erase(index) end
 
----@class (exact) wqc_item_traitst: DFObject
----@field _kind 'struct'
+---@class (exact) wqc_item_traitst: DFStruct
 ---@field _type _wqc_item_traitst
 ---@field flg integer
 ---@field flgn number
@@ -6666,12 +6573,11 @@ function _markup_text_boxst_link:erase(index) end
 ---@field display_string string
 ---@field on boolean
 
----@class _wqc_item_traitst: DFCompound
+---@class _wqc_item_traitst: DFCompoundType
 ---@field _kind 'struct-type'
 df.wqc_item_traitst = {}
 
----@class (exact) cwo_buildingst: DFObject
----@field _kind 'struct'
+---@class (exact) cwo_buildingst: DFStruct
 ---@field _type _cwo_buildingst
 ---@field type number
 ---@field subtype number
@@ -6679,7 +6585,7 @@ df.wqc_item_traitst = {}
 ---@field jminfo _cwo_buildingst_jminfo
 ---@field name string
 
----@class _cwo_buildingst: DFCompound
+---@class _cwo_buildingst: DFCompoundType
 ---@field _kind 'struct-type'
 df.cwo_buildingst = {}
 
@@ -6699,8 +6605,7 @@ function _cwo_buildingst_jminfo:insert(index, item) end
 ---@param index integer 
 function _cwo_buildingst_jminfo:erase(index) end
 
----@class (exact) cri_unitst: DFObject
----@field _kind 'struct'
+---@class (exact) cri_unitst: DFStruct
 ---@field _type _cri_unitst
 ---@field un unit
 ---@field it item
@@ -6713,12 +6618,11 @@ function _cwo_buildingst_jminfo:erase(index) end
 ---@field job_sort_name string
 ---@field owner_un unit
 
----@class _cri_unitst: DFCompound
+---@class _cri_unitst: DFCompoundType
 ---@field _kind 'struct-type'
 df.cri_unitst = {}
 
----@class (exact) actor_entryst: DFObject
----@field _kind 'struct'
+---@class (exact) actor_entryst: DFStruct
 ---@field _type _actor_entryst
 ---@field hf historical_figure
 ---@field iden DFPointer<integer> identityst
@@ -6736,7 +6640,7 @@ df.cri_unitst = {}
 ---@field associated_plot _actor_entryst_associated_plot
 ---@field flag integer
 
----@class _actor_entryst: DFCompound
+---@class _actor_entryst: DFCompoundType
 ---@field _kind 'struct-type'
 df.actor_entryst = {}
 
@@ -6772,8 +6676,7 @@ function _actor_entryst_associated_plot:insert(index, item) end
 ---@param index integer 
 function _actor_entryst_associated_plot:erase(index) end
 
----@class (exact) organization_entry_nodest: DFObject
----@field _kind 'struct'
+---@class (exact) organization_entry_nodest: DFStruct
 ---@field _type _organization_entry_nodest
 ---@field actor_entry actor_entryst
 ---@field master organization_entry_nodest
@@ -6788,12 +6691,11 @@ function _actor_entryst_associated_plot:erase(index) end
 ---@field name string
 ---@field status string
 
----@class _organization_entry_nodest: DFCompound
+---@class _organization_entry_nodest: DFCompoundType
 ---@field _kind 'struct-type'
 df.organization_entry_nodest = {}
 
----@class (exact) organization_entryst: DFObject
----@field _kind 'struct'
+---@class (exact) organization_entryst: DFStruct
 ---@field _type _organization_entryst
 ---@field node _organization_entryst_node
 ---@field list_name string
@@ -6803,7 +6705,7 @@ df.organization_entry_nodest = {}
 ---@field principle_actor_entry actor_entryst
 ---@field flag integer
 
----@class _organization_entryst: DFCompound
+---@class _organization_entryst: DFCompoundType
 ---@field _kind 'struct-type'
 df.organization_entryst = {}
 
@@ -6823,8 +6725,7 @@ function _organization_entryst_node:insert(index, item) end
 ---@param index integer 
 function _organization_entryst_node:erase(index) end
 
----@class (exact) plot_entryst: DFObject
----@field _kind 'struct'
+---@class (exact) plot_entryst: DFStruct
 ---@field _type _plot_entryst
 ---@field list_name string
 ---@field simple_list_name string
@@ -6833,12 +6734,11 @@ function _organization_entryst_node:erase(index) end
 ---@field master_hfid number
 ---@field organization_name string
 
----@class _plot_entryst: DFCompound
+---@class _plot_entryst: DFCompoundType
 ---@field _kind 'struct-type'
 df.plot_entryst = {}
 
----@class (exact) mod_headerst: DFObject
----@field _kind 'struct'
+---@class (exact) mod_headerst: DFStruct
 ---@field _type _mod_headerst
 ---@field zip_filename string
 ---@field unzipped_folder string
@@ -6867,7 +6767,7 @@ df.plot_entryst = {}
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 
----@class _mod_headerst: DFCompound
+---@class _mod_headerst: DFCompoundType
 ---@field _kind 'struct-type'
 df.mod_headerst = {}
 
@@ -6889,12 +6789,11 @@ df.mod_headerst = {}
 ---@field [2] "vanilla"
 df.mod_headerst.T_flags = {}
 
----@class (exact) ui_look_list: DFObject
----@field _kind 'struct'
+---@class (exact) ui_look_list: DFStruct
 ---@field _type _ui_look_list
 ---@field items _ui_look_list_items
 
----@class _ui_look_list: DFCompound
+---@class _ui_look_list: DFCompoundType
 ---@field _kind 'struct-type'
 df.ui_look_list = {}
 
@@ -6914,12 +6813,11 @@ function _ui_look_list_items:insert(index, item) end
 ---@param index integer 
 function _ui_look_list_items:erase(index) end
 
----@class (exact) ui_unit_view_mode: DFObject
----@field _kind 'struct'
+---@class (exact) ui_unit_view_mode: DFStruct
 ---@field _type _ui_unit_view_mode
 ---@field value ui_unit_view_mode.T_value
 
----@class _ui_unit_view_mode: DFCompound
+---@class _ui_unit_view_mode: DFCompoundType
 ---@field _kind 'struct-type'
 df.ui_unit_view_mode = {}
 
@@ -6945,7 +6843,7 @@ df.ui_unit_view_mode = {}
 ---| ui_unit_view_mode.T_value_keys
 ---| ui_unit_view_mode.T_value_values
 
----@class _ui_unit_view_mode.T_value: DFEnum
+---@class _ui_unit_view_mode.T_value: DFEnumType
 ---@field General 0
 ---@field [0] "General"
 ---@field Inventory 1
@@ -7969,7 +7867,7 @@ df.ui_unit_view_mode.T_value = {}
 ---| main_hover_instruction_values
 
 -- generated by devel/dump-tooltip-ids
----@class _main_hover_instruction: DFEnum
+---@class _main_hover_instruction: DFEnumType
 ---@field StockpileRemove 118
 ---@field [118] "StockpileRemove"
 ---@field ZoneRemove 130 130
@@ -8032,7 +7930,7 @@ df.ui_unit_view_mode.T_value = {}
 ---@field [497] "ArenaWeatherTemperatureTime"
 df.main_hover_instruction = {}
 
----@class main_hover_instruction_attr_entry_type: DFCompound
+---@class main_hover_instruction_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_hover_instruction._attr_entry_type = {}
 

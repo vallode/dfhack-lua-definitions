@@ -195,7 +195,7 @@
 ---| item_type_keys
 ---| item_type_values
 
----@class _item_type: DFEnum
+---@class _item_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BAR 0 Bars, such as metal, fuel, or soap.
@@ -384,7 +384,7 @@
 ---@field [91] "BRANCH" Tree branches
 df.item_type = {}
 
----@class item_type_attr_entry_type: DFCompound
+---@class item_type_attr_entry_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_type._attr_entry_type = {}
 
@@ -491,8 +491,7 @@ df.item_type._attr_entry_type._fields = {}
 ---@field BRANCH { caption: "branch", classname: "item_branchst" }
 df.item_type.attrs = {}
 
----@class (exact) weapon_attack: DFObject
----@field _kind 'struct'
+---@class (exact) weapon_attack: DFStruct
 ---@field _type _weapon_attack
 ---@field edged boolean
 ---@field contact number
@@ -505,7 +504,7 @@ df.item_type.attrs = {}
 ---@field recover number
 ---@field flags weapon_attack.T_flags
 
----@class _weapon_attack: DFCompound
+---@class _weapon_attack: DFCompoundType
 ---@field _kind 'struct-type'
 df.weapon_attack = {}
 
@@ -533,13 +532,12 @@ df.weapon_attack.T_flags = {}
 ---| itemdef_flags_keys
 ---| itemdef_flags_values
 
----@class _itemdef_flags: DFEnum
+---@class _itemdef_flags: DFEnumType
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 df.itemdef_flags = {}
 
----@class (exact) itemdef: DFObject
----@field _kind 'struct'
+---@class (exact) itemdef: DFStruct
 ---@field _type _itemdef
 ---@field id string
 ---@field subtype number
@@ -548,7 +546,7 @@ df.itemdef_flags = {}
 ---@field source_enid number References: `historical_entity`
 ---@field raw_strings DFStringVector
 
----@class _itemdef: DFCompound
+---@class _itemdef: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef = {}
 
@@ -578,13 +576,12 @@ function _itemdef_base_flags:erase(index) end
 ---| ammo_flags_keys
 ---| ammo_flags_values
 
----@class _ammo_flags: DFEnum
+---@class _ammo_flags: DFEnumType
 ---@field HAS_EDGE_ATTACK 0
 ---@field [0] "HAS_EDGE_ATTACK"
 df.ammo_flags = {}
 
----@class (exact) itemdef_ammost: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_ammost: DFStruct, itemdef
 ---@field _type _itemdef_ammost
 ---@field name string
 ---@field name_plural string
@@ -595,7 +592,7 @@ df.ammo_flags = {}
 ---@field value number
 ---@field attacks _itemdef_ammost_attacks
 
----@class _itemdef_ammost: DFCompound
+---@class _itemdef_ammost: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_ammost = {}
 
@@ -670,7 +667,7 @@ function _itemdef_ammost_attacks:erase(index) end
 ---| armor_general_flags_keys
 ---| armor_general_flags_values
 
----@class _armor_general_flags: DFEnum
+---@class _armor_general_flags: DFEnumType
 ---@field SOFT 0
 ---@field [0] "SOFT"
 ---@field HARD 1
@@ -695,8 +692,7 @@ function _itemdef_ammost_attacks:erase(index) end
 ---@field [10] "STRUCTURAL_ELASTICITY_CHAIN_ALL"
 df.armor_general_flags = {}
 
----@class (exact) armor_properties: DFObject
----@field _kind 'struct'
+---@class (exact) armor_properties: DFStruct
 ---@field _type _armor_properties
 ---@field flags _armor_properties_flags
 ---@field layer number
@@ -704,7 +700,7 @@ df.armor_general_flags = {}
 ---@field layer_permit number
 ---@field coverage number
 
----@class _armor_properties: DFCompound
+---@class _armor_properties: DFCompoundType
 ---@field _kind 'struct-type'
 df.armor_properties = {}
 
@@ -734,13 +730,12 @@ function _armor_properties_flags:erase(index) end
 ---| armor_flags_keys
 ---| armor_flags_values
 
----@class _armor_flags: DFEnum
+---@class _armor_flags: DFEnumType
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.armor_flags = {}
 
----@class (exact) itemdef_armorst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_armorst: DFStruct, itemdef
 ---@field _type _itemdef_armorst
 ---@field name string
 ---@field name_plural string
@@ -755,7 +750,7 @@ df.armor_flags = {}
 ---@field props armor_properties
 ---@field flags _itemdef_armorst_flags
 
----@class _itemdef_armorst: DFCompound
+---@class _itemdef_armorst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_armorst = {}
 
@@ -784,13 +779,12 @@ function _itemdef_armorst_flags:insert(index, item) end
 ---@param index integer 
 function _itemdef_armorst_flags:erase(index) end
 
----@class (exact) itemdef_foodst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_foodst: DFStruct, itemdef
 ---@field _type _itemdef_foodst
 ---@field name string
 ---@field level number
 
----@class _itemdef_foodst: DFCompound
+---@class _itemdef_foodst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_foodst = {}
 
@@ -813,13 +807,12 @@ function df.itemdef_foodst.get_vector() end
 ---| gloves_flags_keys
 ---| gloves_flags_values
 
----@class _gloves_flags: DFEnum
+---@class _gloves_flags: DFEnumType
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.gloves_flags = {}
 
----@class (exact) itemdef_glovesst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_glovesst: DFStruct, itemdef
 ---@field _type _itemdef_glovesst
 ---@field name string
 ---@field name_plural string
@@ -831,7 +824,7 @@ df.gloves_flags = {}
 ---@field material_size number
 ---@field props armor_properties
 
----@class _itemdef_glovesst: DFCompound
+---@class _itemdef_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_glovesst = {}
 
@@ -870,13 +863,12 @@ function _itemdef_glovesst_flags:erase(index) end
 ---| helm_flags_keys
 ---| helm_flags_values
 
----@class _helm_flags: DFEnum
+---@class _helm_flags: DFEnumType
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.helm_flags = {}
 
----@class (exact) itemdef_helmst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_helmst: DFStruct, itemdef
 ---@field _type _itemdef_helmst
 ---@field name string
 ---@field name_plural string
@@ -887,7 +879,7 @@ df.helm_flags = {}
 ---@field material_size number
 ---@field props armor_properties
 
----@class _itemdef_helmst: DFCompound
+---@class _itemdef_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_helmst = {}
 
@@ -942,7 +934,7 @@ function _itemdef_helmst_flags:erase(index) end
 ---| instrument_flags_keys
 ---| instrument_flags_values
 
----@class _instrument_flags: DFEnum
+---@class _instrument_flags: DFEnumType
 ---@field INDEFINITE_PITCH 0
 ---@field [0] "INDEFINITE_PITCH"
 ---@field PLACED_AS_BUILDING 1
@@ -963,8 +955,7 @@ function _itemdef_helmst_flags:erase(index) end
 ---@field [8] "BONE_MAT"
 df.instrument_flags = {}
 
----@class (exact) itemdef_instrumentst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_instrumentst: DFStruct, itemdef
 ---@field _type _itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
@@ -996,7 +987,7 @@ df.instrument_flags = {}
 ---@field timbre _itemdef_instrumentst_timbre
 ---@field description string
 
----@class _itemdef_instrumentst: DFCompound
+---@class _itemdef_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_instrumentst = {}
 
@@ -1171,7 +1162,7 @@ function _itemdef_instrumentst_timbre:erase(index) end
 ---| sound_production_type_keys
 ---| sound_production_type_values
 
----@class _sound_production_type: DFEnum
+---@class _sound_production_type: DFEnumType
 ---@field PLUCKED_BY_BP 0
 ---@field [0] "PLUCKED_BY_BP"
 ---@field PLUCKED 1
@@ -1248,7 +1239,7 @@ df.sound_production_type = {}
 ---| pitch_choice_type_keys
 ---| pitch_choice_type_values
 
----@class _pitch_choice_type: DFEnum
+---@class _pitch_choice_type: DFEnumType
 ---@field MEMBRANE_POSITION 0
 ---@field [0] "MEMBRANE_POSITION"
 ---@field SUBPART_CHOICE 1
@@ -1293,7 +1284,7 @@ df.pitch_choice_type = {}
 ---| tuning_type_keys
 ---| tuning_type_values
 
----@class _tuning_type: DFEnum
+---@class _tuning_type: DFEnumType
 ---@field PEGS 0
 ---@field [0] "PEGS"
 ---@field ADJUSTABLE_BRIDGES 1
@@ -1440,7 +1431,7 @@ df.tuning_type = {}
 ---| timbre_type_keys
 ---| timbre_type_values
 
----@class _timbre_type: DFEnum
+---@class _timbre_type: DFEnumType
 ---@field CLEAR 0
 ---@field [0] "CLEAR"
 ---@field NOISY 1
@@ -1569,8 +1560,7 @@ df.tuning_type = {}
 ---@field [62] "SPARKLING"
 df.timbre_type = {}
 
----@class (exact) instrument_piece: DFObject
----@field _kind 'struct'
+---@class (exact) instrument_piece: DFStruct
 ---@field _type _instrument_piece
 ---@field type string
 ---@field id string
@@ -1579,7 +1569,7 @@ df.timbre_type = {}
 ---@field name_plural string
 ---@field flags instrument_piece.T_flags
 
----@class _instrument_piece: DFCompound
+---@class _instrument_piece: DFCompoundType
 ---@field _kind 'struct-type'
 df.instrument_piece = {}
 
@@ -1597,14 +1587,13 @@ df.instrument_piece = {}
 ---@field [1] "always_plural"
 df.instrument_piece.T_flags = {}
 
----@class (exact) instrument_register: DFObject
----@field _kind 'struct'
+---@class (exact) instrument_register: DFStruct
 ---@field _type _instrument_register
 ---@field pitch_range_min number
 ---@field pitch_range_max number
 ---@field timbres _instrument_register_timbres
 
----@class _instrument_register: DFCompound
+---@class _instrument_register: DFCompoundType
 ---@field _kind 'struct-type'
 df.instrument_register = {}
 
@@ -1634,13 +1623,12 @@ function _instrument_register_timbres:erase(index) end
 ---| pants_flags_keys
 ---| pants_flags_values
 
----@class _pants_flags: DFEnum
+---@class _pants_flags: DFEnumType
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.pants_flags = {}
 
----@class (exact) itemdef_pantsst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_pantsst: DFStruct, itemdef
 ---@field _type _itemdef_pantsst
 ---@field name string
 ---@field name_plural string
@@ -1654,7 +1642,7 @@ df.pants_flags = {}
 ---@field lbstep number
 ---@field props armor_properties
 
----@class _itemdef_pantsst: DFCompound
+---@class _itemdef_pantsst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_pantsst = {}
 
@@ -1683,8 +1671,7 @@ function _itemdef_pantsst_flags:insert(index, item) end
 ---@param index integer 
 function _itemdef_pantsst_flags:erase(index) end
 
----@class (exact) itemdef_shieldst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_shieldst: DFStruct, itemdef
 ---@field _type _itemdef_shieldst
 ---@field name string
 ---@field name_plural string
@@ -1695,7 +1682,7 @@ function _itemdef_pantsst_flags:erase(index) end
 ---@field upstep number
 ---@field material_size number
 
----@class _itemdef_shieldst: DFCompound
+---@class _itemdef_shieldst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_shieldst = {}
 
@@ -1718,13 +1705,12 @@ function df.itemdef_shieldst.get_vector() end
 ---| shoes_flags_keys
 ---| shoes_flags_values
 
----@class _shoes_flags: DFEnum
+---@class _shoes_flags: DFEnumType
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.shoes_flags = {}
 
----@class (exact) itemdef_shoesst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_shoesst: DFStruct, itemdef
 ---@field _type _itemdef_shoesst
 ---@field name string
 ---@field name_plural string
@@ -1736,7 +1722,7 @@ df.shoes_flags = {}
 ---@field material_size number
 ---@field props armor_properties
 
----@class _itemdef_shoesst: DFCompound
+---@class _itemdef_shoesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_shoesst = {}
 
@@ -1765,14 +1751,13 @@ function _itemdef_shoesst_flags:insert(index, item) end
 ---@param index integer 
 function _itemdef_shoesst_flags:erase(index) end
 
----@class (exact) itemdef_siegeammost: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_siegeammost: DFStruct, itemdef
 ---@field _type _itemdef_siegeammost
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
 
----@class _itemdef_siegeammost: DFCompound
+---@class _itemdef_siegeammost: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_siegeammost = {}
 
@@ -1833,7 +1818,7 @@ function df.itemdef_siegeammost.get_vector() end
 ---| tool_flags_keys
 ---| tool_flags_values
 
----@class _tool_flags: DFEnum
+---@class _tool_flags: DFEnumType
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 ---@field METAL_MAT 1
@@ -1938,7 +1923,7 @@ df.tool_flags = {}
 ---| tool_uses_keys
 ---| tool_uses_values
 
----@class _tool_uses: DFEnum
+---@class _tool_uses: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LIQUID_COOKING 0
@@ -1995,8 +1980,7 @@ df.tool_flags = {}
 ---@field [25] "GAMES_OF_CHANCE"
 df.tool_uses = {}
 
----@class (exact) itemdef_toolst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_toolst: DFStruct, itemdef
 ---@field _type _itemdef_toolst
 ---@field name string
 ---@field name_plural string
@@ -2021,7 +2005,7 @@ df.tool_uses = {}
 ---@field description string
 ---@field default_improvements _itemdef_toolst_default_improvements
 
----@class _itemdef_toolst: DFCompound
+---@class _itemdef_toolst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_toolst = {}
 
@@ -2108,19 +2092,18 @@ function _itemdef_toolst_default_improvements:erase(index) end
 ---| toy_flags_keys
 ---| toy_flags_values
 
----@class _toy_flags: DFEnum
+---@class _toy_flags: DFEnumType
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 df.toy_flags = {}
 
----@class (exact) itemdef_toyst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_toyst: DFStruct, itemdef
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
 ---@field flags _itemdef_toyst_flags
 
----@class _itemdef_toyst: DFCompound
+---@class _itemdef_toyst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_toyst = {}
 
@@ -2167,7 +2150,7 @@ function _itemdef_toyst_flags:erase(index) end
 ---| trapcomp_flags_keys
 ---| trapcomp_flags_values
 
----@class _trapcomp_flags: DFEnum
+---@class _trapcomp_flags: DFEnumType
 ---@field IS_SCREW 0
 ---@field [0] "IS_SCREW"
 ---@field IS_SPIKE 1
@@ -2180,8 +2163,7 @@ function _itemdef_toyst_flags:erase(index) end
 ---@field [4] "HAS_EDGE_ATTACK"
 df.trapcomp_flags = {}
 
----@class (exact) itemdef_trapcompst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_trapcompst: DFStruct, itemdef
 ---@field _type _itemdef_trapcompst
 ---@field name string
 ---@field name_plural string
@@ -2193,7 +2175,7 @@ df.trapcomp_flags = {}
 ---@field flags _itemdef_trapcompst_flags
 ---@field attacks _itemdef_trapcompst_attacks
 
----@class _itemdef_trapcompst: DFCompound
+---@class _itemdef_trapcompst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_trapcompst = {}
 
@@ -2252,7 +2234,7 @@ function _itemdef_trapcompst_attacks:erase(index) end
 ---| weapon_flags_keys
 ---| weapon_flags_values
 
----@class _weapon_flags: DFEnum
+---@class _weapon_flags: DFEnumType
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
 ---@field HAS_EDGE_ATTACK 1
@@ -2261,8 +2243,7 @@ function _itemdef_trapcompst_attacks:erase(index) end
 ---@field [2] "TRAINING"
 df.weapon_flags = {}
 
----@class (exact) itemdef_weaponst: DFObject, itemdef
----@field _kind 'struct'
+---@class (exact) itemdef_weaponst: DFStruct, itemdef
 ---@field _type _itemdef_weaponst
 ---@field name string
 ---@field name_plural string
@@ -2280,7 +2261,7 @@ df.weapon_flags = {}
 ---@field shoot_force number
 ---@field shoot_maxvel number
 
----@class _itemdef_weaponst: DFCompound
+---@class _itemdef_weaponst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_weaponst = {}
 

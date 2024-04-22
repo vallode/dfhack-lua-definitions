@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) scribejob: DFObject
----@field _kind 'struct'
+---@class (exact) scribejob: DFStruct
 ---@field _type _scribejob
 ---@field idmaybe number
 ---@field unk_1 number not locationid
@@ -12,12 +11,11 @@
 ---@field activity_entry_id number
 ---@field unk_2 number
 
----@class _scribejob: DFCompound
+---@class _scribejob: DFCompoundType
 ---@field _kind 'struct-type'
 df.scribejob = {}
 
----@class (exact) site_reputation_report: DFObject
----@field _kind 'struct'
+---@class (exact) site_reputation_report: DFStruct
 ---@field _type _site_reputation_report
 ---@field site_id number
 ---@field location_id number
@@ -27,16 +25,15 @@ df.scribejob = {}
 ---@field tickmaybe number
 ---@field unk_3 number[]
 
----@class _site_reputation_report: DFCompound
+---@class _site_reputation_report: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_reputation_report = {}
 
----@class (exact) site_reputation_info: DFObject
----@field _kind 'struct'
+---@class (exact) site_reputation_info: DFStruct
 ---@field _type _site_reputation_info
 ---@field reports _site_reputation_info_reports
 
----@class _site_reputation_info: DFCompound
+---@class _site_reputation_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_reputation_info = {}
 
@@ -56,8 +53,7 @@ function _site_reputation_info_reports:insert(index, item) end
 ---@param index integer 
 function _site_reputation_info_reports:erase(index) end
 
----@class (exact) location_scribe_jobs: DFObject
----@field _kind 'struct'
+---@class (exact) location_scribe_jobs: DFStruct
 ---@field _type _location_scribe_jobs
 ---@field scribejobs _location_scribe_jobs_scribejobs
 ---@field nextidmaybe number
@@ -68,7 +64,7 @@ function _site_reputation_info_reports:erase(index) end
 ---@field unk_4 number
 ---@field unk_5 number
 
----@class _location_scribe_jobs: DFCompound
+---@class _location_scribe_jobs: DFCompoundType
 ---@field _kind 'struct-type'
 df.location_scribe_jobs = {}
 
@@ -124,7 +120,7 @@ function _location_scribe_jobs_scribejobs:erase(index) end
 ---| abstract_building_type_keys
 ---| abstract_building_type_values
 
----@class _abstract_building_type: DFEnum
+---@class _abstract_building_type: DFEnumType
 ---@field MEAD_HALL 0
 ---@field [0] "MEAD_HALL"
 ---@field KEEP 1
@@ -179,7 +175,7 @@ df.abstract_building_type = {}
 ---| abstract_building_flags_keys
 ---| abstract_building_flags_values
 
----@class _abstract_building_flags: DFEnum
+---@class _abstract_building_flags: DFEnumType
 ---@field WG_RUINED 0
 ---@field [0] "WG_RUINED"
 ---@field DOES_NOT_EXIST 1
@@ -199,13 +195,12 @@ df.abstract_building_type = {}
 df.abstract_building_flags = {}
 
 -- used within Tomb and Dungeon
----@class (exact) abstract_building_entombed: DFObject
----@field _kind 'struct'
+---@class (exact) abstract_building_entombed: DFStruct
 ---@field _type _abstract_building_entombed
 ---@field populations _abstract_building_entombed_populations
 ---@field histfigs DFNumberVector
 
----@class _abstract_building_entombed: DFCompound
+---@class _abstract_building_entombed: DFCompoundType
 ---@field _kind 'struct-type'
 df.abstract_building_entombed = {}
 
@@ -226,8 +221,7 @@ function _abstract_building_entombed_populations:insert(index, item) end
 function _abstract_building_entombed_populations:erase(index) end
 
 -- used within Temple, Library, and Inn/Tavern
----@class (exact) abstract_building_contents: DFObject
----@field _kind 'struct'
+---@class (exact) abstract_building_contents: DFStruct
 ---@field _type _abstract_building_contents
 ---@field need_more abstract_building_contents.T_need_more
 ---@field profession profession
@@ -258,7 +252,7 @@ function _abstract_building_entombed_populations:erase(index) end
 ---@field unk_v47_3 number
 ---@field building_ids DFNumberVector
 
----@class _abstract_building_contents: DFCompound
+---@class _abstract_building_contents: DFCompoundType
 ---@field _kind 'struct-type'
 df.abstract_building_contents = {}
 
@@ -309,8 +303,7 @@ df.abstract_building_contents = {}
 ---@field [10] "soap"
 df.abstract_building_contents.T_need_more = {}
 
----@class (exact) abstract_building: DFObject
----@field _kind 'struct'
+---@class (exact) abstract_building: DFStruct
 ---@field _type _abstract_building
 ---@field id number
 ---@field inhabitants _abstract_building_inhabitants
@@ -327,7 +320,7 @@ df.abstract_building_contents.T_need_more = {}
 ---@field pos coord2d
 ---@field occupations _abstract_building_occupations
 
----@class _abstract_building: DFCompound
+---@class _abstract_building: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building = {}
 
@@ -379,23 +372,21 @@ function _abstract_building_occupations:insert(index, item) end
 ---@param index integer 
 function _abstract_building_occupations:erase(index) end
 
----@class (exact) abstract_building_mead_hallst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_mead_hallst: DFStruct, abstract_building
 ---@field _type _abstract_building_mead_hallst
 ---@field name language_name
 ---@field item1 site_building_item
 ---@field item2 site_building_item
 
----@class _abstract_building_mead_hallst: DFCompound
+---@class _abstract_building_mead_hallst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_mead_hallst = {}
 
----@class (exact) abstract_building_keepst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_keepst: DFStruct, abstract_building
 ---@field _type _abstract_building_keepst
 ---@field name language_name
 
----@class _abstract_building_keepst: DFCompound
+---@class _abstract_building_keepst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_keepst = {}
 
@@ -413,7 +404,7 @@ df.abstract_building_keepst = {}
 ---| temple_deity_type_keys
 ---| temple_deity_type_values
 
----@class _temple_deity_type: DFEnum
+---@class _temple_deity_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Deity 0
@@ -422,59 +413,53 @@ df.abstract_building_keepst = {}
 ---@field [1] "Religion"
 df.temple_deity_type = {}
 
----@class (exact) temple_deity_data: DFObject
----@field _kind 'struct'
+---@class (exact) temple_deity_data: DFStruct
 ---@field _type _temple_deity_data
 ---@field Deity number References: `historical_figure`
 ---@field Religion number References: `historical_entity`
 
----@class _temple_deity_data: DFCompound
+---@class _temple_deity_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.temple_deity_data = {}
 
----@class (exact) abstract_building_templest: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_templest: DFStruct, abstract_building
 ---@field _type _abstract_building_templest
 ---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
 ---@field name language_name
 ---@field contents abstract_building_contents
 
----@class _abstract_building_templest: DFCompound
+---@class _abstract_building_templest: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_templest = {}
 
----@class (exact) abstract_building_dark_towerst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_dark_towerst: DFStruct, abstract_building
 ---@field _type _abstract_building_dark_towerst
 ---@field name language_name
 
----@class _abstract_building_dark_towerst: DFCompound
+---@class _abstract_building_dark_towerst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_dark_towerst = {}
 
----@class (exact) abstract_building_marketst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_marketst: DFStruct, abstract_building
 ---@field _type _abstract_building_marketst
 ---@field name language_name
 
----@class _abstract_building_marketst: DFCompound
+---@class _abstract_building_marketst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_marketst = {}
 
----@class (exact) abstract_building_tombst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_tombst: DFStruct, abstract_building
 ---@field _type _abstract_building_tombst
 ---@field name language_name
 ---@field entombed abstract_building_entombed
 ---@field precedence number
 
----@class _abstract_building_tombst: DFCompound
+---@class _abstract_building_tombst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_tombst = {}
 
----@class (exact) abstract_building_dungeonst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_dungeonst: DFStruct, abstract_building
 ---@field _type _abstract_building_dungeonst
 ---@field name language_name
 ---@field dungeon_type abstract_building_dungeonst.T_dungeon_type
@@ -484,7 +469,7 @@ df.abstract_building_tombst = {}
 ---@field unk_3 number not saved
 ---@field unk_4 number not saved
 
----@class _abstract_building_dungeonst: DFCompound
+---@class _abstract_building_dungeonst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_dungeonst = {}
 
@@ -502,7 +487,7 @@ df.abstract_building_dungeonst = {}
 ---| abstract_building_dungeonst.T_dungeon_type_keys
 ---| abstract_building_dungeonst.T_dungeon_type_values
 
----@class _abstract_building_dungeonst.T_dungeon_type: DFEnum
+---@class _abstract_building_dungeonst.T_dungeon_type: DFEnumType
 ---@field DUNGEON 0
 ---@field [0] "DUNGEON"
 ---@field SEWERS 1
@@ -511,25 +496,23 @@ df.abstract_building_dungeonst = {}
 ---@field [2] "CATACOMBS"
 df.abstract_building_dungeonst.T_dungeon_type = {}
 
----@class (exact) abstract_building_underworld_spirest: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_underworld_spirest: DFStruct, abstract_building
 ---@field _type _abstract_building_underworld_spirest
 ---@field name language_name
 ---@field unk_bc number
 
----@class _abstract_building_underworld_spirest: DFCompound
+---@class _abstract_building_underworld_spirest: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_underworld_spirest = {}
 
----@class (exact) abstract_building_inn_tavernst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_inn_tavernst: DFStruct, abstract_building
 ---@field _type _abstract_building_inn_tavernst
 ---@field name language_name
 ---@field contents abstract_building_contents
 ---@field room_info _abstract_building_inn_tavernst_room_info
 ---@field next_room_info_id number
 
----@class _abstract_building_inn_tavernst: DFCompound
+---@class _abstract_building_inn_tavernst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_inn_tavernst = {}
 
@@ -549,8 +532,7 @@ function _abstract_building_inn_tavernst_room_info:insert(index, item) end
 ---@param index integer 
 function _abstract_building_inn_tavernst_room_info:erase(index) end
 
----@class (exact) abstract_building_libraryst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_libraryst: DFStruct, abstract_building
 ---@field _type _abstract_building_libraryst
 ---@field name language_name
 ---@field copied_artifacts DFNumberVector
@@ -560,46 +542,42 @@ function _abstract_building_inn_tavernst_room_info:erase(index) end
 ---@field unk_4 number
 ---@field contents abstract_building_contents
 
----@class _abstract_building_libraryst: DFCompound
+---@class _abstract_building_libraryst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_libraryst = {}
 
----@class (exact) abstract_building_counting_housest: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_counting_housest: DFStruct, abstract_building
 ---@field _type _abstract_building_counting_housest
 ---@field name language_name
 
----@class _abstract_building_counting_housest: DFCompound
+---@class _abstract_building_counting_housest: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_counting_housest = {}
 
----@class (exact) abstract_building_guildhallst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_guildhallst: DFStruct, abstract_building
 ---@field _type _abstract_building_guildhallst
 ---@field name language_name
 ---@field contents abstract_building_contents
 
----@class _abstract_building_guildhallst: DFCompound
+---@class _abstract_building_guildhallst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_guildhallst = {}
 
----@class (exact) abstract_building_towerst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_towerst: DFStruct, abstract_building
 ---@field _type _abstract_building_towerst
 ---@field name language_name
 ---@field unk_1 number
 
----@class _abstract_building_towerst: DFCompound
+---@class _abstract_building_towerst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_towerst = {}
 
----@class (exact) abstract_building_hospitalst: DFObject, abstract_building
----@field _kind 'struct'
+---@class (exact) abstract_building_hospitalst: DFStruct, abstract_building
 ---@field _type _abstract_building_hospitalst
 ---@field name language_name
 ---@field contents abstract_building_contents
 
----@class _abstract_building_hospitalst: DFCompound
+---@class _abstract_building_hospitalst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_hospitalst = {}
 
@@ -633,7 +611,7 @@ df.abstract_building_hospitalst = {}
 ---| world_site_type_keys
 ---| world_site_type_values
 
----@class _world_site_type: DFEnum
+---@class _world_site_type: DFEnumType
 ---@field PlayerFortress 0
 ---@field [0] "PlayerFortress"
 ---@field DarkFortress 1
@@ -676,7 +654,7 @@ df.world_site_type = {}
 ---| fortress_type_keys
 ---| fortress_type_values
 
----@class _fortress_type: DFEnum
+---@class _fortress_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CASTLE 0
@@ -703,7 +681,7 @@ df.fortress_type = {}
 ---| monument_type_keys
 ---| monument_type_values
 
----@class _monument_type: DFEnum
+---@class _monument_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field TOMB 0
@@ -732,7 +710,7 @@ df.monument_type = {}
 ---| lair_type_keys
 ---| lair_type_values
 
----@class _lair_type: DFEnum
+---@class _lair_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SIMPLE_MOUND 0 Night creatures
@@ -747,8 +725,7 @@ df.monument_type = {}
 ---@field [4] "WILDERNESS_LOCATION" In mountains, hosting Rocs in vanilla
 df.lair_type = {}
 
----@class (exact) property_ownership: DFObject
----@field _kind 'struct'
+---@class (exact) property_ownership: DFStruct
 ---@field _type _property_ownership
 ---@field index number
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
@@ -758,13 +735,12 @@ df.lair_type = {}
 ---@field owner_hfid number References: `historical_figure`
 ---@field unk_owner_entity_id number Seen only in subset of owner_entity_id case, and always same value References: `historical_entity`
 
----@class _property_ownership: DFCompound
+---@class _property_ownership: DFCompoundType
 ---@field _kind 'struct-type'
 df.property_ownership = {}
 
 -- Cannot rule out the type having additional fields, although the 8 following bytes were all 0 in all cases in the save examined.
----@class (exact) unit_placement_infost: DFObject
----@field _kind 'struct'
+---@class (exact) unit_placement_infost: DFStruct
 ---@field _type _unit_placement_infost
 ---@field unit_id number References: `unit`
 ---@field pos_x number this is a union in bay12 but they're both the same type so why bother
@@ -772,12 +748,11 @@ df.property_ownership = {}
 ---@field pos_z number
 ---@field container_it_id number
 
----@class _unit_placement_infost: DFCompound
+---@class _unit_placement_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_placement_infost = {}
 
----@class (exact) populacest: DFObject
----@field _kind 'struct'
+---@class (exact) populacest: DFStruct
 ---@field _type _populacest
 ---@field nemesis DFNumberVector
 ---@field artifacts _populacest_artifacts
@@ -795,7 +770,7 @@ df.unit_placement_infost = {}
 ---@field marriage_candidate_m_m _populacest_marriage_candidate_m_m
 ---@field marriage_candidate_m_fm _populacest_marriage_candidate_m_fm
 
----@class _populacest: DFCompound
+---@class _populacest: DFCompoundType
 ---@field _kind 'struct-type'
 df.populacest = {}
 
@@ -991,8 +966,7 @@ function _populacest_marriage_candidate_m_fm:insert(index, item) end
 ---@param index integer 
 function _populacest_marriage_candidate_m_fm:erase(index) end
 
----@class (exact) site_first_calc_special_itemsst: DFObject
----@field _kind 'struct'
+---@class (exact) site_first_calc_special_itemsst: DFStruct
 ---@field _type _site_first_calc_special_itemsst
 ---@field type _site_first_calc_special_itemsst_type
 ---@field subtype DFNumberVector
@@ -1001,7 +975,7 @@ function _populacest_marriage_candidate_m_fm:erase(index) end
 ---@field civ_id DFNumberVector
 ---@field site_id DFNumberVector
 
----@class _site_first_calc_special_itemsst: DFCompound
+---@class _site_first_calc_special_itemsst: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_first_calc_special_itemsst = {}
 
@@ -1021,8 +995,7 @@ function _site_first_calc_special_itemsst_type:insert(index, item) end
 ---@param index integer 
 function _site_first_calc_special_itemsst_type:erase(index) end
 
----@class (exact) site_cropst: DFObject
----@field _kind 'struct'
+---@class (exact) site_cropst: DFStruct
 ---@field _type _site_cropst
 ---@field production_zone_index number
 ---@field allotment_index number
@@ -1032,7 +1005,7 @@ function _site_first_calc_special_itemsst_type:erase(index) end
 ---@field growth_num_multiplier DFNumberVector
 ---@field flag site_cropst.T_flag
 
----@class _site_cropst: DFCompound
+---@class _site_cropst: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_cropst = {}
 
@@ -1060,7 +1033,7 @@ df.site_cropst.T_flag = {}
 ---| religious_practice_type_keys
 ---| religious_practice_type_values
 
----@class _religious_practice_type: DFEnum
+---@class _religious_practice_type: DFEnumType
 ---@field NONE -1 bay12: ReligiousPractice
 ---@field [-1] "NONE" bay12: ReligiousPractice
 ---@field WORSHIP_HFID 0
@@ -1069,44 +1042,40 @@ df.site_cropst.T_flag = {}
 ---@field [1] "RELIGION_ENID"
 df.religious_practice_type = {}
 
----@class (exact) site_religious_structurest: DFObject
----@field _kind 'struct'
+---@class (exact) site_religious_structurest: DFStruct
 ---@field _type _site_religious_structurest
 ---@field type religious_practice_type
 ---@field data site_religious_structurest.T_data
 ---@field points number
 
----@class _site_religious_structurest: DFCompound
+---@class _site_religious_structurest: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_religious_structurest = {}
 
----@class (exact) site_religious_structurest.T_data: DFObject
----@field _kind 'struct'
+---@class (exact) site_religious_structurest.T_data: DFStruct
 ---@field _type _site_religious_structurest.T_data
 ---@field practice_id number
 ---@field hfid number References: `historical_figure`
 ---@field enid number References: `historical_entity`
 
----@class _site_religious_structurest.T_data: DFCompound
+---@class _site_religious_structurest.T_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_religious_structurest.T_data = {}
 
----@class (exact) site_religious_structure_batchst: DFObject
----@field _kind 'struct'
+---@class (exact) site_religious_structure_batchst: DFStruct
 ---@field _type _site_religious_structure_batchst
 ---@field rstruct site_religious_structurest[]
 ---@field rstructnum number
 
----@class _site_religious_structure_batchst: DFCompound
+---@class _site_religious_structure_batchst: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_religious_structure_batchst = {}
 
----@class (exact) site_culture_infrastructurest: DFObject
----@field _kind 'struct'
+---@class (exact) site_culture_infrastructurest: DFStruct
 ---@field _type _site_culture_infrastructurest
 ---@field religious_structure_batch _site_culture_infrastructurest_religious_structure_batch
 
----@class _site_culture_infrastructurest: DFCompound
+---@class _site_culture_infrastructurest: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_culture_infrastructurest = {}
 
@@ -1182,7 +1151,7 @@ function _site_culture_infrastructurest_religious_structure_batch:erase(index) e
 ---| site_flag_type_keys
 ---| site_flag_type_values
 
----@class _site_flag_type: DFEnum
+---@class _site_flag_type: DFEnumType
 ---@field HIDDEN 0 SiteFlagType
 ---@field [0] "HIDDEN" SiteFlagType
 ---@field RUINED 1
@@ -1260,7 +1229,7 @@ df.site_flag_type = {}
 ---| location_death_type_values
 
 -- bay12: LocationDeath
----@class _location_death_type: DFEnum
+---@class _location_death_type: DFEnumType
 ---@field NATURAL 0
 ---@field [0] "NATURAL"
 ---@field STARVATION 1
@@ -1281,8 +1250,7 @@ df.site_flag_type = {}
 ---@field [8] "SITE_RAMPAGE"
 df.location_death_type = {}
 
----@class (exact) location_death_batchst: DFObject
----@field _kind 'struct'
+---@class (exact) location_death_batchst: DFStruct
 ---@field _type _location_death_batchst
 ---@field num number
 ---@field race number
@@ -1293,17 +1261,16 @@ df.location_death_type = {}
 ---@field body_count number
 ---@field death_type location_death_type
 
----@class _location_death_batchst: DFCompound
+---@class _location_death_batchst: DFCompoundType
 ---@field _kind 'struct-type'
 df.location_death_batchst = {}
 
----@class (exact) location_deathst: DFObject
----@field _kind 'struct'
+---@class (exact) location_deathst: DFStruct
 ---@field _type _location_deathst
 ---@field batch _location_deathst_batch
 ---@field hfid DFNumberVector killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 
----@class _location_deathst: DFCompound
+---@class _location_deathst: DFCompoundType
 ---@field _kind 'struct-type'
 df.location_deathst = {}
 
@@ -1323,8 +1290,7 @@ function _location_deathst_batch:insert(index, item) end
 ---@param index integer 
 function _location_deathst_batch:erase(index) end
 
----@class (exact) site_map_infost: DFObject
----@field _kind 'struct'
+---@class (exact) site_map_infost: DFStruct
 ---@field _type _site_map_infost
 ---@field fortress_type fortress_type Only when site.type=Fortress
 ---@field monument_type monument_type Only when site.type=Monument
@@ -1339,7 +1305,7 @@ function _location_deathst_batch:erase(index) end
 ---@field unk_monastery number all monasteries, no others. Only seen '1'
 ---@field founding_entity number all monasteries, no others References: `historical_entity`
 
----@class _site_map_infost: DFCompound
+---@class _site_map_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_map_infost = {}
 
@@ -1364,7 +1330,7 @@ df.site_map_infost = {}
 ---| site_architecture_change_type_values
 
 -- bay12: SiteArchitectureChangeType
----@class _site_architecture_change_type: DFEnum
+---@class _site_architecture_change_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DOMINANT_ENTITY 0
@@ -1379,8 +1345,7 @@ df.site_map_infost = {}
 ---@field [4] "GENERALIZED_DEATH"
 df.site_architecture_change_type = {}
 
----@class (exact) site_architecture_changest: DFObject
----@field _kind 'struct'
+---@class (exact) site_architecture_changest: DFStruct
 ---@field _type _site_architecture_changest
 ---@field type site_architecture_change_type
 ---@field NONE number
@@ -1394,40 +1359,37 @@ df.site_architecture_change_type = {}
 ---@field flag number
 ---@field spec_flag number
 
----@class _site_architecture_changest: DFCompound
+---@class _site_architecture_changest: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_architecture_changest = {}
 
----@class (exact) wg_site_culture_identity_religious_practicest: DFObject
----@field _kind 'struct'
+---@class (exact) wg_site_culture_identity_religious_practicest: DFStruct
 ---@field _type _wg_site_culture_identity_religious_practicest
 ---@field type religious_practice_type
 ---@field data wg_site_culture_identity_religious_practicest.T_data
 ---@field points number
 
----@class _wg_site_culture_identity_religious_practicest: DFCompound
+---@class _wg_site_culture_identity_religious_practicest: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culture_identity_religious_practicest = {}
 
----@class (exact) wg_site_culture_identity_religious_practicest.T_data: DFObject
----@field _kind 'struct'
+---@class (exact) wg_site_culture_identity_religious_practicest.T_data: DFStruct
 ---@field _type _wg_site_culture_identity_religious_practicest.T_data
 ---@field practice_id number
 ---@field hfid number References: `historical_figure`
 ---@field enid number References: `historical_entity`
 
----@class _wg_site_culture_identity_religious_practicest.T_data: DFCompound
+---@class _wg_site_culture_identity_religious_practicest.T_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culture_identity_religious_practicest.T_data = {}
 
----@class (exact) wg_site_culture_identityst: DFObject
----@field _kind 'struct'
+---@class (exact) wg_site_culture_identityst: DFStruct
 ---@field _type _wg_site_culture_identityst
 ---@field entity_id number
 ---@field religious_practice _wg_site_culture_identityst_religious_practice
 ---@field interaction _wg_site_culture_identityst_interaction
 
----@class _wg_site_culture_identityst: DFCompound
+---@class _wg_site_culture_identityst: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culture_identityst = {}
 
@@ -1481,7 +1443,7 @@ function _wg_site_culture_identityst_interaction:erase(index) end
 ---| cultural_interaction_type_keys
 ---| cultural_interaction_type_values
 
----@class _cultural_interaction_type: DFEnum
+---@class _cultural_interaction_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ENTITY_1_PERSECUTES_ENTITY_2 0
@@ -1494,8 +1456,7 @@ function _wg_site_culture_identityst_interaction:erase(index) end
 ---@field [3] "ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2"
 df.cultural_interaction_type = {}
 
----@class (exact) wg_site_culture_identity_interactionst: DFObject
----@field _kind 'struct'
+---@class (exact) wg_site_culture_identity_interactionst: DFStruct
 ---@field _type _wg_site_culture_identity_interactionst
 ---@field type cultural_interaction_type
 ---@field id1 number
@@ -1503,16 +1464,15 @@ df.cultural_interaction_type = {}
 ---@field year number
 ---@field severity number
 
----@class _wg_site_culture_identity_interactionst: DFCompound
+---@class _wg_site_culture_identity_interactionst: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culture_identity_interactionst = {}
 
----@class (exact) wg_site_culturest: DFObject
----@field _kind 'struct'
+---@class (exact) wg_site_culturest: DFStruct
 ---@field _type _wg_site_culturest
 ---@field identity _wg_site_culturest_identity
 
----@class _wg_site_culturest: DFCompound
+---@class _wg_site_culturest: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culturest = {}
 
@@ -1532,8 +1492,7 @@ function _wg_site_culturest_identity:insert(index, item) end
 ---@param index integer 
 function _wg_site_culturest_identity:erase(index) end
 
----@class (exact) world_site: DFObject
----@field _kind 'struct'
+---@class (exact) world_site: DFStruct
 ---@field _type _world_site
 ---@field name language_name
 ---@field civ_id number References: `historical_entity`
@@ -1624,7 +1583,7 @@ function _wg_site_culturest_identity:erase(index) end
 ---@field unk_24 number
 ---@field unk_25 DFPointer<integer>
 
----@class _world_site: DFCompound
+---@class _world_site: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site = {}
 
@@ -1893,8 +1852,7 @@ function _world_site_unk_3:insert(index, item) end
 ---@param index integer 
 function _world_site_unk_3:erase(index) end
 
----@class (exact) cultural_identity: DFObject
----@field _kind 'struct'
+---@class (exact) cultural_identity: DFStruct
 ---@field _type _cultural_identity
 ---@field id number
 ---@field site_id number References: `world_site`
@@ -1912,7 +1870,7 @@ function _world_site_unk_3:erase(index) end
 ---@field unk_2 _cultural_identity_unk_2
 ---@field unk_f8 number
 
----@class _cultural_identity: DFCompound
+---@class _cultural_identity: DFCompoundType
 ---@field _kind 'struct-type'
 df.cultural_identity = {}
 
@@ -1989,8 +1947,7 @@ function _cultural_identity_unk_2:insert(index, item) end
 ---@param index integer 
 function _cultural_identity_unk_2:erase(index) end
 
----@class (exact) world_site_inhabitant: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_inhabitant: DFStruct
 ---@field _type _world_site_inhabitant
 ---@field count number
 ---@field race number References: `creature_raw`
@@ -2004,12 +1961,11 @@ function _cultural_identity_unk_2:erase(index) end
 ---@field unk_24 number 0 and 1 seen
 ---@field unk_28 number
 
----@class _world_site_inhabitant: DFCompound
+---@class _world_site_inhabitant: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_inhabitant = {}
 
----@class (exact) world_site_realization: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_realization: DFStruct
 ---@field _type _world_site_realization
 ---@field buildings _world_site_realization_buildings
 ---@field num_buildings number
@@ -2065,7 +2021,7 @@ df.world_site_inhabitant = {}
 ---@field unk_24 number
 ---@field unk_wsr_vector _world_site_realization_unk_wsr_vector
 
----@class _world_site_realization: DFCompound
+---@class _world_site_realization: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization = {}
 
@@ -2085,8 +2041,7 @@ function _world_site_realization_buildings:insert(index, item) end
 ---@param index integer 
 function _world_site_realization_buildings:erase(index) end
 
----@class (exact) world_site_realization.T_unk_55e8: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_realization.T_unk_55e8: DFStruct
 ---@field _type _world_site_realization.T_unk_55e8
 ---@field unk_55e8 number
 ---@field unk_55ec number
@@ -2117,7 +2072,7 @@ function _world_site_realization_buildings:erase(index) end
 ---@field unk_v40_3c number
 ---@field unk_v40_3d number
 
----@class _world_site_realization.T_unk_55e8: DFCompound
+---@class _world_site_realization.T_unk_55e8: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_55e8 = {}
 
@@ -2169,8 +2124,7 @@ function _world_site_realization_unk_55e8_unk_5618:insert(index, item) end
 ---@param index integer 
 function _world_site_realization_unk_55e8_unk_5618:erase(index) end
 
----@class (exact) world_site_realization.T_building_map: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_realization.T_building_map: DFStruct
 ---@field _type _world_site_realization.T_building_map
 ---@field unk0 number
 ---@field buildings _world_site_realization_building_map_buildings
@@ -2178,7 +2132,7 @@ function _world_site_realization_unk_55e8_unk_5618:erase(index) end
 ---@field unk5 integer
 ---@field unk6 DFNumberVector
 
----@class _world_site_realization.T_building_map: DFCompound
+---@class _world_site_realization.T_building_map: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization.T_building_map = {}
 
@@ -2214,8 +2168,7 @@ function _world_site_realization_areas:insert(index, item) end
 ---@param index integer 
 function _world_site_realization_areas:erase(index) end
 
----@class (exact) world_site_realization.T_unk_193bc: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_realization.T_unk_193bc: DFStruct
 ---@field _type _world_site_realization.T_unk_193bc
 ---@field nemesis_id number References: `nemesis_record`
 ---@field unk_1 number
@@ -2234,12 +2187,11 @@ function _world_site_realization_areas:erase(index) end
 ---@field unk_12 number
 ---@field unk_13 number
 
----@class _world_site_realization.T_unk_193bc: DFCompound
+---@class _world_site_realization.T_unk_193bc: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_193bc = {}
 
----@class (exact) world_site_realization.T_unk_193bc.T_unk_8: DFObject
----@field _kind 'struct'
+---@class (exact) world_site_realization.T_unk_193bc.T_unk_8: DFStruct
 ---@field _type _world_site_realization.T_unk_193bc.T_unk_8
 ---@field unk_1 number
 ---@field unk_2 number
@@ -2251,7 +2203,7 @@ df.world_site_realization.T_unk_193bc = {}
 ---@field unk_8 number
 ---@field unk_9 number
 
----@class _world_site_realization.T_unk_193bc.T_unk_8: DFCompound
+---@class _world_site_realization.T_unk_193bc.T_unk_8: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_193bc.T_unk_8 = {}
 
@@ -2271,8 +2223,7 @@ function _world_site_realization_unk_wsr_vector:insert(index, item) end
 ---@param index integer 
 function _world_site_realization_unk_wsr_vector:erase(index) end
 
----@class (exact) site_realization_crossroads: DFObject
----@field _kind 'struct'
+---@class (exact) site_realization_crossroads: DFStruct
 ---@field _type _site_realization_crossroads
 ---@field road_min_y number[]
 ---@field road_max_y number[]
@@ -2310,7 +2261,7 @@ function _world_site_realization_unk_wsr_vector:erase(index) end
 ---@field unk_370 number[]
 ---@field unk_3d0 number[]
 
----@class _site_realization_crossroads: DFCompound
+---@class _site_realization_crossroads: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_realization_crossroads = {}
 
@@ -2386,7 +2337,7 @@ df.site_realization_crossroads = {}
 ---| site_realization_building_type_keys
 ---| site_realization_building_type_values
 
----@class _site_realization_building_type: DFEnum
+---@class _site_realization_building_type: DFEnumType
 ---@field cottage_plot 0
 ---@field [0] "cottage_plot"
 ---@field castle_wall 1
@@ -2451,8 +2402,7 @@ df.site_realization_crossroads = {}
 ---@field [31] "barrow"
 df.site_realization_building_type = {}
 
----@class (exact) site_realization_building: DFObject
----@field _kind 'struct'
+---@class (exact) site_realization_building: DFStruct
 ---@field _type _site_realization_building
 ---@field id number
 ---@field type site_realization_building_type
@@ -2472,7 +2422,7 @@ df.site_realization_building_type = {}
 ---@field unk_60 _site_realization_building_unk_60
 ---@field unk_v40_1 number
 
----@class _site_realization_building: DFCompound
+---@class _site_realization_building: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_realization_building = {}
 
@@ -2524,16 +2474,14 @@ function _site_realization_building_unk_60:insert(index, item) end
 ---@param index integer 
 function _site_realization_building_unk_60:erase(index) end
 
----@class (exact) site_realization_building_infost: DFObject
----@field _kind 'struct'
+---@class (exact) site_realization_building_infost: DFStruct
 ---@field _type _site_realization_building_infost
 
----@class _site_realization_building_infost: DFCompound
+---@class _site_realization_building_infost: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_infost = {}
 
----@class (exact) site_building_item: DFObject
----@field _kind 'struct'
+---@class (exact) site_building_item: DFStruct
 ---@field _type _site_building_item
 ---@field race number References: `creature_raw`
 ---@field item_type item_type
@@ -2541,7 +2489,7 @@ df.site_realization_building_infost = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _site_building_item: DFCompound
+---@class _site_building_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_building_item = {}
 
@@ -2571,8 +2519,7 @@ df.site_building_item = {}
 ---@field [4] "unk10" set on goblin towers. doesnt seem to do anything
 df.tower_shape = {}
 
----@class (exact) site_realization_building_info_castle_wallst: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_castle_wallst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_castle_wallst
 ---@field length number
 ---@field door_pos number
@@ -2585,12 +2532,11 @@ df.tower_shape = {}
 ---@field wall_item site_building_item
 ---@field door_item site_building_item
 
----@class _site_realization_building_info_castle_wallst: DFCompound
+---@class _site_realization_building_info_castle_wallst: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_wallst = {}
 
----@class (exact) site_realization_building_info_castle_towerst: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_castle_towerst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_castle_towerst
 ---@field roof_z number
 ---@field base_z number can be below ground, but not above ground
@@ -2604,15 +2550,14 @@ df.site_realization_building_info_castle_wallst = {}
 ---@field unk_40 number
 ---@field unk_44 number
 
----@class _site_realization_building_info_castle_towerst: DFCompound
+---@class _site_realization_building_info_castle_towerst: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_towerst = {}
 
----@class (exact) site_realization_building_info_castle_courtyardst: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_castle_courtyardst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_castle_courtyardst
 
----@class _site_realization_building_info_castle_courtyardst: DFCompound
+---@class _site_realization_building_info_castle_courtyardst: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_courtyardst = {}
 
@@ -2676,7 +2621,7 @@ df.site_realization_building_info_castle_courtyardst = {}
 ---| site_shop_type_keys
 ---| site_shop_type_values
 
----@class _site_shop_type: DFEnum
+---@class _site_shop_type: DFEnumType
 ---@field GeneralImports 0
 ---@field [0] "GeneralImports"
 ---@field FoodImports 1
@@ -2771,7 +2716,7 @@ df.site_shop_type = {}
 ---| town_labor_type_keys
 ---| town_labor_type_values
 
----@class _town_labor_type: DFEnum
+---@class _town_labor_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CLOTH 0
@@ -2806,44 +2751,40 @@ df.site_shop_type = {}
 ---@field [14] "FURNITURE_METAL"
 df.town_labor_type = {}
 
----@class (exact) site_realization_building_info_shop_housest: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_shop_housest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_shop_housest
 ---@field type site_shop_type
 ---@field name language_name
 
----@class _site_realization_building_info_shop_housest: DFCompound
+---@class _site_realization_building_info_shop_housest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_shop_housest = {}
 
----@class (exact) site_realization_building_info_market_squarest: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_market_squarest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_market_squarest
 ---@field type site_shop_type
 
----@class _site_realization_building_info_market_squarest: DFCompound
+---@class _site_realization_building_info_market_squarest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_market_squarest = {}
 
----@class (exact) site_realization_building_info_trenchesst: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_trenchesst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_trenchesst
 ---@field unk_4 number
 ---@field spokes site_realization_building_info_trenchesst.T_spokes[] N, S, E, W
 
----@class _site_realization_building_info_trenchesst: DFCompound
+---@class _site_realization_building_info_trenchesst: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_trenchesst = {}
 
----@class (exact) site_realization_building_info_trenchesst.T_spokes: DFObject
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_trenchesst.T_spokes: DFStruct
 ---@field _type _site_realization_building_info_trenchesst.T_spokes
 ---@field mound_min number -30000 = nothing here
 ---@field trench_min number
 ---@field trench_max number
 ---@field mound_max number
 
----@class _site_realization_building_info_trenchesst.T_spokes: DFCompound
+---@class _site_realization_building_info_trenchesst.T_spokes: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_realization_building_info_trenchesst.T_spokes = {}
 
@@ -2867,7 +2808,7 @@ df.site_realization_building_info_trenchesst.T_spokes = {}
 ---| tree_house_type_keys
 ---| tree_house_type_values
 
----@class _tree_house_type: DFEnum
+---@class _tree_house_type: DFEnumType
 ---@field TreeHouse 0
 ---@field [0] "TreeHouse"
 ---@field HomeTree 1
@@ -2882,14 +2823,13 @@ df.site_realization_building_info_trenchesst.T_spokes = {}
 ---@field [5] "Unknown2"
 df.tree_house_type = {}
 
----@class (exact) site_realization_building_info_tree_housest: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_tree_housest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_tree_housest
 ---@field type tree_house_type
 ---@field unk_8 number
 ---@field name language_name
 
----@class _site_realization_building_info_tree_housest: DFCompound
+---@class _site_realization_building_info_tree_housest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_tree_housest = {}
 
@@ -2909,7 +2849,7 @@ df.site_realization_building_info_tree_housest = {}
 ---| hillock_house_type_keys
 ---| hillock_house_type_values
 
----@class _hillock_house_type: DFEnum
+---@class _hillock_house_type: DFEnumType
 ---@field CivicMound 1
 ---@field [1] "CivicMound"
 ---@field CastleMound 2
@@ -2918,22 +2858,20 @@ df.site_realization_building_info_tree_housest = {}
 ---@field [3] "DrinkingMound"
 df.hillock_house_type = {}
 
----@class (exact) site_realization_building_info_hillock_housest: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_hillock_housest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_hillock_housest
 ---@field type hillock_house_type
 
----@class _site_realization_building_info_hillock_housest: DFCompound
+---@class _site_realization_building_info_hillock_housest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_hillock_housest = {}
 
----@class (exact) site_realization_building_info_shrinest: DFObject, site_realization_building_infost
----@field _kind 'struct'
+---@class (exact) site_realization_building_info_shrinest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_shrinest
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _site_realization_building_info_shrinest: DFCompound
+---@class _site_realization_building_info_shrinest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_shrinest = {}
 
@@ -2953,7 +2891,7 @@ df.site_realization_building_info_shrinest = {}
 ---| creation_zone_pwg_alteration_type_keys
 ---| creation_zone_pwg_alteration_type_values
 
----@class _creation_zone_pwg_alteration_type: DFEnum
+---@class _creation_zone_pwg_alteration_type: DFEnumType
 ---@field location_death 0
 ---@field [0] "location_death"
 ---@field camp 1
@@ -2964,32 +2902,29 @@ df.site_realization_building_info_shrinest = {}
 ---@field [3] "srp_ruined"
 df.creation_zone_pwg_alteration_type = {}
 
----@class (exact) creation_zone_pwg_alterationst: DFObject
----@field _kind 'struct'
+---@class (exact) creation_zone_pwg_alterationst: DFStruct
 ---@field _type _creation_zone_pwg_alterationst
 ---@field unk_0 number
 
----@class _creation_zone_pwg_alterationst: DFCompound
+---@class _creation_zone_pwg_alterationst: DFCompoundType
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alterationst = {}
 
----@class (exact) creation_zone_pwg_alteration_location_deathst: DFObject, creation_zone_pwg_alterationst
----@field _kind 'struct'
+---@class (exact) creation_zone_pwg_alteration_location_deathst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_location_deathst
 ---@field unk_1 creation_zone_pwg_alteration_location_deathst.T_unk_1
 ---@field unk_2 number
 
----@class _creation_zone_pwg_alteration_location_deathst: DFCompound
+---@class _creation_zone_pwg_alteration_location_deathst: DFCompoundType
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_location_deathst = {}
 
----@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
----@field _kind 'struct'
+---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFStruct
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
 ---@field unk_1a _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a
 ---@field unk_2a DFNumberVector
 
----@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
+---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompoundType
 ---@field _kind 'struct-type'
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 
@@ -3009,8 +2944,7 @@ function _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:insert(inde
 ---@param index integer 
 function _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:erase(index) end
 
----@class (exact) creation_zone_pwg_alteration_campst: DFObject, creation_zone_pwg_alterationst
----@field _kind 'struct'
+---@class (exact) creation_zone_pwg_alteration_campst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_campst
 ---@field unk_1 number
 ---@field x1 number
@@ -3024,27 +2958,25 @@ function _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:erase(index
 ---@field unk_6 number
 ---@field unk_7 number
 
----@class _creation_zone_pwg_alteration_campst: DFCompound
+---@class _creation_zone_pwg_alteration_campst: DFCompoundType
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_campst = {}
 
----@class (exact) creation_zone_pwg_alteration_srb_ruinedst: DFObject, creation_zone_pwg_alterationst
----@field _kind 'struct'
+---@class (exact) creation_zone_pwg_alteration_srb_ruinedst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_srb_ruinedst
 ---@field site_id number References: `world_site`
 ---@field building_id number References: `site_realization_building`
 
----@class _creation_zone_pwg_alteration_srb_ruinedst: DFCompound
+---@class _creation_zone_pwg_alteration_srb_ruinedst: DFCompoundType
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_srb_ruinedst = {}
 
----@class (exact) creation_zone_pwg_alteration_srp_ruinedst: DFObject, creation_zone_pwg_alterationst
----@field _kind 'struct'
+---@class (exact) creation_zone_pwg_alteration_srp_ruinedst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_srp_ruinedst
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _creation_zone_pwg_alteration_srp_ruinedst: DFCompound
+---@class _creation_zone_pwg_alteration_srp_ruinedst: DFCompoundType
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_srp_ruinedst = {}
 

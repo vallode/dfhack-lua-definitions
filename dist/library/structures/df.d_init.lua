@@ -15,7 +15,7 @@
 ---| d_init_nickname_keys
 ---| d_init_nickname_values
 
----@class _d_init_nickname: DFEnum
+---@class _d_init_nickname: DFEnumType
 ---@field REPLACE_FIRST 0
 ---@field [0] "REPLACE_FIRST"
 ---@field CENTRALIZE 1
@@ -38,7 +38,7 @@ df.d_init_nickname = {}
 ---| d_init_embark_confirm_keys
 ---| d_init_embark_confirm_values
 
----@class _d_init_embark_confirm: DFEnum
+---@class _d_init_embark_confirm: DFEnumType
 ---@field ALWAYS 0
 ---@field [0] "ALWAYS"
 ---@field IF_POINTS_REMAIN 1
@@ -61,7 +61,7 @@ df.d_init_embark_confirm = {}
 ---| d_init_tunnel_keys
 ---| d_init_tunnel_values
 
----@class _d_init_tunnel: DFEnum
+---@class _d_init_tunnel: DFEnumType
 ---@field NO 0
 ---@field [0] "NO"
 ---@field FINDER 1
@@ -88,7 +88,7 @@ df.d_init_tunnel = {}
 ---| d_init_flags1_keys
 ---| d_init_flags1_values
 
----@class _d_init_flags1: DFEnum
+---@class _d_init_flags1: DFEnumType
 ---@field VARIED_GROUND_TILES 0
 ---@field [0] "VARIED_GROUND_TILES"
 ---@field ENGRAVINGS_START_OBSCURED 1
@@ -115,7 +115,7 @@ df.d_init_flags1 = {}
 ---| d_init_flags2_keys
 ---| d_init_flags2_values
 
----@class _d_init_flags2: DFEnum
+---@class _d_init_flags2: DFEnumType
 ---@field MORE 0
 ---@field [0] "MORE"
 ---@field ADVENTURER_TRAPS 1
@@ -134,7 +134,7 @@ df.d_init_flags2 = {}
 ---| d_init_flags3_keys
 ---| d_init_flags3_values
 
----@class _d_init_flags3: DFEnum
+---@class _d_init_flags3: DFEnumType
 ---@field COFFIN_NO_PETS_DEFAULT 0
 ---@field [0] "COFFIN_NO_PETS_DEFAULT"
 df.d_init_flags3 = {}
@@ -189,7 +189,7 @@ df.d_init_flags3 = {}
 ---| d_init_flags4_keys
 ---| d_init_flags4_values
 
----@class _d_init_flags4: DFEnum
+---@class _d_init_flags4: DFEnumType
 ---@field TEMPERATURE 0
 ---@field [0] "TEMPERATURE"
 ---@field WEATHER 1
@@ -240,7 +240,7 @@ df.d_init_flags4 = {}
 ---| d_init_autosave_keys
 ---| d_init_autosave_values
 
----@class _d_init_autosave: DFEnum
+---@class _d_init_autosave: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SEASONAL 0
@@ -251,8 +251,7 @@ df.d_init_flags4 = {}
 ---@field [2] "SEMIANNUAL"
 df.d_init_autosave = {}
 
----@class (exact) d_init: DFObject
----@field _kind 'struct'
+---@class (exact) d_init: DFStruct
 ---@field _type _d_init
 ---@field flags1 _d_init_flags1
 ---@field nickname DFEnumVector<game_type, d_init_nickname>
@@ -290,7 +289,7 @@ df.d_init_autosave = {}
 ---@field unk_5010_730 number
 ---@field unk_5010_734 number
 
----@class _d_init: DFCompound
+---@class _d_init: DFCompoundType
 ---@field _kind 'struct-type'
 df.d_init = {}
 
@@ -310,8 +309,7 @@ function _d_init_flags1:insert(index, item) end
 ---@param index integer 
 function _d_init_flags1:erase(index) end
 
----@class (exact) d_init.T_wound_color: DFObject
----@field _kind 'struct'
+---@class (exact) d_init.T_wound_color: DFStruct
 ---@field _type _d_init.T_wound_color
 ---@field none number[]
 ---@field minor number[]
@@ -320,7 +318,7 @@ function _d_init_flags1:erase(index) end
 ---@field broken number[]
 ---@field missing number[]
 
----@class _d_init.T_wound_color: DFCompound
+---@class _d_init.T_wound_color: DFCompoundType
 ---@field _kind 'struct-type'
 df.d_init.T_wound_color = {}
 
@@ -340,8 +338,7 @@ function _d_init_flags3:insert(index, item) end
 ---@param index integer 
 function _d_init_flags3:erase(index) end
 
----@class (exact) d_init.T_store_dist: DFObject
----@field _kind 'struct'
+---@class (exact) d_init.T_store_dist: DFStruct
 ---@field _type _d_init.T_store_dist
 ---@field item_decrease number
 ---@field seed_combine number
@@ -349,7 +346,7 @@ function _d_init_flags3:erase(index) end
 ---@field barrel_combine number
 ---@field bin_combine number
 
----@class _d_init.T_store_dist: DFCompound
+---@class _d_init.T_store_dist: DFCompoundType
 ---@field _kind 'struct-type'
 df.d_init.T_store_dist = {}
 

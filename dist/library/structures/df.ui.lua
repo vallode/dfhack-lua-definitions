@@ -1,8 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) burrow: DFObject
----@field _kind 'struct'
+---@class (exact) burrow: DFStruct
 ---@field _type _burrow
 ---@field id number
 ---@field name string
@@ -24,7 +23,7 @@
 ---@field texture_bg integer
 ---@field texture_bb integer
 
----@class _burrow: DFCompound
+---@class _burrow: DFCompoundType
 ---@field _kind 'struct-type'
 df.burrow = {}
 
@@ -37,8 +36,7 @@ function df.burrow.find(key) end
 ---@return burrow_vector # df.global.plotinfo.burrows.list
 function df.burrow.get_vector() end
 
----@class (exact) ui_hotkey: DFObject
----@field _kind 'struct'
+---@class (exact) ui_hotkey: DFStruct
 ---@field _type _ui_hotkey
 ---@field name string
 ---@field cmd ui_hotkey.T_cmd
@@ -48,7 +46,7 @@ function df.burrow.get_vector() end
 ---@field unit_id number References: `unit`
 ---@field item_id number References: `item`
 
----@class _ui_hotkey: DFCompound
+---@class _ui_hotkey: DFCompoundType
 ---@field _kind 'struct-type'
 df.ui_hotkey = {}
 
@@ -68,7 +66,7 @@ df.ui_hotkey = {}
 ---| ui_hotkey.T_cmd_keys
 ---| ui_hotkey.T_cmd_values
 
----@class _ui_hotkey.T_cmd: DFEnum
+---@class _ui_hotkey.T_cmd: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Zoom 0
@@ -201,7 +199,7 @@ df.ui_hotkey.T_cmd = {}
 ---| ui_sidebar_mode_keys
 ---| ui_sidebar_mode_values
 
----@class _ui_sidebar_mode: DFEnum
+---@class _ui_sidebar_mode: DFEnumType
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Squads 1
@@ -318,8 +316,7 @@ df.ui_hotkey.T_cmd = {}
 ---@field [56] "ZonesLocationInfo"
 df.ui_sidebar_mode = {}
 
----@class (exact) punishment: DFObject
----@field _kind 'struct'
+---@class (exact) punishment: DFStruct
 ---@field _type _punishment
 ---@field criminal number References: `unit`
 ---@field officer number References: `unit`
@@ -330,7 +327,7 @@ df.ui_sidebar_mode = {}
 ---@field chain number References: `building`
 ---@field victims DFNumberVector
 
----@class _punishment: DFCompound
+---@class _punishment: DFCompoundType
 ---@field _kind 'struct-type'
 df.punishment = {}
 
@@ -346,7 +343,7 @@ df.punishment = {}
 ---| kitchen_exc_type_keys
 ---| kitchen_exc_type_values
 
----@class _kitchen_exc_type: DFEnum
+---@class _kitchen_exc_type: DFEnumType
 ---@field Cook 1
 ---@field [1] "Cook"
 ---@field Brew 2
@@ -466,7 +463,7 @@ df.kitchen_exc_type = {}
 ---| save_substage_values
 
 -- below was copied wholesale from df.viewscreen
----@class _save_substage: DFEnum
+---@class _save_substage: DFEnumType
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -628,15 +625,14 @@ df.save_substage = {}
 ---@field [12] "buildings"
 df.equipment_update = {}
 
----@class (exact) labor_infost: DFObject
----@field _kind 'struct'
+---@class (exact) labor_infost: DFStruct
 ---@field _type _labor_infost
 ---@field flags labor_infost.T_flags
 ---@field work_details _labor_infost_work_details
 ---@field chores DFEnumVector<unit_labor, boolean>
 ---@field chores_exempted_children DFNumberVector toady: no_chore_child_unid
 
----@class _labor_infost: DFCompound
+---@class _labor_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.labor_infost = {}
 
@@ -666,8 +662,7 @@ function _labor_infost_work_details:insert(index, item) end
 ---@param index integer 
 function _labor_infost_work_details:erase(index) end
 
----@class (exact) plotinfost: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost: DFStruct
 ---@field _type _plotinfost
 ---@field game_state number ctor 86e33c0 x<br>dtor 8534190
 ---@field lost_to_siege_civ number References: `historical_entity`
@@ -753,12 +748,11 @@ function _labor_infost_work_details:erase(index) end
 ---@field selected_farm_crops DFNumberVector valid for the currently queried farm plot
 ---@field available_seeds _plotinfost_available_seeds
 
----@class _plotinfost: DFCompound
+---@class _plotinfost: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost = {}
 
----@class (exact) plotinfost.T_tax_collection: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_tax_collection: DFStruct
 ---@field _type _plotinfost.T_tax_collection
 ---@field state number bay12: plotinfo_taxinfost
 ---@field check_timer number
@@ -778,12 +772,11 @@ df.plotinfost = {}
 ---@field guard2 unit
 ---@field guard_lack_complained number
 
----@class _plotinfost.T_tax_collection: DFCompound
+---@class _plotinfost.T_tax_collection: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_tax_collection = {}
 
----@class (exact) plotinfost.T_nobles: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_nobles: DFStruct
 ---@field _type _plotinfost.T_nobles
 ---@field unk_1 number bay12: plotinfo_positionst
 ---@field manager_cooldown number 0-1008
@@ -791,7 +784,7 @@ df.plotinfost.T_tax_collection = {}
 ---@field bookkeeper_precision number
 ---@field bookkeeper_settings plotinfost.T_nobles.T_bookkeeper_settings
 
----@class _plotinfost.T_nobles: DFCompound
+---@class _plotinfost.T_nobles: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_nobles = {}
 
@@ -813,7 +806,7 @@ df.plotinfost.T_nobles = {}
 ---| plotinfost.T_nobles.T_bookkeeper_settings_keys
 ---| plotinfost.T_nobles.T_bookkeeper_settings_values
 
----@class _plotinfost.T_nobles.T_bookkeeper_settings: DFEnum
+---@class _plotinfost.T_nobles.T_bookkeeper_settings: DFEnumType
 ---@field nearest_10 0
 ---@field [0] "nearest_10"
 ---@field nearest_100 1
@@ -874,13 +867,12 @@ function _plotinfost_dip_meeting_info:insert(index, item) end
 ---@param index integer 
 function _plotinfost_dip_meeting_info:erase(index) end
 
----@class (exact) plotinfost.T_invasions: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_invasions: DFStruct
 ---@field _type _plotinfost.T_invasions
 ---@field list _plotinfost_invasions_list
 ---@field next_id number
 
----@class _plotinfost.T_invasions: DFCompound
+---@class _plotinfost.T_invasions: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_invasions = {}
 
@@ -964,8 +956,7 @@ function _plotinfost_dipscript_popups:insert(index, item) end
 ---@param index integer 
 function _plotinfost_dipscript_popups:erase(index) end
 
----@class (exact) plotinfost.T_kitchen: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_kitchen: DFStruct
 ---@field _type _plotinfost.T_kitchen
 ---@field item_types _plotinfost_kitchen_item_types
 ---@field item_subtypes DFNumberVector
@@ -973,7 +964,7 @@ function _plotinfost_dipscript_popups:erase(index) end
 ---@field mat_indices DFNumberVector
 ---@field exc_types _plotinfost_kitchen_exc_types
 
----@class _plotinfost.T_kitchen: DFCompound
+---@class _plotinfost.T_kitchen: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_kitchen = {}
 
@@ -1063,18 +1054,16 @@ function _plotinfost_farm_seasons:insert(index, item) end
 ---@param index integer 
 function _plotinfost_farm_seasons:erase(index) end
 
----@class (exact) plotinfost.T_economy_prices: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_economy_prices: DFStruct
 ---@field _type _plotinfost.T_economy_prices
 ---@field price_adjustment plotinfost.T_economy_prices.T_price_adjustment
 ---@field price_setter plotinfost.T_economy_prices.T_price_setter
 
----@class _plotinfost.T_economy_prices: DFCompound
+---@class _plotinfost.T_economy_prices: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices = {}
 
----@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFStruct
 ---@field _type _plotinfost.T_economy_prices.T_price_adjustment
 ---@field general_items DFNumberVector
 ---@field weapons DFNumberVector
@@ -1109,12 +1098,11 @@ df.plotinfost.T_economy_prices = {}
 ---@field cheese_plant DFNumberVector
 ---@field pets DFNumberVector
 
----@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompound
+---@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_adjustment = {}
 
----@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFStruct
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
 ---@field general_items _plotinfost_economy_prices_price_setter_general_items
 ---@field weapons _plotinfost_economy_prices_price_setter_weapons
@@ -1149,7 +1137,7 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@field cheese_plant _plotinfost_economy_prices_price_setter_cheese_plant
 ---@field pets _plotinfost_economy_prices_price_setter_pets
 
----@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
+---@class _plotinfost.T_economy_prices.T_price_setter: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_setter = {}
 
@@ -1665,29 +1653,26 @@ function _plotinfost_economy_prices_price_setter_pets:insert(index, item) end
 ---@param index integer 
 function _plotinfost_economy_prices_price_setter_pets:erase(index) end
 
----@class (exact) plotinfost.T_stockpile: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_stockpile: DFStruct
 ---@field _type _plotinfost.T_stockpile
 ---@field reserved_bins number
 ---@field reserved_barrels number
 ---@field custom_settings stockpile_settings
 
----@class _plotinfost.T_stockpile: DFCompound
+---@class _plotinfost.T_stockpile: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_stockpile = {}
 
----@class (exact) plotinfost.T_unk2a8c: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_unk2a8c: DFStruct
 ---@field _type _plotinfost.T_unk2a8c
 ---@field unk1 number
 ---@field unk2 number
 
----@class _plotinfost.T_unk2a8c: DFCompound
+---@class _plotinfost.T_unk2a8c: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_unk2a8c = {}
 
----@class (exact) plotinfost.T_map_edge: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_map_edge: DFStruct
 ---@field _type _plotinfost.T_map_edge
 ---@field layer_x number[]
 ---@field surface_x DFNumberVector
@@ -1696,12 +1681,11 @@ df.plotinfost.T_unk2a8c = {}
 ---@field layer_z number[]
 ---@field surface_z DFNumberVector
 
----@class _plotinfost.T_map_edge: DFCompound
+---@class _plotinfost.T_map_edge: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_map_edge = {}
 
----@class (exact) plotinfost.T_waypoints: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_waypoints: DFStruct
 ---@field _type _plotinfost.T_waypoints
 ---@field points _plotinfost_waypoints_points
 ---@field routes _plotinfost_waypoints_routes
@@ -1721,7 +1705,7 @@ df.plotinfost.T_map_edge = {}
 ---@field in_edit_waypts_mode boolean
 ---@field unk_42_06 _plotinfost_waypoints_unk_42_06
 
----@class _plotinfost.T_waypoints: DFCompound
+---@class _plotinfost.T_waypoints: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_waypoints = {}
 
@@ -1773,8 +1757,7 @@ function _plotinfost_waypoints_unk_42_06:insert(index, item) end
 ---@param index integer 
 function _plotinfost_waypoints_unk_42_06:erase(index) end
 
----@class (exact) plotinfost.T_burrows: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_burrows: DFStruct
 ---@field _type _plotinfost.T_burrows
 ---@field list _plotinfost_burrows_list
 ---@field next_id number
@@ -1795,7 +1778,7 @@ function _plotinfost_waypoints_unk_42_06:erase(index) end
 ---@field sym_fg_color number
 ---@field sym_bg_color number
 
----@class _plotinfost.T_burrows: DFCompound
+---@class _plotinfost.T_burrows: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_burrows = {}
 
@@ -1847,8 +1830,7 @@ function _plotinfost_burrows_sel_units:insert(index, item) end
 ---@param index integer 
 function _plotinfost_burrows_sel_units:erase(index) end
 
----@class (exact) plotinfost.T_alerts: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_alerts: DFStruct
 ---@field _type _plotinfost.T_alerts
 ---@field list _plotinfost_alerts_list
 ---@field next_id number
@@ -1856,7 +1838,7 @@ function _plotinfost_burrows_sel_units:erase(index) end
 ---@field next_routine_id number
 ---@field civ_alert_idx number
 
----@class _plotinfost.T_alerts: DFCompound
+---@class _plotinfost.T_alerts: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_alerts = {}
 
@@ -1892,8 +1874,7 @@ function _plotinfost_alerts_routines:insert(index, item) end
 ---@param index integer 
 function _plotinfost_alerts_routines:erase(index) end
 
----@class (exact) plotinfost.T_equipment: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_equipment: DFStruct
 ---@field _type _plotinfost.T_equipment
 ---@field items_unmanifested DFEnumVector<item_type, number>
 ---@field items_unassigned DFEnumVector<item_type, number>
@@ -1906,7 +1887,7 @@ function _plotinfost_alerts_routines:erase(index) end
 ---@field ammo_units DFNumberVector
 ---@field training_assignments _plotinfost_equipment_training_assignments sorted by animal_id
 
----@class _plotinfost.T_equipment: DFCompound
+---@class _plotinfost.T_equipment: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_equipment = {}
 
@@ -1942,8 +1923,7 @@ function _plotinfost_equipment_training_assignments:insert(index, item) end
 ---@param index integer 
 function _plotinfost_equipment_training_assignments:erase(index) end
 
----@class (exact) plotinfost.T_hauling: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_hauling: DFStruct
 ---@field _type _plotinfost.T_hauling
 ---@field routes _plotinfost_hauling_routes
 ---@field next_id number
@@ -1958,7 +1938,7 @@ function _plotinfost_equipment_training_assignments:erase(index) end
 ---@field nickname_route_id number
 ---@field nickname_stop_id number
 
----@class _plotinfost.T_hauling: DFCompound
+---@class _plotinfost.T_hauling: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_hauling = {}
 
@@ -2100,8 +2080,7 @@ function _plotinfost_tutorial_seen:insert(index, item) end
 ---@param index integer 
 function _plotinfost_tutorial_seen:erase(index) end
 
----@class (exact) plotinfost.T_main: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_main: DFStruct
 ---@field _type _plotinfost.T_main
 ---@field hotkeys ui_hotkey[]
 ---@field traffic_cost_high number 0.50.01
@@ -2126,7 +2105,7 @@ function _plotinfost_tutorial_seen:erase(index) end
 ---@field selected_hotkey number
 ---@field in_rename_hotkey boolean
 
----@class _plotinfost.T_main: DFCompound
+---@class _plotinfost.T_main: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_main = {}
 
@@ -2146,19 +2125,17 @@ function _plotinfost_main_dead_citizens:insert(index, item) end
 ---@param index integer 
 function _plotinfost_main_dead_citizens:erase(index) end
 
----@class (exact) plotinfost.T_main.T_save_progress: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_main.T_save_progress: DFStruct
 ---@field _type _plotinfost.T_main.T_save_progress
 ---@field substage save_substage
 ---@field stage number
 ---@field info nemesis_offload
 
----@class _plotinfost.T_main.T_save_progress: DFCompound
+---@class _plotinfost.T_main.T_save_progress: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_main.T_save_progress = {}
 
----@class (exact) plotinfost.T_squads: DFObject
----@field _kind 'struct'
+---@class (exact) plotinfost.T_squads: DFStruct
 ---@field _type _plotinfost.T_squads
 ---@field list _plotinfost_squads_list valid only when ui is displayed
 ---@field unk6e08 _plotinfost_squads_unk6e08
@@ -2182,7 +2159,7 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field in_kill_rect boolean
 ---@field rect_start coord
 
----@class _plotinfost.T_squads: DFCompound
+---@class _plotinfost.T_squads: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_squads = {}
 
@@ -2326,7 +2303,7 @@ function _plotinfost_available_seeds:erase(index) end
 ---| timed_event_type_keys
 ---| timed_event_type_values
 
----@class _timed_event_type: DFEnum
+---@class _timed_event_type: DFEnumType
 ---@field Caravan 0
 ---@field [0] "Caravan"
 ---@field Migrants 1
@@ -2349,8 +2326,7 @@ function _plotinfost_available_seeds:erase(index) end
 ---@field [9] "TributeCaravan"
 df.timed_event_type = {}
 
----@class (exact) timed_event: DFObject
----@field _kind 'struct'
+---@class (exact) timed_event: DFStruct
 ---@field _type _timed_event
 ---@field type timed_event_type
 ---@field season season
@@ -2361,12 +2337,11 @@ df.timed_event_type = {}
 ---@field feature_ax number
 ---@field feature_ay number
 
----@class _timed_event: DFCompound
+---@class _timed_event: DFCompoundType
 ---@field _kind 'struct-type'
 df.timed_event = {}
 
----@class (exact) map_viewport: DFObject
----@field _kind 'struct'
+---@class (exact) map_viewport: DFStruct
 ---@field _type _map_viewport
 ---@field adv_mode boolean
 ---@field unk1 boolean
@@ -2381,12 +2356,11 @@ df.timed_event = {}
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
 
----@class _map_viewport: DFCompound
+---@class _map_viewport: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_viewport = {}
 
----@class (exact) map_renderer: DFObject
----@field _kind 'struct'
+---@class (exact) map_renderer: DFStruct
 ---@field _type _map_renderer
 ---@field entity integer[][]
 ---@field unk_v50_1 number[][]
@@ -2414,7 +2388,7 @@ df.map_viewport = {}
 ---@field unk_6 number
 ---@field unk_7 number
 
----@class _map_renderer: DFCompound
+---@class _map_renderer: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_renderer = {}
 
@@ -2434,13 +2408,12 @@ function _map_renderer_cursor_units:insert(index, item) end
 ---@param index integer 
 function _map_renderer_cursor_units:erase(index) end
 
----@class (exact) map_renderer.T_unk_4: DFObject
----@field _kind 'struct'
+---@class (exact) map_renderer.T_unk_4: DFStruct
 ---@field _type _map_renderer.T_unk_4
 ---@field x number
 ---@field y number
 
----@class _map_renderer.T_unk_4: DFCompound
+---@class _map_renderer.T_unk_4: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_renderer.T_unk_4 = {}
 
