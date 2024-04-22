@@ -5,44 +5,13 @@
 require 'nokogiri'
 
 require_relative 'lua_ls'
+require_relative 'cpp'
+
 require_relative 'parser'
 
 DEBUG = ARGV.intersect?(['--debug', '-D'])
 
 FILE_HEADER = "-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
-
-TYPE_MAP = {
-  'int8_t' => 'number',
-  'uint8_t' => 'integer',
-  'int16_t' => 'number',
-  'uint16_t' => 'integer',
-  'int32_t' => 'number',
-  'uint32_t' => 'integer',
-  'int64_t' => 'number',
-  'uint64_t' => 'integer',
-  'size_t' => 'integer',
-  # 'enum-item' => 'integer',
-  # 'flag-bit' => 'integer',
-  'pointer' => 'integer',
-  # 'padding' => 'integer',
-  # 'stl-vector' => 'integer',
-  's-float' => 'number',
-  'd-float' => 'number',
-  'long' => 'number',
-  'ulong' => 'number',
-  'ptr-string' => 'DFPointer<string>',
-  'static-string' => 'string',
-  'stl-string' => 'string',
-  'bool' => 'boolean'
-  # 'stl-bit-vector' => 'boolean',
-  # 'df-flagarray' => 'boolean',
-  # 'stl-function' => 'function',
-  # 'stl-mutex' => 'lightuserdata',
-  # 'stl-condition-variable' => 'lightuserdata',
-  # 'stl-deque' => 'lightuserdata',
-  # 'stl-fstream' => 'lightuserdata',
-  # 'stl-unordered-map' => 'lightuserdata'
-}.freeze
 
 HANDLERS = {
   'enum-type' => DFHackLuaDefinitions::EnumType,
@@ -52,6 +21,61 @@ HANDLERS = {
   'compound' => DFHackLuaDefinitions::StructType,
   'global' => DFHackLuaDefinitions::Field
 }.freeze
+
+# WIP, volatile, here be Carps, you have been warned etc.
+def parse_cpp_modules(files)
+  ignored_modules = %w[internal console]
+
+  file = File.read(files)
+
+  file.scan(/^static.*module\[\][\s\S]+?};/) do |cpp_module|
+    module_name = cpp_module[/\S+(?=_module\[\])/].gsub('dfhack_', '')
+
+    next if ignored_modules.include? module_name
+
+    module_file = if module_name == 'dfhack'
+                    file
+                  else
+                    File.read("#{File.dirname(files)}/modules/#{module_name.capitalize}.cpp")
+                  end
+
+    File.open("dist/library/modules/#{module_name}.lua", 'w') do |output|
+      output << FILE_HEADER
+      output << "---@meta\n\n"
+
+      output << "---@class #{module_name}\n"
+      prefix = module_name == 'dfhack' ? '' : 'dfhack.'
+      output << "#{prefix}#{module_name} = {}\n\n"
+
+      cpp_module.scan(/(?:WRAP|WRAPM)\((.+)?\),?/) do |function_name,|
+        function_name = Regexp.last_match(1) if function_name =~ /,\s?(\S+)/
+        signature = "#{module_name.capitalize}::#{function_name}"
+
+        module_file[/^(?:static)?(\S+)\s+\S?#{signature}\s?\(([^)]+)?\)/]
+        # binding.irb if function_name == 'dhasSupport'
+        return_type = DFHackLuaDefinitions::CPP.parse_type(Regexp.last_match(1))
+        arguments = Regexp.last_match(2)&.gsub(/const\s|[*&]/, '')&.split(',')&.map(&:strip)
+        # binding.irb if function_name == 'chdirfun'
+
+        arguments = arguments&.map do |argument|
+          type, name = argument.split(' ')
+          {
+            name: DFHackLuaDefinitions::LuaLS.safe_name(DFHackLuaDefinitions::CPP.sanitize(name)),
+            type: DFHackLuaDefinitions::CPP.parse_type(type)
+          }
+        end
+
+        arguments&.each do |argument|
+          output << "---@param #{argument[:name]} #{argument[:type]} \n"
+        end
+        output << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
+        output << "function #{prefix}#{module_name}:#{function_name}("
+        output << arguments&.map { |arg| arg[:name] }&.join(', ')
+        output << ") end\n\n"
+      end
+    end
+  end
+end
 
 # Mostly temporary, cleans DFHack's Lua files and outputs globals and function
 # names.
@@ -151,7 +175,7 @@ def parse_xml_files(files)
 
     # Convert all primitive types to Lua types.
     document.xpath('//@type-name | //@base-type | //@ret-type').each do |type|
-      type.value = TYPE_MAP[type.value] if TYPE_MAP[type.value]
+      type.value = DFHackLuaDefinitions::CPP::TYPE_MAP[type.value] if DFHackLuaDefinitions::CPP::TYPE_MAP[type.value]
     end
 
     # Parse the document again after changes to validate.
@@ -192,11 +216,15 @@ end
 # Documentation for the DFHack Lua API can be found here:
 # https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
 def generate_annotations
-  print "Parsing dfhack lua library\n"
+  print "Parsing DFHack C++ modules\n"
+  lua_api = './dfhack/library/LuaApi.cpp'
+  parse_cpp_modules(lua_api)
+
+  print "Parsing DFHack Lua library\n"
   library_files = Dir.glob('./dfhack/library/lua/**/*.lua')
   parse_lua_files(library_files)
 
-  print "Parsing df-structures\n"
+  print "Parsing DF-Structures XML files\n"
   structure_files = Dir.glob('./df-structures/df.*.xml')
   parse_xml_files(structure_files)
 end
