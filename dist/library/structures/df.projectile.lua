@@ -136,6 +136,28 @@ df.projectile_flags = {}
 ---@field accel_x number
 ---@field accel_y number
 ---@field accel_z number
+local projectile
+
+---@nodiscard
+---@return projectile_type
+function projectile:getType() end
+
+---@nodiscard
+---@return boolean
+function projectile:checkImpact() end
+
+---@nodiscard
+---@return boolean
+function projectile:checkMovement() end
+
+function projectile:read_file() end
+
+function projectile:write_file() end
+
+---@nodiscard
+---@return boolean
+function projectile:isObjectLost() end
+
 
 ---@class _projectile: DFCompoundType
 ---@field _kind 'class-type'

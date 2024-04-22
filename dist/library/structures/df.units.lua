@@ -2112,6 +2112,24 @@ df.unit_active_animation_flags = {}
 ---@field cached_glowtile_type number
 ---@field pool_index integer
 ---@field mtx stl-mutex
+local unit
+
+---@nodiscard
+---@return integer
+function unit:getCreatureTile() end
+
+---@nodiscard
+---@return integer
+function unit:getCorpseTile() end
+
+---@nodiscard
+---@return integer
+function unit:getGlowTile() end
+
+---@nodiscard
+---@return nemesis_record
+function unit:create_nemesis() end
+
 
 ---@class _unit: DFCompoundType
 ---@field _kind 'class-type'

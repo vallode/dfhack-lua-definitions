@@ -540,6 +540,782 @@ df.trade_good_purpose = {}
 ---@field fixed_temp integer
 ---@field weight number if flags.weight_computed
 ---@field weight_fraction number 1e-6
+local item
+
+---@nodiscard
+---@return item_type
+function item:getType() end
+
+---@nodiscard
+---@return number
+function item:getSubtype() end
+
+---@nodiscard
+---@return number
+function item:getMaterial() end
+
+---@nodiscard
+---@return number
+function item:getMaterialIndex() end
+
+function item:setSubtype() end
+
+function item:setMaterial() end
+
+function item:setMaterialIndex() end
+
+---@nodiscard
+---@return number
+function item:getActualMaterial() end
+
+---@nodiscard
+---@return number
+function item:getActualMaterialIndex() end
+
+---@nodiscard
+---@return number
+function item:getRace() end
+
+---@nodiscard
+---@return number
+function item:getCaste() end
+
+---@nodiscard
+---@return number
+function item:getPlantID() end
+
+---@nodiscard
+---@return number
+function item:getGrowthPrint() end
+
+function item:setGrowthPrint() end
+
+---@nodiscard
+---@return number
+function item:getDimension() end
+
+---@nodiscard
+---@return number
+function item:getTotalDimension() end
+
+function item:setDimension() end
+
+---@nodiscard
+---@return boolean
+function item:subtractDimension() end
+
+---@nodiscard
+---@return boolean
+function item:isFoodStorage() end
+
+---@nodiscard
+---@return boolean
+function item:isTrackCart() end
+
+---@nodiscard
+---@return boolean
+function item:isWheelbarrow() end
+
+---@nodiscard
+---@return number
+function item:getVehicleID() end
+
+---@nodiscard
+---@return boolean
+function item:isAmmo() end
+
+---@nodiscard
+---@return item_stockpile_ref
+function item:getStockpile() end
+
+---@nodiscard
+---@return boolean
+function item:containsPlaster() end
+
+---@nodiscard
+---@return boolean
+function item:isPlaster() end
+
+---@nodiscard
+---@return boolean
+function item:getColorOverride() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function item:getHistoryInfo() end
+
+---@nodiscard
+---@return boolean
+function item:hasToolUse() end
+
+---@nodiscard
+---@return boolean
+function item:hasInvertedTile() end
+
+function item:becomePaste() end
+
+function item:becomePressed() end
+
+function item:calculateWeight() end
+
+---@nodiscard
+---@return boolean
+function item:isSharpStone() end
+
+---@nodiscard
+---@return boolean
+function item:isCrystalGlassable() end
+
+---@nodiscard
+---@return boolean
+function item:isMetalOre() end
+
+function item:clearLastTempUpdateTS() end
+
+function item:listNotableKills() end
+
+---@nodiscard
+---@return integer
+function item:getSpecHeat() end
+
+---@nodiscard
+---@return integer
+function item:getIgnitePoint() end
+
+---@nodiscard
+---@return integer
+function item:getHeatdamPoint() end
+
+---@nodiscard
+---@return integer
+function item:getColddamPoint() end
+
+---@nodiscard
+---@return integer
+function item:getBoilingPoint() end
+
+---@nodiscard
+---@return integer
+function item:getMeltingPoint() end
+
+---@nodiscard
+---@return integer
+function item:getFixedTemp() end
+
+---@nodiscard
+---@return number
+function item:getSolidDensity() end
+
+---@nodiscard
+---@return boolean
+function item:materialRots() end
+
+---@nodiscard
+---@return integer
+function item:getTemperature() end
+
+---@nodiscard
+---@return boolean
+function item:adjustTemperature() end
+
+function item:extinguish() end
+
+---@nodiscard
+---@return number
+function item:getGloveHandedness() end
+
+function item:setGloveHandedness() end
+
+---@nodiscard
+---@return boolean
+function item:isSpike() end
+
+---@nodiscard
+---@return boolean
+function item:isScrew() end
+
+---@nodiscard
+---@return boolean
+function item:isBuildMat() end
+
+---@nodiscard
+---@return boolean
+function item:isTemperatureSafe() end
+
+function item:setRandSubtype() end
+
+---@nodiscard
+---@return number
+function item:getWeaponSize() end
+
+---@nodiscard
+---@return number
+function item:getWear() end
+
+function item:setWear() end
+
+---@nodiscard
+---@return number
+function item:getMaker() end
+
+function item:setMaker() end
+
+function item:getCorpseInfo() end
+
+---@nodiscard
+---@return caste_body_info
+function item:getBodyInfo() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function item:getGloveFlags() end
+
+---@nodiscard
+---@return string
+function item:getItemShapeDesc() end
+
+---@nodiscard
+---@return boolean
+function item:isMatchingAmmoItem() end
+
+function item:getImageRef() end
+
+function item:getImageCivSite() end
+
+function item:setImageCivSite() end
+
+function item:setSeedsPlantSkillLevel() end
+
+---@nodiscard
+---@return number
+function item:getCorpseSize() end
+
+---@nodiscard
+---@return boolean
+function item:ageItem() end
+
+---@nodiscard
+---@return number
+function item:getCritterAirdrownTimer() end
+
+function item:setCritterAirdrownTimer() end
+
+function item:incrementCritterAirdrownTimer() end
+
+---@nodiscard
+---@return number
+function item:getRotTimer() end
+
+function item:setRotTimer() end
+
+function item:incrementRotTimer() end
+
+---@nodiscard
+---@return boolean
+function item:isBogeymanCorpse() end
+
+---@nodiscard
+---@return boolean
+function item:testMaterialFlag() end
+
+---@nodiscard
+---@return string
+function item:getAmmoType() end
+
+---@nodiscard
+---@return boolean
+function item:isLiquidPowder() end
+
+---@nodiscard
+---@return boolean
+function item:isLiquid() end
+
+---@nodiscard
+---@return boolean
+function item:isLiveAnimal() end
+
+---@nodiscard
+---@return number
+function item:getVolume() end
+
+---@nodiscard
+---@return itemimprovement
+function item:addImprovementFromJob() end
+
+---@nodiscard
+---@return boolean
+function item:isWeapon() end
+
+---@nodiscard
+---@return boolean
+function item:isArmorNotClothing() end
+
+---@nodiscard
+---@return boolean
+function item:isMillable() end
+
+---@nodiscard
+---@return boolean
+function item:isProcessableThread() end
+
+---@nodiscard
+---@return boolean
+function item:isProcessableVial() end
+
+---@nodiscard
+---@return boolean
+function item:isProcessableBarrel() end
+
+---@nodiscard
+---@return boolean
+function item:isEdiblePlant() end
+
+---@nodiscard
+---@return boolean
+function item:isEdibleRaw() end
+
+---@nodiscard
+---@return boolean
+function item:isEdibleCarnivore() end
+
+---@nodiscard
+---@return boolean
+function item:isEdibleBonecarn() end
+
+---@nodiscard
+---@return boolean
+function item:moveToGround() end
+
+function item:categorize() end
+
+function item:uncategorize() end
+
+---@nodiscard
+---@return boolean
+function item:isFurniture() end
+
+---@nodiscard
+---@return boolean
+function item:isPressed() end
+
+---@nodiscard
+---@return boolean
+function item:isAnimal() end
+
+---@nodiscard
+---@return item_quality
+function item:assignQuality() end
+
+---@nodiscard
+---@return item_quality
+function item:assignQuality2() end
+
+function item:notifyCreatedMasterwork() end
+
+function item:notifyLostMasterwork() end
+
+function item:addMagic() end
+
+function item:magic_unk1() end
+
+function item:magic_unk2() end
+
+function item:magic_unk3() end
+
+function item:magic_unk4() end
+
+function item:setDisplayColor() end
+
+---@nodiscard
+---@return boolean
+function item:isDamagedByHeat() end
+
+---@nodiscard
+---@return boolean
+function item:needTwoHandedWield() end
+
+---@nodiscard
+---@return item
+function item:splitStack() end
+
+---@nodiscard
+---@return boolean
+function item:isTameableVermin() end
+
+---@nodiscard
+---@return boolean
+function item:isDye() end
+
+---@nodiscard
+---@return boolean
+function item:isMilkable() end
+
+---@nodiscard
+---@return boolean
+function item:isSandBearing() end
+
+---@nodiscard
+---@return boolean
+function item:isLyeBearing() end
+
+---@nodiscard
+---@return boolean
+function item:isAnimalProduct() end
+
+function item:getStorageInfo() end
+
+---@nodiscard
+---@return boolean
+function item:addWear() end
+
+---@nodiscard
+---@return boolean
+function item:incWearTimer() end
+
+---@nodiscard
+---@return boolean
+function item:checkWearDestroy() end
+
+function item:addContaminant() end
+
+function item:removeContaminantByIdx() end
+
+function item:removeContaminant() end
+
+function item:tradeUnitContaminants() end
+
+function item:tradeItemContaminants() end
+
+function item:tradeItemContaminants2() end
+
+function item:contaminateWound() end
+
+function item:write_file() end
+
+function item:read_file() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function item:getWeaponAttacks() end
+
+---@nodiscard
+---@return boolean
+function item:isNotHeld() end
+
+---@nodiscard
+---@return boolean
+function item:isSplittable() end
+
+function item:addDefaultThreadImprovement() end
+
+function item:addThreadImprovement() end
+
+function item:propagateUnitRefs() end
+
+---@nodiscard
+---@return boolean
+function item:isSand() end
+
+---@nodiscard
+---@return number
+function item:getStackSize() end
+
+function item:addStackSize() end
+
+function item:setStackSize() end
+
+---@nodiscard
+---@return boolean
+function item:isAmmoClass() end
+
+---@nodiscard
+---@return boolean
+function item:isAutoClean() end
+
+---@nodiscard
+---@return boolean
+function item:setTemperatureFromMapTile() end
+
+---@nodiscard
+---@return boolean
+function item:setTemperatureFromMap() end
+
+---@nodiscard
+---@return boolean
+function item:setTemperature() end
+
+---@nodiscard
+---@return boolean
+function item:updateTempFromMap() end
+
+---@nodiscard
+---@return boolean
+function item:updateTemperature() end
+
+---@nodiscard
+---@return boolean
+function item:updateFromWeather() end
+
+---@nodiscard
+---@return boolean
+function item:updateContaminants() end
+
+---@nodiscard
+---@return boolean
+function item:checkTemperatureDamage() end
+
+---@nodiscard
+---@return boolean
+function item:checkHeatColdDamage() end
+
+---@nodiscard
+---@return boolean
+function item:checkMeltBoil() end
+
+---@nodiscard
+---@return number
+function item:getMeleeSkill() end
+
+---@nodiscard
+---@return number
+function item:getRangedSkill() end
+
+function item:setQuality() end
+
+---@nodiscard
+---@return number
+function item:getQuality() end
+
+---@nodiscard
+---@return number
+function item:getOverallQuality() end
+
+---@nodiscard
+---@return number
+function item:getImprovementQuality() end
+
+---@nodiscard
+---@return number
+function item:getProjectileSize() end
+
+---@nodiscard
+---@return boolean
+function item:isImprovable() end
+
+function item:setSharpness() end
+
+---@nodiscard
+---@return number
+function item:getSharpness() end
+
+---@nodiscard
+---@return boolean
+function item:isTotemable() end
+
+---@nodiscard
+---@return boolean
+function item:isDyeable() end
+
+---@nodiscard
+---@return boolean
+function item:isNotDyed() end
+
+---@nodiscard
+---@return boolean
+function item:isDyed() end
+
+---@nodiscard
+---@return boolean
+function item:canSewImage() end
+
+---@nodiscard
+---@return boolean
+function item:canHaveImageSewnOnto() end
+
+---@nodiscard
+---@return boolean
+function item:isProcessableVialAtStill() end
+
+---@nodiscard
+---@return boolean
+function item:isSimilarToItem() end
+
+---@nodiscard
+---@return number
+function item:getBlockChance() end
+
+---@nodiscard
+---@return number
+function item:getParryChance() end
+
+---@nodiscard
+---@return number
+function item:getMakerRace() end
+
+function item:setMakerRace() end
+
+---@nodiscard
+---@return number
+function item:getEffectiveArmorLevel() end
+
+---@nodiscard
+---@return boolean
+function item:isConstructed() end
+
+---@nodiscard
+---@return boolean
+function item:isItemOrganicCloth() end
+
+---@nodiscard
+---@return boolean
+function item:isMadeOfOrganicCloth() end
+
+function item:coverWithContaminant() end
+
+---@nodiscard
+---@return boolean
+function item:hasSpecificImprovements() end
+
+---@nodiscard
+---@return boolean
+function item:hasImprovements() end
+
+---@nodiscard
+---@return boolean
+function item:isImproved() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function item:getMagic() end
+
+function item:getItemDescription() end
+
+function item:getItemDescriptionPrefix() end
+
+function item:getItemBasicName() end
+
+---@nodiscard
+---@return number
+function item:getImprovementsValue() end
+
+---@nodiscard
+---@return boolean
+function item:isExtractBearingFish() end
+
+---@nodiscard
+---@return boolean
+function item:isExtractBearingVermin() end
+
+---@nodiscard
+---@return number
+function item:getMaterialSizeForMelting() end
+
+---@nodiscard
+---@return number
+function item:getBaseWeight() end
+
+---@nodiscard
+---@return number
+function item:getWeightShiftBits() end
+
+---@nodiscard
+---@return boolean
+function item:isCollected() end
+
+---@nodiscard
+---@return boolean
+function item:isEdibleVermin() end
+
+---@nodiscard
+---@return integer
+function item:drawSelf() end
+
+---@nodiscard
+---@return boolean
+function item:isRangedWeapon() end
+
+---@nodiscard
+---@return boolean
+function item:isClothing() end
+
+---@nodiscard
+---@return boolean
+function item:isWet() end
+
+---@nodiscard
+---@return number
+function item:getCurrencyValue() end
+
+---@nodiscard
+---@return boolean
+function item:isAssignedToStockpile() end
+
+---@nodiscard
+---@return boolean
+function item:isAssignedToThisStockpile() end
+
+function item:detachStockpileAssignment() end
+
+function item:removeStockpileAssignment() end
+
+---@nodiscard
+---@return item_stockpile_ref
+function item:getStockpile2() end
+
+function item:randomizeThreadImprovement() end
+
+function item:addImprovement() end
+
+function item:copyImprovementsFrom() end
+
+---@nodiscard
+---@return number
+function item:getThreadDyeValue() end
+
+function item:getColorAndShape() end
+
+---@nodiscard
+---@return boolean
+function item:isCritter() end
+
+---@nodiscard
+---@return boolean
+function item:isArmor() end
+
+---@nodiscard
+---@return number
+function item:calcUniformScore() end
+
+---@nodiscard
+---@return number
+function item:calcBaseUniformScore() end
+
+---@nodiscard
+---@return slab_engraving_type
+function item:getSlabEngravingType() end
+
+---@nodiscard
+---@return number
+function item:getAbsorption() end
+
+---@nodiscard
+---@return boolean
+function item:isGemMaterial() end
+
+function item:setGemShape() end
+
+---@nodiscard
+---@return boolean
+function item:hasGemShape() end
+
+---@nodiscard
+---@return number
+function item:getGemShape() end
+
+---@nodiscard
+---@return boolean
+function item:hasWriting() end
+
 
 ---@class _item: DFCompoundType
 ---@field _kind 'class-type'

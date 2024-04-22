@@ -217,6 +217,30 @@ df.interaction_effect_location_hint = {}
 ---@field flags interaction_effect.T_flags
 ---@field interaction_id number References: `interaction`
 ---@field arena_name string IE_ARENA_NAME
+local interaction_effect
+
+---@nodiscard
+---@return interaction_effect_type
+function interaction_effect:getType() end
+
+function interaction_effect:write_file() end
+
+function interaction_effect:read_file() end
+
+function interaction_effect:activateOnUnit() end
+
+function interaction_effect:activateOnItem() end
+
+function interaction_effect:parseRaws() end
+
+function interaction_effect:finalize() end
+
+function interaction_effect:applySyndromes() end
+
+---@nodiscard
+---@return boolean
+function interaction_effect:hasSyndrome() end
+
 
 ---@class _interaction_effect: DFCompoundType
 ---@field _kind 'class-type'
@@ -507,6 +531,18 @@ df.interaction_source_type = {}
 ---@field trigger_string_second string IS_TRIGGER_STRING_SECOND
 ---@field trigger_string_third string IS_TRIGGER_STRING_THIRD
 ---@field trigger_string string IS_TRIGGER_STRING
+local interaction_source
+
+---@nodiscard
+---@return interaction_source_type
+function interaction_source:getType() end
+
+function interaction_source:write_file() end
+
+function interaction_source:read_file() end
+
+function interaction_source:parseRaws() end
+
 
 ---@class _interaction_source: DFCompoundType
 ---@field _kind 'class-type'
@@ -836,6 +872,18 @@ df.interaction_target_location_type = {}
 ---@field location interaction_target_location_type IT_LOCATION
 ---@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
 ---@field reference_distance number IT_LOCATION:RANDOM_NEARBY_LOCATION
+local interaction_target
+
+---@nodiscard
+---@return interaction_target_type
+function interaction_target:getType() end
+
+function interaction_target:write_file() end
+
+function interaction_target:read_file() end
+
+function interaction_target:parseRaws() end
+
 
 ---@class _interaction_target: DFCompoundType
 ---@field _kind 'class-type'

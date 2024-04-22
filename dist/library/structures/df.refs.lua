@@ -298,6 +298,70 @@ df.general_ref_type = {}
 
 ---@class (exact) general_ref: DFStruct
 ---@field _type _general_ref
+local general_ref
+
+function general_ref:write_file() end
+
+function general_ref:read_file() end
+
+---@nodiscard
+---@return general_ref_type
+function general_ref:getType() end
+
+---@nodiscard
+---@return item
+function general_ref:getItem() end
+
+---@nodiscard
+---@return unit
+function general_ref:getUnit() end
+
+---@nodiscard
+---@return projectile
+function general_ref:getProjectile() end
+
+---@nodiscard
+---@return building
+function general_ref:getBuilding() end
+
+---@nodiscard
+---@return historical_entity
+function general_ref:getEntity() end
+
+---@nodiscard
+---@return artifact_record
+function general_ref:getArtifact() end
+
+---@nodiscard
+---@return nemesis_record
+function general_ref:getNemesis() end
+
+---@nodiscard
+---@return activity_event
+function general_ref:getEvent() end
+
+function general_ref:setID() end
+
+---@nodiscard
+---@return number
+function general_ref:getID() end
+
+function general_ref:setLocation() end
+
+function general_ref:getLocation() end
+
+---@nodiscard
+---@return general_ref
+function general_ref:clone() end
+
+function general_ref:generateTitle() end
+
+function general_ref:getDescription() end
+
+function general_ref:getDescription2() end
+
+function general_ref:getDescription3() end
+
 
 ---@class _general_ref: DFCompoundType
 ---@field _kind 'class-type'
@@ -1130,6 +1194,34 @@ df.histfig_entity_link_type = {}
 ---@field entity_id number References: `historical_entity`
 ---@field entity_vector_idx number
 ---@field link_strength number
+local histfig_entity_link
+
+---@nodiscard
+---@return histfig_entity_link_type
+function histfig_entity_link:getType() end
+
+function histfig_entity_link:write_file() end
+
+function histfig_entity_link:read_file() end
+
+---@nodiscard
+---@return number
+function histfig_entity_link:getPosition() end
+
+---@nodiscard
+---@return number
+function histfig_entity_link:getOccupation() end
+
+---@nodiscard
+---@return number
+function histfig_entity_link:getPositionStartYear() end
+
+---@nodiscard
+---@return number
+function histfig_entity_link:getPositionEndYear() end
+
+function histfig_entity_link:generate_xml() end
+
 
 ---@class _histfig_entity_link: DFCompoundType
 ---@field _kind 'class-type'
@@ -1329,6 +1421,18 @@ df.histfig_site_link_type = {}
 ---@field site number References: `world_site`
 ---@field sub_id number from XML
 ---@field entity number References: `historical_entity`
+local histfig_site_link
+
+---@nodiscard
+---@return histfig_site_link_type
+function histfig_site_link:getType() end
+
+function histfig_site_link:write_file() end
+
+function histfig_site_link:read_file() end
+
+function histfig_site_link:generate_xml() end
+
 
 ---@class _histfig_site_link: DFCompoundType
 ---@field _kind 'class-type'
@@ -1484,6 +1588,18 @@ df.histfig_hf_link_type = {}
 ---@field _type _histfig_hf_link
 ---@field target_hf number References: `historical_figure`
 ---@field link_strength number
+local histfig_hf_link
+
+---@nodiscard
+---@return histfig_hf_link_type
+function histfig_hf_link:getType() end
+
+function histfig_hf_link:write_file() end
+
+function histfig_hf_link:read_file() end
+
+function histfig_hf_link:generate_xml() end
+
 
 ---@class _histfig_hf_link: DFCompoundType
 ---@field _kind 'class-type'

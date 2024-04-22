@@ -1515,6 +1515,16 @@ df.mental_picture_property_type = {}
 ---@class (exact) mental_picture_propertyst: DFStruct
 ---@field _type _mental_picture_propertyst
 ---@field unk_0 number
+local mental_picture_propertyst
+
+---@nodiscard
+---@return mental_picture_property_type
+function mental_picture_propertyst:getType() end
+
+function mental_picture_propertyst:write_file() end
+
+function mental_picture_propertyst:read_file() end
+
 
 ---@class _mental_picture_propertyst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1632,6 +1642,16 @@ df.mental_picture_element_type = {}
 ---@class (exact) mental_picture_elementst: DFStruct
 ---@field _type _mental_picture_elementst
 ---@field unk_1 number
+local mental_picture_elementst
+
+---@nodiscard
+---@return mental_picture_element_type
+function mental_picture_elementst:getType() end
+
+function mental_picture_elementst:write_file() end
+
+function mental_picture_elementst:read_file() end
+
 
 ---@class _mental_picture_elementst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2920,6 +2940,106 @@ df.merc_role_type = {}
 ---@field seconds number
 ---@field flags _history_event_flags
 ---@field id number
+local history_event
+
+---@nodiscard
+---@return history_event_type
+function history_event:getType() end
+
+---@nodiscard
+---@return number
+function history_event:getWarStatus() end
+
+---@nodiscard
+---@return number
+function history_event:getAngerModifier() end
+
+---@nodiscard
+---@return number
+function history_event:getHappinessModifier() end
+
+---@nodiscard
+---@return boolean
+function history_event:madeFirstContact() end
+
+---@nodiscard
+---@return number
+function history_event:getKilledHistfigID() end
+
+---@nodiscard
+---@return boolean
+function history_event:wasHistfigKilled() end
+
+---@nodiscard
+---@return boolean
+function history_event:wasHistfigRevived() end
+
+function history_event:getRelatedHistfigIDs() end
+
+function history_event:getRelatedSiteIDs() end
+
+function history_event:getRelatedSiteStructureIDs() end
+
+function history_event:getRelatedArtifactIDs() end
+
+function history_event:getRelatedRegionIDs() end
+
+function history_event:getRelatedLayerIDs() end
+
+function history_event:getRelatedEntityIDs() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToHistfigID() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToSiteID() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToSiteStructure() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToArtifactID() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToRegionID() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToLayerID() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToAgreementID() end
+
+---@nodiscard
+---@return boolean
+function history_event:isRelatedToEntityID() end
+
+function history_event:getSentence() end
+
+function history_event:getPhrase() end
+
+function history_event:populateArtImage() end
+
+---@nodiscard
+---@return boolean
+function history_event:isChangedHistfigID() end
+
+function history_event:categorize() end
+
+function history_event:uncategorize() end
+
+function history_event:generate_xml() end
+
+function history_event:write_file() end
+
+function history_event:read_file() end
+
 
 ---@class _history_event: DFCompoundType
 ---@field _kind 'class-type'
@@ -5828,6 +5948,36 @@ df.history_event_collection_type = {}
 ---@field end_seconds number
 ---@field flags _history_event_collection_flags
 ---@field id number
+local history_event_collection
+
+---@nodiscard
+---@return history_event_collection_type
+function history_event_collection:getType() end
+
+function history_event_collection:generate_xml() end
+
+function history_event_collection:write_file() end
+
+function history_event_collection:read_file() end
+
+function history_event_collection:categorize() end
+
+function history_event_collection:uncategorize() end
+
+function history_event_collection:getName() end
+
+function history_event_collection:getRegionCoords() end
+
+---@nodiscard
+---@return number
+function history_event_collection:getParent() end
+
+---@nodiscard
+---@return number
+function history_event_collection:isBetweenEntities() end
+
+function history_event_collection:updateEndTime() end
+
 
 ---@class _history_event_collection: DFCompoundType
 ---@field _kind 'class-type'

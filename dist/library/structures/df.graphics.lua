@@ -667,6 +667,52 @@ df.interface_setst = {}
 ---@field screentexpos_top_flag_old integer
 ---@field directtexcopy_old integer
 ---@field screentexpos_refresh_buffer number
+local renderer
+
+function renderer:update_tile() end
+
+function renderer:update_anchor_tile() end
+
+function renderer:update_top_tile() end
+
+function renderer:update_top_anchor_tile() end
+
+function renderer:update_viewport_tile() end
+
+function renderer:update_map_port_tile() end
+
+function renderer:update_all() end
+
+function renderer:do_blank_screen_fill() end
+
+function renderer:update_full_viewport() end
+
+function renderer:update_full_map_port() end
+
+function renderer:clean_tile_cache() end
+
+function renderer:render() end
+
+function renderer:set_fullscreen() end
+
+function renderer:zoom() end
+
+function renderer:resize() end
+
+function renderer:grid_resize() end
+
+function renderer:set_viewport_zoom_factor() end
+
+---@nodiscard
+---@return boolean
+function renderer:get_precise_mouse_coords() end
+
+function renderer:get_current_interface_tile_dims() end
+
+---@nodiscard
+---@return boolean
+function renderer:uses_opengl() end
+
 
 ---@class _renderer: DFCompoundType
 ---@field _kind 'class-type'
@@ -695,6 +741,12 @@ df.renderer = {}
 ---@field forced_steps number
 ---@field natural_w number
 ---@field natural_h number
+local renderer_2d_base
+
+---@nodiscard
+---@return boolean
+function renderer_2d_base:init_video() end
+
 
 ---@class _renderer_2d_base: DFCompoundType
 ---@field _kind 'class-type'
@@ -815,6 +867,12 @@ df.zoom_commands = {}
 ---@field clock integer note: this is a std::atomic_int
 ---@field mouse_focus boolean
 ---@field last_text_input integer[]
+local enabler
+
+---@nodiscard
+---@return string
+function enabler:GetKeyDisplay() end
+
 
 ---@class _enabler: DFCompoundType
 ---@field _kind 'class-type'

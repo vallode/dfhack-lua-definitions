@@ -150,7 +150,7 @@ def parse_xml_files(files)
     end
 
     # Convert all primitive types to Lua types.
-    document.xpath('//@type-name | //@base-type').each do |type|
+    document.xpath('//@type-name | //@base-type | //@ret-type').each do |type|
       type.value = TYPE_MAP[type.value] if TYPE_MAP[type.value]
     end
 

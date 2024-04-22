@@ -319,6 +319,36 @@ df.abstract_building_contents.T_need_more = {}
 ---@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
 ---@field pos coord2d
 ---@field occupations _abstract_building_occupations
+local abstract_building
+
+---@nodiscard
+---@return abstract_building_type
+function abstract_building:getType() end
+
+function abstract_building:getDisplayTile() end
+
+---@nodiscard
+---@return language_name
+function abstract_building:getName() end
+
+---@nodiscard
+---@return abstract_building_contents
+function abstract_building:getContents() end
+
+function abstract_building:write_file() end
+
+function abstract_building:read_file() end
+
+---@nodiscard
+---@return number
+function abstract_building:getReligionID() end
+
+---@nodiscard
+---@return abstract_building_entombed
+function abstract_building:getEntombed() end
+
+function abstract_building:generate_xml() end
+
 
 ---@class _abstract_building: DFCompoundType
 ---@field _kind 'class-type'
@@ -2476,6 +2506,16 @@ function _site_realization_building_unk_60:erase(index) end
 
 ---@class (exact) site_realization_building_infost: DFStruct
 ---@field _type _site_realization_building_infost
+local site_realization_building_infost
+
+---@nodiscard
+---@return site_realization_building_type
+function site_realization_building_infost:getType() end
+
+function site_realization_building_infost:write_file() end
+
+function site_realization_building_infost:read_file() end
+
 
 ---@class _site_realization_building_infost: DFCompoundType
 ---@field _kind 'class-type'
@@ -2905,6 +2945,16 @@ df.creation_zone_pwg_alteration_type = {}
 ---@class (exact) creation_zone_pwg_alterationst: DFStruct
 ---@field _type _creation_zone_pwg_alterationst
 ---@field unk_0 number
+local creation_zone_pwg_alterationst
+
+---@nodiscard
+---@return creation_zone_pwg_alteration_type
+function creation_zone_pwg_alterationst:getType() end
+
+function creation_zone_pwg_alterationst:write_file() end
+
+function creation_zone_pwg_alterationst:read_file() end
+
 
 ---@class _creation_zone_pwg_alterationst: DFCompoundType
 ---@field _kind 'class-type'

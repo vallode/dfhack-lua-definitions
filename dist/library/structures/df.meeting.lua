@@ -82,6 +82,20 @@ df.dipscript_popup.T_flags = {}
 ---@class (exact) script_stepst: DFStruct
 ---@field _type _script_stepst
 ---@field next_step_idx number
+local script_stepst
+
+---@nodiscard
+---@return boolean
+function script_stepst:setNextStep() end
+
+---@nodiscard
+---@return number
+function script_stepst:execute() end
+
+---@nodiscard
+---@return number
+function script_stepst:skip() end
+
 
 ---@class _script_stepst: DFCompoundType
 ---@field _kind 'class-type'
@@ -197,6 +211,12 @@ df.script_step_eventst = {}
 ---@class (exact) script_varst: DFStruct
 ---@field _type _script_varst
 ---@field name string
+local script_varst
+
+---@nodiscard
+---@return active_script_varst
+function script_varst:instantiate() end
+
 
 ---@class _script_varst: DFCompoundType
 ---@field _kind 'class-type'
@@ -219,6 +239,22 @@ df.script_var_longst = {}
 ---@class (exact) active_script_varst: DFStruct
 ---@field _type _active_script_varst
 ---@field name string
+local active_script_varst
+
+function active_script_varst:setColor() end
+
+function active_script_varst:formatString() end
+
+function active_script_varst:getValue() end
+
+function active_script_varst:setValue() end
+
+function active_script_varst:removeUnit() end
+
+function active_script_varst:write_file() end
+
+function active_script_varst:read_file() end
+
 
 ---@class _active_script_varst: DFCompoundType
 ---@field _kind 'class-type'
@@ -859,6 +895,72 @@ df.activity_event_building_role_type = {}
 ---@field flags activity_event.T_flags
 ---@field item _activity_event_item
 ---@field building _activity_event_building
+local activity_event
+
+---@nodiscard
+---@return activity_event_type
+function activity_event:getType() end
+
+function activity_event:write_file() end
+
+function activity_event:read_file() end
+
+---@nodiscard
+---@return boolean
+function activity_event:isEmpty() end
+
+---@nodiscard
+---@return number
+function activity_event:get_building_id() end
+
+function activity_event:set_building_id() end
+
+---@nodiscard
+---@return activity_event_participants
+function activity_event:getParticipantInfo() end
+
+function activity_event:dismiss() end
+
+function activity_event:move() end
+
+function activity_event:removeParticipant() end
+
+function activity_event:follow_order() end
+
+---@nodiscard
+---@return number
+function activity_event:checkDrillInvalid() end
+
+---@nodiscard
+---@return boolean
+function activity_event:decUniformLock() end
+
+---@nodiscard
+---@return squad_event_type
+function activity_event:getSquadEventType() end
+
+function activity_event:setDemoSkill() end
+
+function activity_event:setSkillDemoTimers() end
+
+function activity_event:adjustOrganizeCounter() end
+
+function activity_event:getOrganizer() end
+
+---@nodiscard
+---@return number
+function activity_event:getBuilding() end
+
+---@nodiscard
+---@return boolean
+function activity_event:isSparring() end
+
+---@nodiscard
+---@return number
+function activity_event:getUniformType() end
+
+function activity_event:getName() end
+
 
 ---@class _activity_event: DFCompoundType
 ---@field _kind 'class-type'
@@ -1674,6 +1776,12 @@ function _activity_event_performancest_play_orders:erase(index) end
 ---@field unk_3 number
 ---@field unk_4 _performance_play_orderst_unk_4
 ---@field unk_5 number
+local performance_play_orderst
+
+function performance_play_orderst:write_file() end
+
+function performance_play_orderst:read_file() end
+
 
 ---@class _performance_play_orderst: DFCompoundType
 ---@field _kind 'class-type'

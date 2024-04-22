@@ -24,6 +24,14 @@
 ---@field build_labors _building_def_build_labors
 ---@field labor_description string
 ---@field build_stages number
+local building_def
+
+function building_def:parseRaws() end
+
+function building_def:categorize() end
+
+function building_def:finalize() end
+
 
 ---@class _building_def: DFCompoundType
 ---@field _kind 'class-type'

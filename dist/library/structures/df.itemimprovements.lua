@@ -94,6 +94,36 @@ df.dye_info = {}
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 number
+local itemimprovement
+
+---@nodiscard
+---@return art_image
+function itemimprovement:getImage() end
+
+function itemimprovement:getColorAndShape() end
+
+---@nodiscard
+---@return itemimprovement
+function itemimprovement:clone() end
+
+function itemimprovement:write_file() end
+
+function itemimprovement:read_file() end
+
+---@nodiscard
+---@return improvement_type
+function itemimprovement:getType() end
+
+---@nodiscard
+---@return boolean
+function itemimprovement:isDecoration() end
+
+---@nodiscard
+---@return number
+function itemimprovement:getDyeValue() end
+
+function itemimprovement:setShape() end
+
 
 ---@class _itemimprovement: DFCompoundType
 ---@field _kind 'class-type'

@@ -485,6 +485,280 @@ df.building_drawbuffer = {}
 ---@field unk_v40_2 number
 ---@field site_id number References: `world_site`
 ---@field location_id number References: `abstract_building`
+local building
+
+---@nodiscard
+---@return number
+function building:getCustomType() end
+
+function building:setCustomType() end
+
+function building:countHospitalSupplies() end
+
+---@nodiscard
+---@return stockpile_links
+function building:getStockpileLinks() end
+
+function building:detachWorldData() end
+
+---@nodiscard
+---@return boolean
+function building:canLinkToStockpile() end
+
+---@nodiscard
+---@return building_users
+function building:getUsers() end
+
+function building:moveBuilding() end
+
+function building:initOccupancy() end
+
+function building:setFillTimer() end
+
+---@nodiscard
+---@return boolean
+function building:isOnFire() end
+
+---@nodiscard
+---@return boolean
+function building:isUnpowered() end
+
+---@nodiscard
+---@return boolean
+function building:canCollapse() end
+
+---@nodiscard
+---@return integer
+function building:getPassableOccupancy() end
+
+---@nodiscard
+---@return integer
+function building:getImpassableOccupancy() end
+
+---@nodiscard
+---@return boolean
+function building:isPowerSource() end
+
+function building:updateFromWeather() end
+
+function building:updateTemperature() end
+
+function building:updateItems() end
+
+function building:updateTempFromTile() end
+
+---@nodiscard
+---@return boolean
+function building:isNormalFurniture() end
+
+---@nodiscard
+---@return boolean
+function building:isFarmPlot() end
+
+---@nodiscard
+---@return workshop_profile
+function building:getWorkshopProfile() end
+
+---@nodiscard
+---@return machine_info
+function building:getMachineInfo() end
+
+function building:getPowerInfo() end
+
+---@nodiscard
+---@return boolean
+function building:canConnectToMachine() end
+
+---@nodiscard
+---@return building_type
+function building:getType() end
+
+---@nodiscard
+---@return number
+function building:getSubtype() end
+
+function building:setSubtype() end
+
+---@nodiscard
+---@return boolean
+function building:isActual() end
+
+---@nodiscard
+---@return boolean
+function building:isCoffin2() end
+
+function building:updateAction() end
+
+---@nodiscard
+---@return boolean
+function building:isStatueOrRestraint() end
+
+function building:setMaterialAmount() end
+
+function building:setBuildStage() end
+
+---@nodiscard
+---@return number
+function building:getBuildStage() end
+
+---@nodiscard
+---@return number
+function building:getMaxBuildStage() end
+
+---@nodiscard
+---@return number
+function building:getArchitectureValue() end
+
+---@nodiscard
+---@return boolean
+function building:isSettingOccupancy() end
+
+---@nodiscard
+---@return boolean
+function building:isActual2() end
+
+---@nodiscard
+---@return boolean
+function building:isExtentShaped() end
+
+function building:updateOccupancy() end
+
+---@nodiscard
+---@return number
+function building:getPersonalValue() end
+
+---@nodiscard
+---@return boolean
+function building:canBeRoom() end
+
+---@nodiscard
+---@return number
+function building:getConstructionValue() end
+
+function building:queueDestroy() end
+
+---@nodiscard
+---@return boolean
+function building:isImpassableTile() end
+
+---@nodiscard
+---@return number
+function building:getFreeCapacity() end
+
+---@nodiscard
+---@return boolean
+function building:canStoreItem() end
+
+function building:getName() end
+
+function building:getNameColor() end
+
+function building:initFarmSeasons() end
+
+---@nodiscard
+---@return number
+function building:getClutterLevel() end
+
+---@nodiscard
+---@return boolean
+function building:needsDesign() end
+
+---@nodiscard
+---@return boolean
+function building:canUseForMood() end
+
+---@nodiscard
+---@return boolean
+function building:canBeRoomSubset() end
+
+---@nodiscard
+---@return boolean
+function building:isCoffin() end
+
+---@nodiscard
+---@return boolean
+function building:canUseSpouseRoom() end
+
+---@nodiscard
+---@return boolean
+function building:canMakeRoom() end
+
+---@nodiscard
+---@return boolean
+function building:isAssigned() end
+
+---@nodiscard
+---@return boolean
+function building:isJusticeRestraint() end
+
+function building:detachRestrainedUnit() end
+
+function building:write_file() end
+
+function building:read_file() end
+
+---@nodiscard
+---@return boolean
+function building:isImpassableAtCreation() end
+
+function building:categorize() end
+
+function building:uncategorize() end
+
+---@nodiscard
+---@return number
+function building:getBaseValue() end
+
+function building:setTriggerState() end
+
+---@nodiscard
+---@return boolean
+function building:needsMagma() end
+
+function building:removeUses() end
+
+function building:deconstructItems() end
+
+function building:cleanupMap() end
+
+---@nodiscard
+---@return boolean
+function building:isFireSafe() end
+
+function building:fillSidebarMenu() end
+
+---@nodiscard
+---@return boolean
+function building:isForbidden() end
+
+---@nodiscard
+---@return boolean
+function building:isHidden() end
+
+---@nodiscard
+---@return boolean
+function building:isVisibleInUI() end
+
+---@nodiscard
+---@return boolean
+function building:isVisibleInViewport() end
+
+function building:getDrawExtents() end
+
+function building:drawBuilding() end
+
+---@nodiscard
+---@return number
+function building:getSpecificSquad() end
+
+---@nodiscard
+---@return number
+function building:getSpecificPosition() end
+
+function building:setSpecificSquadPos() end
+
+function building:clearSpecificSquad() end
+
 
 ---@class _building: DFCompoundType
 ---@field _kind 'class-type'
@@ -1327,6 +1601,12 @@ df.building_item_role_type = {}
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
 ---@field contained_items _building_actual_contained_items
 ---@field design building_design
+local building_actual
+
+---@nodiscard
+---@return boolean
+function building_actual:isDestroyedByItemRemoval() end
+
 
 ---@class _building_actual: DFCompoundType
 ---@field _kind 'class-type'

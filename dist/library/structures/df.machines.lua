@@ -112,6 +112,18 @@ function _machine_tile_set_can_connect:erase(index) end
 ---@field visual_phase number
 ---@field phase_timer number
 ---@field flags machine.T_flags
+local machine
+
+---@nodiscard
+---@return machine_type
+function machine:getType() end
+
+function machine:moveMachine() end
+
+function machine:write_file() end
+
+function machine:read_file() end
+
 
 ---@class _machine: DFCompoundType
 ---@field _kind 'class-type'

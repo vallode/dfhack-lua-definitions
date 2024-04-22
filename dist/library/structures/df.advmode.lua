@@ -2716,6 +2716,14 @@ function _adventurest_assume_identity_unk_2:erase(index) end
 
 ---@class (exact) text_info_elementst: DFStruct
 ---@field _type _text_info_elementst
+local text_info_elementst
+
+function text_info_elementst:getString() end
+
+---@nodiscard
+---@return number
+function text_info_elementst:getLong() end
+
 
 ---@class _text_info_elementst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2739,6 +2747,64 @@ df.text_info_element_stringst = {}
 
 ---@class (exact) adventure_optionst: DFStruct
 ---@field _type _adventure_optionst
+local adventure_optionst
+
+function adventure_optionst:getDescription() end
+
+---@nodiscard
+---@return item
+function adventure_optionst:getIngestedItem() end
+
+---@nodiscard
+---@return item
+function adventure_optionst:performAction() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getPlayerPosX() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getPlayerPosY() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getPlayerPosZ() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getTargetPosX() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getTargetPosY() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getTargetPosZ() end
+
+function adventure_optionst:deleteSpatter() end
+
+---@nodiscard
+---@return number
+function adventure_optionst:getSuckBloodUnitID() end
+
+---@nodiscard
+---@return boolean
+function adventure_optionst:isIngestFromContainer() end
+
+---@nodiscard
+---@return building
+function adventure_optionst:getBuildingContainer() end
+
+---@nodiscard
+---@return item
+function adventure_optionst:getItemContainer() end
+
+---@nodiscard
+---@return unit
+function adventure_optionst:getUnitContainer() end
+
 
 ---@class _adventure_optionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2858,6 +2924,8 @@ df.adventure_environment_unit_suck_bloodst = {}
 ---@field _type _adventure_movement_optionst
 ---@field dest coord
 ---@field source coord
+local adventure_movement_optionst
+
 
 ---@class _adventure_movement_optionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2957,6 +3025,12 @@ df.adventure_movement_item_interact_pushst = {}
 
 ---@class (exact) adventure_item_interact_choicest: DFStruct
 ---@field _type _adventure_item_interact_choicest
+local adventure_item_interact_choicest
+
+function adventure_item_interact_choicest:getDescription() end
+
+function adventure_item_interact_choicest:performAction() end
+
 
 ---@class _adventure_item_interact_choicest: DFCompoundType
 ---@field _kind 'class-type'

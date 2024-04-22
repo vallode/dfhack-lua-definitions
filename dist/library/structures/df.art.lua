@@ -35,6 +35,32 @@ df.art_image_element_type = {}
 ---@class (exact) art_image_element: DFStruct
 ---@field _type _art_image_element
 ---@field count number
+local art_image_element
+
+function art_image_element:write_file() end
+
+function art_image_element:read_file() end
+
+---@nodiscard
+---@return art_image_element_type
+function art_image_element:getType() end
+
+function art_image_element:setID() end
+
+---@nodiscard
+---@return art_image_element
+function art_image_element:clone() end
+
+function art_image_element:getSymbol() end
+
+function art_image_element:getName1() end
+
+function art_image_element:getName2() end
+
+function art_image_element:markDiscovered() end
+
+function art_image_element:getColorAndShape() end
+
 
 ---@class _art_image_element: DFCompoundType
 ---@field _kind 'class-type'
@@ -110,6 +136,22 @@ df.art_image_property_type = {}
 ---@class (exact) art_image_property: DFStruct
 ---@field _type _art_image_property
 ---@field flags _art_image_property_flags
+local art_image_property
+
+function art_image_property:write_file() end
+
+function art_image_property:read_file() end
+
+---@nodiscard
+---@return art_image_property_type
+function art_image_property:getType() end
+
+---@nodiscard
+---@return art_image_element
+function art_image_property:clone() end
+
+function art_image_property:getName() end
+
 
 ---@class _art_image_property: DFCompoundType
 ---@field _kind 'class-type'

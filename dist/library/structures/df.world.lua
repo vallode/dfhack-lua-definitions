@@ -1345,6 +1345,10 @@ df.coin_batch.T_image_back = {}
 ---@field list _job_handler_list
 ---@field postings _job_handler_postings entries never removed
 ---@field job_application_heap job_handler.T_job_application_heap
+local job_handler
+
+function job_handler:cancel_job() end
+
 
 ---@class _job_handler: DFCompoundType
 ---@field _kind 'class-type'
@@ -1409,6 +1413,10 @@ df.job_handler.T_job_application_heap.T_node = {}
 ---@field bad _building_handler_bad bay12: temp_save
 ---@field check_bridge_collapse boolean bay12: evaluate_bridge_stability
 ---@field check_machine_collapse boolean bay12: evaluate_machine_stability
+local building_handler
+
+function building_handler:get_machine_hookup_list() end
+
 
 ---@class _building_handler: DFCompoundType
 ---@field _kind 'class-type'
@@ -1450,6 +1458,8 @@ function _building_handler_bad:erase(index) end
 ---@field _type _machine_handler
 ---@field all _machine_handler_all
 ---@field bad _machine_handler_bad
+local machine_handler
+
 
 ---@class _machine_handler: DFCompoundType
 ---@field _kind 'class-type'

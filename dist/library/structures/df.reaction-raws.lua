@@ -192,6 +192,28 @@ df.reaction_reagent_type = {}
 ---@field code string
 ---@field quantity number
 ---@field flags reaction_reagent_flags
+local reaction_reagent
+
+---@nodiscard
+---@return reaction_reagent_type
+function reaction_reagent:getType() end
+
+function reaction_reagent:resolveTokens() end
+
+---@nodiscard
+---@return boolean
+function reaction_reagent:matchesRoot() end
+
+---@nodiscard
+---@return boolean
+function reaction_reagent:matchesChild() end
+
+function reaction_reagent:getDescription() end
+
+---@nodiscard
+---@return boolean
+function reaction_reagent:isLyeBearing() end
+
 
 ---@class _reaction_reagent: DFCompoundType
 ---@field _kind 'class-type'
@@ -264,6 +286,18 @@ df.reaction_product_type = {}
 ---@field _type _reaction_product
 ---@field product_token string
 ---@field product_to_container string
+local reaction_product
+
+---@nodiscard
+---@return reaction_product_type
+function reaction_product:getType() end
+
+function reaction_product:resolveTokens() end
+
+function reaction_product:produce() end
+
+function reaction_product:getDescription() end
+
 
 ---@class _reaction_product: DFCompoundType
 ---@field _kind 'class-type'

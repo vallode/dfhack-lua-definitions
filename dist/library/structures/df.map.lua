@@ -658,6 +658,12 @@ df.cave_column_link = {}
 ---@field top_z number
 ---@field rect_index number
 ---@field flags cave_column.T_flags
+local cave_column
+
+function cave_column:write_file() end
+
+function cave_column:read_file() end
+
 
 ---@class _cave_column: DFCompoundType
 ---@field _kind 'class-type'
@@ -689,6 +695,12 @@ df.cave_column.T_flags = {}
 ---@field neighbor_by DFNumberVector
 ---@field neighbor_index DFIntegerVector
 ---@field flags cave_column_rectangle.T_flags
+local cave_column_rectangle
+
+function cave_column_rectangle:write_file() end
+
+function cave_column_rectangle:read_file() end
+
 
 ---@class _cave_column_rectangle: DFCompoundType
 ---@field _kind 'class-type'
@@ -858,6 +870,22 @@ df.block_square_event_type = {}
 
 ---@class (exact) block_square_event: DFStruct
 ---@field _type _block_square_event
+local block_square_event
+
+---@nodiscard
+---@return block_square_event_type
+function block_square_event:getType() end
+
+function block_square_event:write_file() end
+
+function block_square_event:read_file() end
+
+---@nodiscard
+---@return boolean
+function block_square_event:isEmpty() end
+
+function block_square_event:checkTemperature() end
+
 
 ---@class _block_square_event: DFCompoundType
 ---@field _kind 'class-type'
@@ -1079,6 +1107,18 @@ df.feature_type = {}
 ---@field embark_pos coord2d_path
 ---@field min_map_z DFNumberVector
 ---@field max_map_z DFNumberVector
+local feature
+
+---@nodiscard
+---@return feature_type
+function feature:getType() end
+
+function feature:write_file() end
+
+function feature:read_file() end
+
+function feature:shiftCoords() end
+
 
 ---@class _feature: DFCompoundType
 ---@field _kind 'class-type'
@@ -1252,6 +1292,60 @@ df.layer_type = {}
 ---@field end_y number
 ---@field start_depth layer_type
 ---@field end_depth layer_type
+local feature_init
+
+---@nodiscard
+---@return feature_type
+function feature_init:getType() end
+
+function feature_init:write_file() end
+
+function feature_init:read_file() end
+
+---@nodiscard
+---@return feature
+function feature_init:createFeature() end
+
+---@nodiscard
+---@return feature
+function feature_init:recreateFeature() end
+
+function feature_init:destroyFeature() end
+
+---@nodiscard
+---@return feature
+function feature_init:getFeature() end
+
+function feature_init:getMaterial() end
+
+function feature_init:getColor() end
+
+function feature_init:getName() end
+
+---@nodiscard
+---@return boolean
+function feature_init:isWater() end
+
+---@nodiscard
+---@return boolean
+function feature_init:isSubterranean() end
+
+---@nodiscard
+---@return boolean
+function feature_init:isMagma() end
+
+---@nodiscard
+---@return boolean
+function feature_init:isChasm() end
+
+---@nodiscard
+---@return boolean
+function feature_init:isLayer() end
+
+---@nodiscard
+---@return number
+function feature_init:getLayer() end
+
 
 ---@class _feature_init: DFCompoundType
 ---@field _kind 'class-type'
@@ -1399,6 +1493,16 @@ df.feature_alteration_type = {}
 
 ---@class (exact) feature_alteration: DFStruct
 ---@field _type _feature_alteration
+local feature_alteration
+
+---@nodiscard
+---@return feature_alteration_type
+function feature_alteration:getType() end
+
+function feature_alteration:write_file() end
+
+function feature_alteration:read_file() end
+
 
 ---@class _feature_alteration: DFCompoundType
 ---@field _kind 'class-type'
@@ -1456,6 +1560,16 @@ df.world_construction_type = {}
 ---@field embark_y DFNumberVector
 ---@field embark_unk DFNumberVector
 ---@field embark_z DFNumberVector
+local world_construction_square
+
+---@nodiscard
+---@return world_construction_type
+function world_construction_square:getType() end
+
+function world_construction_square:write_file() end
+
+function world_construction_square:read_file() end
+
 
 ---@class _world_construction_square: DFCompoundType
 ---@field _kind 'class-type'
@@ -1507,6 +1621,20 @@ df.world_construction_square_wallst = {}
 ---@field id number
 ---@field square_obj _world_construction_square_obj
 ---@field square_pos coord2d_path
+local world_construction
+
+---@nodiscard
+---@return world_construction_type
+function world_construction:getType() end
+
+---@nodiscard
+---@return language_name
+function world_construction:getName() end
+
+function world_construction:write_file() end
+
+function world_construction:read_file() end
+
 
 ---@class _world_construction: DFCompoundType
 ---@field _kind 'class-type'
@@ -2009,6 +2137,18 @@ df.flow_guide_type = {}
 ---@field _type _flow_guide
 ---@field id number
 ---@field unk_8 number
+local flow_guide
+
+---@nodiscard
+---@return flow_guide_type
+function flow_guide:getType() end
+
+function flow_guide:shiftCoords() end
+
+function flow_guide:write_file() end
+
+function flow_guide:read_file() end
+
 
 ---@class _flow_guide: DFCompoundType
 ---@field _kind 'class-type'
@@ -2077,6 +2217,16 @@ df.region_block_event_type = {}
 
 ---@class (exact) region_block_eventst: DFStruct
 ---@field _type _region_block_eventst
+local region_block_eventst
+
+---@nodiscard
+---@return region_block_event_type
+function region_block_eventst:getType() end
+
+function region_block_eventst:write_file() end
+
+function region_block_eventst:read_file() end
+
 
 ---@class _region_block_eventst: DFCompoundType
 ---@field _kind 'class-type'

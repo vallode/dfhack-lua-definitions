@@ -545,6 +545,14 @@ df.itemdef_flags = {}
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
 ---@field raw_strings DFStringVector
+local itemdef
+
+function itemdef:parseRaws() end
+
+function itemdef:categorize() end
+
+function itemdef:finalize() end
+
 
 ---@class _itemdef: DFCompoundType
 ---@field _kind 'class-type'

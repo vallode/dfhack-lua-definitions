@@ -73,6 +73,24 @@ df.interface_push_types = {}
 
 ---@class (exact) abstract_interfacest: DFStruct
 ---@field _type _abstract_interfacest
+local abstract_interfacest
+
+---@nodiscard
+---@return extentst
+function abstract_interfacest:get_rect() end
+
+function abstract_interfacest:feed() end
+
+function abstract_interfacest:logic() end
+
+function abstract_interfacest:render() end
+
+function abstract_interfacest:arrange() end
+
+function abstract_interfacest:remove_child() end
+
+function abstract_interfacest:clear() end
+
 
 ---@class _abstract_interfacest: DFCompoundType
 ---@field _kind 'class-type'
@@ -85,6 +103,12 @@ df.abstract_interfacest = {}
 ---@field breakdown_level interface_breakdown_types
 ---@field option_key_pressed number
 ---@field widgets widget_container
+local viewscreen
+
+function viewscreen:resize() end
+
+function viewscreen:set_port_flags() end
+
 
 ---@class _viewscreen: DFCompoundType
 ---@field _kind 'class-type'
@@ -154,6 +178,28 @@ df.extentst = {}
 ---@field displaying_tooltip boolean
 ---@field search_string string
 ---@field activation_hotkeys _widget_activation_hotkeys
+local widget
+
+---@nodiscard
+---@return extentst
+function widget:get_rect() end
+
+function widget:feed() end
+
+function widget:logic() end
+
+function widget:render() end
+
+function widget:arrange() end
+
+function widget:remove_child() end
+
+function widget:clear() end
+
+---@nodiscard
+---@return boolean
+function widget:is_container() end
+
 
 ---@class _widget: DFCompoundType
 ---@field _kind 'class-type'
@@ -652,6 +698,10 @@ function _filter_entry_filtered_set:erase(index) end
 ---@field filters _widget_filter_filters
 ---@field filter_idx number
 ---@field container_parent _widget_filter_container_parent
+local widget_filter
+
+function widget_filter:set_filtered() end
+
 
 ---@class _widget_filter: DFCompoundType
 ---@field _kind 'class-type'
@@ -1171,6 +1221,10 @@ df.widget_recenter_button = {}
 
 ---@class (exact) widget_sheet_button: DFStruct, widget
 ---@field _type _widget_sheet_button
+local widget_sheet_button
+
+function widget_sheet_button:set_up_tooltip() end
+
 
 ---@class _widget_sheet_button: DFCompoundType
 ---@field _kind 'class-type'
@@ -2726,6 +2780,48 @@ df.viewscreen_initial_prepst = {}
 ---@class (exact) world_gen_param_basest: DFStruct
 ---@field _type _world_gen_param_basest
 ---@field text string
+local world_gen_param_basest
+
+function world_gen_param_basest:get_text() end
+
+---@nodiscard
+---@return boolean
+function world_gen_param_basest:has_string_entry() end
+
+---@nodiscard
+---@return boolean
+function world_gen_param_basest:nullifiable() end
+
+---@nodiscard
+---@return boolean
+function world_gen_param_basest:togglealble() end
+
+---@nodiscard
+---@return boolean
+function world_gen_param_basest:has_max_min() end
+
+---@nodiscard
+---@return boolean
+function world_gen_param_basest:has_increase_decrease() end
+
+---@nodiscard
+---@return number
+function world_gen_param_basest:get_min() end
+
+---@nodiscard
+---@return number
+function world_gen_param_basest:get_max() end
+
+function world_gen_param_basest:set_value() end
+
+function world_gen_param_basest:nullify() end
+
+function world_gen_param_basest:toggle() end
+
+function world_gen_param_basest:decrease() end
+
+function world_gen_param_basest:increase() end
+
 
 ---@class _world_gen_param_basest: DFCompoundType
 ---@field _kind 'class-type'

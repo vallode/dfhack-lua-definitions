@@ -474,6 +474,48 @@ function _creature_interaction_effect_target_mode:erase(index) end
 ---@field moon_phase_min number
 ---@field moon_phase_max number
 ---@field counter_trigger creature_interaction_effect.T_counter_trigger
+local creature_interaction_effect
+
+---@nodiscard
+---@return creature_interaction_effect_type
+function creature_interaction_effect:getType() end
+
+---@nodiscard
+---@return creature_interaction_effect
+function creature_interaction_effect:clone() end
+
+function creature_interaction_effect:doAction() end
+
+---@nodiscard
+---@return boolean
+function creature_interaction_effect:isUntargeted() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function creature_interaction_effect:getTargetModes() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function creature_interaction_effect:getTargetKeys() end
+
+---@nodiscard
+---@return DFPointer<integer>
+function creature_interaction_effect:getTargetTissues() end
+
+---@nodiscard
+---@return boolean
+function creature_interaction_effect:checkAddFlag1() end
+
+function creature_interaction_effect:setBodyMatInteractionName() end
+
+function creature_interaction_effect:parseSynAcquireType() end
+
+function creature_interaction_effect:setBodyTransform() end
+
+function creature_interaction_effect:addPeriodic() end
+
+function creature_interaction_effect:addCounterTrigger() end
+
 
 ---@class _creature_interaction_effect: DFCompoundType
 ---@field _kind 'class-type'

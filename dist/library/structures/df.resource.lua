@@ -193,6 +193,16 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
+local resource_allotment_specifier
+
+---@nodiscard
+---@return resource_allotment_specifier_type
+function resource_allotment_specifier:getType() end
+
+function resource_allotment_specifier:write_file() end
+
+function resource_allotment_specifier:read_file() end
+
 
 ---@class _resource_allotment_specifier: DFCompoundType
 ---@field _kind 'class-type'

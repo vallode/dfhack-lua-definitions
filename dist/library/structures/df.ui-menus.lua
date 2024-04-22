@@ -56,6 +56,26 @@ df.build_req_choice_type = {}
 ---@class (exact) build_req_choicest: DFStruct
 ---@field _type _build_req_choicest
 ---@field distance number
+local build_req_choicest
+
+---@nodiscard
+---@return build_req_choice_type
+function build_req_choicest:getType() end
+
+function build_req_choicest:getName() end
+
+---@nodiscard
+---@return boolean
+function build_req_choicest:isCandidate() end
+
+---@nodiscard
+---@return number
+function build_req_choicest:getUsedCount() end
+
+---@nodiscard
+---@return number
+function build_req_choicest:getNumCandidates() end
+
 
 ---@class _build_req_choicest: DFCompoundType
 ---@field _kind 'class-type'
@@ -111,6 +131,8 @@ df.build_req_choice_specst = {}
 ---@field direction number
 ---@field selection_pos coord
 ---@field selection_area number
+local buildreq
+
 
 ---@class _buildreq: DFCompoundType
 ---@field _kind 'class-type'
@@ -249,6 +271,46 @@ df.interface_category_construction = {}
 ---@field leave_button boolean
 ---@field flag integer
 ---@field filter_str string
+local interface_button
+
+function interface_button:print_info() end
+
+function interface_button:text() end
+
+function interface_button:press() end
+
+function interface_button:set_button_color() end
+
+function interface_button:set_leave_button() end
+
+---@nodiscard
+---@return integer
+function interface_button:tile() end
+
+function interface_button:set_tile_color() end
+
+function interface_button:prepare_tool_tip() end
+
+---@nodiscard
+---@return boolean
+function interface_button:pressable() end
+
+---@nodiscard
+---@return boolean
+function interface_button:has_view() end
+
+---@nodiscard
+---@return boolean
+function interface_button:is_alphabetized() end
+
+---@nodiscard
+---@return string
+function interface_button:get_objection_string() end
+
+---@nodiscard
+---@return string
+function interface_button:get_info_string() end
+
 
 ---@class _interface_button: DFCompoundType
 ---@field _kind 'class-type'

@@ -349,6 +349,7 @@ module DFHackLuaDefinitions
       @class_name = @path.join('.')
       @class = node['inherits-from']
       @fields = fields
+      @methods = methods
     end
 
     def type
@@ -361,13 +362,19 @@ module DFHackLuaDefinitions
       end.compact
     end
 
+    def methods
+      @node.xpath('virtual-methods').map do |node|
+        VirtualMethods.new(node, @path)
+      end
+    end
+
     def to_field
       # No comment required here, it will be included with the actual object.
       "---@field #{@name} #{@class_name}\n"
     end
 
     def to_object
-      annotation = ''
+      annotation = []
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class (exact) #{@class_name}: DFStruct"
 
@@ -381,7 +388,16 @@ module DFHackLuaDefinitions
       @fields.each do |field|
         annotation << field.to_field if field
       end
+
+      unless @methods.empty?
+        annotation << "local #{@class_name}\n\n"
+        @methods.each do |method|
+          annotation << method.render if method.render?
+        end
+      end
+
       annotation << "\n"
+      annotation.join
     end
 
     def instance_vector_functions
@@ -594,6 +610,61 @@ module DFHackLuaDefinitions
       end
 
       annotation << @child.render if @child&.render?
+      annotation.join
+    end
+  end
+
+  class VirtualMethods < Type
+    def initialize(node, path = [])
+      super(node, path)
+
+      @methods = methods
+    end
+
+    def methods
+      @node.xpath('vmethod').map do |node|
+        VMethod.new(node, @path)
+      end
+    end
+
+    def render?
+      true
+    end
+
+    def render
+      annotation = []
+      @methods.each do |method|
+        annotation << method.render if method.render?
+      end
+      annotation.join
+    end
+  end
+
+  class VMethod < Type
+    def initialize(node, path = [])
+      super(node, path)
+
+      @name = node['name']
+      @path = @path.slice(...-1)
+      @class_name = @path.join('.')
+      @return_type = return_type
+    end
+
+    def return_type
+      return Field.new(@node.at_xpath('ret-type')).type if @node.at_xpath('ret-type')
+
+      node['ret-type']
+    end
+
+    def render?
+      @name
+    end
+
+    def render
+      annotation = []
+      # TODO: Some logic for adding `@nodiscard`?
+      annotation << "---@return #{@return_type}\n" if @return_type
+      annotation << "function #{@class_name}:#{@name}() end\n\n"
       annotation.join
     end
   end
