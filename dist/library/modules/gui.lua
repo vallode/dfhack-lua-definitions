@@ -4,90 +4,82 @@
 ---@class gui_module
 dfhack.gui = {}
 
----@param skipdismissed boolean|nil 
+---@param skipdismissed boolean|nil
 ---@return viewscreen
 function dfhack.gui.getCurViewscreen(skipdismissed) end
 
----@param skipdismissed boolean|nil 
----@param screen viewscreen 
+---@param skipdismissed boolean|nil
+---@param screen viewscreen
 ---@return viewscreen
 function dfhack.gui.getDFViewscreen(skipdismissed, screen) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return job
-function dfhack.gui.getSelectedWorkshopJob(out, quiet) end
+function dfhack.gui.getSelectedWorkshopJob(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return job
-function dfhack.gui.getSelectedJob(out, quiet) end
+function dfhack.gui.getSelectedJob(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return unit
-function dfhack.gui.getSelectedUnit(out, quiet) end
+function dfhack.gui.getSelectedUnit(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return item
-function dfhack.gui.getSelectedItem(out, quiet) end
+function dfhack.gui.getSelectedItem(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return building
-function dfhack.gui.getSelectedBuilding(out, quiet) end
+function dfhack.gui.getSelectedBuilding(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return building_civzonest
-function dfhack.gui.getSelectedCivZone(out, quiet) end
+function dfhack.gui.getSelectedCivZone(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return building_stockpilest
-function dfhack.gui.getSelectedStockpile(out, quiet) end
+function dfhack.gui.getSelectedStockpile(quiet) end
 
----@param out color_ostream 
----@param quiet boolean|nil 
+---@param quiet boolean|nil
 ---@return plant
-function dfhack.gui.getSelectedPlant(out, quiet) end
+function dfhack.gui.getSelectedPlant(quiet) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return job
 function dfhack.gui.getAnyWorkshopJob(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return job
 function dfhack.gui.getAnyJob(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return unit
 function dfhack.gui.getAnyUnit(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return item
 function dfhack.gui.getAnyItem(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return building
 function dfhack.gui.getAnyBuilding(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return building_civzonest
 function dfhack.gui.getAnyCivZone(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return building_stockpilest
 function dfhack.gui.getAnyStockpile(top) end
 
----@param top viewscreen 
+---@param top viewscreen
 ---@return plant
 function dfhack.gui.getAnyPlant(top) end
 
 function dfhack.gui.writeToGamelog() end
 
----@param pause boolean|nil 
+---@param pause boolean|nil
 ---@return nil
 function dfhack.gui.resetDwarfmodeView(pause) end
 
@@ -97,13 +89,13 @@ function dfhack.gui.refreshSidebar() end
 ---@return boolean
 function dfhack.gui.inRenameBuilding() end
 
----@param x number 
----@param y number 
+---@param x number
+---@param y number
 ---@return integer
 function dfhack.gui.getDepthAt(x, y) end
 
----@param focusstring string 
----@param top viewscreen 
+---@param focusstring string
+---@param top viewscreen
 ---@return boolean
 function dfhack.gui.matchFocusString(focusstring, top) end
 

@@ -13,7 +13,7 @@ function dfhack.screen.clear() end
 ---@return boolean
 function dfhack.screen.invalidate() end
 
----@param key interface_key 
+---@param key interface_key
 ---@return string
 function dfhack.screen.getKeyDisplay(key) end
 

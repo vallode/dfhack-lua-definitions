@@ -12,13 +12,13 @@ function dfhack.job.printItemDetails() end
 
 function dfhack.job.printJobDetails() end
 
----@param job job 
----@param type general_ref_type 
+---@param job job
+---@param type general_ref_type
 ---@return general_ref
 function dfhack.job.getGeneralRef(job, type) end
 
----@param job job 
----@param type specific_ref_type 
+---@param job job
+---@param type specific_ref_type
 ---@return specific_ref
 function dfhack.job.getSpecificRef(job, type) end
 
@@ -34,20 +34,20 @@ function dfhack.job.checkBuildingsNow() end
 
 function dfhack.job.checkDesignationsNow() end
 
----@param item job_item 
----@param itype item_type 
----@param isubtype integer 
+---@param item job_item
+---@param itype item_type
+---@param isubtype integer
 ---@return boolean
 function dfhack.job.isSuitableItem(item, itype, isubtype) end
 
----@param item job_item 
----@param mattype integer 
----@param matindex integer 
----@param itype item_type 
+---@param item job_item
+---@param mattype integer
+---@param matindex integer
+---@param itype item_type
 ---@return boolean
 function dfhack.job.isSuitableMaterial(item, mattype, matindex, itype) end
 
----@param job job 
+---@param job job
 ---@return string
 function dfhack.job.getName(job) end
 
