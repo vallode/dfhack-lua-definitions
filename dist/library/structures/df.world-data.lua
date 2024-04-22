@@ -26,29 +26,15 @@ function _world_site_unk130_unk_4:insert(index, item) end
 ---@param index integer 
 function _world_site_unk130_unk_4:erase(index) end
 
----@alias world_population_type_keys
----| '"Animal"'
----| '"Vermin"'
----| '"Unk2"'
----| '"VerminInnumerable"'
----| '"ColonyInsect"'
----| '"Tree"'
----| '"Grass"'
----| '"Bush"'
-
----@alias world_population_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias world_population_type
----| world_population_type_keys
----| world_population_type_values
+---| 'Animal'
+---| 'Vermin'
+---| 'Unk2'
+---| 'VerminInnumerable'
+---| 'ColonyInsect'
+---| 'Tree'
+---| 'Grass'
+---| 'Bush'
 
 ---@class _world_population_type: DFEnumType
 ---@field Animal 0
@@ -183,33 +169,17 @@ function df.world_landmass.find(key) end
 ---@return world_landmass_vector # df.global.world.world_data.landmasses
 function df.world_landmass.get_vector() end
 
----@alias world_region_type_keys
----| '"Swamp"'
----| '"Desert"'
----| '"Jungle"'
----| '"Mountains"'
----| '"Ocean"'
----| '"Lake"'
----| '"Glacier"'
----| '"Tundra"'
----| '"Steppe"'
----| '"Hills"'
-
----@alias world_region_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
-
 ---@alias world_region_type
----| world_region_type_keys
----| world_region_type_values
+---| 'Swamp'
+---| 'Desert'
+---| 'Jungle'
+---| 'Mountains'
+---| 'Ocean'
+---| 'Lake'
+---| 'Glacier'
+---| 'Tundra'
+---| 'Steppe'
+---| 'Hills'
 
 ---@class _world_region_type: DFEnumType
 ---@field Swamp 0
@@ -348,19 +318,10 @@ function df.world_underground_region.find(key) end
 ---@return world_underground_region_vector # df.global.world.world_data.underground_regions
 function df.world_underground_region.get_vector() end
 
----@alias world_underground_region.T_type_keys
----| '"Cavern"'
----| '"MagmaSea"'
----| '"Underworld"'
-
----@alias world_underground_region.T_type_values
----| 0
----| 1
----| 2
-
 ---@alias world_underground_region.T_type
----| world_underground_region.T_type_keys
----| world_underground_region.T_type_values
+---| 'Cavern'
+---| 'MagmaSea'
+---| 'Underworld'
 
 ---@class _world_underground_region.T_type: DFEnumType
 ---@field Cavern 0
@@ -442,31 +403,16 @@ function _world_river_flags:insert(index, item) end
 ---@param index integer 
 function _world_river_flags:erase(index) end
 
----@alias geo_layer_type_keys
----| '"SOIL"'
----| '"SEDIMENTARY"'
----| '"METAMORPHIC"'
----| '"IGNEOUS_EXTRUSIVE"'
----| '"IGNEOUS_INTRUSIVE"'
----| '"SOIL_OCEAN"'
----| '"SOIL_SAND"'
----| '"SEDIMENTARY_OCEAN_SHALLOW"'
----| '"SEDIMENTARY_OCEAN_DEEP"'
-
----@alias geo_layer_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 ---@alias geo_layer_type
----| geo_layer_type_keys
----| geo_layer_type_values
+---| 'SOIL'
+---| 'SEDIMENTARY'
+---| 'METAMORPHIC'
+---| 'IGNEOUS_EXTRUSIVE'
+---| 'IGNEOUS_INTRUSIVE'
+---| 'SOIL_OCEAN'
+---| 'SOIL_SAND'
+---| 'SEDIMENTARY_OCEAN_SHALLOW'
+---| 'SEDIMENTARY_OCEAN_DEEP'
 
 ---@class _geo_layer_type: DFEnumType
 ---@field SOIL 0
@@ -736,61 +682,31 @@ function _world_region_details_features:insert(index, item) end
 ---@param index integer 
 function _world_region_details_features:erase(index) end
 
----@alias region_map_entry_flags_keys
----| '"has_river"'
----| '"tile_variant"'
----| '""'
----| '"has_site"'
----| '""'
----| '"river_up"'
----| '"river_down"'
----| '"river_right"'
----| '"river_left"'
----| '"discovered"'
----| '""'
----| '""'
----| '"has_army"'
----| '"is_peak"'
----| '"is_lake"'
----| '"is_brook"'
----| '"has_road"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
-
----@alias region_map_entry_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
-
 ---@alias region_map_entry_flags
----| region_map_entry_flags_keys
----| region_map_entry_flags_values
+---| 'has_river'
+---| 'tile_variant'
+---| ''
+---| 'has_site'
+---| ''
+---| 'river_up'
+---| 'river_down'
+---| 'river_right'
+---| 'river_left'
+---| 'discovered'
+---| ''
+---| ''
+---| 'has_army'
+---| 'is_peak'
+---| 'is_lake'
+---| 'is_brook'
+---| 'has_road'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
 
 ---@class _region_map_entry_flags: DFEnumType
 ---@field has_river 0
@@ -821,21 +737,11 @@ function _world_region_details_features:erase(index) end
 ---@field [16] "has_road"
 df.region_map_entry_flags = {}
 
----@alias front_type_keys
----| '"front_none"'
----| '"front_warm"'
----| '"front_cold"'
----| '"front_occluded"'
-
----@alias front_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias front_type
----| front_type_keys
----| front_type_values
+---| 'front_none'
+---| 'front_warm'
+---| 'front_cold'
+---| 'front_occluded'
 
 ---@class _front_type: DFEnumType
 ---@field front_none 0
@@ -848,21 +754,11 @@ df.region_map_entry_flags = {}
 ---@field [3] "front_occluded"
 df.front_type = {}
 
----@alias cumulus_type_keys
----| '"cumulus_none"'
----| '"cumulus_medium"'
----| '"cumulus_multi"'
----| '"cumulus_nimbus"'
-
----@alias cumulus_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias cumulus_type
----| cumulus_type_keys
----| cumulus_type_values
+---| 'cumulus_none'
+---| 'cumulus_medium'
+---| 'cumulus_multi'
+---| 'cumulus_nimbus'
 
 ---@class _cumulus_type: DFEnumType
 ---@field cumulus_none 0
@@ -875,21 +771,11 @@ df.front_type = {}
 ---@field [3] "cumulus_nimbus"
 df.cumulus_type = {}
 
----@alias stratus_type_keys
----| '"stratus_none"'
----| '"stratus_alto"'
----| '"stratus_proper"'
----| '"stratus_nimbus"'
-
----@alias stratus_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias stratus_type
----| stratus_type_keys
----| stratus_type_values
+---| 'stratus_none'
+---| 'stratus_alto'
+---| 'stratus_proper'
+---| 'stratus_nimbus'
 
 ---@class _stratus_type: DFEnumType
 ---@field stratus_none 0
@@ -902,21 +788,11 @@ df.cumulus_type = {}
 ---@field [3] "stratus_nimbus"
 df.stratus_type = {}
 
----@alias fog_type_keys
----| '"fog_none"'
----| '"fog_mist"'
----| '"fog_normal"'
----| '"fog_thick"'
-
----@alias fog_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias fog_type
----| fog_type_keys
----| fog_type_values
+---| 'fog_none'
+---| 'fog_mist'
+---| 'fog_normal'
+---| 'fog_thick'
 
 ---@class _fog_type: DFEnumType
 ---@field fog_none 0
@@ -1281,15 +1157,8 @@ df.world_object_data.T_picked_growths = {}
 ---@field _kind 'struct-type'
 df.world_object_data.T_unk_v43 = {}
 
----@alias mountain_peak_flags_keys
----| '"is_volcano"'
-
----@alias mountain_peak_flags_values
----| 0
-
 ---@alias mountain_peak_flags
----| mountain_peak_flags_keys
----| mountain_peak_flags_values
+---| 'is_volcano'
 
 ---@class _mountain_peak_flags: DFEnumType
 ---@field is_volcano 0
@@ -1426,21 +1295,11 @@ function _world_mountain_peak_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.world_data = {}
 
----@alias world_data.T_flip_latitude_keys
----| '"None"'
----| '"North"'
----| '"South"'
----| '"Both"'
-
----@alias world_data.T_flip_latitude_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias world_data.T_flip_latitude
----| world_data.T_flip_latitude_keys
----| world_data.T_flip_latitude_values
+---| 'None'
+---| 'North'
+---| 'South'
+---| 'Both'
 
 ---@class _world_data.T_flip_latitude: DFEnumType
 ---@field None -1
@@ -1907,21 +1766,11 @@ function _battlefield_sapient_deaths:insert(index, item) end
 ---@param index integer 
 function _battlefield_sapient_deaths:erase(index) end
 
----@alias region_weather_type_keys
----| '"CreepingGas"'
----| '"CreepingVapor"'
----| '"CreepingDust"'
----| '"FallingMaterial"'
-
----@alias region_weather_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias region_weather_type
----| region_weather_type_keys
----| region_weather_type_values
+---| 'CreepingGas'
+---| 'CreepingVapor'
+---| 'CreepingDust'
+---| 'FallingMaterial'
 
 ---@class _region_weather_type: DFEnumType
 ---@field CreepingGas 0

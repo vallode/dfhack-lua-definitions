@@ -1,155 +1,78 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias general_ref_type_keys
----| '"NONE"'
----| '"ARTIFACT"'
----| '"IS_ARTIFACT"'
----| '"NEMESIS"'
----| '"IS_NEMESIS"'
----| '"ITEM"'
----| '"ITEM_TYPE"'
----| '"COINBATCH"'
----| '"MAPSQUARE"'
----| '"ENTITY_ART_IMAGE"'
----| '"CONTAINS_UNIT"'
----| '"CONTAINS_ITEM"'
----| '"CONTAINED_IN_ITEM"'
----| '"PROJECTILE"'
----| '"UNIT"'
----| '"UNIT_MILKEE"'
----| '"UNIT_TRAINEE"'
----| '"UNIT_ITEMOWNER"'
----| '"UNIT_TRADEBRINGER"'
----| '"UNIT_HOLDER"'
----| '"UNIT_WORKER"'
----| '"UNIT_CAGEE"'
----| '"UNIT_BEATEE"'
----| '"UNIT_FOODRECEIVER"'
----| '"UNIT_KIDNAPEE"'
----| '"UNIT_PATIENT"'
----| '"UNIT_INFANT"'
----| '"UNIT_SLAUGHTEREE"'
----| '"UNIT_SHEAREE"'
----| '"UNIT_SUCKEE"'
----| '"UNIT_REPORTEE"'
----| '"BUILDING"'
----| '"BUILDING_CIVZONE_ASSIGNED"'
----| '"BUILDING_TRIGGER"'
----| '"BUILDING_TRIGGERTARGET"'
----| '"BUILDING_CHAIN"'
----| '"BUILDING_CAGED"'
----| '"BUILDING_HOLDER"'
----| '"BUILDING_WELL_TAG"'
----| '"BUILDING_USE_TARGET_1"'
----| '"BUILDING_USE_TARGET_2"'
----| '"BUILDING_DESTINATION"'
----| '"BUILDING_NEST_BOX"'
----| '"ENTITY"'
----| '"ENTITY_STOLEN"'
----| '"ENTITY_OFFERED"'
----| '"ENTITY_ITEMOWNER"'
----| '"LOCATION"'
----| '"INTERACTION"'
----| '"ABSTRACT_BUILDING"'
----| '"HISTORICAL_EVENT"'
----| '"SPHERE"'
----| '"SITE"'
----| '"SUBREGION"'
----| '"FEATURE_LAYER"'
----| '"HISTORICAL_FIGURE"'
----| '"ENTITY_POP"'
----| '"CREATURE"'
----| '"UNIT_RIDER"'
----| '"UNIT_CLIMBER"'
----| '"UNIT_GELDEE"'
----| '"KNOWLEDGE_SCHOLAR_FLAG"'
----| '"ACTIVITY_EVENT"'
----| '"VALUE_LEVEL"'
----| '"LANGUAGE"'
----| '"WRITTEN_CONTENT"'
----| '"POETIC_FORM"'
----| '"MUSICAL_FORM"'
----| '"DANCE_FORM"'
----| '"BUILDING_DISPLAY_FURNITURE"'
----| '"UNIT_INTERROGATEE"'
-
----@alias general_ref_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
-
 ---@alias general_ref_type
----| general_ref_type_keys
----| general_ref_type_values
+---| 'NONE'
+---| 'ARTIFACT'
+---| 'IS_ARTIFACT'
+---| 'NEMESIS'
+---| 'IS_NEMESIS'
+---| 'ITEM'
+---| 'ITEM_TYPE'
+---| 'COINBATCH'
+---| 'MAPSQUARE'
+---| 'ENTITY_ART_IMAGE'
+---| 'CONTAINS_UNIT'
+---| 'CONTAINS_ITEM'
+---| 'CONTAINED_IN_ITEM'
+---| 'PROJECTILE'
+---| 'UNIT'
+---| 'UNIT_MILKEE'
+---| 'UNIT_TRAINEE'
+---| 'UNIT_ITEMOWNER'
+---| 'UNIT_TRADEBRINGER'
+---| 'UNIT_HOLDER'
+---| 'UNIT_WORKER'
+---| 'UNIT_CAGEE'
+---| 'UNIT_BEATEE'
+---| 'UNIT_FOODRECEIVER'
+---| 'UNIT_KIDNAPEE'
+---| 'UNIT_PATIENT'
+---| 'UNIT_INFANT'
+---| 'UNIT_SLAUGHTEREE'
+---| 'UNIT_SHEAREE'
+---| 'UNIT_SUCKEE'
+---| 'UNIT_REPORTEE'
+---| 'BUILDING'
+---| 'BUILDING_CIVZONE_ASSIGNED'
+---| 'BUILDING_TRIGGER'
+---| 'BUILDING_TRIGGERTARGET'
+---| 'BUILDING_CHAIN'
+---| 'BUILDING_CAGED'
+---| 'BUILDING_HOLDER'
+---| 'BUILDING_WELL_TAG'
+---| 'BUILDING_USE_TARGET_1'
+---| 'BUILDING_USE_TARGET_2'
+---| 'BUILDING_DESTINATION'
+---| 'BUILDING_NEST_BOX'
+---| 'ENTITY'
+---| 'ENTITY_STOLEN'
+---| 'ENTITY_OFFERED'
+---| 'ENTITY_ITEMOWNER'
+---| 'LOCATION'
+---| 'INTERACTION'
+---| 'ABSTRACT_BUILDING'
+---| 'HISTORICAL_EVENT'
+---| 'SPHERE'
+---| 'SITE'
+---| 'SUBREGION'
+---| 'FEATURE_LAYER'
+---| 'HISTORICAL_FIGURE'
+---| 'ENTITY_POP'
+---| 'CREATURE'
+---| 'UNIT_RIDER'
+---| 'UNIT_CLIMBER'
+---| 'UNIT_GELDEE'
+---| 'KNOWLEDGE_SCHOLAR_FLAG'
+---| 'ACTIVITY_EVENT'
+---| 'VALUE_LEVEL'
+---| 'LANGUAGE'
+---| 'WRITTEN_CONTENT'
+---| 'POETIC_FORM'
+---| 'MUSICAL_FORM'
+---| 'DANCE_FORM'
+---| 'BUILDING_DISPLAY_FURNITURE'
+---| 'UNIT_INTERROGATEE'
 
 ---@class _general_ref_type: DFEnumType
 ---@field NONE -1
@@ -911,71 +834,36 @@ df.general_ref_entity_offeredst = {}
 ---@field _kind 'class-type'
 df.general_ref_entity_itemownerst = {}
 
----@alias specific_ref_type_keys
----| '"NONE"'
----| '"BUILDING"'
----| '"UNIT"'
----| '"JOB"'
----| '"ACTIVITY"'
----| '"ITEM_GENERAL"'
----| '"EFFECT"'
----| '"VERMIN_EVENT"'
----| '"VERMIN_ESCAPED_PET"'
----| '"ENTITY"'
----| '"PLOT_INFO"'
----| '"VIEWSCREEN"'
----| '"UNIT_ITEM_WRESTLE"'
----| '"NULL_REF"'
----| '"HIST_FIG"'
----| '"SITE"'
----| '"ARTIFACT"'
----| '"ITEM_IMPROVEMENT"'
----| '"COIN_FRONT"'
----| '"COIN_BACK"'
----| '"DETAIL_EVENT"'
----| '"SUBREGION"'
----| '"FEATURE_LAYER"'
----| '"ART_IMAGE"'
----| '"CREATURE_DEF"'
----| '"ENTITY_ART_IMAGE"'
----| '"ABSTRACT_BUILDING"'
----| '"ENTITY_POPULATION"'
----| '"BREED"'
-
----@alias specific_ref_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
-
 ---@alias specific_ref_type
----| specific_ref_type_keys
----| specific_ref_type_values
+---| 'NONE'
+---| 'BUILDING'
+---| 'UNIT'
+---| 'JOB'
+---| 'ACTIVITY'
+---| 'ITEM_GENERAL'
+---| 'EFFECT'
+---| 'VERMIN_EVENT'
+---| 'VERMIN_ESCAPED_PET'
+---| 'ENTITY'
+---| 'PLOT_INFO'
+---| 'VIEWSCREEN'
+---| 'UNIT_ITEM_WRESTLE'
+---| 'NULL_REF'
+---| 'HIST_FIG'
+---| 'SITE'
+---| 'ARTIFACT'
+---| 'ITEM_IMPROVEMENT'
+---| 'COIN_FRONT'
+---| 'COIN_BACK'
+---| 'DETAIL_EVENT'
+---| 'SUBREGION'
+---| 'FEATURE_LAYER'
+---| 'ART_IMAGE'
+---| 'CREATURE_DEF'
+---| 'ENTITY_ART_IMAGE'
+---| 'ABSTRACT_BUILDING'
+---| 'ENTITY_POPULATION'
+---| 'BREED'
 
 ---@class _specific_ref_type: DFEnumType
 ---@field NONE -1
@@ -1095,49 +983,25 @@ df.specific_ref.T_data = {}
 ---@field _kind 'struct-type'
 df.specific_ref.T_data.T_wrestle = {}
 
----@alias histfig_entity_link_type_keys
----| '"MEMBER"'
----| '"FORMER_MEMBER"'
----| '"MERCENARY"'
----| '"FORMER_MERCENARY"'
----| '"SLAVE"'
----| '"FORMER_SLAVE"'
----| '"PRISONER"'
----| '"FORMER_PRISONER"'
----| '"ENEMY"'
----| '"CRIMINAL"'
----| '"POSITION"'
----| '"FORMER_POSITION"'
----| '"POSITION_CLAIM"'
----| '"SQUAD"'
----| '"FORMER_SQUAD"'
----| '"OCCUPATION"'
----| '"FORMER_OCCUPATION"'
----| '"RESIDENT"'
-
----@alias histfig_entity_link_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
-
 ---@alias histfig_entity_link_type
----| histfig_entity_link_type_keys
----| histfig_entity_link_type_values
+---| 'MEMBER'
+---| 'FORMER_MEMBER'
+---| 'MERCENARY'
+---| 'FORMER_MERCENARY'
+---| 'SLAVE'
+---| 'FORMER_SLAVE'
+---| 'PRISONER'
+---| 'FORMER_PRISONER'
+---| 'ENEMY'
+---| 'CRIMINAL'
+---| 'POSITION'
+---| 'FORMER_POSITION'
+---| 'POSITION_CLAIM'
+---| 'SQUAD'
+---| 'FORMER_SQUAD'
+---| 'OCCUPATION'
+---| 'FORMER_OCCUPATION'
+---| 'RESIDENT'
 
 ---@class _histfig_entity_link_type: DFEnumType
 ---@field MEMBER 0
@@ -1349,33 +1213,17 @@ df.histfig_entity_link_occupationst = {}
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_occupationst = {}
 
----@alias histfig_site_link_type_keys
----| '"OCCUPATION"'
----| '"SEAT_OF_POWER"'
----| '"HANGOUT"'
----| '"HOME_SITE_ABSTRACT_BUILDING"'
----| '"HOME_SITE_REALIZATION_BUILDING"'
----| '"LAIR"'
----| '"HOME_SITE_REALIZATION_SUL"'
----| '"HOME_SITE_SAVED_CIVZONE"'
----| '"PRISON_ABSTRACT_BUILDING"'
----| '"PRISON_SITE_BUILDING_PROFILE"'
-
----@alias histfig_site_link_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
-
 ---@alias histfig_site_link_type
----| histfig_site_link_type_keys
----| histfig_site_link_type_values
+---| 'OCCUPATION'
+---| 'SEAT_OF_POWER'
+---| 'HANGOUT'
+---| 'HOME_SITE_ABSTRACT_BUILDING'
+---| 'HOME_SITE_REALIZATION_BUILDING'
+---| 'LAIR'
+---| 'HOME_SITE_REALIZATION_SUL'
+---| 'HOME_SITE_SAVED_CIVZONE'
+---| 'PRISON_ABSTRACT_BUILDING'
+---| 'PRISON_SITE_BUILDING_PROFILE'
 
 ---@class _histfig_site_link_type: DFEnumType
 ---@field OCCUPATION 0
@@ -1492,45 +1340,23 @@ df.histfig_site_link_prison_abstract_buildingst = {}
 ---@field _kind 'class-type'
 df.histfig_site_link_prison_site_building_profilest = {}
 
----@alias histfig_hf_link_type_keys
----| '"MOTHER"'
----| '"FATHER"'
----| '"SPOUSE"'
----| '"CHILD"'
----| '"DEITY"'
----| '"LOVER"'
----| '"PRISONER"'
----| '"IMPRISONER"'
----| '"MASTER"'
----| '"APPRENTICE"'
----| '"COMPANION"'
----| '"FORMER_MASTER"'
----| '"FORMER_APPRENTICE"'
----| '"PET_OWNER"'
----| '"FORMER_SPOUSE"'
----| '"DECEASED_SPOUSE"'
-
----@alias histfig_hf_link_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
-
 ---@alias histfig_hf_link_type
----| histfig_hf_link_type_keys
----| histfig_hf_link_type_values
+---| 'MOTHER'
+---| 'FATHER'
+---| 'SPOUSE'
+---| 'CHILD'
+---| 'DEITY'
+---| 'LOVER'
+---| 'PRISONER'
+---| 'IMPRISONER'
+---| 'MASTER'
+---| 'APPRENTICE'
+---| 'COMPANION'
+---| 'FORMER_MASTER'
+---| 'FORMER_APPRENTICE'
+---| 'PET_OWNER'
+---| 'FORMER_SPOUSE'
+---| 'DECEASED_SPOUSE'
 
 ---@class _histfig_hf_link_type: DFEnumType
 ---@field MOTHER 0
@@ -1701,19 +1527,10 @@ df.histfig_hf_link_former_spousest = {}
 ---@field _kind 'class-type'
 df.histfig_hf_link_deceased_spousest = {}
 
----@alias entity_entity_link_type_keys
----| '"PARENT"'
----| '"CHILD"'
----| '"RELIGIOUS"'
-
----@alias entity_entity_link_type_values
----| 0
----| 1
----| 2
-
 ---@alias entity_entity_link_type
----| entity_entity_link_type_keys
----| entity_entity_link_type_values
+---| 'PARENT'
+---| 'CHILD'
+---| 'RELIGIOUS'
 
 ---@class _entity_entity_link_type: DFEnumType
 ---@field PARENT 0
@@ -1734,26 +1551,14 @@ df.entity_entity_link_type = {}
 ---@field _kind 'struct-type'
 df.entity_entity_link = {}
 
----@alias entity_site_link_type_keys
----| '"None"'
----| '"All"'
----| '"Inside_Wall"'
----| '"Outside_Wall"'
----| '"Outskirts"'
----| '"Local_Activity"'
-
----@alias entity_site_link_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
-
 -- Enum names updated per Putnam
 ---@alias entity_site_link_type
----| entity_site_link_type_keys
----| entity_site_link_type_values
+---| 'None'
+---| 'All'
+---| 'Inside_Wall'
+---| 'Outside_Wall'
+---| 'Outskirts'
+---| 'Local_Activity'
 
 -- Enum names updated per Putnam
 ---@class _entity_site_link_type: DFEnumType

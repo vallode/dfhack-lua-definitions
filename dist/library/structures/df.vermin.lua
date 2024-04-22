@@ -18,31 +18,16 @@
 ---@field [3] "is_roaming_colony" colony building vermin away from colony
 df.vermin_flags = {}
 
----@alias vermin_category_keys
----| '"None"'
----| '"Eater"'
----| '"Grounder"'
----| '"Rotter"'
----| '"Swamper"'
----| '"Searched"'
----| '"Disturbed"'
----| '"Dropped"'
----| '"Underworld"'
-
----@alias vermin_category_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias vermin_category
----| vermin_category_keys
----| vermin_category_values
+---| 'None'
+---| 'Eater'
+---| 'Grounder'
+---| 'Rotter'
+---| 'Swamper'
+---| 'Searched'
+---| 'Disturbed'
+---| 'Dropped'
+---| 'Underworld'
 
 ---@class _vermin_category: DFEnumType
 ---@field None -1

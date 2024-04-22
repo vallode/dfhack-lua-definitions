@@ -1,16 +1,9 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias machine_type_keys
----| '"standard"'
-
----@alias machine_type_values
----| 0
-
 -- MACHINE
 ---@alias machine_type
----| machine_type_keys
----| machine_type_values
+---| 'standard'
 
 -- MACHINE
 ---@class _machine_type: DFEnumType
@@ -240,21 +233,11 @@ df.building_windmillst = {}
 ---@field _kind 'class-type'
 df.building_water_wheelst = {}
 
----@alias screw_pump_direction_keys
----| '"FromNorth"'
----| '"FromEast"'
----| '"FromSouth"'
----| '"FromWest"'
-
----@alias screw_pump_direction_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias screw_pump_direction
----| screw_pump_direction_keys
----| screw_pump_direction_values
+---| 'FromNorth'
+---| 'FromEast'
+---| 'FromSouth'
+---| 'FromWest'
 
 ---@class _screw_pump_direction: DFEnumType
 ---@field FromNorth 0

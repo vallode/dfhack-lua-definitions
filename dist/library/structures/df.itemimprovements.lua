@@ -1,43 +1,22 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias improvement_type_keys
----| '"NONE"'
----| '"ART_IMAGE"'
----| '"COVERED"'
----| '"RINGS_HANGING"'
----| '"BANDS"'
----| '"SPIKES"'
----| '"ITEMSPECIFIC"'
----| '"THREAD"'
----| '"CLOTH"'
----| '"SEWN_IMAGE"'
----| '"PAGES"'
----| '"ILLUSTRATION"'
----| '"INSTRUMENT_PIECE"'
----| '"WRITING"'
----| '"IMAGE_SET"'
-
----@alias improvement_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
-
 ---@alias improvement_type
----| improvement_type_keys
----| improvement_type_values
+---| 'NONE'
+---| 'ART_IMAGE'
+---| 'COVERED'
+---| 'RINGS_HANGING'
+---| 'BANDS'
+---| 'SPIKES'
+---| 'ITEMSPECIFIC'
+---| 'THREAD'
+---| 'CLOTH'
+---| 'SEWN_IMAGE'
+---| 'PAGES'
+---| 'ILLUSTRATION'
+---| 'INSTRUMENT_PIECE'
+---| 'WRITING'
+---| 'IMAGE_SET'
 
 ---@class _improvement_type: DFEnumType
 ---@field NONE -1
@@ -173,17 +152,9 @@ df.itemimprovement_bandsst = {}
 ---@field _kind 'class-type'
 df.itemimprovement_spikesst = {}
 
----@alias itemimprovement_specific_type_keys
----| '"HANDLE"'
----| '"ROLLERS"'
-
----@alias itemimprovement_specific_type_values
----| 0
----| 1
-
 ---@alias itemimprovement_specific_type
----| itemimprovement_specific_type_keys
----| itemimprovement_specific_type_values
+---| 'HANDLE'
+---| 'ROLLERS'
 
 ---@class _itemimprovement_specific_type: DFEnumType
 ---@field HANDLE 0
@@ -277,67 +248,34 @@ df.itemimprovement_writingst = {}
 ---@field _kind 'class-type'
 df.itemimprovement_image_setst = {}
 
----@alias written_content_type_keys
----| '"NONE"'
----| '"Manual"'
----| '"Guide"'
----| '"Chronicle"'
----| '"ShortStory"'
----| '"Novel"'
----| '"Biography"'
----| '"Autobiography"'
----| '"Poem"'
----| '"Play"'
----| '"Letter"'
----| '"Essay"'
----| '"Dialog"'
----| '"MusicalComposition"'
----| '"Choreography"'
----| '"ComparativeBiography"'
----| '"BiographicalDictionary"'
----| '"Genealogy"'
----| '"Encyclopedia"'
----| '"CulturalHistory"'
----| '"CulturalComparison"'
----| '"AlternateHistory"'
----| '"TreatiseOnTechnologicalEvolution"'
----| '"Dictionary"'
----| '"StarChart"'
----| '"StarCatalogue"'
----| '"Atlas"'
-
----@alias written_content_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
-
 ---@alias written_content_type
----| written_content_type_keys
----| written_content_type_values
+---| 'NONE'
+---| 'Manual'
+---| 'Guide'
+---| 'Chronicle'
+---| 'ShortStory'
+---| 'Novel'
+---| 'Biography'
+---| 'Autobiography'
+---| 'Poem'
+---| 'Play'
+---| 'Letter'
+---| 'Essay'
+---| 'Dialog'
+---| 'MusicalComposition'
+---| 'Choreography'
+---| 'ComparativeBiography'
+---| 'BiographicalDictionary'
+---| 'Genealogy'
+---| 'Encyclopedia'
+---| 'CulturalHistory'
+---| 'CulturalComparison'
+---| 'AlternateHistory'
+---| 'TreatiseOnTechnologicalEvolution'
+---| 'Dictionary'
+---| 'StarChart'
+---| 'StarCatalogue'
+---| 'Atlas'
 
 ---@class _written_content_type: DFEnumType
 ---@field NONE -1 bay12: WritingForm
@@ -396,49 +334,25 @@ df.itemimprovement_image_setst = {}
 ---@field [25] "Atlas"
 df.written_content_type = {}
 
----@alias written_content_style_keys
----| '"Meandering"'
----| '"Cheerful"'
----| '"Depressing"'
----| '"Rigid"'
----| '"Serious"'
----| '"Disjointed"'
----| '"Ornate"'
----| '"Forceful"'
----| '"Humorous"'
----| '"Immature"'
----| '"SelfIndulgent"'
----| '"Touching"'
----| '"Compassionate"'
----| '"Vicious"'
----| '"Concise"'
----| '"Scornful"'
----| '"Witty"'
----| '"Ranting"'
-
----@alias written_content_style_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
-
 ---@alias written_content_style
----| written_content_style_keys
----| written_content_style_values
+---| 'Meandering'
+---| 'Cheerful'
+---| 'Depressing'
+---| 'Rigid'
+---| 'Serious'
+---| 'Disjointed'
+---| 'Ornate'
+---| 'Forceful'
+---| 'Humorous'
+---| 'Immature'
+---| 'SelfIndulgent'
+---| 'Touching'
+---| 'Compassionate'
+---| 'Vicious'
+---| 'Concise'
+---| 'Scornful'
+---| 'Witty'
+---| 'Ranting'
 
 ---@class _written_content_style: DFEnumType
 ---@field Meandering 0

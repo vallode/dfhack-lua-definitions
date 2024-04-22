@@ -49,75 +49,38 @@ function _historical_kills_killed_undead:erase(index) end
 ---@field _kind 'struct-type'
 df.history_hit_item = {}
 
----@alias reputation_type_keys
----| '"Hero"'
----| '"AnimalPartner"'
----| '"Brawler"'
----| '"Psycho"'
----| '"TradePartner"'
----| '"Friendly"'
----| '"Killer"'
----| '"Murderer"'
----| '"Comrade"'
----| '"RespectedGroup"'
----| '"HatedGroup"'
----| '"EnemyFighter"'
----| '"FriendlyFighter"'
----| '"Bully"'
----| '"Brigand"'
----| '"LoyalSoldier"'
----| '"Monster"'
----| '"Storyteller"'
----| '"Poet"'
----| '"Bard"'
----| '"Dancer"'
----| '"Quarreler"'
----| '"Flatterer"'
----| '"Hunter"'
----| '"ProtectorOfWeak"'
----| '"TreasureHunter"'
----| '"Thief"'
----| '"InformationSource"'
----| '"PreserverOfKnowledge"'
----| '"Intruder"'
----| '"Preacher"'
-
----@alias reputation_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
-
 ---@alias reputation_type
----| reputation_type_keys
----| reputation_type_values
+---| 'Hero'
+---| 'AnimalPartner'
+---| 'Brawler'
+---| 'Psycho'
+---| 'TradePartner'
+---| 'Friendly'
+---| 'Killer'
+---| 'Murderer'
+---| 'Comrade'
+---| 'RespectedGroup'
+---| 'HatedGroup'
+---| 'EnemyFighter'
+---| 'FriendlyFighter'
+---| 'Bully'
+---| 'Brigand'
+---| 'LoyalSoldier'
+---| 'Monster'
+---| 'Storyteller'
+---| 'Poet'
+---| 'Bard'
+---| 'Dancer'
+---| 'Quarreler'
+---| 'Flatterer'
+---| 'Hunter'
+---| 'ProtectorOfWeak'
+---| 'TreasureHunter'
+---| 'Thief'
+---| 'InformationSource'
+---| 'PreserverOfKnowledge'
+---| 'Intruder'
+---| 'Preacher'
 
 ---@class _reputation_type: DFEnumType
 ---@field Hero 0
@@ -184,28 +147,15 @@ df.history_hit_item = {}
 ---@field [30] "Preacher"
 df.reputation_type = {}
 
----@alias whereabouts_type_keys
----| '"NONE"'
----| '"wanderer"'
----| '"settler"'
----| '"refugee"'
----| '"army_died"'
----| '"army_survived"'
----| '"visitor"'
-
----@alias whereabouts_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 -- bay12: HistFigState
 ---@alias whereabouts_type
----| whereabouts_type_keys
----| whereabouts_type_values
+---| 'NONE'
+---| 'wanderer'
+---| 'settler'
+---| 'refugee'
+---| 'army_died'
+---| 'army_survived'
+---| 'visitor'
 
 -- bay12: HistFigState
 ---@class _whereabouts_type: DFEnumType
@@ -225,23 +175,12 @@ df.reputation_type = {}
 ---@field [5] "visitor" bay12: VISITING; 'visited' as last movement seems to be the key
 df.whereabouts_type = {}
 
----@alias season_keys
----| '"None"'
----| '"Spring"'
----| '"Summer"'
----| '"Autumn"'
----| '"Winter"'
-
----@alias season_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias season
----| season_keys
----| season_values
+---| 'None'
+---| 'Spring'
+---| 'Summer'
+---| 'Autumn'
+---| 'Winter'
 
 ---@class _season: DFEnumType
 ---@field None -1
@@ -256,30 +195,16 @@ df.whereabouts_type = {}
 ---@field [3] "Winter"
 df.season = {}
 
----@alias death_condition_type_keys
----| '"NONE"'
----| '"no_statement"'
----| '"site_battle"'
----| '"region_battle"'
----| '"wilderness"'
----| '"feature_layer"'
----| '"entombed"'
----| '"site"'
-
----@alias death_condition_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 -- bay12: HistFigBodyState
 ---@alias death_condition_type
----| death_condition_type_keys
----| death_condition_type_values
+---| 'NONE'
+---| 'no_statement'
+---| 'site_battle'
+---| 'region_battle'
+---| 'wilderness'
+---| 'feature_layer'
+---| 'entombed'
+---| 'site'
 
 -- bay12: HistFigBodyState
 ---@class _death_condition_type: DFEnumType
@@ -301,59 +226,30 @@ df.season = {}
 ---@field [6] "site" bay12: UNBURIED_AT_SITE; same parameters as for site_battle, old age and deadly confrontation seen
 df.death_condition_type = {}
 
----@alias plot_role_type_keys
----| '"None"'
----| '"Possible_Threat"'
----| '"Rebuffed"'
----| '"Source_Of_Funds"'
----| '"Source_Of_Funds_For_Master"'
----| '"Master"'
----| '"Suspected_Criminal"'
----| '"Asset"'
----| '"Lieutenant"'
----| '"Usable_Thief"'
----| '"Potential_Employer"'
----| '"Indirect_Director"'
----| '"Corrupt_Position_Holder"'
----| '"Delivery_Target"'
----| '"Handler"'
----| '"Usable_Assassin"'
----| '"Director"'
----| '"Enemy"'
----| '"Usable_Snatcher"'
----| '""'
----| '""'
----| '"Underworld_Contact"'
----| '"Possibly_Unknown_Director"'
-
----@alias plot_role_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
-
 ---@alias plot_role_type
----| plot_role_type_keys
----| plot_role_type_values
+---| 'None'
+---| 'Possible_Threat'
+---| 'Rebuffed'
+---| 'Source_Of_Funds'
+---| 'Source_Of_Funds_For_Master'
+---| 'Master'
+---| 'Suspected_Criminal'
+---| 'Asset'
+---| 'Lieutenant'
+---| 'Usable_Thief'
+---| 'Potential_Employer'
+---| 'Indirect_Director'
+---| 'Corrupt_Position_Holder'
+---| 'Delivery_Target'
+---| 'Handler'
+---| 'Usable_Assassin'
+---| 'Director'
+---| 'Enemy'
+---| 'Usable_Snatcher'
+---| ''
+---| ''
+---| 'Underworld_Contact'
+---| 'Possibly_Unknown_Director'
 
 ---@class _plot_role_type: DFEnumType
 ---@field None -1
@@ -400,33 +296,17 @@ df.death_condition_type = {}
 ---@field [21] "Possibly_Unknown_Director"
 df.plot_role_type = {}
 
----@alias plot_strategy_type_keys
----| '"None"'
----| '"Corrupt_And_Pacify"'
----| '"Obey"'
----| '"Avoid"'
----| '"Use"'
----| '"Tax"'
----| '"Neutralize"'
----| '"Monitor"'
----| '"Work_If_Suited"'
----| '"Torment"'
-
----@alias plot_strategy_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 ---@alias plot_strategy_type
----| plot_strategy_type_keys
----| plot_strategy_type_values
+---| 'None'
+---| 'Corrupt_And_Pacify'
+---| 'Obey'
+---| 'Avoid'
+---| 'Use'
+---| 'Tax'
+---| 'Neutralize'
+---| 'Monitor'
+---| 'Work_If_Suited'
+---| 'Torment'
 
 ---@class _plot_strategy_type: DFEnumType
 ---@field None -1
@@ -694,45 +574,23 @@ function _historical_figure_relationships_artifact_claims:insert(index, item) en
 ---@param index integer 
 function _historical_figure_relationships_artifact_claims:erase(index) end
 
----@alias histfig_flags_keys
----| '"reveal_artwork"'
----| '"equipment_created"'
----| '"deity"'
----| '"force"'
----| '"skeletal_deity"'
----| '"rotting_deity"'
----| '"worldgen_acted"'
----| '"ghost"'
----| '"skin_destroyed"'
----| '"meat_destroyed"'
----| '"bones_destroyed"'
----| '"brag_on_kill"'
----| '"kill_quest"'
----| '"chatworthy"'
----| '"flashes"'
----| '"never_cull"'
-
----@alias histfig_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
-
 ---@alias histfig_flags
----| histfig_flags_keys
----| histfig_flags_values
+---| 'reveal_artwork'
+---| 'equipment_created'
+---| 'deity'
+---| 'force'
+---| 'skeletal_deity'
+---| 'rotting_deity'
+---| 'worldgen_acted'
+---| 'ghost'
+---| 'skin_destroyed'
+---| 'meat_destroyed'
+---| 'bones_destroyed'
+---| 'brag_on_kill'
+---| 'kill_quest'
+---| 'chatworthy'
+---| 'flashes'
+---| 'never_cull'
 
 ---@class _histfig_flags: DFEnumType
 ---@field reveal_artwork 0
@@ -769,159 +627,80 @@ function _historical_figure_relationships_artifact_claims:erase(index) end
 ---@field [15] "never_cull"
 df.histfig_flags = {}
 
----@alias histfig_relationship_type_keys
----| '"None"'
----| '"Mother"'
----| '"Father"'
----| '"Parent"'
----| '"Husband"'
----| '"Wife"'
----| '"Spouse"'
----| '"SonEldest"'
----| '"SonEldest2"'
----| '"SonEldest3"'
----| '"SonEldest4"'
----| '"SonEldest5"'
----| '"SonEldest6"'
----| '"SonEldest7"'
----| '"SonEldest8"'
----| '"SonEldest9"'
----| '"SonEldest10"'
----| '"Son"'
----| '"SonYoungest"'
----| '"SonOnly"'
----| '"DaughterEldest"'
----| '"DaughterEldest2"'
----| '"DaughterEldest3"'
----| '"DaughterEldest4"'
----| '"DaughterEldest5"'
----| '"DaughterEldest6"'
----| '"DaughterEldest7"'
----| '"DaughterEldest8"'
----| '"DaughterEldest9"'
----| '"DaughterEldest10"'
----| '"Daughter"'
----| '"DaughterOnly"'
----| '"DaughterYoungest"'
----| '"ChildEldest"'
----| '"ChildEldest2"'
----| '"ChildEldest3"'
----| '"ChildEldest4"'
----| '"ChildEldest5"'
----| '"ChildEldest6"'
----| '"ChildEldest7"'
----| '"ChildEldest8"'
----| '"ChildEldest9"'
----| '"ChildEldest10"'
----| '"Child"'
----| '"ChildYoungest"'
----| '"ChildOnly"'
----| '"PaternalGrandmother"'
----| '"PaternalGrandfather"'
----| '"MaternalGrandmother"'
----| '"MaternalGrandfather"'
----| '"Grandmother"'
----| '"Grandfather"'
----| '"Grandparent"'
----| '"OlderBrother"'
----| '"OlderSister"'
----| '"OlderSibling"'
----| '"YoungerBrother"'
----| '"YoungerSister"'
----| '"YoungerSibling"'
----| '"Cousin"'
----| '"Aunt"'
----| '"Uncle"'
----| '"Niece"'
----| '"Nephew"'
----| '"Sibling"'
----| '"Grandchild"'
----| '"OlderHalfBrother"'
----| '"OlderHalfSister"'
----| '"OlderHalfSibling"'
----| '"YoungerHalfBrother"'
----| '"YoungerHalfSister"'
----| '"YoungerHalfSibling"'
----| '"HalfSibling"'
-
----@alias histfig_relationship_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
----| 71
-
 ---@alias histfig_relationship_type
----| histfig_relationship_type_keys
----| histfig_relationship_type_values
+---| 'None'
+---| 'Mother'
+---| 'Father'
+---| 'Parent'
+---| 'Husband'
+---| 'Wife'
+---| 'Spouse'
+---| 'SonEldest'
+---| 'SonEldest2'
+---| 'SonEldest3'
+---| 'SonEldest4'
+---| 'SonEldest5'
+---| 'SonEldest6'
+---| 'SonEldest7'
+---| 'SonEldest8'
+---| 'SonEldest9'
+---| 'SonEldest10'
+---| 'Son'
+---| 'SonYoungest'
+---| 'SonOnly'
+---| 'DaughterEldest'
+---| 'DaughterEldest2'
+---| 'DaughterEldest3'
+---| 'DaughterEldest4'
+---| 'DaughterEldest5'
+---| 'DaughterEldest6'
+---| 'DaughterEldest7'
+---| 'DaughterEldest8'
+---| 'DaughterEldest9'
+---| 'DaughterEldest10'
+---| 'Daughter'
+---| 'DaughterOnly'
+---| 'DaughterYoungest'
+---| 'ChildEldest'
+---| 'ChildEldest2'
+---| 'ChildEldest3'
+---| 'ChildEldest4'
+---| 'ChildEldest5'
+---| 'ChildEldest6'
+---| 'ChildEldest7'
+---| 'ChildEldest8'
+---| 'ChildEldest9'
+---| 'ChildEldest10'
+---| 'Child'
+---| 'ChildYoungest'
+---| 'ChildOnly'
+---| 'PaternalGrandmother'
+---| 'PaternalGrandfather'
+---| 'MaternalGrandmother'
+---| 'MaternalGrandfather'
+---| 'Grandmother'
+---| 'Grandfather'
+---| 'Grandparent'
+---| 'OlderBrother'
+---| 'OlderSister'
+---| 'OlderSibling'
+---| 'YoungerBrother'
+---| 'YoungerSister'
+---| 'YoungerSibling'
+---| 'Cousin'
+---| 'Aunt'
+---| 'Uncle'
+---| 'Niece'
+---| 'Nephew'
+---| 'Sibling'
+---| 'Grandchild'
+---| 'OlderHalfBrother'
+---| 'OlderHalfSister'
+---| 'OlderHalfSibling'
+---| 'YoungerHalfBrother'
+---| 'YoungerHalfSister'
+---| 'YoungerHalfSibling'
+---| 'HalfSibling'
 
 ---@class _histfig_relationship_type: DFEnumType
 ---@field None -1 Can be checked through viewscreen_layer_unit_relationshipst
@@ -1072,68 +851,35 @@ df.histfig_flags = {}
 ---@field [71] "HalfSibling"
 df.histfig_relationship_type = {}
 
----@alias vague_relationship_type_keys
----| '"none"'
----| '"childhood_friend"'
----| '"war_buddy"'
----| '"jealous_obsession"'
----| '"jealous_relationship_grudge"'
----| '"lover"'
----| '"former_lover"'
----| '"scholar_buddy"'
----| '"artistic_buddy"'
----| '"athlete_buddy"'
----| '"athletic_rival"'
----| '"business_rival"'
----| '"religious_persecution_grudge"'
----| '"grudge"'
----| '"persecution_grudge"'
----| '"supernatural_grudge"'
----| '"lieutenant"'
----| '"worshipped_deity"'
----| '"spouse"'
----| '"mother"'
----| '"father"'
----| '"master"'
----| '"apprentice"'
----| '"companion"'
----| '"ex_spouse"'
----| '"neighbor"'
----| '"shared_entity"'
-
----@alias vague_relationship_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
-
 -- bay12: WGRelationship; not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
 ---@alias vague_relationship_type
----| vague_relationship_type_keys
----| vague_relationship_type_values
+---| 'none'
+---| 'childhood_friend'
+---| 'war_buddy'
+---| 'jealous_obsession'
+---| 'jealous_relationship_grudge'
+---| 'lover'
+---| 'former_lover'
+---| 'scholar_buddy'
+---| 'artistic_buddy'
+---| 'athlete_buddy'
+---| 'athletic_rival'
+---| 'business_rival'
+---| 'religious_persecution_grudge'
+---| 'grudge'
+---| 'persecution_grudge'
+---| 'supernatural_grudge'
+---| 'lieutenant'
+---| 'worshipped_deity'
+---| 'spouse'
+---| 'mother'
+---| 'father'
+---| 'master'
+---| 'apprentice'
+---| 'companion'
+---| 'ex_spouse'
+---| 'neighbor'
+---| 'shared_entity'
 
 -- bay12: WGRelationship; not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
 ---@class _vague_relationship_type: DFEnumType
@@ -1315,27 +1061,14 @@ function _historical_figure_histfig_links:insert(index, item) end
 ---@param index integer 
 function _historical_figure_histfig_links:erase(index) end
 
----@alias identity_type_keys
----| '"None"'
----| '"HidingCurse"'
----| '"Impersonating"'
----| '"TrueName"'
----| '"FalseIdentity"'
----| '"InfiltrationIdentity"'
----| '"Identity"'
-
----@alias identity_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias identity_type
----| identity_type_keys
----| identity_type_values
+---| 'None'
+---| 'HidingCurse'
+---| 'Impersonating'
+---| 'TrueName'
+---| 'FalseIdentity'
+---| 'InfiltrationIdentity'
+---| 'Identity'
 
 ---@class _identity_type: DFEnumType
 ---@field None -1 Seen on adventurer assuming an identity for reasons unknown
@@ -1468,31 +1201,16 @@ df.identity_unk_94 = {}
 ---@field _kind 'struct-type'
 df.identity_unk_95 = {}
 
----@alias mental_picture_property_type_keys
----| '"DATE"'
----| '"ACTION"'
----| '"TOOL"'
----| '"EMOTION"'
----| '"COLOR_PATTERN"'
----| '"SHAPE"'
----| '"ADJECTIVE"'
----| '"POSITION"'
----| '"TIME"'
-
----@alias mental_picture_property_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 ---@alias mental_picture_property_type
----| mental_picture_property_type_keys
----| mental_picture_property_type_values
+---| 'DATE'
+---| 'ACTION'
+---| 'TOOL'
+---| 'EMOTION'
+---| 'COLOR_PATTERN'
+---| 'SHAPE'
+---| 'ADJECTIVE'
+---| 'POSITION'
+---| 'TIME'
 
 ---@class _mental_picture_property_type: DFEnumType
 ---@field DATE 0
@@ -1618,19 +1336,10 @@ df.mental_picture_property_positionst = {}
 ---@field _kind 'class-type'
 df.mental_picture_property_timest = {}
 
----@alias mental_picture_element_type_keys
----| '"HF"'
----| '"SITE"'
----| '"REGION"'
-
----@alias mental_picture_element_type_values
----| 0
----| 1
----| 2
-
 ---@alias mental_picture_element_type
----| mental_picture_element_type_keys
----| mental_picture_element_type_values
+---| 'HF'
+---| 'SITE'
+---| 'REGION'
 
 ---@class _mental_picture_element_type: DFEnumType
 ---@field HF 0
@@ -1682,279 +1391,140 @@ df.mental_picture_element_sitest = {}
 ---@field _kind 'class-type'
 df.mental_picture_element_regionst = {}
 
----@alias history_event_type_keys
----| '"WAR_ATTACKED_SITE"'
----| '"WAR_DESTROYED_SITE"'
----| '"CREATED_SITE"'
----| '"HIST_FIGURE_DIED"'
----| '"ADD_HF_ENTITY_LINK"'
----| '"REMOVE_HF_ENTITY_LINK"'
----| '"FIRST_CONTACT"'
----| '"FIRST_CONTACT_FAILED"'
----| '"TOPICAGREEMENT_CONCLUDED"'
----| '"TOPICAGREEMENT_REJECTED"'
----| '"TOPICAGREEMENT_MADE"'
----| '"WAR_PEACE_ACCEPTED"'
----| '"WAR_PEACE_REJECTED"'
----| '"DIPLOMAT_LOST"'
----| '"AGREEMENTS_VOIDED"'
----| '"MERCHANT"'
----| '"ARTIFACT_HIDDEN"'
----| '"ARTIFACT_POSSESSED"'
----| '"ARTIFACT_CREATED"'
----| '"ARTIFACT_LOST"'
----| '"ARTIFACT_FOUND"'
----| '"ARTIFACT_RECOVERED"'
----| '"ARTIFACT_DROPPED"'
----| '"RECLAIM_SITE"'
----| '"HF_DESTROYED_SITE"'
----| '"SITE_DIED"'
----| '"SITE_RETIRED"'
----| '"ENTITY_CREATED"'
----| '"ENTITY_ACTION"'
----| '"ENTITY_INCORPORATED"'
----| '"CREATED_BUILDING"'
----| '"REPLACED_BUILDING"'
----| '"ADD_HF_SITE_LINK"'
----| '"REMOVE_HF_SITE_LINK"'
----| '"ADD_HF_HF_LINK"'
----| '"REMOVE_HF_HF_LINK"'
----| '"ENTITY_RAZED_BUILDING"'
----| '"MASTERPIECE_CREATED_ARCH_CONSTRUCT"'
----| '"MASTERPIECE_CREATED_ITEM"'
----| '"MASTERPIECE_CREATED_DYE_ITEM"'
----| '"MASTERPIECE_CREATED_ITEM_IMPROVEMENT"'
----| '"MASTERPIECE_CREATED_FOOD"'
----| '"MASTERPIECE_CREATED_ENGRAVING"'
----| '"MASTERPIECE_LOST"'
----| '"CHANGE_HF_STATE"'
----| '"CHANGE_HF_JOB"'
----| '"WAR_FIELD_BATTLE"'
----| '"WAR_PLUNDERED_SITE"'
----| '"WAR_SITE_NEW_LEADER"'
----| '"WAR_SITE_TRIBUTE_FORCED"'
----| '"WAR_SITE_TAKEN_OVER"'
----| '"BODY_ABUSED"'
----| '"HIST_FIGURE_ABDUCTED"'
----| '"ITEM_STOLEN"'
----| '"HF_RAZED_BUILDING"'
----| '"CREATURE_DEVOURED"'
----| '"HIST_FIGURE_WOUNDED"'
----| '"HIST_FIGURE_SIMPLE_BATTLE_EVENT"'
----| '"CREATED_WORLD_CONSTRUCTION"'
----| '"HIST_FIGURE_REUNION"'
----| '"HIST_FIGURE_REACH_SUMMIT"'
----| '"HIST_FIGURE_TRAVEL"'
----| '"HIST_FIGURE_NEW_PET"'
----| '"ASSUME_IDENTITY"'
----| '"CREATE_ENTITY_POSITION"'
----| '"CHANGE_CREATURE_TYPE"'
----| '"HIST_FIGURE_REVIVED"'
----| '"HF_LEARNS_SECRET"'
----| '"CHANGE_HF_BODY_STATE"'
----| '"HF_ACT_ON_BUILDING"'
----| '"HF_DOES_INTERACTION"'
----| '"HF_CONFRONTED"'
----| '"ENTITY_LAW"'
----| '"HF_GAINS_SECRET_GOAL"'
----| '"ARTIFACT_STORED"'
----| '"AGREEMENT_FORMED"'
----| '"SITE_DISPUTE"'
----| '"AGREEMENT_CONCLUDED"'
----| '"INSURRECTION_STARTED"'
----| '"INSURRECTION_ENDED"'
----| '"HF_ATTACKED_SITE"'
----| '"PERFORMANCE"'
----| '"COMPETITION"'
----| '"PROCESSION"'
----| '"CEREMONY"'
----| '"KNOWLEDGE_DISCOVERED"'
----| '"ARTIFACT_TRANSFORMED"'
----| '"ARTIFACT_DESTROYED"'
----| '"HF_RELATIONSHIP_DENIED"'
----| '"REGIONPOP_INCORPORATED_INTO_ENTITY"'
----| '"POETIC_FORM_CREATED"'
----| '"MUSICAL_FORM_CREATED"'
----| '"DANCE_FORM_CREATED"'
----| '"WRITTEN_CONTENT_COMPOSED"'
----| '"CHANGE_HF_MOOD"'
----| '"ARTIFACT_CLAIM_FORMED"'
----| '"ARTIFACT_GIVEN"'
----| '"HF_ACT_ON_ARTIFACT"'
----| '"HF_RECRUITED_UNIT_TYPE_FOR_ENTITY"'
----| '"HFS_FORMED_REPUTATION_RELATIONSHIP"'
----| '"ARTIFACT_COPIED"'
----| '"SNEAK_INTO_SITE"'
----| '"SPOTTED_LEAVING_SITE"'
----| '"ENTITY_SEARCHED_SITE"'
----| '"HF_FREED"'
----| '"HIST_FIGURE_SIMPLE_ACTION"'
----| '"ENTITY_RAMPAGED_IN_SITE"'
----| '"ENTITY_FLED_SITE"'
----| '"TACTICAL_SITUATION"'
----| '"SQUAD_VS_SQUAD"'
----| '"SITE_SURRENDERED"'
----| '"ENTITY_EXPELS_HF"'
----| '"TRADE"'
----| '"ADD_ENTITY_SITE_PROFILE_FLAG"'
----| '"GAMBLE"'
----| '"ADD_HF_ENTITY_HONOR"'
----| '"ENTITY_DISSOLVED"'
----| '"ENTITY_EQUIPMENT_PURCHASE"'
----| '"MODIFIED_BUILDING"'
----| '"BUILDING_PROFILE_ACQUIRED"'
----| '"HF_PREACH"'
----| '"ENTITY_PERSECUTED"'
----| '"ENTITY_BREACH_FEATURE_LAYER"'
----| '"ENTITY_ALLIANCE_FORMED"'
----| '"HF_RANSOMED"'
----| '"HF_ENSLAVED"'
----| '"SABOTAGE"'
----| '"ENTITY_OVERTHROWN"'
----| '"HFS_FORMED_INTRIGUE_RELATIONSHIP"'
----| '"FAILED_INTRIGUE_CORRUPTION"'
----| '"HF_CONVICTED"'
----| '"FAILED_FRAME_ATTEMPT"'
----| '"HF_INTERROGATED"'
-
----@alias history_event_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
----| 71
----| 72
----| 73
----| 74
----| 75
----| 76
----| 77
----| 78
----| 79
----| 80
----| 81
----| 82
----| 83
----| 84
----| 85
----| 86
----| 87
----| 88
----| 89
----| 90
----| 91
----| 92
----| 93
----| 94
----| 95
----| 96
----| 97
----| 98
----| 99
----| 100
----| 101
----| 102
----| 103
----| 104
----| 105
----| 106
----| 107
----| 108
----| 109
----| 110
----| 111
----| 112
----| 113
----| 114
----| 115
----| 116
----| 117
----| 118
----| 119
----| 120
----| 121
----| 122
----| 123
----| 124
----| 125
----| 126
----| 127
----| 128
----| 129
----| 130
----| 131
----| 132
-
 ---@alias history_event_type
----| history_event_type_keys
----| history_event_type_values
+---| 'WAR_ATTACKED_SITE'
+---| 'WAR_DESTROYED_SITE'
+---| 'CREATED_SITE'
+---| 'HIST_FIGURE_DIED'
+---| 'ADD_HF_ENTITY_LINK'
+---| 'REMOVE_HF_ENTITY_LINK'
+---| 'FIRST_CONTACT'
+---| 'FIRST_CONTACT_FAILED'
+---| 'TOPICAGREEMENT_CONCLUDED'
+---| 'TOPICAGREEMENT_REJECTED'
+---| 'TOPICAGREEMENT_MADE'
+---| 'WAR_PEACE_ACCEPTED'
+---| 'WAR_PEACE_REJECTED'
+---| 'DIPLOMAT_LOST'
+---| 'AGREEMENTS_VOIDED'
+---| 'MERCHANT'
+---| 'ARTIFACT_HIDDEN'
+---| 'ARTIFACT_POSSESSED'
+---| 'ARTIFACT_CREATED'
+---| 'ARTIFACT_LOST'
+---| 'ARTIFACT_FOUND'
+---| 'ARTIFACT_RECOVERED'
+---| 'ARTIFACT_DROPPED'
+---| 'RECLAIM_SITE'
+---| 'HF_DESTROYED_SITE'
+---| 'SITE_DIED'
+---| 'SITE_RETIRED'
+---| 'ENTITY_CREATED'
+---| 'ENTITY_ACTION'
+---| 'ENTITY_INCORPORATED'
+---| 'CREATED_BUILDING'
+---| 'REPLACED_BUILDING'
+---| 'ADD_HF_SITE_LINK'
+---| 'REMOVE_HF_SITE_LINK'
+---| 'ADD_HF_HF_LINK'
+---| 'REMOVE_HF_HF_LINK'
+---| 'ENTITY_RAZED_BUILDING'
+---| 'MASTERPIECE_CREATED_ARCH_CONSTRUCT'
+---| 'MASTERPIECE_CREATED_ITEM'
+---| 'MASTERPIECE_CREATED_DYE_ITEM'
+---| 'MASTERPIECE_CREATED_ITEM_IMPROVEMENT'
+---| 'MASTERPIECE_CREATED_FOOD'
+---| 'MASTERPIECE_CREATED_ENGRAVING'
+---| 'MASTERPIECE_LOST'
+---| 'CHANGE_HF_STATE'
+---| 'CHANGE_HF_JOB'
+---| 'WAR_FIELD_BATTLE'
+---| 'WAR_PLUNDERED_SITE'
+---| 'WAR_SITE_NEW_LEADER'
+---| 'WAR_SITE_TRIBUTE_FORCED'
+---| 'WAR_SITE_TAKEN_OVER'
+---| 'BODY_ABUSED'
+---| 'HIST_FIGURE_ABDUCTED'
+---| 'ITEM_STOLEN'
+---| 'HF_RAZED_BUILDING'
+---| 'CREATURE_DEVOURED'
+---| 'HIST_FIGURE_WOUNDED'
+---| 'HIST_FIGURE_SIMPLE_BATTLE_EVENT'
+---| 'CREATED_WORLD_CONSTRUCTION'
+---| 'HIST_FIGURE_REUNION'
+---| 'HIST_FIGURE_REACH_SUMMIT'
+---| 'HIST_FIGURE_TRAVEL'
+---| 'HIST_FIGURE_NEW_PET'
+---| 'ASSUME_IDENTITY'
+---| 'CREATE_ENTITY_POSITION'
+---| 'CHANGE_CREATURE_TYPE'
+---| 'HIST_FIGURE_REVIVED'
+---| 'HF_LEARNS_SECRET'
+---| 'CHANGE_HF_BODY_STATE'
+---| 'HF_ACT_ON_BUILDING'
+---| 'HF_DOES_INTERACTION'
+---| 'HF_CONFRONTED'
+---| 'ENTITY_LAW'
+---| 'HF_GAINS_SECRET_GOAL'
+---| 'ARTIFACT_STORED'
+---| 'AGREEMENT_FORMED'
+---| 'SITE_DISPUTE'
+---| 'AGREEMENT_CONCLUDED'
+---| 'INSURRECTION_STARTED'
+---| 'INSURRECTION_ENDED'
+---| 'HF_ATTACKED_SITE'
+---| 'PERFORMANCE'
+---| 'COMPETITION'
+---| 'PROCESSION'
+---| 'CEREMONY'
+---| 'KNOWLEDGE_DISCOVERED'
+---| 'ARTIFACT_TRANSFORMED'
+---| 'ARTIFACT_DESTROYED'
+---| 'HF_RELATIONSHIP_DENIED'
+---| 'REGIONPOP_INCORPORATED_INTO_ENTITY'
+---| 'POETIC_FORM_CREATED'
+---| 'MUSICAL_FORM_CREATED'
+---| 'DANCE_FORM_CREATED'
+---| 'WRITTEN_CONTENT_COMPOSED'
+---| 'CHANGE_HF_MOOD'
+---| 'ARTIFACT_CLAIM_FORMED'
+---| 'ARTIFACT_GIVEN'
+---| 'HF_ACT_ON_ARTIFACT'
+---| 'HF_RECRUITED_UNIT_TYPE_FOR_ENTITY'
+---| 'HFS_FORMED_REPUTATION_RELATIONSHIP'
+---| 'ARTIFACT_COPIED'
+---| 'SNEAK_INTO_SITE'
+---| 'SPOTTED_LEAVING_SITE'
+---| 'ENTITY_SEARCHED_SITE'
+---| 'HF_FREED'
+---| 'HIST_FIGURE_SIMPLE_ACTION'
+---| 'ENTITY_RAMPAGED_IN_SITE'
+---| 'ENTITY_FLED_SITE'
+---| 'TACTICAL_SITUATION'
+---| 'SQUAD_VS_SQUAD'
+---| 'SITE_SURRENDERED'
+---| 'ENTITY_EXPELS_HF'
+---| 'TRADE'
+---| 'ADD_ENTITY_SITE_PROFILE_FLAG'
+---| 'GAMBLE'
+---| 'ADD_HF_ENTITY_HONOR'
+---| 'ENTITY_DISSOLVED'
+---| 'ENTITY_EQUIPMENT_PURCHASE'
+---| 'MODIFIED_BUILDING'
+---| 'BUILDING_PROFILE_ACQUIRED'
+---| 'HF_PREACH'
+---| 'ENTITY_PERSECUTED'
+---| 'ENTITY_BREACH_FEATURE_LAYER'
+---| 'ENTITY_ALLIANCE_FORMED'
+---| 'HF_RANSOMED'
+---| 'HF_ENSLAVED'
+---| 'SABOTAGE'
+---| 'ENTITY_OVERTHROWN'
+---| 'HFS_FORMED_INTRIGUE_RELATIONSHIP'
+---| 'FAILED_INTRIGUE_CORRUPTION'
+---| 'HF_CONVICTED'
+---| 'FAILED_FRAME_ATTEMPT'
+---| 'HF_INTERROGATED'
 
 ---@class _history_event_type: DFEnumType
 ---@field WAR_ATTACKED_SITE 0
@@ -2225,204 +1795,103 @@ df.mental_picture_element_regionst = {}
 ---@field [132] "HF_INTERROGATED"
 df.history_event_type = {}
 
----@alias history_event_reason_keys
----| '"none"'
----| '"insurrection"'
----| '"adventure"'
----| '"guide"'
----| '"rescued"'
----| '"sphere_alignment"'
----| '"maintain_balance_in_universe"'
----| '"highlight_boundaries_between_worlds"'
----| '"sow_the_seeds_of_chaos_in_the_world"'
----| '"provide_opportunities_for_courage"'
----| '"bring_death_to_the_world"'
----| '"liked_appearance"'
----| '"because_it_was_destined"'
----| '"great_fortresses_built_and_tested"'
----| '"whim"'
----| '"bring_misery_to_the_world"'
----| '"bring_murder_to_the_world"'
----| '"bring_nightmares_into_reality"'
----| '"bring_thralldom_to_the_world"'
----| '"bring_torture_to_the_world"'
----| '"provide_opportunities_for_acts_of_valor"'
----| '"bring_war_to_the_world"'
----| '"find_relative"'
----| '"offer_condolences"'
----| '"be_brought_to_safety"'
----| '"help_with_rescue"'
----| '"insufficient_work"'
----| '"work_request"'
----| '"make_weapon"'
----| '"vent_at_boss"'
----| '"cry_on_boss"'
----| '"should_have_reached_goal"'
----| '"insufficient_progress_toward_goal"'
----| '"going_wrong_direction"'
----| '"arrived_at_location"'
----| '"entity_no_longer_rules"'
----| '"left_site"'
----| '"reunited_with_loved_one"'
----| '"violent_disagreement"'
----| '"adopted"'
----| '"true_name_invocation"'
----| '"arrived_at_person"'
----| '"eradicate_beasts"'
----| '"entertain_people"'
----| '"make_a_living_as_a_warrior"'
----| '"study"'
----| '"flight"'
----| '"scholarship"'
----| '"be_with_master"'
----| '"become_citizen"'
----| '"prefers_working_alone"'
----| '"jealousy"'
----| '"glorify_hf"'
----| '"have_not_performed"'
----| '"prevented_from_leaving"'
----| '"curiosity"'
----| '"hire_on_as_mercenary"'
----| '"hire_on_as_performer"'
----| '"hire_on_as_scholar"'
----| '"drink"'
----| '"admire_architecture"'
----| '"pray"'
----| '"relax"'
----| '"danger"'
----| '"cannot_find_artifact"'
----| '"failed_mood"'
----| '"lack_of_sleep"'
----| '"trapped_in_cage"'
----| '"great_deal_of_stress"'
----| '"unable_to_leave_location"'
----| '"sanctify_hf"'
----| '"artifact_is_heirloom_of_family_hfid"'
----| '"cement_bonds_of_friendship"'
----| '"as_a_symbol_of_everlasting_peace"'
----| '"on_a_pilgrimage"'
----| '"gather_information"'
----| '"seek_sanctuary"'
----| '"part_of_trade_negotiation"'
----| '"artifact_is_symbol_of_entity_position"'
----| '"fear_of_persecution"'
----| '"smooth_operation"'
----| '"nuance_belief"'
----| '"shared_interest"'
----| '"envy_living"'
----| '"death_panic"'
----| '"death_fear"'
----| '"avoid_judgement"'
----| '"death_pride"'
----| '"death_vain"'
----| '"death_ambition"'
----| '"lack_of_funds"'
----| '"battle_losses"'
----| '"conviction_exile"'
----| '"priest_vent"'
----| '"priest_cry"'
-
----@alias history_event_reason_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
----| 71
----| 72
----| 73
----| 74
----| 75
----| 76
----| 77
----| 78
----| 79
----| 80
----| 81
----| 82
----| 83
----| 84
----| 85
----| 86
----| 87
----| 88
----| 89
----| 90
----| 91
----| 92
----| 93
-
 -- bay12: Reason; Some of these require at least one parameter of varying type. The text is what DF provides without parameter
 ---@alias history_event_reason
----| history_event_reason_keys
----| history_event_reason_values
+---| 'none'
+---| 'insurrection'
+---| 'adventure'
+---| 'guide'
+---| 'rescued'
+---| 'sphere_alignment'
+---| 'maintain_balance_in_universe'
+---| 'highlight_boundaries_between_worlds'
+---| 'sow_the_seeds_of_chaos_in_the_world'
+---| 'provide_opportunities_for_courage'
+---| 'bring_death_to_the_world'
+---| 'liked_appearance'
+---| 'because_it_was_destined'
+---| 'great_fortresses_built_and_tested'
+---| 'whim'
+---| 'bring_misery_to_the_world'
+---| 'bring_murder_to_the_world'
+---| 'bring_nightmares_into_reality'
+---| 'bring_thralldom_to_the_world'
+---| 'bring_torture_to_the_world'
+---| 'provide_opportunities_for_acts_of_valor'
+---| 'bring_war_to_the_world'
+---| 'find_relative'
+---| 'offer_condolences'
+---| 'be_brought_to_safety'
+---| 'help_with_rescue'
+---| 'insufficient_work'
+---| 'work_request'
+---| 'make_weapon'
+---| 'vent_at_boss'
+---| 'cry_on_boss'
+---| 'should_have_reached_goal'
+---| 'insufficient_progress_toward_goal'
+---| 'going_wrong_direction'
+---| 'arrived_at_location'
+---| 'entity_no_longer_rules'
+---| 'left_site'
+---| 'reunited_with_loved_one'
+---| 'violent_disagreement'
+---| 'adopted'
+---| 'true_name_invocation'
+---| 'arrived_at_person'
+---| 'eradicate_beasts'
+---| 'entertain_people'
+---| 'make_a_living_as_a_warrior'
+---| 'study'
+---| 'flight'
+---| 'scholarship'
+---| 'be_with_master'
+---| 'become_citizen'
+---| 'prefers_working_alone'
+---| 'jealousy'
+---| 'glorify_hf'
+---| 'have_not_performed'
+---| 'prevented_from_leaving'
+---| 'curiosity'
+---| 'hire_on_as_mercenary'
+---| 'hire_on_as_performer'
+---| 'hire_on_as_scholar'
+---| 'drink'
+---| 'admire_architecture'
+---| 'pray'
+---| 'relax'
+---| 'danger'
+---| 'cannot_find_artifact'
+---| 'failed_mood'
+---| 'lack_of_sleep'
+---| 'trapped_in_cage'
+---| 'great_deal_of_stress'
+---| 'unable_to_leave_location'
+---| 'sanctify_hf'
+---| 'artifact_is_heirloom_of_family_hfid'
+---| 'cement_bonds_of_friendship'
+---| 'as_a_symbol_of_everlasting_peace'
+---| 'on_a_pilgrimage'
+---| 'gather_information'
+---| 'seek_sanctuary'
+---| 'part_of_trade_negotiation'
+---| 'artifact_is_symbol_of_entity_position'
+---| 'fear_of_persecution'
+---| 'smooth_operation'
+---| 'nuance_belief'
+---| 'shared_interest'
+---| 'envy_living'
+---| 'death_panic'
+---| 'death_fear'
+---| 'avoid_judgement'
+---| 'death_pride'
+---| 'death_vain'
+---| 'death_ambition'
+---| 'lack_of_funds'
+---| 'battle_losses'
+---| 'conviction_exile'
+---| 'priest_vent'
+---| 'priest_cry'
 
 -- bay12: Reason; Some of these require at least one parameter of varying type. The text is what DF provides without parameter
 ---@class _history_event_reason: DFEnumType
@@ -2839,39 +2308,20 @@ df.history_event_context = {}
 ---@field [1] "do_markup"
 df.history_event_context.T_flags = {}
 
----@alias architectural_element_keys
----| '"NONE"'
----| '"paved_outdoor_area"'
----| '"uneven_pillars"'
----| '"square_of_pillars"'
----| '"pillars_on_the_perimeter"'
----| '"upper_floors"'
----| '"lower_floors"'
----| '"water_pool"'
----| '"lava_pool"'
----| '"stagnant_pool"'
----| '"open_structure"'
----| '"paved_indoor_areas"'
----| '"detailed_surfaces"'
-
----@alias architectural_element_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 ---@alias architectural_element
----| architectural_element_keys
----| architectural_element_values
+---| 'NONE'
+---| 'paved_outdoor_area'
+---| 'uneven_pillars'
+---| 'square_of_pillars'
+---| 'pillars_on_the_perimeter'
+---| 'upper_floors'
+---| 'lower_floors'
+---| 'water_pool'
+---| 'lava_pool'
+---| 'stagnant_pool'
+---| 'open_structure'
+---| 'paved_indoor_areas'
+---| 'detailed_surfaces'
 
 ---@class _architectural_element: DFEnumType
 ---@field NONE -1
@@ -2902,19 +2352,10 @@ df.history_event_context.T_flags = {}
 ---@field [11] "detailed_surfaces"
 df.architectural_element = {}
 
----@alias history_event_flags_keys
----| '"hidden"'
----| '""'
----| '""'
-
----@alias history_event_flags_values
----| 0
----| 1
----| 2
-
 ---@alias history_event_flags
----| history_event_flags_keys
----| history_event_flags_values
+---| 'hidden'
+---| ''
+---| ''
 
 ---@class _history_event_flags: DFEnumType
 ---@field hidden 0 event is hidden from legends mode when this is set
@@ -3095,126 +2536,64 @@ df.history_event_war_destroyed_sitest = {}
 ---@field _kind 'class-type'
 df.history_event_created_sitest = {}
 
----@alias death_type_keys
----| '"NONE"'
----| '"OLD_AGE"'
----| '"HUNGER"'
----| '"THIRST"'
----| '"SHOT"'
----| '"BLEED"'
----| '"DROWN"'
----| '"SUFFOCATE"'
----| '"STRUCK_DOWN"'
----| '"SCUTTLE"'
----| '"COLLISION"'
----| '"MAGMA"'
----| '"MAGMA_MIST"'
----| '"DRAGONFIRE"'
----| '"FIRE"'
----| '"SCALD"'
----| '"CAVEIN"'
----| '"DRAWBRIDGE"'
----| '"FALLING_ROCKS"'
----| '"CHASM"'
----| '"CAGE"'
----| '"MURDER"'
----| '"TRAP"'
----| '"VANISH"'
----| '"QUIT"'
----| '"ABANDON"'
----| '"HEAT"'
----| '"COLD"'
----| '"SPIKE"'
----| '"ENCASE_LAVA"'
----| '"ENCASE_MAGMA"'
----| '"ENCASE_ICE"'
----| '"BEHEAD"'
----| '"CRUCIFY"'
----| '"BURY_ALIVE"'
----| '"DROWN_ALT"'
----| '"BURN_ALIVE"'
----| '"FEED_TO_BEASTS"'
----| '"HACK_TO_PIECES"'
----| '"LEAVE_OUT_IN_AIR"'
----| '"BOIL"'
----| '"MELT"'
----| '"CONDENSE"'
----| '"SOLIDIFY"'
----| '"INFECTION"'
----| '"MEMORIALIZE"'
----| '"SCARE"'
----| '"DARKNESS"'
----| '"COLLAPSE"'
----| '"DRAIN_BLOOD"'
----| '"SLAUGHTER"'
----| '"VEHICLE"'
----| '"FALLING_OBJECT"'
----| '"LEAPT_FROM_HEIGHT"'
----| '"DROWN_ALT2"'
----| '"EXECUTION_GENERIC"'
-
----@alias death_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
-
 -- bay12: KillCause
 ---@alias death_type
----| death_type_keys
----| death_type_values
+---| 'NONE'
+---| 'OLD_AGE'
+---| 'HUNGER'
+---| 'THIRST'
+---| 'SHOT'
+---| 'BLEED'
+---| 'DROWN'
+---| 'SUFFOCATE'
+---| 'STRUCK_DOWN'
+---| 'SCUTTLE'
+---| 'COLLISION'
+---| 'MAGMA'
+---| 'MAGMA_MIST'
+---| 'DRAGONFIRE'
+---| 'FIRE'
+---| 'SCALD'
+---| 'CAVEIN'
+---| 'DRAWBRIDGE'
+---| 'FALLING_ROCKS'
+---| 'CHASM'
+---| 'CAGE'
+---| 'MURDER'
+---| 'TRAP'
+---| 'VANISH'
+---| 'QUIT'
+---| 'ABANDON'
+---| 'HEAT'
+---| 'COLD'
+---| 'SPIKE'
+---| 'ENCASE_LAVA'
+---| 'ENCASE_MAGMA'
+---| 'ENCASE_ICE'
+---| 'BEHEAD'
+---| 'CRUCIFY'
+---| 'BURY_ALIVE'
+---| 'DROWN_ALT'
+---| 'BURN_ALIVE'
+---| 'FEED_TO_BEASTS'
+---| 'HACK_TO_PIECES'
+---| 'LEAVE_OUT_IN_AIR'
+---| 'BOIL'
+---| 'MELT'
+---| 'CONDENSE'
+---| 'SOLIDIFY'
+---| 'INFECTION'
+---| 'MEMORIALIZE'
+---| 'SCARE'
+---| 'DARKNESS'
+---| 'COLLAPSE'
+---| 'DRAIN_BLOOD'
+---| 'SLAUGHTER'
+---| 'VEHICLE'
+---| 'FALLING_OBJECT'
+---| 'LEAPT_FROM_HEIGHT'
+---| 'DROWN_ALT2'
+---| 'EXECUTION_GENERIC'
 
 -- bay12: KillCause
 ---@class _death_type: DFEnumType
@@ -3504,25 +2883,13 @@ function _history_event_merchantst_flags2:insert(index, item) end
 ---@param index integer 
 function _history_event_merchantst_flags2:erase(index) end
 
----@alias history_event_merchant_flags_keys
----| '"vanished"'
----| '"hardship"'
----| '"seized"'
----| '"offended"'
----| '"missing_goods"'
----| '"tribute"'
-
----@alias history_event_merchant_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias history_event_merchant_flags
----| history_event_merchant_flags_keys
----| history_event_merchant_flags_values
+---| 'vanished'
+---| 'hardship'
+---| 'seized'
+---| 'offended'
+---| 'missing_goods'
+---| 'tribute'
 
 ---@class _history_event_merchant_flags: DFEnumType
 ---@field vanished 0 opposite of communicate in caravan_state
@@ -3742,17 +3109,9 @@ df.history_event_site_retiredst.T_flags2 = {}
 ---@field _kind 'class-type'
 df.history_event_entity_createdst = {}
 
----@alias entity_action_type_keys
----| '"entity_primary_criminals"'
----| '"entity_relocate"'
-
----@alias entity_action_type_values
----| 0
----| 1
-
 ---@alias entity_action_type
----| entity_action_type_keys
----| entity_action_type_values
+---| 'entity_primary_criminals'
+---| 'entity_relocate'
 
 ---@class _entity_action_type: DFEnumType
 ---@field entity_primary_criminals 0
@@ -3947,25 +3306,13 @@ df.history_event_masterpiece_created_foodst = {}
 ---@field _kind 'class-type'
 df.history_event_masterpiece_created_engravingst = {}
 
----@alias masterpiece_loss_type_keys
----| '"MELT"'
----| '"MAGMA"'
----| '"FORTIFICATION"'
----| '"MINING"'
----| '"CAVEIN"'
----| '"VEGETATION"'
-
----@alias masterpiece_loss_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias masterpiece_loss_type
----| masterpiece_loss_type_keys
----| masterpiece_loss_type_values
+---| 'MELT'
+---| 'MAGMA'
+---| 'FORTIFICATION'
+---| 'MINING'
+---| 'CAVEIN'
+---| 'VEGETATION'
 
 ---@class _masterpiece_loss_type: DFEnumType
 ---@field MELT 0
@@ -4125,25 +3472,13 @@ df.history_event_site_surrenderedst = {}
 ---@field _kind 'class-type'
 df.history_event_body_abusedst = {}
 
----@alias history_event_body_abusedst.T_abuse_type_keys
----| '"Impaled"'
----| '"Piled"'
----| '"Flayed"'
----| '"Hung"'
----| '"Mutilated"'
----| '"Animated"'
-
----@alias history_event_body_abusedst.T_abuse_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias history_event_body_abusedst.T_abuse_type
----| history_event_body_abusedst.T_abuse_type_keys
----| history_event_body_abusedst.T_abuse_type_values
+---| 'Impaled'
+---| 'Piled'
+---| 'Flayed'
+---| 'Hung'
+---| 'Mutilated'
+---| 'Animated'
 
 ---@class _history_event_body_abusedst.T_abuse_type: DFEnumType
 ---@field Impaled 0
@@ -4191,19 +3526,10 @@ df.history_event_body_abusedst.T_abuse_data.T_Impaled = {}
 ---@field _kind 'struct-type'
 df.history_event_body_abusedst.T_abuse_data.T_Piled = {}
 
----@alias history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type_keys
----| '"GrislyMound"'
----| '"GrotesquePillar"'
----| '"GruesomeSculpture"'
-
----@alias history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type_values
----| 0
----| 1
----| 2
-
 ---@alias history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type
----| history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type_keys
----| history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type_values
+---| 'GrislyMound'
+---| 'GrotesquePillar'
+---| 'GruesomeSculpture'
 
 ---@class _history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type: DFEnumType
 ---@field GrislyMound 0
@@ -4255,21 +3581,11 @@ df.history_event_body_abusedst.T_abuse_data.T_Animated = {}
 ---@field _kind 'class-type'
 df.history_event_hist_figure_abductedst = {}
 
----@alias theft_method_type_keys
----| '"Theft"'
----| '"Confiscated"'
----| '"Looted"'
----| '"Recovered"'
-
----@alias theft_method_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias theft_method_type
----| theft_method_type_keys
----| theft_method_type_values
+---| 'Theft'
+---| 'Confiscated'
+---| 'Looted'
+---| 'Recovered'
 
 ---@class _theft_method_type: DFEnumType
 ---@field Theft 0
@@ -4348,23 +3664,12 @@ df.history_event_creature_devouredst = {}
 ---@field _kind 'class-type'
 df.history_event_hist_figure_woundedst = {}
 
----@alias history_event_hist_figure_woundedst.T_injury_type_keys
----| '"Smash"'
----| '"Slash"'
----| '"Stab"'
----| '"Rip"'
----| '"Burn"'
-
----@alias history_event_hist_figure_woundedst.T_injury_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias history_event_hist_figure_woundedst.T_injury_type
----| history_event_hist_figure_woundedst.T_injury_type_keys
----| history_event_hist_figure_woundedst.T_injury_type_values
+---| 'Smash'
+---| 'Slash'
+---| 'Stab'
+---| 'Rip'
+---| 'Burn'
 
 ---@class _history_event_hist_figure_woundedst.T_injury_type: DFEnumType
 ---@field Smash 0
@@ -4389,37 +3694,19 @@ df.history_event_hist_figure_woundedst.T_injury_type = {}
 ---@field [0] "torture"
 df.history_event_hist_figure_woundedst.T_flags2 = {}
 
----@alias history_event_simple_battle_subtype_keys
----| '"SCUFFLE"'
----| '"ATTACK"'
----| '"SURPRISE"'
----| '"AMBUSH"'
----| '"HAPPEN_UPON"'
----| '"CORNER"'
----| '"CONFRONT"'
----| '"LOSE_AFTER_RECEIVE_WOUND"'
----| '"LOSE_AFTER_INFLICT_WOUND"'
----| '"LOSE_AFTER_EXCHANGE_WOUND"'
----| '"SUBDUED"'
----| '"GOT_INTO_A_BRAWL"'
-
----@alias history_event_simple_battle_subtype_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 ---@alias history_event_simple_battle_subtype
----| history_event_simple_battle_subtype_keys
----| history_event_simple_battle_subtype_values
+---| 'SCUFFLE'
+---| 'ATTACK'
+---| 'SURPRISE'
+---| 'AMBUSH'
+---| 'HAPPEN_UPON'
+---| 'CORNER'
+---| 'CONFRONT'
+---| 'LOSE_AFTER_RECEIVE_WOUND'
+---| 'LOSE_AFTER_INFLICT_WOUND'
+---| 'LOSE_AFTER_EXCHANGE_WOUND'
+---| 'SUBDUED'
+---| 'GOT_INTO_A_BRAWL'
 
 ---@class _history_event_simple_battle_subtype: DFEnumType
 ---@field SCUFFLE 0
@@ -4448,21 +3735,11 @@ df.history_event_hist_figure_woundedst.T_flags2 = {}
 ---@field [11] "GOT_INTO_A_BRAWL"
 df.history_event_simple_battle_subtype = {}
 
----@alias artifact_claim_type_keys
----| '"Symbol"'
----| '"Heirloom"'
----| '"Treasure"'
----| '"HolyRelic"'
-
----@alias artifact_claim_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias artifact_claim_type
----| artifact_claim_type_keys
----| artifact_claim_type_values
+---| 'Symbol'
+---| 'Heirloom'
+---| 'Treasure'
+---| 'HolyRelic'
 
 ---@class _artifact_claim_type: DFEnumType
 ---@field Symbol 0
@@ -4538,19 +3815,10 @@ df.history_event_hist_figure_reach_summitst = {}
 ---@field _kind 'class-type'
 df.history_event_hist_figure_travelst = {}
 
----@alias history_event_hist_figure_travelst.T_reason_keys
----| '"Journey"'
----| '"Return"'
----| '"Escape"'
-
----@alias history_event_hist_figure_travelst.T_reason_values
----| 0
----| 1
----| 2
-
 ---@alias history_event_hist_figure_travelst.T_reason
----| history_event_hist_figure_travelst.T_reason_keys
----| history_event_hist_figure_travelst.T_reason_values
+---| 'Journey'
+---| 'Return'
+---| 'Escape'
 
 ---@class _history_event_hist_figure_travelst.T_reason: DFEnumType
 ---@field Journey 0 made a journey to
@@ -4584,23 +3852,12 @@ df.history_event_hist_figure_new_petst = {}
 ---@field _kind 'class-type'
 df.history_event_assume_identityst = {}
 
----@alias position_creation_reason_type_keys
----| '"force_of_argument"'
----| '"threat_of_violence"'
----| '"collaboration"'
----| '"wave_of_popular_support"'
----| '"as_a_matter_of_course"'
-
----@alias position_creation_reason_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias position_creation_reason_type
----| position_creation_reason_type_keys
----| position_creation_reason_type_values
+---| 'force_of_argument'
+---| 'threat_of_violence'
+---| 'collaboration'
+---| 'wave_of_popular_support'
+---| 'as_a_matter_of_course'
 
 ---@class _position_creation_reason_type: DFEnumType
 ---@field force_of_argument 0
@@ -4678,27 +3935,14 @@ df.history_event_hist_figure_revivedst.T_flags2 = {}
 ---@field _kind 'class-type'
 df.history_event_hf_learns_secretst = {}
 
----@alias histfig_body_state_keys
----| '"Active"'
----| '"BuriedAtSite"'
----| '"UnburiedAtBattlefield"'
----| '"UnburiedAtSubregion"'
----| '"UnburiedAtFeatureLayer"'
----| '"EntombedAtSite"'
----| '"UnburiedAtSite"'
-
----@alias histfig_body_state_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias histfig_body_state
----| histfig_body_state_keys
----| histfig_body_state_values
+---| 'Active'
+---| 'BuriedAtSite'
+---| 'UnburiedAtBattlefield'
+---| 'UnburiedAtSubregion'
+---| 'UnburiedAtFeatureLayer'
+---| 'EntombedAtSite'
+---| 'UnburiedAtSite'
 
 ---@class _histfig_body_state: DFEnumType
 ---@field Active 0
@@ -4742,19 +3986,10 @@ df.history_event_change_hf_body_statest = {}
 ---@field _kind 'class-type'
 df.history_event_hf_act_on_buildingst = {}
 
----@alias history_event_hf_act_on_buildingst.T_action_keys
----| '"Profane"'
----| '"Disturb"'
----| '"PrayedInside"'
-
----@alias history_event_hf_act_on_buildingst.T_action_values
----| 0
----| 1
----| 2
-
 ---@alias history_event_hf_act_on_buildingst.T_action
----| history_event_hf_act_on_buildingst.T_action_keys
----| history_event_hf_act_on_buildingst.T_action_values
+---| 'Profane'
+---| 'Disturb'
+---| 'PrayedInside'
 
 ---@class _history_event_hf_act_on_buildingst.T_action: DFEnumType
 ---@field Profane 0
@@ -4858,25 +4093,13 @@ df.history_event_artifact_storedst = {}
 ---@field _kind 'class-type'
 df.history_event_agreement_formedst = {}
 
----@alias site_dispute_type_keys
----| '"Territory"'
----| '"WaterRights"'
----| '"GrazingRights"'
----| '"FishingRights"'
----| '"RightsOfWay"'
----| '"LivestockOwnership"'
-
----@alias site_dispute_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias site_dispute_type
----| site_dispute_type_keys
----| site_dispute_type_values
+---| 'Territory'
+---| 'WaterRights'
+---| 'GrazingRights'
+---| 'FishingRights'
+---| 'RightsOfWay'
+---| 'LivestockOwnership'
 
 ---@class _site_dispute_type: DFEnumType
 ---@field Territory 0
@@ -4925,19 +4148,10 @@ df.history_event_agreement_concludedst = {}
 ---@field _kind 'class-type'
 df.history_event_insurrection_startedst = {}
 
----@alias insurrection_outcome_keys
----| '"LeadershipOverthrown"'
----| '"PopulationGone"'
----| '"Crushed"'
-
----@alias insurrection_outcome_values
----| 0
----| 1
----| 2
-
 ---@alias insurrection_outcome
----| insurrection_outcome_keys
----| insurrection_outcome_values
+---| 'LeadershipOverthrown'
+---| 'PopulationGone'
+---| 'Crushed'
 
 ---@class _insurrection_outcome: DFEnumType
 ---@field LeadershipOverthrown 0
@@ -5195,17 +4409,9 @@ df.history_event_artifact_givenst = {}
 ---@field _kind 'class-type'
 df.history_event_hf_act_on_artifactst = {}
 
----@alias history_event_hf_act_on_artifactst.T_action_keys
----| '"View"'
----| '"AskAbout"'
-
----@alias history_event_hf_act_on_artifactst.T_action_values
----| 0
----| 1
-
 ---@alias history_event_hf_act_on_artifactst.T_action
----| history_event_hf_act_on_artifactst.T_action_keys
----| history_event_hf_act_on_artifactst.T_action_values
+---| 'View'
+---| 'AskAbout'
 
 ---@class _history_event_hf_act_on_artifactst.T_action: DFEnumType
 ---@field View 0
@@ -5313,27 +4519,14 @@ df.history_event_entity_searched_sitest = {}
 ---@field _kind 'class-type'
 df.history_event_hf_freedst = {}
 
----@alias simple_action_type_keys
----| '"carouse"'
----| '"purchase_well_crafted_equipment"'
----| '"purchase_finely_crafted_equipment"'
----| '"purchase_superior_equipment"'
----| '"purchase_exceptional_equipment"'
----| '"purchase_masterwork_equipment"'
----| '"performe_horrible_experiments"'
-
----@alias simple_action_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias simple_action_type
----| simple_action_type_keys
----| simple_action_type_values
+---| 'carouse'
+---| 'purchase_well_crafted_equipment'
+---| 'purchase_finely_crafted_equipment'
+---| 'purchase_superior_equipment'
+---| 'purchase_exceptional_equipment'
+---| 'purchase_masterwork_equipment'
+---| 'performe_horrible_experiments'
 
 ---@class _simple_action_type: DFEnumType
 ---@field carouse 0
@@ -5383,27 +4576,14 @@ df.history_event_entity_rampaged_in_sitest = {}
 ---@field _kind 'class-type'
 df.history_event_entity_fled_sitest = {}
 
----@alias tactical_situation_keys
----| '"attacker_strongly_favored"'
----| '"attacker_favored"'
----| '"attacker_slightly_favored"'
----| '"defender_strongly_favored"'
----| '"defender_favored"'
----| '"defender_slightly_favored"'
----| '"neither_favored"'
-
----@alias tactical_situation_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias tactical_situation
----| tactical_situation_keys
----| tactical_situation_values
+---| 'attacker_strongly_favored'
+---| 'attacker_favored'
+---| 'attacker_slightly_favored'
+---| 'defender_strongly_favored'
+---| 'defender_favored'
+---| 'defender_slightly_favored'
+---| 'neither_favored'
 
 ---@class _tactical_situation: DFEnumType
 ---@field attacker_strongly_favored 0
@@ -5841,49 +5021,25 @@ df.history_event_hf_interrogatedst = {}
 ---@field [1] "refused_to_reveal"
 df.history_event_hf_interrogatedst.T_interrogation_flags = {}
 
----@alias history_event_collection_type_keys
----| '"WAR"'
----| '"BATTLE"'
----| '"DUEL"'
----| '"SITE_CONQUERED"'
----| '"ABDUCTION"'
----| '"THEFT"'
----| '"BEAST_ATTACK"'
----| '"JOURNEY"'
----| '"INSURRECTION"'
----| '"OCCASION"'
----| '"PERFORMANCE"'
----| '"COMPETITION"'
----| '"PROCESSION"'
----| '"CEREMONY"'
----| '"PURGE"'
----| '"RAID"'
----| '"PERSECUTION"'
----| '"ENTITY_OVERTHROWN"'
-
----@alias history_event_collection_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
-
 ---@alias history_event_collection_type
----| history_event_collection_type_keys
----| history_event_collection_type_values
+---| 'WAR'
+---| 'BATTLE'
+---| 'DUEL'
+---| 'SITE_CONQUERED'
+---| 'ABDUCTION'
+---| 'THEFT'
+---| 'BEAST_ATTACK'
+---| 'JOURNEY'
+---| 'INSURRECTION'
+---| 'OCCASION'
+---| 'PERFORMANCE'
+---| 'COMPETITION'
+---| 'PROCESSION'
+---| 'CEREMONY'
+---| 'PURGE'
+---| 'RAID'
+---| 'PERSECUTION'
+---| 'ENTITY_OVERTHROWN'
 
 ---@class _history_event_collection_type: DFEnumType
 ---@field WAR 0
@@ -6308,39 +5464,20 @@ df.history_event_collection_persecutionst = {}
 ---@field _kind 'class-type'
 df.history_event_collection_entity_overthrownst = {}
 
----@alias era_type_keys
----| '"ThreePowers"'
----| '"TwoPowers"'
----| '"OnePower"'
----| '"Myth"'
----| '"Legends"'
----| '"Twilight"'
----| '"FairyTales"'
----| '"Race"'
----| '"Heroes"'
----| '"Golden"'
----| '"Death"'
----| '"Civilization"'
----| '"Emptiness"'
-
----@alias era_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
-
 ---@alias era_type
----| era_type_keys
----| era_type_values
+---| 'ThreePowers'
+---| 'TwoPowers'
+---| 'OnePower'
+---| 'Myth'
+---| 'Legends'
+---| 'Twilight'
+---| 'FairyTales'
+---| 'Race'
+---| 'Heroes'
+---| 'Golden'
+---| 'Death'
+---| 'Civilization'
+---| 'Emptiness'
 
 ---@class _era_type: DFEnumType
 ---@field ThreePowers 0
@@ -7039,29 +6176,15 @@ function df.intrigue.get_vector() end
 ---@field _kind 'struct-type'
 df.intrigue_corruption = {}
 
----@alias intrigue_corruption.T_manipulation_type_keys
----| '"Threat"'
----| '"Flattery"'
----| '"Authority"'
----| '"BlackmailForEmbezzlement"'
----| '"Bribery"'
----| '"Sympathy"'
----| '"Revenge"'
----| '"Immortality"'
-
----@alias intrigue_corruption.T_manipulation_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias intrigue_corruption.T_manipulation_type
----| intrigue_corruption.T_manipulation_type_keys
----| intrigue_corruption.T_manipulation_type_values
+---| 'Threat'
+---| 'Flattery'
+---| 'Authority'
+---| 'BlackmailForEmbezzlement'
+---| 'Bribery'
+---| 'Sympathy'
+---| 'Revenge'
+---| 'Immortality'
 
 ---@class _intrigue_corruption.T_manipulation_type: DFEnumType
 ---@field Threat 0
@@ -7082,23 +6205,12 @@ df.intrigue_corruption = {}
 ---@field [7] "Immortality"
 df.intrigue_corruption.T_manipulation_type = {}
 
----@alias intrigue_corruption.T_manipulated_emotion_keys
----| '"Trust"'
----| '"Loyalty"'
----| '"Love"'
----| '"Fear"'
----| '"Respect"'
-
----@alias intrigue_corruption.T_manipulated_emotion_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias intrigue_corruption.T_manipulated_emotion
----| intrigue_corruption.T_manipulated_emotion_keys
----| intrigue_corruption.T_manipulated_emotion_values
+---| 'Trust'
+---| 'Loyalty'
+---| 'Love'
+---| 'Fear'
+---| 'Respect'
 
 ---@class _intrigue_corruption.T_manipulated_emotion: DFEnumType
 ---@field Trust 0

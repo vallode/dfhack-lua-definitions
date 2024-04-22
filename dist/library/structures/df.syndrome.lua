@@ -1,111 +1,56 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias creature_interaction_effect_type_keys
----| '"PAIN"'
----| '"SWELLING"'
----| '"OOZING"'
----| '"BRUISING"'
----| '"BLISTERS"'
----| '"NUMBNESS"'
----| '"PARALYSIS"'
----| '"FEVER"'
----| '"BLEEDING"'
----| '"COUGH_BLOOD"'
----| '"VOMIT_BLOOD"'
----| '"NAUSEA"'
----| '"UNCONSCIOUSNESS"'
----| '"NECROSIS"'
----| '"IMPAIR_FUNCTION"'
----| '"DROWSINESS"'
----| '"DIZZINESS"'
----| '"ADD_TAG"'
----| '"REMOVE_TAG"'
----| '"DISPLAY_TILE"'
----| '"FLASH_TILE"'
----| '"SPEED_CHANGE"'
----| '"CAN_DO_INTERACTION"'
----| '"SKILL_ROLL_ADJUST"'
----| '"BODY_TRANSFORMATION"'
----| '"PHYS_ATT_CHANGE"'
----| '"MENT_ATT_CHANGE"'
----| '"MATERIAL_FORCE_MULTIPLIER"'
----| '"BODY_MAT_INTERACTION"'
----| '"BODY_APPEARANCE_MODIFIER"'
----| '"BP_APPEARANCE_MODIFIER"'
----| '"DISPLAY_NAME"'
----| '"SENSE_CREATURE_CLASS"'
----| '"FEEL_EMOTION"'
----| '"CHANGE_PERSONALITY"'
----| '"ERRATIC_BEHAVIOR"'
----| '"SPECIAL_ATTACK_INTERACTION"'
----| '"REGROW_PARTS"'
----| '"CLOSE_OPEN_WOUNDS"'
----| '"HEAL_TISSUES"'
----| '"HEAL_NERVES"'
----| '"STOP_BLEEDING"'
----| '"REDUCE_PAIN"'
----| '"REDUCE_DIZZINESS"'
----| '"REDUCE_NAUSEA"'
----| '"REDUCE_SWELLING"'
----| '"CURE_INFECTION"'
----| '"REDUCE_PARALYSIS"'
----| '"REDUCE_FEVER"'
-
----@alias creature_interaction_effect_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
-
 ---@alias creature_interaction_effect_type
----| creature_interaction_effect_type_keys
----| creature_interaction_effect_type_values
+---| 'PAIN'
+---| 'SWELLING'
+---| 'OOZING'
+---| 'BRUISING'
+---| 'BLISTERS'
+---| 'NUMBNESS'
+---| 'PARALYSIS'
+---| 'FEVER'
+---| 'BLEEDING'
+---| 'COUGH_BLOOD'
+---| 'VOMIT_BLOOD'
+---| 'NAUSEA'
+---| 'UNCONSCIOUSNESS'
+---| 'NECROSIS'
+---| 'IMPAIR_FUNCTION'
+---| 'DROWSINESS'
+---| 'DIZZINESS'
+---| 'ADD_TAG'
+---| 'REMOVE_TAG'
+---| 'DISPLAY_TILE'
+---| 'FLASH_TILE'
+---| 'SPEED_CHANGE'
+---| 'CAN_DO_INTERACTION'
+---| 'SKILL_ROLL_ADJUST'
+---| 'BODY_TRANSFORMATION'
+---| 'PHYS_ATT_CHANGE'
+---| 'MENT_ATT_CHANGE'
+---| 'MATERIAL_FORCE_MULTIPLIER'
+---| 'BODY_MAT_INTERACTION'
+---| 'BODY_APPEARANCE_MODIFIER'
+---| 'BP_APPEARANCE_MODIFIER'
+---| 'DISPLAY_NAME'
+---| 'SENSE_CREATURE_CLASS'
+---| 'FEEL_EMOTION'
+---| 'CHANGE_PERSONALITY'
+---| 'ERRATIC_BEHAVIOR'
+---| 'SPECIAL_ATTACK_INTERACTION'
+---| 'REGROW_PARTS'
+---| 'CLOSE_OPEN_WOUNDS'
+---| 'HEAL_TISSUES'
+---| 'HEAL_NERVES'
+---| 'STOP_BLEEDING'
+---| 'REDUCE_PAIN'
+---| 'REDUCE_DIZZINESS'
+---| 'REDUCE_NAUSEA'
+---| 'REDUCE_SWELLING'
+---| 'CURE_INFECTION'
+---| 'REDUCE_PARALYSIS'
+---| 'REDUCE_FEVER'
 
 ---@class _creature_interaction_effect_type: DFEnumType
 ---@field PAIN 0
@@ -411,19 +356,10 @@ df.cie_add_tag_mask1 = {}
 ---@field [4] "FIT_FOR_RESURRECTION"
 df.cie_add_tag_mask2 = {}
 
----@alias creature_interaction_effect_target_mode_keys
----| '"BY_TYPE"'
----| '"BY_TOKEN"'
----| '"BY_CATEGORY"'
-
----@alias creature_interaction_effect_target_mode_values
----| 0
----| 1
----| 2
-
 ---@alias creature_interaction_effect_target_mode
----| creature_interaction_effect_target_mode_keys
----| creature_interaction_effect_target_mode_values
+---| 'BY_TYPE'
+---| 'BY_TOKEN'
+---| 'BY_CATEGORY'
 
 ---@class _creature_interaction_effect_target_mode: DFEnumType
 ---@field BY_TYPE 0

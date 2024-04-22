@@ -160,31 +160,16 @@ df.item_flags = {}
 ---@field [5] "might_contain_artifact"
 df.item_flags2 = {}
 
----@alias item_magicness_type_keys
----| '"Sparkle"'
----| '"AirWarped"'
----| '"Whistle"'
----| '"OddlySquare"'
----| '"SmallBumps"'
----| '"EarthSmell"'
----| '"Lightning"'
----| '"GrayHairs"'
----| '"RustlingLeaves"'
-
----@alias item_magicness_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 ---@alias item_magicness_type
----| item_magicness_type_keys
----| item_magicness_type_values
+---| 'Sparkle'
+---| 'AirWarped'
+---| 'Whistle'
+---| 'OddlySquare'
+---| 'SmallBumps'
+---| 'EarthSmell'
+---| 'Lightning'
+---| 'GrayHairs'
+---| 'RustlingLeaves'
 
 ---@class _item_magicness_type: DFEnumType
 ---@field Sparkle 0
@@ -269,27 +254,14 @@ df.spatter = {}
 ---@field [0] "water_soluble"
 df.spatter.T_flags = {}
 
----@alias item_quality_keys
----| '"Ordinary"'
----| '"WellCrafted"'
----| '"FinelyCrafted"'
----| '"Superior"'
----| '"Exceptional"'
----| '"Masterful"'
----| '"Artifact"'
-
----@alias item_quality_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias item_quality
----| item_quality_keys
----| item_quality_values
+---| 'Ordinary'
+---| 'WellCrafted'
+---| 'FinelyCrafted'
+---| 'Superior'
+---| 'Exceptional'
+---| 'Masterful'
+---| 'Artifact'
 
 ---@class _item_quality: DFEnumType
 ---@field Ordinary 0
@@ -308,69 +280,35 @@ df.spatter.T_flags = {}
 ---@field [6] "Artifact"
 df.item_quality = {}
 
----@alias slab_engraving_type_keys
----| '"Slab"'
----| '"Memorial"'
----| '"CraftShopSign"'
----| '"WeaponsmithShopSign"'
----| '"ArmorsmithShopSign"'
----| '"GeneralStoreSign"'
----| '"FoodShopSign"'
----| '"Secrets"'
----| '"FoodImportsSign"'
----| '"ClothingImportsSign"'
----| '"GeneralImportsSign"'
----| '"ClothShopSign"'
----| '"LeatherShopSign"'
----| '"WovenClothingShopSign"'
----| '"LeatherClothingShopSign"'
----| '"BoneCarverShopSign"'
----| '"GemCutterShopSign"'
----| '"WeaponsmithShopSign2"'
----| '"BowyerShopSign"'
----| '"BlacksmithShopSign"'
----| '"ArmorsmithShopSign2"'
----| '"MetalCraftShopSign"'
----| '"LeatherGoodsShopSign"'
----| '"CarpenterShopSign"'
----| '"StoneFurnitureShopSign"'
----| '"MetalFurnitureShopSign"'
----| '"DemonIdentity"'
----| '"TavernSign"'
-
----@alias slab_engraving_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
-
 ---@alias slab_engraving_type
----| slab_engraving_type_keys
----| slab_engraving_type_values
+---| 'Slab'
+---| 'Memorial'
+---| 'CraftShopSign'
+---| 'WeaponsmithShopSign'
+---| 'ArmorsmithShopSign'
+---| 'GeneralStoreSign'
+---| 'FoodShopSign'
+---| 'Secrets'
+---| 'FoodImportsSign'
+---| 'ClothingImportsSign'
+---| 'GeneralImportsSign'
+---| 'ClothShopSign'
+---| 'LeatherShopSign'
+---| 'WovenClothingShopSign'
+---| 'LeatherClothingShopSign'
+---| 'BoneCarverShopSign'
+---| 'GemCutterShopSign'
+---| 'WeaponsmithShopSign2'
+---| 'BowyerShopSign'
+---| 'BlacksmithShopSign'
+---| 'ArmorsmithShopSign2'
+---| 'MetalCraftShopSign'
+---| 'LeatherGoodsShopSign'
+---| 'CarpenterShopSign'
+---| 'StoneFurnitureShopSign'
+---| 'MetalFurnitureShopSign'
+---| 'DemonIdentity'
+---| 'TavernSign'
 
 ---@class _slab_engraving_type: DFEnumType
 ---@field Slab -1
@@ -431,49 +369,25 @@ df.item_quality = {}
 ---@field [26] "TavernSign"
 df.slab_engraving_type = {}
 
----@alias trade_good_purpose_keys
----| '"NONE"'
----| '"MERCHANT"'
----| '"TRAVELER"'
----| '"RICH_TRAVELER"'
----| '"STORE_CRAFTS"'
----| '"STORE_WEAPON"'
----| '"STORE_ARMOR"'
----| '"STORE_GENERAL"'
----| '"STORE_FOOD"'
----| '"CONTAINER"'
----| '"PRODUCTION_SHODDY"'
----| '"PRODUCTION_BEGINNER"'
----| '"PRODUCTION_MIDDLING"'
----| '"PRODUCTION_HIGH"'
----| '"PRODUCTION_EXCELLENT"'
----| '"TOMB_TREASURE"'
----| '"TREASURE_ROOM"'
----| '"PILLAGE"'
-
----@alias trade_good_purpose_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
-
 ---@alias trade_good_purpose
----| trade_good_purpose_keys
----| trade_good_purpose_values
+---| 'NONE'
+---| 'MERCHANT'
+---| 'TRAVELER'
+---| 'RICH_TRAVELER'
+---| 'STORE_CRAFTS'
+---| 'STORE_WEAPON'
+---| 'STORE_ARMOR'
+---| 'STORE_GENERAL'
+---| 'STORE_FOOD'
+---| 'CONTAINER'
+---| 'PRODUCTION_SHODDY'
+---| 'PRODUCTION_BEGINNER'
+---| 'PRODUCTION_MIDDLING'
+---| 'PRODUCTION_HIGH'
+---| 'PRODUCTION_EXCELLENT'
+---| 'TOMB_TREASURE'
+---| 'TREASURE_ROOM'
+---| 'PILLAGE'
 
 ---@class _trade_good_purpose: DFEnumType
 ---@field NONE -1
@@ -1446,37 +1360,19 @@ function _body_component_info_layer_status:erase(index) end
 ---@field _kind 'struct-type'
 df.body_size_info = {}
 
----@alias corpse_material_type_keys
----| '"Plant"'
----| '"Silk"'
----| '"Leather"'
----| '"Bone"'
----| '"Shell"'
----| '""'
----| '"Soap"'
----| '"Tooth"'
----| '"Horn"'
----| '"Pearl"'
----| '"HairWool"'
----| '"Yarn"'
-
----@alias corpse_material_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 ---@alias corpse_material_type
----| corpse_material_type_keys
----| corpse_material_type_values
+---| 'Plant'
+---| 'Silk'
+---| 'Leather'
+---| 'Bone'
+---| 'Shell'
+---| ''
+---| 'Soap'
+---| 'Tooth'
+---| 'Horn'
+---| 'Pearl'
+---| 'HairWool'
+---| 'Yarn'
 
 ---@class _corpse_material_type: DFEnumType
 ---@field Plant 0

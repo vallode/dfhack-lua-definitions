@@ -50,21 +50,11 @@ function df.burrow.get_vector() end
 ---@field _kind 'struct-type'
 df.ui_hotkey = {}
 
----@alias ui_hotkey.T_cmd_keys
----| '"None"'
----| '"Zoom"'
----| '"FollowUnit"'
----| '"FollowItem"'
-
----@alias ui_hotkey.T_cmd_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias ui_hotkey.T_cmd
----| ui_hotkey.T_cmd_keys
----| ui_hotkey.T_cmd_values
+---| 'None'
+---| 'Zoom'
+---| 'FollowUnit'
+---| 'FollowItem'
 
 ---@class _ui_hotkey.T_cmd: DFEnumType
 ---@field None -1
@@ -77,127 +67,64 @@ df.ui_hotkey = {}
 ---@field [2] "FollowItem"
 df.ui_hotkey.T_cmd = {}
 
----@alias ui_sidebar_mode_keys
----| '"Default"'
----| '"Squads"'
----| '"DesignateMine"'
----| '"DesignateRemoveRamps"'
----| '"DesignateUpStair"'
----| '"DesignateDownStair"'
----| '"DesignateUpDownStair"'
----| '"DesignateUpRamp"'
----| '"DesignateChannel"'
----| '"DesignateGatherPlants"'
----| '"DesignateRemoveDesignation"'
----| '"DesignateSmooth"'
----| '"DesignateCarveTrack"'
----| '"DesignateEngrave"'
----| '"DesignateCarveFortification"'
----| '"Stockpiles"'
----| '"Build"'
----| '"QueryBuilding"'
----| '"Orders"'
----| '"OrdersForbid"'
----| '"OrdersRefuse"'
----| '"OrdersWorkshop"'
----| '"OrdersZone"'
----| '"BuildingItems"'
----| '"ViewUnits"'
----| '"LookAround"'
----| '"DesignateItemsClaim"'
----| '"DesignateItemsForbid"'
----| '"DesignateItemsMelt"'
----| '"DesignateItemsUnmelt"'
----| '"DesignateItemsDump"'
----| '"DesignateItemsUndump"'
----| '"DesignateItemsHide"'
----| '"DesignateItemsUnhide"'
----| '"DesignateChopTrees"'
----| '"DesignateToggleEngravings"'
----| '"DesignateToggleMarker"'
----| '"Hotkeys"'
----| '"DesignateTrafficHigh"'
----| '"DesignateTrafficNormal"'
----| '"DesignateTrafficLow"'
----| '"DesignateTrafficRestricted"'
----| '"Zones"'
----| '"ZonesPenInfo"'
----| '"ZonesPitInfo"'
----| '"ZonesHospitalInfo"'
----| '"ZonesGatherInfo"'
----| '"DesignateRemoveConstruction"'
----| '"DepotAccess"'
----| '"NotesPoints"'
----| '"NotesRoutes"'
----| '"Burrows"'
----| '"Hauling"'
----| '"ArenaWeather"'
----| '"ArenaTrees"'
----| '"BuildingLocationInfo"'
----| '"ZonesLocationInfo"'
-
----@alias ui_sidebar_mode_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
-
 ---@alias ui_sidebar_mode
----| ui_sidebar_mode_keys
----| ui_sidebar_mode_values
+---| 'Default'
+---| 'Squads'
+---| 'DesignateMine'
+---| 'DesignateRemoveRamps'
+---| 'DesignateUpStair'
+---| 'DesignateDownStair'
+---| 'DesignateUpDownStair'
+---| 'DesignateUpRamp'
+---| 'DesignateChannel'
+---| 'DesignateGatherPlants'
+---| 'DesignateRemoveDesignation'
+---| 'DesignateSmooth'
+---| 'DesignateCarveTrack'
+---| 'DesignateEngrave'
+---| 'DesignateCarveFortification'
+---| 'Stockpiles'
+---| 'Build'
+---| 'QueryBuilding'
+---| 'Orders'
+---| 'OrdersForbid'
+---| 'OrdersRefuse'
+---| 'OrdersWorkshop'
+---| 'OrdersZone'
+---| 'BuildingItems'
+---| 'ViewUnits'
+---| 'LookAround'
+---| 'DesignateItemsClaim'
+---| 'DesignateItemsForbid'
+---| 'DesignateItemsMelt'
+---| 'DesignateItemsUnmelt'
+---| 'DesignateItemsDump'
+---| 'DesignateItemsUndump'
+---| 'DesignateItemsHide'
+---| 'DesignateItemsUnhide'
+---| 'DesignateChopTrees'
+---| 'DesignateToggleEngravings'
+---| 'DesignateToggleMarker'
+---| 'Hotkeys'
+---| 'DesignateTrafficHigh'
+---| 'DesignateTrafficNormal'
+---| 'DesignateTrafficLow'
+---| 'DesignateTrafficRestricted'
+---| 'Zones'
+---| 'ZonesPenInfo'
+---| 'ZonesPitInfo'
+---| 'ZonesHospitalInfo'
+---| 'ZonesGatherInfo'
+---| 'DesignateRemoveConstruction'
+---| 'DepotAccess'
+---| 'NotesPoints'
+---| 'NotesRoutes'
+---| 'Burrows'
+---| 'Hauling'
+---| 'ArenaWeather'
+---| 'ArenaTrees'
+---| 'BuildingLocationInfo'
+---| 'ZonesLocationInfo'
 
 ---@class _ui_sidebar_mode: DFEnumType
 ---@field Default 0
@@ -331,17 +258,9 @@ df.ui_sidebar_mode = {}
 ---@field _kind 'struct-type'
 df.punishment = {}
 
----@alias kitchen_exc_type_keys
----| '"Cook"'
----| '"Brew"'
-
----@alias kitchen_exc_type_values
----| 1
----| 2
-
 ---@alias kitchen_exc_type
----| kitchen_exc_type_keys
----| kitchen_exc_type_values
+---| 'Cook'
+---| 'Brew'
 
 ---@class _kitchen_exc_type: DFEnumType
 ---@field Cook 1
@@ -350,118 +269,60 @@ df.punishment = {}
 ---@field [2] "Brew"
 df.kitchen_exc_type = {}
 
----@alias save_substage_keys
----| '"Initializing"'
----| '"CheckingDirectoryStructure"'
----| '"PreliminaryCleaning"'
----| '"OffloadingUnits"'
----| '"OffloadingArt"'
----| '"OpeningFile"'
----| '"CharacterizingRawData"'
----| '"AllocatingSpace"'
----| '"SavingItems"'
----| '"SavingUnits"'
----| '"SavingJobs"'
----| '"SavingSchedules"'
----| '"SavingProjectiles"'
----| '"SavingBuildings"'
----| '"SavingMachines"'
----| '"SavingFlowGuides"'
----| '"SavingEffects"'
----| '"SavingEntities"'
----| '"SavingLocalAnimalPopulations"'
----| '"SavingEvents"'
----| '"SavingMandates"'
----| '"SavingWorkQuotas"'
----| '"SavingWorldEvents"'
----| '"SavingCoinInformation"'
----| '"SavingSquads"'
----| '"SavingFormations"'
----| '"SavingActivities"'
----| '"SavingInteractions"'
----| '"SavingWrittenContent"'
----| '"SavingIdentities"'
----| '"SavingIncidents"'
----| '"SavingCrimes"'
----| '"SavingVehicles"'
----| '"SavingArmies"'
----| '"SavingArmyControllers"'
----| '"SavingTrackingInformation"'
----| '"SavingCulturalIdentities"'
----| '"SavingAgreement"'
----| '"SavingArtForms"'
----| '"SavingOccupations"'
----| '"SavingBeliefSystems"'
----| '"SavingImageSets"'
----| '"SavingDivinationSets"'
----| '"SavingAnnouncements"'
----| '"SavingFortressInformation"'
----| '"SavingWorldInformation"'
----| '"SavingArtifacts"'
----| '"SavingActiveHistoricalFigures"'
----| '"SavingAdventureData"'
----| '"SavingGeneralInformation"'
----| '"ClosingFile"'
----| '"Finishing"'
-
----@alias save_substage_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
-
 -- below was copied wholesale from df.viewscreen
 ---@alias save_substage
----| save_substage_keys
----| save_substage_values
+---| 'Initializing'
+---| 'CheckingDirectoryStructure'
+---| 'PreliminaryCleaning'
+---| 'OffloadingUnits'
+---| 'OffloadingArt'
+---| 'OpeningFile'
+---| 'CharacterizingRawData'
+---| 'AllocatingSpace'
+---| 'SavingItems'
+---| 'SavingUnits'
+---| 'SavingJobs'
+---| 'SavingSchedules'
+---| 'SavingProjectiles'
+---| 'SavingBuildings'
+---| 'SavingMachines'
+---| 'SavingFlowGuides'
+---| 'SavingEffects'
+---| 'SavingEntities'
+---| 'SavingLocalAnimalPopulations'
+---| 'SavingEvents'
+---| 'SavingMandates'
+---| 'SavingWorkQuotas'
+---| 'SavingWorldEvents'
+---| 'SavingCoinInformation'
+---| 'SavingSquads'
+---| 'SavingFormations'
+---| 'SavingActivities'
+---| 'SavingInteractions'
+---| 'SavingWrittenContent'
+---| 'SavingIdentities'
+---| 'SavingIncidents'
+---| 'SavingCrimes'
+---| 'SavingVehicles'
+---| 'SavingArmies'
+---| 'SavingArmyControllers'
+---| 'SavingTrackingInformation'
+---| 'SavingCulturalIdentities'
+---| 'SavingAgreement'
+---| 'SavingArtForms'
+---| 'SavingOccupations'
+---| 'SavingBeliefSystems'
+---| 'SavingImageSets'
+---| 'SavingDivinationSets'
+---| 'SavingAnnouncements'
+---| 'SavingFortressInformation'
+---| 'SavingWorldInformation'
+---| 'SavingArtifacts'
+---| 'SavingActiveHistoricalFigures'
+---| 'SavingAdventureData'
+---| 'SavingGeneralInformation'
+---| 'ClosingFile'
+---| 'Finishing'
 
 -- below was copied wholesale from df.viewscreen
 ---@class _save_substage: DFEnumType
@@ -789,23 +650,12 @@ df.plotinfost.T_tax_collection = {}
 ---@field _kind 'struct-type'
 df.plotinfost.T_nobles = {}
 
----@alias plotinfost.T_nobles.T_bookkeeper_settings_keys
----| '"nearest_10"'
----| '"nearest_100"'
----| '"nearest_1000"'
----| '"nearest_10000"'
----| '"all_accurate"'
-
----@alias plotinfost.T_nobles.T_bookkeeper_settings_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias plotinfost.T_nobles.T_bookkeeper_settings
----| plotinfost.T_nobles.T_bookkeeper_settings_keys
----| plotinfost.T_nobles.T_bookkeeper_settings_values
+---| 'nearest_10'
+---| 'nearest_100'
+---| 'nearest_1000'
+---| 'nearest_10000'
+---| 'all_accurate'
 
 ---@class _plotinfost.T_nobles.T_bookkeeper_settings: DFEnumType
 ---@field nearest_10 0
@@ -2276,33 +2126,17 @@ function _plotinfost_available_seeds:insert(index, item) end
 ---@param index integer 
 function _plotinfost_available_seeds:erase(index) end
 
----@alias timed_event_type_keys
----| '"Caravan"'
----| '"Migrants"'
----| '"Diplomat"'
----| '"FeatureAttack"'
----| '"Megabeast"'
----| '"WildlifeCurious"'
----| '"WildlifeMischievous"'
----| '"WildlifeFlier"'
----| '"NightCreature"'
----| '"TributeCaravan"'
-
----@alias timed_event_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
-
 ---@alias timed_event_type
----| timed_event_type_keys
----| timed_event_type_values
+---| 'Caravan'
+---| 'Migrants'
+---| 'Diplomat'
+---| 'FeatureAttack'
+---| 'Megabeast'
+---| 'WildlifeCurious'
+---| 'WildlifeMischievous'
+---| 'WildlifeFlier'
+---| 'NightCreature'
+---| 'TributeCaravan'
 
 ---@class _timed_event_type: DFEnumType
 ---@field Caravan 0

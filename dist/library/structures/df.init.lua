@@ -1,24 +1,13 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias init_display_flags_keys
----| '"USE_GRAPHICS"'
----| '"SOFTWARE"'
----| '"TEXT"'
----| '"NOT_RESIZABLE"'
----| '"INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"'
-
----@alias init_display_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 -- init.h
 ---@alias init_display_flags
----| init_display_flags_keys
----| init_display_flags_values
+---| 'USE_GRAPHICS'
+---| 'SOFTWARE'
+---| 'TEXT'
+---| 'NOT_RESIZABLE'
+---| 'INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH'
 
 -- init.h
 ---@class _init_display_flags: DFEnumType
@@ -34,19 +23,10 @@
 ---@field [4] "INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"
 df.init_display_flags = {}
 
----@alias init_display_filter_mode_keys
----| '"AUTO"'
----| '"NEAREST"'
----| '"LANCZOS"'
-
----@alias init_display_filter_mode_values
----| 0
----| 1
----| 2
-
 ---@alias init_display_filter_mode
----| init_display_filter_mode_keys
----| init_display_filter_mode_values
+---| 'AUTO'
+---| 'NEAREST'
+---| 'LANCZOS'
 
 ---@class _init_display_filter_mode: DFEnumType
 ---@field AUTO 0
@@ -98,21 +78,11 @@ function _init_display_flag:insert(index, item) end
 ---@param index integer 
 function _init_display_flag:erase(index) end
 
----@alias init_display.T_windowed_keys
----| '"True"'
----| '"False"'
----| '"Prompt"'
----| '"Exclusive"'
-
----@alias init_display.T_windowed_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias init_display.T_windowed
----| init_display.T_windowed_keys
----| init_display.T_windowed_values
+---| 'True'
+---| 'False'
+---| 'Prompt'
+---| 'Exclusive'
 
 ---@class _init_display.T_windowed: DFEnumType
 ---@field True 0
@@ -125,19 +95,10 @@ function _init_display_flag:erase(index) end
 ---@field [3] "Exclusive"
 df.init_display.T_windowed = {}
 
----@alias init_media_flags_keys
----| '"SOUND_OFF"'
----| '"UNUSED_01_02"'
----| '"COMPRESS_SAVES"'
-
----@alias init_media_flags_values
----| 0
----| 1
----| 2
-
 ---@alias init_media_flags
----| init_media_flags_keys
----| init_media_flags_values
+---| 'SOUND_OFF'
+---| 'UNUSED_01_02'
+---| 'COMPRESS_SAVES'
 
 ---@class _init_media_flags: DFEnumType
 ---@field SOUND_OFF 0
@@ -177,17 +138,9 @@ function _init_media_flag:insert(index, item) end
 ---@param index integer 
 function _init_media_flag:erase(index) end
 
----@alias init_input_flags_keys
----| '"MOUSE_OFF"'
----| '"MOUSE_PICTURE"'
-
----@alias init_input_flags_values
----| 0
----| 1
-
 ---@alias init_input_flags
----| init_input_flags_keys
----| init_input_flags_values
+---| 'MOUSE_OFF'
+---| 'MOUSE_PICTURE'
 
 ---@class _init_input_flags: DFEnumType
 ---@field MOUSE_OFF 0
@@ -258,19 +211,10 @@ function _init_input_flag:erase(index) end
 ---@field _kind 'struct-type'
 df.init_font = {}
 
----@alias init_window_flags_keys
----| '"VSYNC_ON"'
----| '"VSYNC_OFF"'
----| '"TEXTURE_LINEAR"'
-
----@alias init_window_flags_values
----| 0
----| 1
----| 2
-
 ---@alias init_window_flags
----| init_window_flags_keys
----| init_window_flags_values
+---| 'VSYNC_ON'
+---| 'VSYNC_OFF'
+---| 'TEXTURE_LINEAR'
 
 ---@class _init_window_flags: DFEnumType
 ---@field VSYNC_ON 0

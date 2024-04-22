@@ -235,23 +235,12 @@ df.job_list_link = {}
 ---@field [18] "do_now" toady: DO_ME_NOW
 df.job_flags = {}
 
----@alias job_subtype_surgery_keys
----| '"None"'
----| '"Surgery"'
----| '"StopBleeding"'
----| '"RepairCompoundFracture"'
----| '"RemoveRottenTissue"'
-
----@alias job_subtype_surgery_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias job_subtype_surgery
----| job_subtype_surgery_keys
----| job_subtype_surgery_values
+---| 'None'
+---| 'Surgery'
+---| 'StopBleeding'
+---| 'RepairCompoundFracture'
+---| 'RemoveRottenTissue'
 
 ---@class _job_subtype_surgery: DFEnumType
 ---@field None -1
@@ -380,31 +369,16 @@ function _job_job_items:erase(index) end
 ---@field _kind 'struct-type'
 df.job_item_ref = {}
 
----@alias job_item_ref.T_role_keys
----| '"Other"'
----| '"Reagent"'
----| '"Hauled"'
----| '"LinkToTarget"'
----| '"LinkToTrigger"'
----| '""'
----| '"TargetContainer"'
----| '"QueuedContainer"'
----| '"PushHaulVehicle"'
-
----@alias job_item_ref.T_role_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 ---@alias job_item_ref.T_role
----| job_item_ref.T_role_keys
----| job_item_ref.T_role_values
+---| 'Other'
+---| 'Reagent'
+---| 'Hauled'
+---| 'LinkToTarget'
+---| 'LinkToTrigger'
+---| ''
+---| 'TargetContainer'
+---| 'QueuedContainer'
+---| 'PushHaulVehicle'
 
 ---@class _job_item_ref.T_role: DFEnumType
 ---@field Other 0 eat, drink, pickup equipment
@@ -879,23 +853,12 @@ df.manager_order_status = {}
 ---@field _kind 'struct-type'
 df.job_art_specification = {}
 
----@alias job_art_specification.T_type_keys
----| '"None"'
----| '"HistoricalFigure"'
----| '"Site"'
----| '"Entity"'
----| '"ArtImage"'
-
----@alias job_art_specification.T_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias job_art_specification.T_type
----| job_art_specification.T_type_keys
----| job_art_specification.T_type_values
+---| 'None'
+---| 'HistoricalFigure'
+---| 'Site'
+---| 'Entity'
+---| 'ArtImage'
 
 ---@class _job_art_specification.T_type: DFEnumType
 ---@field None -1 bay12: JobArtSpecifierType
@@ -939,23 +902,12 @@ df.job_art_specification.T_type = {}
 ---@field _kind 'struct-type'
 df.manager_order = {}
 
----@alias manager_order.T_frequency_keys
----| '"OneTime"'
----| '"Daily"'
----| '"Monthly"'
----| '"Seasonally"'
----| '"Yearly"'
-
----@alias manager_order.T_frequency_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias manager_order.T_frequency
----| manager_order.T_frequency_keys
----| manager_order.T_frequency_values
+---| 'OneTime'
+---| 'Daily'
+---| 'Monthly'
+---| 'Seasonally'
+---| 'Yearly'
 
 ---@class _manager_order.T_frequency: DFEnumType
 ---@field OneTime 0
@@ -1027,25 +979,13 @@ function _manager_order_order_conditions:erase(index) end
 ---@field _kind 'struct-type'
 df.manager_order_condition_item = {}
 
----@alias manager_order_condition_item.T_compare_type_keys
----| '"AtLeast"'
----| '"AtMost"'
----| '"GreaterThan"'
----| '"LessThan"'
----| '"Exactly"'
----| '"Not"'
-
----@alias manager_order_condition_item.T_compare_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias manager_order_condition_item.T_compare_type
----| manager_order_condition_item.T_compare_type_keys
----| manager_order_condition_item.T_compare_type_values
+---| 'AtLeast'
+---| 'AtMost'
+---| 'GreaterThan'
+---| 'LessThan'
+---| 'Exactly'
+---| 'Not'
 
 ---@class _manager_order_condition_item.T_compare_type: DFEnumType
 ---@field AtLeast 0
@@ -1072,17 +1012,9 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field _kind 'struct-type'
 df.manager_order_condition_order = {}
 
----@alias manager_order_condition_order.T_condition_keys
----| '"Activated"'
----| '"Completed"'
-
----@alias manager_order_condition_order.T_condition_values
----| 0
----| 1
-
 ---@alias manager_order_condition_order.T_condition
----| manager_order_condition_order.T_condition_keys
----| manager_order_condition_order.T_condition_values
+---| 'Activated'
+---| 'Completed'
 
 ---@class _manager_order_condition_order.T_condition: DFEnumType
 ---@field Activated 0
@@ -1132,19 +1064,10 @@ df.manager_order_template = {}
 ---@field _kind 'struct-type'
 df.mandate = {}
 
----@alias mandate.T_mode_keys
----| '"Export"'
----| '"Make"'
----| '"Guild"'
-
----@alias mandate.T_mode_values
----| 0
----| 1
----| 2
-
 ---@alias mandate.T_mode
----| mandate.T_mode_keys
----| mandate.T_mode_values
+---| 'Export'
+---| 'Make'
+---| 'Guild'
 
 ---@class _mandate.T_mode: DFEnumType
 ---@field Export 0
@@ -1221,21 +1144,11 @@ df.training_assignment.T_flags = {}
 ---@field _kind 'struct-type'
 df.unit_demand = {}
 
----@alias unit_demand.T_place_keys
----| '"Office"'
----| '"Bedroom"'
----| '"DiningRoom"'
----| '"Tomb"'
-
----@alias unit_demand.T_place_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias unit_demand.T_place
----| unit_demand.T_place_keys
----| unit_demand.T_place_values
+---| 'Office'
+---| 'Bedroom'
+---| 'DiningRoom'
+---| 'Tomb'
 
 ---@class _unit_demand.T_place: DFEnumType
 ---@field Office 0
@@ -1248,283 +1161,142 @@ df.unit_demand = {}
 ---@field [3] "Tomb"
 df.unit_demand.T_place = {}
 
----@alias killjob_exception_type_keys
----| '"CANNOT_REACH_SITE"'
----| '"INTERRUPTED"'
----| '"MOVED"'
----| '"NEED_EMPTY_BUCKET"'
----| '"NEED_EMPTY_TRAP"'
----| '"NEED_EMPTY_BAG"'
----| '"NEED_EMPTY_CAGE"'
----| '"INCAPABLE_OF_CARRYING"'
----| '"TOO_INJURED"'
----| '"EXHAUSTED"'
----| '"ANIMAL_INACCESSIBLE"'
----| '"ITEM_INACCESSIBLE"'
----| '"PATIENT_INACCESSIBLE"'
----| '"INFANT_INACCESSIBLE"'
----| '"NO_PARTNER"'
----| '"NOTHING_IN_CAGE"'
----| '"NOTHING_TO_CAGE"'
----| '"NOTHING_TO_CATCH"'
----| '"NO_PATIENT"'
----| '"PATIENT_NOT_RESTING"'
----| '"NO_INFANT"'
----| '"ALREADY_LEADING_CREATURE"'
----| '"NO_FOOD_AVAILABLE"'
----| '"NEEDS_SPECIFIC_ITEM"'
----| '"NO_ITEM"'
----| '"NO_AMMUNITION"'
----| '"NO_WEAPON"'
----| '"WRONG_AMMUNITION"'
----| '"AMMUNITION_INACCESSIBLE"'
----| '"ITEM_BLOCKING_SITE"'
----| '"ANIMAL_NOT_RESTRAINED"'
----| '"NO_CREATURE"'
----| '"NO_BUILDING"'
----| '"INAPPROPRIATE_BUILDING"'
----| '"NO_DESIGNATED_AREA"'
----| '"NO_FLOOR_SPACE"'
----| '"NO_PARTY"'
----| '"WRONG_JUSTICE_STATE"'
----| '"NOTHING_IN_BUILDING"'
----| '"RELIEVED"'
----| '"WATER_IS_FROZEN"'
----| '"TOO_INSANE"'
----| '"TAKEN_BY_MOOD"'
----| '"WENT_INSANE"'
----| '"THROWING_TANTRUM"'
----| '"COULD_NOT_FIND_PATH"'
----| '"PATH_BLOCKED"'
----| '"SEEKING_ARTIFACT"'
----| '"HANDLING_DANGEROUS_CREATURE"'
----| '"GOING_TO_BED"'
----| '"SEEKING_INFANT"'
----| '"DANGEROUS_TERRAIN"'
----| '"JOB_ITEM_LOST"'
----| '"GETTING_FOOD"'
----| '"GETTING_WATER"'
----| '"HUNTING_VERMIN_FOR_FOOD"'
----| '"TARGET_INACCESSIBLE"'
----| '"NO_TARGET"'
----| '"NO_MECHANISM_FOR_TARGET"'
----| '"NO_TARGET_BUILDING"'
----| '"NO_MECHANISM_FOR_TRIGGER"'
----| '"NO_TRIGGER"'
----| '"NO_AVAILABLE_TRACTION_BENCH"'
----| '"ATTACKING_BUILDING"'
----| '"LOST_PICK"'
----| '"INVALID_OFFICER"'
----| '"FAREWELL"'
----| '"REMOVED_FROM_GUARD"'
----| '"EQUIPMENT_MISMATCH"'
----| '"UNCONSCIOUS"'
----| '"WEBBED"'
----| '"PARALYZED"'
----| '"CAGED"'
----| '"GETTING_DRINK"'
----| '"USING_WELL"'
----| '"LOST_AXE"'
----| '"RESTING_INJURY"'
----| '"UNSCHEDULED"'
----| '"FORBIDDEN_AREA"'
----| '"DROFOFF_INACCESSIBLE"'
----| '"BUILDING_INACCESSIBLE"'
----| '"AREA_INACCESSIBLE"'
----| '"WATER_SOURCE_VANISHED"'
----| '"NO_WATER_SOURCE"'
----| '"NO_BUCKET_AT_WELL"'
----| '"BUCKET_NOT_EMPTY"'
----| '"WELL_DRY"'
----| '"BUILDING_SITE_SUBMERGED"'
----| '"NEED_SAND_COLLECTION_ZONE"'
----| '"SAND_VANISHED"'
----| '"AREA_BECAME_INAPPROPRIATE"'
----| '"WATER_SOURCE_CONTAMINATED"'
----| '"CREATURE_OCCUPYING_SITE"'
----| '"NEED_OFFICE"'
----| '"NOT_RESPONSIBLE_FOR_TRADE"'
----| '"INAPPROPRIATE_DIG_SQUARE"'
----| '"TARGET_TOO_INJURED"'
----| '"GETTING_MARRIED"'
----| '"NEED_SPLINT"'
----| '"NEED_THREAD"'
----| '"NEED_CLOTH"'
----| '"NEED_CRUTCH"'
----| '"BAD_SCRIPT_1"'
----| '"BAD_SCRIPT_2"'
----| '"BAD_SCRIPT_3"'
----| '"NEED_CAST_POWDER_BAG"'
----| '"NO_WEAPON_2"'
----| '"NO_APPROPRIATE_AMMUNITION"'
----| '"CLAY_VANISHED"'
----| '"NEED_CLAY_COLLECTION_ZONE"'
----| '"NO_COLONY"'
----| '"NOT_APPOINTED"'
----| '"NO_WEAPON_FOR_EXECUTION"'
----| '"NO_LONGER_REQUESTED"'
----| '"MORTALLY_AFRAID"'
----| '"EMOTIONAL_SHOCK"'
----| '"HORRIFIED"'
----| '"GRIEVING"'
----| '"TERRIFIED"'
----| '"IN_CUSTODY"'
----| '"TOO_DEPRESSED"'
----| '"OBLIVIOUS"'
----| '"CATATONIC"'
----| '"TOO_SAD"'
----| '"IN_AGONY"'
----| '"ANGUISHED"'
----| '"DESPAIRING"'
----| '"DISMAYED"'
----| '"DISTRESSED"'
----| '"FRIGHTENED"'
----| '"MISERABLE"'
----| '"MORTIFIED"'
----| '"SHAKEN"'
----| '"IN_EXISTENTIAL_CRISIS"'
----| '"NEEDS_SPECIFIC_ITEM_2"'
-
----@alias killjob_exception_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
----| 71
----| 72
----| 73
----| 74
----| 75
----| 76
----| 77
----| 78
----| 79
----| 80
----| 81
----| 82
----| 83
----| 84
----| 85
----| 86
----| 87
----| 88
----| 89
----| 90
----| 91
----| 92
----| 93
----| 94
----| 95
----| 96
----| 97
----| 98
----| 99
----| 100
----| 101
----| 102
----| 103
----| 104
----| 105
----| 106
----| 107
----| 108
----| 109
----| 110
----| 111
----| 112
----| 113
----| 114
----| 115
----| 116
----| 117
----| 118
----| 119
----| 120
----| 121
----| 122
----| 123
----| 124
----| 125
----| 126
----| 127
----| 128
----| 129
----| 130
----| 131
----| 132
----| 133
----| 134
-
 ---@alias killjob_exception_type
----| killjob_exception_type_keys
----| killjob_exception_type_values
+---| 'CANNOT_REACH_SITE'
+---| 'INTERRUPTED'
+---| 'MOVED'
+---| 'NEED_EMPTY_BUCKET'
+---| 'NEED_EMPTY_TRAP'
+---| 'NEED_EMPTY_BAG'
+---| 'NEED_EMPTY_CAGE'
+---| 'INCAPABLE_OF_CARRYING'
+---| 'TOO_INJURED'
+---| 'EXHAUSTED'
+---| 'ANIMAL_INACCESSIBLE'
+---| 'ITEM_INACCESSIBLE'
+---| 'PATIENT_INACCESSIBLE'
+---| 'INFANT_INACCESSIBLE'
+---| 'NO_PARTNER'
+---| 'NOTHING_IN_CAGE'
+---| 'NOTHING_TO_CAGE'
+---| 'NOTHING_TO_CATCH'
+---| 'NO_PATIENT'
+---| 'PATIENT_NOT_RESTING'
+---| 'NO_INFANT'
+---| 'ALREADY_LEADING_CREATURE'
+---| 'NO_FOOD_AVAILABLE'
+---| 'NEEDS_SPECIFIC_ITEM'
+---| 'NO_ITEM'
+---| 'NO_AMMUNITION'
+---| 'NO_WEAPON'
+---| 'WRONG_AMMUNITION'
+---| 'AMMUNITION_INACCESSIBLE'
+---| 'ITEM_BLOCKING_SITE'
+---| 'ANIMAL_NOT_RESTRAINED'
+---| 'NO_CREATURE'
+---| 'NO_BUILDING'
+---| 'INAPPROPRIATE_BUILDING'
+---| 'NO_DESIGNATED_AREA'
+---| 'NO_FLOOR_SPACE'
+---| 'NO_PARTY'
+---| 'WRONG_JUSTICE_STATE'
+---| 'NOTHING_IN_BUILDING'
+---| 'RELIEVED'
+---| 'WATER_IS_FROZEN'
+---| 'TOO_INSANE'
+---| 'TAKEN_BY_MOOD'
+---| 'WENT_INSANE'
+---| 'THROWING_TANTRUM'
+---| 'COULD_NOT_FIND_PATH'
+---| 'PATH_BLOCKED'
+---| 'SEEKING_ARTIFACT'
+---| 'HANDLING_DANGEROUS_CREATURE'
+---| 'GOING_TO_BED'
+---| 'SEEKING_INFANT'
+---| 'DANGEROUS_TERRAIN'
+---| 'JOB_ITEM_LOST'
+---| 'GETTING_FOOD'
+---| 'GETTING_WATER'
+---| 'HUNTING_VERMIN_FOR_FOOD'
+---| 'TARGET_INACCESSIBLE'
+---| 'NO_TARGET'
+---| 'NO_MECHANISM_FOR_TARGET'
+---| 'NO_TARGET_BUILDING'
+---| 'NO_MECHANISM_FOR_TRIGGER'
+---| 'NO_TRIGGER'
+---| 'NO_AVAILABLE_TRACTION_BENCH'
+---| 'ATTACKING_BUILDING'
+---| 'LOST_PICK'
+---| 'INVALID_OFFICER'
+---| 'FAREWELL'
+---| 'REMOVED_FROM_GUARD'
+---| 'EQUIPMENT_MISMATCH'
+---| 'UNCONSCIOUS'
+---| 'WEBBED'
+---| 'PARALYZED'
+---| 'CAGED'
+---| 'GETTING_DRINK'
+---| 'USING_WELL'
+---| 'LOST_AXE'
+---| 'RESTING_INJURY'
+---| 'UNSCHEDULED'
+---| 'FORBIDDEN_AREA'
+---| 'DROFOFF_INACCESSIBLE'
+---| 'BUILDING_INACCESSIBLE'
+---| 'AREA_INACCESSIBLE'
+---| 'WATER_SOURCE_VANISHED'
+---| 'NO_WATER_SOURCE'
+---| 'NO_BUCKET_AT_WELL'
+---| 'BUCKET_NOT_EMPTY'
+---| 'WELL_DRY'
+---| 'BUILDING_SITE_SUBMERGED'
+---| 'NEED_SAND_COLLECTION_ZONE'
+---| 'SAND_VANISHED'
+---| 'AREA_BECAME_INAPPROPRIATE'
+---| 'WATER_SOURCE_CONTAMINATED'
+---| 'CREATURE_OCCUPYING_SITE'
+---| 'NEED_OFFICE'
+---| 'NOT_RESPONSIBLE_FOR_TRADE'
+---| 'INAPPROPRIATE_DIG_SQUARE'
+---| 'TARGET_TOO_INJURED'
+---| 'GETTING_MARRIED'
+---| 'NEED_SPLINT'
+---| 'NEED_THREAD'
+---| 'NEED_CLOTH'
+---| 'NEED_CRUTCH'
+---| 'BAD_SCRIPT_1'
+---| 'BAD_SCRIPT_2'
+---| 'BAD_SCRIPT_3'
+---| 'NEED_CAST_POWDER_BAG'
+---| 'NO_WEAPON_2'
+---| 'NO_APPROPRIATE_AMMUNITION'
+---| 'CLAY_VANISHED'
+---| 'NEED_CLAY_COLLECTION_ZONE'
+---| 'NO_COLONY'
+---| 'NOT_APPOINTED'
+---| 'NO_WEAPON_FOR_EXECUTION'
+---| 'NO_LONGER_REQUESTED'
+---| 'MORTALLY_AFRAID'
+---| 'EMOTIONAL_SHOCK'
+---| 'HORRIFIED'
+---| 'GRIEVING'
+---| 'TERRIFIED'
+---| 'IN_CUSTODY'
+---| 'TOO_DEPRESSED'
+---| 'OBLIVIOUS'
+---| 'CATATONIC'
+---| 'TOO_SAD'
+---| 'IN_AGONY'
+---| 'ANGUISHED'
+---| 'DESPAIRING'
+---| 'DISMAYED'
+---| 'DISTRESSED'
+---| 'FRIGHTENED'
+---| 'MISERABLE'
+---| 'MORTIFIED'
+---| 'SHAKEN'
+---| 'IN_EXISTENTIAL_CRISIS'
+---| 'NEEDS_SPECIFIC_ITEM_2'
 
 ---@class _killjob_exception_type: DFEnumType
 ---@field CANNOT_REACH_SITE 0

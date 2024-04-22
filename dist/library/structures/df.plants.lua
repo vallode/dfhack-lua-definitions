@@ -76,43 +76,22 @@ function _plant_contaminants:insert(index, item) end
 ---@param index integer 
 function _plant_contaminants:erase(index) end
 
----@alias plant_tree_tile_branches_dir_keys
----| '"NONE"'
----| '"BRANCH_W"'
----| '"BRANCH_N"'
----| '"BRANCH_WN"'
----| '"BRANCH_E"'
----| '"BRANCH_WE"'
----| '"BRANCH_NE"'
----| '"BRANCH_WNE"'
----| '"BRANCH_S"'
----| '"BRANCH_WS"'
----| '"BRANCH_NS"'
----| '"BRANCH_WNS"'
----| '"BRANCH_ES"'
----| '"BRANCH_WES"'
----| '"BRANCH_NES"'
-
----@alias plant_tree_tile_branches_dir_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
-
 ---@alias plant_tree_tile_branches_dir
----| plant_tree_tile_branches_dir_keys
----| plant_tree_tile_branches_dir_values
+---| 'NONE'
+---| 'BRANCH_W'
+---| 'BRANCH_N'
+---| 'BRANCH_WN'
+---| 'BRANCH_E'
+---| 'BRANCH_WE'
+---| 'BRANCH_NE'
+---| 'BRANCH_WNE'
+---| 'BRANCH_S'
+---| 'BRANCH_WS'
+---| 'BRANCH_NS'
+---| 'BRANCH_WNS'
+---| 'BRANCH_ES'
+---| 'BRANCH_WES'
+---| 'BRANCH_NES'
 
 ---@class _plant_tree_tile_branches_dir: DFEnumType
 ---@field NONE 0
@@ -147,27 +126,14 @@ function _plant_contaminants:erase(index) end
 ---@field [14] "BRANCH_NES"
 df.plant_tree_tile_branches_dir = {}
 
----@alias plant_tree_tile_parent_dir_keys
----| '"NONE"'
----| '"PARENT_IS_N"'
----| '"PARENT_IS_S"'
----| '"PARENT_IS_W"'
----| '"PARENT_IS_E"'
----| '"PARENT_IS_UP"'
----| '"PARENT_IS_DOWN"'
-
----@alias plant_tree_tile_parent_dir_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias plant_tree_tile_parent_dir
----| plant_tree_tile_parent_dir_keys
----| plant_tree_tile_parent_dir_values
+---| 'NONE'
+---| 'PARENT_IS_N'
+---| 'PARENT_IS_S'
+---| 'PARENT_IS_W'
+---| 'PARENT_IS_E'
+---| 'PARENT_IS_UP'
+---| 'PARENT_IS_DOWN'
 
 ---@class _plant_tree_tile_parent_dir: DFEnumType
 ---@field NONE 0

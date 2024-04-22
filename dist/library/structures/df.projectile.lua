@@ -1,19 +1,10 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias projectile_type_keys
----| '"Item"'
----| '"Unit"'
----| '"Magic"'
-
----@alias projectile_type_values
----| 0
----| 1
----| 2
-
 ---@alias projectile_type
----| projectile_type_keys
----| projectile_type_values
+---| 'Item'
+---| 'Unit'
+---| 'Magic'
 
 ---@class _projectile_type: DFEnumType
 ---@field Item 0

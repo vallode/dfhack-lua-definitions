@@ -1,27 +1,14 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias pattern_type_keys
----| '"NONE"'
----| '"MONOTONE"'
----| '"STRIPES"'
----| '"IRIS_EYE"'
----| '"SPOTS"'
----| '"PUPIL_EYE"'
----| '"MOTTLED"'
-
----@alias pattern_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias pattern_type
----| pattern_type_keys
----| pattern_type_values
+---| 'NONE'
+---| 'MONOTONE'
+---| 'STRIPES'
+---| 'IRIS_EYE'
+---| 'SPOTS'
+---| 'PUPIL_EYE'
+---| 'MOTTLED'
 
 ---@class _pattern_type: DFEnumType
 ---@field NONE -1

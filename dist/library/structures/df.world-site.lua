@@ -84,41 +84,21 @@ function _location_scribe_jobs_scribejobs:insert(index, item) end
 ---@param index integer 
 function _location_scribe_jobs_scribejobs:erase(index) end
 
----@alias abstract_building_type_keys
----| '"MEAD_HALL"'
----| '"KEEP"'
----| '"TEMPLE"'
----| '"DARK_TOWER"'
----| '"MARKET"'
----| '"TOMB"'
----| '"DUNGEON"'
----| '"UNDERWORLD_SPIRE"'
----| '"INN_TAVERN"'
----| '"LIBRARY"'
----| '"COUNTING_HOUSE"'
----| '"GUILDHALL"'
----| '"TOWER"'
----| '"HOSPITAL"'
-
----@alias abstract_building_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
-
 ---@alias abstract_building_type
----| abstract_building_type_keys
----| abstract_building_type_values
+---| 'MEAD_HALL'
+---| 'KEEP'
+---| 'TEMPLE'
+---| 'DARK_TOWER'
+---| 'MARKET'
+---| 'TOMB'
+---| 'DUNGEON'
+---| 'UNDERWORLD_SPIRE'
+---| 'INN_TAVERN'
+---| 'LIBRARY'
+---| 'COUNTING_HOUSE'
+---| 'GUILDHALL'
+---| 'TOWER'
+---| 'HOSPITAL'
 
 ---@class _abstract_building_type: DFEnumType
 ---@field MEAD_HALL 0
@@ -151,29 +131,15 @@ function _location_scribe_jobs_scribejobs:erase(index) end
 ---@field [13] "HOSPITAL"
 df.abstract_building_type = {}
 
----@alias abstract_building_flags_keys
----| '"WG_RUINED"'
----| '"DOES_NOT_EXIST"'
----| '"DISCOVERED"'
----| '"PWG_RUINED"'
----| '"VISITORS_ALLOWED"'
----| '"NON_CITIZENS_ALLOWED"'
----| '"MEMBERS_ONLY"'
----| '"UNUSED8"'
-
----@alias abstract_building_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias abstract_building_flags
----| abstract_building_flags_keys
----| abstract_building_flags_values
+---| 'WG_RUINED'
+---| 'DOES_NOT_EXIST'
+---| 'DISCOVERED'
+---| 'PWG_RUINED'
+---| 'VISITORS_ALLOWED'
+---| 'NON_CITIZENS_ALLOWED'
+---| 'MEMBERS_ONLY'
+---| 'UNUSED8'
 
 ---@class _abstract_building_flags: DFEnumType
 ---@field WG_RUINED 0
@@ -415,19 +381,10 @@ df.abstract_building_mead_hallst = {}
 ---@field _kind 'class-type'
 df.abstract_building_keepst = {}
 
----@alias temple_deity_type_keys
----| '"None"'
----| '"Deity"'
----| '"Religion"'
-
----@alias temple_deity_type_values
----| -1
----| 0
----| 1
-
 ---@alias temple_deity_type
----| temple_deity_type_keys
----| temple_deity_type_values
+---| 'None'
+---| 'Deity'
+---| 'Religion'
 
 ---@class _temple_deity_type: DFEnumType
 ---@field None -1
@@ -498,19 +455,10 @@ df.abstract_building_tombst = {}
 ---@field _kind 'class-type'
 df.abstract_building_dungeonst = {}
 
----@alias abstract_building_dungeonst.T_dungeon_type_keys
----| '"DUNGEON"'
----| '"SEWERS"'
----| '"CATACOMBS"'
-
----@alias abstract_building_dungeonst.T_dungeon_type_values
----| 0
----| 1
----| 2
-
 ---@alias abstract_building_dungeonst.T_dungeon_type
----| abstract_building_dungeonst.T_dungeon_type_keys
----| abstract_building_dungeonst.T_dungeon_type_values
+---| 'DUNGEON'
+---| 'SEWERS'
+---| 'CATACOMBS'
 
 ---@class _abstract_building_dungeonst.T_dungeon_type: DFEnumType
 ---@field DUNGEON 0
@@ -606,35 +554,18 @@ df.abstract_building_towerst = {}
 ---@field _kind 'class-type'
 df.abstract_building_hospitalst = {}
 
----@alias world_site_type_keys
----| '"PlayerFortress"'
----| '"DarkFortress"'
----| '"Cave"'
----| '"MountainHalls"'
----| '"ForestRetreat"'
----| '"Town"'
----| '"ImportantLocation"'
----| '"LairShrine"'
----| '"Fortress"'
----| '"Camp"'
----| '"Monument"'
-
----@alias world_site_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
-
 ---@alias world_site_type
----| world_site_type_keys
----| world_site_type_values
+---| 'PlayerFortress'
+---| 'DarkFortress'
+---| 'Cave'
+---| 'MountainHalls'
+---| 'ForestRetreat'
+---| 'Town'
+---| 'ImportantLocation'
+---| 'LairShrine'
+---| 'Fortress'
+---| 'Camp'
+---| 'Monument'
 
 ---@class _world_site_type: DFEnumType
 ---@field PlayerFortress 0
@@ -661,23 +592,12 @@ df.abstract_building_hospitalst = {}
 ---@field [10] "Monument"
 df.world_site_type = {}
 
----@alias fortress_type_keys
----| '"NONE"'
----| '"CASTLE"'
----| '"TOWER"'
----| '"MONASTERY"'
----| '"FORT"'
-
----@alias fortress_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias fortress_type
----| fortress_type_keys
----| fortress_type_values
+---| 'NONE'
+---| 'CASTLE'
+---| 'TOWER'
+---| 'MONASTERY'
+---| 'FORT'
 
 ---@class _fortress_type: DFEnumType
 ---@field NONE -1
@@ -692,19 +612,10 @@ df.world_site_type = {}
 ---@field [3] "FORT"
 df.fortress_type = {}
 
----@alias monument_type_keys
----| '"NONE"'
----| '"TOMB"'
----| '"VAULT"'
-
----@alias monument_type_values
----| -1
----| 0
----| 1
-
 ---@alias monument_type
----| monument_type_keys
----| monument_type_values
+---| 'NONE'
+---| 'TOMB'
+---| 'VAULT'
 
 ---@class _monument_type: DFEnumType
 ---@field NONE -1
@@ -715,25 +626,13 @@ df.fortress_type = {}
 ---@field [1] "VAULT"
 df.monument_type = {}
 
----@alias lair_type_keys
----| '"NONE"'
----| '"SIMPLE_MOUND"'
----| '"SIMPLE_BURROW"'
----| '"LABYRINTH"'
----| '"SHRINE"'
----| '"WILDERNESS_LOCATION"'
-
----@alias lair_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias lair_type
----| lair_type_keys
----| lair_type_values
+---| 'NONE'
+---| 'SIMPLE_MOUND'
+---| 'SIMPLE_BURROW'
+---| 'LABYRINTH'
+---| 'SHRINE'
+---| 'WILDERNESS_LOCATION'
 
 ---@class _lair_type: DFEnumType
 ---@field NONE -1
@@ -1044,19 +943,10 @@ df.site_cropst = {}
 ---@field [0] "has_growths"
 df.site_cropst.T_flag = {}
 
----@alias religious_practice_type_keys
----| '"NONE"'
----| '"WORSHIP_HFID"'
----| '"RELIGION_ENID"'
-
----@alias religious_practice_type_values
----| -1
----| 0
----| 1
-
 ---@alias religious_practice_type
----| religious_practice_type_keys
----| religious_practice_type_values
+---| 'NONE'
+---| 'WORSHIP_HFID'
+---| 'RELIGION_ENID'
 
 ---@class _religious_practice_type: DFEnumType
 ---@field NONE -1 bay12: ReligiousPractice
@@ -1120,61 +1010,31 @@ function _site_culture_infrastructurest_religious_structure_batch:insert(index, 
 ---@param index integer 
 function _site_culture_infrastructurest_religious_structure_batch:erase(index) end
 
----@alias site_flag_type_keys
----| '"HIDDEN"'
----| '"RUINED"'
----| '"IGNORED_BY_LEGENDS"'
----| '"HAS_MARKET"'
----| '"VISITED"'
----| '"ACTIVE"'
----| '"LOADED"'
----| '"SUBORDINATE"'
----| '"PASSED_FIRST_REALIZATION"'
----| '"SETTLED"'
----| '"COMPLETELY_SUPERCEDED"'
----| '"UNUSED12"'
----| '"UNUSED13"'
----| '"UNUSED14"'
----| '"UNUSED15"'
----| '"UNUSED16"'
----| '"UNUSED17"'
----| '"UNUSED18"'
----| '"UNUSED19"'
----| '"UNUSED20"'
----| '"UNUSED21"'
----| '"UNUSED22"'
----| '"UNUSED23"'
----| '"UNUSED24"'
-
----@alias site_flag_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
-
 ---@alias site_flag_type
----| site_flag_type_keys
----| site_flag_type_values
+---| 'HIDDEN'
+---| 'RUINED'
+---| 'IGNORED_BY_LEGENDS'
+---| 'HAS_MARKET'
+---| 'VISITED'
+---| 'ACTIVE'
+---| 'LOADED'
+---| 'SUBORDINATE'
+---| 'PASSED_FIRST_REALIZATION'
+---| 'SETTLED'
+---| 'COMPLETELY_SUPERCEDED'
+---| 'UNUSED12'
+---| 'UNUSED13'
+---| 'UNUSED14'
+---| 'UNUSED15'
+---| 'UNUSED16'
+---| 'UNUSED17'
+---| 'UNUSED18'
+---| 'UNUSED19'
+---| 'UNUSED20'
+---| 'UNUSED21'
+---| 'UNUSED22'
+---| 'UNUSED23'
+---| 'UNUSED24'
 
 ---@class _site_flag_type: DFEnumType
 ---@field HIDDEN 0 SiteFlagType
@@ -1227,32 +1087,17 @@ function _site_culture_infrastructurest_religious_structure_batch:erase(index) e
 ---@field [23] "UNUSED24"
 df.site_flag_type = {}
 
----@alias location_death_type_keys
----| '"NATURAL"'
----| '"STARVATION"'
----| '"FAILED_DEFENDER"'
----| '"SUCCESSFUL_DEFENDER"'
----| '"FAILED_INVADER"'
----| '"SUCCESSFUL_INVADER"'
----| '"MURDER"'
----| '"NATURAL_SCATTERED"'
----| '"SITE_RAMPAGE"'
-
----@alias location_death_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 -- bay12: LocationDeath
 ---@alias location_death_type
----| location_death_type_keys
----| location_death_type_values
+---| 'NATURAL'
+---| 'STARVATION'
+---| 'FAILED_DEFENDER'
+---| 'SUCCESSFUL_DEFENDER'
+---| 'FAILED_INVADER'
+---| 'SUCCESSFUL_INVADER'
+---| 'MURDER'
+---| 'NATURAL_SCATTERED'
+---| 'SITE_RAMPAGE'
 
 -- bay12: LocationDeath
 ---@class _location_death_type: DFEnumType
@@ -1335,26 +1180,14 @@ function _location_deathst_batch:erase(index) end
 ---@field _kind 'struct-type'
 df.site_map_infost = {}
 
----@alias site_architecture_change_type_keys
----| '"NONE"'
----| '"DOMINANT_ENTITY"'
----| '"SRB_RUINED"'
----| '"SRP_RUINED"'
----| '"GENERALIZED_DAMAGE"'
----| '"GENERALIZED_DEATH"'
-
----@alias site_architecture_change_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
-
 -- bay12: SiteArchitectureChangeType
 ---@alias site_architecture_change_type
----| site_architecture_change_type_keys
----| site_architecture_change_type_values
+---| 'NONE'
+---| 'DOMINANT_ENTITY'
+---| 'SRB_RUINED'
+---| 'SRP_RUINED'
+---| 'GENERALIZED_DAMAGE'
+---| 'GENERALIZED_DEATH'
 
 -- bay12: SiteArchitectureChangeType
 ---@class _site_architecture_change_type: DFEnumType
@@ -1452,23 +1285,12 @@ function _wg_site_culture_identityst_interaction:insert(index, item) end
 ---@param index integer 
 function _wg_site_culture_identityst_interaction:erase(index) end
 
----@alias cultural_interaction_type_keys
----| '"NONE"'
----| '"ENTITY_1_PERSECUTES_ENTITY_2"'
----| '"ENTITY_1_RIOTS_AGAINST_ENTITY_2"'
----| '"ENTITY_1_INVEIGHS_AGAINST_ENTITY_2"'
----| '"ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2"'
-
----@alias cultural_interaction_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias cultural_interaction_type
----| cultural_interaction_type_keys
----| cultural_interaction_type_values
+---| 'NONE'
+---| 'ENTITY_1_PERSECUTES_ENTITY_2'
+---| 'ENTITY_1_RIOTS_AGAINST_ENTITY_2'
+---| 'ENTITY_1_INVEIGHS_AGAINST_ENTITY_2'
+---| 'ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2'
 
 ---@class _cultural_interaction_type: DFEnumType
 ---@field NONE -1
@@ -2292,77 +2114,39 @@ function _world_site_realization_unk_wsr_vector:erase(index) end
 ---@field _kind 'struct-type'
 df.site_realization_crossroads = {}
 
----@alias site_realization_building_type_keys
----| '"cottage_plot"'
----| '"castle_wall"'
----| '"castle_tower"'
----| '"castle_courtyard"'
----| '"house"'
----| '"temple"'
----| '"tomb"'
----| '"shop_house"'
----| '"warehouse"'
----| '"market_square"'
----| '"pasture"'
----| '"waste"'
----| '"courtyard"'
----| '"well"'
----| '"vault"'
----| '"great_tower"'
----| '"trenches"'
----| '"tree_house"'
----| '"hillock_house"'
----| '"mead_hall"'
----| '"fortress_entrance"'
----| '"library"'
----| '"tavern"'
----| '"counting_house"'
----| '"guild_hall"'
----| '"city_tower"'
----| '"shrine"'
----| '""'
----| '"dormitory"'
----| '"dininghall"'
----| '"necromancer_tower"'
----| '"barrow"'
-
----@alias site_realization_building_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
-
 ---@alias site_realization_building_type
----| site_realization_building_type_keys
----| site_realization_building_type_values
+---| 'cottage_plot'
+---| 'castle_wall'
+---| 'castle_tower'
+---| 'castle_courtyard'
+---| 'house'
+---| 'temple'
+---| 'tomb'
+---| 'shop_house'
+---| 'warehouse'
+---| 'market_square'
+---| 'pasture'
+---| 'waste'
+---| 'courtyard'
+---| 'well'
+---| 'vault'
+---| 'great_tower'
+---| 'trenches'
+---| 'tree_house'
+---| 'hillock_house'
+---| 'mead_hall'
+---| 'fortress_entrance'
+---| 'library'
+---| 'tavern'
+---| 'counting_house'
+---| 'guild_hall'
+---| 'city_tower'
+---| 'shrine'
+---| ''
+---| 'dormitory'
+---| 'dininghall'
+---| 'necromancer_tower'
+---| 'barrow'
 
 ---@class _site_realization_building_type: DFEnumType
 ---@field cottage_plot 0
@@ -2597,65 +2381,33 @@ df.site_realization_building_info_castle_towerst = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_courtyardst = {}
 
----@alias site_shop_type_keys
----| '"GeneralImports"'
----| '"FoodImports"'
----| '"ClothingImports"'
----| '"Cloth"'
----| '"Leather"'
----| '"WovenClothing"'
----| '"LeatherClothing"'
----| '"BoneCarver"'
----| '"GemCutter"'
----| '"Weaponsmith"'
----| '"Bowyer"'
----| '"Blacksmith"'
----| '"Armorsmith"'
----| '"MetalCraft"'
----| '"LeatherGoods"'
----| '"Carpenter"'
----| '"StoneFurniture"'
----| '"MetalFurniture"'
----| '"ImportedGoodsMarket"'
----| '"ImportedFoodMarket"'
----| '"ImportedClothingMarket"'
----| '"MeatMarket"'
----| '"FruitAndVegetableMarket"'
----| '"CheeseMarket"'
----| '"ProcessedGoodsMarket"'
----| '"Tavern"'
-
----@alias site_shop_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
-
 ---@alias site_shop_type
----| site_shop_type_keys
----| site_shop_type_values
+---| 'GeneralImports'
+---| 'FoodImports'
+---| 'ClothingImports'
+---| 'Cloth'
+---| 'Leather'
+---| 'WovenClothing'
+---| 'LeatherClothing'
+---| 'BoneCarver'
+---| 'GemCutter'
+---| 'Weaponsmith'
+---| 'Bowyer'
+---| 'Blacksmith'
+---| 'Armorsmith'
+---| 'MetalCraft'
+---| 'LeatherGoods'
+---| 'Carpenter'
+---| 'StoneFurniture'
+---| 'MetalFurniture'
+---| 'ImportedGoodsMarket'
+---| 'ImportedFoodMarket'
+---| 'ImportedClothingMarket'
+---| 'MeatMarket'
+---| 'FruitAndVegetableMarket'
+---| 'CheeseMarket'
+---| 'ProcessedGoodsMarket'
+---| 'Tavern'
 
 ---@class _site_shop_type: DFEnumType
 ---@field GeneralImports 0
@@ -2712,45 +2464,23 @@ df.site_realization_building_info_castle_courtyardst = {}
 ---@field [25] "Tavern"
 df.site_shop_type = {}
 
----@alias town_labor_type_keys
----| '"NONE"'
----| '"CLOTH"'
----| '"TANNING"'
----| '"CLOTHING_CLOTH"'
----| '"CLOTHING_LEATHER"'
----| '"CRAFTS_BONE_CARVER"'
----| '"GEM_CUTTER"'
----| '"METAL_WEAPON_SMITH"'
----| '"WOOD_WEAPON_SMITH"'
----| '"BLACK_SMITH"'
----| '"METAL_ARMOR_SMITH"'
----| '"METAL_CRAFTER"'
----| '"LEATHER_ACCESSORIES"'
----| '"FURNITURE_WOOD"'
----| '"FURNITURE_STONE"'
----| '"FURNITURE_METAL"'
-
----@alias town_labor_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
-
 ---@alias town_labor_type
----| town_labor_type_keys
----| town_labor_type_values
+---| 'NONE'
+---| 'CLOTH'
+---| 'TANNING'
+---| 'CLOTHING_CLOTH'
+---| 'CLOTHING_LEATHER'
+---| 'CRAFTS_BONE_CARVER'
+---| 'GEM_CUTTER'
+---| 'METAL_WEAPON_SMITH'
+---| 'WOOD_WEAPON_SMITH'
+---| 'BLACK_SMITH'
+---| 'METAL_ARMOR_SMITH'
+---| 'METAL_CRAFTER'
+---| 'LEATHER_ACCESSORIES'
+---| 'FURNITURE_WOOD'
+---| 'FURNITURE_STONE'
+---| 'FURNITURE_METAL'
 
 ---@class _town_labor_type: DFEnumType
 ---@field NONE -1
@@ -2824,25 +2554,13 @@ df.site_realization_building_info_trenchesst = {}
 ---@field _kind 'struct-type'
 df.site_realization_building_info_trenchesst.T_spokes = {}
 
----@alias tree_house_type_keys
----| '"TreeHouse"'
----| '"HomeTree"'
----| '"ShapingTree"'
----| '"MarketTree"'
----| '"Unknown1"'
----| '"Unknown2"'
-
----@alias tree_house_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias tree_house_type
----| tree_house_type_keys
----| tree_house_type_values
+---| 'TreeHouse'
+---| 'HomeTree'
+---| 'ShapingTree'
+---| 'MarketTree'
+---| 'Unknown1'
+---| 'Unknown2'
 
 ---@class _tree_house_type: DFEnumType
 ---@field TreeHouse 0
@@ -2869,21 +2587,11 @@ df.tree_house_type = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_tree_housest = {}
 
----@alias hillock_house_type_keys
----| '""'
----| '"CivicMound"'
----| '"CastleMound"'
----| '"DrinkingMound"'
-
----@alias hillock_house_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias hillock_house_type
----| hillock_house_type_keys
----| hillock_house_type_values
+---| ''
+---| 'CivicMound'
+---| 'CastleMound'
+---| 'DrinkingMound'
 
 ---@class _hillock_house_type: DFEnumType
 ---@field CivicMound 1
@@ -2911,21 +2619,11 @@ df.site_realization_building_info_hillock_housest = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_shrinest = {}
 
----@alias creation_zone_pwg_alteration_type_keys
----| '"location_death"'
----| '"camp"'
----| '"srb_ruined"'
----| '"srp_ruined"'
-
----@alias creation_zone_pwg_alteration_type_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias creation_zone_pwg_alteration_type
----| creation_zone_pwg_alteration_type_keys
----| creation_zone_pwg_alteration_type_values
+---| 'location_death'
+---| 'camp'
+---| 'srb_ruined'
+---| 'srp_ruined'
 
 ---@class _creation_zone_pwg_alteration_type: DFEnumType
 ---@field location_death 0

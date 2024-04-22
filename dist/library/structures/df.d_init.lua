@@ -1,19 +1,10 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias d_init_nickname_keys
----| '"REPLACE_FIRST"'
----| '"CENTRALIZE"'
----| '"REPLACE_ALL"'
-
----@alias d_init_nickname_values
----| 0
----| 1
----| 2
-
 ---@alias d_init_nickname
----| d_init_nickname_keys
----| d_init_nickname_values
+---| 'REPLACE_FIRST'
+---| 'CENTRALIZE'
+---| 'REPLACE_ALL'
 
 ---@class _d_init_nickname: DFEnumType
 ---@field REPLACE_FIRST 0
@@ -24,19 +15,10 @@
 ---@field [2] "REPLACE_ALL"
 df.d_init_nickname = {}
 
----@alias d_init_embark_confirm_keys
----| '"ALWAYS"'
----| '"IF_POINTS_REMAIN"'
----| '"NO"'
-
----@alias d_init_embark_confirm_values
----| 0
----| 1
----| 2
-
 ---@alias d_init_embark_confirm
----| d_init_embark_confirm_keys
----| d_init_embark_confirm_values
+---| 'ALWAYS'
+---| 'IF_POINTS_REMAIN'
+---| 'NO'
 
 ---@class _d_init_embark_confirm: DFEnumType
 ---@field ALWAYS 0
@@ -47,19 +29,10 @@ df.d_init_nickname = {}
 ---@field [2] "NO"
 df.d_init_embark_confirm = {}
 
----@alias d_init_tunnel_keys
----| '"NO"'
----| '"FINDER"'
----| '"ALWAYS"'
-
----@alias d_init_tunnel_values
----| 0
----| 1
----| 2
-
 ---@alias d_init_tunnel
----| d_init_tunnel_keys
----| d_init_tunnel_values
+---| 'NO'
+---| 'FINDER'
+---| 'ALWAYS'
 
 ---@class _d_init_tunnel: DFEnumType
 ---@field NO 0
@@ -70,23 +43,12 @@ df.d_init_embark_confirm = {}
 ---@field [2] "ALWAYS"
 df.d_init_tunnel = {}
 
----@alias d_init_flags1_keys
----| '"VARIED_GROUND_TILES"'
----| '"ENGRAVINGS_START_OBSCURED"'
----| '"SHOW_IMP_QUALITY"'
----| '"SHOW_FLOW_AMOUNTS"'
----| '"SHOW_RAMP_ARROWS"'
-
----@alias d_init_flags1_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias d_init_flags1
----| d_init_flags1_keys
----| d_init_flags1_values
+---| 'VARIED_GROUND_TILES'
+---| 'ENGRAVINGS_START_OBSCURED'
+---| 'SHOW_IMP_QUALITY'
+---| 'SHOW_FLOW_AMOUNTS'
+---| 'SHOW_RAMP_ARROWS'
 
 ---@class _d_init_flags1: DFEnumType
 ---@field VARIED_GROUND_TILES 0
@@ -101,19 +63,10 @@ df.d_init_tunnel = {}
 ---@field [4] "SHOW_RAMP_ARROWS"
 df.d_init_flags1 = {}
 
----@alias d_init_flags2_keys
----| '"MORE"'
----| '"ADVENTURER_TRAPS"'
----| '"ADVENTURER_ALWAYS_CENTER"'
-
----@alias d_init_flags2_values
----| 0
----| 1
----| 2
-
 ---@alias d_init_flags2
----| d_init_flags2_keys
----| d_init_flags2_values
+---| 'MORE'
+---| 'ADVENTURER_TRAPS'
+---| 'ADVENTURER_ALWAYS_CENTER'
 
 ---@class _d_init_flags2: DFEnumType
 ---@field MORE 0
@@ -124,70 +77,36 @@ df.d_init_flags1 = {}
 ---@field [2] "ADVENTURER_ALWAYS_CENTER"
 df.d_init_flags2 = {}
 
----@alias d_init_flags3_keys
----| '"COFFIN_NO_PETS_DEFAULT"'
-
----@alias d_init_flags3_values
----| 0
-
 ---@alias d_init_flags3
----| d_init_flags3_keys
----| d_init_flags3_values
+---| 'COFFIN_NO_PETS_DEFAULT'
 
 ---@class _d_init_flags3: DFEnumType
 ---@field COFFIN_NO_PETS_DEFAULT 0
 ---@field [0] "COFFIN_NO_PETS_DEFAULT"
 df.d_init_flags3 = {}
 
----@alias d_init_flags4_keys
----| '"TEMPERATURE"'
----| '"WEATHER"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"AUTOSAVE_PAUSE"'
----| '"AUTOBACKUP"'
----| '"INITIAL_SAVE"'
----| '""'
----| '"CAVEINS"'
----| '"ARTIFACTS"'
----| '"LOG_MAP_REJECTS"'
----| '"PAUSE_ON_LOAD"'
----| '"EMBARK_WARNING_ALWAYS"'
----| '"SHOW_ALL_HISTORY_IN_DWARF_MODE"'
----| '"TESTING_ARENA"'
----| '"WALKING_SPREADS_SPATTER_DWF"'
----| '"WALKING_SPREADS_SPATTER_ADV"'
----| '"KEYBOARD_CURSOR"'
----| '"MULTITHREADING"'
-
----@alias d_init_flags4_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
-
 ---@alias d_init_flags4
----| d_init_flags4_keys
----| d_init_flags4_values
+---| 'TEMPERATURE'
+---| 'WEATHER'
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'AUTOSAVE_PAUSE'
+---| 'AUTOBACKUP'
+---| 'INITIAL_SAVE'
+---| ''
+---| 'CAVEINS'
+---| 'ARTIFACTS'
+---| 'LOG_MAP_REJECTS'
+---| 'PAUSE_ON_LOAD'
+---| 'EMBARK_WARNING_ALWAYS'
+---| 'SHOW_ALL_HISTORY_IN_DWARF_MODE'
+---| 'TESTING_ARENA'
+---| 'WALKING_SPREADS_SPATTER_DWF'
+---| 'WALKING_SPREADS_SPATTER_ADV'
+---| 'KEYBOARD_CURSOR'
+---| 'MULTITHREADING'
 
 ---@class _d_init_flags4: DFEnumType
 ---@field TEMPERATURE 0
@@ -224,21 +143,11 @@ df.d_init_flags3 = {}
 ---@field [20] "MULTITHREADING"
 df.d_init_flags4 = {}
 
----@alias d_init_autosave_keys
----| '"NONE"'
----| '"SEASONAL"'
----| '"YEARLY"'
----| '"SEMIANNUAL"'
-
----@alias d_init_autosave_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias d_init_autosave
----| d_init_autosave_keys
----| d_init_autosave_values
+---| 'NONE'
+---| 'SEASONAL'
+---| 'YEARLY'
+---| 'SEMIANNUAL'
 
 ---@class _d_init_autosave: DFEnumType
 ---@field NONE -1

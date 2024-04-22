@@ -90,27 +90,14 @@ df.squad_ammo_spec.T_flags = {}
 ---@field [3] "squad_eq"
 df.squad_use_flags = {}
 
----@alias uniform_category_keys
----| '"body"'
----| '"head"'
----| '"pants"'
----| '"gloves"'
----| '"shoes"'
----| '"shield"'
----| '"weapon"'
-
----@alias uniform_category_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias uniform_category
----| uniform_category_keys
----| uniform_category_values
+---| 'body'
+---| 'head'
+---| 'pants'
+---| 'gloves'
+---| 'shoes'
+---| 'shield'
+---| 'weapon'
 
 ---@class _uniform_category: DFEnumType
 ---@field body 0
@@ -143,21 +130,11 @@ df.uniform_category = {}
 ---@field [1] "exact_matches"
 df.uniform_flags = {}
 
----@alias barrack_preference_category_keys
----| '"Bed"'
----| '"Armorstand"'
----| '"Box"'
----| '"Cabinet"'
-
----@alias barrack_preference_category_values
----| 0
----| 1
----| 2
----| 3
-
 ---@alias barrack_preference_category
----| barrack_preference_category_keys
----| barrack_preference_category_values
+---| 'Bed'
+---| 'Armorstand'
+---| 'Box'
+---| 'Cabinet'
 
 ---@class _barrack_preference_category: DFEnumType
 ---@field Bed 0
@@ -170,21 +147,11 @@ df.uniform_flags = {}
 ---@field [3] "Cabinet"
 df.barrack_preference_category = {}
 
----@alias squad_event_type_keys
----| '"None"'
----| '"Unk0"'
----| '"Unk1"'
----| '"Unk2"'
-
----@alias squad_event_type_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias squad_event_type
----| squad_event_type_keys
----| squad_event_type_values
+---| 'None'
+---| 'Unk0'
+---| 'Unk1'
+---| 'Unk2'
 
 ---@class _squad_event_type: DFEnumType
 ---@field None -1
@@ -457,37 +424,19 @@ function _squad_ammo_ammunition:insert(index, item) end
 ---@param index integer 
 function _squad_ammo_ammunition:erase(index) end
 
----@alias squad_order_type_keys
----| '"MOVE"'
----| '"KILL_LIST"'
----| '"DEFEND_BURROWS"'
----| '"PATROL_ROUTE"'
----| '"TRAIN"'
----| '"DRIVE_ENTITY_OFF_SITE"'
----| '"CAUSE_TROUBLE_FOR_ENTITY"'
----| '"KILL_HF"'
----| '"DRIVE_ARMIES_FROM_SITE"'
----| '"RETRIEVE_ARTIFACT"'
----| '"RAID_SITE"'
----| '"RESCUE_HF"'
-
----@alias squad_order_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 ---@alias squad_order_type
----| squad_order_type_keys
----| squad_order_type_values
+---| 'MOVE'
+---| 'KILL_LIST'
+---| 'DEFEND_BURROWS'
+---| 'PATROL_ROUTE'
+---| 'TRAIN'
+---| 'DRIVE_ENTITY_OFF_SITE'
+---| 'CAUSE_TROUBLE_FOR_ENTITY'
+---| 'KILL_HF'
+---| 'DRIVE_ARMIES_FROM_SITE'
+---| 'RETRIEVE_ARTIFACT'
+---| 'RAID_SITE'
+---| 'RESCUE_HF'
 
 ---@class _squad_order_type: DFEnumType
 ---@field MOVE 0
@@ -516,55 +465,28 @@ function _squad_ammo_ammunition:erase(index) end
 ---@field [11] "RESCUE_HF"
 df.squad_order_type = {}
 
----@alias squad_order_cannot_reason_keys
----| '"not_following_order"'
----| '"activity_cancelled"'
----| '"no_barracks"'
----| '"improper_barracks"'
----| '"no_activity"'
----| '"cannot_individually_drill"'
----| '"does_not_exist"'
----| '"no_archery_target"'
----| '"improper_building"'
----| '"unreachable_location"'
----| '"invalid_location"'
----| '"no_reachable_valid_target"'
----| '"no_burrow"'
----| '"not_in_squad"'
----| '"no_patrol_route"'
----| '"no_reachable_point_on_route"'
----| '"invalid_order"'
----| '"no_temple"'
----| '"no_library"'
----| '"no_item"'
----| '"cannot_leave_site"'
-
----@alias squad_order_cannot_reason_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
-
 ---@alias squad_order_cannot_reason
----| squad_order_cannot_reason_keys
----| squad_order_cannot_reason_values
+---| 'not_following_order'
+---| 'activity_cancelled'
+---| 'no_barracks'
+---| 'improper_barracks'
+---| 'no_activity'
+---| 'cannot_individually_drill'
+---| 'does_not_exist'
+---| 'no_archery_target'
+---| 'improper_building'
+---| 'unreachable_location'
+---| 'invalid_location'
+---| 'no_reachable_valid_target'
+---| 'no_burrow'
+---| 'not_in_squad'
+---| 'no_patrol_route'
+---| 'no_reachable_point_on_route'
+---| 'invalid_order'
+---| 'no_temple'
+---| 'no_library'
+---| 'no_item'
+---| 'cannot_leave_site'
 
 ---@class _squad_order_cannot_reason: DFEnumType
 ---@field not_following_order 0 text in viewscreen_unitlistst
@@ -776,30 +698,16 @@ df.squad_order_raid_sitest = {}
 ---@field _kind 'class-type'
 df.squad_order_rescue_hfst = {}
 
----@alias invasion_intent_type_keys
----| '"NONE"'
----| '"OBLITERATION"'
----| '"TAKE_OVER_SITE"'
----| '"INSTALL_PUPPET_GOVERNMENT"'
----| '"DEMAND_TRIBUTE"'
----| '"RAID"'
----| '"EXPLORE"'
----| '"PILLAGE"'
-
----@alias invasion_intent_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 -- bay12: InvasionIntent
 ---@alias invasion_intent_type
----| invasion_intent_type_keys
----| invasion_intent_type_values
+---| 'NONE'
+---| 'OBLITERATION'
+---| 'TAKE_OVER_SITE'
+---| 'INSTALL_PUPPET_GOVERNMENT'
+---| 'DEMAND_TRIBUTE'
+---| 'RAID'
+---| 'EXPLORE'
+---| 'PILLAGE'
 
 -- bay12: InvasionIntent
 ---@class _invasion_intent_type: DFEnumType
@@ -821,28 +729,15 @@ df.squad_order_rescue_hfst = {}
 ---@field [6] "PILLAGE"
 df.invasion_intent_type = {}
 
----@alias invasion_stage_type_keys
----| '"NONE"'
----| '"ORGANIZE"'
----| '"TRAVEL"'
----| '"RAMPAGE"'
----| '"PACIFY_SITE"'
----| '"OCCUPY"'
----| '"SITE_TAKEN"'
-
----@alias invasion_stage_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 -- bay12: InvasionStage
 ---@alias invasion_stage_type
----| invasion_stage_type_keys
----| invasion_stage_type_values
+---| 'NONE'
+---| 'ORGANIZE'
+---| 'TRAVEL'
+---| 'RAMPAGE'
+---| 'PACIFY_SITE'
+---| 'OCCUPY'
+---| 'SITE_TAKEN'
 
 -- bay12: InvasionStage
 ---@class _invasion_stage_type: DFEnumType
@@ -862,66 +757,34 @@ df.invasion_intent_type = {}
 ---@field [5] "SITE_TAKEN"
 df.invasion_stage_type = {}
 
----@alias army_controller_goal_type_keys
----| '"NONE"'
----| '"HOLD_TERRITORY"'
----| '"HARASS"'
----| '"SITE_INVASION"'
----| '"RAMPAGE"'
----| '"CAMP"'
----| '"GUARD"'
----| '"HUNTING"'
----| '"PATROL"'
----| '"PACIFY_SITE"'
----| '"PACIFY_CONNECTED_HAMLET"'
----| '"WAIT"'
----| '"ESCAPE"'
----| '"MOVE_TO_SITE"'
----| '"RECLAIM_SITE"'
----| '"CREATE_NEW_SITE"'
----| '"POSSE"'
----| '"SITE_WORK"'
----| '"RECOVER_ARTIFACT"'
----| '"RESCUE_HF"'
----| '"MAKE_REQUEST"'
----| '"PERFORM_TASK"'
----| '"ASSASSINATE_HF"'
----| '"ABDUCT_HF"'
----| '"SABOTAGE_ENTITY"'
----| '"INFILTRATE_SOCIETY"'
-
----@alias army_controller_goal_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
-
 -- bay12: ArmyControllerGoalType
 ---@alias army_controller_goal_type
----| army_controller_goal_type_keys
----| army_controller_goal_type_values
+---| 'NONE'
+---| 'HOLD_TERRITORY'
+---| 'HARASS'
+---| 'SITE_INVASION'
+---| 'RAMPAGE'
+---| 'CAMP'
+---| 'GUARD'
+---| 'HUNTING'
+---| 'PATROL'
+---| 'PACIFY_SITE'
+---| 'PACIFY_CONNECTED_HAMLET'
+---| 'WAIT'
+---| 'ESCAPE'
+---| 'MOVE_TO_SITE'
+---| 'RECLAIM_SITE'
+---| 'CREATE_NEW_SITE'
+---| 'POSSE'
+---| 'SITE_WORK'
+---| 'RECOVER_ARTIFACT'
+---| 'RESCUE_HF'
+---| 'MAKE_REQUEST'
+---| 'PERFORM_TASK'
+---| 'ASSASSINATE_HF'
+---| 'ABDUCT_HF'
+---| 'SABOTAGE_ENTITY'
+---| 'INFILTRATE_SOCIETY'
 
 -- bay12: ArmyControllerGoalType
 ---@class _army_controller_goal_type: DFEnumType
@@ -1687,15 +1550,8 @@ df.army_controller_goal_sabotage_entityst.T_flag = {}
 ---@field _kind 'struct-type'
 df.army_controller_goal_infiltrate_societyst = {}
 
----@alias army_flags_keys
----| '"player"'
-
----@alias army_flags_values
----| 0
-
 ---@alias army_flags
----| army_flags_keys
----| army_flags_values
+---| 'player'
 
 ---@class _army_flags: DFEnumType
 ---@field player 0

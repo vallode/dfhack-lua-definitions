@@ -1,40 +1,21 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias craft_material_class_keys
----| '"None"'
----| '"Metal"'
----| '"Wood"'
----| '"Gem"'
----| '"Glass"'
----| '"Stone"'
----| '"Bone"'
----| '"Ivory"'
----| '"Horn"'
----| '"Pearl"'
----| '"Shell"'
----| '"Leather"'
----| '"Cloth"'
-
----@alias craft_material_class_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 -- not in DF
 ---@alias craft_material_class
----| craft_material_class_keys
----| craft_material_class_values
+---| 'None'
+---| 'Metal'
+---| 'Wood'
+---| 'Gem'
+---| 'Glass'
+---| 'Stone'
+---| 'Bone'
+---| 'Ivory'
+---| 'Horn'
+---| 'Pearl'
+---| 'Shell'
+---| 'Leather'
+---| 'Cloth'
 
 -- not in DF
 ---@class _craft_material_class: DFEnumType
@@ -91,51 +72,26 @@ df.craft_material_class._attr_entry_type._fields = {}
 ---@field Cloth { make_skill: "CLOTHESMAKING", improve_skill: "CLOTHESMAKING" }
 df.craft_material_class.attrs = {}
 
----@alias builtin_mats_keys
----| '"INORGANIC"'
----| '"AMBER"'
----| '"CORAL"'
----| '"GLASS_GREEN"'
----| '"GLASS_CLEAR"'
----| '"GLASS_CRYSTAL"'
----| '"WATER"'
----| '"COAL"'
----| '"POTASH"'
----| '"ASH"'
----| '"PEARLASH"'
----| '"LYE"'
----| '"MUD"'
----| '"VOMIT"'
----| '"SALT"'
----| '"FILTH_B"'
----| '"FILTH_Y"'
----| '"UNKNOWN_SUBSTANCE"'
----| '"GRIME"'
-
----@alias builtin_mats_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
-
 ---@alias builtin_mats
----| builtin_mats_keys
----| builtin_mats_values
+---| 'INORGANIC'
+---| 'AMBER'
+---| 'CORAL'
+---| 'GLASS_GREEN'
+---| 'GLASS_CLEAR'
+---| 'GLASS_CRYSTAL'
+---| 'WATER'
+---| 'COAL'
+---| 'POTASH'
+---| 'ASH'
+---| 'PEARLASH'
+---| 'LYE'
+---| 'MUD'
+---| 'VOMIT'
+---| 'SALT'
+---| 'FILTH_B'
+---| 'FILTH_Y'
+---| 'UNKNOWN_SUBSTANCE'
+---| 'GRIME'
 
 ---@class _builtin_mats: DFEnumType
 ---@field INORGANIC 0
@@ -178,179 +134,90 @@ df.craft_material_class.attrs = {}
 ---@field [18] "GRIME"
 df.builtin_mats = {}
 
----@alias material_flags_keys
----| '"BONE"'
----| '"MEAT"'
----| '"EDIBLE_VERMIN"'
----| '"EDIBLE_RAW"'
----| '"EDIBLE_COOKED"'
----| '"ALCOHOL"'
----| '"ITEMS_METAL"'
----| '"ITEMS_BARRED"'
----| '"ITEMS_SCALED"'
----| '"ITEMS_LEATHER"'
----| '"ITEMS_SOFT"'
----| '"ITEMS_HARD"'
----| '"IMPLIES_ANIMAL_KILL"'
----| '"ALCOHOL_PLANT"'
----| '"ALCOHOL_CREATURE"'
----| '"CHEESE_PLANT"'
----| '"CHEESE_CREATURE"'
----| '"POWDER_MISC_PLANT"'
----| '"POWDER_MISC_CREATURE"'
----| '"STOCKPILE_GLOB"'
----| '"LIQUID_MISC_PLANT"'
----| '"LIQUID_MISC_CREATURE"'
----| '"LIQUID_MISC_OTHER"'
----| '"WOOD"'
----| '"THREAD_PLANT"'
----| '"TOOTH"'
----| '"HORN"'
----| '"PEARL"'
----| '"SHELL"'
----| '"LEATHER"'
----| '"SILK"'
----| '"SOAP"'
----| '"ROTS"'
----| '"IS_DYE"'
----| '"POWDER_MISC"'
----| '"LIQUID_MISC"'
----| '"STRUCTURAL_PLANT_MAT"'
----| '"SEED_MAT"'
----| '"LEAF_MAT"'
----| '"CHEESE"'
----| '"ENTERS_BLOOD"'
----| '"BLOOD_MAP_DESCRIPTOR"'
----| '"ICHOR_MAP_DESCRIPTOR"'
----| '"GOO_MAP_DESCRIPTOR"'
----| '"SLIME_MAP_DESCRIPTOR"'
----| '"PUS_MAP_DESCRIPTOR"'
----| '"GENERATES_MIASMA"'
----| '"IS_METAL"'
----| '"IS_GEM"'
----| '"IS_GLASS"'
----| '"CRYSTAL_GLASSABLE"'
----| '"ITEMS_WEAPON"'
----| '"ITEMS_WEAPON_RANGED"'
----| '"ITEMS_ANVIL"'
----| '"ITEMS_AMMO"'
----| '"ITEMS_DIGGER"'
----| '"ITEMS_ARMOR"'
----| '"ITEMS_DELICATE"'
----| '"ITEMS_SIEGE_ENGINE"'
----| '"ITEMS_QUERN"'
----| '"IS_STONE"'
----| '"UNDIGGABLE"'
----| '"YARN"'
----| '"STOCKPILE_GLOB_PASTE"'
----| '"STOCKPILE_GLOB_PRESSED"'
----| '"DISPLAY_UNGLAZED"'
----| '"DO_NOT_CLEAN_GLOB"'
----| '"NO_STONE_STOCKPILE"'
----| '"STOCKPILE_THREAD_METAL"'
----| '"SWEAT_MAP_DESCRIPTOR"'
----| '"TEARS_MAP_DESCRIPTOR"'
----| '"SPIT_MAP_DESCRIPTOR"'
----| '"EVAPORATES"'
----| '""'
----| '"IS_CERAMIC"'
----| '"CARTILAGE"'
----| '"FEATHER"'
----| '"SCALE"'
----| '"HAIR"'
----| '"NERVOUS_TISSUE"'
----| '"HOOF"'
----| '"CHITIN"'
----| '"ANTLER"'
-
----@alias material_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
----| 71
----| 72
----| 73
----| 74
----| 75
----| 76
----| 77
----| 78
----| 79
----| 80
----| 81
----| 82
-
 ---@alias material_flags
----| material_flags_keys
----| material_flags_values
+---| 'BONE'
+---| 'MEAT'
+---| 'EDIBLE_VERMIN'
+---| 'EDIBLE_RAW'
+---| 'EDIBLE_COOKED'
+---| 'ALCOHOL'
+---| 'ITEMS_METAL'
+---| 'ITEMS_BARRED'
+---| 'ITEMS_SCALED'
+---| 'ITEMS_LEATHER'
+---| 'ITEMS_SOFT'
+---| 'ITEMS_HARD'
+---| 'IMPLIES_ANIMAL_KILL'
+---| 'ALCOHOL_PLANT'
+---| 'ALCOHOL_CREATURE'
+---| 'CHEESE_PLANT'
+---| 'CHEESE_CREATURE'
+---| 'POWDER_MISC_PLANT'
+---| 'POWDER_MISC_CREATURE'
+---| 'STOCKPILE_GLOB'
+---| 'LIQUID_MISC_PLANT'
+---| 'LIQUID_MISC_CREATURE'
+---| 'LIQUID_MISC_OTHER'
+---| 'WOOD'
+---| 'THREAD_PLANT'
+---| 'TOOTH'
+---| 'HORN'
+---| 'PEARL'
+---| 'SHELL'
+---| 'LEATHER'
+---| 'SILK'
+---| 'SOAP'
+---| 'ROTS'
+---| 'IS_DYE'
+---| 'POWDER_MISC'
+---| 'LIQUID_MISC'
+---| 'STRUCTURAL_PLANT_MAT'
+---| 'SEED_MAT'
+---| 'LEAF_MAT'
+---| 'CHEESE'
+---| 'ENTERS_BLOOD'
+---| 'BLOOD_MAP_DESCRIPTOR'
+---| 'ICHOR_MAP_DESCRIPTOR'
+---| 'GOO_MAP_DESCRIPTOR'
+---| 'SLIME_MAP_DESCRIPTOR'
+---| 'PUS_MAP_DESCRIPTOR'
+---| 'GENERATES_MIASMA'
+---| 'IS_METAL'
+---| 'IS_GEM'
+---| 'IS_GLASS'
+---| 'CRYSTAL_GLASSABLE'
+---| 'ITEMS_WEAPON'
+---| 'ITEMS_WEAPON_RANGED'
+---| 'ITEMS_ANVIL'
+---| 'ITEMS_AMMO'
+---| 'ITEMS_DIGGER'
+---| 'ITEMS_ARMOR'
+---| 'ITEMS_DELICATE'
+---| 'ITEMS_SIEGE_ENGINE'
+---| 'ITEMS_QUERN'
+---| 'IS_STONE'
+---| 'UNDIGGABLE'
+---| 'YARN'
+---| 'STOCKPILE_GLOB_PASTE'
+---| 'STOCKPILE_GLOB_PRESSED'
+---| 'DISPLAY_UNGLAZED'
+---| 'DO_NOT_CLEAN_GLOB'
+---| 'NO_STONE_STOCKPILE'
+---| 'STOCKPILE_THREAD_METAL'
+---| 'SWEAT_MAP_DESCRIPTOR'
+---| 'TEARS_MAP_DESCRIPTOR'
+---| 'SPIT_MAP_DESCRIPTOR'
+---| 'EVAPORATES'
+---| ''
+---| 'IS_CERAMIC'
+---| 'CARTILAGE'
+---| 'FEATHER'
+---| 'SCALE'
+---| 'HAIR'
+---| 'NERVOUS_TISSUE'
+---| 'HOOF'
+---| 'CHITIN'
+---| 'ANTLER'
 
 ---@class _material_flags: DFEnumType
 ---@field BONE 0
@@ -612,27 +479,14 @@ df.material_flags._attr_entry_type._fields = {}
 ---@field ANTLER { type: "None" }
 df.material_flags.attrs = {}
 
----@alias matter_state_keys
----| '"None"'
----| '"Solid"'
----| '"Liquid"'
----| '"Gas"'
----| '"Powder"'
----| '"Paste"'
----| '"Pressed"'
-
----@alias matter_state_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias matter_state
----| matter_state_keys
----| matter_state_values
+---| 'None'
+---| 'Solid'
+---| 'Liquid'
+---| 'Gas'
+---| 'Powder'
+---| 'Paste'
+---| 'Pressed'
 
 ---@class _matter_state: DFEnumType
 ---@field None -1
@@ -651,25 +505,13 @@ df.material_flags.attrs = {}
 ---@field [5] "Pressed"
 df.matter_state = {}
 
----@alias strain_type_keys
----| '"BENDING"'
----| '"SHEAR"'
----| '"TORSION"'
----| '"IMPACT"'
----| '"TENSILE"'
----| '"COMPRESSIVE"'
-
----@alias strain_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias strain_type
----| strain_type_keys
----| strain_type_values
+---| 'BENDING'
+---| 'SHEAR'
+---| 'TORSION'
+---| 'IMPACT'
+---| 'TENSILE'
+---| 'COMPRESSIVE'
 
 ---@class _strain_type: DFEnumType
 ---@field BENDING 0
@@ -869,77 +711,39 @@ function _material_template_syndrome:insert(index, item) end
 ---@param index integer 
 function _material_template_syndrome:erase(index) end
 
----@alias inorganic_flags_keys
----| '"LAVA"'
----| '"GENERATED"'
----| '"ENVIRONMENT_NON_SOIL_OCEAN"'
----| '"SEDIMENTARY"'
----| '"SEDIMENTARY_OCEAN_SHALLOW"'
----| '"IGNEOUS_INTRUSIVE"'
----| '"IGNEOUS_EXTRUSIVE"'
----| '"METAMORPHIC"'
----| '"DEEP_SURFACE"'
----| '"METAL_ORE"'
----| '"AQUIFER"'
----| '"SOIL_ANY"'
----| '"SOIL_OCEAN"'
----| '"SOIL_SAND"'
----| '"SEDIMENTARY_OCEAN_DEEP"'
----| '"THREAD_METAL"'
----| '"SPECIAL"'
----| '"SOIL"'
----| '"DEEP_SPECIAL"'
----| '"DIVINE"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"WAFERS"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
-
----@alias inorganic_flags_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
-
 ---@alias inorganic_flags
----| inorganic_flags_keys
----| inorganic_flags_values
+---| 'LAVA'
+---| 'GENERATED'
+---| 'ENVIRONMENT_NON_SOIL_OCEAN'
+---| 'SEDIMENTARY'
+---| 'SEDIMENTARY_OCEAN_SHALLOW'
+---| 'IGNEOUS_INTRUSIVE'
+---| 'IGNEOUS_EXTRUSIVE'
+---| 'METAMORPHIC'
+---| 'DEEP_SURFACE'
+---| 'METAL_ORE'
+---| 'AQUIFER'
+---| 'SOIL_ANY'
+---| 'SOIL_OCEAN'
+---| 'SOIL_SAND'
+---| 'SEDIMENTARY_OCEAN_DEEP'
+---| 'THREAD_METAL'
+---| 'SPECIAL'
+---| 'SOIL'
+---| 'DEEP_SPECIAL'
+---| 'DIVINE'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'WAFERS'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
 
 ---@class _inorganic_flags: DFEnumType
 ---@field LAVA 0
@@ -986,29 +790,15 @@ function _material_template_syndrome:erase(index) end
 ---@field [25] "WAFERS"
 df.inorganic_flags = {}
 
----@alias environment_type_keys
----| '"SOIL"'
----| '"SOIL_OCEAN"'
----| '"SOIL_SAND"'
----| '"METAMORPHIC"'
----| '"SEDIMENTARY"'
----| '"IGNEOUS_INTRUSIVE"'
----| '"IGNEOUS_EXTRUSIVE"'
----| '"ALLUVIAL"'
-
----@alias environment_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias environment_type
----| environment_type_keys
----| environment_type_values
+---| 'SOIL'
+---| 'SOIL_OCEAN'
+---| 'SOIL_SAND'
+---| 'METAMORPHIC'
+---| 'SEDIMENTARY'
+---| 'IGNEOUS_INTRUSIVE'
+---| 'IGNEOUS_EXTRUSIVE'
+---| 'ALLUVIAL'
 
 ---@class _environment_type: DFEnumType
 ---@field SOIL 0
@@ -1029,23 +819,12 @@ df.inorganic_flags = {}
 ---@field [7] "ALLUVIAL"
 df.environment_type = {}
 
----@alias inclusion_type_keys
----| '""'
----| '"VEIN"'
----| '"CLUSTER"'
----| '"CLUSTER_SMALL"'
----| '"CLUSTER_ONE"'
-
----@alias inclusion_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias inclusion_type
----| inclusion_type_keys
----| inclusion_type_values
+---| ''
+---| 'VEIN'
+---| 'CLUSTER'
+---| 'CLUSTER_SMALL'
+---| 'CLUSTER_ONE'
 
 ---@class _inclusion_type: DFEnumType
 ---@field VEIN 1
@@ -1192,91 +971,46 @@ function _inorganic_raw_environment_type:insert(index, item) end
 ---@param index integer 
 function _inorganic_raw_environment_type:erase(index) end
 
----@alias organic_mat_category_keys
----| '"Meat"'
----| '"Fish"'
----| '"UnpreparedFish"'
----| '"Eggs"'
----| '"Plants"'
----| '"PlantDrink"'
----| '"CreatureDrink"'
----| '"PlantCheese"'
----| '"CreatureCheese"'
----| '"Seed"'
----| '"Leaf"'
----| '"PlantPowder"'
----| '"CreaturePowder"'
----| '"Glob"'
----| '"PlantLiquid"'
----| '"CreatureLiquid"'
----| '"MiscLiquid"'
----| '"Leather"'
----| '"Silk"'
----| '"PlantFiber"'
----| '"Bone"'
----| '"Shell"'
----| '"Wood"'
----| '"Horn"'
----| '"Pearl"'
----| '"Tooth"'
----| '"EdibleCheese"'
----| '"AnyDrink"'
----| '"EdiblePlant"'
----| '"CookableLiquid"'
----| '"CookablePowder"'
----| '"CookableSeed"'
----| '"CookableLeaf"'
----| '"Paste"'
----| '"Pressed"'
----| '"Yarn"'
----| '"MetalThread"'
----| '"Paper"'
----| '"Parchment"'
-
----@alias organic_mat_category_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
-
 ---@alias organic_mat_category
----| organic_mat_category_keys
----| organic_mat_category_values
+---| 'Meat'
+---| 'Fish'
+---| 'UnpreparedFish'
+---| 'Eggs'
+---| 'Plants'
+---| 'PlantDrink'
+---| 'CreatureDrink'
+---| 'PlantCheese'
+---| 'CreatureCheese'
+---| 'Seed'
+---| 'Leaf'
+---| 'PlantPowder'
+---| 'CreaturePowder'
+---| 'Glob'
+---| 'PlantLiquid'
+---| 'CreatureLiquid'
+---| 'MiscLiquid'
+---| 'Leather'
+---| 'Silk'
+---| 'PlantFiber'
+---| 'Bone'
+---| 'Shell'
+---| 'Wood'
+---| 'Horn'
+---| 'Pearl'
+---| 'Tooth'
+---| 'EdibleCheese'
+---| 'AnyDrink'
+---| 'EdiblePlant'
+---| 'CookableLiquid'
+---| 'CookablePowder'
+---| 'CookableSeed'
+---| 'CookableLeaf'
+---| 'Paste'
+---| 'Pressed'
+---| 'Yarn'
+---| 'MetalThread'
+---| 'Paper'
+---| 'Parchment'
 
 ---@class _organic_mat_category: DFEnumType
 ---@field Meat 0

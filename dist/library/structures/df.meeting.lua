@@ -394,33 +394,17 @@ function _meeting_diplomat_info_agreement_topic:insert(index, item) end
 ---@param index integer 
 function _meeting_diplomat_info_agreement_topic:erase(index) end
 
----@alias meeting_topic_keys
----| '"DiscussCurrent"'
----| '"RequestPeace"'
----| '"TreeQuota"'
----| '"BecomeLandHolder"'
----| '"PromoteLandHolder"'
----| '"ExportAgreement"'
----| '"ImportAgreement"'
----| '"PleasantPlace"'
----| '"WorldStatus"'
----| '"TributeAgreement"'
-
----@alias meeting_topic_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
-
 ---@alias meeting_topic
----| meeting_topic_keys
----| meeting_topic_values
+---| 'DiscussCurrent'
+---| 'RequestPeace'
+---| 'TreeQuota'
+---| 'BecomeLandHolder'
+---| 'PromoteLandHolder'
+---| 'ExportAgreement'
+---| 'ImportAgreement'
+---| 'PleasantPlace'
+---| 'WorldStatus'
+---| 'TributeAgreement'
 
 ---@class _meeting_topic: DFEnumType
 ---@field DiscussCurrent 0
@@ -445,25 +429,13 @@ function _meeting_diplomat_info_agreement_topic:erase(index) end
 ---@field [9] "TributeAgreement"
 df.meeting_topic = {}
 
----@alias meeting_event_type_keys
----| '"AcceptAgreement"'
----| '"RejectAgreement"'
----| '"AcceptPeace"'
----| '"RejectPeace"'
----| '"ExportAgreement"'
----| '"ImportAgreement"'
-
----@alias meeting_event_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias meeting_event_type
----| meeting_event_type_keys
----| meeting_event_type_values
+---| 'AcceptAgreement'
+---| 'RejectAgreement'
+---| 'AcceptPeace'
+---| 'RejectPeace'
+---| 'ExportAgreement'
+---| 'ImportAgreement'
 
 ---@class _meeting_event_type: DFEnumType
 ---@field AcceptAgreement 0
@@ -579,39 +551,20 @@ function _room_rent_info_elements:erase(index) end
 ---@field [1] "move_underway"
 df.room_rent_info.T_flags = {}
 
----@alias activity_entry_type_keys
----| '"TrainingSession"'
----| '"IndividualSkillDrill"'
----| '"Conflict"'
----| '""'
----| '""'
----| '"Conversation"'
----| '""'
----| '"Prayer"'
----| '"Socialize"'
----| '"Research"'
----| '"FillServiceOrder"'
----| '"Read"'
----| '"Play"'
-
----@alias activity_entry_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
-
 ---@alias activity_entry_type
----| activity_entry_type_keys
----| activity_entry_type_values
+---| 'TrainingSession'
+---| 'IndividualSkillDrill'
+---| 'Conflict'
+---| ''
+---| ''
+---| 'Conversation'
+---| ''
+---| 'Prayer'
+---| 'Socialize'
+---| 'Research'
+---| 'FillServiceOrder'
+---| 'Read'
+---| 'Play'
 
 ---@class _activity_entry_type: DFEnumType
 ---@field TrainingSession 0
@@ -673,69 +626,35 @@ function _activity_entry_events:insert(index, item) end
 ---@param index integer 
 function _activity_entry_events:erase(index) end
 
----@alias activity_event_type_keys
----| '"TrainingSession"'
----| '"CombatTraining"'
----| '"SkillDemonstration"'
----| '"IndividualSkillDrill"'
----| '"Sparring"'
----| '"RangedPractice"'
----| '"Harassment"'
----| '"Conversation"'
----| '"Conflict"'
----| '"Guard"'
----| '"Reunion"'
----| '"Prayer"'
----| '"Socialize"'
----| '"Worship"'
----| '"Performance"'
----| '"Research"'
----| '"PonderTopic"'
----| '"DiscussTopic"'
----| '"Read"'
----| '"FillServiceOrder"'
----| '"Write"'
----| '"CopyWrittenContent"'
----| '"TeachTopic"'
----| '"Play"'
----| '"MakeBelieve"'
----| '"PlayWithToy"'
----| '"Encounter"'
----| '"StoreObject"'
-
----@alias activity_event_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
-
 ---@alias activity_event_type
----| activity_event_type_keys
----| activity_event_type_values
+---| 'TrainingSession'
+---| 'CombatTraining'
+---| 'SkillDemonstration'
+---| 'IndividualSkillDrill'
+---| 'Sparring'
+---| 'RangedPractice'
+---| 'Harassment'
+---| 'Conversation'
+---| 'Conflict'
+---| 'Guard'
+---| 'Reunion'
+---| 'Prayer'
+---| 'Socialize'
+---| 'Worship'
+---| 'Performance'
+---| 'Research'
+---| 'PonderTopic'
+---| 'DiscussTopic'
+---| 'Read'
+---| 'FillServiceOrder'
+---| 'Write'
+---| 'CopyWrittenContent'
+---| 'TeachTopic'
+---| 'Play'
+---| 'MakeBelieve'
+---| 'PlayWithToy'
+---| 'Encounter'
+---| 'StoreObject'
 
 ---@class _activity_event_type: DFEnumType
 ---@field TrainingSession 0
@@ -809,29 +728,15 @@ df.activity_event_type = {}
 ---@field _kind 'struct-type'
 df.activity_event_participants = {}
 
----@alias activity_event_item_role_type_keys
----| '"NONE"'
----| '"TARGET_TO_POUR"'
----| '"TARGET_TO_FILL"'
----| '"TARGET_TO_READ"'
----| '"TARGET_TO_WRITE_ON"'
----| '"TARGET_TO_COPY"'
----| '"PERFORMANCE_INSTRUMENT"'
----| '"TOY"'
-
----@alias activity_event_item_role_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias activity_event_item_role_type
----| activity_event_item_role_type_keys
----| activity_event_item_role_type_values
+---| 'NONE'
+---| 'TARGET_TO_POUR'
+---| 'TARGET_TO_FILL'
+---| 'TARGET_TO_READ'
+---| 'TARGET_TO_WRITE_ON'
+---| 'TARGET_TO_COPY'
+---| 'PERFORMANCE_INSTRUMENT'
+---| 'TOY'
 
 ---@class _activity_event_item_role_type: DFEnumType
 ---@field NONE -1
@@ -852,23 +757,12 @@ df.activity_event_participants = {}
 ---@field [6] "TOY"
 df.activity_event_item_role_type = {}
 
----@alias activity_event_building_role_type_keys
----| '"NONE"'
----| '"SIT_AND_READ"'
----| '"SIT_AND_WRITE"'
----| '"PLACED_WRITING_MATERIALS"'
----| '"PERFORMANCE_INSTRUMENT"'
-
----@alias activity_event_building_role_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias activity_event_building_role_type
----| activity_event_building_role_type_keys
----| activity_event_building_role_type_values
+---| 'NONE'
+---| 'SIT_AND_READ'
+---| 'SIT_AND_WRITE'
+---| 'PLACED_WRITING_MATERIALS'
+---| 'PERFORMANCE_INSTRUMENT'
 
 ---@class _activity_event_building_role_type: DFEnumType
 ---@field NONE -1
@@ -1111,157 +1005,79 @@ function _activity_event_harassmentst_unk_2:insert(index, item) end
 ---@param index integer 
 function _activity_event_harassmentst_unk_2:erase(index) end
 
----@alias conversation_menu_keys
----| '"None"'
----| '"RespondGreeting"'
----| '"MainMenu"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"RespondGoodbye"'
----| '""'
----| '"DenyPermissionSleep"'
----| '"AskJoin"'
----| '"RespondJoin"'
----| '"DiscussRescue"'
----| '"DiscussAgreement"'
----| '"DiscussTrade"'
----| '"DiscussSurroundingArea"'
----| '"RespondAccusation"'
----| '"DiscussFamily"'
----| '"RespondArmistice"'
----| '"RespondDemandYield"'
----| '""'
----| '""'
----| '""'
----| '"AskDirections"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"Demand"'
----| '""'
----| '""'
----| '""'
----| '"Barter"'
----| '"DiscussHearthpersonDuties"'
----| '""'
----| '"DiscussJourney"'
----| '"DiscussGroup"'
----| '"DiscussConflict"'
----| '"DiscussSite"'
----| '"RespondDemand"'
----| '""'
----| '"RespondTributeDemand"'
----| '"RespondTributeOffer"'
----| '"DiscussTradeCancellation"'
----| '"RespondPeaceOffer"'
----| '"DiscussAgreementConclusion"'
----| '"RespondAdoptionRequest"'
----| '""'
----| '""'
----| '"RespondPositionOffer"'
----| '"RespondInvocation"'
----| '""'
----| '"AskAboutPerson"'
----| '""'
----| '"DiscussFeelings"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"StateGeneralThoughts"'
----| '"DiscussValues"'
----| '"RespondValues"'
----| '"RespondPassiveReply"'
----| '"RespondFlattery"'
----| '"RespondDismissal"'
-
----@alias conversation_menu_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
-
 ---@alias conversation_menu
----| conversation_menu_keys
----| conversation_menu_values
+---| 'None'
+---| 'RespondGreeting'
+---| 'MainMenu'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'RespondGoodbye'
+---| ''
+---| 'DenyPermissionSleep'
+---| 'AskJoin'
+---| 'RespondJoin'
+---| 'DiscussRescue'
+---| 'DiscussAgreement'
+---| 'DiscussTrade'
+---| 'DiscussSurroundingArea'
+---| 'RespondAccusation'
+---| 'DiscussFamily'
+---| 'RespondArmistice'
+---| 'RespondDemandYield'
+---| ''
+---| ''
+---| ''
+---| 'AskDirections'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'Demand'
+---| ''
+---| ''
+---| ''
+---| 'Barter'
+---| 'DiscussHearthpersonDuties'
+---| ''
+---| 'DiscussJourney'
+---| 'DiscussGroup'
+---| 'DiscussConflict'
+---| 'DiscussSite'
+---| 'RespondDemand'
+---| ''
+---| 'RespondTributeDemand'
+---| 'RespondTributeOffer'
+---| 'DiscussTradeCancellation'
+---| 'RespondPeaceOffer'
+---| 'DiscussAgreementConclusion'
+---| 'RespondAdoptionRequest'
+---| ''
+---| ''
+---| 'RespondPositionOffer'
+---| 'RespondInvocation'
+---| ''
+---| 'AskAboutPerson'
+---| ''
+---| 'DiscussFeelings'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'StateGeneralThoughts'
+---| 'DiscussValues'
+---| 'RespondValues'
+---| 'RespondPassiveReply'
+---| 'RespondFlattery'
+---| 'RespondDismissal'
 
 ---@class _conversation_menu: DFEnumType
 ---@field None -1
@@ -1605,29 +1421,15 @@ df.activity_event_socializest = {}
 ---@field _kind 'class-type'
 df.activity_event_worshipst = {}
 
----@alias performance_event_type_keys
----| '"STORY"'
----| '"POETRY"'
----| '"MUSIC"'
----| '"DANCE"'
----| '"SERMON_EVENT"'
----| '"SERMON_SPHERE"'
----| '"SERMON_PROMOTE_VALUE"'
----| '"SERMON_INVEIGH_AGAINST_VALUE"'
-
----@alias performance_event_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias performance_event_type
----| performance_event_type_keys
----| performance_event_type_values
+---| 'STORY'
+---| 'POETRY'
+---| 'MUSIC'
+---| 'DANCE'
+---| 'SERMON_EVENT'
+---| 'SERMON_SPHERE'
+---| 'SERMON_PROMOTE_VALUE'
+---| 'SERMON_INVEIGH_AGAINST_VALUE'
 
 ---@class _performance_event_type: DFEnumType
 ---@field STORY 0
@@ -1648,25 +1450,13 @@ df.activity_event_worshipst = {}
 ---@field [7] "SERMON_INVEIGH_AGAINST_VALUE"
 df.performance_event_type = {}
 
----@alias performance_participant_type_keys
----| '"TELL_STORY"'
----| '"RECITE_POETRY"'
----| '"MAKE_MUSIC"'
----| '"PERFORM_DANCE"'
----| '"LISTEN"'
----| '"HEAR"'
-
----@alias performance_participant_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias performance_participant_type
----| performance_participant_type_keys
----| performance_participant_type_values
+---| 'TELL_STORY'
+---| 'RECITE_POETRY'
+---| 'MAKE_MUSIC'
+---| 'PERFORM_DANCE'
+---| 'LISTEN'
+---| 'HEAR'
 
 ---@class _performance_participant_type: DFEnumType
 ---@field TELL_STORY 0
@@ -1880,15 +1670,8 @@ df.activity_event_writest = {}
 ---@class _activity_event_writest.T_unk_1: DFBitfieldType
 df.activity_event_writest.T_unk_1 = {}
 
----@alias activity_event_writest.T_mode_keys
----| '"WriteAboutKnowledge"'
-
----@alias activity_event_writest.T_mode_values
----| 0
-
 ---@alias activity_event_writest.T_mode
----| activity_event_writest.T_mode_keys
----| activity_event_writest.T_mode_values
+---| 'WriteAboutKnowledge'
 
 ---@class _activity_event_writest.T_mode: DFEnumType
 ---@field WriteAboutKnowledge 0

@@ -1,33 +1,17 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias worldgen_region_type_keys
----| '"SWAMP"'
----| '"DESERT"'
----| '"FOREST"'
----| '"MOUNTAINS"'
----| '"OCEAN"'
----| '"LAKE"'
----| '"GLACIER"'
----| '"TUNDRA"'
----| '"GRASSLAND"'
----| '"HILLS"'
-
----@alias worldgen_region_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
-
 ---@alias worldgen_region_type
----| worldgen_region_type_keys
----| worldgen_region_type_values
+---| 'SWAMP'
+---| 'DESERT'
+---| 'FOREST'
+---| 'MOUNTAINS'
+---| 'OCEAN'
+---| 'LAKE'
+---| 'GLACIER'
+---| 'TUNDRA'
+---| 'GRASSLAND'
+---| 'HILLS'
 
 ---@class _worldgen_region_type: DFEnumType
 ---@field SWAMP 0
@@ -52,61 +36,31 @@
 ---@field [9] "HILLS"
 df.worldgen_region_type = {}
 
----@alias worldgen_range_type_keys
----| '"ELEVATION"'
----| '"RAINFALL"'
----| '""'
----| '"TEMPERATURE"'
----| '""'
----| '"DRAINAGE"'
----| '"VOLCANISM"'
----| '"SAVAGERY"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
-
----@alias worldgen_range_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
-
 ---@alias worldgen_range_type
----| worldgen_range_type_keys
----| worldgen_range_type_values
+---| 'ELEVATION'
+---| 'RAINFALL'
+---| ''
+---| 'TEMPERATURE'
+---| ''
+---| 'DRAINAGE'
+---| 'VOLCANISM'
+---| 'SAVAGERY'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
 
 ---@class _worldgen_range_type: DFEnumType
 ---@field ELEVATION 0
@@ -123,17 +77,9 @@ df.worldgen_region_type = {}
 ---@field [7] "SAVAGERY"
 df.worldgen_range_type = {}
 
----@alias units_other_id_keys
----| '"ANY_RIDER"'
----| '"ANY_BABY2"'
-
----@alias units_other_id_values
----| 0
----| 1
-
 ---@alias units_other_id
----| units_other_id_keys
----| units_other_id_values
+---| 'ANY_RIDER'
+---| 'ANY_BABY2'
 
 ---@class _units_other_id: DFEnumType
 ---@field ANY_RIDER 0
@@ -192,30 +138,16 @@ function _units_other_ANY_BABY2:erase(index) end
 ---@field _kind 'struct-type'
 df.unit_context_block = {}
 
----@alias conflict_level_keys
----| '"None"'
----| '"Encounter"'
----| '"Horseplay"'
----| '"Training"'
----| '"Brawl"'
----| '"Nonlethal"'
----| '"Lethal"'
----| '"NoQuarter"'
-
----@alias conflict_level_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 -- bay12: ConflictState
 ---@alias conflict_level
----| conflict_level_keys
----| conflict_level_values
+---| 'None'
+---| 'Encounter'
+---| 'Horseplay'
+---| 'Training'
+---| 'Brawl'
+---| 'Nonlethal'
+---| 'Lethal'
+---| 'NoQuarter'
 
 -- bay12: ConflictState
 ---@class _conflict_level: DFEnumType
@@ -298,35 +230,18 @@ function df.incident.find(key) end
 ---@return incident_vector # df.global.world.incidents.all
 function df.incident.get_vector() end
 
----@alias incident.T_type_keys
----| '"Death"'
----| '"Crime"'
----| '"Attack"'
----| '"Escalation"'
----| '"Reunion"'
----| '"YieldDemand"'
----| '"Performance"'
----| '"Artifact"'
----| '"Writing"'
----| '"SelfID"'
----| '"RefusedID"'
-
----@alias incident.T_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
-
 ---@alias incident.T_type
----| incident.T_type_keys
----| incident.T_type_values
+---| 'Death'
+---| 'Crime'
+---| 'Attack'
+---| 'Escalation'
+---| 'Reunion'
+---| 'YieldDemand'
+---| 'Performance'
+---| 'Artifact'
+---| 'Writing'
+---| 'SelfID'
+---| 'RefusedID'
 
 ---@class _incident.T_type: DFEnumType
 ---@field Death 0
@@ -438,25 +353,13 @@ function _incident_data_performance_participants:erase(index) end
 ---@field _kind 'struct-type'
 df.incident_data_artifact = {}
 
----@alias incident_data_artifact.T_state_keys
----| '"Held"'
----| '"Dropped"'
----| '"Gained"'
----| '"Given"'
----| '"Denied"'
----| '"Destroyed"'
-
----@alias incident_data_artifact.T_state_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias incident_data_artifact.T_state
----| incident_data_artifact.T_state_keys
----| incident_data_artifact.T_state_values
+---| 'Held'
+---| 'Dropped'
+---| 'Gained'
+---| 'Given'
+---| 'Denied'
+---| 'Destroyed'
 
 ---@class _incident_data_artifact.T_state: DFEnumType
 ---@field Held 0
@@ -490,17 +393,9 @@ df.incident_data_artifact.T_state = {}
 ---@field _kind 'struct-type'
 df.incident_data_writing = {}
 
----@alias incident_data_writing.T_state_keys
----| '"Dropped"'
----| '"Given"'
-
----@alias incident_data_writing.T_state_values
----| 0
----| 1
-
 ---@alias incident_data_writing.T_state
----| incident_data_writing.T_state_keys
----| incident_data_writing.T_state_values
+---| 'Dropped'
+---| 'Given'
 
 ---@class _incident_data_writing.T_state: DFEnumType
 ---@field Dropped 0
@@ -578,51 +473,26 @@ function df.crime.find(key) end
 ---@return crime_vector # df.global.world.crimes.all
 function df.crime.get_vector() end
 
----@alias crime.T_mode_keys
----| '"ProductionOrderViolation"'
----| '"ExportViolation"'
----| '"JobOrderViolation"'
----| '"ConspiracyToSlowLabor"'
----| '"Murder"'
----| '"DisorderlyBehavior"'
----| '"BuildingDestruction"'
----| '"Vandalism"'
----| '"Theft"'
----| '"Robbery"'
----| '"BloodDrinking"'
----| '"Embezzlement"'
----| '"AttemptedMurder"'
----| '"Kidnapping"'
----| '"AttemptedKidnapping"'
----| '"AttemptedTheft"'
----| '"Treason"'
----| '"Espionage"'
----| '"Bribery"'
-
----@alias crime.T_mode_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
-
 ---@alias crime.T_mode
----| crime.T_mode_keys
----| crime.T_mode_values
+---| 'ProductionOrderViolation'
+---| 'ExportViolation'
+---| 'JobOrderViolation'
+---| 'ConspiracyToSlowLabor'
+---| 'Murder'
+---| 'DisorderlyBehavior'
+---| 'BuildingDestruction'
+---| 'Vandalism'
+---| 'Theft'
+---| 'Robbery'
+---| 'BloodDrinking'
+---| 'Embezzlement'
+---| 'AttemptedMurder'
+---| 'Kidnapping'
+---| 'AttemptedKidnapping'
+---| 'AttemptedTheft'
+---| 'Treason'
+---| 'Espionage'
+---| 'Bribery'
 
 ---@class _crime.T_mode: DFEnumType
 ---@field ProductionOrderViolation 0
@@ -759,29 +629,15 @@ function _crime_witnesses:insert(index, item) end
 ---@param index integer 
 function _crime_witnesses:erase(index) end
 
----@alias witness_type_keys
----| '"NONE"'
----| '"SAW_ACTUAL_INCIDENT"'
----| '"FOUND_BODY"'
----| '"SAW_THAT_OBJECT_WAS_MISSING"'
----| '"SAW_DISTURBED_OBJECT"'
----| '"SOMEBODY_ADMIRED_OBJECT"'
----| '"CONFESSED"'
----| '"COCONSPIRATOR_IMPLICATED"'
-
----@alias witness_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias witness_type
----| witness_type_keys
----| witness_type_values
+---| 'NONE'
+---| 'SAW_ACTUAL_INCIDENT'
+---| 'FOUND_BODY'
+---| 'SAW_THAT_OBJECT_WAS_MISSING'
+---| 'SAW_DISTURBED_OBJECT'
+---| 'SOMEBODY_ADMIRED_OBJECT'
+---| 'CONFESSED'
+---| 'COCONSPIRATOR_IMPLICATED'
 
 ---@class _witness_type: DFEnumType
 ---@field NONE -1 bay12: Witness
@@ -1097,83 +953,42 @@ df.coord_rect = {}
 ---@field _kind 'struct-type'
 df.embark_feature = {}
 
----@alias combat_report_event_type_keys
----| '""'
----| '"Deflected"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"Unconscious"'
----| '"Stunned"'
----| '"MoreStunned"'
----| '"Winded"'
----| '"MoreWinded"'
----| '"Nausea"'
----| '"MoreNausea"'
----| '""'
----| '""'
----| '"ExtractInjected"'
----| '"ExtractSprayed"'
----| '"BloodSucked"'
----| '"SeveredPart"'
----| '""'
----| '"KnockedBack"'
----| '"StuckIn"'
----| '"LatchOnPart"'
----| '"LatchOn"'
----| '"Enraged"'
----| '"PassThrough"'
----| '"GlancesAway"'
----| '""'
----| '""'
----| '"MajorArtery"'
----| '"Artery"'
----| '"MotorNerve"'
----| '"SensoryNerve"'
----| '"NoForce"'
----| '"Interrupted"'
-
----@alias combat_report_event_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
-
 ---@alias combat_report_event_type
----| combat_report_event_type_keys
----| combat_report_event_type_values
+---| ''
+---| 'Deflected'
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'Unconscious'
+---| 'Stunned'
+---| 'MoreStunned'
+---| 'Winded'
+---| 'MoreWinded'
+---| 'Nausea'
+---| 'MoreNausea'
+---| ''
+---| ''
+---| 'ExtractInjected'
+---| 'ExtractSprayed'
+---| 'BloodSucked'
+---| 'SeveredPart'
+---| ''
+---| 'KnockedBack'
+---| 'StuckIn'
+---| 'LatchOnPart'
+---| 'LatchOn'
+---| 'Enraged'
+---| 'PassThrough'
+---| 'GlancesAway'
+---| ''
+---| ''
+---| 'MajorArtery'
+---| 'Artery'
+---| 'MotorNerve'
+---| 'SensoryNerve'
+---| 'NoForce'
+---| 'Interrupted'
 
 ---@class _combat_report_event_type: DFEnumType
 ---@field Deflected 1
@@ -1662,23 +1477,12 @@ function _belief_system_mental_pictures:erase(index) end
 ---@field _kind 'struct-type'
 df.divination_set_roll = {}
 
----@alias divination_set_roll.T_effect_type_keys
----| '"MediumBlessing"'
----| '"MinorBlessing"'
----| '"MediumCurse"'
----| '"MinorCurse"'
----| '"Fortune"'
-
----@alias divination_set_roll.T_effect_type_values
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias divination_set_roll.T_effect_type
----| divination_set_roll.T_effect_type_keys
----| divination_set_roll.T_effect_type_values
+---| 'MediumBlessing'
+---| 'MinorBlessing'
+---| 'MediumCurse'
+---| 'MinorCurse'
+---| 'Fortune'
 
 ---@class _divination_set_roll.T_effect_type: DFEnumType
 ---@field MediumBlessing 0
@@ -4409,37 +4213,19 @@ function _world_map_extras_unk_v40_3a:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_worldgen_status = {}
 
----@alias world.T_worldgen_status.T_state_keys
----| '"None"'
----| '"Initializing"'
----| '"PreparingElevation"'
----| '"SettingTemperature"'
----| '"RunningRivers"'
----| '"FormingLakesAndMinerals"'
----| '"GrowingVegetation"'
----| '"VerifyingTerrain"'
----| '"ImportingWildlife"'
----| '"RecountingLegends"'
----| '"Finalizing"'
----| '"Done"'
-
----@alias world.T_worldgen_status.T_state_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
-
 ---@alias world.T_worldgen_status.T_state
----| world.T_worldgen_status.T_state_keys
----| world.T_worldgen_status.T_state_values
+---| 'None'
+---| 'Initializing'
+---| 'PreparingElevation'
+---| 'SettingTemperature'
+---| 'RunningRivers'
+---| 'FormingLakesAndMinerals'
+---| 'GrowingVegetation'
+---| 'VerifyingTerrain'
+---| 'ImportingWildlife'
+---| 'RecountingLegends'
+---| 'Finalizing'
+---| 'Done'
 
 ---@class _world.T_worldgen_status.T_state: DFEnumType
 ---@field None -1
@@ -4887,51 +4673,26 @@ df.world.T_cur_savegame = {}
 ---@field _kind 'struct-type'
 df.world.T_rod_loader = {}
 
----@alias world.T_rod_loader.T_state_keys
----| '"Initializing"'
----| '"Languages"'
----| '"Shapes"'
----| '"Colors"'
----| '"Patterns"'
----| '"MaterialTemplates"'
----| '"Inorganics"'
----| '"Plants"'
----| '"TissueTemplates"'
----| '"Items"'
----| '"Buildings"'
----| '"BodyDetailPlans"'
----| '"CreatureBodies"'
----| '"CreatureVariations"'
----| '"Creatures"'
----| '"Entities"'
----| '"Reactions"'
----| '"Interactions"'
----| '"Finishing"'
-
----@alias world.T_rod_loader.T_state_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
-
 ---@alias world.T_rod_loader.T_state
----| world.T_rod_loader.T_state_keys
----| world.T_rod_loader.T_state_values
+---| 'Initializing'
+---| 'Languages'
+---| 'Shapes'
+---| 'Colors'
+---| 'Patterns'
+---| 'MaterialTemplates'
+---| 'Inorganics'
+---| 'Plants'
+---| 'TissueTemplates'
+---| 'Items'
+---| 'Buildings'
+---| 'BodyDetailPlans'
+---| 'CreatureBodies'
+---| 'CreatureVariations'
+---| 'Creatures'
+---| 'Entities'
+---| 'Reactions'
+---| 'Interactions'
+---| 'Finishing'
 
 ---@class _world.T_rod_loader.T_state: DFEnumType
 ---@field Initializing 0
@@ -5377,15 +5138,8 @@ function _world_attack_chance_info_target:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_active_tutorial = {}
 
----@alias world_cavein_flags_keys
----| '"process_columns"'
-
----@alias world_cavein_flags_values
----| 0
-
 ---@alias world_cavein_flags
----| world_cavein_flags_keys
----| world_cavein_flags_values
+---| 'process_columns'
 
 ---@class _world_cavein_flags: DFEnumType
 ---@field process_columns 0

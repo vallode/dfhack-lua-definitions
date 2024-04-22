@@ -33,17 +33,9 @@ function _ui_build_item_req_candidates:insert(index, item) end
 ---@param index integer 
 function _ui_build_item_req_candidates:erase(index) end
 
----@alias build_req_choice_type_keys
----| '"General"'
----| '"Specific"'
-
----@alias build_req_choice_type_values
----| 0
----| 1
-
 ---@alias build_req_choice_type
----| build_req_choice_type_keys
----| build_req_choice_type_values
+---| 'General'
+---| 'Specific'
 
 ---@class _build_req_choice_type: DFEnumType
 ---@field General 0
@@ -166,32 +158,17 @@ function _buildreq_choices:insert(index, item) end
 ---@param index integer 
 function _buildreq_choices:erase(index) end
 
----@alias interface_category_building_keys
----| '"NONE"'
----| '"WEAPON"'
----| '"ARMOR"'
----| '"FURNITURE"'
----| '"SIEGE"'
----| '"TRAP"'
----| '"OTHER"'
----| '"METAL"'
----| '"SELECT_MEMORIAL_UNIT"'
-
----@alias interface_category_building_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 -- MISC. SIDEBAR MENUS
 ---@alias interface_category_building
----| interface_category_building_keys
----| interface_category_building_values
+---| 'NONE'
+---| 'WEAPON'
+---| 'ARMOR'
+---| 'FURNITURE'
+---| 'SIEGE'
+---| 'TRAP'
+---| 'OTHER'
+---| 'METAL'
+---| 'SELECT_MEMORIAL_UNIT'
 
 -- MISC. SIDEBAR MENUS
 ---@class _interface_category_building: DFEnumType
@@ -215,31 +192,16 @@ function _buildreq_choices:erase(index) end
 ---@field [7] "SELECT_MEMORIAL_UNIT"
 df.interface_category_building = {}
 
----@alias interface_category_construction_keys
----| '"NONE"'
----| '"MAIN"'
----| '"SIEGEENGINE"'
----| '"TRAP"'
----| '"WORKSHOP"'
----| '"FURNACE"'
----| '"CONSTRUCTION"'
----| '"MACHINE"'
----| '"TRACK"'
-
----@alias interface_category_construction_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias interface_category_construction
----| interface_category_construction_keys
----| interface_category_construction_values
+---| 'NONE'
+---| 'MAIN'
+---| 'SIEGEENGINE'
+---| 'TRAP'
+---| 'WORKSHOP'
+---| 'FURNACE'
+---| 'CONSTRUCTION'
+---| 'MACHINE'
+---| 'TRACK'
 
 ---@class _interface_category_construction: DFEnumType
 ---@field NONE -1
@@ -363,39 +325,20 @@ df.interface_button_building_new_jobst = {}
 ---@field _kind 'class-type'
 df.interface_button_building_custom_category_selectorst = {}
 
----@alias construction_category_type_keys
----| '"NONE"'
----| '"MAIN"'
----| '"WORKSHOPS"'
----| '"WORKSHOPS_FURNACES"'
----| '"WORKSHOPS_CLOTHING"'
----| '"WORKSHOPS_FARMING"'
----| '"FURNITURE"'
----| '"DOORS_HATCHES"'
----| '"WALLS_FLOORS"'
----| '"MACHINES_FLUIDS"'
----| '"CAGES_RESTRAINTS"'
----| '"TRAPS"'
----| '"MILITARY"'
-
----@alias construction_category_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 ---@alias construction_category_type
----| construction_category_type_keys
----| construction_category_type_values
+---| 'NONE'
+---| 'MAIN'
+---| 'WORKSHOPS'
+---| 'WORKSHOPS_FURNACES'
+---| 'WORKSHOPS_CLOTHING'
+---| 'WORKSHOPS_FARMING'
+---| 'FURNITURE'
+---| 'DOORS_HATCHES'
+---| 'WALLS_FLOORS'
+---| 'MACHINES_FLUIDS'
+---| 'CAGES_RESTRAINTS'
+---| 'TRAPS'
+---| 'MILITARY'
 
 ---@class _construction_category_type: DFEnumType
 ---@field NONE -1
@@ -442,21 +385,11 @@ df.construction_category_type = {}
 ---@field _kind 'struct-type'
 df.bb_buttonst = {}
 
----@alias construction_interface_page_status_type_keys
----| '"NONE"'
----| '"FULL"'
----| '"ICONS_ONLY"'
----| '"OFF"'
-
----@alias construction_interface_page_status_type_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias construction_interface_page_status_type
----| construction_interface_page_status_type_keys
----| construction_interface_page_status_type_values
+---| 'NONE'
+---| 'FULL'
+---| 'ICONS_ONLY'
+---| 'OFF'
 
 ---@class _construction_interface_page_status_type: DFEnumType
 ---@field NONE -1
@@ -505,21 +438,11 @@ function _construction_interface_pagest_bb_button:insert(index, item) end
 ---@param index integer 
 function _construction_interface_pagest_bb_button:erase(index) end
 
----@alias room_flow_shape_type_keys
----| '"NONE"'
----| '"RECTANGLE"'
----| '"WALL_FLOW"'
----| '"FLOOR_FLOW"'
-
----@alias room_flow_shape_type_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias room_flow_shape_type
----| room_flow_shape_type_keys
----| room_flow_shape_type_values
+---| 'NONE'
+---| 'RECTANGLE'
+---| 'WALL_FLOW'
+---| 'FLOOR_FLOW'
 
 ---@class _room_flow_shape_type: DFEnumType
 ---@field NONE -1
@@ -532,37 +455,19 @@ function _construction_interface_pagest_bb_button:erase(index) end
 ---@field [2] "FLOOR_FLOW"
 df.room_flow_shape_type = {}
 
----@alias cannot_expel_reason_type_keys
----| '"NONE"'
----| '"HEREDITARY"'
----| '"ELECTED"'
----| '"MEET_WORKERS"'
----| '"SPOUSE_NOT_PRESENT"'
----| '"SPOUSE_HEREDITARY"'
----| '"SPOUSE_ELECTED"'
----| '"SPOUSE_MEET_WORKERS"'
----| '"CHILD_NOT_PRESENT"'
----| '"CHILD_HEREDITARY"'
----| '"CHILD_ELECTED"'
----| '"CHILD_MEET_WORKERS"'
-
----@alias cannot_expel_reason_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
-
 ---@alias cannot_expel_reason_type
----| cannot_expel_reason_type_keys
----| cannot_expel_reason_type_values
+---| 'NONE'
+---| 'HEREDITARY'
+---| 'ELECTED'
+---| 'MEET_WORKERS'
+---| 'SPOUSE_NOT_PRESENT'
+---| 'SPOUSE_HEREDITARY'
+---| 'SPOUSE_ELECTED'
+---| 'SPOUSE_MEET_WORKERS'
+---| 'CHILD_NOT_PRESENT'
+---| 'CHILD_HEREDITARY'
+---| 'CHILD_ELECTED'
+---| 'CHILD_MEET_WORKERS'
 
 ---@class _cannot_expel_reason_type: DFEnumType
 ---@field NONE -1
@@ -591,23 +496,12 @@ df.room_flow_shape_type = {}
 ---@field [10] "CHILD_MEET_WORKERS"
 df.cannot_expel_reason_type = {}
 
----@alias mine_mode_type_keys
----| '"NONE"'
----| '"ALL"'
----| '"AUTOMINE_NON_LAYER_MATERIAL"'
----| '"MARK_ECONOMIC_ONLY"'
----| '"MARK_GEMS_ONLY"'
-
----@alias mine_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias mine_mode_type
----| mine_mode_type_keys
----| mine_mode_type_values
+---| 'NONE'
+---| 'ALL'
+---| 'AUTOMINE_NON_LAYER_MATERIAL'
+---| 'MARK_ECONOMIC_ONLY'
+---| 'MARK_GEMS_ONLY'
 
 ---@class _mine_mode_type: DFEnumType
 ---@field NONE -1
@@ -622,23 +516,12 @@ df.cannot_expel_reason_type = {}
 ---@field [3] "MARK_GEMS_ONLY"
 df.mine_mode_type = {}
 
----@alias job_details_option_type_keys
----| '"NONE"'
----| '"MATERIAL"'
----| '"IMAGE"'
----| '"CLOTHING_SIZE"'
----| '"IMPROVEMENT_TYPE"'
-
----@alias job_details_option_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias job_details_option_type
----| job_details_option_type_keys
----| job_details_option_type_values
+---| 'NONE'
+---| 'MATERIAL'
+---| 'IMAGE'
+---| 'CLOTHING_SIZE'
+---| 'IMPROVEMENT_TYPE'
 
 ---@class _job_details_option_type: DFEnumType
 ---@field NONE -1
@@ -653,25 +536,13 @@ df.mine_mode_type = {}
 ---@field [3] "IMPROVEMENT_TYPE"
 df.job_details_option_type = {}
 
----@alias job_details_context_type_keys
----| '"NONE"'
----| '"BUILDING_TASK_LIST"'
----| '"CREATURES_LIST_TASK"'
----| '"TASK_LIST_TASK"'
----| '"BUILDING_WORK_ORDER"'
----| '"MANAGER_WORK_ORDER"'
-
----@alias job_details_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias job_details_context_type
----| job_details_context_type_keys
----| job_details_context_type_values
+---| 'NONE'
+---| 'BUILDING_TASK_LIST'
+---| 'CREATURES_LIST_TASK'
+---| 'TASK_LIST_TASK'
+---| 'BUILDING_WORK_ORDER'
+---| 'MANAGER_WORK_ORDER'
 
 ---@class _job_details_context_type: DFEnumType
 ---@field NONE -1
@@ -688,33 +559,17 @@ df.job_details_option_type = {}
 ---@field [4] "MANAGER_WORK_ORDER"
 df.job_details_context_type = {}
 
----@alias stock_pile_pointer_type_keys
----| '"NONE"'
----| '"ANIMAL_EMPTY_CAGES"'
----| '"ANIMAL_EMPTY_ANIMAL_TRAPS"'
----| '"FOOD_PREPARED_FOOD"'
----| '"REFUSE_ROTTEN_RAW_HIDE"'
----| '"REFUSE_UNROTTEN_RAW_HIDE"'
----| '"WEAPON_USABLE"'
----| '"WEAPON_NON_USABLE"'
----| '"ARMOR_USABLE"'
----| '"ARMOR_NON_USABLE"'
-
----@alias stock_pile_pointer_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
-
 ---@alias stock_pile_pointer_type
----| stock_pile_pointer_type_keys
----| stock_pile_pointer_type_values
+---| 'NONE'
+---| 'ANIMAL_EMPTY_CAGES'
+---| 'ANIMAL_EMPTY_ANIMAL_TRAPS'
+---| 'FOOD_PREPARED_FOOD'
+---| 'REFUSE_ROTTEN_RAW_HIDE'
+---| 'REFUSE_UNROTTEN_RAW_HIDE'
+---| 'WEAPON_USABLE'
+---| 'WEAPON_NON_USABLE'
+---| 'ARMOR_USABLE'
+---| 'ARMOR_NON_USABLE'
 
 ---@class _stock_pile_pointer_type: DFEnumType
 ---@field NONE -1
@@ -739,17 +594,9 @@ df.job_details_context_type = {}
 ---@field [8] "ARMOR_NON_USABLE"
 df.stock_pile_pointer_type = {}
 
----@alias stockpile_tools_context_type_keys
----| '"NONE"'
----| '"STOCKPILE"'
-
----@alias stockpile_tools_context_type_values
----| -1
----| 0
-
 ---@alias stockpile_tools_context_type
----| stockpile_tools_context_type_keys
----| stockpile_tools_context_type_values
+---| 'NONE'
+---| 'STOCKPILE'
 
 ---@class _stockpile_tools_context_type: DFEnumType
 ---@field NONE -1
@@ -758,21 +605,11 @@ df.stock_pile_pointer_type = {}
 ---@field [0] "STOCKPILE"
 df.stockpile_tools_context_type = {}
 
----@alias stockpile_link_context_type_keys
----| '"NONE"'
----| '"STOCKPILE"'
----| '"WORKSHOP"'
----| '"HAULING_STOP"'
-
----@alias stockpile_link_context_type_values
----| -1
----| 0
----| 1
----| 2
-
 ---@alias stockpile_link_context_type
----| stockpile_link_context_type_keys
----| stockpile_link_context_type_values
+---| 'NONE'
+---| 'STOCKPILE'
+---| 'WORKSHOP'
+---| 'HAULING_STOP'
 
 ---@class _stockpile_link_context_type: DFEnumType
 ---@field NONE -1
@@ -785,17 +622,9 @@ df.stockpile_tools_context_type = {}
 ---@field [2] "HAULING_STOP"
 df.stockpile_link_context_type = {}
 
----@alias hauling_stop_conditions_context_type_keys
----| '"NONE"'
----| '"HAULING_MENU"'
-
----@alias hauling_stop_conditions_context_type_values
----| -1
----| 0
-
 ---@alias hauling_stop_conditions_context_type
----| hauling_stop_conditions_context_type_keys
----| hauling_stop_conditions_context_type_values
+---| 'NONE'
+---| 'HAULING_MENU'
 
 ---@class _hauling_stop_conditions_context_type: DFEnumType
 ---@field NONE -1
@@ -804,17 +633,9 @@ df.stockpile_link_context_type = {}
 ---@field [0] "HAULING_MENU"
 df.hauling_stop_conditions_context_type = {}
 
----@alias assign_vehicle_context_type_keys
----| '"NONE"'
----| '"HAULING_MENU"'
-
----@alias assign_vehicle_context_type_values
----| -1
----| 0
-
 ---@alias assign_vehicle_context_type
----| assign_vehicle_context_type_keys
----| assign_vehicle_context_type_values
+---| 'NONE'
+---| 'HAULING_MENU'
 
 ---@class _assign_vehicle_context_type: DFEnumType
 ---@field NONE -1
@@ -823,19 +644,10 @@ df.hauling_stop_conditions_context_type = {}
 ---@field [0] "HAULING_MENU"
 df.assign_vehicle_context_type = {}
 
----@alias location_details_context_type_keys
----| '"NONE"'
----| '"FROM_ZONE"'
----| '"FROM_LOCATION_SELECTOR"'
-
----@alias location_details_context_type_values
----| -1
----| 0
----| 1
-
 ---@alias location_details_context_type
----| location_details_context_type_keys
----| location_details_context_type_values
+---| 'NONE'
+---| 'FROM_ZONE'
+---| 'FROM_LOCATION_SELECTOR'
 
 ---@class _location_details_context_type: DFEnumType
 ---@field NONE -1
@@ -846,17 +658,9 @@ df.assign_vehicle_context_type = {}
 ---@field [1] "FROM_LOCATION_SELECTOR"
 df.location_details_context_type = {}
 
----@alias location_selector_context_type_keys
----| '"NONE"'
----| '"ZONE_MEETING_AREA_ASSIGNMENT"'
-
----@alias location_selector_context_type_values
----| -1
----| 0
-
 ---@alias location_selector_context_type
----| location_selector_context_type_keys
----| location_selector_context_type_values
+---| 'NONE'
+---| 'ZONE_MEETING_AREA_ASSIGNMENT'
 
 ---@class _location_selector_context_type: DFEnumType
 ---@field NONE -1
@@ -865,23 +669,12 @@ df.location_details_context_type = {}
 ---@field [0] "ZONE_MEETING_AREA_ASSIGNMENT"
 df.location_selector_context_type = {}
 
----@alias custom_symbol_context_type_keys
----| '"NONE"'
----| '"BURROW"'
----| '"BURROW_PAINT"'
----| '"WORK_DETAIL"'
----| '"SQUAD_MENU"'
-
----@alias custom_symbol_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias custom_symbol_context_type
----| custom_symbol_context_type_keys
----| custom_symbol_context_type_values
+---| 'NONE'
+---| 'BURROW'
+---| 'BURROW_PAINT'
+---| 'WORK_DETAIL'
+---| 'SQUAD_MENU'
 
 ---@class _custom_symbol_context_type: DFEnumType
 ---@field NONE -1
@@ -896,27 +689,14 @@ df.location_selector_context_type = {}
 ---@field [3] "SQUAD_MENU"
 df.custom_symbol_context_type = {}
 
----@alias name_creator_context_type_keys
----| '"NONE"'
----| '"EMBARK_FORT_NAME"'
----| '"EMBARK_GROUP_NAME"'
----| '"IMAGE_CREATOR_NAME"'
----| '"LOCATION_NAME"'
----| '"SQUAD_NAME"'
----| '"INFO_NOBLES_ELEVATING_POSITION_SYMBOL"'
-
----@alias name_creator_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias name_creator_context_type
----| name_creator_context_type_keys
----| name_creator_context_type_values
+---| 'NONE'
+---| 'EMBARK_FORT_NAME'
+---| 'EMBARK_GROUP_NAME'
+---| 'IMAGE_CREATOR_NAME'
+---| 'LOCATION_NAME'
+---| 'SQUAD_NAME'
+---| 'INFO_NOBLES_ELEVATING_POSITION_SYMBOL'
 
 ---@class _name_creator_context_type: DFEnumType
 ---@field NONE -1
@@ -935,23 +715,12 @@ df.custom_symbol_context_type = {}
 ---@field [5] "INFO_NOBLES_ELEVATING_POSITION_SYMBOL"
 df.name_creator_context_type = {}
 
----@alias image_creator_context_type_keys
----| '"NONE"'
----| '"EMBARK_FORT_SYMBOL"'
----| '"JOB_DETAILS_MAIN"'
----| '"JOB_DETAILS_IMPROVEMENT"'
----| '"DESIGNATION_ENGRAVING"'
-
----@alias image_creator_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias image_creator_context_type
----| image_creator_context_type_keys
----| image_creator_context_type_values
+---| 'NONE'
+---| 'EMBARK_FORT_SYMBOL'
+---| 'JOB_DETAILS_MAIN'
+---| 'JOB_DETAILS_IMPROVEMENT'
+---| 'DESIGNATION_ENGRAVING'
 
 ---@class _image_creator_context_type: DFEnumType
 ---@field NONE -1
@@ -966,51 +735,26 @@ df.name_creator_context_type = {}
 ---@field [3] "DESIGNATION_ENGRAVING"
 df.image_creator_context_type = {}
 
----@alias image_creator_option_type_keys
----| '"NONE"'
----| '"ALLOW_ARTIST_TO_CHOOSE"'
----| '"RELATED_TO_HFID"'
----| '"RELATED_TO_STID"'
----| '"RELATED_TO_ENID"'
----| '"RELATED_TO_HEID"'
----| '"EXISTING_IMAGE"'
----| '"NEW_IMAGE"'
----| '"NEW_IMAGE_ELEMENT_CREATURE"'
----| '"NEW_IMAGE_ELEMENT_HF"'
----| '"NEW_IMAGE_ELEMENT_PLANT"'
----| '"NEW_IMAGE_ELEMENT_TREE"'
----| '"NEW_IMAGE_ELEMENT_SHAPE"'
----| '"NEW_IMAGE_ELEMENT_ITEM"'
----| '"NEW_IMAGE_ELEMENT_ARTIFACT"'
----| '"NEW_IMAGE_PROPERTY"'
----| '"NEW_IMAGE_PROPERTY_ACTOR"'
----| '"NEW_IMAGE_PROPERTY_TARGET"'
----| '"NEW_IMAGE_DELETE_ELEMENTS"'
-
----@alias image_creator_option_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
-
 ---@alias image_creator_option_type
----| image_creator_option_type_keys
----| image_creator_option_type_values
+---| 'NONE'
+---| 'ALLOW_ARTIST_TO_CHOOSE'
+---| 'RELATED_TO_HFID'
+---| 'RELATED_TO_STID'
+---| 'RELATED_TO_ENID'
+---| 'RELATED_TO_HEID'
+---| 'EXISTING_IMAGE'
+---| 'NEW_IMAGE'
+---| 'NEW_IMAGE_ELEMENT_CREATURE'
+---| 'NEW_IMAGE_ELEMENT_HF'
+---| 'NEW_IMAGE_ELEMENT_PLANT'
+---| 'NEW_IMAGE_ELEMENT_TREE'
+---| 'NEW_IMAGE_ELEMENT_SHAPE'
+---| 'NEW_IMAGE_ELEMENT_ITEM'
+---| 'NEW_IMAGE_ELEMENT_ARTIFACT'
+---| 'NEW_IMAGE_PROPERTY'
+---| 'NEW_IMAGE_PROPERTY_ACTOR'
+---| 'NEW_IMAGE_PROPERTY_TARGET'
+---| 'NEW_IMAGE_DELETE_ELEMENTS'
 
 ---@class _image_creator_option_type: DFEnumType
 ---@field NONE -1
@@ -1053,41 +797,21 @@ df.image_creator_context_type = {}
 ---@field [17] "NEW_IMAGE_DELETE_ELEMENTS"
 df.image_creator_option_type = {}
 
----@alias unit_selector_context_type_keys
----| '"NONE"'
----| '"ZONE_PEN_ASSIGNMENT"'
----| '"ZONE_PIT_ASSIGNMENT"'
----| '"ZONE_BEDROOM_ASSIGNMENT"'
----| '"ZONE_OFFICE_ASSIGNMENT"'
----| '"ZONE_DINING_HALL_ASSIGNMENT"'
----| '"ZONE_TOMB_ASSIGNMENT"'
----| '"CHAIN_ASSIGNMENT"'
----| '"CAGE_ASSIGNMENT"'
----| '"WORKER_ASSIGNMENT"'
----| '"OCCUPATION_ASSIGNMENT"'
----| '"BURROW_ASSIGNMENT"'
----| '"SQUAD_KILL_ORDER"'
----| '"SQUAD_FILL_POSITION"'
-
----@alias unit_selector_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
-
 ---@alias unit_selector_context_type
----| unit_selector_context_type_keys
----| unit_selector_context_type_values
+---| 'NONE'
+---| 'ZONE_PEN_ASSIGNMENT'
+---| 'ZONE_PIT_ASSIGNMENT'
+---| 'ZONE_BEDROOM_ASSIGNMENT'
+---| 'ZONE_OFFICE_ASSIGNMENT'
+---| 'ZONE_DINING_HALL_ASSIGNMENT'
+---| 'ZONE_TOMB_ASSIGNMENT'
+---| 'CHAIN_ASSIGNMENT'
+---| 'CAGE_ASSIGNMENT'
+---| 'WORKER_ASSIGNMENT'
+---| 'OCCUPATION_ASSIGNMENT'
+---| 'BURROW_ASSIGNMENT'
+---| 'SQUAD_KILL_ORDER'
+---| 'SQUAD_FILL_POSITION'
 
 ---@class _unit_selector_context_type: DFEnumType
 ---@field NONE -1
@@ -1120,19 +844,10 @@ df.image_creator_option_type = {}
 ---@field [12] "SQUAD_FILL_POSITION"
 df.unit_selector_context_type = {}
 
----@alias squad_selector_context_type_keys
----| '"NONE"'
----| '"ZONE_BARRACKS_ASSIGNMENT"'
----| '"ZONE_ARCHERY_RANGE_ASSIGNMENT"'
-
----@alias squad_selector_context_type_values
----| -1
----| 0
----| 1
-
 ---@alias squad_selector_context_type
----| squad_selector_context_type_keys
----| squad_selector_context_type_values
+---| 'NONE'
+---| 'ZONE_BARRACKS_ASSIGNMENT'
+---| 'ZONE_ARCHERY_RANGE_ASSIGNMENT'
 
 ---@class _squad_selector_context_type: DFEnumType
 ---@field NONE -1
@@ -1143,17 +858,9 @@ df.unit_selector_context_type = {}
 ---@field [1] "ZONE_ARCHERY_RANGE_ASSIGNMENT"
 df.squad_selector_context_type = {}
 
----@alias squad_schedule_context_type_keys
----| '"NONE"'
----| '"FROM_SQUAD_MENU"'
-
----@alias squad_schedule_context_type_values
----| -1
----| 0
-
 ---@alias squad_schedule_context_type
----| squad_schedule_context_type_keys
----| squad_schedule_context_type_values
+---| 'NONE'
+---| 'FROM_SQUAD_MENU'
 
 ---@class _squad_schedule_context_type: DFEnumType
 ---@field NONE -1
@@ -1162,17 +869,9 @@ df.squad_selector_context_type = {}
 ---@field [0] "FROM_SQUAD_MENU"
 df.squad_schedule_context_type = {}
 
----@alias squad_equipment_context_type_keys
----| '"NONE"'
----| '"FROM_SQUAD_MENU"'
-
----@alias squad_equipment_context_type_values
----| -1
----| 0
-
 ---@alias squad_equipment_context_type
----| squad_equipment_context_type_keys
----| squad_equipment_context_type_values
+---| 'NONE'
+---| 'FROM_SQUAD_MENU'
 
 ---@class _squad_equipment_context_type: DFEnumType
 ---@field NONE -1
@@ -1181,17 +880,9 @@ df.squad_schedule_context_type = {}
 ---@field [0] "FROM_SQUAD_MENU"
 df.squad_equipment_context_type = {}
 
----@alias patrol_routes_context_type_keys
----| '"NONE"'
----| '"GIVING_SQUAD_PATROL_ORDER"'
-
----@alias patrol_routes_context_type_values
----| -1
----| 0
-
 ---@alias patrol_routes_context_type
----| patrol_routes_context_type_keys
----| patrol_routes_context_type_values
+---| 'NONE'
+---| 'GIVING_SQUAD_PATROL_ORDER'
 
 ---@class _patrol_routes_context_type: DFEnumType
 ---@field NONE -1
@@ -1200,17 +891,9 @@ df.squad_equipment_context_type = {}
 ---@field [0] "GIVING_SQUAD_PATROL_ORDER"
 df.patrol_routes_context_type = {}
 
----@alias burrow_selector_context_type_keys
----| '"NONE"'
----| '"GIVING_SQUAD_ORDER"'
-
----@alias burrow_selector_context_type_values
----| -1
----| 0
-
 ---@alias burrow_selector_context_type
----| burrow_selector_context_type_keys
----| burrow_selector_context_type_values
+---| 'NONE'
+---| 'GIVING_SQUAD_ORDER'
 
 ---@class _burrow_selector_context_type: DFEnumType
 ---@field NONE -1
@@ -1219,31 +902,16 @@ df.patrol_routes_context_type = {}
 ---@field [0] "GIVING_SQUAD_ORDER"
 df.burrow_selector_context_type = {}
 
----@alias view_sheet_trait_type_keys
----| '"NONE"'
----| '"PHYS_ATT_PLUS"'
----| '"PHYS_ATT_MINUS"'
----| '"MENT_ATT_PLUS"'
----| '"MENT_ATT_MINUS"'
----| '"PERSONALITY_FACET_HIGH"'
----| '"PERSONALITY_FACET_LOW"'
----| '"VALUE_HIGH"'
----| '"VALUE_LOW"'
-
----@alias view_sheet_trait_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias view_sheet_trait_type
----| view_sheet_trait_type_keys
----| view_sheet_trait_type_values
+---| 'NONE'
+---| 'PHYS_ATT_PLUS'
+---| 'PHYS_ATT_MINUS'
+---| 'MENT_ATT_PLUS'
+---| 'MENT_ATT_MINUS'
+---| 'PERSONALITY_FACET_HIGH'
+---| 'PERSONALITY_FACET_LOW'
+---| 'VALUE_HIGH'
+---| 'VALUE_LOW'
 
 ---@class _view_sheet_trait_type: DFEnumType
 ---@field NONE -1
@@ -1266,51 +934,26 @@ df.burrow_selector_context_type = {}
 ---@field [7] "VALUE_LOW"
 df.view_sheet_trait_type = {}
 
----@alias view_sheet_unit_knowledge_type_keys
----| '"NONE"'
----| '"PHILOSOPHY_FLAG"'
----| '"PHILOSOPHY_FLAG2"'
----| '"MATHEMATICS_FLAG"'
----| '"MATHEMATICS_FLAG2"'
----| '"HISTORY_FLAG"'
----| '"ASTRONOMY_FLAG"'
----| '"NATURALIST_FLAG"'
----| '"CHEMISTRY_FLAG"'
----| '"GEOGRAPHY_FLAG"'
----| '"MEDICINE_FLAG"'
----| '"MEDICINE_FLAG2"'
----| '"MEDICINE_FLAG3"'
----| '"ENGINEERING_FLAG"'
----| '"ENGINEERING_FLAG2"'
----| '"POETIC_FORM"'
----| '"MUSICAL_FORM"'
----| '"DANCE_FORM"'
----| '"WRITTEN_CONTENT"'
-
----@alias view_sheet_unit_knowledge_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
-
 ---@alias view_sheet_unit_knowledge_type
----| view_sheet_unit_knowledge_type_keys
----| view_sheet_unit_knowledge_type_values
+---| 'NONE'
+---| 'PHILOSOPHY_FLAG'
+---| 'PHILOSOPHY_FLAG2'
+---| 'MATHEMATICS_FLAG'
+---| 'MATHEMATICS_FLAG2'
+---| 'HISTORY_FLAG'
+---| 'ASTRONOMY_FLAG'
+---| 'NATURALIST_FLAG'
+---| 'CHEMISTRY_FLAG'
+---| 'GEOGRAPHY_FLAG'
+---| 'MEDICINE_FLAG'
+---| 'MEDICINE_FLAG2'
+---| 'MEDICINE_FLAG3'
+---| 'ENGINEERING_FLAG'
+---| 'ENGINEERING_FLAG2'
+---| 'POETIC_FORM'
+---| 'MUSICAL_FORM'
+---| 'DANCE_FORM'
+---| 'WRITTEN_CONTENT'
 
 ---@class _view_sheet_unit_knowledge_type: DFEnumType
 ---@field NONE -1
@@ -1353,19 +996,10 @@ df.view_sheet_trait_type = {}
 ---@field [17] "WRITTEN_CONTENT"
 df.view_sheet_unit_knowledge_type = {}
 
----@alias view_sheets_context_type_keys
----| '"NONE"'
----| '"REGULAR_PLAY"'
----| '"PREPARE_CAREFULLY"'
-
----@alias view_sheets_context_type_values
----| -1
----| 0
----| 1
-
 ---@alias view_sheets_context_type
----| view_sheets_context_type_keys
----| view_sheets_context_type_values
+---| 'NONE'
+---| 'REGULAR_PLAY'
+---| 'PREPARE_CAREFULLY'
 
 ---@class _view_sheets_context_type: DFEnumType
 ---@field NONE -1
@@ -1376,29 +1010,15 @@ df.view_sheet_unit_knowledge_type = {}
 ---@field [1] "PREPARE_CAREFULLY"
 df.view_sheets_context_type = {}
 
----@alias view_sheet_type_keys
----| '"NONE"'
----| '"UNIT"'
----| '"ITEM"'
----| '"BUILDING"'
----| '"ENGRAVING"'
----| '"ENGRAVING_PLANNED"'
----| '"UNIT_LIST"'
----| '"ITEM_LIST"'
-
----@alias view_sheet_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias view_sheet_type
----| view_sheet_type_keys
----| view_sheet_type_values
+---| 'NONE'
+---| 'UNIT'
+---| 'ITEM'
+---| 'BUILDING'
+---| 'ENGRAVING'
+---| 'ENGRAVING_PLANNED'
+---| 'UNIT_LIST'
+---| 'ITEM_LIST'
 
 ---@class _view_sheet_type: DFEnumType
 ---@field NONE -1
@@ -1419,23 +1039,12 @@ df.view_sheets_context_type = {}
 ---@field [6] "ITEM_LIST"
 df.view_sheet_type = {}
 
----@alias unit_list_mode_type_keys
----| '"NONE"'
----| '"CITIZEN"'
----| '"PET"'
----| '"OTHER"'
----| '"DECEASED"'
-
----@alias unit_list_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias unit_list_mode_type
----| unit_list_mode_type_keys
----| unit_list_mode_type_values
+---| 'NONE'
+---| 'CITIZEN'
+---| 'PET'
+---| 'OTHER'
+---| 'DECEASED'
 
 ---@class _unit_list_mode_type: DFEnumType
 ---@field NONE -1
@@ -1450,25 +1059,13 @@ df.view_sheet_type = {}
 ---@field [3] "DECEASED"
 df.unit_list_mode_type = {}
 
----@alias buildings_mode_type_keys
----| '"NONE"'
----| '"ZONES"'
----| '"LOCATIONS"'
----| '"STOCKPILES"'
----| '"WORKSHOPS"'
----| '"FARMPLOTS"'
-
----@alias buildings_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
-
 ---@alias buildings_mode_type
----| buildings_mode_type_keys
----| buildings_mode_type_values
+---| 'NONE'
+---| 'ZONES'
+---| 'LOCATIONS'
+---| 'STOCKPILES'
+---| 'WORKSHOPS'
+---| 'FARMPLOTS'
 
 ---@class _buildings_mode_type: DFEnumType
 ---@field NONE -1
@@ -1485,24 +1082,13 @@ df.unit_list_mode_type = {}
 ---@field [4] "FARMPLOTS"
 df.buildings_mode_type = {}
 
----@alias kitchen_pref_category_type_keys
----| '"NONE"'
----| '"PLANTS"'
----| '"SEEDS"'
----| '"DRINK"'
----| '"OTHER"'
-
----@alias kitchen_pref_category_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 -- bay12: KitchenPrefCategory
 ---@alias kitchen_pref_category_type
----| kitchen_pref_category_type_keys
----| kitchen_pref_category_type_values
+---| 'NONE'
+---| 'PLANTS'
+---| 'SEEDS'
+---| 'DRINK'
+---| 'OTHER'
 
 -- bay12: KitchenPrefCategory
 ---@class _kitchen_pref_category_type: DFEnumType
@@ -1518,28 +1104,15 @@ df.buildings_mode_type = {}
 ---@field [3] "OTHER"
 df.kitchen_pref_category_type = {}
 
----@alias standing_orders_category_type_keys
----| '"NONE"'
----| '"AUTOMATED_WORKSHOPS"'
----| '"HAULING"'
----| '"REFUSE_AND_DUMPING"'
----| '"AUTOMATIC_FORBIDDING"'
----| '"CHORES"'
----| '"OTHER"'
-
----@alias standing_orders_category_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 -- bay12: StandingOrdersCategory
 ---@alias standing_orders_category_type
----| standing_orders_category_type_keys
----| standing_orders_category_type_values
+---| 'NONE'
+---| 'AUTOMATED_WORKSHOPS'
+---| 'HAULING'
+---| 'REFUSE_AND_DUMPING'
+---| 'AUTOMATIC_FORBIDDING'
+---| 'CHORES'
+---| 'OTHER'
 
 -- bay12: StandingOrdersCategory
 ---@class _standing_orders_category_type: DFEnumType
@@ -1559,19 +1132,10 @@ df.kitchen_pref_category_type = {}
 ---@field [5] "OTHER"
 df.standing_orders_category_type = {}
 
----@alias stone_use_category_type_keys
----| '"NONE"'
----| '"ECONOMIC"'
----| '"OTHER"'
-
----@alias stone_use_category_type_values
----| -1
----| 0
----| 1
-
 ---@alias stone_use_category_type
----| stone_use_category_type_keys
----| stone_use_category_type_values
+---| 'NONE'
+---| 'ECONOMIC'
+---| 'OTHER'
 
 ---@class _stone_use_category_type: DFEnumType
 ---@field NONE -1
@@ -1582,23 +1146,12 @@ df.standing_orders_category_type = {}
 ---@field [1] "OTHER"
 df.stone_use_category_type = {}
 
----@alias labor_mode_type_keys
----| '"NONE"'
----| '"WORK_DETAILS"'
----| '"STANDING_ORDERS"'
----| '"KITCHEN"'
----| '"STONE_USE"'
-
----@alias labor_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias labor_mode_type
----| labor_mode_type_keys
----| labor_mode_type_values
+---| 'NONE'
+---| 'WORK_DETAILS'
+---| 'STANDING_ORDERS'
+---| 'KITCHEN'
+---| 'STONE_USE'
 
 ---@class _labor_mode_type: DFEnumType
 ---@field NONE -1
@@ -1613,23 +1166,12 @@ df.stone_use_category_type = {}
 ---@field [3] "STONE_USE"
 df.labor_mode_type = {}
 
----@alias artifacts_mode_type_keys
----| '"NONE"'
----| '"ARTIFACTS"'
----| '"SYMBOLS"'
----| '"NAMED_OBJECTS"'
----| '"WRITTEN_CONTENT"'
-
----@alias artifacts_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias artifacts_mode_type
----| artifacts_mode_type_keys
----| artifacts_mode_type_values
+---| 'NONE'
+---| 'ARTIFACTS'
+---| 'SYMBOLS'
+---| 'NAMED_OBJECTS'
+---| 'WRITTEN_CONTENT'
 
 ---@class _artifacts_mode_type: DFEnumType
 ---@field NONE -1
@@ -1644,23 +1186,12 @@ df.labor_mode_type = {}
 ---@field [3] "WRITTEN_CONTENT"
 df.artifacts_mode_type = {}
 
----@alias counterintelligence_mode_type_keys
----| '"NONE"'
----| '"INTERROGATIONS"'
----| '"ACTORS"'
----| '"ORGANIZATIONS"'
----| '"PLOTS"'
-
----@alias counterintelligence_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias counterintelligence_mode_type
----| counterintelligence_mode_type_keys
----| counterintelligence_mode_type_values
+---| 'NONE'
+---| 'INTERROGATIONS'
+---| 'ACTORS'
+---| 'ORGANIZATIONS'
+---| 'PLOTS'
 
 ---@class _counterintelligence_mode_type: DFEnumType
 ---@field NONE -1
@@ -1675,28 +1206,15 @@ df.artifacts_mode_type = {}
 ---@field [3] "PLOTS"
 df.counterintelligence_mode_type = {}
 
----@alias justice_interface_mode_type_keys
----| '"NONE"'
----| '"OPEN_CASES"'
----| '"CLOSED_CASES"'
----| '"COLD_CASES"'
----| '"FORTRESS_GUARD"'
----| '"CONVICTS"'
----| '"COUNTERINTELLIGENCE"'
-
----@alias justice_interface_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 -- bay12: JusticeInterfaceMode
 ---@alias justice_interface_mode_type
----| justice_interface_mode_type_keys
----| justice_interface_mode_type_values
+---| 'NONE'
+---| 'OPEN_CASES'
+---| 'CLOSED_CASES'
+---| 'COLD_CASES'
+---| 'FORTRESS_GUARD'
+---| 'CONVICTS'
+---| 'COUNTERINTELLIGENCE'
 
 -- bay12: JusticeInterfaceMode
 ---@class _justice_interface_mode_type: DFEnumType
@@ -1716,31 +1234,16 @@ df.counterintelligence_mode_type = {}
 ---@field [5] "COUNTERINTELLIGENCE"
 df.justice_interface_mode_type = {}
 
----@alias info_interface_mode_type_keys
----| '"NONE"'
----| '"CREATURES"'
----| '"JOBS"'
----| '"BUILDINGS"'
----| '"LABOR"'
----| '"WORK_ORDERS"'
----| '"ADMINISTRATORS"'
----| '"ARTIFACTS"'
----| '"JUSTICE"'
-
----@alias info_interface_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
-
 ---@alias info_interface_mode_type
----| info_interface_mode_type_keys
----| info_interface_mode_type_values
+---| 'NONE'
+---| 'CREATURES'
+---| 'JOBS'
+---| 'BUILDINGS'
+---| 'LABOR'
+---| 'WORK_ORDERS'
+---| 'ADMINISTRATORS'
+---| 'ARTIFACTS'
+---| 'JUSTICE'
 
 ---@class _info_interface_mode_type: DFEnumType
 ---@field NONE -1
@@ -1763,43 +1266,22 @@ df.justice_interface_mode_type = {}
 ---@field [7] "JUSTICE"
 df.info_interface_mode_type = {}
 
----@alias main_menu_option_type_keys
----| '"NONE"'
----| '"RETURN"'
----| '"SAVE_AND_QUIT"'
----| '"SAVE_AND_CONTINUE"'
----| '"SETTINGS"'
----| '"SUCCUMB_TO_INVASION"'
----| '"ABANDON_FORTRESS"'
----| '"RETIRE_FORTRESS"'
----| '"QUIT_WITHOUT_SAVING"'
----| '"END_GAME"'
----| '"SAVE_TO_EXISTING_FOLDER"'
----| '"SAVE_TO_NEW_FOLDER_NEW_TIMELINE"'
----| '"SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE"'
----| '"RETURN_TO_TITLE"'
----| '"CONTINUE"'
-
----@alias main_menu_option_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
-
 ---@alias main_menu_option_type
----| main_menu_option_type_keys
----| main_menu_option_type_values
+---| 'NONE'
+---| 'RETURN'
+---| 'SAVE_AND_QUIT'
+---| 'SAVE_AND_CONTINUE'
+---| 'SETTINGS'
+---| 'SUCCUMB_TO_INVASION'
+---| 'ABANDON_FORTRESS'
+---| 'RETIRE_FORTRESS'
+---| 'QUIT_WITHOUT_SAVING'
+---| 'END_GAME'
+---| 'SAVE_TO_EXISTING_FOLDER'
+---| 'SAVE_TO_NEW_FOLDER_NEW_TIMELINE'
+---| 'SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE'
+---| 'RETURN_TO_TITLE'
+---| 'CONTINUE'
 
 ---@class _main_menu_option_type: DFEnumType
 ---@field NONE -1
@@ -1834,27 +1316,14 @@ df.info_interface_mode_type = {}
 ---@field [13] "CONTINUE"
 df.main_menu_option_type = {}
 
----@alias options_context_type_keys
----| '"NONE"'
----| '"MAIN_DWARF"'
----| '"MAIN_DWARF_GAME_OVER"'
----| '"MAIN_DWARF_HELP"'
----| '"MAIN_DWARF_SAVE_AND_EXIT_CHOICES"'
----| '"MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED"'
----| '"ABORT_FROM_STARTING_GAME"'
-
----@alias options_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias options_context_type
----| options_context_type_keys
----| options_context_type_values
+---| 'NONE'
+---| 'MAIN_DWARF'
+---| 'MAIN_DWARF_GAME_OVER'
+---| 'MAIN_DWARF_HELP'
+---| 'MAIN_DWARF_SAVE_AND_EXIT_CHOICES'
+---| 'MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED'
+---| 'ABORT_FROM_STARTING_GAME'
 
 ---@class _options_context_type: DFEnumType
 ---@field NONE -1
@@ -1873,111 +1342,56 @@ df.main_menu_option_type = {}
 ---@field [5] "ABORT_FROM_STARTING_GAME"
 df.options_context_type = {}
 
----@alias help_context_type_keys
----| '"NONE"'
----| '"WORLD_GEN_MESSAGE"'
----| '"EMBARK_TUTORIAL_CHOICE"'
----| '"EMBARK_MESSAGE"'
----| '"START_TUTORIAL_CAMERA_CONTROLS"'
----| '"START_TUTORIAL_MINING"'
----| '"START_TUTORIAL_STOCKPILES"'
----| '"START_TUTORIAL_CHOPPING"'
----| '"START_TUTORIAL_WORKSHOPS_AND_TASKS"'
----| '"START_TUTORIAL_SHEETS"'
----| '"START_TUTORIAL_ALERTS"'
----| '"START_TUTORIAL_PREPARING_FOR_CARAVAN"'
----| '"DONE_WITH_FIRST_STEPS_MESSAGE"'
----| '"POPUP_ZONES"'
----| '"POPUP_BURROWS"'
----| '"POPUP_HAULING"'
----| '"POPUP_STOCKS"'
----| '"POPUP_WORK_DETAILS"'
----| '"POPUP_NOBLES"'
----| '"POPUP_JUSTICE"'
----| '"POPUP_SQUADS"'
----| '"POPUP_WORLD"'
----| '"POPUP_WORK_ORDERS"'
----| '"REVISIT_CAMERA_CONTROLS"'
----| '"REVISIT_MINING"'
----| '"REVISIT_STOCKPILES"'
----| '"REVISIT_CHOPPING"'
----| '"REVISIT_WORKSHOPS_AND_TASKS"'
----| '"REVISIT_SHEETS"'
----| '"REVISIT_ALERTS"'
----| '"REVISIT_PREPARING_FOR_CARAVAN"'
----| '"GUIDE_SURVIVAL"'
----| '"GUIDE_PLANTING"'
----| '"GUIDE_OTHER_FOOD_SOURCES"'
----| '"GUIDE_BINS_BAGS_AND_BARRELS"'
----| '"GUIDE_TRADE"'
----| '"GUIDE_OFFICES"'
----| '"GUIDE_ORE_AND_SMELTING"'
----| '"GUIDE_TRAPS_AND_LEVERS"'
----| '"GUIDE_WELLS"'
----| '"GUIDE_HANDLING_LIGHT_AQUIFERS"'
----| '"GUIDE_CLOTHING"'
----| '"GUIDE_MEETING_AREAS_AND_LOCATIONS"'
----| '"GUIDE_MILITARY"'
----| '"GUIDE_CHANNELS_AND_RAMPS"'
----| '"GUIDE_REFUSE"'
----| '"GUIDE_DEEPER"'
----| '"GUIDE_HAPPINESS"'
----| '"GUIDE_GOALS"'
-
----@alias help_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
-
 ---@alias help_context_type
----| help_context_type_keys
----| help_context_type_values
+---| 'NONE'
+---| 'WORLD_GEN_MESSAGE'
+---| 'EMBARK_TUTORIAL_CHOICE'
+---| 'EMBARK_MESSAGE'
+---| 'START_TUTORIAL_CAMERA_CONTROLS'
+---| 'START_TUTORIAL_MINING'
+---| 'START_TUTORIAL_STOCKPILES'
+---| 'START_TUTORIAL_CHOPPING'
+---| 'START_TUTORIAL_WORKSHOPS_AND_TASKS'
+---| 'START_TUTORIAL_SHEETS'
+---| 'START_TUTORIAL_ALERTS'
+---| 'START_TUTORIAL_PREPARING_FOR_CARAVAN'
+---| 'DONE_WITH_FIRST_STEPS_MESSAGE'
+---| 'POPUP_ZONES'
+---| 'POPUP_BURROWS'
+---| 'POPUP_HAULING'
+---| 'POPUP_STOCKS'
+---| 'POPUP_WORK_DETAILS'
+---| 'POPUP_NOBLES'
+---| 'POPUP_JUSTICE'
+---| 'POPUP_SQUADS'
+---| 'POPUP_WORLD'
+---| 'POPUP_WORK_ORDERS'
+---| 'REVISIT_CAMERA_CONTROLS'
+---| 'REVISIT_MINING'
+---| 'REVISIT_STOCKPILES'
+---| 'REVISIT_CHOPPING'
+---| 'REVISIT_WORKSHOPS_AND_TASKS'
+---| 'REVISIT_SHEETS'
+---| 'REVISIT_ALERTS'
+---| 'REVISIT_PREPARING_FOR_CARAVAN'
+---| 'GUIDE_SURVIVAL'
+---| 'GUIDE_PLANTING'
+---| 'GUIDE_OTHER_FOOD_SOURCES'
+---| 'GUIDE_BINS_BAGS_AND_BARRELS'
+---| 'GUIDE_TRADE'
+---| 'GUIDE_OFFICES'
+---| 'GUIDE_ORE_AND_SMELTING'
+---| 'GUIDE_TRAPS_AND_LEVERS'
+---| 'GUIDE_WELLS'
+---| 'GUIDE_HANDLING_LIGHT_AQUIFERS'
+---| 'GUIDE_CLOTHING'
+---| 'GUIDE_MEETING_AREAS_AND_LOCATIONS'
+---| 'GUIDE_MILITARY'
+---| 'GUIDE_CHANNELS_AND_RAMPS'
+---| 'GUIDE_REFUSE'
+---| 'GUIDE_DEEPER'
+---| 'GUIDE_HAPPINESS'
+---| 'GUIDE_GOALS'
 
 ---@class _help_context_type: DFEnumType
 ---@field NONE -1
@@ -2080,27 +1494,14 @@ df.options_context_type = {}
 ---@field [47] "GUIDE_GOALS"
 df.help_context_type = {}
 
----@alias settings_tab_type_keys
----| '"NONE"'
----| '"VIDEO"'
----| '"AUDIO"'
----| '"GAME"'
----| '"KEYBINDINGS"'
----| '"ANNOUNCEMENTS"'
----| '"DIFFICULTY"'
-
----@alias settings_tab_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
-
 ---@alias settings_tab_type
----| settings_tab_type_keys
----| settings_tab_type_values
+---| 'NONE'
+---| 'VIDEO'
+---| 'AUDIO'
+---| 'GAME'
+---| 'KEYBINDINGS'
+---| 'ANNOUNCEMENTS'
+---| 'DIFFICULTY'
 
 ---@class _settings_tab_type: DFEnumType
 ---@field NONE -1
@@ -2119,19 +1520,10 @@ df.help_context_type = {}
 ---@field [5] "DIFFICULTY"
 df.settings_tab_type = {}
 
----@alias settings_context_type_keys
----| '"NONE"'
----| '"OUTSIDE_PLAY"'
----| '"FORT_MODE"'
-
----@alias settings_context_type_values
----| -1
----| 0
----| 1
-
 ---@alias settings_context_type
----| settings_context_type_keys
----| settings_context_type_values
+---| 'NONE'
+---| 'OUTSIDE_PLAY'
+---| 'FORT_MODE'
 
 ---@class _settings_context_type: DFEnumType
 ---@field NONE -1
@@ -2142,23 +1534,12 @@ df.settings_tab_type = {}
 ---@field [1] "FORT_MODE"
 df.settings_context_type = {}
 
----@alias arena_context_type_keys
----| '"NONE"'
----| '"CREATURE"'
----| '"SKILLS"'
----| '"EQUIPMENT"'
----| '"CONDITIONS"'
-
----@alias arena_context_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias arena_context_type
----| arena_context_type_keys
----| arena_context_type_values
+---| 'NONE'
+---| 'CREATURE'
+---| 'SKILLS'
+---| 'EQUIPMENT'
+---| 'CONDITIONS'
 
 ---@class _arena_context_type: DFEnumType
 ---@field NONE -1
@@ -2173,19 +1554,10 @@ df.settings_context_type = {}
 ---@field [3] "CONDITIONS"
 df.arena_context_type = {}
 
----@alias assign_uniform_context_type_keys
----| '"NONE"'
----| '"CREATE_SQUAD_FROM_SQUAD_MENU"'
----| '"FROM_SQUAD_EQUIPMENT_MENU"'
-
----@alias assign_uniform_context_type_values
----| -1
----| 0
----| 1
-
 ---@alias assign_uniform_context_type
----| assign_uniform_context_type_keys
----| assign_uniform_context_type_values
+---| 'NONE'
+---| 'CREATE_SQUAD_FROM_SQUAD_MENU'
+---| 'FROM_SQUAD_EQUIPMENT_MENU'
 
 ---@class _assign_uniform_context_type: DFEnumType
 ---@field NONE -1
@@ -2196,49 +1568,25 @@ df.arena_context_type = {}
 ---@field [1] "FROM_SQUAD_EQUIPMENT_MENU"
 df.assign_uniform_context_type = {}
 
----@alias main_bottom_mode_type_keys
----| '"NONE"'
----| '"BUILDING"'
----| '"BUILDING_PLACEMENT"'
----| '"BUILDING_PICK_MATERIALS"'
----| '"ZONE"'
----| '"ZONE_PAINT"'
----| '"STOCKPILE"'
----| '"STOCKPILE_PAINT"'
----| '"BURROW"'
----| '"BURROW_PAINT"'
----| '"HAULING"'
----| '"ARENA_UNIT"'
----| '"ARENA_TREE"'
----| '"ARENA_WATER_PAINT"'
----| '"ARENA_MAGMA_PAINT"'
----| '"ARENA_SNOW_PAINT"'
----| '"ARENA_MUD_PAINT"'
----| '"ARENA_REMOVE_PAINT"'
-
----@alias main_bottom_mode_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
-
 ---@alias main_bottom_mode_type
----| main_bottom_mode_type_keys
----| main_bottom_mode_type_values
+---| 'NONE'
+---| 'BUILDING'
+---| 'BUILDING_PLACEMENT'
+---| 'BUILDING_PICK_MATERIALS'
+---| 'ZONE'
+---| 'ZONE_PAINT'
+---| 'STOCKPILE'
+---| 'STOCKPILE_PAINT'
+---| 'BURROW'
+---| 'BURROW_PAINT'
+---| 'HAULING'
+---| 'ARENA_UNIT'
+---| 'ARENA_TREE'
+---| 'ARENA_WATER_PAINT'
+---| 'ARENA_MAGMA_PAINT'
+---| 'ARENA_SNOW_PAINT'
+---| 'ARENA_MUD_PAINT'
+---| 'ARENA_REMOVE_PAINT'
 
 ---@class _main_bottom_mode_type: DFEnumType
 ---@field NONE -1
@@ -2279,87 +1627,44 @@ df.assign_uniform_context_type = {}
 ---@field [16] "ARENA_REMOVE_PAINT"
 df.main_bottom_mode_type = {}
 
----@alias main_designation_type_keys
----| '"NONE"'
----| '"DIG_DIG"'
----| '"DIG_REMOVE_STAIRS_RAMPS"'
----| '"DIG_STAIR_UP"'
----| '"DIG_STAIR_UPDOWN"'
----| '"DIG_STAIR_DOWN"'
----| '"DIG_RAMP"'
----| '"DIG_CHANNEL"'
----| '"CHOP"'
----| '"GATHER"'
----| '"SMOOTH"'
----| '"TRACK"'
----| '"ENGRAVE"'
----| '"FORTIFY"'
----| '"REMOVE_CONSTRUCTION"'
----| '"CLAIM"'
----| '"UNCLAIM"'
----| '"MELT"'
----| '"NO_MELT"'
----| '"DUMP"'
----| '"NO_DUMP"'
----| '"HIDE"'
----| '"NO_HIDE"'
----| '"TOGGLE_ENGRAVING"'
----| '"DIG_FROM_MARKER"'
----| '"DIG_TO_MARKER"'
----| '"CHOP_FROM_MARKER"'
----| '"CHOP_TO_MARKER"'
----| '"GATHER_FROM_MARKER"'
----| '"GATHER_TO_MARKER"'
----| '"SMOOTH_FROM_MARKER"'
----| '"SMOOTH_TO_MARKER"'
----| '"DESIGNATE_TRAFFIC_HIGH"'
----| '"DESIGNATE_TRAFFIC_NORMAL"'
----| '"DESIGNATE_TRAFFIC_LOW"'
----| '"DESIGNATE_TRAFFIC_RESTRICTED"'
----| '"ERASE"'
-
----@alias main_designation_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
-
 ---@alias main_designation_type
----| main_designation_type_keys
----| main_designation_type_values
+---| 'NONE'
+---| 'DIG_DIG'
+---| 'DIG_REMOVE_STAIRS_RAMPS'
+---| 'DIG_STAIR_UP'
+---| 'DIG_STAIR_UPDOWN'
+---| 'DIG_STAIR_DOWN'
+---| 'DIG_RAMP'
+---| 'DIG_CHANNEL'
+---| 'CHOP'
+---| 'GATHER'
+---| 'SMOOTH'
+---| 'TRACK'
+---| 'ENGRAVE'
+---| 'FORTIFY'
+---| 'REMOVE_CONSTRUCTION'
+---| 'CLAIM'
+---| 'UNCLAIM'
+---| 'MELT'
+---| 'NO_MELT'
+---| 'DUMP'
+---| 'NO_DUMP'
+---| 'HIDE'
+---| 'NO_HIDE'
+---| 'TOGGLE_ENGRAVING'
+---| 'DIG_FROM_MARKER'
+---| 'DIG_TO_MARKER'
+---| 'CHOP_FROM_MARKER'
+---| 'CHOP_TO_MARKER'
+---| 'GATHER_FROM_MARKER'
+---| 'GATHER_TO_MARKER'
+---| 'SMOOTH_FROM_MARKER'
+---| 'SMOOTH_TO_MARKER'
+---| 'DESIGNATE_TRAFFIC_HIGH'
+---| 'DESIGNATE_TRAFFIC_NORMAL'
+---| 'DESIGNATE_TRAFFIC_LOW'
+---| 'DESIGNATE_TRAFFIC_RESTRICTED'
+---| 'ERASE'
 
 ---@class _main_designation_type: DFEnumType
 ---@field NONE -1
@@ -2450,20 +1755,11 @@ df.main_designation_type = {}
 ---@field _kind 'class-type'
 df.markup_text_box_widget = {}
 
----@alias burrow_unit_selector_filter_type_keys
----| '"ALL"'
----| '"MILITARY"'
----| '"CIVILIAN"'
-
----@alias burrow_unit_selector_filter_type_values
----| 0
----| 1
----| 2
-
 -- bay12: BurrowUnitSelectorFilter
 ---@alias burrow_unit_selector_filter_type
----| burrow_unit_selector_filter_type_keys
----| burrow_unit_selector_filter_type_values
+---| 'ALL'
+---| 'MILITARY'
+---| 'CIVILIAN'
 
 -- bay12: BurrowUnitSelectorFilter
 ---@class _burrow_unit_selector_filter_type: DFEnumType
@@ -2547,23 +1843,12 @@ df.labor_kitchen_food_entry = {}
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_sort_entry = {}
 
----@alias labor_kitchen_interface_type_filter_keys
----| '"ALL"'
----| '"PLANTS"'
----| '"SEEDS"'
----| '"DRINKS"'
----| '"OTHER"'
-
----@alias labor_kitchen_interface_type_filter_values
----| -1
----| 0
----| 1
----| 2
----| 3
-
 ---@alias labor_kitchen_interface_type_filter
----| labor_kitchen_interface_type_filter_keys
----| labor_kitchen_interface_type_filter_values
+---| 'ALL'
+---| 'PLANTS'
+---| 'SEEDS'
+---| 'DRINKS'
+---| 'OTHER'
 
 ---@class _labor_kitchen_interface_type_filter: DFEnumType
 ---@field ALL -1
@@ -6488,40 +5773,21 @@ df.markup_text_wordst = {}
 ---@field [2] "INDENT"
 df.markup_text_wordst.T_flags = {}
 
----@alias markup_text_link_type_keys
----| '"NONE"'
----| '"HIST_FIG"'
----| '"SITE"'
----| '"ARTIFACT"'
----| '"BOOK"'
----| '"SUBREGION"'
----| '"FEATURE_LAYER"'
----| '"ENTITY"'
----| '"ABSTRACT_BUILDING"'
----| '"ENTITY_POPULATION"'
----| '"ART_IMAGE"'
----| '"ERA"'
----| '"HEC"'
-
----@alias markup_text_link_type_values
----| -1
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
-
 -- bay12: MarkupTextLink
 ---@alias markup_text_link_type
----| markup_text_link_type_keys
----| markup_text_link_type_values
+---| 'NONE'
+---| 'HIST_FIG'
+---| 'SITE'
+---| 'ARTIFACT'
+---| 'BOOK'
+---| 'SUBREGION'
+---| 'FEATURE_LAYER'
+---| 'ENTITY'
+---| 'ABSTRACT_BUILDING'
+---| 'ENTITY_POPULATION'
+---| 'ART_IMAGE'
+---| 'ERA'
+---| 'HEC'
 
 -- bay12: MarkupTextLink
 ---@class _markup_text_link_type: DFEnumType
@@ -6879,27 +6145,14 @@ function _ui_look_list_items:erase(index) end
 ---@field _kind 'struct-type'
 df.ui_unit_view_mode = {}
 
----@alias ui_unit_view_mode.T_value_keys
----| '"General"'
----| '"Inventory"'
----| '"Preferences"'
----| '"Wounds"'
----| '"PrefLabor"'
----| '"PrefDogs"'
----| '"PrefOccupation"'
-
----@alias ui_unit_view_mode.T_value_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
-
 ---@alias ui_unit_view_mode.T_value
----| ui_unit_view_mode.T_value_keys
----| ui_unit_view_mode.T_value_values
+---| 'General'
+---| 'Inventory'
+---| 'Preferences'
+---| 'Wounds'
+---| 'PrefLabor'
+---| 'PrefDogs'
+---| 'PrefOccupation'
 
 ---@class _ui_unit_view_mode.T_value: DFEnumType
 ---@field General 0
@@ -6918,1012 +6171,507 @@ df.ui_unit_view_mode = {}
 ---@field [6] "PrefOccupation"
 df.ui_unit_view_mode.T_value = {}
 
----@alias main_hover_instruction_keys
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"StockpileRemove"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"ZoneRemove"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"BurrowRemovePaint"'
----| '""'
----| '""'
----| '"BurrowRemove"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"RouteName"'
----| '"RouteRemove"'
----| '""'
----| '""'
----| '""'
----| '"StopName"'
----| '"StopRemove"'
----| '""'
----| '""'
----| '""'
----| '"InfoUnits"'
----| '"InfoJobs"'
----| '"InfoPlaces"'
----| '"InfoLabors"'
----| '"InfoWorkOrders"'
----| '"InfoNobles"'
----| '"InfoObjects"'
----| '"Squads"'
----| '"World"'
----| '"InfoJustice"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"ManagerOrderRemove"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"BuildingName"'
----| '"BuildingRemove"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"SquadDisband"'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '""'
----| '"ArenaFluids"'
----| '"ArenaWater"'
----| '"ArenaMagma"'
----| '"ArenaSnow"'
----| '"ArenaMud"'
----| '"ArenaRemoveFluids"'
----| '"ArenaTree"'
----| '"ArenaWeatherTemperatureTime"'
----| '""'
-
----@alias main_hover_instruction_values
----| 0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
----| 10
----| 11
----| 12
----| 13
----| 14
----| 15
----| 16
----| 17
----| 18
----| 19
----| 20
----| 21
----| 22
----| 23
----| 24
----| 25
----| 26
----| 27
----| 28
----| 29
----| 30
----| 31
----| 32
----| 33
----| 34
----| 35
----| 36
----| 37
----| 38
----| 39
----| 40
----| 41
----| 42
----| 43
----| 44
----| 45
----| 46
----| 47
----| 48
----| 49
----| 50
----| 51
----| 52
----| 53
----| 54
----| 55
----| 56
----| 57
----| 58
----| 59
----| 60
----| 61
----| 62
----| 63
----| 64
----| 65
----| 66
----| 67
----| 68
----| 69
----| 70
----| 71
----| 72
----| 73
----| 74
----| 75
----| 76
----| 77
----| 78
----| 79
----| 80
----| 81
----| 82
----| 83
----| 84
----| 85
----| 86
----| 87
----| 88
----| 89
----| 90
----| 91
----| 92
----| 93
----| 94
----| 95
----| 96
----| 97
----| 98
----| 99
----| 100
----| 101
----| 102
----| 103
----| 104
----| 105
----| 106
----| 107
----| 108
----| 109
----| 110
----| 111
----| 112
----| 113
----| 114
----| 115
----| 116
----| 117
----| 118
----| 119
----| 120
----| 121
----| 122
----| 123
----| 124
----| 125
----| 126
----| 127
----| 128
----| 129
----| 130
----| 131
----| 132
----| 133
----| 134
----| 135
----| 136
----| 137
----| 138
----| 139
----| 140
----| 141
----| 142
----| 143
----| 144
----| 145
----| 146
----| 147
----| 148
----| 149
----| 150
----| 151
----| 152
----| 153
----| 154
----| 155
----| 156
----| 157
----| 158
----| 159
----| 160
----| 161
----| 162
----| 163
----| 164
----| 165
----| 166
----| 167
----| 168
----| 169
----| 170
----| 171
----| 172
----| 173
----| 174
----| 175
----| 176
----| 177
----| 178
----| 179
----| 180
----| 181
----| 182
----| 183
----| 184
----| 185
----| 186
----| 187
----| 188
----| 189
----| 190
----| 191
----| 192
----| 193
----| 194
----| 195
----| 196
----| 197
----| 198
----| 199
----| 200
----| 201
----| 202
----| 203
----| 204
----| 205
----| 206
----| 207
----| 208
----| 209
----| 210
----| 211
----| 212
----| 213
----| 214
----| 215
----| 216
----| 217
----| 218
----| 219
----| 220
----| 221
----| 222
----| 223
----| 224
----| 225
----| 226
----| 227
----| 228
----| 229
----| 230
----| 231
----| 232
----| 233
----| 234
----| 235
----| 236
----| 237
----| 238
----| 239
----| 240
----| 241
----| 242
----| 243
----| 244
----| 245
----| 246
----| 247
----| 248
----| 249
----| 250
----| 251
----| 252
----| 253
----| 254
----| 255
----| 256
----| 257
----| 258
----| 259
----| 260
----| 261
----| 262
----| 263
----| 264
----| 265
----| 266
----| 267
----| 268
----| 269
----| 270
----| 271
----| 272
----| 273
----| 274
----| 275
----| 276
----| 277
----| 278
----| 279
----| 280
----| 281
----| 282
----| 283
----| 284
----| 285
----| 286
----| 287
----| 288
----| 289
----| 290
----| 291
----| 292
----| 293
----| 294
----| 295
----| 296
----| 297
----| 298
----| 299
----| 300
----| 301
----| 302
----| 303
----| 304
----| 305
----| 306
----| 307
----| 308
----| 309
----| 310
----| 311
----| 312
----| 313
----| 314
----| 315
----| 316
----| 317
----| 318
----| 319
----| 320
----| 321
----| 322
----| 323
----| 324
----| 325
----| 326
----| 327
----| 328
----| 329
----| 330
----| 331
----| 332
----| 333
----| 334
----| 335
----| 336
----| 337
----| 338
----| 339
----| 340
----| 341
----| 342
----| 343
----| 344
----| 345
----| 346
----| 347
----| 348
----| 349
----| 350
----| 351
----| 352
----| 353
----| 354
----| 355
----| 356
----| 357
----| 358
----| 359
----| 360
----| 361
----| 362
----| 363
----| 364
----| 365
----| 366
----| 367
----| 368
----| 369
----| 370
----| 371
----| 372
----| 373
----| 374
----| 375
----| 376
----| 377
----| 378
----| 379
----| 380
----| 381
----| 382
----| 383
----| 384
----| 385
----| 386
----| 387
----| 388
----| 389
----| 390
----| 391
----| 392
----| 393
----| 394
----| 395
----| 396
----| 397
----| 398
----| 399
----| 400
----| 401
----| 402
----| 403
----| 404
----| 405
----| 406
----| 407
----| 408
----| 409
----| 410
----| 411
----| 412
----| 413
----| 414
----| 415
----| 416
----| 417
----| 418
----| 419
----| 420
----| 421
----| 422
----| 423
----| 424
----| 425
----| 426
----| 427
----| 428
----| 429
----| 430
----| 431
----| 432
----| 433
----| 434
----| 435
----| 436
----| 437
----| 438
----| 439
----| 440
----| 441
----| 442
----| 443
----| 444
----| 445
----| 446
----| 447
----| 448
----| 449
----| 450
----| 451
----| 452
----| 453
----| 454
----| 455
----| 456
----| 457
----| 458
----| 459
----| 460
----| 461
----| 462
----| 463
----| 464
----| 465
----| 466
----| 467
----| 468
----| 469
----| 470
----| 471
----| 472
----| 473
----| 474
----| 475
----| 476
----| 477
----| 478
----| 479
----| 480
----| 481
----| 482
----| 483
----| 484
----| 485
----| 486
----| 487
----| 488
----| 489
----| 490
----| 491
----| 492
----| 493
----| 494
----| 495
----| 496
----| 497
----| 498
-
 -- generated by devel/dump-tooltip-ids
 ---@alias main_hover_instruction
----| main_hover_instruction_keys
----| main_hover_instruction_values
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'StockpileRemove'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'ZoneRemove'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'BurrowRemovePaint'
+---| ''
+---| ''
+---| 'BurrowRemove'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'RouteName'
+---| 'RouteRemove'
+---| ''
+---| ''
+---| ''
+---| 'StopName'
+---| 'StopRemove'
+---| ''
+---| ''
+---| ''
+---| 'InfoUnits'
+---| 'InfoJobs'
+---| 'InfoPlaces'
+---| 'InfoLabors'
+---| 'InfoWorkOrders'
+---| 'InfoNobles'
+---| 'InfoObjects'
+---| 'Squads'
+---| 'World'
+---| 'InfoJustice'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'ManagerOrderRemove'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'BuildingName'
+---| 'BuildingRemove'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'SquadDisband'
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| ''
+---| 'ArenaFluids'
+---| 'ArenaWater'
+---| 'ArenaMagma'
+---| 'ArenaSnow'
+---| 'ArenaMud'
+---| 'ArenaRemoveFluids'
+---| 'ArenaTree'
+---| 'ArenaWeatherTemperatureTime'
+---| ''
 
 -- generated by devel/dump-tooltip-ids
 ---@class _main_hover_instruction: DFEnumType

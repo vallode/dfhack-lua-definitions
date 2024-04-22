@@ -92,33 +92,14 @@ module DFHackLuaDefinitions
       LuaLS.field(@name, @class_name, @comment)
     end
 
-    def to_keys
-      annotation = []
-      annotation << "---@alias #{@class_name}_keys\n"
-      @items.each do |item|
-        annotation << item.to_key_alias
-      end
-      annotation << "\n"
-      annotation.join
-    end
-
-    def to_values
-      annotation = []
-      annotation << "---@alias #{@class_name}_values\n"
-      @items.each do |item|
-        annotation << item.to_value_alias
-      end
-      annotation << "\n"
-      annotation.join
-    end
-
     # TODO: Types with index_enums have bi-directional keys.
     def to_alias
       annotation = []
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@alias #{@class_name}\n"
-      annotation << "---| #{@class_name}_keys\n"
-      annotation << "---| #{@class_name}_values\n"
+      @items.each do |item|
+        annotation << item.to_key_alias
+      end
       annotation.join
     end
 
@@ -147,8 +128,6 @@ module DFHackLuaDefinitions
 
     def render
       annotation = ''
-      annotation << to_keys
-      annotation << to_values
       annotation << to_alias
       annotation << "\n"
       annotation << LuaLS.multiline_comment(@comment)
@@ -204,7 +183,7 @@ module DFHackLuaDefinitions
     end
 
     def to_key_alias
-      "---| '\"#{@name}\"'\n"
+      "---| '#{@name}'\n"
     end
 
     def to_value_alias
