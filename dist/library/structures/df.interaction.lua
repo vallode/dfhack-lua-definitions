@@ -46,11 +46,11 @@ local _interaction_flags
 ---@return DFPointer<table<interaction_flags, boolean>>
 function _interaction_flags:_field(index) end
 
----@param index integer 
----@param item table<interaction_flags, boolean> 
+---@param index '#'|integer
+---@param item table<interaction_flags, boolean>
 function _interaction_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_flags:erase(index) end
 
 ---@class _interaction_sources: DFContainer
@@ -62,11 +62,11 @@ local _interaction_sources
 ---@return DFPointer<interaction_source>
 function _interaction_sources:_field(index) end
 
----@param index integer 
----@param item interaction_source 
+---@param index '#'|integer
+---@param item interaction_source
 function _interaction_sources:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_sources:erase(index) end
 
 ---@class _interaction_targets: DFContainer
@@ -78,11 +78,11 @@ local _interaction_targets
 ---@return DFPointer<interaction_target>
 function _interaction_targets:_field(index) end
 
----@param index integer 
----@param item interaction_target 
+---@param index '#'|integer
+---@param item interaction_target
 function _interaction_targets:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_targets:erase(index) end
 
 ---@class _interaction_effects: DFContainer
@@ -94,11 +94,11 @@ local _interaction_effects
 ---@return DFPointer<interaction_effect>
 function _interaction_effects:_field(index) end
 
----@param index integer 
----@param item interaction_effect 
+---@param index '#'|integer
+---@param item interaction_effect
 function _interaction_effects:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_effects:erase(index) end
 
 ---@alias interaction_effect_type
@@ -214,11 +214,11 @@ local _interaction_effect_locations
 ---@return DFPointer<interaction_effect_location_hint>
 function _interaction_effect_locations:_field(index) end
 
----@param index integer 
----@param item interaction_effect_location_hint 
+---@param index '#'|integer
+---@param item interaction_effect_location_hint
 function _interaction_effect_locations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_effect_locations:erase(index) end
 
 ---@class interaction_effect.T_flags: DFBitfield
@@ -249,11 +249,11 @@ local _interaction_effect_animatest_syndrome
 ---@return DFPointer<syndrome>
 function _interaction_effect_animatest_syndrome:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _interaction_effect_animatest_syndrome:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_effect_animatest_syndrome:erase(index) end
 
 ---@class (exact) interaction_effect_add_syndromest: DFStruct, interaction_effect
@@ -274,11 +274,11 @@ local _interaction_effect_add_syndromest_syndrome
 ---@return DFPointer<syndrome>
 function _interaction_effect_add_syndromest_syndrome:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _interaction_effect_add_syndromest_syndrome:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_effect_add_syndromest_syndrome:erase(index) end
 
 ---@class (exact) interaction_effect_resurrectst: DFStruct, interaction_effect
@@ -299,11 +299,11 @@ local _interaction_effect_resurrectst_syndrome
 ---@return DFPointer<syndrome>
 function _interaction_effect_resurrectst_syndrome:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _interaction_effect_resurrectst_syndrome:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_effect_resurrectst_syndrome:erase(index) end
 
 ---@class (exact) interaction_effect_cleanst: DFStruct, interaction_effect
@@ -376,11 +376,11 @@ local _interaction_effect_raise_ghostst_syndrome
 ---@return DFPointer<syndrome>
 function _interaction_effect_raise_ghostst_syndrome:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _interaction_effect_raise_ghostst_syndrome:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_effect_raise_ghostst_syndrome:erase(index) end
 
 ---@class (exact) interaction_effect_create_itemst: DFStruct, interaction_effect
@@ -579,11 +579,11 @@ local _interaction_source_secretst_spheres
 ---@return DFPointer<sphere_type>
 function _interaction_source_secretst_spheres:_field(index) end
 
----@param index integer 
----@param item sphere_type 
+---@param index '#'|integer
+---@param item sphere_type
 function _interaction_source_secretst_spheres:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_source_secretst_spheres:erase(index) end
 
 ---@class _interaction_source_secretst_goals: DFContainer
@@ -595,11 +595,11 @@ local _interaction_source_secretst_goals
 ---@return DFPointer<goal_type>
 function _interaction_source_secretst_goals:_field(index) end
 
----@param index integer 
----@param item goal_type 
+---@param index '#'|integer
+---@param item goal_type
 function _interaction_source_secretst_goals:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_source_secretst_goals:erase(index) end
 
 ---@class (exact) interaction_source_disturbancest: DFStruct, interaction_source
@@ -672,11 +672,11 @@ local _interaction_source_deityst_usage_hint
 ---@return DFPointer<interaction_source_usage_hint>
 function _interaction_source_deityst_usage_hint:_field(index) end
 
----@param index integer 
----@param item interaction_source_usage_hint 
+---@param index '#'|integer
+---@param item interaction_source_usage_hint
 function _interaction_source_deityst_usage_hint:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _interaction_source_deityst_usage_hint:erase(index) end
 
 ---@class (exact) interaction_source_attackst: DFStruct, interaction_source

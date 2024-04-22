@@ -71,11 +71,11 @@ local _init_display_flag
 ---@return DFPointer<table<init_display_flags, boolean>>
 function _init_display_flag:_field(index) end
 
----@param index integer 
----@param item table<init_display_flags, boolean> 
+---@param index '#'|integer
+---@param item table<init_display_flags, boolean>
 function _init_display_flag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _init_display_flag:erase(index) end
 
 ---@alias init_display.T_windowed
@@ -131,11 +131,11 @@ local _init_media_flag
 ---@return DFPointer<table<init_media_flags, boolean>>
 function _init_media_flag:_field(index) end
 
----@param index integer 
----@param item table<init_media_flags, boolean> 
+---@param index '#'|integer
+---@param item table<init_media_flags, boolean>
 function _init_media_flag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _init_media_flag:erase(index) end
 
 ---@alias init_input_flags
@@ -173,11 +173,11 @@ local _init_input_flag
 ---@return DFPointer<table<init_input_flags, boolean>>
 function _init_input_flag:_field(index) end
 
----@param index integer 
----@param item table<init_input_flags, boolean> 
+---@param index '#'|integer
+---@param item table<init_input_flags, boolean>
 function _init_input_flag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _init_input_flag:erase(index) end
 
 ---@class (exact) init_font: DFStruct
@@ -242,11 +242,11 @@ local _init_window_flag
 ---@return DFPointer<table<init_window_flags, boolean>>
 function _init_window_flag:_field(index) end
 
----@param index integer 
----@param item table<init_window_flags, boolean> 
+---@param index '#'|integer
+---@param item table<init_window_flags, boolean>
 function _init_window_flag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _init_window_flag:erase(index) end
 
 ---@class (exact) init: DFStruct

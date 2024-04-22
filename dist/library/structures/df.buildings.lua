@@ -658,11 +658,11 @@ local _building_jobs
 ---@return DFPointer<job>
 function _building_jobs:_field(index) end
 
----@param index integer 
----@param item job 
+---@param index '#'|integer
+---@param item job
 function _building_jobs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_jobs:erase(index) end
 
 ---@class _building_specific_refs: DFContainer
@@ -674,11 +674,11 @@ local _building_specific_refs
 ---@return DFPointer<specific_ref>
 function _building_specific_refs:_field(index) end
 
----@param index integer 
----@param item specific_ref 
+---@param index '#'|integer
+---@param item specific_ref
 function _building_specific_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_specific_refs:erase(index) end
 
 ---@class _building_general_refs: DFContainer
@@ -690,11 +690,11 @@ local _building_general_refs
 ---@return DFPointer<general_ref>
 function _building_general_refs:_field(index) end
 
----@param index integer 
----@param item general_ref 
+---@param index '#'|integer
+---@param item general_ref
 function _building_general_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_general_refs:erase(index) end
 
 ---@class _building_relations: DFContainer
@@ -706,11 +706,11 @@ local _building_relations
 ---@return DFPointer<building_civzonest>
 function _building_relations:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _building_relations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_relations:erase(index) end
 
 ---@class _building_job_claim_suppress: DFContainer
@@ -722,11 +722,11 @@ local _building_job_claim_suppress
 ---@return DFPointer<DFPointer<integer>>
 function _building_job_claim_suppress:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _building_job_claim_suppress:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_job_claim_suppress:erase(index) end
 
 ---@class _building_activities: DFContainer
@@ -738,11 +738,11 @@ local _building_activities
 ---@return DFPointer<DFPointer<integer>>
 function _building_activities:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _building_activities:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_activities:erase(index) end
 
 -- stockpile --
@@ -766,11 +766,11 @@ local _stockpile_links_give_to_pile
 ---@return DFPointer<building>
 function _stockpile_links_give_to_pile:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _stockpile_links_give_to_pile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _stockpile_links_give_to_pile:erase(index) end
 
 ---@class _stockpile_links_take_from_pile: DFContainer
@@ -782,11 +782,11 @@ local _stockpile_links_take_from_pile
 ---@return DFPointer<building>
 function _stockpile_links_take_from_pile:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _stockpile_links_take_from_pile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _stockpile_links_take_from_pile:erase(index) end
 
 ---@class _stockpile_links_give_to_workshop: DFContainer
@@ -798,11 +798,11 @@ local _stockpile_links_give_to_workshop
 ---@return DFPointer<building>
 function _stockpile_links_give_to_workshop:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _stockpile_links_give_to_workshop:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _stockpile_links_give_to_workshop:erase(index) end
 
 ---@class _stockpile_links_take_from_workshop: DFContainer
@@ -814,11 +814,11 @@ local _stockpile_links_take_from_workshop
 ---@return DFPointer<building>
 function _stockpile_links_take_from_workshop:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _stockpile_links_take_from_workshop:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _stockpile_links_take_from_workshop:erase(index) end
 
 ---@class (exact) building_stockpilest: DFStruct, building
@@ -849,11 +849,11 @@ local _building_stockpilest_container_type
 ---@return DFPointer<item_type>
 function _building_stockpilest_container_type:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _building_stockpilest_container_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_stockpilest_container_type:erase(index) end
 
 ---@class _building_stockpilest_linked_stops: DFContainer
@@ -865,11 +865,11 @@ local _building_stockpilest_linked_stops
 ---@return DFPointer<hauling_stop>
 function _building_stockpilest_linked_stops:_field(index) end
 
----@param index integer 
----@param item hauling_stop 
+---@param index '#'|integer
+---@param item hauling_stop
 function _building_stockpilest_linked_stops:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_stockpilest_linked_stops:erase(index) end
 
 -- zone --
@@ -1301,11 +1301,11 @@ local _building_civzonest_contained_buildings
 ---@return DFPointer<building>
 function _building_civzonest_contained_buildings:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _building_civzonest_contained_buildings:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_civzonest_contained_buildings:erase(index) end
 
 ---@class _building_civzonest_squad_room_info: DFContainer
@@ -1317,11 +1317,11 @@ local _building_civzonest_squad_room_info
 ---@return DFPointer<DFPointer<integer>>
 function _building_civzonest_squad_room_info:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _building_civzonest_squad_room_info:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_civzonest_squad_room_info:erase(index) end
 
 -- actual --
@@ -1364,11 +1364,11 @@ local _building_actual_contained_items
 ---@return DFPointer<DFPointer<integer>>
 function _building_actual_contained_items:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _building_actual_contained_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_actual_contained_items:erase(index) end
 
 ---@class (exact) building_design: DFStruct
@@ -2371,11 +2371,11 @@ local _building_trapst_linked_mechanisms
 ---@return DFPointer<item>
 function _building_trapst_linked_mechanisms:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _building_trapst_linked_mechanisms:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_trapst_linked_mechanisms:erase(index) end
 
 ---@class (exact) building_wagonst: DFStruct, building_actual

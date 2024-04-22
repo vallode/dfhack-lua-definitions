@@ -432,11 +432,11 @@ local _written_content_refs
 ---@return DFPointer<general_ref>
 function _written_content_refs:_field(index) end
 
----@param index integer 
----@param item general_ref 
+---@param index '#'|integer
+---@param item general_ref
 function _written_content_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _written_content_refs:erase(index) end
 
 ---@class _written_content_styles: DFContainer
@@ -448,11 +448,11 @@ local _written_content_styles
 ---@return DFPointer<written_content_style>
 function _written_content_styles:_field(index) end
 
----@param index integer 
----@param item written_content_style 
+---@param index '#'|integer
+---@param item written_content_style
 function _written_content_styles:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _written_content_styles:erase(index) end
 
 ---@class engraving_flags: DFBitfield

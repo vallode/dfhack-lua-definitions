@@ -97,11 +97,11 @@ local _entity_population_unk4_unk_1
 ---@return DFPointer<DFPointer<integer>>
 function _entity_population_unk4_unk_1:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _entity_population_unk4_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_population_unk4_unk_1:erase(index) end
 
 ---@class _entity_population_unk4_unk_2: DFContainer
@@ -113,11 +113,11 @@ local _entity_population_unk4_unk_2
 ---@return DFPointer<DFPointer<integer>>
 function _entity_population_unk4_unk_2:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _entity_population_unk4_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_population_unk4_unk_2:erase(index) end
 
 ---@class _entity_population_unk4_unk_3: DFContainer
@@ -129,11 +129,11 @@ local _entity_population_unk4_unk_3
 ---@return DFPointer<DFPointer<integer>>
 function _entity_population_unk4_unk_3:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _entity_population_unk4_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_population_unk4_unk_3:erase(index) end
 
 ---@class (exact) entity_population: DFStruct
@@ -171,11 +171,11 @@ local _entity_population_unk4
 ---@return DFPointer<entity_population_unk4>
 function _entity_population_unk4:_field(index) end
 
----@param index integer 
----@param item entity_population_unk4 
+---@param index '#'|integer
+---@param item entity_population_unk4
 function _entity_population_unk4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_population_unk4:erase(index) end
 
 ---@alias nemesis_flags
@@ -264,11 +264,11 @@ local _nemesis_record_flags
 ---@return DFPointer<table<nemesis_flags, boolean>>
 function _nemesis_record_flags:_field(index) end
 
----@param index integer 
----@param item table<nemesis_flags, boolean> 
+---@param index '#'|integer
+---@param item table<nemesis_flags, boolean>
 function _nemesis_record_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _nemesis_record_flags:erase(index) end
 
 ---@class (exact) artifact_record: DFStruct
@@ -321,11 +321,11 @@ local _artifact_record_flags
 ---@return DFPointer<table<integer, boolean>>
 function _artifact_record_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _artifact_record_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _artifact_record_flags:erase(index) end
 
 ---@class (exact) artifact_rumor_locationst: DFStruct

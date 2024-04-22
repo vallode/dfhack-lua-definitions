@@ -1786,11 +1786,11 @@ local _unit_specific_refs
 ---@return DFPointer<specific_ref>
 function _unit_specific_refs:_field(index) end
 
----@param index integer 
----@param item specific_ref 
+---@param index '#'|integer
+---@param item specific_ref
 function _unit_specific_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_specific_refs:erase(index) end
 
 ---@class _unit_general_refs: DFContainer
@@ -1802,11 +1802,11 @@ local _unit_general_refs
 ---@return DFPointer<general_ref>
 function _unit_general_refs:_field(index) end
 
----@param index integer 
----@param item general_ref 
+---@param index '#'|integer
+---@param item general_ref
 function _unit_general_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_general_refs:erase(index) end
 
 ---@class (exact) unit.T_military: DFStruct
@@ -1866,11 +1866,11 @@ local _unit_inventory
 ---@return DFPointer<unit_inventory_item>
 function _unit_inventory:_field(index) end
 
----@param index integer 
----@param item unit_inventory_item 
+---@param index '#'|integer
+---@param item unit_inventory_item
 function _unit_inventory:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_inventory:erase(index) end
 
 ---@class _unit_owned_buildings: DFContainer
@@ -1882,11 +1882,11 @@ local _unit_owned_buildings
 ---@return DFPointer<building_civzonest>
 function _unit_owned_buildings:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _unit_owned_buildings:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_owned_buildings:erase(index) end
 
 ---@class (exact) unit.T_job: DFStruct
@@ -1942,11 +1942,11 @@ local _unit_body_wounds
 ---@return DFPointer<unit_wound>
 function _unit_body_wounds:_field(index) end
 
----@param index integer 
----@param item unit_wound 
+---@param index '#'|integer
+---@param item unit_wound
 function _unit_body_wounds:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_body_wounds:erase(index) end
 
 ---@class _unit_body_spatters: DFContainer
@@ -1958,11 +1958,11 @@ local _unit_body_spatters
 ---@return DFPointer<spatter>
 function _unit_body_spatters:_field(index) end
 
----@param index integer 
----@param item spatter 
+---@param index '#'|integer
+---@param item spatter
 function _unit_body_spatters:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_body_spatters:erase(index) end
 
 ---@class (exact) unit.T_appearance: DFStruct
@@ -1991,11 +1991,11 @@ local _unit_actions
 ---@return DFPointer<unit_action>
 function _unit_actions:_field(index) end
 
----@param index integer 
----@param item unit_action 
+---@param index '#'|integer
+---@param item unit_action
 function _unit_actions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_actions:erase(index) end
 
 ---@class (exact) unit.T_counters: DFStruct
@@ -2138,11 +2138,11 @@ local _unit_status_misc_traits
 ---@return DFPointer<unit_misc_trait>
 function _unit_status_misc_traits:_field(index) end
 
----@param index integer 
----@param item unit_misc_trait 
+---@param index '#'|integer
+---@param item unit_misc_trait
 function _unit_status_misc_traits:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_misc_traits:erase(index) end
 
 ---@class _unit_status_souls: DFContainer
@@ -2154,11 +2154,11 @@ local _unit_status_souls
 ---@return DFPointer<unit_soul>
 function _unit_status_souls:_field(index) end
 
----@param index integer 
----@param item unit_soul 
+---@param index '#'|integer
+---@param item unit_soul
 function _unit_status_souls:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_souls:erase(index) end
 
 ---@class _unit_status_demands: DFContainer
@@ -2170,11 +2170,11 @@ local _unit_status_demands
 ---@return DFPointer<unit_demand>
 function _unit_status_demands:_field(index) end
 
----@param index integer 
----@param item unit_demand 
+---@param index '#'|integer
+---@param item unit_demand
 function _unit_status_demands:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_demands:erase(index) end
 
 ---@class _unit_status_wrestle_items: DFContainer
@@ -2186,11 +2186,11 @@ local _unit_status_wrestle_items
 ---@return DFPointer<unit_item_wrestle>
 function _unit_status_wrestle_items:_field(index) end
 
----@param index integer 
----@param item unit_item_wrestle 
+---@param index '#'|integer
+---@param item unit_item_wrestle
 function _unit_status_wrestle_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_wrestle_items:erase(index) end
 
 ---@class _unit_status_complaints: DFContainer
@@ -2202,11 +2202,11 @@ local _unit_status_complaints
 ---@return DFPointer<unit_complaint>
 function _unit_status_complaints:_field(index) end
 
----@param index integer 
----@param item unit_complaint 
+---@param index '#'|integer
+---@param item unit_complaint
 function _unit_status_complaints:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_complaints:erase(index) end
 
 ---@class _unit_status_parleys: DFContainer
@@ -2218,11 +2218,11 @@ local _unit_status_parleys
 ---@return DFPointer<unit_parley>
 function _unit_status_parleys:_field(index) end
 
----@param index integer 
----@param item unit_parley 
+---@param index '#'|integer
+---@param item unit_parley
 function _unit_status_parleys:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_parleys:erase(index) end
 
 ---@class _unit_status_requests: DFContainer
@@ -2234,11 +2234,11 @@ local _unit_status_requests
 ---@return DFPointer<unit_request>
 function _unit_status_requests:_field(index) end
 
----@param index integer 
----@param item unit_request 
+---@param index '#'|integer
+---@param item unit_request
 function _unit_status_requests:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_requests:erase(index) end
 
 ---@class _unit_status_coin_debts: DFContainer
@@ -2250,11 +2250,11 @@ local _unit_status_coin_debts
 ---@return DFPointer<unit_coin_debt>
 function _unit_status_coin_debts:_field(index) end
 
----@param index integer 
----@param item unit_coin_debt 
+---@param index '#'|integer
+---@param item unit_coin_debt
 function _unit_status_coin_debts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_coin_debts:erase(index) end
 
 ---@class _unit_status_commands: DFContainer
@@ -2266,11 +2266,11 @@ local _unit_status_commands
 ---@return DFPointer<command>
 function _unit_status_commands:_field(index) end
 
----@param index integer 
----@param item command 
+---@param index '#'|integer
+---@param item command
 function _unit_status_commands:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status_commands:erase(index) end
 
 ---@class (exact) unit.T_status2: DFStruct
@@ -2300,11 +2300,11 @@ local _unit_status2_body_part_temperature
 ---@return DFPointer<temperaturest>
 function _unit_status2_body_part_temperature:_field(index) end
 
----@param index integer 
----@param item temperaturest 
+---@param index '#'|integer
+---@param item temperaturest
 function _unit_status2_body_part_temperature:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_status2_body_part_temperature:erase(index) end
 
 ---@class (exact) unit.T_syndrome_advancement: DFStruct
@@ -2335,11 +2335,11 @@ local _unit_syndromes_active
 ---@return DFPointer<unit_syndrome>
 function _unit_syndromes_active:_field(index) end
 
----@param index integer 
----@param item unit_syndrome 
+---@param index '#'|integer
+---@param item unit_syndrome
 function _unit_syndromes_active:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_syndromes_active:erase(index) end
 
 ---@class (exact) unit.T_reports: DFStruct
@@ -2361,11 +2361,11 @@ local _unit_used_items
 ---@return DFPointer<unit_item_use>
 function _unit_used_items:_field(index) end
 
----@param index integer 
----@param item unit_item_use 
+---@param index '#'|integer
+---@param item unit_item_use
 function _unit_used_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_used_items:erase(index) end
 
 -- svector((item_familiarityst *)) item_familiarity
@@ -2425,11 +2425,11 @@ local _unit_enemy_appearances
 ---@return DFPointer<unit_appearance>
 function _unit_enemy_appearances:_field(index) end
 
----@param index integer 
----@param item unit_appearance 
+---@param index '#'|integer
+---@param item unit_appearance
 function _unit_enemy_appearances:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_enemy_appearances:erase(index) end
 
 ---@class _unit_enemy_witness_reports: DFContainer
@@ -2441,11 +2441,11 @@ local _unit_enemy_witness_reports
 ---@return DFPointer<witness_incidentst>
 function _unit_enemy_witness_reports:_field(index) end
 
----@param index integer 
----@param item witness_incidentst 
+---@param index '#'|integer
+---@param item witness_incidentst
 function _unit_enemy_witness_reports:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_enemy_witness_reports:erase(index) end
 
 ---@class _unit_enemy_rumor: DFContainer
@@ -2457,11 +2457,11 @@ local _unit_enemy_rumor
 ---@return DFPointer<entity_event>
 function _unit_enemy_rumor:_field(index) end
 
----@param index integer 
----@param item entity_event 
+---@param index '#'|integer
+---@param item entity_event
 function _unit_enemy_rumor:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_enemy_rumor:erase(index) end
 
 -- int32_t gait_index[GAITNUM]
@@ -2495,11 +2495,11 @@ local _unit_enemy_caste_flags
 ---@return DFPointer<table<caste_raw_flags, boolean>>
 function _unit_enemy_caste_flags:_field(index) end
 
----@param index integer 
----@param item table<caste_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<caste_raw_flags, boolean>
 function _unit_enemy_caste_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_enemy_caste_flags:erase(index) end
 
 ---@class _unit_occupations: DFContainer
@@ -2511,11 +2511,11 @@ local _unit_occupations
 ---@return DFPointer<occupation>
 function _unit_occupations:_field(index) end
 
----@param index integer 
----@param item occupation 
+---@param index '#'|integer
+---@param item occupation
 function _unit_occupations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_occupations:erase(index) end
 
 ---@class witness_report_flags: DFBitfield
@@ -2735,11 +2735,11 @@ local _unit_syndrome_symptoms
 ---@return DFPointer<DFPointer<integer>>
 function _unit_syndrome_symptoms:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_syndrome_symptoms:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_syndrome_symptoms:erase(index) end
 
 ---@class unit_syndrome.T_flags: DFBitfield
@@ -2977,11 +2977,11 @@ local _unit_wound_parts
 ---@return DFPointer<DFPointer<integer>>
 function _unit_wound_parts:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_wound_parts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_wound_parts:erase(index) end
 
 ---@class unit_wound.T_flags: DFBitfield
@@ -3375,11 +3375,11 @@ local _unit_health_info_body_part_flags
 ---@return DFPointer<unit_bp_health_flags>
 function _unit_health_info_body_part_flags:_field(index) end
 
----@param index integer 
----@param item unit_bp_health_flags 
+---@param index '#'|integer
+---@param item unit_bp_health_flags
 function _unit_health_info_body_part_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_health_info_body_part_flags:erase(index) end
 
 ---@class _unit_health_info_op_history: DFContainer
@@ -3391,11 +3391,11 @@ local _unit_health_info_op_history
 ---@return DFPointer<DFPointer<integer>>
 function _unit_health_info_op_history:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_health_info_op_history:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_health_info_op_history:erase(index) end
 
 ---@class _unit_health_info_syndrome_diagnosis: DFContainer
@@ -3407,11 +3407,11 @@ local _unit_health_info_syndrome_diagnosis
 ---@return DFPointer<DFPointer<integer>>
 function _unit_health_info_syndrome_diagnosis:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_health_info_syndrome_diagnosis:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_health_info_syndrome_diagnosis:erase(index) end
 
 ---@class orientation_flags: DFBitfield
@@ -3475,11 +3475,11 @@ local _unit_soul_skills
 ---@return DFPointer<unit_skill>
 function _unit_soul_skills:_field(index) end
 
----@param index integer 
----@param item unit_skill 
+---@param index '#'|integer
+---@param item unit_skill
 function _unit_soul_skills:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_soul_skills:erase(index) end
 
 ---@class _unit_soul_preferences: DFContainer
@@ -3491,11 +3491,11 @@ local _unit_soul_preferences
 ---@return DFPointer<unit_preference>
 function _unit_soul_preferences:_field(index) end
 
----@param index integer 
----@param item unit_preference 
+---@param index '#'|integer
+---@param item unit_preference
 function _unit_soul_preferences:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_soul_preferences:erase(index) end
 
 ---@class (exact) unit_instrument_skill: DFStruct
@@ -3661,11 +3661,11 @@ local _unit_personality_values
 ---@return DFPointer<DFPointer<integer>>
 function _unit_personality_values:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_personality_values:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_values:erase(index) end
 
 ---@class _unit_personality_ethics: DFContainer
@@ -3677,11 +3677,11 @@ local _unit_personality_ethics
 ---@return DFPointer<DFPointer<integer>>
 function _unit_personality_ethics:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_personality_ethics:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_ethics:erase(index) end
 
 ---@class _unit_personality_emotions: DFContainer
@@ -3693,11 +3693,11 @@ local _unit_personality_emotions
 ---@return DFPointer<personality_moodst>
 function _unit_personality_emotions:_field(index) end
 
----@param index integer 
----@param item personality_moodst 
+---@param index '#'|integer
+---@param item personality_moodst
 function _unit_personality_emotions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_emotions:erase(index) end
 
 ---@class _unit_personality_dreams: DFContainer
@@ -3709,11 +3709,11 @@ local _unit_personality_dreams
 ---@return DFPointer<DFPointer<integer>>
 function _unit_personality_dreams:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_personality_dreams:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_dreams:erase(index) end
 
 ---@class _unit_personality_unk_v40_6: DFContainer
@@ -3725,11 +3725,11 @@ local _unit_personality_unk_v40_6
 ---@return DFPointer<DFPointer<integer>>
 function _unit_personality_unk_v40_6:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_personality_unk_v40_6:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_unk_v40_6:erase(index) end
 
 ---@class _unit_personality_mannerism: DFContainer
@@ -3741,11 +3741,11 @@ local _unit_personality_mannerism
 ---@return DFPointer<DFPointer<integer>>
 function _unit_personality_mannerism:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_personality_mannerism:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_mannerism:erase(index) end
 
 ---@class _unit_personality_needs: DFContainer
@@ -3757,11 +3757,11 @@ local _unit_personality_needs
 ---@return DFPointer<DFPointer<integer>>
 function _unit_personality_needs:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _unit_personality_needs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_personality_needs:erase(index) end
 
 ---@class unit_personality.T_flags: DFBitfield
@@ -4521,11 +4521,11 @@ local _unit_chunk_units_items
 ---@return DFPointer<item>
 function _unit_chunk_units_items:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _unit_chunk_units_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _unit_chunk_units_items:erase(index) end
 
 -- physical_formst

@@ -21,11 +21,11 @@ local _dipscript_info_script_steps
 ---@return DFPointer<script_stepst>
 function _dipscript_info_script_steps:_field(index) end
 
----@param index integer 
----@param item script_stepst 
+---@param index '#'|integer
+---@param item script_stepst
 function _dipscript_info_script_steps:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dipscript_info_script_steps:erase(index) end
 
 ---@class _dipscript_info_script_vars: DFContainer
@@ -37,11 +37,11 @@ local _dipscript_info_script_vars
 ---@return DFPointer<script_varst>
 function _dipscript_info_script_vars:_field(index) end
 
----@param index integer 
----@param item script_varst 
+---@param index '#'|integer
+---@param item script_varst
 function _dipscript_info_script_vars:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dipscript_info_script_vars:erase(index) end
 
 ---@class (exact) dipscript_text: DFStruct
@@ -321,11 +321,11 @@ local _meeting_diplomat_info_topic_list
 ---@return DFPointer<meeting_topic>
 function _meeting_diplomat_info_topic_list:_field(index) end
 
----@param index integer 
----@param item meeting_topic 
+---@param index '#'|integer
+---@param item meeting_topic
 function _meeting_diplomat_info_topic_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _meeting_diplomat_info_topic_list:erase(index) end
 
 ---@class _meeting_diplomat_info_active_script_vars: DFContainer
@@ -337,11 +337,11 @@ local _meeting_diplomat_info_active_script_vars
 ---@return DFPointer<active_script_varst>
 function _meeting_diplomat_info_active_script_vars:_field(index) end
 
----@param index integer 
----@param item active_script_varst 
+---@param index '#'|integer
+---@param item active_script_varst
 function _meeting_diplomat_info_active_script_vars:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _meeting_diplomat_info_active_script_vars:erase(index) end
 
 ---@class meeting_diplomat_info.T_flags: DFBitfield
@@ -371,11 +371,11 @@ local _meeting_diplomat_info_events
 ---@return DFPointer<meeting_event>
 function _meeting_diplomat_info_events:_field(index) end
 
----@param index integer 
----@param item meeting_event 
+---@param index '#'|integer
+---@param item meeting_event
 function _meeting_diplomat_info_events:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _meeting_diplomat_info_events:erase(index) end
 
 ---@class _meeting_diplomat_info_agreement_topic: DFContainer
@@ -387,11 +387,11 @@ local _meeting_diplomat_info_agreement_topic
 ---@return DFPointer<meeting_topic>
 function _meeting_diplomat_info_agreement_topic:_field(index) end
 
----@param index integer 
----@param item meeting_topic 
+---@param index '#'|integer
+---@param item meeting_topic
 function _meeting_diplomat_info_agreement_topic:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _meeting_diplomat_info_agreement_topic:erase(index) end
 
 ---@alias meeting_topic
@@ -530,11 +530,11 @@ local _room_rent_info_elements
 ---@return DFPointer<building>
 function _room_rent_info_elements:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _room_rent_info_elements:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _room_rent_info_elements:erase(index) end
 
 ---@class room_rent_info.T_flags: DFBitfield
@@ -616,11 +616,11 @@ local _activity_entry_events
 ---@return DFPointer<activity_event>
 function _activity_entry_events:_field(index) end
 
----@param index integer 
----@param item activity_event 
+---@param index '#'|integer
+---@param item activity_event
 function _activity_entry_events:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_entry_events:erase(index) end
 
 ---@alias activity_event_type
@@ -866,11 +866,11 @@ local _activity_event_item
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_item:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_item:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_item:erase(index) end
 
 ---@class _activity_event_building: DFContainer
@@ -882,11 +882,11 @@ local _activity_event_building
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_building:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_building:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_building:erase(index) end
 
 ---@class (exact) activity_event_training_sessionst: DFStruct, activity_event
@@ -955,11 +955,11 @@ local _activity_event_sparringst_groups
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_sparringst_groups:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_sparringst_groups:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_sparringst_groups:erase(index) end
 
 ---@class (exact) activity_event_ranged_practicest: DFStruct, activity_event
@@ -995,11 +995,11 @@ local _activity_event_harassmentst_unk_2
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_harassmentst_unk_2:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_harassmentst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_harassmentst_unk_2:erase(index) end
 
 ---@alias conversation_menu
@@ -1166,11 +1166,11 @@ local _activity_event_conversationst_participants
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_conversationst_participants:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_conversationst_participants:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_conversationst_participants:erase(index) end
 
 ---@class _activity_event_conversationst_unk_6: DFContainer
@@ -1182,11 +1182,11 @@ local _activity_event_conversationst_unk_6
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_conversationst_unk_6:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_conversationst_unk_6:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_conversationst_unk_6:erase(index) end
 
 ---@class (exact) activity_event_conversationst.T_unk_b4: DFStruct
@@ -1210,11 +1210,11 @@ local _activity_event_conversationst_turns
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_conversationst_turns:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_conversationst_turns:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_conversationst_turns:erase(index) end
 
 ---@class activity_event_conversationst.T_flags2: DFBitfield
@@ -1273,11 +1273,11 @@ local _activity_event_conversationst_unk2_unk_1
 ---@return DFPointer<incident>
 function _activity_event_conversationst_unk2_unk_1:_field(index) end
 
----@param index integer 
----@param item incident 
+---@param index '#'|integer
+---@param item incident
 function _activity_event_conversationst_unk2_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_conversationst_unk2_unk_1:erase(index) end
 
 ---@class _activity_event_conversationst_choices: DFContainer
@@ -1289,11 +1289,11 @@ local _activity_event_conversationst_choices
 ---@return DFPointer<talk_choice>
 function _activity_event_conversationst_choices:_field(index) end
 
----@param index integer 
----@param item talk_choice 
+---@param index '#'|integer
+---@param item talk_choice
 function _activity_event_conversationst_choices:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_conversationst_choices:erase(index) end
 
 ---@class (exact) activity_event_conflictst: DFStruct, activity_event
@@ -1317,11 +1317,11 @@ local _activity_event_conflictst_sides
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_conflictst_sides:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_conflictst_sides:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_conflictst_sides:erase(index) end
 
 ---@class (exact) activity_event_guardst: DFStruct, activity_event
@@ -1487,11 +1487,11 @@ local _activity_event_performancest_participant_actions
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_performancest_participant_actions:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_performancest_participant_actions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_performancest_participant_actions:erase(index) end
 
 ---@class _activity_event_performancest_play_orders: DFContainer
@@ -1503,11 +1503,11 @@ local _activity_event_performancest_play_orders
 ---@return DFPointer<performance_play_orderst>
 function _activity_event_performancest_play_orders:_field(index) end
 
----@param index integer 
----@param item performance_play_orderst 
+---@param index '#'|integer
+---@param item performance_play_orderst
 function _activity_event_performancest_play_orders:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_performancest_play_orders:erase(index) end
 
 ---@class (exact) performance_play_orderst: DFStruct
@@ -1537,11 +1537,11 @@ local _performance_play_orderst_unk_4
 ---@return DFPointer<DFPointer<integer>>
 function _performance_play_orderst_unk_4:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _performance_play_orderst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _performance_play_orderst_unk_4:erase(index) end
 
 ---@class (exact) activity_event_researchst: DFStruct, activity_event
@@ -1767,11 +1767,11 @@ local _activity_event_encounterst_unk_1
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_encounterst_unk_1:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_encounterst_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_encounterst_unk_1:erase(index) end
 
 ---@class _activity_event_encounterst_unk_2: DFContainer
@@ -1783,11 +1783,11 @@ local _activity_event_encounterst_unk_2
 ---@return DFPointer<DFPointer<integer>>
 function _activity_event_encounterst_unk_2:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _activity_event_encounterst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _activity_event_encounterst_unk_2:erase(index) end
 
 ---@class (exact) activity_event_store_objectst: DFStruct, activity_event
@@ -1830,11 +1830,11 @@ local _schedule_info_slots
 ---@return DFPointer<schedule_slot>
 function _schedule_info_slots:_field(index) end
 
----@param index integer 
----@param item schedule_slot 
+---@param index '#'|integer
+---@param item schedule_slot
 function _schedule_info_slots:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _schedule_info_slots:erase(index) end
 
 ---@class (exact) schedule_slot: DFStruct

@@ -592,11 +592,11 @@ local _material_common_flags
 ---@return DFPointer<table<material_flags, boolean>>
 function _material_common_flags:_field(index) end
 
----@param index integer 
----@param item table<material_flags, boolean> 
+---@param index '#'|integer
+---@param item table<material_flags, boolean>
 function _material_common_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _material_common_flags:erase(index) end
 
 ---@class (exact) material_common.T_reaction_product: DFStruct
@@ -659,11 +659,11 @@ local _material_syndrome
 ---@return DFPointer<syndrome>
 function _material_syndrome:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _material_syndrome:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _material_syndrome:erase(index) end
 
 ---@class (exact) material_vec_ref: DFStruct
@@ -703,11 +703,11 @@ local _material_template_syndrome
 ---@return DFPointer<syndrome>
 function _material_template_syndrome:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _material_template_syndrome:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _material_template_syndrome:erase(index) end
 
 ---@alias inorganic_flags
@@ -862,11 +862,11 @@ local _inorganic_raw_flags
 ---@return DFPointer<table<inorganic_flags, boolean>>
 function _inorganic_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<inorganic_flags, boolean> 
+---@param index '#'|integer
+---@param item table<inorganic_flags, boolean>
 function _inorganic_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _inorganic_raw_flags:erase(index) end
 
 ---@class (exact) inorganic_raw.T_metal_ore: DFStruct
@@ -909,11 +909,11 @@ local _inorganic_raw_environment_spec_inclusion_type
 ---@return DFPointer<inclusion_type>
 function _inorganic_raw_environment_spec_inclusion_type:_field(index) end
 
----@param index integer 
----@param item inclusion_type 
+---@param index '#'|integer
+---@param item inclusion_type
 function _inorganic_raw_environment_spec_inclusion_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _inorganic_raw_environment_spec_inclusion_type:erase(index) end
 
 ---@class (exact) inorganic_raw.T_environment: DFStruct
@@ -935,11 +935,11 @@ local _inorganic_raw_environment_location
 ---@return DFPointer<environment_type>
 function _inorganic_raw_environment_location:_field(index) end
 
----@param index integer 
----@param item environment_type 
+---@param index '#'|integer
+---@param item environment_type
 function _inorganic_raw_environment_location:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _inorganic_raw_environment_location:erase(index) end
 
 ---@class _inorganic_raw_environment_type: DFContainer
@@ -951,11 +951,11 @@ local _inorganic_raw_environment_type
 ---@return DFPointer<inclusion_type>
 function _inorganic_raw_environment_type:_field(index) end
 
----@param index integer 
----@param item inclusion_type 
+---@param index '#'|integer
+---@param item inclusion_type
 function _inorganic_raw_environment_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _inorganic_raw_environment_type:erase(index) end
 
 ---@alias organic_mat_category

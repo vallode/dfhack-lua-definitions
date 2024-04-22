@@ -348,11 +348,11 @@ local _graphic_viewport
 ---@return DFPointer<graphic_viewportst>
 function _graphic_viewport:_field(index) end
 
----@param index integer 
----@param item graphic_viewportst 
+---@param index '#'|integer
+---@param item graphic_viewportst
 function _graphic_viewport:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _graphic_viewport:erase(index) end
 
 ---@class _graphic_map_port: DFContainer
@@ -364,11 +364,11 @@ local _graphic_map_port
 ---@return DFPointer<graphic_map_portst>
 function _graphic_map_port:_field(index) end
 
----@param index integer 
----@param item graphic_map_portst 
+---@param index '#'|integer
+---@param item graphic_map_portst
 function _graphic_map_port:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _graphic_map_port:erase(index) end
 
 ---@class _graphic_texblits: DFContainer
@@ -380,11 +380,11 @@ local _graphic_texblits
 ---@return DFPointer<texblitst>
 function _graphic_texblits:_field(index) end
 
----@param index integer 
----@param item texblitst 
+---@param index '#'|integer
+---@param item texblitst
 function _graphic_texblits:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _graphic_texblits:erase(index) end
 
 ---@class (exact) graphic.T_tileset: DFStruct
@@ -735,11 +735,11 @@ local _renderer_2d_base_tile_cache
 ---@return DFPointer<any[]>
 function _renderer_2d_base_tile_cache:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _renderer_2d_base_tile_cache:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _renderer_2d_base_tile_cache:erase(index) end
 
 ---@class _renderer_2d_base_textures_to_destroy: DFContainer
@@ -751,11 +751,11 @@ local _renderer_2d_base_textures_to_destroy
 ---@return DFPointer<any[]>
 function _renderer_2d_base_textures_to_destroy:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _renderer_2d_base_textures_to_destroy:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _renderer_2d_base_textures_to_destroy:erase(index) end
 
 ---@class (exact) renderer_2d: DFStruct, renderer_2d_base
@@ -863,11 +863,11 @@ local _enabler_overridden_grid_sizes
 ---@return DFPointer<enabler.T_overridden_grid_sizes>
 function _enabler_overridden_grid_sizes:_field(index) end
 
----@param index integer 
----@param item enabler.T_overridden_grid_sizes 
+---@param index '#'|integer
+---@param item enabler.T_overridden_grid_sizes
 function _enabler_overridden_grid_sizes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _enabler_overridden_grid_sizes:erase(index) end
 
 ---@class (exact) enabler.T_overridden_grid_sizes: DFStruct
@@ -898,11 +898,11 @@ local _enabler_async_tobox_vals
 ---@return DFPointer<enabler.T_async_tobox.T_vals>
 function _enabler_async_tobox_vals:_field(index) end
 
----@param index integer 
----@param item enabler.T_async_tobox.T_vals 
+---@param index '#'|integer
+---@param item enabler.T_async_tobox.T_vals
 function _enabler_async_tobox_vals:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _enabler_async_tobox_vals:erase(index) end
 
 ---@class (exact) enabler.T_async_tobox.T_vals: DFStruct
@@ -953,11 +953,11 @@ local _enabler_async_frombox_vals
 ---@return DFPointer<enabler.T_async_frombox.T_vals>
 function _enabler_async_frombox_vals:_field(index) end
 
----@param index integer 
----@param item enabler.T_async_frombox.T_vals 
+---@param index '#'|integer
+---@param item enabler.T_async_frombox.T_vals
 function _enabler_async_frombox_vals:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _enabler_async_frombox_vals:erase(index) end
 
 ---@class (exact) enabler.T_async_frombox.T_vals: DFStruct
@@ -1016,11 +1016,11 @@ local _enabler_async_zoom_vals
 ---@return DFPointer<zoom_commands>
 function _enabler_async_zoom_vals:_field(index) end
 
----@param index integer 
----@param item zoom_commands 
+---@param index '#'|integer
+---@param item zoom_commands
 function _enabler_async_zoom_vals:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _enabler_async_zoom_vals:erase(index) end
 
 ---@class enabler.T_flag: DFBitfield
@@ -1121,11 +1121,11 @@ local _texture_handlerst_page
 ---@return DFPointer<tile_pagest>
 function _texture_handlerst_page:_field(index) end
 
----@param index integer 
----@param item tile_pagest 
+---@param index '#'|integer
+---@param item tile_pagest
 function _texture_handlerst_page:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _texture_handlerst_page:erase(index) end
 
 ---@class _texture_handlerst_palette: DFContainer
@@ -1137,10 +1137,10 @@ local _texture_handlerst_palette
 ---@return DFPointer<palette_pagest>
 function _texture_handlerst_palette:_field(index) end
 
----@param index integer 
----@param item palette_pagest 
+---@param index '#'|integer
+---@param item palette_pagest
 function _texture_handlerst_palette:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _texture_handlerst_palette:erase(index) end
 

@@ -58,11 +58,11 @@ local _reaction_flags
 ---@return DFPointer<table<reaction_flags, boolean>>
 function _reaction_flags:_field(index) end
 
----@param index integer 
----@param item table<reaction_flags, boolean> 
+---@param index '#'|integer
+---@param item table<reaction_flags, boolean>
 function _reaction_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_flags:erase(index) end
 
 ---@class _reaction_reagents: DFContainer
@@ -74,11 +74,11 @@ local _reaction_reagents
 ---@return DFPointer<reaction_reagent>
 function _reaction_reagents:_field(index) end
 
----@param index integer 
----@param item reaction_reagent 
+---@param index '#'|integer
+---@param item reaction_reagent
 function _reaction_reagents:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_reagents:erase(index) end
 
 ---@class _reaction_products: DFContainer
@@ -90,11 +90,11 @@ local _reaction_products
 ---@return DFPointer<reaction_product>
 function _reaction_products:_field(index) end
 
----@param index integer 
----@param item reaction_product 
+---@param index '#'|integer
+---@param item reaction_product
 function _reaction_products:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_products:erase(index) end
 
 ---@class (exact) reaction.T_building: DFStruct
@@ -118,11 +118,11 @@ local _reaction_building_type
 ---@return DFPointer<building_type>
 function _reaction_building_type:_field(index) end
 
----@param index integer 
----@param item building_type 
+---@param index '#'|integer
+---@param item building_type
 function _reaction_building_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_building_type:erase(index) end
 
 ---@class _reaction_descriptions: DFContainer
@@ -134,11 +134,11 @@ local _reaction_descriptions
 ---@return DFPointer<reaction_description>
 function _reaction_descriptions:_field(index) end
 
----@param index integer 
----@param item reaction_description 
+---@param index '#'|integer
+---@param item reaction_description
 function _reaction_descriptions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_descriptions:erase(index) end
 
 ---@class (exact) reaction_category: DFStruct
@@ -324,11 +324,11 @@ local _reaction_product_itemst_flags
 ---@return DFPointer<table<reaction_product_item_flags, boolean>>
 function _reaction_product_itemst_flags:_field(index) end
 
----@param index integer 
----@param item table<reaction_product_item_flags, boolean> 
+---@param index '#'|integer
+---@param item table<reaction_product_item_flags, boolean>
 function _reaction_product_itemst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_product_itemst_flags:erase(index) end
 
 ---@class (exact) reaction_product_itemst.T_get_material: DFStruct
@@ -380,11 +380,11 @@ local _reaction_product_item_improvementst_flags
 ---@return DFPointer<table<reaction_product_improvement_flags, boolean>>
 function _reaction_product_item_improvementst_flags:_field(index) end
 
----@param index integer 
----@param item table<reaction_product_improvement_flags, boolean> 
+---@param index '#'|integer
+---@param item table<reaction_product_improvement_flags, boolean>
 function _reaction_product_item_improvementst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _reaction_product_item_improvementst_flags:erase(index) end
 
 ---@class (exact) reaction_product_item_improvementst.T_get_material: DFStruct

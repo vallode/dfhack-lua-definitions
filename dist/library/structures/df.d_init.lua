@@ -206,11 +206,11 @@ local _d_init_flags1
 ---@return DFPointer<table<d_init_flags1, boolean>>
 function _d_init_flags1:_field(index) end
 
----@param index integer 
----@param item table<d_init_flags1, boolean> 
+---@param index '#'|integer
+---@param item table<d_init_flags1, boolean>
 function _d_init_flags1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _d_init_flags1:erase(index) end
 
 ---@class (exact) d_init.T_wound_color: DFStruct
@@ -235,11 +235,11 @@ local _d_init_flags3
 ---@return DFPointer<table<d_init_flags3, boolean>>
 function _d_init_flags3:_field(index) end
 
----@param index integer 
----@param item table<d_init_flags3, boolean> 
+---@param index '#'|integer
+---@param item table<d_init_flags3, boolean>
 function _d_init_flags3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _d_init_flags3:erase(index) end
 
 ---@class (exact) d_init.T_store_dist: DFStruct
@@ -263,10 +263,10 @@ local _d_init_flags4
 ---@return DFPointer<table<d_init_flags4, boolean>>
 function _d_init_flags4:_field(index) end
 
----@param index integer 
----@param item table<d_init_flags4, boolean> 
+---@param index '#'|integer
+---@param item table<d_init_flags4, boolean>
 function _d_init_flags4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _d_init_flags4:erase(index) end
 

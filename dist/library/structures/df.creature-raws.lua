@@ -1149,11 +1149,11 @@ local _body_part_layer_raw_flags
 ---@return DFPointer<table<body_part_layer_flags, boolean>>
 function _body_part_layer_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<body_part_layer_flags, boolean> 
+---@param index '#'|integer
+---@param item table<body_part_layer_flags, boolean>
 function _body_part_layer_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_part_layer_raw_flags:erase(index) end
 
 ---@class (exact) body_part_raw: DFStruct
@@ -1197,11 +1197,11 @@ local _body_part_raw_flags
 ---@return DFPointer<table<body_part_raw_flags, boolean>>
 function _body_part_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<body_part_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<body_part_raw_flags, boolean>
 function _body_part_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_part_raw_flags:erase(index) end
 
 ---@class _body_part_raw_layers: DFContainer
@@ -1213,11 +1213,11 @@ local _body_part_raw_layers
 ---@return DFPointer<body_part_layer_raw>
 function _body_part_raw_layers:_field(index) end
 
----@param index integer 
----@param item body_part_layer_raw 
+---@param index '#'|integer
+---@param item body_part_layer_raw
 function _body_part_raw_layers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_part_raw_layers:erase(index) end
 
 ---@class (exact) color_modifier_raw: DFStruct
@@ -1365,11 +1365,11 @@ local _caste_attack_specialattack_mat_state
 ---@return DFPointer<matter_state>
 function _caste_attack_specialattack_mat_state:_field(index) end
 
----@param index integer 
----@param item matter_state 
+---@param index '#'|integer
+---@param item matter_state
 function _caste_attack_specialattack_mat_state:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_attack_specialattack_mat_state:erase(index) end
 
 ---@alias gait_type
@@ -1496,11 +1496,11 @@ local _creature_interaction_usage_hint
 ---@return DFPointer<interaction_source_usage_hint>
 function _creature_interaction_usage_hint:_field(index) end
 
----@param index integer 
----@param item interaction_source_usage_hint 
+---@param index '#'|integer
+---@param item interaction_source_usage_hint
 function _creature_interaction_usage_hint:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_usage_hint:erase(index) end
 
 ---@class _creature_interaction_location_hint: DFContainer
@@ -1512,11 +1512,11 @@ local _creature_interaction_location_hint
 ---@return DFPointer<interaction_effect_location_hint>
 function _creature_interaction_location_hint:_field(index) end
 
----@param index integer 
----@param item interaction_effect_location_hint 
+---@param index '#'|integer
+---@param item interaction_effect_location_hint
 function _creature_interaction_location_hint:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_location_hint:erase(index) end
 
 ---@class creature_interaction.T_flags: DFBitfield
@@ -1546,11 +1546,11 @@ local _creature_interaction_target_flags
 ---@return DFPointer<creature_interaction_target_flags>
 function _creature_interaction_target_flags:_field(index) end
 
----@param index integer 
----@param item creature_interaction_target_flags 
+---@param index '#'|integer
+---@param item creature_interaction_target_flags
 function _creature_interaction_target_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_target_flags:erase(index) end
 
 ---@class _creature_interaction_unk_5: DFContainer
@@ -1562,11 +1562,11 @@ local _creature_interaction_unk_5
 ---@return DFPointer<any[]>
 function _creature_interaction_unk_5:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_unk_5:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_unk_5:erase(index) end
 
 ---@class (exact) caste_body_info: DFStruct
@@ -1603,11 +1603,11 @@ local _caste_body_info_body_parts
 ---@return DFPointer<body_part_raw>
 function _caste_body_info_body_parts:_field(index) end
 
----@param index integer 
----@param item body_part_raw 
+---@param index '#'|integer
+---@param item body_part_raw
 function _caste_body_info_body_parts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_body_info_body_parts:erase(index) end
 
 ---@class _caste_body_info_attacks: DFContainer
@@ -1619,11 +1619,11 @@ local _caste_body_info_attacks
 ---@return DFPointer<caste_attack>
 function _caste_body_info_attacks:_field(index) end
 
----@param index integer 
----@param item caste_attack 
+---@param index '#'|integer
+---@param item caste_attack
 function _caste_body_info_attacks:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_body_info_attacks:erase(index) end
 
 ---@class _caste_body_info_interactions: DFContainer
@@ -1635,11 +1635,11 @@ local _caste_body_info_interactions
 ---@return DFPointer<DFPointer<integer>>
 function _caste_body_info_interactions:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _caste_body_info_interactions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_body_info_interactions:erase(index) end
 
 ---@class _caste_body_info_extra_butcher_objects: DFContainer
@@ -1651,11 +1651,11 @@ local _caste_body_info_extra_butcher_objects
 ---@return DFPointer<DFPointer<integer>>
 function _caste_body_info_extra_butcher_objects:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _caste_body_info_extra_butcher_objects:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_body_info_extra_butcher_objects:erase(index) end
 
 ---@class caste_body_info.T_flags: DFBitfield
@@ -1677,11 +1677,11 @@ local _caste_body_info_gait_info
 ---@return DFPointer<gait_info>
 function _caste_body_info_gait_info:_field(index) end
 
----@param index integer 
----@param item gait_info 
+---@param index '#'|integer
+---@param item gait_info
 function _caste_body_info_gait_info:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_body_info_gait_info:erase(index) end
 
 ---@class (exact) caste_raw: DFStruct
@@ -1836,11 +1836,11 @@ local _caste_raw_flags
 ---@return DFPointer<table<caste_raw_flags, boolean>>
 function _caste_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<caste_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<caste_raw_flags, boolean>
 function _caste_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_flags:erase(index) end
 
 ---@class _caste_raw_caste_speech_1: DFContainer
@@ -1852,11 +1852,11 @@ local _caste_raw_caste_speech_1
 ---@return DFPointer<any[]>
 function _caste_raw_caste_speech_1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _caste_raw_caste_speech_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_caste_speech_1:erase(index) end
 
 ---@class _caste_raw_caste_speech_2: DFContainer
@@ -1868,11 +1868,11 @@ local _caste_raw_caste_speech_2
 ---@return DFPointer<any[]>
 function _caste_raw_caste_speech_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _caste_raw_caste_speech_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_caste_speech_2:erase(index) end
 
 ---@class (exact) caste_raw.T_attributes: DFStruct
@@ -1897,11 +1897,11 @@ local _caste_raw_body_appearance_modifiers
 ---@return DFPointer<body_appearance_modifier>
 function _caste_raw_body_appearance_modifiers:_field(index) end
 
----@param index integer 
----@param item body_appearance_modifier 
+---@param index '#'|integer
+---@param item body_appearance_modifier
 function _caste_raw_body_appearance_modifiers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_body_appearance_modifiers:erase(index) end
 
 ---@class (exact) caste_raw.T_bp_appearance: DFStruct
@@ -1927,11 +1927,11 @@ local _caste_raw_bp_appearance_modifiers
 ---@return DFPointer<bp_appearance_modifier>
 function _caste_raw_bp_appearance_modifiers:_field(index) end
 
----@param index integer 
----@param item bp_appearance_modifier 
+---@param index '#'|integer
+---@param item bp_appearance_modifier
 function _caste_raw_bp_appearance_modifiers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_bp_appearance_modifiers:erase(index) end
 
 ---@class _caste_raw_color_modifiers: DFContainer
@@ -1943,11 +1943,11 @@ local _caste_raw_color_modifiers
 ---@return DFPointer<color_modifier_raw>
 function _caste_raw_color_modifiers:_field(index) end
 
----@param index integer 
----@param item color_modifier_raw 
+---@param index '#'|integer
+---@param item color_modifier_raw
 function _caste_raw_color_modifiers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_color_modifiers:erase(index) end
 
 ---@class _caste_raw_tissue_styles: DFContainer
@@ -1959,11 +1959,11 @@ local _caste_raw_tissue_styles
 ---@return DFPointer<tissue_style_raw>
 function _caste_raw_tissue_styles:_field(index) end
 
----@param index integer 
----@param item tissue_style_raw 
+---@param index '#'|integer
+---@param item tissue_style_raw
 function _caste_raw_tissue_styles:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_tissue_styles:erase(index) end
 
 ---@class _caste_raw_shearable_tissue_layer: DFContainer
@@ -1975,11 +1975,11 @@ local _caste_raw_shearable_tissue_layer
 ---@return DFPointer<DFPointer<integer>>
 function _caste_raw_shearable_tissue_layer:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _caste_raw_shearable_tissue_layer:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_shearable_tissue_layer:erase(index) end
 
 ---@class _caste_raw_natural_skill_id: DFContainer
@@ -1991,11 +1991,11 @@ local _caste_raw_natural_skill_id
 ---@return DFPointer<job_skill>
 function _caste_raw_natural_skill_id:_field(index) end
 
----@param index integer 
----@param item job_skill 
+---@param index '#'|integer
+---@param item job_skill
 function _caste_raw_natural_skill_id:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_natural_skill_id:erase(index) end
 
 ---@class _caste_raw_natural_skill_lvl: DFContainer
@@ -2007,11 +2007,11 @@ local _caste_raw_natural_skill_lvl
 ---@return DFPointer<skill_rating>
 function _caste_raw_natural_skill_lvl:_field(index) end
 
----@param index integer 
----@param item skill_rating 
+---@param index '#'|integer
+---@param item skill_rating
 function _caste_raw_natural_skill_lvl:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_natural_skill_lvl:erase(index) end
 
 ---@class (exact) caste_raw.T_caste_profession_name: DFStruct
@@ -2076,11 +2076,11 @@ local _caste_raw_extracts_lays_unusual_eggs_itemtype
 ---@return DFPointer<item_type>
 function _caste_raw_extracts_lays_unusual_eggs_itemtype:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _caste_raw_extracts_lays_unusual_eggs_itemtype:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_extracts_lays_unusual_eggs_itemtype:erase(index) end
 
 ---@class _caste_raw_secretion: DFContainer
@@ -2092,11 +2092,11 @@ local _caste_raw_secretion
 ---@return DFPointer<DFPointer<integer>>
 function _caste_raw_secretion:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _caste_raw_secretion:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_secretion:erase(index) end
 
 ---@class (exact) caste_raw.T_unknown2: DFStruct
@@ -2139,11 +2139,11 @@ local _caste_raw_unknown2_unk24_flags
 ---@return DFPointer<table<integer, boolean>>
 function _caste_raw_unknown2_unk24_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _caste_raw_unknown2_unk24_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_unknown2_unk24_flags:erase(index) end
 
 ---@class _caste_raw_unknown2_unk25_flags: DFContainer
@@ -2155,11 +2155,11 @@ local _caste_raw_unknown2_unk25_flags
 ---@return DFPointer<table<integer, boolean>>
 function _caste_raw_unknown2_unk25_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _caste_raw_unknown2_unk25_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_unknown2_unk25_flags:erase(index) end
 
 ---@class (exact) caste_raw.T_lair_hunter_speech: DFStruct
@@ -2180,11 +2180,11 @@ local _caste_raw_lair_hunter_speech_unk_2
 ---@return DFPointer<any[]>
 function _caste_raw_lair_hunter_speech_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _caste_raw_lair_hunter_speech_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_lair_hunter_speech_unk_2:erase(index) end
 
 ---@class (exact) caste_raw.T_unk29: DFStruct
@@ -2205,11 +2205,11 @@ local _caste_raw_unk29_unk_1
 ---@return DFPointer<any[]>
 function _caste_raw_unk29_unk_1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _caste_raw_unk29_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_unk29_unk_1:erase(index) end
 
 ---@class _caste_raw_sound: DFContainer
@@ -2221,11 +2221,11 @@ local _caste_raw_sound
 ---@return DFPointer<DFPointer<integer>>
 function _caste_raw_sound:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _caste_raw_sound:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_sound:erase(index) end
 
 ---@class _caste_raw_unk_1: DFContainer
@@ -2237,11 +2237,11 @@ local _caste_raw_unk_1
 ---@return DFPointer<DFPointer<integer>>
 function _caste_raw_unk_1:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _caste_raw_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _caste_raw_unk_1:erase(index) end
 
 ---@alias creature_graphics_role
@@ -2336,11 +2336,11 @@ local _tissue_style_raw_styles
 ---@return DFPointer<tissue_style_type>
 function _tissue_style_raw_styles:_field(index) end
 
----@param index integer 
----@param item tissue_style_type 
+---@param index '#'|integer
+---@param item tissue_style_type
 function _tissue_style_raw_styles:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _tissue_style_raw_styles:erase(index) end
 
 ---@class (exact) creature_raw: DFStruct
@@ -2408,11 +2408,11 @@ local _creature_raw_caste
 ---@return DFPointer<caste_raw>
 function _creature_raw_caste:_field(index) end
 
----@param index integer 
----@param item caste_raw 
+---@param index '#'|integer
+---@param item caste_raw
 function _creature_raw_caste:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_raw_caste:erase(index) end
 
 ---@class _creature_raw_flags: DFContainer
@@ -2424,11 +2424,11 @@ local _creature_raw_flags
 ---@return DFPointer<table<creature_raw_flags, boolean>>
 function _creature_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<creature_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<creature_raw_flags, boolean>
 function _creature_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_raw_flags:erase(index) end
 
 ---@class _creature_raw_material: DFContainer
@@ -2440,11 +2440,11 @@ local _creature_raw_material
 ---@return DFPointer<material>
 function _creature_raw_material:_field(index) end
 
----@param index integer 
----@param item material 
+---@param index '#'|integer
+---@param item material
 function _creature_raw_material:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_raw_material:erase(index) end
 
 ---@class _creature_raw_tissue: DFContainer
@@ -2456,11 +2456,11 @@ local _creature_raw_tissue
 ---@return DFPointer<tissue>
 function _creature_raw_tissue:_field(index) end
 
----@param index integer 
----@param item tissue 
+---@param index '#'|integer
+---@param item tissue
 function _creature_raw_tissue:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_raw_tissue:erase(index) end
 
 ---@class (exact) creature_raw.T_profession_name: DFStruct
@@ -2498,11 +2498,11 @@ local _creature_raw_hive_product_item_type
 ---@return DFPointer<item_type>
 function _creature_raw_hive_product_item_type:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _creature_raw_hive_product_item_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_raw_hive_product_item_type:erase(index) end
 
 ---@class (exact) creature_variation_convert_tag: DFStruct
@@ -2550,11 +2550,11 @@ local _creature_variation_cv_convert_tag
 ---@return DFPointer<creature_variation_convert_tag>
 function _creature_variation_cv_convert_tag:_field(index) end
 
----@param index integer 
----@param item creature_variation_convert_tag 
+---@param index '#'|integer
+---@param item creature_variation_convert_tag
 function _creature_variation_cv_convert_tag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_variation_cv_convert_tag:erase(index) end
 
 ---@alias body_part_template_flags
@@ -2710,11 +2710,11 @@ local _body_part_template_flags
 ---@return DFPointer<table<body_part_template_flags, boolean>>
 function _body_part_template_flags:_field(index) end
 
----@param index integer 
----@param item table<body_part_template_flags, boolean> 
+---@param index '#'|integer
+---@param item table<body_part_template_flags, boolean>
 function _body_part_template_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_part_template_flags:erase(index) end
 
 ---@class (exact) body_template: DFStruct
@@ -2744,11 +2744,11 @@ local _body_template_parts
 ---@return DFPointer<body_part_template>
 function _body_template_parts:_field(index) end
 
----@param index integer 
----@param item body_part_template 
+---@param index '#'|integer
+---@param item body_part_template
 function _body_template_parts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_template_parts:erase(index) end
 
 ---@alias tissue_flags
@@ -2864,11 +2864,11 @@ local _tissue_template_flags
 ---@return DFPointer<table<tissue_flags, boolean>>
 function _tissue_template_flags:_field(index) end
 
----@param index integer 
----@param item table<tissue_flags, boolean> 
+---@param index '#'|integer
+---@param item table<tissue_flags, boolean>
 function _tissue_template_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _tissue_template_flags:erase(index) end
 
 ---@class (exact) tissue: DFStruct
@@ -2911,11 +2911,11 @@ local _tissue_flags
 ---@return DFPointer<table<tissue_flags, boolean>>
 function _tissue_flags:_field(index) end
 
----@param index integer 
----@param item table<tissue_flags, boolean> 
+---@param index '#'|integer
+---@param item table<tissue_flags, boolean>
 function _tissue_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _tissue_flags:erase(index) end
 
 ---@class (exact) body_detail_plan: DFStruct

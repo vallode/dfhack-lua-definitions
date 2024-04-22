@@ -191,11 +191,11 @@ local _widget_custom_feed
 ---@return DFPointer<function[]>
 function _widget_custom_feed:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_custom_feed:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_custom_feed:erase(index) end
 
 ---@class _widget_custom_logic: DFContainer
@@ -207,11 +207,11 @@ local _widget_custom_logic
 ---@return DFPointer<function[]>
 function _widget_custom_logic:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_custom_logic:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_custom_logic:erase(index) end
 
 ---@class _widget_custom_render: DFContainer
@@ -223,11 +223,11 @@ local _widget_custom_render
 ---@return DFPointer<function[]>
 function _widget_custom_render:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_custom_render:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_custom_render:erase(index) end
 
 ---@class _widget_custom_activated: DFContainer
@@ -239,11 +239,11 @@ local _widget_custom_activated
 ---@return DFPointer<function[]>
 function _widget_custom_activated:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_custom_activated:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_custom_activated:erase(index) end
 
 ---@class widget.T_visibility_flags: DFBitfield
@@ -273,11 +273,11 @@ local _widget_tooltip
 ---@return DFPointer<any[]>
 function _widget_tooltip:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_tooltip:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_tooltip:erase(index) end
 
 ---@alias widget.T_tooltip_type
@@ -306,11 +306,11 @@ local _widget_activation_hotkeys
 ---@return DFPointer<interface_key>
 function _widget_activation_hotkeys:_field(index) end
 
----@param index integer 
----@param item interface_key 
+---@param index '#'|integer
+---@param item interface_key
 function _widget_activation_hotkeys:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_activation_hotkeys:erase(index) end
 
 ---@class (exact) widget_character: DFStruct, widget
@@ -443,11 +443,11 @@ local _widget_graphics_switcher_graphics_widget
 ---@return DFPointer<widget>
 function _widget_graphics_switcher_graphics_widget:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_graphics_switcher_graphics_widget:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_graphics_switcher_graphics_widget:erase(index) end
 
 ---@class _widget_graphics_switcher_ascii_widget: DFContainer
@@ -459,11 +459,11 @@ local _widget_graphics_switcher_ascii_widget
 ---@return DFPointer<widget>
 function _widget_graphics_switcher_ascii_widget:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_graphics_switcher_ascii_widget:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_graphics_switcher_ascii_widget:erase(index) end
 
 ---@class (exact) widget_menu: DFStruct, widget
@@ -487,11 +487,11 @@ local _widget_menu_lines
 ---@return DFPointer<any[]>
 function _widget_menu_lines:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_menu_lines:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_menu_lines:erase(index) end
 
 ---@class _widget_menu_colors: DFContainer
@@ -503,11 +503,11 @@ local _widget_menu_colors
 ---@return DFPointer<any[]>
 function _widget_menu_colors:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_menu_colors:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_menu_colors:erase(index) end
 
 -- bay12: TextboxType
@@ -550,11 +550,11 @@ local _widget_textbox_callback
 ---@return DFPointer<function[]>
 function _widget_textbox_callback:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_textbox_callback:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_textbox_callback:erase(index) end
 
 ---@class (exact) widget_dropdown: DFStruct, widget
@@ -577,11 +577,11 @@ local _widget_dropdown_callback
 ---@return DFPointer<function[]>
 function _widget_dropdown_callback:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_dropdown_callback:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_dropdown_callback:erase(index) end
 
 ---@class (exact) widget_folder: DFStruct, widget
@@ -603,11 +603,11 @@ local _widget_folder_controlled_set
 ---@return DFPointer<any[]>
 function _widget_folder_controlled_set:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_folder_controlled_set:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_folder_controlled_set:erase(index) end
 
 ---@class (exact) filter_entry: DFStruct
@@ -628,11 +628,11 @@ local _filter_entry_label
 ---@return DFPointer<widget_text>
 function _filter_entry_label:_field(index) end
 
----@param index integer 
----@param item widget_text 
+---@param index '#'|integer
+---@param item widget_text
 function _filter_entry_label:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _filter_entry_label:erase(index) end
 
 ---@class _filter_entry_filtered_set: DFContainer
@@ -644,11 +644,11 @@ local _filter_entry_filtered_set
 ---@return DFPointer<any[]>
 function _filter_entry_filtered_set:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _filter_entry_filtered_set:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _filter_entry_filtered_set:erase(index) end
 
 ---@class (exact) widget_filter: DFStruct, widget
@@ -675,11 +675,11 @@ local _widget_filter_filters
 ---@return DFPointer<filter_entry>
 function _widget_filter_filters:_field(index) end
 
----@param index integer 
----@param item filter_entry 
+---@param index '#'|integer
+---@param item filter_entry
 function _widget_filter_filters:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_filter_filters:erase(index) end
 
 ---@class _widget_filter_container_parent: DFContainer
@@ -691,11 +691,11 @@ local _widget_filter_container_parent
 ---@return DFPointer<widget_container>
 function _widget_filter_container_parent:_field(index) end
 
----@param index integer 
----@param item widget_container 
+---@param index '#'|integer
+---@param item widget_container
 function _widget_filter_container_parent:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_filter_container_parent:erase(index) end
 
 ---@class (exact) indiv_filter: DFStruct, widget_filter
@@ -723,11 +723,11 @@ local _multifilter_filters
 ---@return DFPointer<indiv_filter>
 function _multifilter_filters:_field(index) end
 
----@param index integer 
----@param item indiv_filter 
+---@param index '#'|integer
+---@param item indiv_filter
 function _multifilter_filters:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _multifilter_filters:erase(index) end
 
 ---@class _multifilter_filters_indiv_filter: DFContainer
@@ -739,11 +739,11 @@ local _multifilter_filters_indiv_filter
 ---@return DFPointer<indiv_filter>
 function _multifilter_filters_indiv_filter:_field(index) end
 
----@param index integer 
----@param item indiv_filter 
+---@param index '#'|integer
+---@param item indiv_filter
 function _multifilter_filters_indiv_filter:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _multifilter_filters_indiv_filter:erase(index) end
 
 ---@class _multifilter_container_parent: DFContainer
@@ -755,11 +755,11 @@ local _multifilter_container_parent
 ---@return DFPointer<widget_container>
 function _multifilter_container_parent:_field(index) end
 
----@param index integer 
----@param item widget_container 
+---@param index '#'|integer
+---@param item widget_container
 function _multifilter_container_parent:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _multifilter_container_parent:erase(index) end
 
 ---@class (exact) widget_interface_main_button: DFStruct, widget
@@ -806,11 +806,11 @@ local _widget_better_button_callback
 ---@return DFPointer<function[]>
 function _widget_better_button_callback:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_better_button_callback:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_better_button_callback:erase(index) end
 
 ---@class (exact) widget_container: DFStruct, widget
@@ -831,11 +831,11 @@ local _widget_container_children_by_name
 ---@return DFPointer<any[]>
 function _widget_container_children_by_name:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_container_children_by_name:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_container_children_by_name:erase(index) end
 
 ---@class _widget_container_children: DFContainer
@@ -847,11 +847,11 @@ local _widget_container_children
 ---@return DFPointer<widget>
 function _widget_container_children:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_container_children:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_container_children:erase(index) end
 
 ---@class _widget_container_children_widget: DFContainer
@@ -863,11 +863,11 @@ local _widget_container_children_widget
 ---@return DFPointer<widget>
 function _widget_container_children_widget:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_container_children_widget:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_container_children_widget:erase(index) end
 
 ---@class (exact) widget_stack: DFStruct, widget_container
@@ -888,11 +888,11 @@ local _widget_stack_deferred_replacement
 ---@return DFPointer<widget>
 function _widget_stack_deferred_replacement:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_stack_deferred_replacement:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_stack_deferred_replacement:erase(index) end
 
 ---@class (exact) widget_rows_container: DFStruct, widget_container
@@ -931,11 +931,11 @@ local _widget_tabs_rows
 ---@return DFPointer<any[]>
 function _widget_tabs_rows:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_tabs_rows:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_tabs_rows:erase(index) end
 
 ---@alias widget_tabs.T_tab_type
@@ -986,11 +986,11 @@ local _widget_radio_rows_select_callback
 ---@return DFPointer<any[]>
 function _widget_radio_rows_select_callback:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_radio_rows_select_callback:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_radio_rows_select_callback:erase(index) end
 
 ---@class (exact) widget_table: DFStruct, widget_container
@@ -1015,11 +1015,11 @@ local _widget_table_labels
 ---@return DFPointer<widget_columns_container>
 function _widget_table_labels:_field(index) end
 
----@param index integer 
----@param item widget_columns_container 
+---@param index '#'|integer
+---@param item widget_columns_container
 function _widget_table_labels:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_table_labels:erase(index) end
 
 ---@class _widget_table_entries: DFContainer
@@ -1031,11 +1031,11 @@ local _widget_table_entries
 ---@return DFPointer<widget_scroll_rows>
 function _widget_table_entries:_field(index) end
 
----@param index integer 
----@param item widget_scroll_rows 
+---@param index '#'|integer
+---@param item widget_scroll_rows
 function _widget_table_entries:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_table_entries:erase(index) end
 
 ---@class _widget_table_key_display: DFContainer
@@ -1047,11 +1047,11 @@ local _widget_table_key_display
 ---@return DFPointer<widget>
 function _widget_table_key_display:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_table_key_display:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_table_key_display:erase(index) end
 
 ---@class (exact) widget_params_container: DFStruct, widget_container
@@ -1072,11 +1072,11 @@ local _widget_params_container_text
 ---@return DFPointer<widget_text>
 function _widget_params_container_text:_field(index) end
 
----@param index integer 
----@param item widget_text 
+---@param index '#'|integer
+---@param item widget_text
 function _widget_params_container_text:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_params_container_text:erase(index) end
 
 ---@class _widget_params_container_param: DFContainer
@@ -1088,11 +1088,11 @@ local _widget_params_container_param
 ---@return DFPointer<world_gen_param_valuest>
 function _widget_params_container_param:_field(index) end
 
----@param index integer 
----@param item world_gen_param_valuest 
+---@param index '#'|integer
+---@param item world_gen_param_valuest
 function _widget_params_container_param:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_params_container_param:erase(index) end
 
 ---@class (exact) widget_report_popup: DFStruct, widget
@@ -1119,11 +1119,11 @@ local _widget_report_popup_texts
 ---@return DFPointer<widget_scroll_rows>
 function _widget_report_popup_texts:_field(index) end
 
----@param index integer 
----@param item widget_scroll_rows 
+---@param index '#'|integer
+---@param item widget_scroll_rows
 function _widget_report_popup_texts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_report_popup_texts:erase(index) end
 
 ---@class _widget_report_popup_pause_button: DFContainer
@@ -1135,11 +1135,11 @@ local _widget_report_popup_pause_button
 ---@return DFPointer<widget_better_button>
 function _widget_report_popup_pause_button:_field(index) end
 
----@param index integer 
----@param item widget_better_button 
+---@param index '#'|integer
+---@param item widget_better_button
 function _widget_report_popup_pause_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_report_popup_pause_button:erase(index) end
 
 ---@class _widget_report_popup_explanation: DFContainer
@@ -1151,11 +1151,11 @@ local _widget_report_popup_explanation
 ---@return DFPointer<widget_text_multiline>
 function _widget_report_popup_explanation:_field(index) end
 
----@param index integer 
----@param item widget_text_multiline 
+---@param index '#'|integer
+---@param item widget_text_multiline
 function _widget_report_popup_explanation:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_report_popup_explanation:erase(index) end
 
 ---@class (exact) widget_recenter_button: DFStruct, widget
@@ -1387,11 +1387,11 @@ local _widget_unit_list_deferred_units_builds
 ---@return DFPointer<widget_unit_list.T_deferred_units_builds>
 function _widget_unit_list_deferred_units_builds:_field(index) end
 
----@param index integer 
----@param item widget_unit_list.T_deferred_units_builds 
+---@param index '#'|integer
+---@param item widget_unit_list.T_deferred_units_builds
 function _widget_unit_list_deferred_units_builds:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_deferred_units_builds:erase(index) end
 
 ---@class (exact) widget_unit_list.T_deferred_units_builds: DFStruct
@@ -1410,11 +1410,11 @@ local _widget_unit_list_deferred_units_builds_widget_container
 ---@return DFPointer<widget_container>
 function _widget_unit_list_deferred_units_builds_widget_container:_field(index) end
 
----@param index integer 
----@param item widget_container 
+---@param index '#'|integer
+---@param item widget_container
 function _widget_unit_list_deferred_units_builds_widget_container:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_deferred_units_builds_widget_container:erase(index) end
 
 ---@class _widget_unit_list_no_unit_entry: DFContainer
@@ -1426,11 +1426,11 @@ local _widget_unit_list_no_unit_entry
 ---@return DFPointer<widget>
 function _widget_unit_list_no_unit_entry:_field(index) end
 
----@param index integer 
----@param item widget 
+---@param index '#'|integer
+---@param item widget
 function _widget_unit_list_no_unit_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_no_unit_entry:erase(index) end
 
 ---@class _widget_unit_list_sorting_by: DFContainer
@@ -1442,11 +1442,11 @@ local _widget_unit_list_sorting_by
 ---@return DFPointer<sort_entry>
 function _widget_unit_list_sorting_by:_field(index) end
 
----@param index integer 
----@param item sort_entry 
+---@param index '#'|integer
+---@param item sort_entry
 function _widget_unit_list_sorting_by:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_sorting_by:erase(index) end
 
 ---@class _widget_unit_list_ascending_sort: DFContainer
@@ -1458,11 +1458,11 @@ local _widget_unit_list_ascending_sort
 ---@return DFPointer<any[]>
 function _widget_unit_list_ascending_sort:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_unit_list_ascending_sort:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_ascending_sort:erase(index) end
 
 ---@class _widget_unit_list_preprocess_unit_func: DFContainer
@@ -1474,11 +1474,11 @@ local _widget_unit_list_preprocess_unit_func
 ---@return DFPointer<function[]>
 function _widget_unit_list_preprocess_unit_func:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_preprocess_unit_func:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_preprocess_unit_func:erase(index) end
 
 ---@class _widget_unit_list_postprocess_unit_func: DFContainer
@@ -1490,11 +1490,11 @@ local _widget_unit_list_postprocess_unit_func
 ---@return DFPointer<function[]>
 function _widget_unit_list_postprocess_unit_func:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_postprocess_unit_func:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_postprocess_unit_func:erase(index) end
 
 ---@class _widget_unit_list_preprocess_item_func: DFContainer
@@ -1506,11 +1506,11 @@ local _widget_unit_list_preprocess_item_func
 ---@return DFPointer<function[]>
 function _widget_unit_list_preprocess_item_func:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_preprocess_item_func:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_preprocess_item_func:erase(index) end
 
 ---@class _widget_unit_list_postprocess_item_func: DFContainer
@@ -1522,11 +1522,11 @@ local _widget_unit_list_postprocess_item_func
 ---@return DFPointer<function[]>
 function _widget_unit_list_postprocess_item_func:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_postprocess_item_func:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_postprocess_item_func:erase(index) end
 
 ---@class _widget_unit_list_close_callback: DFContainer
@@ -1538,11 +1538,11 @@ local _widget_unit_list_close_callback
 ---@return DFPointer<function[]>
 function _widget_unit_list_close_callback:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_close_callback:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_close_callback:erase(index) end
 
 ---@class _widget_unit_list_options: DFContainer
@@ -1554,11 +1554,11 @@ local _widget_unit_list_options
 ---@return DFPointer<unit_list_options>
 function _widget_unit_list_options:_field(index) end
 
----@param index integer 
----@param item unit_list_options 
+---@param index '#'|integer
+---@param item unit_list_options
 function _widget_unit_list_options:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_options:erase(index) end
 
 ---@class _widget_unit_list_entry_list: DFContainer
@@ -1570,11 +1570,11 @@ local _widget_unit_list_entry_list
 ---@return DFPointer<item_or_unit>
 function _widget_unit_list_entry_list:_field(index) end
 
----@param index integer 
----@param item item_or_unit 
+---@param index '#'|integer
+---@param item item_or_unit
 function _widget_unit_list_entry_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_entry_list:erase(index) end
 
 ---@class _widget_unit_list_selected: DFContainer
@@ -1586,11 +1586,11 @@ local _widget_unit_list_selected
 ---@return DFPointer<any[]>
 function _widget_unit_list_selected:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _widget_unit_list_selected:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_selected:erase(index) end
 
 ---@class _widget_unit_list_is_selected: DFContainer
@@ -1602,11 +1602,11 @@ local _widget_unit_list_is_selected
 ---@return DFPointer<function[]>
 function _widget_unit_list_is_selected:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_is_selected:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_is_selected:erase(index) end
 
 ---@class _widget_unit_list_on_select_change: DFContainer
@@ -1618,11 +1618,11 @@ local _widget_unit_list_on_select_change
 ---@return DFPointer<function[]>
 function _widget_unit_list_on_select_change:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _widget_unit_list_on_select_change:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _widget_unit_list_on_select_change:erase(index) end
 
 -- template<T, Entry>
@@ -2098,11 +2098,11 @@ local _viewscreen_choose_start_sitest_def_candidate
 ---@return DFPointer<historical_entity>
 function _viewscreen_choose_start_sitest_def_candidate:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _viewscreen_choose_start_sitest_def_candidate:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_choose_start_sitest_def_candidate:erase(index) end
 
 ---@class _viewscreen_choose_start_sitest_def_candidate_nearst: DFContainer
@@ -2114,11 +2114,11 @@ local _viewscreen_choose_start_sitest_def_candidate_nearst
 ---@return DFPointer<world_site>
 function _viewscreen_choose_start_sitest_def_candidate_nearst:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _viewscreen_choose_start_sitest_def_candidate_nearst:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_choose_start_sitest_def_candidate_nearst:erase(index) end
 
 ---@class viewscreen_choose_start_sitest.T_warn_flags: DFBitfield
@@ -2176,11 +2176,11 @@ local _viewscreen_choose_start_sitest_start_civ
 ---@return DFPointer<historical_entity>
 function _viewscreen_choose_start_sitest_start_civ:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _viewscreen_choose_start_sitest_start_civ:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_choose_start_sitest_start_civ:erase(index) end
 
 ---@alias viewscreen_choose_start_sitest.T_find_results
@@ -2299,11 +2299,11 @@ local _viewscreen_dwarfmodest_unit_labors_sidemenu
 ---@return DFPointer<unit_labor>
 function _viewscreen_dwarfmodest_unit_labors_sidemenu:_field(index) end
 
----@param index integer 
----@param item unit_labor 
+---@param index '#'|integer
+---@param item unit_labor
 function _viewscreen_dwarfmodest_unit_labors_sidemenu:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_dwarfmodest_unit_labors_sidemenu:erase(index) end
 
 ---@class _viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel: DFContainer
@@ -2315,11 +2315,11 @@ local _viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel
 ---@return DFPointer<unit_labor>
 function _viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel:_field(index) end
 
----@param index integer 
----@param item unit_labor 
+---@param index '#'|integer
+---@param item unit_labor
 function _viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel:erase(index) end
 
 ---@class _viewscreen_dwarfmodest_trained_animals: DFContainer
@@ -2331,11 +2331,11 @@ local _viewscreen_dwarfmodest_trained_animals
 ---@return DFPointer<unit>
 function _viewscreen_dwarfmodest_trained_animals:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _viewscreen_dwarfmodest_trained_animals:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_dwarfmodest_trained_animals:erase(index) end
 
 ---@class (exact) viewscreen_export_regionst: DFStruct, viewscreen
@@ -2496,11 +2496,11 @@ local _viewscreen_export_regionst_units_progress_units
 ---@return DFPointer<unit>
 function _viewscreen_export_regionst_units_progress_units:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _viewscreen_export_regionst_units_progress_units:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_export_regionst_units_progress_units:erase(index) end
 
 ---@class (exact) viewscreen_game_cleanerst: DFStruct, viewscreen
@@ -2770,11 +2770,11 @@ local _viewscreen_legendsst_region_snapshot
 ---@return DFPointer<DFPointer<integer>>
 function _viewscreen_legendsst_region_snapshot:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _viewscreen_legendsst_region_snapshot:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_legendsst_region_snapshot:erase(index) end
 
 ---@class _viewscreen_legendsst_page: DFContainer
@@ -2786,11 +2786,11 @@ local _viewscreen_legendsst_page
 ---@return DFPointer<legend_pagest>
 function _viewscreen_legendsst_page:_field(index) end
 
----@param index integer 
----@param item legend_pagest 
+---@param index '#'|integer
+---@param item legend_pagest
 function _viewscreen_legendsst_page:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_legendsst_page:erase(index) end
 
 ---@class (exact) savegame_headerst: DFStruct
@@ -2924,11 +2924,11 @@ local _region_object_datast_batch
 ---@return DFPointer<random_object_batchst>
 function _region_object_datast_batch:_field(index) end
 
----@param index integer 
----@param item random_object_batchst 
+---@param index '#'|integer
+---@param item random_object_batchst
 function _region_object_datast_batch:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_batch:erase(index) end
 
 ---@class _region_object_datast_custom_inorganic: DFContainer
@@ -2940,11 +2940,11 @@ local _region_object_datast_custom_inorganic
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_custom_inorganic:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_custom_inorganic:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_custom_inorganic:erase(index) end
 
 ---@class _region_object_datast_generated_plants: DFContainer
@@ -2956,11 +2956,11 @@ local _region_object_datast_generated_plants
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_plants:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_plants:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_plants:erase(index) end
 
 ---@class _region_object_datast_generated_items: DFContainer
@@ -2972,11 +2972,11 @@ local _region_object_datast_generated_items
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_items:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_items:erase(index) end
 
 ---@class _region_object_datast_generated_creatures: DFContainer
@@ -2988,11 +2988,11 @@ local _region_object_datast_generated_creatures
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_creatures:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_creatures:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_creatures:erase(index) end
 
 ---@class _region_object_datast_generated_entities: DFContainer
@@ -3004,11 +3004,11 @@ local _region_object_datast_generated_entities
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_entities:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_entities:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_entities:erase(index) end
 
 ---@class _region_object_datast_generated_reactions: DFContainer
@@ -3020,11 +3020,11 @@ local _region_object_datast_generated_reactions
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_reactions:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_reactions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_reactions:erase(index) end
 
 ---@class _region_object_datast_generated_interactions: DFContainer
@@ -3036,11 +3036,11 @@ local _region_object_datast_generated_interactions
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_interactions:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_interactions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_interactions:erase(index) end
 
 ---@class _region_object_datast_generated_languages: DFContainer
@@ -3052,11 +3052,11 @@ local _region_object_datast_generated_languages
 ---@return DFPointer<DFPointer<integer>>
 function _region_object_datast_generated_languages:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _region_object_datast_generated_languages:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_object_datast_generated_languages:erase(index) end
 
 ---@class (exact) viewscreen_loadgamest: DFStruct, viewscreen
@@ -3451,11 +3451,11 @@ local _viewscreen_new_regionst_worldgen_presets
 ---@return DFPointer<worldgen_parms>
 function _viewscreen_new_regionst_worldgen_presets:_field(index) end
 
----@param index integer 
----@param item worldgen_parms 
+---@param index '#'|integer
+---@param item worldgen_parms
 function _viewscreen_new_regionst_worldgen_presets:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_regionst_worldgen_presets:erase(index) end
 
 ---@class _viewscreen_new_regionst_member: DFContainer
@@ -3467,11 +3467,11 @@ local _viewscreen_new_regionst_member
 ---@return DFPointer<world_gen_param_basest>
 function _viewscreen_new_regionst_member:_field(index) end
 
----@param index integer 
----@param item world_gen_param_basest 
+---@param index '#'|integer
+---@param item world_gen_param_basest
 function _viewscreen_new_regionst_member:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_regionst_member:erase(index) end
 
 ---@class _viewscreen_new_regionst_base_available_mod_header: DFContainer
@@ -3483,11 +3483,11 @@ local _viewscreen_new_regionst_base_available_mod_header
 ---@return DFPointer<mod_headerst>
 function _viewscreen_new_regionst_base_available_mod_header:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _viewscreen_new_regionst_base_available_mod_header:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_regionst_base_available_mod_header:erase(index) end
 
 ---@class _viewscreen_new_regionst_object_load_order_mod_header: DFContainer
@@ -3499,11 +3499,11 @@ local _viewscreen_new_regionst_object_load_order_mod_header
 ---@return DFPointer<mod_headerst>
 function _viewscreen_new_regionst_object_load_order_mod_header:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _viewscreen_new_regionst_object_load_order_mod_header:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_regionst_object_load_order_mod_header:erase(index) end
 
 ---@class _viewscreen_new_regionst_available_mod_header: DFContainer
@@ -3515,11 +3515,11 @@ local _viewscreen_new_regionst_available_mod_header
 ---@return DFPointer<mod_headerst>
 function _viewscreen_new_regionst_available_mod_header:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _viewscreen_new_regionst_available_mod_header:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_regionst_available_mod_header:erase(index) end
 
 ---@class (exact) nemesis_offload: DFStruct
@@ -3544,11 +3544,11 @@ local _nemesis_offload_units
 ---@return DFPointer<unit>
 function _nemesis_offload_units:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _nemesis_offload_units:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _nemesis_offload_units:erase(index) end
 
 ---@class (exact) viewscreen_savegamest: DFStruct, viewscreen
@@ -3928,11 +3928,11 @@ local _setup_character_info_posskill
 ---@return DFPointer<job_skill>
 function _setup_character_info_posskill:_field(index) end
 
----@param index integer 
----@param item job_skill 
+---@param index '#'|integer
+---@param item job_skill
 function _setup_character_info_posskill:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _setup_character_info_posskill:erase(index) end
 
 ---@class _setup_character_info_goodsite: DFContainer
@@ -3944,11 +3944,11 @@ local _setup_character_info_goodsite
 ---@return DFPointer<world_site>
 function _setup_character_info_goodsite:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _setup_character_info_goodsite:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _setup_character_info_goodsite:erase(index) end
 
 ---@class _setup_character_info_background_option: DFContainer
@@ -3960,11 +3960,11 @@ local _setup_character_info_background_option
 ---@return DFPointer<adv_background_option_type>
 function _setup_character_info_background_option:_field(index) end
 
----@param index integer 
----@param item adv_background_option_type 
+---@param index '#'|integer
+---@param item adv_background_option_type
 function _setup_character_info_background_option:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _setup_character_info_background_option:erase(index) end
 
 ---@class _setup_character_info_s_item: DFContainer
@@ -3976,11 +3976,11 @@ local _setup_character_info_s_item
 ---@return DFPointer<item_actual>
 function _setup_character_info_s_item:_field(index) end
 
----@param index integer 
----@param item item_actual 
+---@param index '#'|integer
+---@param item item_actual
 function _setup_character_info_s_item:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _setup_character_info_s_item:erase(index) end
 
 ---@class _setup_character_info_pet: DFContainer
@@ -3992,11 +3992,11 @@ local _setup_character_info_pet
 ---@return DFPointer<startup_charactersheet_petst>
 function _setup_character_info_pet:_field(index) end
 
----@param index integer 
----@param item startup_charactersheet_petst 
+---@param index '#'|integer
+---@param item startup_charactersheet_petst
 function _setup_character_info_pet:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _setup_character_info_pet:erase(index) end
 
 ---@class (exact) embark_item_choice: DFStruct
@@ -4019,11 +4019,11 @@ local _embark_item_choice_list
 ---@return DFPointer<DFPointer<integer>>
 function _embark_item_choice_list:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _embark_item_choice_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_item_choice_list:erase(index) end
 
 ---@class _embark_item_choice_profession: DFContainer
@@ -4035,11 +4035,11 @@ local _embark_item_choice_profession
 ---@return DFPointer<profession>
 function _embark_item_choice_profession:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _embark_item_choice_profession:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_item_choice_profession:erase(index) end
 
 ---@class (exact) embark_profile: DFStruct
@@ -4074,11 +4074,11 @@ local _embark_profile_reclaim_prof1
 ---@return DFPointer<profession>
 function _embark_profile_reclaim_prof1:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _embark_profile_reclaim_prof1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_profile_reclaim_prof1:erase(index) end
 
 ---@class _embark_profile_reclaim_prof2: DFContainer
@@ -4090,11 +4090,11 @@ local _embark_profile_reclaim_prof2
 ---@return DFPointer<profession>
 function _embark_profile_reclaim_prof2:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _embark_profile_reclaim_prof2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_profile_reclaim_prof2:erase(index) end
 
 ---@class _embark_profile_pet_profession: DFContainer
@@ -4106,11 +4106,11 @@ local _embark_profile_pet_profession
 ---@return DFPointer<profession>
 function _embark_profile_pet_profession:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _embark_profile_pet_profession:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_profile_pet_profession:erase(index) end
 
 ---@class (exact) embark_symbol: DFStruct
@@ -4135,11 +4135,11 @@ local _embark_symbol_unk_v43_1
 ---@return DFPointer<any[]>
 function _embark_symbol_unk_v43_1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _embark_symbol_unk_v43_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_symbol_unk_v43_1:erase(index) end
 
 ---@class _embark_symbol_unk_v43_2: DFContainer
@@ -4151,11 +4151,11 @@ local _embark_symbol_unk_v43_2
 ---@return DFPointer<any[]>
 function _embark_symbol_unk_v43_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _embark_symbol_unk_v43_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _embark_symbol_unk_v43_2:erase(index) end
 
 ---@class (exact) embark_symbol.T_unk_v43_sub9: DFStruct
@@ -4257,11 +4257,11 @@ local _viewscreen_setupdwarfgamest_dwarf_info
 ---@return DFPointer<setup_character_info>
 function _viewscreen_setupdwarfgamest_dwarf_info:_field(index) end
 
----@param index integer 
----@param item setup_character_info 
+---@param index '#'|integer
+---@param item setup_character_info
 function _viewscreen_setupdwarfgamest_dwarf_info:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_dwarf_info:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_embark_skills_job_skill: DFContainer
@@ -4273,11 +4273,11 @@ local _viewscreen_setupdwarfgamest_embark_skills_job_skill
 ---@return DFPointer<job_skill>
 function _viewscreen_setupdwarfgamest_embark_skills_job_skill:_field(index) end
 
----@param index integer 
----@param item job_skill 
+---@param index '#'|integer
+---@param item job_skill
 function _viewscreen_setupdwarfgamest_embark_skills_job_skill:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_embark_skills_job_skill:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_reclaim_professions: DFContainer
@@ -4289,11 +4289,11 @@ local _viewscreen_setupdwarfgamest_reclaim_professions
 ---@return DFPointer<profession>
 function _viewscreen_setupdwarfgamest_reclaim_professions:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _viewscreen_setupdwarfgamest_reclaim_professions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_reclaim_professions:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_member: DFContainer
@@ -4305,11 +4305,11 @@ local _viewscreen_setupdwarfgamest_member
 ---@return DFPointer<world_gen_param_basest>
 function _viewscreen_setupdwarfgamest_member:_field(index) end
 
----@param index integer 
----@param item world_gen_param_basest 
+---@param index '#'|integer
+---@param item world_gen_param_basest
 function _viewscreen_setupdwarfgamest_member:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_member:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_embark_profile: DFContainer
@@ -4321,11 +4321,11 @@ local _viewscreen_setupdwarfgamest_embark_profile
 ---@return DFPointer<embark_profile>
 function _viewscreen_setupdwarfgamest_embark_profile:_field(index) end
 
----@param index integer 
----@param item embark_profile 
+---@param index '#'|integer
+---@param item embark_profile
 function _viewscreen_setupdwarfgamest_embark_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_embark_profile:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_s_item: DFContainer
@@ -4337,11 +4337,11 @@ local _viewscreen_setupdwarfgamest_s_item
 ---@return DFPointer<item_actual>
 function _viewscreen_setupdwarfgamest_s_item:_field(index) end
 
----@param index integer 
----@param item item_actual 
+---@param index '#'|integer
+---@param item item_actual
 function _viewscreen_setupdwarfgamest_s_item:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_s_item:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_s_unit: DFContainer
@@ -4353,11 +4353,11 @@ local _viewscreen_setupdwarfgamest_s_unit
 ---@return DFPointer<unit>
 function _viewscreen_setupdwarfgamest_s_unit:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _viewscreen_setupdwarfgamest_s_unit:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_setupdwarfgamest_s_unit:erase(index) end
 
 ---@class (exact) viewscreen_choose_game_typest: DFStruct, viewscreen
@@ -4455,11 +4455,11 @@ local _viewscreen_titlest_menu_line_id
 ---@return DFPointer<viewscreen_titlest.T_menu_line_id.T_menu_line_id>
 function _viewscreen_titlest_menu_line_id:_field(index) end
 
----@param index integer 
----@param item viewscreen_titlest.T_menu_line_id.T_menu_line_id 
+---@param index '#'|integer
+---@param item viewscreen_titlest.T_menu_line_id.T_menu_line_id
 function _viewscreen_titlest_menu_line_id:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_menu_line_id:erase(index) end
 
 ---@alias viewscreen_titlest.T_menu_line_id.T_menu_line_id
@@ -4500,11 +4500,11 @@ local _viewscreen_titlest_gametype
 ---@return DFPointer<game_type>
 function _viewscreen_titlest_gametype:_field(index) end
 
----@param index integer 
----@param item game_type 
+---@param index '#'|integer
+---@param item game_type
 function _viewscreen_titlest_gametype:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_gametype:erase(index) end
 
 ---@class _viewscreen_titlest_region_choice: DFContainer
@@ -4516,11 +4516,11 @@ local _viewscreen_titlest_region_choice
 ---@return DFPointer<region_headerst>
 function _viewscreen_titlest_region_choice:_field(index) end
 
----@param index integer 
----@param item region_headerst 
+---@param index '#'|integer
+---@param item region_headerst
 function _viewscreen_titlest_region_choice:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_region_choice:erase(index) end
 
 ---@class _viewscreen_titlest_savegame_header: DFContainer
@@ -4532,11 +4532,11 @@ local _viewscreen_titlest_savegame_header
 ---@return DFPointer<savegame_headerst>
 function _viewscreen_titlest_savegame_header:_field(index) end
 
----@param index integer 
----@param item savegame_headerst 
+---@param index '#'|integer
+---@param item savegame_headerst
 function _viewscreen_titlest_savegame_header:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_savegame_header:erase(index) end
 
 ---@class _viewscreen_titlest_savegame_header_world: DFContainer
@@ -4548,11 +4548,11 @@ local _viewscreen_titlest_savegame_header_world
 ---@return DFPointer<savegame_headerst>
 function _viewscreen_titlest_savegame_header_world:_field(index) end
 
----@param index integer 
----@param item savegame_headerst 
+---@param index '#'|integer
+---@param item savegame_headerst
 function _viewscreen_titlest_savegame_header_world:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_savegame_header_world:erase(index) end
 
 ---@class _viewscreen_titlest_savegame_header_game: DFContainer
@@ -4564,11 +4564,11 @@ local _viewscreen_titlest_savegame_header_game
 ---@return DFPointer<savegame_headerst>
 function _viewscreen_titlest_savegame_header_game:_field(index) end
 
----@param index integer 
----@param item savegame_headerst 
+---@param index '#'|integer
+---@param item savegame_headerst
 function _viewscreen_titlest_savegame_header_game:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_savegame_header_game:erase(index) end
 
 ---@class _viewscreen_titlest_mod: DFContainer
@@ -4580,11 +4580,11 @@ local _viewscreen_titlest_mod
 ---@return DFPointer<mod_headerst>
 function _viewscreen_titlest_mod:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _viewscreen_titlest_mod:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_titlest_mod:erase(index) end
 
 ---@class (exact) viewscreen_update_regionst: DFStruct, viewscreen
@@ -4732,11 +4732,11 @@ local _viewscreen_worldst_focus_site_artifact
 ---@return DFPointer<artifact_record>
 function _viewscreen_worldst_focus_site_artifact:_field(index) end
 
----@param index integer 
----@param item artifact_record 
+---@param index '#'|integer
+---@param item artifact_record
 function _viewscreen_worldst_focus_site_artifact:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_focus_site_artifact:erase(index) end
 
 ---@class _viewscreen_worldst_focus_site_prisoner: DFContainer
@@ -4748,11 +4748,11 @@ local _viewscreen_worldst_focus_site_prisoner
 ---@return DFPointer<historical_figure>
 function _viewscreen_worldst_focus_site_prisoner:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _viewscreen_worldst_focus_site_prisoner:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_focus_site_prisoner:erase(index) end
 
 ---@class _viewscreen_worldst_focus_site_requestable_worker: DFContainer
@@ -4764,11 +4764,11 @@ local _viewscreen_worldst_focus_site_requestable_worker
 ---@return DFPointer<nemesis_record>
 function _viewscreen_worldst_focus_site_requestable_worker:_field(index) end
 
----@param index integer 
----@param item nemesis_record 
+---@param index '#'|integer
+---@param item nemesis_record
 function _viewscreen_worldst_focus_site_requestable_worker:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_focus_site_requestable_worker:erase(index) end
 
 ---@class _viewscreen_worldst_civlist: DFContainer
@@ -4780,11 +4780,11 @@ local _viewscreen_worldst_civlist
 ---@return DFPointer<historical_entity>
 function _viewscreen_worldst_civlist:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _viewscreen_worldst_civlist:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_civlist:erase(index) end
 
 ---@class _viewscreen_worldst_relnem: DFContainer
@@ -4796,11 +4796,11 @@ local _viewscreen_worldst_relnem
 ---@return DFPointer<nemesis_record>
 function _viewscreen_worldst_relnem:_field(index) end
 
----@param index integer 
----@param item nemesis_record 
+---@param index '#'|integer
+---@param item nemesis_record
 function _viewscreen_worldst_relnem:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_relnem:erase(index) end
 
 ---@class _viewscreen_worldst_relag: DFContainer
@@ -4812,11 +4812,11 @@ local _viewscreen_worldst_relag
 ---@return DFPointer<any[]>
 function _viewscreen_worldst_relag:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _viewscreen_worldst_relag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_relag:erase(index) end
 
 ---@class _viewscreen_worldst_army_controller: DFContainer
@@ -4828,11 +4828,11 @@ local _viewscreen_worldst_army_controller
 ---@return DFPointer<army_controller>
 function _viewscreen_worldst_army_controller:_field(index) end
 
----@param index integer 
----@param item army_controller 
+---@param index '#'|integer
+---@param item army_controller
 function _viewscreen_worldst_army_controller:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_army_controller:erase(index) end
 
 ---@class _viewscreen_worldst_squad: DFContainer
@@ -4844,11 +4844,11 @@ local _viewscreen_worldst_squad
 ---@return DFPointer<squad>
 function _viewscreen_worldst_squad:_field(index) end
 
----@param index integer 
----@param item squad 
+---@param index '#'|integer
+---@param item squad
 function _viewscreen_worldst_squad:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_squad:erase(index) end
 
 ---@class _viewscreen_worldst_messenger_epp: DFContainer
@@ -4860,11 +4860,11 @@ local _viewscreen_worldst_messenger_epp
 ---@return DFPointer<entity_position_assignment>
 function _viewscreen_worldst_messenger_epp:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _viewscreen_worldst_messenger_epp:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_messenger_epp:erase(index) end
 
 ---@class _viewscreen_worldst_messenger_ent: DFContainer
@@ -4876,11 +4876,11 @@ local _viewscreen_worldst_messenger_ent
 ---@return DFPointer<historical_entity>
 function _viewscreen_worldst_messenger_ent:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _viewscreen_worldst_messenger_ent:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_messenger_ent:erase(index) end
 
 ---@class _viewscreen_worldst_request_nem: DFContainer
@@ -4892,11 +4892,11 @@ local _viewscreen_worldst_request_nem
 ---@return DFPointer<nemesis_record>
 function _viewscreen_worldst_request_nem:_field(index) end
 
----@param index integer 
----@param item nemesis_record 
+---@param index '#'|integer
+---@param item nemesis_record
 function _viewscreen_worldst_request_nem:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_request_nem:erase(index) end
 
 ---@class _viewscreen_worldst_rumor_master: DFContainer
@@ -4908,11 +4908,11 @@ local _viewscreen_worldst_rumor_master
 ---@return DFPointer<any[]>
 function _viewscreen_worldst_rumor_master:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _viewscreen_worldst_rumor_master:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_rumor_master:erase(index) end
 
 -- region_print_datast
@@ -4967,11 +4967,11 @@ local _viewscreen_worldst_hf
 ---@return DFPointer<historical_figure>
 function _viewscreen_worldst_hf:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _viewscreen_worldst_hf:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_hf:erase(index) end
 
 ---@class _viewscreen_worldst_artifact: DFContainer
@@ -4983,11 +4983,11 @@ local _viewscreen_worldst_artifact
 ---@return DFPointer<artifact_record>
 function _viewscreen_worldst_artifact:_field(index) end
 
----@param index integer 
----@param item artifact_record 
+---@param index '#'|integer
+---@param item artifact_record
 function _viewscreen_worldst_artifact:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_artifact:erase(index) end
 
 ---@class _viewscreen_worldst_artifact_arl: DFContainer
@@ -4999,11 +4999,11 @@ local _viewscreen_worldst_artifact_arl
 ---@return DFPointer<artifact_rumor_locationst>
 function _viewscreen_worldst_artifact_arl:_field(index) end
 
----@param index integer 
----@param item artifact_rumor_locationst 
+---@param index '#'|integer
+---@param item artifact_rumor_locationst
 function _viewscreen_worldst_artifact_arl:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_worldst_artifact_arl:erase(index) end
 
 ---@class (exact) viewscreen_new_arenast: DFStruct, viewscreen
@@ -5057,11 +5057,11 @@ local _viewscreen_new_arenast_unk_mods
 ---@return DFPointer<mod_headerst>
 function _viewscreen_new_arenast_unk_mods:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _viewscreen_new_arenast_unk_mods:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_arenast_unk_mods:erase(index) end
 
 ---@class _viewscreen_new_arenast_unk_mods2: DFContainer
@@ -5073,11 +5073,11 @@ local _viewscreen_new_arenast_unk_mods2
 ---@return DFPointer<mod_headerst>
 function _viewscreen_new_arenast_unk_mods2:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _viewscreen_new_arenast_unk_mods2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_arenast_unk_mods2:erase(index) end
 
 ---@class _viewscreen_new_arenast_unk_278: DFContainer
@@ -5089,11 +5089,11 @@ local _viewscreen_new_arenast_unk_278
 ---@return DFPointer<any[]>
 function _viewscreen_new_arenast_unk_278:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _viewscreen_new_arenast_unk_278:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_arenast_unk_278:erase(index) end
 
 ---@class _viewscreen_new_arenast_unk_290: DFContainer
@@ -5105,10 +5105,10 @@ local _viewscreen_new_arenast_unk_290
 ---@return DFPointer<any[]>
 function _viewscreen_new_arenast_unk_290:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _viewscreen_new_arenast_unk_290:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _viewscreen_new_arenast_unk_290:erase(index) end
 

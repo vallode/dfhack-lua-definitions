@@ -87,11 +87,11 @@ local _machine_tile_set_can_connect
 ---@return DFPointer<machine_conn_modes>
 function _machine_tile_set_can_connect:_field(index) end
 
----@param index integer 
----@param item machine_conn_modes 
+---@param index '#'|integer
+---@param item machine_conn_modes
 function _machine_tile_set_can_connect:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _machine_tile_set_can_connect:erase(index) end
 
 ---@class (exact) machine: DFStruct
@@ -140,11 +140,11 @@ local _machine_components
 ---@return DFPointer<DFPointer<integer>>
 function _machine_components:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _machine_components:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _machine_components:erase(index) end
 
 ---@class machine.T_flags: DFBitfield

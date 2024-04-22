@@ -581,11 +581,11 @@ module DFHackLuaDefinitions
         annotation << "---@return DFPointer<#{@type}>\n"
         annotation << "function #{@class_name}:_field(index) end\n\n"
 
-        annotation << "---@param index integer \n"
-        annotation << "---@param item #{@type} \n"
+        annotation << "---@param index '#'|integer\n"
+        annotation << "---@param item #{@type}\n"
         annotation << "function #{@class_name}:insert(index, item) end\n\n"
 
-        annotation << "---@param index integer \n"
+        annotation << "---@param index integer\n"
         annotation << "function #{@class_name}:erase(index) end\n\n"
       end
 

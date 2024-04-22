@@ -194,11 +194,11 @@ local _squad_position_orders
 ---@return DFPointer<squad_order>
 function _squad_position_orders:_field(index) end
 
----@param index integer 
----@param item squad_order 
+---@param index '#'|integer
+---@param item squad_order
 function _squad_position_orders:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_position_orders:erase(index) end
 
 ---@class _squad_position_uniform: DFContainer
@@ -210,11 +210,11 @@ local _squad_position_uniform
 ---@return DFPointer<squad_uniform_spec>
 function _squad_position_uniform:_field(index) end
 
----@param index integer 
----@param item squad_uniform_spec 
+---@param index '#'|integer
+---@param item squad_uniform_spec
 function _squad_position_uniform:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_position_uniform:erase(index) end
 
 ---@class (exact) squad_schedule_order: DFStruct
@@ -236,11 +236,11 @@ local _squad_schedule_order_positions
 ---@return DFPointer<any[]>
 function _squad_schedule_order_positions:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _squad_schedule_order_positions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_schedule_order_positions:erase(index) end
 
 ---@class (exact) squad_schedule_entry: DFStruct
@@ -264,11 +264,11 @@ local _squad_schedule_entry_orders
 ---@return DFPointer<squad_schedule_order>
 function _squad_schedule_entry_orders:_field(index) end
 
----@param index integer 
----@param item squad_schedule_order 
+---@param index '#'|integer
+---@param item squad_schedule_order
 function _squad_schedule_entry_orders:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_schedule_entry_orders:erase(index) end
 
 ---@class _squad_schedule_entry_order_assignments: DFContainer
@@ -280,11 +280,11 @@ local _squad_schedule_entry_order_assignments
 ---@return DFPointer<DFPointer<integer>>
 function _squad_schedule_entry_order_assignments:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _squad_schedule_entry_order_assignments:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_schedule_entry_order_assignments:erase(index) end
 
 ---@class (exact) squad: DFStruct
@@ -340,11 +340,11 @@ local _squad_positions
 ---@return DFPointer<squad_position>
 function _squad_positions:_field(index) end
 
----@param index integer 
----@param item squad_position 
+---@param index '#'|integer
+---@param item squad_position
 function _squad_positions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_positions:erase(index) end
 
 ---@class _squad_orders: DFContainer
@@ -356,11 +356,11 @@ local _squad_orders
 ---@return DFPointer<squad_order>
 function _squad_orders:_field(index) end
 
----@param index integer 
----@param item squad_order 
+---@param index '#'|integer
+---@param item squad_order
 function _squad_orders:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_orders:erase(index) end
 
 ---@class _squad_schedule: DFContainer
@@ -372,11 +372,11 @@ local _squad_schedule
 ---@return DFPointer<DFPointer<integer>>
 function _squad_schedule:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _squad_schedule:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_schedule:erase(index) end
 
 ---@class _squad_rooms: DFContainer
@@ -388,11 +388,11 @@ local _squad_rooms
 ---@return DFPointer<DFPointer<integer>>
 function _squad_rooms:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _squad_rooms:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_rooms:erase(index) end
 
 ---@class (exact) squad.T_ammo: DFStruct
@@ -417,11 +417,11 @@ local _squad_ammo_ammunition
 ---@return DFPointer<squad_ammo_spec>
 function _squad_ammo_ammunition:_field(index) end
 
----@param index integer 
----@param item squad_ammo_spec 
+---@param index '#'|integer
+---@param item squad_ammo_spec
 function _squad_ammo_ammunition:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _squad_ammo_ammunition:erase(index) end
 
 ---@alias squad_order_type
@@ -990,11 +990,11 @@ local _army_controller_goal_site_invasionst_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_site_invasionst_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_site_invasionst_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_site_invasionst_camp_profile:erase(index) end
 
 ---@class army_controller_goal_site_invasionst.T_flag: DFBitfield
@@ -1174,11 +1174,11 @@ local _army_controller_goal_patrolst_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_patrolst_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_patrolst_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_patrolst_camp_profile:erase(index) end
 
 ---@class army_controller_goal_patrolst.T_flag: DFBitfield
@@ -1214,11 +1214,11 @@ local _army_controller_goal_escapest_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_escapest_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_escapest_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_escapest_camp_profile:erase(index) end
 
 ---@class (exact) army_controller_goal_move_to_sitest: DFStruct
@@ -1259,11 +1259,11 @@ local _army_controller_goal_move_to_sitest_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_move_to_sitest_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_move_to_sitest_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_move_to_sitest_camp_profile:erase(index) end
 
 ---@class (exact) army_controller_goal_reclaim_sitest: DFStruct
@@ -1296,11 +1296,11 @@ local _army_controller_goal_reclaim_sitest_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_reclaim_sitest_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_reclaim_sitest_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_reclaim_sitest_camp_profile:erase(index) end
 
 ---@class (exact) army_controller_goal_create_new_sitest: DFStruct
@@ -1334,11 +1334,11 @@ local _army_controller_goal_create_new_sitest_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_create_new_sitest_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_create_new_sitest_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_create_new_sitest_camp_profile:erase(index) end
 
 ---@class (exact) army_controller_goal_possest: DFStruct
@@ -1370,11 +1370,11 @@ local _army_controller_goal_possest_camp_profile
 ---@return DFPointer<army_camp_profilest>
 function _army_controller_goal_possest_camp_profile:_field(index) end
 
----@param index integer 
----@param item army_camp_profilest 
+---@param index '#'|integer
+---@param item army_camp_profilest
 function _army_controller_goal_possest_camp_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_controller_goal_possest_camp_profile:erase(index) end
 
 ---@class army_controller_goal_possest.T_flag: DFBitfield
@@ -1614,11 +1614,11 @@ local _army_members
 ---@return DFPointer<DFPointer<integer>>
 function _army_members:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _army_members:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_members:erase(index) end
 
 ---@class _army_squads: DFContainer
@@ -1630,11 +1630,11 @@ local _army_squads
 ---@return DFPointer<world_site_inhabitant>
 function _army_squads:_field(index) end
 
----@param index integer 
----@param item world_site_inhabitant 
+---@param index '#'|integer
+---@param item world_site_inhabitant
 function _army_squads:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_squads:erase(index) end
 
 ---@class _army_flags: DFContainer
@@ -1646,11 +1646,11 @@ local _army_flags
 ---@return DFPointer<table<army_flags, boolean>>
 function _army_flags:_field(index) end
 
----@param index integer 
----@param item table<army_flags, boolean> 
+---@param index '#'|integer
+---@param item table<army_flags, boolean>
 function _army_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_flags:erase(index) end
 
 ---@class _army_unk_4407_1: DFContainer
@@ -1662,10 +1662,10 @@ local _army_unk_4407_1
 ---@return DFPointer<item>
 function _army_unk_4407_1:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _army_unk_4407_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _army_unk_4407_1:erase(index) end
 

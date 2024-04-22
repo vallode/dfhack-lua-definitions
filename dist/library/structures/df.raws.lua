@@ -32,11 +32,11 @@ local _creature_handler_alphabetic
 ---@return DFPointer<creature_raw>
 function _creature_handler_alphabetic:_field(index) end
 
----@param index integer 
----@param item creature_raw 
+---@param index '#'|integer
+---@param item creature_raw
 function _creature_handler_alphabetic:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_handler_alphabetic:erase(index) end
 
 ---@class _creature_handler_all: DFContainer
@@ -48,11 +48,11 @@ local _creature_handler_all
 ---@return DFPointer<creature_raw>
 function _creature_handler_all:_field(index) end
 
----@param index integer 
----@param item creature_raw 
+---@param index '#'|integer
+---@param item creature_raw
 function _creature_handler_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_handler_all:erase(index) end
 
 ---@class (exact) soundst: DFStruct
@@ -79,11 +79,11 @@ local _soundst_flag
 ---@return DFPointer<table<integer, boolean>>
 function _soundst_flag:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _soundst_flag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _soundst_flag:erase(index) end
 
 ---@class _soundst_announcement: DFContainer
@@ -95,11 +95,11 @@ local _soundst_announcement
 ---@return DFPointer<announcement_type>
 function _soundst_announcement:_field(index) end
 
----@param index integer 
----@param item announcement_type 
+---@param index '#'|integer
+---@param item announcement_type
 function _soundst_announcement:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _soundst_announcement:erase(index) end
 
 ---@class (exact) world_raws: DFStruct
@@ -141,11 +141,11 @@ local _world_raws_material_templates
 ---@return DFPointer<material_template>
 function _world_raws_material_templates:_field(index) end
 
----@param index integer 
----@param item material_template 
+---@param index '#'|integer
+---@param item material_template
 function _world_raws_material_templates:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_material_templates:erase(index) end
 
 ---@class _world_raws_inorganics: DFContainer
@@ -157,11 +157,11 @@ local _world_raws_inorganics
 ---@return DFPointer<inorganic_raw>
 function _world_raws_inorganics:_field(index) end
 
----@param index integer 
----@param item inorganic_raw 
+---@param index '#'|integer
+---@param item inorganic_raw
 function _world_raws_inorganics:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_inorganics:erase(index) end
 
 ---@class _world_raws_inorganics_subset: DFContainer
@@ -173,11 +173,11 @@ local _world_raws_inorganics_subset
 ---@return DFPointer<inorganic_raw>
 function _world_raws_inorganics_subset:_field(index) end
 
----@param index integer 
----@param item inorganic_raw 
+---@param index '#'|integer
+---@param item inorganic_raw
 function _world_raws_inorganics_subset:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_inorganics_subset:erase(index) end
 
 -- Plants
@@ -204,11 +204,11 @@ local _world_raws_plants_all
 ---@return DFPointer<plant_raw>
 function _world_raws_plants_all:_field(index) end
 
----@param index integer 
----@param item plant_raw 
+---@param index '#'|integer
+---@param item plant_raw
 function _world_raws_plants_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_plants_all:erase(index) end
 
 ---@class _world_raws_plants_bushes: DFContainer
@@ -220,11 +220,11 @@ local _world_raws_plants_bushes
 ---@return DFPointer<plant_raw>
 function _world_raws_plants_bushes:_field(index) end
 
----@param index integer 
----@param item plant_raw 
+---@param index '#'|integer
+---@param item plant_raw
 function _world_raws_plants_bushes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_plants_bushes:erase(index) end
 
 ---@class _world_raws_plants_trees: DFContainer
@@ -236,11 +236,11 @@ local _world_raws_plants_trees
 ---@return DFPointer<plant_raw>
 function _world_raws_plants_trees:_field(index) end
 
----@param index integer 
----@param item plant_raw 
+---@param index '#'|integer
+---@param item plant_raw
 function _world_raws_plants_trees:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_plants_trees:erase(index) end
 
 ---@class _world_raws_plants_grasses: DFContainer
@@ -252,11 +252,11 @@ local _world_raws_plants_grasses
 ---@return DFPointer<plant_raw>
 function _world_raws_plants_grasses:_field(index) end
 
----@param index integer 
----@param item plant_raw 
+---@param index '#'|integer
+---@param item plant_raw
 function _world_raws_plants_grasses:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_plants_grasses:erase(index) end
 
 ---@class _world_raws_tissue_templates: DFContainer
@@ -268,11 +268,11 @@ local _world_raws_tissue_templates
 ---@return DFPointer<tissue_template>
 function _world_raws_tissue_templates:_field(index) end
 
----@param index integer 
----@param item tissue_template 
+---@param index '#'|integer
+---@param item tissue_template
 function _world_raws_tissue_templates:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_tissue_templates:erase(index) end
 
 ---@class _world_raws_body_detail_plans: DFContainer
@@ -284,11 +284,11 @@ local _world_raws_body_detail_plans
 ---@return DFPointer<body_detail_plan>
 function _world_raws_body_detail_plans:_field(index) end
 
----@param index integer 
----@param item body_detail_plan 
+---@param index '#'|integer
+---@param item body_detail_plan
 function _world_raws_body_detail_plans:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_body_detail_plans:erase(index) end
 
 ---@class _world_raws_body_templates: DFContainer
@@ -300,11 +300,11 @@ local _world_raws_body_templates
 ---@return DFPointer<body_template>
 function _world_raws_body_templates:_field(index) end
 
----@param index integer 
----@param item body_template 
+---@param index '#'|integer
+---@param item body_template
 function _world_raws_body_templates:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_body_templates:erase(index) end
 
 ---@class _world_raws_bodyglosses: DFContainer
@@ -316,11 +316,11 @@ local _world_raws_bodyglosses
 ---@return DFPointer<DFPointer<integer>>
 function _world_raws_bodyglosses:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _world_raws_bodyglosses:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_bodyglosses:erase(index) end
 
 ---@class _world_raws_creature_variations: DFContainer
@@ -332,11 +332,11 @@ local _world_raws_creature_variations
 ---@return DFPointer<creature_variation>
 function _world_raws_creature_variations:_field(index) end
 
----@param index integer 
----@param item creature_variation 
+---@param index '#'|integer
+---@param item creature_variation
 function _world_raws_creature_variations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_creature_variations:erase(index) end
 
 -- Item RAWs
@@ -372,11 +372,11 @@ local _world_raws_itemdefs_all
 ---@return DFPointer<itemdef>
 function _world_raws_itemdefs_all:_field(index) end
 
----@param index integer 
----@param item itemdef 
+---@param index '#'|integer
+---@param item itemdef
 function _world_raws_itemdefs_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_all:erase(index) end
 
 ---@class _world_raws_itemdefs_weapons: DFContainer
@@ -388,11 +388,11 @@ local _world_raws_itemdefs_weapons
 ---@return DFPointer<itemdef_weaponst>
 function _world_raws_itemdefs_weapons:_field(index) end
 
----@param index integer 
----@param item itemdef_weaponst 
+---@param index '#'|integer
+---@param item itemdef_weaponst
 function _world_raws_itemdefs_weapons:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_weapons:erase(index) end
 
 ---@class _world_raws_itemdefs_trapcomps: DFContainer
@@ -404,11 +404,11 @@ local _world_raws_itemdefs_trapcomps
 ---@return DFPointer<itemdef_trapcompst>
 function _world_raws_itemdefs_trapcomps:_field(index) end
 
----@param index integer 
----@param item itemdef_trapcompst 
+---@param index '#'|integer
+---@param item itemdef_trapcompst
 function _world_raws_itemdefs_trapcomps:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_trapcomps:erase(index) end
 
 ---@class _world_raws_itemdefs_toys: DFContainer
@@ -420,11 +420,11 @@ local _world_raws_itemdefs_toys
 ---@return DFPointer<itemdef_toyst>
 function _world_raws_itemdefs_toys:_field(index) end
 
----@param index integer 
----@param item itemdef_toyst 
+---@param index '#'|integer
+---@param item itemdef_toyst
 function _world_raws_itemdefs_toys:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_toys:erase(index) end
 
 ---@class _world_raws_itemdefs_tools: DFContainer
@@ -436,11 +436,11 @@ local _world_raws_itemdefs_tools
 ---@return DFPointer<itemdef_toolst>
 function _world_raws_itemdefs_tools:_field(index) end
 
----@param index integer 
----@param item itemdef_toolst 
+---@param index '#'|integer
+---@param item itemdef_toolst
 function _world_raws_itemdefs_tools:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_tools:erase(index) end
 
 ---@class _world_raws_itemdefs_tools_by_type: DFContainer
@@ -452,11 +452,11 @@ local _world_raws_itemdefs_tools_by_type
 ---@return DFPointer<itemdef_toolst>
 function _world_raws_itemdefs_tools_by_type:_field(index) end
 
----@param index integer 
----@param item itemdef_toolst 
+---@param index '#'|integer
+---@param item itemdef_toolst
 function _world_raws_itemdefs_tools_by_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_tools_by_type:erase(index) end
 
 ---@class _world_raws_itemdefs_instruments: DFContainer
@@ -468,11 +468,11 @@ local _world_raws_itemdefs_instruments
 ---@return DFPointer<itemdef_instrumentst>
 function _world_raws_itemdefs_instruments:_field(index) end
 
----@param index integer 
----@param item itemdef_instrumentst 
+---@param index '#'|integer
+---@param item itemdef_instrumentst
 function _world_raws_itemdefs_instruments:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_instruments:erase(index) end
 
 ---@class _world_raws_itemdefs_armor: DFContainer
@@ -484,11 +484,11 @@ local _world_raws_itemdefs_armor
 ---@return DFPointer<itemdef_armorst>
 function _world_raws_itemdefs_armor:_field(index) end
 
----@param index integer 
----@param item itemdef_armorst 
+---@param index '#'|integer
+---@param item itemdef_armorst
 function _world_raws_itemdefs_armor:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_armor:erase(index) end
 
 ---@class _world_raws_itemdefs_ammo: DFContainer
@@ -500,11 +500,11 @@ local _world_raws_itemdefs_ammo
 ---@return DFPointer<itemdef_ammost>
 function _world_raws_itemdefs_ammo:_field(index) end
 
----@param index integer 
----@param item itemdef_ammost 
+---@param index '#'|integer
+---@param item itemdef_ammost
 function _world_raws_itemdefs_ammo:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_ammo:erase(index) end
 
 ---@class _world_raws_itemdefs_siege_ammo: DFContainer
@@ -516,11 +516,11 @@ local _world_raws_itemdefs_siege_ammo
 ---@return DFPointer<itemdef_siegeammost>
 function _world_raws_itemdefs_siege_ammo:_field(index) end
 
----@param index integer 
----@param item itemdef_siegeammost 
+---@param index '#'|integer
+---@param item itemdef_siegeammost
 function _world_raws_itemdefs_siege_ammo:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_siege_ammo:erase(index) end
 
 ---@class _world_raws_itemdefs_gloves: DFContainer
@@ -532,11 +532,11 @@ local _world_raws_itemdefs_gloves
 ---@return DFPointer<itemdef_glovesst>
 function _world_raws_itemdefs_gloves:_field(index) end
 
----@param index integer 
----@param item itemdef_glovesst 
+---@param index '#'|integer
+---@param item itemdef_glovesst
 function _world_raws_itemdefs_gloves:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_gloves:erase(index) end
 
 ---@class _world_raws_itemdefs_shoes: DFContainer
@@ -548,11 +548,11 @@ local _world_raws_itemdefs_shoes
 ---@return DFPointer<itemdef_shoesst>
 function _world_raws_itemdefs_shoes:_field(index) end
 
----@param index integer 
----@param item itemdef_shoesst 
+---@param index '#'|integer
+---@param item itemdef_shoesst
 function _world_raws_itemdefs_shoes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_shoes:erase(index) end
 
 ---@class _world_raws_itemdefs_shields: DFContainer
@@ -564,11 +564,11 @@ local _world_raws_itemdefs_shields
 ---@return DFPointer<itemdef_shieldst>
 function _world_raws_itemdefs_shields:_field(index) end
 
----@param index integer 
----@param item itemdef_shieldst 
+---@param index '#'|integer
+---@param item itemdef_shieldst
 function _world_raws_itemdefs_shields:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_shields:erase(index) end
 
 ---@class _world_raws_itemdefs_helms: DFContainer
@@ -580,11 +580,11 @@ local _world_raws_itemdefs_helms
 ---@return DFPointer<itemdef_helmst>
 function _world_raws_itemdefs_helms:_field(index) end
 
----@param index integer 
----@param item itemdef_helmst 
+---@param index '#'|integer
+---@param item itemdef_helmst
 function _world_raws_itemdefs_helms:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_helms:erase(index) end
 
 ---@class _world_raws_itemdefs_pants: DFContainer
@@ -596,11 +596,11 @@ local _world_raws_itemdefs_pants
 ---@return DFPointer<itemdef_pantsst>
 function _world_raws_itemdefs_pants:_field(index) end
 
----@param index integer 
----@param item itemdef_pantsst 
+---@param index '#'|integer
+---@param item itemdef_pantsst
 function _world_raws_itemdefs_pants:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_pants:erase(index) end
 
 ---@class _world_raws_itemdefs_food: DFContainer
@@ -612,11 +612,11 @@ local _world_raws_itemdefs_food
 ---@return DFPointer<itemdef_foodst>
 function _world_raws_itemdefs_food:_field(index) end
 
----@param index integer 
----@param item itemdef_foodst 
+---@param index '#'|integer
+---@param item itemdef_foodst
 function _world_raws_itemdefs_food:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_itemdefs_food:erase(index) end
 
 ---@class _world_raws_entities: DFContainer
@@ -628,11 +628,11 @@ local _world_raws_entities
 ---@return DFPointer<entity_raw>
 function _world_raws_entities:_field(index) end
 
----@param index integer 
----@param item entity_raw 
+---@param index '#'|integer
+---@param item entity_raw
 function _world_raws_entities:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_entities:erase(index) end
 
 -- Language RAWs
@@ -656,11 +656,11 @@ local _world_raws_language_words
 ---@return DFPointer<language_word>
 function _world_raws_language_words:_field(index) end
 
----@param index integer 
----@param item language_word 
+---@param index '#'|integer
+---@param item language_word
 function _world_raws_language_words:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_language_words:erase(index) end
 
 ---@class _world_raws_language_symbols: DFContainer
@@ -672,11 +672,11 @@ local _world_raws_language_symbols
 ---@return DFPointer<language_symbol>
 function _world_raws_language_symbols:_field(index) end
 
----@param index integer 
----@param item language_symbol 
+---@param index '#'|integer
+---@param item language_symbol
 function _world_raws_language_symbols:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_language_symbols:erase(index) end
 
 ---@class _world_raws_language_translations: DFContainer
@@ -688,11 +688,11 @@ local _world_raws_language_translations
 ---@return DFPointer<language_translation>
 function _world_raws_language_translations:_field(index) end
 
----@param index integer 
----@param item language_translation 
+---@param index '#'|integer
+---@param item language_translation
 function _world_raws_language_translations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_language_translations:erase(index) end
 
 -- Descriptors
@@ -718,11 +718,11 @@ local _world_raws_descriptors_colors
 ---@return DFPointer<descriptor_color>
 function _world_raws_descriptors_colors:_field(index) end
 
----@param index integer 
----@param item descriptor_color 
+---@param index '#'|integer
+---@param item descriptor_color
 function _world_raws_descriptors_colors:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_descriptors_colors:erase(index) end
 
 ---@class _world_raws_descriptors_shapes: DFContainer
@@ -734,11 +734,11 @@ local _world_raws_descriptors_shapes
 ---@return DFPointer<descriptor_shape>
 function _world_raws_descriptors_shapes:_field(index) end
 
----@param index integer 
----@param item descriptor_shape 
+---@param index '#'|integer
+---@param item descriptor_shape
 function _world_raws_descriptors_shapes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_descriptors_shapes:erase(index) end
 
 ---@class _world_raws_descriptors_patterns: DFContainer
@@ -750,11 +750,11 @@ local _world_raws_descriptors_patterns
 ---@return DFPointer<descriptor_pattern>
 function _world_raws_descriptors_patterns:_field(index) end
 
----@param index integer 
----@param item descriptor_pattern 
+---@param index '#'|integer
+---@param item descriptor_pattern
 function _world_raws_descriptors_patterns:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_descriptors_patterns:erase(index) end
 
 -- Reaction RAWs
@@ -776,11 +776,11 @@ local _world_raws_reactions_reactions
 ---@return DFPointer<reaction>
 function _world_raws_reactions_reactions:_field(index) end
 
----@param index integer 
----@param item reaction 
+---@param index '#'|integer
+---@param item reaction
 function _world_raws_reactions_reactions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_reactions_reactions:erase(index) end
 
 ---@class _world_raws_reactions_reaction_categories: DFContainer
@@ -792,11 +792,11 @@ local _world_raws_reactions_reaction_categories
 ---@return DFPointer<reaction_category>
 function _world_raws_reactions_reaction_categories:_field(index) end
 
----@param index integer 
----@param item reaction_category 
+---@param index '#'|integer
+---@param item reaction_category
 function _world_raws_reactions_reaction_categories:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_reactions_reaction_categories:erase(index) end
 
 -- Workshops
@@ -820,11 +820,11 @@ local _world_raws_buildings_all
 ---@return DFPointer<building_def>
 function _world_raws_buildings_all:_field(index) end
 
----@param index integer 
----@param item building_def 
+---@param index '#'|integer
+---@param item building_def
 function _world_raws_buildings_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_buildings_all:erase(index) end
 
 ---@class _world_raws_buildings_workshops: DFContainer
@@ -836,11 +836,11 @@ local _world_raws_buildings_workshops
 ---@return DFPointer<building_def_workshopst>
 function _world_raws_buildings_workshops:_field(index) end
 
----@param index integer 
----@param item building_def_workshopst 
+---@param index '#'|integer
+---@param item building_def_workshopst
 function _world_raws_buildings_workshops:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_buildings_workshops:erase(index) end
 
 ---@class _world_raws_buildings_furnaces: DFContainer
@@ -852,11 +852,11 @@ local _world_raws_buildings_furnaces
 ---@return DFPointer<building_def_furnacest>
 function _world_raws_buildings_furnaces:_field(index) end
 
----@param index integer 
----@param item building_def_furnacest 
+---@param index '#'|integer
+---@param item building_def_furnacest
 function _world_raws_buildings_furnaces:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_buildings_furnaces:erase(index) end
 
 ---@class _world_raws_interactions: DFContainer
@@ -868,11 +868,11 @@ local _world_raws_interactions
 ---@return DFPointer<interaction>
 function _world_raws_interactions:_field(index) end
 
----@param index integer 
----@param item interaction 
+---@param index '#'|integer
+---@param item interaction
 function _world_raws_interactions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_interactions:erase(index) end
 
 -- Text set
@@ -901,11 +901,11 @@ local _world_raws_music_music
 ---@return DFPointer<any[]>
 function _world_raws_music_music:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _world_raws_music_music:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_music_music:erase(index) end
 
 ---@class (exact) world_raws.T_sound: DFStruct
@@ -925,11 +925,11 @@ local _world_raws_sound_sound
 ---@return DFPointer<soundst>
 function _world_raws_sound_sound:_field(index) end
 
----@param index integer 
----@param item soundst 
+---@param index '#'|integer
+---@param item soundst
 function _world_raws_sound_sound:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_sound_sound:erase(index) end
 
 -- Interaction effects
@@ -953,11 +953,11 @@ local _world_raws_syndromes_all
 ---@return DFPointer<syndrome>
 function _world_raws_syndromes_all:_field(index) end
 
----@param index integer 
----@param item syndrome 
+---@param index '#'|integer
+---@param item syndrome
 function _world_raws_syndromes_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_syndromes_all:erase(index) end
 
 ---@class (exact) world_raws.T_effects: DFStruct
@@ -980,10 +980,10 @@ local _world_raws_effects_all
 ---@return DFPointer<creature_interaction_effect>
 function _world_raws_effects_all:_field(index) end
 
----@param index integer 
----@param item creature_interaction_effect 
+---@param index '#'|integer
+---@param item creature_interaction_effect
 function _world_raws_effects_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_raws_effects_all:erase(index) end
 

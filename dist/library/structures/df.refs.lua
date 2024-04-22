@@ -1683,11 +1683,11 @@ local _entity_site_link_ab_profile
 ---@return DFPointer<DFPointer<integer>>
 function _entity_site_link_ab_profile:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _entity_site_link_ab_profile:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_site_link_ab_profile:erase(index) end
 
 ---@class undead_flags: DFBitfield

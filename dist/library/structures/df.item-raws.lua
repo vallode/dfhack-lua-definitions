@@ -461,11 +461,11 @@ local _itemdef_base_flags
 ---@return DFPointer<table<itemdef_flags, boolean>>
 function _itemdef_base_flags:_field(index) end
 
----@param index integer 
----@param item table<itemdef_flags, boolean> 
+---@param index '#'|integer
+---@param item table<itemdef_flags, boolean>
 function _itemdef_base_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_base_flags:erase(index) end
 
 ---@alias ammo_flags
@@ -509,11 +509,11 @@ local _itemdef_ammost_flags
 ---@return DFPointer<table<ammo_flags, boolean>>
 function _itemdef_ammost_flags:_field(index) end
 
----@param index integer 
----@param item table<ammo_flags, boolean> 
+---@param index '#'|integer
+---@param item table<ammo_flags, boolean>
 function _itemdef_ammost_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_ammost_flags:erase(index) end
 
 ---@class _itemdef_ammost_attacks: DFContainer
@@ -525,11 +525,11 @@ local _itemdef_ammost_attacks
 ---@return DFPointer<weapon_attack>
 function _itemdef_ammost_attacks:_field(index) end
 
----@param index integer 
----@param item weapon_attack 
+---@param index '#'|integer
+---@param item weapon_attack
 function _itemdef_ammost_attacks:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_ammost_attacks:erase(index) end
 
 ---@alias armor_general_flags
@@ -591,11 +591,11 @@ local _armor_properties_flags
 ---@return DFPointer<table<armor_general_flags, boolean>>
 function _armor_properties_flags:_field(index) end
 
----@param index integer 
----@param item table<armor_general_flags, boolean> 
+---@param index '#'|integer
+---@param item table<armor_general_flags, boolean>
 function _armor_properties_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _armor_properties_flags:erase(index) end
 
 ---@alias armor_flags
@@ -643,11 +643,11 @@ local _itemdef_armorst_flags
 ---@return DFPointer<table<armor_flags, boolean>>
 function _itemdef_armorst_flags:_field(index) end
 
----@param index integer 
----@param item table<armor_flags, boolean> 
+---@param index '#'|integer
+---@param item table<armor_flags, boolean>
 function _itemdef_armorst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_armorst_flags:erase(index) end
 
 ---@class (exact) itemdef_foodst: DFStruct, itemdef
@@ -710,11 +710,11 @@ local _itemdef_glovesst_flags
 ---@return DFPointer<table<gloves_flags, boolean>>
 function _itemdef_glovesst_flags:_field(index) end
 
----@param index integer 
----@param item table<gloves_flags, boolean> 
+---@param index '#'|integer
+---@param item table<gloves_flags, boolean>
 function _itemdef_glovesst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_glovesst_flags:erase(index) end
 
 ---@alias helm_flags
@@ -758,11 +758,11 @@ local _itemdef_helmst_flags
 ---@return DFPointer<table<helm_flags, boolean>>
 function _itemdef_helmst_flags:_field(index) end
 
----@param index integer 
----@param item table<helm_flags, boolean> 
+---@param index '#'|integer
+---@param item table<helm_flags, boolean>
 function _itemdef_helmst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_helmst_flags:erase(index) end
 
 ---@alias instrument_flags
@@ -851,11 +851,11 @@ local _itemdef_instrumentst_flags
 ---@return DFPointer<table<instrument_flags, boolean>>
 function _itemdef_instrumentst_flags:_field(index) end
 
----@param index integer 
----@param item table<instrument_flags, boolean> 
+---@param index '#'|integer
+---@param item table<instrument_flags, boolean>
 function _itemdef_instrumentst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_flags:erase(index) end
 
 ---@class _itemdef_instrumentst_pieces: DFContainer
@@ -867,11 +867,11 @@ local _itemdef_instrumentst_pieces
 ---@return DFPointer<instrument_piece>
 function _itemdef_instrumentst_pieces:_field(index) end
 
----@param index integer 
----@param item instrument_piece 
+---@param index '#'|integer
+---@param item instrument_piece
 function _itemdef_instrumentst_pieces:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_pieces:erase(index) end
 
 ---@class _itemdef_instrumentst_sound_production: DFContainer
@@ -883,11 +883,11 @@ local _itemdef_instrumentst_sound_production
 ---@return DFPointer<sound_production_type>
 function _itemdef_instrumentst_sound_production:_field(index) end
 
----@param index integer 
----@param item sound_production_type 
+---@param index '#'|integer
+---@param item sound_production_type
 function _itemdef_instrumentst_sound_production:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_sound_production:erase(index) end
 
 ---@class _itemdef_instrumentst_pitch_choice: DFContainer
@@ -899,11 +899,11 @@ local _itemdef_instrumentst_pitch_choice
 ---@return DFPointer<pitch_choice_type>
 function _itemdef_instrumentst_pitch_choice:_field(index) end
 
----@param index integer 
----@param item pitch_choice_type 
+---@param index '#'|integer
+---@param item pitch_choice_type
 function _itemdef_instrumentst_pitch_choice:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_pitch_choice:erase(index) end
 
 ---@class _itemdef_instrumentst_tuning: DFContainer
@@ -915,11 +915,11 @@ local _itemdef_instrumentst_tuning
 ---@return DFPointer<tuning_type>
 function _itemdef_instrumentst_tuning:_field(index) end
 
----@param index integer 
----@param item tuning_type 
+---@param index '#'|integer
+---@param item tuning_type
 function _itemdef_instrumentst_tuning:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_tuning:erase(index) end
 
 ---@class _itemdef_instrumentst_registers: DFContainer
@@ -931,11 +931,11 @@ local _itemdef_instrumentst_registers
 ---@return DFPointer<instrument_register>
 function _itemdef_instrumentst_registers:_field(index) end
 
----@param index integer 
----@param item instrument_register 
+---@param index '#'|integer
+---@param item instrument_register
 function _itemdef_instrumentst_registers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_registers:erase(index) end
 
 ---@class _itemdef_instrumentst_timbre: DFContainer
@@ -947,11 +947,11 @@ local _itemdef_instrumentst_timbre
 ---@return DFPointer<timbre_type>
 function _itemdef_instrumentst_timbre:_field(index) end
 
----@param index integer 
----@param item timbre_type 
+---@param index '#'|integer
+---@param item timbre_type
 function _itemdef_instrumentst_timbre:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_instrumentst_timbre:erase(index) end
 
 ---@alias sound_production_type
@@ -1323,11 +1323,11 @@ local _instrument_register_timbres
 ---@return DFPointer<timbre_type>
 function _instrument_register_timbres:_field(index) end
 
----@param index integer 
----@param item timbre_type 
+---@param index '#'|integer
+---@param item timbre_type
 function _instrument_register_timbres:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _instrument_register_timbres:erase(index) end
 
 ---@alias pants_flags
@@ -1374,11 +1374,11 @@ local _itemdef_pantsst_flags
 ---@return DFPointer<table<pants_flags, boolean>>
 function _itemdef_pantsst_flags:_field(index) end
 
----@param index integer 
----@param item table<pants_flags, boolean> 
+---@param index '#'|integer
+---@param item table<pants_flags, boolean>
 function _itemdef_pantsst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_pantsst_flags:erase(index) end
 
 ---@class (exact) itemdef_shieldst: DFStruct, itemdef
@@ -1447,11 +1447,11 @@ local _itemdef_shoesst_flags
 ---@return DFPointer<table<shoes_flags, boolean>>
 function _itemdef_shoesst_flags:_field(index) end
 
----@param index integer 
----@param item table<shoes_flags, boolean> 
+---@param index '#'|integer
+---@param item table<shoes_flags, boolean>
 function _itemdef_shoesst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_shoesst_flags:erase(index) end
 
 ---@class (exact) itemdef_siegeammost: DFStruct, itemdef
@@ -1671,11 +1671,11 @@ local _itemdef_toolst_flags
 ---@return DFPointer<table<tool_flags, boolean>>
 function _itemdef_toolst_flags:_field(index) end
 
----@param index integer 
----@param item table<tool_flags, boolean> 
+---@param index '#'|integer
+---@param item table<tool_flags, boolean>
 function _itemdef_toolst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_toolst_flags:erase(index) end
 
 ---@class _itemdef_toolst_tool_use: DFContainer
@@ -1687,11 +1687,11 @@ local _itemdef_toolst_tool_use
 ---@return DFPointer<tool_uses>
 function _itemdef_toolst_tool_use:_field(index) end
 
----@param index integer 
----@param item tool_uses 
+---@param index '#'|integer
+---@param item tool_uses
 function _itemdef_toolst_tool_use:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_toolst_tool_use:erase(index) end
 
 ---@class _itemdef_toolst_attacks: DFContainer
@@ -1703,11 +1703,11 @@ local _itemdef_toolst_attacks
 ---@return DFPointer<weapon_attack>
 function _itemdef_toolst_attacks:_field(index) end
 
----@param index integer 
----@param item weapon_attack 
+---@param index '#'|integer
+---@param item weapon_attack
 function _itemdef_toolst_attacks:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_toolst_attacks:erase(index) end
 
 ---@class _itemdef_toolst_default_improvements: DFContainer
@@ -1719,11 +1719,11 @@ local _itemdef_toolst_default_improvements
 ---@return DFPointer<DFPointer<integer>>
 function _itemdef_toolst_default_improvements:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _itemdef_toolst_default_improvements:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_toolst_default_improvements:erase(index) end
 
 ---@alias toy_flags
@@ -1762,11 +1762,11 @@ local _itemdef_toyst_flags
 ---@return DFPointer<table<toy_flags, boolean>>
 function _itemdef_toyst_flags:_field(index) end
 
----@param index integer 
----@param item table<toy_flags, boolean> 
+---@param index '#'|integer
+---@param item table<toy_flags, boolean>
 function _itemdef_toyst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_toyst_flags:erase(index) end
 
 ---@alias trapcomp_flags
@@ -1823,11 +1823,11 @@ local _itemdef_trapcompst_flags
 ---@return DFPointer<table<trapcomp_flags, boolean>>
 function _itemdef_trapcompst_flags:_field(index) end
 
----@param index integer 
----@param item table<trapcomp_flags, boolean> 
+---@param index '#'|integer
+---@param item table<trapcomp_flags, boolean>
 function _itemdef_trapcompst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_trapcompst_flags:erase(index) end
 
 ---@class _itemdef_trapcompst_attacks: DFContainer
@@ -1839,11 +1839,11 @@ local _itemdef_trapcompst_attacks
 ---@return DFPointer<weapon_attack>
 function _itemdef_trapcompst_attacks:_field(index) end
 
----@param index integer 
----@param item weapon_attack 
+---@param index '#'|integer
+---@param item weapon_attack
 function _itemdef_trapcompst_attacks:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_trapcompst_attacks:erase(index) end
 
 ---@alias weapon_flags
@@ -1900,11 +1900,11 @@ local _itemdef_weaponst_flags
 ---@return DFPointer<table<weapon_flags, boolean>>
 function _itemdef_weaponst_flags:_field(index) end
 
----@param index integer 
----@param item table<weapon_flags, boolean> 
+---@param index '#'|integer
+---@param item table<weapon_flags, boolean>
 function _itemdef_weaponst_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_weaponst_flags:erase(index) end
 
 ---@class _itemdef_weaponst_attacks: DFContainer
@@ -1916,10 +1916,10 @@ local _itemdef_weaponst_attacks
 ---@return DFPointer<weapon_attack>
 function _itemdef_weaponst_attacks:_field(index) end
 
----@param index integer 
----@param item weapon_attack 
+---@param index '#'|integer
+---@param item weapon_attack
 function _itemdef_weaponst_attacks:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _itemdef_weaponst_attacks:erase(index) end
 

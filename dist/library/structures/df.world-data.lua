@@ -19,11 +19,11 @@ local _world_site_unk130_unk_4
 ---@return DFPointer<DFPointer<integer>>
 function _world_site_unk130_unk_4:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _world_site_unk130_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_site_unk130_unk_4:erase(index) end
 
 ---@alias world_population_type
@@ -262,11 +262,11 @@ local _world_region_population
 ---@return DFPointer<world_population>
 function _world_region_population:_field(index) end
 
----@param index integer 
----@param item world_population 
+---@param index '#'|integer
+---@param item world_population
 function _world_region_population:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_region_population:erase(index) end
 
 ---@class _world_region_tree_biomes: DFContainer
@@ -278,11 +278,11 @@ local _world_region_tree_biomes
 ---@return DFPointer<biome_type>
 function _world_region_tree_biomes:_field(index) end
 
----@param index integer 
----@param item biome_type 
+---@param index '#'|integer
+---@param item biome_type
 function _world_region_tree_biomes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_region_tree_biomes:erase(index) end
 
 ---@class (exact) world_underground_region: DFStruct
@@ -341,11 +341,11 @@ local _world_underground_region_unk_c8
 ---@return DFPointer<any[]>
 function _world_underground_region_unk_c8:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _world_underground_region_unk_c8:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_underground_region_unk_c8:erase(index) end
 
 -- Additional river information:
@@ -396,11 +396,11 @@ local _world_river_flags
 ---@return DFPointer<table<integer, boolean>>
 function _world_river_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _world_river_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_river_flags:erase(index) end
 
 ---@alias geo_layer_type
@@ -479,11 +479,11 @@ local _world_geo_layer_vein_type
 ---@return DFPointer<inclusion_type>
 function _world_geo_layer_vein_type:_field(index) end
 
----@param index integer 
----@param item inclusion_type 
+---@param index '#'|integer
+---@param item inclusion_type
 function _world_geo_layer_vein_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_geo_layer_vein_type:erase(index) end
 
 ---@class (exact) world_geo_biome: DFStruct
@@ -514,11 +514,11 @@ local _world_geo_biome_layers
 ---@return DFPointer<world_geo_layer>
 function _world_geo_biome_layers:_field(index) end
 
----@param index integer 
----@param item world_geo_layer 
+---@param index '#'|integer
+---@param item world_geo_layer
 function _world_geo_biome_layers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_geo_biome_layers:erase(index) end
 
 ---@class (exact) world_region_feature: DFStruct
@@ -548,11 +548,11 @@ local _world_region_feature_unk_30
 ---@return DFPointer<table<integer, boolean>>
 function _world_region_feature_unk_30:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _world_region_feature_unk_30:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_region_feature_unk_30:erase(index) end
 
 ---@class (exact) world_region_details: DFStruct
@@ -675,11 +675,11 @@ local _world_region_details_features
 ---@return DFPointer<world_region_feature>
 function _world_region_details_features:_field(index) end
 
----@param index integer 
----@param item world_region_feature 
+---@param index '#'|integer
+---@param item world_region_feature
 function _world_region_details_features:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_region_details_features:erase(index) end
 
 ---@alias region_map_entry_flags
@@ -835,11 +835,11 @@ local _region_map_entry_sites
 ---@return DFPointer<world_site>
 function _region_map_entry_sites:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _region_map_entry_sites:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_map_entry_sites:erase(index) end
 
 ---@class _region_map_entry_flags: DFContainer
@@ -851,11 +851,11 @@ local _region_map_entry_flags
 ---@return DFPointer<table<region_map_entry_flags, boolean>>
 function _region_map_entry_flags:_field(index) end
 
----@param index integer 
----@param item table<region_map_entry_flags, boolean> 
+---@param index '#'|integer
+---@param item table<region_map_entry_flags, boolean>
 function _region_map_entry_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _region_map_entry_flags:erase(index) end
 
 ---@class region_map_entry.T_clouds: DFBitfield
@@ -968,11 +968,11 @@ local _moving_party_members
 ---@return DFPointer<DFPointer<integer>>
 function _moving_party_members:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _moving_party_members:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _moving_party_members:erase(index) end
 
 ---@class _moving_party_flags: DFContainer
@@ -984,11 +984,11 @@ local _moving_party_flags
 ---@return DFPointer<table<integer, boolean>>
 function _moving_party_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _moving_party_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _moving_party_flags:erase(index) end
 
 ---@class _moving_party_unk_30: DFContainer
@@ -1000,11 +1000,11 @@ local _moving_party_unk_30
 ---@return DFPointer<any[]>
 function _moving_party_unk_30:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _moving_party_unk_30:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _moving_party_unk_30:erase(index) end
 
 ---@class _moving_party_unk_40: DFContainer
@@ -1016,11 +1016,11 @@ local _moving_party_unk_40
 ---@return DFPointer<any[]>
 function _moving_party_unk_40:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _moving_party_unk_40:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _moving_party_unk_40:erase(index) end
 
 ---@class (exact) world_object_data: DFStruct
@@ -1065,11 +1065,11 @@ local _world_object_data_offloaded_items
 ---@return DFPointer<DFPointer<integer>>
 function _world_object_data_offloaded_items:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _world_object_data_offloaded_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_object_data_offloaded_items:erase(index) end
 
 ---@class _world_object_data_offloaded_buildings: DFContainer
@@ -1081,11 +1081,11 @@ local _world_object_data_offloaded_buildings
 ---@return DFPointer<DFPointer<integer>>
 function _world_object_data_offloaded_buildings:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _world_object_data_offloaded_buildings:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_object_data_offloaded_buildings:erase(index) end
 
 ---@class _world_object_data_unk_94: DFContainer
@@ -1097,11 +1097,11 @@ local _world_object_data_unk_94
 ---@return DFPointer<DFPointer<integer>>
 function _world_object_data_unk_94:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _world_object_data_unk_94:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_object_data_unk_94:erase(index) end
 
 ---@class _world_object_data_creation_zone_alterations: DFContainer
@@ -1113,11 +1113,11 @@ local _world_object_data_creation_zone_alterations
 ---@return DFPointer<creation_zone_pwg_alterationst>
 function _world_object_data_creation_zone_alterations:_field(index) end
 
----@param index integer 
----@param item creation_zone_pwg_alterationst 
+---@param index '#'|integer
+---@param item creation_zone_pwg_alterationst
 function _world_object_data_creation_zone_alterations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_object_data_creation_zone_alterations:erase(index) end
 
 -- also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
@@ -1183,11 +1183,11 @@ local _world_mountain_peak_flags
 ---@return DFPointer<table<mountain_peak_flags, boolean>>
 function _world_mountain_peak_flags:_field(index) end
 
----@param index integer 
----@param item table<mountain_peak_flags, boolean> 
+---@param index '#'|integer
+---@param item table<mountain_peak_flags, boolean>
 function _world_mountain_peak_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_mountain_peak_flags:erase(index) end
 
 ---@class (exact) world_data: DFStruct
@@ -1323,11 +1323,11 @@ local _world_data_region_details
 ---@return DFPointer<world_region_details>
 function _world_data_region_details:_field(index) end
 
----@param index integer 
----@param item world_region_details 
+---@param index '#'|integer
+---@param item world_region_details
 function _world_data_region_details:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_region_details:erase(index) end
 
 ---@class _world_data_midmap_place: DFContainer
@@ -1339,11 +1339,11 @@ local _world_data_midmap_place
 ---@return DFPointer<any[]>
 function _world_data_midmap_place:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _world_data_midmap_place:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_midmap_place:erase(index) end
 
 ---@class (exact) world_data.T_constructions: DFStruct
@@ -1367,11 +1367,11 @@ local _world_data_constructions_list
 ---@return DFPointer<world_construction>
 function _world_data_constructions_list:_field(index) end
 
----@param index integer 
----@param item world_construction 
+---@param index '#'|integer
+---@param item world_construction
 function _world_data_constructions_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_constructions_list:erase(index) end
 
 ---@class _world_data_sites: DFContainer
@@ -1383,11 +1383,11 @@ local _world_data_sites
 ---@return DFPointer<world_site>
 function _world_data_sites:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _world_data_sites:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_sites:erase(index) end
 
 ---@class _world_data_site_unk130: DFContainer
@@ -1399,11 +1399,11 @@ local _world_data_site_unk130
 ---@return DFPointer<world_site_unk130>
 function _world_data_site_unk130:_field(index) end
 
----@param index integer 
----@param item world_site_unk130 
+---@param index '#'|integer
+---@param item world_site_unk130
 function _world_data_site_unk130:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_site_unk130:erase(index) end
 
 ---@class _world_data_resource_allotments: DFContainer
@@ -1415,11 +1415,11 @@ local _world_data_resource_allotments
 ---@return DFPointer<resource_allotment_data>
 function _world_data_resource_allotments:_field(index) end
 
----@param index integer 
----@param item resource_allotment_data 
+---@param index '#'|integer
+---@param item resource_allotment_data
 function _world_data_resource_allotments:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_resource_allotments:erase(index) end
 
 ---@class _world_data_breeds: DFContainer
@@ -1431,11 +1431,11 @@ local _world_data_breeds
 ---@return DFPointer<breed>
 function _world_data_breeds:_field(index) end
 
----@param index integer 
----@param item breed 
+---@param index '#'|integer
+---@param item breed
 function _world_data_breeds:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_breeds:erase(index) end
 
 ---@class _world_data_battlefields: DFContainer
@@ -1447,11 +1447,11 @@ local _world_data_battlefields
 ---@return DFPointer<battlefield>
 function _world_data_battlefields:_field(index) end
 
----@param index integer 
----@param item battlefield 
+---@param index '#'|integer
+---@param item battlefield
 function _world_data_battlefields:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_battlefields:erase(index) end
 
 ---@class _world_data_region_weather: DFContainer
@@ -1463,11 +1463,11 @@ local _world_data_region_weather
 ---@return DFPointer<region_weather>
 function _world_data_region_weather:_field(index) end
 
----@param index integer 
----@param item region_weather 
+---@param index '#'|integer
+---@param item region_weather
 function _world_data_region_weather:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_region_weather:erase(index) end
 
 ---@class _world_data_object_data: DFContainer
@@ -1479,11 +1479,11 @@ local _world_data_object_data
 ---@return DFPointer<world_object_data>
 function _world_data_object_data:_field(index) end
 
----@param index integer 
----@param item world_object_data 
+---@param index '#'|integer
+---@param item world_object_data
 function _world_data_object_data:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_object_data:erase(index) end
 
 ---@class _world_data_landmasses: DFContainer
@@ -1495,11 +1495,11 @@ local _world_data_landmasses
 ---@return DFPointer<world_landmass>
 function _world_data_landmasses:_field(index) end
 
----@param index integer 
----@param item world_landmass 
+---@param index '#'|integer
+---@param item world_landmass
 function _world_data_landmasses:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_landmasses:erase(index) end
 
 ---@class _world_data_regions: DFContainer
@@ -1511,11 +1511,11 @@ local _world_data_regions
 ---@return DFPointer<world_region>
 function _world_data_regions:_field(index) end
 
----@param index integer 
----@param item world_region 
+---@param index '#'|integer
+---@param item world_region
 function _world_data_regions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_regions:erase(index) end
 
 ---@class _world_data_underground_regions: DFContainer
@@ -1527,11 +1527,11 @@ local _world_data_underground_regions
 ---@return DFPointer<world_underground_region>
 function _world_data_underground_regions:_field(index) end
 
----@param index integer 
----@param item world_underground_region 
+---@param index '#'|integer
+---@param item world_underground_region
 function _world_data_underground_regions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_underground_regions:erase(index) end
 
 ---@class _world_data_geo_biomes: DFContainer
@@ -1543,11 +1543,11 @@ local _world_data_geo_biomes
 ---@return DFPointer<world_geo_biome>
 function _world_data_geo_biomes:_field(index) end
 
----@param index integer 
----@param item world_geo_biome 
+---@param index '#'|integer
+---@param item world_geo_biome
 function _world_data_geo_biomes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_geo_biomes:erase(index) end
 
 ---@class _world_data_mountain_peaks: DFContainer
@@ -1559,11 +1559,11 @@ local _world_data_mountain_peaks
 ---@return DFPointer<world_mountain_peak>
 function _world_data_mountain_peaks:_field(index) end
 
----@param index integer 
----@param item world_mountain_peak 
+---@param index '#'|integer
+---@param item world_mountain_peak
 function _world_data_mountain_peaks:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_mountain_peaks:erase(index) end
 
 ---@class _world_data_rivers: DFContainer
@@ -1575,11 +1575,11 @@ local _world_data_rivers
 ---@return DFPointer<world_river>
 function _world_data_rivers:_field(index) end
 
----@param index integer 
----@param item world_river 
+---@param index '#'|integer
+---@param item world_river
 function _world_data_rivers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_rivers:erase(index) end
 
 ---@class _world_data_embark_notes: DFContainer
@@ -1591,11 +1591,11 @@ local _world_data_embark_notes
 ---@return DFPointer<embark_note>
 function _world_data_embark_notes:_field(index) end
 
----@param index integer 
----@param item embark_note 
+---@param index '#'|integer
+---@param item embark_note
 function _world_data_embark_notes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_embark_notes:erase(index) end
 
 ---@class _world_data_active_site: DFContainer
@@ -1607,11 +1607,11 @@ local _world_data_active_site
 ---@return DFPointer<world_site>
 function _world_data_active_site:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _world_data_active_site:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_active_site:erase(index) end
 
 ---@class _world_data_unk_274: DFContainer
@@ -1623,11 +1623,11 @@ local _world_data_unk_274
 ---@return DFPointer<DFPointer<integer>>
 function _world_data_unk_274:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _world_data_unk_274:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_data_unk_274:erase(index) end
 
 ---@class (exact) world_data.T_unk_482f8: DFStruct
@@ -1675,11 +1675,11 @@ local _breed_unk_8
 ---@return DFPointer<DFPointer<integer>>
 function _breed_unk_8:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _breed_unk_8:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _breed_unk_8:erase(index) end
 
 ---@class _breed_unk_18: DFContainer
@@ -1691,11 +1691,11 @@ local _breed_unk_18
 ---@return DFPointer<DFPointer<integer>>
 function _breed_unk_18:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _breed_unk_18:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _breed_unk_18:erase(index) end
 
 ---@class _breed_unk_28: DFContainer
@@ -1707,11 +1707,11 @@ local _breed_unk_28
 ---@return DFPointer<DFPointer<integer>>
 function _breed_unk_28:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _breed_unk_28:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _breed_unk_28:erase(index) end
 
 ---@class (exact) battlefield: DFStruct
@@ -1748,11 +1748,11 @@ local _battlefield_sapient_deaths
 ---@return DFPointer<DFPointer<integer>>
 function _battlefield_sapient_deaths:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _battlefield_sapient_deaths:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _battlefield_sapient_deaths:erase(index) end
 
 ---@alias region_weather_type

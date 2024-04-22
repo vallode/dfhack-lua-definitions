@@ -26,11 +26,11 @@ local _ui_build_item_req_candidates
 ---@return DFPointer<item>
 function _ui_build_item_req_candidates:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _ui_build_item_req_candidates:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _ui_build_item_req_candidates:erase(index) end
 
 ---@alias build_req_choice_type
@@ -135,11 +135,11 @@ local _buildreq_requirements
 ---@return DFPointer<ui_build_item_req>
 function _buildreq_requirements:_field(index) end
 
----@param index integer 
----@param item ui_build_item_req 
+---@param index '#'|integer
+---@param item ui_build_item_req
 function _buildreq_requirements:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildreq_requirements:erase(index) end
 
 ---@class _buildreq_choices: DFContainer
@@ -151,11 +151,11 @@ local _buildreq_choices
 ---@return DFPointer<build_req_choicest>
 function _buildreq_choices:_field(index) end
 
----@param index integer 
----@param item build_req_choicest 
+---@param index '#'|integer
+---@param item build_req_choicest
 function _buildreq_choices:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildreq_choices:erase(index) end
 
 -- MISC. SIDEBAR MENUS
@@ -431,11 +431,11 @@ local _construction_interface_pagest_bb_button
 ---@return DFPointer<bb_buttonst>
 function _construction_interface_pagest_bb_button:_field(index) end
 
----@param index integer 
----@param item bb_buttonst 
+---@param index '#'|integer
+---@param item bb_buttonst
 function _construction_interface_pagest_bb_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _construction_interface_pagest_bb_button:erase(index) end
 
 ---@alias room_flow_shape_type
@@ -1889,11 +1889,11 @@ local _labor_kitchen_interfacest_known
 ---@return DFPointer<labor_kitchen_interface_food_value>
 function _labor_kitchen_interfacest_known:_field(index) end
 
----@param index integer 
----@param item labor_kitchen_interface_food_value 
+---@param index '#'|integer
+---@param item labor_kitchen_interface_food_value
 function _labor_kitchen_interfacest_known:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_kitchen_interfacest_known:erase(index) end
 
 ---@class _labor_kitchen_interfacest_sorting_by: DFContainer
@@ -1905,11 +1905,11 @@ local _labor_kitchen_interfacest_sorting_by
 ---@return DFPointer<labor_kitchen_interface_food_sort_entry>
 function _labor_kitchen_interfacest_sorting_by:_field(index) end
 
----@param index integer 
----@param item labor_kitchen_interface_food_sort_entry 
+---@param index '#'|integer
+---@param item labor_kitchen_interface_food_sort_entry
 function _labor_kitchen_interfacest_sorting_by:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_kitchen_interfacest_sorting_by:erase(index) end
 
 ---@class _labor_kitchen_interfacest_filter_func: DFContainer
@@ -1921,11 +1921,11 @@ local _labor_kitchen_interfacest_filter_func
 ---@return DFPointer<function[]>
 function _labor_kitchen_interfacest_filter_func:_field(index) end
 
----@param index integer 
----@param item function[] 
+---@param index '#'|integer
+---@param item function[]
 function _labor_kitchen_interfacest_filter_func:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_kitchen_interfacest_filter_func:erase(index) end
 
 ---@class (exact) labor_standing_orders_interfacest: DFStruct, widget
@@ -1950,11 +1950,11 @@ local _labor_standing_orders_interfacest_unit
 ---@return DFPointer<unit>
 function _labor_standing_orders_interfacest_unit:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _labor_standing_orders_interfacest_unit:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_standing_orders_interfacest_unit:erase(index) end
 
 ---@class (exact) labor_stone_use_interfacest: DFStruct, widget
@@ -1990,11 +1990,11 @@ local _labor_interfacest_work_details
 ---@return DFPointer<labor_work_details_interfacest>
 function _labor_interfacest_work_details:_field(index) end
 
----@param index integer 
----@param item labor_work_details_interfacest 
+---@param index '#'|integer
+---@param item labor_work_details_interfacest
 function _labor_interfacest_work_details:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_interfacest_work_details:erase(index) end
 
 ---@class _labor_interfacest_standing_orders: DFContainer
@@ -2006,11 +2006,11 @@ local _labor_interfacest_standing_orders
 ---@return DFPointer<labor_standing_orders_interfacest>
 function _labor_interfacest_standing_orders:_field(index) end
 
----@param index integer 
----@param item labor_standing_orders_interfacest 
+---@param index '#'|integer
+---@param item labor_standing_orders_interfacest
 function _labor_interfacest_standing_orders:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_interfacest_standing_orders:erase(index) end
 
 ---@class _labor_interfacest_kitchen: DFContainer
@@ -2022,11 +2022,11 @@ local _labor_interfacest_kitchen
 ---@return DFPointer<labor_kitchen_interfacest>
 function _labor_interfacest_kitchen:_field(index) end
 
----@param index integer 
----@param item labor_kitchen_interfacest 
+---@param index '#'|integer
+---@param item labor_kitchen_interfacest
 function _labor_interfacest_kitchen:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_interfacest_kitchen:erase(index) end
 
 ---@class _labor_interfacest_stone_use: DFContainer
@@ -2038,11 +2038,11 @@ local _labor_interfacest_stone_use
 ---@return DFPointer<labor_stone_use_interfacest>
 function _labor_interfacest_stone_use:_field(index) end
 
----@param index integer 
----@param item labor_stone_use_interfacest 
+---@param index '#'|integer
+---@param item labor_stone_use_interfacest
 function _labor_interfacest_stone_use:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _labor_interfacest_stone_use:erase(index) end
 
 ---@class justice_screen_interrogation_list_flag: DFBitfield
@@ -2120,11 +2120,11 @@ local _justice_interfacest_cri_fortress_guard
 ---@return DFPointer<cri_unitst>
 function _justice_interfacest_cri_fortress_guard:_field(index) end
 
----@param index integer 
----@param item cri_unitst 
+---@param index '#'|integer
+---@param item cri_unitst
 function _justice_interfacest_cri_fortress_guard:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_cri_fortress_guard:erase(index) end
 
 ---@class _justice_interfacest_convicts: DFContainer
@@ -2136,11 +2136,11 @@ local _justice_interfacest_convicts
 ---@return DFPointer<unit>
 function _justice_interfacest_convicts:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _justice_interfacest_convicts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_convicts:erase(index) end
 
 ---@class _justice_interfacest_convict_crime: DFContainer
@@ -2152,11 +2152,11 @@ local _justice_interfacest_convict_crime
 ---@return DFPointer<crime>
 function _justice_interfacest_convict_crime:_field(index) end
 
----@param index integer 
----@param item crime 
+---@param index '#'|integer
+---@param item crime
 function _justice_interfacest_convict_crime:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_convict_crime:erase(index) end
 
 ---@class _justice_interfacest_interrogation_report: DFContainer
@@ -2168,11 +2168,11 @@ local _justice_interfacest_interrogation_report
 ---@return DFPointer<any[]>
 function _justice_interfacest_interrogation_report:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _justice_interfacest_interrogation_report:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_interrogation_report:erase(index) end
 
 ---@class _justice_interfacest_base_actor_entry: DFContainer
@@ -2184,11 +2184,11 @@ local _justice_interfacest_base_actor_entry
 ---@return DFPointer<actor_entryst>
 function _justice_interfacest_base_actor_entry:_field(index) end
 
----@param index integer 
----@param item actor_entryst 
+---@param index '#'|integer
+---@param item actor_entryst
 function _justice_interfacest_base_actor_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_base_actor_entry:erase(index) end
 
 ---@class _justice_interfacest_base_organization_entry: DFContainer
@@ -2200,11 +2200,11 @@ local _justice_interfacest_base_organization_entry
 ---@return DFPointer<organization_entryst>
 function _justice_interfacest_base_organization_entry:_field(index) end
 
----@param index integer 
----@param item organization_entryst 
+---@param index '#'|integer
+---@param item organization_entryst
 function _justice_interfacest_base_organization_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_base_organization_entry:erase(index) end
 
 ---@class _justice_interfacest_base_plot_entry: DFContainer
@@ -2216,11 +2216,11 @@ local _justice_interfacest_base_plot_entry
 ---@return DFPointer<plot_entryst>
 function _justice_interfacest_base_plot_entry:_field(index) end
 
----@param index integer 
----@param item plot_entryst 
+---@param index '#'|integer
+---@param item plot_entryst
 function _justice_interfacest_base_plot_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_base_plot_entry:erase(index) end
 
 ---@class _justice_interfacest_value_actor_entry: DFContainer
@@ -2232,11 +2232,11 @@ local _justice_interfacest_value_actor_entry
 ---@return DFPointer<actor_entryst>
 function _justice_interfacest_value_actor_entry:_field(index) end
 
----@param index integer 
----@param item actor_entryst 
+---@param index '#'|integer
+---@param item actor_entryst
 function _justice_interfacest_value_actor_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_value_actor_entry:erase(index) end
 
 ---@class _justice_interfacest_value_organization_entry: DFContainer
@@ -2248,11 +2248,11 @@ local _justice_interfacest_value_organization_entry
 ---@return DFPointer<organization_entryst>
 function _justice_interfacest_value_organization_entry:_field(index) end
 
----@param index integer 
----@param item organization_entryst 
+---@param index '#'|integer
+---@param item organization_entryst
 function _justice_interfacest_value_organization_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_value_organization_entry:erase(index) end
 
 ---@class _justice_interfacest_value_plot_entry: DFContainer
@@ -2264,11 +2264,11 @@ local _justice_interfacest_value_plot_entry
 ---@return DFPointer<plot_entryst>
 function _justice_interfacest_value_plot_entry:_field(index) end
 
----@param index integer 
----@param item plot_entryst 
+---@param index '#'|integer
+---@param item plot_entryst
 function _justice_interfacest_value_plot_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_value_plot_entry:erase(index) end
 
 ---@class _justice_interfacest_actor_entry: DFContainer
@@ -2280,11 +2280,11 @@ local _justice_interfacest_actor_entry
 ---@return DFPointer<actor_entryst>
 function _justice_interfacest_actor_entry:_field(index) end
 
----@param index integer 
----@param item actor_entryst 
+---@param index '#'|integer
+---@param item actor_entryst
 function _justice_interfacest_actor_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_actor_entry:erase(index) end
 
 ---@class _justice_interfacest_organization_entry: DFContainer
@@ -2296,11 +2296,11 @@ local _justice_interfacest_organization_entry
 ---@return DFPointer<organization_entryst>
 function _justice_interfacest_organization_entry:_field(index) end
 
----@param index integer 
----@param item organization_entryst 
+---@param index '#'|integer
+---@param item organization_entryst
 function _justice_interfacest_organization_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_organization_entry:erase(index) end
 
 ---@class _justice_interfacest_plot_entry: DFContainer
@@ -2312,11 +2312,11 @@ local _justice_interfacest_plot_entry
 ---@return DFPointer<plot_entryst>
 function _justice_interfacest_plot_entry:_field(index) end
 
----@param index integer 
----@param item plot_entryst 
+---@param index '#'|integer
+---@param item plot_entryst
 function _justice_interfacest_plot_entry:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_plot_entry:erase(index) end
 
 ---@class _justice_interfacest_crimeflag: DFContainer
@@ -2328,11 +2328,11 @@ local _justice_interfacest_crimeflag
 ---@return DFPointer<justice_screen_interrogation_list_flag>
 function _justice_interfacest_crimeflag:_field(index) end
 
----@param index integer 
----@param item justice_screen_interrogation_list_flag 
+---@param index '#'|integer
+---@param item justice_screen_interrogation_list_flag
 function _justice_interfacest_crimeflag:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _justice_interfacest_crimeflag:erase(index) end
 
 ---@class (exact) info_interfacest: DFStruct, widget_tabs
@@ -2371,11 +2371,11 @@ local _info_interfacest_jobs_cri_job
 ---@return DFPointer<cri_unitst>
 function _info_interfacest_jobs_cri_job:_field(index) end
 
----@param index integer 
----@param item cri_unitst 
+---@param index '#'|integer
+---@param item cri_unitst
 function _info_interfacest_jobs_cri_job:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_jobs_cri_job:erase(index) end
 
 ---@class (exact) info_interfacest.T_buildings: DFStruct
@@ -2398,11 +2398,11 @@ local _info_interfacest_buildings_list
 ---@return DFPointer<building>
 function _info_interfacest_buildings_list:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _info_interfacest_buildings_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_buildings_list:erase(index) end
 
 ---@class (exact) info_interfacest.T_work_orders: DFStruct
@@ -2467,11 +2467,11 @@ local _info_interfacest_work_orders_conditions_item_condition_satisfied
 ---@return DFPointer<any[]>
 function _info_interfacest_work_orders_conditions_item_condition_satisfied:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _info_interfacest_work_orders_conditions_item_condition_satisfied:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_item_condition_satisfied:erase(index) end
 
 ---@class _info_interfacest_work_orders_conditions_order_condition_satisfied: DFContainer
@@ -2483,11 +2483,11 @@ local _info_interfacest_work_orders_conditions_order_condition_satisfied
 ---@return DFPointer<any[]>
 function _info_interfacest_work_orders_conditions_order_condition_satisfied:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _info_interfacest_work_orders_conditions_order_condition_satisfied:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_order_condition_satisfied:erase(index) end
 
 ---@class _info_interfacest_work_orders_conditions_suggested_item_condition: DFContainer
@@ -2499,11 +2499,11 @@ local _info_interfacest_work_orders_conditions_suggested_item_condition
 ---@return DFPointer<any[]>
 function _info_interfacest_work_orders_conditions_suggested_item_condition:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _info_interfacest_work_orders_conditions_suggested_item_condition:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_suggested_item_condition:erase(index) end
 
 ---@class _info_interfacest_work_orders_conditions_item_type_on: DFContainer
@@ -2515,11 +2515,11 @@ local _info_interfacest_work_orders_conditions_item_type_on
 ---@return DFPointer<any[]>
 function _info_interfacest_work_orders_conditions_item_type_on:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _info_interfacest_work_orders_conditions_item_type_on:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_item_type_on:erase(index) end
 
 ---@class _info_interfacest_work_orders_conditions_item_material_on: DFContainer
@@ -2531,11 +2531,11 @@ local _info_interfacest_work_orders_conditions_item_material_on
 ---@return DFPointer<any[]>
 function _info_interfacest_work_orders_conditions_item_material_on:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _info_interfacest_work_orders_conditions_item_material_on:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_item_material_on:erase(index) end
 
 ---@class _info_interfacest_work_orders_conditions_item_trait_master: DFContainer
@@ -2547,11 +2547,11 @@ local _info_interfacest_work_orders_conditions_item_trait_master
 ---@return DFPointer<wqc_item_traitst>
 function _info_interfacest_work_orders_conditions_item_trait_master:_field(index) end
 
----@param index integer 
----@param item wqc_item_traitst 
+---@param index '#'|integer
+---@param item wqc_item_traitst
 function _info_interfacest_work_orders_conditions_item_trait_master:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_item_trait_master:erase(index) end
 
 ---@class _info_interfacest_work_orders_conditions_condition_wq: DFContainer
@@ -2563,11 +2563,11 @@ local _info_interfacest_work_orders_conditions_condition_wq
 ---@return DFPointer<manager_order>
 function _info_interfacest_work_orders_conditions_condition_wq:_field(index) end
 
----@param index integer 
----@param item manager_order 
+---@param index '#'|integer
+---@param item manager_order
 function _info_interfacest_work_orders_conditions_condition_wq:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 
 ---@class (exact) info_interfacest.T_administrators: DFStruct
@@ -2610,11 +2610,11 @@ local _info_interfacest_administrators_noblelist
 ---@return DFPointer<DFPointer<integer>>
 function _info_interfacest_administrators_noblelist:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _info_interfacest_administrators_noblelist:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_administrators_noblelist:erase(index) end
 
 ---@class _info_interfacest_administrators_spec_prof: DFContainer
@@ -2626,11 +2626,11 @@ local _info_interfacest_administrators_spec_prof
 ---@return DFPointer<entity_position_assignment>
 function _info_interfacest_administrators_spec_prof:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _info_interfacest_administrators_spec_prof:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_administrators_spec_prof:erase(index) end
 
 ---@class _info_interfacest_administrators_candidate: DFContainer
@@ -2642,11 +2642,11 @@ local _info_interfacest_administrators_candidate
 ---@return DFPointer<DFPointer<integer>>
 function _info_interfacest_administrators_candidate:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _info_interfacest_administrators_candidate:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_administrators_candidate:erase(index) end
 
 ---@class _info_interfacest_administrators_cand_symbol: DFContainer
@@ -2658,11 +2658,11 @@ local _info_interfacest_administrators_cand_symbol
 ---@return DFPointer<item>
 function _info_interfacest_administrators_cand_symbol:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _info_interfacest_administrators_cand_symbol:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_administrators_cand_symbol:erase(index) end
 
 ---@class (exact) info_interfacest.T_artifacts: DFStruct
@@ -2685,11 +2685,11 @@ local _info_interfacest_artifacts_list
 ---@return DFPointer<artifact_record>
 function _info_interfacest_artifacts_list:_field(index) end
 
----@param index integer 
----@param item artifact_record 
+---@param index '#'|integer
+---@param item artifact_record
 function _info_interfacest_artifacts_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _info_interfacest_artifacts_list:erase(index) end
 
 ---@class (exact) announcements_interfacest: DFStruct
@@ -2868,11 +2868,11 @@ local _main_interface_building_button
 ---@return DFPointer<interface_button>
 function _main_interface_building_button:_field(index) end
 
----@param index integer 
----@param item interface_button 
+---@param index '#'|integer
+---@param item interface_button
 function _main_interface_building_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_building_button:erase(index) end
 
 ---@class _main_interface_building_press_button: DFContainer
@@ -2884,11 +2884,11 @@ local _main_interface_building_press_button
 ---@return DFPointer<interface_button>
 function _main_interface_building_press_button:_field(index) end
 
----@param index integer 
----@param item interface_button 
+---@param index '#'|integer
+---@param item interface_button
 function _main_interface_building_press_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_building_press_button:erase(index) end
 
 ---@class _main_interface_building_filtered_button: DFContainer
@@ -2900,11 +2900,11 @@ local _main_interface_building_filtered_button
 ---@return DFPointer<interface_button>
 function _main_interface_building_filtered_button:_field(index) end
 
----@param index integer 
----@param item interface_button 
+---@param index '#'|integer
+---@param item interface_button
 function _main_interface_building_filtered_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_building_filtered_button:erase(index) end
 
 ---@class (exact) main_interface.T_construction: DFStruct
@@ -2938,11 +2938,11 @@ local _main_interface_construction_button
 ---@return DFPointer<interface_button>
 function _main_interface_construction_button:_field(index) end
 
----@param index integer 
----@param item interface_button 
+---@param index '#'|integer
+---@param item interface_button
 function _main_interface_construction_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_construction_button:erase(index) end
 
 ---@class _main_interface_construction_press_button: DFContainer
@@ -2954,11 +2954,11 @@ local _main_interface_construction_press_button
 ---@return DFPointer<interface_button>
 function _main_interface_construction_press_button:_field(index) end
 
----@param index integer 
----@param item interface_button 
+---@param index '#'|integer
+---@param item interface_button
 function _main_interface_construction_press_button:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_construction_press_button:erase(index) end
 
 ---@class _main_interface_construction_page: DFContainer
@@ -2970,11 +2970,11 @@ local _main_interface_construction_page
 ---@return DFPointer<construction_interface_pagest>
 function _main_interface_construction_page:_field(index) end
 
----@param index integer 
----@param item construction_interface_pagest 
+---@param index '#'|integer
+---@param item construction_interface_pagest
 function _main_interface_construction_page:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_construction_page:erase(index) end
 
 ---@class (exact) main_interface.T_civzone: DFStruct
@@ -3007,11 +3007,11 @@ local _main_interface_civzone_list
 ---@return DFPointer<building_civzonest>
 function _main_interface_civzone_list:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _main_interface_civzone_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_civzone_list:erase(index) end
 
 ---@class _main_interface_civzone_zone_just_created: DFContainer
@@ -3023,11 +3023,11 @@ local _main_interface_civzone_zone_just_created
 ---@return DFPointer<building_civzonest>
 function _main_interface_civzone_zone_just_created:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _main_interface_civzone_zone_just_created:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_civzone_zone_just_created:erase(index) end
 
 ---@class (exact) main_interface.T_burrow: DFStruct
@@ -3084,11 +3084,11 @@ local _main_interface_view_inv
 ---@return DFPointer<unit_inventory_item>
 function _main_interface_view_inv:_field(index) end
 
----@param index integer 
----@param item unit_inventory_item 
+---@param index '#'|integer
+---@param item unit_inventory_item
 function _main_interface_view_inv:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_inv:erase(index) end
 
 ---@class _main_interface_view_contam: DFContainer
@@ -3100,11 +3100,11 @@ local _main_interface_view_contam
 ---@return DFPointer<spatter>
 function _main_interface_view_contam:_field(index) end
 
----@param index integer 
----@param item spatter 
+---@param index '#'|integer
+---@param item spatter
 function _main_interface_view_contam:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_contam:erase(index) end
 
 ---@class _main_interface_view_guest_text: DFContainer
@@ -3116,11 +3116,11 @@ local _main_interface_view_guest_text
 ---@return DFPointer<any[]>
 function _main_interface_view_guest_text:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_view_guest_text:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_guest_text:erase(index) end
 
 ---@class _main_interface_view_squad_list_sq: DFContainer
@@ -3132,11 +3132,11 @@ local _main_interface_view_squad_list_sq
 ---@return DFPointer<squad>
 function _main_interface_view_squad_list_sq:_field(index) end
 
----@param index integer 
----@param item squad 
+---@param index '#'|integer
+---@param item squad
 function _main_interface_view_squad_list_sq:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_squad_list_sq:erase(index) end
 
 ---@class _main_interface_view_squad_list_ep: DFContainer
@@ -3148,11 +3148,11 @@ local _main_interface_view_squad_list_ep
 ---@return DFPointer<entity_position>
 function _main_interface_view_squad_list_ep:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _main_interface_view_squad_list_ep:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_squad_list_ep:erase(index) end
 
 ---@class _main_interface_view_squad_list_epp: DFContainer
@@ -3164,11 +3164,11 @@ local _main_interface_view_squad_list_epp
 ---@return DFPointer<entity_position_assignment>
 function _main_interface_view_squad_list_epp:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _main_interface_view_squad_list_epp:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_squad_list_epp:erase(index) end
 
 ---@class _main_interface_view_squad_list_has_subord_pos: DFContainer
@@ -3180,11 +3180,11 @@ local _main_interface_view_squad_list_has_subord_pos
 ---@return DFPointer<any[]>
 function _main_interface_view_squad_list_has_subord_pos:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_view_squad_list_has_subord_pos:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_squad_list_has_subord_pos:erase(index) end
 
 ---@class _main_interface_view_expel_total_list: DFContainer
@@ -3196,11 +3196,11 @@ local _main_interface_view_expel_total_list
 ---@return DFPointer<unit>
 function _main_interface_view_expel_total_list:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _main_interface_view_expel_total_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_expel_total_list:erase(index) end
 
 ---@class _main_interface_view_expel_outskirt_list: DFContainer
@@ -3212,11 +3212,11 @@ local _main_interface_view_expel_outskirt_list
 ---@return DFPointer<world_site>
 function _main_interface_view_expel_outskirt_list:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _main_interface_view_expel_outskirt_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_expel_outskirt_list:erase(index) end
 
 ---@class (exact) main_interface.T_hospital: DFStruct
@@ -3257,11 +3257,11 @@ local _main_interface_location_list_valid_ab
 ---@return DFPointer<abstract_building>
 function _main_interface_location_list_valid_ab:_field(index) end
 
----@param index integer 
----@param item abstract_building 
+---@param index '#'|integer
+---@param item abstract_building
 function _main_interface_location_list_valid_ab:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_list_valid_ab:erase(index) end
 
 ---@class _main_interface_location_list_valid_religious_practice: DFContainer
@@ -3273,11 +3273,11 @@ local _main_interface_location_list_valid_religious_practice
 ---@return DFPointer<temple_deity_type>
 function _main_interface_location_list_valid_religious_practice:_field(index) end
 
----@param index integer 
----@param item temple_deity_type 
+---@param index '#'|integer
+---@param item temple_deity_type
 function _main_interface_location_list_valid_religious_practice:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_list_valid_religious_practice:erase(index) end
 
 ---@class _main_interface_location_list_valid_religious_practice_id: DFContainer
@@ -3289,11 +3289,11 @@ local _main_interface_location_list_valid_religious_practice_id
 ---@return DFPointer<temple_deity_data>
 function _main_interface_location_list_valid_religious_practice_id:_field(index) end
 
----@param index integer 
----@param item temple_deity_data 
+---@param index '#'|integer
+---@param item temple_deity_data
 function _main_interface_location_list_valid_religious_practice_id:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_list_valid_religious_practice_id:erase(index) end
 
 ---@class _main_interface_location_list_valid_craft_guild_type: DFContainer
@@ -3305,11 +3305,11 @@ local _main_interface_location_list_valid_craft_guild_type
 ---@return DFPointer<profession>
 function _main_interface_location_list_valid_craft_guild_type:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _main_interface_location_list_valid_craft_guild_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_list_valid_craft_guild_type:erase(index) end
 
 ---@class (exact) main_interface.T_job_details: DFStruct
@@ -3359,11 +3359,11 @@ local _main_interface_job_details_option
 ---@return DFPointer<job_details_option_type>
 function _main_interface_job_details_option:_field(index) end
 
----@param index integer 
----@param item job_details_option_type 
+---@param index '#'|integer
+---@param item job_details_option_type
 function _main_interface_job_details_option:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_job_details_option:erase(index) end
 
 ---@class _main_interface_job_details_improvement_type: DFContainer
@@ -3375,11 +3375,11 @@ local _main_interface_job_details_improvement_type
 ---@return DFPointer<improvement_type>
 function _main_interface_job_details_improvement_type:_field(index) end
 
----@param index integer 
----@param item improvement_type 
+---@param index '#'|integer
+---@param item improvement_type
 function _main_interface_job_details_improvement_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_job_details_improvement_type:erase(index) end
 
 ---@class (exact) main_interface.T_buildjob: DFStruct
@@ -3439,11 +3439,11 @@ local _main_interface_assign_trade_unk_a8
 ---@return DFPointer<DFPointer<integer>>
 function _main_interface_assign_trade_unk_a8:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _main_interface_assign_trade_unk_a8:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_trade_unk_a8:erase(index) end
 
 ---@class _main_interface_assign_trade_unk_138: DFContainer
@@ -3455,11 +3455,11 @@ local _main_interface_assign_trade_unk_138
 ---@return DFPointer<any[]>
 function _main_interface_assign_trade_unk_138:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_assign_trade_unk_138:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_trade_unk_138:erase(index) end
 
 ---@class _main_interface_assign_trade_current_type_tgi: DFContainer
@@ -3471,11 +3471,11 @@ local _main_interface_assign_trade_current_type_tgi
 ---@return DFPointer<any[]>
 function _main_interface_assign_trade_current_type_tgi:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_assign_trade_current_type_tgi:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_trade_current_type_tgi:erase(index) end
 
 ---@class _main_interface_assign_trade_current_type_a_expanded: DFContainer
@@ -3487,11 +3487,11 @@ local _main_interface_assign_trade_current_type_a_expanded
 ---@return DFPointer<any[]>
 function _main_interface_assign_trade_current_type_a_expanded:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_assign_trade_current_type_a_expanded:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_trade_current_type_a_expanded:erase(index) end
 
 ---@class _main_interface_assign_trade_current_type_a_on: DFContainer
@@ -3503,11 +3503,11 @@ local _main_interface_assign_trade_current_type_a_on
 ---@return DFPointer<any[]>
 function _main_interface_assign_trade_current_type_a_on:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_assign_trade_current_type_a_on:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_trade_current_type_a_on:erase(index) end
 
 ---@class (exact) main_interface.T_trade: DFStruct
@@ -3571,11 +3571,11 @@ local _main_interface_trade_merlist
 ---@return DFPointer<caravan_state>
 function _main_interface_trade_merlist:_field(index) end
 
----@param index integer 
----@param item caravan_state 
+---@param index '#'|integer
+---@param item caravan_state
 function _main_interface_trade_merlist:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_trade_merlist:erase(index) end
 
 ---@class _main_interface_trade_good: DFContainer
@@ -3587,11 +3587,11 @@ local _main_interface_trade_good
 ---@return DFPointer<item>
 function _main_interface_trade_good:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _main_interface_trade_good:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_trade_good:erase(index) end
 
 ---@class _main_interface_trade_counter_offer_item: DFContainer
@@ -3603,11 +3603,11 @@ local _main_interface_trade_counter_offer_item
 ---@return DFPointer<item>
 function _main_interface_trade_counter_offer_item:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _main_interface_trade_counter_offer_item:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_trade_counter_offer_item:erase(index) end
 
 ---@class (exact) main_interface.T_diplomacy: DFStruct
@@ -3698,11 +3698,11 @@ local _main_interface_stocks_current_type_i_list
 ---@return DFPointer<item>
 function _main_interface_stocks_current_type_i_list:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _main_interface_stocks_current_type_i_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_stocks_current_type_i_list:erase(index) end
 
 ---@class _main_interface_stocks_current_type_a_expanded: DFContainer
@@ -3714,11 +3714,11 @@ local _main_interface_stocks_current_type_a_expanded
 ---@return DFPointer<any[]>
 function _main_interface_stocks_current_type_a_expanded:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_stocks_current_type_a_expanded:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_stocks_current_type_a_expanded:erase(index) end
 
 ---@class _main_interface_stocks_current_type_a_on: DFContainer
@@ -3730,11 +3730,11 @@ local _main_interface_stocks_current_type_a_on
 ---@return DFPointer<any[]>
 function _main_interface_stocks_current_type_a_on:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_stocks_current_type_a_on:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_stocks_current_type_a_on:erase(index) end
 
 ---@class (exact) main_interface.T_assign_display_item: DFStruct
@@ -3775,11 +3775,11 @@ local _main_interface_assign_display_item_current_type_i_list
 ---@return DFPointer<item>
 function _main_interface_assign_display_item_current_type_i_list:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _main_interface_assign_display_item_current_type_i_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_display_item_current_type_i_list:erase(index) end
 
 ---@class _main_interface_assign_display_item_current_type_a_expanded: DFContainer
@@ -3791,11 +3791,11 @@ local _main_interface_assign_display_item_current_type_a_expanded
 ---@return DFPointer<any[]>
 function _main_interface_assign_display_item_current_type_a_expanded:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_assign_display_item_current_type_a_expanded:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_display_item_current_type_a_expanded:erase(index) end
 
 ---@class _main_interface_assign_display_item_current_type_a_on: DFContainer
@@ -3807,11 +3807,11 @@ local _main_interface_assign_display_item_current_type_a_on
 ---@return DFPointer<any[]>
 function _main_interface_assign_display_item_current_type_a_on:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_assign_display_item_current_type_a_on:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_display_item_current_type_a_on:erase(index) end
 
 ---@class (exact) main_interface.T_name_creator: DFStruct
@@ -3907,11 +3907,11 @@ local _main_interface_image_creator_hf
 ---@return DFPointer<historical_figure>
 function _main_interface_image_creator_hf:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _main_interface_image_creator_hf:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_hf:erase(index) end
 
 ---@class _main_interface_image_creator_st: DFContainer
@@ -3923,11 +3923,11 @@ local _main_interface_image_creator_st
 ---@return DFPointer<world_site>
 function _main_interface_image_creator_st:_field(index) end
 
----@param index integer 
----@param item world_site 
+---@param index '#'|integer
+---@param item world_site
 function _main_interface_image_creator_st:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_st:erase(index) end
 
 ---@class _main_interface_image_creator_ent: DFContainer
@@ -3939,11 +3939,11 @@ local _main_interface_image_creator_ent
 ---@return DFPointer<historical_entity>
 function _main_interface_image_creator_ent:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _main_interface_image_creator_ent:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_ent:erase(index) end
 
 ---@class _main_interface_image_creator_hist_event: DFContainer
@@ -3955,11 +3955,11 @@ local _main_interface_image_creator_hist_event
 ---@return DFPointer<history_event>
 function _main_interface_image_creator_hist_event:_field(index) end
 
----@param index integer 
----@param item history_event 
+---@param index '#'|integer
+---@param item history_event
 function _main_interface_image_creator_hist_event:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_hist_event:erase(index) end
 
 ---@class _main_interface_image_creator_art_image: DFContainer
@@ -3971,11 +3971,11 @@ local _main_interface_image_creator_art_image
 ---@return DFPointer<art_image>
 function _main_interface_image_creator_art_image:_field(index) end
 
----@param index integer 
----@param item art_image 
+---@param index '#'|integer
+---@param item art_image
 function _main_interface_image_creator_art_image:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_art_image:erase(index) end
 
 ---@class _main_interface_image_creator_new_image_hf: DFContainer
@@ -3987,11 +3987,11 @@ local _main_interface_image_creator_new_image_hf
 ---@return DFPointer<historical_figure>
 function _main_interface_image_creator_new_image_hf:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _main_interface_image_creator_new_image_hf:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_new_image_hf:erase(index) end
 
 ---@class _main_interface_image_creator_new_image_artifact: DFContainer
@@ -4003,11 +4003,11 @@ local _main_interface_image_creator_new_image_artifact
 ---@return DFPointer<artifact_record>
 function _main_interface_image_creator_new_image_artifact:_field(index) end
 
----@param index integer 
----@param item artifact_record 
+---@param index '#'|integer
+---@param item artifact_record
 function _main_interface_image_creator_new_image_artifact:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_new_image_artifact:erase(index) end
 
 ---@class _main_interface_image_creator_new_image_property_transitive: DFContainer
@@ -4019,11 +4019,11 @@ local _main_interface_image_creator_new_image_property_transitive
 ---@return DFPointer<any[]>
 function _main_interface_image_creator_new_image_property_transitive:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_image_creator_new_image_property_transitive:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_image_creator_new_image_property_transitive:erase(index) end
 
 ---@class (exact) main_interface.T_image_creator.T_ics: DFStruct
@@ -4079,11 +4079,11 @@ local _main_interface_announcement_alert_zoom_line_is_start
 ---@return DFPointer<any[]>
 function _main_interface_announcement_alert_zoom_line_is_start:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_announcement_alert_zoom_line_is_start:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_announcement_alert_zoom_line_is_start:erase(index) end
 
 ---@class _main_interface_announcement_alert_zoom_line_ann: DFContainer
@@ -4095,11 +4095,11 @@ local _main_interface_announcement_alert_zoom_line_ann
 ---@return DFPointer<report>
 function _main_interface_announcement_alert_zoom_line_ann:_field(index) end
 
----@param index integer 
----@param item report 
+---@param index '#'|integer
+---@param item report
 function _main_interface_announcement_alert_zoom_line_ann:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_announcement_alert_zoom_line_ann:erase(index) end
 
 ---@class _main_interface_announcement_alert_zoom_line_unit: DFContainer
@@ -4111,11 +4111,11 @@ local _main_interface_announcement_alert_zoom_line_unit
 ---@return DFPointer<unit>
 function _main_interface_announcement_alert_zoom_line_unit:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _main_interface_announcement_alert_zoom_line_unit:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_announcement_alert_zoom_line_unit:erase(index) end
 
 ---@class _main_interface_announcement_alert_uac_zoom_line_is_start: DFContainer
@@ -4127,11 +4127,11 @@ local _main_interface_announcement_alert_uac_zoom_line_is_start
 ---@return DFPointer<any[]>
 function _main_interface_announcement_alert_uac_zoom_line_is_start:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_announcement_alert_uac_zoom_line_is_start:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_announcement_alert_uac_zoom_line_is_start:erase(index) end
 
 ---@class _main_interface_announcement_alert_uac_zoom_line_ann: DFContainer
@@ -4143,11 +4143,11 @@ local _main_interface_announcement_alert_uac_zoom_line_ann
 ---@return DFPointer<report>
 function _main_interface_announcement_alert_uac_zoom_line_ann:_field(index) end
 
----@param index integer 
----@param item report 
+---@param index '#'|integer
+---@param item report
 function _main_interface_announcement_alert_uac_zoom_line_ann:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_announcement_alert_uac_zoom_line_ann:erase(index) end
 
 ---@class (exact) main_interface.T_custom_symbol: DFStruct
@@ -4195,11 +4195,11 @@ local _main_interface_patrol_routes_route_line
 ---@return DFPointer<coord_path>
 function _main_interface_patrol_routes_route_line:_field(index) end
 
----@param index integer 
----@param item coord_path 
+---@param index '#'|integer
+---@param item coord_path
 function _main_interface_patrol_routes_route_line:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_patrol_routes_route_line:erase(index) end
 
 ---@class (exact) main_interface.T_squad_equipment: DFStruct
@@ -4261,11 +4261,11 @@ local _main_interface_squad_equipment_cs_add_list_is_foreign
 ---@return DFPointer<any[]>
 function _main_interface_squad_equipment_cs_add_list_is_foreign:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_squad_equipment_cs_add_list_is_foreign:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_squad_equipment_cs_add_list_is_foreign:erase(index) end
 
 ---@class _main_interface_squad_equipment_cs_setting_color_pattern_is_dye: DFContainer
@@ -4277,11 +4277,11 @@ local _main_interface_squad_equipment_cs_setting_color_pattern_is_dye
 ---@return DFPointer<any[]>
 function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:erase(index) end
 
 ---@class (exact) main_interface.T_squad_schedule: DFStruct
@@ -4346,11 +4346,11 @@ local _main_interface_burrow_selector_selected
 ---@return DFPointer<any[]>
 function _main_interface_burrow_selector_selected:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_burrow_selector_selected:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_burrow_selector_selected:erase(index) end
 
 ---@class (exact) main_interface.T_location_selector: DFStruct
@@ -4384,11 +4384,11 @@ local _main_interface_location_selector_valid_ab
 ---@return DFPointer<abstract_building>
 function _main_interface_location_selector_valid_ab:_field(index) end
 
----@param index integer 
----@param item abstract_building 
+---@param index '#'|integer
+---@param item abstract_building
 function _main_interface_location_selector_valid_ab:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_selector_valid_ab:erase(index) end
 
 ---@class _main_interface_location_selector_valid_craft_guild_type: DFContainer
@@ -4400,11 +4400,11 @@ local _main_interface_location_selector_valid_craft_guild_type
 ---@return DFPointer<profession>
 function _main_interface_location_selector_valid_craft_guild_type:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _main_interface_location_selector_valid_craft_guild_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_selector_valid_craft_guild_type:erase(index) end
 
 ---@class (exact) main_interface.T_location_details: DFStruct
@@ -4437,11 +4437,11 @@ local _main_interface_location_details_loc_occupation
 ---@return DFPointer<occupation>
 function _main_interface_location_details_loc_occupation:_field(index) end
 
----@param index integer 
----@param item occupation 
+---@param index '#'|integer
+---@param item occupation
 function _main_interface_location_details_loc_occupation:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_details_loc_occupation:erase(index) end
 
 ---@class _main_interface_location_details_loc_ent: DFContainer
@@ -4453,11 +4453,11 @@ local _main_interface_location_details_loc_ent
 ---@return DFPointer<historical_entity>
 function _main_interface_location_details_loc_ent:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _main_interface_location_details_loc_ent:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_details_loc_ent:erase(index) end
 
 ---@class _main_interface_location_details_loc_position: DFContainer
@@ -4469,11 +4469,11 @@ local _main_interface_location_details_loc_position
 ---@return DFPointer<entity_position>
 function _main_interface_location_details_loc_position:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _main_interface_location_details_loc_position:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_details_loc_position:erase(index) end
 
 ---@class _main_interface_location_details_loc_epp: DFContainer
@@ -4485,11 +4485,11 @@ local _main_interface_location_details_loc_epp
 ---@return DFPointer<entity_position_assignment>
 function _main_interface_location_details_loc_epp:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _main_interface_location_details_loc_epp:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_location_details_loc_epp:erase(index) end
 
 ---@class (exact) main_interface.T_hauling_stop_conditions: DFStruct
@@ -4527,11 +4527,11 @@ local _main_interface_assign_vehicle_i_vehicle
 ---@return DFPointer<vehicle>
 function _main_interface_assign_vehicle_i_vehicle:_field(index) end
 
----@param index integer 
----@param item vehicle 
+---@param index '#'|integer
+---@param item vehicle
 function _main_interface_assign_vehicle_i_vehicle:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_vehicle_i_vehicle:erase(index) end
 
 ---@class (exact) main_interface.T_stockpile: DFStruct
@@ -4614,11 +4614,11 @@ local _main_interface_custom_stockpile_main_mode
 ---@return DFPointer<stockpile_list>
 function _main_interface_custom_stockpile_main_mode:_field(index) end
 
----@param index integer 
----@param item stockpile_list 
+---@param index '#'|integer
+---@param item stockpile_list
 function _main_interface_custom_stockpile_main_mode:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_custom_stockpile_main_mode:erase(index) end
 
 ---@class _main_interface_custom_stockpile_sub_mode: DFContainer
@@ -4630,11 +4630,11 @@ local _main_interface_custom_stockpile_sub_mode
 ---@return DFPointer<stockpile_list>
 function _main_interface_custom_stockpile_sub_mode:_field(index) end
 
----@param index integer 
----@param item stockpile_list 
+---@param index '#'|integer
+---@param item stockpile_list
 function _main_interface_custom_stockpile_sub_mode:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_custom_stockpile_sub_mode:erase(index) end
 
 ---@class _main_interface_custom_stockpile_sub_mode_ptr_type: DFContainer
@@ -4646,11 +4646,11 @@ local _main_interface_custom_stockpile_sub_mode_ptr_type
 ---@return DFPointer<stock_pile_pointer_type>
 function _main_interface_custom_stockpile_sub_mode_ptr_type:_field(index) end
 
----@param index integer 
----@param item stock_pile_pointer_type 
+---@param index '#'|integer
+---@param item stock_pile_pointer_type
 function _main_interface_custom_stockpile_sub_mode_ptr_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_custom_stockpile_sub_mode_ptr_type:erase(index) end
 
 ---@class _main_interface_custom_stockpile_spec_item: DFContainer
@@ -4662,11 +4662,11 @@ local _main_interface_custom_stockpile_spec_item
 ---@return DFPointer<DFPointer<integer>>
 function _main_interface_custom_stockpile_spec_item:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _main_interface_custom_stockpile_spec_item:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_custom_stockpile_spec_item:erase(index) end
 
 ---@class (exact) main_interface.T_view_sheets: DFStruct
@@ -4853,11 +4853,11 @@ local _main_interface_view_sheets_tab
 ---@return DFPointer<view_sheet_type>
 function _main_interface_view_sheets_tab:_field(index) end
 
----@param index integer 
----@param item view_sheet_type 
+---@param index '#'|integer
+---@param item view_sheet_type
 function _main_interface_view_sheets_tab:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_tab:erase(index) end
 
 ---@class _main_interface_view_sheets_ent_vect: DFContainer
@@ -4869,11 +4869,11 @@ local _main_interface_view_sheets_ent_vect
 ---@return DFPointer<historical_entity>
 function _main_interface_view_sheets_ent_vect:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _main_interface_view_sheets_ent_vect:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_ent_vect:erase(index) end
 
 ---@class _main_interface_view_sheets_ep_vect: DFContainer
@@ -4885,11 +4885,11 @@ local _main_interface_view_sheets_ep_vect
 ---@return DFPointer<entity_position>
 function _main_interface_view_sheets_ep_vect:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _main_interface_view_sheets_ep_vect:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_ep_vect:erase(index) end
 
 ---@class _main_interface_view_sheets_ep_vect_spouse: DFContainer
@@ -4901,11 +4901,11 @@ local _main_interface_view_sheets_ep_vect_spouse
 ---@return DFPointer<any[]>
 function _main_interface_view_sheets_ep_vect_spouse:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_view_sheets_ep_vect_spouse:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_ep_vect_spouse:erase(index) end
 
 ---@class _main_interface_view_sheets_rel_hf: DFContainer
@@ -4917,11 +4917,11 @@ local _main_interface_view_sheets_rel_hf
 ---@return DFPointer<historical_figure>
 function _main_interface_view_sheets_rel_hf:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _main_interface_view_sheets_rel_hf:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_rel_hf:erase(index) end
 
 ---@class _main_interface_view_sheets_rel_rphv: DFContainer
@@ -4933,11 +4933,11 @@ local _main_interface_view_sheets_rel_rphv
 ---@return DFPointer<any[]>
 function _main_interface_view_sheets_rel_rphv:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_view_sheets_rel_rphv:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_rel_rphv:erase(index) end
 
 ---@class _main_interface_view_sheets_rel_rphh: DFContainer
@@ -4949,11 +4949,11 @@ local _main_interface_view_sheets_rel_rphh
 ---@return DFPointer<any[]>
 function _main_interface_view_sheets_rel_rphh:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_view_sheets_rel_rphh:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_rel_rphh:erase(index) end
 
 ---@class _main_interface_view_sheets_unit_group_ep_is_spouse: DFContainer
@@ -4965,11 +4965,11 @@ local _main_interface_view_sheets_unit_group_ep_is_spouse
 ---@return DFPointer<any[]>
 function _main_interface_view_sheets_unit_group_ep_is_spouse:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_view_sheets_unit_group_ep_is_spouse:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_unit_group_ep_is_spouse:erase(index) end
 
 ---@class _main_interface_view_sheets_unit_skill: DFContainer
@@ -4981,11 +4981,11 @@ local _main_interface_view_sheets_unit_skill
 ---@return DFPointer<job_skill>
 function _main_interface_view_sheets_unit_skill:_field(index) end
 
----@param index integer 
----@param item job_skill 
+---@param index '#'|integer
+---@param item job_skill
 function _main_interface_view_sheets_unit_skill:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_unit_skill:erase(index) end
 
 ---@class _main_interface_view_sheets_unit_knowledge_type: DFContainer
@@ -4997,11 +4997,11 @@ local _main_interface_view_sheets_unit_knowledge_type
 ---@return DFPointer<view_sheet_unit_knowledge_type>
 function _main_interface_view_sheets_unit_knowledge_type:_field(index) end
 
----@param index integer 
----@param item view_sheet_unit_knowledge_type 
+---@param index '#'|integer
+---@param item view_sheet_unit_knowledge_type
 function _main_interface_view_sheets_unit_knowledge_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_view_sheets_unit_knowledge_type:erase(index) end
 
 ---@class (exact) main_interface.T_squads: DFStruct
@@ -5045,11 +5045,11 @@ local _main_interface_squads_squad_selected
 ---@return DFPointer<any[]>
 function _main_interface_squads_squad_selected:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_squads_squad_selected:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_squads_squad_selected:erase(index) end
 
 ---@class (exact) main_interface.T_create_squad: DFStruct
@@ -5081,11 +5081,11 @@ local _main_interface_create_squad_cand_new_squad_appoint_epp
 ---@return DFPointer<entity_position_assignment>
 function _main_interface_create_squad_cand_new_squad_appoint_epp:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _main_interface_create_squad_cand_new_squad_appoint_epp:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_squad_cand_new_squad_appoint_epp:erase(index) end
 
 ---@class _main_interface_create_squad_cand_new_squad_appoint_epp_ep: DFContainer
@@ -5097,11 +5097,11 @@ local _main_interface_create_squad_cand_new_squad_appoint_epp_ep
 ---@return DFPointer<entity_position>
 function _main_interface_create_squad_cand_new_squad_appoint_epp_ep:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _main_interface_create_squad_cand_new_squad_appoint_epp_ep:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_squad_cand_new_squad_appoint_epp_ep:erase(index) end
 
 ---@class _main_interface_create_squad_cand_new_squad_existing_epp: DFContainer
@@ -5113,11 +5113,11 @@ local _main_interface_create_squad_cand_new_squad_existing_epp
 ---@return DFPointer<entity_position_assignment>
 function _main_interface_create_squad_cand_new_squad_existing_epp:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _main_interface_create_squad_cand_new_squad_existing_epp:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_squad_cand_new_squad_existing_epp:erase(index) end
 
 ---@class _main_interface_create_squad_cand_new_squad_existing_epp_ep: DFContainer
@@ -5129,11 +5129,11 @@ local _main_interface_create_squad_cand_new_squad_existing_epp_ep
 ---@return DFPointer<entity_position>
 function _main_interface_create_squad_cand_new_squad_existing_epp_ep:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _main_interface_create_squad_cand_new_squad_existing_epp_ep:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_squad_cand_new_squad_existing_epp_ep:erase(index) end
 
 ---@class _main_interface_create_squad_cand_new_squad_new_epp_from_ep: DFContainer
@@ -5145,11 +5145,11 @@ local _main_interface_create_squad_cand_new_squad_new_epp_from_ep
 ---@return DFPointer<entity_position>
 function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:erase(index) end
 
 ---@class (exact) main_interface.T_squad_supplies: DFStruct
@@ -5182,11 +5182,11 @@ local _main_interface_assign_uniform_cand_uniform
 ---@return DFPointer<entity_uniform>
 function _main_interface_assign_uniform_cand_uniform:_field(index) end
 
----@param index integer 
----@param item entity_uniform 
+---@param index '#'|integer
+---@param item entity_uniform
 function _main_interface_assign_uniform_cand_uniform:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_assign_uniform_cand_uniform:erase(index) end
 
 ---@class (exact) main_interface.T_create_work_order: DFStruct
@@ -5216,11 +5216,11 @@ local _main_interface_create_work_order_jminfo_master
 ---@return DFPointer<manager_order_template>
 function _main_interface_create_work_order_jminfo_master:_field(index) end
 
----@param index integer 
----@param item manager_order_template 
+---@param index '#'|integer
+---@param item manager_order_template
 function _main_interface_create_work_order_jminfo_master:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_work_order_jminfo_master:erase(index) end
 
 ---@class _main_interface_create_work_order_building: DFContainer
@@ -5232,11 +5232,11 @@ local _main_interface_create_work_order_building
 ---@return DFPointer<cwo_buildingst>
 function _main_interface_create_work_order_building:_field(index) end
 
----@param index integer 
----@param item cwo_buildingst 
+---@param index '#'|integer
+---@param item cwo_buildingst
 function _main_interface_create_work_order_building:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_create_work_order_building:erase(index) end
 
 ---@class (exact) main_interface.T_hotkey: DFStruct
@@ -5295,11 +5295,11 @@ local _main_interface_options_option
 ---@return DFPointer<main_menu_option_type>
 function _main_interface_options_option:_field(index) end
 
----@param index integer 
----@param item main_menu_option_type 
+---@param index '#'|integer
+---@param item main_menu_option_type
 function _main_interface_options_option:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_options_option:erase(index) end
 
 -- saverst
@@ -5361,11 +5361,11 @@ local _main_interface_arena_unit_skills
 ---@return DFPointer<job_skill>
 function _main_interface_arena_unit_skills:_field(index) end
 
----@param index integer 
----@param item job_skill 
+---@param index '#'|integer
+---@param item job_skill
 function _main_interface_arena_unit_skills:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_arena_unit_skills:erase(index) end
 
 ---@class _main_interface_arena_unit_interactions: DFContainer
@@ -5377,11 +5377,11 @@ local _main_interface_arena_unit_interactions
 ---@return DFPointer<interaction_effect>
 function _main_interface_arena_unit_interactions:_field(index) end
 
----@param index integer 
----@param item interaction_effect 
+---@param index '#'|integer
+---@param item interaction_effect
 function _main_interface_arena_unit_interactions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_arena_unit_interactions:erase(index) end
 
 ---@class (exact) main_interface.T_arena_tree: DFStruct
@@ -5408,11 +5408,11 @@ local _main_interface_arena_tree_tree_types_filtered
 ---@return DFPointer<any[]>
 function _main_interface_arena_tree_tree_types_filtered:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_arena_tree_tree_types_filtered:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_arena_tree_tree_types_filtered:erase(index) end
 
 ---@class _main_interface_arena_tree_tree_types_all: DFContainer
@@ -5424,11 +5424,11 @@ local _main_interface_arena_tree_tree_types_all
 ---@return DFPointer<any[]>
 function _main_interface_arena_tree_tree_types_all:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _main_interface_arena_tree_tree_types_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_arena_tree_tree_types_all:erase(index) end
 
 ---@class _main_interface_barracks_squad: DFContainer
@@ -5440,11 +5440,11 @@ local _main_interface_barracks_squad
 ---@return DFPointer<squad>
 function _main_interface_barracks_squad:_field(index) end
 
----@param index integer 
----@param item squad 
+---@param index '#'|integer
+---@param item squad
 function _main_interface_barracks_squad:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_barracks_squad:erase(index) end
 
 ---@class _main_interface_ap_squad_list: DFContainer
@@ -5456,11 +5456,11 @@ local _main_interface_ap_squad_list
 ---@return DFPointer<squad>
 function _main_interface_ap_squad_list:_field(index) end
 
----@param index integer 
----@param item squad 
+---@param index '#'|integer
+---@param item squad
 function _main_interface_ap_squad_list:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_ap_squad_list:erase(index) end
 
 ---@class _main_interface_pref_occupation: DFContainer
@@ -5472,11 +5472,11 @@ local _main_interface_pref_occupation
 ---@return DFPointer<occupation>
 function _main_interface_pref_occupation:_field(index) end
 
----@param index integer 
----@param item occupation 
+---@param index '#'|integer
+---@param item occupation
 function _main_interface_pref_occupation:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_pref_occupation:erase(index) end
 
 ---@class (exact) gamest: DFStruct
@@ -5553,11 +5553,11 @@ local _gamest_mod_manager_mod_header
 ---@return DFPointer<mod_headerst>
 function _gamest_mod_manager_mod_header:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _gamest_mod_manager_mod_header:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _gamest_mod_manager_mod_header:erase(index) end
 
 ---@class _gamest_mod_manager_mod_upload_header: DFContainer
@@ -5569,11 +5569,11 @@ local _gamest_mod_manager_mod_upload_header
 ---@return DFPointer<mod_headerst>
 function _gamest_mod_manager_mod_upload_header:_field(index) end
 
----@param index integer 
----@param item mod_headerst 
+---@param index '#'|integer
+---@param item mod_headerst
 function _gamest_mod_manager_mod_upload_header:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _gamest_mod_manager_mod_upload_header:erase(index) end
 
 ---@class (exact) main_interface_settings: DFStruct
@@ -5624,11 +5624,11 @@ local _main_interface_settings_tab
 ---@return DFPointer<settings_tab_type>
 function _main_interface_settings_tab:_field(index) end
 
----@param index integer 
----@param item settings_tab_type 
+---@param index '#'|integer
+---@param item settings_tab_type
 function _main_interface_settings_tab:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_settings_tab:erase(index) end
 
 ---@class _main_interface_settings_member: DFContainer
@@ -5640,11 +5640,11 @@ local _main_interface_settings_member
 ---@return DFPointer<world_gen_param_basest>
 function _main_interface_settings_member:_field(index) end
 
----@param index integer 
----@param item world_gen_param_basest 
+---@param index '#'|integer
+---@param item world_gen_param_basest
 function _main_interface_settings_member:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_settings_member:erase(index) end
 
 ---@class _main_interface_settings_keybinding_key_interface_key: DFContainer
@@ -5656,11 +5656,11 @@ local _main_interface_settings_keybinding_key_interface_key
 ---@return DFPointer<interface_key>
 function _main_interface_settings_keybinding_key_interface_key:_field(index) end
 
----@param index integer 
----@param item interface_key 
+---@param index '#'|integer
+---@param item interface_key
 function _main_interface_settings_keybinding_key_interface_key:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _main_interface_settings_keybinding_key_interface_key:erase(index) end
 
 ---@class (exact) hash_rngst: DFStruct
@@ -5861,11 +5861,11 @@ local _markup_text_boxst_word
 ---@return DFPointer<markup_text_wordst>
 function _markup_text_boxst_word:_field(index) end
 
----@param index integer 
----@param item markup_text_wordst 
+---@param index '#'|integer
+---@param item markup_text_wordst
 function _markup_text_boxst_word:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _markup_text_boxst_word:erase(index) end
 
 ---@class _markup_text_boxst_link: DFContainer
@@ -5877,11 +5877,11 @@ local _markup_text_boxst_link
 ---@return DFPointer<markup_text_linkst>
 function _markup_text_boxst_link:_field(index) end
 
----@param index integer 
----@param item markup_text_linkst 
+---@param index '#'|integer
+---@param item markup_text_linkst
 function _markup_text_boxst_link:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _markup_text_boxst_link:erase(index) end
 
 ---@class (exact) wqc_item_traitst: DFStruct
@@ -5922,11 +5922,11 @@ local _cwo_buildingst_jminfo
 ---@return DFPointer<manager_order_template>
 function _cwo_buildingst_jminfo:_field(index) end
 
----@param index integer 
----@param item manager_order_template 
+---@param index '#'|integer
+---@param item manager_order_template
 function _cwo_buildingst_jminfo:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _cwo_buildingst_jminfo:erase(index) end
 
 ---@class (exact) cri_unitst: DFStruct
@@ -5977,11 +5977,11 @@ local _actor_entryst_associated_org
 ---@return DFPointer<any[]>
 function _actor_entryst_associated_org:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _actor_entryst_associated_org:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _actor_entryst_associated_org:erase(index) end
 
 ---@class _actor_entryst_associated_plot: DFContainer
@@ -5993,11 +5993,11 @@ local _actor_entryst_associated_plot
 ---@return DFPointer<plot_entryst>
 function _actor_entryst_associated_plot:_field(index) end
 
----@param index integer 
----@param item plot_entryst 
+---@param index '#'|integer
+---@param item plot_entryst
 function _actor_entryst_associated_plot:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _actor_entryst_associated_plot:erase(index) end
 
 ---@class (exact) organization_entry_nodest: DFStruct
@@ -6042,11 +6042,11 @@ local _organization_entryst_node
 ---@return DFPointer<organization_entry_nodest>
 function _organization_entryst_node:_field(index) end
 
----@param index integer 
----@param item organization_entry_nodest 
+---@param index '#'|integer
+---@param item organization_entry_nodest
 function _organization_entryst_node:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _organization_entryst_node:erase(index) end
 
 ---@class (exact) plot_entryst: DFStruct
@@ -6130,11 +6130,11 @@ local _ui_look_list_items
 ---@return DFPointer<DFPointer<integer>>
 function _ui_look_list_items:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _ui_look_list_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _ui_look_list_items:erase(index) end
 
 ---@class (exact) ui_unit_view_mode: DFStruct

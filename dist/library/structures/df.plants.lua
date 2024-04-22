@@ -69,11 +69,11 @@ local _plant_contaminants
 ---@return DFPointer<spatter_common>
 function _plant_contaminants:_field(index) end
 
----@param index integer 
----@param item spatter_common 
+---@param index '#'|integer
+---@param item spatter_common
 function _plant_contaminants:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _plant_contaminants:erase(index) end
 
 ---@alias plant_tree_tile_branches_dir

@@ -389,11 +389,11 @@ local _creature_interaction_effect_target_mode
 ---@return DFPointer<creature_interaction_effect_target_mode>
 function _creature_interaction_effect_target_mode:_field(index) end
 
----@param index integer 
----@param item creature_interaction_effect_target_mode 
+---@param index '#'|integer
+---@param item creature_interaction_effect_target_mode
 function _creature_interaction_effect_target_mode:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_target_mode:erase(index) end
 
 ---@class (exact) creature_interaction_effect: DFStruct
@@ -479,11 +479,11 @@ local _creature_interaction_effect_counter_trigger_counter
 ---@return DFPointer<misc_trait_type>
 function _creature_interaction_effect_counter_trigger_counter:_field(index) end
 
----@param index integer 
----@param item misc_trait_type 
+---@param index '#'|integer
+---@param item misc_trait_type
 function _creature_interaction_effect_counter_trigger_counter:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_counter_trigger_counter:erase(index) end
 
 ---@class (exact) creature_interaction_effect_painst: DFStruct, creature_interaction_effect
@@ -845,11 +845,11 @@ local _creature_interaction_effect_close_open_woundsst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_close_open_woundsst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_close_open_woundsst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_close_open_woundsst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_close_open_woundsst_unk_3: DFContainer
@@ -861,11 +861,11 @@ local _creature_interaction_effect_close_open_woundsst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_close_open_woundsst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_close_open_woundsst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_close_open_woundsst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_close_open_woundsst_unk_4: DFContainer
@@ -877,11 +877,11 @@ local _creature_interaction_effect_close_open_woundsst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_close_open_woundsst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_close_open_woundsst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_close_open_woundsst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_cure_infectionsst: DFStruct, creature_interaction_effect
@@ -904,11 +904,11 @@ local _creature_interaction_effect_cure_infectionsst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_cure_infectionsst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_cure_infectionsst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_cure_infectionsst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_cure_infectionsst_unk_3: DFContainer
@@ -920,11 +920,11 @@ local _creature_interaction_effect_cure_infectionsst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_cure_infectionsst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_cure_infectionsst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_cure_infectionsst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_cure_infectionsst_unk_4: DFContainer
@@ -936,11 +936,11 @@ local _creature_interaction_effect_cure_infectionsst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_cure_infectionsst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_cure_infectionsst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_cure_infectionsst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_heal_nervesst: DFStruct, creature_interaction_effect
@@ -963,11 +963,11 @@ local _creature_interaction_effect_heal_nervesst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_heal_nervesst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_heal_nervesst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_heal_nervesst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_heal_nervesst_unk_3: DFContainer
@@ -979,11 +979,11 @@ local _creature_interaction_effect_heal_nervesst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_heal_nervesst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_heal_nervesst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_heal_nervesst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_heal_nervesst_unk_4: DFContainer
@@ -995,11 +995,11 @@ local _creature_interaction_effect_heal_nervesst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_heal_nervesst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_heal_nervesst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_heal_nervesst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_heal_tissuesst: DFStruct, creature_interaction_effect
@@ -1022,11 +1022,11 @@ local _creature_interaction_effect_heal_tissuesst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_heal_tissuesst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_heal_tissuesst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_heal_tissuesst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_heal_tissuesst_unk_3: DFContainer
@@ -1038,11 +1038,11 @@ local _creature_interaction_effect_heal_tissuesst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_heal_tissuesst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_heal_tissuesst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_heal_tissuesst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_heal_tissuesst_unk_4: DFContainer
@@ -1054,11 +1054,11 @@ local _creature_interaction_effect_heal_tissuesst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_heal_tissuesst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_heal_tissuesst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_heal_tissuesst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_reduce_dizzinessst: DFStruct, creature_interaction_effect
@@ -1105,11 +1105,11 @@ local _creature_interaction_effect_reduce_painst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_painst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_painst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_painst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_reduce_painst_unk_3: DFContainer
@@ -1121,11 +1121,11 @@ local _creature_interaction_effect_reduce_painst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_painst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_painst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_painst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_reduce_painst_unk_4: DFContainer
@@ -1137,11 +1137,11 @@ local _creature_interaction_effect_reduce_painst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_painst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_painst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_painst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_reduce_paralysisst: DFStruct, creature_interaction_effect
@@ -1164,11 +1164,11 @@ local _creature_interaction_effect_reduce_paralysisst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_paralysisst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_paralysisst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_paralysisst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_reduce_paralysisst_unk_3: DFContainer
@@ -1180,11 +1180,11 @@ local _creature_interaction_effect_reduce_paralysisst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_paralysisst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_paralysisst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_paralysisst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_reduce_paralysisst_unk_4: DFContainer
@@ -1196,11 +1196,11 @@ local _creature_interaction_effect_reduce_paralysisst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_paralysisst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_paralysisst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_paralysisst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_reduce_swellingst: DFStruct, creature_interaction_effect
@@ -1223,11 +1223,11 @@ local _creature_interaction_effect_reduce_swellingst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_swellingst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_swellingst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_swellingst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_reduce_swellingst_unk_3: DFContainer
@@ -1239,11 +1239,11 @@ local _creature_interaction_effect_reduce_swellingst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_swellingst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_swellingst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_swellingst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_reduce_swellingst_unk_4: DFContainer
@@ -1255,11 +1255,11 @@ local _creature_interaction_effect_reduce_swellingst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_reduce_swellingst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_reduce_swellingst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_reduce_swellingst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_regrow_partsst: DFStruct, creature_interaction_effect
@@ -1282,11 +1282,11 @@ local _creature_interaction_effect_regrow_partsst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_regrow_partsst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_regrow_partsst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_regrow_partsst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_regrow_partsst_unk_3: DFContainer
@@ -1298,11 +1298,11 @@ local _creature_interaction_effect_regrow_partsst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_regrow_partsst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_regrow_partsst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_regrow_partsst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_regrow_partsst_unk_4: DFContainer
@@ -1314,11 +1314,11 @@ local _creature_interaction_effect_regrow_partsst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_regrow_partsst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_regrow_partsst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_regrow_partsst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_special_attack_interactionst: DFStruct, creature_interaction_effect
@@ -1351,11 +1351,11 @@ local _creature_interaction_effect_stop_bleedingst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_stop_bleedingst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_stop_bleedingst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_stop_bleedingst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_stop_bleedingst_unk_3: DFContainer
@@ -1367,11 +1367,11 @@ local _creature_interaction_effect_stop_bleedingst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_stop_bleedingst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_stop_bleedingst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_stop_bleedingst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_stop_bleedingst_unk_4: DFContainer
@@ -1383,11 +1383,11 @@ local _creature_interaction_effect_stop_bleedingst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_stop_bleedingst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_stop_bleedingst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_stop_bleedingst_unk_4:erase(index) end
 
 ---@class (exact) creature_interaction_effect_cure_infectionst: DFStruct, creature_interaction_effect
@@ -1410,11 +1410,11 @@ local _creature_interaction_effect_cure_infectionst_unk_2
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_cure_infectionst_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_cure_infectionst_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_cure_infectionst_unk_2:erase(index) end
 
 ---@class _creature_interaction_effect_cure_infectionst_unk_3: DFContainer
@@ -1426,11 +1426,11 @@ local _creature_interaction_effect_cure_infectionst_unk_3
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_cure_infectionst_unk_3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_cure_infectionst_unk_3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_cure_infectionst_unk_3:erase(index) end
 
 ---@class _creature_interaction_effect_cure_infectionst_unk_4: DFContainer
@@ -1442,11 +1442,11 @@ local _creature_interaction_effect_cure_infectionst_unk_4
 ---@return DFPointer<any[]>
 function _creature_interaction_effect_cure_infectionst_unk_4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _creature_interaction_effect_cure_infectionst_unk_4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _creature_interaction_effect_cure_infectionst_unk_4:erase(index) end
 
 ---@class syndrome_flags: DFBitfield
@@ -1514,10 +1514,10 @@ local _syndrome_ce
 ---@return DFPointer<creature_interaction_effect>
 function _syndrome_ce:_field(index) end
 
----@param index integer 
----@param item creature_interaction_effect 
+---@param index '#'|integer
+---@param item creature_interaction_effect
 function _syndrome_ce:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _syndrome_ce:erase(index) end
 

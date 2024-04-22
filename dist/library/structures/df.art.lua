@@ -143,11 +143,11 @@ local _art_image_property_flags
 ---@return DFPointer<table<integer, boolean>>
 function _art_image_property_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _art_image_property_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _art_image_property_flags:erase(index) end
 
 ---@alias art_image_property_verb
@@ -366,11 +366,11 @@ local _art_image_elements
 ---@return DFPointer<art_image_element>
 function _art_image_elements:_field(index) end
 
----@param index integer 
----@param item art_image_element 
+---@param index '#'|integer
+---@param item art_image_element
 function _art_image_elements:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _art_image_elements:erase(index) end
 
 ---@class _art_image_properties: DFContainer
@@ -382,11 +382,11 @@ local _art_image_properties
 ---@return DFPointer<art_image_property>
 function _art_image_properties:_field(index) end
 
----@param index integer 
----@param item art_image_property 
+---@param index '#'|integer
+---@param item art_image_property
 function _art_image_properties:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _art_image_properties:erase(index) end
 
 ---@class (exact) art_image_chunk: DFStruct
@@ -866,11 +866,11 @@ local _poetic_form_parts
 ---@return DFPointer<poetic_form_part>
 function _poetic_form_parts:_field(index) end
 
----@param index integer 
----@param item poetic_form_part 
+---@param index '#'|integer
+---@param item poetic_form_part
 function _poetic_form_parts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_parts:erase(index) end
 
 ---@class _poetic_form_common_features: DFContainer
@@ -882,11 +882,11 @@ local _poetic_form_common_features
 ---@return DFPointer<poetic_form_additional_feature>
 function _poetic_form_common_features:_field(index) end
 
----@param index integer 
----@param item poetic_form_additional_feature 
+---@param index '#'|integer
+---@param item poetic_form_additional_feature
 function _poetic_form_common_features:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_common_features:erase(index) end
 
 ---@class _poetic_form_perspectives: DFContainer
@@ -898,11 +898,11 @@ local _poetic_form_perspectives
 ---@return DFPointer<poetic_form_perspective>
 function _poetic_form_perspectives:_field(index) end
 
----@param index integer 
----@param item poetic_form_perspective 
+---@param index '#'|integer
+---@param item poetic_form_perspective
 function _poetic_form_perspectives:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_perspectives:erase(index) end
 
 ---@class (exact) poetic_form_part: DFStruct
@@ -962,11 +962,11 @@ local _poetic_form_part_line_patterns
 ---@return DFPointer<poetic_form_pattern>
 function _poetic_form_part_line_patterns:_field(index) end
 
----@param index integer 
----@param item poetic_form_pattern 
+---@param index '#'|integer
+---@param item poetic_form_pattern
 function _poetic_form_part_line_patterns:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_patterns:erase(index) end
 
 ---@class _poetic_form_part_line_caesura_positions: DFContainer
@@ -978,11 +978,11 @@ local _poetic_form_part_line_caesura_positions
 ---@return DFPointer<poetic_form_caesura_position>
 function _poetic_form_part_line_caesura_positions:_field(index) end
 
----@param index integer 
----@param item poetic_form_caesura_position 
+---@param index '#'|integer
+---@param item poetic_form_caesura_position
 function _poetic_form_part_line_caesura_positions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_caesura_positions:erase(index) end
 
 ---@class _poetic_form_part_line_features: DFContainer
@@ -994,11 +994,11 @@ local _poetic_form_part_line_features
 ---@return DFPointer<poetic_form_feature>
 function _poetic_form_part_line_features:_field(index) end
 
----@param index integer 
----@param item poetic_form_feature 
+---@param index '#'|integer
+---@param item poetic_form_feature
 function _poetic_form_part_line_features:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_features:erase(index) end
 
 ---@class _poetic_form_part_additional_features: DFContainer
@@ -1010,11 +1010,11 @@ local _poetic_form_part_additional_features
 ---@return DFPointer<poetic_form_additional_feature>
 function _poetic_form_part_additional_features:_field(index) end
 
----@param index integer 
----@param item poetic_form_additional_feature 
+---@param index '#'|integer
+---@param item poetic_form_additional_feature
 function _poetic_form_part_additional_features:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_additional_features:erase(index) end
 
 ---@class _poetic_form_part_line_mood: DFContainer
@@ -1026,11 +1026,11 @@ local _poetic_form_part_line_mood
 ---@return DFPointer<poetic_form_mood>
 function _poetic_form_part_line_mood:_field(index) end
 
----@param index integer 
----@param item poetic_form_mood 
+---@param index '#'|integer
+---@param item poetic_form_mood
 function _poetic_form_part_line_mood:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_mood:erase(index) end
 
 ---@class _poetic_form_part_line_subject: DFContainer
@@ -1042,11 +1042,11 @@ local _poetic_form_part_line_subject
 ---@return DFPointer<poetic_form_subject>
 function _poetic_form_part_line_subject:_field(index) end
 
----@param index integer 
----@param item poetic_form_subject 
+---@param index '#'|integer
+---@param item poetic_form_subject
 function _poetic_form_part_line_subject:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_subject:erase(index) end
 
 ---@class _poetic_form_part_line_subject_target: DFContainer
@@ -1058,11 +1058,11 @@ local _poetic_form_part_line_subject_target
 ---@return DFPointer<poetic_form_subject_target>
 function _poetic_form_part_line_subject_target:_field(index) end
 
----@param index integer 
----@param item poetic_form_subject_target 
+---@param index '#'|integer
+---@param item poetic_form_subject_target
 function _poetic_form_part_line_subject_target:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_subject_target:erase(index) end
 
 ---@class _poetic_form_part_line_action: DFContainer
@@ -1074,11 +1074,11 @@ local _poetic_form_part_line_action
 ---@return DFPointer<poetic_form_action>
 function _poetic_form_part_line_action:_field(index) end
 
----@param index integer 
----@param item poetic_form_action 
+---@param index '#'|integer
+---@param item poetic_form_action
 function _poetic_form_part_line_action:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_line_action:erase(index) end
 
 ---@class _poetic_form_part_certain_lines_additional_features: DFContainer
@@ -1090,11 +1090,11 @@ local _poetic_form_part_certain_lines_additional_features
 ---@return DFPointer<poetic_form_additional_feature>
 function _poetic_form_part_certain_lines_additional_features:_field(index) end
 
----@param index integer 
----@param item poetic_form_additional_feature 
+---@param index '#'|integer
+---@param item poetic_form_additional_feature
 function _poetic_form_part_certain_lines_additional_features:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _poetic_form_part_certain_lines_additional_features:erase(index) end
 
 ---@class (exact) poetic_form_perspective: DFStruct
@@ -1634,11 +1634,11 @@ local _musical_form_melodies_intervals
 ---@return DFPointer<musical_form_interval>
 function _musical_form_melodies_intervals:_field(index) end
 
----@param index integer 
----@param item musical_form_interval 
+---@param index '#'|integer
+---@param item musical_form_interval
 function _musical_form_melodies_intervals:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_melodies_intervals:erase(index) end
 
 ---@class (exact) musical_form_passage: DFStruct
@@ -1682,11 +1682,11 @@ local _musical_form_passage_components
 ---@return DFPointer<musical_form_passage_component_type>
 function _musical_form_passage_components:_field(index) end
 
----@param index integer 
----@param item musical_form_passage_component_type 
+---@param index '#'|integer
+---@param item musical_form_passage_component_type
 function _musical_form_passage_components:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_passage_components:erase(index) end
 
 ---@class _musical_form_passage_passage_lengths: DFContainer
@@ -1698,11 +1698,11 @@ local _musical_form_passage_passage_lengths
 ---@return DFPointer<musical_form_passage_length_type>
 function _musical_form_passage_passage_lengths:_field(index) end
 
----@param index integer 
----@param item musical_form_passage_length_type 
+---@param index '#'|integer
+---@param item musical_form_passage_length_type
 function _musical_form_passage_passage_lengths:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_passage_passage_lengths:erase(index) end
 
 ---@class _musical_form_passage_melodies: DFContainer
@@ -1714,11 +1714,11 @@ local _musical_form_passage_melodies
 ---@return DFPointer<musical_form_melodies>
 function _musical_form_passage_melodies:_field(index) end
 
----@param index integer 
----@param item musical_form_melodies 
+---@param index '#'|integer
+---@param item musical_form_melodies
 function _musical_form_passage_melodies:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_passage_melodies:erase(index) end
 
 ---@class (exact) musical_form_instruments: DFStruct
@@ -1814,11 +1814,11 @@ local _musical_form_passages
 ---@return DFPointer<musical_form_passage>
 function _musical_form_passages:_field(index) end
 
----@param index integer 
----@param item musical_form_passage 
+---@param index '#'|integer
+---@param item musical_form_passage
 function _musical_form_passages:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_passages:erase(index) end
 
 ---@class _musical_form_instruments: DFContainer
@@ -1830,11 +1830,11 @@ local _musical_form_instruments
 ---@return DFPointer<musical_form_instruments>
 function _musical_form_instruments:_field(index) end
 
----@param index integer 
----@param item musical_form_instruments 
+---@param index '#'|integer
+---@param item musical_form_instruments
 function _musical_form_instruments:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_instruments:erase(index) end
 
 ---@class _musical_form_melodies: DFContainer
@@ -1846,11 +1846,11 @@ local _musical_form_melodies
 ---@return DFPointer<musical_form_melodies>
 function _musical_form_melodies:_field(index) end
 
----@param index integer 
----@param item musical_form_melodies 
+---@param index '#'|integer
+---@param item musical_form_melodies
 function _musical_form_melodies:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_melodies:erase(index) end
 
 ---@class _musical_form_unk_1: DFContainer
@@ -1862,11 +1862,11 @@ local _musical_form_unk_1
 ---@return DFPointer<musical_form_sub4>
 function _musical_form_unk_1:_field(index) end
 
----@param index integer 
----@param item musical_form_sub4 
+---@param index '#'|integer
+---@param item musical_form_sub4
 function _musical_form_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _musical_form_unk_1:erase(index) end
 
 ---@class musical_form.T_flags: DFBitfield
@@ -2360,11 +2360,11 @@ local _dance_form_section_partner_changes
 ---@return DFPointer<dance_form_partner_change_type>
 function _dance_form_section_partner_changes:_field(index) end
 
----@param index integer 
----@param item dance_form_partner_change_type 
+---@param index '#'|integer
+---@param item dance_form_partner_change_type
 function _dance_form_section_partner_changes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_section_partner_changes:erase(index) end
 
 ---@class _dance_form_section_type: DFContainer
@@ -2376,11 +2376,11 @@ local _dance_form_section_type
 ---@return DFPointer<dance_form_move_type>
 function _dance_form_section_type:_field(index) end
 
----@param index integer 
----@param item dance_form_move_type 
+---@param index '#'|integer
+---@param item dance_form_move_type
 function _dance_form_section_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_section_type:erase(index) end
 
 ---@class _dance_form_section_modifier: DFContainer
@@ -2392,11 +2392,11 @@ local _dance_form_section_modifier
 ---@return DFPointer<dance_form_move_modifier>
 function _dance_form_section_modifier:_field(index) end
 
----@param index integer 
----@param item dance_form_move_modifier 
+---@param index '#'|integer
+---@param item dance_form_move_modifier
 function _dance_form_section_modifier:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_section_modifier:erase(index) end
 
 ---@class _dance_form_section_location: DFContainer
@@ -2408,11 +2408,11 @@ local _dance_form_section_location
 ---@return DFPointer<dance_form_move_location>
 function _dance_form_section_location:_field(index) end
 
----@param index integer 
----@param item dance_form_move_location 
+---@param index '#'|integer
+---@param item dance_form_move_location
 function _dance_form_section_location:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_section_location:erase(index) end
 
 ---@alias dance_form_move_group_type
@@ -2451,11 +2451,11 @@ local _dance_form_move_type
 ---@return DFPointer<dance_form_move_type>
 function _dance_form_move_type:_field(index) end
 
----@param index integer 
----@param item dance_form_move_type 
+---@param index '#'|integer
+---@param item dance_form_move_type
 function _dance_form_move_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_move_type:erase(index) end
 
 ---@class _dance_form_move_modifier: DFContainer
@@ -2467,11 +2467,11 @@ local _dance_form_move_modifier
 ---@return DFPointer<dance_form_move_modifier>
 function _dance_form_move_modifier:_field(index) end
 
----@param index integer 
----@param item dance_form_move_modifier 
+---@param index '#'|integer
+---@param item dance_form_move_modifier
 function _dance_form_move_modifier:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_move_modifier:erase(index) end
 
 ---@class _dance_form_move_location: DFContainer
@@ -2483,11 +2483,11 @@ local _dance_form_move_location
 ---@return DFPointer<dance_form_move_location>
 function _dance_form_move_location:_field(index) end
 
----@param index integer 
----@param item dance_form_move_location 
+---@param index '#'|integer
+---@param item dance_form_move_location
 function _dance_form_move_location:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_move_location:erase(index) end
 
 ---@class (exact) dance_form: DFStruct
@@ -2543,11 +2543,11 @@ local _dance_form_partner_changes
 ---@return DFPointer<dance_form_partner_change_type>
 function _dance_form_partner_changes:_field(index) end
 
----@param index integer 
----@param item dance_form_partner_change_type 
+---@param index '#'|integer
+---@param item dance_form_partner_change_type
 function _dance_form_partner_changes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_partner_changes:erase(index) end
 
 ---@class _dance_form_move_type: DFContainer
@@ -2559,11 +2559,11 @@ local _dance_form_move_type
 ---@return DFPointer<dance_form_move_type>
 function _dance_form_move_type:_field(index) end
 
----@param index integer 
----@param item dance_form_move_type 
+---@param index '#'|integer
+---@param item dance_form_move_type
 function _dance_form_move_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_move_type:erase(index) end
 
 ---@class _dance_form_move_modifier: DFContainer
@@ -2575,11 +2575,11 @@ local _dance_form_move_modifier
 ---@return DFPointer<dance_form_move_modifier>
 function _dance_form_move_modifier:_field(index) end
 
----@param index integer 
----@param item dance_form_move_modifier 
+---@param index '#'|integer
+---@param item dance_form_move_modifier
 function _dance_form_move_modifier:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_move_modifier:erase(index) end
 
 ---@class _dance_form_move_location: DFContainer
@@ -2591,11 +2591,11 @@ local _dance_form_move_location
 ---@return DFPointer<dance_form_move_location>
 function _dance_form_move_location:_field(index) end
 
----@param index integer 
----@param item dance_form_move_location 
+---@param index '#'|integer
+---@param item dance_form_move_location
 function _dance_form_move_location:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_move_location:erase(index) end
 
 ---@class _dance_form_sections: DFContainer
@@ -2607,11 +2607,11 @@ local _dance_form_sections
 ---@return DFPointer<dance_form_section>
 function _dance_form_sections:_field(index) end
 
----@param index integer 
----@param item dance_form_section 
+---@param index '#'|integer
+---@param item dance_form_section
 function _dance_form_sections:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_sections:erase(index) end
 
 ---@class _dance_form_moves: DFContainer
@@ -2623,11 +2623,11 @@ local _dance_form_moves
 ---@return DFPointer<dance_form_move>
 function _dance_form_moves:_field(index) end
 
----@param index integer 
----@param item dance_form_move 
+---@param index '#'|integer
+---@param item dance_form_move
 function _dance_form_moves:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _dance_form_moves:erase(index) end
 
 ---@alias scale_type
@@ -2712,11 +2712,11 @@ local _scale_chords
 ---@return DFPointer<chord>
 function _scale_chords:_field(index) end
 
----@param index integer 
----@param item chord 
+---@param index '#'|integer
+---@param item chord
 function _scale_chords:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _scale_chords:erase(index) end
 
 ---@class _scale_scales: DFContainer
@@ -2728,11 +2728,11 @@ local _scale_scales
 ---@return DFPointer<named_scale>
 function _scale_scales:_field(index) end
 
----@param index integer 
----@param item named_scale 
+---@param index '#'|integer
+---@param item named_scale
 function _scale_scales:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _scale_scales:erase(index) end
 
 -- Curiously, the named notes do not have to match the number of defined notes
@@ -2777,11 +2777,11 @@ local _rhythm_patterns
 ---@return DFPointer<rhythm_pattern>
 function _rhythm_patterns:_field(index) end
 
----@param index integer 
----@param item rhythm_pattern 
+---@param index '#'|integer
+---@param item rhythm_pattern
 function _rhythm_patterns:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _rhythm_patterns:erase(index) end
 
 ---@class _rhythm_sub_rhythms: DFContainer
@@ -2793,11 +2793,11 @@ local _rhythm_sub_rhythms
 ---@return DFPointer<sub_rhythm>
 function _rhythm_sub_rhythms:_field(index) end
 
----@param index integer 
----@param item sub_rhythm 
+---@param index '#'|integer
+---@param item sub_rhythm
 function _rhythm_sub_rhythms:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _rhythm_sub_rhythms:erase(index) end
 
 ---@alias beat_type
@@ -2862,11 +2862,11 @@ local _rhythm_pattern_bars
 ---@return DFPointer<DFPointer<integer>>
 function _rhythm_pattern_bars:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _rhythm_pattern_bars:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _rhythm_pattern_bars:erase(index) end
 
 ---@class (exact) sub_rhythm: DFStruct
@@ -2956,11 +2956,11 @@ local _occupation_service_order
 ---@return DFPointer<service_orderst>
 function _occupation_service_order:_field(index) end
 
----@param index integer 
----@param item service_orderst 
+---@param index '#'|integer
+---@param item service_orderst
 function _occupation_service_order:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _occupation_service_order:erase(index) end
 
 -- bay12: ServiceOrder

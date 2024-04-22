@@ -326,11 +326,11 @@ local _plant_raw_flags
 ---@return DFPointer<table<plant_raw_flags, boolean>>
 function _plant_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<plant_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<plant_raw_flags, boolean>
 function _plant_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _plant_raw_flags:erase(index) end
 
 ---@class (exact) plant_raw.T_tiles: DFStruct
@@ -380,11 +380,11 @@ local _plant_raw_material
 ---@return DFPointer<material>
 function _plant_raw_material:_field(index) end
 
----@param index integer 
----@param item material 
+---@param index '#'|integer
+---@param item material
 function _plant_raw_material:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _plant_raw_material:erase(index) end
 
 ---@class (exact) plant_raw.T_material_defs: DFStruct
@@ -406,11 +406,11 @@ local _plant_raw_growths
 ---@return DFPointer<plant_growth>
 function _plant_raw_growths:_field(index) end
 
----@param index integer 
----@param item plant_growth 
+---@param index '#'|integer
+---@param item plant_growth
 function _plant_raw_growths:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _plant_raw_growths:erase(index) end
 
 ---@class _plant_raw_stockpile_growth_flags: DFContainer
@@ -422,11 +422,11 @@ local _plant_raw_stockpile_growth_flags
 ---@return DFPointer<plant_raw.T_stockpile_growth_flags>
 function _plant_raw_stockpile_growth_flags:_field(index) end
 
----@param index integer 
----@param item plant_raw.T_stockpile_growth_flags 
+---@param index '#'|integer
+---@param item plant_raw.T_stockpile_growth_flags
 function _plant_raw_stockpile_growth_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _plant_raw_stockpile_growth_flags:erase(index) end
 
 ---@class plant_raw.T_stockpile_growth_flags: DFBitfield
@@ -512,11 +512,11 @@ local _plant_growth_prints
 ---@return DFPointer<plant_growth_print>
 function _plant_growth_prints:_field(index) end
 
----@param index integer 
----@param item plant_growth_print 
+---@param index '#'|integer
+---@param item plant_growth_print
 function _plant_growth_prints:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _plant_growth_prints:erase(index) end
 
 ---@class plant_growth.T_locations: DFBitfield

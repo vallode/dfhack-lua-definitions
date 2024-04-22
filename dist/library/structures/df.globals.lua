@@ -197,11 +197,11 @@ local _global_created_item_type
 ---@return DFPointer<item_type>
 function _global_created_item_type:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _global_created_item_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _global_created_item_type:erase(index) end
 
 ---@class _global_flows: DFContainer
@@ -213,11 +213,11 @@ local _global_flows
 ---@return DFPointer<flow_info>
 function _global_flows:_field(index) end
 
----@param index integer 
----@param item flow_info 
+---@param index '#'|integer
+---@param item flow_info
 function _global_flows:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _global_flows:erase(index) end
 
 ---@class _global_timed_events: DFContainer
@@ -229,11 +229,11 @@ local _global_timed_events
 ---@return DFPointer<timed_event>
 function _global_timed_events:_field(index) end
 
----@param index integer 
----@param item timed_event 
+---@param index '#'|integer
+---@param item timed_event
 function _global_timed_events:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _global_timed_events:erase(index) end
 
 ---@class _global_ui_building_assign_units: DFContainer
@@ -245,11 +245,11 @@ local _global_ui_building_assign_units
 ---@return DFPointer<unit>
 function _global_ui_building_assign_units:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _global_ui_building_assign_units:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _global_ui_building_assign_units:erase(index) end
 
 ---@class _global_ui_building_assign_items: DFContainer
@@ -261,11 +261,11 @@ local _global_ui_building_assign_items
 ---@return DFPointer<item>
 function _global_ui_building_assign_items:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _global_ui_building_assign_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _global_ui_building_assign_items:erase(index) end
 
 ---@alias weather_type

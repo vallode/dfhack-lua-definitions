@@ -1243,11 +1243,11 @@ local _items_other_IN_PLAY
 ---@return DFPointer<item>
 function _items_other_IN_PLAY:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_IN_PLAY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_IN_PLAY:erase(index) end
 
 ---@class _items_other_ANY_ARTIFACT: DFContainer
@@ -1259,11 +1259,11 @@ local _items_other_ANY_ARTIFACT
 ---@return DFPointer<item>
 function _items_other_ANY_ARTIFACT:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_ARTIFACT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_ARTIFACT:erase(index) end
 
 ---@class _items_other_WEAPON: DFContainer
@@ -1275,11 +1275,11 @@ local _items_other_WEAPON
 ---@return DFPointer<item_weaponst>
 function _items_other_WEAPON:_field(index) end
 
----@param index integer 
----@param item item_weaponst 
+---@param index '#'|integer
+---@param item item_weaponst
 function _items_other_WEAPON:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_WEAPON:erase(index) end
 
 ---@class _items_other_ANY_WEAPON: DFContainer
@@ -1291,11 +1291,11 @@ local _items_other_ANY_WEAPON
 ---@return DFPointer<item>
 function _items_other_ANY_WEAPON:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_WEAPON:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_WEAPON:erase(index) end
 
 ---@class _items_other_ANY_SPIKE: DFContainer
@@ -1307,11 +1307,11 @@ local _items_other_ANY_SPIKE
 ---@return DFPointer<item>
 function _items_other_ANY_SPIKE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_SPIKE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_SPIKE:erase(index) end
 
 ---@class _items_other_ANY_TRUE_ARMOR: DFContainer
@@ -1323,11 +1323,11 @@ local _items_other_ANY_TRUE_ARMOR
 ---@return DFPointer<item_armorst>
 function _items_other_ANY_TRUE_ARMOR:_field(index) end
 
----@param index integer 
----@param item item_armorst 
+---@param index '#'|integer
+---@param item item_armorst
 function _items_other_ANY_TRUE_ARMOR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_TRUE_ARMOR:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_HELM: DFContainer
@@ -1339,11 +1339,11 @@ local _items_other_ANY_ARMOR_HELM
 ---@return DFPointer<item_helmst>
 function _items_other_ANY_ARMOR_HELM:_field(index) end
 
----@param index integer 
----@param item item_helmst 
+---@param index '#'|integer
+---@param item item_helmst
 function _items_other_ANY_ARMOR_HELM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_ARMOR_HELM:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_SHOES: DFContainer
@@ -1355,11 +1355,11 @@ local _items_other_ANY_ARMOR_SHOES
 ---@return DFPointer<item_shoesst>
 function _items_other_ANY_ARMOR_SHOES:_field(index) end
 
----@param index integer 
----@param item item_shoesst 
+---@param index '#'|integer
+---@param item item_shoesst
 function _items_other_ANY_ARMOR_SHOES:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_ARMOR_SHOES:erase(index) end
 
 ---@class _items_other_SHIELD: DFContainer
@@ -1371,11 +1371,11 @@ local _items_other_SHIELD
 ---@return DFPointer<item_shieldst>
 function _items_other_SHIELD:_field(index) end
 
----@param index integer 
----@param item item_shieldst 
+---@param index '#'|integer
+---@param item item_shieldst
 function _items_other_SHIELD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SHIELD:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_GLOVES: DFContainer
@@ -1387,11 +1387,11 @@ local _items_other_ANY_ARMOR_GLOVES
 ---@return DFPointer<item_glovesst>
 function _items_other_ANY_ARMOR_GLOVES:_field(index) end
 
----@param index integer 
----@param item item_glovesst 
+---@param index '#'|integer
+---@param item item_glovesst
 function _items_other_ANY_ARMOR_GLOVES:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_ARMOR_GLOVES:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_PANTS: DFContainer
@@ -1403,11 +1403,11 @@ local _items_other_ANY_ARMOR_PANTS
 ---@return DFPointer<item_pantsst>
 function _items_other_ANY_ARMOR_PANTS:_field(index) end
 
----@param index integer 
----@param item item_pantsst 
+---@param index '#'|integer
+---@param item item_pantsst
 function _items_other_ANY_ARMOR_PANTS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_ARMOR_PANTS:erase(index) end
 
 ---@class _items_other_QUIVER: DFContainer
@@ -1419,11 +1419,11 @@ local _items_other_QUIVER
 ---@return DFPointer<item_quiverst>
 function _items_other_QUIVER:_field(index) end
 
----@param index integer 
----@param item item_quiverst 
+---@param index '#'|integer
+---@param item item_quiverst
 function _items_other_QUIVER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_QUIVER:erase(index) end
 
 ---@class _items_other_SPLINT: DFContainer
@@ -1435,11 +1435,11 @@ local _items_other_SPLINT
 ---@return DFPointer<item_splintst>
 function _items_other_SPLINT:_field(index) end
 
----@param index integer 
----@param item item_splintst 
+---@param index '#'|integer
+---@param item item_splintst
 function _items_other_SPLINT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SPLINT:erase(index) end
 
 ---@class _items_other_ORTHOPEDIC_CAST: DFContainer
@@ -1451,11 +1451,11 @@ local _items_other_ORTHOPEDIC_CAST
 ---@return DFPointer<item_orthopedic_castst>
 function _items_other_ORTHOPEDIC_CAST:_field(index) end
 
----@param index integer 
----@param item item_orthopedic_castst 
+---@param index '#'|integer
+---@param item item_orthopedic_castst
 function _items_other_ORTHOPEDIC_CAST:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ORTHOPEDIC_CAST:erase(index) end
 
 ---@class _items_other_CRUTCH: DFContainer
@@ -1467,11 +1467,11 @@ local _items_other_CRUTCH
 ---@return DFPointer<item_crutchst>
 function _items_other_CRUTCH:_field(index) end
 
----@param index integer 
----@param item item_crutchst 
+---@param index '#'|integer
+---@param item item_crutchst
 function _items_other_CRUTCH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CRUTCH:erase(index) end
 
 ---@class _items_other_BACKPACK: DFContainer
@@ -1483,11 +1483,11 @@ local _items_other_BACKPACK
 ---@return DFPointer<item_backpackst>
 function _items_other_BACKPACK:_field(index) end
 
----@param index integer 
----@param item item_backpackst 
+---@param index '#'|integer
+---@param item item_backpackst
 function _items_other_BACKPACK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BACKPACK:erase(index) end
 
 ---@class _items_other_AMMO: DFContainer
@@ -1499,11 +1499,11 @@ local _items_other_AMMO
 ---@return DFPointer<item_ammost>
 function _items_other_AMMO:_field(index) end
 
----@param index integer 
----@param item item_ammost 
+---@param index '#'|integer
+---@param item item_ammost
 function _items_other_AMMO:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_AMMO:erase(index) end
 
 ---@class _items_other_WOOD: DFContainer
@@ -1515,11 +1515,11 @@ local _items_other_WOOD
 ---@return DFPointer<item_woodst>
 function _items_other_WOOD:_field(index) end
 
----@param index integer 
----@param item item_woodst 
+---@param index '#'|integer
+---@param item item_woodst
 function _items_other_WOOD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_WOOD:erase(index) end
 
 ---@class _items_other_BRANCH: DFContainer
@@ -1531,11 +1531,11 @@ local _items_other_BRANCH
 ---@return DFPointer<item_branchst>
 function _items_other_BRANCH:_field(index) end
 
----@param index integer 
----@param item item_branchst 
+---@param index '#'|integer
+---@param item item_branchst
 function _items_other_BRANCH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BRANCH:erase(index) end
 
 ---@class _items_other_BOULDER: DFContainer
@@ -1547,11 +1547,11 @@ local _items_other_BOULDER
 ---@return DFPointer<item_boulderst>
 function _items_other_BOULDER:_field(index) end
 
----@param index integer 
----@param item item_boulderst 
+---@param index '#'|integer
+---@param item item_boulderst
 function _items_other_BOULDER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BOULDER:erase(index) end
 
 ---@class _items_other_ROCK: DFContainer
@@ -1563,11 +1563,11 @@ local _items_other_ROCK
 ---@return DFPointer<item_rockst>
 function _items_other_ROCK:_field(index) end
 
----@param index integer 
----@param item item_rockst 
+---@param index '#'|integer
+---@param item item_rockst
 function _items_other_ROCK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ROCK:erase(index) end
 
 ---@class _items_other_ANY_REFUSE: DFContainer
@@ -1579,11 +1579,11 @@ local _items_other_ANY_REFUSE
 ---@return DFPointer<item>
 function _items_other_ANY_REFUSE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_REFUSE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_REFUSE:erase(index) end
 
 ---@class _items_other_ANY_GOOD_FOOD: DFContainer
@@ -1595,11 +1595,11 @@ local _items_other_ANY_GOOD_FOOD
 ---@return DFPointer<item>
 function _items_other_ANY_GOOD_FOOD:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GOOD_FOOD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GOOD_FOOD:erase(index) end
 
 ---@class _items_other_ANY_AUTO_CLEAN: DFContainer
@@ -1611,11 +1611,11 @@ local _items_other_ANY_AUTO_CLEAN
 ---@return DFPointer<item>
 function _items_other_ANY_AUTO_CLEAN:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_AUTO_CLEAN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_AUTO_CLEAN:erase(index) end
 
 ---@class _items_other_ANY_GENERIC24: DFContainer
@@ -1627,11 +1627,11 @@ local _items_other_ANY_GENERIC24
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC24:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC24:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC24:erase(index) end
 
 ---@class _items_other_ANY_BUTCHERABLE: DFContainer
@@ -1643,11 +1643,11 @@ local _items_other_ANY_BUTCHERABLE
 ---@return DFPointer<item>
 function _items_other_ANY_BUTCHERABLE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_BUTCHERABLE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_BUTCHERABLE:erase(index) end
 
 ---@class _items_other_ANY_FURNITURE: DFContainer
@@ -1659,11 +1659,11 @@ local _items_other_ANY_FURNITURE
 ---@return DFPointer<item>
 function _items_other_ANY_FURNITURE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_FURNITURE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_FURNITURE:erase(index) end
 
 ---@class _items_other_ANY_CAGE_OR_TRAP: DFContainer
@@ -1675,11 +1675,11 @@ local _items_other_ANY_CAGE_OR_TRAP
 ---@return DFPointer<item>
 function _items_other_ANY_CAGE_OR_TRAP:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_CAGE_OR_TRAP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_CAGE_OR_TRAP:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_RAW: DFContainer
@@ -1691,11 +1691,11 @@ local _items_other_ANY_EDIBLE_RAW
 ---@return DFPointer<item>
 function _items_other_ANY_EDIBLE_RAW:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_EDIBLE_RAW:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_EDIBLE_RAW:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_CARNIVORE: DFContainer
@@ -1707,11 +1707,11 @@ local _items_other_ANY_EDIBLE_CARNIVORE
 ---@return DFPointer<item>
 function _items_other_ANY_EDIBLE_CARNIVORE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_EDIBLE_CARNIVORE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_EDIBLE_CARNIVORE:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_BONECARN: DFContainer
@@ -1723,11 +1723,11 @@ local _items_other_ANY_EDIBLE_BONECARN
 ---@return DFPointer<item>
 function _items_other_ANY_EDIBLE_BONECARN:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_EDIBLE_BONECARN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_EDIBLE_BONECARN:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_VERMIN: DFContainer
@@ -1739,11 +1739,11 @@ local _items_other_ANY_EDIBLE_VERMIN
 ---@return DFPointer<item>
 function _items_other_ANY_EDIBLE_VERMIN:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_EDIBLE_VERMIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_EDIBLE_VERMIN:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_VERMIN_BOX: DFContainer
@@ -1755,11 +1755,11 @@ local _items_other_ANY_EDIBLE_VERMIN_BOX
 ---@return DFPointer<item>
 function _items_other_ANY_EDIBLE_VERMIN_BOX:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_EDIBLE_VERMIN_BOX:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_EDIBLE_VERMIN_BOX:erase(index) end
 
 ---@class _items_other_ANY_CAN_ROT: DFContainer
@@ -1771,11 +1771,11 @@ local _items_other_ANY_CAN_ROT
 ---@return DFPointer<item>
 function _items_other_ANY_CAN_ROT:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_CAN_ROT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_CAN_ROT:erase(index) end
 
 ---@class _items_other_ANY_MURDERED: DFContainer
@@ -1787,11 +1787,11 @@ local _items_other_ANY_MURDERED
 ---@return DFPointer<item>
 function _items_other_ANY_MURDERED:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_MURDERED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_MURDERED:erase(index) end
 
 ---@class _items_other_ANY_DEAD_DWARF: DFContainer
@@ -1803,11 +1803,11 @@ local _items_other_ANY_DEAD_DWARF
 ---@return DFPointer<item>
 function _items_other_ANY_DEAD_DWARF:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_DEAD_DWARF:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_DEAD_DWARF:erase(index) end
 
 ---@class _items_other_ANY_GENERIC36: DFContainer
@@ -1819,11 +1819,11 @@ local _items_other_ANY_GENERIC36
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC36:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC36:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC36:erase(index) end
 
 ---@class _items_other_ANY_GENERIC37: DFContainer
@@ -1835,11 +1835,11 @@ local _items_other_ANY_GENERIC37
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC37:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC37:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC37:erase(index) end
 
 ---@class _items_other_ANY_GENERIC38: DFContainer
@@ -1851,11 +1851,11 @@ local _items_other_ANY_GENERIC38
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC38:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC38:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC38:erase(index) end
 
 ---@class _items_other_ANY_GENERIC39: DFContainer
@@ -1867,11 +1867,11 @@ local _items_other_ANY_GENERIC39
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC39:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC39:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC39:erase(index) end
 
 ---@class _items_other_DOOR: DFContainer
@@ -1883,11 +1883,11 @@ local _items_other_DOOR
 ---@return DFPointer<item_doorst>
 function _items_other_DOOR:_field(index) end
 
----@param index integer 
----@param item item_doorst 
+---@param index '#'|integer
+---@param item item_doorst
 function _items_other_DOOR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_DOOR:erase(index) end
 
 ---@class _items_other_FLOODGATE: DFContainer
@@ -1899,11 +1899,11 @@ local _items_other_FLOODGATE
 ---@return DFPointer<item_floodgatest>
 function _items_other_FLOODGATE:_field(index) end
 
----@param index integer 
----@param item item_floodgatest 
+---@param index '#'|integer
+---@param item item_floodgatest
 function _items_other_FLOODGATE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FLOODGATE:erase(index) end
 
 ---@class _items_other_HATCH_COVER: DFContainer
@@ -1915,11 +1915,11 @@ local _items_other_HATCH_COVER
 ---@return DFPointer<item_hatch_coverst>
 function _items_other_HATCH_COVER:_field(index) end
 
----@param index integer 
----@param item item_hatch_coverst 
+---@param index '#'|integer
+---@param item item_hatch_coverst
 function _items_other_HATCH_COVER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_HATCH_COVER:erase(index) end
 
 ---@class _items_other_GRATE: DFContainer
@@ -1931,11 +1931,11 @@ local _items_other_GRATE
 ---@return DFPointer<item_gratest>
 function _items_other_GRATE:_field(index) end
 
----@param index integer 
----@param item item_gratest 
+---@param index '#'|integer
+---@param item item_gratest
 function _items_other_GRATE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_GRATE:erase(index) end
 
 ---@class _items_other_CAGE: DFContainer
@@ -1947,11 +1947,11 @@ local _items_other_CAGE
 ---@return DFPointer<item_cagest>
 function _items_other_CAGE:_field(index) end
 
----@param index integer 
----@param item item_cagest 
+---@param index '#'|integer
+---@param item item_cagest
 function _items_other_CAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CAGE:erase(index) end
 
 ---@class _items_other_FLASK: DFContainer
@@ -1963,11 +1963,11 @@ local _items_other_FLASK
 ---@return DFPointer<item_flaskst>
 function _items_other_FLASK:_field(index) end
 
----@param index integer 
----@param item item_flaskst 
+---@param index '#'|integer
+---@param item item_flaskst
 function _items_other_FLASK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FLASK:erase(index) end
 
 ---@class _items_other_WINDOW: DFContainer
@@ -1979,11 +1979,11 @@ local _items_other_WINDOW
 ---@return DFPointer<item_windowst>
 function _items_other_WINDOW:_field(index) end
 
----@param index integer 
----@param item item_windowst 
+---@param index '#'|integer
+---@param item item_windowst
 function _items_other_WINDOW:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_WINDOW:erase(index) end
 
 ---@class _items_other_GOBLET: DFContainer
@@ -1995,11 +1995,11 @@ local _items_other_GOBLET
 ---@return DFPointer<item_gobletst>
 function _items_other_GOBLET:_field(index) end
 
----@param index integer 
----@param item item_gobletst 
+---@param index '#'|integer
+---@param item item_gobletst
 function _items_other_GOBLET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_GOBLET:erase(index) end
 
 ---@class _items_other_INSTRUMENT: DFContainer
@@ -2011,11 +2011,11 @@ local _items_other_INSTRUMENT
 ---@return DFPointer<item_instrumentst>
 function _items_other_INSTRUMENT:_field(index) end
 
----@param index integer 
----@param item item_instrumentst 
+---@param index '#'|integer
+---@param item item_instrumentst
 function _items_other_INSTRUMENT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_INSTRUMENT:erase(index) end
 
 ---@class _items_other_INSTRUMENT_STATIONARY: DFContainer
@@ -2027,11 +2027,11 @@ local _items_other_INSTRUMENT_STATIONARY
 ---@return DFPointer<item_instrumentst>
 function _items_other_INSTRUMENT_STATIONARY:_field(index) end
 
----@param index integer 
----@param item item_instrumentst 
+---@param index '#'|integer
+---@param item item_instrumentst
 function _items_other_INSTRUMENT_STATIONARY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_INSTRUMENT_STATIONARY:erase(index) end
 
 ---@class _items_other_TOY: DFContainer
@@ -2043,11 +2043,11 @@ local _items_other_TOY
 ---@return DFPointer<item_toyst>
 function _items_other_TOY:_field(index) end
 
----@param index integer 
----@param item item_toyst 
+---@param index '#'|integer
+---@param item item_toyst
 function _items_other_TOY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TOY:erase(index) end
 
 ---@class _items_other_TOOL: DFContainer
@@ -2059,11 +2059,11 @@ local _items_other_TOOL
 ---@return DFPointer<item_toolst>
 function _items_other_TOOL:_field(index) end
 
----@param index integer 
----@param item item_toolst 
+---@param index '#'|integer
+---@param item item_toolst
 function _items_other_TOOL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TOOL:erase(index) end
 
 ---@class _items_other_BUCKET: DFContainer
@@ -2075,11 +2075,11 @@ local _items_other_BUCKET
 ---@return DFPointer<item_bucketst>
 function _items_other_BUCKET:_field(index) end
 
----@param index integer 
----@param item item_bucketst 
+---@param index '#'|integer
+---@param item item_bucketst
 function _items_other_BUCKET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BUCKET:erase(index) end
 
 ---@class _items_other_BARREL: DFContainer
@@ -2091,11 +2091,11 @@ local _items_other_BARREL
 ---@return DFPointer<item_barrelst>
 function _items_other_BARREL:_field(index) end
 
----@param index integer 
----@param item item_barrelst 
+---@param index '#'|integer
+---@param item item_barrelst
 function _items_other_BARREL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BARREL:erase(index) end
 
 ---@class _items_other_CHAIN: DFContainer
@@ -2107,11 +2107,11 @@ local _items_other_CHAIN
 ---@return DFPointer<item_chainst>
 function _items_other_CHAIN:_field(index) end
 
----@param index integer 
----@param item item_chainst 
+---@param index '#'|integer
+---@param item item_chainst
 function _items_other_CHAIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CHAIN:erase(index) end
 
 ---@class _items_other_ANIMALTRAP: DFContainer
@@ -2123,11 +2123,11 @@ local _items_other_ANIMALTRAP
 ---@return DFPointer<item_animaltrapst>
 function _items_other_ANIMALTRAP:_field(index) end
 
----@param index integer 
----@param item item_animaltrapst 
+---@param index '#'|integer
+---@param item item_animaltrapst
 function _items_other_ANIMALTRAP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANIMALTRAP:erase(index) end
 
 ---@class _items_other_BED: DFContainer
@@ -2139,11 +2139,11 @@ local _items_other_BED
 ---@return DFPointer<item_bedst>
 function _items_other_BED:_field(index) end
 
----@param index integer 
----@param item item_bedst 
+---@param index '#'|integer
+---@param item item_bedst
 function _items_other_BED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BED:erase(index) end
 
 ---@class _items_other_TRACTION_BENCH: DFContainer
@@ -2155,11 +2155,11 @@ local _items_other_TRACTION_BENCH
 ---@return DFPointer<item_traction_benchst>
 function _items_other_TRACTION_BENCH:_field(index) end
 
----@param index integer 
----@param item item_traction_benchst 
+---@param index '#'|integer
+---@param item item_traction_benchst
 function _items_other_TRACTION_BENCH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TRACTION_BENCH:erase(index) end
 
 ---@class _items_other_CHAIR: DFContainer
@@ -2171,11 +2171,11 @@ local _items_other_CHAIR
 ---@return DFPointer<item_chairst>
 function _items_other_CHAIR:_field(index) end
 
----@param index integer 
----@param item item_chairst 
+---@param index '#'|integer
+---@param item item_chairst
 function _items_other_CHAIR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CHAIR:erase(index) end
 
 ---@class _items_other_COFFIN: DFContainer
@@ -2187,11 +2187,11 @@ local _items_other_COFFIN
 ---@return DFPointer<item_coffinst>
 function _items_other_COFFIN:_field(index) end
 
----@param index integer 
----@param item item_coffinst 
+---@param index '#'|integer
+---@param item item_coffinst
 function _items_other_COFFIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_COFFIN:erase(index) end
 
 ---@class _items_other_TABLE: DFContainer
@@ -2203,11 +2203,11 @@ local _items_other_TABLE
 ---@return DFPointer<item_tablest>
 function _items_other_TABLE:_field(index) end
 
----@param index integer 
----@param item item_tablest 
+---@param index '#'|integer
+---@param item item_tablest
 function _items_other_TABLE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TABLE:erase(index) end
 
 ---@class _items_other_STATUE: DFContainer
@@ -2219,11 +2219,11 @@ local _items_other_STATUE
 ---@return DFPointer<item_statuest>
 function _items_other_STATUE:_field(index) end
 
----@param index integer 
----@param item item_statuest 
+---@param index '#'|integer
+---@param item item_statuest
 function _items_other_STATUE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_STATUE:erase(index) end
 
 ---@class _items_other_SLAB: DFContainer
@@ -2235,11 +2235,11 @@ local _items_other_SLAB
 ---@return DFPointer<item_slabst>
 function _items_other_SLAB:_field(index) end
 
----@param index integer 
----@param item item_slabst 
+---@param index '#'|integer
+---@param item item_slabst
 function _items_other_SLAB:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SLAB:erase(index) end
 
 ---@class _items_other_QUERN: DFContainer
@@ -2251,11 +2251,11 @@ local _items_other_QUERN
 ---@return DFPointer<item_quernst>
 function _items_other_QUERN:_field(index) end
 
----@param index integer 
----@param item item_quernst 
+---@param index '#'|integer
+---@param item item_quernst
 function _items_other_QUERN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_QUERN:erase(index) end
 
 ---@class _items_other_MILLSTONE: DFContainer
@@ -2267,11 +2267,11 @@ local _items_other_MILLSTONE
 ---@return DFPointer<item_millstonest>
 function _items_other_MILLSTONE:_field(index) end
 
----@param index integer 
----@param item item_millstonest 
+---@param index '#'|integer
+---@param item item_millstonest
 function _items_other_MILLSTONE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_MILLSTONE:erase(index) end
 
 ---@class _items_other_BOX: DFContainer
@@ -2283,11 +2283,11 @@ local _items_other_BOX
 ---@return DFPointer<item_boxst>
 function _items_other_BOX:_field(index) end
 
----@param index integer 
----@param item item_boxst 
+---@param index '#'|integer
+---@param item item_boxst
 function _items_other_BOX:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BOX:erase(index) end
 
 ---@class _items_other_BAG: DFContainer
@@ -2299,11 +2299,11 @@ local _items_other_BAG
 ---@return DFPointer<item>
 function _items_other_BAG:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_BAG:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BAG:erase(index) end
 
 ---@class _items_other_BIN: DFContainer
@@ -2315,11 +2315,11 @@ local _items_other_BIN
 ---@return DFPointer<item_binst>
 function _items_other_BIN:_field(index) end
 
----@param index integer 
----@param item item_binst 
+---@param index '#'|integer
+---@param item item_binst
 function _items_other_BIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BIN:erase(index) end
 
 ---@class _items_other_ARMORSTAND: DFContainer
@@ -2331,11 +2331,11 @@ local _items_other_ARMORSTAND
 ---@return DFPointer<item_armorstandst>
 function _items_other_ARMORSTAND:_field(index) end
 
----@param index integer 
----@param item item_armorstandst 
+---@param index '#'|integer
+---@param item item_armorstandst
 function _items_other_ARMORSTAND:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ARMORSTAND:erase(index) end
 
 ---@class _items_other_WEAPONRACK: DFContainer
@@ -2347,11 +2347,11 @@ local _items_other_WEAPONRACK
 ---@return DFPointer<item_weaponrackst>
 function _items_other_WEAPONRACK:_field(index) end
 
----@param index integer 
----@param item item_weaponrackst 
+---@param index '#'|integer
+---@param item item_weaponrackst
 function _items_other_WEAPONRACK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_WEAPONRACK:erase(index) end
 
 ---@class _items_other_CABINET: DFContainer
@@ -2363,11 +2363,11 @@ local _items_other_CABINET
 ---@return DFPointer<item_cabinetst>
 function _items_other_CABINET:_field(index) end
 
----@param index integer 
----@param item item_cabinetst 
+---@param index '#'|integer
+---@param item item_cabinetst
 function _items_other_CABINET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CABINET:erase(index) end
 
 ---@class _items_other_ANVIL: DFContainer
@@ -2379,11 +2379,11 @@ local _items_other_ANVIL
 ---@return DFPointer<item_anvilst>
 function _items_other_ANVIL:_field(index) end
 
----@param index integer 
----@param item item_anvilst 
+---@param index '#'|integer
+---@param item item_anvilst
 function _items_other_ANVIL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANVIL:erase(index) end
 
 ---@class _items_other_CATAPULTPARTS: DFContainer
@@ -2395,11 +2395,11 @@ local _items_other_CATAPULTPARTS
 ---@return DFPointer<item_catapultpartsst>
 function _items_other_CATAPULTPARTS:_field(index) end
 
----@param index integer 
----@param item item_catapultpartsst 
+---@param index '#'|integer
+---@param item item_catapultpartsst
 function _items_other_CATAPULTPARTS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CATAPULTPARTS:erase(index) end
 
 ---@class _items_other_BALLISTAPARTS: DFContainer
@@ -2411,11 +2411,11 @@ local _items_other_BALLISTAPARTS
 ---@return DFPointer<item_ballistapartsst>
 function _items_other_BALLISTAPARTS:_field(index) end
 
----@param index integer 
----@param item item_ballistapartsst 
+---@param index '#'|integer
+---@param item item_ballistapartsst
 function _items_other_BALLISTAPARTS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BALLISTAPARTS:erase(index) end
 
 ---@class _items_other_SIEGEAMMO: DFContainer
@@ -2427,11 +2427,11 @@ local _items_other_SIEGEAMMO
 ---@return DFPointer<item_siegeammost>
 function _items_other_SIEGEAMMO:_field(index) end
 
----@param index integer 
----@param item item_siegeammost 
+---@param index '#'|integer
+---@param item item_siegeammost
 function _items_other_SIEGEAMMO:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SIEGEAMMO:erase(index) end
 
 ---@class _items_other_TRAPPARTS: DFContainer
@@ -2443,11 +2443,11 @@ local _items_other_TRAPPARTS
 ---@return DFPointer<item_trappartsst>
 function _items_other_TRAPPARTS:_field(index) end
 
----@param index integer 
----@param item item_trappartsst 
+---@param index '#'|integer
+---@param item item_trappartsst
 function _items_other_TRAPPARTS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TRAPPARTS:erase(index) end
 
 ---@class _items_other_ANY_WEBS: DFContainer
@@ -2459,11 +2459,11 @@ local _items_other_ANY_WEBS
 ---@return DFPointer<item_threadst>
 function _items_other_ANY_WEBS:_field(index) end
 
----@param index integer 
----@param item item_threadst 
+---@param index '#'|integer
+---@param item item_threadst
 function _items_other_ANY_WEBS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_WEBS:erase(index) end
 
 ---@class _items_other_PIPE_SECTION: DFContainer
@@ -2475,11 +2475,11 @@ local _items_other_PIPE_SECTION
 ---@return DFPointer<item_pipe_sectionst>
 function _items_other_PIPE_SECTION:_field(index) end
 
----@param index integer 
----@param item item_pipe_sectionst 
+---@param index '#'|integer
+---@param item item_pipe_sectionst
 function _items_other_PIPE_SECTION:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_PIPE_SECTION:erase(index) end
 
 ---@class _items_other_ANY_ENCASED: DFContainer
@@ -2491,11 +2491,11 @@ local _items_other_ANY_ENCASED
 ---@return DFPointer<item>
 function _items_other_ANY_ENCASED:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_ENCASED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_ENCASED:erase(index) end
 
 ---@class _items_other_ANY_IN_CONSTRUCTION: DFContainer
@@ -2507,11 +2507,11 @@ local _items_other_ANY_IN_CONSTRUCTION
 ---@return DFPointer<item>
 function _items_other_ANY_IN_CONSTRUCTION:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_IN_CONSTRUCTION:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_IN_CONSTRUCTION:erase(index) end
 
 ---@class _items_other_DRINK: DFContainer
@@ -2523,11 +2523,11 @@ local _items_other_DRINK
 ---@return DFPointer<item_drinkst>
 function _items_other_DRINK:_field(index) end
 
----@param index integer 
----@param item item_drinkst 
+---@param index '#'|integer
+---@param item item_drinkst
 function _items_other_DRINK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_DRINK:erase(index) end
 
 ---@class _items_other_ANY_DRINK: DFContainer
@@ -2539,11 +2539,11 @@ local _items_other_ANY_DRINK
 ---@return DFPointer<item_drinkst>
 function _items_other_ANY_DRINK:_field(index) end
 
----@param index integer 
----@param item item_drinkst 
+---@param index '#'|integer
+---@param item item_drinkst
 function _items_other_ANY_DRINK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_DRINK:erase(index) end
 
 ---@class _items_other_LIQUID_MISC: DFContainer
@@ -2555,11 +2555,11 @@ local _items_other_LIQUID_MISC
 ---@return DFPointer<item_liquid_miscst>
 function _items_other_LIQUID_MISC:_field(index) end
 
----@param index integer 
----@param item item_liquid_miscst 
+---@param index '#'|integer
+---@param item item_liquid_miscst
 function _items_other_LIQUID_MISC:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_LIQUID_MISC:erase(index) end
 
 ---@class _items_other_POWDER_MISC: DFContainer
@@ -2571,11 +2571,11 @@ local _items_other_POWDER_MISC
 ---@return DFPointer<item_powder_miscst>
 function _items_other_POWDER_MISC:_field(index) end
 
----@param index integer 
----@param item item_powder_miscst 
+---@param index '#'|integer
+---@param item item_powder_miscst
 function _items_other_POWDER_MISC:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_POWDER_MISC:erase(index) end
 
 ---@class _items_other_ANY_COOKABLE: DFContainer
@@ -2587,11 +2587,11 @@ local _items_other_ANY_COOKABLE
 ---@return DFPointer<item>
 function _items_other_ANY_COOKABLE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_COOKABLE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_COOKABLE:erase(index) end
 
 ---@class _items_other_ANY_GENERIC84: DFContainer
@@ -2603,11 +2603,11 @@ local _items_other_ANY_GENERIC84
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC84:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC84:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC84:erase(index) end
 
 ---@class _items_other_VERMIN: DFContainer
@@ -2619,11 +2619,11 @@ local _items_other_VERMIN
 ---@return DFPointer<item_verminst>
 function _items_other_VERMIN:_field(index) end
 
----@param index integer 
----@param item item_verminst 
+---@param index '#'|integer
+---@param item item_verminst
 function _items_other_VERMIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_VERMIN:erase(index) end
 
 ---@class _items_other_PET: DFContainer
@@ -2635,11 +2635,11 @@ local _items_other_PET
 ---@return DFPointer<item_petst>
 function _items_other_PET:_field(index) end
 
----@param index integer 
----@param item item_petst 
+---@param index '#'|integer
+---@param item item_petst
 function _items_other_PET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_PET:erase(index) end
 
 ---@class _items_other_ANY_CRITTER: DFContainer
@@ -2651,11 +2651,11 @@ local _items_other_ANY_CRITTER
 ---@return DFPointer<item>
 function _items_other_ANY_CRITTER:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_CRITTER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_CRITTER:erase(index) end
 
 ---@class _items_other_COIN: DFContainer
@@ -2667,11 +2667,11 @@ local _items_other_COIN
 ---@return DFPointer<item_coinst>
 function _items_other_COIN:_field(index) end
 
----@param index integer 
----@param item item_coinst 
+---@param index '#'|integer
+---@param item item_coinst
 function _items_other_COIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_COIN:erase(index) end
 
 ---@class _items_other_GLOB: DFContainer
@@ -2683,11 +2683,11 @@ local _items_other_GLOB
 ---@return DFPointer<item_globst>
 function _items_other_GLOB:_field(index) end
 
----@param index integer 
----@param item item_globst 
+---@param index '#'|integer
+---@param item item_globst
 function _items_other_GLOB:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_GLOB:erase(index) end
 
 ---@class _items_other_TRAPCOMP: DFContainer
@@ -2699,11 +2699,11 @@ local _items_other_TRAPCOMP
 ---@return DFPointer<item_trapcompst>
 function _items_other_TRAPCOMP:_field(index) end
 
----@param index integer 
----@param item item_trapcompst 
+---@param index '#'|integer
+---@param item item_trapcompst
 function _items_other_TRAPCOMP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TRAPCOMP:erase(index) end
 
 ---@class _items_other_BAR: DFContainer
@@ -2715,11 +2715,11 @@ local _items_other_BAR
 ---@return DFPointer<item_barst>
 function _items_other_BAR:_field(index) end
 
----@param index integer 
----@param item item_barst 
+---@param index '#'|integer
+---@param item item_barst
 function _items_other_BAR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BAR:erase(index) end
 
 ---@class _items_other_SMALLGEM: DFContainer
@@ -2731,11 +2731,11 @@ local _items_other_SMALLGEM
 ---@return DFPointer<item_smallgemst>
 function _items_other_SMALLGEM:_field(index) end
 
----@param index integer 
----@param item item_smallgemst 
+---@param index '#'|integer
+---@param item item_smallgemst
 function _items_other_SMALLGEM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SMALLGEM:erase(index) end
 
 ---@class _items_other_BLOCKS: DFContainer
@@ -2747,11 +2747,11 @@ local _items_other_BLOCKS
 ---@return DFPointer<item_blocksst>
 function _items_other_BLOCKS:_field(index) end
 
----@param index integer 
----@param item item_blocksst 
+---@param index '#'|integer
+---@param item item_blocksst
 function _items_other_BLOCKS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BLOCKS:erase(index) end
 
 ---@class _items_other_ROUGH: DFContainer
@@ -2763,11 +2763,11 @@ local _items_other_ROUGH
 ---@return DFPointer<item_roughst>
 function _items_other_ROUGH:_field(index) end
 
----@param index integer 
----@param item item_roughst 
+---@param index '#'|integer
+---@param item item_roughst
 function _items_other_ROUGH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ROUGH:erase(index) end
 
 ---@class _items_other_ANY_CORPSE: DFContainer
@@ -2779,11 +2779,11 @@ local _items_other_ANY_CORPSE
 ---@return DFPointer<item_body_component>
 function _items_other_ANY_CORPSE:_field(index) end
 
----@param index integer 
----@param item item_body_component 
+---@param index '#'|integer
+---@param item item_body_component
 function _items_other_ANY_CORPSE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_CORPSE:erase(index) end
 
 ---@class _items_other_CORPSE: DFContainer
@@ -2795,11 +2795,11 @@ local _items_other_CORPSE
 ---@return DFPointer<item_corpsest>
 function _items_other_CORPSE:_field(index) end
 
----@param index integer 
----@param item item_corpsest 
+---@param index '#'|integer
+---@param item item_corpsest
 function _items_other_CORPSE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CORPSE:erase(index) end
 
 ---@class _items_other_BOOK: DFContainer
@@ -2811,11 +2811,11 @@ local _items_other_BOOK
 ---@return DFPointer<item_bookst>
 function _items_other_BOOK:_field(index) end
 
----@param index integer 
----@param item item_bookst 
+---@param index '#'|integer
+---@param item item_bookst
 function _items_other_BOOK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BOOK:erase(index) end
 
 ---@class _items_other_FIGURINE: DFContainer
@@ -2827,11 +2827,11 @@ local _items_other_FIGURINE
 ---@return DFPointer<item_figurinest>
 function _items_other_FIGURINE:_field(index) end
 
----@param index integer 
----@param item item_figurinest 
+---@param index '#'|integer
+---@param item item_figurinest
 function _items_other_FIGURINE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FIGURINE:erase(index) end
 
 ---@class _items_other_AMULET: DFContainer
@@ -2843,11 +2843,11 @@ local _items_other_AMULET
 ---@return DFPointer<item_amuletst>
 function _items_other_AMULET:_field(index) end
 
----@param index integer 
----@param item item_amuletst 
+---@param index '#'|integer
+---@param item item_amuletst
 function _items_other_AMULET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_AMULET:erase(index) end
 
 ---@class _items_other_SCEPTER: DFContainer
@@ -2859,11 +2859,11 @@ local _items_other_SCEPTER
 ---@return DFPointer<item_scepterst>
 function _items_other_SCEPTER:_field(index) end
 
----@param index integer 
----@param item item_scepterst 
+---@param index '#'|integer
+---@param item item_scepterst
 function _items_other_SCEPTER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SCEPTER:erase(index) end
 
 ---@class _items_other_CROWN: DFContainer
@@ -2875,11 +2875,11 @@ local _items_other_CROWN
 ---@return DFPointer<item_crownst>
 function _items_other_CROWN:_field(index) end
 
----@param index integer 
----@param item item_crownst 
+---@param index '#'|integer
+---@param item item_crownst
 function _items_other_CROWN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CROWN:erase(index) end
 
 ---@class _items_other_RING: DFContainer
@@ -2891,11 +2891,11 @@ local _items_other_RING
 ---@return DFPointer<item_ringst>
 function _items_other_RING:_field(index) end
 
----@param index integer 
----@param item item_ringst 
+---@param index '#'|integer
+---@param item item_ringst
 function _items_other_RING:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_RING:erase(index) end
 
 ---@class _items_other_EARRING: DFContainer
@@ -2907,11 +2907,11 @@ local _items_other_EARRING
 ---@return DFPointer<item_earringst>
 function _items_other_EARRING:_field(index) end
 
----@param index integer 
----@param item item_earringst 
+---@param index '#'|integer
+---@param item item_earringst
 function _items_other_EARRING:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_EARRING:erase(index) end
 
 ---@class _items_other_BRACELET: DFContainer
@@ -2923,11 +2923,11 @@ local _items_other_BRACELET
 ---@return DFPointer<item_braceletst>
 function _items_other_BRACELET:_field(index) end
 
----@param index integer 
----@param item item_braceletst 
+---@param index '#'|integer
+---@param item item_braceletst
 function _items_other_BRACELET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BRACELET:erase(index) end
 
 ---@class _items_other_GEM: DFContainer
@@ -2939,11 +2939,11 @@ local _items_other_GEM
 ---@return DFPointer<item_gemst>
 function _items_other_GEM:_field(index) end
 
----@param index integer 
----@param item item_gemst 
+---@param index '#'|integer
+---@param item item_gemst
 function _items_other_GEM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_GEM:erase(index) end
 
 ---@class _items_other_CORPSEPIECE: DFContainer
@@ -2955,11 +2955,11 @@ local _items_other_CORPSEPIECE
 ---@return DFPointer<item_corpsepiecest>
 function _items_other_CORPSEPIECE:_field(index) end
 
----@param index integer 
----@param item item_corpsepiecest 
+---@param index '#'|integer
+---@param item item_corpsepiecest
 function _items_other_CORPSEPIECE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CORPSEPIECE:erase(index) end
 
 ---@class _items_other_REMAINS: DFContainer
@@ -2971,11 +2971,11 @@ local _items_other_REMAINS
 ---@return DFPointer<item_remainsst>
 function _items_other_REMAINS:_field(index) end
 
----@param index integer 
----@param item item_remainsst 
+---@param index '#'|integer
+---@param item item_remainsst
 function _items_other_REMAINS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_REMAINS:erase(index) end
 
 ---@class _items_other_MEAT: DFContainer
@@ -2987,11 +2987,11 @@ local _items_other_MEAT
 ---@return DFPointer<item_meatst>
 function _items_other_MEAT:_field(index) end
 
----@param index integer 
----@param item item_meatst 
+---@param index '#'|integer
+---@param item item_meatst
 function _items_other_MEAT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_MEAT:erase(index) end
 
 ---@class _items_other_FISH: DFContainer
@@ -3003,11 +3003,11 @@ local _items_other_FISH
 ---@return DFPointer<item_fishst>
 function _items_other_FISH:_field(index) end
 
----@param index integer 
----@param item item_fishst 
+---@param index '#'|integer
+---@param item item_fishst
 function _items_other_FISH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FISH:erase(index) end
 
 ---@class _items_other_FISH_RAW: DFContainer
@@ -3019,11 +3019,11 @@ local _items_other_FISH_RAW
 ---@return DFPointer<item_fish_rawst>
 function _items_other_FISH_RAW:_field(index) end
 
----@param index integer 
----@param item item_fish_rawst 
+---@param index '#'|integer
+---@param item item_fish_rawst
 function _items_other_FISH_RAW:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FISH_RAW:erase(index) end
 
 ---@class _items_other_EGG: DFContainer
@@ -3035,11 +3035,11 @@ local _items_other_EGG
 ---@return DFPointer<item_eggst>
 function _items_other_EGG:_field(index) end
 
----@param index integer 
----@param item item_eggst 
+---@param index '#'|integer
+---@param item item_eggst
 function _items_other_EGG:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_EGG:erase(index) end
 
 ---@class _items_other_SEEDS: DFContainer
@@ -3051,11 +3051,11 @@ local _items_other_SEEDS
 ---@return DFPointer<item_seedsst>
 function _items_other_SEEDS:_field(index) end
 
----@param index integer 
----@param item item_seedsst 
+---@param index '#'|integer
+---@param item item_seedsst
 function _items_other_SEEDS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SEEDS:erase(index) end
 
 ---@class _items_other_PLANT: DFContainer
@@ -3067,11 +3067,11 @@ local _items_other_PLANT
 ---@return DFPointer<item_plantst>
 function _items_other_PLANT:_field(index) end
 
----@param index integer 
----@param item item_plantst 
+---@param index '#'|integer
+---@param item item_plantst
 function _items_other_PLANT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_PLANT:erase(index) end
 
 ---@class _items_other_SKIN_TANNED: DFContainer
@@ -3083,11 +3083,11 @@ local _items_other_SKIN_TANNED
 ---@return DFPointer<item_skin_tannedst>
 function _items_other_SKIN_TANNED:_field(index) end
 
----@param index integer 
----@param item item_skin_tannedst 
+---@param index '#'|integer
+---@param item item_skin_tannedst
 function _items_other_SKIN_TANNED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SKIN_TANNED:erase(index) end
 
 ---@class _items_other_PLANT_GROWTH: DFContainer
@@ -3099,11 +3099,11 @@ local _items_other_PLANT_GROWTH
 ---@return DFPointer<item_plant_growthst>
 function _items_other_PLANT_GROWTH:_field(index) end
 
----@param index integer 
----@param item item_plant_growthst 
+---@param index '#'|integer
+---@param item item_plant_growthst
 function _items_other_PLANT_GROWTH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_PLANT_GROWTH:erase(index) end
 
 ---@class _items_other_THREAD: DFContainer
@@ -3115,11 +3115,11 @@ local _items_other_THREAD
 ---@return DFPointer<item_threadst>
 function _items_other_THREAD:_field(index) end
 
----@param index integer 
----@param item item_threadst 
+---@param index '#'|integer
+---@param item item_threadst
 function _items_other_THREAD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_THREAD:erase(index) end
 
 ---@class _items_other_CLOTH: DFContainer
@@ -3131,11 +3131,11 @@ local _items_other_CLOTH
 ---@return DFPointer<item_clothst>
 function _items_other_CLOTH:_field(index) end
 
----@param index integer 
----@param item item_clothst 
+---@param index '#'|integer
+---@param item item_clothst
 function _items_other_CLOTH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CLOTH:erase(index) end
 
 ---@class _items_other_SHEET: DFContainer
@@ -3147,11 +3147,11 @@ local _items_other_SHEET
 ---@return DFPointer<item_sheetst>
 function _items_other_SHEET:_field(index) end
 
----@param index integer 
----@param item item_sheetst 
+---@param index '#'|integer
+---@param item item_sheetst
 function _items_other_SHEET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SHEET:erase(index) end
 
 ---@class _items_other_TOTEM: DFContainer
@@ -3163,11 +3163,11 @@ local _items_other_TOTEM
 ---@return DFPointer<item_totemst>
 function _items_other_TOTEM:_field(index) end
 
----@param index integer 
----@param item item_totemst 
+---@param index '#'|integer
+---@param item item_totemst
 function _items_other_TOTEM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_TOTEM:erase(index) end
 
 ---@class _items_other_PANTS: DFContainer
@@ -3179,11 +3179,11 @@ local _items_other_PANTS
 ---@return DFPointer<item_pantsst>
 function _items_other_PANTS:_field(index) end
 
----@param index integer 
----@param item item_pantsst 
+---@param index '#'|integer
+---@param item item_pantsst
 function _items_other_PANTS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_PANTS:erase(index) end
 
 ---@class _items_other_CHEESE: DFContainer
@@ -3195,11 +3195,11 @@ local _items_other_CHEESE
 ---@return DFPointer<item_cheesest>
 function _items_other_CHEESE:_field(index) end
 
----@param index integer 
----@param item item_cheesest 
+---@param index '#'|integer
+---@param item item_cheesest
 function _items_other_CHEESE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_CHEESE:erase(index) end
 
 ---@class _items_other_FOOD: DFContainer
@@ -3211,11 +3211,11 @@ local _items_other_FOOD
 ---@return DFPointer<item_foodst>
 function _items_other_FOOD:_field(index) end
 
----@param index integer 
----@param item item_foodst 
+---@param index '#'|integer
+---@param item item_foodst
 function _items_other_FOOD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FOOD:erase(index) end
 
 ---@class _items_other_BALLISTAARROWHEAD: DFContainer
@@ -3227,11 +3227,11 @@ local _items_other_BALLISTAARROWHEAD
 ---@return DFPointer<item_ballistaarrowheadst>
 function _items_other_BALLISTAARROWHEAD:_field(index) end
 
----@param index integer 
----@param item item_ballistaarrowheadst 
+---@param index '#'|integer
+---@param item item_ballistaarrowheadst
 function _items_other_BALLISTAARROWHEAD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_BALLISTAARROWHEAD:erase(index) end
 
 ---@class _items_other_ARMOR: DFContainer
@@ -3243,11 +3243,11 @@ local _items_other_ARMOR
 ---@return DFPointer<item_armorst>
 function _items_other_ARMOR:_field(index) end
 
----@param index integer 
----@param item item_armorst 
+---@param index '#'|integer
+---@param item item_armorst
 function _items_other_ARMOR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ARMOR:erase(index) end
 
 ---@class _items_other_SHOES: DFContainer
@@ -3259,11 +3259,11 @@ local _items_other_SHOES
 ---@return DFPointer<item_shoesst>
 function _items_other_SHOES:_field(index) end
 
----@param index integer 
----@param item item_shoesst 
+---@param index '#'|integer
+---@param item item_shoesst
 function _items_other_SHOES:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_SHOES:erase(index) end
 
 ---@class _items_other_HELM: DFContainer
@@ -3275,11 +3275,11 @@ local _items_other_HELM
 ---@return DFPointer<item_helmst>
 function _items_other_HELM:_field(index) end
 
----@param index integer 
----@param item item_helmst 
+---@param index '#'|integer
+---@param item item_helmst
 function _items_other_HELM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_HELM:erase(index) end
 
 ---@class _items_other_GLOVES: DFContainer
@@ -3291,11 +3291,11 @@ local _items_other_GLOVES
 ---@return DFPointer<item_glovesst>
 function _items_other_GLOVES:_field(index) end
 
----@param index integer 
----@param item item_glovesst 
+---@param index '#'|integer
+---@param item item_glovesst
 function _items_other_GLOVES:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_GLOVES:erase(index) end
 
 ---@class _items_other_ANY_GENERIC128: DFContainer
@@ -3307,11 +3307,11 @@ local _items_other_ANY_GENERIC128
 ---@return DFPointer<item>
 function _items_other_ANY_GENERIC128:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_GENERIC128:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_GENERIC128:erase(index) end
 
 ---@class _items_other_FOOD_STORAGE: DFContainer
@@ -3323,11 +3323,11 @@ local _items_other_FOOD_STORAGE
 ---@return DFPointer<item>
 function _items_other_FOOD_STORAGE:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_FOOD_STORAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_FOOD_STORAGE:erase(index) end
 
 ---@class _items_other_ANY_RECENTLY_DROPPED: DFContainer
@@ -3339,11 +3339,11 @@ local _items_other_ANY_RECENTLY_DROPPED
 ---@return DFPointer<item>
 function _items_other_ANY_RECENTLY_DROPPED:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_RECENTLY_DROPPED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_RECENTLY_DROPPED:erase(index) end
 
 ---@class _items_other_ANY_MELT_DESIGNATED: DFContainer
@@ -3355,10 +3355,10 @@ local _items_other_ANY_MELT_DESIGNATED
 ---@return DFPointer<item>
 function _items_other_ANY_MELT_DESIGNATED:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _items_other_ANY_MELT_DESIGNATED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _items_other_ANY_MELT_DESIGNATED:erase(index) end
 

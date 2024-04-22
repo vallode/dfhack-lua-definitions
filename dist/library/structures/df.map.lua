@@ -536,11 +536,11 @@ local _map_block_block_events
 ---@return DFPointer<block_square_event>
 function _map_block_block_events:_field(index) end
 
----@param index integer 
----@param item block_square_event 
+---@param index '#'|integer
+---@param item block_square_event
 function _map_block_block_events:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_block_events:erase(index) end
 
 ---@class _map_block_block_burrows: DFContainer
@@ -552,11 +552,11 @@ local _map_block_block_burrows
 ---@return DFPointer<block_burrow_link>
 function _map_block_block_burrows:_field(index) end
 
----@param index integer 
----@param item block_burrow_link 
+---@param index '#'|integer
+---@param item block_burrow_link
 function _map_block_block_burrows:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_block_burrows:erase(index) end
 
 ---@class _map_block_flows: DFContainer
@@ -568,11 +568,11 @@ local _map_block_flows
 ---@return DFPointer<flow_info>
 function _map_block_flows:_field(index) end
 
----@param index integer 
----@param item flow_info 
+---@param index '#'|integer
+---@param item flow_info
 function _map_block_flows:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_flows:erase(index) end
 
 ---@class (exact) cave_column_link: DFStruct
@@ -687,11 +687,11 @@ local _map_block_column_unmined_glyphs
 ---@return DFPointer<DFPointer<integer>>
 function _map_block_column_unmined_glyphs:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _map_block_column_unmined_glyphs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_column_unmined_glyphs:erase(index) end
 
 ---@class _map_block_column_cave_columns_cave_column_link: DFContainer
@@ -703,11 +703,11 @@ local _map_block_column_cave_columns_cave_column_link
 ---@return DFPointer<cave_column_link>
 function _map_block_column_cave_columns_cave_column_link:_field(index) end
 
----@param index integer 
----@param item cave_column_link 
+---@param index '#'|integer
+---@param item cave_column_link
 function _map_block_column_cave_columns_cave_column_link:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_column_cave_columns_cave_column_link:erase(index) end
 
 ---@class _map_block_column_column_rectangles: DFContainer
@@ -719,11 +719,11 @@ local _map_block_column_column_rectangles
 ---@return DFPointer<cave_column_rectangle>
 function _map_block_column_column_rectangles:_field(index) end
 
----@param index integer 
----@param item cave_column_rectangle 
+---@param index '#'|integer
+---@param item cave_column_rectangle
 function _map_block_column_column_rectangles:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_column_column_rectangles:erase(index) end
 
 ---@class _map_block_column_flags: DFContainer
@@ -735,11 +735,11 @@ local _map_block_column_flags
 ---@return DFPointer<table<integer, boolean>>
 function _map_block_column_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _map_block_column_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_column_flags:erase(index) end
 
 ---@class _map_block_column_plants: DFContainer
@@ -751,11 +751,11 @@ local _map_block_column_plants
 ---@return DFPointer<plant>
 function _map_block_column_plants:_field(index) end
 
----@param index integer 
----@param item plant 
+---@param index '#'|integer
+---@param item plant
 function _map_block_column_plants:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _map_block_column_plants:erase(index) end
 
 ---@alias block_square_event_type
@@ -1023,11 +1023,11 @@ local _feature_population
 ---@return DFPointer<world_population>
 function _feature_population:_field(index) end
 
----@param index integer 
----@param item world_population 
+---@param index '#'|integer
+---@param item world_population
 function _feature_population:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _feature_population:erase(index) end
 
 ---@class (exact) feature_outdoor_riverst: DFStruct, feature
@@ -1216,11 +1216,11 @@ local _feature_init_flags
 ---@return DFPointer<table<feature_init_flags, boolean>>
 function _feature_init_flags:_field(index) end
 
----@param index integer 
----@param item table<feature_init_flags, boolean> 
+---@param index '#'|integer
+---@param item table<feature_init_flags, boolean>
 function _feature_init_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _feature_init_flags:erase(index) end
 
 ---@class _feature_init_alterations: DFContainer
@@ -1232,11 +1232,11 @@ local _feature_init_alterations
 ---@return DFPointer<feature_alteration>
 function _feature_init_alterations:_field(index) end
 
----@param index integer 
----@param item feature_alteration 
+---@param index '#'|integer
+---@param item feature_alteration
 function _feature_init_alterations:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _feature_init_alterations:erase(index) end
 
 ---@class (exact) feature_init_outdoor_riverst: DFStruct, feature_init
@@ -1492,11 +1492,11 @@ local _world_construction_square_obj
 ---@return DFPointer<world_construction_square>
 function _world_construction_square_obj:_field(index) end
 
----@param index integer 
----@param item world_construction_square 
+---@param index '#'|integer
+---@param item world_construction_square
 function _world_construction_square_obj:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_construction_square_obj:erase(index) end
 
 ---@class (exact) world_construction_roadst: DFStruct, world_construction

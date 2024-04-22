@@ -1091,11 +1091,11 @@ local _item_specific_refs
 ---@return DFPointer<specific_ref>
 function _item_specific_refs:_field(index) end
 
----@param index integer 
----@param item specific_ref 
+---@param index '#'|integer
+---@param item specific_ref
 function _item_specific_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _item_specific_refs:erase(index) end
 
 ---@class _item_general_refs: DFContainer
@@ -1107,11 +1107,11 @@ local _item_general_refs
 ---@return DFPointer<general_ref>
 function _item_general_refs:_field(index) end
 
----@param index integer 
----@param item general_ref 
+---@param index '#'|integer
+---@param item general_ref
 function _item_general_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _item_general_refs:erase(index) end
 
 -- ACTUAL ITEM
@@ -1184,11 +1184,11 @@ local _item_constructed_improvements
 ---@return DFPointer<itemimprovement>
 function _item_constructed_improvements:_field(index) end
 
----@param index integer 
----@param item itemimprovement 
+---@param index '#'|integer
+---@param item itemimprovement
 function _item_constructed_improvements:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _item_constructed_improvements:erase(index) end
 
 -- BODY COMPONENT
@@ -1324,11 +1324,11 @@ local _body_component_info_body_part_status
 ---@return DFPointer<body_part_status>
 function _body_component_info_body_part_status:_field(index) end
 
----@param index integer 
----@param item body_part_status 
+---@param index '#'|integer
+---@param item body_part_status
 function _body_component_info_body_part_status:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_component_info_body_part_status:erase(index) end
 
 ---@class _body_component_info_layer_status: DFContainer
@@ -1340,11 +1340,11 @@ local _body_component_info_layer_status
 ---@return DFPointer<body_layer_status>
 function _body_component_info_layer_status:_field(index) end
 
----@param index integer 
----@param item body_layer_status 
+---@param index '#'|integer
+---@param item body_layer_status
 function _body_component_info_layer_status:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _body_component_info_layer_status:erase(index) end
 
 ---@class (exact) body_size_info: DFStruct
@@ -1460,11 +1460,11 @@ local _item_body_component_body_wounds
 ---@return DFPointer<unit_wound>
 function _item_body_component_body_wounds:_field(index) end
 
----@param index integer 
----@param item unit_wound 
+---@param index '#'|integer
+---@param item unit_wound
 function _item_body_component_body_wounds:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _item_body_component_body_wounds:erase(index) end
 
 ---@class (exact) item_body_component.T_appearance: DFStruct
@@ -1847,11 +1847,11 @@ local _item_foodst_ingredients
 ---@return DFPointer<DFPointer<integer>>
 function _item_foodst_ingredients:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _item_foodst_ingredients:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _item_foodst_ingredients:erase(index) end
 
 ---@class (exact) item_verminst: DFStruct, item_critter
@@ -2294,11 +2294,11 @@ local _item_glovesst_handedness
 ---@return DFPointer<table<integer, boolean>>
 function _item_glovesst_handedness:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _item_glovesst_handedness:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _item_glovesst_handedness:erase(index) end
 
 ---@class (exact) item_pantsst: DFStruct, item_constructed

@@ -560,11 +560,11 @@ local _entity_raw_flags
 ---@return DFPointer<table<entity_raw_flags, boolean>>
 function _entity_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<entity_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<entity_raw_flags, boolean>
 function _entity_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_raw_flags:erase(index) end
 
 ---@class (exact) entity_raw.T_symbols: DFStruct
@@ -643,11 +643,11 @@ local _entity_raw_religion_sphere
 ---@return DFPointer<sphere_type>
 function _entity_raw_religion_sphere:_field(index) end
 
----@param index integer 
----@param item sphere_type 
+---@param index '#'|integer
+---@param item sphere_type
 function _entity_raw_religion_sphere:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_raw_religion_sphere:erase(index) end
 
 ---@class (exact) entity_raw.T_jobs: DFStruct
@@ -669,11 +669,11 @@ local _entity_raw_positions
 ---@return DFPointer<entity_position_raw>
 function _entity_raw_positions:_field(index) end
 
----@param index integer 
----@param item entity_position_raw 
+---@param index '#'|integer
+---@param item entity_position_raw
 function _entity_raw_positions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_raw_positions:erase(index) end
 
 ---@class _entity_raw_tissue_styles: DFContainer
@@ -685,11 +685,11 @@ local _entity_raw_tissue_styles
 ---@return DFPointer<DFPointer<integer>>
 function _entity_raw_tissue_styles:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _entity_raw_tissue_styles:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_raw_tissue_styles:erase(index) end
 
 ---@class (exact) entity_raw.T_workshops: DFStruct
@@ -712,11 +712,11 @@ local _entity_raw_animal
 ---@return DFPointer<entity_animal_raw>
 function _entity_raw_animal:_field(index) end
 
----@param index integer 
----@param item entity_animal_raw 
+---@param index '#'|integer
+---@param item entity_animal_raw
 function _entity_raw_animal:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_raw_animal:erase(index) end
 
 ---@class (exact) entity_animal_raw: DFStruct
@@ -1058,10 +1058,10 @@ local _entity_position_raw_flags
 ---@return DFPointer<table<entity_position_raw_flags, boolean>>
 function _entity_position_raw_flags:_field(index) end
 
----@param index integer 
----@param item table<entity_position_raw_flags, boolean> 
+---@param index '#'|integer
+---@param item table<entity_position_raw_flags, boolean>
 function _entity_position_raw_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_position_raw_flags:erase(index) end
 

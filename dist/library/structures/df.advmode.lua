@@ -217,11 +217,11 @@ local _conversation_unk_54
 ---@return DFPointer<nemesis_record>
 function _conversation_unk_54:_field(index) end
 
----@param index integer 
----@param item nemesis_record 
+---@param index '#'|integer
+---@param item nemesis_record
 function _conversation_unk_54:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _conversation_unk_54:erase(index) end
 
 ---@class _conversation_unk_64: DFContainer
@@ -233,11 +233,11 @@ local _conversation_unk_64
 ---@return DFPointer<historical_entity>
 function _conversation_unk_64:_field(index) end
 
----@param index integer 
----@param item historical_entity 
+---@param index '#'|integer
+---@param item historical_entity
 function _conversation_unk_64:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _conversation_unk_64:erase(index) end
 
 ---@class _conversation_unk_84: DFContainer
@@ -249,11 +249,11 @@ local _conversation_unk_84
 ---@return DFPointer<any[]>
 function _conversation_unk_84:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _conversation_unk_84:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _conversation_unk_84:erase(index) end
 
 ---@class _conversation_unk_94: DFContainer
@@ -265,11 +265,11 @@ local _conversation_unk_94
 ---@return DFPointer<any[]>
 function _conversation_unk_94:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _conversation_unk_94:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _conversation_unk_94:erase(index) end
 
 ---@class _conversation_unk_a4: DFContainer
@@ -281,11 +281,11 @@ local _conversation_unk_a4
 ---@return DFPointer<any[]>
 function _conversation_unk_a4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _conversation_unk_a4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _conversation_unk_a4:erase(index) end
 
 ---@class _conversation_speech: DFContainer
@@ -297,11 +297,11 @@ local _conversation_speech
 ---@return DFPointer<DFPointer<integer>>
 function _conversation_speech:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _conversation_speech:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _conversation_speech:erase(index) end
 
 ---@alias talk_choice_type
@@ -1352,11 +1352,11 @@ local _adventurest_rumor_info_base_data
 ---@return DFPointer<adventure_rumor_datast>
 function _adventurest_rumor_info_base_data:_field(index) end
 
----@param index integer 
----@param item adventure_rumor_datast 
+---@param index '#'|integer
+---@param item adventure_rumor_datast
 function _adventurest_rumor_info_base_data:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_rumor_info_base_data:erase(index) end
 
 ---@class _adventurest_rumor_info_data: DFContainer
@@ -1368,11 +1368,11 @@ local _adventurest_rumor_info_data
 ---@return DFPointer<adventure_rumor_datast>
 function _adventurest_rumor_info_data:_field(index) end
 
----@param index integer 
----@param item adventure_rumor_datast 
+---@param index '#'|integer
+---@param item adventure_rumor_datast
 function _adventurest_rumor_info_data:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_rumor_info_data:erase(index) end
 
 -- bay12 type: adventure_constructionst
@@ -1461,11 +1461,11 @@ local _adventurest_construction_civzone
 ---@return DFPointer<building_civzonest>
 function _adventurest_construction_civzone:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _adventurest_construction_civzone:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_civzone:erase(index) end
 
 ---@class _adventurest_construction_zone_assign_hf: DFContainer
@@ -1477,11 +1477,11 @@ local _adventurest_construction_zone_assign_hf
 ---@return DFPointer<historical_figure>
 function _adventurest_construction_zone_assign_hf:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _adventurest_construction_zone_assign_hf:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_zone_assign_hf:erase(index) end
 
 ---@class _adventurest_construction_valid_ab: DFContainer
@@ -1493,11 +1493,11 @@ local _adventurest_construction_valid_ab
 ---@return DFPointer<abstract_building>
 function _adventurest_construction_valid_ab:_field(index) end
 
----@param index integer 
----@param item abstract_building 
+---@param index '#'|integer
+---@param item abstract_building
 function _adventurest_construction_valid_ab:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_valid_ab:erase(index) end
 
 ---@class _adventurest_construction_valid_craft_guild_type: DFContainer
@@ -1509,11 +1509,11 @@ local _adventurest_construction_valid_craft_guild_type
 ---@return DFPointer<profession>
 function _adventurest_construction_valid_craft_guild_type:_field(index) end
 
----@param index integer 
----@param item profession 
+---@param index '#'|integer
+---@param item profession
 function _adventurest_construction_valid_craft_guild_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_valid_craft_guild_type:erase(index) end
 
 ---@class _adventurest_construction_start_menu_worker: DFContainer
@@ -1525,11 +1525,11 @@ local _adventurest_construction_start_menu_worker
 ---@return DFPointer<unit>
 function _adventurest_construction_start_menu_worker:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _adventurest_construction_start_menu_worker:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_start_menu_worker:erase(index) end
 
 ---@class _adventurest_construction_start_menu_can_work: DFContainer
@@ -1541,11 +1541,11 @@ local _adventurest_construction_start_menu_can_work
 ---@return DFPointer<any[]>
 function _adventurest_construction_start_menu_can_work:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_construction_start_menu_can_work:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_start_menu_can_work:erase(index) end
 
 ---@class _adventurest_construction_start_menu_will_work: DFContainer
@@ -1557,11 +1557,11 @@ local _adventurest_construction_start_menu_will_work
 ---@return DFPointer<any[]>
 function _adventurest_construction_start_menu_will_work:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_construction_start_menu_will_work:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_construction_start_menu_will_work:erase(index) end
 
 -- bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
@@ -1637,11 +1637,11 @@ local _adventurest_world_debug_army
 ---@return DFPointer<army>
 function _adventurest_world_debug_army:_field(index) end
 
----@param index integer 
----@param item army 
+---@param index '#'|integer
+---@param item army
 function _adventurest_world_debug_army:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_world_debug_army:erase(index) end
 
 -- not actually a compound
@@ -1673,11 +1673,11 @@ local _adventurest_conversation_activity
 ---@return DFPointer<activity_entry>
 function _adventurest_conversation_activity:_field(index) end
 
----@param index integer 
----@param item activity_entry 
+---@param index '#'|integer
+---@param item activity_entry
 function _adventurest_conversation_activity:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_conversation_activity:erase(index) end
 
 ---@class _adventurest_conversation_activity_event: DFContainer
@@ -1689,11 +1689,11 @@ local _adventurest_conversation_activity_event
 ---@return DFPointer<activity_event>
 function _adventurest_conversation_activity_event:_field(index) end
 
----@param index integer 
----@param item activity_event 
+---@param index '#'|integer
+---@param item activity_event
 function _adventurest_conversation_activity_event:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_conversation_activity_event:erase(index) end
 
 ---@class _adventurest_conversation_choices: DFContainer
@@ -1705,11 +1705,11 @@ local _adventurest_conversation_choices
 ---@return DFPointer<DFPointer<integer>>
 function _adventurest_conversation_choices:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _adventurest_conversation_choices:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_conversation_choices:erase(index) end
 
 ---@alias adventurest.T_conversation.T_conv_tact
@@ -1735,11 +1735,11 @@ local _adventurest_conversation_targets
 ---@return DFPointer<DFPointer<integer>>
 function _adventurest_conversation_targets:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _adventurest_conversation_targets:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_conversation_targets:erase(index) end
 
 ---@class _adventurest_unk_70: DFContainer
@@ -1751,11 +1751,11 @@ local _adventurest_unk_70
 ---@return DFPointer<any[]>
 function _adventurest_unk_70:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_70:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_70:erase(index) end
 
 ---@class _adventurest_unk_72: DFContainer
@@ -1767,11 +1767,11 @@ local _adventurest_unk_72
 ---@return DFPointer<any[]>
 function _adventurest_unk_72:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_72:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_72:erase(index) end
 
 ---@class _adventurest_interacts: DFContainer
@@ -1783,11 +1783,11 @@ local _adventurest_interacts
 ---@return DFPointer<adventure_item_interact_choicest>
 function _adventurest_interacts:_field(index) end
 
----@param index integer 
----@param item adventure_item_interact_choicest 
+---@param index '#'|integer
+---@param item adventure_item_interact_choicest
 function _adventurest_interacts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_interacts:erase(index) end
 
 ---@class _adventurest_commands: DFContainer
@@ -1799,11 +1799,11 @@ local _adventurest_commands
 ---@return DFPointer<adventure_optionst>
 function _adventurest_commands:_field(index) end
 
----@param index integer 
----@param item adventure_optionst 
+---@param index '#'|integer
+---@param item adventure_optionst
 function _adventurest_commands:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_commands:erase(index) end
 
 ---@class _adventurest_movements: DFContainer
@@ -1815,11 +1815,11 @@ local _adventurest_movements
 ---@return DFPointer<adventure_movement_optionst>
 function _adventurest_movements:_field(index) end
 
----@param index integer 
----@param item adventure_movement_optionst 
+---@param index '#'|integer
+---@param item adventure_movement_optionst
 function _adventurest_movements:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_movements:erase(index) end
 
 ---@class _adventurest_unk_75: DFContainer
@@ -1831,11 +1831,11 @@ local _adventurest_unk_75
 ---@return DFPointer<any[]>
 function _adventurest_unk_75:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_75:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_75:erase(index) end
 
 ---@alias adventurest.T_rest_mode
@@ -1869,11 +1869,11 @@ local _adventurest_companions_unit
 ---@return DFPointer<unit>
 function _adventurest_companions_unit:_field(index) end
 
----@param index integer 
----@param item unit 
+---@param index '#'|integer
+---@param item unit
 function _adventurest_companions_unit:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_companions_unit:erase(index) end
 
 ---@class _adventurest_companions_unit_visible: DFContainer
@@ -1885,11 +1885,11 @@ local _adventurest_companions_unit_visible
 ---@return DFPointer<any[]>
 function _adventurest_companions_unit_visible:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_companions_unit_visible:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_companions_unit_visible:erase(index) end
 
 ---@class (exact) adventurest.T_interactions: DFStruct
@@ -1922,11 +1922,11 @@ local _adventurest_interactions_unk_86
 ---@return DFPointer<any[]>
 function _adventurest_interactions_unk_86:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_interactions_unk_86:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_interactions_unk_86:erase(index) end
 
 ---@class _adventurest_interactions_unk_1: DFContainer
@@ -1938,11 +1938,11 @@ local _adventurest_interactions_unk_1
 ---@return DFPointer<any[]>
 function _adventurest_interactions_unk_1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_interactions_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_interactions_unk_1:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v40_2: DFStruct
@@ -1968,11 +1968,11 @@ local _adventurest_unk_v40_2_unk_s1
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_2_unk_s1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_2_unk_s1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_2_unk_s1:erase(index) end
 
 ---@class _adventurest_unk_v40_2_unk_s2: DFContainer
@@ -1984,11 +1984,11 @@ local _adventurest_unk_v40_2_unk_s2
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_2_unk_s2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_2_unk_s2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_2_unk_s2:erase(index) end
 
 ---@class _adventurest_unk_v40_2_unk_s3: DFContainer
@@ -2000,11 +2000,11 @@ local _adventurest_unk_v40_2_unk_s3
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_2_unk_s3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_2_unk_s3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_2_unk_s3:erase(index) end
 
 ---@class _adventurest_unk_v40_2_unk_s4: DFContainer
@@ -2016,11 +2016,11 @@ local _adventurest_unk_v40_2_unk_s4
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_2_unk_s4:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_2_unk_s4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_2_unk_s4:erase(index) end
 
 ---@class _adventurest_unk_v40_2_unk_s6: DFContainer
@@ -2032,11 +2032,11 @@ local _adventurest_unk_v40_2_unk_s6
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_2_unk_s6:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_2_unk_s6:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_2_unk_s6:erase(index) end
 
 ---@class _adventurest_unk_v40_2_unk_s7: DFContainer
@@ -2048,11 +2048,11 @@ local _adventurest_unk_v40_2_unk_s7
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_2_unk_s7:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_2_unk_s7:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_2_unk_s7:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v40_3: DFStruct
@@ -2073,11 +2073,11 @@ local _adventurest_unk_v40_3_unk_s2
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_3_unk_s2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_3_unk_s2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_3_unk_s2:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v40_4: DFStruct
@@ -2124,11 +2124,11 @@ local _adventurest_unk_v40_5_unk_s1
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_5_unk_s1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_5_unk_s1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_5_unk_s1:erase(index) end
 
 ---@class _adventurest_unk_v40_5_unk_s2: DFContainer
@@ -2140,11 +2140,11 @@ local _adventurest_unk_v40_5_unk_s2
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_5_unk_s2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_5_unk_s2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_5_unk_s2:erase(index) end
 
 ---@class _adventurest_unk_v40_5_unk_s3: DFContainer
@@ -2156,11 +2156,11 @@ local _adventurest_unk_v40_5_unk_s3
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_5_unk_s3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_5_unk_s3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_5_unk_s3:erase(index) end
 
 ---@class _adventurest_unk_v40_5_unk_s5: DFContainer
@@ -2172,11 +2172,11 @@ local _adventurest_unk_v40_5_unk_s5
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_5_unk_s5:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_5_unk_s5:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_5_unk_s5:erase(index) end
 
 ---@class _adventurest_unk_v40_5_unk_s6: DFContainer
@@ -2188,11 +2188,11 @@ local _adventurest_unk_v40_5_unk_s6
 ---@return DFPointer<any[]>
 function _adventurest_unk_v40_5_unk_s6:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v40_5_unk_s6:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v40_5_unk_s6:erase(index) end
 
 ---@class (exact) adventurest.T_unk_v42_1: DFStruct
@@ -2220,11 +2220,11 @@ local _adventurest_unk_v42_1_unk_s2
 ---@return DFPointer<any[]>
 function _adventurest_unk_v42_1_unk_s2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v42_1_unk_s2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v42_1_unk_s2:erase(index) end
 
 ---@class _adventurest_unk_v42_1_unk_s3: DFContainer
@@ -2236,11 +2236,11 @@ local _adventurest_unk_v42_1_unk_s3
 ---@return DFPointer<any[]>
 function _adventurest_unk_v42_1_unk_s3:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v42_1_unk_s3:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v42_1_unk_s3:erase(index) end
 
 ---@class _adventurest_unk_v42_1_unk_s9: DFContainer
@@ -2252,11 +2252,11 @@ local _adventurest_unk_v42_1_unk_s9
 ---@return DFPointer<any[]>
 function _adventurest_unk_v42_1_unk_s9:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_unk_v42_1_unk_s9:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_unk_v42_1_unk_s9:erase(index) end
 
 -- Manages the Assume Identity UI when the AssumeIdentity menu is open
@@ -2286,11 +2286,11 @@ local _adventurest_assume_identity_unk_1
 ---@return DFPointer<any[]>
 function _adventurest_assume_identity_unk_1:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_assume_identity_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_assume_identity_unk_1:erase(index) end
 
 ---@class _adventurest_assume_identity_unk_2: DFContainer
@@ -2302,11 +2302,11 @@ local _adventurest_assume_identity_unk_2
 ---@return DFPointer<any[]>
 function _adventurest_assume_identity_unk_2:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _adventurest_assume_identity_unk_2:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _adventurest_assume_identity_unk_2:erase(index) end
 
 ---@class (exact) text_info_elementst: DFStruct

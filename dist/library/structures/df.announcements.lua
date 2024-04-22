@@ -1697,11 +1697,11 @@ local _announcement_alertst_report_unit_announcement_category
 ---@return DFPointer<unit_report_type>
 function _announcement_alertst_report_unit_announcement_category:_field(index) end
 
----@param index integer 
----@param item unit_report_type 
+---@param index '#'|integer
+---@param item unit_report_type
 function _announcement_alertst_report_unit_announcement_category:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _announcement_alertst_report_unit_announcement_category:erase(index) end
 
 -- allocated on the stack, included in df-structures to assist with disassembly

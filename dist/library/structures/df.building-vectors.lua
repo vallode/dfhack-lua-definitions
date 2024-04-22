@@ -986,11 +986,11 @@ local _buildings_other_IN_PLAY
 ---@return DFPointer<building>
 function _buildings_other_IN_PLAY:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _buildings_other_IN_PLAY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_IN_PLAY:erase(index) end
 
 ---@class _buildings_other_STOCKPILE: DFContainer
@@ -1002,11 +1002,11 @@ local _buildings_other_STOCKPILE
 ---@return DFPointer<building_stockpilest>
 function _buildings_other_STOCKPILE:_field(index) end
 
----@param index integer 
----@param item building_stockpilest 
+---@param index '#'|integer
+---@param item building_stockpilest
 function _buildings_other_STOCKPILE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_STOCKPILE:erase(index) end
 
 ---@class _buildings_other_ANY_ZONE: DFContainer
@@ -1018,11 +1018,11 @@ local _buildings_other_ANY_ZONE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ANY_ZONE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ANY_ZONE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_ZONE:erase(index) end
 
 ---@class _buildings_other_ACTIVITY_ZONE: DFContainer
@@ -1034,11 +1034,11 @@ local _buildings_other_ACTIVITY_ZONE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ACTIVITY_ZONE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ACTIVITY_ZONE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ACTIVITY_ZONE:erase(index) end
 
 ---@class _buildings_other_ZONE_HOME: DFContainer
@@ -1050,11 +1050,11 @@ local _buildings_other_ZONE_HOME
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_HOME:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_HOME:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_HOME:erase(index) end
 
 ---@class _buildings_other_ZONE_DEPOT: DFContainer
@@ -1066,11 +1066,11 @@ local _buildings_other_ZONE_DEPOT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_DEPOT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_DEPOT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_DEPOT:erase(index) end
 
 ---@class _buildings_other_ZONE_STOCKPILE: DFContainer
@@ -1082,11 +1082,11 @@ local _buildings_other_ZONE_STOCKPILE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_STOCKPILE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_STOCKPILE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_STOCKPILE:erase(index) end
 
 ---@class _buildings_other_ZONE_NOBLE_QUARTERS: DFContainer
@@ -1098,11 +1098,11 @@ local _buildings_other_ZONE_NOBLE_QUARTERS
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_NOBLE_QUARTERS:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_NOBLE_QUARTERS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_NOBLE_QUARTERS:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID4: DFContainer
@@ -1114,11 +1114,11 @@ local _buildings_other_ZONE_INVALID4
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID4:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID4:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID4:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID5: DFContainer
@@ -1130,11 +1130,11 @@ local _buildings_other_ZONE_INVALID5
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID5:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID5:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID5:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID6: DFContainer
@@ -1146,11 +1146,11 @@ local _buildings_other_ZONE_INVALID6
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID6:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID6:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID6:erase(index) end
 
 ---@class _buildings_other_ZONE_MEAD_HALL: DFContainer
@@ -1162,11 +1162,11 @@ local _buildings_other_ZONE_MEAD_HALL
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_MEAD_HALL:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_MEAD_HALL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_MEAD_HALL:erase(index) end
 
 ---@class _buildings_other_ZONE_THRONE_ROOM: DFContainer
@@ -1178,11 +1178,11 @@ local _buildings_other_ZONE_THRONE_ROOM
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_THRONE_ROOM:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_THRONE_ROOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_THRONE_ROOM:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID9: DFContainer
@@ -1194,11 +1194,11 @@ local _buildings_other_ZONE_INVALID9
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID9:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID9:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID9:erase(index) end
 
 ---@class _buildings_other_ZONE_TEMPLE: DFContainer
@@ -1210,11 +1210,11 @@ local _buildings_other_ZONE_TEMPLE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TEMPLE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TEMPLE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TEMPLE:erase(index) end
 
 ---@class _buildings_other_ZONE_KITCHEN: DFContainer
@@ -1226,11 +1226,11 @@ local _buildings_other_ZONE_KITCHEN
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_KITCHEN:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_KITCHEN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_KITCHEN:erase(index) end
 
 ---@class _buildings_other_ZONE_CAPTIVE_ROOM: DFContainer
@@ -1242,11 +1242,11 @@ local _buildings_other_ZONE_CAPTIVE_ROOM
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CAPTIVE_ROOM:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CAPTIVE_ROOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CAPTIVE_ROOM:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_TOP: DFContainer
@@ -1258,11 +1258,11 @@ local _buildings_other_ZONE_TOWER_TOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_TOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_TOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_TOP:erase(index) end
 
 ---@class _buildings_other_ZONE_COURTYARD: DFContainer
@@ -1274,11 +1274,11 @@ local _buildings_other_ZONE_COURTYARD
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_COURTYARD:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_COURTYARD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_COURTYARD:erase(index) end
 
 ---@class _buildings_other_ZONE_TREASURY: DFContainer
@@ -1290,11 +1290,11 @@ local _buildings_other_ZONE_TREASURY
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TREASURY:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TREASURY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TREASURY:erase(index) end
 
 ---@class _buildings_other_ZONE_GUARD_POST: DFContainer
@@ -1306,11 +1306,11 @@ local _buildings_other_ZONE_GUARD_POST
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_GUARD_POST:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_GUARD_POST:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_GUARD_POST:erase(index) end
 
 ---@class _buildings_other_ZONE_ENTRANCE: DFContainer
@@ -1322,11 +1322,11 @@ local _buildings_other_ZONE_ENTRANCE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ENTRANCE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ENTRANCE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ENTRANCE:erase(index) end
 
 ---@class _buildings_other_ZONE_SECRET_LIBRARY: DFContainer
@@ -1338,11 +1338,11 @@ local _buildings_other_ZONE_SECRET_LIBRARY
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_SECRET_LIBRARY:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_SECRET_LIBRARY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_SECRET_LIBRARY:erase(index) end
 
 ---@class _buildings_other_ZONE_LIBRARY: DFContainer
@@ -1354,11 +1354,11 @@ local _buildings_other_ZONE_LIBRARY
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_LIBRARY:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_LIBRARY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_LIBRARY:erase(index) end
 
 ---@class _buildings_other_ZONE_PLOT: DFContainer
@@ -1370,11 +1370,11 @@ local _buildings_other_ZONE_PLOT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_PLOT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_PLOT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_PLOT:erase(index) end
 
 ---@class _buildings_other_ZONE_MARKET_STALL: DFContainer
@@ -1386,11 +1386,11 @@ local _buildings_other_ZONE_MARKET_STALL
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_MARKET_STALL:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_MARKET_STALL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_MARKET_STALL:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID22: DFContainer
@@ -1402,11 +1402,11 @@ local _buildings_other_ZONE_INVALID22
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID22:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID22:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID22:erase(index) end
 
 ---@class _buildings_other_ZONE_CAMPGROUND: DFContainer
@@ -1418,11 +1418,11 @@ local _buildings_other_ZONE_CAMPGROUND
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CAMPGROUND:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CAMPGROUND:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CAMPGROUND:erase(index) end
 
 ---@class _buildings_other_ZONE_COMMAND_TENT: DFContainer
@@ -1434,11 +1434,11 @@ local _buildings_other_ZONE_COMMAND_TENT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_COMMAND_TENT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_COMMAND_TENT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_COMMAND_TENT:erase(index) end
 
 ---@class _buildings_other_ZONE_TENT: DFContainer
@@ -1450,11 +1450,11 @@ local _buildings_other_ZONE_TENT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TENT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TENT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TENT:erase(index) end
 
 ---@class _buildings_other_ZONE_COMMAND_TENT_BLD: DFContainer
@@ -1466,11 +1466,11 @@ local _buildings_other_ZONE_COMMAND_TENT_BLD
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_COMMAND_TENT_BLD:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_COMMAND_TENT_BLD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_COMMAND_TENT_BLD:erase(index) end
 
 ---@class _buildings_other_ZONE_TENT_BLD: DFContainer
@@ -1482,11 +1482,11 @@ local _buildings_other_ZONE_TENT_BLD
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TENT_BLD:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TENT_BLD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TENT_BLD:erase(index) end
 
 ---@class _buildings_other_ZONE_MECHANISM_ROOM: DFContainer
@@ -1498,11 +1498,11 @@ local _buildings_other_ZONE_MECHANISM_ROOM
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_MECHANISM_ROOM:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_MECHANISM_ROOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_MECHANISM_ROOM:erase(index) end
 
 ---@class _buildings_other_ZONE_DUNGEON_CELL: DFContainer
@@ -1514,11 +1514,11 @@ local _buildings_other_ZONE_DUNGEON_CELL
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_DUNGEON_CELL:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_DUNGEON_CELL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_DUNGEON_CELL:erase(index) end
 
 ---@class _buildings_other_ZONE_ANIMAL_PIT: DFContainer
@@ -1530,11 +1530,11 @@ local _buildings_other_ZONE_ANIMAL_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ANIMAL_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ANIMAL_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ANIMAL_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_CLOTH_PIT: DFContainer
@@ -1546,11 +1546,11 @@ local _buildings_other_ZONE_CLOTH_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CLOTH_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CLOTH_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CLOTH_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_TANNING_PIT: DFContainer
@@ -1562,11 +1562,11 @@ local _buildings_other_ZONE_TANNING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TANNING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TANNING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TANNING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_CLOTH_CLOTHING_PIT: DFContainer
@@ -1578,11 +1578,11 @@ local _buildings_other_ZONE_CLOTH_CLOTHING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CLOTH_CLOTHING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CLOTH_CLOTHING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CLOTH_CLOTHING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_LEATHER_CLOTHING_PIT: DFContainer
@@ -1594,11 +1594,11 @@ local _buildings_other_ZONE_LEATHER_CLOTHING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_LEATHER_CLOTHING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_LEATHER_CLOTHING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_LEATHER_CLOTHING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_BONE_CARVING_PIT: DFContainer
@@ -1610,11 +1610,11 @@ local _buildings_other_ZONE_BONE_CARVING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BONE_CARVING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BONE_CARVING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BONE_CARVING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_GEM_CUTTING_PIT: DFContainer
@@ -1626,11 +1626,11 @@ local _buildings_other_ZONE_GEM_CUTTING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_GEM_CUTTING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_GEM_CUTTING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_GEM_CUTTING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_WEAPONSMITHING_PIT: DFContainer
@@ -1642,11 +1642,11 @@ local _buildings_other_ZONE_WEAPONSMITHING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_WEAPONSMITHING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_WEAPONSMITHING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_WEAPONSMITHING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_BOWMAKING_PIT: DFContainer
@@ -1658,11 +1658,11 @@ local _buildings_other_ZONE_BOWMAKING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BOWMAKING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BOWMAKING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BOWMAKING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_BLACKSMITHING_PIT: DFContainer
@@ -1674,11 +1674,11 @@ local _buildings_other_ZONE_BLACKSMITHING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BLACKSMITHING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BLACKSMITHING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BLACKSMITHING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_ARMORSMITHING_PIT: DFContainer
@@ -1690,11 +1690,11 @@ local _buildings_other_ZONE_ARMORSMITHING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ARMORSMITHING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ARMORSMITHING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ARMORSMITHING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_METAL_CRAFTING_PIT: DFContainer
@@ -1706,11 +1706,11 @@ local _buildings_other_ZONE_METAL_CRAFTING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_METAL_CRAFTING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_METAL_CRAFTING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_METAL_CRAFTING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_LEATHERWORKING_PIT: DFContainer
@@ -1722,11 +1722,11 @@ local _buildings_other_ZONE_LEATHERWORKING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_LEATHERWORKING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_LEATHERWORKING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_LEATHERWORKING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_CARPENTRY_PIT: DFContainer
@@ -1738,11 +1738,11 @@ local _buildings_other_ZONE_CARPENTRY_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CARPENTRY_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CARPENTRY_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CARPENTRY_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_STONEWORKING_PIT: DFContainer
@@ -1754,11 +1754,11 @@ local _buildings_other_ZONE_STONEWORKING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_STONEWORKING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_STONEWORKING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_STONEWORKING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_FORGING_PIT: DFContainer
@@ -1770,11 +1770,11 @@ local _buildings_other_ZONE_FORGING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_FORGING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_FORGING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_FORGING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_FIGHTING_PIT: DFContainer
@@ -1786,11 +1786,11 @@ local _buildings_other_ZONE_FIGHTING_PIT
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_FIGHTING_PIT:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_FIGHTING_PIT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_FIGHTING_PIT:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID47: DFContainer
@@ -1802,11 +1802,11 @@ local _buildings_other_ZONE_INVALID47
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID47:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID47:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID47:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID48: DFContainer
@@ -1818,11 +1818,11 @@ local _buildings_other_ZONE_INVALID48
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID48:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID48:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID48:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID49: DFContainer
@@ -1834,11 +1834,11 @@ local _buildings_other_ZONE_INVALID49
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID49:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID49:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID49:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID50: DFContainer
@@ -1850,11 +1850,11 @@ local _buildings_other_ZONE_INVALID50
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID50:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID50:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID50:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID51: DFContainer
@@ -1866,11 +1866,11 @@ local _buildings_other_ZONE_INVALID51
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID51:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID51:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID51:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID52: DFContainer
@@ -1882,11 +1882,11 @@ local _buildings_other_ZONE_INVALID52
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID52:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID52:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID52:erase(index) end
 
 ---@class _buildings_other_ZONE_ANIMAL_WORKSHOP: DFContainer
@@ -1898,11 +1898,11 @@ local _buildings_other_ZONE_ANIMAL_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ANIMAL_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ANIMAL_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ANIMAL_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_CLOTH_WORKSHOP: DFContainer
@@ -1914,11 +1914,11 @@ local _buildings_other_ZONE_CLOTH_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CLOTH_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CLOTH_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CLOTH_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_TANNING_WORKSHOP: DFContainer
@@ -1930,11 +1930,11 @@ local _buildings_other_ZONE_TANNING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TANNING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TANNING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TANNING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP: DFContainer
@@ -1946,11 +1946,11 @@ local _buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CLOTH_CLOTHING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP: DFContainer
@@ -1962,11 +1962,11 @@ local _buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_LEATHER_CLOTHING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_BONE_CARVING_WORKSHOP: DFContainer
@@ -1978,11 +1978,11 @@ local _buildings_other_ZONE_BONE_CARVING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BONE_CARVING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BONE_CARVING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BONE_CARVING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_GEM_CUTTING_WORKSHOP: DFContainer
@@ -1994,11 +1994,11 @@ local _buildings_other_ZONE_GEM_CUTTING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_GEM_CUTTING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_GEM_CUTTING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_GEM_CUTTING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_WEAPONSMITHING_WORKSHOP: DFContainer
@@ -2010,11 +2010,11 @@ local _buildings_other_ZONE_WEAPONSMITHING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_WEAPONSMITHING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_WEAPONSMITHING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_WEAPONSMITHING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_BOWMAKING_WORKSHOP: DFContainer
@@ -2026,11 +2026,11 @@ local _buildings_other_ZONE_BOWMAKING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BOWMAKING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BOWMAKING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BOWMAKING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_BLACKSMITHING_WORKSHOP: DFContainer
@@ -2042,11 +2042,11 @@ local _buildings_other_ZONE_BLACKSMITHING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BLACKSMITHING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BLACKSMITHING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BLACKSMITHING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_ARMORSMITHING_WORKSHOP: DFContainer
@@ -2058,11 +2058,11 @@ local _buildings_other_ZONE_ARMORSMITHING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ARMORSMITHING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ARMORSMITHING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ARMORSMITHING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_METAL_CRAFTING_WORKSHOP: DFContainer
@@ -2074,11 +2074,11 @@ local _buildings_other_ZONE_METAL_CRAFTING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_METAL_CRAFTING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_METAL_CRAFTING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_METAL_CRAFTING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_LEATHERWORKING_SHOP: DFContainer
@@ -2090,11 +2090,11 @@ local _buildings_other_ZONE_LEATHERWORKING_SHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_LEATHERWORKING_SHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_LEATHERWORKING_SHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_LEATHERWORKING_SHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_CARPENTRY_WORKSHOP: DFContainer
@@ -2106,11 +2106,11 @@ local _buildings_other_ZONE_CARPENTRY_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CARPENTRY_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CARPENTRY_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CARPENTRY_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_STONEWORKING_WORKSHOP: DFContainer
@@ -2122,11 +2122,11 @@ local _buildings_other_ZONE_STONEWORKING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_STONEWORKING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_STONEWORKING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_STONEWORKING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_FORGING_WORKSHOP: DFContainer
@@ -2138,11 +2138,11 @@ local _buildings_other_ZONE_FORGING_WORKSHOP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_FORGING_WORKSHOP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_FORGING_WORKSHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_FORGING_WORKSHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_COUNTING_HOUSE_OFFICES: DFContainer
@@ -2154,11 +2154,11 @@ local _buildings_other_ZONE_COUNTING_HOUSE_OFFICES
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_COUNTING_HOUSE_OFFICES:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_COUNTING_HOUSE_OFFICES:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_COUNTING_HOUSE_OFFICES:erase(index) end
 
 ---@class _buildings_other_ZONE_COUNTING_HOUSE_STORAGE: DFContainer
@@ -2170,11 +2170,11 @@ local _buildings_other_ZONE_COUNTING_HOUSE_STORAGE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_COUNTING_HOUSE_STORAGE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_COUNTING_HOUSE_STORAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_COUNTING_HOUSE_STORAGE:erase(index) end
 
 ---@class _buildings_other_ZONE_GUILDHALL_OFFICES: DFContainer
@@ -2186,11 +2186,11 @@ local _buildings_other_ZONE_GUILDHALL_OFFICES
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_GUILDHALL_OFFICES:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_GUILDHALL_OFFICES:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_GUILDHALL_OFFICES:erase(index) end
 
 ---@class _buildings_other_ZONE_GUILDHALL_STORAGE: DFContainer
@@ -2202,11 +2202,11 @@ local _buildings_other_ZONE_GUILDHALL_STORAGE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_GUILDHALL_STORAGE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_GUILDHALL_STORAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_GUILDHALL_STORAGE:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_ENTRANCE: DFContainer
@@ -2218,11 +2218,11 @@ local _buildings_other_ZONE_TOWER_ENTRANCE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_ENTRANCE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_ENTRANCE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_ENTRANCE:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_FEASTHALL: DFContainer
@@ -2234,11 +2234,11 @@ local _buildings_other_ZONE_TOWER_FEASTHALL
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_FEASTHALL:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_FEASTHALL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_FEASTHALL:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_BEDROOM: DFContainer
@@ -2250,11 +2250,11 @@ local _buildings_other_ZONE_TOWER_BEDROOM
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_BEDROOM:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_BEDROOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_BEDROOM:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_TREASURY: DFContainer
@@ -2266,11 +2266,11 @@ local _buildings_other_ZONE_TOWER_TREASURY
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_TREASURY:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_TREASURY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_TREASURY:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_DUNGEON: DFContainer
@@ -2282,11 +2282,11 @@ local _buildings_other_ZONE_TOWER_DUNGEON
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_DUNGEON:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_DUNGEON:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_DUNGEON:erase(index) end
 
 ---@class _buildings_other_ZONE_TOWER_ATTIC: DFContainer
@@ -2298,11 +2298,11 @@ local _buildings_other_ZONE_TOWER_ATTIC
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOWER_ATTIC:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOWER_ATTIC:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOWER_ATTIC:erase(index) end
 
 ---@class _buildings_other_ZONE_DORMITORY: DFContainer
@@ -2314,11 +2314,11 @@ local _buildings_other_ZONE_DORMITORY
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_DORMITORY:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_DORMITORY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_DORMITORY:erase(index) end
 
 ---@class _buildings_other_ZONE_DINING_HALL: DFContainer
@@ -2330,11 +2330,11 @@ local _buildings_other_ZONE_DINING_HALL
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_DINING_HALL:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_DINING_HALL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_DINING_HALL:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID81: DFContainer
@@ -2346,11 +2346,11 @@ local _buildings_other_ZONE_INVALID81
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_INVALID81:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_INVALID81:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_INVALID81:erase(index) end
 
 ---@class _buildings_other_ZONE_WATER_SOURCE: DFContainer
@@ -2362,11 +2362,11 @@ local _buildings_other_ZONE_WATER_SOURCE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_WATER_SOURCE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_WATER_SOURCE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_WATER_SOURCE:erase(index) end
 
 ---@class _buildings_other_ZONE_DUMP: DFContainer
@@ -2378,11 +2378,11 @@ local _buildings_other_ZONE_DUMP
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_DUMP:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_DUMP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_DUMP:erase(index) end
 
 ---@class _buildings_other_ZONE_SAND_COLLECTION: DFContainer
@@ -2394,11 +2394,11 @@ local _buildings_other_ZONE_SAND_COLLECTION
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_SAND_COLLECTION:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_SAND_COLLECTION:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_SAND_COLLECTION:erase(index) end
 
 ---@class _buildings_other_ZONE_FISHING_AREA: DFContainer
@@ -2410,11 +2410,11 @@ local _buildings_other_ZONE_FISHING_AREA
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_FISHING_AREA:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_FISHING_AREA:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_FISHING_AREA:erase(index) end
 
 ---@class _buildings_other_ZONE_POND: DFContainer
@@ -2426,11 +2426,11 @@ local _buildings_other_ZONE_POND
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_POND:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_POND:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_POND:erase(index) end
 
 ---@class _buildings_other_ZONE_MEETING_HALL: DFContainer
@@ -2442,11 +2442,11 @@ local _buildings_other_ZONE_MEETING_HALL
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_MEETING_HALL:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_MEETING_HALL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_MEETING_HALL:erase(index) end
 
 ---@class _buildings_other_ZONE_PEN: DFContainer
@@ -2458,11 +2458,11 @@ local _buildings_other_ZONE_PEN
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_PEN:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_PEN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_PEN:erase(index) end
 
 ---@class _buildings_other_ZONE_CLAY_COLLECTION: DFContainer
@@ -2474,11 +2474,11 @@ local _buildings_other_ZONE_CLAY_COLLECTION
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_CLAY_COLLECTION:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_CLAY_COLLECTION:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_CLAY_COLLECTION:erase(index) end
 
 ---@class _buildings_other_ZONE_ANIMAL_TRAINING: DFContainer
@@ -2490,11 +2490,11 @@ local _buildings_other_ZONE_ANIMAL_TRAINING
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ANIMAL_TRAINING:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ANIMAL_TRAINING:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ANIMAL_TRAINING:erase(index) end
 
 ---@class _buildings_other_ZONE_PLANT_GATHERING: DFContainer
@@ -2506,11 +2506,11 @@ local _buildings_other_ZONE_PLANT_GATHERING
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_PLANT_GATHERING:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_PLANT_GATHERING:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_PLANT_GATHERING:erase(index) end
 
 ---@class _buildings_other_ZONE_BEDROOM: DFContainer
@@ -2522,11 +2522,11 @@ local _buildings_other_ZONE_BEDROOM
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BEDROOM:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BEDROOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BEDROOM:erase(index) end
 
 ---@class _buildings_other_ZONE_OFFICE: DFContainer
@@ -2538,11 +2538,11 @@ local _buildings_other_ZONE_OFFICE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_OFFICE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_OFFICE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_OFFICE:erase(index) end
 
 ---@class _buildings_other_ZONE_ARCHERY_RANGE: DFContainer
@@ -2554,11 +2554,11 @@ local _buildings_other_ZONE_ARCHERY_RANGE
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_ARCHERY_RANGE:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_ARCHERY_RANGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_ARCHERY_RANGE:erase(index) end
 
 ---@class _buildings_other_ZONE_BARRACKS: DFContainer
@@ -2570,11 +2570,11 @@ local _buildings_other_ZONE_BARRACKS
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_BARRACKS:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_BARRACKS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_BARRACKS:erase(index) end
 
 ---@class _buildings_other_ZONE_DUNGEON: DFContainer
@@ -2586,11 +2586,11 @@ local _buildings_other_ZONE_DUNGEON
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_DUNGEON:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_DUNGEON:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_DUNGEON:erase(index) end
 
 ---@class _buildings_other_ZONE_TOMB: DFContainer
@@ -2602,11 +2602,11 @@ local _buildings_other_ZONE_TOMB
 ---@return DFPointer<building_civzonest>
 function _buildings_other_ZONE_TOMB:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_ZONE_TOMB:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ZONE_TOMB:erase(index) end
 
 ---@class _buildings_other_LOCATION_ASSIGNED: DFContainer
@@ -2618,11 +2618,11 @@ local _buildings_other_LOCATION_ASSIGNED
 ---@return DFPointer<building_civzonest>
 function _buildings_other_LOCATION_ASSIGNED:_field(index) end
 
----@param index integer 
----@param item building_civzonest 
+---@param index '#'|integer
+---@param item building_civzonest
 function _buildings_other_LOCATION_ASSIGNED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_LOCATION_ASSIGNED:erase(index) end
 
 ---@class _buildings_other_ANY_ACTUAL: DFContainer
@@ -2634,11 +2634,11 @@ local _buildings_other_ANY_ACTUAL
 ---@return DFPointer<building_actual>
 function _buildings_other_ANY_ACTUAL:_field(index) end
 
----@param index integer 
----@param item building_actual 
+---@param index '#'|integer
+---@param item building_actual
 function _buildings_other_ANY_ACTUAL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_ACTUAL:erase(index) end
 
 ---@class _buildings_other_ANY_MACHINE: DFContainer
@@ -2650,11 +2650,11 @@ local _buildings_other_ANY_MACHINE
 ---@return DFPointer<building_actual>
 function _buildings_other_ANY_MACHINE:_field(index) end
 
----@param index integer 
----@param item building_actual 
+---@param index '#'|integer
+---@param item building_actual
 function _buildings_other_ANY_MACHINE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_MACHINE:erase(index) end
 
 ---@class _buildings_other_ANY_HOSPITAL_STORAGE: DFContainer
@@ -2666,11 +2666,11 @@ local _buildings_other_ANY_HOSPITAL_STORAGE
 ---@return DFPointer<building_actual>
 function _buildings_other_ANY_HOSPITAL_STORAGE:_field(index) end
 
----@param index integer 
----@param item building_actual 
+---@param index '#'|integer
+---@param item building_actual
 function _buildings_other_ANY_HOSPITAL_STORAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_HOSPITAL_STORAGE:erase(index) end
 
 ---@class _buildings_other_ANY_STORAGE: DFContainer
@@ -2682,11 +2682,11 @@ local _buildings_other_ANY_STORAGE
 ---@return DFPointer<building_actual>
 function _buildings_other_ANY_STORAGE:_field(index) end
 
----@param index integer 
----@param item building_actual 
+---@param index '#'|integer
+---@param item building_actual
 function _buildings_other_ANY_STORAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_STORAGE:erase(index) end
 
 ---@class _buildings_other_ANY_BARRACKS: DFContainer
@@ -2698,11 +2698,11 @@ local _buildings_other_ANY_BARRACKS
 ---@return DFPointer<building_actual>
 function _buildings_other_ANY_BARRACKS:_field(index) end
 
----@param index integer 
----@param item building_actual 
+---@param index '#'|integer
+---@param item building_actual
 function _buildings_other_ANY_BARRACKS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_BARRACKS:erase(index) end
 
 ---@class _buildings_other_ANY_HOSPITAL: DFContainer
@@ -2714,11 +2714,11 @@ local _buildings_other_ANY_HOSPITAL
 ---@return DFPointer<building_actual>
 function _buildings_other_ANY_HOSPITAL:_field(index) end
 
----@param index integer 
----@param item building_actual 
+---@param index '#'|integer
+---@param item building_actual
 function _buildings_other_ANY_HOSPITAL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_HOSPITAL:erase(index) end
 
 ---@class _buildings_other_BOX: DFContainer
@@ -2730,11 +2730,11 @@ local _buildings_other_BOX
 ---@return DFPointer<building_boxst>
 function _buildings_other_BOX:_field(index) end
 
----@param index integer 
----@param item building_boxst 
+---@param index '#'|integer
+---@param item building_boxst
 function _buildings_other_BOX:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_BOX:erase(index) end
 
 ---@class _buildings_other_CABINET: DFContainer
@@ -2746,11 +2746,11 @@ local _buildings_other_CABINET
 ---@return DFPointer<building_cabinetst>
 function _buildings_other_CABINET:_field(index) end
 
----@param index integer 
----@param item building_cabinetst 
+---@param index '#'|integer
+---@param item building_cabinetst
 function _buildings_other_CABINET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_CABINET:erase(index) end
 
 ---@class _buildings_other_TRAP: DFContainer
@@ -2762,11 +2762,11 @@ local _buildings_other_TRAP
 ---@return DFPointer<building_trapst>
 function _buildings_other_TRAP:_field(index) end
 
----@param index integer 
----@param item building_trapst 
+---@param index '#'|integer
+---@param item building_trapst
 function _buildings_other_TRAP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_TRAP:erase(index) end
 
 ---@class _buildings_other_DOOR: DFContainer
@@ -2778,11 +2778,11 @@ local _buildings_other_DOOR
 ---@return DFPointer<building_doorst>
 function _buildings_other_DOOR:_field(index) end
 
----@param index integer 
----@param item building_doorst 
+---@param index '#'|integer
+---@param item building_doorst
 function _buildings_other_DOOR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_DOOR:erase(index) end
 
 ---@class _buildings_other_FLOODGATE: DFContainer
@@ -2794,11 +2794,11 @@ local _buildings_other_FLOODGATE
 ---@return DFPointer<building_floodgatest>
 function _buildings_other_FLOODGATE:_field(index) end
 
----@param index integer 
----@param item building_floodgatest 
+---@param index '#'|integer
+---@param item building_floodgatest
 function _buildings_other_FLOODGATE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FLOODGATE:erase(index) end
 
 ---@class _buildings_other_HATCH: DFContainer
@@ -2810,11 +2810,11 @@ local _buildings_other_HATCH
 ---@return DFPointer<building_hatchst>
 function _buildings_other_HATCH:_field(index) end
 
----@param index integer 
----@param item building_hatchst 
+---@param index '#'|integer
+---@param item building_hatchst
 function _buildings_other_HATCH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_HATCH:erase(index) end
 
 ---@class _buildings_other_GRATE_WALL: DFContainer
@@ -2826,11 +2826,11 @@ local _buildings_other_GRATE_WALL
 ---@return DFPointer<building_grate_wallst>
 function _buildings_other_GRATE_WALL:_field(index) end
 
----@param index integer 
----@param item building_grate_wallst 
+---@param index '#'|integer
+---@param item building_grate_wallst
 function _buildings_other_GRATE_WALL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_GRATE_WALL:erase(index) end
 
 ---@class _buildings_other_GRATE_FLOOR: DFContainer
@@ -2842,11 +2842,11 @@ local _buildings_other_GRATE_FLOOR
 ---@return DFPointer<building_grate_floorst>
 function _buildings_other_GRATE_FLOOR:_field(index) end
 
----@param index integer 
----@param item building_grate_floorst 
+---@param index '#'|integer
+---@param item building_grate_floorst
 function _buildings_other_GRATE_FLOOR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_GRATE_FLOOR:erase(index) end
 
 ---@class _buildings_other_BARS_VERTICAL: DFContainer
@@ -2858,11 +2858,11 @@ local _buildings_other_BARS_VERTICAL
 ---@return DFPointer<building_bars_verticalst>
 function _buildings_other_BARS_VERTICAL:_field(index) end
 
----@param index integer 
----@param item building_bars_verticalst 
+---@param index '#'|integer
+---@param item building_bars_verticalst
 function _buildings_other_BARS_VERTICAL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_BARS_VERTICAL:erase(index) end
 
 ---@class _buildings_other_BARS_FLOOR: DFContainer
@@ -2874,11 +2874,11 @@ local _buildings_other_BARS_FLOOR
 ---@return DFPointer<building_bars_floorst>
 function _buildings_other_BARS_FLOOR:_field(index) end
 
----@param index integer 
----@param item building_bars_floorst 
+---@param index '#'|integer
+---@param item building_bars_floorst
 function _buildings_other_BARS_FLOOR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_BARS_FLOOR:erase(index) end
 
 ---@class _buildings_other_WINDOW_ANY: DFContainer
@@ -2890,11 +2890,11 @@ local _buildings_other_WINDOW_ANY
 ---@return DFPointer<building>
 function _buildings_other_WINDOW_ANY:_field(index) end
 
----@param index integer 
----@param item building 
+---@param index '#'|integer
+---@param item building
 function _buildings_other_WINDOW_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WINDOW_ANY:erase(index) end
 
 ---@class _buildings_other_WELL: DFContainer
@@ -2906,11 +2906,11 @@ local _buildings_other_WELL
 ---@return DFPointer<building_wellst>
 function _buildings_other_WELL:_field(index) end
 
----@param index integer 
----@param item building_wellst 
+---@param index '#'|integer
+---@param item building_wellst
 function _buildings_other_WELL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WELL:erase(index) end
 
 ---@class _buildings_other_TABLE: DFContainer
@@ -2922,11 +2922,11 @@ local _buildings_other_TABLE
 ---@return DFPointer<building_tablest>
 function _buildings_other_TABLE:_field(index) end
 
----@param index integer 
----@param item building_tablest 
+---@param index '#'|integer
+---@param item building_tablest
 function _buildings_other_TABLE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_TABLE:erase(index) end
 
 ---@class _buildings_other_BRIDGE: DFContainer
@@ -2938,11 +2938,11 @@ local _buildings_other_BRIDGE
 ---@return DFPointer<building_bridgest>
 function _buildings_other_BRIDGE:_field(index) end
 
----@param index integer 
----@param item building_bridgest 
+---@param index '#'|integer
+---@param item building_bridgest
 function _buildings_other_BRIDGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_BRIDGE:erase(index) end
 
 ---@class _buildings_other_CHAIR: DFContainer
@@ -2954,11 +2954,11 @@ local _buildings_other_CHAIR
 ---@return DFPointer<building_chairst>
 function _buildings_other_CHAIR:_field(index) end
 
----@param index integer 
----@param item building_chairst 
+---@param index '#'|integer
+---@param item building_chairst
 function _buildings_other_CHAIR:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_CHAIR:erase(index) end
 
 ---@class _buildings_other_TRADE_DEPOT: DFContainer
@@ -2970,11 +2970,11 @@ local _buildings_other_TRADE_DEPOT
 ---@return DFPointer<building_tradedepotst>
 function _buildings_other_TRADE_DEPOT:_field(index) end
 
----@param index integer 
----@param item building_tradedepotst 
+---@param index '#'|integer
+---@param item building_tradedepotst
 function _buildings_other_TRADE_DEPOT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_TRADE_DEPOT:erase(index) end
 
 ---@class _buildings_other_NEST: DFContainer
@@ -2986,11 +2986,11 @@ local _buildings_other_NEST
 ---@return DFPointer<building_nestst>
 function _buildings_other_NEST:_field(index) end
 
----@param index integer 
----@param item building_nestst 
+---@param index '#'|integer
+---@param item building_nestst
 function _buildings_other_NEST:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_NEST:erase(index) end
 
 ---@class _buildings_other_NEST_BOX: DFContainer
@@ -3002,11 +3002,11 @@ local _buildings_other_NEST_BOX
 ---@return DFPointer<building_nest_boxst>
 function _buildings_other_NEST_BOX:_field(index) end
 
----@param index integer 
----@param item building_nest_boxst 
+---@param index '#'|integer
+---@param item building_nest_boxst
 function _buildings_other_NEST_BOX:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_NEST_BOX:erase(index) end
 
 ---@class _buildings_other_BOOKCASE: DFContainer
@@ -3018,11 +3018,11 @@ local _buildings_other_BOOKCASE
 ---@return DFPointer<building_bookcasest>
 function _buildings_other_BOOKCASE:_field(index) end
 
----@param index integer 
----@param item building_bookcasest 
+---@param index '#'|integer
+---@param item building_bookcasest
 function _buildings_other_BOOKCASE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_BOOKCASE:erase(index) end
 
 ---@class _buildings_other_DISPLAY_CASE: DFContainer
@@ -3034,11 +3034,11 @@ local _buildings_other_DISPLAY_CASE
 ---@return DFPointer<building_display_furniturest>
 function _buildings_other_DISPLAY_CASE:_field(index) end
 
----@param index integer 
----@param item building_display_furniturest 
+---@param index '#'|integer
+---@param item building_display_furniturest
 function _buildings_other_DISPLAY_CASE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_DISPLAY_CASE:erase(index) end
 
 ---@class _buildings_other_HIVE: DFContainer
@@ -3050,11 +3050,11 @@ local _buildings_other_HIVE
 ---@return DFPointer<building_hivest>
 function _buildings_other_HIVE:_field(index) end
 
----@param index integer 
----@param item building_hivest 
+---@param index '#'|integer
+---@param item building_hivest
 function _buildings_other_HIVE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_HIVE:erase(index) end
 
 ---@class _buildings_other_WAGON: DFContainer
@@ -3066,11 +3066,11 @@ local _buildings_other_WAGON
 ---@return DFPointer<building_wagonst>
 function _buildings_other_WAGON:_field(index) end
 
----@param index integer 
----@param item building_wagonst 
+---@param index '#'|integer
+---@param item building_wagonst
 function _buildings_other_WAGON:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WAGON:erase(index) end
 
 ---@class _buildings_other_SHOP: DFContainer
@@ -3082,11 +3082,11 @@ local _buildings_other_SHOP
 ---@return DFPointer<building_shopst>
 function _buildings_other_SHOP:_field(index) end
 
----@param index integer 
----@param item building_shopst 
+---@param index '#'|integer
+---@param item building_shopst
 function _buildings_other_SHOP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_SHOP:erase(index) end
 
 ---@class _buildings_other_BED: DFContainer
@@ -3098,11 +3098,11 @@ local _buildings_other_BED
 ---@return DFPointer<building_bedst>
 function _buildings_other_BED:_field(index) end
 
----@param index integer 
----@param item building_bedst 
+---@param index '#'|integer
+---@param item building_bedst
 function _buildings_other_BED:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_BED:erase(index) end
 
 ---@class _buildings_other_TRACTION_BENCH: DFContainer
@@ -3114,11 +3114,11 @@ local _buildings_other_TRACTION_BENCH
 ---@return DFPointer<building_traction_benchst>
 function _buildings_other_TRACTION_BENCH:_field(index) end
 
----@param index integer 
----@param item building_traction_benchst 
+---@param index '#'|integer
+---@param item building_traction_benchst
 function _buildings_other_TRACTION_BENCH:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_TRACTION_BENCH:erase(index) end
 
 ---@class _buildings_other_ANY_ROAD: DFContainer
@@ -3130,11 +3130,11 @@ local _buildings_other_ANY_ROAD
 ---@return DFPointer<building_roadst>
 function _buildings_other_ANY_ROAD:_field(index) end
 
----@param index integer 
----@param item building_roadst 
+---@param index '#'|integer
+---@param item building_roadst
 function _buildings_other_ANY_ROAD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ANY_ROAD:erase(index) end
 
 ---@class _buildings_other_FARM_PLOT: DFContainer
@@ -3146,11 +3146,11 @@ local _buildings_other_FARM_PLOT
 ---@return DFPointer<building_farmplotst>
 function _buildings_other_FARM_PLOT:_field(index) end
 
----@param index integer 
----@param item building_farmplotst 
+---@param index '#'|integer
+---@param item building_farmplotst
 function _buildings_other_FARM_PLOT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FARM_PLOT:erase(index) end
 
 ---@class _buildings_other_GEAR_ASSEMBLY: DFContainer
@@ -3162,11 +3162,11 @@ local _buildings_other_GEAR_ASSEMBLY
 ---@return DFPointer<building_gear_assemblyst>
 function _buildings_other_GEAR_ASSEMBLY:_field(index) end
 
----@param index integer 
----@param item building_gear_assemblyst 
+---@param index '#'|integer
+---@param item building_gear_assemblyst
 function _buildings_other_GEAR_ASSEMBLY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_GEAR_ASSEMBLY:erase(index) end
 
 ---@class _buildings_other_ROLLERS: DFContainer
@@ -3178,11 +3178,11 @@ local _buildings_other_ROLLERS
 ---@return DFPointer<building_rollersst>
 function _buildings_other_ROLLERS:_field(index) end
 
----@param index integer 
----@param item building_rollersst 
+---@param index '#'|integer
+---@param item building_rollersst
 function _buildings_other_ROLLERS:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ROLLERS:erase(index) end
 
 ---@class _buildings_other_AXLE_HORIZONTAL: DFContainer
@@ -3194,11 +3194,11 @@ local _buildings_other_AXLE_HORIZONTAL
 ---@return DFPointer<building_axle_horizontalst>
 function _buildings_other_AXLE_HORIZONTAL:_field(index) end
 
----@param index integer 
----@param item building_axle_horizontalst 
+---@param index '#'|integer
+---@param item building_axle_horizontalst
 function _buildings_other_AXLE_HORIZONTAL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_AXLE_HORIZONTAL:erase(index) end
 
 ---@class _buildings_other_AXLE_VERTICAL: DFContainer
@@ -3210,11 +3210,11 @@ local _buildings_other_AXLE_VERTICAL
 ---@return DFPointer<building_axle_verticalst>
 function _buildings_other_AXLE_VERTICAL:_field(index) end
 
----@param index integer 
----@param item building_axle_verticalst 
+---@param index '#'|integer
+---@param item building_axle_verticalst
 function _buildings_other_AXLE_VERTICAL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_AXLE_VERTICAL:erase(index) end
 
 ---@class _buildings_other_SUPPORT: DFContainer
@@ -3226,11 +3226,11 @@ local _buildings_other_SUPPORT
 ---@return DFPointer<building_supportst>
 function _buildings_other_SUPPORT:_field(index) end
 
----@param index integer 
----@param item building_supportst 
+---@param index '#'|integer
+---@param item building_supportst
 function _buildings_other_SUPPORT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_SUPPORT:erase(index) end
 
 ---@class _buildings_other_ARCHERY_TARGET: DFContainer
@@ -3242,11 +3242,11 @@ local _buildings_other_ARCHERY_TARGET
 ---@return DFPointer<building_archerytargetst>
 function _buildings_other_ARCHERY_TARGET:_field(index) end
 
----@param index integer 
----@param item building_archerytargetst 
+---@param index '#'|integer
+---@param item building_archerytargetst
 function _buildings_other_ARCHERY_TARGET:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ARCHERY_TARGET:erase(index) end
 
 ---@class _buildings_other_SCREW_PUMP: DFContainer
@@ -3258,11 +3258,11 @@ local _buildings_other_SCREW_PUMP
 ---@return DFPointer<building_screw_pumpst>
 function _buildings_other_SCREW_PUMP:_field(index) end
 
----@param index integer 
----@param item building_screw_pumpst 
+---@param index '#'|integer
+---@param item building_screw_pumpst
 function _buildings_other_SCREW_PUMP:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_SCREW_PUMP:erase(index) end
 
 ---@class _buildings_other_WATER_WHEEL: DFContainer
@@ -3274,11 +3274,11 @@ local _buildings_other_WATER_WHEEL
 ---@return DFPointer<building_water_wheelst>
 function _buildings_other_WATER_WHEEL:_field(index) end
 
----@param index integer 
----@param item building_water_wheelst 
+---@param index '#'|integer
+---@param item building_water_wheelst
 function _buildings_other_WATER_WHEEL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WATER_WHEEL:erase(index) end
 
 ---@class _buildings_other_WINDMILL: DFContainer
@@ -3290,11 +3290,11 @@ local _buildings_other_WINDMILL
 ---@return DFPointer<building_windmillst>
 function _buildings_other_WINDMILL:_field(index) end
 
----@param index integer 
----@param item building_windmillst 
+---@param index '#'|integer
+---@param item building_windmillst
 function _buildings_other_WINDMILL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WINDMILL:erase(index) end
 
 ---@class _buildings_other_CHAIN: DFContainer
@@ -3306,11 +3306,11 @@ local _buildings_other_CHAIN
 ---@return DFPointer<building_chainst>
 function _buildings_other_CHAIN:_field(index) end
 
----@param index integer 
----@param item building_chainst 
+---@param index '#'|integer
+---@param item building_chainst
 function _buildings_other_CHAIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_CHAIN:erase(index) end
 
 ---@class _buildings_other_CAGE: DFContainer
@@ -3322,11 +3322,11 @@ local _buildings_other_CAGE
 ---@return DFPointer<building_cagest>
 function _buildings_other_CAGE:_field(index) end
 
----@param index integer 
----@param item building_cagest 
+---@param index '#'|integer
+---@param item building_cagest
 function _buildings_other_CAGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_CAGE:erase(index) end
 
 ---@class _buildings_other_STATUE: DFContainer
@@ -3338,11 +3338,11 @@ local _buildings_other_STATUE
 ---@return DFPointer<building_statuest>
 function _buildings_other_STATUE:_field(index) end
 
----@param index integer 
----@param item building_statuest 
+---@param index '#'|integer
+---@param item building_statuest
 function _buildings_other_STATUE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_STATUE:erase(index) end
 
 ---@class _buildings_other_SLAB: DFContainer
@@ -3354,11 +3354,11 @@ local _buildings_other_SLAB
 ---@return DFPointer<building_slabst>
 function _buildings_other_SLAB:_field(index) end
 
----@param index integer 
----@param item building_slabst 
+---@param index '#'|integer
+---@param item building_slabst
 function _buildings_other_SLAB:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_SLAB:erase(index) end
 
 ---@class _buildings_other_COFFIN: DFContainer
@@ -3370,11 +3370,11 @@ local _buildings_other_COFFIN
 ---@return DFPointer<building_coffinst>
 function _buildings_other_COFFIN:_field(index) end
 
----@param index integer 
----@param item building_coffinst 
+---@param index '#'|integer
+---@param item building_coffinst
 function _buildings_other_COFFIN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_COFFIN:erase(index) end
 
 ---@class _buildings_other_WEAPON_RACK: DFContainer
@@ -3386,11 +3386,11 @@ local _buildings_other_WEAPON_RACK
 ---@return DFPointer<building_weaponrackst>
 function _buildings_other_WEAPON_RACK:_field(index) end
 
----@param index integer 
----@param item building_weaponrackst 
+---@param index '#'|integer
+---@param item building_weaponrackst
 function _buildings_other_WEAPON_RACK:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WEAPON_RACK:erase(index) end
 
 ---@class _buildings_other_ARMOR_STAND: DFContainer
@@ -3402,11 +3402,11 @@ local _buildings_other_ARMOR_STAND
 ---@return DFPointer<building_armorstandst>
 function _buildings_other_ARMOR_STAND:_field(index) end
 
----@param index integer 
----@param item building_armorstandst 
+---@param index '#'|integer
+---@param item building_armorstandst
 function _buildings_other_ARMOR_STAND:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_ARMOR_STAND:erase(index) end
 
 ---@class _buildings_other_FURNACE_ANY: DFContainer
@@ -3418,11 +3418,11 @@ local _buildings_other_FURNACE_ANY
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_ANY:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_ANY:erase(index) end
 
 ---@class _buildings_other_FURNACE_WOOD: DFContainer
@@ -3434,11 +3434,11 @@ local _buildings_other_FURNACE_WOOD
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_WOOD:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_WOOD:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_WOOD:erase(index) end
 
 ---@class _buildings_other_FURNACE_SMELTER_ANY: DFContainer
@@ -3450,11 +3450,11 @@ local _buildings_other_FURNACE_SMELTER_ANY
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_SMELTER_ANY:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_SMELTER_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_SMELTER_ANY:erase(index) end
 
 ---@class _buildings_other_FURNACE_SMELTER_MAGMA: DFContainer
@@ -3466,11 +3466,11 @@ local _buildings_other_FURNACE_SMELTER_MAGMA
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_SMELTER_MAGMA:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_SMELTER_MAGMA:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_SMELTER_MAGMA:erase(index) end
 
 ---@class _buildings_other_FURNACE_KILN_ANY: DFContainer
@@ -3482,11 +3482,11 @@ local _buildings_other_FURNACE_KILN_ANY
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_KILN_ANY:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_KILN_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_KILN_ANY:erase(index) end
 
 ---@class _buildings_other_FURNACE_GLASS_ANY: DFContainer
@@ -3498,11 +3498,11 @@ local _buildings_other_FURNACE_GLASS_ANY
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_GLASS_ANY:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_GLASS_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_GLASS_ANY:erase(index) end
 
 ---@class _buildings_other_FURNACE_CUSTOM: DFContainer
@@ -3514,11 +3514,11 @@ local _buildings_other_FURNACE_CUSTOM
 ---@return DFPointer<building_furnacest>
 function _buildings_other_FURNACE_CUSTOM:_field(index) end
 
----@param index integer 
----@param item building_furnacest 
+---@param index '#'|integer
+---@param item building_furnacest
 function _buildings_other_FURNACE_CUSTOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_FURNACE_CUSTOM:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_ANY: DFContainer
@@ -3530,11 +3530,11 @@ local _buildings_other_WORKSHOP_ANY
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_ANY:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_ANY:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_BUTCHER: DFContainer
@@ -3546,11 +3546,11 @@ local _buildings_other_WORKSHOP_BUTCHER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_BUTCHER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_BUTCHER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_BUTCHER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_MASON: DFContainer
@@ -3562,11 +3562,11 @@ local _buildings_other_WORKSHOP_MASON
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_MASON:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_MASON:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_MASON:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_KENNEL: DFContainer
@@ -3578,11 +3578,11 @@ local _buildings_other_WORKSHOP_KENNEL
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_KENNEL:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_KENNEL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_KENNEL:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_FISHERY: DFContainer
@@ -3594,11 +3594,11 @@ local _buildings_other_WORKSHOP_FISHERY
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_FISHERY:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_FISHERY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_FISHERY:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_JEWELER: DFContainer
@@ -3610,11 +3610,11 @@ local _buildings_other_WORKSHOP_JEWELER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_JEWELER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_JEWELER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_JEWELER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_LOOM: DFContainer
@@ -3626,11 +3626,11 @@ local _buildings_other_WORKSHOP_LOOM
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_LOOM:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_LOOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_LOOM:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_TANNER: DFContainer
@@ -3642,11 +3642,11 @@ local _buildings_other_WORKSHOP_TANNER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_TANNER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_TANNER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_TANNER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_DYER: DFContainer
@@ -3658,11 +3658,11 @@ local _buildings_other_WORKSHOP_DYER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_DYER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_DYER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_DYER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_MILL_ANY: DFContainer
@@ -3674,11 +3674,11 @@ local _buildings_other_WORKSHOP_MILL_ANY
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_MILL_ANY:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_MILL_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_MILL_ANY:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_QUERN: DFContainer
@@ -3690,11 +3690,11 @@ local _buildings_other_WORKSHOP_QUERN
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_QUERN:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_QUERN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_QUERN:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_TOOL: DFContainer
@@ -3706,11 +3706,11 @@ local _buildings_other_WORKSHOP_TOOL
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_TOOL:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_TOOL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_TOOL:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_MILLSTONE: DFContainer
@@ -3722,11 +3722,11 @@ local _buildings_other_WORKSHOP_MILLSTONE
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_MILLSTONE:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_MILLSTONE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_MILLSTONE:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_KITCHEN: DFContainer
@@ -3738,11 +3738,11 @@ local _buildings_other_WORKSHOP_KITCHEN
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_KITCHEN:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_KITCHEN:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_KITCHEN:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_STILL: DFContainer
@@ -3754,11 +3754,11 @@ local _buildings_other_WORKSHOP_STILL
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_STILL:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_STILL:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_STILL:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_FARMER: DFContainer
@@ -3770,11 +3770,11 @@ local _buildings_other_WORKSHOP_FARMER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_FARMER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_FARMER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_FARMER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_ASHERY: DFContainer
@@ -3786,11 +3786,11 @@ local _buildings_other_WORKSHOP_ASHERY
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_ASHERY:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_ASHERY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_ASHERY:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_CARPENTER: DFContainer
@@ -3802,11 +3802,11 @@ local _buildings_other_WORKSHOP_CARPENTER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_CARPENTER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_CARPENTER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_CARPENTER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_CRAFTSDWARF: DFContainer
@@ -3818,11 +3818,11 @@ local _buildings_other_WORKSHOP_CRAFTSDWARF
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_CRAFTSDWARF:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_CRAFTSDWARF:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_CRAFTSDWARF:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_MECHANIC: DFContainer
@@ -3834,11 +3834,11 @@ local _buildings_other_WORKSHOP_MECHANIC
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_MECHANIC:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_MECHANIC:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_MECHANIC:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_SIEGE: DFContainer
@@ -3850,11 +3850,11 @@ local _buildings_other_WORKSHOP_SIEGE
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_SIEGE:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_SIEGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_SIEGE:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_CLOTHIER: DFContainer
@@ -3866,11 +3866,11 @@ local _buildings_other_WORKSHOP_CLOTHIER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_CLOTHIER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_CLOTHIER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_CLOTHIER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_LEATHER: DFContainer
@@ -3882,11 +3882,11 @@ local _buildings_other_WORKSHOP_LEATHER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_LEATHER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_LEATHER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_LEATHER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_BOWYER: DFContainer
@@ -3898,11 +3898,11 @@ local _buildings_other_WORKSHOP_BOWYER
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_BOWYER:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_BOWYER:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_BOWYER:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_MAGMA_FORGE: DFContainer
@@ -3914,11 +3914,11 @@ local _buildings_other_WORKSHOP_MAGMA_FORGE
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_MAGMA_FORGE:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_MAGMA_FORGE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_MAGMA_FORGE:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_FORGE_ANY: DFContainer
@@ -3930,11 +3930,11 @@ local _buildings_other_WORKSHOP_FORGE_ANY
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_FORGE_ANY:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_FORGE_ANY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_FORGE_ANY:erase(index) end
 
 ---@class _buildings_other_WORKSHOP_CUSTOM: DFContainer
@@ -3946,11 +3946,11 @@ local _buildings_other_WORKSHOP_CUSTOM
 ---@return DFPointer<building_workshopst>
 function _buildings_other_WORKSHOP_CUSTOM:_field(index) end
 
----@param index integer 
----@param item building_workshopst 
+---@param index '#'|integer
+---@param item building_workshopst
 function _buildings_other_WORKSHOP_CUSTOM:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WORKSHOP_CUSTOM:erase(index) end
 
 ---@class _buildings_other_WEAPON_UPRIGHT: DFContainer
@@ -3962,11 +3962,11 @@ local _buildings_other_WEAPON_UPRIGHT
 ---@return DFPointer<building_weaponst>
 function _buildings_other_WEAPON_UPRIGHT:_field(index) end
 
----@param index integer 
----@param item building_weaponst 
+---@param index '#'|integer
+---@param item building_weaponst
 function _buildings_other_WEAPON_UPRIGHT:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_WEAPON_UPRIGHT:erase(index) end
 
 ---@class _buildings_other_INSTRUMENT_STATIONARY: DFContainer
@@ -3978,11 +3978,11 @@ local _buildings_other_INSTRUMENT_STATIONARY
 ---@return DFPointer<building_instrumentst>
 function _buildings_other_INSTRUMENT_STATIONARY:_field(index) end
 
----@param index integer 
----@param item building_instrumentst 
+---@param index '#'|integer
+---@param item building_instrumentst
 function _buildings_other_INSTRUMENT_STATIONARY:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_INSTRUMENT_STATIONARY:erase(index) end
 
 ---@class _buildings_other_OFFERING_PLACE: DFContainer
@@ -3994,10 +3994,10 @@ local _buildings_other_OFFERING_PLACE
 ---@return DFPointer<building_offering_placest>
 function _buildings_other_OFFERING_PLACE:_field(index) end
 
----@param index integer 
----@param item building_offering_placest 
+---@param index '#'|integer
+---@param item building_offering_placest
 function _buildings_other_OFFERING_PLACE:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _buildings_other_OFFERING_PLACE:erase(index) end
 

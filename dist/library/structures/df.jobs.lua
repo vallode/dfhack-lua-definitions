@@ -303,11 +303,11 @@ local _job_items
 ---@return DFPointer<job_item_ref>
 function _job_items:_field(index) end
 
----@param index integer 
----@param item job_item_ref 
+---@param index '#'|integer
+---@param item job_item_ref
 function _job_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _job_items:erase(index) end
 
 ---@class _job_specific_refs: DFContainer
@@ -319,11 +319,11 @@ local _job_specific_refs
 ---@return DFPointer<specific_ref>
 function _job_specific_refs:_field(index) end
 
----@param index integer 
----@param item specific_ref 
+---@param index '#'|integer
+---@param item specific_ref
 function _job_specific_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _job_specific_refs:erase(index) end
 
 ---@class _job_general_refs: DFContainer
@@ -335,11 +335,11 @@ local _job_general_refs
 ---@return DFPointer<general_ref>
 function _job_general_refs:_field(index) end
 
----@param index integer 
----@param item general_ref 
+---@param index '#'|integer
+---@param item general_ref
 function _job_general_refs:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _job_general_refs:erase(index) end
 
 ---@class _job_job_items: DFContainer
@@ -351,11 +351,11 @@ local _job_job_items
 ---@return DFPointer<job_item>
 function _job_job_items:_field(index) end
 
----@param index integer 
----@param item job_item 
+---@param index '#'|integer
+---@param item job_item
 function _job_job_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _job_job_items:erase(index) end
 
 ---@class (exact) job_item_ref: DFStruct
@@ -930,11 +930,11 @@ local _manager_order_item_conditions
 ---@return DFPointer<manager_order_condition_item>
 function _manager_order_item_conditions:_field(index) end
 
----@param index integer 
----@param item manager_order_condition_item 
+---@param index '#'|integer
+---@param item manager_order_condition_item
 function _manager_order_item_conditions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _manager_order_item_conditions:erase(index) end
 
 ---@class _manager_order_order_conditions: DFContainer
@@ -946,11 +946,11 @@ local _manager_order_order_conditions
 ---@return DFPointer<manager_order_condition_order>
 function _manager_order_order_conditions:_field(index) end
 
----@param index integer 
----@param item manager_order_condition_order 
+---@param index '#'|integer
+---@param item manager_order_condition_order
 function _manager_order_order_conditions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _manager_order_order_conditions:erase(index) end
 
 ---@class (exact) manager_order_condition_item: DFStruct

@@ -597,11 +597,11 @@ local _language_symbol_unknown
 ---@return DFPointer<any[]>
 function _language_symbol_unknown:_field(index) end
 
----@param index integer 
----@param item any[] 
+---@param index '#'|integer
+---@param item any[]
 function _language_symbol_unknown:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _language_symbol_unknown:erase(index) end
 
 ---@class (exact) language_name: DFStruct
@@ -637,11 +637,11 @@ local _language_word_table_parts
 ---@return DFPointer<part_of_speech>
 function _language_word_table_parts:_field(index) end
 
----@param index integer 
----@param item part_of_speech 
+---@param index '#'|integer
+---@param item part_of_speech
 function _language_word_table_parts:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _language_word_table_parts:erase(index) end
 
 ---@alias language_name_category

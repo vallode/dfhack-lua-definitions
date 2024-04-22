@@ -55,11 +55,11 @@ local _building_def_build_items
 ---@return DFPointer<building_def_item>
 function _building_def_build_items:_field(index) end
 
----@param index integer 
----@param item building_def_item 
+---@param index '#'|integer
+---@param item building_def_item
 function _building_def_build_items:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_def_build_items:erase(index) end
 
 ---@class _building_def_build_labors: DFContainer
@@ -71,11 +71,11 @@ local _building_def_build_labors
 ---@return DFPointer<unit_labor>
 function _building_def_build_labors:_field(index) end
 
----@param index integer 
----@param item unit_labor 
+---@param index '#'|integer
+---@param item unit_labor
 function _building_def_build_labors:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _building_def_build_labors:erase(index) end
 
 ---@class (exact) building_def_item: DFStruct

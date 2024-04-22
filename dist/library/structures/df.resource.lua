@@ -626,11 +626,11 @@ local _resource_allotment_data_resource_allotments
 ---@return DFPointer<resource_allotment_specifier>
 function _resource_allotment_data_resource_allotments:_field(index) end
 
----@param index integer 
----@param item resource_allotment_specifier 
+---@param index '#'|integer
+---@param item resource_allotment_specifier
 function _resource_allotment_data_resource_allotments:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _resource_allotment_data_resource_allotments:erase(index) end
 
 ---@class _resource_allotment_data_unk_654: DFContainer
@@ -642,10 +642,10 @@ local _resource_allotment_data_unk_654
 ---@return DFPointer<DFPointer<integer>>
 function _resource_allotment_data_unk_654:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _resource_allotment_data_unk_654:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _resource_allotment_data_unk_654:erase(index) end
 

@@ -21,11 +21,11 @@ local _entity_occasion_info_occasions
 ---@return DFPointer<entity_occasion>
 function _entity_occasion_info_occasions:_field(index) end
 
----@param index integer 
----@param item entity_occasion 
+---@param index '#'|integer
+---@param item entity_occasion
 function _entity_occasion_info_occasions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_occasion_info_occasions:erase(index) end
 
 -- some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
@@ -57,11 +57,11 @@ local _entity_occasion_schedule
 ---@return DFPointer<entity_occasion_schedule>
 function _entity_occasion_schedule:_field(index) end
 
----@param index integer 
----@param item entity_occasion_schedule 
+---@param index '#'|integer
+---@param item entity_occasion_schedule
 function _entity_occasion_schedule:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_occasion_schedule:erase(index) end
 
 ---@alias occasion_schedule_type
@@ -133,11 +133,11 @@ local _entity_occasion_schedule_features
 ---@return DFPointer<entity_occasion_schedule_feature>
 function _entity_occasion_schedule_features:_field(index) end
 
----@param index integer 
----@param item entity_occasion_schedule_feature 
+---@param index '#'|integer
+---@param item entity_occasion_schedule_feature
 function _entity_occasion_schedule_features:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_occasion_schedule_features:erase(index) end
 
 ---@alias occasion_schedule_feature
@@ -405,11 +405,11 @@ local _entity_buy_requests_item_type
 ---@return DFPointer<item_type>
 function _entity_buy_requests_item_type:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _entity_buy_requests_item_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_buy_requests_item_type:erase(index) end
 
 ---@class _entity_buy_requests_mat_cats: DFContainer
@@ -421,11 +421,11 @@ local _entity_buy_requests_mat_cats
 ---@return DFPointer<job_material_category>
 function _entity_buy_requests_mat_cats:_field(index) end
 
----@param index integer 
----@param item job_material_category 
+---@param index '#'|integer
+---@param item job_material_category
 function _entity_buy_requests_mat_cats:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_buy_requests_mat_cats:erase(index) end
 
 ---@alias entity_sell_category
@@ -663,11 +663,11 @@ local _entity_recipe_item_types
 ---@return DFPointer<item_type>
 function _entity_recipe_item_types:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _entity_recipe_item_types:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_recipe_item_types:erase(index) end
 
 ---@alias historical_entity_type
@@ -845,11 +845,11 @@ local _world_gen_wandering_groupst_wanderer
 ---@return DFPointer<historical_figure>
 function _world_gen_wandering_groupst_wanderer:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _world_gen_wandering_groupst_wanderer:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_gen_wandering_groupst_wanderer:erase(index) end
 
 ---@class _world_gen_wandering_groupst_ent_pop: DFContainer
@@ -861,11 +861,11 @@ local _world_gen_wandering_groupst_ent_pop
 ---@return DFPointer<world_gen_entity_populationst>
 function _world_gen_wandering_groupst_ent_pop:_field(index) end
 
----@param index integer 
----@param item world_gen_entity_populationst 
+---@param index '#'|integer
+---@param item world_gen_entity_populationst
 function _world_gen_wandering_groupst_ent_pop:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_gen_wandering_groupst_ent_pop:erase(index) end
 
 ---@class _world_gen_wandering_groupst_rpop: DFContainer
@@ -877,11 +877,11 @@ local _world_gen_wandering_groupst_rpop
 ---@return DFPointer<world_population>
 function _world_gen_wandering_groupst_rpop:_field(index) end
 
----@param index integer 
----@param item world_population 
+---@param index '#'|integer
+---@param item world_population
 function _world_gen_wandering_groupst_rpop:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _world_gen_wandering_groupst_rpop:erase(index) end
 
 ---@class (exact) historical_entity: DFStruct
@@ -1140,11 +1140,11 @@ local _historical_entity_guild_professions
 ---@return DFPointer<DFPointer<integer>>
 function _historical_entity_guild_professions:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _historical_entity_guild_professions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_guild_professions:erase(index) end
 
 ---@class _historical_entity_entity_links: DFContainer
@@ -1156,11 +1156,11 @@ local _historical_entity_entity_links
 ---@return DFPointer<entity_entity_link>
 function _historical_entity_entity_links:_field(index) end
 
----@param index integer 
----@param item entity_entity_link 
+---@param index '#'|integer
+---@param item entity_entity_link
 function _historical_entity_entity_links:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_entity_links:erase(index) end
 
 ---@class _historical_entity_site_links: DFContainer
@@ -1172,11 +1172,11 @@ local _historical_entity_site_links
 ---@return DFPointer<entity_site_link>
 function _historical_entity_site_links:_field(index) end
 
----@param index integer 
----@param item entity_site_link 
+---@param index '#'|integer
+---@param item entity_site_link
 function _historical_entity_site_links:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_site_links:erase(index) end
 
 ---@class (exact) historical_entity.T_resources: DFStruct
@@ -1324,11 +1324,11 @@ local _historical_entity_resources_wood_products_item_type
 ---@return DFPointer<item_type>
 function _historical_entity_resources_wood_products_item_type:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _historical_entity_resources_wood_products_item_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_wood_products_item_type:erase(index) end
 
 ---@class (exact) historical_entity.T_resources.T_animals: DFStruct
@@ -1361,11 +1361,11 @@ local _historical_entity_resources_meat_fish_recipes
 ---@return DFPointer<entity_recipe>
 function _historical_entity_resources_meat_fish_recipes:_field(index) end
 
----@param index integer 
----@param item entity_recipe 
+---@param index '#'|integer
+---@param item entity_recipe
 function _historical_entity_resources_meat_fish_recipes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_meat_fish_recipes:erase(index) end
 
 ---@class _historical_entity_resources_other_recipes: DFContainer
@@ -1377,11 +1377,11 @@ local _historical_entity_resources_other_recipes
 ---@return DFPointer<entity_recipe>
 function _historical_entity_resources_other_recipes:_field(index) end
 
----@param index integer 
----@param item entity_recipe 
+---@param index '#'|integer
+---@param item entity_recipe
 function _historical_entity_resources_other_recipes:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_other_recipes:erase(index) end
 
 ---@class (exact) historical_entity.T_resources.T_unk13: DFStruct
@@ -1402,11 +1402,11 @@ local _historical_entity_resources_unk14
 ---@return DFPointer<item>
 function _historical_entity_resources_unk14:_field(index) end
 
----@param index integer 
----@param item item 
+---@param index '#'|integer
+---@param item item
 function _historical_entity_resources_unk14:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_unk14:erase(index) end
 
 ---@class _historical_entity_resources_color_ref_type: DFContainer
@@ -1418,11 +1418,11 @@ local _historical_entity_resources_color_ref_type
 ---@return DFPointer<general_ref_type>
 function _historical_entity_resources_color_ref_type:_field(index) end
 
----@param index integer 
----@param item general_ref_type 
+---@param index '#'|integer
+---@param item general_ref_type
 function _historical_entity_resources_color_ref_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_color_ref_type:erase(index) end
 
 ---@class _historical_entity_resources_foreground_color_curses: DFContainer
@@ -1434,11 +1434,11 @@ local _historical_entity_resources_foreground_color_curses
 ---@return DFPointer<curses_color>
 function _historical_entity_resources_foreground_color_curses:_field(index) end
 
----@param index integer 
----@param item curses_color 
+---@param index '#'|integer
+---@param item curses_color
 function _historical_entity_resources_foreground_color_curses:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_foreground_color_curses:erase(index) end
 
 ---@class _historical_entity_resources_background_color_curses: DFContainer
@@ -1450,11 +1450,11 @@ local _historical_entity_resources_background_color_curses
 ---@return DFPointer<curses_color>
 function _historical_entity_resources_background_color_curses:_field(index) end
 
----@param index integer 
----@param item curses_color 
+---@param index '#'|integer
+---@param item curses_color
 function _historical_entity_resources_background_color_curses:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_resources_background_color_curses:erase(index) end
 
 ---@class _historical_entity_uniforms: DFContainer
@@ -1466,11 +1466,11 @@ local _historical_entity_uniforms
 ---@return DFPointer<entity_uniform>
 function _historical_entity_uniforms:_field(index) end
 
----@param index integer 
----@param item entity_uniform 
+---@param index '#'|integer
+---@param item entity_uniform
 function _historical_entity_uniforms:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_uniforms:erase(index) end
 
 ---@class (exact) historical_entity.T_relations: DFStruct
@@ -1501,11 +1501,11 @@ local _historical_entity_relations_constructions
 ---@return DFPointer<DFPointer<integer>>
 function _historical_entity_relations_constructions:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _historical_entity_relations_constructions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_relations_constructions:erase(index) end
 
 ---@class _historical_entity_relations_diplomacy: DFContainer
@@ -1517,11 +1517,11 @@ local _historical_entity_relations_diplomacy
 ---@return DFPointer<DFPointer<integer>>
 function _historical_entity_relations_diplomacy:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _historical_entity_relations_diplomacy:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_relations_diplomacy:erase(index) end
 
 ---@class (exact) historical_entity.T_positions: DFStruct
@@ -1551,11 +1551,11 @@ local _historical_entity_positions_own
 ---@return DFPointer<entity_position>
 function _historical_entity_positions_own:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _historical_entity_positions_own:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_own:erase(index) end
 
 ---@class _historical_entity_positions_site: DFContainer
@@ -1567,11 +1567,11 @@ local _historical_entity_positions_site
 ---@return DFPointer<entity_position>
 function _historical_entity_positions_site:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _historical_entity_positions_site:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_site:erase(index) end
 
 ---@class _historical_entity_positions_conquered_site: DFContainer
@@ -1583,11 +1583,11 @@ local _historical_entity_positions_conquered_site
 ---@return DFPointer<entity_position>
 function _historical_entity_positions_conquered_site:_field(index) end
 
----@param index integer 
----@param item entity_position 
+---@param index '#'|integer
+---@param item entity_position
 function _historical_entity_positions_conquered_site:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_conquered_site:erase(index) end
 
 ---@class _historical_entity_positions_assignments: DFContainer
@@ -1599,11 +1599,11 @@ local _historical_entity_positions_assignments
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_positions_assignments:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_positions_assignments:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_assignments:erase(index) end
 
 ---@class _historical_entity_positions_possible_evaluate: DFContainer
@@ -1615,11 +1615,11 @@ local _historical_entity_positions_possible_evaluate
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_positions_possible_evaluate:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_positions_possible_evaluate:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_possible_evaluate:erase(index) end
 
 ---@class _historical_entity_positions_possible_succession: DFContainer
@@ -1631,11 +1631,11 @@ local _historical_entity_positions_possible_succession
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_positions_possible_succession:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_positions_possible_succession:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_possible_succession:erase(index) end
 
 ---@class _historical_entity_positions_possible_appointable: DFContainer
@@ -1647,11 +1647,11 @@ local _historical_entity_positions_possible_appointable
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_positions_possible_appointable:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_positions_possible_appointable:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_possible_appointable:erase(index) end
 
 ---@class _historical_entity_positions_possible_elected: DFContainer
@@ -1663,11 +1663,11 @@ local _historical_entity_positions_possible_elected
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_positions_possible_elected:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_positions_possible_elected:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_possible_elected:erase(index) end
 
 ---@class _historical_entity_positions_possible_claimable: DFContainer
@@ -1679,11 +1679,11 @@ local _historical_entity_positions_possible_claimable
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_positions_possible_claimable:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_positions_possible_claimable:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_positions_possible_claimable:erase(index) end
 
 ---@class (exact) historical_entity.T_tissue_styles: DFStruct
@@ -1704,11 +1704,11 @@ local _historical_entity_tissue_styles_all
 ---@return DFPointer<entity_tissue_style>
 function _historical_entity_tissue_styles_all:_field(index) end
 
----@param index integer 
----@param item entity_tissue_style 
+---@param index '#'|integer
+---@param item entity_tissue_style
 function _historical_entity_tissue_styles_all:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_tissue_styles_all:erase(index) end
 
 -- actually lives inside a class
@@ -1735,11 +1735,11 @@ local _historical_entity_events
 ---@return DFPointer<entity_event>
 function _historical_entity_events:_field(index) end
 
----@param index integer 
----@param item entity_event 
+---@param index '#'|integer
+---@param item entity_event
 function _historical_entity_events:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_events:erase(index) end
 
 ---@class _historical_entity_artifact_claims: DFContainer
@@ -1751,11 +1751,11 @@ local _historical_entity_artifact_claims
 ---@return DFPointer<artifact_claim>
 function _historical_entity_artifact_claims:_field(index) end
 
----@param index integer 
----@param item artifact_claim 
+---@param index '#'|integer
+---@param item artifact_claim
 function _historical_entity_artifact_claims:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_artifact_claims:erase(index) end
 
 ---@class _historical_entity_honors: DFContainer
@@ -1767,11 +1767,11 @@ local _historical_entity_honors
 ---@return DFPointer<honors_type>
 function _historical_entity_honors:_field(index) end
 
----@param index integer 
----@param item honors_type 
+---@param index '#'|integer
+---@param item honors_type
 function _historical_entity_honors:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_honors:erase(index) end
 
 ---@class _historical_entity_meeting_events: DFContainer
@@ -1783,11 +1783,11 @@ local _historical_entity_meeting_events
 ---@return DFPointer<meeting_event>
 function _historical_entity_meeting_events:_field(index) end
 
----@param index integer 
----@param item meeting_event 
+---@param index '#'|integer
+---@param item meeting_event
 function _historical_entity_meeting_events:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_meeting_events:erase(index) end
 
 ---@class _historical_entity_armies: DFContainer
@@ -1799,11 +1799,11 @@ local _historical_entity_armies
 ---@return DFPointer<army>
 function _historical_entity_armies:_field(index) end
 
----@param index integer 
----@param item army 
+---@param index '#'|integer
+---@param item army
 function _historical_entity_armies:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_armies:erase(index) end
 
 ---@class _historical_entity_army_controllers: DFContainer
@@ -1815,11 +1815,11 @@ local _historical_entity_army_controllers
 ---@return DFPointer<army_controller>
 function _historical_entity_army_controllers:_field(index) end
 
----@param index integer 
----@param item army_controller 
+---@param index '#'|integer
+---@param item army_controller
 function _historical_entity_army_controllers:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_army_controllers:erase(index) end
 
 ---@class _historical_entity_hist_figures: DFContainer
@@ -1831,11 +1831,11 @@ local _historical_entity_hist_figures
 ---@return DFPointer<historical_figure>
 function _historical_entity_hist_figures:_field(index) end
 
----@param index integer 
----@param item historical_figure 
+---@param index '#'|integer
+---@param item historical_figure
 function _historical_entity_hist_figures:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_hist_figures:erase(index) end
 
 ---@class _historical_entity_nemesis: DFContainer
@@ -1847,11 +1847,11 @@ local _historical_entity_nemesis
 ---@return DFPointer<nemesis_record>
 function _historical_entity_nemesis:_field(index) end
 
----@param index integer 
----@param item nemesis_record 
+---@param index '#'|integer
+---@param item nemesis_record
 function _historical_entity_nemesis:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_nemesis:erase(index) end
 
 ---@class (exact) historical_entity.T_derived_resources: DFStruct
@@ -1902,11 +1902,11 @@ local _historical_entity_assignments_by_type
 ---@return DFPointer<entity_position_assignment>
 function _historical_entity_assignments_by_type:_field(index) end
 
----@param index integer 
----@param item entity_position_assignment 
+---@param index '#'|integer
+---@param item entity_position_assignment
 function _historical_entity_assignments_by_type:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_assignments_by_type:erase(index) end
 
 ---@class (exact) historical_entity.T_claims: DFStruct
@@ -1928,11 +1928,11 @@ local _historical_entity_weapon_proficiencies
 ---@return DFPointer<job_skill>
 function _historical_entity_weapon_proficiencies:_field(index) end
 
----@param index integer 
----@param item job_skill 
+---@param index '#'|integer
+---@param item job_skill
 function _historical_entity_weapon_proficiencies:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_weapon_proficiencies:erase(index) end
 
 ---@class _historical_entity_local_poetic_form: DFContainer
@@ -1944,11 +1944,11 @@ local _historical_entity_local_poetic_form
 ---@return DFPointer<poetic_form>
 function _historical_entity_local_poetic_form:_field(index) end
 
----@param index integer 
----@param item poetic_form 
+---@param index '#'|integer
+---@param item poetic_form
 function _historical_entity_local_poetic_form:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_local_poetic_form:erase(index) end
 
 ---@class _historical_entity_local_musical_form: DFContainer
@@ -1960,11 +1960,11 @@ local _historical_entity_local_musical_form
 ---@return DFPointer<musical_form>
 function _historical_entity_local_musical_form:_field(index) end
 
----@param index integer 
----@param item musical_form 
+---@param index '#'|integer
+---@param item musical_form
 function _historical_entity_local_musical_form:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_local_musical_form:erase(index) end
 
 ---@class _historical_entity_local_dance_form: DFContainer
@@ -1976,11 +1976,11 @@ local _historical_entity_local_dance_form
 ---@return DFPointer<dance_form>
 function _historical_entity_local_dance_form:_field(index) end
 
----@param index integer 
----@param item dance_form 
+---@param index '#'|integer
+---@param item dance_form
 function _historical_entity_local_dance_form:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_local_dance_form:erase(index) end
 
 ---@class _historical_entity_well_known_wc: DFContainer
@@ -1992,11 +1992,11 @@ local _historical_entity_well_known_wc
 ---@return DFPointer<written_content>
 function _historical_entity_well_known_wc:_field(index) end
 
----@param index integer 
----@param item written_content 
+---@param index '#'|integer
+---@param item written_content
 function _historical_entity_well_known_wc:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_well_known_wc:erase(index) end
 
 ---@class _historical_entity_world_gen_entity_debt: DFContainer
@@ -2008,11 +2008,11 @@ local _historical_entity_world_gen_entity_debt
 ---@return DFPointer<DFPointer<integer>>
 function _historical_entity_world_gen_entity_debt:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _historical_entity_world_gen_entity_debt:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_world_gen_entity_debt:erase(index) end
 
 ---@class _historical_entity_burial_request: DFContainer
@@ -2024,11 +2024,11 @@ local _historical_entity_burial_request
 ---@return DFPointer<DFPointer<integer>>
 function _historical_entity_burial_request:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _historical_entity_burial_request:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _historical_entity_burial_request:erase(index) end
 
 ---@class (exact) entity_tissue_style: DFStruct
@@ -2228,11 +2228,11 @@ local _entity_position_flags
 ---@return DFPointer<table<entity_position_flags, boolean>>
 function _entity_position_flags:_field(index) end
 
----@param index integer 
----@param item table<entity_position_flags, boolean> 
+---@param index '#'|integer
+---@param item table<entity_position_flags, boolean>
 function _entity_position_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_position_flags:erase(index) end
 
 ---@class (exact) entity_position_profile_claimst: DFStruct
@@ -2272,11 +2272,11 @@ local _entity_position_assignment_flags
 ---@return DFPointer<table<integer, boolean>>
 function _entity_position_assignment_flags:_field(index) end
 
----@param index integer 
----@param item table<integer, boolean> 
+---@param index '#'|integer
+---@param item table<integer, boolean>
 function _entity_position_assignment_flags:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_position_assignment_flags:erase(index) end
 
 ---@class _entity_position_assignment_claim: DFContainer
@@ -2288,11 +2288,11 @@ local _entity_position_assignment_claim
 ---@return DFPointer<entity_position_profile_claimst>
 function _entity_position_assignment_claim:_field(index) end
 
----@param index integer 
----@param item entity_position_profile_claimst 
+---@param index '#'|integer
+---@param item entity_position_profile_claimst
 function _entity_position_assignment_claim:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_position_assignment_claim:erase(index) end
 
 ---@alias entity_material_category
@@ -2441,11 +2441,11 @@ local _entity_uniform_uniform_item_types
 ---@return DFPointer<item_type>
 function _entity_uniform_uniform_item_types:_field(index) end
 
----@param index integer 
----@param item item_type 
+---@param index '#'|integer
+---@param item item_type
 function _entity_uniform_uniform_item_types:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_uniform_uniform_item_types:erase(index) end
 
 ---@class _entity_uniform_uniform_item_info: DFContainer
@@ -2457,11 +2457,11 @@ local _entity_uniform_uniform_item_info
 ---@return DFPointer<entity_uniform_item>
 function _entity_uniform_uniform_item_info:_field(index) end
 
----@param index integer 
----@param item entity_uniform_item 
+---@param index '#'|integer
+---@param item entity_uniform_item
 function _entity_uniform_uniform_item_info:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _entity_uniform_uniform_item_info:erase(index) end
 
 ---@alias entity_event_type
@@ -3034,11 +3034,11 @@ local _agreement_parties
 ---@return DFPointer<agreement_party>
 function _agreement_parties:_field(index) end
 
----@param index integer 
----@param item agreement_party 
+---@param index '#'|integer
+---@param item agreement_party
 function _agreement_parties:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _agreement_parties:erase(index) end
 
 ---@class _agreement_details: DFContainer
@@ -3050,11 +3050,11 @@ local _agreement_details
 ---@return DFPointer<agreement_details>
 function _agreement_details:_field(index) end
 
----@param index integer 
----@param item agreement_details 
+---@param index '#'|integer
+---@param item agreement_details
 function _agreement_details:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _agreement_details:erase(index) end
 
 ---@class agreement.T_flags: DFBitfield
@@ -3091,11 +3091,11 @@ local _agreement_party_unk_1
 ---@return DFPointer<DFPointer<integer>>
 function _agreement_party_unk_1:_field(index) end
 
----@param index integer 
----@param item DFPointer<integer> 
+---@param index '#'|integer
+---@param item DFPointer<integer>
 function _agreement_party_unk_1:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _agreement_party_unk_1:erase(index) end
 
 -- bay12: EvidenceType

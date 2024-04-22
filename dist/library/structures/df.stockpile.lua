@@ -908,11 +908,11 @@ local _hauling_route_stops
 ---@return DFPointer<hauling_stop>
 function _hauling_route_stops:_field(index) end
 
----@param index integer 
----@param item hauling_stop 
+---@param index '#'|integer
+---@param item hauling_stop
 function _hauling_route_stops:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _hauling_route_stops:erase(index) end
 
 ---@class (exact) hauling_stop: DFStruct
@@ -939,11 +939,11 @@ local _hauling_stop_conditions
 ---@return DFPointer<stop_depart_condition>
 function _hauling_stop_conditions:_field(index) end
 
----@param index integer 
----@param item stop_depart_condition 
+---@param index '#'|integer
+---@param item stop_depart_condition
 function _hauling_stop_conditions:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _hauling_stop_conditions:erase(index) end
 
 ---@class _hauling_stop_stockpiles: DFContainer
@@ -955,11 +955,11 @@ local _hauling_stop_stockpiles
 ---@return DFPointer<route_stockpile_link>
 function _hauling_stop_stockpiles:_field(index) end
 
----@param index integer 
----@param item route_stockpile_link 
+---@param index '#'|integer
+---@param item route_stockpile_link
 function _hauling_stop_stockpiles:insert(index, item) end
 
----@param index integer 
+---@param index integer
 function _hauling_stop_stockpiles:erase(index) end
 
 ---@class (exact) stop_depart_condition: DFStruct
