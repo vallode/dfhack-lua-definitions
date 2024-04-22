@@ -61,14 +61,18 @@ def parse_cpp_modules(files)
           type, name = argument.split(' ')
           type = DFHackLuaDefinitions::CPP.parse_type(type)
 
-          {
-            name: DFHackLuaDefinitions::LuaLS.safe_name(DFHackLuaDefinitions::CPP.sanitize(name)),
-            type: type == 'boolean' ? 'boolean|nil' : type
-          }
-        end
+          if name == 'out'
+            nil
+          else
+            {
+              name: DFHackLuaDefinitions::LuaLS.safe_name(DFHackLuaDefinitions::CPP.sanitize(name)),
+              type: type == 'boolean' ? 'boolean|nil' : type
+            }
+          end
+        end&.compact
 
         arguments&.each do |argument|
-          output << "---@param #{argument[:name]} #{argument[:type]} \n"
+          output << "---@param #{argument[:name]} #{argument[:type]}\n"
         end
         output << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
         output << "function #{prefix}#{module_name}.#{function_name}("

@@ -31,7 +31,7 @@ module DFHackLuaDefinitions
       'ulong' => 'number',
       'ptr-string' => 'DFPointer<string>',
       'static-string' => 'string',
-      'stl-string' => 'string',
+      'stl-string' => 'string'
       # 'stl-bit-vector' => 'boolean',
       # 'df-flagarray' => 'boolean',
       # 'stl-function' => 'function',
@@ -45,7 +45,9 @@ module DFHackLuaDefinitions
     class << self
       def parse_type(string)
         return TYPE_MAP[string] if TYPE_MAP[string]
-        return string.gsub(/df::/, '') if string =~ /df::/
+
+        string = string.gsub(/df::/, '') if string
+        string = string.gsub(/std::vector/, 'DFVector') if string
 
         string
       end
