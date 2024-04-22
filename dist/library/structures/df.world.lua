@@ -79,6 +79,9 @@ df.units_other_id = {}
 ---@field _kind 'struct-type'
 df.units_other = {}
 
+---@return units_other
+function df.units_other:new() end
+
 ---@class _units_other_ANY_RIDER: DFContainer
 ---@field [integer] unit
 local _units_other_ANY_RIDER
@@ -119,6 +122,9 @@ function _units_other_ANY_BABY2:erase(index) end
 ---@class _unit_context_block: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_context_block = {}
+
+---@return unit_context_block
+function df.unit_context_block:new() end
 
 -- bay12: ConflictState
 ---@alias conflict_level
@@ -162,6 +168,9 @@ df.conflict_level = {}
 ---@field _kind 'struct-type'
 df.incident_hfid = {}
 
+---@return incident_hfid
+function df.incident_hfid:new() end
+
 ---@class (exact) incident: DFStruct
 ---@field _type _incident
 ---@field id number dtor 0x8C1AE10
@@ -202,6 +211,9 @@ df.incident_hfid = {}
 ---@class _incident: DFCompoundType
 ---@field _kind 'struct-type'
 df.incident = {}
+
+---@return incident
+function df.incident:new() end
 
 ---@param key number
 ---@return incident|nil
@@ -280,6 +292,9 @@ df.incident.T_flags = {}
 ---@field _kind 'struct-type'
 df.incident.T_data = {}
 
+---@return incident.T_data
+function df.incident.T_data:new() end
+
 ---@class (exact) incident_data_performance: DFStruct
 ---@field _type _incident_data_performance
 ---@field performance_event performance_event_type
@@ -294,6 +309,9 @@ df.incident.T_data = {}
 ---@class _incident_data_performance: DFCompoundType
 ---@field _kind 'struct-type'
 df.incident_data_performance = {}
+
+---@return incident_data_performance
+function df.incident_data_performance:new() end
 
 ---@class _incident_data_performance_participants: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -335,6 +353,9 @@ function _incident_data_performance_participants:erase(index) end
 ---@field _kind 'struct-type'
 df.incident_data_artifact = {}
 
+---@return incident_data_artifact
+function df.incident_data_artifact:new() end
+
 ---@alias incident_data_artifact.T_state
 ---| 0 # Held
 ---| 1 # Dropped
@@ -375,6 +396,9 @@ df.incident_data_artifact.T_state = {}
 ---@field _kind 'struct-type'
 df.incident_data_writing = {}
 
+---@return incident_data_writing
+function df.incident_data_writing:new() end
+
 ---@alias incident_data_writing.T_state
 ---| 0 # Dropped
 ---| 1 # Given
@@ -393,6 +417,9 @@ df.incident_data_writing.T_state = {}
 ---@class _incident_data_identity: DFCompoundType
 ---@field _kind 'struct-type'
 df.incident_data_identity = {}
+
+---@return incident_data_identity
+function df.incident_data_identity:new() end
 
 ---@class _incident_data_identity_unk_1: DFContainer
 ---@field [integer] incident_hfid
@@ -445,6 +472,9 @@ function _incident_data_identity_unk_1:erase(index) end
 ---@class _crime: DFCompoundType
 ---@field _kind 'struct-type'
 df.crime = {}
+
+---@return crime
+function df.crime:new() end
 
 ---@param key number
 ---@return crime|nil
@@ -527,6 +557,9 @@ df.crime.T_mode = {}
 ---@field _kind 'struct-type'
 df.crime.T_punishment = {}
 
+---@return crime.T_punishment
+function df.crime.T_punishment:new() end
+
 ---@class (exact) crime.T_convict_data: DFStruct
 ---@field _type _crime.T_convict_data
 ---@field unk_v47_vector_1 DFNumberVector don't know what the number refers to
@@ -536,6 +569,9 @@ df.crime.T_punishment = {}
 ---@field _kind 'struct-type'
 df.crime.T_convict_data = {}
 
+---@return crime.T_convict_data
+function df.crime.T_convict_data:new() end
+
 ---@class (exact) crime.T_victim_data: DFStruct
 ---@field _type _crime.T_victim_data
 ---@field unk_v47_vector_2 DFNumberVector
@@ -544,6 +580,9 @@ df.crime.T_convict_data = {}
 ---@class _crime.T_victim_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.crime.T_victim_data = {}
+
+---@return crime.T_victim_data
+function df.crime.T_victim_data:new() end
 
 ---@class crime.T_flags: DFBitfield
 ---@field _enum _crime.T_flags
@@ -658,6 +697,9 @@ df.witness_type = {}
 ---@field _kind 'struct-type'
 df.witness_reportst = {}
 
+---@return witness_reportst
+function df.witness_reportst:new() end
+
 ---@class (exact) mission_campaign_report: DFStruct
 ---@field _type _mission_campaign_report
 ---@field travel_x number[]
@@ -673,6 +715,9 @@ df.witness_reportst = {}
 ---@class _mission_campaign_report: DFCompoundType
 ---@field _kind 'struct-type'
 df.mission_campaign_report = {}
+
+---@return mission_campaign_report
+function df.mission_campaign_report:new() end
 
 ---@class (exact) mission_report: DFStruct
 ---@field _type _mission_report
@@ -692,6 +737,9 @@ df.mission_campaign_report = {}
 ---@class _mission_report: DFCompoundType
 ---@field _kind 'struct-type'
 df.mission_report = {}
+
+---@return mission_report
+function df.mission_report:new() end
 
 ---@class _mission_report_campaigns: DFContainer
 ---@field [integer] mission_campaign_report
@@ -744,6 +792,9 @@ function _mission_report_unk_10:erase(index) end
 ---@field _kind 'struct-type'
 df.spoils_report = {}
 
+---@return spoils_report
+function df.spoils_report:new() end
+
 ---@class _spoils_report_item_types: DFContainer
 ---@field [integer] item_type
 local _spoils_report_item_types
@@ -785,6 +836,9 @@ function _spoils_report_item_types:erase(index) end
 ---@field _kind 'struct-type'
 df.interrogation_report = {}
 
+---@return interrogation_report
+function df.interrogation_report:new() end
+
 ---@class (exact) interrogation_report.T_unk: DFStruct
 ---@field _type _interrogation_report.T_unk
 ---@field officer_hf2 number appears identical to officer_hf References: `historical_figure`
@@ -808,6 +862,9 @@ df.interrogation_report = {}
 ---@class _interrogation_report.T_unk: DFCompoundType
 ---@field _kind 'struct-type'
 df.interrogation_report.T_unk = {}
+
+---@return interrogation_report.T_unk
+function df.interrogation_report.T_unk:new() end
 
 ---@class interrogation_report.T_unk.T_flags: DFBitfield
 ---@field _enum _interrogation_report.T_unk.T_flags
@@ -847,6 +904,9 @@ function _interrogation_report_unk_29:erase(index) end
 ---@field _kind 'struct-type'
 df.divine_treasure = {}
 
+---@return divine_treasure
+function df.divine_treasure:new() end
+
 ---@class (exact) encased_horror: DFStruct
 ---@field _type _encased_horror
 ---@field state number
@@ -864,6 +924,9 @@ df.divine_treasure = {}
 ---@field _kind 'struct-type'
 df.encased_horror = {}
 
+---@return encased_horror
+function df.encased_horror:new() end
+
 ---@class (exact) cursed_tomb: DFStruct
 ---@field _type _cursed_tomb
 ---@field triggered boolean
@@ -878,6 +941,9 @@ df.encased_horror = {}
 ---@class _cursed_tomb: DFCompoundType
 ---@field _kind 'struct-type'
 df.cursed_tomb = {}
+
+---@return cursed_tomb
+function df.cursed_tomb:new() end
 
 ---@class _cursed_tomb_trigger_regions: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -906,6 +972,9 @@ function _cursed_tomb_trigger_regions:erase(index) end
 ---@field _kind 'struct-type'
 df.ocean_wave_maker = {}
 
+---@return ocean_wave_maker
+function df.ocean_wave_maker:new() end
+
 ---@class (exact) coord_rect: DFStruct
 ---@field _type _coord_rect
 ---@field x1 number
@@ -917,6 +986,9 @@ df.ocean_wave_maker = {}
 ---@class _coord_rect: DFCompoundType
 ---@field _kind 'struct-type'
 df.coord_rect = {}
+
+---@return coord_rect
+function df.coord_rect:new() end
 
 -- layers plus river seen
 ---@class (exact) embark_feature: DFStruct
@@ -934,6 +1006,9 @@ df.coord_rect = {}
 ---@class _embark_feature: DFCompoundType
 ---@field _kind 'struct-type'
 df.embark_feature = {}
+
+---@return embark_feature
+function df.embark_feature:new() end
 
 ---@alias combat_report_event_type
 ---| 1 # Deflected
@@ -1026,6 +1101,9 @@ df.combat_report_event_type = {}
 ---@field _kind 'struct-type'
 df.glowing_barrier = {}
 
+---@return glowing_barrier
+function df.glowing_barrier:new() end
+
 ---@class (exact) deep_vein_hollow: DFStruct
 ---@field _type _deep_vein_hollow
 ---@field triggered boolean set when the underworld spire is breached, preventing subsequent HFS events
@@ -1037,6 +1115,9 @@ df.glowing_barrier = {}
 ---@field _kind 'struct-type'
 df.deep_vein_hollow = {}
 
+---@return deep_vein_hollow
+function df.deep_vein_hollow:new() end
+
 ---@class (exact) campfire: DFStruct
 ---@field _type _campfire
 ---@field pos coord
@@ -1045,6 +1126,9 @@ df.deep_vein_hollow = {}
 ---@class _campfire: DFCompoundType
 ---@field _kind 'struct-type'
 df.campfire = {}
+
+---@return campfire
+function df.campfire:new() end
 
 ---@class (exact) web_cluster: DFStruct
 ---@field _type _web_cluster
@@ -1061,6 +1145,9 @@ df.campfire = {}
 ---@field _kind 'struct-type'
 df.web_cluster = {}
 
+---@return web_cluster
+function df.web_cluster:new() end
+
 ---@class (exact) fire: DFStruct
 ---@field _type _fire
 ---@field pos coord
@@ -1073,6 +1160,9 @@ df.web_cluster = {}
 ---@class _fire: DFCompoundType
 ---@field _kind 'struct-type'
 df.fire = {}
+
+---@return fire
+function df.fire:new() end
 
 ---@class (exact) ocean_wave: DFStruct
 ---@field _type _ocean_wave
@@ -1087,6 +1177,9 @@ df.fire = {}
 ---@field _kind 'struct-type'
 df.ocean_wave = {}
 
+---@return ocean_wave
+function df.ocean_wave:new() end
+
 ---@class (exact) coin_batch: DFStruct
 ---@field _type _coin_batch
 ---@field year number
@@ -1100,6 +1193,9 @@ df.ocean_wave = {}
 ---@class _coin_batch: DFCompoundType
 ---@field _kind 'struct-type'
 df.coin_batch = {}
+
+---@return coin_batch
+function df.coin_batch:new() end
 
 ---@param key number
 ---@return coin_batch|nil
@@ -1119,6 +1215,9 @@ function df.coin_batch.get_vector() end
 ---@field _kind 'struct-type'
 df.coin_batch.T_image_front = {}
 
+---@return coin_batch.T_image_front
+function df.coin_batch.T_image_front:new() end
+
 ---@class (exact) coin_batch.T_image_back: DFStruct
 ---@field _type _coin_batch.T_image_back
 ---@field id number References: `art_image_chunk`
@@ -1127,6 +1226,9 @@ df.coin_batch.T_image_front = {}
 ---@class _coin_batch.T_image_back: DFCompoundType
 ---@field _kind 'struct-type'
 df.coin_batch.T_image_back = {}
+
+---@return coin_batch.T_image_back
+function df.coin_batch.T_image_back:new() end
 
 ---@class (exact) job_handler: DFStruct
 ---@field _type _job_handler
@@ -1141,6 +1243,9 @@ function job_handler:cancel_job() end
 ---@class _job_handler: DFCompoundType
 ---@field _kind 'class-type'
 df.job_handler = {}
+
+---@return job_handler
+function df.job_handler:new() end
 
 ---@class _job_handler_list: DFContainer
 ---@field [integer] job_list_link
@@ -1184,6 +1289,9 @@ function _job_handler_postings:erase(index) end
 ---@field _kind 'struct-type'
 df.job_handler.T_job_application_heap = {}
 
+---@return job_handler.T_job_application_heap
+function df.job_handler.T_job_application_heap:new() end
+
 ---@class (exact) job_handler.T_job_application_heap.T_node: DFStruct
 ---@field _type _job_handler.T_job_application_heap.T_node
 ---@field applicant unit
@@ -1193,6 +1301,9 @@ df.job_handler.T_job_application_heap = {}
 ---@class _job_handler.T_job_application_heap.T_node: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_handler.T_job_application_heap.T_node = {}
+
+---@return job_handler.T_job_application_heap.T_node
+function df.job_handler.T_job_application_heap.T_node:new() end
 
 ---@class (exact) building_handler: DFStruct
 ---@field _type _building_handler
@@ -1209,6 +1320,9 @@ function building_handler:get_machine_hookup_list() end
 ---@class _building_handler: DFCompoundType
 ---@field _kind 'class-type'
 df.building_handler = {}
+
+---@return building_handler
+function df.building_handler:new() end
 
 ---@class _building_handler_all: DFContainer
 ---@field [integer] building
@@ -1253,6 +1367,9 @@ local machine_handler
 ---@field _kind 'class-type'
 df.machine_handler = {}
 
+---@return machine_handler
+function df.machine_handler:new() end
+
 ---@class _machine_handler_all: DFContainer
 ---@field [integer] machine
 local _machine_handler_all
@@ -1295,6 +1412,9 @@ function _machine_handler_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.mental_picture = {}
 
+---@return mental_picture
+function df.mental_picture:new() end
+
 ---@class (exact) mental_picture.T_unk: DFStruct
 ---@field _type _mental_picture.T_unk
 ---@field elements _mental_picture_unk_elements
@@ -1305,6 +1425,9 @@ df.mental_picture = {}
 ---@class _mental_picture.T_unk: DFCompoundType
 ---@field _kind 'struct-type'
 df.mental_picture.T_unk = {}
+
+---@return mental_picture.T_unk
+function df.mental_picture.T_unk:new() end
 
 ---@class _mental_picture_unk_elements: DFContainer
 ---@field [integer] mental_picture_elementst
@@ -1414,6 +1537,9 @@ function _mental_picture_unk_properties:erase(index) end
 ---@field _kind 'struct-type'
 df.belief_system = {}
 
+---@return belief_system
+function df.belief_system:new() end
+
 ---@param key number
 ---@return belief_system|nil
 function df.belief_system.find(key) end
@@ -1449,6 +1575,9 @@ function _belief_system_mental_pictures:erase(index) end
 ---@field _kind 'struct-type'
 df.divination_set_roll = {}
 
+---@return divination_set_roll
+function df.divination_set_roll:new() end
+
 ---@alias divination_set_roll.T_effect_type
 ---| 0 # MediumBlessing
 ---| 1 # MinorBlessing
@@ -1480,6 +1609,9 @@ df.divination_set_roll.T_effect_type = {}
 ---@class _divination_set: DFCompoundType
 ---@field _kind 'struct-type'
 df.divination_set = {}
+
+---@return divination_set
+function df.divination_set:new() end
 
 ---@param key number
 ---@return divination_set|nil
@@ -1517,6 +1649,9 @@ function _divination_set_rolls:erase(index) end
 ---@field _kind 'struct-type'
 df.image_set = {}
 
+---@return image_set
+function df.image_set:new() end
+
 ---@param key number
 ---@return image_set|nil
 function df.image_set.find(key) end
@@ -1549,6 +1684,9 @@ function _image_set_unk_vec1:erase(index) end
 ---@class _random_object_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.random_object_infost = {}
+
+---@return random_object_infost
+function df.random_object_infost:new() end
 
 ---@class _random_object_infost_batch: DFContainer
 ---@field [integer] random_object_batchst
@@ -1692,6 +1830,9 @@ function _random_object_infost_batch:erase(index) end
 ---@field _kind 'struct-type'
 df.world = {}
 
+---@return world
+function df.world:new() end
+
 ---@class _world_glowing_barriers: DFContainer
 ---@field [integer] glowing_barrier
 local _world_glowing_barriers
@@ -1796,6 +1937,9 @@ function _world_engravings:erase(index) end
 ---@class _world.T_vermin: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_vermin = {}
+
+---@return world.T_vermin
+function df.world.T_vermin:new() end
 
 ---@class _world_vermin_all: DFContainer
 ---@field [integer] vermin
@@ -2224,6 +2368,9 @@ function _world_mandates:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_entities = {}
 
+---@return world.T_entities
+function df.world.T_entities:new() end
+
 ---@class _world_entities_all: DFContainer
 ---@field [integer] historical_entity
 local _world_entities_all
@@ -2266,6 +2413,9 @@ function _world_entities_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_worldgen_coord_buf = {}
 
+---@return world.T_worldgen_coord_buf
+function df.world.T_worldgen_coord_buf:new() end
+
 -- Units
 ---@class (exact) world.T_units: DFStruct
 ---@field _type _world.T_units
@@ -2278,6 +2428,9 @@ df.world.T_worldgen_coord_buf = {}
 ---@class _world.T_units: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_units = {}
+
+---@return world.T_units
+function df.world.T_units:new() end
 
 ---@class _world_units_all: DFContainer
 ---@field [integer] unit
@@ -2387,6 +2540,9 @@ function _world_art_image_chunks:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_nemesis = {}
 
+---@return world.T_nemesis
+function df.world.T_nemesis:new() end
+
 ---@class _world_nemesis_all: DFContainer
 ---@field [integer] nemesis_record
 local _world_nemesis_all
@@ -2447,6 +2603,9 @@ function _world_nemesis_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_items = {}
 
+---@return world.T_items
+function df.world.T_items:new() end
+
 ---@class _world_items_all: DFContainer
 ---@field [integer] item
 local _world_items_all
@@ -2488,6 +2647,9 @@ function _world_items_bad:erase(index) end
 ---@class _world.T_artifacts: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_artifacts = {}
+
+---@return world.T_artifacts
+function df.world.T_artifacts:new() end
 
 ---@class _world_artifacts_all: DFContainer
 ---@field [integer] artifact_record
@@ -2546,6 +2708,9 @@ function _world_proj_list:erase(index) end
 ---@class _world.T_flow_guides: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_flow_guides = {}
+
+---@return world.T_flow_guides
+function df.world.T_flow_guides:new() end
 
 ---@class _world_flow_guides_all: DFContainer
 ---@field [integer] flow_guide
@@ -2623,6 +2788,9 @@ function _world_flow_guides_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_stockpile = {}
 
+---@return world.T_stockpile
+function df.world.T_stockpile:new() end
+
 -- Plants
 ---@class (exact) world.T_plants: DFStruct
 ---@field _type _world.T_plants
@@ -2636,6 +2804,9 @@ df.world.T_stockpile = {}
 ---@class _world.T_plants: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_plants = {}
+
+---@return world.T_plants
+function df.world.T_plants:new() end
 
 ---@class _world_plants_all: DFContainer
 ---@field [integer] plant
@@ -2745,6 +2916,9 @@ function _world_plants_empty:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_enemy_status_cache = {}
 
+---@return world.T_enemy_status_cache
+function df.world.T_enemy_status_cache:new() end
+
 ---@class (exact) world.T_schedules: DFStruct
 ---@field _type _world.T_schedules
 ---@field all _world_schedules_all
@@ -2753,6 +2927,9 @@ df.world.T_enemy_status_cache = {}
 ---@class _world.T_schedules: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_schedules = {}
+
+---@return world.T_schedules
+function df.world.T_schedules:new() end
 
 ---@class _world_schedules_all: DFContainer
 ---@field [integer] schedule_info
@@ -2795,6 +2972,9 @@ function _world_schedules_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_squads = {}
 
+---@return world.T_squads
+function df.world.T_squads:new() end
+
 ---@class _world_squads_all: DFContainer
 ---@field [integer] squad
 local _world_squads_all
@@ -2835,6 +3015,9 @@ function _world_squads_bad:erase(index) end
 ---@class _world.T_formations: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_formations = {}
+
+---@return world.T_formations
+function df.world.T_formations:new() end
 
 ---@class _world_formations_all: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -2877,6 +3060,9 @@ function _world_formations_bad:erase(index) end
 ---@class _world.T_activities: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_activities = {}
+
+---@return world.T_activities
+function df.world.T_activities:new() end
 
 ---@class _world_activities_all: DFContainer
 ---@field [integer] activity_entry
@@ -2932,6 +3118,9 @@ function _world_activities_bad:erase(index) end
 ---@class _world.T_status: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_status = {}
+
+---@return world.T_status
+function df.world.T_status:new() end
 
 ---@class _world_status_reports: DFContainer
 ---@field [integer] report
@@ -3076,6 +3265,9 @@ function _world_status_announcement_alert:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_status.T_slots = {}
 
+---@return world.T_status.T_slots
+function df.world.T_status.T_slots:new() end
+
 ---@class (exact) world.T_status.T_slots.T_slotdata: DFStruct
 ---@field _type _world.T_status.T_slots.T_slotdata
 ---@field type combat_report_event_type
@@ -3096,6 +3288,9 @@ df.world.T_status.T_slots = {}
 ---@class _world.T_status.T_slots.T_slotdata: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_status.T_slots.T_slotdata = {}
+
+---@return world.T_status.T_slots.T_slotdata
+function df.world.T_status.T_slots.T_slotdata:new() end
 
 ---@class world.T_status.T_slots.T_slotdata.T_flags: DFBitfield
 ---@field _enum _world.T_status.T_slots.T_slotdata.T_flags
@@ -3135,6 +3330,9 @@ df.world.T_status.T_slots.T_slotdata.T_flags = {}
 ---@class _world.T_interaction_instances: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_interaction_instances = {}
+
+---@return world.T_interaction_instances
+function df.world.T_interaction_instances:new() end
 
 ---@class _world_interaction_instances_all: DFContainer
 ---@field [integer] interaction_instance
@@ -3177,6 +3375,9 @@ function _world_interaction_instances_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_written_contents = {}
 
+---@return world.T_written_contents
+function df.world.T_written_contents:new() end
+
 ---@class _world_written_contents_all: DFContainer
 ---@field [integer] written_content
 local _world_written_contents_all
@@ -3217,6 +3418,9 @@ function _world_written_contents_bad:erase(index) end
 ---@class _world.T_identities: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_identities = {}
+
+---@return world.T_identities
+function df.world.T_identities:new() end
 
 ---@class _world_identities_all: DFContainer
 ---@field [integer] identity
@@ -3259,6 +3463,9 @@ function _world_identities_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_incidents = {}
 
+---@return world.T_incidents
+function df.world.T_incidents:new() end
+
 ---@class _world_incidents_all: DFContainer
 ---@field [integer] incident
 local _world_incidents_all
@@ -3299,6 +3506,9 @@ function _world_incidents_bad:erase(index) end
 ---@class _world.T_crimes: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_crimes = {}
+
+---@return world.T_crimes
+function df.world.T_crimes:new() end
 
 ---@class _world_crimes_all: DFContainer
 ---@field [integer] crime
@@ -3341,6 +3551,9 @@ function _world_crimes_bad:erase(index) end
 ---@class _world.T_vehicles: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_vehicles = {}
+
+---@return world.T_vehicles
+function df.world.T_vehicles:new() end
 
 ---@class _world_vehicles_all: DFContainer
 ---@field [integer] vehicle
@@ -3399,6 +3612,9 @@ function _world_vehicles_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_armies = {}
 
+---@return world.T_armies
+function df.world.T_armies:new() end
+
 ---@class _world_armies_all: DFContainer
 ---@field [integer] army
 local _world_armies_all
@@ -3439,6 +3655,9 @@ function _world_armies_bad:erase(index) end
 ---@class _world.T_army_controllers: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_army_controllers = {}
+
+---@return world.T_army_controllers
+function df.world.T_army_controllers:new() end
 
 ---@class _world_army_controllers_all: DFContainer
 ---@field [integer] army_controller
@@ -3481,6 +3700,9 @@ function _world_army_controllers_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_army_tracking_info = {}
 
+---@return world.T_army_tracking_info
+function df.world.T_army_tracking_info:new() end
+
 ---@class _world_army_tracking_info_all: DFContainer
 ---@field [integer] any[]
 local _world_army_tracking_info_all
@@ -3521,6 +3743,9 @@ function _world_army_tracking_info_bad:erase(index) end
 ---@class _world.T_cultural_identities: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_cultural_identities = {}
+
+---@return world.T_cultural_identities
+function df.world.T_cultural_identities:new() end
 
 ---@class _world_cultural_identities_all: DFContainer
 ---@field [integer] cultural_identity
@@ -3563,6 +3788,9 @@ function _world_cultural_identities_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_agreements = {}
 
+---@return world.T_agreements
+function df.world.T_agreements:new() end
+
 ---@class _world_agreements_all: DFContainer
 ---@field [integer] agreement
 local _world_agreements_all
@@ -3603,6 +3831,9 @@ function _world_agreements_bad:erase(index) end
 ---@class _world.T_poetic_forms: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_poetic_forms = {}
+
+---@return world.T_poetic_forms
+function df.world.T_poetic_forms:new() end
 
 ---@class _world_poetic_forms_all: DFContainer
 ---@field [integer] poetic_form
@@ -3645,6 +3876,9 @@ function _world_poetic_forms_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_musical_forms = {}
 
+---@return world.T_musical_forms
+function df.world.T_musical_forms:new() end
+
 ---@class _world_musical_forms_all: DFContainer
 ---@field [integer] musical_form
 local _world_musical_forms_all
@@ -3685,6 +3919,9 @@ function _world_musical_forms_bad:erase(index) end
 ---@class _world.T_dance_forms: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_dance_forms = {}
+
+---@return world.T_dance_forms
+function df.world.T_dance_forms:new() end
 
 ---@class _world_dance_forms_all: DFContainer
 ---@field [integer] dance_form
@@ -3727,6 +3964,9 @@ function _world_dance_forms_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_scales = {}
 
+---@return world.T_scales
+function df.world.T_scales:new() end
+
 ---@class _world_scales_all: DFContainer
 ---@field [integer] scale
 local _world_scales_all
@@ -3767,6 +4007,9 @@ function _world_scales_bad:erase(index) end
 ---@class _world.T_rhythms: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_rhythms = {}
+
+---@return world.T_rhythms
+function df.world.T_rhythms:new() end
 
 ---@class _world_rhythms_all: DFContainer
 ---@field [integer] rhythm
@@ -3809,6 +4052,9 @@ function _world_rhythms_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_occupations = {}
 
+---@return world.T_occupations
+function df.world.T_occupations:new() end
+
 ---@class _world_occupations_all: DFContainer
 ---@field [integer] occupation
 local _world_occupations_all
@@ -3849,6 +4095,9 @@ function _world_occupations_bad:erase(index) end
 ---@class _world.T_belief_systems: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_belief_systems = {}
+
+---@return world.T_belief_systems
+function df.world.T_belief_systems:new() end
 
 ---@class _world_belief_systems_all: DFContainer
 ---@field [integer] belief_system
@@ -3891,6 +4140,9 @@ function _world_belief_systems_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_image_sets = {}
 
+---@return world.T_image_sets
+function df.world.T_image_sets:new() end
+
 ---@class _world_image_sets_all: DFContainer
 ---@field [integer] image_set
 local _world_image_sets_all
@@ -3931,6 +4183,9 @@ function _world_image_sets_bad:erase(index) end
 ---@class _world.T_divination_sets: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_divination_sets = {}
+
+---@return world.T_divination_sets
+function df.world.T_divination_sets:new() end
 
 ---@class _world_divination_sets_all: DFContainer
 ---@field [integer] divination_set
@@ -3985,6 +4240,9 @@ function _world_divination_sets_bad:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_map = {}
 
+---@return world.T_map
+function df.world.T_map:new() end
+
 ---@class _world_map_map_blocks: DFContainer
 ---@field [integer] map_block
 local _world_map_map_blocks
@@ -4026,6 +4284,9 @@ function _world_map_map_block_columns:erase(index) end
 ---@class _world.T_profession_skills: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_profession_skills = {}
+
+---@return world.T_profession_skills
+function df.world.T_profession_skills:new() end
 
 ---@class _world_profession_skills_primary_job_skill: DFContainer
 ---@field [integer] job_skill
@@ -4069,6 +4330,9 @@ function _world_profession_skills_secondary_job_skill:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_math = {}
 
+---@return world.T_math
+function df.world.T_math:new() end
+
 ---@class (exact) world.T_math.T_approx: DFStruct
 ---@field _type _world.T_math.T_approx
 ---@field cos number
@@ -4077,6 +4341,9 @@ df.world.T_math = {}
 ---@class _world.T_math.T_approx: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_math.T_approx = {}
+
+---@return world.T_math.T_approx
+function df.world.T_math.T_approx:new() end
 
 ---@class (exact) world.T_map_extras: DFStruct
 ---@field _type _world.T_map_extras
@@ -4090,6 +4357,9 @@ df.world.T_math.T_approx = {}
 ---@class _world.T_map_extras: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_map_extras = {}
+
+---@return world.T_map_extras
+function df.world.T_map_extras:new() end
 
 ---@class _world_map_extras_unk_v40_3a: DFContainer
 ---@field [integer] block_square_event_spoorst
@@ -4184,6 +4454,9 @@ function _world_map_extras_unk_v40_3a:erase(index) end
 ---@class _world.T_worldgen_status: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_worldgen_status = {}
+
+---@return world.T_worldgen_status
+function df.world.T_worldgen_status:new() end
 
 ---@alias world.T_worldgen_status.T_state
 ---| -1 # None
@@ -4444,6 +4717,9 @@ function _world_worldgen_status:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_area_grasses = {}
 
+---@return world.T_area_grasses
+function df.world.T_area_grasses:new() end
+
 ---@class _world_area_grasses_layer_grasses: DFContainer
 ---@field [integer] DFPointer<integer>
 local _world_area_grasses_layer_grasses
@@ -4477,6 +4753,9 @@ function _world_area_grasses_layer_grasses:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_flow_engine = {}
 
+---@return world.T_flow_engine
+function df.world.T_flow_engine:new() end
+
 ---@class _world_cavein_flags: DFContainer
 ---@field [integer] table<world_cavein_flags, boolean>
 local _world_cavein_flags
@@ -4505,6 +4784,9 @@ function _world_cavein_flags:erase(index) end
 ---@class _world.T_worldgen: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_worldgen = {}
+
+---@return world.T_worldgen
+function df.world.T_worldgen:new() end
 
 ---@class _world_entity_populations: DFContainer
 ---@field [integer] entity_population
@@ -4535,6 +4817,9 @@ function _world_entity_populations:erase(index) end
 ---@class _world.T_daily_events: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_daily_events = {}
+
+---@return world.T_daily_events
+function df.world.T_daily_events:new() end
 
 ---@class _world_languages: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -4605,6 +4890,9 @@ function _world_orphaned_flows:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_pathfinder = {}
 
+---@return world.T_pathfinder
+function df.world.T_pathfinder:new() end
+
 ---@class (exact) world.T_pathfinder.T_boundary_heap: DFStruct
 ---@field _type _world.T_pathfinder.T_boundary_heap
 ---@field total_cost number
@@ -4617,6 +4905,9 @@ df.world.T_pathfinder = {}
 ---@field _kind 'struct-type'
 df.world.T_pathfinder.T_boundary_heap = {}
 
+---@return world.T_pathfinder.T_boundary_heap
+function df.world.T_pathfinder.T_boundary_heap:new() end
+
 -- not actually a compound
 ---@class (exact) world.T_cur_savegame: DFStruct
 ---@field _type _world.T_cur_savegame
@@ -4628,6 +4919,9 @@ df.world.T_pathfinder.T_boundary_heap = {}
 ---@class _world.T_cur_savegame: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_cur_savegame = {}
+
+---@return world.T_cur_savegame
+function df.world.T_cur_savegame:new() end
 
 ---@class (exact) world.T_rod_loader: DFStruct
 ---@field _type _world.T_rod_loader
@@ -4644,6 +4938,9 @@ df.world.T_cur_savegame = {}
 ---@class _world.T_rod_loader: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_rod_loader = {}
+
+---@return world.T_rod_loader
+function df.world.T_rod_loader:new() end
 
 ---@alias world.T_rod_loader.T_state
 ---| 0 # Initializing
@@ -4727,6 +5024,9 @@ df.world.T_rod_loader.T_state = {}
 ---@field _kind 'struct-type'
 df.world.T_object_loader = {}
 
+---@return world.T_object_loader
+function df.world.T_object_loader:new() end
+
 ---@class _world_object_loader_object_files: DFContainer
 ---@field [integer] DFPointer<string>
 local _world_object_loader_object_files
@@ -4770,6 +5070,9 @@ function _world_object_loader_object_files:erase(index) end
 ---@class _world.T_features: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_features = {}
+
+---@return world.T_features
+function df.world.T_features:new() end
 
 ---@class _world_features_wg_market_site: DFContainer
 ---@field [integer] world_site
@@ -4870,6 +5173,9 @@ function _world_features_newpop_from_saved_pop:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_arena = {}
 
+---@return world.T_arena
+function df.world.T_arena:new() end
+
 ---@class _world_arena_templates: DFContainer
 ---@field [integer] DFPointer<integer>
 local _world_arena_templates
@@ -4914,6 +5220,9 @@ function _world_arena_skills:erase(index) end
 ---@class _world.T_arena.T_equipment: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_arena.T_equipment = {}
+
+---@return world.T_arena.T_equipment
+function df.world.T_arena.T_equipment:new() end
 
 ---@class _world_arena_equipment_skills: DFContainer
 ---@field [integer] job_skill
@@ -5007,6 +5316,9 @@ function _world_arena_tree_types:erase(index) end
 ---@field _kind 'struct-type'
 df.world.T_dungeon = {}
 
+---@return world.T_dungeon
+function df.world.T_dungeon:new() end
+
 ---@class _world_dungeon_skill_type: DFContainer
 ---@field [integer] job_skill
 local _world_dungeon_skill_type
@@ -5052,6 +5364,9 @@ function _world_dungeon_item_types:erase(index) end
 ---@class _world.T_attack_chance_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_attack_chance_info = {}
+
+---@return world.T_attack_chance_info
+function df.world.T_attack_chance_info:new() end
 
 ---@class _world_attack_chance_info_modifier: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -5109,6 +5424,9 @@ function _world_attack_chance_info_target:erase(index) end
 ---@class _world.T_active_tutorial: DFCompoundType
 ---@field _kind 'struct-type'
 df.world.T_active_tutorial = {}
+
+---@return world.T_active_tutorial
+function df.world.T_active_tutorial:new() end
 
 ---@alias world_cavein_flags
 ---| 0 # process_columns

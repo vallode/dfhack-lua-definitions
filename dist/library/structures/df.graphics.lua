@@ -12,6 +12,9 @@
 ---@field _kind 'struct-type'
 df.large_integer = {}
 
+---@return large_integer
+function df.large_integer:new() end
+
 ---@class (exact) large_integer.T_u: DFStruct
 ---@field _type _large_integer.T_u
 ---@field low_part number
@@ -20,6 +23,9 @@ df.large_integer = {}
 ---@class _large_integer.T_u: DFCompoundType
 ---@field _kind 'struct-type'
 df.large_integer.T_u = {}
+
+---@return large_integer.T_u
+function df.large_integer.T_u:new() end
 
 ---@class (exact) musicsoundst: DFStruct
 ---@field _type _musicsoundst
@@ -38,6 +44,9 @@ df.large_integer.T_u = {}
 ---@class _musicsoundst: DFCompoundType
 ---@field _kind 'struct-type'
 df.musicsoundst = {}
+
+---@return musicsoundst
+function df.musicsoundst:new() end
 
 ---@alias musicsoundst.T_linux_sound_system
 ---| 0 # ALSA
@@ -61,6 +70,9 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@class _fmod_sound: DFCompoundType
 ---@field _kind 'struct-type'
 df.fmod_sound = {}
+
+---@return fmod_sound
+function df.fmod_sound:new() end
 
 ---@alias curses_color
 ---| 0 # Black
@@ -175,6 +187,9 @@ df.cmv_attribute = {}
 ---@field _kind 'struct-type'
 df.graphic_viewportst = {}
 
+---@return graphic_viewportst
+function df.graphic_viewportst:new() end
+
 ---@class (exact) graphic_map_portst: DFStruct
 ---@field _type _graphic_map_portst
 ---@field flag integer
@@ -244,6 +259,9 @@ df.graphic_viewportst = {}
 ---@field _kind 'struct-type'
 df.graphic_map_portst = {}
 
+---@return graphic_map_portst
+function df.graphic_map_portst:new() end
+
 ---@class (exact) cached_texturest: DFStruct
 ---@field _type _cached_texturest
 ---@field w number
@@ -255,6 +273,9 @@ df.graphic_map_portst = {}
 ---@field _kind 'struct-type'
 df.cached_texturest = {}
 
+---@return cached_texturest
+function df.cached_texturest:new() end
+
 ---@class (exact) texblitst: DFStruct
 ---@field _type _texblitst
 ---@field x number
@@ -264,6 +285,9 @@ df.cached_texturest = {}
 ---@class _texblitst: DFCompoundType
 ---@field _kind 'struct-type'
 df.texblitst = {}
+
+---@return texblitst
+function df.texblitst:new() end
 
 ---@class (exact) graphic: DFStruct
 ---@field _type _graphic
@@ -339,6 +363,9 @@ df.texblitst = {}
 ---@field _kind 'struct-type'
 df.graphic = {}
 
+---@return graphic
+function df.graphic:new() end
+
 ---@class _graphic_viewport: DFContainer
 ---@field [integer] graphic_viewportst
 local _graphic_viewport
@@ -404,6 +431,9 @@ function _graphic_texblits:erase(index) end
 ---@class _graphic.T_tileset: DFCompoundType
 ---@field _kind 'struct-type'
 df.graphic.T_tileset = {}
+
+---@return graphic.T_tileset
+function df.graphic.T_tileset:new() end
 
 ---@class (exact) interface_setst: DFStruct
 ---@field _type _interface_setst
@@ -611,6 +641,9 @@ df.graphic.T_tileset = {}
 ---@field _kind 'struct-type'
 df.interface_setst = {}
 
+---@return interface_setst
+function df.interface_setst:new() end
+
 ---@class (exact) renderer: DFStruct
 ---@field _type _renderer
 ---@field screen integer
@@ -693,6 +726,9 @@ function renderer:uses_opengl() end
 ---@field _kind 'class-type'
 df.renderer = {}
 
+---@return renderer
+function df.renderer:new() end
+
 ---@class (exact) renderer_2d_base: DFStruct, renderer
 ---@field _type _renderer_2d_base
 ---@field window DFPointer<integer> SDL_Window*
@@ -725,6 +761,9 @@ function renderer_2d_base:init_video() end
 ---@class _renderer_2d_base: DFCompoundType
 ---@field _kind 'class-type'
 df.renderer_2d_base = {}
+
+---@return renderer_2d_base
+function df.renderer_2d_base:new() end
 
 ---@class _renderer_2d_base_tile_cache: DFContainer
 ---@field [integer] any[]
@@ -764,6 +803,9 @@ function _renderer_2d_base_textures_to_destroy:erase(index) end
 ---@class _renderer_2d: DFCompoundType
 ---@field _kind 'class-type'
 df.renderer_2d = {}
+
+---@return renderer_2d
+function df.renderer_2d:new() end
 
 ---@alias zoom_commands
 ---| 0 # zoom_in
@@ -840,6 +882,9 @@ function enabler:GetKeyDisplay() end
 ---@field _kind 'class-type'
 df.enabler = {}
 
+---@return enabler
+function df.enabler:new() end
+
 ---@class enabler.T_fullscreen_state: DFBitfield
 ---@field _enum _enabler.T_fullscreen_state
 ---@field fullscreen boolean
@@ -879,6 +924,9 @@ function _enabler_overridden_grid_sizes:erase(index) end
 ---@field _kind 'struct-type'
 df.enabler.T_overridden_grid_sizes = {}
 
+---@return enabler.T_overridden_grid_sizes
+function df.enabler.T_overridden_grid_sizes:new() end
+
 ---@class (exact) enabler.T_async_tobox: DFStruct
 ---@field _type _enabler.T_async_tobox
 ---@field mtx stl-mutex
@@ -888,6 +936,9 @@ df.enabler.T_overridden_grid_sizes = {}
 ---@class _enabler.T_async_tobox: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_tobox = {}
+
+---@return enabler.T_async_tobox
+function df.enabler.T_async_tobox:new() end
 
 ---@class _enabler_async_tobox_vals: DFContainer
 ---@field [integer] enabler.T_async_tobox.T_vals
@@ -913,6 +964,9 @@ function _enabler_async_tobox_vals:erase(index) end
 ---@class _enabler.T_async_tobox.T_vals: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_tobox.T_vals = {}
+
+---@return enabler.T_async_tobox.T_vals
+function df.enabler.T_async_tobox.T_vals:new() end
 
 ---@alias enabler.T_async_tobox.T_vals.T_cmd
 ---| 0 # pause
@@ -944,6 +998,9 @@ df.enabler.T_async_tobox.T_vals.T_cmd = {}
 ---@field _kind 'struct-type'
 df.enabler.T_async_frombox = {}
 
+---@return enabler.T_async_frombox
+function df.enabler.T_async_frombox:new() end
+
 ---@class _enabler_async_frombox_vals: DFContainer
 ---@field [integer] enabler.T_async_frombox.T_vals
 local _enabler_async_frombox_vals
@@ -970,6 +1027,9 @@ function _enabler_async_frombox_vals:erase(index) end
 ---@class _enabler.T_async_frombox.T_vals: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_frombox.T_vals = {}
+
+---@return enabler.T_async_frombox.T_vals
+function df.enabler.T_async_frombox.T_vals:new() end
 
 ---@alias enabler.T_async_frombox.T_vals.T_msg
 ---| 0 # quit
@@ -1006,6 +1066,9 @@ df.enabler.T_async_frombox.T_vals.T_msg = {}
 ---@class _enabler.T_async_zoom: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_zoom = {}
+
+---@return enabler.T_async_zoom
+function df.enabler.T_async_zoom:new() end
 
 ---@class _enabler_async_zoom_vals: DFContainer
 ---@field [integer] zoom_commands
@@ -1047,6 +1110,9 @@ df.enabler.T_flag = {}
 ---@class _enabler.T_textures: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_textures = {}
+
+---@return enabler.T_textures
+function df.enabler.T_textures:new() end
 
 -- from libgraphics
 ---@alias justification
@@ -1090,6 +1156,9 @@ df.justification = {}
 ---@field _kind 'struct-type'
 df.tile_pagest = {}
 
+---@return tile_pagest
+function df.tile_pagest:new() end
+
 ---@class (exact) palette_pagest: DFStruct
 ---@field _type _palette_pagest
 ---@field token string
@@ -1103,6 +1172,9 @@ df.tile_pagest = {}
 ---@field _kind 'struct-type'
 df.palette_pagest = {}
 
+---@return palette_pagest
+function df.palette_pagest:new() end
+
 ---@class (exact) texture_handlerst: DFStruct
 ---@field _type _texture_handlerst
 ---@field page _texture_handlerst_page
@@ -1111,6 +1183,9 @@ df.palette_pagest = {}
 ---@class _texture_handlerst: DFCompoundType
 ---@field _kind 'struct-type'
 df.texture_handlerst = {}
+
+---@return texture_handlerst
+function df.texture_handlerst:new() end
 
 ---@class _texture_handlerst_page: DFContainer
 ---@field [integer] tile_pagest

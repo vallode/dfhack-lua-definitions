@@ -25,6 +25,9 @@ df.projectile_type = {}
 ---@field _kind 'struct-type'
 df.proj_list_link = {}
 
+---@return proj_list_link
+function df.proj_list_link:new() end
+
 ---@class projectile_flags: DFBitfield
 ---@field _enum _projectile_flags
 ---@field no_impact_destroy boolean
@@ -150,6 +153,9 @@ function projectile:isObjectLost() end
 ---@field _kind 'class-type'
 df.projectile = {}
 
+---@return projectile
+function df.projectile:new() end
+
 ---@class (exact) proj_itemst: DFStruct, projectile
 ---@field _type _proj_itemst
 ---@field item item
@@ -157,6 +163,9 @@ df.projectile = {}
 ---@class _proj_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_itemst = {}
+
+---@return proj_itemst
+function df.proj_itemst:new() end
 
 ---@class (exact) proj_unitst: DFStruct, projectile
 ---@field _type _proj_unitst
@@ -166,6 +175,9 @@ df.proj_itemst = {}
 ---@field _kind 'class-type'
 df.proj_unitst = {}
 
+---@return proj_unitst
+function df.proj_unitst:new() end
+
 ---@class (exact) proj_magicst: DFStruct, projectile
 ---@field _type _proj_magicst
 ---@field type number
@@ -174,4 +186,7 @@ df.proj_unitst = {}
 ---@class _proj_magicst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_magicst = {}
+
+---@return proj_magicst
+function df.proj_magicst:new() end
 

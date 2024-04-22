@@ -33,6 +33,9 @@ df.plant_flags = {}
 ---@field _kind 'struct-type'
 df.plant = {}
 
+---@return plant
+function df.plant:new() end
+
 ---@param key number
 ---@return plant|nil
 function df.plant.find(key) end
@@ -218,4 +221,7 @@ df.plant_root_tile = {}
 ---@class _plant_tree_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_tree_info = {}
+
+---@return plant_tree_info
+function df.plant_tree_info:new() end
 

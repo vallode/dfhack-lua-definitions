@@ -203,6 +203,9 @@ df.item_magicness_type = {}
 ---@field _kind 'struct-type'
 df.item_magicness = {}
 
+---@return item_magicness
+function df.item_magicness:new() end
+
 ---@class (exact) temperaturest: DFStruct
 ---@field _type _temperaturest
 ---@field whole integer seems like a convenient name
@@ -211,6 +214,9 @@ df.item_magicness = {}
 ---@class _temperaturest: DFCompoundType
 ---@field _kind 'struct-type'
 df.temperaturest = {}
+
+---@return temperaturest
+function df.temperaturest:new() end
 
 ---@class (exact) spatter_common: DFStruct
 ---@field _type _spatter_common
@@ -224,6 +230,9 @@ df.temperaturest = {}
 ---@class _spatter_common: DFCompoundType
 ---@field _kind 'struct-type'
 df.spatter_common = {}
+
+---@return spatter_common
+function df.spatter_common:new() end
 
 ---@class spatter_common.T_base_flags: DFBitfield
 ---@field _enum _spatter_common.T_base_flags
@@ -243,6 +252,9 @@ df.spatter_common.T_base_flags = {}
 ---@class _spatter: DFCompoundType
 ---@field _kind 'struct-type'
 df.spatter = {}
+
+---@return spatter
+function df.spatter:new() end
 
 ---@class spatter.T_flags: DFBitfield
 ---@field _enum _spatter.T_flags
@@ -1073,6 +1085,9 @@ function item:hasWriting() end
 ---@field _kind 'class-type'
 df.item = {}
 
+---@return item
+function df.item:new() end
+
 ---@param key number
 ---@return item|nil
 function df.item.find(key) end
@@ -1125,6 +1140,9 @@ function _item_general_refs:erase(index) end
 ---@field _kind 'struct-type'
 df.item_kill_info = {}
 
+---@return item_kill_info
+function df.item_kill_info:new() end
+
 ---@class (exact) item_history_info: DFStruct
 ---@field _type _item_history_info
 ---@field kills item_kill_info
@@ -1134,6 +1152,9 @@ df.item_kill_info = {}
 ---@class _item_history_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_history_info = {}
+
+---@return item_history_info
+function df.item_history_info:new() end
 
 ---@class (exact) item_actual: DFStruct, item
 ---@field _type _item_actual
@@ -1151,6 +1172,9 @@ df.item_history_info = {}
 ---@field _kind 'class-type'
 df.item_actual = {}
 
+---@return item_actual
+function df.item_actual:new() end
+
 -- CRAFTED ITEM
 ---@class (exact) item_crafted: DFStruct, item_actual
 ---@field _type _item_crafted
@@ -1166,6 +1190,9 @@ df.item_actual = {}
 ---@field _kind 'class-type'
 df.item_crafted = {}
 
+---@return item_crafted
+function df.item_crafted:new() end
+
 -- CONSTRUCTED ITEM
 ---@class (exact) item_constructed: DFStruct, item_crafted
 ---@field _type _item_constructed
@@ -1174,6 +1201,9 @@ df.item_crafted = {}
 ---@class _item_constructed: DFCompoundType
 ---@field _kind 'class-type'
 df.item_constructed = {}
+
+---@return item_constructed
+function df.item_constructed:new() end
 
 ---@class _item_constructed_improvements: DFContainer
 ---@field [integer] itemimprovement
@@ -1315,6 +1345,9 @@ df.body_layer_status = {}
 ---@field _kind 'struct-type'
 df.body_component_info = {}
 
+---@return body_component_info
+function df.body_component_info:new() end
+
 ---@class _body_component_info_body_part_status: DFContainer
 ---@field [integer] body_part_status
 local _body_component_info_body_part_status
@@ -1359,6 +1392,9 @@ function _body_component_info_layer_status:erase(index) end
 ---@class _body_size_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.body_size_info = {}
+
+---@return body_size_info
+function df.body_size_info:new() end
 
 ---@alias corpse_material_type
 ---| 0 # Plant
@@ -1434,6 +1470,9 @@ df.corpse_material_type = {}
 ---@field _kind 'class-type'
 df.item_body_component = {}
 
+---@return item_body_component
+function df.item_body_component:new() end
+
 ---@class (exact) item_body_component.T_body: DFStruct
 ---@field _type _item_body_component.T_body
 ---@field wounds _item_body_component_body_wounds
@@ -1450,6 +1489,9 @@ df.item_body_component = {}
 ---@class _item_body_component.T_body: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_body = {}
+
+---@return item_body_component.T_body
+function df.item_body_component.T_body:new() end
 
 ---@class _item_body_component_body_wounds: DFContainer
 ---@field [integer] unit_wound
@@ -1478,6 +1520,9 @@ function _item_body_component_body_wounds:erase(index) end
 ---@class _item_body_component.T_appearance: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_appearance = {}
+
+---@return item_body_component.T_appearance
+function df.item_body_component.T_appearance:new() end
 
 ---@class item_body_component.T_corpse_flags: DFBitfield
 ---@field _enum _item_body_component.T_corpse_flags
@@ -1555,6 +1600,9 @@ df.item_body_component.T_corpse_flags = {}
 ---@field _kind 'struct-type'
 df.item_body_component.T_bone1 = {}
 
+---@return item_body_component.T_bone1
+function df.item_body_component.T_bone1:new() end
+
 ---@class (exact) item_body_component.T_bone2: DFStruct
 ---@field _type _item_body_component.T_bone2
 ---@field mat_type number References: `material`
@@ -1563,6 +1611,9 @@ df.item_body_component.T_bone1 = {}
 ---@class _item_body_component.T_bone2: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_bone2 = {}
+
+---@return item_body_component.T_bone2
+function df.item_body_component.T_bone2:new() end
 
 ---@class (exact) item_corpsest: DFStruct, item_body_component
 ---@field _type _item_corpsest
@@ -1577,12 +1628,18 @@ df.item_body_component.T_bone2 = {}
 ---@field _kind 'class-type'
 df.item_corpsest = {}
 
+---@return item_corpsest
+function df.item_corpsest:new() end
+
 ---@class (exact) item_corpsepiecest: DFStruct, item_body_component
 ---@field _type _item_corpsepiecest
 
 ---@class _item_corpsepiecest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_corpsepiecest = {}
+
+---@return item_corpsepiecest
+function df.item_corpsepiecest:new() end
 
 -- CRITTER
 ---@class (exact) item_critter: DFStruct, item_actual
@@ -1596,6 +1653,9 @@ df.item_corpsepiecest = {}
 ---@class _item_critter: DFCompoundType
 ---@field _kind 'class-type'
 df.item_critter = {}
+
+---@return item_critter
+function df.item_critter:new() end
 
 -- LIQUID/POWER
 ---@class item_matstate: DFBitfield
@@ -1625,6 +1685,9 @@ df.item_matstate = {}
 ---@field _kind 'class-type'
 df.item_liquipowder = {}
 
+---@return item_liquipowder
+function df.item_liquipowder:new() end
+
 ---@class (exact) item_liquid: DFStruct, item_liquipowder
 ---@field _type _item_liquid
 ---@field mat_type number References: `material`
@@ -1634,6 +1697,9 @@ df.item_liquipowder = {}
 ---@field _kind 'class-type'
 df.item_liquid = {}
 
+---@return item_liquid
+function df.item_liquid:new() end
+
 ---@class (exact) item_powder: DFStruct, item_liquipowder
 ---@field _type _item_powder
 ---@field mat_type number References: `material`
@@ -1642,6 +1708,9 @@ df.item_liquid = {}
 ---@class _item_powder: DFCompoundType
 ---@field _kind 'class-type'
 df.item_powder = {}
+
+---@return item_powder
+function df.item_powder:new() end
 
 -- MISC
 ---@class (exact) item_barst: DFStruct, item_actual
@@ -1655,6 +1724,9 @@ df.item_powder = {}
 ---@field _kind 'class-type'
 df.item_barst = {}
 
+---@return item_barst
+function df.item_barst:new() end
+
 ---@class (exact) item_smallgemst: DFStruct, item_actual
 ---@field _type _item_smallgemst
 ---@field mat_type number References: `material`
@@ -1665,6 +1737,9 @@ df.item_barst = {}
 ---@field _kind 'class-type'
 df.item_smallgemst = {}
 
+---@return item_smallgemst
+function df.item_smallgemst:new() end
+
 ---@class (exact) item_blocksst: DFStruct, item_actual
 ---@field _type _item_blocksst
 ---@field mat_type number References: `material`
@@ -1673,6 +1748,9 @@ df.item_smallgemst = {}
 ---@class _item_blocksst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_blocksst = {}
+
+---@return item_blocksst
+function df.item_blocksst:new() end
 
 ---@class (exact) item_roughst: DFStruct, item_actual
 ---@field _type _item_roughst
@@ -1683,6 +1761,9 @@ df.item_blocksst = {}
 ---@field _kind 'class-type'
 df.item_roughst = {}
 
+---@return item_roughst
+function df.item_roughst:new() end
+
 ---@class (exact) item_boulderst: DFStruct, item_actual
 ---@field _type _item_boulderst
 ---@field mat_type number References: `material`
@@ -1691,6 +1772,9 @@ df.item_roughst = {}
 ---@class _item_boulderst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_boulderst = {}
+
+---@return item_boulderst
+function df.item_boulderst:new() end
 
 ---@class (exact) item_woodst: DFStruct, item_actual
 ---@field _type _item_woodst
@@ -1701,6 +1785,9 @@ df.item_boulderst = {}
 ---@field _kind 'class-type'
 df.item_woodst = {}
 
+---@return item_woodst
+function df.item_woodst:new() end
+
 ---@class (exact) item_branchst: DFStruct, item_actual
 ---@field _type _item_branchst
 ---@field mat_type number References: `material`
@@ -1709,6 +1796,9 @@ df.item_woodst = {}
 ---@class _item_branchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_branchst = {}
+
+---@return item_branchst
+function df.item_branchst:new() end
 
 ---@class (exact) item_rockst: DFStruct, item_actual
 ---@field _type _item_rockst
@@ -1721,6 +1811,9 @@ df.item_branchst = {}
 ---@field _kind 'class-type'
 df.item_rockst = {}
 
+---@return item_rockst
+function df.item_rockst:new() end
+
 ---@class (exact) item_seedsst: DFStruct, item_actual
 ---@field _type _item_seedsst
 ---@field mat_type number References: `material`
@@ -1732,6 +1825,9 @@ df.item_rockst = {}
 ---@field _kind 'class-type'
 df.item_seedsst = {}
 
+---@return item_seedsst
+function df.item_seedsst:new() end
+
 ---@class (exact) item_skin_tannedst: DFStruct, item_actual
 ---@field _type _item_skin_tannedst
 ---@field mat_type number References: `material`
@@ -1741,6 +1837,9 @@ df.item_seedsst = {}
 ---@class _item_skin_tannedst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_skin_tannedst = {}
+
+---@return item_skin_tannedst
+function df.item_skin_tannedst:new() end
 
 ---@class (exact) item_meatst: DFStruct, item_actual
 ---@field _type _item_meatst
@@ -1752,6 +1851,9 @@ df.item_skin_tannedst = {}
 ---@field _kind 'class-type'
 df.item_meatst = {}
 
+---@return item_meatst
+function df.item_meatst:new() end
+
 ---@class (exact) item_plantst: DFStruct, item_actual
 ---@field _type _item_plantst
 ---@field mat_type number References: `material`
@@ -1761,6 +1863,9 @@ df.item_meatst = {}
 ---@class _item_plantst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_plantst = {}
+
+---@return item_plantst
+function df.item_plantst:new() end
 
 ---@class (exact) item_plant_growthst: DFStruct, item_actual
 ---@field _type _item_plant_growthst
@@ -1774,6 +1879,9 @@ df.item_plantst = {}
 ---@field _kind 'class-type'
 df.item_plant_growthst = {}
 
+---@return item_plant_growthst
+function df.item_plant_growthst:new() end
+
 ---@class (exact) item_cheesest: DFStruct, item_actual
 ---@field _type _item_cheesest
 ---@field mat_type number References: `material`
@@ -1783,6 +1891,9 @@ df.item_plant_growthst = {}
 ---@class _item_cheesest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cheesest = {}
+
+---@return item_cheesest
+function df.item_cheesest:new() end
 
 ---@class (exact) item_globst: DFStruct, item_actual
 ---@field _type _item_globst
@@ -1796,6 +1907,9 @@ df.item_cheesest = {}
 ---@field _kind 'class-type'
 df.item_globst = {}
 
+---@return item_globst
+function df.item_globst:new() end
+
 ---@class (exact) item_remainsst: DFStruct, item_actual
 ---@field _type _item_remainsst
 ---@field race number References: `creature_raw`
@@ -1805,6 +1919,9 @@ df.item_globst = {}
 ---@class _item_remainsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_remainsst = {}
+
+---@return item_remainsst
+function df.item_remainsst:new() end
 
 ---@class (exact) item_fishst: DFStruct, item_actual
 ---@field _type _item_fishst
@@ -1816,6 +1933,9 @@ df.item_remainsst = {}
 ---@field _kind 'class-type'
 df.item_fishst = {}
 
+---@return item_fishst
+function df.item_fishst:new() end
+
 ---@class (exact) item_fish_rawst: DFStruct, item_actual
 ---@field _type _item_fish_rawst
 ---@field race number References: `creature_raw`
@@ -1825,6 +1945,9 @@ df.item_fishst = {}
 ---@class _item_fish_rawst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_fish_rawst = {}
+
+---@return item_fish_rawst
+function df.item_fish_rawst:new() end
 
 ---@class (exact) item_foodst: DFStruct, item_crafted
 ---@field _type _item_foodst
@@ -1837,6 +1960,9 @@ df.item_fish_rawst = {}
 ---@class _item_foodst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_foodst = {}
+
+---@return item_foodst
+function df.item_foodst:new() end
 
 ---@class _item_foodst_ingredients: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1861,6 +1987,9 @@ function _item_foodst_ingredients:erase(index) end
 ---@field _kind 'class-type'
 df.item_verminst = {}
 
+---@return item_verminst
+function df.item_verminst:new() end
+
 ---@class (exact) item_petst: DFStruct, item_critter
 ---@field _type _item_petst
 ---@field owner_id number References: `unit`
@@ -1869,6 +1998,9 @@ df.item_verminst = {}
 ---@class _item_petst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_petst = {}
+
+---@return item_petst
+function df.item_petst:new() end
 
 ---@class item_petst.T_pet_flags: DFBitfield
 ---@field _enum _item_petst.T_pet_flags
@@ -1887,12 +2019,18 @@ df.item_petst.T_pet_flags = {}
 ---@field _kind 'class-type'
 df.item_drinkst = {}
 
+---@return item_drinkst
+function df.item_drinkst:new() end
+
 ---@class (exact) item_powder_miscst: DFStruct, item_powder
 ---@field _type _item_powder_miscst
 
 ---@class _item_powder_miscst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_powder_miscst = {}
+
+---@return item_powder_miscst
+function df.item_powder_miscst:new() end
 
 ---@class (exact) item_liquid_miscst: DFStruct, item_liquid
 ---@field _type _item_liquid_miscst
@@ -1901,6 +2039,9 @@ df.item_powder_miscst = {}
 ---@class _item_liquid_miscst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquid_miscst = {}
+
+---@return item_liquid_miscst
+function df.item_liquid_miscst:new() end
 
 ---@class (exact) item_threadst: DFStruct, item_actual
 ---@field _type _item_threadst
@@ -1919,6 +2060,9 @@ df.item_liquid_miscst = {}
 ---@class _item_threadst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_threadst = {}
+
+---@return item_threadst
+function df.item_threadst:new() end
 
 ---@class (exact) item_eggst: DFStruct, item_actual
 ---@field _type _item_eggst
@@ -1951,6 +2095,9 @@ df.item_threadst = {}
 ---@field _kind 'class-type'
 df.item_eggst = {}
 
+---@return item_eggst
+function df.item_eggst:new() end
+
 ---@class item_eggst.T_egg_flags: DFBitfield
 ---@field _enum _item_eggst.T_egg_flags
 ---@field fertile boolean allows the incubation_counter to be checked/incremented
@@ -1969,12 +2116,18 @@ df.item_eggst.T_egg_flags = {}
 ---@field _kind 'class-type'
 df.item_doorst = {}
 
+---@return item_doorst
+function df.item_doorst:new() end
+
 ---@class (exact) item_floodgatest: DFStruct, item_constructed
 ---@field _type _item_floodgatest
 
 ---@class _item_floodgatest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_floodgatest = {}
+
+---@return item_floodgatest
+function df.item_floodgatest:new() end
 
 ---@class (exact) item_bedst: DFStruct, item_constructed
 ---@field _type _item_bedst
@@ -1983,12 +2136,18 @@ df.item_floodgatest = {}
 ---@field _kind 'class-type'
 df.item_bedst = {}
 
+---@return item_bedst
+function df.item_bedst:new() end
+
 ---@class (exact) item_chairst: DFStruct, item_constructed
 ---@field _type _item_chairst
 
 ---@class _item_chairst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_chairst = {}
+
+---@return item_chairst
+function df.item_chairst:new() end
 
 ---@class (exact) item_chainst: DFStruct, item_constructed
 ---@field _type _item_chainst
@@ -1997,12 +2156,18 @@ df.item_chairst = {}
 ---@field _kind 'class-type'
 df.item_chainst = {}
 
+---@return item_chainst
+function df.item_chainst:new() end
+
 ---@class (exact) item_flaskst: DFStruct, item_constructed
 ---@field _type _item_flaskst
 
 ---@class _item_flaskst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_flaskst = {}
+
+---@return item_flaskst
+function df.item_flaskst:new() end
 
 ---@class (exact) item_gobletst: DFStruct, item_constructed
 ---@field _type _item_gobletst
@@ -2011,12 +2176,18 @@ df.item_flaskst = {}
 ---@field _kind 'class-type'
 df.item_gobletst = {}
 
+---@return item_gobletst
+function df.item_gobletst:new() end
+
 ---@class (exact) item_windowst: DFStruct, item_constructed
 ---@field _type _item_windowst
 
 ---@class _item_windowst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_windowst = {}
+
+---@return item_windowst
+function df.item_windowst:new() end
 
 ---@class (exact) item_cagest: DFStruct, item_constructed
 ---@field _type _item_cagest
@@ -2025,12 +2196,18 @@ df.item_windowst = {}
 ---@field _kind 'class-type'
 df.item_cagest = {}
 
+---@return item_cagest
+function df.item_cagest:new() end
+
 ---@class (exact) item_bucketst: DFStruct, item_constructed
 ---@field _type _item_bucketst
 
 ---@class _item_bucketst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bucketst = {}
+
+---@return item_bucketst
+function df.item_bucketst:new() end
 
 ---@class (exact) item_animaltrapst: DFStruct, item_constructed
 ---@field _type _item_animaltrapst
@@ -2039,12 +2216,18 @@ df.item_bucketst = {}
 ---@field _kind 'class-type'
 df.item_animaltrapst = {}
 
+---@return item_animaltrapst
+function df.item_animaltrapst:new() end
+
 ---@class (exact) item_tablest: DFStruct, item_constructed
 ---@field _type _item_tablest
 
 ---@class _item_tablest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_tablest = {}
+
+---@return item_tablest
+function df.item_tablest:new() end
 
 ---@class (exact) item_coffinst: DFStruct, item_constructed
 ---@field _type _item_coffinst
@@ -2053,12 +2236,18 @@ df.item_tablest = {}
 ---@field _kind 'class-type'
 df.item_coffinst = {}
 
+---@return item_coffinst
+function df.item_coffinst:new() end
+
 ---@class (exact) item_bagst: DFStruct, item_constructed
 ---@field _type _item_bagst
 
 ---@class _item_bagst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bagst = {}
+
+---@return item_bagst
+function df.item_bagst:new() end
 
 ---@class (exact) item_boxst: DFStruct, item_constructed
 ---@field _type _item_boxst
@@ -2067,12 +2256,18 @@ df.item_bagst = {}
 ---@field _kind 'class-type'
 df.item_boxst = {}
 
+---@return item_boxst
+function df.item_boxst:new() end
+
 ---@class (exact) item_armorstandst: DFStruct, item_constructed
 ---@field _type _item_armorstandst
 
 ---@class _item_armorstandst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_armorstandst = {}
+
+---@return item_armorstandst
+function df.item_armorstandst:new() end
 
 ---@class (exact) item_weaponrackst: DFStruct, item_constructed
 ---@field _type _item_weaponrackst
@@ -2081,12 +2276,18 @@ df.item_armorstandst = {}
 ---@field _kind 'class-type'
 df.item_weaponrackst = {}
 
+---@return item_weaponrackst
+function df.item_weaponrackst:new() end
+
 ---@class (exact) item_cabinetst: DFStruct, item_constructed
 ---@field _type _item_cabinetst
 
 ---@class _item_cabinetst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cabinetst = {}
+
+---@return item_cabinetst
+function df.item_cabinetst:new() end
 
 ---@class (exact) item_amuletst: DFStruct, item_constructed
 ---@field _type _item_amuletst
@@ -2095,12 +2296,18 @@ df.item_cabinetst = {}
 ---@field _kind 'class-type'
 df.item_amuletst = {}
 
+---@return item_amuletst
+function df.item_amuletst:new() end
+
 ---@class (exact) item_scepterst: DFStruct, item_constructed
 ---@field _type _item_scepterst
 
 ---@class _item_scepterst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_scepterst = {}
+
+---@return item_scepterst
+function df.item_scepterst:new() end
 
 ---@class (exact) item_crownst: DFStruct, item_constructed
 ---@field _type _item_crownst
@@ -2109,12 +2316,18 @@ df.item_scepterst = {}
 ---@field _kind 'class-type'
 df.item_crownst = {}
 
+---@return item_crownst
+function df.item_crownst:new() end
+
 ---@class (exact) item_ringst: DFStruct, item_constructed
 ---@field _type _item_ringst
 
 ---@class _item_ringst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ringst = {}
+
+---@return item_ringst
+function df.item_ringst:new() end
 
 ---@class (exact) item_earringst: DFStruct, item_constructed
 ---@field _type _item_earringst
@@ -2123,12 +2336,18 @@ df.item_ringst = {}
 ---@field _kind 'class-type'
 df.item_earringst = {}
 
+---@return item_earringst
+function df.item_earringst:new() end
+
 ---@class (exact) item_braceletst: DFStruct, item_constructed
 ---@field _type _item_braceletst
 
 ---@class _item_braceletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_braceletst = {}
+
+---@return item_braceletst
+function df.item_braceletst:new() end
 
 ---@class (exact) item_anvilst: DFStruct, item_constructed
 ---@field _type _item_anvilst
@@ -2137,12 +2356,18 @@ df.item_braceletst = {}
 ---@field _kind 'class-type'
 df.item_anvilst = {}
 
+---@return item_anvilst
+function df.item_anvilst:new() end
+
 ---@class (exact) item_backpackst: DFStruct, item_constructed
 ---@field _type _item_backpackst
 
 ---@class _item_backpackst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_backpackst = {}
+
+---@return item_backpackst
+function df.item_backpackst:new() end
 
 ---@class (exact) item_quiverst: DFStruct, item_constructed
 ---@field _type _item_quiverst
@@ -2151,12 +2376,18 @@ df.item_backpackst = {}
 ---@field _kind 'class-type'
 df.item_quiverst = {}
 
+---@return item_quiverst
+function df.item_quiverst:new() end
+
 ---@class (exact) item_catapultpartsst: DFStruct, item_constructed
 ---@field _type _item_catapultpartsst
 
 ---@class _item_catapultpartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_catapultpartsst = {}
+
+---@return item_catapultpartsst
+function df.item_catapultpartsst:new() end
 
 ---@class (exact) item_ballistapartsst: DFStruct, item_constructed
 ---@field _type _item_ballistapartsst
@@ -2165,12 +2396,18 @@ df.item_catapultpartsst = {}
 ---@field _kind 'class-type'
 df.item_ballistapartsst = {}
 
+---@return item_ballistapartsst
+function df.item_ballistapartsst:new() end
+
 ---@class (exact) item_trappartsst: DFStruct, item_constructed
 ---@field _type _item_trappartsst
 
 ---@class _item_trappartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_trappartsst = {}
+
+---@return item_trappartsst
+function df.item_trappartsst:new() end
 
 ---@class (exact) item_pipe_sectionst: DFStruct, item_constructed
 ---@field _type _item_pipe_sectionst
@@ -2179,12 +2416,18 @@ df.item_trappartsst = {}
 ---@field _kind 'class-type'
 df.item_pipe_sectionst = {}
 
+---@return item_pipe_sectionst
+function df.item_pipe_sectionst:new() end
+
 ---@class (exact) item_hatch_coverst: DFStruct, item_constructed
 ---@field _type _item_hatch_coverst
 
 ---@class _item_hatch_coverst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_hatch_coverst = {}
+
+---@return item_hatch_coverst
+function df.item_hatch_coverst:new() end
 
 ---@class (exact) item_gratest: DFStruct, item_constructed
 ---@field _type _item_gratest
@@ -2193,12 +2436,18 @@ df.item_hatch_coverst = {}
 ---@field _kind 'class-type'
 df.item_gratest = {}
 
+---@return item_gratest
+function df.item_gratest:new() end
+
 ---@class (exact) item_quernst: DFStruct, item_constructed
 ---@field _type _item_quernst
 
 ---@class _item_quernst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_quernst = {}
+
+---@return item_quernst
+function df.item_quernst:new() end
 
 ---@class (exact) item_millstonest: DFStruct, item_constructed
 ---@field _type _item_millstonest
@@ -2207,12 +2456,18 @@ df.item_quernst = {}
 ---@field _kind 'class-type'
 df.item_millstonest = {}
 
+---@return item_millstonest
+function df.item_millstonest:new() end
+
 ---@class (exact) item_splintst: DFStruct, item_constructed
 ---@field _type _item_splintst
 
 ---@class _item_splintst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_splintst = {}
+
+---@return item_splintst
+function df.item_splintst:new() end
 
 ---@class (exact) item_crutchst: DFStruct, item_constructed
 ---@field _type _item_crutchst
@@ -2221,12 +2476,18 @@ df.item_splintst = {}
 ---@field _kind 'class-type'
 df.item_crutchst = {}
 
+---@return item_crutchst
+function df.item_crutchst:new() end
+
 ---@class (exact) item_traction_benchst: DFStruct, item_constructed
 ---@field _type _item_traction_benchst
 
 ---@class _item_traction_benchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_traction_benchst = {}
+
+---@return item_traction_benchst
+function df.item_traction_benchst:new() end
 
 ---@class (exact) item_instrumentst: DFStruct, item_constructed
 ---@field _type _item_instrumentst
@@ -2236,6 +2497,9 @@ df.item_traction_benchst = {}
 ---@field _kind 'class-type'
 df.item_instrumentst = {}
 
+---@return item_instrumentst
+function df.item_instrumentst:new() end
+
 ---@class (exact) item_toyst: DFStruct, item_constructed
 ---@field _type _item_toyst
 ---@field subtype itemdef_toyst
@@ -2243,6 +2507,9 @@ df.item_instrumentst = {}
 ---@class _item_toyst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_toyst = {}
+
+---@return item_toyst
+function df.item_toyst:new() end
 
 ---@class (exact) item_armorst: DFStruct, item_constructed
 ---@field _type _item_armorst
@@ -2252,6 +2519,9 @@ df.item_toyst = {}
 ---@field _kind 'class-type'
 df.item_armorst = {}
 
+---@return item_armorst
+function df.item_armorst:new() end
+
 ---@class (exact) item_shoesst: DFStruct, item_constructed
 ---@field _type _item_shoesst
 ---@field subtype itemdef_shoesst
@@ -2259,6 +2529,9 @@ df.item_armorst = {}
 ---@class _item_shoesst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_shoesst = {}
+
+---@return item_shoesst
+function df.item_shoesst:new() end
 
 ---@class (exact) item_shieldst: DFStruct, item_constructed
 ---@field _type _item_shieldst
@@ -2268,6 +2541,9 @@ df.item_shoesst = {}
 ---@field _kind 'class-type'
 df.item_shieldst = {}
 
+---@return item_shieldst
+function df.item_shieldst:new() end
+
 ---@class (exact) item_helmst: DFStruct, item_constructed
 ---@field _type _item_helmst
 ---@field subtype itemdef_helmst
@@ -2275,6 +2551,9 @@ df.item_shieldst = {}
 ---@class _item_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_helmst = {}
+
+---@return item_helmst
+function df.item_helmst:new() end
 
 ---@class (exact) item_glovesst: DFStruct, item_constructed
 ---@field _type _item_glovesst
@@ -2284,6 +2563,9 @@ df.item_helmst = {}
 ---@class _item_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_glovesst = {}
+
+---@return item_glovesst
+function df.item_glovesst:new() end
 
 ---@class _item_glovesst_handedness: DFContainer
 ---@field [integer] table<integer, boolean>
@@ -2309,6 +2591,9 @@ function _item_glovesst_handedness:erase(index) end
 ---@field _kind 'class-type'
 df.item_pantsst = {}
 
+---@return item_pantsst
+function df.item_pantsst:new() end
+
 ---@class (exact) item_siegeammost: DFStruct, item_constructed
 ---@field _type _item_siegeammost
 ---@field subtype itemdef_siegeammost
@@ -2317,6 +2602,9 @@ df.item_pantsst = {}
 ---@class _item_siegeammost: DFCompoundType
 ---@field _kind 'class-type'
 df.item_siegeammost = {}
+
+---@return item_siegeammost
+function df.item_siegeammost:new() end
 
 ---@class (exact) item_weaponst: DFStruct, item_constructed
 ---@field _type _item_weaponst
@@ -2327,6 +2615,9 @@ df.item_siegeammost = {}
 ---@field _kind 'class-type'
 df.item_weaponst = {}
 
+---@return item_weaponst
+function df.item_weaponst:new() end
+
 ---@class (exact) item_ammost: DFStruct, item_constructed
 ---@field _type _item_ammost
 ---@field subtype itemdef_ammost
@@ -2336,6 +2627,9 @@ df.item_weaponst = {}
 ---@field _kind 'class-type'
 df.item_ammost = {}
 
+---@return item_ammost
+function df.item_ammost:new() end
+
 ---@class (exact) item_trapcompst: DFStruct, item_constructed
 ---@field _type _item_trapcompst
 ---@field subtype itemdef_trapcompst
@@ -2344,6 +2638,9 @@ df.item_ammost = {}
 ---@class _item_trapcompst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_trapcompst = {}
+
+---@return item_trapcompst
+function df.item_trapcompst:new() end
 
 ---@class (exact) item_toolst: DFStruct, item_constructed
 ---@field _type _item_toolst
@@ -2358,6 +2655,9 @@ df.item_trapcompst = {}
 ---@field _kind 'class-type'
 df.item_toolst = {}
 
+---@return item_toolst
+function df.item_toolst:new() end
+
 ---@class (exact) item_stockpile_ref: DFStruct
 ---@field _type _item_stockpile_ref
 ---@field id number References: `building`
@@ -2368,6 +2668,9 @@ df.item_toolst = {}
 ---@field _kind 'struct-type'
 df.item_stockpile_ref = {}
 
+---@return item_stockpile_ref
+function df.item_stockpile_ref:new() end
+
 ---@class (exact) item_barrelst: DFStruct, item_constructed
 ---@field _type _item_barrelst
 ---@field stockpile item_stockpile_ref
@@ -2375,6 +2678,9 @@ df.item_stockpile_ref = {}
 ---@class _item_barrelst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_barrelst = {}
+
+---@return item_barrelst
+function df.item_barrelst:new() end
 
 ---@class (exact) item_binst: DFStruct, item_constructed
 ---@field _type _item_binst
@@ -2384,6 +2690,9 @@ df.item_barrelst = {}
 ---@field _kind 'class-type'
 df.item_binst = {}
 
+---@return item_binst
+function df.item_binst:new() end
+
 ---@class (exact) item_gemst: DFStruct, item_constructed
 ---@field _type _item_gemst
 ---@field shape number References: `descriptor_shape`
@@ -2391,6 +2700,9 @@ df.item_binst = {}
 ---@class _item_gemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gemst = {}
+
+---@return item_gemst
+function df.item_gemst:new() end
 
 ---@class (exact) item_statuest: DFStruct, item_constructed
 ---@field _type _item_statuest
@@ -2403,6 +2715,9 @@ df.item_gemst = {}
 ---@field _kind 'class-type'
 df.item_statuest = {}
 
+---@return item_statuest
+function df.item_statuest:new() end
+
 ---@class (exact) item_figurinest: DFStruct, item_constructed
 ---@field _type _item_figurinest
 ---@field image art_image_ref
@@ -2411,6 +2726,9 @@ df.item_statuest = {}
 ---@class _item_figurinest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_figurinest = {}
+
+---@return item_figurinest
+function df.item_figurinest:new() end
 
 ---@class (exact) item_slabst: DFStruct, item_constructed
 ---@field _type _item_slabst
@@ -2422,6 +2740,9 @@ df.item_figurinest = {}
 ---@field _kind 'class-type'
 df.item_slabst = {}
 
+---@return item_slabst
+function df.item_slabst:new() end
+
 ---@class (exact) item_orthopedic_castst: DFStruct, item_constructed
 ---@field _type _item_orthopedic_castst
 ---@field body_part string
@@ -2431,6 +2752,9 @@ df.item_slabst = {}
 ---@field _kind 'class-type'
 df.item_orthopedic_castst = {}
 
+---@return item_orthopedic_castst
+function df.item_orthopedic_castst:new() end
+
 ---@class (exact) item_coinst: DFStruct, item_constructed
 ---@field _type _item_coinst
 ---@field coin_batch number References: `coin_batch`
@@ -2438,6 +2762,9 @@ df.item_orthopedic_castst = {}
 ---@class _item_coinst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_coinst = {}
+
+---@return item_coinst
+function df.item_coinst:new() end
 
 ---@class (exact) item_totemst: DFStruct, item_constructed
 ---@field _type _item_totemst
@@ -2449,6 +2776,9 @@ df.item_coinst = {}
 ---@field _kind 'class-type'
 df.item_totemst = {}
 
+---@return item_totemst
+function df.item_totemst:new() end
+
 ---@class (exact) item_clothst: DFStruct, item_constructed
 ---@field _type _item_clothst
 ---@field dimension number
@@ -2457,6 +2787,9 @@ df.item_totemst = {}
 ---@field _kind 'class-type'
 df.item_clothst = {}
 
+---@return item_clothst
+function df.item_clothst:new() end
+
 ---@class (exact) item_bookst: DFStruct, item_constructed
 ---@field _type _item_bookst
 ---@field title string
@@ -2464,6 +2797,9 @@ df.item_clothst = {}
 ---@class _item_bookst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bookst = {}
+
+---@return item_bookst
+function df.item_bookst:new() end
 
 ---@class (exact) item_ballistaarrowheadst: DFStruct, item_actual
 ---@field _type _item_ballistaarrowheadst
@@ -2475,6 +2811,9 @@ df.item_bookst = {}
 ---@field _kind 'class-type'
 df.item_ballistaarrowheadst = {}
 
+---@return item_ballistaarrowheadst
+function df.item_ballistaarrowheadst:new() end
+
 ---@class (exact) item_sheetst: DFStruct, item_constructed
 ---@field _type _item_sheetst
 ---@field dimension number
@@ -2483,4 +2822,7 @@ df.item_ballistaarrowheadst = {}
 ---@class _item_sheetst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_sheetst = {}
+
+---@return item_sheetst
+function df.item_sheetst:new() end
 

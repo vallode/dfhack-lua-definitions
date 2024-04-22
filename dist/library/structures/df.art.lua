@@ -53,6 +53,9 @@ function art_image_element:getColorAndShape() end
 ---@field _kind 'class-type'
 df.art_image_element = {}
 
+---@return art_image_element
+function df.art_image_element:new() end
+
 ---@class (exact) art_image_element_creaturest: DFStruct, art_image_element
 ---@field _type _art_image_element_creaturest
 ---@field race number References: `creature_raw`
@@ -63,6 +66,9 @@ df.art_image_element = {}
 ---@field _kind 'class-type'
 df.art_image_element_creaturest = {}
 
+---@return art_image_element_creaturest
+function df.art_image_element_creaturest:new() end
+
 ---@class (exact) art_image_element_plantst: DFStruct, art_image_element
 ---@field _type _art_image_element_plantst
 ---@field plant_id number References: `plant_raw`
@@ -70,6 +76,9 @@ df.art_image_element_creaturest = {}
 ---@class _art_image_element_plantst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_plantst = {}
+
+---@return art_image_element_plantst
+function df.art_image_element_plantst:new() end
 
 ---@class (exact) art_image_element_treest: DFStruct, art_image_element
 ---@field _type _art_image_element_treest
@@ -79,6 +88,9 @@ df.art_image_element_plantst = {}
 ---@field _kind 'class-type'
 df.art_image_element_treest = {}
 
+---@return art_image_element_treest
+function df.art_image_element_treest:new() end
+
 ---@class (exact) art_image_element_shapest: DFStruct, art_image_element
 ---@field _type _art_image_element_shapest
 ---@field shape_id number References: `descriptor_shape`
@@ -87,6 +99,9 @@ df.art_image_element_treest = {}
 ---@class _art_image_element_shapest: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_shapest = {}
+
+---@return art_image_element_shapest
+function df.art_image_element_shapest:new() end
 
 ---@class (exact) art_image_element_itemst: DFStruct, art_image_element
 ---@field _type _art_image_element_itemst
@@ -100,6 +115,9 @@ df.art_image_element_shapest = {}
 ---@class _art_image_element_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_element_itemst = {}
+
+---@return art_image_element_itemst
+function df.art_image_element_itemst:new() end
 
 ---@alias art_image_property_type
 ---| 0 # transitive_verb
@@ -133,6 +151,9 @@ function art_image_property:getName() end
 ---@class _art_image_property: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_property = {}
+
+---@return art_image_property
+function df.art_image_property:new() end
 
 ---@class _art_image_property_flags: DFContainer
 ---@field [integer] table<integer, boolean>
@@ -309,6 +330,9 @@ df.art_image_property_verb = {}
 ---@field _kind 'class-type'
 df.art_image_property_transitive_verbst = {}
 
+---@return art_image_property_transitive_verbst
+function df.art_image_property_transitive_verbst:new() end
+
 ---@class (exact) art_image_property_intransitive_verbst: DFStruct, art_image_property
 ---@field _type _art_image_property_intransitive_verbst
 ---@field subject number
@@ -317,6 +341,9 @@ df.art_image_property_transitive_verbst = {}
 ---@class _art_image_property_intransitive_verbst: DFCompoundType
 ---@field _kind 'class-type'
 df.art_image_property_intransitive_verbst = {}
+
+---@return art_image_property_intransitive_verbst
+function df.art_image_property_intransitive_verbst:new() end
 
 ---@alias art_facet_type
 ---| 0 # OWN_RACE
@@ -356,6 +383,9 @@ df.art_facet_type = {}
 ---@class _art_image: DFCompoundType
 ---@field _kind 'struct-type'
 df.art_image = {}
+
+---@return art_image
+function df.art_image:new() end
 
 ---@class _art_image_elements: DFContainer
 ---@field [integer] art_image_element
@@ -398,6 +428,9 @@ function _art_image_properties:erase(index) end
 ---@field _kind 'struct-type'
 df.art_image_chunk = {}
 
+---@return art_image_chunk
+function df.art_image_chunk:new() end
+
 ---@param key number
 ---@return art_image_chunk|nil
 function df.art_image_chunk.find(key) end
@@ -417,6 +450,9 @@ function df.art_image_chunk.get_vector() end
 ---@class _art_image_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.art_image_ref = {}
+
+---@return art_image_ref
+function df.art_image_ref:new() end
 
 ---@alias poetic_form_action
 ---| -1 # None
@@ -667,6 +703,9 @@ df.poetic_form_subject = {}
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target = {}
 
+---@return poetic_form_subject_target
+function df.poetic_form_subject_target:new() end
+
 ---@class (exact) poetic_form_subject_target.T_Histfig: DFStruct
 ---@field _type _poetic_form_subject_target.T_Histfig
 ---@field subject_histfig number References: `historical_figure`
@@ -675,6 +714,9 @@ df.poetic_form_subject_target = {}
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target.T_Histfig = {}
 
+---@return poetic_form_subject_target.T_Histfig
+function df.poetic_form_subject_target.T_Histfig:new() end
+
 ---@class (exact) poetic_form_subject_target.T_Concept: DFStruct
 ---@field _type _poetic_form_subject_target.T_Concept
 ---@field subject_topic sphere_type
@@ -682,6 +724,9 @@ df.poetic_form_subject_target.T_Histfig = {}
 ---@class _poetic_form_subject_target.T_Concept: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target.T_Concept = {}
+
+---@return poetic_form_subject_target.T_Concept
+function df.poetic_form_subject_target.T_Concept:new() end
 
 ---@class poetic_form_feature: DFBitfield
 ---@field _enum _poetic_form_feature
@@ -834,6 +879,9 @@ df.poetic_form_additional_feature = {}
 ---@field _kind 'struct-type'
 df.poetic_form = {}
 
+---@return poetic_form
+function df.poetic_form:new() end
+
 ---@param key number
 ---@return poetic_form|nil
 function df.poetic_form.find(key) end
@@ -942,6 +990,9 @@ function _poetic_form_perspectives:erase(index) end
 ---@class _poetic_form_part: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_part = {}
+
+---@return poetic_form_part
+function df.poetic_form_part:new() end
 
 ---@class poetic_form_part.T_flags: DFBitfield
 ---@field _enum _poetic_form_part.T_flags
@@ -1106,6 +1157,9 @@ function _poetic_form_part_certain_lines_additional_features:erase(index) end
 ---@class _poetic_form_perspective: DFCompoundType
 ---@field _kind 'struct-type'
 df.poetic_form_perspective = {}
+
+---@return poetic_form_perspective
+function df.poetic_form_perspective:new() end
 
 -- "written from the perspective of ..."
 ---@alias poetic_form_perspective.T_type
@@ -1596,6 +1650,9 @@ df.musical_form_melody_frequency = {}
 ---@field _kind 'struct-type'
 df.musical_form_interval = {}
 
+---@return musical_form_interval
+function df.musical_form_interval:new() end
+
 ---@class musical_form_interval.T_flags: DFBitfield
 ---@field _enum _musical_form_interval.T_flags
 ---@field rising boolean otherwise falling
@@ -1624,6 +1681,9 @@ df.musical_form_interval.T_flags = {}
 ---@class _musical_form_melodies: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_melodies = {}
+
+---@return musical_form_melodies
+function df.musical_form_melodies:new() end
 
 ---@class _musical_form_melodies_intervals: DFContainer
 ---@field [integer] musical_form_interval
@@ -1672,6 +1732,9 @@ function _musical_form_melodies_intervals:erase(index) end
 ---@class _musical_form_passage: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form_passage = {}
+
+---@return musical_form_passage
+function df.musical_form_passage:new() end
 
 ---@class _musical_form_passage_components: DFContainer
 ---@field [integer] musical_form_passage_component_type
@@ -1735,6 +1798,9 @@ function _musical_form_passage_melodies:erase(index) end
 ---@field _kind 'struct-type'
 df.musical_form_instruments = {}
 
+---@return musical_form_instruments
+function df.musical_form_instruments:new() end
+
 ---@class musical_form_instruments.T_substitutions: DFBitfield
 ---@field _enum _musical_form_instruments.T_substitutions
 ---@field singer boolean
@@ -1766,6 +1832,9 @@ df.musical_form_instruments.T_substitutions = {}
 ---@field _kind 'struct-type'
 df.musical_form_sub4 = {}
 
+---@return musical_form_sub4
+function df.musical_form_sub4:new() end
+
 ---@class (exact) musical_form: DFStruct
 ---@field _type _musical_form
 ---@field id number
@@ -1795,6 +1864,9 @@ df.musical_form_sub4 = {}
 ---@class _musical_form: DFCompoundType
 ---@field _kind 'struct-type'
 df.musical_form = {}
+
+---@return musical_form
+function df.musical_form:new() end
 
 ---@param key number
 ---@return musical_form|nil
@@ -2351,6 +2423,9 @@ df.dance_form_move_location = {}
 ---@field _kind 'struct-type'
 df.dance_form_section = {}
 
+---@return dance_form_section
+function df.dance_form_section:new() end
+
 ---@class _dance_form_section_partner_changes: DFContainer
 ---@field [integer] dance_form_partner_change_type
 local _dance_form_section_partner_changes
@@ -2442,6 +2517,9 @@ df.dance_form_move_group_type = {}
 ---@field _kind 'struct-type'
 df.dance_form_move = {}
 
+---@return dance_form_move
+function df.dance_form_move:new() end
+
 ---@class _dance_form_move_type: DFContainer
 ---@field [integer] dance_form_move_type
 local _dance_form_move_type
@@ -2524,6 +2602,9 @@ function _dance_form_move_location:erase(index) end
 ---@class _dance_form: DFCompoundType
 ---@field _kind 'struct-type'
 df.dance_form = {}
+
+---@return dance_form
+function df.dance_form:new() end
 
 ---@param key number
 ---@return dance_form|nil
@@ -2655,6 +2736,9 @@ df.scale_type = {}
 ---@field _kind 'struct-type'
 df.chord = {}
 
+---@return chord
+function df.chord:new() end
+
 -- Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
 ---@class (exact) named_scale: DFStruct
 ---@field _type _named_scale
@@ -2668,6 +2752,9 @@ df.chord = {}
 ---@class _named_scale: DFCompoundType
 ---@field _kind 'struct-type'
 df.named_scale = {}
+
+---@return named_scale
+function df.named_scale:new() end
 
 ---@class (exact) scale: DFStruct
 ---@field _type _scale
@@ -2683,6 +2770,9 @@ df.named_scale = {}
 ---@class _scale: DFCompoundType
 ---@field _kind 'struct-type'
 df.scale = {}
+
+---@return scale
+function df.scale:new() end
 
 ---@param key number
 ---@return scale|nil
@@ -2748,6 +2838,9 @@ function _scale_scales:erase(index) end
 ---@field _kind 'struct-type'
 df.scale.T_notes = {}
 
+---@return scale.T_notes
+function df.scale.T_notes:new() end
+
 ---@class (exact) rhythm: DFStruct
 ---@field _type _rhythm
 ---@field id number
@@ -2758,6 +2851,9 @@ df.scale.T_notes = {}
 ---@class _rhythm: DFCompoundType
 ---@field _kind 'struct-type'
 df.rhythm = {}
+
+---@return rhythm
+function df.rhythm:new() end
 
 ---@param key number
 ---@return rhythm|nil
@@ -2853,6 +2949,9 @@ df.beat_type = {}
 ---@field _kind 'struct-type'
 df.rhythm_pattern = {}
 
+---@return rhythm_pattern
+function df.rhythm_pattern:new() end
+
 ---@class _rhythm_pattern_bars: DFContainer
 ---@field [integer] DFPointer<integer>
 local _rhythm_pattern_bars
@@ -2879,6 +2978,9 @@ function _rhythm_pattern_bars:erase(index) end
 ---@class _sub_rhythm: DFCompoundType
 ---@field _kind 'struct-type'
 df.sub_rhythm = {}
+
+---@return sub_rhythm
+function df.sub_rhythm:new() end
 
 -- bay12: Occupation
 ---@alias occupation_type
@@ -2937,6 +3039,9 @@ df.occupation_type = {}
 ---@class _occupation: DFCompoundType
 ---@field _kind 'struct-type'
 df.occupation = {}
+
+---@return occupation
+function df.occupation:new() end
 
 ---@param key number
 ---@return occupation|nil
@@ -3007,6 +3112,9 @@ df.service_order_type = {}
 ---@class _service_orderst: DFCompoundType
 ---@field _kind 'struct-type'
 df.service_orderst = {}
+
+---@return service_orderst
+function df.service_orderst:new() end
 
 ---@class service_orderst.T_flag: DFBitfield
 ---@field _enum _service_orderst.T_flag

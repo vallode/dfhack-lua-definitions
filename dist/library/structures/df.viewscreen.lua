@@ -17,6 +17,9 @@
 ---@field _kind 'struct-type'
 df.file_compressorst = {}
 
+---@return file_compressorst
+function df.file_compressorst:new() end
+
 ---@alias interface_breakdown_types
 ---| 0 # NONE
 ---| 1 # QUIT
@@ -75,6 +78,9 @@ function abstract_interfacest:clear() end
 ---@field _kind 'class-type'
 df.abstract_interfacest = {}
 
+---@return abstract_interfacest
+function df.abstract_interfacest:new() end
+
 ---@class (exact) viewscreen: DFStruct, abstract_interfacest
 ---@field _type _viewscreen
 ---@field child viewscreen
@@ -93,6 +99,9 @@ function viewscreen:set_port_flags() end
 ---@field _kind 'class-type'
 df.viewscreen = {}
 
+---@return viewscreen
+function df.viewscreen:new() end
+
 ---@class (exact) interfacest: DFStruct
 ---@field _type _interfacest
 ---@field original_fps number
@@ -105,6 +114,9 @@ df.viewscreen = {}
 ---@class _interfacest: DFCompoundType
 ---@field _kind 'struct-type'
 df.interfacest = {}
+
+---@return interfacest
+function df.interfacest:new() end
 
 ---@class (exact) scrollbarst: DFStruct
 ---@field _type _scrollbarst
@@ -121,6 +133,9 @@ df.interfacest = {}
 ---@field _kind 'struct-type'
 df.scrollbarst = {}
 
+---@return scrollbarst
+function df.scrollbarst:new() end
+
 ---@class (exact) extentst: DFStruct
 ---@field _type _extentst
 ---@field x1 number
@@ -131,6 +146,9 @@ df.scrollbarst = {}
 ---@class _extentst: DFCompoundType
 ---@field _kind 'struct-type'
 df.extentst = {}
+
+---@return extentst
+function df.extentst:new() end
 
 ---@class (exact) widget: DFStruct
 ---@field _type _widget
@@ -181,6 +199,9 @@ function widget:is_container() end
 ---@class _widget: DFCompoundType
 ---@field _kind 'class-type'
 df.widget = {}
+
+---@return widget
+function df.widget:new() end
 
 ---@class _widget_custom_feed: DFContainer
 ---@field [integer] function[]
@@ -325,6 +346,9 @@ function _widget_activation_hotkeys:erase(index) end
 ---@field _kind 'class-type'
 df.widget_character = {}
 
+---@return widget_character
+function df.widget_character:new() end
+
 ---@class (exact) widget_text: DFStruct, widget
 ---@field _type _widget_text
 ---@field str string
@@ -339,6 +363,9 @@ df.widget_character = {}
 ---@field _kind 'class-type'
 df.widget_text = {}
 
+---@return widget_text
+function df.widget_text:new() end
+
 ---@class (exact) text_truncated: DFStruct, widget_text
 ---@field _type _text_truncated
 ---@field original_str string
@@ -348,6 +375,9 @@ df.widget_text = {}
 ---@field _kind 'class-type'
 df.text_truncated = {}
 
+---@return text_truncated
+function df.text_truncated:new() end
+
 ---@class (exact) widget_text_multiline: DFStruct, widget_text
 ---@field _type _widget_text_multiline
 ---@field strs DFStringVector
@@ -355,6 +385,9 @@ df.text_truncated = {}
 ---@class _widget_text_multiline: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_text_multiline = {}
+
+---@return widget_text_multiline
+function df.widget_text_multiline:new() end
 
 ---@class override_tile_type: DFBitfield
 ---@field _enum _override_tile_type
@@ -399,12 +432,18 @@ df.override_tile_type = {}
 ---@field _kind 'class-type'
 df.widget_nineslice = {}
 
+---@return widget_nineslice
+function df.widget_nineslice:new() end
+
 ---@class (exact) widget_nineslice_horizontal: DFStruct, widget_nineslice
 ---@field _type _widget_nineslice_horizontal
 
 ---@class _widget_nineslice_horizontal: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_nineslice_horizontal = {}
+
+---@return widget_nineslice_horizontal
+function df.widget_nineslice_horizontal:new() end
 
 ---@class (exact) widget_anchored_tile: DFStruct, widget_nineslice
 ---@field _type _widget_anchored_tile
@@ -417,6 +456,9 @@ df.widget_nineslice_horizontal = {}
 ---@field _kind 'class-type'
 df.widget_anchored_tile = {}
 
+---@return widget_anchored_tile
+function df.widget_anchored_tile:new() end
+
 ---@class (exact) widget_keybinding_display: DFStruct, widget
 ---@field _type _widget_keybinding_display
 ---@field binding number
@@ -424,6 +466,9 @@ df.widget_anchored_tile = {}
 ---@class _widget_keybinding_display: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_keybinding_display = {}
+
+---@return widget_keybinding_display
+function df.widget_keybinding_display:new() end
 
 ---@class (exact) widget_graphics_switcher: DFStruct, widget
 ---@field _type _widget_graphics_switcher
@@ -433,6 +478,9 @@ df.widget_keybinding_display = {}
 ---@class _widget_graphics_switcher: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_graphics_switcher = {}
+
+---@return widget_graphics_switcher
+function df.widget_graphics_switcher:new() end
 
 ---@class _widget_graphics_switcher_graphics_widget: DFContainer
 ---@field [integer] widget
@@ -477,6 +525,9 @@ function _widget_graphics_switcher_ascii_widget:erase(index) end
 ---@class _widget_menu: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_menu = {}
+
+---@return widget_menu
+function df.widget_menu:new() end
 
 ---@class _widget_menu_lines: DFContainer
 ---@field [integer] any[]
@@ -541,6 +592,9 @@ df.textbox_type = {}
 ---@field _kind 'class-type'
 df.widget_textbox = {}
 
+---@return widget_textbox
+function df.widget_textbox:new() end
+
 ---@class _widget_textbox_callback: DFContainer
 ---@field [integer] function[]
 local _widget_textbox_callback
@@ -568,6 +622,9 @@ function _widget_textbox_callback:erase(index) end
 ---@field _kind 'class-type'
 df.widget_dropdown = {}
 
+---@return widget_dropdown
+function df.widget_dropdown:new() end
+
 ---@class _widget_dropdown_callback: DFContainer
 ---@field [integer] function[]
 local _widget_dropdown_callback
@@ -594,6 +651,9 @@ function _widget_dropdown_callback:erase(index) end
 ---@field _kind 'class-type'
 df.widget_folder = {}
 
+---@return widget_folder
+function df.widget_folder:new() end
+
 ---@class _widget_folder_controlled_set: DFContainer
 ---@field [integer] any[]
 local _widget_folder_controlled_set
@@ -618,6 +678,9 @@ function _widget_folder_controlled_set:erase(index) end
 ---@class _filter_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.filter_entry = {}
+
+---@return filter_entry
+function df.filter_entry:new() end
 
 ---@class _filter_entry_label: DFContainer
 ---@field [integer] widget_text
@@ -666,6 +729,9 @@ function widget_filter:set_filtered() end
 ---@field _kind 'class-type'
 df.widget_filter = {}
 
+---@return widget_filter
+function df.widget_filter:new() end
+
 ---@class _widget_filter_filters: DFContainer
 ---@field [integer] filter_entry
 local _widget_filter_filters
@@ -705,6 +771,9 @@ function _widget_filter_container_parent:erase(index) end
 ---@field _kind 'class-type'
 df.indiv_filter = {}
 
+---@return indiv_filter
+function df.indiv_filter:new() end
+
 ---@class (exact) multifilter: DFStruct, widget
 ---@field _type _multifilter
 ---@field filters _multifilter_filters
@@ -713,6 +782,9 @@ df.indiv_filter = {}
 ---@class _multifilter: DFCompoundType
 ---@field _kind 'class-type'
 df.multifilter = {}
+
+---@return multifilter
+function df.multifilter:new() end
 
 ---@class _multifilter_filters: DFContainer
 ---@field [integer] indiv_filter
@@ -770,6 +842,9 @@ function _multifilter_container_parent:erase(index) end
 ---@field _kind 'class-type'
 df.widget_interface_main_button = {}
 
+---@return widget_interface_main_button
+function df.widget_interface_main_button:new() end
+
 ---@class (exact) widget_interface_small_button: DFStruct, widget
 ---@field _type _widget_interface_small_button
 ---@field which_button number
@@ -778,6 +853,9 @@ df.widget_interface_main_button = {}
 ---@field _kind 'class-type'
 df.widget_interface_small_button = {}
 
+---@return widget_interface_small_button
+function df.widget_interface_small_button:new() end
+
 ---@class (exact) widget_interface_pets_livestock_button: DFStruct, widget
 ---@field _type _widget_interface_pets_livestock_button
 ---@field which_button number
@@ -785,6 +863,9 @@ df.widget_interface_small_button = {}
 ---@class _widget_interface_pets_livestock_button: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_interface_pets_livestock_button = {}
+
+---@return widget_interface_pets_livestock_button
+function df.widget_interface_pets_livestock_button:new() end
 
 ---@class (exact) widget_better_button: DFStruct, widget
 ---@field _type _widget_better_button
@@ -796,6 +877,9 @@ df.widget_interface_pets_livestock_button = {}
 ---@class _widget_better_button: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_better_button = {}
+
+---@return widget_better_button
+function df.widget_better_button:new() end
 
 ---@class _widget_better_button_callback: DFContainer
 ---@field [integer] function[]
@@ -821,6 +905,9 @@ function _widget_better_button_callback:erase(index) end
 ---@class _widget_container: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_container = {}
+
+---@return widget_container
+function df.widget_container:new() end
 
 ---@class _widget_container_children_by_name: DFContainer
 ---@field [integer] any[]
@@ -879,6 +966,9 @@ function _widget_container_children_widget:erase(index) end
 ---@field _kind 'class-type'
 df.widget_stack = {}
 
+---@return widget_stack
+function df.widget_stack:new() end
+
 ---@class _widget_stack_deferred_replacement: DFContainer
 ---@field [integer] widget
 local _widget_stack_deferred_replacement
@@ -903,6 +993,9 @@ function _widget_stack_deferred_replacement:erase(index) end
 ---@field _kind 'class-type'
 df.widget_rows_container = {}
 
+---@return widget_rows_container
+function df.widget_rows_container:new() end
+
 ---@class (exact) widget_columns_container: DFStruct, widget_container
 ---@field _type _widget_columns_container
 ---@field padding number
@@ -910,6 +1003,9 @@ df.widget_rows_container = {}
 ---@class _widget_columns_container: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_columns_container = {}
+
+---@return widget_columns_container
+function df.widget_columns_container:new() end
 
 ---@class (exact) widget_tabs: DFStruct, widget_container
 ---@field _type _widget_tabs
@@ -921,6 +1017,9 @@ df.widget_columns_container = {}
 ---@class _widget_tabs: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_tabs = {}
+
+---@return widget_tabs
+function df.widget_tabs:new() end
 
 ---@class _widget_tabs_rows: DFContainer
 ---@field [integer] any[]
@@ -966,6 +1065,9 @@ df.widget_tabs.T_tab_type = {}
 ---@field _kind 'class-type'
 df.widget_scroll_rows = {}
 
+---@return widget_scroll_rows
+function df.widget_scroll_rows:new() end
+
 ---@class (exact) widget_radio_rows: DFStruct, widget
 ---@field _type _widget_radio_rows
 ---@field selected widget
@@ -976,6 +1078,9 @@ df.widget_scroll_rows = {}
 ---@class _widget_radio_rows: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_radio_rows = {}
+
+---@return widget_radio_rows
+function df.widget_radio_rows:new() end
 
 ---@class _widget_radio_rows_select_callback: DFContainer
 ---@field [integer] any[]
@@ -1005,6 +1110,9 @@ function _widget_radio_rows_select_callback:erase(index) end
 ---@class _widget_table: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_table = {}
+
+---@return widget_table
+function df.widget_table:new() end
 
 ---@class _widget_table_labels: DFContainer
 ---@field [integer] widget_columns_container
@@ -1063,6 +1171,9 @@ function _widget_table_key_display:erase(index) end
 ---@field _kind 'class-type'
 df.widget_params_container = {}
 
+---@return widget_params_container
+function df.widget_params_container:new() end
+
 ---@class _widget_params_container_text: DFContainer
 ---@field [integer] widget_text
 local _widget_params_container_text
@@ -1109,6 +1220,9 @@ function _widget_params_container_param:erase(index) end
 ---@class _widget_report_popup: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_report_popup = {}
+
+---@return widget_report_popup
+function df.widget_report_popup:new() end
 
 ---@class _widget_report_popup_texts: DFContainer
 ---@field [integer] widget_scroll_rows
@@ -1168,6 +1282,9 @@ function _widget_report_popup_explanation:erase(index) end
 ---@field _kind 'class-type'
 df.widget_recenter_button = {}
 
+---@return widget_recenter_button
+function df.widget_recenter_button:new() end
+
 ---@class (exact) widget_sheet_button: DFStruct, widget
 ---@field _type _widget_sheet_button
 local widget_sheet_button
@@ -1179,6 +1296,9 @@ function widget_sheet_button:set_up_tooltip() end
 ---@field _kind 'class-type'
 df.widget_sheet_button = {}
 
+---@return widget_sheet_button
+function df.widget_sheet_button:new() end
+
 ---@class (exact) widget_unit_sheet_button: DFStruct, widget_sheet_button
 ---@field _type _widget_unit_sheet_button
 ---@field unid number
@@ -1186,6 +1306,9 @@ df.widget_sheet_button = {}
 ---@class _widget_unit_sheet_button: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_unit_sheet_button = {}
+
+---@return widget_unit_sheet_button
+function df.widget_unit_sheet_button:new() end
 
 ---@class (exact) widget_item_sheet_button: DFStruct, widget_sheet_button
 ---@field _type _widget_item_sheet_button
@@ -1195,6 +1318,9 @@ df.widget_unit_sheet_button = {}
 ---@field _kind 'class-type'
 df.widget_item_sheet_button = {}
 
+---@return widget_item_sheet_button
+function df.widget_item_sheet_button:new() end
+
 ---@class (exact) widget_job_details_button: DFStruct, widget
 ---@field _type _widget_job_details_button
 ---@field jb DFPointer<integer>
@@ -1203,6 +1329,9 @@ df.widget_item_sheet_button = {}
 ---@class _widget_job_details_button: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_job_details_button = {}
+
+---@return widget_job_details_button
+function df.widget_job_details_button:new() end
 
 ---@alias unit_list_options
 ---| 0 # NONE
@@ -1294,6 +1423,9 @@ df.unit_list_sort_flag = {}
 ---@field _kind 'class-type'
 df.widget_unit_portrait = {}
 
+---@return widget_unit_portrait
+function df.widget_unit_portrait:new() end
+
 ---@class (exact) widget_creature_portrait: DFStruct, widget
 ---@field _type _widget_creature_portrait
 ---@field race number
@@ -1303,6 +1435,9 @@ df.widget_unit_portrait = {}
 ---@field _kind 'class-type'
 df.widget_creature_portrait = {}
 
+---@return widget_creature_portrait
+function df.widget_creature_portrait:new() end
+
 ---@class (exact) widget_item_portrait: DFStruct, widget
 ---@field _type _widget_item_portrait
 ---@field i item
@@ -1310,6 +1445,9 @@ df.widget_creature_portrait = {}
 ---@class _widget_item_portrait: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_item_portrait = {}
+
+---@return widget_item_portrait
+function df.widget_item_portrait:new() end
 
 ---@class (exact) widget_unit_name: DFStruct, widget
 ---@field _type _widget_unit_name
@@ -1322,6 +1460,9 @@ df.widget_item_portrait = {}
 ---@field _kind 'class-type'
 df.widget_unit_name = {}
 
+---@return widget_unit_name
+function df.widget_unit_name:new() end
+
 ---@class (exact) widget_item_name: DFStruct, widget
 ---@field _type _widget_item_name
 ---@field it item
@@ -1329,6 +1470,9 @@ df.widget_unit_name = {}
 ---@class _widget_item_name: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_item_name = {}
+
+---@return widget_item_name
+function df.widget_item_name:new() end
 
 ---@class (exact) sort_entry: DFStruct
 ---@field _type _sort_entry
@@ -1339,12 +1483,18 @@ df.widget_item_name = {}
 ---@field _kind 'struct-type'
 df.sort_entry = {}
 
+---@return sort_entry
+function df.sort_entry:new() end
+
 ---@class (exact) item_or_unit: DFStruct
 ---@field _type _item_or_unit
 
 ---@class _item_or_unit: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_or_unit = {}
+
+---@return item_or_unit
+function df.item_or_unit:new() end
 
 ---@class (exact) widget_unit_list: DFStruct, widget_container
 ---@field _type _widget_unit_list
@@ -1378,6 +1528,9 @@ df.item_or_unit = {}
 ---@field _kind 'class-type'
 df.widget_unit_list = {}
 
+---@return widget_unit_list
+function df.widget_unit_list:new() end
+
 ---@class _widget_unit_list_deferred_units_builds: DFContainer
 ---@field [integer] widget_unit_list.T_deferred_units_builds
 local _widget_unit_list_deferred_units_builds
@@ -1400,6 +1553,9 @@ function _widget_unit_list_deferred_units_builds:erase(index) end
 ---@class _widget_unit_list.T_deferred_units_builds: DFCompoundType
 ---@field _kind 'struct-type'
 df.widget_unit_list.T_deferred_units_builds = {}
+
+---@return widget_unit_list.T_deferred_units_builds
+function df.widget_unit_list.T_deferred_units_builds:new() end
 
 ---@class _widget_unit_list_deferred_units_builds_widget_container: DFContainer
 ---@field [integer] widget_container
@@ -1636,6 +1792,9 @@ function _widget_unit_list_on_select_change:erase(index) end
 ---@field _kind 'class-type'
 df.widget_sort_widget = {}
 
+---@return widget_sort_widget
+function df.widget_sort_widget:new() end
+
 -- original-name for this class is not yet known
 ---@class (exact) widget_unit_sort_widget: DFStruct, widget_sort_widget
 ---@field _type _widget_unit_sort_widget
@@ -1643,6 +1802,9 @@ df.widget_sort_widget = {}
 ---@class _widget_unit_sort_widget: DFCompoundType
 ---@field _kind 'class-type'
 df.widget_unit_sort_widget = {}
+
+---@return widget_unit_sort_widget
+function df.widget_unit_sort_widget:new() end
 
 ---@class (exact) MacroScreenLoad: DFStruct, viewscreen
 ---@field _type _MacroScreenLoad
@@ -1654,6 +1816,9 @@ df.widget_unit_sort_widget = {}
 ---@field _kind 'class-type'
 df.MacroScreenLoad = {}
 
+---@return MacroScreenLoad
+function df.MacroScreenLoad:new() end
+
 ---@class (exact) MacroScreenSave: DFStruct, viewscreen
 ---@field _type _MacroScreenSave
 ---@field id widget_textbox
@@ -1661,6 +1826,9 @@ df.MacroScreenLoad = {}
 ---@class _MacroScreenSave: DFCompoundType
 ---@field _kind 'class-type'
 df.MacroScreenSave = {}
+
+---@return MacroScreenSave
+function df.MacroScreenSave:new() end
 
 ---@class (exact) shared_world_headerst: DFStruct
 ---@field _type _shared_world_headerst
@@ -1678,6 +1846,9 @@ df.MacroScreenSave = {}
 ---@class _shared_world_headerst: DFCompoundType
 ---@field _kind 'struct-type'
 df.shared_world_headerst = {}
+
+---@return shared_world_headerst
+function df.shared_world_headerst:new() end
 
 ---@alias shared_world_headerst.T_save_type
 ---| -1 # NONE
@@ -1711,6 +1882,9 @@ df.shared_world_headerst.T_save_type = {}
 ---@class _region_headerst: DFCompoundType
 ---@field _kind 'struct-type'
 df.region_headerst = {}
+
+---@return region_headerst
+function df.region_headerst:new() end
 
 -- when loading, DF sets *_next_id to these fields plus 1
 ---@class (exact) region_headerst.T_last_id: DFStruct
@@ -1757,6 +1931,9 @@ df.region_headerst = {}
 ---@field _kind 'struct-type'
 df.region_headerst.T_last_id = {}
 
+---@return region_headerst.T_last_id
+function df.region_headerst.T_last_id:new() end
+
 ---@class (exact) viewscreen_adopt_regionst: DFStruct, viewscreen
 ---@field _type _viewscreen_adopt_regionst
 ---@field compressor file_compressorst
@@ -1769,6 +1946,9 @@ df.region_headerst.T_last_id = {}
 ---@class _viewscreen_adopt_regionst: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_adopt_regionst = {}
+
+---@return viewscreen_adopt_regionst
+function df.viewscreen_adopt_regionst:new() end
 
 ---@alias viewscreen_adopt_regionst.T_cur_step
 ---| 0 # OpeningFile
@@ -1967,6 +2147,9 @@ df.embark_finder_option = {}
 ---@field _kind 'struct-type'
 df.embark_location = {}
 
+---@return embark_location
+function df.embark_location:new() end
+
 ---@class (exact) viewscreen_choose_start_sitest: DFStruct, viewscreen
 ---@field _type _viewscreen_choose_start_sitest
 ---@field page viewscreen_choose_start_sitest.T_page
@@ -2056,6 +2239,9 @@ df.embark_location = {}
 ---@class _viewscreen_choose_start_sitest: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_choose_start_sitest = {}
+
+---@return viewscreen_choose_start_sitest
+function df.viewscreen_choose_start_sitest:new() end
 
 ---@alias viewscreen_choose_start_sitest.T_page
 ---| 0 # Biome
@@ -2242,6 +2428,9 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field _kind 'struct-type'
 df.mission = {}
 
+---@return mission
+function df.mission:new() end
+
 ---@class (exact) mission.T_details: DFStruct
 ---@field _type _mission.T_details
 ---@field raid DFPointer<integer>
@@ -2252,6 +2441,9 @@ df.mission = {}
 ---@class _mission.T_details: DFCompoundType
 ---@field _kind 'struct-type'
 df.mission.T_details = {}
+
+---@return mission.T_details
+function df.mission.T_details:new() end
 
 ---@alias mission.T_type
 ---| 2 # Raid
@@ -2289,6 +2481,9 @@ df.mission.T_type = {}
 ---@class _viewscreen_dwarfmodest: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_dwarfmodest = {}
+
+---@return viewscreen_dwarfmodest
+function df.viewscreen_dwarfmodest:new() end
 
 ---@class _viewscreen_dwarfmodest_unit_labors_sidemenu: DFContainer
 ---@field [integer] unit_labor
@@ -2351,6 +2546,9 @@ function _viewscreen_dwarfmodest_trained_animals:erase(index) end
 ---@class _viewscreen_export_regionst: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_export_regionst = {}
+
+---@return viewscreen_export_regionst
+function df.viewscreen_export_regionst:new() end
 
 ---@alias viewscreen_export_regionst.T_state
 ---| 0 # Initializing
@@ -2487,6 +2685,9 @@ df.viewscreen_export_regionst.T_state = {}
 ---@field _kind 'struct-type'
 df.viewscreen_export_regionst.T_units_progress = {}
 
+---@return viewscreen_export_regionst.T_units_progress
+function df.viewscreen_export_regionst.T_units_progress:new() end
+
 ---@class _viewscreen_export_regionst_units_progress_units: DFContainer
 ---@field [integer] unit
 local _viewscreen_export_regionst_units_progress_units
@@ -2511,6 +2712,9 @@ function _viewscreen_export_regionst_units_progress_units:erase(index) end
 ---@field _kind 'class-type'
 df.viewscreen_game_cleanerst = {}
 
+---@return viewscreen_game_cleanerst
+function df.viewscreen_game_cleanerst:new() end
+
 ---@alias viewscreen_game_cleanerst.T_state
 ---| 0 # CleaningGameObjects
 ---| 1 # CleaningStrandedObjects
@@ -2534,6 +2738,9 @@ df.viewscreen_game_cleanerst.T_state = {}
 ---@class _viewscreen_initial_prepst: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_initial_prepst = {}
+
+---@return viewscreen_initial_prepst
+function df.viewscreen_initial_prepst:new() end
 
 ---@class (exact) world_gen_param_basest: DFStruct
 ---@field _type _world_gen_param_basest
@@ -2578,6 +2785,9 @@ function world_gen_param_basest:increase() end
 ---@field _kind 'class-type'
 df.world_gen_param_basest = {}
 
+---@return world_gen_param_basest
+function df.world_gen_param_basest:new() end
+
 ---@class (exact) world_gen_param_seedst: DFStruct, world_gen_param_basest
 ---@field _type _world_gen_param_seedst
 ---@field val_ptr string
@@ -2585,6 +2795,9 @@ df.world_gen_param_basest = {}
 ---@class _world_gen_param_seedst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_gen_param_seedst = {}
+
+---@return world_gen_param_seedst
+function df.world_gen_param_seedst:new() end
 
 ---@class (exact) world_gen_param_valuest: DFStruct, world_gen_param_basest
 ---@field _type _world_gen_param_valuest
@@ -2595,6 +2808,9 @@ df.world_gen_param_seedst = {}
 ---@class _world_gen_param_valuest: DFCompoundType
 ---@field _kind 'class-type'
 df.world_gen_param_valuest = {}
+
+---@return world_gen_param_valuest
+function df.world_gen_param_valuest:new() end
 
 ---@class (exact) world_gen_param_charst: DFStruct, world_gen_param_valuest
 ---@field _type _world_gen_param_charst
@@ -2609,6 +2825,9 @@ df.world_gen_param_valuest = {}
 ---@field _kind 'class-type'
 df.world_gen_param_charst = {}
 
+---@return world_gen_param_charst
+function df.world_gen_param_charst:new() end
+
 ---@class (exact) world_gen_param_memberst: DFStruct, world_gen_param_valuest
 ---@field _type _world_gen_param_memberst
 ---@field val_ptr number
@@ -2622,6 +2841,9 @@ df.world_gen_param_charst = {}
 ---@field _kind 'class-type'
 df.world_gen_param_memberst = {}
 
+---@return world_gen_param_memberst
+function df.world_gen_param_memberst:new() end
+
 ---@class (exact) world_gen_param_flagst: DFStruct, world_gen_param_valuest
 ---@field _type _world_gen_param_flagst
 ---@field val_ptr integer
@@ -2632,6 +2854,9 @@ df.world_gen_param_memberst = {}
 ---@field _kind 'class-type'
 df.world_gen_param_flagst = {}
 
+---@return world_gen_param_flagst
+function df.world_gen_param_flagst:new() end
+
 ---@class (exact) world_gen_param_flagarrayst: DFStruct, world_gen_param_valuest
 ---@field _type _world_gen_param_flagarrayst
 ---@field val_ptr DFPointer<integer>
@@ -2641,6 +2866,9 @@ df.world_gen_param_flagst = {}
 ---@class _world_gen_param_flagarrayst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_gen_param_flagarrayst = {}
+
+---@return world_gen_param_flagarrayst
+function df.world_gen_param_flagarrayst:new() end
 
 ---@class (exact) legend_pagest: DFStruct
 ---@field _type _legend_pagest
@@ -2659,6 +2887,9 @@ df.world_gen_param_flagarrayst = {}
 ---@class _legend_pagest: DFCompoundType
 ---@field _kind 'struct-type'
 df.legend_pagest = {}
+
+---@return legend_pagest
+function df.legend_pagest:new() end
 
 ---@alias legend_pagest.T_mode
 ---| -1 # NONE
@@ -2761,6 +2992,9 @@ df.legend_pagest.T_mode = {}
 ---@field _kind 'class-type'
 df.viewscreen_legendsst = {}
 
+---@return viewscreen_legendsst
+function df.viewscreen_legendsst:new() end
+
 ---@class _viewscreen_legendsst_region_snapshot: DFContainer
 ---@field [integer] DFPointer<integer>
 local _viewscreen_legendsst_region_snapshot
@@ -2847,6 +3081,9 @@ function _viewscreen_legendsst_page:erase(index) end
 ---@field _kind 'struct-type'
 df.savegame_headerst = {}
 
+---@return savegame_headerst
+function df.savegame_headerst:new() end
+
 ---@class (exact) random_object_batchst: DFStruct
 ---@field _type _random_object_batchst
 ---@field start_inorganic_number number
@@ -2869,6 +3106,9 @@ df.savegame_headerst = {}
 ---@class _random_object_batchst: DFCompoundType
 ---@field _kind 'struct-type'
 df.random_object_batchst = {}
+
+---@return random_object_batchst
+function df.random_object_batchst:new() end
 
 ---@class (exact) region_object_datast: DFStruct
 ---@field _type _region_object_datast
@@ -2914,6 +3154,9 @@ df.random_object_batchst = {}
 ---@class _region_object_datast: DFCompoundType
 ---@field _kind 'struct-type'
 df.region_object_datast = {}
+
+---@return region_object_datast
+function df.region_object_datast:new() end
 
 ---@class _region_object_datast_batch: DFContainer
 ---@field [integer] random_object_batchst
@@ -3071,6 +3314,9 @@ function _region_object_datast_generated_languages:erase(index) end
 ---@class _viewscreen_loadgamest: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_loadgamest = {}
+
+---@return viewscreen_loadgamest
+function df.viewscreen_loadgamest:new() end
 
 -- After the on-screen text shown while loading.
 ---@alias viewscreen_loadgamest.T_cur_step
@@ -3348,6 +3594,9 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field _kind 'struct-type'
 df.worldgen_parms = {}
 
+---@return worldgen_parms
+function df.worldgen_parms:new() end
+
 ---@class (exact) worldgen_parms_ps: DFStruct
 ---@field _type _worldgen_parms_ps
 ---@field width number
@@ -3357,6 +3606,9 @@ df.worldgen_parms = {}
 ---@class _worldgen_parms_ps: DFCompoundType
 ---@field _kind 'struct-type'
 df.worldgen_parms_ps = {}
+
+---@return worldgen_parms_ps
+function df.worldgen_parms_ps:new() end
 
 ---@class (exact) viewscreen_new_regionst: DFStruct, viewscreen
 ---@field _type _viewscreen_new_regionst
@@ -3441,6 +3693,9 @@ df.worldgen_parms_ps = {}
 ---@class _viewscreen_new_regionst: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_new_regionst = {}
+
+---@return viewscreen_new_regionst
+function df.viewscreen_new_regionst:new() end
 
 ---@class _viewscreen_new_regionst_worldgen_presets: DFContainer
 ---@field [integer] worldgen_parms
@@ -3535,6 +3790,9 @@ function _viewscreen_new_regionst_available_mod_header:erase(index) end
 ---@field _kind 'struct-type'
 df.nemesis_offload = {}
 
+---@return nemesis_offload
+function df.nemesis_offload:new() end
+
 ---@class _nemesis_offload_units: DFContainer
 ---@field [integer] unit
 local _nemesis_offload_units
@@ -3562,6 +3820,9 @@ function _nemesis_offload_units:erase(index) end
 ---@class _viewscreen_savegamest: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_savegamest = {}
+
+---@return viewscreen_savegamest
+function df.viewscreen_savegamest:new() end
 
 ---@alias viewscreen_savegamest.T_cur_step
 ---| 0 # Initializing
@@ -3761,6 +4022,9 @@ df.adventurer_attribute_level = {}
 ---@field _kind 'struct-type'
 df.startup_charactersheet_petst = {}
 
+---@return startup_charactersheet_petst
+function df.startup_charactersheet_petst:new() end
+
 ---@alias adv_background_option_type
 ---| -1 # NONE
 ---| 0 # SQUAD_EPPID
@@ -3860,6 +4124,9 @@ df.adv_background_option_type = {}
 ---@class _setup_character_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.setup_character_info = {}
+
+---@return setup_character_info
+function df.setup_character_info:new() end
 
 ---@alias setup_character_info.T_difficulty
 ---| 0 # Peasant
@@ -4010,6 +4277,9 @@ function _setup_character_info_pet:erase(index) end
 ---@field _kind 'struct-type'
 df.embark_item_choice = {}
 
+---@return embark_item_choice
+function df.embark_item_choice:new() end
+
 ---@class _embark_item_choice_list: DFContainer
 ---@field [integer] DFPointer<integer>
 local _embark_item_choice_list
@@ -4064,6 +4334,9 @@ function _embark_item_choice_profession:erase(index) end
 ---@class _embark_profile: DFCompoundType
 ---@field _kind 'struct-type'
 df.embark_profile = {}
+
+---@return embark_profile
+function df.embark_profile:new() end
 
 ---@class _embark_profile_reclaim_prof1: DFContainer
 ---@field [integer] profession
@@ -4126,6 +4399,9 @@ function _embark_profile_pet_profession:erase(index) end
 ---@field _kind 'struct-type'
 df.embark_symbol = {}
 
+---@return embark_symbol
+function df.embark_symbol:new() end
+
 ---@class _embark_symbol_unk_v43_1: DFContainer
 ---@field [integer] any[]
 local _embark_symbol_unk_v43_1
@@ -4171,6 +4447,9 @@ function _embark_symbol_unk_v43_2:erase(index) end
 ---@class _embark_symbol.T_unk_v43_sub9: DFCompoundType
 ---@field _kind 'struct-type'
 df.embark_symbol.T_unk_v43_sub9 = {}
+
+---@return embark_symbol.T_unk_v43_sub9
+function df.embark_symbol.T_unk_v43_sub9:new() end
 
 ---@class (exact) viewscreen_setupdwarfgamest: DFStruct, viewscreen
 ---@field _type _viewscreen_setupdwarfgamest
@@ -4247,6 +4526,9 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@class _viewscreen_setupdwarfgamest: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_setupdwarfgamest = {}
+
+---@return viewscreen_setupdwarfgamest
+function df.viewscreen_setupdwarfgamest:new() end
 
 ---@class _viewscreen_setupdwarfgamest_dwarf_info: DFContainer
 ---@field [integer] setup_character_info
@@ -4368,6 +4650,9 @@ function _viewscreen_setupdwarfgamest_s_unit:erase(index) end
 ---@field _kind 'class-type'
 df.viewscreen_choose_game_typest = {}
 
+---@return viewscreen_choose_game_typest
+function df.viewscreen_choose_game_typest:new() end
+
 -- bay12: SaveGameSort
 ---@alias save_game_sort_type
 ---| 0 # Name
@@ -4445,6 +4730,9 @@ df.save_game_sort_type = {}
 ---@class _viewscreen_titlest: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_titlest = {}
+
+---@return viewscreen_titlest
+function df.viewscreen_titlest:new() end
 
 ---@class _viewscreen_titlest_menu_line_id: DFContainer
 ---@field [integer] viewscreen_titlest.T_menu_line_id.T_menu_line_id
@@ -4596,6 +4884,9 @@ function _viewscreen_titlest_mod:erase(index) end
 ---@field _kind 'class-type'
 df.viewscreen_update_regionst = {}
 
+---@return viewscreen_update_regionst
+function df.viewscreen_update_regionst:new() end
+
 ---@alias world_view_mode_type
 ---| -1 # NONE
 ---| 0 # NORMAL
@@ -4722,6 +5013,9 @@ df.world_view_mode_type = {}
 ---@class _viewscreen_worldst: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_worldst = {}
+
+---@return viewscreen_worldst
+function df.viewscreen_worldst:new() end
 
 ---@class _viewscreen_worldst_focus_site_artifact: DFContainer
 ---@field [integer] artifact_record
@@ -4923,6 +5217,9 @@ function _viewscreen_worldst_rumor_master:erase(index) end
 ---@field _kind 'struct-type'
 df.viewscreen_worldst.T_rumor_rpd = {}
 
+---@return viewscreen_worldst.T_rumor_rpd
+function df.viewscreen_worldst.T_rumor_rpd:new() end
+
 -- rpd_indicator_datast
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
@@ -4931,14 +5228,8 @@ df.viewscreen_worldst.T_rumor_rpd = {}
 ---@field _kind 'struct-type'
 df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 
----@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
----@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
----@field a number
----@field b number
-
----@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
+---@return viewscreen_worldst.T_rumor_rpd_indicator_data
+function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
 
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
@@ -4949,6 +5240,9 @@ df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 ---@field _kind 'struct-type'
 df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 
+---@return viewscreen_worldst.T_rumor_rpd_indicator_data
+function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
+
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
 ---@field a number
@@ -4957,6 +5251,21 @@ df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 ---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
+
+---@return viewscreen_worldst.T_rumor_rpd_indicator_data
+function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
+
+---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
+---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
+---@field a number
+---@field b number
+
+---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompoundType
+---@field _kind 'struct-type'
+df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
+
+---@return viewscreen_worldst.T_rumor_rpd_indicator_data
+function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
 
 ---@class _viewscreen_worldst_hf: DFContainer
 ---@field [integer] historical_figure
@@ -5047,6 +5356,9 @@ function _viewscreen_worldst_artifact_arl:erase(index) end
 ---@class _viewscreen_new_arenast: DFCompoundType
 ---@field _kind 'class-type'
 df.viewscreen_new_arenast = {}
+
+---@return viewscreen_new_arenast
+function df.viewscreen_new_arenast:new() end
 
 ---@class _viewscreen_new_arenast_unk_mods: DFContainer
 ---@field [integer] mod_headerst

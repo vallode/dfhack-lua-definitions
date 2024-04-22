@@ -15,6 +15,9 @@
 ---@field _kind 'struct-type'
 df.scribejob = {}
 
+---@return scribejob
+function df.scribejob:new() end
+
 ---@class (exact) site_reputation_report: DFStruct
 ---@field _type _site_reputation_report
 ---@field site_id number
@@ -29,6 +32,9 @@ df.scribejob = {}
 ---@field _kind 'struct-type'
 df.site_reputation_report = {}
 
+---@return site_reputation_report
+function df.site_reputation_report:new() end
+
 ---@class (exact) site_reputation_info: DFStruct
 ---@field _type _site_reputation_info
 ---@field reports _site_reputation_info_reports
@@ -36,6 +42,9 @@ df.site_reputation_report = {}
 ---@class _site_reputation_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_reputation_info = {}
+
+---@return site_reputation_info
+function df.site_reputation_info:new() end
 
 ---@class _site_reputation_info_reports: DFContainer
 ---@field [integer] site_reputation_report
@@ -67,6 +76,9 @@ function _site_reputation_info_reports:erase(index) end
 ---@class _location_scribe_jobs: DFCompoundType
 ---@field _kind 'struct-type'
 df.location_scribe_jobs = {}
+
+---@return location_scribe_jobs
+function df.location_scribe_jobs:new() end
 
 ---@class _location_scribe_jobs_scribejobs: DFContainer
 ---@field [integer] scribejob
@@ -170,6 +182,9 @@ df.abstract_building_flags = {}
 ---@field _kind 'struct-type'
 df.abstract_building_entombed = {}
 
+---@return abstract_building_entombed
+function df.abstract_building_entombed:new() end
+
 ---@class _abstract_building_entombed_populations: DFContainer
 ---@field [integer] DFPointer<integer>
 local _abstract_building_entombed_populations
@@ -221,6 +236,9 @@ function _abstract_building_entombed_populations:erase(index) end
 ---@class _abstract_building_contents: DFCompoundType
 ---@field _kind 'struct-type'
 df.abstract_building_contents = {}
+
+---@return abstract_building_contents
+function df.abstract_building_contents:new() end
 
 ---@class abstract_building_contents.T_need_more: DFBitfield
 ---@field _enum _abstract_building_contents.T_need_more
@@ -315,6 +333,9 @@ function abstract_building:generate_xml() end
 ---@field _kind 'class-type'
 df.abstract_building = {}
 
+---@return abstract_building
+function df.abstract_building:new() end
+
 ---@class _abstract_building_inhabitants: DFContainer
 ---@field [integer] DFPointer<integer>
 local _abstract_building_inhabitants
@@ -373,6 +394,9 @@ function _abstract_building_occupations:erase(index) end
 ---@field _kind 'class-type'
 df.abstract_building_mead_hallst = {}
 
+---@return abstract_building_mead_hallst
+function df.abstract_building_mead_hallst:new() end
+
 ---@class (exact) abstract_building_keepst: DFStruct, abstract_building
 ---@field _type _abstract_building_keepst
 ---@field name language_name
@@ -380,6 +404,9 @@ df.abstract_building_mead_hallst = {}
 ---@class _abstract_building_keepst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_keepst = {}
+
+---@return abstract_building_keepst
+function df.abstract_building_keepst:new() end
 
 ---@alias temple_deity_type
 ---| -1 # None
@@ -404,6 +431,9 @@ df.temple_deity_type = {}
 ---@field _kind 'struct-type'
 df.temple_deity_data = {}
 
+---@return temple_deity_data
+function df.temple_deity_data:new() end
+
 ---@class (exact) abstract_building_templest: DFStruct, abstract_building
 ---@field _type _abstract_building_templest
 ---@field deity_type temple_deity_type
@@ -415,6 +445,9 @@ df.temple_deity_data = {}
 ---@field _kind 'class-type'
 df.abstract_building_templest = {}
 
+---@return abstract_building_templest
+function df.abstract_building_templest:new() end
+
 ---@class (exact) abstract_building_dark_towerst: DFStruct, abstract_building
 ---@field _type _abstract_building_dark_towerst
 ---@field name language_name
@@ -423,6 +456,9 @@ df.abstract_building_templest = {}
 ---@field _kind 'class-type'
 df.abstract_building_dark_towerst = {}
 
+---@return abstract_building_dark_towerst
+function df.abstract_building_dark_towerst:new() end
+
 ---@class (exact) abstract_building_marketst: DFStruct, abstract_building
 ---@field _type _abstract_building_marketst
 ---@field name language_name
@@ -430,6 +466,9 @@ df.abstract_building_dark_towerst = {}
 ---@class _abstract_building_marketst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_marketst = {}
+
+---@return abstract_building_marketst
+function df.abstract_building_marketst:new() end
 
 ---@class (exact) abstract_building_tombst: DFStruct, abstract_building
 ---@field _type _abstract_building_tombst
@@ -440,6 +479,9 @@ df.abstract_building_marketst = {}
 ---@class _abstract_building_tombst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_tombst = {}
+
+---@return abstract_building_tombst
+function df.abstract_building_tombst:new() end
 
 ---@class (exact) abstract_building_dungeonst: DFStruct, abstract_building
 ---@field _type _abstract_building_dungeonst
@@ -454,6 +496,9 @@ df.abstract_building_tombst = {}
 ---@class _abstract_building_dungeonst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_dungeonst = {}
+
+---@return abstract_building_dungeonst
+function df.abstract_building_dungeonst:new() end
 
 ---@alias abstract_building_dungeonst.T_dungeon_type
 ---| 0 # DUNGEON
@@ -478,6 +523,9 @@ df.abstract_building_dungeonst.T_dungeon_type = {}
 ---@field _kind 'class-type'
 df.abstract_building_underworld_spirest = {}
 
+---@return abstract_building_underworld_spirest
+function df.abstract_building_underworld_spirest:new() end
+
 ---@class (exact) abstract_building_inn_tavernst: DFStruct, abstract_building
 ---@field _type _abstract_building_inn_tavernst
 ---@field name language_name
@@ -488,6 +536,9 @@ df.abstract_building_underworld_spirest = {}
 ---@class _abstract_building_inn_tavernst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_inn_tavernst = {}
+
+---@return abstract_building_inn_tavernst
+function df.abstract_building_inn_tavernst:new() end
 
 ---@class _abstract_building_inn_tavernst_room_info: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -519,6 +570,9 @@ function _abstract_building_inn_tavernst_room_info:erase(index) end
 ---@field _kind 'class-type'
 df.abstract_building_libraryst = {}
 
+---@return abstract_building_libraryst
+function df.abstract_building_libraryst:new() end
+
 ---@class (exact) abstract_building_counting_housest: DFStruct, abstract_building
 ---@field _type _abstract_building_counting_housest
 ---@field name language_name
@@ -526,6 +580,9 @@ df.abstract_building_libraryst = {}
 ---@class _abstract_building_counting_housest: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_counting_housest = {}
+
+---@return abstract_building_counting_housest
+function df.abstract_building_counting_housest:new() end
 
 ---@class (exact) abstract_building_guildhallst: DFStruct, abstract_building
 ---@field _type _abstract_building_guildhallst
@@ -536,6 +593,9 @@ df.abstract_building_counting_housest = {}
 ---@field _kind 'class-type'
 df.abstract_building_guildhallst = {}
 
+---@return abstract_building_guildhallst
+function df.abstract_building_guildhallst:new() end
+
 ---@class (exact) abstract_building_towerst: DFStruct, abstract_building
 ---@field _type _abstract_building_towerst
 ---@field name language_name
@@ -545,6 +605,9 @@ df.abstract_building_guildhallst = {}
 ---@field _kind 'class-type'
 df.abstract_building_towerst = {}
 
+---@return abstract_building_towerst
+function df.abstract_building_towerst:new() end
+
 ---@class (exact) abstract_building_hospitalst: DFStruct, abstract_building
 ---@field _type _abstract_building_hospitalst
 ---@field name language_name
@@ -553,6 +616,9 @@ df.abstract_building_towerst = {}
 ---@class _abstract_building_hospitalst: DFCompoundType
 ---@field _kind 'class-type'
 df.abstract_building_hospitalst = {}
+
+---@return abstract_building_hospitalst
+function df.abstract_building_hospitalst:new() end
 
 ---@alias world_site_type
 ---| 0 # PlayerFortress
@@ -663,6 +729,9 @@ df.lair_type = {}
 ---@field _kind 'struct-type'
 df.property_ownership = {}
 
+---@return property_ownership
+function df.property_ownership:new() end
+
 -- Cannot rule out the type having additional fields, although the 8 following bytes were all 0 in all cases in the save examined.
 ---@class (exact) unit_placement_infost: DFStruct
 ---@field _type _unit_placement_infost
@@ -675,6 +744,9 @@ df.property_ownership = {}
 ---@class _unit_placement_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_placement_infost = {}
+
+---@return unit_placement_infost
+function df.unit_placement_infost:new() end
 
 ---@class (exact) populacest: DFStruct
 ---@field _type _populacest
@@ -697,6 +769,9 @@ df.unit_placement_infost = {}
 ---@class _populacest: DFCompoundType
 ---@field _kind 'struct-type'
 df.populacest = {}
+
+---@return populacest
+function df.populacest:new() end
 
 ---@class _populacest_artifacts: DFContainer
 ---@field [integer] artifact_record
@@ -903,6 +978,9 @@ function _populacest_marriage_candidate_m_fm:erase(index) end
 ---@field _kind 'struct-type'
 df.site_first_calc_special_itemsst = {}
 
+---@return site_first_calc_special_itemsst
+function df.site_first_calc_special_itemsst:new() end
+
 ---@class _site_first_calc_special_itemsst_type: DFContainer
 ---@field [integer] item_type
 local _site_first_calc_special_itemsst_type
@@ -932,6 +1010,9 @@ function _site_first_calc_special_itemsst_type:erase(index) end
 ---@class _site_cropst: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_cropst = {}
+
+---@return site_cropst
+function df.site_cropst:new() end
 
 ---@class site_cropst.T_flag: DFBitfield
 ---@field _enum _site_cropst.T_flag
@@ -967,6 +1048,9 @@ df.religious_practice_type = {}
 ---@field _kind 'struct-type'
 df.site_religious_structurest = {}
 
+---@return site_religious_structurest
+function df.site_religious_structurest:new() end
+
 ---@class (exact) site_religious_structurest.T_data: DFStruct
 ---@field _type _site_religious_structurest.T_data
 ---@field practice_id number
@@ -977,6 +1061,9 @@ df.site_religious_structurest = {}
 ---@field _kind 'struct-type'
 df.site_religious_structurest.T_data = {}
 
+---@return site_religious_structurest.T_data
+function df.site_religious_structurest.T_data:new() end
+
 ---@class (exact) site_religious_structure_batchst: DFStruct
 ---@field _type _site_religious_structure_batchst
 ---@field rstruct site_religious_structurest[]
@@ -986,6 +1073,9 @@ df.site_religious_structurest.T_data = {}
 ---@field _kind 'struct-type'
 df.site_religious_structure_batchst = {}
 
+---@return site_religious_structure_batchst
+function df.site_religious_structure_batchst:new() end
+
 ---@class (exact) site_culture_infrastructurest: DFStruct
 ---@field _type _site_culture_infrastructurest
 ---@field religious_structure_batch _site_culture_infrastructurest_religious_structure_batch
@@ -993,6 +1083,9 @@ df.site_religious_structure_batchst = {}
 ---@class _site_culture_infrastructurest: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_culture_infrastructurest = {}
+
+---@return site_culture_infrastructurest
+function df.site_culture_infrastructurest:new() end
 
 ---@class _site_culture_infrastructurest_religious_structure_batch: DFContainer
 ---@field [integer] site_religious_structure_batchst
@@ -1136,6 +1229,9 @@ df.location_death_type = {}
 ---@field _kind 'struct-type'
 df.location_death_batchst = {}
 
+---@return location_death_batchst
+function df.location_death_batchst:new() end
+
 ---@class (exact) location_deathst: DFStruct
 ---@field _type _location_deathst
 ---@field batch _location_deathst_batch
@@ -1144,6 +1240,9 @@ df.location_death_batchst = {}
 ---@class _location_deathst: DFCompoundType
 ---@field _kind 'struct-type'
 df.location_deathst = {}
+
+---@return location_deathst
+function df.location_deathst:new() end
 
 ---@class _location_deathst_batch: DFContainer
 ---@field [integer] location_death_batchst
@@ -1179,6 +1278,9 @@ function _location_deathst_batch:erase(index) end
 ---@class _site_map_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_map_infost = {}
+
+---@return site_map_infost
+function df.site_map_infost:new() end
 
 -- bay12: SiteArchitectureChangeType
 ---@alias site_architecture_change_type
@@ -1223,6 +1325,9 @@ df.site_architecture_change_type = {}
 ---@field _kind 'struct-type'
 df.site_architecture_changest = {}
 
+---@return site_architecture_changest
+function df.site_architecture_changest:new() end
+
 ---@class (exact) wg_site_culture_identity_religious_practicest: DFStruct
 ---@field _type _wg_site_culture_identity_religious_practicest
 ---@field type religious_practice_type
@@ -1232,6 +1337,9 @@ df.site_architecture_changest = {}
 ---@class _wg_site_culture_identity_religious_practicest: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culture_identity_religious_practicest = {}
+
+---@return wg_site_culture_identity_religious_practicest
+function df.wg_site_culture_identity_religious_practicest:new() end
 
 ---@class (exact) wg_site_culture_identity_religious_practicest.T_data: DFStruct
 ---@field _type _wg_site_culture_identity_religious_practicest.T_data
@@ -1243,6 +1351,9 @@ df.wg_site_culture_identity_religious_practicest = {}
 ---@field _kind 'struct-type'
 df.wg_site_culture_identity_religious_practicest.T_data = {}
 
+---@return wg_site_culture_identity_religious_practicest.T_data
+function df.wg_site_culture_identity_religious_practicest.T_data:new() end
+
 ---@class (exact) wg_site_culture_identityst: DFStruct
 ---@field _type _wg_site_culture_identityst
 ---@field entity_id number
@@ -1252,6 +1363,9 @@ df.wg_site_culture_identity_religious_practicest.T_data = {}
 ---@class _wg_site_culture_identityst: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culture_identityst = {}
+
+---@return wg_site_culture_identityst
+function df.wg_site_culture_identityst:new() end
 
 ---@class _wg_site_culture_identityst_religious_practice: DFContainer
 ---@field [integer] wg_site_culture_identity_religious_practicest
@@ -1317,6 +1431,9 @@ df.cultural_interaction_type = {}
 ---@field _kind 'struct-type'
 df.wg_site_culture_identity_interactionst = {}
 
+---@return wg_site_culture_identity_interactionst
+function df.wg_site_culture_identity_interactionst:new() end
+
 ---@class (exact) wg_site_culturest: DFStruct
 ---@field _type _wg_site_culturest
 ---@field identity _wg_site_culturest_identity
@@ -1324,6 +1441,9 @@ df.wg_site_culture_identity_interactionst = {}
 ---@class _wg_site_culturest: DFCompoundType
 ---@field _kind 'struct-type'
 df.wg_site_culturest = {}
+
+---@return wg_site_culturest
+function df.wg_site_culturest:new() end
 
 ---@class _wg_site_culturest_identity: DFContainer
 ---@field [integer] wg_site_culture_identityst
@@ -1435,6 +1555,9 @@ function _wg_site_culturest_identity:erase(index) end
 ---@class _world_site: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site = {}
+
+---@return world_site
+function df.world_site:new() end
 
 ---@param key number
 ---@return world_site|nil
@@ -1723,6 +1846,9 @@ function _world_site_unk_3:erase(index) end
 ---@field _kind 'struct-type'
 df.cultural_identity = {}
 
+---@return cultural_identity
+function df.cultural_identity:new() end
+
 ---@param key number
 ---@return cultural_identity|nil
 function df.cultural_identity.find(key) end
@@ -1814,6 +1940,9 @@ function _cultural_identity_unk_2:erase(index) end
 ---@field _kind 'struct-type'
 df.world_site_inhabitant = {}
 
+---@return world_site_inhabitant
+function df.world_site_inhabitant:new() end
+
 ---@class (exact) world_site_realization: DFStruct
 ---@field _type _world_site_realization
 ---@field buildings _world_site_realization_buildings
@@ -1874,6 +2003,9 @@ df.world_site_inhabitant = {}
 ---@field _kind 'struct-type'
 df.world_site_realization = {}
 
+---@return world_site_realization
+function df.world_site_realization:new() end
+
 ---@class _world_site_realization_buildings: DFContainer
 ---@field [integer] site_realization_building
 local _world_site_realization_buildings
@@ -1924,6 +2056,9 @@ function _world_site_realization_buildings:erase(index) end
 ---@class _world_site_realization.T_unk_55e8: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_55e8 = {}
+
+---@return world_site_realization.T_unk_55e8
+function df.world_site_realization.T_unk_55e8:new() end
 
 ---@class _world_site_realization_unk_55e8_unk_v40_2: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1985,6 +2120,9 @@ function _world_site_realization_unk_55e8_unk_5618:erase(index) end
 ---@field _kind 'struct-type'
 df.world_site_realization.T_building_map = {}
 
+---@return world_site_realization.T_building_map
+function df.world_site_realization.T_building_map:new() end
+
 ---@class _world_site_realization_building_map_buildings: DFContainer
 ---@field [integer] site_realization_building
 local _world_site_realization_building_map_buildings
@@ -2040,6 +2178,9 @@ function _world_site_realization_areas:erase(index) end
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_193bc = {}
 
+---@return world_site_realization.T_unk_193bc
+function df.world_site_realization.T_unk_193bc:new() end
+
 ---@class (exact) world_site_realization.T_unk_193bc.T_unk_8: DFStruct
 ---@field _type _world_site_realization.T_unk_193bc.T_unk_8
 ---@field unk_1 number
@@ -2055,6 +2196,9 @@ df.world_site_realization.T_unk_193bc = {}
 ---@class _world_site_realization.T_unk_193bc.T_unk_8: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_site_realization.T_unk_193bc.T_unk_8 = {}
+
+---@return world_site_realization.T_unk_193bc.T_unk_8
+function df.world_site_realization.T_unk_193bc.T_unk_8:new() end
 
 ---@class _world_site_realization_unk_wsr_vector: DFContainer
 ---@field [integer] any[]
@@ -2113,6 +2257,9 @@ function _world_site_realization_unk_wsr_vector:erase(index) end
 ---@class _site_realization_crossroads: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_realization_crossroads = {}
+
+---@return site_realization_crossroads
+function df.site_realization_crossroads:new() end
 
 ---@alias site_realization_building_type
 ---| 0 # cottage_plot
@@ -2236,6 +2383,9 @@ df.site_realization_building_type = {}
 ---@field _kind 'struct-type'
 df.site_realization_building = {}
 
+---@return site_realization_building
+function df.site_realization_building:new() end
+
 ---@class _site_realization_building_inhabitants: DFContainer
 ---@field [integer] world_site_inhabitant
 local _site_realization_building_inhabitants
@@ -2300,6 +2450,9 @@ function site_realization_building_infost:read_file() end
 ---@field _kind 'class-type'
 df.site_realization_building_infost = {}
 
+---@return site_realization_building_infost
+function df.site_realization_building_infost:new() end
+
 ---@class (exact) site_building_item: DFStruct
 ---@field _type _site_building_item
 ---@field race number References: `creature_raw`
@@ -2311,6 +2464,9 @@ df.site_realization_building_infost = {}
 ---@class _site_building_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_building_item = {}
+
+---@return site_building_item
+function df.site_building_item:new() end
 
 ---@class tower_shape: DFBitfield
 ---@field _enum _tower_shape
@@ -2355,6 +2511,9 @@ df.tower_shape = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_wallst = {}
 
+---@return site_realization_building_info_castle_wallst
+function df.site_realization_building_info_castle_wallst:new() end
+
 ---@class (exact) site_realization_building_info_castle_towerst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_castle_towerst
 ---@field roof_z number
@@ -2373,12 +2532,18 @@ df.site_realization_building_info_castle_wallst = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_towerst = {}
 
+---@return site_realization_building_info_castle_towerst
+function df.site_realization_building_info_castle_towerst:new() end
+
 ---@class (exact) site_realization_building_info_castle_courtyardst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_castle_courtyardst
 
 ---@class _site_realization_building_info_castle_courtyardst: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_castle_courtyardst = {}
+
+---@return site_realization_building_info_castle_courtyardst
+function df.site_realization_building_info_castle_courtyardst:new() end
 
 ---@alias site_shop_type
 ---| 0 # GeneralImports
@@ -2525,6 +2690,9 @@ df.town_labor_type = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_shop_housest = {}
 
+---@return site_realization_building_info_shop_housest
+function df.site_realization_building_info_shop_housest:new() end
+
 ---@class (exact) site_realization_building_info_market_squarest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_market_squarest
 ---@field type site_shop_type
@@ -2532,6 +2700,9 @@ df.site_realization_building_info_shop_housest = {}
 ---@class _site_realization_building_info_market_squarest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_market_squarest = {}
+
+---@return site_realization_building_info_market_squarest
+function df.site_realization_building_info_market_squarest:new() end
 
 ---@class (exact) site_realization_building_info_trenchesst: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_trenchesst
@@ -2541,6 +2712,9 @@ df.site_realization_building_info_market_squarest = {}
 ---@class _site_realization_building_info_trenchesst: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_trenchesst = {}
+
+---@return site_realization_building_info_trenchesst
+function df.site_realization_building_info_trenchesst:new() end
 
 ---@class (exact) site_realization_building_info_trenchesst.T_spokes: DFStruct
 ---@field _type _site_realization_building_info_trenchesst.T_spokes
@@ -2552,6 +2726,9 @@ df.site_realization_building_info_trenchesst = {}
 ---@class _site_realization_building_info_trenchesst.T_spokes: DFCompoundType
 ---@field _kind 'struct-type'
 df.site_realization_building_info_trenchesst.T_spokes = {}
+
+---@return site_realization_building_info_trenchesst.T_spokes
+function df.site_realization_building_info_trenchesst.T_spokes:new() end
 
 ---@alias tree_house_type
 ---| 0 # TreeHouse
@@ -2586,6 +2763,9 @@ df.tree_house_type = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_tree_housest = {}
 
+---@return site_realization_building_info_tree_housest
+function df.site_realization_building_info_tree_housest:new() end
+
 ---@alias hillock_house_type
 ---| 1 # CivicMound
 ---| 2 # CastleMound
@@ -2608,6 +2788,9 @@ df.hillock_house_type = {}
 ---@field _kind 'class-type'
 df.site_realization_building_info_hillock_housest = {}
 
+---@return site_realization_building_info_hillock_housest
+function df.site_realization_building_info_hillock_housest:new() end
+
 ---@class (exact) site_realization_building_info_shrinest: DFStruct, site_realization_building_infost
 ---@field _type _site_realization_building_info_shrinest
 ---@field unk_1 number
@@ -2616,6 +2799,9 @@ df.site_realization_building_info_hillock_housest = {}
 ---@class _site_realization_building_info_shrinest: DFCompoundType
 ---@field _kind 'class-type'
 df.site_realization_building_info_shrinest = {}
+
+---@return site_realization_building_info_shrinest
+function df.site_realization_building_info_shrinest:new() end
 
 ---@alias creation_zone_pwg_alteration_type
 ---| 0 # location_death
@@ -2651,6 +2837,9 @@ function creation_zone_pwg_alterationst:read_file() end
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alterationst = {}
 
+---@return creation_zone_pwg_alterationst
+function df.creation_zone_pwg_alterationst:new() end
+
 ---@class (exact) creation_zone_pwg_alteration_location_deathst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_location_deathst
 ---@field unk_1 creation_zone_pwg_alteration_location_deathst.T_unk_1
@@ -2660,6 +2849,9 @@ df.creation_zone_pwg_alterationst = {}
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_location_deathst = {}
 
+---@return creation_zone_pwg_alteration_location_deathst
+function df.creation_zone_pwg_alteration_location_deathst:new() end
+
 ---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFStruct
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
 ---@field unk_1a _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a
@@ -2668,6 +2860,9 @@ df.creation_zone_pwg_alteration_location_deathst = {}
 ---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompoundType
 ---@field _kind 'struct-type'
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
+
+---@return creation_zone_pwg_alteration_location_deathst.T_unk_1
+function df.creation_zone_pwg_alteration_location_deathst.T_unk_1:new() end
 
 ---@class _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -2703,6 +2898,9 @@ function _creation_zone_pwg_alteration_location_deathst_unk_1_unk_1a:erase(index
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_campst = {}
 
+---@return creation_zone_pwg_alteration_campst
+function df.creation_zone_pwg_alteration_campst:new() end
+
 ---@class (exact) creation_zone_pwg_alteration_srb_ruinedst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_srb_ruinedst
 ---@field site_id number References: `world_site`
@@ -2712,6 +2910,9 @@ df.creation_zone_pwg_alteration_campst = {}
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_srb_ruinedst = {}
 
+---@return creation_zone_pwg_alteration_srb_ruinedst
+function df.creation_zone_pwg_alteration_srb_ruinedst:new() end
+
 ---@class (exact) creation_zone_pwg_alteration_srp_ruinedst: DFStruct, creation_zone_pwg_alterationst
 ---@field _type _creation_zone_pwg_alteration_srp_ruinedst
 ---@field unk_1 number
@@ -2720,4 +2921,7 @@ df.creation_zone_pwg_alteration_srb_ruinedst = {}
 ---@class _creation_zone_pwg_alteration_srp_ruinedst: DFCompoundType
 ---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_srp_ruinedst = {}
+
+---@return creation_zone_pwg_alteration_srp_ruinedst
+function df.creation_zone_pwg_alteration_srp_ruinedst:new() end
 

@@ -35,6 +35,9 @@ df.mission_type = {}
 ---@field _kind 'struct-type'
 df.invasion_info = {}
 
+---@return invasion_info
+function df.invasion_info:new() end
+
 ---@param key number
 ---@return invasion_info|nil
 function df.invasion_info.find(key) end
@@ -87,6 +90,9 @@ df.invasion_info.T_flags = {}
 ---@class _entity_population_unk4: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_population_unk4 = {}
+
+---@return entity_population_unk4
+function df.entity_population_unk4:new() end
 
 ---@class _entity_population_unk4_unk_1: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -152,6 +158,9 @@ function _entity_population_unk4_unk_3:erase(index) end
 ---@class _entity_population: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_population = {}
+
+---@return entity_population
+function df.entity_population:new() end
 
 ---@param key number
 ---@return entity_population|nil
@@ -246,6 +255,9 @@ df.nemesis_flags = {}
 ---@field _kind 'struct-type'
 df.nemesis_record = {}
 
+---@return nemesis_record
+function df.nemesis_record:new() end
+
 ---@param key number
 ---@return nemesis_record|nil
 function df.nemesis_record.find(key) end
@@ -303,6 +315,9 @@ function _nemesis_record_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.artifact_record = {}
 
+---@return artifact_record
+function df.artifact_record:new() end
+
 ---@param key number
 ---@return artifact_record|nil
 function df.artifact_record.find(key) end
@@ -344,4 +359,7 @@ function _artifact_record_flags:erase(index) end
 ---@class _artifact_rumor_locationst: DFCompoundType
 ---@field _kind 'struct-type'
 df.artifact_rumor_locationst = {}
+
+---@return artifact_rumor_locationst
+function df.artifact_rumor_locationst:new() end
 

@@ -27,6 +27,9 @@
 ---@field _kind 'struct-type'
 df.burrow = {}
 
+---@return burrow
+function df.burrow:new() end
+
 ---@param key number
 ---@return burrow|nil
 function df.burrow.find(key) end
@@ -49,6 +52,9 @@ function df.burrow.get_vector() end
 ---@class _ui_hotkey: DFCompoundType
 ---@field _kind 'struct-type'
 df.ui_hotkey = {}
+
+---@return ui_hotkey
+function df.ui_hotkey:new() end
 
 ---@alias ui_hotkey.T_cmd
 ---| -1 # None
@@ -257,6 +263,9 @@ df.ui_sidebar_mode = {}
 ---@class _punishment: DFCompoundType
 ---@field _kind 'struct-type'
 df.punishment = {}
+
+---@return punishment
+function df.punishment:new() end
 
 ---@alias kitchen_exc_type
 ---| 1 # Cook
@@ -498,6 +507,9 @@ df.equipment_update = {}
 ---@field _kind 'struct-type'
 df.labor_infost = {}
 
+---@return labor_infost
+function df.labor_infost:new() end
+
 ---@class labor_infost.T_flags: DFBitfield
 ---@field _enum _labor_infost.T_flags
 ---@field children_do_chores boolean
@@ -614,6 +626,9 @@ function _labor_infost_work_details:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost = {}
 
+---@return plotinfost
+function df.plotinfost:new() end
+
 ---@class (exact) plotinfost.T_tax_collection: DFStruct
 ---@field _type _plotinfost.T_tax_collection
 ---@field state number bay12: plotinfo_taxinfost
@@ -638,6 +653,9 @@ df.plotinfost = {}
 ---@field _kind 'struct-type'
 df.plotinfost.T_tax_collection = {}
 
+---@return plotinfost.T_tax_collection
+function df.plotinfost.T_tax_collection:new() end
+
 ---@class (exact) plotinfost.T_nobles: DFStruct
 ---@field _type _plotinfost.T_nobles
 ---@field unk_1 number bay12: plotinfo_positionst
@@ -649,6 +667,9 @@ df.plotinfost.T_tax_collection = {}
 ---@class _plotinfost.T_nobles: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_nobles = {}
+
+---@return plotinfost.T_nobles
+function df.plotinfost.T_nobles:new() end
 
 ---@alias plotinfost.T_nobles.T_bookkeeper_settings
 ---| 0 # nearest_10
@@ -726,6 +747,9 @@ function _plotinfost_dip_meeting_info:erase(index) end
 ---@class _plotinfost.T_invasions: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_invasions = {}
+
+---@return plotinfost.T_invasions
+function df.plotinfost.T_invasions:new() end
 
 ---@class _plotinfost_invasions_list: DFContainer
 ---@field [integer] invasion_info
@@ -818,6 +842,9 @@ function _plotinfost_dipscript_popups:erase(index) end
 ---@class _plotinfost.T_kitchen: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_kitchen = {}
+
+---@return plotinfost.T_kitchen
+function df.plotinfost.T_kitchen:new() end
 
 ---@class _plotinfost_kitchen_item_types: DFContainer
 ---@field [integer] item_type
@@ -914,6 +941,9 @@ function _plotinfost_farm_seasons:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices = {}
 
+---@return plotinfost.T_economy_prices
+function df.plotinfost.T_economy_prices:new() end
+
 ---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFStruct
 ---@field _type _plotinfost.T_economy_prices.T_price_adjustment
 ---@field general_items DFNumberVector
@@ -953,6 +983,9 @@ df.plotinfost.T_economy_prices = {}
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_adjustment = {}
 
+---@return plotinfost.T_economy_prices.T_price_adjustment
+function df.plotinfost.T_economy_prices.T_price_adjustment:new() end
+
 ---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFStruct
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
 ---@field general_items _plotinfost_economy_prices_price_setter_general_items
@@ -991,6 +1024,9 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@class _plotinfost.T_economy_prices.T_price_setter: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_setter = {}
+
+---@return plotinfost.T_economy_prices.T_price_setter
+function df.plotinfost.T_economy_prices.T_price_setter:new() end
 
 ---@class _plotinfost_economy_prices_price_setter_general_items: DFContainer
 ---@field [integer] unit
@@ -1514,6 +1550,9 @@ function _plotinfost_economy_prices_price_setter_pets:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_stockpile = {}
 
+---@return plotinfost.T_stockpile
+function df.plotinfost.T_stockpile:new() end
+
 ---@class (exact) plotinfost.T_unk2a8c: DFStruct
 ---@field _type _plotinfost.T_unk2a8c
 ---@field unk1 number
@@ -1522,6 +1561,9 @@ df.plotinfost.T_stockpile = {}
 ---@class _plotinfost.T_unk2a8c: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_unk2a8c = {}
+
+---@return plotinfost.T_unk2a8c
+function df.plotinfost.T_unk2a8c:new() end
 
 ---@class (exact) plotinfost.T_map_edge: DFStruct
 ---@field _type _plotinfost.T_map_edge
@@ -1535,6 +1577,9 @@ df.plotinfost.T_unk2a8c = {}
 ---@class _plotinfost.T_map_edge: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_map_edge = {}
+
+---@return plotinfost.T_map_edge
+function df.plotinfost.T_map_edge:new() end
 
 ---@class (exact) plotinfost.T_waypoints: DFStruct
 ---@field _type _plotinfost.T_waypoints
@@ -1559,6 +1604,9 @@ df.plotinfost.T_map_edge = {}
 ---@class _plotinfost.T_waypoints: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_waypoints = {}
+
+---@return plotinfost.T_waypoints
+function df.plotinfost.T_waypoints:new() end
 
 ---@class _plotinfost_waypoints_points: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1633,6 +1681,9 @@ function _plotinfost_waypoints_unk_42_06:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_burrows = {}
 
+---@return plotinfost.T_burrows
+function df.plotinfost.T_burrows:new() end
+
 ---@class _plotinfost_burrows_list: DFContainer
 ---@field [integer] burrow
 local _plotinfost_burrows_list
@@ -1693,6 +1744,9 @@ function _plotinfost_burrows_sel_units:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_alerts = {}
 
+---@return plotinfost.T_alerts
+function df.plotinfost.T_alerts:new() end
+
 ---@class _plotinfost_alerts_list: DFContainer
 ---@field [integer] DFPointer<integer>
 local _plotinfost_alerts_list
@@ -1741,6 +1795,9 @@ function _plotinfost_alerts_routines:erase(index) end
 ---@class _plotinfost.T_equipment: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_equipment = {}
+
+---@return plotinfost.T_equipment
+function df.plotinfost.T_equipment:new() end
 
 ---@class _plotinfost_equipment_hunter_ammunition: DFContainer
 ---@field [integer] squad_ammo_spec
@@ -1792,6 +1849,9 @@ function _plotinfost_equipment_training_assignments:erase(index) end
 ---@class _plotinfost.T_hauling: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_hauling = {}
+
+---@return plotinfost.T_hauling
+function df.plotinfost.T_hauling:new() end
 
 ---@class _plotinfost_hauling_routes: DFContainer
 ---@field [integer] hauling_route
@@ -1960,6 +2020,9 @@ function _plotinfost_tutorial_seen:erase(index) end
 ---@field _kind 'struct-type'
 df.plotinfost.T_main = {}
 
+---@return plotinfost.T_main
+function df.plotinfost.T_main:new() end
+
 ---@class _plotinfost_main_dead_citizens: DFContainer
 ---@field [integer] DFPointer<integer>
 local _plotinfost_main_dead_citizens
@@ -1985,6 +2048,9 @@ function _plotinfost_main_dead_citizens:erase(index) end
 ---@class _plotinfost.T_main.T_save_progress: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_main.T_save_progress = {}
+
+---@return plotinfost.T_main.T_save_progress
+function df.plotinfost.T_main.T_save_progress:new() end
 
 ---@class (exact) plotinfost.T_squads: DFStruct
 ---@field _type _plotinfost.T_squads
@@ -2013,6 +2079,9 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@class _plotinfost.T_squads: DFCompoundType
 ---@field _kind 'struct-type'
 df.plotinfost.T_squads = {}
+
+---@return plotinfost.T_squads
+function df.plotinfost.T_squads:new() end
 
 ---@class _plotinfost_squads_list: DFContainer
 ---@field [integer] squad
@@ -2176,6 +2245,9 @@ df.timed_event_type = {}
 ---@field _kind 'struct-type'
 df.timed_event = {}
 
+---@return timed_event
+function df.timed_event:new() end
+
 ---@class (exact) map_viewport: DFStruct
 ---@field _type _map_viewport
 ---@field adv_mode boolean
@@ -2194,6 +2266,9 @@ df.timed_event = {}
 ---@class _map_viewport: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_viewport = {}
+
+---@return map_viewport
+function df.map_viewport:new() end
 
 ---@class (exact) map_renderer: DFStruct
 ---@field _type _map_renderer
@@ -2227,6 +2302,9 @@ df.map_viewport = {}
 ---@field _kind 'struct-type'
 df.map_renderer = {}
 
+---@return map_renderer
+function df.map_renderer:new() end
+
 ---@class _map_renderer_cursor_units: DFContainer
 ---@field [integer] unit
 local _map_renderer_cursor_units
@@ -2251,4 +2329,7 @@ function _map_renderer_cursor_units:erase(index) end
 ---@class _map_renderer.T_unk_4: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_renderer.T_unk_4 = {}
+
+---@return map_renderer.T_unk_4
+function df.map_renderer.T_unk_4:new() end
 

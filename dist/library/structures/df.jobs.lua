@@ -165,6 +165,9 @@ df.dfhack_material_category = {}
 ---@field _kind 'struct-type'
 df.job_list_link = {}
 
+---@return job_list_link
+function df.job_list_link:new() end
+
 ---@class job_flags: DFBitfield
 ---@field _enum _job_flags
 ---@field ["repeat"] boolean
@@ -294,6 +297,9 @@ df.job_subtype_surgery = {}
 ---@field _kind 'struct-type'
 df.job = {}
 
+---@return job
+function df.job:new() end
+
 ---@class _job_items: DFContainer
 ---@field [integer] job_item_ref
 local _job_items
@@ -368,6 +374,9 @@ function _job_job_items:erase(index) end
 ---@class _job_item_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item_ref = {}
+
+---@return job_item_ref
+function df.job_item_ref:new() end
 
 ---@alias job_item_ref.T_role
 ---| 0 # Other
@@ -784,6 +793,9 @@ df.job_item_flags3 = {}
 ---@field _kind 'struct-type'
 df.job_item = {}
 
+---@return job_item
+function df.job_item:new() end
+
 ---@class (exact) job_item_filter: DFStruct
 ---@field _type _job_item_filter
 ---@field item_type item_type
@@ -828,6 +840,9 @@ df.job_item = {}
 ---@field _kind 'struct-type'
 df.job_item_filter = {}
 
+---@return job_item_filter
+function df.job_item_filter:new() end
+
 ---@class manager_order_status: DFBitfield
 ---@field _enum _manager_order_status
 ---@field validated boolean
@@ -851,6 +866,9 @@ df.manager_order_status = {}
 ---@class _job_art_specification: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_art_specification = {}
+
+---@return job_art_specification
+function df.job_art_specification:new() end
 
 ---@alias job_art_specification.T_type
 ---| -1 # None
@@ -900,6 +918,9 @@ df.job_art_specification.T_type = {}
 ---@class _manager_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order = {}
+
+---@return manager_order
+function df.manager_order:new() end
 
 ---@alias manager_order.T_frequency
 ---| 0 # OneTime
@@ -978,6 +999,9 @@ function _manager_order_order_conditions:erase(index) end
 ---@field _kind 'struct-type'
 df.manager_order_condition_item = {}
 
+---@return manager_order_condition_item
+function df.manager_order_condition_item:new() end
+
 ---@alias manager_order_condition_item.T_compare_type
 ---| 0 # AtLeast
 ---| 1 # AtMost
@@ -1011,6 +1035,9 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field _kind 'struct-type'
 df.manager_order_condition_order = {}
 
+---@return manager_order_condition_order
+function df.manager_order_condition_order:new() end
+
 ---@alias manager_order_condition_order.T_condition
 ---| 0 # Activated
 ---| 1 # Completed
@@ -1043,6 +1070,9 @@ df.manager_order_condition_order.T_condition = {}
 ---@field _kind 'struct-type'
 df.manager_order_template = {}
 
+---@return manager_order_template
+function df.manager_order_template:new() end
+
 ---@class (exact) mandate: DFStruct
 ---@field _type _mandate
 ---@field unit unit
@@ -1062,6 +1092,9 @@ df.manager_order_template = {}
 ---@class _mandate: DFCompoundType
 ---@field _kind 'struct-type'
 df.mandate = {}
+
+---@return mandate
+function df.mandate:new() end
 
 ---@alias mandate.T_mode
 ---| 0 # Export
@@ -1087,6 +1120,9 @@ df.mandate.T_mode = {}
 ---@field _kind 'struct-type'
 df.mandate.T_punishment = {}
 
+---@return mandate.T_punishment
+function df.mandate.T_punishment:new() end
+
 ---@class (exact) training_assignment: DFStruct
 ---@field _type _training_assignment
 ---@field animal_id number References: `unit`
@@ -1096,6 +1132,9 @@ df.mandate.T_punishment = {}
 ---@class _training_assignment: DFCompoundType
 ---@field _kind 'struct-type'
 df.training_assignment = {}
+
+---@return training_assignment
+function df.training_assignment:new() end
 
 ---@param key number
 ---@return training_assignment|nil
@@ -1142,6 +1181,9 @@ df.training_assignment.T_flags = {}
 ---@class _unit_demand: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_demand = {}
+
+---@return unit_demand
+function df.unit_demand:new() end
 
 ---@alias unit_demand.T_place
 ---| 0 # Office
@@ -1595,4 +1637,7 @@ df.killjob_exception_type = {}
 ---@class _killjob_exceptionst: DFCompoundType
 ---@field _kind 'struct-type'
 df.killjob_exceptionst = {}
+
+---@return killjob_exceptionst
+function df.killjob_exceptionst:new() end
 

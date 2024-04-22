@@ -23,6 +23,9 @@ function creature_handler:getGlowTile() end
 ---@field _kind 'class-type'
 df.creature_handler = {}
 
+---@return creature_handler
+function df.creature_handler:new() end
+
 ---@class _creature_handler_alphabetic: DFContainer
 ---@field [integer] creature_raw
 local _creature_handler_alphabetic
@@ -69,6 +72,9 @@ function _creature_handler_all:erase(index) end
 ---@class _soundst: DFCompoundType
 ---@field _kind 'struct-type'
 df.soundst = {}
+
+---@return soundst
+function df.soundst:new() end
 
 ---@class _soundst_flag: DFContainer
 ---@field [integer] table<integer, boolean>
@@ -132,6 +138,9 @@ function _soundst_announcement:erase(index) end
 ---@field _kind 'struct-type'
 df.world_raws = {}
 
+---@return world_raws
+function df.world_raws:new() end
+
 ---@class _world_raws_material_templates: DFContainer
 ---@field [integer] material_template
 local _world_raws_material_templates
@@ -194,6 +203,9 @@ function _world_raws_inorganics_subset:erase(index) end
 ---@class _world_raws.T_plants: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_plants = {}
+
+---@return world_raws.T_plants
+function df.world_raws.T_plants:new() end
 
 ---@class _world_raws_plants_all: DFContainer
 ---@field [integer] plant_raw
@@ -362,6 +374,9 @@ function _world_raws_creature_variations:erase(index) end
 ---@class _world_raws.T_itemdefs: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_itemdefs = {}
+
+---@return world_raws.T_itemdefs
+function df.world_raws.T_itemdefs:new() end
 
 ---@class _world_raws_itemdefs_all: DFContainer
 ---@field [integer] itemdef
@@ -647,6 +662,9 @@ function _world_raws_entities:erase(index) end
 ---@field _kind 'struct-type'
 df.world_raws.T_language = {}
 
+---@return world_raws.T_language
+function df.world_raws.T_language:new() end
+
 ---@class _world_raws_language_words: DFContainer
 ---@field [integer] language_word
 local _world_raws_language_words
@@ -709,6 +727,9 @@ function _world_raws_language_translations:erase(index) end
 ---@field _kind 'struct-type'
 df.world_raws.T_descriptors = {}
 
+---@return world_raws.T_descriptors
+function df.world_raws.T_descriptors:new() end
+
 ---@class _world_raws_descriptors_colors: DFContainer
 ---@field [integer] descriptor_color
 local _world_raws_descriptors_colors
@@ -767,6 +788,9 @@ function _world_raws_descriptors_patterns:erase(index) end
 ---@field _kind 'struct-type'
 df.world_raws.T_reactions = {}
 
+---@return world_raws.T_reactions
+function df.world_raws.T_reactions:new() end
+
 ---@class _world_raws_reactions_reactions: DFContainer
 ---@field [integer] reaction
 local _world_raws_reactions_reactions
@@ -810,6 +834,9 @@ function _world_raws_reactions_reaction_categories:erase(index) end
 ---@class _world_raws.T_buildings: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_buildings = {}
+
+---@return world_raws.T_buildings
+function df.world_raws.T_buildings:new() end
 
 ---@class _world_raws_buildings_all: DFContainer
 ---@field [integer] building_def
@@ -883,6 +910,9 @@ function _world_raws_interactions:erase(index) end
 ---@field _kind 'struct-type'
 df.world_raws.T_text_set = {}
 
+---@return world_raws.T_text_set
+function df.world_raws.T_text_set:new() end
+
 -- Audio
 ---@class (exact) world_raws.T_music: DFStruct
 ---@field _type _world_raws.T_music
@@ -891,6 +921,9 @@ df.world_raws.T_text_set = {}
 ---@class _world_raws.T_music: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_music = {}
+
+---@return world_raws.T_music
+function df.world_raws.T_music:new() end
 
 ---@class _world_raws_music_music: DFContainer
 ---@field [integer] any[]
@@ -915,6 +948,9 @@ function _world_raws_music_music:erase(index) end
 ---@class _world_raws.T_sound: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_sound = {}
+
+---@return world_raws.T_sound
+function df.world_raws.T_sound:new() end
 
 ---@class _world_raws_sound_sound: DFContainer
 ---@field [integer] soundst
@@ -944,6 +980,9 @@ function _world_raws_sound_sound:erase(index) end
 ---@field _kind 'struct-type'
 df.world_raws.T_syndromes = {}
 
+---@return world_raws.T_syndromes
+function df.world_raws.T_syndromes:new() end
+
 ---@class _world_raws_syndromes_all: DFContainer
 ---@field [integer] syndrome
 local _world_raws_syndromes_all
@@ -970,6 +1009,9 @@ function _world_raws_syndromes_all:erase(index) end
 ---@class _world_raws.T_effects: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_effects = {}
+
+---@return world_raws.T_effects
+function df.world_raws.T_effects:new() end
 
 ---@class _world_raws_effects_all: DFContainer
 ---@field [integer] creature_interaction_effect

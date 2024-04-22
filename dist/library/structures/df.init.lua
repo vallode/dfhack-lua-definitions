@@ -62,6 +62,9 @@ df.init_display_filter_mode = {}
 ---@field _kind 'struct-type'
 df.init_display = {}
 
+---@return init_display
+function df.init_display:new() end
+
 ---@class _init_display_flag: DFContainer
 ---@field [integer] table<init_display_flags, boolean>
 local _init_display_flag
@@ -122,6 +125,9 @@ df.init_media_flags = {}
 ---@field _kind 'struct-type'
 df.init_media = {}
 
+---@return init_media
+function df.init_media:new() end
+
 ---@class _init_media_flag: DFContainer
 ---@field [integer] table<init_media_flags, boolean>
 local _init_media_flag
@@ -163,6 +169,9 @@ df.init_input_flags = {}
 ---@class _init_input: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_input = {}
+
+---@return init_input
+function df.init_input:new() end
 
 ---@class _init_input_flag: DFContainer
 ---@field [integer] table<init_input_flags, boolean>
@@ -211,6 +220,9 @@ function _init_input_flag:erase(index) end
 ---@field _kind 'struct-type'
 df.init_font = {}
 
+---@return init_font
+function df.init_font:new() end
+
 ---@alias init_window_flags
 ---| 0 # VSYNC_ON
 ---| 1 # VSYNC_OFF
@@ -232,6 +244,9 @@ df.init_window_flags = {}
 ---@class _init_window: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_window = {}
+
+---@return init_window
+function df.init_window:new() end
 
 ---@class _init_window_flag: DFContainer
 ---@field [integer] table<init_window_flags, boolean>
@@ -390,4 +405,7 @@ function _init_window_flag:erase(index) end
 ---@class _init: DFCompoundType
 ---@field _kind 'struct-type'
 df.init = {}
+
+---@return init
+function df.init:new() end
 

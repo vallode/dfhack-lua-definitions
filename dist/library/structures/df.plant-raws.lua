@@ -308,6 +308,9 @@ df.plant_raw_flags = {}
 ---@field _kind 'struct-type'
 df.plant_raw = {}
 
+---@return plant_raw
+function df.plant_raw:new() end
+
 ---@param key number
 ---@return plant_raw|nil
 function df.plant_raw.find(key) end
@@ -352,6 +355,9 @@ function _plant_raw_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.plant_raw.T_tiles = {}
 
+---@return plant_raw.T_tiles
+function df.plant_raw.T_tiles:new() end
+
 ---@class (exact) plant_raw.T_colors: DFStruct
 ---@field _type _plant_raw.T_colors
 ---@field picked_color number[]
@@ -370,6 +376,9 @@ df.plant_raw.T_tiles = {}
 ---@class _plant_raw.T_colors: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_colors = {}
+
+---@return plant_raw.T_colors
+function df.plant_raw.T_colors:new() end
 
 ---@class _plant_raw_material: DFContainer
 ---@field [integer] material
@@ -396,6 +405,9 @@ function _plant_raw_material:erase(index) end
 ---@class _plant_raw.T_material_defs: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_material_defs = {}
+
+---@return plant_raw.T_material_defs
+function df.plant_raw.T_material_defs:new() end
 
 ---@class _plant_raw_growths: DFContainer
 ---@field [integer] plant_growth
@@ -503,6 +515,9 @@ df.plant_material_def = {}
 ---@field _kind 'struct-type'
 df.plant_growth = {}
 
+---@return plant_growth
+function df.plant_growth:new() end
+
 ---@class _plant_growth_prints: DFContainer
 ---@field [integer] plant_growth_print
 local _plant_growth_prints
@@ -583,4 +598,7 @@ df.plant_growth.T_behavior = {}
 ---@class _plant_growth_print: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_growth_print = {}
+
+---@return plant_growth_print
+function df.plant_growth_print:new() end
 

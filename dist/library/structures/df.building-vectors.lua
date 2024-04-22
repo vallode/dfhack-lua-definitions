@@ -977,6 +977,9 @@ df.buildings_other_id.attrs = {}
 ---@field _kind 'struct-type'
 df.buildings_other = {}
 
+---@return buildings_other
+function df.buildings_other:new() end
+
 ---@class _buildings_other_IN_PLAY: DFContainer
 ---@field [integer] building
 local _buildings_other_IN_PLAY

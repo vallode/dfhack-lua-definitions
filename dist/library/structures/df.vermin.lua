@@ -68,6 +68,9 @@ df.vermin_category = {}
 ---@field _kind 'struct-type'
 df.vermin = {}
 
+---@return vermin
+function df.vermin:new() end
+
 ---@param key number
 ---@return vermin|nil
 function df.vermin.find(key) end

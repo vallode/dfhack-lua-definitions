@@ -536,6 +536,9 @@ df.sphere_type = {}
 ---@field _kind 'struct-type'
 df.language_word = {}
 
+---@return language_word
+function df.language_word:new() end
+
 ---@param key number
 ---@return language_word|nil
 function df.language_word.find(key) end
@@ -558,6 +561,9 @@ function df.language_word.get_vector() end
 ---@field _kind 'struct-type'
 df.language_translation = {}
 
+---@return language_translation
+function df.language_translation:new() end
+
 ---@param key number
 ---@return language_translation|nil
 function df.language_translation.find(key) end
@@ -578,6 +584,9 @@ function df.language_translation.get_vector() end
 ---@class _language_symbol: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_symbol = {}
+
+---@return language_symbol
+function df.language_symbol:new() end
 
 ---@param key number
 ---@return language_symbol|nil
@@ -618,6 +627,9 @@ function _language_symbol_unknown:erase(index) end
 ---@field _kind 'struct-type'
 df.language_name = {}
 
+---@return language_name
+function df.language_name:new() end
+
 -- word_selectorst
 ---@class (exact) language_word_table: DFStruct
 ---@field _type _language_word_table
@@ -627,6 +639,9 @@ df.language_name = {}
 ---@class _language_word_table: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_word_table = {}
+
+---@return language_word_table
+function df.language_word_table:new() end
 
 ---@class _language_word_table_parts: DFContainer
 ---@field [integer] part_of_speech

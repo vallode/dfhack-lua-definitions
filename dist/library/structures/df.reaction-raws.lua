@@ -40,6 +40,9 @@ df.reaction_flags = {}
 ---@field _kind 'struct-type'
 df.reaction = {}
 
+---@return reaction
+function df.reaction:new() end
+
 ---@param key number
 ---@return reaction|nil
 function df.reaction.find(key) end
@@ -109,6 +112,9 @@ function _reaction_products:erase(index) end
 ---@field _kind 'struct-type'
 df.reaction.T_building = {}
 
+---@return reaction.T_building
+function df.reaction.T_building:new() end
+
 ---@class _reaction_building_type: DFContainer
 ---@field [integer] building_type
 local _reaction_building_type
@@ -153,6 +159,9 @@ function _reaction_descriptions:erase(index) end
 ---@field _kind 'struct-type'
 df.reaction_category = {}
 
+---@return reaction_category
+function df.reaction_category:new() end
+
 ---@class (exact) reaction_description: DFStruct
 ---@field _type _reaction_description
 ---@field unk_1 string
@@ -162,6 +171,9 @@ df.reaction_category = {}
 ---@class _reaction_description: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_description = {}
+
+---@return reaction_description
+function df.reaction_description:new() end
 
 ---@alias reaction_reagent_type
 ---| 0 # item
@@ -198,6 +210,9 @@ function reaction_reagent:isLyeBearing() end
 ---@class _reaction_reagent: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_reagent = {}
+
+---@return reaction_reagent
+function df.reaction_reagent:new() end
 
 ---@class reaction_reagent_flags: DFBitfield
 ---@field _enum _reaction_reagent_flags
@@ -243,6 +258,9 @@ df.reaction_reagent_flags = {}
 ---@field _kind 'class-type'
 df.reaction_reagent_itemst = {}
 
+---@return reaction_reagent_itemst
+function df.reaction_reagent_itemst:new() end
+
 ---@alias reaction_product_type
 ---| 0 # item
 ---| 1 # improvement
@@ -273,6 +291,9 @@ function reaction_product:getDescription() end
 ---@class _reaction_product: DFCompoundType
 ---@field _kind 'class-type'
 df.reaction_product = {}
+
+---@return reaction_product
+function df.reaction_product:new() end
 
 ---@alias reaction_product_item_flags
 ---| 0 # GET_MATERIAL_SAME
@@ -315,6 +336,9 @@ df.reaction_product_item_flags = {}
 ---@field _kind 'class-type'
 df.reaction_product_itemst = {}
 
+---@return reaction_product_itemst
+function df.reaction_product_itemst:new() end
+
 ---@class _reaction_product_itemst_flags: DFContainer
 ---@field [integer] table<reaction_product_item_flags, boolean>
 local _reaction_product_itemst_flags
@@ -339,6 +363,9 @@ function _reaction_product_itemst_flags:erase(index) end
 ---@class _reaction_product_itemst.T_get_material: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_product_itemst.T_get_material = {}
+
+---@return reaction_product_itemst.T_get_material
+function df.reaction_product_itemst.T_get_material:new() end
 
 ---@alias reaction_product_improvement_flags
 ---| 0 # GET_MATERIAL_SAME
@@ -371,6 +398,9 @@ df.reaction_product_improvement_flags = {}
 ---@field _kind 'class-type'
 df.reaction_product_item_improvementst = {}
 
+---@return reaction_product_item_improvementst
+function df.reaction_product_item_improvementst:new() end
+
 ---@class _reaction_product_item_improvementst_flags: DFContainer
 ---@field [integer] table<reaction_product_improvement_flags, boolean>
 local _reaction_product_item_improvementst_flags
@@ -395,4 +425,7 @@ function _reaction_product_item_improvementst_flags:erase(index) end
 ---@class _reaction_product_item_improvementst.T_get_material: DFCompoundType
 ---@field _kind 'struct-type'
 df.reaction_product_item_improvementst.T_get_material = {}
+
+---@return reaction_product_item_improvementst.T_get_material
+function df.reaction_product_item_improvementst.T_get_material:new() end
 

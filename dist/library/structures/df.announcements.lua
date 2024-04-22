@@ -1602,6 +1602,9 @@ df.announcement_flags = {}
 ---@field _kind 'struct-type'
 df.announcements = {}
 
+---@return announcements
+function df.announcements:new() end
+
 ---@class (exact) report: DFStruct
 ---@field _type _report
 ---@field type announcement_type valid only if coordinates are
@@ -1625,6 +1628,9 @@ df.announcements = {}
 ---@class _report: DFCompoundType
 ---@field _kind 'struct-type'
 df.report = {}
+
+---@return report
+function df.report:new() end
 
 ---@param key number
 ---@return report|nil
@@ -1677,6 +1683,9 @@ df.report_zoom_type = {}
 ---@field _kind 'struct-type'
 df.popup_message = {}
 
+---@return popup_message
+function df.popup_message:new() end
+
 ---@class (exact) announcement_alertst: DFStruct
 ---@field _type _announcement_alertst
 ---@field type announcement_alert_type
@@ -1687,6 +1696,9 @@ df.popup_message = {}
 ---@class _announcement_alertst: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_alertst = {}
+
+---@return announcement_alertst
+function df.announcement_alertst:new() end
 
 ---@class _announcement_alertst_report_unit_announcement_category: DFContainer
 ---@field [integer] unit_report_type
@@ -1725,6 +1737,9 @@ function _announcement_alertst_report_unit_announcement_category:erase(index) en
 ---@class _announcement_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_infost = {}
+
+---@return announcement_infost
+function df.announcement_infost:new() end
 
 ---@class announcement_infost.T_flags: DFBitfield
 ---@field _enum _announcement_infost.T_flags

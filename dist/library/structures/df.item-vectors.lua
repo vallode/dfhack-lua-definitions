@@ -1234,6 +1234,9 @@ df.job_item_vector_id.attrs = {}
 ---@field _kind 'struct-type'
 df.items_other = {}
 
+---@return items_other
+function df.items_other:new() end
+
 ---@class _items_other_IN_PLAY: DFContainer
 ---@field [integer] item
 local _items_other_IN_PLAY

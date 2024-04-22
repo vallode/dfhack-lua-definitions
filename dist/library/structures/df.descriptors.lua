@@ -44,6 +44,9 @@ df.pattern_type = {}
 ---@field _kind 'struct-type'
 df.descriptor_color = {}
 
+---@return descriptor_color
+function df.descriptor_color:new() end
+
 ---@param key number
 ---@return descriptor_color|nil
 function df.descriptor_color.find(key) end
@@ -75,6 +78,9 @@ function df.descriptor_color.get_vector() end
 ---@class _descriptor_shape: DFCompoundType
 ---@field _kind 'struct-type'
 df.descriptor_shape = {}
+
+---@return descriptor_shape
+function df.descriptor_shape:new() end
 
 ---@param key number
 ---@return descriptor_shape|nil
@@ -113,6 +119,9 @@ df.descriptor_shape.T_gems_use = {}
 ---@class _descriptor_pattern: DFCompoundType
 ---@field _kind 'struct-type'
 df.descriptor_pattern = {}
+
+---@return descriptor_pattern
+function df.descriptor_pattern:new() end
 
 ---@param key number
 ---@return descriptor_pattern|nil

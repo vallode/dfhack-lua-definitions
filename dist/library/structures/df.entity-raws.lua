@@ -502,6 +502,9 @@ df.entity_name_type = {}
 ---@field _kind 'struct-type'
 df.entity_raw = {}
 
+---@return entity_raw
+function df.entity_raw:new() end
+
 ---@param key number
 ---@return entity_raw|nil
 function df.entity_raw.find(key) end
@@ -551,6 +554,9 @@ function df.entity_raw.get_vector() end
 ---@field _kind 'struct-type'
 df.entity_raw.T_equipment = {}
 
+---@return entity_raw.T_equipment
+function df.entity_raw.T_equipment:new() end
+
 ---@class _entity_raw_flags: DFContainer
 ---@field [integer] table<entity_raw_flags, boolean>
 local _entity_raw_flags
@@ -579,6 +585,9 @@ function _entity_raw_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_raw.T_symbols = {}
 
+---@return entity_raw.T_symbols
+function df.entity_raw.T_symbols:new() end
+
 ---@class (exact) entity_raw.T_progress_trigger: DFStruct
 ---@field _type _entity_raw.T_progress_trigger
 ---@field population number
@@ -591,6 +600,9 @@ df.entity_raw.T_symbols = {}
 ---@class _entity_raw.T_progress_trigger: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_progress_trigger = {}
+
+---@return entity_raw.T_progress_trigger
+function df.entity_raw.T_progress_trigger:new() end
 
 ---@class entity_raw.T_scholar: DFBitfield
 ---@field _enum _entity_raw.T_scholar
@@ -660,6 +672,9 @@ function _entity_raw_religion_sphere:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_raw.T_jobs = {}
 
+---@return entity_raw.T_jobs
+function df.entity_raw.T_jobs:new() end
+
 ---@class _entity_raw_positions: DFContainer
 ---@field [integer] entity_position_raw
 local _entity_raw_positions
@@ -703,6 +718,9 @@ function _entity_raw_tissue_styles:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_raw.T_workshops = {}
 
+---@return entity_raw.T_workshops
+function df.entity_raw.T_workshops:new() end
+
 ---@class _entity_raw_animal: DFContainer
 ---@field [integer] entity_animal_raw
 local _entity_raw_animal
@@ -730,6 +748,9 @@ function _entity_raw_animal:erase(index) end
 ---@class _entity_animal_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_animal_raw = {}
+
+---@return entity_animal_raw
+function df.entity_animal_raw:new() end
 
 ---@class entity_animal_raw.T_flags: DFBitfield
 ---@field _enum _entity_animal_raw.T_flags
@@ -1048,6 +1069,9 @@ df.entity_position_responsibility = {}
 ---@class _entity_position_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position_raw = {}
+
+---@return entity_position_raw
+function df.entity_position_raw:new() end
 
 ---@class _entity_position_raw_flags: DFContainer
 ---@field [integer] table<entity_position_raw_flags, boolean>

@@ -1342,6 +1342,9 @@ df.knowledge_scholar_flags_13 = {}
 ---@field _kind 'struct-type'
 df.knowledge_scholar_category_flag = {}
 
+---@return knowledge_scholar_category_flag
+function df.knowledge_scholar_category_flag:new() end
+
 -- determines which bitflags to use
 ---@alias knowledge_scholar_category_flag.T_flag_type
 ---| 0 # flags_0
@@ -1412,6 +1415,9 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@class _knowledge_scholar_category_flag.T_flag_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.knowledge_scholar_category_flag.T_flag_data = {}
+
+---@return knowledge_scholar_category_flag.T_flag_data
+function df.knowledge_scholar_category_flag.T_flag_data:new() end
 
 -- not in DF
 ---@alias dfhack_knowledge_scholar_flag

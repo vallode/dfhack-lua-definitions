@@ -175,6 +175,9 @@ df.global = {}
 ---@field _kind 'struct-type'
 df.global.T_cursor = {}
 
+---@return global.T_cursor
+function df.global.T_cursor:new() end
+
 ---@class (exact) global.T_selection_rect: DFStruct
 ---@field _type _global.T_selection_rect
 ---@field start_x number
@@ -187,6 +190,9 @@ df.global.T_cursor = {}
 ---@class _global.T_selection_rect: DFCompoundType
 ---@field _kind 'struct-type'
 df.global.T_selection_rect = {}
+
+---@return global.T_selection_rect
+function df.global.T_selection_rect:new() end
 
 ---@class _global_created_item_type: DFContainer
 ---@field [integer] item_type
@@ -425,6 +431,9 @@ df.next_global_id = {}
 ---@class _global_table_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.global_table_entry = {}
+
+---@return global_table_entry
+function df.global_table_entry:new() end
 
 ---@alias game_mode
 ---| -1 # NONE

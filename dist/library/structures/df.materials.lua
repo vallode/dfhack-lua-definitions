@@ -557,6 +557,9 @@ df.strain_type = {}
 ---@field _kind 'struct-type'
 df.material_common = {}
 
+---@return material_common
+function df.material_common:new() end
+
 ---@class (exact) material_common.T_heat: DFStruct
 ---@field _type _material_common.T_heat
 ---@field spec_heat integer
@@ -571,6 +574,9 @@ df.material_common = {}
 ---@field _kind 'struct-type'
 df.material_common.T_heat = {}
 
+---@return material_common.T_heat
+function df.material_common.T_heat:new() end
+
 ---@class (exact) material_common.T_strength: DFStruct
 ---@field _type _material_common.T_strength
 ---@field absorption number
@@ -582,6 +588,9 @@ df.material_common.T_heat = {}
 ---@class _material_common.T_strength: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common.T_strength = {}
+
+---@return material_common.T_strength
+function df.material_common.T_strength:new() end
 
 ---@class _material_common_flags: DFContainer
 ---@field [integer] table<material_flags, boolean>
@@ -611,6 +620,9 @@ function _material_common_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.material_common.T_reaction_product = {}
 
+---@return material_common.T_reaction_product
+function df.material_common.T_reaction_product:new() end
+
 ---@class (exact) material_common.T_hardens_with_water: DFStruct
 ---@field _type _material_common.T_hardens_with_water
 ---@field mat_type number References: `material`
@@ -620,6 +632,9 @@ df.material_common.T_reaction_product = {}
 ---@class _material_common.T_hardens_with_water: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_common.T_hardens_with_water = {}
+
+---@return material_common.T_hardens_with_water
+function df.material_common.T_hardens_with_water:new() end
 
 ---@class (exact) material: DFStruct, material_common
 ---@field _type _material
@@ -650,6 +665,9 @@ df.material_common.T_hardens_with_water = {}
 ---@field _kind 'struct-type'
 df.material = {}
 
+---@return material
+function df.material:new() end
+
 ---@class _material_syndrome: DFContainer
 ---@field [integer] syndrome
 local _material_syndrome
@@ -675,6 +693,9 @@ function _material_syndrome:erase(index) end
 ---@field _kind 'struct-type'
 df.material_vec_ref = {}
 
+---@return material_vec_ref
+function df.material_vec_ref:new() end
+
 ---@class (exact) material_template: DFStruct, material_common
 ---@field _type _material_template
 ---@field tile integer
@@ -693,6 +714,9 @@ df.material_vec_ref = {}
 ---@class _material_template: DFCompoundType
 ---@field _kind 'struct-type'
 df.material_template = {}
+
+---@return material_template
+function df.material_template:new() end
 
 ---@class _material_template_syndrome: DFContainer
 ---@field [integer] syndrome
@@ -844,6 +868,9 @@ df.inclusion_type = {}
 ---@field _kind 'struct-type'
 df.inorganic_raw = {}
 
+---@return inorganic_raw
+function df.inorganic_raw:new() end
+
 ---@param key number
 ---@return inorganic_raw|nil
 function df.inorganic_raw.find(key) end
@@ -879,6 +906,9 @@ function _inorganic_raw_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_metal_ore = {}
 
+---@return inorganic_raw.T_metal_ore
+function df.inorganic_raw.T_metal_ore:new() end
+
 ---@class (exact) inorganic_raw.T_thread_metal: DFStruct
 ---@field _type _inorganic_raw.T_thread_metal
 ---@field str DFStringVector only during parsing
@@ -888,6 +918,9 @@ df.inorganic_raw.T_metal_ore = {}
 ---@class _inorganic_raw.T_thread_metal: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_thread_metal = {}
+
+---@return inorganic_raw.T_thread_metal
+function df.inorganic_raw.T_thread_metal:new() end
 
 ---@class (exact) inorganic_raw.T_environment_spec: DFStruct
 ---@field _type _inorganic_raw.T_environment_spec
@@ -899,6 +932,9 @@ df.inorganic_raw.T_thread_metal = {}
 ---@class _inorganic_raw.T_environment_spec: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_environment_spec = {}
+
+---@return inorganic_raw.T_environment_spec
+function df.inorganic_raw.T_environment_spec:new() end
 
 ---@class _inorganic_raw_environment_spec_inclusion_type: DFContainer
 ---@field [integer] inclusion_type
@@ -925,6 +961,9 @@ function _inorganic_raw_environment_spec_inclusion_type:erase(index) end
 ---@class _inorganic_raw.T_environment: DFCompoundType
 ---@field _kind 'struct-type'
 df.inorganic_raw.T_environment = {}
+
+---@return inorganic_raw.T_environment
+function df.inorganic_raw.T_environment:new() end
 
 ---@class _inorganic_raw_environment_location: DFContainer
 ---@field [integer] environment_type
@@ -1090,4 +1129,7 @@ df.organic_mat_category = {}
 ---@class _special_mat_table: DFCompoundType
 ---@field _kind 'struct-type'
 df.special_mat_table = {}
+
+---@return special_mat_table
+function df.special_mat_table:new() end
 

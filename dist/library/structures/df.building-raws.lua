@@ -37,6 +37,9 @@ function building_def:finalize() end
 ---@field _kind 'class-type'
 df.building_def = {}
 
+---@return building_def
+function df.building_def:new() end
+
 ---@param key number
 ---@return building_def|nil
 function df.building_def.find(key) end
@@ -103,6 +106,9 @@ function _building_def_build_labors:erase(index) end
 ---@field _kind 'struct-type'
 df.building_def_item = {}
 
+---@return building_def_item
+function df.building_def_item:new() end
+
 ---@class (exact) building_def_workshopst: DFStruct, building_def
 ---@field _type _building_def_workshopst
 ---@field list_icon_texpos number
@@ -111,6 +117,9 @@ df.building_def_item = {}
 ---@field _kind 'class-type'
 df.building_def_workshopst = {}
 
+---@return building_def_workshopst
+function df.building_def_workshopst:new() end
+
 ---@class (exact) building_def_furnacest: DFStruct, building_def
 ---@field _type _building_def_furnacest
 ---@field list_icon_texpos number
@@ -118,4 +127,7 @@ df.building_def_workshopst = {}
 ---@class _building_def_furnacest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_def_furnacest = {}
+
+---@return building_def_furnacest
+function df.building_def_furnacest:new() end
 

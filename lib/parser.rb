@@ -380,6 +380,13 @@ module DFHackLuaDefinitions
       annotation.join
     end
 
+    def instance_functions
+      annotation = []
+      annotation << "---@return #{@class_name}\n"
+      annotation << "function df.#{@class_name}:new() end\n\n"
+      annotation.join
+    end
+
     def instance_vector_functions
       annotation = "---@param key number\n"
       annotation << "---@return #{@name}|nil\n"
@@ -396,6 +403,7 @@ module DFHackLuaDefinitions
       annotation = "---@class _#{@class_name}: DFCompoundType\n"
       annotation << "---@field _kind '#{KIND_MAP[node['ld:meta']]}'\n"
       annotation << "df.#{@class_name} = {}\n\n"
+      annotation << instance_functions
       annotation << instance_vector_functions if @node['instance-vector']
 
       annotation

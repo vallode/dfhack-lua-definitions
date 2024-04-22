@@ -409,6 +409,9 @@ df.item_type.attrs = {}
 ---@field _kind 'struct-type'
 df.weapon_attack = {}
 
+---@return weapon_attack
+function df.weapon_attack:new() end
+
 ---@class weapon_attack.T_flags: DFBitfield
 ---@field _enum _weapon_attack.T_flags
 ---@field independent_multiattack boolean
@@ -452,6 +455,9 @@ function itemdef:finalize() end
 ---@field _kind 'class-type'
 df.itemdef = {}
 
+---@return itemdef
+function df.itemdef:new() end
+
 ---@class _itemdef_base_flags: DFContainer
 ---@field [integer] table<itemdef_flags, boolean>
 local _itemdef_base_flags
@@ -490,6 +496,9 @@ df.ammo_flags = {}
 ---@class _itemdef_ammost: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_ammost = {}
+
+---@return itemdef_ammost
+function df.itemdef_ammost:new() end
 
 ---@param key number
 ---@return itemdef_ammost|nil
@@ -582,6 +591,9 @@ df.armor_general_flags = {}
 ---@field _kind 'struct-type'
 df.armor_properties = {}
 
+---@return armor_properties
+function df.armor_properties:new() end
+
 ---@class _armor_properties_flags: DFContainer
 ---@field [integer] table<armor_general_flags, boolean>
 local _armor_properties_flags
@@ -625,6 +637,9 @@ df.armor_flags = {}
 ---@field _kind 'class-type'
 df.itemdef_armorst = {}
 
+---@return itemdef_armorst
+function df.itemdef_armorst:new() end
+
 ---@param key number
 ---@return itemdef_armorst|nil
 function df.itemdef_armorst.find(key) end
@@ -659,6 +674,9 @@ function _itemdef_armorst_flags:erase(index) end
 ---@field _kind 'class-type'
 df.itemdef_foodst = {}
 
+---@return itemdef_foodst
+function df.itemdef_foodst:new() end
+
 ---@param key number
 ---@return itemdef_foodst|nil
 function df.itemdef_foodst.find(key) end
@@ -691,6 +709,9 @@ df.gloves_flags = {}
 ---@class _itemdef_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_glovesst = {}
+
+---@return itemdef_glovesst
+function df.itemdef_glovesst:new() end
 
 ---@param key number
 ---@return itemdef_glovesst|nil
@@ -739,6 +760,9 @@ df.helm_flags = {}
 ---@class _itemdef_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_helmst = {}
+
+---@return itemdef_helmst
+function df.itemdef_helmst:new() end
 
 ---@param key number
 ---@return itemdef_helmst|nil
@@ -832,6 +856,9 @@ df.instrument_flags = {}
 ---@class _itemdef_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_instrumentst = {}
+
+---@return itemdef_instrumentst
+function df.itemdef_instrumentst:new() end
 
 ---@param key number
 ---@return itemdef_instrumentst|nil
@@ -1290,6 +1317,9 @@ df.timbre_type = {}
 ---@field _kind 'struct-type'
 df.instrument_piece = {}
 
+---@return instrument_piece
+function df.instrument_piece:new() end
+
 ---@class instrument_piece.T_flags: DFBitfield
 ---@field _enum _instrument_piece.T_flags
 ---@field always_singular boolean
@@ -1313,6 +1343,9 @@ df.instrument_piece.T_flags = {}
 ---@class _instrument_register: DFCompoundType
 ---@field _kind 'struct-type'
 df.instrument_register = {}
+
+---@return instrument_register
+function df.instrument_register:new() end
 
 ---@class _instrument_register_timbres: DFContainer
 ---@field [integer] timbre_type
@@ -1356,6 +1389,9 @@ df.pants_flags = {}
 ---@field _kind 'class-type'
 df.itemdef_pantsst = {}
 
+---@return itemdef_pantsst
+function df.itemdef_pantsst:new() end
+
 ---@param key number
 ---@return itemdef_pantsst|nil
 function df.itemdef_pantsst.find(key) end
@@ -1396,6 +1432,9 @@ function _itemdef_pantsst_flags:erase(index) end
 ---@field _kind 'class-type'
 df.itemdef_shieldst = {}
 
+---@return itemdef_shieldst
+function df.itemdef_shieldst:new() end
+
 ---@param key number
 ---@return itemdef_shieldst|nil
 function df.itemdef_shieldst.find(key) end
@@ -1428,6 +1467,9 @@ df.shoes_flags = {}
 ---@class _itemdef_shoesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_shoesst = {}
+
+---@return itemdef_shoesst
+function df.itemdef_shoesst:new() end
 
 ---@param key number
 ---@return itemdef_shoesst|nil
@@ -1463,6 +1505,9 @@ function _itemdef_shoesst_flags:erase(index) end
 ---@class _itemdef_siegeammost: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_siegeammost = {}
+
+---@return itemdef_siegeammost
+function df.itemdef_siegeammost:new() end
 
 ---@param key number
 ---@return itemdef_siegeammost|nil
@@ -1653,6 +1698,9 @@ df.tool_uses = {}
 ---@field _kind 'class-type'
 df.itemdef_toolst = {}
 
+---@return itemdef_toolst
+function df.itemdef_toolst:new() end
+
 ---@param key number
 ---@return itemdef_toolst|nil
 function df.itemdef_toolst.find(key) end
@@ -1744,6 +1792,9 @@ df.toy_flags = {}
 ---@field _kind 'class-type'
 df.itemdef_toyst = {}
 
+---@return itemdef_toyst
+function df.itemdef_toyst:new() end
+
 ---@param key number
 ---@return itemdef_toyst|nil
 function df.itemdef_toyst.find(key) end
@@ -1804,6 +1855,9 @@ df.trapcomp_flags = {}
 ---@class _itemdef_trapcompst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_trapcompst = {}
+
+---@return itemdef_trapcompst
+function df.itemdef_trapcompst:new() end
 
 ---@param key number
 ---@return itemdef_trapcompst|nil
@@ -1881,6 +1935,9 @@ df.weapon_flags = {}
 ---@class _itemdef_weaponst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemdef_weaponst = {}
+
+---@return itemdef_weaponst
+function df.itemdef_weaponst:new() end
 
 ---@param key number
 ---@return itemdef_weaponst|nil

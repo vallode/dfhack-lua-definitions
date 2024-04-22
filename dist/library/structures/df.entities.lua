@@ -12,6 +12,9 @@
 ---@field _kind 'struct-type'
 df.entity_occasion_info = {}
 
+---@return entity_occasion_info
+function df.entity_occasion_info:new() end
+
 ---@class _entity_occasion_info_occasions: DFContainer
 ---@field [integer] entity_occasion
 local _entity_occasion_info_occasions
@@ -47,6 +50,9 @@ function _entity_occasion_info_occasions:erase(index) end
 ---@class _entity_occasion: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_occasion = {}
+
+---@return entity_occasion
+function df.entity_occasion:new() end
 
 ---@class _entity_occasion_schedule: DFContainer
 ---@field [integer] entity_occasion_schedule
@@ -124,6 +130,9 @@ df.occasion_schedule_type = {}
 ---@field _kind 'struct-type'
 df.entity_occasion_schedule = {}
 
+---@return entity_occasion_schedule
+function df.entity_occasion_schedule:new() end
+
 ---@class _entity_occasion_schedule_features: DFContainer
 ---@field [integer] entity_occasion_schedule_feature
 local _entity_occasion_schedule_features
@@ -199,6 +208,9 @@ df.occasion_schedule_feature = {}
 ---@field _kind 'struct-type'
 df.entity_occasion_schedule_feature = {}
 
+---@return entity_occasion_schedule_feature
+function df.entity_occasion_schedule_feature:new() end
+
 ---@class (exact) entity_activity_statistics: DFStruct
 ---@field _type _entity_activity_statistics
 ---@field food entity_activity_statistics.T_food
@@ -242,6 +254,9 @@ df.entity_occasion_schedule_feature = {}
 ---@field _kind 'struct-type'
 df.entity_activity_statistics = {}
 
+---@return entity_activity_statistics
+function df.entity_activity_statistics:new() end
+
 ---@class (exact) entity_activity_statistics.T_food: DFStruct
 ---@field _type _entity_activity_statistics.T_food
 ---@field total number
@@ -255,6 +270,9 @@ df.entity_activity_statistics = {}
 ---@class _entity_activity_statistics.T_food: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_activity_statistics.T_food = {}
+
+---@return entity_activity_statistics.T_food
+function df.entity_activity_statistics.T_food:new() end
 
 ---@class (exact) entity_activity_statistics.T_wealth: DFStruct
 ---@field _type _entity_activity_statistics.T_wealth
@@ -273,6 +291,9 @@ df.entity_activity_statistics.T_food = {}
 ---@class _entity_activity_statistics.T_wealth: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_activity_statistics.T_wealth = {}
+
+---@return entity_activity_statistics.T_wealth
+function df.entity_activity_statistics.T_wealth:new() end
 
 ---@class entity_activity_statistics.T_found_misc: DFBitfield
 ---@field _enum _entity_activity_statistics.T_found_misc
@@ -308,6 +329,9 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@class _caravan_state: DFCompoundType
 ---@field _kind 'struct-type'
 df.caravan_state = {}
+
+---@return caravan_state
+function df.caravan_state:new() end
 
 -- bay12: stage
 ---@alias caravan_state.T_trade_state
@@ -383,6 +407,9 @@ df.caravan_state.T_flags = {}
 ---@field _kind 'struct-type'
 df.entity_buy_prices = {}
 
+---@return entity_buy_prices
+function df.entity_buy_prices:new() end
+
 ---@class (exact) entity_buy_requests: DFStruct
 ---@field _type _entity_buy_requests
 ---@field item_type _entity_buy_requests_item_type guess
@@ -395,6 +422,9 @@ df.entity_buy_prices = {}
 ---@class _entity_buy_requests: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_buy_requests = {}
+
+---@return entity_buy_requests
+function df.entity_buy_requests:new() end
 
 ---@class _entity_buy_requests_item_type: DFContainer
 ---@field [integer] item_type
@@ -634,6 +664,9 @@ df.entity_sell_category = {}
 ---@field _kind 'struct-type'
 df.entity_sell_prices = {}
 
+---@return entity_sell_prices
+function df.entity_sell_prices:new() end
+
 ---@class (exact) entity_sell_requests: DFStruct
 ---@field _type _entity_sell_requests
 ---@field priority DFEnumVector<entity_sell_category, number>
@@ -641,6 +674,9 @@ df.entity_sell_prices = {}
 ---@class _entity_sell_requests: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_sell_requests = {}
+
+---@return entity_sell_requests
+function df.entity_sell_requests:new() end
 
 ---@class (exact) entity_recipe: DFStruct
 ---@field _type _entity_recipe
@@ -653,6 +689,9 @@ df.entity_sell_requests = {}
 ---@class _entity_recipe: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_recipe = {}
+
+---@return entity_recipe
+function df.entity_recipe:new() end
 
 ---@class _entity_recipe_item_types: DFContainer
 ---@field [integer] item_type
@@ -728,6 +767,9 @@ df.historical_entity_type = {}
 ---@field _kind 'struct-type'
 df.honors_type = {}
 
+---@return honors_type
+function df.honors_type:new() end
+
 ---@class honors_type.T_flags: DFBitfield
 ---@field _enum _honors_type.T_flags
 ---@field granted_to_all_new_members boolean
@@ -777,6 +819,9 @@ df.honors_type.T_required_skill_type = {}
 ---@field _kind 'struct-type'
 df.artifact_claim = {}
 
+---@return artifact_claim
+function df.artifact_claim:new() end
+
 -- The 3 first vectors are of the same length and somehow connected
 ---@class (exact) entity_unk_v47_1: DFStruct
 ---@field _type _entity_unk_v47_1
@@ -793,6 +838,9 @@ df.artifact_claim = {}
 ---@class _entity_unk_v47_1: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_unk_v47_1 = {}
+
+---@return entity_unk_v47_1
+function df.entity_unk_v47_1:new() end
 
 ---@class (exact) entity_pop_specifierst: DFStruct
 ---@field _type _entity_pop_specifierst
@@ -811,6 +859,9 @@ df.entity_unk_v47_1 = {}
 ---@field _kind 'struct-type'
 df.entity_pop_specifierst = {}
 
+---@return entity_pop_specifierst
+function df.entity_pop_specifierst:new() end
+
 ---@class (exact) world_gen_entity_populationst: DFStruct
 ---@field _type _world_gen_entity_populationst
 ---@field num number
@@ -819,6 +870,9 @@ df.entity_pop_specifierst = {}
 ---@class _world_gen_entity_populationst: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_gen_entity_populationst = {}
+
+---@return world_gen_entity_populationst
+function df.world_gen_entity_populationst:new() end
 
 ---@class (exact) world_gen_wandering_groupst: DFStruct
 ---@field _type _world_gen_wandering_groupst
@@ -835,6 +889,9 @@ df.world_gen_entity_populationst = {}
 ---@class _world_gen_wandering_groupst: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_gen_wandering_groupst = {}
+
+---@return world_gen_wandering_groupst
+function df.world_gen_wandering_groupst:new() end
 
 ---@class _world_gen_wandering_groupst_wanderer: DFContainer
 ---@field [integer] historical_figure
@@ -1007,6 +1064,9 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@class _historical_entity: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity = {}
+
+---@return historical_entity
+function df.historical_entity:new() end
 
 ---@param key number
 ---@return historical_entity|nil
@@ -1240,6 +1300,9 @@ function _historical_entity_site_links:erase(index) end
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources = {}
 
+---@return historical_entity.T_resources
+function df.historical_entity.T_resources:new() end
+
 ---@class (exact) historical_entity.T_resources.T_metal: DFStruct
 ---@field _type _historical_entity.T_resources.T_metal
 ---@field pick material_vec_ref
@@ -1254,6 +1317,9 @@ df.historical_entity.T_resources = {}
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_metal = {}
 
+---@return historical_entity.T_resources.T_metal
+function df.historical_entity.T_resources.T_metal:new() end
+
 ---@class (exact) historical_entity.T_resources.T_organic: DFStruct
 ---@field _type _historical_entity.T_resources.T_organic
 ---@field leather material_vec_ref
@@ -1267,6 +1333,9 @@ df.historical_entity.T_resources.T_metal = {}
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_organic = {}
 
+---@return historical_entity.T_resources.T_organic
+function df.historical_entity.T_resources.T_organic:new() end
+
 ---@class (exact) historical_entity.T_resources.T_refuse: DFStruct
 ---@field _type _historical_entity.T_resources.T_refuse
 ---@field bone material_vec_ref
@@ -1278,6 +1347,9 @@ df.historical_entity.T_resources.T_organic = {}
 ---@class _historical_entity.T_resources.T_refuse: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_refuse = {}
+
+---@return historical_entity.T_resources.T_refuse
+function df.historical_entity.T_resources.T_refuse:new() end
 
 ---@class (exact) historical_entity.T_resources.T_misc_mat: DFStruct
 ---@field _type _historical_entity.T_resources.T_misc_mat
@@ -1304,6 +1376,9 @@ df.historical_entity.T_resources.T_refuse = {}
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_misc_mat = {}
 
+---@return historical_entity.T_resources.T_misc_mat
+function df.historical_entity.T_resources.T_misc_mat:new() end
+
 -- lye, charcoal, potash, pearlash, and coke
 ---@class (exact) historical_entity.T_resources.T_wood_products: DFStruct
 ---@field _type _historical_entity.T_resources.T_wood_products
@@ -1314,6 +1389,9 @@ df.historical_entity.T_resources.T_misc_mat = {}
 ---@class _historical_entity.T_resources.T_wood_products: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_wood_products = {}
+
+---@return historical_entity.T_resources.T_wood_products
+function df.historical_entity.T_resources.T_wood_products:new() end
 
 ---@class _historical_entity_resources_wood_products_item_type: DFContainer
 ---@field [integer] item_type
@@ -1351,6 +1429,9 @@ function _historical_entity_resources_wood_products_item_type:erase(index) end
 ---@class _historical_entity.T_resources.T_animals: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_animals = {}
+
+---@return historical_entity.T_resources.T_animals
+function df.historical_entity.T_resources.T_animals:new() end
 
 ---@class _historical_entity_resources_meat_fish_recipes: DFContainer
 ---@field [integer] entity_recipe
@@ -1392,6 +1473,9 @@ function _historical_entity_resources_other_recipes:erase(index) end
 ---@class _historical_entity.T_resources.T_unk13: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_unk13 = {}
+
+---@return historical_entity.T_resources.T_unk13
+function df.historical_entity.T_resources.T_unk13:new() end
 
 ---@class _historical_entity_resources_unk14: DFContainer
 ---@field [integer] item
@@ -1492,6 +1576,9 @@ function _historical_entity_uniforms:erase(index) end
 ---@field _kind 'struct-type'
 df.historical_entity.T_relations = {}
 
+---@return historical_entity.T_relations
+function df.historical_entity.T_relations:new() end
+
 ---@class _historical_entity_relations_constructions: DFContainer
 ---@field [integer] DFPointer<integer>
 local _historical_entity_relations_constructions
@@ -1541,6 +1628,9 @@ function _historical_entity_relations_diplomacy:erase(index) end
 ---@class _historical_entity.T_positions: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_positions = {}
+
+---@return historical_entity.T_positions
+function df.historical_entity.T_positions:new() end
 
 ---@class _historical_entity_positions_own: DFContainer
 ---@field [integer] entity_position
@@ -1694,6 +1784,9 @@ function _historical_entity_positions_possible_claimable:erase(index) end
 ---@class _historical_entity.T_tissue_styles: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_tissue_styles = {}
+
+---@return historical_entity.T_tissue_styles
+function df.historical_entity.T_tissue_styles:new() end
 
 ---@class _historical_entity_tissue_styles_all: DFContainer
 ---@field [integer] entity_tissue_style
@@ -1893,6 +1986,9 @@ function _historical_entity_nemesis:erase(index) end
 ---@field _kind 'struct-type'
 df.historical_entity.T_derived_resources = {}
 
+---@return historical_entity.T_derived_resources
+function df.historical_entity.T_derived_resources:new() end
+
 ---@class _historical_entity_assignments_by_type: DFContainer
 ---@field [integer] entity_position_assignment
 local _historical_entity_assignments_by_type
@@ -1918,6 +2014,9 @@ function _historical_entity_assignments_by_type:erase(index) end
 ---@class _historical_entity.T_claims: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_claims = {}
+
+---@return historical_entity.T_claims
+function df.historical_entity.T_claims:new() end
 
 ---@class _historical_entity_weapon_proficiencies: DFContainer
 ---@field [integer] job_skill
@@ -2043,6 +2142,9 @@ function _historical_entity_burial_request:erase(index) end
 ---@class _entity_tissue_style: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_tissue_style = {}
+
+---@return entity_tissue_style
+function df.entity_tissue_style:new() end
 
 ---@alias training_knowledge_level
 ---| 0 # None
@@ -2219,6 +2321,9 @@ df.entity_position_flags = {}
 ---@field _kind 'struct-type'
 df.entity_position = {}
 
+---@return entity_position
+function df.entity_position:new() end
+
 ---@class _entity_position_flags: DFContainer
 ---@field [integer] table<entity_position_flags, boolean>
 local _entity_position_flags
@@ -2243,6 +2348,9 @@ function _entity_position_flags:erase(index) end
 ---@field _kind 'struct-type'
 df.entity_position_profile_claimst = {}
 
+---@return entity_position_profile_claimst
+function df.entity_position_profile_claimst:new() end
+
 ---@class (exact) entity_position_assignment: DFStruct
 ---@field _type _entity_position_assignment
 ---@field id number bay12: global_id
@@ -2262,6 +2370,9 @@ df.entity_position_profile_claimst = {}
 ---@class _entity_position_assignment: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position_assignment = {}
+
+---@return entity_position_assignment
+function df.entity_position_assignment:new() end
 
 ---@class _entity_position_assignment_flags: DFContainer
 ---@field [integer] table<integer, boolean>
@@ -2418,6 +2529,9 @@ df.entity_material_category = {}
 ---@field _kind 'struct-type'
 df.entity_uniform_item = {}
 
+---@return entity_uniform_item
+function df.entity_uniform_item:new() end
+
 ---@class (exact) entity_uniform: DFStruct
 ---@field _type _entity_uniform
 ---@field id number
@@ -2431,6 +2545,9 @@ df.entity_uniform_item = {}
 ---@class _entity_uniform: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_uniform = {}
+
+---@return entity_uniform
+function df.entity_uniform:new() end
 
 ---@class _entity_uniform_uniform_item_types: DFContainer
 ---@field [integer] item_type
@@ -2585,6 +2702,9 @@ df.entity_event_type = {}
 ---@field _kind 'struct-type'
 df.entity_event = {}
 
+---@return entity_event
+function df.entity_event:new() end
+
 ---@class (exact) entity_event.T_data: DFStruct
 ---@field _type _entity_event.T_data
 ---@field invasion entity_event.T_data.T_invasion
@@ -2626,6 +2746,9 @@ df.entity_event = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data = {}
 
+---@return entity_event.T_data
+function df.entity_event.T_data:new() end
+
 ---@class (exact) entity_event.T_data.T_invasion: DFStruct
 ---@field _type _entity_event.T_data.T_invasion
 ---@field entity_id number References: `historical_entity`
@@ -2636,6 +2759,9 @@ df.entity_event.T_data = {}
 ---@class _entity_event.T_data.T_invasion: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_invasion = {}
+
+---@return entity_event.T_data.T_invasion
+function df.entity_event.T_data.T_invasion:new() end
 
 ---@class (exact) entity_event.T_data.T_abduction: DFStruct
 ---@field _type _entity_event.T_data.T_abduction
@@ -2648,6 +2774,9 @@ df.entity_event.T_data.T_invasion = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_abduction = {}
 
+---@return entity_event.T_data.T_abduction
+function df.entity_event.T_data.T_abduction:new() end
+
 ---@class (exact) entity_event.T_data.T_incident: DFStruct
 ---@field _type _entity_event.T_data.T_incident
 ---@field unk_1 number
@@ -2656,6 +2785,9 @@ df.entity_event.T_data.T_abduction = {}
 ---@class _entity_event.T_data.T_incident: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_incident = {}
+
+---@return entity_event.T_data.T_incident
+function df.entity_event.T_data.T_incident:new() end
 
 ---@class (exact) entity_event.T_data.T_occupation: DFStruct
 ---@field _type _entity_event.T_data.T_occupation
@@ -2668,6 +2800,9 @@ df.entity_event.T_data.T_incident = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_occupation = {}
 
+---@return entity_event.T_data.T_occupation
+function df.entity_event.T_data.T_occupation:new() end
+
 ---@class (exact) entity_event.T_data.T_beast: DFStruct
 ---@field _type _entity_event.T_data.T_beast
 ---@field histfig_id number References: `historical_figure`
@@ -2678,6 +2813,9 @@ df.entity_event.T_data.T_occupation = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_beast = {}
 
+---@return entity_event.T_data.T_beast
+function df.entity_event.T_data.T_beast:new() end
+
 ---@class (exact) entity_event.T_data.T_group: DFStruct
 ---@field _type _entity_event.T_data.T_group
 ---@field entity_id number References: `historical_entity`
@@ -2686,6 +2824,9 @@ df.entity_event.T_data.T_beast = {}
 ---@class _entity_event.T_data.T_group: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_group = {}
+
+---@return entity_event.T_data.T_group
+function df.entity_event.T_data.T_group:new() end
 
 ---@class (exact) entity_event.T_data.T_harass: DFStruct
 ---@field _type _entity_event.T_data.T_harass
@@ -2696,6 +2837,9 @@ df.entity_event.T_data.T_group = {}
 ---@class _entity_event.T_data.T_harass: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_harass = {}
+
+---@return entity_event.T_data.T_harass
+function df.entity_event.T_data.T_harass:new() end
 
 ---@class (exact) entity_event.T_data.T_flee: DFStruct
 ---@field _type _entity_event.T_data.T_flee
@@ -2708,6 +2852,9 @@ df.entity_event.T_data.T_harass = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_flee = {}
 
+---@return entity_event.T_data.T_flee
+function df.entity_event.T_data.T_flee:new() end
+
 ---@class (exact) entity_event.T_data.T_abandon: DFStruct
 ---@field _type _entity_event.T_data.T_abandon
 ---@field entity_id number References: `historical_entity`
@@ -2717,6 +2864,9 @@ df.entity_event.T_data.T_flee = {}
 ---@class _entity_event.T_data.T_abandon: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_abandon = {}
+
+---@return entity_event.T_data.T_abandon
+function df.entity_event.T_data.T_abandon:new() end
 
 ---@class (exact) entity_event.T_data.T_reclaimed: DFStruct
 ---@field _type _entity_event.T_data.T_reclaimed
@@ -2729,6 +2879,9 @@ df.entity_event.T_data.T_abandon = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_reclaimed = {}
 
+---@return entity_event.T_data.T_reclaimed
+function df.entity_event.T_data.T_reclaimed:new() end
+
 ---@class (exact) entity_event.T_data.T_founded: DFStruct
 ---@field _type _entity_event.T_data.T_founded
 ---@field entity_id number References: `historical_entity`
@@ -2739,6 +2892,9 @@ df.entity_event.T_data.T_reclaimed = {}
 ---@class _entity_event.T_data.T_founded: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_founded = {}
+
+---@return entity_event.T_data.T_founded
+function df.entity_event.T_data.T_founded:new() end
 
 ---@class (exact) entity_event.T_data.T_reclaiming: DFStruct
 ---@field _type _entity_event.T_data.T_reclaiming
@@ -2751,6 +2907,9 @@ df.entity_event.T_data.T_founded = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_reclaiming = {}
 
+---@return entity_event.T_data.T_reclaiming
+function df.entity_event.T_data.T_reclaiming:new() end
+
 ---@class (exact) entity_event.T_data.T_founding: DFStruct
 ---@field _type _entity_event.T_data.T_founding
 ---@field entity_id number References: `historical_entity`
@@ -2762,6 +2921,9 @@ df.entity_event.T_data.T_reclaiming = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_founding = {}
 
+---@return entity_event.T_data.T_founding
+function df.entity_event.T_data.T_founding:new() end
+
 ---@class (exact) entity_event.T_data.T_leave: DFStruct
 ---@field _type _entity_event.T_data.T_leave
 ---@field entity_id number References: `historical_entity`
@@ -2770,6 +2932,9 @@ df.entity_event.T_data.T_founding = {}
 ---@class _entity_event.T_data.T_leave: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_leave = {}
+
+---@return entity_event.T_data.T_leave
+function df.entity_event.T_data.T_leave:new() end
 
 ---@class (exact) entity_event.T_data.T_insurrection: DFStruct
 ---@field _type _entity_event.T_data.T_insurrection
@@ -2780,6 +2945,9 @@ df.entity_event.T_data.T_leave = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_insurrection = {}
 
+---@return entity_event.T_data.T_insurrection
+function df.entity_event.T_data.T_insurrection:new() end
+
 ---@class (exact) entity_event.T_data.T_insurrection_end: DFStruct
 ---@field _type _entity_event.T_data.T_insurrection_end
 ---@field site_id number References: `world_site`
@@ -2789,6 +2957,9 @@ df.entity_event.T_data.T_insurrection = {}
 ---@class _entity_event.T_data.T_insurrection_end: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_insurrection_end = {}
+
+---@return entity_event.T_data.T_insurrection_end
+function df.entity_event.T_data.T_insurrection_end:new() end
 
 ---@alias entity_event.T_data.T_insurrection_end.T_result
 ---| 0 # Overthrow
@@ -2815,6 +2986,9 @@ df.entity_event.T_data.T_insurrection_end.T_result = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_succession = {}
 
+---@return entity_event.T_data.T_succession
+function df.entity_event.T_data.T_succession:new() end
+
 ---@class (exact) entity_event.T_data.T_claim: DFStruct
 ---@field _type _entity_event.T_data.T_claim
 ---@field entity_id number References: `historical_entity`
@@ -2824,6 +2998,9 @@ df.entity_event.T_data.T_succession = {}
 ---@class _entity_event.T_data.T_claim: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_claim = {}
+
+---@return entity_event.T_data.T_claim
+function df.entity_event.T_data.T_claim:new() end
 
 ---@class (exact) entity_event.T_data.T_accept_tribute_offer: DFStruct
 ---@field _type _entity_event.T_data.T_accept_tribute_offer
@@ -2836,6 +3013,9 @@ df.entity_event.T_data.T_claim = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_accept_tribute_offer = {}
 
+---@return entity_event.T_data.T_accept_tribute_offer
+function df.entity_event.T_data.T_accept_tribute_offer:new() end
+
 ---@class (exact) entity_event.T_data.T_refuse_tribute_offer: DFStruct
 ---@field _type _entity_event.T_data.T_refuse_tribute_offer
 ---@field entity1_id number References: `historical_entity`
@@ -2846,6 +3026,9 @@ df.entity_event.T_data.T_accept_tribute_offer = {}
 ---@class _entity_event.T_data.T_refuse_tribute_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_refuse_tribute_offer = {}
+
+---@return entity_event.T_data.T_refuse_tribute_offer
+function df.entity_event.T_data.T_refuse_tribute_offer:new() end
 
 ---@class (exact) entity_event.T_data.T_accept_tribute_demand: DFStruct
 ---@field _type _entity_event.T_data.T_accept_tribute_demand
@@ -2858,6 +3041,9 @@ df.entity_event.T_data.T_refuse_tribute_offer = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_accept_tribute_demand = {}
 
+---@return entity_event.T_data.T_accept_tribute_demand
+function df.entity_event.T_data.T_accept_tribute_demand:new() end
+
 ---@class (exact) entity_event.T_data.T_refuse_tribute_demand: DFStruct
 ---@field _type _entity_event.T_data.T_refuse_tribute_demand
 ---@field entity1_id number References: `historical_entity`
@@ -2868,6 +3054,9 @@ df.entity_event.T_data.T_accept_tribute_demand = {}
 ---@class _entity_event.T_data.T_refuse_tribute_demand: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_refuse_tribute_demand = {}
+
+---@return entity_event.T_data.T_refuse_tribute_demand
+function df.entity_event.T_data.T_refuse_tribute_demand:new() end
 
 ---@class (exact) entity_event.T_data.T_accept_peace_offer: DFStruct
 ---@field _type _entity_event.T_data.T_accept_peace_offer
@@ -2880,6 +3069,9 @@ df.entity_event.T_data.T_refuse_tribute_demand = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_accept_peace_offer = {}
 
+---@return entity_event.T_data.T_accept_peace_offer
+function df.entity_event.T_data.T_accept_peace_offer:new() end
+
 ---@class (exact) entity_event.T_data.T_refuse_peace_offer: DFStruct
 ---@field _type _entity_event.T_data.T_refuse_peace_offer
 ---@field entity1_id number References: `historical_entity`
@@ -2890,6 +3082,9 @@ df.entity_event.T_data.T_accept_peace_offer = {}
 ---@class _entity_event.T_data.T_refuse_peace_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_refuse_peace_offer = {}
+
+---@return entity_event.T_data.T_refuse_peace_offer
+function df.entity_event.T_data.T_refuse_peace_offer:new() end
 
 ---@class (exact) entity_event.T_data.T_cease_tribute_offer: DFStruct
 ---@field _type _entity_event.T_data.T_cease_tribute_offer
@@ -2902,6 +3097,9 @@ df.entity_event.T_data.T_refuse_peace_offer = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_cease_tribute_offer = {}
 
+---@return entity_event.T_data.T_cease_tribute_offer
+function df.entity_event.T_data.T_cease_tribute_offer:new() end
+
 ---@class (exact) entity_event.T_data.T_artifact_in_site: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_in_site
 ---@field artifact_id number References: `artifact_record`
@@ -2912,6 +3110,9 @@ df.entity_event.T_data.T_cease_tribute_offer = {}
 ---@class _entity_event.T_data.T_artifact_in_site: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_site = {}
+
+---@return entity_event.T_data.T_artifact_in_site
+function df.entity_event.T_data.T_artifact_in_site:new() end
 
 ---@class (exact) entity_event.T_data.T_artifact_in_subregion: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_in_subregion
@@ -2924,6 +3125,9 @@ df.entity_event.T_data.T_artifact_in_site = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_subregion = {}
 
+---@return entity_event.T_data.T_artifact_in_subregion
+function df.entity_event.T_data.T_artifact_in_subregion:new() end
+
 ---@class (exact) entity_event.T_data.T_artifact_in_feature_layer: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_in_feature_layer
 ---@field artifact_id number References: `artifact_record`
@@ -2934,6 +3138,9 @@ df.entity_event.T_data.T_artifact_in_subregion = {}
 ---@class _entity_event.T_data.T_artifact_in_feature_layer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_feature_layer = {}
+
+---@return entity_event.T_data.T_artifact_in_feature_layer
+function df.entity_event.T_data.T_artifact_in_feature_layer:new() end
 
 ---@class (exact) entity_event.T_data.T_artifact_in_inventory: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_in_inventory
@@ -2946,6 +3153,9 @@ df.entity_event.T_data.T_artifact_in_feature_layer = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_inventory = {}
 
+---@return entity_event.T_data.T_artifact_in_inventory
+function df.entity_event.T_data.T_artifact_in_inventory:new() end
+
 ---@class (exact) entity_event.T_data.T_artifact_not_in_site: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_not_in_site
 ---@field artifact_id number References: `artifact_record`
@@ -2956,6 +3166,9 @@ df.entity_event.T_data.T_artifact_in_inventory = {}
 ---@class _entity_event.T_data.T_artifact_not_in_site: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_site = {}
+
+---@return entity_event.T_data.T_artifact_not_in_site
+function df.entity_event.T_data.T_artifact_not_in_site:new() end
 
 ---@class (exact) entity_event.T_data.T_artifact_not_in_subregion: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_not_in_subregion
@@ -2968,6 +3181,9 @@ df.entity_event.T_data.T_artifact_not_in_site = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_subregion = {}
 
+---@return entity_event.T_data.T_artifact_not_in_subregion
+function df.entity_event.T_data.T_artifact_not_in_subregion:new() end
+
 ---@class (exact) entity_event.T_data.T_artifact_not_in_feature_layer: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_not_in_feature_layer
 ---@field artifact_id number References: `artifact_record`
@@ -2978,6 +3194,9 @@ df.entity_event.T_data.T_artifact_not_in_subregion = {}
 ---@class _entity_event.T_data.T_artifact_not_in_feature_layer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
+
+---@return entity_event.T_data.T_artifact_not_in_feature_layer
+function df.entity_event.T_data.T_artifact_not_in_feature_layer:new() end
 
 ---@class (exact) entity_event.T_data.T_artifact_not_in_inventory: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_not_in_inventory
@@ -2990,6 +3209,9 @@ df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_inventory = {}
 
+---@return entity_event.T_data.T_artifact_not_in_inventory
+function df.entity_event.T_data.T_artifact_not_in_inventory:new() end
+
 ---@class (exact) entity_event.T_data.T_artifact_destroyed: DFStruct
 ---@field _type _entity_event.T_data.T_artifact_destroyed
 ---@field artifact_id number References: `artifact_record`
@@ -3000,6 +3222,9 @@ df.entity_event.T_data.T_artifact_not_in_inventory = {}
 ---@class _entity_event.T_data.T_artifact_destroyed: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_destroyed = {}
+
+---@return entity_event.T_data.T_artifact_destroyed
+function df.entity_event.T_data.T_artifact_destroyed:new() end
 
 ---@class (exact) agreement: DFStruct
 ---@field _type _agreement
@@ -3015,6 +3240,9 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@class _agreement: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement = {}
+
+---@return agreement
+function df.agreement:new() end
 
 ---@param key number
 ---@return agreement|nil
@@ -3081,6 +3309,9 @@ df.agreement.T_flags = {}
 ---@class _agreement_party: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_party = {}
+
+---@return agreement_party
+function df.agreement_party:new() end
 
 ---@class _agreement_party_unk_1: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -3203,6 +3434,9 @@ df.agreement_details_type = {}
 ---@field _kind 'struct-type'
 df.agreement_details = {}
 
+---@return agreement_details
+function df.agreement_details:new() end
+
 ---@class (exact) agreement_details.T_data: DFStruct
 ---@field _type _agreement_details.T_data
 ---@field JoinParty agreement_details_data_join_party
@@ -3226,6 +3460,9 @@ df.agreement_details = {}
 ---@field _kind 'struct-type'
 df.agreement_details.T_data = {}
 
+---@return agreement_details.T_data
+function df.agreement_details.T_data:new() end
+
 ---@class (exact) agreement_details_data_join_party: DFStruct
 ---@field _type _agreement_details_data_join_party
 ---@field reason history_event_reason
@@ -3241,6 +3478,9 @@ df.agreement_details.T_data = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_join_party = {}
 
+---@return agreement_details_data_join_party
+function df.agreement_details_data_join_party:new() end
+
 ---@class (exact) agreement_details_data_demonic_binding: DFStruct
 ---@field _type _agreement_details_data_demonic_binding
 ---@field reason history_event_reason
@@ -3253,6 +3493,9 @@ df.agreement_details_data_join_party = {}
 ---@class _agreement_details_data_demonic_binding: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_demonic_binding = {}
+
+---@return agreement_details_data_demonic_binding
+function df.agreement_details_data_demonic_binding:new() end
 
 ---@class (exact) agreement_details_data_residency: DFStruct
 ---@field _type _agreement_details_data_residency
@@ -3267,6 +3510,9 @@ df.agreement_details_data_demonic_binding = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_residency = {}
 
+---@return agreement_details_data_residency
+function df.agreement_details_data_residency:new() end
+
 ---@class (exact) agreement_details_data_citizenship: DFStruct
 ---@field _type _agreement_details_data_citizenship
 ---@field applicant number References: `agreement_party`
@@ -3278,6 +3524,9 @@ df.agreement_details_data_residency = {}
 ---@class _agreement_details_data_citizenship: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_citizenship = {}
+
+---@return agreement_details_data_citizenship
+function df.agreement_details_data_citizenship:new() end
 
 ---@class (exact) agreement_details_data_parley: DFStruct
 ---@field _type _agreement_details_data_parley
@@ -3292,6 +3541,9 @@ df.agreement_details_data_citizenship = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_parley = {}
 
+---@return agreement_details_data_parley
+function df.agreement_details_data_parley:new() end
+
 ---@class (exact) agreement_details_data_position_corruption: DFStruct
 ---@field _type _agreement_details_data_position_corruption
 ---@field corrupt_circumstance number bay12 type: Circumstance; 247-249 seen
@@ -3305,6 +3557,9 @@ df.agreement_details_data_parley = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_position_corruption = {}
 
+---@return agreement_details_data_position_corruption
+function df.agreement_details_data_position_corruption:new() end
+
 ---@class (exact) agreement_details_data_plot_steal_artifact: DFStruct
 ---@field _type _agreement_details_data_plot_steal_artifact
 ---@field actor_index number agreement.parties index
@@ -3315,6 +3570,9 @@ df.agreement_details_data_position_corruption = {}
 ---@class _agreement_details_data_plot_steal_artifact: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_steal_artifact = {}
+
+---@return agreement_details_data_plot_steal_artifact
+function df.agreement_details_data_plot_steal_artifact:new() end
 
 ---@class (exact) agreement_details_data_promise_position: DFStruct
 ---@field _type _agreement_details_data_promise_position
@@ -3329,6 +3587,9 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_promise_position = {}
 
+---@return agreement_details_data_promise_position
+function df.agreement_details_data_promise_position:new() end
+
 ---@class (exact) agreement_details_data_plot_assassination: DFStruct
 ---@field _type _agreement_details_data_plot_assassination
 ---@field actor_index number agreement.parties index
@@ -3340,6 +3601,9 @@ df.agreement_details_data_promise_position = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_assassination = {}
 
+---@return agreement_details_data_plot_assassination
+function df.agreement_details_data_plot_assassination:new() end
+
 ---@class (exact) agreement_details_data_plot_abduct: DFStruct
 ---@field _type _agreement_details_data_plot_abduct
 ---@field actor_index number agreement.parties index
@@ -3350,6 +3614,9 @@ df.agreement_details_data_plot_assassination = {}
 ---@class _agreement_details_data_plot_abduct: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_abduct = {}
+
+---@return agreement_details_data_plot_abduct
+function df.agreement_details_data_plot_abduct:new() end
 
 ---@class (exact) agreement_details_data_plot_sabotage: DFStruct
 ---@field _type _agreement_details_data_plot_sabotage
@@ -3364,6 +3631,9 @@ df.agreement_details_data_plot_abduct = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_sabotage = {}
 
+---@return agreement_details_data_plot_sabotage
+function df.agreement_details_data_plot_sabotage:new() end
+
 ---@class (exact) agreement_details_data_plot_conviction: DFStruct
 ---@field _type _agreement_details_data_plot_conviction
 ---@field criminal_indices DFNumberVector agreement.parties index. All indices listed, regardless of confessions
@@ -3372,6 +3642,9 @@ df.agreement_details_data_plot_sabotage = {}
 ---@class _agreement_details_data_plot_conviction: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_conviction = {}
+
+---@return agreement_details_data_plot_conviction
+function df.agreement_details_data_plot_conviction:new() end
 
 ---@class (exact) agreement_details_data_location: DFStruct
 ---@field _type _agreement_details_data_location
@@ -3389,6 +3662,9 @@ df.agreement_details_data_plot_conviction = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_location = {}
 
+---@return agreement_details_data_location
+function df.agreement_details_data_location:new() end
+
 ---@class (exact) agreement_details_data_plot_infiltration_coup: DFStruct
 ---@field _type _agreement_details_data_plot_infiltration_coup
 ---@field actor_index number agreement.parties index
@@ -3399,6 +3675,9 @@ df.agreement_details_data_location = {}
 ---@class _agreement_details_data_plot_infiltration_coup: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_infiltration_coup = {}
+
+---@return agreement_details_data_plot_infiltration_coup
+function df.agreement_details_data_plot_infiltration_coup:new() end
 
 ---@class (exact) agreement_details_data_plot_frame_treason: DFStruct
 ---@field _type _agreement_details_data_plot_frame_treason
@@ -3412,6 +3691,9 @@ df.agreement_details_data_plot_infiltration_coup = {}
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_frame_treason = {}
 
+---@return agreement_details_data_plot_frame_treason
+function df.agreement_details_data_plot_frame_treason:new() end
+
 ---@class (exact) agreement_details_data_plot_induce_war: DFStruct
 ---@field _type _agreement_details_data_plot_induce_war
 ---@field actor_index number agreement.parties index
@@ -3422,4 +3704,7 @@ df.agreement_details_data_plot_frame_treason = {}
 ---@class _agreement_details_data_plot_induce_war: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_induce_war = {}
+
+---@return agreement_details_data_plot_induce_war
+function df.agreement_details_data_plot_induce_war:new() end
 

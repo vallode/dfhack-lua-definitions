@@ -20,6 +20,9 @@ df.machine_type = {}
 ---@field _kind 'struct-type'
 df.machine_info = {}
 
+---@return machine_info
+function df.machine_info:new() end
+
 ---@class machine_info.T_flags: DFBitfield
 ---@field _enum _machine_info.T_flags
 ---@field frozen boolean
@@ -38,6 +41,9 @@ df.machine_info.T_flags = {}
 ---@class _power_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.power_info = {}
+
+---@return power_info
+function df.power_info:new() end
 
 ---@class machine_conn_modes: DFBitfield
 ---@field _enum _machine_conn_modes
@@ -77,6 +83,9 @@ df.machine_conn_modes = {}
 ---@class _machine_tile_set: DFCompoundType
 ---@field _kind 'struct-type'
 df.machine_tile_set = {}
+
+---@return machine_tile_set
+function df.machine_tile_set:new() end
 
 ---@class _machine_tile_set_can_connect: DFContainer
 ---@field [integer] machine_conn_modes
@@ -121,6 +130,9 @@ function machine:read_file() end
 ---@class _machine: DFCompoundType
 ---@field _kind 'class-type'
 df.machine = {}
+
+---@return machine
+function df.machine:new() end
 
 ---@param key number
 ---@return machine|nil
@@ -172,6 +184,9 @@ df.machine.T_flags = {}
 ---@field _kind 'class-type'
 df.machine_standardst = {}
 
+---@return machine_standardst
+function df.machine_standardst:new() end
+
 -- MACHINE COMPONENT BUILDINGS
 ---@class (exact) building_axle_horizontalst: DFStruct, building_actual
 ---@field _type _building_axle_horizontalst
@@ -182,6 +197,9 @@ df.machine_standardst = {}
 ---@field _kind 'class-type'
 df.building_axle_horizontalst = {}
 
+---@return building_axle_horizontalst
+function df.building_axle_horizontalst:new() end
+
 ---@class (exact) building_axle_verticalst: DFStruct, building_actual
 ---@field _type _building_axle_verticalst
 ---@field machine machine_info
@@ -189,6 +207,9 @@ df.building_axle_horizontalst = {}
 ---@class _building_axle_verticalst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_axle_verticalst = {}
+
+---@return building_axle_verticalst
+function df.building_axle_verticalst:new() end
 
 ---@class (exact) building_gear_assemblyst: DFStruct, building_actual
 ---@field _type _building_gear_assemblyst
@@ -198,6 +219,9 @@ df.building_axle_verticalst = {}
 ---@class _building_gear_assemblyst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_gear_assemblyst = {}
+
+---@return building_gear_assemblyst
+function df.building_gear_assemblyst:new() end
 
 ---@class building_gear_assemblyst.T_gear_flags: DFBitfield
 ---@field _enum _building_gear_assemblyst.T_gear_flags
@@ -223,6 +247,9 @@ df.building_gear_assemblyst.T_gear_flags = {}
 ---@field _kind 'class-type'
 df.building_windmillst = {}
 
+---@return building_windmillst
+function df.building_windmillst:new() end
+
 ---@class (exact) building_water_wheelst: DFStruct, building_actual
 ---@field _type _building_water_wheelst
 ---@field machine machine_info
@@ -232,6 +259,9 @@ df.building_windmillst = {}
 ---@class _building_water_wheelst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_water_wheelst = {}
+
+---@return building_water_wheelst
+function df.building_water_wheelst:new() end
 
 ---@alias screw_pump_direction
 ---| 0 # FromNorth
@@ -261,6 +291,9 @@ df.screw_pump_direction = {}
 ---@field _kind 'class-type'
 df.building_screw_pumpst = {}
 
+---@return building_screw_pumpst
+function df.building_screw_pumpst:new() end
+
 ---@class (exact) building_rollersst: DFStruct, building_actual
 ---@field _type _building_rollersst
 ---@field machine machine_info
@@ -270,4 +303,7 @@ df.building_screw_pumpst = {}
 ---@class _building_rollersst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_rollersst = {}
+
+---@return building_rollersst
+function df.building_rollersst:new() end
 

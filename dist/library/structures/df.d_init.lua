@@ -197,6 +197,9 @@ df.d_init_autosave = {}
 ---@field _kind 'struct-type'
 df.d_init = {}
 
+---@return d_init
+function df.d_init:new() end
+
 ---@class _d_init_flags1: DFContainer
 ---@field [integer] table<d_init_flags1, boolean>
 local _d_init_flags1
@@ -226,6 +229,9 @@ function _d_init_flags1:erase(index) end
 ---@field _kind 'struct-type'
 df.d_init.T_wound_color = {}
 
+---@return d_init.T_wound_color
+function df.d_init.T_wound_color:new() end
+
 ---@class _d_init_flags3: DFContainer
 ---@field [integer] table<d_init_flags3, boolean>
 local _d_init_flags3
@@ -253,6 +259,9 @@ function _d_init_flags3:erase(index) end
 ---@class _d_init.T_store_dist: DFCompoundType
 ---@field _kind 'struct-type'
 df.d_init.T_store_dist = {}
+
+---@return d_init.T_store_dist
+function df.d_init.T_store_dist:new() end
 
 ---@class _d_init_flags4: DFContainer
 ---@field [integer] table<d_init_flags4, boolean>

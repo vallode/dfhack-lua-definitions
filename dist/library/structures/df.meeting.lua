@@ -12,6 +12,9 @@
 ---@field _kind 'struct-type'
 df.dipscript_info = {}
 
+---@return dipscript_info
+function df.dipscript_info:new() end
+
 ---@class _dipscript_info_script_steps: DFContainer
 ---@field [integer] script_stepst
 local _dipscript_info_script_steps
@@ -53,6 +56,9 @@ function _dipscript_info_script_vars:erase(index) end
 ---@field _kind 'struct-type'
 df.dipscript_text = {}
 
+---@return dipscript_text
+function df.dipscript_text:new() end
+
 ---@class (exact) dipscript_popup: DFStruct
 ---@field _type _dipscript_popup
 ---@field meeting_holder_actor number bay12: actor_unid References: `unit`
@@ -64,6 +70,9 @@ df.dipscript_text = {}
 ---@class _dipscript_popup: DFCompoundType
 ---@field _kind 'struct-type'
 df.dipscript_popup = {}
+
+---@return dipscript_popup
+function df.dipscript_popup:new() end
 
 ---@class dipscript_popup.T_flags: DFBitfield
 ---@field _enum _dipscript_popup.T_flags
@@ -98,6 +107,9 @@ function script_stepst:skip() end
 ---@field _kind 'class-type'
 df.script_stepst = {}
 
+---@return script_stepst
+function df.script_stepst:new() end
+
 ---@class (exact) script_step_setvarst: DFStruct, script_stepst
 ---@field _type _script_step_setvarst
 ---@field dest_type string
@@ -109,6 +121,9 @@ df.script_stepst = {}
 ---@field _kind 'class-type'
 df.script_step_setvarst = {}
 
+---@return script_step_setvarst
+function df.script_step_setvarst:new() end
+
 ---@class (exact) script_step_simpleactionst: DFStruct, script_stepst
 ---@field _type _script_step_simpleactionst
 ---@field type string
@@ -118,6 +133,9 @@ df.script_step_setvarst = {}
 ---@field _kind 'class-type'
 df.script_step_simpleactionst = {}
 
+---@return script_step_simpleactionst
+function df.script_step_simpleactionst:new() end
+
 ---@class (exact) script_step_conditionalst: DFStruct, script_stepst
 ---@field _type _script_step_conditionalst
 ---@field condition script_step_conditionalst.T_condition
@@ -126,6 +144,9 @@ df.script_step_simpleactionst = {}
 ---@class _script_step_conditionalst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_conditionalst = {}
+
+---@return script_step_conditionalst
+function df.script_step_conditionalst:new() end
 
 ---@class (exact) script_step_conditionalst.T_condition: DFStruct
 ---@field _type _script_step_conditionalst.T_condition
@@ -139,6 +160,9 @@ df.script_step_conditionalst = {}
 ---@field _kind 'struct-type'
 df.script_step_conditionalst.T_condition = {}
 
+---@return script_step_conditionalst.T_condition
+function df.script_step_conditionalst.T_condition:new() end
+
 ---@class (exact) script_step_textviewerst: DFStruct, script_stepst
 ---@field _type _script_step_textviewerst
 ---@field filename string
@@ -148,6 +172,9 @@ df.script_step_conditionalst.T_condition = {}
 ---@field _kind 'class-type'
 df.script_step_textviewerst = {}
 
+---@return script_step_textviewerst
+function df.script_step_textviewerst:new() end
+
 ---@class (exact) script_step_diphistoryst: DFStruct, script_stepst
 ---@field _type _script_step_diphistoryst
 ---@field event string
@@ -155,6 +182,9 @@ df.script_step_textviewerst = {}
 ---@class _script_step_diphistoryst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_diphistoryst = {}
+
+---@return script_step_diphistoryst
+function df.script_step_diphistoryst:new() end
 
 ---@class (exact) script_step_discussst: DFStruct, script_stepst
 ---@field _type _script_step_discussst
@@ -164,6 +194,9 @@ df.script_step_diphistoryst = {}
 ---@field _kind 'class-type'
 df.script_step_discussst = {}
 
+---@return script_step_discussst
+function df.script_step_discussst:new() end
+
 ---@class (exact) script_step_topicdiscussionst: DFStruct, script_stepst
 ---@field _type _script_step_topicdiscussionst
 
@@ -171,12 +204,18 @@ df.script_step_discussst = {}
 ---@field _kind 'class-type'
 df.script_step_topicdiscussionst = {}
 
+---@return script_step_topicdiscussionst
+function df.script_step_topicdiscussionst:new() end
+
 ---@class (exact) script_step_constructtopiclistst: DFStruct, script_stepst
 ---@field _type _script_step_constructtopiclistst
 
 ---@class _script_step_constructtopiclistst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_constructtopiclistst = {}
+
+---@return script_step_constructtopiclistst
+function df.script_step_constructtopiclistst:new() end
 
 ---@class (exact) script_step_dipeventst: DFStruct, script_step_eventst
 ---@field _type _script_step_dipeventst
@@ -190,6 +229,9 @@ df.script_step_constructtopiclistst = {}
 ---@field _kind 'class-type'
 df.script_step_dipeventst = {}
 
+---@return script_step_dipeventst
+function df.script_step_dipeventst:new() end
+
 ---@class (exact) script_step_invasionst: DFStruct, script_step_eventst
 ---@field _type _script_step_invasionst
 ---@field parm string
@@ -198,12 +240,18 @@ df.script_step_dipeventst = {}
 ---@field _kind 'class-type'
 df.script_step_invasionst = {}
 
+---@return script_step_invasionst
+function df.script_step_invasionst:new() end
+
 ---@class (exact) script_step_eventst: DFStruct, script_stepst
 ---@field _type _script_step_eventst
 
 ---@class _script_step_eventst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_step_eventst = {}
+
+---@return script_step_eventst
+function df.script_step_eventst:new() end
 
 ---@class (exact) script_varst: DFStruct
 ---@field _type _script_varst
@@ -218,6 +266,9 @@ function script_varst:instantiate() end
 ---@field _kind 'class-type'
 df.script_varst = {}
 
+---@return script_varst
+function df.script_varst:new() end
+
 ---@class (exact) script_var_unitst: DFStruct, script_varst
 ---@field _type _script_var_unitst
 
@@ -225,12 +276,18 @@ df.script_varst = {}
 ---@field _kind 'class-type'
 df.script_var_unitst = {}
 
+---@return script_var_unitst
+function df.script_var_unitst:new() end
+
 ---@class (exact) script_var_longst: DFStruct, script_varst
 ---@field _type _script_var_longst
 
 ---@class _script_var_longst: DFCompoundType
 ---@field _kind 'class-type'
 df.script_var_longst = {}
+
+---@return script_var_longst
+function df.script_var_longst:new() end
 
 ---@class (exact) active_script_varst: DFStruct
 ---@field _type _active_script_varst
@@ -256,6 +313,9 @@ function active_script_varst:read_file() end
 ---@field _kind 'class-type'
 df.active_script_varst = {}
 
+---@return active_script_varst
+function df.active_script_varst:new() end
+
 ---@class (exact) active_script_var_unitst: DFStruct, active_script_varst
 ---@field _type _active_script_var_unitst
 ---@field unit unit
@@ -264,6 +324,9 @@ df.active_script_varst = {}
 ---@field _kind 'class-type'
 df.active_script_var_unitst = {}
 
+---@return active_script_var_unitst
+function df.active_script_var_unitst:new() end
+
 ---@class (exact) active_script_var_longst: DFStruct, active_script_varst
 ---@field _type _active_script_var_longst
 ---@field value number
@@ -271,6 +334,9 @@ df.active_script_var_unitst = {}
 ---@class _active_script_var_longst: DFCompoundType
 ---@field _kind 'class-type'
 df.active_script_var_longst = {}
+
+---@return active_script_var_longst
+function df.active_script_var_longst:new() end
 
 ---@class (exact) meeting_variable: DFStruct
 ---@field _type _meeting_variable
@@ -281,6 +347,9 @@ df.active_script_var_longst = {}
 ---@class _meeting_variable: DFCompoundType
 ---@field _kind 'struct-type'
 df.meeting_variable = {}
+
+---@return meeting_variable
+function df.meeting_variable:new() end
 
 ---@class (exact) meeting_diplomat_info: DFStruct
 ---@field _type _meeting_diplomat_info
@@ -311,6 +380,9 @@ df.meeting_variable = {}
 ---@class _meeting_diplomat_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.meeting_diplomat_info = {}
+
+---@return meeting_diplomat_info
+function df.meeting_diplomat_info:new() end
 
 ---@class _meeting_diplomat_info_topic_list: DFContainer
 ---@field [integer] meeting_topic
@@ -470,6 +542,9 @@ df.meeting_event_type = {}
 ---@field _kind 'struct-type'
 df.meeting_event = {}
 
+---@return meeting_event
+function df.meeting_event:new() end
+
 ---@class (exact) activity_info: DFStruct
 ---@field _type _activity_info
 ---@field id number bay12: save_index; assigned during Save
@@ -484,6 +559,9 @@ df.meeting_event = {}
 ---@class _activity_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_info = {}
+
+---@return activity_info
+function df.activity_info:new() end
 
 ---@class activity_info.T_flags: DFBitfield
 ---@field _enum _activity_info.T_flags
@@ -520,6 +598,9 @@ df.activity_info.T_flags = {}
 ---@class _room_rent_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.room_rent_info = {}
+
+---@return room_rent_info
+function df.room_rent_info:new() end
 
 ---@class _room_rent_info_elements: DFContainer
 ---@field [integer] building
@@ -597,6 +678,9 @@ df.activity_entry_type = {}
 ---@class _activity_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_entry = {}
+
+---@return activity_entry
+function df.activity_entry:new() end
 
 ---@param key number
 ---@return activity_entry|nil
@@ -725,6 +809,9 @@ df.activity_event_type = {}
 ---@field _kind 'struct-type'
 df.activity_event_participants = {}
 
+---@return activity_event_participants
+function df.activity_event_participants:new() end
+
 ---@alias activity_event_item_role_type
 ---| -1 # NONE
 ---| 0 # TARGET_TO_POUR
@@ -843,6 +930,9 @@ function activity_event:getName() end
 ---@field _kind 'class-type'
 df.activity_event = {}
 
+---@return activity_event
+function df.activity_event:new() end
+
 ---@class activity_event.T_flags: DFBitfield
 ---@field _enum _activity_event.T_flags
 ---@field dismissed boolean bay12: DEAD; to be removed from squad_position, anyway
@@ -897,6 +987,9 @@ function _activity_event_building:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_training_sessionst = {}
 
+---@return activity_event_training_sessionst
+function df.activity_event_training_sessionst:new() end
+
 ---@class (exact) activity_event_combat_trainingst: DFStruct, activity_event
 ---@field _type _activity_event_combat_trainingst
 ---@field participants activity_event_participants
@@ -908,6 +1001,9 @@ df.activity_event_training_sessionst = {}
 ---@class _activity_event_combat_trainingst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_combat_trainingst = {}
+
+---@return activity_event_combat_trainingst
+function df.activity_event_combat_trainingst:new() end
 
 ---@class (exact) activity_event_skill_demonstrationst: DFStruct, activity_event
 ---@field _type _activity_event_skill_demonstrationst
@@ -925,6 +1021,9 @@ df.activity_event_combat_trainingst = {}
 ---@field _kind 'class-type'
 df.activity_event_skill_demonstrationst = {}
 
+---@return activity_event_skill_demonstrationst
+function df.activity_event_skill_demonstrationst:new() end
+
 ---@class (exact) activity_event_individual_skill_drillst: DFStruct, activity_event
 ---@field _type _activity_event_individual_skill_drillst
 ---@field participants activity_event_participants
@@ -934,6 +1033,9 @@ df.activity_event_skill_demonstrationst = {}
 ---@class _activity_event_individual_skill_drillst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_individual_skill_drillst = {}
+
+---@return activity_event_individual_skill_drillst
+function df.activity_event_individual_skill_drillst:new() end
 
 ---@class (exact) activity_event_sparringst: DFStruct, activity_event
 ---@field _type _activity_event_sparringst
@@ -945,6 +1047,9 @@ df.activity_event_individual_skill_drillst = {}
 ---@class _activity_event_sparringst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_sparringst = {}
+
+---@return activity_event_sparringst
+function df.activity_event_sparringst:new() end
 
 ---@class _activity_event_sparringst_groups: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -971,6 +1076,9 @@ function _activity_event_sparringst_groups:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_ranged_practicest = {}
 
+---@return activity_event_ranged_practicest
+function df.activity_event_ranged_practicest:new() end
+
 ---@class (exact) activity_event_harassmentst: DFStruct, activity_event
 ---@field _type _activity_event_harassmentst
 ---@field unk_1 DFNumberVector
@@ -985,6 +1093,9 @@ df.activity_event_ranged_practicest = {}
 ---@class _activity_event_harassmentst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_harassmentst = {}
+
+---@return activity_event_harassmentst
+function df.activity_event_harassmentst:new() end
 
 ---@class _activity_event_harassmentst_unk_2: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1157,6 +1268,9 @@ df.conversation_menu = {}
 ---@field _kind 'class-type'
 df.activity_event_conversationst = {}
 
+---@return activity_event_conversationst
+function df.activity_event_conversationst:new() end
+
 ---@class _activity_event_conversationst_participants: DFContainer
 ---@field [integer] DFPointer<integer>
 local _activity_event_conversationst_participants
@@ -1200,6 +1314,9 @@ function _activity_event_conversationst_unk_6:erase(index) end
 ---@class _activity_event_conversationst.T_unk_b4: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk_b4 = {}
+
+---@return activity_event_conversationst.T_unk_b4
+function df.activity_event_conversationst.T_unk_b4:new() end
 
 ---@class _activity_event_conversationst_turns: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1264,6 +1381,9 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk2 = {}
 
+---@return activity_event_conversationst.T_unk2
+function df.activity_event_conversationst.T_unk2:new() end
+
 ---@class _activity_event_conversationst_unk2_unk_1: DFContainer
 ---@field [integer] incident
 local _activity_event_conversationst_unk2_unk_1
@@ -1308,6 +1428,9 @@ function _activity_event_conversationst_choices:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_conflictst = {}
 
+---@return activity_event_conflictst
+function df.activity_event_conflictst:new() end
+
 ---@class _activity_event_conflictst_sides: DFContainer
 ---@field [integer] DFPointer<integer>
 local _activity_event_conflictst_sides
@@ -1334,6 +1457,9 @@ function _activity_event_conflictst_sides:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_guardst = {}
 
+---@return activity_event_guardst
+function df.activity_event_guardst:new() end
+
 ---@class (exact) activity_event_reunionst: DFStruct, activity_event
 ---@field _type _activity_event_reunionst
 ---@field unk_1 DFNumberVector
@@ -1347,6 +1473,9 @@ df.activity_event_guardst = {}
 ---@class _activity_event_reunionst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_reunionst = {}
+
+---@return activity_event_reunionst
+function df.activity_event_reunionst:new() end
 
 ---@class (exact) activity_event_prayerst: DFStruct, activity_event
 ---@field _type _activity_event_prayerst
@@ -1362,6 +1491,9 @@ df.activity_event_reunionst = {}
 ---@field _kind 'class-type'
 df.activity_event_prayerst = {}
 
+---@return activity_event_prayerst
+function df.activity_event_prayerst:new() end
+
 ---@class (exact) activity_event_socializest: DFStruct, activity_event
 ---@field _type _activity_event_socializest
 ---@field participants activity_event_participants
@@ -1374,6 +1506,9 @@ df.activity_event_prayerst = {}
 ---@field _kind 'class-type'
 df.activity_event_socializest = {}
 
+---@return activity_event_socializest
+function df.activity_event_socializest:new() end
+
 ---@class (exact) activity_event_worshipst: DFStruct, activity_event
 ---@field _type _activity_event_worshipst
 ---@field participants activity_event_participants
@@ -1385,6 +1520,9 @@ df.activity_event_socializest = {}
 ---@class _activity_event_worshipst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_worshipst = {}
+
+---@return activity_event_worshipst
+function df.activity_event_worshipst:new() end
 
 ---@alias performance_event_type
 ---| 0 # STORY
@@ -1478,6 +1616,9 @@ df.performance_participant_type = {}
 ---@field _kind 'class-type'
 df.activity_event_performancest = {}
 
+---@return activity_event_performancest
+function df.activity_event_performancest:new() end
+
 ---@class _activity_event_performancest_participant_actions: DFContainer
 ---@field [integer] DFPointer<integer>
 local _activity_event_performancest_participant_actions
@@ -1528,6 +1669,9 @@ function performance_play_orderst:read_file() end
 ---@field _kind 'class-type'
 df.performance_play_orderst = {}
 
+---@return performance_play_orderst
+function df.performance_play_orderst:new() end
+
 ---@class _performance_play_orderst_unk_4: DFContainer
 ---@field [integer] DFPointer<integer>
 local _performance_play_orderst_unk_4
@@ -1555,6 +1699,9 @@ function _performance_play_orderst_unk_4:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_researchst = {}
 
+---@return activity_event_researchst
+function df.activity_event_researchst:new() end
+
 ---@class (exact) activity_event_ponder_topicst: DFStruct, activity_event
 ---@field _type _activity_event_ponder_topicst
 ---@field participants activity_event_participants
@@ -1568,6 +1715,9 @@ df.activity_event_researchst = {}
 ---@class _activity_event_ponder_topicst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_ponder_topicst = {}
+
+---@return activity_event_ponder_topicst
+function df.activity_event_ponder_topicst:new() end
 
 ---@class (exact) activity_event_discuss_topicst: DFStruct, activity_event
 ---@field _type _activity_event_discuss_topicst
@@ -1585,6 +1735,9 @@ df.activity_event_ponder_topicst = {}
 ---@field _kind 'class-type'
 df.activity_event_discuss_topicst = {}
 
+---@return activity_event_discuss_topicst
+function df.activity_event_discuss_topicst:new() end
+
 ---@class (exact) activity_event_readst: DFStruct, activity_event
 ---@field _type _activity_event_readst
 ---@field participants activity_event_participants
@@ -1598,6 +1751,9 @@ df.activity_event_discuss_topicst = {}
 ---@field _kind 'class-type'
 df.activity_event_readst = {}
 
+---@return activity_event_readst
+function df.activity_event_readst:new() end
+
 ---@class (exact) activity_event_fill_service_orderst: DFStruct, activity_event
 ---@field _type _activity_event_fill_service_orderst
 ---@field histfig_id number References: `historical_figure`
@@ -1608,6 +1764,9 @@ df.activity_event_readst = {}
 ---@class _activity_event_fill_service_orderst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_fill_service_orderst = {}
+
+---@return activity_event_fill_service_orderst
+function df.activity_event_fill_service_orderst:new() end
 
 ---@class (exact) activity_event_writest: DFStruct, activity_event
 ---@field _type _activity_event_writest
@@ -1625,6 +1784,9 @@ df.activity_event_fill_service_orderst = {}
 ---@class _activity_event_writest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_writest = {}
+
+---@return activity_event_writest
+function df.activity_event_writest:new() end
 
 ---@class activity_event_writest.T_unk_1: DFBitfield
 ---@field _enum _activity_event_writest.T_unk_1
@@ -1658,6 +1820,9 @@ df.activity_event_writest.T_mode = {}
 ---@class _activity_event_copy_written_contentst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_copy_written_contentst = {}
+
+---@return activity_event_copy_written_contentst
+function df.activity_event_copy_written_contentst:new() end
 
 ---@class activity_event_copy_written_contentst.T_flagsmaybe: DFBitfield
 ---@field _enum _activity_event_copy_written_contentst.T_flagsmaybe
@@ -1695,6 +1860,9 @@ df.activity_event_copy_written_contentst.T_flagsmaybe = {}
 ---@field _kind 'class-type'
 df.activity_event_teach_topicst = {}
 
+---@return activity_event_teach_topicst
+function df.activity_event_teach_topicst:new() end
+
 ---@class (exact) activity_event_playst: DFStruct, activity_event
 ---@field _type _activity_event_playst
 ---@field participants activity_event_participants
@@ -1705,6 +1873,9 @@ df.activity_event_teach_topicst = {}
 ---@class _activity_event_playst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_playst = {}
+
+---@return activity_event_playst
+function df.activity_event_playst:new() end
 
 ---@class (exact) activity_event_make_believest: DFStruct, activity_event
 ---@field _type _activity_event_make_believest
@@ -1718,6 +1889,9 @@ df.activity_event_playst = {}
 ---@class _activity_event_make_believest: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_make_believest = {}
+
+---@return activity_event_make_believest
+function df.activity_event_make_believest:new() end
 
 ---@class (exact) activity_event_play_with_toyst: DFStruct, activity_event
 ---@field _type _activity_event_play_with_toyst
@@ -1733,6 +1907,9 @@ df.activity_event_make_believest = {}
 ---@field _kind 'class-type'
 df.activity_event_play_with_toyst = {}
 
+---@return activity_event_play_with_toyst
+function df.activity_event_play_with_toyst:new() end
+
 ---@class (exact) activity_event_play_with_toyst.T_unk: DFStruct
 ---@field _type _activity_event_play_with_toyst.T_unk
 ---@field unk_1 number[]
@@ -1741,6 +1918,9 @@ df.activity_event_play_with_toyst = {}
 ---@class _activity_event_play_with_toyst.T_unk: DFCompoundType
 ---@field _kind 'struct-type'
 df.activity_event_play_with_toyst.T_unk = {}
+
+---@return activity_event_play_with_toyst.T_unk
+function df.activity_event_play_with_toyst.T_unk:new() end
 
 ---@class (exact) activity_event_encounterst: DFStruct, activity_event
 ---@field _type _activity_event_encounterst
@@ -1757,6 +1937,9 @@ df.activity_event_play_with_toyst.T_unk = {}
 ---@class _activity_event_encounterst: DFCompoundType
 ---@field _kind 'class-type'
 df.activity_event_encounterst = {}
+
+---@return activity_event_encounterst
+function df.activity_event_encounterst:new() end
 
 ---@class _activity_event_encounterst_unk_1: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1802,6 +1985,9 @@ function _activity_event_encounterst_unk_2:erase(index) end
 ---@field _kind 'class-type'
 df.activity_event_store_objectst = {}
 
+---@return activity_event_store_objectst
+function df.activity_event_store_objectst:new() end
+
 ---@class (exact) schedule_info: DFStruct
 ---@field _type _schedule_info
 ---@field id number
@@ -1811,6 +1997,9 @@ df.activity_event_store_objectst = {}
 ---@class _schedule_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.schedule_info = {}
+
+---@return schedule_info
+function df.schedule_info:new() end
 
 ---@param key number
 ---@return schedule_info|nil
@@ -1848,4 +2037,7 @@ function _schedule_info_slots:erase(index) end
 ---@class _schedule_slot: DFCompoundType
 ---@field _kind 'struct-type'
 df.schedule_slot = {}
+
+---@return schedule_slot
+function df.schedule_slot:new() end
 

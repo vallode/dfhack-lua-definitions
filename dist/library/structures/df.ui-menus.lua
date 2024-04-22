@@ -17,6 +17,9 @@
 ---@field _kind 'struct-type'
 df.ui_build_item_req = {}
 
+---@return ui_build_item_req
+function df.ui_build_item_req:new() end
+
 ---@class _ui_build_item_req_candidates: DFContainer
 ---@field [integer] item
 local _ui_build_item_req_candidates
@@ -69,6 +72,9 @@ function build_req_choicest:getNumCandidates() end
 ---@field _kind 'class-type'
 df.build_req_choicest = {}
 
+---@return build_req_choicest
+function df.build_req_choicest:new() end
+
 ---@class (exact) build_req_choice_genst: DFStruct, build_req_choicest
 ---@field _type _build_req_choice_genst
 ---@field item_type item_type
@@ -83,6 +89,9 @@ df.build_req_choicest = {}
 ---@field _kind 'class-type'
 df.build_req_choice_genst = {}
 
+---@return build_req_choice_genst
+function df.build_req_choice_genst:new() end
+
 ---@class (exact) build_req_choice_specst: DFStruct, build_req_choicest
 ---@field _type _build_req_choice_specst
 ---@field candidate item
@@ -91,6 +100,9 @@ df.build_req_choice_genst = {}
 ---@class _build_req_choice_specst: DFCompoundType
 ---@field _kind 'class-type'
 df.build_req_choice_specst = {}
+
+---@return build_req_choice_specst
+function df.build_req_choice_specst:new() end
 
 ---@class (exact) buildreq: DFStruct
 ---@field _type _buildreq
@@ -125,6 +137,9 @@ local buildreq
 ---@class _buildreq: DFCompoundType
 ---@field _kind 'class-type'
 df.buildreq = {}
+
+---@return buildreq
+function df.buildreq:new() end
 
 ---@class _buildreq_requirements: DFContainer
 ---@field [integer] ui_build_item_req
@@ -269,6 +284,9 @@ function interface_button:get_info_string() end
 ---@field _kind 'class-type'
 df.interface_button = {}
 
+---@return interface_button
+function df.interface_button:new() end
+
 ---@class (exact) interface_button_buildingst: DFStruct, interface_button
 ---@field _type _interface_button_buildingst
 ---@field bd building
@@ -276,6 +294,9 @@ df.interface_button = {}
 ---@class _interface_button_buildingst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_buildingst = {}
+
+---@return interface_button_buildingst
+function df.interface_button_buildingst:new() end
 
 ---@class (exact) interface_button_building_category_selectorst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_category_selectorst
@@ -285,6 +306,9 @@ df.interface_button_buildingst = {}
 ---@class _interface_button_building_category_selectorst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_category_selectorst = {}
+
+---@return interface_button_building_category_selectorst
+function df.interface_button_building_category_selectorst:new() end
 
 ---@class (exact) interface_button_building_material_selectorst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_material_selectorst
@@ -296,6 +320,9 @@ df.interface_button_building_category_selectorst = {}
 ---@class _interface_button_building_material_selectorst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_material_selectorst = {}
+
+---@return interface_button_building_material_selectorst
+function df.interface_button_building_material_selectorst:new() end
 
 ---@class (exact) interface_button_building_new_jobst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_new_jobst
@@ -317,6 +344,9 @@ df.interface_button_building_material_selectorst = {}
 ---@field _kind 'class-type'
 df.interface_button_building_new_jobst = {}
 
+---@return interface_button_building_new_jobst
+function df.interface_button_building_new_jobst:new() end
+
 ---@class (exact) interface_button_building_custom_category_selectorst: DFStruct, interface_button_buildingst
 ---@field _type _interface_button_building_custom_category_selectorst
 ---@field custom_category_token string
@@ -324,6 +354,9 @@ df.interface_button_building_new_jobst = {}
 ---@class _interface_button_building_custom_category_selectorst: DFCompoundType
 ---@field _kind 'class-type'
 df.interface_button_building_custom_category_selectorst = {}
+
+---@return interface_button_building_custom_category_selectorst
+function df.interface_button_building_custom_category_selectorst:new() end
 
 ---@alias construction_category_type
 ---| -1 # NONE
@@ -385,6 +418,9 @@ df.construction_category_type = {}
 ---@field _kind 'struct-type'
 df.bb_buttonst = {}
 
+---@return bb_buttonst
+function df.bb_buttonst:new() end
+
 ---@alias construction_interface_page_status_type
 ---| -1 # NONE
 ---| 0 # FULL
@@ -421,6 +457,9 @@ df.construction_interface_page_status_type = {}
 ---@class _construction_interface_pagest: DFCompoundType
 ---@field _kind 'struct-type'
 df.construction_interface_pagest = {}
+
+---@return construction_interface_pagest
+function df.construction_interface_pagest:new() end
 
 ---@class _construction_interface_pagest_bb_button: DFContainer
 ---@field [integer] bb_buttonst
@@ -1755,6 +1794,9 @@ df.main_designation_type = {}
 ---@field _kind 'class-type'
 df.markup_text_box_widget = {}
 
+---@return markup_text_box_widget
+function df.markup_text_box_widget:new() end
+
 -- bay12: BurrowUnitSelectorFilter
 ---@alias burrow_unit_selector_filter_type
 ---| 0 # ALL
@@ -1790,6 +1832,9 @@ df.burrow_unit_selector_filter_type = {}
 ---@field _kind 'class-type'
 df.unit_selector_interfacest = {}
 
+---@return unit_selector_interfacest
+function df.unit_selector_interfacest:new() end
+
 ---@class (exact) creature_interfacest: DFStruct, widget_container
 ---@field _type _creature_interfacest
 ---@field current_mode unit_list_mode_type
@@ -1799,12 +1844,18 @@ df.unit_selector_interfacest = {}
 ---@field _kind 'class-type'
 df.creature_interfacest = {}
 
+---@return creature_interfacest
+function df.creature_interfacest:new() end
+
 ---@class (exact) labor_work_details_interfacest: DFStruct, widget_container
 ---@field _type _labor_work_details_interfacest
 
 ---@class _labor_work_details_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_work_details_interfacest = {}
+
+---@return labor_work_details_interfacest
+function df.labor_work_details_interfacest:new() end
 
 ---@class (exact) labor_kitchen_interface_food_key: DFStruct
 ---@field _type _labor_kitchen_interface_food_key
@@ -1817,6 +1868,9 @@ df.labor_work_details_interfacest = {}
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_key = {}
 
+---@return labor_kitchen_interface_food_key
+function df.labor_kitchen_interface_food_key:new() end
+
 ---@class (exact) labor_kitchen_interface_food_value: DFStruct
 ---@field _type _labor_kitchen_interface_food_value
 ---@field num number
@@ -1827,6 +1881,9 @@ df.labor_kitchen_interface_food_key = {}
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_value = {}
 
+---@return labor_kitchen_interface_food_value
+function df.labor_kitchen_interface_food_value:new() end
+
 ---@class (exact) labor_kitchen_food_entry: DFStruct
 ---@field _type _labor_kitchen_food_entry
 ---@field first labor_kitchen_interface_food_key
@@ -1836,12 +1893,18 @@ df.labor_kitchen_interface_food_value = {}
 ---@field _kind 'struct-type'
 df.labor_kitchen_food_entry = {}
 
+---@return labor_kitchen_food_entry
+function df.labor_kitchen_food_entry:new() end
+
 ---@class (exact) labor_kitchen_interface_food_sort_entry: DFStruct, sort_entry
 ---@field _type _labor_kitchen_interface_food_sort_entry
 
 ---@class _labor_kitchen_interface_food_sort_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.labor_kitchen_interface_food_sort_entry = {}
+
+---@return labor_kitchen_interface_food_sort_entry
+function df.labor_kitchen_interface_food_sort_entry:new() end
 
 ---@alias labor_kitchen_interface_type_filter
 ---| -1 # ALL
@@ -1879,6 +1942,9 @@ df.labor_kitchen_interface_type_filter = {}
 ---@class _labor_kitchen_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_kitchen_interfacest = {}
+
+---@return labor_kitchen_interfacest
+function df.labor_kitchen_interfacest:new() end
 
 ---@class _labor_kitchen_interfacest_known: DFContainer
 ---@field [integer] labor_kitchen_interface_food_value
@@ -1941,6 +2007,9 @@ function _labor_kitchen_interfacest_filter_func:erase(index) end
 ---@field _kind 'class-type'
 df.labor_standing_orders_interfacest = {}
 
+---@return labor_standing_orders_interfacest
+function df.labor_standing_orders_interfacest:new() end
+
 ---@class _labor_standing_orders_interfacest_unit: DFContainer
 ---@field [integer] unit
 local _labor_standing_orders_interfacest_unit
@@ -1970,6 +2039,9 @@ function _labor_standing_orders_interfacest_unit:erase(index) end
 ---@field _kind 'class-type'
 df.labor_stone_use_interfacest = {}
 
+---@return labor_stone_use_interfacest
+function df.labor_stone_use_interfacest:new() end
+
 ---@class (exact) labor_interfacest: DFStruct, widget_container
 ---@field _type _labor_interfacest
 ---@field work_details _labor_interfacest_work_details
@@ -1980,6 +2052,9 @@ df.labor_stone_use_interfacest = {}
 ---@class _labor_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.labor_interfacest = {}
+
+---@return labor_interfacest
+function df.labor_interfacest:new() end
 
 ---@class _labor_interfacest_work_details: DFContainer
 ---@field [integer] labor_work_details_interfacest
@@ -2110,6 +2185,9 @@ df.justice_screen_interrogation_list_flag = {}
 ---@class _justice_interfacest: DFCompoundType
 ---@field _kind 'class-type'
 df.justice_interfacest = {}
+
+---@return justice_interfacest
+function df.justice_interfacest:new() end
 
 ---@class _justice_interfacest_cri_fortress_guard: DFContainer
 ---@field [integer] cri_unitst
@@ -2352,6 +2430,9 @@ function _justice_interfacest_crimeflag:erase(index) end
 ---@field _kind 'class-type'
 df.info_interfacest = {}
 
+---@return info_interfacest
+function df.info_interfacest:new() end
+
 ---@class (exact) info_interfacest.T_jobs: DFStruct
 ---@field _type _info_interfacest.T_jobs
 ---@field cri_job _info_interfacest_jobs_cri_job
@@ -2361,6 +2442,9 @@ df.info_interfacest = {}
 ---@class _info_interfacest.T_jobs: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_jobs = {}
+
+---@return info_interfacest.T_jobs
+function df.info_interfacest.T_jobs:new() end
 
 ---@class _info_interfacest_jobs_cri_job: DFContainer
 ---@field [integer] cri_unitst
@@ -2388,6 +2472,9 @@ function _info_interfacest_jobs_cri_job:erase(index) end
 ---@class _info_interfacest.T_buildings: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_buildings = {}
+
+---@return info_interfacest.T_buildings
+function df.info_interfacest.T_buildings:new() end
 
 ---@class _info_interfacest_buildings_list: DFContainer
 ---@field [integer] building
@@ -2420,6 +2507,9 @@ function _info_interfacest_buildings_list:erase(index) end
 ---@class _info_interfacest.T_work_orders: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_work_orders = {}
+
+---@return info_interfacest.T_work_orders
+function df.info_interfacest.T_work_orders:new() end
 
 ---@class (exact) info_interfacest.T_work_orders.T_conditions: DFStruct
 ---@field _type _info_interfacest.T_work_orders.T_conditions
@@ -2457,6 +2547,9 @@ df.info_interfacest.T_work_orders = {}
 ---@class _info_interfacest.T_work_orders.T_conditions: DFCompoundType
 ---@field _kind 'struct-type'
 df.info_interfacest.T_work_orders.T_conditions = {}
+
+---@return info_interfacest.T_work_orders.T_conditions
+function df.info_interfacest.T_work_orders.T_conditions:new() end
 
 ---@class _info_interfacest_work_orders_conditions_item_condition_satisfied: DFContainer
 ---@field [integer] any[]
@@ -2601,6 +2694,9 @@ function _info_interfacest_work_orders_conditions_condition_wq:erase(index) end
 ---@field _kind 'struct-type'
 df.info_interfacest.T_administrators = {}
 
+---@return info_interfacest.T_administrators
+function df.info_interfacest.T_administrators:new() end
+
 ---@class _info_interfacest_administrators_noblelist: DFContainer
 ---@field [integer] DFPointer<integer>
 local _info_interfacest_administrators_noblelist
@@ -2676,6 +2772,9 @@ function _info_interfacest_administrators_cand_symbol:erase(index) end
 ---@field _kind 'struct-type'
 df.info_interfacest.T_artifacts = {}
 
+---@return info_interfacest.T_artifacts
+function df.info_interfacest.T_artifacts:new() end
+
 ---@class _info_interfacest_artifacts_list: DFContainer
 ---@field [integer] artifact_record
 local _info_interfacest_artifacts_list
@@ -2699,6 +2798,9 @@ function _info_interfacest_artifacts_list:erase(index) end
 ---@class _announcements_interfacest: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcements_interfacest = {}
+
+---@return announcements_interfacest
+function df.announcements_interfacest:new() end
 
 ---@class (exact) main_interface: DFStruct
 ---@field _type _main_interface
@@ -2818,6 +2920,9 @@ df.announcements_interfacest = {}
 ---@field _kind 'struct-type'
 df.main_interface = {}
 
+---@return main_interface
+function df.main_interface:new() end
+
 ---@class (exact) main_interface.T_designation: DFStruct
 ---@field _type _main_interface.T_designation
 ---@field marker_only boolean
@@ -2842,6 +2947,9 @@ df.main_interface = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_designation = {}
 
+---@return main_interface.T_designation
+function df.main_interface.T_designation:new() end
+
 ---@class (exact) main_interface.T_building: DFStruct
 ---@field _type _main_interface.T_building
 ---@field button _main_interface_building_button
@@ -2858,6 +2966,9 @@ df.main_interface.T_designation = {}
 ---@class _main_interface.T_building: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_building = {}
+
+---@return main_interface.T_building
+function df.main_interface.T_building:new() end
 
 ---@class _main_interface_building_button: DFContainer
 ---@field [integer] interface_button
@@ -2929,6 +3040,9 @@ function _main_interface_building_filtered_button:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_construction = {}
 
+---@return main_interface.T_construction
+function df.main_interface.T_construction:new() end
+
 ---@class _main_interface_construction_button: DFContainer
 ---@field [integer] interface_button
 local _main_interface_construction_button
@@ -2998,6 +3112,9 @@ function _main_interface_construction_page:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_civzone = {}
 
+---@return main_interface.T_civzone
+function df.main_interface.T_civzone:new() end
+
 ---@class _main_interface_civzone_list: DFContainer
 ---@field [integer] building_civzonest
 local _main_interface_civzone_list
@@ -3044,6 +3161,9 @@ function _main_interface_civzone_zone_just_created:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_burrow = {}
 
+---@return main_interface.T_burrow
+function df.main_interface.T_burrow:new() end
+
 ---@class (exact) main_interface.T_view: DFStruct
 ---@field _type _main_interface.T_view
 ---@field inv _main_interface_view_inv
@@ -3074,6 +3194,9 @@ df.main_interface.T_burrow = {}
 ---@class _main_interface.T_view: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_view = {}
+
+---@return main_interface.T_view
+function df.main_interface.T_view:new() end
 
 ---@class _main_interface_view_inv: DFContainer
 ---@field [integer] unit_inventory_item
@@ -3231,6 +3354,9 @@ function _main_interface_view_expel_outskirt_list:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_hospital = {}
 
+---@return main_interface.T_hospital
+function df.main_interface.T_hospital:new() end
+
 ---@class (exact) main_interface.T_location_list: DFStruct
 ---@field _type _main_interface.T_location_list
 ---@field valid_ab _main_interface_location_list_valid_ab
@@ -3247,6 +3373,9 @@ df.main_interface.T_hospital = {}
 ---@class _main_interface.T_location_list: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_location_list = {}
+
+---@return main_interface.T_location_list
+function df.main_interface.T_location_list:new() end
 
 ---@class _main_interface_location_list_valid_ab: DFContainer
 ---@field [integer] abstract_building
@@ -3350,6 +3479,9 @@ function _main_interface_location_list_valid_craft_guild_type:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_job_details = {}
 
+---@return main_interface.T_job_details
+function df.main_interface.T_job_details:new() end
+
 ---@class _main_interface_job_details_option: DFContainer
 ---@field [integer] job_details_option_type
 local _main_interface_job_details_option
@@ -3391,6 +3523,9 @@ function _main_interface_job_details_improvement_type:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_buildjob = {}
 
+---@return main_interface.T_buildjob
+function df.main_interface.T_buildjob:new() end
+
 ---@class (exact) main_interface.T_assign_trade: DFStruct
 ---@field _type _main_interface.T_assign_trade
 ---@field open boolean
@@ -3429,6 +3564,9 @@ df.main_interface.T_buildjob = {}
 ---@class _main_interface.T_assign_trade: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_trade = {}
+
+---@return main_interface.T_assign_trade
+function df.main_interface.T_assign_trade:new() end
 
 ---@class _main_interface_assign_trade_unk_a8: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -3562,6 +3700,9 @@ function _main_interface_assign_trade_current_type_a_on:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_trade = {}
 
+---@return main_interface.T_trade
+function df.main_interface.T_trade:new() end
+
 ---@class _main_interface_trade_merlist: DFContainer
 ---@field [integer] caravan_state
 local _main_interface_trade_merlist
@@ -3648,6 +3789,9 @@ function _main_interface_trade_counter_offer_item:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_diplomacy = {}
 
+---@return main_interface.T_diplomacy
+function df.main_interface.T_diplomacy:new() end
+
 ---@class (exact) main_interface.T_petitions: DFStruct
 ---@field _type _main_interface.T_petitions
 ---@field open boolean
@@ -3660,6 +3804,9 @@ df.main_interface.T_diplomacy = {}
 ---@class _main_interface.T_petitions: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_petitions = {}
+
+---@return main_interface.T_petitions
+function df.main_interface.T_petitions:new() end
 
 ---@class (exact) main_interface.T_stocks: DFStruct
 ---@field _type _main_interface.T_stocks
@@ -3688,6 +3835,9 @@ df.main_interface.T_petitions = {}
 ---@class _main_interface.T_stocks: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_stocks = {}
+
+---@return main_interface.T_stocks
+function df.main_interface.T_stocks:new() end
 
 ---@class _main_interface_stocks_current_type_i_list: DFContainer
 ---@field [integer] item
@@ -3766,6 +3916,9 @@ function _main_interface_stocks_current_type_a_on:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_display_item = {}
 
+---@return main_interface.T_assign_display_item
+function df.main_interface.T_assign_display_item:new() end
+
 ---@class _main_interface_assign_display_item_current_type_i_list: DFContainer
 ---@field [integer] item
 local _main_interface_assign_display_item_current_type_i_list
@@ -3838,6 +3991,9 @@ function _main_interface_assign_display_item_current_type_a_on:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_name_creator = {}
 
+---@return main_interface.T_name_creator
+function df.main_interface.T_name_creator:new() end
+
 ---@class (exact) main_interface.T_image_creator: DFStruct
 ---@field _type _main_interface.T_image_creator
 ---@field open boolean
@@ -3897,6 +4053,9 @@ df.main_interface.T_name_creator = {}
 ---@class _main_interface.T_image_creator: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_image_creator = {}
+
+---@return main_interface.T_image_creator
+function df.main_interface.T_image_creator:new() end
 
 ---@class _main_interface_image_creator_hf: DFContainer
 ---@field [integer] historical_figure
@@ -4042,6 +4201,9 @@ function _main_interface_image_creator_new_image_property_transitive:erase(index
 ---@field _kind 'struct-type'
 df.main_interface.T_image_creator.T_ics = {}
 
+---@return main_interface.T_image_creator.T_ics
+function df.main_interface.T_image_creator.T_ics:new() end
+
 ---@class (exact) main_interface.T_announcement_alert: DFStruct
 ---@field _type _main_interface.T_announcement_alert
 ---@field open boolean
@@ -4069,6 +4231,9 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@class _main_interface.T_announcement_alert: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_announcement_alert = {}
+
+---@return main_interface.T_announcement_alert
+function df.main_interface.T_announcement_alert:new() end
 
 ---@class _main_interface_announcement_alert_zoom_line_is_start: DFContainer
 ---@field [integer] any[]
@@ -4168,6 +4333,9 @@ function _main_interface_announcement_alert_uac_zoom_line_ann:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_custom_symbol = {}
 
+---@return main_interface.T_custom_symbol
+function df.main_interface.T_custom_symbol:new() end
+
 ---@class (exact) main_interface.T_patrol_routes: DFStruct
 ---@field _type _main_interface.T_patrol_routes
 ---@field open boolean
@@ -4185,6 +4353,9 @@ df.main_interface.T_custom_symbol = {}
 ---@class _main_interface.T_patrol_routes: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_patrol_routes = {}
+
+---@return main_interface.T_patrol_routes
+function df.main_interface.T_patrol_routes:new() end
 
 ---@class _main_interface_patrol_routes_route_line: DFContainer
 ---@field [integer] coord_path
@@ -4252,6 +4423,9 @@ function _main_interface_patrol_routes_route_line:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_equipment = {}
 
+---@return main_interface.T_squad_equipment
+function df.main_interface.T_squad_equipment:new() end
+
 ---@class _main_interface_squad_equipment_cs_add_list_is_foreign: DFContainer
 ---@field [integer] any[]
 local _main_interface_squad_equipment_cs_add_list_is_foreign
@@ -4311,6 +4485,9 @@ function _main_interface_squad_equipment_cs_setting_color_pattern_is_dye:erase(i
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_schedule = {}
 
+---@return main_interface.T_squad_schedule
+function df.main_interface.T_squad_schedule:new() end
+
 ---@class (exact) main_interface.T_squad_selector: DFStruct
 ---@field _type _main_interface.T_squad_selector
 ---@field open boolean
@@ -4324,6 +4501,9 @@ df.main_interface.T_squad_schedule = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_selector = {}
 
+---@return main_interface.T_squad_selector
+function df.main_interface.T_squad_selector:new() end
+
 ---@class (exact) main_interface.T_burrow_selector: DFStruct
 ---@field _type _main_interface.T_burrow_selector
 ---@field open boolean
@@ -4336,6 +4516,9 @@ df.main_interface.T_squad_selector = {}
 ---@class _main_interface.T_burrow_selector: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_burrow_selector = {}
+
+---@return main_interface.T_burrow_selector
+function df.main_interface.T_burrow_selector:new() end
 
 ---@class _main_interface_burrow_selector_selected: DFContainer
 ---@field [integer] any[]
@@ -4374,6 +4557,9 @@ function _main_interface_burrow_selector_selected:erase(index) end
 ---@class _main_interface.T_location_selector: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_location_selector = {}
+
+---@return main_interface.T_location_selector
+function df.main_interface.T_location_selector:new() end
 
 ---@class _main_interface_location_selector_valid_ab: DFContainer
 ---@field [integer] abstract_building
@@ -4427,6 +4613,9 @@ function _main_interface_location_selector_valid_craft_guild_type:erase(index) e
 ---@class _main_interface.T_location_details: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_location_details = {}
+
+---@return main_interface.T_location_details
+function df.main_interface.T_location_details:new() end
 
 ---@class _main_interface_location_details_loc_occupation: DFContainer
 ---@field [integer] occupation
@@ -4505,6 +4694,9 @@ function _main_interface_location_details_loc_epp:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_hauling_stop_conditions = {}
 
+---@return main_interface.T_hauling_stop_conditions
+function df.main_interface.T_hauling_stop_conditions:new() end
+
 ---@class (exact) main_interface.T_assign_vehicle: DFStruct
 ---@field _type _main_interface.T_assign_vehicle
 ---@field open boolean
@@ -4517,6 +4709,9 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@class _main_interface.T_assign_vehicle: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_vehicle = {}
+
+---@return main_interface.T_assign_vehicle
+function df.main_interface.T_assign_vehicle:new() end
 
 ---@class _main_interface_assign_vehicle_i_vehicle: DFContainer
 ---@field [integer] vehicle
@@ -4546,6 +4741,9 @@ function _main_interface_assign_vehicle_i_vehicle:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_stockpile = {}
 
+---@return main_interface.T_stockpile
+function df.main_interface.T_stockpile:new() end
+
 ---@class (exact) main_interface.T_stockpile_link: DFStruct
 ---@field _type _main_interface.T_stockpile_link
 ---@field open boolean
@@ -4562,6 +4760,9 @@ df.main_interface.T_stockpile = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_stockpile_link = {}
 
+---@return main_interface.T_stockpile_link
+function df.main_interface.T_stockpile_link:new() end
+
 ---@class (exact) main_interface.T_stockpile_tools: DFStruct
 ---@field _type _main_interface.T_stockpile_tools
 ---@field open boolean
@@ -4575,6 +4776,9 @@ df.main_interface.T_stockpile_link = {}
 ---@class _main_interface.T_stockpile_tools: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_stockpile_tools = {}
+
+---@return main_interface.T_stockpile_tools
+function df.main_interface.T_stockpile_tools:new() end
 
 ---@class (exact) main_interface.T_custom_stockpile: DFStruct
 ---@field _type _main_interface.T_custom_stockpile
@@ -4604,6 +4808,9 @@ df.main_interface.T_stockpile_tools = {}
 ---@class _main_interface.T_custom_stockpile: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_custom_stockpile = {}
+
+---@return main_interface.T_custom_stockpile
+function df.main_interface.T_custom_stockpile:new() end
 
 ---@class _main_interface_custom_stockpile_main_mode: DFContainer
 ---@field [integer] stockpile_list
@@ -4844,6 +5051,9 @@ function _main_interface_custom_stockpile_spec_item:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_view_sheets = {}
 
+---@return main_interface.T_view_sheets
+function df.main_interface.T_view_sheets:new() end
+
 ---@class _main_interface_view_sheets_tab: DFContainer
 ---@field [integer] view_sheet_type
 local _main_interface_view_sheets_tab
@@ -5036,6 +5246,9 @@ function _main_interface_view_sheets_unit_knowledge_type:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_squads = {}
 
+---@return main_interface.T_squads
+function df.main_interface.T_squads:new() end
+
 ---@class _main_interface_squads_squad_selected: DFContainer
 ---@field [integer] any[]
 local _main_interface_squads_squad_selected
@@ -5071,6 +5284,9 @@ function _main_interface_squads_squad_selected:erase(index) end
 ---@class _main_interface.T_create_squad: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_create_squad = {}
+
+---@return main_interface.T_create_squad
+function df.main_interface.T_create_squad:new() end
 
 ---@class _main_interface_create_squad_cand_new_squad_appoint_epp: DFContainer
 ---@field [integer] entity_position_assignment
@@ -5161,6 +5377,9 @@ function _main_interface_create_squad_cand_new_squad_new_epp_from_ep:erase(index
 ---@field _kind 'struct-type'
 df.main_interface.T_squad_supplies = {}
 
+---@return main_interface.T_squad_supplies
+function df.main_interface.T_squad_supplies:new() end
+
 ---@class (exact) main_interface.T_assign_uniform: DFStruct
 ---@field _type _main_interface.T_assign_uniform
 ---@field open boolean
@@ -5172,6 +5391,9 @@ df.main_interface.T_squad_supplies = {}
 ---@class _main_interface.T_assign_uniform: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_assign_uniform = {}
+
+---@return main_interface.T_assign_uniform
+function df.main_interface.T_assign_uniform:new() end
 
 ---@class _main_interface_assign_uniform_cand_uniform: DFContainer
 ---@field [integer] entity_uniform
@@ -5206,6 +5428,9 @@ function _main_interface_assign_uniform_cand_uniform:erase(index) end
 ---@class _main_interface.T_create_work_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_create_work_order = {}
+
+---@return main_interface.T_create_work_order
+function df.main_interface.T_create_work_order:new() end
 
 ---@class _main_interface_create_work_order_jminfo_master: DFContainer
 ---@field [integer] manager_order_template
@@ -5251,6 +5476,9 @@ function _main_interface_create_work_order_building:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_hotkey = {}
 
+---@return main_interface.T_hotkey
+function df.main_interface.T_hotkey:new() end
+
 ---@class (exact) main_interface.T_options: DFStruct
 ---@field _type _main_interface.T_options
 ---@field open boolean
@@ -5286,6 +5514,9 @@ df.main_interface.T_hotkey = {}
 ---@field _kind 'struct-type'
 df.main_interface.T_options = {}
 
+---@return main_interface.T_options
+function df.main_interface.T_options:new() end
+
 ---@class _main_interface_options_option: DFContainer
 ---@field [integer] main_menu_option_type
 local _main_interface_options_option
@@ -5310,6 +5541,9 @@ function _main_interface_options_option:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface.T_options.T_saver = {}
 
+---@return main_interface.T_options.T_saver
+function df.main_interface.T_options.T_saver:new() end
+
 ---@class (exact) main_interface.T_help: DFStruct
 ---@field _type _main_interface.T_help
 ---@field open boolean
@@ -5323,6 +5557,9 @@ df.main_interface.T_options.T_saver = {}
 ---@class _main_interface.T_help: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_help = {}
+
+---@return main_interface.T_help
+function df.main_interface.T_help:new() end
 
 ---@class (exact) main_interface.T_arena_unit: DFStruct
 ---@field _type _main_interface.T_arena_unit
@@ -5351,6 +5588,9 @@ df.main_interface.T_help = {}
 ---@class _main_interface.T_arena_unit: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_arena_unit = {}
+
+---@return main_interface.T_arena_unit
+function df.main_interface.T_arena_unit:new() end
 
 ---@class _main_interface_arena_unit_skills: DFContainer
 ---@field [integer] job_skill
@@ -5398,6 +5638,9 @@ function _main_interface_arena_unit_interactions:erase(index) end
 ---@class _main_interface.T_arena_tree: DFCompoundType
 ---@field _kind 'struct-type'
 df.main_interface.T_arena_tree = {}
+
+---@return main_interface.T_arena_tree
+function df.main_interface.T_arena_tree:new() end
 
 ---@class _main_interface_arena_tree_tree_types_filtered: DFContainer
 ---@field [integer] any[]
@@ -5499,6 +5742,9 @@ function _main_interface_pref_occupation:erase(index) end
 ---@field _kind 'struct-type'
 df.gamest = {}
 
+---@return gamest
+function df.gamest:new() end
+
 ---@class (exact) gamest.T_command_line: DFStruct
 ---@field _type _gamest.T_command_line
 ---@field original string
@@ -5512,6 +5758,9 @@ df.gamest = {}
 ---@class _gamest.T_command_line: DFCompoundType
 ---@field _kind 'struct-type'
 df.gamest.T_command_line = {}
+
+---@return gamest.T_command_line
+function df.gamest.T_command_line:new() end
 
 ---@class (exact) gamest.T_minimap: DFStruct
 ---@field _type _gamest.T_minimap
@@ -5529,6 +5778,9 @@ df.gamest.T_command_line = {}
 ---@field _kind 'struct-type'
 df.gamest.T_minimap = {}
 
+---@return gamest.T_minimap
+function df.gamest.T_minimap:new() end
+
 ---@class (exact) gamest.T_mod_manager: DFStruct
 ---@field _type _gamest.T_mod_manager
 ---@field mod_header _gamest_mod_manager_mod_header
@@ -5543,6 +5795,9 @@ df.gamest.T_minimap = {}
 ---@class _gamest.T_mod_manager: DFCompoundType
 ---@field _kind 'struct-type'
 df.gamest.T_mod_manager = {}
+
+---@return gamest.T_mod_manager
+function df.gamest.T_mod_manager:new() end
 
 ---@class _gamest_mod_manager_mod_header: DFContainer
 ---@field [integer] mod_headerst
@@ -5615,6 +5870,9 @@ function _gamest_mod_manager_mod_upload_header:erase(index) end
 ---@field _kind 'struct-type'
 df.main_interface_settings = {}
 
+---@return main_interface_settings
+function df.main_interface_settings:new() end
+
 ---@class _main_interface_settings_tab: DFContainer
 ---@field [integer] settings_tab_type
 local _main_interface_settings_tab
@@ -5671,6 +5929,9 @@ function _main_interface_settings_keybinding_key_interface_key:erase(index) end
 ---@field _kind 'struct-type'
 df.hash_rngst = {}
 
+---@return hash_rngst
+function df.hash_rngst:new() end
+
 ---@class (exact) difficultyst: DFStruct
 ---@field _type _difficultyst
 ---@field difficulty_enemies number 0=off, 1=normal, 2=hard, 3=custom
@@ -5718,6 +5979,9 @@ df.hash_rngst = {}
 ---@field _kind 'struct-type'
 df.difficultyst = {}
 
+---@return difficultyst
+function df.difficultyst:new() end
+
 ---@class difficultyst.T_flags: DFBitfield
 ---@field _enum _difficultyst.T_flags
 ---@field sieges boolean
@@ -5754,6 +6018,9 @@ df.difficultyst.T_flags = {}
 ---@class _markup_text_wordst: DFCompoundType
 ---@field _kind 'struct-type'
 df.markup_text_wordst = {}
+
+---@return markup_text_wordst
+function df.markup_text_wordst:new() end
 
 ---@class markup_text_wordst.T_flags: DFBitfield
 ---@field _enum _markup_text_wordst.T_flags
@@ -5829,6 +6096,9 @@ df.markup_text_link_type = {}
 ---@field _kind 'struct-type'
 df.markup_text_linkst = {}
 
+---@return markup_text_linkst
+function df.markup_text_linkst:new() end
+
 ---@class (exact) script_environmentst: DFStruct
 ---@field _type _script_environmentst
 ---@field dipev meeting_diplomat_info note: these are all void* in bay12 code
@@ -5839,6 +6109,9 @@ df.markup_text_linkst = {}
 ---@class _script_environmentst: DFCompoundType
 ---@field _kind 'struct-type'
 df.script_environmentst = {}
+
+---@return script_environmentst
+function df.script_environmentst:new() end
 
 ---@class (exact) markup_text_boxst: DFStruct
 ---@field _type _markup_text_boxst
@@ -5851,6 +6124,9 @@ df.script_environmentst = {}
 ---@class _markup_text_boxst: DFCompoundType
 ---@field _kind 'struct-type'
 df.markup_text_boxst = {}
+
+---@return markup_text_boxst
+function df.markup_text_boxst:new() end
 
 ---@class _markup_text_boxst_word: DFContainer
 ---@field [integer] markup_text_wordst
@@ -5901,6 +6177,9 @@ function _markup_text_boxst_link:erase(index) end
 ---@field _kind 'struct-type'
 df.wqc_item_traitst = {}
 
+---@return wqc_item_traitst
+function df.wqc_item_traitst:new() end
+
 ---@class (exact) cwo_buildingst: DFStruct
 ---@field _type _cwo_buildingst
 ---@field type number
@@ -5912,6 +6191,9 @@ df.wqc_item_traitst = {}
 ---@class _cwo_buildingst: DFCompoundType
 ---@field _kind 'struct-type'
 df.cwo_buildingst = {}
+
+---@return cwo_buildingst
+function df.cwo_buildingst:new() end
 
 ---@class _cwo_buildingst_jminfo: DFContainer
 ---@field [integer] manager_order_template
@@ -5946,6 +6228,9 @@ function _cwo_buildingst_jminfo:erase(index) end
 ---@field _kind 'struct-type'
 df.cri_unitst = {}
 
+---@return cri_unitst
+function df.cri_unitst:new() end
+
 ---@class (exact) actor_entryst: DFStruct
 ---@field _type _actor_entryst
 ---@field hf historical_figure
@@ -5967,6 +6252,9 @@ df.cri_unitst = {}
 ---@class _actor_entryst: DFCompoundType
 ---@field _kind 'struct-type'
 df.actor_entryst = {}
+
+---@return actor_entryst
+function df.actor_entryst:new() end
 
 ---@class _actor_entryst_associated_org: DFContainer
 ---@field [integer] any[]
@@ -6019,6 +6307,9 @@ function _actor_entryst_associated_plot:erase(index) end
 ---@field _kind 'struct-type'
 df.organization_entry_nodest = {}
 
+---@return organization_entry_nodest
+function df.organization_entry_nodest:new() end
+
 ---@class (exact) organization_entryst: DFStruct
 ---@field _type _organization_entryst
 ---@field node _organization_entryst_node
@@ -6032,6 +6323,9 @@ df.organization_entry_nodest = {}
 ---@class _organization_entryst: DFCompoundType
 ---@field _kind 'struct-type'
 df.organization_entryst = {}
+
+---@return organization_entryst
+function df.organization_entryst:new() end
 
 ---@class _organization_entryst_node: DFContainer
 ---@field [integer] organization_entry_nodest
@@ -6061,6 +6355,9 @@ function _organization_entryst_node:erase(index) end
 ---@class _plot_entryst: DFCompoundType
 ---@field _kind 'struct-type'
 df.plot_entryst = {}
+
+---@return plot_entryst
+function df.plot_entryst:new() end
 
 ---@class (exact) mod_headerst: DFStruct
 ---@field _type _mod_headerst
@@ -6095,6 +6392,9 @@ df.plot_entryst = {}
 ---@field _kind 'struct-type'
 df.mod_headerst = {}
 
+---@return mod_headerst
+function df.mod_headerst:new() end
+
 ---@class mod_headerst.T_flags: DFBitfield
 ---@field _enum _mod_headerst.T_flags
 ---@field currently_installed boolean
@@ -6121,6 +6421,9 @@ df.mod_headerst.T_flags = {}
 ---@field _kind 'struct-type'
 df.ui_look_list = {}
 
+---@return ui_look_list
+function df.ui_look_list:new() end
+
 ---@class _ui_look_list_items: DFContainer
 ---@field [integer] DFPointer<integer>
 local _ui_look_list_items
@@ -6144,6 +6447,9 @@ function _ui_look_list_items:erase(index) end
 ---@class _ui_unit_view_mode: DFCompoundType
 ---@field _kind 'struct-type'
 df.ui_unit_view_mode = {}
+
+---@return ui_unit_view_mode
+function df.ui_unit_view_mode:new() end
 
 ---@alias ui_unit_view_mode.T_value
 ---| 0 # General
