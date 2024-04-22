@@ -2,9 +2,9 @@
 ---@meta
 
 ---@alias mission_type
----| 'NONE'
----| 'SUPPORT_THIEVES'
----| 'KILL_ALL_AT_SITE'
+---| -1 # NONE
+---| 0 # SUPPORT_THIEVES
+---| 1 # KILL_ALL_AT_SITE
 
 ---@class _mission_type: DFEnumType
 ---@field NONE -1
@@ -179,20 +179,20 @@ function _entity_population_unk4:insert(index, item) end
 function _entity_population_unk4:erase(index) end
 
 ---@alias nemesis_flags
----| 'ACTIVE_ADVENTURER'
----| 'RETIRED_ADVENTURER'
----| 'ADVENTURER'
----| 'TEMP_FLAG_ASSOCIATE_PEOPLE_TO_REALIZATION'
----| 'BRAG_ON_KILL'
----| 'KILL_QUEST'
----| 'CHAT_WORTHY'
----| 'FLASHES'
----| 'DO_NOT_CULL'
----| 'HERO'
----| 'DEMIGOD'
----| 'POTENTIAL_CIVILIZED_ACTOR'
----| 'CHECK_FOR_POSITION_CLAIM'
----| 'POTENTIAL_PLOTTER_ACTOR'
+---| 0 # ACTIVE_ADVENTURER
+---| 1 # RETIRED_ADVENTURER
+---| 2 # ADVENTURER
+---| 3 # TEMP_FLAG_ASSOCIATE_PEOPLE_TO_REALIZATION
+---| 4 # BRAG_ON_KILL
+---| 5 # KILL_QUEST
+---| 6 # CHAT_WORTHY
+---| 7 # FLASHES
+---| 8 # DO_NOT_CULL
+---| 9 # HERO
+---| 10 # DEMIGOD
+---| 11 # POTENTIAL_CIVILIZED_ACTOR
+---| 12 # CHECK_FOR_POSITION_CLAIM
+---| 13 # POTENTIAL_PLOTTER_ACTOR
 
 ---@class _nemesis_flags: DFEnumType
 ---@field ACTIVE_ADVENTURER 0 used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.

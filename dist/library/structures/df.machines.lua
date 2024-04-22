@@ -3,7 +3,7 @@
 
 -- MACHINE
 ---@alias machine_type
----| 'standard'
+---| 0 # standard
 
 -- MACHINE
 ---@class _machine_type: DFEnumType
@@ -234,10 +234,10 @@ df.building_windmillst = {}
 df.building_water_wheelst = {}
 
 ---@alias screw_pump_direction
----| 'FromNorth'
----| 'FromEast'
----| 'FromSouth'
----| 'FromWest'
+---| 0 # FromNorth
+---| 1 # FromEast
+---| 2 # FromSouth
+---| 3 # FromWest
 
 ---@class _screw_pump_direction: DFEnumType
 ---@field FromNorth 0

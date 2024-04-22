@@ -161,15 +161,15 @@ df.item_flags = {}
 df.item_flags2 = {}
 
 ---@alias item_magicness_type
----| 'Sparkle'
----| 'AirWarped'
----| 'Whistle'
----| 'OddlySquare'
----| 'SmallBumps'
----| 'EarthSmell'
----| 'Lightning'
----| 'GrayHairs'
----| 'RustlingLeaves'
+---| 0 # Sparkle
+---| 1 # AirWarped
+---| 2 # Whistle
+---| 3 # OddlySquare
+---| 4 # SmallBumps
+---| 5 # EarthSmell
+---| 6 # Lightning
+---| 7 # GrayHairs
+---| 8 # RustlingLeaves
 
 ---@class _item_magicness_type: DFEnumType
 ---@field Sparkle 0
@@ -255,13 +255,13 @@ df.spatter = {}
 df.spatter.T_flags = {}
 
 ---@alias item_quality
----| 'Ordinary'
----| 'WellCrafted'
----| 'FinelyCrafted'
----| 'Superior'
----| 'Exceptional'
----| 'Masterful'
----| 'Artifact'
+---| 0 # Ordinary
+---| 1 # WellCrafted
+---| 2 # FinelyCrafted
+---| 3 # Superior
+---| 4 # Exceptional
+---| 5 # Masterful
+---| 6 # Artifact
 
 ---@class _item_quality: DFEnumType
 ---@field Ordinary 0
@@ -281,34 +281,34 @@ df.spatter.T_flags = {}
 df.item_quality = {}
 
 ---@alias slab_engraving_type
----| 'Slab'
----| 'Memorial'
----| 'CraftShopSign'
----| 'WeaponsmithShopSign'
----| 'ArmorsmithShopSign'
----| 'GeneralStoreSign'
----| 'FoodShopSign'
----| 'Secrets'
----| 'FoodImportsSign'
----| 'ClothingImportsSign'
----| 'GeneralImportsSign'
----| 'ClothShopSign'
----| 'LeatherShopSign'
----| 'WovenClothingShopSign'
----| 'LeatherClothingShopSign'
----| 'BoneCarverShopSign'
----| 'GemCutterShopSign'
----| 'WeaponsmithShopSign2'
----| 'BowyerShopSign'
----| 'BlacksmithShopSign'
----| 'ArmorsmithShopSign2'
----| 'MetalCraftShopSign'
----| 'LeatherGoodsShopSign'
----| 'CarpenterShopSign'
----| 'StoneFurnitureShopSign'
----| 'MetalFurnitureShopSign'
----| 'DemonIdentity'
----| 'TavernSign'
+---| -1 # Slab
+---| 0 # Memorial
+---| 1 # CraftShopSign
+---| 2 # WeaponsmithShopSign
+---| 3 # ArmorsmithShopSign
+---| 4 # GeneralStoreSign
+---| 5 # FoodShopSign
+---| 6 # Secrets
+---| 7 # FoodImportsSign
+---| 8 # ClothingImportsSign
+---| 9 # GeneralImportsSign
+---| 10 # ClothShopSign
+---| 11 # LeatherShopSign
+---| 12 # WovenClothingShopSign
+---| 13 # LeatherClothingShopSign
+---| 14 # BoneCarverShopSign
+---| 15 # GemCutterShopSign
+---| 16 # WeaponsmithShopSign2
+---| 17 # BowyerShopSign
+---| 18 # BlacksmithShopSign
+---| 19 # ArmorsmithShopSign2
+---| 20 # MetalCraftShopSign
+---| 21 # LeatherGoodsShopSign
+---| 22 # CarpenterShopSign
+---| 23 # StoneFurnitureShopSign
+---| 24 # MetalFurnitureShopSign
+---| 25 # DemonIdentity
+---| 26 # TavernSign
 
 ---@class _slab_engraving_type: DFEnumType
 ---@field Slab -1
@@ -370,24 +370,24 @@ df.item_quality = {}
 df.slab_engraving_type = {}
 
 ---@alias trade_good_purpose
----| 'NONE'
----| 'MERCHANT'
----| 'TRAVELER'
----| 'RICH_TRAVELER'
----| 'STORE_CRAFTS'
----| 'STORE_WEAPON'
----| 'STORE_ARMOR'
----| 'STORE_GENERAL'
----| 'STORE_FOOD'
----| 'CONTAINER'
----| 'PRODUCTION_SHODDY'
----| 'PRODUCTION_BEGINNER'
----| 'PRODUCTION_MIDDLING'
----| 'PRODUCTION_HIGH'
----| 'PRODUCTION_EXCELLENT'
----| 'TOMB_TREASURE'
----| 'TREASURE_ROOM'
----| 'PILLAGE'
+---| -1 # NONE
+---| 0 # MERCHANT
+---| 1 # TRAVELER
+---| 2 # RICH_TRAVELER
+---| 3 # STORE_CRAFTS
+---| 4 # STORE_WEAPON
+---| 5 # STORE_ARMOR
+---| 6 # STORE_GENERAL
+---| 7 # STORE_FOOD
+---| 8 # CONTAINER
+---| 9 # PRODUCTION_SHODDY
+---| 10 # PRODUCTION_BEGINNER
+---| 11 # PRODUCTION_MIDDLING
+---| 12 # PRODUCTION_HIGH
+---| 13 # PRODUCTION_EXCELLENT
+---| 14 # TOMB_TREASURE
+---| 15 # TREASURE_ROOM
+---| 16 # PILLAGE
 
 ---@class _trade_good_purpose: DFEnumType
 ---@field NONE -1
@@ -1361,17 +1361,17 @@ function _body_component_info_layer_status:erase(index) end
 df.body_size_info = {}
 
 ---@alias corpse_material_type
----| 'Plant'
----| 'Silk'
----| 'Leather'
----| 'Bone'
----| 'Shell'
----| 'Soap'
----| 'Tooth'
----| 'Horn'
----| 'Pearl'
----| 'HairWool'
----| 'Yarn'
+---| 0 # Plant
+---| 1 # Silk
+---| 2 # Leather
+---| 3 # Bone
+---| 4 # Shell
+---| 6 # Soap
+---| 7 # Tooth
+---| 8 # Horn
+---| 9 # Pearl
+---| 10 # HairWool
+---| 11 # Yarn
 
 ---@class _corpse_material_type: DFEnumType
 ---@field Plant 0

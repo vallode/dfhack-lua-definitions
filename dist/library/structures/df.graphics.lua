@@ -40,9 +40,9 @@ df.large_integer.T_u = {}
 df.musicsoundst = {}
 
 ---@alias musicsoundst.T_linux_sound_system
----| 'ALSA'
----| 'OSS'
----| 'ESD'
+---| 0 # ALSA
+---| 1 # OSS
+---| 2 # ESD
 
 ---@class _musicsoundst.T_linux_sound_system: DFEnumType
 ---@field ALSA 0
@@ -63,14 +63,14 @@ df.musicsoundst.T_linux_sound_system = {}
 df.fmod_sound = {}
 
 ---@alias curses_color
----| 'Black'
----| 'Blue'
----| 'Green'
----| 'Cyan'
----| 'Red'
----| 'Magenta'
----| 'Yellow'
----| 'White'
+---| 0 # Black
+---| 1 # Blue
+---| 2 # Green
+---| 3 # Cyan
+---| 4 # Red
+---| 5 # Magenta
+---| 6 # Yellow
+---| 7 # White
 
 ---@class _curses_color: DFEnumType
 ---@field Black 0 Using the color names without "dark" or "light", favoring primaries.
@@ -766,11 +766,11 @@ function _renderer_2d_base_textures_to_destroy:erase(index) end
 df.renderer_2d = {}
 
 ---@alias zoom_commands
----| 'zoom_in'
----| 'zoom_out'
----| 'zoom_reset'
----| 'zoom_fullscreen'
----| 'zoom_resetgrid'
+---| 0 # zoom_in
+---| 1 # zoom_out
+---| 2 # zoom_reset
+---| 3 # zoom_fullscreen
+---| 4 # zoom_resetgrid
 
 ---@class _zoom_commands: DFEnumType
 ---@field zoom_in 0
@@ -915,11 +915,11 @@ function _enabler_async_tobox_vals:erase(index) end
 df.enabler.T_async_tobox.T_vals = {}
 
 ---@alias enabler.T_async_tobox.T_vals.T_cmd
----| 'pause'
----| 'start'
----| 'render'
----| 'inc'
----| 'set_fps'
+---| 0 # pause
+---| 1 # start
+---| 2 # render
+---| 3 # inc
+---| 4 # set_fps
 
 ---@class _enabler.T_async_tobox.T_vals.T_cmd: DFEnumType
 ---@field pause 0
@@ -972,13 +972,13 @@ function _enabler_async_frombox_vals:erase(index) end
 df.enabler.T_async_frombox.T_vals = {}
 
 ---@alias enabler.T_async_frombox.T_vals.T_msg
----| 'quit'
----| 'complete'
----| 'set_fps'
----| 'set_gfps'
----| 'push_resize'
----| 'pop_resize'
----| 'reset_textures'
+---| 0 # quit
+---| 1 # complete
+---| 2 # set_fps
+---| 3 # set_gfps
+---| 4 # push_resize
+---| 5 # pop_resize
+---| 6 # reset_textures
 
 ---@class _enabler.T_async_frombox.T_vals.T_msg: DFEnumType
 ---@field quit 0
@@ -1050,11 +1050,11 @@ df.enabler.T_textures = {}
 
 -- from libgraphics
 ---@alias justification
----| 'justify_left'
----| 'justify_center'
----| 'justify_right'
----| 'justify_cont'
----| 'not_truetype'
+---| 0 # justify_left
+---| 1 # justify_center
+---| 2 # justify_right
+---| 3 # justify_cont
+---| 4 # not_truetype
 
 -- from libgraphics
 ---@class _justification: DFEnumType

@@ -2,77 +2,77 @@
 ---@meta
 
 ---@alias general_ref_type
----| 'NONE'
----| 'ARTIFACT'
----| 'IS_ARTIFACT'
----| 'NEMESIS'
----| 'IS_NEMESIS'
----| 'ITEM'
----| 'ITEM_TYPE'
----| 'COINBATCH'
----| 'MAPSQUARE'
----| 'ENTITY_ART_IMAGE'
----| 'CONTAINS_UNIT'
----| 'CONTAINS_ITEM'
----| 'CONTAINED_IN_ITEM'
----| 'PROJECTILE'
----| 'UNIT'
----| 'UNIT_MILKEE'
----| 'UNIT_TRAINEE'
----| 'UNIT_ITEMOWNER'
----| 'UNIT_TRADEBRINGER'
----| 'UNIT_HOLDER'
----| 'UNIT_WORKER'
----| 'UNIT_CAGEE'
----| 'UNIT_BEATEE'
----| 'UNIT_FOODRECEIVER'
----| 'UNIT_KIDNAPEE'
----| 'UNIT_PATIENT'
----| 'UNIT_INFANT'
----| 'UNIT_SLAUGHTEREE'
----| 'UNIT_SHEAREE'
----| 'UNIT_SUCKEE'
----| 'UNIT_REPORTEE'
----| 'BUILDING'
----| 'BUILDING_CIVZONE_ASSIGNED'
----| 'BUILDING_TRIGGER'
----| 'BUILDING_TRIGGERTARGET'
----| 'BUILDING_CHAIN'
----| 'BUILDING_CAGED'
----| 'BUILDING_HOLDER'
----| 'BUILDING_WELL_TAG'
----| 'BUILDING_USE_TARGET_1'
----| 'BUILDING_USE_TARGET_2'
----| 'BUILDING_DESTINATION'
----| 'BUILDING_NEST_BOX'
----| 'ENTITY'
----| 'ENTITY_STOLEN'
----| 'ENTITY_OFFERED'
----| 'ENTITY_ITEMOWNER'
----| 'LOCATION'
----| 'INTERACTION'
----| 'ABSTRACT_BUILDING'
----| 'HISTORICAL_EVENT'
----| 'SPHERE'
----| 'SITE'
----| 'SUBREGION'
----| 'FEATURE_LAYER'
----| 'HISTORICAL_FIGURE'
----| 'ENTITY_POP'
----| 'CREATURE'
----| 'UNIT_RIDER'
----| 'UNIT_CLIMBER'
----| 'UNIT_GELDEE'
----| 'KNOWLEDGE_SCHOLAR_FLAG'
----| 'ACTIVITY_EVENT'
----| 'VALUE_LEVEL'
----| 'LANGUAGE'
----| 'WRITTEN_CONTENT'
----| 'POETIC_FORM'
----| 'MUSICAL_FORM'
----| 'DANCE_FORM'
----| 'BUILDING_DISPLAY_FURNITURE'
----| 'UNIT_INTERROGATEE'
+---| -1 # NONE
+---| 0 # ARTIFACT
+---| 1 # IS_ARTIFACT
+---| 2 # NEMESIS
+---| 3 # IS_NEMESIS
+---| 4 # ITEM
+---| 5 # ITEM_TYPE
+---| 6 # COINBATCH
+---| 7 # MAPSQUARE
+---| 8 # ENTITY_ART_IMAGE
+---| 9 # CONTAINS_UNIT
+---| 10 # CONTAINS_ITEM
+---| 11 # CONTAINED_IN_ITEM
+---| 12 # PROJECTILE
+---| 13 # UNIT
+---| 14 # UNIT_MILKEE
+---| 15 # UNIT_TRAINEE
+---| 16 # UNIT_ITEMOWNER
+---| 17 # UNIT_TRADEBRINGER
+---| 18 # UNIT_HOLDER
+---| 19 # UNIT_WORKER
+---| 20 # UNIT_CAGEE
+---| 21 # UNIT_BEATEE
+---| 22 # UNIT_FOODRECEIVER
+---| 23 # UNIT_KIDNAPEE
+---| 24 # UNIT_PATIENT
+---| 25 # UNIT_INFANT
+---| 26 # UNIT_SLAUGHTEREE
+---| 27 # UNIT_SHEAREE
+---| 28 # UNIT_SUCKEE
+---| 29 # UNIT_REPORTEE
+---| 30 # BUILDING
+---| 31 # BUILDING_CIVZONE_ASSIGNED
+---| 32 # BUILDING_TRIGGER
+---| 33 # BUILDING_TRIGGERTARGET
+---| 34 # BUILDING_CHAIN
+---| 35 # BUILDING_CAGED
+---| 36 # BUILDING_HOLDER
+---| 37 # BUILDING_WELL_TAG
+---| 38 # BUILDING_USE_TARGET_1
+---| 39 # BUILDING_USE_TARGET_2
+---| 40 # BUILDING_DESTINATION
+---| 41 # BUILDING_NEST_BOX
+---| 42 # ENTITY
+---| 43 # ENTITY_STOLEN
+---| 44 # ENTITY_OFFERED
+---| 45 # ENTITY_ITEMOWNER
+---| 46 # LOCATION
+---| 47 # INTERACTION
+---| 48 # ABSTRACT_BUILDING
+---| 49 # HISTORICAL_EVENT
+---| 50 # SPHERE
+---| 51 # SITE
+---| 52 # SUBREGION
+---| 53 # FEATURE_LAYER
+---| 54 # HISTORICAL_FIGURE
+---| 55 # ENTITY_POP
+---| 56 # CREATURE
+---| 57 # UNIT_RIDER
+---| 58 # UNIT_CLIMBER
+---| 59 # UNIT_GELDEE
+---| 60 # KNOWLEDGE_SCHOLAR_FLAG
+---| 61 # ACTIVITY_EVENT
+---| 62 # VALUE_LEVEL
+---| 63 # LANGUAGE
+---| 64 # WRITTEN_CONTENT
+---| 65 # POETIC_FORM
+---| 66 # MUSICAL_FORM
+---| 67 # DANCE_FORM
+---| 68 # BUILDING_DISPLAY_FURNITURE
+---| 69 # UNIT_INTERROGATEE
 
 ---@class _general_ref_type: DFEnumType
 ---@field NONE -1
@@ -835,35 +835,35 @@ df.general_ref_entity_offeredst = {}
 df.general_ref_entity_itemownerst = {}
 
 ---@alias specific_ref_type
----| 'NONE'
----| 'BUILDING'
----| 'UNIT'
----| 'JOB'
----| 'ACTIVITY'
----| 'ITEM_GENERAL'
----| 'EFFECT'
----| 'VERMIN_EVENT'
----| 'VERMIN_ESCAPED_PET'
----| 'ENTITY'
----| 'PLOT_INFO'
----| 'VIEWSCREEN'
----| 'UNIT_ITEM_WRESTLE'
----| 'NULL_REF'
----| 'HIST_FIG'
----| 'SITE'
----| 'ARTIFACT'
----| 'ITEM_IMPROVEMENT'
----| 'COIN_FRONT'
----| 'COIN_BACK'
----| 'DETAIL_EVENT'
----| 'SUBREGION'
----| 'FEATURE_LAYER'
----| 'ART_IMAGE'
----| 'CREATURE_DEF'
----| 'ENTITY_ART_IMAGE'
----| 'ABSTRACT_BUILDING'
----| 'ENTITY_POPULATION'
----| 'BREED'
+---| -1 # NONE
+---| 0 # BUILDING
+---| 1 # UNIT
+---| 2 # JOB
+---| 3 # ACTIVITY
+---| 4 # ITEM_GENERAL
+---| 5 # EFFECT
+---| 6 # VERMIN_EVENT
+---| 7 # VERMIN_ESCAPED_PET
+---| 8 # ENTITY
+---| 9 # PLOT_INFO
+---| 10 # VIEWSCREEN
+---| 11 # UNIT_ITEM_WRESTLE
+---| 12 # NULL_REF
+---| 13 # HIST_FIG
+---| 14 # SITE
+---| 15 # ARTIFACT
+---| 16 # ITEM_IMPROVEMENT
+---| 17 # COIN_FRONT
+---| 18 # COIN_BACK
+---| 19 # DETAIL_EVENT
+---| 20 # SUBREGION
+---| 21 # FEATURE_LAYER
+---| 22 # ART_IMAGE
+---| 23 # CREATURE_DEF
+---| 24 # ENTITY_ART_IMAGE
+---| 25 # ABSTRACT_BUILDING
+---| 26 # ENTITY_POPULATION
+---| 27 # BREED
 
 ---@class _specific_ref_type: DFEnumType
 ---@field NONE -1
@@ -984,24 +984,24 @@ df.specific_ref.T_data = {}
 df.specific_ref.T_data.T_wrestle = {}
 
 ---@alias histfig_entity_link_type
----| 'MEMBER'
----| 'FORMER_MEMBER'
----| 'MERCENARY'
----| 'FORMER_MERCENARY'
----| 'SLAVE'
----| 'FORMER_SLAVE'
----| 'PRISONER'
----| 'FORMER_PRISONER'
----| 'ENEMY'
----| 'CRIMINAL'
----| 'POSITION'
----| 'FORMER_POSITION'
----| 'POSITION_CLAIM'
----| 'SQUAD'
----| 'FORMER_SQUAD'
----| 'OCCUPATION'
----| 'FORMER_OCCUPATION'
----| 'RESIDENT'
+---| 0 # MEMBER
+---| 1 # FORMER_MEMBER
+---| 2 # MERCENARY
+---| 3 # FORMER_MERCENARY
+---| 4 # SLAVE
+---| 5 # FORMER_SLAVE
+---| 6 # PRISONER
+---| 7 # FORMER_PRISONER
+---| 8 # ENEMY
+---| 9 # CRIMINAL
+---| 10 # POSITION
+---| 11 # FORMER_POSITION
+---| 12 # POSITION_CLAIM
+---| 13 # SQUAD
+---| 14 # FORMER_SQUAD
+---| 15 # OCCUPATION
+---| 16 # FORMER_OCCUPATION
+---| 17 # RESIDENT
 
 ---@class _histfig_entity_link_type: DFEnumType
 ---@field MEMBER 0
@@ -1214,16 +1214,16 @@ df.histfig_entity_link_occupationst = {}
 df.histfig_entity_link_former_occupationst = {}
 
 ---@alias histfig_site_link_type
----| 'OCCUPATION'
----| 'SEAT_OF_POWER'
----| 'HANGOUT'
----| 'HOME_SITE_ABSTRACT_BUILDING'
----| 'HOME_SITE_REALIZATION_BUILDING'
----| 'LAIR'
----| 'HOME_SITE_REALIZATION_SUL'
----| 'HOME_SITE_SAVED_CIVZONE'
----| 'PRISON_ABSTRACT_BUILDING'
----| 'PRISON_SITE_BUILDING_PROFILE'
+---| 0 # OCCUPATION
+---| 1 # SEAT_OF_POWER
+---| 2 # HANGOUT
+---| 3 # HOME_SITE_ABSTRACT_BUILDING
+---| 4 # HOME_SITE_REALIZATION_BUILDING
+---| 5 # LAIR
+---| 6 # HOME_SITE_REALIZATION_SUL
+---| 7 # HOME_SITE_SAVED_CIVZONE
+---| 8 # PRISON_ABSTRACT_BUILDING
+---| 9 # PRISON_SITE_BUILDING_PROFILE
 
 ---@class _histfig_site_link_type: DFEnumType
 ---@field OCCUPATION 0
@@ -1341,22 +1341,22 @@ df.histfig_site_link_prison_abstract_buildingst = {}
 df.histfig_site_link_prison_site_building_profilest = {}
 
 ---@alias histfig_hf_link_type
----| 'MOTHER'
----| 'FATHER'
----| 'SPOUSE'
----| 'CHILD'
----| 'DEITY'
----| 'LOVER'
----| 'PRISONER'
----| 'IMPRISONER'
----| 'MASTER'
----| 'APPRENTICE'
----| 'COMPANION'
----| 'FORMER_MASTER'
----| 'FORMER_APPRENTICE'
----| 'PET_OWNER'
----| 'FORMER_SPOUSE'
----| 'DECEASED_SPOUSE'
+---| 0 # MOTHER
+---| 1 # FATHER
+---| 2 # SPOUSE
+---| 3 # CHILD
+---| 4 # DEITY
+---| 5 # LOVER
+---| 6 # PRISONER
+---| 7 # IMPRISONER
+---| 8 # MASTER
+---| 9 # APPRENTICE
+---| 10 # COMPANION
+---| 11 # FORMER_MASTER
+---| 12 # FORMER_APPRENTICE
+---| 13 # PET_OWNER
+---| 14 # FORMER_SPOUSE
+---| 15 # DECEASED_SPOUSE
 
 ---@class _histfig_hf_link_type: DFEnumType
 ---@field MOTHER 0
@@ -1528,9 +1528,9 @@ df.histfig_hf_link_former_spousest = {}
 df.histfig_hf_link_deceased_spousest = {}
 
 ---@alias entity_entity_link_type
----| 'PARENT'
----| 'CHILD'
----| 'RELIGIOUS'
+---| 0 # PARENT
+---| 1 # CHILD
+---| 2 # RELIGIOUS
 
 ---@class _entity_entity_link_type: DFEnumType
 ---@field PARENT 0
@@ -1553,12 +1553,12 @@ df.entity_entity_link = {}
 
 -- Enum names updated per Putnam
 ---@alias entity_site_link_type
----| 'None'
----| 'All'
----| 'Inside_Wall'
----| 'Outside_Wall'
----| 'Outskirts'
----| 'Local_Activity'
+---| -1 # None
+---| 0 # All
+---| 1 # Inside_Wall
+---| 2 # Outside_Wall
+---| 3 # Outskirts
+---| 4 # Local_Activity
 
 -- Enum names updated per Putnam
 ---@class _entity_site_link_type: DFEnumType

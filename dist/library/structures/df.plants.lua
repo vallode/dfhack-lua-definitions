@@ -77,21 +77,21 @@ function _plant_contaminants:insert(index, item) end
 function _plant_contaminants:erase(index) end
 
 ---@alias plant_tree_tile_branches_dir
----| 'NONE'
----| 'BRANCH_W'
----| 'BRANCH_N'
----| 'BRANCH_WN'
----| 'BRANCH_E'
----| 'BRANCH_WE'
----| 'BRANCH_NE'
----| 'BRANCH_WNE'
----| 'BRANCH_S'
----| 'BRANCH_WS'
----| 'BRANCH_NS'
----| 'BRANCH_WNS'
----| 'BRANCH_ES'
----| 'BRANCH_WES'
----| 'BRANCH_NES'
+---| 0 # NONE
+---| 1 # BRANCH_W
+---| 2 # BRANCH_N
+---| 3 # BRANCH_WN
+---| 4 # BRANCH_E
+---| 5 # BRANCH_WE
+---| 6 # BRANCH_NE
+---| 7 # BRANCH_WNE
+---| 8 # BRANCH_S
+---| 9 # BRANCH_WS
+---| 10 # BRANCH_NS
+---| 11 # BRANCH_WNS
+---| 12 # BRANCH_ES
+---| 13 # BRANCH_WES
+---| 14 # BRANCH_NES
 
 ---@class _plant_tree_tile_branches_dir: DFEnumType
 ---@field NONE 0
@@ -127,13 +127,13 @@ function _plant_contaminants:erase(index) end
 df.plant_tree_tile_branches_dir = {}
 
 ---@alias plant_tree_tile_parent_dir
----| 'NONE'
----| 'PARENT_IS_N'
----| 'PARENT_IS_S'
----| 'PARENT_IS_W'
----| 'PARENT_IS_E'
----| 'PARENT_IS_UP'
----| 'PARENT_IS_DOWN'
+---| 0 # NONE
+---| 1 # PARENT_IS_N
+---| 2 # PARENT_IS_S
+---| 3 # PARENT_IS_W
+---| 4 # PARENT_IS_E
+---| 5 # PARENT_IS_UP
+---| 6 # PARENT_IS_DOWN
 
 ---@class _plant_tree_tile_parent_dir: DFEnumType
 ---@field NONE 0

@@ -85,20 +85,20 @@ function _location_scribe_jobs_scribejobs:insert(index, item) end
 function _location_scribe_jobs_scribejobs:erase(index) end
 
 ---@alias abstract_building_type
----| 'MEAD_HALL'
----| 'KEEP'
----| 'TEMPLE'
----| 'DARK_TOWER'
----| 'MARKET'
----| 'TOMB'
----| 'DUNGEON'
----| 'UNDERWORLD_SPIRE'
----| 'INN_TAVERN'
----| 'LIBRARY'
----| 'COUNTING_HOUSE'
----| 'GUILDHALL'
----| 'TOWER'
----| 'HOSPITAL'
+---| 0 # MEAD_HALL
+---| 1 # KEEP
+---| 2 # TEMPLE
+---| 3 # DARK_TOWER
+---| 4 # MARKET
+---| 5 # TOMB
+---| 6 # DUNGEON
+---| 7 # UNDERWORLD_SPIRE
+---| 8 # INN_TAVERN
+---| 9 # LIBRARY
+---| 10 # COUNTING_HOUSE
+---| 11 # GUILDHALL
+---| 12 # TOWER
+---| 13 # HOSPITAL
 
 ---@class _abstract_building_type: DFEnumType
 ---@field MEAD_HALL 0
@@ -132,14 +132,14 @@ function _location_scribe_jobs_scribejobs:erase(index) end
 df.abstract_building_type = {}
 
 ---@alias abstract_building_flags
----| 'WG_RUINED'
----| 'DOES_NOT_EXIST'
----| 'DISCOVERED'
----| 'PWG_RUINED'
----| 'VISITORS_ALLOWED'
----| 'NON_CITIZENS_ALLOWED'
----| 'MEMBERS_ONLY'
----| 'UNUSED8'
+---| 0 # WG_RUINED
+---| 1 # DOES_NOT_EXIST
+---| 2 # DISCOVERED
+---| 3 # PWG_RUINED
+---| 4 # VISITORS_ALLOWED
+---| 5 # NON_CITIZENS_ALLOWED
+---| 6 # MEMBERS_ONLY
+---| 7 # UNUSED8
 
 ---@class _abstract_building_flags: DFEnumType
 ---@field WG_RUINED 0
@@ -382,9 +382,9 @@ df.abstract_building_mead_hallst = {}
 df.abstract_building_keepst = {}
 
 ---@alias temple_deity_type
----| 'None'
----| 'Deity'
----| 'Religion'
+---| -1 # None
+---| 0 # Deity
+---| 1 # Religion
 
 ---@class _temple_deity_type: DFEnumType
 ---@field None -1
@@ -456,9 +456,9 @@ df.abstract_building_tombst = {}
 df.abstract_building_dungeonst = {}
 
 ---@alias abstract_building_dungeonst.T_dungeon_type
----| 'DUNGEON'
----| 'SEWERS'
----| 'CATACOMBS'
+---| 0 # DUNGEON
+---| 1 # SEWERS
+---| 2 # CATACOMBS
 
 ---@class _abstract_building_dungeonst.T_dungeon_type: DFEnumType
 ---@field DUNGEON 0
@@ -555,17 +555,17 @@ df.abstract_building_towerst = {}
 df.abstract_building_hospitalst = {}
 
 ---@alias world_site_type
----| 'PlayerFortress'
----| 'DarkFortress'
----| 'Cave'
----| 'MountainHalls'
----| 'ForestRetreat'
----| 'Town'
----| 'ImportantLocation'
----| 'LairShrine'
----| 'Fortress'
----| 'Camp'
----| 'Monument'
+---| 0 # PlayerFortress
+---| 1 # DarkFortress
+---| 2 # Cave
+---| 3 # MountainHalls
+---| 4 # ForestRetreat
+---| 5 # Town
+---| 6 # ImportantLocation
+---| 7 # LairShrine
+---| 8 # Fortress
+---| 9 # Camp
+---| 10 # Monument
 
 ---@class _world_site_type: DFEnumType
 ---@field PlayerFortress 0
@@ -593,11 +593,11 @@ df.abstract_building_hospitalst = {}
 df.world_site_type = {}
 
 ---@alias fortress_type
----| 'NONE'
----| 'CASTLE'
----| 'TOWER'
----| 'MONASTERY'
----| 'FORT'
+---| -1 # NONE
+---| 0 # CASTLE
+---| 1 # TOWER
+---| 2 # MONASTERY
+---| 3 # FORT
 
 ---@class _fortress_type: DFEnumType
 ---@field NONE -1
@@ -613,9 +613,9 @@ df.world_site_type = {}
 df.fortress_type = {}
 
 ---@alias monument_type
----| 'NONE'
----| 'TOMB'
----| 'VAULT'
+---| -1 # NONE
+---| 0 # TOMB
+---| 1 # VAULT
 
 ---@class _monument_type: DFEnumType
 ---@field NONE -1
@@ -627,12 +627,12 @@ df.fortress_type = {}
 df.monument_type = {}
 
 ---@alias lair_type
----| 'NONE'
----| 'SIMPLE_MOUND'
----| 'SIMPLE_BURROW'
----| 'LABYRINTH'
----| 'SHRINE'
----| 'WILDERNESS_LOCATION'
+---| -1 # NONE
+---| 0 # SIMPLE_MOUND
+---| 1 # SIMPLE_BURROW
+---| 2 # LABYRINTH
+---| 3 # SHRINE
+---| 4 # WILDERNESS_LOCATION
 
 ---@class _lair_type: DFEnumType
 ---@field NONE -1
@@ -944,9 +944,9 @@ df.site_cropst = {}
 df.site_cropst.T_flag = {}
 
 ---@alias religious_practice_type
----| 'NONE'
----| 'WORSHIP_HFID'
----| 'RELIGION_ENID'
+---| -1 # NONE
+---| 0 # WORSHIP_HFID
+---| 1 # RELIGION_ENID
 
 ---@class _religious_practice_type: DFEnumType
 ---@field NONE -1 bay12: ReligiousPractice
@@ -1011,30 +1011,30 @@ function _site_culture_infrastructurest_religious_structure_batch:insert(index, 
 function _site_culture_infrastructurest_religious_structure_batch:erase(index) end
 
 ---@alias site_flag_type
----| 'HIDDEN'
----| 'RUINED'
----| 'IGNORED_BY_LEGENDS'
----| 'HAS_MARKET'
----| 'VISITED'
----| 'ACTIVE'
----| 'LOADED'
----| 'SUBORDINATE'
----| 'PASSED_FIRST_REALIZATION'
----| 'SETTLED'
----| 'COMPLETELY_SUPERCEDED'
----| 'UNUSED12'
----| 'UNUSED13'
----| 'UNUSED14'
----| 'UNUSED15'
----| 'UNUSED16'
----| 'UNUSED17'
----| 'UNUSED18'
----| 'UNUSED19'
----| 'UNUSED20'
----| 'UNUSED21'
----| 'UNUSED22'
----| 'UNUSED23'
----| 'UNUSED24'
+---| 0 # HIDDEN
+---| 1 # RUINED
+---| 2 # IGNORED_BY_LEGENDS
+---| 3 # HAS_MARKET
+---| 4 # VISITED
+---| 5 # ACTIVE
+---| 6 # LOADED
+---| 7 # SUBORDINATE
+---| 8 # PASSED_FIRST_REALIZATION
+---| 9 # SETTLED
+---| 10 # COMPLETELY_SUPERCEDED
+---| 11 # UNUSED12
+---| 12 # UNUSED13
+---| 13 # UNUSED14
+---| 14 # UNUSED15
+---| 15 # UNUSED16
+---| 16 # UNUSED17
+---| 17 # UNUSED18
+---| 18 # UNUSED19
+---| 19 # UNUSED20
+---| 20 # UNUSED21
+---| 21 # UNUSED22
+---| 22 # UNUSED23
+---| 23 # UNUSED24
 
 ---@class _site_flag_type: DFEnumType
 ---@field HIDDEN 0 SiteFlagType
@@ -1089,15 +1089,15 @@ df.site_flag_type = {}
 
 -- bay12: LocationDeath
 ---@alias location_death_type
----| 'NATURAL'
----| 'STARVATION'
----| 'FAILED_DEFENDER'
----| 'SUCCESSFUL_DEFENDER'
----| 'FAILED_INVADER'
----| 'SUCCESSFUL_INVADER'
----| 'MURDER'
----| 'NATURAL_SCATTERED'
----| 'SITE_RAMPAGE'
+---| 0 # NATURAL
+---| 1 # STARVATION
+---| 2 # FAILED_DEFENDER
+---| 3 # SUCCESSFUL_DEFENDER
+---| 4 # FAILED_INVADER
+---| 5 # SUCCESSFUL_INVADER
+---| 6 # MURDER
+---| 7 # NATURAL_SCATTERED
+---| 8 # SITE_RAMPAGE
 
 -- bay12: LocationDeath
 ---@class _location_death_type: DFEnumType
@@ -1182,12 +1182,12 @@ df.site_map_infost = {}
 
 -- bay12: SiteArchitectureChangeType
 ---@alias site_architecture_change_type
----| 'NONE'
----| 'DOMINANT_ENTITY'
----| 'SRB_RUINED'
----| 'SRP_RUINED'
----| 'GENERALIZED_DAMAGE'
----| 'GENERALIZED_DEATH'
+---| -1 # NONE
+---| 0 # DOMINANT_ENTITY
+---| 1 # SRB_RUINED
+---| 2 # SRP_RUINED
+---| 3 # GENERALIZED_DAMAGE
+---| 4 # GENERALIZED_DEATH
 
 -- bay12: SiteArchitectureChangeType
 ---@class _site_architecture_change_type: DFEnumType
@@ -1286,11 +1286,11 @@ function _wg_site_culture_identityst_interaction:insert(index, item) end
 function _wg_site_culture_identityst_interaction:erase(index) end
 
 ---@alias cultural_interaction_type
----| 'NONE'
----| 'ENTITY_1_PERSECUTES_ENTITY_2'
----| 'ENTITY_1_RIOTS_AGAINST_ENTITY_2'
----| 'ENTITY_1_INVEIGHS_AGAINST_ENTITY_2'
----| 'ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2'
+---| -1 # NONE
+---| 0 # ENTITY_1_PERSECUTES_ENTITY_2
+---| 1 # ENTITY_1_RIOTS_AGAINST_ENTITY_2
+---| 2 # ENTITY_1_INVEIGHS_AGAINST_ENTITY_2
+---| 3 # ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2
 
 ---@class _cultural_interaction_type: DFEnumType
 ---@field NONE -1
@@ -2115,37 +2115,37 @@ function _world_site_realization_unk_wsr_vector:erase(index) end
 df.site_realization_crossroads = {}
 
 ---@alias site_realization_building_type
----| 'cottage_plot'
----| 'castle_wall'
----| 'castle_tower'
----| 'castle_courtyard'
----| 'house'
----| 'temple'
----| 'tomb'
----| 'shop_house'
----| 'warehouse'
----| 'market_square'
----| 'pasture'
----| 'waste'
----| 'courtyard'
----| 'well'
----| 'vault'
----| 'great_tower'
----| 'trenches'
----| 'tree_house'
----| 'hillock_house'
----| 'mead_hall'
----| 'fortress_entrance'
----| 'library'
----| 'tavern'
----| 'counting_house'
----| 'guild_hall'
----| 'city_tower'
----| 'shrine'
----| 'dormitory'
----| 'dininghall'
----| 'necromancer_tower'
----| 'barrow'
+---| 0 # cottage_plot
+---| 1 # castle_wall
+---| 2 # castle_tower
+---| 3 # castle_courtyard
+---| 4 # house
+---| 5 # temple
+---| 6 # tomb
+---| 7 # shop_house
+---| 8 # warehouse
+---| 9 # market_square
+---| 10 # pasture
+---| 11 # waste
+---| 12 # courtyard
+---| 13 # well
+---| 14 # vault
+---| 15 # great_tower
+---| 16 # trenches
+---| 17 # tree_house
+---| 18 # hillock_house
+---| 19 # mead_hall
+---| 20 # fortress_entrance
+---| 21 # library
+---| 22 # tavern
+---| 23 # counting_house
+---| 24 # guild_hall
+---| 25 # city_tower
+---| 26 # shrine
+---| 28 # dormitory
+---| 29 # dininghall
+---| 30 # necromancer_tower
+---| 31 # barrow
 
 ---@class _site_realization_building_type: DFEnumType
 ---@field cottage_plot 0
@@ -2381,32 +2381,32 @@ df.site_realization_building_info_castle_towerst = {}
 df.site_realization_building_info_castle_courtyardst = {}
 
 ---@alias site_shop_type
----| 'GeneralImports'
----| 'FoodImports'
----| 'ClothingImports'
----| 'Cloth'
----| 'Leather'
----| 'WovenClothing'
----| 'LeatherClothing'
----| 'BoneCarver'
----| 'GemCutter'
----| 'Weaponsmith'
----| 'Bowyer'
----| 'Blacksmith'
----| 'Armorsmith'
----| 'MetalCraft'
----| 'LeatherGoods'
----| 'Carpenter'
----| 'StoneFurniture'
----| 'MetalFurniture'
----| 'ImportedGoodsMarket'
----| 'ImportedFoodMarket'
----| 'ImportedClothingMarket'
----| 'MeatMarket'
----| 'FruitAndVegetableMarket'
----| 'CheeseMarket'
----| 'ProcessedGoodsMarket'
----| 'Tavern'
+---| 0 # GeneralImports
+---| 1 # FoodImports
+---| 2 # ClothingImports
+---| 3 # Cloth
+---| 4 # Leather
+---| 5 # WovenClothing
+---| 6 # LeatherClothing
+---| 7 # BoneCarver
+---| 8 # GemCutter
+---| 9 # Weaponsmith
+---| 10 # Bowyer
+---| 11 # Blacksmith
+---| 12 # Armorsmith
+---| 13 # MetalCraft
+---| 14 # LeatherGoods
+---| 15 # Carpenter
+---| 16 # StoneFurniture
+---| 17 # MetalFurniture
+---| 18 # ImportedGoodsMarket
+---| 19 # ImportedFoodMarket
+---| 20 # ImportedClothingMarket
+---| 21 # MeatMarket
+---| 22 # FruitAndVegetableMarket
+---| 23 # CheeseMarket
+---| 24 # ProcessedGoodsMarket
+---| 25 # Tavern
 
 ---@class _site_shop_type: DFEnumType
 ---@field GeneralImports 0
@@ -2464,22 +2464,22 @@ df.site_realization_building_info_castle_courtyardst = {}
 df.site_shop_type = {}
 
 ---@alias town_labor_type
----| 'NONE'
----| 'CLOTH'
----| 'TANNING'
----| 'CLOTHING_CLOTH'
----| 'CLOTHING_LEATHER'
----| 'CRAFTS_BONE_CARVER'
----| 'GEM_CUTTER'
----| 'METAL_WEAPON_SMITH'
----| 'WOOD_WEAPON_SMITH'
----| 'BLACK_SMITH'
----| 'METAL_ARMOR_SMITH'
----| 'METAL_CRAFTER'
----| 'LEATHER_ACCESSORIES'
----| 'FURNITURE_WOOD'
----| 'FURNITURE_STONE'
----| 'FURNITURE_METAL'
+---| -1 # NONE
+---| 0 # CLOTH
+---| 1 # TANNING
+---| 2 # CLOTHING_CLOTH
+---| 3 # CLOTHING_LEATHER
+---| 4 # CRAFTS_BONE_CARVER
+---| 5 # GEM_CUTTER
+---| 6 # METAL_WEAPON_SMITH
+---| 7 # WOOD_WEAPON_SMITH
+---| 8 # BLACK_SMITH
+---| 9 # METAL_ARMOR_SMITH
+---| 10 # METAL_CRAFTER
+---| 11 # LEATHER_ACCESSORIES
+---| 12 # FURNITURE_WOOD
+---| 13 # FURNITURE_STONE
+---| 14 # FURNITURE_METAL
 
 ---@class _town_labor_type: DFEnumType
 ---@field NONE -1
@@ -2554,12 +2554,12 @@ df.site_realization_building_info_trenchesst = {}
 df.site_realization_building_info_trenchesst.T_spokes = {}
 
 ---@alias tree_house_type
----| 'TreeHouse'
----| 'HomeTree'
----| 'ShapingTree'
----| 'MarketTree'
----| 'Unknown1'
----| 'Unknown2'
+---| 0 # TreeHouse
+---| 1 # HomeTree
+---| 2 # ShapingTree
+---| 3 # MarketTree
+---| 4 # Unknown1
+---| 5 # Unknown2
 
 ---@class _tree_house_type: DFEnumType
 ---@field TreeHouse 0
@@ -2587,9 +2587,9 @@ df.tree_house_type = {}
 df.site_realization_building_info_tree_housest = {}
 
 ---@alias hillock_house_type
----| 'CivicMound'
----| 'CastleMound'
----| 'DrinkingMound'
+---| 1 # CivicMound
+---| 2 # CastleMound
+---| 3 # DrinkingMound
 
 ---@class _hillock_house_type: DFEnumType
 ---@field CivicMound 1
@@ -2618,10 +2618,10 @@ df.site_realization_building_info_hillock_housest = {}
 df.site_realization_building_info_shrinest = {}
 
 ---@alias creation_zone_pwg_alteration_type
----| 'location_death'
----| 'camp'
----| 'srb_ruined'
----| 'srp_ruined'
+---| 0 # location_death
+---| 1 # camp
+---| 2 # srb_ruined
+---| 3 # srp_ruined
 
 ---@class _creation_zone_pwg_alteration_type: DFEnumType
 ---@field location_death 0

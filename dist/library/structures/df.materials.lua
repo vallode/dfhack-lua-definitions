@@ -3,19 +3,19 @@
 
 -- not in DF
 ---@alias craft_material_class
----| 'None'
----| 'Metal'
----| 'Wood'
----| 'Gem'
----| 'Glass'
----| 'Stone'
----| 'Bone'
----| 'Ivory'
----| 'Horn'
----| 'Pearl'
----| 'Shell'
----| 'Leather'
----| 'Cloth'
+---| -1 # None
+---| 0 # Metal
+---| 1 # Wood
+---| 2 # Gem
+---| 3 # Glass
+---| 4 # Stone
+---| 5 # Bone
+---| 6 # Ivory
+---| 7 # Horn
+---| 8 # Pearl
+---| 9 # Shell
+---| 10 # Leather
+---| 11 # Cloth
 
 -- not in DF
 ---@class _craft_material_class: DFEnumType
@@ -73,25 +73,25 @@ df.craft_material_class._attr_entry_type._fields = {}
 df.craft_material_class.attrs = {}
 
 ---@alias builtin_mats
----| 'INORGANIC'
----| 'AMBER'
----| 'CORAL'
----| 'GLASS_GREEN'
----| 'GLASS_CLEAR'
----| 'GLASS_CRYSTAL'
----| 'WATER'
----| 'COAL'
----| 'POTASH'
----| 'ASH'
----| 'PEARLASH'
----| 'LYE'
----| 'MUD'
----| 'VOMIT'
----| 'SALT'
----| 'FILTH_B'
----| 'FILTH_Y'
----| 'UNKNOWN_SUBSTANCE'
----| 'GRIME'
+---| 0 # INORGANIC
+---| 1 # AMBER
+---| 2 # CORAL
+---| 3 # GLASS_GREEN
+---| 4 # GLASS_CLEAR
+---| 5 # GLASS_CRYSTAL
+---| 6 # WATER
+---| 7 # COAL
+---| 8 # POTASH
+---| 9 # ASH
+---| 10 # PEARLASH
+---| 11 # LYE
+---| 12 # MUD
+---| 13 # VOMIT
+---| 14 # SALT
+---| 15 # FILTH_B
+---| 16 # FILTH_Y
+---| 17 # UNKNOWN_SUBSTANCE
+---| 18 # GRIME
 
 ---@class _builtin_mats: DFEnumType
 ---@field INORGANIC 0
@@ -135,88 +135,88 @@ df.craft_material_class.attrs = {}
 df.builtin_mats = {}
 
 ---@alias material_flags
----| 'BONE'
----| 'MEAT'
----| 'EDIBLE_VERMIN'
----| 'EDIBLE_RAW'
----| 'EDIBLE_COOKED'
----| 'ALCOHOL'
----| 'ITEMS_METAL'
----| 'ITEMS_BARRED'
----| 'ITEMS_SCALED'
----| 'ITEMS_LEATHER'
----| 'ITEMS_SOFT'
----| 'ITEMS_HARD'
----| 'IMPLIES_ANIMAL_KILL'
----| 'ALCOHOL_PLANT'
----| 'ALCOHOL_CREATURE'
----| 'CHEESE_PLANT'
----| 'CHEESE_CREATURE'
----| 'POWDER_MISC_PLANT'
----| 'POWDER_MISC_CREATURE'
----| 'STOCKPILE_GLOB'
----| 'LIQUID_MISC_PLANT'
----| 'LIQUID_MISC_CREATURE'
----| 'LIQUID_MISC_OTHER'
----| 'WOOD'
----| 'THREAD_PLANT'
----| 'TOOTH'
----| 'HORN'
----| 'PEARL'
----| 'SHELL'
----| 'LEATHER'
----| 'SILK'
----| 'SOAP'
----| 'ROTS'
----| 'IS_DYE'
----| 'POWDER_MISC'
----| 'LIQUID_MISC'
----| 'STRUCTURAL_PLANT_MAT'
----| 'SEED_MAT'
----| 'LEAF_MAT'
----| 'CHEESE'
----| 'ENTERS_BLOOD'
----| 'BLOOD_MAP_DESCRIPTOR'
----| 'ICHOR_MAP_DESCRIPTOR'
----| 'GOO_MAP_DESCRIPTOR'
----| 'SLIME_MAP_DESCRIPTOR'
----| 'PUS_MAP_DESCRIPTOR'
----| 'GENERATES_MIASMA'
----| 'IS_METAL'
----| 'IS_GEM'
----| 'IS_GLASS'
----| 'CRYSTAL_GLASSABLE'
----| 'ITEMS_WEAPON'
----| 'ITEMS_WEAPON_RANGED'
----| 'ITEMS_ANVIL'
----| 'ITEMS_AMMO'
----| 'ITEMS_DIGGER'
----| 'ITEMS_ARMOR'
----| 'ITEMS_DELICATE'
----| 'ITEMS_SIEGE_ENGINE'
----| 'ITEMS_QUERN'
----| 'IS_STONE'
----| 'UNDIGGABLE'
----| 'YARN'
----| 'STOCKPILE_GLOB_PASTE'
----| 'STOCKPILE_GLOB_PRESSED'
----| 'DISPLAY_UNGLAZED'
----| 'DO_NOT_CLEAN_GLOB'
----| 'NO_STONE_STOCKPILE'
----| 'STOCKPILE_THREAD_METAL'
----| 'SWEAT_MAP_DESCRIPTOR'
----| 'TEARS_MAP_DESCRIPTOR'
----| 'SPIT_MAP_DESCRIPTOR'
----| 'EVAPORATES'
----| 'IS_CERAMIC'
----| 'CARTILAGE'
----| 'FEATHER'
----| 'SCALE'
----| 'HAIR'
----| 'NERVOUS_TISSUE'
----| 'HOOF'
----| 'CHITIN'
----| 'ANTLER'
+---| 0 # BONE
+---| 1 # MEAT
+---| 2 # EDIBLE_VERMIN
+---| 3 # EDIBLE_RAW
+---| 4 # EDIBLE_COOKED
+---| 5 # ALCOHOL
+---| 6 # ITEMS_METAL
+---| 7 # ITEMS_BARRED
+---| 8 # ITEMS_SCALED
+---| 9 # ITEMS_LEATHER
+---| 10 # ITEMS_SOFT
+---| 11 # ITEMS_HARD
+---| 12 # IMPLIES_ANIMAL_KILL
+---| 13 # ALCOHOL_PLANT
+---| 14 # ALCOHOL_CREATURE
+---| 15 # CHEESE_PLANT
+---| 16 # CHEESE_CREATURE
+---| 17 # POWDER_MISC_PLANT
+---| 18 # POWDER_MISC_CREATURE
+---| 19 # STOCKPILE_GLOB
+---| 20 # LIQUID_MISC_PLANT
+---| 21 # LIQUID_MISC_CREATURE
+---| 22 # LIQUID_MISC_OTHER
+---| 23 # WOOD
+---| 24 # THREAD_PLANT
+---| 25 # TOOTH
+---| 26 # HORN
+---| 27 # PEARL
+---| 28 # SHELL
+---| 29 # LEATHER
+---| 30 # SILK
+---| 31 # SOAP
+---| 32 # ROTS
+---| 33 # IS_DYE
+---| 34 # POWDER_MISC
+---| 35 # LIQUID_MISC
+---| 36 # STRUCTURAL_PLANT_MAT
+---| 37 # SEED_MAT
+---| 38 # LEAF_MAT
+---| 39 # CHEESE
+---| 40 # ENTERS_BLOOD
+---| 41 # BLOOD_MAP_DESCRIPTOR
+---| 42 # ICHOR_MAP_DESCRIPTOR
+---| 43 # GOO_MAP_DESCRIPTOR
+---| 44 # SLIME_MAP_DESCRIPTOR
+---| 45 # PUS_MAP_DESCRIPTOR
+---| 46 # GENERATES_MIASMA
+---| 47 # IS_METAL
+---| 48 # IS_GEM
+---| 49 # IS_GLASS
+---| 50 # CRYSTAL_GLASSABLE
+---| 51 # ITEMS_WEAPON
+---| 52 # ITEMS_WEAPON_RANGED
+---| 53 # ITEMS_ANVIL
+---| 54 # ITEMS_AMMO
+---| 55 # ITEMS_DIGGER
+---| 56 # ITEMS_ARMOR
+---| 57 # ITEMS_DELICATE
+---| 58 # ITEMS_SIEGE_ENGINE
+---| 59 # ITEMS_QUERN
+---| 60 # IS_STONE
+---| 61 # UNDIGGABLE
+---| 62 # YARN
+---| 63 # STOCKPILE_GLOB_PASTE
+---| 64 # STOCKPILE_GLOB_PRESSED
+---| 65 # DISPLAY_UNGLAZED
+---| 66 # DO_NOT_CLEAN_GLOB
+---| 67 # NO_STONE_STOCKPILE
+---| 68 # STOCKPILE_THREAD_METAL
+---| 69 # SWEAT_MAP_DESCRIPTOR
+---| 70 # TEARS_MAP_DESCRIPTOR
+---| 71 # SPIT_MAP_DESCRIPTOR
+---| 72 # EVAPORATES
+---| 74 # IS_CERAMIC
+---| 75 # CARTILAGE
+---| 76 # FEATHER
+---| 77 # SCALE
+---| 78 # HAIR
+---| 79 # NERVOUS_TISSUE
+---| 80 # HOOF
+---| 81 # CHITIN
+---| 82 # ANTLER
 
 ---@class _material_flags: DFEnumType
 ---@field BONE 0
@@ -479,13 +479,13 @@ df.material_flags._attr_entry_type._fields = {}
 df.material_flags.attrs = {}
 
 ---@alias matter_state
----| 'None'
----| 'Solid'
----| 'Liquid'
----| 'Gas'
----| 'Powder'
----| 'Paste'
----| 'Pressed'
+---| -1 # None
+---| 0 # Solid
+---| 1 # Liquid
+---| 2 # Gas
+---| 3 # Powder
+---| 4 # Paste
+---| 5 # Pressed
 
 ---@class _matter_state: DFEnumType
 ---@field None -1
@@ -505,12 +505,12 @@ df.material_flags.attrs = {}
 df.matter_state = {}
 
 ---@alias strain_type
----| 'BENDING'
----| 'SHEAR'
----| 'TORSION'
----| 'IMPACT'
----| 'TENSILE'
----| 'COMPRESSIVE'
+---| 0 # BENDING
+---| 1 # SHEAR
+---| 2 # TORSION
+---| 3 # IMPACT
+---| 4 # TENSILE
+---| 5 # COMPRESSIVE
 
 ---@class _strain_type: DFEnumType
 ---@field BENDING 0
@@ -711,27 +711,27 @@ function _material_template_syndrome:insert(index, item) end
 function _material_template_syndrome:erase(index) end
 
 ---@alias inorganic_flags
----| 'LAVA'
----| 'GENERATED'
----| 'ENVIRONMENT_NON_SOIL_OCEAN'
----| 'SEDIMENTARY'
----| 'SEDIMENTARY_OCEAN_SHALLOW'
----| 'IGNEOUS_INTRUSIVE'
----| 'IGNEOUS_EXTRUSIVE'
----| 'METAMORPHIC'
----| 'DEEP_SURFACE'
----| 'METAL_ORE'
----| 'AQUIFER'
----| 'SOIL_ANY'
----| 'SOIL_OCEAN'
----| 'SOIL_SAND'
----| 'SEDIMENTARY_OCEAN_DEEP'
----| 'THREAD_METAL'
----| 'SPECIAL'
----| 'SOIL'
----| 'DEEP_SPECIAL'
----| 'DIVINE'
----| 'WAFERS'
+---| 0 # LAVA
+---| 1 # GENERATED
+---| 2 # ENVIRONMENT_NON_SOIL_OCEAN
+---| 3 # SEDIMENTARY
+---| 4 # SEDIMENTARY_OCEAN_SHALLOW
+---| 5 # IGNEOUS_INTRUSIVE
+---| 6 # IGNEOUS_EXTRUSIVE
+---| 7 # METAMORPHIC
+---| 8 # DEEP_SURFACE
+---| 9 # METAL_ORE
+---| 10 # AQUIFER
+---| 11 # SOIL_ANY
+---| 12 # SOIL_OCEAN
+---| 13 # SOIL_SAND
+---| 14 # SEDIMENTARY_OCEAN_DEEP
+---| 15 # THREAD_METAL
+---| 16 # SPECIAL
+---| 17 # SOIL
+---| 18 # DEEP_SPECIAL
+---| 19 # DIVINE
+---| 25 # WAFERS
 
 ---@class _inorganic_flags: DFEnumType
 ---@field LAVA 0
@@ -779,14 +779,14 @@ function _material_template_syndrome:erase(index) end
 df.inorganic_flags = {}
 
 ---@alias environment_type
----| 'SOIL'
----| 'SOIL_OCEAN'
----| 'SOIL_SAND'
----| 'METAMORPHIC'
----| 'SEDIMENTARY'
----| 'IGNEOUS_INTRUSIVE'
----| 'IGNEOUS_EXTRUSIVE'
----| 'ALLUVIAL'
+---| 0 # SOIL
+---| 1 # SOIL_OCEAN
+---| 2 # SOIL_SAND
+---| 3 # METAMORPHIC
+---| 4 # SEDIMENTARY
+---| 5 # IGNEOUS_INTRUSIVE
+---| 6 # IGNEOUS_EXTRUSIVE
+---| 7 # ALLUVIAL
 
 ---@class _environment_type: DFEnumType
 ---@field SOIL 0
@@ -808,10 +808,10 @@ df.inorganic_flags = {}
 df.environment_type = {}
 
 ---@alias inclusion_type
----| 'VEIN'
----| 'CLUSTER'
----| 'CLUSTER_SMALL'
----| 'CLUSTER_ONE'
+---| 1 # VEIN
+---| 2 # CLUSTER
+---| 3 # CLUSTER_SMALL
+---| 4 # CLUSTER_ONE
 
 ---@class _inclusion_type: DFEnumType
 ---@field VEIN 1
@@ -959,45 +959,45 @@ function _inorganic_raw_environment_type:insert(index, item) end
 function _inorganic_raw_environment_type:erase(index) end
 
 ---@alias organic_mat_category
----| 'Meat'
----| 'Fish'
----| 'UnpreparedFish'
----| 'Eggs'
----| 'Plants'
----| 'PlantDrink'
----| 'CreatureDrink'
----| 'PlantCheese'
----| 'CreatureCheese'
----| 'Seed'
----| 'Leaf'
----| 'PlantPowder'
----| 'CreaturePowder'
----| 'Glob'
----| 'PlantLiquid'
----| 'CreatureLiquid'
----| 'MiscLiquid'
----| 'Leather'
----| 'Silk'
----| 'PlantFiber'
----| 'Bone'
----| 'Shell'
----| 'Wood'
----| 'Horn'
----| 'Pearl'
----| 'Tooth'
----| 'EdibleCheese'
----| 'AnyDrink'
----| 'EdiblePlant'
----| 'CookableLiquid'
----| 'CookablePowder'
----| 'CookableSeed'
----| 'CookableLeaf'
----| 'Paste'
----| 'Pressed'
----| 'Yarn'
----| 'MetalThread'
----| 'Paper'
----| 'Parchment'
+---| 0 # Meat
+---| 1 # Fish
+---| 2 # UnpreparedFish
+---| 3 # Eggs
+---| 4 # Plants
+---| 5 # PlantDrink
+---| 6 # CreatureDrink
+---| 7 # PlantCheese
+---| 8 # CreatureCheese
+---| 9 # Seed
+---| 10 # Leaf
+---| 11 # PlantPowder
+---| 12 # CreaturePowder
+---| 13 # Glob
+---| 14 # PlantLiquid
+---| 15 # CreatureLiquid
+---| 16 # MiscLiquid
+---| 17 # Leather
+---| 18 # Silk
+---| 19 # PlantFiber
+---| 20 # Bone
+---| 21 # Shell
+---| 22 # Wood
+---| 23 # Horn
+---| 24 # Pearl
+---| 25 # Tooth
+---| 26 # EdibleCheese
+---| 27 # AnyDrink
+---| 28 # EdiblePlant
+---| 29 # CookableLiquid
+---| 30 # CookablePowder
+---| 31 # CookableSeed
+---| 32 # CookableLeaf
+---| 33 # Paste
+---| 34 # Pressed
+---| 35 # Yarn
+---| 36 # MetalThread
+---| 37 # Paper
+---| 38 # Parchment
 
 ---@class _organic_mat_category: DFEnumType
 ---@field Meat 0

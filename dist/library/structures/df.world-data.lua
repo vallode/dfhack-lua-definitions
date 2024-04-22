@@ -27,14 +27,14 @@ function _world_site_unk130_unk_4:insert(index, item) end
 function _world_site_unk130_unk_4:erase(index) end
 
 ---@alias world_population_type
----| 'Animal'
----| 'Vermin'
----| 'Unk2'
----| 'VerminInnumerable'
----| 'ColonyInsect'
----| 'Tree'
----| 'Grass'
----| 'Bush'
+---| 0 # Animal
+---| 1 # Vermin
+---| 2 # Unk2
+---| 3 # VerminInnumerable
+---| 4 # ColonyInsect
+---| 5 # Tree
+---| 6 # Grass
+---| 7 # Bush
 
 ---@class _world_population_type: DFEnumType
 ---@field Animal 0
@@ -170,16 +170,16 @@ function df.world_landmass.find(key) end
 function df.world_landmass.get_vector() end
 
 ---@alias world_region_type
----| 'Swamp'
----| 'Desert'
----| 'Jungle'
----| 'Mountains'
----| 'Ocean'
----| 'Lake'
----| 'Glacier'
----| 'Tundra'
----| 'Steppe'
----| 'Hills'
+---| 0 # Swamp
+---| 1 # Desert
+---| 2 # Jungle
+---| 3 # Mountains
+---| 4 # Ocean
+---| 5 # Lake
+---| 6 # Glacier
+---| 7 # Tundra
+---| 8 # Steppe
+---| 9 # Hills
 
 ---@class _world_region_type: DFEnumType
 ---@field Swamp 0
@@ -319,9 +319,9 @@ function df.world_underground_region.find(key) end
 function df.world_underground_region.get_vector() end
 
 ---@alias world_underground_region.T_type
----| 'Cavern'
----| 'MagmaSea'
----| 'Underworld'
+---| 0 # Cavern
+---| 1 # MagmaSea
+---| 2 # Underworld
 
 ---@class _world_underground_region.T_type: DFEnumType
 ---@field Cavern 0
@@ -404,15 +404,15 @@ function _world_river_flags:insert(index, item) end
 function _world_river_flags:erase(index) end
 
 ---@alias geo_layer_type
----| 'SOIL'
----| 'SEDIMENTARY'
----| 'METAMORPHIC'
----| 'IGNEOUS_EXTRUSIVE'
----| 'IGNEOUS_INTRUSIVE'
----| 'SOIL_OCEAN'
----| 'SOIL_SAND'
----| 'SEDIMENTARY_OCEAN_SHALLOW'
----| 'SEDIMENTARY_OCEAN_DEEP'
+---| 0 # SOIL
+---| 1 # SEDIMENTARY
+---| 2 # METAMORPHIC
+---| 3 # IGNEOUS_EXTRUSIVE
+---| 4 # IGNEOUS_INTRUSIVE
+---| 5 # SOIL_OCEAN
+---| 6 # SOIL_SAND
+---| 7 # SEDIMENTARY_OCEAN_SHALLOW
+---| 8 # SEDIMENTARY_OCEAN_DEEP
 
 ---@class _geo_layer_type: DFEnumType
 ---@field SOIL 0
@@ -683,19 +683,19 @@ function _world_region_details_features:insert(index, item) end
 function _world_region_details_features:erase(index) end
 
 ---@alias region_map_entry_flags
----| 'has_river'
----| 'tile_variant'
----| 'has_site'
----| 'river_up'
----| 'river_down'
----| 'river_right'
----| 'river_left'
----| 'discovered'
----| 'has_army'
----| 'is_peak'
----| 'is_lake'
----| 'is_brook'
----| 'has_road'
+---| 0 # has_river
+---| 1 # tile_variant
+---| 3 # has_site
+---| 5 # river_up
+---| 6 # river_down
+---| 7 # river_right
+---| 8 # river_left
+---| 9 # discovered
+---| 12 # has_army
+---| 13 # is_peak
+---| 14 # is_lake
+---| 15 # is_brook
+---| 16 # has_road
 
 ---@class _region_map_entry_flags: DFEnumType
 ---@field has_river 0
@@ -727,10 +727,10 @@ function _world_region_details_features:erase(index) end
 df.region_map_entry_flags = {}
 
 ---@alias front_type
----| 'front_none'
----| 'front_warm'
----| 'front_cold'
----| 'front_occluded'
+---| 0 # front_none
+---| 1 # front_warm
+---| 2 # front_cold
+---| 3 # front_occluded
 
 ---@class _front_type: DFEnumType
 ---@field front_none 0
@@ -744,10 +744,10 @@ df.region_map_entry_flags = {}
 df.front_type = {}
 
 ---@alias cumulus_type
----| 'cumulus_none'
----| 'cumulus_medium'
----| 'cumulus_multi'
----| 'cumulus_nimbus'
+---| 0 # cumulus_none
+---| 1 # cumulus_medium
+---| 2 # cumulus_multi
+---| 3 # cumulus_nimbus
 
 ---@class _cumulus_type: DFEnumType
 ---@field cumulus_none 0
@@ -761,10 +761,10 @@ df.front_type = {}
 df.cumulus_type = {}
 
 ---@alias stratus_type
----| 'stratus_none'
----| 'stratus_alto'
----| 'stratus_proper'
----| 'stratus_nimbus'
+---| 0 # stratus_none
+---| 1 # stratus_alto
+---| 2 # stratus_proper
+---| 3 # stratus_nimbus
 
 ---@class _stratus_type: DFEnumType
 ---@field stratus_none 0
@@ -778,10 +778,10 @@ df.cumulus_type = {}
 df.stratus_type = {}
 
 ---@alias fog_type
----| 'fog_none'
----| 'fog_mist'
----| 'fog_normal'
----| 'fog_thick'
+---| 0 # fog_none
+---| 1 # fog_mist
+---| 2 # fog_normal
+---| 3 # fog_thick
 
 ---@class _fog_type: DFEnumType
 ---@field fog_none 0
@@ -1147,7 +1147,7 @@ df.world_object_data.T_picked_growths = {}
 df.world_object_data.T_unk_v43 = {}
 
 ---@alias mountain_peak_flags
----| 'is_volcano'
+---| 0 # is_volcano
 
 ---@class _mountain_peak_flags: DFEnumType
 ---@field is_volcano 0
@@ -1285,10 +1285,10 @@ function _world_mountain_peak_flags:erase(index) end
 df.world_data = {}
 
 ---@alias world_data.T_flip_latitude
----| 'None'
----| 'North'
----| 'South'
----| 'Both'
+---| -1 # None
+---| 0 # North
+---| 1 # South
+---| 2 # Both
 
 ---@class _world_data.T_flip_latitude: DFEnumType
 ---@field None -1
@@ -1756,10 +1756,10 @@ function _battlefield_sapient_deaths:insert(index, item) end
 function _battlefield_sapient_deaths:erase(index) end
 
 ---@alias region_weather_type
----| 'CreepingGas'
----| 'CreepingVapor'
----| 'CreepingDust'
----| 'FallingMaterial'
+---| 0 # CreepingGas
+---| 1 # CreepingVapor
+---| 2 # CreepingDust
+---| 3 # FallingMaterial
 
 ---@class _region_weather_type: DFEnumType
 ---@field CreepingGas 0

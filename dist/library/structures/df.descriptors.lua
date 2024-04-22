@@ -2,13 +2,13 @@
 ---@meta
 
 ---@alias pattern_type
----| 'NONE'
----| 'MONOTONE'
----| 'STRIPES'
----| 'IRIS_EYE'
----| 'SPOTS'
----| 'PUPIL_EYE'
----| 'MOTTLED'
+---| -1 # NONE
+---| 0 # MONOTONE
+---| 1 # STRIPES
+---| 2 # IRIS_EYE
+---| 3 # SPOTS
+---| 4 # PUPIL_EYE
+---| 5 # MOTTLED
 
 ---@class _pattern_type: DFEnumType
 ---@field NONE -1

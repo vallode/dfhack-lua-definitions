@@ -2,21 +2,21 @@
 ---@meta
 
 ---@alias improvement_type
----| 'NONE'
----| 'ART_IMAGE'
----| 'COVERED'
----| 'RINGS_HANGING'
----| 'BANDS'
----| 'SPIKES'
----| 'ITEMSPECIFIC'
----| 'THREAD'
----| 'CLOTH'
----| 'SEWN_IMAGE'
----| 'PAGES'
----| 'ILLUSTRATION'
----| 'INSTRUMENT_PIECE'
----| 'WRITING'
----| 'IMAGE_SET'
+---| -1 # NONE
+---| 0 # ART_IMAGE
+---| 1 # COVERED
+---| 2 # RINGS_HANGING
+---| 3 # BANDS
+---| 4 # SPIKES
+---| 5 # ITEMSPECIFIC
+---| 6 # THREAD
+---| 7 # CLOTH
+---| 8 # SEWN_IMAGE
+---| 9 # PAGES
+---| 10 # ILLUSTRATION
+---| 11 # INSTRUMENT_PIECE
+---| 12 # WRITING
+---| 13 # IMAGE_SET
 
 ---@class _improvement_type: DFEnumType
 ---@field NONE -1
@@ -153,8 +153,8 @@ df.itemimprovement_bandsst = {}
 df.itemimprovement_spikesst = {}
 
 ---@alias itemimprovement_specific_type
----| 'HANDLE'
----| 'ROLLERS'
+---| 0 # HANDLE
+---| 1 # ROLLERS
 
 ---@class _itemimprovement_specific_type: DFEnumType
 ---@field HANDLE 0
@@ -249,33 +249,33 @@ df.itemimprovement_writingst = {}
 df.itemimprovement_image_setst = {}
 
 ---@alias written_content_type
----| 'NONE'
----| 'Manual'
----| 'Guide'
----| 'Chronicle'
----| 'ShortStory'
----| 'Novel'
----| 'Biography'
----| 'Autobiography'
----| 'Poem'
----| 'Play'
----| 'Letter'
----| 'Essay'
----| 'Dialog'
----| 'MusicalComposition'
----| 'Choreography'
----| 'ComparativeBiography'
----| 'BiographicalDictionary'
----| 'Genealogy'
----| 'Encyclopedia'
----| 'CulturalHistory'
----| 'CulturalComparison'
----| 'AlternateHistory'
----| 'TreatiseOnTechnologicalEvolution'
----| 'Dictionary'
----| 'StarChart'
----| 'StarCatalogue'
----| 'Atlas'
+---| -1 # NONE
+---| 0 # Manual
+---| 1 # Guide
+---| 2 # Chronicle
+---| 3 # ShortStory
+---| 4 # Novel
+---| 5 # Biography
+---| 6 # Autobiography
+---| 7 # Poem
+---| 8 # Play
+---| 9 # Letter
+---| 10 # Essay
+---| 11 # Dialog
+---| 12 # MusicalComposition
+---| 13 # Choreography
+---| 14 # ComparativeBiography
+---| 15 # BiographicalDictionary
+---| 16 # Genealogy
+---| 17 # Encyclopedia
+---| 18 # CulturalHistory
+---| 19 # CulturalComparison
+---| 20 # AlternateHistory
+---| 21 # TreatiseOnTechnologicalEvolution
+---| 22 # Dictionary
+---| 23 # StarChart
+---| 24 # StarCatalogue
+---| 25 # Atlas
 
 ---@class _written_content_type: DFEnumType
 ---@field NONE -1 bay12: WritingForm
@@ -335,24 +335,24 @@ df.itemimprovement_image_setst = {}
 df.written_content_type = {}
 
 ---@alias written_content_style
----| 'Meandering'
----| 'Cheerful'
----| 'Depressing'
----| 'Rigid'
----| 'Serious'
----| 'Disjointed'
----| 'Ornate'
----| 'Forceful'
----| 'Humorous'
----| 'Immature'
----| 'SelfIndulgent'
----| 'Touching'
----| 'Compassionate'
----| 'Vicious'
----| 'Concise'
----| 'Scornful'
----| 'Witty'
----| 'Ranting'
+---| 0 # Meandering
+---| 1 # Cheerful
+---| 2 # Depressing
+---| 3 # Rigid
+---| 4 # Serious
+---| 5 # Disjointed
+---| 6 # Ornate
+---| 7 # Forceful
+---| 8 # Humorous
+---| 9 # Immature
+---| 10 # SelfIndulgent
+---| 11 # Touching
+---| 12 # Compassionate
+---| 13 # Vicious
+---| 14 # Concise
+---| 15 # Scornful
+---| 16 # Witty
+---| 17 # Ranting
 
 ---@class _written_content_style: DFEnumType
 ---@field Meandering 0

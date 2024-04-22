@@ -19,15 +19,15 @@
 df.vermin_flags = {}
 
 ---@alias vermin_category
----| 'None'
----| 'Eater'
----| 'Grounder'
----| 'Rotter'
----| 'Swamper'
----| 'Searched'
----| 'Disturbed'
----| 'Dropped'
----| 'Underworld'
+---| -1 # None
+---| 0 # Eater
+---| 1 # Grounder
+---| 2 # Rotter
+---| 3 # Swamper
+---| 4 # Searched
+---| 5 # Disturbed
+---| 6 # Dropped
+---| 7 # Underworld
 
 ---@class _vermin_category: DFEnumType
 ---@field None -1

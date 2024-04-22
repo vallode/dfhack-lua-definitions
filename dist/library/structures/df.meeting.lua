@@ -395,16 +395,16 @@ function _meeting_diplomat_info_agreement_topic:insert(index, item) end
 function _meeting_diplomat_info_agreement_topic:erase(index) end
 
 ---@alias meeting_topic
----| 'DiscussCurrent'
----| 'RequestPeace'
----| 'TreeQuota'
----| 'BecomeLandHolder'
----| 'PromoteLandHolder'
----| 'ExportAgreement'
----| 'ImportAgreement'
----| 'PleasantPlace'
----| 'WorldStatus'
----| 'TributeAgreement'
+---| 0 # DiscussCurrent
+---| 1 # RequestPeace
+---| 2 # TreeQuota
+---| 3 # BecomeLandHolder
+---| 4 # PromoteLandHolder
+---| 5 # ExportAgreement
+---| 6 # ImportAgreement
+---| 7 # PleasantPlace
+---| 8 # WorldStatus
+---| 9 # TributeAgreement
 
 ---@class _meeting_topic: DFEnumType
 ---@field DiscussCurrent 0
@@ -430,12 +430,12 @@ function _meeting_diplomat_info_agreement_topic:erase(index) end
 df.meeting_topic = {}
 
 ---@alias meeting_event_type
----| 'AcceptAgreement'
----| 'RejectAgreement'
----| 'AcceptPeace'
----| 'RejectPeace'
----| 'ExportAgreement'
----| 'ImportAgreement'
+---| 0 # AcceptAgreement
+---| 1 # RejectAgreement
+---| 2 # AcceptPeace
+---| 3 # RejectPeace
+---| 4 # ExportAgreement
+---| 5 # ImportAgreement
 
 ---@class _meeting_event_type: DFEnumType
 ---@field AcceptAgreement 0
@@ -552,16 +552,16 @@ function _room_rent_info_elements:erase(index) end
 df.room_rent_info.T_flags = {}
 
 ---@alias activity_entry_type
----| 'TrainingSession'
----| 'IndividualSkillDrill'
----| 'Conflict'
----| 'Conversation'
----| 'Prayer'
----| 'Socialize'
----| 'Research'
----| 'FillServiceOrder'
----| 'Read'
----| 'Play'
+---| 0 # TrainingSession
+---| 1 # IndividualSkillDrill
+---| 2 # Conflict
+---| 5 # Conversation
+---| 7 # Prayer
+---| 8 # Socialize
+---| 9 # Research
+---| 10 # FillServiceOrder
+---| 11 # Read
+---| 12 # Play
 
 ---@class _activity_entry_type: DFEnumType
 ---@field TrainingSession 0
@@ -624,34 +624,34 @@ function _activity_entry_events:insert(index, item) end
 function _activity_entry_events:erase(index) end
 
 ---@alias activity_event_type
----| 'TrainingSession'
----| 'CombatTraining'
----| 'SkillDemonstration'
----| 'IndividualSkillDrill'
----| 'Sparring'
----| 'RangedPractice'
----| 'Harassment'
----| 'Conversation'
----| 'Conflict'
----| 'Guard'
----| 'Reunion'
----| 'Prayer'
----| 'Socialize'
----| 'Worship'
----| 'Performance'
----| 'Research'
----| 'PonderTopic'
----| 'DiscussTopic'
----| 'Read'
----| 'FillServiceOrder'
----| 'Write'
----| 'CopyWrittenContent'
----| 'TeachTopic'
----| 'Play'
----| 'MakeBelieve'
----| 'PlayWithToy'
----| 'Encounter'
----| 'StoreObject'
+---| 0 # TrainingSession
+---| 1 # CombatTraining
+---| 2 # SkillDemonstration
+---| 3 # IndividualSkillDrill
+---| 4 # Sparring
+---| 5 # RangedPractice
+---| 6 # Harassment
+---| 7 # Conversation
+---| 8 # Conflict
+---| 9 # Guard
+---| 10 # Reunion
+---| 11 # Prayer
+---| 12 # Socialize
+---| 13 # Worship
+---| 14 # Performance
+---| 15 # Research
+---| 16 # PonderTopic
+---| 17 # DiscussTopic
+---| 18 # Read
+---| 19 # FillServiceOrder
+---| 20 # Write
+---| 21 # CopyWrittenContent
+---| 22 # TeachTopic
+---| 23 # Play
+---| 24 # MakeBelieve
+---| 25 # PlayWithToy
+---| 26 # Encounter
+---| 27 # StoreObject
 
 ---@class _activity_event_type: DFEnumType
 ---@field TrainingSession 0
@@ -726,14 +726,14 @@ df.activity_event_type = {}
 df.activity_event_participants = {}
 
 ---@alias activity_event_item_role_type
----| 'NONE'
----| 'TARGET_TO_POUR'
----| 'TARGET_TO_FILL'
----| 'TARGET_TO_READ'
----| 'TARGET_TO_WRITE_ON'
----| 'TARGET_TO_COPY'
----| 'PERFORMANCE_INSTRUMENT'
----| 'TOY'
+---| -1 # NONE
+---| 0 # TARGET_TO_POUR
+---| 1 # TARGET_TO_FILL
+---| 2 # TARGET_TO_READ
+---| 3 # TARGET_TO_WRITE_ON
+---| 4 # TARGET_TO_COPY
+---| 5 # PERFORMANCE_INSTRUMENT
+---| 6 # TOY
 
 ---@class _activity_event_item_role_type: DFEnumType
 ---@field NONE -1
@@ -755,11 +755,11 @@ df.activity_event_participants = {}
 df.activity_event_item_role_type = {}
 
 ---@alias activity_event_building_role_type
----| 'NONE'
----| 'SIT_AND_READ'
----| 'SIT_AND_WRITE'
----| 'PLACED_WRITING_MATERIALS'
----| 'PERFORMANCE_INSTRUMENT'
+---| -1 # NONE
+---| 0 # SIT_AND_READ
+---| 1 # SIT_AND_WRITE
+---| 2 # PLACED_WRITING_MATERIALS
+---| 3 # PERFORMANCE_INSTRUMENT
 
 ---@class _activity_event_building_role_type: DFEnumType
 ---@field NONE -1
@@ -1003,46 +1003,46 @@ function _activity_event_harassmentst_unk_2:insert(index, item) end
 function _activity_event_harassmentst_unk_2:erase(index) end
 
 ---@alias conversation_menu
----| 'None'
----| 'RespondGreeting'
----| 'MainMenu'
----| 'RespondGoodbye'
----| 'DenyPermissionSleep'
----| 'AskJoin'
----| 'RespondJoin'
----| 'DiscussRescue'
----| 'DiscussAgreement'
----| 'DiscussTrade'
----| 'DiscussSurroundingArea'
----| 'RespondAccusation'
----| 'DiscussFamily'
----| 'RespondArmistice'
----| 'RespondDemandYield'
----| 'AskDirections'
----| 'Demand'
----| 'Barter'
----| 'DiscussHearthpersonDuties'
----| 'DiscussJourney'
----| 'DiscussGroup'
----| 'DiscussConflict'
----| 'DiscussSite'
----| 'RespondDemand'
----| 'RespondTributeDemand'
----| 'RespondTributeOffer'
----| 'DiscussTradeCancellation'
----| 'RespondPeaceOffer'
----| 'DiscussAgreementConclusion'
----| 'RespondAdoptionRequest'
----| 'RespondPositionOffer'
----| 'RespondInvocation'
----| 'AskAboutPerson'
----| 'DiscussFeelings'
----| 'StateGeneralThoughts'
----| 'DiscussValues'
----| 'RespondValues'
----| 'RespondPassiveReply'
----| 'RespondFlattery'
----| 'RespondDismissal'
+---| -1 # None
+---| 0 # RespondGreeting
+---| 1 # MainMenu
+---| 7 # RespondGoodbye
+---| 9 # DenyPermissionSleep
+---| 10 # AskJoin
+---| 11 # RespondJoin
+---| 12 # DiscussRescue
+---| 13 # DiscussAgreement
+---| 14 # DiscussTrade
+---| 15 # DiscussSurroundingArea
+---| 16 # RespondAccusation
+---| 17 # DiscussFamily
+---| 18 # RespondArmistice
+---| 19 # RespondDemandYield
+---| 23 # AskDirections
+---| 30 # Demand
+---| 34 # Barter
+---| 35 # DiscussHearthpersonDuties
+---| 37 # DiscussJourney
+---| 38 # DiscussGroup
+---| 39 # DiscussConflict
+---| 40 # DiscussSite
+---| 41 # RespondDemand
+---| 43 # RespondTributeDemand
+---| 44 # RespondTributeOffer
+---| 45 # DiscussTradeCancellation
+---| 46 # RespondPeaceOffer
+---| 47 # DiscussAgreementConclusion
+---| 48 # RespondAdoptionRequest
+---| 51 # RespondPositionOffer
+---| 52 # RespondInvocation
+---| 54 # AskAboutPerson
+---| 56 # DiscussFeelings
+---| 65 # StateGeneralThoughts
+---| 66 # DiscussValues
+---| 67 # RespondValues
+---| 68 # RespondPassiveReply
+---| 69 # RespondFlattery
+---| 70 # RespondDismissal
 
 ---@class _conversation_menu: DFEnumType
 ---@field None -1
@@ -1387,14 +1387,14 @@ df.activity_event_socializest = {}
 df.activity_event_worshipst = {}
 
 ---@alias performance_event_type
----| 'STORY'
----| 'POETRY'
----| 'MUSIC'
----| 'DANCE'
----| 'SERMON_EVENT'
----| 'SERMON_SPHERE'
----| 'SERMON_PROMOTE_VALUE'
----| 'SERMON_INVEIGH_AGAINST_VALUE'
+---| 0 # STORY
+---| 1 # POETRY
+---| 2 # MUSIC
+---| 3 # DANCE
+---| 4 # SERMON_EVENT
+---| 5 # SERMON_SPHERE
+---| 6 # SERMON_PROMOTE_VALUE
+---| 7 # SERMON_INVEIGH_AGAINST_VALUE
 
 ---@class _performance_event_type: DFEnumType
 ---@field STORY 0
@@ -1416,12 +1416,12 @@ df.activity_event_worshipst = {}
 df.performance_event_type = {}
 
 ---@alias performance_participant_type
----| 'TELL_STORY'
----| 'RECITE_POETRY'
----| 'MAKE_MUSIC'
----| 'PERFORM_DANCE'
----| 'LISTEN'
----| 'HEAR'
+---| 0 # TELL_STORY
+---| 1 # RECITE_POETRY
+---| 2 # MAKE_MUSIC
+---| 3 # PERFORM_DANCE
+---| 4 # LISTEN
+---| 5 # HEAR
 
 ---@class _performance_participant_type: DFEnumType
 ---@field TELL_STORY 0
@@ -1636,7 +1636,7 @@ df.activity_event_writest = {}
 df.activity_event_writest.T_unk_1 = {}
 
 ---@alias activity_event_writest.T_mode
----| 'WriteAboutKnowledge'
+---| 0 # WriteAboutKnowledge
 
 ---@class _activity_event_writest.T_mode: DFEnumType
 ---@field WriteAboutKnowledge 0

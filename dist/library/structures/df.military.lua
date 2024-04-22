@@ -91,13 +91,13 @@ df.squad_ammo_spec.T_flags = {}
 df.squad_use_flags = {}
 
 ---@alias uniform_category
----| 'body'
----| 'head'
----| 'pants'
----| 'gloves'
----| 'shoes'
----| 'shield'
----| 'weapon'
+---| 0 # body
+---| 1 # head
+---| 2 # pants
+---| 3 # gloves
+---| 4 # shoes
+---| 5 # shield
+---| 6 # weapon
 
 ---@class _uniform_category: DFEnumType
 ---@field body 0
@@ -131,10 +131,10 @@ df.uniform_category = {}
 df.uniform_flags = {}
 
 ---@alias barrack_preference_category
----| 'Bed'
----| 'Armorstand'
----| 'Box'
----| 'Cabinet'
+---| 0 # Bed
+---| 1 # Armorstand
+---| 2 # Box
+---| 3 # Cabinet
 
 ---@class _barrack_preference_category: DFEnumType
 ---@field Bed 0
@@ -148,10 +148,10 @@ df.uniform_flags = {}
 df.barrack_preference_category = {}
 
 ---@alias squad_event_type
----| 'None'
----| 'Unk0'
----| 'Unk1'
----| 'Unk2'
+---| -1 # None
+---| 0 # Unk0
+---| 1 # Unk1
+---| 2 # Unk2
 
 ---@class _squad_event_type: DFEnumType
 ---@field None -1
@@ -425,18 +425,18 @@ function _squad_ammo_ammunition:insert(index, item) end
 function _squad_ammo_ammunition:erase(index) end
 
 ---@alias squad_order_type
----| 'MOVE'
----| 'KILL_LIST'
----| 'DEFEND_BURROWS'
----| 'PATROL_ROUTE'
----| 'TRAIN'
----| 'DRIVE_ENTITY_OFF_SITE'
----| 'CAUSE_TROUBLE_FOR_ENTITY'
----| 'KILL_HF'
----| 'DRIVE_ARMIES_FROM_SITE'
----| 'RETRIEVE_ARTIFACT'
----| 'RAID_SITE'
----| 'RESCUE_HF'
+---| 0 # MOVE
+---| 1 # KILL_LIST
+---| 2 # DEFEND_BURROWS
+---| 3 # PATROL_ROUTE
+---| 4 # TRAIN
+---| 5 # DRIVE_ENTITY_OFF_SITE
+---| 6 # CAUSE_TROUBLE_FOR_ENTITY
+---| 7 # KILL_HF
+---| 8 # DRIVE_ARMIES_FROM_SITE
+---| 9 # RETRIEVE_ARTIFACT
+---| 10 # RAID_SITE
+---| 11 # RESCUE_HF
 
 ---@class _squad_order_type: DFEnumType
 ---@field MOVE 0
@@ -466,27 +466,27 @@ function _squad_ammo_ammunition:erase(index) end
 df.squad_order_type = {}
 
 ---@alias squad_order_cannot_reason
----| 'not_following_order'
----| 'activity_cancelled'
----| 'no_barracks'
----| 'improper_barracks'
----| 'no_activity'
----| 'cannot_individually_drill'
----| 'does_not_exist'
----| 'no_archery_target'
----| 'improper_building'
----| 'unreachable_location'
----| 'invalid_location'
----| 'no_reachable_valid_target'
----| 'no_burrow'
----| 'not_in_squad'
----| 'no_patrol_route'
----| 'no_reachable_point_on_route'
----| 'invalid_order'
----| 'no_temple'
----| 'no_library'
----| 'no_item'
----| 'cannot_leave_site'
+---| 0 # not_following_order
+---| 1 # activity_cancelled
+---| 2 # no_barracks
+---| 3 # improper_barracks
+---| 4 # no_activity
+---| 5 # cannot_individually_drill
+---| 6 # does_not_exist
+---| 7 # no_archery_target
+---| 8 # improper_building
+---| 9 # unreachable_location
+---| 10 # invalid_location
+---| 11 # no_reachable_valid_target
+---| 12 # no_burrow
+---| 13 # not_in_squad
+---| 14 # no_patrol_route
+---| 15 # no_reachable_point_on_route
+---| 16 # invalid_order
+---| 17 # no_temple
+---| 18 # no_library
+---| 19 # no_item
+---| 20 # cannot_leave_site
 
 ---@class _squad_order_cannot_reason: DFEnumType
 ---@field not_following_order 0 text in viewscreen_unitlistst
@@ -700,14 +700,14 @@ df.squad_order_rescue_hfst = {}
 
 -- bay12: InvasionIntent
 ---@alias invasion_intent_type
----| 'NONE'
----| 'OBLITERATION'
----| 'TAKE_OVER_SITE'
----| 'INSTALL_PUPPET_GOVERNMENT'
----| 'DEMAND_TRIBUTE'
----| 'RAID'
----| 'EXPLORE'
----| 'PILLAGE'
+---| -1 # NONE
+---| 0 # OBLITERATION
+---| 1 # TAKE_OVER_SITE
+---| 2 # INSTALL_PUPPET_GOVERNMENT
+---| 3 # DEMAND_TRIBUTE
+---| 4 # RAID
+---| 5 # EXPLORE
+---| 6 # PILLAGE
 
 -- bay12: InvasionIntent
 ---@class _invasion_intent_type: DFEnumType
@@ -731,13 +731,13 @@ df.invasion_intent_type = {}
 
 -- bay12: InvasionStage
 ---@alias invasion_stage_type
----| 'NONE'
----| 'ORGANIZE'
----| 'TRAVEL'
----| 'RAMPAGE'
----| 'PACIFY_SITE'
----| 'OCCUPY'
----| 'SITE_TAKEN'
+---| -1 # NONE
+---| 0 # ORGANIZE
+---| 1 # TRAVEL
+---| 2 # RAMPAGE
+---| 3 # PACIFY_SITE
+---| 4 # OCCUPY
+---| 5 # SITE_TAKEN
 
 -- bay12: InvasionStage
 ---@class _invasion_stage_type: DFEnumType
@@ -759,32 +759,32 @@ df.invasion_stage_type = {}
 
 -- bay12: ArmyControllerGoalType
 ---@alias army_controller_goal_type
----| 'NONE'
----| 'HOLD_TERRITORY'
----| 'HARASS'
----| 'SITE_INVASION'
----| 'RAMPAGE'
----| 'CAMP'
----| 'GUARD'
----| 'HUNTING'
----| 'PATROL'
----| 'PACIFY_SITE'
----| 'PACIFY_CONNECTED_HAMLET'
----| 'WAIT'
----| 'ESCAPE'
----| 'MOVE_TO_SITE'
----| 'RECLAIM_SITE'
----| 'CREATE_NEW_SITE'
----| 'POSSE'
----| 'SITE_WORK'
----| 'RECOVER_ARTIFACT'
----| 'RESCUE_HF'
----| 'MAKE_REQUEST'
----| 'PERFORM_TASK'
----| 'ASSASSINATE_HF'
----| 'ABDUCT_HF'
----| 'SABOTAGE_ENTITY'
----| 'INFILTRATE_SOCIETY'
+---| -1 # NONE
+---| 0 # HOLD_TERRITORY
+---| 1 # HARASS
+---| 2 # SITE_INVASION
+---| 3 # RAMPAGE
+---| 4 # CAMP
+---| 5 # GUARD
+---| 6 # HUNTING
+---| 7 # PATROL
+---| 8 # PACIFY_SITE
+---| 9 # PACIFY_CONNECTED_HAMLET
+---| 10 # WAIT
+---| 11 # ESCAPE
+---| 12 # MOVE_TO_SITE
+---| 13 # RECLAIM_SITE
+---| 14 # CREATE_NEW_SITE
+---| 15 # POSSE
+---| 16 # SITE_WORK
+---| 17 # RECOVER_ARTIFACT
+---| 18 # RESCUE_HF
+---| 19 # MAKE_REQUEST
+---| 20 # PERFORM_TASK
+---| 21 # ASSASSINATE_HF
+---| 22 # ABDUCT_HF
+---| 23 # SABOTAGE_ENTITY
+---| 24 # INFILTRATE_SOCIETY
 
 -- bay12: ArmyControllerGoalType
 ---@class _army_controller_goal_type: DFEnumType
@@ -1551,7 +1551,7 @@ df.army_controller_goal_sabotage_entityst.T_flag = {}
 df.army_controller_goal_infiltrate_societyst = {}
 
 ---@alias army_flags
----| 'player'
+---| 0 # player
 
 ---@class _army_flags: DFEnumType
 ---@field player 0

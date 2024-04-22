@@ -40,10 +40,10 @@ df.coord = {}
 df.coord_path = {}
 
 ---@alias tile_traffic
----| 'Normal'
----| 'Low'
----| 'High'
----| 'Restricted'
+---| 0 # Normal
+---| 1 # Low
+---| 2 # High
+---| 3 # Restricted
 
 ---@class _tile_traffic: DFEnumType
 ---@field Normal 0
@@ -57,13 +57,13 @@ df.coord_path = {}
 df.tile_traffic = {}
 
 ---@alias tile_dig_designation
----| 'No'
----| 'Default'
----| 'UpDownStair'
----| 'Channel'
----| 'Ramp'
----| 'DownStair'
----| 'UpStair'
+---| 0 # No
+---| 1 # Default
+---| 2 # UpDownStair
+---| 3 # Channel
+---| 4 # Ramp
+---| 5 # DownStair
+---| 6 # UpStair
 
 ---@class _tile_dig_designation: DFEnumType
 ---@field No 0 no designation
@@ -83,8 +83,8 @@ df.tile_traffic = {}
 df.tile_dig_designation = {}
 
 ---@alias tile_liquid
----| 'Water'
----| 'Magma'
+---| 0 # Water
+---| 1 # Magma
 
 ---@class _tile_liquid: DFEnumType
 ---@field Water 0
@@ -180,14 +180,14 @@ df.tile_liquid = {}
 df.tile_designation = {}
 
 ---@alias tile_building_occ
----| 'None'
----| 'Planned'
----| 'Passable'
----| 'Obstacle'
----| 'Well'
----| 'Floored'
----| 'Impassable'
----| 'Dynamic'
+---| 0 # None
+---| 1 # Planned
+---| 2 # Passable
+---| 3 # Obstacle
+---| 4 # Well
+---| 5 # Floored
+---| 6 # Impassable
+---| 7 # Dynamic
 
 ---@class _tile_building_occ: DFEnumType
 ---@field None 0 no building
@@ -391,22 +391,22 @@ df.block_flags = {}
 df.z_level_flags = {}
 
 ---@alias tile_liquid_flow_dir
----| 'none'
----| 'south'
----| 'east'
----| 'northeast'
----| 'west'
----| 'northwest'
----| 'southeast'
----| 'southwest'
----| 'inv_8'
----| 'inv_9'
----| 'north'
----| 'inv_b'
----| 'inv_c'
----| 'inv_d'
----| 'inv_e'
----| 'inv_f'
+---| 0 # none
+---| 1 # south
+---| 2 # east
+---| 3 # northeast
+---| 4 # west
+---| 5 # northwest
+---| 6 # southeast
+---| 7 # southwest
+---| 8 # inv_8
+---| 9 # inv_9
+---| 10 # north
+---| 11 # inv_b
+---| 12 # inv_c
+---| 13 # inv_d
+---| 14 # inv_e
+---| 15 # inv_f
 
 ---@class _tile_liquid_flow_dir: DFEnumType
 ---@field none 0
@@ -759,14 +759,14 @@ function _map_block_column_plants:insert(index, item) end
 function _map_block_column_plants:erase(index) end
 
 ---@alias block_square_event_type
----| 'mineral'
----| 'frozen_liquid'
----| 'world_construction'
----| 'material_spatter'
----| 'grass'
----| 'spoor'
----| 'item_spatter'
----| 'designation_priority'
+---| 0 # mineral
+---| 1 # frozen_liquid
+---| 2 # world_construction
+---| 3 # material_spatter
+---| 4 # grass
+---| 5 # spoor
+---| 6 # item_spatter
+---| 7 # designation_priority
 
 ---@class _block_square_event_type: DFEnumType
 ---@field mineral 0
@@ -915,10 +915,10 @@ df.block_square_event_spoorst = {}
 df.block_square_event_spoorst.T_flags = {}
 
 ---@alias block_square_event_spoorst.T_unk_2
----| 'unk_2_a'
----| 'unk_2_b'
----| 'unk_2_c'
----| 'unk_2_d'
+---| 0 # unk_2_a
+---| 1 # unk_2_b
+---| 2 # unk_2_c
+---| 3 # unk_2_d
 
 ---@class _block_square_event_spoorst.T_unk_2: DFEnumType
 ---@field unk_2_a 0
@@ -956,16 +956,16 @@ df.block_square_event_item_spatterst = {}
 df.block_square_event_designation_priorityst = {}
 
 ---@alias feature_type
----| 'outdoor_river'
----| 'cave'
----| 'pit'
----| 'magma_pool'
----| 'volcano'
----| 'deep_special_tube'
----| 'deep_surface_portal'
----| 'subterranean_from_layer'
----| 'magma_core_from_layer'
----| 'underworld_from_layer'
+---| 0 # outdoor_river
+---| 1 # cave
+---| 2 # pit
+---| 3 # magma_pool
+---| 4 # volcano
+---| 5 # deep_special_tube
+---| 6 # deep_surface_portal
+---| 7 # subterranean_from_layer
+---| 8 # magma_core_from_layer
+---| 9 # underworld_from_layer
 
 ---@class _feature_type: DFEnumType
 ---@field outdoor_river 0
@@ -1103,12 +1103,12 @@ df.feature_magma_core_from_layerst = {}
 df.feature_underworld_from_layerst = {}
 
 ---@alias feature_init_flags
----| 'AddSavage'
----| 'AddEvil'
----| 'AddGood'
----| 'Discovered'
----| 'Announced'
----| 'AnnouncedFully'
+---| 0 # AddSavage
+---| 1 # AddEvil
+---| 2 # AddGood
+---| 3 # Discovered
+---| 4 # Announced
+---| 5 # AnnouncedFully
 
 ---@class _feature_init_flags: DFEnumType
 ---@field AddSavage 0
@@ -1126,12 +1126,12 @@ df.feature_underworld_from_layerst = {}
 df.feature_init_flags = {}
 
 ---@alias layer_type
----| 'Surface'
----| 'Cavern1'
----| 'Cavern2'
----| 'Cavern3'
----| 'MagmaSea'
----| 'Underworld'
+---| -1 # Surface
+---| 0 # Cavern1
+---| 1 # Cavern2
+---| 2 # Cavern3
+---| 3 # MagmaSea
+---| 4 # Underworld
 
 ---@class _layer_type: DFEnumType
 ---@field Surface -1
@@ -1329,8 +1329,8 @@ df.feature_init_magma_core_from_layerst = {}
 df.feature_init_underworld_from_layerst = {}
 
 ---@alias feature_alteration_type
----| 'new_pop_max'
----| 'new_lava_fill_z'
+---| 0 # new_pop_max
+---| 1 # new_lava_fill_z
 
 ---@class _feature_alteration_type: DFEnumType
 ---@field new_pop_max 0
@@ -1373,10 +1373,10 @@ df.feature_alteration_new_pop_maxst = {}
 df.feature_alteration_new_lava_fill_zst = {}
 
 ---@alias world_construction_type
----| 'ROAD'
----| 'TUNNEL'
----| 'BRIDGE'
----| 'WALL'
+---| 0 # ROAD
+---| 1 # TUNNEL
+---| 2 # BRIDGE
+---| 3 # WALL
 
 ---@class _world_construction_type: DFEnumType
 ---@field ROAD 0
@@ -1532,57 +1532,57 @@ df.world_construction_bridgest = {}
 df.world_construction_wallst = {}
 
 ---@alias biome_type
----| 'MOUNTAIN'
----| 'GLACIER'
----| 'TUNDRA'
----| 'SWAMP_TEMPERATE_FRESHWATER'
----| 'SWAMP_TEMPERATE_SALTWATER'
----| 'MARSH_TEMPERATE_FRESHWATER'
----| 'MARSH_TEMPERATE_SALTWATER'
----| 'SWAMP_TROPICAL_FRESHWATER'
----| 'SWAMP_TROPICAL_SALTWATER'
----| 'SWAMP_MANGROVE'
----| 'MARSH_TROPICAL_FRESHWATER'
----| 'MARSH_TROPICAL_SALTWATER'
----| 'FOREST_TAIGA'
----| 'FOREST_TEMPERATE_CONIFER'
----| 'FOREST_TEMPERATE_BROADLEAF'
----| 'FOREST_TROPICAL_CONIFER'
----| 'FOREST_TROPICAL_DRY_BROADLEAF'
----| 'FOREST_TROPICAL_MOIST_BROADLEAF'
----| 'GRASSLAND_TEMPERATE'
----| 'SAVANNA_TEMPERATE'
----| 'SHRUBLAND_TEMPERATE'
----| 'GRASSLAND_TROPICAL'
----| 'SAVANNA_TROPICAL'
----| 'SHRUBLAND_TROPICAL'
----| 'DESERT_BADLAND'
----| 'DESERT_ROCK'
----| 'DESERT_SAND'
----| 'OCEAN_TROPICAL'
----| 'OCEAN_TEMPERATE'
----| 'OCEAN_ARCTIC'
----| 'POOL_TEMPERATE_FRESHWATER'
----| 'POOL_TEMPERATE_BRACKISHWATER'
----| 'POOL_TEMPERATE_SALTWATER'
----| 'POOL_TROPICAL_FRESHWATER'
----| 'POOL_TROPICAL_BRACKISHWATER'
----| 'POOL_TROPICAL_SALTWATER'
----| 'LAKE_TEMPERATE_FRESHWATER'
----| 'LAKE_TEMPERATE_BRACKISHWATER'
----| 'LAKE_TEMPERATE_SALTWATER'
----| 'LAKE_TROPICAL_FRESHWATER'
----| 'LAKE_TROPICAL_BRACKISHWATER'
----| 'LAKE_TROPICAL_SALTWATER'
----| 'RIVER_TEMPERATE_FRESHWATER'
----| 'RIVER_TEMPERATE_BRACKISHWATER'
----| 'RIVER_TEMPERATE_SALTWATER'
----| 'RIVER_TROPICAL_FRESHWATER'
----| 'RIVER_TROPICAL_BRACKISHWATER'
----| 'RIVER_TROPICAL_SALTWATER'
----| 'SUBTERRANEAN_WATER'
----| 'SUBTERRANEAN_CHASM'
----| 'SUBTERRANEAN_LAVA'
+---| 0 # MOUNTAIN
+---| 1 # GLACIER
+---| 2 # TUNDRA
+---| 3 # SWAMP_TEMPERATE_FRESHWATER
+---| 4 # SWAMP_TEMPERATE_SALTWATER
+---| 5 # MARSH_TEMPERATE_FRESHWATER
+---| 6 # MARSH_TEMPERATE_SALTWATER
+---| 7 # SWAMP_TROPICAL_FRESHWATER
+---| 8 # SWAMP_TROPICAL_SALTWATER
+---| 9 # SWAMP_MANGROVE
+---| 10 # MARSH_TROPICAL_FRESHWATER
+---| 11 # MARSH_TROPICAL_SALTWATER
+---| 12 # FOREST_TAIGA
+---| 13 # FOREST_TEMPERATE_CONIFER
+---| 14 # FOREST_TEMPERATE_BROADLEAF
+---| 15 # FOREST_TROPICAL_CONIFER
+---| 16 # FOREST_TROPICAL_DRY_BROADLEAF
+---| 17 # FOREST_TROPICAL_MOIST_BROADLEAF
+---| 18 # GRASSLAND_TEMPERATE
+---| 19 # SAVANNA_TEMPERATE
+---| 20 # SHRUBLAND_TEMPERATE
+---| 21 # GRASSLAND_TROPICAL
+---| 22 # SAVANNA_TROPICAL
+---| 23 # SHRUBLAND_TROPICAL
+---| 24 # DESERT_BADLAND
+---| 25 # DESERT_ROCK
+---| 26 # DESERT_SAND
+---| 27 # OCEAN_TROPICAL
+---| 28 # OCEAN_TEMPERATE
+---| 29 # OCEAN_ARCTIC
+---| 30 # POOL_TEMPERATE_FRESHWATER
+---| 31 # POOL_TEMPERATE_BRACKISHWATER
+---| 32 # POOL_TEMPERATE_SALTWATER
+---| 33 # POOL_TROPICAL_FRESHWATER
+---| 34 # POOL_TROPICAL_BRACKISHWATER
+---| 35 # POOL_TROPICAL_SALTWATER
+---| 36 # LAKE_TEMPERATE_FRESHWATER
+---| 37 # LAKE_TEMPERATE_BRACKISHWATER
+---| 38 # LAKE_TEMPERATE_SALTWATER
+---| 39 # LAKE_TROPICAL_FRESHWATER
+---| 40 # LAKE_TROPICAL_BRACKISHWATER
+---| 41 # LAKE_TROPICAL_SALTWATER
+---| 42 # RIVER_TEMPERATE_FRESHWATER
+---| 43 # RIVER_TEMPERATE_BRACKISHWATER
+---| 44 # RIVER_TEMPERATE_SALTWATER
+---| 45 # RIVER_TROPICAL_FRESHWATER
+---| 46 # RIVER_TROPICAL_BRACKISHWATER
+---| 47 # RIVER_TROPICAL_SALTWATER
+---| 48 # SUBTERRANEAN_WATER
+---| 49 # SUBTERRANEAN_CHASM
+---| 50 # SUBTERRANEAN_LAVA
 
 ---@class _biome_type: DFEnumType
 ---@field MOUNTAIN 0
@@ -1790,20 +1790,20 @@ function df.construction.find(key) end
 function df.construction.get_vector() end
 
 ---@alias flow_type
----| 'Miasma'
----| 'Steam'
----| 'Mist'
----| 'MaterialDust'
----| 'MagmaMist'
----| 'Smoke'
----| 'Dragonfire'
----| 'Fire'
----| 'Web'
----| 'MaterialGas'
----| 'MaterialVapor'
----| 'OceanWave'
----| 'SeaFoam'
----| 'ItemCloud'
+---| 0 # Miasma
+---| 1 # Steam
+---| 2 # Mist
+---| 3 # MaterialDust
+---| 4 # MagmaMist
+---| 5 # Smoke
+---| 6 # Dragonfire
+---| 7 # Fire
+---| 8 # Web
+---| 9 # MaterialGas
+---| 10 # MaterialVapor
+---| 11 # OceanWave
+---| 12 # SeaFoam
+---| 13 # ItemCloud
 
 ---@class _flow_type: DFEnumType
 ---@field Miasma 0
@@ -1872,8 +1872,8 @@ df.flow_reuse_pool = {}
 df.flow_reuse_pool.T_flags = {}
 
 ---@alias flow_guide_type
----| 'TrailingFlow'
----| 'ItemCloud'
+---| 0 # TrailingFlow
+---| 1 # ItemCloud
 
 ---@class _flow_guide_type: DFEnumType
 ---@field TrailingFlow 0
@@ -1949,7 +1949,7 @@ df.flow_guide_item_cloudst = {}
 df.effect_info = {}
 
 ---@alias region_block_event_type
----| 'SphereField'
+---| 0 # SphereField
 
 ---@class _region_block_event_type: DFEnumType
 ---@field SphereField 0

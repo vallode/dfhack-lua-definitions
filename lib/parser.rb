@@ -98,7 +98,7 @@ module DFHackLuaDefinitions
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@alias #{@class_name}\n"
       @items.each do |item|
-        annotation << item.to_key_alias
+        annotation << item.to_alias
       end
       annotation.join
     end

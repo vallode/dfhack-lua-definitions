@@ -484,40 +484,40 @@ df.unit_flags4 = {}
 df.work_detail_flags = {}
 
 ---@alias value_type
----| 'NONE'
----| 'LAW'
----| 'LOYALTY'
----| 'FAMILY'
----| 'FRIENDSHIP'
----| 'POWER'
----| 'TRUTH'
----| 'CUNNING'
----| 'ELOQUENCE'
----| 'FAIRNESS'
----| 'DECORUM'
----| 'TRADITION'
----| 'ARTWORK'
----| 'COOPERATION'
----| 'INDEPENDENCE'
----| 'STOICISM'
----| 'INTROSPECTION'
----| 'SELF_CONTROL'
----| 'TRANQUILITY'
----| 'HARMONY'
----| 'MERRIMENT'
----| 'CRAFTSMANSHIP'
----| 'MARTIAL_PROWESS'
----| 'SKILL'
----| 'HARD_WORK'
----| 'SACRIFICE'
----| 'COMPETITION'
----| 'PERSEVERENCE'
----| 'LEISURE_TIME'
----| 'COMMERCE'
----| 'ROMANCE'
----| 'NATURE'
----| 'PEACE'
----| 'KNOWLEDGE'
+---| -1 # NONE
+---| 0 # LAW
+---| 1 # LOYALTY
+---| 2 # FAMILY
+---| 3 # FRIENDSHIP
+---| 4 # POWER
+---| 5 # TRUTH
+---| 6 # CUNNING
+---| 7 # ELOQUENCE
+---| 8 # FAIRNESS
+---| 9 # DECORUM
+---| 10 # TRADITION
+---| 11 # ARTWORK
+---| 12 # COOPERATION
+---| 13 # INDEPENDENCE
+---| 14 # STOICISM
+---| 15 # INTROSPECTION
+---| 16 # SELF_CONTROL
+---| 17 # TRANQUILITY
+---| 18 # HARMONY
+---| 19 # MERRIMENT
+---| 20 # CRAFTSMANSHIP
+---| 21 # MARTIAL_PROWESS
+---| 22 # SKILL
+---| 23 # HARD_WORK
+---| 24 # SACRIFICE
+---| 25 # COMPETITION
+---| 26 # PERSEVERENCE
+---| 27 # LEISURE_TIME
+---| 28 # COMMERCE
+---| 29 # ROMANCE
+---| 30 # NATURE
+---| 31 # PEACE
+---| 32 # KNOWLEDGE
 
 ---@class _value_type: DFEnumType
 ---@field NONE -1
@@ -591,21 +591,21 @@ df.work_detail_flags = {}
 df.value_type = {}
 
 ---@alias goal_type
----| 'STAY_ALIVE'
----| 'MAINTAIN_ENTITY_STATUS'
----| 'START_A_FAMILY'
----| 'RULE_THE_WORLD'
----| 'CREATE_A_GREAT_WORK_OF_ART'
----| 'CRAFT_A_MASTERWORK'
----| 'BRING_PEACE_TO_THE_WORLD'
----| 'BECOME_A_LEGENDARY_WARRIOR'
----| 'MASTER_A_SKILL'
----| 'FALL_IN_LOVE'
----| 'SEE_THE_GREAT_NATURAL_SITES'
----| 'IMMORTALITY'
----| 'MAKE_A_GREAT_DISCOVERY'
----| 'ATTAIN_RANK_IN_SOCIETY'
----| 'BATHE_WORLD_IN_CHAOS'
+---| 0 # STAY_ALIVE
+---| 1 # MAINTAIN_ENTITY_STATUS
+---| 2 # START_A_FAMILY
+---| 3 # RULE_THE_WORLD
+---| 4 # CREATE_A_GREAT_WORK_OF_ART
+---| 5 # CRAFT_A_MASTERWORK
+---| 6 # BRING_PEACE_TO_THE_WORLD
+---| 7 # BECOME_A_LEGENDARY_WARRIOR
+---| 8 # MASTER_A_SKILL
+---| 9 # FALL_IN_LOVE
+---| 10 # SEE_THE_GREAT_NATURAL_SITES
+---| 11 # IMMORTALITY
+---| 12 # MAKE_A_GREAT_DISCOVERY
+---| 13 # ATTAIN_RANK_IN_SOCIETY
+---| 14 # BATHE_WORLD_IN_CHAOS
 
 ---@class _goal_type: DFEnumType
 ---@field STAY_ALIVE 0
@@ -668,57 +668,57 @@ df.goal_type._attr_entry_type._fields = {}
 df.goal_type.attrs = {}
 
 ---@alias personality_facet_type
----| 'NONE'
----| 'LOVE_PROPENSITY'
----| 'HATE_PROPENSITY'
----| 'ENVY_PROPENSITY'
----| 'CHEER_PROPENSITY'
----| 'DEPRESSION_PROPENSITY'
----| 'ANGER_PROPENSITY'
----| 'ANXIETY_PROPENSITY'
----| 'LUST_PROPENSITY'
----| 'STRESS_VULNERABILITY'
----| 'GREED'
----| 'IMMODERATION'
----| 'VIOLENT'
----| 'PERSEVERENCE'
----| 'WASTEFULNESS'
----| 'DISCORD'
----| 'FRIENDLINESS'
----| 'POLITENESS'
----| 'DISDAIN_ADVICE'
----| 'BRAVERY'
----| 'CONFIDENCE'
----| 'VANITY'
----| 'AMBITION'
----| 'GRATITUDE'
----| 'IMMODESTY'
----| 'HUMOR'
----| 'VENGEFUL'
----| 'PRIDE'
----| 'CRUELTY'
----| 'SINGLEMINDED'
----| 'HOPEFUL'
----| 'CURIOUS'
----| 'BASHFUL'
----| 'PRIVACY'
----| 'PERFECTIONIST'
----| 'CLOSEMINDED'
----| 'TOLERANT'
----| 'EMOTIONALLY_OBSESSIVE'
----| 'SWAYED_BY_EMOTIONS'
----| 'ALTRUISM'
----| 'DUTIFULNESS'
----| 'THOUGHTLESSNESS'
----| 'ORDERLINESS'
----| 'TRUST'
----| 'GREGARIOUSNESS'
----| 'ASSERTIVENESS'
----| 'ACTIVITY_LEVEL'
----| 'EXCITEMENT_SEEKING'
----| 'IMAGINATION'
----| 'ABSTRACT_INCLINED'
----| 'ART_INCLINED'
+---| -1 # NONE
+---| 0 # LOVE_PROPENSITY
+---| 1 # HATE_PROPENSITY
+---| 2 # ENVY_PROPENSITY
+---| 3 # CHEER_PROPENSITY
+---| 4 # DEPRESSION_PROPENSITY
+---| 5 # ANGER_PROPENSITY
+---| 6 # ANXIETY_PROPENSITY
+---| 7 # LUST_PROPENSITY
+---| 8 # STRESS_VULNERABILITY
+---| 9 # GREED
+---| 10 # IMMODERATION
+---| 11 # VIOLENT
+---| 12 # PERSEVERENCE
+---| 13 # WASTEFULNESS
+---| 14 # DISCORD
+---| 15 # FRIENDLINESS
+---| 16 # POLITENESS
+---| 17 # DISDAIN_ADVICE
+---| 18 # BRAVERY
+---| 19 # CONFIDENCE
+---| 20 # VANITY
+---| 21 # AMBITION
+---| 22 # GRATITUDE
+---| 23 # IMMODESTY
+---| 24 # HUMOR
+---| 25 # VENGEFUL
+---| 26 # PRIDE
+---| 27 # CRUELTY
+---| 28 # SINGLEMINDED
+---| 29 # HOPEFUL
+---| 30 # CURIOUS
+---| 31 # BASHFUL
+---| 32 # PRIVACY
+---| 33 # PERFECTIONIST
+---| 34 # CLOSEMINDED
+---| 35 # TOLERANT
+---| 36 # EMOTIONALLY_OBSESSIVE
+---| 37 # SWAYED_BY_EMOTIONS
+---| 38 # ALTRUISM
+---| 39 # DUTIFULNESS
+---| 40 # THOUGHTLESSNESS
+---| 41 # ORDERLINESS
+---| 42 # TRUST
+---| 43 # GREGARIOUSNESS
+---| 44 # ASSERTIVENESS
+---| 45 # ACTIVITY_LEVEL
+---| 46 # EXCITEMENT_SEEKING
+---| 47 # IMAGINATION
+---| 48 # ABSTRACT_INCLINED
+---| 49 # ART_INCLINED
 
 ---@class _personality_facet_type: DFEnumType
 ---@field NONE -1
@@ -826,12 +826,12 @@ df.goal_type.attrs = {}
 df.personality_facet_type = {}
 
 ---@alias physical_attribute_type
----| 'STRENGTH'
----| 'AGILITY'
----| 'TOUGHNESS'
----| 'ENDURANCE'
----| 'RECUPERATION'
----| 'DISEASE_RESISTANCE'
+---| 0 # STRENGTH
+---| 1 # AGILITY
+---| 2 # TOUGHNESS
+---| 3 # ENDURANCE
+---| 4 # RECUPERATION
+---| 5 # DISEASE_RESISTANCE
 
 ---@class _physical_attribute_type: DFEnumType
 ---@field STRENGTH 0
@@ -849,19 +849,19 @@ df.personality_facet_type = {}
 df.physical_attribute_type = {}
 
 ---@alias mental_attribute_type
----| 'ANALYTICAL_ABILITY'
----| 'FOCUS'
----| 'WILLPOWER'
----| 'CREATIVITY'
----| 'INTUITION'
----| 'PATIENCE'
----| 'MEMORY'
----| 'LINGUISTIC_ABILITY'
----| 'SPATIAL_SENSE'
----| 'MUSICALITY'
----| 'KINESTHETIC_SENSE'
----| 'EMPATHY'
----| 'SOCIAL_AWARENESS'
+---| 0 # ANALYTICAL_ABILITY
+---| 1 # FOCUS
+---| 2 # WILLPOWER
+---| 3 # CREATIVITY
+---| 4 # INTUITION
+---| 5 # PATIENCE
+---| 6 # MEMORY
+---| 7 # LINGUISTIC_ABILITY
+---| 8 # SPATIAL_SENSE
+---| 9 # MUSICALITY
+---| 10 # KINESTHETIC_SENSE
+---| 11 # EMPATHY
+---| 12 # SOCIAL_AWARENESS
 
 ---@class _mental_attribute_type: DFEnumType
 ---@field ANALYTICAL_ABILITY 0
@@ -893,17 +893,17 @@ df.physical_attribute_type = {}
 df.mental_attribute_type = {}
 
 ---@alias mood_type
----| 'None'
----| 'Fey'
----| 'Secretive'
----| 'Possessed'
----| 'Macabre'
----| 'Fell'
----| 'Melancholy'
----| 'Raving'
----| 'Berserk'
----| 'Baby'
----| 'Traumatized'
+---| -1 # None
+---| 0 # Fey
+---| 1 # Secretive
+---| 2 # Possessed
+---| 3 # Macabre
+---| 4 # Fell
+---| 5 # Melancholy
+---| 6 # Raving
+---| 7 # Berserk
+---| 8 # Baby
+---| 9 # Traumatized
 
 ---@class _mood_type: DFEnumType
 ---@field None -1
@@ -931,18 +931,18 @@ df.mental_attribute_type = {}
 df.mood_type = {}
 
 ---@alias ghost_type
----| 'None'
----| 'MurderousGhost'
----| 'SadisticGhost'
----| 'SecretivePoltergeist'
----| 'EnergeticPoltergeist'
----| 'AngryGhost'
----| 'ViolentGhost'
----| 'MoaningSpirit'
----| 'HowlingSpirit'
----| 'TroublesomePoltergeist'
----| 'RestlessHaunt'
----| 'ForlornHaunt'
+---| -1 # None
+---| 0 # MurderousGhost
+---| 1 # SadisticGhost
+---| 2 # SecretivePoltergeist
+---| 3 # EnergeticPoltergeist
+---| 4 # AngryGhost
+---| 5 # ViolentGhost
+---| 6 # MoaningSpirit
+---| 7 # HowlingSpirit
+---| 8 # TroublesomePoltergeist
+---| 9 # RestlessHaunt
+---| 10 # ForlornHaunt
 
 ---@class _ghost_type: DFEnumType
 ---@field None -1
@@ -972,16 +972,16 @@ df.mood_type = {}
 df.ghost_type = {}
 
 ---@alias animal_training_level
----| 'SemiWild'
----| 'Trained'
----| 'WellTrained'
----| 'SkilfullyTrained'
----| 'ExpertlyTrained'
----| 'ExceptionallyTrained'
----| 'MasterfullyTrained'
----| 'Domesticated'
----| 'Unk8'
----| 'WildUntamed'
+---| 0 # SemiWild
+---| 1 # Trained
+---| 2 # WellTrained
+---| 3 # SkilfullyTrained
+---| 4 # ExpertlyTrained
+---| 5 # ExceptionallyTrained
+---| 6 # MasterfullyTrained
+---| 7 # Domesticated
+---| 8 # Unk8
+---| 9 # WildUntamed
 
 ---@class _animal_training_level: DFEnumType
 ---@field SemiWild 0
@@ -1008,9 +1008,9 @@ df.animal_training_level = {}
 
 -- (UnitAnnouncementCategory)
 ---@alias unit_report_type
----| 'Combat'
----| 'Sparring'
----| 'Hunting'
+---| 0 # Combat
+---| 1 # Sparring
+---| 2 # Hunting
 
 -- (UnitAnnouncementCategory)
 ---@class _unit_report_type: DFEnumType
@@ -1023,27 +1023,27 @@ df.animal_training_level = {}
 df.unit_report_type = {}
 
 ---@alias skill_rating
----| 'Dabbling'
----| 'Novice'
----| 'Adequate'
----| 'Competent'
----| 'Skilled'
----| 'Proficient'
----| 'Talented'
----| 'Adept'
----| 'Expert'
----| 'Professional'
----| 'Accomplished'
----| 'Great'
----| 'Master'
----| 'HighMaster'
----| 'GrandMaster'
----| 'Legendary'
----| 'Legendary1'
----| 'Legendary2'
----| 'Legendary3'
----| 'Legendary4'
----| 'Legendary5'
+---| 0 # Dabbling
+---| 1 # Novice
+---| 2 # Adequate
+---| 3 # Competent
+---| 4 # Skilled
+---| 5 # Proficient
+---| 6 # Talented
+---| 7 # Adept
+---| 8 # Expert
+---| 9 # Professional
+---| 10 # Accomplished
+---| 11 # Great
+---| 12 # Master
+---| 13 # HighMaster
+---| 14 # GrandMaster
+---| 15 # Legendary
+---| 16 # Legendary1
+---| 17 # Legendary2
+---| 18 # Legendary3
+---| 19 # Legendary4
+---| 20 # Legendary5
 
 ---@class _skill_rating: DFEnumType
 ---@field Dabbling 0
@@ -1125,55 +1125,55 @@ df.skill_rating.attrs = {}
 
 -- Used in unit.relations
 ---@alias unit_relationship_type
----| 'None'
----| 'Pet'
----| 'Spouse'
----| 'Mother'
----| 'Father'
----| 'LastAttacker'
----| 'GroupLeader'
----| 'Draggee'
----| 'Dragger'
----| 'RiderMount'
----| 'Lover'
----| 'unk10'
----| 'Sibling'
----| 'Child'
----| 'Friend'
----| 'Grudge'
----| 'Worship'
----| 'AcquaintanceLong'
----| 'AcquaintancePassing'
----| 'Bonded'
----| 'Hero'
----| 'ConsidersViolent'
----| 'ConsidersPsychotic'
----| 'GoodForBusiness'
----| 'FriendlyTerms'
----| 'ConsidersKiller'
----| 'ConsidersMurderer'
----| 'Comrade'
----| 'MemberOfRespectedGroup'
----| 'MemberOfHatedGroup'
----| 'EnemyFighter'
----| 'FriendlyFighter'
----| 'ConsidersBully'
----| 'ConsidersBrigand'
----| 'LoyalSoldier'
----| 'ConsidersMonster'
----| 'ConsidersStoryteller'
----| 'ConsidersPoet'
----| 'ConsidersBard'
----| 'ConsidersDancer'
----| 'Master'
----| 'Apprentice'
----| 'Companion'
----| 'FormerMaster'
----| 'FormerApprentice'
----| 'ConsidersQuarreler'
----| 'ConsidersFlatterer'
----| 'Hunter'
----| 'ProtectorOfTheWeak'
+---| -1 # None
+---| 0 # Pet
+---| 1 # Spouse
+---| 2 # Mother
+---| 3 # Father
+---| 4 # LastAttacker
+---| 5 # GroupLeader
+---| 6 # Draggee
+---| 7 # Dragger
+---| 8 # RiderMount
+---| 9 # Lover
+---| 10 # unk10
+---| 11 # Sibling
+---| 12 # Child
+---| 13 # Friend
+---| 14 # Grudge
+---| 15 # Worship
+---| 16 # AcquaintanceLong
+---| 17 # AcquaintancePassing
+---| 18 # Bonded
+---| 19 # Hero
+---| 20 # ConsidersViolent
+---| 21 # ConsidersPsychotic
+---| 22 # GoodForBusiness
+---| 23 # FriendlyTerms
+---| 24 # ConsidersKiller
+---| 25 # ConsidersMurderer
+---| 26 # Comrade
+---| 27 # MemberOfRespectedGroup
+---| 28 # MemberOfHatedGroup
+---| 29 # EnemyFighter
+---| 30 # FriendlyFighter
+---| 31 # ConsidersBully
+---| 32 # ConsidersBrigand
+---| 33 # LoyalSoldier
+---| 34 # ConsidersMonster
+---| 35 # ConsidersStoryteller
+---| 36 # ConsidersPoet
+---| 37 # ConsidersBard
+---| 38 # ConsidersDancer
+---| 39 # Master
+---| 40 # Apprentice
+---| 41 # Companion
+---| 42 # FormerMaster
+---| 43 # FormerApprentice
+---| 44 # ConsidersQuarreler
+---| 45 # ConsidersFlatterer
+---| 46 # Hunter
+---| 47 # ProtectorOfTheWeak
 
 -- Used in unit.relations
 ---@class _unit_relationship_type: DFEnumType
@@ -1278,36 +1278,36 @@ df.skill_rating.attrs = {}
 df.unit_relationship_type = {}
 
 ---@alias need_type
----| 'Socialize'
----| 'DrinkAlcohol'
----| 'PrayOrMeditate'
----| 'StayOccupied'
----| 'BeCreative'
----| 'Excitement'
----| 'LearnSomething'
----| 'BeWithFamily'
----| 'BeWithFriends'
----| 'HearEloquence'
----| 'UpholdTradition'
----| 'SelfExamination'
----| 'MakeMerry'
----| 'CraftObject'
----| 'MartialTraining'
----| 'PracticeSkill'
----| 'TakeItEasy'
----| 'MakeRomance'
----| 'SeeAnimal'
----| 'SeeGreatBeast'
----| 'AcquireObject'
----| 'EatGoodMeal'
----| 'Fight'
----| 'CauseTrouble'
----| 'Argue'
----| 'BeExtravagant'
----| 'Wander'
----| 'HelpSomebody'
----| 'ThinkAbstractly'
----| 'AdmireArt'
+---| 0 # Socialize
+---| 1 # DrinkAlcohol
+---| 2 # PrayOrMeditate
+---| 3 # StayOccupied
+---| 4 # BeCreative
+---| 5 # Excitement
+---| 6 # LearnSomething
+---| 7 # BeWithFamily
+---| 8 # BeWithFriends
+---| 9 # HearEloquence
+---| 10 # UpholdTradition
+---| 11 # SelfExamination
+---| 12 # MakeMerry
+---| 13 # CraftObject
+---| 14 # MartialTraining
+---| 15 # PracticeSkill
+---| 16 # TakeItEasy
+---| 17 # MakeRomance
+---| 18 # SeeAnimal
+---| 19 # SeeGreatBeast
+---| 20 # AcquireObject
+---| 21 # EatGoodMeal
+---| 22 # Fight
+---| 23 # CauseTrouble
+---| 24 # Argue
+---| 25 # BeExtravagant
+---| 26 # Wander
+---| 27 # HelpSomebody
+---| 28 # ThinkAbstractly
+---| 29 # AdmireArt
 
 ---@class _need_type: DFEnumType
 ---@field Socialize 0
@@ -1373,9 +1373,9 @@ df.unit_relationship_type = {}
 df.need_type = {}
 
 ---@alias pronoun_type
----| 'it'
----| 'she'
----| 'he'
+---| -1 # it
+---| 0 # she
+---| 1 # he
 
 ---@class _pronoun_type: DFEnumType
 ---@field it -1
@@ -1406,17 +1406,17 @@ df.pronoun_type.attrs = {}
 
 -- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
 ---@alias mill_pref_type
----| 'NONE'
----| 'GATE'
----| 'ANYWHERE'
----| 'BEDROOM'
----| 'HALL'
----| 'STATUE'
----| 'ZOO'
----| 'ZONE'
----| 'LOCATION_BLD'
----| 'UNDERGROUND'
----| 'MUSEUM'
+---| -1 # NONE
+---| 0 # GATE
+---| 1 # ANYWHERE
+---| 2 # BEDROOM
+---| 3 # HALL
+---| 4 # STATUE
+---| 5 # ZOO
+---| 6 # ZONE
+---| 7 # LOCATION_BLD
+---| 8 # UNDERGROUND
+---| 9 # MUSEUM
 
 -- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
 ---@class _mill_pref_type: DFEnumType
@@ -1446,11 +1446,11 @@ df.mill_pref_type = {}
 
 -- bay12: UnitUniformModeType
 ---@alias unit_uniform_mode_type
----| 'NONE'
----| 'CLOTHING'
----| 'REGULAR'
----| 'TRAINING'
----| 'TRAINING_RANGED'
+---| -1 # NONE
+---| 0 # CLOTHING
+---| 1 # REGULAR
+---| 2 # TRAINING
+---| 3 # TRAINING_RANGED
 
 -- bay12: UnitUniformModeType
 ---@class _unit_uniform_mode_type: DFEnumType
@@ -1468,8 +1468,8 @@ df.unit_uniform_mode_type = {}
 
 -- bay12: MoodStages
 ---@alias mood_stage_type
----| 'INITIAL'
----| 'WORKING'
+---| 0 # INITIAL
+---| 1 # WORKING
 
 -- bay12: MoodStages
 ---@class _mood_stage_type: DFEnumType
@@ -1481,17 +1481,17 @@ df.mood_stage_type = {}
 
 -- bay12: UnitOwner
 ---@alias unit_owner_type
----| 'NONE'
----| 'PET_MASTER'
----| 'DEAD_PET_MASTER'
----| 'HEALTHCARE'
----| 'DEAD_OWNER'
----| 'PACK_LEADER'
----| 'TRAINER'
----| 'EMPLOYER'
----| 'MERCHANT_HAULER'
----| 'PARENT'
----| 'COMMANDER'
+---| -1 # NONE
+---| 0 # PET_MASTER
+---| 1 # DEAD_PET_MASTER
+---| 2 # HEALTHCARE
+---| 3 # DEAD_OWNER
+---| 4 # PACK_LEADER
+---| 5 # TRAINER
+---| 6 # EMPLOYER
+---| 7 # MERCHANT_HAULER
+---| 8 # PARENT
+---| 9 # COMMANDER
 
 -- bay12: UnitOwner
 ---@class _unit_owner_type: DFEnumType
@@ -1521,11 +1521,11 @@ df.unit_owner_type = {}
 
 -- bay12: RiderPositions
 ---@alias rider_positions_type
----| 'STANDARD'
----| 'CARRIED'
----| 'WAGONPULL1'
----| 'WAGONPULL2'
----| 'WAGONLEADER'
+---| 0 # STANDARD
+---| 1 # CARRIED
+---| 2 # WAGONPULL1
+---| 3 # WAGONPULL2
+---| 4 # WAGONLEADER
 
 -- bay12: RiderPositions
 ---@class _rider_positions_type: DFEnumType
@@ -1553,8 +1553,8 @@ df.unit_target_flags = {}
 
 -- bay12: Command
 ---@alias command_type
----| 'NONE'
----| 'MOVE_TO_TILE'
+---| -1 # NONE
+---| 0 # MOVE_TO_TILE
 
 -- bay12: Command
 ---@class _command_type: DFEnumType
@@ -1761,10 +1761,10 @@ df.unit.T_path = {}
 df.unit.T_meeting = {}
 
 ---@alias unit.T_meeting.T_state
----| 'SelectNoble'
----| 'FollowNoble'
----| 'DoMeeting'
----| 'LeaveMap'
+---| 0 # SelectNoble
+---| 1 # FollowNoble
+---| 2 # DoMeeting
+---| 3 # LeaveMap
 
 ---@class _unit.T_meeting.T_state: DFEnumType
 ---@field SelectNoble 0
@@ -2023,12 +2023,12 @@ function _unit_actions:erase(index) end
 df.unit.T_counters = {}
 
 ---@alias unit.T_counters.T_soldier_mood
----| 'None'
----| 'MartialTrance'
----| 'Enraged'
----| 'Tantrum'
----| 'Depressed'
----| 'Oblivious'
+---| -1 # None
+---| 0 # MartialTrance
+---| 1 # Enraged
+---| 2 # Tantrum
+---| 3 # Depressed
+---| 4 # Oblivious
 
 ---@class _unit.T_counters.T_soldier_mood: DFEnumType
 ---@field None -1
@@ -2563,15 +2563,15 @@ df.witness_report_flags = {}
 df.witness_incidentst = {}
 
 ---@alias ghost_goal
----| 'None'
----| 'ScareToDeath'
----| 'Stun'
----| 'Batter'
----| 'Possess'
----| 'MisplaceItem'
----| 'Haunt'
----| 'Torment'
----| 'ToppleBuilding'
+---| -1 # None
+---| 0 # ScareToDeath
+---| 1 # Stun
+---| 2 # Batter
+---| 3 # Possess
+---| 4 # MisplaceItem
+---| 5 # Haunt
+---| 6 # Torment
+---| 7 # ToppleBuilding
 
 ---@class _ghost_goal: DFEnumType
 ---@field None -1
@@ -2658,17 +2658,17 @@ df.unit_genes = {}
 df.unit_inventory_item = {}
 
 ---@alias unit_inventory_item.T_mode
----| 'Hauled'
----| 'Weapon'
----| 'Worn'
----| 'Piercing'
----| 'Flask'
----| 'WrappedAround'
----| 'StuckIn'
----| 'InMouth'
----| 'Pet'
----| 'SewnInto'
----| 'Strapped'
+---| 0 # Hauled
+---| 1 # Weapon
+---| 2 # Worn
+---| 3 # Piercing
+---| 4 # Flask
+---| 5 # WrappedAround
+---| 6 # StuckIn
+---| 7 # InMouth
+---| 8 # Pet
+---| 9 # SewnInto
+---| 10 # Strapped
 
 ---@class _unit_inventory_item.T_mode: DFEnumType
 ---@field Hauled 0
@@ -2759,16 +2759,16 @@ function _unit_syndrome_symptoms:erase(index) end
 df.unit_syndrome.T_flags = {}
 
 ---@alias wound_effect_type
----| 'Bruise'
----| 'Burn'
----| 'Frostbite'
----| 'Burn2'
----| 'Melting'
----| 'Boiling'
----| 'Freezing'
----| 'Condensation'
----| 'Necrosis'
----| 'Blister'
+---| 0 # Bruise
+---| 1 # Burn
+---| 2 # Frostbite
+---| 3 # Burn2
+---| 4 # Melting
+---| 5 # Boiling
+---| 6 # Freezing
+---| 7 # Condensation
+---| 8 # Necrosis
+---| 9 # Blister
 
 ---@class _wound_effect_type: DFEnumType
 ---@field Bruise 0
@@ -3067,48 +3067,48 @@ df.wound_curse_info = {}
 df.wound_curse_info.T_timing = {}
 
 ---@alias misc_trait_type
----| 'RequestWaterCooldown'
----| 'RequestFoodCooldown'
----| 'RequestRescueCooldown'
----| 'RequestHealthcareCooldown'
----| 'GetDrinkCooldown'
----| 'GetFoodCooldown'
----| 'CleanSelfCooldown'
----| 'Migrant'
----| 'RoomComplaint'
----| 'UnnamedResident'
----| 'RentBedroomCooldown'
----| 'ClaimTrinketCooldown'
----| 'ClaimClothingCooldown'
----| 'WantsDrink'
----| 'PrepareToDie'
----| 'CaveAdapt'
----| 'FollowUnitCooldown'
----| 'DangerousTerrainCooldown'
----| 'Beaching'
----| 'IdleAreaCooldown'
----| 'DiagnosePatientCooldown'
----| 'DressWoundCooldown'
----| 'CleanPatientCooldown'
----| 'SurgeryCooldown'
----| 'SutureCooldown'
----| 'SetBoneCooldown'
----| 'PlaceInTractionCooldown'
----| 'ApplyCastCooldown'
----| 'ImmobilizeBreakCooldown'
----| 'BringCrutchCooldown'
----| 'MilkCounter'
----| 'HadDrill'
----| 'CompletedDrill'
----| 'EggSpent'
----| 'GroundedAnimalAnger'
----| 'TimeSinceSuckedBlood'
----| 'DrinkingBlood'
----| 'RevertWildTimer'
----| 'NoPantsAnger'
----| 'NoShirtAnger'
----| 'NoShoesAnger'
----| 'CitizenshipCooldown'
+---| 0 # RequestWaterCooldown
+---| 1 # RequestFoodCooldown
+---| 2 # RequestRescueCooldown
+---| 3 # RequestHealthcareCooldown
+---| 4 # GetDrinkCooldown
+---| 5 # GetFoodCooldown
+---| 6 # CleanSelfCooldown
+---| 7 # Migrant
+---| 8 # RoomComplaint
+---| 9 # UnnamedResident
+---| 10 # RentBedroomCooldown
+---| 11 # ClaimTrinketCooldown
+---| 12 # ClaimClothingCooldown
+---| 13 # WantsDrink
+---| 15 # PrepareToDie
+---| 16 # CaveAdapt
+---| 21 # FollowUnitCooldown
+---| 25 # DangerousTerrainCooldown
+---| 26 # Beaching
+---| 27 # IdleAreaCooldown
+---| 29 # DiagnosePatientCooldown
+---| 30 # DressWoundCooldown
+---| 31 # CleanPatientCooldown
+---| 32 # SurgeryCooldown
+---| 33 # SutureCooldown
+---| 34 # SetBoneCooldown
+---| 35 # PlaceInTractionCooldown
+---| 36 # ApplyCastCooldown
+---| 37 # ImmobilizeBreakCooldown
+---| 38 # BringCrutchCooldown
+---| 40 # MilkCounter
+---| 41 # HadDrill
+---| 42 # CompletedDrill
+---| 43 # EggSpent
+---| 44 # GroundedAnimalAnger
+---| 46 # TimeSinceSuckedBlood
+---| 47 # DrinkingBlood
+---| 50 # RevertWildTimer
+---| 52 # NoPantsAnger
+---| 53 # NoShirtAnger
+---| 54 # NoShoesAnger
+---| 64 # CitizenshipCooldown
 
 ---@class _misc_trait_type: DFEnumType
 ---@field RequestWaterCooldown 0 0 --
@@ -3780,11 +3780,11 @@ df.unit_personality.T_flags = {}
 
 -- for the action timer API, not in DF
 ---@alias unit_action_type_group
----| 'All'
----| 'Movement'
----| 'MovementFeet'
----| 'Combat'
----| 'Work'
+---| 0 # All
+---| 1 # Movement
+---| 2 # MovementFeet
+---| 3 # Combat
+---| 4 # Work
 
 -- for the action timer API, not in DF
 ---@class _unit_action_type_group: DFEnumType
@@ -3801,31 +3801,31 @@ df.unit_personality.T_flags = {}
 df.unit_action_type_group = {}
 
 ---@alias unit_action_type
----| 'None'
----| 'Move'
----| 'Attack'
----| 'Jump'
----| 'HoldTerrain'
----| 'ReleaseTerrain'
----| 'Climb'
----| 'Job'
----| 'Talk'
----| 'Unsteady'
----| 'Parry'
----| 'Block'
----| 'Dodge'
----| 'Recover'
----| 'StandUp'
----| 'LieDown'
----| 'Job2'
----| 'PushObject'
----| 'SuckBlood'
----| 'HoldItem'
----| 'ReleaseItem'
----| 'Unk20'
----| 'Unk21'
----| 'Unk22'
----| 'Unk23'
+---| -1 # None
+---| 0 # Move
+---| 1 # Attack
+---| 2 # Jump
+---| 3 # HoldTerrain
+---| 4 # ReleaseTerrain
+---| 5 # Climb
+---| 6 # Job
+---| 7 # Talk
+---| 8 # Unsteady
+---| 9 # Parry
+---| 10 # Block
+---| 11 # Dodge
+---| 12 # Recover
+---| 13 # StandUp
+---| 14 # LieDown
+---| 15 # Job2
+---| 16 # PushObject
+---| 17 # SuckBlood
+---| 18 # HoldItem
+---| 19 # ReleaseItem
+---| 20 # Unk20
+---| 21 # Unk21
+---| 22 # Unk22
+---| 23 # Unk23
 
 ---@class _unit_action_type: DFEnumType
 ---@field None -1
@@ -4019,8 +4019,8 @@ df.unit_action_data_attack = {}
 df.unit_action_data_attack.T_unk_4 = {}
 
 ---@alias unit_action_data_attack.T_unk_4.T_wrestle_type
----| 'Wrestle'
----| 'Grab'
+---| 0 # Wrestle
+---| 1 # Grab
 
 ---@class _unit_action_data_attack.T_unk_4.T_wrestle_type: DFEnumType
 ---@field Wrestle 0
@@ -4384,18 +4384,18 @@ df.unit_skill = {}
 df.unit_preference = {}
 
 ---@alias unit_preference.T_type
----| 'LikeMaterial'
----| 'LikeCreature'
----| 'LikeFood'
----| 'HateCreature'
----| 'LikeItem'
----| 'LikePlant'
----| 'LikeTree'
----| 'LikeColor'
----| 'LikeShape'
----| 'LikePoeticForm'
----| 'LikeMusicalForm'
----| 'LikeDanceForm'
+---| 0 # LikeMaterial
+---| 1 # LikeCreature
+---| 2 # LikeFood
+---| 3 # HateCreature
+---| 4 # LikeItem
+---| 5 # LikePlant
+---| 6 # LikeTree
+---| 7 # LikeColor
+---| 8 # LikeShape
+---| 9 # LikePoeticForm
+---| 10 # LikeMusicalForm
+---| 11 # LikeDanceForm
 
 ---@class _unit_preference.T_type: DFEnumType
 ---@field LikeMaterial 0
@@ -4469,7 +4469,7 @@ df.unit_parley.T_flags = {}
 df.unit_request = {}
 
 ---@alias unit_request.T_type
----| 'DoGuildJobs'
+---| 0 # DoGuildJobs
 
 ---@class _unit_request.T_type: DFEnumType
 ---@field DoGuildJobs 0
@@ -4555,10 +4555,10 @@ function _unit_chunk_units_items:erase(index) end
 df.unit_appearance = {}
 
 ---@alias work_detail_mode
----| 'Default'
----| 'EverybodyDoesThis'
----| 'NobodyDoesThis'
----| 'OnlySelectedDoesThis'
+---| 0 # Default
+---| 1 # EverybodyDoesThis
+---| 2 # NobodyDoesThis
+---| 3 # OnlySelectedDoesThis
 
 ---@class _work_detail_mode: DFEnumType
 ---@field Default 0
@@ -4602,25 +4602,25 @@ df.work_detail = {}
 df.work_detail.T_work_detail_flags = {}
 
 ---@alias work_detail.T_icon
----| 'ICON_NONE'
----| 'ICON_MINERS'
----| 'ICON_WOODCUTTERS'
----| 'ICON_HUNTERS'
----| 'ICON_PLANTERS'
----| 'ICON_FISHERMEN'
----| 'ICON_STONECUTTERS'
----| 'ICON_ENGRAVERS'
----| 'ICON_PLANT_GATHERERS'
----| 'ICON_HAULERS'
----| 'ICON_ORDERLIES'
----| 'ICON_CUSTOM_1'
----| 'ICON_CUSTOM_2'
----| 'ICON_CUSTOM_3'
----| 'ICON_CUSTOM_4'
----| 'ICON_CUSTOM_5'
----| 'ICON_CUSTOM_6'
----| 'ICON_CUSTOM_7'
----| 'ICON_CUSTOM_8'
+---| -1 # ICON_NONE
+---| 0 # ICON_MINERS
+---| 1 # ICON_WOODCUTTERS
+---| 2 # ICON_HUNTERS
+---| 3 # ICON_PLANTERS
+---| 4 # ICON_FISHERMEN
+---| 5 # ICON_STONECUTTERS
+---| 6 # ICON_ENGRAVERS
+---| 7 # ICON_PLANT_GATHERERS
+---| 8 # ICON_HAULERS
+---| 9 # ICON_ORDERLIES
+---| 10 # ICON_CUSTOM_1
+---| 11 # ICON_CUSTOM_2
+---| 12 # ICON_CUSTOM_3
+---| 13 # ICON_CUSTOM_4
+---| 14 # ICON_CUSTOM_5
+---| 15 # ICON_CUSTOM_6
+---| 16 # ICON_CUSTOM_7
+---| 17 # ICON_CUSTOM_8
 
 ---@class _work_detail.T_icon: DFEnumType
 ---@field ICON_NONE -1

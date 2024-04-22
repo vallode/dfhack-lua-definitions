@@ -51,10 +51,10 @@ function df.burrow.get_vector() end
 df.ui_hotkey = {}
 
 ---@alias ui_hotkey.T_cmd
----| 'None'
----| 'Zoom'
----| 'FollowUnit'
----| 'FollowItem'
+---| -1 # None
+---| 0 # Zoom
+---| 1 # FollowUnit
+---| 2 # FollowItem
 
 ---@class _ui_hotkey.T_cmd: DFEnumType
 ---@field None -1
@@ -68,63 +68,63 @@ df.ui_hotkey = {}
 df.ui_hotkey.T_cmd = {}
 
 ---@alias ui_sidebar_mode
----| 'Default'
----| 'Squads'
----| 'DesignateMine'
----| 'DesignateRemoveRamps'
----| 'DesignateUpStair'
----| 'DesignateDownStair'
----| 'DesignateUpDownStair'
----| 'DesignateUpRamp'
----| 'DesignateChannel'
----| 'DesignateGatherPlants'
----| 'DesignateRemoveDesignation'
----| 'DesignateSmooth'
----| 'DesignateCarveTrack'
----| 'DesignateEngrave'
----| 'DesignateCarveFortification'
----| 'Stockpiles'
----| 'Build'
----| 'QueryBuilding'
----| 'Orders'
----| 'OrdersForbid'
----| 'OrdersRefuse'
----| 'OrdersWorkshop'
----| 'OrdersZone'
----| 'BuildingItems'
----| 'ViewUnits'
----| 'LookAround'
----| 'DesignateItemsClaim'
----| 'DesignateItemsForbid'
----| 'DesignateItemsMelt'
----| 'DesignateItemsUnmelt'
----| 'DesignateItemsDump'
----| 'DesignateItemsUndump'
----| 'DesignateItemsHide'
----| 'DesignateItemsUnhide'
----| 'DesignateChopTrees'
----| 'DesignateToggleEngravings'
----| 'DesignateToggleMarker'
----| 'Hotkeys'
----| 'DesignateTrafficHigh'
----| 'DesignateTrafficNormal'
----| 'DesignateTrafficLow'
----| 'DesignateTrafficRestricted'
----| 'Zones'
----| 'ZonesPenInfo'
----| 'ZonesPitInfo'
----| 'ZonesHospitalInfo'
----| 'ZonesGatherInfo'
----| 'DesignateRemoveConstruction'
----| 'DepotAccess'
----| 'NotesPoints'
----| 'NotesRoutes'
----| 'Burrows'
----| 'Hauling'
----| 'ArenaWeather'
----| 'ArenaTrees'
----| 'BuildingLocationInfo'
----| 'ZonesLocationInfo'
+---| 0 # Default
+---| 1 # Squads
+---| 2 # DesignateMine
+---| 3 # DesignateRemoveRamps
+---| 4 # DesignateUpStair
+---| 5 # DesignateDownStair
+---| 6 # DesignateUpDownStair
+---| 7 # DesignateUpRamp
+---| 8 # DesignateChannel
+---| 9 # DesignateGatherPlants
+---| 10 # DesignateRemoveDesignation
+---| 11 # DesignateSmooth
+---| 12 # DesignateCarveTrack
+---| 13 # DesignateEngrave
+---| 14 # DesignateCarveFortification
+---| 15 # Stockpiles
+---| 16 # Build
+---| 17 # QueryBuilding
+---| 18 # Orders
+---| 19 # OrdersForbid
+---| 20 # OrdersRefuse
+---| 21 # OrdersWorkshop
+---| 22 # OrdersZone
+---| 23 # BuildingItems
+---| 24 # ViewUnits
+---| 25 # LookAround
+---| 26 # DesignateItemsClaim
+---| 27 # DesignateItemsForbid
+---| 28 # DesignateItemsMelt
+---| 29 # DesignateItemsUnmelt
+---| 30 # DesignateItemsDump
+---| 31 # DesignateItemsUndump
+---| 32 # DesignateItemsHide
+---| 33 # DesignateItemsUnhide
+---| 34 # DesignateChopTrees
+---| 35 # DesignateToggleEngravings
+---| 36 # DesignateToggleMarker
+---| 37 # Hotkeys
+---| 38 # DesignateTrafficHigh
+---| 39 # DesignateTrafficNormal
+---| 40 # DesignateTrafficLow
+---| 41 # DesignateTrafficRestricted
+---| 42 # Zones
+---| 43 # ZonesPenInfo
+---| 44 # ZonesPitInfo
+---| 45 # ZonesHospitalInfo
+---| 46 # ZonesGatherInfo
+---| 47 # DesignateRemoveConstruction
+---| 48 # DepotAccess
+---| 49 # NotesPoints
+---| 50 # NotesRoutes
+---| 51 # Burrows
+---| 52 # Hauling
+---| 53 # ArenaWeather
+---| 54 # ArenaTrees
+---| 55 # BuildingLocationInfo
+---| 56 # ZonesLocationInfo
 
 ---@class _ui_sidebar_mode: DFEnumType
 ---@field Default 0
@@ -259,8 +259,8 @@ df.ui_sidebar_mode = {}
 df.punishment = {}
 
 ---@alias kitchen_exc_type
----| 'Cook'
----| 'Brew'
+---| 1 # Cook
+---| 2 # Brew
 
 ---@class _kitchen_exc_type: DFEnumType
 ---@field Cook 1
@@ -271,58 +271,58 @@ df.kitchen_exc_type = {}
 
 -- below was copied wholesale from df.viewscreen
 ---@alias save_substage
----| 'Initializing'
----| 'CheckingDirectoryStructure'
----| 'PreliminaryCleaning'
----| 'OffloadingUnits'
----| 'OffloadingArt'
----| 'OpeningFile'
----| 'CharacterizingRawData'
----| 'AllocatingSpace'
----| 'SavingItems'
----| 'SavingUnits'
----| 'SavingJobs'
----| 'SavingSchedules'
----| 'SavingProjectiles'
----| 'SavingBuildings'
----| 'SavingMachines'
----| 'SavingFlowGuides'
----| 'SavingEffects'
----| 'SavingEntities'
----| 'SavingLocalAnimalPopulations'
----| 'SavingEvents'
----| 'SavingMandates'
----| 'SavingWorkQuotas'
----| 'SavingWorldEvents'
----| 'SavingCoinInformation'
----| 'SavingSquads'
----| 'SavingFormations'
----| 'SavingActivities'
----| 'SavingInteractions'
----| 'SavingWrittenContent'
----| 'SavingIdentities'
----| 'SavingIncidents'
----| 'SavingCrimes'
----| 'SavingVehicles'
----| 'SavingArmies'
----| 'SavingArmyControllers'
----| 'SavingTrackingInformation'
----| 'SavingCulturalIdentities'
----| 'SavingAgreement'
----| 'SavingArtForms'
----| 'SavingOccupations'
----| 'SavingBeliefSystems'
----| 'SavingImageSets'
----| 'SavingDivinationSets'
----| 'SavingAnnouncements'
----| 'SavingFortressInformation'
----| 'SavingWorldInformation'
----| 'SavingArtifacts'
----| 'SavingActiveHistoricalFigures'
----| 'SavingAdventureData'
----| 'SavingGeneralInformation'
----| 'ClosingFile'
----| 'Finishing'
+---| 0 # Initializing
+---| 1 # CheckingDirectoryStructure
+---| 2 # PreliminaryCleaning
+---| 3 # OffloadingUnits
+---| 4 # OffloadingArt
+---| 5 # OpeningFile
+---| 6 # CharacterizingRawData
+---| 7 # AllocatingSpace
+---| 8 # SavingItems
+---| 9 # SavingUnits
+---| 10 # SavingJobs
+---| 11 # SavingSchedules
+---| 12 # SavingProjectiles
+---| 13 # SavingBuildings
+---| 14 # SavingMachines
+---| 15 # SavingFlowGuides
+---| 16 # SavingEffects
+---| 17 # SavingEntities
+---| 18 # SavingLocalAnimalPopulations
+---| 19 # SavingEvents
+---| 20 # SavingMandates
+---| 21 # SavingWorkQuotas
+---| 22 # SavingWorldEvents
+---| 23 # SavingCoinInformation
+---| 24 # SavingSquads
+---| 25 # SavingFormations
+---| 26 # SavingActivities
+---| 27 # SavingInteractions
+---| 28 # SavingWrittenContent
+---| 29 # SavingIdentities
+---| 30 # SavingIncidents
+---| 31 # SavingCrimes
+---| 32 # SavingVehicles
+---| 33 # SavingArmies
+---| 34 # SavingArmyControllers
+---| 35 # SavingTrackingInformation
+---| 36 # SavingCulturalIdentities
+---| 37 # SavingAgreement
+---| 38 # SavingArtForms
+---| 39 # SavingOccupations
+---| 40 # SavingBeliefSystems
+---| 41 # SavingImageSets
+---| 42 # SavingDivinationSets
+---| 43 # SavingAnnouncements
+---| 44 # SavingFortressInformation
+---| 45 # SavingWorldInformation
+---| 46 # SavingArtifacts
+---| 47 # SavingActiveHistoricalFigures
+---| 48 # SavingAdventureData
+---| 49 # SavingGeneralInformation
+---| 50 # ClosingFile
+---| 51 # Finishing
 
 -- below was copied wholesale from df.viewscreen
 ---@class _save_substage: DFEnumType
@@ -651,11 +651,11 @@ df.plotinfost.T_tax_collection = {}
 df.plotinfost.T_nobles = {}
 
 ---@alias plotinfost.T_nobles.T_bookkeeper_settings
----| 'nearest_10'
----| 'nearest_100'
----| 'nearest_1000'
----| 'nearest_10000'
----| 'all_accurate'
+---| 0 # nearest_10
+---| 1 # nearest_100
+---| 2 # nearest_1000
+---| 3 # nearest_10000
+---| 4 # all_accurate
 
 ---@class _plotinfost.T_nobles.T_bookkeeper_settings: DFEnumType
 ---@field nearest_10 0
@@ -2127,16 +2127,16 @@ function _plotinfost_available_seeds:insert(index, item) end
 function _plotinfost_available_seeds:erase(index) end
 
 ---@alias timed_event_type
----| 'Caravan'
----| 'Migrants'
----| 'Diplomat'
----| 'FeatureAttack'
----| 'Megabeast'
----| 'WildlifeCurious'
----| 'WildlifeMischievous'
----| 'WildlifeFlier'
----| 'NightCreature'
----| 'TributeCaravan'
+---| 0 # Caravan
+---| 1 # Migrants
+---| 2 # Diplomat
+---| 3 # FeatureAttack
+---| 4 # Megabeast
+---| 5 # WildlifeCurious
+---| 6 # WildlifeMischievous
+---| 7 # WildlifeFlier
+---| 8 # NightCreature
+---| 9 # TributeCaravan
 
 ---@class _timed_event_type: DFEnumType
 ---@field Caravan 0

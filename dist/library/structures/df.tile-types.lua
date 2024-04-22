@@ -3,12 +3,12 @@
 
 -- Basic tile shape (not in DF)
 ---@alias tiletype_shape_basic
----| 'None'
----| 'Open'
----| 'Floor'
----| 'Ramp'
----| 'Wall'
----| 'Stair'
+---| -1 # None
+---| 0 # Open
+---| 1 # Floor
+---| 2 # Ramp
+---| 3 # Wall
+---| 4 # Stair
 
 -- Basic tile shape (not in DF)
 ---@class _tiletype_shape_basic: DFEnumType
@@ -28,26 +28,26 @@ df.tiletype_shape_basic = {}
 
 -- Tile shape (not in DF)
 ---@alias tiletype_shape
----| 'NONE'
----| 'EMPTY'
----| 'FLOOR'
----| 'BOULDER'
----| 'PEBBLES'
----| 'WALL'
----| 'FORTIFICATION'
----| 'STAIR_UP'
----| 'STAIR_DOWN'
----| 'STAIR_UPDOWN'
----| 'RAMP'
----| 'RAMP_TOP'
----| 'BROOK_BED'
----| 'BROOK_TOP'
----| 'BRANCH'
----| 'TRUNK_BRANCH'
----| 'TWIG'
----| 'SAPLING'
----| 'SHRUB'
----| 'ENDLESS_PIT'
+---| -1 # NONE
+---| 0 # EMPTY
+---| 1 # FLOOR
+---| 2 # BOULDER
+---| 3 # PEBBLES
+---| 4 # WALL
+---| 5 # FORTIFICATION
+---| 6 # STAIR_UP
+---| 7 # STAIR_DOWN
+---| 8 # STAIR_UPDOWN
+---| 9 # RAMP
+---| 10 # RAMP_TOP
+---| 11 # BROOK_BED
+---| 12 # BROOK_TOP
+---| 13 # BRANCH
+---| 14 # TRUNK_BRANCH
+---| 15 # TWIG
+---| 16 # SAPLING
+---| 17 # SHRUB
+---| 18 # ENDLESS_PIT
 
 -- Tile shape (not in DF)
 ---@class _tiletype_shape: DFEnumType
@@ -133,33 +133,33 @@ df.tiletype_shape.attrs = {}
 
 -- Tile material (not in DF)
 ---@alias tiletype_material
----| 'NONE'
----| 'AIR'
----| 'SOIL'
----| 'STONE'
----| 'FEATURE'
----| 'LAVA_STONE'
----| 'MINERAL'
----| 'FROZEN_LIQUID'
----| 'CONSTRUCTION'
----| 'GRASS_LIGHT'
----| 'GRASS_DARK'
----| 'GRASS_DRY'
----| 'GRASS_DEAD'
----| 'PLANT'
----| 'HFS'
----| 'CAMPFIRE'
----| 'FIRE'
----| 'ASHES'
----| 'MAGMA'
----| 'DRIFTWOOD'
----| 'POOL'
----| 'BROOK'
----| 'RIVER'
----| 'ROOT'
----| 'TREE'
----| 'MUSHROOM'
----| 'UNDERWORLD_GATE'
+---| -1 # NONE
+---| 0 # AIR
+---| 1 # SOIL
+---| 2 # STONE
+---| 3 # FEATURE
+---| 4 # LAVA_STONE
+---| 5 # MINERAL
+---| 6 # FROZEN_LIQUID
+---| 7 # CONSTRUCTION
+---| 8 # GRASS_LIGHT
+---| 9 # GRASS_DARK
+---| 10 # GRASS_DRY
+---| 11 # GRASS_DEAD
+---| 12 # PLANT
+---| 13 # HFS
+---| 14 # CAMPFIRE
+---| 15 # FIRE
+---| 16 # ASHES
+---| 17 # MAGMA
+---| 18 # DRIFTWOOD
+---| 19 # POOL
+---| 20 # BROOK
+---| 21 # RIVER
+---| 22 # ROOT
+---| 23 # TREE
+---| 24 # MUSHROOM
+---| 25 # UNDERWORLD_GATE
 
 -- Tile material (not in DF)
 ---@class _tiletype_material: DFEnumType
@@ -258,11 +258,11 @@ df.tiletype_material.attrs = {}
 
 -- Cosmetic tile variant (not in DF)
 ---@alias tiletype_variant
----| 'NONE'
----| 'VAR_1'
----| 'VAR_2'
----| 'VAR_3'
----| 'VAR_4'
+---| -1 # NONE
+---| 0 # VAR_1
+---| 1 # VAR_2
+---| 2 # VAR_3
+---| 3 # VAR_4
 
 -- Cosmetic tile variant (not in DF)
 ---@class _tiletype_variant: DFEnumType
@@ -280,19 +280,19 @@ df.tiletype_variant = {}
 
 -- Functional tile variant (not in DF)
 ---@alias tiletype_special
----| 'NONE'
----| 'NORMAL'
----| 'RIVER_SOURCE'
----| 'WATERFALL'
----| 'SMOOTH'
----| 'FURROWED'
----| 'WET'
----| 'DEAD'
----| 'WORN_1'
----| 'WORN_2'
----| 'WORN_3'
----| 'TRACK'
----| 'SMOOTH_DEAD'
+---| -1 # NONE
+---| 0 # NORMAL
+---| 1 # RIVER_SOURCE
+---| 2 # WATERFALL
+---| 3 # SMOOTH
+---| 4 # FURROWED
+---| 5 # WET
+---| 6 # DEAD
+---| 7 # WORN_1
+---| 8 # WORN_2
+---| 9 # WORN_3
+---| 10 # TRACK
+---| 11 # SMOOTH_DEAD
 
 -- Functional tile variant (not in DF)
 ---@class _tiletype_special: DFEnumType
@@ -348,703 +348,703 @@ df.tiletype_special._attr_entry_type._fields = {}
 df.tiletype_special.attrs = {}
 
 ---@alias tiletype
----| 'Void'
----| 'RampTop'
----| 'MurkyPool'
----| 'MurkyPoolRamp'
----| 'UnderworldGateStairU'
----| 'UnderworldGateStairD'
----| 'UnderworldGateStairUD'
----| 'TreeCapInterior'
----| 'TreeCapWallThickSW'
----| 'TreeCapWallThickSE'
----| 'TreeCapWallThickNW'
----| 'TreeCapWallThickNE'
----| 'TreeCapWallThickN'
----| 'TreeCapWallThickS'
----| 'TreeCapWallThickW'
----| 'TreeCapWallThickE'
----| 'TreeCapWallNSWE'
----| 'TreeCapWallNSW'
----| 'TreeCapWallNSE'
----| 'Driftwood'
----| 'TreeCapWallNWE'
----| 'TreeCapWallSWE'
----| 'TreeCapWallNS'
----| 'TreeCapWallWE'
----| 'Unused999'
----| 'FrozenStairUD'
----| 'FrozenStairD'
----| 'FrozenStairU'
----| 'Unused9999'
----| 'Unused99999'
----| 'Unused999999'
----| 'TreeDeadCapInterior'
----| 'OpenSpace'
----| 'TreeDeadCapWallThickSW'
----| 'Shrub'
----| 'Chasm'
----| 'LavaStairUD'
----| 'LavaStairD'
----| 'LavaStairU'
----| 'SoilStairUD'
----| 'SoilStairD'
----| 'SoilStairU'
----| 'EeriePit'
----| 'StoneFloorSmooth'
----| 'LavaFloorSmooth'
----| 'FeatureFloorSmooth'
----| 'MineralFloorSmooth'
----| 'FrozenFloorSmooth'
----| 'TreeDeadCapWallThickSE'
----| 'Grass1StairUD'
----| 'Grass1StairD'
----| 'Grass1StairU'
----| 'Grass2StairUD'
----| 'Grass2StairD'
----| 'Grass2StairU'
----| 'StoneStairUD'
----| 'StoneStairD'
----| 'StoneStairU'
----| 'MineralStairUD'
----| 'MineralStairD'
----| 'MineralStairU'
----| 'FeatureStairUD'
----| 'FeatureStairD'
----| 'FeatureStairU'
----| 'TreeDeadCapWallThickNW'
----| 'StoneFortification'
----| 'TreeDeadCapWallThickNE'
----| 'Campfire'
----| 'TreeDeadCapWallThickN'
----| 'TreeDeadCapWallThickS'
----| 'Fire'
----| 'BurningTreeTrunk'
----| 'BurningTreeBranches'
----| 'BurningTreeTwigs'
----| 'BurningTreeCapWall'
----| 'BurningTreeCapRamp'
----| 'BurningTreeCapFloor'
----| 'TreeDeadCapWallThickW'
----| 'TreeDeadCapWallThickE'
----| 'StonePillar'
----| 'LavaPillar'
----| 'FeaturePillar'
----| 'MineralPillar'
----| 'FrozenPillar'
----| 'TreeDeadCapWallNSWE'
----| 'TreeDeadCapWallNSW'
----| 'TreeDeadCapWallNSE'
----| 'TreeDeadCapWallNWE'
----| 'TreeDeadCapWallSWE'
----| 'Waterfall'
----| 'RiverSource'
----| 'TreeRootSloping'
----| 'TreeRoots'
----| 'TreeTrunkPillar'
----| 'TreeTrunkSloping'
----| 'TreeTrunkThickN'
----| 'TreeTrunkThickS'
----| 'TreeTrunkThickE'
----| 'TreeTrunkThickW'
----| 'TreeTrunkThickNW'
----| 'TreeTrunkThickNE'
----| 'TreeTrunkThickSW'
----| 'TreeTrunkThickSE'
----| 'TreeTrunkBranchN'
----| 'TreeTrunkBranchS'
----| 'TreeTrunkBranchE'
----| 'TreeTrunkBranchW'
----| 'TreeBranchNS'
----| 'TreeBranchEW'
----| 'TreeBranchesSmooth'
----| 'TreeDeadBranchesSmooth'
----| 'TreeBranchNW'
----| 'TreeBranchNE'
----| 'TreeBranchSW'
----| 'TreeBranchSE'
----| 'TreeBranches'
----| 'TreeTwigs'
----| 'TreeCapRamp'
----| 'TreeCapPillar'
----| 'TreeCapWallN'
----| 'TreeCapWallS'
----| 'TreeCapWallE'
----| 'TreeCapWallW'
----| 'TreeCapWallNW'
----| 'TreeCapWallNE'
----| 'TreeCapWallSW'
----| 'TreeCapWallSE'
----| 'TreeCapFloor1'
----| 'TreeCapFloor2'
----| 'TreeCapFloor3'
----| 'TreeCapFloor4'
----| 'TreeDeadRootSloping'
----| 'TreeDeadRoots'
----| 'TreeDeadTrunkPillar'
----| 'TreeDeadTrunkSloping'
----| 'TreeDeadTrunkThickN'
----| 'TreeDeadTrunkThickS'
----| 'TreeDeadTrunkThickE'
----| 'TreeDeadTrunkThickW'
----| 'TreeDeadTrunkThickNW'
----| 'TreeDeadTrunkThickNE'
----| 'TreeDeadTrunkThickSW'
----| 'TreeDeadTrunkThickSE'
----| 'TreeDeadTrunkBranchN'
----| 'TreeDeadTrunkBranchS'
----| 'TreeDeadTrunkBranchE'
----| 'TreeDeadTrunkBranchW'
----| 'TreeDeadBranchNS'
----| 'TreeDeadBranchEW'
----| 'TreeBranch'
----| 'TreeDeadBranch'
----| 'TreeDeadBranchNW'
----| 'TreeDeadBranchNE'
----| 'TreeDeadBranchSW'
----| 'TreeDeadBranchSE'
----| 'TreeDeadBranches'
----| 'TreeDeadTwigs'
----| 'TreeDeadCapRamp'
----| 'TreeDeadCapPillar'
----| 'TreeDeadCapWallN'
----| 'TreeDeadCapWallS'
----| 'TreeDeadCapWallE'
----| 'TreeDeadCapWallW'
----| 'TreeDeadCapWallNW'
----| 'TreeDeadCapWallNE'
----| 'TreeDeadCapWallSW'
----| 'TreeDeadCapWallSE'
----| 'TreeDeadCapFloor1'
----| 'TreeDeadCapFloor2'
----| 'TreeDeadCapFloor3'
----| 'TreeDeadCapFloor4'
----| 'TreeDeadCapWallNS'
----| 'StoneWallWorn1'
----| 'StoneWallWorn2'
----| 'StoneWallWorn3'
----| 'TreeBranchNSE'
----| 'TreeBranchNSW'
----| 'TreeBranchNEW'
----| 'TreeBranchSEW'
----| 'TreeBranchNSEW'
----| 'TreeDeadBranchNSE'
----| 'TreeDeadBranchNSW'
----| 'TreeDeadBranchNEW'
----| 'TreeDeadBranchSEW'
----| 'TreeDeadBranchNSEW'
----| 'TreeTrunkNSE'
----| 'TreeTrunkNSW'
----| 'TreeTrunkNEW'
----| 'TreeTrunkSEW'
----| 'TreeTrunkNS'
----| 'TreeTrunkEW'
----| 'TreeTrunkNSEW'
----| 'TreeTrunkInterior'
----| 'TreeDeadTrunkNSE'
----| 'TreeDeadTrunkNSW'
----| 'TreeDeadTrunkNEW'
----| 'TreeDeadTrunkSEW'
----| 'TreeDeadTrunkNS'
----| 'TreeDeadTrunkEW'
----| 'TreeDeadTrunkNSEW'
----| 'TreeDeadTrunkInterior'
----| 'TreeTrunkNW'
----| 'TreeTrunkNE'
----| 'TreeTrunkSW'
----| 'TreeTrunkSE'
----| 'TreeDeadTrunkNW'
----| 'TreeDeadTrunkNE'
----| 'TreeDeadTrunkSW'
----| 'TreeDeadTrunkSE'
----| 'TreeTrunkN'
----| 'TreeTrunkS'
----| 'TreeTrunkW'
----| 'TreeTrunkE'
----| 'TreeDeadTrunkN'
----| 'TreeDeadTrunkS'
----| 'StoneWall'
----| 'TreeDeadTrunkW'
----| 'TreeDeadTrunkE'
----| 'TreeBranchS'
----| 'TreeBranchN'
----| 'TreeBranchW'
----| 'TreeBranchE'
----| 'TreeDeadBranchS'
----| 'TreeDeadBranchN'
----| 'TreeDeadBranchW'
----| 'TreeDeadBranchE'
----| 'TreeDeadCapPillarWE'
----| 'Sapling'
----| 'Unused888'
----| 'GrassDryRamp'
----| 'GrassDeadRamp'
----| 'GrassLightRamp'
----| 'GrassDarkRamp'
----| 'StoneRamp'
----| 'LavaRamp'
----| 'FeatureRamp'
----| 'MineralRamp'
----| 'SoilRamp'
----| 'Ashes1'
----| 'Ashes2'
----| 'Ashes3'
----| 'FrozenRamp'
----| 'Unused8888'
----| 'Unused88888'
----| 'Unused888888'
----| 'Unused245'
----| 'Unused246'
----| 'Unused247'
----| 'Unused248'
----| 'Unused249'
----| 'Unused250'
----| 'Unused251'
----| 'Unused252'
----| 'Unused253'
----| 'FrozenFloor2'
----| 'FrozenFloor3'
----| 'FrozenFloor4'
----| 'FurrowedSoil'
----| 'FrozenFloor1'
----| 'SemiMoltenRock'
----| 'MagmaFlow'
----| 'SoilWall'
----| 'GlowingBarrier'
----| 'GlowingFloor'
----| 'Unused264'
----| 'LavaWallSmoothRD2'
----| 'LavaWallSmoothR2D'
----| 'LavaWallSmoothR2U'
----| 'LavaWallSmoothRU2'
----| 'LavaWallSmoothL2U'
----| 'LavaWallSmoothLU2'
----| 'LavaWallSmoothL2D'
----| 'LavaWallSmoothLD2'
----| 'LavaWallSmoothLRUD'
----| 'LavaWallSmoothRUD'
----| 'LavaWallSmoothLRD'
----| 'LavaWallSmoothLRU'
----| 'LavaWallSmoothLUD'
----| 'LavaWallSmoothRD'
----| 'LavaWallSmoothRU'
----| 'LavaWallSmoothLU'
----| 'LavaWallSmoothLD'
----| 'LavaWallSmoothUD'
----| 'LavaWallSmoothLR'
----| 'FeatureWallSmoothRD2'
----| 'FeatureWallSmoothR2D'
----| 'FeatureWallSmoothR2U'
----| 'FeatureWallSmoothRU2'
----| 'FeatureWallSmoothL2U'
----| 'FeatureWallSmoothLU2'
----| 'FeatureWallSmoothL2D'
----| 'FeatureWallSmoothLD2'
----| 'FeatureWallSmoothLRUD'
----| 'FeatureWallSmoothRUD'
----| 'FeatureWallSmoothLRD'
----| 'FeatureWallSmoothLRU'
----| 'FeatureWallSmoothLUD'
----| 'FeatureWallSmoothRD'
----| 'FeatureWallSmoothRU'
----| 'FeatureWallSmoothLU'
----| 'FeatureWallSmoothLD'
----| 'FeatureWallSmoothUD'
----| 'FeatureWallSmoothLR'
----| 'StoneWallSmoothRD2'
----| 'StoneWallSmoothR2D'
----| 'StoneWallSmoothR2U'
----| 'StoneWallSmoothRU2'
----| 'StoneWallSmoothL2U'
----| 'StoneWallSmoothLU2'
----| 'StoneWallSmoothL2D'
----| 'StoneWallSmoothLD2'
----| 'StoneWallSmoothLRUD'
----| 'StoneWallSmoothRUD'
----| 'StoneWallSmoothLRD'
----| 'StoneWallSmoothLRU'
----| 'StoneWallSmoothLUD'
----| 'StoneWallSmoothRD'
----| 'StoneWallSmoothRU'
----| 'StoneWallSmoothLU'
----| 'StoneWallSmoothLD'
----| 'StoneWallSmoothUD'
----| 'StoneWallSmoothLR'
----| 'LavaFortification'
----| 'FeatureFortification'
----| 'LavaWallWorn1'
----| 'LavaWallWorn2'
----| 'LavaWallWorn3'
----| 'LavaWall'
----| 'FeatureWallWorn1'
----| 'FeatureWallWorn2'
----| 'FeatureWallWorn3'
----| 'FeatureWall'
----| 'StoneFloor1'
----| 'StoneFloor2'
----| 'StoneFloor3'
----| 'StoneFloor4'
----| 'LavaFloor1'
----| 'LavaFloor2'
----| 'LavaFloor3'
----| 'LavaFloor4'
----| 'FeatureFloor1'
----| 'FeatureFloor2'
----| 'FeatureFloor3'
----| 'FeatureFloor4'
----| 'GrassDarkFloor1'
----| 'GrassDarkFloor2'
----| 'GrassDarkFloor3'
----| 'GrassDarkFloor4'
----| 'SoilFloor1'
----| 'SoilFloor2'
----| 'SoilFloor3'
----| 'SoilFloor4'
----| 'SoilWetFloor1'
----| 'SoilWetFloor2'
----| 'SoilWetFloor3'
----| 'SoilWetFloor4'
----| 'FrozenFortification'
----| 'FrozenWallWorn1'
----| 'FrozenWallWorn2'
----| 'FrozenWallWorn3'
----| 'FrozenWall'
----| 'RiverN'
----| 'RiverS'
----| 'RiverE'
----| 'RiverW'
----| 'RiverNW'
----| 'RiverNE'
----| 'RiverSW'
----| 'RiverSE'
----| 'BrookN'
----| 'BrookS'
----| 'BrookE'
----| 'BrookW'
----| 'BrookNW'
----| 'BrookNE'
----| 'BrookSW'
----| 'BrookSE'
----| 'BrookTop1'
----| 'BrookTop2'
----| 'BrookTop3'
----| 'BrookTop4'
----| 'Unused381'
----| 'Unused382'
----| 'GrassDryFloor1'
----| 'GrassDryFloor2'
----| 'GrassDryFloor3'
----| 'GrassDryFloor4'
----| 'Unused387'
----| 'SaplingDead'
----| 'ShrubDead'
----| 'GrassDeadFloor1'
----| 'GrassDeadFloor2'
----| 'GrassDeadFloor3'
----| 'GrassDeadFloor4'
----| 'GrassLightFloor1'
----| 'GrassLightFloor2'
----| 'GrassLightFloor3'
----| 'GrassLightFloor4'
----| 'StoneBoulder'
----| 'LavaBoulder'
----| 'FeatureBoulder'
----| 'StonePebbles1'
----| 'StonePebbles2'
----| 'StonePebbles3'
----| 'StonePebbles4'
----| 'LavaPebbles1'
----| 'LavaPebbles2'
----| 'LavaPebbles3'
----| 'LavaPebbles4'
----| 'FeaturePebbles1'
----| 'FeaturePebbles2'
----| 'FeaturePebbles3'
----| 'FeaturePebbles4'
----| 'MineralWallSmoothRD2'
----| 'MineralWallSmoothR2D'
----| 'MineralWallSmoothR2U'
----| 'MineralWallSmoothRU2'
----| 'MineralWallSmoothL2U'
----| 'MineralWallSmoothLU2'
----| 'MineralWallSmoothL2D'
----| 'MineralWallSmoothLD2'
----| 'MineralWallSmoothLRUD'
----| 'MineralWallSmoothRUD'
----| 'MineralWallSmoothLRD'
----| 'MineralWallSmoothLRU'
----| 'MineralWallSmoothLUD'
----| 'MineralWallSmoothRD'
----| 'MineralWallSmoothRU'
----| 'MineralWallSmoothLU'
----| 'MineralWallSmoothLD'
----| 'MineralWallSmoothUD'
----| 'MineralWallSmoothLR'
----| 'MineralFortification'
----| 'MineralWallWorn1'
----| 'MineralWallWorn2'
----| 'MineralWallWorn3'
----| 'MineralWall'
----| 'MineralFloor1'
----| 'MineralFloor2'
----| 'MineralFloor3'
----| 'MineralFloor4'
----| 'MineralBoulder'
----| 'MineralPebbles1'
----| 'MineralPebbles2'
----| 'MineralPebbles3'
----| 'MineralPebbles4'
----| 'FrozenWallSmoothRD2'
----| 'FrozenWallSmoothR2D'
----| 'FrozenWallSmoothR2U'
----| 'FrozenWallSmoothRU2'
----| 'FrozenWallSmoothL2U'
----| 'FrozenWallSmoothLU2'
----| 'FrozenWallSmoothL2D'
----| 'FrozenWallSmoothLD2'
----| 'FrozenWallSmoothLRUD'
----| 'FrozenWallSmoothRUD'
----| 'FrozenWallSmoothLRD'
----| 'FrozenWallSmoothLRU'
----| 'FrozenWallSmoothLUD'
----| 'FrozenWallSmoothRD'
----| 'FrozenWallSmoothRU'
----| 'FrozenWallSmoothLU'
----| 'FrozenWallSmoothLD'
----| 'FrozenWallSmoothUD'
----| 'FrozenWallSmoothLR'
----| 'RiverRampN'
----| 'RiverRampS'
----| 'RiverRampE'
----| 'RiverRampW'
----| 'RiverRampNW'
----| 'RiverRampNE'
----| 'RiverRampSW'
----| 'RiverRampSE'
----| 'Unused473'
----| 'Unused474'
----| 'Unused475'
----| 'Unused476'
----| 'Unused477'
----| 'Unused478'
----| 'Unused479'
----| 'Unused480'
----| 'Unused481'
----| 'Unused482'
----| 'Unused483'
----| 'Unused484'
----| 'Unused485'
----| 'Unused486'
----| 'Unused487'
----| 'Unused488'
----| 'ConstructedFloor'
----| 'ConstructedFortification'
----| 'ConstructedPillar'
----| 'ConstructedWallRD2'
----| 'ConstructedWallR2D'
----| 'ConstructedWallR2U'
----| 'ConstructedWallRU2'
----| 'ConstructedWallL2U'
----| 'ConstructedWallLU2'
----| 'ConstructedWallL2D'
----| 'ConstructedWallLD2'
----| 'ConstructedWallLRUD'
----| 'ConstructedWallRUD'
----| 'ConstructedWallLRD'
----| 'ConstructedWallLRU'
----| 'ConstructedWallLUD'
----| 'ConstructedWallRD'
----| 'ConstructedWallRU'
----| 'ConstructedWallLU'
----| 'ConstructedWallLD'
----| 'ConstructedWallUD'
----| 'ConstructedWallLR'
----| 'ConstructedStairUD'
----| 'ConstructedStairD'
----| 'ConstructedStairU'
----| 'ConstructedRamp'
----| 'StoneFloorTrackN'
----| 'StoneFloorTrackS'
----| 'StoneFloorTrackE'
----| 'StoneFloorTrackW'
----| 'StoneFloorTrackNS'
----| 'StoneFloorTrackNE'
----| 'StoneFloorTrackNW'
----| 'StoneFloorTrackSE'
----| 'StoneFloorTrackSW'
----| 'StoneFloorTrackEW'
----| 'StoneFloorTrackNSE'
----| 'StoneFloorTrackNSW'
----| 'StoneFloorTrackNEW'
----| 'StoneFloorTrackSEW'
----| 'StoneFloorTrackNSEW'
----| 'LavaFloorTrackN'
----| 'LavaFloorTrackS'
----| 'LavaFloorTrackE'
----| 'LavaFloorTrackW'
----| 'LavaFloorTrackNS'
----| 'LavaFloorTrackNE'
----| 'LavaFloorTrackNW'
----| 'LavaFloorTrackSE'
----| 'LavaFloorTrackSW'
----| 'LavaFloorTrackEW'
----| 'LavaFloorTrackNSE'
----| 'LavaFloorTrackNSW'
----| 'LavaFloorTrackNEW'
----| 'LavaFloorTrackSEW'
----| 'LavaFloorTrackNSEW'
----| 'FeatureFloorTrackN'
----| 'FeatureFloorTrackS'
----| 'FeatureFloorTrackE'
----| 'FeatureFloorTrackW'
----| 'FeatureFloorTrackNS'
----| 'FeatureFloorTrackNE'
----| 'FeatureFloorTrackNW'
----| 'FeatureFloorTrackSE'
----| 'FeatureFloorTrackSW'
----| 'FeatureFloorTrackEW'
----| 'FeatureFloorTrackNSE'
----| 'FeatureFloorTrackNSW'
----| 'FeatureFloorTrackNEW'
----| 'FeatureFloorTrackSEW'
----| 'FeatureFloorTrackNSEW'
----| 'MineralFloorTrackN'
----| 'MineralFloorTrackS'
----| 'MineralFloorTrackE'
----| 'MineralFloorTrackW'
----| 'MineralFloorTrackNS'
----| 'MineralFloorTrackNE'
----| 'MineralFloorTrackNW'
----| 'MineralFloorTrackSE'
----| 'MineralFloorTrackSW'
----| 'MineralFloorTrackEW'
----| 'MineralFloorTrackNSE'
----| 'MineralFloorTrackNSW'
----| 'MineralFloorTrackNEW'
----| 'MineralFloorTrackSEW'
----| 'MineralFloorTrackNSEW'
----| 'FrozenFloorTrackN'
----| 'FrozenFloorTrackS'
----| 'FrozenFloorTrackE'
----| 'FrozenFloorTrackW'
----| 'FrozenFloorTrackNS'
----| 'FrozenFloorTrackNE'
----| 'FrozenFloorTrackNW'
----| 'FrozenFloorTrackSE'
----| 'FrozenFloorTrackSW'
----| 'FrozenFloorTrackEW'
----| 'FrozenFloorTrackNSE'
----| 'FrozenFloorTrackNSW'
----| 'FrozenFloorTrackNEW'
----| 'FrozenFloorTrackSEW'
----| 'FrozenFloorTrackNSEW'
----| 'ConstructedFloorTrackN'
----| 'ConstructedFloorTrackS'
----| 'ConstructedFloorTrackE'
----| 'ConstructedFloorTrackW'
----| 'ConstructedFloorTrackNS'
----| 'ConstructedFloorTrackNE'
----| 'ConstructedFloorTrackNW'
----| 'ConstructedFloorTrackSE'
----| 'ConstructedFloorTrackSW'
----| 'ConstructedFloorTrackEW'
----| 'ConstructedFloorTrackNSE'
----| 'ConstructedFloorTrackNSW'
----| 'ConstructedFloorTrackNEW'
----| 'ConstructedFloorTrackSEW'
----| 'ConstructedFloorTrackNSEW'
----| 'StoneRampTrackN'
----| 'StoneRampTrackS'
----| 'StoneRampTrackE'
----| 'StoneRampTrackW'
----| 'StoneRampTrackNS'
----| 'StoneRampTrackNE'
----| 'StoneRampTrackNW'
----| 'StoneRampTrackSE'
----| 'StoneRampTrackSW'
----| 'StoneRampTrackEW'
----| 'StoneRampTrackNSE'
----| 'StoneRampTrackNSW'
----| 'StoneRampTrackNEW'
----| 'StoneRampTrackSEW'
----| 'StoneRampTrackNSEW'
----| 'LavaRampTrackN'
----| 'LavaRampTrackS'
----| 'LavaRampTrackE'
----| 'LavaRampTrackW'
----| 'LavaRampTrackNS'
----| 'LavaRampTrackNE'
----| 'LavaRampTrackNW'
----| 'LavaRampTrackSE'
----| 'LavaRampTrackSW'
----| 'LavaRampTrackEW'
----| 'LavaRampTrackNSE'
----| 'LavaRampTrackNSW'
----| 'LavaRampTrackNEW'
----| 'LavaRampTrackSEW'
----| 'LavaRampTrackNSEW'
----| 'FeatureRampTrackN'
----| 'FeatureRampTrackS'
----| 'FeatureRampTrackE'
----| 'FeatureRampTrackW'
----| 'FeatureRampTrackNS'
----| 'FeatureRampTrackNE'
----| 'FeatureRampTrackNW'
----| 'FeatureRampTrackSE'
----| 'FeatureRampTrackSW'
----| 'FeatureRampTrackEW'
----| 'FeatureRampTrackNSE'
----| 'FeatureRampTrackNSW'
----| 'FeatureRampTrackNEW'
----| 'FeatureRampTrackSEW'
----| 'FeatureRampTrackNSEW'
----| 'MineralRampTrackN'
----| 'MineralRampTrackS'
----| 'MineralRampTrackE'
----| 'MineralRampTrackW'
----| 'MineralRampTrackNS'
----| 'MineralRampTrackNE'
----| 'MineralRampTrackNW'
----| 'MineralRampTrackSE'
----| 'MineralRampTrackSW'
----| 'MineralRampTrackEW'
----| 'MineralRampTrackNSE'
----| 'MineralRampTrackNSW'
----| 'MineralRampTrackNEW'
----| 'MineralRampTrackSEW'
----| 'MineralRampTrackNSEW'
----| 'FrozenRampTrackN'
----| 'FrozenRampTrackS'
----| 'FrozenRampTrackE'
----| 'FrozenRampTrackW'
----| 'FrozenRampTrackNS'
----| 'FrozenRampTrackNE'
----| 'FrozenRampTrackNW'
----| 'FrozenRampTrackSE'
----| 'FrozenRampTrackSW'
----| 'FrozenRampTrackEW'
----| 'FrozenRampTrackNSE'
----| 'FrozenRampTrackNSW'
----| 'FrozenRampTrackNEW'
----| 'FrozenRampTrackSEW'
----| 'FrozenRampTrackNSEW'
----| 'ConstructedRampTrackN'
----| 'ConstructedRampTrackS'
----| 'ConstructedRampTrackE'
----| 'ConstructedRampTrackW'
----| 'ConstructedRampTrackNS'
----| 'ConstructedRampTrackNE'
----| 'ConstructedRampTrackNW'
----| 'ConstructedRampTrackSE'
----| 'ConstructedRampTrackSW'
----| 'ConstructedRampTrackEW'
----| 'ConstructedRampTrackNSE'
----| 'ConstructedRampTrackNSW'
----| 'ConstructedRampTrackNEW'
----| 'ConstructedRampTrackSEW'
----| 'ConstructedRampTrackNSEW'
----| 'Unused695'
----| 'Unused696'
+---| 0 # Void
+---| 1 # RampTop
+---| 2 # MurkyPool
+---| 3 # MurkyPoolRamp
+---| 4 # UnderworldGateStairU
+---| 5 # UnderworldGateStairD
+---| 6 # UnderworldGateStairUD
+---| 7 # TreeCapInterior
+---| 8 # TreeCapWallThickSW
+---| 9 # TreeCapWallThickSE
+---| 10 # TreeCapWallThickNW
+---| 11 # TreeCapWallThickNE
+---| 12 # TreeCapWallThickN
+---| 13 # TreeCapWallThickS
+---| 14 # TreeCapWallThickW
+---| 15 # TreeCapWallThickE
+---| 16 # TreeCapWallNSWE
+---| 17 # TreeCapWallNSW
+---| 18 # TreeCapWallNSE
+---| 19 # Driftwood
+---| 20 # TreeCapWallNWE
+---| 21 # TreeCapWallSWE
+---| 22 # TreeCapWallNS
+---| 23 # TreeCapWallWE
+---| 24 # Unused999
+---| 25 # FrozenStairUD
+---| 26 # FrozenStairD
+---| 27 # FrozenStairU
+---| 28 # Unused9999
+---| 29 # Unused99999
+---| 30 # Unused999999
+---| 31 # TreeDeadCapInterior
+---| 32 # OpenSpace
+---| 33 # TreeDeadCapWallThickSW
+---| 34 # Shrub
+---| 35 # Chasm
+---| 36 # LavaStairUD
+---| 37 # LavaStairD
+---| 38 # LavaStairU
+---| 39 # SoilStairUD
+---| 40 # SoilStairD
+---| 41 # SoilStairU
+---| 42 # EeriePit
+---| 43 # StoneFloorSmooth
+---| 44 # LavaFloorSmooth
+---| 45 # FeatureFloorSmooth
+---| 46 # MineralFloorSmooth
+---| 47 # FrozenFloorSmooth
+---| 48 # TreeDeadCapWallThickSE
+---| 49 # Grass1StairUD
+---| 50 # Grass1StairD
+---| 51 # Grass1StairU
+---| 52 # Grass2StairUD
+---| 53 # Grass2StairD
+---| 54 # Grass2StairU
+---| 55 # StoneStairUD
+---| 56 # StoneStairD
+---| 57 # StoneStairU
+---| 58 # MineralStairUD
+---| 59 # MineralStairD
+---| 60 # MineralStairU
+---| 61 # FeatureStairUD
+---| 62 # FeatureStairD
+---| 63 # FeatureStairU
+---| 64 # TreeDeadCapWallThickNW
+---| 65 # StoneFortification
+---| 66 # TreeDeadCapWallThickNE
+---| 67 # Campfire
+---| 68 # TreeDeadCapWallThickN
+---| 69 # TreeDeadCapWallThickS
+---| 70 # Fire
+---| 71 # BurningTreeTrunk
+---| 72 # BurningTreeBranches
+---| 73 # BurningTreeTwigs
+---| 74 # BurningTreeCapWall
+---| 75 # BurningTreeCapRamp
+---| 76 # BurningTreeCapFloor
+---| 77 # TreeDeadCapWallThickW
+---| 78 # TreeDeadCapWallThickE
+---| 79 # StonePillar
+---| 80 # LavaPillar
+---| 81 # FeaturePillar
+---| 82 # MineralPillar
+---| 83 # FrozenPillar
+---| 84 # TreeDeadCapWallNSWE
+---| 85 # TreeDeadCapWallNSW
+---| 86 # TreeDeadCapWallNSE
+---| 87 # TreeDeadCapWallNWE
+---| 88 # TreeDeadCapWallSWE
+---| 89 # Waterfall
+---| 90 # RiverSource
+---| 91 # TreeRootSloping
+---| 92 # TreeRoots
+---| 93 # TreeTrunkPillar
+---| 94 # TreeTrunkSloping
+---| 95 # TreeTrunkThickN
+---| 96 # TreeTrunkThickS
+---| 97 # TreeTrunkThickE
+---| 98 # TreeTrunkThickW
+---| 99 # TreeTrunkThickNW
+---| 100 # TreeTrunkThickNE
+---| 101 # TreeTrunkThickSW
+---| 102 # TreeTrunkThickSE
+---| 103 # TreeTrunkBranchN
+---| 104 # TreeTrunkBranchS
+---| 105 # TreeTrunkBranchE
+---| 106 # TreeTrunkBranchW
+---| 107 # TreeBranchNS
+---| 108 # TreeBranchEW
+---| 109 # TreeBranchesSmooth
+---| 110 # TreeDeadBranchesSmooth
+---| 111 # TreeBranchNW
+---| 112 # TreeBranchNE
+---| 113 # TreeBranchSW
+---| 114 # TreeBranchSE
+---| 115 # TreeBranches
+---| 116 # TreeTwigs
+---| 117 # TreeCapRamp
+---| 118 # TreeCapPillar
+---| 119 # TreeCapWallN
+---| 120 # TreeCapWallS
+---| 121 # TreeCapWallE
+---| 122 # TreeCapWallW
+---| 123 # TreeCapWallNW
+---| 124 # TreeCapWallNE
+---| 125 # TreeCapWallSW
+---| 126 # TreeCapWallSE
+---| 127 # TreeCapFloor1
+---| 128 # TreeCapFloor2
+---| 129 # TreeCapFloor3
+---| 130 # TreeCapFloor4
+---| 131 # TreeDeadRootSloping
+---| 132 # TreeDeadRoots
+---| 133 # TreeDeadTrunkPillar
+---| 134 # TreeDeadTrunkSloping
+---| 135 # TreeDeadTrunkThickN
+---| 136 # TreeDeadTrunkThickS
+---| 137 # TreeDeadTrunkThickE
+---| 138 # TreeDeadTrunkThickW
+---| 139 # TreeDeadTrunkThickNW
+---| 140 # TreeDeadTrunkThickNE
+---| 141 # TreeDeadTrunkThickSW
+---| 142 # TreeDeadTrunkThickSE
+---| 143 # TreeDeadTrunkBranchN
+---| 144 # TreeDeadTrunkBranchS
+---| 145 # TreeDeadTrunkBranchE
+---| 146 # TreeDeadTrunkBranchW
+---| 147 # TreeDeadBranchNS
+---| 148 # TreeDeadBranchEW
+---| 149 # TreeBranch
+---| 150 # TreeDeadBranch
+---| 151 # TreeDeadBranchNW
+---| 152 # TreeDeadBranchNE
+---| 153 # TreeDeadBranchSW
+---| 154 # TreeDeadBranchSE
+---| 155 # TreeDeadBranches
+---| 156 # TreeDeadTwigs
+---| 157 # TreeDeadCapRamp
+---| 158 # TreeDeadCapPillar
+---| 159 # TreeDeadCapWallN
+---| 160 # TreeDeadCapWallS
+---| 161 # TreeDeadCapWallE
+---| 162 # TreeDeadCapWallW
+---| 163 # TreeDeadCapWallNW
+---| 164 # TreeDeadCapWallNE
+---| 165 # TreeDeadCapWallSW
+---| 166 # TreeDeadCapWallSE
+---| 167 # TreeDeadCapFloor1
+---| 168 # TreeDeadCapFloor2
+---| 169 # TreeDeadCapFloor3
+---| 170 # TreeDeadCapFloor4
+---| 171 # TreeDeadCapWallNS
+---| 172 # StoneWallWorn1
+---| 173 # StoneWallWorn2
+---| 174 # StoneWallWorn3
+---| 175 # TreeBranchNSE
+---| 176 # TreeBranchNSW
+---| 177 # TreeBranchNEW
+---| 178 # TreeBranchSEW
+---| 179 # TreeBranchNSEW
+---| 180 # TreeDeadBranchNSE
+---| 181 # TreeDeadBranchNSW
+---| 182 # TreeDeadBranchNEW
+---| 183 # TreeDeadBranchSEW
+---| 184 # TreeDeadBranchNSEW
+---| 185 # TreeTrunkNSE
+---| 186 # TreeTrunkNSW
+---| 187 # TreeTrunkNEW
+---| 188 # TreeTrunkSEW
+---| 189 # TreeTrunkNS
+---| 190 # TreeTrunkEW
+---| 191 # TreeTrunkNSEW
+---| 192 # TreeTrunkInterior
+---| 193 # TreeDeadTrunkNSE
+---| 194 # TreeDeadTrunkNSW
+---| 195 # TreeDeadTrunkNEW
+---| 196 # TreeDeadTrunkSEW
+---| 197 # TreeDeadTrunkNS
+---| 198 # TreeDeadTrunkEW
+---| 199 # TreeDeadTrunkNSEW
+---| 200 # TreeDeadTrunkInterior
+---| 201 # TreeTrunkNW
+---| 202 # TreeTrunkNE
+---| 203 # TreeTrunkSW
+---| 204 # TreeTrunkSE
+---| 205 # TreeDeadTrunkNW
+---| 206 # TreeDeadTrunkNE
+---| 207 # TreeDeadTrunkSW
+---| 208 # TreeDeadTrunkSE
+---| 209 # TreeTrunkN
+---| 210 # TreeTrunkS
+---| 211 # TreeTrunkW
+---| 212 # TreeTrunkE
+---| 213 # TreeDeadTrunkN
+---| 214 # TreeDeadTrunkS
+---| 215 # StoneWall
+---| 216 # TreeDeadTrunkW
+---| 217 # TreeDeadTrunkE
+---| 218 # TreeBranchS
+---| 219 # TreeBranchN
+---| 220 # TreeBranchW
+---| 221 # TreeBranchE
+---| 222 # TreeDeadBranchS
+---| 223 # TreeDeadBranchN
+---| 224 # TreeDeadBranchW
+---| 225 # TreeDeadBranchE
+---| 226 # TreeDeadCapPillarWE
+---| 227 # Sapling
+---| 228 # Unused888
+---| 229 # GrassDryRamp
+---| 230 # GrassDeadRamp
+---| 231 # GrassLightRamp
+---| 232 # GrassDarkRamp
+---| 233 # StoneRamp
+---| 234 # LavaRamp
+---| 235 # FeatureRamp
+---| 236 # MineralRamp
+---| 237 # SoilRamp
+---| 238 # Ashes1
+---| 239 # Ashes2
+---| 240 # Ashes3
+---| 241 # FrozenRamp
+---| 242 # Unused8888
+---| 243 # Unused88888
+---| 244 # Unused888888
+---| 245 # Unused245
+---| 246 # Unused246
+---| 247 # Unused247
+---| 248 # Unused248
+---| 249 # Unused249
+---| 250 # Unused250
+---| 251 # Unused251
+---| 252 # Unused252
+---| 253 # Unused253
+---| 254 # FrozenFloor2
+---| 255 # FrozenFloor3
+---| 256 # FrozenFloor4
+---| 257 # FurrowedSoil
+---| 258 # FrozenFloor1
+---| 259 # SemiMoltenRock
+---| 260 # MagmaFlow
+---| 261 # SoilWall
+---| 262 # GlowingBarrier
+---| 263 # GlowingFloor
+---| 264 # Unused264
+---| 265 # LavaWallSmoothRD2
+---| 266 # LavaWallSmoothR2D
+---| 267 # LavaWallSmoothR2U
+---| 268 # LavaWallSmoothRU2
+---| 269 # LavaWallSmoothL2U
+---| 270 # LavaWallSmoothLU2
+---| 271 # LavaWallSmoothL2D
+---| 272 # LavaWallSmoothLD2
+---| 273 # LavaWallSmoothLRUD
+---| 274 # LavaWallSmoothRUD
+---| 275 # LavaWallSmoothLRD
+---| 276 # LavaWallSmoothLRU
+---| 277 # LavaWallSmoothLUD
+---| 278 # LavaWallSmoothRD
+---| 279 # LavaWallSmoothRU
+---| 280 # LavaWallSmoothLU
+---| 281 # LavaWallSmoothLD
+---| 282 # LavaWallSmoothUD
+---| 283 # LavaWallSmoothLR
+---| 284 # FeatureWallSmoothRD2
+---| 285 # FeatureWallSmoothR2D
+---| 286 # FeatureWallSmoothR2U
+---| 287 # FeatureWallSmoothRU2
+---| 288 # FeatureWallSmoothL2U
+---| 289 # FeatureWallSmoothLU2
+---| 290 # FeatureWallSmoothL2D
+---| 291 # FeatureWallSmoothLD2
+---| 292 # FeatureWallSmoothLRUD
+---| 293 # FeatureWallSmoothRUD
+---| 294 # FeatureWallSmoothLRD
+---| 295 # FeatureWallSmoothLRU
+---| 296 # FeatureWallSmoothLUD
+---| 297 # FeatureWallSmoothRD
+---| 298 # FeatureWallSmoothRU
+---| 299 # FeatureWallSmoothLU
+---| 300 # FeatureWallSmoothLD
+---| 301 # FeatureWallSmoothUD
+---| 302 # FeatureWallSmoothLR
+---| 303 # StoneWallSmoothRD2
+---| 304 # StoneWallSmoothR2D
+---| 305 # StoneWallSmoothR2U
+---| 306 # StoneWallSmoothRU2
+---| 307 # StoneWallSmoothL2U
+---| 308 # StoneWallSmoothLU2
+---| 309 # StoneWallSmoothL2D
+---| 310 # StoneWallSmoothLD2
+---| 311 # StoneWallSmoothLRUD
+---| 312 # StoneWallSmoothRUD
+---| 313 # StoneWallSmoothLRD
+---| 314 # StoneWallSmoothLRU
+---| 315 # StoneWallSmoothLUD
+---| 316 # StoneWallSmoothRD
+---| 317 # StoneWallSmoothRU
+---| 318 # StoneWallSmoothLU
+---| 319 # StoneWallSmoothLD
+---| 320 # StoneWallSmoothUD
+---| 321 # StoneWallSmoothLR
+---| 322 # LavaFortification
+---| 323 # FeatureFortification
+---| 324 # LavaWallWorn1
+---| 325 # LavaWallWorn2
+---| 326 # LavaWallWorn3
+---| 327 # LavaWall
+---| 328 # FeatureWallWorn1
+---| 329 # FeatureWallWorn2
+---| 330 # FeatureWallWorn3
+---| 331 # FeatureWall
+---| 332 # StoneFloor1
+---| 333 # StoneFloor2
+---| 334 # StoneFloor3
+---| 335 # StoneFloor4
+---| 336 # LavaFloor1
+---| 337 # LavaFloor2
+---| 338 # LavaFloor3
+---| 339 # LavaFloor4
+---| 340 # FeatureFloor1
+---| 341 # FeatureFloor2
+---| 342 # FeatureFloor3
+---| 343 # FeatureFloor4
+---| 344 # GrassDarkFloor1
+---| 345 # GrassDarkFloor2
+---| 346 # GrassDarkFloor3
+---| 347 # GrassDarkFloor4
+---| 348 # SoilFloor1
+---| 349 # SoilFloor2
+---| 350 # SoilFloor3
+---| 351 # SoilFloor4
+---| 352 # SoilWetFloor1
+---| 353 # SoilWetFloor2
+---| 354 # SoilWetFloor3
+---| 355 # SoilWetFloor4
+---| 356 # FrozenFortification
+---| 357 # FrozenWallWorn1
+---| 358 # FrozenWallWorn2
+---| 359 # FrozenWallWorn3
+---| 360 # FrozenWall
+---| 361 # RiverN
+---| 362 # RiverS
+---| 363 # RiverE
+---| 364 # RiverW
+---| 365 # RiverNW
+---| 366 # RiverNE
+---| 367 # RiverSW
+---| 368 # RiverSE
+---| 369 # BrookN
+---| 370 # BrookS
+---| 371 # BrookE
+---| 372 # BrookW
+---| 373 # BrookNW
+---| 374 # BrookNE
+---| 375 # BrookSW
+---| 376 # BrookSE
+---| 377 # BrookTop1
+---| 378 # BrookTop2
+---| 379 # BrookTop3
+---| 380 # BrookTop4
+---| 381 # Unused381
+---| 382 # Unused382
+---| 383 # GrassDryFloor1
+---| 384 # GrassDryFloor2
+---| 385 # GrassDryFloor3
+---| 386 # GrassDryFloor4
+---| 387 # Unused387
+---| 388 # SaplingDead
+---| 389 # ShrubDead
+---| 390 # GrassDeadFloor1
+---| 391 # GrassDeadFloor2
+---| 392 # GrassDeadFloor3
+---| 393 # GrassDeadFloor4
+---| 394 # GrassLightFloor1
+---| 395 # GrassLightFloor2
+---| 396 # GrassLightFloor3
+---| 397 # GrassLightFloor4
+---| 398 # StoneBoulder
+---| 399 # LavaBoulder
+---| 400 # FeatureBoulder
+---| 401 # StonePebbles1
+---| 402 # StonePebbles2
+---| 403 # StonePebbles3
+---| 404 # StonePebbles4
+---| 405 # LavaPebbles1
+---| 406 # LavaPebbles2
+---| 407 # LavaPebbles3
+---| 408 # LavaPebbles4
+---| 409 # FeaturePebbles1
+---| 410 # FeaturePebbles2
+---| 411 # FeaturePebbles3
+---| 412 # FeaturePebbles4
+---| 413 # MineralWallSmoothRD2
+---| 414 # MineralWallSmoothR2D
+---| 415 # MineralWallSmoothR2U
+---| 416 # MineralWallSmoothRU2
+---| 417 # MineralWallSmoothL2U
+---| 418 # MineralWallSmoothLU2
+---| 419 # MineralWallSmoothL2D
+---| 420 # MineralWallSmoothLD2
+---| 421 # MineralWallSmoothLRUD
+---| 422 # MineralWallSmoothRUD
+---| 423 # MineralWallSmoothLRD
+---| 424 # MineralWallSmoothLRU
+---| 425 # MineralWallSmoothLUD
+---| 426 # MineralWallSmoothRD
+---| 427 # MineralWallSmoothRU
+---| 428 # MineralWallSmoothLU
+---| 429 # MineralWallSmoothLD
+---| 430 # MineralWallSmoothUD
+---| 431 # MineralWallSmoothLR
+---| 432 # MineralFortification
+---| 433 # MineralWallWorn1
+---| 434 # MineralWallWorn2
+---| 435 # MineralWallWorn3
+---| 436 # MineralWall
+---| 437 # MineralFloor1
+---| 438 # MineralFloor2
+---| 439 # MineralFloor3
+---| 440 # MineralFloor4
+---| 441 # MineralBoulder
+---| 442 # MineralPebbles1
+---| 443 # MineralPebbles2
+---| 444 # MineralPebbles3
+---| 445 # MineralPebbles4
+---| 446 # FrozenWallSmoothRD2
+---| 447 # FrozenWallSmoothR2D
+---| 448 # FrozenWallSmoothR2U
+---| 449 # FrozenWallSmoothRU2
+---| 450 # FrozenWallSmoothL2U
+---| 451 # FrozenWallSmoothLU2
+---| 452 # FrozenWallSmoothL2D
+---| 453 # FrozenWallSmoothLD2
+---| 454 # FrozenWallSmoothLRUD
+---| 455 # FrozenWallSmoothRUD
+---| 456 # FrozenWallSmoothLRD
+---| 457 # FrozenWallSmoothLRU
+---| 458 # FrozenWallSmoothLUD
+---| 459 # FrozenWallSmoothRD
+---| 460 # FrozenWallSmoothRU
+---| 461 # FrozenWallSmoothLU
+---| 462 # FrozenWallSmoothLD
+---| 463 # FrozenWallSmoothUD
+---| 464 # FrozenWallSmoothLR
+---| 465 # RiverRampN
+---| 466 # RiverRampS
+---| 467 # RiverRampE
+---| 468 # RiverRampW
+---| 469 # RiverRampNW
+---| 470 # RiverRampNE
+---| 471 # RiverRampSW
+---| 472 # RiverRampSE
+---| 473 # Unused473
+---| 474 # Unused474
+---| 475 # Unused475
+---| 476 # Unused476
+---| 477 # Unused477
+---| 478 # Unused478
+---| 479 # Unused479
+---| 480 # Unused480
+---| 481 # Unused481
+---| 482 # Unused482
+---| 483 # Unused483
+---| 484 # Unused484
+---| 485 # Unused485
+---| 486 # Unused486
+---| 487 # Unused487
+---| 488 # Unused488
+---| 489 # ConstructedFloor
+---| 490 # ConstructedFortification
+---| 491 # ConstructedPillar
+---| 492 # ConstructedWallRD2
+---| 493 # ConstructedWallR2D
+---| 494 # ConstructedWallR2U
+---| 495 # ConstructedWallRU2
+---| 496 # ConstructedWallL2U
+---| 497 # ConstructedWallLU2
+---| 498 # ConstructedWallL2D
+---| 499 # ConstructedWallLD2
+---| 500 # ConstructedWallLRUD
+---| 501 # ConstructedWallRUD
+---| 502 # ConstructedWallLRD
+---| 503 # ConstructedWallLRU
+---| 504 # ConstructedWallLUD
+---| 505 # ConstructedWallRD
+---| 506 # ConstructedWallRU
+---| 507 # ConstructedWallLU
+---| 508 # ConstructedWallLD
+---| 509 # ConstructedWallUD
+---| 510 # ConstructedWallLR
+---| 511 # ConstructedStairUD
+---| 512 # ConstructedStairD
+---| 513 # ConstructedStairU
+---| 514 # ConstructedRamp
+---| 515 # StoneFloorTrackN
+---| 516 # StoneFloorTrackS
+---| 517 # StoneFloorTrackE
+---| 518 # StoneFloorTrackW
+---| 519 # StoneFloorTrackNS
+---| 520 # StoneFloorTrackNE
+---| 521 # StoneFloorTrackNW
+---| 522 # StoneFloorTrackSE
+---| 523 # StoneFloorTrackSW
+---| 524 # StoneFloorTrackEW
+---| 525 # StoneFloorTrackNSE
+---| 526 # StoneFloorTrackNSW
+---| 527 # StoneFloorTrackNEW
+---| 528 # StoneFloorTrackSEW
+---| 529 # StoneFloorTrackNSEW
+---| 530 # LavaFloorTrackN
+---| 531 # LavaFloorTrackS
+---| 532 # LavaFloorTrackE
+---| 533 # LavaFloorTrackW
+---| 534 # LavaFloorTrackNS
+---| 535 # LavaFloorTrackNE
+---| 536 # LavaFloorTrackNW
+---| 537 # LavaFloorTrackSE
+---| 538 # LavaFloorTrackSW
+---| 539 # LavaFloorTrackEW
+---| 540 # LavaFloorTrackNSE
+---| 541 # LavaFloorTrackNSW
+---| 542 # LavaFloorTrackNEW
+---| 543 # LavaFloorTrackSEW
+---| 544 # LavaFloorTrackNSEW
+---| 545 # FeatureFloorTrackN
+---| 546 # FeatureFloorTrackS
+---| 547 # FeatureFloorTrackE
+---| 548 # FeatureFloorTrackW
+---| 549 # FeatureFloorTrackNS
+---| 550 # FeatureFloorTrackNE
+---| 551 # FeatureFloorTrackNW
+---| 552 # FeatureFloorTrackSE
+---| 553 # FeatureFloorTrackSW
+---| 554 # FeatureFloorTrackEW
+---| 555 # FeatureFloorTrackNSE
+---| 556 # FeatureFloorTrackNSW
+---| 557 # FeatureFloorTrackNEW
+---| 558 # FeatureFloorTrackSEW
+---| 559 # FeatureFloorTrackNSEW
+---| 560 # MineralFloorTrackN
+---| 561 # MineralFloorTrackS
+---| 562 # MineralFloorTrackE
+---| 563 # MineralFloorTrackW
+---| 564 # MineralFloorTrackNS
+---| 565 # MineralFloorTrackNE
+---| 566 # MineralFloorTrackNW
+---| 567 # MineralFloorTrackSE
+---| 568 # MineralFloorTrackSW
+---| 569 # MineralFloorTrackEW
+---| 570 # MineralFloorTrackNSE
+---| 571 # MineralFloorTrackNSW
+---| 572 # MineralFloorTrackNEW
+---| 573 # MineralFloorTrackSEW
+---| 574 # MineralFloorTrackNSEW
+---| 575 # FrozenFloorTrackN
+---| 576 # FrozenFloorTrackS
+---| 577 # FrozenFloorTrackE
+---| 578 # FrozenFloorTrackW
+---| 579 # FrozenFloorTrackNS
+---| 580 # FrozenFloorTrackNE
+---| 581 # FrozenFloorTrackNW
+---| 582 # FrozenFloorTrackSE
+---| 583 # FrozenFloorTrackSW
+---| 584 # FrozenFloorTrackEW
+---| 585 # FrozenFloorTrackNSE
+---| 586 # FrozenFloorTrackNSW
+---| 587 # FrozenFloorTrackNEW
+---| 588 # FrozenFloorTrackSEW
+---| 589 # FrozenFloorTrackNSEW
+---| 590 # ConstructedFloorTrackN
+---| 591 # ConstructedFloorTrackS
+---| 592 # ConstructedFloorTrackE
+---| 593 # ConstructedFloorTrackW
+---| 594 # ConstructedFloorTrackNS
+---| 595 # ConstructedFloorTrackNE
+---| 596 # ConstructedFloorTrackNW
+---| 597 # ConstructedFloorTrackSE
+---| 598 # ConstructedFloorTrackSW
+---| 599 # ConstructedFloorTrackEW
+---| 600 # ConstructedFloorTrackNSE
+---| 601 # ConstructedFloorTrackNSW
+---| 602 # ConstructedFloorTrackNEW
+---| 603 # ConstructedFloorTrackSEW
+---| 604 # ConstructedFloorTrackNSEW
+---| 605 # StoneRampTrackN
+---| 606 # StoneRampTrackS
+---| 607 # StoneRampTrackE
+---| 608 # StoneRampTrackW
+---| 609 # StoneRampTrackNS
+---| 610 # StoneRampTrackNE
+---| 611 # StoneRampTrackNW
+---| 612 # StoneRampTrackSE
+---| 613 # StoneRampTrackSW
+---| 614 # StoneRampTrackEW
+---| 615 # StoneRampTrackNSE
+---| 616 # StoneRampTrackNSW
+---| 617 # StoneRampTrackNEW
+---| 618 # StoneRampTrackSEW
+---| 619 # StoneRampTrackNSEW
+---| 620 # LavaRampTrackN
+---| 621 # LavaRampTrackS
+---| 622 # LavaRampTrackE
+---| 623 # LavaRampTrackW
+---| 624 # LavaRampTrackNS
+---| 625 # LavaRampTrackNE
+---| 626 # LavaRampTrackNW
+---| 627 # LavaRampTrackSE
+---| 628 # LavaRampTrackSW
+---| 629 # LavaRampTrackEW
+---| 630 # LavaRampTrackNSE
+---| 631 # LavaRampTrackNSW
+---| 632 # LavaRampTrackNEW
+---| 633 # LavaRampTrackSEW
+---| 634 # LavaRampTrackNSEW
+---| 635 # FeatureRampTrackN
+---| 636 # FeatureRampTrackS
+---| 637 # FeatureRampTrackE
+---| 638 # FeatureRampTrackW
+---| 639 # FeatureRampTrackNS
+---| 640 # FeatureRampTrackNE
+---| 641 # FeatureRampTrackNW
+---| 642 # FeatureRampTrackSE
+---| 643 # FeatureRampTrackSW
+---| 644 # FeatureRampTrackEW
+---| 645 # FeatureRampTrackNSE
+---| 646 # FeatureRampTrackNSW
+---| 647 # FeatureRampTrackNEW
+---| 648 # FeatureRampTrackSEW
+---| 649 # FeatureRampTrackNSEW
+---| 650 # MineralRampTrackN
+---| 651 # MineralRampTrackS
+---| 652 # MineralRampTrackE
+---| 653 # MineralRampTrackW
+---| 654 # MineralRampTrackNS
+---| 655 # MineralRampTrackNE
+---| 656 # MineralRampTrackNW
+---| 657 # MineralRampTrackSE
+---| 658 # MineralRampTrackSW
+---| 659 # MineralRampTrackEW
+---| 660 # MineralRampTrackNSE
+---| 661 # MineralRampTrackNSW
+---| 662 # MineralRampTrackNEW
+---| 663 # MineralRampTrackSEW
+---| 664 # MineralRampTrackNSEW
+---| 665 # FrozenRampTrackN
+---| 666 # FrozenRampTrackS
+---| 667 # FrozenRampTrackE
+---| 668 # FrozenRampTrackW
+---| 669 # FrozenRampTrackNS
+---| 670 # FrozenRampTrackNE
+---| 671 # FrozenRampTrackNW
+---| 672 # FrozenRampTrackSE
+---| 673 # FrozenRampTrackSW
+---| 674 # FrozenRampTrackEW
+---| 675 # FrozenRampTrackNSE
+---| 676 # FrozenRampTrackNSW
+---| 677 # FrozenRampTrackNEW
+---| 678 # FrozenRampTrackSEW
+---| 679 # FrozenRampTrackNSEW
+---| 680 # ConstructedRampTrackN
+---| 681 # ConstructedRampTrackS
+---| 682 # ConstructedRampTrackE
+---| 683 # ConstructedRampTrackW
+---| 684 # ConstructedRampTrackNS
+---| 685 # ConstructedRampTrackNE
+---| 686 # ConstructedRampTrackNW
+---| 687 # ConstructedRampTrackSE
+---| 688 # ConstructedRampTrackSW
+---| 689 # ConstructedRampTrackEW
+---| 690 # ConstructedRampTrackNSE
+---| 691 # ConstructedRampTrackNSW
+---| 692 # ConstructedRampTrackNEW
+---| 693 # ConstructedRampTrackSEW
+---| 694 # ConstructedRampTrackNSEW
+---| 695 # Unused695
+---| 696 # Unused696
 
 ---@class _tiletype: DFEnumType
 ---@field Void 0 0x000

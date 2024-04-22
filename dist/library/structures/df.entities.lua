@@ -65,19 +65,19 @@ function _entity_occasion_schedule:insert(index, item) end
 function _entity_occasion_schedule:erase(index) end
 
 ---@alias occasion_schedule_type
----| 'DANCE_PERFORMANCE'
----| 'MUSICAL_PERFORMANCE'
----| 'POETRY_RECITAL'
----| 'STORYTELLING'
----| 'DANCE_COMPETITION'
----| 'MUSICAL_COMPETITION'
----| 'POETRY_COMPETITION'
----| 'FOOT_RACE'
----| 'WRESTLING_COMPETITION'
----| 'THROWING_COMPETITION'
----| 'GLADIATORY_COMPETITION'
----| 'PROCESSION'
----| 'CEREMONY'
+---| 0 # DANCE_PERFORMANCE
+---| 1 # MUSICAL_PERFORMANCE
+---| 2 # POETRY_RECITAL
+---| 3 # STORYTELLING
+---| 4 # DANCE_COMPETITION
+---| 5 # MUSICAL_COMPETITION
+---| 6 # POETRY_COMPETITION
+---| 7 # FOOT_RACE
+---| 10 # WRESTLING_COMPETITION
+---| 11 # THROWING_COMPETITION
+---| 12 # GLADIATORY_COMPETITION
+---| 13 # PROCESSION
+---| 14 # CEREMONY
 
 ---@class _occasion_schedule_type: DFEnumType
 ---@field DANCE_PERFORMANCE 0
@@ -141,20 +141,20 @@ function _entity_occasion_schedule_features:insert(index, item) end
 function _entity_occasion_schedule_features:erase(index) end
 
 ---@alias occasion_schedule_feature
----| 'STORYTELLING'
----| 'POETRY_RECITAL'
----| 'MUSICAL_PERFORMANCE'
----| 'DANCE_PERFORMANCE'
----| 'CRIERS_IN_FRONT'
----| 'ORDER_OF_PRECEDENCE'
----| 'BANNERS'
----| 'IMAGES'
----| 'ACROBATS'
----| 'INCENSE_BURNING'
----| 'COSTUMES'
----| 'CANDLES'
----| 'THE_GIVING_OF_ITEMS'
----| 'THE_SACRIFICE_OF_ITEMS'
+---| 2 # STORYTELLING
+---| 3 # POETRY_RECITAL
+---| 4 # MUSICAL_PERFORMANCE
+---| 5 # DANCE_PERFORMANCE
+---| 7 # CRIERS_IN_FRONT
+---| 8 # ORDER_OF_PRECEDENCE
+---| 9 # BANNERS
+---| 10 # IMAGES
+---| 13 # ACROBATS
+---| 14 # INCENSE_BURNING
+---| 15 # COSTUMES
+---| 16 # CANDLES
+---| 17 # THE_GIVING_OF_ITEMS
+---| 18 # THE_SACRIFICE_OF_ITEMS
 
 ---@class _occasion_schedule_feature: DFEnumType
 ---@field STORYTELLING 2
@@ -311,11 +311,11 @@ df.caravan_state = {}
 
 -- bay12: stage
 ---@alias caravan_state.T_trade_state
----| 'None'
----| 'Approaching'
----| 'AtDepot'
----| 'Leaving'
----| 'Stuck'
+---| 0 # None
+---| 1 # Approaching
+---| 2 # AtDepot
+---| 3 # Leaving
+---| 4 # Stuck
 
 -- bay12: stage
 ---@class _caravan_state.T_trade_state: DFEnumType
@@ -429,70 +429,70 @@ function _entity_buy_requests_mat_cats:insert(index, item) end
 function _entity_buy_requests_mat_cats:erase(index) end
 
 ---@alias entity_sell_category
----| 'Leather'
----| 'ClothPlant'
----| 'ClothSilk'
----| 'Crafts'
----| 'Wood'
----| 'MetalBars'
----| 'SmallCutGems'
----| 'LargeCutGems'
----| 'StoneBlocks'
----| 'Seeds'
----| 'Anvils'
----| 'Weapons'
----| 'TrainingWeapons'
----| 'Ammo'
----| 'TrapComponents'
----| 'DiggingImplements'
----| 'Bodywear'
----| 'Headwear'
----| 'Handwear'
----| 'Footwear'
----| 'Legwear'
----| 'Shields'
----| 'Toys'
----| 'Instruments'
----| 'Pets'
----| 'Drinks'
----| 'Cheese'
----| 'Powders'
----| 'Extracts'
----| 'Meat'
----| 'Fish'
----| 'Plants'
----| 'FruitsNuts'
----| 'GardenVegetables'
----| 'MeatFishRecipes'
----| 'OtherRecipes'
----| 'Stone'
----| 'Cages'
----| 'BagsLeather'
----| 'BagsPlant'
----| 'BagsSilk'
----| 'ThreadPlant'
----| 'ThreadSilk'
----| 'RopesPlant'
----| 'RopesSilk'
----| 'Barrels'
----| 'FlasksWaterskins'
----| 'Quivers'
----| 'Backpacks'
----| 'Sand'
----| 'Glass'
----| 'Miscellaneous'
----| 'Buckets'
----| 'Splints'
----| 'Crutches'
----| 'Eggs'
----| 'BagsYarn'
----| 'RopesYarn'
----| 'ClothYarn'
----| 'ThreadYarn'
----| 'Tools'
----| 'Clay'
----| 'Parchment'
----| 'CupsMugsGoblets'
+---| 0 # Leather
+---| 1 # ClothPlant
+---| 2 # ClothSilk
+---| 3 # Crafts
+---| 4 # Wood
+---| 5 # MetalBars
+---| 6 # SmallCutGems
+---| 7 # LargeCutGems
+---| 8 # StoneBlocks
+---| 9 # Seeds
+---| 10 # Anvils
+---| 11 # Weapons
+---| 12 # TrainingWeapons
+---| 13 # Ammo
+---| 14 # TrapComponents
+---| 15 # DiggingImplements
+---| 16 # Bodywear
+---| 17 # Headwear
+---| 18 # Handwear
+---| 19 # Footwear
+---| 20 # Legwear
+---| 21 # Shields
+---| 22 # Toys
+---| 23 # Instruments
+---| 24 # Pets
+---| 25 # Drinks
+---| 26 # Cheese
+---| 27 # Powders
+---| 28 # Extracts
+---| 29 # Meat
+---| 30 # Fish
+---| 31 # Plants
+---| 32 # FruitsNuts
+---| 33 # GardenVegetables
+---| 34 # MeatFishRecipes
+---| 35 # OtherRecipes
+---| 36 # Stone
+---| 37 # Cages
+---| 38 # BagsLeather
+---| 39 # BagsPlant
+---| 40 # BagsSilk
+---| 41 # ThreadPlant
+---| 42 # ThreadSilk
+---| 43 # RopesPlant
+---| 44 # RopesSilk
+---| 45 # Barrels
+---| 46 # FlasksWaterskins
+---| 47 # Quivers
+---| 48 # Backpacks
+---| 49 # Sand
+---| 50 # Glass
+---| 51 # Miscellaneous
+---| 52 # Buckets
+---| 53 # Splints
+---| 54 # Crutches
+---| 55 # Eggs
+---| 56 # BagsYarn
+---| 57 # RopesYarn
+---| 58 # ClothYarn
+---| 59 # ThreadYarn
+---| 60 # Tools
+---| 61 # Clay
+---| 62 # Parchment
+---| 63 # CupsMugsGoblets
 
 ---@class _entity_sell_category: DFEnumType
 ---@field Leather 0
@@ -671,17 +671,17 @@ function _entity_recipe_item_types:insert(index, item) end
 function _entity_recipe_item_types:erase(index) end
 
 ---@alias historical_entity_type
----| 'Civilization'
----| 'SiteGovernment'
----| 'VesselCrew'
----| 'MigratingGroup'
----| 'NomadicGroup'
----| 'Religion'
----| 'MilitaryUnit'
----| 'Outcast'
----| 'PerformanceTroupe'
----| 'MerchantCompany'
----| 'Guild'
+---| 0 # Civilization
+---| 1 # SiteGovernment
+---| 2 # VesselCrew
+---| 3 # MigratingGroup
+---| 4 # NomadicGroup
+---| 5 # Religion
+---| 6 # MilitaryUnit
+---| 7 # Outcast
+---| 8 # PerformanceTroupe
+---| 9 # MerchantCompany
+---| 10 # Guild
 
 ---@class _historical_entity_type: DFEnumType
 ---@field Civilization 0
@@ -2045,12 +2045,12 @@ function _historical_entity_burial_request:erase(index) end
 df.entity_tissue_style = {}
 
 ---@alias training_knowledge_level
----| 'None'
----| 'FewFacts'
----| 'GeneralFamiliarity'
----| 'Knowledgeable'
----| 'Expert'
----| 'Domesticated'
+---| 0 # None
+---| 1 # FewFacts
+---| 2 # GeneralFamiliarity
+---| 3 # Knowledgeable
+---| 4 # Expert
+---| 5 # Domesticated
 
 ---@class _training_knowledge_level: DFEnumType
 ---@field None 0
@@ -2069,38 +2069,38 @@ df.training_knowledge_level = {}
 
 -- bay12: EntityPositionFlag
 ---@alias entity_position_flags
----| 'IS_LAW_MAKER'
----| 'ELECTED'
----| 'DUTY_BOUND'
----| 'MILITARY_SCREEN_ONLY'
----| 'GENDER_MALE'
----| 'GENDER_FEMALE'
----| 'SUCCESSION_BY_HEIR'
----| 'HAS_RESPONSIBILITIES'
----| 'FLASHES'
----| 'BRAG_ON_KILL'
----| 'CHAT_WORTHY'
----| 'DO_NOT_CULL'
----| 'KILL_QUEST'
----| 'IS_LEADER'
----| 'IS_DIPLOMAT'
----| 'EXPORTED_IN_LEGENDS'
----| 'DETERMINES_COIN_DESIGN'
----| 'ACCOUNT_EXEMPT'
----| 'HAS_MET_POP_REQ'
----| 'HAS_BEEN_REPLACED'
----| 'COLOR'
----| 'RULES_FROM_LOCATION'
----| 'MENIAL_WORK_EXEMPTION'
----| 'MENIAL_WORK_EXEMPTION_SPOUSE'
----| 'SLEEP_PRETENSION'
----| 'PUNISHMENT_EXEMPTION'
----| 'HAS_RECEIVED_POSITIONS'
----| 'ACTIVE'
----| 'QUEST_GIVER'
----| 'SPECIAL_BURIAL'
----| 'REQUIRES_MARKET'
----| 'HAS_MET_MARKET_REQ'
+---| 0 # IS_LAW_MAKER
+---| 1 # ELECTED
+---| 2 # DUTY_BOUND
+---| 3 # MILITARY_SCREEN_ONLY
+---| 4 # GENDER_MALE
+---| 5 # GENDER_FEMALE
+---| 6 # SUCCESSION_BY_HEIR
+---| 7 # HAS_RESPONSIBILITIES
+---| 8 # FLASHES
+---| 9 # BRAG_ON_KILL
+---| 10 # CHAT_WORTHY
+---| 11 # DO_NOT_CULL
+---| 12 # KILL_QUEST
+---| 13 # IS_LEADER
+---| 14 # IS_DIPLOMAT
+---| 15 # EXPORTED_IN_LEGENDS
+---| 16 # DETERMINES_COIN_DESIGN
+---| 17 # ACCOUNT_EXEMPT
+---| 18 # HAS_MET_POP_REQ
+---| 19 # HAS_BEEN_REPLACED
+---| 20 # COLOR
+---| 21 # RULES_FROM_LOCATION
+---| 22 # MENIAL_WORK_EXEMPTION
+---| 23 # MENIAL_WORK_EXEMPTION_SPOUSE
+---| 24 # SLEEP_PRETENSION
+---| 25 # PUNISHMENT_EXEMPTION
+---| 26 # HAS_RECEIVED_POSITIONS
+---| 27 # ACTIVE
+---| 28 # QUEST_GIVER
+---| 29 # SPECIAL_BURIAL
+---| 30 # REQUIRES_MARKET
+---| 31 # HAS_MET_MARKET_REQ
 
 -- bay12: EntityPositionFlag
 ---@class _entity_position_flags: DFEnumType
@@ -2296,39 +2296,39 @@ function _entity_position_assignment_claim:insert(index, item) end
 function _entity_position_assignment_claim:erase(index) end
 
 ---@alias entity_material_category
----| 'None'
----| 'Clothing'
----| 'Leather'
----| 'Cloth'
----| 'Wood'
----| 'Crafts'
----| 'Stone'
----| 'Improvement'
----| 'Glass'
----| 'Wood2'
----| 'Bag'
----| 'Cage'
----| 'WeaponMelee'
----| 'WeaponRanged'
----| 'Ammo'
----| 'Ammo2'
----| 'Pick'
----| 'Armor'
----| 'Gem'
----| 'Bone'
----| 'Shell'
----| 'Pearl'
----| 'Ivory'
----| 'Horn'
----| 'Other'
----| 'Anvil'
----| 'Booze'
----| 'Metal'
----| 'PlantFiber'
----| 'Silk'
----| 'Wool'
----| 'Furniture'
----| 'MiscWood2'
+---| -1 # None
+---| 0 # Clothing
+---| 1 # Leather
+---| 2 # Cloth
+---| 3 # Wood
+---| 4 # Crafts
+---| 5 # Stone
+---| 6 # Improvement
+---| 7 # Glass
+---| 8 # Wood2
+---| 9 # Bag
+---| 10 # Cage
+---| 11 # WeaponMelee
+---| 12 # WeaponRanged
+---| 13 # Ammo
+---| 14 # Ammo2
+---| 15 # Pick
+---| 16 # Armor
+---| 17 # Gem
+---| 18 # Bone
+---| 19 # Shell
+---| 20 # Pearl
+---| 21 # Ivory
+---| 22 # Horn
+---| 23 # Other
+---| 24 # Anvil
+---| 25 # Booze
+---| 26 # Metal
+---| 27 # PlantFiber
+---| 28 # Silk
+---| 29 # Wool
+---| 30 # Furniture
+---| 31 # MiscWood2
 
 ---@class _entity_material_category: DFEnumType
 ---@field None -1
@@ -2465,40 +2465,40 @@ function _entity_uniform_uniform_item_info:insert(index, item) end
 function _entity_uniform_uniform_item_info:erase(index) end
 
 ---@alias entity_event_type
----| 'invasion'
----| 'abduction'
----| 'incident'
----| 'occupation'
----| 'beast'
----| 'group'
----| 'harass'
----| 'flee'
----| 'abandon'
----| 'reclaimed'
----| 'founded'
----| 'reclaiming'
----| 'founding'
----| 'leave'
----| 'insurrection'
----| 'insurrection_end'
----| 'succession'
----| 'claim'
----| 'accept_tribute_offer'
----| 'refuse_tribute_offer'
----| 'accept_tribute_demand'
----| 'refuse_tribute_demand'
----| 'accept_peace_offer'
----| 'refuse_peace_offer'
----| 'cease_tribute_offer'
----| 'artifact_in_site'
----| 'artifact_in_subregion'
----| 'artifact_in_feature_layer'
----| 'artifact_in_inventory'
----| 'artifact_not_in_site'
----| 'artifact_not_in_subregion'
----| 'artifact_not_in_feature_layer'
----| 'artifact_not_in_inventory'
----| 'artifact_was_destroyed'
+---| 0 # invasion
+---| 1 # abduction
+---| 2 # incident
+---| 3 # occupation
+---| 4 # beast
+---| 5 # group
+---| 6 # harass
+---| 7 # flee
+---| 8 # abandon
+---| 9 # reclaimed
+---| 10 # founded
+---| 11 # reclaiming
+---| 12 # founding
+---| 13 # leave
+---| 14 # insurrection
+---| 15 # insurrection_end
+---| 16 # succession
+---| 17 # claim
+---| 18 # accept_tribute_offer
+---| 19 # refuse_tribute_offer
+---| 20 # accept_tribute_demand
+---| 21 # refuse_tribute_demand
+---| 22 # accept_peace_offer
+---| 23 # refuse_peace_offer
+---| 24 # cease_tribute_offer
+---| 25 # artifact_in_site
+---| 26 # artifact_in_subregion
+---| 27 # artifact_in_feature_layer
+---| 28 # artifact_in_inventory
+---| 29 # artifact_not_in_site
+---| 30 # artifact_not_in_subregion
+---| 31 # artifact_not_in_feature_layer
+---| 32 # artifact_not_in_inventory
+---| 33 # artifact_was_destroyed
 
 ---@class _entity_event_type: DFEnumType
 ---@field invasion 0
@@ -2791,9 +2791,9 @@ df.entity_event.T_data.T_insurrection = {}
 df.entity_event.T_data.T_insurrection_end = {}
 
 ---@alias entity_event.T_data.T_insurrection_end.T_result
----| 'Overthrow'
----| 'Failure'
----| 'Crushing'
+---| 0 # Overthrow
+---| 1 # Failure
+---| 2 # Crushing
 
 ---@class _entity_event.T_data.T_insurrection_end.T_result: DFEnumType
 ---@field Overthrow 0
@@ -3100,17 +3100,17 @@ function _agreement_party_unk_1:erase(index) end
 
 -- bay12: EvidenceType
 ---@alias crime_type
----| 'NONE'
----| 'PLOTTER_BRIBERY_ATTEMPT'
----| 'PLOTTER_SEDITION_ATTEMPT'
----| 'PLOTTER_SKIM_EMBEZZLEMENT_ATTEMPT'
----| 'PLOTTER_ASSASSINATION_ATTEMPT'
----| 'PLOTTER_ABDUCTION_ATTEMPT'
----| 'PLOTTER_SABOTAGE_ATTEMPT'
----| 'PLOTTER_THEFT_ATTEMPT'
----| 'CAUGHT_INFILTRATING'
----| 'SUSPECT_CONFESSED_AGREEMENT'
----| 'CAUGHT_UNDER_SURVEILLANCE'
+---| -1 # NONE
+---| 0 # PLOTTER_BRIBERY_ATTEMPT
+---| 1 # PLOTTER_SEDITION_ATTEMPT
+---| 2 # PLOTTER_SKIM_EMBEZZLEMENT_ATTEMPT
+---| 3 # PLOTTER_ASSASSINATION_ATTEMPT
+---| 4 # PLOTTER_ABDUCTION_ATTEMPT
+---| 5 # PLOTTER_SABOTAGE_ATTEMPT
+---| 6 # PLOTTER_THEFT_ATTEMPT
+---| 7 # CAUGHT_INFILTRATING
+---| 8 # SUSPECT_CONFESSED_AGREEMENT
+---| 9 # CAUGHT_UNDER_SURVEILLANCE
 
 -- bay12: EvidenceType
 ---@class _crime_type: DFEnumType
@@ -3139,22 +3139,22 @@ function _agreement_party_unk_1:erase(index) end
 df.crime_type = {}
 
 ---@alias agreement_details_type
----| 'JoinParty'
----| 'DemonicBinding'
----| 'Residency'
----| 'Citizenship'
----| 'Parley'
----| 'PositionCorruption'
----| 'PlotStealArtifact'
----| 'PromisePosition'
----| 'PlotAssassination'
----| 'PlotAbduct'
----| 'PlotSabotage'
----| 'PlotConviction'
----| 'Location'
----| 'PlotInfiltrationCoup'
----| 'PlotFrameTreason'
----| 'PlotInduceWar'
+---| 0 # JoinParty
+---| 1 # DemonicBinding
+---| 2 # Residency
+---| 3 # Citizenship
+---| 4 # Parley
+---| 5 # PositionCorruption
+---| 6 # PlotStealArtifact
+---| 7 # PromisePosition
+---| 8 # PlotAssassination
+---| 9 # PlotAbduct
+---| 10 # PlotSabotage
+---| 11 # PlotConviction
+---| 12 # Location
+---| 13 # PlotInfiltrationCoup
+---| 14 # PlotFrameTreason
+---| 15 # PlotInduceWar
 
 ---@class _agreement_details_type: DFEnumType
 ---@field JoinParty 0

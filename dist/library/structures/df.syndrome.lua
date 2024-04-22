@@ -2,55 +2,55 @@
 ---@meta
 
 ---@alias creature_interaction_effect_type
----| 'PAIN'
----| 'SWELLING'
----| 'OOZING'
----| 'BRUISING'
----| 'BLISTERS'
----| 'NUMBNESS'
----| 'PARALYSIS'
----| 'FEVER'
----| 'BLEEDING'
----| 'COUGH_BLOOD'
----| 'VOMIT_BLOOD'
----| 'NAUSEA'
----| 'UNCONSCIOUSNESS'
----| 'NECROSIS'
----| 'IMPAIR_FUNCTION'
----| 'DROWSINESS'
----| 'DIZZINESS'
----| 'ADD_TAG'
----| 'REMOVE_TAG'
----| 'DISPLAY_TILE'
----| 'FLASH_TILE'
----| 'SPEED_CHANGE'
----| 'CAN_DO_INTERACTION'
----| 'SKILL_ROLL_ADJUST'
----| 'BODY_TRANSFORMATION'
----| 'PHYS_ATT_CHANGE'
----| 'MENT_ATT_CHANGE'
----| 'MATERIAL_FORCE_MULTIPLIER'
----| 'BODY_MAT_INTERACTION'
----| 'BODY_APPEARANCE_MODIFIER'
----| 'BP_APPEARANCE_MODIFIER'
----| 'DISPLAY_NAME'
----| 'SENSE_CREATURE_CLASS'
----| 'FEEL_EMOTION'
----| 'CHANGE_PERSONALITY'
----| 'ERRATIC_BEHAVIOR'
----| 'SPECIAL_ATTACK_INTERACTION'
----| 'REGROW_PARTS'
----| 'CLOSE_OPEN_WOUNDS'
----| 'HEAL_TISSUES'
----| 'HEAL_NERVES'
----| 'STOP_BLEEDING'
----| 'REDUCE_PAIN'
----| 'REDUCE_DIZZINESS'
----| 'REDUCE_NAUSEA'
----| 'REDUCE_SWELLING'
----| 'CURE_INFECTION'
----| 'REDUCE_PARALYSIS'
----| 'REDUCE_FEVER'
+---| 0 # PAIN
+---| 1 # SWELLING
+---| 2 # OOZING
+---| 3 # BRUISING
+---| 4 # BLISTERS
+---| 5 # NUMBNESS
+---| 6 # PARALYSIS
+---| 7 # FEVER
+---| 8 # BLEEDING
+---| 9 # COUGH_BLOOD
+---| 10 # VOMIT_BLOOD
+---| 11 # NAUSEA
+---| 12 # UNCONSCIOUSNESS
+---| 13 # NECROSIS
+---| 14 # IMPAIR_FUNCTION
+---| 15 # DROWSINESS
+---| 16 # DIZZINESS
+---| 17 # ADD_TAG
+---| 18 # REMOVE_TAG
+---| 19 # DISPLAY_TILE
+---| 20 # FLASH_TILE
+---| 21 # SPEED_CHANGE
+---| 22 # CAN_DO_INTERACTION
+---| 23 # SKILL_ROLL_ADJUST
+---| 24 # BODY_TRANSFORMATION
+---| 25 # PHYS_ATT_CHANGE
+---| 26 # MENT_ATT_CHANGE
+---| 27 # MATERIAL_FORCE_MULTIPLIER
+---| 28 # BODY_MAT_INTERACTION
+---| 29 # BODY_APPEARANCE_MODIFIER
+---| 30 # BP_APPEARANCE_MODIFIER
+---| 31 # DISPLAY_NAME
+---| 32 # SENSE_CREATURE_CLASS
+---| 33 # FEEL_EMOTION
+---| 34 # CHANGE_PERSONALITY
+---| 35 # ERRATIC_BEHAVIOR
+---| 36 # SPECIAL_ATTACK_INTERACTION
+---| 37 # REGROW_PARTS
+---| 38 # CLOSE_OPEN_WOUNDS
+---| 39 # HEAL_TISSUES
+---| 40 # HEAL_NERVES
+---| 41 # STOP_BLEEDING
+---| 42 # REDUCE_PAIN
+---| 43 # REDUCE_DIZZINESS
+---| 44 # REDUCE_NAUSEA
+---| 45 # REDUCE_SWELLING
+---| 46 # CURE_INFECTION
+---| 47 # REDUCE_PARALYSIS
+---| 48 # REDUCE_FEVER
 
 ---@class _creature_interaction_effect_type: DFEnumType
 ---@field PAIN 0
@@ -357,9 +357,9 @@ df.cie_add_tag_mask1 = {}
 df.cie_add_tag_mask2 = {}
 
 ---@alias creature_interaction_effect_target_mode
----| 'BY_TYPE'
----| 'BY_TOKEN'
----| 'BY_CATEGORY'
+---| 0 # BY_TYPE
+---| 1 # BY_TOKEN
+---| 2 # BY_CATEGORY
 
 ---@class _creature_interaction_effect_target_mode: DFEnumType
 ---@field BY_TYPE 0

@@ -1344,20 +1344,20 @@ df.knowledge_scholar_category_flag = {}
 
 -- determines which bitflags to use
 ---@alias knowledge_scholar_category_flag.T_flag_type
----| 'flags_0'
----| 'flags_1'
----| 'flags_2'
----| 'flags_3'
----| 'flags_4'
----| 'flags_5'
----| 'flags_6'
----| 'flags_7'
----| 'flags_8'
----| 'flags_9'
----| 'flags_10'
----| 'flags_11'
----| 'flags_12'
----| 'flags_13'
+---| 0 # flags_0
+---| 1 # flags_1
+---| 2 # flags_2
+---| 3 # flags_3
+---| 4 # flags_4
+---| 5 # flags_5
+---| 6 # flags_6
+---| 7 # flags_7
+---| 8 # flags_8
+---| 9 # flags_9
+---| 10 # flags_10
+---| 11 # flags_11
+---| 12 # flags_12
+---| 13 # flags_13
 
 -- determines which bitflags to use
 ---@class _knowledge_scholar_category_flag.T_flag_type: DFEnumType
@@ -1415,318 +1415,318 @@ df.knowledge_scholar_category_flag.T_flag_data = {}
 
 -- not in DF
 ---@alias dfhack_knowledge_scholar_flag
----| 'philosophy_logic_formal_reasoning'
----| 'philosophy_logic_deductive_reasoning'
----| 'philosophy_logic_syllogistic_logic'
----| 'philosophy_logic_hypothetical_syllogisms'
----| 'philosophy_logic_propositional_logic'
----| 'philosophy_logic_dialectic_reasoning'
----| 'philosophy_logic_analogical_inference'
----| 'philosophy_ethics_applied_medical'
----| 'philosophy_ethics_individual_value'
----| 'philosophy_ethics_state_consequentialism'
----| 'philosophy_epistemology_truth'
----| 'philosophy_epistemology_perception'
----| 'philosophy_epistemology_justification'
----| 'philosophy_epistemology_belief'
----| 'philosophy_metaphysics_existence'
----| 'philosophy_metaphysics_time'
----| 'philosophy_metaphysics_mind_body'
----| 'philosophy_metaphysics_objects_and_properties'
----| 'philosophy_metaphysics_wholes_and_parts'
----| 'philosophy_metaphysics_events'
----| 'philosophy_metaphysics_processes'
----| 'philosophy_metaphysics_causation'
----| 'philosophy_ethics_applied_military'
----| 'philosophy_ethics_applied_interpersonal_conduct'
----| 'philosophy_specialized_law'
----| 'philosophy_specialized_education'
----| 'philosophy_specialized_language_grammar'
----| 'philosophy_specialized_language_etymology'
----| 'philosophy_specialized_politics_diplomacy'
----| 'philosophy_specialized_politics_government_forms'
----| 'philosophy_specialized_politics_economic_policy'
----| 'philosophy_specialized_politics_social_welfare'
----| 'philosophy_logic_inductive_reasoning'
----| 'philosophy_logic_direct_inference'
----| 'philosophy_aesthetics_nature_of_beauty'
----| 'philosophy_aesthetics_value_of_art'
----| 'philosophy_specialized_language_dictionary'
----| 'mathematics_method_proof_by_contradiction'
----| 'mathematics_notation_zero'
----| 'mathematics_notation_negative_numbers'
----| 'mathematics_notation_large_numbers'
----| 'mathematics_notation_positional'
----| 'mathematics_geometry_basic_objects'
----| 'mathematics_method_exhaustion'
----| 'mathematics_geometry_similar_and_congruent_triangles'
----| 'mathematics_geometry_geometric_mean_theorem'
----| 'mathematics_geometry_isosceles_base_angles_equal'
----| 'mathematics_geometry_inscribed_triangle_on_diameter_is_right'
----| 'mathematics_geometry_pythagorean_theorem'
----| 'mathematics_geometry_pythagorean_triples_small'
----| 'mathematics_geometry_pythagorean_triples_3_digit'
----| 'mathematics_geometry_pythagorean_triples_4_digit'
----| 'mathematics_geometry_existence_of_incommensurable_ratios'
----| 'mathematics_method_axiomatic_reasoning'
----| 'mathematics_numbers_unique_prime_factorization'
----| 'mathematics_numbers_algorithm_for_computing_gcd'
----| 'mathematics_geometry_volume_of_pyramid'
----| 'mathematics_geometry_volume_of_cone'
----| 'mathematics_geometry_volume_of_sphere'
----| 'mathematics_geometry_pi_to_4_digits'
----| 'mathematics_numbers_division_algorithm'
----| 'mathematics_geometry_table_of_chord_values'
----| 'mathematics_geometry_area_of_triangle_from_side_lengths'
----| 'mathematics_geometry_area_of_circle'
----| 'mathematics_geometry_pi_to_6_digits'
----| 'mathematics_geometry_definitions_and_basic_properties_of_conic_sections'
----| 'mathematics_numbers_chinese_remainder_algorithm'
----| 'mathematics_geometry_area_enclosed_by_line_and_parabola'
----| 'mathematics_numbers_sieve_algorithm_for_primes'
----| 'mathematics_numbers_root_2_to_5_digits'
----| 'mathematics_numbers_infinite_primes'
----| 'mathematics_numbers_root_2_irrational'
----| 'mathematics_geometry_surface_area_of_sphere'
----| 'mathematics_algebra_finite_summation_formulas'
----| 'mathematics_algebra_solving_linear_systems'
----| 'mathematics_algebra_balancing_and_completion'
----| 'mathematics_algebra_quadratic_by_completing_square'
----| 'mathematics_algebra_quadratic_formula'
----| 'mathematics_notation_syncopated_algebra'
----| 'mathematics_geometry_law_of_sines'
----| 'mathematics_geometry_angle_sum_difference_trig_identities'
----| 'mathematics_algebra_pascals_triangle'
----| 'mathematics_algebra_solving_higher_order_polynomials'
----| 'mathematics_notation_early_symbols_for_operations'
----| 'mathematics_algebra_divergence_of_harmonic_series'
----| 'mathematics_geometry_properties_of_chords'
----| 'history_sourcing_basic_reliability'
----| 'history_sourcing_role_of_systemic_bias'
----| 'history_sourcing_role_of_state_bias_and_propaganda'
----| 'history_sourcing_personal_interviews'
----| 'history_theory_historical_causation'
----| 'history_theory_historical_cycles'
----| 'history_theory_social_cohesion'
----| 'history_theory_social_conflict'
----| 'history_form_biography'
----| 'history_form_comparative_biography'
----| 'history_form_biographical_dictionaries'
----| 'history_form_autobiographical_adventure'
----| 'history_form_genealogy'
----| 'history_form_encyclopedia'
----| 'history_form_cultural_history'
----| 'history_form_cultural_comparison'
----| 'history_sourcing_role_of_cultural_differences'
----| 'history_form_alternate_history'
----| 'history_sourcing_basic_archaeology'
----| 'history_form_treatise_on_tech_evolution'
----| 'astronomy_phases_of_the_moon'
----| 'astronomy_summer_winter_moon'
----| 'astronomy_path_of_the_moon'
----| 'astronomy_tides_and_the_moon'
----| 'astronomy_height_of_tides_vs_moon_and_sun'
----| 'astronomy_summer_winter_sun'
----| 'astronomy_relationship_between_lunar_solar_year'
----| 'astronomy_daylight_variation_with_solar_year'
----| 'astronomy_geocentric_model'
----| 'astronomy_heliocentric_model'
----| 'astronomy_dates_of_lunar_and_solar_eclipses'
----| 'astronomy_star_charts'
----| 'astronomy_star_catalogues_100'
----| 'astronomy_star_catalogues_1000'
----| 'astronomy_star_color_classification'
----| 'astronomy_star_magnitude_classification'
----| 'astronomy_shape_of_the_world'
----| 'astronomy_precession_of_equinoxes'
----| 'astronomy_method_empirical_observation'
----| 'astronomy_method_path_models'
----| 'naturalist_method_dissection'
----| 'naturalist_observation_anatomy'
----| 'naturalist_theory_comparative_anatomy'
----| 'naturalist_theory_classification_by_physical_features'
----| 'naturalist_observation_migration_patterns'
----| 'naturalist_observation_reproductive_behavior'
----| 'naturalist_observation_foraging_behavior_and_diet'
----| 'naturalist_theory_food_chain'
----| 'naturalist_observation_social_behavior'
----| 'naturalist_observation_diseases'
----| 'naturalist_theory_climactic_adaptation'
----| 'naturalist_observation_embriological_development'
----| 'naturalist_theory_struggle_for_existence'
----| 'chemistry_classification_combustibles'
----| 'chemistry_classification_ores'
----| 'chemistry_metallurgy_alloys'
----| 'chemistry_classification_scratch_test'
----| 'chemistry_classification_elemental_theory'
----| 'chemistry_chemicals_adhesives'
----| 'chemistry_laboratory_blast_furnace'
----| 'chemistry_laboratory_alembic'
----| 'chemistry_laboratory_theory_of_liquid_liquid_extraction'
----| 'chemistry_laboratory_theory_of_distillation'
----| 'chemistry_laboratory_theory_of_evaporation'
----| 'chemistry_classification_alkali_and_acids'
----| 'chemistry_laboratory_systematic_experiments'
----| 'chemistry_laboratory_glass_flask'
----| 'chemistry_laboratory_glass_beaker'
----| 'chemistry_laboratory_glass_vial'
----| 'chemistry_laboratory_glass_funnel'
----| 'chemistry_laboratory_crucible'
----| 'chemistry_chemicals_nitric_acid'
----| 'chemistry_chemicals_sulfuric_acid'
----| 'chemistry_chemicals_aqua_regia'
----| 'chemistry_laboratory_glass_ampoule'
----| 'chemistry_laboratory_glass_retort'
----| 'chemistry_laboratory_lab_ovens'
----| 'geography_surveying_basic'
----| 'geography_surveying_staff'
----| 'geography_cartography_basic'
----| 'geography_surveying_triangulation'
----| 'geography_surveying_cartographical'
----| 'geography_surveying_land'
----| 'geography_surveying_military'
----| 'geography_surveying_engineering'
----| 'geography_cartography_geological'
----| 'geography_cartography_grid_system'
----| 'geography_cartography_distance_scale'
----| 'geography_cartography_height_measurements'
----| 'geography_method_economic_data_collection'
----| 'geography_cartography_economic'
----| 'geography_form_atlas'
----| 'geography_theory_delta_formation'
----| 'geography_theory_wind_patterns'
----| 'geography_theory_origin_of_rainfall_from_evap_condense'
----| 'geography_theory_water_cycle'
----| 'geography_theory_latitude_climate_zones'
----| 'geography_cartography_accurate_maps'
----| 'geography_cartography_map_projections'
----| 'medicine_theory_disease_and_fouled_water'
----| 'medicine_method_physical_examination'
----| 'medicine_method_autopsy'
----| 'medicine_theory_prognosis'
----| 'medicine_tool_herbal_remedies'
----| 'medicine_tool_animal_remedies'
----| 'medicine_tool_mineral_remedies'
----| 'medicine_tool_bandages'
----| 'medicine_theory_disease_classification'
----| 'medicine_theory_toxicology'
----| 'medicine_theory_acute_and_chronic_conditions'
----| 'medicine_theory_endemic_disease'
----| 'medicine_theory_epidemic_disease'
----| 'medicine_theory_exacerbation'
----| 'medicine_theory_paroxysm'
----| 'medicine_theory_relapse'
----| 'medicine_theory_convalescence'
----| 'medicine_method_treatment_of_traumatic_injuries'
----| 'medicine_method_fracture_treatment'
----| 'medicine_theory_fracture_classification'
----| 'medicine_tool_traction_bench'
----| 'medicine_method_fracture_immobilization'
----| 'medicine_tool_orthopedic_cast'
----| 'medicine_method_surgery_excision'
----| 'medicine_method_surgery_incision'
----| 'medicine_method_hernia_surgery'
----| 'medicine_method_tracheotomy_surgery'
----| 'medicine_method_lithotomy_surgery'
----| 'medicine_method_surgery_scraping'
----| 'medicine_method_surgery_draining'
----| 'medicine_method_surgery_probing'
----| 'medicine_method_surgery_suturing'
----| 'medicine_method_surgery_ligature'
----| 'medicine_theory_surgical_models'
----| 'medicine_tool_mud_bags_as_surgical_models'
----| 'medicine_tool_plants_as_surgical_models'
----| 'medicine_tool_animals_as_surgical_models'
----| 'medicine_theory_specialized_surgical_instruments'
----| 'medicine_tool_forceps'
----| 'medicine_tool_scalpel'
----| 'medicine_tool_surgical_scissors'
----| 'medicine_tool_surgical_needles'
----| 'medicine_method_cataract_surgery'
----| 'medicine_method_cauterization'
----| 'medicine_method_anesthesia'
----| 'medicine_theory_pulmonary_medicine'
----| 'medicine_theory_anatomical_studies'
----| 'medicine_theory_classification_of_bodily_fluids'
----| 'medicine_theory_eye_anatomy'
----| 'medicine_theory_motor_vs_sensory_nerves'
----| 'medicine_theory_nervous_system_function'
----| 'medicine_theory_reaction_time'
----| 'medicine_theory_blood_vessels'
----| 'medicine_theory_pulmonary_circulation'
----| 'medicine_theory_comparative_anatomy'
----| 'medicine_theory_the_voice'
----| 'medicine_theory_classification_of_muscles'
----| 'medicine_theory_classification_of_mental_illnesses'
----| 'medicine_theory_treatment_of_mental_illnesses'
----| 'medicine_tool_dedicated_hospitals'
----| 'medicine_method_professional_hospital_staff'
----| 'medicine_method_specialized_wards'
----| 'medicine_method_hospital_lab'
----| 'medicine_method_medical_school'
----| 'medicine_method_asylum_for_mentally_ill'
----| 'engineering_horology_shadow_clock'
----| 'engineering_horology_water_clock'
----| 'engineering_horology_conical_water_clock'
----| 'engineering_horology_water_clock_reservoir'
----| 'engineering_horology_astrarium'
----| 'engineering_horology_hourglass'
----| 'engineering_horology_mechanical_clock'
----| 'engineering_machine_theory_of_pulley'
----| 'engineering_machine_pulley'
----| 'engineering_machine_theory_of_screw'
----| 'engineering_machine_screw'
----| 'engineering_machine_theory_of_wheel_and_axle'
----| 'engineering_machine_windlass'
----| 'engineering_machine_theory_of_wedge'
----| 'engineering_machine_theory_of_lever'
----| 'engineering_machine_lever'
----| 'engineering_machine_straight_beam_balance'
----| 'engineering_machine_theory_of_gears'
----| 'engineering_machine_warded_lock'
----| 'engineering_machine_tumbler_lock'
----| 'engineering_machine_padlock'
----| 'engineering_machine_camshaft'
----| 'engineering_machine_crankshaft'
----| 'engineering_machine_water_powered_sawmill'
----| 'engineering_machine_chariot_odometer'
----| 'engineering_machine_chain_drive'
----| 'engineering_machine_mechanical_compass'
----| 'engineering_machine_differential_gear'
----| 'engineering_machine_combination_lock'
----| 'engineering_machine_verge_escapement'
----| 'engineering_machine_balance_wheel'
----| 'engineering_fluid_theory_of_siphon'
----| 'engineering_fluid_valves'
----| 'engineering_fluid_force_pump'
----| 'engineering_optics_crystal_lens'
----| 'engineering_optics_water_filled_spheres'
----| 'engineering_optics_glass_lens'
----| 'engineering_optics_camera_obscura'
----| 'engineering_optics_parabolic_mirror'
----| 'engineering_optics_theory_of_color'
----| 'engineering_optics_theory_of_rainbows'
----| 'engineering_optics_law_of_refraction'
----| 'engineering_design_models_and_templates'
----| 'engineering_construction_wood_lamination'
----| 'engineering_astronomy_dioptra'
----| 'engineering_astronomy_astrolabe'
----| 'engineering_astronomy_armillary_sphere'
----| 'engineering_astronomy_spherical_astrolabe'
----| 'engineering_astronomy_mural_instrument'
----| 'engineering_astronomy_orrery'
----| 'engineering_machine_water_powered_trip_hammer'
----| 'engineering_machine_double_acting_piston_bellows'
----| 'engineering_fluid_archimedes_principle'
----| 'engineering_optics_atmospheric_refraction'
----| 'engineering_optics_cause_of_twilight'
----| 'engineering_optics_height_of_atmosphere'
----| 'engineering_machine_piston'
----| 'engineering_machine_crank'
----| 'engineering_machine_bellows'
----| 'engineering_machine_water_powered_piston_bellows'
----| 'engineering_machine_water_wheel'
----| 'engineering_machine_trip_hammer'
+---| 0 # philosophy_logic_formal_reasoning
+---| 1 # philosophy_logic_deductive_reasoning
+---| 2 # philosophy_logic_syllogistic_logic
+---| 3 # philosophy_logic_hypothetical_syllogisms
+---| 4 # philosophy_logic_propositional_logic
+---| 5 # philosophy_logic_dialectic_reasoning
+---| 6 # philosophy_logic_analogical_inference
+---| 7 # philosophy_ethics_applied_medical
+---| 8 # philosophy_ethics_individual_value
+---| 9 # philosophy_ethics_state_consequentialism
+---| 10 # philosophy_epistemology_truth
+---| 11 # philosophy_epistemology_perception
+---| 12 # philosophy_epistemology_justification
+---| 13 # philosophy_epistemology_belief
+---| 14 # philosophy_metaphysics_existence
+---| 15 # philosophy_metaphysics_time
+---| 16 # philosophy_metaphysics_mind_body
+---| 17 # philosophy_metaphysics_objects_and_properties
+---| 18 # philosophy_metaphysics_wholes_and_parts
+---| 19 # philosophy_metaphysics_events
+---| 20 # philosophy_metaphysics_processes
+---| 21 # philosophy_metaphysics_causation
+---| 22 # philosophy_ethics_applied_military
+---| 23 # philosophy_ethics_applied_interpersonal_conduct
+---| 24 # philosophy_specialized_law
+---| 25 # philosophy_specialized_education
+---| 26 # philosophy_specialized_language_grammar
+---| 27 # philosophy_specialized_language_etymology
+---| 28 # philosophy_specialized_politics_diplomacy
+---| 29 # philosophy_specialized_politics_government_forms
+---| 30 # philosophy_specialized_politics_economic_policy
+---| 31 # philosophy_specialized_politics_social_welfare
+---| 32 # philosophy_logic_inductive_reasoning
+---| 33 # philosophy_logic_direct_inference
+---| 34 # philosophy_aesthetics_nature_of_beauty
+---| 35 # philosophy_aesthetics_value_of_art
+---| 36 # philosophy_specialized_language_dictionary
+---| 64 # mathematics_method_proof_by_contradiction
+---| 65 # mathematics_notation_zero
+---| 66 # mathematics_notation_negative_numbers
+---| 67 # mathematics_notation_large_numbers
+---| 68 # mathematics_notation_positional
+---| 69 # mathematics_geometry_basic_objects
+---| 70 # mathematics_method_exhaustion
+---| 71 # mathematics_geometry_similar_and_congruent_triangles
+---| 72 # mathematics_geometry_geometric_mean_theorem
+---| 73 # mathematics_geometry_isosceles_base_angles_equal
+---| 74 # mathematics_geometry_inscribed_triangle_on_diameter_is_right
+---| 75 # mathematics_geometry_pythagorean_theorem
+---| 76 # mathematics_geometry_pythagorean_triples_small
+---| 77 # mathematics_geometry_pythagorean_triples_3_digit
+---| 78 # mathematics_geometry_pythagorean_triples_4_digit
+---| 79 # mathematics_geometry_existence_of_incommensurable_ratios
+---| 80 # mathematics_method_axiomatic_reasoning
+---| 81 # mathematics_numbers_unique_prime_factorization
+---| 82 # mathematics_numbers_algorithm_for_computing_gcd
+---| 83 # mathematics_geometry_volume_of_pyramid
+---| 84 # mathematics_geometry_volume_of_cone
+---| 85 # mathematics_geometry_volume_of_sphere
+---| 86 # mathematics_geometry_pi_to_4_digits
+---| 87 # mathematics_numbers_division_algorithm
+---| 88 # mathematics_geometry_table_of_chord_values
+---| 89 # mathematics_geometry_area_of_triangle_from_side_lengths
+---| 90 # mathematics_geometry_area_of_circle
+---| 91 # mathematics_geometry_pi_to_6_digits
+---| 92 # mathematics_geometry_definitions_and_basic_properties_of_conic_sections
+---| 93 # mathematics_numbers_chinese_remainder_algorithm
+---| 94 # mathematics_geometry_area_enclosed_by_line_and_parabola
+---| 95 # mathematics_numbers_sieve_algorithm_for_primes
+---| 96 # mathematics_numbers_root_2_to_5_digits
+---| 97 # mathematics_numbers_infinite_primes
+---| 98 # mathematics_numbers_root_2_irrational
+---| 99 # mathematics_geometry_surface_area_of_sphere
+---| 100 # mathematics_algebra_finite_summation_formulas
+---| 101 # mathematics_algebra_solving_linear_systems
+---| 102 # mathematics_algebra_balancing_and_completion
+---| 103 # mathematics_algebra_quadratic_by_completing_square
+---| 104 # mathematics_algebra_quadratic_formula
+---| 105 # mathematics_notation_syncopated_algebra
+---| 106 # mathematics_geometry_law_of_sines
+---| 107 # mathematics_geometry_angle_sum_difference_trig_identities
+---| 108 # mathematics_algebra_pascals_triangle
+---| 109 # mathematics_algebra_solving_higher_order_polynomials
+---| 110 # mathematics_notation_early_symbols_for_operations
+---| 111 # mathematics_algebra_divergence_of_harmonic_series
+---| 112 # mathematics_geometry_properties_of_chords
+---| 128 # history_sourcing_basic_reliability
+---| 129 # history_sourcing_role_of_systemic_bias
+---| 130 # history_sourcing_role_of_state_bias_and_propaganda
+---| 131 # history_sourcing_personal_interviews
+---| 132 # history_theory_historical_causation
+---| 133 # history_theory_historical_cycles
+---| 134 # history_theory_social_cohesion
+---| 135 # history_theory_social_conflict
+---| 136 # history_form_biography
+---| 137 # history_form_comparative_biography
+---| 138 # history_form_biographical_dictionaries
+---| 139 # history_form_autobiographical_adventure
+---| 140 # history_form_genealogy
+---| 141 # history_form_encyclopedia
+---| 142 # history_form_cultural_history
+---| 143 # history_form_cultural_comparison
+---| 144 # history_sourcing_role_of_cultural_differences
+---| 145 # history_form_alternate_history
+---| 146 # history_sourcing_basic_archaeology
+---| 147 # history_form_treatise_on_tech_evolution
+---| 160 # astronomy_phases_of_the_moon
+---| 161 # astronomy_summer_winter_moon
+---| 162 # astronomy_path_of_the_moon
+---| 163 # astronomy_tides_and_the_moon
+---| 164 # astronomy_height_of_tides_vs_moon_and_sun
+---| 165 # astronomy_summer_winter_sun
+---| 166 # astronomy_relationship_between_lunar_solar_year
+---| 167 # astronomy_daylight_variation_with_solar_year
+---| 168 # astronomy_geocentric_model
+---| 169 # astronomy_heliocentric_model
+---| 170 # astronomy_dates_of_lunar_and_solar_eclipses
+---| 171 # astronomy_star_charts
+---| 172 # astronomy_star_catalogues_100
+---| 173 # astronomy_star_catalogues_1000
+---| 174 # astronomy_star_color_classification
+---| 175 # astronomy_star_magnitude_classification
+---| 176 # astronomy_shape_of_the_world
+---| 177 # astronomy_precession_of_equinoxes
+---| 178 # astronomy_method_empirical_observation
+---| 179 # astronomy_method_path_models
+---| 192 # naturalist_method_dissection
+---| 193 # naturalist_observation_anatomy
+---| 194 # naturalist_theory_comparative_anatomy
+---| 195 # naturalist_theory_classification_by_physical_features
+---| 196 # naturalist_observation_migration_patterns
+---| 197 # naturalist_observation_reproductive_behavior
+---| 198 # naturalist_observation_foraging_behavior_and_diet
+---| 199 # naturalist_theory_food_chain
+---| 200 # naturalist_observation_social_behavior
+---| 201 # naturalist_observation_diseases
+---| 202 # naturalist_theory_climactic_adaptation
+---| 203 # naturalist_observation_embriological_development
+---| 204 # naturalist_theory_struggle_for_existence
+---| 224 # chemistry_classification_combustibles
+---| 225 # chemistry_classification_ores
+---| 226 # chemistry_metallurgy_alloys
+---| 227 # chemistry_classification_scratch_test
+---| 228 # chemistry_classification_elemental_theory
+---| 229 # chemistry_chemicals_adhesives
+---| 230 # chemistry_laboratory_blast_furnace
+---| 231 # chemistry_laboratory_alembic
+---| 232 # chemistry_laboratory_theory_of_liquid_liquid_extraction
+---| 233 # chemistry_laboratory_theory_of_distillation
+---| 234 # chemistry_laboratory_theory_of_evaporation
+---| 235 # chemistry_classification_alkali_and_acids
+---| 236 # chemistry_laboratory_systematic_experiments
+---| 237 # chemistry_laboratory_glass_flask
+---| 238 # chemistry_laboratory_glass_beaker
+---| 239 # chemistry_laboratory_glass_vial
+---| 240 # chemistry_laboratory_glass_funnel
+---| 241 # chemistry_laboratory_crucible
+---| 242 # chemistry_chemicals_nitric_acid
+---| 243 # chemistry_chemicals_sulfuric_acid
+---| 244 # chemistry_chemicals_aqua_regia
+---| 245 # chemistry_laboratory_glass_ampoule
+---| 246 # chemistry_laboratory_glass_retort
+---| 247 # chemistry_laboratory_lab_ovens
+---| 256 # geography_surveying_basic
+---| 257 # geography_surveying_staff
+---| 258 # geography_cartography_basic
+---| 259 # geography_surveying_triangulation
+---| 260 # geography_surveying_cartographical
+---| 261 # geography_surveying_land
+---| 262 # geography_surveying_military
+---| 263 # geography_surveying_engineering
+---| 264 # geography_cartography_geological
+---| 265 # geography_cartography_grid_system
+---| 266 # geography_cartography_distance_scale
+---| 267 # geography_cartography_height_measurements
+---| 268 # geography_method_economic_data_collection
+---| 269 # geography_cartography_economic
+---| 270 # geography_form_atlas
+---| 271 # geography_theory_delta_formation
+---| 272 # geography_theory_wind_patterns
+---| 273 # geography_theory_origin_of_rainfall_from_evap_condense
+---| 274 # geography_theory_water_cycle
+---| 275 # geography_theory_latitude_climate_zones
+---| 276 # geography_cartography_accurate_maps
+---| 277 # geography_cartography_map_projections
+---| 288 # medicine_theory_disease_and_fouled_water
+---| 289 # medicine_method_physical_examination
+---| 290 # medicine_method_autopsy
+---| 291 # medicine_theory_prognosis
+---| 292 # medicine_tool_herbal_remedies
+---| 293 # medicine_tool_animal_remedies
+---| 294 # medicine_tool_mineral_remedies
+---| 295 # medicine_tool_bandages
+---| 296 # medicine_theory_disease_classification
+---| 297 # medicine_theory_toxicology
+---| 298 # medicine_theory_acute_and_chronic_conditions
+---| 299 # medicine_theory_endemic_disease
+---| 300 # medicine_theory_epidemic_disease
+---| 301 # medicine_theory_exacerbation
+---| 302 # medicine_theory_paroxysm
+---| 303 # medicine_theory_relapse
+---| 304 # medicine_theory_convalescence
+---| 305 # medicine_method_treatment_of_traumatic_injuries
+---| 306 # medicine_method_fracture_treatment
+---| 307 # medicine_theory_fracture_classification
+---| 308 # medicine_tool_traction_bench
+---| 309 # medicine_method_fracture_immobilization
+---| 310 # medicine_tool_orthopedic_cast
+---| 311 # medicine_method_surgery_excision
+---| 312 # medicine_method_surgery_incision
+---| 313 # medicine_method_hernia_surgery
+---| 314 # medicine_method_tracheotomy_surgery
+---| 315 # medicine_method_lithotomy_surgery
+---| 316 # medicine_method_surgery_scraping
+---| 317 # medicine_method_surgery_draining
+---| 318 # medicine_method_surgery_probing
+---| 319 # medicine_method_surgery_suturing
+---| 320 # medicine_method_surgery_ligature
+---| 321 # medicine_theory_surgical_models
+---| 322 # medicine_tool_mud_bags_as_surgical_models
+---| 323 # medicine_tool_plants_as_surgical_models
+---| 324 # medicine_tool_animals_as_surgical_models
+---| 325 # medicine_theory_specialized_surgical_instruments
+---| 326 # medicine_tool_forceps
+---| 327 # medicine_tool_scalpel
+---| 328 # medicine_tool_surgical_scissors
+---| 329 # medicine_tool_surgical_needles
+---| 330 # medicine_method_cataract_surgery
+---| 331 # medicine_method_cauterization
+---| 332 # medicine_method_anesthesia
+---| 333 # medicine_theory_pulmonary_medicine
+---| 334 # medicine_theory_anatomical_studies
+---| 335 # medicine_theory_classification_of_bodily_fluids
+---| 336 # medicine_theory_eye_anatomy
+---| 337 # medicine_theory_motor_vs_sensory_nerves
+---| 338 # medicine_theory_nervous_system_function
+---| 339 # medicine_theory_reaction_time
+---| 340 # medicine_theory_blood_vessels
+---| 341 # medicine_theory_pulmonary_circulation
+---| 342 # medicine_theory_comparative_anatomy
+---| 343 # medicine_theory_the_voice
+---| 344 # medicine_theory_classification_of_muscles
+---| 345 # medicine_theory_classification_of_mental_illnesses
+---| 346 # medicine_theory_treatment_of_mental_illnesses
+---| 347 # medicine_tool_dedicated_hospitals
+---| 348 # medicine_method_professional_hospital_staff
+---| 349 # medicine_method_specialized_wards
+---| 350 # medicine_method_hospital_lab
+---| 351 # medicine_method_medical_school
+---| 352 # medicine_method_asylum_for_mentally_ill
+---| 384 # engineering_horology_shadow_clock
+---| 385 # engineering_horology_water_clock
+---| 386 # engineering_horology_conical_water_clock
+---| 387 # engineering_horology_water_clock_reservoir
+---| 388 # engineering_horology_astrarium
+---| 389 # engineering_horology_hourglass
+---| 390 # engineering_horology_mechanical_clock
+---| 391 # engineering_machine_theory_of_pulley
+---| 392 # engineering_machine_pulley
+---| 393 # engineering_machine_theory_of_screw
+---| 394 # engineering_machine_screw
+---| 395 # engineering_machine_theory_of_wheel_and_axle
+---| 396 # engineering_machine_windlass
+---| 397 # engineering_machine_theory_of_wedge
+---| 398 # engineering_machine_theory_of_lever
+---| 399 # engineering_machine_lever
+---| 400 # engineering_machine_straight_beam_balance
+---| 401 # engineering_machine_theory_of_gears
+---| 402 # engineering_machine_warded_lock
+---| 403 # engineering_machine_tumbler_lock
+---| 404 # engineering_machine_padlock
+---| 405 # engineering_machine_camshaft
+---| 406 # engineering_machine_crankshaft
+---| 407 # engineering_machine_water_powered_sawmill
+---| 408 # engineering_machine_chariot_odometer
+---| 409 # engineering_machine_chain_drive
+---| 410 # engineering_machine_mechanical_compass
+---| 411 # engineering_machine_differential_gear
+---| 412 # engineering_machine_combination_lock
+---| 413 # engineering_machine_verge_escapement
+---| 414 # engineering_machine_balance_wheel
+---| 415 # engineering_fluid_theory_of_siphon
+---| 416 # engineering_fluid_valves
+---| 417 # engineering_fluid_force_pump
+---| 418 # engineering_optics_crystal_lens
+---| 419 # engineering_optics_water_filled_spheres
+---| 420 # engineering_optics_glass_lens
+---| 421 # engineering_optics_camera_obscura
+---| 422 # engineering_optics_parabolic_mirror
+---| 423 # engineering_optics_theory_of_color
+---| 424 # engineering_optics_theory_of_rainbows
+---| 425 # engineering_optics_law_of_refraction
+---| 426 # engineering_design_models_and_templates
+---| 427 # engineering_construction_wood_lamination
+---| 428 # engineering_astronomy_dioptra
+---| 429 # engineering_astronomy_astrolabe
+---| 430 # engineering_astronomy_armillary_sphere
+---| 431 # engineering_astronomy_spherical_astrolabe
+---| 432 # engineering_astronomy_mural_instrument
+---| 433 # engineering_astronomy_orrery
+---| 434 # engineering_machine_water_powered_trip_hammer
+---| 435 # engineering_machine_double_acting_piston_bellows
+---| 436 # engineering_fluid_archimedes_principle
+---| 437 # engineering_optics_atmospheric_refraction
+---| 438 # engineering_optics_cause_of_twilight
+---| 439 # engineering_optics_height_of_atmosphere
+---| 440 # engineering_machine_piston
+---| 441 # engineering_machine_crank
+---| 442 # engineering_machine_bellows
+---| 443 # engineering_machine_water_powered_piston_bellows
+---| 444 # engineering_machine_water_wheel
+---| 445 # engineering_machine_trip_hammer
 
 -- not in DF
 ---@class _dfhack_knowledge_scholar_flag: DFEnumType

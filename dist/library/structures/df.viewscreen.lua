@@ -18,10 +18,10 @@
 df.file_compressorst = {}
 
 ---@alias interface_breakdown_types
----| 'NONE'
----| 'QUIT'
----| 'STOPSCREEN'
----| 'TOFIRST'
+---| 0 # NONE
+---| 1 # QUIT
+---| 2 # STOPSCREEN
+---| 3 # TOFIRST
 
 ---@class _interface_breakdown_types: DFEnumType
 ---@field NONE 0
@@ -35,10 +35,10 @@ df.file_compressorst = {}
 df.interface_breakdown_types = {}
 
 ---@alias interface_push_types
----| 'AS_PARENT'
----| 'AS_CHILD'
----| 'AT_BACK'
----| 'AT_FRONT'
+---| 0 # AS_PARENT
+---| 1 # AS_CHILD
+---| 2 # AT_BACK
+---| 3 # AT_FRONT
 
 ---@class _interface_push_types: DFEnumType
 ---@field AS_PARENT 0
@@ -281,10 +281,10 @@ function _widget_tooltip:insert(index, item) end
 function _widget_tooltip:erase(index) end
 
 ---@alias widget.T_tooltip_type
----| 'NONE'
----| 'REPLACE_MINIMAP'
----| 'ABOVE'
----| 'BELOW'
+---| -1 # NONE
+---| 0 # REPLACE_MINIMAP
+---| 1 # ABOVE
+---| 2 # BELOW
 
 ---@class _widget.T_tooltip_type: DFEnumType
 ---@field NONE -1
@@ -512,9 +512,9 @@ function _widget_menu_colors:erase(index) end
 
 -- bay12: TextboxType
 ---@alias textbox_type
----| 'FILTER'
----| 'NAME'
----| 'NONE'
+---| 0 # FILTER
+---| 1 # NAME
+---| 2 # NONE
 
 -- bay12: TextboxType
 ---@class _textbox_type: DFEnumType
@@ -939,10 +939,10 @@ function _widget_tabs_rows:insert(index, item) end
 function _widget_tabs_rows:erase(index) end
 
 ---@alias widget_tabs.T_tab_type
----| 'DEFAULT'
----| 'SHORT'
----| 'SHORT_SUB'
----| 'SHORT_SUBSUB'
+---| 0 # DEFAULT
+---| 1 # SHORT
+---| 2 # SHORT_SUB
+---| 3 # SHORT_SUBSUB
 
 ---@class _widget_tabs.T_tab_type: DFEnumType
 ---@field DEFAULT 0
@@ -1205,21 +1205,21 @@ df.widget_item_sheet_button = {}
 df.widget_job_details_button = {}
 
 ---@alias unit_list_options
----| 'NONE'
----| 'PORTRAIT'
----| 'NAME_PROF'
----| 'RECENTER'
----| 'SHEET'
----| 'CUR_JOB'
----| 'ACTIVITY_DETAILS'
----| 'HAPPINESS'
----| 'SPECIALIZED'
----| 'WORK_DETAILS'
----| 'SKILLS'
----| 'SELECTED'
----| 'SHOW_GENDER'
----| 'CUSTOM_BUILD'
----| 'FORCE_JOB_WIDTH'
+---| 0 # NONE
+---| 1 # PORTRAIT
+---| 2 # NAME_PROF
+---| 3 # RECENTER
+---| 4 # SHEET
+---| 5 # CUR_JOB
+---| 6 # ACTIVITY_DETAILS
+---| 7 # HAPPINESS
+---| 8 # SPECIALIZED
+---| 9 # WORK_DETAILS
+---| 10 # SKILLS
+---| 11 # SELECTED
+---| 12 # SHOW_GENDER
+---| 13 # CUSTOM_BUILD
+---| 14 # FORCE_JOB_WIDTH
 
 ---@class _unit_list_options: DFEnumType
 ---@field NONE 0
@@ -1680,11 +1680,11 @@ df.MacroScreenSave = {}
 df.shared_world_headerst = {}
 
 ---@alias shared_world_headerst.T_save_type
----| 'NONE'
----| 'ACTIVE'
----| 'INACTIVE'
----| 'MANUAL'
----| 'AUTO'
+---| -1 # NONE
+---| 0 # ACTIVE
+---| 1 # INACTIVE
+---| 2 # MANUAL
+---| 3 # AUTO
 
 ---@class _shared_world_headerst.T_save_type: DFEnumType
 ---@field NONE -1
@@ -1771,42 +1771,42 @@ df.region_headerst.T_last_id = {}
 df.viewscreen_adopt_regionst = {}
 
 ---@alias viewscreen_adopt_regionst.T_cur_step
----| 'OpeningFile'
----| 'ProcessingRawData'
----| 'AllocatingSpace'
----| 'LoadingItems'
----| 'LoadingBuildings'
----| 'LoadingEntities'
----| 'LoadingCoinInformation'
----| 'LoadingMapData'
----| 'LoadingCivilizedPopulations'
----| 'LoadingHistory'
----| 'LoadingParameters'
----| 'LoadingArtifacts'
----| 'LoadingActiveHistoricalFigures'
----| 'LoadingSquads'
----| 'LoadingFormations'
----| 'LoadingActivities'
----| 'LoadingInteractions'
----| 'LoadingWrittenContent'
----| 'LoadingIdentities'
----| 'LoadingIncidents'
----| 'LoadingCrimes'
----| 'LoadingVehicles'
----| 'LoadingArmies'
----| 'LoadingArmyControllers'
----| 'LoadingTrackingInformation'
----| 'LoadingCulturalIdentities'
----| 'LoadingAgreements'
----| 'LoadingArtForms'
----| 'LoadingOccupations'
----| 'LoadingBeliefSystems'
----| 'LoadingImageSets'
----| 'LoadingDivinationSets'
----| 'ClosingFile'
----| 'RebuildingTemporaryInformation'
----| 'PreparingGame'
----| 'Failed'
+---| 0 # OpeningFile
+---| 1 # ProcessingRawData
+---| 2 # AllocatingSpace
+---| 3 # LoadingItems
+---| 4 # LoadingBuildings
+---| 5 # LoadingEntities
+---| 6 # LoadingCoinInformation
+---| 7 # LoadingMapData
+---| 8 # LoadingCivilizedPopulations
+---| 9 # LoadingHistory
+---| 10 # LoadingParameters
+---| 11 # LoadingArtifacts
+---| 12 # LoadingActiveHistoricalFigures
+---| 13 # LoadingSquads
+---| 14 # LoadingFormations
+---| 15 # LoadingActivities
+---| 16 # LoadingInteractions
+---| 17 # LoadingWrittenContent
+---| 18 # LoadingIdentities
+---| 19 # LoadingIncidents
+---| 20 # LoadingCrimes
+---| 21 # LoadingVehicles
+---| 22 # LoadingArmies
+---| 23 # LoadingArmyControllers
+---| 24 # LoadingTrackingInformation
+---| 25 # LoadingCulturalIdentities
+---| 26 # LoadingAgreements
+---| 27 # LoadingArtForms
+---| 28 # LoadingOccupations
+---| 29 # LoadingBeliefSystems
+---| 30 # LoadingImageSets
+---| 31 # LoadingDivinationSets
+---| 32 # ClosingFile
+---| 33 # RebuildingTemporaryInformation
+---| 34 # PreparingGame
+---| 35 # Failed
 
 ---@class _viewscreen_adopt_regionst.T_cur_step: DFEnumType
 ---@field OpeningFile 0
@@ -1884,28 +1884,28 @@ df.viewscreen_adopt_regionst = {}
 df.viewscreen_adopt_regionst.T_cur_step = {}
 
 ---@alias embark_finder_option
----| 'DimensionX'
----| 'DimensionY'
----| 'Savagery'
----| 'Spirit'
----| 'Elevation'
----| 'Temperature'
----| 'Rain'
----| 'Drainage'
----| 'FluxStone'
----| 'AquiferLight'
----| 'AquiferHeavy'
----| 'River'
----| 'UndergroundRiver'
----| 'UndergroundPool'
----| 'MagmaPool'
----| 'MagmaPipe'
----| 'Chasm'
----| 'BottomlessPit'
----| 'OtherFeatures'
----| 'Soil'
----| 'Clay'
----| 'Sand'
+---| 0 # DimensionX
+---| 1 # DimensionY
+---| 2 # Savagery
+---| 3 # Spirit
+---| 4 # Elevation
+---| 5 # Temperature
+---| 6 # Rain
+---| 7 # Drainage
+---| 8 # FluxStone
+---| 9 # AquiferLight
+---| 10 # AquiferHeavy
+---| 11 # River
+---| 12 # UndergroundRiver
+---| 13 # UndergroundPool
+---| 14 # MagmaPool
+---| 15 # MagmaPipe
+---| 16 # Chasm
+---| 17 # BottomlessPit
+---| 18 # OtherFeatures
+---| 19 # Soil
+---| 20 # Clay
+---| 21 # Sand
 
 ---@class _embark_finder_option: DFEnumType
 ---@field DimensionX 0
@@ -2058,15 +2058,15 @@ df.embark_location = {}
 df.viewscreen_choose_start_sitest = {}
 
 ---@alias viewscreen_choose_start_sitest.T_page
----| 'Biome'
----| 'Neighbors'
----| 'Civilization'
----| 'Elevation'
----| 'Cliffs'
----| 'Reclaim'
----| 'Reclaim2'
----| 'Find'
----| 'Notes'
+---| 0 # Biome
+---| 1 # Neighbors
+---| 2 # Civilization
+---| 3 # Elevation
+---| 4 # Cliffs
+---| 5 # Reclaim
+---| 6 # Reclaim2
+---| 7 # Find
+---| 8 # Notes
 
 ---@class _viewscreen_choose_start_sitest.T_page: DFEnumType
 ---@field Biome 0
@@ -2184,10 +2184,10 @@ function _viewscreen_choose_start_sitest_start_civ:insert(index, item) end
 function _viewscreen_choose_start_sitest_start_civ:erase(index) end
 
 ---@alias viewscreen_choose_start_sitest.T_find_results
----| 'None'
----| 'NoResult'
----| 'Partial'
----| 'Suitable'
+---| -1 # None
+---| 0 # NoResult
+---| 1 # Partial
+---| 2 # Suitable
 
 ---@class _viewscreen_choose_start_sitest.T_find_results: DFEnumType
 ---@field None -1
@@ -2254,10 +2254,10 @@ df.mission = {}
 df.mission.T_details = {}
 
 ---@alias mission.T_type
----| 'Raid'
----| 'RecoverArtifact'
----| 'RescuePerson'
----| 'RequestWorkers'
+---| 2 # Raid
+---| 17 # RecoverArtifact
+---| 18 # RescuePerson
+---| 19 # RequestWorkers
 
 ---@class _mission.T_type: DFEnumType
 ---@field Raid 2
@@ -2353,45 +2353,45 @@ function _viewscreen_dwarfmodest_trained_animals:erase(index) end
 df.viewscreen_export_regionst = {}
 
 ---@alias viewscreen_export_regionst.T_state
----| 'Initializing'
----| 'PreliminaryCleaning'
----| 'OffloadingUnits'
----| 'OffloadingArtImages'
----| 'OffloadingFile'
----| 'CharacterizingRawData'
----| 'SortingWorldInformation'
----| 'AllocatingSpace'
----| 'SavingItems'
----| 'SavingBuildings'
----| 'SavingEntities'
----| 'SavingCoinInformation'
----| 'SavingMapData'
----| 'SavingCivilizedPopulations'
----| 'SavingHistory'
----| 'SavingParameters'
----| 'SavingArtifacts'
----| 'SavingActiveHistoricalFigures'
----| 'SavingSquads'
----| 'SavingFormations'
----| 'SavingActivities'
----| 'SavingInteractions'
----| 'SavingWrittenContent'
----| 'SavingIdentities'
----| 'SavingIncidents'
----| 'SavingCrimes'
----| 'SavingVehicles'
----| 'SavingArmies'
----| 'SavingArmyControllers'
----| 'SavingTrackingInfo'
----| 'SavingCulturalIdentities'
----| 'SavingAgreements'
----| 'SavingArtForms'
----| 'SavingOccupations'
----| 'SavingBeliefSystems'
----| 'SavingImageSets'
----| 'SavingDivinationSets'
----| 'ClosingFile'
----| 'SynchronizingFolders'
+---| 0 # Initializing
+---| 1 # PreliminaryCleaning
+---| 2 # OffloadingUnits
+---| 3 # OffloadingArtImages
+---| 4 # OffloadingFile
+---| 5 # CharacterizingRawData
+---| 6 # SortingWorldInformation
+---| 7 # AllocatingSpace
+---| 8 # SavingItems
+---| 9 # SavingBuildings
+---| 10 # SavingEntities
+---| 11 # SavingCoinInformation
+---| 12 # SavingMapData
+---| 13 # SavingCivilizedPopulations
+---| 14 # SavingHistory
+---| 15 # SavingParameters
+---| 16 # SavingArtifacts
+---| 17 # SavingActiveHistoricalFigures
+---| 18 # SavingSquads
+---| 19 # SavingFormations
+---| 20 # SavingActivities
+---| 21 # SavingInteractions
+---| 22 # SavingWrittenContent
+---| 23 # SavingIdentities
+---| 24 # SavingIncidents
+---| 25 # SavingCrimes
+---| 26 # SavingVehicles
+---| 27 # SavingArmies
+---| 28 # SavingArmyControllers
+---| 29 # SavingTrackingInfo
+---| 30 # SavingCulturalIdentities
+---| 31 # SavingAgreements
+---| 32 # SavingArtForms
+---| 33 # SavingOccupations
+---| 34 # SavingBeliefSystems
+---| 35 # SavingImageSets
+---| 36 # SavingDivinationSets
+---| 37 # ClosingFile
+---| 38 # SynchronizingFolders
 
 ---@class _viewscreen_export_regionst.T_state: DFEnumType
 ---@field Initializing 0
@@ -2512,9 +2512,9 @@ function _viewscreen_export_regionst_units_progress_units:erase(index) end
 df.viewscreen_game_cleanerst = {}
 
 ---@alias viewscreen_game_cleanerst.T_state
----| 'CleaningGameObjects'
----| 'CleaningStrandedObjects'
----| 'CleaningPlayObjects'
+---| 0 # CleaningGameObjects
+---| 1 # CleaningStrandedObjects
+---| 2 # CleaningPlayObjects
 
 ---@class _viewscreen_game_cleanerst.T_state: DFEnumType
 ---@field CleaningGameObjects 0
@@ -2661,21 +2661,21 @@ df.world_gen_param_flagarrayst = {}
 df.legend_pagest = {}
 
 ---@alias legend_pagest.T_mode
----| 'NONE'
----| 'MAIN'
----| 'HFS'
----| 'SITES'
----| 'ARTIFACTS'
----| 'BOOKS'
----| 'SUBREGIONS'
----| 'ENTITIES'
----| 'ART'
----| 'ABS'
----| 'ERA'
----| 'HEC'
----| 'MAPS'
----| 'FEATURE_LAYERS'
----| 'POPULATIONS'
+---| -1 # NONE
+---| 0 # MAIN
+---| 1 # HFS
+---| 2 # SITES
+---| 3 # ARTIFACTS
+---| 4 # BOOKS
+---| 5 # SUBREGIONS
+---| 6 # ENTITIES
+---| 7 # ART
+---| 8 # ABS
+---| 9 # ERA
+---| 10 # HEC
+---| 11 # MAPS
+---| 12 # FEATURE_LAYERS
+---| 13 # POPULATIONS
 
 ---@class _legend_pagest.T_mode: DFEnumType
 ---@field NONE -1
@@ -3074,57 +3074,57 @@ df.viewscreen_loadgamest = {}
 
 -- After the on-screen text shown while loading.
 ---@alias viewscreen_loadgamest.T_cur_step
----| 'OpeningFile'
----| 'ProcessingRawData'
----| 'AllocatingSpace'
----| 'LoadingItems'
----| 'LoadingUnits'
----| 'LoadingJobs'
----| 'LoadingSchedules'
----| 'LoadingProjectiles'
----| 'LoadingBuildings'
----| 'LoadingMachines'
----| 'LoadingFlowGuides'
----| 'LoadingEffects'
----| 'LoadingEntities'
----| 'LoadingLocalAnimalPopulations'
----| 'LoadingEvents'
----| 'LoadingMandates'
----| 'LoadingWorkQuotas'
----| 'LoadingWorldEvents'
----| 'LoadingCoinInformation'
----| 'LoadingSquads'
----| 'LoadingFormations'
----| 'LoadingActivities'
----| 'LoadingInteractions'
----| 'LoadingWrittenContent'
----| 'LoadingIdentities'
----| 'LoadingIncidents'
----| 'LoadingCrimes'
----| 'LoadingVehicles'
----| 'LoadingArmies'
----| 'LoadingArmyControllers'
----| 'LoadingTrackingInformation'
----| 'LoadingCulturalIdentities'
----| 'LoadingAgreements'
----| 'LoadingArtForms'
----| 'LoadingOccupations'
----| 'LoadingBeliefSystems'
----| 'LoadingImageSets'
----| 'LoadingDivinationSets'
----| 'LoadingAnnouncements'
----| 'LoadingFortressInformation'
----| 'LoadingWorldInformation'
----| 'LoadingArtifacts'
----| 'LoadingActiveHistoricalFigures'
----| 'LoadingAdventure'
----| 'LoadingGeneralInformation'
----| 'ClosingFile'
----| 'RebuildingTemporaryInformation'
----| 'RebuildingMoreTemporaryInformation'
----| 'PreparingGameScreen'
----| 'HandlingCompatibilityIssues'
----| 'Finishing'
+---| 0 # OpeningFile
+---| 1 # ProcessingRawData
+---| 2 # AllocatingSpace
+---| 3 # LoadingItems
+---| 4 # LoadingUnits
+---| 5 # LoadingJobs
+---| 6 # LoadingSchedules
+---| 7 # LoadingProjectiles
+---| 8 # LoadingBuildings
+---| 9 # LoadingMachines
+---| 10 # LoadingFlowGuides
+---| 11 # LoadingEffects
+---| 12 # LoadingEntities
+---| 13 # LoadingLocalAnimalPopulations
+---| 14 # LoadingEvents
+---| 15 # LoadingMandates
+---| 16 # LoadingWorkQuotas
+---| 17 # LoadingWorldEvents
+---| 18 # LoadingCoinInformation
+---| 19 # LoadingSquads
+---| 20 # LoadingFormations
+---| 21 # LoadingActivities
+---| 22 # LoadingInteractions
+---| 23 # LoadingWrittenContent
+---| 24 # LoadingIdentities
+---| 25 # LoadingIncidents
+---| 26 # LoadingCrimes
+---| 27 # LoadingVehicles
+---| 28 # LoadingArmies
+---| 29 # LoadingArmyControllers
+---| 30 # LoadingTrackingInformation
+---| 31 # LoadingCulturalIdentities
+---| 32 # LoadingAgreements
+---| 33 # LoadingArtForms
+---| 34 # LoadingOccupations
+---| 35 # LoadingBeliefSystems
+---| 36 # LoadingImageSets
+---| 37 # LoadingDivinationSets
+---| 38 # LoadingAnnouncements
+---| 39 # LoadingFortressInformation
+---| 40 # LoadingWorldInformation
+---| 41 # LoadingArtifacts
+---| 42 # LoadingActiveHistoricalFigures
+---| 43 # LoadingAdventure
+---| 44 # LoadingGeneralInformation
+---| 45 # ClosingFile
+---| 46 # RebuildingTemporaryInformation
+---| 47 # RebuildingMoreTemporaryInformation
+---| 48 # PreparingGameScreen
+---| 49 # HandlingCompatibilityIssues
+---| 50 # Finishing
 
 -- After the on-screen text shown while loading.
 ---@class _viewscreen_loadgamest.T_cur_step: DFEnumType
@@ -3564,58 +3564,58 @@ function _nemesis_offload_units:erase(index) end
 df.viewscreen_savegamest = {}
 
 ---@alias viewscreen_savegamest.T_cur_step
----| 'Initializing'
----| 'CheckingDirectoryStructure'
----| 'PreliminaryCleaning'
----| 'OffloadingUnits'
----| 'OffloadingArt'
----| 'OpeningFile'
----| 'CharacterizingRawData'
----| 'AllocatingSpace'
----| 'SavingItems'
----| 'SavingUnits'
----| 'SavingJobs'
----| 'SavingSchedules'
----| 'SavingProjectiles'
----| 'SavingBuildings'
----| 'SavingMachines'
----| 'SavingFlowGuides'
----| 'SavingEffects'
----| 'SavingEntities'
----| 'SavingLocalAnimalPopulations'
----| 'SavingEvents'
----| 'SavingMandates'
----| 'SavingWorkQuotas'
----| 'SavingWorldEvents'
----| 'SavingCoinInformation'
----| 'SavingSquads'
----| 'SavingFormations'
----| 'SavingActivities'
----| 'SavingInteractions'
----| 'SavingWrittenContent'
----| 'SavingIdentities'
----| 'SavingIncidents'
----| 'SavingCrimes'
----| 'SavingVehicles'
----| 'SavingArmies'
----| 'SavingArmyControllers'
----| 'SavingTrackingInformation'
----| 'SavingCulturalIdentities'
----| 'SavingAgreement'
----| 'SavingArtForms'
----| 'SavingOccupations'
----| 'SavingBeliefSystems'
----| 'SavingImageSets'
----| 'SavingDivinationSets'
----| 'SavingAnnouncements'
----| 'SavingFortressInformation'
----| 'SavingWorldInformation'
----| 'SavingArtifacts'
----| 'SavingActiveHistoricalFigures'
----| 'SavingAdventureData'
----| 'SavingGeneralInformation'
----| 'ClosingFile'
----| 'Finishing'
+---| 0 # Initializing
+---| 1 # CheckingDirectoryStructure
+---| 2 # PreliminaryCleaning
+---| 3 # OffloadingUnits
+---| 4 # OffloadingArt
+---| 5 # OpeningFile
+---| 6 # CharacterizingRawData
+---| 7 # AllocatingSpace
+---| 8 # SavingItems
+---| 9 # SavingUnits
+---| 10 # SavingJobs
+---| 11 # SavingSchedules
+---| 12 # SavingProjectiles
+---| 13 # SavingBuildings
+---| 14 # SavingMachines
+---| 15 # SavingFlowGuides
+---| 16 # SavingEffects
+---| 17 # SavingEntities
+---| 18 # SavingLocalAnimalPopulations
+---| 19 # SavingEvents
+---| 20 # SavingMandates
+---| 21 # SavingWorkQuotas
+---| 22 # SavingWorldEvents
+---| 23 # SavingCoinInformation
+---| 24 # SavingSquads
+---| 25 # SavingFormations
+---| 26 # SavingActivities
+---| 27 # SavingInteractions
+---| 28 # SavingWrittenContent
+---| 29 # SavingIdentities
+---| 30 # SavingIncidents
+---| 31 # SavingCrimes
+---| 32 # SavingVehicles
+---| 33 # SavingArmies
+---| 34 # SavingArmyControllers
+---| 35 # SavingTrackingInformation
+---| 36 # SavingCulturalIdentities
+---| 37 # SavingAgreement
+---| 38 # SavingArtForms
+---| 39 # SavingOccupations
+---| 40 # SavingBeliefSystems
+---| 41 # SavingImageSets
+---| 42 # SavingDivinationSets
+---| 43 # SavingAnnouncements
+---| 44 # SavingFortressInformation
+---| 45 # SavingWorldInformation
+---| 46 # SavingArtifacts
+---| 47 # SavingActiveHistoricalFigures
+---| 48 # SavingAdventureData
+---| 49 # SavingGeneralInformation
+---| 50 # ClosingFile
+---| 51 # Finishing
 
 ---@class _viewscreen_savegamest.T_cur_step: DFEnumType
 ---@field Initializing 0
@@ -3725,13 +3725,13 @@ df.viewscreen_savegamest = {}
 df.viewscreen_savegamest.T_cur_step = {}
 
 ---@alias adventurer_attribute_level
----| 'VeryLow'
----| 'Low'
----| 'BelowAverage'
----| 'Average'
----| 'AboveAverage'
----| 'High'
----| 'Superior'
+---| 0 # VeryLow
+---| 1 # Low
+---| 2 # BelowAverage
+---| 3 # Average
+---| 4 # AboveAverage
+---| 5 # High
+---| 6 # Superior
 
 ---@class _adventurer_attribute_level: DFEnumType
 ---@field VeryLow 0
@@ -3762,9 +3762,9 @@ df.adventurer_attribute_level = {}
 df.startup_charactersheet_petst = {}
 
 ---@alias adv_background_option_type
----| 'NONE'
----| 'SQUAD_EPPID'
----| 'REGULAR_UNIT'
+---| -1 # NONE
+---| 0 # SQUAD_EPPID
+---| 1 # REGULAR_UNIT
 
 ---@class _adv_background_option_type: DFEnumType
 ---@field NONE -1
@@ -3862,9 +3862,9 @@ df.adv_background_option_type = {}
 df.setup_character_info = {}
 
 ---@alias setup_character_info.T_difficulty
----| 'Peasant'
----| 'Hero'
----| 'Demigod'
+---| 0 # Peasant
+---| 1 # Hero
+---| 2 # Demigod
 
 ---@class _setup_character_info.T_difficulty: DFEnumType
 ---@field Peasant 0
@@ -3876,19 +3876,19 @@ df.setup_character_info = {}
 df.setup_character_info.T_difficulty = {}
 
 ---@alias setup_character_info.T_sub_mode
----| 'NONE'
----| 'RACE'
----| 'SUBRACE'
----| 'NEMESIS'
----| 'ENTITY'
----| 'DOING_SUB'
----| 'SUB_SKILLS'
----| 'SUB_APPEARANCE'
----| 'SUB_PERSONALITY'
----| 'SUB_BACKGROUND'
----| 'SUB_EQUIPMENT'
----| 'SUB_MOUNTS_AND_PETS'
----| 'FINAL_CONFIRMATION'
+---| -1 # NONE
+---| 0 # RACE
+---| 1 # SUBRACE
+---| 2 # NEMESIS
+---| 3 # ENTITY
+---| 4 # DOING_SUB
+---| 5 # SUB_SKILLS
+---| 6 # SUB_APPEARANCE
+---| 7 # SUB_PERSONALITY
+---| 8 # SUB_BACKGROUND
+---| 9 # SUB_EQUIPMENT
+---| 10 # SUB_MOUNTS_AND_PETS
+---| 11 # FINAL_CONFIRMATION
 
 ---@class _setup_character_info.T_sub_mode: DFEnumType
 ---@field NONE -1
@@ -4370,8 +4370,8 @@ df.viewscreen_choose_game_typest = {}
 
 -- bay12: SaveGameSort
 ---@alias save_game_sort_type
----| 'Name'
----| 'Folder'
+---| 0 # Name
+---| 1 # Folder
 
 -- bay12: SaveGameSort
 ---@class _save_game_sort_type: DFEnumType
@@ -4463,14 +4463,14 @@ function _viewscreen_titlest_menu_line_id:insert(index, item) end
 function _viewscreen_titlest_menu_line_id:erase(index) end
 
 ---@alias viewscreen_titlest.T_menu_line_id.T_menu_line_id
----| 'Continue'
----| 'Start'
----| 'NewWorld'
----| 'TestingArena'
----| 'Mods'
----| 'Settings'
----| 'AboutDF'
----| 'Quit'
+---| 0 # Continue
+---| 1 # Start
+---| 2 # NewWorld
+---| 3 # TestingArena
+---| 4 # Mods
+---| 5 # Settings
+---| 6 # AboutDF
+---| 7 # Quit
 
 ---@class _viewscreen_titlest.T_menu_line_id.T_menu_line_id: DFEnumType
 ---@field Continue 0
@@ -4597,15 +4597,15 @@ function _viewscreen_titlest_mod:erase(index) end
 df.viewscreen_update_regionst = {}
 
 ---@alias world_view_mode_type
----| 'NONE'
----| 'NORMAL'
----| 'CIVILIZATIONS'
----| 'MISSIONS_LIST'
----| 'MISSION_DETAILS'
----| 'NEWS'
----| 'REPORTS'
----| 'CITIZENS'
----| 'ARTIFACTS'
+---| -1 # NONE
+---| 0 # NORMAL
+---| 1 # CIVILIZATIONS
+---| 2 # MISSIONS_LIST
+---| 3 # MISSION_DETAILS
+---| 4 # NEWS
+---| 5 # REPORTS
+---| 6 # CITIZENS
+---| 7 # ARTIFACTS
 
 ---@class _world_view_mode_type: DFEnumType
 ---@field NONE -1

@@ -269,9 +269,9 @@ function _global_ui_building_assign_items:insert(index, item) end
 function _global_ui_building_assign_items:erase(index) end
 
 ---@alias weather_type
----| 'None'
----| 'Rain'
----| 'Snow'
+---| 0 # None
+---| 1 # Rain
+---| 2 # Snow
 
 ---@class _weather_type: DFEnumType
 ---@field None 0
@@ -286,47 +286,47 @@ df.weather_type = {}
 -- Followed by game type. The enum item name is the part between
 -- next_ and _global_id in the Dwarf Fortress global variable table.
 ---@alias next_global_id
----| 'unit'
----| 'soul'
----| 'item'
----| 'civ'
----| 'nem'
----| 'artifact'
----| 'job'
----| 'schedule'
----| 'proj'
----| 'building'
----| 'machine'
----| 'flow_guide'
----| 'histfig'
----| 'histevent'
----| 'histeventcol'
----| 'unitchunk'
----| 'imagechunk'
----| 'task'
----| 'squad'
----| 'formation'
----| 'activity'
----| 'interaction_instance'
----| 'written_content'
----| 'identity'
----| 'incident'
----| 'crime'
----| 'vehicle'
----| 'army'
----| 'army_controller'
----| 'army_tracking_info'
----| 'cultural_identity'
----| 'agreement'
----| 'poetic_form'
----| 'musical_form'
----| 'dance_form'
----| 'scale'
----| 'rhythm'
----| 'occupation'
----| 'belief_system'
----| 'image_set'
----| 'divination_set'
+---| 0 # unit
+---| 1 # soul
+---| 2 # item
+---| 3 # civ
+---| 4 # nem
+---| 5 # artifact
+---| 6 # job
+---| 7 # schedule
+---| 8 # proj
+---| 9 # building
+---| 10 # machine
+---| 11 # flow_guide
+---| 12 # histfig
+---| 13 # histevent
+---| 14 # histeventcol
+---| 15 # unitchunk
+---| 16 # imagechunk
+---| 17 # task
+---| 18 # squad
+---| 19 # formation
+---| 20 # activity
+---| 21 # interaction_instance
+---| 22 # written_content
+---| 23 # identity
+---| 24 # incident
+---| 25 # crime
+---| 26 # vehicle
+---| 27 # army
+---| 28 # army_controller
+---| 29 # army_tracking_info
+---| 30 # cultural_identity
+---| 31 # agreement
+---| 32 # poetic_form
+---| 33 # musical_form
+---| 34 # dance_form
+---| 35 # scale
+---| 36 # rhythm
+---| 37 # occupation
+---| 38 # belief_system
+---| 39 # image_set
+---| 40 # divination_set
 
 -- The storage order of "next ID" fields in the save file.
 -- Followed by game type. The enum item name is the part between
@@ -427,9 +427,9 @@ df.next_global_id = {}
 df.global_table_entry = {}
 
 ---@alias game_mode
----| 'NONE'
----| 'DWARF'
----| 'ADVENTURE'
+---| -1 # NONE
+---| 0 # DWARF
+---| 1 # ADVENTURE
 
 ---@class _game_mode: DFEnumType
 ---@field NONE -1
@@ -442,17 +442,17 @@ df.game_mode = {}
 
 -- bay12: GameType
 ---@alias game_type
----| 'NONE'
----| 'DWARF_MAIN'
----| 'ADVENTURE_MAIN'
----| 'VIEW_LEGENDS'
----| 'DWARF_RECLAIM'
----| 'DWARF_ARENA'
----| 'ADVENTURE_ARENA'
----| 'ADVENTURE_DUNGEON'
----| 'DWARF_TUTORIAL'
----| 'DWARF_UNRETIRE'
----| 'ADVENTURE_WORLD_DEBUG'
+---| -1 # NONE
+---| 0 # DWARF_MAIN
+---| 1 # ADVENTURE_MAIN
+---| 2 # VIEW_LEGENDS
+---| 3 # DWARF_RECLAIM
+---| 4 # DWARF_ARENA
+---| 5 # ADVENTURE_ARENA
+---| 6 # ADVENTURE_DUNGEON
+---| 7 # DWARF_TUTORIAL
+---| 8 # DWARF_UNRETIRE
+---| 9 # ADVENTURE_WORLD_DEBUG
 
 -- bay12: GameType
 ---@class _game_type: DFEnumType
@@ -481,24 +481,24 @@ df.game_mode = {}
 df.game_type = {}
 
 ---@alias lever_target_type
----| 'NONE'
----| 'BarsVertical'
----| 'BarsFloor'
----| 'SpearsSpikes'
----| 'TrackStop'
----| 'GearAssembly'
----| 'Bridge'
----| 'Chain'
----| 'Door'
----| 'EncrustGems'
----| 'Floodgate'
----| 'GrateFloor'
----| 'Hatch'
----| 'Cage'
----| 'LeverMechanism'
----| 'Support'
----| 'TargetMechanism'
----| 'GrateWall'
+---| -1 # NONE
+---| 66 # BarsVertical
+---| 70 # BarsFloor
+---| 83 # SpearsSpikes
+---| 84 # TrackStop
+---| 97 # GearAssembly
+---| 98 # Bridge
+---| 99 # Chain
+---| 100 # Door
+---| 101 # EncrustGems
+---| 102 # Floodgate
+---| 103 # GrateFloor
+---| 104 # Hatch
+---| 106 # Cage
+---| 108 # LeverMechanism
+---| 115 # Support
+---| 116 # TargetMechanism
+---| 119 # GrateWall
 
 ---@class _lever_target_type: DFEnumType
 ---@field NONE -1

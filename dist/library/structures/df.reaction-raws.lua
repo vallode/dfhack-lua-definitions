@@ -2,9 +2,9 @@
 ---@meta
 
 ---@alias reaction_flags
----| 'FUEL'
----| 'AUTOMATIC'
----| 'ADVENTURE_MODE_ENABLED'
+---| 0 # FUEL
+---| 1 # AUTOMATIC
+---| 2 # ADVENTURE_MODE_ENABLED
 
 ---@class _reaction_flags: DFEnumType
 ---@field FUEL 0
@@ -164,7 +164,7 @@ df.reaction_category = {}
 df.reaction_description = {}
 
 ---@alias reaction_reagent_type
----| 'item'
+---| 0 # item
 
 ---@class _reaction_reagent_type: DFEnumType
 ---@field item 0
@@ -244,8 +244,8 @@ df.reaction_reagent_flags = {}
 df.reaction_reagent_itemst = {}
 
 ---@alias reaction_product_type
----| 'item'
----| 'improvement'
+---| 0 # item
+---| 1 # improvement
 
 ---@class _reaction_product_type: DFEnumType
 ---@field item 0
@@ -275,12 +275,12 @@ function reaction_product:getDescription() end
 df.reaction_product = {}
 
 ---@alias reaction_product_item_flags
----| 'GET_MATERIAL_SAME'
----| 'GET_MATERIAL_PRODUCT'
----| 'FORCE_EDGE'
----| 'PASTE'
----| 'PRESSED'
----| 'CRAFTS'
+---| 0 # GET_MATERIAL_SAME
+---| 1 # GET_MATERIAL_PRODUCT
+---| 2 # FORCE_EDGE
+---| 3 # PASTE
+---| 4 # PRESSED
+---| 5 # CRAFTS
 
 ---@class _reaction_product_item_flags: DFEnumType
 ---@field GET_MATERIAL_SAME 0
@@ -341,9 +341,9 @@ function _reaction_product_itemst_flags:erase(index) end
 df.reaction_product_itemst.T_get_material = {}
 
 ---@alias reaction_product_improvement_flags
----| 'GET_MATERIAL_SAME'
----| 'GET_MATERIAL_PRODUCT'
----| 'GLAZED'
+---| 0 # GET_MATERIAL_SAME
+---| 1 # GET_MATERIAL_PRODUCT
+---| 2 # GLAZED
 
 ---@class _reaction_product_improvement_flags: DFEnumType
 ---@field GET_MATERIAL_SAME 0

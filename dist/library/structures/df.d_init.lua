@@ -2,9 +2,9 @@
 ---@meta
 
 ---@alias d_init_nickname
----| 'REPLACE_FIRST'
----| 'CENTRALIZE'
----| 'REPLACE_ALL'
+---| 0 # REPLACE_FIRST
+---| 1 # CENTRALIZE
+---| 2 # REPLACE_ALL
 
 ---@class _d_init_nickname: DFEnumType
 ---@field REPLACE_FIRST 0
@@ -16,9 +16,9 @@
 df.d_init_nickname = {}
 
 ---@alias d_init_embark_confirm
----| 'ALWAYS'
----| 'IF_POINTS_REMAIN'
----| 'NO'
+---| 0 # ALWAYS
+---| 1 # IF_POINTS_REMAIN
+---| 2 # NO
 
 ---@class _d_init_embark_confirm: DFEnumType
 ---@field ALWAYS 0
@@ -30,9 +30,9 @@ df.d_init_nickname = {}
 df.d_init_embark_confirm = {}
 
 ---@alias d_init_tunnel
----| 'NO'
----| 'FINDER'
----| 'ALWAYS'
+---| 0 # NO
+---| 1 # FINDER
+---| 2 # ALWAYS
 
 ---@class _d_init_tunnel: DFEnumType
 ---@field NO 0
@@ -44,11 +44,11 @@ df.d_init_embark_confirm = {}
 df.d_init_tunnel = {}
 
 ---@alias d_init_flags1
----| 'VARIED_GROUND_TILES'
----| 'ENGRAVINGS_START_OBSCURED'
----| 'SHOW_IMP_QUALITY'
----| 'SHOW_FLOW_AMOUNTS'
----| 'SHOW_RAMP_ARROWS'
+---| 0 # VARIED_GROUND_TILES
+---| 1 # ENGRAVINGS_START_OBSCURED
+---| 2 # SHOW_IMP_QUALITY
+---| 3 # SHOW_FLOW_AMOUNTS
+---| 4 # SHOW_RAMP_ARROWS
 
 ---@class _d_init_flags1: DFEnumType
 ---@field VARIED_GROUND_TILES 0
@@ -64,9 +64,9 @@ df.d_init_tunnel = {}
 df.d_init_flags1 = {}
 
 ---@alias d_init_flags2
----| 'MORE'
----| 'ADVENTURER_TRAPS'
----| 'ADVENTURER_ALWAYS_CENTER'
+---| 0 # MORE
+---| 1 # ADVENTURER_TRAPS
+---| 2 # ADVENTURER_ALWAYS_CENTER
 
 ---@class _d_init_flags2: DFEnumType
 ---@field MORE 0
@@ -78,7 +78,7 @@ df.d_init_flags1 = {}
 df.d_init_flags2 = {}
 
 ---@alias d_init_flags3
----| 'COFFIN_NO_PETS_DEFAULT'
+---| 0 # COFFIN_NO_PETS_DEFAULT
 
 ---@class _d_init_flags3: DFEnumType
 ---@field COFFIN_NO_PETS_DEFAULT 0
@@ -86,22 +86,22 @@ df.d_init_flags2 = {}
 df.d_init_flags3 = {}
 
 ---@alias d_init_flags4
----| 'TEMPERATURE'
----| 'WEATHER'
----| 'AUTOSAVE_PAUSE'
----| 'AUTOBACKUP'
----| 'INITIAL_SAVE'
----| 'CAVEINS'
----| 'ARTIFACTS'
----| 'LOG_MAP_REJECTS'
----| 'PAUSE_ON_LOAD'
----| 'EMBARK_WARNING_ALWAYS'
----| 'SHOW_ALL_HISTORY_IN_DWARF_MODE'
----| 'TESTING_ARENA'
----| 'WALKING_SPREADS_SPATTER_DWF'
----| 'WALKING_SPREADS_SPATTER_ADV'
----| 'KEYBOARD_CURSOR'
----| 'MULTITHREADING'
+---| 0 # TEMPERATURE
+---| 1 # WEATHER
+---| 6 # AUTOSAVE_PAUSE
+---| 7 # AUTOBACKUP
+---| 8 # INITIAL_SAVE
+---| 10 # CAVEINS
+---| 11 # ARTIFACTS
+---| 12 # LOG_MAP_REJECTS
+---| 13 # PAUSE_ON_LOAD
+---| 14 # EMBARK_WARNING_ALWAYS
+---| 15 # SHOW_ALL_HISTORY_IN_DWARF_MODE
+---| 16 # TESTING_ARENA
+---| 17 # WALKING_SPREADS_SPATTER_DWF
+---| 18 # WALKING_SPREADS_SPATTER_ADV
+---| 19 # KEYBOARD_CURSOR
+---| 20 # MULTITHREADING
 
 ---@class _d_init_flags4: DFEnumType
 ---@field TEMPERATURE 0
@@ -139,10 +139,10 @@ df.d_init_flags3 = {}
 df.d_init_flags4 = {}
 
 ---@alias d_init_autosave
----| 'NONE'
----| 'SEASONAL'
----| 'YEARLY'
----| 'SEMIANNUAL'
+---| -1 # NONE
+---| 0 # SEASONAL
+---| 1 # YEARLY
+---| 2 # SEMIANNUAL
 
 ---@class _d_init_autosave: DFEnumType
 ---@field NONE -1

@@ -2,9 +2,9 @@
 ---@meta
 
 ---@alias projectile_type
----| 'Item'
----| 'Unit'
----| 'Magic'
+---| 0 # Item
+---| 1 # Unit
+---| 2 # Magic
 
 ---@class _projectile_type: DFEnumType
 ---@field Item 0
