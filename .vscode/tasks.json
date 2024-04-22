@@ -6,17 +6,12 @@
         {
             "label": "Generate annotations",
             "type": "shell",
-            "command": "rake build",
+            "command": "rake debug",
             "problemMatcher": [],
-
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "icon": {
-                "id": "circle-filled",
-                "color": "terminal.ansiGreen"
-            }
         },
         {
             "label": "Generate annotations (only current file)",
@@ -24,10 +19,6 @@
             "command": "rake build ${file}",
             "problemMatcher": [],
             "group": "build",
-            "icon": {
-                "id": "circle-filled",
-                "color": "terminal.ansiGreen"
-            }
         },
         {
             "label": "Run tests",
