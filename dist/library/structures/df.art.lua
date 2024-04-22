@@ -41,13 +41,11 @@ function art_image_element:write_file() end
 
 function art_image_element:read_file() end
 
----@nodiscard
 ---@return art_image_element_type
 function art_image_element:getType() end
 
 function art_image_element:setID() end
 
----@nodiscard
 ---@return art_image_element
 function art_image_element:clone() end
 
@@ -142,11 +140,9 @@ function art_image_property:write_file() end
 
 function art_image_property:read_file() end
 
----@nodiscard
 ---@return art_image_property_type
 function art_image_property:getType() end
 
----@nodiscard
 ---@return art_image_element
 function art_image_property:clone() end
 
@@ -642,6 +638,7 @@ df.poetic_form_action = {}
 ---| 10
 ---| 11
 
+-- A - even, B - uneven for tone patterns, A - unstressed, B - stressed for accent patterns
 ---@alias poetic_form_pattern
 ---| poetic_form_pattern_keys
 ---| poetic_form_pattern_values
@@ -1329,6 +1326,7 @@ df.poetic_form_perspective = {}
 ---| 6
 ---| 7
 
+-- "written from the perspective of ..."
 ---@alias poetic_form_perspective.T_type
 ---| poetic_form_perspective.T_type_keys
 ---| poetic_form_perspective.T_type_values
@@ -3502,6 +3500,7 @@ df.sub_rhythm = {}
 ---| 9
 ---| 10
 
+-- bay12: Occupation
 ---@alias occupation_type
 ---| occupation_type_keys
 ---| occupation_type_values
@@ -3587,6 +3586,7 @@ function _occupation_service_order:erase(index) end
 ---| 1
 ---| 2
 
+-- bay12: ServiceOrder
 ---@alias service_order_type
 ---| service_order_type_keys
 ---| service_order_type_values

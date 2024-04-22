@@ -17,6 +17,7 @@
 ---| 3
 ---| 4
 
+-- Basic tile shape (not in DF)
 ---@alias tiletype_shape_basic
 ---| tiletype_shape_basic_keys
 ---| tiletype_shape_basic_values
@@ -81,6 +82,7 @@ df.tiletype_shape_basic = {}
 ---| 17
 ---| 18
 
+-- Tile shape (not in DF)
 ---@alias tiletype_shape
 ---| tiletype_shape_keys
 ---| tiletype_shape_values
@@ -225,6 +227,7 @@ df.tiletype_shape.attrs = {}
 ---| 24
 ---| 25
 
+-- Tile material (not in DF)
 ---@alias tiletype_material
 ---| tiletype_material_keys
 ---| tiletype_material_values
@@ -338,6 +341,7 @@ df.tiletype_material.attrs = {}
 ---| 2
 ---| 3
 
+-- Cosmetic tile variant (not in DF)
 ---@alias tiletype_variant
 ---| tiletype_variant_keys
 ---| tiletype_variant_values
@@ -386,6 +390,7 @@ df.tiletype_variant = {}
 ---| 10
 ---| 11
 
+-- Functional tile variant (not in DF)
 ---@alias tiletype_special
 ---| tiletype_special_keys
 ---| tiletype_special_values

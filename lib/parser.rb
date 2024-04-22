@@ -28,7 +28,6 @@ module DFHackLuaDefinitions
           StructType.new(node, path)
         end
       else
-        # Sanity check.
         raise "Unknown top-level node: #{node.inspect}" if node['ld:level'] == '0'
 
         Field.new(node, path)
@@ -114,9 +113,9 @@ module DFHackLuaDefinitions
     end
 
     # TODO: Types with index_enums have bi-directional keys.
-    # TODO: Aliases do not support comments for some reason.
     def to_alias
       annotation = []
+      annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@alias #{@class_name}\n"
       annotation << "---| #{@class_name}_keys\n"
       annotation << "---| #{@class_name}_values\n"

@@ -12,11 +12,9 @@
 ---@field hist_fig_to_creature_map DFNumberVector unordered_map<int32_t,int32_t>
 local creature_handler
 
----@nodiscard
 ---@return integer
 function creature_handler:getTile() end
 
----@nodiscard
 ---@return integer
 function creature_handler:getGlowTile() end
 

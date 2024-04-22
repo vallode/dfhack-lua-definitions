@@ -621,7 +621,6 @@ df.squad_order_cannot_reason = {}
 ---@field unk_1 number
 local squad_order
 
----@nodiscard
 ---@return squad_order
 function squad_order:clone() end
 
@@ -629,11 +628,9 @@ function squad_order:write_file() end
 
 function squad_order:read_file() end
 
----@nodiscard
 ---@return squad_order_type
 function squad_order:getType() end
 
----@nodiscard
 ---@return boolean
 function squad_order:isPatrol() end
 
@@ -641,37 +638,29 @@ function squad_order:offsetPosition() end
 
 function squad_order:process() end
 
----@nodiscard
 ---@return squad_order_cannot_reason
 function squad_order:reasonCannot() end
 
----@nodiscard
 ---@return boolean
 function squad_order:decUniformLock() end
 
----@nodiscard
 ---@return boolean
 function squad_order:isFulfilled() end
 
----@nodiscard
 ---@return DFPointer<integer>
 function squad_order:getTargetUnits() end
 
----@nodiscard
 ---@return number
 function squad_order:getUniformType() end
 
 function squad_order:getDescription() end
 
----@nodiscard
 ---@return boolean
 function squad_order:isInactive() end
 
----@nodiscard
 ---@return boolean
 function squad_order:isCombat() end
 
----@nodiscard
 ---@return boolean
 function squad_order:isEqual() end
 
@@ -807,6 +796,7 @@ df.squad_order_rescue_hfst = {}
 ---| 5
 ---| 6
 
+-- bay12: InvasionIntent
 ---@alias invasion_intent_type
 ---| invasion_intent_type_keys
 ---| invasion_intent_type_values
@@ -849,6 +839,7 @@ df.invasion_intent_type = {}
 ---| 4
 ---| 5
 
+-- bay12: InvasionStage
 ---@alias invasion_stage_type
 ---| invasion_stage_type_keys
 ---| invasion_stage_type_values
@@ -927,6 +918,7 @@ df.invasion_stage_type = {}
 ---| 23
 ---| 24
 
+-- bay12: ArmyControllerGoalType
 ---@alias army_controller_goal_type
 ---| army_controller_goal_type_keys
 ---| army_controller_goal_type_values

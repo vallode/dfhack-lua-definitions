@@ -377,6 +377,9 @@ df.weather_type = {}
 ---| 39
 ---| 40
 
+-- The storage order of "next ID" fields in the save file.
+-- Followed by game type. The enum item name is the part between
+-- next_ and _global_id in the Dwarf Fortress global variable table.
 ---@alias next_global_id
 ---| next_global_id_keys
 ---| next_global_id_values
@@ -528,6 +531,7 @@ df.game_mode = {}
 ---| 8
 ---| 9
 
+-- bay12: GameType
 ---@alias game_type
 ---| game_type_keys
 ---| game_type_values

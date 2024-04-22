@@ -219,7 +219,6 @@ df.interaction_effect_location_hint = {}
 ---@field arena_name string IE_ARENA_NAME
 local interaction_effect
 
----@nodiscard
 ---@return interaction_effect_type
 function interaction_effect:getType() end
 
@@ -237,7 +236,6 @@ function interaction_effect:finalize() end
 
 function interaction_effect:applySyndromes() end
 
----@nodiscard
 ---@return boolean
 function interaction_effect:hasSyndrome() end
 
@@ -533,7 +531,6 @@ df.interaction_source_type = {}
 ---@field trigger_string string IS_TRIGGER_STRING
 local interaction_source
 
----@nodiscard
 ---@return interaction_source_type
 function interaction_source:getType() end
 
@@ -874,7 +871,6 @@ df.interaction_target_location_type = {}
 ---@field reference_distance number IT_LOCATION:RANDOM_NEARBY_LOCATION
 local interaction_target
 
----@nodiscard
 ---@return interaction_target_type
 function interaction_target:getType() end
 

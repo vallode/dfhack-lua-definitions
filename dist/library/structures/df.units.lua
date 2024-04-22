@@ -1216,6 +1216,7 @@ df.animal_training_level = {}
 ---| 1
 ---| 2
 
+-- (UnitAnnouncementCategory)
 ---@alias unit_report_type
 ---| unit_report_type_keys
 ---| unit_report_type_values
@@ -1460,6 +1461,7 @@ df.skill_rating.attrs = {}
 ---| 46
 ---| 47
 
+-- Used in unit.relations
 ---@alias unit_relationship_type
 ---| unit_relationship_type_keys
 ---| unit_relationship_type_values
@@ -1764,6 +1766,7 @@ df.pronoun_type.attrs = {}
 ---| 8
 ---| 9
 
+-- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
 ---@alias mill_pref_type
 ---| mill_pref_type_keys
 ---| mill_pref_type_values
@@ -1808,6 +1811,7 @@ df.mill_pref_type = {}
 ---| 2
 ---| 3
 
+-- bay12: UnitUniformModeType
 ---@alias unit_uniform_mode_type
 ---| unit_uniform_mode_type_keys
 ---| unit_uniform_mode_type_values
@@ -1834,6 +1838,7 @@ df.unit_uniform_mode_type = {}
 ---| 0
 ---| 1
 
+-- bay12: MoodStages
 ---@alias mood_stage_type
 ---| mood_stage_type_keys
 ---| mood_stage_type_values
@@ -1872,6 +1877,7 @@ df.mood_stage_type = {}
 ---| 8
 ---| 9
 
+-- bay12: UnitOwner
 ---@alias unit_owner_type
 ---| unit_owner_type_keys
 ---| unit_owner_type_values
@@ -1916,6 +1922,7 @@ df.unit_owner_type = {}
 ---| 3
 ---| 4
 
+-- bay12: RiderPositions
 ---@alias rider_positions_type
 ---| rider_positions_type_keys
 ---| rider_positions_type_values
@@ -1952,6 +1959,7 @@ df.unit_target_flags = {}
 ---| -1
 ---| 0
 
+-- bay12: Command
 ---@alias command_type
 ---| command_type_keys
 ---| command_type_values
@@ -2114,19 +2122,15 @@ df.unit_active_animation_flags = {}
 ---@field mtx stl-mutex
 local unit
 
----@nodiscard
 ---@return integer
 function unit:getCreatureTile() end
 
----@nodiscard
 ---@return integer
 function unit:getCorpseTile() end
 
----@nodiscard
 ---@return integer
 function unit:getGlowTile() end
 
----@nodiscard
 ---@return nemesis_record
 function unit:create_nemesis() end
 
@@ -4368,6 +4372,7 @@ df.unit_personality.T_flags = {}
 ---| 3
 ---| 4
 
+-- for the action timer API, not in DF
 ---@alias unit_action_type_group
 ---| unit_action_type_group_keys
 ---| unit_action_type_group_values

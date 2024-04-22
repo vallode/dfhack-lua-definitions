@@ -1348,6 +1348,7 @@ df.adventure_workingst = {}
 ---| 0
 ---| 1
 
+-- bay12: AdventureWork
 ---@alias adventure_workingst.T_type
 ---| adventure_workingst.T_type_keys
 ---| adventure_workingst.T_type_values
@@ -1576,6 +1577,7 @@ df.adventurest = {}
 ---| 1
 ---| 2
 
+-- bay12: traveL_map; is an int8_t
 ---@alias adventurest.T_travel_right_map
 ---| adventurest.T_travel_right_map_keys
 ---| adventurest.T_travel_right_map_values
@@ -1604,6 +1606,7 @@ df.adventurest.T_travel_right_map = {}
 ---| 2
 ---| 3
 
+-- bay12: travel_instructions; is an int8_t; bottom menu in travel mode
 ---@alias adventurest.T_show_menu
 ---| adventurest.T_show_menu_keys
 ---| adventurest.T_show_menu_values
@@ -1679,6 +1682,7 @@ df.adventurest.T_exemplar_track_data.T_flag = {}
 ---| 2
 ---| 3
 
+-- bay12 type: SpoorFlag
 ---@alias adventurest.T_exemplar_track_data.T_type
 ---| adventurest.T_exemplar_track_data.T_type_keys
 ---| adventurest.T_exemplar_track_data.T_type_values
@@ -1970,6 +1974,7 @@ function _adventurest_construction_start_menu_will_work:erase(index) end
 ---| 16
 ---| 17
 
+-- bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
 ---@alias adventurest.T_charge_forbidden
 ---| adventurest.T_charge_forbidden_keys
 ---| adventurest.T_charge_forbidden_values
@@ -2720,7 +2725,6 @@ local text_info_elementst
 
 function text_info_elementst:getString() end
 
----@nodiscard
 ---@return number
 function text_info_elementst:getLong() end
 
@@ -2751,57 +2755,44 @@ local adventure_optionst
 
 function adventure_optionst:getDescription() end
 
----@nodiscard
 ---@return item
 function adventure_optionst:getIngestedItem() end
 
----@nodiscard
 ---@return item
 function adventure_optionst:performAction() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getPlayerPosX() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getPlayerPosY() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getPlayerPosZ() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getTargetPosX() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getTargetPosY() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getTargetPosZ() end
 
 function adventure_optionst:deleteSpatter() end
 
----@nodiscard
 ---@return number
 function adventure_optionst:getSuckBloodUnitID() end
 
----@nodiscard
 ---@return boolean
 function adventure_optionst:isIngestFromContainer() end
 
----@nodiscard
 ---@return building
 function adventure_optionst:getBuildingContainer() end
 
----@nodiscard
 ---@return item
 function adventure_optionst:getItemContainer() end
 
----@nodiscard
 ---@return unit
 function adventure_optionst:getUnitContainer() end
 

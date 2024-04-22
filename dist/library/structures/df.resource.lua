@@ -195,7 +195,6 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_3 number
 local resource_allotment_specifier
 
----@nodiscard
 ---@return resource_allotment_specifier_type
 function resource_allotment_specifier:getType() end
 

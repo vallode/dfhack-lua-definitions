@@ -376,6 +376,7 @@ df.caravan_state = {}
 ---| 3
 ---| 4
 
+-- bay12: stage
 ---@alias caravan_state.T_trade_state
 ---| caravan_state.T_trade_state_keys
 ---| caravan_state.T_trade_state_values
@@ -2297,6 +2298,7 @@ df.training_knowledge_level = {}
 ---| 30
 ---| 31
 
+-- bay12: EntityPositionFlag
 ---@alias entity_position_flags
 ---| entity_position_flags_keys
 ---| entity_position_flags_values
@@ -3411,6 +3413,7 @@ function _agreement_party_unk_1:erase(index) end
 ---| 8
 ---| 9
 
+-- bay12: EvidenceType
 ---@alias crime_type
 ---| crime_type_keys
 ---| crime_type_values

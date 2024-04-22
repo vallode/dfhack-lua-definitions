@@ -277,6 +277,7 @@
 ---| 133
 ---| 134
 
+-- ---PROFESSION -----
 ---@alias profession
 ---| profession_keys
 ---| profession_values
@@ -739,6 +740,7 @@ df.profession.attrs = {}
 ---| -2
 ---| -1
 
+-- ---LABOR -----
 ---@alias unit_labor_category
 ---| unit_labor_category_keys
 ---| unit_labor_category_values
@@ -1295,6 +1297,7 @@ df.unit_labor.attrs = {}
 ---| 8
 ---| 9
 
+-- ---SKILL -----
 ---@alias job_skill_class
 ---| job_skill_class_keys
 ---| job_skill_class_values

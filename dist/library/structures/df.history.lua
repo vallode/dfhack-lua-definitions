@@ -202,6 +202,7 @@ df.reputation_type = {}
 ---| 4
 ---| 5
 
+-- bay12: HistFigState
 ---@alias whereabouts_type
 ---| whereabouts_type_keys
 ---| whereabouts_type_values
@@ -275,6 +276,7 @@ df.season = {}
 ---| 5
 ---| 6
 
+-- bay12: HistFigBodyState
 ---@alias death_condition_type
 ---| death_condition_type_keys
 ---| death_condition_type_values
@@ -1128,6 +1130,7 @@ df.histfig_relationship_type = {}
 ---| 24
 ---| 25
 
+-- bay12: WGRelationship; not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
 ---@alias vague_relationship_type
 ---| vague_relationship_type_keys
 ---| vague_relationship_type_values
@@ -1517,7 +1520,6 @@ df.mental_picture_property_type = {}
 ---@field unk_0 number
 local mental_picture_propertyst
 
----@nodiscard
 ---@return mental_picture_property_type
 function mental_picture_propertyst:getType() end
 
@@ -1644,7 +1646,6 @@ df.mental_picture_element_type = {}
 ---@field unk_1 number
 local mental_picture_elementst
 
----@nodiscard
 ---@return mental_picture_element_type
 function mental_picture_elementst:getType() end
 
@@ -2418,6 +2419,7 @@ df.history_event_type = {}
 ---| 92
 ---| 93
 
+-- bay12: Reason; Some of these require at least one parameter of varying type. The text is what DF provides without parameter
 ---@alias history_event_reason
 ---| history_event_reason_keys
 ---| history_event_reason_values
@@ -2942,35 +2944,27 @@ df.merc_role_type = {}
 ---@field id number
 local history_event
 
----@nodiscard
 ---@return history_event_type
 function history_event:getType() end
 
----@nodiscard
 ---@return number
 function history_event:getWarStatus() end
 
----@nodiscard
 ---@return number
 function history_event:getAngerModifier() end
 
----@nodiscard
 ---@return number
 function history_event:getHappinessModifier() end
 
----@nodiscard
 ---@return boolean
 function history_event:madeFirstContact() end
 
----@nodiscard
 ---@return number
 function history_event:getKilledHistfigID() end
 
----@nodiscard
 ---@return boolean
 function history_event:wasHistfigKilled() end
 
----@nodiscard
 ---@return boolean
 function history_event:wasHistfigRevived() end
 
@@ -2988,35 +2982,27 @@ function history_event:getRelatedLayerIDs() end
 
 function history_event:getRelatedEntityIDs() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToHistfigID() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToSiteID() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToSiteStructure() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToArtifactID() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToRegionID() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToLayerID() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToAgreementID() end
 
----@nodiscard
 ---@return boolean
 function history_event:isRelatedToEntityID() end
 
@@ -3026,7 +3012,6 @@ function history_event:getPhrase() end
 
 function history_event:populateArtImage() end
 
----@nodiscard
 ---@return boolean
 function history_event:isChangedHistfigID() end
 
@@ -3226,6 +3211,7 @@ df.history_event_created_sitest = {}
 ---| 53
 ---| 54
 
+-- bay12: KillCause
 ---@alias death_type
 ---| death_type_keys
 ---| death_type_values
@@ -5950,7 +5936,6 @@ df.history_event_collection_type = {}
 ---@field id number
 local history_event_collection
 
----@nodiscard
 ---@return history_event_collection_type
 function history_event_collection:getType() end
 
@@ -5968,11 +5953,9 @@ function history_event_collection:getName() end
 
 function history_event_collection:getRegionCoords() end
 
----@nodiscard
 ---@return number
 function history_event_collection:getParent() end
 
----@nodiscard
 ---@return number
 function history_event_collection:isBetweenEntities() end
 

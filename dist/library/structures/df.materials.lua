@@ -31,6 +31,7 @@
 ---| 10
 ---| 11
 
+-- not in DF
 ---@alias craft_material_class
 ---| craft_material_class_keys
 ---| craft_material_class_values

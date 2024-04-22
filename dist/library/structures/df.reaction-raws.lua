@@ -194,23 +194,19 @@ df.reaction_reagent_type = {}
 ---@field flags reaction_reagent_flags
 local reaction_reagent
 
----@nodiscard
 ---@return reaction_reagent_type
 function reaction_reagent:getType() end
 
 function reaction_reagent:resolveTokens() end
 
----@nodiscard
 ---@return boolean
 function reaction_reagent:matchesRoot() end
 
----@nodiscard
 ---@return boolean
 function reaction_reagent:matchesChild() end
 
 function reaction_reagent:getDescription() end
 
----@nodiscard
 ---@return boolean
 function reaction_reagent:isLyeBearing() end
 
@@ -288,7 +284,6 @@ df.reaction_product_type = {}
 ---@field product_to_container string
 local reaction_product
 
----@nodiscard
 ---@return reaction_product_type
 function reaction_product:getType() end
 

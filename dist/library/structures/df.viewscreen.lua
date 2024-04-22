@@ -75,7 +75,6 @@ df.interface_push_types = {}
 ---@field _type _abstract_interfacest
 local abstract_interfacest
 
----@nodiscard
 ---@return extentst
 function abstract_interfacest:get_rect() end
 
@@ -180,7 +179,6 @@ df.extentst = {}
 ---@field activation_hotkeys _widget_activation_hotkeys
 local widget
 
----@nodiscard
 ---@return extentst
 function widget:get_rect() end
 
@@ -196,7 +194,6 @@ function widget:remove_child() end
 
 function widget:clear() end
 
----@nodiscard
 ---@return boolean
 function widget:is_container() end
 
@@ -553,6 +550,7 @@ function _widget_menu_colors:erase(index) end
 ---| 1
 ---| 2
 
+-- bay12: TextboxType
 ---@alias textbox_type
 ---| textbox_type_keys
 ---| textbox_type_values
@@ -2784,31 +2782,24 @@ local world_gen_param_basest
 
 function world_gen_param_basest:get_text() end
 
----@nodiscard
 ---@return boolean
 function world_gen_param_basest:has_string_entry() end
 
----@nodiscard
 ---@return boolean
 function world_gen_param_basest:nullifiable() end
 
----@nodiscard
 ---@return boolean
 function world_gen_param_basest:togglealble() end
 
----@nodiscard
 ---@return boolean
 function world_gen_param_basest:has_max_min() end
 
----@nodiscard
 ---@return boolean
 function world_gen_param_basest:has_increase_decrease() end
 
----@nodiscard
 ---@return number
 function world_gen_param_basest:get_min() end
 
----@nodiscard
 ---@return number
 function world_gen_param_basest:get_max() end
 
@@ -3448,6 +3439,7 @@ df.viewscreen_loadgamest = {}
 ---| 49
 ---| 50
 
+-- After the on-screen text shown while loading.
 ---@alias viewscreen_loadgamest.T_cur_step
 ---| viewscreen_loadgamest.T_cur_step_keys
 ---| viewscreen_loadgamest.T_cur_step_values
@@ -4810,6 +4802,7 @@ df.viewscreen_choose_game_typest = {}
 ---| 0
 ---| 1
 
+-- bay12: SaveGameSort
 ---@alias save_game_sort_type
 ---| save_game_sort_type_keys
 ---| save_game_sort_type_values

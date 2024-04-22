@@ -487,7 +487,6 @@ df.building_drawbuffer = {}
 ---@field location_id number References: `abstract_building`
 local building
 
----@nodiscard
 ---@return number
 function building:getCustomType() end
 
@@ -495,17 +494,14 @@ function building:setCustomType() end
 
 function building:countHospitalSupplies() end
 
----@nodiscard
 ---@return stockpile_links
 function building:getStockpileLinks() end
 
 function building:detachWorldData() end
 
----@nodiscard
 ---@return boolean
 function building:canLinkToStockpile() end
 
----@nodiscard
 ---@return building_users
 function building:getUsers() end
 
@@ -515,27 +511,21 @@ function building:initOccupancy() end
 
 function building:setFillTimer() end
 
----@nodiscard
 ---@return boolean
 function building:isOnFire() end
 
----@nodiscard
 ---@return boolean
 function building:isUnpowered() end
 
----@nodiscard
 ---@return boolean
 function building:canCollapse() end
 
----@nodiscard
 ---@return integer
 function building:getPassableOccupancy() end
 
----@nodiscard
 ---@return integer
 function building:getImpassableOccupancy() end
 
----@nodiscard
 ---@return boolean
 function building:isPowerSource() end
 
@@ -547,49 +537,39 @@ function building:updateItems() end
 
 function building:updateTempFromTile() end
 
----@nodiscard
 ---@return boolean
 function building:isNormalFurniture() end
 
----@nodiscard
 ---@return boolean
 function building:isFarmPlot() end
 
----@nodiscard
 ---@return workshop_profile
 function building:getWorkshopProfile() end
 
----@nodiscard
 ---@return machine_info
 function building:getMachineInfo() end
 
 function building:getPowerInfo() end
 
----@nodiscard
 ---@return boolean
 function building:canConnectToMachine() end
 
----@nodiscard
 ---@return building_type
 function building:getType() end
 
----@nodiscard
 ---@return number
 function building:getSubtype() end
 
 function building:setSubtype() end
 
----@nodiscard
 ---@return boolean
 function building:isActual() end
 
----@nodiscard
 ---@return boolean
 function building:isCoffin2() end
 
 function building:updateAction() end
 
----@nodiscard
 ---@return boolean
 function building:isStatueOrRestraint() end
 
@@ -597,55 +577,43 @@ function building:setMaterialAmount() end
 
 function building:setBuildStage() end
 
----@nodiscard
 ---@return number
 function building:getBuildStage() end
 
----@nodiscard
 ---@return number
 function building:getMaxBuildStage() end
 
----@nodiscard
 ---@return number
 function building:getArchitectureValue() end
 
----@nodiscard
 ---@return boolean
 function building:isSettingOccupancy() end
 
----@nodiscard
 ---@return boolean
 function building:isActual2() end
 
----@nodiscard
 ---@return boolean
 function building:isExtentShaped() end
 
 function building:updateOccupancy() end
 
----@nodiscard
 ---@return number
 function building:getPersonalValue() end
 
----@nodiscard
 ---@return boolean
 function building:canBeRoom() end
 
----@nodiscard
 ---@return number
 function building:getConstructionValue() end
 
 function building:queueDestroy() end
 
----@nodiscard
 ---@return boolean
 function building:isImpassableTile() end
 
----@nodiscard
 ---@return number
 function building:getFreeCapacity() end
 
----@nodiscard
 ---@return boolean
 function building:canStoreItem() end
 
@@ -655,39 +623,30 @@ function building:getNameColor() end
 
 function building:initFarmSeasons() end
 
----@nodiscard
 ---@return number
 function building:getClutterLevel() end
 
----@nodiscard
 ---@return boolean
 function building:needsDesign() end
 
----@nodiscard
 ---@return boolean
 function building:canUseForMood() end
 
----@nodiscard
 ---@return boolean
 function building:canBeRoomSubset() end
 
----@nodiscard
 ---@return boolean
 function building:isCoffin() end
 
----@nodiscard
 ---@return boolean
 function building:canUseSpouseRoom() end
 
----@nodiscard
 ---@return boolean
 function building:canMakeRoom() end
 
----@nodiscard
 ---@return boolean
 function building:isAssigned() end
 
----@nodiscard
 ---@return boolean
 function building:isJusticeRestraint() end
 
@@ -697,7 +656,6 @@ function building:write_file() end
 
 function building:read_file() end
 
----@nodiscard
 ---@return boolean
 function building:isImpassableAtCreation() end
 
@@ -705,13 +663,11 @@ function building:categorize() end
 
 function building:uncategorize() end
 
----@nodiscard
 ---@return number
 function building:getBaseValue() end
 
 function building:setTriggerState() end
 
----@nodiscard
 ---@return boolean
 function building:needsMagma() end
 
@@ -721,25 +677,20 @@ function building:deconstructItems() end
 
 function building:cleanupMap() end
 
----@nodiscard
 ---@return boolean
 function building:isFireSafe() end
 
 function building:fillSidebarMenu() end
 
----@nodiscard
 ---@return boolean
 function building:isForbidden() end
 
----@nodiscard
 ---@return boolean
 function building:isHidden() end
 
----@nodiscard
 ---@return boolean
 function building:isVisibleInUI() end
 
----@nodiscard
 ---@return boolean
 function building:isVisibleInViewport() end
 
@@ -747,11 +698,9 @@ function building:getDrawExtents() end
 
 function building:drawBuilding() end
 
----@nodiscard
 ---@return number
 function building:getSpecificSquad() end
 
----@nodiscard
 ---@return number
 function building:getSpecificPosition() end
 
@@ -1582,6 +1531,7 @@ function _building_civzonest_squad_room_info:erase(index) end
 ---| 1
 ---| 2
 
+-- actual --
 ---@alias building_item_role_type
 ---| building_item_role_type_keys
 ---| building_item_role_type_values
@@ -1603,7 +1553,6 @@ df.building_item_role_type = {}
 ---@field design building_design
 local building_actual
 
----@nodiscard
 ---@return boolean
 function building_actual:isDestroyedByItemRemoval() end
 
@@ -1683,6 +1632,7 @@ df.building_design.T_flags = {}
 ---| 6
 ---| 7
 
+-- workshops --
 ---@alias furnace_type
 ---| furnace_type_keys
 ---| furnace_type_values
@@ -2885,6 +2835,15 @@ df.building_window_gemst = {}
 ---| 6
 ---| 7
 
+-- Not in DF
+-- Royal Throne Room   | Royal Bedroom   | Royal Dining Room  | Royal Mausoleum
+-- Opulent Throne Room | Grand Bedroom   | Grand Dining Room  | Grand Mausoleum
+-- Throne Room         | Great Bedroom   | Great Dining Room  | Mausoleum
+-- Splendid Office     | Fine Quarters   | Fine Dining Room   | Fine Tomb
+-- Decent Office       | Decent Quarters | Decent Dining Room | Tomb
+-- Office              | Quarters        | Dining Room        | Burial Chamber
+-- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
+-- Meager Office       | Meager Quarters | Meager Dining Room | Grave
 ---@alias dfhack_room_quality_level
 ---| dfhack_room_quality_level_keys
 ---| dfhack_room_quality_level_values

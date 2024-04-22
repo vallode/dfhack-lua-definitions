@@ -458,6 +458,7 @@ df.kitchen_exc_type = {}
 ---| 50
 ---| 51
 
+-- below was copied wholesale from df.viewscreen
 ---@alias save_substage
 ---| save_substage_keys
 ---| save_substage_values

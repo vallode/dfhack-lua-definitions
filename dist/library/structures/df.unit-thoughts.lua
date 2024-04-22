@@ -345,6 +345,7 @@
 ---| 167
 ---| 168
 
+-- bay12: Emotion
 ---@alias emotion_type
 ---| emotion_type_keys
 ---| emotion_type_values

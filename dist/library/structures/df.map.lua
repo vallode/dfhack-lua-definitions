@@ -872,7 +872,6 @@ df.block_square_event_type = {}
 ---@field _type _block_square_event
 local block_square_event
 
----@nodiscard
 ---@return block_square_event_type
 function block_square_event:getType() end
 
@@ -880,7 +879,6 @@ function block_square_event:write_file() end
 
 function block_square_event:read_file() end
 
----@nodiscard
 ---@return boolean
 function block_square_event:isEmpty() end
 
@@ -1109,7 +1107,6 @@ df.feature_type = {}
 ---@field max_map_z DFNumberVector
 local feature
 
----@nodiscard
 ---@return feature_type
 function feature:getType() end
 
@@ -1294,7 +1291,6 @@ df.layer_type = {}
 ---@field end_depth layer_type
 local feature_init
 
----@nodiscard
 ---@return feature_type
 function feature_init:getType() end
 
@@ -1302,17 +1298,14 @@ function feature_init:write_file() end
 
 function feature_init:read_file() end
 
----@nodiscard
 ---@return feature
 function feature_init:createFeature() end
 
----@nodiscard
 ---@return feature
 function feature_init:recreateFeature() end
 
 function feature_init:destroyFeature() end
 
----@nodiscard
 ---@return feature
 function feature_init:getFeature() end
 
@@ -1322,27 +1315,21 @@ function feature_init:getColor() end
 
 function feature_init:getName() end
 
----@nodiscard
 ---@return boolean
 function feature_init:isWater() end
 
----@nodiscard
 ---@return boolean
 function feature_init:isSubterranean() end
 
----@nodiscard
 ---@return boolean
 function feature_init:isMagma() end
 
----@nodiscard
 ---@return boolean
 function feature_init:isChasm() end
 
----@nodiscard
 ---@return boolean
 function feature_init:isLayer() end
 
----@nodiscard
 ---@return number
 function feature_init:getLayer() end
 
@@ -1495,7 +1482,6 @@ df.feature_alteration_type = {}
 ---@field _type _feature_alteration
 local feature_alteration
 
----@nodiscard
 ---@return feature_alteration_type
 function feature_alteration:getType() end
 
@@ -1562,7 +1548,6 @@ df.world_construction_type = {}
 ---@field embark_z DFNumberVector
 local world_construction_square
 
----@nodiscard
 ---@return world_construction_type
 function world_construction_square:getType() end
 
@@ -1623,11 +1608,9 @@ df.world_construction_square_wallst = {}
 ---@field square_pos coord2d_path
 local world_construction
 
----@nodiscard
 ---@return world_construction_type
 function world_construction:getType() end
 
----@nodiscard
 ---@return language_name
 function world_construction:getName() end
 
@@ -2139,7 +2122,6 @@ df.flow_guide_type = {}
 ---@field unk_8 number
 local flow_guide
 
----@nodiscard
 ---@return flow_guide_type
 function flow_guide:getType() end
 
@@ -2219,7 +2201,6 @@ df.region_block_event_type = {}
 ---@field _type _region_block_eventst
 local region_block_eventst
 
----@nodiscard
 ---@return region_block_event_type
 function region_block_eventst:getType() end
 

@@ -212,6 +212,7 @@ df.unit_context_block = {}
 ---| 5
 ---| 6
 
+-- bay12: ConflictState
 ---@alias conflict_level
 ---| conflict_level_keys
 ---| conflict_level_values

@@ -703,13 +703,11 @@ function renderer:grid_resize() end
 
 function renderer:set_viewport_zoom_factor() end
 
----@nodiscard
 ---@return boolean
 function renderer:get_precise_mouse_coords() end
 
 function renderer:get_current_interface_tile_dims() end
 
----@nodiscard
 ---@return boolean
 function renderer:uses_opengl() end
 
@@ -743,7 +741,6 @@ df.renderer = {}
 ---@field natural_h number
 local renderer_2d_base
 
----@nodiscard
 ---@return boolean
 function renderer_2d_base:init_video() end
 
@@ -869,7 +866,6 @@ df.zoom_commands = {}
 ---@field last_text_input integer[]
 local enabler
 
----@nodiscard
 ---@return string
 function enabler:GetKeyDisplay() end
 
@@ -1124,6 +1120,7 @@ df.enabler.T_textures = {}
 ---| 3
 ---| 4
 
+-- from libgraphics
 ---@alias justification
 ---| justification_keys
 ---| justification_values

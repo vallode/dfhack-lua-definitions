@@ -39,6 +39,7 @@
 ---| 15
 ---| 16
 
+-- not in DF
 ---@alias job_type_class
 ---| job_type_class_keys
 ---| job_type_class_values

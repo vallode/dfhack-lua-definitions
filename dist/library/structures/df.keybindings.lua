@@ -1315,6 +1315,7 @@
 ---| 653
 ---| 654
 
+-- WARNING: THIS FILE IS AUTO-GENERATED - DO NOT EDIT
 ---@alias interface_key
 ---| interface_key_keys
 ---| interface_key_values

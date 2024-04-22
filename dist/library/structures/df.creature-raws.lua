@@ -243,6 +243,10 @@
 ---| 117
 ---| 118
 
+-- The comments indicate the creature raw tags whose presence/absence are
+-- correlated with the flags. Tags with parameters, like those indicating
+-- biomes, are currently not listed.
+-- Flag names acquired from http://www.bay12forums.com/smf//index.php?topic=169696.msg8099138#msg8099138
 ---@alias creature_raw_flags
 ---| creature_raw_flags_keys
 ---| creature_raw_flags_values

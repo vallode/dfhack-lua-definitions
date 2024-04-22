@@ -7,6 +7,7 @@
 ---@alias machine_type_values
 ---| 0
 
+-- MACHINE
 ---@alias machine_type
 ---| machine_type_keys
 ---| machine_type_values
@@ -114,7 +115,6 @@ function _machine_tile_set_can_connect:erase(index) end
 ---@field flags machine.T_flags
 local machine
 
----@nodiscard
 ---@return machine_type
 function machine:getType() end
 

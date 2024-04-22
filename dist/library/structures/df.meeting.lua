@@ -84,15 +84,12 @@ df.dipscript_popup.T_flags = {}
 ---@field next_step_idx number
 local script_stepst
 
----@nodiscard
 ---@return boolean
 function script_stepst:setNextStep() end
 
----@nodiscard
 ---@return number
 function script_stepst:execute() end
 
----@nodiscard
 ---@return number
 function script_stepst:skip() end
 
@@ -213,7 +210,6 @@ df.script_step_eventst = {}
 ---@field name string
 local script_varst
 
----@nodiscard
 ---@return active_script_varst
 function script_varst:instantiate() end
 
@@ -897,7 +893,6 @@ df.activity_event_building_role_type = {}
 ---@field building _activity_event_building
 local activity_event
 
----@nodiscard
 ---@return activity_event_type
 function activity_event:getType() end
 
@@ -905,17 +900,14 @@ function activity_event:write_file() end
 
 function activity_event:read_file() end
 
----@nodiscard
 ---@return boolean
 function activity_event:isEmpty() end
 
----@nodiscard
 ---@return number
 function activity_event:get_building_id() end
 
 function activity_event:set_building_id() end
 
----@nodiscard
 ---@return activity_event_participants
 function activity_event:getParticipantInfo() end
 
@@ -927,15 +919,12 @@ function activity_event:removeParticipant() end
 
 function activity_event:follow_order() end
 
----@nodiscard
 ---@return number
 function activity_event:checkDrillInvalid() end
 
----@nodiscard
 ---@return boolean
 function activity_event:decUniformLock() end
 
----@nodiscard
 ---@return squad_event_type
 function activity_event:getSquadEventType() end
 
@@ -947,15 +936,12 @@ function activity_event:adjustOrganizeCounter() end
 
 function activity_event:getOrganizer() end
 
----@nodiscard
 ---@return number
 function activity_event:getBuilding() end
 
----@nodiscard
 ---@return boolean
 function activity_event:isSparring() end
 
----@nodiscard
 ---@return number
 function activity_event:getUniformType() end
 

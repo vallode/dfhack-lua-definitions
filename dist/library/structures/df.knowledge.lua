@@ -1374,6 +1374,7 @@ df.knowledge_scholar_category_flag = {}
 ---| 12
 ---| 13
 
+-- determines which bitflags to use
 ---@alias knowledge_scholar_category_flag.T_flag_type
 ---| knowledge_scholar_category_flag.T_flag_type_keys
 ---| knowledge_scholar_category_flag.T_flag_type_values
@@ -2060,6 +2061,7 @@ df.knowledge_scholar_category_flag.T_flag_data = {}
 ---| 444
 ---| 445
 
+-- not in DF
 ---@alias dfhack_knowledge_scholar_flag
 ---| dfhack_knowledge_scholar_flag_keys
 ---| dfhack_knowledge_scholar_flag_values
