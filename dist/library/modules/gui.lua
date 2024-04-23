@@ -77,7 +77,9 @@ function dfhack.gui.getAnyStockpile(top) end
 ---@return plant
 function dfhack.gui.getAnyPlant(top) end
 
-function dfhack.gui.writeToGamelog() end
+---@param message string
+---@return nil
+function dfhack.gui.writeToGamelog(message) end
 
 ---@param pause boolean|nil
 ---@return nil

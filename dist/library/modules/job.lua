@@ -4,13 +4,27 @@
 ---@class job_module
 dfhack.job = {}
 
-function dfhack.job.attachJobItem() end
+---@param job job
+---@param item item
+---@param role job_item_ref::T_role
+---@param filteridx integer
+---@param insertidx integer
+---@return boolean
+function dfhack.job.attachJobItem(job, item, role, filteridx, insertidx) end
 
-function dfhack.job.cloneJobStruct() end
+---@param job job
+---@param keepEverything boolean|nil
+---@return job
+function dfhack.job.cloneJobStruct(job, keepEverything) end
 
-function dfhack.job.printItemDetails() end
+---@param item job_item
+---@param idx integer
+---@return nil
+function dfhack.job.printItemDetails(item, idx) end
 
-function dfhack.job.printJobDetails() end
+---@param job job
+---@return nil
+function dfhack.job.printJobDetails(job) end
 
 ---@param job job
 ---@param type general_ref_type
@@ -22,16 +36,29 @@ function dfhack.job.getGeneralRef(job, type) end
 ---@return specific_ref
 function dfhack.job.getSpecificRef(job, type) end
 
-function dfhack.job.getHolder() end
+---@param job job
+---@return building
+function dfhack.job.getHolder(job) end
 
-function dfhack.job.getWorker() end
+---@param job job
+---@return unit
+function dfhack.job.getWorker(job) end
 
-function dfhack.job.setJobCooldown() end
+---@param workshop building
+---@param worker unit
+---@param cooldown integer
+---@return nil
+function dfhack.job.setJobCooldown(workshop, worker, cooldown) end
 
-function dfhack.job.removeWorker() end
+---@param job job
+---@param cooldown integer
+---@return boolean
+function dfhack.job.removeWorker(job, cooldown) end
 
+---@return nil
 function dfhack.job.checkBuildingsNow() end
 
+---@return nil
 function dfhack.job.checkDesignationsNow() end
 
 ---@param item job_item
@@ -51,13 +78,27 @@ function dfhack.job.isSuitableMaterial(item, mattype, matindex, itype) end
 ---@return string
 function dfhack.job.getName(job) end
 
-function dfhack.job.linkIntoWorld() end
+---@param job job
+---@param newid boolean|nil
+---@return boolean
+function dfhack.job.linkIntoWorld(job, newid) end
 
-function dfhack.job.removePostings() end
+---@param job job
+---@param removeall boolean|nil
+---@return boolean
+function dfhack.job.removePostings(job, removeall) end
 
-function dfhack.job.disconnectJobItem() end
+---@param job job
+---@param itemref job_item_ref
+---@return nil
+function dfhack.job.disconnectJobItem(job, itemref) end
 
-function dfhack.job.disconnectJobGeneralRef() end
+---@param job job
+---@param ref general_ref
+---@return boolean
+function dfhack.job.disconnectJobGeneralRef(job, ref) end
 
-function dfhack.job.removeJob() end
+---@param job job
+---@return boolean
+function dfhack.job.removeJob(job) end
 

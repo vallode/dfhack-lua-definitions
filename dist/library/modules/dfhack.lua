@@ -4,41 +4,69 @@
 ---@class dfhack_module
 dfhack = {}
 
+---@return string
 function dfhack.getOSType() end
 
+---@return integer
 function dfhack.getArchitecture() end
 
+---@return string
 function dfhack.getArchitectureName() end
 
+---@return string
 function dfhack.getDFVersion() end
 
+---@return string
 function dfhack.getDFPath() end
 
+---@return integer
 function dfhack.getTickCount() end
 
+---@return string
 function dfhack.getHackPath() end
 
+---@return boolean
 function dfhack.isWorldLoaded() end
 
+---@return boolean
 function dfhack.isMapLoaded() end
 
+---@return boolean
 function dfhack.isSiteLoaded() end
 
 function dfhack.TranslateName() end
 
-function dfhack.df2utf() end
+---@param s string
+---@return string
+function dfhack.df2utf(s) end
 
-function dfhack.utf2df() end
+---@param s string
+---@return string
+function dfhack.utf2df(s) end
 
-function dfhack.df2console() end
+---@param s string
+---@return string
+function dfhack.df2console(s) end
 
-function dfhack.upperCp437() end
+---@param s string
+---@return string
+function dfhack.upperCp437(s) end
 
-function dfhack.lowerCp437() end
+---@param s string
+---@return string
+function dfhack.lowerCp437(s) end
 
-function dfhack.toSearchNormalized() end
+---@param s string
+---@return string
+function dfhack.toSearchNormalized(s) end
 
-function dfhack.capitalizeStringWords() end
+---@param s string
+---@return string
+function dfhack.capitalizeStringWords(s) end
 
-function dfhack.addCommandToHistory() end
+---@param id string
+---@param srcfile string
+---@param command string
+---@return nil
+function dfhack.addCommandToHistory(id, srcfile, command) end
 

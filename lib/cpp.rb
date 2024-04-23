@@ -53,7 +53,9 @@ module DFHackLuaDefinitions
       end
 
       def sanitize(string)
-        string.gsub(/[^A-Za-z0-9]/, '')
+        return nil unless string
+
+        string.gsub(/[^A-Za-z0-9]/, '').strip
       end
     end
   end
