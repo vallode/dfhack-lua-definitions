@@ -1,32 +1,18 @@
 name: release
-run-name: Update library files
 
-# TODO: Figure out a release workflow.
-on: workflow_dispatch
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - run: bundle exec rake
-        continue-on-error: true
-      - run: bundle exec rake build
-      - name: Check for changes
-        id: dist_updated
-        run: git diff --quiet HEAD -- dist
-      - name: Setup git user
+      - name: Package library
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-      - name: Push changes
-        if: ${{ steps.dist_updated.outcome == 'failure' }}
-        run: |
-          git add dist
-          git commit -m "Update library files"
-          git push
+          tar -zcf dfhack-lua-definitions-$(git tag --points-at HEAD).tar.gz dist
+          zip -9qr dfhack-lua-definitions-$(git tag --points-at HEAD).zip dist
+      - name: Create a new release
+        run: gh release create $(git tag --points-at HEAD) dfhack-lua-definitions-$(git tag --points-at HEAD).*
