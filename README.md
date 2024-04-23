@@ -20,11 +20,13 @@ These definitions require [`lua-language-server`](//github.com/LuaLS/lua-languag
 - Append the following to your `settings.json` file (either user or workspace):
 ```json
 {
-  "Lua.workspace.library": [
-    "<library_location>/library"
+  "Lua.workspace.checkThirdParty": "Ask",
+  "Lua.workspace.checkThirdParty": [
+    "<library_location>"
   ]
 }
 ```
+- Restarting VSCode and entering a DFHack-related Lua file should prompt you to load the library.
 
 ### Helix
 
@@ -32,6 +34,16 @@ These definitions require [`lua-language-server`](//github.com/LuaLS/lua-languag
 - Add the following lines in a `.luarc.json` file at the root of your workspace:
 ```json
 {
+  "runtime": {
+    "version": "5.3",
+    "special": {
+      "arg_error": "error",
+      "dfhack.error": "error",
+      "mkmodule": "require",
+      "qerror": "error",
+      "reqscript": "dofile"
+    }
+  },
   "workspace": {
     "library": [
       "<library_location>/library"
