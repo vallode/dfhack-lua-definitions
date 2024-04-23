@@ -2,6 +2,22 @@
 ---@meta
 
 ---@class gui_module
+---@field addCombatReport function
+---@field addCombatReportAuto function
+---@field makeAnnouncement function
+---@field showAnnouncement function
+---@field showZoomAnnouncement function
+---@field showPopupAnnouncement function
+---@field showAutoAnnouncement function
+---@field autoDFAnnouncement function
+---@field getDwarfmodeViewDims function
+---@field pauseRecenter function
+---@field revealInDwarfmodeMap function
+---@field getMousePos function
+---@field getFocusStrings function
+---@field getCurFocus function
+---@field getWidget function
+---@field getWidgetChildren function
 dfhack.gui = {}
 
 ---@param skipdismissed boolean|nil

@@ -44,6 +44,24 @@ def parse_cpp_modules(files)
       output << "---@meta\n\n"
 
       output << "---@class #{module_name}_module\n"
+
+      # Functions with signatures that are unlikely to be easily parsed.
+      cpp_module.scan(/(?:WRAP_VERSION_FUNC|WRAPN)\(([^)]+)\)/) do |match|
+        function_name = match[0].split(', ')[0]
+        output << "---@field #{function_name} function\n"
+      end
+
+      file.scan(/^static.*#{module_name}_funcs\[\][\s\S]+?};/) do |funcs|
+        funcs.scan(/{([^}\n]+)}/) do
+          match = Regexp.last_match(1)
+          next if match =~ /NULL/
+
+          function_name = match.split(',')[0].strip.gsub(/"/, '')
+
+          output << "---@field #{function_name} function\n"
+        end
+      end
+
       prefix = module_name == 'dfhack' ? '' : 'dfhack.'
       namespace = module_name == 'dfhack' ? '' : "#{module_name.capitalize}::"
       output << "#{prefix}#{module_name} = {}\n\n"
@@ -225,13 +243,13 @@ def generate_annotations
   lua_api = './dfhack/library/LuaApi.cpp'
   parse_cpp_modules(lua_api)
 
-  # print "Parsing DFHack Lua library\n"
-  # library_files = Dir.glob('./dfhack/library/lua/**/*.lua')
-  # parse_lua_files(library_files)
+  print "Parsing DFHack Lua library\n"
+  library_files = Dir.glob('./dfhack/library/lua/**/*.lua')
+  parse_lua_files(library_files)
 
-  # print "Parsing DF-Structures XML files\n"
-  # structure_files = Dir.glob('./df-structures/df.*.xml')
-  # parse_xml_files(structure_files)
+  print "Parsing DF-Structures XML files\n"
+  structure_files = Dir.glob('./df-structures/df.*.xml')
+  parse_xml_files(structure_files)
 end
 
 generate_annotations if $PROGRAM_NAME == __FILE__

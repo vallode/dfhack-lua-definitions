@@ -2,6 +2,18 @@
 ---@meta
 
 ---@class dfhack_module
+---@field getDFHackVersion function
+---@field getDFHackRelease function
+---@field getDFHackBuildID function
+---@field getCompiledDFVersion function
+---@field getGitDescription function
+---@field getGitCommit function
+---@field getGitXmlCommit function
+---@field getGitXmlExpectedCommit function
+---@field gitXmlMatch function
+---@field isRelease function
+---@field isPrerelease function
+---@field getCommandHistory function
 dfhack = {}
 
 ---@return string

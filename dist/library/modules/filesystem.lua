@@ -2,6 +2,8 @@
 ---@meta
 
 ---@class filesystem_module
+---@field listdir function
+---@field listdir_recursive function
 dfhack.filesystem = {}
 
 ---@return string

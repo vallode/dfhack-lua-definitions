@@ -2,6 +2,9 @@
 ---@meta
 
 ---@class burrows_module
+---@field isAssignedBlockTile function
+---@field setAssignedBlockTile function
+---@field listBlocks function
 dfhack.burrows = {}
 
 ---@param name string

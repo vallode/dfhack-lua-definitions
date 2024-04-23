@@ -2,6 +2,8 @@
 ---@meta
 
 ---@class constructions_module
+---@field designateRemove function
+---@field findAtTile function
 dfhack.constructions = {}
 
 ---@param pos coord

@@ -2,6 +2,18 @@
 ---@meta
 
 ---@class screen_module
+---@field getMousePos function
+---@field getMousePixels function
+---@field getWindowSize function
+---@field paintTile function
+---@field readTile function
+---@field paintString function
+---@field fillRect function
+---@field findGraphicsTile function
+---@field _doSimulateInput function
+---@field keyToChar function
+---@field charToKey function
+---@field zoom function
 dfhack.screen = {}
 
 ---@return boolean

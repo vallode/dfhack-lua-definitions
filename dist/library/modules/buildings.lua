@@ -2,6 +2,11 @@
 ---@meta
 
 ---@class buildings_module
+---@field containsTile function
+---@field findAtTile function
+---@field findCivzonesAt function
+---@field getCorrectSize function
+---@field findPenPitAt function
 dfhack.buildings = {}
 
 ---@param building building

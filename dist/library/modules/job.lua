@@ -2,6 +2,9 @@
 ---@meta
 
 ---@class job_module
+---@field is_equal function
+---@field is_item_equal function
+---@field listNewlyCreated function
 dfhack.job = {}
 
 ---@param job job

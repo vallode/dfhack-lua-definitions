@@ -2,6 +2,21 @@
 ---@meta
 
 ---@class maps_module
+---@field getBlock function
+---@field hasTileAssignment function
+---@field getTileAssignment function
+---@field setTileAssignment function
+---@field resetTileAssignment function
+---@field isValidTilePos function
+---@field isTileVisible function
+---@field getTileBlock function
+---@field ensureTileBlock function
+---@field getTileType function
+---@field getTileFlags function
+---@field getRegionBiome function
+---@field getTileBiomeRgn function
+---@field getPlantAtTile function
+---@field getBiomeType function
 dfhack.maps = {}
 
 ---@param blk map_block

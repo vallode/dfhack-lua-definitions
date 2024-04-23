@@ -2,6 +2,17 @@
 ---@meta
 
 ---@class items_module
+---@field moveToGround function
+---@field moveToContainer function
+---@field moveToInventory function
+---@field makeProjectile function
+---@field remove function
+---@field findType function
+---@field findSubtype function
+---@field getPosition function
+---@field getOuterContainerRef function
+---@field getContainedItems function
+---@field moveToBuilding function
 dfhack.items = {}
 
 ---@param item item

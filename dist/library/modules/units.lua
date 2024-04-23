@@ -2,6 +2,14 @@
 ---@meta
 
 ---@class units_module
+---@field getPosition function
+---@field getOuterContainerRef function
+---@field getNoblePositions function
+---@field getUnitsInBox function
+---@field getCitizens function
+---@field getUnitsByNobleRole function
+---@field getStressCutoffs function
+---@field assignTrainer function
 dfhack.units = {}
 
 ---@param u unit

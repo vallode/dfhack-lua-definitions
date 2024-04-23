@@ -2,6 +2,7 @@
 ---@meta
 
 ---@class designations_module
+---@field getPlantDesignationTile function
 dfhack.designations = {}
 
 ---@param plant plant
