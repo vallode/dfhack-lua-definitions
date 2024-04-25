@@ -1,4 +1,4 @@
-name: update
+name: Update
 run-name: Update library files
 
 # TODO: Figure out a release workflow.
