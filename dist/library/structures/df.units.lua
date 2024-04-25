@@ -431,6 +431,10 @@ df.unit_flags3 = {}
 ---@field [11] boolean 
 ---@field agitated_wilderness_creature boolean 
 ---@field [12] boolean 
+---@field path_failed_recently boolean
+---@field [13] boolean
+---@field portrait_must_be_refreshed boolean
+---@field [14] boolean
 
 ---@class _unit_flags4: DFBitfieldType
 ---@field lazy_goblet_check 0
@@ -459,6 +463,10 @@ df.unit_flags3 = {}
 ---@field [11] "mood_succeeded" 
 ---@field agitated_wilderness_creature 12 
 ---@field [12] "agitated_wilderness_creature" 
+---@field path_failed_recently 13
+---@field [13] "path_failed_recently"
+---@field portrait_must_be_refreshed 14
+---@field [14] "portrait_must_be_refreshed"
 df.unit_flags4 = {}
 
 ---@class work_detail_flags: DFBitfield
@@ -1712,6 +1720,7 @@ df.unit_active_animation_flags = {}
 ---@field texpos number[][]
 ---@field sheet_icon_texpos number
 ---@field texpos_currently_in_use boolean[][]
+---@field portrait_texpos number
 ---@field cached_glowtile_type number
 ---@field pool_index integer
 ---@field mtx stl-mutex

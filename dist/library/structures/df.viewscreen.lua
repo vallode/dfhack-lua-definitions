@@ -192,9 +192,6 @@ function widget:remove_child() end
 
 function widget:clear() end
 
----@return boolean
-function widget:is_container() end
-
 
 ---@class _widget: DFCompoundType
 ---@field _kind 'class-type'

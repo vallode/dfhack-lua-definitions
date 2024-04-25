@@ -1159,6 +1159,17 @@ df.tile_pagest = {}
 ---@return tile_pagest
 function df.tile_pagest:new() end
 
+---@class (exact) palette_rowst: DFStruct
+---@field _type _palette_rowst
+---@field row integer
+
+---@class _palette_rowst: DFCompoundType
+---@field _kind 'struct-type'
+df.palette_rowst = {}
+
+---@return palette_rowst
+function df.palette_rowst:new() end
+
 ---@class (exact) palette_pagest: DFStruct
 ---@field _type _palette_pagest
 ---@field token string
@@ -1167,6 +1178,8 @@ function df.tile_pagest:new() end
 ---@field default_row number
 ---@field color_token DFStringVector
 ---@field color_row DFNumberVector
+---@field row _palette_pagest_row
+---@field row_width number
 
 ---@class _palette_pagest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1174,6 +1187,22 @@ df.palette_pagest = {}
 
 ---@return palette_pagest
 function df.palette_pagest:new() end
+
+---@class _palette_pagest_row: DFContainer
+---@field [integer] palette_rowst
+local _palette_pagest_row
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<palette_rowst>
+function _palette_pagest_row:_field(index) end
+
+---@param index '#'|integer
+---@param item palette_rowst
+function _palette_pagest_row:insert(index, item) end
+
+---@param index integer
+function _palette_pagest_row:erase(index) end
 
 ---@class (exact) texture_handlerst: DFStruct
 ---@field _type _texture_handlerst

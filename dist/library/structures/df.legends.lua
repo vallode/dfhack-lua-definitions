@@ -198,7 +198,7 @@ function _entity_population_unk4:erase(index) end
 ---| 7 # FLASHES
 ---| 8 # DO_NOT_CULL
 ---| 9 # HERO
----| 10 # DEMIGOD
+---| 10 # CHOSEN
 ---| 11 # POTENTIAL_CIVILIZED_ACTOR
 ---| 12 # CHECK_FOR_POSITION_CLAIM
 ---| 13 # POTENTIAL_PLOTTER_ACTOR
@@ -224,8 +224,8 @@ function _entity_population_unk4:erase(index) end
 ---@field [8] "DO_NOT_CULL"
 ---@field HERO 9 Set after assigning the Hero status during adventure mode character creation, produces the vanguard of destiny description in legends mode.
 ---@field [9] "HERO" Set after assigning the Hero status during adventure mode character creation, produces the vanguard of destiny description in legends mode.
----@field DEMIGOD 10 Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
----@field [10] "DEMIGOD" Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
+---@field CHOSEN 10 Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
+---@field [10] "CHOSEN" Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
 ---@field POTENTIAL_CIVILIZED_ACTOR 11
 ---@field [11] "POTENTIAL_CIVILIZED_ACTOR"
 ---@field CHECK_FOR_POSITION_CLAIM 12
