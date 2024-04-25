@@ -8,7 +8,7 @@ Type definitions for [DFHack](https://docs.dfhack.org/en/stable/)'s Lua API.
 
 ## Installation
 
-Clone this repository or download download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/).
+Clone this repository or download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/).
 
 These definitions require [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](https://luals.github.io/#vscode-install).
 
