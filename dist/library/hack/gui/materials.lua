@@ -2,42 +2,46 @@
 ---@meta
 
 ---@class materials
+---@field MaterialDialog MaterialDialog
 local materials
-
-function materials.MaterialDialog:init(info) end
-
-function materials.MaterialDialog:getWantedFrameSize(rect) end
-
-function materials.MaterialDialog:onDestroy() end
-
-function materials.MaterialDialog:initBuiltinMode() end
-
-function materials.MaterialDialog:initInorganicMode() end
-
-function materials.MaterialDialog:initCreatureMode() end
-
-function materials.MaterialDialog:initPlantMode() end
-
-function materials.MaterialDialog:addObjectChoice(choices, obj, name, typ, index) end
-
-function materials.MaterialDialog:onSelectObj(item) end
-
-function materials.MaterialDialog:addMaterial(choices, mat, typ, idx, pfix, parent) end
-
-function materials.MaterialDialog:pushContext(name, choices) end
-
-function materials.MaterialDialog:onGoBack() end
-
-function materials.MaterialDialog:submitMaterial(typ, index) end
-
-function materials.MaterialDialog:onSubmitItem(idx, item) end
-
-function materials.MaterialDialog:onInput(keys) end
 
 function materials.showMaterialPrompt(title, prompt, on_select, on_cancel, mat_filter) end
 
 function materials.ItemTypeDialog(args) end
 
 function materials.ItemTraitsDialog(args) end
+
+---@class MaterialDialog
+local MaterialDialog = {}
+
+function MaterialDialog:init(info) end
+
+function MaterialDialog:getWantedFrameSize(rect) end
+
+function MaterialDialog:onDestroy() end
+
+function MaterialDialog:initBuiltinMode() end
+
+function MaterialDialog:initInorganicMode() end
+
+function MaterialDialog:initCreatureMode() end
+
+function MaterialDialog:initPlantMode() end
+
+function MaterialDialog:addObjectChoice(choices, obj, name, typ, index) end
+
+function MaterialDialog:onSelectObj(item) end
+
+function MaterialDialog:addMaterial(choices, mat, typ, idx, pfix, parent) end
+
+function MaterialDialog:pushContext(name, choices) end
+
+function MaterialDialog:onGoBack() end
+
+function MaterialDialog:submitMaterial(typ, index) end
+
+function MaterialDialog:onSubmitItem(idx, item) end
+
+function MaterialDialog:onInput(keys) end
 
 return materials

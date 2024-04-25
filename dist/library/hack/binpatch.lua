@@ -2,18 +2,22 @@
 ---@meta
 
 ---@class binpatch
+---@field BinaryPatch BinaryPatch
 local binpatch
 
 function binpatch.load_dif_file(name) end
 
-function binpatch.BinaryPatch:status() end
+---@class BinaryPatch
+local BinaryPatch = {}
 
-function binpatch.BinaryPatch:isApplied() end
+function BinaryPatch:status() end
 
-function binpatch.BinaryPatch:apply() end
+function BinaryPatch:isApplied() end
 
-function binpatch.BinaryPatch:isRemoved() end
+function BinaryPatch:apply() end
 
-function binpatch.BinaryPatch:remove() end
+function BinaryPatch:isRemoved() end
+
+function BinaryPatch:remove() end
 
 return binpatch

@@ -358,11 +358,11 @@ local siegeengine_input = {
 }
 --[[ Functions for lookup in tables. ]]
 
-local function get_custom_inputs(custom) end
 
-local function get_inputs_by_type(type,subtype,custom) end
 
-local function augment_input(input, argtable) end
+
+
+
 
 function buildings.getFiltersByType(argtable,type,subtype,custom) end
 

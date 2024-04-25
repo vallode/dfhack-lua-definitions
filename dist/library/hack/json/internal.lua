@@ -300,7 +300,7 @@ function OBJDEF:newArray(tbl) end
 
 function OBJDEF:newObject(tbl) end
 
-local function unicode_codepoint_as_utf8(codepoint) end
+
 
 function OBJDEF:onDecodeError(message, text, location, etc) end
 
@@ -309,18 +309,18 @@ OBJDEF.onDecodeOfHTMLError = OBJDEF.onDecodeError
 
 function OBJDEF:onEncodeError(message, etc) end
 
-local function grok_number(self, text, start, etc) end
 
 
-local function grok_string(self, text, start, etc) end
 
-local function skip_whitespace(text, start) end
+
+
+
 
 local grok_one -- assigned later
 
-local function grok_object(self, text, start, etc) end
 
-local function grok_array(self, text, start, etc) end
+
+
 
 
 grok_one = function(self, text, start, etc)
@@ -359,7 +359,7 @@ end
 
 function OBJDEF:decode(text, etc) end
 
-local function backslash_replacement_function(c) end
+
 
 local chars_to_be_escaped_in_JSON_string
    = '['
@@ -369,9 +369,9 @@ local chars_to_be_escaped_in_JSON_string
    ..    '\001' .. '-' .. '\031' -- class sub-pattern to match control characters
    .. ']'
 
-local function json_string_literal(value) end
 
-local function object_or_array(self, T, etc) end
+
+
 
 --
 -- Encode

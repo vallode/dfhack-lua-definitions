@@ -51,16 +51,16 @@ COLOR_DARKGRAY = COLOR_DARKGREY
 
 -- Events
 
-
-SC_WORLD_LOADED = 0
-SC_WORLD_UNLOADED = 1
-SC_MAP_LOADED = 2
-SC_MAP_UNLOADED = 3
-SC_VIEWSCREEN_CHANGED = 4
-SC_CORE_INITIALIZED = 5
-SC_PAUSED = 7
-SC_UNPAUSED = 8
-
+if dfhack.is_core_context then
+    SC_WORLD_LOADED = 0
+    SC_WORLD_UNLOADED = 1
+    SC_MAP_LOADED = 2
+    SC_MAP_UNLOADED = 3
+    SC_VIEWSCREEN_CHANGED = 4
+    SC_CORE_INITIALIZED = 5
+    SC_PAUSED = 7
+    SC_UNPAUSED = 8
+end
 
 -- User-changeable options
 
@@ -105,7 +105,7 @@ function dfhack.with_finalize(cleanup_fn,fn,...) end
 function dfhack.with_onerror(cleanup_fn,fn,...) end
 
 ---@param obj DFObject
-local function call_delete(obj) end
+
 
 ---@generic T
 ---@param obj DFObject
@@ -118,7 +118,7 @@ dfhack.exception.__index = dfhack.exception
 
 -- Module loading
 
-local function find_required_module_arg() end
+
 
 ---@nodiscard
 ---@param module string
@@ -153,7 +153,7 @@ NEWLINE = "\n"
 COMMA = ","
 PERIOD = "."
 
-local function _wrap_iterator(next_fn, ...) end
+
 
 function safe_pairs(t, iterator_fn) end
 
@@ -161,9 +161,9 @@ function safe_pairs(t, iterator_fn) end
 -- returns true if we iterated successfully, false if not
 -- this differs from safe_pairs() above in that it only calls pcall() once per
 -- full iteration and it returns whether iteration succeeded or failed.
-local function safe_iterate(table, iterator_fn, elem_cb) end
 
-local function print_element(k, v) end
+
+
 
 ---@param table table
 function printall(table) end
@@ -173,7 +173,7 @@ function printall_ipairs(table) end
 
 local do_print_recurse
 
-local function print_string(printfn, v, seen, indent) end
+
 
 local fill_chars = {
     __index = function(table, key, value)
@@ -185,13 +185,13 @@ local fill_chars = {
 
 setmetatable(fill_chars, fill_chars)
 
-local function print_fields(value, seen, indent, prefix) end
+
 
 -- This should be same as print_array but userdata doesn't compare equal even if
 -- they hold same pointer.
-local function print_userdata(printfn, value, seen, indent) end
 
-local function print_array(printfn, value, seen, indent) end
+
+
 
 local recurse_type_map = {
     number = print_string,
@@ -399,12 +399,12 @@ function dfhack.world.getCurrentSite() end
 ---@param key string
 ---@param default? any
 ---@return any
-local function persistent_getData(which, key, default) end
+
 
 ---@param which string
 ---@param key string
 ---@param data any
-local function persistent_saveData(which, key, data) end
+
 
 ---@nodiscard
 ---@param key string
@@ -484,7 +484,7 @@ function dfhack.current_script_name() end
 
 function dfhack.script_help(script_name, extension) end
 
-local function _run_command(args, use_console) end
+
 
 function dfhack.run_command_silent(...) end
 
@@ -494,57 +494,8 @@ function dfhack.run_command(...) end
 
 function dfhack.getSavePath() end
 
-
-local function loadInitFile(path, name)
-    local env = setmetatable({ SAVE_PATH = path }, { __index = base_env })
-    local f,perr = loadfile(name, 't', env)
-    if f == nil then
-        if dfhack.filesystem.exists(name) then
-            dfhack.printerr(perr)
-        end
-    elseif safecall(f) then
-        if not internal.save_init then
-            internal.save_init = {}
-        end
-        table.insert(internal.save_init, env)
-    end
-end
-
-dfhack.onStateChange.DFHACK_PER_SAVE = function(op)
-    if op == SC_WORLD_LOADED or op == SC_WORLD_UNLOADED then
-        if internal.save_init then
-            for k,v in ipairs(internal.save_init) do
-                if v.onUnload then
-                    safecall(v.onUnload)
-                end
-            end
-            internal.save_init = nil
-        end
-
-        local path = dfhack.getSavePath()
-
-        if path and op == SC_WORLD_LOADED then
-            loadInitFile(path, path..'/init.lua')
-
-            local dirlist = dfhack.internal.getDir(path..'/init.d/')
-            if dirlist then
-                table.sort(dirlist)
-                for i,name in ipairs(dirlist) do
-                    if string.match(name,'%.lua$') then
-                        loadInitFile(path, path..'/init.d/'..name)
-                    end
-                end
-            end
-        end
-    elseif internal.save_init then
-        for k,v in ipairs(internal.save_init) do
-            if v.onStateChange then
-                safecall(v.onStateChange, op)
-            end
-        end
-    end
-end
-
+if dfhack.is_core_context then
+    
 
 -- Feed the table back to the require() mechanism.
 return dfhack

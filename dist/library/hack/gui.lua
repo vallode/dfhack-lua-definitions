@@ -2,6 +2,13 @@
 ---@meta
 
 ---@class gui
+---@field ViewRect ViewRect
+---@field Painter Painter
+---@field View View
+---@field Screen Screen
+---@field ZScreen ZScreen
+---@field ZScreenModal ZScreenModal
+---@field FramedScreen FramedScreen
 local gui
 
 function gui.simulateInput(screen,...) end
@@ -24,160 +31,6 @@ function gui.blink_visible(delay) end
 
 function gui.getKeyDisplay(code) end
 
-function gui.ViewRect:init(args) end
-
-function gui.ViewRect:isDefunct() end
-
-function gui.ViewRect:inClipGlobalXY(x,y) end
-
-function gui.ViewRect:inClipLocalXY(x,y) end
-
-function gui.ViewRect:localXY(x,y) end
-
-function gui.ViewRect:globalXY(x,y) end
-
-function gui.ViewRect:viewport(x,y,w,h) end
-
-function gui.Painter:init(args) end
-
-function gui.Painter.new(rect, pen) end
-
-function gui.Painter.new_view(view_rect, pen) end
-
-function gui.Painter.new_xy(x1,y1,x2,y2,pen) end
-
-function gui.Painter.new_wh(x,y,w,h,pen) end
-
-function gui.Painter:isValidPos() end
-
-function gui.Painter:viewport(x,y,w,h) end
-
-function gui.Painter:cursor() end
-
-function gui.Painter:cursorX() end
-
-function gui.Painter:cursorY() end
-
-function gui.Painter:seek(x,y) end
-
-function gui.Painter:advance(dx,dy) end
-
-function gui.Painter:newline(dx) end
-
-function gui.Painter:pen(pen,...) end
-
-function gui.Painter:color(fg,bold,bg) end
-
-function gui.Painter:key_pen(pen,...) end
-
-function gui.Painter:map(to_map) end
-
-function gui.Painter:clear() end
-
-function gui.Painter:fill(x1,y1,x2,y2,pen,bg,bold) end
-
-function gui.Painter:char(char,pen,...) end
-
-function gui.Painter:tile(char,tile,pen,...) end
-
-function gui.Painter:string(text,pen,...) end
-
-function gui.Painter:key(keycode,pen,...) end
-
-function gui.Painter:key_string(keycode, text, ...) end
-
-function gui.View:init(args) end
-
-function gui.View:addviews(list) end
-
-function gui.View:getPreferredFocusState() end
-
-function gui.View:setFocus(focus) end
-
-function gui.View:getWindowSize() end
-
-function gui.View:getMousePos(view_rect) end
-
-function gui.View:getMouseFramePos() end
-
-function gui.View:computeFrame(parent_rect) end
-
-function gui.View:updateSubviewLayout(frame_body) end
-
-function gui.View:updateLayout(parent_rect) end
-
-function gui.View:renderSubviews(dc) end
-
-function gui.View:render(dc) end
-
-function gui.View:onRenderFrame(dc,rect) end
-
-function gui.View:onRenderBody(dc) end
-
-function gui.View:inputToSubviews(keys) end
-
-function gui.View:onInput(keys) end
-
-function gui.Screen:postinit() end
-
-function gui.Screen:isShown() end
-
-function gui.Screen:isActive() end
-
-function gui.Screen:invalidate() end
-
-function gui.Screen:renderParent() end
-
-function gui.Screen:sendInputToParent(...) end
-
-function gui.Screen:show(parent) end
-
-function gui.Screen:onAboutToShow(parent) end
-
-function gui.Screen:onShow() end
-
-function gui.Screen:dismiss() end
-
-function gui.Screen:onDismiss() end
-
-function gui.Screen:onDestroy() end
-
-function gui.Screen:onResize(w,h) end
-
-function gui.Screen:onRender() end
-
-function gui.ZScreen:preinit(args) end
-
-function gui.ZScreen:init() end
-
-function gui.ZScreen:dismiss() end
-
-function gui.ZScreen:onIdle() end
-
-function gui.ZScreen:render(dc) end
-
-function gui.ZScreen:hasFocus() end
-
-function gui.ZScreen:onInput(keys) end
-
-function gui.ZScreen:raise() end
-
-function gui.ZScreen:isMouseOver() end
-
-function gui.ZScreen:onGetSelectedUnit() end
-
-function gui.ZScreen:onGetSelectedItem() end
-
-function gui.ZScreen:onGetSelectedJob() end
-
-function gui.ZScreen:onGetSelectedBuilding() end
-
-function gui.ZScreen:onGetSelectedStockpile() end
-
-function gui.ZScreen:onGetSelectedCivZone() end
-
-function gui.ZScreen:onGetSelectedPlant() end
-
 function gui.FRAME_WINDOW(resizable) end
 
 function gui.FRAME_PANEL() end
@@ -194,14 +47,192 @@ function gui.FRAME_INTERIOR_MEDIUM() end
 
 function gui.paint_frame(dc, rect, style, title, inactive, pause_forced, resizable) end
 
-function gui.FramedScreen:getWantedFrameSize() end
-
-function gui.FramedScreen:computeFrame(parent_rect) end
-
-function gui.FramedScreen:onRenderFrame(dc, rect) end
-
-function gui.FramedScreen:onInput(keys) end
-
 function gui.invert_color(color, bold) end
+
+---@class ViewRect
+local ViewRect = {}
+
+function ViewRect:init(args) end
+
+function ViewRect:isDefunct() end
+
+function ViewRect:inClipGlobalXY(x,y) end
+
+function ViewRect:inClipLocalXY(x,y) end
+
+function ViewRect:localXY(x,y) end
+
+function ViewRect:globalXY(x,y) end
+
+function ViewRect:viewport(x,y,w,h) end
+
+---@class Painter
+local Painter = {}
+
+function Painter:init(args) end
+
+function Painter.new(rect, pen) end
+
+function Painter.new_view(view_rect, pen) end
+
+function Painter.new_xy(x1,y1,x2,y2,pen) end
+
+function Painter.new_wh(x,y,w,h,pen) end
+
+function Painter:isValidPos() end
+
+function Painter:viewport(x,y,w,h) end
+
+function Painter:cursor() end
+
+function Painter:cursorX() end
+
+function Painter:cursorY() end
+
+function Painter:seek(x,y) end
+
+function Painter:advance(dx,dy) end
+
+function Painter:newline(dx) end
+
+function Painter:pen(pen,...) end
+
+function Painter:color(fg,bold,bg) end
+
+function Painter:key_pen(pen,...) end
+
+function Painter:map(to_map) end
+
+function Painter:clear() end
+
+function Painter:fill(x1,y1,x2,y2,pen,bg,bold) end
+
+function Painter:char(char,pen,...) end
+
+function Painter:tile(char,tile,pen,...) end
+
+function Painter:string(text,pen,...) end
+
+function Painter:key(keycode,pen,...) end
+
+function Painter:key_string(keycode, text, ...) end
+
+---@class View
+local View = {}
+
+function View:init(args) end
+
+function View:addviews(list) end
+
+-- should be overridden by widgets that care about capturing keyboard focus
+-- (e.g. widgets.EditField)
+function View:getPreferredFocusState() end
+
+function View:setFocus(focus) end
+
+function View:getWindowSize() end
+
+function View:getMousePos(view_rect) end
+
+function View:getMouseFramePos() end
+
+function View:computeFrame(parent_rect) end
+
+function View:updateSubviewLayout(frame_body) end
+
+function View:updateLayout(parent_rect) end
+
+function View:renderSubviews(dc) end
+
+function View:render(dc) end
+
+function View:onRenderFrame(dc,rect) end
+
+function View:onRenderBody(dc) end
+
+function View:inputToSubviews(keys) end
+
+function View:onInput(keys) end
+
+---@class Screen
+local Screen = {}
+
+function Screen:postinit() end
+
+function Screen:isShown() end
+
+function Screen:isActive() end
+
+function Screen:invalidate() end
+
+function Screen:renderParent() end
+
+function Screen:sendInputToParent(...) end
+
+function Screen:show(parent) end
+
+function Screen:onAboutToShow(parent) end
+
+function Screen:onShow() end
+
+function Screen:dismiss() end
+
+function Screen:onDismiss() end
+
+function Screen:onDestroy() end
+
+function Screen:onResize(w,h) end
+
+function Screen:onRender() end
+
+---@class ZScreen
+local ZScreen = {}
+
+function ZScreen:preinit(args) end
+
+function ZScreen:init() end
+
+function ZScreen:dismiss() end
+
+-- this is necessary for middle-click map scrolling to function
+function ZScreen:onIdle() end
+
+function ZScreen:render(dc) end
+
+function ZScreen:hasFocus() end
+
+function ZScreen:onInput(keys) end
+
+function ZScreen:raise() end
+
+function ZScreen:isMouseOver() end
+
+function ZScreen:onGetSelectedUnit() end
+
+function ZScreen:onGetSelectedItem() end
+
+function ZScreen:onGetSelectedJob() end
+
+function ZScreen:onGetSelectedBuilding() end
+
+function ZScreen:onGetSelectedStockpile() end
+
+function ZScreen:onGetSelectedCivZone() end
+
+function ZScreen:onGetSelectedPlant() end
+
+---@class ZScreenModal
+local ZScreenModal = {}
+
+---@class FramedScreen
+local FramedScreen = {}
+
+function FramedScreen:getWantedFrameSize() end
+
+function FramedScreen:computeFrame(parent_rect) end
+
+function FramedScreen:onRenderFrame(dc, rect) end
+
+function FramedScreen:onInput(keys) end
 
 return gui

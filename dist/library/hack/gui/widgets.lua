@@ -2,77 +2,30 @@
 ---@meta
 
 ---@class widgets
+---@field Widget Widget
+---@field Divider Divider
+---@field Panel Panel
+---@field Window Window
+---@field ResizingPanel ResizingPanel
+---@field Pages Pages
+---@field EditField EditField
+---@field Scrollbar Scrollbar
+---@field Label Label
+---@field WrappedLabel WrappedLabel
+---@field TooltipLabel TooltipLabel
+---@field HotkeyLabel HotkeyLabel
+---@field HelpButton HelpButton
+---@field ConfigureButton ConfigureButton
+---@field BannerPanel BannerPanel
+---@field TextButton TextButton
+---@field CycleHotkeyLabel CycleHotkeyLabel
+---@field ToggleHotkeyLabel ToggleHotkeyLabel
+---@field List List
+---@field FilteredList FilteredList
+---@field Tab Tab
+---@field TabBar TabBar
+---@field RangeSlider RangeSlider
 local widgets
-
-function widgets.Widget:computeFrame(parent_rect) end
-
-function widgets.Widget:onRenderFrame(dc, rect) end
-
-function widgets.Divider:onRenderBody(dc) end
-
-function widgets.Panel:init(args) end
-
-function widgets.Panel:onInput(keys) end
-
-function widgets.Panel:setKeyboardDragEnabled(enabled) end
-
-function widgets.Panel:setKeyboardResizeEnabled(enabled) end
-
-function widgets.Panel:onRenderBody(dc) end
-
-function widgets.Panel:computeFrame(parent_rect) end
-
-function widgets.Panel:postComputeFrame(body) end
-
-function widgets.Panel:postUpdateLayout() end
-
-function widgets.Panel:onRenderFrame(dc, rect) end
-
-function widgets.Panel:onDragBegin() end
-
-function widgets.Panel:onDragEnd(success, new_frame) end
-
-function widgets.Panel:onResizeBegin() end
-
-function widgets.Panel:onResizeEnd(success, new_frame) end
-
-function widgets.ResizingPanel:postUpdateLayout(frame_body) end
-
-function widgets.Pages:init(args) end
-
-function widgets.Pages:setSelected(idx) end
-
-function widgets.Pages:getSelected() end
-
-function widgets.Pages:getSelectedPage() end
-
-function widgets.EditField:preinit(init_table) end
-
-function widgets.EditField:init() end
-
-function widgets.EditField:getPreferredFocusState() end
-
-function widgets.EditField:setCursor(cursor) end
-
-function widgets.EditField:setText(text, cursor) end
-
-function widgets.EditField:postUpdateLayout() end
-
-function widgets.EditField:onRenderBody(dc) end
-
-function widgets.EditField:insert(text) end
-
-function widgets.EditField:onInput(keys) end
-
-function widgets.Scrollbar:preinit(init_table) end
-
-function widgets.Scrollbar:init() end
-
-function widgets.Scrollbar:update(top_elem, elems_per_page, num_elems) end
-
-function widgets.Scrollbar:onRenderBody(dc) end
-
-function widgets.Scrollbar:onInput(keys) end
 
 function widgets.parse_label_text(obj) end
 
@@ -80,158 +33,311 @@ function widgets.render_text(obj,dc,x0,y0,pen,dpen,disabled,hpen,hovered) end
 
 function widgets.check_text_keys(self, keys) end
 
-function widgets.Label:init(args) end
+---@class Widget
+local Widget = {}
 
-function widgets.Label:setText(text) end
+function Widget:computeFrame(parent_rect) end
 
-function widgets.Label:preUpdateLayout() end
+function Widget:onRenderFrame(dc, rect) end
 
-function widgets.Label:postUpdateLayout() end
+---@class Divider
+local Divider = {}
 
-function widgets.Label:itemById(id) end
+function Divider:onRenderBody(dc) end
 
-function widgets.Label:getTextHeight() end
+---@class Panel
+local Panel = {}
 
-function widgets.Label:getTextWidth() end
+function Panel:init(args) end
 
-function widgets.Label:shouldHover() end
+function Panel:onInput(keys) end
 
-function widgets.Label:onRenderBody(dc) end
+function Panel:setKeyboardDragEnabled(enabled) end
 
-function widgets.Label:on_scrollbar(scroll_spec) end
+function Panel:setKeyboardResizeEnabled(enabled) end
 
-function widgets.Label:scroll(nlines) end
+function Panel:onRenderBody(dc) end
 
-function widgets.Label:onInput(keys) end
+function Panel:computeFrame(parent_rect) end
 
-function widgets.WrappedLabel:getWrappedText(width) end
+function Panel:postComputeFrame(body) end
 
-function widgets.WrappedLabel:preUpdateLayout() end
+-- if self.autoarrange_subviews is true, lay out visible subviews vertically,
+-- adding gaps between widgets according to self.autoarrange_gap.
+function Panel:postUpdateLayout() end
 
-function widgets.WrappedLabel:postComputeFrame() end
+function Panel:onRenderFrame(dc, rect) end
 
-function widgets.TooltipLabel:init() end
+function Panel:onDragBegin() end
 
-function widgets.HotkeyLabel:init() end
+function Panel:onDragEnd(success, new_frame) end
 
-function widgets.HotkeyLabel:setOnActivate(on_activate) end
+function Panel:onResizeBegin() end
 
-function widgets.HotkeyLabel:setLabel(label) end
+function Panel:onResizeEnd(success, new_frame) end
 
-function widgets.HotkeyLabel:shouldHover() end
+---@class Window
+local Window = {}
 
-function widgets.HotkeyLabel:initializeLabel() end
+---@class ResizingPanel
+local ResizingPanel = {}
 
-function widgets.HotkeyLabel:onInput(keys) end
+-- adjust our frame dimensions according to positions and sizes of our subviews
+function ResizingPanel:postUpdateLayout(frame_body) end
 
-function widgets.HelpButton:init() end
+---@class Pages
+local Pages = {}
 
-function widgets.ConfigureButton:preinit(init_table) end
+function Pages:init(args) end
 
-function widgets.ConfigureButton:init() end
+function Pages:setSelected(idx) end
 
-function widgets.BannerPanel:onRenderBody(dc) end
+function Pages:getSelected() end
 
-function widgets.TextButton:init(info) end
+function Pages:getSelectedPage() end
 
-function widgets.TextButton:setLabel(label) end
+---@class EditField
+local EditField = {}
 
-function widgets.CycleHotkeyLabel:init() end
+function EditField:preinit(init_table) end
 
-function widgets.CycleHotkeyLabel:shouldHover() end
+function EditField:init() end
 
-function widgets.CycleHotkeyLabel:cycle(backwards) end
+function EditField:getPreferredFocusState() end
 
-function widgets.CycleHotkeyLabel:setOption(value_or_index, call_on_change) end
+function EditField:setCursor(cursor) end
 
-function widgets.CycleHotkeyLabel:getOptionLabel(option_idx) end
+function EditField:setText(text, cursor) end
 
-function widgets.CycleHotkeyLabel:getOptionValue(option_idx) end
+function EditField:postUpdateLayout() end
 
-function widgets.CycleHotkeyLabel:getOptionPen(option_idx) end
+function EditField:onRenderBody(dc) end
 
-function widgets.CycleHotkeyLabel:onInput(keys) end
+function EditField:insert(text) end
 
-function widgets.List:init(info) end
+function EditField:onInput(keys) end
 
-function widgets.List:setChoices(choices, selected) end
+---@class Scrollbar
+local Scrollbar = {}
 
-function widgets.List:setSelected(selected) end
+function Scrollbar:preinit(init_table) end
 
-function widgets.List:getChoices() end
+function Scrollbar:init() end
 
-function widgets.List:getSelected() end
+-- calculate and cache the number of tiles of empty space above the top of the
+-- scrollbar and the number of tiles the scrollbar should occupy to represent
+-- the percentage of text that is on the screen.
+-- if elems_per_page or num_elems are not specified, the last values passed to
+-- Scrollbar:update() are used.
+function Scrollbar:update(top_elem, elems_per_page, num_elems) end
 
-function widgets.List:getContentWidth() end
+function Scrollbar:onRenderBody(dc) end
 
-function widgets.List:getContentHeight() end
+function Scrollbar:onInput(keys) end
 
-function widgets.List:postComputeFrame(body) end
+---@class Label
+local Label = {}
 
-function widgets.List:postUpdateLayout() end
+function Label:init(args) end
 
-function widgets.List:moveCursor(delta, force_cb) end
+function Label:setText(text) end
 
-function widgets.List:on_scrollbar(scroll_spec) end
+function Label:preUpdateLayout() end
 
-function widgets.List:onRenderBody(dc) end
+function Label:postUpdateLayout() end
 
-function widgets.List:getIdxUnderMouse() end
+function Label:itemById(id) end
 
-function widgets.List:submit() end
+function Label:getTextHeight() end
 
-function widgets.List:submit2() end
+function Label:getTextWidth() end
 
-function widgets.List:double_click() end
+-- Overridden by subclasses that also want to add new mouse handlers, see
+-- HotkeyLabel.
+function Label:shouldHover() end
 
-function widgets.List:onInput(keys) end
+function Label:onRenderBody(dc) end
 
-function widgets.FilteredList:init(info) end
+function Label:on_scrollbar(scroll_spec) end
 
-function widgets.FilteredList:getChoices() end
+function Label:scroll(nlines) end
 
-function widgets.FilteredList:getVisibleChoices() end
+function Label:onInput(keys) end
 
-function widgets.FilteredList:setChoices(choices, pos) end
+---@class WrappedLabel
+local WrappedLabel = {}
 
-function widgets.FilteredList:submit() end
+function WrappedLabel:getWrappedText(width) end
 
-function widgets.FilteredList:submit2() end
+function WrappedLabel:preUpdateLayout() end
 
-function widgets.FilteredList:canSubmit() end
+-- we can't set the text in init() since we may not yet have a frame that we
+-- can get wrapping bounds from.
+function WrappedLabel:postComputeFrame() end
 
-function widgets.FilteredList:getSelected() end
+---@class TooltipLabel
+local TooltipLabel = {}
 
-function widgets.FilteredList:getContentWidth() end
+function TooltipLabel:init() end
 
-function widgets.FilteredList:getContentHeight() end
+---@class HotkeyLabel
+local HotkeyLabel = {}
 
-function widgets.FilteredList:getFilter() end
+function HotkeyLabel:init() end
 
-function widgets.FilteredList:setFilter(filter, pos) end
+function HotkeyLabel:setOnActivate(on_activate) end
 
-function widgets.FilteredList:onFilterChange(text) end
+function HotkeyLabel:setLabel(label) end
 
-function widgets.FilteredList:onFilterChar(char, text) end
+function HotkeyLabel:shouldHover() end
 
-function widgets.Tab:preinit(init_table) end
+function HotkeyLabel:initializeLabel() end
 
-function widgets.Tab:onRenderBody(dc) end
+function HotkeyLabel:onInput(keys) end
 
-function widgets.Tab:onInput(keys) end
+---@class HelpButton
+local HelpButton = {}
 
-function widgets.TabBar:init() end
+function HelpButton:init() end
 
-function widgets.TabBar:postComputeFrame(body) end
+---@class ConfigureButton
+local ConfigureButton = {}
 
-function widgets.TabBar:onInput(keys) end
+function ConfigureButton:preinit(init_table) end
 
-function widgets.RangeSlider:preinit(init_table) end
+function ConfigureButton:init() end
 
-function widgets.RangeSlider:init() end
+---@class BannerPanel
+local BannerPanel = {}
 
-function widgets.RangeSlider:onInput(keys) end
+function BannerPanel:onRenderBody(dc) end
 
-function widgets.RangeSlider:onRenderBody(dc, rect) end
+---@class TextButton
+local TextButton = {}
+
+function TextButton:init(info) end
+
+function TextButton:setLabel(label) end
+
+---@class CycleHotkeyLabel
+local CycleHotkeyLabel = {}
+
+function CycleHotkeyLabel:init() end
+
+-- CycleHotkeyLabels are always clickable and therefore should always change
+-- color when hovered.
+function CycleHotkeyLabel:shouldHover() end
+
+function CycleHotkeyLabel:cycle(backwards) end
+
+function CycleHotkeyLabel:setOption(value_or_index, call_on_change) end
+
+function CycleHotkeyLabel:getOptionLabel(option_idx) end
+
+function CycleHotkeyLabel:getOptionValue(option_idx) end
+
+function CycleHotkeyLabel:getOptionPen(option_idx) end
+
+function CycleHotkeyLabel:onInput(keys) end
+
+---@class ToggleHotkeyLabel
+local ToggleHotkeyLabel = {}
+
+---@class List
+local List = {}
+
+function List:init(info) end
+
+function List:setChoices(choices, selected) end
+
+function List:setSelected(selected) end
+
+function List:getChoices() end
+
+function List:getSelected() end
+
+function List:getContentWidth() end
+
+function List:getContentHeight() end
+
+function List:postComputeFrame(body) end
+
+function List:postUpdateLayout() end
+
+function List:moveCursor(delta, force_cb) end
+
+function List:on_scrollbar(scroll_spec) end
+
+function List:onRenderBody(dc) end
+
+function List:getIdxUnderMouse() end
+
+function List:submit() end
+
+function List:submit2() end
+
+function List:double_click() end
+
+function List:onInput(keys) end
+
+---@class FilteredList
+local FilteredList = {}
+
+function FilteredList:init(info) end
+
+function FilteredList:getChoices() end
+
+function FilteredList:getVisibleChoices() end
+
+function FilteredList:setChoices(choices, pos) end
+
+function FilteredList:submit() end
+
+function FilteredList:submit2() end
+
+function FilteredList:canSubmit() end
+
+function FilteredList:getSelected() end
+
+function FilteredList:getContentWidth() end
+
+function FilteredList:getContentHeight() end
+
+function FilteredList:getFilter() end
+
+function FilteredList:setFilter(filter, pos) end
+
+function FilteredList:onFilterChange(text) end
+
+function FilteredList:onFilterChar(char, text) end
+
+---@class Tab
+local Tab = {}
+
+function Tab:preinit(init_table) end
+
+function Tab:onRenderBody(dc) end
+
+function Tab:onInput(keys) end
+
+---@class TabBar
+local TabBar = {}
+
+function TabBar:init() end
+
+function TabBar:postComputeFrame(body) end
+
+function TabBar:onInput(keys) end
+
+---@class RangeSlider
+local RangeSlider = {}
+
+function RangeSlider:preinit(init_table) end
+
+function RangeSlider:init() end
+
+function RangeSlider:onInput(keys) end
+
+function RangeSlider:onRenderBody(dc, rect) end
 
 return widgets

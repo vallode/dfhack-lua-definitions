@@ -32,11 +32,11 @@ function expect.ge(a, b, comment) end
 
 function expect.str_find(pattern, str_to_match, comment) end
 
-local function table_eq_recurse(a, b, keys, known_eq) end
+
 
 function expect.table_eq(a, b, comment) end
 
-local function matches(obj, matcher) end
+
 
 -- matches errors thrown from the specified function. the check passes if an
 -- error is thrown and the thrown error matches the specified matcher.

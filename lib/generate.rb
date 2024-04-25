@@ -113,8 +113,14 @@ def parse_lua_files(files)
     next if ignored_files.include? filename
 
     file = File.read(path)
+
     is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
-    functions = file.scan(/^function\s+(.*)$/)
+
+    # Classes (defclass)
+    classes = file.scan(/^(.*)\s+=\s+defclass/).flatten
+
+    # Get all non-local functions and their annotations
+    functions = file.scan(/(?:---?.*\R)*(?:---@.*\R)*(?:^function)[^.:]*?\([^)]*\)/)
 
     output_path = path.gsub('dfhack/library/lua', 'dist/library/hack')
     FileUtils.mkdir_p(File.dirname(output_path)) unless Dir.exist?(File.dirname(output_path))
@@ -128,26 +134,42 @@ def parse_lua_files(files)
         Regexp.last_match(1).capitalize!
       end
 
-      # If the file is a module, we do some rather clunky cleaning to it to make it
-      # play nicely with LuaLS. Namely we need to namespace the file correctly,
-      # LuaLS does not have a good understanding of the _ENV overriding.
       if is_module
-        output.write("---@class #{filename}\nlocal #{filename}\n\n")
+        output << "---@class #{filename}\n"
+        classes.each do |cls|
+          output << "---@field #{cls} #{cls}\n"
+        end
+        output << "local #{filename}\n\n"
 
-        functions.each do |match|
-          output.write('function ')
-          output.write("#{filename}.") if is_module
-          output.write("#{match[0]} end\n\n")
+        functions.each do |function|
+          signature = function[/^function\s+([^)]+\))/, 1]
+          output << "function #{filename}.#{signature} end\n\n"
         end
 
-        output.write("return #{filename}")
+        classes.each do |cls|
+          output << "---@class #{cls}\n"
+          # Only local because it is already exposed under the module class.
+          output << "local #{cls} = {}\n\n"
+
+          # Get class methods
+          file.scan(/(?:---?.*\R)*(?:---@.*\R)*(?:^function\s+)#{cls}[.:].*\([^)]*\)/) do
+            output << "#{Regexp.last_match(0)} end\n\n"
+          end
+        end
+
+        output << "return #{filename}\n"
       else
+        # Remove `_ENV` as it is problematic.
         file.gsub!(/^.*_ENV.*$/, '')
-        file.gsub!(/^((local\s+)?function\s+(.*)$)([\s\S]+?)(^end)/, '\1 end')
-        file.gsub!(/^if\s+.*then$([\s\S]+?)(^\s?end)/) do
-          Regexp.last_match(1).gsub(/^[\ \t]{4}/, '')
-        end
-        output.write(file)
+
+        # Remove local functions entirely, they are not needed.
+        file.gsub!(/(?:local\s+function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, '')
+
+        # Remove function bodies to save some space.
+        file.gsub!(/^(?:function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, 'function \1 end')
+
+        # dfhack.lua only for now, we just spit it out as a whole.
+        output << file
       end
     end
   end
