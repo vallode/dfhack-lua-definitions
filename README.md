@@ -28,6 +28,9 @@ These definitions require [`lua-language-server`](//github.com/LuaLS/lua-languag
 ```
 - Restarting VSCode and entering a DFHack-related Lua file should prompt you to load the library.
 
+You can also read this [well-written guide](//agnieszka.dev/dfhack/vsc/lls/#adding-dfhack-definitions) with screenshots by Discord user Agnieszka.
+
+
 ### Helix
 
 - Make sure you have `lua-langauge-server` installed, you can follow [their instructions](//luals.github.io/#other-install).
@@ -64,6 +67,7 @@ These definitions require [`lua-language-server`](//github.com/LuaLS/lua-languag
 As with all things, development of this library would not be possible without help.
 
 - ab9rf
+- Agnieszka
 - DFHack community
 - Lethosor
 - Lua language server contributors
