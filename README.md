@@ -30,6 +30,9 @@ These definitions require [`lua-language-server`](//github.com/LuaLS/lua-languag
 
 You can also read this [well-written guide](//agnieszka.dev/dfhack/vsc/lls/#adding-dfhack-definitions) with screenshots by Discord user Agnieszka.
 
+### Emacs
+
+Reportedly working but no instructions yet.
 
 ### Helix
 
