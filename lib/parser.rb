@@ -35,7 +35,7 @@ module DFHackLuaDefinitions
     end
   end
 
-  # Abstract global DF type.
+  # Abstract node, named type or object reference.
   class Type
     attr_reader :node
 
@@ -46,15 +46,11 @@ module DFHackLuaDefinitions
       @name = node['name'] || node['type-name']
       @comment = node['comment']
       @path = path.dup
-      @local_name = ''
 
       if node['ld:level'] == '0' && !@path.include?('global')
         @path.append(@name)
-        @local_name = @name
       elsif @name
         @path.append("T_#{@name}")
-        @local_name = @path.join('_').gsub('T_', '')
-        # @name = @path.join('.').gsub('.T_', '_')
       end
 
       @class_name = @path.join('.')
@@ -65,7 +61,6 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @class_name = @path.join('.')
       @attributes = node.xpath('enum-attr')
       @items = items
     end
@@ -217,7 +212,6 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @class_name = @path.join('.')
       @items = items
     end
 
@@ -326,7 +320,6 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @class_name = @path.join('.')
       @class = node['inherits-from']
       @fields = fields
       @methods = methods
@@ -455,7 +448,6 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @path = @path.slice(0..-1)
       @child = child
       @type = @child.type
     end
@@ -633,8 +625,8 @@ module DFHackLuaDefinitions
       super(node, path)
 
       @name = node['name']
-      @path = @path.slice(...-1)
-      @class_name = @path.join('.')
+      # The name of the function is appended, we need to remove it.
+      @class_name = @path.slice(...-1).join('.')
       @return_type = return_type
     end
 
@@ -672,10 +664,6 @@ module DFHackLuaDefinitions
       @comment = comment
 
       @type = 'DFPointer<integer>' if @type == 'any' && node['ld:meta'] == 'pointer'
-
-      return unless field.name == 'item'
-
-      @name = path[0]
     end
 
     def to_field
