@@ -38,7 +38,7 @@ module DFHackLuaDefinitions
 
   # Abstract node, named type or object reference.
   class Type
-    attr_reader :node, :type
+    attr_reader :node, :type, :accessor
 
     def initialize(node:, path: [])
       @node = node
@@ -54,8 +54,20 @@ module DFHackLuaDefinitions
         @path.append("T_#{@name}")
       end
 
+      # Named type
+      @type_name = "identity.#{@path.join('.').gsub(/T_/, '')}"
+      @accessor = primitive? ? @name : "df.#{@path.join('.')}"
+
+      # Object reference
+      @reference_name = @accessor
+
       @class_name = @path.join('.')
       @type = @class_name
+      @type = "df.#{@type}" unless primitive?
+    end
+
+    def primitive?
+      DFHackLuaDefinitions::LuaLS::TYPES.include?(@name)
     end
 
     def render?
@@ -69,28 +81,29 @@ module DFHackLuaDefinitions
       super(node:, path:)
 
       @attributes = node.xpath('enum-attr')
+      @index = 0
       @items = items
     end
 
     def items
-      index = 0
       @node.xpath('enum-item').map do |item|
-        index = item['value'].to_i if item['value']
-        enum = EnumItem.new(node: item, index:, attrs: @attributes)
-        index += 1
-        enum
+        @index = item['value'].to_i if item['value']
+
+        EnumItem.new(node: item, index: @index, attrs: @attributes).tap do
+          @index += 1
+        end
       end
     end
 
     def to_field
-      LuaLS.field(@name, @class_name, @comment)
+      LuaLS.field(@name, @accessor, @comment)
     end
 
     # TODO: Types with index_enums have bi-directional keys.
     def to_alias
       annotation = []
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@alias #{@class_name}\n"
+      annotation << "---@alias #{@accessor}\n"
       annotation << @items.map(&:to_alias).join
       annotation.join
     end
@@ -102,18 +115,18 @@ module DFHackLuaDefinitions
         annotation << " #{attribute['comment']}" if attribute['comment']
         annotation << "\n"
       end
-      annotation << "df.#{@class_name}._attr_entry_type._fields = {}\n\n"
+      annotation << "#{@accessor}._attr_entry_type._fields = {}\n\n"
     end
 
     def to_attrs
       annotation = "---@class #{@class_name}_attr_entry_type: DFCompoundType\n"
       annotation << "---@field _kind 'struct-type'\n"
-      annotation << "df.#{@class_name}._attr_entry_type = {}\n\n"
+      annotation << "#{@accessor}._attr_entry_type = {}\n\n"
       annotation << attribute_fields
 
       annotation << "---@class #{@class_name}_attrs\n"
       annotation << @items.map(&:to_attrs).join
-      annotation << "df.#{@class_name}.attrs = {}\n\n"
+      annotation << "#{@accessor}.attrs = {}\n\n"
     end
 
     def render
@@ -121,13 +134,17 @@ module DFHackLuaDefinitions
       annotation << to_alias
       annotation << "\n"
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@class _#{@class_name}: DFEnumType\n"
+      annotation << "---@class #{@type_name}: DFEnumType\n"
       annotation << @items.map(&:to_field).join
-      annotation << "df.#{@class_name} = {}\n\n"
+      annotation << "#{@accessor} = {}\n\n"
 
       annotation << to_attrs unless @attributes.empty?
       annotation
     end
+  end
+
+  # TODO: Implement.
+  class EnumAttr
   end
 
   class EnumItem
@@ -218,30 +235,32 @@ module DFHackLuaDefinitions
     end
 
     def to_field
-      "---@field #{@name} #{@class_name}\n"
+      LuaLS.field(@name, @accessor, @comment)
     end
 
     def to_type
       annotation = []
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@class #{@class_name}: DFBitfield\n"
-      annotation << "---@field _enum _#{@class_name}\n"
+      annotation << "---@class #{@accessor}: DFBitfield\n"
+      annotation << "---@field _enum #{@type_name}\n"
       annotation << @items.map(&:to_field_bitfield).join
       annotation << "\n"
       annotation.join
     end
 
     def render
-      annotation = ''
+      annotation = []
       annotation << to_type
-      annotation << "---@class _#{@class_name}: DFBitfieldType\n"
+      annotation << "---@class #{@type_name}: DFBitfieldType\n"
       annotation << @items.map(&:to_field).join
-      annotation << "df.#{@class_name} = {}\n\n"
+      annotation << "#{@accessor} = {}\n\n"
+      annotation.join
     end
   end
 
-  class FlagBit
+  class FlagBit < Type
     def initialize(node:, index:)
+      super(node:)
       @field = node
 
       @name = node['name']
@@ -267,8 +286,7 @@ module DFHackLuaDefinitions
       # TODO: Ask DFHack folks if this matters, should we be outputting nils.
       return '' unless @name
 
-      annotation = []
-      annotation << LuaLS.field(@name, @value, @comment)
+      annotation = [LuaLS.field(@name, @value, @comment)]
       annotation << LuaLS.field(@value, "\"#{@name}\"", @comment)
       annotation.join
     end
@@ -292,13 +310,13 @@ module DFHackLuaDefinitions
     def initialize(node:, path: [])
       super(node:, path:)
 
-      @class = node['inherits-from']
+      @inherits_from = node['inherits-from']
       @fields = fields
       @methods = methods
     end
 
     def fields
-      @node.children.map do |child|
+      @children.map do |child|
         DFHackLuaDefinitions.node_to_type(child, @path)
       end.compact
     end
@@ -311,21 +329,21 @@ module DFHackLuaDefinitions
 
     def to_field
       # No comment required here, it will be included with the actual object.
-      "---@field #{@name} #{@class_name}\n"
+      LuaLS.field(@name, @accessor)
     end
 
     def to_object
       annotation = []
       annotation << LuaLS.multiline_comment(@comment)
-      annotation << "---@class (exact) #{@class_name}: DFStruct"
+      annotation << "---@class (exact) #{@reference_name}: DFStruct"
 
-      if @class
-        annotation << ", #{@class}\n" if @class
-      else
-        annotation << "\n"
-      end
+      annotation << if @inherits_from
+                      ", df.#{@inherits_from}\n"
+                    else
+                      "\n"
+                    end
 
-      annotation << "---@field _type _#{@class_name}\n"
+      annotation << "---@field _type #{@type_name}\n"
       annotation << @fields.map(&:to_field).join
 
       unless @methods.empty?
@@ -339,27 +357,28 @@ module DFHackLuaDefinitions
 
     def instance_functions
       annotation = []
-      annotation << "---@return #{@class_name}\n"
-      annotation << "function df.#{@class_name}:new() end\n\n"
+      annotation << "---@return #{@accessor}\n"
+      annotation << "function #{@accessor}:new() end\n\n"
       annotation.join
     end
 
     def instance_vector_functions
       annotation = "---@param key number\n"
-      annotation << "---@return #{@name}|nil\n"
-      annotation << "function df.#{@class_name}.find(key) end\n\n"
+      annotation << "---@return #{@accessor}|nil\n"
+      annotation << "function #{@accessor}.find(key) end\n\n"
 
-      annotation << "---@class #{@name}_vector: DFVector, { [integer]: #{@name} }\n"
+      annotation << "---@class #{@name}_vector: DFVector, { [integer]: #{@accessor} }\n"
       annotation << "\n"
 
       annotation << "---@return #{@name}_vector # #{@node['instance-vector'].gsub('$global', 'df.global')}\n"
-      annotation << "function df.#{@class_name}.get_vector() end\n\n"
+      annotation << "function #{@accessor}.get_vector() end\n\n"
     end
 
     def to_type
-      annotation = "---@class _#{@class_name}: DFCompoundType\n"
+      annotation = "---@class #{@type_name}: DFCompoundType\n"
       annotation << "---@field _kind '#{KIND_MAP[node['ld:meta']]}'\n"
-      annotation << "df.#{@class_name} = {}\n\n"
+      # TODO: Nested type accessors.
+      annotation << "#{@accessor} = {}\n\n"
       annotation << instance_functions
       annotation << instance_vector_functions if @node['instance-vector']
 
@@ -429,17 +448,17 @@ module DFHackLuaDefinitions
       super(node:, path:)
 
       @name = node['name']
-      @path = @path.slice(0..-1)
-      if @node.first_element_child
-        @child = child
+      @child = child
+
+      if @child
         @type = if @node['index-enum']
-                  "DFEnumVector<#{@node['index-enum']}, #{@child.type}>"
+                  "DFEnumVector<df.#{@node['index-enum']}, #{@child.type}>"
                 else
                   "#{@child.type}[]"
                 end
       # TODO: This needs work.
       elsif @node['ld:subtype'] == 'df-flagarray'
-        index = @node['index-enum'] || 'integer'
+        index = node['index-enum'] ? "df.#{@node['index-enum']}" : 'integer'
         @type = "table<#{index}, boolean>"
       elsif @node['ld:subtype'] == 'stl-function'
         @type = 'function[]'
@@ -449,11 +468,25 @@ module DFHackLuaDefinitions
     end
 
     def child
+      return unless @node.first_element_child
+
       DFHackLuaDefinitions.node_to_type(@node.first_element_child, @path)
     end
 
     def to_field
       return '' unless @name
+
+      # # TODO: This is ugly logic, slim it down at some point.
+      # stripped_type = @type.gsub(/[\[\]]/, '')
+      # if DFHackLuaDefinitions::LuaLS::TYPES.include?(stripped_type)
+      #   type = @type
+      # elsif stripped_type.include? "Vector"
+      #   type = @type
+      # else
+      #   p @type
+      #   # binding.irb if @type.include? "coord2d"
+      #   type = "df.#{@type}"
+      # end
 
       LuaLS.field(@name, @type, @comment)
     end
@@ -547,18 +580,20 @@ module DFHackLuaDefinitions
     end
 
     def methods
-      @node.xpath('vmethod').map do |node|
+      # Unnamed methods are inaccessible to Lua
+      @node.xpath('vmethod[@name]').map do |node|
         VMethod.new(node:, path: @path)
       end
     end
 
     def render
       annotation = []
-      annotation << @methods.select(&:render?).map(&:render).join
+      annotation << @methods.map(&:render).join
       annotation.join
     end
   end
 
+  # <vmethod> XML nodes
   class VMethod < Type
     def initialize(node:, path: [])
       super(node:, path:)
@@ -570,25 +605,23 @@ module DFHackLuaDefinitions
     end
 
     def return_type
-      return Field.new(node: @node.at_xpath('ret-type')).type if @node.at_xpath('ret-type')
+      ret_type_node = @node.at_xpath('ret-type')
+      return Field.new(node: ret_type_node).type if ret_type_node
 
       node['ret-type']
-    end
-
-    def render?
-      @name
     end
 
     def render
       annotation = []
       # TODO: Some logic for adding `@nodiscard`?
+      # annotation << "---@nodiscard" unless ?
       annotation << "---@return #{@return_type}\n" if @return_type
       annotation << "function #{@class_name}:#{@name}() end\n\n"
       annotation.join
     end
   end
 
-  # Generic global field.
+  # Generic global field. Usually primitive fields like integers and strings.
   class Field < Type
     attr_accessor :type
 
@@ -602,7 +635,15 @@ module DFHackLuaDefinitions
       @ref_target = node['ref-target']
       @comment = comment
 
+      @type = "df.#{@type}" unless LuaLS::TYPES.include?(@type)
       @type = 'DFPointer<integer>' if @type == 'any' && node['ld:meta'] == 'pointer'
+    end
+
+    def comment
+      comment = []
+      comment << @field['comment'] if @field['comment']
+      comment << "References: `#{@ref_target}`" if @ref_target
+      comment.join(' ') unless comment.empty?
     end
 
     def to_field
@@ -611,13 +652,6 @@ module DFHackLuaDefinitions
       return '' if @name == 'anon_'
 
       LuaLS.field(@name, @type, @comment)
-    end
-
-    def comment
-      comment = []
-      comment.append(@field['comment']) if @field['comment']
-      comment.append("References: `#{@ref_target}`") if @ref_target
-      comment.join(' ') unless comment.empty?
     end
 
     def render?

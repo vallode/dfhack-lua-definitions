@@ -2,7 +2,7 @@
 ---@meta
 
 -- not in DF
----@alias job_type_class
+---@alias df.job_type_class
 ---| 0 # Misc
 ---| 1 # Digging
 ---| 2 # Building
@@ -22,7 +22,7 @@
 ---| 16 # Carving
 
 -- not in DF
----@class _job_type_class: DFEnumType
+---@class identity.job_type_class: DFEnumType
 ---@field Misc 0
 ---@field [0] "Misc"
 ---@field Digging 1
@@ -59,7 +59,7 @@
 ---@field [16] "Carving"
 df.job_type_class = {}
 
----@alias job_type
+---@alias df.job_type
 ---| -1 # NONE
 ---| 0 # CarveFortification
 ---| 1 # SmoothWall
@@ -304,7 +304,7 @@ df.job_type_class = {}
 ---| 240 # InterrogateSubject
 ---| 241 # unk_fake_no_activity
 
----@class _job_type: DFEnumType
+---@class identity.job_type: DFEnumType
 ---@field NONE -1 unused
 ---@field [-1] "NONE" unused
 ---@field CarveFortification 0 0

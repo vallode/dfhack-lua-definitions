@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias improvement_type
+---@alias df.improvement_type
 ---| -1 # NONE
 ---| 0 # ART_IMAGE
 ---| 1 # COVERED
@@ -18,7 +18,7 @@
 ---| 12 # WRITING
 ---| 13 # IMAGE_SET
 
----@class _improvement_type: DFEnumType
+---@class identity.improvement_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ART_IMAGE 0
@@ -51,46 +51,46 @@
 ---@field [13] "IMAGE_SET"
 df.improvement_type = {}
 
----@class (exact) dye_info: DFStruct
----@field _type _dye_info
+---@class (exact) df.dye_info: DFStruct
+---@field _type identity.dye_info
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field dyer number References: `historical_figure`
----@field quality item_quality
----@field skill_rating skill_rating at the moment of creation
+---@field quality df.item_quality
+---@field skill_rating df.skill_rating at the moment of creation
 ---@field unk_1 number
 
----@class _dye_info: DFCompoundType
+---@class identity.dye_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.dye_info = {}
 
----@return dye_info
+---@return df.dye_info
 function df.dye_info:new() end
 
----@class (exact) itemimprovement: DFStruct
----@field _type _itemimprovement
+---@class (exact) df.itemimprovement: DFStruct
+---@field _type identity.itemimprovement
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field maker number References: `historical_figure`
 ---@field masterpiece_event number References: `history_event`
----@field quality item_quality
----@field skill_rating skill_rating at the moment of creation
+---@field quality df.item_quality
+---@field skill_rating df.skill_rating at the moment of creation
 ---@field unk_1 number
 local itemimprovement
 
----@return art_image
+---@return df.art_image
 function itemimprovement:getImage() end
 
 function itemimprovement:getColorAndShape() end
 
----@return itemimprovement
+---@return df.itemimprovement
 function itemimprovement:clone() end
 
 function itemimprovement:write_file() end
 
 function itemimprovement:read_file() end
 
----@return improvement_type
+---@return df.improvement_type
 function itemimprovement:getType() end
 
 ---@return boolean
@@ -102,204 +102,204 @@ function itemimprovement:getDyeValue() end
 function itemimprovement:setShape() end
 
 
----@class _itemimprovement: DFCompoundType
+---@class identity.itemimprovement: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement = {}
 
----@return itemimprovement
+---@return df.itemimprovement
 function df.itemimprovement:new() end
 
----@class (exact) itemimprovement_art_imagest: DFStruct, itemimprovement
----@field _type _itemimprovement_art_imagest
----@field image art_image_ref
+---@class (exact) df.itemimprovement_art_imagest: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_art_imagest
+---@field image df.art_image_ref
 
----@class _itemimprovement_art_imagest: DFCompoundType
+---@class identity.itemimprovement_art_imagest: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_art_imagest = {}
 
----@return itemimprovement_art_imagest
+---@return df.itemimprovement_art_imagest
 function df.itemimprovement_art_imagest:new() end
 
----@class (exact) itemimprovement_coveredst: DFStruct, itemimprovement
----@field _type _itemimprovement_coveredst
----@field cover_flags itemimprovement_coveredst.T_cover_flags
+---@class (exact) df.itemimprovement_coveredst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_coveredst
+---@field cover_flags df.itemimprovement_coveredst.T_cover_flags
 ---@field shape number References: `descriptor_shape`
 
----@class _itemimprovement_coveredst: DFCompoundType
+---@class identity.itemimprovement_coveredst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_coveredst = {}
 
----@return itemimprovement_coveredst
+---@return df.itemimprovement_coveredst
 function df.itemimprovement_coveredst:new() end
 
----@class itemimprovement_coveredst.T_cover_flags: DFBitfield
----@field _enum _itemimprovement_coveredst.T_cover_flags
+---@class df.itemimprovement_coveredst.T_cover_flags: DFBitfield
+---@field _enum identity.itemimprovement_coveredst.cover_flags
 ---@field glazed boolean
 ---@field [0] boolean
 
----@class _itemimprovement_coveredst.T_cover_flags: DFBitfieldType
+---@class identity.itemimprovement_coveredst.cover_flags: DFBitfieldType
 ---@field glazed 0
 ---@field [0] "glazed"
 df.itemimprovement_coveredst.T_cover_flags = {}
 
----@class (exact) itemimprovement_rings_hangingst: DFStruct, itemimprovement
----@field _type _itemimprovement_rings_hangingst
+---@class (exact) df.itemimprovement_rings_hangingst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_rings_hangingst
 
----@class _itemimprovement_rings_hangingst: DFCompoundType
+---@class identity.itemimprovement_rings_hangingst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_rings_hangingst = {}
 
----@return itemimprovement_rings_hangingst
+---@return df.itemimprovement_rings_hangingst
 function df.itemimprovement_rings_hangingst:new() end
 
----@class (exact) itemimprovement_bandsst: DFStruct, itemimprovement
----@field _type _itemimprovement_bandsst
+---@class (exact) df.itemimprovement_bandsst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_bandsst
 ---@field shape number References: `descriptor_shape`
 
----@class _itemimprovement_bandsst: DFCompoundType
+---@class identity.itemimprovement_bandsst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_bandsst = {}
 
----@return itemimprovement_bandsst
+---@return df.itemimprovement_bandsst
 function df.itemimprovement_bandsst:new() end
 
----@class (exact) itemimprovement_spikesst: DFStruct, itemimprovement
----@field _type _itemimprovement_spikesst
+---@class (exact) df.itemimprovement_spikesst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_spikesst
 
----@class _itemimprovement_spikesst: DFCompoundType
+---@class identity.itemimprovement_spikesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_spikesst = {}
 
----@return itemimprovement_spikesst
+---@return df.itemimprovement_spikesst
 function df.itemimprovement_spikesst:new() end
 
----@alias itemimprovement_specific_type
+---@alias df.itemimprovement_specific_type
 ---| 0 # HANDLE
 ---| 1 # ROLLERS
 
----@class _itemimprovement_specific_type: DFEnumType
+---@class identity.itemimprovement_specific_type: DFEnumType
 ---@field HANDLE 0
 ---@field [0] "HANDLE"
 ---@field ROLLERS 1
 ---@field [1] "ROLLERS"
 df.itemimprovement_specific_type = {}
 
----@class (exact) itemimprovement_itemspecificst: DFStruct, itemimprovement
----@field _type _itemimprovement_itemspecificst
----@field type itemimprovement_specific_type
+---@class (exact) df.itemimprovement_itemspecificst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_itemspecificst
+---@field type df.itemimprovement_specific_type
 
----@class _itemimprovement_itemspecificst: DFCompoundType
+---@class identity.itemimprovement_itemspecificst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_itemspecificst = {}
 
----@return itemimprovement_itemspecificst
+---@return df.itemimprovement_itemspecificst
 function df.itemimprovement_itemspecificst:new() end
 
----@class (exact) itemimprovement_threadst: DFStruct, itemimprovement
----@field _type _itemimprovement_threadst
----@field dye dye_info
+---@class (exact) df.itemimprovement_threadst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_threadst
+---@field dye df.dye_info
 
----@class _itemimprovement_threadst: DFCompoundType
+---@class identity.itemimprovement_threadst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_threadst = {}
 
----@return itemimprovement_threadst
+---@return df.itemimprovement_threadst
 function df.itemimprovement_threadst:new() end
 
----@class (exact) itemimprovement_clothst: DFStruct, itemimprovement
----@field _type _itemimprovement_clothst
+---@class (exact) df.itemimprovement_clothst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_clothst
 
----@class _itemimprovement_clothst: DFCompoundType
+---@class identity.itemimprovement_clothst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_clothst = {}
 
----@return itemimprovement_clothst
+---@return df.itemimprovement_clothst
 function df.itemimprovement_clothst:new() end
 
----@class (exact) itemimprovement_sewn_imagest: DFStruct, itemimprovement
----@field _type _itemimprovement_sewn_imagest
----@field image art_image_ref
----@field cloth itemimprovement_sewn_imagest.T_cloth
----@field dye dye_info
+---@class (exact) df.itemimprovement_sewn_imagest: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_sewn_imagest
+---@field image df.art_image_ref
+---@field cloth df.itemimprovement_sewn_imagest.T_cloth
+---@field dye df.dye_info
 
----@class _itemimprovement_sewn_imagest: DFCompoundType
+---@class identity.itemimprovement_sewn_imagest: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_sewn_imagest = {}
 
----@return itemimprovement_sewn_imagest
+---@return df.itemimprovement_sewn_imagest
 function df.itemimprovement_sewn_imagest:new() end
 
----@class (exact) itemimprovement_sewn_imagest.T_cloth: DFStruct
----@field _type _itemimprovement_sewn_imagest.T_cloth
+---@class (exact) df.itemimprovement_sewn_imagest.T_cloth: DFStruct
+---@field _type identity.itemimprovement_sewn_imagest.cloth
 ---@field unit_id number References: `historical_figure`
 ---@field quality number
 ---@field unk_1 number
 
----@class _itemimprovement_sewn_imagest.T_cloth: DFCompoundType
+---@class identity.itemimprovement_sewn_imagest.cloth: DFCompoundType
 ---@field _kind 'struct-type'
 df.itemimprovement_sewn_imagest.T_cloth = {}
 
----@return itemimprovement_sewn_imagest.T_cloth
+---@return df.itemimprovement_sewn_imagest.T_cloth
 function df.itemimprovement_sewn_imagest.T_cloth:new() end
 
----@class (exact) itemimprovement_pagesst: DFStruct, itemimprovement
----@field _type _itemimprovement_pagesst
+---@class (exact) df.itemimprovement_pagesst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_pagesst
 ---@field count number
 ---@field contents DFNumberVector
 
----@class _itemimprovement_pagesst: DFCompoundType
+---@class identity.itemimprovement_pagesst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_pagesst = {}
 
----@return itemimprovement_pagesst
+---@return df.itemimprovement_pagesst
 function df.itemimprovement_pagesst:new() end
 
----@class (exact) itemimprovement_illustrationst: DFStruct, itemimprovement
----@field _type _itemimprovement_illustrationst
----@field image art_image_ref
+---@class (exact) df.itemimprovement_illustrationst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_illustrationst
+---@field image df.art_image_ref
 ---@field unk_2 number
 
----@class _itemimprovement_illustrationst: DFCompoundType
+---@class identity.itemimprovement_illustrationst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_illustrationst = {}
 
----@return itemimprovement_illustrationst
+---@return df.itemimprovement_illustrationst
 function df.itemimprovement_illustrationst:new() end
 
----@class (exact) itemimprovement_instrument_piecest: DFStruct, itemimprovement
----@field _type _itemimprovement_instrument_piecest
+---@class (exact) df.itemimprovement_instrument_piecest: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_instrument_piecest
 ---@field type string instrument_piece.type
 
----@class _itemimprovement_instrument_piecest: DFCompoundType
+---@class identity.itemimprovement_instrument_piecest: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_instrument_piecest = {}
 
----@return itemimprovement_instrument_piecest
+---@return df.itemimprovement_instrument_piecest
 function df.itemimprovement_instrument_piecest:new() end
 
----@class (exact) itemimprovement_writingst: DFStruct, itemimprovement
----@field _type _itemimprovement_writingst
+---@class (exact) df.itemimprovement_writingst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_writingst
 ---@field contents DFNumberVector
 
----@class _itemimprovement_writingst: DFCompoundType
+---@class identity.itemimprovement_writingst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_writingst = {}
 
----@return itemimprovement_writingst
+---@return df.itemimprovement_writingst
 function df.itemimprovement_writingst:new() end
 
----@class (exact) itemimprovement_image_setst: DFStruct, itemimprovement
----@field _type _itemimprovement_image_setst
+---@class (exact) df.itemimprovement_image_setst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_image_setst
 ---@field image_set_id number References: `image_set`
 
----@class _itemimprovement_image_setst: DFCompoundType
+---@class identity.itemimprovement_image_setst: DFCompoundType
 ---@field _kind 'class-type'
 df.itemimprovement_image_setst = {}
 
----@return itemimprovement_image_setst
+---@return df.itemimprovement_image_setst
 function df.itemimprovement_image_setst:new() end
 
----@alias written_content_type
+---@alias df.written_content_type
 ---| -1 # NONE
 ---| 0 # Manual
 ---| 1 # Guide
@@ -328,7 +328,7 @@ function df.itemimprovement_image_setst:new() end
 ---| 24 # StarCatalogue
 ---| 25 # Atlas
 
----@class _written_content_type: DFEnumType
+---@class identity.written_content_type: DFEnumType
 ---@field NONE -1 bay12: WritingForm
 ---@field [-1] "NONE" bay12: WritingForm
 ---@field Manual 0
@@ -385,7 +385,7 @@ function df.itemimprovement_image_setst:new() end
 ---@field [25] "Atlas"
 df.written_content_type = {}
 
----@alias written_content_style
+---@alias df.written_content_style
 ---| 0 # Meandering
 ---| 1 # Cheerful
 ---| 2 # Depressing
@@ -405,7 +405,7 @@ df.written_content_type = {}
 ---| 16 # Witty
 ---| 17 # Ranting
 
----@class _written_content_style: DFEnumType
+---@class identity.written_content_style: DFEnumType
 ---@field Meandering 0
 ---@field [0] "Meandering"
 ---@field Cheerful 1
@@ -444,8 +444,8 @@ df.written_content_type = {}
 ---@field [17] "Ranting"
 df.written_content_style = {}
 
----@class (exact) written_content: DFStruct
----@field _type _written_content
+---@class (exact) df.written_content: DFStruct
+---@field _type identity.written_content
 ---@field id number
 ---@field title string
 ---@field page_start number
@@ -454,63 +454,63 @@ df.written_content_style = {}
 ---@field ref_aux DFNumberVector if nonzero, corresponding ref is ignored
 ---@field unk1 number
 ---@field unk2 number
----@field type written_content_type
+---@field type df.written_content_type
 ---@field poetic_form number References: `poetic_form`
 ---@field styles _written_content_styles
 ---@field style_strength DFNumberVector 0 = maximum, 1 = significant, 2 = partial
 ---@field author number References: `historical_figure`
 ---@field author_roll number
 
----@class _written_content: DFCompoundType
+---@class identity.written_content: DFCompoundType
 ---@field _kind 'struct-type'
 df.written_content = {}
 
----@return written_content
+---@return df.written_content
 function df.written_content:new() end
 
 ---@param key number
----@return written_content|nil
+---@return df.written_content|nil
 function df.written_content.find(key) end
 
----@class written_content_vector: DFVector, { [integer]: written_content }
+---@class written_content_vector: DFVector, { [integer]: df.written_content }
 
 ---@return written_content_vector # df.global.world.written_contents.all
 function df.written_content.get_vector() end
 
 ---@class _written_content_refs: DFContainer
----@field [integer] general_ref
+---@field [integer] df.general_ref
 local _written_content_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<general_ref>
+---@return DFPointer<df.general_ref>
 function _written_content_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item general_ref
+---@param item df.general_ref
 function _written_content_refs:insert(index, item) end
 
 ---@param index integer
 function _written_content_refs:erase(index) end
 
 ---@class _written_content_styles: DFContainer
----@field [integer] written_content_style
+---@field [integer] df.written_content_style
 local _written_content_styles
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<written_content_style>
+---@return DFPointer<df.written_content_style>
 function _written_content_styles:_field(index) end
 
 ---@param index '#'|integer
----@param item written_content_style
+---@param item df.written_content_style
 function _written_content_styles:insert(index, item) end
 
 ---@param index integer
 function _written_content_styles:erase(index) end
 
----@class engraving_flags: DFBitfield
----@field _enum _engraving_flags
+---@class df.engraving_flags: DFBitfield
+---@field _enum identity.engraving_flags
 ---@field floor boolean
 ---@field [0] boolean
 ---@field west boolean
@@ -532,7 +532,7 @@ function _written_content_styles:erase(index) end
 ---@field southeast boolean
 ---@field [9] boolean
 
----@class _engraving_flags: DFBitfieldType
+---@class identity.engraving_flags: DFBitfieldType
 ---@field floor 0
 ---@field [0] "floor"
 ---@field west 1
@@ -555,32 +555,32 @@ function _written_content_styles:erase(index) end
 ---@field [9] "southeast"
 df.engraving_flags = {}
 
----@class (exact) engraving: DFStruct
----@field _type _engraving
+---@class (exact) df.engraving: DFStruct
+---@field _type identity.engraving
 ---@field artist number References: `historical_figure`
 ---@field masterpiece_event number References: `history_event`
----@field skill_rating skill_rating at the moment of creation
----@field pos coord
----@field flags engraving_flags
+---@field skill_rating df.skill_rating at the moment of creation
+---@field pos df.coord
+---@field flags df.engraving_flags
 ---@field tile number
 ---@field art_id number References: `art_image_chunk`
 ---@field art_subid number References: `art_image`
----@field quality item_quality
+---@field quality df.item_quality
 ---@field unk1 number
 ---@field unk2 number
 
----@class _engraving: DFCompoundType
+---@class identity.engraving: DFCompoundType
 ---@field _kind 'struct-type'
 df.engraving = {}
 
----@return engraving
+---@return df.engraving
 function df.engraving:new() end
 
 ---@param key number
----@return engraving|nil
+---@return df.engraving|nil
 function df.engraving.find(key) end
 
----@class engraving_vector: DFVector, { [integer]: engraving }
+---@class engraving_vector: DFVector, { [integer]: df.engraving }
 
 ---@return engraving_vector # df.global.world.engravings
 function df.engraving.get_vector() end

@@ -1,8 +1,8 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class language_word_flags: DFBitfield
----@field _enum _language_word_flags
+---@class df.language_word_flags: DFBitfield
+---@field _enum identity.language_word_flags
 ---@field front_compound_noun_sing boolean
 ---@field [0] boolean
 ---@field front_compound_noun_plur boolean
@@ -36,7 +36,7 @@
 ---@field standard_verb boolean
 ---@field [15] boolean
 
----@class _language_word_flags: DFBitfieldType
+---@class identity.language_word_flags: DFBitfieldType
 ---@field front_compound_noun_sing 0
 ---@field [0] "front_compound_noun_sing"
 ---@field front_compound_noun_plur 1
@@ -71,7 +71,7 @@
 ---@field [15] "standard_verb"
 df.language_word_flags = {}
 
----@alias part_of_speech
+---@alias df.part_of_speech
 ---| 0 # Noun
 ---| 1 # NounPlural
 ---| 2 # Adjective
@@ -82,7 +82,7 @@ df.language_word_flags = {}
 ---| 7 # VerbPassive
 ---| 8 # VerbGerund
 
----@class _part_of_speech: DFEnumType
+---@class identity.part_of_speech: DFEnumType
 ---@field Noun 0
 ---@field [0] "Noun"
 ---@field NounPlural 1
@@ -103,7 +103,7 @@ df.language_word_flags = {}
 ---@field [8] "VerbGerund"
 df.part_of_speech = {}
 
----@alias language_word_table_index
+---@alias df.language_word_table_index
 ---| 0 # FrontCompound
 ---| 1 # RearCompound
 ---| 2 # FirstName
@@ -111,7 +111,7 @@ df.part_of_speech = {}
 ---| 4 # TheX
 ---| 5 # OfX
 
----@class _language_word_table_index: DFEnumType
+---@class identity.language_word_table_index: DFEnumType
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1
@@ -126,7 +126,7 @@ df.part_of_speech = {}
 ---@field [5] "OfX"
 df.language_word_table_index = {}
 
----@alias sphere_type
+---@alias df.sphere_type
 ---| -1 # NONE
 ---| 0 # AGRICULTURE
 ---| 1 # ANIMALS
@@ -259,7 +259,7 @@ df.language_word_table_index = {}
 ---| 128 # WRITING
 ---| 129 # YOUTH
 
----@class _sphere_type: DFEnumType
+---@class identity.sphere_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field AGRICULTURE 0
@@ -524,32 +524,32 @@ df.language_word_table_index = {}
 ---@field [129] "YOUTH"
 df.sphere_type = {}
 
----@class (exact) language_word: DFStruct
----@field _type _language_word
+---@class (exact) df.language_word: DFStruct
+---@field _type identity.language_word
 ---@field word string
----@field forms DFEnumVector<part_of_speech, string>
+---@field forms DFEnumVector<df.part_of_speech, string>
 ---@field adj_dist integer
----@field flags language_word_flags
+---@field flags df.language_word_flags
 ---@field str DFStringVector
 
----@class _language_word: DFCompoundType
+---@class identity.language_word: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_word = {}
 
----@return language_word
+---@return df.language_word
 function df.language_word:new() end
 
 ---@param key number
----@return language_word|nil
+---@return df.language_word|nil
 function df.language_word.find(key) end
 
----@class language_word_vector: DFVector, { [integer]: language_word }
+---@class language_word_vector: DFVector, { [integer]: df.language_word }
 
 ---@return language_word_vector # df.global.world.raws.language.words
 function df.language_word.get_vector() end
 
----@class (exact) language_translation: DFStruct
----@field _type _language_translation
+---@class (exact) df.language_translation: DFStruct
+---@field _type identity.language_translation
 ---@field name string
 ---@field unknown1 DFStringVector looks like english words
 ---@field unknown2 DFStringVector looks like translated words
@@ -557,42 +557,42 @@ function df.language_word.get_vector() end
 ---@field flags number 1 = generated
 ---@field str DFStringVector
 
----@class _language_translation: DFCompoundType
+---@class identity.language_translation: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_translation = {}
 
----@return language_translation
+---@return df.language_translation
 function df.language_translation:new() end
 
 ---@param key number
----@return language_translation|nil
+---@return df.language_translation|nil
 function df.language_translation.find(key) end
 
----@class language_translation_vector: DFVector, { [integer]: language_translation }
+---@class language_translation_vector: DFVector, { [integer]: df.language_translation }
 
 ---@return language_translation_vector # df.global.world.raws.language.translations
 function df.language_translation.get_vector() end
 
----@class (exact) language_symbol: DFStruct
----@field _type _language_symbol
+---@class (exact) df.language_symbol: DFStruct
+---@field _type identity.language_symbol
 ---@field name string
 ---@field unknown _language_symbol_unknown empty
 ---@field words DFNumberVector
 ---@field flags number
 ---@field str DFStringVector
 
----@class _language_symbol: DFCompoundType
+---@class identity.language_symbol: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_symbol = {}
 
----@return language_symbol
+---@return df.language_symbol
 function df.language_symbol:new() end
 
 ---@param key number
----@return language_symbol|nil
+---@return df.language_symbol|nil
 function df.language_symbol.find(key) end
 
----@class language_symbol_vector: DFVector, { [integer]: language_symbol }
+---@class language_symbol_vector: DFVector, { [integer]: df.language_symbol }
 
 ---@return language_symbol_vector # df.global.world.raws.language.symbols
 function df.language_symbol.get_vector() end
@@ -613,53 +613,53 @@ function _language_symbol_unknown:insert(index, item) end
 ---@param index integer
 function _language_symbol_unknown:erase(index) end
 
----@class (exact) language_name: DFStruct
----@field _type _language_name
+---@class (exact) df.language_name: DFStruct
+---@field _type identity.language_name
 ---@field first_name string
 ---@field nickname string
----@field words DFEnumVector<language_name_component, number>
----@field parts_of_speech DFEnumVector<language_name_component, part_of_speech>
+---@field words DFEnumVector<df.language_name_component, number>
+---@field parts_of_speech DFEnumVector<df.language_name_component, df.part_of_speech>
 ---@field language number References: `language_translation`
----@field type language_name_type
+---@field type df.language_name_type
 ---@field has_name boolean
 
----@class _language_name: DFCompoundType
+---@class identity.language_name: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_name = {}
 
----@return language_name
+---@return df.language_name
 function df.language_name:new() end
 
 -- word_selectorst
----@class (exact) language_word_table: DFStruct
----@field _type _language_word_table
----@field words DFEnumVector<language_word_table_index, number>
----@field parts DFEnumVector<language_word_table_index, part_of_speech>
+---@class (exact) df.language_word_table: DFStruct
+---@field _type identity.language_word_table
+---@field words DFEnumVector<df.language_word_table_index, number>
+---@field parts DFEnumVector<df.language_word_table_index, df.part_of_speech>
 
----@class _language_word_table: DFCompoundType
+---@class identity.language_word_table: DFCompoundType
 ---@field _kind 'struct-type'
 df.language_word_table = {}
 
----@return language_word_table
+---@return df.language_word_table
 function df.language_word_table:new() end
 
 ---@class _language_word_table_parts: DFContainer
----@field [integer] part_of_speech
+---@field [integer] df.part_of_speech
 local _language_word_table_parts
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<part_of_speech>
+---@return DFPointer<df.part_of_speech>
 function _language_word_table_parts:_field(index) end
 
 ---@param index '#'|integer
----@param item part_of_speech
+---@param item df.part_of_speech
 function _language_word_table_parts:insert(index, item) end
 
 ---@param index integer
 function _language_word_table_parts:erase(index) end
 
----@alias language_name_category
+---@alias df.language_name_category
 ---| 0 # Unit
 ---| 1 # Artifact
 ---| 2 # ArtifactEvil
@@ -729,7 +729,7 @@ function _language_word_table_parts:erase(index) end
 ---| 66 # NecromancerTower
 ---| 67 # Hospital
 
----@class _language_name_category: DFEnumType
+---@class identity.language_name_category: DFEnumType
 ---@field Unit 0
 ---@field [0] "Unit"
 ---@field Artifact 1
@@ -868,7 +868,7 @@ function _language_word_table_parts:erase(index) end
 ---@field [67] "Hospital"
 df.language_name_category = {}
 
----@alias language_name_type
+---@alias df.language_name_type
 ---| -1 # NONE
 ---| 0 # Figure
 ---| 1 # Artifact
@@ -926,7 +926,7 @@ df.language_name_category = {}
 ---| 53 # NecromancerTower
 ---| 54 # Hospital
 
----@class _language_name_type: DFEnumType
+---@class identity.language_name_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Figure 0 0
@@ -1041,7 +1041,7 @@ df.language_name_category = {}
 ---@field [54] "Hospital"
 df.language_name_type = {}
 
----@alias language_name_component
+---@alias df.language_name_component
 ---| 0 # FrontCompound
 ---| 1 # RearCompound
 ---| 2 # FirstAdjective
@@ -1050,7 +1050,7 @@ df.language_name_type = {}
 ---| 5 # TheX
 ---| 6 # OfX
 
----@class _language_name_component: DFEnumType
+---@class identity.language_name_component: DFEnumType
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1

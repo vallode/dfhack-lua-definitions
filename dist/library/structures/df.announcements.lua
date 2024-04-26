@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias announcement_type
+---@alias df.announcement_type
 ---| -1 # NONE
 ---| 0 # REACHED_PEAK
 ---| 1 # ERA_CHANGE
@@ -358,7 +358,7 @@
 ---| 352 # UNUSED_49
 ---| 353 # UNUSED_50
 
----@class _announcement_type: DFEnumType
+---@class identity.announcement_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field REACHED_PEAK 0
@@ -1437,7 +1437,7 @@ df.announcement_type._attr_entry_type._fields = {}
 ---@field UNUSED_50 { alert_type: "GENERAL" }
 df.announcement_type.attrs = {}
 
----@alias announcement_alert_type
+---@alias df.announcement_alert_type
 ---| -1 # NONE
 ---| 0 # GENERAL
 ---| 1 # ERA_CHANGE
@@ -1477,7 +1477,7 @@ df.announcement_type.attrs = {}
 ---| 35 # SPARRING
 ---| 36 # HUNTING
 
----@class _announcement_alert_type: DFEnumType
+---@class identity.announcement_alert_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field GENERAL 0
@@ -1556,8 +1556,8 @@ df.announcement_type.attrs = {}
 ---@field [36] "HUNTING"
 df.announcement_alert_type = {}
 
----@class announcement_flags: DFBitfield
----@field _enum _announcement_flags
+---@class df.announcement_flags: DFBitfield
+---@field _enum identity.announcement_flags
 ---@field DO_MEGA boolean BOX
 ---@field [0] boolean BOX
 ---@field PAUSE boolean P
@@ -1575,7 +1575,7 @@ df.announcement_alert_type = {}
 ---@field ALERT boolean ALERT
 ---@field [7] boolean ALERT
 
----@class _announcement_flags: DFBitfieldType
+---@class identity.announcement_flags: DFBitfieldType
 ---@field DO_MEGA 0 BOX
 ---@field [0] "DO_MEGA" BOX
 ---@field PAUSE 1 P
@@ -1594,30 +1594,30 @@ df.announcement_alert_type = {}
 ---@field [7] "ALERT" ALERT
 df.announcement_flags = {}
 
----@class (exact) announcements: DFStruct
----@field _type _announcements
----@field flags DFEnumVector<announcement_type, announcement_flags>
+---@class (exact) df.announcements: DFStruct
+---@field _type identity.announcements
+---@field flags DFEnumVector<df.announcement_type, df.announcement_flags>
 
----@class _announcements: DFCompoundType
+---@class identity.announcements: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcements = {}
 
----@return announcements
+---@return df.announcements
 function df.announcements:new() end
 
----@class (exact) report: DFStruct
----@field _type _report
----@field type announcement_type valid only if coordinates are
+---@class (exact) df.report: DFStruct
+---@field _type identity.report
+---@field type df.announcement_type valid only if coordinates are
 ---@field text string
 ---@field color number
 ---@field bright boolean
 ---@field duration number remaining graphical frames to display this report in announcement bar
----@field flags report.T_flags
+---@field flags df.report.T_flags
 ---@field repeat_count number 100 => displays: x101
----@field zoom_type report_zoom_type
----@field pos coord
----@field zoom_type2 report_zoom_type
----@field pos2 coord
+---@field zoom_type df.report_zoom_type
+---@field pos df.coord
+---@field zoom_type2 df.report_zoom_type
+---@field pos2 df.coord
 ---@field id number
 ---@field year number
 ---@field time number
@@ -1625,24 +1625,24 @@ function df.announcements:new() end
 ---@field activity_event_id number
 ---@field speaker_id number unit speaking the conversation References: `unit`
 
----@class _report: DFCompoundType
+---@class identity.report: DFCompoundType
 ---@field _kind 'struct-type'
 df.report = {}
 
----@return report
+---@return df.report
 function df.report:new() end
 
 ---@param key number
----@return report|nil
+---@return df.report|nil
 function df.report.find(key) end
 
----@class report_vector: DFVector, { [integer]: report }
+---@class report_vector: DFVector, { [integer]: df.report }
 
 ---@return report_vector # df.global.world.status.reports
 function df.report.get_vector() end
 
----@class report.T_flags: DFBitfield
----@field _enum _report.T_flags
+---@class df.report.T_flags: DFBitfield
+---@field _enum identity.report.flags
 ---@field continuation boolean When split into multiple lines, set on all but the first
 ---@field [0] boolean When split into multiple lines, set on all but the first
 ---@field unconscious boolean units.active[0]
@@ -1650,7 +1650,7 @@ function df.report.get_vector() end
 ---@field announcement boolean
 ---@field [2] boolean
 
----@class _report.T_flags: DFBitfieldType
+---@class identity.report.flags: DFBitfieldType
 ---@field continuation 0 When split into multiple lines, set on all but the first
 ---@field [0] "continuation" When split into multiple lines, set on all but the first
 ---@field unconscious 1 units.active[0]
@@ -1659,12 +1659,12 @@ function df.report.get_vector() end
 ---@field [2] "announcement"
 df.report.T_flags = {}
 
----@alias report_zoom_type
+---@alias df.report_zoom_type
 ---| 0 # Generic
 ---| 1 # Item
 ---| 2 # Unit
 
----@class _report_zoom_type: DFEnumType
+---@class identity.report_zoom_type: DFEnumType
 ---@field Generic 0
 ---@field [0] "Generic"
 ---@field Item 1
@@ -1673,80 +1673,80 @@ df.report.T_flags = {}
 ---@field [2] "Unit"
 df.report_zoom_type = {}
 
----@class (exact) popup_message: DFStruct
----@field _type _popup_message
+---@class (exact) df.popup_message: DFStruct
+---@field _type identity.popup_message
 ---@field text string
 ---@field color number
 ---@field bright boolean
 
----@class _popup_message: DFCompoundType
+---@class identity.popup_message: DFCompoundType
 ---@field _kind 'struct-type'
 df.popup_message = {}
 
----@return popup_message
+---@return df.popup_message
 function df.popup_message:new() end
 
----@class (exact) announcement_alertst: DFStruct
----@field _type _announcement_alertst
----@field type announcement_alert_type
+---@class (exact) df.announcement_alertst: DFStruct
+---@field _type identity.announcement_alertst
+---@field type df.announcement_alert_type
 ---@field announcement_id DFNumberVector
 ---@field report_unid DFNumberVector unit id
 ---@field report_unit_announcement_category _announcement_alertst_report_unit_announcement_category vector must be same length as report_unid
 
----@class _announcement_alertst: DFCompoundType
+---@class identity.announcement_alertst: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_alertst = {}
 
----@return announcement_alertst
+---@return df.announcement_alertst
 function df.announcement_alertst:new() end
 
 ---@class _announcement_alertst_report_unit_announcement_category: DFContainer
----@field [integer] unit_report_type
+---@field [integer] df.unit_report_type
 local _announcement_alertst_report_unit_announcement_category
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<unit_report_type>
+---@return DFPointer<df.unit_report_type>
 function _announcement_alertst_report_unit_announcement_category:_field(index) end
 
 ---@param index '#'|integer
----@param item unit_report_type
+---@param item df.unit_report_type
 function _announcement_alertst_report_unit_announcement_category:insert(index, item) end
 
 ---@param index integer
 function _announcement_alertst_report_unit_announcement_category:erase(index) end
 
 -- allocated on the stack, included in df-structures to assist with disassembly
----@class (exact) announcement_infost: DFStruct
----@field _type _announcement_infost
----@field type announcement_type
+---@class (exact) df.announcement_infost: DFStruct
+---@field _type identity.announcement_infost
+---@field type df.announcement_type
 ---@field color number
 ---@field bright boolean
----@field pos coord
----@field zoom_type report_zoom_type
----@field pos2 coord
----@field zoom_type2 report_zoom_type
+---@field pos df.coord
+---@field zoom_type df.report_zoom_type
+---@field pos2 df.coord
+---@field zoom_type2 df.report_zoom_type
 ---@field display_timer number graphical frames for announcement bar to linger on last line with no new announcement
----@field unit_a unit
----@field unit_d unit
+---@field unit_a df.unit
+---@field unit_d df.unit
 ---@field activity_id number same as field in report
 ---@field activity_event_id number same as field in report
 ---@field speaker_id number References: `unit`
----@field flags announcement_infost.T_flags
+---@field flags df.announcement_infost.T_flags
 
----@class _announcement_infost: DFCompoundType
+---@class identity.announcement_infost: DFCompoundType
 ---@field _kind 'struct-type'
 df.announcement_infost = {}
 
----@return announcement_infost
+---@return df.announcement_infost
 function df.announcement_infost:new() end
 
----@class announcement_infost.T_flags: DFBitfield
----@field _enum _announcement_infost.T_flags
+---@class df.announcement_infost.T_flags: DFBitfield
+---@field _enum identity.announcement_infost.flags
 ---@field SPARRING_EVENT boolean determined by unit_action_data_attack.flags.sparring_hit
 ---@field [0] boolean determined by unit_action_data_attack.flags.sparring_hit
 
----@class _announcement_infost.T_flags: DFBitfieldType
+---@class identity.announcement_infost.flags: DFBitfieldType
 ---@field SPARRING_EVENT 0 determined by unit_action_data_attack.flags.sparring_hit
 ---@field [0] "SPARRING_EVENT" determined by unit_action_data_attack.flags.sparring_hit
 df.announcement_infost.T_flags = {}

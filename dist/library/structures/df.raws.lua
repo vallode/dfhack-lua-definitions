@@ -1,8 +1,8 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) creature_handler: DFStruct
----@field _type _creature_handler
+---@class (exact) df.creature_handler: DFStruct
+---@field _type identity.creature_handler
 ---@field alphabetic _creature_handler_alphabetic
 ---@field all _creature_handler_all
 ---@field num_caste number seems equal to length of vectors below
@@ -19,47 +19,47 @@ function creature_handler:getTile() end
 function creature_handler:getGlowTile() end
 
 
----@class _creature_handler: DFCompoundType
+---@class identity.creature_handler: DFCompoundType
 ---@field _kind 'class-type'
 df.creature_handler = {}
 
----@return creature_handler
+---@return df.creature_handler
 function df.creature_handler:new() end
 
 ---@class _creature_handler_alphabetic: DFContainer
----@field [integer] creature_raw
+---@field [integer] df.creature_raw
 local _creature_handler_alphabetic
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<creature_raw>
+---@return DFPointer<df.creature_raw>
 function _creature_handler_alphabetic:_field(index) end
 
 ---@param index '#'|integer
----@param item creature_raw
+---@param item df.creature_raw
 function _creature_handler_alphabetic:insert(index, item) end
 
 ---@param index integer
 function _creature_handler_alphabetic:erase(index) end
 
 ---@class _creature_handler_all: DFContainer
----@field [integer] creature_raw
+---@field [integer] df.creature_raw
 local _creature_handler_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<creature_raw>
+---@return DFPointer<df.creature_raw>
 function _creature_handler_all:_field(index) end
 
 ---@param index '#'|integer
----@param item creature_raw
+---@param item df.creature_raw
 function _creature_handler_all:insert(index, item) end
 
 ---@param index integer
 function _creature_handler_all:erase(index) end
 
----@class (exact) soundst: DFStruct
----@field _type _soundst
+---@class (exact) df.soundst: DFStruct
+---@field _type identity.soundst
 ---@field token string
 ---@field index number
 ---@field current_definition DFStringVector
@@ -69,11 +69,11 @@ function _creature_handler_all:erase(index) end
 ---@field sound number index of sound to be played
 ---@field announcement _soundst_announcement sound can be selected for these announcement types
 
----@class _soundst: DFCompoundType
+---@class identity.soundst: DFCompoundType
 ---@field _kind 'struct-type'
 df.soundst = {}
 
----@return soundst
+---@return df.soundst
 function df.soundst:new() end
 
 ---@class _soundst_flag: DFContainer
@@ -93,105 +93,105 @@ function _soundst_flag:insert(index, item) end
 function _soundst_flag:erase(index) end
 
 ---@class _soundst_announcement: DFContainer
----@field [integer] announcement_type
+---@field [integer] df.announcement_type
 local _soundst_announcement
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<announcement_type>
+---@return DFPointer<df.announcement_type>
 function _soundst_announcement:_field(index) end
 
 ---@param index '#'|integer
----@param item announcement_type
+---@param item df.announcement_type
 function _soundst_announcement:insert(index, item) end
 
 ---@param index integer
 function _soundst_announcement:erase(index) end
 
----@class (exact) world_raws: DFStruct
----@field _type _world_raws
+---@class (exact) df.world_raws: DFStruct
+---@field _type identity.world_raws
 ---@field material_templates _world_raws_material_templates !! in bay12 each of these is its own compound and some of them are classes with their own methods !!<br>Materials
 ---@field inorganics _world_raws_inorganics Inorganic
 ---@field inorganics_subset _world_raws_inorganics_subset all inorganics with value less than 4
----@field plants world_raws.T_plants
+---@field plants df.world_raws.T_plants
 ---@field tissue_templates _world_raws_tissue_templates Creature RAWs
 ---@field body_detail_plans _world_raws_body_detail_plans dtor 89bab50
 ---@field body_templates _world_raws_body_templates dtor 8527e40
 ---@field bodyglosses _world_raws_bodyglosses bay12: creaturebodygloss
 ---@field creature_variations _world_raws_creature_variations dtor 89ba980
----@field creatures creature_handler Creatures
----@field itemdefs world_raws.T_itemdefs
+---@field creatures df.creature_handler Creatures
+---@field itemdefs df.world_raws.T_itemdefs
 ---@field entities _world_raws_entities Entity RAWs
----@field language world_raws.T_language
----@field descriptors world_raws.T_descriptors
----@field reactions world_raws.T_reactions
----@field buildings world_raws.T_buildings
+---@field language df.world_raws.T_language
+---@field descriptors df.world_raws.T_descriptors
+---@field reactions df.world_raws.T_reactions
+---@field buildings df.world_raws.T_buildings
 ---@field interactions _world_raws_interactions Interactions
----@field text_set world_raws.T_text_set
----@field music world_raws.T_music
----@field sound world_raws.T_sound
----@field mat_table special_mat_table Material index
----@field syndromes world_raws.T_syndromes
----@field effects world_raws.T_effects
+---@field text_set df.world_raws.T_text_set
+---@field music df.world_raws.T_music
+---@field sound df.world_raws.T_sound
+---@field mat_table df.special_mat_table Material index
+---@field syndromes df.world_raws.T_syndromes
+---@field effects df.world_raws.T_effects
 
----@class _world_raws: DFCompoundType
+---@class identity.world_raws: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws = {}
 
----@return world_raws
+---@return df.world_raws
 function df.world_raws:new() end
 
 ---@class _world_raws_material_templates: DFContainer
----@field [integer] material_template
+---@field [integer] df.material_template
 local _world_raws_material_templates
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<material_template>
+---@return DFPointer<df.material_template>
 function _world_raws_material_templates:_field(index) end
 
 ---@param index '#'|integer
----@param item material_template
+---@param item df.material_template
 function _world_raws_material_templates:insert(index, item) end
 
 ---@param index integer
 function _world_raws_material_templates:erase(index) end
 
 ---@class _world_raws_inorganics: DFContainer
----@field [integer] inorganic_raw
+---@field [integer] df.inorganic_raw
 local _world_raws_inorganics
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<inorganic_raw>
+---@return DFPointer<df.inorganic_raw>
 function _world_raws_inorganics:_field(index) end
 
 ---@param index '#'|integer
----@param item inorganic_raw
+---@param item df.inorganic_raw
 function _world_raws_inorganics:insert(index, item) end
 
 ---@param index integer
 function _world_raws_inorganics:erase(index) end
 
 ---@class _world_raws_inorganics_subset: DFContainer
----@field [integer] inorganic_raw
+---@field [integer] df.inorganic_raw
 local _world_raws_inorganics_subset
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<inorganic_raw>
+---@return DFPointer<df.inorganic_raw>
 function _world_raws_inorganics_subset:_field(index) end
 
 ---@param index '#'|integer
----@param item inorganic_raw
+---@param item df.inorganic_raw
 function _world_raws_inorganics_subset:insert(index, item) end
 
 ---@param index integer
 function _world_raws_inorganics_subset:erase(index) end
 
 -- Plants
----@class (exact) world_raws.T_plants: DFStruct
----@field _type _world_raws.T_plants
+---@class (exact) df.world_raws.T_plants: DFStruct
+---@field _type identity.world_raws.plants
 ---@field all _world_raws_plants_all dtor 852cc20
 ---@field bushes _world_raws_plants_bushes
 ---@field bushes_idx DFNumberVector
@@ -200,120 +200,120 @@ function _world_raws_inorganics_subset:erase(index) end
 ---@field grasses _world_raws_plants_grasses
 ---@field grasses_idx DFNumberVector
 
----@class _world_raws.T_plants: DFCompoundType
+---@class identity.world_raws.plants: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_plants = {}
 
----@return world_raws.T_plants
+---@return df.world_raws.T_plants
 function df.world_raws.T_plants:new() end
 
 ---@class _world_raws_plants_all: DFContainer
----@field [integer] plant_raw
+---@field [integer] df.plant_raw
 local _world_raws_plants_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_raw>
+---@return DFPointer<df.plant_raw>
 function _world_raws_plants_all:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_raw
+---@param item df.plant_raw
 function _world_raws_plants_all:insert(index, item) end
 
 ---@param index integer
 function _world_raws_plants_all:erase(index) end
 
 ---@class _world_raws_plants_bushes: DFContainer
----@field [integer] plant_raw
+---@field [integer] df.plant_raw
 local _world_raws_plants_bushes
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_raw>
+---@return DFPointer<df.plant_raw>
 function _world_raws_plants_bushes:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_raw
+---@param item df.plant_raw
 function _world_raws_plants_bushes:insert(index, item) end
 
 ---@param index integer
 function _world_raws_plants_bushes:erase(index) end
 
 ---@class _world_raws_plants_trees: DFContainer
----@field [integer] plant_raw
+---@field [integer] df.plant_raw
 local _world_raws_plants_trees
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_raw>
+---@return DFPointer<df.plant_raw>
 function _world_raws_plants_trees:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_raw
+---@param item df.plant_raw
 function _world_raws_plants_trees:insert(index, item) end
 
 ---@param index integer
 function _world_raws_plants_trees:erase(index) end
 
 ---@class _world_raws_plants_grasses: DFContainer
----@field [integer] plant_raw
+---@field [integer] df.plant_raw
 local _world_raws_plants_grasses
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_raw>
+---@return DFPointer<df.plant_raw>
 function _world_raws_plants_grasses:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_raw
+---@param item df.plant_raw
 function _world_raws_plants_grasses:insert(index, item) end
 
 ---@param index integer
 function _world_raws_plants_grasses:erase(index) end
 
 ---@class _world_raws_tissue_templates: DFContainer
----@field [integer] tissue_template
+---@field [integer] df.tissue_template
 local _world_raws_tissue_templates
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<tissue_template>
+---@return DFPointer<df.tissue_template>
 function _world_raws_tissue_templates:_field(index) end
 
 ---@param index '#'|integer
----@param item tissue_template
+---@param item df.tissue_template
 function _world_raws_tissue_templates:insert(index, item) end
 
 ---@param index integer
 function _world_raws_tissue_templates:erase(index) end
 
 ---@class _world_raws_body_detail_plans: DFContainer
----@field [integer] body_detail_plan
+---@field [integer] df.body_detail_plan
 local _world_raws_body_detail_plans
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<body_detail_plan>
+---@return DFPointer<df.body_detail_plan>
 function _world_raws_body_detail_plans:_field(index) end
 
 ---@param index '#'|integer
----@param item body_detail_plan
+---@param item df.body_detail_plan
 function _world_raws_body_detail_plans:insert(index, item) end
 
 ---@param index integer
 function _world_raws_body_detail_plans:erase(index) end
 
 ---@class _world_raws_body_templates: DFContainer
----@field [integer] body_template
+---@field [integer] df.body_template
 local _world_raws_body_templates
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<body_template>
+---@return DFPointer<df.body_template>
 function _world_raws_body_templates:_field(index) end
 
 ---@param index '#'|integer
----@param item body_template
+---@param item df.body_template
 function _world_raws_body_templates:insert(index, item) end
 
 ---@param index integer
@@ -336,30 +336,30 @@ function _world_raws_bodyglosses:insert(index, item) end
 function _world_raws_bodyglosses:erase(index) end
 
 ---@class _world_raws_creature_variations: DFContainer
----@field [integer] creature_variation
+---@field [integer] df.creature_variation
 local _world_raws_creature_variations
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<creature_variation>
+---@return DFPointer<df.creature_variation>
 function _world_raws_creature_variations:_field(index) end
 
 ---@param index '#'|integer
----@param item creature_variation
+---@param item df.creature_variation
 function _world_raws_creature_variations:insert(index, item) end
 
 ---@param index integer
 function _world_raws_creature_variations:erase(index) end
 
 -- Item RAWs
----@class (exact) world_raws.T_itemdefs: DFStruct
----@field _type _world_raws.T_itemdefs
+---@class (exact) df.world_raws.T_itemdefs: DFStruct
+---@field _type identity.world_raws.itemdefs
 ---@field all _world_raws_itemdefs_all dtor 852e080
 ---@field weapons _world_raws_itemdefs_weapons
 ---@field trapcomps _world_raws_itemdefs_trapcomps
 ---@field toys _world_raws_itemdefs_toys
 ---@field tools _world_raws_itemdefs_tools
----@field tools_by_type DFEnumVector<tool_uses, itemdef_toolst>
+---@field tools_by_type DFEnumVector<df.tool_uses, df.itemdef_toolst>
 ---@field instruments _world_raws_itemdefs_instruments
 ---@field armor _world_raws_itemdefs_armor
 ---@field ammo _world_raws_itemdefs_ammo
@@ -371,351 +371,351 @@ function _world_raws_creature_variations:erase(index) end
 ---@field pants _world_raws_itemdefs_pants
 ---@field food _world_raws_itemdefs_food
 
----@class _world_raws.T_itemdefs: DFCompoundType
+---@class identity.world_raws.itemdefs: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_itemdefs = {}
 
----@return world_raws.T_itemdefs
+---@return df.world_raws.T_itemdefs
 function df.world_raws.T_itemdefs:new() end
 
 ---@class _world_raws_itemdefs_all: DFContainer
----@field [integer] itemdef
+---@field [integer] df.itemdef
 local _world_raws_itemdefs_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef>
+---@return DFPointer<df.itemdef>
 function _world_raws_itemdefs_all:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef
+---@param item df.itemdef
 function _world_raws_itemdefs_all:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_all:erase(index) end
 
 ---@class _world_raws_itemdefs_weapons: DFContainer
----@field [integer] itemdef_weaponst
+---@field [integer] df.itemdef_weaponst
 local _world_raws_itemdefs_weapons
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_weaponst>
+---@return DFPointer<df.itemdef_weaponst>
 function _world_raws_itemdefs_weapons:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_weaponst
+---@param item df.itemdef_weaponst
 function _world_raws_itemdefs_weapons:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_weapons:erase(index) end
 
 ---@class _world_raws_itemdefs_trapcomps: DFContainer
----@field [integer] itemdef_trapcompst
+---@field [integer] df.itemdef_trapcompst
 local _world_raws_itemdefs_trapcomps
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_trapcompst>
+---@return DFPointer<df.itemdef_trapcompst>
 function _world_raws_itemdefs_trapcomps:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_trapcompst
+---@param item df.itemdef_trapcompst
 function _world_raws_itemdefs_trapcomps:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_trapcomps:erase(index) end
 
 ---@class _world_raws_itemdefs_toys: DFContainer
----@field [integer] itemdef_toyst
+---@field [integer] df.itemdef_toyst
 local _world_raws_itemdefs_toys
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_toyst>
+---@return DFPointer<df.itemdef_toyst>
 function _world_raws_itemdefs_toys:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_toyst
+---@param item df.itemdef_toyst
 function _world_raws_itemdefs_toys:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_toys:erase(index) end
 
 ---@class _world_raws_itemdefs_tools: DFContainer
----@field [integer] itemdef_toolst
+---@field [integer] df.itemdef_toolst
 local _world_raws_itemdefs_tools
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_toolst>
+---@return DFPointer<df.itemdef_toolst>
 function _world_raws_itemdefs_tools:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_toolst
+---@param item df.itemdef_toolst
 function _world_raws_itemdefs_tools:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_tools:erase(index) end
 
 ---@class _world_raws_itemdefs_tools_by_type: DFContainer
----@field [integer] itemdef_toolst
+---@field [integer] df.itemdef_toolst
 local _world_raws_itemdefs_tools_by_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_toolst>
+---@return DFPointer<df.itemdef_toolst>
 function _world_raws_itemdefs_tools_by_type:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_toolst
+---@param item df.itemdef_toolst
 function _world_raws_itemdefs_tools_by_type:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_tools_by_type:erase(index) end
 
 ---@class _world_raws_itemdefs_instruments: DFContainer
----@field [integer] itemdef_instrumentst
+---@field [integer] df.itemdef_instrumentst
 local _world_raws_itemdefs_instruments
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_instrumentst>
+---@return DFPointer<df.itemdef_instrumentst>
 function _world_raws_itemdefs_instruments:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_instrumentst
+---@param item df.itemdef_instrumentst
 function _world_raws_itemdefs_instruments:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_instruments:erase(index) end
 
 ---@class _world_raws_itemdefs_armor: DFContainer
----@field [integer] itemdef_armorst
+---@field [integer] df.itemdef_armorst
 local _world_raws_itemdefs_armor
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_armorst>
+---@return DFPointer<df.itemdef_armorst>
 function _world_raws_itemdefs_armor:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_armorst
+---@param item df.itemdef_armorst
 function _world_raws_itemdefs_armor:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_armor:erase(index) end
 
 ---@class _world_raws_itemdefs_ammo: DFContainer
----@field [integer] itemdef_ammost
+---@field [integer] df.itemdef_ammost
 local _world_raws_itemdefs_ammo
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_ammost>
+---@return DFPointer<df.itemdef_ammost>
 function _world_raws_itemdefs_ammo:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_ammost
+---@param item df.itemdef_ammost
 function _world_raws_itemdefs_ammo:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_ammo:erase(index) end
 
 ---@class _world_raws_itemdefs_siege_ammo: DFContainer
----@field [integer] itemdef_siegeammost
+---@field [integer] df.itemdef_siegeammost
 local _world_raws_itemdefs_siege_ammo
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_siegeammost>
+---@return DFPointer<df.itemdef_siegeammost>
 function _world_raws_itemdefs_siege_ammo:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_siegeammost
+---@param item df.itemdef_siegeammost
 function _world_raws_itemdefs_siege_ammo:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_siege_ammo:erase(index) end
 
 ---@class _world_raws_itemdefs_gloves: DFContainer
----@field [integer] itemdef_glovesst
+---@field [integer] df.itemdef_glovesst
 local _world_raws_itemdefs_gloves
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_glovesst>
+---@return DFPointer<df.itemdef_glovesst>
 function _world_raws_itemdefs_gloves:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_glovesst
+---@param item df.itemdef_glovesst
 function _world_raws_itemdefs_gloves:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_gloves:erase(index) end
 
 ---@class _world_raws_itemdefs_shoes: DFContainer
----@field [integer] itemdef_shoesst
+---@field [integer] df.itemdef_shoesst
 local _world_raws_itemdefs_shoes
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_shoesst>
+---@return DFPointer<df.itemdef_shoesst>
 function _world_raws_itemdefs_shoes:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_shoesst
+---@param item df.itemdef_shoesst
 function _world_raws_itemdefs_shoes:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_shoes:erase(index) end
 
 ---@class _world_raws_itemdefs_shields: DFContainer
----@field [integer] itemdef_shieldst
+---@field [integer] df.itemdef_shieldst
 local _world_raws_itemdefs_shields
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_shieldst>
+---@return DFPointer<df.itemdef_shieldst>
 function _world_raws_itemdefs_shields:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_shieldst
+---@param item df.itemdef_shieldst
 function _world_raws_itemdefs_shields:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_shields:erase(index) end
 
 ---@class _world_raws_itemdefs_helms: DFContainer
----@field [integer] itemdef_helmst
+---@field [integer] df.itemdef_helmst
 local _world_raws_itemdefs_helms
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_helmst>
+---@return DFPointer<df.itemdef_helmst>
 function _world_raws_itemdefs_helms:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_helmst
+---@param item df.itemdef_helmst
 function _world_raws_itemdefs_helms:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_helms:erase(index) end
 
 ---@class _world_raws_itemdefs_pants: DFContainer
----@field [integer] itemdef_pantsst
+---@field [integer] df.itemdef_pantsst
 local _world_raws_itemdefs_pants
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_pantsst>
+---@return DFPointer<df.itemdef_pantsst>
 function _world_raws_itemdefs_pants:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_pantsst
+---@param item df.itemdef_pantsst
 function _world_raws_itemdefs_pants:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_pants:erase(index) end
 
 ---@class _world_raws_itemdefs_food: DFContainer
----@field [integer] itemdef_foodst
+---@field [integer] df.itemdef_foodst
 local _world_raws_itemdefs_food
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemdef_foodst>
+---@return DFPointer<df.itemdef_foodst>
 function _world_raws_itemdefs_food:_field(index) end
 
 ---@param index '#'|integer
----@param item itemdef_foodst
+---@param item df.itemdef_foodst
 function _world_raws_itemdefs_food:insert(index, item) end
 
 ---@param index integer
 function _world_raws_itemdefs_food:erase(index) end
 
 ---@class _world_raws_entities: DFContainer
----@field [integer] entity_raw
+---@field [integer] df.entity_raw
 local _world_raws_entities
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_raw>
+---@return DFPointer<df.entity_raw>
 function _world_raws_entities:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_raw
+---@param item df.entity_raw
 function _world_raws_entities:insert(index, item) end
 
 ---@param index integer
 function _world_raws_entities:erase(index) end
 
 -- Language RAWs
----@class (exact) world_raws.T_language: DFStruct
----@field _type _world_raws.T_language
+---@class (exact) df.world_raws.T_language: DFStruct
+---@field _type identity.world_raws.language
 ---@field words _world_raws_language_words dtor 852bc90
 ---@field symbols _world_raws_language_symbols
 ---@field translations _world_raws_language_translations
----@field word_table DFEnumVector<language_name_category, language_word_table>[]
+---@field word_table DFEnumVector<df.language_name_category, df.language_word_table>[]
 
----@class _world_raws.T_language: DFCompoundType
+---@class identity.world_raws.language: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_language = {}
 
----@return world_raws.T_language
+---@return df.world_raws.T_language
 function df.world_raws.T_language:new() end
 
 ---@class _world_raws_language_words: DFContainer
----@field [integer] language_word
+---@field [integer] df.language_word
 local _world_raws_language_words
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<language_word>
+---@return DFPointer<df.language_word>
 function _world_raws_language_words:_field(index) end
 
 ---@param index '#'|integer
----@param item language_word
+---@param item df.language_word
 function _world_raws_language_words:insert(index, item) end
 
 ---@param index integer
 function _world_raws_language_words:erase(index) end
 
 ---@class _world_raws_language_symbols: DFContainer
----@field [integer] language_symbol
+---@field [integer] df.language_symbol
 local _world_raws_language_symbols
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<language_symbol>
+---@return DFPointer<df.language_symbol>
 function _world_raws_language_symbols:_field(index) end
 
 ---@param index '#'|integer
----@param item language_symbol
+---@param item df.language_symbol
 function _world_raws_language_symbols:insert(index, item) end
 
 ---@param index integer
 function _world_raws_language_symbols:erase(index) end
 
 ---@class _world_raws_language_translations: DFContainer
----@field [integer] language_translation
+---@field [integer] df.language_translation
 local _world_raws_language_translations
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<language_translation>
+---@return DFPointer<df.language_translation>
 function _world_raws_language_translations:_field(index) end
 
 ---@param index '#'|integer
----@param item language_translation
+---@param item df.language_translation
 function _world_raws_language_translations:insert(index, item) end
 
 ---@param index integer
 function _world_raws_language_translations:erase(index) end
 
 -- Descriptors
----@class (exact) world_raws.T_descriptors: DFStruct
----@field _type _world_raws.T_descriptors
+---@class (exact) df.world_raws.T_descriptors: DFStruct
+---@field _type identity.world_raws.descriptors
 ---@field colors _world_raws_descriptors_colors
 ---@field shapes _world_raws_descriptors_shapes
 ---@field patterns _world_raws_descriptors_patterns
@@ -723,206 +723,206 @@ function _world_raws_language_translations:erase(index) end
 ---@field unk_2 DFNumberVector
 ---@field unk_3 DFNumberVector
 
----@class _world_raws.T_descriptors: DFCompoundType
+---@class identity.world_raws.descriptors: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_descriptors = {}
 
----@return world_raws.T_descriptors
+---@return df.world_raws.T_descriptors
 function df.world_raws.T_descriptors:new() end
 
 ---@class _world_raws_descriptors_colors: DFContainer
----@field [integer] descriptor_color
+---@field [integer] df.descriptor_color
 local _world_raws_descriptors_colors
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<descriptor_color>
+---@return DFPointer<df.descriptor_color>
 function _world_raws_descriptors_colors:_field(index) end
 
 ---@param index '#'|integer
----@param item descriptor_color
+---@param item df.descriptor_color
 function _world_raws_descriptors_colors:insert(index, item) end
 
 ---@param index integer
 function _world_raws_descriptors_colors:erase(index) end
 
 ---@class _world_raws_descriptors_shapes: DFContainer
----@field [integer] descriptor_shape
+---@field [integer] df.descriptor_shape
 local _world_raws_descriptors_shapes
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<descriptor_shape>
+---@return DFPointer<df.descriptor_shape>
 function _world_raws_descriptors_shapes:_field(index) end
 
 ---@param index '#'|integer
----@param item descriptor_shape
+---@param item df.descriptor_shape
 function _world_raws_descriptors_shapes:insert(index, item) end
 
 ---@param index integer
 function _world_raws_descriptors_shapes:erase(index) end
 
 ---@class _world_raws_descriptors_patterns: DFContainer
----@field [integer] descriptor_pattern
+---@field [integer] df.descriptor_pattern
 local _world_raws_descriptors_patterns
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<descriptor_pattern>
+---@return DFPointer<df.descriptor_pattern>
 function _world_raws_descriptors_patterns:_field(index) end
 
 ---@param index '#'|integer
----@param item descriptor_pattern
+---@param item df.descriptor_pattern
 function _world_raws_descriptors_patterns:insert(index, item) end
 
 ---@param index integer
 function _world_raws_descriptors_patterns:erase(index) end
 
 -- Reaction RAWs
----@class (exact) world_raws.T_reactions: DFStruct
----@field _type _world_raws.T_reactions
+---@class (exact) df.world_raws.T_reactions: DFStruct
+---@field _type identity.world_raws.reactions
 ---@field reactions _world_raws_reactions_reactions
 ---@field reaction_categories _world_raws_reactions_reaction_categories
 
----@class _world_raws.T_reactions: DFCompoundType
+---@class identity.world_raws.reactions: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_reactions = {}
 
----@return world_raws.T_reactions
+---@return df.world_raws.T_reactions
 function df.world_raws.T_reactions:new() end
 
 ---@class _world_raws_reactions_reactions: DFContainer
----@field [integer] reaction
+---@field [integer] df.reaction
 local _world_raws_reactions_reactions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<reaction>
+---@return DFPointer<df.reaction>
 function _world_raws_reactions_reactions:_field(index) end
 
 ---@param index '#'|integer
----@param item reaction
+---@param item df.reaction
 function _world_raws_reactions_reactions:insert(index, item) end
 
 ---@param index integer
 function _world_raws_reactions_reactions:erase(index) end
 
 ---@class _world_raws_reactions_reaction_categories: DFContainer
----@field [integer] reaction_category
+---@field [integer] df.reaction_category
 local _world_raws_reactions_reaction_categories
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<reaction_category>
+---@return DFPointer<df.reaction_category>
 function _world_raws_reactions_reaction_categories:_field(index) end
 
 ---@param index '#'|integer
----@param item reaction_category
+---@param item df.reaction_category
 function _world_raws_reactions_reaction_categories:insert(index, item) end
 
 ---@param index integer
 function _world_raws_reactions_reaction_categories:erase(index) end
 
 -- Workshops
----@class (exact) world_raws.T_buildings: DFStruct
----@field _type _world_raws.T_buildings
+---@class (exact) df.world_raws.T_buildings: DFStruct
+---@field _type identity.world_raws.buildings
 ---@field all _world_raws_buildings_all
 ---@field workshops _world_raws_buildings_workshops
 ---@field furnaces _world_raws_buildings_furnaces
 ---@field next_id number
 
----@class _world_raws.T_buildings: DFCompoundType
+---@class identity.world_raws.buildings: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_buildings = {}
 
----@return world_raws.T_buildings
+---@return df.world_raws.T_buildings
 function df.world_raws.T_buildings:new() end
 
 ---@class _world_raws_buildings_all: DFContainer
----@field [integer] building_def
+---@field [integer] df.building_def
 local _world_raws_buildings_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building_def>
+---@return DFPointer<df.building_def>
 function _world_raws_buildings_all:_field(index) end
 
 ---@param index '#'|integer
----@param item building_def
+---@param item df.building_def
 function _world_raws_buildings_all:insert(index, item) end
 
 ---@param index integer
 function _world_raws_buildings_all:erase(index) end
 
 ---@class _world_raws_buildings_workshops: DFContainer
----@field [integer] building_def_workshopst
+---@field [integer] df.building_def_workshopst
 local _world_raws_buildings_workshops
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building_def_workshopst>
+---@return DFPointer<df.building_def_workshopst>
 function _world_raws_buildings_workshops:_field(index) end
 
 ---@param index '#'|integer
----@param item building_def_workshopst
+---@param item df.building_def_workshopst
 function _world_raws_buildings_workshops:insert(index, item) end
 
 ---@param index integer
 function _world_raws_buildings_workshops:erase(index) end
 
 ---@class _world_raws_buildings_furnaces: DFContainer
----@field [integer] building_def_furnacest
+---@field [integer] df.building_def_furnacest
 local _world_raws_buildings_furnaces
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building_def_furnacest>
+---@return DFPointer<df.building_def_furnacest>
 function _world_raws_buildings_furnaces:_field(index) end
 
 ---@param index '#'|integer
----@param item building_def_furnacest
+---@param item df.building_def_furnacest
 function _world_raws_buildings_furnaces:insert(index, item) end
 
 ---@param index integer
 function _world_raws_buildings_furnaces:erase(index) end
 
 ---@class _world_raws_interactions: DFContainer
----@field [integer] interaction
+---@field [integer] df.interaction
 local _world_raws_interactions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<interaction>
+---@return DFPointer<df.interaction>
 function _world_raws_interactions:_field(index) end
 
 ---@param index '#'|integer
----@param item interaction
+---@param item df.interaction
 function _world_raws_interactions:insert(index, item) end
 
 ---@param index integer
 function _world_raws_interactions:erase(index) end
 
 -- Text set
----@class (exact) world_raws.T_text_set: DFStruct
----@field _type _world_raws.T_text_set
+---@class (exact) df.world_raws.T_text_set: DFStruct
+---@field _type identity.world_raws.text_set
 
----@class _world_raws.T_text_set: DFCompoundType
+---@class identity.world_raws.text_set: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_text_set = {}
 
----@return world_raws.T_text_set
+---@return df.world_raws.T_text_set
 function df.world_raws.T_text_set:new() end
 
 -- Audio
----@class (exact) world_raws.T_music: DFStruct
----@field _type _world_raws.T_music
+---@class (exact) df.world_raws.T_music: DFStruct
+---@field _type identity.world_raws.music
 ---@field music _world_raws_music_music
 
----@class _world_raws.T_music: DFCompoundType
+---@class identity.world_raws.music: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_music = {}
 
----@return world_raws.T_music
+---@return df.world_raws.T_music
 function df.world_raws.T_music:new() end
 
 ---@class _world_raws_music_music: DFContainer
@@ -941,89 +941,89 @@ function _world_raws_music_music:insert(index, item) end
 ---@param index integer
 function _world_raws_music_music:erase(index) end
 
----@class (exact) world_raws.T_sound: DFStruct
----@field _type _world_raws.T_sound
+---@class (exact) df.world_raws.T_sound: DFStruct
+---@field _type identity.world_raws.sound
 ---@field sound _world_raws_sound_sound
 
----@class _world_raws.T_sound: DFCompoundType
+---@class identity.world_raws.sound: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_sound = {}
 
----@return world_raws.T_sound
+---@return df.world_raws.T_sound
 function df.world_raws.T_sound:new() end
 
 ---@class _world_raws_sound_sound: DFContainer
----@field [integer] soundst
+---@field [integer] df.soundst
 local _world_raws_sound_sound
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<soundst>
+---@return DFPointer<df.soundst>
 function _world_raws_sound_sound:_field(index) end
 
 ---@param index '#'|integer
----@param item soundst
+---@param item df.soundst
 function _world_raws_sound_sound:insert(index, item) end
 
 ---@param index integer
 function _world_raws_sound_sound:erase(index) end
 
 -- Interaction effects
----@class (exact) world_raws.T_syndromes: DFStruct
----@field _type _world_raws.T_syndromes
+---@class (exact) df.world_raws.T_syndromes: DFStruct
+---@field _type identity.world_raws.syndromes
 ---@field mat_types DFNumberVector
 ---@field mat_indexes DFNumberVector
 ---@field interactions DFNumberVector
 ---@field all _world_raws_syndromes_all
 
----@class _world_raws.T_syndromes: DFCompoundType
+---@class identity.world_raws.syndromes: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_syndromes = {}
 
----@return world_raws.T_syndromes
+---@return df.world_raws.T_syndromes
 function df.world_raws.T_syndromes:new() end
 
 ---@class _world_raws_syndromes_all: DFContainer
----@field [integer] syndrome
+---@field [integer] df.syndrome
 local _world_raws_syndromes_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<syndrome>
+---@return DFPointer<df.syndrome>
 function _world_raws_syndromes_all:_field(index) end
 
 ---@param index '#'|integer
----@param item syndrome
+---@param item df.syndrome
 function _world_raws_syndromes_all:insert(index, item) end
 
 ---@param index integer
 function _world_raws_syndromes_all:erase(index) end
 
----@class (exact) world_raws.T_effects: DFStruct
----@field _type _world_raws.T_effects
+---@class (exact) df.world_raws.T_effects: DFStruct
+---@field _type identity.world_raws.effects
 ---@field mat_types DFNumberVector
 ---@field mat_indexes DFNumberVector
 ---@field interactions DFNumberVector
 ---@field all _world_raws_effects_all
 
----@class _world_raws.T_effects: DFCompoundType
+---@class identity.world_raws.effects: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_raws.T_effects = {}
 
----@return world_raws.T_effects
+---@return df.world_raws.T_effects
 function df.world_raws.T_effects:new() end
 
 ---@class _world_raws_effects_all: DFContainer
----@field [integer] creature_interaction_effect
+---@field [integer] df.creature_interaction_effect
 local _world_raws_effects_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<creature_interaction_effect>
+---@return DFPointer<df.creature_interaction_effect>
 function _world_raws_effects_all:_field(index) end
 
 ---@param index '#'|integer
----@param item creature_interaction_effect
+---@param item df.creature_interaction_effect
 function _world_raws_effects_all:insert(index, item) end
 
 ---@param index integer

@@ -1,8 +1,8 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class job_material_category: DFBitfield
----@field _enum _job_material_category
+---@class df.job_material_category: DFBitfield
+---@field _enum identity.job_material_category
 ---@field plant boolean
 ---@field [0] boolean
 ---@field wood boolean wood log
@@ -32,7 +32,7 @@
 ---@field strand boolean
 ---@field [13] boolean
 
----@class _job_material_category: DFBitfieldType
+---@class identity.job_material_category: DFBitfieldType
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1 wood log
@@ -65,8 +65,8 @@ df.job_material_category = {}
 
 -- An extended version of job_material_category,
 -- for use in some plugins, like workflow.
----@class dfhack_material_category: DFBitfield
----@field _enum _dfhack_material_category
+---@class df.dfhack_material_category: DFBitfield
+---@field _enum identity.dfhack_material_category
 ---@field plant boolean
 ---@field [0] boolean
 ---@field wood boolean
@@ -110,7 +110,7 @@ df.job_material_category = {}
 ---@field gem boolean
 ---@field [20] boolean
 
----@class _dfhack_material_category: DFBitfieldType
+---@class identity.dfhack_material_category: DFBitfieldType
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1
@@ -155,21 +155,21 @@ df.job_material_category = {}
 ---@field [20] "gem"
 df.dfhack_material_category = {}
 
----@class (exact) job_list_link: DFStruct
----@field _type _job_list_link
----@field item job
----@field prev job_list_link
----@field next job_list_link
+---@class (exact) df.job_list_link: DFStruct
+---@field _type identity.job_list_link
+---@field item df.job
+---@field prev df.job_list_link
+---@field next df.job_list_link
 
----@class _job_list_link: DFCompoundType
+---@class identity.job_list_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_list_link = {}
 
----@return job_list_link
+---@return df.job_list_link
 function df.job_list_link:new() end
 
----@class job_flags: DFBitfield
----@field _enum _job_flags
+---@class df.job_flags: DFBitfield
+---@field _enum identity.job_flags
 ---@field ["repeat"] boolean
 ---@field [0] boolean
 ---@field suspend boolean
@@ -203,7 +203,7 @@ function df.job_list_link:new() end
 ---@field do_now boolean toady: DO_ME_NOW
 ---@field [18] boolean toady: DO_ME_NOW
 
----@class _job_flags: DFBitfieldType
+---@class identity.job_flags: DFBitfieldType
 ---@field ["repeat"] 0
 ---@field [0] "repeat"
 ---@field suspend 1
@@ -238,14 +238,14 @@ function df.job_list_link:new() end
 ---@field [18] "do_now" toady: DO_ME_NOW
 df.job_flags = {}
 
----@alias job_subtype_surgery
+---@alias df.job_subtype_surgery
 ---| -1 # None
 ---| 0 # Surgery
 ---| 1 # StopBleeding
 ---| 2 # RepairCompoundFracture
 ---| 3 # RemoveRottenTissue
 
----@class _job_subtype_surgery: DFEnumType
+---@class identity.job_subtype_surgery: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Surgery 0
@@ -258,27 +258,27 @@ df.job_flags = {}
 ---@field [3] "RemoveRottenTissue"
 df.job_subtype_surgery = {}
 
----@class (exact) job: DFStruct
----@field _type _job
+---@class (exact) df.job: DFStruct
+---@field _type identity.job
 ---@field id number
----@field list_link job_list_link
+---@field list_link df.job_list_link
 ---@field posting_index number index into world.job_postings
----@field job_type job_type
----@field job_subtype job_subtype_surgery toady: stage
----@field pos coord
+---@field job_type df.job_type
+---@field job_subtype df.job_subtype_surgery toady: stage
+---@field pos df.coord
 ---@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
 ---@field maxdur integer
----@field flags job_flags
+---@field flags df.job_flags
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field spell number almost certainly no longer used
----@field item_type item_type for Bait Trap jobs
+---@field item_type df.item_type for Bait Trap jobs
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
----@field item_category stockpile_group_set not actually a stockpile_group_set<br>this field encodes multiple overlapping flags:<br>bit0: ConstructBuildingSwitchedSpot, CleanPatientTriedSoap, CleanSelfTriedSoap, PlaceTrackVehicleClearedJobs, GatherFromZone, DrinkItemLookedForNearbyGoblet, InterrogationDidOfficeAttempt<br>bit1: GatherPickTrees<br>bit2: GatherPickShrubs<br>bit3: GatherGatherFallen<br>bit4: GatherNoLadderSearch<br>bit5: GatherLadderRestricted<br>bit6: GatherLadderGround
+---@field item_category df.stockpile_group_set not actually a stockpile_group_set<br>this field encodes multiple overlapping flags:<br>bit0: ConstructBuildingSwitchedSpot, CleanPatientTriedSoap, CleanSelfTriedSoap, PlaceTrackVehicleClearedJobs, GatherFromZone, DrinkItemLookedForNearbyGoblet, InterrogationDidOfficeAttempt<br>bit1: GatherPickTrees<br>bit2: GatherPickShrubs<br>bit3: GatherGatherFallen<br>bit4: GatherNoLadderSearch<br>bit5: GatherLadderRestricted<br>bit6: GatherLadderGround
 ---@field hist_figure_id number toady: spec_id References: `historical_figure`
 ---@field race number References: `creature_raw`
----@field improvement improvement_type
----@field material_category job_material_category
+---@field improvement df.improvement_type
+---@field material_category df.job_material_category
 ---@field reaction_name string
 ---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
 ---@field recheck_cntdn number toady: auxilary_counter; for process_jobs
@@ -287,98 +287,98 @@ df.job_subtype_surgery = {}
 ---@field specific_refs _job_specific_refs
 ---@field general_refs _job_general_refs
 ---@field job_items _job_job_items
----@field guide_path coord_path
+---@field guide_path df.coord_path
 ---@field cur_path_index number
----@field spec_loc coord toady: spec_x/spec_y/spec_z
----@field art_spec job_art_specification
+---@field spec_loc df.coord toady: spec_x/spec_y/spec_z
+---@field art_spec df.job_art_specification
 ---@field order_id number References: `manager_order`
 
----@class _job: DFCompoundType
+---@class identity.job: DFCompoundType
 ---@field _kind 'struct-type'
 df.job = {}
 
----@return job
+---@return df.job
 function df.job:new() end
 
 ---@class _job_items: DFContainer
----@field [integer] job_item_ref
+---@field [integer] df.job_item_ref
 local _job_items
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<job_item_ref>
+---@return DFPointer<df.job_item_ref>
 function _job_items:_field(index) end
 
 ---@param index '#'|integer
----@param item job_item_ref
+---@param item df.job_item_ref
 function _job_items:insert(index, item) end
 
 ---@param index integer
 function _job_items:erase(index) end
 
 ---@class _job_specific_refs: DFContainer
----@field [integer] specific_ref
+---@field [integer] df.specific_ref
 local _job_specific_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<specific_ref>
+---@return DFPointer<df.specific_ref>
 function _job_specific_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item specific_ref
+---@param item df.specific_ref
 function _job_specific_refs:insert(index, item) end
 
 ---@param index integer
 function _job_specific_refs:erase(index) end
 
 ---@class _job_general_refs: DFContainer
----@field [integer] general_ref
+---@field [integer] df.general_ref
 local _job_general_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<general_ref>
+---@return DFPointer<df.general_ref>
 function _job_general_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item general_ref
+---@param item df.general_ref
 function _job_general_refs:insert(index, item) end
 
 ---@param index integer
 function _job_general_refs:erase(index) end
 
 ---@class _job_job_items: DFContainer
----@field [integer] job_item
+---@field [integer] df.job_item
 local _job_job_items
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<job_item>
+---@return DFPointer<df.job_item>
 function _job_job_items:_field(index) end
 
 ---@param index '#'|integer
----@param item job_item
+---@param item df.job_item
 function _job_job_items:insert(index, item) end
 
 ---@param index integer
 function _job_job_items:erase(index) end
 
----@class (exact) job_item_ref: DFStruct
----@field _type _job_item_ref
----@field item item
----@field role job_item_ref.T_role
+---@class (exact) df.job_item_ref: DFStruct
+---@field _type identity.job_item_ref
+---@field item df.item
+---@field role df.job_item_ref.T_role
 ---@field is_fetching number 0 immediately once taken to be brought
 ---@field job_item_idx number
 
----@class _job_item_ref: DFCompoundType
+---@class identity.job_item_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item_ref = {}
 
----@return job_item_ref
+---@return df.job_item_ref
 function df.job_item_ref:new() end
 
----@alias job_item_ref.T_role
+---@alias df.job_item_ref.T_role
 ---| 0 # Other
 ---| 1 # Reagent
 ---| 2 # Hauled
@@ -388,7 +388,7 @@ function df.job_item_ref:new() end
 ---| 7 # QueuedContainer
 ---| 8 # PushHaulVehicle
 
----@class _job_item_ref.T_role: DFEnumType
+---@class identity.job_item_ref.role: DFEnumType
 ---@field Other 0 eat, drink, pickup equipment
 ---@field [0] "Other" eat, drink, pickup equipment
 ---@field Reagent 1
@@ -407,8 +407,8 @@ function df.job_item_ref:new() end
 ---@field [8] "PushHaulVehicle" wheelbarrow
 df.job_item_ref.T_role = {}
 
----@class job_item_flags1: DFBitfield
----@field _enum _job_item_flags1
+---@class df.job_item_flags1: DFBitfield
+---@field _enum identity.job_item_flags1
 ---@field improvable boolean vtable[155]:eax,-1,-1
 ---@field [0] boolean vtable[155]:eax,-1,-1
 ---@field butcherable boolean (call 0074c6d0)
@@ -474,7 +474,7 @@ df.job_item_ref.T_role = {}
 ---@field lye_bearing boolean
 ---@field [31] boolean
 
----@class _job_item_flags1: DFBitfieldType
+---@class identity.job_item_flags1: DFBitfieldType
 ---@field improvable 0 vtable[155]:eax,-1,-1
 ---@field [0] "improvable" vtable[155]:eax,-1,-1
 ---@field butcherable 1 (call 0074c6d0)
@@ -541,8 +541,8 @@ df.job_item_ref.T_role = {}
 ---@field [31] "lye_bearing"
 df.job_item_flags1 = {}
 
----@class job_item_flags2: DFBitfield
----@field _enum _job_item_flags2
+---@class df.job_item_flags2: DFBitfield
+---@field _enum identity.job_item_flags2
 ---@field dye boolean vtable[106]
 ---@field [0] boolean vtable[106]
 ---@field dyeable boolean vtable[159]
@@ -607,7 +607,7 @@ df.job_item_flags1 = {}
 ---@field yarn boolean check for material flag YARN
 ---@field [31] boolean check for material flag YARN
 
----@class _job_item_flags2: DFBitfieldType
+---@class identity.job_item_flags2: DFBitfieldType
 ---@field dye 0 vtable[106]
 ---@field [0] "dye" vtable[106]
 ---@field dyeable 1 vtable[159]
@@ -672,8 +672,8 @@ df.job_item_flags1 = {}
 ---@field [31] "yarn" check for material flag YARN
 df.job_item_flags2 = {}
 
----@class job_item_flags3: DFBitfield
----@field _enum _job_item_flags3
+---@class df.job_item_flags3: DFBitfield
+---@field _enum identity.job_item_flags3
 ---@field unimproved boolean vtable[176]
 ---@field [0] boolean vtable[176]
 ---@field any_raw_material boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
@@ -718,7 +718,7 @@ df.job_item_flags2 = {}
 ---@field empty_or_water boolean
 ---@field [21] boolean
 
----@class _job_item_flags3: DFBitfieldType
+---@class identity.job_item_flags3: DFBitfieldType
 ---@field unimproved 0 vtable[176]
 ---@field [0] "unimproved" vtable[176]
 ---@field any_raw_material 1 itemtype BAR, BOULDER, POWDER_MISC, or GLOB
@@ -763,17 +763,17 @@ df.job_item_flags2 = {}
 ---@field [21] "empty_or_water"
 df.job_item_flags3 = {}
 
----@class (exact) job_item: DFStruct
----@field _type _job_item
----@field item_type item_type
+---@class (exact) df.job_item: DFStruct
+---@field _type identity.job_item
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field flags1 job_item_flags1
+---@field flags1 df.job_item_flags1
 ---@field quantity number
----@field vector_id job_item_vector_id
----@field flags2 job_item_flags2
----@field flags3 job_item_flags3
+---@field vector_id df.job_item_vector_id
+---@field flags2 df.job_item_flags2
+---@field flags3 df.job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field metal_ore number Custom: References: `inorganic_raw`
@@ -783,31 +783,31 @@ df.job_item_flags3 = {}
 ---@field reagent_index number
 ---@field contains DFNumberVector used with custom reactions
 ---@field reaction_id number References: `reaction`
----@field has_tool_use tool_uses
+---@field has_tool_use df.tool_uses
 ---@field unk_v43_1 number
 ---@field unk_v43_2 number
 ---@field unk_v43_3 number
 ---@field unk_v43_4 number
 
----@class _job_item: DFCompoundType
+---@class identity.job_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item = {}
 
----@return job_item
+---@return df.job_item
 function df.job_item:new() end
 
----@class (exact) job_item_filter: DFStruct
----@field _type _job_item_filter
----@field item_type item_type
+---@class (exact) df.job_item_filter: DFStruct
+---@field _type identity.job_item_filter
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field flags1 job_item_flags1
+---@field flags1 df.job_item_flags1
 ---@field item_vector DFPointer<integer>
 ---@field use_mat_index boolean
----@field flags2 job_item_flags2
+---@field flags2 df.job_item_flags2
 ---@field use_flags2 boolean
----@field flags3 job_item_flags3
+---@field flags3 df.job_item_flags3
 ---@field use_flags3 boolean
 ---@field flags4 integer
 ---@field use_flags4 boolean
@@ -823,61 +823,61 @@ function df.job_item:new() end
 ---@field reaction_id number References: `reaction`
 ---@field contains DFNumberVector
 ---@field use_contains boolean
----@field has_tool_use tool_uses
----@field has_melee_skill job_skill
+---@field has_tool_use df.tool_uses
+---@field has_melee_skill df.job_skill
 ---@field unk_v40_1 number noticed in v0.40.24
----@field pos coord
----@field unit unit
----@field job job
----@field building building
+---@field pos df.coord
+---@field unit df.unit
+---@field job df.job
+---@field building df.building
 ---@field unk_74 DFPointer<integer>
 ---@field unk_v4305_1 number
 ---@field burrows DFNumberVector
 ---@field use_burrows boolean
 ---@field take_from DFPointer<integer>
 
----@class _job_item_filter: DFCompoundType
+---@class identity.job_item_filter: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_item_filter = {}
 
----@return job_item_filter
+---@return df.job_item_filter
 function df.job_item_filter:new() end
 
----@class manager_order_status: DFBitfield
----@field _enum _manager_order_status
+---@class df.manager_order_status: DFBitfield
+---@field _enum identity.manager_order_status
 ---@field validated boolean
 ---@field [0] boolean
 ---@field active boolean
 ---@field [1] boolean
 
----@class _manager_order_status: DFBitfieldType
+---@class identity.manager_order_status: DFBitfieldType
 ---@field validated 0
 ---@field [0] "validated"
 ---@field active 1
 ---@field [1] "active"
 df.manager_order_status = {}
 
----@class (exact) job_art_specification: DFStruct
----@field _type _job_art_specification
----@field type job_art_specification.T_type
+---@class (exact) df.job_art_specification: DFStruct
+---@field _type identity.job_art_specification
+---@field type df.job_art_specification.T_type
 ---@field id number
 ---@field subid number
 
----@class _job_art_specification: DFCompoundType
+---@class identity.job_art_specification: DFCompoundType
 ---@field _kind 'struct-type'
 df.job_art_specification = {}
 
----@return job_art_specification
+---@return df.job_art_specification
 function df.job_art_specification:new() end
 
----@alias job_art_specification.T_type
+---@alias df.job_art_specification.T_type
 ---| -1 # None
 ---| 0 # HistoricalFigure
 ---| 1 # Site
 ---| 2 # Entity
 ---| 3 # ArtImage
 
----@class _job_art_specification.T_type: DFEnumType
+---@class identity.job_art_specification.type: DFEnumType
 ---@field None -1 bay12: JobArtSpecifierType
 ---@field [-1] "None" bay12: JobArtSpecifierType
 ---@field HistoricalFigure 0
@@ -890,23 +890,23 @@ function df.job_art_specification:new() end
 ---@field [3] "ArtImage"
 df.job_art_specification.T_type = {}
 
----@class (exact) manager_order: DFStruct
----@field _type _manager_order
+---@class (exact) df.manager_order: DFStruct
+---@field _type identity.manager_order
 ---@field id number
----@field job_type job_type
----@field item_type item_type
+---@field job_type df.job_type
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field reaction_name string
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field item_category stockpile_group_set
+---@field item_category df.stockpile_group_set
 ---@field hist_figure_id number References: `historical_figure`
----@field material_category job_material_category
----@field art_spec job_art_specification
+---@field material_category df.job_material_category
+---@field art_spec df.job_art_specification
 ---@field amount_left number
 ---@field amount_total number
----@field status manager_order_status
----@field frequency manager_order.T_frequency
+---@field status df.manager_order_status
+---@field frequency df.manager_order.T_frequency
 ---@field finished_year number
 ---@field finished_year_tick number
 ---@field workshop_id number References: `building`
@@ -915,21 +915,21 @@ df.job_art_specification.T_type = {}
 ---@field order_conditions _manager_order_order_conditions
 ---@field items DFPointer<integer>
 
----@class _manager_order: DFCompoundType
+---@class identity.manager_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order = {}
 
----@return manager_order
+---@return df.manager_order
 function df.manager_order:new() end
 
----@alias manager_order.T_frequency
+---@alias df.manager_order.T_frequency
 ---| 0 # OneTime
 ---| 1 # Daily
 ---| 2 # Monthly
 ---| 3 # Seasonally
 ---| 4 # Yearly
 
----@class _manager_order.T_frequency: DFEnumType
+---@class identity.manager_order.frequency: DFEnumType
 ---@field OneTime 0
 ---@field [0] "OneTime"
 ---@field Daily 1
@@ -943,48 +943,48 @@ function df.manager_order:new() end
 df.manager_order.T_frequency = {}
 
 ---@class _manager_order_item_conditions: DFContainer
----@field [integer] manager_order_condition_item
+---@field [integer] df.manager_order_condition_item
 local _manager_order_item_conditions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<manager_order_condition_item>
+---@return DFPointer<df.manager_order_condition_item>
 function _manager_order_item_conditions:_field(index) end
 
 ---@param index '#'|integer
----@param item manager_order_condition_item
+---@param item df.manager_order_condition_item
 function _manager_order_item_conditions:insert(index, item) end
 
 ---@param index integer
 function _manager_order_item_conditions:erase(index) end
 
 ---@class _manager_order_order_conditions: DFContainer
----@field [integer] manager_order_condition_order
+---@field [integer] df.manager_order_condition_order
 local _manager_order_order_conditions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<manager_order_condition_order>
+---@return DFPointer<df.manager_order_condition_order>
 function _manager_order_order_conditions:_field(index) end
 
 ---@param index '#'|integer
----@param item manager_order_condition_order
+---@param item df.manager_order_condition_order
 function _manager_order_order_conditions:insert(index, item) end
 
 ---@param index integer
 function _manager_order_order_conditions:erase(index) end
 
----@class (exact) manager_order_condition_item: DFStruct
----@field _type _manager_order_condition_item
----@field compare_type manager_order_condition_item.T_compare_type
+---@class (exact) df.manager_order_condition_item: DFStruct
+---@field _type identity.manager_order_condition_item
+---@field compare_type df.manager_order_condition_item.T_compare_type
 ---@field compare_val number
----@field item_type item_type
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field flags1 job_item_flags1
----@field flags2 job_item_flags2
----@field flags3 job_item_flags3
+---@field flags1 df.job_item_flags1
+---@field flags2 df.job_item_flags2
+---@field flags3 df.job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field reaction_class string
@@ -993,16 +993,16 @@ function _manager_order_order_conditions:erase(index) end
 ---@field min_dimension number
 ---@field contains DFNumberVector
 ---@field reaction_id number References: `reaction`
----@field has_tool_use tool_uses
+---@field has_tool_use df.tool_uses
 
----@class _manager_order_condition_item: DFCompoundType
+---@class identity.manager_order_condition_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order_condition_item = {}
 
----@return manager_order_condition_item
+---@return df.manager_order_condition_item
 function df.manager_order_condition_item:new() end
 
----@alias manager_order_condition_item.T_compare_type
+---@alias df.manager_order_condition_item.T_compare_type
 ---| 0 # AtLeast
 ---| 1 # AtMost
 ---| 2 # GreaterThan
@@ -1010,7 +1010,7 @@ function df.manager_order_condition_item:new() end
 ---| 4 # Exactly
 ---| 5 # Not
 
----@class _manager_order_condition_item.T_compare_type: DFEnumType
+---@class identity.manager_order_condition_item.compare_type: DFEnumType
 ---@field AtLeast 0
 ---@field [0] "AtLeast"
 ---@field AtMost 1
@@ -1025,24 +1025,24 @@ function df.manager_order_condition_item:new() end
 ---@field [5] "Not"
 df.manager_order_condition_item.T_compare_type = {}
 
----@class (exact) manager_order_condition_order: DFStruct
----@field _type _manager_order_condition_order
+---@class (exact) df.manager_order_condition_order: DFStruct
+---@field _type identity.manager_order_condition_order
 ---@field order_id number References: `manager_order`
----@field condition manager_order_condition_order.T_condition
+---@field condition df.manager_order_condition_order.T_condition
 ---@field unk_1 number
 
----@class _manager_order_condition_order: DFCompoundType
+---@class identity.manager_order_condition_order: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order_condition_order = {}
 
----@return manager_order_condition_order
+---@return df.manager_order_condition_order
 function df.manager_order_condition_order:new() end
 
----@alias manager_order_condition_order.T_condition
+---@alias df.manager_order_condition_order.T_condition
 ---| 0 # Activated
 ---| 1 # Completed
 
----@class _manager_order_condition_order.T_condition: DFEnumType
+---@class identity.manager_order_condition_order.condition: DFEnumType
 ---@field Activated 0
 ---@field [0] "Activated"
 ---@field Completed 1
@@ -1050,34 +1050,34 @@ function df.manager_order_condition_order:new() end
 df.manager_order_condition_order.T_condition = {}
 
 -- jminfost
----@class (exact) manager_order_template: DFStruct
----@field _type _manager_order_template
----@field job_type job_type
+---@class (exact) df.manager_order_template: DFStruct
+---@field _type identity.manager_order_template
+---@field job_type df.job_type
 ---@field reaction_name string
----@field item_type item_type
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field item_category stockpile_group_set specflag
+---@field item_category df.stockpile_group_set specflag
 ---@field hist_figure_id number References: `historical_figure`
----@field material_category job_material_category
+---@field material_category df.job_material_category
 ---@field match_value number
 ---@field name string
 ---@field compare_str string
 ---@field on boolean
 
----@class _manager_order_template: DFCompoundType
+---@class identity.manager_order_template: DFCompoundType
 ---@field _kind 'struct-type'
 df.manager_order_template = {}
 
----@return manager_order_template
+---@return df.manager_order_template
 function df.manager_order_template:new() end
 
----@class (exact) mandate: DFStruct
----@field _type _mandate
----@field unit unit
----@field mode mandate.T_mode
----@field item_type item_type
+---@class (exact) df.mandate: DFStruct
+---@field _type identity.mandate
+---@field unit df.unit
+---@field mode df.mandate.T_mode
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -1085,23 +1085,23 @@ function df.manager_order_template:new() end
 ---@field amount_remaining number
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
----@field punishment mandate.T_punishment
+---@field punishment df.mandate.T_punishment
 ---@field punish_multiple integer
 ---@field unk4 number
 
----@class _mandate: DFCompoundType
+---@class identity.mandate: DFCompoundType
 ---@field _kind 'struct-type'
 df.mandate = {}
 
----@return mandate
+---@return df.mandate
 function df.mandate:new() end
 
----@alias mandate.T_mode
+---@alias df.mandate.T_mode
 ---| 0 # Export
 ---| 1 # Make
 ---| 2 # Guild
 
----@class _mandate.T_mode: DFEnumType
+---@class identity.mandate.mode: DFEnumType
 ---@field Export 0
 ---@field [0] "Export"
 ---@field Make 1
@@ -1110,43 +1110,43 @@ function df.mandate:new() end
 ---@field [2] "Guild"
 df.mandate.T_mode = {}
 
----@class (exact) mandate.T_punishment: DFStruct
----@field _type _mandate.T_punishment
+---@class (exact) df.mandate.T_punishment: DFStruct
+---@field _type identity.mandate.punishment
 ---@field hammerstrikes number
 ---@field prison_time number
 ---@field give_beating number
 
----@class _mandate.T_punishment: DFCompoundType
+---@class identity.mandate.punishment: DFCompoundType
 ---@field _kind 'struct-type'
 df.mandate.T_punishment = {}
 
----@return mandate.T_punishment
+---@return df.mandate.T_punishment
 function df.mandate.T_punishment:new() end
 
----@class (exact) training_assignment: DFStruct
----@field _type _training_assignment
+---@class (exact) df.training_assignment: DFStruct
+---@field _type identity.training_assignment
 ---@field animal_id number References: `unit`
 ---@field trainer_id number References: `unit`
----@field flags training_assignment.T_flags
+---@field flags df.training_assignment.T_flags
 
----@class _training_assignment: DFCompoundType
+---@class identity.training_assignment: DFCompoundType
 ---@field _kind 'struct-type'
 df.training_assignment = {}
 
----@return training_assignment
+---@return df.training_assignment
 function df.training_assignment:new() end
 
 ---@param key number
----@return training_assignment|nil
+---@return df.training_assignment|nil
 function df.training_assignment.find(key) end
 
----@class training_assignment_vector: DFVector, { [integer]: training_assignment }
+---@class training_assignment_vector: DFVector, { [integer]: df.training_assignment }
 
 ---@return training_assignment_vector # df.global.plotinfo.equipment.training_assignments
 function df.training_assignment.get_vector() end
 
----@class training_assignment.T_flags: DFBitfield
----@field _enum _training_assignment.T_flags
+---@class df.training_assignment.T_flags: DFBitfield
+---@field _enum identity.training_assignment.flags
 ---@field any_trainer boolean
 ---@field [0] boolean
 ---@field any_unassigned_trainer boolean
@@ -1156,7 +1156,7 @@ function df.training_assignment.get_vector() end
 ---@field train_hunt boolean
 ---@field [3] boolean
 
----@class _training_assignment.T_flags: DFBitfieldType
+---@class identity.training_assignment.flags: DFBitfieldType
 ---@field any_trainer 0
 ---@field [0] "any_trainer"
 ---@field any_unassigned_trainer 1
@@ -1167,31 +1167,31 @@ function df.training_assignment.get_vector() end
 ---@field [3] "train_hunt"
 df.training_assignment.T_flags = {}
 
----@class (exact) unit_demand: DFStruct
----@field _type _unit_demand
+---@class (exact) df.unit_demand: DFStruct
+---@field _type identity.unit_demand
 ---@field unk_0 number
----@field place unit_demand.T_place
----@field item_type item_type
+---@field place df.unit_demand.T_place
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
 
----@class _unit_demand: DFCompoundType
+---@class identity.unit_demand: DFCompoundType
 ---@field _kind 'struct-type'
 df.unit_demand = {}
 
----@return unit_demand
+---@return df.unit_demand
 function df.unit_demand:new() end
 
----@alias unit_demand.T_place
+---@alias df.unit_demand.T_place
 ---| 0 # Office
 ---| 1 # Bedroom
 ---| 2 # DiningRoom
 ---| 3 # Tomb
 
----@class _unit_demand.T_place: DFEnumType
+---@class identity.unit_demand.place: DFEnumType
 ---@field Office 0
 ---@field [0] "Office"
 ---@field Bedroom 1
@@ -1202,7 +1202,7 @@ function df.unit_demand:new() end
 ---@field [3] "Tomb"
 df.unit_demand.T_place = {}
 
----@alias killjob_exception_type
+---@alias df.killjob_exception_type
 ---| 0 # CANNOT_REACH_SITE
 ---| 1 # INTERRUPTED
 ---| 2 # MOVED
@@ -1339,7 +1339,7 @@ df.unit_demand.T_place = {}
 ---| 133 # IN_EXISTENTIAL_CRISIS
 ---| 134 # NEEDS_SPECIFIC_ITEM_2
 
----@class _killjob_exception_type: DFEnumType
+---@class identity.killjob_exception_type: DFEnumType
 ---@field CANNOT_REACH_SITE 0
 ---@field [0] "CANNOT_REACH_SITE"
 ---@field INTERRUPTED 1
@@ -1612,10 +1612,10 @@ df.unit_demand.T_place = {}
 ---@field [134] "NEEDS_SPECIFIC_ITEM_2"
 df.killjob_exception_type = {}
 
----@class (exact) killjob_exceptionst: DFStruct
----@field _type _killjob_exceptionst
----@field type killjob_exception_type
----@field item_type item_type
+---@class (exact) df.killjob_exceptionst: DFStruct
+---@field _type identity.killjob_exceptionst
+---@field type df.killjob_exception_type
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field item_material number
 ---@field item_matgloss number
@@ -1631,13 +1631,13 @@ df.killjob_exception_type = {}
 ---@field min_dimension_taken number
 ---@field reagent_index DFNumberVector
 ---@field reaction_index number
----@field tool_use tool_uses
----@field pos coord
+---@field tool_use df.tool_uses
+---@field pos df.coord
 
----@class _killjob_exceptionst: DFCompoundType
+---@class identity.killjob_exceptionst: DFCompoundType
 ---@field _kind 'struct-type'
 df.killjob_exceptionst = {}
 
----@return killjob_exceptionst
+---@return df.killjob_exceptionst
 function df.killjob_exceptionst:new() end
 

@@ -2,51 +2,51 @@
 ---@meta
 
 -- MACHINE
----@alias machine_type
+---@alias df.machine_type
 ---| 0 # standard
 
 -- MACHINE
----@class _machine_type: DFEnumType
+---@class identity.machine_type: DFEnumType
 ---@field standard 0
 ---@field [0] "standard"
 df.machine_type = {}
 
----@class (exact) machine_info: DFStruct
----@field _type _machine_info
+---@class (exact) df.machine_info: DFStruct
+---@field _type identity.machine_info
 ---@field machine_id number References: `machine`
----@field flags machine_info.T_flags
+---@field flags df.machine_info.T_flags
 
----@class _machine_info: DFCompoundType
+---@class identity.machine_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.machine_info = {}
 
----@return machine_info
+---@return df.machine_info
 function df.machine_info:new() end
 
----@class machine_info.T_flags: DFBitfield
----@field _enum _machine_info.T_flags
+---@class df.machine_info.T_flags: DFBitfield
+---@field _enum identity.machine_info.flags
 ---@field frozen boolean
 ---@field [0] boolean
 
----@class _machine_info.T_flags: DFBitfieldType
+---@class identity.machine_info.flags: DFBitfieldType
 ---@field frozen 0
 ---@field [0] "frozen"
 df.machine_info.T_flags = {}
 
----@class (exact) power_info: DFStruct
----@field _type _power_info
+---@class (exact) df.power_info: DFStruct
+---@field _type identity.power_info
 ---@field produced number
 ---@field consumed number
 
----@class _power_info: DFCompoundType
+---@class identity.power_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.power_info = {}
 
----@return power_info
+---@return df.power_info
 function df.power_info:new() end
 
----@class machine_conn_modes: DFBitfield
----@field _enum _machine_conn_modes
+---@class df.machine_conn_modes: DFBitfield
+---@field _enum identity.machine_conn_modes
 ---@field up boolean
 ---@field [0] boolean
 ---@field down boolean
@@ -60,7 +60,7 @@ function df.power_info:new() end
 ---@field z_down boolean
 ---@field [5] boolean
 
----@class _machine_conn_modes: DFBitfieldType
+---@class identity.machine_conn_modes: DFBitfieldType
 ---@field up 0
 ---@field [0] "up"
 ---@field down 1
@@ -75,36 +75,36 @@ function df.power_info:new() end
 ---@field [5] "z_down"
 df.machine_conn_modes = {}
 
----@class (exact) machine_tile_set: DFStruct
----@field _type _machine_tile_set
----@field tiles coord_path
+---@class (exact) df.machine_tile_set: DFStruct
+---@field _type identity.machine_tile_set
+---@field tiles df.coord_path
 ---@field can_connect _machine_tile_set_can_connect
 
----@class _machine_tile_set: DFCompoundType
+---@class identity.machine_tile_set: DFCompoundType
 ---@field _kind 'struct-type'
 df.machine_tile_set = {}
 
----@return machine_tile_set
+---@return df.machine_tile_set
 function df.machine_tile_set:new() end
 
 ---@class _machine_tile_set_can_connect: DFContainer
----@field [integer] machine_conn_modes
+---@field [integer] df.machine_conn_modes
 local _machine_tile_set_can_connect
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<machine_conn_modes>
+---@return DFPointer<df.machine_conn_modes>
 function _machine_tile_set_can_connect:_field(index) end
 
 ---@param index '#'|integer
----@param item machine_conn_modes
+---@param item df.machine_conn_modes
 function _machine_tile_set_can_connect:insert(index, item) end
 
 ---@param index integer
 function _machine_tile_set_can_connect:erase(index) end
 
----@class (exact) machine: DFStruct
----@field _type _machine
+---@class (exact) df.machine: DFStruct
+---@field _type identity.machine
 ---@field x number
 ---@field y number
 ---@field z number
@@ -114,10 +114,10 @@ function _machine_tile_set_can_connect:erase(index) end
 ---@field min_power number
 ---@field visual_phase number
 ---@field phase_timer number
----@field flags machine.T_flags
+---@field flags df.machine.T_flags
 local machine
 
----@return machine_type
+---@return df.machine_type
 function machine:getType() end
 
 function machine:moveMachine() end
@@ -127,18 +127,18 @@ function machine:write_file() end
 function machine:read_file() end
 
 
----@class _machine: DFCompoundType
+---@class identity.machine: DFCompoundType
 ---@field _kind 'class-type'
 df.machine = {}
 
----@return machine
+---@return df.machine
 function df.machine:new() end
 
 ---@param key number
----@return machine|nil
+---@return df.machine|nil
 function df.machine.find(key) end
 
----@class machine_vector: DFVector, { [integer]: machine }
+---@class machine_vector: DFVector, { [integer]: df.machine }
 
 ---@return machine_vector # df.global.world.machines.all
 function df.machine.get_vector() end
@@ -159,8 +159,8 @@ function _machine_components:insert(index, item) end
 ---@param index integer
 function _machine_components:erase(index) end
 
----@class machine.T_flags: DFBitfield
----@field _enum _machine.T_flags
+---@class df.machine.T_flags: DFBitfield
+---@field _enum identity.machine.flags
 ---@field active boolean
 ---@field [0] boolean
 ---@field frozen boolean ?
@@ -168,7 +168,7 @@ function _machine_components:erase(index) end
 ---@field unfreeze boolean ?
 ---@field [2] boolean ?
 
----@class _machine.T_flags: DFBitfieldType
+---@class identity.machine.flags: DFBitfieldType
 ---@field active 0
 ---@field [0] "active"
 ---@field frozen 1 ?
@@ -177,65 +177,65 @@ function _machine_components:erase(index) end
 ---@field [2] "unfreeze" ?
 df.machine.T_flags = {}
 
----@class (exact) machine_standardst: DFStruct, machine
----@field _type _machine_standardst
+---@class (exact) df.machine_standardst: DFStruct, df.machine
+---@field _type identity.machine_standardst
 
----@class _machine_standardst: DFCompoundType
+---@class identity.machine_standardst: DFCompoundType
 ---@field _kind 'class-type'
 df.machine_standardst = {}
 
----@return machine_standardst
+---@return df.machine_standardst
 function df.machine_standardst:new() end
 
 -- MACHINE COMPONENT BUILDINGS
----@class (exact) building_axle_horizontalst: DFStruct, building_actual
----@field _type _building_axle_horizontalst
----@field machine machine_info
+---@class (exact) df.building_axle_horizontalst: DFStruct, df.building_actual
+---@field _type identity.building_axle_horizontalst
+---@field machine df.machine_info
 ---@field is_vertical boolean
 
----@class _building_axle_horizontalst: DFCompoundType
+---@class identity.building_axle_horizontalst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_axle_horizontalst = {}
 
----@return building_axle_horizontalst
+---@return df.building_axle_horizontalst
 function df.building_axle_horizontalst:new() end
 
----@class (exact) building_axle_verticalst: DFStruct, building_actual
----@field _type _building_axle_verticalst
----@field machine machine_info
+---@class (exact) df.building_axle_verticalst: DFStruct, df.building_actual
+---@field _type identity.building_axle_verticalst
+---@field machine df.machine_info
 
----@class _building_axle_verticalst: DFCompoundType
+---@class identity.building_axle_verticalst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_axle_verticalst = {}
 
----@return building_axle_verticalst
+---@return df.building_axle_verticalst
 function df.building_axle_verticalst:new() end
 
----@class (exact) building_gear_assemblyst: DFStruct, building_actual
----@field _type _building_gear_assemblyst
----@field machine machine_info
----@field gear_flags building_gear_assemblyst.T_gear_flags
+---@class (exact) df.building_gear_assemblyst: DFStruct, df.building_actual
+---@field _type identity.building_gear_assemblyst
+---@field machine df.machine_info
+---@field gear_flags df.building_gear_assemblyst.T_gear_flags
 
----@class _building_gear_assemblyst: DFCompoundType
+---@class identity.building_gear_assemblyst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_gear_assemblyst = {}
 
----@return building_gear_assemblyst
+---@return df.building_gear_assemblyst
 function df.building_gear_assemblyst:new() end
 
----@class building_gear_assemblyst.T_gear_flags: DFBitfield
----@field _enum _building_gear_assemblyst.T_gear_flags
+---@class df.building_gear_assemblyst.T_gear_flags: DFBitfield
+---@field _enum identity.building_gear_assemblyst.gear_flags
 ---@field disengaged boolean
 ---@field [0] boolean
 
----@class _building_gear_assemblyst.T_gear_flags: DFBitfieldType
+---@class identity.building_gear_assemblyst.gear_flags: DFBitfieldType
 ---@field disengaged 0
 ---@field [0] "disengaged"
 df.building_gear_assemblyst.T_gear_flags = {}
 
----@class (exact) building_windmillst: DFStruct, building_actual
----@field _type _building_windmillst
----@field machine machine_info
+---@class (exact) df.building_windmillst: DFStruct, df.building_actual
+---@field _type identity.building_windmillst
+---@field machine df.machine_info
 ---@field orient_x number
 ---@field orient_y number
 ---@field is_working number
@@ -243,33 +243,33 @@ df.building_gear_assemblyst.T_gear_flags = {}
 ---@field rotate_timer number
 ---@field orient_timer number
 
----@class _building_windmillst: DFCompoundType
+---@class identity.building_windmillst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_windmillst = {}
 
----@return building_windmillst
+---@return df.building_windmillst
 function df.building_windmillst:new() end
 
----@class (exact) building_water_wheelst: DFStruct, building_actual
----@field _type _building_water_wheelst
----@field machine machine_info
+---@class (exact) df.building_water_wheelst: DFStruct, df.building_actual
+---@field _type identity.building_water_wheelst
+---@field machine df.machine_info
 ---@field is_vertical boolean
 ---@field gives_power boolean
 
----@class _building_water_wheelst: DFCompoundType
+---@class identity.building_water_wheelst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_water_wheelst = {}
 
----@return building_water_wheelst
+---@return df.building_water_wheelst
 function df.building_water_wheelst:new() end
 
----@alias screw_pump_direction
+---@alias df.screw_pump_direction
 ---| 0 # FromNorth
 ---| 1 # FromEast
 ---| 2 # FromSouth
 ---| 3 # FromWest
 
----@class _screw_pump_direction: DFEnumType
+---@class identity.screw_pump_direction: DFEnumType
 ---@field FromNorth 0
 ---@field [0] "FromNorth"
 ---@field FromEast 1
@@ -280,30 +280,30 @@ function df.building_water_wheelst:new() end
 ---@field [3] "FromWest"
 df.screw_pump_direction = {}
 
----@class (exact) building_screw_pumpst: DFStruct, building_actual
----@field _type _building_screw_pumpst
----@field machine machine_info
+---@class (exact) df.building_screw_pumpst: DFStruct, df.building_actual
+---@field _type identity.building_screw_pumpst
+---@field machine df.machine_info
 ---@field pump_energy integer decreases by 1 every frame. powering or manually pumping maintains near 100
----@field direction screw_pump_direction
+---@field direction df.screw_pump_direction
 ---@field pump_manually boolean
 
----@class _building_screw_pumpst: DFCompoundType
+---@class identity.building_screw_pumpst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_screw_pumpst = {}
 
----@return building_screw_pumpst
+---@return df.building_screw_pumpst
 function df.building_screw_pumpst:new() end
 
----@class (exact) building_rollersst: DFStruct, building_actual
----@field _type _building_rollersst
----@field machine machine_info
----@field direction screw_pump_direction
+---@class (exact) df.building_rollersst: DFStruct, df.building_actual
+---@field _type identity.building_rollersst
+---@field machine df.machine_info
+---@field direction df.screw_pump_direction
 ---@field speed number
 
----@class _building_rollersst: DFCompoundType
+---@class identity.building_rollersst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_rollersst = {}
 
----@return building_rollersst
+---@return df.building_rollersst
 function df.building_rollersst:new() end
 

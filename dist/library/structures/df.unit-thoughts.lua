@@ -2,7 +2,7 @@
 ---@meta
 
 -- bay12: Emotion
----@alias emotion_type
+---@alias df.emotion_type
 ---| -1 # ANYTHING
 ---| 0 # ACCEPTANCE
 ---| 1 # ADORATION
@@ -135,7 +135,7 @@
 ---| 168 # ADMIRATION
 
 -- bay12: Emotion
----@class _emotion_type: DFEnumType
+---@class identity.emotion_type: DFEnumType
 ---@field ANYTHING -1
 ---@field [-1] "ANYTHING"
 ---@field ACCEPTANCE 0
@@ -540,7 +540,7 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field ADMIRATION { color: "11", divider: "-8" }
 df.emotion_type.attrs = {}
 
----@alias unit_thought_type
+---@alias df.unit_thought_type
 ---| -1 # None
 ---| 0 # Conflict
 ---| 1 # Trauma
@@ -823,7 +823,7 @@ df.emotion_type.attrs = {}
 ---| 278 # PerformedRiteUndedicatedTemple
 ---| 279 # PrayedDedicatedTemple
 
----@class _unit_thought_type: DFEnumType
+---@class identity.unit_thought_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Conflict 0

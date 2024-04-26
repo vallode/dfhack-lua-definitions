@@ -2,7 +2,7 @@
 ---@meta
 
 -- init.h
----@alias init_display_flags
+---@alias df.init_display_flags
 ---| 0 # USE_GRAPHICS
 ---| 1 # SOFTWARE
 ---| 2 # TEXT
@@ -10,7 +10,7 @@
 ---| 4 # INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH
 
 -- init.h
----@class _init_display_flags: DFEnumType
+---@class identity.init_display_flags: DFEnumType
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"
 ---@field SOFTWARE 1
@@ -23,12 +23,12 @@
 ---@field [4] "INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"
 df.init_display_flags = {}
 
----@alias init_display_filter_mode
+---@alias df.init_display_filter_mode
 ---| 0 # AUTO
 ---| 1 # NEAREST
 ---| 2 # LANCZOS
 
----@class _init_display_filter_mode: DFEnumType
+---@class identity.init_display_filter_mode: DFEnumType
 ---@field AUTO 0
 ---@field [0] "AUTO"
 ---@field NEAREST 1
@@ -37,10 +37,10 @@ df.init_display_flags = {}
 ---@field [2] "LANCZOS"
 df.init_display_filter_mode = {}
 
----@class (exact) init_display: DFStruct
----@field _type _init_display
+---@class (exact) df.init_display: DFStruct
+---@field _type identity.init_display
 ---@field flag _init_display_flag
----@field windowed init_display.T_windowed
+---@field windowed df.init_display.T_windowed
 ---@field grid_x number
 ---@field grid_y number
 ---@field desired_fullscreen_width number
@@ -56,38 +56,38 @@ df.init_display_filter_mode = {}
 ---@field interface_scaling_desired_height number
 ---@field interface_scaling_percentage number
 ---@field partial_print_count number
----@field filter_mode init_display_filter_mode
+---@field filter_mode df.init_display_filter_mode
 
----@class _init_display: DFCompoundType
+---@class identity.init_display: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_display = {}
 
----@return init_display
+---@return df.init_display
 function df.init_display:new() end
 
 ---@class _init_display_flag: DFContainer
----@field [integer] table<init_display_flags, boolean>
+---@field [integer] table<df.init_display_flags, boolean>
 local _init_display_flag
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<init_display_flags, boolean>>
+---@return DFPointer<table<df.init_display_flags, boolean>>
 function _init_display_flag:_field(index) end
 
 ---@param index '#'|integer
----@param item table<init_display_flags, boolean>
+---@param item table<df.init_display_flags, boolean>
 function _init_display_flag:insert(index, item) end
 
 ---@param index integer
 function _init_display_flag:erase(index) end
 
----@alias init_display.T_windowed
+---@alias df.init_display.T_windowed
 ---| 0 # True
 ---| 1 # False
 ---| 2 # Prompt
 ---| 3 # Exclusive
 
----@class _init_display.T_windowed: DFEnumType
+---@class identity.init_display.windowed: DFEnumType
 ---@field True 0
 ---@field [0] "True"
 ---@field False 1
@@ -98,12 +98,12 @@ function _init_display_flag:erase(index) end
 ---@field [3] "Exclusive"
 df.init_display.T_windowed = {}
 
----@alias init_media_flags
+---@alias df.init_media_flags
 ---| 0 # SOUND_OFF
 ---| 1 # UNUSED_01_02
 ---| 2 # COMPRESS_SAVES
 
----@class _init_media_flags: DFEnumType
+---@class identity.init_media_flags: DFEnumType
 ---@field SOUND_OFF 0
 ---@field [0] "SOUND_OFF"
 ---@field UNUSED_01_02 1
@@ -112,8 +112,8 @@ df.init_display.T_windowed = {}
 ---@field [2] "COMPRESS_SAVES"
 df.init_media_flags = {}
 
----@class (exact) init_media: DFStruct
----@field _type _init_media
+---@class (exact) df.init_media: DFStruct
+---@field _type identity.init_media
 ---@field flag _init_media_flag
 ---@field volume_master number
 ---@field volume_music number
@@ -121,42 +121,42 @@ df.init_media_flags = {}
 ---@field volume_sfx number
 ---@field time_between_songs number
 
----@class _init_media: DFCompoundType
+---@class identity.init_media: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_media = {}
 
----@return init_media
+---@return df.init_media
 function df.init_media:new() end
 
 ---@class _init_media_flag: DFContainer
----@field [integer] table<init_media_flags, boolean>
+---@field [integer] table<df.init_media_flags, boolean>
 local _init_media_flag
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<init_media_flags, boolean>>
+---@return DFPointer<table<df.init_media_flags, boolean>>
 function _init_media_flag:_field(index) end
 
 ---@param index '#'|integer
----@param item table<init_media_flags, boolean>
+---@param item table<df.init_media_flags, boolean>
 function _init_media_flag:insert(index, item) end
 
 ---@param index integer
 function _init_media_flag:erase(index) end
 
----@alias init_input_flags
+---@alias df.init_input_flags
 ---| 0 # MOUSE_OFF
 ---| 1 # MOUSE_PICTURE
 
----@class _init_input_flags: DFEnumType
+---@class identity.init_input_flags: DFEnumType
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
 ---@field MOUSE_PICTURE 1
 ---@field [1] "MOUSE_PICTURE"
 df.init_input_flags = {}
 
----@class (exact) init_input: DFStruct
----@field _type _init_input
+---@class (exact) df.init_input: DFStruct
+---@field _type identity.init_input
 ---@field hold_time number
 ---@field repeat_time number
 ---@field macro_time number
@@ -166,31 +166,31 @@ df.init_input_flags = {}
 ---@field repeat_accel_start number
 ---@field repeat_accel_limit number
 
----@class _init_input: DFCompoundType
+---@class identity.init_input: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_input = {}
 
----@return init_input
+---@return df.init_input
 function df.init_input:new() end
 
 ---@class _init_input_flag: DFContainer
----@field [integer] table<init_input_flags, boolean>
+---@field [integer] table<df.init_input_flags, boolean>
 local _init_input_flag
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<init_input_flags, boolean>>
+---@return DFPointer<table<df.init_input_flags, boolean>>
 function _init_input_flag:_field(index) end
 
 ---@param index '#'|integer
----@param item table<init_input_flags, boolean>
+---@param item table<df.init_input_flags, boolean>
 function _init_input_flag:insert(index, item) end
 
 ---@param index integer
 function _init_input_flag:erase(index) end
 
----@class (exact) init_font: DFStruct
----@field _type _init_font
+---@class (exact) df.init_font: DFStruct
+---@field _type identity.init_font
 ---@field basic_font_texpos number[]
 ---@field small_font_texpos number[]
 ---@field large_font_texpos number[]
@@ -216,19 +216,19 @@ function _init_input_flag:erase(index) end
 ---@field large_font_dispx number
 ---@field large_font_dispy number
 
----@class _init_font: DFCompoundType
+---@class identity.init_font: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_font = {}
 
----@return init_font
+---@return df.init_font
 function df.init_font:new() end
 
----@alias init_window_flags
+---@alias df.init_window_flags
 ---| 0 # VSYNC_ON
 ---| 1 # VSYNC_OFF
 ---| 2 # TEXTURE_LINEAR
 
----@class _init_window_flags: DFEnumType
+---@class identity.init_window_flags: DFEnumType
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
 ---@field VSYNC_OFF 1
@@ -237,40 +237,40 @@ function df.init_font:new() end
 ---@field [2] "TEXTURE_LINEAR"
 df.init_window_flags = {}
 
----@class (exact) init_window: DFStruct
----@field _type _init_window
+---@class (exact) df.init_window: DFStruct
+---@field _type identity.init_window
 ---@field flag _init_window_flag
 
----@class _init_window: DFCompoundType
+---@class identity.init_window: DFCompoundType
 ---@field _kind 'struct-type'
 df.init_window = {}
 
----@return init_window
+---@return df.init_window
 function df.init_window:new() end
 
 ---@class _init_window_flag: DFContainer
----@field [integer] table<init_window_flags, boolean>
+---@field [integer] table<df.init_window_flags, boolean>
 local _init_window_flag
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<init_window_flags, boolean>>
+---@return DFPointer<table<df.init_window_flags, boolean>>
 function _init_window_flag:_field(index) end
 
 ---@param index '#'|integer
----@param item table<init_window_flags, boolean>
+---@param item table<df.init_window_flags, boolean>
 function _init_window_flag:insert(index, item) end
 
 ---@param index integer
 function _init_window_flag:erase(index) end
 
----@class (exact) init: DFStruct
----@field _type _init
----@field display init_display
----@field media init_media
----@field input init_input
----@field font init_font
----@field window init_window
+---@class (exact) df.init: DFStruct
+---@field _type identity.init
+---@field display df.init_display
+---@field media df.init_media
+---@field input df.init_input
+---@field font df.init_font
+---@field window df.init_window
 ---@field fps_cap number
 ---@field gfps_cap number
 ---@field load_bar_texpos number[]
@@ -402,10 +402,10 @@ function _init_window_flag:erase(index) end
 ---@field classic_texpos_sort_text_active number[]
 ---@field classic_texpos_sort_text_inactive number[]
 
----@class _init: DFCompoundType
+---@class identity.init: DFCompoundType
 ---@field _kind 'struct-type'
 df.init = {}
 
----@return init
+---@return df.init
 function df.init:new() end
 

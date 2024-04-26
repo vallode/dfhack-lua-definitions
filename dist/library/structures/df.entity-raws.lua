@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias entity_raw_flags
+---@alias df.entity_raw_flags
 ---| 0 # CIV_CONTROLLABLE
 ---| 1 # INDIV_CONTROLLABLE
 ---| 2 # LAYER_LINKED
@@ -76,7 +76,7 @@
 ---| 72 # SET_SCHOLARS_ON_VALUES_AND_JOBS
 ---| 73 # NO_ARTIFACT_CLAIMS
 
----@class _entity_raw_flags: DFEnumType
+---@class identity.entity_raw_flags: DFEnumType
 ---@field CIV_CONTROLLABLE 0
 ---@field [0] "CIV_CONTROLLABLE"
 ---@field INDIV_CONTROLLABLE 1
@@ -225,7 +225,7 @@
 ---@field [73] "NO_ARTIFACT_CLAIMS"
 df.entity_raw_flags = {}
 
----@alias site_type
+---@alias df.site_type
 ---| 0 # PLAYER_FORTRESS
 ---| 1 # DARK_FORTRESS
 ---| 2 # CAVE
@@ -235,7 +235,7 @@ df.entity_raw_flags = {}
 ---| 8 # FORTRESS
 ---| 10 # MONUMENT
 
----@class _site_type: DFEnumType
+---@class identity.site_type: DFEnumType
 ---@field PLAYER_FORTRESS 0
 ---@field [0] "PLAYER_FORTRESS"
 ---@field DARK_FORTRESS 1
@@ -254,7 +254,7 @@ df.entity_raw_flags = {}
 ---@field [10] "MONUMENT"
 df.site_type = {}
 
----@alias ethic_type
+---@alias df.ethic_type
 ---| -1 # NONE
 ---| 0 # KILL_ENTITY_MEMBER
 ---| 1 # KILL_NEUTRAL
@@ -279,7 +279,7 @@ df.site_type = {}
 ---| 20 # MAKE_TROPHY_SAPIENT
 ---| 21 # MAKE_TROPHY_ANIMAL
 
----@class _ethic_type: DFEnumType
+---@class identity.ethic_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field KILL_ENTITY_MEMBER 0
@@ -328,7 +328,7 @@ df.site_type = {}
 ---@field [21] "MAKE_TROPHY_ANIMAL"
 df.ethic_type = {}
 
----@alias ethic_response
+---@alias df.ethic_response
 ---| 0 # NOT_APPLICABLE
 ---| 1 # ACCEPTABLE
 ---| 2 # PERSONAL_MATTER
@@ -347,7 +347,7 @@ df.ethic_type = {}
 ---| 15 # UNTHINKABLE
 ---| 16 # REQUIRED
 
----@class _ethic_response: DFEnumType
+---@class identity.ethic_response: DFEnumType
 ---@field NOT_APPLICABLE 0
 ---@field [0] "NOT_APPLICABLE"
 ---@field ACCEPTABLE 1
@@ -384,7 +384,7 @@ df.ethic_type = {}
 ---@field [16] "REQUIRED"
 df.ethic_response = {}
 
----@alias entity_name_type
+---@alias df.entity_name_type
 ---| 0 # OTHER
 ---| 1 # CIV
 ---| 2 # SITE
@@ -405,7 +405,7 @@ df.ethic_response = {}
 ---| 17 # CRAFT_GUILD
 ---| 18 # HOSPITAL
 
----@class _entity_name_type: DFEnumType
+---@class identity.entity_name_type: DFEnumType
 ---@field OTHER 0
 ---@field [0] "OTHER"
 ---@field CIV 1
@@ -446,47 +446,47 @@ df.ethic_response = {}
 ---@field [18] "HOSPITAL"
 df.entity_name_type = {}
 
----@class (exact) entity_raw: DFStruct
----@field _type _entity_raw
+---@class (exact) df.entity_raw: DFStruct
+---@field _type identity.entity_raw
 ---@field code string
 ---@field index number into instace-vector
 ---@field raws DFStringVector
 ---@field creature_ids DFNumberVector
 ---@field creatures DFStringVector
----@field equipment entity_raw.T_equipment
+---@field equipment df.entity_raw.T_equipment
 ---@field currency_value DFNumberVector
 ---@field flags _entity_raw_flags
 ---@field translation string
----@field symbols entity_raw.T_symbols
----@field sphere_alignment DFEnumVector<sphere_type, number>
----@field art_facet_modifier DFEnumVector<art_facet_type, number>
----@field art_image_element_modifier DFEnumVector<art_image_element_type, number>
----@field item_improvement_modifier DFEnumVector<improvement_type, number>
+---@field symbols df.entity_raw.T_symbols
+---@field sphere_alignment DFEnumVector<df.sphere_type, number>
+---@field art_facet_modifier DFEnumVector<df.art_facet_type, number>
+---@field art_image_element_modifier DFEnumVector<df.art_image_element_type, number>
+---@field item_improvement_modifier DFEnumVector<df.improvement_type, number>
 ---@field friendly_color number[]
----@field default_site_type world_site_type
----@field likes_site DFEnumVector<site_type, number>
----@field tolerates_site DFEnumVector<site_type, number>
----@field biome_support DFEnumVector<biome_type, number>
----@field start_biome DFEnumVector<biome_type, number>
----@field settlement_biome DFEnumVector<biome_type, number>
----@field active_season DFEnumVector<season, number>
----@field progress_trigger entity_raw.T_progress_trigger
----@field ethic DFEnumVector<ethic_type, ethic_response>
----@field values DFEnumVector<value_type, number>
----@field variable_value_min DFEnumVector<value_type, number>
----@field variable_value_max DFEnumVector<value_type, number>
----@field scholar entity_raw.T_scholar
+---@field default_site_type df.world_site_type
+---@field likes_site DFEnumVector<df.site_type, number>
+---@field tolerates_site DFEnumVector<df.site_type, number>
+---@field biome_support DFEnumVector<df.biome_type, number>
+---@field start_biome DFEnumVector<df.biome_type, number>
+---@field settlement_biome DFEnumVector<df.biome_type, number>
+---@field active_season DFEnumVector<df.season, number>
+---@field progress_trigger df.entity_raw.T_progress_trigger
+---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
+---@field values DFEnumVector<df.value_type, number>
+---@field variable_value_min DFEnumVector<df.value_type, number>
+---@field variable_value_max DFEnumVector<df.value_type, number>
+---@field scholar df.entity_raw.T_scholar
 ---@field max_site_pop_number number
 ---@field max_pop_number number
 ---@field max_starting_civ_number number
 ---@field religion DFNumberVector
 ---@field religion_sphere _entity_raw_religion_sphere
----@field jobs entity_raw.T_jobs
+---@field jobs df.entity_raw.T_jobs
 ---@field positions _entity_raw_positions
----@field variable_positions DFEnumVector<entity_position_responsibility, number>
----@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
+---@field variable_positions DFEnumVector<df.entity_position_responsibility, number>
+---@field site_variable_positions DFEnumVector<df.entity_position_responsibility, number>
 ---@field tissue_styles _entity_raw_tissue_styles
----@field workshops entity_raw.T_workshops
+---@field workshops df.entity_raw.T_workshops
 ---@field banditry number
 ---@field gem_shapes_str DFStringVector
 ---@field stone_shapes_str DFStringVector
@@ -498,24 +498,24 @@ df.entity_name_type = {}
 ---@field currency_str2 DFStringVector
 ---@field animal _entity_raw_animal
 
----@class _entity_raw: DFCompoundType
+---@class identity.entity_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw = {}
 
----@return entity_raw
+---@return df.entity_raw
 function df.entity_raw:new() end
 
 ---@param key number
----@return entity_raw|nil
+---@return df.entity_raw|nil
 function df.entity_raw.find(key) end
 
----@class entity_raw_vector: DFVector, { [integer]: entity_raw }
+---@class entity_raw_vector: DFVector, { [integer]: df.entity_raw }
 
 ---@return entity_raw_vector # df.global.world.raws.entities
 function df.entity_raw.get_vector() end
 
----@class (exact) entity_raw.T_equipment: DFStruct
----@field _type _entity_raw.T_equipment
+---@class (exact) df.entity_raw.T_equipment: DFStruct
+---@field _type identity.entity_raw.equipment
 ---@field digger_id DFNumberVector
 ---@field weapon_id DFNumberVector
 ---@field armor_id DFNumberVector
@@ -550,46 +550,46 @@ function df.entity_raw.get_vector() end
 ---@field siegeammo_str DFStringVector
 ---@field tool_str DFStringVector
 
----@class _entity_raw.T_equipment: DFCompoundType
+---@class identity.entity_raw.equipment: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_equipment = {}
 
----@return entity_raw.T_equipment
+---@return df.entity_raw.T_equipment
 function df.entity_raw.T_equipment:new() end
 
 ---@class _entity_raw_flags: DFContainer
----@field [integer] table<entity_raw_flags, boolean>
+---@field [integer] table<df.entity_raw_flags, boolean>
 local _entity_raw_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<entity_raw_flags, boolean>>
+---@return DFPointer<table<df.entity_raw_flags, boolean>>
 function _entity_raw_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<entity_raw_flags, boolean>
+---@param item table<df.entity_raw_flags, boolean>
 function _entity_raw_flags:insert(index, item) end
 
 ---@param index integer
 function _entity_raw_flags:erase(index) end
 
----@class (exact) entity_raw.T_symbols: DFStruct
----@field _type _entity_raw.T_symbols
----@field symbols1 DFEnumVector<entity_name_type, language_word_table>
----@field symbols2 DFEnumVector<entity_name_type, language_word_table>
----@field select_symbol DFEnumVector<entity_name_type, string>
----@field subselect_symbol DFEnumVector<entity_name_type, string>
----@field cull_symbol DFEnumVector<entity_name_type, string>
+---@class (exact) df.entity_raw.T_symbols: DFStruct
+---@field _type identity.entity_raw.symbols
+---@field symbols1 DFEnumVector<df.entity_name_type, df.language_word_table>
+---@field symbols2 DFEnumVector<df.entity_name_type, df.language_word_table>
+---@field select_symbol DFEnumVector<df.entity_name_type, string>
+---@field subselect_symbol DFEnumVector<df.entity_name_type, string>
+---@field cull_symbol DFEnumVector<df.entity_name_type, string>
 
----@class _entity_raw.T_symbols: DFCompoundType
+---@class identity.entity_raw.symbols: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_symbols = {}
 
----@return entity_raw.T_symbols
+---@return df.entity_raw.T_symbols
 function df.entity_raw.T_symbols:new() end
 
----@class (exact) entity_raw.T_progress_trigger: DFStruct
----@field _type _entity_raw.T_progress_trigger
+---@class (exact) df.entity_raw.T_progress_trigger: DFStruct
+---@field _type identity.entity_raw.progress_trigger
 ---@field population number
 ---@field production number
 ---@field trade number
@@ -597,15 +597,15 @@ function df.entity_raw.T_symbols:new() end
 ---@field prod_siege number
 ---@field trade_siege number
 
----@class _entity_raw.T_progress_trigger: DFCompoundType
+---@class identity.entity_raw.progress_trigger: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_progress_trigger = {}
 
----@return entity_raw.T_progress_trigger
+---@return df.entity_raw.T_progress_trigger
 function df.entity_raw.T_progress_trigger:new() end
 
----@class entity_raw.T_scholar: DFBitfield
----@field _enum _entity_raw.T_scholar
+---@class df.entity_raw.T_scholar: DFBitfield
+---@field _enum identity.entity_raw.scholar
 ---@field PHILOSOPHER boolean
 ---@field [0] boolean
 ---@field MATHEMATICIAN boolean
@@ -625,7 +625,7 @@ function df.entity_raw.T_progress_trigger:new() end
 ---@field ENGINEER boolean
 ---@field [8] boolean
 
----@class _entity_raw.T_scholar: DFBitfieldType
+---@class identity.entity_raw.scholar: DFBitfieldType
 ---@field PHILOSOPHER 0
 ---@field [0] "PHILOSOPHER"
 ---@field MATHEMATICIAN 1
@@ -647,45 +647,45 @@ function df.entity_raw.T_progress_trigger:new() end
 df.entity_raw.T_scholar = {}
 
 ---@class _entity_raw_religion_sphere: DFContainer
----@field [integer] sphere_type
+---@field [integer] df.sphere_type
 local _entity_raw_religion_sphere
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<sphere_type>
+---@return DFPointer<df.sphere_type>
 function _entity_raw_religion_sphere:_field(index) end
 
 ---@param index '#'|integer
----@param item sphere_type
+---@param item df.sphere_type
 function _entity_raw_religion_sphere:insert(index, item) end
 
 ---@param index integer
 function _entity_raw_religion_sphere:erase(index) end
 
----@class (exact) entity_raw.T_jobs: DFStruct
----@field _type _entity_raw.T_jobs
----@field permitted_job DFEnumVector<profession, boolean>
----@field permitted_labor DFEnumVector<unit_labor, boolean>
----@field world_construction DFEnumVector<world_construction_type, boolean>
+---@class (exact) df.entity_raw.T_jobs: DFStruct
+---@field _type identity.entity_raw.jobs
+---@field permitted_job DFEnumVector<df.profession, boolean>
+---@field permitted_labor DFEnumVector<df.unit_labor, boolean>
+---@field world_construction DFEnumVector<df.world_construction_type, boolean>
 
----@class _entity_raw.T_jobs: DFCompoundType
+---@class identity.entity_raw.jobs: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_jobs = {}
 
----@return entity_raw.T_jobs
+---@return df.entity_raw.T_jobs
 function df.entity_raw.T_jobs:new() end
 
 ---@class _entity_raw_positions: DFContainer
----@field [integer] entity_position_raw
+---@field [integer] df.entity_position_raw
 local _entity_raw_positions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_raw>
+---@return DFPointer<df.entity_position_raw>
 function _entity_raw_positions:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_raw
+---@param item df.entity_position_raw
 function _entity_raw_positions:insert(index, item) end
 
 ---@param index integer
@@ -707,53 +707,53 @@ function _entity_raw_tissue_styles:insert(index, item) end
 ---@param index integer
 function _entity_raw_tissue_styles:erase(index) end
 
----@class (exact) entity_raw.T_workshops: DFStruct
----@field _type _entity_raw.T_workshops
+---@class (exact) df.entity_raw.T_workshops: DFStruct
+---@field _type identity.entity_raw.workshops
 ---@field permitted_building_str DFStringVector
 ---@field permitted_building_id DFNumberVector
 ---@field permitted_reaction_str DFStringVector
 ---@field permitted_reaction_id DFNumberVector
 
----@class _entity_raw.T_workshops: DFCompoundType
+---@class identity.entity_raw.workshops: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_raw.T_workshops = {}
 
----@return entity_raw.T_workshops
+---@return df.entity_raw.T_workshops
 function df.entity_raw.T_workshops:new() end
 
 ---@class _entity_raw_animal: DFContainer
----@field [integer] entity_animal_raw
+---@field [integer] df.entity_animal_raw
 local _entity_raw_animal
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_animal_raw>
+---@return DFPointer<df.entity_animal_raw>
 function _entity_raw_animal:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_animal_raw
+---@param item df.entity_animal_raw
 function _entity_raw_animal:insert(index, item) end
 
 ---@param index integer
 function _entity_raw_animal:erase(index) end
 
----@class (exact) entity_animal_raw: DFStruct
----@field _type _entity_animal_raw
+---@class (exact) df.entity_animal_raw: DFStruct
+---@field _type identity.entity_animal_raw
 ---@field token string
 ---@field caste_token DFStringVector
 ---@field animal_class DFStringVector
 ---@field forbidden_class DFStringVector
----@field flags entity_animal_raw.T_flags
+---@field flags df.entity_animal_raw.T_flags
 
----@class _entity_animal_raw: DFCompoundType
+---@class identity.entity_animal_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_animal_raw = {}
 
----@return entity_animal_raw
+---@return df.entity_animal_raw
 function df.entity_animal_raw:new() end
 
----@class entity_animal_raw.T_flags: DFBitfield
----@field _enum _entity_animal_raw.T_flags
+---@class df.entity_animal_raw.T_flags: DFBitfield
+---@field _enum identity.entity_animal_raw.flags
 ---@field ALWAYS_PRESENT boolean
 ---@field [0] boolean
 ---@field NEVER_MOUNT boolean
@@ -777,7 +777,7 @@ function df.entity_animal_raw:new() end
 ---@field ALWAYS_PACK_ANIMAL boolean
 ---@field [10] boolean
 
----@class _entity_animal_raw.T_flags: DFBitfieldType
+---@class identity.entity_animal_raw.flags: DFBitfieldType
 ---@field ALWAYS_PRESENT 0
 ---@field [0] "ALWAYS_PRESENT"
 ---@field NEVER_MOUNT 1
@@ -802,7 +802,7 @@ function df.entity_animal_raw:new() end
 ---@field [10] "ALWAYS_PACK_ANIMAL"
 df.entity_animal_raw.T_flags = {}
 
----@alias entity_position_raw_flags
+---@alias df.entity_position_raw_flags
 ---| 0 # SITE
 ---| 1 # ELECTED
 ---| 2 # CONQUERED_SITE
@@ -829,7 +829,7 @@ df.entity_animal_raw.T_flags = {}
 ---| 23 # SPECIAL_BURIAL
 ---| 24 # REQUIRES_MARKET
 
----@class _entity_position_raw_flags: DFEnumType
+---@class identity.entity_position_raw_flags: DFEnumType
 ---@field SITE 0
 ---@field [0] "SITE"
 ---@field ELECTED 1
@@ -882,7 +882,7 @@ df.entity_animal_raw.T_flags = {}
 ---@field [24] "REQUIRES_MARKET"
 df.entity_position_raw_flags = {}
 
----@alias entity_position_responsibility
+---@alias df.entity_position_responsibility
 ---| -1 # NONE
 ---| 0 # LAW_MAKING
 ---| 1 # LAW_ENFORCEMENT
@@ -928,7 +928,7 @@ df.entity_position_raw_flags = {}
 ---| 41 # MAINTAIN_TUNNELS
 ---| 42 # DELIVER_MESSAGES
 
----@class _entity_position_responsibility: DFEnumType
+---@class identity.entity_position_responsibility: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LAW_MAKING 0
@@ -1019,8 +1019,8 @@ df.entity_position_raw_flags = {}
 ---@field [42] "DELIVER_MESSAGES"
 df.entity_position_responsibility = {}
 
----@class (exact) entity_position_raw: DFStruct
----@field _type _entity_position_raw
+---@class (exact) df.entity_position_raw: DFStruct
+---@field _type identity.entity_position_raw
 ---@field code string
 ---@field id number
 ---@field flags _entity_position_raw_flags
@@ -1045,7 +1045,7 @@ df.entity_position_responsibility = {}
 ---@field land_holder number
 ---@field number number
 ---@field requires_population number
----@field execution_skill job_skill
+---@field execution_skill df.job_skill
 ---@field precedence number
 ---@field replaced_by_str string
 ---@field replaced_by number
@@ -1053,7 +1053,7 @@ df.entity_position_responsibility = {}
 ---@field appointed_by DFNumberVector
 ---@field succession_by_position_str DFStringVector
 ---@field succession_by_position DFNumberVector
----@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
+---@field responsibilities DFEnumVector<df.entity_position_responsibility, boolean>
 ---@field color number[]
 ---@field required_boxes number
 ---@field required_cabinets number
@@ -1066,24 +1066,24 @@ df.entity_position_responsibility = {}
 ---@field mandate_max number
 ---@field demand_max number
 
----@class _entity_position_raw: DFCompoundType
+---@class identity.entity_position_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position_raw = {}
 
----@return entity_position_raw
+---@return df.entity_position_raw
 function df.entity_position_raw:new() end
 
 ---@class _entity_position_raw_flags: DFContainer
----@field [integer] table<entity_position_raw_flags, boolean>
+---@field [integer] table<df.entity_position_raw_flags, boolean>
 local _entity_position_raw_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<entity_position_raw_flags, boolean>>
+---@return DFPointer<table<df.entity_position_raw_flags, boolean>>
 function _entity_position_raw_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<entity_position_raw_flags, boolean>
+---@param item table<df.entity_position_raw_flags, boolean>
 function _entity_position_raw_flags:insert(index, item) end
 
 ---@param index integer

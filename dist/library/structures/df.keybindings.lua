@@ -2,7 +2,7 @@
 ---@meta
 
 -- WARNING: THIS FILE IS AUTO-GENERATED - DO NOT EDIT
----@alias interface_key
+---@alias df.interface_key
 ---| 0 # NONE
 ---| 1 # SELECT
 ---| 2 # SELECT_ALL
@@ -652,7 +652,7 @@
 ---| 654 # KEYBINDING_COMPLETE
 
 -- WARNING: THIS FILE IS AUTO-GENERATED - DO NOT EDIT
----@class _interface_key: DFEnumType
+---@class identity.interface_key: DFEnumType
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field SELECT 1

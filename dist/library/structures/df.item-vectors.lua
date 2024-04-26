@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias items_other_id
+---@alias df.items_other_id
 ---| -1 # ANY
 ---| 0 # IN_PLAY
 ---| 1 # ANY_ARTIFACT
@@ -137,7 +137,7 @@
 ---| 131 # ANY_RECENTLY_DROPPED
 ---| 132 # ANY_MELT_DESIGNATED
 
----@class _items_other_id: DFEnumType
+---@class identity.items_other_id: DFEnumType
 ---@field ANY -1
 ---@field [-1] "ANY"
 ---@field IN_PLAY 0 0
@@ -554,7 +554,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANY_MELT_DESIGNATED { item: "NONE" }
 df.items_other_id.attrs = {}
 
----@alias job_item_vector_id
+---@alias df.job_item_vector_id
 ---| 0 # ANY
 ---| 1 # IN_PLAY
 ---| 2 # ANY_ARTIFACT
@@ -687,7 +687,7 @@ df.items_other_id.attrs = {}
 ---| 132 # SHEET
 ---| 133 # BRANCH
 
----@class _job_item_vector_id: DFEnumType
+---@class identity.job_item_vector_id: DFEnumType
 ---@field ANY 0
 ---@field [0] "ANY"
 ---@field IN_PLAY 1 1
@@ -1094,8 +1094,8 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field BRANCH { other: "BRANCH" }
 df.job_item_vector_id.attrs = {}
 
----@class (exact) items_other: DFStruct
----@field _type _items_other
+---@class (exact) df.items_other: DFStruct
+---@field _type identity.items_other
 ---@field IN_PLAY _items_other_IN_PLAY
 ---@field ANY_ARTIFACT _items_other_ANY_ARTIFACT
 ---@field WEAPON _items_other_WEAPON
@@ -1230,2136 +1230,2136 @@ df.job_item_vector_id.attrs = {}
 ---@field ANY_RECENTLY_DROPPED _items_other_ANY_RECENTLY_DROPPED
 ---@field ANY_MELT_DESIGNATED _items_other_ANY_MELT_DESIGNATED
 
----@class _items_other: DFCompoundType
+---@class identity.items_other: DFCompoundType
 ---@field _kind 'struct-type'
 df.items_other = {}
 
----@return items_other
+---@return df.items_other
 function df.items_other:new() end
 
 ---@class _items_other_IN_PLAY: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_IN_PLAY
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_IN_PLAY:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_IN_PLAY:insert(index, item) end
 
 ---@param index integer
 function _items_other_IN_PLAY:erase(index) end
 
 ---@class _items_other_ANY_ARTIFACT: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_ARTIFACT
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_ARTIFACT:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_ARTIFACT:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_ARTIFACT:erase(index) end
 
 ---@class _items_other_WEAPON: DFContainer
----@field [integer] item_weaponst
+---@field [integer] df.item_weaponst
 local _items_other_WEAPON
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_weaponst>
+---@return DFPointer<df.item_weaponst>
 function _items_other_WEAPON:_field(index) end
 
 ---@param index '#'|integer
----@param item item_weaponst
+---@param item df.item_weaponst
 function _items_other_WEAPON:insert(index, item) end
 
 ---@param index integer
 function _items_other_WEAPON:erase(index) end
 
 ---@class _items_other_ANY_WEAPON: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_WEAPON
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_WEAPON:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_WEAPON:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_WEAPON:erase(index) end
 
 ---@class _items_other_ANY_SPIKE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_SPIKE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_SPIKE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_SPIKE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_SPIKE:erase(index) end
 
 ---@class _items_other_ANY_TRUE_ARMOR: DFContainer
----@field [integer] item_armorst
+---@field [integer] df.item_armorst
 local _items_other_ANY_TRUE_ARMOR
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_armorst>
+---@return DFPointer<df.item_armorst>
 function _items_other_ANY_TRUE_ARMOR:_field(index) end
 
 ---@param index '#'|integer
----@param item item_armorst
+---@param item df.item_armorst
 function _items_other_ANY_TRUE_ARMOR:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_TRUE_ARMOR:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_HELM: DFContainer
----@field [integer] item_helmst
+---@field [integer] df.item_helmst
 local _items_other_ANY_ARMOR_HELM
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_helmst>
+---@return DFPointer<df.item_helmst>
 function _items_other_ANY_ARMOR_HELM:_field(index) end
 
 ---@param index '#'|integer
----@param item item_helmst
+---@param item df.item_helmst
 function _items_other_ANY_ARMOR_HELM:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_ARMOR_HELM:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_SHOES: DFContainer
----@field [integer] item_shoesst
+---@field [integer] df.item_shoesst
 local _items_other_ANY_ARMOR_SHOES
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_shoesst>
+---@return DFPointer<df.item_shoesst>
 function _items_other_ANY_ARMOR_SHOES:_field(index) end
 
 ---@param index '#'|integer
----@param item item_shoesst
+---@param item df.item_shoesst
 function _items_other_ANY_ARMOR_SHOES:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_ARMOR_SHOES:erase(index) end
 
 ---@class _items_other_SHIELD: DFContainer
----@field [integer] item_shieldst
+---@field [integer] df.item_shieldst
 local _items_other_SHIELD
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_shieldst>
+---@return DFPointer<df.item_shieldst>
 function _items_other_SHIELD:_field(index) end
 
 ---@param index '#'|integer
----@param item item_shieldst
+---@param item df.item_shieldst
 function _items_other_SHIELD:insert(index, item) end
 
 ---@param index integer
 function _items_other_SHIELD:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_GLOVES: DFContainer
----@field [integer] item_glovesst
+---@field [integer] df.item_glovesst
 local _items_other_ANY_ARMOR_GLOVES
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_glovesst>
+---@return DFPointer<df.item_glovesst>
 function _items_other_ANY_ARMOR_GLOVES:_field(index) end
 
 ---@param index '#'|integer
----@param item item_glovesst
+---@param item df.item_glovesst
 function _items_other_ANY_ARMOR_GLOVES:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_ARMOR_GLOVES:erase(index) end
 
 ---@class _items_other_ANY_ARMOR_PANTS: DFContainer
----@field [integer] item_pantsst
+---@field [integer] df.item_pantsst
 local _items_other_ANY_ARMOR_PANTS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_pantsst>
+---@return DFPointer<df.item_pantsst>
 function _items_other_ANY_ARMOR_PANTS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_pantsst
+---@param item df.item_pantsst
 function _items_other_ANY_ARMOR_PANTS:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_ARMOR_PANTS:erase(index) end
 
 ---@class _items_other_QUIVER: DFContainer
----@field [integer] item_quiverst
+---@field [integer] df.item_quiverst
 local _items_other_QUIVER
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_quiverst>
+---@return DFPointer<df.item_quiverst>
 function _items_other_QUIVER:_field(index) end
 
 ---@param index '#'|integer
----@param item item_quiverst
+---@param item df.item_quiverst
 function _items_other_QUIVER:insert(index, item) end
 
 ---@param index integer
 function _items_other_QUIVER:erase(index) end
 
 ---@class _items_other_SPLINT: DFContainer
----@field [integer] item_splintst
+---@field [integer] df.item_splintst
 local _items_other_SPLINT
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_splintst>
+---@return DFPointer<df.item_splintst>
 function _items_other_SPLINT:_field(index) end
 
 ---@param index '#'|integer
----@param item item_splintst
+---@param item df.item_splintst
 function _items_other_SPLINT:insert(index, item) end
 
 ---@param index integer
 function _items_other_SPLINT:erase(index) end
 
 ---@class _items_other_ORTHOPEDIC_CAST: DFContainer
----@field [integer] item_orthopedic_castst
+---@field [integer] df.item_orthopedic_castst
 local _items_other_ORTHOPEDIC_CAST
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_orthopedic_castst>
+---@return DFPointer<df.item_orthopedic_castst>
 function _items_other_ORTHOPEDIC_CAST:_field(index) end
 
 ---@param index '#'|integer
----@param item item_orthopedic_castst
+---@param item df.item_orthopedic_castst
 function _items_other_ORTHOPEDIC_CAST:insert(index, item) end
 
 ---@param index integer
 function _items_other_ORTHOPEDIC_CAST:erase(index) end
 
 ---@class _items_other_CRUTCH: DFContainer
----@field [integer] item_crutchst
+---@field [integer] df.item_crutchst
 local _items_other_CRUTCH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_crutchst>
+---@return DFPointer<df.item_crutchst>
 function _items_other_CRUTCH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_crutchst
+---@param item df.item_crutchst
 function _items_other_CRUTCH:insert(index, item) end
 
 ---@param index integer
 function _items_other_CRUTCH:erase(index) end
 
 ---@class _items_other_BACKPACK: DFContainer
----@field [integer] item_backpackst
+---@field [integer] df.item_backpackst
 local _items_other_BACKPACK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_backpackst>
+---@return DFPointer<df.item_backpackst>
 function _items_other_BACKPACK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_backpackst
+---@param item df.item_backpackst
 function _items_other_BACKPACK:insert(index, item) end
 
 ---@param index integer
 function _items_other_BACKPACK:erase(index) end
 
 ---@class _items_other_AMMO: DFContainer
----@field [integer] item_ammost
+---@field [integer] df.item_ammost
 local _items_other_AMMO
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_ammost>
+---@return DFPointer<df.item_ammost>
 function _items_other_AMMO:_field(index) end
 
 ---@param index '#'|integer
----@param item item_ammost
+---@param item df.item_ammost
 function _items_other_AMMO:insert(index, item) end
 
 ---@param index integer
 function _items_other_AMMO:erase(index) end
 
 ---@class _items_other_WOOD: DFContainer
----@field [integer] item_woodst
+---@field [integer] df.item_woodst
 local _items_other_WOOD
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_woodst>
+---@return DFPointer<df.item_woodst>
 function _items_other_WOOD:_field(index) end
 
 ---@param index '#'|integer
----@param item item_woodst
+---@param item df.item_woodst
 function _items_other_WOOD:insert(index, item) end
 
 ---@param index integer
 function _items_other_WOOD:erase(index) end
 
 ---@class _items_other_BRANCH: DFContainer
----@field [integer] item_branchst
+---@field [integer] df.item_branchst
 local _items_other_BRANCH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_branchst>
+---@return DFPointer<df.item_branchst>
 function _items_other_BRANCH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_branchst
+---@param item df.item_branchst
 function _items_other_BRANCH:insert(index, item) end
 
 ---@param index integer
 function _items_other_BRANCH:erase(index) end
 
 ---@class _items_other_BOULDER: DFContainer
----@field [integer] item_boulderst
+---@field [integer] df.item_boulderst
 local _items_other_BOULDER
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_boulderst>
+---@return DFPointer<df.item_boulderst>
 function _items_other_BOULDER:_field(index) end
 
 ---@param index '#'|integer
----@param item item_boulderst
+---@param item df.item_boulderst
 function _items_other_BOULDER:insert(index, item) end
 
 ---@param index integer
 function _items_other_BOULDER:erase(index) end
 
 ---@class _items_other_ROCK: DFContainer
----@field [integer] item_rockst
+---@field [integer] df.item_rockst
 local _items_other_ROCK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_rockst>
+---@return DFPointer<df.item_rockst>
 function _items_other_ROCK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_rockst
+---@param item df.item_rockst
 function _items_other_ROCK:insert(index, item) end
 
 ---@param index integer
 function _items_other_ROCK:erase(index) end
 
 ---@class _items_other_ANY_REFUSE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_REFUSE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_REFUSE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_REFUSE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_REFUSE:erase(index) end
 
 ---@class _items_other_ANY_GOOD_FOOD: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GOOD_FOOD
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GOOD_FOOD:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GOOD_FOOD:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GOOD_FOOD:erase(index) end
 
 ---@class _items_other_ANY_AUTO_CLEAN: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_AUTO_CLEAN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_AUTO_CLEAN:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_AUTO_CLEAN:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_AUTO_CLEAN:erase(index) end
 
 ---@class _items_other_ANY_GENERIC24: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC24
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC24:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC24:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC24:erase(index) end
 
 ---@class _items_other_ANY_BUTCHERABLE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_BUTCHERABLE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_BUTCHERABLE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_BUTCHERABLE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_BUTCHERABLE:erase(index) end
 
 ---@class _items_other_ANY_FURNITURE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_FURNITURE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_FURNITURE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_FURNITURE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_FURNITURE:erase(index) end
 
 ---@class _items_other_ANY_CAGE_OR_TRAP: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_CAGE_OR_TRAP
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_CAGE_OR_TRAP:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_CAGE_OR_TRAP:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_CAGE_OR_TRAP:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_RAW: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_EDIBLE_RAW
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_EDIBLE_RAW:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_EDIBLE_RAW:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_EDIBLE_RAW:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_CARNIVORE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_EDIBLE_CARNIVORE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_EDIBLE_CARNIVORE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_EDIBLE_CARNIVORE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_EDIBLE_CARNIVORE:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_BONECARN: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_EDIBLE_BONECARN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_EDIBLE_BONECARN:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_EDIBLE_BONECARN:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_EDIBLE_BONECARN:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_VERMIN: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_EDIBLE_VERMIN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_EDIBLE_VERMIN:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_EDIBLE_VERMIN:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_EDIBLE_VERMIN:erase(index) end
 
 ---@class _items_other_ANY_EDIBLE_VERMIN_BOX: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_EDIBLE_VERMIN_BOX
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_EDIBLE_VERMIN_BOX:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_EDIBLE_VERMIN_BOX:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_EDIBLE_VERMIN_BOX:erase(index) end
 
 ---@class _items_other_ANY_CAN_ROT: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_CAN_ROT
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_CAN_ROT:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_CAN_ROT:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_CAN_ROT:erase(index) end
 
 ---@class _items_other_ANY_MURDERED: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_MURDERED
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_MURDERED:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_MURDERED:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_MURDERED:erase(index) end
 
 ---@class _items_other_ANY_DEAD_DWARF: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_DEAD_DWARF
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_DEAD_DWARF:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_DEAD_DWARF:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_DEAD_DWARF:erase(index) end
 
 ---@class _items_other_ANY_GENERIC36: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC36
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC36:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC36:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC36:erase(index) end
 
 ---@class _items_other_ANY_GENERIC37: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC37
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC37:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC37:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC37:erase(index) end
 
 ---@class _items_other_ANY_GENERIC38: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC38
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC38:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC38:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC38:erase(index) end
 
 ---@class _items_other_ANY_GENERIC39: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC39
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC39:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC39:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC39:erase(index) end
 
 ---@class _items_other_DOOR: DFContainer
----@field [integer] item_doorst
+---@field [integer] df.item_doorst
 local _items_other_DOOR
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_doorst>
+---@return DFPointer<df.item_doorst>
 function _items_other_DOOR:_field(index) end
 
 ---@param index '#'|integer
----@param item item_doorst
+---@param item df.item_doorst
 function _items_other_DOOR:insert(index, item) end
 
 ---@param index integer
 function _items_other_DOOR:erase(index) end
 
 ---@class _items_other_FLOODGATE: DFContainer
----@field [integer] item_floodgatest
+---@field [integer] df.item_floodgatest
 local _items_other_FLOODGATE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_floodgatest>
+---@return DFPointer<df.item_floodgatest>
 function _items_other_FLOODGATE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_floodgatest
+---@param item df.item_floodgatest
 function _items_other_FLOODGATE:insert(index, item) end
 
 ---@param index integer
 function _items_other_FLOODGATE:erase(index) end
 
 ---@class _items_other_HATCH_COVER: DFContainer
----@field [integer] item_hatch_coverst
+---@field [integer] df.item_hatch_coverst
 local _items_other_HATCH_COVER
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_hatch_coverst>
+---@return DFPointer<df.item_hatch_coverst>
 function _items_other_HATCH_COVER:_field(index) end
 
 ---@param index '#'|integer
----@param item item_hatch_coverst
+---@param item df.item_hatch_coverst
 function _items_other_HATCH_COVER:insert(index, item) end
 
 ---@param index integer
 function _items_other_HATCH_COVER:erase(index) end
 
 ---@class _items_other_GRATE: DFContainer
----@field [integer] item_gratest
+---@field [integer] df.item_gratest
 local _items_other_GRATE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_gratest>
+---@return DFPointer<df.item_gratest>
 function _items_other_GRATE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_gratest
+---@param item df.item_gratest
 function _items_other_GRATE:insert(index, item) end
 
 ---@param index integer
 function _items_other_GRATE:erase(index) end
 
 ---@class _items_other_CAGE: DFContainer
----@field [integer] item_cagest
+---@field [integer] df.item_cagest
 local _items_other_CAGE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_cagest>
+---@return DFPointer<df.item_cagest>
 function _items_other_CAGE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_cagest
+---@param item df.item_cagest
 function _items_other_CAGE:insert(index, item) end
 
 ---@param index integer
 function _items_other_CAGE:erase(index) end
 
 ---@class _items_other_FLASK: DFContainer
----@field [integer] item_flaskst
+---@field [integer] df.item_flaskst
 local _items_other_FLASK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_flaskst>
+---@return DFPointer<df.item_flaskst>
 function _items_other_FLASK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_flaskst
+---@param item df.item_flaskst
 function _items_other_FLASK:insert(index, item) end
 
 ---@param index integer
 function _items_other_FLASK:erase(index) end
 
 ---@class _items_other_WINDOW: DFContainer
----@field [integer] item_windowst
+---@field [integer] df.item_windowst
 local _items_other_WINDOW
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_windowst>
+---@return DFPointer<df.item_windowst>
 function _items_other_WINDOW:_field(index) end
 
 ---@param index '#'|integer
----@param item item_windowst
+---@param item df.item_windowst
 function _items_other_WINDOW:insert(index, item) end
 
 ---@param index integer
 function _items_other_WINDOW:erase(index) end
 
 ---@class _items_other_GOBLET: DFContainer
----@field [integer] item_gobletst
+---@field [integer] df.item_gobletst
 local _items_other_GOBLET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_gobletst>
+---@return DFPointer<df.item_gobletst>
 function _items_other_GOBLET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_gobletst
+---@param item df.item_gobletst
 function _items_other_GOBLET:insert(index, item) end
 
 ---@param index integer
 function _items_other_GOBLET:erase(index) end
 
 ---@class _items_other_INSTRUMENT: DFContainer
----@field [integer] item_instrumentst
+---@field [integer] df.item_instrumentst
 local _items_other_INSTRUMENT
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_instrumentst>
+---@return DFPointer<df.item_instrumentst>
 function _items_other_INSTRUMENT:_field(index) end
 
 ---@param index '#'|integer
----@param item item_instrumentst
+---@param item df.item_instrumentst
 function _items_other_INSTRUMENT:insert(index, item) end
 
 ---@param index integer
 function _items_other_INSTRUMENT:erase(index) end
 
 ---@class _items_other_INSTRUMENT_STATIONARY: DFContainer
----@field [integer] item_instrumentst
+---@field [integer] df.item_instrumentst
 local _items_other_INSTRUMENT_STATIONARY
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_instrumentst>
+---@return DFPointer<df.item_instrumentst>
 function _items_other_INSTRUMENT_STATIONARY:_field(index) end
 
 ---@param index '#'|integer
----@param item item_instrumentst
+---@param item df.item_instrumentst
 function _items_other_INSTRUMENT_STATIONARY:insert(index, item) end
 
 ---@param index integer
 function _items_other_INSTRUMENT_STATIONARY:erase(index) end
 
 ---@class _items_other_TOY: DFContainer
----@field [integer] item_toyst
+---@field [integer] df.item_toyst
 local _items_other_TOY
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_toyst>
+---@return DFPointer<df.item_toyst>
 function _items_other_TOY:_field(index) end
 
 ---@param index '#'|integer
----@param item item_toyst
+---@param item df.item_toyst
 function _items_other_TOY:insert(index, item) end
 
 ---@param index integer
 function _items_other_TOY:erase(index) end
 
 ---@class _items_other_TOOL: DFContainer
----@field [integer] item_toolst
+---@field [integer] df.item_toolst
 local _items_other_TOOL
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_toolst>
+---@return DFPointer<df.item_toolst>
 function _items_other_TOOL:_field(index) end
 
 ---@param index '#'|integer
----@param item item_toolst
+---@param item df.item_toolst
 function _items_other_TOOL:insert(index, item) end
 
 ---@param index integer
 function _items_other_TOOL:erase(index) end
 
 ---@class _items_other_BUCKET: DFContainer
----@field [integer] item_bucketst
+---@field [integer] df.item_bucketst
 local _items_other_BUCKET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_bucketst>
+---@return DFPointer<df.item_bucketst>
 function _items_other_BUCKET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_bucketst
+---@param item df.item_bucketst
 function _items_other_BUCKET:insert(index, item) end
 
 ---@param index integer
 function _items_other_BUCKET:erase(index) end
 
 ---@class _items_other_BARREL: DFContainer
----@field [integer] item_barrelst
+---@field [integer] df.item_barrelst
 local _items_other_BARREL
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_barrelst>
+---@return DFPointer<df.item_barrelst>
 function _items_other_BARREL:_field(index) end
 
 ---@param index '#'|integer
----@param item item_barrelst
+---@param item df.item_barrelst
 function _items_other_BARREL:insert(index, item) end
 
 ---@param index integer
 function _items_other_BARREL:erase(index) end
 
 ---@class _items_other_CHAIN: DFContainer
----@field [integer] item_chainst
+---@field [integer] df.item_chainst
 local _items_other_CHAIN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_chainst>
+---@return DFPointer<df.item_chainst>
 function _items_other_CHAIN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_chainst
+---@param item df.item_chainst
 function _items_other_CHAIN:insert(index, item) end
 
 ---@param index integer
 function _items_other_CHAIN:erase(index) end
 
 ---@class _items_other_ANIMALTRAP: DFContainer
----@field [integer] item_animaltrapst
+---@field [integer] df.item_animaltrapst
 local _items_other_ANIMALTRAP
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_animaltrapst>
+---@return DFPointer<df.item_animaltrapst>
 function _items_other_ANIMALTRAP:_field(index) end
 
 ---@param index '#'|integer
----@param item item_animaltrapst
+---@param item df.item_animaltrapst
 function _items_other_ANIMALTRAP:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANIMALTRAP:erase(index) end
 
 ---@class _items_other_BED: DFContainer
----@field [integer] item_bedst
+---@field [integer] df.item_bedst
 local _items_other_BED
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_bedst>
+---@return DFPointer<df.item_bedst>
 function _items_other_BED:_field(index) end
 
 ---@param index '#'|integer
----@param item item_bedst
+---@param item df.item_bedst
 function _items_other_BED:insert(index, item) end
 
 ---@param index integer
 function _items_other_BED:erase(index) end
 
 ---@class _items_other_TRACTION_BENCH: DFContainer
----@field [integer] item_traction_benchst
+---@field [integer] df.item_traction_benchst
 local _items_other_TRACTION_BENCH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_traction_benchst>
+---@return DFPointer<df.item_traction_benchst>
 function _items_other_TRACTION_BENCH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_traction_benchst
+---@param item df.item_traction_benchst
 function _items_other_TRACTION_BENCH:insert(index, item) end
 
 ---@param index integer
 function _items_other_TRACTION_BENCH:erase(index) end
 
 ---@class _items_other_CHAIR: DFContainer
----@field [integer] item_chairst
+---@field [integer] df.item_chairst
 local _items_other_CHAIR
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_chairst>
+---@return DFPointer<df.item_chairst>
 function _items_other_CHAIR:_field(index) end
 
 ---@param index '#'|integer
----@param item item_chairst
+---@param item df.item_chairst
 function _items_other_CHAIR:insert(index, item) end
 
 ---@param index integer
 function _items_other_CHAIR:erase(index) end
 
 ---@class _items_other_COFFIN: DFContainer
----@field [integer] item_coffinst
+---@field [integer] df.item_coffinst
 local _items_other_COFFIN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_coffinst>
+---@return DFPointer<df.item_coffinst>
 function _items_other_COFFIN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_coffinst
+---@param item df.item_coffinst
 function _items_other_COFFIN:insert(index, item) end
 
 ---@param index integer
 function _items_other_COFFIN:erase(index) end
 
 ---@class _items_other_TABLE: DFContainer
----@field [integer] item_tablest
+---@field [integer] df.item_tablest
 local _items_other_TABLE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_tablest>
+---@return DFPointer<df.item_tablest>
 function _items_other_TABLE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_tablest
+---@param item df.item_tablest
 function _items_other_TABLE:insert(index, item) end
 
 ---@param index integer
 function _items_other_TABLE:erase(index) end
 
 ---@class _items_other_STATUE: DFContainer
----@field [integer] item_statuest
+---@field [integer] df.item_statuest
 local _items_other_STATUE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_statuest>
+---@return DFPointer<df.item_statuest>
 function _items_other_STATUE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_statuest
+---@param item df.item_statuest
 function _items_other_STATUE:insert(index, item) end
 
 ---@param index integer
 function _items_other_STATUE:erase(index) end
 
 ---@class _items_other_SLAB: DFContainer
----@field [integer] item_slabst
+---@field [integer] df.item_slabst
 local _items_other_SLAB
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_slabst>
+---@return DFPointer<df.item_slabst>
 function _items_other_SLAB:_field(index) end
 
 ---@param index '#'|integer
----@param item item_slabst
+---@param item df.item_slabst
 function _items_other_SLAB:insert(index, item) end
 
 ---@param index integer
 function _items_other_SLAB:erase(index) end
 
 ---@class _items_other_QUERN: DFContainer
----@field [integer] item_quernst
+---@field [integer] df.item_quernst
 local _items_other_QUERN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_quernst>
+---@return DFPointer<df.item_quernst>
 function _items_other_QUERN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_quernst
+---@param item df.item_quernst
 function _items_other_QUERN:insert(index, item) end
 
 ---@param index integer
 function _items_other_QUERN:erase(index) end
 
 ---@class _items_other_MILLSTONE: DFContainer
----@field [integer] item_millstonest
+---@field [integer] df.item_millstonest
 local _items_other_MILLSTONE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_millstonest>
+---@return DFPointer<df.item_millstonest>
 function _items_other_MILLSTONE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_millstonest
+---@param item df.item_millstonest
 function _items_other_MILLSTONE:insert(index, item) end
 
 ---@param index integer
 function _items_other_MILLSTONE:erase(index) end
 
 ---@class _items_other_BOX: DFContainer
----@field [integer] item_boxst
+---@field [integer] df.item_boxst
 local _items_other_BOX
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_boxst>
+---@return DFPointer<df.item_boxst>
 function _items_other_BOX:_field(index) end
 
 ---@param index '#'|integer
----@param item item_boxst
+---@param item df.item_boxst
 function _items_other_BOX:insert(index, item) end
 
 ---@param index integer
 function _items_other_BOX:erase(index) end
 
 ---@class _items_other_BAG: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_BAG
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_BAG:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_BAG:insert(index, item) end
 
 ---@param index integer
 function _items_other_BAG:erase(index) end
 
 ---@class _items_other_BIN: DFContainer
----@field [integer] item_binst
+---@field [integer] df.item_binst
 local _items_other_BIN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_binst>
+---@return DFPointer<df.item_binst>
 function _items_other_BIN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_binst
+---@param item df.item_binst
 function _items_other_BIN:insert(index, item) end
 
 ---@param index integer
 function _items_other_BIN:erase(index) end
 
 ---@class _items_other_ARMORSTAND: DFContainer
----@field [integer] item_armorstandst
+---@field [integer] df.item_armorstandst
 local _items_other_ARMORSTAND
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_armorstandst>
+---@return DFPointer<df.item_armorstandst>
 function _items_other_ARMORSTAND:_field(index) end
 
 ---@param index '#'|integer
----@param item item_armorstandst
+---@param item df.item_armorstandst
 function _items_other_ARMORSTAND:insert(index, item) end
 
 ---@param index integer
 function _items_other_ARMORSTAND:erase(index) end
 
 ---@class _items_other_WEAPONRACK: DFContainer
----@field [integer] item_weaponrackst
+---@field [integer] df.item_weaponrackst
 local _items_other_WEAPONRACK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_weaponrackst>
+---@return DFPointer<df.item_weaponrackst>
 function _items_other_WEAPONRACK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_weaponrackst
+---@param item df.item_weaponrackst
 function _items_other_WEAPONRACK:insert(index, item) end
 
 ---@param index integer
 function _items_other_WEAPONRACK:erase(index) end
 
 ---@class _items_other_CABINET: DFContainer
----@field [integer] item_cabinetst
+---@field [integer] df.item_cabinetst
 local _items_other_CABINET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_cabinetst>
+---@return DFPointer<df.item_cabinetst>
 function _items_other_CABINET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_cabinetst
+---@param item df.item_cabinetst
 function _items_other_CABINET:insert(index, item) end
 
 ---@param index integer
 function _items_other_CABINET:erase(index) end
 
 ---@class _items_other_ANVIL: DFContainer
----@field [integer] item_anvilst
+---@field [integer] df.item_anvilst
 local _items_other_ANVIL
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_anvilst>
+---@return DFPointer<df.item_anvilst>
 function _items_other_ANVIL:_field(index) end
 
 ---@param index '#'|integer
----@param item item_anvilst
+---@param item df.item_anvilst
 function _items_other_ANVIL:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANVIL:erase(index) end
 
 ---@class _items_other_CATAPULTPARTS: DFContainer
----@field [integer] item_catapultpartsst
+---@field [integer] df.item_catapultpartsst
 local _items_other_CATAPULTPARTS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_catapultpartsst>
+---@return DFPointer<df.item_catapultpartsst>
 function _items_other_CATAPULTPARTS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_catapultpartsst
+---@param item df.item_catapultpartsst
 function _items_other_CATAPULTPARTS:insert(index, item) end
 
 ---@param index integer
 function _items_other_CATAPULTPARTS:erase(index) end
 
 ---@class _items_other_BALLISTAPARTS: DFContainer
----@field [integer] item_ballistapartsst
+---@field [integer] df.item_ballistapartsst
 local _items_other_BALLISTAPARTS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_ballistapartsst>
+---@return DFPointer<df.item_ballistapartsst>
 function _items_other_BALLISTAPARTS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_ballistapartsst
+---@param item df.item_ballistapartsst
 function _items_other_BALLISTAPARTS:insert(index, item) end
 
 ---@param index integer
 function _items_other_BALLISTAPARTS:erase(index) end
 
 ---@class _items_other_SIEGEAMMO: DFContainer
----@field [integer] item_siegeammost
+---@field [integer] df.item_siegeammost
 local _items_other_SIEGEAMMO
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_siegeammost>
+---@return DFPointer<df.item_siegeammost>
 function _items_other_SIEGEAMMO:_field(index) end
 
 ---@param index '#'|integer
----@param item item_siegeammost
+---@param item df.item_siegeammost
 function _items_other_SIEGEAMMO:insert(index, item) end
 
 ---@param index integer
 function _items_other_SIEGEAMMO:erase(index) end
 
 ---@class _items_other_TRAPPARTS: DFContainer
----@field [integer] item_trappartsst
+---@field [integer] df.item_trappartsst
 local _items_other_TRAPPARTS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_trappartsst>
+---@return DFPointer<df.item_trappartsst>
 function _items_other_TRAPPARTS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_trappartsst
+---@param item df.item_trappartsst
 function _items_other_TRAPPARTS:insert(index, item) end
 
 ---@param index integer
 function _items_other_TRAPPARTS:erase(index) end
 
 ---@class _items_other_ANY_WEBS: DFContainer
----@field [integer] item_threadst
+---@field [integer] df.item_threadst
 local _items_other_ANY_WEBS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_threadst>
+---@return DFPointer<df.item_threadst>
 function _items_other_ANY_WEBS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_threadst
+---@param item df.item_threadst
 function _items_other_ANY_WEBS:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_WEBS:erase(index) end
 
 ---@class _items_other_PIPE_SECTION: DFContainer
----@field [integer] item_pipe_sectionst
+---@field [integer] df.item_pipe_sectionst
 local _items_other_PIPE_SECTION
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_pipe_sectionst>
+---@return DFPointer<df.item_pipe_sectionst>
 function _items_other_PIPE_SECTION:_field(index) end
 
 ---@param index '#'|integer
----@param item item_pipe_sectionst
+---@param item df.item_pipe_sectionst
 function _items_other_PIPE_SECTION:insert(index, item) end
 
 ---@param index integer
 function _items_other_PIPE_SECTION:erase(index) end
 
 ---@class _items_other_ANY_ENCASED: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_ENCASED
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_ENCASED:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_ENCASED:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_ENCASED:erase(index) end
 
 ---@class _items_other_ANY_IN_CONSTRUCTION: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_IN_CONSTRUCTION
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_IN_CONSTRUCTION:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_IN_CONSTRUCTION:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_IN_CONSTRUCTION:erase(index) end
 
 ---@class _items_other_DRINK: DFContainer
----@field [integer] item_drinkst
+---@field [integer] df.item_drinkst
 local _items_other_DRINK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_drinkst>
+---@return DFPointer<df.item_drinkst>
 function _items_other_DRINK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_drinkst
+---@param item df.item_drinkst
 function _items_other_DRINK:insert(index, item) end
 
 ---@param index integer
 function _items_other_DRINK:erase(index) end
 
 ---@class _items_other_ANY_DRINK: DFContainer
----@field [integer] item_drinkst
+---@field [integer] df.item_drinkst
 local _items_other_ANY_DRINK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_drinkst>
+---@return DFPointer<df.item_drinkst>
 function _items_other_ANY_DRINK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_drinkst
+---@param item df.item_drinkst
 function _items_other_ANY_DRINK:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_DRINK:erase(index) end
 
 ---@class _items_other_LIQUID_MISC: DFContainer
----@field [integer] item_liquid_miscst
+---@field [integer] df.item_liquid_miscst
 local _items_other_LIQUID_MISC
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_liquid_miscst>
+---@return DFPointer<df.item_liquid_miscst>
 function _items_other_LIQUID_MISC:_field(index) end
 
 ---@param index '#'|integer
----@param item item_liquid_miscst
+---@param item df.item_liquid_miscst
 function _items_other_LIQUID_MISC:insert(index, item) end
 
 ---@param index integer
 function _items_other_LIQUID_MISC:erase(index) end
 
 ---@class _items_other_POWDER_MISC: DFContainer
----@field [integer] item_powder_miscst
+---@field [integer] df.item_powder_miscst
 local _items_other_POWDER_MISC
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_powder_miscst>
+---@return DFPointer<df.item_powder_miscst>
 function _items_other_POWDER_MISC:_field(index) end
 
 ---@param index '#'|integer
----@param item item_powder_miscst
+---@param item df.item_powder_miscst
 function _items_other_POWDER_MISC:insert(index, item) end
 
 ---@param index integer
 function _items_other_POWDER_MISC:erase(index) end
 
 ---@class _items_other_ANY_COOKABLE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_COOKABLE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_COOKABLE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_COOKABLE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_COOKABLE:erase(index) end
 
 ---@class _items_other_ANY_GENERIC84: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC84
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC84:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC84:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC84:erase(index) end
 
 ---@class _items_other_VERMIN: DFContainer
----@field [integer] item_verminst
+---@field [integer] df.item_verminst
 local _items_other_VERMIN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_verminst>
+---@return DFPointer<df.item_verminst>
 function _items_other_VERMIN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_verminst
+---@param item df.item_verminst
 function _items_other_VERMIN:insert(index, item) end
 
 ---@param index integer
 function _items_other_VERMIN:erase(index) end
 
 ---@class _items_other_PET: DFContainer
----@field [integer] item_petst
+---@field [integer] df.item_petst
 local _items_other_PET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_petst>
+---@return DFPointer<df.item_petst>
 function _items_other_PET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_petst
+---@param item df.item_petst
 function _items_other_PET:insert(index, item) end
 
 ---@param index integer
 function _items_other_PET:erase(index) end
 
 ---@class _items_other_ANY_CRITTER: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_CRITTER
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_CRITTER:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_CRITTER:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_CRITTER:erase(index) end
 
 ---@class _items_other_COIN: DFContainer
----@field [integer] item_coinst
+---@field [integer] df.item_coinst
 local _items_other_COIN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_coinst>
+---@return DFPointer<df.item_coinst>
 function _items_other_COIN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_coinst
+---@param item df.item_coinst
 function _items_other_COIN:insert(index, item) end
 
 ---@param index integer
 function _items_other_COIN:erase(index) end
 
 ---@class _items_other_GLOB: DFContainer
----@field [integer] item_globst
+---@field [integer] df.item_globst
 local _items_other_GLOB
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_globst>
+---@return DFPointer<df.item_globst>
 function _items_other_GLOB:_field(index) end
 
 ---@param index '#'|integer
----@param item item_globst
+---@param item df.item_globst
 function _items_other_GLOB:insert(index, item) end
 
 ---@param index integer
 function _items_other_GLOB:erase(index) end
 
 ---@class _items_other_TRAPCOMP: DFContainer
----@field [integer] item_trapcompst
+---@field [integer] df.item_trapcompst
 local _items_other_TRAPCOMP
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_trapcompst>
+---@return DFPointer<df.item_trapcompst>
 function _items_other_TRAPCOMP:_field(index) end
 
 ---@param index '#'|integer
----@param item item_trapcompst
+---@param item df.item_trapcompst
 function _items_other_TRAPCOMP:insert(index, item) end
 
 ---@param index integer
 function _items_other_TRAPCOMP:erase(index) end
 
 ---@class _items_other_BAR: DFContainer
----@field [integer] item_barst
+---@field [integer] df.item_barst
 local _items_other_BAR
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_barst>
+---@return DFPointer<df.item_barst>
 function _items_other_BAR:_field(index) end
 
 ---@param index '#'|integer
----@param item item_barst
+---@param item df.item_barst
 function _items_other_BAR:insert(index, item) end
 
 ---@param index integer
 function _items_other_BAR:erase(index) end
 
 ---@class _items_other_SMALLGEM: DFContainer
----@field [integer] item_smallgemst
+---@field [integer] df.item_smallgemst
 local _items_other_SMALLGEM
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_smallgemst>
+---@return DFPointer<df.item_smallgemst>
 function _items_other_SMALLGEM:_field(index) end
 
 ---@param index '#'|integer
----@param item item_smallgemst
+---@param item df.item_smallgemst
 function _items_other_SMALLGEM:insert(index, item) end
 
 ---@param index integer
 function _items_other_SMALLGEM:erase(index) end
 
 ---@class _items_other_BLOCKS: DFContainer
----@field [integer] item_blocksst
+---@field [integer] df.item_blocksst
 local _items_other_BLOCKS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_blocksst>
+---@return DFPointer<df.item_blocksst>
 function _items_other_BLOCKS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_blocksst
+---@param item df.item_blocksst
 function _items_other_BLOCKS:insert(index, item) end
 
 ---@param index integer
 function _items_other_BLOCKS:erase(index) end
 
 ---@class _items_other_ROUGH: DFContainer
----@field [integer] item_roughst
+---@field [integer] df.item_roughst
 local _items_other_ROUGH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_roughst>
+---@return DFPointer<df.item_roughst>
 function _items_other_ROUGH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_roughst
+---@param item df.item_roughst
 function _items_other_ROUGH:insert(index, item) end
 
 ---@param index integer
 function _items_other_ROUGH:erase(index) end
 
 ---@class _items_other_ANY_CORPSE: DFContainer
----@field [integer] item_body_component
+---@field [integer] df.item_body_component
 local _items_other_ANY_CORPSE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_body_component>
+---@return DFPointer<df.item_body_component>
 function _items_other_ANY_CORPSE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_body_component
+---@param item df.item_body_component
 function _items_other_ANY_CORPSE:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_CORPSE:erase(index) end
 
 ---@class _items_other_CORPSE: DFContainer
----@field [integer] item_corpsest
+---@field [integer] df.item_corpsest
 local _items_other_CORPSE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_corpsest>
+---@return DFPointer<df.item_corpsest>
 function _items_other_CORPSE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_corpsest
+---@param item df.item_corpsest
 function _items_other_CORPSE:insert(index, item) end
 
 ---@param index integer
 function _items_other_CORPSE:erase(index) end
 
 ---@class _items_other_BOOK: DFContainer
----@field [integer] item_bookst
+---@field [integer] df.item_bookst
 local _items_other_BOOK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_bookst>
+---@return DFPointer<df.item_bookst>
 function _items_other_BOOK:_field(index) end
 
 ---@param index '#'|integer
----@param item item_bookst
+---@param item df.item_bookst
 function _items_other_BOOK:insert(index, item) end
 
 ---@param index integer
 function _items_other_BOOK:erase(index) end
 
 ---@class _items_other_FIGURINE: DFContainer
----@field [integer] item_figurinest
+---@field [integer] df.item_figurinest
 local _items_other_FIGURINE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_figurinest>
+---@return DFPointer<df.item_figurinest>
 function _items_other_FIGURINE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_figurinest
+---@param item df.item_figurinest
 function _items_other_FIGURINE:insert(index, item) end
 
 ---@param index integer
 function _items_other_FIGURINE:erase(index) end
 
 ---@class _items_other_AMULET: DFContainer
----@field [integer] item_amuletst
+---@field [integer] df.item_amuletst
 local _items_other_AMULET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_amuletst>
+---@return DFPointer<df.item_amuletst>
 function _items_other_AMULET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_amuletst
+---@param item df.item_amuletst
 function _items_other_AMULET:insert(index, item) end
 
 ---@param index integer
 function _items_other_AMULET:erase(index) end
 
 ---@class _items_other_SCEPTER: DFContainer
----@field [integer] item_scepterst
+---@field [integer] df.item_scepterst
 local _items_other_SCEPTER
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_scepterst>
+---@return DFPointer<df.item_scepterst>
 function _items_other_SCEPTER:_field(index) end
 
 ---@param index '#'|integer
----@param item item_scepterst
+---@param item df.item_scepterst
 function _items_other_SCEPTER:insert(index, item) end
 
 ---@param index integer
 function _items_other_SCEPTER:erase(index) end
 
 ---@class _items_other_CROWN: DFContainer
----@field [integer] item_crownst
+---@field [integer] df.item_crownst
 local _items_other_CROWN
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_crownst>
+---@return DFPointer<df.item_crownst>
 function _items_other_CROWN:_field(index) end
 
 ---@param index '#'|integer
----@param item item_crownst
+---@param item df.item_crownst
 function _items_other_CROWN:insert(index, item) end
 
 ---@param index integer
 function _items_other_CROWN:erase(index) end
 
 ---@class _items_other_RING: DFContainer
----@field [integer] item_ringst
+---@field [integer] df.item_ringst
 local _items_other_RING
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_ringst>
+---@return DFPointer<df.item_ringst>
 function _items_other_RING:_field(index) end
 
 ---@param index '#'|integer
----@param item item_ringst
+---@param item df.item_ringst
 function _items_other_RING:insert(index, item) end
 
 ---@param index integer
 function _items_other_RING:erase(index) end
 
 ---@class _items_other_EARRING: DFContainer
----@field [integer] item_earringst
+---@field [integer] df.item_earringst
 local _items_other_EARRING
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_earringst>
+---@return DFPointer<df.item_earringst>
 function _items_other_EARRING:_field(index) end
 
 ---@param index '#'|integer
----@param item item_earringst
+---@param item df.item_earringst
 function _items_other_EARRING:insert(index, item) end
 
 ---@param index integer
 function _items_other_EARRING:erase(index) end
 
 ---@class _items_other_BRACELET: DFContainer
----@field [integer] item_braceletst
+---@field [integer] df.item_braceletst
 local _items_other_BRACELET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_braceletst>
+---@return DFPointer<df.item_braceletst>
 function _items_other_BRACELET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_braceletst
+---@param item df.item_braceletst
 function _items_other_BRACELET:insert(index, item) end
 
 ---@param index integer
 function _items_other_BRACELET:erase(index) end
 
 ---@class _items_other_GEM: DFContainer
----@field [integer] item_gemst
+---@field [integer] df.item_gemst
 local _items_other_GEM
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_gemst>
+---@return DFPointer<df.item_gemst>
 function _items_other_GEM:_field(index) end
 
 ---@param index '#'|integer
----@param item item_gemst
+---@param item df.item_gemst
 function _items_other_GEM:insert(index, item) end
 
 ---@param index integer
 function _items_other_GEM:erase(index) end
 
 ---@class _items_other_CORPSEPIECE: DFContainer
----@field [integer] item_corpsepiecest
+---@field [integer] df.item_corpsepiecest
 local _items_other_CORPSEPIECE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_corpsepiecest>
+---@return DFPointer<df.item_corpsepiecest>
 function _items_other_CORPSEPIECE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_corpsepiecest
+---@param item df.item_corpsepiecest
 function _items_other_CORPSEPIECE:insert(index, item) end
 
 ---@param index integer
 function _items_other_CORPSEPIECE:erase(index) end
 
 ---@class _items_other_REMAINS: DFContainer
----@field [integer] item_remainsst
+---@field [integer] df.item_remainsst
 local _items_other_REMAINS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_remainsst>
+---@return DFPointer<df.item_remainsst>
 function _items_other_REMAINS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_remainsst
+---@param item df.item_remainsst
 function _items_other_REMAINS:insert(index, item) end
 
 ---@param index integer
 function _items_other_REMAINS:erase(index) end
 
 ---@class _items_other_MEAT: DFContainer
----@field [integer] item_meatst
+---@field [integer] df.item_meatst
 local _items_other_MEAT
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_meatst>
+---@return DFPointer<df.item_meatst>
 function _items_other_MEAT:_field(index) end
 
 ---@param index '#'|integer
----@param item item_meatst
+---@param item df.item_meatst
 function _items_other_MEAT:insert(index, item) end
 
 ---@param index integer
 function _items_other_MEAT:erase(index) end
 
 ---@class _items_other_FISH: DFContainer
----@field [integer] item_fishst
+---@field [integer] df.item_fishst
 local _items_other_FISH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_fishst>
+---@return DFPointer<df.item_fishst>
 function _items_other_FISH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_fishst
+---@param item df.item_fishst
 function _items_other_FISH:insert(index, item) end
 
 ---@param index integer
 function _items_other_FISH:erase(index) end
 
 ---@class _items_other_FISH_RAW: DFContainer
----@field [integer] item_fish_rawst
+---@field [integer] df.item_fish_rawst
 local _items_other_FISH_RAW
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_fish_rawst>
+---@return DFPointer<df.item_fish_rawst>
 function _items_other_FISH_RAW:_field(index) end
 
 ---@param index '#'|integer
----@param item item_fish_rawst
+---@param item df.item_fish_rawst
 function _items_other_FISH_RAW:insert(index, item) end
 
 ---@param index integer
 function _items_other_FISH_RAW:erase(index) end
 
 ---@class _items_other_EGG: DFContainer
----@field [integer] item_eggst
+---@field [integer] df.item_eggst
 local _items_other_EGG
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_eggst>
+---@return DFPointer<df.item_eggst>
 function _items_other_EGG:_field(index) end
 
 ---@param index '#'|integer
----@param item item_eggst
+---@param item df.item_eggst
 function _items_other_EGG:insert(index, item) end
 
 ---@param index integer
 function _items_other_EGG:erase(index) end
 
 ---@class _items_other_SEEDS: DFContainer
----@field [integer] item_seedsst
+---@field [integer] df.item_seedsst
 local _items_other_SEEDS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_seedsst>
+---@return DFPointer<df.item_seedsst>
 function _items_other_SEEDS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_seedsst
+---@param item df.item_seedsst
 function _items_other_SEEDS:insert(index, item) end
 
 ---@param index integer
 function _items_other_SEEDS:erase(index) end
 
 ---@class _items_other_PLANT: DFContainer
----@field [integer] item_plantst
+---@field [integer] df.item_plantst
 local _items_other_PLANT
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_plantst>
+---@return DFPointer<df.item_plantst>
 function _items_other_PLANT:_field(index) end
 
 ---@param index '#'|integer
----@param item item_plantst
+---@param item df.item_plantst
 function _items_other_PLANT:insert(index, item) end
 
 ---@param index integer
 function _items_other_PLANT:erase(index) end
 
 ---@class _items_other_SKIN_TANNED: DFContainer
----@field [integer] item_skin_tannedst
+---@field [integer] df.item_skin_tannedst
 local _items_other_SKIN_TANNED
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_skin_tannedst>
+---@return DFPointer<df.item_skin_tannedst>
 function _items_other_SKIN_TANNED:_field(index) end
 
 ---@param index '#'|integer
----@param item item_skin_tannedst
+---@param item df.item_skin_tannedst
 function _items_other_SKIN_TANNED:insert(index, item) end
 
 ---@param index integer
 function _items_other_SKIN_TANNED:erase(index) end
 
 ---@class _items_other_PLANT_GROWTH: DFContainer
----@field [integer] item_plant_growthst
+---@field [integer] df.item_plant_growthst
 local _items_other_PLANT_GROWTH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_plant_growthst>
+---@return DFPointer<df.item_plant_growthst>
 function _items_other_PLANT_GROWTH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_plant_growthst
+---@param item df.item_plant_growthst
 function _items_other_PLANT_GROWTH:insert(index, item) end
 
 ---@param index integer
 function _items_other_PLANT_GROWTH:erase(index) end
 
 ---@class _items_other_THREAD: DFContainer
----@field [integer] item_threadst
+---@field [integer] df.item_threadst
 local _items_other_THREAD
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_threadst>
+---@return DFPointer<df.item_threadst>
 function _items_other_THREAD:_field(index) end
 
 ---@param index '#'|integer
----@param item item_threadst
+---@param item df.item_threadst
 function _items_other_THREAD:insert(index, item) end
 
 ---@param index integer
 function _items_other_THREAD:erase(index) end
 
 ---@class _items_other_CLOTH: DFContainer
----@field [integer] item_clothst
+---@field [integer] df.item_clothst
 local _items_other_CLOTH
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_clothst>
+---@return DFPointer<df.item_clothst>
 function _items_other_CLOTH:_field(index) end
 
 ---@param index '#'|integer
----@param item item_clothst
+---@param item df.item_clothst
 function _items_other_CLOTH:insert(index, item) end
 
 ---@param index integer
 function _items_other_CLOTH:erase(index) end
 
 ---@class _items_other_SHEET: DFContainer
----@field [integer] item_sheetst
+---@field [integer] df.item_sheetst
 local _items_other_SHEET
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_sheetst>
+---@return DFPointer<df.item_sheetst>
 function _items_other_SHEET:_field(index) end
 
 ---@param index '#'|integer
----@param item item_sheetst
+---@param item df.item_sheetst
 function _items_other_SHEET:insert(index, item) end
 
 ---@param index integer
 function _items_other_SHEET:erase(index) end
 
 ---@class _items_other_TOTEM: DFContainer
----@field [integer] item_totemst
+---@field [integer] df.item_totemst
 local _items_other_TOTEM
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_totemst>
+---@return DFPointer<df.item_totemst>
 function _items_other_TOTEM:_field(index) end
 
 ---@param index '#'|integer
----@param item item_totemst
+---@param item df.item_totemst
 function _items_other_TOTEM:insert(index, item) end
 
 ---@param index integer
 function _items_other_TOTEM:erase(index) end
 
 ---@class _items_other_PANTS: DFContainer
----@field [integer] item_pantsst
+---@field [integer] df.item_pantsst
 local _items_other_PANTS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_pantsst>
+---@return DFPointer<df.item_pantsst>
 function _items_other_PANTS:_field(index) end
 
 ---@param index '#'|integer
----@param item item_pantsst
+---@param item df.item_pantsst
 function _items_other_PANTS:insert(index, item) end
 
 ---@param index integer
 function _items_other_PANTS:erase(index) end
 
 ---@class _items_other_CHEESE: DFContainer
----@field [integer] item_cheesest
+---@field [integer] df.item_cheesest
 local _items_other_CHEESE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_cheesest>
+---@return DFPointer<df.item_cheesest>
 function _items_other_CHEESE:_field(index) end
 
 ---@param index '#'|integer
----@param item item_cheesest
+---@param item df.item_cheesest
 function _items_other_CHEESE:insert(index, item) end
 
 ---@param index integer
 function _items_other_CHEESE:erase(index) end
 
 ---@class _items_other_FOOD: DFContainer
----@field [integer] item_foodst
+---@field [integer] df.item_foodst
 local _items_other_FOOD
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_foodst>
+---@return DFPointer<df.item_foodst>
 function _items_other_FOOD:_field(index) end
 
 ---@param index '#'|integer
----@param item item_foodst
+---@param item df.item_foodst
 function _items_other_FOOD:insert(index, item) end
 
 ---@param index integer
 function _items_other_FOOD:erase(index) end
 
 ---@class _items_other_BALLISTAARROWHEAD: DFContainer
----@field [integer] item_ballistaarrowheadst
+---@field [integer] df.item_ballistaarrowheadst
 local _items_other_BALLISTAARROWHEAD
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_ballistaarrowheadst>
+---@return DFPointer<df.item_ballistaarrowheadst>
 function _items_other_BALLISTAARROWHEAD:_field(index) end
 
 ---@param index '#'|integer
----@param item item_ballistaarrowheadst
+---@param item df.item_ballistaarrowheadst
 function _items_other_BALLISTAARROWHEAD:insert(index, item) end
 
 ---@param index integer
 function _items_other_BALLISTAARROWHEAD:erase(index) end
 
 ---@class _items_other_ARMOR: DFContainer
----@field [integer] item_armorst
+---@field [integer] df.item_armorst
 local _items_other_ARMOR
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_armorst>
+---@return DFPointer<df.item_armorst>
 function _items_other_ARMOR:_field(index) end
 
 ---@param index '#'|integer
----@param item item_armorst
+---@param item df.item_armorst
 function _items_other_ARMOR:insert(index, item) end
 
 ---@param index integer
 function _items_other_ARMOR:erase(index) end
 
 ---@class _items_other_SHOES: DFContainer
----@field [integer] item_shoesst
+---@field [integer] df.item_shoesst
 local _items_other_SHOES
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_shoesst>
+---@return DFPointer<df.item_shoesst>
 function _items_other_SHOES:_field(index) end
 
 ---@param index '#'|integer
----@param item item_shoesst
+---@param item df.item_shoesst
 function _items_other_SHOES:insert(index, item) end
 
 ---@param index integer
 function _items_other_SHOES:erase(index) end
 
 ---@class _items_other_HELM: DFContainer
----@field [integer] item_helmst
+---@field [integer] df.item_helmst
 local _items_other_HELM
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_helmst>
+---@return DFPointer<df.item_helmst>
 function _items_other_HELM:_field(index) end
 
 ---@param index '#'|integer
----@param item item_helmst
+---@param item df.item_helmst
 function _items_other_HELM:insert(index, item) end
 
 ---@param index integer
 function _items_other_HELM:erase(index) end
 
 ---@class _items_other_GLOVES: DFContainer
----@field [integer] item_glovesst
+---@field [integer] df.item_glovesst
 local _items_other_GLOVES
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_glovesst>
+---@return DFPointer<df.item_glovesst>
 function _items_other_GLOVES:_field(index) end
 
 ---@param index '#'|integer
----@param item item_glovesst
+---@param item df.item_glovesst
 function _items_other_GLOVES:insert(index, item) end
 
 ---@param index integer
 function _items_other_GLOVES:erase(index) end
 
 ---@class _items_other_ANY_GENERIC128: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_GENERIC128
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_GENERIC128:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_GENERIC128:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_GENERIC128:erase(index) end
 
 ---@class _items_other_FOOD_STORAGE: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_FOOD_STORAGE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_FOOD_STORAGE:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_FOOD_STORAGE:insert(index, item) end
 
 ---@param index integer
 function _items_other_FOOD_STORAGE:erase(index) end
 
 ---@class _items_other_ANY_RECENTLY_DROPPED: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_RECENTLY_DROPPED
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_RECENTLY_DROPPED:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_RECENTLY_DROPPED:insert(index, item) end
 
 ---@param index integer
 function _items_other_ANY_RECENTLY_DROPPED:erase(index) end
 
 ---@class _items_other_ANY_MELT_DESIGNATED: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _items_other_ANY_MELT_DESIGNATED
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _items_other_ANY_MELT_DESIGNATED:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _items_other_ANY_MELT_DESIGNATED:insert(index, item) end
 
 ---@param index integer

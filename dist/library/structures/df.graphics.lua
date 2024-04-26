@@ -1,34 +1,34 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) large_integer: DFStruct
----@field _type _large_integer
+---@class (exact) df.large_integer: DFStruct
+---@field _type identity.large_integer
 ---@field low_part number
 ---@field high_part number
----@field u large_integer.T_u
+---@field u df.large_integer.T_u
 ---@field quad_part number
 
----@class _large_integer: DFCompoundType
+---@class identity.large_integer: DFCompoundType
 ---@field _kind 'struct-type'
 df.large_integer = {}
 
----@return large_integer
+---@return df.large_integer
 function df.large_integer:new() end
 
----@class (exact) large_integer.T_u: DFStruct
----@field _type _large_integer.T_u
+---@class (exact) df.large_integer.T_u: DFStruct
+---@field _type identity.large_integer.u
 ---@field low_part number
 ---@field high_part number
 
----@class _large_integer.T_u: DFCompoundType
+---@class identity.large_integer.u: DFCompoundType
 ---@field _kind 'struct-type'
 df.large_integer.T_u = {}
 
----@return large_integer.T_u
+---@return df.large_integer.T_u
 function df.large_integer.T_u:new() end
 
----@class (exact) musicsoundst: DFStruct
----@field _type _musicsoundst
+---@class (exact) df.musicsoundst: DFStruct
+---@field _type identity.musicsoundst
 ---@field soft_channel_number number
 ---@field song number
 ---@field music_active boolean
@@ -37,23 +37,23 @@ function df.large_integer.T_u:new() end
 ---@field on boolean
 ---@field fmod_system DFPointer<integer>
 ---@field fmod_master_channel_group DFPointer<integer>
----@field mod fmod_sound[] songs
----@field samp fmod_sound[] sound effects
----@field linux_sound_system musicsoundst.T_linux_sound_system
+---@field mod df.fmod_sound[] songs
+---@field samp df.fmod_sound[] sound effects
+---@field linux_sound_system df.musicsoundst.T_linux_sound_system
 
----@class _musicsoundst: DFCompoundType
+---@class identity.musicsoundst: DFCompoundType
 ---@field _kind 'struct-type'
 df.musicsoundst = {}
 
----@return musicsoundst
+---@return df.musicsoundst
 function df.musicsoundst:new() end
 
----@alias musicsoundst.T_linux_sound_system
+---@alias df.musicsoundst.T_linux_sound_system
 ---| 0 # ALSA
 ---| 1 # OSS
 ---| 2 # ESD
 
----@class _musicsoundst.T_linux_sound_system: DFEnumType
+---@class identity.musicsoundst.linux_sound_system: DFEnumType
 ---@field ALSA 0
 ---@field [0] "ALSA"
 ---@field OSS 1
@@ -62,19 +62,19 @@ function df.musicsoundst:new() end
 ---@field [2] "ESD"
 df.musicsoundst.T_linux_sound_system = {}
 
----@class (exact) fmod_sound: DFStruct
----@field _type _fmod_sound
+---@class (exact) df.fmod_sound: DFStruct
+---@field _type identity.fmod_sound
 ---@field sound DFPointer<integer>
 ---@field channel DFPointer<integer>
 
----@class _fmod_sound: DFCompoundType
+---@class identity.fmod_sound: DFCompoundType
 ---@field _kind 'struct-type'
 df.fmod_sound = {}
 
----@return fmod_sound
+---@return df.fmod_sound
 function df.fmod_sound:new() end
 
----@alias curses_color
+---@alias df.curses_color
 ---| 0 # Black
 ---| 1 # Blue
 ---| 2 # Green
@@ -84,7 +84,7 @@ function df.fmod_sound:new() end
 ---| 6 # Yellow
 ---| 7 # White
 
----@class _curses_color: DFEnumType
+---@class identity.curses_color: DFEnumType
 ---@field Black 0 Using the color names without "dark" or "light", favoring primaries.
 ---@field [0] "Black" Using the color names without "dark" or "light", favoring primaries.
 ---@field Blue 1
@@ -103,8 +103,8 @@ function df.fmod_sound:new() end
 ---@field [7] "White"
 df.curses_color = {}
 
----@class cmv_attribute: DFBitfield
----@field _enum _cmv_attribute
+---@class df.cmv_attribute: DFBitfield
+---@field _enum identity.cmv_attribute
 ---@field fg boolean
 ---@field [0] boolean
 ---@field bg boolean
@@ -112,7 +112,7 @@ df.curses_color = {}
 ---@field bright boolean
 ---@field [6] boolean
 
----@class _cmv_attribute: DFBitfieldType
+---@class identity.cmv_attribute: DFBitfieldType
 ---@field fg 0
 ---@field [0] "fg"
 ---@field bg 3
@@ -121,8 +121,8 @@ df.curses_color = {}
 ---@field [6] "bright"
 df.cmv_attribute = {}
 
----@class (exact) graphic_viewportst: DFStruct
----@field _type _graphic_viewportst
+---@class (exact) df.graphic_viewportst: DFStruct
+---@field _type identity.graphic_viewportst
 ---@field flag integer
 ---@field dim_x number
 ---@field dim_y number
@@ -183,15 +183,15 @@ df.cmv_attribute = {}
 ---@field core_tree_species_plus_one number
 ---@field shadow_tree_species_plus_one number
 
----@class _graphic_viewportst: DFCompoundType
+---@class identity.graphic_viewportst: DFCompoundType
 ---@field _kind 'struct-type'
 df.graphic_viewportst = {}
 
----@return graphic_viewportst
+---@return df.graphic_viewportst
 function df.graphic_viewportst:new() end
 
----@class (exact) graphic_map_portst: DFStruct
----@field _type _graphic_map_portst
+---@class (exact) df.graphic_map_portst: DFStruct
+---@field _type identity.graphic_map_portst
 ---@field flag integer
 ---@field dim_x number
 ---@field dim_y number
@@ -255,52 +255,52 @@ function df.graphic_viewportst:new() end
 ---@field edge_biome_sw number
 ---@field edge_biome_se number
 
----@class _graphic_map_portst: DFCompoundType
+---@class identity.graphic_map_portst: DFCompoundType
 ---@field _kind 'struct-type'
 df.graphic_map_portst = {}
 
----@return graphic_map_portst
+---@return df.graphic_map_portst
 function df.graphic_map_portst:new() end
 
----@class (exact) cached_texturest: DFStruct
----@field _type _cached_texturest
+---@class (exact) df.cached_texturest: DFStruct
+---@field _type identity.cached_texturest
 ---@field w number
 ---@field h number
 ---@field tex DFPointer<integer>
 ---@field tex_n number
 
----@class _cached_texturest: DFCompoundType
+---@class identity.cached_texturest: DFCompoundType
 ---@field _kind 'struct-type'
 df.cached_texturest = {}
 
----@return cached_texturest
+---@return df.cached_texturest
 function df.cached_texturest:new() end
 
----@class (exact) texblitst: DFStruct
----@field _type _texblitst
+---@class (exact) df.texblitst: DFStruct
+---@field _type identity.texblitst
 ---@field x number
 ---@field y number
 ---@field tex number
 
----@class _texblitst: DFCompoundType
+---@class identity.texblitst: DFCompoundType
 ---@field _kind 'struct-type'
 df.texblitst = {}
 
----@return texblitst
+---@return df.texblitst
 function df.texblitst:new() end
 
----@class (exact) graphic: DFStruct
----@field _type _graphic
+---@class (exact) df.graphic: DFStruct
+---@field _type identity.graphic
 ---@field viewport _graphic_viewport
----@field main_viewport graphic_viewportst
----@field lower_viewport graphic_viewportst[]
+---@field main_viewport df.graphic_viewportst
+---@field lower_viewport df.graphic_viewportst[]
 ---@field map_port _graphic_map_port
----@field main_map_port graphic_map_portst
+---@field main_map_port df.graphic_map_portst
 ---@field viewport_zoom_factor number
 ---@field screenx number
 ---@field screeny number
----@field screenf curses_color
----@field screenb curses_color
+---@field screenf df.curses_color
+---@field screenb df.curses_color
 ---@field screenbright boolean
 ---@field use_old_16_colors boolean use F:B:BR instead of straight RGB
 ---@field screen_color_r integer
@@ -345,10 +345,10 @@ function df.texblitst:new() end
 ---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
 ---@field clipx number[]
 ---@field clipy number[]
----@field tex cached_texturest[]
+---@field tex df.cached_texturest[]
 ---@field texblits _graphic_texblits
 ---@field rect_id number
----@field print_time large_integer[]
+---@field print_time df.large_integer[]
 ---@field print_index number
 ---@field display_frames number
 ---@field force_full_display_count number
@@ -357,86 +357,86 @@ function df.texblitst:new() end
 ---@field original_rect number
 ---@field dimx number
 ---@field dimy number
----@field tileset graphic.T_tileset
+---@field tileset df.graphic.T_tileset
 
----@class _graphic: DFCompoundType
+---@class identity.graphic: DFCompoundType
 ---@field _kind 'struct-type'
 df.graphic = {}
 
----@return graphic
+---@return df.graphic
 function df.graphic:new() end
 
 ---@class _graphic_viewport: DFContainer
----@field [integer] graphic_viewportst
+---@field [integer] df.graphic_viewportst
 local _graphic_viewport
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<graphic_viewportst>
+---@return DFPointer<df.graphic_viewportst>
 function _graphic_viewport:_field(index) end
 
 ---@param index '#'|integer
----@param item graphic_viewportst
+---@param item df.graphic_viewportst
 function _graphic_viewport:insert(index, item) end
 
 ---@param index integer
 function _graphic_viewport:erase(index) end
 
 ---@class _graphic_map_port: DFContainer
----@field [integer] graphic_map_portst
+---@field [integer] df.graphic_map_portst
 local _graphic_map_port
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<graphic_map_portst>
+---@return DFPointer<df.graphic_map_portst>
 function _graphic_map_port:_field(index) end
 
 ---@param index '#'|integer
----@param item graphic_map_portst
+---@param item df.graphic_map_portst
 function _graphic_map_port:insert(index, item) end
 
 ---@param index integer
 function _graphic_map_port:erase(index) end
 
 ---@class _graphic_texblits: DFContainer
----@field [integer] texblitst
+---@field [integer] df.texblitst
 local _graphic_texblits
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<texblitst>
+---@return DFPointer<df.texblitst>
 function _graphic_texblits:_field(index) end
 
 ---@param index '#'|integer
----@param item texblitst
+---@param item df.texblitst
 function _graphic_texblits:insert(index, item) end
 
 ---@param index integer
 function _graphic_texblits:erase(index) end
 
----@class (exact) graphic.T_tileset: DFStruct
----@field _type _graphic.T_tileset
+---@class (exact) df.graphic.T_tileset: DFStruct
+---@field _type identity.graphic.tileset
 ---@field black_background_texpos number[]
 ---@field texture_indices1 number[]
 ---@field texpos_custom_symbol DFNumberVector
 ---@field texture_indices2 number[]
----@field graphical_interface interface_setst
----@field classic_interface interface_setst
+---@field graphical_interface df.interface_setst
+---@field classic_interface df.interface_setst
 ---@field texture_indices3 number[]
 ---@field texpos_boulder DFNumberVector
 ---@field texture_indices4 number[]
 ---@field texpos_item_statue_artifact DFNumberVector
 ---@field texture_indices5 number[]
 
----@class _graphic.T_tileset: DFCompoundType
+---@class identity.graphic.tileset: DFCompoundType
 ---@field _kind 'struct-type'
 df.graphic.T_tileset = {}
 
----@return graphic.T_tileset
+---@return df.graphic.T_tileset
 function df.graphic.T_tileset:new() end
 
----@class (exact) interface_setst: DFStruct
----@field _type _interface_setst
+---@class (exact) df.interface_setst: DFStruct
+---@field _type identity.interface_setst
 ---@field texpos_calendar_month number[][]
 ---@field texpos_calendar_day_past number[]
 ---@field texpos_calendar_day_current number[]
@@ -637,15 +637,15 @@ function df.graphic.T_tileset:new() end
 ---@field texpos_bottom_button_border_ne number
 ---@field texpos_bottom_button_border_e number
 
----@class _interface_setst: DFCompoundType
+---@class identity.interface_setst: DFCompoundType
 ---@field _kind 'struct-type'
 df.interface_setst = {}
 
----@return interface_setst
+---@return df.interface_setst
 function df.interface_setst:new() end
 
----@class (exact) renderer: DFStruct
----@field _type _renderer
+---@class (exact) df.renderer: DFStruct
+---@field _type identity.renderer
 ---@field screen integer
 ---@field screentexpos number
 ---@field screentexpos_lower number
@@ -722,15 +722,15 @@ function renderer:get_current_interface_tile_dims() end
 function renderer:uses_opengl() end
 
 
----@class _renderer: DFCompoundType
+---@class identity.renderer: DFCompoundType
 ---@field _kind 'class-type'
 df.renderer = {}
 
----@return renderer
+---@return df.renderer
 function df.renderer:new() end
 
----@class (exact) renderer_2d_base: DFStruct, renderer
----@field _type _renderer_2d_base
+---@class (exact) df.renderer_2d_base: DFStruct, df.renderer
+---@field _type identity.renderer_2d_base
 ---@field window DFPointer<integer> SDL_Window*
 ---@field sdl_renderer DFPointer<integer> SDL_Renderer*
 ---@field screen_tex DFPointer<integer> SDL_Texture*
@@ -758,11 +758,11 @@ local renderer_2d_base
 function renderer_2d_base:init_video() end
 
 
----@class _renderer_2d_base: DFCompoundType
+---@class identity.renderer_2d_base: DFCompoundType
 ---@field _kind 'class-type'
 df.renderer_2d_base = {}
 
----@return renderer_2d_base
+---@return df.renderer_2d_base
 function df.renderer_2d_base:new() end
 
 ---@class _renderer_2d_base_tile_cache: DFContainer
@@ -797,24 +797,24 @@ function _renderer_2d_base_textures_to_destroy:insert(index, item) end
 ---@param index integer
 function _renderer_2d_base_textures_to_destroy:erase(index) end
 
----@class (exact) renderer_2d: DFStruct, renderer_2d_base
----@field _type _renderer_2d
+---@class (exact) df.renderer_2d: DFStruct, df.renderer_2d_base
+---@field _type identity.renderer_2d
 
----@class _renderer_2d: DFCompoundType
+---@class identity.renderer_2d: DFCompoundType
 ---@field _kind 'class-type'
 df.renderer_2d = {}
 
----@return renderer_2d
+---@return df.renderer_2d
 function df.renderer_2d:new() end
 
----@alias zoom_commands
+---@alias df.zoom_commands
 ---| 0 # zoom_in
 ---| 1 # zoom_out
 ---| 2 # zoom_reset
 ---| 3 # zoom_fullscreen
 ---| 4 # zoom_resetgrid
 
----@class _zoom_commands: DFEnumType
+---@class identity.zoom_commands: DFEnumType
 ---@field zoom_in 0
 ---@field [0] "zoom_in"
 ---@field zoom_out 1
@@ -827,11 +827,11 @@ function df.renderer_2d:new() end
 ---@field [4] "zoom_resetgrid"
 df.zoom_commands = {}
 
----@class (exact) enabler: DFStruct
----@field _type _enabler
----@field fullscreen_state enabler.T_fullscreen_state
+---@class (exact) df.enabler: DFStruct
+---@field _type identity.enabler
+---@field fullscreen_state df.enabler.T_fullscreen_state
 ---@field overridden_grid_sizes _enabler_overridden_grid_sizes
----@field renderer renderer
+---@field renderer df.renderer
 ---@field calculated_fps number
 ---@field calculated_gfps number
 ---@field frame_timings DFNumberVector
@@ -848,14 +848,14 @@ df.zoom_commands = {}
 ---@field outstanding_gframes number
 ---@field async_frames integer
 ---@field async_paused boolean
----@field async_tobox enabler.T_async_tobox
----@field async_frombox enabler.T_async_frombox
----@field async_zoom enabler.T_async_zoom
+---@field async_tobox df.enabler.T_async_tobox
+---@field async_frombox df.enabler.T_async_frombox
+---@field async_zoom df.enabler.T_async_zoom
 ---@field async_fromcomplete DFPointer<integer>
 ---@field renderer_threadid number
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
----@field flag enabler.T_flag
+---@field flag df.enabler.T_flag
 ---@field mouse_lbut number
 ---@field mouse_rbut number
 ---@field mouse_lbut_down number
@@ -866,7 +866,7 @@ df.zoom_commands = {}
 ---@field mouse_mbut_down number
 ---@field mouse_mbut_lift number
 ---@field tracking_on number
----@field textures enabler.T_textures
+---@field textures df.enabler.T_textures
 ---@field simticks number
 ---@field gputicks number note: this is a std::atomic_int
 ---@field clock integer note: this is a std::atomic_int
@@ -878,21 +878,21 @@ local enabler
 function enabler:GetKeyDisplay() end
 
 
----@class _enabler: DFCompoundType
+---@class identity.enabler: DFCompoundType
 ---@field _kind 'class-type'
 df.enabler = {}
 
----@return enabler
+---@return df.enabler
 function df.enabler:new() end
 
----@class enabler.T_fullscreen_state: DFBitfield
----@field _enum _enabler.T_fullscreen_state
+---@class df.enabler.T_fullscreen_state: DFBitfield
+---@field _enum identity.enabler.fullscreen_state
 ---@field fullscreen boolean
 ---@field [0] boolean
 ---@field exclusive boolean
 ---@field [1] boolean
 
----@class _enabler.T_fullscreen_state: DFBitfieldType
+---@class identity.enabler.fullscreen_state: DFBitfieldType
 ---@field fullscreen 0
 ---@field [0] "fullscreen"
 ---@field exclusive 1
@@ -900,82 +900,82 @@ function df.enabler:new() end
 df.enabler.T_fullscreen_state = {}
 
 ---@class _enabler_overridden_grid_sizes: DFContainer
----@field [integer] enabler.T_overridden_grid_sizes
+---@field [integer] df.enabler.T_overridden_grid_sizes
 local _enabler_overridden_grid_sizes
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<enabler.T_overridden_grid_sizes>
+---@return DFPointer<df.enabler.T_overridden_grid_sizes>
 function _enabler_overridden_grid_sizes:_field(index) end
 
 ---@param index '#'|integer
----@param item enabler.T_overridden_grid_sizes
+---@param item df.enabler.T_overridden_grid_sizes
 function _enabler_overridden_grid_sizes:insert(index, item) end
 
 ---@param index integer
 function _enabler_overridden_grid_sizes:erase(index) end
 
----@class (exact) enabler.T_overridden_grid_sizes: DFStruct
----@field _type _enabler.T_overridden_grid_sizes
+---@class (exact) df.enabler.T_overridden_grid_sizes: DFStruct
+---@field _type identity.enabler.overridden_grid_sizes
 ---@field x number
 ---@field y number
 
----@class _enabler.T_overridden_grid_sizes: DFCompoundType
+---@class identity.enabler.overridden_grid_sizes: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_overridden_grid_sizes = {}
 
----@return enabler.T_overridden_grid_sizes
+---@return df.enabler.T_overridden_grid_sizes
 function df.enabler.T_overridden_grid_sizes:new() end
 
----@class (exact) enabler.T_async_tobox: DFStruct
----@field _type _enabler.T_async_tobox
----@field mtx stl-mutex
----@field cv stl-condition-variable
+---@class (exact) df.enabler.T_async_tobox: DFStruct
+---@field _type identity.enabler.async_tobox
+---@field mtx lightuserdata
+---@field cv lightuserdata
 ---@field vals _enabler_async_tobox_vals
 
----@class _enabler.T_async_tobox: DFCompoundType
+---@class identity.enabler.async_tobox: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_tobox = {}
 
----@return enabler.T_async_tobox
+---@return df.enabler.T_async_tobox
 function df.enabler.T_async_tobox:new() end
 
 ---@class _enabler_async_tobox_vals: DFContainer
----@field [integer] enabler.T_async_tobox.T_vals
+---@field [integer] df.enabler.T_async_tobox.T_vals
 local _enabler_async_tobox_vals
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<enabler.T_async_tobox.T_vals>
+---@return DFPointer<df.enabler.T_async_tobox.T_vals>
 function _enabler_async_tobox_vals:_field(index) end
 
 ---@param index '#'|integer
----@param item enabler.T_async_tobox.T_vals
+---@param item df.enabler.T_async_tobox.T_vals
 function _enabler_async_tobox_vals:insert(index, item) end
 
 ---@param index integer
 function _enabler_async_tobox_vals:erase(index) end
 
----@class (exact) enabler.T_async_tobox.T_vals: DFStruct
----@field _type _enabler.T_async_tobox.T_vals
----@field cmd enabler.T_async_tobox.T_vals.T_cmd
+---@class (exact) df.enabler.T_async_tobox.T_vals: DFStruct
+---@field _type identity.enabler.async_tobox.vals
+---@field cmd df.enabler.T_async_tobox.T_vals.T_cmd
 ---@field val number
 
----@class _enabler.T_async_tobox.T_vals: DFCompoundType
+---@class identity.enabler.async_tobox.vals: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_tobox.T_vals = {}
 
----@return enabler.T_async_tobox.T_vals
+---@return df.enabler.T_async_tobox.T_vals
 function df.enabler.T_async_tobox.T_vals:new() end
 
----@alias enabler.T_async_tobox.T_vals.T_cmd
+---@alias df.enabler.T_async_tobox.T_vals.T_cmd
 ---| 0 # pause
 ---| 1 # start
 ---| 2 # render
 ---| 3 # inc
 ---| 4 # set_fps
 
----@class _enabler.T_async_tobox.T_vals.T_cmd: DFEnumType
+---@class identity.enabler.async_tobox.vals.cmd: DFEnumType
 ---@field pause 0
 ---@field [0] "pause"
 ---@field start 1
@@ -988,50 +988,50 @@ function df.enabler.T_async_tobox.T_vals:new() end
 ---@field [4] "set_fps"
 df.enabler.T_async_tobox.T_vals.T_cmd = {}
 
----@class (exact) enabler.T_async_frombox: DFStruct
----@field _type _enabler.T_async_frombox
----@field mtx stl-mutex
----@field cv stl-condition-variable
+---@class (exact) df.enabler.T_async_frombox: DFStruct
+---@field _type identity.enabler.async_frombox
+---@field mtx lightuserdata
+---@field cv lightuserdata
 ---@field vals _enabler_async_frombox_vals
 
----@class _enabler.T_async_frombox: DFCompoundType
+---@class identity.enabler.async_frombox: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_frombox = {}
 
----@return enabler.T_async_frombox
+---@return df.enabler.T_async_frombox
 function df.enabler.T_async_frombox:new() end
 
 ---@class _enabler_async_frombox_vals: DFContainer
----@field [integer] enabler.T_async_frombox.T_vals
+---@field [integer] df.enabler.T_async_frombox.T_vals
 local _enabler_async_frombox_vals
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<enabler.T_async_frombox.T_vals>
+---@return DFPointer<df.enabler.T_async_frombox.T_vals>
 function _enabler_async_frombox_vals:_field(index) end
 
 ---@param index '#'|integer
----@param item enabler.T_async_frombox.T_vals
+---@param item df.enabler.T_async_frombox.T_vals
 function _enabler_async_frombox_vals:insert(index, item) end
 
 ---@param index integer
 function _enabler_async_frombox_vals:erase(index) end
 
----@class (exact) enabler.T_async_frombox.T_vals: DFStruct
----@field _type _enabler.T_async_frombox.T_vals
----@field msg enabler.T_async_frombox.T_vals.T_msg
+---@class (exact) df.enabler.T_async_frombox.T_vals: DFStruct
+---@field _type identity.enabler.async_frombox.vals
+---@field msg df.enabler.T_async_frombox.T_vals.T_msg
 ---@field fps number
 ---@field x number
 ---@field y number
 
----@class _enabler.T_async_frombox.T_vals: DFCompoundType
+---@class identity.enabler.async_frombox.vals: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_frombox.T_vals = {}
 
----@return enabler.T_async_frombox.T_vals
+---@return df.enabler.T_async_frombox.T_vals
 function df.enabler.T_async_frombox.T_vals:new() end
 
----@alias enabler.T_async_frombox.T_vals.T_msg
+---@alias df.enabler.T_async_frombox.T_vals.T_msg
 ---| 0 # quit
 ---| 1 # complete
 ---| 2 # set_fps
@@ -1040,7 +1040,7 @@ function df.enabler.T_async_frombox.T_vals:new() end
 ---| 5 # pop_resize
 ---| 6 # reset_textures
 
----@class _enabler.T_async_frombox.T_vals.T_msg: DFEnumType
+---@class identity.enabler.async_frombox.vals.msg: DFEnumType
 ---@field quit 0
 ---@field [0] "quit"
 ---@field complete 1
@@ -1057,65 +1057,65 @@ function df.enabler.T_async_frombox.T_vals:new() end
 ---@field [6] "reset_textures"
 df.enabler.T_async_frombox.T_vals.T_msg = {}
 
----@class (exact) enabler.T_async_zoom: DFStruct
----@field _type _enabler.T_async_zoom
----@field mtx stl-mutex
----@field cv stl-condition-variable
+---@class (exact) df.enabler.T_async_zoom: DFStruct
+---@field _type identity.enabler.async_zoom
+---@field mtx lightuserdata
+---@field cv lightuserdata
 ---@field vals _enabler_async_zoom_vals
 
----@class _enabler.T_async_zoom: DFCompoundType
+---@class identity.enabler.async_zoom: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_async_zoom = {}
 
----@return enabler.T_async_zoom
+---@return df.enabler.T_async_zoom
 function df.enabler.T_async_zoom:new() end
 
 ---@class _enabler_async_zoom_vals: DFContainer
----@field [integer] zoom_commands
+---@field [integer] df.zoom_commands
 local _enabler_async_zoom_vals
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<zoom_commands>
+---@return DFPointer<df.zoom_commands>
 function _enabler_async_zoom_vals:_field(index) end
 
 ---@param index '#'|integer
----@param item zoom_commands
+---@param item df.zoom_commands
 function _enabler_async_zoom_vals:insert(index, item) end
 
 ---@param index integer
 function _enabler_async_zoom_vals:erase(index) end
 
----@class enabler.T_flag: DFBitfield
----@field _enum _enabler.T_flag
+---@class df.enabler.T_flag: DFBitfield
+---@field _enum identity.enabler.flag
 ---@field render boolean
 ---@field [0] boolean
 ---@field maxfps boolean
 ---@field [1] boolean
 
----@class _enabler.T_flag: DFBitfieldType
+---@class identity.enabler.flag: DFBitfieldType
 ---@field render 0
 ---@field [0] "render"
 ---@field maxfps 1
 ---@field [1] "maxfps"
 df.enabler.T_flag = {}
 
----@class (exact) enabler.T_textures: DFStruct
----@field _type _enabler.T_textures
+---@class (exact) df.enabler.T_textures: DFStruct
+---@field _type identity.enabler.textures
 ---@field raws DFIntegerVector
 ---@field free_spaces DFNumberVector
 ---@field init_texture_size number
 ---@field uploaded boolean
 
----@class _enabler.T_textures: DFCompoundType
+---@class identity.enabler.textures: DFCompoundType
 ---@field _kind 'struct-type'
 df.enabler.T_textures = {}
 
----@return enabler.T_textures
+---@return df.enabler.T_textures
 function df.enabler.T_textures:new() end
 
 -- from libgraphics
----@alias justification
+---@alias df.justification
 ---| 0 # justify_left
 ---| 1 # justify_center
 ---| 2 # justify_right
@@ -1123,7 +1123,7 @@ function df.enabler.T_textures:new() end
 ---| 4 # not_truetype
 
 -- from libgraphics
----@class _justification: DFEnumType
+---@class identity.justification: DFEnumType
 ---@field justify_left 0
 ---@field [0] "justify_left"
 ---@field justify_center 1
@@ -1137,8 +1137,8 @@ function df.enabler.T_textures:new() end
 df.justification = {}
 
 -- texture_handler.h
----@class (exact) tile_pagest: DFStruct
----@field _type _tile_pagest
+---@class (exact) df.tile_pagest: DFStruct
+---@field _type identity.tile_pagest
 ---@field token string
 ---@field graphics_dir string
 ---@field filename string
@@ -1152,26 +1152,26 @@ df.justification = {}
 ---@field datapos_gs DFNumberVector
 ---@field loaded boolean
 
----@class _tile_pagest: DFCompoundType
+---@class identity.tile_pagest: DFCompoundType
 ---@field _kind 'struct-type'
 df.tile_pagest = {}
 
----@return tile_pagest
+---@return df.tile_pagest
 function df.tile_pagest:new() end
 
----@class (exact) palette_rowst: DFStruct
----@field _type _palette_rowst
+---@class (exact) df.palette_rowst: DFStruct
+---@field _type identity.palette_rowst
 ---@field row integer
 
----@class _palette_rowst: DFCompoundType
+---@class identity.palette_rowst: DFCompoundType
 ---@field _kind 'struct-type'
 df.palette_rowst = {}
 
----@return palette_rowst
+---@return df.palette_rowst
 function df.palette_rowst:new() end
 
----@class (exact) palette_pagest: DFStruct
----@field _type _palette_pagest
+---@class (exact) df.palette_pagest: DFStruct
+---@field _type identity.palette_pagest
 ---@field token string
 ---@field graphics_dir string
 ---@field filename string
@@ -1181,68 +1181,68 @@ function df.palette_rowst:new() end
 ---@field row _palette_pagest_row
 ---@field row_width number
 
----@class _palette_pagest: DFCompoundType
+---@class identity.palette_pagest: DFCompoundType
 ---@field _kind 'struct-type'
 df.palette_pagest = {}
 
----@return palette_pagest
+---@return df.palette_pagest
 function df.palette_pagest:new() end
 
 ---@class _palette_pagest_row: DFContainer
----@field [integer] palette_rowst
+---@field [integer] df.palette_rowst
 local _palette_pagest_row
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<palette_rowst>
+---@return DFPointer<df.palette_rowst>
 function _palette_pagest_row:_field(index) end
 
 ---@param index '#'|integer
----@param item palette_rowst
+---@param item df.palette_rowst
 function _palette_pagest_row:insert(index, item) end
 
 ---@param index integer
 function _palette_pagest_row:erase(index) end
 
----@class (exact) texture_handlerst: DFStruct
----@field _type _texture_handlerst
+---@class (exact) df.texture_handlerst: DFStruct
+---@field _type identity.texture_handlerst
 ---@field page _texture_handlerst_page
 ---@field palette _texture_handlerst_palette
 
----@class _texture_handlerst: DFCompoundType
+---@class identity.texture_handlerst: DFCompoundType
 ---@field _kind 'struct-type'
 df.texture_handlerst = {}
 
----@return texture_handlerst
+---@return df.texture_handlerst
 function df.texture_handlerst:new() end
 
 ---@class _texture_handlerst_page: DFContainer
----@field [integer] tile_pagest
+---@field [integer] df.tile_pagest
 local _texture_handlerst_page
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<tile_pagest>
+---@return DFPointer<df.tile_pagest>
 function _texture_handlerst_page:_field(index) end
 
 ---@param index '#'|integer
----@param item tile_pagest
+---@param item df.tile_pagest
 function _texture_handlerst_page:insert(index, item) end
 
 ---@param index integer
 function _texture_handlerst_page:erase(index) end
 
 ---@class _texture_handlerst_palette: DFContainer
----@field [integer] palette_pagest
+---@field [integer] df.palette_pagest
 local _texture_handlerst_palette
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<palette_pagest>
+---@return DFPointer<df.palette_pagest>
 function _texture_handlerst_palette:_field(index) end
 
 ---@param index '#'|integer
----@param item palette_pagest
+---@param item df.palette_pagest
 function _texture_handlerst_palette:insert(index, item) end
 
 ---@param index integer

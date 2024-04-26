@@ -2,8 +2,8 @@
 ---@meta
 
 -- MISC TYPES
----@class item_flags: DFBitfield
----@field _enum _item_flags
+---@class df.item_flags: DFBitfield
+---@field _enum identity.item_flags
 ---@field on_ground boolean Item on ground
 ---@field [0] boolean Item on ground
 ---@field in_job boolean Item currently being used in a job
@@ -67,7 +67,7 @@
 ---@field from_worldgen boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 ---@field [31] boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 
----@class _item_flags: DFBitfieldType
+---@class identity.item_flags: DFBitfieldType
 ---@field on_ground 0 Item on ground
 ---@field [0] "on_ground" Item on ground
 ---@field in_job 1 Item currently being used in a job
@@ -130,8 +130,8 @@
 ---@field [31] "from_worldgen" bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 df.item_flags = {}
 
----@class item_flags2: DFBitfield
----@field _enum _item_flags2
+---@class df.item_flags2: DFBitfield
+---@field _enum identity.item_flags2
 ---@field has_rider boolean vehicle with a rider
 ---@field [0] boolean vehicle with a rider
 ---@field forbid_on_unretire boolean
@@ -145,7 +145,7 @@ df.item_flags = {}
 ---@field might_contain_artifact boolean
 ---@field [5] boolean
 
----@class _item_flags2: DFBitfieldType
+---@class identity.item_flags2: DFBitfieldType
 ---@field has_rider 0 vehicle with a rider
 ---@field [0] "has_rider" vehicle with a rider
 ---@field forbid_on_unretire 1
@@ -160,7 +160,7 @@ df.item_flags = {}
 ---@field [5] "might_contain_artifact"
 df.item_flags2 = {}
 
----@alias item_magicness_type
+---@alias df.item_magicness_type
 ---| 0 # Sparkle
 ---| 1 # AirWarped
 ---| 2 # Whistle
@@ -171,7 +171,7 @@ df.item_flags2 = {}
 ---| 7 # GrayHairs
 ---| 8 # RustlingLeaves
 
----@class _item_magicness_type: DFEnumType
+---@class identity.item_magicness_type: DFEnumType
 ---@field Sparkle 0
 ---@field [0] "Sparkle"
 ---@field AirWarped 1
@@ -192,81 +192,81 @@ df.item_flags2 = {}
 ---@field [8] "RustlingLeaves"
 df.item_magicness_type = {}
 
----@class (exact) item_magicness: DFStruct
----@field _type _item_magicness
----@field type item_magicness_type
+---@class (exact) df.item_magicness: DFStruct
+---@field _type identity.item_magicness
+---@field type df.item_magicness_type
 ---@field value number boosts item value by 50*this
 ---@field unk_1 number
 ---@field flags number 1=does not show up in item description or alter item value
 
----@class _item_magicness: DFCompoundType
+---@class identity.item_magicness: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_magicness = {}
 
----@return item_magicness
+---@return df.item_magicness
 function df.item_magicness:new() end
 
----@class (exact) temperaturest: DFStruct
----@field _type _temperaturest
+---@class (exact) df.temperaturest: DFStruct
+---@field _type identity.temperaturest
 ---@field whole integer seems like a convenient name
 ---@field fraction number
 
----@class _temperaturest: DFCompoundType
+---@class identity.temperaturest: DFCompoundType
 ---@field _kind 'struct-type'
 df.temperaturest = {}
 
----@return temperaturest
+---@return df.temperaturest
 function df.temperaturest:new() end
 
----@class (exact) spatter_common: DFStruct
----@field _type _spatter_common
+---@class (exact) df.spatter_common: DFStruct
+---@field _type identity.spatter_common
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field mat_state matter_state
----@field temperature temperaturest
+---@field mat_state df.matter_state
+---@field temperature df.temperaturest
 ---@field size number 1-24=spatter, 25-49=smear, 50-* = coating
----@field base_flags spatter_common.T_base_flags
+---@field base_flags df.spatter_common.T_base_flags
 
----@class _spatter_common: DFCompoundType
+---@class identity.spatter_common: DFCompoundType
 ---@field _kind 'struct-type'
 df.spatter_common = {}
 
----@return spatter_common
+---@return df.spatter_common
 function df.spatter_common:new() end
 
----@class spatter_common.T_base_flags: DFBitfield
----@field _enum _spatter_common.T_base_flags
+---@class df.spatter_common.T_base_flags: DFBitfield
+---@field _enum identity.spatter_common.base_flags
 ---@field evaporates boolean does not contaminate tile when washed away
 ---@field [0] boolean does not contaminate tile when washed away
 
----@class _spatter_common.T_base_flags: DFBitfieldType
+---@class identity.spatter_common.base_flags: DFBitfieldType
 ---@field evaporates 0 does not contaminate tile when washed away
 ---@field [0] "evaporates" does not contaminate tile when washed away
 df.spatter_common.T_base_flags = {}
 
----@class (exact) spatter: DFStruct, spatter_common
----@field _type _spatter
+---@class (exact) df.spatter: DFStruct, df.spatter_common
+---@field _type identity.spatter
 ---@field body_part_id number
----@field flags spatter.T_flags
+---@field flags df.spatter.T_flags
 
----@class _spatter: DFCompoundType
+---@class identity.spatter: DFCompoundType
 ---@field _kind 'struct-type'
 df.spatter = {}
 
----@return spatter
+---@return df.spatter
 function df.spatter:new() end
 
----@class spatter.T_flags: DFBitfield
----@field _enum _spatter.T_flags
+---@class df.spatter.T_flags: DFBitfield
+---@field _enum identity.spatter.flags
 ---@field water_soluble boolean
 ---@field [0] boolean
 
----@class _spatter.T_flags: DFBitfieldType
+---@class identity.spatter.flags: DFBitfieldType
 ---@field water_soluble 0
 ---@field [0] "water_soluble"
 df.spatter.T_flags = {}
 
----@alias item_quality
+---@alias df.item_quality
 ---| 0 # Ordinary
 ---| 1 # WellCrafted
 ---| 2 # FinelyCrafted
@@ -275,7 +275,7 @@ df.spatter.T_flags = {}
 ---| 5 # Masterful
 ---| 6 # Artifact
 
----@class _item_quality: DFEnumType
+---@class identity.item_quality: DFEnumType
 ---@field Ordinary 0
 ---@field [0] "Ordinary"
 ---@field WellCrafted 1
@@ -292,7 +292,7 @@ df.spatter.T_flags = {}
 ---@field [6] "Artifact"
 df.item_quality = {}
 
----@alias slab_engraving_type
+---@alias df.slab_engraving_type
 ---| -1 # Slab
 ---| 0 # Memorial
 ---| 1 # CraftShopSign
@@ -322,7 +322,7 @@ df.item_quality = {}
 ---| 25 # DemonIdentity
 ---| 26 # TavernSign
 
----@class _slab_engraving_type: DFEnumType
+---@class identity.slab_engraving_type: DFEnumType
 ---@field Slab -1
 ---@field [-1] "Slab"
 ---@field Memorial 0
@@ -381,7 +381,7 @@ df.item_quality = {}
 ---@field [26] "TavernSign"
 df.slab_engraving_type = {}
 
----@alias trade_good_purpose
+---@alias df.trade_good_purpose
 ---| -1 # NONE
 ---| 0 # MERCHANT
 ---| 1 # TRAVELER
@@ -401,7 +401,7 @@ df.slab_engraving_type = {}
 ---| 15 # TREASURE_ROOM
 ---| 16 # PILLAGE
 
----@class _trade_good_purpose: DFEnumType
+---@class identity.trade_good_purpose: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MERCHANT 0
@@ -441,11 +441,11 @@ df.slab_engraving_type = {}
 df.trade_good_purpose = {}
 
 -- CORE ITEM
----@class (exact) item: DFStruct
----@field _type _item
----@field pos coord
----@field flags item_flags
----@field flags2 item_flags2
+---@class (exact) df.item: DFStruct
+---@field _type identity.item
+---@field pos df.coord
+---@field flags df.item_flags
+---@field flags2 df.item_flags2
 ---@field age integer
 ---@field id number
 ---@field specific_refs _item_specific_refs
@@ -468,7 +468,7 @@ df.trade_good_purpose = {}
 ---@field weight_fraction number 1e-6
 local item
 
----@return item_type
+---@return df.item_type
 function item:getType() end
 
 ---@return number
@@ -532,7 +532,7 @@ function item:getVehicleID() end
 ---@return boolean
 function item:isAmmo() end
 
----@return item_stockpile_ref
+---@return df.item_stockpile_ref
 function item:getStockpile() end
 
 ---@return boolean
@@ -641,7 +641,7 @@ function item:setMaker() end
 
 function item:getCorpseInfo() end
 
----@return caste_body_info
+---@return df.caste_body_info
 function item:getBodyInfo() end
 
 ---@return DFPointer<integer>
@@ -702,7 +702,7 @@ function item:isLiveAnimal() end
 ---@return number
 function item:getVolume() end
 
----@return itemimprovement
+---@return df.itemimprovement
 function item:addImprovementFromJob() end
 
 ---@return boolean
@@ -751,10 +751,10 @@ function item:isPressed() end
 ---@return boolean
 function item:isAnimal() end
 
----@return item_quality
+---@return df.item_quality
 function item:assignQuality() end
 
----@return item_quality
+---@return df.item_quality
 function item:assignQuality2() end
 
 function item:notifyCreatedMasterwork() end
@@ -779,7 +779,7 @@ function item:isDamagedByHeat() end
 ---@return boolean
 function item:needTwoHandedWield() end
 
----@return item
+---@return df.item
 function item:splitStack() end
 
 ---@return boolean
@@ -1034,7 +1034,7 @@ function item:detachStockpileAssignment() end
 
 function item:removeStockpileAssignment() end
 
----@return item_stockpile_ref
+---@return df.item_stockpile_ref
 function item:getStockpile2() end
 
 function item:randomizeThreadImprovement() end
@@ -1060,7 +1060,7 @@ function item:calcUniformScore() end
 ---@return number
 function item:calcBaseUniformScore() end
 
----@return slab_engraving_type
+---@return df.slab_engraving_type
 function item:getSlabEngravingType() end
 
 ---@return number
@@ -1081,149 +1081,149 @@ function item:getGemShape() end
 function item:hasWriting() end
 
 
----@class _item: DFCompoundType
+---@class identity.item: DFCompoundType
 ---@field _kind 'class-type'
 df.item = {}
 
----@return item
+---@return df.item
 function df.item:new() end
 
 ---@param key number
----@return item|nil
+---@return df.item|nil
 function df.item.find(key) end
 
----@class item_vector: DFVector, { [integer]: item }
+---@class item_vector: DFVector, { [integer]: df.item }
 
 ---@return item_vector # df.global.world.items.all
 function df.item.get_vector() end
 
 ---@class _item_specific_refs: DFContainer
----@field [integer] specific_ref
+---@field [integer] df.specific_ref
 local _item_specific_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<specific_ref>
+---@return DFPointer<df.specific_ref>
 function _item_specific_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item specific_ref
+---@param item df.specific_ref
 function _item_specific_refs:insert(index, item) end
 
 ---@param index integer
 function _item_specific_refs:erase(index) end
 
 ---@class _item_general_refs: DFContainer
----@field [integer] general_ref
+---@field [integer] df.general_ref
 local _item_general_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<general_ref>
+---@return DFPointer<df.general_ref>
 function _item_general_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item general_ref
+---@param item df.general_ref
 function _item_general_refs:insert(index, item) end
 
 ---@param index integer
 function _item_general_refs:erase(index) end
 
 -- ACTUAL ITEM
----@class (exact) item_kill_info: DFStruct
----@field _type _item_kill_info
----@field targets historical_kills
+---@class (exact) df.item_kill_info: DFStruct
+---@field _type identity.item_kill_info
+---@field targets df.historical_kills
 ---@field slayers DFNumberVector Wielders
 ---@field slayer_kill_counts DFNumberVector
 
----@class _item_kill_info: DFCompoundType
+---@class identity.item_kill_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_kill_info = {}
 
----@return item_kill_info
+---@return df.item_kill_info
 function df.item_kill_info:new() end
 
----@class (exact) item_history_info: DFStruct
----@field _type _item_history_info
----@field kills item_kill_info
+---@class (exact) df.item_history_info: DFStruct
+---@field _type identity.item_history_info
+---@field kills df.item_kill_info
 ---@field attack_counter number increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter number naming weight 0.001
 
----@class _item_history_info: DFCompoundType
+---@class identity.item_history_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_history_info = {}
 
----@return item_history_info
+---@return df.item_history_info
 function df.item_history_info:new() end
 
----@class (exact) item_actual: DFStruct, item
----@field _type _item_actual
+---@class (exact) df.item_actual: DFStruct, df.item
+---@field _type identity.item_actual
 ---@field stack_size number
 ---@field history_info DFPointer<integer>
 ---@field magic DFPointer<integer>
 ---@field contaminants DFPointer<integer>
----@field temperature temperaturest
+---@field temperature df.temperaturest
 ---@field wear number
 ---@field wear_timer number counts up to 806400
 ---@field unk_1 number
 ---@field temp_updated_frame number
 
----@class _item_actual: DFCompoundType
+---@class identity.item_actual: DFCompoundType
 ---@field _kind 'class-type'
 df.item_actual = {}
 
----@return item_actual
+---@return df.item_actual
 function df.item_actual:new() end
 
 -- CRAFTED ITEM
----@class (exact) item_crafted: DFStruct, item_actual
----@field _type _item_crafted
+---@class (exact) df.item_crafted: DFStruct, df.item_actual
+---@field _type identity.item_crafted
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field maker_race number References: `creature_raw`
----@field quality item_quality
----@field skill_rating skill_rating at the moment of creation
+---@field quality df.item_quality
+---@field skill_rating df.skill_rating at the moment of creation
 ---@field maker number References: `historical_figure`
 ---@field masterpiece_event number References: `history_event`
 
----@class _item_crafted: DFCompoundType
+---@class identity.item_crafted: DFCompoundType
 ---@field _kind 'class-type'
 df.item_crafted = {}
 
----@return item_crafted
+---@return df.item_crafted
 function df.item_crafted:new() end
 
 -- CONSTRUCTED ITEM
----@class (exact) item_constructed: DFStruct, item_crafted
----@field _type _item_constructed
+---@class (exact) df.item_constructed: DFStruct, df.item_crafted
+---@field _type identity.item_constructed
 ---@field improvements _item_constructed_improvements
 
----@class _item_constructed: DFCompoundType
+---@class identity.item_constructed: DFCompoundType
 ---@field _kind 'class-type'
 df.item_constructed = {}
 
----@return item_constructed
+---@return df.item_constructed
 function df.item_constructed:new() end
 
 ---@class _item_constructed_improvements: DFContainer
----@field [integer] itemimprovement
+---@field [integer] df.itemimprovement
 local _item_constructed_improvements
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<itemimprovement>
+---@return DFPointer<df.itemimprovement>
 function _item_constructed_improvements:_field(index) end
 
 ---@param index '#'|integer
----@param item itemimprovement
+---@param item df.itemimprovement
 function _item_constructed_improvements:insert(index, item) end
 
 ---@param index integer
 function _item_constructed_improvements:erase(index) end
 
 -- BODY COMPONENT
----@class body_part_status: DFBitfield
----@field _enum _body_part_status
+---@class df.body_part_status: DFBitfield
+---@field _enum identity.body_part_status
 ---@field on_fire boolean
 ---@field [0] boolean
 ---@field missing boolean
@@ -1269,7 +1269,7 @@ function _item_constructed_improvements:erase(index) end
 ---@field gelded boolean set on GELDABLE body parts after a unit has been gelded
 ---@field [23] boolean set on GELDABLE body parts after a unit has been gelded
 
----@class _body_part_status: DFBitfieldType
+---@class identity.body_part_status: DFBitfieldType
 ---@field on_fire 0
 ---@field [0] "on_fire"
 ---@field missing 1
@@ -1316,22 +1316,22 @@ function _item_constructed_improvements:erase(index) end
 ---@field [23] "gelded" set on GELDABLE body parts after a unit has been gelded
 df.body_part_status = {}
 
----@class body_layer_status: DFBitfield
----@field _enum _body_layer_status
+---@class df.body_layer_status: DFBitfield
+---@field _enum identity.body_layer_status
 ---@field gone boolean
 ---@field [0] boolean
 ---@field leaking boolean
 ---@field [1] boolean
 
----@class _body_layer_status: DFBitfieldType
+---@class identity.body_layer_status: DFBitfieldType
 ---@field gone 0
 ---@field [0] "gone"
 ---@field leaking 1
 ---@field [1] "leaking"
 df.body_layer_status = {}
 
----@class (exact) body_component_info: DFStruct
----@field _type _body_component_info
+---@class (exact) df.body_component_info: DFStruct
+---@field _type identity.body_component_info
 ---@field body_part_status _body_component_info_body_part_status
 ---@field numbered_masks DFIntegerVector 1 bit per instance of a numbered body part
 ---@field nonsolid_remaining DFIntegerVector 0-100%
@@ -1341,47 +1341,47 @@ df.body_layer_status = {}
 ---@field layer_dent_fraction DFIntegerVector 0-10000
 ---@field layer_effect_fraction DFIntegerVector 0-1000000000
 
----@class _body_component_info: DFCompoundType
+---@class identity.body_component_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.body_component_info = {}
 
----@return body_component_info
+---@return df.body_component_info
 function df.body_component_info:new() end
 
 ---@class _body_component_info_body_part_status: DFContainer
----@field [integer] body_part_status
+---@field [integer] df.body_part_status
 local _body_component_info_body_part_status
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<body_part_status>
+---@return DFPointer<df.body_part_status>
 function _body_component_info_body_part_status:_field(index) end
 
 ---@param index '#'|integer
----@param item body_part_status
+---@param item df.body_part_status
 function _body_component_info_body_part_status:insert(index, item) end
 
 ---@param index integer
 function _body_component_info_body_part_status:erase(index) end
 
 ---@class _body_component_info_layer_status: DFContainer
----@field [integer] body_layer_status
+---@field [integer] df.body_layer_status
 local _body_component_info_layer_status
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<body_layer_status>
+---@return DFPointer<df.body_layer_status>
 function _body_component_info_layer_status:_field(index) end
 
 ---@param index '#'|integer
----@param item body_layer_status
+---@param item df.body_layer_status
 function _body_component_info_layer_status:insert(index, item) end
 
 ---@param index integer
 function _body_component_info_layer_status:erase(index) end
 
----@class (exact) body_size_info: DFStruct
----@field _type _body_size_info
+---@class (exact) df.body_size_info: DFStruct
+---@field _type identity.body_size_info
 ---@field size_cur number
 ---@field size_base number
 ---@field area_cur number size_cur^0.666
@@ -1389,14 +1389,14 @@ function _body_component_info_layer_status:erase(index) end
 ---@field length_cur number (size_cur*10000)^0.333
 ---@field length_base number (size_base*10000)^0.333
 
----@class _body_size_info: DFCompoundType
+---@class identity.body_size_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.body_size_info = {}
 
----@return body_size_info
+---@return df.body_size_info
 function df.body_size_info:new() end
 
----@alias corpse_material_type
+---@alias df.corpse_material_type
 ---| 0 # Plant
 ---| 1 # Silk
 ---| 2 # Leather
@@ -1409,7 +1409,7 @@ function df.body_size_info:new() end
 ---| 10 # HairWool
 ---| 11 # Yarn
 
----@class _corpse_material_type: DFEnumType
+---@class identity.corpse_material_type: DFEnumType
 ---@field Plant 0
 ---@field [0] "Plant"
 ---@field Silk 1
@@ -1434,18 +1434,18 @@ function df.body_size_info:new() end
 ---@field [11] "Yarn"
 df.corpse_material_type = {}
 
----@class (exact) item_body_component: DFStruct, item_actual
----@field _type _item_body_component
+---@class (exact) df.item_body_component: DFStruct, df.item_actual
+---@field _type identity.item_body_component
 ---@field race number References: `creature_raw`
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unit_id number References: `unit`
 ---@field caste number References: `caste_raw`
----@field sex pronoun_type
+---@field sex df.pronoun_type
 ---@field normal_race number unit.enemy.normal_race References: `creature_raw`
 ---@field normal_caste number unit.enemy.normal_caste References: `caste_raw`
 ---@field rot_timer number
 ---@field unk_8c number if zero, item is a generic instance of its race and caste; do not process unit id
----@field body item_body_component.T_body
+---@field body df.item_body_component.T_body
 ---@field size_modifier number =unit.appearance.size_modifier
 ---@field birth_year number
 ---@field birth_time number
@@ -1455,77 +1455,77 @@ df.corpse_material_type = {}
 ---@field birth_time_bias number
 ---@field death_year number
 ---@field death_time number
----@field appearance item_body_component.T_appearance
+---@field appearance df.item_body_component.T_appearance
 ---@field blood_count number
 ---@field stored_fat number
 ---@field hist_figure_id2 number References: `historical_figure`
 ---@field undead_unit_id number References: `unit`
 ---@field unit_id2 number References: `unit`
----@field corpse_flags item_body_component.T_corpse_flags
----@field material_amount DFEnumVector<corpse_material_type, number>
----@field bone1 item_body_component.T_bone1
----@field bone2 item_body_component.T_bone2
+---@field corpse_flags df.item_body_component.T_corpse_flags
+---@field material_amount DFEnumVector<df.corpse_material_type, number>
+---@field bone1 df.item_body_component.T_bone1
+---@field bone2 df.item_body_component.T_bone2
 
----@class _item_body_component: DFCompoundType
+---@class identity.item_body_component: DFCompoundType
 ---@field _kind 'class-type'
 df.item_body_component = {}
 
----@return item_body_component
+---@return df.item_body_component
 function df.item_body_component:new() end
 
----@class (exact) item_body_component.T_body: DFStruct
----@field _type _item_body_component.T_body
+---@class (exact) df.item_body_component.T_body: DFStruct
+---@field _type identity.item_body_component.body
 ---@field wounds _item_body_component_body_wounds
 ---@field unk_100 number[] unit.body.unk_39c
 ---@field wound_next_id number
----@field components body_component_info
----@field physical_attr_value DFEnumVector<physical_attribute_type, number>
----@field physical_attr_soft_demotion DFEnumVector<physical_attribute_type, number>
----@field size_info body_size_info
+---@field components df.body_component_info
+---@field physical_attr_value DFEnumVector<df.physical_attribute_type, number>
+---@field physical_attr_soft_demotion DFEnumVector<df.physical_attribute_type, number>
+---@field size_info df.body_size_info
 ---@field body_part_relsize DFNumberVector =unit.enemy.body_part_relsize
 ---@field body_modifiers DFNumberVector
 ---@field bp_modifiers DFNumberVector
 
----@class _item_body_component.T_body: DFCompoundType
+---@class identity.item_body_component.body: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_body = {}
 
----@return item_body_component.T_body
+---@return df.item_body_component.T_body
 function df.item_body_component.T_body:new() end
 
 ---@class _item_body_component_body_wounds: DFContainer
----@field [integer] unit_wound
+---@field [integer] df.unit_wound
 local _item_body_component_body_wounds
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<unit_wound>
+---@return DFPointer<df.unit_wound>
 function _item_body_component_body_wounds:_field(index) end
 
 ---@param index '#'|integer
----@param item unit_wound
+---@param item df.unit_wound
 function _item_body_component_body_wounds:insert(index, item) end
 
 ---@param index integer
 function _item_body_component_body_wounds:erase(index) end
 
----@class (exact) item_body_component.T_appearance: DFStruct
----@field _type _item_body_component.T_appearance
+---@class (exact) df.item_body_component.T_appearance: DFStruct
+---@field _type identity.item_body_component.appearance
 ---@field colors DFNumberVector
 ---@field tissue_style DFNumberVector
 ---@field tissue_style_civ_id DFNumberVector
 ---@field tissue_style_id DFNumberVector
 ---@field tissue_style_type DFNumberVector
 
----@class _item_body_component.T_appearance: DFCompoundType
+---@class identity.item_body_component.appearance: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_appearance = {}
 
----@return item_body_component.T_appearance
+---@return df.item_body_component.T_appearance
 function df.item_body_component.T_appearance:new() end
 
----@class item_body_component.T_corpse_flags: DFBitfield
----@field _enum _item_body_component.T_corpse_flags
+---@class df.item_body_component.T_corpse_flags: DFBitfield
+---@field _enum identity.item_body_component.corpse_flags
 ---@field unbutchered boolean
 ---@field [0] boolean
 ---@field plant boolean
@@ -1558,7 +1558,7 @@ function df.item_body_component.T_appearance:new() end
 ---@field yarn boolean
 ---@field [15] boolean
 
----@class _item_body_component.T_corpse_flags: DFBitfieldType
+---@class identity.item_body_component.corpse_flags: DFBitfieldType
 ---@field unbutchered 0
 ---@field [0] "unbutchered"
 ---@field plant 1
@@ -1591,32 +1591,32 @@ function df.item_body_component.T_appearance:new() end
 ---@field [15] "yarn"
 df.item_body_component.T_corpse_flags = {}
 
----@class (exact) item_body_component.T_bone1: DFStruct
----@field _type _item_body_component.T_bone1
+---@class (exact) df.item_body_component.T_bone1: DFStruct
+---@field _type identity.item_body_component.bone1
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_body_component.T_bone1: DFCompoundType
+---@class identity.item_body_component.bone1: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_bone1 = {}
 
----@return item_body_component.T_bone1
+---@return df.item_body_component.T_bone1
 function df.item_body_component.T_bone1:new() end
 
----@class (exact) item_body_component.T_bone2: DFStruct
----@field _type _item_body_component.T_bone2
+---@class (exact) df.item_body_component.T_bone2: DFStruct
+---@field _type identity.item_body_component.bone2
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_body_component.T_bone2: DFCompoundType
+---@class identity.item_body_component.bone2: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_body_component.T_bone2 = {}
 
----@return item_body_component.T_bone2
+---@return df.item_body_component.T_bone2
 function df.item_body_component.T_bone2:new() end
 
----@class (exact) item_corpsest: DFStruct, item_body_component
----@field _type _item_corpsest
+---@class (exact) df.item_corpsest: DFStruct, df.item_body_component
+---@field _type identity.item_corpsest
 ---@field unused_380 DFPointer<integer>
 ---@field unused_388 DFPointer<integer>
 ---@field unused_390 DFPointer<integer>
@@ -1624,42 +1624,42 @@ function df.item_body_component.T_bone2:new() end
 ---@field unused_39c number
 ---@field unused_3a0 number
 
----@class _item_corpsest: DFCompoundType
+---@class identity.item_corpsest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_corpsest = {}
 
----@return item_corpsest
+---@return df.item_corpsest
 function df.item_corpsest:new() end
 
----@class (exact) item_corpsepiecest: DFStruct, item_body_component
----@field _type _item_corpsepiecest
+---@class (exact) df.item_corpsepiecest: DFStruct, df.item_body_component
+---@field _type identity.item_corpsepiecest
 
----@class _item_corpsepiecest: DFCompoundType
+---@class identity.item_corpsepiecest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_corpsepiecest = {}
 
----@return item_corpsepiecest
+---@return df.item_corpsepiecest
 function df.item_corpsepiecest:new() end
 
 -- CRITTER
----@class (exact) item_critter: DFStruct, item_actual
----@field _type _item_critter
+---@class (exact) df.item_critter: DFStruct, df.item_actual
+---@field _type identity.item_critter
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field milk_timer number
 ---@field airdrown_timer number
----@field name language_name
+---@field name df.language_name
 
----@class _item_critter: DFCompoundType
+---@class identity.item_critter: DFCompoundType
 ---@field _kind 'class-type'
 df.item_critter = {}
 
----@return item_critter
+---@return df.item_critter
 function df.item_critter:new() end
 
 -- LIQUID/POWER
----@class item_matstate: DFBitfield
----@field _enum _item_matstate
+---@class df.item_matstate: DFBitfield
+---@field _enum identity.item_matstate
 ---@field no_auto_clean boolean isAutoClean returns false
 ---@field [0] boolean isAutoClean returns false
 ---@field pressed boolean
@@ -1667,7 +1667,7 @@ function df.item_critter:new() end
 ---@field paste boolean
 ---@field [2] boolean
 
----@class _item_matstate: DFBitfieldType
+---@class identity.item_matstate: DFBitfieldType
 ---@field no_auto_clean 0 isAutoClean returns false
 ---@field [0] "no_auto_clean" isAutoClean returns false
 ---@field pressed 1
@@ -1676,292 +1676,292 @@ function df.item_critter:new() end
 ---@field [2] "paste"
 df.item_matstate = {}
 
----@class (exact) item_liquipowder: DFStruct, item_actual
----@field _type _item_liquipowder
----@field mat_state item_matstate
+---@class (exact) df.item_liquipowder: DFStruct, df.item_actual
+---@field _type identity.item_liquipowder
+---@field mat_state df.item_matstate
 ---@field dimension number
 
----@class _item_liquipowder: DFCompoundType
+---@class identity.item_liquipowder: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquipowder = {}
 
----@return item_liquipowder
+---@return df.item_liquipowder
 function df.item_liquipowder:new() end
 
----@class (exact) item_liquid: DFStruct, item_liquipowder
----@field _type _item_liquid
+---@class (exact) df.item_liquid: DFStruct, df.item_liquipowder
+---@field _type identity.item_liquid
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_liquid: DFCompoundType
+---@class identity.item_liquid: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquid = {}
 
----@return item_liquid
+---@return df.item_liquid
 function df.item_liquid:new() end
 
----@class (exact) item_powder: DFStruct, item_liquipowder
----@field _type _item_powder
+---@class (exact) df.item_powder: DFStruct, df.item_liquipowder
+---@field _type identity.item_powder
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_powder: DFCompoundType
+---@class identity.item_powder: DFCompoundType
 ---@field _kind 'class-type'
 df.item_powder = {}
 
----@return item_powder
+---@return df.item_powder
 function df.item_powder:new() end
 
 -- MISC
----@class (exact) item_barst: DFStruct, item_actual
----@field _type _item_barst
+---@class (exact) df.item_barst: DFStruct, df.item_actual
+---@field _type identity.item_barst
 ---@field subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field dimension number
 
----@class _item_barst: DFCompoundType
+---@class identity.item_barst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_barst = {}
 
----@return item_barst
+---@return df.item_barst
 function df.item_barst:new() end
 
----@class (exact) item_smallgemst: DFStruct, item_actual
----@field _type _item_smallgemst
+---@class (exact) df.item_smallgemst: DFStruct, df.item_actual
+---@field _type identity.item_smallgemst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field shape number References: `descriptor_shape`
 
----@class _item_smallgemst: DFCompoundType
+---@class identity.item_smallgemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_smallgemst = {}
 
----@return item_smallgemst
+---@return df.item_smallgemst
 function df.item_smallgemst:new() end
 
----@class (exact) item_blocksst: DFStruct, item_actual
----@field _type _item_blocksst
+---@class (exact) df.item_blocksst: DFStruct, df.item_actual
+---@field _type identity.item_blocksst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_blocksst: DFCompoundType
+---@class identity.item_blocksst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_blocksst = {}
 
----@return item_blocksst
+---@return df.item_blocksst
 function df.item_blocksst:new() end
 
----@class (exact) item_roughst: DFStruct, item_actual
----@field _type _item_roughst
+---@class (exact) df.item_roughst: DFStruct, df.item_actual
+---@field _type identity.item_roughst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_roughst: DFCompoundType
+---@class identity.item_roughst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_roughst = {}
 
----@return item_roughst
+---@return df.item_roughst
 function df.item_roughst:new() end
 
----@class (exact) item_boulderst: DFStruct, item_actual
----@field _type _item_boulderst
+---@class (exact) df.item_boulderst: DFStruct, df.item_actual
+---@field _type identity.item_boulderst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_boulderst: DFCompoundType
+---@class identity.item_boulderst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_boulderst = {}
 
----@return item_boulderst
+---@return df.item_boulderst
 function df.item_boulderst:new() end
 
----@class (exact) item_woodst: DFStruct, item_actual
----@field _type _item_woodst
+---@class (exact) df.item_woodst: DFStruct, df.item_actual
+---@field _type identity.item_woodst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_woodst: DFCompoundType
+---@class identity.item_woodst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_woodst = {}
 
----@return item_woodst
+---@return df.item_woodst
 function df.item_woodst:new() end
 
----@class (exact) item_branchst: DFStruct, item_actual
----@field _type _item_branchst
+---@class (exact) df.item_branchst: DFStruct, df.item_actual
+---@field _type identity.item_branchst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _item_branchst: DFCompoundType
+---@class identity.item_branchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_branchst = {}
 
----@return item_branchst
+---@return df.item_branchst
 function df.item_branchst:new() end
 
----@class (exact) item_rockst: DFStruct, item_actual
----@field _type _item_rockst
+---@class (exact) df.item_rockst: DFStruct, df.item_actual
+---@field _type identity.item_rockst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field sharpness number
 ---@field unk_84 number
 
----@class _item_rockst: DFCompoundType
+---@class identity.item_rockst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_rockst = {}
 
----@return item_rockst
+---@return df.item_rockst
 function df.item_rockst:new() end
 
----@class (exact) item_seedsst: DFStruct, item_actual
----@field _type _item_seedsst
+---@class (exact) df.item_seedsst: DFStruct, df.item_actual
+---@field _type identity.item_seedsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field grow_counter number
 ---@field planting_skill number
 
----@class _item_seedsst: DFCompoundType
+---@class identity.item_seedsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_seedsst = {}
 
----@return item_seedsst
+---@return df.item_seedsst
 function df.item_seedsst:new() end
 
----@class (exact) item_skin_tannedst: DFStruct, item_actual
----@field _type _item_skin_tannedst
+---@class (exact) df.item_skin_tannedst: DFStruct, df.item_actual
+---@field _type identity.item_skin_tannedst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_80 number
 
----@class _item_skin_tannedst: DFCompoundType
+---@class identity.item_skin_tannedst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_skin_tannedst = {}
 
----@return item_skin_tannedst
+---@return df.item_skin_tannedst
 function df.item_skin_tannedst:new() end
 
----@class (exact) item_meatst: DFStruct, item_actual
----@field _type _item_meatst
+---@class (exact) df.item_meatst: DFStruct, df.item_actual
+---@field _type identity.item_meatst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_meatst: DFCompoundType
+---@class identity.item_meatst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_meatst = {}
 
----@return item_meatst
+---@return df.item_meatst
 function df.item_meatst:new() end
 
----@class (exact) item_plantst: DFStruct, item_actual
----@field _type _item_plantst
+---@class (exact) df.item_plantst: DFStruct, df.item_actual
+---@field _type identity.item_plantst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_plantst: DFCompoundType
+---@class identity.item_plantst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_plantst = {}
 
----@return item_plantst
+---@return df.item_plantst
 function df.item_plantst:new() end
 
----@class (exact) item_plant_growthst: DFStruct, item_actual
----@field _type _item_plant_growthst
+---@class (exact) df.item_plant_growthst: DFStruct, df.item_actual
+---@field _type identity.item_plant_growthst
 ---@field subtype number
 ---@field growth_print number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_plant_growthst: DFCompoundType
+---@class identity.item_plant_growthst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_plant_growthst = {}
 
----@return item_plant_growthst
+---@return df.item_plant_growthst
 function df.item_plant_growthst:new() end
 
----@class (exact) item_cheesest: DFStruct, item_actual
----@field _type _item_cheesest
+---@class (exact) df.item_cheesest: DFStruct, df.item_actual
+---@field _type identity.item_cheesest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
 
----@class _item_cheesest: DFCompoundType
+---@class identity.item_cheesest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cheesest = {}
 
----@return item_cheesest
+---@return df.item_cheesest
 function df.item_cheesest:new() end
 
----@class (exact) item_globst: DFStruct, item_actual
----@field _type _item_globst
+---@class (exact) df.item_globst: DFStruct, df.item_actual
+---@field _type identity.item_globst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
----@field mat_state item_matstate
+---@field mat_state df.item_matstate
 ---@field dimension number
 
----@class _item_globst: DFCompoundType
+---@class identity.item_globst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_globst = {}
 
----@return item_globst
+---@return df.item_globst
 function df.item_globst:new() end
 
----@class (exact) item_remainsst: DFStruct, item_actual
----@field _type _item_remainsst
+---@class (exact) df.item_remainsst: DFStruct, df.item_actual
+---@field _type identity.item_remainsst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
 
----@class _item_remainsst: DFCompoundType
+---@class identity.item_remainsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_remainsst = {}
 
----@return item_remainsst
+---@return df.item_remainsst
 function df.item_remainsst:new() end
 
----@class (exact) item_fishst: DFStruct, item_actual
----@field _type _item_fishst
+---@class (exact) df.item_fishst: DFStruct, df.item_actual
+---@field _type identity.item_fishst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
 
----@class _item_fishst: DFCompoundType
+---@class identity.item_fishst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_fishst = {}
 
----@return item_fishst
+---@return df.item_fishst
 function df.item_fishst:new() end
 
----@class (exact) item_fish_rawst: DFStruct, item_actual
----@field _type _item_fish_rawst
+---@class (exact) df.item_fish_rawst: DFStruct, df.item_actual
+---@field _type identity.item_fish_rawst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
 
----@class _item_fish_rawst: DFCompoundType
+---@class identity.item_fish_rawst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_fish_rawst = {}
 
----@return item_fish_rawst
+---@return df.item_fish_rawst
 function df.item_fish_rawst:new() end
 
----@class (exact) item_foodst: DFStruct, item_crafted
----@field _type _item_foodst
----@field subtype itemdef_foodst
+---@class (exact) df.item_foodst: DFStruct, df.item_crafted
+---@field _type identity.item_foodst
+---@field subtype df.itemdef_foodst
 ---@field entity number References: `historical_entity`
 ---@field recipe_id number
 ---@field ingredients _item_foodst_ingredients
 ---@field rot_timer number
 
----@class _item_foodst: DFCompoundType
+---@class identity.item_foodst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_foodst = {}
 
----@return item_foodst
+---@return df.item_foodst
 function df.item_foodst:new() end
 
 ---@class _item_foodst_ingredients: DFContainer
@@ -1980,71 +1980,71 @@ function _item_foodst_ingredients:insert(index, item) end
 ---@param index integer
 function _item_foodst_ingredients:erase(index) end
 
----@class (exact) item_verminst: DFStruct, item_critter
----@field _type _item_verminst
+---@class (exact) df.item_verminst: DFStruct, df.item_critter
+---@field _type identity.item_verminst
 
----@class _item_verminst: DFCompoundType
+---@class identity.item_verminst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_verminst = {}
 
----@return item_verminst
+---@return df.item_verminst
 function df.item_verminst:new() end
 
----@class (exact) item_petst: DFStruct, item_critter
----@field _type _item_petst
+---@class (exact) df.item_petst: DFStruct, df.item_critter
+---@field _type identity.item_petst
 ---@field owner_id number References: `unit`
----@field pet_flags item_petst.T_pet_flags
+---@field pet_flags df.item_petst.T_pet_flags
 
----@class _item_petst: DFCompoundType
+---@class identity.item_petst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_petst = {}
 
----@return item_petst
+---@return df.item_petst
 function df.item_petst:new() end
 
----@class item_petst.T_pet_flags: DFBitfield
----@field _enum _item_petst.T_pet_flags
+---@class df.item_petst.T_pet_flags: DFBitfield
+---@field _enum identity.item_petst.pet_flags
 ---@field available_for_adoption boolean
 ---@field [0] boolean
 
----@class _item_petst.T_pet_flags: DFBitfieldType
+---@class identity.item_petst.pet_flags: DFBitfieldType
 ---@field available_for_adoption 0
 ---@field [0] "available_for_adoption"
 df.item_petst.T_pet_flags = {}
 
----@class (exact) item_drinkst: DFStruct, item_liquid
----@field _type _item_drinkst
+---@class (exact) df.item_drinkst: DFStruct, df.item_liquid
+---@field _type identity.item_drinkst
 
----@class _item_drinkst: DFCompoundType
+---@class identity.item_drinkst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_drinkst = {}
 
----@return item_drinkst
+---@return df.item_drinkst
 function df.item_drinkst:new() end
 
----@class (exact) item_powder_miscst: DFStruct, item_powder
----@field _type _item_powder_miscst
+---@class (exact) df.item_powder_miscst: DFStruct, df.item_powder
+---@field _type identity.item_powder_miscst
 
----@class _item_powder_miscst: DFCompoundType
+---@class identity.item_powder_miscst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_powder_miscst = {}
 
----@return item_powder_miscst
+---@return df.item_powder_miscst
 function df.item_powder_miscst:new() end
 
----@class (exact) item_liquid_miscst: DFStruct, item_liquid
----@field _type _item_liquid_miscst
+---@class (exact) df.item_liquid_miscst: DFStruct, df.item_liquid
+---@field _type identity.item_liquid_miscst
 ---@field unk_88 number
 
----@class _item_liquid_miscst: DFCompoundType
+---@class identity.item_liquid_miscst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_liquid_miscst = {}
 
----@return item_liquid_miscst
+---@return df.item_liquid_miscst
 function df.item_liquid_miscst:new() end
 
----@class (exact) item_threadst: DFStruct, item_actual
----@field _type _item_threadst
+---@class (exact) df.item_threadst: DFStruct, df.item_actual
+---@field _type identity.item_threadst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field dye_mat_type number References: `material`
@@ -2057,514 +2057,514 @@ function df.item_liquid_miscst:new() end
 ---@field unk_98 number
 ---@field dimension number
 
----@class _item_threadst: DFCompoundType
+---@class identity.item_threadst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_threadst = {}
 
----@return item_threadst
+---@return df.item_threadst
 function df.item_threadst:new() end
 
----@class (exact) item_eggst: DFStruct, item_actual
----@field _type _item_eggst
+---@class (exact) df.item_eggst: DFStruct, df.item_actual
+---@field _type identity.item_eggst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
----@field egg_materials material_vec_ref
----@field egg_flags item_eggst.T_egg_flags
+---@field egg_materials df.material_vec_ref
+---@field egg_flags df.item_eggst.T_egg_flags
 ---@field incubation_counter number increments when fertile in unforbidden nestbox, hatch at >= 100800 (3 months)
 ---@field hatchling_civ_id number hatchlings will have this civ_id References: `historical_entity`
 ---@field hatchling_population_id number hatchlings will have this population_id References: `entity_population`
 ---@field hatchling_unit_unk_c0 number hatchlings will have this unit.unk_c0 value
 ---@field unk_2 number
----@field mothers_genes unit_genes position uncertain
+---@field mothers_genes df.unit_genes position uncertain
 ---@field mothers_caste number References: `caste_raw`
 ---@field unk_3 number
----@field fathers_genes unit_genes object owned by egg item
+---@field fathers_genes df.unit_genes object owned by egg item
 ---@field fathers_caste number -1 if no father genes References: `caste_raw`
 ---@field unk_4 number
----@field hatchling_flags1 unit_flags1 used primarily for bit_flag:tame
----@field hatchling_flags2 unit_flags2 used primarily for bit_flag:roaming_wilderness_population_source
----@field hatchling_flags3 unit_flags3 not normally used, most/all do not stick
+---@field hatchling_flags1 df.unit_flags1 used primarily for bit_flag:tame
+---@field hatchling_flags2 df.unit_flags2 used primarily for bit_flag:roaming_wilderness_population_source
+---@field hatchling_flags3 df.unit_flags3 not normally used, most/all do not stick
 ---@field unk_v42_1 number
----@field hatchling_training_level animal_training_level
----@field hatchling_animal_population world_population_ref
+---@field hatchling_training_level df.animal_training_level
+---@field hatchling_animal_population df.world_population_ref
 ---@field hatchling_mother_id number References: `unit`
 ---@field size number
 
----@class _item_eggst: DFCompoundType
+---@class identity.item_eggst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_eggst = {}
 
----@return item_eggst
+---@return df.item_eggst
 function df.item_eggst:new() end
 
----@class item_eggst.T_egg_flags: DFBitfield
----@field _enum _item_eggst.T_egg_flags
+---@class df.item_eggst.T_egg_flags: DFBitfield
+---@field _enum identity.item_eggst.egg_flags
 ---@field fertile boolean allows the incubation_counter to be checked/incremented
 ---@field [0] boolean allows the incubation_counter to be checked/incremented
 
----@class _item_eggst.T_egg_flags: DFBitfieldType
+---@class identity.item_eggst.egg_flags: DFBitfieldType
 ---@field fertile 0 allows the incubation_counter to be checked/incremented
 ---@field [0] "fertile" allows the incubation_counter to be checked/incremented
 df.item_eggst.T_egg_flags = {}
 
 -- CONSTRUCTED
----@class (exact) item_doorst: DFStruct, item_constructed
----@field _type _item_doorst
+---@class (exact) df.item_doorst: DFStruct, df.item_constructed
+---@field _type identity.item_doorst
 
----@class _item_doorst: DFCompoundType
+---@class identity.item_doorst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_doorst = {}
 
----@return item_doorst
+---@return df.item_doorst
 function df.item_doorst:new() end
 
----@class (exact) item_floodgatest: DFStruct, item_constructed
----@field _type _item_floodgatest
+---@class (exact) df.item_floodgatest: DFStruct, df.item_constructed
+---@field _type identity.item_floodgatest
 
----@class _item_floodgatest: DFCompoundType
+---@class identity.item_floodgatest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_floodgatest = {}
 
----@return item_floodgatest
+---@return df.item_floodgatest
 function df.item_floodgatest:new() end
 
----@class (exact) item_bedst: DFStruct, item_constructed
----@field _type _item_bedst
+---@class (exact) df.item_bedst: DFStruct, df.item_constructed
+---@field _type identity.item_bedst
 
----@class _item_bedst: DFCompoundType
+---@class identity.item_bedst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bedst = {}
 
----@return item_bedst
+---@return df.item_bedst
 function df.item_bedst:new() end
 
----@class (exact) item_chairst: DFStruct, item_constructed
----@field _type _item_chairst
+---@class (exact) df.item_chairst: DFStruct, df.item_constructed
+---@field _type identity.item_chairst
 
----@class _item_chairst: DFCompoundType
+---@class identity.item_chairst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_chairst = {}
 
----@return item_chairst
+---@return df.item_chairst
 function df.item_chairst:new() end
 
----@class (exact) item_chainst: DFStruct, item_constructed
----@field _type _item_chainst
+---@class (exact) df.item_chainst: DFStruct, df.item_constructed
+---@field _type identity.item_chainst
 
----@class _item_chainst: DFCompoundType
+---@class identity.item_chainst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_chainst = {}
 
----@return item_chainst
+---@return df.item_chainst
 function df.item_chainst:new() end
 
----@class (exact) item_flaskst: DFStruct, item_constructed
----@field _type _item_flaskst
+---@class (exact) df.item_flaskst: DFStruct, df.item_constructed
+---@field _type identity.item_flaskst
 
----@class _item_flaskst: DFCompoundType
+---@class identity.item_flaskst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_flaskst = {}
 
----@return item_flaskst
+---@return df.item_flaskst
 function df.item_flaskst:new() end
 
----@class (exact) item_gobletst: DFStruct, item_constructed
----@field _type _item_gobletst
+---@class (exact) df.item_gobletst: DFStruct, df.item_constructed
+---@field _type identity.item_gobletst
 
----@class _item_gobletst: DFCompoundType
+---@class identity.item_gobletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gobletst = {}
 
----@return item_gobletst
+---@return df.item_gobletst
 function df.item_gobletst:new() end
 
----@class (exact) item_windowst: DFStruct, item_constructed
----@field _type _item_windowst
+---@class (exact) df.item_windowst: DFStruct, df.item_constructed
+---@field _type identity.item_windowst
 
----@class _item_windowst: DFCompoundType
+---@class identity.item_windowst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_windowst = {}
 
----@return item_windowst
+---@return df.item_windowst
 function df.item_windowst:new() end
 
----@class (exact) item_cagest: DFStruct, item_constructed
----@field _type _item_cagest
+---@class (exact) df.item_cagest: DFStruct, df.item_constructed
+---@field _type identity.item_cagest
 
----@class _item_cagest: DFCompoundType
+---@class identity.item_cagest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cagest = {}
 
----@return item_cagest
+---@return df.item_cagest
 function df.item_cagest:new() end
 
----@class (exact) item_bucketst: DFStruct, item_constructed
----@field _type _item_bucketst
+---@class (exact) df.item_bucketst: DFStruct, df.item_constructed
+---@field _type identity.item_bucketst
 
----@class _item_bucketst: DFCompoundType
+---@class identity.item_bucketst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bucketst = {}
 
----@return item_bucketst
+---@return df.item_bucketst
 function df.item_bucketst:new() end
 
----@class (exact) item_animaltrapst: DFStruct, item_constructed
----@field _type _item_animaltrapst
+---@class (exact) df.item_animaltrapst: DFStruct, df.item_constructed
+---@field _type identity.item_animaltrapst
 
----@class _item_animaltrapst: DFCompoundType
+---@class identity.item_animaltrapst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_animaltrapst = {}
 
----@return item_animaltrapst
+---@return df.item_animaltrapst
 function df.item_animaltrapst:new() end
 
----@class (exact) item_tablest: DFStruct, item_constructed
----@field _type _item_tablest
+---@class (exact) df.item_tablest: DFStruct, df.item_constructed
+---@field _type identity.item_tablest
 
----@class _item_tablest: DFCompoundType
+---@class identity.item_tablest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_tablest = {}
 
----@return item_tablest
+---@return df.item_tablest
 function df.item_tablest:new() end
 
----@class (exact) item_coffinst: DFStruct, item_constructed
----@field _type _item_coffinst
+---@class (exact) df.item_coffinst: DFStruct, df.item_constructed
+---@field _type identity.item_coffinst
 
----@class _item_coffinst: DFCompoundType
+---@class identity.item_coffinst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_coffinst = {}
 
----@return item_coffinst
+---@return df.item_coffinst
 function df.item_coffinst:new() end
 
----@class (exact) item_bagst: DFStruct, item_constructed
----@field _type _item_bagst
+---@class (exact) df.item_bagst: DFStruct, df.item_constructed
+---@field _type identity.item_bagst
 
----@class _item_bagst: DFCompoundType
+---@class identity.item_bagst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bagst = {}
 
----@return item_bagst
+---@return df.item_bagst
 function df.item_bagst:new() end
 
----@class (exact) item_boxst: DFStruct, item_constructed
----@field _type _item_boxst
+---@class (exact) df.item_boxst: DFStruct, df.item_constructed
+---@field _type identity.item_boxst
 
----@class _item_boxst: DFCompoundType
+---@class identity.item_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_boxst = {}
 
----@return item_boxst
+---@return df.item_boxst
 function df.item_boxst:new() end
 
----@class (exact) item_armorstandst: DFStruct, item_constructed
----@field _type _item_armorstandst
+---@class (exact) df.item_armorstandst: DFStruct, df.item_constructed
+---@field _type identity.item_armorstandst
 
----@class _item_armorstandst: DFCompoundType
+---@class identity.item_armorstandst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_armorstandst = {}
 
----@return item_armorstandst
+---@return df.item_armorstandst
 function df.item_armorstandst:new() end
 
----@class (exact) item_weaponrackst: DFStruct, item_constructed
----@field _type _item_weaponrackst
+---@class (exact) df.item_weaponrackst: DFStruct, df.item_constructed
+---@field _type identity.item_weaponrackst
 
----@class _item_weaponrackst: DFCompoundType
+---@class identity.item_weaponrackst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_weaponrackst = {}
 
----@return item_weaponrackst
+---@return df.item_weaponrackst
 function df.item_weaponrackst:new() end
 
----@class (exact) item_cabinetst: DFStruct, item_constructed
----@field _type _item_cabinetst
+---@class (exact) df.item_cabinetst: DFStruct, df.item_constructed
+---@field _type identity.item_cabinetst
 
----@class _item_cabinetst: DFCompoundType
+---@class identity.item_cabinetst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_cabinetst = {}
 
----@return item_cabinetst
+---@return df.item_cabinetst
 function df.item_cabinetst:new() end
 
----@class (exact) item_amuletst: DFStruct, item_constructed
----@field _type _item_amuletst
+---@class (exact) df.item_amuletst: DFStruct, df.item_constructed
+---@field _type identity.item_amuletst
 
----@class _item_amuletst: DFCompoundType
+---@class identity.item_amuletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_amuletst = {}
 
----@return item_amuletst
+---@return df.item_amuletst
 function df.item_amuletst:new() end
 
----@class (exact) item_scepterst: DFStruct, item_constructed
----@field _type _item_scepterst
+---@class (exact) df.item_scepterst: DFStruct, df.item_constructed
+---@field _type identity.item_scepterst
 
----@class _item_scepterst: DFCompoundType
+---@class identity.item_scepterst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_scepterst = {}
 
----@return item_scepterst
+---@return df.item_scepterst
 function df.item_scepterst:new() end
 
----@class (exact) item_crownst: DFStruct, item_constructed
----@field _type _item_crownst
+---@class (exact) df.item_crownst: DFStruct, df.item_constructed
+---@field _type identity.item_crownst
 
----@class _item_crownst: DFCompoundType
+---@class identity.item_crownst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_crownst = {}
 
----@return item_crownst
+---@return df.item_crownst
 function df.item_crownst:new() end
 
----@class (exact) item_ringst: DFStruct, item_constructed
----@field _type _item_ringst
+---@class (exact) df.item_ringst: DFStruct, df.item_constructed
+---@field _type identity.item_ringst
 
----@class _item_ringst: DFCompoundType
+---@class identity.item_ringst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ringst = {}
 
----@return item_ringst
+---@return df.item_ringst
 function df.item_ringst:new() end
 
----@class (exact) item_earringst: DFStruct, item_constructed
----@field _type _item_earringst
+---@class (exact) df.item_earringst: DFStruct, df.item_constructed
+---@field _type identity.item_earringst
 
----@class _item_earringst: DFCompoundType
+---@class identity.item_earringst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_earringst = {}
 
----@return item_earringst
+---@return df.item_earringst
 function df.item_earringst:new() end
 
----@class (exact) item_braceletst: DFStruct, item_constructed
----@field _type _item_braceletst
+---@class (exact) df.item_braceletst: DFStruct, df.item_constructed
+---@field _type identity.item_braceletst
 
----@class _item_braceletst: DFCompoundType
+---@class identity.item_braceletst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_braceletst = {}
 
----@return item_braceletst
+---@return df.item_braceletst
 function df.item_braceletst:new() end
 
----@class (exact) item_anvilst: DFStruct, item_constructed
----@field _type _item_anvilst
+---@class (exact) df.item_anvilst: DFStruct, df.item_constructed
+---@field _type identity.item_anvilst
 
----@class _item_anvilst: DFCompoundType
+---@class identity.item_anvilst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_anvilst = {}
 
----@return item_anvilst
+---@return df.item_anvilst
 function df.item_anvilst:new() end
 
----@class (exact) item_backpackst: DFStruct, item_constructed
----@field _type _item_backpackst
+---@class (exact) df.item_backpackst: DFStruct, df.item_constructed
+---@field _type identity.item_backpackst
 
----@class _item_backpackst: DFCompoundType
+---@class identity.item_backpackst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_backpackst = {}
 
----@return item_backpackst
+---@return df.item_backpackst
 function df.item_backpackst:new() end
 
----@class (exact) item_quiverst: DFStruct, item_constructed
----@field _type _item_quiverst
+---@class (exact) df.item_quiverst: DFStruct, df.item_constructed
+---@field _type identity.item_quiverst
 
----@class _item_quiverst: DFCompoundType
+---@class identity.item_quiverst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_quiverst = {}
 
----@return item_quiverst
+---@return df.item_quiverst
 function df.item_quiverst:new() end
 
----@class (exact) item_catapultpartsst: DFStruct, item_constructed
----@field _type _item_catapultpartsst
+---@class (exact) df.item_catapultpartsst: DFStruct, df.item_constructed
+---@field _type identity.item_catapultpartsst
 
----@class _item_catapultpartsst: DFCompoundType
+---@class identity.item_catapultpartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_catapultpartsst = {}
 
----@return item_catapultpartsst
+---@return df.item_catapultpartsst
 function df.item_catapultpartsst:new() end
 
----@class (exact) item_ballistapartsst: DFStruct, item_constructed
----@field _type _item_ballistapartsst
+---@class (exact) df.item_ballistapartsst: DFStruct, df.item_constructed
+---@field _type identity.item_ballistapartsst
 
----@class _item_ballistapartsst: DFCompoundType
+---@class identity.item_ballistapartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ballistapartsst = {}
 
----@return item_ballistapartsst
+---@return df.item_ballistapartsst
 function df.item_ballistapartsst:new() end
 
----@class (exact) item_trappartsst: DFStruct, item_constructed
----@field _type _item_trappartsst
+---@class (exact) df.item_trappartsst: DFStruct, df.item_constructed
+---@field _type identity.item_trappartsst
 
----@class _item_trappartsst: DFCompoundType
+---@class identity.item_trappartsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_trappartsst = {}
 
----@return item_trappartsst
+---@return df.item_trappartsst
 function df.item_trappartsst:new() end
 
----@class (exact) item_pipe_sectionst: DFStruct, item_constructed
----@field _type _item_pipe_sectionst
+---@class (exact) df.item_pipe_sectionst: DFStruct, df.item_constructed
+---@field _type identity.item_pipe_sectionst
 
----@class _item_pipe_sectionst: DFCompoundType
+---@class identity.item_pipe_sectionst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_pipe_sectionst = {}
 
----@return item_pipe_sectionst
+---@return df.item_pipe_sectionst
 function df.item_pipe_sectionst:new() end
 
----@class (exact) item_hatch_coverst: DFStruct, item_constructed
----@field _type _item_hatch_coverst
+---@class (exact) df.item_hatch_coverst: DFStruct, df.item_constructed
+---@field _type identity.item_hatch_coverst
 
----@class _item_hatch_coverst: DFCompoundType
+---@class identity.item_hatch_coverst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_hatch_coverst = {}
 
----@return item_hatch_coverst
+---@return df.item_hatch_coverst
 function df.item_hatch_coverst:new() end
 
----@class (exact) item_gratest: DFStruct, item_constructed
----@field _type _item_gratest
+---@class (exact) df.item_gratest: DFStruct, df.item_constructed
+---@field _type identity.item_gratest
 
----@class _item_gratest: DFCompoundType
+---@class identity.item_gratest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gratest = {}
 
----@return item_gratest
+---@return df.item_gratest
 function df.item_gratest:new() end
 
----@class (exact) item_quernst: DFStruct, item_constructed
----@field _type _item_quernst
+---@class (exact) df.item_quernst: DFStruct, df.item_constructed
+---@field _type identity.item_quernst
 
----@class _item_quernst: DFCompoundType
+---@class identity.item_quernst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_quernst = {}
 
----@return item_quernst
+---@return df.item_quernst
 function df.item_quernst:new() end
 
----@class (exact) item_millstonest: DFStruct, item_constructed
----@field _type _item_millstonest
+---@class (exact) df.item_millstonest: DFStruct, df.item_constructed
+---@field _type identity.item_millstonest
 
----@class _item_millstonest: DFCompoundType
+---@class identity.item_millstonest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_millstonest = {}
 
----@return item_millstonest
+---@return df.item_millstonest
 function df.item_millstonest:new() end
 
----@class (exact) item_splintst: DFStruct, item_constructed
----@field _type _item_splintst
+---@class (exact) df.item_splintst: DFStruct, df.item_constructed
+---@field _type identity.item_splintst
 
----@class _item_splintst: DFCompoundType
+---@class identity.item_splintst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_splintst = {}
 
----@return item_splintst
+---@return df.item_splintst
 function df.item_splintst:new() end
 
----@class (exact) item_crutchst: DFStruct, item_constructed
----@field _type _item_crutchst
+---@class (exact) df.item_crutchst: DFStruct, df.item_constructed
+---@field _type identity.item_crutchst
 
----@class _item_crutchst: DFCompoundType
+---@class identity.item_crutchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_crutchst = {}
 
----@return item_crutchst
+---@return df.item_crutchst
 function df.item_crutchst:new() end
 
----@class (exact) item_traction_benchst: DFStruct, item_constructed
----@field _type _item_traction_benchst
+---@class (exact) df.item_traction_benchst: DFStruct, df.item_constructed
+---@field _type identity.item_traction_benchst
 
----@class _item_traction_benchst: DFCompoundType
+---@class identity.item_traction_benchst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_traction_benchst = {}
 
----@return item_traction_benchst
+---@return df.item_traction_benchst
 function df.item_traction_benchst:new() end
 
----@class (exact) item_instrumentst: DFStruct, item_constructed
----@field _type _item_instrumentst
----@field subtype itemdef_instrumentst
+---@class (exact) df.item_instrumentst: DFStruct, df.item_constructed
+---@field _type identity.item_instrumentst
+---@field subtype df.itemdef_instrumentst
 
----@class _item_instrumentst: DFCompoundType
+---@class identity.item_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_instrumentst = {}
 
----@return item_instrumentst
+---@return df.item_instrumentst
 function df.item_instrumentst:new() end
 
----@class (exact) item_toyst: DFStruct, item_constructed
----@field _type _item_toyst
----@field subtype itemdef_toyst
+---@class (exact) df.item_toyst: DFStruct, df.item_constructed
+---@field _type identity.item_toyst
+---@field subtype df.itemdef_toyst
 
----@class _item_toyst: DFCompoundType
+---@class identity.item_toyst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_toyst = {}
 
----@return item_toyst
+---@return df.item_toyst
 function df.item_toyst:new() end
 
----@class (exact) item_armorst: DFStruct, item_constructed
----@field _type _item_armorst
----@field subtype itemdef_armorst
+---@class (exact) df.item_armorst: DFStruct, df.item_constructed
+---@field _type identity.item_armorst
+---@field subtype df.itemdef_armorst
 
----@class _item_armorst: DFCompoundType
+---@class identity.item_armorst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_armorst = {}
 
----@return item_armorst
+---@return df.item_armorst
 function df.item_armorst:new() end
 
----@class (exact) item_shoesst: DFStruct, item_constructed
----@field _type _item_shoesst
----@field subtype itemdef_shoesst
+---@class (exact) df.item_shoesst: DFStruct, df.item_constructed
+---@field _type identity.item_shoesst
+---@field subtype df.itemdef_shoesst
 
----@class _item_shoesst: DFCompoundType
+---@class identity.item_shoesst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_shoesst = {}
 
----@return item_shoesst
+---@return df.item_shoesst
 function df.item_shoesst:new() end
 
----@class (exact) item_shieldst: DFStruct, item_constructed
----@field _type _item_shieldst
----@field subtype itemdef_shieldst
+---@class (exact) df.item_shieldst: DFStruct, df.item_constructed
+---@field _type identity.item_shieldst
+---@field subtype df.itemdef_shieldst
 
----@class _item_shieldst: DFCompoundType
+---@class identity.item_shieldst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_shieldst = {}
 
----@return item_shieldst
+---@return df.item_shieldst
 function df.item_shieldst:new() end
 
----@class (exact) item_helmst: DFStruct, item_constructed
----@field _type _item_helmst
----@field subtype itemdef_helmst
+---@class (exact) df.item_helmst: DFStruct, df.item_constructed
+---@field _type identity.item_helmst
+---@field subtype df.itemdef_helmst
 
----@class _item_helmst: DFCompoundType
+---@class identity.item_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_helmst = {}
 
----@return item_helmst
+---@return df.item_helmst
 function df.item_helmst:new() end
 
----@class (exact) item_glovesst: DFStruct, item_constructed
----@field _type _item_glovesst
----@field subtype itemdef_glovesst
+---@class (exact) df.item_glovesst: DFStruct, df.item_constructed
+---@field _type identity.item_glovesst
+---@field subtype df.itemdef_glovesst
 ---@field handedness _item_glovesst_handedness 1 right, 2 left
 
----@class _item_glovesst: DFCompoundType
+---@class identity.item_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_glovesst = {}
 
----@return item_glovesst
+---@return df.item_glovesst
 function df.item_glovesst:new() end
 
 ---@class _item_glovesst_handedness: DFContainer
@@ -2583,246 +2583,246 @@ function _item_glovesst_handedness:insert(index, item) end
 ---@param index integer
 function _item_glovesst_handedness:erase(index) end
 
----@class (exact) item_pantsst: DFStruct, item_constructed
----@field _type _item_pantsst
----@field subtype itemdef_pantsst
+---@class (exact) df.item_pantsst: DFStruct, df.item_constructed
+---@field _type identity.item_pantsst
+---@field subtype df.itemdef_pantsst
 
----@class _item_pantsst: DFCompoundType
+---@class identity.item_pantsst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_pantsst = {}
 
----@return item_pantsst
+---@return df.item_pantsst
 function df.item_pantsst:new() end
 
----@class (exact) item_siegeammost: DFStruct, item_constructed
----@field _type _item_siegeammost
----@field subtype itemdef_siegeammost
+---@class (exact) df.item_siegeammost: DFStruct, df.item_constructed
+---@field _type identity.item_siegeammost
+---@field subtype df.itemdef_siegeammost
 ---@field sharpness number
 
----@class _item_siegeammost: DFCompoundType
+---@class identity.item_siegeammost: DFCompoundType
 ---@field _kind 'class-type'
 df.item_siegeammost = {}
 
----@return item_siegeammost
+---@return df.item_siegeammost
 function df.item_siegeammost:new() end
 
----@class (exact) item_weaponst: DFStruct, item_constructed
----@field _type _item_weaponst
----@field subtype itemdef_weaponst
+---@class (exact) df.item_weaponst: DFStruct, df.item_constructed
+---@field _type identity.item_weaponst
+---@field subtype df.itemdef_weaponst
 ---@field sharpness number
 
----@class _item_weaponst: DFCompoundType
+---@class identity.item_weaponst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_weaponst = {}
 
----@return item_weaponst
+---@return df.item_weaponst
 function df.item_weaponst:new() end
 
----@class (exact) item_ammost: DFStruct, item_constructed
----@field _type _item_ammost
----@field subtype itemdef_ammost
+---@class (exact) df.item_ammost: DFStruct, df.item_constructed
+---@field _type identity.item_ammost
+---@field subtype df.itemdef_ammost
 ---@field sharpness number
 
----@class _item_ammost: DFCompoundType
+---@class identity.item_ammost: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ammost = {}
 
----@return item_ammost
+---@return df.item_ammost
 function df.item_ammost:new() end
 
----@class (exact) item_trapcompst: DFStruct, item_constructed
----@field _type _item_trapcompst
----@field subtype itemdef_trapcompst
+---@class (exact) df.item_trapcompst: DFStruct, df.item_constructed
+---@field _type identity.item_trapcompst
+---@field subtype df.itemdef_trapcompst
 ---@field sharpness number
 
----@class _item_trapcompst: DFCompoundType
+---@class identity.item_trapcompst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_trapcompst = {}
 
----@return item_trapcompst
+---@return df.item_trapcompst
 function df.item_trapcompst:new() end
 
----@class (exact) item_toolst: DFStruct, item_constructed
----@field _type _item_toolst
----@field subtype itemdef_toolst
+---@class (exact) df.item_toolst: DFStruct, df.item_constructed
+---@field _type identity.item_toolst
+---@field subtype df.itemdef_toolst
 ---@field sharpness number
----@field stockpile item_stockpile_ref
+---@field stockpile df.item_stockpile_ref
 ---@field vehicle_id number References: `vehicle`
 ---@field unk_2 number
 ---@field unk_3 number
 
----@class _item_toolst: DFCompoundType
+---@class identity.item_toolst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_toolst = {}
 
----@return item_toolst
+---@return df.item_toolst
 function df.item_toolst:new() end
 
----@class (exact) item_stockpile_ref: DFStruct
----@field _type _item_stockpile_ref
+---@class (exact) df.item_stockpile_ref: DFStruct
+---@field _type identity.item_stockpile_ref
 ---@field id number References: `building`
 ---@field x number
 ---@field y number
 
----@class _item_stockpile_ref: DFCompoundType
+---@class identity.item_stockpile_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.item_stockpile_ref = {}
 
----@return item_stockpile_ref
+---@return df.item_stockpile_ref
 function df.item_stockpile_ref:new() end
 
----@class (exact) item_barrelst: DFStruct, item_constructed
----@field _type _item_barrelst
----@field stockpile item_stockpile_ref
+---@class (exact) df.item_barrelst: DFStruct, df.item_constructed
+---@field _type identity.item_barrelst
+---@field stockpile df.item_stockpile_ref
 
----@class _item_barrelst: DFCompoundType
+---@class identity.item_barrelst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_barrelst = {}
 
----@return item_barrelst
+---@return df.item_barrelst
 function df.item_barrelst:new() end
 
----@class (exact) item_binst: DFStruct, item_constructed
----@field _type _item_binst
----@field stockpile item_stockpile_ref
+---@class (exact) df.item_binst: DFStruct, df.item_constructed
+---@field _type identity.item_binst
+---@field stockpile df.item_stockpile_ref
 
----@class _item_binst: DFCompoundType
+---@class identity.item_binst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_binst = {}
 
----@return item_binst
+---@return df.item_binst
 function df.item_binst:new() end
 
----@class (exact) item_gemst: DFStruct, item_constructed
----@field _type _item_gemst
+---@class (exact) df.item_gemst: DFStruct, df.item_constructed
+---@field _type identity.item_gemst
 ---@field shape number References: `descriptor_shape`
 
----@class _item_gemst: DFCompoundType
+---@class identity.item_gemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_gemst = {}
 
----@return item_gemst
+---@return df.item_gemst
 function df.item_gemst:new() end
 
----@class (exact) item_statuest: DFStruct, item_constructed
----@field _type _item_statuest
----@field image art_image_ref
+---@class (exact) df.item_statuest: DFStruct, df.item_constructed
+---@field _type identity.item_statuest
+---@field image df.art_image_ref
 ---@field description string
 ---@field unk_110 number
 ---@field unk_114 number
 
----@class _item_statuest: DFCompoundType
+---@class identity.item_statuest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_statuest = {}
 
----@return item_statuest
+---@return df.item_statuest
 function df.item_statuest:new() end
 
----@class (exact) item_figurinest: DFStruct, item_constructed
----@field _type _item_figurinest
----@field image art_image_ref
+---@class (exact) df.item_figurinest: DFStruct, df.item_constructed
+---@field _type identity.item_figurinest
+---@field image df.art_image_ref
 ---@field description string
 
----@class _item_figurinest: DFCompoundType
+---@class identity.item_figurinest: DFCompoundType
 ---@field _kind 'class-type'
 df.item_figurinest = {}
 
----@return item_figurinest
+---@return df.item_figurinest
 function df.item_figurinest:new() end
 
----@class (exact) item_slabst: DFStruct, item_constructed
----@field _type _item_slabst
+---@class (exact) df.item_slabst: DFStruct, df.item_constructed
+---@field _type identity.item_slabst
 ---@field description string
 ---@field topic number or interaction id for secrets? References: `historical_figure`
----@field engraving_type slab_engraving_type
+---@field engraving_type df.slab_engraving_type
 
----@class _item_slabst: DFCompoundType
+---@class identity.item_slabst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_slabst = {}
 
----@return item_slabst
+---@return df.item_slabst
 function df.item_slabst:new() end
 
----@class (exact) item_orthopedic_castst: DFStruct, item_constructed
----@field _type _item_orthopedic_castst
+---@class (exact) df.item_orthopedic_castst: DFStruct, df.item_constructed
+---@field _type identity.item_orthopedic_castst
 ---@field body_part string
 ---@field material string
 
----@class _item_orthopedic_castst: DFCompoundType
+---@class identity.item_orthopedic_castst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_orthopedic_castst = {}
 
----@return item_orthopedic_castst
+---@return df.item_orthopedic_castst
 function df.item_orthopedic_castst:new() end
 
----@class (exact) item_coinst: DFStruct, item_constructed
----@field _type _item_coinst
+---@class (exact) df.item_coinst: DFStruct, df.item_constructed
+---@field _type identity.item_coinst
 ---@field coin_batch number References: `coin_batch`
 
----@class _item_coinst: DFCompoundType
+---@class identity.item_coinst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_coinst = {}
 
----@return item_coinst
+---@return df.item_coinst
 function df.item_coinst:new() end
 
----@class (exact) item_totemst: DFStruct, item_constructed
----@field _type _item_totemst
+---@class (exact) df.item_totemst: DFStruct, df.item_constructed
+---@field _type identity.item_totemst
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field body_part_idx number
 
----@class _item_totemst: DFCompoundType
+---@class identity.item_totemst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_totemst = {}
 
----@return item_totemst
+---@return df.item_totemst
 function df.item_totemst:new() end
 
----@class (exact) item_clothst: DFStruct, item_constructed
----@field _type _item_clothst
+---@class (exact) df.item_clothst: DFStruct, df.item_constructed
+---@field _type identity.item_clothst
 ---@field dimension number
 
----@class _item_clothst: DFCompoundType
+---@class identity.item_clothst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_clothst = {}
 
----@return item_clothst
+---@return df.item_clothst
 function df.item_clothst:new() end
 
----@class (exact) item_bookst: DFStruct, item_constructed
----@field _type _item_bookst
+---@class (exact) df.item_bookst: DFStruct, df.item_constructed
+---@field _type identity.item_bookst
 ---@field title string
 
----@class _item_bookst: DFCompoundType
+---@class identity.item_bookst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_bookst = {}
 
----@return item_bookst
+---@return df.item_bookst
 function df.item_bookst:new() end
 
----@class (exact) item_ballistaarrowheadst: DFStruct, item_actual
----@field _type _item_ballistaarrowheadst
+---@class (exact) df.item_ballistaarrowheadst: DFStruct, df.item_actual
+---@field _type identity.item_ballistaarrowheadst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field sharpness number
 
----@class _item_ballistaarrowheadst: DFCompoundType
+---@class identity.item_ballistaarrowheadst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_ballistaarrowheadst = {}
 
----@return item_ballistaarrowheadst
+---@return df.item_ballistaarrowheadst
 function df.item_ballistaarrowheadst:new() end
 
----@class (exact) item_sheetst: DFStruct, item_constructed
----@field _type _item_sheetst
+---@class (exact) df.item_sheetst: DFStruct, df.item_constructed
+---@field _type identity.item_sheetst
 ---@field dimension number
 ---@field unk_2 number
 
----@class _item_sheetst: DFCompoundType
+---@class identity.item_sheetst: DFCompoundType
 ---@field _kind 'class-type'
 df.item_sheetst = {}
 
----@return item_sheetst
+---@return df.item_sheetst
 function df.item_sheetst:new() end
 

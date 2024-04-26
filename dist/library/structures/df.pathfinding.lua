@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias unit_path_goal
+---@alias df.unit_path_goal
 ---| -1 # None
 ---| 0 # ComeToJobBuilding
 ---| 1 # ValidPondDumpUnit
@@ -218,7 +218,7 @@
 ---| 212 # InterrogationOffice
 ---| 213 # SeekHeistHandoff
 
----@class _unit_path_goal: DFEnumType
+---@class identity.unit_path_goal: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field ComeToJobBuilding 0
@@ -651,7 +651,7 @@
 ---@field [213] "SeekHeistHandoff"
 df.unit_path_goal = {}
 
----@alias unit_station_type
+---@alias df.unit_station_type
 ---| -1 # None
 ---| 0 # Nonsense
 ---| 1 # DungeonCommander
@@ -696,7 +696,7 @@ df.unit_path_goal = {}
 ---| 40 # ClaimSite
 ---| 41 # WaitOrder
 
----@class _unit_station_type: DFEnumType
+---@class identity.unit_station_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Nonsense 0
@@ -786,8 +786,8 @@ df.unit_path_goal = {}
 df.unit_station_type = {}
 
 -- bay12: PathPermit
----@class pathfinding_flags: DFBitfield
----@field _enum _pathfinding_flags
+---@class df.pathfinding_flags: DFBitfield
+---@field _enum identity.pathfinding_flags
 ---@field Desperate boolean bay12: FORBIDDENTERRAIN
 ---@field [0] boolean bay12: FORBIDDENTERRAIN
 ---@field Reckless boolean bay12: BONKERS
@@ -839,7 +839,7 @@ df.unit_station_type = {}
 ---@field Ghostly boolean
 ---@field [24] boolean
 
----@class _pathfinding_flags: DFBitfieldType
+---@class identity.pathfinding_flags: DFBitfieldType
 ---@field Desperate 0 bay12: FORBIDDENTERRAIN
 ---@field [0] "Desperate" bay12: FORBIDDENTERRAIN
 ---@field Reckless 1 bay12: BONKERS

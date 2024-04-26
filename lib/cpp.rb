@@ -31,15 +31,17 @@ module DFHackLuaDefinitions
       'ulong' => 'number',
       'ptr-string' => 'DFPointer<string>',
       'static-string' => 'string',
-      'stl-string' => 'string'
+      'stl-string' => 'string',
       # 'stl-bit-vector' => 'boolean',
       # 'df-flagarray' => 'boolean',
       # 'stl-function' => 'function',
-      # 'stl-mutex' => 'lightuserdata',
-      # 'stl-condition-variable' => 'lightuserdata',
-      # 'stl-deque' => 'lightuserdata',
-      # 'stl-fstream' => 'lightuserdata',
-      # 'stl-unordered-map' => 'lightuserdata'
+      # TODO: Investigate a proper representation for these
+      'stl-mutex' => 'lightuserdata',
+      'stl-condition-variable' => 'lightuserdata',
+      'stl-deque' => 'lightuserdata',
+      'stl-fstream' => 'lightuserdata',
+      'stl-unordered-map' => 'lightuserdata',
+      'stl-future' => 'lightuserdata'
     }.freeze
 
     class << self

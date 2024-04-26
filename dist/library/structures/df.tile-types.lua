@@ -2,7 +2,7 @@
 ---@meta
 
 -- Basic tile shape (not in DF)
----@alias tiletype_shape_basic
+---@alias df.tiletype_shape_basic
 ---| -1 # None
 ---| 0 # Open
 ---| 1 # Floor
@@ -11,7 +11,7 @@
 ---| 4 # Stair
 
 -- Basic tile shape (not in DF)
----@class _tiletype_shape_basic: DFEnumType
+---@class identity.tiletype_shape_basic: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Open 0
@@ -27,7 +27,7 @@
 df.tiletype_shape_basic = {}
 
 -- Tile shape (not in DF)
----@alias tiletype_shape
+---@alias df.tiletype_shape
 ---| -1 # NONE
 ---| 0 # EMPTY
 ---| 1 # FLOOR
@@ -50,7 +50,7 @@ df.tiletype_shape_basic = {}
 ---| 18 # ENDLESS_PIT
 
 -- Tile shape (not in DF)
----@class _tiletype_shape: DFEnumType
+---@class identity.tiletype_shape: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field EMPTY 0
@@ -132,7 +132,7 @@ df.tiletype_shape._attr_entry_type._fields = {}
 df.tiletype_shape.attrs = {}
 
 -- Tile material (not in DF)
----@alias tiletype_material
+---@alias df.tiletype_material
 ---| -1 # NONE
 ---| 0 # AIR
 ---| 1 # SOIL
@@ -162,7 +162,7 @@ df.tiletype_shape.attrs = {}
 ---| 25 # UNDERWORLD_GATE
 
 -- Tile material (not in DF)
----@class _tiletype_material: DFEnumType
+---@class identity.tiletype_material: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field AIR 0
@@ -257,7 +257,7 @@ df.tiletype_material._attr_entry_type._fields = {}
 df.tiletype_material.attrs = {}
 
 -- Cosmetic tile variant (not in DF)
----@alias tiletype_variant
+---@alias df.tiletype_variant
 ---| -1 # NONE
 ---| 0 # VAR_1
 ---| 1 # VAR_2
@@ -265,7 +265,7 @@ df.tiletype_material.attrs = {}
 ---| 3 # VAR_4
 
 -- Cosmetic tile variant (not in DF)
----@class _tiletype_variant: DFEnumType
+---@class identity.tiletype_variant: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field VAR_1 0
@@ -279,7 +279,7 @@ df.tiletype_material.attrs = {}
 df.tiletype_variant = {}
 
 -- Functional tile variant (not in DF)
----@alias tiletype_special
+---@alias df.tiletype_special
 ---| -1 # NONE
 ---| 0 # NORMAL
 ---| 1 # RIVER_SOURCE
@@ -295,7 +295,7 @@ df.tiletype_variant = {}
 ---| 11 # SMOOTH_DEAD
 
 -- Functional tile variant (not in DF)
----@class _tiletype_special: DFEnumType
+---@class identity.tiletype_special: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field NORMAL 0
@@ -347,7 +347,7 @@ df.tiletype_special._attr_entry_type._fields = {}
 ---@field SMOOTH_DEAD { caption: "smooth dead leaves, a unique combination" }
 df.tiletype_special.attrs = {}
 
----@alias tiletype
+---@alias df.tiletype
 ---| 0 # Void
 ---| 1 # RampTop
 ---| 2 # MurkyPool
@@ -1046,7 +1046,7 @@ df.tiletype_special.attrs = {}
 ---| 695 # Unused695
 ---| 696 # Unused696
 
----@class _tiletype: DFEnumType
+---@class identity.tiletype: DFEnumType
 ---@field Void 0 0x000
 ---@field [0] "Void" 0x000
 ---@field RampTop 1 MAPTILE_RAMPSPACE

@@ -1,12 +1,12 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias projectile_type
+---@alias df.projectile_type
 ---| 0 # Item
 ---| 1 # Unit
 ---| 2 # Magic
 
----@class _projectile_type: DFEnumType
+---@class identity.projectile_type: DFEnumType
 ---@field Item 0
 ---@field [0] "Item"
 ---@field Unit 1
@@ -15,21 +15,21 @@
 ---@field [2] "Magic"
 df.projectile_type = {}
 
----@class (exact) proj_list_link: DFStruct
----@field _type _proj_list_link
----@field item projectile
----@field prev proj_list_link
----@field next proj_list_link
+---@class (exact) df.proj_list_link: DFStruct
+---@field _type identity.proj_list_link
+---@field item df.projectile
+---@field prev df.proj_list_link
+---@field next df.proj_list_link
 
----@class _proj_list_link: DFCompoundType
+---@class identity.proj_list_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.proj_list_link = {}
 
----@return proj_list_link
+---@return df.proj_list_link
 function df.proj_list_link:new() end
 
----@class projectile_flags: DFBitfield
----@field _enum _projectile_flags
+---@class df.projectile_flags: DFBitfield
+---@field _enum identity.projectile_flags
 ---@field no_impact_destroy boolean
 ---@field [0] boolean
 ---@field has_hit_ground boolean
@@ -63,7 +63,7 @@ function df.proj_list_link:new() end
 ---@field item_link_deleted boolean
 ---@field [15] boolean
 
----@class _projectile_flags: DFBitfieldType
+---@class identity.projectile_flags: DFBitfieldType
 ---@field no_impact_destroy 0
 ---@field [0] "no_impact_destroy"
 ---@field has_hit_ground 1
@@ -98,20 +98,20 @@ function df.proj_list_link:new() end
 ---@field [15] "item_link_deleted"
 df.projectile_flags = {}
 
----@class (exact) projectile: DFStruct
----@field _type _projectile
----@field link proj_list_link
+---@class (exact) df.projectile: DFStruct
+---@field _type identity.projectile
+---@field link df.proj_list_link
 ---@field id number
----@field firer unit
----@field origin_pos coord
----@field target_pos coord
----@field cur_pos coord
----@field prev_pos coord
+---@field firer df.unit
+---@field origin_pos df.coord
+---@field target_pos df.coord
+---@field cur_pos df.coord
+---@field prev_pos df.coord
 ---@field distance_flown number
 ---@field fall_threshold number
 ---@field min_hit_distance number
 ---@field min_ground_distance number
----@field flags projectile_flags
+---@field flags df.projectile_flags
 ---@field fall_counter number counts down from delay to 0, then it moves
 ---@field fall_delay number
 ---@field hit_rating number
@@ -132,7 +132,7 @@ df.projectile_flags = {}
 ---@field accel_z number
 local projectile
 
----@return projectile_type
+---@return df.projectile_type
 function projectile:getType() end
 
 ---@return boolean
@@ -149,44 +149,44 @@ function projectile:write_file() end
 function projectile:isObjectLost() end
 
 
----@class _projectile: DFCompoundType
+---@class identity.projectile: DFCompoundType
 ---@field _kind 'class-type'
 df.projectile = {}
 
----@return projectile
+---@return df.projectile
 function df.projectile:new() end
 
----@class (exact) proj_itemst: DFStruct, projectile
----@field _type _proj_itemst
----@field item item
+---@class (exact) df.proj_itemst: DFStruct, df.projectile
+---@field _type identity.proj_itemst
+---@field item df.item
 
----@class _proj_itemst: DFCompoundType
+---@class identity.proj_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_itemst = {}
 
----@return proj_itemst
+---@return df.proj_itemst
 function df.proj_itemst:new() end
 
----@class (exact) proj_unitst: DFStruct, projectile
----@field _type _proj_unitst
----@field unit unit ?
+---@class (exact) df.proj_unitst: DFStruct, df.projectile
+---@field _type identity.proj_unitst
+---@field unit df.unit ?
 
----@class _proj_unitst: DFCompoundType
+---@class identity.proj_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_unitst = {}
 
----@return proj_unitst
+---@return df.proj_unitst
 function df.proj_unitst:new() end
 
----@class (exact) proj_magicst: DFStruct, projectile
----@field _type _proj_magicst
+---@class (exact) df.proj_magicst: DFStruct, df.projectile
+---@field _type identity.proj_magicst
 ---@field type number
 ---@field damage number
 
----@class _proj_magicst: DFCompoundType
+---@class identity.proj_magicst: DFCompoundType
 ---@field _kind 'class-type'
 df.proj_magicst = {}
 
----@return proj_magicst
+---@return df.proj_magicst
 function df.proj_magicst:new() end
 

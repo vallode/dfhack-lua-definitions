@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias resource_allotment_specifier_type
+---@alias df.resource_allotment_specifier_type
 ---| 0 # CROP
 ---| 1 # STONE
 ---| 2 # METAL
@@ -47,7 +47,7 @@
 ---| 42 # POWDER
 ---| 43 # AMMO
 
----@class _resource_allotment_specifier_type: DFEnumType
+---@class identity.resource_allotment_specifier_type: DFEnumType
 ---@field CROP 0
 ---@field [0] "CROP"
 ---@field STONE 1
@@ -138,14 +138,14 @@
 ---@field [43] "AMMO"
 df.resource_allotment_specifier_type = {}
 
----@class (exact) resource_allotment_specifier: DFStruct
----@field _type _resource_allotment_specifier
+---@class (exact) df.resource_allotment_specifier: DFStruct
+---@field _type identity.resource_allotment_specifier
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
 local resource_allotment_specifier
 
----@return resource_allotment_specifier_type
+---@return df.resource_allotment_specifier_type
 function resource_allotment_specifier:getType() end
 
 function resource_allotment_specifier:write_file() end
@@ -153,58 +153,58 @@ function resource_allotment_specifier:write_file() end
 function resource_allotment_specifier:read_file() end
 
 
----@class _resource_allotment_specifier: DFCompoundType
+---@class identity.resource_allotment_specifier: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier = {}
 
----@return resource_allotment_specifier
+---@return df.resource_allotment_specifier
 function df.resource_allotment_specifier:new() end
 
----@class (exact) resource_allotment_specifier_cropst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_cropst
+---@class (exact) df.resource_allotment_specifier_cropst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_cropst
 ---@field mat_type number index to world.raws.plant.all References: `plant_raw`
 ---@field unk_4 number
 ---@field unk_v40_01 number
 ---@field unk_5 number[]
 
----@class _resource_allotment_specifier_cropst: DFCompoundType
+---@class identity.resource_allotment_specifier_cropst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_cropst = {}
 
----@return resource_allotment_specifier_cropst
+---@return df.resource_allotment_specifier_cropst
 function df.resource_allotment_specifier_cropst:new() end
 
----@class (exact) resource_allotment_specifier_stonest: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_stonest
+---@class (exact) df.resource_allotment_specifier_stonest: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_stonest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field unk_6 number[]
 
----@class _resource_allotment_specifier_stonest: DFCompoundType
+---@class identity.resource_allotment_specifier_stonest: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_stonest = {}
 
----@return resource_allotment_specifier_stonest
+---@return df.resource_allotment_specifier_stonest
 function df.resource_allotment_specifier_stonest:new() end
 
----@class (exact) resource_allotment_specifier_metalst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_metalst
+---@class (exact) df.resource_allotment_specifier_metalst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_metalst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 ---@field unk_5 number[]
 
----@class _resource_allotment_specifier_metalst: DFCompoundType
+---@class identity.resource_allotment_specifier_metalst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_metalst = {}
 
----@return resource_allotment_specifier_metalst
+---@return df.resource_allotment_specifier_metalst
 function df.resource_allotment_specifier_metalst:new() end
 
----@class (exact) resource_allotment_specifier_woodst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_woodst
+---@class (exact) df.resource_allotment_specifier_woodst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_woodst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
@@ -214,208 +214,208 @@ function df.resource_allotment_specifier_metalst:new() end
 ---@field unk_8 number
 ---@field unk_9 number
 
----@class _resource_allotment_specifier_woodst: DFCompoundType
+---@class identity.resource_allotment_specifier_woodst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_woodst = {}
 
----@return resource_allotment_specifier_woodst
+---@return df.resource_allotment_specifier_woodst
 function df.resource_allotment_specifier_woodst:new() end
 
----@class (exact) resource_allotment_specifier_armor_bodyst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_armor_bodyst
+---@class (exact) df.resource_allotment_specifier_armor_bodyst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_armor_bodyst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_armor_bodyst: DFCompoundType
+---@class identity.resource_allotment_specifier_armor_bodyst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_armor_bodyst = {}
 
----@return resource_allotment_specifier_armor_bodyst
+---@return df.resource_allotment_specifier_armor_bodyst
 function df.resource_allotment_specifier_armor_bodyst:new() end
 
----@class (exact) resource_allotment_specifier_armor_pantsst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_armor_pantsst
+---@class (exact) df.resource_allotment_specifier_armor_pantsst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_armor_pantsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_armor_pantsst: DFCompoundType
+---@class identity.resource_allotment_specifier_armor_pantsst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_armor_pantsst = {}
 
----@return resource_allotment_specifier_armor_pantsst
+---@return df.resource_allotment_specifier_armor_pantsst
 function df.resource_allotment_specifier_armor_pantsst:new() end
 
----@class (exact) resource_allotment_specifier_armor_glovesst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_armor_glovesst
+---@class (exact) df.resource_allotment_specifier_armor_glovesst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_armor_glovesst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_armor_glovesst: DFCompoundType
+---@class identity.resource_allotment_specifier_armor_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_armor_glovesst = {}
 
----@return resource_allotment_specifier_armor_glovesst
+---@return df.resource_allotment_specifier_armor_glovesst
 function df.resource_allotment_specifier_armor_glovesst:new() end
 
----@class (exact) resource_allotment_specifier_armor_bootsst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_armor_bootsst
+---@class (exact) df.resource_allotment_specifier_armor_bootsst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_armor_bootsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_armor_bootsst: DFCompoundType
+---@class identity.resource_allotment_specifier_armor_bootsst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_armor_bootsst = {}
 
----@return resource_allotment_specifier_armor_bootsst
+---@return df.resource_allotment_specifier_armor_bootsst
 function df.resource_allotment_specifier_armor_bootsst:new() end
 
----@class (exact) resource_allotment_specifier_armor_helmst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_armor_helmst
+---@class (exact) df.resource_allotment_specifier_armor_helmst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_armor_helmst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_armor_helmst: DFCompoundType
+---@class identity.resource_allotment_specifier_armor_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_armor_helmst = {}
 
----@return resource_allotment_specifier_armor_helmst
+---@return df.resource_allotment_specifier_armor_helmst
 function df.resource_allotment_specifier_armor_helmst:new() end
 
----@class (exact) resource_allotment_specifier_clothing_bodyst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_clothing_bodyst
+---@class (exact) df.resource_allotment_specifier_clothing_bodyst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_clothing_bodyst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_clothing_bodyst: DFCompoundType
+---@class identity.resource_allotment_specifier_clothing_bodyst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_clothing_bodyst = {}
 
----@return resource_allotment_specifier_clothing_bodyst
+---@return df.resource_allotment_specifier_clothing_bodyst
 function df.resource_allotment_specifier_clothing_bodyst:new() end
 
----@class (exact) resource_allotment_specifier_clothing_pantsst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_clothing_pantsst
+---@class (exact) df.resource_allotment_specifier_clothing_pantsst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_clothing_pantsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_clothing_pantsst: DFCompoundType
+---@class identity.resource_allotment_specifier_clothing_pantsst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_clothing_pantsst = {}
 
----@return resource_allotment_specifier_clothing_pantsst
+---@return df.resource_allotment_specifier_clothing_pantsst
 function df.resource_allotment_specifier_clothing_pantsst:new() end
 
----@class (exact) resource_allotment_specifier_clothing_glovesst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_clothing_glovesst
+---@class (exact) df.resource_allotment_specifier_clothing_glovesst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_clothing_glovesst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_clothing_glovesst: DFCompoundType
+---@class identity.resource_allotment_specifier_clothing_glovesst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_clothing_glovesst = {}
 
----@return resource_allotment_specifier_clothing_glovesst
+---@return df.resource_allotment_specifier_clothing_glovesst
 function df.resource_allotment_specifier_clothing_glovesst:new() end
 
----@class (exact) resource_allotment_specifier_clothing_bootsst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_clothing_bootsst
+---@class (exact) df.resource_allotment_specifier_clothing_bootsst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_clothing_bootsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_clothing_bootsst: DFCompoundType
+---@class identity.resource_allotment_specifier_clothing_bootsst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_clothing_bootsst = {}
 
----@return resource_allotment_specifier_clothing_bootsst
+---@return df.resource_allotment_specifier_clothing_bootsst
 function df.resource_allotment_specifier_clothing_bootsst:new() end
 
----@class (exact) resource_allotment_specifier_clothing_helmst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_clothing_helmst
+---@class (exact) df.resource_allotment_specifier_clothing_helmst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_clothing_helmst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_clothing_helmst: DFCompoundType
+---@class identity.resource_allotment_specifier_clothing_helmst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_clothing_helmst = {}
 
----@return resource_allotment_specifier_clothing_helmst
+---@return df.resource_allotment_specifier_clothing_helmst
 function df.resource_allotment_specifier_clothing_helmst:new() end
 
----@class (exact) resource_allotment_specifier_weapon_meleest: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_weapon_meleest
+---@class (exact) df.resource_allotment_specifier_weapon_meleest: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_weapon_meleest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_weapon_meleest: DFCompoundType
+---@class identity.resource_allotment_specifier_weapon_meleest: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_weapon_meleest = {}
 
----@return resource_allotment_specifier_weapon_meleest
+---@return df.resource_allotment_specifier_weapon_meleest
 function df.resource_allotment_specifier_weapon_meleest:new() end
 
----@class (exact) resource_allotment_specifier_weapon_rangedst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_weapon_rangedst
+---@class (exact) df.resource_allotment_specifier_weapon_rangedst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_weapon_rangedst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_weapon_rangedst: DFCompoundType
+---@class identity.resource_allotment_specifier_weapon_rangedst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_weapon_rangedst = {}
 
----@return resource_allotment_specifier_weapon_rangedst
+---@return df.resource_allotment_specifier_weapon_rangedst
 function df.resource_allotment_specifier_weapon_rangedst:new() end
 
----@class (exact) resource_allotment_specifier_ammost: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_ammost
+---@class (exact) df.resource_allotment_specifier_ammost: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_ammost
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_ammost: DFCompoundType
+---@class identity.resource_allotment_specifier_ammost: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_ammost = {}
 
----@return resource_allotment_specifier_ammost
+---@return df.resource_allotment_specifier_ammost
 function df.resource_allotment_specifier_ammost:new() end
 
----@class (exact) resource_allotment_specifier_anvilst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_anvilst
+---@class (exact) df.resource_allotment_specifier_anvilst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_anvilst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_anvilst: DFCompoundType
+---@class identity.resource_allotment_specifier_anvilst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_anvilst = {}
 
----@return resource_allotment_specifier_anvilst
+---@return df.resource_allotment_specifier_anvilst
 function df.resource_allotment_specifier_anvilst:new() end
 
----@class (exact) resource_allotment_specifier_gemsst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_gemsst
+---@class (exact) df.resource_allotment_specifier_gemsst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_gemsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_gemsst: DFCompoundType
+---@class identity.resource_allotment_specifier_gemsst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_gemsst = {}
 
----@return resource_allotment_specifier_gemsst
+---@return df.resource_allotment_specifier_gemsst
 function df.resource_allotment_specifier_gemsst:new() end
 
----@class (exact) resource_allotment_specifier_threadst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_threadst
+---@class (exact) df.resource_allotment_specifier_threadst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_threadst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_threadst: DFCompoundType
+---@class identity.resource_allotment_specifier_threadst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_threadst = {}
 
----@return resource_allotment_specifier_threadst
+---@return df.resource_allotment_specifier_threadst
 function df.resource_allotment_specifier_threadst:new() end
 
----@class (exact) resource_allotment_specifier_clothst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_clothst
+---@class (exact) df.resource_allotment_specifier_clothst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_clothst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
@@ -424,15 +424,15 @@ function df.resource_allotment_specifier_threadst:new() end
 ---@field unk_7 number
 ---@field unk_8 number
 
----@class _resource_allotment_specifier_clothst: DFCompoundType
+---@class identity.resource_allotment_specifier_clothst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_clothst = {}
 
----@return resource_allotment_specifier_clothst
+---@return df.resource_allotment_specifier_clothst
 function df.resource_allotment_specifier_clothst:new() end
 
----@class (exact) resource_allotment_specifier_leatherst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_leatherst
+---@class (exact) df.resource_allotment_specifier_leatherst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_leatherst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
@@ -446,235 +446,235 @@ function df.resource_allotment_specifier_clothst:new() end
 ---@field unk_12 number
 ---@field unk_13 number
 
----@class _resource_allotment_specifier_leatherst: DFCompoundType
+---@class identity.resource_allotment_specifier_leatherst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_leatherst = {}
 
----@return resource_allotment_specifier_leatherst
+---@return df.resource_allotment_specifier_leatherst
 function df.resource_allotment_specifier_leatherst:new() end
 
----@class (exact) resource_allotment_specifier_quiverst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_quiverst
+---@class (exact) df.resource_allotment_specifier_quiverst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_quiverst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_quiverst: DFCompoundType
+---@class identity.resource_allotment_specifier_quiverst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_quiverst = {}
 
----@return resource_allotment_specifier_quiverst
+---@return df.resource_allotment_specifier_quiverst
 function df.resource_allotment_specifier_quiverst:new() end
 
----@class (exact) resource_allotment_specifier_backpackst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_backpackst
+---@class (exact) df.resource_allotment_specifier_backpackst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_backpackst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_backpackst: DFCompoundType
+---@class identity.resource_allotment_specifier_backpackst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_backpackst = {}
 
----@return resource_allotment_specifier_backpackst
+---@return df.resource_allotment_specifier_backpackst
 function df.resource_allotment_specifier_backpackst:new() end
 
----@class (exact) resource_allotment_specifier_flaskst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_flaskst
+---@class (exact) df.resource_allotment_specifier_flaskst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_flaskst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_flaskst: DFCompoundType
+---@class identity.resource_allotment_specifier_flaskst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_flaskst = {}
 
----@return resource_allotment_specifier_flaskst
+---@return df.resource_allotment_specifier_flaskst
 function df.resource_allotment_specifier_flaskst:new() end
 
----@class (exact) resource_allotment_specifier_bagst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_bagst
+---@class (exact) df.resource_allotment_specifier_bagst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_bagst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_bagst: DFCompoundType
+---@class identity.resource_allotment_specifier_bagst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_bagst = {}
 
----@return resource_allotment_specifier_bagst
+---@return df.resource_allotment_specifier_bagst
 function df.resource_allotment_specifier_bagst:new() end
 
----@class (exact) resource_allotment_specifier_tablest: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_tablest
+---@class (exact) df.resource_allotment_specifier_tablest: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_tablest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_tablest: DFCompoundType
+---@class identity.resource_allotment_specifier_tablest: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_tablest = {}
 
----@return resource_allotment_specifier_tablest
+---@return df.resource_allotment_specifier_tablest
 function df.resource_allotment_specifier_tablest:new() end
 
----@class (exact) resource_allotment_specifier_cabinetst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_cabinetst
+---@class (exact) df.resource_allotment_specifier_cabinetst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_cabinetst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_cabinetst: DFCompoundType
+---@class identity.resource_allotment_specifier_cabinetst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_cabinetst = {}
 
----@return resource_allotment_specifier_cabinetst
+---@return df.resource_allotment_specifier_cabinetst
 function df.resource_allotment_specifier_cabinetst:new() end
 
----@class (exact) resource_allotment_specifier_chairst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_chairst
+---@class (exact) df.resource_allotment_specifier_chairst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_chairst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_chairst: DFCompoundType
+---@class identity.resource_allotment_specifier_chairst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_chairst = {}
 
----@return resource_allotment_specifier_chairst
+---@return df.resource_allotment_specifier_chairst
 function df.resource_allotment_specifier_chairst:new() end
 
----@class (exact) resource_allotment_specifier_boxst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_boxst
+---@class (exact) df.resource_allotment_specifier_boxst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_boxst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_boxst: DFCompoundType
+---@class identity.resource_allotment_specifier_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_boxst = {}
 
----@return resource_allotment_specifier_boxst
+---@return df.resource_allotment_specifier_boxst
 function df.resource_allotment_specifier_boxst:new() end
 
----@class (exact) resource_allotment_specifier_bedst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_bedst
+---@class (exact) df.resource_allotment_specifier_bedst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_bedst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_bedst: DFCompoundType
+---@class identity.resource_allotment_specifier_bedst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_bedst = {}
 
----@return resource_allotment_specifier_bedst
+---@return df.resource_allotment_specifier_bedst
 function df.resource_allotment_specifier_bedst:new() end
 
----@class (exact) resource_allotment_specifier_craftsst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_craftsst
+---@class (exact) df.resource_allotment_specifier_craftsst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_craftsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_craftsst: DFCompoundType
+---@class identity.resource_allotment_specifier_craftsst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_craftsst = {}
 
----@return resource_allotment_specifier_craftsst
+---@return df.resource_allotment_specifier_craftsst
 function df.resource_allotment_specifier_craftsst:new() end
 
----@class (exact) resource_allotment_specifier_meatst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_meatst
+---@class (exact) df.resource_allotment_specifier_meatst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_meatst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_meatst: DFCompoundType
+---@class identity.resource_allotment_specifier_meatst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_meatst = {}
 
----@return resource_allotment_specifier_meatst
+---@return df.resource_allotment_specifier_meatst
 function df.resource_allotment_specifier_meatst:new() end
 
----@class (exact) resource_allotment_specifier_bonest: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_bonest
+---@class (exact) df.resource_allotment_specifier_bonest: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_bonest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_bonest: DFCompoundType
+---@class identity.resource_allotment_specifier_bonest: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_bonest = {}
 
----@return resource_allotment_specifier_bonest
+---@return df.resource_allotment_specifier_bonest
 function df.resource_allotment_specifier_bonest:new() end
 
----@class (exact) resource_allotment_specifier_hornst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_hornst
+---@class (exact) df.resource_allotment_specifier_hornst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_hornst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_hornst: DFCompoundType
+---@class identity.resource_allotment_specifier_hornst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_hornst = {}
 
----@return resource_allotment_specifier_hornst
+---@return df.resource_allotment_specifier_hornst
 function df.resource_allotment_specifier_hornst:new() end
 
----@class (exact) resource_allotment_specifier_shellst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_shellst
+---@class (exact) df.resource_allotment_specifier_shellst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_shellst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_shellst: DFCompoundType
+---@class identity.resource_allotment_specifier_shellst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_shellst = {}
 
----@return resource_allotment_specifier_shellst
+---@return df.resource_allotment_specifier_shellst
 function df.resource_allotment_specifier_shellst:new() end
 
----@class (exact) resource_allotment_specifier_tallowst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_tallowst
+---@class (exact) df.resource_allotment_specifier_tallowst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_tallowst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_tallowst: DFCompoundType
+---@class identity.resource_allotment_specifier_tallowst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_tallowst = {}
 
----@return resource_allotment_specifier_tallowst
+---@return df.resource_allotment_specifier_tallowst
 function df.resource_allotment_specifier_tallowst:new() end
 
----@class (exact) resource_allotment_specifier_toothst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_toothst
+---@class (exact) df.resource_allotment_specifier_toothst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_toothst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_toothst: DFCompoundType
+---@class identity.resource_allotment_specifier_toothst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_toothst = {}
 
----@return resource_allotment_specifier_toothst
+---@return df.resource_allotment_specifier_toothst
 function df.resource_allotment_specifier_toothst:new() end
 
----@class (exact) resource_allotment_specifier_pearlst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_pearlst
+---@class (exact) df.resource_allotment_specifier_pearlst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_pearlst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_pearlst: DFCompoundType
+---@class identity.resource_allotment_specifier_pearlst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_pearlst = {}
 
----@return resource_allotment_specifier_pearlst
+---@return df.resource_allotment_specifier_pearlst
 function df.resource_allotment_specifier_pearlst:new() end
 
----@class (exact) resource_allotment_specifier_soapst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_soapst
+---@class (exact) df.resource_allotment_specifier_soapst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_soapst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_soapst: DFCompoundType
+---@class identity.resource_allotment_specifier_soapst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_soapst = {}
 
----@return resource_allotment_specifier_soapst
+---@return df.resource_allotment_specifier_soapst
 function df.resource_allotment_specifier_soapst:new() end
 
----@class (exact) resource_allotment_specifier_extractst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_extractst
+---@class (exact) df.resource_allotment_specifier_extractst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_extractst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
@@ -682,90 +682,90 @@ function df.resource_allotment_specifier_soapst:new() end
 ---@field mat_index2 number
 ---@field unk_5 number uninitialized
 
----@class _resource_allotment_specifier_extractst: DFCompoundType
+---@class identity.resource_allotment_specifier_extractst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_extractst = {}
 
----@return resource_allotment_specifier_extractst
+---@return df.resource_allotment_specifier_extractst
 function df.resource_allotment_specifier_extractst:new() end
 
----@class (exact) resource_allotment_specifier_cheesest: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_cheesest
+---@class (exact) df.resource_allotment_specifier_cheesest: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_cheesest
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _resource_allotment_specifier_cheesest: DFCompoundType
+---@class identity.resource_allotment_specifier_cheesest: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_cheesest = {}
 
----@return resource_allotment_specifier_cheesest
+---@return df.resource_allotment_specifier_cheesest
 function df.resource_allotment_specifier_cheesest:new() end
 
----@class (exact) resource_allotment_specifier_skinst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_skinst
+---@class (exact) df.resource_allotment_specifier_skinst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_skinst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field mat_type2 number References: `material`
 ---@field mat_index2 number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_skinst: DFCompoundType
+---@class identity.resource_allotment_specifier_skinst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_skinst = {}
 
----@return resource_allotment_specifier_skinst
+---@return df.resource_allotment_specifier_skinst
 function df.resource_allotment_specifier_skinst:new() end
 
----@class (exact) resource_allotment_specifier_powderst: DFStruct, resource_allotment_specifier
----@field _type _resource_allotment_specifier_powderst
+---@class (exact) df.resource_allotment_specifier_powderst: DFStruct, df.resource_allotment_specifier
+---@field _type identity.resource_allotment_specifier_powderst
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
 
----@class _resource_allotment_specifier_powderst: DFCompoundType
+---@class identity.resource_allotment_specifier_powderst: DFCompoundType
 ---@field _kind 'class-type'
 df.resource_allotment_specifier_powderst = {}
 
----@return resource_allotment_specifier_powderst
+---@return df.resource_allotment_specifier_powderst
 function df.resource_allotment_specifier_powderst:new() end
 
----@class (exact) resource_allotment_data: DFStruct
----@field _type _resource_allotment_data
+---@class (exact) df.resource_allotment_data: DFStruct
+---@field _type identity.resource_allotment_data
 ---@field index number
----@field resource_allotments resource_allotment_specifier[]
+---@field resource_allotments df.resource_allotment_specifier[]
 ---@field unk1 number
 ---@field unk2 number
 ---@field unk3 number
 ---@field unk_650 number
 ---@field unk_654 _resource_allotment_data_unk_654
 
----@class _resource_allotment_data: DFCompoundType
+---@class identity.resource_allotment_data: DFCompoundType
 ---@field _kind 'struct-type'
 df.resource_allotment_data = {}
 
----@return resource_allotment_data
+---@return df.resource_allotment_data
 function df.resource_allotment_data:new() end
 
 ---@param key number
----@return resource_allotment_data|nil
+---@return df.resource_allotment_data|nil
 function df.resource_allotment_data.find(key) end
 
----@class resource_allotment_data_vector: DFVector, { [integer]: resource_allotment_data }
+---@class resource_allotment_data_vector: DFVector, { [integer]: df.resource_allotment_data }
 
 ---@return resource_allotment_data_vector # df.global.world.world_data.resource_allotments
 function df.resource_allotment_data.get_vector() end
 
 ---@class _resource_allotment_data_resource_allotments: DFContainer
----@field [integer] resource_allotment_specifier
+---@field [integer] df.resource_allotment_specifier
 local _resource_allotment_data_resource_allotments
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<resource_allotment_specifier>
+---@return DFPointer<df.resource_allotment_specifier>
 function _resource_allotment_data_resource_allotments:_field(index) end
 
 ---@param index '#'|integer
----@param item resource_allotment_specifier
+---@param item df.resource_allotment_specifier
 function _resource_allotment_data_resource_allotments:insert(index, item) end
 
 ---@param index integer

@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias building_type
+---@alias df.building_type
 ---| -1 # NONE
 ---| 0 # Chair
 ---| 1 # Bed
@@ -59,7 +59,7 @@
 ---| 53 # DisplayFurniture
 ---| 54 # OfferingPlace
 
----@class _building_type: DFEnumType
+---@class identity.building_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Chair 0
@@ -242,8 +242,8 @@ df.building_type._attr_entry_type._fields = {}
 ---@field OfferingPlace { name: "Offering Place", classname: "building_offering_placest" }
 df.building_type.attrs = {}
 
----@class building_flags: DFBitfield
----@field _enum _building_flags
+---@class df.building_flags: DFBitfield
+---@field _enum identity.building_flags
 ---@field exists boolean actually built, not just ordered
 ---@field [0] boolean actually built, not just ordered
 ---@field site_blocked boolean items on ground on site
@@ -258,7 +258,7 @@ df.building_type.attrs = {}
 ---@field from_worldgen boolean moved?
 ---@field [6] boolean moved?
 
----@class _building_flags: DFBitfieldType
+---@class identity.building_flags: DFBitfieldType
 ---@field exists 0 actually built, not just ordered
 ---@field [0] "exists" actually built, not just ordered
 ---@field site_blocked 1 items on ground on site
@@ -273,8 +273,8 @@ df.building_type.attrs = {}
 ---@field [6] "from_worldgen" moved?
 df.building_flags = {}
 
----@class door_flags: DFBitfield
----@field _enum _door_flags
+---@class df.door_flags: DFBitfield
+---@field _enum identity.door_flags
 ---@field forbidden boolean
 ---@field [0] boolean
 ---@field internal boolean
@@ -290,7 +290,7 @@ df.building_flags = {}
 ---@field pet_passable boolean
 ---@field [6] boolean
 
----@class _door_flags: DFBitfieldType
+---@class identity.door_flags: DFBitfieldType
 ---@field forbidden 0
 ---@field [0] "forbidden"
 ---@field internal 1
@@ -307,8 +307,8 @@ df.building_flags = {}
 ---@field [6] "pet_passable"
 df.door_flags = {}
 
----@class gate_flags: DFBitfield
----@field _enum _gate_flags
+---@class df.gate_flags: DFBitfield
+---@field _enum identity.gate_flags
 ---@field closed boolean
 ---@field [0] boolean
 ---@field closing boolean
@@ -320,7 +320,7 @@ df.door_flags = {}
 ---@field has_support boolean bridge
 ---@field [4] boolean bridge
 
----@class _gate_flags: DFBitfieldType
+---@class identity.gate_flags: DFBitfieldType
 ---@field closed 0
 ---@field [0] "closed"
 ---@field closing 1
@@ -333,14 +333,14 @@ df.door_flags = {}
 ---@field [4] "has_support" bridge
 df.gate_flags = {}
 
----@alias building_extents_type
+---@alias df.building_extents_type
 ---| 0 # None
 ---| 1 # Stockpile
 ---| 2 # Wall
 ---| 3 # Interior
 ---| 4 # DistanceBoundary
 
----@class _building_extents_type: DFEnumType
+---@class identity.building_extents_type: DFEnumType
 ---@field None 0
 ---@field [0] "None"
 ---@field Stockpile 1
@@ -353,23 +353,23 @@ df.gate_flags = {}
 ---@field [4] "DistanceBoundary"
 df.building_extents_type = {}
 
----@class (exact) building_extents: DFStruct
----@field _type _building_extents
+---@class (exact) df.building_extents: DFStruct
+---@field _type identity.building_extents
 ---@field extents DFPointer<integer>
 ---@field x number
 ---@field y number
 ---@field width number
 ---@field height number
 
----@class _building_extents: DFCompoundType
+---@class identity.building_extents: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_extents = {}
 
----@return building_extents
+---@return df.building_extents
 function df.building_extents:new() end
 
----@class (exact) building_drawbuffer: DFStruct
----@field _type _building_drawbuffer
+---@class (exact) df.building_drawbuffer: DFStruct
+---@field _type identity.building_drawbuffer
 ---@field signpost_texpos number[]
 ---@field building_one_texpos number[][]
 ---@field item_texpos number[][]
@@ -383,15 +383,15 @@ function df.building_extents:new() end
 ---@field y1 number
 ---@field y2 number
 
----@class _building_drawbuffer: DFCompoundType
+---@class identity.building_drawbuffer: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_drawbuffer = {}
 
----@return building_drawbuffer
+---@return df.building_drawbuffer
 function df.building_drawbuffer:new() end
 
----@class (exact) building: DFStruct
----@field _type _building
+---@class (exact) df.building: DFStruct
+---@field _type identity.building
 ---@field x1 number top left
 ---@field y1 number
 ---@field centerx number work location
@@ -399,10 +399,10 @@ function df.building_drawbuffer:new() end
 ---@field y2 number
 ---@field centery number
 ---@field z number
----@field flags building_flags
+---@field flags df.building_flags
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field room building_extents not a compound in bay12
+---@field room df.building_extents not a compound in bay12
 ---@field age number
 ---@field race number References: `creature_raw`
 ---@field id number
@@ -427,7 +427,7 @@ function building:setCustomType() end
 
 function building:countHospitalSupplies() end
 
----@return stockpile_links
+---@return df.stockpile_links
 function building:getStockpileLinks() end
 
 function building:detachWorldData() end
@@ -435,7 +435,7 @@ function building:detachWorldData() end
 ---@return boolean
 function building:canLinkToStockpile() end
 
----@return building_users
+---@return df.building_users
 function building:getUsers() end
 
 function building:moveBuilding() end
@@ -476,10 +476,10 @@ function building:isNormalFurniture() end
 ---@return boolean
 function building:isFarmPlot() end
 
----@return workshop_profile
+---@return df.workshop_profile
 function building:getWorkshopProfile() end
 
----@return machine_info
+---@return df.machine_info
 function building:getMachineInfo() end
 
 function building:getPowerInfo() end
@@ -487,7 +487,7 @@ function building:getPowerInfo() end
 ---@return boolean
 function building:canConnectToMachine() end
 
----@return building_type
+---@return df.building_type
 function building:getType() end
 
 ---@return number
@@ -642,81 +642,81 @@ function building:setSpecificSquadPos() end
 function building:clearSpecificSquad() end
 
 
----@class _building: DFCompoundType
+---@class identity.building: DFCompoundType
 ---@field _kind 'class-type'
 df.building = {}
 
----@return building
+---@return df.building
 function df.building:new() end
 
 ---@param key number
----@return building|nil
+---@return df.building|nil
 function df.building.find(key) end
 
----@class building_vector: DFVector, { [integer]: building }
+---@class building_vector: DFVector, { [integer]: df.building }
 
 ---@return building_vector # df.global.world.buildings.all
 function df.building.get_vector() end
 
 ---@class _building_jobs: DFContainer
----@field [integer] job
+---@field [integer] df.job
 local _building_jobs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<job>
+---@return DFPointer<df.job>
 function _building_jobs:_field(index) end
 
 ---@param index '#'|integer
----@param item job
+---@param item df.job
 function _building_jobs:insert(index, item) end
 
 ---@param index integer
 function _building_jobs:erase(index) end
 
 ---@class _building_specific_refs: DFContainer
----@field [integer] specific_ref
+---@field [integer] df.specific_ref
 local _building_specific_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<specific_ref>
+---@return DFPointer<df.specific_ref>
 function _building_specific_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item specific_ref
+---@param item df.specific_ref
 function _building_specific_refs:insert(index, item) end
 
 ---@param index integer
 function _building_specific_refs:erase(index) end
 
 ---@class _building_general_refs: DFContainer
----@field [integer] general_ref
+---@field [integer] df.general_ref
 local _building_general_refs
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<general_ref>
+---@return DFPointer<df.general_ref>
 function _building_general_refs:_field(index) end
 
 ---@param index '#'|integer
----@param item general_ref
+---@param item df.general_ref
 function _building_general_refs:insert(index, item) end
 
 ---@param index integer
 function _building_general_refs:erase(index) end
 
 ---@class _building_relations: DFContainer
----@field [integer] building_civzonest
+---@field [integer] df.building_civzonest
 local _building_relations
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building_civzonest>
+---@return DFPointer<df.building_civzonest>
 function _building_relations:_field(index) end
 
 ---@param index '#'|integer
----@param item building_civzonest
+---@param item df.building_civzonest
 function _building_relations:insert(index, item) end
 
 ---@param index integer
@@ -755,87 +755,87 @@ function _building_activities:insert(index, item) end
 function _building_activities:erase(index) end
 
 -- stockpile --
----@class (exact) stockpile_links: DFStruct
----@field _type _stockpile_links
+---@class (exact) df.stockpile_links: DFStruct
+---@field _type identity.stockpile_links
 ---@field give_to_pile _stockpile_links_give_to_pile
 ---@field take_from_pile _stockpile_links_take_from_pile
 ---@field give_to_workshop _stockpile_links_give_to_workshop
 ---@field take_from_workshop _stockpile_links_take_from_workshop
 
----@class _stockpile_links: DFCompoundType
+---@class identity.stockpile_links: DFCompoundType
 ---@field _kind 'struct-type'
 df.stockpile_links = {}
 
----@return stockpile_links
+---@return df.stockpile_links
 function df.stockpile_links:new() end
 
 ---@class _stockpile_links_give_to_pile: DFContainer
----@field [integer] building
+---@field [integer] df.building
 local _stockpile_links_give_to_pile
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building>
+---@return DFPointer<df.building>
 function _stockpile_links_give_to_pile:_field(index) end
 
 ---@param index '#'|integer
----@param item building
+---@param item df.building
 function _stockpile_links_give_to_pile:insert(index, item) end
 
 ---@param index integer
 function _stockpile_links_give_to_pile:erase(index) end
 
 ---@class _stockpile_links_take_from_pile: DFContainer
----@field [integer] building
+---@field [integer] df.building
 local _stockpile_links_take_from_pile
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building>
+---@return DFPointer<df.building>
 function _stockpile_links_take_from_pile:_field(index) end
 
 ---@param index '#'|integer
----@param item building
+---@param item df.building
 function _stockpile_links_take_from_pile:insert(index, item) end
 
 ---@param index integer
 function _stockpile_links_take_from_pile:erase(index) end
 
 ---@class _stockpile_links_give_to_workshop: DFContainer
----@field [integer] building
+---@field [integer] df.building
 local _stockpile_links_give_to_workshop
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building>
+---@return DFPointer<df.building>
 function _stockpile_links_give_to_workshop:_field(index) end
 
 ---@param index '#'|integer
----@param item building
+---@param item df.building
 function _stockpile_links_give_to_workshop:insert(index, item) end
 
 ---@param index integer
 function _stockpile_links_give_to_workshop:erase(index) end
 
 ---@class _stockpile_links_take_from_workshop: DFContainer
----@field [integer] building
+---@field [integer] df.building
 local _stockpile_links_take_from_workshop
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building>
+---@return DFPointer<df.building>
 function _stockpile_links_take_from_workshop:_field(index) end
 
 ---@param index '#'|integer
----@param item building
+---@param item df.building
 function _stockpile_links_take_from_workshop:insert(index, item) end
 
 ---@param index integer
 function _stockpile_links_take_from_workshop:erase(index) end
 
----@class (exact) building_stockpilest: DFStruct, building
----@field _type _building_stockpilest
----@field settings stockpile_settings
+---@class (exact) df.building_stockpilest: DFStruct, df.building
+---@field _type identity.building_stockpilest
+---@field settings df.stockpile_settings
 ---@field max_barrels number
 ---@field max_bins number
 ---@field max_wheelbarrows number
@@ -843,54 +843,54 @@ function _stockpile_links_take_from_workshop:erase(index) end
 ---@field container_item_id DFNumberVector
 ---@field container_x DFNumberVector
 ---@field container_y DFNumberVector
----@field links stockpile_links
+---@field links df.stockpile_links
 ---@field use_links_only number
 ---@field stockpile_number number
 ---@field linked_stops _building_stockpilest_linked_stops
 
----@class _building_stockpilest: DFCompoundType
+---@class identity.building_stockpilest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_stockpilest = {}
 
----@return building_stockpilest
+---@return df.building_stockpilest
 function df.building_stockpilest:new() end
 
 ---@class _building_stockpilest_container_type: DFContainer
----@field [integer] item_type
+---@field [integer] df.item_type
 local _building_stockpilest_container_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_type>
+---@return DFPointer<df.item_type>
 function _building_stockpilest_container_type:_field(index) end
 
 ---@param index '#'|integer
----@param item item_type
+---@param item df.item_type
 function _building_stockpilest_container_type:insert(index, item) end
 
 ---@param index integer
 function _building_stockpilest_container_type:erase(index) end
 
 ---@class _building_stockpilest_linked_stops: DFContainer
----@field [integer] hauling_stop
+---@field [integer] df.hauling_stop
 local _building_stockpilest_linked_stops
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<hauling_stop>
+---@return DFPointer<df.hauling_stop>
 function _building_stockpilest_linked_stops:_field(index) end
 
 ---@param index '#'|integer
----@param item hauling_stop
+---@param item df.hauling_stop
 function _building_stockpilest_linked_stops:insert(index, item) end
 
 ---@param index integer
 function _building_stockpilest_linked_stops:erase(index) end
 
 -- zone --
----@class (exact) hospital_supplies: DFStruct
----@field _type _hospital_supplies
----@field supplies_needed hospital_supplies.T_supplies_needed
+---@class (exact) df.hospital_supplies: DFStruct
+---@field _type identity.hospital_supplies
+---@field supplies_needed df.hospital_supplies.T_supplies_needed
 ---@field max_splints number
 ---@field max_thread number
 ---@field max_cloth number
@@ -907,15 +907,15 @@ function _building_stockpilest_linked_stops:erase(index) end
 ---@field cur_soap number
 ---@field supply_recheck_timer number
 
----@class _hospital_supplies: DFCompoundType
+---@class identity.hospital_supplies: DFCompoundType
 ---@field _kind 'struct-type'
 df.hospital_supplies = {}
 
----@return hospital_supplies
+---@return df.hospital_supplies
 function df.hospital_supplies:new() end
 
----@class hospital_supplies.T_supplies_needed: DFBitfield
----@field _enum _hospital_supplies.T_supplies_needed
+---@class df.hospital_supplies.T_supplies_needed: DFBitfield
+---@field _enum identity.hospital_supplies.supplies_needed
 ---@field splints boolean
 ---@field [0] boolean
 ---@field thread boolean
@@ -931,7 +931,7 @@ function df.hospital_supplies:new() end
 ---@field soap boolean
 ---@field [6] boolean
 
----@class _hospital_supplies.T_supplies_needed: DFBitfieldType
+---@class identity.hospital_supplies.supplies_needed: DFBitfieldType
 ---@field splints 0
 ---@field [0] "splints"
 ---@field thread 1
@@ -948,7 +948,7 @@ function df.hospital_supplies:new() end
 ---@field [6] "soap"
 df.hospital_supplies.T_supplies_needed = {}
 
----@alias civzone_type
+---@alias df.civzone_type
 ---| 0 # Home
 ---| 1 # Depot
 ---| 2 # Stockpile
@@ -1036,7 +1036,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| 96 # Dungeon
 ---| 97 # Tomb
 
----@class _civzone_type: DFEnumType
+---@class identity.civzone_type: DFEnumType
 ---@field Home 0
 ---@field [0] "Home"
 ---@field Depot 1
@@ -1211,56 +1211,56 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [97] "Tomb"
 df.civzone_type = {}
 
----@class (exact) building_civzonest: DFStruct, building
----@field _type _building_civzonest
+---@class (exact) df.building_civzonest: DFStruct, df.building
+---@field _type identity.building_civzonest
 ---@field assigned_units DFNumberVector
 ---@field assigned_items DFNumberVector
----@field type civzone_type only saved as int16
+---@field type df.civzone_type only saved as int16
 ---@field is_active number 0 is paused, 8 is active
 ---@field zone_num number
----@field zone_settings building_civzonest.T_zone_settings
+---@field zone_settings df.building_civzonest.T_zone_settings
 ---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds
 ---@field assigned_unit_id number
----@field assigned_unit unit
+---@field assigned_unit df.unit
 ---@field squad_room_info _building_civzonest_squad_room_info
 
----@class _building_civzonest: DFCompoundType
+---@class identity.building_civzonest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_civzonest = {}
 
----@return building_civzonest
+---@return df.building_civzonest
 function df.building_civzonest:new() end
 
----@class (exact) building_civzonest.T_zone_settings: DFStruct
----@field _type _building_civzonest.T_zone_settings
----@field whole building_civzonest.T_zone_settings.T_whole
----@field gather building_civzonest.T_zone_settings.T_gather
----@field pen building_civzonest.T_zone_settings.T_pen
----@field tomb building_civzonest.T_zone_settings.T_tomb
----@field archery building_civzonest.T_zone_settings.T_archery
----@field pit_pond building_civzonest.T_zone_settings.T_pit_pond
+---@class (exact) df.building_civzonest.T_zone_settings: DFStruct
+---@field _type identity.building_civzonest.zone_settings
+---@field whole df.building_civzonest.T_zone_settings.T_whole
+---@field gather df.building_civzonest.T_zone_settings.T_gather
+---@field pen df.building_civzonest.T_zone_settings.T_pen
+---@field tomb df.building_civzonest.T_zone_settings.T_tomb
+---@field archery df.building_civzonest.T_zone_settings.T_archery
+---@field pit_pond df.building_civzonest.T_zone_settings.T_pit_pond
 
----@class _building_civzonest.T_zone_settings: DFCompoundType
+---@class identity.building_civzonest.zone_settings: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings = {}
 
----@return building_civzonest.T_zone_settings
+---@return df.building_civzonest.T_zone_settings
 function df.building_civzonest.T_zone_settings:new() end
 
----@class (exact) building_civzonest.T_zone_settings.T_whole: DFStruct
----@field _type _building_civzonest.T_zone_settings.T_whole
+---@class (exact) df.building_civzonest.T_zone_settings.T_whole: DFStruct
+---@field _type identity.building_civzonest.zone_settings.whole
 ---@field i1 number
 ---@field i2 number
 
----@class _building_civzonest.T_zone_settings.T_whole: DFCompoundType
+---@class identity.building_civzonest.zone_settings.whole: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_whole = {}
 
----@return building_civzonest.T_zone_settings.T_whole
+---@return df.building_civzonest.T_zone_settings.T_whole
 function df.building_civzonest.T_zone_settings.T_whole:new() end
 
----@class building_civzonest.T_zone_settings.T_gather: DFBitfield
----@field _enum _building_civzonest.T_zone_settings.T_gather
+---@class df.building_civzonest.T_zone_settings.T_gather: DFBitfield
+---@field _enum identity.building_civzonest.zone_settings.gather
 ---@field pick_trees boolean
 ---@field [0] boolean
 ---@field pick_shrubs boolean
@@ -1268,7 +1268,7 @@ function df.building_civzonest.T_zone_settings.T_whole:new() end
 ---@field gather_fallen boolean
 ---@field [2] boolean
 
----@class _building_civzonest.T_zone_settings.T_gather: DFBitfieldType
+---@class identity.building_civzonest.zone_settings.gather: DFBitfieldType
 ---@field pick_trees 0
 ---@field [0] "pick_trees"
 ---@field pick_shrubs 1
@@ -1277,48 +1277,48 @@ function df.building_civzonest.T_zone_settings.T_whole:new() end
 ---@field [2] "gather_fallen"
 df.building_civzonest.T_zone_settings.T_gather = {}
 
----@class (exact) building_civzonest.T_zone_settings.T_pen: DFStruct
----@field _type _building_civzonest.T_zone_settings.T_pen
+---@class (exact) df.building_civzonest.T_zone_settings.T_pen: DFStruct
+---@field _type identity.building_civzonest.zone_settings.pen
 ---@field unk number
 
----@class _building_civzonest.T_zone_settings.T_pen: DFCompoundType
+---@class identity.building_civzonest.zone_settings.pen: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_pen = {}
 
----@return building_civzonest.T_zone_settings.T_pen
+---@return df.building_civzonest.T_zone_settings.T_pen
 function df.building_civzonest.T_zone_settings.T_pen:new() end
 
----@class building_civzonest.T_zone_settings.T_tomb: DFBitfield
----@field _enum _building_civzonest.T_zone_settings.T_tomb
+---@class df.building_civzonest.T_zone_settings.T_tomb: DFBitfield
+---@field _enum identity.building_civzonest.zone_settings.tomb
 ---@field no_pets boolean
 ---@field [0] boolean
 ---@field no_citizens boolean
 ---@field [1] boolean
 
----@class _building_civzonest.T_zone_settings.T_tomb: DFBitfieldType
+---@class identity.building_civzonest.zone_settings.tomb: DFBitfieldType
 ---@field no_pets 0
 ---@field [0] "no_pets"
 ---@field no_citizens 1
 ---@field [1] "no_citizens"
 df.building_civzonest.T_zone_settings.T_tomb = {}
 
----@class (exact) building_civzonest.T_zone_settings.T_archery: DFStruct
----@field _type _building_civzonest.T_zone_settings.T_archery
+---@class (exact) df.building_civzonest.T_zone_settings.T_archery: DFStruct
+---@field _type identity.building_civzonest.zone_settings.archery
 ---@field dir_x number
 ---@field dir_y number
 
----@class _building_civzonest.T_zone_settings.T_archery: DFCompoundType
+---@class identity.building_civzonest.zone_settings.archery: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_archery = {}
 
----@return building_civzonest.T_zone_settings.T_archery
+---@return df.building_civzonest.T_zone_settings.T_archery
 function df.building_civzonest.T_zone_settings.T_archery:new() end
 
----@alias building_civzonest.T_zone_settings.T_pit_pond
+---@alias df.building_civzonest.T_zone_settings.T_pit_pond
 ---| 2 # top_of_pit
 ---| 3 # top_of_pond
 
----@class _building_civzonest.T_zone_settings.T_pit_pond: DFEnumType
+---@class identity.building_civzonest.zone_settings.pit_pond: DFEnumType
 ---@field top_of_pit 2
 ---@field [2] "top_of_pit"
 ---@field top_of_pond 3
@@ -1326,16 +1326,16 @@ function df.building_civzonest.T_zone_settings.T_archery:new() end
 df.building_civzonest.T_zone_settings.T_pit_pond = {}
 
 ---@class _building_civzonest_contained_buildings: DFContainer
----@field [integer] building
+---@field [integer] df.building
 local _building_civzonest_contained_buildings
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<building>
+---@return DFPointer<df.building>
 function _building_civzonest_contained_buildings:_field(index) end
 
 ---@param index '#'|integer
----@param item building
+---@param item df.building
 function _building_civzonest_contained_buildings:insert(index, item) end
 
 ---@param index integer
@@ -1358,13 +1358,13 @@ function _building_civzonest_squad_room_info:insert(index, item) end
 function _building_civzonest_squad_room_info:erase(index) end
 
 -- actual --
----@alias building_item_role_type
+---@alias df.building_item_role_type
 ---| 0 # TEMP
 ---| 1 # TEMP_PRINTHIDDEN
 ---| 2 # PERM
 
 -- actual --
----@class _building_item_role_type: DFEnumType
+---@class identity.building_item_role_type: DFEnumType
 ---@field TEMP 0
 ---@field [0] "TEMP"
 ---@field TEMP_PRINTHIDDEN 1
@@ -1373,22 +1373,22 @@ function _building_civzonest_squad_room_info:erase(index) end
 ---@field [2] "PERM"
 df.building_item_role_type = {}
 
----@class (exact) building_actual: DFStruct, building
----@field _type _building_actual
+---@class (exact) df.building_actual: DFStruct, df.building
+---@field _type identity.building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
 ---@field contained_items _building_actual_contained_items
----@field design building_design
+---@field design df.building_design
 local building_actual
 
 ---@return boolean
 function building_actual:isDestroyedByItemRemoval() end
 
 
----@class _building_actual: DFCompoundType
+---@class identity.building_actual: DFCompoundType
 ---@field _kind 'class-type'
 df.building_actual = {}
 
----@return building_actual
+---@return df.building_actual
 function df.building_actual:new() end
 
 ---@class _building_actual_contained_items: DFContainer
@@ -1407,28 +1407,28 @@ function _building_actual_contained_items:insert(index, item) end
 ---@param index integer
 function _building_actual_contained_items:erase(index) end
 
----@class (exact) building_design: DFStruct
----@field _type _building_design
+---@class (exact) df.building_design: DFStruct
+---@field _type identity.building_design
 ---@field builder1 number References: `historical_figure`
 ---@field unk5 number
 ---@field build_skill number
 ---@field build_timer1 number +1 per 10 frames while building
 ---@field builder2 number References: `historical_figure`
 ---@field build_timer2 number
----@field quality1 item_quality
----@field flags building_design.T_flags
+---@field quality1 df.item_quality
+---@field flags df.building_design.T_flags
 ---@field hitpoints number
 ---@field max_hitpoints number
 
----@class _building_design: DFCompoundType
+---@class identity.building_design: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_design = {}
 
----@return building_design
+---@return df.building_design
 function df.building_design:new() end
 
----@class building_design.T_flags: DFBitfield
----@field _enum _building_design.T_flags
+---@class df.building_design.T_flags: DFBitfield
+---@field _enum identity.building_design.flags
 ---@field rough boolean rough gabbro road
 ---@field [0] boolean rough gabbro road
 ---@field built boolean
@@ -1436,7 +1436,7 @@ function df.building_design:new() end
 ---@field designed boolean
 ---@field [2] boolean
 
----@class _building_design.T_flags: DFBitfieldType
+---@class identity.building_design.flags: DFBitfieldType
 ---@field rough 0 rough gabbro road
 ---@field [0] "rough" rough gabbro road
 ---@field built 1
@@ -1446,7 +1446,7 @@ function df.building_design:new() end
 df.building_design.T_flags = {}
 
 -- workshops --
----@alias furnace_type
+---@alias df.furnace_type
 ---| 0 # WoodFurnace
 ---| 1 # Smelter
 ---| 2 # GlassFurnace
@@ -1457,7 +1457,7 @@ df.building_design.T_flags = {}
 ---| 7 # Custom
 
 -- workshops --
----@class _furnace_type: DFEnumType
+---@class identity.furnace_type: DFEnumType
 ---@field WoodFurnace 0
 ---@field [0] "WoodFurnace"
 ---@field Smelter 1
@@ -1495,22 +1495,22 @@ df.furnace_type._attr_entry_type._fields = {}
 ---@field Custom { name: "Custom Furnace" }
 df.furnace_type.attrs = {}
 
----@class (exact) building_furnacest: DFStruct, building_actual
----@field _type _building_furnacest
+---@class (exact) df.building_furnacest: DFStruct, df.building_actual
+---@field _type identity.building_furnacest
 ---@field melt_remainder DFNumberVector
 ---@field unk_108 number
----@field type furnace_type
----@field profile workshop_profile
+---@field type df.furnace_type
+---@field profile df.workshop_profile
 ---@field custom_type number References: `building_def`
 
----@class _building_furnacest: DFCompoundType
+---@class identity.building_furnacest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_furnacest = {}
 
----@return building_furnacest
+---@return df.building_furnacest
 function df.building_furnacest:new() end
 
----@alias workshop_type
+---@alias df.workshop_type
 ---| 0 # Carpenters
 ---| 1 # Farmers
 ---| 2 # Masons
@@ -1537,7 +1537,7 @@ function df.building_furnacest:new() end
 ---| 23 # Custom
 ---| 24 # Tool
 
----@class _workshop_type: DFEnumType
+---@class identity.workshop_type: DFEnumType
 ---@field Carpenters 0
 ---@field [0] "Carpenters"
 ---@field Farmers 1
@@ -1626,167 +1626,167 @@ df.workshop_type._attr_entry_type._fields = {}
 ---@field Tool { name: "Tool" }
 df.workshop_type.attrs = {}
 
----@class (exact) workshop_profile: DFStruct
----@field _type _workshop_profile
+---@class (exact) df.workshop_profile: DFStruct
+---@field _type identity.workshop_profile
 ---@field permitted_workers DFNumberVector
 ---@field min_level number
 ---@field max_level number
----@field links stockpile_links
+---@field links df.stockpile_links
 ---@field max_general_orders number
 ---@field block_general_orders boolean
----@field blocked_labors DFEnumVector<unit_labor, boolean>
+---@field blocked_labors DFEnumVector<df.unit_labor, boolean>
 
----@class _workshop_profile: DFCompoundType
+---@class identity.workshop_profile: DFCompoundType
 ---@field _kind 'struct-type'
 df.workshop_profile = {}
 
----@return workshop_profile
+---@return df.workshop_profile
 function df.workshop_profile:new() end
 
----@class (exact) building_workshopst: DFStruct, building_actual
----@field _type _building_workshopst
----@field type workshop_type
----@field profile workshop_profile
----@field machine machine_info
+---@class (exact) df.building_workshopst: DFStruct, df.building_actual
+---@field _type identity.building_workshopst
+---@field type df.workshop_type
+---@field profile df.workshop_profile
+---@field machine df.machine_info
 ---@field custom_type number References: `building_def`
 
----@class _building_workshopst: DFCompoundType
+---@class identity.building_workshopst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_workshopst = {}
 
----@return building_workshopst
+---@return df.building_workshopst
 function df.building_workshopst:new() end
 
 -- misc --
----@class (exact) building_animaltrapst: DFStruct, building_actual
----@field _type _building_animaltrapst
+---@class (exact) df.building_animaltrapst: DFStruct, df.building_actual
+---@field _type identity.building_animaltrapst
 ---@field bait_type number
 ---@field fill_timer number
 
----@class _building_animaltrapst: DFCompoundType
+---@class identity.building_animaltrapst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_animaltrapst = {}
 
----@return building_animaltrapst
+---@return df.building_animaltrapst
 function df.building_animaltrapst:new() end
 
----@class (exact) building_archerytargetst: DFStruct, building_actual
----@field _type _building_archerytargetst
+---@class (exact) df.building_archerytargetst: DFStruct, df.building_actual
+---@field _type identity.building_archerytargetst
 
----@class _building_archerytargetst: DFCompoundType
+---@class identity.building_archerytargetst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_archerytargetst = {}
 
----@return building_archerytargetst
+---@return df.building_archerytargetst
 function df.building_archerytargetst:new() end
 
----@class (exact) building_armorstandst: DFStruct, building_actual
----@field _type _building_armorstandst
+---@class (exact) df.building_armorstandst: DFStruct, df.building_actual
+---@field _type identity.building_armorstandst
 ---@field unk_c0 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
----@class _building_armorstandst: DFCompoundType
+---@class identity.building_armorstandst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_armorstandst = {}
 
----@return building_armorstandst
+---@return df.building_armorstandst
 function df.building_armorstandst:new() end
 
----@class (exact) building_bars_verticalst: DFStruct, building_actual
----@field _type _building_bars_verticalst
----@field gate_flags gate_flags
+---@class (exact) df.building_bars_verticalst: DFStruct, df.building_actual
+---@field _type identity.building_bars_verticalst
+---@field gate_flags df.gate_flags
 ---@field timer number
 
----@class _building_bars_verticalst: DFCompoundType
+---@class identity.building_bars_verticalst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bars_verticalst = {}
 
----@return building_bars_verticalst
+---@return df.building_bars_verticalst
 function df.building_bars_verticalst:new() end
 
----@class (exact) building_bars_floorst: DFStruct, building_actual
----@field _type _building_bars_floorst
----@field gate_flags gate_flags
+---@class (exact) df.building_bars_floorst: DFStruct, df.building_actual
+---@field _type identity.building_bars_floorst
+---@field gate_flags df.gate_flags
 ---@field timer number
 
----@class _building_bars_floorst: DFCompoundType
+---@class identity.building_bars_floorst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bars_floorst = {}
 
----@return building_bars_floorst
+---@return df.building_bars_floorst
 function df.building_bars_floorst:new() end
 
----@class (exact) building_users: DFStruct
----@field _type _building_users
+---@class (exact) df.building_users: DFStruct
+---@field _type identity.building_users
 ---@field unit DFNumberVector
 ---@field mode DFNumberVector
 
----@class _building_users: DFCompoundType
+---@class identity.building_users: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_users = {}
 
----@return building_users
+---@return df.building_users
 function df.building_users:new() end
 
----@class (exact) building_bedst: DFStruct, building_actual
----@field _type _building_bedst
+---@class (exact) df.building_bedst: DFStruct, df.building_actual
+---@field _type identity.building_bedst
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
----@field users building_users
+---@field users df.building_users
 
----@class _building_bedst: DFCompoundType
+---@class identity.building_bedst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bedst = {}
 
----@return building_bedst
+---@return df.building_bedst
 function df.building_bedst:new() end
 
----@class (exact) building_bookcasest: DFStruct, building_actual
----@field _type _building_bookcasest
+---@class (exact) df.building_bookcasest: DFStruct, df.building_actual
+---@field _type identity.building_bookcasest
 
----@class _building_bookcasest: DFCompoundType
+---@class identity.building_bookcasest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bookcasest = {}
 
----@return building_bookcasest
+---@return df.building_bookcasest
 function df.building_bookcasest:new() end
 
----@class (exact) building_boxst: DFStruct, building_actual
----@field _type _building_boxst
+---@class (exact) df.building_boxst: DFStruct, df.building_actual
+---@field _type identity.building_boxst
 ---@field unk_1 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
----@class _building_boxst: DFCompoundType
+---@class identity.building_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_boxst = {}
 
----@return building_boxst
+---@return df.building_boxst
 function df.building_boxst:new() end
 
----@class (exact) building_bridgest: DFStruct, building_actual
----@field _type _building_bridgest
----@field gate_flags gate_flags
+---@class (exact) df.building_bridgest: DFStruct, df.building_actual
+---@field _type identity.building_bridgest
+---@field gate_flags df.gate_flags
 ---@field timer number
----@field direction building_bridgest.T_direction
+---@field direction df.building_bridgest.T_direction
 ---@field material_amount number
 
----@class _building_bridgest: DFCompoundType
+---@class identity.building_bridgest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_bridgest = {}
 
----@return building_bridgest
+---@return df.building_bridgest
 function df.building_bridgest:new() end
 
----@alias building_bridgest.T_direction
+---@alias df.building_bridgest.T_direction
 ---| -1 # Retracting
 ---| 0 # Left
 ---| 1 # Right
 ---| 2 # Up
 ---| 3 # Down
 
----@class _building_bridgest.T_direction: DFEnumType
+---@class identity.building_bridgest.direction: DFEnumType
 ---@field Retracting -1
 ---@field [-1] "Retracting"
 ---@field Left 0
@@ -1799,89 +1799,89 @@ function df.building_bridgest:new() end
 ---@field [3] "Down"
 df.building_bridgest.T_direction = {}
 
----@class (exact) building_cabinetst: DFStruct, building_actual
----@field _type _building_cabinetst
+---@class (exact) df.building_cabinetst: DFStruct, df.building_actual
+---@field _type identity.building_cabinetst
 ---@field unk_1 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
----@class _building_cabinetst: DFCompoundType
+---@class identity.building_cabinetst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_cabinetst = {}
 
----@return building_cabinetst
+---@return df.building_cabinetst
 function df.building_cabinetst:new() end
 
----@class (exact) building_cagest: DFStruct, building_actual
----@field _type _building_cagest
+---@class (exact) df.building_cagest: DFStruct, df.building_actual
+---@field _type identity.building_cagest
 ---@field assigned_units DFNumberVector
 ---@field assigned_items DFNumberVector
----@field cage_flags building_cagest.T_cage_flags
+---@field cage_flags df.building_cagest.T_cage_flags
 ---@field fill_timer number
 
----@class _building_cagest: DFCompoundType
+---@class identity.building_cagest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_cagest = {}
 
----@return building_cagest
+---@return df.building_cagest
 function df.building_cagest:new() end
 
----@class building_cagest.T_cage_flags: DFBitfield
----@field _enum _building_cagest.T_cage_flags
+---@class df.building_cagest.T_cage_flags: DFBitfield
+---@field _enum identity.building_cagest.cage_flags
 ---@field triggered boolean
 ---@field [0] boolean
 
----@class _building_cagest.T_cage_flags: DFBitfieldType
+---@class identity.building_cagest.cage_flags: DFBitfieldType
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_cagest.T_cage_flags = {}
 
----@class (exact) building_chainst: DFStruct, building_actual
----@field _type _building_chainst
----@field assigned unit
----@field chained unit
----@field chain_flags building_chainst.T_chain_flags
+---@class (exact) df.building_chainst: DFStruct, df.building_actual
+---@field _type identity.building_chainst
+---@field assigned df.unit
+---@field chained df.unit
+---@field chain_flags df.building_chainst.T_chain_flags
 
----@class _building_chainst: DFCompoundType
+---@class identity.building_chainst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_chainst = {}
 
----@return building_chainst
+---@return df.building_chainst
 function df.building_chainst:new() end
 
----@class building_chainst.T_chain_flags: DFBitfield
----@field _enum _building_chainst.T_chain_flags
+---@class df.building_chainst.T_chain_flags: DFBitfield
+---@field _enum identity.building_chainst.chain_flags
 ---@field triggered boolean
 ---@field [0] boolean
 
----@class _building_chainst.T_chain_flags: DFBitfieldType
+---@class identity.building_chainst.chain_flags: DFBitfieldType
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_chainst.T_chain_flags = {}
 
----@class (exact) building_chairst: DFStruct, building_actual
----@field _type _building_chairst
+---@class (exact) df.building_chairst: DFStruct, df.building_actual
+---@field _type identity.building_chairst
 ---@field unk_1 number
----@field users building_users
+---@field users df.building_users
 
----@class _building_chairst: DFCompoundType
+---@class identity.building_chairst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_chairst = {}
 
----@return building_chairst
+---@return df.building_chairst
 function df.building_chairst:new() end
 
----@class (exact) building_coffinst: DFStruct, building_actual
----@field _type _building_coffinst
+---@class (exact) df.building_coffinst: DFStruct, df.building_actual
+---@field _type identity.building_coffinst
 
----@class _building_coffinst: DFCompoundType
+---@class identity.building_coffinst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_coffinst = {}
 
----@return building_coffinst
+---@return df.building_coffinst
 function df.building_coffinst:new() end
 
----@alias construction_type
+---@alias df.construction_type
 ---| -1 # NONE
 ---| 0 # Fortification
 ---| 1 # Wall
@@ -1921,7 +1921,7 @@ function df.building_coffinst:new() end
 ---| 35 # TrackRampSEW
 ---| 36 # TrackRampNSEW
 
----@class _construction_type: DFEnumType
+---@class identity.construction_type: DFEnumType
 ---@field NONE -1 unused
 ---@field [-1] "NONE" unused
 ---@field Fortification 0
@@ -2000,117 +2000,117 @@ function df.building_coffinst:new() end
 ---@field [36] "TrackRampNSEW"
 df.construction_type = {}
 
----@class (exact) building_constructionst: DFStruct, building_actual
----@field _type _building_constructionst
----@field type construction_type
+---@class (exact) df.building_constructionst: DFStruct, df.building_actual
+---@field _type identity.building_constructionst
+---@field type df.construction_type
 
----@class _building_constructionst: DFCompoundType
+---@class identity.building_constructionst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_constructionst = {}
 
----@return building_constructionst
+---@return df.building_constructionst
 function df.building_constructionst:new() end
 
----@class (exact) building_display_furniturest: DFStruct, building_actual
----@field _type _building_display_furniturest
+---@class (exact) df.building_display_furniturest: DFStruct, df.building_actual
+---@field _type identity.building_display_furniturest
 ---@field displayed_items DFNumberVector
 
----@class _building_display_furniturest: DFCompoundType
+---@class identity.building_display_furniturest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_display_furniturest = {}
 
----@return building_display_furniturest
+---@return df.building_display_furniturest
 function df.building_display_furniturest:new() end
 
----@class (exact) building_doorst: DFStruct, building_actual
----@field _type _building_doorst
----@field door_flags door_flags
+---@class (exact) df.building_doorst: DFStruct, df.building_actual
+---@field _type identity.building_doorst
+---@field door_flags df.door_flags
 ---@field close_timer number
 
----@class _building_doorst: DFCompoundType
+---@class identity.building_doorst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_doorst = {}
 
----@return building_doorst
+---@return df.building_doorst
 function df.building_doorst:new() end
 
----@class (exact) building_farmplotst: DFStruct, building_actual
----@field _type _building_farmplotst
+---@class (exact) df.building_farmplotst: DFStruct, df.building_actual
+---@field _type identity.building_farmplotst
 ---@field plant_id number[]
 ---@field material_amount number
----@field farm_flags building_farmplotst.T_farm_flags
----@field last_season season
+---@field farm_flags df.building_farmplotst.T_farm_flags
+---@field last_season df.season
 ---@field current_fertilization number
 ---@field max_fertilization number
 ---@field terrain_purge_timer number
 
----@class _building_farmplotst: DFCompoundType
+---@class identity.building_farmplotst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_farmplotst = {}
 
----@return building_farmplotst
+---@return df.building_farmplotst
 function df.building_farmplotst:new() end
 
----@class building_farmplotst.T_farm_flags: DFBitfield
----@field _enum _building_farmplotst.T_farm_flags
+---@class df.building_farmplotst.T_farm_flags: DFBitfield
+---@field _enum identity.building_farmplotst.farm_flags
 ---@field seasonal_fertilize boolean
 ---@field [0] boolean
 
----@class _building_farmplotst.T_farm_flags: DFBitfieldType
+---@class identity.building_farmplotst.farm_flags: DFBitfieldType
 ---@field seasonal_fertilize 0
 ---@field [0] "seasonal_fertilize"
 df.building_farmplotst.T_farm_flags = {}
 
----@class (exact) building_floodgatest: DFStruct, building_actual
----@field _type _building_floodgatest
----@field gate_flags gate_flags
+---@class (exact) df.building_floodgatest: DFStruct, df.building_actual
+---@field _type identity.building_floodgatest
+---@field gate_flags df.gate_flags
 ---@field timer number
 
----@class _building_floodgatest: DFCompoundType
+---@class identity.building_floodgatest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_floodgatest = {}
 
----@return building_floodgatest
+---@return df.building_floodgatest
 function df.building_floodgatest:new() end
 
----@class (exact) building_grate_floorst: DFStruct, building_actual
----@field _type _building_grate_floorst
----@field gate_flags gate_flags
+---@class (exact) df.building_grate_floorst: DFStruct, df.building_actual
+---@field _type identity.building_grate_floorst
+---@field gate_flags df.gate_flags
 ---@field timer number
 
----@class _building_grate_floorst: DFCompoundType
+---@class identity.building_grate_floorst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_grate_floorst = {}
 
----@return building_grate_floorst
+---@return df.building_grate_floorst
 function df.building_grate_floorst:new() end
 
----@class (exact) building_grate_wallst: DFStruct, building_actual
----@field _type _building_grate_wallst
----@field gate_flags gate_flags
+---@class (exact) df.building_grate_wallst: DFStruct, df.building_actual
+---@field _type identity.building_grate_wallst
+---@field gate_flags df.gate_flags
 ---@field timer number
 
----@class _building_grate_wallst: DFCompoundType
+---@class identity.building_grate_wallst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_grate_wallst = {}
 
----@return building_grate_wallst
+---@return df.building_grate_wallst
 function df.building_grate_wallst:new() end
 
----@class (exact) building_hatchst: DFStruct, building_actual
----@field _type _building_hatchst
----@field door_flags door_flags
+---@class (exact) df.building_hatchst: DFStruct, df.building_actual
+---@field _type identity.building_hatchst
+---@field door_flags df.door_flags
 ---@field close_timer number
 
----@class _building_hatchst: DFCompoundType
+---@class identity.building_hatchst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_hatchst = {}
 
----@return building_hatchst
+---@return df.building_hatchst
 function df.building_hatchst:new() end
 
----@class hive_flags: DFBitfield
----@field _enum _hive_flags
+---@class df.hive_flags: DFBitfield
+---@field _enum identity.hive_flags
 ---@field do_install boolean
 ---@field [0] boolean
 ---@field do_gather boolean
@@ -2118,7 +2118,7 @@ function df.building_hatchst:new() end
 ---@field ready_split boolean
 ---@field [2] boolean
 
----@class _hive_flags: DFBitfieldType
+---@class identity.hive_flags: DFBitfieldType
 ---@field do_install 0
 ---@field [0] "do_install"
 ---@field do_gather 1
@@ -2127,104 +2127,104 @@ function df.building_hatchst:new() end
 ---@field [2] "ready_split"
 df.hive_flags = {}
 
----@class (exact) building_hivest: DFStruct, building_actual
----@field _type _building_hivest
----@field hive_flags hive_flags
+---@class (exact) df.building_hivest: DFStruct, df.building_actual
+---@field _type identity.building_hivest
+---@field hive_flags df.hive_flags
 ---@field split_timer number up to 100800
 ---@field activity_timer number up to 100800000; checks timer%hive_product.time[i]==0
 ---@field install_timer number down from 1200
 ---@field gather_timer number down from 1200
 
----@class _building_hivest: DFCompoundType
+---@class identity.building_hivest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_hivest = {}
 
----@return building_hivest
+---@return df.building_hivest
 function df.building_hivest:new() end
 
----@class (exact) building_instrumentst: DFStruct, building_actual
----@field _type _building_instrumentst
+---@class (exact) df.building_instrumentst: DFStruct, df.building_actual
+---@field _type identity.building_instrumentst
 ---@field unk_1 number
 
----@class _building_instrumentst: DFCompoundType
+---@class identity.building_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_instrumentst = {}
 
----@return building_instrumentst
+---@return df.building_instrumentst
 function df.building_instrumentst:new() end
 
----@class (exact) building_nestst: DFStruct, building_actual
----@field _type _building_nestst
+---@class (exact) df.building_nestst: DFStruct, df.building_actual
+---@field _type identity.building_nestst
 
----@class _building_nestst: DFCompoundType
+---@class identity.building_nestst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_nestst = {}
 
----@return building_nestst
+---@return df.building_nestst
 function df.building_nestst:new() end
 
----@class (exact) building_nest_boxst: DFStruct, building_actual
----@field _type _building_nest_boxst
+---@class (exact) df.building_nest_boxst: DFStruct, df.building_actual
+---@field _type identity.building_nest_boxst
 ---@field claimed_by number References: `unit`
 ---@field claim_timeout number counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
 
----@class _building_nest_boxst: DFCompoundType
+---@class identity.building_nest_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_nest_boxst = {}
 
----@return building_nest_boxst
+---@return df.building_nest_boxst
 function df.building_nest_boxst:new() end
 
----@class (exact) building_offering_placest: DFStruct, building_actual
----@field _type _building_offering_placest
+---@class (exact) df.building_offering_placest: DFStruct, df.building_actual
+---@field _type identity.building_offering_placest
 
----@class _building_offering_placest: DFCompoundType
+---@class identity.building_offering_placest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_offering_placest = {}
 
----@return building_offering_placest
+---@return df.building_offering_placest
 function df.building_offering_placest:new() end
 
----@class (exact) building_roadst: DFStruct, building_actual
----@field _type _building_roadst
+---@class (exact) df.building_roadst: DFStruct, df.building_actual
+---@field _type identity.building_roadst
 
----@class _building_roadst: DFCompoundType
+---@class identity.building_roadst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_roadst = {}
 
----@return building_roadst
+---@return df.building_roadst
 function df.building_roadst:new() end
 
----@class (exact) building_road_dirtst: DFStruct, building_roadst
----@field _type _building_road_dirtst
+---@class (exact) df.building_road_dirtst: DFStruct, df.building_roadst
+---@field _type identity.building_road_dirtst
 ---@field material_amount number
 
----@class _building_road_dirtst: DFCompoundType
+---@class identity.building_road_dirtst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_road_dirtst = {}
 
----@return building_road_dirtst
+---@return df.building_road_dirtst
 function df.building_road_dirtst:new() end
 
----@class (exact) building_road_pavedst: DFStruct, building_roadst
----@field _type _building_road_pavedst
+---@class (exact) df.building_road_pavedst: DFStruct, df.building_roadst
+---@field _type identity.building_road_pavedst
 ---@field material_amount number
 ---@field terrain_purge_timer number
 
----@class _building_road_pavedst: DFCompoundType
+---@class identity.building_road_pavedst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_road_pavedst = {}
 
----@return building_road_pavedst
+---@return df.building_road_pavedst
 function df.building_road_pavedst:new() end
 
----@alias shop_type
+---@alias df.shop_type
 ---| 0 # GeneralStore
 ---| 1 # CraftsMarket
 ---| 2 # ClothingShop
 ---| 3 # ExoticClothingShop
 
----@class _shop_type: DFEnumType
+---@class identity.shop_type: DFEnumType
 ---@field GeneralStore 0
 ---@field [0] "GeneralStore"
 ---@field CraftsMarket 1
@@ -2235,63 +2235,63 @@ function df.building_road_pavedst:new() end
 ---@field [3] "ExoticClothingShop"
 df.shop_type = {}
 
----@class (exact) building_shopst: DFStruct, building_actual
----@field _type _building_shopst
----@field owner unit
+---@class (exact) df.building_shopst: DFStruct, df.building_actual
+---@field _type identity.building_shopst
+---@field owner df.unit
 ---@field timer number increments until reaching 200,000,000
----@field shop_flags building_shopst.T_shop_flags
----@field type shop_type
+---@field shop_flags df.building_shopst.T_shop_flags
+---@field type df.shop_type
 
----@class _building_shopst: DFCompoundType
+---@class identity.building_shopst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_shopst = {}
 
----@return building_shopst
+---@return df.building_shopst
 function df.building_shopst:new() end
 
----@class building_shopst.T_shop_flags: DFBitfield
----@field _enum _building_shopst.T_shop_flags
+---@class df.building_shopst.T_shop_flags: DFBitfield
+---@field _enum identity.building_shopst.shop_flags
 ---@field for_sale boolean
 ---@field [0] boolean
 
----@class _building_shopst.T_shop_flags: DFBitfieldType
+---@class identity.building_shopst.shop_flags: DFBitfieldType
 ---@field for_sale 0
 ---@field [0] "for_sale"
 df.building_shopst.T_shop_flags = {}
 
----@alias siegeengine_type
+---@alias df.siegeengine_type
 ---| 0 # Catapult
 ---| 1 # Ballista
 
----@class _siegeengine_type: DFEnumType
+---@class identity.siegeengine_type: DFEnumType
 ---@field Catapult 0
 ---@field [0] "Catapult"
 ---@field Ballista 1
 ---@field [1] "Ballista"
 df.siegeengine_type = {}
 
----@class (exact) building_siegeenginest: DFStruct, building_actual
----@field _type _building_siegeenginest
----@field type siegeengine_type
----@field facing building_siegeenginest.T_facing
----@field action building_siegeenginest.T_action
+---@class (exact) df.building_siegeenginest: DFStruct, df.building_actual
+---@field _type identity.building_siegeenginest
+---@field type df.siegeengine_type
+---@field facing df.building_siegeenginest.T_facing
+---@field action df.building_siegeenginest.T_action
 ---@field fire_timer number
 ---@field fill_timer number
 
----@class _building_siegeenginest: DFCompoundType
+---@class identity.building_siegeenginest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_siegeenginest = {}
 
----@return building_siegeenginest
+---@return df.building_siegeenginest
 function df.building_siegeenginest:new() end
 
----@alias building_siegeenginest.T_facing
+---@alias df.building_siegeenginest.T_facing
 ---| 0 # Left
 ---| 1 # Up
 ---| 2 # Right
 ---| 3 # Down
 
----@class _building_siegeenginest.T_facing: DFEnumType
+---@class identity.building_siegeenginest.facing: DFEnumType
 ---@field Left 0
 ---@field [0] "Left"
 ---@field Up 1
@@ -2302,12 +2302,12 @@ function df.building_siegeenginest:new() end
 ---@field [3] "Down"
 df.building_siegeenginest.T_facing = {}
 
----@alias building_siegeenginest.T_action
+---@alias df.building_siegeenginest.T_action
 ---| 0 # NotInUse
 ---| 1 # PrepareToFire
 ---| 2 # FireAtWill
 
----@class _building_siegeenginest.T_action: DFEnumType
+---@class identity.building_siegeenginest.action: DFEnumType
 ---@field NotInUse 0
 ---@field [0] "NotInUse"
 ---@field PrepareToFire 1
@@ -2316,110 +2316,110 @@ df.building_siegeenginest.T_facing = {}
 ---@field [2] "FireAtWill"
 df.building_siegeenginest.T_action = {}
 
----@class (exact) building_slabst: DFStruct, building_actual
----@field _type _building_slabst
+---@class (exact) df.building_slabst: DFStruct, df.building_actual
+---@field _type identity.building_slabst
 ---@field unk_1 number
 
----@class _building_slabst: DFCompoundType
+---@class identity.building_slabst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_slabst = {}
 
----@return building_slabst
+---@return df.building_slabst
 function df.building_slabst:new() end
 
----@class (exact) building_statuest: DFStruct, building_actual
----@field _type _building_statuest
+---@class (exact) df.building_statuest: DFStruct, df.building_actual
+---@field _type identity.building_statuest
 ---@field unk_1 number
 
----@class _building_statuest: DFCompoundType
+---@class identity.building_statuest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_statuest = {}
 
----@return building_statuest
+---@return df.building_statuest
 function df.building_statuest:new() end
 
----@class (exact) building_supportst: DFStruct, building_actual
----@field _type _building_supportst
----@field support_flags building_supportst.T_support_flags
+---@class (exact) df.building_supportst: DFStruct, df.building_actual
+---@field _type identity.building_supportst
+---@field support_flags df.building_supportst.T_support_flags
 
----@class _building_supportst: DFCompoundType
+---@class identity.building_supportst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_supportst = {}
 
----@return building_supportst
+---@return df.building_supportst
 function df.building_supportst:new() end
 
----@class building_supportst.T_support_flags: DFBitfield
----@field _enum _building_supportst.T_support_flags
+---@class df.building_supportst.T_support_flags: DFBitfield
+---@field _enum identity.building_supportst.support_flags
 ---@field triggered boolean
 ---@field [0] boolean
 
----@class _building_supportst.T_support_flags: DFBitfieldType
+---@class identity.building_supportst.support_flags: DFBitfieldType
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_supportst.T_support_flags = {}
 
----@class (exact) building_tablest: DFStruct, building_actual
----@field _type _building_tablest
----@field table_flags building_tablest.T_table_flags
----@field users building_users
+---@class (exact) df.building_tablest: DFStruct, df.building_actual
+---@field _type identity.building_tablest
+---@field table_flags df.building_tablest.T_table_flags
+---@field users df.building_users
 
----@class _building_tablest: DFCompoundType
+---@class identity.building_tablest: DFCompoundType
 ---@field _kind 'class-type'
 df.building_tablest = {}
 
----@return building_tablest
+---@return df.building_tablest
 function df.building_tablest:new() end
 
----@class building_tablest.T_table_flags: DFBitfield
----@field _enum _building_tablest.T_table_flags
+---@class df.building_tablest.T_table_flags: DFBitfield
+---@field _enum identity.building_tablest.table_flags
 ---@field meeting_hall boolean
 ---@field [0] boolean
 
----@class _building_tablest.T_table_flags: DFBitfieldType
+---@class identity.building_tablest.table_flags: DFBitfieldType
 ---@field meeting_hall 0
 ---@field [0] "meeting_hall"
 df.building_tablest.T_table_flags = {}
 
----@class (exact) building_traction_benchst: DFStruct, building_actual
----@field _type _building_traction_benchst
+---@class (exact) df.building_traction_benchst: DFStruct, df.building_actual
+---@field _type identity.building_traction_benchst
 ---@field unk_1 number
----@field users building_users
+---@field users df.building_users
 
----@class _building_traction_benchst: DFCompoundType
+---@class identity.building_traction_benchst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_traction_benchst = {}
 
----@return building_traction_benchst
+---@return df.building_traction_benchst
 function df.building_traction_benchst:new() end
 
----@class (exact) building_tradedepotst: DFStruct, building_actual
----@field _type _building_tradedepotst
----@field trade_flags building_tradedepotst.T_trade_flags
+---@class (exact) df.building_tradedepotst: DFStruct, df.building_actual
+---@field _type identity.building_tradedepotst
+---@field trade_flags df.building_tradedepotst.T_trade_flags
 ---@field accessible number
 
----@class _building_tradedepotst: DFCompoundType
+---@class identity.building_tradedepotst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_tradedepotst = {}
 
----@return building_tradedepotst
+---@return df.building_tradedepotst
 function df.building_tradedepotst:new() end
 
----@class building_tradedepotst.T_trade_flags: DFBitfield
----@field _enum _building_tradedepotst.T_trade_flags
+---@class df.building_tradedepotst.T_trade_flags: DFBitfield
+---@field _enum identity.building_tradedepotst.trade_flags
 ---@field trader_requested boolean
 ---@field [0] boolean
 ---@field anyone_can_trade boolean
 ---@field [1] boolean
 
----@class _building_tradedepotst.T_trade_flags: DFBitfieldType
+---@class identity.building_tradedepotst.trade_flags: DFBitfieldType
 ---@field trader_requested 0
 ---@field [0] "trader_requested"
 ---@field anyone_can_trade 1
 ---@field [1] "anyone_can_trade"
 df.building_tradedepotst.T_trade_flags = {}
 
----@alias trap_type
+---@alias df.trap_type
 ---| 0 # Lever
 ---| 1 # PressurePlate
 ---| 2 # CageTrap
@@ -2427,7 +2427,7 @@ df.building_tradedepotst.T_trade_flags = {}
 ---| 4 # WeaponTrap
 ---| 5 # TrackStop
 
----@class _trap_type: DFEnumType
+---@class identity.trap_type: DFEnumType
 ---@field Lever 0
 ---@field [0] "Lever"
 ---@field PressurePlate 1
@@ -2442,8 +2442,8 @@ df.building_tradedepotst.T_trade_flags = {}
 ---@field [5] "TrackStop"
 df.trap_type = {}
 
----@class (exact) pressure_plate_info: DFStruct
----@field _type _pressure_plate_info
+---@class (exact) df.pressure_plate_info: DFStruct
+---@field _type identity.pressure_plate_info
 ---@field unit_min number
 ---@field unit_max number
 ---@field water_min number
@@ -2452,17 +2452,17 @@ df.trap_type = {}
 ---@field magma_max number
 ---@field track_min number
 ---@field track_max number
----@field flags pressure_plate_info.T_flags
+---@field flags df.pressure_plate_info.T_flags
 
----@class _pressure_plate_info: DFCompoundType
+---@class identity.pressure_plate_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.pressure_plate_info = {}
 
----@return pressure_plate_info
+---@return df.pressure_plate_info
 function df.pressure_plate_info:new() end
 
----@class pressure_plate_info.T_flags: DFBitfield
----@field _enum _pressure_plate_info.T_flags
+---@class df.pressure_plate_info.T_flags: DFBitfield
+---@field _enum identity.pressure_plate_info.flags
 ---@field units boolean
 ---@field [0] boolean
 ---@field water boolean
@@ -2476,7 +2476,7 @@ function df.pressure_plate_info:new() end
 ---@field track boolean
 ---@field [5] boolean
 
----@class _pressure_plate_info.T_flags: DFBitfieldType
+---@class identity.pressure_plate_info.flags: DFBitfieldType
 ---@field units 0
 ---@field [0] "units"
 ---@field water 1
@@ -2491,32 +2491,32 @@ function df.pressure_plate_info:new() end
 ---@field [5] "track"
 df.pressure_plate_info.T_flags = {}
 
----@class (exact) building_trapst: DFStruct, building_actual
----@field _type _building_trapst
----@field trap_type trap_type
+---@class (exact) df.building_trapst: DFStruct, df.building_actual
+---@field _type identity.building_trapst
+---@field trap_type df.trap_type
 ---@field state integer !=0 = pulled, tripped/needs reloading
 ---@field ready_timeout number plate not active if > 0
 ---@field fill_timer number
----@field stop_flags building_trapst.T_stop_flags
+---@field stop_flags df.building_trapst.T_stop_flags
 ---@field linked_mechanisms _building_trapst_linked_mechanisms
 ---@field observed_by_civs DFNumberVector
----@field profile workshop_profile
----@field plate_info pressure_plate_info
+---@field profile df.workshop_profile
+---@field plate_info df.pressure_plate_info
 ---@field friction number
 ---@field use_dump number
 ---@field dump_x_shift number
 ---@field dump_y_shift number
 ---@field stop_trigger_timer number
 
----@class _building_trapst: DFCompoundType
+---@class identity.building_trapst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_trapst = {}
 
----@return building_trapst
+---@return df.building_trapst
 function df.building_trapst:new() end
 
----@class building_trapst.T_stop_flags: DFBitfield
----@field _enum _building_trapst.T_stop_flags
+---@class df.building_trapst.T_stop_flags: DFBitfield
+---@field _enum identity.building_trapst.stop_flags
 ---@field disabled boolean
 ---@field [0] boolean
 ---@field disabling boolean
@@ -2524,7 +2524,7 @@ function df.building_trapst:new() end
 ---@field enabling boolean
 ---@field [2] boolean
 
----@class _building_trapst.T_stop_flags: DFBitfieldType
+---@class identity.building_trapst.stop_flags: DFBitfieldType
 ---@field disabled 0
 ---@field [0] "disabled"
 ---@field disabling 1
@@ -2534,125 +2534,125 @@ function df.building_trapst:new() end
 df.building_trapst.T_stop_flags = {}
 
 ---@class _building_trapst_linked_mechanisms: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _building_trapst_linked_mechanisms
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _building_trapst_linked_mechanisms:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _building_trapst_linked_mechanisms:insert(index, item) end
 
 ---@param index integer
 function _building_trapst_linked_mechanisms:erase(index) end
 
----@class (exact) building_wagonst: DFStruct, building_actual
----@field _type _building_wagonst
+---@class (exact) df.building_wagonst: DFStruct, df.building_actual
+---@field _type identity.building_wagonst
 
----@class _building_wagonst: DFCompoundType
+---@class identity.building_wagonst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_wagonst = {}
 
----@return building_wagonst
+---@return df.building_wagonst
 function df.building_wagonst:new() end
 
----@class (exact) building_weaponst: DFStruct, building_actual
----@field _type _building_weaponst
----@field gate_flags gate_flags
+---@class (exact) df.building_weaponst: DFStruct, df.building_actual
+---@field _type identity.building_weaponst
+---@field gate_flags df.gate_flags
 ---@field timer number
 
----@class _building_weaponst: DFCompoundType
+---@class identity.building_weaponst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_weaponst = {}
 
----@return building_weaponst
+---@return df.building_weaponst
 function df.building_weaponst:new() end
 
----@class (exact) building_squad_use: DFStruct
----@field _type _building_squad_use
+---@class (exact) df.building_squad_use: DFStruct
+---@field _type identity.building_squad_use
 ---@field squad_id number References: `squad`
----@field mode squad_use_flags
+---@field mode df.squad_use_flags
 
----@class _building_squad_use: DFCompoundType
+---@class identity.building_squad_use: DFCompoundType
 ---@field _kind 'struct-type'
 df.building_squad_use = {}
 
----@return building_squad_use
+---@return df.building_squad_use
 function df.building_squad_use:new() end
 
----@class (exact) building_weaponrackst: DFStruct, building_actual
----@field _type _building_weaponrackst
+---@class (exact) df.building_weaponrackst: DFStruct, df.building_actual
+---@field _type identity.building_weaponrackst
 ---@field rack_flags number
 ---@field specific_squad number References: `squad`
 
----@class _building_weaponrackst: DFCompoundType
+---@class identity.building_weaponrackst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_weaponrackst = {}
 
----@return building_weaponrackst
+---@return df.building_weaponrackst
 function df.building_weaponrackst:new() end
 
----@class (exact) building_wellst: DFStruct, building_actual
----@field _type _building_wellst
----@field well_flags building_wellst.T_well_flags
+---@class (exact) df.building_wellst: DFStruct, df.building_actual
+---@field _type identity.building_wellst
+---@field well_flags df.building_wellst.T_well_flags
 ---@field unk_1 number
 ---@field bucket_z number
 ---@field bucket_timer number 0-9; counts up when raising, down when lowering
 ---@field check_water_timer number
 
----@class _building_wellst: DFCompoundType
+---@class identity.building_wellst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_wellst = {}
 
----@return building_wellst
+---@return df.building_wellst
 function df.building_wellst:new() end
 
----@class building_wellst.T_well_flags: DFBitfield
----@field _enum _building_wellst.T_well_flags
+---@class df.building_wellst.T_well_flags: DFBitfield
+---@field _enum identity.building_wellst.well_flags
 ---@field lowering boolean
 ---@field [0] boolean
 ---@field just_raised boolean
 ---@field [1] boolean
 
----@class _building_wellst.T_well_flags: DFBitfieldType
+---@class identity.building_wellst.well_flags: DFBitfieldType
 ---@field lowering 0
 ---@field [0] "lowering"
 ---@field just_raised 1
 ---@field [1] "just_raised"
 df.building_wellst.T_well_flags = {}
 
----@class (exact) building_windowst: DFStruct, building_actual
----@field _type _building_windowst
+---@class (exact) df.building_windowst: DFStruct, df.building_actual
+---@field _type identity.building_windowst
 ---@field unk_1 number
 
----@class _building_windowst: DFCompoundType
+---@class identity.building_windowst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_windowst = {}
 
----@return building_windowst
+---@return df.building_windowst
 function df.building_windowst:new() end
 
----@class (exact) building_window_glassst: DFStruct, building_windowst
----@field _type _building_window_glassst
+---@class (exact) df.building_window_glassst: DFStruct, df.building_windowst
+---@field _type identity.building_window_glassst
 
----@class _building_window_glassst: DFCompoundType
+---@class identity.building_window_glassst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_window_glassst = {}
 
----@return building_window_glassst
+---@return df.building_window_glassst
 function df.building_window_glassst:new() end
 
----@class (exact) building_window_gemst: DFStruct, building_windowst
----@field _type _building_window_gemst
+---@class (exact) df.building_window_gemst: DFStruct, df.building_windowst
+---@field _type identity.building_window_gemst
 
----@class _building_window_gemst: DFCompoundType
+---@class identity.building_window_gemst: DFCompoundType
 ---@field _kind 'class-type'
 df.building_window_gemst = {}
 
----@return building_window_gemst
+---@return df.building_window_gemst
 function df.building_window_gemst:new() end
 
 -- Not in DF
@@ -2664,7 +2664,7 @@ function df.building_window_gemst:new() end
 -- Office              | Quarters        | Dining Room        | Burial Chamber
 -- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
 -- Meager Office       | Meager Quarters | Meager Dining Room | Grave
----@alias dfhack_room_quality_level
+---@alias df.dfhack_room_quality_level
 ---| 0 # Meager
 ---| 1 # Modest
 ---| 2 # Normal
@@ -2683,7 +2683,7 @@ function df.building_window_gemst:new() end
 -- Office              | Quarters        | Dining Room        | Burial Chamber
 -- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
 -- Meager Office       | Meager Quarters | Meager Dining Room | Grave
----@class _dfhack_room_quality_level: DFEnumType
+---@class identity.dfhack_room_quality_level: DFEnumType
 ---@field Meager 0
 ---@field [0] "Meager"
 ---@field Modest 1

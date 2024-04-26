@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias plant_raw_flags
+---@alias df.plant_raw_flags
 ---| 0 # SPRING
 ---| 1 # SUMMER
 ---| 2 # AUTUMN
@@ -84,7 +84,7 @@
 ---| 86 # TWIGS_ABOVE_TRUNK
 ---| 87 # TWIGS_BELOW_TRUNK
 
----@class _plant_raw_flags: DFEnumType
+---@class identity.plant_raw_flags: DFEnumType
 ---@field SPRING 0
 ---@field [0] "SPRING"
 ---@field SUMMER 1
@@ -249,8 +249,8 @@
 ---@field [87] "TWIGS_BELOW_TRUNK"
 df.plant_raw_flags = {}
 
----@class (exact) plant_raw: DFStruct
----@field _type _plant_raw
+---@class (exact) df.plant_raw: DFStruct
+---@field _type identity.plant_raw
 ---@field id string
 ---@field index number
 ---@field raws DFStringVector
@@ -266,10 +266,10 @@ df.plant_raw_flags = {}
 ---@field unk_v4201_1 number
 ---@field unk1 integer
 ---@field unk2 integer
----@field tiles plant_raw.T_tiles
+---@field tiles df.plant_raw.T_tiles
 ---@field growdur number
 ---@field value number
----@field colors plant_raw.T_colors
+---@field colors df.plant_raw.T_colors
 ---@field alt_period number[]
 ---@field shrub_drown_level number
 ---@field tree_drown_level number
@@ -278,7 +278,7 @@ df.plant_raw_flags = {}
 ---@field clustersize number
 ---@field prefstring DFStringVector
 ---@field material _plant_raw_material
----@field material_defs plant_raw.T_material_defs
+---@field material_defs df.plant_raw.T_material_defs
 ---@field underground_depth_min number
 ---@field underground_depth_max number
 ---@field growths _plant_raw_growths
@@ -304,40 +304,40 @@ df.plant_raw_flags = {}
 ---@field stockpile_growths DFNumberVector indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
 ---@field stockpile_growth_flags _plant_raw_stockpile_growth_flags
 
----@class _plant_raw: DFCompoundType
+---@class identity.plant_raw: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw = {}
 
----@return plant_raw
+---@return df.plant_raw
 function df.plant_raw:new() end
 
 ---@param key number
----@return plant_raw|nil
+---@return df.plant_raw|nil
 function df.plant_raw.find(key) end
 
----@class plant_raw_vector: DFVector, { [integer]: plant_raw }
+---@class plant_raw_vector: DFVector, { [integer]: df.plant_raw }
 
 ---@return plant_raw_vector # df.global.world.raws.plants.all
 function df.plant_raw.get_vector() end
 
 ---@class _plant_raw_flags: DFContainer
----@field [integer] table<plant_raw_flags, boolean>
+---@field [integer] table<df.plant_raw_flags, boolean>
 local _plant_raw_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<plant_raw_flags, boolean>>
+---@return DFPointer<table<df.plant_raw_flags, boolean>>
 function _plant_raw_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<plant_raw_flags, boolean>
+---@param item table<df.plant_raw_flags, boolean>
 function _plant_raw_flags:insert(index, item) end
 
 ---@param index integer
 function _plant_raw_flags:erase(index) end
 
----@class (exact) plant_raw.T_tiles: DFStruct
----@field _type _plant_raw.T_tiles
+---@class (exact) df.plant_raw.T_tiles: DFStruct
+---@field _type identity.plant_raw.tiles
 ---@field picked_tile integer
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
@@ -351,15 +351,15 @@ function _plant_raw_flags:erase(index) end
 ---@field tree_tiles integer[]
 ---@field unk_v50_1 integer[]
 
----@class _plant_raw.T_tiles: DFCompoundType
+---@class identity.plant_raw.tiles: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_tiles = {}
 
----@return plant_raw.T_tiles
+---@return df.plant_raw.T_tiles
 function df.plant_raw.T_tiles:new() end
 
----@class (exact) plant_raw.T_colors: DFStruct
----@field _type _plant_raw.T_colors
+---@class (exact) df.plant_raw.T_colors: DFStruct
+---@field _type identity.plant_raw.colors
 ---@field picked_color number[]
 ---@field dead_picked_color number[]
 ---@field shrub_color number[]
@@ -373,89 +373,89 @@ function df.plant_raw.T_tiles:new() end
 ---@field grass_colors_1 number[]
 ---@field grass_colors_2 number[]
 
----@class _plant_raw.T_colors: DFCompoundType
+---@class identity.plant_raw.colors: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_colors = {}
 
----@return plant_raw.T_colors
+---@return df.plant_raw.T_colors
 function df.plant_raw.T_colors:new() end
 
 ---@class _plant_raw_material: DFContainer
----@field [integer] material
+---@field [integer] df.material
 local _plant_raw_material
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<material>
+---@return DFPointer<df.material>
 function _plant_raw_material:_field(index) end
 
 ---@param index '#'|integer
----@param item material
+---@param item df.material
 function _plant_raw_material:insert(index, item) end
 
 ---@param index integer
 function _plant_raw_material:erase(index) end
 
----@class (exact) plant_raw.T_material_defs: DFStruct
----@field _type _plant_raw.T_material_defs
----@field type DFEnumVector<plant_material_def, number>
----@field idx DFEnumVector<plant_material_def, number>
----@field str DFEnumVector<plant_material_def, string[]>
+---@class (exact) df.plant_raw.T_material_defs: DFStruct
+---@field _type identity.plant_raw.material_defs
+---@field type DFEnumVector<df.plant_material_def, number>
+---@field idx DFEnumVector<df.plant_material_def, number>
+---@field str DFEnumVector<df.plant_material_def, string[]>
 
----@class _plant_raw.T_material_defs: DFCompoundType
+---@class identity.plant_raw.material_defs: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_raw.T_material_defs = {}
 
----@return plant_raw.T_material_defs
+---@return df.plant_raw.T_material_defs
 function df.plant_raw.T_material_defs:new() end
 
 ---@class _plant_raw_growths: DFContainer
----@field [integer] plant_growth
+---@field [integer] df.plant_growth
 local _plant_raw_growths
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_growth>
+---@return DFPointer<df.plant_growth>
 function _plant_raw_growths:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_growth
+---@param item df.plant_growth
 function _plant_raw_growths:insert(index, item) end
 
 ---@param index integer
 function _plant_raw_growths:erase(index) end
 
 ---@class _plant_raw_stockpile_growth_flags: DFContainer
----@field [integer] plant_raw.T_stockpile_growth_flags
+---@field [integer] df.plant_raw.T_stockpile_growth_flags
 local _plant_raw_stockpile_growth_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_raw.T_stockpile_growth_flags>
+---@return DFPointer<df.plant_raw.T_stockpile_growth_flags>
 function _plant_raw_stockpile_growth_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_raw.T_stockpile_growth_flags
+---@param item df.plant_raw.T_stockpile_growth_flags
 function _plant_raw_stockpile_growth_flags:insert(index, item) end
 
 ---@param index integer
 function _plant_raw_stockpile_growth_flags:erase(index) end
 
----@class plant_raw.T_stockpile_growth_flags: DFBitfield
----@field _enum _plant_raw.T_stockpile_growth_flags
+---@class df.plant_raw.T_stockpile_growth_flags: DFBitfield
+---@field _enum identity.plant_raw.stockpile_growth_flags
 ---@field EDIBLE_RAW boolean
 ---@field [0] boolean
 ---@field EDIBLE_COOKED boolean
 ---@field [1] boolean
 
----@class _plant_raw.T_stockpile_growth_flags: DFBitfieldType
+---@class identity.plant_raw.stockpile_growth_flags: DFBitfieldType
 ---@field EDIBLE_RAW 0
 ---@field [0] "EDIBLE_RAW"
 ---@field EDIBLE_COOKED 1
 ---@field [1] "EDIBLE_COOKED"
 df.plant_raw.T_stockpile_growth_flags = {}
 
----@alias plant_material_def
+---@alias df.plant_material_def
 ---| 0 # basic_mat
 ---| 1 # tree
 ---| 2 # drink
@@ -466,7 +466,7 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---| 7 # extract_barrel
 ---| 8 # extract_still_vial
 
----@class _plant_material_def: DFEnumType
+---@class identity.plant_material_def: DFEnumType
 ---@field basic_mat 0 TODO: is this the same as another existing enum?
 ---@field [0] "basic_mat" TODO: is this the same as another existing enum?
 ---@field tree 1
@@ -487,13 +487,13 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---@field [8] "extract_still_vial"
 df.plant_material_def = {}
 
----@class (exact) plant_growth: DFStruct
----@field _type _plant_growth
+---@class (exact) df.plant_growth: DFStruct
+---@field _type identity.plant_growth
 ---@field id string
 ---@field name string
 ---@field name_plural string
 ---@field str_growth_item string[]
----@field item_type item_type
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
@@ -505,37 +505,37 @@ df.plant_material_def = {}
 ---@field unk_v50_5 number
 ---@field timing_1 number
 ---@field timing_2 number
----@field locations plant_growth.T_locations
+---@field locations df.plant_growth.T_locations
 ---@field density number
----@field behavior plant_growth.T_behavior
+---@field behavior df.plant_growth.T_behavior
 ---@field trunk_height_perc_1 number
 ---@field trunk_height_perc_2 number
 
----@class _plant_growth: DFCompoundType
+---@class identity.plant_growth: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_growth = {}
 
----@return plant_growth
+---@return df.plant_growth
 function df.plant_growth:new() end
 
 ---@class _plant_growth_prints: DFContainer
----@field [integer] plant_growth_print
+---@field [integer] df.plant_growth_print
 local _plant_growth_prints
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant_growth_print>
+---@return DFPointer<df.plant_growth_print>
 function _plant_growth_prints:_field(index) end
 
 ---@param index '#'|integer
----@param item plant_growth_print
+---@param item df.plant_growth_print
 function _plant_growth_prints:insert(index, item) end
 
 ---@param index integer
 function _plant_growth_prints:erase(index) end
 
----@class plant_growth.T_locations: DFBitfield
----@field _enum _plant_growth.T_locations
+---@class df.plant_growth.T_locations: DFBitfield
+---@field _enum identity.plant_growth.locations
 ---@field twigs boolean
 ---@field [0] boolean
 ---@field light_branches boolean
@@ -551,7 +551,7 @@ function _plant_growth_prints:erase(index) end
 ---@field sapling boolean
 ---@field [6] boolean
 
----@class _plant_growth.T_locations: DFBitfieldType
+---@class identity.plant_growth.locations: DFBitfieldType
 ---@field twigs 0
 ---@field [0] "twigs"
 ---@field light_branches 1
@@ -568,8 +568,8 @@ function _plant_growth_prints:erase(index) end
 ---@field [6] "sapling"
 df.plant_growth.T_locations = {}
 
----@class plant_growth.T_behavior: DFBitfield
----@field _enum _plant_growth.T_behavior
+---@class df.plant_growth.T_behavior: DFBitfield
+---@field _enum identity.plant_growth.behavior
 ---@field drops_off boolean
 ---@field [0] boolean
 ---@field no_cloud boolean
@@ -577,7 +577,7 @@ df.plant_growth.T_locations = {}
 ---@field has_seed boolean
 ---@field [2] boolean
 
----@class _plant_growth.T_behavior: DFBitfieldType
+---@class identity.plant_growth.behavior: DFBitfieldType
 ---@field drops_off 0
 ---@field [0] "drops_off"
 ---@field no_cloud 1
@@ -586,8 +586,8 @@ df.plant_growth.T_locations = {}
 ---@field [2] "has_seed"
 df.plant_growth.T_behavior = {}
 
----@class (exact) plant_growth_print: DFStruct
----@field _type _plant_growth_print
+---@class (exact) df.plant_growth_print: DFStruct
+---@field _type identity.plant_growth_print
 ---@field priority number final token in list
 ---@field tile_growth integer
 ---@field tile_item integer
@@ -595,10 +595,10 @@ df.plant_growth.T_behavior = {}
 ---@field timing_start number
 ---@field timing_end number
 
----@class _plant_growth_print: DFCompoundType
+---@class identity.plant_growth_print: DFCompoundType
 ---@field _kind 'struct-type'
 df.plant_growth_print = {}
 
----@return plant_growth_print
+---@return df.plant_growth_print
 function df.plant_growth_print:new() end
 

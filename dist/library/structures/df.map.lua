@@ -1,63 +1,63 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) coord2d: DFStruct
----@field _type _coord2d
+---@class (exact) df.coord2d: DFStruct
+---@field _type identity.coord2d
 ---@field x number
 ---@field y number
 
----@class _coord2d: DFCompoundType
+---@class identity.coord2d: DFCompoundType
 ---@field _kind 'struct-type'
 df.coord2d = {}
 
----@return coord2d
+---@return df.coord2d
 function df.coord2d:new() end
 
----@class (exact) coord2d_path: DFStruct
----@field _type _coord2d_path
+---@class (exact) df.coord2d_path: DFStruct
+---@field _type identity.coord2d_path
 ---@field x DFNumberVector
 ---@field y DFNumberVector
 
----@class _coord2d_path: DFCompoundType
+---@class identity.coord2d_path: DFCompoundType
 ---@field _kind 'struct-type'
 df.coord2d_path = {}
 
----@return coord2d_path
+---@return df.coord2d_path
 function df.coord2d_path:new() end
 
----@class (exact) coord: DFStruct
----@field _type _coord
+---@class (exact) df.coord: DFStruct
+---@field _type identity.coord
 ---@field x number
 ---@field y number
 ---@field z number
 
----@class _coord: DFCompoundType
+---@class identity.coord: DFCompoundType
 ---@field _kind 'struct-type'
 df.coord = {}
 
----@return coord
+---@return df.coord
 function df.coord:new() end
 
----@class (exact) coord_path: DFStruct
----@field _type _coord_path
+---@class (exact) df.coord_path: DFStruct
+---@field _type identity.coord_path
 ---@field x DFNumberVector
 ---@field y DFNumberVector
 ---@field z DFNumberVector
 
----@class _coord_path: DFCompoundType
+---@class identity.coord_path: DFCompoundType
 ---@field _kind 'struct-type'
 df.coord_path = {}
 
----@return coord_path
+---@return df.coord_path
 function df.coord_path:new() end
 
----@alias tile_traffic
+---@alias df.tile_traffic
 ---| 0 # Normal
 ---| 1 # Low
 ---| 2 # High
 ---| 3 # Restricted
 
----@class _tile_traffic: DFEnumType
+---@class identity.tile_traffic: DFEnumType
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Low 1
@@ -68,7 +68,7 @@ function df.coord_path:new() end
 ---@field [3] "Restricted"
 df.tile_traffic = {}
 
----@alias tile_dig_designation
+---@alias df.tile_dig_designation
 ---| 0 # No
 ---| 1 # Default
 ---| 2 # UpDownStair
@@ -77,7 +77,7 @@ df.tile_traffic = {}
 ---| 5 # DownStair
 ---| 6 # UpStair
 
----@class _tile_dig_designation: DFEnumType
+---@class identity.tile_dig_designation: DFEnumType
 ---@field No 0 no designation
 ---@field [0] "No" no designation
 ---@field Default 1 dig walls, remove stairs and ramps, gather plants, fell trees
@@ -94,19 +94,19 @@ df.tile_traffic = {}
 ---@field [6] "UpStair"
 df.tile_dig_designation = {}
 
----@alias tile_liquid
+---@alias df.tile_liquid
 ---| 0 # Water
 ---| 1 # Magma
 
----@class _tile_liquid: DFEnumType
+---@class identity.tile_liquid: DFEnumType
 ---@field Water 0
 ---@field [0] "Water"
 ---@field Magma 1
 ---@field [1] "Magma"
 df.tile_liquid = {}
 
----@class tile_designation: DFBitfield
----@field _enum _tile_designation
+---@class df.tile_designation: DFBitfield
+---@field _enum identity.tile_designation
 ---@field flow_size boolean liquid amount
 ---@field [0] boolean liquid amount
 ---@field pile boolean stockpile; Adventure: lit
@@ -148,7 +148,7 @@ df.tile_liquid = {}
 ---@field water_salt boolean
 ---@field [31] boolean
 
----@class _tile_designation: DFBitfieldType
+---@class identity.tile_designation: DFBitfieldType
 ---@field flow_size 0 liquid amount
 ---@field [0] "flow_size" liquid amount
 ---@field pile 3 stockpile; Adventure: lit
@@ -191,7 +191,7 @@ df.tile_liquid = {}
 ---@field [31] "water_salt"
 df.tile_designation = {}
 
----@alias tile_building_occ
+---@alias df.tile_building_occ
 ---| 0 # None
 ---| 1 # Planned
 ---| 2 # Passable
@@ -201,7 +201,7 @@ df.tile_designation = {}
 ---| 6 # Impassable
 ---| 7 # Dynamic
 
----@class _tile_building_occ: DFEnumType
+---@class identity.tile_building_occ: DFEnumType
 ---@field None 0 no building
 ---@field [0] "None" no building
 ---@field Planned 1 nothing built yet
@@ -220,8 +220,8 @@ df.tile_designation = {}
 ---@field [7] "Dynamic" doors, grates, etc
 df.tile_building_occ = {}
 
----@class tile_occupancy: DFBitfield
----@field _enum _tile_occupancy
+---@class df.tile_occupancy: DFBitfield
+---@field _enum identity.tile_occupancy
 ---@field building boolean
 ---@field [0] boolean
 ---@field unit boolean standing
@@ -267,7 +267,7 @@ df.tile_building_occ = {}
 ---@field heavy_aquifer boolean Light/Heavy aquifer flag
 ---@field [26] boolean Light/Heavy aquifer flag
 
----@class _tile_occupancy: DFBitfieldType
+---@class identity.tile_occupancy: DFBitfieldType
 ---@field building 0
 ---@field [0] "building"
 ---@field unit 3 standing
@@ -314,8 +314,8 @@ df.tile_building_occ = {}
 ---@field [26] "heavy_aquifer" Light/Heavy aquifer flag
 df.tile_occupancy = {}
 
----@class block_flags: DFBitfield
----@field _enum _block_flags
+---@class df.block_flags: DFBitfield
+---@field _enum identity.block_flags
 ---@field designated boolean for jobs etc
 ---@field [0] boolean for jobs etc
 ---@field update_temperature boolean
@@ -349,7 +349,7 @@ df.tile_occupancy = {}
 ---@field has_river_low boolean
 ---@field [15] boolean
 
----@class _block_flags: DFBitfieldType
+---@class identity.block_flags: DFBitfieldType
 ---@field designated 0 for jobs etc
 ---@field [0] "designated" for jobs etc
 ---@field update_temperature 1
@@ -384,8 +384,8 @@ df.tile_occupancy = {}
 ---@field [15] "has_river_low"
 df.block_flags = {}
 
----@class z_level_flags: DFBitfield
----@field _enum _z_level_flags
+---@class df.z_level_flags: DFBitfield
+---@field _enum identity.z_level_flags
 ---@field update boolean
 ---@field [0] boolean
 ---@field can_stop boolean
@@ -393,7 +393,7 @@ df.block_flags = {}
 ---@field update_twice boolean
 ---@field [2] boolean
 
----@class _z_level_flags: DFBitfieldType
+---@class identity.z_level_flags: DFBitfieldType
 ---@field update 0
 ---@field [0] "update"
 ---@field can_stop 1
@@ -402,7 +402,7 @@ df.block_flags = {}
 ---@field [2] "update_twice"
 df.z_level_flags = {}
 
----@alias tile_liquid_flow_dir
+---@alias df.tile_liquid_flow_dir
 ---| 0 # none
 ---| 1 # south
 ---| 2 # east
@@ -420,7 +420,7 @@ df.z_level_flags = {}
 ---| 14 # inv_e
 ---| 15 # inv_f
 
----@class _tile_liquid_flow_dir: DFEnumType
+---@class identity.tile_liquid_flow_dir: DFEnumType
 ---@field none 0
 ---@field [0] "none"
 ---@field south 1
@@ -455,8 +455,8 @@ df.z_level_flags = {}
 ---@field [15] "inv_f"
 df.tile_liquid_flow_dir = {}
 
----@class tile_liquid_flow: DFBitfield
----@field _enum _tile_liquid_flow
+---@class df.tile_liquid_flow: DFBitfield
+---@field _enum identity.tile_liquid_flow
 ---@field temp_flow_timer boolean set when water sloshes around, counts down to zero
 ---@field [0] boolean set when water sloshes around, counts down to zero
 ---@field temp_dir boolean
@@ -466,7 +466,7 @@ df.tile_liquid_flow_dir = {}
 ---@field sink_dist boolean periodically set whenever perm_flow_dir is nonzero
 ---@field [10] boolean periodically set whenever perm_flow_dir is nonzero
 
----@class _tile_liquid_flow: DFBitfieldType
+---@class identity.tile_liquid_flow: DFBitfieldType
 ---@field temp_flow_timer 0 set when water sloshes around, counts down to zero
 ---@field [0] "temp_flow_timer" set when water sloshes around, counts down to zero
 ---@field temp_dir 3
@@ -477,46 +477,46 @@ df.tile_liquid_flow_dir = {}
 ---@field [10] "sink_dist" periodically set whenever perm_flow_dir is nonzero
 df.tile_liquid_flow = {}
 
----@class (exact) tile_bitmask: DFStruct
----@field _type _tile_bitmask
+---@class (exact) df.tile_bitmask: DFStruct
+---@field _type identity.tile_bitmask
 ---@field bits integer[]
 
----@class _tile_bitmask: DFCompoundType
+---@class identity.tile_bitmask: DFCompoundType
 ---@field _kind 'struct-type'
 df.tile_bitmask = {}
 
----@return tile_bitmask
+---@return df.tile_bitmask
 function df.tile_bitmask:new() end
 
----@class (exact) block_burrow: DFStruct
----@field _type _block_burrow
+---@class (exact) df.block_burrow: DFStruct
+---@field _type identity.block_burrow
 ---@field id number References: `burrow`
----@field tile_bitmask tile_bitmask
----@field link block_burrow_link
+---@field tile_bitmask df.tile_bitmask
+---@field link df.block_burrow_link
 
----@class _block_burrow: DFCompoundType
+---@class identity.block_burrow: DFCompoundType
 ---@field _kind 'struct-type'
 df.block_burrow = {}
 
----@return block_burrow
+---@return df.block_burrow
 function df.block_burrow:new() end
 
----@class (exact) block_burrow_link: DFStruct
----@field _type _block_burrow_link
----@field item block_burrow
----@field prev block_burrow_link
----@field next block_burrow_link
+---@class (exact) df.block_burrow_link: DFStruct
+---@field _type identity.block_burrow_link
+---@field item df.block_burrow
+---@field prev df.block_burrow_link
+---@field next df.block_burrow_link
 
----@class _block_burrow_link: DFCompoundType
+---@class identity.block_burrow_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.block_burrow_link = {}
 
----@return block_burrow_link
+---@return df.block_burrow_link
 function df.block_burrow_link:new() end
 
----@class (exact) map_block: DFStruct
----@field _type _map_block
----@field flags block_flags
+---@class (exact) df.map_block: DFStruct
+---@field _type identity.map_block
+---@field flags df.block_flags
 ---@field block_events _map_block_block_events
 ---@field block_burrows _map_block_block_burrows
 ---@field local_feature number index into world_data.region_map
@@ -524,15 +524,15 @@ function df.block_burrow_link:new() end
 ---@field global_feature_sq number
 ---@field layer_depth number This is compared to unit.animal.population.depth when a revealed<br>necromancer searches for a map edge tile to run away to:
 ---@field dsgn_check_cooldown number
----@field default_liquid tile_designation
+---@field default_liquid df.tile_designation
 ---@field items DFNumberVector
 ---@field flows _map_block_flows
----@field flow_pool flow_reuse_pool
----@field map_pos coord
----@field region_pos coord2d
----@field tiletype tiletype[][]
----@field designation tile_designation[][]
----@field occupancy tile_occupancy[][]
+---@field flow_pool df.flow_reuse_pool
+---@field map_pos df.coord
+---@field region_pos df.coord2d
+---@field tiletype df.tiletype[][]
+---@field designation df.tile_designation[][]
+---@field occupancy df.tile_occupancy[][]
 ---@field fog_of_war integer[][] bay12: memmap; for adventure mode
 ---@field path_cost number[][] flood; 256*cost for straight, 362*cost for diagonal
 ---@field path_tag integer[][] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
@@ -541,83 +541,83 @@ function df.block_burrow_link:new() end
 ---@field temperature_1 integer[][]
 ---@field temperature_2 integer[][]
 ---@field lighting integer[][]
----@field liquid_flow tile_liquid_flow[][]
+---@field liquid_flow df.tile_liquid_flow[][]
 ---@field region_offset integer[]
 
----@class _map_block: DFCompoundType
+---@class identity.map_block: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_block = {}
 
----@return map_block
+---@return df.map_block
 function df.map_block:new() end
 
 ---@class _map_block_block_events: DFContainer
----@field [integer] block_square_event
+---@field [integer] df.block_square_event
 local _map_block_block_events
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<block_square_event>
+---@return DFPointer<df.block_square_event>
 function _map_block_block_events:_field(index) end
 
 ---@param index '#'|integer
----@param item block_square_event
+---@param item df.block_square_event
 function _map_block_block_events:insert(index, item) end
 
 ---@param index integer
 function _map_block_block_events:erase(index) end
 
 ---@class _map_block_block_burrows: DFContainer
----@field [integer] block_burrow_link
+---@field [integer] df.block_burrow_link
 local _map_block_block_burrows
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<block_burrow_link>
+---@return DFPointer<df.block_burrow_link>
 function _map_block_block_burrows:_field(index) end
 
 ---@param index '#'|integer
----@param item block_burrow_link
+---@param item df.block_burrow_link
 function _map_block_block_burrows:insert(index, item) end
 
 ---@param index integer
 function _map_block_block_burrows:erase(index) end
 
 ---@class _map_block_flows: DFContainer
----@field [integer] flow_info
+---@field [integer] df.flow_info
 local _map_block_flows
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<flow_info>
+---@return DFPointer<df.flow_info>
 function _map_block_flows:_field(index) end
 
 ---@param index '#'|integer
----@param item flow_info
+---@param item df.flow_info
 function _map_block_flows:insert(index, item) end
 
 ---@param index integer
 function _map_block_flows:erase(index) end
 
----@class (exact) cave_column_link: DFStruct
----@field _type _cave_column_link
----@field item cave_column
----@field prev cave_column_link
----@field next cave_column_link
+---@class (exact) df.cave_column_link: DFStruct
+---@field _type identity.cave_column_link
+---@field item df.cave_column
+---@field prev df.cave_column_link
+---@field next df.cave_column_link
 
----@class _cave_column_link: DFCompoundType
+---@class identity.cave_column_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.cave_column_link = {}
 
----@return cave_column_link
+---@return df.cave_column_link
 function df.cave_column_link:new() end
 
----@class (exact) cave_column: DFStruct
----@field _type _cave_column
+---@class (exact) df.cave_column: DFStruct
+---@field _type identity.cave_column
 ---@field base_z number
 ---@field top_z number
 ---@field rect_index number
----@field flags cave_column.T_flags
+---@field flags df.cave_column.T_flags
 local cave_column
 
 function cave_column:write_file() end
@@ -625,29 +625,29 @@ function cave_column:write_file() end
 function cave_column:read_file() end
 
 
----@class _cave_column: DFCompoundType
+---@class identity.cave_column: DFCompoundType
 ---@field _kind 'class-type'
 df.cave_column = {}
 
----@return cave_column
+---@return df.cave_column
 function df.cave_column:new() end
 
----@class cave_column.T_flags: DFBitfield
----@field _enum _cave_column.T_flags
+---@class df.cave_column.T_flags: DFBitfield
+---@field _enum identity.cave_column.flags
 ---@field UNSTABLE boolean
 ---@field [0] boolean
 ---@field ULTRA_SUPPORTED boolean
 ---@field [1] boolean
 
----@class _cave_column.T_flags: DFBitfieldType
+---@class identity.cave_column.flags: DFBitfieldType
 ---@field UNSTABLE 0
 ---@field [0] "UNSTABLE"
 ---@field ULTRA_SUPPORTED 1
 ---@field [1] "ULTRA_SUPPORTED"
 df.cave_column.T_flags = {}
 
----@class (exact) cave_column_rectangle: DFStruct
----@field _type _cave_column_rectangle
+---@class (exact) df.cave_column_rectangle: DFStruct
+---@field _type identity.cave_column_rectangle
 ---@field weight number
 ---@field min_x number
 ---@field min_y number
@@ -657,7 +657,7 @@ df.cave_column.T_flags = {}
 ---@field neighbor_bx DFNumberVector
 ---@field neighbor_by DFNumberVector
 ---@field neighbor_index DFIntegerVector
----@field flags cave_column_rectangle.T_flags
+---@field flags df.cave_column_rectangle.T_flags
 local cave_column_rectangle
 
 function cave_column_rectangle:write_file() end
@@ -665,15 +665,15 @@ function cave_column_rectangle:write_file() end
 function cave_column_rectangle:read_file() end
 
 
----@class _cave_column_rectangle: DFCompoundType
+---@class identity.cave_column_rectangle: DFCompoundType
 ---@field _kind 'class-type'
 df.cave_column_rectangle = {}
 
----@return cave_column_rectangle
+---@return df.cave_column_rectangle
 function df.cave_column_rectangle:new() end
 
----@class cave_column_rectangle.T_flags: DFBitfield
----@field _enum _cave_column_rectangle.T_flags
+---@class df.cave_column_rectangle.T_flags: DFBitfield
+---@field _enum identity.cave_column_rectangle.flags
 ---@field SUPPORTED boolean
 ---@field [0] boolean
 ---@field UNSTABLE boolean
@@ -681,7 +681,7 @@ function df.cave_column_rectangle:new() end
 ---@field ULTRA_SUPPORTED boolean
 ---@field [2] boolean
 
----@class _cave_column_rectangle.T_flags: DFBitfieldType
+---@class identity.cave_column_rectangle.flags: DFBitfieldType
 ---@field SUPPORTED 0
 ---@field [0] "SUPPORTED"
 ---@field UNSTABLE 1
@@ -690,28 +690,28 @@ function df.cave_column_rectangle:new() end
 ---@field [2] "ULTRA_SUPPORTED"
 df.cave_column_rectangle.T_flags = {}
 
----@class (exact) map_block_column: DFStruct
----@field _type _map_block_column
+---@class (exact) df.map_block_column: DFStruct
+---@field _type identity.map_block_column
 ---@field sink_level number water at or above this level sinks into aquifer tiles
 ---@field beach_level number water at this level disappears if above more water
 ---@field ground_level number for coloring unallocated blocks
 ---@field unmined_glyphs _map_block_column_unmined_glyphs
 ---@field z_base number
----@field cave_columns cave_column_link[][]
+---@field cave_columns df.cave_column_link[][]
 ---@field column_rectangles _map_block_column_column_rectangles
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
 ---@field flags _map_block_column_flags 0 process cave columns for caveins
 ---@field elevation number[][]
----@field map_pos coord2d top left in tiles
+---@field map_pos df.coord2d top left in tiles
 ---@field unk_c3c number uninitialized
----@field region_pos coord2d
+---@field region_pos df.coord2d
 ---@field plants _map_block_column_plants Only populated for the top left column in each mid level tile
 
----@class _map_block_column: DFCompoundType
+---@class identity.map_block_column: DFCompoundType
 ---@field _kind 'struct-type'
 df.map_block_column = {}
 
----@return map_block_column
+---@return df.map_block_column
 function df.map_block_column:new() end
 
 ---@class _map_block_column_unmined_glyphs: DFContainer
@@ -731,32 +731,32 @@ function _map_block_column_unmined_glyphs:insert(index, item) end
 function _map_block_column_unmined_glyphs:erase(index) end
 
 ---@class _map_block_column_cave_columns_cave_column_link: DFContainer
----@field [integer] cave_column_link
+---@field [integer] df.cave_column_link
 local _map_block_column_cave_columns_cave_column_link
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<cave_column_link>
+---@return DFPointer<df.cave_column_link>
 function _map_block_column_cave_columns_cave_column_link:_field(index) end
 
 ---@param index '#'|integer
----@param item cave_column_link
+---@param item df.cave_column_link
 function _map_block_column_cave_columns_cave_column_link:insert(index, item) end
 
 ---@param index integer
 function _map_block_column_cave_columns_cave_column_link:erase(index) end
 
 ---@class _map_block_column_column_rectangles: DFContainer
----@field [integer] cave_column_rectangle
+---@field [integer] df.cave_column_rectangle
 local _map_block_column_column_rectangles
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<cave_column_rectangle>
+---@return DFPointer<df.cave_column_rectangle>
 function _map_block_column_column_rectangles:_field(index) end
 
 ---@param index '#'|integer
----@param item cave_column_rectangle
+---@param item df.cave_column_rectangle
 function _map_block_column_column_rectangles:insert(index, item) end
 
 ---@param index integer
@@ -779,22 +779,22 @@ function _map_block_column_flags:insert(index, item) end
 function _map_block_column_flags:erase(index) end
 
 ---@class _map_block_column_plants: DFContainer
----@field [integer] plant
+---@field [integer] df.plant
 local _map_block_column_plants
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<plant>
+---@return DFPointer<df.plant>
 function _map_block_column_plants:_field(index) end
 
 ---@param index '#'|integer
----@param item plant
+---@param item df.plant
 function _map_block_column_plants:insert(index, item) end
 
 ---@param index integer
 function _map_block_column_plants:erase(index) end
 
----@alias block_square_event_type
+---@alias df.block_square_event_type
 ---| 0 # mineral
 ---| 1 # frozen_liquid
 ---| 2 # world_construction
@@ -804,7 +804,7 @@ function _map_block_column_plants:erase(index) end
 ---| 6 # item_spatter
 ---| 7 # designation_priority
 
----@class _block_square_event_type: DFEnumType
+---@class identity.block_square_event_type: DFEnumType
 ---@field mineral 0
 ---@field [0] "mineral"
 ---@field frozen_liquid 1
@@ -823,11 +823,11 @@ function _map_block_column_plants:erase(index) end
 ---@field [7] "designation_priority"
 df.block_square_event_type = {}
 
----@class (exact) block_square_event: DFStruct
----@field _type _block_square_event
+---@class (exact) df.block_square_event: DFStruct
+---@field _type identity.block_square_event
 local block_square_event
 
----@return block_square_event_type
+---@return df.block_square_event_type
 function block_square_event:getType() end
 
 function block_square_event:write_file() end
@@ -840,28 +840,28 @@ function block_square_event:isEmpty() end
 function block_square_event:checkTemperature() end
 
 
----@class _block_square_event: DFCompoundType
+---@class identity.block_square_event: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event = {}
 
----@return block_square_event
+---@return df.block_square_event
 function df.block_square_event:new() end
 
----@class (exact) block_square_event_mineralst: DFStruct, block_square_event
----@field _type _block_square_event_mineralst
+---@class (exact) df.block_square_event_mineralst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_mineralst
 ---@field inorganic_mat number References: `inorganic_raw`
----@field tile_bitmask tile_bitmask
----@field flags block_square_event_mineralst.T_flags
+---@field tile_bitmask df.tile_bitmask
+---@field flags df.block_square_event_mineralst.T_flags
 
----@class _block_square_event_mineralst: DFCompoundType
+---@class identity.block_square_event_mineralst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_mineralst = {}
 
----@return block_square_event_mineralst
+---@return df.block_square_event_mineralst
 function df.block_square_event_mineralst:new() end
 
----@class block_square_event_mineralst.T_flags: DFBitfield
----@field _enum _block_square_event_mineralst.T_flags
+---@class df.block_square_event_mineralst.T_flags: DFBitfield
+---@field _enum identity.block_square_event_mineralst.flags
 ---@field discovered boolean
 ---@field [0] boolean
 ---@field cluster boolean
@@ -873,7 +873,7 @@ function df.block_square_event_mineralst:new() end
 ---@field cluster_one boolean
 ---@field [4] boolean
 
----@class _block_square_event_mineralst.T_flags: DFBitfieldType
+---@class identity.block_square_event_mineralst.flags: DFBitfieldType
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field cluster 1
@@ -886,62 +886,62 @@ function df.block_square_event_mineralst:new() end
 ---@field [4] "cluster_one"
 df.block_square_event_mineralst.T_flags = {}
 
----@class (exact) block_square_event_frozen_liquidst: DFStruct, block_square_event
----@field _type _block_square_event_frozen_liquidst
----@field tiles tiletype[][]
----@field liquid_type tile_liquid[][]
+---@class (exact) df.block_square_event_frozen_liquidst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_frozen_liquidst
+---@field tiles df.tiletype[][]
+---@field liquid_type df.tile_liquid[][]
 
----@class _block_square_event_frozen_liquidst: DFCompoundType
+---@class identity.block_square_event_frozen_liquidst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_frozen_liquidst = {}
 
----@return block_square_event_frozen_liquidst
+---@return df.block_square_event_frozen_liquidst
 function df.block_square_event_frozen_liquidst:new() end
 
----@class (exact) block_square_event_world_constructionst: DFStruct, block_square_event
----@field _type _block_square_event_world_constructionst
+---@class (exact) df.block_square_event_world_constructionst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_world_constructionst
 ---@field construction_id number References: `world_construction`
----@field tile_bitmask tile_bitmask
+---@field tile_bitmask df.tile_bitmask
 
----@class _block_square_event_world_constructionst: DFCompoundType
+---@class identity.block_square_event_world_constructionst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_world_constructionst = {}
 
----@return block_square_event_world_constructionst
+---@return df.block_square_event_world_constructionst
 function df.block_square_event_world_constructionst:new() end
 
----@class (exact) block_square_event_material_spatterst: DFStruct, block_square_event
----@field _type _block_square_event_material_spatterst
+---@class (exact) df.block_square_event_material_spatterst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_material_spatterst
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field mat_state matter_state
+---@field mat_state df.matter_state
 ---@field amount integer[][]
 ---@field min_temperature integer
 ---@field max_temperature integer
 
----@class _block_square_event_material_spatterst: DFCompoundType
+---@class identity.block_square_event_material_spatterst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_material_spatterst = {}
 
----@return block_square_event_material_spatterst
+---@return df.block_square_event_material_spatterst
 function df.block_square_event_material_spatterst:new() end
 
----@class (exact) block_square_event_grassst: DFStruct, block_square_event
----@field _type _block_square_event_grassst
+---@class (exact) df.block_square_event_grassst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_grassst
 ---@field plant_index number References: `plant_raw`
 ---@field amount number[][]
 
----@class _block_square_event_grassst: DFCompoundType
+---@class identity.block_square_event_grassst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_grassst = {}
 
----@return block_square_event_grassst
+---@return df.block_square_event_grassst
 function df.block_square_event_grassst:new() end
 
----@class (exact) block_square_event_spoorst: DFStruct, block_square_event
----@field _type _block_square_event_spoorst
----@field flags block_square_event_spoorst.T_flags[][]
----@field unk_2 block_square_event_spoorst.T_unk_2[][]
+---@class (exact) df.block_square_event_spoorst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_spoorst
+---@field flags df.block_square_event_spoorst.T_flags[][]
+---@field unk_2 df.block_square_event_spoorst.T_unk_2[][]
 ---@field unk_3 number[][]
 ---@field race number[][]
 ---@field caste number[][]
@@ -949,15 +949,15 @@ function df.block_square_event_grassst:new() end
 ---@field year number
 ---@field year_tick number
 
----@class _block_square_event_spoorst: DFCompoundType
+---@class identity.block_square_event_spoorst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_spoorst = {}
 
----@return block_square_event_spoorst
+---@return df.block_square_event_spoorst
 function df.block_square_event_spoorst:new() end
 
----@class block_square_event_spoorst.T_flags: DFBitfield
----@field _enum _block_square_event_spoorst.T_flags
+---@class df.block_square_event_spoorst.T_flags: DFBitfield
+---@field _enum identity.block_square_event_spoorst.flags
 ---@field [0] boolean
 ---@field [1] boolean
 ---@field [2] boolean
@@ -968,16 +968,16 @@ function df.block_square_event_spoorst:new() end
 ---@field [7] boolean
 ---@field [8] boolean
 
----@class _block_square_event_spoorst.T_flags: DFBitfieldType
+---@class identity.block_square_event_spoorst.flags: DFBitfieldType
 df.block_square_event_spoorst.T_flags = {}
 
----@alias block_square_event_spoorst.T_unk_2
+---@alias df.block_square_event_spoorst.T_unk_2
 ---| 0 # unk_2_a
 ---| 1 # unk_2_b
 ---| 2 # unk_2_c
 ---| 3 # unk_2_d
 
----@class _block_square_event_spoorst.T_unk_2: DFEnumType
+---@class identity.block_square_event_spoorst.unk_2: DFEnumType
 ---@field unk_2_a 0
 ---@field [0] "unk_2_a"
 ---@field unk_2_b 1
@@ -988,9 +988,9 @@ df.block_square_event_spoorst.T_flags = {}
 ---@field [3] "unk_2_d"
 df.block_square_event_spoorst.T_unk_2 = {}
 
----@class (exact) block_square_event_item_spatterst: DFStruct, block_square_event
----@field _type _block_square_event_item_spatterst
----@field item_type item_type
+---@class (exact) df.block_square_event_item_spatterst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_item_spatterst
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mattype number References: `material`
 ---@field matindex number
@@ -1000,25 +1000,25 @@ df.block_square_event_spoorst.T_unk_2 = {}
 ---@field temp1 integer
 ---@field temp2 integer
 
----@class _block_square_event_item_spatterst: DFCompoundType
+---@class identity.block_square_event_item_spatterst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_item_spatterst = {}
 
----@return block_square_event_item_spatterst
+---@return df.block_square_event_item_spatterst
 function df.block_square_event_item_spatterst:new() end
 
----@class (exact) block_square_event_designation_priorityst: DFStruct, block_square_event
----@field _type _block_square_event_designation_priorityst
+---@class (exact) df.block_square_event_designation_priorityst: DFStruct, df.block_square_event
+---@field _type identity.block_square_event_designation_priorityst
 ---@field priority number[][]
 
----@class _block_square_event_designation_priorityst: DFCompoundType
+---@class identity.block_square_event_designation_priorityst: DFCompoundType
 ---@field _kind 'class-type'
 df.block_square_event_designation_priorityst = {}
 
----@return block_square_event_designation_priorityst
+---@return df.block_square_event_designation_priorityst
 function df.block_square_event_designation_priorityst:new() end
 
----@alias feature_type
+---@alias df.feature_type
 ---| 0 # outdoor_river
 ---| 1 # cave
 ---| 2 # pit
@@ -1030,7 +1030,7 @@ function df.block_square_event_designation_priorityst:new() end
 ---| 8 # magma_core_from_layer
 ---| 9 # underworld_from_layer
 
----@class _feature_type: DFEnumType
+---@class identity.feature_type: DFEnumType
 ---@field outdoor_river 0
 ---@field [0] "outdoor_river"
 ---@field cave 1
@@ -1053,17 +1053,17 @@ function df.block_square_event_designation_priorityst:new() end
 ---@field [9] "underworld_from_layer"
 df.feature_type = {}
 
----@class (exact) feature: DFStruct
----@field _type _feature
+---@class (exact) df.feature: DFStruct
+---@field _type identity.feature
 ---@field population _feature_population
 ---@field irritation_level number divide by 10k for attack chance, max 100k
 ---@field irritation_attacks number maxes at 10?
----@field embark_pos coord2d_path
+---@field embark_pos df.coord2d_path
 ---@field min_map_z DFNumberVector
 ---@field max_map_z DFNumberVector
 local feature
 
----@return feature_type
+---@return df.feature_type
 function feature:getType() end
 
 function feature:write_file() end
@@ -1073,132 +1073,132 @@ function feature:read_file() end
 function feature:shiftCoords() end
 
 
----@class _feature: DFCompoundType
+---@class identity.feature: DFCompoundType
 ---@field _kind 'class-type'
 df.feature = {}
 
----@return feature
+---@return df.feature
 function df.feature:new() end
 
 ---@class _feature_population: DFContainer
----@field [integer] world_population
+---@field [integer] df.world_population
 local _feature_population
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<world_population>
+---@return DFPointer<df.world_population>
 function _feature_population:_field(index) end
 
 ---@param index '#'|integer
----@param item world_population
+---@param item df.world_population
 function _feature_population:insert(index, item) end
 
 ---@param index integer
 function _feature_population:erase(index) end
 
----@class (exact) feature_outdoor_riverst: DFStruct, feature
----@field _type _feature_outdoor_riverst
+---@class (exact) df.feature_outdoor_riverst: DFStruct, df.feature
+---@field _type identity.feature_outdoor_riverst
 
----@class _feature_outdoor_riverst: DFCompoundType
+---@class identity.feature_outdoor_riverst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_outdoor_riverst = {}
 
----@return feature_outdoor_riverst
+---@return df.feature_outdoor_riverst
 function df.feature_outdoor_riverst:new() end
 
----@class (exact) feature_cavest: DFStruct, feature
----@field _type _feature_cavest
+---@class (exact) df.feature_cavest: DFStruct, df.feature
+---@field _type identity.feature_cavest
 
----@class _feature_cavest: DFCompoundType
+---@class identity.feature_cavest: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_cavest = {}
 
----@return feature_cavest
+---@return df.feature_cavest
 function df.feature_cavest:new() end
 
----@class (exact) feature_pitst: DFStruct, feature
----@field _type _feature_pitst
+---@class (exact) df.feature_pitst: DFStruct, df.feature
+---@field _type identity.feature_pitst
 
----@class _feature_pitst: DFCompoundType
+---@class identity.feature_pitst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_pitst = {}
 
----@return feature_pitst
+---@return df.feature_pitst
 function df.feature_pitst:new() end
 
----@class (exact) feature_magma_poolst: DFStruct, feature
----@field _type _feature_magma_poolst
+---@class (exact) df.feature_magma_poolst: DFStruct, df.feature
+---@field _type identity.feature_magma_poolst
 ---@field magma_fill_z number
 
----@class _feature_magma_poolst: DFCompoundType
+---@class identity.feature_magma_poolst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_magma_poolst = {}
 
----@return feature_magma_poolst
+---@return df.feature_magma_poolst
 function df.feature_magma_poolst:new() end
 
----@class (exact) feature_volcanost: DFStruct, feature
----@field _type _feature_volcanost
+---@class (exact) df.feature_volcanost: DFStruct, df.feature
+---@field _type identity.feature_volcanost
 ---@field magma_fill_z number
 
----@class _feature_volcanost: DFCompoundType
+---@class identity.feature_volcanost: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_volcanost = {}
 
----@return feature_volcanost
+---@return df.feature_volcanost
 function df.feature_volcanost:new() end
 
----@class (exact) feature_deep_special_tubest: DFStruct, feature
----@field _type _feature_deep_special_tubest
+---@class (exact) df.feature_deep_special_tubest: DFStruct, df.feature
+---@field _type identity.feature_deep_special_tubest
 
----@class _feature_deep_special_tubest: DFCompoundType
+---@class identity.feature_deep_special_tubest: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_deep_special_tubest = {}
 
----@return feature_deep_special_tubest
+---@return df.feature_deep_special_tubest
 function df.feature_deep_special_tubest:new() end
 
----@class (exact) feature_deep_surface_portalst: DFStruct, feature
----@field _type _feature_deep_surface_portalst
+---@class (exact) df.feature_deep_surface_portalst: DFStruct, df.feature
+---@field _type identity.feature_deep_surface_portalst
 
----@class _feature_deep_surface_portalst: DFCompoundType
+---@class identity.feature_deep_surface_portalst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_deep_surface_portalst = {}
 
----@return feature_deep_surface_portalst
+---@return df.feature_deep_surface_portalst
 function df.feature_deep_surface_portalst:new() end
 
----@class (exact) feature_subterranean_from_layerst: DFStruct, feature
----@field _type _feature_subterranean_from_layerst
+---@class (exact) df.feature_subterranean_from_layerst: DFStruct, df.feature
+---@field _type identity.feature_subterranean_from_layerst
 
----@class _feature_subterranean_from_layerst: DFCompoundType
+---@class identity.feature_subterranean_from_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_subterranean_from_layerst = {}
 
----@return feature_subterranean_from_layerst
+---@return df.feature_subterranean_from_layerst
 function df.feature_subterranean_from_layerst:new() end
 
----@class (exact) feature_magma_core_from_layerst: DFStruct, feature
----@field _type _feature_magma_core_from_layerst
+---@class (exact) df.feature_magma_core_from_layerst: DFStruct, df.feature
+---@field _type identity.feature_magma_core_from_layerst
 
----@class _feature_magma_core_from_layerst: DFCompoundType
+---@class identity.feature_magma_core_from_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_magma_core_from_layerst = {}
 
----@return feature_magma_core_from_layerst
+---@return df.feature_magma_core_from_layerst
 function df.feature_magma_core_from_layerst:new() end
 
----@class (exact) feature_underworld_from_layerst: DFStruct, feature
----@field _type _feature_underworld_from_layerst
+---@class (exact) df.feature_underworld_from_layerst: DFStruct, df.feature
+---@field _type identity.feature_underworld_from_layerst
 
----@class _feature_underworld_from_layerst: DFCompoundType
+---@class identity.feature_underworld_from_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_underworld_from_layerst = {}
 
----@return feature_underworld_from_layerst
+---@return df.feature_underworld_from_layerst
 function df.feature_underworld_from_layerst:new() end
 
----@alias feature_init_flags
+---@alias df.feature_init_flags
 ---| 0 # AddSavage
 ---| 1 # AddEvil
 ---| 2 # AddGood
@@ -1206,7 +1206,7 @@ function df.feature_underworld_from_layerst:new() end
 ---| 4 # Announced
 ---| 5 # AnnouncedFully
 
----@class _feature_init_flags: DFEnumType
+---@class identity.feature_init_flags: DFEnumType
 ---@field AddSavage 0
 ---@field [0] "AddSavage"
 ---@field AddEvil 1
@@ -1221,7 +1221,7 @@ function df.feature_underworld_from_layerst:new() end
 ---@field [5] "AnnouncedFully" for tube inside vs. outside
 df.feature_init_flags = {}
 
----@alias layer_type
+---@alias df.layer_type
 ---| -1 # Surface
 ---| 0 # Cavern1
 ---| 1 # Cavern2
@@ -1229,7 +1229,7 @@ df.feature_init_flags = {}
 ---| 3 # MagmaSea
 ---| 4 # Underworld
 
----@class _layer_type: DFEnumType
+---@class identity.layer_type: DFEnumType
 ---@field Surface -1
 ---@field [-1] "Surface"
 ---@field Cavern1 0
@@ -1244,34 +1244,34 @@ df.feature_init_flags = {}
 ---@field [4] "Underworld"
 df.layer_type = {}
 
----@class (exact) feature_init: DFStruct
----@field _type _feature_init
+---@class (exact) df.feature_init: DFStruct
+---@field _type identity.feature_init
 ---@field flags _feature_init_flags
 ---@field alterations _feature_init_alterations
 ---@field start_x number
 ---@field start_y number
 ---@field end_x number
 ---@field end_y number
----@field start_depth layer_type
----@field end_depth layer_type
+---@field start_depth df.layer_type
+---@field end_depth df.layer_type
 local feature_init
 
----@return feature_type
+---@return df.feature_type
 function feature_init:getType() end
 
 function feature_init:write_file() end
 
 function feature_init:read_file() end
 
----@return feature
+---@return df.feature
 function feature_init:createFeature() end
 
----@return feature
+---@return df.feature
 function feature_init:recreateFeature() end
 
 function feature_init:destroyFeature() end
 
----@return feature
+---@return df.feature
 function feature_init:getFeature() end
 
 function feature_init:getMaterial() end
@@ -1299,180 +1299,180 @@ function feature_init:isLayer() end
 function feature_init:getLayer() end
 
 
----@class _feature_init: DFCompoundType
+---@class identity.feature_init: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init = {}
 
----@return feature_init
+---@return df.feature_init
 function df.feature_init:new() end
 
 ---@class _feature_init_flags: DFContainer
----@field [integer] table<feature_init_flags, boolean>
+---@field [integer] table<df.feature_init_flags, boolean>
 local _feature_init_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<feature_init_flags, boolean>>
+---@return DFPointer<table<df.feature_init_flags, boolean>>
 function _feature_init_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<feature_init_flags, boolean>
+---@param item table<df.feature_init_flags, boolean>
 function _feature_init_flags:insert(index, item) end
 
 ---@param index integer
 function _feature_init_flags:erase(index) end
 
 ---@class _feature_init_alterations: DFContainer
----@field [integer] feature_alteration
+---@field [integer] df.feature_alteration
 local _feature_init_alterations
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<feature_alteration>
+---@return DFPointer<df.feature_alteration>
 function _feature_init_alterations:_field(index) end
 
 ---@param index '#'|integer
----@param item feature_alteration
+---@param item df.feature_alteration
 function _feature_init_alterations:insert(index, item) end
 
 ---@param index integer
 function _feature_init_alterations:erase(index) end
 
----@class (exact) feature_init_outdoor_riverst: DFStruct, feature_init
----@field _type _feature_init_outdoor_riverst
----@field feature feature_outdoor_riverst
+---@class (exact) df.feature_init_outdoor_riverst: DFStruct, df.feature_init
+---@field _type identity.feature_init_outdoor_riverst
+---@field feature df.feature_outdoor_riverst
 
----@class _feature_init_outdoor_riverst: DFCompoundType
+---@class identity.feature_init_outdoor_riverst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_outdoor_riverst = {}
 
----@return feature_init_outdoor_riverst
+---@return df.feature_init_outdoor_riverst
 function df.feature_init_outdoor_riverst:new() end
 
----@class (exact) feature_init_cavest: DFStruct, feature_init
----@field _type _feature_init_cavest
----@field feature feature_cavest
+---@class (exact) df.feature_init_cavest: DFStruct, df.feature_init
+---@field _type identity.feature_init_cavest
+---@field feature df.feature_cavest
 
----@class _feature_init_cavest: DFCompoundType
+---@class identity.feature_init_cavest: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_cavest = {}
 
----@return feature_init_cavest
+---@return df.feature_init_cavest
 function df.feature_init_cavest:new() end
 
----@class (exact) feature_init_pitst: DFStruct, feature_init
----@field _type _feature_init_pitst
----@field feature feature_pitst
+---@class (exact) df.feature_init_pitst: DFStruct, df.feature_init
+---@field _type identity.feature_init_pitst
+---@field feature df.feature_pitst
 
----@class _feature_init_pitst: DFCompoundType
+---@class identity.feature_init_pitst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_pitst = {}
 
----@return feature_init_pitst
+---@return df.feature_init_pitst
 function df.feature_init_pitst:new() end
 
----@class (exact) feature_init_magma_poolst: DFStruct, feature_init
----@field _type _feature_init_magma_poolst
----@field feature feature_magma_poolst
+---@class (exact) df.feature_init_magma_poolst: DFStruct, df.feature_init
+---@field _type identity.feature_init_magma_poolst
+---@field feature df.feature_magma_poolst
 
----@class _feature_init_magma_poolst: DFCompoundType
+---@class identity.feature_init_magma_poolst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_magma_poolst = {}
 
----@return feature_init_magma_poolst
+---@return df.feature_init_magma_poolst
 function df.feature_init_magma_poolst:new() end
 
----@class (exact) feature_init_volcanost: DFStruct, feature_init
----@field _type _feature_init_volcanost
----@field feature feature_volcanost
+---@class (exact) df.feature_init_volcanost: DFStruct, df.feature_init
+---@field _type identity.feature_init_volcanost
+---@field feature df.feature_volcanost
 
----@class _feature_init_volcanost: DFCompoundType
+---@class identity.feature_init_volcanost: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_volcanost = {}
 
----@return feature_init_volcanost
+---@return df.feature_init_volcanost
 function df.feature_init_volcanost:new() end
 
----@class (exact) feature_init_deep_special_tubest: DFStruct, feature_init
----@field _type _feature_init_deep_special_tubest
+---@class (exact) df.feature_init_deep_special_tubest: DFStruct, df.feature_init
+---@field _type identity.feature_init_deep_special_tubest
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field feature feature_deep_special_tubest
+---@field feature df.feature_deep_special_tubest
 
----@class _feature_init_deep_special_tubest: DFCompoundType
+---@class identity.feature_init_deep_special_tubest: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_deep_special_tubest = {}
 
----@return feature_init_deep_special_tubest
+---@return df.feature_init_deep_special_tubest
 function df.feature_init_deep_special_tubest:new() end
 
----@class (exact) feature_init_deep_surface_portalst: DFStruct, feature_init
----@field _type _feature_init_deep_surface_portalst
+---@class (exact) df.feature_init_deep_surface_portalst: DFStruct, df.feature_init
+---@field _type identity.feature_init_deep_surface_portalst
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field feature feature_deep_surface_portalst
+---@field feature df.feature_deep_surface_portalst
 
----@class _feature_init_deep_surface_portalst: DFCompoundType
+---@class identity.feature_init_deep_surface_portalst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_deep_surface_portalst = {}
 
----@return feature_init_deep_surface_portalst
+---@return df.feature_init_deep_surface_portalst
 function df.feature_init_deep_surface_portalst:new() end
 
----@class (exact) feature_init_subterranean_from_layerst: DFStruct, feature_init
----@field _type _feature_init_subterranean_from_layerst
+---@class (exact) df.feature_init_subterranean_from_layerst: DFStruct, df.feature_init
+---@field _type identity.feature_init_subterranean_from_layerst
 ---@field layer number References: `world_underground_region`
----@field feature feature_subterranean_from_layerst
+---@field feature df.feature_subterranean_from_layerst
 
----@class _feature_init_subterranean_from_layerst: DFCompoundType
+---@class identity.feature_init_subterranean_from_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_subterranean_from_layerst = {}
 
----@return feature_init_subterranean_from_layerst
+---@return df.feature_init_subterranean_from_layerst
 function df.feature_init_subterranean_from_layerst:new() end
 
----@class (exact) feature_init_magma_core_from_layerst: DFStruct, feature_init
----@field _type _feature_init_magma_core_from_layerst
+---@class (exact) df.feature_init_magma_core_from_layerst: DFStruct, df.feature_init
+---@field _type identity.feature_init_magma_core_from_layerst
 ---@field layer number References: `world_underground_region`
----@field feature feature_magma_core_from_layerst
+---@field feature df.feature_magma_core_from_layerst
 
----@class _feature_init_magma_core_from_layerst: DFCompoundType
+---@class identity.feature_init_magma_core_from_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_magma_core_from_layerst = {}
 
----@return feature_init_magma_core_from_layerst
+---@return df.feature_init_magma_core_from_layerst
 function df.feature_init_magma_core_from_layerst:new() end
 
----@class (exact) feature_init_underworld_from_layerst: DFStruct, feature_init
----@field _type _feature_init_underworld_from_layerst
+---@class (exact) df.feature_init_underworld_from_layerst: DFStruct, df.feature_init
+---@field _type identity.feature_init_underworld_from_layerst
 ---@field layer number References: `world_underground_region`
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field feature feature_underworld_from_layerst
+---@field feature df.feature_underworld_from_layerst
 
----@class _feature_init_underworld_from_layerst: DFCompoundType
+---@class identity.feature_init_underworld_from_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_init_underworld_from_layerst = {}
 
----@return feature_init_underworld_from_layerst
+---@return df.feature_init_underworld_from_layerst
 function df.feature_init_underworld_from_layerst:new() end
 
----@alias feature_alteration_type
+---@alias df.feature_alteration_type
 ---| 0 # new_pop_max
 ---| 1 # new_lava_fill_z
 
----@class _feature_alteration_type: DFEnumType
+---@class identity.feature_alteration_type: DFEnumType
 ---@field new_pop_max 0
 ---@field [0] "new_pop_max"
 ---@field new_lava_fill_z 1
 ---@field [1] "new_lava_fill_z"
 df.feature_alteration_type = {}
 
----@class (exact) feature_alteration: DFStruct
----@field _type _feature_alteration
+---@class (exact) df.feature_alteration: DFStruct
+---@field _type identity.feature_alteration
 local feature_alteration
 
----@return feature_alteration_type
+---@return df.feature_alteration_type
 function feature_alteration:getType() end
 
 function feature_alteration:write_file() end
@@ -1480,43 +1480,43 @@ function feature_alteration:write_file() end
 function feature_alteration:read_file() end
 
 
----@class _feature_alteration: DFCompoundType
+---@class identity.feature_alteration: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_alteration = {}
 
----@return feature_alteration
+---@return df.feature_alteration
 function df.feature_alteration:new() end
 
----@class (exact) feature_alteration_new_pop_maxst: DFStruct, feature_alteration
----@field _type _feature_alteration_new_pop_maxst
+---@class (exact) df.feature_alteration_new_pop_maxst: DFStruct, df.feature_alteration
+---@field _type identity.feature_alteration_new_pop_maxst
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _feature_alteration_new_pop_maxst: DFCompoundType
+---@class identity.feature_alteration_new_pop_maxst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_alteration_new_pop_maxst = {}
 
----@return feature_alteration_new_pop_maxst
+---@return df.feature_alteration_new_pop_maxst
 function df.feature_alteration_new_pop_maxst:new() end
 
----@class (exact) feature_alteration_new_lava_fill_zst: DFStruct, feature_alteration
----@field _type _feature_alteration_new_lava_fill_zst
+---@class (exact) df.feature_alteration_new_lava_fill_zst: DFStruct, df.feature_alteration
+---@field _type identity.feature_alteration_new_lava_fill_zst
 ---@field magma_fill_z number
 
----@class _feature_alteration_new_lava_fill_zst: DFCompoundType
+---@class identity.feature_alteration_new_lava_fill_zst: DFCompoundType
 ---@field _kind 'class-type'
 df.feature_alteration_new_lava_fill_zst = {}
 
----@return feature_alteration_new_lava_fill_zst
+---@return df.feature_alteration_new_lava_fill_zst
 function df.feature_alteration_new_lava_fill_zst:new() end
 
----@alias world_construction_type
+---@alias df.world_construction_type
 ---| 0 # ROAD
 ---| 1 # TUNNEL
 ---| 2 # BRIDGE
 ---| 3 # WALL
 
----@class _world_construction_type: DFEnumType
+---@class identity.world_construction_type: DFEnumType
 ---@field ROAD 0
 ---@field [0] "ROAD"
 ---@field TUNNEL 1
@@ -1527,9 +1527,9 @@ function df.feature_alteration_new_lava_fill_zst:new() end
 ---@field [3] "WALL"
 df.world_construction_type = {}
 
----@class (exact) world_construction_square: DFStruct
----@field _type _world_construction_square
----@field region_pos coord2d
+---@class (exact) df.world_construction_square: DFStruct
+---@field _type identity.world_construction_square
+---@field region_pos df.coord2d
 ---@field construction_id number References: `world_construction`
 ---@field embark_x DFNumberVector
 ---@field embark_y DFNumberVector
@@ -1537,7 +1537,7 @@ df.world_construction_type = {}
 ---@field embark_z DFNumberVector
 local world_construction_square
 
----@return world_construction_type
+---@return df.world_construction_type
 function world_construction_square:getType() end
 
 function world_construction_square:write_file() end
@@ -1545,77 +1545,77 @@ function world_construction_square:write_file() end
 function world_construction_square:read_file() end
 
 
----@class _world_construction_square: DFCompoundType
+---@class identity.world_construction_square: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_square = {}
 
----@return world_construction_square
+---@return df.world_construction_square
 function df.world_construction_square:new() end
 
----@class (exact) world_construction_square_roadst: DFStruct, world_construction_square
----@field _type _world_construction_square_roadst
----@field item_type item_type
+---@class (exact) df.world_construction_square_roadst: DFStruct, df.world_construction_square
+---@field _type identity.world_construction_square_roadst
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _world_construction_square_roadst: DFCompoundType
+---@class identity.world_construction_square_roadst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_square_roadst = {}
 
----@return world_construction_square_roadst
+---@return df.world_construction_square_roadst
 function df.world_construction_square_roadst:new() end
 
----@class (exact) world_construction_square_tunnelst: DFStruct, world_construction_square
----@field _type _world_construction_square_tunnelst
+---@class (exact) df.world_construction_square_tunnelst: DFStruct, df.world_construction_square
+---@field _type identity.world_construction_square_tunnelst
 
----@class _world_construction_square_tunnelst: DFCompoundType
+---@class identity.world_construction_square_tunnelst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_square_tunnelst = {}
 
----@return world_construction_square_tunnelst
+---@return df.world_construction_square_tunnelst
 function df.world_construction_square_tunnelst:new() end
 
----@class (exact) world_construction_square_bridgest: DFStruct, world_construction_square
----@field _type _world_construction_square_bridgest
+---@class (exact) df.world_construction_square_bridgest: DFStruct, df.world_construction_square
+---@field _type identity.world_construction_square_bridgest
 ---@field road_id number guess References: `world_construction`
----@field item_type item_type
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _world_construction_square_bridgest: DFCompoundType
+---@class identity.world_construction_square_bridgest: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_square_bridgest = {}
 
----@return world_construction_square_bridgest
+---@return df.world_construction_square_bridgest
 function df.world_construction_square_bridgest:new() end
 
----@class (exact) world_construction_square_wallst: DFStruct, world_construction_square
----@field _type _world_construction_square_wallst
----@field item_type item_type
+---@class (exact) df.world_construction_square_wallst: DFStruct, df.world_construction_square
+---@field _type identity.world_construction_square_wallst
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _world_construction_square_wallst: DFCompoundType
+---@class identity.world_construction_square_wallst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_square_wallst = {}
 
----@return world_construction_square_wallst
+---@return df.world_construction_square_wallst
 function df.world_construction_square_wallst:new() end
 
----@class (exact) world_construction: DFStruct
----@field _type _world_construction
+---@class (exact) df.world_construction: DFStruct
+---@field _type identity.world_construction
 ---@field id number
 ---@field square_obj _world_construction_square_obj
----@field square_pos coord2d_path
+---@field square_pos df.coord2d_path
 local world_construction
 
----@return world_construction_type
+---@return df.world_construction_type
 function world_construction:getType() end
 
----@return language_name
+---@return df.language_name
 function world_construction:getName() end
 
 function world_construction:write_file() end
@@ -1623,83 +1623,83 @@ function world_construction:write_file() end
 function world_construction:read_file() end
 
 
----@class _world_construction: DFCompoundType
+---@class identity.world_construction: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction = {}
 
----@return world_construction
+---@return df.world_construction
 function df.world_construction:new() end
 
 ---@param key number
----@return world_construction|nil
+---@return df.world_construction|nil
 function df.world_construction.find(key) end
 
----@class world_construction_vector: DFVector, { [integer]: world_construction }
+---@class world_construction_vector: DFVector, { [integer]: df.world_construction }
 
 ---@return world_construction_vector # df.global.world.world_data.constructions.list
 function df.world_construction.get_vector() end
 
 ---@class _world_construction_square_obj: DFContainer
----@field [integer] world_construction_square
+---@field [integer] df.world_construction_square
 local _world_construction_square_obj
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<world_construction_square>
+---@return DFPointer<df.world_construction_square>
 function _world_construction_square_obj:_field(index) end
 
 ---@param index '#'|integer
----@param item world_construction_square
+---@param item df.world_construction_square
 function _world_construction_square_obj:insert(index, item) end
 
 ---@param index integer
 function _world_construction_square_obj:erase(index) end
 
----@class (exact) world_construction_roadst: DFStruct, world_construction
----@field _type _world_construction_roadst
----@field name language_name
+---@class (exact) df.world_construction_roadst: DFStruct, df.world_construction
+---@field _type identity.world_construction_roadst
+---@field name df.language_name
 
----@class _world_construction_roadst: DFCompoundType
+---@class identity.world_construction_roadst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_roadst = {}
 
----@return world_construction_roadst
+---@return df.world_construction_roadst
 function df.world_construction_roadst:new() end
 
----@class (exact) world_construction_tunnelst: DFStruct, world_construction
----@field _type _world_construction_tunnelst
----@field name language_name
+---@class (exact) df.world_construction_tunnelst: DFStruct, df.world_construction
+---@field _type identity.world_construction_tunnelst
+---@field name df.language_name
 
----@class _world_construction_tunnelst: DFCompoundType
+---@class identity.world_construction_tunnelst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_tunnelst = {}
 
----@return world_construction_tunnelst
+---@return df.world_construction_tunnelst
 function df.world_construction_tunnelst:new() end
 
----@class (exact) world_construction_bridgest: DFStruct, world_construction
----@field _type _world_construction_bridgest
----@field name language_name
+---@class (exact) df.world_construction_bridgest: DFStruct, df.world_construction
+---@field _type identity.world_construction_bridgest
+---@field name df.language_name
 
----@class _world_construction_bridgest: DFCompoundType
+---@class identity.world_construction_bridgest: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_bridgest = {}
 
----@return world_construction_bridgest
+---@return df.world_construction_bridgest
 function df.world_construction_bridgest:new() end
 
----@class (exact) world_construction_wallst: DFStruct, world_construction
----@field _type _world_construction_wallst
----@field name language_name
+---@class (exact) df.world_construction_wallst: DFStruct, df.world_construction
+---@field _type identity.world_construction_wallst
+---@field name df.language_name
 
----@class _world_construction_wallst: DFCompoundType
+---@class identity.world_construction_wallst: DFCompoundType
 ---@field _kind 'class-type'
 df.world_construction_wallst = {}
 
----@return world_construction_wallst
+---@return df.world_construction_wallst
 function df.world_construction_wallst:new() end
 
----@alias biome_type
+---@alias df.biome_type
 ---| 0 # MOUNTAIN
 ---| 1 # GLACIER
 ---| 2 # TUNDRA
@@ -1752,7 +1752,7 @@ function df.world_construction_wallst:new() end
 ---| 49 # SUBTERRANEAN_CHASM
 ---| 50 # SUBTERRANEAN_LAVA
 
----@class _biome_type: DFEnumType
+---@class identity.biome_type: DFEnumType
 ---@field MOUNTAIN 0
 ---@field [0] "MOUNTAIN"
 ---@field GLACIER 1
@@ -1920,47 +1920,47 @@ df.biome_type._attr_entry_type._fields = {}
 ---@field SUBTERRANEAN_LAVA { caption: "Subterranean Lava", plant_raw_flag: "BIOME_SUBTERRANEAN_LAVA" }
 df.biome_type.attrs = {}
 
----@class construction_flags: DFBitfield
----@field _enum _construction_flags
+---@class df.construction_flags: DFBitfield
+---@field _enum identity.construction_flags
 ---@field no_build_item boolean build item is created from scratch upon removing construction, does not exist beforehand
 ---@field [0] boolean build item is created from scratch upon removing construction, does not exist beforehand
 ---@field top_of_wall boolean used on the floors above constructed walls so you cannot remove them
 ---@field [1] boolean used on the floors above constructed walls so you cannot remove them
 
----@class _construction_flags: DFBitfieldType
+---@class identity.construction_flags: DFBitfieldType
 ---@field no_build_item 0 build item is created from scratch upon removing construction, does not exist beforehand
 ---@field [0] "no_build_item" build item is created from scratch upon removing construction, does not exist beforehand
 ---@field top_of_wall 1 used on the floors above constructed walls so you cannot remove them
 ---@field [1] "top_of_wall" used on the floors above constructed walls so you cannot remove them
 df.construction_flags = {}
 
----@class (exact) construction: DFStruct
----@field _type _construction
----@field pos coord
----@field item_type item_type
+---@class (exact) df.construction: DFStruct
+---@field _type identity.construction
+---@field pos df.coord
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field flags construction_flags
----@field original_tile tiletype
+---@field flags df.construction_flags
+---@field original_tile df.tiletype
 
----@class _construction: DFCompoundType
+---@class identity.construction: DFCompoundType
 ---@field _kind 'struct-type'
 df.construction = {}
 
----@return construction
+---@return df.construction
 function df.construction:new() end
 
 ---@param key number
----@return construction|nil
+---@return df.construction|nil
 function df.construction.find(key) end
 
----@class construction_vector: DFVector, { [integer]: construction }
+---@class construction_vector: DFVector, { [integer]: df.construction }
 
 ---@return construction_vector # df.global.world.constructions
 function df.construction.get_vector() end
 
----@alias flow_type
+---@alias df.flow_type
 ---| 0 # Miasma
 ---| 1 # Steam
 ---| 2 # Mist
@@ -1976,7 +1976,7 @@ function df.construction.get_vector() end
 ---| 12 # SeaFoam
 ---| 13 # ItemCloud
 
----@class _flow_type: DFEnumType
+---@class identity.flow_type: DFEnumType
 ---@field Miasma 0
 ---@field [0] "Miasma"
 ---@field Steam 1 only if mat_type=1
@@ -2007,65 +2007,65 @@ function df.construction.get_vector() end
 ---@field [13] "ItemCloud"
 df.flow_type = {}
 
----@class (exact) flow_info: DFStruct
----@field _type _flow_info
----@field type flow_type
+---@class (exact) df.flow_info: DFStruct
+---@field _type identity.flow_info
+---@field type df.flow_type
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field density number
----@field pos coord
----@field dest coord
+---@field pos df.coord
+---@field dest df.coord
 ---@field expanding boolean
 ---@field reuse boolean
 ---@field guide_id number References: `flow_guide`
 
----@class _flow_info: DFCompoundType
+---@class identity.flow_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.flow_info = {}
 
----@return flow_info
+---@return df.flow_info
 function df.flow_info:new() end
 
----@class (exact) flow_reuse_pool: DFStruct
----@field _type _flow_reuse_pool
+---@class (exact) df.flow_reuse_pool: DFStruct
+---@field _type identity.flow_reuse_pool
 ---@field reuse_idx number
----@field flags flow_reuse_pool.T_flags
+---@field flags df.flow_reuse_pool.T_flags
 
----@class _flow_reuse_pool: DFCompoundType
+---@class identity.flow_reuse_pool: DFCompoundType
 ---@field _kind 'struct-type'
 df.flow_reuse_pool = {}
 
----@return flow_reuse_pool
+---@return df.flow_reuse_pool
 function df.flow_reuse_pool:new() end
 
----@class flow_reuse_pool.T_flags: DFBitfield
----@field _enum _flow_reuse_pool.T_flags
+---@class df.flow_reuse_pool.T_flags: DFBitfield
+---@field _enum identity.flow_reuse_pool.flags
 ---@field active boolean
 ---@field [0] boolean
 
----@class _flow_reuse_pool.T_flags: DFBitfieldType
+---@class identity.flow_reuse_pool.flags: DFBitfieldType
 ---@field active 0
 ---@field [0] "active"
 df.flow_reuse_pool.T_flags = {}
 
----@alias flow_guide_type
+---@alias df.flow_guide_type
 ---| 0 # TrailingFlow
 ---| 1 # ItemCloud
 
----@class _flow_guide_type: DFEnumType
+---@class identity.flow_guide_type: DFEnumType
 ---@field TrailingFlow 0
 ---@field [0] "TrailingFlow"
 ---@field ItemCloud 1
 ---@field [1] "ItemCloud"
 df.flow_guide_type = {}
 
----@class (exact) flow_guide: DFStruct
----@field _type _flow_guide
+---@class (exact) df.flow_guide: DFStruct
+---@field _type identity.flow_guide
 ---@field id number
 ---@field unk_8 number
 local flow_guide
 
----@return flow_guide_type
+---@return df.flow_guide_type
 function flow_guide:getType() end
 
 function flow_guide:shiftCoords() end
@@ -2075,81 +2075,81 @@ function flow_guide:write_file() end
 function flow_guide:read_file() end
 
 
----@class _flow_guide: DFCompoundType
+---@class identity.flow_guide: DFCompoundType
 ---@field _kind 'class-type'
 df.flow_guide = {}
 
----@return flow_guide
+---@return df.flow_guide
 function df.flow_guide:new() end
 
 ---@param key number
----@return flow_guide|nil
+---@return df.flow_guide|nil
 function df.flow_guide.find(key) end
 
----@class flow_guide_vector: DFVector, { [integer]: flow_guide }
+---@class flow_guide_vector: DFVector, { [integer]: df.flow_guide }
 
 ---@return flow_guide_vector # df.global.world.flow_guides.all
 function df.flow_guide.get_vector() end
 
----@class (exact) flow_guide_trailing_flowst: DFStruct, flow_guide
----@field _type _flow_guide_trailing_flowst
----@field unk_1 coord[]
+---@class (exact) df.flow_guide_trailing_flowst: DFStruct, df.flow_guide
+---@field _type identity.flow_guide_trailing_flowst
+---@field unk_1 df.coord[]
 
----@class _flow_guide_trailing_flowst: DFCompoundType
+---@class identity.flow_guide_trailing_flowst: DFCompoundType
 ---@field _kind 'class-type'
 df.flow_guide_trailing_flowst = {}
 
----@return flow_guide_trailing_flowst
+---@return df.flow_guide_trailing_flowst
 function df.flow_guide_trailing_flowst:new() end
 
----@class (exact) flow_guide_item_cloudst: DFStruct, flow_guide
----@field _type _flow_guide_item_cloudst
----@field item_type item_type
+---@class (exact) df.flow_guide_item_cloudst: DFStruct, df.flow_guide
+---@field _type identity.flow_guide_item_cloudst
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mattype number References: `material`
 ---@field matindex number
 ---@field unk_18 number
 ---@field unk_1c number
----@field unk_1 coord[]
+---@field unk_1 df.coord[]
 
----@class _flow_guide_item_cloudst: DFCompoundType
+---@class identity.flow_guide_item_cloudst: DFCompoundType
 ---@field _kind 'class-type'
 df.flow_guide_item_cloudst = {}
 
----@return flow_guide_item_cloudst
+---@return df.flow_guide_item_cloudst
 function df.flow_guide_item_cloudst:new() end
 
----@class (exact) effect_info: DFStruct
----@field _type _effect_info
+---@class (exact) df.effect_info: DFStruct
+---@field _type identity.effect_info
 ---@field id number assigned during Save
----@field job job
+---@field job df.job
 ---@field type number 2 = falling into chasm
 ---@field foreground number
 ---@field background number
 ---@field bright number
----@field pos coord
+---@field pos df.coord
 ---@field timer number
 
----@class _effect_info: DFCompoundType
+---@class identity.effect_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.effect_info = {}
 
----@return effect_info
+---@return df.effect_info
 function df.effect_info:new() end
 
----@alias region_block_event_type
+---@alias df.region_block_event_type
 ---| 0 # SphereField
 
----@class _region_block_event_type: DFEnumType
+---@class identity.region_block_event_type: DFEnumType
 ---@field SphereField 0
 ---@field [0] "SphereField"
 df.region_block_event_type = {}
 
----@class (exact) region_block_eventst: DFStruct
----@field _type _region_block_eventst
+---@class (exact) df.region_block_eventst: DFStruct
+---@field _type identity.region_block_eventst
 local region_block_eventst
 
----@return region_block_event_type
+---@return df.region_block_event_type
 function region_block_eventst:getType() end
 
 function region_block_eventst:write_file() end
@@ -2157,21 +2157,21 @@ function region_block_eventst:write_file() end
 function region_block_eventst:read_file() end
 
 
----@class _region_block_eventst: DFCompoundType
+---@class identity.region_block_eventst: DFCompoundType
 ---@field _kind 'class-type'
 df.region_block_eventst = {}
 
----@return region_block_eventst
+---@return df.region_block_eventst
 function df.region_block_eventst:new() end
 
----@class (exact) region_block_event_sphere_fieldst: DFStruct, region_block_eventst
----@field _type _region_block_event_sphere_fieldst
+---@class (exact) df.region_block_event_sphere_fieldst: DFStruct, df.region_block_eventst
+---@field _type identity.region_block_event_sphere_fieldst
 ---@field unk_1 number[]
 
----@class _region_block_event_sphere_fieldst: DFCompoundType
+---@class identity.region_block_event_sphere_fieldst: DFCompoundType
 ---@field _kind 'class-type'
 df.region_block_event_sphere_fieldst = {}
 
----@return region_block_event_sphere_fieldst
+---@return df.region_block_event_sphere_fieldst
 function df.region_block_event_sphere_fieldst:new() end
 

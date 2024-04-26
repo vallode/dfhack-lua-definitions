@@ -1,18 +1,18 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias cmv_version
+---@alias df.cmv_version
 ---| 10000 # CMV_0
 ---| 10001 # CMV_1
 
----@class _cmv_version: DFEnumType
+---@class identity.cmv_version: DFEnumType
 ---@field CMV_0 10000
 ---@field [10000] "CMV_0"
 ---@field CMV_1 10001 adds support for sound
 ---@field [10001] "CMV_1" adds support for sound
 df.cmv_version = {}
 
----@alias save_version
+---@alias df.save_version
 ---| 1107 # v0_21_93_19a
 ---| 1108 # v0_21_93_19c
 ---| 1108 # v0_21_95_19a
@@ -132,7 +132,7 @@ df.cmv_version = {}
 ---| 1715 # v0_47_04
 ---| 1716 # v0_47_05
 
----@class _save_version: DFEnumType
+---@class identity.save_version: DFEnumType
 ---@field v0_21_93_19a 1107
 ---@field [1107] "v0_21_93_19a"
 ---@field v0_21_93_19c 1108

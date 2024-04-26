@@ -2,7 +2,7 @@
 ---@meta
 
 -- ---PROFESSION -----
----@alias profession
+---@alias df.profession
 ---| -1 # NONE
 ---| 0 # MINER
 ---| 1 # WOODWORKER
@@ -141,7 +141,7 @@
 ---| 134 # MESSENGER
 
 -- ---PROFESSION -----
----@class _profession: DFEnumType
+---@class identity.profession: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINER 0 0
@@ -569,7 +569,7 @@ df.profession._attr_entry_type._fields = {}
 df.profession.attrs = {}
 
 -- ---LABOR -----
----@alias unit_labor_category
+---@alias df.unit_labor_category
 ---| -13 # Other
 ---| -12 # Hauling
 ---| -11 # Engineering
@@ -585,7 +585,7 @@ df.profession.attrs = {}
 ---| -1 # None
 
 -- ---LABOR -----
----@class _unit_labor_category: DFEnumType
+---@class identity.unit_labor_category: DFEnumType
 ---@field Other -13 used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field [-13] "Other" used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field Hauling -12
@@ -614,7 +614,7 @@ df.profession.attrs = {}
 ---@field [-1] "None"
 df.unit_labor_category = {}
 
----@alias unit_labor
+---@alias df.unit_labor
 ---| -1 # NONE
 ---| 0 # MINE
 ---| 1 # HAUL_STONE
@@ -711,7 +711,7 @@ df.unit_labor_category = {}
 ---| 92 # ANON_LABOR_92
 ---| 93 # ANON_LABOR_93
 
----@class _unit_labor: DFEnumType
+---@class identity.unit_labor: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINE 0 0
@@ -1012,7 +1012,7 @@ df.unit_labor._attr_entry_type._fields = {}
 df.unit_labor.attrs = {}
 
 -- ---SKILL -----
----@alias job_skill_class
+---@alias df.job_skill_class
 ---| 0 # Normal
 ---| 1 # Medical
 ---| 2 # Personal
@@ -1025,7 +1025,7 @@ df.unit_labor.attrs = {}
 ---| 9 # MilitaryMisc
 
 -- ---SKILL -----
----@class _job_skill_class: DFEnumType
+---@class identity.job_skill_class: DFEnumType
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Medical 1
@@ -1048,7 +1048,7 @@ df.unit_labor.attrs = {}
 ---@field [9] "MilitaryMisc"
 df.job_skill_class = {}
 
----@alias job_skill
+---@alias df.job_skill
 ---| -1 # NONE
 ---| 0 # MINING
 ---| 1 # WOODCUTTING
@@ -1200,7 +1200,7 @@ df.job_skill_class = {}
 ---| 147 # UNUSED_01
 ---| 148 # UNUSED_02
 
----@class _job_skill: DFEnumType
+---@class identity.job_skill: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINING 0 0

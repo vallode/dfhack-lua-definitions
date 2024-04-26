@@ -1,19 +1,19 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias interaction_flags
+---@alias df.interaction_flags
 ---| 0 # GENERATED
 ---| 1 # EXPERIMENT_ONLY
 
----@class _interaction_flags: DFEnumType
+---@class identity.interaction_flags: DFEnumType
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 ---@field EXPERIMENT_ONLY 1
 ---@field [1] "EXPERIMENT_ONLY"
 df.interaction_flags = {}
 
----@class (exact) interaction: DFStruct
----@field _type _interaction
+---@class (exact) df.interaction: DFStruct
+---@field _type identity.interaction
 ---@field name string
 ---@field id number
 ---@field str DFStringVector interaction raws
@@ -24,87 +24,87 @@ df.interaction_flags = {}
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
 
----@class _interaction: DFCompoundType
+---@class identity.interaction: DFCompoundType
 ---@field _kind 'struct-type'
 df.interaction = {}
 
----@return interaction
+---@return df.interaction
 function df.interaction:new() end
 
 ---@param key number
----@return interaction|nil
+---@return df.interaction|nil
 function df.interaction.find(key) end
 
----@class interaction_vector: DFVector, { [integer]: interaction }
+---@class interaction_vector: DFVector, { [integer]: df.interaction }
 
 ---@return interaction_vector # df.global.world.raws.interactions
 function df.interaction.get_vector() end
 
 ---@class _interaction_flags: DFContainer
----@field [integer] table<interaction_flags, boolean>
+---@field [integer] table<df.interaction_flags, boolean>
 local _interaction_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<interaction_flags, boolean>>
+---@return DFPointer<table<df.interaction_flags, boolean>>
 function _interaction_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<interaction_flags, boolean>
+---@param item table<df.interaction_flags, boolean>
 function _interaction_flags:insert(index, item) end
 
 ---@param index integer
 function _interaction_flags:erase(index) end
 
 ---@class _interaction_sources: DFContainer
----@field [integer] interaction_source
+---@field [integer] df.interaction_source
 local _interaction_sources
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<interaction_source>
+---@return DFPointer<df.interaction_source>
 function _interaction_sources:_field(index) end
 
 ---@param index '#'|integer
----@param item interaction_source
+---@param item df.interaction_source
 function _interaction_sources:insert(index, item) end
 
 ---@param index integer
 function _interaction_sources:erase(index) end
 
 ---@class _interaction_targets: DFContainer
----@field [integer] interaction_target
+---@field [integer] df.interaction_target
 local _interaction_targets
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<interaction_target>
+---@return DFPointer<df.interaction_target>
 function _interaction_targets:_field(index) end
 
 ---@param index '#'|integer
----@param item interaction_target
+---@param item df.interaction_target
 function _interaction_targets:insert(index, item) end
 
 ---@param index integer
 function _interaction_targets:erase(index) end
 
 ---@class _interaction_effects: DFContainer
----@field [integer] interaction_effect
+---@field [integer] df.interaction_effect
 local _interaction_effects
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<interaction_effect>
+---@return DFPointer<df.interaction_effect>
 function _interaction_effects:_field(index) end
 
 ---@param index '#'|integer
----@param item interaction_effect
+---@param item df.interaction_effect
 function _interaction_effects:insert(index, item) end
 
 ---@param index integer
 function _interaction_effects:erase(index) end
 
----@alias interaction_effect_type
+---@alias df.interaction_effect_type
 ---| 0 # ANIMATE
 ---| 1 # ADD_SYNDROME
 ---| 2 # RESURRECT
@@ -119,7 +119,7 @@ function _interaction_effects:erase(index) end
 ---| 11 # CREATE_ITEM
 ---| 12 # CHANGE_ITEM_QUALITY
 
----@class _interaction_effect_type: DFEnumType
+---@class identity.interaction_effect_type: DFEnumType
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
 ---@field ADD_SYNDROME 1
@@ -148,7 +148,7 @@ function _interaction_effects:erase(index) end
 ---@field [12] "CHANGE_ITEM_QUALITY"
 df.interaction_effect_type = {}
 
----@alias interaction_effect_location_hint
+---@alias df.interaction_effect_location_hint
 ---| 0 # IN_WATER
 ---| 1 # IN_MAGMA
 ---| 2 # NO_WATER
@@ -156,7 +156,7 @@ df.interaction_effect_type = {}
 ---| 4 # NO_THICK_FOG
 ---| 5 # OUTSIDE
 
----@class _interaction_effect_location_hint: DFEnumType
+---@class identity.interaction_effect_location_hint: DFEnumType
 ---@field IN_WATER 0
 ---@field [0] "IN_WATER"
 ---@field IN_MAGMA 1
@@ -171,19 +171,19 @@ df.interaction_effect_type = {}
 ---@field [5] "OUTSIDE"
 df.interaction_effect_location_hint = {}
 
----@class (exact) interaction_effect: DFStruct
----@field _type _interaction_effect
+---@class (exact) df.interaction_effect: DFStruct
+---@field _type identity.interaction_effect
 ---@field index number index of the effect within the parent interaction.effects
 ---@field targets DFStringVector
 ---@field targets_index DFNumberVector for each target used in this effect, list the index of that target within the parent interaction.targets
 ---@field intermittent number IE_INTERMITTENT, 0 = weekly
 ---@field locations _interaction_effect_locations IE_LOCATION
----@field flags interaction_effect.T_flags
+---@field flags df.interaction_effect.T_flags
 ---@field interaction_id number References: `interaction`
 ---@field arena_name string IE_ARENA_NAME
 local interaction_effect
 
----@return interaction_effect_type
+---@return df.interaction_effect_type
 function interaction_effect:getType() end
 
 function interaction_effect:write_file() end
@@ -204,224 +204,224 @@ function interaction_effect:applySyndromes() end
 function interaction_effect:hasSyndrome() end
 
 
----@class _interaction_effect: DFCompoundType
+---@class identity.interaction_effect: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect = {}
 
----@return interaction_effect
+---@return df.interaction_effect
 function df.interaction_effect:new() end
 
 ---@class _interaction_effect_locations: DFContainer
----@field [integer] interaction_effect_location_hint
+---@field [integer] df.interaction_effect_location_hint
 local _interaction_effect_locations
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<interaction_effect_location_hint>
+---@return DFPointer<df.interaction_effect_location_hint>
 function _interaction_effect_locations:_field(index) end
 
 ---@param index '#'|integer
----@param item interaction_effect_location_hint
+---@param item df.interaction_effect_location_hint
 function _interaction_effect_locations:insert(index, item) end
 
 ---@param index integer
 function _interaction_effect_locations:erase(index) end
 
----@class interaction_effect.T_flags: DFBitfield
----@field _enum _interaction_effect.T_flags
+---@class df.interaction_effect.T_flags: DFBitfield
+---@field _enum identity.interaction_effect.flags
 ---@field IMMEDIATE boolean IE_IMMEDIATE
 ---@field [0] boolean IE_IMMEDIATE
 
----@class _interaction_effect.T_flags: DFBitfieldType
+---@class identity.interaction_effect.flags: DFBitfieldType
 ---@field IMMEDIATE 0 IE_IMMEDIATE
 ---@field [0] "IMMEDIATE" IE_IMMEDIATE
 df.interaction_effect.T_flags = {}
 
----@class (exact) interaction_effect_animatest: DFStruct, interaction_effect
----@field _type _interaction_effect_animatest
+---@class (exact) df.interaction_effect_animatest: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_animatest
 ---@field unk_1 number
 ---@field syndrome _interaction_effect_animatest_syndrome
 
----@class _interaction_effect_animatest: DFCompoundType
+---@class identity.interaction_effect_animatest: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_animatest = {}
 
----@return interaction_effect_animatest
+---@return df.interaction_effect_animatest
 function df.interaction_effect_animatest:new() end
 
 ---@class _interaction_effect_animatest_syndrome: DFContainer
----@field [integer] syndrome
+---@field [integer] df.syndrome
 local _interaction_effect_animatest_syndrome
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<syndrome>
+---@return DFPointer<df.syndrome>
 function _interaction_effect_animatest_syndrome:_field(index) end
 
 ---@param index '#'|integer
----@param item syndrome
+---@param item df.syndrome
 function _interaction_effect_animatest_syndrome:insert(index, item) end
 
 ---@param index integer
 function _interaction_effect_animatest_syndrome:erase(index) end
 
----@class (exact) interaction_effect_add_syndromest: DFStruct, interaction_effect
----@field _type _interaction_effect_add_syndromest
+---@class (exact) df.interaction_effect_add_syndromest: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_add_syndromest
 ---@field unk_1 number
 ---@field syndrome _interaction_effect_add_syndromest_syndrome
 
----@class _interaction_effect_add_syndromest: DFCompoundType
+---@class identity.interaction_effect_add_syndromest: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_add_syndromest = {}
 
----@return interaction_effect_add_syndromest
+---@return df.interaction_effect_add_syndromest
 function df.interaction_effect_add_syndromest:new() end
 
 ---@class _interaction_effect_add_syndromest_syndrome: DFContainer
----@field [integer] syndrome
+---@field [integer] df.syndrome
 local _interaction_effect_add_syndromest_syndrome
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<syndrome>
+---@return DFPointer<df.syndrome>
 function _interaction_effect_add_syndromest_syndrome:_field(index) end
 
 ---@param index '#'|integer
----@param item syndrome
+---@param item df.syndrome
 function _interaction_effect_add_syndromest_syndrome:insert(index, item) end
 
 ---@param index integer
 function _interaction_effect_add_syndromest_syndrome:erase(index) end
 
----@class (exact) interaction_effect_resurrectst: DFStruct, interaction_effect
----@field _type _interaction_effect_resurrectst
+---@class (exact) df.interaction_effect_resurrectst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_resurrectst
 ---@field unk_1 number
 ---@field syndrome _interaction_effect_resurrectst_syndrome
 
----@class _interaction_effect_resurrectst: DFCompoundType
+---@class identity.interaction_effect_resurrectst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_resurrectst = {}
 
----@return interaction_effect_resurrectst
+---@return df.interaction_effect_resurrectst
 function df.interaction_effect_resurrectst:new() end
 
 ---@class _interaction_effect_resurrectst_syndrome: DFContainer
----@field [integer] syndrome
+---@field [integer] df.syndrome
 local _interaction_effect_resurrectst_syndrome
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<syndrome>
+---@return DFPointer<df.syndrome>
 function _interaction_effect_resurrectst_syndrome:_field(index) end
 
 ---@param index '#'|integer
----@param item syndrome
+---@param item df.syndrome
 function _interaction_effect_resurrectst_syndrome:insert(index, item) end
 
 ---@param index integer
 function _interaction_effect_resurrectst_syndrome:erase(index) end
 
----@class (exact) interaction_effect_cleanst: DFStruct, interaction_effect
----@field _type _interaction_effect_cleanst
+---@class (exact) df.interaction_effect_cleanst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_cleanst
 ---@field grime_level number IE_GRIME_LEVEL
----@field syndrome_tag syndrome_flags IE_SYNDROME_TAG
+---@field syndrome_tag df.syndrome_flags IE_SYNDROME_TAG
 ---@field unk_1 number
 
----@class _interaction_effect_cleanst: DFCompoundType
+---@class identity.interaction_effect_cleanst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_cleanst = {}
 
----@return interaction_effect_cleanst
+---@return df.interaction_effect_cleanst
 function df.interaction_effect_cleanst:new() end
 
----@class (exact) interaction_effect_contactst: DFStruct, interaction_effect
----@field _type _interaction_effect_contactst
+---@class (exact) df.interaction_effect_contactst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_contactst
 ---@field unk_1 number
 
----@class _interaction_effect_contactst: DFCompoundType
+---@class identity.interaction_effect_contactst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_contactst = {}
 
----@return interaction_effect_contactst
+---@return df.interaction_effect_contactst
 function df.interaction_effect_contactst:new() end
 
----@class (exact) interaction_effect_material_emissionst: DFStruct, interaction_effect
----@field _type _interaction_effect_material_emissionst
+---@class (exact) df.interaction_effect_material_emissionst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_material_emissionst
 ---@field unk_1 number
 
----@class _interaction_effect_material_emissionst: DFCompoundType
+---@class identity.interaction_effect_material_emissionst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_material_emissionst = {}
 
----@return interaction_effect_material_emissionst
+---@return df.interaction_effect_material_emissionst
 function df.interaction_effect_material_emissionst:new() end
 
----@class (exact) interaction_effect_hidest: DFStruct, interaction_effect
----@field _type _interaction_effect_hidest
+---@class (exact) df.interaction_effect_hidest: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_hidest
 ---@field unk_1 number
 
----@class _interaction_effect_hidest: DFCompoundType
+---@class identity.interaction_effect_hidest: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_hidest = {}
 
----@return interaction_effect_hidest
+---@return df.interaction_effect_hidest
 function df.interaction_effect_hidest:new() end
 
----@class (exact) interaction_effect_change_item_qualityst: DFStruct, interaction_effect
----@field _type _interaction_effect_change_item_qualityst
+---@class (exact) df.interaction_effect_change_item_qualityst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_change_item_qualityst
 ---@field quality_added number IE_CHANGE_QUALITY
 ---@field quality_set number IE_SET_QUALITY
 
----@class _interaction_effect_change_item_qualityst: DFCompoundType
+---@class identity.interaction_effect_change_item_qualityst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_change_item_qualityst = {}
 
----@return interaction_effect_change_item_qualityst
+---@return df.interaction_effect_change_item_qualityst
 function df.interaction_effect_change_item_qualityst:new() end
 
----@class (exact) interaction_effect_change_weatherst: DFStruct, interaction_effect
----@field _type _interaction_effect_change_weatherst
+---@class (exact) df.interaction_effect_change_weatherst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_change_weatherst
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _interaction_effect_change_weatherst: DFCompoundType
+---@class identity.interaction_effect_change_weatherst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_change_weatherst = {}
 
----@return interaction_effect_change_weatherst
+---@return df.interaction_effect_change_weatherst
 function df.interaction_effect_change_weatherst:new() end
 
----@class (exact) interaction_effect_raise_ghostst: DFStruct, interaction_effect
----@field _type _interaction_effect_raise_ghostst
+---@class (exact) df.interaction_effect_raise_ghostst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_raise_ghostst
 ---@field unk_1 number
 ---@field syndrome _interaction_effect_raise_ghostst_syndrome assumed based on vmethod reference
 
----@class _interaction_effect_raise_ghostst: DFCompoundType
+---@class identity.interaction_effect_raise_ghostst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_raise_ghostst = {}
 
----@return interaction_effect_raise_ghostst
+---@return df.interaction_effect_raise_ghostst
 function df.interaction_effect_raise_ghostst:new() end
 
 ---@class _interaction_effect_raise_ghostst_syndrome: DFContainer
----@field [integer] syndrome
+---@field [integer] df.syndrome
 local _interaction_effect_raise_ghostst_syndrome
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<syndrome>
+---@return DFPointer<df.syndrome>
 function _interaction_effect_raise_ghostst_syndrome:_field(index) end
 
 ---@param index '#'|integer
----@param item syndrome
+---@param item df.syndrome
 function _interaction_effect_raise_ghostst_syndrome:insert(index, item) end
 
 ---@param index integer
 function _interaction_effect_raise_ghostst_syndrome:erase(index) end
 
----@class (exact) interaction_effect_create_itemst: DFStruct, interaction_effect
----@field _type _interaction_effect_create_itemst
----@field item_type item_type IE_ITEM
+---@class (exact) df.interaction_effect_create_itemst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_create_itemst
+---@field item_type df.item_type IE_ITEM
 ---@field item_subtype number IE_ITEM
 ---@field mat_type number IE_ITEM
 ---@field mat_index number IE_ITEM
@@ -436,27 +436,27 @@ function _interaction_effect_raise_ghostst_syndrome:erase(index) end
 ---@field unk_4 string
 ---@field unk_5 string
 
----@class _interaction_effect_create_itemst: DFCompoundType
+---@class identity.interaction_effect_create_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_create_itemst = {}
 
----@return interaction_effect_create_itemst
+---@return df.interaction_effect_create_itemst
 function df.interaction_effect_create_itemst:new() end
 
----@class (exact) interaction_effect_propel_unitst: DFStruct, interaction_effect
----@field _type _interaction_effect_propel_unitst
+---@class (exact) df.interaction_effect_propel_unitst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_propel_unitst
 ---@field unk_1 number
 ---@field propel_force number IE_PROPEL_FORCE
 
----@class _interaction_effect_propel_unitst: DFCompoundType
+---@class identity.interaction_effect_propel_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_propel_unitst = {}
 
----@return interaction_effect_propel_unitst
+---@return df.interaction_effect_propel_unitst
 function df.interaction_effect_propel_unitst:new() end
 
----@class (exact) interaction_effect_summon_unitst: DFStruct, interaction_effect
----@field _type _interaction_effect_summon_unitst
+---@class (exact) df.interaction_effect_summon_unitst: DFStruct, df.interaction_effect
+---@field _type identity.interaction_effect_summon_unitst
 ---@field make_pet number IE_MAKE_PET_IF_POSSIBLE
 ---@field race_str string CREATURE
 ---@field caste_str string CREATURE
@@ -471,14 +471,14 @@ function df.interaction_effect_propel_unitst:new() end
 ---@field time_range_min number IE_TIME_RANGE
 ---@field time_range_max number IE_TIME_RANGE
 
----@class _interaction_effect_summon_unitst: DFCompoundType
+---@class identity.interaction_effect_summon_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_effect_summon_unitst = {}
 
----@return interaction_effect_summon_unitst
+---@return df.interaction_effect_summon_unitst
 function df.interaction_effect_summon_unitst:new() end
 
----@alias interaction_source_type
+---@alias df.interaction_source_type
 ---| 0 # REGION
 ---| 1 # SECRET
 ---| 2 # DISTURBANCE
@@ -489,7 +489,7 @@ function df.interaction_effect_summon_unitst:new() end
 ---| 7 # UNDERGROUND_SPECIAL
 ---| 8 # EXPERIMENT
 
----@class _interaction_source_type: DFEnumType
+---@class identity.interaction_source_type: DFEnumType
 ---@field REGION 0
 ---@field [0] "REGION"
 ---@field SECRET 1
@@ -510,8 +510,8 @@ function df.interaction_effect_summon_unitst:new() end
 ---@field [8] "EXPERIMENT"
 df.interaction_source_type = {}
 
----@class (exact) interaction_source: DFStruct
----@field _type _interaction_source
+---@class (exact) df.interaction_source: DFStruct
+---@field _type identity.interaction_source
 ---@field id number
 ---@field frequency number IS_FREQUENCY
 ---@field name string IS_NAME
@@ -522,7 +522,7 @@ df.interaction_source_type = {}
 ---@field trigger_string string IS_TRIGGER_STRING
 local interaction_source
 
----@return interaction_source_type
+---@return df.interaction_source_type
 function interaction_source:getType() end
 
 function interaction_source:write_file() end
@@ -532,27 +532,27 @@ function interaction_source:read_file() end
 function interaction_source:parseRaws() end
 
 
----@class _interaction_source: DFCompoundType
+---@class identity.interaction_source: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source = {}
 
----@return interaction_source
+---@return df.interaction_source
 function df.interaction_source:new() end
 
----@class (exact) interaction_source_regionst: DFStruct, interaction_source
----@field _type _interaction_source_regionst
----@field region_flags interaction_source_regionst.T_region_flags
----@field regions DFEnumVector<worldgen_region_type, number>
+---@class (exact) df.interaction_source_regionst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_regionst
+---@field region_flags df.interaction_source_regionst.T_region_flags
+---@field regions DFEnumVector<df.worldgen_region_type, number>
 
----@class _interaction_source_regionst: DFCompoundType
+---@class identity.interaction_source_regionst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_regionst = {}
 
----@return interaction_source_regionst
+---@return df.interaction_source_regionst
 function df.interaction_source_regionst:new() end
 
----@class interaction_source_regionst.T_region_flags: DFBitfield
----@field _enum _interaction_source_regionst.T_region_flags
+---@class df.interaction_source_regionst.T_region_flags: DFBitfield
+---@field _enum identity.interaction_source_regionst.region_flags
 ---@field NORMAL_ALLOWED boolean
 ---@field [0] boolean
 ---@field EVIL_ALLOWED boolean
@@ -568,7 +568,7 @@ function df.interaction_source_regionst:new() end
 ---@field SAVAGE_ONLY boolean
 ---@field [6] boolean
 
----@class _interaction_source_regionst.T_region_flags: DFBitfieldType
+---@class identity.interaction_source_regionst.region_flags: DFBitfieldType
 ---@field NORMAL_ALLOWED 0
 ---@field [0] "NORMAL_ALLOWED"
 ---@field EVIL_ALLOWED 1
@@ -585,9 +585,9 @@ function df.interaction_source_regionst:new() end
 ---@field [6] "SAVAGE_ONLY"
 df.interaction_source_regionst.T_region_flags = {}
 
----@class (exact) interaction_source_secretst: DFStruct, interaction_source
----@field _type _interaction_source_secretst
----@field learn_flags interaction_source_secretst.T_learn_flags
+---@class (exact) df.interaction_source_secretst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_secretst
+---@field learn_flags df.interaction_source_secretst.T_learn_flags
 ---@field spheres _interaction_source_secretst_spheres
 ---@field goals _interaction_source_secretst_goals
 ---@field book_title_filename string
@@ -595,15 +595,15 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _interaction_source_secretst: DFCompoundType
+---@class identity.interaction_source_secretst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_secretst = {}
 
----@return interaction_source_secretst
+---@return df.interaction_source_secretst
 function df.interaction_source_secretst:new() end
 
----@class interaction_source_secretst.T_learn_flags: DFBitfield
----@field _enum _interaction_source_secretst.T_learn_flags
+---@class df.interaction_source_secretst.T_learn_flags: DFBitfield
+---@field _enum identity.interaction_source_secretst.learn_flags
 ---@field SUPERNATURAL_LEARNING_POSSIBLE boolean
 ---@field [0] boolean
 ---@field MUNDANE_RESEARCH_POSSIBLE boolean
@@ -613,7 +613,7 @@ function df.interaction_source_secretst:new() end
 ---@field MUNDANE_TEACHING_POSSIBLE boolean
 ---@field [3] boolean
 
----@class _interaction_source_secretst.T_learn_flags: DFBitfieldType
+---@class identity.interaction_source_secretst.learn_flags: DFBitfieldType
 ---@field SUPERNATURAL_LEARNING_POSSIBLE 0
 ---@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
 ---@field MUNDANE_RESEARCH_POSSIBLE 1
@@ -625,49 +625,49 @@ function df.interaction_source_secretst:new() end
 df.interaction_source_secretst.T_learn_flags = {}
 
 ---@class _interaction_source_secretst_spheres: DFContainer
----@field [integer] sphere_type
+---@field [integer] df.sphere_type
 local _interaction_source_secretst_spheres
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<sphere_type>
+---@return DFPointer<df.sphere_type>
 function _interaction_source_secretst_spheres:_field(index) end
 
 ---@param index '#'|integer
----@param item sphere_type
+---@param item df.sphere_type
 function _interaction_source_secretst_spheres:insert(index, item) end
 
 ---@param index integer
 function _interaction_source_secretst_spheres:erase(index) end
 
 ---@class _interaction_source_secretst_goals: DFContainer
----@field [integer] goal_type
+---@field [integer] df.goal_type
 local _interaction_source_secretst_goals
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<goal_type>
+---@return DFPointer<df.goal_type>
 function _interaction_source_secretst_goals:_field(index) end
 
 ---@param index '#'|integer
----@param item goal_type
+---@param item df.goal_type
 function _interaction_source_secretst_goals:insert(index, item) end
 
 ---@param index integer
 function _interaction_source_secretst_goals:erase(index) end
 
----@class (exact) interaction_source_disturbancest: DFStruct, interaction_source
----@field _type _interaction_source_disturbancest
+---@class (exact) df.interaction_source_disturbancest: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_disturbancest
 ---@field unk_1 number
 
----@class _interaction_source_disturbancest: DFCompoundType
+---@class identity.interaction_source_disturbancest: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_disturbancest = {}
 
----@return interaction_source_disturbancest
+---@return df.interaction_source_disturbancest
 function df.interaction_source_disturbancest:new() end
 
----@alias interaction_source_usage_hint
+---@alias df.interaction_source_usage_hint
 ---| 0 # MAJOR_CURSE
 ---| 1 # GREETING
 ---| 2 # CLEAN_SELF
@@ -682,7 +682,7 @@ function df.interaction_source_disturbancest:new() end
 ---| 11 # MEDIUM_BLESSING
 ---| 12 # MINOR_BLESSING
 
----@class _interaction_source_usage_hint: DFEnumType
+---@class identity.interaction_source_usage_hint: DFEnumType
 ---@field MAJOR_CURSE 0
 ---@field [0] "MAJOR_CURSE"
 ---@field GREETING 1
@@ -711,95 +711,95 @@ function df.interaction_source_disturbancest:new() end
 ---@field [12] "MINOR_BLESSING"
 df.interaction_source_usage_hint = {}
 
----@class (exact) interaction_source_deityst: DFStruct, interaction_source
----@field _type _interaction_source_deityst
+---@class (exact) df.interaction_source_deityst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_deityst
 ---@field unk_1 number
 ---@field usage_hint _interaction_source_deityst_usage_hint IS_USAGE_HINT
 
----@class _interaction_source_deityst: DFCompoundType
+---@class identity.interaction_source_deityst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_deityst = {}
 
----@return interaction_source_deityst
+---@return df.interaction_source_deityst
 function df.interaction_source_deityst:new() end
 
 ---@class _interaction_source_deityst_usage_hint: DFContainer
----@field [integer] interaction_source_usage_hint
+---@field [integer] df.interaction_source_usage_hint
 local _interaction_source_deityst_usage_hint
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<interaction_source_usage_hint>
+---@return DFPointer<df.interaction_source_usage_hint>
 function _interaction_source_deityst_usage_hint:_field(index) end
 
 ---@param index '#'|integer
----@param item interaction_source_usage_hint
+---@param item df.interaction_source_usage_hint
 function _interaction_source_deityst_usage_hint:insert(index, item) end
 
 ---@param index integer
 function _interaction_source_deityst_usage_hint:erase(index) end
 
----@class (exact) interaction_source_attackst: DFStruct, interaction_source
----@field _type _interaction_source_attackst
+---@class (exact) df.interaction_source_attackst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_attackst
 ---@field unk_1 number
 
----@class _interaction_source_attackst: DFCompoundType
+---@class identity.interaction_source_attackst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_attackst = {}
 
----@return interaction_source_attackst
+---@return df.interaction_source_attackst
 function df.interaction_source_attackst:new() end
 
----@class (exact) interaction_source_ingestionst: DFStruct, interaction_source
----@field _type _interaction_source_ingestionst
+---@class (exact) df.interaction_source_ingestionst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_ingestionst
 ---@field unk_1 number
 
----@class _interaction_source_ingestionst: DFCompoundType
+---@class identity.interaction_source_ingestionst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_ingestionst = {}
 
----@return interaction_source_ingestionst
+---@return df.interaction_source_ingestionst
 function df.interaction_source_ingestionst:new() end
 
----@class (exact) interaction_source_creature_actionst: DFStruct, interaction_source
----@field _type _interaction_source_creature_actionst
+---@class (exact) df.interaction_source_creature_actionst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_creature_actionst
 ---@field unk_1 number
 
----@class _interaction_source_creature_actionst: DFCompoundType
+---@class identity.interaction_source_creature_actionst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_creature_actionst = {}
 
----@return interaction_source_creature_actionst
+---@return df.interaction_source_creature_actionst
 function df.interaction_source_creature_actionst:new() end
 
----@class (exact) interaction_source_underground_specialst: DFStruct, interaction_source
----@field _type _interaction_source_underground_specialst
+---@class (exact) df.interaction_source_underground_specialst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_underground_specialst
 
----@class _interaction_source_underground_specialst: DFCompoundType
+---@class identity.interaction_source_underground_specialst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_underground_specialst = {}
 
----@return interaction_source_underground_specialst
+---@return df.interaction_source_underground_specialst
 function df.interaction_source_underground_specialst:new() end
 
----@class (exact) interaction_source_experimentst: DFStruct, interaction_source
----@field _type _interaction_source_experimentst
+---@class (exact) df.interaction_source_experimentst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_experimentst
 ---@field unk_1 number
 
----@class _interaction_source_experimentst: DFCompoundType
+---@class identity.interaction_source_experimentst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_source_experimentst = {}
 
----@return interaction_source_experimentst
+---@return df.interaction_source_experimentst
 function df.interaction_source_experimentst:new() end
 
----@alias interaction_target_type
+---@alias df.interaction_target_type
 ---| 0 # CORPSE
 ---| 1 # CREATURE
 ---| 2 # MATERIAL
 ---| 3 # LOCATION
 
----@class _interaction_target_type: DFEnumType
+---@class identity.interaction_target_type: DFEnumType
 ---@field CORPSE 0
 ---@field [0] "CORPSE"
 ---@field CREATURE 1
@@ -810,7 +810,7 @@ function df.interaction_source_experimentst:new() end
 ---@field [3] "LOCATION"
 df.interaction_target_type = {}
 
----@alias interaction_target_location_type
+---@alias df.interaction_target_location_type
 ---| -1 # CONTEXT_NONE
 ---| 0 # CONTEXT_REGION
 ---| 1 # CONTEXT_CREATURE
@@ -820,7 +820,7 @@ df.interaction_target_type = {}
 ---| 5 # CONTEXT_CREATURE_OR_LOCATION
 ---| 6 # RANDOM_NEARBY_LOCATION
 
----@class _interaction_target_location_type: DFEnumType
+---@class identity.interaction_target_location_type: DFEnumType
 ---@field CONTEXT_NONE -1
 ---@field [-1] "CONTEXT_NONE"
 ---@field CONTEXT_REGION 0
@@ -839,17 +839,17 @@ df.interaction_target_type = {}
 ---@field [6] "RANDOM_NEARBY_LOCATION"
 df.interaction_target_location_type = {}
 
----@class (exact) interaction_target: DFStruct
----@field _type _interaction_target
+---@class (exact) df.interaction_target: DFStruct
+---@field _type identity.interaction_target
 ---@field index number
 ---@field name string
 ---@field manual_input string IT_MANUAL_INPUT
----@field location interaction_target_location_type IT_LOCATION
+---@field location df.interaction_target_location_type IT_LOCATION
 ---@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
 ---@field reference_distance number IT_LOCATION:RANDOM_NEARBY_LOCATION
 local interaction_target
 
----@return interaction_target_type
+---@return df.interaction_target_type
 function interaction_target:getType() end
 
 function interaction_target:write_file() end
@@ -859,15 +859,15 @@ function interaction_target:read_file() end
 function interaction_target:parseRaws() end
 
 
----@class _interaction_target: DFCompoundType
+---@class identity.interaction_target: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_target = {}
 
----@return interaction_target
+---@return df.interaction_target
 function df.interaction_target:new() end
 
----@class (exact) interaction_target_info: DFStruct
----@field _type _interaction_target_info
+---@class (exact) df.interaction_target_info: DFStruct
+---@field _type identity.interaction_target_info
 ---@field affected_creature_str string[]
 ---@field affected_creature DFNumberVector IT_AFFECTED_CREATURE
 ---@field affected_class DFStringVector IT_AFFECTED_CLASS
@@ -879,48 +879,48 @@ function df.interaction_target:new() end
 ---@field requires_2 number IT_REQUIRES
 ---@field forbidden_1 number IT_FORBIDDEN
 ---@field forbidden_2 number IT_FORBIDDEN
----@field restrictions interaction_target_info.T_restrictions
+---@field restrictions df.interaction_target_info.T_restrictions
 
----@class _interaction_target_info: DFCompoundType
+---@class identity.interaction_target_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.interaction_target_info = {}
 
----@return interaction_target_info
+---@return df.interaction_target_info
 function df.interaction_target_info:new() end
 
----@class interaction_target_info.T_restrictions: DFBitfield
----@field _enum _interaction_target_info.T_restrictions
+---@class df.interaction_target_info.T_restrictions: DFBitfield
+---@field _enum identity.interaction_target_info.restrictions
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
 ---@field [0] boolean
 
----@class _interaction_target_info.T_restrictions: DFBitfieldType
+---@class identity.interaction_target_info.restrictions: DFBitfieldType
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
 ---@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
 df.interaction_target_info.T_restrictions = {}
 
----@class (exact) interaction_target_corpsest: DFStruct, interaction_target
----@field _type _interaction_target_corpsest
----@field target_info interaction_target_info
+---@class (exact) df.interaction_target_corpsest: DFStruct, df.interaction_target
+---@field _type identity.interaction_target_corpsest
+---@field target_info df.interaction_target_info
 
----@class _interaction_target_corpsest: DFCompoundType
+---@class identity.interaction_target_corpsest: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_target_corpsest = {}
 
----@return interaction_target_corpsest
+---@return df.interaction_target_corpsest
 function df.interaction_target_corpsest:new() end
 
----@class (exact) interaction_target_creaturest: DFStruct, interaction_target
----@field _type _interaction_target_creaturest
----@field target_info interaction_target_info
+---@class (exact) df.interaction_target_creaturest: DFStruct, df.interaction_target
+---@field _type identity.interaction_target_creaturest
+---@field target_info df.interaction_target_info
 
----@class _interaction_target_creaturest: DFCompoundType
+---@class identity.interaction_target_creaturest: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_target_creaturest = {}
 
----@return interaction_target_creaturest
+---@return df.interaction_target_creaturest
 function df.interaction_target_creaturest:new() end
 
----@alias breath_attack_type
+---@alias df.breath_attack_type
 ---| 0 # TRAILING_DUST_FLOW
 ---| 1 # TRAILING_VAPOR_FLOW
 ---| 2 # TRAILING_GAS_FLOW
@@ -944,7 +944,7 @@ function df.interaction_target_creaturest:new() end
 ---| 20 # SHARP_ROCK
 ---| 21 # OTHER
 
----@class _breath_attack_type: DFEnumType
+---@class identity.breath_attack_type: DFEnumType
 ---@field TRAILING_DUST_FLOW 0
 ---@field [0] "TRAILING_DUST_FLOW"
 ---@field TRAILING_VAPOR_FLOW 1
@@ -991,62 +991,62 @@ function df.interaction_target_creaturest:new() end
 ---@field [21] "OTHER" other: root around in, lick, head-bump, scratch, tusk, retract into shell, roll into a ball<br>often [CDI:CAN_BE_MUTUAL] but not always
 df.breath_attack_type = {}
 
----@class (exact) interaction_target_materialst: DFStruct, interaction_target
----@field _type _interaction_target_materialst
+---@class (exact) df.interaction_target_materialst: DFStruct, df.interaction_target
+---@field _type identity.interaction_target_materialst
 ---@field material_str string[]
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field parent_interaction_index number
----@field breath_attack_type breath_attack_type
----@field restrictions interaction_target_materialst.T_restrictions
+---@field breath_attack_type df.breath_attack_type
+---@field restrictions df.interaction_target_materialst.T_restrictions
 
----@class _interaction_target_materialst: DFCompoundType
+---@class identity.interaction_target_materialst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_target_materialst = {}
 
----@return interaction_target_materialst
+---@return df.interaction_target_materialst
 function df.interaction_target_materialst:new() end
 
----@class interaction_target_materialst.T_restrictions: DFBitfield
----@field _enum _interaction_target_materialst.T_restrictions
+---@class df.interaction_target_materialst.T_restrictions: DFBitfield
+---@field _enum identity.interaction_target_materialst.restrictions
 ---@field CONTEXT_MATERIAL boolean
 ---@field [0] boolean
 
----@class _interaction_target_materialst.T_restrictions: DFBitfieldType
+---@class identity.interaction_target_materialst.restrictions: DFBitfieldType
 ---@field CONTEXT_MATERIAL 0
 ---@field [0] "CONTEXT_MATERIAL"
 df.interaction_target_materialst.T_restrictions = {}
 
----@class (exact) interaction_target_locationst: DFStruct, interaction_target
----@field _type _interaction_target_locationst
+---@class (exact) df.interaction_target_locationst: DFStruct, df.interaction_target
+---@field _type identity.interaction_target_locationst
 
----@class _interaction_target_locationst: DFCompoundType
+---@class identity.interaction_target_locationst: DFCompoundType
 ---@field _kind 'class-type'
 df.interaction_target_locationst = {}
 
----@return interaction_target_locationst
+---@return df.interaction_target_locationst
 function df.interaction_target_locationst:new() end
 
----@class (exact) interaction_instance: DFStruct
----@field _type _interaction_instance
+---@class (exact) df.interaction_instance: DFStruct
+---@field _type identity.interaction_instance
 ---@field id number
 ---@field interaction_id number References: `interaction`
 ---@field unk_1 number
 ---@field region_index number
 ---@field affected_units DFNumberVector IDs of units affected by the regional interaction
 
----@class _interaction_instance: DFCompoundType
+---@class identity.interaction_instance: DFCompoundType
 ---@field _kind 'struct-type'
 df.interaction_instance = {}
 
----@return interaction_instance
+---@return df.interaction_instance
 function df.interaction_instance:new() end
 
 ---@param key number
----@return interaction_instance|nil
+---@return df.interaction_instance|nil
 function df.interaction_instance.find(key) end
 
----@class interaction_instance_vector: DFVector, { [integer]: interaction_instance }
+---@class interaction_instance_vector: DFVector, { [integer]: df.interaction_instance }
 
 ---@return interaction_instance_vector # df.global.world.interaction_instances.all
 function df.interaction_instance.get_vector() end

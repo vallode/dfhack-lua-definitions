@@ -6,8 +6,8 @@ module DFHackLuaDefinitions
     TYPES = %w[nil any boolean string number integer function table thread userdata lightuserdata].freeze
 
     # Keywords reserved by Lua that should not exist as identifiers.
-    RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then true
-                           until while].freeze
+    RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
+                           true until while].freeze
 
     class << self
       def escape_comment(string)

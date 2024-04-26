@@ -2,39 +2,39 @@
 ---@meta
 
 ---@class df.global: DFGlobal
----@field global_table global_table_entry[] .data
----@field cursor global.T_cursor
----@field selection_rect global.T_selection_rect
----@field gamemode game_mode
----@field gametype game_type
+---@field global_table df.global_table_entry[] .data
+---@field cursor df.global.T_cursor
+---@field selection_rect df.global.T_selection_rect
+---@field gamemode df.game_mode
+---@field gametype df.game_type
 ---@field ui_menu_width number[]
----@field created_item_type item_type .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
+---@field created_item_type df.item_type .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
 ---@field created_item_subtype number
 ---@field created_item_mattype number
 ---@field created_item_matindex number
 ---@field created_item_count number
----@field map_renderer map_renderer
----@field d_init d_init
----@field flows flow_info
----@field enabler enabler
----@field gps graphic
----@field gview interfacest
----@field init init
----@field texture texture_handlerst
----@field timed_events timed_event
----@field plotinfo plotinfost
----@field adventure adventurest
----@field buildreq buildreq
+---@field map_renderer df.map_renderer
+---@field d_init df.d_init
+---@field flows df.flow_info
+---@field enabler df.enabler
+---@field gps df.graphic
+---@field gview df.interfacest
+---@field init df.init
+---@field texture df.texture_handlerst
+---@field timed_events df.timed_event
+---@field plotinfo df.plotinfost
+---@field adventure df.adventurest
+---@field buildreq df.buildreq
 ---@field ui_building_assign_type number
 ---@field ui_building_assign_is_marked boolean
----@field ui_building_assign_units unit
----@field ui_building_assign_items item
----@field ui_look_list ui_look_list
----@field game gamest
----@field world world
----@field version save_version .bss primitive
----@field min_load_version save_version
----@field movie_version cmv_version
+---@field ui_building_assign_units df.unit
+---@field ui_building_assign_items df.item
+---@field ui_look_list df.ui_look_list
+---@field game df.gamest
+---@field world df.world
+---@field version df.save_version .bss primitive
+---@field min_load_version df.save_version
+---@field movie_version df.cmv_version
 ---@field activity_next_id number
 ---@field agreement_next_id number
 ---@field army_controller_next_id number
@@ -79,9 +79,9 @@
 ---@field cur_year number
 ---@field cur_year_tick number
 ---@field cur_year_tick_advmode number
----@field cur_season season
+---@field cur_season df.season
 ---@field cur_season_tick number
----@field current_weather weather_type[][]
+---@field current_weather df.weather_type[][]
 ---@field pause_state boolean
 ---@field process_dig boolean Requests dig designations to be processed next frame.
 ---@field process_jobs boolean Requests building jobs to be processed next frame.
@@ -91,10 +91,10 @@
 ---@field ui_building_item_cursor number
 ---@field ui_look_cursor number
 ---@field ui_selected_unit number
----@field ui_unit_view_mode ui_unit_view_mode
+---@field ui_unit_view_mode df.ui_unit_view_mode
 ---@field ui_workshop_in_add boolean
 ---@field ui_workshop_job_cursor number
----@field ui_lever_target_type lever_target_type
+---@field ui_lever_target_type df.lever_target_type
 ---@field window_x number
 ---@field window_y number
 ---@field window_z number
@@ -150,12 +150,12 @@
 ---@field cur_snow_counter number
 ---@field cur_rain_counter number
 ---@field weathertimer number
----@field cur_snow coord[]
----@field cur_rain coord[]
+---@field cur_snow df.coord[]
+---@field cur_rain df.coord[]
 ---@field jobvalue number[]
----@field jobvalue_setter unit[]
----@field interactitem item
----@field interactinvslot unit_inventory_item
+---@field jobvalue_setter df.unit[]
+---@field interactitem df.item
+---@field interactinvslot df.unit_inventory_item
 ---@field handleannounce boolean
 ---@field preserveannounce boolean
 ---@field updatelightstate boolean
@@ -165,21 +165,21 @@
 ---@field unitst_choptree function[]
 df.global = {}
 
----@class (exact) global.T_cursor: DFStruct
----@field _type _global.T_cursor
+---@class (exact) df.global.T_cursor: DFStruct
+---@field _type identity.global.cursor
 ---@field x number
 ---@field y number
 ---@field z number
 
----@class _global.T_cursor: DFCompoundType
+---@class identity.global.cursor: DFCompoundType
 ---@field _kind 'struct-type'
 df.global.T_cursor = {}
 
----@return global.T_cursor
+---@return df.global.T_cursor
 function df.global.T_cursor:new() end
 
----@class (exact) global.T_selection_rect: DFStruct
----@field _type _global.T_selection_rect
+---@class (exact) df.global.T_selection_rect: DFStruct
+---@field _type identity.global.selection_rect
 ---@field start_x number
 ---@field start_y number
 ---@field start_z number
@@ -187,99 +187,99 @@ function df.global.T_cursor:new() end
 ---@field end_y number
 ---@field end_z number
 
----@class _global.T_selection_rect: DFCompoundType
+---@class identity.global.selection_rect: DFCompoundType
 ---@field _kind 'struct-type'
 df.global.T_selection_rect = {}
 
----@return global.T_selection_rect
+---@return df.global.T_selection_rect
 function df.global.T_selection_rect:new() end
 
 ---@class _global_created_item_type: DFContainer
----@field [integer] item_type
+---@field [integer] df.item_type
 local _global_created_item_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_type>
+---@return DFPointer<df.item_type>
 function _global_created_item_type:_field(index) end
 
 ---@param index '#'|integer
----@param item item_type
+---@param item df.item_type
 function _global_created_item_type:insert(index, item) end
 
 ---@param index integer
 function _global_created_item_type:erase(index) end
 
 ---@class _global_flows: DFContainer
----@field [integer] flow_info
+---@field [integer] df.flow_info
 local _global_flows
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<flow_info>
+---@return DFPointer<df.flow_info>
 function _global_flows:_field(index) end
 
 ---@param index '#'|integer
----@param item flow_info
+---@param item df.flow_info
 function _global_flows:insert(index, item) end
 
 ---@param index integer
 function _global_flows:erase(index) end
 
 ---@class _global_timed_events: DFContainer
----@field [integer] timed_event
+---@field [integer] df.timed_event
 local _global_timed_events
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<timed_event>
+---@return DFPointer<df.timed_event>
 function _global_timed_events:_field(index) end
 
 ---@param index '#'|integer
----@param item timed_event
+---@param item df.timed_event
 function _global_timed_events:insert(index, item) end
 
 ---@param index integer
 function _global_timed_events:erase(index) end
 
 ---@class _global_ui_building_assign_units: DFContainer
----@field [integer] unit
+---@field [integer] df.unit
 local _global_ui_building_assign_units
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<unit>
+---@return DFPointer<df.unit>
 function _global_ui_building_assign_units:_field(index) end
 
 ---@param index '#'|integer
----@param item unit
+---@param item df.unit
 function _global_ui_building_assign_units:insert(index, item) end
 
 ---@param index integer
 function _global_ui_building_assign_units:erase(index) end
 
 ---@class _global_ui_building_assign_items: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _global_ui_building_assign_items
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _global_ui_building_assign_items:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _global_ui_building_assign_items:insert(index, item) end
 
 ---@param index integer
 function _global_ui_building_assign_items:erase(index) end
 
----@alias weather_type
+---@alias df.weather_type
 ---| 0 # None
 ---| 1 # Rain
 ---| 2 # Snow
 
----@class _weather_type: DFEnumType
+---@class identity.weather_type: DFEnumType
 ---@field None 0
 ---@field [0] "None"
 ---@field Rain 1
@@ -291,7 +291,7 @@ df.weather_type = {}
 -- The storage order of "next ID" fields in the save file.
 -- Followed by game type. The enum item name is the part between
 -- next_ and _global_id in the Dwarf Fortress global variable table.
----@alias next_global_id
+---@alias df.next_global_id
 ---| 0 # unit
 ---| 1 # soul
 ---| 2 # item
@@ -337,7 +337,7 @@ df.weather_type = {}
 -- The storage order of "next ID" fields in the save file.
 -- Followed by game type. The enum item name is the part between
 -- next_ and _global_id in the Dwarf Fortress global variable table.
----@class _next_global_id: DFEnumType
+---@class identity.next_global_id: DFEnumType
 ---@field unit 0
 ---@field [0] "unit"
 ---@field soul 1
@@ -422,25 +422,25 @@ df.weather_type = {}
 ---@field [40] "divination_set"
 df.next_global_id = {}
 
----@class (exact) global_table_entry: DFStruct
----@field _type _global_table_entry
----@field name DFPointer<string>
+---@class (exact) df.global_table_entry: DFStruct
+---@field _type identity.global_table_entry
+---@field name df.DFPointer<string>
 ---@field address DFPointer<integer>
 ---@field size integer
 
----@class _global_table_entry: DFCompoundType
+---@class identity.global_table_entry: DFCompoundType
 ---@field _kind 'struct-type'
 df.global_table_entry = {}
 
----@return global_table_entry
+---@return df.global_table_entry
 function df.global_table_entry:new() end
 
----@alias game_mode
+---@alias df.game_mode
 ---| -1 # NONE
 ---| 0 # DWARF
 ---| 1 # ADVENTURE
 
----@class _game_mode: DFEnumType
+---@class identity.game_mode: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DWARF 0
@@ -450,7 +450,7 @@ function df.global_table_entry:new() end
 df.game_mode = {}
 
 -- bay12: GameType
----@alias game_type
+---@alias df.game_type
 ---| -1 # NONE
 ---| 0 # DWARF_MAIN
 ---| 1 # ADVENTURE_MAIN
@@ -464,7 +464,7 @@ df.game_mode = {}
 ---| 9 # ADVENTURE_WORLD_DEBUG
 
 -- bay12: GameType
----@class _game_type: DFEnumType
+---@class identity.game_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DWARF_MAIN 0
@@ -489,7 +489,7 @@ df.game_mode = {}
 ---@field [9] "ADVENTURE_WORLD_DEBUG"
 df.game_type = {}
 
----@alias lever_target_type
+---@alias df.lever_target_type
 ---| -1 # NONE
 ---| 66 # BarsVertical
 ---| 70 # BarsFloor
@@ -509,7 +509,7 @@ df.game_type = {}
 ---| 116 # TargetMechanism
 ---| 119 # GrateWall
 
----@class _lever_target_type: DFEnumType
+---@class identity.lever_target_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BarsVertical 66

@@ -179,3 +179,8 @@ function DFEnumVector:insert(index, item) end
 ---@param self T
 ---@param index any
 function DFEnumVector:erase(index) end
+
+-- TODO: Figure out these vectors
+
+---@class DFBooleanVector
+---@field [integer] boolean

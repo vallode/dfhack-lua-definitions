@@ -1,44 +1,44 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class (exact) entity_occasion_info: DFStruct
----@field _type _entity_occasion_info
+---@class (exact) df.entity_occasion_info: DFStruct
+---@field _type identity.entity_occasion_info
 ---@field occasions _entity_occasion_info_occasions
 ---@field next_occasion_id number
 ---@field events number[]
 ---@field count number number of elements used in array above
 
----@class _entity_occasion_info: DFCompoundType
+---@class identity.entity_occasion_info: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_occasion_info = {}
 
----@return entity_occasion_info
+---@return df.entity_occasion_info
 function df.entity_occasion_info:new() end
 
 ---@class _entity_occasion_info_occasions: DFContainer
----@field [integer] entity_occasion
+---@field [integer] df.entity_occasion
 local _entity_occasion_info_occasions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_occasion>
+---@return DFPointer<df.entity_occasion>
 function _entity_occasion_info_occasions:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_occasion
+---@param item df.entity_occasion
 function _entity_occasion_info_occasions:insert(index, item) end
 
 ---@param index integer
 function _entity_occasion_info_occasions:erase(index) end
 
 -- some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
----@class (exact) entity_occasion: DFStruct
----@field _type _entity_occasion
+---@class (exact) df.entity_occasion: DFStruct
+---@field _type identity.entity_occasion
 ---@field id number
 ---@field unk_1 number 0 and 1 seen
 ---@field site number References: `world_site`
 ---@field unk_2 number only -1 seen, but based on other cases, might be an abstract building
----@field name language_name
+---@field name df.language_name
 ---@field start_year_tick number
 ---@field end_year_tick number
 ---@field unk_3 number 0-2 seen
@@ -47,30 +47,30 @@ function _entity_occasion_info_occasions:erase(index) end
 ---@field schedule _entity_occasion_schedule
 ---@field unk_5 number only value seen
 
----@class _entity_occasion: DFCompoundType
+---@class identity.entity_occasion: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_occasion = {}
 
----@return entity_occasion
+---@return df.entity_occasion
 function df.entity_occasion:new() end
 
 ---@class _entity_occasion_schedule: DFContainer
----@field [integer] entity_occasion_schedule
+---@field [integer] df.entity_occasion_schedule
 local _entity_occasion_schedule
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_occasion_schedule>
+---@return DFPointer<df.entity_occasion_schedule>
 function _entity_occasion_schedule:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_occasion_schedule
+---@param item df.entity_occasion_schedule
 function _entity_occasion_schedule:insert(index, item) end
 
 ---@param index integer
 function _entity_occasion_schedule:erase(index) end
 
----@alias occasion_schedule_type
+---@alias df.occasion_schedule_type
 ---| 0 # DANCE_PERFORMANCE
 ---| 1 # MUSICAL_PERFORMANCE
 ---| 2 # POETRY_RECITAL
@@ -85,7 +85,7 @@ function _entity_occasion_schedule:erase(index) end
 ---| 13 # PROCESSION
 ---| 14 # CEREMONY
 
----@class _occasion_schedule_type: DFEnumType
+---@class identity.occasion_schedule_type: DFEnumType
 ---@field DANCE_PERFORMANCE 0
 ---@field [0] "DANCE_PERFORMANCE"
 ---@field MUSICAL_PERFORMANCE 1
@@ -114,9 +114,9 @@ function _entity_occasion_schedule:erase(index) end
 ---@field [14] "CEREMONY"
 df.occasion_schedule_type = {}
 
----@class (exact) entity_occasion_schedule: DFStruct
----@field _type _entity_occasion_schedule
----@field type occasion_schedule_type
+---@class (exact) df.entity_occasion_schedule: DFStruct
+---@field _type identity.entity_occasion_schedule
+---@field type df.occasion_schedule_type
 ---@field reference number art form / event / item_type /procession start abstract building
 ---@field reference2 number item_subtype / procession stop abstract building
 ---@field unk_1 number
@@ -126,30 +126,30 @@ df.occasion_schedule_type = {}
 ---@field start_year_tick number
 ---@field end_year_tick number
 
----@class _entity_occasion_schedule: DFCompoundType
+---@class identity.entity_occasion_schedule: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_occasion_schedule = {}
 
----@return entity_occasion_schedule
+---@return df.entity_occasion_schedule
 function df.entity_occasion_schedule:new() end
 
 ---@class _entity_occasion_schedule_features: DFContainer
----@field [integer] entity_occasion_schedule_feature
+---@field [integer] df.entity_occasion_schedule_feature
 local _entity_occasion_schedule_features
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_occasion_schedule_feature>
+---@return DFPointer<df.entity_occasion_schedule_feature>
 function _entity_occasion_schedule_features:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_occasion_schedule_feature
+---@param item df.entity_occasion_schedule_feature
 function _entity_occasion_schedule_features:insert(index, item) end
 
 ---@param index integer
 function _entity_occasion_schedule_features:erase(index) end
 
----@alias occasion_schedule_feature
+---@alias df.occasion_schedule_feature
 ---| 2 # STORYTELLING
 ---| 3 # POETRY_RECITAL
 ---| 4 # MUSICAL_PERFORMANCE
@@ -165,7 +165,7 @@ function _entity_occasion_schedule_features:erase(index) end
 ---| 17 # THE_GIVING_OF_ITEMS
 ---| 18 # THE_SACRIFICE_OF_ITEMS
 
----@class _occasion_schedule_feature: DFEnumType
+---@class identity.occasion_schedule_feature: DFEnumType
 ---@field STORYTELLING 2
 ---@field [2] "STORYTELLING"
 ---@field POETRY_RECITAL 3
@@ -196,25 +196,25 @@ function _entity_occasion_schedule_features:erase(index) end
 ---@field [18] "THE_SACRIFICE_OF_ITEMS"
 df.occasion_schedule_feature = {}
 
----@class (exact) entity_occasion_schedule_feature: DFStruct
----@field _type _entity_occasion_schedule_feature
----@field feature occasion_schedule_feature
+---@class (exact) df.entity_occasion_schedule_feature: DFStruct
+---@field _type identity.entity_occasion_schedule_feature
+---@field feature df.occasion_schedule_feature
 ---@field reference number
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
 
----@class _entity_occasion_schedule_feature: DFCompoundType
+---@class identity.entity_occasion_schedule_feature: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_occasion_schedule_feature = {}
 
----@return entity_occasion_schedule_feature
+---@return df.entity_occasion_schedule_feature
 function df.entity_occasion_schedule_feature:new() end
 
----@class (exact) entity_activity_statistics: DFStruct
----@field _type _entity_activity_statistics
----@field food entity_activity_statistics.T_food
----@field unit_counts DFEnumVector<profession, number>
+---@class (exact) df.entity_activity_statistics: DFStruct
+---@field _type identity.entity_activity_statistics
+---@field food df.entity_activity_statistics.T_food
+---@field unit_counts DFEnumVector<df.profession, number>
 ---@field population number
 ---@field menial_exempt number
 ---@field omnivores number
@@ -223,10 +223,10 @@ function df.entity_occasion_schedule_feature:new() end
 ---@field other_animals number
 ---@field potential_soldiers number
 ---@field combat_aptitude number
----@field item_counts DFEnumVector<item_type, number>
+---@field item_counts DFEnumVector<df.item_type, number>
 ---@field created_weapons DFNumberVector
----@field wealth entity_activity_statistics.T_wealth
----@field recent_jobs DFEnumVector<job_type, number>[]
+---@field wealth df.entity_activity_statistics.T_wealth
+---@field recent_jobs DFEnumVector<df.job_type, number>[]
 ---@field excavated_tiles number unhidden, subterranean, and excluding map features
 ---@field death_history number[]
 ---@field insanity_history number[]
@@ -248,17 +248,17 @@ function df.entity_occasion_schedule_feature:new() end
 ---@field discovered_feature_layers number back in 40d, this counted HFS
 ---@field migrant_wave_idx number when >= 2, no migrants
 ---@field found_minerals DFNumberVector Added after 'you have struck' announcement
----@field found_misc entity_activity_statistics.T_found_misc
+---@field found_misc df.entity_activity_statistics.T_found_misc
 
----@class _entity_activity_statistics: DFCompoundType
+---@class identity.entity_activity_statistics: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_activity_statistics = {}
 
----@return entity_activity_statistics
+---@return df.entity_activity_statistics
 function df.entity_activity_statistics:new() end
 
----@class (exact) entity_activity_statistics.T_food: DFStruct
----@field _type _entity_activity_statistics.T_food
+---@class (exact) df.entity_activity_statistics.T_food: DFStruct
+---@field _type identity.entity_activity_statistics.food
 ---@field total number
 ---@field meat number
 ---@field fish number
@@ -267,15 +267,15 @@ function df.entity_activity_statistics:new() end
 ---@field plant number
 ---@field drink number
 
----@class _entity_activity_statistics.T_food: DFCompoundType
+---@class identity.entity_activity_statistics.food: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_activity_statistics.T_food = {}
 
----@return entity_activity_statistics.T_food
+---@return df.entity_activity_statistics.T_food
 function df.entity_activity_statistics.T_food:new() end
 
----@class (exact) entity_activity_statistics.T_wealth: DFStruct
----@field _type _entity_activity_statistics.T_wealth
+---@class (exact) df.entity_activity_statistics.T_wealth: DFStruct
+---@field _type identity.entity_activity_statistics.wealth
 ---@field total number
 ---@field weapons number
 ---@field armor number
@@ -288,53 +288,53 @@ function df.entity_activity_statistics.T_food:new() end
 ---@field unk_1 number
 ---@field exported number
 
----@class _entity_activity_statistics.T_wealth: DFCompoundType
+---@class identity.entity_activity_statistics.wealth: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_activity_statistics.T_wealth = {}
 
----@return entity_activity_statistics.T_wealth
+---@return df.entity_activity_statistics.T_wealth
 function df.entity_activity_statistics.T_wealth:new() end
 
----@class entity_activity_statistics.T_found_misc: DFBitfield
----@field _enum _entity_activity_statistics.T_found_misc
+---@class df.entity_activity_statistics.T_found_misc: DFBitfield
+---@field _enum identity.entity_activity_statistics.found_misc
 ---@field deep_special boolean
 ---@field [0] boolean
 
----@class _entity_activity_statistics.T_found_misc: DFBitfieldType
+---@class identity.entity_activity_statistics.found_misc: DFBitfieldType
 ---@field deep_special 0
 ---@field [0] "deep_special"
 df.entity_activity_statistics.T_found_misc = {}
 
----@class (exact) caravan_state: DFStruct
----@field _type _caravan_state
+---@class (exact) df.caravan_state: DFStruct
+---@field _type identity.caravan_state
 ---@field total_capacity number bay12: supportedweight; actually a massst
 ---@field total_capacity_fraction number fraction part of total_capacity
----@field trade_state caravan_state.T_trade_state bay12: stage
+---@field trade_state df.caravan_state.T_trade_state bay12: stage
 ---@field depot_notified number bay12: havecomplained; has it warned you that you need a depot
 ---@field time_remaining number bay12: timer
 ---@field entity number References: `historical_entity`
----@field activity_stats entity_activity_statistics bay12: report
----@field flags caravan_state.T_flags
+---@field activity_stats df.entity_activity_statistics bay12: report
+---@field flags df.caravan_state.T_flags reportst
 ---@field import_value number bay12: goodsvalue_initial
 ---@field export_value_total number bay12: goodsvalue_end
 ---@field export_value_personal number bay12: exportvalue_end; excluding foreign-produced items
 ---@field offer_value number bay12: offervalue_end
 ---@field animals DFNumberVector bay12: unitroster
----@field sell_prices entity_sell_prices bay12: tradeagreement
----@field buy_prices entity_buy_prices bay12: requestagreement
+---@field sell_prices df.entity_sell_prices bay12: tradeagreement
+---@field buy_prices df.entity_buy_prices bay12: requestagreement
 ---@field goods DFNumberVector bay12: already_appraised_item_id
 ---@field mood number bay12: tolerance; reflects satisfaction with last trading session
 ---@field haggle_fail_count number
 
----@class _caravan_state: DFCompoundType
+---@class identity.caravan_state: DFCompoundType
 ---@field _kind 'struct-type'
 df.caravan_state = {}
 
----@return caravan_state
+---@return df.caravan_state
 function df.caravan_state:new() end
 
 -- bay12: stage
----@alias caravan_state.T_trade_state
+---@alias df.caravan_state.T_trade_state
 ---| 0 # None
 ---| 1 # Approaching
 ---| 2 # AtDepot
@@ -342,7 +342,7 @@ function df.caravan_state:new() end
 ---| 4 # Stuck
 
 -- bay12: stage
----@class _caravan_state.T_trade_state: DFEnumType
+---@class identity.caravan_state.trade_state: DFEnumType
 ---@field None 0
 ---@field [0] "None"
 ---@field Approaching 1
@@ -356,8 +356,8 @@ function df.caravan_state:new() end
 df.caravan_state.T_trade_state = {}
 
 -- reportst
----@class caravan_state.T_flags: DFBitfield
----@field _enum _caravan_state.T_flags
+---@class df.caravan_state.T_flags: DFBitfield
+---@field _enum identity.caravan_state.flags
 ---@field check_cleanup boolean CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field [0] boolean CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field casualty boolean JUSTSPOILED
@@ -377,7 +377,7 @@ df.caravan_state.T_trade_state = {}
 ---@field tribute boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 ---@field [8] boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 
----@class _caravan_state.T_flags: DFBitfieldType
+---@class identity.caravan_state.flags: DFBitfieldType
 ---@field check_cleanup 0 CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field [0] "check_cleanup" CHECKANDFINALIZE; set each time a merchant leaves the map or dies
 ---@field casualty 1 JUSTSPOILED
@@ -398,20 +398,20 @@ df.caravan_state.T_trade_state = {}
 ---@field [8] "tribute" IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 df.caravan_state.T_flags = {}
 
----@class (exact) entity_buy_prices: DFStruct
----@field _type _entity_buy_prices
----@field items entity_buy_requests
+---@class (exact) df.entity_buy_prices: DFStruct
+---@field _type identity.entity_buy_prices
+---@field items df.entity_buy_requests
 ---@field price DFNumberVector
 
----@class _entity_buy_prices: DFCompoundType
+---@class identity.entity_buy_prices: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_buy_prices = {}
 
----@return entity_buy_prices
+---@return df.entity_buy_prices
 function df.entity_buy_prices:new() end
 
----@class (exact) entity_buy_requests: DFStruct
----@field _type _entity_buy_requests
+---@class (exact) df.entity_buy_requests: DFStruct
+---@field _type identity.entity_buy_requests
 ---@field item_type _entity_buy_requests_item_type guess
 ---@field item_subtype DFNumberVector guess
 ---@field mat_types DFNumberVector
@@ -419,46 +419,46 @@ function df.entity_buy_prices:new() end
 ---@field mat_cats _entity_buy_requests_mat_cats
 ---@field priority DFNumberVector
 
----@class _entity_buy_requests: DFCompoundType
+---@class identity.entity_buy_requests: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_buy_requests = {}
 
----@return entity_buy_requests
+---@return df.entity_buy_requests
 function df.entity_buy_requests:new() end
 
 ---@class _entity_buy_requests_item_type: DFContainer
----@field [integer] item_type
+---@field [integer] df.item_type
 local _entity_buy_requests_item_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_type>
+---@return DFPointer<df.item_type>
 function _entity_buy_requests_item_type:_field(index) end
 
 ---@param index '#'|integer
----@param item item_type
+---@param item df.item_type
 function _entity_buy_requests_item_type:insert(index, item) end
 
 ---@param index integer
 function _entity_buy_requests_item_type:erase(index) end
 
 ---@class _entity_buy_requests_mat_cats: DFContainer
----@field [integer] job_material_category
+---@field [integer] df.job_material_category
 local _entity_buy_requests_mat_cats
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<job_material_category>
+---@return DFPointer<df.job_material_category>
 function _entity_buy_requests_mat_cats:_field(index) end
 
 ---@param index '#'|integer
----@param item job_material_category
+---@param item df.job_material_category
 function _entity_buy_requests_mat_cats:insert(index, item) end
 
 ---@param index integer
 function _entity_buy_requests_mat_cats:erase(index) end
 
----@alias entity_sell_category
+---@alias df.entity_sell_category
 ---| 0 # Leather
 ---| 1 # ClothPlant
 ---| 2 # ClothSilk
@@ -524,7 +524,7 @@ function _entity_buy_requests_mat_cats:erase(index) end
 ---| 62 # Parchment
 ---| 63 # CupsMugsGoblets
 
----@class _entity_sell_category: DFEnumType
+---@class identity.entity_sell_category: DFEnumType
 ---@field Leather 0
 ---@field [0] "Leather"
 ---@field ClothPlant 1
@@ -655,61 +655,61 @@ function _entity_buy_requests_mat_cats:erase(index) end
 ---@field [63] "CupsMugsGoblets"
 df.entity_sell_category = {}
 
----@class (exact) entity_sell_prices: DFStruct
----@field _type _entity_sell_prices
----@field items entity_sell_requests
----@field price DFEnumVector<entity_sell_category, number>
+---@class (exact) df.entity_sell_prices: DFStruct
+---@field _type identity.entity_sell_prices
+---@field items df.entity_sell_requests
+---@field price DFEnumVector<df.entity_sell_category, number>
 
----@class _entity_sell_prices: DFCompoundType
+---@class identity.entity_sell_prices: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_sell_prices = {}
 
----@return entity_sell_prices
+---@return df.entity_sell_prices
 function df.entity_sell_prices:new() end
 
----@class (exact) entity_sell_requests: DFStruct
----@field _type _entity_sell_requests
----@field priority DFEnumVector<entity_sell_category, number>
+---@class (exact) df.entity_sell_requests: DFStruct
+---@field _type identity.entity_sell_requests
+---@field priority DFEnumVector<df.entity_sell_category, number>
 
----@class _entity_sell_requests: DFCompoundType
+---@class identity.entity_sell_requests: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_sell_requests = {}
 
----@return entity_sell_requests
+---@return df.entity_sell_requests
 function df.entity_sell_requests:new() end
 
----@class (exact) entity_recipe: DFStruct
----@field _type _entity_recipe
+---@class (exact) df.entity_recipe: DFStruct
+---@field _type identity.entity_recipe
 ---@field subtype number References: `itemdef_foodst`
 ---@field item_types _entity_recipe_item_types
 ---@field item_subtypes DFNumberVector
 ---@field mat_types DFNumberVector
 ---@field mat_indices DFNumberVector
 
----@class _entity_recipe: DFCompoundType
+---@class identity.entity_recipe: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_recipe = {}
 
----@return entity_recipe
+---@return df.entity_recipe
 function df.entity_recipe:new() end
 
 ---@class _entity_recipe_item_types: DFContainer
----@field [integer] item_type
+---@field [integer] df.item_type
 local _entity_recipe_item_types
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_type>
+---@return DFPointer<df.item_type>
 function _entity_recipe_item_types:_field(index) end
 
 ---@param index '#'|integer
----@param item item_type
+---@param item df.item_type
 function _entity_recipe_item_types:insert(index, item) end
 
 ---@param index integer
 function _entity_recipe_item_types:erase(index) end
 
----@alias historical_entity_type
+---@alias df.historical_entity_type
 ---| 0 # Civilization
 ---| 1 # SiteGovernment
 ---| 2 # VesselCrew
@@ -722,7 +722,7 @@ function _entity_recipe_item_types:erase(index) end
 ---| 9 # MerchantCompany
 ---| 10 # Guild
 
----@class _historical_entity_type: DFEnumType
+---@class identity.historical_entity_type: DFEnumType
 ---@field Civilization 0
 ---@field [0] "Civilization"
 ---@field SiteGovernment 1
@@ -747,14 +747,14 @@ function _entity_recipe_item_types:erase(index) end
 ---@field [10] "Guild"
 df.historical_entity_type = {}
 
----@class (exact) honors_type: DFStruct
----@field _type _honors_type
+---@class (exact) df.honors_type: DFStruct
+---@field _type identity.honors_type
 ---@field id number
----@field flags honors_type.T_flags
+---@field flags df.honors_type.T_flags
 ---@field name string
 ---@field precedence_awarded number
----@field required_skill job_skill
----@field required_skill_type honors_type.T_required_skill_type
+---@field required_skill df.job_skill
+---@field required_skill_type df.honors_type.T_required_skill_type
 ---@field required_skill_points number
 ---@field required_kills number
 ---@field required_battles number
@@ -763,46 +763,46 @@ df.historical_entity_type = {}
 ---@field required_position DFNumberVector
 ---@field required_former_position DFNumberVector
 
----@class _honors_type: DFCompoundType
+---@class identity.honors_type: DFCompoundType
 ---@field _kind 'struct-type'
 df.honors_type = {}
 
----@return honors_type
+---@return df.honors_type
 function df.honors_type:new() end
 
----@class honors_type.T_flags: DFBitfield
----@field _enum _honors_type.T_flags
+---@class df.honors_type.T_flags: DFBitfield
+---@field _enum identity.honors_type.flags
 ---@field granted_to_all_new_members boolean
 ---@field [0] boolean
 
----@class _honors_type.T_flags: DFBitfieldType
+---@class identity.honors_type.flags: DFBitfieldType
 ---@field granted_to_all_new_members 0
 ---@field [0] "granted_to_all_new_members"
 df.honors_type.T_flags = {}
 
----@class honors_type.T_required_skill_type: DFBitfield
----@field _enum _honors_type.T_required_skill_type
+---@class df.honors_type.T_required_skill_type: DFBitfield
+---@field _enum identity.honors_type.required_skill_type
 ---@field melee_weapon boolean
 ---@field [0] boolean
 ---@field ranged_weapon boolean
 ---@field [1] boolean
 
----@class _honors_type.T_required_skill_type: DFBitfieldType
+---@class identity.honors_type.required_skill_type: DFBitfieldType
 ---@field melee_weapon 0
 ---@field [0] "melee_weapon"
 ---@field ranged_weapon 1
 ---@field [1] "ranged_weapon"
 df.honors_type.T_required_skill_type = {}
 
----@class (exact) artifact_claim: DFStruct
----@field _type _artifact_claim
+---@class (exact) df.artifact_claim: DFStruct
+---@field _type identity.artifact_claim
 ---@field artifact_id number References: `artifact_record`
----@field claim_type artifact_claim_type
+---@field claim_type df.artifact_claim_type
 ---@field symbol_claim_id number different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
 ---@field claim_year number Written contents often seem to lack info of being claimed
 ---@field claim_year_tick number usually init
 ---@field unk_1 number
----@field artifact artifact_record
+---@field artifact df.artifact_record
 ---@field site number References: `world_site`
 ---@field structure_local number
 ---@field holder_hf number might be owner_hf. all cases encountered have had both field the same when claimed by entity References: `historical_figure`
@@ -812,19 +812,19 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_2 number only other value seen was 0
 ---@field unk_3 number uninitialized
 ---@field unk_4 DFPointer<integer>
----@field unk_5 historical_entity
----@field unk_6 historical_entity
+---@field unk_5 df.historical_entity
+---@field unk_6 df.historical_entity
 
----@class _artifact_claim: DFCompoundType
+---@class identity.artifact_claim: DFCompoundType
 ---@field _kind 'struct-type'
 df.artifact_claim = {}
 
----@return artifact_claim
+---@return df.artifact_claim
 function df.artifact_claim:new() end
 
 -- The 3 first vectors are of the same length and somehow connected
----@class (exact) entity_unk_v47_1: DFStruct
----@field _type _entity_unk_v47_1
+---@class (exact) df.entity_unk_v47_1: DFStruct
+---@field _type identity.entity_unk_v47_1
 ---@field unk_v47_1 number seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled References: `historical_figure`
 ---@field unk_v47_2 number some enum?
 ---@field unk_v47_3 DFNumberVector some enum?
@@ -835,15 +835,15 @@ function df.artifact_claim:new() end
 ---@field unk_v47_8 DFNumberVector
 ---@field unk_v47_9 number
 
----@class _entity_unk_v47_1: DFCompoundType
+---@class identity.entity_unk_v47_1: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_unk_v47_1 = {}
 
----@return entity_unk_v47_1
+---@return df.entity_unk_v47_1
 function df.entity_unk_v47_1:new() end
 
----@class (exact) entity_pop_specifierst: DFStruct
----@field _type _entity_pop_specifierst
+---@class (exact) df.entity_pop_specifierst: DFStruct
+---@field _type identity.entity_pop_specifierst
 ---@field race number
 ---@field epid number
 ---@field special_controlling_enid number
@@ -855,121 +855,121 @@ function df.entity_unk_v47_1:new() end
 ---@field squad_epp_id number
 ---@field wg_culture_reference_enid number
 
----@class _entity_pop_specifierst: DFCompoundType
+---@class identity.entity_pop_specifierst: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_pop_specifierst = {}
 
----@return entity_pop_specifierst
+---@return df.entity_pop_specifierst
 function df.entity_pop_specifierst:new() end
 
----@class (exact) world_gen_entity_populationst: DFStruct
----@field _type _world_gen_entity_populationst
+---@class (exact) df.world_gen_entity_populationst: DFStruct
+---@field _type identity.world_gen_entity_populationst
 ---@field num number
----@field pop_spec entity_pop_specifierst
+---@field pop_spec df.entity_pop_specifierst
 
----@class _world_gen_entity_populationst: DFCompoundType
+---@class identity.world_gen_entity_populationst: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_gen_entity_populationst = {}
 
----@return world_gen_entity_populationst
+---@return df.world_gen_entity_populationst
 function df.world_gen_entity_populationst:new() end
 
----@class (exact) world_gen_wandering_groupst: DFStruct
----@field _type _world_gen_wandering_groupst
+---@class (exact) df.world_gen_wandering_groupst: DFStruct
+---@field _type identity.world_gen_wandering_groupst
 ---@field wanderer _world_gen_wandering_groupst_wanderer
 ---@field ent_pop _world_gen_wandering_groupst_ent_pop
 ---@field rpop _world_gen_wandering_groupst_rpop
----@field ent historical_entity
----@field cur_location world_site
----@field cur_location_sr world_region
----@field cur_location_fl world_underground_region
+---@field ent df.historical_entity
+---@field cur_location df.world_site
+---@field cur_location_sr df.world_region
+---@field cur_location_fl df.world_underground_region
 ---@field relocate_delay number
----@field wg_site_culture wg_site_culturest
+---@field wg_site_culture df.wg_site_culturest
 
----@class _world_gen_wandering_groupst: DFCompoundType
+---@class identity.world_gen_wandering_groupst: DFCompoundType
 ---@field _kind 'struct-type'
 df.world_gen_wandering_groupst = {}
 
----@return world_gen_wandering_groupst
+---@return df.world_gen_wandering_groupst
 function df.world_gen_wandering_groupst:new() end
 
 ---@class _world_gen_wandering_groupst_wanderer: DFContainer
----@field [integer] historical_figure
+---@field [integer] df.historical_figure
 local _world_gen_wandering_groupst_wanderer
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<historical_figure>
+---@return DFPointer<df.historical_figure>
 function _world_gen_wandering_groupst_wanderer:_field(index) end
 
 ---@param index '#'|integer
----@param item historical_figure
+---@param item df.historical_figure
 function _world_gen_wandering_groupst_wanderer:insert(index, item) end
 
 ---@param index integer
 function _world_gen_wandering_groupst_wanderer:erase(index) end
 
 ---@class _world_gen_wandering_groupst_ent_pop: DFContainer
----@field [integer] world_gen_entity_populationst
+---@field [integer] df.world_gen_entity_populationst
 local _world_gen_wandering_groupst_ent_pop
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<world_gen_entity_populationst>
+---@return DFPointer<df.world_gen_entity_populationst>
 function _world_gen_wandering_groupst_ent_pop:_field(index) end
 
 ---@param index '#'|integer
----@param item world_gen_entity_populationst
+---@param item df.world_gen_entity_populationst
 function _world_gen_wandering_groupst_ent_pop:insert(index, item) end
 
 ---@param index integer
 function _world_gen_wandering_groupst_ent_pop:erase(index) end
 
 ---@class _world_gen_wandering_groupst_rpop: DFContainer
----@field [integer] world_population
+---@field [integer] df.world_population
 local _world_gen_wandering_groupst_rpop
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<world_population>
+---@return DFPointer<df.world_population>
 function _world_gen_wandering_groupst_rpop:_field(index) end
 
 ---@param index '#'|integer
----@param item world_population
+---@param item df.world_population
 function _world_gen_wandering_groupst_rpop:insert(index, item) end
 
 ---@param index integer
 function _world_gen_wandering_groupst_rpop:erase(index) end
 
----@class (exact) historical_entity: DFStruct
----@field _type _historical_entity
----@field type historical_entity_type
+---@class (exact) df.historical_entity: DFStruct
+---@field _type identity.historical_entity
+---@field type df.historical_entity_type
 ---@field id number index in the array
----@field entity_raw entity_raw
+---@field entity_raw df.entity_raw
 ---@field unk_v50_10 number
 ---@field save_file_id number changes once has 100 entries
 ---@field next_member_idx number
----@field name language_name
+---@field name df.language_name
 ---@field race number References: `creature_raw`
----@field flags historical_entity.T_flags
+---@field flags df.historical_entity.T_flags
 ---@field guild_professions _historical_entity_guild_professions Only seen 1, and only for guilds
 ---@field entity_links _historical_entity_entity_links
 ---@field site_links _historical_entity_site_links
 ---@field histfig_ids DFNumberVector
 ---@field populations DFNumberVector 1st entry copies to unit.population_id for Adventurer?
 ---@field nemesis_ids DFNumberVector
----@field resources historical_entity.T_resources
+---@field resources df.historical_entity.T_resources
 ---@field uniforms _historical_entity_uniforms
 ---@field next_uniform_id number
----@field relations historical_entity.T_relations
----@field positions historical_entity.T_positions
----@field tissue_styles historical_entity.T_tissue_styles
+---@field relations df.historical_entity.T_relations
+---@field positions df.historical_entity.T_positions
+---@field tissue_styles df.historical_entity.T_tissue_styles
 ---@field squads DFNumberVector
 ---@field global_event_knowledge_year number
 ---@field local_known_events DFNumberVector since the above year
 ---@field production_zone_id number not sure what this refers to
----@field conquered_site_group_flags historical_entity.T_conquered_site_group_flags
----@field worldgen_can_make_guildhall DFEnumVector<town_labor_type, number>
+---@field conquered_site_group_flags df.historical_entity.T_conquered_site_group_flags actually lives inside a class
+---@field worldgen_can_make_guildhall DFEnumVector<df.town_labor_type, number>
 ---@field training_knowledge DFPointer<integer>
 ---@field events _historical_entity_events bay12: rumor_info
 ---@field unk_v40_1a number these are part of bay12's rumor_info struct
@@ -983,7 +983,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field performed_scale_id DFNumberVector
 ---@field performed_rhythm_id DFNumberVector
 ---@field well_known_wcid DFNumberVector wcid == written content ID
----@field occasion_info entity_occasion_info bay12: entity_calendarst *calendar
+---@field occasion_info df.entity_occasion_info bay12: entity_calendarst *calendar
 ---@field artifact_claims _historical_entity_artifact_claims sorted on artifact id
 ---@field honors _historical_entity_honors Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
@@ -994,7 +994,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field divination_sets DFNumberVector Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
 ---@field founding_site_government number bay12: material_source_enid References: `historical_entity`
 ---@field meeting_events _historical_entity_meeting_events
----@field activity_stats entity_activity_statistics bay12: reportst *lastreport
+---@field activity_stats df.entity_activity_statistics bay12: reportst *lastreport
 ---@field last_report_season number in 0.23, last communicate season
 ---@field last_report_year number in 0.23, last communicate year
 ---@field imports_from number
@@ -1010,13 +1010,13 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field army_controllers _historical_entity_army_controllers
 ---@field hist_figures _historical_entity_hist_figures
 ---@field nemesis _historical_entity_nemesis
----@field derived_resources historical_entity.T_derived_resources
----@field assignments_by_type DFEnumVector<entity_position_responsibility, entity_position_assignment>
----@field claims historical_entity.T_claims
+---@field derived_resources df.historical_entity.T_derived_resources
+---@field assignments_by_type DFEnumVector<df.entity_position_responsibility, df.entity_position_assignment>
+---@field claims df.historical_entity.T_claims
 ---@field children DFNumberVector includes self
 ---@field metal_proficiency number bay12: army_strength_material_bonus
 ---@field weapon_proficiencies _historical_entity_weapon_proficiencies
----@field resource_allotment resource_allotment_data bay12: production_zonest *production_zone
+---@field resource_allotment df.resource_allotment_data bay12: production_zonest *production_zone
 ---@field local_poetic_form _historical_entity_local_poetic_form
 ---@field local_musical_form _historical_entity_local_musical_form
 ---@field local_dance_form _historical_entity_local_dance_form
@@ -1024,8 +1024,8 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field settlement_x number
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
----@field landmass world_landmass
----@field region world_region Civ entities. Nil for sites.
+---@field landmass df.world_landmass
+---@field region df.world_region Civ entities. Nil for sites.
 ---@field world_gen_army_strength number Civ entities. Non pointers for sites.
 ---@field connect_two_site_throttle_time number 0
 ---@field construct_shortest_con_throttle_stid DFNumberVector used during world gen
@@ -1061,24 +1061,24 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field total_outcast_strength number
 ---@field pool_id integer protected --
 
----@class _historical_entity: DFCompoundType
+---@class identity.historical_entity: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity = {}
 
----@return historical_entity
+---@return df.historical_entity
 function df.historical_entity:new() end
 
 ---@param key number
----@return historical_entity|nil
+---@return df.historical_entity|nil
 function df.historical_entity.find(key) end
 
----@class historical_entity_vector: DFVector, { [integer]: historical_entity }
+---@class historical_entity_vector: DFVector, { [integer]: df.historical_entity }
 
 ---@return historical_entity_vector # df.global.world.entities.all
 function df.historical_entity.get_vector() end
 
----@class historical_entity.T_flags: DFBitfield
----@field _enum _historical_entity.T_flags
+---@class df.historical_entity.T_flags: DFBitfield
+---@field _enum identity.historical_entity.flags
 ---@field neighbor boolean Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field [0] boolean Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field player_civ boolean Changes as you change your civ on embark screen
@@ -1134,7 +1134,7 @@ function df.historical_entity.get_vector() end
 ---@field unk26 boolean Set for a significant number of entities
 ---@field [26] boolean Set for a significant number of entities
 
----@class _historical_entity.T_flags: DFBitfieldType
+---@class identity.historical_entity.flags: DFBitfieldType
 ---@field neighbor 0 Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field [0] "neighbor" Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
 ---@field player_civ 1 Changes as you change your civ on embark screen
@@ -1208,39 +1208,39 @@ function _historical_entity_guild_professions:insert(index, item) end
 function _historical_entity_guild_professions:erase(index) end
 
 ---@class _historical_entity_entity_links: DFContainer
----@field [integer] entity_entity_link
+---@field [integer] df.entity_entity_link
 local _historical_entity_entity_links
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_entity_link>
+---@return DFPointer<df.entity_entity_link>
 function _historical_entity_entity_links:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_entity_link
+---@param item df.entity_entity_link
 function _historical_entity_entity_links:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_entity_links:erase(index) end
 
 ---@class _historical_entity_site_links: DFContainer
----@field [integer] entity_site_link
+---@field [integer] df.entity_site_link
 local _historical_entity_site_links
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_site_link>
+---@return DFPointer<df.entity_site_link>
 function _historical_entity_site_links:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_site_link
+---@param item df.entity_site_link
 function _historical_entity_site_links:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_site_links:erase(index) end
 
----@class (exact) historical_entity.T_resources: DFStruct
----@field _type _historical_entity.T_resources
+---@class (exact) df.historical_entity.T_resources: DFStruct
+---@field _type identity.historical_entity.resources
 ---@field digger_type DFNumberVector
 ---@field weapon_type DFNumberVector
 ---@field training_weapon_type DFNumberVector
@@ -1257,35 +1257,35 @@ function _historical_entity_site_links:erase(index) end
 ---@field siegeammo_type DFNumberVector
 ---@field tool_type DFNumberVector
 ---@field unk_1 DFNumberVector bay12: reaction_ind
----@field metal historical_entity.T_resources.T_metal
----@field organic historical_entity.T_resources.T_organic
+---@field metal df.historical_entity.T_resources.T_metal
+---@field organic df.historical_entity.T_resources.T_organic
 ---@field metals DFNumberVector bars
 ---@field stones DFNumberVector boulders and blocks
 ---@field gems DFNumberVector small and large cut
----@field refuse historical_entity.T_resources.T_refuse
----@field misc_mat historical_entity.T_resources.T_misc_mat
+---@field refuse df.historical_entity.T_resources.T_refuse
+---@field misc_mat df.historical_entity.T_resources.T_misc_mat
 ---@field fish_races DFNumberVector
 ---@field fish_castes DFNumberVector
 ---@field egg_races DFNumberVector
 ---@field egg_castes DFNumberVector
----@field plants material_vec_ref
+---@field plants df.material_vec_ref
 ---@field tree_fruit_plants DFNumberVector
 ---@field tree_fruit_growths DFNumberVector
 ---@field shrub_fruit_plants DFNumberVector
 ---@field shrub_fruit_growths DFNumberVector
----@field seeds material_vec_ref
----@field wood_products historical_entity.T_resources.T_wood_products
----@field animals historical_entity.T_resources.T_animals
+---@field seeds df.material_vec_ref
+---@field wood_products df.historical_entity.T_resources.T_wood_products
+---@field animals df.historical_entity.T_resources.T_animals
 ---@field meat_fish_recipes _historical_entity_resources_meat_fish_recipes
 ---@field other_recipes _historical_entity_resources_other_recipes
----@field unk13 historical_entity.T_resources.T_unk13[] in 0.23, these were material/matgloss pairs, never used for anything
+---@field unk13 df.historical_entity.T_resources.T_unk13[] in 0.23, these were material/matgloss pairs, never used for anything
 ---@field unk14 _historical_entity_resources_unk14 in 0.23, items that would be equipped by the arriving King, never used
 ---@field unk15a number in 0.23, minimum temperature
 ---@field unk15b number in 0.23, maximum temperature
----@field ethic DFEnumVector<ethic_type, ethic_response>
----@field values DFEnumVector<value_type, number>
+---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
+---@field values DFEnumVector<df.value_type, number>
 ---@field unk_2 number
----@field permitted_skill DFEnumVector<job_skill, boolean>
+---@field permitted_skill DFEnumVector<df.job_skill, boolean>
 ---@field art_image_types DFNumberVector 0 = civilization symbol
 ---@field art_image_ids DFNumberVector
 ---@field art_image_subids DFNumberVector
@@ -1296,121 +1296,121 @@ function _historical_entity_site_links:erase(index) end
 ---@field foreground_color DFNumberVector foreground color used for the entity symbol in legends mode and the historical maps.
 ---@field background_color DFNumberVector background color used for the entity symbol in legends mode and the historical maps.
 
----@class _historical_entity.T_resources: DFCompoundType
+---@class identity.historical_entity.resources: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources = {}
 
----@return historical_entity.T_resources
+---@return df.historical_entity.T_resources
 function df.historical_entity.T_resources:new() end
 
----@class (exact) historical_entity.T_resources.T_metal: DFStruct
----@field _type _historical_entity.T_resources.T_metal
----@field pick material_vec_ref
----@field weapon material_vec_ref
----@field ranged material_vec_ref
----@field ammo material_vec_ref
----@field ammo2 material_vec_ref maybe intended for siege ammo
----@field armor material_vec_ref also instruments, toys, and tools
----@field anvil material_vec_ref
+---@class (exact) df.historical_entity.T_resources.T_metal: DFStruct
+---@field _type identity.historical_entity.resources.metal
+---@field pick df.material_vec_ref
+---@field weapon df.material_vec_ref
+---@field ranged df.material_vec_ref
+---@field ammo df.material_vec_ref
+---@field ammo2 df.material_vec_ref maybe intended for siege ammo
+---@field armor df.material_vec_ref also instruments, toys, and tools
+---@field anvil df.material_vec_ref
 
----@class _historical_entity.T_resources.T_metal: DFCompoundType
+---@class identity.historical_entity.resources.metal: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_metal = {}
 
----@return historical_entity.T_resources.T_metal
+---@return df.historical_entity.T_resources.T_metal
 function df.historical_entity.T_resources.T_metal:new() end
 
----@class (exact) historical_entity.T_resources.T_organic: DFStruct
----@field _type _historical_entity.T_resources.T_organic
----@field leather material_vec_ref
----@field parchment material_vec_ref
----@field fiber material_vec_ref
----@field silk material_vec_ref
----@field wool material_vec_ref
----@field wood material_vec_ref
+---@class (exact) df.historical_entity.T_resources.T_organic: DFStruct
+---@field _type identity.historical_entity.resources.organic
+---@field leather df.material_vec_ref
+---@field parchment df.material_vec_ref
+---@field fiber df.material_vec_ref
+---@field silk df.material_vec_ref
+---@field wool df.material_vec_ref
+---@field wood df.material_vec_ref
 
----@class _historical_entity.T_resources.T_organic: DFCompoundType
+---@class identity.historical_entity.resources.organic: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_organic = {}
 
----@return historical_entity.T_resources.T_organic
+---@return df.historical_entity.T_resources.T_organic
 function df.historical_entity.T_resources.T_organic:new() end
 
----@class (exact) historical_entity.T_resources.T_refuse: DFStruct
----@field _type _historical_entity.T_resources.T_refuse
----@field bone material_vec_ref
----@field shell material_vec_ref
----@field pearl material_vec_ref
----@field ivory material_vec_ref
----@field horn material_vec_ref
+---@class (exact) df.historical_entity.T_resources.T_refuse: DFStruct
+---@field _type identity.historical_entity.resources.refuse
+---@field bone df.material_vec_ref
+---@field shell df.material_vec_ref
+---@field pearl df.material_vec_ref
+---@field ivory df.material_vec_ref
+---@field horn df.material_vec_ref
 
----@class _historical_entity.T_resources.T_refuse: DFCompoundType
+---@class identity.historical_entity.resources.refuse: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_refuse = {}
 
----@return historical_entity.T_resources.T_refuse
+---@return df.historical_entity.T_resources.T_refuse
 function df.historical_entity.T_resources.T_refuse:new() end
 
----@class (exact) historical_entity.T_resources.T_misc_mat: DFStruct
----@field _type _historical_entity.T_resources.T_misc_mat
----@field others material_vec_ref amber and coral
----@field glass material_vec_ref
----@field sand material_vec_ref
----@field clay material_vec_ref
----@field crafts material_vec_ref
----@field glass_unused material_vec_ref used for vial extracts on embark
----@field barrels material_vec_ref also buckets, splints, and crutches
----@field flasks material_vec_ref
----@field quivers material_vec_ref
----@field backpacks material_vec_ref
----@field cages material_vec_ref
----@field wood2 material_vec_ref
----@field rock_metal material_vec_ref
----@field booze material_vec_ref
----@field cheese material_vec_ref
----@field powders material_vec_ref
----@field extracts material_vec_ref
----@field meat material_vec_ref
+---@class (exact) df.historical_entity.T_resources.T_misc_mat: DFStruct
+---@field _type identity.historical_entity.resources.misc_mat
+---@field others df.material_vec_ref amber and coral
+---@field glass df.material_vec_ref
+---@field sand df.material_vec_ref
+---@field clay df.material_vec_ref
+---@field crafts df.material_vec_ref
+---@field glass_unused df.material_vec_ref used for vial extracts on embark
+---@field barrels df.material_vec_ref also buckets, splints, and crutches
+---@field flasks df.material_vec_ref
+---@field quivers df.material_vec_ref
+---@field backpacks df.material_vec_ref
+---@field cages df.material_vec_ref
+---@field wood2 df.material_vec_ref
+---@field rock_metal df.material_vec_ref
+---@field booze df.material_vec_ref
+---@field cheese df.material_vec_ref
+---@field powders df.material_vec_ref
+---@field extracts df.material_vec_ref
+---@field meat df.material_vec_ref
 
----@class _historical_entity.T_resources.T_misc_mat: DFCompoundType
+---@class identity.historical_entity.resources.misc_mat: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_misc_mat = {}
 
----@return historical_entity.T_resources.T_misc_mat
+---@return df.historical_entity.T_resources.T_misc_mat
 function df.historical_entity.T_resources.T_misc_mat:new() end
 
 -- lye, charcoal, potash, pearlash, and coke
----@class (exact) historical_entity.T_resources.T_wood_products: DFStruct
----@field _type _historical_entity.T_resources.T_wood_products
+---@class (exact) df.historical_entity.T_resources.T_wood_products: DFStruct
+---@field _type identity.historical_entity.resources.wood_products
 ---@field item_type _historical_entity_resources_wood_products_item_type
 ---@field item_subtype DFNumberVector
----@field material material_vec_ref
+---@field material df.material_vec_ref
 
----@class _historical_entity.T_resources.T_wood_products: DFCompoundType
+---@class identity.historical_entity.resources.wood_products: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_wood_products = {}
 
----@return historical_entity.T_resources.T_wood_products
+---@return df.historical_entity.T_resources.T_wood_products
 function df.historical_entity.T_resources.T_wood_products:new() end
 
 ---@class _historical_entity_resources_wood_products_item_type: DFContainer
----@field [integer] item_type
+---@field [integer] df.item_type
 local _historical_entity_resources_wood_products_item_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_type>
+---@return DFPointer<df.item_type>
 function _historical_entity_resources_wood_products_item_type:_field(index) end
 
 ---@param index '#'|integer
----@param item item_type
+---@param item df.item_type
 function _historical_entity_resources_wood_products_item_type:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_wood_products_item_type:erase(index) end
 
----@class (exact) historical_entity.T_resources.T_animals: DFStruct
----@field _type _historical_entity.T_resources.T_animals
+---@class (exact) df.historical_entity.T_resources.T_animals: DFStruct
+---@field _type identity.historical_entity.resources.animals
 ---@field pet_races DFNumberVector
 ---@field wagon_races DFNumberVector
 ---@field pack_animal_races DFNumberVector
@@ -1426,139 +1426,139 @@ function _historical_entity_resources_wood_products_item_type:erase(index) end
 ---@field minion_castes DFNumberVector
 ---@field exotic_pet_castes DFNumberVector
 
----@class _historical_entity.T_resources.T_animals: DFCompoundType
+---@class identity.historical_entity.resources.animals: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_animals = {}
 
----@return historical_entity.T_resources.T_animals
+---@return df.historical_entity.T_resources.T_animals
 function df.historical_entity.T_resources.T_animals:new() end
 
 ---@class _historical_entity_resources_meat_fish_recipes: DFContainer
----@field [integer] entity_recipe
+---@field [integer] df.entity_recipe
 local _historical_entity_resources_meat_fish_recipes
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_recipe>
+---@return DFPointer<df.entity_recipe>
 function _historical_entity_resources_meat_fish_recipes:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_recipe
+---@param item df.entity_recipe
 function _historical_entity_resources_meat_fish_recipes:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_meat_fish_recipes:erase(index) end
 
 ---@class _historical_entity_resources_other_recipes: DFContainer
----@field [integer] entity_recipe
+---@field [integer] df.entity_recipe
 local _historical_entity_resources_other_recipes
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_recipe>
+---@return DFPointer<df.entity_recipe>
 function _historical_entity_resources_other_recipes:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_recipe
+---@param item df.entity_recipe
 function _historical_entity_resources_other_recipes:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_other_recipes:erase(index) end
 
----@class (exact) historical_entity.T_resources.T_unk13: DFStruct
----@field _type _historical_entity.T_resources.T_unk13
+---@class (exact) df.historical_entity.T_resources.T_unk13: DFStruct
+---@field _type identity.historical_entity.resources.unk13
 ---@field unk1 number
 ---@field unk2 number
 
----@class _historical_entity.T_resources.T_unk13: DFCompoundType
+---@class identity.historical_entity.resources.unk13: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_resources.T_unk13 = {}
 
----@return historical_entity.T_resources.T_unk13
+---@return df.historical_entity.T_resources.T_unk13
 function df.historical_entity.T_resources.T_unk13:new() end
 
 ---@class _historical_entity_resources_unk14: DFContainer
----@field [integer] item
+---@field [integer] df.item
 local _historical_entity_resources_unk14
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item>
+---@return DFPointer<df.item>
 function _historical_entity_resources_unk14:_field(index) end
 
 ---@param index '#'|integer
----@param item item
+---@param item df.item
 function _historical_entity_resources_unk14:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_unk14:erase(index) end
 
 ---@class _historical_entity_resources_color_ref_type: DFContainer
----@field [integer] general_ref_type
+---@field [integer] df.general_ref_type
 local _historical_entity_resources_color_ref_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<general_ref_type>
+---@return DFPointer<df.general_ref_type>
 function _historical_entity_resources_color_ref_type:_field(index) end
 
 ---@param index '#'|integer
----@param item general_ref_type
+---@param item df.general_ref_type
 function _historical_entity_resources_color_ref_type:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_color_ref_type:erase(index) end
 
 ---@class _historical_entity_resources_foreground_color_curses: DFContainer
----@field [integer] curses_color
+---@field [integer] df.curses_color
 local _historical_entity_resources_foreground_color_curses
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<curses_color>
+---@return DFPointer<df.curses_color>
 function _historical_entity_resources_foreground_color_curses:_field(index) end
 
 ---@param index '#'|integer
----@param item curses_color
+---@param item df.curses_color
 function _historical_entity_resources_foreground_color_curses:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_foreground_color_curses:erase(index) end
 
 ---@class _historical_entity_resources_background_color_curses: DFContainer
----@field [integer] curses_color
+---@field [integer] df.curses_color
 local _historical_entity_resources_background_color_curses
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<curses_color>
+---@return DFPointer<df.curses_color>
 function _historical_entity_resources_background_color_curses:_field(index) end
 
 ---@param index '#'|integer
----@param item curses_color
+---@param item df.curses_color
 function _historical_entity_resources_background_color_curses:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_background_color_curses:erase(index) end
 
 ---@class _historical_entity_uniforms: DFContainer
----@field [integer] entity_uniform
+---@field [integer] df.entity_uniform
 local _historical_entity_uniforms
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_uniform>
+---@return DFPointer<df.entity_uniform>
 function _historical_entity_uniforms:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_uniform
+---@param item df.entity_uniform
 function _historical_entity_uniforms:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_uniforms:erase(index) end
 
----@class (exact) historical_entity.T_relations: DFStruct
----@field _type _historical_entity.T_relations
+---@class (exact) df.historical_entity.T_relations: DFStruct
+---@field _type identity.historical_entity.relations
 ---@field known_sites DFNumberVector only civs and site government. Fresh player site government has empty vector
 ---@field deities DFNumberVector
 ---@field worship DFNumberVector Same length as deities(?). Some kind of relationship strength?
@@ -1572,11 +1572,11 @@ function _historical_entity_uniforms:erase(index) end
 ---@field position DFNumberVector position index (not id)
 ---@field official DFNumberVector holder of office of corresponding position index
 
----@class _historical_entity.T_relations: DFCompoundType
+---@class identity.historical_entity.relations: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_relations = {}
 
----@return historical_entity.T_relations
+---@return df.historical_entity.T_relations
 function df.historical_entity.T_relations:new() end
 
 ---@class _historical_entity_relations_constructions: DFContainer
@@ -1611,8 +1611,8 @@ function _historical_entity_relations_diplomacy:insert(index, item) end
 ---@param index integer
 function _historical_entity_relations_diplomacy:erase(index) end
 
----@class (exact) historical_entity.T_positions: DFStruct
----@field _type _historical_entity.T_positions
+---@class (exact) df.historical_entity.T_positions: DFStruct
+---@field _type identity.historical_entity.positions
 ---@field own _historical_entity_positions_own
 ---@field site _historical_entity_positions_site
 ---@field conquered_site _historical_entity_positions_conquered_site
@@ -1625,194 +1625,194 @@ function _historical_entity_relations_diplomacy:erase(index) end
 ---@field possible_elected _historical_entity_positions_possible_elected
 ---@field possible_claimable _historical_entity_positions_possible_claimable
 
----@class _historical_entity.T_positions: DFCompoundType
+---@class identity.historical_entity.positions: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_positions = {}
 
----@return historical_entity.T_positions
+---@return df.historical_entity.T_positions
 function df.historical_entity.T_positions:new() end
 
 ---@class _historical_entity_positions_own: DFContainer
----@field [integer] entity_position
+---@field [integer] df.entity_position
 local _historical_entity_positions_own
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position>
+---@return DFPointer<df.entity_position>
 function _historical_entity_positions_own:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position
+---@param item df.entity_position
 function _historical_entity_positions_own:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_own:erase(index) end
 
 ---@class _historical_entity_positions_site: DFContainer
----@field [integer] entity_position
+---@field [integer] df.entity_position
 local _historical_entity_positions_site
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position>
+---@return DFPointer<df.entity_position>
 function _historical_entity_positions_site:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position
+---@param item df.entity_position
 function _historical_entity_positions_site:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_site:erase(index) end
 
 ---@class _historical_entity_positions_conquered_site: DFContainer
----@field [integer] entity_position
+---@field [integer] df.entity_position
 local _historical_entity_positions_conquered_site
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position>
+---@return DFPointer<df.entity_position>
 function _historical_entity_positions_conquered_site:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position
+---@param item df.entity_position
 function _historical_entity_positions_conquered_site:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_conquered_site:erase(index) end
 
 ---@class _historical_entity_positions_assignments: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_positions_assignments
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_positions_assignments:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_positions_assignments:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_assignments:erase(index) end
 
 ---@class _historical_entity_positions_possible_evaluate: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_positions_possible_evaluate
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_positions_possible_evaluate:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_positions_possible_evaluate:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_possible_evaluate:erase(index) end
 
 ---@class _historical_entity_positions_possible_succession: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_positions_possible_succession
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_positions_possible_succession:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_positions_possible_succession:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_possible_succession:erase(index) end
 
 ---@class _historical_entity_positions_possible_appointable: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_positions_possible_appointable
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_positions_possible_appointable:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_positions_possible_appointable:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_possible_appointable:erase(index) end
 
 ---@class _historical_entity_positions_possible_elected: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_positions_possible_elected
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_positions_possible_elected:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_positions_possible_elected:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_possible_elected:erase(index) end
 
 ---@class _historical_entity_positions_possible_claimable: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_positions_possible_claimable
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_positions_possible_claimable:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_positions_possible_claimable:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_positions_possible_claimable:erase(index) end
 
----@class (exact) historical_entity.T_tissue_styles: DFStruct
----@field _type _historical_entity.T_tissue_styles
+---@class (exact) df.historical_entity.T_tissue_styles: DFStruct
+---@field _type identity.historical_entity.tissue_styles
 ---@field all _historical_entity_tissue_styles_all
 ---@field next_style_id number
 
----@class _historical_entity.T_tissue_styles: DFCompoundType
+---@class identity.historical_entity.tissue_styles: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_tissue_styles = {}
 
----@return historical_entity.T_tissue_styles
+---@return df.historical_entity.T_tissue_styles
 function df.historical_entity.T_tissue_styles:new() end
 
 ---@class _historical_entity_tissue_styles_all: DFContainer
----@field [integer] entity_tissue_style
+---@field [integer] df.entity_tissue_style
 local _historical_entity_tissue_styles_all
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_tissue_style>
+---@return DFPointer<df.entity_tissue_style>
 function _historical_entity_tissue_styles_all:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_tissue_style
+---@param item df.entity_tissue_style
 function _historical_entity_tissue_styles_all:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_tissue_styles_all:erase(index) end
 
 -- actually lives inside a class
----@class historical_entity.T_conquered_site_group_flags: DFBitfield
----@field _enum _historical_entity.T_conquered_site_group_flags
+---@class df.historical_entity.T_conquered_site_group_flags: DFBitfield
+---@field _enum identity.historical_entity.conquered_site_group_flags
 ---@field harsh boolean will TORTURE_FOR_INFORMATION
 ---@field [0] boolean will TORTURE_FOR_INFORMATION
 ---@field hostile_occupation boolean
 ---@field [1] boolean
 
----@class _historical_entity.T_conquered_site_group_flags: DFBitfieldType
+---@class identity.historical_entity.conquered_site_group_flags: DFBitfieldType
 ---@field harsh 0 will TORTURE_FOR_INFORMATION
 ---@field [0] "harsh" will TORTURE_FOR_INFORMATION
 ---@field hostile_occupation 1
@@ -1820,137 +1820,137 @@ function _historical_entity_tissue_styles_all:erase(index) end
 df.historical_entity.T_conquered_site_group_flags = {}
 
 ---@class _historical_entity_events: DFContainer
----@field [integer] entity_event
+---@field [integer] df.entity_event
 local _historical_entity_events
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_event>
+---@return DFPointer<df.entity_event>
 function _historical_entity_events:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_event
+---@param item df.entity_event
 function _historical_entity_events:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_events:erase(index) end
 
 ---@class _historical_entity_artifact_claims: DFContainer
----@field [integer] artifact_claim
+---@field [integer] df.artifact_claim
 local _historical_entity_artifact_claims
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<artifact_claim>
+---@return DFPointer<df.artifact_claim>
 function _historical_entity_artifact_claims:_field(index) end
 
 ---@param index '#'|integer
----@param item artifact_claim
+---@param item df.artifact_claim
 function _historical_entity_artifact_claims:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_artifact_claims:erase(index) end
 
 ---@class _historical_entity_honors: DFContainer
----@field [integer] honors_type
+---@field [integer] df.honors_type
 local _historical_entity_honors
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<honors_type>
+---@return DFPointer<df.honors_type>
 function _historical_entity_honors:_field(index) end
 
 ---@param index '#'|integer
----@param item honors_type
+---@param item df.honors_type
 function _historical_entity_honors:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_honors:erase(index) end
 
 ---@class _historical_entity_meeting_events: DFContainer
----@field [integer] meeting_event
+---@field [integer] df.meeting_event
 local _historical_entity_meeting_events
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<meeting_event>
+---@return DFPointer<df.meeting_event>
 function _historical_entity_meeting_events:_field(index) end
 
 ---@param index '#'|integer
----@param item meeting_event
+---@param item df.meeting_event
 function _historical_entity_meeting_events:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_meeting_events:erase(index) end
 
 ---@class _historical_entity_armies: DFContainer
----@field [integer] army
+---@field [integer] df.army
 local _historical_entity_armies
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<army>
+---@return DFPointer<df.army>
 function _historical_entity_armies:_field(index) end
 
 ---@param index '#'|integer
----@param item army
+---@param item df.army
 function _historical_entity_armies:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_armies:erase(index) end
 
 ---@class _historical_entity_army_controllers: DFContainer
----@field [integer] army_controller
+---@field [integer] df.army_controller
 local _historical_entity_army_controllers
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<army_controller>
+---@return DFPointer<df.army_controller>
 function _historical_entity_army_controllers:_field(index) end
 
 ---@param index '#'|integer
----@param item army_controller
+---@param item df.army_controller
 function _historical_entity_army_controllers:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_army_controllers:erase(index) end
 
 ---@class _historical_entity_hist_figures: DFContainer
----@field [integer] historical_figure
+---@field [integer] df.historical_figure
 local _historical_entity_hist_figures
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<historical_figure>
+---@return DFPointer<df.historical_figure>
 function _historical_entity_hist_figures:_field(index) end
 
 ---@param index '#'|integer
----@param item historical_figure
+---@param item df.historical_figure
 function _historical_entity_hist_figures:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_hist_figures:erase(index) end
 
 ---@class _historical_entity_nemesis: DFContainer
----@field [integer] nemesis_record
+---@field [integer] df.nemesis_record
 local _historical_entity_nemesis
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<nemesis_record>
+---@return DFPointer<df.nemesis_record>
 function _historical_entity_nemesis:_field(index) end
 
 ---@param index '#'|integer
----@param item nemesis_record
+---@param item df.nemesis_record
 function _historical_entity_nemesis:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_nemesis:erase(index) end
 
----@class (exact) historical_entity.T_derived_resources: DFStruct
----@field _type _historical_entity.T_derived_resources
----@field mill_cookable material_vec_ref
----@field mill_dye material_vec_ref
+---@class (exact) df.historical_entity.T_derived_resources: DFStruct
+---@field _type identity.historical_entity.derived_resources
+---@field mill_cookable df.material_vec_ref
+---@field mill_dye df.material_vec_ref
 ---@field armor_leather DFNumberVector
 ---@field armor_chain DFNumberVector
 ---@field armor_plate DFNumberVector
@@ -1982,117 +1982,117 @@ function _historical_entity_nemesis:erase(index) end
 ---@field gloves_over DFNumberVector
 ---@field gloves_cover DFNumberVector
 
----@class _historical_entity.T_derived_resources: DFCompoundType
+---@class identity.historical_entity.derived_resources: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_derived_resources = {}
 
----@return historical_entity.T_derived_resources
+---@return df.historical_entity.T_derived_resources
 function df.historical_entity.T_derived_resources:new() end
 
 ---@class _historical_entity_assignments_by_type: DFContainer
----@field [integer] entity_position_assignment
+---@field [integer] df.entity_position_assignment
 local _historical_entity_assignments_by_type
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_assignment>
+---@return DFPointer<df.entity_position_assignment>
 function _historical_entity_assignments_by_type:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_assignment
+---@param item df.entity_position_assignment
 function _historical_entity_assignments_by_type:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_assignments_by_type:erase(index) end
 
----@class (exact) historical_entity.T_claims: DFStruct
----@field _type _historical_entity.T_claims
----@field areas coord2d_path in world_data.entity_claims1
----@field unk1 coord2d_path
----@field border coord2d_path
+---@class (exact) df.historical_entity.T_claims: DFStruct
+---@field _type identity.historical_entity.claims
+---@field areas df.coord2d_path in world_data.entity_claims1
+---@field unk1 df.coord2d_path
+---@field border df.coord2d_path
 
----@class _historical_entity.T_claims: DFCompoundType
+---@class identity.historical_entity.claims: DFCompoundType
 ---@field _kind 'struct-type'
 df.historical_entity.T_claims = {}
 
----@return historical_entity.T_claims
+---@return df.historical_entity.T_claims
 function df.historical_entity.T_claims:new() end
 
 ---@class _historical_entity_weapon_proficiencies: DFContainer
----@field [integer] job_skill
+---@field [integer] df.job_skill
 local _historical_entity_weapon_proficiencies
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<job_skill>
+---@return DFPointer<df.job_skill>
 function _historical_entity_weapon_proficiencies:_field(index) end
 
 ---@param index '#'|integer
----@param item job_skill
+---@param item df.job_skill
 function _historical_entity_weapon_proficiencies:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_weapon_proficiencies:erase(index) end
 
 ---@class _historical_entity_local_poetic_form: DFContainer
----@field [integer] poetic_form
+---@field [integer] df.poetic_form
 local _historical_entity_local_poetic_form
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<poetic_form>
+---@return DFPointer<df.poetic_form>
 function _historical_entity_local_poetic_form:_field(index) end
 
 ---@param index '#'|integer
----@param item poetic_form
+---@param item df.poetic_form
 function _historical_entity_local_poetic_form:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_local_poetic_form:erase(index) end
 
 ---@class _historical_entity_local_musical_form: DFContainer
----@field [integer] musical_form
+---@field [integer] df.musical_form
 local _historical_entity_local_musical_form
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<musical_form>
+---@return DFPointer<df.musical_form>
 function _historical_entity_local_musical_form:_field(index) end
 
 ---@param index '#'|integer
----@param item musical_form
+---@param item df.musical_form
 function _historical_entity_local_musical_form:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_local_musical_form:erase(index) end
 
 ---@class _historical_entity_local_dance_form: DFContainer
----@field [integer] dance_form
+---@field [integer] df.dance_form
 local _historical_entity_local_dance_form
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<dance_form>
+---@return DFPointer<df.dance_form>
 function _historical_entity_local_dance_form:_field(index) end
 
 ---@param index '#'|integer
----@param item dance_form
+---@param item df.dance_form
 function _historical_entity_local_dance_form:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_local_dance_form:erase(index) end
 
 ---@class _historical_entity_well_known_wc: DFContainer
----@field [integer] written_content
+---@field [integer] df.written_content
 local _historical_entity_well_known_wc
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<written_content>
+---@return DFPointer<df.written_content>
 function _historical_entity_well_known_wc:_field(index) end
 
 ---@param index '#'|integer
----@param item written_content
+---@param item df.written_content
 function _historical_entity_well_known_wc:insert(index, item) end
 
 ---@param index integer
@@ -2130,8 +2130,8 @@ function _historical_entity_burial_request:insert(index, item) end
 ---@param index integer
 function _historical_entity_burial_request:erase(index) end
 
----@class (exact) entity_tissue_style: DFStruct
----@field _type _entity_tissue_style
+---@class (exact) df.entity_tissue_style: DFStruct
+---@field _type identity.entity_tissue_style
 ---@field name string
 ---@field preferred_shapings DFNumberVector
 ---@field unk_1 DFNumberVector maybe probability?
@@ -2139,14 +2139,14 @@ function _historical_entity_burial_request:erase(index) end
 ---@field maintain_length_max number
 ---@field id number
 
----@class _entity_tissue_style: DFCompoundType
+---@class identity.entity_tissue_style: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_tissue_style = {}
 
----@return entity_tissue_style
+---@return df.entity_tissue_style
 function df.entity_tissue_style:new() end
 
----@alias training_knowledge_level
+---@alias df.training_knowledge_level
 ---| 0 # None
 ---| 1 # FewFacts
 ---| 2 # GeneralFamiliarity
@@ -2154,7 +2154,7 @@ function df.entity_tissue_style:new() end
 ---| 4 # Expert
 ---| 5 # Domesticated
 
----@class _training_knowledge_level: DFEnumType
+---@class identity.training_knowledge_level: DFEnumType
 ---@field None 0
 ---@field [0] "None"
 ---@field FewFacts 1
@@ -2170,7 +2170,7 @@ function df.entity_tissue_style:new() end
 df.training_knowledge_level = {}
 
 -- bay12: EntityPositionFlag
----@alias entity_position_flags
+---@alias df.entity_position_flags
 ---| 0 # IS_LAW_MAKER
 ---| 1 # ELECTED
 ---| 2 # DUTY_BOUND
@@ -2205,7 +2205,7 @@ df.training_knowledge_level = {}
 ---| 31 # HAS_MET_MARKET_REQ
 
 -- bay12: EntityPositionFlag
----@class _entity_position_flags: DFEnumType
+---@class identity.entity_position_flags: DFEnumType
 ---@field IS_LAW_MAKER 0 bay12: ATTACK_IS_TREASON
 ---@field [0] "IS_LAW_MAKER" bay12: ATTACK_IS_TREASON
 ---@field ELECTED 1
@@ -2272,8 +2272,8 @@ df.training_knowledge_level = {}
 ---@field [31] "HAS_MET_MARKET_REQ"
 df.entity_position_flags = {}
 
----@class (exact) entity_position: DFStruct
----@field _type _entity_position
+---@class (exact) df.entity_position: DFStruct
+---@field _type identity.entity_position
 ---@field code string
 ---@field id number
 ---@field flags _entity_position_flags
@@ -2302,7 +2302,7 @@ df.entity_position_flags = {}
 ---@field appointed_by DFNumberVector
 ---@field appointed_by_civ DFNumberVector
 ---@field succession_by_position DFNumberVector
----@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
+---@field responsibilities DFEnumVector<df.entity_position_responsibility, boolean>
 ---@field unk_v50_358 string
 ---@field color number[]
 ---@field required_boxes number
@@ -2317,42 +2317,42 @@ df.entity_position_flags = {}
 ---@field demand_max number
 ---@field unk_2 number
 
----@class _entity_position: DFCompoundType
+---@class identity.entity_position: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position = {}
 
----@return entity_position
+---@return df.entity_position
 function df.entity_position:new() end
 
 ---@class _entity_position_flags: DFContainer
----@field [integer] table<entity_position_flags, boolean>
+---@field [integer] table<df.entity_position_flags, boolean>
 local _entity_position_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<entity_position_flags, boolean>>
+---@return DFPointer<table<df.entity_position_flags, boolean>>
 function _entity_position_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<entity_position_flags, boolean>
+---@param item table<df.entity_position_flags, boolean>
 function _entity_position_flags:insert(index, item) end
 
 ---@param index integer
 function _entity_position_flags:erase(index) end
 
----@class (exact) entity_position_profile_claimst: DFStruct
----@field _type _entity_position_profile_claimst
+---@class (exact) df.entity_position_profile_claimst: DFStruct
+---@field _type identity.entity_position_profile_claimst
 ---@field hfid number bay12: local_id is an alias
 
----@class _entity_position_profile_claimst: DFCompoundType
+---@class identity.entity_position_profile_claimst: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position_profile_claimst = {}
 
----@return entity_position_profile_claimst
+---@return df.entity_position_profile_claimst
 function df.entity_position_profile_claimst:new() end
 
----@class (exact) entity_position_assignment: DFStruct
----@field _type _entity_position_assignment
+---@class (exact) df.entity_position_assignment: DFStruct
+---@field _type identity.entity_position_assignment
 ---@field id number bay12: global_id
 ---@field histfig number bay12: holder_hfid References: `historical_figure`
 ---@field histfig2 number bay12: last_holder_hfid References: `historical_figure`
@@ -2367,11 +2367,11 @@ function df.entity_position_profile_claimst:new() end
 ---@field claim _entity_position_assignment_claim not saved
 ---@field assigned_army_controller_id number unknown size, not initialized or saved
 
----@class _entity_position_assignment: DFCompoundType
+---@class identity.entity_position_assignment: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_position_assignment = {}
 
----@return entity_position_assignment
+---@return df.entity_position_assignment
 function df.entity_position_assignment:new() end
 
 ---@class _entity_position_assignment_flags: DFContainer
@@ -2391,22 +2391,22 @@ function _entity_position_assignment_flags:insert(index, item) end
 function _entity_position_assignment_flags:erase(index) end
 
 ---@class _entity_position_assignment_claim: DFContainer
----@field [integer] entity_position_profile_claimst
+---@field [integer] df.entity_position_profile_claimst
 local _entity_position_assignment_claim
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_position_profile_claimst>
+---@return DFPointer<df.entity_position_profile_claimst>
 function _entity_position_assignment_claim:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_position_profile_claimst
+---@param item df.entity_position_profile_claimst
 function _entity_position_assignment_claim:insert(index, item) end
 
 ---@param index integer
 function _entity_position_assignment_claim:erase(index) end
 
----@alias entity_material_category
+---@alias df.entity_material_category
 ---| -1 # None
 ---| 0 # Clothing
 ---| 1 # Leather
@@ -2441,7 +2441,7 @@ function _entity_position_assignment_claim:erase(index) end
 ---| 30 # Furniture
 ---| 31 # MiscWood2
 
----@class _entity_material_category: DFEnumType
+---@class identity.entity_material_category: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
 ---@field Clothing 0 cloth or leather
@@ -2510,78 +2510,78 @@ function _entity_position_assignment_claim:erase(index) end
 ---@field [31] "MiscWood2" misc_mat.wood2
 df.entity_material_category = {}
 
----@class (exact) entity_uniform_item: DFStruct
----@field _type _entity_uniform_item
+---@class (exact) df.entity_uniform_item: DFStruct
+---@field _type identity.entity_uniform_item
 ---@field random_dye number
 ---@field armorlevel number
 ---@field item_color number References: `descriptor_color`
 ---@field art_image_id number
 ---@field art_image_subid number
 ---@field image_thread_color number References: `descriptor_color`
----@field image_material_class entity_material_category
+---@field image_material_class df.entity_material_category
 ---@field maker_race number
----@field indiv_choice uniform_indiv_choice
+---@field indiv_choice df.uniform_indiv_choice
 ---@field mattype number References: `material`
 ---@field matindex number
----@field material_class entity_material_category
+---@field material_class df.entity_material_category
 
----@class _entity_uniform_item: DFCompoundType
+---@class identity.entity_uniform_item: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_uniform_item = {}
 
----@return entity_uniform_item
+---@return df.entity_uniform_item
 function df.entity_uniform_item:new() end
 
----@class (exact) entity_uniform: DFStruct
----@field _type _entity_uniform
+---@class (exact) df.entity_uniform: DFStruct
+---@field _type identity.entity_uniform
 ---@field id number
 ---@field unk_4 number
----@field uniform_item_types DFEnumVector<uniform_category, item_type>
----@field uniform_item_subtypes DFEnumVector<uniform_category, number>
----@field uniform_item_info DFEnumVector<uniform_category, entity_uniform_item>
+---@field uniform_item_types DFEnumVector<df.uniform_category, df.item_type>
+---@field uniform_item_subtypes DFEnumVector<df.uniform_category, number>
+---@field uniform_item_info DFEnumVector<df.uniform_category, df.entity_uniform_item>
 ---@field name string
----@field flags uniform_flags
+---@field flags df.uniform_flags
 
----@class _entity_uniform: DFCompoundType
+---@class identity.entity_uniform: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_uniform = {}
 
----@return entity_uniform
+---@return df.entity_uniform
 function df.entity_uniform:new() end
 
 ---@class _entity_uniform_uniform_item_types: DFContainer
----@field [integer] item_type
+---@field [integer] df.item_type
 local _entity_uniform_uniform_item_types
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<item_type>
+---@return DFPointer<df.item_type>
 function _entity_uniform_uniform_item_types:_field(index) end
 
 ---@param index '#'|integer
----@param item item_type
+---@param item df.item_type
 function _entity_uniform_uniform_item_types:insert(index, item) end
 
 ---@param index integer
 function _entity_uniform_uniform_item_types:erase(index) end
 
 ---@class _entity_uniform_uniform_item_info: DFContainer
----@field [integer] entity_uniform_item
+---@field [integer] df.entity_uniform_item
 local _entity_uniform_uniform_item_info
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<entity_uniform_item>
+---@return DFPointer<df.entity_uniform_item>
 function _entity_uniform_uniform_item_info:_field(index) end
 
 ---@param index '#'|integer
----@param item entity_uniform_item
+---@param item df.entity_uniform_item
 function _entity_uniform_uniform_item_info:insert(index, item) end
 
 ---@param index integer
 function _entity_uniform_uniform_item_info:erase(index) end
 
----@alias entity_event_type
+---@alias df.entity_event_type
 ---| 0 # invasion
 ---| 1 # abduction
 ---| 2 # incident
@@ -2617,7 +2617,7 @@ function _entity_uniform_uniform_item_info:erase(index) end
 ---| 32 # artifact_not_in_inventory
 ---| 33 # artifact_was_destroyed
 
----@class _entity_event_type: DFEnumType
+---@class identity.entity_event_type: DFEnumType
 ---@field invasion 0
 ---@field [0] "invasion"
 ---@field abduction 1
@@ -2688,285 +2688,285 @@ function _entity_uniform_uniform_item_info:erase(index) end
 ---@field [33] "artifact_was_destroyed"
 df.entity_event_type = {}
 
----@class (exact) entity_event: DFStruct
----@field _type _entity_event
----@field data entity_event.T_data
+---@class (exact) df.entity_event: DFStruct
+---@field _type identity.entity_event
+---@field data df.entity_event.T_data
 ---@field unk_year number often the same as the other year/tick. Start/stop time?
 ---@field unk_year_tick number
 ---@field year number
 ---@field year_tick number
 ---@field unk_1 number
----@field type entity_event_type
+---@field type df.entity_event_type
 
----@class _entity_event: DFCompoundType
+---@class identity.entity_event: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event = {}
 
----@return entity_event
+---@return df.entity_event
 function df.entity_event:new() end
 
----@class (exact) entity_event.T_data: DFStruct
----@field _type _entity_event.T_data
----@field invasion entity_event.T_data.T_invasion
----@field abduction entity_event.T_data.T_abduction
----@field incident entity_event.T_data.T_incident
----@field occupation entity_event.T_data.T_occupation
----@field beast entity_event.T_data.T_beast
----@field group entity_event.T_data.T_group
----@field harass entity_event.T_data.T_harass
----@field flee entity_event.T_data.T_flee
----@field abandon entity_event.T_data.T_abandon
----@field reclaimed entity_event.T_data.T_reclaimed
----@field founded entity_event.T_data.T_founded
----@field reclaiming entity_event.T_data.T_reclaiming
----@field founding entity_event.T_data.T_founding
----@field leave entity_event.T_data.T_leave
----@field insurrection entity_event.T_data.T_insurrection
----@field insurrection_end entity_event.T_data.T_insurrection_end
----@field succession entity_event.T_data.T_succession
----@field claim entity_event.T_data.T_claim
----@field accept_tribute_offer entity_event.T_data.T_accept_tribute_offer
----@field refuse_tribute_offer entity_event.T_data.T_refuse_tribute_offer
----@field accept_tribute_demand entity_event.T_data.T_accept_tribute_demand
----@field refuse_tribute_demand entity_event.T_data.T_refuse_tribute_demand
----@field accept_peace_offer entity_event.T_data.T_accept_peace_offer
----@field refuse_peace_offer entity_event.T_data.T_refuse_peace_offer
----@field cease_tribute_offer entity_event.T_data.T_cease_tribute_offer
----@field artifact_in_site entity_event.T_data.T_artifact_in_site
----@field artifact_in_subregion entity_event.T_data.T_artifact_in_subregion
----@field artifact_in_feature_layer entity_event.T_data.T_artifact_in_feature_layer
----@field artifact_in_inventory entity_event.T_data.T_artifact_in_inventory
----@field artifact_not_in_site entity_event.T_data.T_artifact_not_in_site
----@field artifact_not_in_subregion entity_event.T_data.T_artifact_not_in_subregion
----@field artifact_not_in_feature_layer entity_event.T_data.T_artifact_not_in_feature_layer
----@field artifact_not_in_inventory entity_event.T_data.T_artifact_not_in_inventory
----@field artifact_destroyed entity_event.T_data.T_artifact_destroyed
+---@class (exact) df.entity_event.T_data: DFStruct
+---@field _type identity.entity_event.data
+---@field invasion df.entity_event.T_data.T_invasion
+---@field abduction df.entity_event.T_data.T_abduction
+---@field incident df.entity_event.T_data.T_incident
+---@field occupation df.entity_event.T_data.T_occupation
+---@field beast df.entity_event.T_data.T_beast
+---@field group df.entity_event.T_data.T_group
+---@field harass df.entity_event.T_data.T_harass
+---@field flee df.entity_event.T_data.T_flee
+---@field abandon df.entity_event.T_data.T_abandon
+---@field reclaimed df.entity_event.T_data.T_reclaimed
+---@field founded df.entity_event.T_data.T_founded
+---@field reclaiming df.entity_event.T_data.T_reclaiming
+---@field founding df.entity_event.T_data.T_founding
+---@field leave df.entity_event.T_data.T_leave
+---@field insurrection df.entity_event.T_data.T_insurrection
+---@field insurrection_end df.entity_event.T_data.T_insurrection_end
+---@field succession df.entity_event.T_data.T_succession
+---@field claim df.entity_event.T_data.T_claim
+---@field accept_tribute_offer df.entity_event.T_data.T_accept_tribute_offer
+---@field refuse_tribute_offer df.entity_event.T_data.T_refuse_tribute_offer
+---@field accept_tribute_demand df.entity_event.T_data.T_accept_tribute_demand
+---@field refuse_tribute_demand df.entity_event.T_data.T_refuse_tribute_demand
+---@field accept_peace_offer df.entity_event.T_data.T_accept_peace_offer
+---@field refuse_peace_offer df.entity_event.T_data.T_refuse_peace_offer
+---@field cease_tribute_offer df.entity_event.T_data.T_cease_tribute_offer
+---@field artifact_in_site df.entity_event.T_data.T_artifact_in_site
+---@field artifact_in_subregion df.entity_event.T_data.T_artifact_in_subregion
+---@field artifact_in_feature_layer df.entity_event.T_data.T_artifact_in_feature_layer
+---@field artifact_in_inventory df.entity_event.T_data.T_artifact_in_inventory
+---@field artifact_not_in_site df.entity_event.T_data.T_artifact_not_in_site
+---@field artifact_not_in_subregion df.entity_event.T_data.T_artifact_not_in_subregion
+---@field artifact_not_in_feature_layer df.entity_event.T_data.T_artifact_not_in_feature_layer
+---@field artifact_not_in_inventory df.entity_event.T_data.T_artifact_not_in_inventory
+---@field artifact_destroyed df.entity_event.T_data.T_artifact_destroyed
 
----@class _entity_event.T_data: DFCompoundType
+---@class identity.entity_event.data: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data = {}
 
----@return entity_event.T_data
+---@return df.entity_event.T_data
 function df.entity_event.T_data:new() end
 
----@class (exact) entity_event.T_data.T_invasion: DFStruct
----@field _type _entity_event.T_data.T_invasion
+---@class (exact) df.entity_event.T_data.T_invasion: DFStruct
+---@field _type identity.entity_event.data.invasion
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field unk_1 number can't find match. not defender hf/nemesis, for instance
 ---@field attack_leader_hf number References: `historical_figure`
 
----@class _entity_event.T_data.T_invasion: DFCompoundType
+---@class identity.entity_event.data.invasion: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_invasion = {}
 
----@return entity_event.T_data.T_invasion
+---@return df.entity_event.T_data.T_invasion
 function df.entity_event.T_data.T_invasion:new() end
 
----@class (exact) entity_event.T_data.T_abduction: DFStruct
----@field _type _entity_event.T_data.T_abduction
+---@class (exact) df.entity_event.T_data.T_abduction: DFStruct
+---@field _type identity.entity_event.data.abduction
 ---@field histfig_id number abductee References: `historical_figure`
 ---@field site_id number References: `world_site`
 ---@field abductor_id number References: `historical_figure`
 ---@field event number References: `history_event`
 
----@class _entity_event.T_data.T_abduction: DFCompoundType
+---@class identity.entity_event.data.abduction: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_abduction = {}
 
----@return entity_event.T_data.T_abduction
+---@return df.entity_event.T_data.T_abduction
 function df.entity_event.T_data.T_abduction:new() end
 
----@class (exact) entity_event.T_data.T_incident: DFStruct
----@field _type _entity_event.T_data.T_incident
+---@class (exact) df.entity_event.T_data.T_incident: DFStruct
+---@field _type identity.entity_event.data.incident
 ---@field unk_1 number
 ---@field incident_id number References: `incident`
 
----@class _entity_event.T_data.T_incident: DFCompoundType
+---@class identity.entity_event.data.incident: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_incident = {}
 
----@return entity_event.T_data.T_incident
+---@return df.entity_event.T_data.T_incident
 function df.entity_event.T_data.T_incident:new() end
 
----@class (exact) entity_event.T_data.T_occupation: DFStruct
----@field _type _entity_event.T_data.T_occupation
+---@class (exact) df.entity_event.T_data.T_occupation: DFStruct
+---@field _type identity.entity_event.data.occupation
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_occupation: DFCompoundType
+---@class identity.entity_event.data.occupation: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_occupation = {}
 
----@return entity_event.T_data.T_occupation
+---@return df.entity_event.T_data.T_occupation
 function df.entity_event.T_data.T_occupation:new() end
 
----@class (exact) entity_event.T_data.T_beast: DFStruct
----@field _type _entity_event.T_data.T_beast
+---@class (exact) df.entity_event.T_data.T_beast: DFStruct
+---@field _type identity.entity_event.data.beast
 ---@field histfig_id number References: `historical_figure`
 ---@field site_id number References: `world_site`
 ---@field region_id number References: `world_region`
 
----@class _entity_event.T_data.T_beast: DFCompoundType
+---@class identity.entity_event.data.beast: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_beast = {}
 
----@return entity_event.T_data.T_beast
+---@return df.entity_event.T_data.T_beast
 function df.entity_event.T_data.T_beast:new() end
 
----@class (exact) entity_event.T_data.T_group: DFStruct
----@field _type _entity_event.T_data.T_group
+---@class (exact) df.entity_event.T_data.T_group: DFStruct
+---@field _type identity.entity_event.data.group
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 
----@class _entity_event.T_data.T_group: DFCompoundType
+---@class identity.entity_event.data.group: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_group = {}
 
----@return entity_event.T_data.T_group
+---@return df.entity_event.T_data.T_group
 function df.entity_event.T_data.T_group:new() end
 
----@class (exact) entity_event.T_data.T_harass: DFStruct
----@field _type _entity_event.T_data.T_harass
+---@class (exact) df.entity_event.T_data.T_harass: DFStruct
+---@field _type identity.entity_event.data.harass
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field unk_1 number
 
----@class _entity_event.T_data.T_harass: DFCompoundType
+---@class identity.entity_event.data.harass: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_harass = {}
 
----@return entity_event.T_data.T_harass
+---@return df.entity_event.T_data.T_harass
 function df.entity_event.T_data.T_harass:new() end
 
----@class (exact) entity_event.T_data.T_flee: DFStruct
----@field _type _entity_event.T_data.T_flee
+---@class (exact) df.entity_event.T_data.T_flee: DFStruct
+---@field _type identity.entity_event.data.flee
 ---@field refugee_entity_id number References: `historical_entity`
 ---@field from_site_id number References: `world_site`
 ---@field army_entity_id number References: `historical_entity`
 ---@field army_leader_hf_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_flee: DFCompoundType
+---@class identity.entity_event.data.flee: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_flee = {}
 
----@return entity_event.T_data.T_flee
+---@return df.entity_event.T_data.T_flee
 function df.entity_event.T_data.T_flee:new() end
 
----@class (exact) entity_event.T_data.T_abandon: DFStruct
----@field _type _entity_event.T_data.T_abandon
+---@class (exact) df.entity_event.T_data.T_abandon: DFStruct
+---@field _type identity.entity_event.data.abandon
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field parent_entity_id number References: `historical_entity`
 
----@class _entity_event.T_data.T_abandon: DFCompoundType
+---@class identity.entity_event.data.abandon: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_abandon = {}
 
----@return entity_event.T_data.T_abandon
+---@return df.entity_event.T_data.T_abandon
 function df.entity_event.T_data.T_abandon:new() end
 
----@class (exact) entity_event.T_data.T_reclaimed: DFStruct
----@field _type _entity_event.T_data.T_reclaimed
+---@class (exact) df.entity_event.T_data.T_reclaimed: DFStruct
+---@field _type identity.entity_event.data.reclaimed
 ---@field behalf_entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field reclaimer_entity_id number References: `historical_entity`
 ---@field leader_hf number References: `historical_figure`
 
----@class _entity_event.T_data.T_reclaimed: DFCompoundType
+---@class identity.entity_event.data.reclaimed: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_reclaimed = {}
 
----@return entity_event.T_data.T_reclaimed
+---@return df.entity_event.T_data.T_reclaimed
 function df.entity_event.T_data.T_reclaimed:new() end
 
----@class (exact) entity_event.T_data.T_founded: DFStruct
----@field _type _entity_event.T_data.T_founded
+---@class (exact) df.entity_event.T_data.T_founded: DFStruct
+---@field _type identity.entity_event.data.founded
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field parent_entity_id number References: `historical_entity`
 ---@field unk_1 number
 
----@class _entity_event.T_data.T_founded: DFCompoundType
+---@class identity.entity_event.data.founded: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_founded = {}
 
----@return entity_event.T_data.T_founded
+---@return df.entity_event.T_data.T_founded
 function df.entity_event.T_data.T_founded:new() end
 
----@class (exact) entity_event.T_data.T_reclaiming: DFStruct
----@field _type _entity_event.T_data.T_reclaiming
+---@class (exact) df.entity_event.T_data.T_reclaiming: DFStruct
+---@field _type identity.entity_event.data.reclaiming
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field unk_1 number
 ---@field first_settler_hf number strangely enough not expedition leader (settler #2), nor listed as member of site government References: `historical_figure`
 
----@class _entity_event.T_data.T_reclaiming: DFCompoundType
+---@class identity.entity_event.data.reclaiming: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_reclaiming = {}
 
----@return entity_event.T_data.T_reclaiming
+---@return df.entity_event.T_data.T_reclaiming
 function df.entity_event.T_data.T_reclaiming:new() end
 
----@class (exact) entity_event.T_data.T_founding: DFStruct
----@field _type _entity_event.T_data.T_founding
+---@class (exact) df.entity_event.T_data.T_founding: DFStruct
+---@field _type identity.entity_event.data.founding
 ---@field entity_id number References: `historical_entity`
 ---@field region_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_founding: DFCompoundType
+---@class identity.entity_event.data.founding: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_founding = {}
 
----@return entity_event.T_data.T_founding
+---@return df.entity_event.T_data.T_founding
 function df.entity_event.T_data.T_founding:new() end
 
----@class (exact) entity_event.T_data.T_leave: DFStruct
----@field _type _entity_event.T_data.T_leave
+---@class (exact) df.entity_event.T_data.T_leave: DFStruct
+---@field _type identity.entity_event.data.leave
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 
----@class _entity_event.T_data.T_leave: DFCompoundType
+---@class identity.entity_event.data.leave: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_leave = {}
 
----@return entity_event.T_data.T_leave
+---@return df.entity_event.T_data.T_leave
 function df.entity_event.T_data.T_leave:new() end
 
----@class (exact) entity_event.T_data.T_insurrection: DFStruct
----@field _type _entity_event.T_data.T_insurrection
+---@class (exact) df.entity_event.T_data.T_insurrection: DFStruct
+---@field _type identity.entity_event.data.insurrection
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
 
----@class _entity_event.T_data.T_insurrection: DFCompoundType
+---@class identity.entity_event.data.insurrection: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_insurrection = {}
 
----@return entity_event.T_data.T_insurrection
+---@return df.entity_event.T_data.T_insurrection
 function df.entity_event.T_data.T_insurrection:new() end
 
----@class (exact) entity_event.T_data.T_insurrection_end: DFStruct
----@field _type _entity_event.T_data.T_insurrection_end
+---@class (exact) df.entity_event.T_data.T_insurrection_end: DFStruct
+---@field _type identity.entity_event.data.insurrection_end
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
----@field result entity_event.T_data.T_insurrection_end.T_result
+---@field result df.entity_event.T_data.T_insurrection_end.T_result
 
----@class _entity_event.T_data.T_insurrection_end: DFCompoundType
+---@class identity.entity_event.data.insurrection_end: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_insurrection_end = {}
 
----@return entity_event.T_data.T_insurrection_end
+---@return df.entity_event.T_data.T_insurrection_end
 function df.entity_event.T_data.T_insurrection_end:new() end
 
----@alias entity_event.T_data.T_insurrection_end.T_result
+---@alias df.entity_event.T_data.T_insurrection_end.T_result
 ---| 0 # Overthrow
 ---| 1 # Failure
 ---| 2 # Crushing
 
----@class _entity_event.T_data.T_insurrection_end.T_result: DFEnumType
+---@class identity.entity_event.data.insurrection_end.result: DFEnumType
 ---@field Overthrow 0
 ---@field [0] "Overthrow"
 ---@field Failure 1
@@ -2975,259 +2975,259 @@ function df.entity_event.T_data.T_insurrection_end:new() end
 ---@field [2] "Crushing"
 df.entity_event.T_data.T_insurrection_end.T_result = {}
 
----@class (exact) entity_event.T_data.T_succession: DFStruct
----@field _type _entity_event.T_data.T_succession
+---@class (exact) df.entity_event.T_data.T_succession: DFStruct
+---@field _type identity.entity_event.data.succession
 ---@field histfig_id number References: `historical_figure`
 ---@field former_histfig_id number References: `historical_figure`
 ---@field entity_id number References: `historical_entity`
 ---@field position_assignment_id number
 
----@class _entity_event.T_data.T_succession: DFCompoundType
+---@class identity.entity_event.data.succession: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_succession = {}
 
----@return entity_event.T_data.T_succession
+---@return df.entity_event.T_data.T_succession
 function df.entity_event.T_data.T_succession:new() end
 
----@class (exact) entity_event.T_data.T_claim: DFStruct
----@field _type _entity_event.T_data.T_claim
+---@class (exact) df.entity_event.T_data.T_claim: DFStruct
+---@field _type identity.entity_event.data.claim
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field histfig_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_claim: DFCompoundType
+---@class identity.entity_event.data.claim: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_claim = {}
 
----@return entity_event.T_data.T_claim
+---@return df.entity_event.T_data.T_claim
 function df.entity_event.T_data.T_claim:new() end
 
----@class (exact) entity_event.T_data.T_accept_tribute_offer: DFStruct
----@field _type _entity_event.T_data.T_accept_tribute_offer
+---@class (exact) df.entity_event.T_data.T_accept_tribute_offer: DFStruct
+---@field _type identity.entity_event.data.accept_tribute_offer
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_accept_tribute_offer: DFCompoundType
+---@class identity.entity_event.data.accept_tribute_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_accept_tribute_offer = {}
 
----@return entity_event.T_data.T_accept_tribute_offer
+---@return df.entity_event.T_data.T_accept_tribute_offer
 function df.entity_event.T_data.T_accept_tribute_offer:new() end
 
----@class (exact) entity_event.T_data.T_refuse_tribute_offer: DFStruct
----@field _type _entity_event.T_data.T_refuse_tribute_offer
+---@class (exact) df.entity_event.T_data.T_refuse_tribute_offer: DFStruct
+---@field _type identity.entity_event.data.refuse_tribute_offer
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_refuse_tribute_offer: DFCompoundType
+---@class identity.entity_event.data.refuse_tribute_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_refuse_tribute_offer = {}
 
----@return entity_event.T_data.T_refuse_tribute_offer
+---@return df.entity_event.T_data.T_refuse_tribute_offer
 function df.entity_event.T_data.T_refuse_tribute_offer:new() end
 
----@class (exact) entity_event.T_data.T_accept_tribute_demand: DFStruct
----@field _type _entity_event.T_data.T_accept_tribute_demand
+---@class (exact) df.entity_event.T_data.T_accept_tribute_demand: DFStruct
+---@field _type identity.entity_event.data.accept_tribute_demand
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_accept_tribute_demand: DFCompoundType
+---@class identity.entity_event.data.accept_tribute_demand: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_accept_tribute_demand = {}
 
----@return entity_event.T_data.T_accept_tribute_demand
+---@return df.entity_event.T_data.T_accept_tribute_demand
 function df.entity_event.T_data.T_accept_tribute_demand:new() end
 
----@class (exact) entity_event.T_data.T_refuse_tribute_demand: DFStruct
----@field _type _entity_event.T_data.T_refuse_tribute_demand
+---@class (exact) df.entity_event.T_data.T_refuse_tribute_demand: DFStruct
+---@field _type identity.entity_event.data.refuse_tribute_demand
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_refuse_tribute_demand: DFCompoundType
+---@class identity.entity_event.data.refuse_tribute_demand: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_refuse_tribute_demand = {}
 
----@return entity_event.T_data.T_refuse_tribute_demand
+---@return df.entity_event.T_data.T_refuse_tribute_demand
 function df.entity_event.T_data.T_refuse_tribute_demand:new() end
 
----@class (exact) entity_event.T_data.T_accept_peace_offer: DFStruct
----@field _type _entity_event.T_data.T_accept_peace_offer
+---@class (exact) df.entity_event.T_data.T_accept_peace_offer: DFStruct
+---@field _type identity.entity_event.data.accept_peace_offer
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_accept_peace_offer: DFCompoundType
+---@class identity.entity_event.data.accept_peace_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_accept_peace_offer = {}
 
----@return entity_event.T_data.T_accept_peace_offer
+---@return df.entity_event.T_data.T_accept_peace_offer
 function df.entity_event.T_data.T_accept_peace_offer:new() end
 
----@class (exact) entity_event.T_data.T_refuse_peace_offer: DFStruct
----@field _type _entity_event.T_data.T_refuse_peace_offer
+---@class (exact) df.entity_event.T_data.T_refuse_peace_offer: DFStruct
+---@field _type identity.entity_event.data.refuse_peace_offer
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_refuse_peace_offer: DFCompoundType
+---@class identity.entity_event.data.refuse_peace_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_refuse_peace_offer = {}
 
----@return entity_event.T_data.T_refuse_peace_offer
+---@return df.entity_event.T_data.T_refuse_peace_offer
 function df.entity_event.T_data.T_refuse_peace_offer:new() end
 
----@class (exact) entity_event.T_data.T_cease_tribute_offer: DFStruct
----@field _type _entity_event.T_data.T_cease_tribute_offer
+---@class (exact) df.entity_event.T_data.T_cease_tribute_offer: DFStruct
+---@field _type identity.entity_event.data.cease_tribute_offer
 ---@field entity1_id number References: `historical_entity`
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
 
----@class _entity_event.T_data.T_cease_tribute_offer: DFCompoundType
+---@class identity.entity_event.data.cease_tribute_offer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_cease_tribute_offer = {}
 
----@return entity_event.T_data.T_cease_tribute_offer
+---@return df.entity_event.T_data.T_cease_tribute_offer
 function df.entity_event.T_data.T_cease_tribute_offer:new() end
 
----@class (exact) entity_event.T_data.T_artifact_in_site: DFStruct
----@field _type _entity_event.T_data.T_artifact_in_site
+---@class (exact) df.entity_event.T_data.T_artifact_in_site: DFStruct
+---@field _type identity.entity_event.data.artifact_in_site
 ---@field artifact_id number References: `artifact_record`
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field unk_1 number looks uninitialized
 
----@class _entity_event.T_data.T_artifact_in_site: DFCompoundType
+---@class identity.entity_event.data.artifact_in_site: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_site = {}
 
----@return entity_event.T_data.T_artifact_in_site
+---@return df.entity_event.T_data.T_artifact_in_site
 function df.entity_event.T_data.T_artifact_in_site:new() end
 
----@class (exact) entity_event.T_data.T_artifact_in_subregion: DFStruct
----@field _type _entity_event.T_data.T_artifact_in_subregion
+---@class (exact) df.entity_event.T_data.T_artifact_in_subregion: DFStruct
+---@field _type identity.entity_event.data.artifact_in_subregion
 ---@field artifact_id number References: `artifact_record`
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_artifact_in_subregion: DFCompoundType
+---@class identity.entity_event.data.artifact_in_subregion: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_subregion = {}
 
----@return entity_event.T_data.T_artifact_in_subregion
+---@return df.entity_event.T_data.T_artifact_in_subregion
 function df.entity_event.T_data.T_artifact_in_subregion:new() end
 
----@class (exact) entity_event.T_data.T_artifact_in_feature_layer: DFStruct
----@field _type _entity_event.T_data.T_artifact_in_feature_layer
+---@class (exact) df.entity_event.T_data.T_artifact_in_feature_layer: DFStruct
+---@field _type identity.entity_event.data.artifact_in_feature_layer
 ---@field artifact_id number References: `artifact_record`
 ---@field feature_layer_id number References: `world_underground_region`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_artifact_in_feature_layer: DFCompoundType
+---@class identity.entity_event.data.artifact_in_feature_layer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_feature_layer = {}
 
----@return entity_event.T_data.T_artifact_in_feature_layer
+---@return df.entity_event.T_data.T_artifact_in_feature_layer
 function df.entity_event.T_data.T_artifact_in_feature_layer:new() end
 
----@class (exact) entity_event.T_data.T_artifact_in_inventory: DFStruct
----@field _type _entity_event.T_data.T_artifact_in_inventory
+---@class (exact) df.entity_event.T_data.T_artifact_in_inventory: DFStruct
+---@field _type identity.entity_event.data.artifact_in_inventory
 ---@field artifact_id number References: `artifact_record`
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_artifact_in_inventory: DFCompoundType
+---@class identity.entity_event.data.artifact_in_inventory: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_in_inventory = {}
 
----@return entity_event.T_data.T_artifact_in_inventory
+---@return df.entity_event.T_data.T_artifact_in_inventory
 function df.entity_event.T_data.T_artifact_in_inventory:new() end
 
----@class (exact) entity_event.T_data.T_artifact_not_in_site: DFStruct
----@field _type _entity_event.T_data.T_artifact_not_in_site
+---@class (exact) df.entity_event.T_data.T_artifact_not_in_site: DFStruct
+---@field _type identity.entity_event.data.artifact_not_in_site
 ---@field artifact_id number References: `artifact_record`
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field unk_1 number
 
----@class _entity_event.T_data.T_artifact_not_in_site: DFCompoundType
+---@class identity.entity_event.data.artifact_not_in_site: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_site = {}
 
----@return entity_event.T_data.T_artifact_not_in_site
+---@return df.entity_event.T_data.T_artifact_not_in_site
 function df.entity_event.T_data.T_artifact_not_in_site:new() end
 
----@class (exact) entity_event.T_data.T_artifact_not_in_subregion: DFStruct
----@field _type _entity_event.T_data.T_artifact_not_in_subregion
+---@class (exact) df.entity_event.T_data.T_artifact_not_in_subregion: DFStruct
+---@field _type identity.entity_event.data.artifact_not_in_subregion
 ---@field artifact_id number References: `artifact_record`
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_artifact_not_in_subregion: DFCompoundType
+---@class identity.entity_event.data.artifact_not_in_subregion: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_subregion = {}
 
----@return entity_event.T_data.T_artifact_not_in_subregion
+---@return df.entity_event.T_data.T_artifact_not_in_subregion
 function df.entity_event.T_data.T_artifact_not_in_subregion:new() end
 
----@class (exact) entity_event.T_data.T_artifact_not_in_feature_layer: DFStruct
----@field _type _entity_event.T_data.T_artifact_not_in_feature_layer
+---@class (exact) df.entity_event.T_data.T_artifact_not_in_feature_layer: DFStruct
+---@field _type identity.entity_event.data.artifact_not_in_feature_layer
 ---@field artifact_id number References: `artifact_record`
 ---@field feature_layer_id number References: `world_underground_region`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_artifact_not_in_feature_layer: DFCompoundType
+---@class identity.entity_event.data.artifact_not_in_feature_layer: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
 
----@return entity_event.T_data.T_artifact_not_in_feature_layer
+---@return df.entity_event.T_data.T_artifact_not_in_feature_layer
 function df.entity_event.T_data.T_artifact_not_in_feature_layer:new() end
 
----@class (exact) entity_event.T_data.T_artifact_not_in_inventory: DFStruct
----@field _type _entity_event.T_data.T_artifact_not_in_inventory
+---@class (exact) df.entity_event.T_data.T_artifact_not_in_inventory: DFStruct
+---@field _type identity.entity_event.data.artifact_not_in_inventory
 ---@field artifact_id number References: `artifact_record`
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _entity_event.T_data.T_artifact_not_in_inventory: DFCompoundType
+---@class identity.entity_event.data.artifact_not_in_inventory: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_not_in_inventory = {}
 
----@return entity_event.T_data.T_artifact_not_in_inventory
+---@return df.entity_event.T_data.T_artifact_not_in_inventory
 function df.entity_event.T_data.T_artifact_not_in_inventory:new() end
 
----@class (exact) entity_event.T_data.T_artifact_destroyed: DFStruct
----@field _type _entity_event.T_data.T_artifact_destroyed
+---@class (exact) df.entity_event.T_data.T_artifact_destroyed: DFStruct
+---@field _type identity.entity_event.data.artifact_destroyed
 ---@field artifact_id number References: `artifact_record`
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
 
----@class _entity_event.T_data.T_artifact_destroyed: DFCompoundType
+---@class identity.entity_event.data.artifact_destroyed: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_event.T_data.T_artifact_destroyed = {}
 
----@return entity_event.T_data.T_artifact_destroyed
+---@return df.entity_event.T_data.T_artifact_destroyed
 function df.entity_event.T_data.T_artifact_destroyed:new() end
 
----@class (exact) agreement: DFStruct
----@field _type _agreement
+---@class (exact) df.agreement: DFStruct
+---@field _type identity.agreement
 ---@field id number
 ---@field parties _agreement_parties
 ---@field next_party_id number
@@ -3235,82 +3235,82 @@ function df.entity_event.T_data.T_artifact_destroyed:new() end
 ---@field next_details_id number
 ---@field unk_1 number
 ---@field unk_2 number
----@field flags agreement.T_flags
+---@field flags df.agreement.T_flags
 
----@class _agreement: DFCompoundType
+---@class identity.agreement: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement = {}
 
----@return agreement
+---@return df.agreement
 function df.agreement:new() end
 
 ---@param key number
----@return agreement|nil
+---@return df.agreement|nil
 function df.agreement.find(key) end
 
----@class agreement_vector: DFVector, { [integer]: agreement }
+---@class agreement_vector: DFVector, { [integer]: df.agreement }
 
 ---@return agreement_vector # df.global.world.agreements.all
 function df.agreement.get_vector() end
 
 ---@class _agreement_parties: DFContainer
----@field [integer] agreement_party
+---@field [integer] df.agreement_party
 local _agreement_parties
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<agreement_party>
+---@return DFPointer<df.agreement_party>
 function _agreement_parties:_field(index) end
 
 ---@param index '#'|integer
----@param item agreement_party
+---@param item df.agreement_party
 function _agreement_parties:insert(index, item) end
 
 ---@param index integer
 function _agreement_parties:erase(index) end
 
 ---@class _agreement_details: DFContainer
----@field [integer] agreement_details
+---@field [integer] df.agreement_details
 local _agreement_details
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<agreement_details>
+---@return DFPointer<df.agreement_details>
 function _agreement_details:_field(index) end
 
 ---@param index '#'|integer
----@param item agreement_details
+---@param item df.agreement_details
 function _agreement_details:insert(index, item) end
 
 ---@param index integer
 function _agreement_details:erase(index) end
 
----@class agreement.T_flags: DFBitfield
----@field _enum _agreement.T_flags
+---@class df.agreement.T_flags: DFBitfield
+---@field _enum identity.agreement.flags
 ---@field petition_not_accepted boolean this gets unset by accepting a petition
 ---@field [0] boolean this gets unset by accepting a petition
 ---@field convicted_accepted boolean convicted for PositionCorruption/accepted for Location
 ---@field [1] boolean convicted for PositionCorruption/accepted for Location
 
----@class _agreement.T_flags: DFBitfieldType
+---@class identity.agreement.flags: DFBitfieldType
 ---@field petition_not_accepted 0 this gets unset by accepting a petition
 ---@field [0] "petition_not_accepted" this gets unset by accepting a petition
 ---@field convicted_accepted 1 convicted for PositionCorruption/accepted for Location
 ---@field [1] "convicted_accepted" convicted for PositionCorruption/accepted for Location
 df.agreement.T_flags = {}
 
----@class (exact) agreement_party: DFStruct
----@field _type _agreement_party
+---@class (exact) df.agreement_party: DFStruct
+---@field _type identity.agreement_party
 ---@field id number
 ---@field histfig_ids DFNumberVector
 ---@field entity_ids DFNumberVector
 ---@field unk_1 _agreement_party_unk_1
 
----@class _agreement_party: DFCompoundType
+---@class identity.agreement_party: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_party = {}
 
----@return agreement_party
+---@return df.agreement_party
 function df.agreement_party:new() end
 
 ---@class _agreement_party_unk_1: DFContainer
@@ -3330,7 +3330,7 @@ function _agreement_party_unk_1:insert(index, item) end
 function _agreement_party_unk_1:erase(index) end
 
 -- bay12: EvidenceType
----@alias crime_type
+---@alias df.crime_type
 ---| -1 # NONE
 ---| 0 # PLOTTER_BRIBERY_ATTEMPT
 ---| 1 # PLOTTER_SEDITION_ATTEMPT
@@ -3344,7 +3344,7 @@ function _agreement_party_unk_1:erase(index) end
 ---| 9 # CAUGHT_UNDER_SURVEILLANCE
 
 -- bay12: EvidenceType
----@class _crime_type: DFEnumType
+---@class identity.crime_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PLOTTER_BRIBERY_ATTEMPT 0
@@ -3369,7 +3369,7 @@ function _agreement_party_unk_1:erase(index) end
 ---@field [9] "CAUGHT_UNDER_SURVEILLANCE"
 df.crime_type = {}
 
----@alias agreement_details_type
+---@alias df.agreement_details_type
 ---| 0 # JoinParty
 ---| 1 # DemonicBinding
 ---| 2 # Residency
@@ -3387,7 +3387,7 @@ df.crime_type = {}
 ---| 14 # PlotFrameTreason
 ---| 15 # PlotInduceWar
 
----@class _agreement_details_type: DFEnumType
+---@class identity.agreement_details_type: DFEnumType
 ---@field JoinParty 0
 ---@field [0] "JoinParty"
 ---@field DemonicBinding 1
@@ -3422,50 +3422,50 @@ df.crime_type = {}
 ---@field [15] "PlotInduceWar"
 df.agreement_details_type = {}
 
----@class (exact) agreement_details: DFStruct
----@field _type _agreement_details
+---@class (exact) df.agreement_details: DFStruct
+---@field _type identity.agreement_details
 ---@field id number
 ---@field year number
 ---@field year_tick number
----@field data agreement_details.T_data
----@field type agreement_details_type
+---@field data df.agreement_details.T_data
+---@field type df.agreement_details_type
 
----@class _agreement_details: DFCompoundType
+---@class identity.agreement_details: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details = {}
 
----@return agreement_details
+---@return df.agreement_details
 function df.agreement_details:new() end
 
----@class (exact) agreement_details.T_data: DFStruct
----@field _type _agreement_details.T_data
----@field JoinParty agreement_details_data_join_party
----@field DemonicBinding agreement_details_data_demonic_binding
----@field Residency agreement_details_data_residency
----@field Citizenship agreement_details_data_citizenship
----@field Parley agreement_details_data_parley
----@field PositionCorruption agreement_details_data_position_corruption
----@field PlotStealArtifact agreement_details_data_plot_steal_artifact
----@field PromisePosition agreement_details_data_promise_position
----@field PlotAssassination agreement_details_data_plot_assassination
----@field PlotAbduct agreement_details_data_plot_abduct
----@field PlotSabotage agreement_details_data_plot_sabotage
----@field PlotConviction agreement_details_data_plot_conviction
----@field Location agreement_details_data_location
----@field PlotInfiltrationCoup agreement_details_data_plot_infiltration_coup
----@field PlotFrameTreason agreement_details_data_plot_frame_treason
----@field PlotInduceWar agreement_details_data_plot_induce_war
+---@class (exact) df.agreement_details.T_data: DFStruct
+---@field _type identity.agreement_details.data
+---@field JoinParty df.agreement_details_data_join_party
+---@field DemonicBinding df.agreement_details_data_demonic_binding
+---@field Residency df.agreement_details_data_residency
+---@field Citizenship df.agreement_details_data_citizenship
+---@field Parley df.agreement_details_data_parley
+---@field PositionCorruption df.agreement_details_data_position_corruption
+---@field PlotStealArtifact df.agreement_details_data_plot_steal_artifact
+---@field PromisePosition df.agreement_details_data_promise_position
+---@field PlotAssassination df.agreement_details_data_plot_assassination
+---@field PlotAbduct df.agreement_details_data_plot_abduct
+---@field PlotSabotage df.agreement_details_data_plot_sabotage
+---@field PlotConviction df.agreement_details_data_plot_conviction
+---@field Location df.agreement_details_data_location
+---@field PlotInfiltrationCoup df.agreement_details_data_plot_infiltration_coup
+---@field PlotFrameTreason df.agreement_details_data_plot_frame_treason
+---@field PlotInduceWar df.agreement_details_data_plot_induce_war
 
----@class _agreement_details.T_data: DFCompoundType
+---@class identity.agreement_details.data: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details.T_data = {}
 
----@return agreement_details.T_data
+---@return df.agreement_details.T_data
 function df.agreement_details.T_data:new() end
 
----@class (exact) agreement_details_data_join_party: DFStruct
----@field _type _agreement_details_data_join_party
----@field reason history_event_reason
+---@class (exact) df.agreement_details_data_join_party: DFStruct
+---@field _type identity.agreement_details_data_join_party
+---@field reason df.history_event_reason
 ---@field member number References: `agreement_party`
 ---@field party number References: `agreement_party`
 ---@field site number References: `world_site`
@@ -3474,62 +3474,62 @@ function df.agreement_details.T_data:new() end
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 
----@class _agreement_details_data_join_party: DFCompoundType
+---@class identity.agreement_details_data_join_party: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_join_party = {}
 
----@return agreement_details_data_join_party
+---@return df.agreement_details_data_join_party
 function df.agreement_details_data_join_party:new() end
 
----@class (exact) agreement_details_data_demonic_binding: DFStruct
----@field _type _agreement_details_data_demonic_binding
----@field reason history_event_reason
+---@class (exact) df.agreement_details_data_demonic_binding: DFStruct
+---@field _type identity.agreement_details_data_demonic_binding
+---@field reason df.history_event_reason
 ---@field demon number References: `agreement_party`
 ---@field summoner number References: `agreement_party`
 ---@field site number References: `world_site`
 ---@field artifact number References: `artifact_record`
----@field sphere sphere_type
+---@field sphere df.sphere_type
 
----@class _agreement_details_data_demonic_binding: DFCompoundType
+---@class identity.agreement_details_data_demonic_binding: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_demonic_binding = {}
 
----@return agreement_details_data_demonic_binding
+---@return df.agreement_details_data_demonic_binding
 function df.agreement_details_data_demonic_binding:new() end
 
----@class (exact) agreement_details_data_residency: DFStruct
----@field _type _agreement_details_data_residency
----@field reason history_event_reason
+---@class (exact) df.agreement_details_data_residency: DFStruct
+---@field _type identity.agreement_details_data_residency
+---@field reason df.history_event_reason
 ---@field applicant number References: `agreement_party`
 ---@field government number References: `agreement_party`
 ---@field site number References: `world_site`
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 
----@class _agreement_details_data_residency: DFCompoundType
+---@class identity.agreement_details_data_residency: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_residency = {}
 
----@return agreement_details_data_residency
+---@return df.agreement_details_data_residency
 function df.agreement_details_data_residency:new() end
 
----@class (exact) agreement_details_data_citizenship: DFStruct
----@field _type _agreement_details_data_citizenship
+---@class (exact) df.agreement_details_data_citizenship: DFStruct
+---@field _type identity.agreement_details_data_citizenship
 ---@field applicant number References: `agreement_party`
 ---@field government number References: `agreement_party`
 ---@field site number References: `world_site`
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 
----@class _agreement_details_data_citizenship: DFCompoundType
+---@class identity.agreement_details_data_citizenship: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_citizenship = {}
 
----@return agreement_details_data_citizenship
+---@return df.agreement_details_data_citizenship
 function df.agreement_details_data_citizenship:new() end
 
----@class (exact) agreement_details_data_parley: DFStruct
----@field _type _agreement_details_data_parley
+---@class (exact) df.agreement_details_data_parley: DFStruct
+---@field _type identity.agreement_details_data_parley
 ---@field unk_1 number
 ---@field party_id number References: `agreement_party`
 ---@field unk_v50_1 number
@@ -3537,15 +3537,15 @@ function df.agreement_details_data_citizenship:new() end
 ---@field unk_v50_3 number
 ---@field unk_v50_4 number
 
----@class _agreement_details_data_parley: DFCompoundType
+---@class identity.agreement_details_data_parley: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_parley = {}
 
----@return agreement_details_data_parley
+---@return df.agreement_details_data_parley
 function df.agreement_details_data_parley:new() end
 
----@class (exact) agreement_details_data_position_corruption: DFStruct
----@field _type _agreement_details_data_position_corruption
+---@class (exact) df.agreement_details_data_position_corruption: DFStruct
+---@field _type identity.agreement_details_data_position_corruption
 ---@field corrupt_circumstance number bay12 type: Circumstance; 247-249 seen
 ---@field actor_index number bay12: corrupt_party_id; agreement.parties index
 ---@field influencer_index number bay12: corruptor_party_id; agreement.parties index
@@ -3553,29 +3553,29 @@ function df.agreement_details_data_parley:new() end
 ---@field target_id number bay12: related_enid References: `historical_entity`
 ---@field position_id number bay12: related_eppid; position index in the entity's Own entity_position vector
 
----@class _agreement_details_data_position_corruption: DFCompoundType
+---@class identity.agreement_details_data_position_corruption: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_position_corruption = {}
 
----@return agreement_details_data_position_corruption
+---@return df.agreement_details_data_position_corruption
 function df.agreement_details_data_position_corruption:new() end
 
----@class (exact) agreement_details_data_plot_steal_artifact: DFStruct
----@field _type _agreement_details_data_plot_steal_artifact
+---@class (exact) df.agreement_details_data_plot_steal_artifact: DFStruct
+---@field _type identity.agreement_details_data_plot_steal_artifact
 ---@field actor_index number agreement.parties index
 ---@field influencer_index number agreement.parties index
 ---@field intermediary_index number agreement.parties index
 ---@field artifact_id number References: `artifact_record`
 
----@class _agreement_details_data_plot_steal_artifact: DFCompoundType
+---@class identity.agreement_details_data_plot_steal_artifact: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_steal_artifact = {}
 
----@return agreement_details_data_plot_steal_artifact
+---@return df.agreement_details_data_plot_steal_artifact
 function df.agreement_details_data_plot_steal_artifact:new() end
 
----@class (exact) agreement_details_data_promise_position: DFStruct
----@field _type _agreement_details_data_promise_position
+---@class (exact) df.agreement_details_data_promise_position: DFStruct
+---@field _type identity.agreement_details_data_promise_position
 ---@field beneficiary_index number agreement.parties index
 ---@field actor_index number agreement.parties index
 ---@field promisee_index number agreement.parties index
@@ -3583,43 +3583,43 @@ function df.agreement_details_data_plot_steal_artifact:new() end
 ---@field intermediary_indices DFNumberVector agreement.parties index
 ---@field entity_id number References: `historical_entity`
 
----@class _agreement_details_data_promise_position: DFCompoundType
+---@class identity.agreement_details_data_promise_position: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_promise_position = {}
 
----@return agreement_details_data_promise_position
+---@return df.agreement_details_data_promise_position
 function df.agreement_details_data_promise_position:new() end
 
----@class (exact) agreement_details_data_plot_assassination: DFStruct
----@field _type _agreement_details_data_plot_assassination
+---@class (exact) df.agreement_details_data_plot_assassination: DFStruct
+---@field _type identity.agreement_details_data_plot_assassination
 ---@field actor_index number agreement.parties index
 ---@field influencer_index number agreement.parties index
 ---@field intermediary_index number agreement.parties index
 ---@field target_id number References: `historical_figure`
 
----@class _agreement_details_data_plot_assassination: DFCompoundType
+---@class identity.agreement_details_data_plot_assassination: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_assassination = {}
 
----@return agreement_details_data_plot_assassination
+---@return df.agreement_details_data_plot_assassination
 function df.agreement_details_data_plot_assassination:new() end
 
----@class (exact) agreement_details_data_plot_abduct: DFStruct
----@field _type _agreement_details_data_plot_abduct
+---@class (exact) df.agreement_details_data_plot_abduct: DFStruct
+---@field _type identity.agreement_details_data_plot_abduct
 ---@field actor_index number agreement.parties index
 ---@field intermediary_index number agreement.parties index
 ---@field target_id number References: `historical_figure`
 ---@field unk_v50_1 number
 
----@class _agreement_details_data_plot_abduct: DFCompoundType
+---@class identity.agreement_details_data_plot_abduct: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_abduct = {}
 
----@return agreement_details_data_plot_abduct
+---@return df.agreement_details_data_plot_abduct
 function df.agreement_details_data_plot_abduct:new() end
 
----@class (exact) agreement_details_data_plot_sabotage: DFStruct
----@field _type _agreement_details_data_plot_sabotage
+---@class (exact) df.agreement_details_data_plot_sabotage: DFStruct
+---@field _type identity.agreement_details_data_plot_sabotage
 ---@field plotter_index number agreement.parties index
 ---@field actor_index number agreement.parties index
 ---@field intermediary_index number agreement.parties index. A guess, as no intermediary cases have been seen
@@ -3627,84 +3627,84 @@ function df.agreement_details_data_plot_abduct:new() end
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _agreement_details_data_plot_sabotage: DFCompoundType
+---@class identity.agreement_details_data_plot_sabotage: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_sabotage = {}
 
----@return agreement_details_data_plot_sabotage
+---@return df.agreement_details_data_plot_sabotage
 function df.agreement_details_data_plot_sabotage:new() end
 
----@class (exact) agreement_details_data_plot_conviction: DFStruct
----@field _type _agreement_details_data_plot_conviction
+---@class (exact) df.agreement_details_data_plot_conviction: DFStruct
+---@field _type identity.agreement_details_data_plot_conviction
 ---@field criminal_indices DFNumberVector agreement.parties index. All indices listed, regardless of confessions
----@field crime crime_type
+---@field crime df.crime_type
 
----@class _agreement_details_data_plot_conviction: DFCompoundType
+---@class identity.agreement_details_data_plot_conviction: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_conviction = {}
 
----@return agreement_details_data_plot_conviction
+---@return df.agreement_details_data_plot_conviction
 function df.agreement_details_data_plot_conviction:new() end
 
----@class (exact) agreement_details_data_location: DFStruct
----@field _type _agreement_details_data_location
+---@class (exact) df.agreement_details_data_location: DFStruct
+---@field _type identity.agreement_details_data_location
 ---@field applicant number References: `agreement_party`
 ---@field government number References: `agreement_party`
 ---@field site number References: `world_site`
----@field type abstract_building_type
----@field deity_type temple_deity_type
----@field deity_data temple_deity_data
----@field profession profession
+---@field type df.abstract_building_type
+---@field deity_type df.temple_deity_type
+---@field deity_data df.temple_deity_data
+---@field profession df.profession
 ---@field tier number 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
 ---@field unk_v50_1 number
 
----@class _agreement_details_data_location: DFCompoundType
+---@class identity.agreement_details_data_location: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_location = {}
 
----@return agreement_details_data_location
+---@return df.agreement_details_data_location
 function df.agreement_details_data_location:new() end
 
----@class (exact) agreement_details_data_plot_infiltration_coup: DFStruct
----@field _type _agreement_details_data_plot_infiltration_coup
+---@class (exact) df.agreement_details_data_plot_infiltration_coup: DFStruct
+---@field _type identity.agreement_details_data_plot_infiltration_coup
 ---@field actor_index number agreement.parties index
 ---@field influencer_index number agreement.parties index
 ---@field target number action=8: site id, 9: entity id
 ---@field action number 8 and 9 seen. Probably matches up with corresponding hist fig Infiltrate_Society action
 
----@class _agreement_details_data_plot_infiltration_coup: DFCompoundType
+---@class identity.agreement_details_data_plot_infiltration_coup: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_infiltration_coup = {}
 
----@return agreement_details_data_plot_infiltration_coup
+---@return df.agreement_details_data_plot_infiltration_coup
 function df.agreement_details_data_plot_infiltration_coup:new() end
 
----@class (exact) agreement_details_data_plot_frame_treason: DFStruct
----@field _type _agreement_details_data_plot_frame_treason
+---@class (exact) df.agreement_details_data_plot_frame_treason: DFStruct
+---@field _type identity.agreement_details_data_plot_frame_treason
 ---@field actor_index number agreement.parties index
 ---@field influencer_index number agreement.parties index
 ---@field victim_id number References: `historical_figure`
 ---@field fool_id number References: `historical_figure`
 ---@field unk_1 number only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though References: `historical_figure`
 
----@class _agreement_details_data_plot_frame_treason: DFCompoundType
+---@class identity.agreement_details_data_plot_frame_treason: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_frame_treason = {}
 
----@return agreement_details_data_plot_frame_treason
+---@return df.agreement_details_data_plot_frame_treason
 function df.agreement_details_data_plot_frame_treason:new() end
 
----@class (exact) agreement_details_data_plot_induce_war: DFStruct
----@field _type _agreement_details_data_plot_induce_war
+---@class (exact) df.agreement_details_data_plot_induce_war: DFStruct
+---@field _type identity.agreement_details_data_plot_induce_war
 ---@field actor_index number agreement.parties index
 ---@field influencer_index number agreement.parties index
 ---@field attacker number References: `historical_entity`
 ---@field defender number References: `historical_entity`
 
----@class _agreement_details_data_plot_induce_war: DFCompoundType
+---@class identity.agreement_details_data_plot_induce_war: DFCompoundType
 ---@field _kind 'struct-type'
 df.agreement_details_data_plot_induce_war = {}
 
----@return agreement_details_data_plot_induce_war
+---@return df.agreement_details_data_plot_induce_war
 function df.agreement_details_data_plot_induce_war:new() end
 

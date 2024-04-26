@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias general_ref_type
+---@alias df.general_ref_type
 ---| -1 # NONE
 ---| 0 # ARTIFACT
 ---| 1 # IS_ARTIFACT
@@ -74,7 +74,7 @@
 ---| 68 # BUILDING_DISPLAY_FURNITURE
 ---| 69 # UNIT_INTERROGATEE
 
----@class _general_ref_type: DFEnumType
+---@class identity.general_ref_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ARTIFACT 0
@@ -219,39 +219,39 @@
 ---@field [69] "UNIT_INTERROGATEE"
 df.general_ref_type = {}
 
----@class (exact) general_ref: DFStruct
----@field _type _general_ref
+---@class (exact) df.general_ref: DFStruct
+---@field _type identity.general_ref
 local general_ref
 
 function general_ref:write_file() end
 
 function general_ref:read_file() end
 
----@return general_ref_type
+---@return df.general_ref_type
 function general_ref:getType() end
 
----@return item
+---@return df.item
 function general_ref:getItem() end
 
----@return unit
+---@return df.unit
 function general_ref:getUnit() end
 
----@return projectile
+---@return df.projectile
 function general_ref:getProjectile() end
 
----@return building
+---@return df.building
 function general_ref:getBuilding() end
 
----@return historical_entity
+---@return df.historical_entity
 function general_ref:getEntity() end
 
----@return artifact_record
+---@return df.artifact_record
 function general_ref:getArtifact() end
 
----@return nemesis_record
+---@return df.nemesis_record
 function general_ref:getNemesis() end
 
----@return activity_event
+---@return df.activity_event
 function general_ref:getEvent() end
 
 function general_ref:setID() end
@@ -263,7 +263,7 @@ function general_ref:setLocation() end
 
 function general_ref:getLocation() end
 
----@return general_ref
+---@return df.general_ref
 function general_ref:clone() end
 
 function general_ref:generateTitle() end
@@ -275,779 +275,779 @@ function general_ref:getDescription2() end
 function general_ref:getDescription3() end
 
 
----@class _general_ref: DFCompoundType
+---@class identity.general_ref: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref = {}
 
----@return general_ref
+---@return df.general_ref
 function df.general_ref:new() end
 
----@class (exact) general_ref_artifact: DFStruct, general_ref
----@field _type _general_ref_artifact
+---@class (exact) df.general_ref_artifact: DFStruct, df.general_ref
+---@field _type identity.general_ref_artifact
 ---@field artifact_id number References: `artifact_record`
 
----@class _general_ref_artifact: DFCompoundType
+---@class identity.general_ref_artifact: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_artifact = {}
 
----@return general_ref_artifact
+---@return df.general_ref_artifact
 function df.general_ref_artifact:new() end
 
----@class (exact) general_ref_nemesis: DFStruct, general_ref
----@field _type _general_ref_nemesis
+---@class (exact) df.general_ref_nemesis: DFStruct, df.general_ref
+---@field _type identity.general_ref_nemesis
 ---@field nemesis_id number References: `nemesis_record`
 
----@class _general_ref_nemesis: DFCompoundType
+---@class identity.general_ref_nemesis: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_nemesis = {}
 
----@return general_ref_nemesis
+---@return df.general_ref_nemesis
 function df.general_ref_nemesis:new() end
 
----@class (exact) general_ref_item: DFStruct, general_ref
----@field _type _general_ref_item
+---@class (exact) df.general_ref_item: DFStruct, df.general_ref
+---@field _type identity.general_ref_item
 ---@field item_id number References: `item`
 ---@field cached_index number lookup optimization, tries before binary search
 
----@class _general_ref_item: DFCompoundType
+---@class identity.general_ref_item: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_item = {}
 
----@return general_ref_item
+---@return df.general_ref_item
 function df.general_ref_item:new() end
 
----@class (exact) general_ref_item_type: DFStruct, general_ref
----@field _type _general_ref_item_type
----@field type item_type
+---@class (exact) df.general_ref_item_type: DFStruct, df.general_ref
+---@field _type identity.general_ref_item_type
+---@field type df.item_type
 ---@field subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _general_ref_item_type: DFCompoundType
+---@class identity.general_ref_item_type: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_item_type = {}
 
----@return general_ref_item_type
+---@return df.general_ref_item_type
 function df.general_ref_item_type:new() end
 
----@class (exact) general_ref_coinbatch: DFStruct, general_ref
----@field _type _general_ref_coinbatch
+---@class (exact) df.general_ref_coinbatch: DFStruct, df.general_ref
+---@field _type identity.general_ref_coinbatch
 ---@field batch number
 
----@class _general_ref_coinbatch: DFCompoundType
+---@class identity.general_ref_coinbatch: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_coinbatch = {}
 
----@return general_ref_coinbatch
+---@return df.general_ref_coinbatch
 function df.general_ref_coinbatch:new() end
 
----@class (exact) general_ref_mapsquare: DFStruct, general_ref
----@field _type _general_ref_mapsquare
----@field tiletype tiletype
+---@class (exact) df.general_ref_mapsquare: DFStruct, df.general_ref
+---@field _type identity.general_ref_mapsquare
+---@field tiletype df.tiletype
 ---@field mat_type number References: `material`
 ---@field mat_index number
 
----@class _general_ref_mapsquare: DFCompoundType
+---@class identity.general_ref_mapsquare: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_mapsquare = {}
 
----@return general_ref_mapsquare
+---@return df.general_ref_mapsquare
 function df.general_ref_mapsquare:new() end
 
----@class (exact) general_ref_entity_art_image: DFStruct, general_ref
----@field _type _general_ref_entity_art_image
+---@class (exact) df.general_ref_entity_art_image: DFStruct, df.general_ref
+---@field _type identity.general_ref_entity_art_image
 ---@field entity_id number References: `historical_entity`
 ---@field index number lookup in entity.resources.art_image_*
 
----@class _general_ref_entity_art_image: DFCompoundType
+---@class identity.general_ref_entity_art_image: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_entity_art_image = {}
 
----@return general_ref_entity_art_image
+---@return df.general_ref_entity_art_image
 function df.general_ref_entity_art_image:new() end
 
----@class (exact) general_ref_projectile: DFStruct, general_ref
----@field _type _general_ref_projectile
+---@class (exact) df.general_ref_projectile: DFStruct, df.general_ref
+---@field _type identity.general_ref_projectile
 ---@field projectile_id number References: `projectile`
 
----@class _general_ref_projectile: DFCompoundType
+---@class identity.general_ref_projectile: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_projectile = {}
 
----@return general_ref_projectile
+---@return df.general_ref_projectile
 function df.general_ref_projectile:new() end
 
----@class (exact) general_ref_unit: DFStruct, general_ref
----@field _type _general_ref_unit
+---@class (exact) df.general_ref_unit: DFStruct, df.general_ref
+---@field _type identity.general_ref_unit
 ---@field unit_id number References: `unit`
 ---@field cached_index number lookup optimization, tries before binary search
 
----@class _general_ref_unit: DFCompoundType
+---@class identity.general_ref_unit: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit = {}
 
----@return general_ref_unit
+---@return df.general_ref_unit
 function df.general_ref_unit:new() end
 
----@class (exact) general_ref_building: DFStruct, general_ref
----@field _type _general_ref_building
+---@class (exact) df.general_ref_building: DFStruct, df.general_ref
+---@field _type identity.general_ref_building
 ---@field building_id number References: `building`
 
----@class _general_ref_building: DFCompoundType
+---@class identity.general_ref_building: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building = {}
 
----@return general_ref_building
+---@return df.general_ref_building
 function df.general_ref_building:new() end
 
----@class (exact) general_ref_entity: DFStruct, general_ref
----@field _type _general_ref_entity
+---@class (exact) df.general_ref_entity: DFStruct, df.general_ref
+---@field _type identity.general_ref_entity
 ---@field entity_id number References: `historical_entity`
 
----@class _general_ref_entity: DFCompoundType
+---@class identity.general_ref_entity: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_entity = {}
 
----@return general_ref_entity
+---@return df.general_ref_entity
 function df.general_ref_entity:new() end
 
----@class (exact) general_ref_locationst: DFStruct, general_ref
----@field _type _general_ref_locationst
+---@class (exact) df.general_ref_locationst: DFStruct, df.general_ref
+---@field _type identity.general_ref_locationst
 ---@field x number
 ---@field y number
 ---@field z number
 
----@class _general_ref_locationst: DFCompoundType
+---@class identity.general_ref_locationst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_locationst = {}
 
----@return general_ref_locationst
+---@return df.general_ref_locationst
 function df.general_ref_locationst:new() end
 
----@class (exact) general_ref_interactionst: DFStruct, general_ref
----@field _type _general_ref_interactionst
+---@class (exact) df.general_ref_interactionst: DFStruct, df.general_ref
+---@field _type identity.general_ref_interactionst
 ---@field interaction_id number References: `interaction`
 ---@field source_id number References: `interaction_source`
 ---@field unk_08 number
 ---@field unk_0c number
 
----@class _general_ref_interactionst: DFCompoundType
+---@class identity.general_ref_interactionst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_interactionst = {}
 
----@return general_ref_interactionst
+---@return df.general_ref_interactionst
 function df.general_ref_interactionst:new() end
 
----@class (exact) general_ref_abstract_buildingst: DFStruct, general_ref
----@field _type _general_ref_abstract_buildingst
+---@class (exact) df.general_ref_abstract_buildingst: DFStruct, df.general_ref
+---@field _type identity.general_ref_abstract_buildingst
 ---@field site_id number References: `world_site`
 ---@field building_id number References: `abstract_building`
 
----@class _general_ref_abstract_buildingst: DFCompoundType
+---@class identity.general_ref_abstract_buildingst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_abstract_buildingst = {}
 
----@return general_ref_abstract_buildingst
+---@return df.general_ref_abstract_buildingst
 function df.general_ref_abstract_buildingst:new() end
 
----@class (exact) general_ref_historical_eventst: DFStruct, general_ref
----@field _type _general_ref_historical_eventst
+---@class (exact) df.general_ref_historical_eventst: DFStruct, df.general_ref
+---@field _type identity.general_ref_historical_eventst
 ---@field event_id number References: `history_event`
 
----@class _general_ref_historical_eventst: DFCompoundType
+---@class identity.general_ref_historical_eventst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_historical_eventst = {}
 
----@return general_ref_historical_eventst
+---@return df.general_ref_historical_eventst
 function df.general_ref_historical_eventst:new() end
 
----@class (exact) general_ref_spherest: DFStruct, general_ref
----@field _type _general_ref_spherest
----@field sphere_type sphere_type
+---@class (exact) df.general_ref_spherest: DFStruct, df.general_ref
+---@field _type identity.general_ref_spherest
+---@field sphere_type df.sphere_type
 
----@class _general_ref_spherest: DFCompoundType
+---@class identity.general_ref_spherest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_spherest = {}
 
----@return general_ref_spherest
+---@return df.general_ref_spherest
 function df.general_ref_spherest:new() end
 
----@class (exact) general_ref_sitest: DFStruct, general_ref
----@field _type _general_ref_sitest
+---@class (exact) df.general_ref_sitest: DFStruct, df.general_ref
+---@field _type identity.general_ref_sitest
 ---@field site_id number References: `world_site`
 
----@class _general_ref_sitest: DFCompoundType
+---@class identity.general_ref_sitest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_sitest = {}
 
----@return general_ref_sitest
+---@return df.general_ref_sitest
 function df.general_ref_sitest:new() end
 
----@class (exact) general_ref_subregionst: DFStruct, general_ref
----@field _type _general_ref_subregionst
+---@class (exact) df.general_ref_subregionst: DFStruct, df.general_ref
+---@field _type identity.general_ref_subregionst
 ---@field region_id number References: `world_region`
 
----@class _general_ref_subregionst: DFCompoundType
+---@class identity.general_ref_subregionst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_subregionst = {}
 
----@return general_ref_subregionst
+---@return df.general_ref_subregionst
 function df.general_ref_subregionst:new() end
 
----@class (exact) general_ref_feature_layerst: DFStruct, general_ref
----@field _type _general_ref_feature_layerst
+---@class (exact) df.general_ref_feature_layerst: DFStruct, df.general_ref
+---@field _type identity.general_ref_feature_layerst
 ---@field underground_region_id number References: `world_underground_region`
 
----@class _general_ref_feature_layerst: DFCompoundType
+---@class identity.general_ref_feature_layerst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_feature_layerst = {}
 
----@return general_ref_feature_layerst
+---@return df.general_ref_feature_layerst
 function df.general_ref_feature_layerst:new() end
 
----@class (exact) general_ref_historical_figurest: DFStruct, general_ref
----@field _type _general_ref_historical_figurest
+---@class (exact) df.general_ref_historical_figurest: DFStruct, df.general_ref
+---@field _type identity.general_ref_historical_figurest
 ---@field hist_figure_id number References: `historical_figure`
 
----@class _general_ref_historical_figurest: DFCompoundType
+---@class identity.general_ref_historical_figurest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_historical_figurest = {}
 
----@return general_ref_historical_figurest
+---@return df.general_ref_historical_figurest
 function df.general_ref_historical_figurest:new() end
 
----@class (exact) general_ref_entity_popst: DFStruct, general_ref
----@field _type _general_ref_entity_popst
+---@class (exact) df.general_ref_entity_popst: DFStruct, df.general_ref
+---@field _type identity.general_ref_entity_popst
 ---@field unk_1 number
 ---@field race number References: `creature_raw`
 ---@field unk_2 number
----@field flags undead_flags
+---@field flags df.undead_flags
 
----@class _general_ref_entity_popst: DFCompoundType
+---@class identity.general_ref_entity_popst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_entity_popst = {}
 
----@return general_ref_entity_popst
+---@return df.general_ref_entity_popst
 function df.general_ref_entity_popst:new() end
 
----@class (exact) general_ref_creaturest: DFStruct, general_ref
----@field _type _general_ref_creaturest
+---@class (exact) df.general_ref_creaturest: DFStruct, df.general_ref
+---@field _type identity.general_ref_creaturest
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field unk_1 number
 ---@field unk_2 number
----@field flags undead_flags
+---@field flags df.undead_flags
 
----@class _general_ref_creaturest: DFCompoundType
+---@class identity.general_ref_creaturest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_creaturest = {}
 
----@return general_ref_creaturest
+---@return df.general_ref_creaturest
 function df.general_ref_creaturest:new() end
 
----@class (exact) general_ref_knowledge_scholar_flagst: DFStruct, general_ref
----@field _type _general_ref_knowledge_scholar_flagst
----@field knowledge knowledge_scholar_category_flag
+---@class (exact) df.general_ref_knowledge_scholar_flagst: DFStruct, df.general_ref
+---@field _type identity.general_ref_knowledge_scholar_flagst
+---@field knowledge df.knowledge_scholar_category_flag
 
----@class _general_ref_knowledge_scholar_flagst: DFCompoundType
+---@class identity.general_ref_knowledge_scholar_flagst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_knowledge_scholar_flagst = {}
 
----@return general_ref_knowledge_scholar_flagst
+---@return df.general_ref_knowledge_scholar_flagst
 function df.general_ref_knowledge_scholar_flagst:new() end
 
----@class (exact) general_ref_activity_eventst: DFStruct, general_ref
----@field _type _general_ref_activity_eventst
+---@class (exact) df.general_ref_activity_eventst: DFStruct, df.general_ref
+---@field _type identity.general_ref_activity_eventst
 ---@field activity_id number References: `activity_entry`
 ---@field event_id number
 
----@class _general_ref_activity_eventst: DFCompoundType
+---@class identity.general_ref_activity_eventst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_activity_eventst = {}
 
----@return general_ref_activity_eventst
+---@return df.general_ref_activity_eventst
 function df.general_ref_activity_eventst:new() end
 
----@class (exact) general_ref_value_levelst: DFStruct, general_ref
----@field _type _general_ref_value_levelst
----@field value value_type
+---@class (exact) df.general_ref_value_levelst: DFStruct, df.general_ref
+---@field _type identity.general_ref_value_levelst
+---@field value df.value_type
 ---@field level number see http://dwarffortresswiki.org/index.php/DF2014:Personality_trait
 
----@class _general_ref_value_levelst: DFCompoundType
+---@class identity.general_ref_value_levelst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_value_levelst = {}
 
----@return general_ref_value_levelst
+---@return df.general_ref_value_levelst
 function df.general_ref_value_levelst:new() end
 
----@class (exact) general_ref_languagest: DFStruct, general_ref
----@field _type _general_ref_languagest
+---@class (exact) df.general_ref_languagest: DFStruct, df.general_ref
+---@field _type identity.general_ref_languagest
 ---@field unk_1 number
 
----@class _general_ref_languagest: DFCompoundType
+---@class identity.general_ref_languagest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_languagest = {}
 
----@return general_ref_languagest
+---@return df.general_ref_languagest
 function df.general_ref_languagest:new() end
 
----@class (exact) general_ref_written_contentst: DFStruct, general_ref
----@field _type _general_ref_written_contentst
+---@class (exact) df.general_ref_written_contentst: DFStruct, df.general_ref
+---@field _type identity.general_ref_written_contentst
 ---@field written_content_id number References: `written_content`
 
----@class _general_ref_written_contentst: DFCompoundType
+---@class identity.general_ref_written_contentst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_written_contentst = {}
 
----@return general_ref_written_contentst
+---@return df.general_ref_written_contentst
 function df.general_ref_written_contentst:new() end
 
----@class (exact) general_ref_poetic_formst: DFStruct, general_ref
----@field _type _general_ref_poetic_formst
+---@class (exact) df.general_ref_poetic_formst: DFStruct, df.general_ref
+---@field _type identity.general_ref_poetic_formst
 ---@field poetic_form_id number References: `poetic_form`
 
----@class _general_ref_poetic_formst: DFCompoundType
+---@class identity.general_ref_poetic_formst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_poetic_formst = {}
 
----@return general_ref_poetic_formst
+---@return df.general_ref_poetic_formst
 function df.general_ref_poetic_formst:new() end
 
----@class (exact) general_ref_musical_formst: DFStruct, general_ref
----@field _type _general_ref_musical_formst
+---@class (exact) df.general_ref_musical_formst: DFStruct, df.general_ref
+---@field _type identity.general_ref_musical_formst
 ---@field musical_form_id number References: `musical_form`
 
----@class _general_ref_musical_formst: DFCompoundType
+---@class identity.general_ref_musical_formst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_musical_formst = {}
 
----@return general_ref_musical_formst
+---@return df.general_ref_musical_formst
 function df.general_ref_musical_formst:new() end
 
----@class (exact) general_ref_dance_formst: DFStruct, general_ref
----@field _type _general_ref_dance_formst
+---@class (exact) df.general_ref_dance_formst: DFStruct, df.general_ref
+---@field _type identity.general_ref_dance_formst
 ---@field dance_form_id number References: `dance_form`
 
----@class _general_ref_dance_formst: DFCompoundType
+---@class identity.general_ref_dance_formst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_dance_formst = {}
 
----@return general_ref_dance_formst
+---@return df.general_ref_dance_formst
 function df.general_ref_dance_formst:new() end
 
----@class (exact) general_ref_is_artifactst: DFStruct, general_ref_artifact
----@field _type _general_ref_is_artifactst
+---@class (exact) df.general_ref_is_artifactst: DFStruct, df.general_ref_artifact
+---@field _type identity.general_ref_is_artifactst
 
----@class _general_ref_is_artifactst: DFCompoundType
+---@class identity.general_ref_is_artifactst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_is_artifactst = {}
 
----@return general_ref_is_artifactst
+---@return df.general_ref_is_artifactst
 function df.general_ref_is_artifactst:new() end
 
----@class (exact) general_ref_is_nemesisst: DFStruct, general_ref_nemesis
----@field _type _general_ref_is_nemesisst
+---@class (exact) df.general_ref_is_nemesisst: DFStruct, df.general_ref_nemesis
+---@field _type identity.general_ref_is_nemesisst
 
----@class _general_ref_is_nemesisst: DFCompoundType
+---@class identity.general_ref_is_nemesisst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_is_nemesisst = {}
 
----@return general_ref_is_nemesisst
+---@return df.general_ref_is_nemesisst
 function df.general_ref_is_nemesisst:new() end
 
----@class (exact) general_ref_contains_unitst: DFStruct, general_ref_unit
----@field _type _general_ref_contains_unitst
+---@class (exact) df.general_ref_contains_unitst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_contains_unitst
 
----@class _general_ref_contains_unitst: DFCompoundType
+---@class identity.general_ref_contains_unitst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_contains_unitst = {}
 
----@return general_ref_contains_unitst
+---@return df.general_ref_contains_unitst
 function df.general_ref_contains_unitst:new() end
 
----@class (exact) general_ref_contains_itemst: DFStruct, general_ref_item
----@field _type _general_ref_contains_itemst
+---@class (exact) df.general_ref_contains_itemst: DFStruct, df.general_ref_item
+---@field _type identity.general_ref_contains_itemst
 
----@class _general_ref_contains_itemst: DFCompoundType
+---@class identity.general_ref_contains_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_contains_itemst = {}
 
----@return general_ref_contains_itemst
+---@return df.general_ref_contains_itemst
 function df.general_ref_contains_itemst:new() end
 
----@class (exact) general_ref_contained_in_itemst: DFStruct, general_ref_item
----@field _type _general_ref_contained_in_itemst
+---@class (exact) df.general_ref_contained_in_itemst: DFStruct, df.general_ref_item
+---@field _type identity.general_ref_contained_in_itemst
 
----@class _general_ref_contained_in_itemst: DFCompoundType
+---@class identity.general_ref_contained_in_itemst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_contained_in_itemst = {}
 
----@return general_ref_contained_in_itemst
+---@return df.general_ref_contained_in_itemst
 function df.general_ref_contained_in_itemst:new() end
 
----@class (exact) general_ref_unit_milkeest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_milkeest
+---@class (exact) df.general_ref_unit_milkeest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_milkeest
 
----@class _general_ref_unit_milkeest: DFCompoundType
+---@class identity.general_ref_unit_milkeest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_milkeest = {}
 
----@return general_ref_unit_milkeest
+---@return df.general_ref_unit_milkeest
 function df.general_ref_unit_milkeest:new() end
 
----@class (exact) general_ref_unit_traineest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_traineest
+---@class (exact) df.general_ref_unit_traineest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_traineest
 
----@class _general_ref_unit_traineest: DFCompoundType
+---@class identity.general_ref_unit_traineest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_traineest = {}
 
----@return general_ref_unit_traineest
+---@return df.general_ref_unit_traineest
 function df.general_ref_unit_traineest:new() end
 
----@class (exact) general_ref_unit_itemownerst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_itemownerst
----@field flags general_ref_unit_itemownerst.T_flags
+---@class (exact) df.general_ref_unit_itemownerst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_itemownerst
+---@field flags df.general_ref_unit_itemownerst.T_flags
 
----@class _general_ref_unit_itemownerst: DFCompoundType
+---@class identity.general_ref_unit_itemownerst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_itemownerst = {}
 
----@return general_ref_unit_itemownerst
+---@return df.general_ref_unit_itemownerst
 function df.general_ref_unit_itemownerst:new() end
 
----@class general_ref_unit_itemownerst.T_flags: DFBitfield
----@field _enum _general_ref_unit_itemownerst.T_flags
+---@class df.general_ref_unit_itemownerst.T_flags: DFBitfield
+---@field _enum identity.general_ref_unit_itemownerst.flags
 ---@field litter boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 ---@field [0] boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 
----@class _general_ref_unit_itemownerst.T_flags: DFBitfieldType
+---@class identity.general_ref_unit_itemownerst.flags: DFBitfieldType
 ---@field litter 0 apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 ---@field [0] "litter" apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 df.general_ref_unit_itemownerst.T_flags = {}
 
----@class (exact) general_ref_unit_tradebringerst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_tradebringerst
+---@class (exact) df.general_ref_unit_tradebringerst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_tradebringerst
 
----@class _general_ref_unit_tradebringerst: DFCompoundType
+---@class identity.general_ref_unit_tradebringerst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_tradebringerst = {}
 
----@return general_ref_unit_tradebringerst
+---@return df.general_ref_unit_tradebringerst
 function df.general_ref_unit_tradebringerst:new() end
 
----@class (exact) general_ref_unit_holderst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_holderst
+---@class (exact) df.general_ref_unit_holderst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_holderst
 
----@class _general_ref_unit_holderst: DFCompoundType
+---@class identity.general_ref_unit_holderst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_holderst = {}
 
----@return general_ref_unit_holderst
+---@return df.general_ref_unit_holderst
 function df.general_ref_unit_holderst:new() end
 
----@class (exact) general_ref_unit_workerst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_workerst
+---@class (exact) df.general_ref_unit_workerst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_workerst
 
----@class _general_ref_unit_workerst: DFCompoundType
+---@class identity.general_ref_unit_workerst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_workerst = {}
 
----@return general_ref_unit_workerst
+---@return df.general_ref_unit_workerst
 function df.general_ref_unit_workerst:new() end
 
----@class (exact) general_ref_unit_cageest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_cageest
+---@class (exact) df.general_ref_unit_cageest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_cageest
 
----@class _general_ref_unit_cageest: DFCompoundType
+---@class identity.general_ref_unit_cageest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_cageest = {}
 
----@return general_ref_unit_cageest
+---@return df.general_ref_unit_cageest
 function df.general_ref_unit_cageest:new() end
 
----@class (exact) general_ref_unit_beateest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_beateest
+---@class (exact) df.general_ref_unit_beateest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_beateest
 
----@class _general_ref_unit_beateest: DFCompoundType
+---@class identity.general_ref_unit_beateest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_beateest = {}
 
----@return general_ref_unit_beateest
+---@return df.general_ref_unit_beateest
 function df.general_ref_unit_beateest:new() end
 
----@class (exact) general_ref_unit_foodreceiverst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_foodreceiverst
+---@class (exact) df.general_ref_unit_foodreceiverst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_foodreceiverst
 
----@class _general_ref_unit_foodreceiverst: DFCompoundType
+---@class identity.general_ref_unit_foodreceiverst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_foodreceiverst = {}
 
----@return general_ref_unit_foodreceiverst
+---@return df.general_ref_unit_foodreceiverst
 function df.general_ref_unit_foodreceiverst:new() end
 
----@class (exact) general_ref_unit_kidnapeest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_kidnapeest
+---@class (exact) df.general_ref_unit_kidnapeest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_kidnapeest
 
----@class _general_ref_unit_kidnapeest: DFCompoundType
+---@class identity.general_ref_unit_kidnapeest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_kidnapeest = {}
 
----@return general_ref_unit_kidnapeest
+---@return df.general_ref_unit_kidnapeest
 function df.general_ref_unit_kidnapeest:new() end
 
----@class (exact) general_ref_unit_patientst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_patientst
+---@class (exact) df.general_ref_unit_patientst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_patientst
 
----@class _general_ref_unit_patientst: DFCompoundType
+---@class identity.general_ref_unit_patientst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_patientst = {}
 
----@return general_ref_unit_patientst
+---@return df.general_ref_unit_patientst
 function df.general_ref_unit_patientst:new() end
 
----@class (exact) general_ref_unit_infantst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_infantst
+---@class (exact) df.general_ref_unit_infantst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_infantst
 
----@class _general_ref_unit_infantst: DFCompoundType
+---@class identity.general_ref_unit_infantst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_infantst = {}
 
----@return general_ref_unit_infantst
+---@return df.general_ref_unit_infantst
 function df.general_ref_unit_infantst:new() end
 
----@class (exact) general_ref_unit_slaughtereest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_slaughtereest
+---@class (exact) df.general_ref_unit_slaughtereest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_slaughtereest
 
----@class _general_ref_unit_slaughtereest: DFCompoundType
+---@class identity.general_ref_unit_slaughtereest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_slaughtereest = {}
 
----@return general_ref_unit_slaughtereest
+---@return df.general_ref_unit_slaughtereest
 function df.general_ref_unit_slaughtereest:new() end
 
----@class (exact) general_ref_unit_sheareest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_sheareest
+---@class (exact) df.general_ref_unit_sheareest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_sheareest
 
----@class _general_ref_unit_sheareest: DFCompoundType
+---@class identity.general_ref_unit_sheareest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_sheareest = {}
 
----@return general_ref_unit_sheareest
+---@return df.general_ref_unit_sheareest
 function df.general_ref_unit_sheareest:new() end
 
----@class (exact) general_ref_unit_suckeest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_suckeest
+---@class (exact) df.general_ref_unit_suckeest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_suckeest
 
----@class _general_ref_unit_suckeest: DFCompoundType
+---@class identity.general_ref_unit_suckeest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_suckeest = {}
 
----@return general_ref_unit_suckeest
+---@return df.general_ref_unit_suckeest
 function df.general_ref_unit_suckeest:new() end
 
----@class (exact) general_ref_unit_reporteest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_reporteest
+---@class (exact) df.general_ref_unit_reporteest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_reporteest
 
----@class _general_ref_unit_reporteest: DFCompoundType
+---@class identity.general_ref_unit_reporteest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_reporteest = {}
 
----@return general_ref_unit_reporteest
+---@return df.general_ref_unit_reporteest
 function df.general_ref_unit_reporteest:new() end
 
----@class (exact) general_ref_unit_riderst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_riderst
+---@class (exact) df.general_ref_unit_riderst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_riderst
 
----@class _general_ref_unit_riderst: DFCompoundType
+---@class identity.general_ref_unit_riderst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_riderst = {}
 
----@return general_ref_unit_riderst
+---@return df.general_ref_unit_riderst
 function df.general_ref_unit_riderst:new() end
 
----@class (exact) general_ref_unit_climberst: DFStruct, general_ref_unit
----@field _type _general_ref_unit_climberst
+---@class (exact) df.general_ref_unit_climberst: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_climberst
 
----@class _general_ref_unit_climberst: DFCompoundType
+---@class identity.general_ref_unit_climberst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_climberst = {}
 
----@return general_ref_unit_climberst
+---@return df.general_ref_unit_climberst
 function df.general_ref_unit_climberst:new() end
 
----@class (exact) general_ref_unit_geldeest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_geldeest
+---@class (exact) df.general_ref_unit_geldeest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_geldeest
 
----@class _general_ref_unit_geldeest: DFCompoundType
+---@class identity.general_ref_unit_geldeest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_geldeest = {}
 
----@return general_ref_unit_geldeest
+---@return df.general_ref_unit_geldeest
 function df.general_ref_unit_geldeest:new() end
 
----@class (exact) general_ref_unit_interrogateest: DFStruct, general_ref_unit
----@field _type _general_ref_unit_interrogateest
+---@class (exact) df.general_ref_unit_interrogateest: DFStruct, df.general_ref_unit
+---@field _type identity.general_ref_unit_interrogateest
 
----@class _general_ref_unit_interrogateest: DFCompoundType
+---@class identity.general_ref_unit_interrogateest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_unit_interrogateest = {}
 
----@return general_ref_unit_interrogateest
+---@return df.general_ref_unit_interrogateest
 function df.general_ref_unit_interrogateest:new() end
 
----@class (exact) general_ref_building_civzone_assignedst: DFStruct, general_ref_building
----@field _type _general_ref_building_civzone_assignedst
+---@class (exact) df.general_ref_building_civzone_assignedst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_civzone_assignedst
 
----@class _general_ref_building_civzone_assignedst: DFCompoundType
+---@class identity.general_ref_building_civzone_assignedst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_civzone_assignedst = {}
 
----@return general_ref_building_civzone_assignedst
+---@return df.general_ref_building_civzone_assignedst
 function df.general_ref_building_civzone_assignedst:new() end
 
----@class (exact) general_ref_building_triggerst: DFStruct, general_ref_building
----@field _type _general_ref_building_triggerst
+---@class (exact) df.general_ref_building_triggerst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_triggerst
 
----@class _general_ref_building_triggerst: DFCompoundType
+---@class identity.general_ref_building_triggerst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_triggerst = {}
 
----@return general_ref_building_triggerst
+---@return df.general_ref_building_triggerst
 function df.general_ref_building_triggerst:new() end
 
----@class (exact) general_ref_building_triggertargetst: DFStruct, general_ref_building
----@field _type _general_ref_building_triggertargetst
+---@class (exact) df.general_ref_building_triggertargetst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_triggertargetst
 
----@class _general_ref_building_triggertargetst: DFCompoundType
+---@class identity.general_ref_building_triggertargetst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_triggertargetst = {}
 
----@return general_ref_building_triggertargetst
+---@return df.general_ref_building_triggertargetst
 function df.general_ref_building_triggertargetst:new() end
 
----@class (exact) general_ref_building_chainst: DFStruct, general_ref_building
----@field _type _general_ref_building_chainst
+---@class (exact) df.general_ref_building_chainst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_chainst
 
----@class _general_ref_building_chainst: DFCompoundType
+---@class identity.general_ref_building_chainst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_chainst = {}
 
----@return general_ref_building_chainst
+---@return df.general_ref_building_chainst
 function df.general_ref_building_chainst:new() end
 
----@class (exact) general_ref_building_cagedst: DFStruct, general_ref_building
----@field _type _general_ref_building_cagedst
+---@class (exact) df.general_ref_building_cagedst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_cagedst
 
----@class _general_ref_building_cagedst: DFCompoundType
+---@class identity.general_ref_building_cagedst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_cagedst = {}
 
----@return general_ref_building_cagedst
+---@return df.general_ref_building_cagedst
 function df.general_ref_building_cagedst:new() end
 
----@class (exact) general_ref_building_holderst: DFStruct, general_ref_building
----@field _type _general_ref_building_holderst
+---@class (exact) df.general_ref_building_holderst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_holderst
 
----@class _general_ref_building_holderst: DFCompoundType
+---@class identity.general_ref_building_holderst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_holderst = {}
 
----@return general_ref_building_holderst
+---@return df.general_ref_building_holderst
 function df.general_ref_building_holderst:new() end
 
----@class (exact) general_ref_building_well_tag: DFStruct, general_ref_building
----@field _type _general_ref_building_well_tag
+---@class (exact) df.general_ref_building_well_tag: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_well_tag
 ---@field direction number
 
----@class _general_ref_building_well_tag: DFCompoundType
+---@class identity.general_ref_building_well_tag: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_well_tag = {}
 
----@return general_ref_building_well_tag
+---@return df.general_ref_building_well_tag
 function df.general_ref_building_well_tag:new() end
 
----@class (exact) general_ref_building_use_target_1st: DFStruct, general_ref_building
----@field _type _general_ref_building_use_target_1st
+---@class (exact) df.general_ref_building_use_target_1st: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_use_target_1st
 
----@class _general_ref_building_use_target_1st: DFCompoundType
+---@class identity.general_ref_building_use_target_1st: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_use_target_1st = {}
 
----@return general_ref_building_use_target_1st
+---@return df.general_ref_building_use_target_1st
 function df.general_ref_building_use_target_1st:new() end
 
----@class (exact) general_ref_building_use_target_2st: DFStruct, general_ref_building
----@field _type _general_ref_building_use_target_2st
+---@class (exact) df.general_ref_building_use_target_2st: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_use_target_2st
 
----@class _general_ref_building_use_target_2st: DFCompoundType
+---@class identity.general_ref_building_use_target_2st: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_use_target_2st = {}
 
----@return general_ref_building_use_target_2st
+---@return df.general_ref_building_use_target_2st
 function df.general_ref_building_use_target_2st:new() end
 
----@class (exact) general_ref_building_destinationst: DFStruct, general_ref_building
----@field _type _general_ref_building_destinationst
+---@class (exact) df.general_ref_building_destinationst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_destinationst
 
----@class _general_ref_building_destinationst: DFCompoundType
+---@class identity.general_ref_building_destinationst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_destinationst = {}
 
----@return general_ref_building_destinationst
+---@return df.general_ref_building_destinationst
 function df.general_ref_building_destinationst:new() end
 
----@class (exact) general_ref_building_nest_boxst: DFStruct, general_ref_building
----@field _type _general_ref_building_nest_boxst
+---@class (exact) df.general_ref_building_nest_boxst: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_nest_boxst
 
----@class _general_ref_building_nest_boxst: DFCompoundType
+---@class identity.general_ref_building_nest_boxst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_nest_boxst = {}
 
----@return general_ref_building_nest_boxst
+---@return df.general_ref_building_nest_boxst
 function df.general_ref_building_nest_boxst:new() end
 
----@class (exact) general_ref_building_display_furniturest: DFStruct, general_ref_building
----@field _type _general_ref_building_display_furniturest
+---@class (exact) df.general_ref_building_display_furniturest: DFStruct, df.general_ref_building
+---@field _type identity.general_ref_building_display_furniturest
 
----@class _general_ref_building_display_furniturest: DFCompoundType
+---@class identity.general_ref_building_display_furniturest: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_building_display_furniturest = {}
 
----@return general_ref_building_display_furniturest
+---@return df.general_ref_building_display_furniturest
 function df.general_ref_building_display_furniturest:new() end
 
----@class (exact) general_ref_entity_stolenst: DFStruct, general_ref_entity
----@field _type _general_ref_entity_stolenst
+---@class (exact) df.general_ref_entity_stolenst: DFStruct, df.general_ref_entity
+---@field _type identity.general_ref_entity_stolenst
 
----@class _general_ref_entity_stolenst: DFCompoundType
+---@class identity.general_ref_entity_stolenst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_entity_stolenst = {}
 
----@return general_ref_entity_stolenst
+---@return df.general_ref_entity_stolenst
 function df.general_ref_entity_stolenst:new() end
 
----@class (exact) general_ref_entity_offeredst: DFStruct, general_ref_entity
----@field _type _general_ref_entity_offeredst
+---@class (exact) df.general_ref_entity_offeredst: DFStruct, df.general_ref_entity
+---@field _type identity.general_ref_entity_offeredst
 
----@class _general_ref_entity_offeredst: DFCompoundType
+---@class identity.general_ref_entity_offeredst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_entity_offeredst = {}
 
----@return general_ref_entity_offeredst
+---@return df.general_ref_entity_offeredst
 function df.general_ref_entity_offeredst:new() end
 
----@class (exact) general_ref_entity_itemownerst: DFStruct, general_ref_entity
----@field _type _general_ref_entity_itemownerst
+---@class (exact) df.general_ref_entity_itemownerst: DFStruct, df.general_ref_entity
+---@field _type identity.general_ref_entity_itemownerst
 
----@class _general_ref_entity_itemownerst: DFCompoundType
+---@class identity.general_ref_entity_itemownerst: DFCompoundType
 ---@field _kind 'class-type'
 df.general_ref_entity_itemownerst = {}
 
----@return general_ref_entity_itemownerst
+---@return df.general_ref_entity_itemownerst
 function df.general_ref_entity_itemownerst:new() end
 
----@alias specific_ref_type
+---@alias df.specific_ref_type
 ---| -1 # NONE
 ---| 0 # BUILDING
 ---| 1 # UNIT
@@ -1078,7 +1078,7 @@ function df.general_ref_entity_itemownerst:new() end
 ---| 26 # ENTITY_POPULATION
 ---| 27 # BREED
 
----@class _specific_ref_type: DFEnumType
+---@class identity.specific_ref_type: DFEnumType
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BUILDING 0
@@ -1161,51 +1161,51 @@ df.specific_ref_type._attr_entry_type._fields = {}
 ---@field HIST_FIG { union_field: "histfig" }
 df.specific_ref_type.attrs = {}
 
----@class (exact) specific_ref: DFStruct
----@field _type _specific_ref
----@field type specific_ref_type
----@field data specific_ref.T_data
+---@class (exact) df.specific_ref: DFStruct
+---@field _type identity.specific_ref
+---@field type df.specific_ref_type
+---@field data df.specific_ref.T_data
 
----@class _specific_ref: DFCompoundType
+---@class identity.specific_ref: DFCompoundType
 ---@field _kind 'struct-type'
 df.specific_ref = {}
 
----@return specific_ref
+---@return df.specific_ref
 function df.specific_ref:new() end
 
----@class (exact) specific_ref.T_data: DFStruct
----@field _type _specific_ref.T_data
+---@class (exact) df.specific_ref.T_data: DFStruct
+---@field _type identity.specific_ref.data
 ---@field object DFPointer<integer> raw pointer
----@field unit unit
----@field activity activity_info
----@field screen viewscreen
----@field effect effect_info
----@field vermin vermin
----@field job job
----@field histfig historical_figure
----@field entity historical_entity
----@field wrestle specific_ref.T_data.T_wrestle
+---@field unit df.unit
+---@field activity df.activity_info
+---@field screen df.viewscreen
+---@field effect df.effect_info
+---@field vermin df.vermin
+---@field job df.job
+---@field histfig df.historical_figure
+---@field entity df.historical_entity
+---@field wrestle df.specific_ref.T_data.T_wrestle
 
----@class _specific_ref.T_data: DFCompoundType
+---@class identity.specific_ref.data: DFCompoundType
 ---@field _kind 'struct-type'
 df.specific_ref.T_data = {}
 
----@return specific_ref.T_data
+---@return df.specific_ref.T_data
 function df.specific_ref.T_data:new() end
 
----@class (exact) specific_ref.T_data.T_wrestle: DFStruct
----@field _type _specific_ref.T_data.T_wrestle
+---@class (exact) df.specific_ref.T_data.T_wrestle: DFStruct
+---@field _type identity.specific_ref.data.wrestle
 ---@field unk_1 DFPointer<integer>
----@field item unit_item_wrestle
+---@field item df.unit_item_wrestle
 
----@class _specific_ref.T_data.T_wrestle: DFCompoundType
+---@class identity.specific_ref.data.wrestle: DFCompoundType
 ---@field _kind 'struct-type'
 df.specific_ref.T_data.T_wrestle = {}
 
----@return specific_ref.T_data.T_wrestle
+---@return df.specific_ref.T_data.T_wrestle
 function df.specific_ref.T_data.T_wrestle:new() end
 
----@alias histfig_entity_link_type
+---@alias df.histfig_entity_link_type
 ---| 0 # MEMBER
 ---| 1 # FORMER_MEMBER
 ---| 2 # MERCENARY
@@ -1225,7 +1225,7 @@ function df.specific_ref.T_data.T_wrestle:new() end
 ---| 16 # FORMER_OCCUPATION
 ---| 17 # RESIDENT
 
----@class _histfig_entity_link_type: DFEnumType
+---@class identity.histfig_entity_link_type: DFEnumType
 ---@field MEMBER 0
 ---@field [0] "MEMBER"
 ---@field FORMER_MEMBER 1
@@ -1264,14 +1264,14 @@ function df.specific_ref.T_data.T_wrestle:new() end
 ---@field [17] "RESIDENT"
 df.histfig_entity_link_type = {}
 
----@class (exact) histfig_entity_link: DFStruct
----@field _type _histfig_entity_link
+---@class (exact) df.histfig_entity_link: DFStruct
+---@field _type identity.histfig_entity_link
 ---@field entity_id number References: `historical_entity`
 ---@field entity_vector_idx number
 ---@field link_strength number
 local histfig_entity_link
 
----@return histfig_entity_link_type
+---@return df.histfig_entity_link_type
 function histfig_entity_link:getType() end
 
 function histfig_entity_link:write_file() end
@@ -1293,203 +1293,203 @@ function histfig_entity_link:getPositionEndYear() end
 function histfig_entity_link:generate_xml() end
 
 
----@class _histfig_entity_link: DFCompoundType
+---@class identity.histfig_entity_link: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link = {}
 
----@return histfig_entity_link
+---@return df.histfig_entity_link
 function df.histfig_entity_link:new() end
 
----@class (exact) histfig_entity_link_memberst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_memberst
+---@class (exact) df.histfig_entity_link_memberst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_memberst
 
----@class _histfig_entity_link_memberst: DFCompoundType
+---@class identity.histfig_entity_link_memberst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_memberst = {}
 
----@return histfig_entity_link_memberst
+---@return df.histfig_entity_link_memberst
 function df.histfig_entity_link_memberst:new() end
 
----@class (exact) histfig_entity_link_former_memberst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_memberst
+---@class (exact) df.histfig_entity_link_former_memberst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_memberst
 
----@class _histfig_entity_link_former_memberst: DFCompoundType
+---@class identity.histfig_entity_link_former_memberst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_memberst = {}
 
----@return histfig_entity_link_former_memberst
+---@return df.histfig_entity_link_former_memberst
 function df.histfig_entity_link_former_memberst:new() end
 
----@class (exact) histfig_entity_link_mercenaryst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_mercenaryst
+---@class (exact) df.histfig_entity_link_mercenaryst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_mercenaryst
 
----@class _histfig_entity_link_mercenaryst: DFCompoundType
+---@class identity.histfig_entity_link_mercenaryst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_mercenaryst = {}
 
----@return histfig_entity_link_mercenaryst
+---@return df.histfig_entity_link_mercenaryst
 function df.histfig_entity_link_mercenaryst:new() end
 
----@class (exact) histfig_entity_link_former_mercenaryst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_mercenaryst
+---@class (exact) df.histfig_entity_link_former_mercenaryst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_mercenaryst
 
----@class _histfig_entity_link_former_mercenaryst: DFCompoundType
+---@class identity.histfig_entity_link_former_mercenaryst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_mercenaryst = {}
 
----@return histfig_entity_link_former_mercenaryst
+---@return df.histfig_entity_link_former_mercenaryst
 function df.histfig_entity_link_former_mercenaryst:new() end
 
----@class (exact) histfig_entity_link_slavest: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_slavest
+---@class (exact) df.histfig_entity_link_slavest: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_slavest
 
----@class _histfig_entity_link_slavest: DFCompoundType
+---@class identity.histfig_entity_link_slavest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_slavest = {}
 
----@return histfig_entity_link_slavest
+---@return df.histfig_entity_link_slavest
 function df.histfig_entity_link_slavest:new() end
 
----@class (exact) histfig_entity_link_former_slavest: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_slavest
+---@class (exact) df.histfig_entity_link_former_slavest: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_slavest
 
----@class _histfig_entity_link_former_slavest: DFCompoundType
+---@class identity.histfig_entity_link_former_slavest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_slavest = {}
 
----@return histfig_entity_link_former_slavest
+---@return df.histfig_entity_link_former_slavest
 function df.histfig_entity_link_former_slavest:new() end
 
----@class (exact) histfig_entity_link_prisonerst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_prisonerst
+---@class (exact) df.histfig_entity_link_prisonerst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_prisonerst
 
----@class _histfig_entity_link_prisonerst: DFCompoundType
+---@class identity.histfig_entity_link_prisonerst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_prisonerst = {}
 
----@return histfig_entity_link_prisonerst
+---@return df.histfig_entity_link_prisonerst
 function df.histfig_entity_link_prisonerst:new() end
 
----@class (exact) histfig_entity_link_former_prisonerst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_prisonerst
+---@class (exact) df.histfig_entity_link_former_prisonerst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_prisonerst
 
----@class _histfig_entity_link_former_prisonerst: DFCompoundType
+---@class identity.histfig_entity_link_former_prisonerst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_prisonerst = {}
 
----@return histfig_entity_link_former_prisonerst
+---@return df.histfig_entity_link_former_prisonerst
 function df.histfig_entity_link_former_prisonerst:new() end
 
----@class (exact) histfig_entity_link_enemyst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_enemyst
+---@class (exact) df.histfig_entity_link_enemyst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_enemyst
 
----@class _histfig_entity_link_enemyst: DFCompoundType
+---@class identity.histfig_entity_link_enemyst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_enemyst = {}
 
----@return histfig_entity_link_enemyst
+---@return df.histfig_entity_link_enemyst
 function df.histfig_entity_link_enemyst:new() end
 
----@class (exact) histfig_entity_link_criminalst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_criminalst
+---@class (exact) df.histfig_entity_link_criminalst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_criminalst
 
----@class _histfig_entity_link_criminalst: DFCompoundType
+---@class identity.histfig_entity_link_criminalst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_criminalst = {}
 
----@return histfig_entity_link_criminalst
+---@return df.histfig_entity_link_criminalst
 function df.histfig_entity_link_criminalst:new() end
 
----@class (exact) histfig_entity_link_positionst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_positionst
+---@class (exact) df.histfig_entity_link_positionst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_positionst
 ---@field assignment_id number
 ---@field assignment_vector_idx number
 ---@field start_year number ?
 
----@class _histfig_entity_link_positionst: DFCompoundType
+---@class identity.histfig_entity_link_positionst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_positionst = {}
 
----@return histfig_entity_link_positionst
+---@return df.histfig_entity_link_positionst
 function df.histfig_entity_link_positionst:new() end
 
----@class (exact) histfig_entity_link_former_positionst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_positionst
+---@class (exact) df.histfig_entity_link_former_positionst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_positionst
 ---@field assignment_id number
 ---@field start_year number
 ---@field end_year number
 
----@class _histfig_entity_link_former_positionst: DFCompoundType
+---@class identity.histfig_entity_link_former_positionst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_positionst = {}
 
----@return histfig_entity_link_former_positionst
+---@return df.histfig_entity_link_former_positionst
 function df.histfig_entity_link_former_positionst:new() end
 
----@class (exact) histfig_entity_link_position_claimst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_position_claimst
+---@class (exact) df.histfig_entity_link_position_claimst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_position_claimst
 ---@field assignment_id number
 ---@field start_year number
 
----@class _histfig_entity_link_position_claimst: DFCompoundType
+---@class identity.histfig_entity_link_position_claimst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_position_claimst = {}
 
----@return histfig_entity_link_position_claimst
+---@return df.histfig_entity_link_position_claimst
 function df.histfig_entity_link_position_claimst:new() end
 
----@class (exact) histfig_entity_link_squadst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_squadst
+---@class (exact) df.histfig_entity_link_squadst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_squadst
 ---@field squad_id number
 ---@field squad_position number
 ---@field start_year number
 
----@class _histfig_entity_link_squadst: DFCompoundType
+---@class identity.histfig_entity_link_squadst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_squadst = {}
 
----@return histfig_entity_link_squadst
+---@return df.histfig_entity_link_squadst
 function df.histfig_entity_link_squadst:new() end
 
----@class (exact) histfig_entity_link_former_squadst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_squadst
+---@class (exact) df.histfig_entity_link_former_squadst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_squadst
 ---@field squad_id number
 ---@field start_year number
 ---@field end_year number
 
----@class _histfig_entity_link_former_squadst: DFCompoundType
+---@class identity.histfig_entity_link_former_squadst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_squadst = {}
 
----@return histfig_entity_link_former_squadst
+---@return df.histfig_entity_link_former_squadst
 function df.histfig_entity_link_former_squadst:new() end
 
----@class (exact) histfig_entity_link_occupationst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_occupationst
+---@class (exact) df.histfig_entity_link_occupationst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_occupationst
 ---@field occupation_id number
 ---@field start_year number
 
----@class _histfig_entity_link_occupationst: DFCompoundType
+---@class identity.histfig_entity_link_occupationst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_occupationst = {}
 
----@return histfig_entity_link_occupationst
+---@return df.histfig_entity_link_occupationst
 function df.histfig_entity_link_occupationst:new() end
 
----@class (exact) histfig_entity_link_former_occupationst: DFStruct, histfig_entity_link
----@field _type _histfig_entity_link_former_occupationst
+---@class (exact) df.histfig_entity_link_former_occupationst: DFStruct, df.histfig_entity_link
+---@field _type identity.histfig_entity_link_former_occupationst
 ---@field occupation_id number
 ---@field start_year number
 ---@field end_year number
 
----@class _histfig_entity_link_former_occupationst: DFCompoundType
+---@class identity.histfig_entity_link_former_occupationst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_entity_link_former_occupationst = {}
 
----@return histfig_entity_link_former_occupationst
+---@return df.histfig_entity_link_former_occupationst
 function df.histfig_entity_link_former_occupationst:new() end
 
----@alias histfig_site_link_type
+---@alias df.histfig_site_link_type
 ---| 0 # OCCUPATION
 ---| 1 # SEAT_OF_POWER
 ---| 2 # HANGOUT
@@ -1501,7 +1501,7 @@ function df.histfig_entity_link_former_occupationst:new() end
 ---| 8 # PRISON_ABSTRACT_BUILDING
 ---| 9 # PRISON_SITE_BUILDING_PROFILE
 
----@class _histfig_site_link_type: DFEnumType
+---@class identity.histfig_site_link_type: DFEnumType
 ---@field OCCUPATION 0
 ---@field [0] "OCCUPATION"
 ---@field SEAT_OF_POWER 1
@@ -1524,14 +1524,14 @@ function df.histfig_entity_link_former_occupationst:new() end
 ---@field [9] "PRISON_SITE_BUILDING_PROFILE"
 df.histfig_site_link_type = {}
 
----@class (exact) histfig_site_link: DFStruct
----@field _type _histfig_site_link
+---@class (exact) df.histfig_site_link: DFStruct
+---@field _type identity.histfig_site_link
 ---@field site number References: `world_site`
 ---@field sub_id number from XML
 ---@field entity number References: `historical_entity`
 local histfig_site_link
 
----@return histfig_site_link_type
+---@return df.histfig_site_link_type
 function histfig_site_link:getType() end
 
 function histfig_site_link:write_file() end
@@ -1541,115 +1541,115 @@ function histfig_site_link:read_file() end
 function histfig_site_link:generate_xml() end
 
 
----@class _histfig_site_link: DFCompoundType
+---@class identity.histfig_site_link: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link = {}
 
----@return histfig_site_link
+---@return df.histfig_site_link
 function df.histfig_site_link:new() end
 
----@class (exact) histfig_site_link_occupationst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_occupationst
+---@class (exact) df.histfig_site_link_occupationst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_occupationst
 ---@field unk_1 number
 
----@class _histfig_site_link_occupationst: DFCompoundType
+---@class identity.histfig_site_link_occupationst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_occupationst = {}
 
----@return histfig_site_link_occupationst
+---@return df.histfig_site_link_occupationst
 function df.histfig_site_link_occupationst:new() end
 
----@class (exact) histfig_site_link_seat_of_powerst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_seat_of_powerst
+---@class (exact) df.histfig_site_link_seat_of_powerst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_seat_of_powerst
 
----@class _histfig_site_link_seat_of_powerst: DFCompoundType
+---@class identity.histfig_site_link_seat_of_powerst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_seat_of_powerst = {}
 
----@return histfig_site_link_seat_of_powerst
+---@return df.histfig_site_link_seat_of_powerst
 function df.histfig_site_link_seat_of_powerst:new() end
 
----@class (exact) histfig_site_link_hangoutst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_hangoutst
+---@class (exact) df.histfig_site_link_hangoutst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_hangoutst
 
----@class _histfig_site_link_hangoutst: DFCompoundType
+---@class identity.histfig_site_link_hangoutst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_hangoutst = {}
 
----@return histfig_site_link_hangoutst
+---@return df.histfig_site_link_hangoutst
 function df.histfig_site_link_hangoutst:new() end
 
----@class (exact) histfig_site_link_home_site_abstract_buildingst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_home_site_abstract_buildingst
+---@class (exact) df.histfig_site_link_home_site_abstract_buildingst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_home_site_abstract_buildingst
 
----@class _histfig_site_link_home_site_abstract_buildingst: DFCompoundType
+---@class identity.histfig_site_link_home_site_abstract_buildingst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_home_site_abstract_buildingst = {}
 
----@return histfig_site_link_home_site_abstract_buildingst
+---@return df.histfig_site_link_home_site_abstract_buildingst
 function df.histfig_site_link_home_site_abstract_buildingst:new() end
 
----@class (exact) histfig_site_link_home_site_realization_buildingst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_home_site_realization_buildingst
+---@class (exact) df.histfig_site_link_home_site_realization_buildingst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_home_site_realization_buildingst
 
----@class _histfig_site_link_home_site_realization_buildingst: DFCompoundType
+---@class identity.histfig_site_link_home_site_realization_buildingst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_home_site_realization_buildingst = {}
 
----@return histfig_site_link_home_site_realization_buildingst
+---@return df.histfig_site_link_home_site_realization_buildingst
 function df.histfig_site_link_home_site_realization_buildingst:new() end
 
----@class (exact) histfig_site_link_lairst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_lairst
+---@class (exact) df.histfig_site_link_lairst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_lairst
 
----@class _histfig_site_link_lairst: DFCompoundType
+---@class identity.histfig_site_link_lairst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_lairst = {}
 
----@return histfig_site_link_lairst
+---@return df.histfig_site_link_lairst
 function df.histfig_site_link_lairst:new() end
 
----@class (exact) histfig_site_link_home_site_realization_sulst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_home_site_realization_sulst
+---@class (exact) df.histfig_site_link_home_site_realization_sulst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_home_site_realization_sulst
 
----@class _histfig_site_link_home_site_realization_sulst: DFCompoundType
+---@class identity.histfig_site_link_home_site_realization_sulst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_home_site_realization_sulst = {}
 
----@return histfig_site_link_home_site_realization_sulst
+---@return df.histfig_site_link_home_site_realization_sulst
 function df.histfig_site_link_home_site_realization_sulst:new() end
 
----@class (exact) histfig_site_link_home_site_saved_civzonest: DFStruct, histfig_site_link
----@field _type _histfig_site_link_home_site_saved_civzonest
+---@class (exact) df.histfig_site_link_home_site_saved_civzonest: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_home_site_saved_civzonest
 
----@class _histfig_site_link_home_site_saved_civzonest: DFCompoundType
+---@class identity.histfig_site_link_home_site_saved_civzonest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_home_site_saved_civzonest = {}
 
----@return histfig_site_link_home_site_saved_civzonest
+---@return df.histfig_site_link_home_site_saved_civzonest
 function df.histfig_site_link_home_site_saved_civzonest:new() end
 
----@class (exact) histfig_site_link_prison_abstract_buildingst: DFStruct, histfig_site_link
----@field _type _histfig_site_link_prison_abstract_buildingst
+---@class (exact) df.histfig_site_link_prison_abstract_buildingst: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_prison_abstract_buildingst
 
----@class _histfig_site_link_prison_abstract_buildingst: DFCompoundType
+---@class identity.histfig_site_link_prison_abstract_buildingst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_prison_abstract_buildingst = {}
 
----@return histfig_site_link_prison_abstract_buildingst
+---@return df.histfig_site_link_prison_abstract_buildingst
 function df.histfig_site_link_prison_abstract_buildingst:new() end
 
----@class (exact) histfig_site_link_prison_site_building_profilest: DFStruct, histfig_site_link
----@field _type _histfig_site_link_prison_site_building_profilest
+---@class (exact) df.histfig_site_link_prison_site_building_profilest: DFStruct, df.histfig_site_link
+---@field _type identity.histfig_site_link_prison_site_building_profilest
 
----@class _histfig_site_link_prison_site_building_profilest: DFCompoundType
+---@class identity.histfig_site_link_prison_site_building_profilest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_site_link_prison_site_building_profilest = {}
 
----@return histfig_site_link_prison_site_building_profilest
+---@return df.histfig_site_link_prison_site_building_profilest
 function df.histfig_site_link_prison_site_building_profilest:new() end
 
----@alias histfig_hf_link_type
+---@alias df.histfig_hf_link_type
 ---| 0 # MOTHER
 ---| 1 # FATHER
 ---| 2 # SPOUSE
@@ -1667,7 +1667,7 @@ function df.histfig_site_link_prison_site_building_profilest:new() end
 ---| 14 # FORMER_SPOUSE
 ---| 15 # DECEASED_SPOUSE
 
----@class _histfig_hf_link_type: DFEnumType
+---@class identity.histfig_hf_link_type: DFEnumType
 ---@field MOTHER 0
 ---@field [0] "MOTHER"
 ---@field FATHER 1
@@ -1702,13 +1702,13 @@ function df.histfig_site_link_prison_site_building_profilest:new() end
 ---@field [15] "DECEASED_SPOUSE"
 df.histfig_hf_link_type = {}
 
----@class (exact) histfig_hf_link: DFStruct
----@field _type _histfig_hf_link
+---@class (exact) df.histfig_hf_link: DFStruct
+---@field _type identity.histfig_hf_link
 ---@field target_hf number References: `historical_figure`
 ---@field link_strength number
 local histfig_hf_link
 
----@return histfig_hf_link_type
+---@return df.histfig_hf_link_type
 function histfig_hf_link:getType() end
 
 function histfig_hf_link:write_file() end
@@ -1718,181 +1718,181 @@ function histfig_hf_link:read_file() end
 function histfig_hf_link:generate_xml() end
 
 
----@class _histfig_hf_link: DFCompoundType
+---@class identity.histfig_hf_link: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link = {}
 
----@return histfig_hf_link
+---@return df.histfig_hf_link
 function df.histfig_hf_link:new() end
 
----@class (exact) histfig_hf_link_motherst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_motherst
+---@class (exact) df.histfig_hf_link_motherst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_motherst
 
----@class _histfig_hf_link_motherst: DFCompoundType
+---@class identity.histfig_hf_link_motherst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_motherst = {}
 
----@return histfig_hf_link_motherst
+---@return df.histfig_hf_link_motherst
 function df.histfig_hf_link_motherst:new() end
 
----@class (exact) histfig_hf_link_fatherst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_fatherst
+---@class (exact) df.histfig_hf_link_fatherst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_fatherst
 
----@class _histfig_hf_link_fatherst: DFCompoundType
+---@class identity.histfig_hf_link_fatherst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_fatherst = {}
 
----@return histfig_hf_link_fatherst
+---@return df.histfig_hf_link_fatherst
 function df.histfig_hf_link_fatherst:new() end
 
----@class (exact) histfig_hf_link_spousest: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_spousest
+---@class (exact) df.histfig_hf_link_spousest: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_spousest
 
----@class _histfig_hf_link_spousest: DFCompoundType
+---@class identity.histfig_hf_link_spousest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_spousest = {}
 
----@return histfig_hf_link_spousest
+---@return df.histfig_hf_link_spousest
 function df.histfig_hf_link_spousest:new() end
 
----@class (exact) histfig_hf_link_childst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_childst
+---@class (exact) df.histfig_hf_link_childst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_childst
 
----@class _histfig_hf_link_childst: DFCompoundType
+---@class identity.histfig_hf_link_childst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_childst = {}
 
----@return histfig_hf_link_childst
+---@return df.histfig_hf_link_childst
 function df.histfig_hf_link_childst:new() end
 
----@class (exact) histfig_hf_link_deityst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_deityst
+---@class (exact) df.histfig_hf_link_deityst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_deityst
 
----@class _histfig_hf_link_deityst: DFCompoundType
+---@class identity.histfig_hf_link_deityst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_deityst = {}
 
----@return histfig_hf_link_deityst
+---@return df.histfig_hf_link_deityst
 function df.histfig_hf_link_deityst:new() end
 
----@class (exact) histfig_hf_link_loverst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_loverst
+---@class (exact) df.histfig_hf_link_loverst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_loverst
 
----@class _histfig_hf_link_loverst: DFCompoundType
+---@class identity.histfig_hf_link_loverst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_loverst = {}
 
----@return histfig_hf_link_loverst
+---@return df.histfig_hf_link_loverst
 function df.histfig_hf_link_loverst:new() end
 
----@class (exact) histfig_hf_link_prisonerst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_prisonerst
+---@class (exact) df.histfig_hf_link_prisonerst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_prisonerst
 
----@class _histfig_hf_link_prisonerst: DFCompoundType
+---@class identity.histfig_hf_link_prisonerst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_prisonerst = {}
 
----@return histfig_hf_link_prisonerst
+---@return df.histfig_hf_link_prisonerst
 function df.histfig_hf_link_prisonerst:new() end
 
----@class (exact) histfig_hf_link_imprisonerst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_imprisonerst
+---@class (exact) df.histfig_hf_link_imprisonerst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_imprisonerst
 
----@class _histfig_hf_link_imprisonerst: DFCompoundType
+---@class identity.histfig_hf_link_imprisonerst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_imprisonerst = {}
 
----@return histfig_hf_link_imprisonerst
+---@return df.histfig_hf_link_imprisonerst
 function df.histfig_hf_link_imprisonerst:new() end
 
----@class (exact) histfig_hf_link_masterst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_masterst
+---@class (exact) df.histfig_hf_link_masterst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_masterst
 
----@class _histfig_hf_link_masterst: DFCompoundType
+---@class identity.histfig_hf_link_masterst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_masterst = {}
 
----@return histfig_hf_link_masterst
+---@return df.histfig_hf_link_masterst
 function df.histfig_hf_link_masterst:new() end
 
----@class (exact) histfig_hf_link_apprenticest: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_apprenticest
+---@class (exact) df.histfig_hf_link_apprenticest: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_apprenticest
 
----@class _histfig_hf_link_apprenticest: DFCompoundType
+---@class identity.histfig_hf_link_apprenticest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_apprenticest = {}
 
----@return histfig_hf_link_apprenticest
+---@return df.histfig_hf_link_apprenticest
 function df.histfig_hf_link_apprenticest:new() end
 
----@class (exact) histfig_hf_link_companionst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_companionst
+---@class (exact) df.histfig_hf_link_companionst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_companionst
 ---@field unk_1 number
 ---@field unk_2 number
 
----@class _histfig_hf_link_companionst: DFCompoundType
+---@class identity.histfig_hf_link_companionst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_companionst = {}
 
----@return histfig_hf_link_companionst
+---@return df.histfig_hf_link_companionst
 function df.histfig_hf_link_companionst:new() end
 
----@class (exact) histfig_hf_link_former_apprenticest: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_former_apprenticest
+---@class (exact) df.histfig_hf_link_former_apprenticest: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_former_apprenticest
 
----@class _histfig_hf_link_former_apprenticest: DFCompoundType
+---@class identity.histfig_hf_link_former_apprenticest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_former_apprenticest = {}
 
----@return histfig_hf_link_former_apprenticest
+---@return df.histfig_hf_link_former_apprenticest
 function df.histfig_hf_link_former_apprenticest:new() end
 
----@class (exact) histfig_hf_link_former_masterst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_former_masterst
+---@class (exact) df.histfig_hf_link_former_masterst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_former_masterst
 
----@class _histfig_hf_link_former_masterst: DFCompoundType
+---@class identity.histfig_hf_link_former_masterst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_former_masterst = {}
 
----@return histfig_hf_link_former_masterst
+---@return df.histfig_hf_link_former_masterst
 function df.histfig_hf_link_former_masterst:new() end
 
----@class (exact) histfig_hf_link_pet_ownerst: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_pet_ownerst
+---@class (exact) df.histfig_hf_link_pet_ownerst: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_pet_ownerst
 
----@class _histfig_hf_link_pet_ownerst: DFCompoundType
+---@class identity.histfig_hf_link_pet_ownerst: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_pet_ownerst = {}
 
----@return histfig_hf_link_pet_ownerst
+---@return df.histfig_hf_link_pet_ownerst
 function df.histfig_hf_link_pet_ownerst:new() end
 
----@class (exact) histfig_hf_link_former_spousest: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_former_spousest
+---@class (exact) df.histfig_hf_link_former_spousest: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_former_spousest
 
----@class _histfig_hf_link_former_spousest: DFCompoundType
+---@class identity.histfig_hf_link_former_spousest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_former_spousest = {}
 
----@return histfig_hf_link_former_spousest
+---@return df.histfig_hf_link_former_spousest
 function df.histfig_hf_link_former_spousest:new() end
 
----@class (exact) histfig_hf_link_deceased_spousest: DFStruct, histfig_hf_link
----@field _type _histfig_hf_link_deceased_spousest
+---@class (exact) df.histfig_hf_link_deceased_spousest: DFStruct, df.histfig_hf_link
+---@field _type identity.histfig_hf_link_deceased_spousest
 
----@class _histfig_hf_link_deceased_spousest: DFCompoundType
+---@class identity.histfig_hf_link_deceased_spousest: DFCompoundType
 ---@field _kind 'class-type'
 df.histfig_hf_link_deceased_spousest = {}
 
----@return histfig_hf_link_deceased_spousest
+---@return df.histfig_hf_link_deceased_spousest
 function df.histfig_hf_link_deceased_spousest:new() end
 
----@alias entity_entity_link_type
+---@alias df.entity_entity_link_type
 ---| 0 # PARENT
 ---| 1 # CHILD
 ---| 2 # RELIGIOUS
 
----@class _entity_entity_link_type: DFEnumType
+---@class identity.entity_entity_link_type: DFEnumType
 ---@field PARENT 0
 ---@field [0] "PARENT"
 ---@field CHILD 1
@@ -1901,21 +1901,21 @@ function df.histfig_hf_link_deceased_spousest:new() end
 ---@field [2] "RELIGIOUS" Seen between religion and merc company.
 df.entity_entity_link_type = {}
 
----@class (exact) entity_entity_link: DFStruct
----@field _type _entity_entity_link
----@field type entity_entity_link_type
+---@class (exact) df.entity_entity_link: DFStruct
+---@field _type identity.entity_entity_link
+---@field type df.entity_entity_link_type
 ---@field target number References: `historical_entity`
 ---@field strength number
 
----@class _entity_entity_link: DFCompoundType
+---@class identity.entity_entity_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_entity_link = {}
 
----@return entity_entity_link
+---@return df.entity_entity_link
 function df.entity_entity_link:new() end
 
 -- Enum names updated per Putnam
----@alias entity_site_link_type
+---@alias df.entity_site_link_type
 ---| -1 # None
 ---| 0 # All
 ---| 1 # Inside_Wall
@@ -1924,7 +1924,7 @@ function df.entity_entity_link:new() end
 ---| 4 # Local_Activity
 
 -- Enum names updated per Putnam
----@class _entity_site_link_type: DFEnumType
+---@class identity.entity_site_link_type: DFEnumType
 ---@field None -1 Mostly guesswork, hence the 'research notes' below. Interacts highly with status<br>Putnam has provided us with some source details, so enum names have been amended to match what she provided
 ---@field [-1] "None" Mostly guesswork, hence the 'research notes' below. Interacts highly with status<br>Putnam has provided us with some source details, so enum names have been amended to match what she provided
 ---@field All 0 Probably inactive/failed/NA. Seen with status = 0/2/8/16/128/144/8192. Entities Civilization/SiteGovernment/NomadicGroup/Outcast (not all value/entity permutations)
@@ -1939,8 +1939,8 @@ function df.entity_entity_link:new() end
 ---@field [4] "Local_Activity"
 df.entity_site_link_type = {}
 
----@class entity_site_link_flags: DFBitfield
----@field _enum _entity_site_link_flags
+---@class df.entity_site_link_flags: DFBitfield
+---@field _enum identity.entity_site_link_flags
 ---@field residence boolean site is residence
 ---@field [0] boolean site is residence
 ---@field capital boolean site is capital
@@ -1976,7 +1976,7 @@ df.entity_site_link_type = {}
 ---@field holy_city boolean for the holy city of a religion
 ---@field [16] boolean for the holy city of a religion
 
----@class _entity_site_link_flags: DFBitfieldType
+---@class identity.entity_site_link_flags: DFBitfieldType
 ---@field residence 0 site is residence
 ---@field [0] "residence" site is residence
 ---@field capital 1 site is capital
@@ -2013,17 +2013,17 @@ df.entity_site_link_type = {}
 ---@field [16] "holy_city" for the holy city of a religion
 df.entity_site_link_flags = {}
 
----@class (exact) entity_site_link: DFStruct
----@field _type _entity_site_link
+---@class (exact) df.entity_site_link: DFStruct
+---@field _type identity.entity_site_link
 ---@field target number toady's name for this is entity_site_profilest References: `world_site`
 ---@field entity_id number this is a union in toady code but we can probably ignore that per putnam References: `historical_entity`
 ---@field entity_cache_index number not saved
 ---@field position_profile_id number index into entity.positions.assignments of Civilization (?)
----@field type entity_site_link_type called location in df source
+---@field type df.entity_site_link_type called location in df source
 ---@field start_hr number
 ---@field end_hr number
----@field flags entity_site_link_flags
----@field former_flag entity_site_link_flags
+---@field flags df.entity_site_link_flags
+---@field former_flag df.entity_site_link_flags
 ---@field link_strength number Summary: 0 seems to be active, 1, 2, 3, 5, 131, various cessations of activity. 8, 16, 128, 144, 8192 something unrelated, and the 129, 195 possible cessations"<br>0: Civilization/SiteGovernment/NomadicGroup/Religion/Outcast/MerchantCompany/Guild. Seems to be 'Active'. Civ can have 'Active' claim on site not held, while others seem to be currently active.<br>1: SiteGovernment/NomadicGroup/Outcast. Seems to be defeated and losing presence at the site. Nomads/Outcasts might not have been the masters of the site as single rampage can cause enmity of two entities.<br>2: Civilization: type = None/Active, (failed to find difference). All sites seen were either destroyed or abandoned, can be reclaimed, but without that flag set. No flags set except a possible 'fortress'. Note that no conquest was seen.<br>Outcast: type = Local_Activity. All have criminal flags. Some may have indications of having left, but some don't...<br>3: Outcast, all with type = Local_Activity. All seen were fully incorporated into other criminal gangs.<br>5: SiteGovernment/MilitaryUnit. All Fortress. All type = Claim. SiteGovernment just replaced w/o event. MercenaryCompay abandoned or were replaced silently, and no flags set.<br>8: All SiteGovernment with type = None. Seems to be references to SiteGovernments without any known relations. No flags set.<br>16: SiteGovernment/NomadicGroup with type = None. Seems to be references to entities without any known relations. No flags set.<br>128: SiteGovernment/NomadicGroup/Outcast with type = None. Seems to be references to entities without any known relations. No flags set.<br>129: NomadicGroup settling in destroyed site/site horribly experimented on, being present silently, and site getting destroyed again. type = Claim.<br>131: Outcast, type = Local_Activity. No flags. All relocated to site location, typically catacombs. All fully incorporated into other organization, as per 3.<br>144: NomadicGroup (only one entry). type = None. No flags. No apparent connection.<br>195: Outcast (only 2 entries). type = Local_Activity. No flags. Both moved to inn and became primary criminal org. One had lots of members moving from the inn. Different site destroyed in both cases. No incorporation seen, though.<br>8192: Civilization/SiteGovernment. type = None. No flags. No apparent connection.<br>former_flag is an accumulation of every flag the entity has ever had, any operation that clears part of flag also adds that flag to former_flag
 ---@field initial_controlling_population number all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
 ---@field last_check_controlling_population number same value as previous field
@@ -2033,11 +2033,11 @@ df.entity_site_link_flags = {}
 ---@field last_checked_army_year number all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
 ---@field last_checked_army_year_tick number paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 
----@class _entity_site_link: DFCompoundType
+---@class identity.entity_site_link: DFCompoundType
 ---@field _kind 'struct-type'
 df.entity_site_link = {}
 
----@return entity_site_link
+---@return df.entity_site_link
 function df.entity_site_link:new() end
 
 ---@class _entity_site_link_ab_profile: DFContainer
@@ -2056,14 +2056,14 @@ function _entity_site_link_ab_profile:insert(index, item) end
 ---@param index integer
 function _entity_site_link_ab_profile:erase(index) end
 
----@class undead_flags: DFBitfield
----@field _enum _undead_flags
+---@class df.undead_flags: DFBitfield
+---@field _enum identity.undead_flags
 ---@field zombie boolean
 ---@field [0] boolean
 ---@field ghostly boolean
 ---@field [1] boolean
 
----@class _undead_flags: DFBitfieldType
+---@class identity.undead_flags: DFBitfieldType
 ---@field zombie 0
 ---@field [0] "zombie"
 ---@field ghostly 1
