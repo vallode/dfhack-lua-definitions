@@ -91,9 +91,7 @@ module DFHackLuaDefinitions
       annotation = []
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@alias #{@class_name}\n"
-      @items.each do |item|
-        annotation << item.to_alias
-      end
+      annotation << @items.map(&:to_alias).join
       annotation.join
     end
 
@@ -114,9 +112,7 @@ module DFHackLuaDefinitions
       annotation << attribute_fields
 
       annotation << "---@class #{@class_name}_attrs\n"
-      @items.each do |item|
-        annotation << item.to_attrs
-      end
+      annotation << @items.map(&:to_attrs).join
       annotation << "df.#{@class_name}.attrs = {}\n\n"
     end
 
@@ -126,10 +122,7 @@ module DFHackLuaDefinitions
       annotation << "\n"
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class _#{@class_name}: DFEnumType\n"
-
-      @items.each do |item|
-        annotation << item.to_field
-      end
+      annotation << @items.map(&:to_field).join
       annotation << "df.#{@class_name} = {}\n\n"
 
       annotation << to_attrs unless @attributes.empty?
@@ -233,11 +226,7 @@ module DFHackLuaDefinitions
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class #{@class_name}: DFBitfield\n"
       annotation << "---@field _enum _#{@class_name}\n"
-      fields = []
-      @items.each do |item|
-        fields.append(item.to_field_bitfield) if item.render?
-      end
-      annotation << fields.join('')
+      annotation << @items.map(&:to_field_bitfield).join
       annotation << "\n"
       annotation.join
     end
@@ -246,9 +235,7 @@ module DFHackLuaDefinitions
       annotation = ''
       annotation << to_type
       annotation << "---@class _#{@class_name}: DFBitfieldType\n"
-      @items.each do |item|
-        annotation << item.to_field
-      end
+      annotation << @items.map(&:to_field).join
       annotation << "df.#{@class_name} = {}\n\n"
     end
   end
@@ -260,10 +247,6 @@ module DFHackLuaDefinitions
       @name = node['name']
       @value = index
       @comment = node['comment']
-    end
-
-    def render?
-      true
     end
 
     def to_alias_string
@@ -343,15 +326,11 @@ module DFHackLuaDefinitions
       end
 
       annotation << "---@field _type _#{@class_name}\n"
-      @fields.each do |field|
-        annotation << field.to_field if field
-      end
+      annotation << @fields.map(&:to_field).join
 
       unless @methods.empty?
         annotation << "local #{@class_name}\n\n"
-        @methods.each do |method|
-          annotation << method.render if method.render?
-        end
+        annotation << @methods.select(&:render?).map(&:render).join
       end
 
       annotation << "\n"
@@ -388,14 +367,11 @@ module DFHackLuaDefinitions
     end
 
     def render
-      annotation = to_object
+      annotation = []
+      annotation << to_object
       annotation << to_type
-
-      @fields.each do |subtype|
-        annotation << subtype.render if subtype.render?
-      end
-
-      annotation
+      annotation << @fields.select(&:render?).map(&:render).join
+      annotation.join
     end
   end
 
@@ -416,11 +392,7 @@ module DFHackLuaDefinitions
       annotation << "---@class df.global: DFGlobal\n"
       annotation << @fields.map(&:to_field).join
       annotation << "df.global = {}\n\n"
-
-      @fields.each do |field|
-        annotation << field.render if field.render?
-      end
-
+      annotation << @fields.select(&:render?).map(&:render).join
       annotation.join
     end
   end
@@ -582,9 +554,7 @@ module DFHackLuaDefinitions
 
     def render
       annotation = []
-      @methods.each do |method|
-        annotation << method.render if method.render?
-      end
+      annotation << @methods.select(&:render?).map(&:render).join
       annotation.join
     end
   end
