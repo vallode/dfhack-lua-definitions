@@ -239,13 +239,13 @@ def parse_xml_files(files)
 
       # Should only be applicable to df.globals
       globals = document.xpath('//ld:global-object')
-      output.write(DFHackLuaDefinitions::GlobalType.new(globals).render) unless globals.empty?
+      output.write(DFHackLuaDefinitions::GlobalType.new(nodes: globals).render) unless globals.empty?
 
       document.xpath('//ld:global-type').each do |node|
         meta = node['ld:meta']
         next unless HANDLERS[meta]
 
-        output.write(HANDLERS[meta].new(node).render)
+        output.write(HANDLERS[meta].new(node:).render)
       end
     end
   end

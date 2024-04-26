@@ -4,42 +4,43 @@ require_relative 'lua_ls'
 
 module DFHackLuaDefinitions
   class << self
+    # Attempts to return the relevant Ruby class for the provided XML node.
     def node_to_type(node, path)
       case node['ld:meta']
       when 'enum-type'
-        EnumType.new(node)
+        EnumType.new(node:)
       when 'bitfield-type'
-        BitfieldType.new(node)
+        BitfieldType.new(node:)
       when 'class-type', 'struct-type'
-        StructType.new(node)
+        StructType.new(node:)
       when 'static-array'
-        StaticArray.new(node, path)
+        StaticArray.new(node:, path:)
       when 'container'
-        Vector.new(node, path)
+        Vector.new(node:, path:)
       when 'compound'
         case node['ld:subtype']
         when 'bitfield'
-          BitfieldType.new(node, path)
+          BitfieldType.new(node:, path:)
         when 'enum'
-          EnumType.new(node, path)
+          EnumType.new(node:, path:)
         else
           raise "Unknown compound subtype: #{node.inspect}" if node['ld:subtype']
 
-          StructType.new(node, path)
+          StructType.new(node:, path:)
         end
       else
         raise "Unknown top-level node: #{node.inspect}" if node['ld:level'] == '0'
 
-        Field.new(node, path)
+        Field.new(node:, path:)
       end
     end
   end
 
   # Abstract node, named type or object reference.
   class Type
-    attr_reader :node
+    attr_reader :node, :type
 
-    def initialize(node, path = [])
+    def initialize(node:, path: [])
       @node = node
       @children = node.children
 
@@ -54,33 +55,31 @@ module DFHackLuaDefinitions
       end
 
       @class_name = @path.join('.')
+      @type = @class_name
+    end
+
+    def render?
+      true
     end
   end
 
+  # <enum-type> or <enum> in df-structures.
   class EnumType < Type
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @attributes = node.xpath('enum-attr')
       @items = items
-    end
-
-    def type
-      @class_name
     end
 
     def items
       index = 0
       @node.xpath('enum-item').map do |item|
         index = item['value'].to_i if item['value']
-        enum = EnumItem.new(item, index, @attributes)
+        enum = EnumItem.new(node: item, index:, attrs: @attributes)
         index += 1
         enum
       end
-    end
-
-    def render?
-      true
     end
 
     def to_field
@@ -139,12 +138,12 @@ module DFHackLuaDefinitions
   end
 
   class EnumItem
-    def initialize(field, index, attrs)
-      @field = field
+    def initialize(node:, index:, attrs:)
+      @field = node
 
-      @name = field['name']
-      @value = field['value'] || index
-      @comment = field['comment']
+      @name = node['name']
+      @value = node['value'] || index
+      @comment = node['comment']
 
       @enum_attrs = attrs
     end
@@ -209,22 +208,19 @@ module DFHackLuaDefinitions
   end
 
   class BitfieldType < Type
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
-      @items = items
+      @count = 0
+      @items = flag_bits
     end
 
-    def type
-      @class_name
-    end
-
-    def items
-      index = 0
+    # TODO: Check if this index is accurate.
+    def flag_bits
       @node.xpath('ld:field').map do |item|
-        flag = FlagBit.new(item, index)
-        index += item['count']&.to_i&.abs || 1
-        flag
+        FlagBit.new(node: item, index: @count).tap do
+          @count += item['count']&.to_i&.abs || 1
+        end
       end
     end
 
@@ -246,10 +242,6 @@ module DFHackLuaDefinitions
       annotation.join
     end
 
-    def render?
-      true
-    end
-
     def render
       annotation = ''
       annotation << to_type
@@ -262,12 +254,12 @@ module DFHackLuaDefinitions
   end
 
   class FlagBit
-    def initialize(field, index)
-      @field = field
+    def initialize(node:, index:)
+      @field = node
 
-      @name = field['name']
+      @name = node['name']
       @value = index
-      @comment = field['comment']
+      @comment = node['comment']
     end
 
     def render?
@@ -317,16 +309,12 @@ module DFHackLuaDefinitions
       'compound' => 'struct-type'
     }.freeze
 
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @class = node['inherits-from']
       @fields = fields
       @methods = methods
-    end
-
-    def type
-      @class_name
     end
 
     def fields
@@ -337,7 +325,7 @@ module DFHackLuaDefinitions
 
     def methods
       @node.xpath('virtual-methods').map do |node|
-        VirtualMethods.new(node, @path)
+        VirtualMethods.new(node:, path: @path)
       end
     end
 
@@ -402,10 +390,6 @@ module DFHackLuaDefinitions
       annotation
     end
 
-    def render?
-      true
-    end
-
     def render
       annotation = to_object
       annotation << to_type
@@ -419,14 +403,14 @@ module DFHackLuaDefinitions
   end
 
   class GlobalType
-    def initialize(nodes)
+    def initialize(nodes:)
       @nodes = nodes
       @fields = fields
     end
 
     def fields
       @nodes.map do |node|
-        GlobalObject.new(node, %w[global])
+        GlobalObject.new(node:, path: %w[global])
       end
     end
 
@@ -445,8 +429,8 @@ module DFHackLuaDefinitions
   end
 
   class GlobalObject < Type
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @child = child
       @type = @child.type
@@ -458,10 +442,6 @@ module DFHackLuaDefinitions
 
     def to_field
       LuaLS.field(@name, @type, @comment)
-    end
-
-    def render?
-      true
     end
 
     def render
@@ -476,8 +456,8 @@ module DFHackLuaDefinitions
   class Container < Type
     attr_accessor :type
 
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @name = node['name']
       @path = @path.slice(0..-1)
@@ -509,10 +489,6 @@ module DFHackLuaDefinitions
       LuaLS.field(@name, @type, @comment)
     end
 
-    def render?
-      true
-    end
-
     def render
       annotation = []
       annotation << @child.render if @child&.render?
@@ -523,8 +499,8 @@ module DFHackLuaDefinitions
   class StaticArray < Container
     attr_accessor :type
 
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
     end
 
     def render?
@@ -537,8 +513,8 @@ module DFHackLuaDefinitions
   class Vector < Container
     attr_accessor :type
 
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @type = @child&.type || @type
       @class_name = class_name
@@ -595,20 +571,16 @@ module DFHackLuaDefinitions
   end
 
   class VirtualMethods < Type
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @methods = methods
     end
 
     def methods
       @node.xpath('vmethod').map do |node|
-        VMethod.new(node, @path)
+        VMethod.new(node:, path: @path)
       end
-    end
-
-    def render?
-      true
     end
 
     def render
@@ -621,8 +593,8 @@ module DFHackLuaDefinitions
   end
 
   class VMethod < Type
-    def initialize(node, path = [])
-      super(node, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
       @name = node['name']
       # The name of the function is appended, we need to remove it.
@@ -631,7 +603,7 @@ module DFHackLuaDefinitions
     end
 
     def return_type
-      return Field.new(@node.at_xpath('ret-type')).type if @node.at_xpath('ret-type')
+      return Field.new(node: @node.at_xpath('ret-type')).type if @node.at_xpath('ret-type')
 
       node['ret-type']
     end
@@ -653,14 +625,14 @@ module DFHackLuaDefinitions
   class Field < Type
     attr_accessor :type
 
-    def initialize(field, path = [])
-      super(field, path)
+    def initialize(node:, path: [])
+      super(node:, path:)
 
-      @field = field
+      @field = node
       # TODO: Temporary until we add anon indexes.
-      @name = field['name'] || 'anon_'
-      @type = field['type-name'] || 'any'
-      @ref_target = field['ref-target']
+      @name = node['name'] || 'anon_'
+      @type = node['type-name'] || 'any'
+      @ref_target = node['ref-target']
       @comment = comment
 
       @type = 'DFPointer<integer>' if @type == 'any' && node['ld:meta'] == 'pointer'
