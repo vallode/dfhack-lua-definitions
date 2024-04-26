@@ -624,7 +624,7 @@ module DFHackLuaDefinitions
       annotation = []
       # TODO: Some logic for adding `@nodiscard`?
       # annotation << "---@nodiscard" unless ?
-      annotation << @arguments.map { |arg| "---@param #{arg.name} #{arg.type}\n" }
+      annotation << @arguments.map(&:to_param).join
       annotation << "---@return #{@return_type}\n" if @return_type
       annotation << "function #{@class_name}:#{@name}("
       annotation << @arguments.map(&:name).join(', ')
@@ -646,7 +646,7 @@ module DFHackLuaDefinitions
       @ref_target = node['ref-target']
       @comment = comment
 
-      @type = "df.#{@type}" unless LuaLS::TYPES.include?(@type)
+      @type = "df.#{@type}" unless LuaLS::TYPES.include? @type
       @type = 'DFPointer<integer>' if @type == 'any' && node['ld:meta'] == 'pointer'
     end
 
@@ -655,6 +655,13 @@ module DFHackLuaDefinitions
       comment << @field['comment'] if @field['comment']
       comment << "References: `#{@ref_target}`" if @ref_target
       comment.join(' ') unless comment.empty?
+    end
+
+    # Only used in vmethods
+    def to_param
+      @name = "_#{@name}" if DFHackLuaDefinitions::LuaLS::RESERVED_KEYWORDS.include? @name
+
+      LuaLS.param(@name, @type, comment: @comment)
     end
 
     def to_field

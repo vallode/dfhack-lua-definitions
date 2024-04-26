@@ -2483,36 +2483,36 @@ local history_event
 ---@return df.history_event_type
 function history_event:getType() end
 
----@param entity1 number
----@param entity2 number
+---@param entity1 number References: `historical_entity`
+---@param entity2 number References: `historical_entity`
 ---@return number
 function history_event:getWarStatus(entity1, entity2) end
 
----@param entity1 number
----@param entity2 number
+---@param entity1 number References: `historical_entity`
+---@param entity2 number References: `historical_entity`
 ---@return number
 function history_event:getAngerModifier(entity1, entity2) end
 
----@param entity1 number
----@param entity2 number
+---@param entity1 number References: `historical_entity`
+---@param entity2 number References: `historical_entity`
 ---@return number
 function history_event:getHappinessModifier(entity1, entity2) end
 
----@param entity1 number
----@param entity2 number
----@param site number
+---@param entity1 number References: `historical_entity`
+---@param entity2 number References: `historical_entity`
+---@param site number References: `world_site`
 ---@return boolean
 function history_event:madeFirstContact(entity1, entity2, site) end
 
----@param killer number
+---@param killer number References: `historical_figure`
 ---@return number
 function history_event:getKilledHistfigID(killer) end
 
----@param victim number
+---@param victim number References: `historical_figure`
 ---@return boolean
 function history_event:wasHistfigKilled(victim) end
 
----@param histfig number
+---@param histfig number References: `historical_figure`
 ---@return boolean
 function history_event:wasHistfigRevived(histfig) end
 
@@ -2538,51 +2538,51 @@ function history_event:getRelatedLayerIDs(vec) end
 ---@param vec DFPointer<integer>
 function history_event:getRelatedEntityIDs(vec) end
 
----@param histfig number
+---@param histfig number References: `historical_figure`
 ---@return boolean
 function history_event:isRelatedToHistfigID(histfig) end
 
----@param site number
+---@param site number References: `world_site`
 ---@return boolean
 function history_event:isRelatedToSiteID(site) end
 
----@param site number
----@param structure number
+---@param site number References: `world_site`
+---@param structure number References: `abstract_building`
 ---@return boolean
 function history_event:isRelatedToSiteStructure(site, structure) end
 
----@param artifact number
+---@param artifact number References: `artifact_record`
 ---@return boolean
 function history_event:isRelatedToArtifactID(artifact) end
 
----@param region number
+---@param region number References: `world_region`
 ---@return boolean
 function history_event:isRelatedToRegionID(region) end
 
----@param region number
+---@param region number References: `world_underground_region`
 ---@return boolean
 function history_event:isRelatedToLayerID(region) end
 
----@param agreement number
+---@param agreement number References: `agreement`
 ---@return boolean
 function history_event:isRelatedToAgreementID(agreement) end
 
----@param entity number
+---@param entity number References: `historical_entity`
 ---@return boolean
 function history_event:isRelatedToEntityID(entity) end
 
 ---@param str string
----@param context df.history_event_context
+---@param context df.history_event_context "In x, some event happened"
 function history_event:getSentence(str, context) end
 
 ---@param str string
----@param context df.history_event_context
+---@param context df.history_event_context "the happening of some event"
 function history_event:getPhrase(str, context) end
 
 ---@param image df.art_image
 function history_event:populateArtImage(image) end
 
----@param histfig number
+---@param histfig number References: `historical_figure`
 ---@return boolean
 function history_event:isChangedHistfigID(histfig) end
 

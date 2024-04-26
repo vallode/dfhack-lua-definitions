@@ -634,7 +634,7 @@ function item:isScrew() end
 ---@return boolean
 function item:isBuildMat() end
 
----@param anon_0 number
+---@param anon_0 number 1 fire, 2 magma
 ---@return boolean
 function item:isTemperatureSafe(anon_0) end
 
@@ -679,12 +679,12 @@ function item:isMatchingAmmoItem(anon_0) end
 ---@param subid DFPointer<integer>
 function item:getImageRef(id, subid) end
 
----@param civ_id number
----@param site_id number
+---@param civ_id number References: `historical_entity`
+---@param site_id number References: `world_site`
 function item:getImageCivSite(civ_id, site_id) end
 
----@param civ_id number
----@param site_id number
+---@param civ_id number References: `historical_entity`
+---@param site_id number References: `world_site`
 function item:setImageCivSite(civ_id, site_id) end
 
 ---@param level number
@@ -741,7 +741,7 @@ function item:getVolume() end
 ---@param unit df.unit
 ---@param mat_type number
 ---@param mat_index number
----@param shape number
+---@param shape number References: `descriptor_shape`
 ---@param force_quality number
 ---@param civ df.historical_entity
 ---@param site df.world_site
@@ -811,9 +811,9 @@ function item:isAnimal() end
 ---@return df.item_quality
 function item:assignQuality(maker, job_skill) end
 
----@param maker df.unit
+---@param maker df.unit called by assignQuality
 ---@param job_skill df.job_skill
----@param skill_roll number
+---@param skill_roll number preferences add 10 to this, need 55 to roll masterworks
 ---@return df.item_quality
 function item:assignQuality2(maker, job_skill, skill_roll) end
 
@@ -949,11 +949,11 @@ function item:isNotHeld() end
 ---@return boolean
 function item:isSplittable() end
 
----@param anon_0 df.historical_entity
+---@param anon_0 df.historical_entity add default thread improvement to items made of cloth
 function item:addDefaultThreadImprovement(anon_0) end
 
 ---@param anon_0 df.item
----@param anon_1 df.historical_entity
+---@param anon_1 df.historical_entity add a specific thread improvement to items made of cloth
 function item:addThreadImprovement(anon_0, anon_1) end
 
 function item:propagateUnitRefs() end
@@ -980,36 +980,36 @@ function item:isAutoClean() end
 ---@param x number
 ---@param y number
 ---@param z number
----@param local boolean
+---@param _local boolean
 ---@param contained boolean
 ---@return boolean
-function item:setTemperatureFromMapTile(x, y, z, local, contained) end
+function item:setTemperatureFromMapTile(x, y, z, _local, contained) end
 
----@param local boolean
+---@param _local boolean
 ---@param contained boolean
 ---@return boolean
-function item:setTemperatureFromMap(local, contained) end
+function item:setTemperatureFromMap(_local, contained) end
 
 ---@param temp integer
----@param local boolean
+---@param _local boolean
 ---@param contained boolean
 ---@return boolean
-function item:setTemperature(temp, local, contained) end
+function item:setTemperature(temp, _local, contained) end
 
----@param local boolean
+---@param _local boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier number
 ---@return boolean
-function item:updateTempFromMap(local, contained, adjust, multiplier) end
+function item:updateTempFromMap(_local, contained, adjust, multiplier) end
 
 ---@param temp integer
----@param local boolean
+---@param _local boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier number
 ---@return boolean
-function item:updateTemperature(temp, local, contained, adjust, multiplier) end
+function item:updateTemperature(temp, _local, contained, adjust, multiplier) end
 
 ---@return boolean
 function item:updateFromWeather() end
@@ -1054,7 +1054,7 @@ function item:getProjectileSize() end
 function item:isImprovable(anon_0, mat_type, mat_index) end
 
 ---@param item_quality number
----@param unk1 number
+---@param unk1 number when 0, set item_rockst sharpness to 0
 function item:setSharpness(item_quality, unk1) end
 
 ---@return number
@@ -1132,7 +1132,7 @@ function item:isImproved() end
 function item:getMagic() end
 
 ---@param anon_0 string
----@param plurality number
+---@param plurality number 0 = prickle berries [2], 1 = prickle berry, 2 = prickle berries
 function item:getItemDescription(anon_0, plurality) end
 
 ---@param anon_0 string
@@ -1254,7 +1254,7 @@ function item:getAbsorption() end
 ---@return boolean
 function item:isGemMaterial() end
 
----@param shape number
+---@param shape number References: `descriptor_shape`
 function item:setGemShape(shape) end
 
 ---@return boolean

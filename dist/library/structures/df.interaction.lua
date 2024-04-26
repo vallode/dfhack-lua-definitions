@@ -194,8 +194,8 @@ function interaction_effect:write_file(file) end
 function interaction_effect:read_file(file, loadversion) end
 
 ---@param target df.unit
----@param anon_0 DFPointer<integer>
----@param anon_1 boolean
+---@param anon_0 DFPointer<integer> has pointer-vector at offset 0x10
+---@param anon_1 boolean only used by animate
 function interaction_effect:activateOnUnit(target, anon_0, anon_1) end
 
 ---@param target df.item

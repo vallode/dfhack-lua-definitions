@@ -197,18 +197,18 @@ function reaction_reagent:getType() end
 function reaction_reagent:resolveTokens(reactionID) end
 
 ---@param anon_0 df.item
----@param index number
+---@param index number References: `reaction`
 ---@return boolean
 function reaction_reagent:matchesRoot(anon_0, index) end
 
 ---@param anon_0 df.item
----@param anon_1 df.reaction
----@param index number
+---@param anon_1 df.reaction or maybe reaction code string ref
+---@param index number References: `reaction`
 ---@return boolean
 function reaction_reagent:matchesChild(anon_0, anon_1, index) end
 
 ---@param anon_0 string
----@param index number
+---@param index number References: `reaction`
 function reaction_reagent:getDescription(anon_0, index) end
 
 ---@return boolean
@@ -299,10 +299,10 @@ function reaction_product:resolveTokens(reactionID) end
 ---@param in_items DFPointer<integer>
 ---@param quantity number
 ---@param skill df.job_skill
----@param job_quality number
+---@param job_quality number gets +10 for matching preferences, uses cutoffs 23/30/35/45/55 for Well/Fine/Superior/Exceptional/Masterwork
 ---@param entity df.historical_entity
 ---@param site df.world_site
----@param unk4 DFPointer<integer>
+---@param unk4 DFPointer<integer> only used when making improvements
 function reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
 
 ---@param desc string

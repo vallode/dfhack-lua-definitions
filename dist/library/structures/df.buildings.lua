@@ -631,7 +631,7 @@ function building:uncategorize() end
 ---@return number
 function building:getBaseValue() end
 
----@param new_state number
+---@param new_state number 0 = active/open, 1 = inactive/closed
 function building:setTriggerState(new_state) end
 
 ---@return boolean
@@ -671,7 +671,7 @@ function building:getDrawExtents(buffer) end
 
 ---@param curtick integer
 ---@param buffer df.building_drawbuffer
----@param z_offset number
+---@param z_offset number building_wellst only
 function building:drawBuilding(curtick, buffer, z_offset) end
 
 ---@return number

@@ -44,6 +44,15 @@ module DFHackLuaDefinitions
         annotation.join
       end
 
+      def param(name, type, comment: nil)
+        annotation = ['---@param']
+        annotation << " #{safe_name(name)}"
+        annotation << " #{type}"
+        annotation << " #{comment}" if comment
+        annotation << "\n"
+        annotation.join
+      end
+
       def field(name, type, comment = nil)
         annotation = ['---@field']
         annotation << " #{safe_name(name)}"

@@ -107,7 +107,7 @@ function itemimprovement:isDecoration() end
 ---@return number
 function itemimprovement:getDyeValue(caravan) end
 
----@param shape number
+---@param shape number References: `descriptor_shape`
 function itemimprovement:setShape(shape) end
 
 

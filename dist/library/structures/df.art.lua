@@ -36,7 +36,7 @@ function art_image_element:read_file(file, loadversion) end
 ---@return df.art_image_element_type
 function art_image_element:getType() end
 
----@param ID number
+---@param ID number race, item type, plant ID, or shape ID
 function art_image_element:setID(ID) end
 
 ---@return df.art_image_element
@@ -51,7 +51,7 @@ function art_image_element:getSymbol(sym, anon_0) end
 ---@param useName boolean
 function art_image_element:getName1(name, useThe, useName) end
 
----@param name string
+---@param name string seems to return like getName1 but with useName true
 ---@param anon_0 boolean
 function art_image_element:getName2(name, anon_0) end
 
