@@ -570,9 +570,12 @@ local squad_order
 ---@return df.squad_order
 function squad_order:clone() end
 
-function squad_order:write_file() end
+---@param file df.file_compressorst
+function squad_order:write_file(file) end
 
-function squad_order:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function squad_order:read_file(file, loadversion) end
 
 ---@return df.squad_order_type
 function squad_order:getType() end
@@ -580,15 +583,23 @@ function squad_order:getType() end
 ---@return boolean
 function squad_order:isPatrol() end
 
-function squad_order:offsetPosition() end
+---@param x number
+---@param y number
+---@param z number
+function squad_order:offsetPosition(x, y, z) end
 
-function squad_order:process() end
+---@param anon_0 number
+---@param anon_1 number
+---@param soldier df.unit
+function squad_order:process(anon_0, anon_1, soldier) end
 
+---@param soldier df.unit
 ---@return df.squad_order_cannot_reason
-function squad_order:reasonCannot() end
+function squad_order:reasonCannot(soldier) end
 
+---@param soldier df.unit
 ---@return boolean
-function squad_order:decUniformLock() end
+function squad_order:decUniformLock(soldier) end
 
 ---@return boolean
 function squad_order:isFulfilled() end
@@ -596,19 +607,23 @@ function squad_order:isFulfilled() end
 ---@return DFPointer<integer>
 function squad_order:getTargetUnits() end
 
+---@param soldier df.unit
 ---@return number
-function squad_order:getUniformType() end
+function squad_order:getUniformType(soldier) end
 
-function squad_order:getDescription() end
+---@param anon_0 string
+function squad_order:getDescription(anon_0) end
 
+---@param anon_0 number
 ---@return boolean
-function squad_order:isInactive() end
+function squad_order:isInactive(anon_0) end
 
 ---@return boolean
 function squad_order:isCombat() end
 
+---@param other df.squad_order
 ---@return boolean
-function squad_order:isEqual() end
+function squad_order:isEqual(other) end
 
 
 ---@class identity.squad_order: DFCompoundType

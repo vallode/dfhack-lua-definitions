@@ -93,14 +93,17 @@ df.dipscript_popup.T_flags = {}
 ---@field next_step_idx number
 local script_stepst
 
+---@param idx number
 ---@return boolean
-function script_stepst:setNextStep() end
+function script_stepst:setNextStep(idx) end
 
+---@param context df.script_environmentst
 ---@return number
-function script_stepst:execute() end
+function script_stepst:execute(context) end
 
+---@param context df.script_environmentst
 ---@return number
-function script_stepst:skip() end
+function script_stepst:skip(context) end
 
 
 ---@class identity.script_stepst: DFCompoundType
@@ -296,17 +299,26 @@ local active_script_varst
 
 function active_script_varst:setColor() end
 
-function active_script_varst:formatString() end
+---@param output string
+---@param format string
+function active_script_varst:formatString(output, format) end
 
-function active_script_varst:getValue() end
+---@param int_value number
+---@param ref_value df.specific_ref
+function active_script_varst:getValue(int_value, ref_value) end
 
-function active_script_varst:setValue() end
+---@param var df.meeting_variable
+function active_script_varst:setValue(var) end
 
-function active_script_varst:removeUnit() end
+---@param ref_value df.specific_ref
+function active_script_varst:removeUnit(ref_value) end
 
-function active_script_varst:write_file() end
+---@param file df.file_compressorst
+function active_script_varst:write_file(file) end
 
-function active_script_varst:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function active_script_varst:read_file(file, loadversion) end
 
 
 ---@class identity.active_script_varst: DFCompoundType
@@ -874,9 +886,12 @@ local activity_event
 ---@return df.activity_event_type
 function activity_event:getType() end
 
-function activity_event:write_file() end
+---@param file df.file_compressorst
+function activity_event:write_file(file) end
 
-function activity_event:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function activity_event:read_file(file, loadversion) end
 
 ---@return boolean
 function activity_event:isEmpty() end
@@ -884,35 +899,54 @@ function activity_event:isEmpty() end
 ---@return number
 function activity_event:get_building_id() end
 
-function activity_event:set_building_id() end
+---@param anon_0 number
+function activity_event:set_building_id(anon_0) end
 
 ---@return df.activity_event_participants
 function activity_event:getParticipantInfo() end
 
-function activity_event:dismiss() end
+---@param children_too boolean
+function activity_event:dismiss(children_too) end
 
-function activity_event:move() end
+---@param dx number
+---@param dy number
+---@param dz number
+function activity_event:move(dx, dy, dz) end
 
-function activity_event:removeParticipant() end
+---@param histfig number
+---@param unit number
+---@param anon_0 boolean
+function activity_event:removeParticipant(histfig, unit, anon_0) end
 
-function activity_event:follow_order() end
+---@param context df.dungeon_contextst
+---@param unit df.unit
+function activity_event:follow_order(context, unit) end
 
+---@param unit df.unit
 ---@return number
-function activity_event:checkDrillInvalid() end
+function activity_event:checkDrillInvalid(unit) end
 
+---@param anon_0 number
 ---@return boolean
-function activity_event:decUniformLock() end
+function activity_event:decUniformLock(anon_0) end
 
 ---@return df.squad_event_type
 function activity_event:getSquadEventType() end
 
-function activity_event:setDemoSkill() end
+---@param skill df.job_skill
+function activity_event:setDemoSkill(skill) end
 
-function activity_event:setSkillDemoTimers() end
+---@param wait_countdown number
+---@param train_rounds number
+---@param train_countdown number
+function activity_event:setSkillDemoTimers(wait_countdown, train_rounds, train_countdown) end
 
-function activity_event:adjustOrganizeCounter() end
+---@param amount number
+function activity_event:adjustOrganizeCounter(amount) end
 
-function activity_event:getOrganizer() end
+---@param hist_figure_id DFPointer<integer>
+---@param unit_id DFPointer<integer>
+function activity_event:getOrganizer(hist_figure_id, unit_id) end
 
 ---@return number
 function activity_event:getBuilding() end
@@ -923,7 +957,9 @@ function activity_event:isSparring() end
 ---@return number
 function activity_event:getUniformType() end
 
-function activity_event:getName() end
+---@param unit_id number
+---@param str string
+function activity_event:getName(unit_id, str) end
 
 
 ---@class identity.activity_event: DFCompoundType
@@ -1660,9 +1696,12 @@ function _activity_event_performancest_play_orders:erase(index) end
 ---@field unk_5 number
 local performance_play_orderst
 
-function performance_play_orderst:write_file() end
+---@param file df.file_compressorst
+function performance_play_orderst:write_file(file) end
 
-function performance_play_orderst:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function performance_play_orderst:read_file(file, loadversion) end
 
 
 ---@class identity.performance_play_orderst: DFCompoundType

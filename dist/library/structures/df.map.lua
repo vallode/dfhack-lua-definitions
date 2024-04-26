@@ -620,9 +620,12 @@ function df.cave_column_link:new() end
 ---@field flags df.cave_column.T_flags
 local cave_column
 
-function cave_column:write_file() end
+---@param file df.file_compressorst
+function cave_column:write_file(file) end
 
-function cave_column:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function cave_column:read_file(file, loadversion) end
 
 
 ---@class identity.cave_column: DFCompoundType
@@ -660,9 +663,12 @@ df.cave_column.T_flags = {}
 ---@field flags df.cave_column_rectangle.T_flags
 local cave_column_rectangle
 
-function cave_column_rectangle:write_file() end
+---@param file df.file_compressorst
+function cave_column_rectangle:write_file(file) end
 
-function cave_column_rectangle:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function cave_column_rectangle:read_file(file, loadversion) end
 
 
 ---@class identity.cave_column_rectangle: DFCompoundType
@@ -830,14 +836,20 @@ local block_square_event
 ---@return df.block_square_event_type
 function block_square_event:getType() end
 
-function block_square_event:write_file() end
+---@param file df.file_compressorst
+function block_square_event:write_file(file) end
 
-function block_square_event:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function block_square_event:read_file(file, loadversion) end
 
 ---@return boolean
 function block_square_event:isEmpty() end
 
-function block_square_event:checkTemperature() end
+---@param x number
+---@param y number
+---@param temperature number
+function block_square_event:checkTemperature(x, y, temperature) end
 
 
 ---@class identity.block_square_event: DFCompoundType
@@ -1066,11 +1078,17 @@ local feature
 ---@return df.feature_type
 function feature:getType() end
 
-function feature:write_file() end
+---@param file df.file_compressorst
+function feature:write_file(file) end
 
-function feature:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function feature:read_file(file, loadversion) end
 
-function feature:shiftCoords() end
+---@param x number
+---@param y number
+---@param z number
+function feature:shiftCoords(x, y, z) end
 
 
 ---@class identity.feature: DFCompoundType
@@ -1259,9 +1277,14 @@ local feature_init
 ---@return df.feature_type
 function feature_init:getType() end
 
-function feature_init:write_file() end
+---@param file df.file_compressorst
+---@param include_feature boolean
+function feature_init:write_file(file, include_feature) end
 
-function feature_init:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+---@param include_feature boolean
+function feature_init:read_file(file, loadversion, include_feature) end
 
 ---@return df.feature
 function feature_init:createFeature() end
@@ -1274,11 +1297,17 @@ function feature_init:destroyFeature() end
 ---@return df.feature
 function feature_init:getFeature() end
 
-function feature_init:getMaterial() end
+---@param mat_type number
+---@param mat_index number
+function feature_init:getMaterial(mat_type, mat_index) end
 
-function feature_init:getColor() end
+---@param foreground number
+---@param background number
+---@param bright number
+function feature_init:getColor(foreground, background, bright) end
 
-function feature_init:getName() end
+---@param name string
+function feature_init:getName(name) end
 
 ---@return boolean
 function feature_init:isWater() end
@@ -1475,9 +1504,12 @@ local feature_alteration
 ---@return df.feature_alteration_type
 function feature_alteration:getType() end
 
-function feature_alteration:write_file() end
+---@param file df.file_compressorst
+function feature_alteration:write_file(file) end
 
-function feature_alteration:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function feature_alteration:read_file(file, loadversion) end
 
 
 ---@class identity.feature_alteration: DFCompoundType
@@ -1540,9 +1572,12 @@ local world_construction_square
 ---@return df.world_construction_type
 function world_construction_square:getType() end
 
-function world_construction_square:write_file() end
+---@param file df.file_compressorst
+function world_construction_square:write_file(file) end
 
-function world_construction_square:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function world_construction_square:read_file(file, loadversion) end
 
 
 ---@class identity.world_construction_square: DFCompoundType
@@ -1618,9 +1653,12 @@ function world_construction:getType() end
 ---@return df.language_name
 function world_construction:getName() end
 
-function world_construction:write_file() end
+---@param file df.file_compressorst
+function world_construction:write_file(file) end
 
-function world_construction:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function world_construction:read_file(file, loadversion) end
 
 
 ---@class identity.world_construction: DFCompoundType
@@ -2068,11 +2106,17 @@ local flow_guide
 ---@return df.flow_guide_type
 function flow_guide:getType() end
 
-function flow_guide:shiftCoords() end
+---@param x number
+---@param y number
+---@param z number
+function flow_guide:shiftCoords(x, y, z) end
 
-function flow_guide:write_file() end
+---@param file df.file_compressorst
+function flow_guide:write_file(file) end
 
-function flow_guide:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function flow_guide:read_file(file, loadversion) end
 
 
 ---@class identity.flow_guide: DFCompoundType
@@ -2152,9 +2196,12 @@ local region_block_eventst
 ---@return df.region_block_event_type
 function region_block_eventst:getType() end
 
-function region_block_eventst:write_file() end
+---@param file df.file_compressorst
+function region_block_eventst:write_file(file) end
 
-function region_block_eventst:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function region_block_eventst:read_file(file, loadversion) end
 
 
 ---@class identity.region_block_eventst: DFCompoundType

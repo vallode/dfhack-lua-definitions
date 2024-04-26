@@ -223,9 +223,12 @@ df.general_ref_type = {}
 ---@field _type identity.general_ref
 local general_ref
 
-function general_ref:write_file() end
+---@param file df.file_compressorst
+function general_ref:write_file(file) end
 
-function general_ref:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function general_ref:read_file(file, loadversion) end
 
 ---@return df.general_ref_type
 function general_ref:getType() end
@@ -254,25 +257,37 @@ function general_ref:getNemesis() end
 ---@return df.activity_event
 function general_ref:getEvent() end
 
-function general_ref:setID() end
+---@param anon_0 number
+function general_ref:setID(anon_0) end
 
 ---@return number
 function general_ref:getID() end
 
-function general_ref:setLocation() end
+---@param x number
+---@param y number
+---@param z number
+function general_ref:setLocation(x, y, z) end
 
-function general_ref:getLocation() end
+---@param out_x number
+---@param out_y number
+---@param out_z number
+function general_ref:getLocation(out_x, out_y, out_z) end
 
 ---@return df.general_ref
 function general_ref:clone() end
 
-function general_ref:generateTitle() end
+---@param form df.written_content_type
+---@param title string
+function general_ref:generateTitle(form, title) end
 
-function general_ref:getDescription() end
+---@param str string
+function general_ref:getDescription(str) end
 
-function general_ref:getDescription2() end
+---@param str string
+function general_ref:getDescription2(str) end
 
-function general_ref:getDescription3() end
+---@param str string
+function general_ref:getDescription3(str) end
 
 
 ---@class identity.general_ref: DFCompoundType
@@ -1274,9 +1289,12 @@ local histfig_entity_link
 ---@return df.histfig_entity_link_type
 function histfig_entity_link:getType() end
 
-function histfig_entity_link:write_file() end
+---@param file df.file_compressorst
+function histfig_entity_link:write_file(file) end
 
-function histfig_entity_link:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function histfig_entity_link:read_file(file, loadversion) end
 
 ---@return number
 function histfig_entity_link:getPosition() end
@@ -1290,7 +1308,9 @@ function histfig_entity_link:getPositionStartYear() end
 ---@return number
 function histfig_entity_link:getPositionEndYear() end
 
-function histfig_entity_link:generate_xml() end
+---@param anon_0 lightuserdata
+---@param indent number
+function histfig_entity_link:generate_xml(anon_0, indent) end
 
 
 ---@class identity.histfig_entity_link: DFCompoundType
@@ -1534,11 +1554,16 @@ local histfig_site_link
 ---@return df.histfig_site_link_type
 function histfig_site_link:getType() end
 
-function histfig_site_link:write_file() end
+---@param file df.file_compressorst
+function histfig_site_link:write_file(file) end
 
-function histfig_site_link:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function histfig_site_link:read_file(file, loadversion) end
 
-function histfig_site_link:generate_xml() end
+---@param anon_0 lightuserdata
+---@param indent number
+function histfig_site_link:generate_xml(anon_0, indent) end
 
 
 ---@class identity.histfig_site_link: DFCompoundType
@@ -1711,11 +1736,16 @@ local histfig_hf_link
 ---@return df.histfig_hf_link_type
 function histfig_hf_link:getType() end
 
-function histfig_hf_link:write_file() end
+---@param file df.file_compressorst
+function histfig_hf_link:write_file(file) end
 
-function histfig_hf_link:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function histfig_hf_link:read_file(file, loadversion) end
 
-function histfig_hf_link:generate_xml() end
+---@param anon_0 lightuserdata
+---@param indent number
+function histfig_hf_link:generate_xml(anon_0, indent) end
 
 
 ---@class identity.histfig_hf_link: DFCompoundType

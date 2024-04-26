@@ -148,9 +148,12 @@ local resource_allotment_specifier
 ---@return df.resource_allotment_specifier_type
 function resource_allotment_specifier:getType() end
 
-function resource_allotment_specifier:write_file() end
+---@param file df.file_compressorst
+function resource_allotment_specifier:write_file(file) end
 
-function resource_allotment_specifier:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function resource_allotment_specifier:read_file(file, loadversion) end
 
 
 ---@class identity.resource_allotment_specifier: DFCompoundType

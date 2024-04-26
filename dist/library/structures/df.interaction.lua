@@ -186,22 +186,36 @@ local interaction_effect
 ---@return df.interaction_effect_type
 function interaction_effect:getType() end
 
-function interaction_effect:write_file() end
+---@param file df.file_compressorst
+function interaction_effect:write_file(file) end
 
-function interaction_effect:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function interaction_effect:read_file(file, loadversion) end
 
-function interaction_effect:activateOnUnit() end
+---@param target df.unit
+---@param anon_0 DFPointer<integer>
+---@param anon_1 boolean
+function interaction_effect:activateOnUnit(target, anon_0, anon_1) end
 
-function interaction_effect:activateOnItem() end
+---@param target df.item
+function interaction_effect:activateOnItem(target) end
 
-function interaction_effect:parseRaws() end
+---@param anon_0 number
+---@param anon_1 number
+---@param anon_2 number
+---@param anon_3 number
+---@param anon_4 number
+function interaction_effect:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
 
-function interaction_effect:finalize() end
+---@param anon_0 number
+function interaction_effect:finalize(anon_0) end
 
 function interaction_effect:applySyndromes() end
 
+---@param anon_0 df.syndrome
 ---@return boolean
-function interaction_effect:hasSyndrome() end
+function interaction_effect:hasSyndrome(anon_0) end
 
 
 ---@class identity.interaction_effect: DFCompoundType
@@ -525,11 +539,19 @@ local interaction_source
 ---@return df.interaction_source_type
 function interaction_source:getType() end
 
-function interaction_source:write_file() end
+---@param file df.file_compressorst
+function interaction_source:write_file(file) end
 
-function interaction_source:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function interaction_source:read_file(file, loadversion) end
 
-function interaction_source:parseRaws() end
+---@param anon_0 number
+---@param anon_1 number
+---@param anon_2 number
+---@param anon_3 number
+---@param anon_4 number
+function interaction_source:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
 
 
 ---@class identity.interaction_source: DFCompoundType
@@ -852,11 +874,19 @@ local interaction_target
 ---@return df.interaction_target_type
 function interaction_target:getType() end
 
-function interaction_target:write_file() end
+---@param file df.file_compressorst
+function interaction_target:write_file(file) end
 
-function interaction_target:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function interaction_target:read_file(file, loadversion) end
 
-function interaction_target:parseRaws() end
+---@param anon_0 number
+---@param anon_1 number
+---@param anon_2 number
+---@param anon_3 number
+---@param anon_4 number
+function interaction_target:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
 
 
 ---@class identity.interaction_target: DFCompoundType

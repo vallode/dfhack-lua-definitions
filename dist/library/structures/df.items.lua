@@ -480,11 +480,14 @@ function item:getMaterial() end
 ---@return number
 function item:getMaterialIndex() end
 
-function item:setSubtype() end
+---@param anon_0 number
+function item:setSubtype(anon_0) end
 
-function item:setMaterial() end
+---@param anon_0 number
+function item:setMaterial(anon_0) end
 
-function item:setMaterialIndex() end
+---@param anon_0 number
+function item:setMaterialIndex(anon_0) end
 
 ---@return number
 function item:getActualMaterial() end
@@ -504,7 +507,8 @@ function item:getPlantID() end
 ---@return number
 function item:getGrowthPrint() end
 
-function item:setGrowthPrint() end
+---@param print number
+function item:setGrowthPrint(print) end
 
 ---@return number
 function item:getDimension() end
@@ -512,10 +516,12 @@ function item:getDimension() end
 ---@return number
 function item:getTotalDimension() end
 
-function item:setDimension() end
+---@param amount number
+function item:setDimension(amount) end
 
+---@param amount number
 ---@return boolean
-function item:subtractDimension() end
+function item:subtractDimension(amount) end
 
 ---@return boolean
 function item:isFoodStorage() end
@@ -541,14 +547,16 @@ function item:containsPlaster() end
 ---@return boolean
 function item:isPlaster() end
 
+---@param anon_0 DFPointer<integer>
 ---@return boolean
-function item:getColorOverride() end
+function item:getColorOverride(anon_0) end
 
 ---@return DFPointer<integer>
 function item:getHistoryInfo() end
 
+---@param use df.tool_uses
 ---@return boolean
-function item:hasToolUse() end
+function item:hasToolUse(use) end
 
 ---@return boolean
 function item:hasInvertedTile() end
@@ -565,12 +573,14 @@ function item:isSharpStone() end
 ---@return boolean
 function item:isCrystalGlassable() end
 
+---@param matIndex number
 ---@return boolean
-function item:isMetalOre() end
+function item:isMetalOre(matIndex) end
 
 function item:clearLastTempUpdateTS() end
 
-function item:listNotableKills() end
+---@param string_ptr string
+function item:listNotableKills(string_ptr) end
 
 ---@return integer
 function item:getSpecHeat() end
@@ -602,15 +612,18 @@ function item:materialRots() end
 ---@return integer
 function item:getTemperature() end
 
+---@param target integer
+---@param unk number
 ---@return boolean
-function item:adjustTemperature() end
+function item:adjustTemperature(target, unk) end
 
 function item:extinguish() end
 
 ---@return number
 function item:getGloveHandedness() end
 
-function item:setGloveHandedness() end
+---@param anon_0 number
+function item:setGloveHandedness(anon_0) end
 
 ---@return boolean
 function item:isSpike() end
@@ -621,10 +634,12 @@ function item:isScrew() end
 ---@return boolean
 function item:isBuildMat() end
 
+---@param anon_0 number
 ---@return boolean
-function item:isTemperatureSafe() end
+function item:isTemperatureSafe(anon_0) end
 
-function item:setRandSubtype() end
+---@param entity_id number
+function item:setRandSubtype(entity_id) end
 
 ---@return number
 function item:getWeaponSize() end
@@ -632,14 +647,20 @@ function item:getWeaponSize() end
 ---@return number
 function item:getWear() end
 
-function item:setWear() end
+---@param anon_0 number
+function item:setWear(anon_0) end
 
 ---@return number
 function item:getMaker() end
 
-function item:setMaker() end
+---@param unit_id number
+function item:setMaker(unit_id) end
 
-function item:getCorpseInfo() end
+---@param prace number
+---@param pcaste number
+---@param phfig DFPointer<integer>
+---@param punit DFPointer<integer>
+function item:getCorpseInfo(prace, pcaste, phfig, punit) end
 
 ---@return df.caste_body_info
 function item:getBodyInfo() end
@@ -650,45 +671,58 @@ function item:getGloveFlags() end
 ---@return string
 function item:getItemShapeDesc() end
 
+---@param anon_0 df.item_filter_spec
 ---@return boolean
-function item:isMatchingAmmoItem() end
+function item:isMatchingAmmoItem(anon_0) end
 
-function item:getImageRef() end
+---@param id DFPointer<integer>
+---@param subid DFPointer<integer>
+function item:getImageRef(id, subid) end
 
-function item:getImageCivSite() end
+---@param civ_id number
+---@param site_id number
+function item:getImageCivSite(civ_id, site_id) end
 
-function item:setImageCivSite() end
+---@param civ_id number
+---@param site_id number
+function item:setImageCivSite(civ_id, site_id) end
 
-function item:setSeedsPlantSkillLevel() end
+---@param level number
+function item:setSeedsPlantSkillLevel(level) end
 
 ---@return number
 function item:getCorpseSize() end
 
+---@param amount number
 ---@return boolean
-function item:ageItem() end
+function item:ageItem(amount) end
 
 ---@return number
 function item:getCritterAirdrownTimer() end
 
-function item:setCritterAirdrownTimer() end
+---@param anon_0 number
+function item:setCritterAirdrownTimer(anon_0) end
 
 function item:incrementCritterAirdrownTimer() end
 
 ---@return number
 function item:getRotTimer() end
 
-function item:setRotTimer() end
+---@param val number
+function item:setRotTimer(val) end
 
 function item:incrementRotTimer() end
 
 ---@return boolean
 function item:isBogeymanCorpse() end
 
+---@param mat_flag df.material_flags
 ---@return boolean
-function item:testMaterialFlag() end
+function item:testMaterialFlag(mat_flag) end
 
+---@param anon_0 string
 ---@return string
-function item:getAmmoType() end
+function item:getAmmoType(anon_0) end
 
 ---@return boolean
 function item:isLiquidPowder() end
@@ -702,8 +736,21 @@ function item:isLiveAnimal() end
 ---@return number
 function item:getVolume() end
 
+---@param imp_type df.improvement_type
+---@param job df.job
+---@param unit df.unit
+---@param mat_type number
+---@param mat_index number
+---@param shape number
+---@param force_quality number
+---@param civ df.historical_entity
+---@param site df.world_site
+---@param tradegoodpurpose df.trade_good_purpose
+---@param suppress_shaping boolean
+---@param use_roll boolean
+---@param roll number
 ---@return df.itemimprovement
-function item:addImprovementFromJob() end
+function item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, force_quality, civ, site, tradegoodpurpose, suppress_shaping, use_roll, roll) end
 
 ---@return boolean
 function item:isWeapon() end
@@ -726,24 +773,32 @@ function item:isProcessableBarrel() end
 ---@return boolean
 function item:isEdiblePlant() end
 
+---@param hunger number
 ---@return boolean
-function item:isEdibleRaw() end
+function item:isEdibleRaw(hunger) end
 
+---@param hunger number
 ---@return boolean
-function item:isEdibleCarnivore() end
+function item:isEdibleCarnivore(hunger) end
 
+---@param hunger number
 ---@return boolean
-function item:isEdibleBonecarn() end
+function item:isEdibleBonecarn(hunger) end
 
+---@param x number
+---@param y number
+---@param z number
 ---@return boolean
-function item:moveToGround() end
+function item:moveToGround(x, y, z) end
 
-function item:categorize() end
+---@param in_play boolean
+function item:categorize(in_play) end
 
 function item:uncategorize() end
 
+---@param empty boolean
 ---@return boolean
-function item:isFurniture() end
+function item:isFurniture(empty) end
 
 ---@return boolean
 function item:isPressed() end
@@ -751,36 +806,59 @@ function item:isPressed() end
 ---@return boolean
 function item:isAnimal() end
 
+---@param maker df.unit
+---@param job_skill df.job_skill
 ---@return df.item_quality
-function item:assignQuality() end
+function item:assignQuality(maker, job_skill) end
 
+---@param maker df.unit
+---@param job_skill df.job_skill
+---@param skill_roll number
 ---@return df.item_quality
-function item:assignQuality2() end
+function item:assignQuality2(maker, job_skill, skill_roll) end
 
-function item:notifyCreatedMasterwork() end
+---@param maker df.unit
+---@param anon_0 DFPointer<integer>
+---@param anon_1 DFPointer<integer>
+function item:notifyCreatedMasterwork(maker, anon_0, anon_1) end
 
 function item:notifyLostMasterwork() end
 
-function item:addMagic() end
+---@param anon_0 number
+---@param anon_1 number
+---@param anon_2 number
+function item:addMagic(anon_0, anon_1, anon_2) end
 
-function item:magic_unk1() end
+---@param anon_0 number
+---@param anon_1 number
+function item:magic_unk1(anon_0, anon_1) end
 
-function item:magic_unk2() end
+---@param anon_0 number
+---@param anon_1 number
+function item:magic_unk2(anon_0, anon_1) end
 
-function item:magic_unk3() end
+---@param anon_0 number
+function item:magic_unk3(anon_0) end
 
-function item:magic_unk4() end
+---@param anon_0 number
+---@param anon_1 number
+---@param anon_2 number
+function item:magic_unk4(anon_0, anon_1, anon_2) end
 
-function item:setDisplayColor() end
+---@param anon_0 DFPointer<integer>
+function item:setDisplayColor(anon_0) end
 
 ---@return boolean
 function item:isDamagedByHeat() end
 
+---@param anon_0 number
 ---@return boolean
-function item:needTwoHandedWield() end
+function item:needTwoHandedWield(anon_0) end
 
+---@param stack_size number
+---@param preserve_containment boolean
 ---@return df.item
-function item:splitStack() end
+function item:splitStack(stack_size, preserve_containment) end
 
 ---@return boolean
 function item:isTameableVermin() end
@@ -788,8 +866,10 @@ function item:isTameableVermin() end
 ---@return boolean
 function item:isDye() end
 
+---@param anon_0 number
+---@param anon_1 number
 ---@return boolean
-function item:isMilkable() end
+function item:isMilkable(anon_0, anon_1) end
 
 ---@return boolean
 function item:isSandBearing() end
@@ -800,34 +880,65 @@ function item:isLyeBearing() end
 ---@return boolean
 function item:isAnimalProduct() end
 
-function item:getStorageInfo() end
+---@param item_type number
+---@param material_category number
+function item:getStorageInfo(item_type, material_category) end
 
+---@param delta number
+---@param simple boolean
+---@param lose_masterwork boolean
 ---@return boolean
-function item:addWear() end
+function item:addWear(delta, simple, lose_masterwork) end
 
+---@param delta number
 ---@return boolean
-function item:incWearTimer() end
+function item:incWearTimer(delta) end
 
+---@param simple boolean
+---@param lose_masterwork boolean
 ---@return boolean
-function item:checkWearDestroy() end
+function item:checkWearDestroy(simple, lose_masterwork) end
 
-function item:addContaminant() end
+---@param mat_type number
+---@param mat_index number
+---@param mat_state df.matter_state
+---@param temp integer
+---@param size number
+---@param body_part_id number
+---@param flags integer
+function item:addContaminant(mat_type, mat_index, mat_state, temp, size, body_part_id, flags) end
 
-function item:removeContaminantByIdx() end
+---@param index number
+---@param amount number
+function item:removeContaminantByIdx(index, amount) end
 
-function item:removeContaminant() end
+---@param mat_type number
+---@param mat_index number
+---@param amount number
+function item:removeContaminant(mat_type, mat_index, amount) end
 
-function item:tradeUnitContaminants() end
+---@param anon_0 df.unit
+---@param body_part_id number
+function item:tradeUnitContaminants(anon_0, body_part_id) end
 
-function item:tradeItemContaminants() end
+---@param anon_0 df.item
+function item:tradeItemContaminants(anon_0) end
 
-function item:tradeItemContaminants2() end
+---@param anon_0 df.item_actual
+function item:tradeItemContaminants2(anon_0) end
 
-function item:contaminateWound() end
+---@param anon_0 df.unit
+---@param anon_1 df.unit_wound
+---@param shift integer
+---@param body_part_id number
+function item:contaminateWound(anon_0, anon_1, shift, body_part_id) end
 
-function item:write_file() end
+---@param file df.file_compressorst
+function item:write_file(file) end
 
-function item:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function item:read_file(file, loadversion) end
 
 ---@return DFPointer<integer>
 function item:getWeaponAttacks() end
@@ -838,9 +949,12 @@ function item:isNotHeld() end
 ---@return boolean
 function item:isSplittable() end
 
-function item:addDefaultThreadImprovement() end
+---@param anon_0 df.historical_entity
+function item:addDefaultThreadImprovement(anon_0) end
 
-function item:addThreadImprovement() end
+---@param anon_0 df.item
+---@param anon_1 df.historical_entity
+function item:addThreadImprovement(anon_0, anon_1) end
 
 function item:propagateUnitRefs() end
 
@@ -850,30 +964,52 @@ function item:isSand() end
 ---@return number
 function item:getStackSize() end
 
-function item:addStackSize() end
+---@param amount number
+function item:addStackSize(amount) end
 
-function item:setStackSize() end
+---@param amount number
+function item:setStackSize(amount) end
 
+---@param anon_0 string
 ---@return boolean
-function item:isAmmoClass() end
+function item:isAmmoClass(anon_0) end
 
 ---@return boolean
 function item:isAutoClean() end
 
+---@param x number
+---@param y number
+---@param z number
+---@param local boolean
+---@param contained boolean
 ---@return boolean
-function item:setTemperatureFromMapTile() end
+function item:setTemperatureFromMapTile(x, y, z, local, contained) end
 
+---@param local boolean
+---@param contained boolean
 ---@return boolean
-function item:setTemperatureFromMap() end
+function item:setTemperatureFromMap(local, contained) end
 
+---@param temp integer
+---@param local boolean
+---@param contained boolean
 ---@return boolean
-function item:setTemperature() end
+function item:setTemperature(temp, local, contained) end
 
+---@param local boolean
+---@param contained boolean
+---@param adjust boolean
+---@param multiplier number
 ---@return boolean
-function item:updateTempFromMap() end
+function item:updateTempFromMap(local, contained, adjust, multiplier) end
 
+---@param temp integer
+---@param local boolean
+---@param contained boolean
+---@param adjust boolean
+---@param multiplier number
 ---@return boolean
-function item:updateTemperature() end
+function item:updateTemperature(temp, local, contained, adjust, multiplier) end
 
 ---@return boolean
 function item:updateFromWeather() end
@@ -896,7 +1032,8 @@ function item:getMeleeSkill() end
 ---@return number
 function item:getRangedSkill() end
 
-function item:setQuality() end
+---@param quality number
+function item:setQuality(quality) end
 
 ---@return number
 function item:getQuality() end
@@ -910,10 +1047,15 @@ function item:getImprovementQuality() end
 ---@return number
 function item:getProjectileSize() end
 
+---@param anon_0 df.job
+---@param mat_type number
+---@param mat_index number
 ---@return boolean
-function item:isImprovable() end
+function item:isImprovable(anon_0, mat_type, mat_index) end
 
-function item:setSharpness() end
+---@param item_quality number
+---@param unk1 number
+function item:setSharpness(item_quality, unk1) end
 
 ---@return number
 function item:getSharpness() end
@@ -939,8 +1081,12 @@ function item:canHaveImageSewnOnto() end
 ---@return boolean
 function item:isProcessableVialAtStill() end
 
+---@param item_type df.item_type
+---@param item_subtype number
+---@param mat_type number
+---@param mat_index number
 ---@return boolean
-function item:isSimilarToItem() end
+function item:isSimilarToItem(item_type, item_subtype, mat_type, mat_index) end
 
 ---@return number
 function item:getBlockChance() end
@@ -951,7 +1097,8 @@ function item:getParryChance() end
 ---@return number
 function item:getMakerRace() end
 
-function item:setMakerRace() end
+---@param anon_0 number
+function item:setMakerRace(anon_0) end
 
 ---@return number
 function item:getEffectiveArmorLevel() end
@@ -965,10 +1112,15 @@ function item:isItemOrganicCloth() end
 ---@return boolean
 function item:isMadeOfOrganicCloth() end
 
-function item:coverWithContaminant() end
+---@param mat_type number
+---@param mat_index number
+---@param mat_state df.matter_state
+---@param temperature integer
+function item:coverWithContaminant(mat_type, mat_index, mat_state, temperature) end
 
+---@param imp_type df.improvement_type
 ---@return boolean
-function item:hasSpecificImprovements() end
+function item:hasSpecificImprovements(imp_type) end
 
 ---@return boolean
 function item:hasImprovements() end
@@ -979,14 +1131,20 @@ function item:isImproved() end
 ---@return DFPointer<integer>
 function item:getMagic() end
 
-function item:getItemDescription() end
+---@param anon_0 string
+---@param plurality number
+function item:getItemDescription(anon_0, plurality) end
 
-function item:getItemDescriptionPrefix() end
+---@param anon_0 string
+---@param mode number
+function item:getItemDescriptionPrefix(anon_0, mode) end
 
-function item:getItemBasicName() end
+---@param anon_0 string
+function item:getItemBasicName(anon_0) end
 
+---@param caravan df.caravan_state
 ---@return number
-function item:getImprovementsValue() end
+function item:getImprovementsValue(caravan) end
 
 ---@return boolean
 function item:isExtractBearingFish() end
@@ -1021,14 +1179,16 @@ function item:isClothing() end
 ---@return boolean
 function item:isWet() end
 
+---@param appraiser df.historical_entity
 ---@return number
-function item:getCurrencyValue() end
+function item:getCurrencyValue(appraiser) end
 
 ---@return boolean
 function item:isAssignedToStockpile() end
 
+---@param anon_0 number
 ---@return boolean
-function item:isAssignedToThisStockpile() end
+function item:isAssignedToThisStockpile(anon_0) end
 
 function item:detachStockpileAssignment() end
 
@@ -1037,16 +1197,36 @@ function item:removeStockpileAssignment() end
 ---@return df.item_stockpile_ref
 function item:getStockpile2() end
 
-function item:randomizeThreadImprovement() end
+---@param mat_type number
+---@param mat_index number
+---@param u df.unit
+---@param j df.job
+function item:randomizeThreadImprovement(mat_type, mat_index, u, j) end
 
-function item:addImprovement() end
+---@param anon_0 number
+---@param anon_1 number
+---@param anon_2 number
+---@param anon_3 number
+---@param material number
+---@param matgloss number
+---@param anon_4 number
+---@param anon_5 number
+---@param anon_6 number
+---@param anon_7 number
+---@param anon_8 number
+---@param anon_9 number
+function item:addImprovement(anon_0, anon_1, anon_2, anon_3, material, matgloss, anon_4, anon_5, anon_6, anon_7, anon_8, anon_9) end
 
-function item:copyImprovementsFrom() end
+---@param anon_0 df.item
+function item:copyImprovementsFrom(anon_0) end
 
+---@param caravan df.caravan_state
 ---@return number
-function item:getThreadDyeValue() end
+function item:getThreadDyeValue(caravan) end
 
-function item:getColorAndShape() end
+---@param colors DFPointer<integer>
+---@param shapes DFPointer<integer>
+function item:getColorAndShape(colors, shapes) end
 
 ---@return boolean
 function item:isCritter() end
@@ -1054,8 +1234,13 @@ function item:isCritter() end
 ---@return boolean
 function item:isArmor() end
 
+---@param anon_0 df.squad_uniform_spec
+---@param exact_match boolean
+---@param best_any df.job_skill
+---@param best_melee df.job_skill
+---@param best_ranged df.job_skill
 ---@return number
-function item:calcUniformScore() end
+function item:calcUniformScore(anon_0, exact_match, best_any, best_melee, best_ranged) end
 
 ---@return number
 function item:calcBaseUniformScore() end
@@ -1069,7 +1254,8 @@ function item:getAbsorption() end
 ---@return boolean
 function item:isGemMaterial() end
 
-function item:setGemShape() end
+---@param shape number
+function item:setGemShape(shape) end
 
 ---@return boolean
 function item:hasGemShape() end

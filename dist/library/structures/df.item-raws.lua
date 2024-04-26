@@ -444,7 +444,12 @@ df.itemdef_flags = {}
 ---@field raw_strings DFStringVector
 local itemdef
 
-function itemdef:parseRaws() end
+---@param anon_0 DFPointer<integer>
+---@param anon_1 DFPointer<integer>
+---@param anon_2 DFPointer<integer>
+---@param anon_3 DFPointer<integer>
+---@param anon_4 DFPointer<integer>
+function itemdef:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
 
 function itemdef:categorize() end
 

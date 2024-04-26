@@ -120,11 +120,17 @@ local machine
 ---@return df.machine_type
 function machine:getType() end
 
-function machine:moveMachine() end
+---@param x number
+---@param y number
+---@param z number
+function machine:moveMachine(x, y, z) end
 
-function machine:write_file() end
+---@param file df.file_compressorst
+function machine:write_file(file) end
 
-function machine:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function machine:read_file(file, loadversion) end
 
 
 ---@class identity.machine: DFCompoundType

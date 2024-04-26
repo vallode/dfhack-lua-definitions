@@ -26,7 +26,11 @@
 ---@field build_stages number
 local building_def
 
-function building_def:parseRaws() end
+---@param anon_0 DFPointer<integer>
+---@param anon_1 DFPointer<integer>
+---@param anon_2 DFPointer<integer>
+---@param anon_3 DFPointer<integer>
+function building_def:parseRaws(anon_0, anon_1, anon_2, anon_3) end
 
 function building_def:categorize() end
 

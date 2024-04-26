@@ -598,10 +598,19 @@ module DFHackLuaDefinitions
     def initialize(node:, path: [])
       super(node:, path:)
 
-      @name = node['name']
       # The name of the function is appended, we need to remove it.
       @class_name = @path.slice(...-1).join('.')
+      @arguments = arguments
       @return_type = return_type
+    end
+
+    def arguments
+      anon_index = 0
+      @node.xpath('ld:field').map do |node|
+        Field.new(node:, index: anon_index).tap do |field|
+          anon_index += 1 if field.name.include? 'anon_'
+        end
+      end
     end
 
     def return_type
@@ -615,20 +624,24 @@ module DFHackLuaDefinitions
       annotation = []
       # TODO: Some logic for adding `@nodiscard`?
       # annotation << "---@nodiscard" unless ?
+      annotation << @arguments.map { |arg| "---@param #{arg.name} #{arg.type}\n" }
       annotation << "---@return #{@return_type}\n" if @return_type
-      annotation << "function #{@class_name}:#{@name}() end\n\n"
+      annotation << "function #{@class_name}:#{@name}("
+      annotation << @arguments.map(&:name).join(', ')
+      annotation << ") end\n\n"
       annotation.join
     end
   end
 
   # Generic global field. Usually primitive fields like integers and strings.
   class Field < Type
-    def initialize(node:, path: [])
+    attr_accessor :name
+
+    def initialize(node:, path: [], index: 0)
       super(node:, path:)
 
       @field = node
-      # TODO: Temporary until we add anon indexes.
-      @name = node['name'] || 'anon_'
+      @name = node['name'] || "anon_#{index}"
       @type = node['type-name'] || 'any'
       @ref_target = node['ref-target']
       @comment = comment
@@ -647,7 +660,7 @@ module DFHackLuaDefinitions
     def to_field
       # return '' unless @name
       # TODO: Temporary until we add anon indexes.
-      return '' if @name == 'anon_'
+      return '' if @name.include? 'anon_'
 
       LuaLS.field(@name, @type, @comment)
     end

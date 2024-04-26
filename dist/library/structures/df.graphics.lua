@@ -679,25 +679,41 @@ function df.interface_setst:new() end
 ---@field screentexpos_refresh_buffer number
 local renderer
 
-function renderer:update_tile() end
+---@param x number
+---@param y number
+function renderer:update_tile(x, y) end
 
-function renderer:update_anchor_tile() end
+---@param x number
+---@param y number
+function renderer:update_anchor_tile(x, y) end
 
-function renderer:update_top_tile() end
+---@param x number
+---@param y number
+function renderer:update_top_tile(x, y) end
 
-function renderer:update_top_anchor_tile() end
+---@param x number
+---@param y number
+function renderer:update_top_anchor_tile(x, y) end
 
-function renderer:update_viewport_tile() end
+---@param vp df.graphic_viewportst
+---@param x number
+---@param y number
+function renderer:update_viewport_tile(vp, x, y) end
 
-function renderer:update_map_port_tile() end
+---@param vp df.graphic_map_portst
+---@param x number
+---@param y number
+function renderer:update_map_port_tile(vp, x, y) end
 
 function renderer:update_all() end
 
 function renderer:do_blank_screen_fill() end
 
-function renderer:update_full_viewport() end
+---@param vp df.graphic_viewportst
+function renderer:update_full_viewport(vp) end
 
-function renderer:update_full_map_port() end
+---@param vp df.graphic_map_portst
+function renderer:update_full_map_port(vp) end
 
 function renderer:clean_tile_cache() end
 
@@ -705,18 +721,30 @@ function renderer:render() end
 
 function renderer:set_fullscreen() end
 
-function renderer:zoom() end
+---@param anon_0 df.zoom_commands
+function renderer:zoom(anon_0) end
 
-function renderer:resize() end
+---@param w number
+---@param h number
+function renderer:resize(w, h) end
 
-function renderer:grid_resize() end
+---@param w number
+---@param h number
+function renderer:grid_resize(w, h) end
 
-function renderer:set_viewport_zoom_factor() end
+---@param nfactor number
+function renderer:set_viewport_zoom_factor(nfactor) end
 
+---@param px number
+---@param py number
+---@param x number
+---@param y number
 ---@return boolean
-function renderer:get_precise_mouse_coords() end
+function renderer:get_precise_mouse_coords(px, py, x, y) end
 
-function renderer:get_current_interface_tile_dims() end
+---@param cur_tx number
+---@param cur_ty number
+function renderer:get_current_interface_tile_dims(cur_tx, cur_ty) end
 
 ---@return boolean
 function renderer:uses_opengl() end
@@ -754,8 +782,10 @@ function df.renderer:new() end
 ---@field natural_h number
 local renderer_2d_base
 
+---@param w number
+---@param h number
 ---@return boolean
-function renderer_2d_base:init_video() end
+function renderer_2d_base:init_video(w, h) end
 
 
 ---@class identity.renderer_2d_base: DFCompoundType
@@ -874,8 +904,9 @@ df.zoom_commands = {}
 ---@field last_text_input integer[]
 local enabler
 
+---@param anon_0 df.interface_key
 ---@return string
-function enabler:GetKeyDisplay() end
+function enabler:GetKeyDisplay(anon_0) end
 
 
 ---@class identity.enabler: DFCompoundType

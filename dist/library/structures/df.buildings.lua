@@ -423,9 +423,11 @@ local building
 ---@return number
 function building:getCustomType() end
 
-function building:setCustomType() end
+---@param type number
+function building:setCustomType(type) end
 
-function building:countHospitalSupplies() end
+---@param supplies df.hospital_supplies
+function building:countHospitalSupplies(supplies) end
 
 ---@return df.stockpile_links
 function building:getStockpileLinks() end
@@ -438,11 +440,18 @@ function building:canLinkToStockpile() end
 ---@return df.building_users
 function building:getUsers() end
 
-function building:moveBuilding() end
+---@param delta_x number
+---@param delta_y number
+---@param delta_z number
+function building:moveBuilding(delta_x, delta_y, delta_z) end
 
-function building:initOccupancy() end
+---@param abs_x number
+---@param abs_y number
+function building:initOccupancy(abs_x, abs_y) end
 
-function building:setFillTimer() end
+---@param anon_0 df.job_type
+---@param anon_1 number
+function building:setFillTimer(anon_0, anon_1) end
 
 ---@return boolean
 function building:isOnFire() end
@@ -468,7 +477,10 @@ function building:updateTemperature() end
 
 function building:updateItems() end
 
-function building:updateTempFromTile() end
+---@param temp integer
+---@param anon_0 boolean
+---@param anon_1 boolean
+function building:updateTempFromTile(temp, anon_0, anon_1) end
 
 ---@return boolean
 function building:isNormalFurniture() end
@@ -482,10 +494,12 @@ function building:getWorkshopProfile() end
 ---@return df.machine_info
 function building:getMachineInfo() end
 
-function building:getPowerInfo() end
+---@param power_info df.power_info
+function building:getPowerInfo(power_info) end
 
+---@param anon_0 df.machine_tile_set
 ---@return boolean
-function building:canConnectToMachine() end
+function building:canConnectToMachine(anon_0) end
 
 ---@return df.building_type
 function building:getType() end
@@ -493,7 +507,8 @@ function building:getType() end
 ---@return number
 function building:getSubtype() end
 
-function building:setSubtype() end
+---@param subtype number
+function building:setSubtype(subtype) end
 
 ---@return boolean
 function building:isActual() end
@@ -506,9 +521,11 @@ function building:updateAction() end
 ---@return boolean
 function building:isStatueOrRestraint() end
 
-function building:setMaterialAmount() end
+---@param anon_0 number
+function building:setMaterialAmount(anon_0) end
 
-function building:setBuildStage() end
+---@param stage number
+function building:setBuildStage(stage) end
 
 ---@return number
 function building:getBuildStage() end
@@ -528,10 +545,13 @@ function building:isActual2() end
 ---@return boolean
 function building:isExtentShaped() end
 
-function building:updateOccupancy() end
+---@param abs_x number
+---@param abs_y number
+function building:updateOccupancy(abs_x, abs_y) end
 
+---@param anon_0 df.unit
 ---@return number
-function building:getPersonalValue() end
+function building:getPersonalValue(anon_0) end
 
 ---@return boolean
 function building:canBeRoom() end
@@ -541,16 +561,22 @@ function building:getConstructionValue() end
 
 function building:queueDestroy() end
 
+---@param rel_x number
+---@param rel_y number
 ---@return boolean
-function building:isImpassableTile() end
+function building:isImpassableTile(rel_x, rel_y) end
 
+---@param subtract_pending_jobs boolean
 ---@return number
-function building:getFreeCapacity() end
+function building:getFreeCapacity(subtract_pending_jobs) end
 
+---@param anon_0 df.item
+---@param subtract_pending_jobs boolean
 ---@return boolean
-function building:canStoreItem() end
+function building:canStoreItem(anon_0, subtract_pending_jobs) end
 
-function building:getName() end
+---@param name string
+function building:getName(name) end
 
 function building:getNameColor() end
 
@@ -562,8 +588,9 @@ function building:getClutterLevel() end
 ---@return boolean
 function building:needsDesign() end
 
+---@param anon_0 df.job_type
 ---@return boolean
-function building:canUseForMood() end
+function building:canUseForMood(anon_0) end
 
 ---@return boolean
 function building:canBeRoomSubset() end
@@ -583,35 +610,46 @@ function building:isAssigned() end
 ---@return boolean
 function building:isJusticeRestraint() end
 
-function building:detachRestrainedUnit() end
+---@param anon_0 df.unit
+function building:detachRestrainedUnit(anon_0) end
 
-function building:write_file() end
+---@param file df.file_compressorst
+function building:write_file(file) end
 
-function building:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function building:read_file(file, loadversion) end
 
 ---@return boolean
 function building:isImpassableAtCreation() end
 
-function building:categorize() end
+---@param in_play boolean
+function building:categorize(in_play) end
 
 function building:uncategorize() end
 
 ---@return number
 function building:getBaseValue() end
 
-function building:setTriggerState() end
+---@param new_state number
+function building:setTriggerState(new_state) end
 
 ---@return boolean
 function building:needsMagma() end
 
-function building:removeUses() end
+---@param noscatter boolean
+---@param lost boolean
+function building:removeUses(noscatter, lost) end
 
-function building:deconstructItems() end
+---@param noscatter boolean
+---@param lost boolean
+function building:deconstructItems(noscatter, lost) end
 
 function building:cleanupMap() end
 
+---@param fire_type number
 ---@return boolean
-function building:isFireSafe() end
+function building:isFireSafe(fire_type) end
 
 function building:fillSidebarMenu() end
 
@@ -624,12 +662,17 @@ function building:isHidden() end
 ---@return boolean
 function building:isVisibleInUI() end
 
+---@param viewport df.map_viewport
 ---@return boolean
-function building:isVisibleInViewport() end
+function building:isVisibleInViewport(viewport) end
 
-function building:getDrawExtents() end
+---@param buffer df.building_drawbuffer
+function building:getDrawExtents(buffer) end
 
-function building:drawBuilding() end
+---@param curtick integer
+---@param buffer df.building_drawbuffer
+---@param z_offset number
+function building:drawBuilding(curtick, buffer, z_offset) end
 
 ---@return number
 function building:getSpecificSquad() end
@@ -637,7 +680,9 @@ function building:getSpecificSquad() end
 ---@return number
 function building:getSpecificPosition() end
 
-function building:setSpecificSquadPos() end
+---@param anon_0 number
+---@param anon_1 number
+function building:setSpecificSquadPos(anon_0, anon_1) end
 
 function building:clearSpecificSquad() end
 

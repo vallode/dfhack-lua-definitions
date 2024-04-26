@@ -12,11 +12,17 @@
 ---@field hist_fig_to_creature_map DFNumberVector unordered_map<int32_t,int32_t>
 local creature_handler
 
+---@param creature_index number
+---@param caste_index number
+---@param alt boolean
+---@param soldier boolean
 ---@return integer
-function creature_handler:getTile() end
+function creature_handler:getTile(creature_index, caste_index, alt, soldier) end
 
+---@param creature_index number
+---@param caste_index number
 ---@return integer
-function creature_handler:getGlowTile() end
+function creature_handler:getGlowTile(creature_index, caste_index) end
 
 
 ---@class identity.creature_handler: DFCompoundType

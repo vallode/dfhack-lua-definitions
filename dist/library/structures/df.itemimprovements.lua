@@ -78,17 +78,24 @@ function df.dye_info:new() end
 ---@field unk_1 number
 local itemimprovement
 
+---@param anon_0 df.item
 ---@return df.art_image
-function itemimprovement:getImage() end
+function itemimprovement:getImage(anon_0) end
 
-function itemimprovement:getColorAndShape() end
+---@param colors DFPointer<integer>
+---@param shapes DFPointer<integer>
+---@param anon_0 DFPointer<integer>
+function itemimprovement:getColorAndShape(colors, shapes, anon_0) end
 
 ---@return df.itemimprovement
 function itemimprovement:clone() end
 
-function itemimprovement:write_file() end
+---@param file df.file_compressorst
+function itemimprovement:write_file(file) end
 
-function itemimprovement:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function itemimprovement:read_file(file, loadversion) end
 
 ---@return df.improvement_type
 function itemimprovement:getType() end
@@ -96,10 +103,12 @@ function itemimprovement:getType() end
 ---@return boolean
 function itemimprovement:isDecoration() end
 
+---@param caravan df.caravan_state
 ---@return number
-function itemimprovement:getDyeValue() end
+function itemimprovement:getDyeValue(caravan) end
 
-function itemimprovement:setShape() end
+---@param shape number
+function itemimprovement:setShape(shape) end
 
 
 ---@class identity.itemimprovement: DFCompoundType

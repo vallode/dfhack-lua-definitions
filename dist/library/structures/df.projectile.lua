@@ -135,15 +135,19 @@ local projectile
 ---@return df.projectile_type
 function projectile:getType() end
 
+---@param noDamageFloor boolean
 ---@return boolean
-function projectile:checkImpact() end
+function projectile:checkImpact(noDamageFloor) end
 
 ---@return boolean
 function projectile:checkMovement() end
 
-function projectile:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function projectile:read_file(file, loadversion) end
 
-function projectile:write_file() end
+---@param file df.file_compressorst
+function projectile:write_file(file) end
 
 ---@return boolean
 function projectile:isObjectLost() end

@@ -421,7 +421,14 @@ function creature_interaction_effect:getType() end
 ---@return df.creature_interaction_effect
 function creature_interaction_effect:clone() end
 
-function creature_interaction_effect:doAction() end
+---@param anon_0 df.unit
+---@param anon_1 df.unit_syndrome
+---@param anon_2 df.syndrome
+---@param intensity number
+---@param bp_index number
+---@param bp_layer number
+---@param anon_3 DFPointer<integer>
+function creature_interaction_effect:doAction(anon_0, anon_1, anon_2, intensity, bp_index, bp_layer, anon_3) end
 
 ---@return boolean
 function creature_interaction_effect:isUntargeted() end
@@ -435,18 +442,30 @@ function creature_interaction_effect:getTargetKeys() end
 ---@return DFPointer<integer>
 function creature_interaction_effect:getTargetTissues() end
 
+---@param anon_0 integer
 ---@return boolean
-function creature_interaction_effect:checkAddFlag1() end
+function creature_interaction_effect:checkAddFlag1(anon_0) end
 
-function creature_interaction_effect:setBodyMatInteractionName() end
+---@param anon_0 DFPointer<integer>
+function creature_interaction_effect:setBodyMatInteractionName(anon_0) end
 
-function creature_interaction_effect:parseSynAcquireType() end
+---@param type DFPointer<integer>
+function creature_interaction_effect:parseSynAcquireType(type) end
 
-function creature_interaction_effect:setBodyTransform() end
+---@param race DFPointer<integer>
+---@param caste DFPointer<integer>
+function creature_interaction_effect:setBodyTransform(race, caste) end
 
-function creature_interaction_effect:addPeriodic() end
+---@param anon_0 DFPointer<integer>
+---@param anon_1 DFPointer<integer>
+---@param anon_2 DFPointer<integer>
+function creature_interaction_effect:addPeriodic(anon_0, anon_1, anon_2) end
 
-function creature_interaction_effect:addCounterTrigger() end
+---@param anon_0 DFPointer<integer>
+---@param anon_1 DFPointer<integer>
+---@param anon_2 DFPointer<integer>
+---@param anon_3 DFPointer<integer>
+function creature_interaction_effect:addCounterTrigger(anon_0, anon_1, anon_2, anon_3) end
 
 
 ---@class identity.creature_interaction_effect: DFCompoundType

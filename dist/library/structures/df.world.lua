@@ -1237,7 +1237,8 @@ function df.coin_batch.T_image_back:new() end
 ---@field job_application_heap df.job_handler.T_job_application_heap
 local job_handler
 
-function job_handler:cancel_job() end
+---@param anon_0 df.job
+function job_handler:cancel_job(anon_0) end
 
 
 ---@class identity.job_handler: DFCompoundType
@@ -1314,7 +1315,16 @@ function df.job_handler.T_job_application_heap.T_node:new() end
 ---@field check_machine_collapse boolean bay12: evaluate_machine_stability
 local building_handler
 
-function building_handler:get_machine_hookup_list() end
+---@param hookups df.machine_tile_set
+---@param type number
+---@param subtype number
+---@param x1 number
+---@param y1 number
+---@param x2 number
+---@param y2 number
+---@param z number
+---@param is_vertical number
+function building_handler:get_machine_hookup_list(hookups, type, subtype, x1, y1, x2, y2, z, is_vertical) end
 
 
 ---@class identity.building_handler: DFCompoundType

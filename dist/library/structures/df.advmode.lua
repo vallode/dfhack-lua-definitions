@@ -2370,7 +2370,8 @@ function _adventurest_assume_identity_unk_2:erase(index) end
 ---@field _type identity.text_info_elementst
 local text_info_elementst
 
-function text_info_elementst:getString() end
+---@param val string
+function text_info_elementst:getString(val) end
 
 ---@return number
 function text_info_elementst:getLong() end
@@ -2409,13 +2410,17 @@ function df.text_info_element_stringst:new() end
 ---@field _type identity.adventure_optionst
 local adventure_optionst
 
-function adventure_optionst:getDescription() end
+---@param anon_0 string
+function adventure_optionst:getDescription(anon_0) end
 
 ---@return df.item
 function adventure_optionst:getIngestedItem() end
 
+---@param anon_0 number
+---@param anon_1 boolean
+---@param anon_2 boolean
 ---@return df.item
-function adventure_optionst:performAction() end
+function adventure_optionst:performAction(anon_0, anon_1, anon_2) end
 
 ---@return number
 function adventure_optionst:getPlayerPosX() end
@@ -2755,7 +2760,8 @@ function df.adventure_movement_item_interact_pushst:new() end
 ---@field _type identity.adventure_item_interact_choicest
 local adventure_item_interact_choicest
 
-function adventure_item_interact_choicest:getDescription() end
+---@param anon_0 string
+function adventure_item_interact_choicest:getDescription(anon_0) end
 
 function adventure_item_interact_choicest:performAction() end
 

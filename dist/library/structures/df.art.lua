@@ -26,27 +26,40 @@ df.art_image_element_type = {}
 ---@field count number
 local art_image_element
 
-function art_image_element:write_file() end
+---@param file df.file_compressorst
+function art_image_element:write_file(file) end
 
-function art_image_element:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function art_image_element:read_file(file, loadversion) end
 
 ---@return df.art_image_element_type
 function art_image_element:getType() end
 
-function art_image_element:setID() end
+---@param ID number
+function art_image_element:setID(ID) end
 
 ---@return df.art_image_element
 function art_image_element:clone() end
 
-function art_image_element:getSymbol() end
+---@param sym number
+---@param anon_0 number
+function art_image_element:getSymbol(sym, anon_0) end
 
-function art_image_element:getName1() end
+---@param name string
+---@param useThe boolean
+---@param useName boolean
+function art_image_element:getName1(name, useThe, useName) end
 
-function art_image_element:getName2() end
+---@param name string
+---@param anon_0 boolean
+function art_image_element:getName2(name, anon_0) end
 
 function art_image_element:markDiscovered() end
 
-function art_image_element:getColorAndShape() end
+---@param colors DFPointer<integer>
+---@param shapes DFPointer<integer>
+function art_image_element:getColorAndShape(colors, shapes) end
 
 
 ---@class identity.art_image_element: DFCompoundType
@@ -135,9 +148,12 @@ df.art_image_property_type = {}
 ---@field flags _art_image_property_flags
 local art_image_property
 
-function art_image_property:write_file() end
+---@param file df.file_compressorst
+function art_image_property:write_file(file) end
 
-function art_image_property:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function art_image_property:read_file(file, loadversion) end
 
 ---@return df.art_image_property_type
 function art_image_property:getType() end
@@ -145,7 +161,10 @@ function art_image_property:getType() end
 ---@return df.art_image_element
 function art_image_property:clone() end
 
-function art_image_property:getName() end
+---@param anon_0 string
+---@param anon_1 df.art_image
+---@param useName boolean
+function art_image_property:getName(anon_0, anon_1, useName) end
 
 
 ---@class identity.art_image_property: DFCompoundType

@@ -1735,8 +1735,10 @@ function unit:getCorpseTile() end
 ---@return integer
 function unit:getGlowTile() end
 
+---@param important number
+---@param inplay number
 ---@return df.nemesis_record
-function unit:create_nemesis() end
+function unit:create_nemesis(important, inplay) end
 
 
 ---@class identity.unit: DFCompoundType

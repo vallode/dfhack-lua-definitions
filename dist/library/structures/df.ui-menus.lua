@@ -56,10 +56,12 @@ local build_req_choicest
 ---@return df.build_req_choice_type
 function build_req_choicest:getType() end
 
-function build_req_choicest:getName() end
+---@param str string
+function build_req_choicest:getName(str) end
 
+---@param item_id number
 ---@return boolean
-function build_req_choicest:isCandidate() end
+function build_req_choicest:isCandidate(item_id) end
 
 ---@return number
 function build_req_choicest:getUsedCount() end
@@ -247,13 +249,18 @@ df.interface_category_construction = {}
 ---@field filter_str string
 local interface_button
 
-function interface_button:print_info() end
+---@param y number
+---@param limx_min number
+---@param limx_max number
+function interface_button:print_info(y, limx_min, limx_max) end
 
-function interface_button:text() end
+---@param str string
+function interface_button:text(str) end
 
 function interface_button:press() end
 
-function interface_button:set_button_color() end
+---@param selected boolean
+function interface_button:set_button_color(selected) end
 
 function interface_button:set_leave_button() end
 
@@ -262,7 +269,8 @@ function interface_button:tile() end
 
 function interface_button:set_tile_color() end
 
-function interface_button:prepare_tool_tip() end
+---@param box DFPointer<integer>
+function interface_button:prepare_tool_tip(box) end
 
 ---@return boolean
 function interface_button:pressable() end

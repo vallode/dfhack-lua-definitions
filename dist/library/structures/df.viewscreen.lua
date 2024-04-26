@@ -61,15 +61,18 @@ local abstract_interfacest
 ---@return df.extentst
 function abstract_interfacest:get_rect() end
 
-function abstract_interfacest:feed() end
+---@param events DFPointer<integer>
+function abstract_interfacest:feed(events) end
 
 function abstract_interfacest:logic() end
 
-function abstract_interfacest:render() end
+---@param curtick integer
+function abstract_interfacest:render(curtick) end
 
 function abstract_interfacest:arrange() end
 
-function abstract_interfacest:remove_child() end
+---@param w DFPointer<integer>
+function abstract_interfacest:remove_child(w) end
 
 function abstract_interfacest:clear() end
 
@@ -90,7 +93,9 @@ function df.abstract_interfacest:new() end
 ---@field widgets df.widget_container
 local viewscreen
 
-function viewscreen:resize() end
+---@param w number
+---@param h number
+function viewscreen:resize(w, h) end
 
 function viewscreen:set_port_flags() end
 
@@ -180,7 +185,8 @@ local widget
 ---@return df.extentst
 function widget:get_rect() end
 
-function widget:feed() end
+---@param events DFPointer<integer>
+function widget:feed(events) end
 
 function widget:logic() end
 
@@ -188,7 +194,8 @@ function widget:render() end
 
 function widget:arrange() end
 
-function widget:remove_child() end
+---@param w DFPointer<integer>
+function widget:remove_child(w) end
 
 function widget:clear() end
 
@@ -719,7 +726,8 @@ function _filter_entry_filtered_set:erase(index) end
 ---@field container_parent _widget_filter_container_parent
 local widget_filter
 
-function widget_filter:set_filtered() end
+---@param idx number
+function widget_filter:set_filtered(idx) end
 
 
 ---@class identity.widget_filter: DFCompoundType
@@ -2744,7 +2752,8 @@ function df.viewscreen_initial_prepst:new() end
 ---@field text string
 local world_gen_param_basest
 
-function world_gen_param_basest:get_text() end
+---@param num string
+function world_gen_param_basest:get_text(num) end
 
 ---@return boolean
 function world_gen_param_basest:has_string_entry() end
@@ -2767,7 +2776,8 @@ function world_gen_param_basest:get_min() end
 ---@return number
 function world_gen_param_basest:get_max() end
 
-function world_gen_param_basest:set_value() end
+---@param value_str string
+function world_gen_param_basest:set_value(value_str) end
 
 function world_gen_param_basest:nullify() end
 

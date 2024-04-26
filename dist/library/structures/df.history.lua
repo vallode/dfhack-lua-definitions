@@ -1275,9 +1275,12 @@ local mental_picture_propertyst
 ---@return df.mental_picture_property_type
 function mental_picture_propertyst:getType() end
 
-function mental_picture_propertyst:write_file() end
+---@param file df.file_compressorst
+function mental_picture_propertyst:write_file(file) end
 
-function mental_picture_propertyst:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function mental_picture_propertyst:read_file(file, loadversion) end
 
 
 ---@class identity.mental_picture_propertyst: DFCompoundType
@@ -1422,9 +1425,12 @@ local mental_picture_elementst
 ---@return df.mental_picture_element_type
 function mental_picture_elementst:getType() end
 
-function mental_picture_elementst:write_file() end
+---@param file df.file_compressorst
+function mental_picture_elementst:write_file(file) end
 
-function mental_picture_elementst:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function mental_picture_elementst:read_file(file, loadversion) end
 
 
 ---@class identity.mental_picture_elementst: DFCompoundType
@@ -2477,83 +2483,123 @@ local history_event
 ---@return df.history_event_type
 function history_event:getType() end
 
+---@param entity1 number
+---@param entity2 number
 ---@return number
-function history_event:getWarStatus() end
+function history_event:getWarStatus(entity1, entity2) end
 
+---@param entity1 number
+---@param entity2 number
 ---@return number
-function history_event:getAngerModifier() end
+function history_event:getAngerModifier(entity1, entity2) end
 
+---@param entity1 number
+---@param entity2 number
 ---@return number
-function history_event:getHappinessModifier() end
+function history_event:getHappinessModifier(entity1, entity2) end
 
+---@param entity1 number
+---@param entity2 number
+---@param site number
 ---@return boolean
-function history_event:madeFirstContact() end
+function history_event:madeFirstContact(entity1, entity2, site) end
 
+---@param killer number
 ---@return number
-function history_event:getKilledHistfigID() end
+function history_event:getKilledHistfigID(killer) end
 
+---@param victim number
 ---@return boolean
-function history_event:wasHistfigKilled() end
+function history_event:wasHistfigKilled(victim) end
 
+---@param histfig number
 ---@return boolean
-function history_event:wasHistfigRevived() end
+function history_event:wasHistfigRevived(histfig) end
 
-function history_event:getRelatedHistfigIDs() end
+---@param vec DFPointer<integer>
+function history_event:getRelatedHistfigIDs(vec) end
 
-function history_event:getRelatedSiteIDs() end
+---@param vec DFPointer<integer>
+function history_event:getRelatedSiteIDs(vec) end
 
-function history_event:getRelatedSiteStructureIDs() end
+---@param vec1 DFPointer<integer>
+---@param vec2 DFPointer<integer>
+function history_event:getRelatedSiteStructureIDs(vec1, vec2) end
 
-function history_event:getRelatedArtifactIDs() end
+---@param vec DFPointer<integer>
+function history_event:getRelatedArtifactIDs(vec) end
 
-function history_event:getRelatedRegionIDs() end
+---@param vec DFPointer<integer>
+function history_event:getRelatedRegionIDs(vec) end
 
-function history_event:getRelatedLayerIDs() end
+---@param vec DFPointer<integer>
+function history_event:getRelatedLayerIDs(vec) end
 
-function history_event:getRelatedEntityIDs() end
+---@param vec DFPointer<integer>
+function history_event:getRelatedEntityIDs(vec) end
 
+---@param histfig number
 ---@return boolean
-function history_event:isRelatedToHistfigID() end
+function history_event:isRelatedToHistfigID(histfig) end
 
+---@param site number
 ---@return boolean
-function history_event:isRelatedToSiteID() end
+function history_event:isRelatedToSiteID(site) end
 
+---@param site number
+---@param structure number
 ---@return boolean
-function history_event:isRelatedToSiteStructure() end
+function history_event:isRelatedToSiteStructure(site, structure) end
 
+---@param artifact number
 ---@return boolean
-function history_event:isRelatedToArtifactID() end
+function history_event:isRelatedToArtifactID(artifact) end
 
+---@param region number
 ---@return boolean
-function history_event:isRelatedToRegionID() end
+function history_event:isRelatedToRegionID(region) end
 
+---@param region number
 ---@return boolean
-function history_event:isRelatedToLayerID() end
+function history_event:isRelatedToLayerID(region) end
 
+---@param agreement number
 ---@return boolean
-function history_event:isRelatedToAgreementID() end
+function history_event:isRelatedToAgreementID(agreement) end
 
+---@param entity number
 ---@return boolean
-function history_event:isRelatedToEntityID() end
+function history_event:isRelatedToEntityID(entity) end
 
-function history_event:getSentence() end
+---@param str string
+---@param context df.history_event_context
+function history_event:getSentence(str, context) end
 
-function history_event:getPhrase() end
+---@param str string
+---@param context df.history_event_context
+function history_event:getPhrase(str, context) end
 
-function history_event:populateArtImage() end
+---@param image df.art_image
+function history_event:populateArtImage(image) end
 
+---@param histfig number
 ---@return boolean
-function history_event:isChangedHistfigID() end
+function history_event:isChangedHistfigID(histfig) end
 
 function history_event:categorize() end
 
 function history_event:uncategorize() end
 
-function history_event:generate_xml() end
+---@param anon_0 lightuserdata
+---@param indent number
+function history_event:generate_xml(anon_0, indent) end
 
-function history_event:write_file() end
+---@param file df.file_compressorst
+function history_event:write_file(file) end
 
-function history_event:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function history_event:read_file(file, loadversion) end
 
 
 ---@class identity.history_event: DFCompoundType
@@ -5607,25 +5653,35 @@ local history_event_collection
 ---@return df.history_event_collection_type
 function history_event_collection:getType() end
 
-function history_event_collection:generate_xml() end
+---@param anon_0 lightuserdata
+---@param indent number
+function history_event_collection:generate_xml(anon_0, indent) end
 
-function history_event_collection:write_file() end
+---@param file df.file_compressorst
+function history_event_collection:write_file(file) end
 
-function history_event_collection:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function history_event_collection:read_file(file, loadversion) end
 
 function history_event_collection:categorize() end
 
 function history_event_collection:uncategorize() end
 
-function history_event_collection:getName() end
+---@param string string
+function history_event_collection:getName(string) end
 
-function history_event_collection:getRegionCoords() end
+---@param x number
+---@param y number
+function history_event_collection:getRegionCoords(x, y) end
 
 ---@return number
 function history_event_collection:getParent() end
 
+---@param defender_civ number
+---@param attacker_civ number
 ---@return number
-function history_event_collection:isBetweenEntities() end
+function history_event_collection:isBetweenEntities(defender_civ, attacker_civ) end
 
 function history_event_collection:updateEndTime() end
 

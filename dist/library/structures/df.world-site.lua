@@ -308,7 +308,11 @@ local abstract_building
 ---@return df.abstract_building_type
 function abstract_building:getType() end
 
-function abstract_building:getDisplayTile() end
+---@param tile integer
+---@param fg integer
+---@param bg integer
+---@param bright integer
+function abstract_building:getDisplayTile(tile, fg, bg, bright) end
 
 ---@return df.language_name
 function abstract_building:getName() end
@@ -316,9 +320,12 @@ function abstract_building:getName() end
 ---@return df.abstract_building_contents
 function abstract_building:getContents() end
 
-function abstract_building:write_file() end
+---@param file df.file_compressorst
+function abstract_building:write_file(file) end
 
-function abstract_building:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function abstract_building:read_file(file, loadversion) end
 
 ---@return number
 function abstract_building:getReligionID() end
@@ -326,7 +333,9 @@ function abstract_building:getReligionID() end
 ---@return df.abstract_building_entombed
 function abstract_building:getEntombed() end
 
-function abstract_building:generate_xml() end
+---@param anon_0 lightuserdata
+---@param indent number
+function abstract_building:generate_xml(anon_0, indent) end
 
 
 ---@class identity.abstract_building: DFCompoundType
@@ -2441,9 +2450,12 @@ local site_realization_building_infost
 ---@return df.site_realization_building_type
 function site_realization_building_infost:getType() end
 
-function site_realization_building_infost:write_file() end
+---@param file df.file_compressorst
+function site_realization_building_infost:write_file(file) end
 
-function site_realization_building_infost:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function site_realization_building_infost:read_file(file, loadversion) end
 
 
 ---@class identity.site_realization_building_infost: DFCompoundType
@@ -2828,9 +2840,12 @@ local creation_zone_pwg_alterationst
 ---@return df.creation_zone_pwg_alteration_type
 function creation_zone_pwg_alterationst:getType() end
 
-function creation_zone_pwg_alterationst:write_file() end
+---@param file df.file_compressorst
+function creation_zone_pwg_alterationst:write_file(file) end
 
-function creation_zone_pwg_alterationst:read_file() end
+---@param file df.file_compressorst
+---@param loadversion df.save_version
+function creation_zone_pwg_alterationst:read_file(file, loadversion) end
 
 
 ---@class identity.creation_zone_pwg_alterationst: DFCompoundType

@@ -193,15 +193,23 @@ local reaction_reagent
 ---@return df.reaction_reagent_type
 function reaction_reagent:getType() end
 
-function reaction_reagent:resolveTokens() end
+---@param reactionID number
+function reaction_reagent:resolveTokens(reactionID) end
 
+---@param anon_0 df.item
+---@param index number
 ---@return boolean
-function reaction_reagent:matchesRoot() end
+function reaction_reagent:matchesRoot(anon_0, index) end
 
+---@param anon_0 df.item
+---@param anon_1 df.reaction
+---@param index number
 ---@return boolean
-function reaction_reagent:matchesChild() end
+function reaction_reagent:matchesChild(anon_0, anon_1, index) end
 
-function reaction_reagent:getDescription() end
+---@param anon_0 string
+---@param index number
+function reaction_reagent:getDescription(anon_0, index) end
 
 ---@return boolean
 function reaction_reagent:isLyeBearing() end
@@ -281,11 +289,24 @@ local reaction_product
 ---@return df.reaction_product_type
 function reaction_product:getType() end
 
-function reaction_product:resolveTokens() end
+---@param reactionID number
+function reaction_product:resolveTokens(reactionID) end
 
-function reaction_product:produce() end
+---@param maker df.unit
+---@param out_products DFPointer<integer>
+---@param out_items DFPointer<integer>
+---@param in_reag DFPointer<integer>
+---@param in_items DFPointer<integer>
+---@param quantity number
+---@param skill df.job_skill
+---@param job_quality number
+---@param entity df.historical_entity
+---@param site df.world_site
+---@param unk4 DFPointer<integer>
+function reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
 
-function reaction_product:getDescription() end
+---@param desc string
+function reaction_product:getDescription(desc) end
 
 
 ---@class identity.reaction_product: DFCompoundType
