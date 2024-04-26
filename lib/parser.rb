@@ -284,13 +284,10 @@ module DFHackLuaDefinitions
       # TODO: Ask DFHack folks if this matters, should we be outputting nils.
       return '' unless @name
 
-      annotation = "---@field #{@name} #{@value}"
-      annotation << " #{@comment}" if @comment
-      annotation << "\n"
-
-      annotation << "---@field [#{@value}] \"#{@name}\""
-      annotation << " #{@comment}" if @comment
-      annotation << "\n"
+      annotation = []
+      annotation << LuaLS.field(@name, @value, @comment)
+      annotation << LuaLS.field(@value, "\"#{@name}\"", @comment)
+      annotation.join
     end
 
     def to_field_bitfield

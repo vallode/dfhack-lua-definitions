@@ -204,7 +204,7 @@ function df.job_list_link:new() end
 ---@field [18] boolean toady: DO_ME_NOW
 
 ---@class _job_flags: DFBitfieldType
----@field repeat 0
+---@field ["repeat"] 0
 ---@field [0] "repeat"
 ---@field suspend 1
 ---@field [1] "suspend"
