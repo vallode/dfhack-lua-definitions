@@ -51,16 +51,7 @@ COLOR_DARKGRAY = COLOR_DARKGREY
 
 -- Events
 
-if dfhack.is_core_context then
-    SC_WORLD_LOADED = 0
-    SC_WORLD_UNLOADED = 1
-    SC_MAP_LOADED = 2
-    SC_MAP_UNLOADED = 3
-    SC_VIEWSCREEN_CHANGED = 4
-    SC_CORE_INITIALIZED = 5
-    SC_PAUSED = 7
-    SC_UNPAUSED = 8
-end
+
 
 -- User-changeable options
 
@@ -494,8 +485,7 @@ function dfhack.run_command(...) end
 
 function dfhack.getSavePath() end
 
-if dfhack.is_core_context then
-    
+
 
 -- Feed the table back to the require() mechanism.
 return dfhack

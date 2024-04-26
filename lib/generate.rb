@@ -178,6 +178,9 @@ def parse_lua_files(files)
         # Remove `_ENV` as it is problematic.
         file.gsub!(/^.*_ENV.*$/, '')
 
+        # Remove all if statements, conditional logic is hard (for now).
+        file.gsub!(/^if[\s\S]+?(^end)/, '')
+
         # Remove local functions entirely, they are not needed.
         file.gsub!(/(?:local\s+function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, '')
 
