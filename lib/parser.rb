@@ -623,8 +623,6 @@ module DFHackLuaDefinitions
 
   # Generic global field. Usually primitive fields like integers and strings.
   class Field < Type
-    attr_accessor :type
-
     def initialize(node:, path: [])
       super(node:, path:)
 

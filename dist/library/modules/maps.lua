@@ -19,35 +19,35 @@
 ---@field getBiomeType function
 dfhack.maps = {}
 
----@param blk map_block
+---@param blk df.map_block
 ---@param flow boolean|nil
 ---@param temperature boolean|nil
 ---@return nil
 function dfhack.maps.enableBlockUpdates(blk, flow, temperature) end
 
 ---@param index number
----@return feature_init
+---@return df.feature_init
 function dfhack.maps.getGlobalInitFeature(index) end
 
----@param rgnpos coord2d
+---@param rgnpos df.coord2d
 ---@param index number
----@return feature_init
+---@return df.feature_init
 function dfhack.maps.getLocalInitFeature(rgnpos, index) end
 
----@param pos coord
+---@param pos df.coord
 ---@return integer
 function dfhack.maps.getWalkableGroup(pos) end
 
----@param pos1 coord
----@param pos2 coord
+---@param pos1 df.coord
+---@param pos2 df.coord
 ---@return boolean
 function dfhack.maps.canWalkBetween(pos1, pos2) end
 
----@param pos coord
----@param type flow_type
+---@param pos df.coord
+---@param type df.flow_type
 ---@param mattype integer
 ---@param matindex integer
 ---@param density integer
----@return flow_info
+---@return df.flow_info
 function dfhack.maps.spawnFlow(pos, type, mattype, matindex, density) end
 

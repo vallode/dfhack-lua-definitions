@@ -5,23 +5,23 @@
 ---@field getPlantDesignationTile function
 dfhack.designations = {}
 
----@param plant plant
+---@param plant df.plant
 ---@return boolean
 function dfhack.designations.markPlant(plant) end
 
----@param plant plant
+---@param plant df.plant
 ---@return boolean
 function dfhack.designations.unmarkPlant(plant) end
 
----@param plant plant
+---@param plant df.plant
 ---@return boolean
 function dfhack.designations.canMarkPlant(plant) end
 
----@param plant plant
+---@param plant df.plant
 ---@return boolean
 function dfhack.designations.canUnmarkPlant(plant) end
 
----@param plant plant
+---@param plant df.plant
 ---@return boolean
 function dfhack.designations.isPlantMarked(plant) end
 

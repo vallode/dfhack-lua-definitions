@@ -21,76 +21,76 @@
 dfhack.gui = {}
 
 ---@param skipdismissed boolean|nil
----@return viewscreen
+---@return df.viewscreen
 function dfhack.gui.getCurViewscreen(skipdismissed) end
 
 ---@param skipdismissed boolean|nil
----@param screen viewscreen
----@return viewscreen
+---@param screen df.viewscreen
+---@return df.viewscreen
 function dfhack.gui.getDFViewscreen(skipdismissed, screen) end
 
 ---@param quiet boolean|nil
----@return job
+---@return df.job
 function dfhack.gui.getSelectedWorkshopJob(quiet) end
 
 ---@param quiet boolean|nil
----@return job
+---@return df.job
 function dfhack.gui.getSelectedJob(quiet) end
 
 ---@param quiet boolean|nil
----@return unit
+---@return df.unit
 function dfhack.gui.getSelectedUnit(quiet) end
 
 ---@param quiet boolean|nil
----@return item
+---@return df.item
 function dfhack.gui.getSelectedItem(quiet) end
 
 ---@param quiet boolean|nil
----@return building
+---@return df.building
 function dfhack.gui.getSelectedBuilding(quiet) end
 
 ---@param quiet boolean|nil
----@return building_civzonest
+---@return df.building_civzonest
 function dfhack.gui.getSelectedCivZone(quiet) end
 
 ---@param quiet boolean|nil
----@return building_stockpilest
+---@return df.building_stockpilest
 function dfhack.gui.getSelectedStockpile(quiet) end
 
 ---@param quiet boolean|nil
----@return plant
+---@return df.plant
 function dfhack.gui.getSelectedPlant(quiet) end
 
----@param top viewscreen
----@return job
+---@param top df.viewscreen
+---@return df.job
 function dfhack.gui.getAnyWorkshopJob(top) end
 
----@param top viewscreen
----@return job
+---@param top df.viewscreen
+---@return df.job
 function dfhack.gui.getAnyJob(top) end
 
----@param top viewscreen
----@return unit
+---@param top df.viewscreen
+---@return df.unit
 function dfhack.gui.getAnyUnit(top) end
 
----@param top viewscreen
----@return item
+---@param top df.viewscreen
+---@return df.item
 function dfhack.gui.getAnyItem(top) end
 
----@param top viewscreen
----@return building
+---@param top df.viewscreen
+---@return df.building
 function dfhack.gui.getAnyBuilding(top) end
 
----@param top viewscreen
----@return building_civzonest
+---@param top df.viewscreen
+---@return df.building_civzonest
 function dfhack.gui.getAnyCivZone(top) end
 
----@param top viewscreen
----@return building_stockpilest
+---@param top df.viewscreen
+---@return df.building_stockpilest
 function dfhack.gui.getAnyStockpile(top) end
 
----@param top viewscreen
----@return plant
+---@param top df.viewscreen
+---@return df.plant
 function dfhack.gui.getAnyPlant(top) end
 
 ---@param message string
@@ -102,10 +102,10 @@ function dfhack.gui.writeToGamelog(message) end
 function dfhack.gui.resetDwarfmodeView(pause) end
 
 ---@return boolean
-function dfhack.gui.refreshSidebar() end
+function dfhack.gui.refreshSidebar(...) end
 
 ---@return boolean
-function dfhack.gui.inRenameBuilding() end
+function dfhack.gui.inRenameBuilding(...) end
 
 ---@param x number
 ---@param y number
@@ -113,7 +113,7 @@ function dfhack.gui.inRenameBuilding() end
 function dfhack.gui.getDepthAt(x, y) end
 
 ---@param focusstring string
----@param top viewscreen
+---@param top df.viewscreen
 ---@return boolean
 function dfhack.gui.matchFocusString(focusstring, top) end
 

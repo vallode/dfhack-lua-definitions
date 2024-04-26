@@ -17,36 +17,37 @@
 dfhack = {}
 
 ---@return string
-function dfhack.getOSType() end
+function dfhack.getOSType(...) end
 
 ---@return integer
-function dfhack.getArchitecture() end
+function dfhack.getArchitecture(...) end
 
 ---@return string
-function dfhack.getArchitectureName() end
+function dfhack.getArchitectureName(...) end
 
 ---@return string
-function dfhack.getDFVersion() end
+function dfhack.getDFVersion(...) end
 
 ---@return string
-function dfhack.getDFPath() end
+function dfhack.getDFPath(...) end
 
 ---@return integer
-function dfhack.getTickCount() end
+function dfhack.getTickCount(...) end
 
 ---@return string
-function dfhack.getHackPath() end
+function dfhack.getHackPath(...) end
 
 ---@return boolean
-function dfhack.isWorldLoaded() end
+function dfhack.isWorldLoaded(...) end
 
 ---@return boolean
-function dfhack.isMapLoaded() end
+function dfhack.isMapLoaded(...) end
 
 ---@return boolean
-function dfhack.isSiteLoaded() end
+function dfhack.isSiteLoaded(...) end
 
-function dfhack.TranslateName() end
+---@return unknown
+function dfhack.TranslateName(...) end
 
 ---@param s string
 ---@return string

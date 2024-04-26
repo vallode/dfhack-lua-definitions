@@ -77,6 +77,7 @@ def parse_cpp_modules(files)
         arguments = arguments&.map do |argument|
           type, name = argument.split(' ')
           type = DFHackLuaDefinitions::CPP.parse_type(type)
+          type = "df.#{type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? type
 
           if name == 'out'
             nil
@@ -88,12 +89,27 @@ def parse_cpp_modules(files)
           end
         end&.compact
 
-        arguments&.each do |argument|
-          output << "---@param #{argument[:name]} #{argument[:type]}\n"
+        unless arguments&.empty?
+          arguments&.each do |argument|
+            output << "---@param #{argument[:name]} #{argument[:type]}\n"
+          end
         end
-        output << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
+
+        if return_type
+          # Namespacing
+          return_type = "df.#{return_type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? return_type
+
+          output << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
+        else
+          output << "---@return unknown\n"
+        end
+
         output << "function #{prefix}#{module_name}.#{function_name}("
-        output << arguments&.map { |arg| arg[:name] }&.join(', ')
+        output << if !arguments
+                    '...'
+                  else
+                    arguments&.map { |arg| arg[:name] }&.join(', ')
+                  end
         output << ") end\n\n"
       end
     end

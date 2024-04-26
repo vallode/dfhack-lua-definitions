@@ -5,12 +5,12 @@
 dfhack.military = {}
 
 ---@param assignmentid number
----@return squad
+---@return df.squad
 function dfhack.military.makeSquad(assignmentid) end
 
 ---@param squadid number
 ---@param civzoneid number
----@param flags squad_use_flags
+---@param flags df.squad_use_flags
 ---@return nil
 function dfhack.military.updateRoomAssignments(squadid, civzoneid, flags) end
 

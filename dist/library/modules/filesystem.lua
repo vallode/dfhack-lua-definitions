@@ -7,13 +7,13 @@
 dfhack.filesystem = {}
 
 ---@return string
-function dfhack.filesystem.getcwd() end
+function dfhack.filesystem.getcwd(...) end
 
 ---@return boolean
-function dfhack.filesystem.restore_cwd() end
+function dfhack.filesystem.restore_cwd(...) end
 
 ---@return string
-function dfhack.filesystem.get_initial_cwd() end
+function dfhack.filesystem.get_initial_cwd(...) end
 
 ---@param path string
 ---@return boolean
@@ -43,9 +43,12 @@ function dfhack.filesystem.isfile(path) end
 ---@return boolean
 function dfhack.filesystem.isdir(path) end
 
-function dfhack.filesystem.atime() end
+---@return unknown
+function dfhack.filesystem.atime(...) end
 
-function dfhack.filesystem.ctime() end
+---@return unknown
+function dfhack.filesystem.ctime(...) end
 
-function dfhack.filesystem.mtime() end
+---@return unknown
+function dfhack.filesystem.mtime(...) end
 

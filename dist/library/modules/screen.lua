@@ -17,15 +17,15 @@
 dfhack.screen = {}
 
 ---@return boolean
-function dfhack.screen.inGraphicsMode() end
+function dfhack.screen.inGraphicsMode(...) end
 
 ---@return boolean
-function dfhack.screen.clear() end
+function dfhack.screen.clear(...) end
 
 ---@return boolean
-function dfhack.screen.invalidate() end
+function dfhack.screen.invalidate(...) end
 
----@param key interface_key
+---@param key df.interface_key
 ---@return string
 function dfhack.screen.getKeyDisplay(key) end
 
