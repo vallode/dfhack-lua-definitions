@@ -69,8 +69,8 @@ module DFHackLuaDefinitions
 
         if captures[1]
           # TODO: Naming convention or actual compiler behaviour?
-          arguments = captures[1].split(',').reject { |arg| arg.include? '&out' }
-          arguments = arguments.map { |arg| arg.gsub(/const\s|[*&]/, '').strip }
+          arguments = captures[1].split(',').reject.with_index { |arg, index| arg[/&\s*out/] && index.zero? }
+          arguments = arguments.map { |arg| arg.gsub(/const\s+|[*&]/, '').strip }
           arguments = arguments&.map do |argument|
             type, _, name = argument.rpartition(' ')
             type = DFHackLuaDefinitions::CPP.parse_type(type)
@@ -92,7 +92,7 @@ module DFHackLuaDefinitions
           # Namespacing
           return_type = "df.#{return_type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? return_type
 
-          annotation << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
+          annotation << "---@return #{return_type.gsub(/const\s+|[*&]/, '')}\n" if return_type
         else
           annotation << "---@return unknown\n"
         end

@@ -10,7 +10,7 @@ dfhack.constructions = {}
 function dfhack.constructions.designateRemove(pos, immediate) end
 
 ---@param pos df.coord
----@return df.ruction
+---@return df.construction
 function dfhack.constructions.findAtTile(pos) end
 
 ---@param pos df.coord

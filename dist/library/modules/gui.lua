@@ -114,10 +114,9 @@ function dfhack.gui.getSelectedBuilding(quiet) end
 ---@return df.building_civzonest
 function dfhack.gui.getSelectedCivZone(quiet) end
 
----@param out df.color_ostream
 ---@param quiet boolean|nil
 ---@return df.building_stockpilest
-function dfhack.gui.getSelectedStockpile(out, quiet) end
+function dfhack.gui.getSelectedStockpile(quiet) end
 
 ---@param quiet boolean|nil
 ---@return df.plant
