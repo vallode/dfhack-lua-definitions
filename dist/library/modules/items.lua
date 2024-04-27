@@ -9,11 +9,40 @@
 ---@field remove function
 ---@field findType function
 ---@field findSubtype function
----@field getPosition function
----@field getOuterContainerRef function
----@field getContainedItems function
----@field moveToBuilding function
 dfhack.items = {}
+
+---@param item df.item
+---@return df.coord
+function dfhack.items.getPosition(item) end
+
+---@param spec_ref df.specific_ref
+---@param item df.item
+---@param init_ref boolean|nil
+---@return nil
+function dfhack.items.getOuterContainerRef(spec_ref, item, init_ref) end
+
+---@param item df.item
+---@param items df.DFVector<item>
+---@return nil
+function dfhack.items.getContainedItems(item, items) end
+
+---@param mc df.MapExtras::MapCache
+---@param item df.item
+---@param building df.building_actual
+---@param use_mode df.building_item_role_type
+---@param force_in_building boolean|nil
+---@return boolean
+function dfhack.items.moveToBuilding(mc, item, building, use_mode, force_in_building) end
+
+---@param unit df.unit
+---@param item_type df.item_type
+---@param item_subtype number
+---@param mat_type number
+---@param mat_index number
+---@param growth_print number
+---@param no_floor boolean|nil
+---@return boolean
+function dfhack.items.createItem(unit, item_type, item_subtype, mat_type, mat_index, growth_print, no_floor) end
 
 ---@param item df.item
 ---@param type df.general_ref_type
@@ -56,6 +85,10 @@ function dfhack.items.getBookTitle(item) end
 ---@return string
 function dfhack.items.getDescription(item, type, decorate) end
 
+---@param item df.item
+---@return string
+function dfhack.items.getReadableDescription(item) end
+
 ---@param itype df.item_type
 ---@return boolean
 function dfhack.items.isCasteMaterial(itype) end
@@ -69,12 +102,12 @@ function dfhack.items.getSubtypeCount(itype) end
 ---@return df.itemdef
 function dfhack.items.getSubtypeDef(itype, subtype) end
 
----@param itemtype number
----@param itemsubtype number
----@param mattype number
----@param matsubtype number
+---@param item_type number
+---@param item_subtype number
+---@param mat_type number
+---@param mat_subtype number
 ---@return integer
-function dfhack.items.getItemBaseValue(itemtype, itemsubtype, mattype, matsubtype) end
+function dfhack.items.getItemBaseValue(item_type, item_subtype, mat_type, mat_subtype) end
 
 ---@param item df.item
 ---@param caravan df.caravan_state
@@ -85,14 +118,6 @@ function dfhack.items.getValue(item, caravan) end
 ---@param caravan df.caravan_state
 ---@return boolean
 function dfhack.items.isRequestedTradeGood(item, caravan) end
-
----@param itemtype df.item_type
----@param itemsubtype number
----@param mattype number
----@param matindex number
----@param unit df.unit
----@return number
-function dfhack.items.createItem(itemtype, itemsubtype, mattype, matindex, unit) end
 
 ---@param item df.item
 ---@return boolean
@@ -116,9 +141,9 @@ function dfhack.items.canTradeAnyWithContents(item) end
 function dfhack.items.markForTrade(item, depot) end
 
 ---@param item df.item
----@param gameui boolean|nil
+---@param game_ui boolean|nil
 ---@return boolean
-function dfhack.items.canMelt(item, gameui) end
+function dfhack.items.canMelt(item, game_ui) end
 
 ---@param item df.item
 ---@return boolean

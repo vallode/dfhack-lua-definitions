@@ -2,15 +2,48 @@
 ---@meta
 
 ---@class units_module
----@field getPosition function
----@field getOuterContainerRef function
----@field getNoblePositions function
----@field getUnitsInBox function
----@field getCitizens function
----@field getUnitsByNobleRole function
----@field getStressCutoffs function
----@field assignTrainer function
 dfhack.units = {}
+
+---@param unit df.unit
+---@return df.coord
+function dfhack.units.getPosition(unit) end
+
+---@param spec_ref df.specific_ref
+---@param unit df.unit
+---@param init_ref boolean|nil
+---@return nil
+function dfhack.units.getOuterContainerRef(spec_ref, unit, init_ref) end
+
+---@param pvec df.DFVector<NoblePosition>
+---@param unit df.unit
+---@return boolean
+function dfhack.units.getNoblePositions(pvec, unit) end
+
+---@param units df.DFVector<unit>
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@return boolean
+function dfhack.units.getUnitsInBox(units, x1, y1, z1, x2, y2, z2) end
+
+---@param citizens df.vector<unit >
+---@param exclude_residents boolean|nil
+---@param include_insane boolean|nil
+---@return boolean
+function dfhack.units.getCitizens(citizens, exclude_residents, include_insane) end
+
+---@param units df.vector<unit >
+---@param noble string
+---@return boolean
+function dfhack.units.getUnitsByNobleRole(units, noble) end
+
+---@param unit df.unit
+---@param trainer_id number
+---@return boolean
+function dfhack.units.assignTrainer(unit, trainer_id) end
 
 ---@param u df.unit
 ---@param x1 number
@@ -31,14 +64,14 @@ function dfhack.units.isActive(unit) end
 function dfhack.units.isVisible(unit) end
 
 ---@param unit df.unit
----@param includeinsane boolean|nil
+---@param include_insane boolean|nil
 ---@return boolean
-function dfhack.units.isCitizen(unit, includeinsane) end
+function dfhack.units.isCitizen(unit, include_insane) end
 
 ---@param unit df.unit
----@param includeinsane boolean|nil
+---@param include_insane boolean|nil
 ---@return boolean
-function dfhack.units.isResident(unit, includeinsane) end
+function dfhack.units.isResident(unit, include_insane) end
 
 ---@param unit df.unit
 ---@return boolean
@@ -253,9 +286,9 @@ function dfhack.units.isVisitor(unit) end
 function dfhack.units.isInvader(unit) end
 
 ---@param unit df.unit
----@param includevamps boolean|nil
+---@param include_vamps boolean|nil
 ---@return boolean
-function dfhack.units.isUndead(unit, includevamps) end
+function dfhack.units.isUndead(unit, include_vamps) end
 
 ---@param unit df.unit
 ---@return boolean
@@ -290,9 +323,9 @@ function dfhack.units.isDanger(unit) end
 function dfhack.units.isGreatDanger(unit) end
 
 ---@param unit df.unit
----@param targetpos df.coord
+---@param target_pos df.coord
 ---@return boolean
-function dfhack.units.teleport(unit, targetpos) end
+function dfhack.units.teleport(unit, target_pos) end
 
 ---@param unit df.unit
 ---@param type df.general_ref_type
@@ -348,30 +381,30 @@ function dfhack.units.casteFlagSet(race, caste, flag) end
 function dfhack.units.getMiscTrait(unit, type, create) end
 
 ---@param unit df.unit
----@param trueage boolean|nil
+---@param true_age boolean|nil
 ---@return number
-function dfhack.units.getAge(unit, trueage) end
+function dfhack.units.getAge(unit, true_age) end
 
 ---@param unit df.unit
 ---@return integer
 function dfhack.units.getKillCount(unit) end
 
 ---@param unit df.unit
----@param skillid df.job_skill
----@param userust boolean|nil
+---@param skill_id df.job_skill
+---@param use_rust boolean|nil
 ---@return integer
-function dfhack.units.getNominalSkill(unit, skillid, userust) end
+function dfhack.units.getNominalSkill(unit, skill_id, use_rust) end
 
 ---@param unit df.unit
----@param skillid df.job_skill
+---@param skill_id df.job_skill
 ---@return integer
-function dfhack.units.getEffectiveSkill(unit, skillid) end
+function dfhack.units.getEffectiveSkill(unit, skill_id) end
 
 ---@param unit df.unit
----@param skillid df.job_skill
+---@param skill_id df.job_skill
 ---@param total boolean|nil
 ---@return integer
-function dfhack.units.getExperience(unit, skillid, total) end
+function dfhack.units.getExperience(unit, skill_id, total) end
 
 ---@param unit df.unit
 ---@param labor df.unit_labor
@@ -392,10 +425,10 @@ function dfhack.units.computeMovementSpeed(unit) end
 function dfhack.units.computeSlowdownFactor(unit) end
 
 ---@param unit df.unit
----@param ignorenoble boolean|nil
+---@param ignore_noble boolean|nil
 ---@param plural boolean|nil
 ---@return string
-function dfhack.units.getProfessionName(unit, ignorenoble, plural) end
+function dfhack.units.getProfessionName(unit, ignore_noble, plural) end
 
 ---@param race integer
 ---@param casteid integer
@@ -405,9 +438,9 @@ function dfhack.units.getProfessionName(unit, ignorenoble, plural) end
 function dfhack.units.getCasteProfessionName(race, casteid, pid, plural) end
 
 ---@param unit df.unit
----@param ignorenoble boolean|nil
+---@param ignore_noble boolean|nil
 ---@return number
-function dfhack.units.getProfessionColor(unit, ignorenoble) end
+function dfhack.units.getProfessionColor(unit, ignore_noble) end
 
 ---@param race integer
 ---@param casteid integer
@@ -478,9 +511,9 @@ function dfhack.units.getMainSocialEvent(unit) end
 ---@return integer
 function dfhack.units.getStressCategory(unit) end
 
----@param stresslevel number
+---@param stress_level number
 ---@return integer
-function dfhack.units.getStressCategoryRaw(stresslevel) end
+function dfhack.units.getStressCategoryRaw(stress_level) end
 
 ---@param unit df.unit
 ---@param amount number

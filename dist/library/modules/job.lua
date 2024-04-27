@@ -4,16 +4,20 @@
 ---@class job_module
 ---@field is_equal function
 ---@field is_item_equal function
----@field listNewlyCreated function
 dfhack.job = {}
+
+---@param pvec df.DFVector<job>
+---@param id_var integer
+---@return boolean
+function dfhack.job.listNewlyCreated(pvec, id_var) end
 
 ---@param job df.job
 ---@param item df.item
 ---@param role df.job_item_ref::T_role
----@param filteridx integer
----@param insertidx integer
+---@param filter_idx integer
+---@param insert_idx integer
 ---@return boolean
-function dfhack.job.attachJobItem(job, item, role, filteridx, insertidx) end
+function dfhack.job.attachJobItem(job, item, role, filter_idx, insert_idx) end
 
 ---@param job df.job
 ---@param keepEverything boolean|nil
@@ -59,10 +63,10 @@ function dfhack.job.setJobCooldown(workshop, worker, cooldown) end
 function dfhack.job.removeWorker(job, cooldown) end
 
 ---@return nil
-function dfhack.job.checkBuildingsNow(...) end
+function dfhack.job.checkBuildingsNow() end
 
 ---@return nil
-function dfhack.job.checkDesignationsNow(...) end
+function dfhack.job.checkDesignationsNow() end
 
 ---@param item df.job_item
 ---@param itype df.item_type
@@ -71,30 +75,30 @@ function dfhack.job.checkDesignationsNow(...) end
 function dfhack.job.isSuitableItem(item, itype, isubtype) end
 
 ---@param item df.job_item
----@param mattype integer
----@param matindex integer
+---@param mat_type integer
+---@param mat_index integer
 ---@param itype df.item_type
 ---@return boolean
-function dfhack.job.isSuitableMaterial(item, mattype, matindex, itype) end
+function dfhack.job.isSuitableMaterial(item, mat_type, mat_index, itype) end
 
 ---@param job df.job
 ---@return string
 function dfhack.job.getName(job) end
 
 ---@param job df.job
----@param newid boolean|nil
+---@param new_id boolean|nil
 ---@return boolean
-function dfhack.job.linkIntoWorld(job, newid) end
+function dfhack.job.linkIntoWorld(job, new_id) end
 
 ---@param job df.job
----@param removeall boolean|nil
+---@param remove_all boolean|nil
 ---@return boolean
-function dfhack.job.removePostings(job, removeall) end
+function dfhack.job.removePostings(job, remove_all) end
 
 ---@param job df.job
----@param itemref df.job_item_ref
+---@param item_ref df.job_item_ref
 ---@return nil
-function dfhack.job.disconnectJobItem(job, itemref) end
+function dfhack.job.disconnectJobItem(job, item_ref) end
 
 ---@param job df.job
 ---@param ref df.general_ref

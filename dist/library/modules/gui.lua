@@ -4,30 +4,91 @@
 ---@class gui_module
 ---@field addCombatReport function
 ---@field addCombatReportAuto function
----@field makeAnnouncement function
----@field showAnnouncement function
----@field showZoomAnnouncement function
----@field showPopupAnnouncement function
----@field showAutoAnnouncement function
----@field autoDFAnnouncement function
----@field getDwarfmodeViewDims function
----@field pauseRecenter function
----@field revealInDwarfmodeMap function
----@field getMousePos function
----@field getFocusStrings function
----@field getCurFocus function
----@field getWidget function
----@field getWidgetChildren function
 dfhack.gui = {}
 
----@param skipdismissed boolean|nil
----@return df.viewscreen
-function dfhack.gui.getCurViewscreen(skipdismissed) end
+---@param type df.announcement_type
+---@param flags df.announcement_flags
+---@param pos df.coord
+---@param message string
+---@param color integer
+---@param bright boolean|nil
+---@return integer
+function dfhack.gui.makeAnnouncement(type, flags, pos, message, color, bright) end
 
----@param skipdismissed boolean|nil
+---@param message string
+---@param color integer
+---@param bright boolean|nil
+---@return nil
+function dfhack.gui.showAnnouncement(message, color, bright) end
+
+---@param type df.announcement_type
+---@param pos df.coord
+---@param message string
+---@param color integer
+---@param bright boolean|nil
+---@return nil
+function dfhack.gui.showZoomAnnouncement(type, pos, message, color, bright) end
+
+---@param message string
+---@param color integer
+---@param bright boolean|nil
+---@return nil
+function dfhack.gui.showPopupAnnouncement(message, color, bright) end
+
+---@param type df.announcement_type
+---@param pos df.coord
+---@param message string
+---@param color integer
+---@param bright boolean|nil
+---@param unit_a df.unit
+---@param unit_d df.unit
+---@return nil
+function dfhack.gui.showAutoAnnouncement(type, pos, message, color, bright, unit_a, unit_d) end
+
+---@param info df.announcement_infost
+---@param message string
+---@return boolean
+function dfhack.gui.autoDFAnnouncement(info, message) end
+
+---@return df.Gui::DwarfmodeDims
+function dfhack.gui.getDwarfmodeViewDims() end
+
+---@param x number
+---@param y number
+---@param z number
+---@param pause boolean|nil
+---@return boolean
+function dfhack.gui.pauseRecenter(x, y, z, pause) end
+
+---@param x number
+---@param y number
+---@param z number
+---@param center boolean|nil
+---@param highlight boolean|nil
+---@return boolean
+function dfhack.gui.revealInDwarfmodeMap(x, y, z, center, highlight) end
+
+---@param allow_out_of_bounds boolean|nil
+---@return df.coord
+function dfhack.gui.getMousePos(allow_out_of_bounds) end
+
+---@param top df.viewscreen
+---@return df.DFVector<std::string>
+function dfhack.gui.getFocusStrings(top) end
+
+---@param container df.widget_container
+---@param name string
+---@return df.widget
+function dfhack.gui.getWidget(container, name) end
+
+---@param skip_dismissed boolean|nil
+---@return df.viewscreen
+function dfhack.gui.getCurViewscreen(skip_dismissed) end
+
+---@param skip_dismissed boolean|nil
 ---@param screen df.viewscreen
 ---@return df.viewscreen
-function dfhack.gui.getDFViewscreen(skipdismissed, screen) end
+function dfhack.gui.getDFViewscreen(skip_dismissed, screen) end
 
 ---@param quiet boolean|nil
 ---@return df.job
@@ -53,9 +114,10 @@ function dfhack.gui.getSelectedBuilding(quiet) end
 ---@return df.building_civzonest
 function dfhack.gui.getSelectedCivZone(quiet) end
 
+---@param out df.color_ostream
 ---@param quiet boolean|nil
 ---@return df.building_stockpilest
-function dfhack.gui.getSelectedStockpile(quiet) end
+function dfhack.gui.getSelectedStockpile(out, quiet) end
 
 ---@param quiet boolean|nil
 ---@return df.plant
@@ -102,18 +164,18 @@ function dfhack.gui.writeToGamelog(message) end
 function dfhack.gui.resetDwarfmodeView(pause) end
 
 ---@return boolean
-function dfhack.gui.refreshSidebar(...) end
+function dfhack.gui.refreshSidebar() end
 
 ---@return boolean
-function dfhack.gui.inRenameBuilding(...) end
+function dfhack.gui.inRenameBuilding() end
 
 ---@param x number
 ---@param y number
 ---@return integer
 function dfhack.gui.getDepthAt(x, y) end
 
----@param focusstring string
+---@param focus_string string
 ---@param top df.viewscreen
 ---@return boolean
-function dfhack.gui.matchFocusString(focusstring, top) end
+function dfhack.gui.matchFocusString(focus_string, top) end
 

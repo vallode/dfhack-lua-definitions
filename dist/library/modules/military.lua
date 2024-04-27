@@ -4,17 +4,17 @@
 ---@class military_module
 dfhack.military = {}
 
----@param assignmentid number
+---@param assignment_id number
 ---@return df.squad
-function dfhack.military.makeSquad(assignmentid) end
+function dfhack.military.makeSquad(assignment_id) end
 
----@param squadid number
----@param civzoneid number
+---@param squad_id number
+---@param civzone_id number
 ---@param flags df.squad_use_flags
 ---@return nil
-function dfhack.military.updateRoomAssignments(squadid, civzoneid, flags) end
+function dfhack.military.updateRoomAssignments(squad_id, civzone_id, flags) end
 
----@param squadid number
+---@param squad_id number
 ---@return string
-function dfhack.military.getSquadName(squadid) end
+function dfhack.military.getSquadName(squad_id) end
 

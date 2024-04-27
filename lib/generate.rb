@@ -51,67 +51,40 @@ def parse_cpp_modules(files)
         output << "---@field #{function_name} function\n"
       end
 
+      prefix = module_name == 'dfhack' ? '' : 'dfhack.'
+      namespace = module_name == 'dfhack' ? '' : "#{module_name.capitalize}::"
+      output << "#{prefix}#{module_name} = {}\n\n"
+
+      functions = []
+
+      # Guessing here a little bit.
       file.scan(/^static.*#{module_name}_funcs\[\][\s\S]+?};/) do |funcs|
         funcs.scan(/{([^}\n]+)}/) do
           match = Regexp.last_match(1)
           next if match =~ /NULL/
 
           function_name = match.split(',')[0].strip.gsub(/"/, '')
+          signature_name = match.split(',')[1].strip.gsub('"', '').gsub("#{module_name}_", '')
 
-          output << "---@field #{function_name} function\n"
+          module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name}\s?\(([^)]+)?\)/]
+          next unless Regexp.last_match
+
+          functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:, function_name:)
         end
       end
-
-      prefix = module_name == 'dfhack' ? '' : 'dfhack.'
-      namespace = module_name == 'dfhack' ? '' : "#{module_name.capitalize}::"
-      output << "#{prefix}#{module_name} = {}\n\n"
 
       cpp_module.scan(/(?:WRAP|WRAPM)\((.+)?\),?/) do |function_name,|
         function_name = Regexp.last_match(1) if function_name =~ /,\s?(\S+)/
         signature = "#{namespace}#{function_name}"
 
         module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature}\s?\(([^)]+)?\)/]
-        return_type = DFHackLuaDefinitions::CPP.parse_type(Regexp.last_match(1))
-        arguments = Regexp.last_match(2)&.gsub(/const\s|[*&]/, '')&.split(',')&.map(&:strip)
 
-        arguments = arguments&.map do |argument|
-          type, name = argument.split(' ')
-          type = DFHackLuaDefinitions::CPP.parse_type(type)
-          type = "df.#{type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? type
+        next unless Regexp.last_match
 
-          if name == 'out'
-            nil
-          else
-            {
-              name: DFHackLuaDefinitions::LuaLS.safe_name(DFHackLuaDefinitions::CPP.sanitize(name)),
-              type: type == 'boolean' ? 'boolean|nil' : type
-            }
-          end
-        end&.compact
-
-        unless arguments&.empty?
-          arguments&.each do |argument|
-            output << "---@param #{argument[:name]} #{argument[:type]}\n"
-          end
-        end
-
-        if return_type
-          # Namespacing
-          return_type = "df.#{return_type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? return_type
-
-          output << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
-        else
-          output << "---@return unknown\n"
-        end
-
-        output << "function #{prefix}#{module_name}.#{function_name}("
-        output << if !arguments
-                    '...'
-                  else
-                    arguments&.map { |arg| arg[:name] }&.join(', ')
-                  end
-        output << ") end\n\n"
+        functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:, function_name:)
       end
+
+      output << functions.join
     end
   end
 end

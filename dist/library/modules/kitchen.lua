@@ -5,26 +5,26 @@
 dfhack.kitchen = {}
 
 ---@param type df.kitchen_exc_type
----@param itemtype df.item_type
----@param itemsubtype number
----@param mattype number
----@param matindex number
+---@param item_type df.item_type
+---@param item_subtype number
+---@param mat_type number
+---@param mat_index number
 ---@return integer
-function dfhack.kitchen.findExclusion(type, itemtype, itemsubtype, mattype, matindex) end
+function dfhack.kitchen.findExclusion(type, item_type, item_subtype, mat_type, mat_index) end
 
 ---@param type df.kitchen_exc_type
----@param itemtype df.item_type
----@param itemsubtype number
----@param mattype number
----@param matindex number
+---@param item_type df.item_type
+---@param item_subtype number
+---@param mat_type number
+---@param mat_index number
 ---@return boolean
-function dfhack.kitchen.addExclusion(type, itemtype, itemsubtype, mattype, matindex) end
+function dfhack.kitchen.addExclusion(type, item_type, item_subtype, mat_type, mat_index) end
 
 ---@param type df.kitchen_exc_type
----@param itemtype df.item_type
----@param itemsubtype number
----@param mattype number
----@param matindex number
+---@param item_type df.item_type
+---@param item_subtype number
+---@param mat_type number
+---@param mat_index number
 ---@return boolean
-function dfhack.kitchen.removeExclusion(type, itemtype, itemsubtype, mattype, matindex) end
+function dfhack.kitchen.removeExclusion(type, item_type, item_subtype, mat_type, mat_index) end
 

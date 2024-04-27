@@ -4,13 +4,17 @@
 ---@class burrows_module
 ---@field isAssignedBlockTile function
 ---@field setAssignedBlockTile function
----@field listBlocks function
 dfhack.burrows = {}
 
+---@param pvec df.DFVector<map_block>
+---@param burrow df.burrow
+---@return nil
+function dfhack.burrows.listBlocks(pvec, burrow) end
+
 ---@param name string
----@param ignorefinalplus boolean|nil
+---@param ignore_final_plus boolean|nil
 ---@return df.burrow
-function dfhack.burrows.findByName(name, ignorefinalplus) end
+function dfhack.burrows.findByName(name, ignore_final_plus) end
 
 ---@param burrow df.burrow
 ---@return nil
@@ -30,10 +34,4 @@ function dfhack.burrows.setAssignedUnit(burrow, unit, enable) end
 ---@param burrow df.burrow
 ---@return nil
 function dfhack.burrows.clearTiles(burrow) end
-
----@return unknown
-function dfhack.burrows.isAssignedTile(...) end
-
----@return unknown
-function dfhack.burrows.setAssignedTile(...) end
 

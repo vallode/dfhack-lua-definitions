@@ -13,41 +13,41 @@
 ---@field gitXmlMatch function
 ---@field isRelease function
 ---@field isPrerelease function
----@field getCommandHistory function
 dfhack = {}
 
+---@param state df.lua_State
+---@return integer
+function dfhack.getCommandHistory(state) end
+
 ---@return string
-function dfhack.getOSType(...) end
+function dfhack.getOSType() end
 
 ---@return integer
-function dfhack.getArchitecture(...) end
+function dfhack.getArchitecture() end
 
 ---@return string
-function dfhack.getArchitectureName(...) end
+function dfhack.getArchitectureName() end
 
 ---@return string
-function dfhack.getDFVersion(...) end
+function dfhack.getDFVersion() end
 
 ---@return string
-function dfhack.getDFPath(...) end
+function dfhack.getDFPath() end
 
 ---@return integer
-function dfhack.getTickCount(...) end
+function dfhack.getTickCount() end
 
 ---@return string
-function dfhack.getHackPath(...) end
+function dfhack.getHackPath() end
 
 ---@return boolean
-function dfhack.isWorldLoaded(...) end
+function dfhack.isWorldLoaded() end
 
 ---@return boolean
-function dfhack.isMapLoaded(...) end
+function dfhack.isMapLoaded() end
 
 ---@return boolean
-function dfhack.isSiteLoaded(...) end
-
----@return unknown
-function dfhack.TranslateName(...) end
+function dfhack.isSiteLoaded() end
 
 ---@param s string
 ---@return string
@@ -78,8 +78,8 @@ function dfhack.toSearchNormalized(s) end
 function dfhack.capitalizeStringWords(s) end
 
 ---@param id string
----@param srcfile string
+---@param src_file string
 ---@param command string
 ---@return nil
-function dfhack.addCommandToHistory(id, srcfile, command) end
+function dfhack.addCommandToHistory(id, src_file, command) end
 

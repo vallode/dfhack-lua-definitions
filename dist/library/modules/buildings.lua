@@ -3,11 +3,29 @@
 
 ---@class buildings_module
 ---@field containsTile function
----@field findAtTile function
----@field findCivzonesAt function
----@field getCorrectSize function
----@field findPenPitAt function
 dfhack.buildings = {}
+
+---@param pos df.coord
+---@return df.building
+function dfhack.buildings.findAtTile(pos) end
+
+---@param pvec df.DFVector<building_civzonest>
+---@param pos df.coord
+---@return boolean
+function dfhack.buildings.findCivzonesAt(pvec, pos) end
+
+---@param size df.coord2d
+---@param center df.coord2d
+---@param type df.building_type
+---@param subtype integer
+---@param custom integer
+---@param direction integer
+---@return boolean
+function dfhack.buildings.getCorrectSize(size, center, type, subtype, custom, direction) end
+
+---@param coord df.coord
+---@return df.building
+function dfhack.buildings.findPenPitAt(coord) end
 
 ---@param building df.building
 ---@param type df.general_ref_type
@@ -34,12 +52,12 @@ function dfhack.buildings.allocInstance(pos, type, subtype, custom) end
 ---@param pos df.coord
 ---@param size df.coord2d
 ---@param ext df.building_extents
----@param createext boolean|nil
----@param allowoccupied boolean|nil
----@param allowwall boolean|nil
----@param allowflow boolean|nil
+---@param create_ext boolean|nil
+---@param allow_occupied boolean|nil
+---@param allow_wall boolean|nil
+---@param allow_flow boolean|nil
 ---@return boolean
-function dfhack.buildings.checkFreeTiles(pos, size, ext, createext, allowoccupied, allowwall, allowflow) end
+function dfhack.buildings.checkFreeTiles(pos, size, ext, create_ext, allow_occupied, allow_wall, allow_flow) end
 
 ---@param ext df.building_extents
 ---@param defval integer

@@ -7,17 +7,47 @@
 ---@field getTileAssignment function
 ---@field setTileAssignment function
 ---@field resetTileAssignment function
----@field isValidTilePos function
----@field isTileVisible function
----@field getTileBlock function
----@field ensureTileBlock function
----@field getTileType function
----@field getTileFlags function
----@field getRegionBiome function
----@field getTileBiomeRgn function
----@field getPlantAtTile function
----@field getBiomeType function
 dfhack.maps = {}
+
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function dfhack.maps.isValidTilePos(x, y, z) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function dfhack.maps.isTileVisible(x, y, z) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return df.map_block
+function dfhack.maps.getTileBlock(x, y, z) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return df.map_block
+function dfhack.maps.ensureTileBlock(x, y, z) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return df.tiletype
+function dfhack.maps.getTileType(x, y, z) end
+
+---@param rgn_pos df.coord2d
+---@return df.region_map_entry
+function dfhack.maps.getRegionBiome(rgn_pos) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return df.plant
+function dfhack.maps.getPlantAtTile(x, y, z) end
 
 ---@param blk df.map_block
 ---@param flow boolean|nil
@@ -29,10 +59,10 @@ function dfhack.maps.enableBlockUpdates(blk, flow, temperature) end
 ---@return df.feature_init
 function dfhack.maps.getGlobalInitFeature(index) end
 
----@param rgnpos df.coord2d
+---@param rgn_pos df.coord2d
 ---@param index number
 ---@return df.feature_init
-function dfhack.maps.getLocalInitFeature(rgnpos, index) end
+function dfhack.maps.getLocalInitFeature(rgn_pos, index) end
 
 ---@param pos df.coord
 ---@return integer
@@ -45,9 +75,9 @@ function dfhack.maps.canWalkBetween(pos1, pos2) end
 
 ---@param pos df.coord
 ---@param type df.flow_type
----@param mattype integer
----@param matindex integer
+---@param mat_type integer
+---@param mat_index integer
 ---@param density integer
 ---@return df.flow_info
-function dfhack.maps.spawnFlow(pos, type, mattype, matindex, density) end
+function dfhack.maps.spawnFlow(pos, type, mat_type, mat_index, density) end
 

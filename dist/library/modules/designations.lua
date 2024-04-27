@@ -2,8 +2,11 @@
 ---@meta
 
 ---@class designations_module
----@field getPlantDesignationTile function
 dfhack.designations = {}
+
+---@param plant df.plant
+---@return df.coord
+function dfhack.designations.getPlantDesignationTile(plant) end
 
 ---@param plant df.plant
 ---@return boolean

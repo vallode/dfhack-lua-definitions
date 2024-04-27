@@ -2,16 +2,23 @@
 ---@meta
 
 ---@class constructions_module
----@field designateRemove function
----@field findAtTile function
 dfhack.constructions = {}
+
+---@param pos df.coord
+---@param immediate boolean|nil
+---@return boolean
+function dfhack.constructions.designateRemove(pos, immediate) end
+
+---@param pos df.coord
+---@return df.ruction
+function dfhack.constructions.findAtTile(pos) end
 
 ---@param pos df.coord
 ---@param type df.construction_type
 ---@param item df.item_type
----@param matindex integer
+---@param mat_index integer
 ---@return boolean
-function dfhack.constructions.designateNew(pos, type, item, matindex) end
+function dfhack.constructions.designateNew(pos, type, item, mat_index) end
 
 ---@param constr df.construction
 ---@return boolean

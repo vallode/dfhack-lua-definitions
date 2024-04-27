@@ -57,7 +57,54 @@ module DFHackLuaDefinitions
       def sanitize(string)
         return nil unless string
 
-        string.gsub(/[^A-Za-z0-9]/, '').strip
+        string.gsub(/[^A-Za-z0-9]_/, '').strip
+      end
+
+      def parse_function(match, module_name:, prefix:, function_name:)
+        annotation = []
+
+        captures = match.captures
+        return_type = parse_type(captures[0])
+        arguments = []
+
+        if captures[1]
+          # TODO: Naming convention or actual compiler behaviour?
+          arguments = captures[1].split(',').reject { |arg| arg.include? '&out' }
+          arguments = arguments.map { |arg| arg.gsub(/const\s|[*&]/, '').strip }
+          arguments = arguments&.map do |argument|
+            type, _, name = argument.rpartition(' ')
+            type = DFHackLuaDefinitions::CPP.parse_type(type)
+            type = "df.#{type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? type
+
+            {
+              name: DFHackLuaDefinitions::LuaLS.safe_name(DFHackLuaDefinitions::CPP.sanitize(name)),
+              type: type == 'boolean' ? 'boolean|nil' : type.strip
+            }
+          end&.compact
+        end
+        unless arguments&.empty?
+          arguments&.each do |argument|
+            annotation << "---@param #{argument[:name]} #{argument[:type]}\n"
+          end
+        end
+
+        if return_type
+          # Namespacing
+          return_type = "df.#{return_type}" unless DFHackLuaDefinitions::LuaLS::TYPES.include? return_type
+
+          annotation << "---@return #{return_type.gsub(/const|[*&]/, '')}\n" if return_type
+        else
+          annotation << "---@return unknown\n"
+        end
+
+        annotation << "function #{prefix}#{module_name}.#{function_name}("
+        annotation << if !arguments
+                        '...'
+                      else
+                        arguments&.map { |arg| arg[:name] }&.join(', ')
+                      end
+        annotation << ") end\n\n"
+        annotation.join
       end
     end
   end
