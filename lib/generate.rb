@@ -24,7 +24,7 @@ HANDLERS = {
 
 # WIP, volatile, here be Carps, you have been warned etc.
 def parse_cpp_modules(files)
-  ignored_modules = %w[internal console]
+  ignored_modules = %w[console]
 
   file = File.read(files)
 
@@ -33,7 +33,7 @@ def parse_cpp_modules(files)
 
     next if ignored_modules.include? module_name
 
-    module_file = if module_name == 'dfhack'
+    module_file = if %w[dfhack internal].include? module_name
                     file
                   else
                     File.read("#{File.dirname(files)}/modules/#{module_name.capitalize}.cpp")
