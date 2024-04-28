@@ -130,16 +130,15 @@ module DFHackLuaDefinitions
     end
 
     def render
-      annotation = ''
+      annotation = []
       annotation << to_alias
       annotation << "\n"
       annotation << LuaLS.multiline_comment(@comment)
       annotation << "---@class #{@type_name}: DFEnumType\n"
       annotation << @items.map(&:to_field).join
       annotation << "#{@accessor} = {}\n\n"
-
       annotation << to_attrs unless @attributes.empty?
-      annotation
+      annotation.join
     end
   end
 
