@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  run:
+    name: Update submodules 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
