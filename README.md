@@ -8,9 +8,9 @@ Type definitions for [DFHack](https://docs.dfhack.org/en/stable/)'s Lua API.
 
 ## Installation
 
-Clone this repository or download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/).
+You can either download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/) or a [nightly build artifact](//github.com/vallode/dfhack-lua-definitions/actions/workflows/build.yml).
 
-These definitions require [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](https://luals.github.io/#vscode-install).
+These definitions require [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](//luals.github.io/#vscode-install).
 
 
 ### VSCode / Code - OSS
