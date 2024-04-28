@@ -1,0 +1,30 @@
+name: Update submodules
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Update submodules
+        run: git submodule update --remote
+      - name: Check if submodules updated
+        id: submodules_updated
+        run: git diff --quiet HEAD -- dfhack df-structures
+      - name: Setup git user
+        if: ${{ steps.submodules_updated.outcome == 'failure' }}
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: Commit changes
+        if: ${{ steps.submodules_updated.outcome == 'failure' }}
+        run: |
+          git add dfhack df-structures
+          git commit -m "Auto-update submodules"
+          git push
