@@ -17,7 +17,7 @@ jobs:
         run: git submodule update --remote
       - name: Check if submodules updated
         id: submodules_updated
-        run: echo "changed=$(git diff --quiet HEAD -- dfhack df-structures)" >> $GITHUB_OUTPUT
+        run: echo "changed=$(git diff --quiet HEAD -- dfhack df-structures; echo $?)" >> $GITHUB_OUTPUT
       - name: Setup git user
         if: ${{ steps.submodules_updated.outputs.changed == true }}
         run: |
