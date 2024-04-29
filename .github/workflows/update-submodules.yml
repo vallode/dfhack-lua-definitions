@@ -7,8 +7,10 @@ on:
 
 jobs:
   run:
-    name: Update submodules 
+    name: Update submodules
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,7 +26,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
       - name: Commit changes
-        if: ${{ !!steps.submodules_updated.outputs.changed == true }}
+        if: ${{ steps.submodules_updated.outputs.changed == true }}
         run: |
           git add dfhack df-structures
           git commit -m "Auto-update submodules"
