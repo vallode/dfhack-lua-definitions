@@ -14,4 +14,6 @@ function scriptManager.get_mod_paths(installed_subdir, active_subdir) end
 
 function scriptManager.get_mod_script_paths() end
 
+function scriptManager.print_timers() end
+
 return scriptManager

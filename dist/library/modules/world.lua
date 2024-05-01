@@ -33,3 +33,6 @@ function dfhack.world.SetCurrentWeather(weather) end
 ---@return string
 function dfhack.world.ReadWorldFolder() end
 
+---@return df.unit
+function dfhack.world.getAdventurer() end
+
