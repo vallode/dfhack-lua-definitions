@@ -1,5 +1,7 @@
 # DFHack Lua API Definitions
 
+![Main branch test status](https://img.shields.io/github/actions/workflow/status/vallode/dfhack-lua-definitions/test.yml?branch=main&logo=ruby&label=Tests)
+
 Type definitions for [DFHack](https://docs.dfhack.org/en/stable/)'s Lua API.
 
 > [!NOTE]
