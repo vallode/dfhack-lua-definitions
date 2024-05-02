@@ -1,14 +1,11 @@
 name: Update submodules
 
-on:
-  schedule:
-    - cron: '0 12 * * *'
-  workflow_dispatch:
+on: workflow_call
 
 jobs:
   run:
     name: Update submodules
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:

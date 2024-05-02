@@ -1,0 +1,37 @@
+name: Update annotations
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  run:
+    name: Update annotations
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: ./.github/workflows/update-submodules.yml
+
+      - uses: ./.github/workflows/build.yml
+
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Check if annotations changed
+        id: annotations_changed
+        run: echo "changed=$(git diff --quiet HEAD -- dist; echo $?)" >> $GITHUB_OUTPUT
+
+      - name: Setup git user
+        if: ${{ steps.annotations_changed.outputs.changed == true }}
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: Commit changes
+        if: ${{ steps.annotations_changed.outputs.changed == true }}
+        run: |
+          git add dfhack df-structures
+          git commit -m "Auto-update annotations"
+          git push
