@@ -12,13 +12,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: ./.github/workflows/update-submodules.yml
-
-      - uses: ./.github/workflows/build.yml
-
       - uses: actions/checkout@v4
         with:
           submodules: true
+
+      - uses: ./.github/workflows/update-submodules.yml
+      - uses: ./.github/workflows/build.yml
 
       - name: Check if annotations changed
         id: annotations_changed
