@@ -8,12 +8,18 @@ on:
 jobs:
   update_submodules:
     uses: ./.github/workflows/update-submodules.yml
+    permissions:
+      contents: write
 
   update_definitions:
+    needs: update_submodules
     uses: ./.github/workflows/update-definitions.yml
+    permissions:
+      contents: write
 
   upload:
     name: Upload definitions
+    needs: [update_submodules, update_definitions]
     runs-on: ubuntu-22.04
     steps:
       - name: Clone definitions
