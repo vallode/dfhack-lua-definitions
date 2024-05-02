@@ -1,0 +1,33 @@
+name: Build nightly release
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  update_submodules:
+    uses: ./.github/workflows/update-submodules.yml
+
+  update_definitions:
+    uses: ./.github/workflows/update-definitions.yml
+
+  upload:
+    name: Upload definitions
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone definitions
+        uses: actions/checkout@v4
+        with:  
+          sparse-checkout: dist
+          sparse-checkout-cone-mode: false
+
+      - name: Upload as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dfhack-lua-definitions
+          path: dist
+          compression-level: 9
+
+      
+

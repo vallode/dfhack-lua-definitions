@@ -12,16 +12,20 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+
       - name: Update submodules
         run: git submodule update --remote
+
       - name: Check if submodules updated
         id: submodules_updated
         run: echo "changed=$(git diff --quiet HEAD -- dfhack df-structures; echo $?)" >> $GITHUB_OUTPUT
+
       - name: Setup git user
         if: ${{ steps.submodules_updated.outputs.changed == true }}
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+
       - name: Commit changes
         if: ${{ steps.submodules_updated.outputs.changed == true }}
         run: |
