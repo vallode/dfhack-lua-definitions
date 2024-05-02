@@ -2,15 +2,15 @@
 
 ![Main branch test status](https://img.shields.io/github/actions/workflow/status/vallode/dfhack-lua-definitions/test.yml?branch=main&logo=ruby&label=Tests)
 
-Type definitions for [DFHack](https://docs.dfhack.org/en/stable/)'s Lua API.
+[Lua language server](//github.com/LuaLS/lua-language-server) type definitions for [DFHack](//docs.dfhack.org/en/stable/)'s Lua API.
 
 > [!NOTE]
 >
-> These definitions are work-in-progress, they can lie to you. You can find up to date documentation on the [DFHack website](https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html). That being said, please raise any problems here or on DFHack's Discord server.
+> These definitions are work-in-progress, they can lie to you. You can find up to date documentation on the [DFHack website](//docs.dfhack.org/en/stable/docs/dev/Lua%20API.html). That being said, please raise any problems here or on DFHack's Discord server.
 
 ## Installation
 
-You can either download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/) or a [nightly build artifact](//github.com/vallode/dfhack-lua-definitions/actions/workflows/build.yml).
+You can either download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/) or a [nightly build artifact](//github.com/vallode/dfhack-lua-definitions/actions/workflows/nightly.yml).
 
 These definitions require [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](//luals.github.io/#vscode-install).
 
