@@ -69,7 +69,7 @@ module DFHackLuaDefinitions
 
         if captures[1]
           # TODO: Naming convention or actual compiler behaviour?
-          arguments = captures[1].split(',').reject.with_index { |arg, index| arg[/&\s*out/] && index.zero? }
+          arguments = captures[1].split(',').reject.with_index { |arg, index| arg[/(&\s*out)|lua_State/] && index.zero? }
           arguments = arguments.map { |arg| arg.gsub(/const\s+|[*&]/, '').strip }
           arguments = arguments&.map do |argument|
             type, _, name = argument.rpartition(' ')

@@ -15,9 +15,8 @@
 ---@field isPrerelease function
 dfhack = {}
 
----@param state df.lua_State
 ---@return integer
-function dfhack.getCommandHistory(state) end
+function dfhack.getCommandHistory() end
 
 ---@return string
 function dfhack.getOSType() end
