@@ -61,10 +61,6 @@ function dfhack.screen.keyToChar(key) end
 ---@return df.interface_key
 function dfhack.screen.charToKey(code) end
 
----@param cmd df.zoom_commands
----@return nil
-function dfhack.screen.zoom(cmd) end
-
 ---@return boolean
 function dfhack.screen.inGraphicsMode() end
 
