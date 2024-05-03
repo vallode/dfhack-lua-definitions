@@ -6,7 +6,7 @@
 ---@field setAssignedBlockTile function
 dfhack.burrows = {}
 
----@param pvec df.DFVector<map_block>
+---@param pvec { [integer]: df.map_block }
 ---@param burrow df.burrow
 ---@return nil
 function dfhack.burrows.listBlocks(pvec, burrow) end

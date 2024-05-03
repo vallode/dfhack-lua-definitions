@@ -9,7 +9,7 @@ dfhack.buildings = {}
 ---@return df.building
 function dfhack.buildings.findAtTile(pos) end
 
----@param pvec df.DFVector<building_civzonest>
+---@param pvec { [integer]: df.building_civzonest }
 ---@param pos df.coord
 ---@return boolean
 function dfhack.buildings.findCivzonesAt(pvec, pos) end
@@ -74,12 +74,12 @@ function dfhack.buildings.hasSupport(pos, size) end
 function dfhack.buildings.constructAbstract(bld) end
 
 ---@param bld df.building
----@param items df.DFVector<item>
+---@param items { [integer]: df.item }
 ---@return boolean
 function dfhack.buildings.constructWithItems(bld, items) end
 
 ---@param bld df.building
----@param items df.DFVector<job_item>
+---@param items { [integer]: df.job_item }
 ---@return boolean
 function dfhack.buildings.constructWithFilters(bld, items) end
 
