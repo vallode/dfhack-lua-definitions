@@ -2,7 +2,7 @@ name: Build nightly release
 
 on:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: "0 12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Clone definitions
         uses: actions/checkout@v4
-        with:  
+        with:
           sparse-checkout: dist
           sparse-checkout-cone-mode: false
 
@@ -34,6 +34,3 @@ jobs:
           name: dfhack-lua-definitions
           path: dist
           compression-level: 9
-
-      
-
