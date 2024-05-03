@@ -21,20 +21,23 @@ module DFHackLuaDefinitions
       # attempts to find the relevant module files and their function
       # signatures.
       def parse_cpp_modules(entry_point)
+        # TODO: Of course we cannot do this forever!
         ignored_modules = %w[console]
 
         file = File.read(entry_point)
         directory = File.dirname(entry_point)
 
-        file.scan(/^static.*module\[\][\s\S]+?};/) do |cpp_module|
-          module_name = cpp_module[/\S+(?=_module\[\])/].gsub('dfhack_', '')
+        modules = file.scan(/^static.*dfhack_(.*)(?:_funcs|_module)\[\][\s\S]+?};/).flatten.uniq.reject do |name|
+          ignored_modules.include? name
+        end
 
-          next if ignored_modules.include? module_name
-
-          module_file = if %w[dfhack internal].include? module_name
-                          file
+        modules.each do |module_name|
+          module_path = "#{directory}/modules/#{module_name.capitalize}.cpp"
+          is_module = file =~ /^static.*#{module_name}_module\[\]/
+          module_file = if File.exist? module_path
+                          File.read(module_path)
                         else
-                          File.read("#{directory}/modules/#{module_name.capitalize}.cpp")
+                          file
                         end
 
           File.open("dist/library/modules/#{module_name}.lua", 'w') do |output|
@@ -44,36 +47,59 @@ module DFHackLuaDefinitions
 
             output << "---@class #{module_name}_module\n"
 
+            prefix = module_name == 'dfhack' ? '' : 'dfhack.'
+            namespace = is_module ? "#{module_name.capitalize}::" : ''
+
+            functions = []
+
+            module_declaration = file[/^static.*#{module_name}_module\[\][\s\S]+?};/]
+            function_declaration = file[/^static.*#{module_name}_funcs\[\][\s\S]+?};/]
+
             # Functions with signatures that are unlikely to be easily parsed.
-            cpp_module.scan(/(?:WRAP_VERSION_FUNC|WRAPN)\(([^)]+)\)/) do |match|
+            module_declaration&.scan(/(?:WRAP_VERSION_FUNC|WRAPN)\(([^)]+)\)/) do |match|
               function_name = match[0].split(', ')[0]
               output << "---@field #{function_name} function\n"
             end
 
-            prefix = module_name == 'dfhack' ? '' : 'dfhack.'
-            namespace = module_name == 'dfhack' ? '' : "#{module_name.capitalize}::"
-            output << "#{prefix}#{module_name} = {}\n\n"
+            # Functions that manipulate lua_state (usually?)
+            unless is_module
+              function_declaration&.scan(/^\s*{\s*([^,]+),\s*([^}]+)\s*}/) do |name, signature|
+                next if name =~ /NULL/
 
-            functions = []
+                function_name = name.gsub(/"/, '').strip
+                signature_name = signature.gsub(/"/, '').strip
 
-            # Guessing here a little bit.
-            file.scan(/^static.*#{module_name}_funcs\[\][\s\S]+?};/) do |funcs|
-              funcs.scan(/{([^}\n]+)}/) do
-                match = Regexp.last_match(1)
-                next if match =~ /NULL/
+                module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name.gsub(
+                  /#{module_name}_/, ''
+                )}\s?\(([^)]+)?\)/]
+                next if Regexp.last_match
 
-                function_name = match.split(',')[0].strip.gsub(/"/, '')
-                signature_name = match.split(',')[1].strip.gsub('"', '').gsub("#{module_name}_", '')
-
-                module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name}\s?\(([^)]+)?\)/]
+                file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature_name}\s?\(([^)]+)?\)/] unless is_module
                 next unless Regexp.last_match
 
-                functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
-                                                                                         function_name:)
+                output << "---@field #{function_name} function\n"
               end
             end
 
-            cpp_module.scan(/(?:WRAP|WRAPM)\((.+)?\),?/) do |function_name,|
+            output << "#{prefix}#{module_name} = {}\n\n"
+
+            # Guessing here a little bit.
+            function_declaration&.scan(/^\s*{\s*([^,]+),\s*([^}]+)\s*}/) do |name, signature|
+              next if name =~ /NULL/
+
+              function_name = name.gsub(/"/, '').strip
+              signature_name = signature.gsub(/"/, '').strip
+
+              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name.gsub(
+                /#{module_name}_/, ''
+              )}\s?\(([^)]+)?\)/]
+              next unless Regexp.last_match
+
+              functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
+                                                                                       function_name:)
+            end
+
+            module_declaration&.scan(/(?:WRAP|WRAPM)\((.+)?\),?/) do |function_name,|
               function_name = Regexp.last_match(1) if function_name =~ /,\s?(\S+)/
               signature = "#{namespace}#{function_name}"
 
@@ -84,7 +110,6 @@ module DFHackLuaDefinitions
               functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
                                                                                        function_name:)
             end
-
             output << functions.join
           end
         end
