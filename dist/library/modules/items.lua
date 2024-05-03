@@ -22,11 +22,11 @@ function dfhack.items.getPosition(item) end
 function dfhack.items.getOuterContainerRef(spec_ref, item, init_ref) end
 
 ---@param item df.item
----@param items df.DFVector<item>
+---@param items { [integer]: df.item }
 ---@return nil
 function dfhack.items.getContainedItems(item, items) end
 
----@param mc df.MapExtras::MapCache
+---@param mc unknown
 ---@param item df.item
 ---@param building df.building_actual
 ---@param use_mode df.building_item_role_type

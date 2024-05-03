@@ -13,22 +13,22 @@ function dfhack.screen.getMousePixels() end
 ---@return df.coord2d
 function dfhack.screen.getWindowSize() end
 
----@param pen df.Pen
+---@param pen unknown
 ---@param x integer
 ---@param y integer
 ---@param map boolean|nil
----@param df::graphic_viewportst::texpos_field df.int32_t
+---@param df::graphic_viewportst::texpos_field number
 ---@return boolean
 function dfhack.screen.paintTile(pen, x, y, map, df::graphic_viewportst::texpos_field) end
 
 ---@param x integer
 ---@param y integer
 ---@param map boolean|nil
----@param df::graphic_viewportst::texpos_field df.int32_t
----@return df.Pen
+---@param df::graphic_viewportst::texpos_field number
+---@return unknown
 function dfhack.screen.readTile(x, y, map, df::graphic_viewportst::texpos_field) end
 
----@param pen df.Pen
+---@param pen unknown
 ---@param x integer
 ---@param y integer
 ---@param text string
@@ -36,7 +36,7 @@ function dfhack.screen.readTile(x, y, map, df::graphic_viewportst::texpos_field)
 ---@return boolean
 function dfhack.screen.paintString(pen, x, y, text, map) end
 
----@param pen df.Pen
+---@param pen unknown
 ---@param x1 integer
 ---@param y1 integer
 ---@param x2 integer
@@ -57,7 +57,7 @@ function dfhack.screen.findGraphicsTile(pagename, x, y, ptile, pgs) end
 ---@return integer
 function dfhack.screen.keyToChar(key) end
 
----@param code df.char
+---@param code unknown
 ---@return df.interface_key
 function dfhack.screen.charToKey(code) end
 

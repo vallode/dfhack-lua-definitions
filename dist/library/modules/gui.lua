@@ -50,7 +50,7 @@ function dfhack.gui.showAutoAnnouncement(type, pos, message, color, bright, unit
 ---@return boolean
 function dfhack.gui.autoDFAnnouncement(info, message) end
 
----@return df.Gui::DwarfmodeDims
+---@return unknown
 function dfhack.gui.getDwarfmodeViewDims() end
 
 ---@param x number
@@ -73,7 +73,7 @@ function dfhack.gui.revealInDwarfmodeMap(x, y, z, center, highlight) end
 function dfhack.gui.getMousePos(allow_out_of_bounds) end
 
 ---@param top df.viewscreen
----@return df.DFVector<std::string>
+---@return { [integer]: string }
 function dfhack.gui.getFocusStrings(top) end
 
 ---@param container df.widget_container

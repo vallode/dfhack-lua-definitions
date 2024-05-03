@@ -66,6 +66,7 @@ Reportedly working but no instructions yet.
 - DFHack's C++ functions that are exposed to Lue are **not included** (#4)
 - Initally opening DFHack can take a long time to load, especially on weaker hardware (#5)
 - LuaLS has a known problem with type-hinting inside of files that write to the `_ENV` global, if you are in a file writing to `_ENV` comment out those lines.
+- Types defined in C++ headers (like `NoblePosition`) are unsupported
 
 ## Credits
 

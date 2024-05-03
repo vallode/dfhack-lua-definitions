@@ -4,6 +4,41 @@ require_relative 'annotation'
 
 module DFHackLuaDefinitions
   module XML
+    TYPE_MAP = {
+      'int8_t' => 'number',
+      'uint8_t' => 'integer',
+      'int16_t' => 'number',
+      'uint16_t' => 'integer',
+      'int32_t' => 'number',
+      'uint32_t' => 'integer',
+      'int64_t' => 'number',
+      'uint64_t' => 'integer',
+      'size_t' => 'integer',
+      # 'enum-item' => 'integer',
+      # 'flag-bit' => 'integer',
+      'pointer' => 'integer',
+      # 'padding' => 'integer',
+      # 'stl-vector' => 'integer',
+      's-float' => 'number',
+      'd-float' => 'number',
+      'long' => 'number',
+      'ulong' => 'number',
+      'bool' => 'boolean',
+      'ptr-string' => 'DFPointer<string>',
+      'static-string' => 'string',
+      'stl-string' => 'string',
+      # 'stl-bit-vector' => 'boolean',
+      # 'df-flagarray' => 'boolean',
+      # 'stl-function' => 'function',
+      # TODO: Investigate a proper representation for these
+      'stl-mutex' => 'lightuserdata',
+      'stl-condition-variable' => 'lightuserdata',
+      'stl-deque' => 'lightuserdata',
+      'stl-fstream' => 'lightuserdata',
+      'stl-unordered-map' => 'lightuserdata',
+      'stl-future' => 'lightuserdata'
+    }.freeze
+
     class << self
       def parse_xml_files(files)
         files.each do |path|
@@ -50,7 +85,7 @@ module DFHackLuaDefinitions
 
           # Convert all primitive types to Lua types.
           document.xpath('//@type-name | //@base-type | //@ret-type').each do |type|
-            type.value = CPP::TYPE_MAP[type.value] if CPP::TYPE_MAP[type.value]
+            type.value = TYPE_MAP[type.value] if TYPE_MAP[type.value]
           end
 
           # Parse the document again after changes to validate.

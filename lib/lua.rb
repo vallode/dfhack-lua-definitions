@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DFHackLuaDefinitions
-  class Lua
+  module Lua
     class << self
       # Mostly temporary, cleans DFHack's Lua files and outputs globals and function
       # names.

@@ -23,8 +23,7 @@ end
 # https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
 def generate_annotations
   print "Parsing DFHack C++ modules\n"
-  lua_api = './dfhack/library/LuaApi.cpp'
-  DFHackLuaDefinitions::CPP.parse_cpp_modules(lua_api)
+  DFHackLuaDefinitions::CPP.parse_cpp_modules('./dfhack/library/LuaApi.cpp')
 
   print "Parsing DFHack Lua library\n"
   library_files = Dir.glob('./dfhack/library/lua/**/*.lua')

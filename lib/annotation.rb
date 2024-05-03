@@ -2,7 +2,7 @@
 
 module DFHackLuaDefinitions
   # LuaLS annotation generator functions.
-  class Annotation
+  module Annotation
     TYPES = %w[nil any boolean string number integer function table thread userdata lightuserdata].freeze
 
     # Keywords reserved by Lua that should not exist as identifiers.

@@ -5,17 +5,16 @@
 dfhack.filesystem = {}
 
 ---@param dir string
----@param files df.DFVector<std::string>
+---@param files { [integer]: string }
 ---@return integer
 function dfhack.filesystem.listdir(dir, files) end
 
 ---@param dir string
----@param std::map<std::string df.
----@param files df.bool>
----@param / df.int depth / = 10
----@param / df.bool include_prefix / = true
+---@param files { [string]: boolean }
+---@param depth integer
+---@param include_prefix boolean|nil
 ---@return integer
-function dfhack.filesystem.listdir_recursive(dir, std::map<std::string, files, /, /) end
+function dfhack.filesystem.listdir_recursive(dir, files, depth, include_prefix) end
 
 ---@return string
 function dfhack.filesystem.getcwd() end
