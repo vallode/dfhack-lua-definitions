@@ -619,7 +619,7 @@ module DFHackLuaDefinitions
       def render?
         return true if @node['ld:level'] != '1'
 
-        !!@name
+        @name
       end
     end
 
