@@ -14,8 +14,7 @@
             "arg_error": "error",
             "dfhack.error": "error",
             "qerror": "error",
-            "reqscript": "dofile",
-            "mkmodule": "require"
+            "reqscript": "dofile"
         }
     }
 }

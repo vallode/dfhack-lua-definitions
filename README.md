@@ -47,7 +47,6 @@ Reportedly working but no instructions yet.
     "special": {
       "arg_error": "error",
       "dfhack.error": "error",
-      "mkmodule": "require",
       "qerror": "error",
       "reqscript": "dofile"
     }
