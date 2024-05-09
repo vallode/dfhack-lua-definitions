@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # Cannot use the commit SHA because there may have been updates.
+          ref: ${{ github.ref }}
           submodules: true
 
       - name: Update submodules
