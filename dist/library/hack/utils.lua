@@ -70,6 +70,8 @@ function utils.normalizePath(path) end
 
 function utils.invert(tab) end
 
+function utils.tabulate(fun, start, stop, step) end
+
 function utils.processArgs(args, validArgs) end
 
 function utils.processArgsGetopt(args, optionActions) end
