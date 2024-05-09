@@ -87,7 +87,7 @@ dfhack.exception.__index = dfhack.exception
 ---@nodiscard
 ---@param module string
 ---@param env? table|metatable
----@return table pkg
+---@return _G pkg
 function dfhack.mkmodule(module,env) end
 
 ---@param module string
@@ -95,6 +95,7 @@ function dfhack.reload(module) end
 
 function dfhack.rawset_default(target,source) end
 
+---@type any
 DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
 
 ---@generic T: table
