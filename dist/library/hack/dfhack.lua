@@ -57,7 +57,7 @@ function dfhack.pcall(f, ...) end
 
 ---@param msg string
 ---@param level? integer
-function dfhack.qerror(msg, level) end
+function qerror(msg, level) end
 
 ---@generic T
 ---@param cleanup_fn function
@@ -88,12 +88,12 @@ dfhack.exception.__index = dfhack.exception
 ---@param module string
 ---@param env? table|metatable
 ---@return _G pkg
-function dfhack.mkmodule(module,env) end
+function mkmodule(module,env) end
 
 ---@param module string
-function dfhack.reload(module) end
+function reload(module) end
 
-function dfhack.rawset_default(target,source) end
+function rawset_default(target,source) end
 
 ---@type any
 DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
@@ -102,25 +102,25 @@ DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
 ---@param class? T
 ---@param parent? table
 ---@return table|T
-function dfhack.defclass(class,parent) end
+function defclass(class,parent) end
 
 ---@generic T: table
 ---@param class table
 ---@param table? T
 ---@return table|T
-function dfhack.mkinstance(class,table) end
+function mkinstance(class,table) end
 
 NEWLINE = "\n"
 COMMA = ","
 PERIOD = "."
 
-function dfhack.safe_pairs(t, iterator_fn) end
+function safe_pairs(t, iterator_fn) end
 
 ---@param table table
-function dfhack.printall(table) end
+function printall(table) end
 
 ---@param table table
-function dfhack.printall_ipairs(table) end
+function printall_ipairs(table) end
 
 setmetatable(fill_chars, fill_chars)
 
@@ -133,31 +133,31 @@ do_print_recurse = function(printfn, value, seen, indent)
     return recurse_type_map[t](printfn, value, seen, indent)
 end
 
-function dfhack.printall_recurse(value, seen) end
+function printall_recurse(value, seen) end
 
 ---@generic T
 ---@param table T
 ---@return T
-function dfhack.copyall(table) end
+function copyall(table) end
 
 ---@param pos df.coord
 ---@return number? x
 ---@return number? y
 ---@return number? z
-function dfhack.pos2xyz(pos) end
+function pos2xyz(pos) end
 
 ---@nodiscard
 ---@param x number
 ---@param y number
 ---@param z number
 ---@return df.coord
-function dfhack.xyz2pos(x,y,z) end
+function xyz2pos(x,y,z) end
 
 ---@nodiscard
 ---@param a df.coord
 ---@param b df.coord
 ---@return boolean
-function dfhack.same_xyz(a,b) end
+function same_xyz(a,b) end
 
 ---@nodiscard
 ---@param path df.coord_path
@@ -165,32 +165,32 @@ function dfhack.same_xyz(a,b) end
 ---@return number x
 ---@return number y
 ---@return number z
-function dfhack.get_path_xyz(path,i) end
+function get_path_xyz(path,i) end
 
 ---@nodiscard
 ---@param pos df.coord|df.coord2d
 ---@return number? x
 ---@return number? y
-function dfhack.pos2xy(pos) end
+function pos2xy(pos) end
 
 ---@nodiscard
 ---@param x number
 ---@param y number
 ---@return df.coord2d
-function dfhack.xy2pos(x,y) end
+function xy2pos(x,y) end
 
 ---@nodiscard
 ---@param a df.coord|df.coord2d
 ---@param b df.coord|df.coord2d
 ---@return boolean
-function dfhack.same_xy(a,b) end
+function same_xy(a,b) end
 
 ---@nodiscard
 ---@param path df.coord_path|df.coord2d_path
 ---@param i number
 ---@return integer x
 ---@return integer y
-function dfhack.get_path_xy(path,i) end
+function get_path_xy(path,i) end
 
 -- Walks a sequence of dereferences, which may be represented by numbers or
 -- strings. Returns nil if any of obj or indices is nil, or a numeric index is
@@ -199,19 +199,19 @@ function dfhack.get_path_xy(path,i) end
 ---@param idx number|string
 ---@param ... number|string
 ---@return any obj
-function dfhack.safe_index(obj,idx,...) end
+function safe_index(obj,idx,...) end
 
 ---@param t table
 ---@param key integer|string
 ---@param default_value? any
 ---@return any
-function dfhack.ensure_key(t, key, default_value) end
+function ensure_key(t, key, default_value) end
 
 ---@param t table
 ---@param key integer|string
 ---@param ... integer|string
 ---@return table
-function dfhack.ensure_keys(t, key, ...) end
+function ensure_keys(t, key, ...) end
 
 -- prefix is a literal string, not a pattern
 ---@nodiscard

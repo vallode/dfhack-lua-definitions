@@ -42,8 +42,8 @@ module DFHackLuaDefinitions
             # Remove function bodies to save some space.
             file.gsub!(/^(?:function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, 'function \1 end')
 
-            # Namespace "global" functions.
-            file.gsub!(/^function\s+([^(:.]+?)(\(.*)$/, "function #{filename}." + '\1\2')
+            # Namespace "global" functions, but not for dfhack.
+            file.gsub!(/^function\s+([^(:.]+?)(\(.*)$/, "function #{filename}." + '\1\2') unless filename[/dfhack/]
 
             # Remove all local table assignments.
             file.gsub!(/^local\s+.*\{[^}]+?(^\}).*$/, '')
