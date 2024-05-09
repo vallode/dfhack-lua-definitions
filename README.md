@@ -68,6 +68,14 @@ Reportedly working but no instructions yet.
 - LuaLS has a known problem with type-hinting inside of files that write to the `_ENV` global, if you are in a file writing to `_ENV` comment out those lines.
 - Types defined in C++ headers (like `NoblePosition`) are unsupported
 
+## Tips
+
+- In VSCode (and other derivatives) one can use `ctrl+space` to trigger intellisense on the spot. This is useful for filling out typed tables like `ATTRS` on widgets.
+
+## Contributing
+
+Any form of contribution (feedback, criticism, words of encouragement) is welcome. Feel free to open an issue, email, or ping me on the DFHack discord.
+
 ## Credits
 
 As with all things, development of this library would not be possible without help.
