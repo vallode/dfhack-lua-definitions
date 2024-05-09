@@ -2,17 +2,17 @@
 ---@meta
 
 ---@class materials
----@field MaterialDialog MaterialDialog
+---@field MaterialDialog materials.MaterialDialog
 local materials
 
-function materials.showMaterialPrompt(title, prompt, on_select, on_cancel, mat_filter) end
+ARROW = string.char(26)
 
-function materials.ItemTypeDialog(args) end
+CREATURE_BASE = 19
+PLANT_BASE = 419
 
-function materials.ItemTraitsDialog(args) end
+local MaterialDialog
 
----@class MaterialDialog
-local MaterialDialog = {}
+MaterialDialog.focus_path = 'MaterialDialog'
 
 function MaterialDialog:init(info) end
 
@@ -43,5 +43,11 @@ function MaterialDialog:submitMaterial(typ, index) end
 function MaterialDialog:onSubmitItem(idx, item) end
 
 function MaterialDialog:onInput(keys) end
+
+function materials.showMaterialPrompt(title, prompt, on_select, on_cancel, mat_filter) end
+
+function materials.ItemTypeDialog(args) end
+
+function materials.ItemTraitsDialog(args) end
 
 return materials

@@ -1,22 +1,10 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
--- Common startup file for all dfhack scripts and plugins with lua support
--- The global dfhack table is already created by C++ init code.
-
--- Setup the global environment.
--- BASE_G is the original lua global environment,
--- preserved as a common denominator for all modules.
--- This file uses it instead of the new default one.
-
 ---@class dfhack
 ---@field BASE_G _G Original Lua global environment
 ---@field is_core_context boolean
 ---@field is_interactive fun(): boolean
-local dfhack = dfhack
-
-local base_env = dfhack.BASE_G
-
 
 CR_LINK_FAILURE = -3
 CR_NEEDS_CONSOLE = -2
@@ -25,8 +13,6 @@ CR_OK = 0
 CR_FAILURE = 1
 CR_WRONG_USAGE = 2
 CR_NOT_FOUND = 3
-
--- Console color constants
 
 COLOR_RESET = -1
 COLOR_BLACK = 0
@@ -49,12 +35,6 @@ COLOR_WHITE = 15
 COLOR_GRAY = COLOR_GREY
 COLOR_DARKGRAY = COLOR_DARKGREY
 
--- Events
-
-
-
--- User-changeable options
-
 dfhack.HIDE_CONSOLE_ON_STARTUP = true
 ---@nodiscard
 ---@return boolean
@@ -64,8 +44,6 @@ dfhack.HIDE_ARMOK_TOOLS = false
 ---@nodiscard
 ---@return boolean
 function dfhack.getHideArmokTools() end
-
--- Error handling
 
 safecall = dfhack.safecall
 curry = dfhack.curry
@@ -79,7 +57,7 @@ function dfhack.pcall(f, ...) end
 
 ---@param msg string
 ---@param level? integer
-function qerror(msg, level) end
+function dfhack.qerror(msg, level) end
 
 ---@generic T
 ---@param cleanup_fn function
@@ -97,7 +75,6 @@ function dfhack.with_onerror(cleanup_fn,fn,...) end
 
 ---@param obj DFObject
 
-
 ---@generic T
 ---@param obj DFObject
 ---@param fn fun(...):T
@@ -107,22 +84,16 @@ function dfhack.with_temp_object(obj,fn,...) end
 
 dfhack.exception.__index = dfhack.exception
 
--- Module loading
-
-
-
 ---@nodiscard
 ---@param module string
 ---@param env? table|metatable
 ---@return table pkg
-function mkmodule(module,env) end
+function dfhack.mkmodule(module,env) end
 
 ---@param module string
-function reload(module) end
+function dfhack.reload(module) end
 
--- Trivial classes
-
-function rawset_default(target,source) end
+function dfhack.rawset_default(target,source) end
 
 DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
 
@@ -130,69 +101,27 @@ DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
 ---@param class? T
 ---@param parent? table
 ---@return table|T
-function defclass(class,parent) end
+function dfhack.defclass(class,parent) end
 
 ---@generic T: table
 ---@param class table
 ---@param table? T
 ---@return table|T
-function mkinstance(class,table) end
-
--- Misc functions
+function dfhack.mkinstance(class,table) end
 
 NEWLINE = "\n"
 COMMA = ","
 PERIOD = "."
 
-
-
-function safe_pairs(t, iterator_fn) end
-
--- calls elem_cb(k, v) for each element of the table
--- returns true if we iterated successfully, false if not
--- this differs from safe_pairs() above in that it only calls pcall() once per
--- full iteration and it returns whether iteration succeeded or failed.
-
-
-
+function dfhack.safe_pairs(t, iterator_fn) end
 
 ---@param table table
-function printall(table) end
+function dfhack.printall(table) end
 
 ---@param table table
-function printall_ipairs(table) end
-
-local do_print_recurse
-
-
-
-local fill_chars = {
-    __index = function(table, key, value)
-        local rv = string.rep(' ', 23 - key) .. ' = '
-        rawset(table, key, rv)
-        return rv
-    end,
-}
+function dfhack.printall_ipairs(table) end
 
 setmetatable(fill_chars, fill_chars)
-
-
-
--- This should be same as print_array but userdata doesn't compare equal even if
--- they hold same pointer.
-
-
-
-
-local recurse_type_map = {
-    number = print_string,
-    string = print_string,
-    boolean = print_string,
-    ['function'] = print_string,
-    ['nil'] = print_string,
-    userdata = print_userdata,
-    table = print_array,
-}
 
 do_print_recurse = function(printfn, value, seen, indent)
     local t = type(value)
@@ -203,31 +132,31 @@ do_print_recurse = function(printfn, value, seen, indent)
     return recurse_type_map[t](printfn, value, seen, indent)
 end
 
-function printall_recurse(value, seen) end
+function dfhack.printall_recurse(value, seen) end
 
 ---@generic T
 ---@param table T
 ---@return T
-function copyall(table) end
+function dfhack.copyall(table) end
 
 ---@param pos df.coord
 ---@return number? x
 ---@return number? y
 ---@return number? z
-function pos2xyz(pos) end
+function dfhack.pos2xyz(pos) end
 
 ---@nodiscard
 ---@param x number
 ---@param y number
 ---@param z number
 ---@return df.coord
-function xyz2pos(x,y,z) end
+function dfhack.xyz2pos(x,y,z) end
 
 ---@nodiscard
 ---@param a df.coord
 ---@param b df.coord
 ---@return boolean
-function same_xyz(a,b) end
+function dfhack.same_xyz(a,b) end
 
 ---@nodiscard
 ---@param path df.coord_path
@@ -235,32 +164,32 @@ function same_xyz(a,b) end
 ---@return number x
 ---@return number y
 ---@return number z
-function get_path_xyz(path,i) end
+function dfhack.get_path_xyz(path,i) end
 
 ---@nodiscard
 ---@param pos df.coord|df.coord2d
 ---@return number? x
 ---@return number? y
-function pos2xy(pos) end
+function dfhack.pos2xy(pos) end
 
 ---@nodiscard
 ---@param x number
 ---@param y number
 ---@return df.coord2d
-function xy2pos(x,y) end
+function dfhack.xy2pos(x,y) end
 
 ---@nodiscard
 ---@param a df.coord|df.coord2d
 ---@param b df.coord|df.coord2d
 ---@return boolean
-function same_xy(a,b) end
+function dfhack.same_xy(a,b) end
 
 ---@nodiscard
 ---@param path df.coord_path|df.coord2d_path
 ---@param i number
 ---@return integer x
 ---@return integer y
-function get_path_xy(path,i) end
+function dfhack.get_path_xy(path,i) end
 
 -- Walks a sequence of dereferences, which may be represented by numbers or
 -- strings. Returns nil if any of obj or indices is nil, or a numeric index is
@@ -269,21 +198,19 @@ function get_path_xy(path,i) end
 ---@param idx number|string
 ---@param ... number|string
 ---@return any obj
-function safe_index(obj,idx,...) end
+function dfhack.safe_index(obj,idx,...) end
 
 ---@param t table
 ---@param key integer|string
 ---@param default_value? any
 ---@return any
-function ensure_key(t, key, default_value) end
+function dfhack.ensure_key(t, key, default_value) end
 
 ---@param t table
 ---@param key integer|string
 ---@param ... integer|string
 ---@return table
-function ensure_keys(t, key, ...) end
-
--- String class extentions
+function dfhack.ensure_keys(t, key, ...) end
 
 -- prefix is a literal string, not a pattern
 ---@nodiscard
@@ -329,14 +256,10 @@ function string:trim() end
 ---@return string
 function string:wrap(width) end
 
--- Escapes regex special chars in a string. E.g. "a+b" -> "a%+b"
-local regex_chars_pattern = '(['..('%^$()[].*+-?'):gsub('(.)', '%%%1')..'])'
 ---@nodiscard
 ---@param self string
 ---@return string
 function string:escape_pattern() end
-
--- String conversions
 
 ---@nodiscard
 ---@param self self
@@ -391,11 +314,9 @@ function dfhack.world.getCurrentSite() end
 ---@param default? any
 ---@return any
 
-
 ---@param which string
 ---@param key string
 ---@param data any
-
 
 ---@nodiscard
 ---@param key string
@@ -416,10 +337,6 @@ function dfhack.persistent.getWorldData(key, default) end
 ---@param data any
 function dfhack.persistent.saveWorldData(key, data) end
 
--- Interactive
-
-local print_banner = true
-
 ---@param prompt? string
 ---@param hfile? string
 ---@param env? table|metatable
@@ -427,38 +344,14 @@ local print_banner = true
 ---@return string|nil
 function dfhack.interpreter(prompt,hfile,env) end
 
--- Command scripts
-
-local internal = dfhack.internal
-
-Script = defclass(Script)
+local Script
 function Script:init(path) end
 function Script:needs_update() end
 function Script:get_flags() end
 
 internal.scripts = internal.scripts or {}
 
-local hack_path = dfhack.getHackPath()
-
 function dfhack.findScript(name) end
-
-local valid_script_flags = {
-    enable = {required = true, error = 'Does not recognize enable/disable commands'},
-    enable_state = {required = false},
-    module = {
-        required = function(flags)
-            if flags.module_strict == false then return false end
-            return true
-        end,
-        error = 'Cannot be used as a module'
-    },
-    module_strict = {required = false},
-    alias = {required = false},
-    alias_count = {required = false},
-    scripts = {required = false},
-}
-
-local warned_scripts = {}
 
 function dfhack.run_script(name,...) end
 
@@ -475,17 +368,11 @@ function dfhack.current_script_name() end
 
 function dfhack.script_help(script_name, extension) end
 
-
-
 function dfhack.run_command_silent(...) end
 
 function dfhack.run_command(...) end
 
--- Per-save init file
-
 function dfhack.getSavePath() end
-
-
 
 -- Feed the table back to the require() mechanism.
 return dfhack

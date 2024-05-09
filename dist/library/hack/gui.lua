@@ -2,21 +2,25 @@
 ---@meta
 
 ---@class gui
----@field ViewRect ViewRect
----@field Painter Painter
----@field View View
----@field Screen Screen
----@field ZScreen ZScreen
----@field ZScreenModal ZScreenModal
----@field FramedScreen FramedScreen
+---@field ViewRect gui.ViewRect
+---@field Painter gui.Painter
+---@field View gui.View
+---@field Screen gui.Screen
+---@field ZScreen gui.ZScreen
+---@field ZScreenModal gui.ZScreenModal
+---@field FramedScreen gui.FramedScreen
 local gui
+
+CLEAR_PEN = to_pen{tile=getInteriorTexpos(), ch=32, fg=0, bg=0, write_to_lower=true}
+TRANSPARENT_PEN = to_pen{tile=0, ch=0}
+KEEP_LOWER_PEN = to_pen{ch=32, fg=0, bg=0, keep_lower=true}
+
+FAKE_INPUT_KEYS._STRING = true
 
 function gui.simulateInput(screen,...) end
 
 function gui.mkdims_xy(x1,y1,x2,y2) end
-
 function gui.mkdims_wh(x1,y1,w,h) end
-
 function gui.is_in_rect(rect,x,y) end
 
 function gui.compute_frame_rect(wavail,havail,spec,xgap,ygap) end
@@ -31,26 +35,11 @@ function gui.blink_visible(delay) end
 
 function gui.getKeyDisplay(code) end
 
-function gui.FRAME_WINDOW(resizable) end
+-----------------------------------
+-- Clipped view rectangle object --
+-----------------------------------
 
-function gui.FRAME_PANEL() end
-
-function gui.FRAME_MEDIUM() end
-
-function gui.FRAME_BOLD() end
-
-function gui.FRAME_THIN() end
-
-function gui.FRAME_INTERIOR() end
-
-function gui.FRAME_INTERIOR_MEDIUM() end
-
-function gui.paint_frame(dc, rect, style, title, inactive, pause_forced, resizable) end
-
-function gui.invert_color(color, bold) end
-
----@class ViewRect
-local ViewRect = {}
+local ViewRect
 
 function ViewRect:init(args) end
 
@@ -66,8 +55,11 @@ function ViewRect:globalXY(x,y) end
 
 function ViewRect:viewport(x,y,w,h) end
 
----@class Painter
-local Painter = {}
+----------------------------
+-- Clipped painter object --
+----------------------------
+
+local Painter
 
 function Painter:init(args) end
 
@@ -117,8 +109,11 @@ function Painter:key(keycode,pen,...) end
 
 function Painter:key_string(keycode, text, ...) end
 
----@class View
-local View = {}
+--------------------------
+-- Abstract view object --
+--------------------------
+
+local View
 
 function View:init(args) end
 
@@ -154,10 +149,18 @@ function View:inputToSubviews(keys) end
 
 function View:onInput(keys) end
 
----@class Screen
-local Screen = {}
+------------------------
+-- Base screen object --
+------------------------
+
+local Screen
+
+Screen.text_input_mode = false
+Screen.request_full_screen_refresh = false
 
 function Screen:postinit() end
+
+Screen.isDismissed = dscreen.isDismissed
 
 function Screen:isShown() end
 
@@ -185,8 +188,13 @@ function Screen:onResize(w,h) end
 
 function Screen:onRender() end
 
----@class ZScreen
-local ZScreen = {}
+-----------------------------
+-- Z-order swapping screen --
+-----------------------------
+
+DEFAULT_INITIAL_PAUSE = true
+
+local ZScreen
 
 function ZScreen:preinit(args) end
 
@@ -208,24 +216,57 @@ function ZScreen:raise() end
 function ZScreen:isMouseOver() end
 
 function ZScreen:onGetSelectedUnit() end
-
 function ZScreen:onGetSelectedItem() end
-
 function ZScreen:onGetSelectedJob() end
-
 function ZScreen:onGetSelectedBuilding() end
-
 function ZScreen:onGetSelectedStockpile() end
-
 function ZScreen:onGetSelectedCivZone() end
-
 function ZScreen:onGetSelectedPlant() end
 
----@class ZScreenModal
-local ZScreenModal = {}
+-- convenience subclass for modal dialogs
+local ZScreenModal
 
----@class FramedScreen
-local FramedScreen = {}
+-- Framed screen object
+--------------------------
+
+-- Plain grey-colored frame.
+-- deprecated
+GREY_FRAME = {
+    frame_pen = to_pen{ ch = ' ', fg = COLOR_BLACK, bg = COLOR_GREY },
+    title_pen = to_pen{ fg = COLOR_BLACK, bg = COLOR_WHITE },
+    signature_pen = to_pen{ fg = COLOR_BLACK, bg = COLOR_GREY },
+}
+
+-- The boundary used by the pre-steam DF screens.
+-- deprecated
+BOUNDARY_FRAME = {
+    frame_pen = to_pen{ ch = 0xDB, fg = COLOR_GREY, bg = COLOR_BLACK }, -- ch=0xDB is "full block" (█)
+    title_pen = to_pen{ fg = COLOR_BLACK, bg = COLOR_GREY },
+    signature_pen = to_pen{ fg = COLOR_BLACK, bg = COLOR_GREY },
+}
+
+function gui.FRAME_WINDOW(resizable) end
+function gui.FRAME_PANEL() end
+function gui.FRAME_MEDIUM() end
+function gui.FRAME_BOLD() end
+function gui.FRAME_THIN() end
+function gui.FRAME_INTERIOR() end
+function gui.FRAME_INTERIOR_MEDIUM() end
+
+-- for compatibility with pre-steam code
+GREY_LINE_FRAME = FRAME_PANEL
+
+-- for compatibility with deprecated frame naming scheme
+WINDOW_FRAME = FRAME_WINDOW
+PANEL_FRAME = FRAME_PANEL
+MEDIUM_FRAME = FRAME_MEDIUM
+BOLD_FRAME = FRAME_BOLD
+INTERIOR_FRAME = FRAME_INTERIOR
+INTERIOR_MEDIUM_FRAME = FRAME_INTERIOR_MEDIUM
+
+function gui.paint_frame(dc, rect, style, title, inactive, pause_forced, resizable) end
+
+local FramedScreen
 
 function FramedScreen:getWantedFrameSize() end
 
@@ -234,5 +275,9 @@ function FramedScreen:computeFrame(parent_rect) end
 function FramedScreen:onRenderFrame(dc, rect) end
 
 function FramedScreen:onInput(keys) end
+
+-- Inverts the brightness of the color, optionally taking a "bold" parameter,
+-- which you should include if you're reading the fg color of a pen.
+function gui.invert_color(color, bold) end
 
 return gui

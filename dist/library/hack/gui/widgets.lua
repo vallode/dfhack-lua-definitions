@@ -2,51 +2,65 @@
 ---@meta
 
 ---@class widgets
----@field Widget Widget
----@field Divider Divider
----@field Panel Panel
----@field Window Window
----@field ResizingPanel ResizingPanel
----@field Pages Pages
----@field EditField EditField
----@field Scrollbar Scrollbar
----@field Label Label
----@field WrappedLabel WrappedLabel
----@field TooltipLabel TooltipLabel
----@field HotkeyLabel HotkeyLabel
----@field HelpButton HelpButton
----@field ConfigureButton ConfigureButton
----@field BannerPanel BannerPanel
----@field TextButton TextButton
----@field CycleHotkeyLabel CycleHotkeyLabel
----@field ToggleHotkeyLabel ToggleHotkeyLabel
----@field List List
----@field FilteredList FilteredList
----@field Tab Tab
----@field TabBar TabBar
----@field RangeSlider RangeSlider
+---@field Widget widgets.Widget
+---@field Divider widgets.Divider
+---@field Panel widgets.Panel
+---@field Window widgets.Window
+---@field ResizingPanel widgets.ResizingPanel
+---@field Pages widgets.Pages
+---@field EditField widgets.EditField
+---@field Scrollbar widgets.Scrollbar
+---@field WrappedLabel widgets.WrappedLabel
+---@field TooltipLabel widgets.TooltipLabel
+---@field HotkeyLabel widgets.HotkeyLabel
+---@field HelpButton widgets.HelpButton
+---@field BannerPanel widgets.BannerPanel
+---@field TextButton widgets.TextButton
+---@field CycleHotkeyLabel widgets.CycleHotkeyLabel
+---@field ToggleHotkeyLabel widgets.ToggleHotkeyLabel
+---@field List widgets.List
+---@field FilteredList widgets.FilteredList
+---@field Tab widgets.Tab
+---@field TabBar widgets.TabBar
+---@field RangeSlider widgets.RangeSlider
 local widgets
 
-function widgets.parse_label_text(obj) end
+STANDARDSCROLL = {
+    STANDARDSCROLL_UP = -1,
+    KEYBOARD_CURSOR_UP = -1,
+    STANDARDSCROLL_DOWN = 1,
+    KEYBOARD_CURSOR_DOWN = 1,
+    STANDARDSCROLL_PAGEUP = '-page',
+    KEYBOARD_CURSOR_UP_FAST = '-page',
+    STANDARDSCROLL_PAGEDOWN = '+page',
+    KEYBOARD_CURSOR_DOWN_FAST = '+page',
+}
 
-function widgets.render_text(obj,dc,x0,y0,pen,dpen,disabled,hpen,hovered) end
+------------
+-- Widget --
+------------
 
-function widgets.check_text_keys(self, keys) end
-
----@class Widget
-local Widget = {}
+local Widget
 
 function Widget:computeFrame(parent_rect) end
 
 function Widget:onRenderFrame(dc, rect) end
 
----@class Divider
-local Divider = {}
+-------------
+-- Divider --
+-------------
+
+local Divider
 
 function Divider:onRenderBody(dc) end
 
----@class Panel
-local Panel = {}
+-----------
+-- Panel --
+-----------
+
+DOUBLE_CLICK_MS = 500
+
+local Panel
 
 function Panel:init(args) end
 
@@ -76,17 +90,26 @@ function Panel:onResizeBegin() end
 
 function Panel:onResizeEnd(success, new_frame) end
 
----@class Window
-local Window = {}
+------------
+-- Window --
+------------
 
----@class ResizingPanel
-local ResizingPanel = {}
+local Window
+
+-------------------
+-- ResizingPanel --
+-------------------
+
+local ResizingPanel
 
 -- adjust our frame dimensions according to positions and sizes of our subviews
 function ResizingPanel:postUpdateLayout(frame_body) end
 
----@class Pages
-local Pages = {}
+-----------
+-- Pages --
+-----------
+
+local Pages
 
 function Pages:init(args) end
 
@@ -96,8 +119,11 @@ function Pages:getSelected() end
 
 function Pages:getSelectedPage() end
 
----@class EditField
-local EditField = {}
+----------------
+-- Edit field --
+----------------
+
+local EditField
 
 function EditField:preinit(init_table) end
 
@@ -117,8 +143,14 @@ function EditField:insert(text) end
 
 function EditField:onInput(keys) end
 
----@class Scrollbar
-local Scrollbar = {}
+---------------
+-- Scrollbar --
+---------------
+
+SCROLL_INITIAL_DELAY_MS = 300
+SCROLL_DELAY_MS = 20
+
+local Scrollbar
 
 function Scrollbar:preinit(init_table) end
 
@@ -130,13 +162,6 @@ function Scrollbar:init() end
 -- if elems_per_page or num_elems are not specified, the last values passed to
 -- Scrollbar:update() are used.
 function Scrollbar:update(top_elem, elems_per_page, num_elems) end
-
-function Scrollbar:onRenderBody(dc) end
-
-function Scrollbar:onInput(keys) end
-
----@class Label
-local Label = {}
 
 function Label:init(args) end
 
@@ -164,8 +189,11 @@ function Label:scroll(nlines) end
 
 function Label:onInput(keys) end
 
----@class WrappedLabel
-local WrappedLabel = {}
+------------------
+-- WrappedLabel --
+------------------
+
+local WrappedLabel
 
 function WrappedLabel:getWrappedText(width) end
 
@@ -175,13 +203,19 @@ function WrappedLabel:preUpdateLayout() end
 -- can get wrapping bounds from.
 function WrappedLabel:postComputeFrame() end
 
----@class TooltipLabel
-local TooltipLabel = {}
+------------------
+-- TooltipLabel --
+------------------
+
+local TooltipLabel
 
 function TooltipLabel:init() end
 
----@class HotkeyLabel
-local HotkeyLabel = {}
+-----------------
+-- HotkeyLabel --
+-----------------
+
+local HotkeyLabel
 
 function HotkeyLabel:init() end
 
@@ -195,32 +229,39 @@ function HotkeyLabel:initializeLabel() end
 
 function HotkeyLabel:onInput(keys) end
 
----@class HelpButton
-local HelpButton = {}
+----------------
+-- HelpButton --
+----------------
 
-function HelpButton:init() end
-
----@class ConfigureButton
-local ConfigureButton = {}
+local HelpButton
 
 function ConfigureButton:preinit(init_table) end
 
 function ConfigureButton:init() end
 
----@class BannerPanel
-local BannerPanel = {}
+-----------------
+-- BannerPanel --
+-----------------
+
+local BannerPanel
 
 function BannerPanel:onRenderBody(dc) end
 
----@class TextButton
-local TextButton = {}
+----------------
+-- TextButton --
+----------------
+
+local TextButton
 
 function TextButton:init(info) end
 
 function TextButton:setLabel(label) end
 
----@class CycleHotkeyLabel
-local CycleHotkeyLabel = {}
+----------------------
+-- CycleHotkeyLabel --
+----------------------
+
+local CycleHotkeyLabel
 
 function CycleHotkeyLabel:init() end
 
@@ -240,11 +281,17 @@ function CycleHotkeyLabel:getOptionPen(option_idx) end
 
 function CycleHotkeyLabel:onInput(keys) end
 
----@class ToggleHotkeyLabel
-local ToggleHotkeyLabel = {}
+-----------------------
+-- ToggleHotkeyLabel --
+-----------------------
 
----@class List
-local List = {}
+local ToggleHotkeyLabel
+
+----------
+-- List --
+----------
+
+local List
 
 function List:init(info) end
 
@@ -280,8 +327,11 @@ function List:double_click() end
 
 function List:onInput(keys) end
 
----@class FilteredList
-local FilteredList = {}
+-------------------
+-- Filtered List --
+-------------------
+
+local FilteredList
 
 function FilteredList:init(info) end
 
@@ -311,8 +361,11 @@ function FilteredList:onFilterChange(text) end
 
 function FilteredList:onFilterChar(char, text) end
 
----@class Tab
-local Tab = {}
+---------
+-- Tab --
+---------
+
+local Tab
 
 function Tab:preinit(init_table) end
 
@@ -320,8 +373,11 @@ function Tab:onRenderBody(dc) end
 
 function Tab:onInput(keys) end
 
----@class TabBar
-local TabBar = {}
+-------------
+-- Tab Bar --
+-------------
+
+local TabBar
 
 function TabBar:init() end
 
@@ -329,8 +385,7 @@ function TabBar:postComputeFrame(body) end
 
 function TabBar:onInput(keys) end
 
----@class RangeSlider
-local RangeSlider = {}
+--------------------------------
 
 function RangeSlider:preinit(init_table) end
 

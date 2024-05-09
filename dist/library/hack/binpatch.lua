@@ -2,13 +2,12 @@
 ---@meta
 
 ---@class binpatch
----@field BinaryPatch BinaryPatch
+---@field BinaryPatch binpatch.BinaryPatch
 local binpatch
 
-function binpatch.load_dif_file(name) end
+local BinaryPatch
 
----@class BinaryPatch
-local BinaryPatch = {}
+function binpatch.load_dif_file(name) end
 
 function BinaryPatch:status() end
 

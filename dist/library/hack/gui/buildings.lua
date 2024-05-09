@@ -2,13 +2,21 @@
 ---@meta
 
 ---@class buildings
----@field BuildingDialog BuildingDialog
+---@field BuildingDialog buildings.BuildingDialog
 local buildings
 
-function buildings.showBuildingPrompt(title, prompt, on_select, on_cancel, build_filter) end
+ARROW = string.char(26)
 
----@class BuildingDialog
-local BuildingDialog = {}
+WORKSHOP_ABSTRACT={
+    [df.building_type.Civzone]=true,[df.building_type.Stockpile]=true,
+}
+WORKSHOP_SPECIAL={
+    [df.building_type.Workshop]=true,[df.building_type.Furnace]=true,[df.building_type.Trap]=true,
+    [df.building_type.Construction]=true,[df.building_type.SiegeEngine]=true
+}
+local BuildingDialog
+
+BuildingDialog.focus_path = 'BuildingDialog'
 
 function BuildingDialog:init(info) end
 
@@ -19,7 +27,6 @@ function BuildingDialog:onDestroy() end
 function BuildingDialog:initBuiltinMode() end
 
 function BuildingDialog:initWorkshopMode() end
-
 function BuildingDialog:initTrapMode() end
 
 function BuildingDialog:initConstructionMode() end
@@ -27,7 +34,6 @@ function BuildingDialog:initConstructionMode() end
 function BuildingDialog:initFurnaceMode() end
 
 function BuildingDialog:initSiegeMode() end
-
 function BuildingDialog:initCustomMode() end
 
 function BuildingDialog:addBuilding(choices, name,type_id, subtype_id, custom_id, parent) end
@@ -41,5 +47,7 @@ function BuildingDialog:submitBuilding(type_id,subtype_id,custom_id,choice,index
 function BuildingDialog:onSubmitItem(idx, item) end
 
 function BuildingDialog:onInput(keys) end
+
+function buildings.showBuildingPrompt(title, prompt, on_select, on_cancel, build_filter) end
 
 return buildings
