@@ -5,6 +5,7 @@
 ---@field BASE_G _G Original Lua global environment
 ---@field is_core_context boolean
 ---@field is_interactive fun(): boolean
+dfhack = {}
 
 CR_LINK_FAILURE = -3
 CR_NEEDS_CONSOLE = -2

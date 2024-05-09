@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class dfhack_module
+---@class dfhack
 ---@field getDFHackVersion function
 ---@field getDFHackRelease function
 ---@field getDFHackBuildID function
@@ -13,7 +13,6 @@
 ---@field gitXmlMatch function
 ---@field isRelease function
 ---@field isPrerelease function
-dfhack = {}
 
 ---@return integer
 function dfhack.getCommandHistory() end

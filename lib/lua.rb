@@ -30,6 +30,8 @@ module DFHackLuaDefinitions
             output.write(FILE_HEADER)
             output.write("---@meta\n\n")
 
+            file.gsub!(/local dfhack = dfhack/, 'dfhack = {}') if filename[/dfhack/]
+
             # Remove `_ENV` as it is problematic.
             file.gsub!(/^.*_ENV.*$/, '')
 
