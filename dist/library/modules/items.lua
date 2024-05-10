@@ -15,24 +15,22 @@ dfhack.items = {}
 ---@return df.coord
 function dfhack.items.getPosition(item) end
 
----@param spec_ref df.specific_ref
 ---@param item df.item
 ---@param init_ref boolean|nil
----@return nil
-function dfhack.items.getOuterContainerRef(spec_ref, item, init_ref) end
+---@return df.specific_ref spec_ref
+function dfhack.items.getOuterContainerRef(item, init_ref) end
 
 ---@param item df.item
 ---@param items { [integer]: df.item }
 ---@return nil
 function dfhack.items.getContainedItems(item, items) end
 
----@param mc unknown
 ---@param item df.item
 ---@param building df.building_actual
 ---@param use_mode df.building_item_role_type
 ---@param force_in_building boolean|nil
----@return boolean
-function dfhack.items.moveToBuilding(mc, item, building, use_mode, force_in_building) end
+---@return unknown
+function dfhack.items.moveToBuilding(item, building, use_mode, force_in_building) end
 
 ---@param unit df.unit
 ---@param item_type df.item_type

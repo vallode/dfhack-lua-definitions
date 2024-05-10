@@ -13,13 +13,12 @@ function dfhack.screen.getMousePixels() end
 ---@return df.coord2d
 function dfhack.screen.getWindowSize() end
 
----@param pen unknown
 ---@param x integer
 ---@param y integer
 ---@param map boolean|nil
 ---@param df::graphic_viewportst::texpos_field number
----@return boolean
-function dfhack.screen.paintTile(pen, x, y, map, df::graphic_viewportst::texpos_field) end
+---@return unknown
+function dfhack.screen.paintTile(x, y, map, df::graphic_viewportst::texpos_field) end
 
 ---@param x integer
 ---@param y integer
@@ -28,30 +27,27 @@ function dfhack.screen.paintTile(pen, x, y, map, df::graphic_viewportst::texpos_
 ---@return unknown
 function dfhack.screen.readTile(x, y, map, df::graphic_viewportst::texpos_field) end
 
----@param pen unknown
 ---@param x integer
 ---@param y integer
 ---@param text string
 ---@param map boolean|nil
----@return boolean
-function dfhack.screen.paintString(pen, x, y, text, map) end
+---@return unknown
+function dfhack.screen.paintString(x, y, text, map) end
 
----@param pen unknown
 ---@param x1 integer
 ---@param y1 integer
 ---@param x2 integer
 ---@param y2 integer
 ---@param map boolean|nil
----@return boolean
-function dfhack.screen.fillRect(pen, x1, y1, x2, y2, map) end
+---@return unknown
+function dfhack.screen.fillRect(x1, y1, x2, y2, map) end
 
----@param pagename string
 ---@param x integer
 ---@param y integer
 ---@param ptile integer
 ---@param pgs integer
----@return boolean
-function dfhack.screen.findGraphicsTile(pagename, x, y, ptile, pgs) end
+---@return unknown
+function dfhack.screen.findGraphicsTile(x, y, ptile, pgs) end
 
 ---@param key df.interface_key
 ---@return integer

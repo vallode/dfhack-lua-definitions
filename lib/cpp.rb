@@ -154,10 +154,18 @@ module DFHackLuaDefinitions
         arguments = []
 
         if captures[1]
-          # TODO: Naming convention or actual compiler behaviour?
           arguments = captures[1].split(/,(?![^<>]*>)/).reject.with_index do |arg, index|
             arg[/(&\s*out)|lua_State/] && index.zero?
           end
+
+          # We're accounting for pointers as first arguments _usually_ being a
+          # way of avoiding copy semantics. When these are wrapped as Lua
+          # functions the pointer is returned.
+          if /&\w+/.match(arguments[0])
+            return_type = parse_type(arguments[0].gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip)
+            arguments.shift(1)
+          end
+
           arguments = arguments.map { |arg| arg.gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip }
           arguments = arguments&.map do |argument|
             type, _, name = argument.rpartition(' ')
