@@ -3,7 +3,8 @@
     "name": "DFHack Lua",
     "words": [
         "mkmodule(.+)",
-        "dfhack"
+        "dfhack",
+        "df.global"
     ],
     "settings": {
         "Lua.runtime.version": "Lua 5.3",
