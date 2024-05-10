@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta syndrome-util
 
 ---@class syndromeUtil
 local syndromeUtil

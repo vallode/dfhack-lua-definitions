@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.overlay
 
 ---@class overlay
 ---@field TitleVersionOverlay overlay.TitleVersionOverlay

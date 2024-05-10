@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.orders
 
 ---@class orders
 ---@field OrdersOverlay orders.OrdersOverlay

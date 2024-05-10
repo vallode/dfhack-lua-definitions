@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta gui.dwarfmode
 
 ---@class dwarfmode
 ---@field Viewport dwarfmode.Viewport

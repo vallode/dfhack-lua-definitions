@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta 3rdparty.alt_getopt
 
 ---@class altGetopt
 local altGetopt

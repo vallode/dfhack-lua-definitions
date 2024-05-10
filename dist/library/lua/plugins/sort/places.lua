@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.sort.places
 
 ---@class places
 ---@field PlacesOverlay places.PlacesOverlay

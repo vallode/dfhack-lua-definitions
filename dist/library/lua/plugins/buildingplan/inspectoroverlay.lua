@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.buildingplan.inspectoroverlay
 
 ---@class inspectoroverlay
 ---@field InspectorLine inspectoroverlay.InspectorLine

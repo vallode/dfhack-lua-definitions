@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.hotkeys
 
 ---@class hotkeys
 ---@field HotspotMenuWidget hotkeys.HotspotMenuWidget

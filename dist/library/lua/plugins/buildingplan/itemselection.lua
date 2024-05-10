@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.buildingplan.itemselection
 
 ---@class itemselection
 ---@field ItemSelectionScreen itemselection.ItemSelectionScreen

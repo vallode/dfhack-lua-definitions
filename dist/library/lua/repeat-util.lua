@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta repeat-util
 
 ---@class repeatUtil
 local repeatUtil

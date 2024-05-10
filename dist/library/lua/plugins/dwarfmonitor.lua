@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.dwarfmonitor
 
 ---@class dwarfmonitor
 ---@field WeatherWidget dwarfmonitor.WeatherWidget

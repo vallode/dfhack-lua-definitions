@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.sort.info
 
 ---@class info
 ---@field InfoOverlay info.InfoOverlay

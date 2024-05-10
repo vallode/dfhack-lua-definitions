@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta gui
 
 ---@class gui
 ---@field ViewRect gui.ViewRect

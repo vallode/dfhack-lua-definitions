@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta gui.buildings
 
 ---@class buildings
 ---@field BuildingDialog buildings.BuildingDialog

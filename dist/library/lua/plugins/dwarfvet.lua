@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.dwarfvet
 
 ---@class dwarfvet
 ---@field HospitalZone dwarfvet.HospitalZone

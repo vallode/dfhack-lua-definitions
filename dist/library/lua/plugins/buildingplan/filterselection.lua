@@ -1,5 +1,5 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta
+---@meta plugins.buildingplan.filterselection
 
 ---@class filterselection
 ---@field QualityAndMaterialsPage filterselection.QualityAndMaterialsPage
