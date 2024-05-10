@@ -161,9 +161,9 @@ module DFHackLuaDefinitions
           # We're accounting for pointers as first arguments _usually_ being a
           # way of avoiding copy semantics. When these are wrapped as Lua
           # functions the pointer is returned.
-          if /&\w+/.match(arguments[0])
+          if /&\s*\w+/.match(arguments[0])
             return_type = parse_type(arguments[0].gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip)
-            arguments.shift(1)
+            arguments.shift
           end
 
           arguments = arguments.map { |arg| arg.gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip }

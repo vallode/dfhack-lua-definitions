@@ -27,11 +27,10 @@ function dfhack.units.getNoblePositions(pvec, unit) end
 ---@return { [integer]: df.unit }
 function dfhack.units.getUnitsInBox(x1, y1, z1, x2, y2, z2) end
 
----@param citizens { [integer]: df.unit }
 ---@param exclude_residents boolean|nil
 ---@param include_insane boolean|nil
----@return boolean
-function dfhack.units.getCitizens(citizens, exclude_residents, include_insane) end
+---@return { [integer]: df.unit }
+function dfhack.units.getCitizens(exclude_residents, include_insane) end
 
 ---@param noble string
 ---@return { [integer]: df.unit }
