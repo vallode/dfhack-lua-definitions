@@ -67,7 +67,7 @@ module DFHackLuaDefinitions
             file.gsub!(/^local\s+.*$/, '')
 
             # Remove ATTRS calls.
-            file.gsub!(/^.*ATTRS[\s\S]+?^\}$/, '')
+            file.gsub!(/^.*ATTRS\s*\{[\s\S]+?^\}$/, '')
 
             # Mutate defclass to local assignment.
             classes = file.scan(/^(.*)\s+=\s+defclass/).flatten
