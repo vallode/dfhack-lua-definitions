@@ -4,6 +4,8 @@
 ---@class dfhack.gui
 ---@field addCombatReport function
 ---@field addCombatReportAuto function
+---@field getCurFocus function
+---@field getWidgetChildren function
 dfhack.gui = {}
 
 ---@param type df.announcement_type

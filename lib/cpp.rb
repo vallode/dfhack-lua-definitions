@@ -62,29 +62,31 @@ module DFHackLuaDefinitions
             end
 
             # Functions that manipulate lua_state (usually?)
-            unless is_module
-              function_declaration&.scan(/^\s*{\s*([^,]+),\s*([^}]+)\s*}/) do |name, signature|
-                next if name =~ /NULL/
+            function_declaration&.scan(/^\s+\{([^}]+)}/) do
+              name, signature = Regexp.last_match(1).gsub(/['" ]/, '').strip.split(',')
 
-                function_name = name.gsub(/"/, '').strip
-                signature_name = signature.gsub(/"/, '').strip
+              next if name =~ /NULL/
 
-                module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name.gsub(
-                  /#{module_name}_/, ''
-                )}\s?\(([^)]+)?\)/]
-                next if Regexp.last_match
+              function_name = name.gsub(/"/, '').strip
+              signature_name = signature.gsub(/"/, '').strip
 
-                file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature_name}\s?\(([^)]+)?\)/] unless is_module
-                next unless Regexp.last_match
+              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name.gsub(
+                /#{module_name}_/, ''
+              )}\s?\(([^)]+)?\)/]
+              next if Regexp.last_match
 
-                output << "---@field #{function_name} function\n"
-              end
+              file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature_name}\s?\(([^)]+)?\)/]
+              next unless Regexp.last_match
+
+              output << "---@field #{function_name} function\n"
             end
 
             output << "#{prefix}#{module_name} = {}\n\n"
 
             # Guessing here a little bit.
-            function_declaration&.scan(/^\s*{\s*([^,]+),\s*([^}]+)\s*}/) do |name, signature|
+            function_declaration&.scan(/^\s+\{([^}]+)}/) do
+              name, signature = Regexp.last_match(1).gsub(/['" ]/, '').strip.split(',')
+
               next if name =~ /NULL/
 
               function_name = name.gsub(/"/, '').strip

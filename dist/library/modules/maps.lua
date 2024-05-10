@@ -7,6 +7,9 @@
 ---@field getTileAssignment function
 ---@field setTileAssignment function
 ---@field resetTileAssignment function
+---@field getTileFlags function
+---@field getTileBiomeRgn function
+---@field getBiomeType function
 dfhack.maps = {}
 
 ---@param x number

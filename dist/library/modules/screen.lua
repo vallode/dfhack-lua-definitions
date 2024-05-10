@@ -2,6 +2,7 @@
 ---@meta
 
 ---@class dfhack.screen
+---@field _doSimulateInput function
 dfhack.screen = {}
 
 ---@return df.coord2d

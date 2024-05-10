@@ -2,6 +2,7 @@
 ---@meta
 
 ---@class dfhack.units
+---@field getStressCutoffs function
 dfhack.units = {}
 
 ---@param unit df.unit
