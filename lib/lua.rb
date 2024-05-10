@@ -22,11 +22,11 @@ module DFHackLuaDefinitions
 
           file = File.read(path)
           is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
+          is_plugin = path.include? 'plugins/lua/'
 
-          output_path = path.gsub('dfhack/library/lua', 'dist/library/hack')
-          FileUtils.mkdir_p(File.dirname(output_path)) unless Dir.exist?(File.dirname(output_path))
+          output_path = "./dist/library/lua/#{is_plugin ? 'plugins/' : ''}#{File.basename(path)}"
 
-          File.open(path.gsub('dfhack/library/lua', 'dist/library/hack'), 'w') do |output|
+          File.open(output_path, 'w') do |output|
             output.write(FILE_HEADER)
             output.write("---@meta\n\n")
 
