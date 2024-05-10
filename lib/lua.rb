@@ -24,7 +24,10 @@ module DFHackLuaDefinitions
           is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
           is_plugin = path.include? 'plugins/lua/'
 
-          output_path = "./dist/library/lua/#{is_plugin ? 'plugins/' : ''}#{File.basename(path)}"
+          output_path = path.gsub(%r{dfhack/plugins/lua}, '').gsub(%r{dfhack/library/lua}, '')
+          output_path = "./dist/library/lua/#{is_plugin ? 'plugins/' : ''}#{output_path}"
+          FileUtils.mkdir_p(File.dirname(output_path)) unless Dir.exist?(File.dirname(output_path))
+
 
           File.open(output_path, 'w') do |output|
             output.write(FILE_HEADER)
