@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class matinfo_module
+---@class dfhack.matinfo
 ---@field find function
 ---@field decode function
 ---@field getToken function

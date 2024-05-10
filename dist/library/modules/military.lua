@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class military_module
+---@class dfhack.military
 dfhack.military = {}
 
 ---@param assignment_id number

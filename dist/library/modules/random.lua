@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class random_module
+---@class dfhack.random
 ---@field new function
 ---@field init function
 ---@field random function

@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class burrows_module
+---@class dfhack.burrows
 ---@field isAssignedBlockTile function
 ---@field setAssignedBlockTile function
 dfhack.burrows = {}

@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class penarray_module
+---@class dfhack.penarray
 ---@field new function
 ---@field clear function
 ---@field get_dims function

@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class designations_module
+---@class dfhack.designations
 dfhack.designations = {}
 
 ---@param plant df.plant

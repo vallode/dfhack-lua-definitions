@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class buildings_module
+---@class dfhack.buildings
 ---@field containsTile function
 dfhack.buildings = {}
 

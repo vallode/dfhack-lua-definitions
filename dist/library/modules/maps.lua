@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class maps_module
+---@class dfhack.maps
 ---@field getBlock function
 ---@field hasTileAssignment function
 ---@field getTileAssignment function

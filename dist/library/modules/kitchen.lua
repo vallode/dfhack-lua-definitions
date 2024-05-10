@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class kitchen_module
+---@class dfhack.kitchen
 dfhack.kitchen = {}
 
 ---@param type df.kitchen_exc_type

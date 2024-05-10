@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class units_module
+---@class dfhack.units
 dfhack.units = {}
 
 ---@param unit df.unit

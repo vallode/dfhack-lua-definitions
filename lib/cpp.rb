@@ -46,10 +46,9 @@ module DFHackLuaDefinitions
             output << "---@meta\n\n"
 
             prefix = module_name == 'dfhack' ? '' : 'dfhack.'
-            suffix = module_name == 'dfhack' ? '' : '_module'
             namespace = is_module ? "#{module_name.capitalize}::" : ''
 
-            output << "---@class #{module_name}#{suffix}\n"
+            output << "---@class #{prefix}#{module_name}\n"
 
             functions = []
 

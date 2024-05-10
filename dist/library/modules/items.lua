@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class items_module
+---@class dfhack.items
 ---@field moveToGround function
 ---@field moveToContainer function
 ---@field moveToInventory function

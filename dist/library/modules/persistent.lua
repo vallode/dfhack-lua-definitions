@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class persistent_module
+---@class dfhack.persistent
 ---@field getSiteDataString function
 ---@field saveSiteDataString function
 ---@field deleteSiteData function

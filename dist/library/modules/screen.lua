@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class screen_module
+---@class dfhack.screen
 dfhack.screen = {}
 
 ---@return df.coord2d

@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class job_module
+---@class dfhack.job
 ---@field is_equal function
 ---@field is_item_equal function
 dfhack.job = {}

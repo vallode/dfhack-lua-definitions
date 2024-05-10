@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class textures_module
+---@class dfhack.textures
 dfhack.textures = {}
 
 ---@param tile_px_w integer

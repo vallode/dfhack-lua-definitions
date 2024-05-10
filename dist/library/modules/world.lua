@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class world_module
+---@class dfhack.world
 dfhack.world = {}
 
 ---@return boolean

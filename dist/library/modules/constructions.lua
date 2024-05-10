@@ -1,7 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class constructions_module
+---@class dfhack.constructions
 dfhack.constructions = {}
 
 ---@param pos df.coord
