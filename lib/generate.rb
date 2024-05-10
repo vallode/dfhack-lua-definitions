@@ -27,7 +27,9 @@ def generate_annotations
 
   print "Parsing DFHack Lua library\n"
   library_files = Dir.glob('./dfhack/library/lua/**/*.lua')
+  plugin_files = Dir.glob('./dfhack/plugins/lua/**/*.lua')
   DFHackLuaDefinitions::Lua.parse_lua_files(library_files)
+  DFHackLuaDefinitions::Lua.parse_lua_files(plugin_files)
 
   print "Parsing DF-Structures XML files\n"
   structure_files = Dir.glob('./df-structures/df.*.xml')

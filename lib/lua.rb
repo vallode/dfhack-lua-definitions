@@ -22,13 +22,21 @@ module DFHackLuaDefinitions
 
           file = File.read(path)
           is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
+          is_plugin = path.include? 'plugins/lua/'
 
-          output_path = path.gsub('dfhack/library/lua', 'dist/library/hack')
+          output_path = path.gsub(%r{dfhack/plugins/lua}, '').gsub(%r{dfhack/library/lua}, '')
+          output_path = "./dist/library/lua/#{is_plugin ? 'plugins/' : ''}#{output_path}"
           FileUtils.mkdir_p(File.dirname(output_path)) unless Dir.exist?(File.dirname(output_path))
 
-          File.open(path.gsub('dfhack/library/lua', 'dist/library/hack'), 'w') do |output|
-            output.write(FILE_HEADER)
-            output.write("---@meta\n\n")
+          require_name = /mkmodule\(['"](.*)['"]\)/.match(file) do |match|
+            match.captures[0]
+          end
+
+          File.open(output_path, 'w') do |output|
+            output << FILE_HEADER
+            output << '---@meta'
+            output << " #{require_name}" if require_name
+            output << "\n\n"
 
             file.gsub!(/local dfhack = dfhack/, 'dfhack = {}') if filename[/dfhack/]
 

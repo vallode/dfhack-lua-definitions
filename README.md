@@ -23,11 +23,12 @@ These definitions require [`lua-language-server`](//github.com/LuaLS/lua-languag
 ```json
 {
   "Lua.workspace.checkThirdParty": "Ask",
-  "Lua.workspace.checkThirdParty": [
+  "Lua.workspace.userThirdParty": [
     "<library_location>"
   ]
 }
 ```
+- The `<library_location>` should be the _parent_ directory of the library. So if you cloned the repo it should just be the repository path and if you downloaded a release it should be the directory it was extracted to.
 - Restarting VSCode and entering a DFHack-related Lua file should prompt you to load the library.
 
 You can also read this [well-written guide](//agnieszka.dev/dfhack/vsc/lls/#adding-dfhack-definitions) with screenshots by Discord user Agnieszka.
@@ -53,7 +54,7 @@ Reportedly working but no instructions yet.
   },
   "workspace": {
     "library": [
-      "<library_location>/library"
+      "<library_location>/dist/library"
     ]
   }
 }

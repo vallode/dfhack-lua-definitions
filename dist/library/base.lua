@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 -- All structure objects inherit from this class.
 --

@@ -14,14 +14,13 @@ function dfhack.buildings.findAtTile(pos) end
 ---@return boolean
 function dfhack.buildings.findCivzonesAt(pvec, pos) end
 
----@param size df.coord2d
 ---@param center df.coord2d
 ---@param type df.building_type
 ---@param subtype integer
 ---@param custom integer
 ---@param direction integer
----@return boolean
-function dfhack.buildings.getCorrectSize(size, center, type, subtype, custom, direction) end
+---@return df.coord2d size
+function dfhack.buildings.getCorrectSize(center, type, subtype, custom, direction) end
 
 ---@param coord df.coord
 ---@return df.building
