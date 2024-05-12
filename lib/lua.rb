@@ -7,7 +7,7 @@ module DFHackLuaDefinitions
       # names.
       def parse_lua_files(files)
         # Either annoying to parse or not needed.
-        ignored_files = %w[internal expect mock luacov_helper]
+        ignored_files = %w[internal expect mock profiler luasocket luacov_helper]
 
         files.each do |path|
           print "Parsing: #{path}\n"
