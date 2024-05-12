@@ -6,6 +6,8 @@
 ---@field PreferenceOverlay diplomacy.PreferenceOverlay
 local diplomacy
 
+local DiplomacyOverlay
+
 function DiplomacyOverlay:init() end
 
 function DiplomacyOverlay:get_key() end
@@ -15,6 +17,8 @@ function DiplomacyOverlay:get_search_key(hfid) end
 function DiplomacyOverlay:get_sort() end
 
 function DiplomacyOverlay:preUpdateLayout(parent_rect) end
+
+local PreferenceOverlay
 
 function PreferenceOverlay:init() end
 

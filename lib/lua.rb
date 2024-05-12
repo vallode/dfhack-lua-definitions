@@ -43,28 +43,33 @@ module DFHackLuaDefinitions
             # Remove `_ENV` as it is problematic.
             file.gsub!(/^.*_ENV.*$/, '')
 
-            # Remove all if/for statements, conditional logic is hard (for now).
-            file.gsub!(/^(if|for)[\s\S]+?(^end)/, '')
-
             # Remove local functions entirely, they are not needed.
-            file.gsub!(/^(?:local\s+function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, '')
+            file.gsub!(/^(local\s+function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, '')
+            file.gsub!(/^local\s+.*=.*(function)(.*\([^)]*\))[\s\S]+?(?:^end)/, '')
 
             # Remove function bodies to save some space.
-            file.gsub!(/^(?:function\s+)(.*\([^)]*\))[\s\S]+?(?:^end)/, 'function \1 end')
+            file.gsub!(/^(?:function\s*)(.*\([^)]*\))[\s\S]+?(?:^end)/, 'function \1 end')
+
+            # Remove all if/for statements, conditional logic is hard (for now).
+            file.gsub!(/^(if|for)[\s\S]+?(^end)/, '')
 
             # Namespace "global" functions, but not for dfhack.
             file.gsub!(/^function\s+([^(:.]+?)(\(.*)$/, "function #{filename}." + '\1\2') unless filename[/dfhack/]
 
-            # Remove all local table assignments.
-            file.gsub!(/^local\s+.*\{[^}]+?(^\}).*$/, '')
-            file.gsub!(/^local\s+.*\{[\s\S]+?(^\}).*$/, '')
-            file.gsub!(/^local\s+.*\[\[[^\]]+^\]\]$/, '')
+            # Remove single line tables first.
+            file.gsub!(/^local\s+.*\{.*?\}.*$/, '')
 
-            # There may be some single tables left by now.
-            file.gsub!(/^local\s+.*\{[^}]+?\}.*$/, '')
+            # Remove multi-line tables next.
+            file.gsub!(/^local\s+.*\{[\s\S]*?(?:^\}).*$/, '')
+
+            # Remove simple tables too.
+            file.gsub!(/^local\s+.*\{[^}]*\}.*$/, '')
+
+            # Remove multi-line strings.
+            file.gsub!(/^local.+\[\[[^\]]*?\]\]$/, '')
 
             # Remove all other locals.
-            file.gsub!(/^local\s+.*$/, '')
+            file.gsub!(/^local\s+.+$/, '')
 
             # Remove ATTRS calls.
             file.gsub!(/^.*ATTRS\s*\{[\s\S]+?^\}$/, '')
@@ -74,7 +79,8 @@ module DFHackLuaDefinitions
             file.gsub!(/^(?!function)(\w+).*defclass.*$/, 'local \1')
 
             # Delete dangling comments.
-            file.gsub!(/^(--(?!-|\[\[|\]\])\s+.*\R)+^\R/, '')
+            file.gsub!(/^(--(?!-|\[\[|\]\]).*\R)+^$/, '')
+            # p file.match(/^(--(?!-|\[\[|\]\])\s+.*\R)+^\R/)
 
             # Squash newlines.
             file.gsub!(/^\R{2,}/, "\n")

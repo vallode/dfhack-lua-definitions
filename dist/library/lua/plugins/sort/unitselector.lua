@@ -6,6 +6,8 @@
 ---@field BurrowAssignmentOverlay unitselector.BurrowAssignmentOverlay
 local unitselector
 
+local UnitSelectorOverlay
+
 function UnitSelectorOverlay:init() end
 
 function UnitSelectorOverlay:register_handlers() end
@@ -15,6 +17,8 @@ function UnitSelectorOverlay:get_key() end
 function UnitSelectorOverlay:onRenderBody(dc) end
 
 function UnitSelectorOverlay:onInput(keys) end
+
+local BurrowAssignmentOverlay
 
 function BurrowAssignmentOverlay:init() end
 

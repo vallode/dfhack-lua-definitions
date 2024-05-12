@@ -11,6 +11,8 @@ local dialogs
 
 ---------------------------------
 
+local DialogWindow
+
 function DialogWindow:init(info) end
 
 function DialogWindow:accept() end
@@ -28,9 +30,15 @@ function DialogScreen:init() end
 function DialogScreen:onDismiss() end
 
 ------------------------
+
+function dialogs.showMessage(title, text, tcolor, on_close) end
+
 function dialogs.showYesNoPrompt(title, text, tcolor, on_accept, on_cancel) end
 
 ------------------------
+
+local MessageBox
+
 MessageBox.focus_path = 'MessageBox'
 
 function MessageBox:init(info) end

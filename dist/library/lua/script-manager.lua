@@ -5,6 +5,7 @@
 local scriptManager
 
 ---------------------
+
 -- for each script that can be loaded as a module, calls cb(script_name, env)
 function scriptManager.foreach_module_script(cb, preprocess_script_file_fn) end
 

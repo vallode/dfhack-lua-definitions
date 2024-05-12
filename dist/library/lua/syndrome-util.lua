@@ -3,9 +3,6 @@
 
 ---@class syndromeUtil
 local syndromeUtil
---lua/syndrome-util.lua
---author expwnent
---some utilities for adding syndromes to units
 
 function syndromeUtil.findUnitSyndrome(unit,syn_id) end
 

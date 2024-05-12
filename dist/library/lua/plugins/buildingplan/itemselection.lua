@@ -2,8 +2,15 @@
 ---@meta plugins.buildingplan.itemselection
 
 ---@class itemselection
+---@field ItemSelection itemselection.ItemSelection
 ---@field ItemSelectionScreen itemselection.ItemSelectionScreen
 local itemselection
+
+function itemselection.get_automaterial_selection(building_type) end
+
+function itemselection.get_item_description(item_id, item, safety_label) end
+
+local ItemSelection
 
 function ItemSelection:init() end
 

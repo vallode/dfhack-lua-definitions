@@ -26,6 +26,67 @@ input_filter_defaults = {
     quantity = 1
 }
 
+jobs_furnace={
+    [df.furnace_type.Smelter]={
+        {
+            name="Melt metal object",
+            items={fuel,{flags2={allow_melt_dump=true}}},--also maybe melt_designated
+            job_fields={job_type=df.job_type.MeltMetalObject}
+        }
+    },
+    [df.furnace_type.MagmaSmelter]={
+        {
+            name="Melt metal object",
+            items={{flags2={allow_melt_dump=true}}},--also maybe melt_designated
+            job_fields={job_type=df.job_type.MeltMetalObject}
+        }
+    },
+    --[[ [df.furnace_type.MetalsmithsForge]={
+        unpack(concat(furnaces,mechanism,anvil,crafts,coins,flask))
+
+    },
+    ]]
+    --MetalsmithsForge,
+    --MagmaForge
+    --[[
+        forges:
+            weapons and ammo-> from raws...
+            armor -> raws
+            furniture -> builtins?
+            siege eq-> builtin (only balista head)
+            trap eq -> from raws+ mechanisms
+            other object-> anvil, crafts, goblets,toys,instruments,nestbox... (raws?) flask, coins,stud with iron
+            metal clothing-> raws???
+    ]]
+    [df.furnace_type.GlassFurnace]={
+        {
+            name="collect sand",
+            items={},
+            job_fields={job_type=df.job_type.CollectSand}
+        },
+        --glass crafts x3
+    },
+    [df.furnace_type.WoodFurnace]={
+        defaults={item_type=df.item_type.WOOD,vector_id=df.job_item_vector_id.WOOD},
+        {
+            name="make charcoal",
+            items={{}},
+            job_fields={job_type=df.job_type.MakeCharcoal}
+        },
+        {
+            name="make ash",
+            items={{}},
+            job_fields={job_type=df.job_type.MakeAsh}
+        }
+    },
+    [df.furnace_type.Kiln]={
+        {
+            name="collect clay",
+            items={},
+            job_fields={job_type=df.job_type.CollectClay}
+        }
+    },
+}
 jobs_workshop={
 
     [df.workshop_type.Jewelers]={

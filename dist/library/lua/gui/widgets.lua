@@ -10,6 +10,7 @@
 ---@field Pages widgets.Pages
 ---@field EditField widgets.EditField
 ---@field Scrollbar widgets.Scrollbar
+---@field Label widgets.Label
 ---@field WrappedLabel widgets.WrappedLabel
 ---@field TooltipLabel widgets.TooltipLabel
 ---@field HotkeyLabel widgets.HotkeyLabel
@@ -162,6 +163,22 @@ function Scrollbar:init() end
 -- if elems_per_page or num_elems are not specified, the last values passed to
 -- Scrollbar:update() are used.
 function Scrollbar:update(top_elem, elems_per_page, num_elems) end
+
+function Scrollbar:onRenderBody(dc) end
+
+function Scrollbar:onInput(keys) end
+
+-----------
+-- Label --
+-----------
+
+function widgets.parse_label_text(obj) end
+
+function widgets.render_text(obj,dc,x0,y0,pen,dpen,disabled,hpen,hovered) end
+
+function widgets.check_text_keys(self, keys) end
+
+local Label
 
 function Label:init(args) end
 
@@ -386,6 +403,8 @@ function TabBar:postComputeFrame(body) end
 function TabBar:onInput(keys) end
 
 --------------------------------
+
+local RangeSlider
 
 function RangeSlider:preinit(init_table) end
 

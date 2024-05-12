@@ -1,6 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+
 ---@class dfhack
 ---@field BASE_G _G Original Lua global environment
 ---@field is_core_context boolean

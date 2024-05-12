@@ -22,6 +22,8 @@ function HotspotMenuWidget:overlay_trigger() end
 
 ----------------------
 
+local DwarfHotspotMenuWidget
+
 local EmbarkHotspotMenuWidget
 
 local LegendsHotspotMenuWidget

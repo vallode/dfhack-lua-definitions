@@ -5,6 +5,8 @@
 ---@field LocationSelectorOverlay locationselector.LocationSelectorOverlay
 local locationselector
 
+local LocationSelectorOverlay
+
 function locationselector.get_religion_string(religion_id, religion_type) end
 
 function locationselector.get_profession_string(profession) end

@@ -2,9 +2,14 @@
 ---@meta plugins.zone
 
 ---@class zone
+---@field AssignAnimal zone.AssignAnimal
 ---@field AssignAnimalScreen zone.AssignAnimalScreen
 ---@field PasturePondOverlay zone.PasturePondOverlay
+---@field CageChainOverlay zone.CageChainOverlay
+---@field RetireLocationOverlay zone.RetireLocationOverlay
 local zone
+
+local AssignAnimal
 
 function AssignAnimal:init() end
 
@@ -34,6 +39,8 @@ function AssignAnimal:toggle_range(idx, choice) end
 
 function AssignAnimal:toggle_visible() end
 
+view = view or nil
+
 local AssignAnimalScreen
 
 function AssignAnimalScreen:init() end
@@ -43,6 +50,16 @@ function AssignAnimalScreen:onInput(keys) end
 function AssignAnimalScreen:onRenderFrame() end
 
 function AssignAnimalScreen:onDismiss() end
+
+local PasturePondOverlay
+
+function PasturePondOverlay:init() end
+
+local CageChainOverlay
+
+function CageChainOverlay:init() end
+
+local RetireLocationOverlay
 
 function RetireLocationOverlay:init() end
 

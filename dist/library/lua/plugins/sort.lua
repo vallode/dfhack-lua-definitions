@@ -2,16 +2,44 @@
 ---@meta plugins.sort
 
 ---@class sort
+---@field SortButton sort.SortButton
 ---@field SquadAnnotationOverlay sort.SquadAnnotationOverlay
+---@field SquadFilterOverlay sort.SquadFilterOverlay
 local sort
 
+local SortButton
+
 function SortButton:init() end
+
+annotation_instance = nil
 
 local SquadAnnotationOverlay
 
 function sort.get_annotation_text(idx) end
 
 function sort.get_annotation_color(idx) end
+
+init_face_tiles()
+
+function sort.get_stress_face_tile(idx, x, y) end
+
+function SquadAnnotationOverlay:init() end
+
+function SquadAnnotationOverlay:sync_widgets(sort_widget, sort_id) end
+
+function sort.do_sort(a, b) end
+
+function SquadAnnotationOverlay:mouse_over_ours() end
+
+function SquadAnnotationOverlay:onInput(keys) end
+
+function SquadAnnotationOverlay:onRenderFrame(dc, rect) end
+
+function SquadAnnotationOverlay:preUpdateLayout(parent_rect) end
+
+filter_instance = nil
+
+local SquadFilterOverlay
 
 function SquadFilterOverlay:init() end
 

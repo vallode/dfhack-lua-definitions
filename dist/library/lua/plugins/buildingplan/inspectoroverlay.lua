@@ -10,6 +10,8 @@ reset_inspector_flag = false
 
 --------------------------------
 
+local InspectorLine
+
 function InspectorLine:init() end
 
 function InspectorLine:get_desc_string() end
@@ -19,6 +21,8 @@ function InspectorLine:get_status_line() end
 function InspectorLine:reset() end
 
 --------------------------------
+
+local InspectorOverlay
 
 function InspectorOverlay:init() end
 

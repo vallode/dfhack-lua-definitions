@@ -5,6 +5,8 @@
 ---@field WorldOverlay world.WorldOverlay
 local world
 
+local WorldOverlay
+
 function WorldOverlay:init() end
 
 function WorldOverlay:get_key() end

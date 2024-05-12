@@ -2,6 +2,7 @@
 ---@meta plugins.buildingplan.planneroverlay
 
 ---@class planneroverlay
+---@field ItemLine planneroverlay.ItemLine
 ---@field QuickFilter planneroverlay.QuickFilter
 ---@field PlannerOverlay planneroverlay.PlannerOverlay
 local planneroverlay
@@ -12,6 +13,10 @@ config = config or json.open('dfhack-config/buildingplan.json')
 
 reset_counts_flag = false
 editing_filters_flag = false
+
+--------------------------------
+
+local ItemLine
 
 function ItemLine:init() end
 
@@ -31,8 +36,6 @@ function ItemLine:is_impossible() end
 function ItemLine:reduce_quantity(used_quantity) end
 
 --------------------------------
--- QuickFilter
---
 
 -- Used to store a table of the following format:
 -- table<integer, { label: string, mats: string[] }>
@@ -57,6 +60,8 @@ function QuickFilter:get_label_text() end
 
 function QuickFilter:submit_name(text) end
 --------------------------------
+
+local PlannerOverlay
 
 function PlannerOverlay:init() end
 

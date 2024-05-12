@@ -7,6 +7,8 @@ local sortoverlay
 
 function sortoverlay.get_unit_search_key(unit) end
 
+local SortOverlay
+
 function SortOverlay:init() end
 
 function SortOverlay:register_handler(key, vec, search_fn, cleanup_fn) end

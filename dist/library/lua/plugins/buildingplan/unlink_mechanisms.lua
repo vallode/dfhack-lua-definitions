@@ -30,6 +30,7 @@ saved_mode = saved_mode or 0
 }
 
 ------------------------
+
 local ConfirmWindow
 
 function ConfirmWindow:init() end
@@ -41,6 +42,8 @@ function ConfirmWindow:suppress() end
 local ConfirmScreen
 
 function ConfirmScreen:init() end
+
+local MechLinkOverlay
 
 function MechLinkOverlay:init() end
 
@@ -65,6 +68,8 @@ function MechLinkOverlay:update_buttons() end
 function MechLinkOverlay:preUpdateLayout(parent_rect) end
 
 function MechLinkOverlay:onRenderFrame(dc, rect) end
+
+local MechItemOverlay
 
 valid_build = nil
 

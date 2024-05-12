@@ -11,6 +11,8 @@
 ---@field ConvictionOverlay info.ConvictionOverlay
 local info
 
+local InfoOverlay
+
 function info.get_squad_options() end
 
 function info.get_burrow_options() end
@@ -37,6 +39,8 @@ function InfoOverlay:onInput(keys) end
 
 function InfoOverlay:matches_filters(unit) end
 
+local CandidatesOverlay
+
 function CandidatesOverlay:init() end
 
 function CandidatesOverlay:get_key() end
@@ -45,11 +49,15 @@ function CandidatesOverlay:updateFrames() end
 
 function CandidatesOverlay:onRenderBody(dc) end
 
+local WorkAnimalOverlay
+
 function WorkAnimalOverlay:init() end
 
 function WorkAnimalOverlay:preUpdateLayout(parent_rect) end
 
 function WorkAnimalOverlay:onRenderFrame(dc, rect) end
+
+local WorkAnimalFilterOverlay
 
 filter_instance = nil
 
@@ -59,6 +67,8 @@ function WorkAnimalFilterOverlay:render(dc) end
 
 function info.do_work_animal_assignment_filter(unit) end
 
+local JusticeOverlay
+
 function JusticeOverlay:init() end
 
 function JusticeOverlay:add_widgets(panel) end
@@ -67,14 +77,20 @@ function JusticeOverlay:render(dc) end
 
 function JusticeOverlay:preUpdateLayout(parent_rect) end
 
+interrogate_instance = nil
+
 local InterrogationOverlay
 
 function InterrogationOverlay:init() end
 
 function InterrogationOverlay:add_widgets(panel) end
 
+convict_instance = nil
+
 local ConvictionOverlay
 
 function ConvictionOverlay:init() end
+
+function info.do_justice_filter(unit) end
 
 return info

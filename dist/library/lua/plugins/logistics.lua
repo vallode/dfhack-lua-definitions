@@ -11,6 +11,8 @@ function logistics.parse_commandline(args) end
 
 ---------------------------------
 
+local AutoretrainOverlay
+
 function AutoretrainOverlay:init() end
 
 function AutoretrainOverlay:render(dc) end

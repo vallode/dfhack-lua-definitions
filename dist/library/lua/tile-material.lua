@@ -3,6 +3,7 @@
 
 ---@class tileMaterial
 local tileMaterial
+
 --[[
 Original code provided by Milo Christiansen in 2015 under the MIT license. Relicensed under the ZLib license to align with the rest of DFHack, with his permission.
 ]]

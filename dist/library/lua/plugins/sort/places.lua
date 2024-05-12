@@ -5,6 +5,8 @@
 ---@field PlacesOverlay places.PlacesOverlay
 local places
 
+local PlacesOverlay
+
 function PlacesOverlay:init() end
 
 function PlacesOverlay:get_key() end

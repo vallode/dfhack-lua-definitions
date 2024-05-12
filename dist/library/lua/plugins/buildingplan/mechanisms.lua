@@ -7,6 +7,8 @@ local mechanisms
 
 --------------------------------
 
+local MechanismOverlay
+
 function MechanismOverlay:init() end
 
 function MechanismOverlay:save_id(which, item_id) end

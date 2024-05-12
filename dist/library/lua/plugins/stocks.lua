@@ -5,6 +5,8 @@
 ---@field StocksOverlay stocks.StocksOverlay
 local stocks
 
+local StocksOverlay
+
 function StocksOverlay:init() end
 
 OVERLAY_WIDGETS = {

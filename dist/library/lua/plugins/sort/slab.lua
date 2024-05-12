@@ -5,6 +5,8 @@
 ---@field SlabOverlay slab.SlabOverlay
 local slab
 
+local SlabOverlay
+
 function SlabOverlay:init() end
 
 function SlabOverlay:onInput(keys) end

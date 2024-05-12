@@ -55,9 +55,6 @@ function SuspendOverlay:update_viewport(viewport) end
 
 function SuspendOverlay:refresh_screen_buildings() end
 
-    return dfhack.textures.getTexposByHandle(textures[offset])
-end
-
 function SuspendOverlay:render_marker(dc, bld, screen_pos) end
 
 function SuspendOverlay:onRenderFrame(dc) end

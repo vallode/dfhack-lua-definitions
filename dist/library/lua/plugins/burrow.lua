@@ -7,6 +7,8 @@ local burrow
 
 ---------------------------------
 
+local BurrowDesignationOverlay
+
 function BurrowDesignationOverlay:init() end
 
 function BurrowDesignationOverlay:onInput(keys) end
@@ -18,5 +20,7 @@ OVERLAY_WIDGETS = {
 }
 
 ---------------------------------
+
+function burrow.parse_commandline(...) end
 
 return burrow
