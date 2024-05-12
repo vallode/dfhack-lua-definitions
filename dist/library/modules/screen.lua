@@ -2,6 +2,11 @@
 ---@meta
 
 ---@class dfhack.screen
+---@field raise function
+---@field hideGuard function
+---@field show function
+---@field dismiss function
+---@field isDismissed function
 ---@field _doSimulateInput function
 dfhack.screen = {}
 

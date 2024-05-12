@@ -3,6 +3,9 @@
 
 ---@class dfhack.buildings
 ---@field containsTile function
+---@field setSize function
+---@field getStockpileContents function
+---@field getCageOccupants function
 dfhack.buildings = {}
 
 ---@param pos df.coord

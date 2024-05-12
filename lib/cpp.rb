@@ -55,8 +55,13 @@ module DFHackLuaDefinitions
             module_declaration = file[/^static.*#{module_name}_module\[\][\s\S]+?};/]
             function_declaration = file[/^static.*#{module_name}_funcs\[\][\s\S]+?};/]
 
-            # Functions with signatures that are unlikely to be easily parsed.
+            # Functions with signatures that I currently don't understand well
+            # enough to parse.
             module_declaration&.scan(/(?:WRAP_VERSION_FUNC|WRAPN)\(([^)]+)\)/) do |match|
+              function_name = match[0].split(', ')[0]
+              output << "---@field #{function_name} function\n"
+            end
+            function_declaration&.scan(/(?:CWRAP)\(([^)]+)\)/) do |match|
               function_name = match[0].split(', ')[0]
               output << "---@field #{function_name} function\n"
             end
