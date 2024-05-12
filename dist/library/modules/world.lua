@@ -36,3 +36,6 @@ function dfhack.world.ReadWorldFolder() end
 ---@return df.unit
 function dfhack.world.getAdventurer() end
 
+---@return number
+function dfhack.world.GetCurrentSiteId() end
+
