@@ -2,13 +2,6 @@
 ---@meta
 
 ---@class dfhack.items
----@field moveToGround function
----@field moveToContainer function
----@field moveToInventory function
----@field makeProjectile function
----@field remove function
----@field findType function
----@field findSubtype function
 dfhack.items = {}
 
 ---@param item df.item
@@ -40,6 +33,40 @@ function dfhack.items.moveToBuilding(item, building, use_mode, force_in_building
 ---@param no_floor boolean|nil
 ---@return boolean
 function dfhack.items.createItem(unit, item_type, item_subtype, mat_type, mat_index, growth_print, no_floor) end
+
+---@param item df.item
+---@param pos df.coord
+---@return boolean
+function dfhack.items.moveToGround(item, pos) end
+
+---@param item df.item
+---@param container df.item
+---@return boolean
+function dfhack.items.moveToContainer(item, container) end
+
+---@param item df.item
+---@param unit df.unit
+---@param mode df.unit_inventory_item::T_mode
+---@param body_part integer
+---@return boolean
+function dfhack.items.moveToInventory(item, unit, mode, body_part) end
+
+---@param item df.item
+---@return df.proj_itemst
+function dfhack.items.makeProjectile(item) end
+
+---@param item df.item
+---@param no_uncat boolean|nil
+---@return boolean
+function dfhack.items.remove(item, no_uncat) end
+
+---@param token string
+---@return number
+function dfhack.items.findType(token) end
+
+---@param token string
+---@return number
+function dfhack.items.findSubtype(token) end
 
 ---@param item df.item
 ---@param type df.general_ref_type

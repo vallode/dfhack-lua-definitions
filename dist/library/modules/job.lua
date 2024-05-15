@@ -2,14 +2,22 @@
 ---@meta
 
 ---@class dfhack.job
----@field is_equal function
----@field is_item_equal function
 dfhack.job = {}
 
 ---@param pvec { [integer]: df.job }
 ---@param id_var integer
 ---@return boolean
 function dfhack.job.listNewlyCreated(pvec, id_var) end
+
+---@param job1 df.job
+---@param job2 df.job
+---@return boolean
+function dfhack.job.is_equal(job1, job2) end
+
+---@param job1 df.job_item
+---@param job2 df.job_item
+---@return boolean
+function dfhack.job.is_item_equal(job1, job2) end
 
 ---@param job df.job
 ---@param item df.item

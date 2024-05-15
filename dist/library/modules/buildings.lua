@@ -2,7 +2,6 @@
 ---@meta
 
 ---@class dfhack.buildings
----@field containsTile function
 ---@field setSize function
 ---@field getStockpileContents function
 ---@field getCageOccupants function
@@ -29,6 +28,12 @@ function dfhack.buildings.getCorrectSize(center, type, subtype, custom, directio
 ---@param coord df.coord
 ---@return df.building
 function dfhack.buildings.findPenPitAt(coord) end
+
+---@param bld df.building
+---@param x integer
+---@param y integer
+---@return boolean
+function dfhack.buildings.containsTile(bld, x, y) end
 
 ---@param building df.building
 ---@param type df.general_ref_type

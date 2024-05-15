@@ -2,11 +2,6 @@
 ---@meta
 
 ---@class dfhack.maps
----@field getBlock function
----@field hasTileAssignment function
----@field getTileAssignment function
----@field setTileAssignment function
----@field resetTileAssignment function
 ---@field getTileFlags function
 ---@field getTileBiomeRgn function
 ---@field getBiomeType function
@@ -51,6 +46,26 @@ function dfhack.maps.getRegionBiome(rgn_pos) end
 ---@param z number
 ---@return df.plant
 function dfhack.maps.getPlantAtTile(x, y, z) end
+
+---@param bm df.tile_bitmask
+---@return boolean
+function dfhack.maps.hasTileAssignment(bm) end
+
+---@param bm df.tile_bitmask
+---@param x integer
+---@param y integer
+---@return boolean
+function dfhack.maps.getTileAssignment(bm, x, y) end
+
+---@param bm df.tile_bitmask
+---@param x integer
+---@param y integer
+---@param val boolean|nil
+function dfhack.maps.setTileAssignment(bm, x, y, val) end
+
+---@param bm df.tile_bitmask
+---@param val boolean|nil
+function dfhack.maps.resetTileAssignment(bm, val) end
 
 ---@param blk df.map_block
 ---@param flow boolean|nil

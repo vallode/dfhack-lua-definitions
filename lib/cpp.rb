@@ -58,7 +58,7 @@ module DFHackLuaDefinitions
 
             # Functions with signatures that I currently don't understand well
             # enough to parse.
-            module_declaration&.scan(/(?:WRAP_VERSION_FUNC|WRAPN)\(([^)]+)\)/) do |match|
+            module_declaration&.scan(/(?:WRAP_VERSION_FUNC)\(([^)]+)\)/) do |match|
               function_name = match[0].split(', ')[0]
               output << "---@field #{function_name} function\n"
             end
@@ -77,12 +77,10 @@ module DFHackLuaDefinitions
               signature_name = signature.gsub(/"/, '').strip
 
               cleaned_signature_name = signature_name.gsub(/#{module_name}_/, '')
-              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\s?\(([^)]+)?\)/]
+              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\R?\s*\(([^)]+)?\)/]
               next if Regexp.last_match
 
-              file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature_name}\s?\(([^)]+)?\)/]
-              next unless Regexp.last_match
-
+              file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature_name}\R?\s*\(([^)]+)?\)/]
               output << "---@field #{function_name} function\n"
             end
 
@@ -98,11 +96,16 @@ module DFHackLuaDefinitions
               signature_name = signature.gsub(/"/, '').strip
 
               cleaned_signature_name = signature_name.gsub(/#{module_name}_/, '')
-              module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\s?\(([^)]+)?\)}]
+              module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\R?\s*\(([^)]+)?\)}]
               next unless Regexp.last_match
 
               functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
                                                                                        function_name:)
+            end
+
+            module_declaration&.scan(/WRAPN\(\s*(\w+)\s*,\s*(\w+)\s*\)/) do |function_name, signature_name|
+              file[%r{(//.*\R)?^(?:static\s)?(\S+).*?#{signature_name}\R?\s*\(([^)]+)?\)}]
+              functions << CPP.parse_function(Regexp.last_match, module_name:, prefix:, function_name:)
             end
 
             module_declaration&.scan(/(?:WRAP|WRAPM)\((.+)?\),?/) do |function_name,|

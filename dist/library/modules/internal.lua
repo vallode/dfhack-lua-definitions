@@ -2,16 +2,6 @@
 ---@meta
 
 ---@class dfhack.internal
----@field strerror function
----@field md5 function
----@field heapTakeSnapshot function
----@field getHeapState function
----@field isAddressInHeap function
----@field isAddressActiveInHeap function
----@field isAddressUsedAfterFreeInHeap function
----@field getAddressSizeInHeap function
----@field getRootAddressOfHeapObject function
----@field msizeAddress function
 ---@field getPE function
 ---@field getMD5 function
 ---@field getAddress function
@@ -43,4 +33,45 @@
 ---@field setSuppressDuplicateKeyboardEvents function
 ---@field getPerfCounters function
 dfhack.internal = {}
+
+---@param n integer
+---@return string
+function dfhack.internal.strerror(n) end
+
+---@param s string
+---@return string
+function dfhack.internal.md5(s) end
+
+-- this function only allocates the first time it is called
+---@return integer
+function dfhack.internal.heapTakeSnapshot() end
+
+---@return integer
+function dfhack.internal.getHeapState() end
+
+---@param ptr unknown
+---@return boolean
+function dfhack.internal.isAddressInHeap(ptr) end
+
+---@param ptr unknown
+---@return boolean
+function dfhack.internal.isAddressActiveInHeap(ptr) end
+
+---@param ptr unknown
+---@return boolean
+function dfhack.internal.isAddressUsedAfterFreeInHeap(ptr) end
+
+---@param ptr unknown
+---@return integer
+function dfhack.internal.getAddressSizeInHeap(ptr) end
+
+-- eg if I have a struct, does any address lie within the struct?
+---@param ptr unknown
+---@return unknown
+function dfhack.internal.getRootAddressOfHeapObject(ptr) end
+
+-- is in the heap/valid
+---@param ptr unknown
+---@return integer
+function dfhack.internal.msizeAddress(ptr) end
 
