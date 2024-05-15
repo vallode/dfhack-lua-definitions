@@ -19,6 +19,7 @@ function dfhack.units.getOuterContainerRef(unit, init_ref) end
 ---@return boolean
 function dfhack.units.getNoblePositions(pvec, unit) end
 
+-- returns index of creature actually read or -1 if no creature can be found
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -74,14 +75,17 @@ function dfhack.units.isResident(unit, include_insane) end
 ---@return boolean
 function dfhack.units.isFortControlled(unit) end
 
+-- (don't try to pasture/slaughter random untame animals)
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isOwnCiv(unit) end
 
+-- check if creature belongs to the player's group
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isOwnGroup(unit) end
 
+-- (in combination with check for civ helps to filter out own dwarves)
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isOwnRace(unit) end
@@ -162,10 +166,12 @@ function dfhack.units.isTrainableWar(unit) end
 ---@return boolean
 function dfhack.units.isTrained(unit) end
 
+-- check for profession "hunting creature"
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isHunter(unit) end
 
+-- check for profession "war creature"
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isWar(unit) end
@@ -178,6 +184,7 @@ function dfhack.units.isTame(unit) end
 ---@return boolean
 function dfhack.units.isTamable(unit) end
 
+-- seems to be the only way to really tell if it's completely safe to autonestbox it (training can revert)
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isDomesticated(unit) end
@@ -238,6 +245,7 @@ function dfhack.units.isForest(unit) end
 ---@return boolean
 function dfhack.units.isMischievous(unit) end
 
+-- check if unit is marked as available for adoption
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isAvailableForAdoption(unit) end
@@ -472,6 +480,7 @@ function dfhack.units.getRaceName(unit) end
 ---@return string
 function dfhack.units.getRaceNamePlural(unit) end
 
+-- get race name by id or unit pointer
 ---@param id number
 ---@return string
 function dfhack.units.getRaceNameById(id) end

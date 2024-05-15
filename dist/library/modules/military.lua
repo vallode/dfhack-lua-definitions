@@ -4,6 +4,7 @@
 ---@class dfhack.military
 dfhack.military = {}
 
+-- could be extended straightforwardly by passing in entity
 ---@param assignment_id number
 ---@return df.squad
 function dfhack.military.makeSquad(assignment_id) end

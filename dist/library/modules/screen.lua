@@ -10,9 +10,11 @@
 ---@field _doSimulateInput function
 dfhack.screen = {}
 
+-- returns ui grid coordinates, even if the game map is scaled differently
 ---@return df.coord2d
 function dfhack.screen.getMousePos() end
 
+-- returns the screen pixel coordinates
 ---@return df.coord2d
 function dfhack.screen.getMousePixels() end
 

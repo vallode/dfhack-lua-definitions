@@ -73,6 +73,7 @@ function dfhack.items.getHolderBuilding(item) end
 ---@return df.unit
 function dfhack.items.getHolderUnit(item) end
 
+-- It's not impossible the functionality of this operation is provided by one of the unmapped item functions.
 ---@param item df.item
 ---@return string
 function dfhack.items.getBookTitle(item) end
@@ -138,6 +139,7 @@ function dfhack.items.canTradeAnyWithContents(item) end
 ---@return boolean
 function dfhack.items.markForTrade(item, depot) end
 
+-- (i.e., returning true if and only if the item has a "designate for melting" button in game)
 ---@param item df.item
 ---@param game_ui boolean|nil
 ---@return boolean

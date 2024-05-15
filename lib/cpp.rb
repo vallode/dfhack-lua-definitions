@@ -75,9 +75,8 @@ module DFHackLuaDefinitions
               function_name = name.gsub(/"/, '').strip
               signature_name = signature.gsub(/"/, '').strip
 
-              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name.gsub(
-                /#{module_name}_/, ''
-              )}\s?\(([^)]+)?\)/]
+              cleaned_signature_name = signature_name.gsub(/#{module_name}_/, '')
+              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\s?\(([^)]+)?\)/]
               next if Regexp.last_match
 
               file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature_name}\s?\(([^)]+)?\)/]
@@ -97,9 +96,8 @@ module DFHackLuaDefinitions
               function_name = name.gsub(/"/, '').strip
               signature_name = signature.gsub(/"/, '').strip
 
-              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{signature_name.gsub(
-                /#{module_name}_/, ''
-              )}\s?\(([^)]+)?\)/]
+              cleaned_signature_name = signature_name.gsub(/#{module_name}_/, '')
+              module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\s?\(([^)]+)?\)}]
               next unless Regexp.last_match
 
               functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
@@ -110,7 +108,7 @@ module DFHackLuaDefinitions
               function_name = Regexp.last_match(1) if function_name =~ /,\s?(\S+)/
               signature = "#{namespace}#{function_name}"
 
-              module_file[/^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature}\s?\(([^)]+)?\)/]
+              module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature}\s?\(([^)]+)?\)}]
 
               next unless Regexp.last_match
 
@@ -156,11 +154,16 @@ module DFHackLuaDefinitions
         annotation = []
 
         captures = match.captures
-        return_type = parse_type(captures[0])
+        if captures[0]
+          comment = captures[0].gsub(%r{^//\s*}, '').strip
+          annotation << DFHackLuaDefinitions::Annotation.multiline_comment(comment)
+        end
+
+        return_type = parse_type(captures[1])
         arguments = []
 
-        if captures[1]
-          arguments = captures[1].split(/,(?![^<>]*>)/).reject.with_index do |arg, index|
+        if captures[2]
+          arguments = captures[2].split(/,(?![^<>]*>)/).reject.with_index do |arg, index|
             arg[/(&\s*out)|lua_State/] && index.zero?
           end
 

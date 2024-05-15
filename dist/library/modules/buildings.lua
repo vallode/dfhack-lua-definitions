@@ -25,6 +25,7 @@ function dfhack.buildings.findCivzonesAt(pvec, pos) end
 ---@return df.coord2d size
 function dfhack.buildings.getCorrectSize(center, type, subtype, custom, direction) end
 
+-- returns building of pen/pit at cursor position (NULL if nothing found)
 ---@param coord df.coord
 ---@return df.building
 function dfhack.buildings.findPenPitAt(coord) end

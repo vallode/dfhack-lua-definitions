@@ -70,6 +70,7 @@ function dfhack.gui.pauseRecenter(x, y, z, pause) end
 ---@return boolean
 function dfhack.gui.revealInDwarfmodeMap(x, y, z, center, highlight) end
 
+-- returns the map coordinates that the mouse cursor is over
 ---@param allow_out_of_bounds boolean|nil
 ---@return df.coord
 function dfhack.gui.getMousePos(allow_out_of_bounds) end
