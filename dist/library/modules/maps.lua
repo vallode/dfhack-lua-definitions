@@ -55,7 +55,6 @@ function dfhack.maps.getPlantAtTile(x, y, z) end
 ---@param blk df.map_block
 ---@param flow boolean|nil
 ---@param temperature boolean|nil
----@return nil
 function dfhack.maps.enableBlockUpdates(blk, flow, temperature) end
 
 ---@param index number

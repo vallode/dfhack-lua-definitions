@@ -22,7 +22,6 @@ function dfhack.items.getOuterContainerRef(item, init_ref) end
 
 ---@param item df.item
 ---@param items { [integer]: df.item }
----@return nil
 function dfhack.items.getContainedItems(item, items) end
 
 ---@param item df.item

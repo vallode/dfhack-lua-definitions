@@ -8,7 +8,6 @@ dfhack.world = {}
 function dfhack.world.ReadPauseState() end
 
 ---@param paused boolean|nil
----@return nil
 function dfhack.world.SetPauseState(paused) end
 
 ---@return integer
@@ -27,7 +26,6 @@ function dfhack.world.ReadCurrentDay() end
 function dfhack.world.ReadCurrentWeather() end
 
 ---@param weather integer
----@return nil
 function dfhack.world.SetCurrentWeather(weather) end
 
 ---@return string

@@ -15,7 +15,6 @@ function dfhack.textures.loadTileset(tile_px_w, tile_px_h, reserved) end
 function dfhack.textures.getTexposByHandle(handle) end
 
 ---@param handle unknown
----@return nil
 function dfhack.textures.deleteHandle(handle) end
 
 ---@param tile_px_w integer

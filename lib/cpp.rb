@@ -12,7 +12,8 @@ module DFHackLuaDefinitions
       'bool' => 'boolean',
       'string' => 'string',
       'std::string' => 'string',
-      'void' => 'nil'
+      # Explicit void is helpful down the line.
+      'void' => 'void'
     }.freeze
 
     class << self
@@ -193,7 +194,7 @@ module DFHackLuaDefinitions
         end
 
         if return_type
-          annotation << "---@return #{return_type.gsub(/const\s+|[*&]/, '')}\n" if return_type
+          annotation << "---@return #{return_type.gsub(/const\s+|[*&]/, '')}\n" unless return_type == 'void'
         else
           annotation << "---@return unknown\n"
         end

@@ -91,7 +91,6 @@ function dfhack.buildings.constructWithFilters(bld, items) end
 function dfhack.buildings.deconstruct(bld) end
 
 ---@param bld df.building
----@return nil
 function dfhack.buildings.notifyCivzoneModified(bld) end
 
 ---@param bld df.building
@@ -120,6 +119,5 @@ function dfhack.buildings.isPitPond(building) end
 function dfhack.buildings.isActive(building) end
 
 ---@param bld df.building
----@return nil
 function dfhack.buildings.completeBuild(bld) end
 

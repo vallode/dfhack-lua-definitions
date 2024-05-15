@@ -348,7 +348,6 @@ function dfhack.units.getContainer(unit) end
 
 ---@param unit df.unit
 ---@param nick string
----@return nil
 function dfhack.units.setNickname(unit, nick) end
 
 ---@param unit df.unit
@@ -524,37 +523,31 @@ function dfhack.units.getStressCategoryRaw(stress_level) end
 ---@param unit df.unit
 ---@param amount number
 ---@param affectedActionType df.unit_action_type
----@return nil
 function dfhack.units.subtractActionTimers(unit, amount, affectedActionType) end
 
 ---@param unit df.unit
 ---@param amount number
 ---@param affectedActionTypeGroup df.unit_action_type_group
----@return nil
 function dfhack.units.subtractGroupActionTimers(unit, amount, affectedActionTypeGroup) end
 
 ---@param unit df.unit
 ---@param amount number
 ---@param affectedActionType df.unit_action_type
----@return nil
 function dfhack.units.multiplyActionTimers(unit, amount, affectedActionType) end
 
 ---@param unit df.unit
 ---@param amount number
 ---@param affectedActionTypeGroup df.unit_action_type_group
----@return nil
 function dfhack.units.multiplyGroupActionTimers(unit, amount, affectedActionTypeGroup) end
 
 ---@param unit df.unit
 ---@param amount number
 ---@param affectedActionType df.unit_action_type
----@return nil
 function dfhack.units.setActionTimers(unit, amount, affectedActionType) end
 
 ---@param unit df.unit
 ---@param amount number
 ---@param affectedActionTypeGroup df.unit_action_type_group
----@return nil
 function dfhack.units.setGroupActionTimers(unit, amount, affectedActionTypeGroup) end
 
 ---@param noble string

@@ -8,7 +8,6 @@ dfhack.burrows = {}
 
 ---@param pvec { [integer]: df.map_block }
 ---@param burrow df.burrow
----@return nil
 function dfhack.burrows.listBlocks(pvec, burrow) end
 
 ---@param name string
@@ -17,7 +16,6 @@ function dfhack.burrows.listBlocks(pvec, burrow) end
 function dfhack.burrows.findByName(name, ignore_final_plus) end
 
 ---@param burrow df.burrow
----@return nil
 function dfhack.burrows.clearUnits(burrow) end
 
 ---@param burrow df.burrow
@@ -28,10 +26,8 @@ function dfhack.burrows.isAssignedUnit(burrow, unit) end
 ---@param burrow df.burrow
 ---@param unit df.unit
 ---@param enable boolean|nil
----@return nil
 function dfhack.burrows.setAssignedUnit(burrow, unit, enable) end
 
 ---@param burrow df.burrow
----@return nil
 function dfhack.burrows.clearTiles(burrow) end
 

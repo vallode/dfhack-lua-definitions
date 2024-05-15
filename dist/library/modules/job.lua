@@ -26,11 +26,9 @@ function dfhack.job.cloneJobStruct(job, keepEverything) end
 
 ---@param item df.job_item
 ---@param idx integer
----@return nil
 function dfhack.job.printItemDetails(item, idx) end
 
 ---@param job df.job
----@return nil
 function dfhack.job.printJobDetails(job) end
 
 ---@param job df.job
@@ -54,7 +52,6 @@ function dfhack.job.getWorker(job) end
 ---@param workshop df.building
 ---@param worker df.unit
 ---@param cooldown integer
----@return nil
 function dfhack.job.setJobCooldown(workshop, worker, cooldown) end
 
 ---@param job df.job
@@ -62,10 +59,8 @@ function dfhack.job.setJobCooldown(workshop, worker, cooldown) end
 ---@return boolean
 function dfhack.job.removeWorker(job, cooldown) end
 
----@return nil
 function dfhack.job.checkBuildingsNow() end
 
----@return nil
 function dfhack.job.checkDesignationsNow() end
 
 ---@param item df.job_item
@@ -97,7 +92,6 @@ function dfhack.job.removePostings(job, remove_all) end
 
 ---@param job df.job
 ---@param item_ref df.job_item_ref
----@return nil
 function dfhack.job.disconnectJobItem(job, item_ref) end
 
 ---@param job df.job

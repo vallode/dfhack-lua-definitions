@@ -20,7 +20,6 @@ function dfhack.gui.makeAnnouncement(type, flags, pos, message, color, bright) e
 ---@param message string
 ---@param color integer
 ---@param bright boolean|nil
----@return nil
 function dfhack.gui.showAnnouncement(message, color, bright) end
 
 ---@param type df.announcement_type
@@ -28,13 +27,11 @@ function dfhack.gui.showAnnouncement(message, color, bright) end
 ---@param message string
 ---@param color integer
 ---@param bright boolean|nil
----@return nil
 function dfhack.gui.showZoomAnnouncement(type, pos, message, color, bright) end
 
 ---@param message string
 ---@param color integer
 ---@param bright boolean|nil
----@return nil
 function dfhack.gui.showPopupAnnouncement(message, color, bright) end
 
 ---@param type df.announcement_type
@@ -44,7 +41,6 @@ function dfhack.gui.showPopupAnnouncement(message, color, bright) end
 ---@param bright boolean|nil
 ---@param unit_a df.unit
 ---@param unit_d df.unit
----@return nil
 function dfhack.gui.showAutoAnnouncement(type, pos, message, color, bright, unit_a, unit_d) end
 
 ---@param info df.announcement_infost
@@ -158,11 +154,9 @@ function dfhack.gui.getAnyStockpile(top) end
 function dfhack.gui.getAnyPlant(top) end
 
 ---@param message string
----@return nil
 function dfhack.gui.writeToGamelog(message) end
 
 ---@param pause boolean|nil
----@return nil
 function dfhack.gui.resetDwarfmodeView(pause) end
 
 ---@return boolean
