@@ -89,4 +89,5 @@ As with all things, development of this library would not be possible without he
 - mahahuha/shevernitskiy
 - myk002
 - Ramrusher
+- tatoyoda600
 - Thyrus
