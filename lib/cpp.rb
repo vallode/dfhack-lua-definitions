@@ -24,6 +24,7 @@ module DFHackLuaDefinitions
       def parse_cpp_modules(entry_point)
         # TODO: Of course we cannot do this forever!
         ignored_modules = %w[console]
+        ignored_methods = %w[Pen::parse]
 
         file = File.read(entry_point)
         directory = File.dirname(entry_point)
@@ -97,10 +98,13 @@ module DFHackLuaDefinitions
 
               cleaned_signature_name = signature_name.gsub(/#{module_name}_/, '')
               module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{namespace}#{cleaned_signature_name}\R?\s*\(([^)]+)?\)}]
-              next unless Regexp.last_match
 
-              functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
-                                                                                       function_name:)
+              unless Regexp.last_match
+                print "Could not find function: #{cleaned_signature_name}\n"
+                next
+              end
+
+              functions << CPP.parse_function(Regexp.last_match, module_name:, prefix:, function_name:)
             end
 
             module_declaration&.scan(/WRAPN\(\s*(\w+)\s*,\s*(\w+)\s*\)/) do |function_name, signature_name|
@@ -112,12 +116,14 @@ module DFHackLuaDefinitions
               function_name = Regexp.last_match(1) if function_name =~ /,\s?(\S+)/
               signature = "#{namespace}#{function_name}"
 
-              module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature}\s?\(([^)]+)?\)}]
+              module_file[%r{(//.*\R)?^(?:static\s)?(?:DFHACK_EXPORT\s)?(\S+).*?#{signature}\R?\s*\(([^)]+)?\)}]
 
-              next unless Regexp.last_match
+              unless Regexp.last_match
+                print "Could not find function: #{signature}\n"
+                next
+              end
 
-              functions << DFHackLuaDefinitions::CPP.parse_function(Regexp.last_match, module_name:, prefix:,
-                                                                                       function_name:)
+              functions << CPP.parse_function(Regexp.last_match, module_name:, prefix:, function_name:)
             end
             output << functions.join
           end
