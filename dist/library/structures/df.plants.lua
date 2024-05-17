@@ -1,16 +1,17 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+-- actually an enum relating to plant vectors
 ---@class df.plant_flags: DFBitfield
 ---@field _enum identity.plant_flags
----@field watery boolean
----@field [0] boolean
+---@field watery boolean Within 2 tiles of pool/river/brook feature
+---@field [0] boolean Within 2 tiles of pool/river/brook feature
 ---@field is_shrub boolean If it is not a shrub, then it is a tree
 ---@field [1] boolean If it is not a shrub, then it is a tree
 
 ---@class identity.plant_flags: DFBitfieldType
----@field watery 0
----@field [0] "watery"
+---@field watery 0 Within 2 tiles of pool/river/brook feature
+---@field [0] "watery" Within 2 tiles of pool/river/brook feature
 ---@field is_shrub 1 If it is not a shrub, then it is a tree
 ---@field [1] "is_shrub" If it is not a shrub, then it is a tree
 df.plant_flags = {}
@@ -27,7 +28,7 @@ df.plant_flags = {}
 ---@field site_id number References: `world_site`
 ---@field srb_id number References: `site_realization_building`
 ---@field contaminants _plant_contaminants
----@field tree_info df.plant_tree_info
+---@field tree_info df.plant_tree_info Sapling if NULL
 
 ---@class identity.plant: DFCompoundType
 ---@field _kind 'struct-type'
@@ -47,20 +48,20 @@ function df.plant.get_vector() end
 
 ---@class df.plant.T_damage_flags: DFBitfield
 ---@field _enum identity.plant.damage_flags
----@field is_burning boolean
+---@field unused_01 boolean
 ---@field [0] boolean
----@field is_drowning boolean
+---@field season_dead boolean
 ---@field [1] boolean
----@field is_dead boolean
+---@field dead boolean
 ---@field [2] boolean
 
 ---@class identity.plant.damage_flags: DFBitfieldType
----@field is_burning 0
----@field [0] "is_burning"
----@field is_drowning 1
----@field [1] "is_drowning"
----@field is_dead 2
----@field [2] "is_dead"
+---@field unused_01 0
+---@field [0] "unused_01"
+---@field season_dead 1
+---@field [1] "season_dead"
+---@field dead 2
+---@field [2] "dead"
 df.plant.T_damage_flags = {}
 
 ---@class _plant_contaminants: DFContainer

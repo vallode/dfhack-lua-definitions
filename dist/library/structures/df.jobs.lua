@@ -258,6 +258,132 @@ df.job_flags = {}
 ---@field [3] "RemoveRottenTissue"
 df.job_subtype_surgery = {}
 
+-- representation of the overloading of job.specflag
+---@class (exact) df.job_spec_flags: DFStruct
+---@field _type identity.job_spec_flags
+---@field whole integer
+---@field construct_building_flags df.job_spec_flags.T_construct_building_flags
+---@field clean_patient_flags df.job_spec_flags.T_clean_patient_flags
+---@field clean_self_flags df.job_spec_flags.T_clean_self_flags
+---@field place_track_vehicle_flags df.job_spec_flags.T_place_track_vehicle_flags
+---@field gather_flags df.job_spec_flags.T_gather_flags
+---@field drink_item_flags df.job_spec_flags.T_drink_item_flags
+---@field interrogation_flags df.job_spec_flags.T_interrogation_flags
+---@field weave_cloth_flags df.job_spec_flags.T_weave_cloth_flags
+---@field carve_track_flags df.tile_occupancy
+---@field encrust_flags df.stockpile_group_set
+
+---@class identity.job_spec_flags: DFCompoundType
+---@field _kind 'struct-type'
+df.job_spec_flags = {}
+
+---@return df.job_spec_flags
+function df.job_spec_flags:new() end
+
+---@class df.job_spec_flags.T_construct_building_flags: DFBitfield
+---@field _enum identity.job_spec_flags.construct_building_flags
+---@field SWITCHED_SPOT boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.construct_building_flags: DFBitfieldType
+---@field SWITCHED_SPOT 0
+---@field [0] "SWITCHED_SPOT"
+df.job_spec_flags.T_construct_building_flags = {}
+
+---@class df.job_spec_flags.T_clean_patient_flags: DFBitfield
+---@field _enum identity.job_spec_flags.clean_patient_flags
+---@field TRIED_SOAP boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.clean_patient_flags: DFBitfieldType
+---@field TRIED_SOAP 0
+---@field [0] "TRIED_SOAP"
+df.job_spec_flags.T_clean_patient_flags = {}
+
+---@class df.job_spec_flags.T_clean_self_flags: DFBitfield
+---@field _enum identity.job_spec_flags.clean_self_flags
+---@field TRIED_SOAP boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.clean_self_flags: DFBitfieldType
+---@field TRIED_SOAP 0
+---@field [0] "TRIED_SOAP"
+df.job_spec_flags.T_clean_self_flags = {}
+
+---@class df.job_spec_flags.T_place_track_vehicle_flags: DFBitfield
+---@field _enum identity.job_spec_flags.place_track_vehicle_flags
+---@field CLEARED_JOBS boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.place_track_vehicle_flags: DFBitfieldType
+---@field CLEARED_JOBS 0
+---@field [0] "CLEARED_JOBS"
+df.job_spec_flags.T_place_track_vehicle_flags = {}
+
+---@class df.job_spec_flags.T_gather_flags: DFBitfield
+---@field _enum identity.job_spec_flags.gather_flags
+---@field FROM_ZONE boolean
+---@field [0] boolean
+---@field PICK_TREES boolean
+---@field [1] boolean
+---@field PICK_SHRUBS boolean
+---@field [2] boolean
+---@field GATHER_FALLEN boolean
+---@field [3] boolean
+---@field NO_LADDER_SEARCH boolean
+---@field [4] boolean
+---@field LADDER_RESTRICTED boolean
+---@field [5] boolean
+---@field PICK_TREES_GROUND boolean
+---@field [6] boolean
+
+---@class identity.job_spec_flags.gather_flags: DFBitfieldType
+---@field FROM_ZONE 0
+---@field [0] "FROM_ZONE"
+---@field PICK_TREES 1
+---@field [1] "PICK_TREES"
+---@field PICK_SHRUBS 2
+---@field [2] "PICK_SHRUBS"
+---@field GATHER_FALLEN 3
+---@field [3] "GATHER_FALLEN"
+---@field NO_LADDER_SEARCH 4
+---@field [4] "NO_LADDER_SEARCH"
+---@field LADDER_RESTRICTED 5
+---@field [5] "LADDER_RESTRICTED"
+---@field PICK_TREES_GROUND 6
+---@field [6] "PICK_TREES_GROUND"
+df.job_spec_flags.T_gather_flags = {}
+
+---@class df.job_spec_flags.T_drink_item_flags: DFBitfield
+---@field _enum identity.job_spec_flags.drink_item_flags
+---@field LOOKED_FOR_NEARBY_GOBLET boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.drink_item_flags: DFBitfieldType
+---@field LOOKED_FOR_NEARBY_GOBLET 0
+---@field [0] "LOOKED_FOR_NEARBY_GOBLET"
+df.job_spec_flags.T_drink_item_flags = {}
+
+---@class df.job_spec_flags.T_interrogation_flags: DFBitfield
+---@field _enum identity.job_spec_flags.interrogation_flags
+---@field DID_OFFICE_ATTEMPT boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.interrogation_flags: DFBitfieldType
+---@field DID_OFFICE_ATTEMPT 0
+---@field [0] "DID_OFFICE_ATTEMPT"
+df.job_spec_flags.T_interrogation_flags = {}
+
+---@class df.job_spec_flags.T_weave_cloth_flags: DFBitfield
+---@field _enum identity.job_spec_flags.weave_cloth_flags
+---@field USE_DYED boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.weave_cloth_flags: DFBitfieldType
+---@field USE_DYED 0
+---@field [0] "USE_DYED"
+df.job_spec_flags.T_weave_cloth_flags = {}
+
 ---@class (exact) df.job: DFStruct
 ---@field _type identity.job
 ---@field id number
@@ -267,18 +393,18 @@ df.job_subtype_surgery = {}
 ---@field job_subtype df.job_subtype_surgery toady: stage
 ---@field pos df.coord
 ---@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
----@field maxdur integer
+---@field maxdur number
 ---@field flags df.job_flags
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field spell number almost certainly no longer used
 ---@field item_type df.item_type for Bait Trap jobs
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
----@field item_category df.stockpile_group_set not actually a stockpile_group_set<br>this field encodes multiple overlapping flags:<br>bit0: ConstructBuildingSwitchedSpot, CleanPatientTriedSoap, CleanSelfTriedSoap, PlaceTrackVehicleClearedJobs, GatherFromZone, DrinkItemLookedForNearbyGoblet, InterrogationDidOfficeAttempt<br>bit1: GatherPickTrees<br>bit2: GatherPickShrubs<br>bit3: GatherGatherFallen<br>bit4: GatherNoLadderSearch<br>bit5: GatherLadderRestricted<br>bit6: GatherLadderGround
+---@field specflag df.job_spec_flags
 ---@field hist_figure_id number toady: spec_id References: `historical_figure`
 ---@field race number References: `creature_raw`
 ---@field improvement df.improvement_type
----@field material_category df.job_material_category
+---@field material_category df.job_material_category bay12: uint32_t job_item_flag
 ---@field reaction_name string
 ---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
 ---@field recheck_cntdn number toady: auxilary_counter; for process_jobs

@@ -340,7 +340,7 @@ function df.interface_button_building_material_selectorst:new() end
 ---@field subtype number
 ---@field material number References: `material`
 ---@field matgloss number
----@field specflag df.stockpile_group_set
+---@field specflag df.job_spec_flags
 ---@field spec_id number refers to various things, such as histfigs OR races
 ---@field job_item_flag df.job_material_category
 ---@field add_building_location boolean
