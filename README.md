@@ -4,16 +4,17 @@
 
 [Lua language server](//github.com/LuaLS/lua-language-server) type definitions for [DFHack](//docs.dfhack.org/en/stable/)'s Lua API.
 
+Any form of contribution (feedback, criticism, words of encouragement) is welcome. Feel free to open an issue, email, or ping me on the DFHack discord.
+
 > [!NOTE]
 >
 > These definitions are work-in-progress, they can lie to you. You can find up to date documentation on the [DFHack website](//docs.dfhack.org/en/stable/docs/dev/Lua%20API.html). That being said, please raise any problems here or on DFHack's Discord server.
 
 ## Installation
 
+Before using the definitions, make sure you have [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](//luals.github.io/#vscode-install).
+
 You can either download [the latest release](//github.com/vallode/dfhack-lua-definitions/releases/latest/) or a [nightly build artifact](//github.com/vallode/dfhack-lua-definitions/actions/workflows/nightly.yml).
-
-These definitions require [`lua-language-server`](//github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](//luals.github.io/#vscode-install).
-
 
 ### VSCode / Code - OSS
 
@@ -71,10 +72,6 @@ Reportedly working but no instructions yet.
 ## Tips
 
 - In VSCode (and other derivatives) one can use `ctrl+space` to trigger intellisense on the spot. This is useful for filling out typed tables like `ATTRS` on widgets.
-
-## Contributing
-
-Any form of contribution (feedback, criticism, words of encouragement) is welcome. Feel free to open an issue, email, or ping me on the DFHack discord.
 
 ## Credits
 
