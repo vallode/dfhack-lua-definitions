@@ -258,7 +258,7 @@ df.job_flags = {}
 ---@field [3] "RemoveRottenTissue"
 df.job_subtype_surgery = {}
 
--- representation of the overloading of job.specflag
+-- representation of the overloading of job.specflag. Any additions to this union should also be reflected in DFHack::Job::printJobDetails
 ---@class (exact) df.job_spec_flags: DFStruct
 ---@field _type identity.job_spec_flags
 ---@field whole integer
@@ -270,6 +270,7 @@ df.job_subtype_surgery = {}
 ---@field drink_item_flags df.job_spec_flags.T_drink_item_flags
 ---@field interrogation_flags df.job_spec_flags.T_interrogation_flags
 ---@field weave_cloth_flags df.job_spec_flags.T_weave_cloth_flags
+---@field link_building_to_trigger_flags df.job_spec_flags.T_link_building_to_trigger_flags
 ---@field carve_track_flags df.tile_occupancy
 ---@field encrust_flags df.stockpile_group_set
 
@@ -383,6 +384,16 @@ df.job_spec_flags.T_interrogation_flags = {}
 ---@field USE_DYED 0
 ---@field [0] "USE_DYED"
 df.job_spec_flags.T_weave_cloth_flags = {}
+
+---@class df.job_spec_flags.T_link_building_to_trigger_flags: DFBitfield
+---@field _enum identity.job_spec_flags.link_building_to_trigger_flags
+---@field UNKNOWN boolean
+---@field [0] boolean
+
+---@class identity.job_spec_flags.link_building_to_trigger_flags: DFBitfieldType
+---@field UNKNOWN 0
+---@field [0] "UNKNOWN"
+df.job_spec_flags.T_link_building_to_trigger_flags = {}
 
 ---@class (exact) df.job: DFStruct
 ---@field _type identity.job

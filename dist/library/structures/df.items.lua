@@ -319,66 +319,66 @@ df.item_quality = {}
 ---| 22 # CarpenterShopSign
 ---| 23 # StoneFurnitureShopSign
 ---| 24 # MetalFurnitureShopSign
----| 25 # DemonIdentity
----| 26 # TavernSign
+---| 25 # TavernSign
+---| 26 # DemonIdentity
 
 ---@class identity.slab_engraving_type: DFEnumType
----@field Slab -1
----@field [-1] "Slab"
+---@field Slab -1 bay12: EngravingIntent/EngravingIntentType
+---@field [-1] "Slab" bay12: EngravingIntent/EngravingIntentType
 ---@field Memorial 0
 ---@field [0] "Memorial"
----@field CraftShopSign 1
----@field [1] "CraftShopSign"
----@field WeaponsmithShopSign 2
----@field [2] "WeaponsmithShopSign"
----@field ArmorsmithShopSign 3
----@field [3] "ArmorsmithShopSign"
----@field GeneralStoreSign 4
----@field [4] "GeneralStoreSign"
----@field FoodShopSign 5
----@field [5] "FoodShopSign"
----@field Secrets 6 from the gods?
----@field [6] "Secrets" from the gods?
----@field FoodImportsSign 7
----@field [7] "FoodImportsSign"
----@field ClothingImportsSign 8
----@field [8] "ClothingImportsSign"
----@field GeneralImportsSign 9
----@field [9] "GeneralImportsSign"
----@field ClothShopSign 10
----@field [10] "ClothShopSign"
----@field LeatherShopSign 11
----@field [11] "LeatherShopSign"
----@field WovenClothingShopSign 12
----@field [12] "WovenClothingShopSign"
----@field LeatherClothingShopSign 13
----@field [13] "LeatherClothingShopSign"
----@field BoneCarverShopSign 14
----@field [14] "BoneCarverShopSign"
----@field GemCutterShopSign 15
----@field [15] "GemCutterShopSign"
----@field WeaponsmithShopSign2 16
----@field [16] "WeaponsmithShopSign2"
----@field BowyerShopSign 17
----@field [17] "BowyerShopSign"
----@field BlacksmithShopSign 18
----@field [18] "BlacksmithShopSign"
----@field ArmorsmithShopSign2 19
----@field [19] "ArmorsmithShopSign2"
----@field MetalCraftShopSign 20
----@field [20] "MetalCraftShopSign"
----@field LeatherGoodsShopSign 21
----@field [21] "LeatherGoodsShopSign"
----@field CarpenterShopSign 22
----@field [22] "CarpenterShopSign"
----@field StoneFurnitureShopSign 23
----@field [23] "StoneFurnitureShopSign"
----@field MetalFurnitureShopSign 24
----@field [24] "MetalFurnitureShopSign"
----@field DemonIdentity 25 when a demon assumes identity?
----@field [25] "DemonIdentity" when a demon assumes identity?
----@field TavernSign 26
----@field [26] "TavernSign"
+---@field CraftShopSign 1 STORE_CRAFTS
+---@field [1] "CraftShopSign" STORE_CRAFTS
+---@field WeaponsmithShopSign 2 STORE_WEAPON
+---@field [2] "WeaponsmithShopSign" STORE_WEAPON
+---@field ArmorsmithShopSign 3 STORE_ARMOR
+---@field [3] "ArmorsmithShopSign" STORE_ARMOR
+---@field GeneralStoreSign 4 STORE_GENERAL
+---@field [4] "GeneralStoreSign" STORE_GENERAL
+---@field FoodShopSign 5 STORE_FOOD
+---@field [5] "FoodShopSign" STORE_FOOD
+---@field Secrets 6 from the gods? (SECRET)
+---@field [6] "Secrets" from the gods? (SECRET)
+---@field FoodImportsSign 7 SRB_SHOP_IMPORT_FOOD
+---@field [7] "FoodImportsSign" SRB_SHOP_IMPORT_FOOD
+---@field ClothingImportsSign 8 SRB_SHOP_IMPORT_CLOTHING
+---@field [8] "ClothingImportsSign" SRB_SHOP_IMPORT_CLOTHING
+---@field GeneralImportsSign 9 SRB_SHOP_IMPORT_GENERAL
+---@field [9] "GeneralImportsSign" SRB_SHOP_IMPORT_GENERAL
+---@field ClothShopSign 10 SRB_SHOP_CLOTH
+---@field [10] "ClothShopSign" SRB_SHOP_CLOTH
+---@field LeatherShopSign 11 SRB_SHOP_LEATHER
+---@field [11] "LeatherShopSign" SRB_SHOP_LEATHER
+---@field WovenClothingShopSign 12 SRB_SHOP_CLOTHING_CLOTH
+---@field [12] "WovenClothingShopSign" SRB_SHOP_CLOTHING_CLOTH
+---@field LeatherClothingShopSign 13 SRB_SHOP_CLOTHING_LEATHER
+---@field [13] "LeatherClothingShopSign" SRB_SHOP_CLOTHING_LEATHER
+---@field BoneCarverShopSign 14 SRB_SHOP_CRAFTS_BONE_CARVER
+---@field [14] "BoneCarverShopSign" SRB_SHOP_CRAFTS_BONE_CARVER
+---@field GemCutterShopSign 15 SRB_SHOP_GEM_CUTTER
+---@field [15] "GemCutterShopSign" SRB_SHOP_GEM_CUTTER
+---@field WeaponsmithShopSign2 16 SRB_SHOP_METAL_WEAPON_SMITH
+---@field [16] "WeaponsmithShopSign2" SRB_SHOP_METAL_WEAPON_SMITH
+---@field BowyerShopSign 17 SRB_SHOP_WOOD_WEAPON_SMITH
+---@field [17] "BowyerShopSign" SRB_SHOP_WOOD_WEAPON_SMITH
+---@field BlacksmithShopSign 18 SRB_SHOP_BLACK_SMITH
+---@field [18] "BlacksmithShopSign" SRB_SHOP_BLACK_SMITH
+---@field ArmorsmithShopSign2 19 SRB_SHOP_METAL_ARMOR_SMITH
+---@field [19] "ArmorsmithShopSign2" SRB_SHOP_METAL_ARMOR_SMITH
+---@field MetalCraftShopSign 20 SRB_SHOP_METAL_CRAFTER
+---@field [20] "MetalCraftShopSign" SRB_SHOP_METAL_CRAFTER
+---@field LeatherGoodsShopSign 21 SRB_SHOP_FURNITURE_WOOD
+---@field [21] "LeatherGoodsShopSign" SRB_SHOP_FURNITURE_WOOD
+---@field CarpenterShopSign 22 SRB_SHOP_FURNITURE_WOOD
+---@field [22] "CarpenterShopSign" SRB_SHOP_FURNITURE_WOOD
+---@field StoneFurnitureShopSign 23 SRB_SHOP_FURNITURE_STONE
+---@field [23] "StoneFurnitureShopSign" SRB_SHOP_FURNITURE_STONE
+---@field MetalFurnitureShopSign 24 SRB_SHOP_FURNITURE_METAL
+---@field [24] "MetalFurnitureShopSign" SRB_SHOP_FURNITURE_METAL
+---@field TavernSign 25 AB_TAVERN
+---@field [25] "TavernSign" AB_TAVERN
+---@field DemonIdentity 26 when a demon assumes identity? (TRUE_NAME)
+---@field [26] "DemonIdentity" when a demon assumes identity? (TRUE_NAME)
 df.slab_engraving_type = {}
 
 ---@alias df.trade_good_purpose

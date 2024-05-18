@@ -10,25 +10,6 @@ local unlinkMechanisms
 
 saved_mode = saved_mode or 0
 
-{
-    "Trap/Lever",
-    "Trap/PressurePlate",
-    "Trap/TrackStop",
-    "BarsFloor",
-    "BarsVertical",
-    "Bridge",
-    "Cage",
-    "Chain",
-    "Door",
-    "Floodgate",
-    "GearAssembly",
-    "GrateFloor",
-    "GrateWall",
-    "Hatch",
-    "Support",
-    "Weapon",
-}
-
 ------------------------
 
 local ConfirmWindow

@@ -4,6 +4,10 @@
 ---@class utils
 local utils
 
+---@generic T
+---@param obj T|fun(...): T
+---@param ... unknown
+---@return T
 function utils.getval(obj, ...) end
 
 -- Comparator function

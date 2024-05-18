@@ -8,6 +8,15 @@
 ---@field is_interactive fun(): boolean
 dfhack = {}
 
+---@alias dfhack.truthy
+---| true
+---| integer
+---| string
+---| table
+---| function
+---| userdata
+---| fun(...): true|string|integer|table|function|userdata
+
 CR_LINK_FAILURE = -3
 CR_NEEDS_CONSOLE = -2
 CR_NOT_IMPLEMENTED = -1
@@ -36,6 +45,27 @@ COLOR_WHITE = 15
 
 COLOR_GRAY = COLOR_GREY
 COLOR_DARKGRAY = COLOR_DARKGREY
+
+---@alias dfhack.color
+---| `COLOR_RESET`
+---| `COLOR_BLACK`
+---| `COLOR_BLUE`
+---| `COLOR_GREEN`
+---| `COLOR_CYAN`
+---| `COLOR_RED`
+---| `COLOR_MAGENTA`
+---| `COLOR_BROWN`
+---| `COLOR_GREY`
+---| `COLOR_DARKGREY`
+---| `COLOR_LIGHTBLUE`
+---| `COLOR_LIGHTGREEN`
+---| `COLOR_LIGHTCYAN`
+---| `COLOR_LIGHTRED`
+---| `COLOR_LIGHTMAGENTA`
+---| `COLOR_YELLOW`
+---| `COLOR_WHITE`
+---| `COLOR_GRAY`
+---| `COLOR_DARKGRAY`
 
 dfhack.HIDE_CONSOLE_ON_STARTUP = true
 ---@nodiscard
@@ -100,16 +130,19 @@ function rawset_default(target,source) end
 ---@type any
 DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
 
----@generic T: table
+-- Create or updates a class; a class has metamethods and thus own metatable.
+---@nodiscard
+---@generic T: dfhack.class
 ---@param class? T
 ---@param parent? table
----@return table|T
+---@return T
 function defclass(class,parent) end
 
----@generic T: table
----@param class table
----@param table? T
----@return table|T
+-- An instance uses the class as metatable
+---@generic T: dfhack.class
+---@param class T
+---@param table? table
+---@return T
 function mkinstance(class,table) end
 
 NEWLINE = "\n"
