@@ -17,6 +17,7 @@ jobs:
         run: |
           tar -zcf dfhack-lua-definitions-$(git tag --points-at HEAD).tar.gz dist
           zip -9qr dfhack-lua-definitions-$(git tag --points-at HEAD).zip dist
+
       - name: Create a new release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

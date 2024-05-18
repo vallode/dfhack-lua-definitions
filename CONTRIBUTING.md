@@ -5,7 +5,12 @@ To get up and running you'll need Ruby installed on your system. Once you do, ru
 
 ```sh
 bundle install
+git submodule init
 git submodule update --remote
+cd dfhack
+git submodule init library/xml
+git submodule update library/xml
+cd ..
 ruby lib/generate.rb
 ```
 
@@ -34,5 +39,4 @@ The [Lua language server](https://github.com/LuaLS/lua-language-server) provides
 Loosely structure guidelines for creating types that I follow:
 
 - Generics are commonly mis-interpreted by the language server, use explitic classes where possible i.e `---@class MyFooTable` vs. `---@class MyTable<Foo>: { [ integer ]: Foo }`
-- Prefer explicit `nil` declerations over optionals `?` i.e `---@return number|nil` vs. `---@return number?`
 - Use `---@nodiscard` liberally for functions with no side-effects

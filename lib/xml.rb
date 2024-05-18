@@ -40,7 +40,7 @@ module DFHackLuaDefinitions
     }.freeze
 
     class << self
-      def parse_xml_files(files)
+      def parse_xml_files(files, xslt_files:)
         files.each do |path|
           print "Parsing: #{path}\n"
           filename = File.basename(path, '.xml')
@@ -48,7 +48,7 @@ module DFHackLuaDefinitions
           document = Nokogiri::XML(File.open(path))
 
           # These stylesheets increase machine readability.
-          document = Dir.glob('./df-structures/lower-{1,2}.xslt').reduce(document) do |memo, stylesheet|
+          document = xslt_files.reduce(document) do |memo, stylesheet|
             Nokogiri::XSLT(File.read(stylesheet)).transform(memo)
           end
 

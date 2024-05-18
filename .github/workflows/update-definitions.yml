@@ -13,7 +13,8 @@ jobs:
         with:
           # Cannot use the commit SHA because there may have been updates.
           ref: ${{ github.ref }}
-          submodules: true
+          # We need `dfhack/library/xml` to be present.
+          submodules: recursive
 
       - uses: ruby/setup-ruby@v1
         with:

@@ -32,8 +32,9 @@ def generate_annotations
   DFHackLuaDefinitions::Lua.parse_lua_files(plugin_files)
 
   print "Parsing DF-Structures XML files\n"
-  structure_files = Dir.glob('./df-structures/df.*.xml')
-  DFHackLuaDefinitions::XML.parse_xml_files(structure_files)
+  structure_files = Dir.glob('./dfhack/library/xml/df.*.xml')
+  xslt_files = Dir.glob('./dfhack/library/xml/lower-{1,2}.xslt')
+  DFHackLuaDefinitions::XML.parse_xml_files(structure_files, xslt_files:)
 end
 
 generate_annotations if $PROGRAM_NAME == __FILE__
