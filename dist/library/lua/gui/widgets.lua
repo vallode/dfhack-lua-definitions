@@ -18,12 +18,14 @@
 ---@field BannerPanel widgets.BannerPanel
 ---@field TextButton widgets.TextButton
 ---@field CycleHotkeyLabel widgets.CycleHotkeyLabel
+---@field ButtonGroup widgets.ButtonGroup
 ---@field ToggleHotkeyLabel widgets.ToggleHotkeyLabel
 ---@field List widgets.List
 ---@field FilteredList widgets.FilteredList
 ---@field Tab widgets.Tab
 ---@field TabBar widgets.TabBar
 ---@field RangeSlider widgets.RangeSlider
+---@field DimensionsTooltip widgets.DimensionsTooltip
 local widgets
 
 ---@param view gui.View
@@ -425,6 +427,27 @@ function Label:scroll(nlines) end
 
 function Label:onInput(keys) end
 
+--------------------------------
+
+---@class widgets.ButtonLabelSpec
+---@field chars (string|string[])[]
+---@field chars_hover? (string|string[])[]
+---@field pens? dfhack.color|dfhack.color[][]
+---@field pens_hover? dfhack.color|dfhack.color[][]
+---@field tiles? integer[][]
+---@field tiles_hover? integer[][]
+---@field tileset? TexposHandle[]
+---@field tileset_hover? TexposHandle[]
+---@field tileset_offset? integer
+---@field tileset_hover_offset? integer
+---@field tileset_stride? integer
+---@field tileset_hover_stride? integer
+
+---@nodiscard
+---@param spec widgets.ButtonLabelSpec
+---@return widgets.LabelToken[]
+function widgets.makeButtonLabelText(spec) end
+
 ------------------
 -- WrappedLabel --
 ------------------
@@ -583,6 +606,23 @@ function CycleHotkeyLabel:getOptionValue(option_idx) end
 function CycleHotkeyLabel:getOptionPen(option_idx) end
 
 function CycleHotkeyLabel:onInput(keys) end
+
+-----------------
+-- ButtonGroup --
+-----------------
+
+---@class widgets.ButtonGroup.attrs: widgets.CycleHotkeyLabel.attrs
+
+---@class widgets.ButtonGroup.initTable: widgets.ButtonGroup.attrs
+---@field button_specs widgets.ButtonLabelSpec[]
+---@field button_specs_selected widgets.ButtonLabelSpec[]
+
+---@class widgets.ButtonGroup: widgets.ButtonGroup.attrs, widgets.CycleHotkeyLabel
+---@field super widgets.CycleHotkeyLabel
+---@overload fun(init_table: widgets.ButtonGroup.initTable): self
+local ButtonGroup
+
+function ButtonGroup:init(info) end
 
 -----------------------
 -- ToggleHotkeyLabel --
@@ -828,5 +868,22 @@ function RangeSlider:init() end
 function RangeSlider:onInput(keys) end
 
 function RangeSlider:onRenderBody(dc, rect) end
+
+--------------------------------
+-- DimensionsTooltip
+--------------------------------
+
+---@class widgets.DimensionsTooltip.attrs: widgets.ResizingPanel.attrs
+---@field display_offset? df.coord2d
+---@field get_anchor_pos_fn fun(): df.coord?
+
+---@class widgets.DimensionsTooltip: widgets.ResizingPanel
+---@field super widgets.ResizingPanel
+---@overload fun(init_table: widgets.DimensionsTooltip.attrs): self
+local DimensionsTooltip
+
+function DimensionsTooltip:init() end
+
+function DimensionsTooltip:render(dc) end
 
 return widgets

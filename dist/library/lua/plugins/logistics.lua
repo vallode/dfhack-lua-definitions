@@ -5,7 +5,13 @@
 ---@field AutoretrainOverlay logistics.AutoretrainOverlay
 local logistics
 
+-------------------------------------
+
 function logistics.getStockpileData() end
+
+--------------------------
+
+------------------
 
 function logistics.parse_commandline(args) end
 

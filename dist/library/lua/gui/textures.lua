@@ -7,7 +7,7 @@ local textures
 ---@alias TexposHandle integer
 
 -- Preloaded DFHack Assets.
--- Use this handles if you need to get dfhack standard textures.
+-- Use these handles if you need to get dfhack standard textures.
 ---@type table<string, TexposHandle[]>
 
 -- Get valid texpos for preloaded texture in tileset
