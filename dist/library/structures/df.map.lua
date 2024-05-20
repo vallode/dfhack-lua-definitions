@@ -386,20 +386,20 @@ df.block_flags = {}
 
 ---@class df.z_level_flags: DFBitfield
 ---@field _enum identity.z_level_flags
----@field update boolean
----@field [0] boolean
----@field can_stop boolean
----@field [1] boolean
----@field update_twice boolean
----@field [2] boolean
+---@field update boolean bay12: TEMP_BLOCK_FLAG_*
+---@field [0] boolean bay12: TEMP_BLOCK_FLAG_*
+---@field can_stop boolean bay12: ADJUSTMENTS
+---@field [1] boolean bay12: ADJUSTMENTS
+---@field update_twice boolean bay12: REMOVE_ADJUSTMENTS_FLAGS
+---@field [2] boolean bay12: REMOVE_ADJUSTMENTS_FLAGS
 
 ---@class identity.z_level_flags: DFBitfieldType
----@field update 0
----@field [0] "update"
----@field can_stop 1
----@field [1] "can_stop"
----@field update_twice 2
----@field [2] "update_twice"
+---@field update 0 bay12: TEMP_BLOCK_FLAG_*
+---@field [0] "update" bay12: TEMP_BLOCK_FLAG_*
+---@field can_stop 1 bay12: ADJUSTMENTS
+---@field [1] "can_stop" bay12: ADJUSTMENTS
+---@field update_twice 2 bay12: REMOVE_ADJUSTMENTS_FLAGS
+---@field [2] "update_twice" bay12: REMOVE_ADJUSTMENTS_FLAGS
 df.z_level_flags = {}
 
 ---@alias df.tile_liquid_flow_dir

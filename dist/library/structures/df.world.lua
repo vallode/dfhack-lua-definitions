@@ -1799,7 +1799,7 @@ function _random_object_infost_batch:erase(index) end
 ---@field profession_skills df.world.T_profession_skills
 ---@field math df.world.T_math
 ---@field map_extras df.world.T_map_extras
----@field world_data df.world_data bay12: local_region
+---@field world_data df.world_data bay12: local_region; bay12 type: regionst
 ---@field worldgen_status df.world.T_worldgen_status
 ---@field orphaned_flow_pool df.flow_reuse_pool bay12: flow_trackerst flow_tracker
 ---@field raws df.world_raws raws<br>!! this is not a compound in bay12 !!
@@ -4229,22 +4229,23 @@ function _world_divination_sets_bad:insert(index, item) end
 ---@param index integer
 function _world_divination_sets_bad:erase(index) end
 
+-- not a compound in bay12
 ---@class (exact) df.world.T_map: DFStruct
 ---@field _type identity.world.map
 ---@field map_blocks _world_map_map_blocks 52cdc
 ---@field block_index DFPointer<integer>
----@field map_block_columns _world_map_map_block_columns
----@field column_index DFPointer<integer>
----@field x_count_block number
----@field y_count_block number
----@field z_count_block number
----@field x_count number
----@field y_count number
----@field z_count number
----@field region_x number
----@field region_y number
----@field region_z number
----@field distance_lookup number[][]
+---@field map_block_columns _world_map_map_block_columns bay12: block_columnl bay12 type: block_colummst
+---@field column_index DFPointer<integer> bay12: block_column_index
+---@field x_count_block number bay12: blockx
+---@field y_count_block number bay12: blocky
+---@field z_count_block number bay12: blockz
+---@field x_count number bay12: dimx
+---@field y_count number bay12: dimy
+---@field z_count number bay12: dimz
+---@field region_x number bay12: mmcorner_x
+---@field region_y number bay12: mmcorner_y
+---@field region_z number bay12: mmcorner_z
+---@field distance_lookup number[][] bay12: lightrad
 
 ---@class identity.world.map: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4288,8 +4289,8 @@ function _world_map_map_block_columns:erase(index) end
 -- TODO: why did the alignment actually change here?
 ---@class (exact) df.world.T_profession_skills: DFStruct
 ---@field _type identity.world.profession_skills
----@field primary DFEnumVector<df.profession, df.job_skill>
----@field secondary DFEnumVector<df.profession, df.job_skill>
+---@field primary DFEnumVector<df.profession, df.job_skill> bay12: u_skill_pick
+---@field secondary DFEnumVector<df.profession, df.job_skill> bay12: u_mskill_pick
 
 ---@class identity.world.profession_skills: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4330,11 +4331,12 @@ function _world_profession_skills_secondary_job_skill:insert(index, item) end
 ---@param index integer
 function _world_profession_skills_secondary_job_skill:erase(index) end
 
+-- not a compound in bay12
 ---@class (exact) df.world.T_math: DFStruct
 ---@field _type identity.world.math
----@field approx df.world.T_math.T_approx[] 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
----@field cos number[] 100 * cosine of the index in degrees
----@field hypot number[][] square root of the sum of the squares of the indices
+---@field approx df.world.T_math.T_approx[] bay12: precalc_vision_arc; 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
+---@field cos number[] bay12: precalc_vision_dot; 100 * cosine of the index in degrees
+---@field hypot number[][] bay12: precalc_vision_sqrt; square root of the sum of the squares of the indices
 
 ---@class identity.world.math: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4355,14 +4357,15 @@ df.world.T_math.T_approx = {}
 ---@return df.world.T_math.T_approx
 function df.world.T_math.T_approx:new() end
 
+-- not a compound in bay12
 ---@class (exact) df.world.T_map_extras: DFStruct
 ---@field _type identity.world.map_extras
----@field rotation integer
----@field z_level_flags df.z_level_flags
----@field unk_v40_3a _world_map_extras_unk_v40_3a
----@field unk_v40_3b DFNumberVector
----@field unk_v40_3c DFNumberVector
----@field unk_v40_3d DFNumberVector
+---@field rotation integer bay12: levelorientation
+---@field z_level_flags df.z_level_flags bay12: temp_block_layer_flag
+---@field inactive_spoor_bse _world_map_extras_inactive_spoor_bse
+---@field inactive_spoor_bse_abs_smm_x DFNumberVector
+---@field inactive_spoor_bse_abs_smm_y DFNumberVector
+---@field inactive_spoor_bse_abs_smm_z DFNumberVector
 
 ---@class identity.world.map_extras: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4371,21 +4374,21 @@ df.world.T_map_extras = {}
 ---@return df.world.T_map_extras
 function df.world.T_map_extras:new() end
 
----@class _world_map_extras_unk_v40_3a: DFContainer
+---@class _world_map_extras_inactive_spoor_bse: DFContainer
 ---@field [integer] df.block_square_event_spoorst
-local _world_map_extras_unk_v40_3a
+local _world_map_extras_inactive_spoor_bse
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.block_square_event_spoorst>
-function _world_map_extras_unk_v40_3a:_field(index) end
+function _world_map_extras_inactive_spoor_bse:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.block_square_event_spoorst
-function _world_map_extras_unk_v40_3a:insert(index, item) end
+function _world_map_extras_inactive_spoor_bse:insert(index, item) end
 
 ---@param index integer
-function _world_map_extras_unk_v40_3a:erase(index) end
+function _world_map_extras_inactive_spoor_bse:erase(index) end
 
 ---@class (exact) df.world.T_worldgen_status: DFStruct
 ---@field _type identity.world.worldgen_status
