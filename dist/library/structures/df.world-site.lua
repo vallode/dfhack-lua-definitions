@@ -1530,7 +1530,7 @@ function _wg_site_culturest_identity:erase(index) end
 ---@field unk_v40_5 number constant -1?
 ---@field unk_188 DFPointer<integer> Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 number
----@field unk_3b0 df.world_site_unk130
+---@field unk_3b0 df.resource_pilest
 ---@field unk_18c _world_site_unk_18c
 ---@field unk_19c _world_site_unk_19c
 ---@field entity_links _world_site_entity_links

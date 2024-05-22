@@ -1,6 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+-- bay12: ResourceAllotment
 ---@alias df.resource_allotment_specifier_type
 ---| 0 # CROP
 ---| 1 # STONE
@@ -46,7 +47,64 @@
 ---| 41 # SKIN
 ---| 42 # POWDER
 ---| 43 # AMMO
+---| 44 # UNUSED_44
+---| 45 # UNUSED_45
+---| 46 # UNUSED_46
+---| 47 # UNUSED_47
+---| 48 # UNUSED_48
+---| 49 # UNUSED_49
+---| 50 # UNUSED_50
+---| 51 # UNUSED_51
+---| 52 # UNUSED_52
+---| 53 # UNUSED_53
+---| 54 # UNUSED_54
+---| 55 # UNUSED_55
+---| 56 # UNUSED_56
+---| 57 # UNUSED_57
+---| 58 # UNUSED_58
+---| 59 # UNUSED_59
+---| 60 # UNUSED_60
+---| 61 # UNUSED_61
+---| 62 # UNUSED_62
+---| 63 # UNUSED_63
+---| 64 # UNUSED_64
+---| 65 # UNUSED_65
+---| 66 # UNUSED_66
+---| 67 # UNUSED_67
+---| 68 # UNUSED_68
+---| 69 # UNUSED_69
+---| 70 # UNUSED_70
+---| 71 # UNUSED_71
+---| 72 # UNUSED_72
+---| 73 # UNUSED_73
+---| 74 # UNUSED_74
+---| 75 # UNUSED_75
+---| 76 # UNUSED_76
+---| 77 # UNUSED_77
+---| 78 # UNUSED_78
+---| 79 # UNUSED_79
+---| 80 # UNUSED_80
+---| 81 # UNUSED_81
+---| 82 # UNUSED_82
+---| 83 # UNUSED_83
+---| 84 # UNUSED_84
+---| 85 # UNUSED_85
+---| 86 # UNUSED_86
+---| 87 # UNUSED_87
+---| 88 # UNUSED_88
+---| 89 # UNUSED_89
+---| 90 # UNUSED_90
+---| 91 # UNUSED_91
+---| 92 # UNUSED_92
+---| 93 # UNUSED_93
+---| 94 # UNUSED_94
+---| 95 # UNUSED_95
+---| 96 # UNUSED_96
+---| 97 # UNUSED_97
+---| 98 # UNUSED_98
+---| 99 # UNUSED_99
 
+-- bay12: ResourceAllotment
 ---@class identity.resource_allotment_specifier_type: DFEnumType
 ---@field CROP 0
 ---@field [0] "CROP"
@@ -136,6 +194,118 @@
 ---@field [42] "POWDER"
 ---@field AMMO 43
 ---@field [43] "AMMO"
+---@field UNUSED_44 44
+---@field [44] "UNUSED_44"
+---@field UNUSED_45 45
+---@field [45] "UNUSED_45"
+---@field UNUSED_46 46
+---@field [46] "UNUSED_46"
+---@field UNUSED_47 47
+---@field [47] "UNUSED_47"
+---@field UNUSED_48 48
+---@field [48] "UNUSED_48"
+---@field UNUSED_49 49
+---@field [49] "UNUSED_49"
+---@field UNUSED_50 50
+---@field [50] "UNUSED_50"
+---@field UNUSED_51 51
+---@field [51] "UNUSED_51"
+---@field UNUSED_52 52
+---@field [52] "UNUSED_52"
+---@field UNUSED_53 53
+---@field [53] "UNUSED_53"
+---@field UNUSED_54 54
+---@field [54] "UNUSED_54"
+---@field UNUSED_55 55
+---@field [55] "UNUSED_55"
+---@field UNUSED_56 56
+---@field [56] "UNUSED_56"
+---@field UNUSED_57 57
+---@field [57] "UNUSED_57"
+---@field UNUSED_58 58
+---@field [58] "UNUSED_58"
+---@field UNUSED_59 59
+---@field [59] "UNUSED_59"
+---@field UNUSED_60 60
+---@field [60] "UNUSED_60"
+---@field UNUSED_61 61
+---@field [61] "UNUSED_61"
+---@field UNUSED_62 62
+---@field [62] "UNUSED_62"
+---@field UNUSED_63 63
+---@field [63] "UNUSED_63"
+---@field UNUSED_64 64
+---@field [64] "UNUSED_64"
+---@field UNUSED_65 65
+---@field [65] "UNUSED_65"
+---@field UNUSED_66 66
+---@field [66] "UNUSED_66"
+---@field UNUSED_67 67
+---@field [67] "UNUSED_67"
+---@field UNUSED_68 68
+---@field [68] "UNUSED_68"
+---@field UNUSED_69 69
+---@field [69] "UNUSED_69"
+---@field UNUSED_70 70
+---@field [70] "UNUSED_70"
+---@field UNUSED_71 71
+---@field [71] "UNUSED_71"
+---@field UNUSED_72 72
+---@field [72] "UNUSED_72"
+---@field UNUSED_73 73
+---@field [73] "UNUSED_73"
+---@field UNUSED_74 74
+---@field [74] "UNUSED_74"
+---@field UNUSED_75 75
+---@field [75] "UNUSED_75"
+---@field UNUSED_76 76
+---@field [76] "UNUSED_76"
+---@field UNUSED_77 77
+---@field [77] "UNUSED_77"
+---@field UNUSED_78 78
+---@field [78] "UNUSED_78"
+---@field UNUSED_79 79
+---@field [79] "UNUSED_79"
+---@field UNUSED_80 80
+---@field [80] "UNUSED_80"
+---@field UNUSED_81 81
+---@field [81] "UNUSED_81"
+---@field UNUSED_82 82
+---@field [82] "UNUSED_82"
+---@field UNUSED_83 83
+---@field [83] "UNUSED_83"
+---@field UNUSED_84 84
+---@field [84] "UNUSED_84"
+---@field UNUSED_85 85
+---@field [85] "UNUSED_85"
+---@field UNUSED_86 86
+---@field [86] "UNUSED_86"
+---@field UNUSED_87 87
+---@field [87] "UNUSED_87"
+---@field UNUSED_88 88
+---@field [88] "UNUSED_88"
+---@field UNUSED_89 89
+---@field [89] "UNUSED_89"
+---@field UNUSED_90 90
+---@field [90] "UNUSED_90"
+---@field UNUSED_91 91
+---@field [91] "UNUSED_91"
+---@field UNUSED_92 92
+---@field [92] "UNUSED_92"
+---@field UNUSED_93 93
+---@field [93] "UNUSED_93"
+---@field UNUSED_94 94
+---@field [94] "UNUSED_94"
+---@field UNUSED_95 95
+---@field [95] "UNUSED_95"
+---@field UNUSED_96 96
+---@field [96] "UNUSED_96"
+---@field UNUSED_97 97
+---@field [97] "UNUSED_97"
+---@field UNUSED_98 98
+---@field [98] "UNUSED_98"
+---@field UNUSED_99 99
+---@field [99] "UNUSED_99"
 df.resource_allotment_specifier_type = {}
 
 ---@class (exact) df.resource_allotment_specifier: DFStruct
@@ -736,11 +906,11 @@ function df.resource_allotment_specifier_powderst:new() end
 ---@field _type identity.resource_allotment_data
 ---@field index number
 ---@field resource_allotments df.resource_allotment_specifier[]
----@field unk1 number
----@field unk2 number
----@field unk3 number
----@field unk_650 number
----@field unk_654 _resource_allotment_data_unk_654
+---@field center_x number
+---@field center_y number
+---@field producing_civilization_enid number
+---@field last_market_stid number
+---@field butchery_specifier _resource_allotment_data_butchery_specifier
 
 ---@class identity.resource_allotment_data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -774,19 +944,19 @@ function _resource_allotment_data_resource_allotments:insert(index, item) end
 ---@param index integer
 function _resource_allotment_data_resource_allotments:erase(index) end
 
----@class _resource_allotment_data_unk_654: DFContainer
+---@class _resource_allotment_data_butchery_specifier: DFContainer
 ---@field [integer] DFPointer<integer>
-local _resource_allotment_data_unk_654
+local _resource_allotment_data_butchery_specifier
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _resource_allotment_data_unk_654:_field(index) end
+function _resource_allotment_data_butchery_specifier:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _resource_allotment_data_unk_654:insert(index, item) end
+function _resource_allotment_data_butchery_specifier:insert(index, item) end
 
 ---@param index integer
-function _resource_allotment_data_unk_654:erase(index) end
+function _resource_allotment_data_butchery_specifier:erase(index) end
 
