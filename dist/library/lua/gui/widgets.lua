@@ -434,14 +434,16 @@ function Label:onInput(keys) end
 ---@field chars_hover? (string|string[])[]
 ---@field pens? dfhack.color|dfhack.color[][]
 ---@field pens_hover? dfhack.color|dfhack.color[][]
----@field tiles? integer[][]
----@field tiles_hover? integer[][]
+---@field tiles_override? integer[][]
+---@field tiles_hover_override? integer[][]
 ---@field tileset? TexposHandle[]
 ---@field tileset_hover? TexposHandle[]
 ---@field tileset_offset? integer
 ---@field tileset_hover_offset? integer
 ---@field tileset_stride? integer
 ---@field tileset_hover_stride? integer
+---@field asset? {page: string, x: integer, y: integer}
+---@field asset_hover? {page: string, x: integer, y: integer}
 
 ---@nodiscard
 ---@param spec widgets.ButtonLabelSpec
