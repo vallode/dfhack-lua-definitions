@@ -179,7 +179,7 @@ df.building_type = {}
 df.building_type._attr_entry_type = {}
 
 ---@class (exact) building_type_attr_entry_type_fields
----@field name DFCompoundField
+---@field name DFCompoundField bay12: BuildingType
 ---@field classname DFCompoundField
 df.building_type._attr_entry_type._fields = {}
 
@@ -244,40 +244,47 @@ df.building_type.attrs = {}
 
 ---@class df.building_flags: DFBitfield
 ---@field _enum identity.building_flags
----@field exists boolean actually built, not just ordered
----@field [0] boolean actually built, not just ordered
+---@field exists boolean bay12: BUILDINGFLAG_*
+---@field [0] boolean bay12: BUILDINGFLAG_*
 ---@field site_blocked boolean items on ground on site
 ---@field [1] boolean items on ground on site
 ---@field room_collision boolean major intersection with another room?
 ---@field [2] boolean major intersection with another room?
+---@field mastering_pile boolean
 ---@field [3] boolean
 ---@field almost_deleted boolean when requesting delete while in_update
 ---@field [4] boolean when requesting delete while in_update
----@field in_update boolean
----@field [5] boolean
----@field from_worldgen boolean moved?
----@field [6] boolean moved?
+---@field in_update boolean skip_finalize_blast
+---@field [5] boolean skip_finalize_blast
+---@field from_worldgen boolean do_not_retain_in_creation_zone
+---@field [6] boolean do_not_retain_in_creation_zone
+---@field did_location_value boolean
+---@field [7] boolean
 
 ---@class identity.building_flags: DFBitfieldType
----@field exists 0 actually built, not just ordered
----@field [0] "exists" actually built, not just ordered
+---@field exists 0 bay12: BUILDINGFLAG_*
+---@field [0] "exists" bay12: BUILDINGFLAG_*
 ---@field site_blocked 1 items on ground on site
 ---@field [1] "site_blocked" items on ground on site
 ---@field room_collision 2 major intersection with another room?
 ---@field [2] "room_collision" major intersection with another room?
+---@field mastering_pile 3
+---@field [3] "mastering_pile"
 ---@field almost_deleted 4 when requesting delete while in_update
 ---@field [4] "almost_deleted" when requesting delete while in_update
----@field in_update 5
----@field [5] "in_update"
----@field from_worldgen 6 moved?
----@field [6] "from_worldgen" moved?
+---@field in_update 5 skip_finalize_blast
+---@field [5] "in_update" skip_finalize_blast
+---@field from_worldgen 6 do_not_retain_in_creation_zone
+---@field [6] "from_worldgen" do_not_retain_in_creation_zone
+---@field did_location_value 7
+---@field [7] "did_location_value"
 df.building_flags = {}
 
 ---@class df.door_flags: DFBitfield
 ---@field _enum identity.door_flags
----@field forbidden boolean
----@field [0] boolean
----@field internal boolean
+---@field forbidden boolean bay12: BUILDINGFLAG_DOOR_*, BUILDINGFLAG_HATCH_*
+---@field [0] boolean bay12: BUILDINGFLAG_DOOR_*, BUILDINGFLAG_HATCH_*
+---@field unused_02 boolean
 ---@field [1] boolean
 ---@field taken_by_invaders boolean
 ---@field [2] boolean
@@ -287,14 +294,12 @@ df.building_flags = {}
 ---@field [4] boolean
 ---@field operated_by_mechanisms boolean
 ---@field [5] boolean
----@field pet_passable boolean
----@field [6] boolean
 
 ---@class identity.door_flags: DFBitfieldType
----@field forbidden 0
----@field [0] "forbidden"
----@field internal 1
----@field [1] "internal"
+---@field forbidden 0 bay12: BUILDINGFLAG_DOOR_*, BUILDINGFLAG_HATCH_*
+---@field [0] "forbidden" bay12: BUILDINGFLAG_DOOR_*, BUILDINGFLAG_HATCH_*
+---@field unused_02 1
+---@field [1] "unused_02"
 ---@field taken_by_invaders 2
 ---@field [2] "taken_by_invaders"
 ---@field used_by_intruder 3
@@ -303,34 +308,32 @@ df.building_flags = {}
 ---@field [4] "closed"
 ---@field operated_by_mechanisms 5
 ---@field [5] "operated_by_mechanisms"
----@field pet_passable 6
----@field [6] "pet_passable"
 df.door_flags = {}
 
 ---@class df.gate_flags: DFBitfield
 ---@field _enum identity.gate_flags
----@field closed boolean
----@field [0] boolean
+---@field closed boolean bay12: BUILDINGFLAG_BRIDGE_*, BUILDINGFLAG_FLOODGATE_*, BUILDINGFLAG_GRATE_WALL_*, BUILDINGFLAG_GRATE_FLOOR_*, BUILDINGFLAG_BARS_VERTICAL_*, BUILDINGFLAG_BARS_FLOOR_*
+---@field [0] boolean bay12: BUILDINGFLAG_BRIDGE_*, BUILDINGFLAG_FLOODGATE_*, BUILDINGFLAG_GRATE_WALL_*, BUILDINGFLAG_GRATE_FLOOR_*, BUILDINGFLAG_BARS_VERTICAL_*, BUILDINGFLAG_BARS_FLOOR_*
 ---@field closing boolean
 ---@field [1] boolean
 ---@field opening boolean
 ---@field [2] boolean
----@field collapsing boolean ?; bridge
----@field [3] boolean ?; bridge
----@field has_support boolean bridge
----@field [4] boolean bridge
+---@field collapsing boolean bridge only
+---@field [3] boolean bridge only
+---@field has_support boolean bridge only
+---@field [4] boolean bridge only
 
 ---@class identity.gate_flags: DFBitfieldType
----@field closed 0
----@field [0] "closed"
+---@field closed 0 bay12: BUILDINGFLAG_BRIDGE_*, BUILDINGFLAG_FLOODGATE_*, BUILDINGFLAG_GRATE_WALL_*, BUILDINGFLAG_GRATE_FLOOR_*, BUILDINGFLAG_BARS_VERTICAL_*, BUILDINGFLAG_BARS_FLOOR_*
+---@field [0] "closed" bay12: BUILDINGFLAG_BRIDGE_*, BUILDINGFLAG_FLOODGATE_*, BUILDINGFLAG_GRATE_WALL_*, BUILDINGFLAG_GRATE_FLOOR_*, BUILDINGFLAG_BARS_VERTICAL_*, BUILDINGFLAG_BARS_FLOOR_*
 ---@field closing 1
 ---@field [1] "closing"
 ---@field opening 2
 ---@field [2] "opening"
----@field collapsing 3 ?; bridge
----@field [3] "collapsing" ?; bridge
----@field has_support 4 bridge
----@field [4] "has_support" bridge
+---@field collapsing 3 bridge only
+---@field [3] "collapsing" bridge only
+---@field has_support 4 bridge only
+---@field [4] "has_support" bridge only
 df.gate_flags = {}
 
 ---@alias df.building_extents_type
@@ -341,8 +344,8 @@ df.gate_flags = {}
 ---| 4 # DistanceBoundary
 
 ---@class identity.building_extents_type: DFEnumType
----@field None 0
----@field [0] "None"
+---@field None 0 bay12: ???
+---@field [0] "None" bay12: ???
 ---@field Stockpile 1
 ---@field [1] "Stockpile"
 ---@field Wall 2
@@ -353,6 +356,7 @@ df.gate_flags = {}
 ---@field [4] "DistanceBoundary"
 df.building_extents_type = {}
 
+-- not actually a real structure
 ---@class (exact) df.building_extents: DFStruct
 ---@field _type identity.building_extents
 ---@field extents DFPointer<integer>
@@ -413,9 +417,9 @@ function df.building_drawbuffer:new() end
 ---@field job_claim_suppress _building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
 ---@field activities _building_activities
----@field world_data_id number References: `world_object_data`
----@field world_data_subid number
----@field unk_v40_2 number
+---@field world_data_id number creation_zone_id References: `world_object_data`
+---@field world_data_subid number creation_zone_alt_id
+---@field creation_bld_num number
 ---@field site_id number References: `world_site`
 ---@field location_id number References: `abstract_building`
 local building
@@ -450,8 +454,8 @@ function building:moveBuilding(delta_x, delta_y, delta_z) end
 function building:initOccupancy(abs_x, abs_y) end
 
 ---@param anon_0 df.job_type
----@param anon_1 number
-function building:setFillTimer(anon_0, anon_1) end
+---@param newoff number
+function building:setFillTimer(anon_0, newoff) end
 
 ---@return boolean
 function building:isOnFire() end
@@ -462,10 +466,10 @@ function building:isUnpowered() end
 ---@return boolean
 function building:canCollapse() end
 
----@return integer
+---@return df.tile_building_occ
 function building:getPassableOccupancy() end
 
----@return integer
+---@return df.tile_building_occ
 function building:getImpassableOccupancy() end
 
 ---@return boolean
@@ -478,9 +482,9 @@ function building:updateTemperature() end
 function building:updateItems() end
 
 ---@param temp integer
----@param anon_0 boolean
----@param anon_1 boolean
-function building:updateTempFromTile(temp, anon_0, anon_1) end
+---@param main_turn boolean
+---@param amp number
+function building:updateTempFromTile(temp, main_turn, amp) end
 
 ---@return boolean
 function building:isNormalFurniture() end
@@ -514,15 +518,15 @@ function building:setSubtype(subtype) end
 function building:isActual() end
 
 ---@return boolean
-function building:isCoffin2() end
+function building:keepsOwnerAfterDeath() end
 
 function building:updateAction() end
 
 ---@return boolean
 function building:isStatueOrRestraint() end
 
----@param anon_0 number
-function building:setMaterialAmount(anon_0) end
+---@param amt number
+function building:setMaterialAmount(amt) end
 
 ---@param stage number
 function building:setBuildStage(stage) end
@@ -534,13 +538,13 @@ function building:getBuildStage() end
 function building:getMaxBuildStage() end
 
 ---@return number
-function building:getArchitectureValue() end
+function building:getBuildDuration() end
 
 ---@return boolean
 function building:isSettingOccupancy() end
 
 ---@return boolean
-function building:isActual2() end
+function building:trampleOnBuild() end
 
 ---@return boolean
 function building:isExtentShaped() end
@@ -557,7 +561,7 @@ function building:getPersonalValue(anon_0) end
 function building:canBeRoom() end
 
 ---@return number
-function building:getConstructionValue() end
+function building:getDestroyDuration() end
 
 function building:queueDestroy() end
 
@@ -629,7 +633,7 @@ function building:categorize(in_play) end
 function building:uncategorize() end
 
 ---@return number
-function building:getBaseValue() end
+function building:getArchValue() end
 
 ---@param new_state number 0 = active/open, 1 = inactive/closed
 function building:setTriggerState(new_state) end
@@ -643,7 +647,8 @@ function building:removeUses(noscatter, lost) end
 
 ---@param noscatter boolean
 ---@param lost boolean
-function building:deconstructItems(noscatter, lost) end
+---@param from_damage boolean
+function building:deconstructItems(noscatter, lost, from_damage) end
 
 function building:cleanupMap() end
 
@@ -655,6 +660,9 @@ function building:fillSidebarMenu() end
 
 ---@return boolean
 function building:isForbidden() end
+
+---@return boolean
+function building:isInvisibleToPlayer() end
 
 ---@return boolean
 function building:isHidden() end
@@ -674,17 +682,24 @@ function building:getDrawExtents(buffer) end
 ---@param z_offset number building_wellst only
 function building:drawBuilding(curtick, buffer, z_offset) end
 
+---@param squad_id number
+---@param force_flag integer
+---@return boolean
+function building:isValidSquadAssignment(squad_id, force_flag) end
+
 ---@return number
 function building:getSpecificSquad() end
 
 ---@return number
 function building:getSpecificPosition() end
 
----@param anon_0 number
----@param anon_1 number
-function building:setSpecificSquadPos(anon_0, anon_1) end
+---@param squad_id number
+---@param squad_pos number
+function building:setSpecificSquadPos(squad_id, squad_pos) end
 
 function building:clearSpecificSquad() end
+
+function building:removeLocationInfo() end
 
 
 ---@class identity.building: DFCompoundType
@@ -889,7 +904,7 @@ function _stockpile_links_take_from_workshop:erase(index) end
 ---@field container_x DFNumberVector
 ---@field container_y DFNumberVector
 ---@field links df.stockpile_links
----@field use_links_only number
+---@field stockpile_flag df.building_stockpilest.T_stockpile_flag
 ---@field stockpile_number number
 ---@field linked_stops _building_stockpilest_linked_stops
 
@@ -916,6 +931,16 @@ function _building_stockpilest_container_type:insert(index, item) end
 ---@param index integer
 function _building_stockpilest_container_type:erase(index) end
 
+---@class df.building_stockpilest.T_stockpile_flag: DFBitfield
+---@field _enum identity.building_stockpilest.stockpile_flag
+---@field use_links_only boolean bay12: BUILDINGFLAG_STOCKPILE_FLAG_*
+---@field [0] boolean bay12: BUILDINGFLAG_STOCKPILE_FLAG_*
+
+---@class identity.building_stockpilest.stockpile_flag: DFBitfieldType
+---@field use_links_only 0 bay12: BUILDINGFLAG_STOCKPILE_FLAG_*
+---@field [0] "use_links_only" bay12: BUILDINGFLAG_STOCKPILE_FLAG_*
+df.building_stockpilest.T_stockpile_flag = {}
+
 ---@class _building_stockpilest_linked_stops: DFContainer
 ---@field [integer] df.hauling_stop
 local _building_stockpilest_linked_stops
@@ -936,6 +961,10 @@ function _building_stockpilest_linked_stops:erase(index) end
 ---@class (exact) df.hospital_supplies: DFStruct
 ---@field _type identity.hospital_supplies
 ---@field supplies_needed df.hospital_supplies.T_supplies_needed
+---@field dedicated_unit_type df.profession
+---@field max_goblets number
+---@field max_instruments number
+---@field max_paper number
 ---@field max_splints number
 ---@field max_thread number
 ---@field max_cloth number
@@ -943,6 +972,12 @@ function _building_stockpilest_linked_stops:erase(index) end
 ---@field max_plaster number
 ---@field max_buckets number
 ---@field max_soap number
+---@field max_book_copies number
+---@field cur_level number
+---@field last_value number
+---@field cur_goblets number
+---@field cur_instruments number
+---@field cur_paper number
 ---@field cur_splints number
 ---@field cur_thread number
 ---@field cur_cloth number
@@ -951,6 +986,8 @@ function _building_stockpilest_linked_stops:erase(index) end
 ---@field cur_buckets number
 ---@field cur_soap number
 ---@field supply_recheck_timer number
+---@field major_update_count number
+---@field zone_bld DFNumberVector
 
 ---@class identity.hospital_supplies: DFCompoundType
 ---@field _kind 'struct-type'
@@ -961,36 +998,52 @@ function df.hospital_supplies:new() end
 
 ---@class df.hospital_supplies.T_supplies_needed: DFBitfield
 ---@field _enum identity.hospital_supplies.supplies_needed
----@field splints boolean
----@field [0] boolean
----@field thread boolean
+---@field goblets boolean bay12: LOCATION_INFO_FLAG_*
+---@field [0] boolean bay12: LOCATION_INFO_FLAG_*
+---@field instruments boolean
 ---@field [1] boolean
----@field cloth boolean
+---@field paper boolean
 ---@field [2] boolean
----@field crutches boolean
----@field [3] boolean
----@field plaster boolean
+---@field entity_recognized boolean not actually a Need
+---@field [3] boolean not actually a Need
+---@field splints boolean
 ---@field [4] boolean
----@field buckets boolean
+---@field thread boolean
 ---@field [5] boolean
----@field soap boolean
+---@field cloth boolean
 ---@field [6] boolean
+---@field crutches boolean
+---@field [7] boolean
+---@field plaster boolean
+---@field [8] boolean
+---@field buckets boolean
+---@field [9] boolean
+---@field soap boolean
+---@field [10] boolean
 
 ---@class identity.hospital_supplies.supplies_needed: DFBitfieldType
----@field splints 0
----@field [0] "splints"
----@field thread 1
----@field [1] "thread"
----@field cloth 2
----@field [2] "cloth"
----@field crutches 3
----@field [3] "crutches"
----@field plaster 4
----@field [4] "plaster"
----@field buckets 5
----@field [5] "buckets"
----@field soap 6
----@field [6] "soap"
+---@field goblets 0 bay12: LOCATION_INFO_FLAG_*
+---@field [0] "goblets" bay12: LOCATION_INFO_FLAG_*
+---@field instruments 1
+---@field [1] "instruments"
+---@field paper 2
+---@field [2] "paper"
+---@field entity_recognized 3 not actually a Need
+---@field [3] "entity_recognized" not actually a Need
+---@field splints 4
+---@field [4] "splints"
+---@field thread 5
+---@field [5] "thread"
+---@field cloth 6
+---@field [6] "cloth"
+---@field crutches 7
+---@field [7] "crutches"
+---@field plaster 8
+---@field [8] "plaster"
+---@field buckets 9
+---@field [9] "buckets"
+---@field soap 10
+---@field [10] "soap"
 df.hospital_supplies.T_supplies_needed = {}
 
 ---@alias df.civzone_type
@@ -1012,6 +1065,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| 19 # Library
 ---| 20 # Plot
 ---| 21 # MarketStall
+---| 22 # RoadCenter
 ---| 23 # Campground
 ---| 24 # CommandTent
 ---| 25 # Tent
@@ -1036,6 +1090,12 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| 44 # StoneworkingPit
 ---| 45 # ForgingPit
 ---| 46 # FightingPit
+---| 47 # Well
+---| 48 # RoadExitNorth
+---| 49 # RoadExitSouth
+---| 50 # RoadExitEast
+---| 51 # RoadExitWest
+---| 52 # TunnelCenter
 ---| 53 # AnimalWorkshop
 ---| 54 # ClothWorkshop
 ---| 55 # TanningWorkshop
@@ -1064,6 +1124,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| 78 # TowerAttic
 ---| 79 # Dormitory
 ---| 80 # DiningHall
+---| 81 # Shrine
 ---| 82 # WaterSource
 ---| 83 # Dump
 ---| 84 # SandCollection
@@ -1082,8 +1143,8 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| 97 # Tomb
 
 ---@class identity.civzone_type: DFEnumType
----@field Home 0
----@field [0] "Home"
+---@field Home 0 bay12: BuildingCivzoneType
+---@field [0] "Home" bay12: BuildingCivzoneType
 ---@field Depot 1
 ---@field [1] "Depot"
 ---@field Stockpile 2
@@ -1118,8 +1179,10 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [20] "Plot"
 ---@field MarketStall 21
 ---@field [21] "MarketStall"
----@field Campground 23 Invalid Type
----@field [23] "Campground" Invalid Type
+---@field RoadCenter 22
+---@field [22] "RoadCenter"
+---@field Campground 23
+---@field [23] "Campground"
 ---@field CommandTent 24
 ---@field [24] "CommandTent"
 ---@field Tent 25
@@ -1166,8 +1229,20 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [45] "ForgingPit"
 ---@field FightingPit 46
 ---@field [46] "FightingPit"
----@field AnimalWorkshop 53 Invalid Type
----@field [53] "AnimalWorkshop" Invalid Type
+---@field Well 47
+---@field [47] "Well"
+---@field RoadExitNorth 48
+---@field [48] "RoadExitNorth"
+---@field RoadExitSouth 49
+---@field [49] "RoadExitSouth"
+---@field RoadExitEast 50
+---@field [50] "RoadExitEast"
+---@field RoadExitWest 51
+---@field [51] "RoadExitWest"
+---@field TunnelCenter 52
+---@field [52] "TunnelCenter"
+---@field AnimalWorkshop 53
+---@field [53] "AnimalWorkshop"
 ---@field ClothWorkshop 54
 ---@field [54] "ClothWorkshop"
 ---@field TanningWorkshop 55
@@ -1222,8 +1297,10 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [79] "Dormitory"
 ---@field DiningHall 80
 ---@field [80] "DiningHall"
----@field WaterSource 82 Invalid Type
----@field [82] "WaterSource" Invalid Type
+---@field Shrine 81
+---@field [81] "Shrine"
+---@field WaterSource 82
+---@field [82] "WaterSource"
 ---@field Dump 83
 ---@field [83] "Dump"
 ---@field SandCollection 84
@@ -1261,13 +1338,17 @@ df.civzone_type = {}
 ---@field assigned_units DFNumberVector
 ---@field assigned_items DFNumberVector
 ---@field type df.civzone_type only saved as int16
----@field is_active number 0 is paused, 8 is active
+---@field spec_sub_flag df.building_civzonest.T_spec_sub_flag
+---@field site_realization_building_id number
+---@field site_realization_sul_id number
 ---@field zone_num number
 ---@field zone_settings df.building_civzonest.T_zone_settings
+---@field home_general_hf DFNumberVector
 ---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds
----@field assigned_unit_id number
+---@field assigned_unit_id number References: `unit`
 ---@field assigned_unit df.unit
 ---@field squad_room_info _building_civzonest_squad_room_info
+---@field retained_owner number only used during save References: `unit`
 
 ---@class identity.building_civzonest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1276,6 +1357,60 @@ df.building_civzonest = {}
 ---@return df.building_civzonest
 function df.building_civzonest:new() end
 
+---@class df.building_civzonest.T_spec_sub_flag: DFBitfield
+---@field _enum identity.building_civzonest.spec_sub_flag
+---@field unused_01 boolean bay12: CIVZONE_ACTIVITY_FLAG_*
+---@field [0] boolean bay12: CIVZONE_ACTIVITY_FLAG_*
+---@field unused_02 boolean
+---@field [1] boolean
+---@field unused_03 boolean
+---@field [2] boolean
+---@field active boolean
+---@field [3] boolean
+---@field unused_05 boolean
+---@field [4] boolean
+---@field unused_06 boolean
+---@field [5] boolean
+---@field unused_07 boolean
+---@field [6] boolean
+---@field unused_08 boolean
+---@field [7] boolean
+---@field unused_09 boolean
+---@field [8] boolean
+---@field unused_10 boolean
+---@field [9] boolean
+---@field unused_11 boolean
+---@field [10] boolean
+---@field unused_12 boolean
+---@field [11] boolean
+
+---@class identity.building_civzonest.spec_sub_flag: DFBitfieldType
+---@field unused_01 0 bay12: CIVZONE_ACTIVITY_FLAG_*
+---@field [0] "unused_01" bay12: CIVZONE_ACTIVITY_FLAG_*
+---@field unused_02 1
+---@field [1] "unused_02"
+---@field unused_03 2
+---@field [2] "unused_03"
+---@field active 3
+---@field [3] "active"
+---@field unused_05 4
+---@field [4] "unused_05"
+---@field unused_06 5
+---@field [5] "unused_06"
+---@field unused_07 6
+---@field [6] "unused_07"
+---@field unused_08 7
+---@field [7] "unused_08"
+---@field unused_09 8
+---@field [8] "unused_09"
+---@field unused_10 9
+---@field [9] "unused_10"
+---@field unused_11 10
+---@field [10] "unused_11"
+---@field unused_12 11
+---@field [11] "unused_12"
+df.building_civzonest.T_spec_sub_flag = {}
+
 ---@class (exact) df.building_civzonest.T_zone_settings: DFStruct
 ---@field _type identity.building_civzonest.zone_settings
 ---@field whole df.building_civzonest.T_zone_settings.T_whole
@@ -1283,7 +1418,7 @@ function df.building_civzonest:new() end
 ---@field pen df.building_civzonest.T_zone_settings.T_pen
 ---@field tomb df.building_civzonest.T_zone_settings.T_tomb
 ---@field archery df.building_civzonest.T_zone_settings.T_archery
----@field pit_pond df.building_civzonest.T_zone_settings.T_pit_pond
+---@field pond df.building_civzonest.T_zone_settings.T_pond
 
 ---@class identity.building_civzonest.zone_settings: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1304,45 +1439,56 @@ df.building_civzonest.T_zone_settings.T_whole = {}
 ---@return df.building_civzonest.T_zone_settings.T_whole
 function df.building_civzonest.T_zone_settings.T_whole:new() end
 
----@class df.building_civzonest.T_zone_settings.T_gather: DFBitfield
----@field _enum identity.building_civzonest.zone_settings.gather
----@field pick_trees boolean
----@field [0] boolean
+---@class (exact) df.building_civzonest.T_zone_settings.T_gather: DFStruct
+---@field _type identity.building_civzonest.zone_settings.gather
+---@field flags df.building_civzonest.T_zone_settings.T_gather.T_flags
+---@field timer number
+
+---@class identity.building_civzonest.zone_settings.gather: DFCompoundType
+---@field _kind 'struct-type'
+df.building_civzonest.T_zone_settings.T_gather = {}
+
+---@return df.building_civzonest.T_zone_settings.T_gather
+function df.building_civzonest.T_zone_settings.T_gather:new() end
+
+---@class df.building_civzonest.T_zone_settings.T_gather.T_flags: DFBitfield
+---@field _enum identity.building_civzonest.zone_settings.gather.flags
+---@field pick_trees boolean bay12: CIVZONE_GATHER_FLAG_*
+---@field [0] boolean bay12: CIVZONE_GATHER_FLAG_*
 ---@field pick_shrubs boolean
 ---@field [1] boolean
 ---@field gather_fallen boolean
 ---@field [2] boolean
 
----@class identity.building_civzonest.zone_settings.gather: DFBitfieldType
----@field pick_trees 0
----@field [0] "pick_trees"
+---@class identity.building_civzonest.zone_settings.gather.flags: DFBitfieldType
+---@field pick_trees 0 bay12: CIVZONE_GATHER_FLAG_*
+---@field [0] "pick_trees" bay12: CIVZONE_GATHER_FLAG_*
 ---@field pick_shrubs 1
 ---@field [1] "pick_shrubs"
 ---@field gather_fallen 2
 ---@field [2] "gather_fallen"
-df.building_civzonest.T_zone_settings.T_gather = {}
+df.building_civzonest.T_zone_settings.T_gather.T_flags = {}
 
----@class (exact) df.building_civzonest.T_zone_settings.T_pen: DFStruct
----@field _type identity.building_civzonest.zone_settings.pen
----@field unk number
+---@class df.building_civzonest.T_zone_settings.T_pen: DFBitfield
+---@field _enum identity.building_civzonest.zone_settings.pen
+---@field check_occupants boolean bay12: CIVZONE_PEN_FLAG_*
+---@field [0] boolean bay12: CIVZONE_PEN_FLAG_*
 
----@class identity.building_civzonest.zone_settings.pen: DFCompoundType
----@field _kind 'struct-type'
+---@class identity.building_civzonest.zone_settings.pen: DFBitfieldType
+---@field check_occupants 0 bay12: CIVZONE_PEN_FLAG_*
+---@field [0] "check_occupants" bay12: CIVZONE_PEN_FLAG_*
 df.building_civzonest.T_zone_settings.T_pen = {}
-
----@return df.building_civzonest.T_zone_settings.T_pen
-function df.building_civzonest.T_zone_settings.T_pen:new() end
 
 ---@class df.building_civzonest.T_zone_settings.T_tomb: DFBitfield
 ---@field _enum identity.building_civzonest.zone_settings.tomb
----@field no_pets boolean
----@field [0] boolean
+---@field no_pets boolean bay12: CIVZONE_TOMB_FLAG_*
+---@field [0] boolean bay12: CIVZONE_TOMB_FLAG_*
 ---@field no_citizens boolean
 ---@field [1] boolean
 
 ---@class identity.building_civzonest.zone_settings.tomb: DFBitfieldType
----@field no_pets 0
----@field [0] "no_pets"
+---@field no_pets 0 bay12: CIVZONE_TOMB_FLAG_*
+---@field [0] "no_pets" bay12: CIVZONE_TOMB_FLAG_*
 ---@field no_citizens 1
 ---@field [1] "no_citizens"
 df.building_civzonest.T_zone_settings.T_tomb = {}
@@ -1359,16 +1505,31 @@ df.building_civzonest.T_zone_settings.T_archery = {}
 ---@return df.building_civzonest.T_zone_settings.T_archery
 function df.building_civzonest.T_zone_settings.T_archery:new() end
 
----@alias df.building_civzonest.T_zone_settings.T_pit_pond
----| 2 # top_of_pit
----| 3 # top_of_pond
+---@class (exact) df.building_civzonest.T_zone_settings.T_pond: DFStruct
+---@field _type identity.building_civzonest.zone_settings.pond
+---@field flag df.building_civzonest.T_zone_settings.T_pond.T_flag
+---@field fill_timer number
 
----@class identity.building_civzonest.zone_settings.pit_pond: DFEnumType
----@field top_of_pit 2
----@field [2] "top_of_pit"
----@field top_of_pond 3
----@field [3] "top_of_pond"
-df.building_civzonest.T_zone_settings.T_pit_pond = {}
+---@class identity.building_civzonest.zone_settings.pond: DFCompoundType
+---@field _kind 'struct-type'
+df.building_civzonest.T_zone_settings.T_pond = {}
+
+---@return df.building_civzonest.T_zone_settings.T_pond
+function df.building_civzonest.T_zone_settings.T_pond:new() end
+
+---@class df.building_civzonest.T_zone_settings.T_pond.T_flag: DFBitfield
+---@field _enum identity.building_civzonest.zone_settings.pond.flag
+---@field keep_filled boolean bay12: CIVZONE_POND_FLAG_*
+---@field [0] boolean bay12: CIVZONE_POND_FLAG_*
+---@field check_occupants boolean
+---@field [1] boolean
+
+---@class identity.building_civzonest.zone_settings.pond.flag: DFBitfieldType
+---@field keep_filled 0 bay12: CIVZONE_POND_FLAG_*
+---@field [0] "keep_filled" bay12: CIVZONE_POND_FLAG_*
+---@field check_occupants 1
+---@field [1] "check_occupants"
+df.building_civzonest.T_zone_settings.T_pond.T_flag = {}
 
 ---@class _building_civzonest_contained_buildings: DFContainer
 ---@field [integer] df.building
@@ -1455,7 +1616,7 @@ function _building_actual_contained_items:erase(index) end
 ---@class (exact) df.building_design: DFStruct
 ---@field _type identity.building_design
 ---@field builder1 number References: `historical_figure`
----@field unk5 number
+---@field builder1_civ number References: `historical_entity`
 ---@field build_skill number
 ---@field build_timer1 number +1 per 10 frames while building
 ---@field builder2 number References: `historical_figure`
@@ -1474,20 +1635,16 @@ function df.building_design:new() end
 
 ---@class df.building_design.T_flags: DFBitfield
 ---@field _enum identity.building_design.flags
----@field rough boolean rough gabbro road
----@field [0] boolean rough gabbro road
+---@field rough boolean bay12: BUILDING_ARCHFLAG_*
+---@field [0] boolean bay12: BUILDING_ARCHFLAG_*
 ---@field built boolean
 ---@field [1] boolean
----@field designed boolean
----@field [2] boolean
 
 ---@class identity.building_design.flags: DFBitfieldType
----@field rough 0 rough gabbro road
----@field [0] "rough" rough gabbro road
+---@field rough 0 bay12: BUILDING_ARCHFLAG_*
+---@field [0] "rough" bay12: BUILDING_ARCHFLAG_*
 ---@field built 1
 ---@field [1] "built"
----@field designed 2
----@field [2] "designed"
 df.building_design.T_flags = {}
 
 -- workshops --
@@ -1526,7 +1683,7 @@ df.furnace_type = {}
 df.furnace_type._attr_entry_type = {}
 
 ---@class (exact) furnace_type_attr_entry_type_fields
----@field name DFCompoundField
+---@field name DFCompoundField bay12: BuildingFurnaceType
 df.furnace_type._attr_entry_type._fields = {}
 
 ---@class furnace_type_attrs
@@ -1543,7 +1700,7 @@ df.furnace_type.attrs = {}
 ---@class (exact) df.building_furnacest: DFStruct, df.building_actual
 ---@field _type identity.building_furnacest
 ---@field melt_remainder DFNumberVector
----@field unk_108 number
+---@field furnace_flag integer unused
 ---@field type df.furnace_type
 ---@field profile df.workshop_profile
 ---@field custom_type number References: `building_def`
@@ -1640,7 +1797,7 @@ df.workshop_type = {}
 df.workshop_type._attr_entry_type = {}
 
 ---@class (exact) workshop_type_attr_entry_type_fields
----@field name DFCompoundField
+---@field name DFCompoundField bay12: BuildingWorkshopType
 df.workshop_type._attr_entry_type._fields = {}
 
 ---@class workshop_type_attrs
@@ -1678,7 +1835,7 @@ df.workshop_type.attrs = {}
 ---@field max_level number
 ---@field links df.stockpile_links
 ---@field max_general_orders number
----@field block_general_orders boolean
+---@field flags df.workshop_profile.T_flags
 ---@field blocked_labors DFEnumVector<df.unit_labor, boolean>
 
 ---@class identity.workshop_profile: DFCompoundType
@@ -1687,6 +1844,16 @@ df.workshop_profile = {}
 
 ---@return df.workshop_profile
 function df.workshop_profile:new() end
+
+---@class df.workshop_profile.T_flags: DFBitfield
+---@field _enum identity.workshop_profile.flags
+---@field block_general_orders boolean bay12: WORKSHOP_PROFILE_FLAG_*
+---@field [0] boolean bay12: WORKSHOP_PROFILE_FLAG_*
+
+---@class identity.workshop_profile.flags: DFBitfieldType
+---@field block_general_orders 0 bay12: WORKSHOP_PROFILE_FLAG_*
+---@field [0] "block_general_orders" bay12: WORKSHOP_PROFILE_FLAG_*
+df.workshop_profile.T_flags = {}
 
 ---@class (exact) df.building_workshopst: DFStruct, df.building_actual
 ---@field _type identity.building_workshopst
@@ -1727,7 +1894,7 @@ function df.building_archerytargetst:new() end
 
 ---@class (exact) df.building_armorstandst: DFStruct, df.building_actual
 ---@field _type identity.building_armorstandst
----@field unk_c0 number
+---@field stand_flag integer unused
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
@@ -1762,10 +1929,48 @@ df.building_bars_floorst = {}
 ---@return df.building_bars_floorst
 function df.building_bars_floorst:new() end
 
+---@alias df.building_use_type
+---| -1 # NONE
+---| 0 # SitForEat
+---| 1 # PlaceFoodForEat
+---| 2 # Sleep
+---| 3 # Rest
+---| 4 # BedCarry
+---| 5 # Surgery
+---| 6 # RestInTraction
+---| 7 # SitForRead
+---| 8 # SitForWrite
+---| 9 # PlaceWritingMaterials
+
+---@class identity.building_use_type: DFEnumType
+---@field NONE -1 bay12: BuildingUseType
+---@field [-1] "NONE" bay12: BuildingUseType
+---@field SitForEat 0
+---@field [0] "SitForEat"
+---@field PlaceFoodForEat 1
+---@field [1] "PlaceFoodForEat"
+---@field Sleep 2
+---@field [2] "Sleep"
+---@field Rest 3
+---@field [3] "Rest"
+---@field BedCarry 4
+---@field [4] "BedCarry"
+---@field Surgery 5
+---@field [5] "Surgery"
+---@field RestInTraction 6
+---@field [6] "RestInTraction"
+---@field SitForRead 7
+---@field [7] "SitForRead"
+---@field SitForWrite 8
+---@field [8] "SitForWrite"
+---@field PlaceWritingMaterials 9
+---@field [9] "PlaceWritingMaterials"
+df.building_use_type = {}
+
 ---@class (exact) df.building_users: DFStruct
 ---@field _type identity.building_users
 ---@field unit DFNumberVector
----@field mode DFNumberVector
+---@field mode _building_users_mode
 
 ---@class identity.building_users: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1773,6 +1978,22 @@ df.building_users = {}
 
 ---@return df.building_users
 function df.building_users:new() end
+
+---@class _building_users_mode: DFContainer
+---@field [integer] df.building_use_type
+local _building_users_mode
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.building_use_type>
+function _building_users_mode:_field(index) end
+
+---@param index '#'|integer
+---@param item df.building_use_type
+function _building_users_mode:insert(index, item) end
+
+---@param index integer
+function _building_users_mode:erase(index) end
 
 ---@class (exact) df.building_bedst: DFStruct, df.building_actual
 ---@field _type identity.building_bedst
@@ -1799,7 +2020,7 @@ function df.building_bookcasest:new() end
 
 ---@class (exact) df.building_boxst: DFStruct, df.building_actual
 ---@field _type identity.building_boxst
----@field unk_1 number
+---@field box_flag integer unused
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
@@ -1846,7 +2067,7 @@ df.building_bridgest.T_direction = {}
 
 ---@class (exact) df.building_cabinetst: DFStruct, df.building_actual
 ---@field _type identity.building_cabinetst
----@field unk_1 number
+---@field cabinet_flag integer
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 
@@ -1873,12 +2094,20 @@ function df.building_cagest:new() end
 
 ---@class df.building_cagest.T_cage_flags: DFBitfield
 ---@field _enum identity.building_cagest.cage_flags
----@field triggered boolean
----@field [0] boolean
+---@field triggered boolean bay12: BUILDINGFLAG_CAGE_*
+---@field [0] boolean bay12: BUILDINGFLAG_CAGE_*
+---@field aquarium boolean
+---@field [1] boolean
+---@field check_occupants boolean
+---@field [2] boolean
 
 ---@class identity.building_cagest.cage_flags: DFBitfieldType
----@field triggered 0
----@field [0] "triggered"
+---@field triggered 0 bay12: BUILDINGFLAG_CAGE_*
+---@field [0] "triggered" bay12: BUILDINGFLAG_CAGE_*
+---@field aquarium 1
+---@field [1] "aquarium"
+---@field check_occupants 2
+---@field [2] "check_occupants"
 df.building_cagest.T_cage_flags = {}
 
 ---@class (exact) df.building_chainst: DFStruct, df.building_actual
@@ -1896,17 +2125,17 @@ function df.building_chainst:new() end
 
 ---@class df.building_chainst.T_chain_flags: DFBitfield
 ---@field _enum identity.building_chainst.chain_flags
----@field triggered boolean
----@field [0] boolean
+---@field triggered boolean bay12: BUILDINGFLAG_CHAIN_*
+---@field [0] boolean bay12: BUILDINGFLAG_CHAIN_*
 
 ---@class identity.building_chainst.chain_flags: DFBitfieldType
----@field triggered 0
----@field [0] "triggered"
+---@field triggered 0 bay12: BUILDINGFLAG_CHAIN_*
+---@field [0] "triggered" bay12: BUILDINGFLAG_CHAIN_*
 df.building_chainst.T_chain_flags = {}
 
 ---@class (exact) df.building_chairst: DFStruct, df.building_actual
 ---@field _type identity.building_chairst
----@field unk_1 number
+---@field chair_flag integer unused
 ---@field users df.building_users
 
 ---@class identity.building_chairst: DFCompoundType
@@ -1967,8 +2196,8 @@ function df.building_coffinst:new() end
 ---| 36 # TrackRampNSEW
 
 ---@class identity.construction_type: DFEnumType
----@field NONE -1 unused
----@field [-1] "NONE" unused
+---@field NONE -1 bay12: BuildingConstructionType
+---@field [-1] "NONE" bay12: BuildingConstructionType
 ---@field Fortification 0
 ---@field [0] "Fortification"
 ---@field Wall 1
@@ -2098,12 +2327,12 @@ function df.building_farmplotst:new() end
 
 ---@class df.building_farmplotst.T_farm_flags: DFBitfield
 ---@field _enum identity.building_farmplotst.farm_flags
----@field seasonal_fertilize boolean
----@field [0] boolean
+---@field seasonal_fertilize boolean bay12: BUILDINGFLAG_FARMPLOT_*
+---@field [0] boolean bay12: BUILDINGFLAG_FARMPLOT_*
 
 ---@class identity.building_farmplotst.farm_flags: DFBitfieldType
----@field seasonal_fertilize 0
----@field [0] "seasonal_fertilize"
+---@field seasonal_fertilize 0 bay12: BUILDINGFLAG_FARMPLOT_*
+---@field [0] "seasonal_fertilize" bay12: BUILDINGFLAG_FARMPLOT_*
 df.building_farmplotst.T_farm_flags = {}
 
 ---@class (exact) df.building_floodgatest: DFStruct, df.building_actual
@@ -2156,16 +2385,16 @@ function df.building_hatchst:new() end
 
 ---@class df.hive_flags: DFBitfield
 ---@field _enum identity.hive_flags
----@field do_install boolean
----@field [0] boolean
+---@field do_install boolean bay12: BUILDING_HIVE_FLAG_*
+---@field [0] boolean bay12: BUILDING_HIVE_FLAG_*
 ---@field do_gather boolean
 ---@field [1] boolean
 ---@field ready_split boolean
 ---@field [2] boolean
 
 ---@class identity.hive_flags: DFBitfieldType
----@field do_install 0
----@field [0] "do_install"
+---@field do_install 0 bay12: BUILDING_HIVE_FLAG_*
+---@field [0] "do_install" bay12: BUILDING_HIVE_FLAG_*
 ---@field do_gather 1
 ---@field [1] "do_gather"
 ---@field ready_split 2
@@ -2189,7 +2418,7 @@ function df.building_hivest:new() end
 
 ---@class (exact) df.building_instrumentst: DFStruct, df.building_actual
 ---@field _type identity.building_instrumentst
----@field unk_1 number
+---@field instrument_flag integer unused
 
 ---@class identity.building_instrumentst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2232,6 +2461,7 @@ function df.building_offering_placest:new() end
 
 ---@class (exact) df.building_roadst: DFStruct, df.building_actual
 ---@field _type identity.building_roadst
+---@field material_amount number
 
 ---@class identity.building_roadst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2242,7 +2472,6 @@ function df.building_roadst:new() end
 
 ---@class (exact) df.building_road_dirtst: DFStruct, df.building_roadst
 ---@field _type identity.building_road_dirtst
----@field material_amount number
 
 ---@class identity.building_road_dirtst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2253,7 +2482,6 @@ function df.building_road_dirtst:new() end
 
 ---@class (exact) df.building_road_pavedst: DFStruct, df.building_roadst
 ---@field _type identity.building_road_pavedst
----@field material_amount number
 ---@field terrain_purge_timer number
 
 ---@class identity.building_road_pavedst: DFCompoundType
@@ -2270,8 +2498,8 @@ function df.building_road_pavedst:new() end
 ---| 3 # ExoticClothingShop
 
 ---@class identity.shop_type: DFEnumType
----@field GeneralStore 0
----@field [0] "GeneralStore"
+---@field GeneralStore 0 bay12: BuildingShopType
+---@field [0] "GeneralStore" bay12: BuildingShopType
 ---@field CraftsMarket 1
 ---@field [1] "CraftsMarket"
 ---@field ClothingShop 2
@@ -2296,12 +2524,12 @@ function df.building_shopst:new() end
 
 ---@class df.building_shopst.T_shop_flags: DFBitfield
 ---@field _enum identity.building_shopst.shop_flags
----@field for_sale boolean
----@field [0] boolean
+---@field for_sale boolean bay12: BUILDINGFLAG_SHOP_*
+---@field [0] boolean bay12: BUILDINGFLAG_SHOP_*
 
 ---@class identity.building_shopst.shop_flags: DFBitfieldType
----@field for_sale 0
----@field [0] "for_sale"
+---@field for_sale 0 bay12: BUILDINGFLAG_SHOP_*
+---@field [0] "for_sale" bay12: BUILDINGFLAG_SHOP_*
 df.building_shopst.T_shop_flags = {}
 
 ---@alias df.siegeengine_type
@@ -2309,8 +2537,8 @@ df.building_shopst.T_shop_flags = {}
 ---| 1 # Ballista
 
 ---@class identity.siegeengine_type: DFEnumType
----@field Catapult 0
----@field [0] "Catapult"
+---@field Catapult 0 bay12: BuildingSiegeEngineType
+---@field [0] "Catapult" bay12: BuildingSiegeEngineType
 ---@field Ballista 1
 ---@field [1] "Ballista"
 df.siegeengine_type = {}
@@ -2363,7 +2591,7 @@ df.building_siegeenginest.T_action = {}
 
 ---@class (exact) df.building_slabst: DFStruct, df.building_actual
 ---@field _type identity.building_slabst
----@field unk_1 number
+---@field slab_flag integer unused
 
 ---@class identity.building_slabst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2374,7 +2602,7 @@ function df.building_slabst:new() end
 
 ---@class (exact) df.building_statuest: DFStruct, df.building_actual
 ---@field _type identity.building_statuest
----@field unk_1 number
+---@field statue_flag integer unused
 
 ---@class identity.building_statuest: DFCompoundType
 ---@field _kind 'class-type'
@@ -2396,12 +2624,12 @@ function df.building_supportst:new() end
 
 ---@class df.building_supportst.T_support_flags: DFBitfield
 ---@field _enum identity.building_supportst.support_flags
----@field triggered boolean
----@field [0] boolean
+---@field triggered boolean bay12: BUILDINGFLAG_SUPPORT_*
+---@field [0] boolean bay12: BUILDINGFLAG_SUPPORT_*
 
 ---@class identity.building_supportst.support_flags: DFBitfieldType
----@field triggered 0
----@field [0] "triggered"
+---@field triggered 0 bay12: BUILDINGFLAG_SUPPORT_*
+---@field [0] "triggered" bay12: BUILDINGFLAG_SUPPORT_*
 df.building_supportst.T_support_flags = {}
 
 ---@class (exact) df.building_tablest: DFStruct, df.building_actual
@@ -2418,17 +2646,17 @@ function df.building_tablest:new() end
 
 ---@class df.building_tablest.T_table_flags: DFBitfield
 ---@field _enum identity.building_tablest.table_flags
----@field meeting_hall boolean
----@field [0] boolean
+---@field meeting_hall boolean bay12: BUILDINGFLAG_TABLE_*
+---@field [0] boolean bay12: BUILDINGFLAG_TABLE_*
 
 ---@class identity.building_tablest.table_flags: DFBitfieldType
----@field meeting_hall 0
----@field [0] "meeting_hall"
+---@field meeting_hall 0 bay12: BUILDINGFLAG_TABLE_*
+---@field [0] "meeting_hall" bay12: BUILDINGFLAG_TABLE_*
 df.building_tablest.T_table_flags = {}
 
 ---@class (exact) df.building_traction_benchst: DFStruct, df.building_actual
 ---@field _type identity.building_traction_benchst
----@field unk_1 number
+---@field traction_flag integer unused
 ---@field users df.building_users
 
 ---@class identity.building_traction_benchst: DFCompoundType
@@ -2441,7 +2669,7 @@ function df.building_traction_benchst:new() end
 ---@class (exact) df.building_tradedepotst: DFStruct, df.building_actual
 ---@field _type identity.building_tradedepotst
 ---@field trade_flags df.building_tradedepotst.T_trade_flags
----@field accessible number
+---@field accessible boolean
 
 ---@class identity.building_tradedepotst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2452,14 +2680,14 @@ function df.building_tradedepotst:new() end
 
 ---@class df.building_tradedepotst.T_trade_flags: DFBitfield
 ---@field _enum identity.building_tradedepotst.trade_flags
----@field trader_requested boolean
----@field [0] boolean
+---@field trader_requested boolean bay12: BUILDINGFLAG_DEPOT_*
+---@field [0] boolean bay12: BUILDINGFLAG_DEPOT_*
 ---@field anyone_can_trade boolean
 ---@field [1] boolean
 
 ---@class identity.building_tradedepotst.trade_flags: DFBitfieldType
----@field trader_requested 0
----@field [0] "trader_requested"
+---@field trader_requested 0 bay12: BUILDINGFLAG_DEPOT_*
+---@field [0] "trader_requested" bay12: BUILDINGFLAG_DEPOT_*
 ---@field anyone_can_trade 1
 ---@field [1] "anyone_can_trade"
 df.building_tradedepotst.T_trade_flags = {}
@@ -2473,8 +2701,8 @@ df.building_tradedepotst.T_trade_flags = {}
 ---| 5 # TrackStop
 
 ---@class identity.trap_type: DFEnumType
----@field Lever 0
----@field [0] "Lever"
+---@field Lever 0 bay12: BuildingTrapType
+---@field [0] "Lever" bay12: BuildingTrapType
 ---@field PressurePlate 1
 ---@field [1] "PressurePlate"
 ---@field CageTrap 2
@@ -2508,8 +2736,8 @@ function df.pressure_plate_info:new() end
 
 ---@class df.pressure_plate_info.T_flags: DFBitfield
 ---@field _enum identity.pressure_plate_info.flags
----@field units boolean
----@field [0] boolean
+---@field units boolean bay12: BUILDINGFLAG_TRAP_TRIGGER_*
+---@field [0] boolean bay12: BUILDINGFLAG_TRAP_TRIGGER_*
 ---@field water boolean
 ---@field [1] boolean
 ---@field magma boolean
@@ -2522,8 +2750,8 @@ function df.pressure_plate_info:new() end
 ---@field [5] boolean
 
 ---@class identity.pressure_plate_info.flags: DFBitfieldType
----@field units 0
----@field [0] "units"
+---@field units 0 bay12: BUILDINGFLAG_TRAP_TRIGGER_*
+---@field [0] "units" bay12: BUILDINGFLAG_TRAP_TRIGGER_*
 ---@field water 1
 ---@field [1] "water"
 ---@field magma 2
@@ -2539,7 +2767,7 @@ df.pressure_plate_info.T_flags = {}
 ---@class (exact) df.building_trapst: DFStruct, df.building_actual
 ---@field _type identity.building_trapst
 ---@field trap_type df.trap_type
----@field state integer !=0 = pulled, tripped/needs reloading
+---@field state number !=0 = pulled, tripped/needs reloading
 ---@field ready_timeout number plate not active if > 0
 ---@field fill_timer number
 ---@field stop_flags df.building_trapst.T_stop_flags
@@ -2548,7 +2776,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field profile df.workshop_profile
 ---@field plate_info df.pressure_plate_info
 ---@field friction number
----@field use_dump number
+---@field track_flags df.building_trapst.T_track_flags
 ---@field dump_x_shift number
 ---@field dump_y_shift number
 ---@field stop_trigger_timer number
@@ -2562,16 +2790,16 @@ function df.building_trapst:new() end
 
 ---@class df.building_trapst.T_stop_flags: DFBitfield
 ---@field _enum identity.building_trapst.stop_flags
----@field disabled boolean
----@field [0] boolean
+---@field disabled boolean bay12: BUILDINGFLAG_TRAP_*
+---@field [0] boolean bay12: BUILDINGFLAG_TRAP_*
 ---@field disabling boolean
 ---@field [1] boolean
 ---@field enabling boolean
 ---@field [2] boolean
 
 ---@class identity.building_trapst.stop_flags: DFBitfieldType
----@field disabled 0
----@field [0] "disabled"
+---@field disabled 0 bay12: BUILDINGFLAG_TRAP_*
+---@field [0] "disabled" bay12: BUILDINGFLAG_TRAP_*
 ---@field disabling 1
 ---@field [1] "disabling"
 ---@field enabling 2
@@ -2593,6 +2821,16 @@ function _building_trapst_linked_mechanisms:insert(index, item) end
 
 ---@param index integer
 function _building_trapst_linked_mechanisms:erase(index) end
+
+---@class df.building_trapst.T_track_flags: DFBitfield
+---@field _enum identity.building_trapst.track_flags
+---@field use_dump boolean bay12: TRACK_STOP_PROFILE_FLAG_*
+---@field [0] boolean bay12: TRACK_STOP_PROFILE_FLAG_*
+
+---@class identity.building_trapst.track_flags: DFBitfieldType
+---@field use_dump 0 bay12: TRACK_STOP_PROFILE_FLAG_*
+---@field [0] "use_dump" bay12: TRACK_STOP_PROFILE_FLAG_*
+df.building_trapst.T_track_flags = {}
 
 ---@class (exact) df.building_wagonst: DFStruct, df.building_actual
 ---@field _type identity.building_wagonst
@@ -2616,18 +2854,6 @@ df.building_weaponst = {}
 ---@return df.building_weaponst
 function df.building_weaponst:new() end
 
----@class (exact) df.building_squad_use: DFStruct
----@field _type identity.building_squad_use
----@field squad_id number References: `squad`
----@field mode df.squad_use_flags
-
----@class identity.building_squad_use: DFCompoundType
----@field _kind 'struct-type'
-df.building_squad_use = {}
-
----@return df.building_squad_use
-function df.building_squad_use:new() end
-
 ---@class (exact) df.building_weaponrackst: DFStruct, df.building_actual
 ---@field _type identity.building_weaponrackst
 ---@field rack_flags number
@@ -2643,10 +2869,10 @@ function df.building_weaponrackst:new() end
 ---@class (exact) df.building_wellst: DFStruct, df.building_actual
 ---@field _type identity.building_wellst
 ---@field well_flags df.building_wellst.T_well_flags
----@field unk_1 number
+---@field well_tag df.building_wellst.T_well_tag
 ---@field bucket_z number
 ---@field bucket_timer number 0-9; counts up when raising, down when lowering
----@field check_water_timer number
+---@field check_water_timer number bay12: useless_timer
 
 ---@class identity.building_wellst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2657,21 +2883,59 @@ function df.building_wellst:new() end
 
 ---@class df.building_wellst.T_well_flags: DFBitfield
 ---@field _enum identity.building_wellst.well_flags
----@field lowering boolean
----@field [0] boolean
+---@field lowering boolean bay12: BUILDINGFLAG_WELL_*
+---@field [0] boolean bay12: BUILDINGFLAG_WELL_*
 ---@field just_raised boolean
 ---@field [1] boolean
 
 ---@class identity.building_wellst.well_flags: DFBitfieldType
----@field lowering 0
----@field [0] "lowering"
+---@field lowering 0 bay12: BUILDINGFLAG_WELL_*
+---@field [0] "lowering" bay12: BUILDINGFLAG_WELL_*
 ---@field just_raised 1
 ---@field [1] "just_raised"
 df.building_wellst.T_well_flags = {}
 
+---@class df.building_wellst.T_well_tag: DFBitfield
+---@field _enum identity.building_wellst.well_tag
+---@field north boolean bay12: WELLTAG_*
+---@field [0] boolean bay12: WELLTAG_*
+---@field south boolean
+---@field [1] boolean
+---@field east boolean
+---@field [2] boolean
+---@field west boolean
+---@field [3] boolean
+---@field northeast boolean
+---@field [4] boolean
+---@field northwest boolean
+---@field [5] boolean
+---@field southeast boolean
+---@field [6] boolean
+---@field southwest boolean
+---@field [7] boolean
+
+---@class identity.building_wellst.well_tag: DFBitfieldType
+---@field north 0 bay12: WELLTAG_*
+---@field [0] "north" bay12: WELLTAG_*
+---@field south 1
+---@field [1] "south"
+---@field east 2
+---@field [2] "east"
+---@field west 3
+---@field [3] "west"
+---@field northeast 4
+---@field [4] "northeast"
+---@field northwest 5
+---@field [5] "northwest"
+---@field southeast 6
+---@field [6] "southeast"
+---@field southwest 7
+---@field [7] "southwest"
+df.building_wellst.T_well_tag = {}
+
 ---@class (exact) df.building_windowst: DFStruct, df.building_actual
 ---@field _type identity.building_windowst
----@field unk_1 number
+---@field window_flag integer unused
 
 ---@class identity.building_windowst: DFCompoundType
 ---@field _kind 'class-type'

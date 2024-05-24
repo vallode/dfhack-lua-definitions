@@ -14,16 +14,16 @@
 ---| 9 # Animal
 
 ---@class identity.hauler_type: DFEnumType
----@field Any 0
----@field [0] "Any"
+---@field Any 0 bay12: not actual enum, based on storage_handlerst
+---@field [0] "Any" bay12: not actual enum, based on storage_handlerst
 ---@field Stone 1
 ---@field [1] "Stone"
 ---@field Wood 2
 ---@field [2] "Wood"
----@field Item 3
----@field [3] "Item"
----@field Bin 4
----@field [4] "Bin"
+---@field Item 3 Burial
+---@field [3] "Item" Burial
+---@field Bin 4 Item
+---@field [4] "Bin" Item
 ---@field Body 5
 ---@field [5] "Body"
 ---@field Food 6
@@ -73,8 +73,8 @@ df.hauler_type = {}
 ---| 33 # SAND_BAG
 
 ---@class identity.furniture_type: DFEnumType
----@field FLOODGATE 0 subset of item_type
----@field [0] "FLOODGATE" subset of item_type
+---@field FLOODGATE 0 bay12: StockpileFurnitureItemType<br>subset of item_type
+---@field [0] "FLOODGATE" bay12: StockpileFurnitureItemType<br>subset of item_type
 ---@field HATCH_COVER 1
 ---@field [1] "HATCH_COVER"
 ---@field GRATE 2
@@ -166,8 +166,8 @@ df.furniture_type = {}
 ---| 18 # Custom
 
 ---@class identity.stockpile_category: DFEnumType
----@field Remove -1
----@field [-1] "Remove"
+---@field Remove -1 bay12: DefaultStockPiles
+---@field [-1] "Remove" bay12: DefaultStockPiles
 ---@field Animals 0
 ---@field [0] "Animals"
 ---@field Food 1
@@ -210,8 +210,8 @@ df.stockpile_category = {}
 
 ---@class df.stockpile_group_set: DFBitfield
 ---@field _enum identity.stockpile_group_set
----@field animals boolean
----@field [0] boolean
+---@field animals boolean bay12: STOCKPILE_FLAG_*
+---@field [0] boolean bay12: STOCKPILE_FLAG_*
 ---@field food boolean
 ---@field [1] boolean
 ---@field furniture boolean
@@ -246,8 +246,8 @@ df.stockpile_category = {}
 ---@field [16] boolean
 
 ---@class identity.stockpile_group_set: DFBitfieldType
----@field animals 0
----@field [0] "animals"
+---@field animals 0 bay12: STOCKPILE_FLAG_*
+---@field [0] "animals" bay12: STOCKPILE_FLAG_*
 ---@field food 1
 ---@field [1] "food"
 ---@field furniture 2
@@ -282,6 +282,245 @@ df.stockpile_category = {}
 ---@field [16] "sheet"
 df.stockpile_group_set = {}
 
+---@alias df.stockpile_furniture_mat
+---| -1 # None
+---| 0 # Wood
+---| 1 # Plant
+---| 2 # Bone
+---| 3 # Tooth
+---| 4 # Horn
+---| 5 # Pearl
+---| 6 # Shell
+---| 7 # Leather
+---| 8 # Silk
+---| 9 # Amber
+---| 10 # Coral
+---| 11 # GlassGreen
+---| 12 # GlassClear
+---| 13 # GlassCrystal
+---| 14 # Yarn
+
+---@class identity.stockpile_furniture_mat: DFEnumType
+---@field None -1 bay12: StockpileFurnitureStorageType
+---@field [-1] "None" bay12: StockpileFurnitureStorageType
+---@field Wood 0
+---@field [0] "Wood"
+---@field Plant 1
+---@field [1] "Plant"
+---@field Bone 2
+---@field [2] "Bone"
+---@field Tooth 3
+---@field [3] "Tooth"
+---@field Horn 4
+---@field [4] "Horn"
+---@field Pearl 5
+---@field [5] "Pearl"
+---@field Shell 6
+---@field [6] "Shell"
+---@field Leather 7
+---@field [7] "Leather"
+---@field Silk 8
+---@field [8] "Silk"
+---@field Amber 9
+---@field [9] "Amber"
+---@field Coral 10
+---@field [10] "Coral"
+---@field GlassGreen 11
+---@field [11] "GlassGreen"
+---@field GlassClear 12
+---@field [12] "GlassClear"
+---@field GlassCrystal 13
+---@field [13] "GlassCrystal"
+---@field Yarn 14
+---@field [14] "Yarn"
+df.stockpile_furniture_mat = {}
+
+---@alias df.stockpile_ammo_mat
+---| -1 # None
+---| 0 # Wood
+---| 1 # Bone
+
+---@class identity.stockpile_ammo_mat: DFEnumType
+---@field None -1 bay12: StockpileAmmoStorageType
+---@field [-1] "None" bay12: StockpileAmmoStorageType
+---@field Wood 0
+---@field [0] "Wood"
+---@field Bone 1
+---@field [1] "Bone"
+df.stockpile_ammo_mat = {}
+
+---@alias df.stockpile_bar_mat
+---| -1 # None
+---| 0 # Coal
+---| 1 # Potash
+---| 2 # Ash
+---| 3 # Pearlash
+---| 4 # Soap
+
+---@class identity.stockpile_bar_mat: DFEnumType
+---@field None -1 bay12: StockpileBarStorageType
+---@field [-1] "None" bay12: StockpileBarStorageType
+---@field Coal 0
+---@field [0] "Coal"
+---@field Potash 1
+---@field [1] "Potash"
+---@field Ash 2
+---@field [2] "Ash"
+---@field Pearlash 3
+---@field [3] "Pearlash"
+---@field Soap 4
+---@field [4] "Soap"
+df.stockpile_bar_mat = {}
+
+---@alias df.stockpile_block_mat
+---| -1 # None
+---| 0 # GlassGreen
+---| 1 # GlassClear
+---| 2 # GlassCrystal
+---| 3 # Wood
+
+---@class identity.stockpile_block_mat: DFEnumType
+---@field None -1 bay12: StockpileBlockStorageType
+---@field [-1] "None" bay12: StockpileBlockStorageType
+---@field GlassGreen 0
+---@field [0] "GlassGreen"
+---@field GlassClear 1
+---@field [1] "GlassClear"
+---@field GlassCrystal 2
+---@field [2] "GlassCrystal"
+---@field Wood 3
+---@field [3] "Wood"
+df.stockpile_block_mat = {}
+
+---@alias df.stockpile_finished_mat
+---| -1 # None
+---| 0 # Wood
+---| 1 # Plant
+---| 2 # Bone
+---| 3 # Tooth
+---| 4 # Horn
+---| 5 # Pearl
+---| 6 # Shell
+---| 7 # Leather
+---| 8 # Silk
+---| 9 # Amber
+---| 10 # Coral
+---| 11 # GlassGreen
+---| 12 # GlassClear
+---| 13 # GlassCrystal
+---| 14 # Yarn
+---| 15 # Wax
+
+---@class identity.stockpile_finished_mat: DFEnumType
+---@field None -1 bay12: StockpileFinishedStorageType
+---@field [-1] "None" bay12: StockpileFinishedStorageType
+---@field Wood 0
+---@field [0] "Wood"
+---@field Plant 1
+---@field [1] "Plant"
+---@field Bone 2
+---@field [2] "Bone"
+---@field Tooth 3
+---@field [3] "Tooth"
+---@field Horn 4
+---@field [4] "Horn"
+---@field Pearl 5
+---@field [5] "Pearl"
+---@field Shell 6
+---@field [6] "Shell"
+---@field Leather 7
+---@field [7] "Leather"
+---@field Silk 8
+---@field [8] "Silk"
+---@field Amber 9
+---@field [9] "Amber"
+---@field Coral 10
+---@field [10] "Coral"
+---@field GlassGreen 11
+---@field [11] "GlassGreen"
+---@field GlassClear 12
+---@field [12] "GlassClear"
+---@field GlassCrystal 13
+---@field [13] "GlassCrystal"
+---@field Yarn 14
+---@field [14] "Yarn"
+---@field Wax 15
+---@field [15] "Wax"
+df.stockpile_finished_mat = {}
+
+---@alias df.stockpile_weapon_mat
+---| -1 # None
+---| 0 # Wood
+---| 1 # Plant
+---| 2 # Bone
+---| 3 # Leather
+---| 4 # Silk
+---| 5 # GlassGreen
+---| 6 # GlassClear
+---| 7 # GlassCrystal
+---| 8 # Yarn
+
+---@class identity.stockpile_weapon_mat: DFEnumType
+---@field None -1 bay12: StockpileWeaponStorageType
+---@field [-1] "None" bay12: StockpileWeaponStorageType
+---@field Wood 0
+---@field [0] "Wood"
+---@field Plant 1
+---@field [1] "Plant"
+---@field Bone 2
+---@field [2] "Bone"
+---@field Leather 3
+---@field [3] "Leather"
+---@field Silk 4
+---@field [4] "Silk"
+---@field GlassGreen 5
+---@field [5] "GlassGreen"
+---@field GlassClear 6
+---@field [6] "GlassClear"
+---@field GlassCrystal 7
+---@field [7] "GlassCrystal"
+---@field Yarn 8
+---@field [8] "Yarn"
+df.stockpile_weapon_mat = {}
+
+---@alias df.stockpile_armor_mat
+---| -1 # None
+---| 0 # Wood
+---| 1 # Plant
+---| 2 # Bone
+---| 3 # Shell
+---| 4 # Leather
+---| 5 # Silk
+---| 6 # GlassGreen
+---| 7 # GlassClear
+---| 8 # GlassCrystal
+---| 9 # Yarn
+
+---@class identity.stockpile_armor_mat: DFEnumType
+---@field None -1 bay12: StockpileArmorStorageType
+---@field [-1] "None" bay12: StockpileArmorStorageType
+---@field Wood 0
+---@field [0] "Wood"
+---@field Plant 1
+---@field [1] "Plant"
+---@field Bone 2
+---@field [2] "Bone"
+---@field Shell 3
+---@field [3] "Shell"
+---@field Leather 4
+---@field [4] "Leather"
+---@field Silk 5
+---@field [5] "Silk"
+---@field GlassGreen 6
+---@field [6] "GlassGreen"
+---@field GlassClear 7
+---@field [7] "GlassClear"
+---@field GlassCrystal 8
+---@field [8] "GlassCrystal"
+---@field Yarn 9
+---@field [9] "Yarn"
+df.stockpile_armor_mat = {}
+
 ---@class (exact) df.stockpile_settings: DFStruct
 ---@field _type identity.stockpile_settings
 ---@field flags df.stockpile_group_set
@@ -303,7 +542,7 @@ df.stockpile_group_set = {}
 ---@field weapons df.stockpile_settings.T_weapons
 ---@field armor df.stockpile_settings.T_armor
 ---@field sheet df.stockpile_settings.T_sheet
----@field allow_organic boolean
+---@field allow_organic boolean bay12: stockpile_parameter_miscst
 ---@field allow_inorganic boolean
 
 ---@class identity.stockpile_settings: DFCompoundType
@@ -315,7 +554,7 @@ function df.stockpile_settings:new() end
 
 ---@class (exact) df.stockpile_settings.T_animals: DFStruct
 ---@field _type identity.stockpile_settings.animals
----@field empty_cages boolean
+---@field empty_cages boolean bay12: stockpile_parameter_animalst
 ---@field empty_traps boolean
 ---@field enabled DFBooleanVector
 
@@ -328,7 +567,7 @@ function df.stockpile_settings.T_animals:new() end
 
 ---@class (exact) df.stockpile_settings.T_food: DFStruct
 ---@field _type identity.stockpile_settings.food
----@field meat DFBooleanVector
+---@field meat DFBooleanVector bay12: stockpile_parameter_foodst
 ---@field fish DFBooleanVector
 ---@field unprepared_fish DFBooleanVector
 ---@field egg DFBooleanVector
@@ -358,9 +597,9 @@ function df.stockpile_settings.T_food:new() end
 
 ---@class (exact) df.stockpile_settings.T_furniture: DFStruct
 ---@field _type identity.stockpile_settings.furniture
----@field type DFBooleanVector
+---@field type DFBooleanVector bay12: stockpile_parameter_furniturest
 ---@field other_mats DFBooleanVector
----@field mats DFBooleanVector 16
+---@field mats DFBooleanVector
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 
@@ -373,7 +612,7 @@ function df.stockpile_settings.T_furniture:new() end
 
 ---@class (exact) df.stockpile_settings.T_corpses: DFStruct
 ---@field _type identity.stockpile_settings.corpses
----@field corpses DFBooleanVector
+---@field corpses DFBooleanVector bay12: stockpile_parameter_graveyardst
 
 ---@class identity.stockpile_settings.corpses: DFCompoundType
 ---@field _kind 'struct-type'
@@ -384,7 +623,7 @@ function df.stockpile_settings.T_corpses:new() end
 
 ---@class (exact) df.stockpile_settings.T_refuse: DFStruct
 ---@field _type identity.stockpile_settings.refuse
----@field type DFBooleanVector
+---@field type DFBooleanVector bay12: stockpile_parameter_refusest
 ---@field corpses DFBooleanVector
 ---@field body_parts DFBooleanVector
 ---@field skulls DFBooleanVector
@@ -405,7 +644,7 @@ function df.stockpile_settings.T_refuse:new() end
 
 ---@class (exact) df.stockpile_settings.T_stone: DFStruct
 ---@field _type identity.stockpile_settings.stone
----@field mats DFBooleanVector
+---@field mats DFBooleanVector bay12: stockpile_parameter_stonest
 
 ---@class identity.stockpile_settings.stone: DFCompoundType
 ---@field _kind 'struct-type'
@@ -416,7 +655,7 @@ function df.stockpile_settings.T_stone:new() end
 
 ---@class (exact) df.stockpile_settings.T_ore: DFStruct
 ---@field _type identity.stockpile_settings.ore
----@field mats DFBooleanVector unused
+---@field mats DFBooleanVector bay12: stockpile_parameter_orest
 
 ---@class identity.stockpile_settings.ore: DFCompoundType
 ---@field _kind 'struct-type'
@@ -427,9 +666,9 @@ function df.stockpile_settings.T_ore:new() end
 
 ---@class (exact) df.stockpile_settings.T_ammo: DFStruct
 ---@field _type identity.stockpile_settings.ammo
----@field type DFBooleanVector
+---@field type DFBooleanVector bay12: stockpile_parameter_ammost
 ---@field other_mats DFBooleanVector
----@field mats DFBooleanVector 2
+---@field mats DFBooleanVector
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 
@@ -442,7 +681,7 @@ function df.stockpile_settings.T_ammo:new() end
 
 ---@class (exact) df.stockpile_settings.T_coins: DFStruct
 ---@field _type identity.stockpile_settings.coins
----@field mats DFBooleanVector
+---@field mats DFBooleanVector bay12: stockpile_parameter_coinsst
 
 ---@class identity.stockpile_settings.coins: DFCompoundType
 ---@field _kind 'struct-type'
@@ -453,7 +692,7 @@ function df.stockpile_settings.T_coins:new() end
 
 ---@class (exact) df.stockpile_settings.T_bars_blocks: DFStruct
 ---@field _type identity.stockpile_settings.bars_blocks
----@field bars_other_mats DFBooleanVector
+---@field bars_other_mats DFBooleanVector bay12: stockpile_parameter_barblockst
 ---@field blocks_other_mats DFBooleanVector
 ---@field bars_mats DFBooleanVector
 ---@field blocks_mats DFBooleanVector
@@ -467,7 +706,7 @@ function df.stockpile_settings.T_bars_blocks:new() end
 
 ---@class (exact) df.stockpile_settings.T_gems: DFStruct
 ---@field _type identity.stockpile_settings.gems
----@field rough_other_mats DFBooleanVector
+---@field rough_other_mats DFBooleanVector bay12: stockpile_parameter_gemst
 ---@field cut_other_mats DFBooleanVector
 ---@field rough_mats DFBooleanVector
 ---@field cut_mats DFBooleanVector
@@ -481,9 +720,9 @@ function df.stockpile_settings.T_gems:new() end
 
 ---@class (exact) df.stockpile_settings.T_finished_goods: DFStruct
 ---@field _type identity.stockpile_settings.finished_goods
----@field type DFBooleanVector
+---@field type DFBooleanVector bay12: stockpile_parameter_finishedst
 ---@field other_mats DFBooleanVector
----@field mats DFBooleanVector 17
+---@field mats DFBooleanVector
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 
@@ -496,7 +735,7 @@ function df.stockpile_settings.T_finished_goods:new() end
 
 ---@class (exact) df.stockpile_settings.T_leather: DFStruct
 ---@field _type identity.stockpile_settings.leather
----@field mats DFBooleanVector
+---@field mats DFBooleanVector bay12: stockpile_parameter_leatherst
 
 ---@class identity.stockpile_settings.leather: DFCompoundType
 ---@field _kind 'struct-type'
@@ -507,7 +746,7 @@ function df.stockpile_settings.T_leather:new() end
 
 ---@class (exact) df.stockpile_settings.T_cloth: DFStruct
 ---@field _type identity.stockpile_settings.cloth
----@field thread_silk DFBooleanVector
+---@field thread_silk DFBooleanVector bay12: stockpile_parameter_clothst
 ---@field thread_plant DFBooleanVector
 ---@field thread_yarn DFBooleanVector
 ---@field thread_metal DFBooleanVector
@@ -525,7 +764,7 @@ function df.stockpile_settings.T_cloth:new() end
 
 ---@class (exact) df.stockpile_settings.T_wood: DFStruct
 ---@field _type identity.stockpile_settings.wood
----@field mats DFBooleanVector
+---@field mats DFBooleanVector bay12: stockpile_parameter_woodst
 
 ---@class identity.stockpile_settings.wood: DFCompoundType
 ---@field _kind 'struct-type'
@@ -536,10 +775,10 @@ function df.stockpile_settings.T_wood:new() end
 
 ---@class (exact) df.stockpile_settings.T_weapons: DFStruct
 ---@field _type identity.stockpile_settings.weapons
----@field weapon_type DFBooleanVector
+---@field weapon_type DFBooleanVector bay12: stockpile_parameter_weaponst
 ---@field trapcomp_type DFBooleanVector
 ---@field other_mats DFBooleanVector
----@field mats DFBooleanVector 11
+---@field mats DFBooleanVector
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 ---@field usable boolean
@@ -554,14 +793,14 @@ function df.stockpile_settings.T_weapons:new() end
 
 ---@class (exact) df.stockpile_settings.T_armor: DFStruct
 ---@field _type identity.stockpile_settings.armor
----@field body DFBooleanVector
+---@field body DFBooleanVector bay12: stockpile_parameter_armorst
 ---@field head DFBooleanVector
 ---@field feet DFBooleanVector
 ---@field hands DFBooleanVector
 ---@field legs DFBooleanVector
 ---@field shield DFBooleanVector
 ---@field other_mats DFBooleanVector
----@field mats DFBooleanVector 11
+---@field mats DFBooleanVector
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 ---@field usable boolean
@@ -576,7 +815,7 @@ function df.stockpile_settings.T_armor:new() end
 
 ---@class (exact) df.stockpile_settings.T_sheet: DFStruct
 ---@field _type identity.stockpile_settings.sheet
----@field paper DFBooleanVector
+---@field paper DFBooleanVector bay12: stockpile_parameter_sheetst
 ---@field parchment DFBooleanVector
 
 ---@class identity.stockpile_settings.sheet: DFCompoundType
@@ -633,8 +872,8 @@ function df.stockpile_settings.T_sheet:new() end
 ---| 43 # StoneClay
 ---| 44 # Ammo
 ---| 45 # AmmoType
----| 46 # AmmoMetal
----| 47 # AmmoOther
+---| 46 # AmmoOther
+---| 47 # AmmoMetal
 ---| 48 # AmmoCoreQuality
 ---| 49 # AmmoTotalQuality
 ---| 50 # Coins
@@ -645,10 +884,10 @@ function df.stockpile_settings.T_sheet:new() end
 ---| 55 # BlocksMetal
 ---| 56 # BlocksOther
 ---| 57 # Gems
----| 58 # RoughGem
----| 59 # RoughGlass
----| 60 # CutGem
----| 61 # CutGlass
+---| 58 # RoughGlass
+---| 59 # CutGlass
+---| 60 # RoughGem
+---| 61 # CutGem
 ---| 62 # CutStone
 ---| 63 # Goods
 ---| 64 # GoodsType
@@ -786,10 +1025,10 @@ function df.stockpile_settings.T_sheet:new() end
 ---@field [44] "Ammo"
 ---@field AmmoType 45
 ---@field [45] "AmmoType"
----@field AmmoMetal 46
----@field [46] "AmmoMetal"
----@field AmmoOther 47
----@field [47] "AmmoOther"
+---@field AmmoOther 46
+---@field [46] "AmmoOther"
+---@field AmmoMetal 47
+---@field [47] "AmmoMetal"
 ---@field AmmoCoreQuality 48
 ---@field [48] "AmmoCoreQuality"
 ---@field AmmoTotalQuality 49
@@ -810,14 +1049,14 @@ function df.stockpile_settings.T_sheet:new() end
 ---@field [56] "BlocksOther"
 ---@field Gems 57
 ---@field [57] "Gems"
----@field RoughGem 58
----@field [58] "RoughGem"
----@field RoughGlass 59
----@field [59] "RoughGlass"
----@field CutGem 60
----@field [60] "CutGem"
----@field CutGlass 61
----@field [61] "CutGlass"
+---@field RoughGlass 58
+---@field [58] "RoughGlass"
+---@field CutGlass 59
+---@field [59] "CutGlass"
+---@field RoughGem 60
+---@field [60] "RoughGem"
+---@field CutGem 61
+---@field [61] "CutGem"
 ---@field CutStone 62
 ---@field [62] "CutStone"
 ---@field Goods 63
@@ -911,7 +1150,7 @@ df.stockpile_list = {}
 df.stockpile_list._attr_entry_type = {}
 
 ---@class (exact) stockpile_list_attr_entry_type_fields
----@field is_category DFCompoundField
+---@field is_category DFCompoundField bay12: StockPileViewMode
 df.stockpile_list._attr_entry_type._fields = {}
 
 ---@class stockpile_list_attrs

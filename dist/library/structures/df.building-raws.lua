@@ -26,11 +26,11 @@
 ---@field build_stages number
 local building_def
 
----@param anon_0 DFPointer<integer>
----@param anon_1 DFPointer<integer>
----@param anon_2 DFPointer<integer>
----@param anon_3 DFPointer<integer>
-function building_def:parseRaws(anon_0, anon_1, anon_2, anon_3) end
+---@param str string
+---@param maintok string
+---@param pos number
+---@param bi DFPointer<integer>
+function building_def:parseRaws(str, maintok, pos, bi) end
 
 function building_def:categorize() end
 
@@ -90,7 +90,7 @@ function _building_def_build_labors:erase(index) end
 ---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
----@field mat_index number
+---@field mat_index number actually int16, not int32 as used in other places
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field flags1 df.job_item_flags1

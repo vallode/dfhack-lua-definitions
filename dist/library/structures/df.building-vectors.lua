@@ -29,7 +29,7 @@
 ---| 23 # ZONE_LIBRARY
 ---| 24 # ZONE_PLOT
 ---| 25 # ZONE_MARKET_STALL
----| 26 # ZONE_INVALID22
+---| 26 # ZONE_ROAD_CENTER
 ---| 27 # ZONE_CAMPGROUND
 ---| 28 # ZONE_COMMAND_TENT
 ---| 29 # ZONE_TENT
@@ -54,12 +54,12 @@
 ---| 48 # ZONE_STONEWORKING_PIT
 ---| 49 # ZONE_FORGING_PIT
 ---| 50 # ZONE_FIGHTING_PIT
----| 51 # ZONE_INVALID47
----| 52 # ZONE_INVALID48
----| 53 # ZONE_INVALID49
----| 54 # ZONE_INVALID50
----| 55 # ZONE_INVALID51
----| 56 # ZONE_INVALID52
+---| 51 # ZONE_WELL
+---| 52 # ZONE_ROAD_EXIT_NORTH
+---| 53 # ZONE_ROAD_EXIT_SOUTH
+---| 54 # ZONE_ROAD_EXIT_EAST
+---| 55 # ZONE_ROAD_EXIT_WEST
+---| 56 # ZONE_TUNNEL_CENTER
 ---| 57 # ZONE_ANIMAL_WORKSHOP
 ---| 58 # ZONE_CLOTH_WORKSHOP
 ---| 59 # ZONE_TANNING_WORKSHOP
@@ -88,7 +88,7 @@
 ---| 82 # ZONE_TOWER_ATTIC
 ---| 83 # ZONE_DORMITORY
 ---| 84 # ZONE_DINING_HALL
----| 85 # ZONE_INVALID81
+---| 85 # ZONE_SHRINE
 ---| 86 # ZONE_WATER_SOURCE
 ---| 87 # ZONE_DUMP
 ---| 88 # ZONE_SAND_COLLECTION
@@ -248,8 +248,8 @@
 ---@field [24] "ZONE_PLOT"
 ---@field ZONE_MARKET_STALL 25
 ---@field [25] "ZONE_MARKET_STALL"
----@field ZONE_INVALID22 26
----@field [26] "ZONE_INVALID22"
+---@field ZONE_ROAD_CENTER 26
+---@field [26] "ZONE_ROAD_CENTER"
 ---@field ZONE_CAMPGROUND 27
 ---@field [27] "ZONE_CAMPGROUND"
 ---@field ZONE_COMMAND_TENT 28
@@ -298,18 +298,18 @@
 ---@field [49] "ZONE_FORGING_PIT"
 ---@field ZONE_FIGHTING_PIT 50
 ---@field [50] "ZONE_FIGHTING_PIT"
----@field ZONE_INVALID47 51
----@field [51] "ZONE_INVALID47"
----@field ZONE_INVALID48 52
----@field [52] "ZONE_INVALID48"
----@field ZONE_INVALID49 53
----@field [53] "ZONE_INVALID49"
----@field ZONE_INVALID50 54
----@field [54] "ZONE_INVALID50"
----@field ZONE_INVALID51 55
----@field [55] "ZONE_INVALID51"
----@field ZONE_INVALID52 56
----@field [56] "ZONE_INVALID52"
+---@field ZONE_WELL 51
+---@field [51] "ZONE_WELL"
+---@field ZONE_ROAD_EXIT_NORTH 52
+---@field [52] "ZONE_ROAD_EXIT_NORTH"
+---@field ZONE_ROAD_EXIT_SOUTH 53
+---@field [53] "ZONE_ROAD_EXIT_SOUTH"
+---@field ZONE_ROAD_EXIT_EAST 54
+---@field [54] "ZONE_ROAD_EXIT_EAST"
+---@field ZONE_ROAD_EXIT_WEST 55
+---@field [55] "ZONE_ROAD_EXIT_WEST"
+---@field ZONE_TUNNEL_CENTER 56
+---@field [56] "ZONE_TUNNEL_CENTER"
 ---@field ZONE_ANIMAL_WORKSHOP 57
 ---@field [57] "ZONE_ANIMAL_WORKSHOP"
 ---@field ZONE_CLOTH_WORKSHOP 58
@@ -366,8 +366,8 @@
 ---@field [83] "ZONE_DORMITORY"
 ---@field ZONE_DINING_HALL 84
 ---@field [84] "ZONE_DINING_HALL"
----@field ZONE_INVALID81 85
----@field [85] "ZONE_INVALID81"
+---@field ZONE_SHRINE 85
+---@field [85] "ZONE_SHRINE"
 ---@field ZONE_WATER_SOURCE 86
 ---@field [86] "ZONE_WATER_SOURCE"
 ---@field ZONE_DUMP 87
@@ -400,14 +400,14 @@
 ---@field [100] "ZONE_DUNGEON"
 ---@field ZONE_TOMB 101
 ---@field [101] "ZONE_TOMB"
----@field LOCATION_ASSIGNED 102
----@field [102] "LOCATION_ASSIGNED"
+---@field LOCATION_ASSIGNED 102 AB_BLD_ZONE
+---@field [102] "LOCATION_ASSIGNED" AB_BLD_ZONE
 ---@field ANY_ACTUAL 103
 ---@field [103] "ANY_ACTUAL"
 ---@field ANY_MACHINE 104
 ---@field [104] "ANY_MACHINE"
----@field ANY_HOSPITAL_STORAGE 105
----@field [105] "ANY_HOSPITAL_STORAGE"
+---@field ANY_HOSPITAL_STORAGE 105 chestcheck
+---@field [105] "ANY_HOSPITAL_STORAGE" chestcheck
 ---@field ANY_STORAGE 106
 ---@field [106] "ANY_STORAGE"
 ---@field ANY_BARRACKS 107
@@ -616,7 +616,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_LIBRARY { building: "Civzone", civzone: "Library" }
 ---@field ZONE_PLOT { building: "Civzone", civzone: "Plot" }
 ---@field ZONE_MARKET_STALL { building: "Civzone", civzone: "MarketStall" }
----@field ZONE_INVALID22 { building: "NONE" }
+---@field ZONE_ROAD_CENTER { building: "Civzone", civzone: "RoadCenter" }
 ---@field ZONE_CAMPGROUND { building: "Civzone", civzone: "Campground" }
 ---@field ZONE_COMMAND_TENT { building: "Civzone", civzone: "CommandTent" }
 ---@field ZONE_TENT { building: "Civzone", civzone: "Tent" }
@@ -641,12 +641,12 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_STONEWORKING_PIT { building: "Civzone", civzone: "StoneworkingPit" }
 ---@field ZONE_FORGING_PIT { building: "Civzone", civzone: "ForgingPit" }
 ---@field ZONE_FIGHTING_PIT { building: "Civzone", civzone: "FightingPit" }
----@field ZONE_INVALID47 { building: "NONE" }
----@field ZONE_INVALID48 { building: "NONE" }
----@field ZONE_INVALID49 { building: "NONE" }
----@field ZONE_INVALID50 { building: "NONE" }
----@field ZONE_INVALID51 { building: "NONE" }
----@field ZONE_INVALID52 { building: "NONE" }
+---@field ZONE_WELL { building: "Civzone", civzone: "Well" }
+---@field ZONE_ROAD_EXIT_NORTH { building: "Civzone", civzone: "RoadExitNorth" }
+---@field ZONE_ROAD_EXIT_SOUTH { building: "Civzone", civzone: "RoadExitSouth" }
+---@field ZONE_ROAD_EXIT_EAST { building: "Civzone", civzone: "RoadExitEast" }
+---@field ZONE_ROAD_EXIT_WEST { building: "Civzone", civzone: "RoadExitWest" }
+---@field ZONE_TUNNEL_CENTER { building: "Civzone", civzone: "TunnelCenter" }
 ---@field ZONE_ANIMAL_WORKSHOP { building: "Civzone", civzone: "AnimalWorkshop" }
 ---@field ZONE_CLOTH_WORKSHOP { building: "Civzone", civzone: "ClothWorkshop" }
 ---@field ZONE_TANNING_WORKSHOP { building: "Civzone", civzone: "TanningWorkshop" }
@@ -675,7 +675,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_TOWER_ATTIC { building: "Civzone", civzone: "TowerAttic" }
 ---@field ZONE_DORMITORY { building: "Civzone", civzone: "Dormitory" }
 ---@field ZONE_DINING_HALL { building: "Civzone", civzone: "DiningHall" }
----@field ZONE_INVALID81 { building: "NONE" }
+---@field ZONE_SHRINE { building: "Civzone", civzone: "Shrine" }
 ---@field ZONE_WATER_SOURCE { building: "Civzone", civzone: "WaterSource" }
 ---@field ZONE_DUMP { building: "Civzone", civzone: "Dump" }
 ---@field ZONE_SAND_COLLECTION { building: "Civzone", civzone: "SandCollection" }
@@ -809,7 +809,7 @@ df.buildings_other_id.attrs = {}
 ---@field ZONE_LIBRARY _buildings_other_ZONE_LIBRARY
 ---@field ZONE_PLOT _buildings_other_ZONE_PLOT
 ---@field ZONE_MARKET_STALL _buildings_other_ZONE_MARKET_STALL
----@field ZONE_INVALID22 _buildings_other_ZONE_INVALID22
+---@field ZONE_ROAD_CENTER _buildings_other_ZONE_ROAD_CENTER
 ---@field ZONE_CAMPGROUND _buildings_other_ZONE_CAMPGROUND
 ---@field ZONE_COMMAND_TENT _buildings_other_ZONE_COMMAND_TENT
 ---@field ZONE_TENT _buildings_other_ZONE_TENT
@@ -834,12 +834,12 @@ df.buildings_other_id.attrs = {}
 ---@field ZONE_STONEWORKING_PIT _buildings_other_ZONE_STONEWORKING_PIT
 ---@field ZONE_FORGING_PIT _buildings_other_ZONE_FORGING_PIT
 ---@field ZONE_FIGHTING_PIT _buildings_other_ZONE_FIGHTING_PIT
----@field ZONE_INVALID47 _buildings_other_ZONE_INVALID47
----@field ZONE_INVALID48 _buildings_other_ZONE_INVALID48
----@field ZONE_INVALID49 _buildings_other_ZONE_INVALID49
----@field ZONE_INVALID50 _buildings_other_ZONE_INVALID50
----@field ZONE_INVALID51 _buildings_other_ZONE_INVALID51
----@field ZONE_INVALID52 _buildings_other_ZONE_INVALID52
+---@field ZONE_WELL _buildings_other_ZONE_WELL
+---@field ZONE_ROAD_EXIT_NORTH _buildings_other_ZONE_ROAD_EXIT_NORTH
+---@field ZONE_ROAD_EXIT_SOUTH _buildings_other_ZONE_ROAD_EXIT_SOUTH
+---@field ZONE_ROAD_EXIT_EAST _buildings_other_ZONE_ROAD_EXIT_EAST
+---@field ZONE_ROAD_EXIT_WEST _buildings_other_ZONE_ROAD_EXIT_WEST
+---@field ZONE_TUNNEL_CENTER _buildings_other_ZONE_TUNNEL_CENTER
 ---@field ZONE_ANIMAL_WORKSHOP _buildings_other_ZONE_ANIMAL_WORKSHOP
 ---@field ZONE_CLOTH_WORKSHOP _buildings_other_ZONE_CLOTH_WORKSHOP
 ---@field ZONE_TANNING_WORKSHOP _buildings_other_ZONE_TANNING_WORKSHOP
@@ -868,7 +868,7 @@ df.buildings_other_id.attrs = {}
 ---@field ZONE_TOWER_ATTIC _buildings_other_ZONE_TOWER_ATTIC
 ---@field ZONE_DORMITORY _buildings_other_ZONE_DORMITORY
 ---@field ZONE_DINING_HALL _buildings_other_ZONE_DINING_HALL
----@field ZONE_INVALID81 _buildings_other_ZONE_INVALID81
+---@field ZONE_SHRINE _buildings_other_ZONE_SHRINE
 ---@field ZONE_WATER_SOURCE _buildings_other_ZONE_WATER_SOURCE
 ---@field ZONE_DUMP _buildings_other_ZONE_DUMP
 ---@field ZONE_SAND_COLLECTION _buildings_other_ZONE_SAND_COLLECTION
@@ -1396,21 +1396,21 @@ function _buildings_other_ZONE_MARKET_STALL:insert(index, item) end
 ---@param index integer
 function _buildings_other_ZONE_MARKET_STALL:erase(index) end
 
----@class _buildings_other_ZONE_INVALID22: DFContainer
+---@class _buildings_other_ZONE_ROAD_CENTER: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID22
+local _buildings_other_ZONE_ROAD_CENTER
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID22:_field(index) end
+function _buildings_other_ZONE_ROAD_CENTER:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID22:insert(index, item) end
+function _buildings_other_ZONE_ROAD_CENTER:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID22:erase(index) end
+function _buildings_other_ZONE_ROAD_CENTER:erase(index) end
 
 ---@class _buildings_other_ZONE_CAMPGROUND: DFContainer
 ---@field [integer] df.building_civzonest
@@ -1796,101 +1796,101 @@ function _buildings_other_ZONE_FIGHTING_PIT:insert(index, item) end
 ---@param index integer
 function _buildings_other_ZONE_FIGHTING_PIT:erase(index) end
 
----@class _buildings_other_ZONE_INVALID47: DFContainer
+---@class _buildings_other_ZONE_WELL: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID47
+local _buildings_other_ZONE_WELL
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID47:_field(index) end
+function _buildings_other_ZONE_WELL:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID47:insert(index, item) end
+function _buildings_other_ZONE_WELL:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID47:erase(index) end
+function _buildings_other_ZONE_WELL:erase(index) end
 
----@class _buildings_other_ZONE_INVALID48: DFContainer
+---@class _buildings_other_ZONE_ROAD_EXIT_NORTH: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID48
+local _buildings_other_ZONE_ROAD_EXIT_NORTH
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID48:_field(index) end
+function _buildings_other_ZONE_ROAD_EXIT_NORTH:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID48:insert(index, item) end
+function _buildings_other_ZONE_ROAD_EXIT_NORTH:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID48:erase(index) end
+function _buildings_other_ZONE_ROAD_EXIT_NORTH:erase(index) end
 
----@class _buildings_other_ZONE_INVALID49: DFContainer
+---@class _buildings_other_ZONE_ROAD_EXIT_SOUTH: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID49
+local _buildings_other_ZONE_ROAD_EXIT_SOUTH
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID49:_field(index) end
+function _buildings_other_ZONE_ROAD_EXIT_SOUTH:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID49:insert(index, item) end
+function _buildings_other_ZONE_ROAD_EXIT_SOUTH:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID49:erase(index) end
+function _buildings_other_ZONE_ROAD_EXIT_SOUTH:erase(index) end
 
----@class _buildings_other_ZONE_INVALID50: DFContainer
+---@class _buildings_other_ZONE_ROAD_EXIT_EAST: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID50
+local _buildings_other_ZONE_ROAD_EXIT_EAST
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID50:_field(index) end
+function _buildings_other_ZONE_ROAD_EXIT_EAST:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID50:insert(index, item) end
+function _buildings_other_ZONE_ROAD_EXIT_EAST:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID50:erase(index) end
+function _buildings_other_ZONE_ROAD_EXIT_EAST:erase(index) end
 
----@class _buildings_other_ZONE_INVALID51: DFContainer
+---@class _buildings_other_ZONE_ROAD_EXIT_WEST: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID51
+local _buildings_other_ZONE_ROAD_EXIT_WEST
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID51:_field(index) end
+function _buildings_other_ZONE_ROAD_EXIT_WEST:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID51:insert(index, item) end
+function _buildings_other_ZONE_ROAD_EXIT_WEST:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID51:erase(index) end
+function _buildings_other_ZONE_ROAD_EXIT_WEST:erase(index) end
 
----@class _buildings_other_ZONE_INVALID52: DFContainer
+---@class _buildings_other_ZONE_TUNNEL_CENTER: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID52
+local _buildings_other_ZONE_TUNNEL_CENTER
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID52:_field(index) end
+function _buildings_other_ZONE_TUNNEL_CENTER:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID52:insert(index, item) end
+function _buildings_other_ZONE_TUNNEL_CENTER:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID52:erase(index) end
+function _buildings_other_ZONE_TUNNEL_CENTER:erase(index) end
 
 ---@class _buildings_other_ZONE_ANIMAL_WORKSHOP: DFContainer
 ---@field [integer] df.building_civzonest
@@ -2340,21 +2340,21 @@ function _buildings_other_ZONE_DINING_HALL:insert(index, item) end
 ---@param index integer
 function _buildings_other_ZONE_DINING_HALL:erase(index) end
 
----@class _buildings_other_ZONE_INVALID81: DFContainer
+---@class _buildings_other_ZONE_SHRINE: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID81
+local _buildings_other_ZONE_SHRINE
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID81:_field(index) end
+function _buildings_other_ZONE_SHRINE:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID81:insert(index, item) end
+function _buildings_other_ZONE_SHRINE:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID81:erase(index) end
+function _buildings_other_ZONE_SHRINE:erase(index) end
 
 ---@class _buildings_other_ZONE_WATER_SOURCE: DFContainer
 ---@field [integer] df.building_civzonest
