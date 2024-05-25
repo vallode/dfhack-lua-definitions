@@ -766,8 +766,6 @@ function FilteredList:setFilter(filter, pos) end
 
 function FilteredList:onFilterChange(text) end
 
-function FilteredList:onFilterChar(char, text) end
-
 ---@class widgets.TabPens
 ---@field text_mode_tab_pen dfhack.pen
 ---@field text_mode_label_pen dfhack.pen
