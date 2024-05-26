@@ -11,25 +11,29 @@ jobs:
       matrix:
         ref:
           - develop
-          - '50\.'
-          - '0\.47\.'
+          - 50.*
+          - 0.47.*
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-          submodules: recursive
+          submodules: true
 
-      - name: Fetch DFHack repo history
-        run: git fetch --unshallow
-        working-directory: dfhack
-
-      - name: Checkout DFHack ref
+      - name: Checkout DFHack reference
         id: checkout-ref
         run: |
-          git log --format='short'
-          git checkout $(git log --pretty='format:%H %d' | grep -E '${{ matrix.ref }}' | head -n 1 | awk '{print $1}')
-          echo "name=$(git describe --tags --exact-match 2>/dev/null || echo 'develop')" > $GITHUB_OUTPUT
+          REF=${{ matrix.ref }}
+          SHA=$(git ls-remote --exit-code --tags origin '${{ matrix.ref }}' | tail -n 1 | awk '{print $1}' || echo 'develop')
+          git fetch --depth=1 origin $SHA
+          git checkout $SHA
+          echo "name=$(${REF/.*/})" > $GITHUB_OUTPUT
+        working-directory: dfhack
+
+      - name: Sync library/xml
+        run: |
+          git config -f .gitmodules submodule.library/xml.shallow true 
+          git submodule update --init --single-branch library/xml
         working-directory: dfhack
 
       - uses: ruby/setup-ruby@v1
