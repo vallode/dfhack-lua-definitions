@@ -1,6 +1,6 @@
 # DFHack Lua API Definitions
 
-![Main branch test status](https://img.shields.io/github/actions/workflow/status/vallode/dfhack-lua-definitions/test.yml?branch=main&logo=ruby&label=Tests)
+[![Main branch test status](https://github.com/vallode/dfhack-lua-definitions/actions/workflows/test.yml/badge.svg?branch=main&event=push)](https://github.com/vallode/dfhack-lua-definitions/actions/workflows/test.yml)
 
 [Lua language server](//github.com/LuaLS/lua-language-server) type definitions for [DFHack](//docs.dfhack.org/en/stable/)'s Lua API.
 
