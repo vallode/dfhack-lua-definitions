@@ -25,7 +25,7 @@ jobs:
         run: |
           cd dfhack
           git checkout $(git log --pretty='format:%H %d' | grep '${{ matrix.ref }}' | head -n 1 | cut -c -10)
-          echo "name=$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)" > $GITHUB_OUTPUT
+          echo "name=$(git describe --tags --exact-match 2>null || echo 'develop')" > $GITHUB_OUTPUT
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -37,5 +37,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dfhack-lua-definitions-${{ steps.checkout-ref.output.name }}
+          name: dfhack-lua-definitions-${{ steps.checkout-ref.outputs.name }}
           path: dist
