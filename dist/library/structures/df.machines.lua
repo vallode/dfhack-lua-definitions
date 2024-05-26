@@ -13,7 +13,7 @@ df.machine_type = {}
 
 ---@class (exact) df.machine_info: DFStruct
 ---@field _type identity.machine_info
----@field machine_id number References: `machine`
+---@field machine_id number References: `df.machine`
 ---@field flags df.machine_info.T_flags
 
 ---@class identity.machine_info: DFCompoundType

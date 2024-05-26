@@ -490,7 +490,7 @@ function df.tile_bitmask:new() end
 
 ---@class (exact) df.block_burrow: DFStruct
 ---@field _type identity.block_burrow
----@field id number References: `burrow`
+---@field id number References: `df.burrow`
 ---@field tile_bitmask df.tile_bitmask
 ---@field link df.block_burrow_link
 
@@ -520,7 +520,7 @@ function df.block_burrow_link:new() end
 ---@field block_events _map_block_block_events
 ---@field block_burrows _map_block_block_burrows
 ---@field local_feature number index into world_data.region_map
----@field global_feature number References: `world_underground_region`
+---@field global_feature number References: `df.world_underground_region`
 ---@field global_feature_sq number
 ---@field layer_depth number This is compared to unit.animal.population.depth when a revealed<br>necromancer searches for a map edge tile to run away to:
 ---@field dsgn_check_cooldown number
@@ -861,7 +861,7 @@ function df.block_square_event:new() end
 
 ---@class (exact) df.block_square_event_mineralst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_mineralst
----@field inorganic_mat number References: `inorganic_raw`
+---@field inorganic_mat number References: `df.inorganic_raw`
 ---@field tile_bitmask df.tile_bitmask
 ---@field flags df.block_square_event_mineralst.T_flags
 
@@ -912,7 +912,7 @@ function df.block_square_event_frozen_liquidst:new() end
 
 ---@class (exact) df.block_square_event_world_constructionst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_world_constructionst
----@field construction_id number References: `world_construction`
+---@field construction_id number References: `df.world_construction`
 ---@field tile_bitmask df.tile_bitmask
 
 ---@class identity.block_square_event_world_constructionst: DFCompoundType
@@ -924,7 +924,7 @@ function df.block_square_event_world_constructionst:new() end
 
 ---@class (exact) df.block_square_event_material_spatterst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_material_spatterst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field mat_state df.matter_state
 ---@field amount integer[][]
@@ -940,7 +940,7 @@ function df.block_square_event_material_spatterst:new() end
 
 ---@class (exact) df.block_square_event_grassst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_grassst
----@field plant_index number References: `plant_raw`
+---@field plant_index number References: `df.plant_raw`
 ---@field amount number[][]
 
 ---@class identity.block_square_event_grassst: DFCompoundType
@@ -1004,7 +1004,7 @@ df.block_square_event_spoorst.T_unk_2 = {}
 ---@field _type identity.block_square_event_item_spatterst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mattype number References: `material`
+---@field mattype number References: `df.material`
 ---@field matindex number
 ---@field unk1 number
 ---@field amount number[][]
@@ -1424,7 +1424,7 @@ function df.feature_init_volcanost:new() end
 
 ---@class (exact) df.feature_init_deep_special_tubest: DFStruct, df.feature_init
 ---@field _type identity.feature_init_deep_special_tubest
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field feature df.feature_deep_special_tubest
 
@@ -1437,7 +1437,7 @@ function df.feature_init_deep_special_tubest:new() end
 
 ---@class (exact) df.feature_init_deep_surface_portalst: DFStruct, df.feature_init
 ---@field _type identity.feature_init_deep_surface_portalst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field feature df.feature_deep_surface_portalst
 
@@ -1450,7 +1450,7 @@ function df.feature_init_deep_surface_portalst:new() end
 
 ---@class (exact) df.feature_init_subterranean_from_layerst: DFStruct, df.feature_init
 ---@field _type identity.feature_init_subterranean_from_layerst
----@field layer number References: `world_underground_region`
+---@field layer number References: `df.world_underground_region`
 ---@field feature df.feature_subterranean_from_layerst
 
 ---@class identity.feature_init_subterranean_from_layerst: DFCompoundType
@@ -1462,7 +1462,7 @@ function df.feature_init_subterranean_from_layerst:new() end
 
 ---@class (exact) df.feature_init_magma_core_from_layerst: DFStruct, df.feature_init
 ---@field _type identity.feature_init_magma_core_from_layerst
----@field layer number References: `world_underground_region`
+---@field layer number References: `df.world_underground_region`
 ---@field feature df.feature_magma_core_from_layerst
 
 ---@class identity.feature_init_magma_core_from_layerst: DFCompoundType
@@ -1474,8 +1474,8 @@ function df.feature_init_magma_core_from_layerst:new() end
 
 ---@class (exact) df.feature_init_underworld_from_layerst: DFStruct, df.feature_init
 ---@field _type identity.feature_init_underworld_from_layerst
----@field layer number References: `world_underground_region`
----@field mat_type number References: `material`
+---@field layer number References: `df.world_underground_region`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field feature df.feature_underworld_from_layerst
 
@@ -1562,7 +1562,7 @@ df.world_construction_type = {}
 ---@class (exact) df.world_construction_square: DFStruct
 ---@field _type identity.world_construction_square
 ---@field region_pos df.coord2d
----@field construction_id number References: `world_construction`
+---@field construction_id number References: `df.world_construction`
 ---@field embark_x DFNumberVector
 ---@field embark_y DFNumberVector
 ---@field embark_unk DFNumberVector
@@ -1591,7 +1591,7 @@ function df.world_construction_square:new() end
 ---@field _type identity.world_construction_square_roadst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.world_construction_square_roadst: DFCompoundType
@@ -1613,10 +1613,10 @@ function df.world_construction_square_tunnelst:new() end
 
 ---@class (exact) df.world_construction_square_bridgest: DFStruct, df.world_construction_square
 ---@field _type identity.world_construction_square_bridgest
----@field road_id number guess References: `world_construction`
+---@field road_id number guess<br>References: `df.world_construction`
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.world_construction_square_bridgest: DFCompoundType
@@ -1630,7 +1630,7 @@ function df.world_construction_square_bridgest:new() end
 ---@field _type identity.world_construction_square_wallst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.world_construction_square_wallst: DFCompoundType
@@ -1977,7 +1977,7 @@ df.construction_flags = {}
 ---@field pos df.coord
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field flags df.construction_flags
 ---@field original_tile df.tiletype
@@ -2048,14 +2048,14 @@ df.flow_type = {}
 ---@class (exact) df.flow_info: DFStruct
 ---@field _type identity.flow_info
 ---@field type df.flow_type
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field density number
 ---@field pos df.coord
 ---@field dest df.coord
 ---@field expanding boolean
 ---@field reuse boolean
----@field guide_id number References: `flow_guide`
+---@field guide_id number References: `df.flow_guide`
 
 ---@class identity.flow_info: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2150,7 +2150,7 @@ function df.flow_guide_trailing_flowst:new() end
 ---@field _type identity.flow_guide_item_cloudst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mattype number References: `material`
+---@field mattype number References: `df.material`
 ---@field matindex number
 ---@field unk_18 number
 ---@field unk_1c number

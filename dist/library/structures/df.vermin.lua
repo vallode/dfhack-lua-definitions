@@ -52,8 +52,8 @@ df.vermin_category = {}
 
 ---@class (exact) df.vermin: DFStruct
 ---@field _type identity.vermin
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field pos df.coord
 ---@field visible boolean 1 = visible vermin
 ---@field countdown number

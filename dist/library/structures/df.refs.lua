@@ -299,7 +299,7 @@ function df.general_ref:new() end
 
 ---@class (exact) df.general_ref_artifact: DFStruct, df.general_ref
 ---@field _type identity.general_ref_artifact
----@field artifact_id number References: `artifact_record`
+---@field artifact_id number References: `df.artifact_record`
 
 ---@class identity.general_ref_artifact: DFCompoundType
 ---@field _kind 'class-type'
@@ -310,7 +310,7 @@ function df.general_ref_artifact:new() end
 
 ---@class (exact) df.general_ref_nemesis: DFStruct, df.general_ref
 ---@field _type identity.general_ref_nemesis
----@field nemesis_id number References: `nemesis_record`
+---@field nemesis_id number References: `df.nemesis_record`
 
 ---@class identity.general_ref_nemesis: DFCompoundType
 ---@field _kind 'class-type'
@@ -321,7 +321,7 @@ function df.general_ref_nemesis:new() end
 
 ---@class (exact) df.general_ref_item: DFStruct, df.general_ref
 ---@field _type identity.general_ref_item
----@field item_id number References: `item`
+---@field item_id number References: `df.item`
 ---@field cached_index number lookup optimization, tries before binary search
 
 ---@class identity.general_ref_item: DFCompoundType
@@ -335,7 +335,7 @@ function df.general_ref_item:new() end
 ---@field _type identity.general_ref_item_type
 ---@field type df.item_type
 ---@field subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.general_ref_item_type: DFCompoundType
@@ -359,7 +359,7 @@ function df.general_ref_coinbatch:new() end
 ---@class (exact) df.general_ref_mapsquare: DFStruct, df.general_ref
 ---@field _type identity.general_ref_mapsquare
 ---@field tiletype df.tiletype
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.general_ref_mapsquare: DFCompoundType
@@ -371,7 +371,7 @@ function df.general_ref_mapsquare:new() end
 
 ---@class (exact) df.general_ref_entity_art_image: DFStruct, df.general_ref
 ---@field _type identity.general_ref_entity_art_image
----@field entity_id number References: `historical_entity`
+---@field entity_id number References: `df.historical_entity`
 ---@field index number lookup in entity.resources.art_image_*
 
 ---@class identity.general_ref_entity_art_image: DFCompoundType
@@ -383,7 +383,7 @@ function df.general_ref_entity_art_image:new() end
 
 ---@class (exact) df.general_ref_projectile: DFStruct, df.general_ref
 ---@field _type identity.general_ref_projectile
----@field projectile_id number References: `projectile`
+---@field projectile_id number References: `df.projectile`
 
 ---@class identity.general_ref_projectile: DFCompoundType
 ---@field _kind 'class-type'
@@ -394,7 +394,7 @@ function df.general_ref_projectile:new() end
 
 ---@class (exact) df.general_ref_unit: DFStruct, df.general_ref
 ---@field _type identity.general_ref_unit
----@field unit_id number References: `unit`
+---@field unit_id number References: `df.unit`
 ---@field cached_index number lookup optimization, tries before binary search
 
 ---@class identity.general_ref_unit: DFCompoundType
@@ -406,7 +406,7 @@ function df.general_ref_unit:new() end
 
 ---@class (exact) df.general_ref_building: DFStruct, df.general_ref
 ---@field _type identity.general_ref_building
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 
 ---@class identity.general_ref_building: DFCompoundType
 ---@field _kind 'class-type'
@@ -417,7 +417,7 @@ function df.general_ref_building:new() end
 
 ---@class (exact) df.general_ref_entity: DFStruct, df.general_ref
 ---@field _type identity.general_ref_entity
----@field entity_id number References: `historical_entity`
+---@field entity_id number References: `df.historical_entity`
 
 ---@class identity.general_ref_entity: DFCompoundType
 ---@field _kind 'class-type'
@@ -441,8 +441,8 @@ function df.general_ref_locationst:new() end
 
 ---@class (exact) df.general_ref_interactionst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_interactionst
----@field interaction_id number References: `interaction`
----@field source_id number References: `interaction_source`
+---@field interaction_id number References: `df.interaction`
+---@field source_id number References: `df.interaction_source`
 ---@field unk_08 number
 ---@field unk_0c number
 
@@ -455,8 +455,8 @@ function df.general_ref_interactionst:new() end
 
 ---@class (exact) df.general_ref_abstract_buildingst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_abstract_buildingst
----@field site_id number References: `world_site`
----@field building_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field building_id number References: `df.abstract_building`
 
 ---@class identity.general_ref_abstract_buildingst: DFCompoundType
 ---@field _kind 'class-type'
@@ -467,7 +467,7 @@ function df.general_ref_abstract_buildingst:new() end
 
 ---@class (exact) df.general_ref_historical_eventst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_historical_eventst
----@field event_id number References: `history_event`
+---@field event_id number References: `df.history_event`
 
 ---@class identity.general_ref_historical_eventst: DFCompoundType
 ---@field _kind 'class-type'
@@ -489,7 +489,7 @@ function df.general_ref_spherest:new() end
 
 ---@class (exact) df.general_ref_sitest: DFStruct, df.general_ref
 ---@field _type identity.general_ref_sitest
----@field site_id number References: `world_site`
+---@field site_id number References: `df.world_site`
 
 ---@class identity.general_ref_sitest: DFCompoundType
 ---@field _kind 'class-type'
@@ -500,7 +500,7 @@ function df.general_ref_sitest:new() end
 
 ---@class (exact) df.general_ref_subregionst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_subregionst
----@field region_id number References: `world_region`
+---@field region_id number References: `df.world_region`
 
 ---@class identity.general_ref_subregionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -511,7 +511,7 @@ function df.general_ref_subregionst:new() end
 
 ---@class (exact) df.general_ref_feature_layerst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_feature_layerst
----@field underground_region_id number References: `world_underground_region`
+---@field underground_region_id number References: `df.world_underground_region`
 
 ---@class identity.general_ref_feature_layerst: DFCompoundType
 ---@field _kind 'class-type'
@@ -522,7 +522,7 @@ function df.general_ref_feature_layerst:new() end
 
 ---@class (exact) df.general_ref_historical_figurest: DFStruct, df.general_ref
 ---@field _type identity.general_ref_historical_figurest
----@field hist_figure_id number References: `historical_figure`
+---@field hist_figure_id number References: `df.historical_figure`
 
 ---@class identity.general_ref_historical_figurest: DFCompoundType
 ---@field _kind 'class-type'
@@ -534,7 +534,7 @@ function df.general_ref_historical_figurest:new() end
 ---@class (exact) df.general_ref_entity_popst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_entity_popst
 ---@field unk_1 number
----@field race number References: `creature_raw`
+---@field race number References: `df.creature_raw`
 ---@field unk_2 number
 ---@field flags df.undead_flags
 
@@ -547,8 +547,8 @@ function df.general_ref_entity_popst:new() end
 
 ---@class (exact) df.general_ref_creaturest: DFStruct, df.general_ref
 ---@field _type identity.general_ref_creaturest
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field flags df.undead_flags
@@ -573,7 +573,7 @@ function df.general_ref_knowledge_scholar_flagst:new() end
 
 ---@class (exact) df.general_ref_activity_eventst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_activity_eventst
----@field activity_id number References: `activity_entry`
+---@field activity_id number References: `df.activity_entry`
 ---@field event_id number
 
 ---@class identity.general_ref_activity_eventst: DFCompoundType
@@ -608,7 +608,7 @@ function df.general_ref_languagest:new() end
 
 ---@class (exact) df.general_ref_written_contentst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_written_contentst
----@field written_content_id number References: `written_content`
+---@field written_content_id number References: `df.written_content`
 
 ---@class identity.general_ref_written_contentst: DFCompoundType
 ---@field _kind 'class-type'
@@ -619,7 +619,7 @@ function df.general_ref_written_contentst:new() end
 
 ---@class (exact) df.general_ref_poetic_formst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_poetic_formst
----@field poetic_form_id number References: `poetic_form`
+---@field poetic_form_id number References: `df.poetic_form`
 
 ---@class identity.general_ref_poetic_formst: DFCompoundType
 ---@field _kind 'class-type'
@@ -630,7 +630,7 @@ function df.general_ref_poetic_formst:new() end
 
 ---@class (exact) df.general_ref_musical_formst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_musical_formst
----@field musical_form_id number References: `musical_form`
+---@field musical_form_id number References: `df.musical_form`
 
 ---@class identity.general_ref_musical_formst: DFCompoundType
 ---@field _kind 'class-type'
@@ -641,7 +641,7 @@ function df.general_ref_musical_formst:new() end
 
 ---@class (exact) df.general_ref_dance_formst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_dance_formst
----@field dance_form_id number References: `dance_form`
+---@field dance_form_id number References: `df.dance_form`
 
 ---@class identity.general_ref_dance_formst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1281,7 +1281,7 @@ df.histfig_entity_link_type = {}
 
 ---@class (exact) df.histfig_entity_link: DFStruct
 ---@field _type identity.histfig_entity_link
----@field entity_id number References: `historical_entity`
+---@field entity_id number References: `df.historical_entity`
 ---@field entity_vector_idx number
 ---@field link_strength number
 local histfig_entity_link
@@ -1546,9 +1546,9 @@ df.histfig_site_link_type = {}
 
 ---@class (exact) df.histfig_site_link: DFStruct
 ---@field _type identity.histfig_site_link
----@field site number References: `world_site`
+---@field site number References: `df.world_site`
 ---@field sub_id number from XML
----@field entity number References: `historical_entity`
+---@field entity number References: `df.historical_entity`
 local histfig_site_link
 
 ---@return df.histfig_site_link_type
@@ -1729,7 +1729,7 @@ df.histfig_hf_link_type = {}
 
 ---@class (exact) df.histfig_hf_link: DFStruct
 ---@field _type identity.histfig_hf_link
----@field target_hf number References: `historical_figure`
+---@field target_hf number References: `df.historical_figure`
 ---@field link_strength number
 local histfig_hf_link
 
@@ -1934,7 +1934,7 @@ df.entity_entity_link_type = {}
 ---@class (exact) df.entity_entity_link: DFStruct
 ---@field _type identity.entity_entity_link
 ---@field type df.entity_entity_link_type
----@field target number References: `historical_entity`
+---@field target number References: `df.historical_entity`
 ---@field strength number
 
 ---@class identity.entity_entity_link: DFCompoundType
@@ -2045,8 +2045,8 @@ df.entity_site_link_flags = {}
 
 ---@class (exact) df.entity_site_link: DFStruct
 ---@field _type identity.entity_site_link
----@field target number toady's name for this is entity_site_profilest References: `world_site`
----@field entity_id number this is a union in toady code but we can probably ignore that per putnam References: `historical_entity`
+---@field target number toady's name for this is entity_site_profilest<br>References: `df.world_site`
+---@field entity_id number this is a union in toady code but we can probably ignore that per putnam<br>References: `df.historical_entity`
 ---@field entity_cache_index number not saved
 ---@field position_profile_id number index into entity.positions.assignments of Civilization (?)
 ---@field type df.entity_site_link_type called location in df source

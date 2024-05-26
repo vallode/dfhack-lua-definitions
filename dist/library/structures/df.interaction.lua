@@ -21,8 +21,8 @@ df.interaction_flags = {}
 ---@field sources _interaction_sources I_SOURCE
 ---@field targets _interaction_targets I_TARGET
 ---@field effects _interaction_effects I_EFFECT
----@field source_hfid number References: `historical_figure`
----@field source_enid number References: `historical_entity`
+---@field source_hfid number References: `df.historical_figure`
+---@field source_enid number References: `df.historical_entity`
 
 ---@class identity.interaction: DFCompoundType
 ---@field _kind 'struct-type'
@@ -179,7 +179,7 @@ df.interaction_effect_location_hint = {}
 ---@field intermittent number IE_INTERMITTENT, 0 = weekly
 ---@field locations _interaction_effect_locations IE_LOCATION
 ---@field flags df.interaction_effect.T_flags
----@field interaction_id number References: `interaction`
+---@field interaction_id number References: `df.interaction`
 ---@field arena_name string IE_ARENA_NAME
 local interaction_effect
 
@@ -1024,7 +1024,7 @@ df.breath_attack_type = {}
 ---@class (exact) df.interaction_target_materialst: DFStruct, df.interaction_target
 ---@field _type identity.interaction_target_materialst
 ---@field material_str string[]
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field parent_interaction_index number
 ---@field breath_attack_type df.breath_attack_type
@@ -1060,7 +1060,7 @@ function df.interaction_target_locationst:new() end
 ---@class (exact) df.interaction_instance: DFStruct
 ---@field _type identity.interaction_instance
 ---@field id number
----@field interaction_id number References: `interaction`
+---@field interaction_id number References: `df.interaction`
 ---@field unk_1 number
 ---@field region_index number
 ---@field affected_units DFNumberVector IDs of units affected by the regional interaction

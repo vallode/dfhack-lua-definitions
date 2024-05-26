@@ -81,7 +81,7 @@ function df.build_req_choicest:new() end
 ---@field _type identity.build_req_choice_genst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field candidates DFNumberVector
 ---@field used_count number
@@ -112,7 +112,7 @@ function df.build_req_choice_specst:new() end
 ---@field choices _buildreq_choices
 ---@field building_type df.building_type if -1, in Build menu; otherwise select item
 ---@field building_subtype number
----@field custom_type number References: `building_def`
+---@field custom_type number References: `df.building_def`
 ---@field stage number 0 no materials, 1 place, 2 select item
 ---@field req_index number
 ---@field sel_index number
@@ -320,7 +320,7 @@ function df.interface_button_building_category_selectorst:new() end
 
 ---@class (exact) df.interface_button_building_material_selectorst: DFStruct, df.interface_button_buildingst
 ---@field _type identity.interface_button_building_material_selectorst
----@field material number References: `material`
+---@field material number References: `df.material`
 ---@field matgloss number
 ---@field job_item_flag df.job_material_category
 ---@field prepare_interface number
@@ -338,7 +338,7 @@ function df.interface_button_building_material_selectorst:new() end
 ---@field mstring string
 ---@field itemtype df.item_type
 ---@field subtype number
----@field material number References: `material`
+---@field material number References: `df.material`
 ---@field matgloss number
 ---@field specflag df.job_spec_flags
 ---@field spec_id number refers to various things, such as histfigs OR races
@@ -2965,7 +2965,7 @@ function df.main_interface.T_designation:new() end
 ---@field filtered_button _main_interface_building_filtered_button
 ---@field selected number
 ---@field category df.interface_category_building
----@field material number References: `material`
+---@field material number References: `df.material`
 ---@field matgloss number
 ---@field job_item_flag df.job_material_category
 ---@field current_custom_category_token string

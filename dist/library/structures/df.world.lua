@@ -159,9 +159,9 @@ df.conflict_level = {}
 
 ---@class (exact) df.incident_hfid: DFStruct
 ---@field _type identity.incident_hfid
----@field hfid number bay12: true hf of incident References: `historical_figure`
----@field visual_hfid number bay12: basic visual id References: `historical_figure`
----@field historical_hfid number bay12: if any witness knew actual name References: `historical_figure`
+---@field hfid number bay12: true hf of incident<br>References: `df.historical_figure`
+---@field visual_hfid number bay12: basic visual id<br>References: `df.historical_figure`
+---@field historical_hfid number bay12: if any witness knew actual name<br>References: `df.historical_figure`
 ---@field all_witnessed_ident DFNumberVector
 
 ---@class identity.incident_hfid: DFCompoundType
@@ -178,29 +178,29 @@ function df.incident_hfid:new() end
 ---@field witnesses DFNumberVector
 ---@field unk_year number
 ---@field unk_year_tick number
----@field victim number References: `unit`
+---@field victim number References: `df.unit`
 ---@field victim_hf df.incident_hfid
----@field victim_race number References: `creature_raw`
----@field victim_caste number References: `caste_raw`
----@field entity2 number Seen with Crime References: `historical_entity`
+---@field victim_race number References: `df.creature_raw`
+---@field victim_caste number References: `df.caste_raw`
+---@field entity2 number Seen with Crime<br>References: `df.historical_entity`
 ---@field unk_v40_1c number
----@field criminal number References: `unit`
+---@field criminal number References: `df.unit`
 ---@field criminal_hf df.incident_hfid
----@field criminal_race number References: `creature_raw`
----@field criminal_caste number References: `caste_raw`
----@field entity1 number References: `historical_entity`
+---@field criminal_race number References: `df.creature_raw`
+---@field criminal_caste number References: `df.caste_raw`
+---@field entity1 number References: `df.historical_entity`
 ---@field unk_v40_2c df.incident_hfid
----@field crime_id number References: `crime`
----@field site number References: `world_site`
+---@field crime_id number References: `df.crime`
+---@field site number References: `df.world_site`
 ---@field unk_v40_3a number 41 seen on witnessed thief, 37 on interrogation target. Only one of each, though.
 ---@field unk_v40_3b number
----@field entity number References: `historical_entity`
+---@field entity number References: `df.historical_entity`
 ---@field event_year number
 ---@field event_time number
 ---@field flags df.incident.T_flags
 ---@field death_cause df.death_type
 ---@field conflict_level df.conflict_level v0.40.01
----@field activity_id number References: `activity_entry`
+---@field activity_id number References: `df.activity_entry`
 ---@field world_x number Location appears to be in in-game tiles world wide
 ---@field world_y number
 ---@field world_z number
@@ -302,9 +302,9 @@ function df.incident.T_data:new() end
 ---@field reference_id number history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id number -1 if not used
 ---@field abstract_location number location at which the performance was held
----@field poetic_form_id number More than one form can be used in a performance, e.g. dance to music References: `poetic_form`
----@field musical_form_id number References: `musical_form`
----@field dance_form_id number References: `dance_form`
+---@field poetic_form_id number More than one form can be used in a performance, e.g. dance to music<br>References: `df.poetic_form`
+---@field musical_form_id number References: `df.musical_form`
+---@field dance_form_id number References: `df.dance_form`
 
 ---@class identity.incident_data_performance: DFCompoundType
 ---@field _kind 'struct-type'
@@ -339,10 +339,10 @@ function _incident_data_performance_participants:erase(index) end
 ---@class (exact) df.incident_data_artifact: DFStruct
 ---@field _type identity.incident_data_artifact
 ---@field state df.incident_data_artifact.T_state
----@field artifact_id number References: `artifact_record`
+---@field artifact_id number References: `df.artifact_record`
 ---@field unk_3 df.incident_hfid
 ---@field unk_4 df.incident_hfid
----@field site_id number References: `world_site`
+---@field site_id number References: `df.world_site`
 ---@field unk_5 number
 ---@field unk_6 number
 ---@field unk_7 number
@@ -382,7 +382,7 @@ df.incident_data_artifact.T_state = {}
 ---@class (exact) df.incident_data_writing: DFStruct
 ---@field _type identity.incident_data_writing
 ---@field state df.incident_data_writing.T_state
----@field content_id number References: `written_content`
+---@field content_id number References: `df.written_content`
 ---@field unk_1 df.incident_hfid
 ---@field unk_2 df.incident_hfid
 ---@field unk_3 number
@@ -442,32 +442,32 @@ function _incident_data_identity_unk_1:erase(index) end
 ---@field id number dtor 0x8C166D0
 ---@field mode df.crime.T_mode
 ---@field punishment df.crime.T_punishment
----@field criminal number References: `unit`
----@field criminal_hf number References: `historical_figure`
----@field criminal_hf_2 number Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss References: `historical_figure`
----@field criminal_hf_3 number References: `historical_figure`
+---@field criminal number References: `df.unit`
+---@field criminal_hf number References: `df.historical_figure`
+---@field criminal_hf_2 number Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss<br>References: `df.historical_figure`
+---@field criminal_hf_3 number References: `df.historical_figure`
 ---@field convict_data df.crime.T_convict_data
----@field convicted_hf number References: `historical_figure`
----@field convicted_hf_2 number the two additional copies probably refers to some other roles References: `historical_figure`
----@field convicted_hf_3 number -1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished' References: `historical_figure`
+---@field convicted_hf number References: `df.historical_figure`
+---@field convicted_hf_2 number the two additional copies probably refers to some other roles<br>References: `df.historical_figure`
+---@field convicted_hf_3 number -1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished'<br>References: `df.historical_figure`
 ---@field victim_data df.crime.T_victim_data
----@field victim_hf number References: `historical_figure`
----@field victim_hf_2 number the two additional copies probably refers to some other roles, but all 3 are identical in cases seen References: `historical_figure`
----@field victim_hf_3 number References: `historical_figure`
+---@field victim_hf number References: `df.historical_figure`
+---@field victim_hf_2 number the two additional copies probably refers to some other roles, but all 3 are identical in cases seen<br>References: `df.historical_figure`
+---@field victim_hf_3 number References: `df.historical_figure`
 ---@field unk_v47_vector_3 DFNumberVector this vector hasn't been seen, but is guessed at based on the pattern above
 ---@field flags df.crime.T_flags
----@field incident_id number References: `incident`
+---@field incident_id number References: `df.incident`
 ---@field event_year number
 ---@field event_time number
 ---@field discovered_year number
 ---@field discovered_time number
----@field site number References: `world_site`
----@field entity number References: `historical_entity`
----@field item_id number seen with crime of theft References: `item`
+---@field site number References: `df.world_site`
+---@field entity number References: `df.historical_entity`
+---@field item_id number seen with crime of theft<br>References: `df.item`
 ---@field reports _crime_reports
 ---@field counterintelligence _crime_counterintelligence
 ---@field witnesses _crime_witnesses
----@field agreement_id number References: `agreement`
+---@field agreement_id number References: `df.agreement`
 
 ---@class identity.crime: DFCompoundType
 ---@field _kind 'struct-type'
@@ -563,7 +563,7 @@ function df.crime.T_punishment:new() end
 ---@class (exact) df.crime.T_convict_data: DFStruct
 ---@field _type identity.crime.convict_data
 ---@field unk_v47_vector_1 DFNumberVector don't know what the number refers to
----@field convicted number References: `unit`
+---@field convicted number References: `df.unit`
 
 ---@class identity.crime.convict_data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -575,7 +575,7 @@ function df.crime.T_convict_data:new() end
 ---@class (exact) df.crime.T_victim_data: DFStruct
 ---@field _type identity.crime.victim_data
 ---@field unk_v47_vector_2 DFNumberVector
----@field victim number References: `unit`
+---@field victim number References: `df.unit`
 
 ---@class identity.crime.victim_data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -681,14 +681,14 @@ df.witness_type = {}
 
 ---@class (exact) df.witness_reportst: DFStruct
 ---@field _type identity.witness_reportst
----@field incident_id number References: `incident`
----@field crime_id number References: `crime`
+---@field incident_id number References: `df.incident`
+---@field crime_id number References: `df.crime`
 ---@field type df.witness_type
 ---@field year number
 ---@field year_tick number
----@field witness_id number References: `unit`
+---@field witness_id number References: `df.unit`
 ---@field witness_ihf df.incident_hfid
----@field accused_id number References: `unit`
+---@field accused_id number References: `df.unit`
 ---@field accused_ihf df.incident_hfid
 ---@field reported_year number
 ---@field reported_year_tick number
@@ -814,8 +814,8 @@ function _spoils_report_item_types:erase(index) end
 ---@class (exact) df.interrogation_report: DFStruct
 ---@field _type identity.interrogation_report
 ---@field title string
----@field officer_hf number References: `historical_figure`
----@field subject_hf number References: `historical_figure`
+---@field officer_hf number References: `df.historical_figure`
+---@field subject_hf number References: `df.historical_figure`
 ---@field officer_name string
 ---@field unk_3 number
 ---@field year number
@@ -826,7 +826,7 @@ function _spoils_report_item_types:erase(index) end
 ---@field unk_25 number
 ---@field unk_26 number
 ---@field unk_27 DFNumberVector
----@field subject_identity_id number ? References: `identity`
+---@field subject_identity_id number ?<br>References: `df.identity`
 ---@field unk_29 _interrogation_report_unk_29
 ---@field unk_30 DFNumberVector ?
 ---@field unk_31 DFNumberVector seen hfs_formed_intrigue_relationship
@@ -841,8 +841,8 @@ function df.interrogation_report:new() end
 
 ---@class (exact) df.interrogation_report.T_unk: DFStruct
 ---@field _type identity.interrogation_report.unk
----@field officer_hf2 number appears identical to officer_hf References: `historical_figure`
----@field subject_hf2 number appears identical to subject_hf References: `historical_figure`
+---@field officer_hf2 number appears identical to officer_hf<br>References: `df.historical_figure`
+---@field subject_hf2 number appears identical to subject_hf<br>References: `df.historical_figure`
 ---@field unk_8 number
 ---@field unk_9 number
 ---@field unk_10 number
@@ -891,7 +891,7 @@ function _interrogation_report_unk_29:erase(index) end
 
 ---@class (exact) df.divine_treasure: DFStruct
 ---@field _type identity.divine_treasure
----@field histfig_id number References: `historical_figure`
+---@field histfig_id number References: `df.historical_figure`
 ---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number
@@ -931,10 +931,10 @@ function df.encased_horror:new() end
 ---@field _type identity.cursed_tomb
 ---@field triggered boolean
 ---@field coffin_skeletons DFNumberVector
----@field disturbance number References: `interaction`
+---@field disturbance number References: `df.interaction`
 ---@field treasures DFNumberVector
----@field site_id number References: `world_site`
----@field structure_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field structure_id number References: `df.abstract_building`
 ---@field trigger_regions _cursed_tomb_trigger_regions normally just one, 3x3 around the coffin
 ---@field coffin_pos df.coord
 
@@ -996,7 +996,7 @@ function df.coord_rect:new() end
 ---@field world_tile df.coord2d
 ---@field mid_level_tile df.coord2d the MLT the feature resides in
 ---@field local_feature_idx number
----@field global_feature_idx number References: `world_underground_region`
+---@field global_feature_idx number References: `df.world_underground_region`
 ---@field global_feature_sq number
 ---@field layer df.layer_type
 ---@field ["local"] df.coord2d the top left corner of the MLT, in embark relative coordinates
@@ -1135,8 +1135,8 @@ function df.campfire:new() end
 ---@field x DFNumberVector
 ---@field y DFNumberVector
 ---@field z number
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field pos_min df.coord2d
 ---@field pos_max df.coord2d
 ---@field ambushers DFNumberVector
@@ -1183,10 +1183,10 @@ function df.ocean_wave:new() end
 ---@class (exact) df.coin_batch: DFStruct
 ---@field _type identity.coin_batch
 ---@field year number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field entity number References: `historical_entity`
----@field ruler number References: `historical_figure`
+---@field entity number References: `df.historical_entity`
+---@field ruler number References: `df.historical_figure`
 ---@field image_front df.coin_batch.T_image_front
 ---@field image_back df.coin_batch.T_image_back
 
@@ -1208,8 +1208,8 @@ function df.coin_batch.get_vector() end
 
 ---@class (exact) df.coin_batch.T_image_front: DFStruct
 ---@field _type identity.coin_batch.image_front
----@field id number References: `art_image_chunk`
----@field subid number References: `art_image`
+---@field id number References: `df.art_image_chunk`
+---@field subid number References: `df.art_image`
 
 ---@class identity.coin_batch.image_front: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1220,8 +1220,8 @@ function df.coin_batch.T_image_front:new() end
 
 ---@class (exact) df.coin_batch.T_image_back: DFStruct
 ---@field _type identity.coin_batch.image_back
----@field id number References: `art_image_chunk`
----@field subid number References: `art_image`
+---@field id number References: `df.art_image_chunk`
+---@field subid number References: `df.art_image`
 
 ---@class identity.coin_batch.image_back: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1611,8 +1611,8 @@ df.divination_set_roll.T_effect_type = {}
 ---@class (exact) df.divination_set: DFStruct
 ---@field _type identity.divination_set
 ---@field id number currently matches index into vector
----@field deity_id number References: `historical_figure`
----@field owner_id number religion owning the set References: `historical_entity`
+---@field deity_id number References: `df.historical_figure`
+---@field owner_id number religion owning the set<br>References: `df.historical_entity`
 ---@field image_set_ids DFNumberVector
 ---@field rolls _divination_set_rolls
 

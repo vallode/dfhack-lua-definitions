@@ -26,8 +26,8 @@ df.reaction_flags = {}
 ---@field max_multiplier number
 ---@field building df.reaction.T_building
 ---@field index number
----@field source_hfid number References: `historical_figure`
----@field source_enid number References: `historical_entity`
+---@field source_hfid number References: `df.historical_figure`
+---@field source_enid number References: `df.historical_entity`
 ---@field raw_strings DFStringVector
 ---@field category string
 ---@field descriptions _reaction_descriptions
@@ -197,18 +197,18 @@ function reaction_reagent:getType() end
 function reaction_reagent:resolveTokens(reactionID) end
 
 ---@param anon_0 df.item
----@param index number References: `reaction`
+---@param index number References: `df.reaction`
 ---@return boolean
 function reaction_reagent:matchesRoot(anon_0, index) end
 
 ---@param anon_0 df.item
 ---@param anon_1 df.reaction or maybe reaction code string ref
----@param index number References: `reaction`
+---@param index number References: `df.reaction`
 ---@return boolean
 function reaction_reagent:matchesChild(anon_0, anon_1, index) end
 
 ---@param anon_0 string
----@param index number References: `reaction`
+---@param index number References: `df.reaction`
 function reaction_reagent:getDescription(anon_0, index) end
 
 ---@return boolean
@@ -244,7 +244,7 @@ df.reaction_reagent_flags = {}
 ---@field _type identity.reaction_reagent_itemst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field reaction_class string
 ---@field has_material_reaction_product string
@@ -253,7 +253,7 @@ df.reaction_reagent_flags = {}
 ---@field flags3 df.job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore number References: `inorganic_raw`
+---@field metal_ore number References: `df.inorganic_raw`
 ---@field min_dimension number
 ---@field contains DFNumberVector
 ---@field has_tool_use df.tool_uses
@@ -343,7 +343,7 @@ df.reaction_product_item_flags = {}
 ---@field _type identity.reaction_product_itemst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field probability number
 ---@field count number
@@ -407,7 +407,7 @@ df.reaction_product_improvement_flags = {}
 ---@field target_reagent string
 ---@field improvement_type df.improvement_type
 ---@field improvement_specific_type df.itemimprovement_specific_type
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field probability number
 ---@field flags _reaction_product_item_improvementst_flags

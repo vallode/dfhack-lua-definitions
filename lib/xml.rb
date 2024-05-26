@@ -764,8 +764,8 @@ module DFHackLuaDefinitions
       def comment
         comment = []
         comment << @field['comment'] if @field['comment']
-        comment << "References: `#{@ref_target}`" if @ref_target
-        comment.join(' ') unless comment.empty?
+        comment << "References: `df.#{@ref_target}`" if @ref_target
+        comment.join('<br>') unless comment.empty?
       end
 
       # Only used in vmethods

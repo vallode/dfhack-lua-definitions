@@ -492,7 +492,7 @@ df.entity_name_type = {}
 ---@field stone_shapes_str DFStringVector
 ---@field gem_shapes DFNumberVector
 ---@field stone_shapes DFNumberVector
----@field source_hfid number References: `historical_figure`
+---@field source_hfid number References: `df.historical_figure`
 ---@field unk_v4201_1 number
 ---@field currency_str1 DFStringVector
 ---@field currency_str2 DFStringVector

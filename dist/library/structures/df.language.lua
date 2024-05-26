@@ -619,7 +619,7 @@ function _language_symbol_unknown:erase(index) end
 ---@field nickname string
 ---@field words DFEnumVector<df.language_name_component, number>
 ---@field parts_of_speech DFEnumVector<df.language_name_component, df.part_of_speech>
----@field language number References: `language_translation`
+---@field language number References: `df.language_translation`
 ---@field type df.language_name_type
 ---@field has_name boolean
 

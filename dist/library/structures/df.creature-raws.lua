@@ -1493,7 +1493,7 @@ df.creature_interaction_target_flags = {}
 ---@field target_verb_2nd string
 ---@field target_verb_3rd string
 ---@field interaction_type string
----@field type_id number References: `interaction`
+---@field type_id number References: `df.interaction`
 ---@field usage_hint _creature_interaction_usage_hint
 ---@field location_hint _creature_interaction_location_hint
 ---@field flags df.creature_interaction.T_flags
@@ -1810,7 +1810,7 @@ function df.caste_raw:new() end
 ---@field buildingdestroyer number
 ---@field itemcorpse_itemtype df.item_type no longer used? Changes when the same save is reloaded
 ---@field itemcorpse_itemsubtype number
----@field itemcorpse_materialtype number no longer used? Changes when the same save is reloaded References: `material`
+---@field itemcorpse_materialtype number no longer used? Changes when the same save is reloaded<br>References: `df.material`
 ---@field itemcorpse_materialindex number
 ---@field itemcorpse_quality number // NOT 32-bit!
 ---@field remains_color number[]
@@ -1835,7 +1835,7 @@ function df.caste_raw:new() end
 ---@field unk4 number
 ---@field pop_ratio number
 ---@field adult_size number
----@field bone_mat number References: `material`
+---@field bone_mat number References: `df.material`
 ---@field bone_matidx number
 ---@field fish_mat_index number
 ---@field egg_mat_index number
@@ -2174,7 +2174,7 @@ function _caste_raw_secretion:erase(index) end
 ---@field unk_2f30 DFNumberVector
 ---@field unk_2f40 DFNumberVector
 ---@field unk_2f50 DFNumberVector
----@field mat_type number muscle: References: `material`
+---@field mat_type number muscle:<br>References: `df.material`
 ---@field mat_index number
 
 ---@class identity.caste_raw.unknown2: DFCompoundType
@@ -2446,7 +2446,7 @@ function _tissue_style_raw_styles:erase(index) end
 ---@field modifier_class DFNumberVector
 ---@field modifier_num_patterns DFNumberVector for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product df.creature_raw.T_hive_product
----@field source_hfid number References: `historical_figure`
+---@field source_hfid number References: `df.historical_figure`
 ---@field unk_v4201_1 number
 ---@field next_modifier_id number
 ---@field raws DFStringVector
@@ -2916,7 +2916,7 @@ df.tissue_flags = {}
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field relative_thickness number
 ---@field healing_rate number
@@ -2968,7 +2968,7 @@ function _tissue_template_flags:erase(index) end
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field relative_thickness number
 ---@field healing_rate number

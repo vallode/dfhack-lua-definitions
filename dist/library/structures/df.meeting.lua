@@ -61,8 +61,8 @@ function df.dipscript_text:new() end
 
 ---@class (exact) df.dipscript_popup: DFStruct
 ---@field _type identity.dipscript_popup
----@field meeting_holder_actor number bay12: actor_unid References: `unit`
----@field meeting_holder_noble number bay12: noble_unid References: `unit`
+---@field meeting_holder_actor number bay12: actor_unid<br>References: `df.unit`
+---@field meeting_holder_noble number bay12: noble_unid<br>References: `df.unit`
 ---@field activity df.activity_info bay12: act
 ---@field flags df.dipscript_popup.T_flags
 ---@field moment_time_left number
@@ -365,10 +365,10 @@ function df.meeting_variable:new() end
 
 ---@class (exact) df.meeting_diplomat_info: DFStruct
 ---@field _type identity.meeting_diplomat_info
----@field civ_id number References: `historical_entity`
+---@field civ_id number References: `df.historical_entity`
 ---@field unk1 number maybe is_first_contact
----@field diplomat_id number References: `historical_figure`
----@field associate_id number References: `historical_figure`
+---@field diplomat_id number References: `df.historical_figure`
+---@field associate_id number References: `df.historical_figure`
 ---@field topic_list _meeting_diplomat_info_topic_list
 ---@field topic_parms DFNumberVector
 ---@field sell_requests df.entity_sell_requests
@@ -560,9 +560,9 @@ function df.meeting_event:new() end
 ---@class (exact) df.activity_info: DFStruct
 ---@field _type identity.activity_info
 ---@field id number bay12: save_index; assigned during Save
----@field unit_actor number bay12: actor_unid; diplomat or worker References: `unit`
----@field unit_noble number bay12: target_unid; meeting recipient References: `unit`
----@field place number bay12: civzone_id References: `building`
+---@field unit_actor number bay12: actor_unid; diplomat or worker<br>References: `df.unit`
+---@field unit_noble number bay12: target_unid; meeting recipient<br>References: `df.unit`
+---@field place number bay12: civzone_id<br>References: `df.building`
 ---@field flags df.activity_info.T_flags
 ---@field worstroomrank number
 ---@field delay number bay12: discusscount
@@ -685,7 +685,7 @@ df.activity_entry_type = {}
 ---@field type df.activity_entry_type
 ---@field events _activity_entry_events
 ---@field next_event_id number
----@field army_controller number References: `army_controller`
+---@field army_controller number References: `df.army_controller`
 
 ---@class identity.activity_entry: DFCompoundType
 ---@field _kind 'struct-type'
@@ -814,7 +814,7 @@ df.activity_event_type = {}
 ---@field units DFNumberVector
 ---@field free_histfigs DFNumberVector Seemingly units that are free to be grouped<br>away into subevents or sparring pairs.
 ---@field free_units DFNumberVector
----@field activity_id number Holder event References: `activity_entry`
+---@field activity_id number Holder event<br>References: `df.activity_entry`
 ---@field event_id number
 
 ---@class identity.activity_event_participants: DFCompoundType
@@ -876,8 +876,8 @@ df.activity_event_building_role_type = {}
 ---@class (exact) df.activity_event: DFStruct
 ---@field _type identity.activity_event
 ---@field event_id number bay12: local_id; mostly, but not always, the index in activity.events
----@field activity_id number bay12: source_activity_id References: `activity_entry`
----@field parent_event_id number bay12: source_activity_event_id References: `activity_event`
+---@field activity_id number bay12: source_activity_id<br>References: `df.activity_entry`
+---@field parent_event_id number bay12: source_activity_event_id<br>References: `df.activity_event`
 ---@field flags df.activity_event.T_flags
 ---@field item _activity_event_item
 ---@field building _activity_event_building
@@ -1029,9 +1029,9 @@ function df.activity_event_training_sessionst:new() end
 ---@class (exact) df.activity_event_combat_trainingst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_combat_trainingst
 ---@field participants df.activity_event_participants
----@field building_id number References: `building`
----@field hist_figure_id number References: `historical_figure`
----@field unit_id number References: `unit`
+---@field building_id number References: `df.building`
+---@field hist_figure_id number References: `df.historical_figure`
+---@field unit_id number References: `df.unit`
 ---@field organize_counter number gt 0 => organizing, lt 0 => done
 
 ---@class identity.activity_event_combat_trainingst: DFCompoundType
@@ -1044,9 +1044,9 @@ function df.activity_event_combat_trainingst:new() end
 ---@class (exact) df.activity_event_skill_demonstrationst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_skill_demonstrationst
 ---@field participants df.activity_event_participants
----@field building_id number References: `building`
----@field hist_figure_id number References: `historical_figure`
----@field unit_id number References: `unit`
+---@field building_id number References: `df.building`
+---@field hist_figure_id number References: `df.historical_figure`
+---@field unit_id number References: `df.unit`
 ---@field skill df.job_skill
 ---@field organize_counter number
 ---@field wait_countdown number
@@ -1063,7 +1063,7 @@ function df.activity_event_skill_demonstrationst:new() end
 ---@class (exact) df.activity_event_individual_skill_drillst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_individual_skill_drillst
 ---@field participants df.activity_event_participants
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 ---@field countdown number
 
 ---@class identity.activity_event_individual_skill_drillst: DFCompoundType
@@ -1076,7 +1076,7 @@ function df.activity_event_individual_skill_drillst:new() end
 ---@class (exact) df.activity_event_sparringst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_sparringst
 ---@field participants df.activity_event_participants
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 ---@field groups _activity_event_sparringst_groups
 ---@field countdown number
 
@@ -1106,7 +1106,7 @@ function _activity_event_sparringst_groups:erase(index) end
 ---@class (exact) df.activity_event_ranged_practicest: DFStruct, df.activity_event
 ---@field _type identity.activity_event_ranged_practicest
 ---@field participants df.activity_event_participants
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 
 ---@class identity.activity_event_ranged_practicest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1291,8 +1291,8 @@ df.conversation_menu = {}
 ---@field unk_8 DFNumberVector
 ---@field unk_b4 df.activity_event_conversationst.T_unk_b4
 ---@field turns _activity_event_conversationst_turns
----@field floor_holder number -1 = no one's turn References: `unit`
----@field floor_holder_hfid number -1 = no one's turn References: `historical_figure`
+---@field floor_holder number -1 = no one's turn<br>References: `df.unit`
+---@field floor_holder_hfid number -1 = no one's turn<br>References: `df.historical_figure`
 ---@field pause number ticks since the last turn
 ---@field flags2 df.activity_event_conversationst.T_flags2
 ---@field unk2 df.activity_event_conversationst.T_unk2
@@ -1516,11 +1516,11 @@ function df.activity_event_reunionst:new() end
 ---@class (exact) df.activity_event_prayerst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_prayerst
 ---@field participants df.activity_event_participants
----@field histfig_id number deity References: `historical_figure`
+---@field histfig_id number deity<br>References: `df.historical_figure`
 ---@field topic df.sphere_type -1 when praying
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
----@field building_id number References: `building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
+---@field building_id number References: `df.building`
 ---@field timer number
 
 ---@class identity.activity_event_prayerst: DFCompoundType
@@ -1533,8 +1533,8 @@ function df.activity_event_prayerst:new() end
 ---@class (exact) df.activity_event_socializest: DFStruct, df.activity_event
 ---@field _type identity.activity_event_socializest
 ---@field participants df.activity_event_participants
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 ---@field building_id number
 ---@field unk_1 number
 
@@ -1548,8 +1548,8 @@ function df.activity_event_socializest:new() end
 ---@class (exact) df.activity_event_worshipst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_worshipst
 ---@field participants df.activity_event_participants
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 ---@field building_id number
 ---@field unk_1 number
 
@@ -1616,11 +1616,11 @@ df.performance_participant_type = {}
 ---@field _type identity.activity_event_performancest
 ---@field participants df.activity_event_participants
 ---@field type df.performance_event_type
----@field event number used for story References: `history_event`
----@field written_content_id number References: `written_content`
----@field poetic_form number References: `poetic_form`
----@field music_form number References: `musical_form`
----@field dance_form number References: `dance_form`
+---@field event number used for story<br>References: `df.history_event`
+---@field written_content_id number References: `df.written_content`
+---@field poetic_form number References: `df.poetic_form`
+---@field music_form number References: `df.musical_form`
+---@field dance_form number References: `df.dance_form`
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
@@ -1730,8 +1730,8 @@ function _performance_play_orderst_unk_4:erase(index) end
 ---@class (exact) df.activity_event_researchst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_researchst
 ---@field participants df.activity_event_participants
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 ---@field building_id number
 
 ---@class identity.activity_event_researchst: DFCompoundType
@@ -1744,8 +1744,8 @@ function df.activity_event_researchst:new() end
 ---@class (exact) df.activity_event_ponder_topicst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_ponder_topicst
 ---@field participants df.activity_event_participants
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 ---@field building_id number
 ---@field unk_1 number
 ---@field knowledge df.knowledge_scholar_category_flag
@@ -1761,14 +1761,14 @@ function df.activity_event_ponder_topicst:new() end
 ---@class (exact) df.activity_event_discuss_topicst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_discuss_topicst
 ---@field participants df.activity_event_participants
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 ---@field building_id number
 ---@field unk_1 number
 ---@field knowledge df.knowledge_scholar_category_flag
 ---@field timer number
 ---@field unk_2 number
----@field unk_3 number References: `historical_figure`
+---@field unk_3 number References: `df.historical_figure`
 
 ---@class identity.activity_event_discuss_topicst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1781,8 +1781,8 @@ function df.activity_event_discuss_topicst:new() end
 ---@field _type identity.activity_event_readst
 ---@field participants df.activity_event_participants
 ---@field building_id number
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 ---@field state number 0 if not in progress, 1 if reading
 ---@field timer number
 
@@ -1795,9 +1795,9 @@ function df.activity_event_readst:new() end
 
 ---@class (exact) df.activity_event_fill_service_orderst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_fill_service_orderst
----@field histfig_id number References: `historical_figure`
----@field unit_id number References: `unit`
----@field occupation_id number References: `occupation`
+---@field histfig_id number References: `df.historical_figure`
+---@field unit_id number References: `df.unit`
+---@field occupation_id number References: `df.occupation`
 ---@field unk_1 number
 
 ---@class identity.activity_event_fill_service_orderst: DFCompoundType
@@ -1846,8 +1846,8 @@ df.activity_event_writest.T_mode = {}
 
 ---@class (exact) df.activity_event_copy_written_contentst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_copy_written_contentst
----@field unit_id number References: `unit`
----@field histfig_id number References: `historical_figure`
+---@field unit_id number References: `df.unit`
+---@field histfig_id number References: `df.historical_figure`
 ---@field occupation_id number
 ---@field building_id number
 ---@field site_id number
@@ -2016,7 +2016,7 @@ function _activity_event_encounterst_unk_2:erase(index) end
 ---@field _type identity.activity_event_store_objectst
 ---@field unk_1 number
 ---@field unk_2 df.coord
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 ---@field unk_3 number
 ---@field unk_4 number
 

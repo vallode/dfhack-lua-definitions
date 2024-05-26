@@ -1599,8 +1599,8 @@ df.unit_command_flags = {}
 ---@class (exact) df.command: DFStruct
 ---@field _type identity.command
 ---@field type df.command_type
----@field commander_unid number References: `unit`
----@field command_hfid number References: `historical_figure`
+---@field commander_unid number References: `df.unit`
+---@field command_hfid number References: `df.historical_figure`
 ---@field flags df.command_flags following field not saved:
 ---@field pos df.coord following field saved if first field is 0
 
@@ -1627,7 +1627,7 @@ df.unit_active_animation_flags = {}
 ---@field custom_profession string
 ---@field profession df.profession
 ---@field profession2 df.profession
----@field race number References: `creature_raw`
+---@field race number References: `df.creature_raw`
 ---@field pos df.coord
 ---@field idle_area df.coord E.g. for a dead miner, holds the place where he<br>was likely hanging around when he got the command<br>to mine in an aquifer.
 ---@field idle_area_threshold number
@@ -1639,17 +1639,17 @@ df.unit_active_animation_flags = {}
 ---@field flags3 df.unit_flags3
 ---@field flags4 df.unit_flags4
 ---@field meeting df.unit.T_meeting
----@field caste number References: `caste_raw`
+---@field caste number References: `df.caste_raw`
 ---@field sex df.pronoun_type
 ---@field id number
 ---@field millpref df.mill_pref_type
 ---@field training_level df.animal_training_level
----@field schedule_id number References: `schedule_info`
----@field civ_id number References: `historical_entity`
----@field population_id number References: `entity_population`
+---@field schedule_id number References: `df.schedule_info`
+---@field civ_id number References: `df.historical_entity`
+---@field population_id number References: `df.entity_population`
 ---@field breed_id number
----@field cultural_identity number References: `cultural_identity`
----@field invasion_id number References: `invasion_info`
+---@field cultural_identity number References: `df.cultural_identity`
+---@field invasion_id number References: `df.invasion_info`
 ---@field patrol_route df.coord_path used by necromancers for corpse locations, siegers etc
 ---@field patrol_index number from 23a
 ---@field specific_refs _unit_specific_refs
@@ -1665,11 +1665,11 @@ df.unit_active_animation_flags = {}
 ---@field moodstage df.mood_stage_type
 ---@field pregnancy_timer number
 ---@field pregnancy_genes df.unit_genes genes from mate
----@field pregnancy_caste number caste of mate References: `caste_raw`
----@field pregnancy_spouse number References: `historical_figure`
+---@field pregnancy_caste number caste of mate<br>References: `df.caste_raw`
+---@field pregnancy_spouse number References: `df.historical_figure`
 ---@field mood_copy df.mood_type copied from mood type upon entering strange mood
 ---@field ghost_info df.unit_ghost_info
----@field disturbed_heid number References: `historical_entity`
+---@field disturbed_heid number References: `df.historical_entity`
 ---@field birth_year number
 ---@field birth_time number
 ---@field curse_year number bay12: frozen_age_year
@@ -1697,8 +1697,8 @@ df.unit_active_animation_flags = {}
 ---@field curse df.unit.T_curse
 ---@field counters2 df.unit.T_counters2
 ---@field status df.unit.T_status
----@field hist_figure_id number References: `historical_figure`
----@field hist_figure_id2 number bay12: physical_hfid: used for ghost in AttackedByDead thought References: `historical_figure`
+---@field hist_figure_id number References: `df.historical_figure`
+---@field hist_figure_id2 number bay12: physical_hfid: used for ghost in AttackedByDead thought<br>References: `df.historical_figure`
 ---@field status2 df.unit.T_status2
 ---@field syndrome_advancement df.unit.T_syndrome_advancement
 ---@field syndromes df.unit.T_syndromes
@@ -1773,7 +1773,7 @@ function df.unit.T_path:new() end
 ---@class (exact) df.unit.T_meeting: DFStruct
 ---@field _type identity.unit.meeting
 ---@field state df.unit.T_meeting.T_state
----@field target_entity number References: `historical_entity`
+---@field target_entity number References: `df.historical_entity`
 ---@field target_role df.entity_position_responsibility
 
 ---@class identity.unit.meeting: DFCompoundType
@@ -1834,7 +1834,7 @@ function _unit_general_refs:erase(index) end
 
 ---@class (exact) df.unit.T_military: DFStruct
 ---@field _type identity.unit.military
----@field squad_id number References: `squad`
+---@field squad_id number References: `df.squad`
 ---@field squad_position number
 ---@field patrol_cooldown number
 ---@field patrol_timer number
@@ -1878,7 +1878,7 @@ function df.unit.T_animal:new() end
 
 ---@class (exact) df.unit.T_opponent: DFStruct
 ---@field _type identity.unit.opponent
----@field unit_id number This was used by a vampire scared of cave creatures and doing FleeFromOpponent panic References: `unit`
+---@field unit_id number This was used by a vampire scared of cave creatures and doing FleeFromOpponent panic<br>References: `df.unit`
 ---@field unit_pos df.coord
 ---@field timer number
 
@@ -1936,7 +1936,7 @@ function _unit_owned_buildings:erase(index) end
 ---@field move_momentum_dir number
 ---@field gait_buildup number bay12: move_momentum_perc
 ---@field climb_hold df.coord
----@field hold_itid number References: `item`
+---@field hold_itid number References: `df.item`
 ---@field current_job df.job df_job
 ---@field mood_skill df.job_skill can be uninitialized for children and animals
 ---@field mood_timeout number counts down from 50000, insanity upon reaching zero
@@ -2045,7 +2045,7 @@ function _unit_actions:erase(index) end
 ---@field job_counter number // 53c decrements every job_counter reroll, set when changing jobs
 ---@field swap_counter number // 540 current_job unit/walk done when reach -1, decremented every tick
 ---@field death_cause df.death_type
----@field death_id number References: `incident`
+---@field death_id number References: `df.incident`
 ---@field winded number
 ---@field stunned number
 ---@field unconscious number // 54c decrements every tick, unstun at 0
@@ -2338,7 +2338,7 @@ function _unit_status_commands:erase(index) end
 ---@field add_path_flags df.pathfinding_flags bay12: override_permit; pathing flags to OR, set to None after move
 ---@field liquid_type df.tile_designation
 ---@field liquid_depth integer
----@field histeventcol_id number linked to an active invasion or kidnapping References: `history_event_collection`
+---@field histeventcol_id number linked to an active invasion or kidnapping<br>References: `df.history_event_collection`
 
 ---@class identity.unit.status2: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2439,10 +2439,10 @@ function _unit_used_items:erase(index) end
 ---@field _type identity.unit.enemy
 ---@field sound_cooldown DFNumberVector
 ---@field undead DFPointer<integer> svector((int32_t)) sound_timer
----@field were_race number unit_active_animation *active_animation References: `creature_raw`
----@field were_caste number transform_race References: `caste_raw`
----@field normal_race number transform_caste References: `creature_raw`
----@field normal_caste number birth_race References: `caste_raw`
+---@field were_race number unit_active_animation *active_animation<br>References: `df.creature_raw`
+---@field were_caste number transform_race<br>References: `df.caste_raw`
+---@field normal_race number transform_caste<br>References: `df.creature_raw`
+---@field normal_caste number birth_race<br>References: `df.caste_raw`
 ---@field interaction number birth_caste
 ---@field appearances _unit_enemy_appearances retraction_body_action_index (???)
 ---@field witness_reports _unit_enemy_witness_reports svector((physical_formst *)) physical_form
@@ -2454,7 +2454,7 @@ function _unit_used_items:erase(index) end
 ---@field sr_walker DFPointer<integer>
 ---@field fallback_candidate_squad_enid number
 ---@field fallback_candidate_squad_epp_id number probably references a historical_entity
----@field army_controller_id number probably references a entity_position_assignment References: `army_controller`
+---@field army_controller_id number probably references a entity_position_assignment<br>References: `df.army_controller`
 ---@field army_controller df.army_controller
 ---@field army_info DFPointer<integer>
 ---@field animal_pre_bond_unid DFNumberVector
@@ -2616,20 +2616,20 @@ df.witness_report_flags = {}
 
 ---@class (exact) df.witness_incidentst: DFStruct
 ---@field _type identity.witness_incidentst
----@field incident_id number References: `incident`
----@field crime_id number References: `crime`
+---@field incident_id number References: `df.incident`
+---@field crime_id number References: `df.crime`
 ---@field type df.witness_type
 ---@field year number
 ---@field year_tick number
 ---@field flags df.witness_report_flags
----@field relevant_hfid number this looks like it "should be" two structures of the same type, but they're flat in bay12 code References: `historical_figure`
----@field relevant_visual_hfid number References: `historical_figure`
----@field relevant_historical_hfid number References: `historical_figure`
----@field relevant_ident_id number References: `identity`
----@field ic_hfid number References: `historical_figure`
----@field ic_visual_hfid number References: `historical_figure`
----@field ic_historical_hfid number References: `historical_figure`
----@field ic_ident_id number References: `identity`
+---@field relevant_hfid number this looks like it "should be" two structures of the same type, but they're flat in bay12 code<br>References: `df.historical_figure`
+---@field relevant_visual_hfid number References: `df.historical_figure`
+---@field relevant_historical_hfid number References: `df.historical_figure`
+---@field relevant_ident_id number References: `df.identity`
+---@field ic_hfid number References: `df.historical_figure`
+---@field ic_visual_hfid number References: `df.historical_figure`
+---@field ic_historical_hfid number References: `df.historical_figure`
+---@field ic_ident_id number References: `df.identity`
 ---@field pos df.coord
 
 ---@class identity.witness_incidentst: DFCompoundType
@@ -2694,9 +2694,9 @@ function df.unit_ghost_info:new() end
 
 ---@class (exact) df.unit_ghost_info.T_target: DFStruct
 ---@field _type identity.unit_ghost_info.target
----@field unit number References: `unit`
----@field item number References: `item`
----@field building number References: `building`
+---@field unit number References: `df.unit`
+---@field item number References: `df.item`
+---@field building number References: `df.building`
 
 ---@class identity.unit_ghost_info.target: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2803,7 +2803,7 @@ function df.unit_attribute:new() end
 
 ---@class (exact) df.unit_syndrome: DFStruct
 ---@field _type identity.unit_syndrome
----@field type number References: `syndrome`
+---@field type number References: `df.syndrome`
 ---@field year number
 ---@field year_time number
 ---@field ticks number
@@ -3045,10 +3045,10 @@ df.wound_damage_flags2 = {}
 ---@field id number
 ---@field parts _unit_wound_parts
 ---@field age number
----@field attacker_unit_id number References: `unit`
----@field attacker_hist_figure_id number References: `historical_figure`
+---@field attacker_unit_id number References: `df.unit`
+---@field attacker_hist_figure_id number References: `df.historical_figure`
 ---@field flags df.unit_wound.T_flags
----@field syndrome_id number References: `syndrome`
+---@field syndrome_id number References: `df.syndrome`
 ---@field pain number
 ---@field nausea number
 ---@field dizziness number
@@ -3149,8 +3149,8 @@ function df.curse_attr_change:new() end
 ---@field unk_v42_2 number
 ---@field interaction_id DFNumberVector
 ---@field timing df.wound_curse_info.T_timing
----@field were_race number References: `creature_raw`
----@field were_caste number References: `caste_raw`
+---@field were_race number References: `df.creature_raw`
+---@field were_caste number References: `df.caste_raw`
 ---@field body_appearance DFNumberVector
 ---@field bp_appearance DFNumberVector
 
@@ -3336,13 +3336,13 @@ function df.unit_misc_trait:new() end
 
 ---@class (exact) df.unit_item_wrestle: DFStruct
 ---@field _type identity.unit_item_wrestle
----@field unit number References: `unit`
+---@field unit number References: `df.unit`
 ---@field self_bp number
 ---@field other_bp number
 ---@field unk_c number
 ---@field unk_10 number
----@field item1 number References: `item`
----@field item2 number References: `item`
+---@field item1 number References: `df.item`
+---@field item2 number References: `df.item`
 ---@field unk_1c number
 ---@field unk_1e number 1 grabs, -1 grabbed
 ---@field unk_20 number
@@ -3356,7 +3356,7 @@ function df.unit_item_wrestle:new() end
 
 ---@class (exact) df.unit_item_use: DFStruct
 ---@field _type identity.unit_item_use
----@field id number References: `item`
+---@field id number References: `df.item`
 ---@field time_in_use number
 ---@field has_grown_attached number
 ---@field affection_level number min 50 for attached, 1000 for name
@@ -3466,7 +3466,7 @@ df.unit_bp_health_flags = {}
 
 ---@class (exact) df.unit_health_info: DFStruct
 ---@field _type identity.unit_health_info
----@field unit_id number References: `unit`
+---@field unit_id number References: `df.unit`
 ---@field flags df.unit_health_flags
 ---@field body_part_flags _unit_health_info_body_part_flags
 ---@field try_for_cast_cntdn number
@@ -3563,9 +3563,9 @@ df.orientation_flags = {}
 ---@field _type identity.unit_soul
 ---@field id number
 ---@field name df.language_name
----@field race integer References: `creature_raw`
+---@field race integer References: `df.creature_raw`
 ---@field sex df.pronoun_type
----@field caste integer References: `caste_raw`
+---@field caste integer References: `df.caste_raw`
 ---@field orientation_flags df.orientation_flags
 ---@field unk2 number
 ---@field unk3 number
@@ -3764,8 +3764,8 @@ df.personality_moodst.T_flags = {}
 ---@field next_dream_id number
 ---@field unk_v40_6 _unit_personality_unk_v40_6
 ---@field traits DFEnumVector<df.personality_facet_type, integer>
----@field civ_id number References: `historical_entity`
----@field cultural_identity number References: `cultural_identity`
+---@field civ_id number References: `df.historical_entity`
+---@field cultural_identity number References: `df.cultural_identity`
 ---@field mannerism _unit_personality_mannerism
 ---@field habit DFNumberVector
 ---@field stress number
@@ -4137,9 +4137,9 @@ df.unit_action_data_move.T_flags = {}
 
 ---@class (exact) df.unit_action_data_attack: DFStruct
 ---@field _type identity.unit_action_data_attack
----@field target_unit_id number References: `unit`
+---@field target_unit_id number References: `df.unit`
 ---@field unk_4 df.unit_action_data_attack.T_unk_4
----@field attack_item_id number References: `item`
+---@field attack_item_id number References: `df.item`
 ---@field target_body_part_id number
 ---@field attack_body_part_id number
 ---@field attack_id number refers to weapon_attack or caste_attack
@@ -4342,8 +4342,8 @@ function df.unit_action_data_job:new() end
 ---@class (exact) df.unit_action_data_talk: DFStruct
 ---@field _type identity.unit_action_data_talk
 ---@field unk_0 number
----@field activity_id number References: `activity_entry`
----@field activity_event_idx number References: `activity_event`
+---@field activity_id number References: `df.activity_entry`
+---@field activity_event_idx number References: `df.activity_event`
 ---@field event df.entity_event
 ---@field unk_34 number
 ---@field timer number
@@ -4375,9 +4375,9 @@ function df.unit_action_data_unsteady:new() end
 
 ---@class (exact) df.unit_action_data_parry: DFStruct
 ---@field _type identity.unit_action_data_parry
----@field unit_id number References: `unit`
----@field target_action number References: `unit_action`
----@field parry_item_id number References: `item`
+---@field unit_id number References: `df.unit`
+---@field target_action number References: `df.unit_action`
+---@field parry_item_id number References: `df.item`
 
 ---@class identity.unit_action_data_parry: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4388,9 +4388,9 @@ function df.unit_action_data_parry:new() end
 
 ---@class (exact) df.unit_action_data_block: DFStruct
 ---@field _type identity.unit_action_data_block
----@field unit_id number References: `unit`
----@field target_action number References: `unit_action`
----@field block_item_id number References: `item`
+---@field unit_id number References: `df.unit`
+---@field target_action number References: `df.unit_action`
+---@field block_item_id number References: `df.item`
 
 ---@class identity.unit_action_data_block: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4484,7 +4484,7 @@ function df.unit_action_data_push_object:new() end
 
 ---@class (exact) df.unit_action_data_suck_blood: DFStruct
 ---@field _type identity.unit_action_data_suck_blood
----@field unit_id number References: `unit`
+---@field unit_id number References: `df.unit`
 ---@field timer number
 
 ---@class identity.unit_action_data_suck_blood: DFCompoundType
@@ -4592,15 +4592,15 @@ function df.unit_skill:new() end
 ---@field _type identity.unit_preference
 ---@field type df.unit_preference.T_type
 ---@field item_type df.item_type
----@field creature_id number References: `creature_raw`
----@field color_id number References: `descriptor_color`
----@field shape_id number References: `descriptor_shape`
----@field plant_id number References: `plant_raw`
----@field poetic_form_id number References: `poetic_form`
----@field musical_form_id number References: `musical_form`
----@field dance_form_id number References: `dance_form`
+---@field creature_id number References: `df.creature_raw`
+---@field color_id number References: `df.descriptor_color`
+---@field shape_id number References: `df.descriptor_shape`
+---@field plant_id number References: `df.plant_raw`
+---@field poetic_form_id number References: `df.poetic_form`
+---@field musical_form_id number References: `df.musical_form`
+---@field dance_form_id number References: `df.dance_form`
 ---@field item_subtype number
----@field mattype number References: `material`
+---@field mattype number References: `df.material`
 ---@field matindex number
 ---@field mat_state df.matter_state
 ---@field active boolean
@@ -4668,9 +4668,9 @@ function df.unit_complaint:new() end
 
 ---@class (exact) df.unit_parley: DFStruct
 ---@field _type identity.unit_parley
----@field invasion number References: `invasion_info`
----@field speaker number References: `unit`
----@field artifact number References: `artifact_record`
+---@field invasion number References: `df.invasion_info`
+---@field speaker number References: `df.unit`
+---@field artifact number References: `df.artifact_record`
 ---@field flags df.unit_parley.T_flags
 
 ---@class identity.unit_parley: DFCompoundType
@@ -4717,7 +4717,7 @@ df.unit_request.T_type = {}
 
 ---@class (exact) df.unit_coin_debt: DFStruct
 ---@field _type identity.unit_coin_debt
----@field recipient number References: `unit`
+---@field recipient number References: `df.unit`
 ---@field amount number
 
 ---@class identity.unit_coin_debt: DFCompoundType

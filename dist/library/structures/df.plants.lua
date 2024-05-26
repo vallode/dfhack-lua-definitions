@@ -19,14 +19,14 @@ df.plant_flags = {}
 ---@class (exact) df.plant: DFStruct
 ---@field _type identity.plant
 ---@field flags df.plant_flags
----@field material number References: `plant_raw`
+---@field material number References: `df.plant_raw`
 ---@field pos df.coord
 ---@field grow_counter number
 ---@field damage_flags df.plant.T_damage_flags
 ---@field hitpoints number
 ---@field update_order number
----@field site_id number References: `world_site`
----@field srb_id number References: `site_realization_building`
+---@field site_id number References: `df.world_site`
+---@field srb_id number References: `df.site_realization_building`
 ---@field contaminants _plant_contaminants
 ---@field tree_info df.plant_tree_info Sapling if NULL
 

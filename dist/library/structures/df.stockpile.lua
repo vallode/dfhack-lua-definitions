@@ -1223,7 +1223,7 @@ function _hauling_route_stops:erase(index) end
 ---@field conditions _hauling_stop_conditions
 ---@field stockpiles _hauling_stop_stockpiles
 ---@field time_waiting number
----@field cart_id number References: `item`
+---@field cart_id number References: `df.item`
 
 ---@class identity.hauling_stop: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1327,7 +1327,7 @@ df.stop_depart_condition.T_flags = {}
 
 ---@class (exact) df.route_stockpile_link: DFStruct
 ---@field _type identity.route_stockpile_link
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 ---@field mode df.route_stockpile_link.T_mode
 
 ---@class identity.route_stockpile_link: DFCompoundType
@@ -1354,7 +1354,7 @@ df.route_stockpile_link.T_mode = {}
 ---@class (exact) df.vehicle: DFStruct
 ---@field _type identity.vehicle
 ---@field id number
----@field item_id number References: `item`
+---@field item_id number References: `df.item`
 ---@field offset_x number Position within tile
 ---@field offset_y number
 ---@field offset_z number
@@ -1365,7 +1365,7 @@ df.route_stockpile_link.T_mode = {}
 ---@field fine_y_gain_vel number
 ---@field fine_z_gain_vel number
 ---@field flag df.vehicle.T_flag
----@field route_id number References: `hauling_route`
+---@field route_id number References: `df.hauling_route`
 ---@field last_dump df.coord
 ---@field time_stopped number bay12: zero_vel_count; frames, up to 1000
 

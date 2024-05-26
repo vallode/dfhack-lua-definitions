@@ -18,7 +18,7 @@ df.mission_type = {}
 ---@class (exact) df.invasion_info: DFStruct
 ---@field _type identity.invasion_info
 ---@field id number
----@field civ_id number References: `historical_entity`
+---@field civ_id number References: `df.historical_entity`
 ---@field active_size1 number 0 unless active
 ---@field active_size2 number
 ---@field size number
@@ -29,7 +29,7 @@ df.mission_type = {}
 ---@field parley_season_count number
 ---@field refused_demand_start_year number
 ---@field refused_demand_start_season_count number
----@field origin_master_army_controller_id number References: `army_controller`
+---@field origin_master_army_controller_id number References: `df.army_controller`
 
 ---@class identity.invasion_info: DFCompoundType
 ---@field _kind 'struct-type'
@@ -150,10 +150,10 @@ function _entity_population_unk4_unk_3:erase(index) end
 ---@field unk3 DFNumberVector Set only for cave civs. When set, >= counts. Pre first embark all those are equal
 ---@field unk4 _entity_population_unk4
 ---@field unk5 number
----@field layer_id number References: `world_underground_region`
+---@field layer_id number References: `df.world_underground_region`
 ---@field id number
 ---@field flags number ?; layer_id == -1
----@field civ_id number References: `historical_entity`
+---@field civ_id number References: `df.historical_entity`
 
 ---@class identity.entity_population: DFCompoundType
 ---@field _kind 'struct-type'
@@ -237,12 +237,12 @@ df.nemesis_flags = {}
 ---@class (exact) df.nemesis_record: DFStruct
 ---@field _type identity.nemesis_record
 ---@field id number sequential index in the array
----@field unit_id number References: `unit`
----@field save_file_id number unit-*.dat References: `unit_chunk`
+---@field unit_id number References: `df.unit`
+---@field save_file_id number unit-*.dat<br>References: `df.unit_chunk`
 ---@field member_idx number index in the file
 ---@field figure df.historical_figure
 ---@field unit df.unit
----@field group_leader_id number References: `nemesis_record`
+---@field group_leader_id number References: `df.nemesis_record`
 ---@field companions DFNumberVector
 ---@field activeplotindex number
 ---@field travel_link_nemid number
@@ -293,20 +293,20 @@ function _nemesis_record_flags:erase(index) end
 ---@field abs_tile_y number
 ---@field abs_tile_z number
 ---@field unk_1 number
----@field site number References: `world_site`
----@field structure_local number References: `abstract_building`
+---@field site number References: `df.world_site`
+---@field structure_local number References: `df.abstract_building`
 ---@field unk_2 number
----@field subregion number References: `world_region`
----@field feature_layer number References: `world_underground_region`
----@field owner_hf number namer/creator does not seem to require a claim to be shown References: `historical_figure`
+---@field subregion number References: `df.world_region`
+---@field feature_layer number References: `df.world_underground_region`
+---@field owner_hf number namer/creator does not seem to require a claim to be shown<br>References: `df.historical_figure`
 ---@field remote_claims DFNumberVector all afar, heirloom from afar seen
 ---@field entity_claims DFNumberVector
 ---@field direct_claims DFNumberVector
----@field storage_site number References: `world_site`
----@field storage_structure_local number References: `abstract_building`
----@field loss_region number References: `world_region`
+---@field storage_site number References: `df.world_site`
+---@field storage_structure_local number References: `df.abstract_building`
+---@field loss_region number References: `df.world_region`
 ---@field unk_3 number
----@field holder_hf number doesn't seem to require a claim References: `historical_figure`
+---@field holder_hf number doesn't seem to require a claim<br>References: `df.historical_figure`
 ---@field year number seems to be current year or -1
 ---@field unk_4 number
 ---@field unk_5 number Small set of non zero fairly small numbers seen?
@@ -346,10 +346,10 @@ function _artifact_record_flags:erase(index) end
 ---@class (exact) df.artifact_rumor_locationst: DFStruct
 ---@field _type identity.artifact_rumor_locationst
 ---@field art df.artifact_record
----@field stid number References: `world_site`
+---@field stid number References: `df.world_site`
 ---@field abid number abstract building id at site
----@field hfid number References: `historical_figure`
----@field srid number References: `world_region`
+---@field hfid number References: `df.historical_figure`
+---@field srid number References: `df.world_region`
 ---@field flid number feature layer id in region
 ---@field latest_year number
 ---@field latest_season_count number

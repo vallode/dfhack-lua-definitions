@@ -76,9 +76,9 @@ function df.art_image_element:new() end
 
 ---@class (exact) df.art_image_element_creaturest: DFStruct, df.art_image_element
 ---@field _type identity.art_image_element_creaturest
----@field race number References: `creature_raw`
+---@field race number References: `df.creature_raw`
 ---@field caste number
----@field histfig number References: `historical_figure`
+---@field histfig number References: `df.historical_figure`
 
 ---@class identity.art_image_element_creaturest: DFCompoundType
 ---@field _kind 'class-type'
@@ -89,7 +89,7 @@ function df.art_image_element_creaturest:new() end
 
 ---@class (exact) df.art_image_element_plantst: DFStruct, df.art_image_element
 ---@field _type identity.art_image_element_plantst
----@field plant_id number References: `plant_raw`
+---@field plant_id number References: `df.plant_raw`
 
 ---@class identity.art_image_element_plantst: DFCompoundType
 ---@field _kind 'class-type'
@@ -100,7 +100,7 @@ function df.art_image_element_plantst:new() end
 
 ---@class (exact) df.art_image_element_treest: DFStruct, df.art_image_element
 ---@field _type identity.art_image_element_treest
----@field plant_id number References: `plant_raw`
+---@field plant_id number References: `df.plant_raw`
 
 ---@class identity.art_image_element_treest: DFCompoundType
 ---@field _kind 'class-type'
@@ -111,7 +111,7 @@ function df.art_image_element_treest:new() end
 
 ---@class (exact) df.art_image_element_shapest: DFStruct, df.art_image_element
 ---@field _type identity.art_image_element_shapest
----@field shape_id number References: `descriptor_shape`
+---@field shape_id number References: `df.descriptor_shape`
 ---@field shape_adj number
 
 ---@class identity.art_image_element_shapest: DFCompoundType
@@ -125,10 +125,10 @@ function df.art_image_element_shapest:new() end
 ---@field _type identity.art_image_element_itemst
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field flags df.item_flags
----@field item_id number for artifacts References: `item`
+---@field item_id number for artifacts<br>References: `df.item`
 
 ---@class identity.art_image_element_itemst: DFCompoundType
 ---@field _kind 'class-type'
@@ -391,19 +391,19 @@ df.art_facet_type = {}
 ---@field _type identity.art_image
 ---@field elements _art_image_elements
 ---@field properties _art_image_properties
----@field event number References: `history_event`
+---@field event number References: `df.history_event`
 ---@field name df.language_name
 ---@field spec_ref_type df.specific_ref_type
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field quality df.item_quality
----@field artist number References: `historical_figure`
----@field site number References: `world_site`
+---@field artist number References: `df.historical_figure`
+---@field site number References: `df.world_site`
 ---@field ref df.general_ref
 ---@field year number
 ---@field season_tick number
----@field id number References: `art_image_chunk`
----@field subid number References: `art_image`
+---@field id number References: `df.art_image_chunk`
+---@field subid number References: `df.art_image`
 
 ---@class identity.art_image: DFCompoundType
 ---@field _kind 'struct-type'
@@ -468,10 +468,10 @@ function df.art_image_chunk.get_vector() end
 -- not actually a real structure
 ---@class (exact) df.art_image_ref: DFStruct
 ---@field _type identity.art_image_ref
----@field id number References: `art_image_chunk`
----@field subid number References: `art_image`
----@field civ_id number References: `historical_entity`
----@field site_id number References: `world_site`
+---@field id number References: `df.art_image_chunk`
+---@field subid number References: `df.art_image`
+---@field civ_id number References: `df.historical_entity`
+---@field site_id number References: `df.world_site`
 
 ---@class identity.art_image_ref: DFCompoundType
 ---@field _kind 'struct-type'
@@ -734,7 +734,7 @@ function df.poetic_form_subject_target:new() end
 
 ---@class (exact) df.poetic_form_subject_target.T_Histfig: DFStruct
 ---@field _type identity.poetic_form_subject_target.Histfig
----@field subject_histfig number References: `historical_figure`
+---@field subject_histfig number References: `df.historical_figure`
 
 ---@class identity.poetic_form_subject_target.Histfig: DFCompoundType
 ---@field _kind 'struct-type'
@@ -888,9 +888,9 @@ df.poetic_form_additional_feature = {}
 ---@field _type identity.poetic_form
 ---@field id number
 ---@field name df.language_name
----@field originating_entity number References: `historical_entity`
----@field original_author number "originating in ..." References: `historical_figure`
----@field subject_hf number "originally devised by ..." References: `historical_figure`
+---@field originating_entity number References: `df.historical_entity`
+---@field original_author number "originating in ..."<br>References: `df.historical_figure`
+---@field subject_hf number "originally devised by ..."<br>References: `df.historical_figure`
 ---@field flags df.poetic_form.T_flags
 ---@field parts _poetic_form_parts
 ---@field each_line_feet number meter
@@ -1744,11 +1744,11 @@ function _musical_form_melodies_intervals:erase(index) end
 ---@field passage_range_end number when doing Synthesis of a range of passages
 ---@field min_number number
 ---@field max_number number
----@field poetic_form_id number References: `poetic_form`
----@field written_content_id number suspect bug in exported legends (and possibly DF itself) as no mentioning of the poems (or any alternative) referenced here were mentioned in the two entries examined References: `written_content`
----@field scale_id number References: `scale`
+---@field poetic_form_id number References: `df.poetic_form`
+---@field written_content_id number suspect bug in exported legends (and possibly DF itself) as no mentioning of the poems (or any alternative) referenced here were mentioned in the two entries examined<br>References: `df.written_content`
+---@field scale_id number References: `df.scale`
 ---@field scale_sub_id number references the scales element of the scale
----@field rhythm_id number References: `rhythm`
+---@field rhythm_id number References: `df.rhythm`
 ---@field sub_rhythm number Guess, based on the pattern above
 ---@field rhythm_pattern number references the patterns element of rhythm
 ---@field instruments DFNumberVector indices into the instruments vector
@@ -1822,7 +1822,7 @@ function _musical_form_passage_melodies:erase(index) end
 
 ---@class (exact) df.musical_form_instruments: DFStruct
 ---@field _type identity.musical_form_instruments
----@field instrument_subtype number -1 = vocal References: `itemdef_instrumentst`
+---@field instrument_subtype number -1 = vocal<br>References: `df.itemdef_instrumentst`
 ---@field substitutions df.musical_form_instruments.T_substitutions
 ---@field features df.musical_form_feature
 ---@field minimum_required number tentative
@@ -1873,8 +1873,8 @@ function df.musical_form_play_orderst:new() end
 ---@field _type identity.musical_form
 ---@field id number
 ---@field name df.language_name
----@field originating_entity number ID of the entity from which the musical form originated. References: `historical_entity`
----@field original_author number historical figure ID of the composer References: `historical_figure`
+---@field originating_entity number ID of the entity from which the musical form originated.<br>References: `df.historical_entity`
+---@field original_author number historical figure ID of the composer<br>References: `df.historical_figure`
 ---@field passages _musical_form_passages
 ---@field instruments _musical_form_instruments
 ---@field melodies _musical_form_melodies
@@ -1882,17 +1882,17 @@ function df.musical_form_play_orderst:new() end
 ---@field tempo_style df.musical_form_style
 ---@field dynamic_style df.musical_form_style
 ---@field overall_style df.musical_form_style
----@field poetic_form_id number References: `poetic_form`
----@field written_content_id number References: `written_content`
----@field scale_id number References: `scale`
+---@field poetic_form_id number References: `df.poetic_form`
+---@field written_content_id number References: `df.written_content`
+---@field scale_id number References: `df.scale`
 ---@field scale_subid number reference to scale_sub2
----@field rhythm_id number References: `rhythm`
+---@field rhythm_id number References: `df.rhythm`
 ---@field sub_rhythm number reference to sub_rhythms
 ---@field rhythm_pattern number reference to patterns
 ---@field features df.musical_form_feature
 ---@field pitch_style df.musical_form_pitch_style
 ---@field purpose df.musical_form_purpose
----@field devotion_target number References: `historical_figure`
+---@field devotion_target number References: `df.historical_figure`
 ---@field flags df.musical_form.T_flags
 
 ---@class identity.musical_form: DFCompoundType
@@ -2450,9 +2450,9 @@ df.dance_form_move_location = {}
 ---@field partner_cue_frequency df.dance_form_partner_cue_frequency
 ---@field partner_changes _dance_form_section_partner_changes
 ---@field dance_flag integer
----@field acts_out_civ number References: `historical_entity`
----@field acts_out_hf_story number References: `historical_figure`
----@field imitate_animal_movement number References: `creature_raw`
+---@field acts_out_civ number References: `df.historical_entity`
+---@field acts_out_hf_story number References: `df.historical_figure`
+---@field imitate_animal_movement number References: `df.creature_raw`
 ---@field type _dance_form_section_type
 ---@field modifier _dance_form_section_modifier
 ---@field parameter DFNumberVector Depends on type (turns are in signed angles, steps are in number of steps, etc.)
@@ -2617,10 +2617,10 @@ function _dance_form_move_location:erase(index) end
 ---@field id number
 ---@field name df.language_name
 ---@field musical_form_id number
----@field music_written_content_id number at most one of this and musical_form_id is non null References: `written_content`
+---@field music_written_content_id number at most one of this and musical_form_id is non null<br>References: `df.written_content`
 ---@field context df.dance_form_context
----@field originating_entity number ID of the entity from which the dance form originated. References: `historical_entity`
----@field original_author number ID of the historical figure who developed the dance form. References: `historical_figure`
+---@field originating_entity number ID of the entity from which the dance form originated.<br>References: `df.historical_entity`
+---@field original_author number ID of the historical figure who developed the dance form.<br>References: `df.historical_figure`
 ---@field flags df.dance_form.T_flags
 ---@field group_size df.dance_form_group_size
 ---@field group_number_min number
@@ -2633,9 +2633,9 @@ function _dance_form_move_location:erase(index) end
 ---@field partner_cue_frequency df.dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
 ---@field partner_changes _dance_form_partner_changes
 ---@field dance_flags df.dance_form.T_dance_flags
----@field entity number Civilization the dance acts out References: `historical_entity`
----@field hfid number Character whose story the dance acts out References: `historical_figure`
----@field race number Creature whose movements are imitated References: `creature_raw`
+---@field entity number Civilization the dance acts out<br>References: `df.historical_entity`
+---@field hfid number Character whose story the dance acts out<br>References: `df.historical_figure`
+---@field race number Creature whose movements are imitated<br>References: `df.creature_raw`
 ---@field move_type _dance_form_move_type
 ---@field move_modifier _dance_form_move_modifier
 ---@field move_parameter DFNumberVector Depends on type (turns are in signed angles, steps are in number of steps, etc.)
@@ -3176,11 +3176,11 @@ df.occupation_type = {}
 ---@field _type identity.occupation
 ---@field id number
 ---@field type df.occupation_type
----@field histfig_id number References: `historical_figure`
----@field unit_id number References: `unit`
----@field location_id number References: `abstract_building`
----@field site_id number References: `world_site`
----@field group_id number References: `historical_entity`
+---@field histfig_id number References: `df.historical_figure`
+---@field unit_id number References: `df.unit`
+---@field location_id number References: `df.abstract_building`
+---@field site_id number References: `df.world_site`
+---@field group_id number References: `df.historical_entity`
 ---@field service_order _occupation_service_order local id vector
 ---@field next_service_order_id number
 ---@field wg_site df.world_site worldgen only

@@ -294,13 +294,13 @@ df.abstract_building_contents.T_need_more = {}
 ---@field flags _abstract_building_flags
 ---@field unk1 DFPointer<integer> in temples; hfig is the god
 ---@field unk2 DFNumberVector
----@field parent_building_id number Tombs use this to hold which catacomb they are part of. References: `abstract_building`
+---@field parent_building_id number Tombs use this to hold which catacomb they are part of.<br>References: `df.abstract_building`
 ---@field child_building_ids DFNumberVector Used by catacombs to hold their tombs
----@field site_owner_id number entity that constructed the building References: `historical_entity`
+---@field site_owner_id number entity that constructed the building<br>References: `df.historical_entity`
 ---@field scribeinfo df.location_scribe_jobs
 ---@field reputation_reports df.site_reputation_info
 ---@field unk_v42_3 DFPointer<integer>
----@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
+---@field site_id number not initialized/saved/loaded, assumed member of base class<br>References: `df.world_site`
 ---@field pos df.coord2d
 ---@field occupations _abstract_building_occupations
 local abstract_building
@@ -433,8 +433,8 @@ df.temple_deity_type = {}
 
 ---@class (exact) df.temple_deity_data: DFStruct
 ---@field _type identity.temple_deity_data
----@field Deity number References: `historical_figure`
----@field Religion number References: `historical_entity`
+---@field Deity number References: `df.historical_figure`
+---@field Religion number References: `df.historical_entity`
 
 ---@class identity.temple_deity_data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -729,10 +729,10 @@ df.lair_type = {}
 ---@field index number
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
 ---@field property_index number index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
----@field unk_hfid number Always same as owner_hfid when set, but not always set when that field is. References: `historical_figure`
----@field owner_entity_id number Mutually exclusive with owner_hfid. All seen were merchant companies. References: `historical_entity`
----@field owner_hfid number References: `historical_figure`
----@field unk_owner_entity_id number Seen only in subset of owner_entity_id case, and always same value References: `historical_entity`
+---@field unk_hfid number Always same as owner_hfid when set, but not always set when that field is.<br>References: `df.historical_figure`
+---@field owner_entity_id number Mutually exclusive with owner_hfid. All seen were merchant companies.<br>References: `df.historical_entity`
+---@field owner_hfid number References: `df.historical_figure`
+---@field unk_owner_entity_id number Seen only in subset of owner_entity_id case, and always same value<br>References: `df.historical_entity`
 
 ---@class identity.property_ownership: DFCompoundType
 ---@field _kind 'struct-type'
@@ -744,7 +744,7 @@ function df.property_ownership:new() end
 -- Cannot rule out the type having additional fields, although the 8 following bytes were all 0 in all cases in the save examined.
 ---@class (exact) df.unit_placement_infost: DFStruct
 ---@field _type identity.unit_placement_infost
----@field unit_id number References: `unit`
+---@field unit_id number References: `df.unit`
 ---@field pos_x number this is a union in bay12 but they're both the same type so why bother
 ---@field pos_y number
 ---@field pos_z number
@@ -1063,8 +1063,8 @@ function df.site_religious_structurest:new() end
 ---@class (exact) df.site_religious_structurest.T_data: DFStruct
 ---@field _type identity.site_religious_structurest.data
 ---@field practice_id number
----@field hfid number References: `historical_figure`
----@field enid number References: `historical_entity`
+---@field hfid number References: `df.historical_figure`
+---@field enid number References: `df.historical_entity`
 
 ---@class identity.site_religious_structurest.data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1227,7 +1227,7 @@ df.location_death_type = {}
 ---@field _type identity.location_death_batchst
 ---@field num number
 ---@field race number
----@field epid number failed to see any connections between these entities and the sites. Might be something else References: `historical_entity`
+---@field epid number failed to see any connections between these entities and the sites. Might be something else<br>References: `df.historical_entity`
 ---@field breed_id number
 ---@field first_year_used number might be start year
 ---@field last_year_used number might be end year
@@ -1278,11 +1278,11 @@ function _location_deathst_batch:erase(index) end
 ---@field unk_14 number
 ---@field unk_18 number
 ---@field unk_1c number
----@field creator number all vaults, no others seen References: `historical_figure`
+---@field creator number all vaults, no others seen<br>References: `df.historical_figure`
 ---@field unk_vault number all vaults, no others seen, always 100
 ---@field tower_seed number all towers, no others. Seed is a guess based on the very large numbers
 ---@field unk_monastery number all monasteries, no others. Only seen '1'
----@field founding_entity number all monasteries, no others References: `historical_entity`
+---@field founding_entity number all monasteries, no others<br>References: `df.historical_entity`
 
 ---@class identity.site_map_infost: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1320,7 +1320,7 @@ df.site_architecture_change_type = {}
 ---@field _type identity.site_architecture_changest
 ---@field type df.site_architecture_change_type
 ---@field NONE number
----@field DOMINANT_ENTITY number References: `historical_entity`
+---@field DOMINANT_ENTITY number References: `df.historical_entity`
 ---@field SRB_RUINED number
 ---@field SRP_RUINED number
 ---@field GENERALIZED_DAMAGE number
@@ -1353,8 +1353,8 @@ function df.wg_site_culture_identity_religious_practicest:new() end
 ---@class (exact) df.wg_site_culture_identity_religious_practicest.T_data: DFStruct
 ---@field _type identity.wg_site_culture_identity_religious_practicest.data
 ---@field practice_id number
----@field hfid number References: `historical_figure`
----@field enid number References: `historical_entity`
+---@field hfid number References: `df.historical_figure`
+---@field enid number References: `df.historical_entity`
 
 ---@class identity.wg_site_culture_identity_religious_practicest.data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1473,8 +1473,8 @@ function _wg_site_culturest_identity:erase(index) end
 ---@class (exact) df.world_site: DFStruct
 ---@field _type identity.world_site
 ---@field name df.language_name
----@field civ_id number References: `historical_entity`
----@field cur_owner_id number References: `historical_entity`
+---@field civ_id number References: `df.historical_entity`
+---@field cur_owner_id number References: `df.historical_entity`
 ---@field type df.world_site_type
 ---@field pos df.coord2d
 ---@field id number
@@ -1836,8 +1836,8 @@ function _world_site_unk_3:erase(index) end
 ---@class (exact) df.cultural_identity: DFStruct
 ---@field _type identity.cultural_identity
 ---@field id number
----@field site_id number References: `world_site`
----@field civ_id number References: `historical_entity`
+---@field site_id number References: `df.world_site`
+---@field civ_id number References: `df.historical_entity`
 ---@field group_log _cultural_identity_group_log the circumstances of groups joining or leaving this culture
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
@@ -1934,14 +1934,14 @@ function _cultural_identity_unk_2:erase(index) end
 ---@class (exact) df.world_site_inhabitant: DFStruct
 ---@field _type identity.world_site_inhabitant
 ---@field count number
----@field race number References: `creature_raw`
----@field population_id number References: `entity_population`
----@field entity_id number can be Religion, Civilization, and SiteGovernment as well as Outcast References: `historical_entity`
+---@field race number References: `df.creature_raw`
+---@field population_id number References: `df.entity_population`
+---@field entity_id number can be Religion, Civilization, and SiteGovernment as well as Outcast<br>References: `df.historical_entity`
 ---@field unk_10 number
----@field cultural_identity_id number References: `cultural_identity`
----@field interaction_id number References: `interaction`
+---@field cultural_identity_id number References: `df.cultural_identity`
+---@field interaction_id number References: `df.interaction`
 ---@field interaction_effect_idx number index into the above interaction, usually refers to an ANIMATE effect
----@field related_entity_id number Founder if outcast_id=-1, else Outcast and equal to outcast_id References: `historical_entity`
+---@field related_entity_id number Founder if outcast_id=-1, else Outcast and equal to outcast_id<br>References: `df.historical_entity`
 ---@field unk_24 number 0 and 1 seen
 ---@field unk_28 number
 
@@ -2166,11 +2166,11 @@ function _world_site_realization_areas:erase(index) end
 
 ---@class (exact) df.world_site_realization.T_unk_193bc: DFStruct
 ---@field _type identity.world_site_realization.unk_193bc
----@field nemesis_id number References: `nemesis_record`
+---@field nemesis_id number References: `df.nemesis_record`
 ---@field unk_1 number
 ---@field unk_8 df.world_site_realization.T_unk_193bc.T_unk_8
 ---@field unk_2 number
----@field building_id number References: `site_realization_building`
+---@field building_id number References: `df.site_realization_building`
 ---@field pos df.coord
 ---@field unk_3 number
 ---@field unk_4 number
@@ -2467,10 +2467,10 @@ function df.site_realization_building_infost:new() end
 
 ---@class (exact) df.site_building_item: DFStruct
 ---@field _type identity.site_building_item
----@field race number References: `creature_raw`
+---@field race number References: `df.creature_raw`
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.site_building_item: DFCompoundType
@@ -2918,8 +2918,8 @@ function df.creation_zone_pwg_alteration_campst:new() end
 
 ---@class (exact) df.creation_zone_pwg_alteration_srb_ruinedst: DFStruct, df.creation_zone_pwg_alterationst
 ---@field _type identity.creation_zone_pwg_alteration_srb_ruinedst
----@field site_id number References: `world_site`
----@field building_id number References: `site_realization_building`
+---@field site_id number References: `df.world_site`
+---@field building_id number References: `df.site_realization_building`
 
 ---@class identity.creation_zone_pwg_alteration_srb_ruinedst: DFCompoundType
 ---@field _kind 'class-type'

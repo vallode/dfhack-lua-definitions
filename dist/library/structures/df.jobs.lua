@@ -406,14 +406,14 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
 ---@field maxdur number
 ---@field flags df.job_flags
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field spell number almost certainly no longer used
 ---@field item_type df.item_type for Bait Trap jobs
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
 ---@field specflag df.job_spec_flags
----@field hist_figure_id number toady: spec_id References: `historical_figure`
----@field race number References: `creature_raw`
+---@field hist_figure_id number toady: spec_id<br>References: `df.historical_figure`
+---@field race number References: `df.creature_raw`
 ---@field improvement df.improvement_type
 ---@field material_category df.job_material_category bay12: uint32_t job_item_flag
 ---@field reaction_name string
@@ -428,7 +428,7 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field cur_path_index number
 ---@field spec_loc df.coord toady: spec_x/spec_y/spec_z
 ---@field art_spec df.job_art_specification
----@field order_id number References: `manager_order`
+---@field order_id number References: `df.manager_order`
 
 ---@class identity.job: DFCompoundType
 ---@field _kind 'struct-type'
@@ -904,7 +904,7 @@ df.job_item_flags3 = {}
 ---@field _type identity.job_item
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field flags1 df.job_item_flags1
 ---@field quantity number
@@ -913,13 +913,13 @@ df.job_item_flags3 = {}
 ---@field flags3 df.job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore number Custom: References: `inorganic_raw`
+---@field metal_ore number Custom:<br>References: `df.inorganic_raw`
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field min_dimension number pure guess by context
 ---@field reagent_index number
 ---@field contains DFNumberVector used with custom reactions
----@field reaction_id number References: `reaction`
+---@field reaction_id number References: `df.reaction`
 ---@field has_tool_use df.tool_uses
 ---@field unk_v43_1 number
 ---@field unk_v43_2 number
@@ -937,7 +937,7 @@ function df.job_item:new() end
 ---@field _type identity.job_item_filter
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field flags1 df.job_item_flags1
 ---@field item_vector DFPointer<integer>
@@ -952,12 +952,12 @@ function df.job_item:new() end
 ---@field use_flags5 boolean
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field metal_ore number References: `inorganic_raw`
+---@field metal_ore number References: `df.inorganic_raw`
 ---@field use_metal_ore boolean
 ---@field use_reaction_class boolean
 ---@field use_reaction_product boolean
 ---@field min_dimension number
----@field reaction_id number References: `reaction`
+---@field reaction_id number References: `df.reaction`
 ---@field contains DFNumberVector
 ---@field use_contains boolean
 ---@field has_tool_use df.tool_uses
@@ -1034,10 +1034,10 @@ df.job_art_specification.T_type = {}
 ---@field item_type df.item_type
 ---@field item_subtype number
 ---@field reaction_name string
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field item_category df.stockpile_group_set
----@field hist_figure_id number References: `historical_figure`
+---@field hist_figure_id number References: `df.historical_figure`
 ---@field material_category df.job_material_category
 ---@field art_spec df.job_art_specification
 ---@field amount_left number
@@ -1046,7 +1046,7 @@ df.job_art_specification.T_type = {}
 ---@field frequency df.manager_order.T_frequency
 ---@field finished_year number
 ---@field finished_year_tick number
----@field workshop_id number References: `building`
+---@field workshop_id number References: `df.building`
 ---@field max_workshops number 0 is unlimited
 ---@field item_conditions _manager_order_item_conditions
 ---@field order_conditions _manager_order_order_conditions
@@ -1117,7 +1117,7 @@ function _manager_order_order_conditions:erase(index) end
 ---@field compare_val number
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field flags1 df.job_item_flags1
 ---@field flags2 df.job_item_flags2
@@ -1126,10 +1126,10 @@ function _manager_order_order_conditions:erase(index) end
 ---@field flags5 integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field inorganic_bearing number References: `inorganic_raw`
+---@field inorganic_bearing number References: `df.inorganic_raw`
 ---@field min_dimension number
 ---@field contains DFNumberVector
----@field reaction_id number References: `reaction`
+---@field reaction_id number References: `df.reaction`
 ---@field has_tool_use df.tool_uses
 
 ---@class identity.manager_order_condition_item: DFCompoundType
@@ -1164,7 +1164,7 @@ df.manager_order_condition_item.T_compare_type = {}
 
 ---@class (exact) df.manager_order_condition_order: DFStruct
 ---@field _type identity.manager_order_condition_order
----@field order_id number References: `manager_order`
+---@field order_id number References: `df.manager_order`
 ---@field condition df.manager_order_condition_order.T_condition
 ---@field unk_1 number
 
@@ -1193,10 +1193,10 @@ df.manager_order_condition_order.T_condition = {}
 ---@field reaction_name string
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field item_category df.stockpile_group_set specflag
----@field hist_figure_id number References: `historical_figure`
+---@field hist_figure_id number References: `df.historical_figure`
 ---@field material_category df.job_material_category
 ---@field match_value number
 ---@field name string
@@ -1216,7 +1216,7 @@ function df.manager_order_template:new() end
 ---@field mode df.mandate.T_mode
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field amount_total number
 ---@field amount_remaining number
@@ -1262,8 +1262,8 @@ function df.mandate.T_punishment:new() end
 
 ---@class (exact) df.training_assignment: DFStruct
 ---@field _type identity.training_assignment
----@field animal_id number References: `unit`
----@field trainer_id number References: `unit`
+---@field animal_id number References: `df.unit`
+---@field trainer_id number References: `df.unit`
 ---@field flags df.training_assignment.T_flags
 
 ---@class identity.training_assignment: DFCompoundType
@@ -1310,7 +1310,7 @@ df.training_assignment.T_flags = {}
 ---@field place df.unit_demand.T_place
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends

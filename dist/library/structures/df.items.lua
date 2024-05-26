@@ -220,7 +220,7 @@ function df.temperaturest:new() end
 
 ---@class (exact) df.spatter_common: DFStruct
 ---@field _type identity.spatter_common
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field mat_state df.matter_state
 ---@field temperature df.temperaturest
@@ -450,7 +450,7 @@ df.trade_good_purpose = {}
 ---@field id number
 ---@field specific_refs _item_specific_refs
 ---@field general_refs _item_general_refs
----@field world_data_id number References: `world_object_data`
+---@field world_data_id number References: `df.world_object_data`
 ---@field world_data_subid number
 ---@field stockpile_countdown integer -1 per 50 frames; then check if needs moving
 ---@field stockpile_delay integer used to reset countdown; randomly varies
@@ -679,12 +679,12 @@ function item:isMatchingAmmoItem(anon_0) end
 ---@param subid DFPointer<integer>
 function item:getImageRef(id, subid) end
 
----@param civ_id number References: `historical_entity`
----@param site_id number References: `world_site`
+---@param civ_id number References: `df.historical_entity`
+---@param site_id number References: `df.world_site`
 function item:getImageCivSite(civ_id, site_id) end
 
----@param civ_id number References: `historical_entity`
----@param site_id number References: `world_site`
+---@param civ_id number References: `df.historical_entity`
+---@param site_id number References: `df.world_site`
 function item:setImageCivSite(civ_id, site_id) end
 
 ---@param level number
@@ -741,7 +741,7 @@ function item:getVolume() end
 ---@param unit df.unit
 ---@param mat_type number
 ---@param mat_index number
----@param shape number References: `descriptor_shape`
+---@param shape number References: `df.descriptor_shape`
 ---@param force_quality number
 ---@param civ df.historical_entity
 ---@param site df.world_site
@@ -1254,7 +1254,7 @@ function item:getAbsorption() end
 ---@return boolean
 function item:isGemMaterial() end
 
----@param shape number References: `descriptor_shape`
+---@param shape number References: `df.descriptor_shape`
 function item:setGemShape(shape) end
 
 ---@return boolean
@@ -1364,13 +1364,13 @@ function df.item_actual:new() end
 -- CRAFTED ITEM
 ---@class (exact) df.item_crafted: DFStruct, df.item_actual
 ---@field _type identity.item_crafted
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field maker_race number References: `creature_raw`
+---@field maker_race number References: `df.creature_raw`
 ---@field quality df.item_quality
 ---@field skill_rating df.skill_rating at the moment of creation
----@field maker number References: `historical_figure`
----@field masterpiece_event number References: `history_event`
+---@field maker number References: `df.historical_figure`
+---@field masterpiece_event number References: `df.history_event`
 
 ---@class identity.item_crafted: DFCompoundType
 ---@field _kind 'class-type'
@@ -1622,13 +1622,13 @@ df.corpse_material_type = {}
 
 ---@class (exact) df.item_body_component: DFStruct, df.item_actual
 ---@field _type identity.item_body_component
----@field race number References: `creature_raw`
----@field hist_figure_id number References: `historical_figure`
----@field unit_id number References: `unit`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field hist_figure_id number References: `df.historical_figure`
+---@field unit_id number References: `df.unit`
+---@field caste number References: `df.caste_raw`
 ---@field sex df.pronoun_type
----@field normal_race number unit.enemy.normal_race References: `creature_raw`
----@field normal_caste number unit.enemy.normal_caste References: `caste_raw`
+---@field normal_race number unit.enemy.normal_race<br>References: `df.creature_raw`
+---@field normal_caste number unit.enemy.normal_caste<br>References: `df.caste_raw`
 ---@field rot_timer number
 ---@field unk_8c number if zero, item is a generic instance of its race and caste; do not process unit id
 ---@field body df.item_body_component.T_body
@@ -1644,9 +1644,9 @@ df.corpse_material_type = {}
 ---@field appearance df.item_body_component.T_appearance
 ---@field blood_count number
 ---@field stored_fat number
----@field hist_figure_id2 number References: `historical_figure`
----@field undead_unit_id number References: `unit`
----@field unit_id2 number References: `unit`
+---@field hist_figure_id2 number References: `df.historical_figure`
+---@field undead_unit_id number References: `df.unit`
+---@field unit_id2 number References: `df.unit`
 ---@field corpse_flags df.item_body_component.T_corpse_flags
 ---@field material_amount DFEnumVector<df.corpse_material_type, number>
 ---@field bone1 df.item_body_component.T_bone1
@@ -1779,7 +1779,7 @@ df.item_body_component.T_corpse_flags = {}
 
 ---@class (exact) df.item_body_component.T_bone1: DFStruct
 ---@field _type identity.item_body_component.bone1
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_body_component.bone1: DFCompoundType
@@ -1791,7 +1791,7 @@ function df.item_body_component.T_bone1:new() end
 
 ---@class (exact) df.item_body_component.T_bone2: DFStruct
 ---@field _type identity.item_body_component.bone2
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_body_component.bone2: DFCompoundType
@@ -1830,8 +1830,8 @@ function df.item_corpsepiecest:new() end
 -- CRITTER
 ---@class (exact) df.item_critter: DFStruct, df.item_actual
 ---@field _type identity.item_critter
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field milk_timer number
 ---@field airdrown_timer number
 ---@field name df.language_name
@@ -1876,7 +1876,7 @@ function df.item_liquipowder:new() end
 
 ---@class (exact) df.item_liquid: DFStruct, df.item_liquipowder
 ---@field _type identity.item_liquid
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_liquid: DFCompoundType
@@ -1888,7 +1888,7 @@ function df.item_liquid:new() end
 
 ---@class (exact) df.item_powder: DFStruct, df.item_liquipowder
 ---@field _type identity.item_powder
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_powder: DFCompoundType
@@ -1902,7 +1902,7 @@ function df.item_powder:new() end
 ---@class (exact) df.item_barst: DFStruct, df.item_actual
 ---@field _type identity.item_barst
 ---@field subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field dimension number
 
@@ -1915,9 +1915,9 @@ function df.item_barst:new() end
 
 ---@class (exact) df.item_smallgemst: DFStruct, df.item_actual
 ---@field _type identity.item_smallgemst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field shape number References: `descriptor_shape`
+---@field shape number References: `df.descriptor_shape`
 
 ---@class identity.item_smallgemst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1928,7 +1928,7 @@ function df.item_smallgemst:new() end
 
 ---@class (exact) df.item_blocksst: DFStruct, df.item_actual
 ---@field _type identity.item_blocksst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_blocksst: DFCompoundType
@@ -1940,7 +1940,7 @@ function df.item_blocksst:new() end
 
 ---@class (exact) df.item_roughst: DFStruct, df.item_actual
 ---@field _type identity.item_roughst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_roughst: DFCompoundType
@@ -1952,7 +1952,7 @@ function df.item_roughst:new() end
 
 ---@class (exact) df.item_boulderst: DFStruct, df.item_actual
 ---@field _type identity.item_boulderst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_boulderst: DFCompoundType
@@ -1964,7 +1964,7 @@ function df.item_boulderst:new() end
 
 ---@class (exact) df.item_woodst: DFStruct, df.item_actual
 ---@field _type identity.item_woodst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_woodst: DFCompoundType
@@ -1976,7 +1976,7 @@ function df.item_woodst:new() end
 
 ---@class (exact) df.item_branchst: DFStruct, df.item_actual
 ---@field _type identity.item_branchst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_branchst: DFCompoundType
@@ -1988,7 +1988,7 @@ function df.item_branchst:new() end
 
 ---@class (exact) df.item_rockst: DFStruct, df.item_actual
 ---@field _type identity.item_rockst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field sharpness number
 ---@field unk_84 number
@@ -2002,7 +2002,7 @@ function df.item_rockst:new() end
 
 ---@class (exact) df.item_seedsst: DFStruct, df.item_actual
 ---@field _type identity.item_seedsst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field grow_counter number
 ---@field planting_skill number
@@ -2016,7 +2016,7 @@ function df.item_seedsst:new() end
 
 ---@class (exact) df.item_skin_tannedst: DFStruct, df.item_actual
 ---@field _type identity.item_skin_tannedst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field unk_80 number
 
@@ -2029,7 +2029,7 @@ function df.item_skin_tannedst:new() end
 
 ---@class (exact) df.item_meatst: DFStruct, df.item_actual
 ---@field _type identity.item_meatst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number
 
@@ -2042,7 +2042,7 @@ function df.item_meatst:new() end
 
 ---@class (exact) df.item_plantst: DFStruct, df.item_actual
 ---@field _type identity.item_plantst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number
 
@@ -2057,7 +2057,7 @@ function df.item_plantst:new() end
 ---@field _type identity.item_plant_growthst
 ---@field subtype number
 ---@field growth_print number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number
 
@@ -2070,7 +2070,7 @@ function df.item_plant_growthst:new() end
 
 ---@class (exact) df.item_cheesest: DFStruct, df.item_actual
 ---@field _type identity.item_cheesest
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number
 
@@ -2083,7 +2083,7 @@ function df.item_cheesest:new() end
 
 ---@class (exact) df.item_globst: DFStruct, df.item_actual
 ---@field _type identity.item_globst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number
 ---@field mat_state df.item_matstate
@@ -2098,8 +2098,8 @@ function df.item_globst:new() end
 
 ---@class (exact) df.item_remainsst: DFStruct, df.item_actual
 ---@field _type identity.item_remainsst
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field rot_timer number
 
 ---@class identity.item_remainsst: DFCompoundType
@@ -2111,8 +2111,8 @@ function df.item_remainsst:new() end
 
 ---@class (exact) df.item_fishst: DFStruct, df.item_actual
 ---@field _type identity.item_fishst
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field rot_timer number
 
 ---@class identity.item_fishst: DFCompoundType
@@ -2124,8 +2124,8 @@ function df.item_fishst:new() end
 
 ---@class (exact) df.item_fish_rawst: DFStruct, df.item_actual
 ---@field _type identity.item_fish_rawst
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field rot_timer number
 
 ---@class identity.item_fish_rawst: DFCompoundType
@@ -2138,7 +2138,7 @@ function df.item_fish_rawst:new() end
 ---@class (exact) df.item_foodst: DFStruct, df.item_crafted
 ---@field _type identity.item_foodst
 ---@field subtype df.itemdef_foodst
----@field entity number References: `historical_entity`
+---@field entity number References: `df.historical_entity`
 ---@field recipe_id number
 ---@field ingredients _item_foodst_ingredients
 ---@field rot_timer number
@@ -2178,7 +2178,7 @@ function df.item_verminst:new() end
 
 ---@class (exact) df.item_petst: DFStruct, df.item_critter
 ---@field _type identity.item_petst
----@field owner_id number References: `unit`
+---@field owner_id number References: `df.unit`
 ---@field pet_flags df.item_petst.T_pet_flags
 
 ---@class identity.item_petst: DFCompoundType
@@ -2231,12 +2231,12 @@ function df.item_liquid_miscst:new() end
 
 ---@class (exact) df.item_threadst: DFStruct, df.item_actual
 ---@field _type identity.item_threadst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field dye_mat_type number References: `material`
+---@field dye_mat_type number References: `df.material`
 ---@field dye_mat_index number
----@field dyer number References: `historical_figure`
----@field dye_masterpiece_event number References: `history_event`
+---@field dyer number References: `df.historical_figure`
+---@field dye_masterpiece_event number References: `df.history_event`
 ---@field dye_quality number
 ---@field unk_92 number
 ---@field unk_94 number
@@ -2252,21 +2252,21 @@ function df.item_threadst:new() end
 
 ---@class (exact) df.item_eggst: DFStruct, df.item_actual
 ---@field _type identity.item_eggst
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field rot_timer number
 ---@field egg_materials df.material_vec_ref
 ---@field egg_flags df.item_eggst.T_egg_flags
 ---@field incubation_counter number increments when fertile in unforbidden nestbox, hatch at >= 100800 (3 months)
----@field hatchling_civ_id number hatchlings will have this civ_id References: `historical_entity`
----@field hatchling_population_id number hatchlings will have this population_id References: `entity_population`
+---@field hatchling_civ_id number hatchlings will have this civ_id<br>References: `df.historical_entity`
+---@field hatchling_population_id number hatchlings will have this population_id<br>References: `df.entity_population`
 ---@field hatchling_unit_unk_c0 number hatchlings will have this unit.unk_c0 value
 ---@field unk_2 number
 ---@field mothers_genes df.unit_genes position uncertain
----@field mothers_caste number References: `caste_raw`
+---@field mothers_caste number References: `df.caste_raw`
 ---@field unk_3 number
 ---@field fathers_genes df.unit_genes object owned by egg item
----@field fathers_caste number -1 if no father genes References: `caste_raw`
+---@field fathers_caste number -1 if no father genes<br>References: `df.caste_raw`
 ---@field unk_4 number
 ---@field hatchling_flags1 df.unit_flags1 used primarily for bit_flag:tame
 ---@field hatchling_flags2 df.unit_flags2 used primarily for bit_flag:roaming_wilderness_population_source
@@ -2274,7 +2274,7 @@ function df.item_threadst:new() end
 ---@field unk_v42_1 number
 ---@field hatchling_training_level df.animal_training_level
 ---@field hatchling_animal_population df.world_population_ref
----@field hatchling_mother_id number References: `unit`
+---@field hatchling_mother_id number References: `df.unit`
 ---@field size number
 
 ---@class identity.item_eggst: DFCompoundType
@@ -2833,7 +2833,7 @@ function df.item_trapcompst:new() end
 ---@field subtype df.itemdef_toolst
 ---@field sharpness number
 ---@field stockpile df.item_stockpile_ref
----@field vehicle_id number References: `vehicle`
+---@field vehicle_id number References: `df.vehicle`
 ---@field unk_2 number
 ---@field unk_3 number
 
@@ -2846,7 +2846,7 @@ function df.item_toolst:new() end
 
 ---@class (exact) df.item_stockpile_ref: DFStruct
 ---@field _type identity.item_stockpile_ref
----@field id number References: `building`
+---@field id number References: `df.building`
 ---@field x number
 ---@field y number
 
@@ -2881,7 +2881,7 @@ function df.item_binst:new() end
 
 ---@class (exact) df.item_gemst: DFStruct, df.item_constructed
 ---@field _type identity.item_gemst
----@field shape number References: `descriptor_shape`
+---@field shape number References: `df.descriptor_shape`
 
 ---@class identity.item_gemst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2919,7 +2919,7 @@ function df.item_figurinest:new() end
 ---@class (exact) df.item_slabst: DFStruct, df.item_constructed
 ---@field _type identity.item_slabst
 ---@field description string
----@field topic number or interaction id for secrets? References: `historical_figure`
+---@field topic number or interaction id for secrets?<br>References: `df.historical_figure`
 ---@field engraving_type df.slab_engraving_type
 
 ---@class identity.item_slabst: DFCompoundType
@@ -2943,7 +2943,7 @@ function df.item_orthopedic_castst:new() end
 
 ---@class (exact) df.item_coinst: DFStruct, df.item_constructed
 ---@field _type identity.item_coinst
----@field coin_batch number References: `coin_batch`
+---@field coin_batch number References: `df.coin_batch`
 
 ---@class identity.item_coinst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2954,8 +2954,8 @@ function df.item_coinst:new() end
 
 ---@class (exact) df.item_totemst: DFStruct, df.item_constructed
 ---@field _type identity.item_totemst
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field body_part_idx number
 
 ---@class identity.item_totemst: DFCompoundType
@@ -2989,7 +2989,7 @@ function df.item_bookst:new() end
 
 ---@class (exact) df.item_ballistaarrowheadst: DFStruct, df.item_actual
 ---@field _type identity.item_ballistaarrowheadst
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field sharpness number
 

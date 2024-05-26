@@ -152,8 +152,8 @@ function df.embark_note:new() end
 ---@field region_x number
 ---@field region_y number
 ---@field feature_idx number
----@field cave_id number References: `world_underground_region`
----@field site_id number References: `world_site`
+---@field cave_id number References: `df.world_underground_region`
+---@field site_id number References: `df.world_site`
 ---@field population_idx number
 ---@field depth df.layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 
@@ -167,13 +167,13 @@ function df.world_population_ref:new() end
 ---@class (exact) df.local_population: DFStruct
 ---@field _type identity.local_population
 ---@field type df.world_population_type
----@field race number References: `creature_raw`
----@field plant number References: `plant_raw`
+---@field race number References: `df.creature_raw`
+---@field plant number References: `df.plant_raw`
 ---@field quantity number
 ---@field quantity_max number
 ---@field flags df.local_population.T_flags
 ---@field population df.world_population_ref
----@field breed number References: `breed`
+---@field breed number References: `df.breed`
 ---@field interaction_idx number
 ---@field interaction_instance number
 ---@field interaction_effect number
@@ -210,13 +210,13 @@ df.local_population.T_flags = {}
 ---@class (exact) df.world_population: DFStruct
 ---@field _type identity.world_population
 ---@field type df.world_population_type
----@field race number References: `creature_raw`
----@field plant number References: `plant_raw`
+---@field race number References: `df.creature_raw`
+---@field plant number References: `df.plant_raw`
 ---@field count_min number
 ---@field count_max number
 ---@field temp_num number
----@field owner number References: `historical_entity`
----@field breed number References: `breed`
+---@field owner number References: `df.historical_entity`
+---@field breed number References: `df.breed`
 ---@field production_zone number
 ---@field interaction_idx number
 ---@field interaction_instance number
@@ -539,7 +539,7 @@ df.geo_layer_type.attrs = {}
 ---@class (exact) df.world_geo_layer: DFStruct
 ---@field _type identity.world_geo_layer
 ---@field type df.geo_layer_type
----@field mat_index number References: `inorganic_raw`
+---@field mat_index number References: `df.inorganic_raw`
 ---@field vein_mat DFNumberVector
 ---@field vein_nested_in DFNumberVector Index of the other vein this one is nested in, or -1
 ---@field vein_type _world_geo_layer_vein_type
@@ -611,7 +611,7 @@ function _world_geo_biome_layers:erase(index) end
 ---@class (exact) df.world_region_feature: DFStruct
 ---@field _type identity.world_region_feature
 ---@field feature_idx number
----@field layer number References: `world_underground_region`
+---@field layer number References: `df.world_underground_region`
 ---@field region_tile_idx number
 ---@field min_z number
 ---@field max_z number
@@ -683,7 +683,7 @@ function _world_region_feature_flag:erase(index) end
 ---@field rivers_horizontal df.world_region_details.T_rivers_horizontal
 ---@field other_features df.world_region_details.T_other_features.T_flags[][]
 ---@field features df.world_region_feature[][]
----@field lava_stone number References: `inorganic_raw`
+---@field lava_stone number References: `df.inorganic_raw`
 ---@field site_map_travel_dir integer[][]
 ---@field temp_elevation number[][]
 ---@field temp_path_map number[][]
@@ -1001,9 +1001,9 @@ df.fog_type = {}
 ---@field unused_22 number
 ---@field unused_23 number
 ---@field unused_24 number
----@field region_id number References: `world_region`
----@field landmass_id number References: `world_landmass`
----@field geo_index number References: `world_geo_biome`
+---@field region_id number References: `df.world_region`
+---@field landmass_id number References: `df.world_landmass`
+---@field geo_index number References: `df.world_geo_biome`
 
 ---@class identity.region_map_entry: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1946,7 +1946,7 @@ df.region_weather_type = {}
 ---@field _type identity.region_weather
 ---@field id number
 ---@field type df.region_weather_type Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field announcement boolean Guess based on seeing it appear for an entry when hitting the embark, resulting in an announcement
 ---@field region_x number world tile, used with evil rain. Probably uninitialized with cloud
@@ -1957,7 +1957,7 @@ df.region_weather_type = {}
 ---@field cloud_x_movement number -1/0/1, indicating the movement per 10 ticks in X direction. Uninitialized for rain
 ---@field cloud_y_movement number -1/0/1, indicating the movement per 10 ticks in Y direction. Uninitialized for rain
 ---@field remaining_duration number ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
----@field region_id number Set for clouds, -1 for rain References: `world_region`
+---@field region_id number Set for clouds, -1 for rain<br>References: `df.world_region`
 
 ---@class identity.region_weather: DFCompoundType
 ---@field _kind 'struct-type'

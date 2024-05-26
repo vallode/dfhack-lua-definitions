@@ -2143,7 +2143,7 @@ df.embark_finder_option = {}
 ---@class (exact) df.embark_location: DFStruct
 ---@field _type identity.embark_location
 ---@field region_pos df.coord2d
----@field reclaim_site number References: `world_site`
+---@field reclaim_site number References: `df.world_site`
 ---@field reclaim_idx number
 ---@field embark_pos_min df.coord2d
 ---@field embark_pos_max df.coord2d
@@ -2393,9 +2393,9 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 
 ---@class (exact) df.mission: DFStruct
 ---@field _type identity.mission
----@field army_controller number References: `army_controller`
----@field entity number References: `historical_entity`
----@field target_site number References: `world_site`
+---@field army_controller number References: `df.army_controller`
+---@field entity number References: `df.historical_entity`
+---@field target_site number References: `df.world_site`
 ---@field unk_2 number
 ---@field target_x number -1
 ---@field target_y number
@@ -2410,8 +2410,8 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field year number
 ---@field year_tick number
 ---@field unk_12 number
----@field army_controller2 number -1 References: `army_controller`
----@field histfig number References: `historical_figure`
+---@field army_controller2 number -1<br>References: `df.army_controller`
+---@field histfig number References: `df.historical_figure`
 ---@field unk_14 number
 ---@field unk_16 number -1
 ---@field unk_17 number
@@ -4021,8 +4021,8 @@ df.adventurer_attribute_level = {}
 ---@class (exact) df.startup_charactersheet_petst: DFStruct
 ---@field _type identity.startup_charactersheet_petst
 ---@field name df.language_name
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field type number
 
 ---@class identity.startup_charactersheet_petst: DFCompoundType
@@ -4050,26 +4050,26 @@ df.adv_background_option_type = {}
 ---@class (exact) df.setup_character_info: DFStruct
 ---@field _type identity.setup_character_info
 ---@field name df.language_name
----@field race number References: `creature_raw`
----@field caste number References: `caste_raw`
+---@field race number References: `df.creature_raw`
+---@field caste number References: `df.caste_raw`
 ---@field skilllevel DFEnumVector<df.job_skill, df.skill_rating>
----@field quick_entity_id number References: `historical_entity`
+---@field quick_entity_id number References: `df.historical_entity`
 ---@field entity_population_id number
 ---@field breed_id number
----@field cultural_identity_id number References: `cultural_identity`
----@field nemesis_index number References: `nemesis_record`
+---@field cultural_identity_id number References: `df.cultural_identity`
+---@field nemesis_index number References: `df.nemesis_record`
 ---@field start_mil_type number
 ---@field start_civ_type number
 ---@field skill_picks_left number
 ---@field phys_att_range_val DFEnumVector<df.physical_attribute_type, df.adventurer_attribute_level>
 ---@field ment_att_range_val DFEnumVector<df.mental_attribute_type, df.adventurer_attribute_level>
 ---@field difficulty df.setup_character_info.T_difficulty
----@field start_site_id number References: `world_site`
+---@field start_site_id number References: `df.world_site`
 ---@field background_start_squad_epp_id number
 ---@field background_unit df.profession
 ---@field background_skill_bonus DFEnumVector<df.job_skill, number>
----@field worship_hfid number References: `historical_figure`
----@field worship_enid number References: `historical_entity`
+---@field worship_hfid number References: `df.historical_figure`
+---@field worship_enid number References: `df.historical_entity`
 ---@field worship_strength number
 ---@field pform df.unit_appearance
 ---@field birth_year number
@@ -4526,7 +4526,7 @@ function df.embark_symbol.T_unk_v43_sub9:new() end
 ---@field points_remaining number
 ---@field add_item_type df.item_type Set remotely via pointers:
 ---@field add_item_subtype number
----@field add_mattype number References: `material`
+---@field add_mattype number References: `df.material`
 ---@field add_matindex number
 ---@field adding_item number
 

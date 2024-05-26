@@ -24,7 +24,7 @@ df.uniform_indiv_choice = {}
 ---@field item_type df.item_type
 ---@field item_subtype number
 ---@field material_class df.entity_material_category
----@field mattype number References: `material`
+---@field mattype number References: `df.material`
 ---@field matindex number
 
 ---@class identity.item_filter_spec: DFCompoundType
@@ -36,7 +36,7 @@ function df.item_filter_spec:new() end
 
 ---@class (exact) df.squad_uniform_spec: DFStruct
 ---@field _type identity.squad_uniform_spec
----@field item number References: `item`
+---@field item number References: `df.item`
 ---@field item_filter df.item_filter_spec
 ---@field color number
 ---@field assigned DFNumberVector
@@ -175,16 +175,16 @@ df.squad_event_type = {}
 
 ---@class (exact) df.squad_position: DFStruct
 ---@field _type identity.squad_position
----@field occupant number References: `historical_figure`
+---@field occupant number References: `df.historical_figure`
 ---@field orders _squad_position_orders
 ---@field preferences DFEnumVector<df.barrack_preference_category, number>
 ---@field uniform DFEnumVector<df.uniform_category, df.squad_uniform_spec>
 ---@field unk_c4 string
 ---@field flags df.uniform_flags
 ---@field assigned_items DFNumberVector
----@field quiver number References: `item`
----@field backpack number References: `item`
----@field flask number References: `item`
+---@field quiver number References: `df.item`
+---@field backpack number References: `df.item`
+---@field flask number References: `df.item`
 ---@field unk_1 number
 ---@field activities DFEnumVector<df.squad_event_type, number>
 ---@field events DFEnumVector<df.squad_event_type, number>
@@ -318,14 +318,14 @@ function _squad_schedule_entry_order_assignments:erase(index) end
 ---@field rack_combat DFNumberVector
 ---@field rack_training DFNumberVector
 ---@field uniform_priority number
----@field activity number References: `activity_entry`
+---@field activity number References: `df.activity_entry`
 ---@field ammo df.squad.T_ammo
 ---@field carry_food number
 ---@field carry_water number
----@field entity_id number References: `historical_entity`
+---@field entity_id number References: `df.historical_entity`
 ---@field leader_position number
 ---@field leader_assignment number
----@field assigned_army_controller_id number References: `army_controller`
+---@field assigned_army_controller_id number References: `df.army_controller`
 ---@field solid_texpos number Appears to be a transient per-squad texture id. Initialised on squad ui click
 ---@field blended_texpos number Always 1 less than the above field when initialised, and has tied initialisation
 ---@field symbol number 0 to 22 inclusive, row-wise. Only used in graphics mode
@@ -705,7 +705,7 @@ function df.squad_order_drive_entity_off_sitest:new() end
 
 ---@class (exact) df.squad_order_cause_trouble_for_entityst: DFStruct, df.squad_order
 ---@field _type identity.squad_order_cause_trouble_for_entityst
----@field entity_id number References: `historical_entity`
+---@field entity_id number References: `df.historical_entity`
 ---@field override_name string
 
 ---@class identity.squad_order_cause_trouble_for_entityst: DFCompoundType
@@ -717,7 +717,7 @@ function df.squad_order_cause_trouble_for_entityst:new() end
 
 ---@class (exact) df.squad_order_kill_hfst: DFStruct, df.squad_order
 ---@field _type identity.squad_order_kill_hfst
----@field histfig_id number References: `historical_figure`
+---@field histfig_id number References: `df.historical_figure`
 ---@field title string
 
 ---@class identity.squad_order_kill_hfst: DFCompoundType
@@ -742,7 +742,7 @@ function df.squad_order_drive_armies_from_sitest:new() end
 
 ---@class (exact) df.squad_order_retrieve_artifactst: DFStruct, df.squad_order
 ---@field _type identity.squad_order_retrieve_artifactst
----@field artifact_id number References: `artifact_record`
+---@field artifact_id number References: `df.artifact_record`
 ---@field unk_2 df.coord
 
 ---@class identity.squad_order_retrieve_artifactst: DFCompoundType
@@ -935,9 +935,9 @@ df.army_controller_goal_type = {}
 ---@class (exact) df.army_controller: DFStruct
 ---@field _type identity.army_controller
 ---@field id number all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
----@field entity_id number References: `historical_entity`
----@field site_id number Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit' References: `world_site`
----@field subregion_id number References: `world_region`
+---@field entity_id number References: `df.historical_entity`
+---@field site_id number Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'<br>References: `df.world_site`
+---@field subregion_id number References: `df.world_region`
 ---@field pos_x number Look like the unit is map_block, i.e. 3 * 16 * world tile. Position of target, which is the starting point for defeated invasions
 ---@field pos_y number
 ---@field percentage_pop number
@@ -945,13 +945,13 @@ df.army_controller_goal_type = {}
 ---@field activity_id DFNumberVector
 ---@field year number
 ---@field year_tick number
----@field parent_id number id of other army controller (Invasion) from same entity seen here References: `army_controller`
----@field master_id number copy of the id seen here, as well as a t7 for a t5 controller References: `army_controller`
----@field master_hf number InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector References: `historical_figure`
----@field commander_hf number InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master References: `historical_figure`
----@field origin_task_holder_nemesis_id number References: `nemesis_record`
+---@field parent_id number id of other army controller (Invasion) from same entity seen here<br>References: `df.army_controller`
+---@field master_id number copy of the id seen here, as well as a t7 for a t5 controller<br>References: `df.army_controller`
+---@field master_hf number InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector<br>References: `df.historical_figure`
+---@field commander_hf number InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master<br>References: `df.historical_figure`
+---@field origin_task_holder_nemesis_id number References: `df.nemesis_record`
 ---@field origin_task_id number
----@field origin_plot_holder_nemesis_id number References: `nemesis_record`
+---@field origin_plot_holder_nemesis_id number References: `df.nemesis_record`
 ---@field origin_plot_id number
 ---@field ignore_track_entity_id DFNumberVector
 ---@field flag df.army_controller.T_flag
@@ -1036,7 +1036,7 @@ function df.army_controller.T_data:new() end
 
 ---@class (exact) df.army_camp_profilest: DFStruct
 ---@field _type identity.army_camp_profilest
----@field army_id number no longer available when an attack has started, unioned to another field named 'global_id' References: `army`
+---@field army_id number no longer available when an attack has started, unioned to another field named 'global_id'<br>References: `df.army`
 ---@field abs_smm_sx number In map_blocks, i.e. in 3 * 16 * world tiles
 ---@field abs_smm_sy number
 ---@field abs_smm_ex number One is probably start and one is probably end of some movement
@@ -1520,7 +1520,7 @@ function df.army_controller_goal_site_workst:new() end
 
 ---@class (exact) df.army_controller_goal_recover_artifactst: DFStruct
 ---@field _type identity.army_controller_goal_recover_artifactst
----@field artifact_id number References: `artifact_record`
+---@field artifact_id number References: `df.artifact_record`
 ---@field return_site_id number
 ---@field return_to_hfid number
 ---@field flag df.army_controller_goal_recover_artifactst.T_flag
@@ -1685,8 +1685,8 @@ df.army_controller_goal_sabotage_entityst.T_flag = {}
 
 ---@class (exact) df.army_controller_goal_infiltrate_societyst: DFStruct
 ---@field _type identity.army_controller_goal_infiltrate_societyst
----@field target_stid number References: `world_site`
----@field target_enid number References: `historical_entity`
+---@field target_stid number References: `df.world_site`
+---@field target_enid number References: `df.historical_entity`
 ---@field agoal_ab_id number abstract building ID, -1 before arrival
 ---@field reason df.history_event_reason none before arrival
 
@@ -1718,7 +1718,7 @@ df.army_flags = {}
 ---@field unk_3c number
 ---@field unk_1 number
 ---@field unk_2 number 16 only value seen
----@field controller_id number References: `army_controller`
+---@field controller_id number References: `df.army_controller`
 ---@field controller df.army_controller
 ---@field flags _army_flags
 ---@field block_path_x DFNumberVector path in map_block coordinates. Seems to be the near term
@@ -1735,7 +1735,7 @@ df.army_flags = {}
 ---@field creature_class DFStringVector Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field unk_4407_1 _army_unk_4407_1
 

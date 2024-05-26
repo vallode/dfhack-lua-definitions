@@ -117,9 +117,9 @@ df.projectile_flags = {}
 ---@field hit_rating number
 ---@field unk21 number
 ---@field unk22 number
----@field bow_id number References: `item`
----@field unk_item_id number Parabolic projectile info: References: `item`
----@field unk_unit_id number References: `unit`
+---@field bow_id number References: `df.item`
+---@field unk_item_id number Parabolic projectile info:<br>References: `df.item`
+---@field unk_unit_id number References: `df.unit`
 ---@field unk_v40_1 number uninitialized+saved
 ---@field pos_x number
 ---@field pos_y number

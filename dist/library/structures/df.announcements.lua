@@ -1623,7 +1623,7 @@ function df.announcements:new() end
 ---@field time number
 ---@field activity_id number
 ---@field activity_event_id number
----@field speaker_id number unit speaking the conversation References: `unit`
+---@field speaker_id number unit speaking the conversation<br>References: `df.unit`
 
 ---@class identity.report: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1731,7 +1731,7 @@ function _announcement_alertst_report_unit_announcement_category:erase(index) en
 ---@field unit_d df.unit
 ---@field activity_id number same as field in report
 ---@field activity_event_id number same as field in report
----@field speaker_id number References: `unit`
+---@field speaker_id number References: `df.unit`
 ---@field flags df.announcement_infost.T_flags
 
 ---@class identity.announcement_infost: DFCompoundType

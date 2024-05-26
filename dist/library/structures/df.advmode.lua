@@ -164,14 +164,14 @@ df.ui_advmode_menu = {}
 ---@field conv_title string
 ---@field state df.conversation.T_state
 ---@field talk_choices DFNumberVector
----@field unk_30 number References: `unit`
----@field unk_34 number References: `historical_figure`
+---@field unk_30 number References: `df.unit`
+---@field unk_34 number References: `df.historical_figure`
 ---@field unk_38 number
----@field unk_3c number References: `unit`
----@field unk_40 number References: `historical_figure`
+---@field unk_3c number References: `df.unit`
+---@field unk_40 number References: `df.historical_figure`
 ---@field unk_44 number
----@field unk_48 number References: `unit`
----@field unk_4c number References: `historical_figure`
+---@field unk_48 number References: `df.unit`
+---@field unk_4c number References: `df.historical_figure`
 ---@field unk_50 number
 ---@field unk_54 _conversation_unk_54
 ---@field unk_64 _conversation_unk_64
@@ -1148,7 +1148,7 @@ df.adventure_construction_mode_type = {}
 ---@field sleep_permission_stid DFNumberVector
 ---@field sleep_permission_srbid DFNumberVector
 ---@field sleep_permission_timer DFNumberVector
----@field player_army_id number bay12: your_army_id References: `army`
+---@field player_army_id number bay12: your_army_id<br>References: `df.army`
 ---@field gait_index number bay12: speed_sel_y; Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field speed_sneak_options boolean Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
 ---@field tracks_x number[] bay12: latest_tract_abs_x; X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
@@ -1165,11 +1165,11 @@ df.adventure_construction_mode_type = {}
 ---@field travel_exemplar_tile number[]
 ---@field travel_exemplar_num number[]
 ---@field travel_exemplar_dir number[]
----@field odor_race number bay12: latest_smell_race; race ID of strongest odor creature References: `creature_raw`
----@field odor_caste number bay12: latest_smell_caste; caste ID of strongest odor creature References: `caste_raw`
+---@field odor_race number bay12: latest_smell_race; race ID of strongest odor creature<br>References: `df.creature_raw`
+---@field odor_caste number bay12: latest_smell_caste; caste ID of strongest odor creature<br>References: `df.caste_raw`
 ---@field odor_death boolean bay12: latest_smell_death; Overrides creature odor with odor of Death
----@field travel_odor_race number bay12: travel_smell_race; race ID of strongest odor creature in fast travel mode References: `creature_raw`
----@field travel_odor_caste number bay12: travel_smell_caste; caste ID of strongest odor creature in fast travel mode References: `caste_raw`
+---@field travel_odor_race number bay12: travel_smell_race; race ID of strongest odor creature in fast travel mode<br>References: `df.creature_raw`
+---@field travel_odor_caste number bay12: travel_smell_caste; caste ID of strongest odor creature in fast travel mode<br>References: `df.caste_raw`
 ---@field travel_odor_death boolean
 ---@field multiattack number bay12: flag; Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
 ---@field rumor_info df.adventurest.T_rumor_info
@@ -1189,7 +1189,7 @@ df.adventure_construction_mode_type = {}
 ---@field travel_start_x number bay12: travel_goal_abs_smm_x
 ---@field travel_start_y number bay12: travel_goal_abs_smm_y
 ---@field travel_start_z number Coordinates of the player on the map right after their first fast travel move
----@field player_id number bay12: your_nem_index References: `nemesis_record`
+---@field player_id number bay12: your_nem_index<br>References: `df.nemesis_record`
 ---@field track_viewed_x number bay12: viewing_spoor_x; Set when viewing a spoor; local x coordinate of the track in question.
 ---@field track_viewed_y number bay12: viewing_spoor_y; Set when viewing a spoor; local y coordinate of the track in question.
 ---@field viewing_spoor_z number
@@ -2318,9 +2318,9 @@ function _adventurest_unk_v42_1_unk_s9:erase(index) end
 ---@field _type identity.adventurest.assume_identity
 ---@field mode df.assume_identity_mode
 ---@field name df.language_name
----@field worship_object number References: `historical_figure`
+---@field worship_object number References: `df.historical_figure`
 ---@field profession df.profession
----@field origin number References: `historical_entity`
+---@field origin number References: `df.historical_entity`
 ---@field unk_1 _adventurest_assume_identity_unk_1
 ---@field unk_2 _adventurest_assume_identity_unk_2
 ---@field filter string
@@ -2605,7 +2605,7 @@ function df.adventure_environment_pickup_chop_treest:new() end
 
 ---@class (exact) df.adventure_environment_unit_suck_bloodst: DFStruct, df.adventure_environment_optionst
 ---@field _type identity.adventure_environment_unit_suck_bloodst
----@field unit_id number References: `unit`
+---@field unit_id number References: `df.unit`
 
 ---@class identity.adventure_environment_unit_suck_bloodst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2695,7 +2695,7 @@ function df.adventure_movement_climbst:new() end
 
 ---@class (exact) df.adventure_movement_hold_itemst: DFStruct, df.adventure_movement_optionst
 ---@field _type identity.adventure_movement_hold_itemst
----@field item_id number References: `item`
+---@field item_id number References: `df.item`
 
 ---@class identity.adventure_movement_hold_itemst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2706,7 +2706,7 @@ function df.adventure_movement_hold_itemst:new() end
 
 ---@class (exact) df.adventure_movement_building_interactst: DFStruct, df.adventure_movement_optionst
 ---@field _type identity.adventure_movement_building_interactst
----@field building_id number References: `building`
+---@field building_id number References: `df.building`
 
 ---@class identity.adventure_movement_building_interactst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2717,7 +2717,7 @@ function df.adventure_movement_building_interactst:new() end
 
 ---@class (exact) df.adventure_movement_item_interactst: DFStruct, df.adventure_movement_optionst
 ---@field _type identity.adventure_movement_item_interactst
----@field item_id number References: `item`
+---@field item_id number References: `df.item`
 
 ---@class identity.adventure_movement_item_interactst: DFCompoundType
 ---@field _kind 'class-type'

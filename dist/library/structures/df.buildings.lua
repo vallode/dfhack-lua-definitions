@@ -404,11 +404,11 @@ function df.building_drawbuffer:new() end
 ---@field centery number
 ---@field z number
 ---@field flags df.building_flags
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field room df.building_extents not a compound in bay12
 ---@field age number
----@field race number References: `creature_raw`
+---@field race number References: `df.creature_raw`
 ---@field id number
 ---@field jobs _building_jobs
 ---@field specific_refs _building_specific_refs
@@ -417,11 +417,11 @@ function df.building_drawbuffer:new() end
 ---@field job_claim_suppress _building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
 ---@field activities _building_activities
----@field world_data_id number creation_zone_id References: `world_object_data`
+---@field world_data_id number creation_zone_id<br>References: `df.world_object_data`
 ---@field world_data_subid number creation_zone_alt_id
 ---@field creation_bld_num number
----@field site_id number References: `world_site`
----@field location_id number References: `abstract_building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
 local building
 
 ---@return number
@@ -1345,10 +1345,10 @@ df.civzone_type = {}
 ---@field zone_settings df.building_civzonest.T_zone_settings
 ---@field home_general_hf DFNumberVector
 ---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds
----@field assigned_unit_id number References: `unit`
+---@field assigned_unit_id number References: `df.unit`
 ---@field assigned_unit df.unit
 ---@field squad_room_info _building_civzonest_squad_room_info
----@field retained_owner number only used during save References: `unit`
+---@field retained_owner number only used during save<br>References: `df.unit`
 
 ---@class identity.building_civzonest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1615,11 +1615,11 @@ function _building_actual_contained_items:erase(index) end
 
 ---@class (exact) df.building_design: DFStruct
 ---@field _type identity.building_design
----@field builder1 number References: `historical_figure`
----@field builder1_civ number References: `historical_entity`
+---@field builder1 number References: `df.historical_figure`
+---@field builder1_civ number References: `df.historical_entity`
 ---@field build_skill number
 ---@field build_timer1 number +1 per 10 frames while building
----@field builder2 number References: `historical_figure`
+---@field builder2 number References: `df.historical_figure`
 ---@field build_timer2 number
 ---@field quality1 df.item_quality
 ---@field flags df.building_design.T_flags
@@ -1703,7 +1703,7 @@ df.furnace_type.attrs = {}
 ---@field furnace_flag integer unused
 ---@field type df.furnace_type
 ---@field profile df.workshop_profile
----@field custom_type number References: `building_def`
+---@field custom_type number References: `df.building_def`
 
 ---@class identity.building_furnacest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1860,7 +1860,7 @@ df.workshop_profile.T_flags = {}
 ---@field type df.workshop_type
 ---@field profile df.workshop_profile
 ---@field machine df.machine_info
----@field custom_type number References: `building_def`
+---@field custom_type number References: `df.building_def`
 
 ---@class identity.building_workshopst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1895,7 +1895,7 @@ function df.building_archerytargetst:new() end
 ---@class (exact) df.building_armorstandst: DFStruct, df.building_actual
 ---@field _type identity.building_armorstandst
 ---@field stand_flag integer unused
----@field specific_squad number References: `squad`
+---@field specific_squad number References: `df.squad`
 ---@field specific_position number
 
 ---@class identity.building_armorstandst: DFCompoundType
@@ -1997,7 +1997,7 @@ function _building_users_mode:erase(index) end
 
 ---@class (exact) df.building_bedst: DFStruct, df.building_actual
 ---@field _type identity.building_bedst
----@field specific_squad number References: `squad`
+---@field specific_squad number References: `df.squad`
 ---@field specific_position number
 ---@field users df.building_users
 
@@ -2021,7 +2021,7 @@ function df.building_bookcasest:new() end
 ---@class (exact) df.building_boxst: DFStruct, df.building_actual
 ---@field _type identity.building_boxst
 ---@field box_flag integer unused
----@field specific_squad number References: `squad`
+---@field specific_squad number References: `df.squad`
 ---@field specific_position number
 
 ---@class identity.building_boxst: DFCompoundType
@@ -2068,7 +2068,7 @@ df.building_bridgest.T_direction = {}
 ---@class (exact) df.building_cabinetst: DFStruct, df.building_actual
 ---@field _type identity.building_cabinetst
 ---@field cabinet_flag integer
----@field specific_squad number References: `squad`
+---@field specific_squad number References: `df.squad`
 ---@field specific_position number
 
 ---@class identity.building_cabinetst: DFCompoundType
@@ -2439,7 +2439,7 @@ function df.building_nestst:new() end
 
 ---@class (exact) df.building_nest_boxst: DFStruct, df.building_actual
 ---@field _type identity.building_nest_boxst
----@field claimed_by number References: `unit`
+---@field claimed_by number References: `df.unit`
 ---@field claim_timeout number counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
 
 ---@class identity.building_nest_boxst: DFCompoundType
@@ -2857,7 +2857,7 @@ function df.building_weaponst:new() end
 ---@class (exact) df.building_weaponrackst: DFStruct, df.building_actual
 ---@field _type identity.building_weaponrackst
 ---@field rack_flags number
----@field specific_squad number References: `squad`
+---@field specific_squad number References: `df.squad`
 
 ---@class identity.building_weaponrackst: DFCompoundType
 ---@field _kind 'class-type'

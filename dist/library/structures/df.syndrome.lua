@@ -407,7 +407,7 @@ function _creature_interaction_effect_target_mode:erase(index) end
 ---@field peak number
 ---@field ["end"] number
 ---@field dwf_stretch number
----@field syn_id number References: `syndrome`
+---@field syn_id number References: `df.syndrome`
 ---@field id number
 ---@field syn_index number index in syndrome
 ---@field moon_phase_min number
@@ -872,7 +872,7 @@ function df.creature_interaction_effect_speed_changest:new() end
 ---@class (exact) df.creature_interaction_effect_body_mat_interactionst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_body_mat_interactionst
 ---@field interaction_name string
----@field interaction_id number References: `interaction`
+---@field interaction_id number References: `df.interaction`
 ---@field unk_8c number
 ---@field unk_90 number
 ---@field unk_94 string
@@ -889,7 +889,7 @@ function df.creature_interaction_effect_body_mat_interactionst:new() end
 ---@field unk_6c string
 ---@field unk_88 string
 ---@field unk_a4 string
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field fraction_mul number
 ---@field fraction_div number

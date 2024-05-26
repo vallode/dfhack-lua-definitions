@@ -439,8 +439,8 @@ df.itemdef_flags = {}
 ---@field id string
 ---@field subtype number
 ---@field base_flags _itemdef_base_flags
----@field source_hfid number References: `historical_figure`
----@field source_enid number References: `historical_entity`
+---@field source_hfid number References: `df.historical_figure`
+---@field source_enid number References: `df.historical_entity`
 ---@field raw_strings DFStringVector
 local itemdef
 

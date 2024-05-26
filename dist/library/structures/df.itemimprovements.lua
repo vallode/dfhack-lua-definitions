@@ -53,9 +53,9 @@ df.improvement_type = {}
 
 ---@class (exact) df.dye_info: DFStruct
 ---@field _type identity.dye_info
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field dyer number References: `historical_figure`
+---@field dyer number References: `df.historical_figure`
 ---@field quality df.item_quality
 ---@field skill_rating df.skill_rating at the moment of creation
 ---@field unk_1 number
@@ -69,10 +69,10 @@ function df.dye_info:new() end
 
 ---@class (exact) df.itemimprovement: DFStruct
 ---@field _type identity.itemimprovement
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field maker number References: `historical_figure`
----@field masterpiece_event number References: `history_event`
+---@field maker number References: `df.historical_figure`
+---@field masterpiece_event number References: `df.history_event`
 ---@field quality df.item_quality
 ---@field skill_rating df.skill_rating at the moment of creation
 ---@field unk_1 number
@@ -107,7 +107,7 @@ function itemimprovement:isDecoration() end
 ---@return number
 function itemimprovement:getDyeValue(caravan) end
 
----@param shape number References: `descriptor_shape`
+---@param shape number References: `df.descriptor_shape`
 function itemimprovement:setShape(shape) end
 
 
@@ -132,7 +132,7 @@ function df.itemimprovement_art_imagest:new() end
 ---@class (exact) df.itemimprovement_coveredst: DFStruct, df.itemimprovement
 ---@field _type identity.itemimprovement_coveredst
 ---@field cover_flags df.itemimprovement_coveredst.T_cover_flags
----@field shape number References: `descriptor_shape`
+---@field shape number References: `df.descriptor_shape`
 
 ---@class identity.itemimprovement_coveredst: DFCompoundType
 ---@field _kind 'class-type'
@@ -163,7 +163,7 @@ function df.itemimprovement_rings_hangingst:new() end
 
 ---@class (exact) df.itemimprovement_bandsst: DFStruct, df.itemimprovement
 ---@field _type identity.itemimprovement_bandsst
----@field shape number References: `descriptor_shape`
+---@field shape number References: `df.descriptor_shape`
 
 ---@class identity.itemimprovement_bandsst: DFCompoundType
 ---@field _kind 'class-type'
@@ -240,7 +240,7 @@ function df.itemimprovement_sewn_imagest:new() end
 
 ---@class (exact) df.itemimprovement_sewn_imagest.T_cloth: DFStruct
 ---@field _type identity.itemimprovement_sewn_imagest.cloth
----@field unit_id number References: `historical_figure`
+---@field unit_id number References: `df.historical_figure`
 ---@field quality number
 ---@field unk_1 number
 
@@ -299,7 +299,7 @@ function df.itemimprovement_writingst:new() end
 
 ---@class (exact) df.itemimprovement_image_setst: DFStruct, df.itemimprovement
 ---@field _type identity.itemimprovement_image_setst
----@field image_set_id number References: `image_set`
+---@field image_set_id number References: `df.image_set`
 
 ---@class identity.itemimprovement_image_setst: DFCompoundType
 ---@field _kind 'class-type'
@@ -464,10 +464,10 @@ df.written_content_style = {}
 ---@field unk1 number
 ---@field unk2 number
 ---@field type df.written_content_type
----@field poetic_form number References: `poetic_form`
+---@field poetic_form number References: `df.poetic_form`
 ---@field styles _written_content_styles
 ---@field style_strength DFNumberVector 0 = maximum, 1 = significant, 2 = partial
----@field author number References: `historical_figure`
+---@field author number References: `df.historical_figure`
 ---@field author_roll number
 
 ---@class identity.written_content: DFCompoundType
@@ -566,14 +566,14 @@ df.engraving_flags = {}
 
 ---@class (exact) df.engraving: DFStruct
 ---@field _type identity.engraving
----@field artist number References: `historical_figure`
----@field masterpiece_event number References: `history_event`
+---@field artist number References: `df.historical_figure`
+---@field masterpiece_event number References: `df.history_event`
 ---@field skill_rating df.skill_rating at the moment of creation
 ---@field pos df.coord
 ---@field flags df.engraving_flags
 ---@field tile number
----@field art_id number References: `art_image_chunk`
----@field art_subid number References: `art_image`
+---@field art_id number References: `df.art_image_chunk`
+---@field art_subid number References: `df.art_image`
 ---@field quality df.item_quality
 ---@field unk1 number
 ---@field unk2 number

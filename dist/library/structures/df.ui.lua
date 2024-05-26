@@ -46,8 +46,8 @@ function df.burrow.get_vector() end
 ---@field x number
 ---@field y number
 ---@field z number
----@field unit_id number References: `unit`
----@field item_id number References: `item`
+---@field unit_id number References: `df.unit`
+---@field item_id number References: `df.item`
 
 ---@class identity.ui_hotkey: DFCompoundType
 ---@field _kind 'struct-type'
@@ -251,13 +251,13 @@ df.ui_sidebar_mode = {}
 
 ---@class (exact) df.punishment: DFStruct
 ---@field _type identity.punishment
----@field criminal number References: `unit`
----@field officer number References: `unit`
+---@field criminal number References: `df.unit`
+---@field officer number References: `df.unit`
 ---@field beating number
 ---@field hammer_strikes number
 ---@field prison_counter number
 ---@field unk_10 number 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
----@field chain number References: `building`
+---@field chain number References: `df.building`
 ---@field victims DFNumberVector
 
 ---@class identity.punishment: DFCompoundType
@@ -539,7 +539,7 @@ function _labor_infost_work_details:erase(index) end
 ---@class (exact) df.plotinfost: DFStruct
 ---@field _type identity.plotinfost
 ---@field game_state number ctor 86e33c0 x<br>dtor 8534190
----@field lost_to_siege_civ number References: `historical_entity`
+---@field lost_to_siege_civ number References: `df.historical_entity`
 ---@field tax_collection df.plotinfost.T_tax_collection
 ---@field nobles df.plotinfost.T_nobles
 ---@field caravans _plotinfost_caravans bay12: merchant
@@ -577,10 +577,10 @@ function _labor_infost_work_details:erase(index) end
 ---@field economic_stone DFBooleanVector
 ---@field flags df.plotinfost.T_flags
 ---@field mood_cooldown number
----@field civ_id number References: `historical_entity`
----@field site_id number References: `world_site`
----@field group_id number i.e. specifically the fortress dwarves References: `historical_entity`
----@field race_id number References: `creature_raw`
+---@field civ_id number References: `df.historical_entity`
+---@field site_id number References: `df.world_site`
+---@field group_id number i.e. specifically the fortress dwarves<br>References: `df.historical_entity`
+---@field race_id number References: `df.creature_raw`
 ---@field unk_races DFNumberVector
 ---@field farm_crops DFNumberVector
 ---@field farm_seasons _plotinfost_farm_seasons
@@ -617,8 +617,8 @@ function _labor_infost_work_details:erase(index) end
 ---@field food_warn_year_tick number
 ---@field main df.plotinfost.T_main
 ---@field squads df.plotinfost.T_squads
----@field follow_unit number References: `unit`
----@field follow_item number References: `item`
+---@field follow_unit number References: `df.unit`
+---@field follow_item number References: `df.item`
 ---@field selected_farm_crops DFNumberVector valid for the currently queried farm plot
 ---@field available_seeds _plotinfost_available_seeds
 
@@ -1661,7 +1661,7 @@ function _plotinfost_waypoints_unk_42_06:erase(index) end
 ---@field list _plotinfost_burrows_list
 ---@field next_id number
 ---@field sel_index number
----@field sel_id number References: `burrow`
+---@field sel_id number References: `df.burrow`
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
 ---@field list_units _plotinfost_burrows_list_units
@@ -2237,7 +2237,7 @@ df.timed_event_type = {}
 ---@field season_ticks number 1 tick = 10 frames
 ---@field entity df.historical_entity
 ---@field feature_ind number
----@field layer_id number References: `world_underground_region`
+---@field layer_id number References: `df.world_underground_region`
 ---@field feature_ax number
 ---@field feature_ay number
 

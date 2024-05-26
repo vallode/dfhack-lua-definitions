@@ -262,7 +262,7 @@ df.plant_raw_flags = {}
 ---@field seed_plural string
 ---@field leaves_singular string unused
 ---@field leaves_plural string unused
----@field source_hfid number References: `historical_figure`
+---@field source_hfid number References: `df.historical_figure`
 ---@field unk_v4201_1 number
 ---@field unk1 integer
 ---@field unk2 integer
@@ -495,7 +495,7 @@ df.plant_material_def = {}
 ---@field str_growth_item string[]
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field prints _plant_growth_prints
 ---@field unk_v50_1 number

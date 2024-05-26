@@ -625,7 +625,7 @@ function df.material_common.T_reaction_product:new() end
 
 ---@class (exact) df.material_common.T_hardens_with_water: DFStruct
 ---@field _type identity.material_common.hardens_with_water
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field str string[]
 
@@ -853,7 +853,7 @@ df.inclusion_type = {}
 ---@field id string
 ---@field str DFStringVector
 ---@field flags _inorganic_raw_flags
----@field source_hfid number References: `historical_figure`
+---@field source_hfid number References: `df.historical_figure`
 ---@field unk_v4201_1 number
 ---@field metal_ore df.inorganic_raw.T_metal_ore
 ---@field thread_metal df.inorganic_raw.T_thread_metal

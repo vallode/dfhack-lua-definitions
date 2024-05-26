@@ -89,7 +89,7 @@ function _building_def_build_labors:erase(index) end
 ---@field _type identity.building_def_item
 ---@field item_type df.item_type
 ---@field item_subtype number
----@field mat_type number References: `material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number actually int16, not int32 as used in other places
 ---@field reaction_class string
 ---@field has_material_reaction_product string
@@ -98,7 +98,7 @@ function _building_def_build_labors:erase(index) end
 ---@field flags3 df.job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore number References: `inorganic_raw`
+---@field metal_ore number References: `df.inorganic_raw`
 ---@field min_dimension number
 ---@field quantity number
 ---@field has_tool_use df.tool_uses
