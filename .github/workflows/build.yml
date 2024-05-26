@@ -19,6 +19,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
           submodules: recursive
+          fetch-depth: 0
 
       - name: Checkout DFHack ref
         id: checkout-ref
