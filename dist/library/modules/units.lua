@@ -14,7 +14,7 @@ function dfhack.units.getPosition(unit) end
 ---@return df.specific_ref spec_ref
 function dfhack.units.getOuterContainerRef(unit, init_ref) end
 
----@param pvec { [integer]: unknown }
+---@param pvec table<integer, unknown>
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.getNoblePositions(pvec, unit) end
@@ -26,16 +26,16 @@ function dfhack.units.getNoblePositions(pvec, unit) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@return { [integer]: df.unit }
+---@return table<integer, df.unit>
 function dfhack.units.getUnitsInBox(x1, y1, z1, x2, y2, z2) end
 
 ---@param exclude_residents boolean|nil
 ---@param include_insane boolean|nil
----@return { [integer]: df.unit }
+---@return table<integer, df.unit>
 function dfhack.units.getCitizens(exclude_residents, include_insane) end
 
 ---@param noble string
----@return { [integer]: df.unit }
+---@return table<integer, df.unit>
 function dfhack.units.getUnitsByNobleRole(noble) end
 
 ---@param unit df.unit

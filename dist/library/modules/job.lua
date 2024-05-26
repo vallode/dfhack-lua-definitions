@@ -4,7 +4,7 @@
 ---@class dfhack.job
 dfhack.job = {}
 
----@param pvec { [integer]: df.job }
+---@param pvec table<integer, df.job>
 ---@param id_var integer
 ---@return boolean
 function dfhack.job.listNewlyCreated(pvec, id_var) end

@@ -140,7 +140,7 @@ module DFHackLuaDefinitions
         string = string.gsub(/df::/, 'df.') if string
 
         # TODO: Move this out to annotations and give it more glue.
-        return "{ [integer]: #{parse_type(Regexp.last_match(1))} }" if string[/(?:std::)?vector<([^>]+)>/]
+        return "table<integer, #{parse_type(Regexp.last_match(1))}>" if string[/(?:std::)?vector<([^>]+)>/]
 
         if string[/(?:std::)?map<([^>]+)>/]
           key = parse_type(Regexp.last_match(1).split(',')[0])
@@ -169,10 +169,7 @@ module DFHackLuaDefinitions
           annotation << DFHackLuaDefinitions::Annotation.multiline_comment(comment)
         end
 
-        p function_name
-        p captures[1]
         return_type = parse_type(captures[1])
-        p return_type
         arguments = []
 
         if captures[2]

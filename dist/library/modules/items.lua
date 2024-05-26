@@ -14,7 +14,7 @@ function dfhack.items.getPosition(item) end
 function dfhack.items.getOuterContainerRef(item, init_ref) end
 
 ---@param item df.item
----@param items { [integer]: df.item }
+---@param items table<integer, df.item>
 function dfhack.items.getContainedItems(item, items) end
 
 ---@param item df.item

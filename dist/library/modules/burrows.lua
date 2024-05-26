@@ -4,7 +4,7 @@
 ---@class dfhack.burrows
 dfhack.burrows = {}
 
----@param pvec { [integer]: df.map_block }
+---@param pvec table<integer, df.map_block>
 ---@param burrow df.burrow
 function dfhack.burrows.listBlocks(pvec, burrow) end
 

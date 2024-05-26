@@ -70,7 +70,7 @@ function dfhack.gui.revealInDwarfmodeMap(x, y, z, center, highlight) end
 function dfhack.gui.getMousePos(allow_out_of_bounds) end
 
 ---@param top df.viewscreen
----@return { [integer]: string }
+---@return table<integer, string>
 function dfhack.gui.getFocusStrings(top) end
 
 ---@param container df.widget_container
