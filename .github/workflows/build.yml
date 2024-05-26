@@ -27,7 +27,7 @@ jobs:
           SHA=$(git ls-remote --exit-code --tags origin '${{ matrix.ref }}' | tail -n 1 | awk '{print $1}' || echo 'develop')
           git fetch --depth=1 origin $SHA
           git checkout $SHA
-          echo "name=$(${REF/.*/})" > $GITHUB_OUTPUT
+          echo "name=${REF/.*/}" > $GITHUB_OUTPUT
         working-directory: dfhack
 
       - name: Sync library/xml
