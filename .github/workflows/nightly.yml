@@ -11,26 +11,5 @@ jobs:
     permissions:
       contents: write
 
-  update_definitions:
-    needs: update_submodules
-    uses: ./.github/workflows/update-definitions.yml
-    permissions:
-      contents: write
-
-  upload:
-    name: Upload definitions
-    needs: [update_submodules, update_definitions]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Clone definitions
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: dist
-          sparse-checkout-cone-mode: false
-
-      - name: Upload as artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dfhack-lua-definitions
-          path: dist
-          compression-level: 9
+  build:
+    uses: ./.github/workflows/build.yml

@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Generate definitions
+    strategy:
+      matrix:
+        ref:
+          - develop
+          - 50\.
+          - 0\.47\.
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          submodules: recursive
+
+      - name: Checkout DFHack ref
+        id: checkout-ref
+        run: |
+          cd dfhack
+          git checkout $(git log --pretty='format:%H %d' | grep '${{ matrix.ref }}' | head -n 1 | cut -c -10)
+          echo "name=$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)" > $GITHUB_OUTPUT
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Generate definitions
+        run: bundle exec rake build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dfhack-lua-definitions-${{ steps.checkout-ref.output.name }}
+          path: dist
