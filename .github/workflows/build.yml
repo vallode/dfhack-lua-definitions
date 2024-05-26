@@ -20,6 +20,10 @@ jobs:
           ref: ${{ github.ref }}
           submodules: recursive
 
+      - name: Fetch DFHack repo history
+        run: git fetch --unshallow
+        working-directory: dfhack
+
       - name: Checkout DFHack ref
         id: checkout-ref
         run: |
