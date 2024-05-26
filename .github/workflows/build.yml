@@ -23,11 +23,11 @@ jobs:
       - name: Checkout DFHack reference
         id: checkout-ref
         run: |
-          REF=${{ matrix.ref }}
-          SHA=$(git ls-remote --exit-code --tags origin '${{ matrix.ref }}' | tail -n 1 | awk '{print $1}' || echo 'develop')
+          REF=$(git ls-remote --exit-code origin '${{ matrix.ref }}' | grep -vF '^{}' | tail -n 1)
+          read SHA NAME <<< $REF
           git fetch --depth=1 origin $SHA
           git checkout $SHA
-          echo "name=${REF/.*/}" > $GITHUB_OUTPUT
+          echo "name=$(echo $NAME | sed -e 's/refs\/tags\///g' -e 's/refs\/heads\///g')" > $GITHUB_OUTPUT
         working-directory: dfhack
 
       - name: Sync library/xml
