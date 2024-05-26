@@ -131,7 +131,7 @@ describe DFHackLuaDefinitions::XML do
       annotation = <<~LUA
         ---@class (exact) df.foostruct: DFStruct
         ---@field _type identity.foostruct
-        ---@field test_field number References: `bartarget`
+        ---@field test_field number References: `df.bartarget`
         ---@field typed_field df.coord
 
         ---@class identity.foostruct: DFCompoundType
