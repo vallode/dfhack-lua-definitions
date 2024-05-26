@@ -4,10 +4,9 @@
 ---@class dfhack.filesystem
 dfhack.filesystem = {}
 
----@param dir string
 ---@param files { [integer]: string }
----@return integer
-function dfhack.filesystem.listdir(dir, files) end
+---@return { [integer]: string }
+function dfhack.filesystem.listdir(files) end
 
 ---@param dir string
 ---@param files { [string]: boolean }

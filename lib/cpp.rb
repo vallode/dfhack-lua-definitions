@@ -169,7 +169,10 @@ module DFHackLuaDefinitions
           annotation << DFHackLuaDefinitions::Annotation.multiline_comment(comment)
         end
 
+        p function_name
+        p captures[1]
         return_type = parse_type(captures[1])
+        p return_type
         arguments = []
 
         if captures[2]
@@ -180,10 +183,16 @@ module DFHackLuaDefinitions
           # We're accounting for pointers as first arguments _usually_ being a
           # way of avoiding copy semantics. When these are wrapped as Lua
           # functions the pointer is returned.
-          if /&\s*\w+/.match(arguments[0])
-            return_type = parse_type(arguments[0].gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip)
+          [arguments.first, arguments.last].each do |argument|
+            next unless /&\s*\w+/.match(argument)
+
+            return_type = parse_type(argument.gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip)
             arguments.shift
           end
+
+          # We need to do this again because some screen functions use the
+          # _last_ argument as the output.
+          arguments.pop if /::\*/.match(arguments.last)
 
           arguments = arguments.map { |arg| arg.gsub(%r{/\*[^/]+/}, '').gsub(/const\s+|[*&]/, '').strip }
           arguments = arguments&.map do |argument|

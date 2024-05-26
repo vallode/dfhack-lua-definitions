@@ -24,16 +24,14 @@ function dfhack.screen.getWindowSize() end
 ---@param x integer
 ---@param y integer
 ---@param map boolean|nil
----@param df::graphic_viewportst::texpos_field number
 ---@return unknown
-function dfhack.screen.paintTile(x, y, map, df::graphic_viewportst::texpos_field) end
+function dfhack.screen.paintTile(x, y, map) end
 
 ---@param x integer
 ---@param y integer
 ---@param map boolean|nil
----@param df::graphic_viewportst::texpos_field number
 ---@return unknown
-function dfhack.screen.readTile(x, y, map, df::graphic_viewportst::texpos_field) end
+function dfhack.screen.readTile(x, y, map) end
 
 ---@param x integer
 ---@param y integer
