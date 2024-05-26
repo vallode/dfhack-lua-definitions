@@ -15,7 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: true
+
+      - name: Sync library/xml
+        run: git submodule update --init library/xml
+        working-directory: dfhack
 
       - uses: ruby/setup-ruby@v1
         with:
