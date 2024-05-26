@@ -97,5 +97,13 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 
+RSpec::Matchers.define :eq_ws do |expected|
+  match do |actual|
+    actual.strip == expected.strip
+  end
+
+  diffable
+end
+
 RSPEC_ROOT = File.dirname __FILE__
 FIXTURES_ROOT = "#{RSPEC_ROOT}/fixtures".freeze
