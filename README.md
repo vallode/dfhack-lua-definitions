@@ -1,6 +1,7 @@
 # DFHack Lua API Definitions
 
-[![Main branch test status](https://github.com/vallode/dfhack-lua-definitions/actions/workflows/test.yml/badge.svg?branch=main&event=push)](https://github.com/vallode/dfhack-lua-definitions/actions/workflows/test.yml)
+[![Main branch test status](https://img.shields.io/github/actions/workflow/status/vallode/dfhack-lua-definitions/.github%2Fworkflows%2Ftest.yml)](https://github.com/vallode/dfhack-lua-definitions/actions/workflows/test.yml)
+[![Current release](https://img.shields.io/github/v/release/vallode/dfhack-lua-definitions)](https://github.com/vallode/dfhack-lua-definitions/releases)
 
 [Lua language server](//github.com/LuaLS/lua-language-server) type definitions for [DFHack](//docs.dfhack.org/en/stable/)'s Lua API.
 
@@ -8,7 +9,7 @@ Any form of contribution (feedback, criticism, words of encouragement) is welcom
 
 > [!NOTE]
 >
-> These definitions are work-in-progress, they can lie to you. You can find up to date documentation on the [DFHack website](//docs.dfhack.org/en/stable/docs/dev/Lua%20API.html). That being said, please raise any problems here or on DFHack's Discord server.
+> These definitions are work-in-progress, they can lie to you. You can find up to date documentation on the [DFHack website](//docs.dfhack.org/en/stable/docs/dev/Lua%20API.html). That being said, please raise any problems here or on DFHack's [Discord server](//dfhack.org/discord).
 
 ## Installation
 
@@ -64,7 +65,6 @@ Reportedly working but no instructions yet.
 ## Known issues
 
 - Developing the DFHack lua library with the annotations loaded can be annoying due to "duplicate field" warnings
-- DFHack's C++ functions that are exposed to Lue are **not included** (#4)
 - Initally opening DFHack can take a long time to load, especially on weaker hardware (#5)
 - LuaLS has a known problem with type-hinting inside of files that write to the `_ENV` global, if you are in a file writing to `_ENV` comment out those lines.
 - Types defined in C++ headers (like `NoblePosition`) are unsupported
