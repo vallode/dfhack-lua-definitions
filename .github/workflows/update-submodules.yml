@@ -16,7 +16,10 @@ jobs:
           submodules: true
 
       - name: Update submodules
-        run: git submodule update --remote
+        run: |
+          git submodule update --remote
+          cd dfhack
+          git submodule update
 
       - name: Check if submodules updated
         id: submodules_updated
