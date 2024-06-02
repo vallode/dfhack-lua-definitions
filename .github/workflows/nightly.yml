@@ -10,6 +10,11 @@ jobs:
     uses: ./.github/workflows/update-submodules.yml
     permissions:
       contents: write
+    
+  update_definitions:
+    uses: ./.github/workflows/update-definitions.yml
+    permissions:
+      contents: write
 
   build:
     uses: ./.github/workflows/build.yml

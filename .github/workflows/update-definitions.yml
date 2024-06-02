@@ -1,0 +1,41 @@
+name: Update definitions
+
+on: workflow_call
+
+jobs:
+  run:
+    name: Update definitions
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Cannot use the commit SHA because there may have been updates.
+          ref: ${{ github.ref }}
+          # We need `dfhack/library/xml` to be present.
+          submodules: recursive
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Generate definitions
+        run: bundle exec rake build
+
+      - name: Check if definitions changed
+        id: definitions_changed
+        run: echo "changed=$(git diff --quiet HEAD -- dist; echo $?)" >> $GITHUB_OUTPUT
+
+      - name: Setup git user
+        if: ${{ steps.definitions_changed.outputs.changed == true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email ""41898282+github-actions[bot]@users.noreply.github.com""
+
+      - name: Commit changes
+        if: ${{ steps.definitions_changed.outputs.changed == true }}
+        run: |
+          git add dist
+          git commit -m "Auto-update definitions"
+          git push
