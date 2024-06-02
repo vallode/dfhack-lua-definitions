@@ -31,21 +31,35 @@ function _entity_occasion_info_occasions:insert(index, item) end
 ---@param index integer
 function _entity_occasion_info_occasions:erase(index) end
 
--- some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
+---@alias df.entity_occasion_purpose_type
+---| 0 # COMMEMORATE_EVENT
+---| 1 # FAIR
+---| 2 # GENERAL_HOLY_PERIOD_FOR_FIGURE
+
+---@class identity.entity_occasion_purpose_type: DFEnumType
+---@field COMMEMORATE_EVENT 0 bay12: EntityOccasionPurposeType
+---@field [0] "COMMEMORATE_EVENT" bay12: EntityOccasionPurposeType
+---@field FAIR 1 history_event
+---@field [1] "FAIR" history_event
+---@field GENERAL_HOLY_PERIOD_FOR_FIGURE 2
+---@field [2] "GENERAL_HOLY_PERIOD_FOR_FIGURE"
+df.entity_occasion_purpose_type = {}
+
+-- some festivals are annual, some single time. COMMEMORATE_EVENT without Defunct seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
 ---@class (exact) df.entity_occasion: DFStruct
 ---@field _type identity.entity_occasion
 ---@field id number
----@field unk_1 number 0 and 1 seen
+---@field flags df.entity_occasion.T_flags
 ---@field site number References: `df.world_site`
----@field unk_2 number only -1 seen, but based on other cases, might be an abstract building
+---@field structure number References: `df.abstract_building`
 ---@field name df.language_name
 ---@field start_year_tick number
 ---@field end_year_tick number
----@field unk_3 number 0-2 seen
----@field event number References: `df.history_event`
----@field unk_4 number only seen with unk_3=2, but is usually not set
+---@field purpose df.entity_occasion_purpose_type
+---@field purpose_id number history_event or histfig
+---@field purpose_subid number optional sphere
 ---@field schedule _entity_occasion_schedule
----@field unk_5 number only value seen
+---@field active_collection df.history_event_collection_occasionst unsaved, worldgen
 
 ---@class identity.entity_occasion: DFCompoundType
 ---@field _kind 'struct-type'
@@ -53,6 +67,16 @@ df.entity_occasion = {}
 
 ---@return df.entity_occasion
 function df.entity_occasion:new() end
+
+---@class df.entity_occasion.T_flags: DFBitfield
+---@field _enum identity.entity_occasion.flags
+---@field defunct boolean bay12: ENTITY_OCCASION_FLAG_*
+---@field [0] boolean bay12: ENTITY_OCCASION_FLAG_*
+
+---@class identity.entity_occasion.flags: DFBitfieldType
+---@field defunct 0 bay12: ENTITY_OCCASION_FLAG_*
+---@field [0] "defunct" bay12: ENTITY_OCCASION_FLAG_*
+df.entity_occasion.T_flags = {}
 
 ---@class _entity_occasion_schedule: DFContainer
 ---@field [integer] df.entity_occasion_schedule
@@ -79,6 +103,8 @@ function _entity_occasion_schedule:erase(index) end
 ---| 5 # MUSICAL_COMPETITION
 ---| 6 # POETRY_COMPETITION
 ---| 7 # FOOT_RACE
+---| 8 # FLY_RACE
+---| 9 # MOUNTED_RACE
 ---| 10 # WRESTLING_COMPETITION
 ---| 11 # THROWING_COMPETITION
 ---| 12 # GLADIATORY_COMPETITION
@@ -86,32 +112,36 @@ function _entity_occasion_schedule:erase(index) end
 ---| 14 # CEREMONY
 
 ---@class identity.occasion_schedule_type: DFEnumType
----@field DANCE_PERFORMANCE 0
----@field [0] "DANCE_PERFORMANCE"
----@field MUSICAL_PERFORMANCE 1
----@field [1] "MUSICAL_PERFORMANCE"
----@field POETRY_RECITAL 2
----@field [2] "POETRY_RECITAL"
----@field STORYTELLING 3
----@field [3] "STORYTELLING"
----@field DANCE_COMPETITION 4
----@field [4] "DANCE_COMPETITION"
----@field MUSICAL_COMPETITION 5
----@field [5] "MUSICAL_COMPETITION"
----@field POETRY_COMPETITION 6
----@field [6] "POETRY_COMPETITION"
----@field FOOT_RACE 7
----@field [7] "FOOT_RACE"
----@field WRESTLING_COMPETITION 10
----@field [10] "WRESTLING_COMPETITION"
+---@field DANCE_PERFORMANCE 0 bay12: EntityOccasionScheduleType
+---@field [0] "DANCE_PERFORMANCE" bay12: EntityOccasionScheduleType
+---@field MUSICAL_PERFORMANCE 1 dance form
+---@field [1] "MUSICAL_PERFORMANCE" dance form
+---@field POETRY_RECITAL 2 musical form
+---@field [2] "POETRY_RECITAL" musical form
+---@field STORYTELLING 3 poetry form
+---@field [3] "STORYTELLING" poetry form
+---@field DANCE_COMPETITION 4 history event
+---@field [4] "DANCE_COMPETITION" history event
+---@field MUSICAL_COMPETITION 5 dance form
+---@field [5] "MUSICAL_COMPETITION" dance form
+---@field POETRY_COMPETITION 6 musical form
+---@field [6] "POETRY_COMPETITION" musical form
+---@field FOOT_RACE 7 poetry form
+---@field [7] "FOOT_RACE" poetry form
+---@field FLY_RACE 8
+---@field [8] "FLY_RACE"
+---@field MOUNTED_RACE 9
+---@field [9] "MOUNTED_RACE"
+---@field WRESTLING_COMPETITION 10 race, caste
+---@field [10] "WRESTLING_COMPETITION" race, caste
 ---@field THROWING_COMPETITION 11
 ---@field [11] "THROWING_COMPETITION"
----@field GLADIATORY_COMPETITION 12
----@field [12] "GLADIATORY_COMPETITION"
+---@field GLADIATORY_COMPETITION 12 item type, subtype, material, matgloss
+---@field [12] "GLADIATORY_COMPETITION" item type, subtype, material, matgloss
 ---@field PROCESSION 13
 ---@field [13] "PROCESSION"
----@field CEREMONY 14
----@field [14] "CEREMONY"
+---@field CEREMONY 14 start abstract building, end abstract building
+---@field [14] "CEREMONY" start abstract building, end abstract building
 df.occasion_schedule_type = {}
 
 ---@class (exact) df.entity_occasion_schedule: DFStruct
@@ -119,9 +149,9 @@ df.occasion_schedule_type = {}
 ---@field type df.occasion_schedule_type
 ---@field reference number art form / event / item_type /procession start abstract building
 ---@field reference2 number item_subtype / procession stop abstract building
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
+---@field reference3 number material
+---@field reference4 number matgloss
+---@field flags df.entity_occasion_schedule.T_flags
 ---@field features _entity_occasion_schedule_features
 ---@field start_year_tick number
 ---@field end_year_tick number
@@ -132,6 +162,16 @@ df.entity_occasion_schedule = {}
 
 ---@return df.entity_occasion_schedule
 function df.entity_occasion_schedule:new() end
+
+---@class df.entity_occasion_schedule.T_flags: DFBitfield
+---@field _enum identity.entity_occasion_schedule.flags
+---@field group_or_troupe boolean bay12: ENTITY_OCCASION_SCHEDULE_FLAG_*
+---@field [0] boolean bay12: ENTITY_OCCASION_SCHEDULE_FLAG_*
+
+---@class identity.entity_occasion_schedule.flags: DFBitfieldType
+---@field group_or_troupe 0 bay12: ENTITY_OCCASION_SCHEDULE_FLAG_*
+---@field [0] "group_or_troupe" bay12: ENTITY_OCCASION_SCHEDULE_FLAG_*
+df.entity_occasion_schedule.T_flags = {}
 
 ---@class _entity_occasion_schedule_features: DFContainer
 ---@field [integer] df.entity_occasion_schedule_feature
@@ -150,30 +190,43 @@ function _entity_occasion_schedule_features:insert(index, item) end
 function _entity_occasion_schedule_features:erase(index) end
 
 ---@alias df.occasion_schedule_feature
+---| 0 # ANIMALS_ACCOMPANYING
+---| 1 # ANIMALS_MOUNTED
 ---| 2 # STORYTELLING
 ---| 3 # POETRY_RECITAL
 ---| 4 # MUSICAL_PERFORMANCE
 ---| 5 # DANCE_PERFORMANCE
+---| 6 # MOVING_PERFORMANCE_STAGE
 ---| 7 # CRIERS_IN_FRONT
 ---| 8 # ORDER_OF_PRECEDENCE
 ---| 9 # BANNERS
 ---| 10 # IMAGES
+---| 11 # FLOWERS_CARRIED
+---| 12 # FLOWERS_SCATTERED
 ---| 13 # ACROBATS
 ---| 14 # INCENSE_BURNING
 ---| 15 # COSTUMES
 ---| 16 # CANDLES
 ---| 17 # THE_GIVING_OF_ITEMS
 ---| 18 # THE_SACRIFICE_OF_ITEMS
+---| 19 # THE_SACRIFICE_OF_CREATURES
+---| 20 # THE_SACRIFICE_OF_PLANTS
 
 ---@class identity.occasion_schedule_feature: DFEnumType
----@field STORYTELLING 2
----@field [2] "STORYTELLING"
----@field POETRY_RECITAL 3
----@field [3] "POETRY_RECITAL"
----@field MUSICAL_PERFORMANCE 4
----@field [4] "MUSICAL_PERFORMANCE"
----@field DANCE_PERFORMANCE 5
----@field [5] "DANCE_PERFORMANCE"
+---@field ANIMALS_ACCOMPANYING 0 bay12: EntityOccasionScheduleElementType
+---@field [0] "ANIMALS_ACCOMPANYING" bay12: EntityOccasionScheduleElementType
+---@field ANIMALS_MOUNTED 1 race, caste
+---@field [1] "ANIMALS_MOUNTED" race, caste
+---@field STORYTELLING 2 race, caste
+---@field [2] "STORYTELLING" race, caste
+---@field POETRY_RECITAL 3 history event
+---@field [3] "POETRY_RECITAL" history event
+---@field MUSICAL_PERFORMANCE 4 poetry form
+---@field [4] "MUSICAL_PERFORMANCE" poetry form
+---@field DANCE_PERFORMANCE 5 musical form
+---@field [5] "DANCE_PERFORMANCE" musical form
+---@field MOVING_PERFORMANCE_STAGE 6 dance form
+---@field [6] "MOVING_PERFORMANCE_STAGE" dance form
 ---@field CRIERS_IN_FRONT 7
 ---@field [7] "CRIERS_IN_FRONT"
 ---@field ORDER_OF_PRECEDENCE 8
@@ -182,8 +235,12 @@ function _entity_occasion_schedule_features:erase(index) end
 ---@field [9] "BANNERS"
 ---@field IMAGES 10
 ---@field [10] "IMAGES"
----@field ACROBATS 13
----@field [13] "ACROBATS"
+---@field FLOWERS_CARRIED 11 histfig
+---@field [11] "FLOWERS_CARRIED" histfig
+---@field FLOWERS_SCATTERED 12 plant id, growth idx
+---@field [12] "FLOWERS_SCATTERED" plant id, growth idx
+---@field ACROBATS 13 plant id, growth idx
+---@field [13] "ACROBATS" plant id, growth idx
 ---@field INCENSE_BURNING 14
 ---@field [14] "INCENSE_BURNING"
 ---@field COSTUMES 15
@@ -192,17 +249,21 @@ function _entity_occasion_schedule_features:erase(index) end
 ---@field [16] "CANDLES"
 ---@field THE_GIVING_OF_ITEMS 17
 ---@field [17] "THE_GIVING_OF_ITEMS"
----@field THE_SACRIFICE_OF_ITEMS 18
----@field [18] "THE_SACRIFICE_OF_ITEMS"
+---@field THE_SACRIFICE_OF_ITEMS 18 item type, item subtype, material, matgloss
+---@field [18] "THE_SACRIFICE_OF_ITEMS" item type, item subtype, material, matgloss
+---@field THE_SACRIFICE_OF_CREATURES 19 item type, item subtype, material, matgloss
+---@field [19] "THE_SACRIFICE_OF_CREATURES" item type, item subtype, material, matgloss
+---@field THE_SACRIFICE_OF_PLANTS 20 race, caste
+---@field [20] "THE_SACRIFICE_OF_PLANTS" race, caste
 df.occasion_schedule_feature = {}
 
 ---@class (exact) df.entity_occasion_schedule_feature: DFStruct
 ---@field _type identity.entity_occasion_schedule_feature
 ---@field feature df.occasion_schedule_feature
 ---@field reference number
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
+---@field reference2 number
+---@field reference3 number
+---@field reference4 number
 
 ---@class identity.entity_occasion_schedule_feature: DFCompoundType
 ---@field _kind 'struct-type'
@@ -235,18 +296,19 @@ function df.entity_occasion_schedule_feature:new() end
 ---@field total_deaths number
 ---@field total_insanities number
 ---@field total_executions number
----@field num_artifacts number 0.50.01
----@field unk_6 number in 0.23, total siegers
----@field discovered_creature_foods DFBooleanVector
+---@field happiness_number number[]
+---@field num_artifacts number
+---@field invaders_repelled number
+---@field discovered_creature_foods DFBooleanVector bay12: knowledgest
 ---@field discovered_creatures DFBooleanVector
 ---@field discovered_plant_foods DFBooleanVector
 ---@field discovered_plants DFBooleanVector allows planting of seeds
 ---@field discovered_water_features number
 ---@field discovered_subterranean_features number
----@field discovered_chasm_features number unused since 40d
+---@field discovered_chasm_features number
 ---@field discovered_magma_features number
----@field discovered_feature_layers number back in 40d, this counted HFS
----@field migrant_wave_idx number when >= 2, no migrants
+---@field discovered_underworld_features number
+---@field migrant_wave_idx number age_in_years
 ---@field found_minerals DFNumberVector Added after 'you have struck' announcement
 ---@field found_misc df.entity_activity_statistics.T_found_misc
 
@@ -259,7 +321,7 @@ function df.entity_activity_statistics:new() end
 
 ---@class (exact) df.entity_activity_statistics.T_food: DFStruct
 ---@field _type identity.entity_activity_statistics.food
----@field total number
+---@field total number not a compound
 ---@field meat number
 ---@field fish number
 ---@field other number
@@ -276,7 +338,7 @@ function df.entity_activity_statistics.T_food:new() end
 
 ---@class (exact) df.entity_activity_statistics.T_wealth: DFStruct
 ---@field _type identity.entity_activity_statistics.wealth
----@field total number
+---@field total number not a compound
 ---@field weapons number
 ---@field armor number
 ---@field furniture number
@@ -285,7 +347,7 @@ function df.entity_activity_statistics.T_food:new() end
 ---@field displayed number
 ---@field held number
 ---@field imported number
----@field unk_1 number
+---@field offered number
 ---@field exported number
 
 ---@class identity.entity_activity_statistics.wealth: DFCompoundType
@@ -297,12 +359,12 @@ function df.entity_activity_statistics.T_wealth:new() end
 
 ---@class df.entity_activity_statistics.T_found_misc: DFBitfield
 ---@field _enum identity.entity_activity_statistics.found_misc
----@field deep_special boolean
----@field [0] boolean
+---@field deep_special boolean bay12: REPORT_SITE_FLAG_*
+---@field [0] boolean bay12: REPORT_SITE_FLAG_*
 
 ---@class identity.entity_activity_statistics.found_misc: DFBitfieldType
----@field deep_special 0
----@field [0] "deep_special"
+---@field deep_special 0 bay12: REPORT_SITE_FLAG_*
+---@field [0] "deep_special" bay12: REPORT_SITE_FLAG_*
 df.entity_activity_statistics.T_found_misc = {}
 
 ---@class (exact) df.caravan_state: DFStruct
@@ -314,7 +376,7 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field time_remaining number bay12: timer
 ---@field entity number References: `df.historical_entity`
 ---@field activity_stats df.entity_activity_statistics bay12: report
----@field flags df.caravan_state.T_flags reportst
+---@field flags df.caravan_state.T_flags
 ---@field import_value number bay12: goodsvalue_initial
 ---@field export_value_total number bay12: goodsvalue_end
 ---@field export_value_personal number bay12: exportvalue_end; excluding foreign-produced items
@@ -355,11 +417,10 @@ function df.caravan_state:new() end
 ---@field [4] "Stuck"
 df.caravan_state.T_trade_state = {}
 
--- reportst
 ---@class df.caravan_state.T_flags: DFBitfield
 ---@field _enum identity.caravan_state.flags
----@field check_cleanup boolean CHECKANDFINALIZE; set each time a merchant leaves the map or dies
----@field [0] boolean CHECKANDFINALIZE; set each time a merchant leaves the map or dies
+---@field check_cleanup boolean bay12: MERCHANTEVENTFLAG_*
+---@field [0] boolean bay12: MERCHANTEVENTFLAG_*
 ---@field casualty boolean JUSTSPOILED
 ---@field [1] boolean JUSTSPOILED
 ---@field hardship boolean WENTBADLY
@@ -370,16 +431,15 @@ df.caravan_state.T_trade_state = {}
 ---@field [4] boolean GOODSSEIZED
 ---@field offended boolean NOMORETRADE
 ---@field [5] boolean NOMORETRADE
----@field announce boolean UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
----@field [6] boolean UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
+---@field [6] boolean UNUSED_07
 ---@field greatly_offended boolean OFFENDED
 ---@field [7] boolean OFFENDED
 ---@field tribute boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 ---@field [8] boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 
 ---@class identity.caravan_state.flags: DFBitfieldType
----@field check_cleanup 0 CHECKANDFINALIZE; set each time a merchant leaves the map or dies
----@field [0] "check_cleanup" CHECKANDFINALIZE; set each time a merchant leaves the map or dies
+---@field check_cleanup 0 bay12: MERCHANTEVENTFLAG_*
+---@field [0] "check_cleanup" bay12: MERCHANTEVENTFLAG_*
 ---@field casualty 1 JUSTSPOILED
 ---@field [1] "casualty" JUSTSPOILED
 ---@field hardship 2 WENTBADLY
@@ -390,8 +450,6 @@ df.caravan_state.T_trade_state = {}
 ---@field [4] "seized" GOODSSEIZED
 ---@field offended 5 NOMORETRADE
 ---@field [5] "offended" NOMORETRADE
----@field announce 6 UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
----@field [6] "announce" UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
 ---@field greatly_offended 7 OFFENDED
 ---@field [7] "greatly_offended" OFFENDED
 ---@field tribute 8 IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
@@ -525,8 +583,8 @@ function _entity_buy_requests_mat_cats:erase(index) end
 ---| 63 # CupsMugsGoblets
 
 ---@class identity.entity_sell_category: DFEnumType
----@field Leather 0
----@field [0] "Leather"
+---@field Leather 0 bay12: CivRequestTabType
+---@field [0] "Leather" bay12: CivRequestTabType
 ---@field ClothPlant 1
 ---@field [1] "ClothPlant"
 ---@field ClothSilk 2
@@ -723,8 +781,8 @@ function _entity_recipe_item_types:erase(index) end
 ---| 10 # Guild
 
 ---@class identity.historical_entity_type: DFEnumType
----@field Civilization 0
----@field [0] "Civilization"
+---@field Civilization 0 bay12: EntityType
+---@field [0] "Civilization" bay12: EntityType
 ---@field SiteGovernment 1
 ---@field [1] "SiteGovernment"
 ---@field VesselCrew 2
@@ -772,24 +830,24 @@ function df.honors_type:new() end
 
 ---@class df.honors_type.T_flags: DFBitfield
 ---@field _enum identity.honors_type.flags
----@field granted_to_all_new_members boolean
----@field [0] boolean
+---@field granted_to_all_new_members boolean bay12: ENTITY_HONOR_FLAG_*
+---@field [0] boolean bay12: ENTITY_HONOR_FLAG_*
 
 ---@class identity.honors_type.flags: DFBitfieldType
----@field granted_to_all_new_members 0
----@field [0] "granted_to_all_new_members"
+---@field granted_to_all_new_members 0 bay12: ENTITY_HONOR_FLAG_*
+---@field [0] "granted_to_all_new_members" bay12: ENTITY_HONOR_FLAG_*
 df.honors_type.T_flags = {}
 
 ---@class df.honors_type.T_required_skill_type: DFBitfield
 ---@field _enum identity.honors_type.required_skill_type
----@field melee_weapon boolean
----@field [0] boolean
+---@field melee_weapon boolean bay12: ENTITY_HONOR_REQUIRED_SKILL_FLAG_*
+---@field [0] boolean bay12: ENTITY_HONOR_REQUIRED_SKILL_FLAG_*
 ---@field ranged_weapon boolean
 ---@field [1] boolean
 
 ---@class identity.honors_type.required_skill_type: DFBitfieldType
----@field melee_weapon 0
----@field [0] "melee_weapon"
+---@field melee_weapon 0 bay12: ENTITY_HONOR_REQUIRED_SKILL_FLAG_*
+---@field [0] "melee_weapon" bay12: ENTITY_HONOR_REQUIRED_SKILL_FLAG_*
 ---@field ranged_weapon 1
 ---@field [1] "ranged_weapon"
 df.honors_type.T_required_skill_type = {}
@@ -798,22 +856,22 @@ df.honors_type.T_required_skill_type = {}
 ---@field _type identity.artifact_claim
 ---@field artifact_id number References: `df.artifact_record`
 ---@field claim_type df.artifact_claim_type
----@field symbol_claim_id number different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
+---@field symbol_claim_id number refers to entity_position_assignment
 ---@field claim_year number Written contents often seem to lack info of being claimed
 ---@field claim_year_tick number usually init
----@field unk_1 number
----@field artifact df.artifact_record
+---@field renounce_event number References: `df.history_event`
+---@field artifact df.artifact_record bay12: artifact_rumor_locationst
 ---@field site number References: `df.world_site`
 ---@field structure_local number
 ---@field holder_hf number might be owner_hf. all cases encountered have had both field the same when claimed by entity<br>References: `df.historical_figure`
 ---@field subregion number References: `df.world_region`
 ---@field feature_layer_id number References: `df.world_underground_region`
----@field unk_year number seems to be current year or -1. Matches up with corresponding field of artifact_record
----@field unk_2 number only other value seen was 0
----@field unk_3 number uninitialized
----@field unk_4 DFPointer<integer>
----@field unk_5 df.historical_entity
----@field unk_6 df.historical_entity
+---@field latest_year number
+---@field latest_season_tick number
+---@field flags integer
+---@field witness df.witness_incidentst
+---@field temp_site_ent df.historical_entity
+---@field temp_civ_ent df.historical_entity
 
 ---@class identity.artifact_claim: DFCompoundType
 ---@field _kind 'struct-type'
@@ -822,25 +880,100 @@ df.artifact_claim = {}
 ---@return df.artifact_claim
 function df.artifact_claim:new() end
 
--- The 3 first vectors are of the same length and somehow connected
----@class (exact) df.entity_unk_v47_1: DFStruct
----@field _type identity.entity_unk_v47_1
----@field unk_v47_1 number seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled<br>References: `df.historical_figure`
----@field unk_v47_2 number some enum?
----@field unk_v47_3 DFNumberVector some enum?
+---@class (exact) df.evidence_hf_filest: DFStruct
+---@field _type identity.evidence_hf_filest
+---@field hfid number References: `df.historical_figure`
+---@field flags df.evidence_hf_filest.T_flags
+---@field evidence DFNumberVector
 ---@field agreement DFNumberVector
----@field unk_v47_5 DFNumberVector boolean?
----@field unk_v47_6 DFNumberVector
----@field unk_v47_7 DFNumberVector
----@field unk_v47_8 DFNumberVector
----@field unk_v47_9 number
+---@field evidence_flag DFIntegerVector 1 = TESTED_BY_INTERROGATION
+---@field wanted_crime DFNumberVector bay12: EVIDENCE_FLAG_
+---@field wanted_crime_agreement DFNumberVector bay12: CrimeType, currently defined inline in crime
+---@field used_identity DFNumberVector
+---@field temp_flags df.evidence_hf_filest.T_temp_flags
 
----@class identity.entity_unk_v47_1: DFCompoundType
+---@class identity.evidence_hf_filest: DFCompoundType
 ---@field _kind 'struct-type'
-df.entity_unk_v47_1 = {}
+df.evidence_hf_filest = {}
 
----@return df.entity_unk_v47_1
-function df.entity_unk_v47_1:new() end
+---@return df.evidence_hf_filest
+function df.evidence_hf_filest:new() end
+
+---@class df.evidence_hf_filest.T_flags: DFBitfield
+---@field _enum identity.evidence_hf_filest.flags
+---@field have_new_general_evidence boolean bay12: EVIDENCE_HF_FILE_FLAG_*
+---@field [0] boolean bay12: EVIDENCE_HF_FILE_FLAG_*
+---@field have_new_untested_evidence boolean
+---@field [1] boolean
+---@field under_surveillance boolean
+---@field [2] boolean
+---@field basic_name_attached_to_visual boolean
+---@field [3] boolean
+
+---@class identity.evidence_hf_filest.flags: DFBitfieldType
+---@field have_new_general_evidence 0 bay12: EVIDENCE_HF_FILE_FLAG_*
+---@field [0] "have_new_general_evidence" bay12: EVIDENCE_HF_FILE_FLAG_*
+---@field have_new_untested_evidence 1
+---@field [1] "have_new_untested_evidence"
+---@field under_surveillance 2
+---@field [2] "under_surveillance"
+---@field basic_name_attached_to_visual 3
+---@field [3] "basic_name_attached_to_visual"
+df.evidence_hf_filest.T_flags = {}
+
+---@class df.evidence_hf_filest.T_temp_flags: DFBitfield
+---@field _enum identity.evidence_hf_filest.temp_flags
+---@field has_master boolean bay12: EVIDENCE_HF_FILE_TEMP_FLAG_*
+---@field [0] boolean bay12: EVIDENCE_HF_FILE_TEMP_FLAG_*
+---@field has_org_association boolean
+---@field [1] boolean
+
+---@class identity.evidence_hf_filest.temp_flags: DFBitfieldType
+---@field has_master 0 bay12: EVIDENCE_HF_FILE_TEMP_FLAG_*
+---@field [0] "has_master" bay12: EVIDENCE_HF_FILE_TEMP_FLAG_*
+---@field has_org_association 1
+---@field [1] "has_org_association"
+df.evidence_hf_filest.T_temp_flags = {}
+
+---@class (exact) df.evidence_repositoryst: DFStruct
+---@field _type identity.evidence_repositoryst
+---@field hf_file _evidence_repositoryst_hf_file
+---@field foiled_plot_agreements DFNumberVector all known agreements
+---@field known_events DFNumberVector
+---@field flags df.evidence_repositoryst.T_flags
+
+---@class identity.evidence_repositoryst: DFCompoundType
+---@field _kind 'struct-type'
+df.evidence_repositoryst = {}
+
+---@return df.evidence_repositoryst
+function df.evidence_repositoryst:new() end
+
+---@class _evidence_repositoryst_hf_file: DFContainer
+---@field [integer] df.evidence_hf_filest
+local _evidence_repositoryst_hf_file
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.evidence_hf_filest>
+function _evidence_repositoryst_hf_file:_field(index) end
+
+---@param index '#'|integer
+---@param item df.evidence_hf_filest
+function _evidence_repositoryst_hf_file:insert(index, item) end
+
+---@param index integer
+function _evidence_repositoryst_hf_file:erase(index) end
+
+---@class df.evidence_repositoryst.T_flags: DFBitfield
+---@field _enum identity.evidence_repositoryst.flags
+---@field have_wanted_hf boolean bay12: EVIDENCE_REPOSITORY_FLAG_*
+---@field [0] boolean bay12: EVIDENCE_REPOSITORY_FLAG_*
+
+---@class identity.evidence_repositoryst.flags: DFBitfieldType
+---@field have_wanted_hf 0 bay12: EVIDENCE_REPOSITORY_FLAG_*
+---@field [0] "have_wanted_hf" bay12: EVIDENCE_REPOSITORY_FLAG_*
+df.evidence_repositoryst.T_flags = {}
 
 ---@class (exact) df.entity_pop_specifierst: DFStruct
 ---@field _type identity.entity_pop_specifierst
@@ -946,7 +1079,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field type df.historical_entity_type
 ---@field id number index in the array
 ---@field entity_raw df.entity_raw
----@field unk_v50_10 number
+---@field source_hfid number References: `df.historical_figure`
 ---@field save_file_id number changes once has 100 entries
 ---@field next_member_idx number
 ---@field name df.language_name
@@ -968,15 +1101,15 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field global_event_knowledge_year number
 ---@field local_known_events DFNumberVector since the above year
 ---@field production_zone_id number not sure what this refers to
----@field conquered_site_group_flags df.historical_entity.T_conquered_site_group_flags actually lives inside a class
----@field worldgen_can_make_guildhall DFEnumVector<df.town_labor_type, number>
+---@field conquered_site_group_flags df.historical_entity.T_conquered_site_group_flags bay12: entity_lawst
+---@field worldgen_can_make_guildhall DFEnumVector<df.town_labor_type, number> specialization_hours
 ---@field training_knowledge DFPointer<integer>
----@field events _historical_entity_events bay12: rumor_info
----@field unk_v40_1a number these are part of bay12's rumor_info struct
----@field unk_v40_1b number
----@field unk_v40_1c number
----@field unk_v40_1d number
----@field unk_v40_1e number
+---@field events _historical_entity_events bay12: rumor_infost
+---@field last_checked_army_strength number
+---@field pwg_ai_throttle_refugee_check number
+---@field pwg_ai_throttle_create_or_reclaim_site number
+---@field pwg_ai_throttle_attempt_create_site number
+---@field pwg_ai_throttle_invasion_planning number
 ---@field performed_poetic_forms DFNumberVector
 ---@field performed_musical_forms DFNumberVector
 ---@field performed_dance_forms DFNumberVector
@@ -987,16 +1120,16 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field artifact_claims _historical_entity_artifact_claims sorted on artifact id
 ---@field honors _historical_entity_honors Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
----@field equipment_purchases number only seen on military units
----@field attack number only seen on military units
----@field total_battles number attacks + defenses. Only seen on military units
----@field unk_v47_1 DFPointer<integer> bay12: evidence_repository
----@field divination_sets DFNumberVector Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
+---@field equipment_purchases number average equipment quality
+---@field attack number hired battle victory
+---@field total_battles number hired battle total
+---@field evidence_repository df.evidence_repositoryst
+---@field divination_sets DFNumberVector
 ---@field founding_site_government number bay12: material_source_enid<br>References: `df.historical_entity`
 ---@field meeting_events _historical_entity_meeting_events
 ---@field activity_stats df.entity_activity_statistics bay12: reportst *lastreport
----@field last_report_season number in 0.23, last communicate season
----@field last_report_year number in 0.23, last communicate year
+---@field last_report_season number
+---@field last_report_year number
 ---@field imports_from number
 ---@field offerings_from number
 ---@field offerings_recent number since the last migrant wave or diplomat visit
@@ -1013,7 +1146,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field derived_resources df.historical_entity.T_derived_resources
 ---@field assignments_by_type DFEnumVector<df.entity_position_responsibility, df.entity_position_assignment>
 ---@field claims df.historical_entity.T_claims
----@field children DFNumberVector includes self
+---@field children DFNumberVector territory entities
 ---@field metal_proficiency number bay12: army_strength_material_bonus
 ---@field weapon_proficiencies _historical_entity_weapon_proficiencies
 ---@field resource_allotment df.resource_allotment_data bay12: production_zonest *production_zone
@@ -1021,7 +1154,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field local_musical_form _historical_entity_local_musical_form
 ---@field local_dance_form _historical_entity_local_dance_form
 ---@field well_known_wc _historical_entity_well_known_wc
----@field settlement_x number
+---@field settlement_x number worldgen only, unsaved
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
 ---@field landmass df.world_landmass
@@ -1054,11 +1187,12 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field trade_wanted_amount number[]
 ---@field trade_maximum_buy_price number[]
 ---@field town_labor_hours number[]
----@field world_gen_entity_debt _historical_entity_world_gen_entity_debt bay12: world_gen_entity_debt
+---@field world_gen_entity_debt _historical_entity_world_gen_entity_debt
 ---@field account number
----@field burial_request _historical_entity_burial_request ?
+---@field burial_request _historical_entity_burial_request
 ---@field current_wgwg DFPointer<integer>
 ---@field total_outcast_strength number
+---@field temporary_count number
 ---@field pool_id integer protected --
 
 ---@class identity.historical_entity: DFCompoundType
@@ -1079,116 +1213,116 @@ function df.historical_entity.get_vector() end
 
 ---@class df.historical_entity.T_flags: DFBitfield
 ---@field _enum identity.historical_entity.flags
----@field neighbor boolean Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
----@field [0] boolean Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
----@field player_civ boolean Changes as you change your civ on embark screen
----@field [1] boolean Changes as you change your civ on embark screen
----@field unk2 boolean
+---@field neighbor boolean bay12: ENTITYFLAG_*
+---@field [0] boolean bay12: ENTITYFLAG_*
+---@field player_civ boolean VISIBLE
+---@field [1] boolean VISIBLE
+---@field make_nems_check_positions boolean
 ---@field [2] boolean
----@field unk3 boolean
+---@field discovered boolean
 ---@field [3] boolean
----@field unreliable_lost_last_site boolean When set, no sites remain. Doesn't say much about remaining sites when not set
----@field [4] boolean When set, no sites remain. Doesn't say much about remaining sites when not set
----@field worshipping boolean SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+---@field dead boolean
+---@field [4] boolean
+---@field secret boolean SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
 ---@field [5] boolean SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
----@field unk6 boolean
+---@field possible_evaluate_position_profile boolean
 ---@field [6] boolean
----@field unk7 boolean
+---@field possible_succession_position_profile boolean
 ---@field [7] boolean
----@field player_government boolean Appears when embarking (and having unpaused)
----@field [8] boolean Appears when embarking (and having unpaused)
----@field unk9 boolean
+---@field possible_appointable_position_profile boolean
+---@field [8] boolean
+---@field possible_elected_position_profile boolean
 ---@field [9] boolean
----@field unspecific_race boolean Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
----@field [10] boolean Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
----@field unk11 boolean Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
----@field [11] boolean Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
----@field unk12 boolean Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
----@field [12] boolean Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
----@field unk13 boolean Set for a significant number of entities
----@field [13] boolean Set for a significant number of entities
----@field unk14 boolean Set for a significant number of entities
----@field [14] boolean Set for a significant number of entities
----@field unk15 boolean Set for a limited set of entities
----@field [15] boolean Set for a limited set of entities
----@field unk16 boolean Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
----@field [16] boolean Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
----@field unk17 boolean Set for a limited set of entities
----@field [17] boolean Set for a limited set of entities
----@field unk18 boolean Set for a limited set of entities
----@field [18] boolean Set for a limited set of entities
----@field unk19 boolean Set for a limited set of entities
----@field [19] boolean Set for a limited set of entities
----@field unk20 boolean Set for a limited set of entities
----@field [20] boolean Set for a limited set of entities
----@field unk21 boolean Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
----@field [21] boolean Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
----@field unk22 boolean All are religions, but not the full set
----@field [22] boolean All are religions, but not the full set
----@field unk23 boolean
+---@field unspecific_race boolean
+---@field [10] boolean
+---@field evaluate_position_profile_activity boolean
+---@field [11] boolean
+---@field has_poetry_for_trav_poets boolean
+---@field [12] boolean
+---@field has_music_for_trav_bards boolean
+---@field [13] boolean
+---@field has_dance_for_trav_dancers boolean
+---@field [14] boolean
+---@field trav_bards_get_sing boolean
+---@field [15] boolean
+---@field trav_bards_get_keyboard_instrument boolean
+---@field [16] boolean
+---@field trav_bards_get_stringed_instrument boolean
+---@field [17] boolean
+---@field trav_bards_get_wind_instrument boolean
+---@field [18] boolean
+---@field trav_bards_get_percussion_instrument boolean
+---@field [19] boolean
+---@field trav_bards_get_speaking boolean
+---@field [20] boolean
+---@field have_art_pointers boolean
+---@field [21] boolean
+---@field isolated boolean
+---@field [22] boolean
+---@field ignore_siege_triggers boolean
 ---@field [23] boolean
----@field unk24 boolean Set for a significant number of entities
----@field [24] boolean Set for a significant number of entities
----@field military_unit_property boolean Probably some property only those have. All present in the selection, though
----@field [25] boolean Probably some property only those have. All present in the selection, though
----@field unk26 boolean Set for a significant number of entities
----@field [26] boolean Set for a significant number of entities
+---@field calculated_best_appointment_precedence boolean
+---@field [24] boolean
+---@field religious_devotion boolean
+---@field [25] boolean
+---@field might_have_interaction_region_pops boolean
+---@field [26] boolean
 
 ---@class identity.historical_entity.flags: DFBitfieldType
----@field neighbor 0 Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
----@field [0] "neighbor" Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
----@field player_civ 1 Changes as you change your civ on embark screen
----@field [1] "player_civ" Changes as you change your civ on embark screen
----@field unk2 2
----@field [2] "unk2"
----@field unk3 3
----@field [3] "unk3"
----@field unreliable_lost_last_site 4 When set, no sites remain. Doesn't say much about remaining sites when not set
----@field [4] "unreliable_lost_last_site" When set, no sites remain. Doesn't say much about remaining sites when not set
----@field worshipping 5 SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
----@field [5] "worshipping" SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
----@field unk6 6
----@field [6] "unk6"
----@field unk7 7
----@field [7] "unk7"
----@field player_government 8 Appears when embarking (and having unpaused)
----@field [8] "player_government" Appears when embarking (and having unpaused)
----@field unk9 9
----@field [9] "unk9"
----@field unspecific_race 10 Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
----@field [10] "unspecific_race" Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
----@field unk11 11 Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
----@field [11] "unk11" Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
----@field unk12 12 Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
----@field [12] "unk12" Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
----@field unk13 13 Set for a significant number of entities
----@field [13] "unk13" Set for a significant number of entities
----@field unk14 14 Set for a significant number of entities
----@field [14] "unk14" Set for a significant number of entities
----@field unk15 15 Set for a limited set of entities
----@field [15] "unk15" Set for a limited set of entities
----@field unk16 16 Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
----@field [16] "unk16" Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
----@field unk17 17 Set for a limited set of entities
----@field [17] "unk17" Set for a limited set of entities
----@field unk18 18 Set for a limited set of entities
----@field [18] "unk18" Set for a limited set of entities
----@field unk19 19 Set for a limited set of entities
----@field [19] "unk19" Set for a limited set of entities
----@field unk20 20 Set for a limited set of entities
----@field [20] "unk20" Set for a limited set of entities
----@field unk21 21 Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
----@field [21] "unk21" Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
----@field unk22 22 All are religions, but not the full set
----@field [22] "unk22" All are religions, but not the full set
----@field unk23 23
----@field [23] "unk23"
----@field unk24 24 Set for a significant number of entities
----@field [24] "unk24" Set for a significant number of entities
----@field military_unit_property 25 Probably some property only those have. All present in the selection, though
----@field [25] "military_unit_property" Probably some property only those have. All present in the selection, though
----@field unk26 26 Set for a significant number of entities
----@field [26] "unk26" Set for a significant number of entities
+---@field neighbor 0 bay12: ENTITYFLAG_*
+---@field [0] "neighbor" bay12: ENTITYFLAG_*
+---@field player_civ 1 VISIBLE
+---@field [1] "player_civ" VISIBLE
+---@field make_nems_check_positions 2
+---@field [2] "make_nems_check_positions"
+---@field discovered 3
+---@field [3] "discovered"
+---@field dead 4
+---@field [4] "dead"
+---@field secret 5 SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+---@field [5] "secret" SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+---@field possible_evaluate_position_profile 6
+---@field [6] "possible_evaluate_position_profile"
+---@field possible_succession_position_profile 7
+---@field [7] "possible_succession_position_profile"
+---@field possible_appointable_position_profile 8
+---@field [8] "possible_appointable_position_profile"
+---@field possible_elected_position_profile 9
+---@field [9] "possible_elected_position_profile"
+---@field unspecific_race 10
+---@field [10] "unspecific_race"
+---@field evaluate_position_profile_activity 11
+---@field [11] "evaluate_position_profile_activity"
+---@field has_poetry_for_trav_poets 12
+---@field [12] "has_poetry_for_trav_poets"
+---@field has_music_for_trav_bards 13
+---@field [13] "has_music_for_trav_bards"
+---@field has_dance_for_trav_dancers 14
+---@field [14] "has_dance_for_trav_dancers"
+---@field trav_bards_get_sing 15
+---@field [15] "trav_bards_get_sing"
+---@field trav_bards_get_keyboard_instrument 16
+---@field [16] "trav_bards_get_keyboard_instrument"
+---@field trav_bards_get_stringed_instrument 17
+---@field [17] "trav_bards_get_stringed_instrument"
+---@field trav_bards_get_wind_instrument 18
+---@field [18] "trav_bards_get_wind_instrument"
+---@field trav_bards_get_percussion_instrument 19
+---@field [19] "trav_bards_get_percussion_instrument"
+---@field trav_bards_get_speaking 20
+---@field [20] "trav_bards_get_speaking"
+---@field have_art_pointers 21
+---@field [21] "have_art_pointers"
+---@field isolated 22
+---@field [22] "isolated"
+---@field ignore_siege_triggers 23
+---@field [23] "ignore_siege_triggers"
+---@field calculated_best_appointment_precedence 24
+---@field [24] "calculated_best_appointment_precedence"
+---@field religious_devotion 25
+---@field [25] "religious_devotion"
+---@field might_have_interaction_region_pops 26
+---@field [26] "might_have_interaction_region_pops"
 df.historical_entity.T_flags = {}
 
 ---@class _historical_entity_guild_professions: DFContainer
@@ -1241,7 +1375,7 @@ function _historical_entity_site_links:erase(index) end
 
 ---@class (exact) df.historical_entity.T_resources: DFStruct
 ---@field _type identity.historical_entity.resources
----@field digger_type DFNumberVector
+---@field digger_type DFNumberVector not a compound, nor are any of the compounds inside
 ---@field weapon_type DFNumberVector
 ---@field training_weapon_type DFNumberVector
 ---@field armor_type DFNumberVector
@@ -1256,7 +1390,7 @@ function _historical_entity_site_links:erase(index) end
 ---@field instrument_type DFNumberVector
 ---@field siegeammo_type DFNumberVector
 ---@field tool_type DFNumberVector
----@field unk_1 DFNumberVector bay12: reaction_ind
+---@field reaction_idx DFNumberVector
 ---@field metal df.historical_entity.T_resources.T_metal
 ---@field organic df.historical_entity.T_resources.T_organic
 ---@field metals DFNumberVector bars
@@ -1278,21 +1412,21 @@ function _historical_entity_site_links:erase(index) end
 ---@field animals df.historical_entity.T_resources.T_animals
 ---@field meat_fish_recipes _historical_entity_resources_meat_fish_recipes
 ---@field other_recipes _historical_entity_resources_other_recipes
----@field unk13 df.historical_entity.T_resources.T_unk13[] in 0.23, these were material/matgloss pairs, never used for anything
----@field unk14 _historical_entity_resources_unk14 in 0.23, items that would be equipped by the arriving King, never used
----@field unk15a number in 0.23, minimum temperature
----@field unk15b number in 0.23, maximum temperature
+---@field soldier_mats df.historical_entity.T_resources.T_soldier_mats[] melee, archer1, archer - unused?
+---@field traded _historical_entity_resources_traded never used, items would be equipped by arriving King
+---@field min_temperature number
+---@field max_temperature number
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
----@field unk_2 number
----@field permitted_skill DFEnumVector<df.job_skill, boolean>
----@field art_image_types DFNumberVector 0 = civilization symbol
+---@field scholar_flag integer
+---@field permitted_skill DFEnumVector<df.job_skill, boolean> likely ENTITY_SCHOLAR_FLAG_*
+---@field art_image_types DFNumberVector 0 = civilization symbol, 1 = commissioned
 ---@field art_image_ids DFNumberVector
 ---@field art_image_subids DFNumberVector
----@field color_ref_type _historical_entity_resources_color_ref_type
+---@field art_image_char DFIntegerVector
 ---@field foreground_color_curses _historical_entity_resources_foreground_color_curses
----@field foreground_color_curses_bright DFBooleanVector
 ---@field background_color_curses _historical_entity_resources_background_color_curses
+---@field foreground_color_curses_bright DFBooleanVector
 ---@field foreground_color DFNumberVector foreground color used for the entity symbol in legends mode and the historical maps.
 ---@field background_color DFNumberVector background color used for the entity symbol in legends mode and the historical maps.
 
@@ -1309,7 +1443,7 @@ function df.historical_entity.T_resources:new() end
 ---@field weapon df.material_vec_ref
 ---@field ranged df.material_vec_ref
 ---@field ammo df.material_vec_ref
----@field ammo2 df.material_vec_ref maybe intended for siege ammo
+---@field ammo_metal df.material_vec_ref
 ---@field armor df.material_vec_ref also instruments, toys, and tools
 ---@field anvil df.material_vec_ref
 
@@ -1358,14 +1492,14 @@ function df.historical_entity.T_resources.T_refuse:new() end
 ---@field sand df.material_vec_ref
 ---@field clay df.material_vec_ref
 ---@field crafts df.material_vec_ref
----@field glass_unused df.material_vec_ref used for vial extracts on embark
+---@field vials df.material_vec_ref
 ---@field barrels df.material_vec_ref also buckets, splints, and crutches
 ---@field flasks df.material_vec_ref
 ---@field quivers df.material_vec_ref
 ---@field backpacks df.material_vec_ref
 ---@field cages df.material_vec_ref
----@field wood2 df.material_vec_ref
----@field rock_metal df.material_vec_ref
+---@field temp_furniture df.material_vec_ref
+---@field perm_furniture df.material_vec_ref
 ---@field booze df.material_vec_ref
 ---@field cheese df.material_vec_ref
 ---@field powders df.material_vec_ref
@@ -1465,49 +1599,33 @@ function _historical_entity_resources_other_recipes:insert(index, item) end
 ---@param index integer
 function _historical_entity_resources_other_recipes:erase(index) end
 
----@class (exact) df.historical_entity.T_resources.T_unk13: DFStruct
----@field _type identity.historical_entity.resources.unk13
----@field unk1 number
----@field unk2 number
+---@class (exact) df.historical_entity.T_resources.T_soldier_mats: DFStruct
+---@field _type identity.historical_entity.resources.soldier_mats
+---@field mat_type number
+---@field mat_index number
 
----@class identity.historical_entity.resources.unk13: DFCompoundType
+---@class identity.historical_entity.resources.soldier_mats: DFCompoundType
 ---@field _kind 'struct-type'
-df.historical_entity.T_resources.T_unk13 = {}
+df.historical_entity.T_resources.T_soldier_mats = {}
 
----@return df.historical_entity.T_resources.T_unk13
-function df.historical_entity.T_resources.T_unk13:new() end
+---@return df.historical_entity.T_resources.T_soldier_mats
+function df.historical_entity.T_resources.T_soldier_mats:new() end
 
----@class _historical_entity_resources_unk14: DFContainer
+---@class _historical_entity_resources_traded: DFContainer
 ---@field [integer] df.item
-local _historical_entity_resources_unk14
+local _historical_entity_resources_traded
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _historical_entity_resources_unk14:_field(index) end
+function _historical_entity_resources_traded:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _historical_entity_resources_unk14:insert(index, item) end
+function _historical_entity_resources_traded:insert(index, item) end
 
 ---@param index integer
-function _historical_entity_resources_unk14:erase(index) end
-
----@class _historical_entity_resources_color_ref_type: DFContainer
----@field [integer] df.general_ref_type
-local _historical_entity_resources_color_ref_type
-
----@nodiscard
----@param index integer
----@return DFPointer<df.general_ref_type>
-function _historical_entity_resources_color_ref_type:_field(index) end
-
----@param index '#'|integer
----@param item df.general_ref_type
-function _historical_entity_resources_color_ref_type:insert(index, item) end
-
----@param index integer
-function _historical_entity_resources_color_ref_type:erase(index) end
+function _historical_entity_resources_traded:erase(index) end
 
 ---@class _historical_entity_resources_foreground_color_curses: DFContainer
 ---@field [integer] df.curses_color
@@ -1559,18 +1677,18 @@ function _historical_entity_uniforms:erase(index) end
 
 ---@class (exact) df.historical_entity.T_relations: DFStruct
 ---@field _type identity.historical_entity.relations
----@field known_sites DFNumberVector only civs and site government. Fresh player site government has empty vector
+---@field known_sites DFNumberVector not a compound
 ---@field deities DFNumberVector
----@field worship DFNumberVector Same length as deities(?). Some kind of relationship strength?
+---@field worship DFNumberVector worship acceptability
 ---@field belief_systems DFNumberVector In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
 ---@field constructions _historical_entity_relations_constructions only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
----@field diplomacy _historical_entity_relations_diplomacy
----@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
----@field unk34a DFNumberVector same length as unk34b and unk34c
----@field unk34b DFNumberVector
----@field unk34c DFNumberVector
----@field position DFNumberVector position index (not id)
----@field official DFNumberVector holder of office of corresponding position index
+---@field diplomacy _historical_entity_relations_diplomacy bay12: diplomacy_datast
+---@field search_for_site_timer number
+---@field death_trap_x DFNumberVector
+---@field death_trap_y DFNumberVector
+---@field death_trap_timer DFNumberVector
+---@field succession_position DFNumberVector position index (not id)
+---@field succession_old_hf DFNumberVector holder of office of corresponding position index
 
 ---@class identity.historical_entity.relations: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1613,7 +1731,7 @@ function _historical_entity_relations_diplomacy:erase(index) end
 
 ---@class (exact) df.historical_entity.T_positions: DFStruct
 ---@field _type identity.historical_entity.positions
----@field own _historical_entity_positions_own
+---@field own _historical_entity_positions_own not a compound
 ---@field site _historical_entity_positions_site
 ---@field conquered_site _historical_entity_positions_conquered_site
 ---@field next_position_id number
@@ -1778,7 +1896,7 @@ function _historical_entity_positions_possible_claimable:erase(index) end
 
 ---@class (exact) df.historical_entity.T_tissue_styles: DFStruct
 ---@field _type identity.historical_entity.tissue_styles
----@field all _historical_entity_tissue_styles_all
+---@field all _historical_entity_tissue_styles_all not a compound
 ---@field next_style_id number
 
 ---@class identity.historical_entity.tissue_styles: DFCompoundType
@@ -1804,17 +1922,17 @@ function _historical_entity_tissue_styles_all:insert(index, item) end
 ---@param index integer
 function _historical_entity_tissue_styles_all:erase(index) end
 
--- actually lives inside a class
+-- bay12: entity_lawst
 ---@class df.historical_entity.T_conquered_site_group_flags: DFBitfield
 ---@field _enum identity.historical_entity.conquered_site_group_flags
----@field harsh boolean will TORTURE_FOR_INFORMATION
----@field [0] boolean will TORTURE_FOR_INFORMATION
+---@field harsh boolean bay12: ENTITY_LAW_FLAG_*
+---@field [0] boolean bay12: ENTITY_LAW_FLAG_*
 ---@field hostile_occupation boolean
 ---@field [1] boolean
 
 ---@class identity.historical_entity.conquered_site_group_flags: DFBitfieldType
----@field harsh 0 will TORTURE_FOR_INFORMATION
----@field [0] "harsh" will TORTURE_FOR_INFORMATION
+---@field harsh 0 bay12: ENTITY_LAW_FLAG_*
+---@field [0] "harsh" bay12: ENTITY_LAW_FLAG_*
 ---@field hostile_occupation 1
 ---@field [1] "hostile_occupation"
 df.historical_entity.T_conquered_site_group_flags = {}
@@ -1949,7 +2067,7 @@ function _historical_entity_nemesis:erase(index) end
 
 ---@class (exact) df.historical_entity.T_derived_resources: DFStruct
 ---@field _type identity.historical_entity.derived_resources
----@field mill_cookable df.material_vec_ref
+---@field mill_cookable df.material_vec_ref not a compound
 ---@field mill_dye df.material_vec_ref
 ---@field armor_leather DFNumberVector
 ---@field armor_chain DFNumberVector
@@ -2007,9 +2125,9 @@ function _historical_entity_assignments_by_type:erase(index) end
 
 ---@class (exact) df.historical_entity.T_claims: DFStruct
 ---@field _type identity.historical_entity.claims
----@field areas df.coord2d_path in world_data.entity_claims1
----@field unk1 df.coord2d_path
----@field border df.coord2d_path
+---@field areas df.coord2d_path
+---@field territory df.coord2d_path
+---@field territory_frontier df.coord2d_path
 
 ---@class identity.historical_entity.claims: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2133,8 +2251,8 @@ function _historical_entity_burial_request:erase(index) end
 ---@class (exact) df.entity_tissue_style: DFStruct
 ---@field _type identity.entity_tissue_style
 ---@field name string
----@field preferred_shapings DFNumberVector
----@field unk_1 DFNumberVector maybe probability?
+---@field preferred_shapings _entity_tissue_style_preferred_shapings
+---@field shaping_chance DFNumberVector
 ---@field maintain_length_min number
 ---@field maintain_length_max number
 ---@field id number
@@ -2146,6 +2264,22 @@ df.entity_tissue_style = {}
 ---@return df.entity_tissue_style
 function df.entity_tissue_style:new() end
 
+---@class _entity_tissue_style_preferred_shapings: DFContainer
+---@field [integer] df.tissue_style_type
+local _entity_tissue_style_preferred_shapings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.tissue_style_type>
+function _entity_tissue_style_preferred_shapings:_field(index) end
+
+---@param index '#'|integer
+---@param item df.tissue_style_type
+function _entity_tissue_style_preferred_shapings:insert(index, item) end
+
+---@param index integer
+function _entity_tissue_style_preferred_shapings:erase(index) end
+
 ---@alias df.training_knowledge_level
 ---| 0 # None
 ---| 1 # FewFacts
@@ -2155,8 +2289,8 @@ function df.entity_tissue_style:new() end
 ---| 5 # Domesticated
 
 ---@class identity.training_knowledge_level: DFEnumType
----@field None 0
----@field [0] "None"
+---@field None 0 bay12: AnimalTrainingKnowledgeType
+---@field [0] "None" bay12: AnimalTrainingKnowledgeType
 ---@field FewFacts 1
 ---@field [1] "FewFacts"
 ---@field GeneralFamiliarity 2
@@ -2169,7 +2303,6 @@ function df.entity_tissue_style:new() end
 ---@field [5] "Domesticated"
 df.training_knowledge_level = {}
 
--- bay12: EntityPositionFlag
 ---@alias df.entity_position_flags
 ---| 0 # IS_LAW_MAKER
 ---| 1 # ELECTED
@@ -2204,10 +2337,9 @@ df.training_knowledge_level = {}
 ---| 30 # REQUIRES_MARKET
 ---| 31 # HAS_MET_MARKET_REQ
 
--- bay12: EntityPositionFlag
 ---@class identity.entity_position_flags: DFEnumType
----@field IS_LAW_MAKER 0 bay12: ATTACK_IS_TREASON
----@field [0] "IS_LAW_MAKER" bay12: ATTACK_IS_TREASON
+---@field IS_LAW_MAKER 0 bay12: EntityPositionFlagType
+---@field [0] "IS_LAW_MAKER" bay12: EntityPositionFlagType
 ---@field ELECTED 1
 ---@field [1] "ELECTED"
 ---@field DUTY_BOUND 2
@@ -2282,7 +2414,7 @@ df.entity_position_flags = {}
 ---@field rejected_creature DFNumberVector
 ---@field rejected_class DFStringVector
 ---@field name string[]
----@field name_female string[]
+---@field name_female string[] bay12: string[EntityPositionStringType]
 ---@field name_male string[]
 ---@field spouse string[]
 ---@field spouse_female string[]
@@ -2295,7 +2427,7 @@ df.entity_position_flags = {}
 ---@field commander_types DFNumberVector
 ---@field land_holder number
 ---@field requires_population number
----@field unk_1 number
+---@field execution_skill df.job_skill
 ---@field precedence number
 ---@field replaced_by number
 ---@field number number
@@ -2303,19 +2435,19 @@ df.entity_position_flags = {}
 ---@field appointed_by_civ DFNumberVector
 ---@field succession_by_position DFNumberVector
 ---@field responsibilities DFEnumVector<df.entity_position_responsibility, boolean>
----@field unk_v50_358 string
+---@field description string
 ---@field color number[]
 ---@field required_boxes number
 ---@field required_cabinets number
 ---@field required_racks number
 ---@field required_stands number
 ---@field required_office number
----@field required_bedroom number
+---@field required_bedroom number bay12: int32_t[DemandRooms]
 ---@field required_dining number
 ---@field required_tomb number
 ---@field mandate_max number
 ---@field demand_max number
----@field unk_2 number
+---@field best_appointment_precedence number
 
 ---@class identity.entity_position: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2415,14 +2547,14 @@ function _entity_position_assignment_claim:erase(index) end
 ---| 4 # Crafts
 ---| 5 # Stone
 ---| 6 # Improvement
----| 7 # Glass
----| 8 # Wood2
+---| 7 # Vial
+---| 8 # Barrel
 ---| 9 # Bag
 ---| 10 # Cage
 ---| 11 # WeaponMelee
 ---| 12 # WeaponRanged
 ---| 13 # Ammo
----| 14 # Ammo2
+---| 14 # AmmoMetal
 ---| 15 # Pick
 ---| 16 # Armor
 ---| 17 # Gem
@@ -2434,16 +2566,18 @@ function _entity_position_assignment_claim:erase(index) end
 ---| 23 # Other
 ---| 24 # Anvil
 ---| 25 # Booze
----| 26 # Metal
+---| 26 # Chain
 ---| 27 # PlantFiber
 ---| 28 # Silk
 ---| 29 # Wool
----| 30 # Furniture
----| 31 # MiscWood2
+---| 30 # PermFurniture
+---| 31 # TempFurniture
+---| 32 # Tent
+---| 33 # Sheet
 
 ---@class identity.entity_material_category: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: EntityMaterialType
+---@field [-1] "None" bay12: EntityMaterialType
 ---@field Clothing 0 cloth or leather
 ---@field [0] "Clothing" cloth or leather
 ---@field Leather 1 organic.leather
@@ -2458,10 +2592,10 @@ function _entity_position_assignment_claim:erase(index) end
 ---@field [5] "Stone" stones
 ---@field Improvement 6 misc_mat.crafts
 ---@field [6] "Improvement" misc_mat.crafts
----@field Glass 7 misc_mat.glass_unused, used for extract vials
----@field [7] "Glass" misc_mat.glass_unused, used for extract vials
----@field Wood2 8 misc_mat.barrels, also used for buckets
----@field [8] "Wood2" misc_mat.barrels, also used for buckets
+---@field Vial 7 misc_mat.vials
+---@field [7] "Vial" misc_mat.vials
+---@field Barrel 8 misc_mat.barrels, also used for buckets
+---@field [8] "Barrel" misc_mat.barrels, also used for buckets
 ---@field Bag 9 cloth/leather
 ---@field [9] "Bag" cloth/leather
 ---@field Cage 10 misc_mat.cages
@@ -2472,8 +2606,8 @@ function _entity_position_assignment_claim:erase(index) end
 ---@field [12] "WeaponRanged" metal.ranged
 ---@field Ammo 13 metal.ammo
 ---@field [13] "Ammo" metal.ammo
----@field Ammo2 14 metal.ammo2
----@field [14] "Ammo2" metal.ammo2
+---@field AmmoMetal 14 metal.ammo_metal
+---@field [14] "AmmoMetal" metal.ammo_metal
 ---@field Pick 15 metal.pick
 ---@field [15] "Pick" metal.pick
 ---@field Armor 16 metal.armor, also used for shields, tools, instruments, and toys
@@ -2496,18 +2630,22 @@ function _entity_position_assignment_claim:erase(index) end
 ---@field [24] "Anvil" metal.anvil
 ---@field Booze 25 misc_mat.booze
 ---@field [25] "Booze" misc_mat.booze
----@field Metal 26 metals with ITEMS_HARD, used for chains
----@field [26] "Metal" metals with ITEMS_HARD, used for chains
+---@field Chain 26 metals with ITEMS_HARD, used for chains
+---@field [26] "Chain" metals with ITEMS_HARD, used for chains
 ---@field PlantFiber 27 organic.fiber
 ---@field [27] "PlantFiber" organic.fiber
 ---@field Silk 28 organic.silk
 ---@field [28] "Silk" organic.silk
 ---@field Wool 29 organic.wool
 ---@field [29] "Wool" organic.wool
----@field Furniture 30 misc_mat.rock_metal
----@field [30] "Furniture" misc_mat.rock_metal
----@field MiscWood2 31 misc_mat.wood2
----@field [31] "MiscWood2" misc_mat.wood2
+---@field PermFurniture 30 misc_mat.perm_furniture
+---@field [30] "PermFurniture" misc_mat.perm_furniture
+---@field TempFurniture 31 misc_mat.temp_furniture
+---@field [31] "TempFurniture" misc_mat.temp_furniture
+---@field Tent 32
+---@field [32] "Tent"
+---@field Sheet 33
+---@field [33] "Sheet"
 df.entity_material_category = {}
 
 ---@class (exact) df.entity_uniform_item: DFStruct
@@ -2532,10 +2670,30 @@ df.entity_uniform_item = {}
 ---@return df.entity_uniform_item
 function df.entity_uniform_item:new() end
 
+---@alias df.entity_uniform_type
+---| -1 # None
+---| 0 # Guard
+---| 1 # HighPriest
+---| 2 # Priest
+---| 3 # Soldier
+
+---@class identity.entity_uniform_type: DFEnumType
+---@field None -1 bay12: EntityUniformType
+---@field [-1] "None" bay12: EntityUniformType
+---@field Guard 0
+---@field [0] "Guard"
+---@field HighPriest 1
+---@field [1] "HighPriest"
+---@field Priest 2
+---@field [2] "Priest"
+---@field Soldier 3
+---@field [3] "Soldier"
+df.entity_uniform_type = {}
+
 ---@class (exact) df.entity_uniform: DFStruct
 ---@field _type identity.entity_uniform
 ---@field id number
----@field unk_4 number
+---@field type df.entity_uniform_type
 ---@field uniform_item_types DFEnumVector<df.uniform_category, df.item_type>
 ---@field uniform_item_subtypes DFEnumVector<df.uniform_category, number>
 ---@field uniform_item_info DFEnumVector<df.uniform_category, df.entity_uniform_item>
@@ -2618,8 +2776,8 @@ function _entity_uniform_uniform_item_info:erase(index) end
 ---| 33 # artifact_was_destroyed
 
 ---@class identity.entity_event_type: DFEnumType
----@field invasion 0
----@field [0] "invasion"
+---@field invasion 0 bay12: RumorType
+---@field [0] "invasion" bay12: RumorType
 ---@field abduction 1
 ---@field [1] "abduction"
 ---@field incident 2
@@ -2691,11 +2849,11 @@ df.entity_event_type = {}
 ---@class (exact) df.entity_event: DFStruct
 ---@field _type identity.entity_event
 ---@field data df.entity_event.T_data
----@field unk_year number often the same as the other year/tick. Start/stop time?
----@field unk_year_tick number
+---@field valid_year number often the same as the other year/tick. Start/stop time?
+---@field valid_year_tick number
 ---@field year number
 ---@field year_tick number
----@field unk_1 number
+---@field flag df.entity_event.T_flag
 ---@field type df.entity_event_type
 
 ---@class identity.entity_event: DFCompoundType
@@ -2751,10 +2909,10 @@ function df.entity_event.T_data:new() end
 
 ---@class (exact) df.entity_event.T_data.T_invasion: DFStruct
 ---@field _type identity.entity_event.data.invasion
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_army_marching_to_sitest<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
----@field unk_1 number can't find match. not defender hf/nemesis, for instance
 ---@field attack_leader_hf number References: `df.historical_figure`
+---@field attack_commander_hf number References: `df.historical_figure`
 
 ---@class identity.entity_event.data.invasion: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2765,7 +2923,7 @@ function df.entity_event.T_data.T_invasion:new() end
 
 ---@class (exact) df.entity_event.T_data.T_abduction: DFStruct
 ---@field _type identity.entity_event.data.abduction
----@field histfig_id number abductee<br>References: `df.historical_figure`
+---@field histfig_id number bay12: rumor_hist_figure_abductedst<br>References: `df.historical_figure`
 ---@field site_id number References: `df.world_site`
 ---@field abductor_id number References: `df.historical_figure`
 ---@field event number References: `df.history_event`
@@ -2779,7 +2937,7 @@ function df.entity_event.T_data.T_abduction:new() end
 
 ---@class (exact) df.entity_event.T_data.T_incident: DFStruct
 ---@field _type identity.entity_event.data.incident
----@field unk_1 number
+---@field type df.incident_type bay12: rumor_incidentst
 ---@field incident_id number References: `df.incident`
 
 ---@class identity.entity_event.data.incident: DFCompoundType
@@ -2791,10 +2949,10 @@ function df.entity_event.T_data.T_incident:new() end
 
 ---@class (exact) df.entity_event.T_data.T_occupation: DFStruct
 ---@field _type identity.entity_event.data.occupation
----@field site_id number References: `df.world_site`
+---@field site_id number bay12: rumor_occupationst<br>References: `df.world_site`
 ---@field entity_id number References: `df.historical_entity`
----@field unk_1 number
----@field unk_2 number
+---@field leader_hf number References: `df.historical_figure`
+---@field evicted_entity_id number References: `df.historical_entity`
 
 ---@class identity.entity_event.data.occupation: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2805,7 +2963,7 @@ function df.entity_event.T_data.T_occupation:new() end
 
 ---@class (exact) df.entity_event.T_data.T_beast: DFStruct
 ---@field _type identity.entity_event.data.beast
----@field histfig_id number References: `df.historical_figure`
+---@field histfig_id number bay12: rumor_beast_presentst<br>References: `df.historical_figure`
 ---@field site_id number References: `df.world_site`
 ---@field region_id number References: `df.world_region`
 
@@ -2818,7 +2976,7 @@ function df.entity_event.T_data.T_beast:new() end
 
 ---@class (exact) df.entity_event.T_data.T_group: DFStruct
 ---@field _type identity.entity_event.data.group
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_entity_site_presentst<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
 
 ---@class identity.entity_event.data.group: DFCompoundType
@@ -2830,9 +2988,9 @@ function df.entity_event.T_data.T_group:new() end
 
 ---@class (exact) df.entity_event.T_data.T_harass: DFStruct
 ---@field _type identity.entity_event.data.harass
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_army_harassing_sitest<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
----@field unk_1 number
+---@field army_leader_hf_id number References: `df.historical_figure`
 
 ---@class identity.entity_event.data.harass: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2843,7 +3001,7 @@ function df.entity_event.T_data.T_harass:new() end
 
 ---@class (exact) df.entity_event.T_data.T_flee: DFStruct
 ---@field _type identity.entity_event.data.flee
----@field refugee_entity_id number References: `df.historical_entity`
+---@field refugee_entity_id number bay12: rumor_refugees_fleeing_armyst<br>References: `df.historical_entity`
 ---@field from_site_id number References: `df.world_site`
 ---@field army_entity_id number References: `df.historical_entity`
 ---@field army_leader_hf_id number References: `df.historical_figure`
@@ -2857,7 +3015,7 @@ function df.entity_event.T_data.T_flee:new() end
 
 ---@class (exact) df.entity_event.T_data.T_abandon: DFStruct
 ---@field _type identity.entity_event.data.abandon
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_refugees_abandon_mismanaged_sitest<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
 ---@field parent_entity_id number References: `df.historical_entity`
 
@@ -2870,7 +3028,7 @@ function df.entity_event.T_data.T_abandon:new() end
 
 ---@class (exact) df.entity_event.T_data.T_reclaimed: DFStruct
 ---@field _type identity.entity_event.data.reclaimed
----@field behalf_entity_id number References: `df.historical_entity`
+---@field behalf_entity_id number bay12: rumor_site_reclaimedst<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
 ---@field reclaimer_entity_id number References: `df.historical_entity`
 ---@field leader_hf number References: `df.historical_figure`
@@ -2884,10 +3042,10 @@ function df.entity_event.T_data.T_reclaimed:new() end
 
 ---@class (exact) df.entity_event.T_data.T_founded: DFStruct
 ---@field _type identity.entity_event.data.founded
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_site_createdst<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
 ---@field parent_entity_id number References: `df.historical_entity`
----@field unk_1 number
+---@field leader_hf number References: `df.historical_figure`
 
 ---@class identity.entity_event.data.founded: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2898,10 +3056,10 @@ function df.entity_event.T_data.T_founded:new() end
 
 ---@class (exact) df.entity_event.T_data.T_reclaiming: DFStruct
 ---@field _type identity.entity_event.data.reclaiming
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_reclaim_army_leaving_for_sitest<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
----@field unk_1 number
----@field first_settler_hf number strangely enough not expedition leader (settler #2), nor listed as member of site government<br>References: `df.historical_figure`
+---@field civ_leader_hf number References: `df.historical_figure`
+---@field civ_commander_hf number References: `df.historical_figure`
 
 ---@class identity.entity_event.data.reclaiming: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2912,10 +3070,10 @@ function df.entity_event.T_data.T_reclaiming:new() end
 
 ---@class (exact) df.entity_event.T_data.T_founding: DFStruct
 ---@field _type identity.entity_event.data.founding
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_site_creation_army_leavingst<br>References: `df.historical_entity`
 ---@field region_id number References: `df.world_region`
----@field unk_1 number
----@field unk_2 number
+---@field civ_leader_hf number References: `df.historical_figure`
+---@field civ_commander_hf number References: `df.historical_figure`
 
 ---@class identity.entity_event.data.founding: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2926,7 +3084,7 @@ function df.entity_event.T_data.T_founding:new() end
 
 ---@class (exact) df.entity_event.T_data.T_leave: DFStruct
 ---@field _type identity.entity_event.data.leave
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_occupation_pulling_out_of_sitest<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
 
 ---@class identity.entity_event.data.leave: DFCompoundType
@@ -2938,7 +3096,7 @@ function df.entity_event.T_data.T_leave:new() end
 
 ---@class (exact) df.entity_event.T_data.T_insurrection: DFStruct
 ---@field _type identity.entity_event.data.insurrection
----@field site_id number References: `df.world_site`
+---@field site_id number bay12: rumor_insurrection_startedst<br>References: `df.world_site`
 ---@field entity_id number References: `df.historical_entity`
 
 ---@class identity.entity_event.data.insurrection: DFCompoundType
@@ -2950,9 +3108,9 @@ function df.entity_event.T_data.T_insurrection:new() end
 
 ---@class (exact) df.entity_event.T_data.T_insurrection_end: DFStruct
 ---@field _type identity.entity_event.data.insurrection_end
----@field site_id number References: `df.world_site`
+---@field site_id number bay12: rumor_insurrection_endedst<br>References: `df.world_site`
 ---@field entity_id number References: `df.historical_entity`
----@field result df.entity_event.T_data.T_insurrection_end.T_result
+---@field result df.insurrection_outcome
 
 ---@class identity.entity_event.data.insurrection_end: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2961,23 +3119,9 @@ df.entity_event.T_data.T_insurrection_end = {}
 ---@return df.entity_event.T_data.T_insurrection_end
 function df.entity_event.T_data.T_insurrection_end:new() end
 
----@alias df.entity_event.T_data.T_insurrection_end.T_result
----| 0 # Overthrow
----| 1 # Failure
----| 2 # Crushing
-
----@class identity.entity_event.data.insurrection_end.result: DFEnumType
----@field Overthrow 0
----@field [0] "Overthrow"
----@field Failure 1
----@field [1] "Failure"
----@field Crushing 2
----@field [2] "Crushing"
-df.entity_event.T_data.T_insurrection_end.T_result = {}
-
 ---@class (exact) df.entity_event.T_data.T_succession: DFStruct
 ---@field _type identity.entity_event.data.succession
----@field histfig_id number References: `df.historical_figure`
+---@field histfig_id number bay12: rumor_new_position_holderst<br>References: `df.historical_figure`
 ---@field former_histfig_id number References: `df.historical_figure`
 ---@field entity_id number References: `df.historical_entity`
 ---@field position_assignment_id number
@@ -2991,7 +3135,7 @@ function df.entity_event.T_data.T_succession:new() end
 
 ---@class (exact) df.entity_event.T_data.T_claim: DFStruct
 ---@field _type identity.entity_event.data.claim
----@field entity_id number References: `df.historical_entity`
+---@field entity_id number bay12: rumor_site_claimed_by_new_entityst<br>References: `df.historical_entity`
 ---@field site_id number References: `df.world_site`
 ---@field histfig_id number References: `df.historical_figure`
 
@@ -3004,7 +3148,7 @@ function df.entity_event.T_data.T_claim:new() end
 
 ---@class (exact) df.entity_event.T_data.T_accept_tribute_offer: DFStruct
 ---@field _type identity.entity_event.data.accept_tribute_offer
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_agrees_to_accept_tributest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3018,7 +3162,7 @@ function df.entity_event.T_data.T_accept_tribute_offer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_refuse_tribute_offer: DFStruct
 ---@field _type identity.entity_event.data.refuse_tribute_offer
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_refuses_to_accept_tributest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3032,7 +3176,7 @@ function df.entity_event.T_data.T_refuse_tribute_offer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_accept_tribute_demand: DFStruct
 ---@field _type identity.entity_event.data.accept_tribute_demand
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_agrees_to_give_tributest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3046,7 +3190,7 @@ function df.entity_event.T_data.T_accept_tribute_demand:new() end
 
 ---@class (exact) df.entity_event.T_data.T_refuse_tribute_demand: DFStruct
 ---@field _type identity.entity_event.data.refuse_tribute_demand
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_refuses_to_give_tributest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3060,7 +3204,7 @@ function df.entity_event.T_data.T_refuse_tribute_demand:new() end
 
 ---@class (exact) df.entity_event.T_data.T_accept_peace_offer: DFStruct
 ---@field _type identity.entity_event.data.accept_peace_offer
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_agrees_to_make_peacest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3074,7 +3218,7 @@ function df.entity_event.T_data.T_accept_peace_offer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_refuse_peace_offer: DFStruct
 ---@field _type identity.entity_event.data.refuse_peace_offer
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_refuses_to_make_peacest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3088,7 +3232,7 @@ function df.entity_event.T_data.T_refuse_peace_offer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_cease_tribute_offer: DFStruct
 ---@field _type identity.entity_event.data.cease_tribute_offer
----@field entity1_id number References: `df.historical_entity`
+---@field entity1_id number bay12: rumor_entity_cancels_tributest<br>References: `df.historical_entity`
 ---@field histfig1_id number References: `df.historical_figure`
 ---@field entity2_id number References: `df.historical_entity`
 ---@field histfig2_id number References: `df.historical_figure`
@@ -3102,10 +3246,9 @@ function df.entity_event.T_data.T_cease_tribute_offer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_in_site: DFStruct
 ---@field _type identity.entity_event.data.artifact_in_site
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_present_at_sitest<br>References: `df.artifact_record`
 ---@field site_id number References: `df.world_site`
 ---@field structure_id number References: `df.abstract_building`
----@field unk_1 number looks uninitialized
 
 ---@class identity.entity_event.data.artifact_in_site: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3116,10 +3259,8 @@ function df.entity_event.T_data.T_artifact_in_site:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_in_subregion: DFStruct
 ---@field _type identity.entity_event.data.artifact_in_subregion
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_present_at_subregionst<br>References: `df.artifact_record`
 ---@field subregion_id number References: `df.world_region`
----@field unk_1 number
----@field unk_2 number
 
 ---@class identity.entity_event.data.artifact_in_subregion: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3130,10 +3271,8 @@ function df.entity_event.T_data.T_artifact_in_subregion:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_in_feature_layer: DFStruct
 ---@field _type identity.entity_event.data.artifact_in_feature_layer
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_present_at_feature_layerst<br>References: `df.artifact_record`
 ---@field feature_layer_id number References: `df.world_underground_region`
----@field unk_1 number
----@field unk_2 number
 
 ---@class identity.entity_event.data.artifact_in_feature_layer: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3144,10 +3283,8 @@ function df.entity_event.T_data.T_artifact_in_feature_layer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_in_inventory: DFStruct
 ---@field _type identity.entity_event.data.artifact_in_inventory
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_held_by_hfst<br>References: `df.artifact_record`
 ---@field hist_figure_id number References: `df.historical_figure`
----@field unk_1 number
----@field unk_2 number
 
 ---@class identity.entity_event.data.artifact_in_inventory: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3158,10 +3295,9 @@ function df.entity_event.T_data.T_artifact_in_inventory:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_not_in_site: DFStruct
 ---@field _type identity.entity_event.data.artifact_not_in_site
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_not_present_at_sitest<br>References: `df.artifact_record`
 ---@field site_id number References: `df.world_site`
 ---@field structure_id number References: `df.abstract_building`
----@field unk_1 number
 
 ---@class identity.entity_event.data.artifact_not_in_site: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3172,10 +3308,8 @@ function df.entity_event.T_data.T_artifact_not_in_site:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_not_in_subregion: DFStruct
 ---@field _type identity.entity_event.data.artifact_not_in_subregion
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_not_present_at_subregionst<br>References: `df.artifact_record`
 ---@field subregion_id number References: `df.world_region`
----@field unk_1 number
----@field unk_2 number
 
 ---@class identity.entity_event.data.artifact_not_in_subregion: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3186,10 +3320,8 @@ function df.entity_event.T_data.T_artifact_not_in_subregion:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_not_in_feature_layer: DFStruct
 ---@field _type identity.entity_event.data.artifact_not_in_feature_layer
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_not_present_at_feature_layerst<br>References: `df.artifact_record`
 ---@field feature_layer_id number References: `df.world_underground_region`
----@field unk_1 number
----@field unk_2 number
 
 ---@class identity.entity_event.data.artifact_not_in_feature_layer: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3200,10 +3332,8 @@ function df.entity_event.T_data.T_artifact_not_in_feature_layer:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_not_in_inventory: DFStruct
 ---@field _type identity.entity_event.data.artifact_not_in_inventory
----@field artifact_id number References: `df.artifact_record`
+---@field artifact_id number bay12: rumor_artifact_not_held_by_hfst<br>References: `df.artifact_record`
 ---@field hist_figure_id number References: `df.historical_figure`
----@field unk_1 number
----@field unk_2 number
 
 ---@class identity.entity_event.data.artifact_not_in_inventory: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3214,10 +3344,7 @@ function df.entity_event.T_data.T_artifact_not_in_inventory:new() end
 
 ---@class (exact) df.entity_event.T_data.T_artifact_destroyed: DFStruct
 ---@field _type identity.entity_event.data.artifact_destroyed
----@field artifact_id number References: `df.artifact_record`
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
+---@field artifact_id number bay12: rumor_artifact_destroyedst<br>References: `df.artifact_record`
 
 ---@class identity.entity_event.data.artifact_destroyed: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3226,6 +3353,16 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@return df.entity_event.T_data.T_artifact_destroyed
 function df.entity_event.T_data.T_artifact_destroyed:new() end
 
+---@class df.entity_event.T_flag: DFBitfield
+---@field _enum identity.entity_event.flag
+---@field outmoded boolean bay12: RUMOR_FLAG_*
+---@field [0] boolean bay12: RUMOR_FLAG_*
+
+---@class identity.entity_event.flag: DFBitfieldType
+---@field outmoded 0 bay12: RUMOR_FLAG_*
+---@field [0] "outmoded" bay12: RUMOR_FLAG_*
+df.entity_event.T_flag = {}
+
 ---@class (exact) df.agreement: DFStruct
 ---@field _type identity.agreement
 ---@field id number
@@ -3233,8 +3370,8 @@ function df.entity_event.T_data.T_artifact_destroyed:new() end
 ---@field next_party_id number
 ---@field details _agreement_details
 ---@field next_details_id number
----@field unk_1 number
----@field unk_2 number
+---@field smm_x number
+---@field smm_y number
 ---@field flags df.agreement.T_flags
 
 ---@class identity.agreement: DFCompoundType
@@ -3287,16 +3424,16 @@ function _agreement_details:erase(index) end
 
 ---@class df.agreement.T_flags: DFBitfield
 ---@field _enum identity.agreement.flags
----@field petition_not_accepted boolean this gets unset by accepting a petition
----@field [0] boolean this gets unset by accepting a petition
----@field convicted_accepted boolean convicted for PositionCorruption/accepted for Location
----@field [1] boolean convicted for PositionCorruption/accepted for Location
+---@field petition_not_accepted boolean bay12: AGREEMENT_FLAG_*
+---@field [0] boolean bay12: AGREEMENT_FLAG_*
+---@field convicted_accepted boolean concluded
+---@field [1] boolean concluded
 
 ---@class identity.agreement.flags: DFBitfieldType
----@field petition_not_accepted 0 this gets unset by accepting a petition
----@field [0] "petition_not_accepted" this gets unset by accepting a petition
----@field convicted_accepted 1 convicted for PositionCorruption/accepted for Location
----@field [1] "convicted_accepted" convicted for PositionCorruption/accepted for Location
+---@field petition_not_accepted 0 bay12: AGREEMENT_FLAG_*
+---@field [0] "petition_not_accepted" bay12: AGREEMENT_FLAG_*
+---@field convicted_accepted 1 concluded
+---@field [1] "convicted_accepted" concluded
 df.agreement.T_flags = {}
 
 ---@class (exact) df.agreement_party: DFStruct
@@ -3304,7 +3441,7 @@ df.agreement.T_flags = {}
 ---@field id number
 ---@field histfig_ids DFNumberVector
 ---@field entity_ids DFNumberVector
----@field unk_1 _agreement_party_unk_1
+---@field complaint _agreement_party_complaint
 
 ---@class identity.agreement_party: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3313,24 +3450,23 @@ df.agreement_party = {}
 ---@return df.agreement_party
 function df.agreement_party:new() end
 
----@class _agreement_party_unk_1: DFContainer
+---@class _agreement_party_complaint: DFContainer
 ---@field [integer] DFPointer<integer>
-local _agreement_party_unk_1
+local _agreement_party_complaint
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _agreement_party_unk_1:_field(index) end
+function _agreement_party_complaint:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _agreement_party_unk_1:insert(index, item) end
+function _agreement_party_complaint:insert(index, item) end
 
 ---@param index integer
-function _agreement_party_unk_1:erase(index) end
+function _agreement_party_complaint:erase(index) end
 
--- bay12: EvidenceType
----@alias df.crime_type
+---@alias df.evidence_type
 ---| -1 # NONE
 ---| 0 # PLOTTER_BRIBERY_ATTEMPT
 ---| 1 # PLOTTER_SEDITION_ATTEMPT
@@ -3343,10 +3479,9 @@ function _agreement_party_unk_1:erase(index) end
 ---| 8 # SUSPECT_CONFESSED_AGREEMENT
 ---| 9 # CAUGHT_UNDER_SURVEILLANCE
 
--- bay12: EvidenceType
----@class identity.crime_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@class identity.evidence_type: DFEnumType
+---@field NONE -1 bay12: EvidenceType
+---@field [-1] "NONE" bay12: EvidenceType
 ---@field PLOTTER_BRIBERY_ATTEMPT 0
 ---@field [0] "PLOTTER_BRIBERY_ATTEMPT"
 ---@field PLOTTER_SEDITION_ATTEMPT 1
@@ -3367,7 +3502,27 @@ function _agreement_party_unk_1:erase(index) end
 ---@field [8] "SUSPECT_CONFESSED_AGREEMENT"
 ---@field CAUGHT_UNDER_SURVEILLANCE 9
 ---@field [9] "CAUGHT_UNDER_SURVEILLANCE"
-df.crime_type = {}
+df.evidence_type = {}
+
+---@alias df.intrigue_corruption_action_type
+---| -1 # NONE
+---| 0 # BRIBE_OFFICIAL
+---| 1 # BRING_INTO_ASSET_NETWORK
+---| 2 # CORRUPT_IN_PLACE_GENERALLY
+---| 3 # INDUCE_TO_EMBEZZLE
+
+---@class identity.intrigue_corruption_action_type: DFEnumType
+---@field NONE -1 bay12: IntrigueCorruptionActionType
+---@field [-1] "NONE" bay12: IntrigueCorruptionActionType
+---@field BRIBE_OFFICIAL 0
+---@field [0] "BRIBE_OFFICIAL"
+---@field BRING_INTO_ASSET_NETWORK 1
+---@field [1] "BRING_INTO_ASSET_NETWORK"
+---@field CORRUPT_IN_PLACE_GENERALLY 2
+---@field [2] "CORRUPT_IN_PLACE_GENERALLY"
+---@field INDUCE_TO_EMBEZZLE 3
+---@field [3] "INDUCE_TO_EMBEZZLE"
+df.intrigue_corruption_action_type = {}
 
 ---@alias df.agreement_details_type
 ---| 0 # JoinParty
@@ -3388,8 +3543,8 @@ df.crime_type = {}
 ---| 15 # PlotInduceWar
 
 ---@class identity.agreement_details_type: DFEnumType
----@field JoinParty 0
----@field [0] "JoinParty"
+---@field JoinParty 0 bay12: AgreementSubjectType
+---@field [0] "JoinParty" bay12: AgreementSubjectType
 ---@field DemonicBinding 1
 ---@field [1] "DemonicBinding"
 ---@field Residency 2
@@ -3468,11 +3623,11 @@ function df.agreement_details.T_data:new() end
 ---@field reason df.history_event_reason
 ---@field member number References: `df.agreement_party`
 ---@field party number References: `df.agreement_party`
----@field site number References: `df.world_site`
----@field entity number References: `df.historical_entity`
+---@field site number possibly a Year, if for entertainment<br>References: `df.world_site`
+---@field entity number possibly a Season, or an Identity<br>References: `df.historical_entity`
 ---@field figure number this is a value_type when reason == sphere_alignment<br>References: `df.historical_figure`
----@field unk_v50_1 number
----@field unk_v50_2 number
+---@field end_year number
+---@field end_season_tick number
 
 ---@class identity.agreement_details_data_join_party: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3503,8 +3658,8 @@ function df.agreement_details_data_demonic_binding:new() end
 ---@field applicant number References: `df.agreement_party`
 ---@field government number References: `df.agreement_party`
 ---@field site number References: `df.world_site`
----@field unk_v50_1 number
----@field unk_v50_2 number
+---@field end_year number
+---@field end_season_tick number
 
 ---@class identity.agreement_details_data_residency: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3518,8 +3673,8 @@ function df.agreement_details_data_residency:new() end
 ---@field applicant number References: `df.agreement_party`
 ---@field government number References: `df.agreement_party`
 ---@field site number References: `df.world_site`
----@field unk_v50_1 number
----@field unk_v50_2 number
+---@field end_year number
+---@field end_season_tick number
 
 ---@class identity.agreement_details_data_citizenship: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3530,12 +3685,12 @@ function df.agreement_details_data_citizenship:new() end
 
 ---@class (exact) df.agreement_details_data_parley: DFStruct
 ---@field _type identity.agreement_details_data_parley
----@field unk_1 number
----@field party_id number References: `df.agreement_party`
----@field unk_v50_1 number
----@field unk_v50_2 number
----@field unk_v50_3 number
----@field unk_v50_4 number
+---@field reason df.history_event_reason
+---@field asker number References: `df.agreement_party`
+---@field target number References: `df.agreement_party`
+---@field site number References: `df.world_site`
+---@field end_year number
+---@field end_season_tick number
 
 ---@class identity.agreement_details_data_parley: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3546,11 +3701,11 @@ function df.agreement_details_data_parley:new() end
 
 ---@class (exact) df.agreement_details_data_position_corruption: DFStruct
 ---@field _type identity.agreement_details_data_position_corruption
----@field corrupt_circumstance number bay12 type: Circumstance; 247-249 seen
----@field actor_index number bay12: corrupt_party_id; agreement.parties index
----@field influencer_index number bay12: corruptor_party_id; agreement.parties index
----@field intermediary_index number bay12: messenger_party_id; agreement.parties index
----@field target_id number bay12: related_enid<br>References: `df.historical_entity`
+---@field corrupt_circumstance df.unit_thought_type
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
+---@field intermediary_index number References: `df.agreement_party`
+---@field target_id number References: `df.historical_entity`
 ---@field position_id number bay12: related_eppid; position index in the entity's Own entity_position vector
 
 ---@class identity.agreement_details_data_position_corruption: DFCompoundType
@@ -3562,9 +3717,9 @@ function df.agreement_details_data_position_corruption:new() end
 
 ---@class (exact) df.agreement_details_data_plot_steal_artifact: DFStruct
 ---@field _type identity.agreement_details_data_plot_steal_artifact
----@field actor_index number agreement.parties index
----@field influencer_index number agreement.parties index
----@field intermediary_index number agreement.parties index
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
+---@field intermediary_index number References: `df.agreement_party`
 ---@field artifact_id number References: `df.artifact_record`
 
 ---@class identity.agreement_details_data_plot_steal_artifact: DFCompoundType
@@ -3576,11 +3731,11 @@ function df.agreement_details_data_plot_steal_artifact:new() end
 
 ---@class (exact) df.agreement_details_data_promise_position: DFStruct
 ---@field _type identity.agreement_details_data_promise_position
----@field beneficiary_index number agreement.parties index
----@field actor_index number agreement.parties index
----@field promisee_index number agreement.parties index
----@field influencer_index number agreement.parties index. May be swapped with beneficiary
----@field intermediary_indices DFNumberVector agreement.parties index
+---@field beneficiary_index number References: `df.agreement_party`
+---@field actor_index number References: `df.agreement_party`
+---@field promisee_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
+---@field intermediary_indices DFNumberVector
 ---@field entity_id number References: `df.historical_entity`
 
 ---@class identity.agreement_details_data_promise_position: DFCompoundType
@@ -3592,9 +3747,9 @@ function df.agreement_details_data_promise_position:new() end
 
 ---@class (exact) df.agreement_details_data_plot_assassination: DFStruct
 ---@field _type identity.agreement_details_data_plot_assassination
----@field actor_index number agreement.parties index
----@field influencer_index number agreement.parties index
----@field intermediary_index number agreement.parties index
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
+---@field intermediary_index number References: `df.agreement_party`
 ---@field target_id number References: `df.historical_figure`
 
 ---@class identity.agreement_details_data_plot_assassination: DFCompoundType
@@ -3606,10 +3761,10 @@ function df.agreement_details_data_plot_assassination:new() end
 
 ---@class (exact) df.agreement_details_data_plot_abduct: DFStruct
 ---@field _type identity.agreement_details_data_plot_abduct
----@field actor_index number agreement.parties index
----@field intermediary_index number agreement.parties index
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
+---@field intermediary_index number References: `df.agreement_party`
 ---@field target_id number References: `df.historical_figure`
----@field unk_v50_1 number
 
 ---@class identity.agreement_details_data_plot_abduct: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3620,12 +3775,12 @@ function df.agreement_details_data_plot_abduct:new() end
 
 ---@class (exact) df.agreement_details_data_plot_sabotage: DFStruct
 ---@field _type identity.agreement_details_data_plot_sabotage
----@field plotter_index number agreement.parties index
----@field actor_index number agreement.parties index
----@field intermediary_index number agreement.parties index. A guess, as no intermediary cases have been seen
+---@field plotter_index number References: `df.agreement_party`
+---@field actor_index number References: `df.agreement_party`
+---@field intermediary_index number References: `df.agreement_party`
 ---@field victim_id number References: `df.historical_figure`
----@field unk_1 number
----@field unk_2 number
+---@field victim_civ number References: `df.historical_entity`
+---@field victim_site number References: `df.world_site`
 
 ---@class identity.agreement_details_data_plot_sabotage: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3636,8 +3791,8 @@ function df.agreement_details_data_plot_sabotage:new() end
 
 ---@class (exact) df.agreement_details_data_plot_conviction: DFStruct
 ---@field _type identity.agreement_details_data_plot_conviction
----@field criminal_indices DFNumberVector agreement.parties index. All indices listed, regardless of confessions
----@field crime df.crime_type
+---@field criminal_indices DFNumberVector
+---@field corruption_action df.intrigue_corruption_action_type
 
 ---@class identity.agreement_details_data_plot_conviction: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3656,7 +3811,7 @@ function df.agreement_details_data_plot_conviction:new() end
 ---@field deity_data df.temple_deity_data
 ---@field profession df.profession
 ---@field tier number 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
----@field unk_v50_1 number
+---@field flags df.agreement_details_data_location.T_flags
 
 ---@class identity.agreement_details_data_location: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3665,12 +3820,22 @@ df.agreement_details_data_location = {}
 ---@return df.agreement_details_data_location
 function df.agreement_details_data_location:new() end
 
+---@class df.agreement_details_data_location.T_flags: DFBitfield
+---@field _enum identity.agreement_details_data_location.flags
+---@field warned_is_ready boolean bay12: AGREEMENT_SUBJECT_BUILD_LOCATION_FLAG_*
+---@field [0] boolean bay12: AGREEMENT_SUBJECT_BUILD_LOCATION_FLAG_*
+
+---@class identity.agreement_details_data_location.flags: DFBitfieldType
+---@field warned_is_ready 0 bay12: AGREEMENT_SUBJECT_BUILD_LOCATION_FLAG_*
+---@field [0] "warned_is_ready" bay12: AGREEMENT_SUBJECT_BUILD_LOCATION_FLAG_*
+df.agreement_details_data_location.T_flags = {}
+
 ---@class (exact) df.agreement_details_data_plot_infiltration_coup: DFStruct
 ---@field _type identity.agreement_details_data_plot_infiltration_coup
----@field actor_index number agreement.parties index
----@field influencer_index number agreement.parties index
----@field target number action=8: site id, 9: entity id
----@field action number 8 and 9 seen. Probably matches up with corresponding hist fig Infiltrate_Society action
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
+---@field target number References: `df.historical_entity`
+---@field flags integer
 
 ---@class identity.agreement_details_data_plot_infiltration_coup: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3681,11 +3846,11 @@ function df.agreement_details_data_plot_infiltration_coup:new() end
 
 ---@class (exact) df.agreement_details_data_plot_frame_treason: DFStruct
 ---@field _type identity.agreement_details_data_plot_frame_treason
----@field actor_index number agreement.parties index
----@field influencer_index number agreement.parties index
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
 ---@field victim_id number References: `df.historical_figure`
 ---@field fool_id number References: `df.historical_figure`
----@field unk_1 number only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though<br>References: `df.historical_figure`
+---@field crime df.crime_type
 
 ---@class identity.agreement_details_data_plot_frame_treason: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3696,8 +3861,8 @@ function df.agreement_details_data_plot_frame_treason:new() end
 
 ---@class (exact) df.agreement_details_data_plot_induce_war: DFStruct
 ---@field _type identity.agreement_details_data_plot_induce_war
----@field actor_index number agreement.parties index
----@field influencer_index number agreement.parties index
+---@field actor_index number References: `df.agreement_party`
+---@field influencer_index number References: `df.agreement_party`
 ---@field attacker number References: `df.historical_entity`
 ---@field defender number References: `df.historical_entity`
 

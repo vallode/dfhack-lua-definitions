@@ -47,6 +47,31 @@ function dfhack.maps.getRegionBiome(rgn_pos) end
 ---@return df.plant
 function dfhack.maps.getPlantAtTile(x, y, z) end
 
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function dfhack.maps.isTileAquifer(x, y, z) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function dfhack.maps.isTileHeavyAquifer(x, y, z) end
+
+---@param x number
+---@param y number
+---@param z number
+---@param heavy boolean|nil
+---@return boolean
+function dfhack.maps.setTileAquifer(x, y, z, heavy) end
+
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function dfhack.maps.removeTileAquifer(x, y, z) end
+
 ---@param bm df.tile_bitmask
 ---@return boolean
 function dfhack.maps.hasTileAssignment(bm) end

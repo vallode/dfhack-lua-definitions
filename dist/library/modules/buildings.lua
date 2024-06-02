@@ -126,3 +126,7 @@ function dfhack.buildings.isActive(building) end
 ---@param bld df.building
 function dfhack.buildings.completeBuild(bld) end
 
+---@param building df.building
+---@return string
+function dfhack.buildings.getName(building) end
+

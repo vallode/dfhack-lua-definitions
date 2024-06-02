@@ -6,6 +6,7 @@
 ---| 1 # SUMMER
 ---| 2 # AUTUMN
 ---| 3 # WINTER
+---| 4 # BUNDLE
 ---| 5 # SEED
 ---| 6 # TREE_HAS_MUSHROOM_CAP
 ---| 7 # DRINK
@@ -15,6 +16,8 @@
 ---| 11 # GENERATED
 ---| 12 # THREAD
 ---| 13 # MILL
+---| 14 # EDIBLE_GROWTH
+---| 15 # SOIL_BACKGROUND
 ---| 20 # WET
 ---| 21 # DRY
 ---| 22 # BIOME_MOUNTAIN
@@ -85,14 +88,16 @@
 ---| 87 # TWIGS_BELOW_TRUNK
 
 ---@class identity.plant_raw_flags: DFEnumType
----@field SPRING 0
----@field [0] "SPRING"
+---@field SPRING 0 bay12: PlantFlagType
+---@field [0] "SPRING" bay12: PlantFlagType
 ---@field SUMMER 1
 ---@field [1] "SUMMER"
 ---@field AUTUMN 2
 ---@field [2] "AUTUMN"
 ---@field WINTER 3
 ---@field [3] "WINTER"
+---@field BUNDLE 4
+---@field [4] "BUNDLE"
 ---@field SEED 5
 ---@field [5] "SEED"
 ---@field TREE_HAS_MUSHROOM_CAP 6
@@ -111,6 +116,10 @@
 ---@field [12] "THREAD"
 ---@field MILL 13
 ---@field [13] "MILL"
+---@field EDIBLE_GROWTH 14
+---@field [14] "EDIBLE_GROWTH"
+---@field SOIL_BACKGROUND 15
+---@field [15] "SOIL_BACKGROUND"
 ---@field WET 20
 ---@field [20] "WET"
 ---@field DRY 21
@@ -263,11 +272,12 @@ df.plant_raw_flags = {}
 ---@field leaves_singular string unused
 ---@field leaves_plural string unused
 ---@field source_hfid number References: `df.historical_figure`
----@field unk_v4201_1 number
----@field unk1 integer
----@field unk2 integer
+---@field source_enid number References: `df.historical_entity`
+---@field mill_dye_color number References: `df.descriptor_color`
 ---@field tiles df.plant_raw.T_tiles
----@field growdur number
+---@field texpos number[]
+---@field tree_texture_info DFPointer<integer>
+---@field growdur number bay12: pmd_tree_texture_infost
 ---@field value number
 ---@field colors df.plant_raw.T_colors
 ---@field alt_period number[]
@@ -338,7 +348,7 @@ function _plant_raw_flags:erase(index) end
 
 ---@class (exact) df.plant_raw.T_tiles: DFStruct
 ---@field _type identity.plant_raw.tiles
----@field picked_tile integer
+---@field picked_tile integer not a compound
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
 ---@field dead_shrub_tile integer
@@ -349,7 +359,6 @@ function _plant_raw_flags:erase(index) end
 ---@field grass_tiles integer[]
 ---@field alt_grass_tiles integer[]
 ---@field tree_tiles integer[]
----@field unk_v50_1 integer[]
 
 ---@class identity.plant_raw.tiles: DFCompoundType
 ---@field _kind 'struct-type'
@@ -360,7 +369,7 @@ function df.plant_raw.T_tiles:new() end
 
 ---@class (exact) df.plant_raw.T_colors: DFStruct
 ---@field _type identity.plant_raw.colors
----@field picked_color number[]
+---@field picked_color number[] not a compound
 ---@field dead_picked_color number[]
 ---@field shrub_color number[]
 ---@field dead_shrub_color number[]
@@ -369,9 +378,9 @@ function df.plant_raw.T_tiles:new() end
 ---@field dead_tree_color number[]
 ---@field sapling_color number[]
 ---@field dead_sapling_color number[]
----@field grass_colors_0 number[]
----@field grass_colors_1 number[]
----@field grass_colors_2 number[]
+---@field grass_colors_f number[]
+---@field grass_colors_b number[]
+---@field grass_colors_br number[]
 
 ---@class identity.plant_raw.colors: DFCompoundType
 ---@field _kind 'struct-type'
@@ -398,7 +407,7 @@ function _plant_raw_material:erase(index) end
 
 ---@class (exact) df.plant_raw.T_material_defs: DFStruct
 ---@field _type identity.plant_raw.material_defs
----@field type DFEnumVector<df.plant_material_def, number>
+---@field type DFEnumVector<df.plant_material_def, number> not a compound
 ---@field idx DFEnumVector<df.plant_material_def, number>
 ---@field str DFEnumVector<df.plant_material_def, string[]>
 
@@ -443,16 +452,48 @@ function _plant_raw_stockpile_growth_flags:erase(index) end
 
 ---@class df.plant_raw.T_stockpile_growth_flags: DFBitfield
 ---@field _enum identity.plant_raw.stockpile_growth_flags
----@field EDIBLE_RAW boolean
----@field [0] boolean
+---@field EDIBLE_RAW boolean bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
+---@field [0] boolean bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
 ---@field EDIBLE_COOKED boolean
 ---@field [1] boolean
+---@field THREAD boolean
+---@field [2] boolean
+---@field MILLABLE boolean
+---@field [3] boolean
+---@field EXTRACTABLE_VIAL boolean
+---@field [4] boolean
+---@field EXTRACTABLE_BARREL boolean
+---@field [5] boolean
+---@field EXTRACTABLE_STILL_VIAL boolean
+---@field [6] boolean
+---@field ORCHARD boolean
+---@field [7] boolean
+---@field GARDEN boolean
+---@field [8] boolean
+---@field FARMED boolean
+---@field [9] boolean
 
 ---@class identity.plant_raw.stockpile_growth_flags: DFBitfieldType
----@field EDIBLE_RAW 0
----@field [0] "EDIBLE_RAW"
+---@field EDIBLE_RAW 0 bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
+---@field [0] "EDIBLE_RAW" bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
 ---@field EDIBLE_COOKED 1
 ---@field [1] "EDIBLE_COOKED"
+---@field THREAD 2
+---@field [2] "THREAD"
+---@field MILLABLE 3
+---@field [3] "MILLABLE"
+---@field EXTRACTABLE_VIAL 4
+---@field [4] "EXTRACTABLE_VIAL"
+---@field EXTRACTABLE_BARREL 5
+---@field [5] "EXTRACTABLE_BARREL"
+---@field EXTRACTABLE_STILL_VIAL 6
+---@field [6] "EXTRACTABLE_STILL_VIAL"
+---@field ORCHARD 7
+---@field [7] "ORCHARD"
+---@field GARDEN 8
+---@field [8] "GARDEN"
+---@field FARMED 9
+---@field [9] "FARMED"
 df.plant_raw.T_stockpile_growth_flags = {}
 
 ---@alias df.plant_material_def
@@ -467,8 +508,8 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---| 8 # extract_still_vial
 
 ---@class identity.plant_material_def: DFEnumType
----@field basic_mat 0 TODO: is this the same as another existing enum?
----@field [0] "basic_mat" TODO: is this the same as another existing enum?
+---@field basic_mat 0 bay12: PlantMaterialUseType
+---@field [0] "basic_mat" bay12: PlantMaterialUseType
 ---@field tree 1
 ---@field [1] "tree"
 ---@field drink 2
@@ -498,11 +539,8 @@ df.plant_material_def = {}
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field prints _plant_growth_prints
----@field unk_v50_1 number
----@field unk_v50_2 number
----@field unk_v50_3 number
----@field unk_v50_4 number
----@field unk_v50_5 number
+---@field texpos_grass number[]
+---@field texpos_picked number
 ---@field timing_1 number
 ---@field timing_2 number
 ---@field locations df.plant_growth.T_locations
@@ -536,8 +574,8 @@ function _plant_growth_prints:erase(index) end
 
 ---@class df.plant_growth.T_locations: DFBitfield
 ---@field _enum identity.plant_growth.locations
----@field twigs boolean
----@field [0] boolean
+---@field twigs boolean bay12: GROWTH_HOST_TILE_FLAG_*
+---@field [0] boolean bay12: GROWTH_HOST_TILE_FLAG_*
 ---@field light_branches boolean
 ---@field [1] boolean
 ---@field heavy_branches boolean
@@ -552,8 +590,8 @@ function _plant_growth_prints:erase(index) end
 ---@field [6] boolean
 
 ---@class identity.plant_growth.locations: DFBitfieldType
----@field twigs 0
----@field [0] "twigs"
+---@field twigs 0 bay12: GROWTH_HOST_TILE_FLAG_*
+---@field [0] "twigs" bay12: GROWTH_HOST_TILE_FLAG_*
 ---@field light_branches 1
 ---@field [1] "light_branches"
 ---@field heavy_branches 2
@@ -570,20 +608,24 @@ df.plant_growth.T_locations = {}
 
 ---@class df.plant_growth.T_behavior: DFBitfield
 ---@field _enum identity.plant_growth.behavior
----@field drops_off boolean
----@field [0] boolean
+---@field drops_off boolean bay12: PMD_GROWTH_FLAG_*
+---@field [0] boolean bay12: PMD_GROWTH_FLAG_*
 ---@field no_cloud boolean
 ---@field [1] boolean
 ---@field has_seed boolean
 ---@field [2] boolean
+---@field graphics_type boolean
+---@field [3] boolean
 
 ---@class identity.plant_growth.behavior: DFBitfieldType
----@field drops_off 0
----@field [0] "drops_off"
+---@field drops_off 0 bay12: PMD_GROWTH_FLAG_*
+---@field [0] "drops_off" bay12: PMD_GROWTH_FLAG_*
 ---@field no_cloud 1
 ---@field [1] "no_cloud"
 ---@field has_seed 2
 ---@field [2] "has_seed"
+---@field graphics_type 3
+---@field [3] "graphics_type"
 df.plant_growth.T_behavior = {}
 
 ---@class (exact) df.plant_growth_print: DFStruct

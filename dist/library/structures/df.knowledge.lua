@@ -3,8 +3,8 @@
 
 ---@class df.knowledge_scholar_flags_0: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_0
----@field philosophy_logic_formal_reasoning boolean
----@field [0] boolean
+---@field philosophy_logic_formal_reasoning boolean bay12: SK_PHILOSOPHY_FLAG_*
+---@field [0] boolean bay12: SK_PHILOSOPHY_FLAG_*
 ---@field philosophy_logic_deductive_reasoning boolean
 ---@field [1] boolean
 ---@field philosophy_logic_syllogistic_logic boolean
@@ -69,8 +69,8 @@
 ---@field [31] boolean
 
 ---@class identity.knowledge_scholar_flags_0: DFBitfieldType
----@field philosophy_logic_formal_reasoning 0
----@field [0] "philosophy_logic_formal_reasoning"
+---@field philosophy_logic_formal_reasoning 0 bay12: SK_PHILOSOPHY_FLAG_*
+---@field [0] "philosophy_logic_formal_reasoning" bay12: SK_PHILOSOPHY_FLAG_*
 ---@field philosophy_logic_deductive_reasoning 1
 ---@field [1] "philosophy_logic_deductive_reasoning"
 ---@field philosophy_logic_syllogistic_logic 2
@@ -137,8 +137,8 @@ df.knowledge_scholar_flags_0 = {}
 
 ---@class df.knowledge_scholar_flags_1: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_1
----@field philosophy_logic_inductive_reasoning boolean
----@field [0] boolean
+---@field philosophy_logic_inductive_reasoning boolean bay12: SK_PHILOSOPHY_FLAG2_*
+---@field [0] boolean bay12: SK_PHILOSOPHY_FLAG2_*
 ---@field philosophy_logic_direct_inference boolean
 ---@field [1] boolean
 ---@field philosophy_aesthetics_nature_of_beauty boolean
@@ -149,8 +149,8 @@ df.knowledge_scholar_flags_0 = {}
 ---@field [4] boolean
 
 ---@class identity.knowledge_scholar_flags_1: DFBitfieldType
----@field philosophy_logic_inductive_reasoning 0
----@field [0] "philosophy_logic_inductive_reasoning"
+---@field philosophy_logic_inductive_reasoning 0 bay12: SK_PHILOSOPHY_FLAG2_*
+---@field [0] "philosophy_logic_inductive_reasoning" bay12: SK_PHILOSOPHY_FLAG2_*
 ---@field philosophy_logic_direct_inference 1
 ---@field [1] "philosophy_logic_direct_inference"
 ---@field philosophy_aesthetics_nature_of_beauty 2
@@ -163,8 +163,8 @@ df.knowledge_scholar_flags_1 = {}
 
 ---@class df.knowledge_scholar_flags_2: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_2
----@field mathematics_method_proof_by_contradiction boolean
----@field [0] boolean
+---@field mathematics_method_proof_by_contradiction boolean bay12: SK_MATHEMATICS_FLAG_*
+---@field [0] boolean bay12: SK_MATHEMATICS_FLAG_*
 ---@field mathematics_notation_zero boolean
 ---@field [1] boolean
 ---@field mathematics_notation_negative_numbers boolean
@@ -229,8 +229,8 @@ df.knowledge_scholar_flags_1 = {}
 ---@field [31] boolean
 
 ---@class identity.knowledge_scholar_flags_2: DFBitfieldType
----@field mathematics_method_proof_by_contradiction 0
----@field [0] "mathematics_method_proof_by_contradiction"
+---@field mathematics_method_proof_by_contradiction 0 bay12: SK_MATHEMATICS_FLAG_*
+---@field [0] "mathematics_method_proof_by_contradiction" bay12: SK_MATHEMATICS_FLAG_*
 ---@field mathematics_notation_zero 1
 ---@field [1] "mathematics_notation_zero"
 ---@field mathematics_notation_negative_numbers 2
@@ -297,8 +297,8 @@ df.knowledge_scholar_flags_2 = {}
 
 ---@class df.knowledge_scholar_flags_3: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_3
----@field mathematics_numbers_root_2_to_5_digits boolean
----@field [0] boolean
+---@field mathematics_numbers_root_2_to_5_digits boolean bay12: SK_MATHEMATICS_FLAG2_*
+---@field [0] boolean bay12: SK_MATHEMATICS_FLAG2_*
 ---@field mathematics_numbers_infinite_primes boolean
 ---@field [1] boolean
 ---@field mathematics_numbers_root_2_irrational boolean
@@ -333,8 +333,8 @@ df.knowledge_scholar_flags_2 = {}
 ---@field [16] boolean
 
 ---@class identity.knowledge_scholar_flags_3: DFBitfieldType
----@field mathematics_numbers_root_2_to_5_digits 0
----@field [0] "mathematics_numbers_root_2_to_5_digits"
+---@field mathematics_numbers_root_2_to_5_digits 0 bay12: SK_MATHEMATICS_FLAG2_*
+---@field [0] "mathematics_numbers_root_2_to_5_digits" bay12: SK_MATHEMATICS_FLAG2_*
 ---@field mathematics_numbers_infinite_primes 1
 ---@field [1] "mathematics_numbers_infinite_primes"
 ---@field mathematics_numbers_root_2_irrational 2
@@ -371,8 +371,8 @@ df.knowledge_scholar_flags_3 = {}
 
 ---@class df.knowledge_scholar_flags_4: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_4
----@field history_sourcing_basic_reliability boolean
----@field [0] boolean
+---@field history_sourcing_basic_reliability boolean bay12: SK_HISTORY_FLAG_*
+---@field [0] boolean bay12: SK_HISTORY_FLAG_*
 ---@field history_sourcing_role_of_systemic_bias boolean
 ---@field [1] boolean
 ---@field history_sourcing_role_of_state_bias_and_propaganda boolean
@@ -413,8 +413,8 @@ df.knowledge_scholar_flags_3 = {}
 ---@field [19] boolean
 
 ---@class identity.knowledge_scholar_flags_4: DFBitfieldType
----@field history_sourcing_basic_reliability 0
----@field [0] "history_sourcing_basic_reliability"
+---@field history_sourcing_basic_reliability 0 bay12: SK_HISTORY_FLAG_*
+---@field [0] "history_sourcing_basic_reliability" bay12: SK_HISTORY_FLAG_*
 ---@field history_sourcing_role_of_systemic_bias 1
 ---@field [1] "history_sourcing_role_of_systemic_bias"
 ---@field history_sourcing_role_of_state_bias_and_propaganda 2
@@ -457,8 +457,8 @@ df.knowledge_scholar_flags_4 = {}
 
 ---@class df.knowledge_scholar_flags_5: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_5
----@field astronomy_phases_of_the_moon boolean
----@field [0] boolean
+---@field astronomy_phases_of_the_moon boolean bay12: SK_ASTRONOMY_FLAG_*
+---@field [0] boolean bay12: SK_ASTRONOMY_FLAG_*
 ---@field astronomy_summer_winter_moon boolean
 ---@field [1] boolean
 ---@field astronomy_path_of_the_moon boolean
@@ -499,8 +499,8 @@ df.knowledge_scholar_flags_4 = {}
 ---@field [19] boolean
 
 ---@class identity.knowledge_scholar_flags_5: DFBitfieldType
----@field astronomy_phases_of_the_moon 0
----@field [0] "astronomy_phases_of_the_moon"
+---@field astronomy_phases_of_the_moon 0 bay12: SK_ASTRONOMY_FLAG_*
+---@field [0] "astronomy_phases_of_the_moon" bay12: SK_ASTRONOMY_FLAG_*
 ---@field astronomy_summer_winter_moon 1
 ---@field [1] "astronomy_summer_winter_moon"
 ---@field astronomy_path_of_the_moon 2
@@ -543,8 +543,8 @@ df.knowledge_scholar_flags_5 = {}
 
 ---@class df.knowledge_scholar_flags_6: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_6
----@field naturalist_method_dissection boolean
----@field [0] boolean
+---@field naturalist_method_dissection boolean bay12: SK_NATURALIST_FLAG_*
+---@field [0] boolean bay12: SK_NATURALIST_FLAG_*
 ---@field naturalist_observation_anatomy boolean
 ---@field [1] boolean
 ---@field naturalist_theory_comparative_anatomy boolean
@@ -571,8 +571,8 @@ df.knowledge_scholar_flags_5 = {}
 ---@field [12] boolean
 
 ---@class identity.knowledge_scholar_flags_6: DFBitfieldType
----@field naturalist_method_dissection 0
----@field [0] "naturalist_method_dissection"
+---@field naturalist_method_dissection 0 bay12: SK_NATURALIST_FLAG_*
+---@field [0] "naturalist_method_dissection" bay12: SK_NATURALIST_FLAG_*
 ---@field naturalist_observation_anatomy 1
 ---@field [1] "naturalist_observation_anatomy"
 ---@field naturalist_theory_comparative_anatomy 2
@@ -601,8 +601,8 @@ df.knowledge_scholar_flags_6 = {}
 
 ---@class df.knowledge_scholar_flags_7: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_7
----@field chemistry_classification_combustibles boolean
----@field [0] boolean
+---@field chemistry_classification_combustibles boolean bay12: SK_CHEMISTRY_FLAG_*
+---@field [0] boolean bay12: SK_CHEMISTRY_FLAG_*
 ---@field chemistry_classification_ores boolean
 ---@field [1] boolean
 ---@field chemistry_metallurgy_alloys boolean
@@ -651,8 +651,8 @@ df.knowledge_scholar_flags_6 = {}
 ---@field [23] boolean
 
 ---@class identity.knowledge_scholar_flags_7: DFBitfieldType
----@field chemistry_classification_combustibles 0
----@field [0] "chemistry_classification_combustibles"
+---@field chemistry_classification_combustibles 0 bay12: SK_CHEMISTRY_FLAG_*
+---@field [0] "chemistry_classification_combustibles" bay12: SK_CHEMISTRY_FLAG_*
 ---@field chemistry_classification_ores 1
 ---@field [1] "chemistry_classification_ores"
 ---@field chemistry_metallurgy_alloys 2
@@ -703,8 +703,8 @@ df.knowledge_scholar_flags_7 = {}
 
 ---@class df.knowledge_scholar_flags_8: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_8
----@field geography_surveying_basic boolean
----@field [0] boolean
+---@field geography_surveying_basic boolean bay12: SK_GEOGRAPHY_FLAG_*
+---@field [0] boolean bay12: SK_GEOGRAPHY_FLAG_*
 ---@field geography_surveying_staff boolean
 ---@field [1] boolean
 ---@field geography_cartography_basic boolean
@@ -749,8 +749,8 @@ df.knowledge_scholar_flags_7 = {}
 ---@field [21] boolean
 
 ---@class identity.knowledge_scholar_flags_8: DFBitfieldType
----@field geography_surveying_basic 0
----@field [0] "geography_surveying_basic"
+---@field geography_surveying_basic 0 bay12: SK_GEOGRAPHY_FLAG_*
+---@field [0] "geography_surveying_basic" bay12: SK_GEOGRAPHY_FLAG_*
 ---@field geography_surveying_staff 1
 ---@field [1] "geography_surveying_staff"
 ---@field geography_cartography_basic 2
@@ -797,8 +797,8 @@ df.knowledge_scholar_flags_8 = {}
 
 ---@class df.knowledge_scholar_flags_9: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_9
----@field medicine_theory_disease_and_fouled_water boolean
----@field [0] boolean
+---@field medicine_theory_disease_and_fouled_water boolean bay12: SK_MEDICINE_FLAG_*
+---@field [0] boolean bay12: SK_MEDICINE_FLAG_*
 ---@field medicine_method_physical_examination boolean
 ---@field [1] boolean
 ---@field medicine_method_autopsy boolean
@@ -863,8 +863,8 @@ df.knowledge_scholar_flags_8 = {}
 ---@field [31] boolean
 
 ---@class identity.knowledge_scholar_flags_9: DFBitfieldType
----@field medicine_theory_disease_and_fouled_water 0
----@field [0] "medicine_theory_disease_and_fouled_water"
+---@field medicine_theory_disease_and_fouled_water 0 bay12: SK_MEDICINE_FLAG_*
+---@field [0] "medicine_theory_disease_and_fouled_water" bay12: SK_MEDICINE_FLAG_*
 ---@field medicine_method_physical_examination 1
 ---@field [1] "medicine_method_physical_examination"
 ---@field medicine_method_autopsy 2
@@ -931,8 +931,8 @@ df.knowledge_scholar_flags_9 = {}
 
 ---@class df.knowledge_scholar_flags_10: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_10
----@field medicine_method_surgery_ligature boolean
----@field [0] boolean
+---@field medicine_method_surgery_ligature boolean bay12: SK_MEDICINE_FLAG2_*
+---@field [0] boolean bay12: SK_MEDICINE_FLAG2_*
 ---@field medicine_theory_surgical_models boolean
 ---@field [1] boolean
 ---@field medicine_tool_mud_bags_as_surgical_models boolean
@@ -997,8 +997,8 @@ df.knowledge_scholar_flags_9 = {}
 ---@field [31] boolean
 
 ---@class identity.knowledge_scholar_flags_10: DFBitfieldType
----@field medicine_method_surgery_ligature 0
----@field [0] "medicine_method_surgery_ligature"
+---@field medicine_method_surgery_ligature 0 bay12: SK_MEDICINE_FLAG2_*
+---@field [0] "medicine_method_surgery_ligature" bay12: SK_MEDICINE_FLAG2_*
 ---@field medicine_theory_surgical_models 1
 ---@field [1] "medicine_theory_surgical_models"
 ---@field medicine_tool_mud_bags_as_surgical_models 2
@@ -1065,18 +1065,18 @@ df.knowledge_scholar_flags_10 = {}
 
 ---@class df.knowledge_scholar_flags_11: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_11
----@field medicine_method_asylum_for_mentally_ill boolean
----@field [0] boolean
+---@field medicine_method_asylum_for_mentally_ill boolean bay12: SK_MEDICINE_FLAG3_*
+---@field [0] boolean bay12: SK_MEDICINE_FLAG3_*
 
 ---@class identity.knowledge_scholar_flags_11: DFBitfieldType
----@field medicine_method_asylum_for_mentally_ill 0
----@field [0] "medicine_method_asylum_for_mentally_ill"
+---@field medicine_method_asylum_for_mentally_ill 0 bay12: SK_MEDICINE_FLAG3_*
+---@field [0] "medicine_method_asylum_for_mentally_ill" bay12: SK_MEDICINE_FLAG3_*
 df.knowledge_scholar_flags_11 = {}
 
 ---@class df.knowledge_scholar_flags_12: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_12
----@field engineering_horology_shadow_clock boolean
----@field [0] boolean
+---@field engineering_horology_shadow_clock boolean bay12: SK_ENGINEERING_FLAG_*
+---@field [0] boolean bay12: SK_ENGINEERING_FLAG_*
 ---@field engineering_horology_water_clock boolean
 ---@field [1] boolean
 ---@field engineering_horology_conical_water_clock boolean
@@ -1141,8 +1141,8 @@ df.knowledge_scholar_flags_11 = {}
 ---@field [31] boolean
 
 ---@class identity.knowledge_scholar_flags_12: DFBitfieldType
----@field engineering_horology_shadow_clock 0
----@field [0] "engineering_horology_shadow_clock"
+---@field engineering_horology_shadow_clock 0 bay12: SK_ENGINEERING_FLAG_*
+---@field [0] "engineering_horology_shadow_clock" bay12: SK_ENGINEERING_FLAG_*
 ---@field engineering_horology_water_clock 1
 ---@field [1] "engineering_horology_water_clock"
 ---@field engineering_horology_conical_water_clock 2
@@ -1209,8 +1209,8 @@ df.knowledge_scholar_flags_12 = {}
 
 ---@class df.knowledge_scholar_flags_13: DFBitfield
 ---@field _enum identity.knowledge_scholar_flags_13
----@field engineering_fluid_valves boolean
----@field [0] boolean
+---@field engineering_fluid_valves boolean bay12: SK_ENGINEERING_FLAG2_*
+---@field [0] boolean bay12: SK_ENGINEERING_FLAG2_*
 ---@field engineering_fluid_force_pump boolean
 ---@field [1] boolean
 ---@field engineering_optics_crystal_lens boolean
@@ -1271,8 +1271,8 @@ df.knowledge_scholar_flags_12 = {}
 ---@field [29] boolean
 
 ---@class identity.knowledge_scholar_flags_13: DFBitfieldType
----@field engineering_fluid_valves 0
----@field [0] "engineering_fluid_valves"
+---@field engineering_fluid_valves 0 bay12: SK_ENGINEERING_FLAG2_*
+---@field [0] "engineering_fluid_valves" bay12: SK_ENGINEERING_FLAG2_*
 ---@field engineering_fluid_force_pump 1
 ---@field [1] "engineering_fluid_force_pump"
 ---@field engineering_optics_crystal_lens 2
@@ -1335,7 +1335,7 @@ df.knowledge_scholar_flags_13 = {}
 
 ---@class (exact) df.knowledge_scholar_category_flag: DFStruct
 ---@field _type identity.knowledge_scholar_category_flag
----@field flag_type df.knowledge_scholar_category_flag.T_flag_type determines which bitflags to use
+---@field flag_type df.knowledge_scholar_category_flag.T_flag_type research_project_type; determines which bitflags to use
 ---@field flag_data df.knowledge_scholar_category_flag.T_flag_data
 
 ---@class identity.knowledge_scholar_category_flag: DFCompoundType
@@ -1345,7 +1345,7 @@ df.knowledge_scholar_category_flag = {}
 ---@return df.knowledge_scholar_category_flag
 function df.knowledge_scholar_category_flag:new() end
 
--- determines which bitflags to use
+-- research_project_type; determines which bitflags to use
 ---@alias df.knowledge_scholar_category_flag.T_flag_type
 ---| 0 # flags_0
 ---| 1 # flags_1
@@ -1362,10 +1362,10 @@ function df.knowledge_scholar_category_flag:new() end
 ---| 12 # flags_12
 ---| 13 # flags_13
 
--- determines which bitflags to use
+-- research_project_type; determines which bitflags to use
 ---@class identity.knowledge_scholar_category_flag.flag_type: DFEnumType
----@field flags_0 0
----@field [0] "flags_0"
+---@field flags_0 0 bay12: ResearchProjectType
+---@field [0] "flags_0" bay12: ResearchProjectType
 ---@field flags_1 1
 ---@field [1] "flags_1"
 ---@field flags_2 2

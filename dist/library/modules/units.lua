@@ -363,6 +363,9 @@ function dfhack.units.getIdentity(unit) end
 function dfhack.units.getNemesis(unit) end
 
 ---@param unit df.unit
+function dfhack.units.makeown(unit) end
+
+---@param unit df.unit
 ---@param attr df.physical_attribute_type
 ---@return integer
 function dfhack.units.getPhysicalAttrValue(unit, attr) end

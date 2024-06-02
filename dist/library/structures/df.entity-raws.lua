@@ -45,9 +45,9 @@
 ---| 40 # AT_PEACE_WITH_WILDLIFE
 ---| 41 # EQUIPMENT_IMPROVEMENTS
 ---| 42 # ABUSE_BODIES
----| 43 # UNDEAD_CANDIDATE
 ---| 44 # GENERATED
 ---| 45 # SKULKING
+---| 46 # HAS_LAND_HOLDER
 ---| 47 # MERCHANT_NOBILITY
 ---| 48 # TREE_CAP_DIPLOMACY
 ---| 49 # DIPLOMAT_BODYGUARDS
@@ -75,14 +75,16 @@
 ---| 71 # GENERATE_DANCE_FORMS
 ---| 72 # SET_SCHOLARS_ON_VALUES_AND_JOBS
 ---| 73 # NO_ARTIFACT_CLAIMS
+---| 74 # USE_NON_EXOTIC_PET_RACE
+---| 75 # MISSING_UNDERWORLD_DISASTERS
 
 ---@class identity.entity_raw_flags: DFEnumType
----@field CIV_CONTROLLABLE 0
----@field [0] "CIV_CONTROLLABLE"
----@field INDIV_CONTROLLABLE 1
----@field [1] "INDIV_CONTROLLABLE"
----@field LAYER_LINKED 2
----@field [2] "LAYER_LINKED"
+---@field CIV_CONTROLLABLE 0 bay12: EntityDefFlagType
+---@field [0] "CIV_CONTROLLABLE" bay12: EntityDefFlagType
+---@field INDIV_CONTROLLABLE 1 SITE_CONTROLLABLE
+---@field [1] "INDIV_CONTROLLABLE" SITE_CONTROLLABLE
+---@field LAYER_LINKED 2 ALL_MAIN_POPS_CONTROLLABLE
+---@field [2] "LAYER_LINKED" ALL_MAIN_POPS_CONTROLLABLE
 ---@field INDOOR_WOOD 3
 ---@field [3] "INDOOR_WOOD"
 ---@field WOOD_ARMOR 4
@@ -163,12 +165,12 @@
 ---@field [41] "EQUIPMENT_IMPROVEMENTS"
 ---@field ABUSE_BODIES 42
 ---@field [42] "ABUSE_BODIES"
----@field UNDEAD_CANDIDATE 43
----@field [43] "UNDEAD_CANDIDATE"
 ---@field GENERATED 44
 ---@field [44] "GENERATED"
 ---@field SKULKING 45
 ---@field [45] "SKULKING"
+---@field HAS_LAND_HOLDER 46
+---@field [46] "HAS_LAND_HOLDER"
 ---@field MERCHANT_NOBILITY 47
 ---@field [47] "MERCHANT_NOBILITY"
 ---@field TREE_CAP_DIPLOMACY 48
@@ -223,6 +225,10 @@
 ---@field [72] "SET_SCHOLARS_ON_VALUES_AND_JOBS"
 ---@field NO_ARTIFACT_CLAIMS 73
 ---@field [73] "NO_ARTIFACT_CLAIMS"
+---@field USE_NON_EXOTIC_PET_RACE 74
+---@field [74] "USE_NON_EXOTIC_PET_RACE"
+---@field MISSING_UNDERWORLD_DISASTERS 75
+---@field [75] "MISSING_UNDERWORLD_DISASTERS"
 df.entity_raw_flags = {}
 
 ---@alias df.site_type
@@ -232,12 +238,15 @@ df.entity_raw_flags = {}
 ---| 3 # CAVE_DETAILED
 ---| 4 # TREE_CITY
 ---| 5 # CITY
+---| 6 # IMPORTANT_LOCATION
+---| 7 # LAIR
 ---| 8 # FORTRESS
+---| 9 # CAMP
 ---| 10 # MONUMENT
 
 ---@class identity.site_type: DFEnumType
----@field PLAYER_FORTRESS 0
----@field [0] "PLAYER_FORTRESS"
+---@field PLAYER_FORTRESS 0 bay12: SiteType
+---@field [0] "PLAYER_FORTRESS" bay12: SiteType
 ---@field DARK_FORTRESS 1
 ---@field [1] "DARK_FORTRESS"
 ---@field CAVE 2
@@ -248,8 +257,14 @@ df.entity_raw_flags = {}
 ---@field [4] "TREE_CITY"
 ---@field CITY 5
 ---@field [5] "CITY"
+---@field IMPORTANT_LOCATION 6
+---@field [6] "IMPORTANT_LOCATION"
+---@field LAIR 7
+---@field [7] "LAIR"
 ---@field FORTRESS 8
 ---@field [8] "FORTRESS"
+---@field CAMP 9
+---@field [9] "CAMP"
 ---@field MONUMENT 10
 ---@field [10] "MONUMENT"
 df.site_type = {}
@@ -280,8 +295,8 @@ df.site_type = {}
 ---| 21 # MAKE_TROPHY_ANIMAL
 
 ---@class identity.ethic_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: EthicType
+---@field [-1] "NONE" bay12: EthicType
 ---@field KILL_ENTITY_MEMBER 0
 ---@field [0] "KILL_ENTITY_MEMBER"
 ---@field KILL_NEUTRAL 1
@@ -348,8 +363,8 @@ df.ethic_type = {}
 ---| 16 # REQUIRED
 
 ---@class identity.ethic_response: DFEnumType
----@field NOT_APPLICABLE 0
----@field [0] "NOT_APPLICABLE"
+---@field NOT_APPLICABLE 0 bay12: EthicResponseType
+---@field [0] "NOT_APPLICABLE" bay12: EthicResponseType
 ---@field ACCEPTABLE 1
 ---@field [1] "ACCEPTABLE"
 ---@field PERSONAL_MATTER 2
@@ -406,8 +421,8 @@ df.ethic_response = {}
 ---| 18 # HOSPITAL
 
 ---@class identity.entity_name_type: DFEnumType
----@field OTHER 0
----@field [0] "OTHER"
+---@field OTHER 0 bay12: EntityDefSelector
+---@field [0] "OTHER" bay12: EntityDefSelector
 ---@field CIV 1
 ---@field [1] "CIV"
 ---@field SITE 2
@@ -493,10 +508,10 @@ df.entity_name_type = {}
 ---@field gem_shapes DFNumberVector
 ---@field stone_shapes DFNumberVector
 ---@field source_hfid number References: `df.historical_figure`
----@field unk_v4201_1 number
+---@field source_enid number References: `df.historical_entity`
+---@field animal _entity_raw_animal
 ---@field currency_str1 DFStringVector
 ---@field currency_str2 DFStringVector
----@field animal _entity_raw_animal
 
 ---@class identity.entity_raw: DFCompoundType
 ---@field _kind 'struct-type'
@@ -516,7 +531,7 @@ function df.entity_raw.get_vector() end
 
 ---@class (exact) df.entity_raw.T_equipment: DFStruct
 ---@field _type identity.entity_raw.equipment
----@field digger_id DFNumberVector
+---@field digger_id DFNumberVector not an actual compound
 ---@field weapon_id DFNumberVector
 ---@field armor_id DFNumberVector
 ---@field ammo_id DFNumberVector
@@ -575,8 +590,8 @@ function _entity_raw_flags:erase(index) end
 
 ---@class (exact) df.entity_raw.T_symbols: DFStruct
 ---@field _type identity.entity_raw.symbols
----@field symbols1 DFEnumVector<df.entity_name_type, df.language_word_table>
----@field symbols2 DFEnumVector<df.entity_name_type, df.language_word_table>
+---@field symbols_major DFEnumVector<df.entity_name_type, df.language_word_table> not an actual compound
+---@field symbols_minor DFEnumVector<df.entity_name_type, df.language_word_table>
 ---@field select_symbol DFEnumVector<df.entity_name_type, string>
 ---@field subselect_symbol DFEnumVector<df.entity_name_type, string>
 ---@field cull_symbol DFEnumVector<df.entity_name_type, string>
@@ -590,7 +605,7 @@ function df.entity_raw.T_symbols:new() end
 
 ---@class (exact) df.entity_raw.T_progress_trigger: DFStruct
 ---@field _type identity.entity_raw.progress_trigger
----@field population number
+---@field population number not an actual compound
 ---@field production number
 ---@field trade number
 ---@field pop_siege number
@@ -606,8 +621,8 @@ function df.entity_raw.T_progress_trigger:new() end
 
 ---@class df.entity_raw.T_scholar: DFBitfield
 ---@field _enum identity.entity_raw.scholar
----@field PHILOSOPHER boolean
----@field [0] boolean
+---@field PHILOSOPHER boolean bay12: ENTITY_SCHOLAR_FLAG_*
+---@field [0] boolean bay12: ENTITY_SCHOLAR_FLAG_*
 ---@field MATHEMATICIAN boolean
 ---@field [1] boolean
 ---@field HISTORIAN boolean
@@ -626,8 +641,8 @@ function df.entity_raw.T_progress_trigger:new() end
 ---@field [8] boolean
 
 ---@class identity.entity_raw.scholar: DFBitfieldType
----@field PHILOSOPHER 0
----@field [0] "PHILOSOPHER"
+---@field PHILOSOPHER 0 bay12: ENTITY_SCHOLAR_FLAG_*
+---@field [0] "PHILOSOPHER" bay12: ENTITY_SCHOLAR_FLAG_*
 ---@field MATHEMATICIAN 1
 ---@field [1] "MATHEMATICIAN"
 ---@field HISTORIAN 2
@@ -664,7 +679,7 @@ function _entity_raw_religion_sphere:erase(index) end
 
 ---@class (exact) df.entity_raw.T_jobs: DFStruct
 ---@field _type identity.entity_raw.jobs
----@field permitted_job DFEnumVector<df.profession, boolean>
+---@field permitted_job DFEnumVector<df.profession, boolean> not an actual compound
 ---@field permitted_labor DFEnumVector<df.unit_labor, boolean>
 ---@field world_construction DFEnumVector<df.world_construction_type, boolean>
 
@@ -709,7 +724,7 @@ function _entity_raw_tissue_styles:erase(index) end
 
 ---@class (exact) df.entity_raw.T_workshops: DFStruct
 ---@field _type identity.entity_raw.workshops
----@field permitted_building_str DFStringVector
+---@field permitted_building_str DFStringVector not an actual compound
 ---@field permitted_building_id DFNumberVector
 ---@field permitted_reaction_str DFStringVector
 ---@field permitted_reaction_id DFNumberVector
@@ -754,8 +769,8 @@ function df.entity_animal_raw:new() end
 
 ---@class df.entity_animal_raw.T_flags: DFBitfield
 ---@field _enum identity.entity_animal_raw.flags
----@field ALWAYS_PRESENT boolean
----@field [0] boolean
+---@field ALWAYS_PRESENT boolean bay12: ENTITY_DEF_ANIMAL_FLAG_*
+---@field [0] boolean bay12: ENTITY_DEF_ANIMAL_FLAG_*
 ---@field NEVER_MOUNT boolean
 ---@field [1] boolean
 ---@field ALWAYS_MOUNT boolean
@@ -778,8 +793,8 @@ function df.entity_animal_raw:new() end
 ---@field [10] boolean
 
 ---@class identity.entity_animal_raw.flags: DFBitfieldType
----@field ALWAYS_PRESENT 0
----@field [0] "ALWAYS_PRESENT"
+---@field ALWAYS_PRESENT 0 bay12: ENTITY_DEF_ANIMAL_FLAG_*
+---@field [0] "ALWAYS_PRESENT" bay12: ENTITY_DEF_ANIMAL_FLAG_*
 ---@field NEVER_MOUNT 1
 ---@field [1] "NEVER_MOUNT"
 ---@field ALWAYS_MOUNT 2
@@ -830,8 +845,8 @@ df.entity_animal_raw.T_flags = {}
 ---| 24 # REQUIRES_MARKET
 
 ---@class identity.entity_position_raw_flags: DFEnumType
----@field SITE 0
----@field [0] "SITE"
+---@field SITE 0 bay12: EntityDefPositionFlagType
+---@field [0] "SITE" bay12: EntityDefPositionFlagType
 ---@field ELECTED 1
 ---@field [1] "ELECTED"
 ---@field CONQUERED_SITE 2
@@ -929,8 +944,8 @@ df.entity_position_raw_flags = {}
 ---| 42 # DELIVER_MESSAGES
 
 ---@class identity.entity_position_responsibility: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: PositionResponsibilityType
+---@field [-1] "NONE" bay12: PositionResponsibilityType
 ---@field LAW_MAKING 0
 ---@field [0] "LAW_MAKING"
 ---@field LAW_ENFORCEMENT 1
@@ -1031,7 +1046,7 @@ df.entity_position_responsibility = {}
 ---@field rejected_creature DFNumberVector
 ---@field rejected_class DFStringVector
 ---@field name string[]
----@field name_female string[]
+---@field name_female string[] bay12: string[EntityDefPositionStringType]
 ---@field name_male string[]
 ---@field spouse string[]
 ---@field spouse_female string[]
@@ -1060,11 +1075,12 @@ df.entity_position_responsibility = {}
 ---@field required_racks number
 ---@field required_stands number
 ---@field required_office number
----@field required_bedroom number
+---@field required_bedroom number bay12: int32_t[DemandRooms]
 ---@field required_dining number
 ---@field required_tomb number
 ---@field mandate_max number
 ---@field demand_max number
+---@field description string
 
 ---@class identity.entity_position_raw: DFCompoundType
 ---@field _kind 'struct-type'

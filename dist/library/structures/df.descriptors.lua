@@ -11,8 +11,8 @@
 ---| 5 # MOTTLED
 
 ---@class identity.pattern_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: PatternType
+---@field [-1] "NONE" bay12: PatternType
 ---@field MONOTONE 0
 ---@field [0] "MONOTONE"
 ---@field STRIPES 1
@@ -30,7 +30,7 @@ df.pattern_type = {}
 ---@class (exact) df.descriptor_color: DFStruct
 ---@field _type identity.descriptor_color
 ---@field id string
----@field word_unk DFStringVector
+---@field word_token DFStringVector
 ---@field words DFNumberVector
 ---@field name string
 ---@field color df.curses_color
@@ -38,7 +38,7 @@ df.pattern_type = {}
 ---@field red number
 ---@field green number
 ---@field blue number
----@field unk_v50_1 integer[]
+---@field palette integer[] palettest
 
 ---@class identity.descriptor_color: DFCompoundType
 ---@field _kind 'struct-type'
@@ -68,12 +68,13 @@ function df.descriptor_color.get_vector() end
 ---@field category DFStringVector
 ---@field faces number
 ---@field tile integer
----@field unk_v50_1 DFPointer<integer>
----@field unk_v50_2 DFNumberVector
----@field unk_v50_3 DFNumberVector
----@field unk_v50_4 DFPointer<integer>
----@field unk_v50_5 DFPointer<integer>
----@field unk_v50_6 DFPointer<integer>
+---@field statue_tex_top number
+---@field statue_tex_bottom number
+---@field statue_adj_tex_top DFNumberVector
+---@field statue_adj_tex_bottom DFNumberVector
+---@field texpos_large_gem number
+---@field texpos_small_gem_element number
+---@field texpos_small_gem_variant number[]
 
 ---@class identity.descriptor_shape: DFCompoundType
 ---@field _kind 'struct-type'
@@ -93,16 +94,16 @@ function df.descriptor_shape.get_vector() end
 
 ---@class df.descriptor_shape.T_gems_use: DFBitfield
 ---@field _enum identity.descriptor_shape.gems_use
----@field noun boolean
----@field [0] boolean
+---@field noun boolean bay12: SHAPE_FLAG_*
+---@field [0] boolean bay12: SHAPE_FLAG_*
 ---@field adj boolean
 ---@field [1] boolean
 ---@field adj_noun boolean
 ---@field [2] boolean
 
 ---@class identity.descriptor_shape.gems_use: DFBitfieldType
----@field noun 0
----@field [0] "noun"
+---@field noun 0 bay12: SHAPE_FLAG_*
+---@field [0] "noun" bay12: SHAPE_FLAG_*
 ---@field adj 1
 ---@field [1] "adj"
 ---@field adj_noun 2

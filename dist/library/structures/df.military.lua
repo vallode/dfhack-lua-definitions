@@ -3,16 +3,16 @@
 
 ---@class df.uniform_indiv_choice: DFBitfield
 ---@field _enum identity.uniform_indiv_choice
----@field any boolean
----@field [0] boolean
+---@field any boolean bay12: ITEM_CREATION_PARAM_FLAG_*
+---@field [0] boolean bay12: ITEM_CREATION_PARAM_FLAG_*
 ---@field melee boolean
 ---@field [1] boolean
 ---@field ranged boolean
 ---@field [2] boolean
 
 ---@class identity.uniform_indiv_choice: DFBitfieldType
----@field any 0
----@field [0] "any"
+---@field any 0 bay12: ITEM_CREATION_PARAM_FLAG_*
+---@field [0] "any" bay12: ITEM_CREATION_PARAM_FLAG_*
 ---@field melee 1
 ---@field [1] "melee"
 ---@field ranged 2
@@ -127,14 +127,14 @@ df.uniform_category = {}
 
 ---@class df.uniform_flags: DFBitfield
 ---@field _enum identity.uniform_flags
----@field replace_clothing boolean
----@field [0] boolean
+---@field replace_clothing boolean bay12: ENTITY_UNIFORM_FLAG_*
+---@field [0] boolean bay12: ENTITY_UNIFORM_FLAG_*
 ---@field exact_matches boolean
 ---@field [1] boolean
 
 ---@class identity.uniform_flags: DFBitfieldType
----@field replace_clothing 0
----@field [0] "replace_clothing"
+---@field replace_clothing 0 bay12: ENTITY_UNIFORM_FLAG_*
+---@field [0] "replace_clothing" bay12: ENTITY_UNIFORM_FLAG_*
 ---@field exact_matches 1
 ---@field [1] "exact_matches"
 df.uniform_flags = {}

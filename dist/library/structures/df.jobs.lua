@@ -1210,6 +1210,41 @@ df.manager_order_template = {}
 ---@return df.manager_order_template
 function df.manager_order_template:new() end
 
+---@class (exact) df.punishmentst: DFStruct
+---@field _type identity.punishmentst
+---@field hammerstrikes number
+---@field prison_time number
+---@field flags df.punishmentst.T_flags
+
+---@class identity.punishmentst: DFCompoundType
+---@field _kind 'struct-type'
+df.punishmentst = {}
+
+---@return df.punishmentst
+function df.punishmentst:new() end
+
+---@class df.punishmentst.T_flags: DFBitfield
+---@field _enum identity.punishmentst.flags
+---@field beating boolean bay12: PUNISHMENTFLAG_*
+---@field [0] boolean bay12: PUNISHMENTFLAG_*
+---@field exiled boolean
+---@field [1] boolean
+---@field death_sentence boolean sentenced to death
+---@field [2] boolean sentenced to death
+---@field no_prison_available boolean would have been imprisoned but for lack of accommodations
+---@field [3] boolean would have been imprisoned but for lack of accommodations
+
+---@class identity.punishmentst.flags: DFBitfieldType
+---@field beating 0 bay12: PUNISHMENTFLAG_*
+---@field [0] "beating" bay12: PUNISHMENTFLAG_*
+---@field exiled 1
+---@field [1] "exiled"
+---@field death_sentence 2 sentenced to death
+---@field [2] "death_sentence" sentenced to death
+---@field no_prison_available 3 would have been imprisoned but for lack of accommodations
+---@field [3] "no_prison_available" would have been imprisoned but for lack of accommodations
+df.punishmentst.T_flags = {}
+
 ---@class (exact) df.mandate: DFStruct
 ---@field _type identity.mandate
 ---@field unit df.unit
@@ -1222,7 +1257,7 @@ function df.manager_order_template:new() end
 ---@field amount_remaining number
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
----@field punishment df.mandate.T_punishment
+---@field punishment df.punishmentst
 ---@field punish_multiple integer
 ---@field unk4 number
 
@@ -1246,19 +1281,6 @@ function df.mandate:new() end
 ---@field Guild 2
 ---@field [2] "Guild"
 df.mandate.T_mode = {}
-
----@class (exact) df.mandate.T_punishment: DFStruct
----@field _type identity.mandate.punishment
----@field hammerstrikes number
----@field prison_time number
----@field give_beating number
-
----@class identity.mandate.punishment: DFCompoundType
----@field _kind 'struct-type'
-df.mandate.T_punishment = {}
-
----@return df.mandate.T_punishment
-function df.mandate.T_punishment:new() end
 
 ---@class (exact) df.training_assignment: DFStruct
 ---@field _type identity.training_assignment
