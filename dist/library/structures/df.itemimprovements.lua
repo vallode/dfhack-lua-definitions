@@ -19,8 +19,8 @@
 ---| 13 # IMAGE_SET
 
 ---@class identity.improvement_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: ItemImprovementType
+---@field [-1] "NONE" bay12: ItemImprovementType
 ---@field ART_IMAGE 0
 ---@field [0] "ART_IMAGE"
 ---@field COVERED 1
@@ -51,6 +51,7 @@
 ---@field [13] "IMAGE_SET"
 df.improvement_type = {}
 
+-- not actually a real structure
 ---@class (exact) df.dye_info: DFStruct
 ---@field _type identity.dye_info
 ---@field mat_type number References: `df.material`
@@ -58,7 +59,7 @@ df.improvement_type = {}
 ---@field dyer number References: `df.historical_figure`
 ---@field quality df.item_quality
 ---@field skill_rating df.skill_rating at the moment of creation
----@field unk_1 number
+---@field age_counter number
 
 ---@class identity.dye_info: DFCompoundType
 ---@field _kind 'struct-type'
@@ -75,7 +76,7 @@ function df.dye_info:new() end
 ---@field masterpiece_event number References: `df.history_event`
 ---@field quality df.item_quality
 ---@field skill_rating df.skill_rating at the moment of creation
----@field unk_1 number
+---@field age_counter number
 local itemimprovement
 
 ---@param anon_0 df.item
@@ -84,8 +85,8 @@ function itemimprovement:getImage(anon_0) end
 
 ---@param colors DFPointer<integer>
 ---@param shapes DFPointer<integer>
----@param anon_0 DFPointer<integer>
-function itemimprovement:getColorAndShape(colors, shapes, anon_0) end
+---@param item df.item
+function itemimprovement:getColorAndShape(colors, shapes, item) end
 
 ---@return df.itemimprovement
 function itemimprovement:clone() end
@@ -143,12 +144,12 @@ function df.itemimprovement_coveredst:new() end
 
 ---@class df.itemimprovement_coveredst.T_cover_flags: DFBitfield
 ---@field _enum identity.itemimprovement_coveredst.cover_flags
----@field glazed boolean
----@field [0] boolean
+---@field glazed boolean bay12: ITEMIMPROVEMENT_COVERED_FLAG_*
+---@field [0] boolean bay12: ITEMIMPROVEMENT_COVERED_FLAG_*
 
 ---@class identity.itemimprovement_coveredst.cover_flags: DFBitfieldType
----@field glazed 0
----@field [0] "glazed"
+---@field glazed 0 bay12: ITEMIMPROVEMENT_COVERED_FLAG_*
+---@field [0] "glazed" bay12: ITEMIMPROVEMENT_COVERED_FLAG_*
 df.itemimprovement_coveredst.T_cover_flags = {}
 
 ---@class (exact) df.itemimprovement_rings_hangingst: DFStruct, df.itemimprovement
@@ -185,12 +186,18 @@ function df.itemimprovement_spikesst:new() end
 ---@alias df.itemimprovement_specific_type
 ---| 0 # HANDLE
 ---| 1 # ROLLERS
+---| 2 # TRACTION_BENCH_ROPE
+---| 3 # TRACTION_BENCH_CHAIN
 
 ---@class identity.itemimprovement_specific_type: DFEnumType
----@field HANDLE 0
----@field [0] "HANDLE"
+---@field HANDLE 0 bay12: ItemSpecificImprovementType
+---@field [0] "HANDLE" bay12: ItemSpecificImprovementType
 ---@field ROLLERS 1
 ---@field [1] "ROLLERS"
+---@field TRACTION_BENCH_ROPE 2
+---@field [2] "TRACTION_BENCH_ROPE"
+---@field TRACTION_BENCH_CHAIN 3
+---@field [3] "TRACTION_BENCH_CHAIN"
 df.itemimprovement_specific_type = {}
 
 ---@class (exact) df.itemimprovement_itemspecificst: DFStruct, df.itemimprovement
@@ -227,7 +234,7 @@ function df.itemimprovement_clothst:new() end
 
 ---@class (exact) df.itemimprovement_sewn_imagest: DFStruct, df.itemimprovement
 ---@field _type identity.itemimprovement_sewn_imagest
----@field image df.art_image_ref
+---@field image df.art_image_ref none of these are actual compounds - beware of potential alignment/padding issues
 ---@field cloth df.itemimprovement_sewn_imagest.T_cloth
 ---@field dye df.dye_info
 
@@ -240,9 +247,9 @@ function df.itemimprovement_sewn_imagest:new() end
 
 ---@class (exact) df.itemimprovement_sewn_imagest.T_cloth: DFStruct
 ---@field _type identity.itemimprovement_sewn_imagest.cloth
----@field unit_id number References: `df.historical_figure`
+---@field maker_hf number References: `df.historical_figure`
 ---@field quality number
----@field unk_1 number
+---@field skill_rating number
 
 ---@class identity.itemimprovement_sewn_imagest.cloth: DFCompoundType
 ---@field _kind 'struct-type'
@@ -266,7 +273,7 @@ function df.itemimprovement_pagesst:new() end
 ---@class (exact) df.itemimprovement_illustrationst: DFStruct, df.itemimprovement
 ---@field _type identity.itemimprovement_illustrationst
 ---@field image df.art_image_ref
----@field unk_2 number
+---@field page_number number
 
 ---@class identity.itemimprovement_illustrationst: DFCompoundType
 ---@field _kind 'class-type'
@@ -338,8 +345,8 @@ function df.itemimprovement_image_setst:new() end
 ---| 25 # Atlas
 
 ---@class identity.written_content_type: DFEnumType
----@field NONE -1 bay12: WritingForm
----@field [-1] "NONE" bay12: WritingForm
+---@field NONE -1 bay12: WritingFormType
+---@field [-1] "NONE" bay12: WritingFormType
 ---@field Manual 0
 ---@field [0] "Manual"
 ---@field Guide 1
@@ -415,8 +422,8 @@ df.written_content_type = {}
 ---| 17 # Ranting
 
 ---@class identity.written_content_style: DFEnumType
----@field Meandering 0
----@field [0] "Meandering"
+---@field Meandering 0 bay12: WritingStyleType
+---@field [0] "Meandering" bay12: WritingStyleType
 ---@field Cheerful 1
 ---@field [1] "Cheerful"
 ---@field Depressing 2
@@ -453,6 +460,61 @@ df.written_content_type = {}
 ---@field [17] "Ranting"
 df.written_content_style = {}
 
+---@alias df.writing_style_modifier_type
+---| -1 # NONE
+---| 0 # Thorough
+---| 1 # Somewhat
+---| 2 # Hint
+
+---@class identity.writing_style_modifier_type: DFEnumType
+---@field NONE -1 bay12: WritingStyleModifierType
+---@field [-1] "NONE" bay12: WritingStyleModifierType
+---@field Thorough 0
+---@field [0] "Thorough"
+---@field Somewhat 1
+---@field [1] "Somewhat"
+---@field Hint 2
+---@field [2] "Hint"
+df.writing_style_modifier_type = {}
+
+---@alias df.writing_role_type
+---| -1 # NONE
+---| 0 # Subject
+---| 1 # Narrator
+---| 2 # Character
+---| 3 # Writer
+---| 4 # Recipient
+---| 5 # Chapter
+---| 6 # MoralLesson
+---| 7 # AssociatedPoem
+---| 8 # AssociatedMusicalComposition
+---| 9 # ValueAgenda
+
+---@class identity.writing_role_type: DFEnumType
+---@field NONE -1 bay12: WritingRoleType
+---@field [-1] "NONE" bay12: WritingRoleType
+---@field Subject 0
+---@field [0] "Subject"
+---@field Narrator 1
+---@field [1] "Narrator"
+---@field Character 2
+---@field [2] "Character"
+---@field Writer 3
+---@field [3] "Writer"
+---@field Recipient 4
+---@field [4] "Recipient"
+---@field Chapter 5
+---@field [5] "Chapter"
+---@field MoralLesson 6
+---@field [6] "MoralLesson"
+---@field AssociatedPoem 7 from MusicalComposition
+---@field [7] "AssociatedPoem" from MusicalComposition
+---@field AssociatedMusicalComposition 8 from Choreography
+---@field [8] "AssociatedMusicalComposition" from Choreography
+---@field ValueAgenda 9
+---@field [9] "ValueAgenda"
+df.writing_role_type = {}
+
 ---@class (exact) df.written_content: DFStruct
 ---@field _type identity.written_content
 ---@field id number
@@ -460,15 +522,15 @@ df.written_content_style = {}
 ---@field page_start number
 ---@field page_end number
 ---@field refs _written_content_refs interactions learned
----@field ref_aux DFNumberVector if nonzero, corresponding ref is ignored
----@field unk1 number
----@field unk2 number
+---@field ref_aux _written_content_ref_aux
+---@field chapter_number number
+---@field section_number number
 ---@field type df.written_content_type
----@field poetic_form number References: `df.poetic_form`
+---@field poetic_form number or musical composition or dance<br>References: `df.poetic_form`
 ---@field styles _written_content_styles
----@field style_strength DFNumberVector 0 = maximum, 1 = significant, 2 = partial
+---@field style_strength _written_content_style_strength
 ---@field author number References: `df.historical_figure`
----@field author_roll number
+---@field author_roll number skill roll for quality
 
 ---@class identity.written_content: DFCompoundType
 ---@field _kind 'struct-type'
@@ -502,6 +564,22 @@ function _written_content_refs:insert(index, item) end
 ---@param index integer
 function _written_content_refs:erase(index) end
 
+---@class _written_content_ref_aux: DFContainer
+---@field [integer] df.writing_role_type
+local _written_content_ref_aux
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.writing_role_type>
+function _written_content_ref_aux:_field(index) end
+
+---@param index '#'|integer
+---@param item df.writing_role_type
+function _written_content_ref_aux:insert(index, item) end
+
+---@param index integer
+function _written_content_ref_aux:erase(index) end
+
 ---@class _written_content_styles: DFContainer
 ---@field [integer] df.written_content_style
 local _written_content_styles
@@ -518,10 +596,26 @@ function _written_content_styles:insert(index, item) end
 ---@param index integer
 function _written_content_styles:erase(index) end
 
+---@class _written_content_style_strength: DFContainer
+---@field [integer] df.writing_style_modifier_type
+local _written_content_style_strength
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.writing_style_modifier_type>
+function _written_content_style_strength:_field(index) end
+
+---@param index '#'|integer
+---@param item df.writing_style_modifier_type
+function _written_content_style_strength:insert(index, item) end
+
+---@param index integer
+function _written_content_style_strength:erase(index) end
+
 ---@class df.engraving_flags: DFBitfield
 ---@field _enum identity.engraving_flags
----@field floor boolean
----@field [0] boolean
+---@field floor boolean bay12: EVENTDETAILFLAG_*
+---@field [0] boolean bay12: EVENTDETAILFLAG_*
 ---@field west boolean
 ---@field [1] boolean
 ---@field east boolean
@@ -542,8 +636,8 @@ function _written_content_styles:erase(index) end
 ---@field [9] boolean
 
 ---@class identity.engraving_flags: DFBitfieldType
----@field floor 0
----@field [0] "floor"
+---@field floor 0 bay12: EVENTDETAILFLAG_*
+---@field [0] "floor" bay12: EVENTDETAILFLAG_*
 ---@field west 1
 ---@field [1] "west"
 ---@field east 2
@@ -571,12 +665,12 @@ df.engraving_flags = {}
 ---@field skill_rating df.skill_rating at the moment of creation
 ---@field pos df.coord
 ---@field flags df.engraving_flags
----@field tile number
----@field art_id number References: `df.art_image_chunk`
+---@field tile integer
+---@field art_id number can't use "art_image_ref" here because Toady put the "quality" field in the middle<br>References: `df.art_image_chunk`
 ---@field art_subid number References: `df.art_image`
 ---@field quality df.item_quality
----@field unk1 number
----@field unk2 number
+---@field art_civ number References: `df.historical_entity`
+---@field art_site number References: `df.world_site`
 
 ---@class identity.engraving: DFCompoundType
 ---@field _kind 'struct-type'

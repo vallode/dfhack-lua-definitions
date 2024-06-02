@@ -6,8 +6,8 @@
 ---| 1 # EXPERIMENT_ONLY
 
 ---@class identity.interaction_flags: DFEnumType
----@field GENERATED 0
----@field [0] "GENERATED"
+---@field GENERATED 0 bay12: InteractionFlagType
+---@field [0] "GENERATED" bay12: InteractionFlagType
 ---@field EXPERIMENT_ONLY 1
 ---@field [1] "EXPERIMENT_ONLY"
 df.interaction_flags = {}
@@ -105,6 +105,7 @@ function _interaction_effects:insert(index, item) end
 function _interaction_effects:erase(index) end
 
 ---@alias df.interaction_effect_type
+---| -1 # NONE
 ---| 0 # ANIMATE
 ---| 1 # ADD_SYNDROME
 ---| 2 # RESURRECT
@@ -120,6 +121,8 @@ function _interaction_effects:erase(index) end
 ---| 12 # CHANGE_ITEM_QUALITY
 
 ---@class identity.interaction_effect_type: DFEnumType
+---@field NONE -1 bay12: InteractionEffectType
+---@field [-1] "NONE" bay12: InteractionEffectType
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
 ---@field ADD_SYNDROME 1
@@ -149,6 +152,7 @@ function _interaction_effects:erase(index) end
 df.interaction_effect_type = {}
 
 ---@alias df.interaction_effect_location_hint
+---| -1 # NONE
 ---| 0 # IN_WATER
 ---| 1 # IN_MAGMA
 ---| 2 # NO_WATER
@@ -157,6 +161,8 @@ df.interaction_effect_type = {}
 ---| 5 # OUTSIDE
 
 ---@class identity.interaction_effect_location_hint: DFEnumType
+---@field NONE -1 bay12: LocationHintType
+---@field [-1] "NONE" bay12: LocationHintType
 ---@field IN_WATER 0
 ---@field [0] "IN_WATER"
 ---@field IN_MAGMA 1
@@ -171,12 +177,23 @@ df.interaction_effect_type = {}
 ---@field [5] "OUTSIDE"
 df.interaction_effect_location_hint = {}
 
+---@alias df.intermittent_frequency_type
+---| -1 # NONE
+---| 0 # WEEKLY
+
+---@class identity.intermittent_frequency_type: DFEnumType
+---@field NONE -1 bay12: IntermittentFrequencyType
+---@field [-1] "NONE" bay12: IntermittentFrequencyType
+---@field WEEKLY 0
+---@field [0] "WEEKLY"
+df.intermittent_frequency_type = {}
+
 ---@class (exact) df.interaction_effect: DFStruct
 ---@field _type identity.interaction_effect
 ---@field index number index of the effect within the parent interaction.effects
 ---@field targets DFStringVector
 ---@field targets_index DFNumberVector for each target used in this effect, list the index of that target within the parent interaction.targets
----@field intermittent number IE_INTERMITTENT, 0 = weekly
+---@field intermittent df.intermittent_frequency_type
 ---@field locations _interaction_effect_locations IE_LOCATION
 ---@field flags df.interaction_effect.T_flags
 ---@field interaction_id number References: `df.interaction`
@@ -194,24 +211,30 @@ function interaction_effect:write_file(file) end
 function interaction_effect:read_file(file, loadversion) end
 
 ---@param target df.unit
----@param anon_0 DFPointer<integer> has pointer-vector at offset 0x10
----@param anon_1 boolean only used by animate
-function interaction_effect:activateOnUnit(target, anon_0, anon_1) end
+---@param instance df.interaction_instance
+---@param new_unit boolean
+function interaction_effect:activateOnUnit(target, instance, new_unit) end
 
 ---@param target df.item
 function interaction_effect:activateOnItem(target) end
 
----@param anon_0 number
----@param anon_1 number
----@param anon_2 number
----@param anon_3 number
----@param anon_4 number
-function interaction_effect:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
+---@param token string
+---@param pos number
+---@param curstr string
+---@param context DFPointer<integer>
+---@param allow_internal_tokens boolean
+---@return boolean
+function interaction_effect:parseRaws(token, pos, curstr, context, allow_internal_tokens) end
 
----@param anon_0 number
-function interaction_effect:finalize(anon_0) end
+---@param idx number
+function interaction_effect:finalize(idx) end
 
 function interaction_effect:applySyndromes() end
+
+---@param hf df.historical_figure
+---@param instance df.interaction_instance
+---@param worldgen boolean
+function interaction_effect:activateOnHistfig(hf, instance, worldgen) end
 
 ---@param anon_0 df.syndrome
 ---@return boolean
@@ -243,18 +266,45 @@ function _interaction_effect_locations:erase(index) end
 
 ---@class df.interaction_effect.T_flags: DFBitfield
 ---@field _enum identity.interaction_effect.flags
----@field IMMEDIATE boolean IE_IMMEDIATE
----@field [0] boolean IE_IMMEDIATE
+---@field IMMEDIATE boolean bay12: INTERACTION_EFFECT_FLAG_*
+---@field [0] boolean bay12: INTERACTION_EFFECT_FLAG_*
 
 ---@class identity.interaction_effect.flags: DFBitfieldType
----@field IMMEDIATE 0 IE_IMMEDIATE
----@field [0] "IMMEDIATE" IE_IMMEDIATE
+---@field IMMEDIATE 0 bay12: INTERACTION_EFFECT_FLAG_*
+---@field [0] "IMMEDIATE" bay12: INTERACTION_EFFECT_FLAG_*
 df.interaction_effect.T_flags = {}
+
+---@class (exact) df.creature_interactionst: DFStruct
+---@field _type identity.creature_interactionst
+---@field syndrome _creature_interactionst_syndrome
+
+---@class identity.creature_interactionst: DFCompoundType
+---@field _kind 'struct-type'
+df.creature_interactionst = {}
+
+---@return df.creature_interactionst
+function df.creature_interactionst:new() end
+
+---@class _creature_interactionst_syndrome: DFContainer
+---@field [integer] df.syndrome
+local _creature_interactionst_syndrome
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.syndrome>
+function _creature_interactionst_syndrome:_field(index) end
+
+---@param index '#'|integer
+---@param item df.syndrome
+function _creature_interactionst_syndrome:insert(index, item) end
+
+---@param index integer
+function _creature_interactionst_syndrome:erase(index) end
 
 ---@class (exact) df.interaction_effect_animatest: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_animatest
----@field unk_1 number
----@field syndrome _interaction_effect_animatest_syndrome
+---@field spec_flags integer
+---@field creature_interaction df.creature_interactionst
 
 ---@class identity.interaction_effect_animatest: DFCompoundType
 ---@field _kind 'class-type'
@@ -263,26 +313,10 @@ df.interaction_effect_animatest = {}
 ---@return df.interaction_effect_animatest
 function df.interaction_effect_animatest:new() end
 
----@class _interaction_effect_animatest_syndrome: DFContainer
----@field [integer] df.syndrome
-local _interaction_effect_animatest_syndrome
-
----@nodiscard
----@param index integer
----@return DFPointer<df.syndrome>
-function _interaction_effect_animatest_syndrome:_field(index) end
-
----@param index '#'|integer
----@param item df.syndrome
-function _interaction_effect_animatest_syndrome:insert(index, item) end
-
----@param index integer
-function _interaction_effect_animatest_syndrome:erase(index) end
-
 ---@class (exact) df.interaction_effect_add_syndromest: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_add_syndromest
----@field unk_1 number
----@field syndrome _interaction_effect_add_syndromest_syndrome
+---@field spec_flags integer
+---@field creature_interaction df.creature_interactionst
 
 ---@class identity.interaction_effect_add_syndromest: DFCompoundType
 ---@field _kind 'class-type'
@@ -291,26 +325,10 @@ df.interaction_effect_add_syndromest = {}
 ---@return df.interaction_effect_add_syndromest
 function df.interaction_effect_add_syndromest:new() end
 
----@class _interaction_effect_add_syndromest_syndrome: DFContainer
----@field [integer] df.syndrome
-local _interaction_effect_add_syndromest_syndrome
-
----@nodiscard
----@param index integer
----@return DFPointer<df.syndrome>
-function _interaction_effect_add_syndromest_syndrome:_field(index) end
-
----@param index '#'|integer
----@param item df.syndrome
-function _interaction_effect_add_syndromest_syndrome:insert(index, item) end
-
----@param index integer
-function _interaction_effect_add_syndromest_syndrome:erase(index) end
-
 ---@class (exact) df.interaction_effect_resurrectst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_resurrectst
----@field unk_1 number
----@field syndrome _interaction_effect_resurrectst_syndrome
+---@field spec_flags integer
+---@field creature_interaction df.creature_interactionst
 
 ---@class identity.interaction_effect_resurrectst: DFCompoundType
 ---@field _kind 'class-type'
@@ -319,27 +337,11 @@ df.interaction_effect_resurrectst = {}
 ---@return df.interaction_effect_resurrectst
 function df.interaction_effect_resurrectst:new() end
 
----@class _interaction_effect_resurrectst_syndrome: DFContainer
----@field [integer] df.syndrome
-local _interaction_effect_resurrectst_syndrome
-
----@nodiscard
----@param index integer
----@return DFPointer<df.syndrome>
-function _interaction_effect_resurrectst_syndrome:_field(index) end
-
----@param index '#'|integer
----@param item df.syndrome
-function _interaction_effect_resurrectst_syndrome:insert(index, item) end
-
----@param index integer
-function _interaction_effect_resurrectst_syndrome:erase(index) end
-
 ---@class (exact) df.interaction_effect_cleanst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_cleanst
+---@field spec_flags integer
 ---@field grime_level number IE_GRIME_LEVEL
 ---@field syndrome_tag df.syndrome_flags IE_SYNDROME_TAG
----@field unk_1 number
 
 ---@class identity.interaction_effect_cleanst: DFCompoundType
 ---@field _kind 'class-type'
@@ -350,7 +352,7 @@ function df.interaction_effect_cleanst:new() end
 
 ---@class (exact) df.interaction_effect_contactst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_contactst
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_effect_contactst: DFCompoundType
 ---@field _kind 'class-type'
@@ -361,7 +363,7 @@ function df.interaction_effect_contactst:new() end
 
 ---@class (exact) df.interaction_effect_material_emissionst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_material_emissionst
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_effect_material_emissionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -372,7 +374,7 @@ function df.interaction_effect_material_emissionst:new() end
 
 ---@class (exact) df.interaction_effect_hidest: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_hidest
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_effect_hidest: DFCompoundType
 ---@field _kind 'class-type'
@@ -395,8 +397,9 @@ function df.interaction_effect_change_item_qualityst:new() end
 
 ---@class (exact) df.interaction_effect_change_weatherst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_change_weatherst
----@field unk_1 number
----@field unk_2 number
+---@field spec_flags integer
+---@field add_weather_flag number
+---@field remove_weather_flag number
 
 ---@class identity.interaction_effect_change_weatherst: DFCompoundType
 ---@field _kind 'class-type'
@@ -407,8 +410,8 @@ function df.interaction_effect_change_weatherst:new() end
 
 ---@class (exact) df.interaction_effect_raise_ghostst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_raise_ghostst
----@field unk_1 number
----@field syndrome _interaction_effect_raise_ghostst_syndrome assumed based on vmethod reference
+---@field spec_flags integer
+---@field creature_interaction df.creature_interactionst
 
 ---@class identity.interaction_effect_raise_ghostst: DFCompoundType
 ---@field _kind 'class-type'
@@ -416,22 +419,6 @@ df.interaction_effect_raise_ghostst = {}
 
 ---@return df.interaction_effect_raise_ghostst
 function df.interaction_effect_raise_ghostst:new() end
-
----@class _interaction_effect_raise_ghostst_syndrome: DFContainer
----@field [integer] df.syndrome
-local _interaction_effect_raise_ghostst_syndrome
-
----@nodiscard
----@param index integer
----@return DFPointer<df.syndrome>
-function _interaction_effect_raise_ghostst_syndrome:_field(index) end
-
----@param index '#'|integer
----@param item df.syndrome
-function _interaction_effect_raise_ghostst_syndrome:insert(index, item) end
-
----@param index integer
-function _interaction_effect_raise_ghostst_syndrome:erase(index) end
 
 ---@class (exact) df.interaction_effect_create_itemst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_create_itemst
@@ -443,12 +430,12 @@ function _interaction_effect_raise_ghostst_syndrome:erase(index) end
 ---@field quantity number IE_ITEM
 ---@field quality_min number IE_ITEM_QUALITY
 ---@field quality_max number IE_ITEM_QUALITY
----@field create_artifact number IE_ITEM_QUALITY:ARTIFACT
----@field unk_1 string these five are probably item1:item2:mat1:mat2:mat3
----@field unk_2 string
----@field unk_3 string
----@field unk_4 string
----@field unk_5 string
+---@field spec_flags df.interaction_effect_create_itemst.T_spec_flags
+---@field item_str1 string
+---@field item_str2 string
+---@field mat_str1 string
+---@field mat_str2 string
+---@field mat_str3 string
 
 ---@class identity.interaction_effect_create_itemst: DFCompoundType
 ---@field _kind 'class-type'
@@ -457,9 +444,23 @@ df.interaction_effect_create_itemst = {}
 ---@return df.interaction_effect_create_itemst
 function df.interaction_effect_create_itemst:new() end
 
+---@class df.interaction_effect_create_itemst.T_spec_flags: DFBitfield
+---@field _enum identity.interaction_effect_create_itemst.spec_flags
+---@field named_artifact boolean bay12: INTERACTION_EFFECT_CREATE_ITEM_FLAG_*
+---@field [0] boolean bay12: INTERACTION_EFFECT_CREATE_ITEM_FLAG_*
+---@field crafts boolean
+---@field [1] boolean
+
+---@class identity.interaction_effect_create_itemst.spec_flags: DFBitfieldType
+---@field named_artifact 0 bay12: INTERACTION_EFFECT_CREATE_ITEM_FLAG_*
+---@field [0] "named_artifact" bay12: INTERACTION_EFFECT_CREATE_ITEM_FLAG_*
+---@field crafts 1
+---@field [1] "crafts"
+df.interaction_effect_create_itemst.T_spec_flags = {}
+
 ---@class (exact) df.interaction_effect_propel_unitst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_propel_unitst
----@field unk_1 number
+---@field spec_flags integer
 ---@field propel_force number IE_PROPEL_FORCE
 
 ---@class identity.interaction_effect_propel_unitst: DFCompoundType
@@ -471,17 +472,17 @@ function df.interaction_effect_propel_unitst:new() end
 
 ---@class (exact) df.interaction_effect_summon_unitst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_summon_unitst
----@field make_pet number IE_MAKE_PET_IF_POSSIBLE
+---@field spec_flags df.interaction_effect_summon_unitst.T_spec_flags
 ---@field race_str string CREATURE
 ---@field caste_str string CREATURE
----@field unk_1 DFNumberVector seen 4 bytes allocated
----@field unk_2 DFNumberVector seen 2 bytes allocate
+---@field races DFNumberVector
+---@field castes DFNumberVector
 ---@field required_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
 ---@field forbidden_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
 ---@field required_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
 ---@field forbidden_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
----@field unk_3 number
----@field unk_4 number
+---@field min_gait_speed number effortless gaits only
+---@field max_gait_speed number
 ---@field time_range_min number IE_TIME_RANGE
 ---@field time_range_max number IE_TIME_RANGE
 
@@ -491,6 +492,16 @@ df.interaction_effect_summon_unitst = {}
 
 ---@return df.interaction_effect_summon_unitst
 function df.interaction_effect_summon_unitst:new() end
+
+---@class df.interaction_effect_summon_unitst.T_spec_flags: DFBitfield
+---@field _enum identity.interaction_effect_summon_unitst.spec_flags
+---@field make_pet_if_possible boolean bay12: INTERACTION_EFFECT_SUMMON_UNIT_FLAG_*
+---@field [0] boolean bay12: INTERACTION_EFFECT_SUMMON_UNIT_FLAG_*
+
+---@class identity.interaction_effect_summon_unitst.spec_flags: DFBitfieldType
+---@field make_pet_if_possible 0 bay12: INTERACTION_EFFECT_SUMMON_UNIT_FLAG_*
+---@field [0] "make_pet_if_possible" bay12: INTERACTION_EFFECT_SUMMON_UNIT_FLAG_*
+df.interaction_effect_summon_unitst.T_spec_flags = {}
 
 ---@alias df.interaction_source_type
 ---| 0 # REGION
@@ -504,8 +515,8 @@ function df.interaction_effect_summon_unitst:new() end
 ---| 8 # EXPERIMENT
 
 ---@class identity.interaction_source_type: DFEnumType
----@field REGION 0
----@field [0] "REGION"
+---@field REGION 0 bay12: InteractionSourceType
+---@field [0] "REGION" bay12: InteractionSourceType
 ---@field SECRET 1
 ---@field [1] "SECRET"
 ---@field DISTURBANCE 2
@@ -546,12 +557,24 @@ function interaction_source:write_file(file) end
 ---@param loadversion df.save_version
 function interaction_source:read_file(file, loadversion) end
 
----@param anon_0 number
----@param anon_1 number
----@param anon_2 number
----@param anon_3 number
----@param anon_4 number
-function interaction_source:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
+---@param token string
+---@param pos number
+---@param curstr string
+---@param context DFPointer<integer>
+---@param allow_internal_tokens boolean
+---@return boolean
+function interaction_source:parseRaws(token, pos, curstr, context, allow_internal_tokens) end
+
+---@param idx number
+function interaction_source:finalize(idx) end
+
+---@param sr df.world_region
+---@return boolean
+function interaction_source:subregion_match(sr) end
+
+---@param spheres DFPointer<integer>
+---@return boolean
+function interaction_source:sphere_match_all(spheres) end
 
 
 ---@class identity.interaction_source: DFCompoundType
@@ -575,8 +598,8 @@ function df.interaction_source_regionst:new() end
 
 ---@class df.interaction_source_regionst.T_region_flags: DFBitfield
 ---@field _enum identity.interaction_source_regionst.region_flags
----@field NORMAL_ALLOWED boolean
----@field [0] boolean
+---@field NORMAL_ALLOWED boolean bay12: INTERACTION_SOURCE_REGION_FLAG_*
+---@field [0] boolean bay12: INTERACTION_SOURCE_REGION_FLAG_*
 ---@field EVIL_ALLOWED boolean
 ---@field [1] boolean
 ---@field GOOD_ALLOWED boolean
@@ -591,8 +614,8 @@ function df.interaction_source_regionst:new() end
 ---@field [6] boolean
 
 ---@class identity.interaction_source_regionst.region_flags: DFBitfieldType
----@field NORMAL_ALLOWED 0
----@field [0] "NORMAL_ALLOWED"
+---@field NORMAL_ALLOWED 0 bay12: INTERACTION_SOURCE_REGION_FLAG_*
+---@field [0] "NORMAL_ALLOWED" bay12: INTERACTION_SOURCE_REGION_FLAG_*
 ---@field EVIL_ALLOWED 1
 ---@field [1] "EVIL_ALLOWED"
 ---@field GOOD_ALLOWED 2
@@ -614,8 +637,8 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field goals _interaction_source_secretst_goals
 ---@field book_title_filename string
 ---@field book_name_filename string
----@field unk_1 number
----@field unk_2 number
+---@field book_title_idx number
+---@field book_name_idx number
 
 ---@class identity.interaction_source_secretst: DFCompoundType
 ---@field _kind 'class-type'
@@ -626,8 +649,8 @@ function df.interaction_source_secretst:new() end
 
 ---@class df.interaction_source_secretst.T_learn_flags: DFBitfield
 ---@field _enum identity.interaction_source_secretst.learn_flags
----@field SUPERNATURAL_LEARNING_POSSIBLE boolean
----@field [0] boolean
+---@field SUPERNATURAL_LEARNING_POSSIBLE boolean bay12: IS_SECRET_FLAG_*
+---@field [0] boolean bay12: IS_SECRET_FLAG_*
 ---@field MUNDANE_RESEARCH_POSSIBLE boolean
 ---@field [1] boolean
 ---@field MUNDANE_RECORDING_POSSIBLE boolean
@@ -636,8 +659,8 @@ function df.interaction_source_secretst:new() end
 ---@field [3] boolean
 
 ---@class identity.interaction_source_secretst.learn_flags: DFBitfieldType
----@field SUPERNATURAL_LEARNING_POSSIBLE 0
----@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
+---@field SUPERNATURAL_LEARNING_POSSIBLE 0 bay12: IS_SECRET_FLAG_*
+---@field [0] "SUPERNATURAL_LEARNING_POSSIBLE" bay12: IS_SECRET_FLAG_*
 ---@field MUNDANE_RESEARCH_POSSIBLE 1
 ---@field [1] "MUNDANE_RESEARCH_POSSIBLE"
 ---@field MUNDANE_RECORDING_POSSIBLE 2
@@ -680,7 +703,7 @@ function _interaction_source_secretst_goals:erase(index) end
 
 ---@class (exact) df.interaction_source_disturbancest: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_disturbancest
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_source_disturbancest: DFCompoundType
 ---@field _kind 'class-type'
@@ -705,8 +728,8 @@ function df.interaction_source_disturbancest:new() end
 ---| 12 # MINOR_BLESSING
 
 ---@class identity.interaction_source_usage_hint: DFEnumType
----@field MAJOR_CURSE 0
----@field [0] "MAJOR_CURSE"
+---@field MAJOR_CURSE 0 bay12: UsageHintType
+---@field [0] "MAJOR_CURSE" bay12: UsageHintType
 ---@field GREETING 1
 ---@field [1] "GREETING"
 ---@field CLEAN_SELF 2
@@ -735,7 +758,7 @@ df.interaction_source_usage_hint = {}
 
 ---@class (exact) df.interaction_source_deityst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_deityst
----@field unk_1 number
+---@field spec_flags integer
 ---@field usage_hint _interaction_source_deityst_usage_hint IS_USAGE_HINT
 
 ---@class identity.interaction_source_deityst: DFCompoundType
@@ -763,7 +786,7 @@ function _interaction_source_deityst_usage_hint:erase(index) end
 
 ---@class (exact) df.interaction_source_attackst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_attackst
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_source_attackst: DFCompoundType
 ---@field _kind 'class-type'
@@ -774,7 +797,7 @@ function df.interaction_source_attackst:new() end
 
 ---@class (exact) df.interaction_source_ingestionst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_ingestionst
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_source_ingestionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -785,7 +808,7 @@ function df.interaction_source_ingestionst:new() end
 
 ---@class (exact) df.interaction_source_creature_actionst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_creature_actionst
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_source_creature_actionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -806,7 +829,7 @@ function df.interaction_source_underground_specialst:new() end
 
 ---@class (exact) df.interaction_source_experimentst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_experimentst
----@field unk_1 number
+---@field spec_flags integer
 
 ---@class identity.interaction_source_experimentst: DFCompoundType
 ---@field _kind 'class-type'
@@ -822,8 +845,8 @@ function df.interaction_source_experimentst:new() end
 ---| 3 # LOCATION
 
 ---@class identity.interaction_target_type: DFEnumType
----@field CORPSE 0
----@field [0] "CORPSE"
+---@field CORPSE 0 bay12: InteractionTargetType
+---@field [0] "CORPSE" bay12: InteractionTargetType
 ---@field CREATURE 1
 ---@field [1] "CREATURE"
 ---@field MATERIAL 2
@@ -843,8 +866,8 @@ df.interaction_target_type = {}
 ---| 6 # RANDOM_NEARBY_LOCATION
 
 ---@class identity.interaction_target_location_type: DFEnumType
----@field CONTEXT_NONE -1
----@field [-1] "CONTEXT_NONE"
+---@field CONTEXT_NONE -1 bay12: TargetLocationType
+---@field [-1] "CONTEXT_NONE" bay12: TargetLocationType
 ---@field CONTEXT_REGION 0
 ---@field [0] "CONTEXT_REGION"
 ---@field CONTEXT_CREATURE 1
@@ -881,12 +904,36 @@ function interaction_target:write_file(file) end
 ---@param loadversion df.save_version
 function interaction_target:read_file(file, loadversion) end
 
+---@param token string
+---@param pos number
+---@param curstr string
+---@param context DFPointer<integer>
+---@param allow_internal_tokens boolean
+---@return boolean
+function interaction_target:parseRaws(token, pos, curstr, context, allow_internal_tokens) end
+
+---@param idx number
+function interaction_target:finalize(idx) end
+
+---@param bodypart df.item_body_component
+---@param interaction df.interaction
+---@return boolean
+function interaction_target:affects_body_component(bodypart, interaction) end
+
 ---@param anon_0 number
----@param anon_1 number
----@param anon_2 number
----@param anon_3 number
----@param anon_4 number
-function interaction_target:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
+---@param interaction df.interaction
+---@return boolean
+function interaction_target:affects_unit(anon_0, interaction) end
+
+---@param histfig df.historical_figure
+---@param interaction df.interaction
+---@return boolean
+function interaction_target:affects_histfig(histfig, interaction) end
+
+---@param race number
+---@param Caste number
+---@return boolean
+function interaction_target:affects_race(race, Caste) end
 
 
 ---@class identity.interaction_target: DFCompoundType
@@ -905,10 +952,10 @@ function df.interaction_target:new() end
 ---@field immune_creature DFNumberVector IT_IMMUNE_CREATURE
 ---@field immune_class DFStringVector IT_IMMUNE_CLASS
 ---@field forbidden_syndrome_class DFStringVector
----@field requires_1 number IT_REQUIRES
----@field requires_2 number IT_REQUIRES
----@field forbidden_1 number IT_FORBIDDEN
----@field forbidden_2 number IT_FORBIDDEN
+---@field required_property df.cie_add_tag_mask2
+---@field required_flag df.cie_add_tag_mask1
+---@field forbidden_property df.cie_add_tag_mask2
+---@field forbidden_flag df.cie_add_tag_mask1
 ---@field restrictions df.interaction_target_info.T_restrictions
 
 ---@class identity.interaction_target_info: DFCompoundType
@@ -920,12 +967,12 @@ function df.interaction_target_info:new() end
 
 ---@class df.interaction_target_info.T_restrictions: DFBitfield
 ---@field _enum identity.interaction_target_info.restrictions
----@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
----@field [0] boolean
+---@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean bay12: ITCI_FLAG_*
+---@field [0] boolean bay12: ITCI_FLAG_*
 
 ---@class identity.interaction_target_info.restrictions: DFBitfieldType
----@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
----@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
+---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0 bay12: ITCI_FLAG_*
+---@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED" bay12: ITCI_FLAG_*
 df.interaction_target_info.T_restrictions = {}
 
 ---@class (exact) df.interaction_target_corpsest: DFStruct, df.interaction_target
@@ -975,8 +1022,8 @@ function df.interaction_target_creaturest:new() end
 ---| 21 # OTHER
 
 ---@class identity.breath_attack_type: DFEnumType
----@field TRAILING_DUST_FLOW 0
----@field [0] "TRAILING_DUST_FLOW"
+---@field TRAILING_DUST_FLOW 0 bay12: BreathAttackType
+---@field [0] "TRAILING_DUST_FLOW" bay12: BreathAttackType
 ---@field TRAILING_VAPOR_FLOW 1
 ---@field [1] "TRAILING_VAPOR_FLOW"
 ---@field TRAILING_GAS_FLOW 2
@@ -1026,7 +1073,7 @@ df.breath_attack_type = {}
 ---@field material_str string[]
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field parent_interaction_index number
+---@field mat_state df.matter_state
 ---@field breath_attack_type df.breath_attack_type
 ---@field restrictions df.interaction_target_materialst.T_restrictions
 
@@ -1039,12 +1086,12 @@ function df.interaction_target_materialst:new() end
 
 ---@class df.interaction_target_materialst.T_restrictions: DFBitfield
 ---@field _enum identity.interaction_target_materialst.restrictions
----@field CONTEXT_MATERIAL boolean
----@field [0] boolean
+---@field CONTEXT_MATERIAL boolean bay12: INTERACTION_TARGET_MATERIAL_FLAG_*
+---@field [0] boolean bay12: INTERACTION_TARGET_MATERIAL_FLAG_*
 
 ---@class identity.interaction_target_materialst.restrictions: DFBitfieldType
----@field CONTEXT_MATERIAL 0
----@field [0] "CONTEXT_MATERIAL"
+---@field CONTEXT_MATERIAL 0 bay12: INTERACTION_TARGET_MATERIAL_FLAG_*
+---@field [0] "CONTEXT_MATERIAL" bay12: INTERACTION_TARGET_MATERIAL_FLAG_*
 df.interaction_target_materialst.T_restrictions = {}
 
 ---@class (exact) df.interaction_target_locationst: DFStruct, df.interaction_target
@@ -1061,8 +1108,7 @@ function df.interaction_target_locationst:new() end
 ---@field _type identity.interaction_instance
 ---@field id number
 ---@field interaction_id number References: `df.interaction`
----@field unk_1 number
----@field region_index number
+---@field source_context df.interaction_instance.T_source_context
 ---@field affected_units DFNumberVector IDs of units affected by the regional interaction
 
 ---@class identity.interaction_instance: DFCompoundType
@@ -1080,4 +1126,29 @@ function df.interaction_instance.find(key) end
 
 ---@return interaction_instance_vector # df.global.world.interaction_instances.all
 function df.interaction_instance.get_vector() end
+
+---@class (exact) df.interaction_instance.T_source_context: DFStruct
+---@field _type identity.interaction_instance.source_context
+---@field type df.interaction_instance.T_source_context.T_type bay12: interaction_instance_contextst
+---@field region_index number presumably matches the type above
+
+---@class identity.interaction_instance.source_context: DFCompoundType
+---@field _kind 'struct-type'
+df.interaction_instance.T_source_context = {}
+
+---@return df.interaction_instance.T_source_context
+function df.interaction_instance.T_source_context:new() end
+
+-- bay12: interaction_instance_contextst
+---@alias df.interaction_instance.T_source_context.T_type
+---| -1 # NONE
+---| 0 # SUBREGION
+
+-- bay12: interaction_instance_contextst
+---@class identity.interaction_instance.source_context.type: DFEnumType
+---@field NONE -1 bay12: IIContextType
+---@field [-1] "NONE" bay12: IIContextType
+---@field SUBREGION 0
+---@field [0] "SUBREGION"
+df.interaction_instance.T_source_context.T_type = {}
 

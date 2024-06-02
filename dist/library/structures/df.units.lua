@@ -1621,6 +1621,34 @@ function df.command:new() end
 ---@field [0] "CORPSE"
 df.unit_active_animation_flags = {}
 
+---@class (exact) df.opinion_infost: DFStruct
+---@field _type identity.opinion_infost
+---@field entity_id DFNumberVector
+---@field entity_opinion _opinion_infost_entity_opinion
+
+---@class identity.opinion_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.opinion_infost = {}
+
+---@return df.opinion_infost
+function df.opinion_infost:new() end
+
+---@class _opinion_infost_entity_opinion: DFContainer
+---@field [integer] df.opinion_type
+local _opinion_infost_entity_opinion
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.opinion_type>
+function _opinion_infost_entity_opinion:_field(index) end
+
+---@param index '#'|integer
+---@param item df.opinion_type
+function _opinion_infost_entity_opinion:insert(index, item) end
+
+---@param index integer
+function _opinion_infost_entity_opinion:erase(index) end
+
 ---@class (exact) df.unit: DFStruct
 ---@field _type identity.unit
 ---@field name df.language_name
@@ -1669,7 +1697,7 @@ df.unit_active_animation_flags = {}
 ---@field pregnancy_spouse number References: `df.historical_figure`
 ---@field mood_copy df.mood_type copied from mood type upon entering strange mood
 ---@field ghost_info df.unit_ghost_info
----@field disturbed_heid number References: `df.historical_entity`
+---@field disturbed_heid number References: `df.history_event`
 ---@field birth_year number
 ---@field birth_time number
 ---@field curse_year number bay12: frozen_age_year
@@ -2460,7 +2488,7 @@ function _unit_used_items:erase(index) end
 ---@field animal_pre_bond_unid DFNumberVector
 ---@field animal_pre_bond_count DFNumberVector probably references a unit
 ---@field just_talked_unid DFNumberVector
----@field opinion_info DFPointer<integer> probably references a unit
+---@field opinion_info df.opinion_infost probably references a unit
 ---@field travel_log DFPointer<integer>
 ---@field combat_side_id number
 ---@field histfig_vector_idx number arena_side<br>below here unsaved --
@@ -2866,8 +2894,8 @@ df.unit_syndrome.T_flags = {}
 ---| 9 # Blister
 
 ---@class identity.wound_effect_type: DFEnumType
----@field Bruise 0
----@field [0] "Bruise"
+---@field Bruise 0 bay12: WoundDamageType
+---@field [0] "Bruise" bay12: WoundDamageType
 ---@field Burn 1
 ---@field [1] "Burn"
 ---@field Frostbite 2

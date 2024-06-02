@@ -4,8 +4,8 @@
 -- MISC TYPES
 ---@class df.item_flags: DFBitfield
 ---@field _enum identity.item_flags
----@field on_ground boolean Item on ground
----@field [0] boolean Item on ground
+---@field on_ground boolean bay12: ITEMFLAG_*
+---@field [0] boolean bay12: ITEMFLAG_*
 ---@field in_job boolean Item currently being used in a job
 ---@field [1] boolean Item currently being used in a job
 ---@field hostile boolean Item owned by hostile
@@ -68,8 +68,8 @@
 ---@field [31] boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 
 ---@class identity.item_flags: DFBitfieldType
----@field on_ground 0 Item on ground
----@field [0] "on_ground" Item on ground
+---@field on_ground 0 bay12: ITEMFLAG_*
+---@field [0] "on_ground" bay12: ITEMFLAG_*
 ---@field in_job 1 Item currently being used in a job
 ---@field [1] "in_job" Item currently being used in a job
 ---@field hostile 2 Item owned by hostile
@@ -132,8 +132,8 @@ df.item_flags = {}
 
 ---@class df.item_flags2: DFBitfield
 ---@field _enum identity.item_flags2
----@field has_rider boolean vehicle with a rider
----@field [0] boolean vehicle with a rider
+---@field has_rider boolean bay12: ITEMFLAG2_*
+---@field [0] boolean bay12: ITEMFLAG2_*
 ---@field forbid_on_unretire boolean
 ---@field [1] boolean
 ---@field grown boolean
@@ -146,8 +146,8 @@ df.item_flags = {}
 ---@field [5] boolean
 
 ---@class identity.item_flags2: DFBitfieldType
----@field has_rider 0 vehicle with a rider
----@field [0] "has_rider" vehicle with a rider
+---@field has_rider 0 bay12: ITEMFLAG2_*
+---@field [0] "has_rider" bay12: ITEMFLAG2_*
 ---@field forbid_on_unretire 1
 ---@field [1] "forbid_on_unretire"
 ---@field grown 2
@@ -172,32 +172,32 @@ df.item_flags2 = {}
 ---| 8 # RustlingLeaves
 
 ---@class identity.item_magicness_type: DFEnumType
----@field Sparkle 0
----@field [0] "Sparkle"
----@field AirWarped 1
----@field [1] "AirWarped"
----@field Whistle 2
----@field [2] "Whistle"
----@field OddlySquare 3
----@field [3] "OddlySquare"
----@field SmallBumps 4
----@field [4] "SmallBumps"
----@field EarthSmell 5
----@field [5] "EarthSmell"
----@field Lightning 6
----@field [6] "Lightning"
----@field GrayHairs 7 with value of 10 or higher, creatures that look at the item cannot think negative thoughts
----@field [7] "GrayHairs" with value of 10 or higher, creatures that look at the item cannot think negative thoughts
----@field RustlingLeaves 8
----@field [8] "RustlingLeaves"
+---@field Sparkle 0 bay12: ItemPowers, no base type
+---@field [0] "Sparkle" bay12: ItemPowers, no base type
+---@field AirWarped 1 Storage
+---@field [1] "AirWarped" Storage
+---@field Whistle 2 Add Damage
+---@field [2] "Whistle" Add Damage
+---@field OddlySquare 3 Add DamBlock
+---@field [3] "OddlySquare" Add DamBlock
+---@field SmallBumps 4 Resist Pierce
+---@field [4] "SmallBumps" Resist Pierce
+---@field EarthSmell 5 Resist Bludgeon
+---@field [5] "EarthSmell" Resist Bludgeon
+---@field Lightning 6 Resist Slash
+---@field [6] "Lightning" Resist Slash
+---@field GrayHairs 7 Resist Gore; with value of 10 or higher, creatures that look at the item cannot think negative thoughts
+---@field [7] "GrayHairs" Resist Gore; with value of 10 or higher, creatures that look at the item cannot think negative thoughts
+---@field RustlingLeaves 8 Thorn Burst
+---@field [8] "RustlingLeaves" Thorn Burst
 df.item_magicness_type = {}
 
 ---@class (exact) df.item_magicness: DFStruct
 ---@field _type identity.item_magicness
 ---@field type df.item_magicness_type
 ---@field value number boosts item value by 50*this
----@field unk_1 number
----@field flags number 1=does not show up in item description or alter item value
+---@field gloss number
+---@field flags df.item_magicness.T_flags
 
 ---@class identity.item_magicness: DFCompoundType
 ---@field _kind 'struct-type'
@@ -205,6 +205,43 @@ df.item_magicness = {}
 
 ---@return df.item_magicness
 function df.item_magicness:new() end
+
+---@class df.item_magicness.T_flags: DFBitfield
+---@field _enum identity.item_magicness.flags
+---@field inactive boolean bay12: MAGICALPOWERFLAG_
+---@field [0] boolean bay12: MAGICALPOWERFLAG_
+
+---@class identity.item_magicness.flags: DFBitfieldType
+---@field inactive 0 bay12: MAGICALPOWERFLAG_
+---@field [0] "inactive" bay12: MAGICALPOWERFLAG_
+df.item_magicness.T_flags = {}
+
+---@class (exact) df.item_magicalst: DFStruct
+---@field _type identity.item_magicalst
+---@field power _item_magicalst_power
+
+---@class identity.item_magicalst: DFCompoundType
+---@field _kind 'struct-type'
+df.item_magicalst = {}
+
+---@return df.item_magicalst
+function df.item_magicalst:new() end
+
+---@class _item_magicalst_power: DFContainer
+---@field [integer] df.item_magicness
+local _item_magicalst_power
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item_magicness>
+function _item_magicalst_power:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item_magicness
+function _item_magicalst_power:insert(index, item) end
+
+---@param index integer
+function _item_magicalst_power:erase(index) end
 
 ---@class (exact) df.temperaturest: DFStruct
 ---@field _type identity.temperaturest
@@ -217,6 +254,18 @@ df.temperaturest = {}
 
 ---@return df.temperaturest
 function df.temperaturest:new() end
+
+---@class (exact) df.massst: DFStruct
+---@field _type identity.massst
+---@field whole number kilograms
+---@field fraction number milligrams
+
+---@class identity.massst: DFCompoundType
+---@field _kind 'struct-type'
+df.massst = {}
+
+---@return df.massst
+function df.massst:new() end
 
 ---@class (exact) df.spatter_common: DFStruct
 ---@field _type identity.spatter_common
@@ -236,17 +285,18 @@ function df.spatter_common:new() end
 
 ---@class df.spatter_common.T_base_flags: DFBitfield
 ---@field _enum identity.spatter_common.base_flags
----@field evaporates boolean does not contaminate tile when washed away
----@field [0] boolean does not contaminate tile when washed away
+---@field evaporates boolean bay12: CONTAMINANT_FLAG_*
+---@field [0] boolean bay12: CONTAMINANT_FLAG_*
 
 ---@class identity.spatter_common.base_flags: DFBitfieldType
----@field evaporates 0 does not contaminate tile when washed away
----@field [0] "evaporates" does not contaminate tile when washed away
+---@field evaporates 0 bay12: CONTAMINANT_FLAG_*
+---@field [0] "evaporates" bay12: CONTAMINANT_FLAG_*
 df.spatter_common.T_base_flags = {}
 
----@class (exact) df.spatter: DFStruct, df.spatter_common
+---@class (exact) df.spatter: DFStruct
 ---@field _type identity.spatter
----@field body_part_id number
+---@field base df.spatter_common
+---@field body_part_id number sub-element, NOT subclass!
 ---@field flags df.spatter.T_flags
 
 ---@class identity.spatter: DFCompoundType
@@ -258,12 +308,12 @@ function df.spatter:new() end
 
 ---@class df.spatter.T_flags: DFBitfield
 ---@field _enum identity.spatter.flags
----@field water_soluble boolean
----@field [0] boolean
+---@field water_soluble boolean bay12: ITEM_CONTAMINANT_FLAG_
+---@field [0] boolean bay12: ITEM_CONTAMINANT_FLAG_
 
 ---@class identity.spatter.flags: DFBitfieldType
----@field water_soluble 0
----@field [0] "water_soluble"
+---@field water_soluble 0 bay12: ITEM_CONTAMINANT_FLAG_
+---@field [0] "water_soluble" bay12: ITEM_CONTAMINANT_FLAG_
 df.spatter.T_flags = {}
 
 ---@alias df.item_quality
@@ -276,8 +326,8 @@ df.spatter.T_flags = {}
 ---| 6 # Artifact
 
 ---@class identity.item_quality: DFEnumType
----@field Ordinary 0
----@field [0] "Ordinary"
+---@field Ordinary 0 DFHack-only
+---@field [0] "Ordinary" DFHack-only
 ---@field WellCrafted 1
 ---@field [1] "WellCrafted"
 ---@field FinelyCrafted 2
@@ -323,8 +373,8 @@ df.item_quality = {}
 ---| 26 # DemonIdentity
 
 ---@class identity.slab_engraving_type: DFEnumType
----@field Slab -1 bay12: EngravingIntent/EngravingIntentType
----@field [-1] "Slab" bay12: EngravingIntent/EngravingIntentType
+---@field Slab -1 bay12: EngravingIntentType
+---@field [-1] "Slab" bay12: EngravingIntentType
 ---@field Memorial 0
 ---@field [0] "Memorial"
 ---@field CraftShopSign 1 STORE_CRAFTS
@@ -402,8 +452,8 @@ df.slab_engraving_type = {}
 ---| 16 # PILLAGE
 
 ---@class identity.trade_good_purpose: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: TradeGoodPurposeType
+---@field [-1] "NONE" bay12: TradeGoodPurposeType
 ---@field MERCHANT 0
 ---@field [0] "MERCHANT"
 ---@field TRAVELER 1
@@ -440,6 +490,20 @@ df.slab_engraving_type = {}
 ---@field [16] "PILLAGE"
 df.trade_good_purpose = {}
 
+---@alias df.article_type
+---| -1 # NONE
+---| 0 # INDEFINITE
+---| 1 # DEFINITE
+
+---@class identity.article_type: DFEnumType
+---@field NONE -1 bay12: Article, no base type
+---@field [-1] "NONE" bay12: Article, no base type
+---@field INDEFINITE 0 a
+---@field [0] "INDEFINITE" a
+---@field DEFINITE 1 the
+---@field [1] "DEFINITE" the
+df.article_type = {}
+
 -- CORE ITEM
 ---@class (exact) df.item: DFStruct
 ---@field _type identity.item
@@ -452,11 +516,10 @@ df.trade_good_purpose = {}
 ---@field general_refs _item_general_refs
 ---@field world_data_id number References: `df.world_object_data`
 ---@field world_data_subid number
----@field stockpile_countdown integer -1 per 50 frames; then check if needs moving
----@field stockpile_delay integer used to reset countdown; randomly varies
----@field unk2 number
----@field base_uniform_score number
----@field walkable_id number from map_block.walkable
+---@field stockpile_countdown number -1 per 50 frames; then check if needs moving
+---@field stockpile_delay number used to reset countdown; randomly varies
+---@field base_uniform_score number temporary_32
+---@field walkable_id number temporary_16; from map_block.walkable
 ---@field spec_heat integer
 ---@field ignite_point integer
 ---@field heatdam_point integer
@@ -464,8 +527,7 @@ df.trade_good_purpose = {}
 ---@field boiling_point integer
 ---@field melting_point integer
 ---@field fixed_temp integer
----@field weight number if flags.weight_computed
----@field weight_fraction number 1e-6
+---@field weight df.massst if flags.weight_computed
 local item
 
 ---@return df.item_type
@@ -536,7 +598,7 @@ function item:isWheelbarrow() end
 function item:getVehicleID() end
 
 ---@return boolean
-function item:isAmmo() end
+function item:isCrafted() end
 
 ---@return df.item_stockpile_ref
 function item:getStockpile() end
@@ -547,11 +609,11 @@ function item:containsPlaster() end
 ---@return boolean
 function item:isPlaster() end
 
----@param anon_0 DFPointer<integer>
+---@param bg number
 ---@return boolean
-function item:getColorOverride(anon_0) end
+function item:getColorOverride(bg) end
 
----@return DFPointer<integer>
+---@return df.item_profilest
 function item:getHistoryInfo() end
 
 ---@param use df.tool_uses
@@ -580,7 +642,8 @@ function item:isMetalOre(matIndex) end
 function item:clearLastTempUpdateTS() end
 
 ---@param string_ptr string
-function item:listNotableKills(string_ptr) end
+---@param flag integer
+function item:listNotableKills(string_ptr, flag) end
 
 ---@return integer
 function item:getSpecHeat() end
@@ -613,17 +676,19 @@ function item:materialRots() end
 function item:getTemperature() end
 
 ---@param target integer
----@param unk number
+---@param amp number
 ---@return boolean
-function item:adjustTemperature(target, unk) end
+function item:adjustTemperature(target, amp) end
 
-function item:extinguish() end
+function item:evaluate_corpse_flags() end
+
+function item:set_placement_information() end
 
 ---@return number
 function item:getGloveHandedness() end
 
----@param anon_0 number
-function item:setGloveHandedness(anon_0) end
+---@param flag integer
+function item:setGloveHandedness(flag) end
 
 ---@return boolean
 function item:isSpike() end
@@ -653,8 +718,8 @@ function item:setWear(anon_0) end
 ---@return number
 function item:getMaker() end
 
----@param unit_id number
-function item:setMaker(unit_id) end
+---@param hf_id number References: `df.historical_figure`
+function item:setMaker(hf_id) end
 
 ---@param prace number
 ---@param pcaste number
@@ -671,12 +736,18 @@ function item:getGloveFlags() end
 ---@return string
 function item:getItemShapeDesc() end
 
+---@return number
+function item:get_art_graphics_type_ptr() end
+
+---@return number
+function item:get_art_graphics_id_ptr() end
+
 ---@param anon_0 df.item_filter_spec
 ---@return boolean
 function item:isMatchingAmmoItem(anon_0) end
 
 ---@param id DFPointer<integer>
----@param subid DFPointer<integer>
+---@param subid DFPointer<integer> pointer-to-ref
 function item:getImageRef(id, subid) end
 
 ---@param civ_id number References: `df.historical_entity`
@@ -714,11 +785,11 @@ function item:setRotTimer(val) end
 function item:incrementRotTimer() end
 
 ---@return boolean
-function item:isBogeymanCorpse() end
+function item:instantRot() end
 
----@param mat_flag df.material_flags
+---@param civ_request_tab df.entity_sell_category
 ---@return boolean
-function item:testMaterialFlag(mat_flag) end
+function item:fitsCivRequestTab(civ_request_tab) end
 
 ---@param anon_0 string
 ---@return string
@@ -811,42 +882,40 @@ function item:isAnimal() end
 ---@return df.item_quality
 function item:assignQuality(maker, job_skill) end
 
----@param maker df.unit called by assignQuality
+---@param maker df.unit
 ---@param job_skill df.job_skill
 ---@param skill_roll number preferences add 10 to this, need 55 to roll masterworks
 ---@return df.item_quality
-function item:assignQuality2(maker, job_skill, skill_roll) end
+function item:assignQualityRoll(maker, job_skill, skill_roll) end
 
 ---@param maker df.unit
----@param anon_0 DFPointer<integer>
----@param anon_1 DFPointer<integer>
-function item:notifyCreatedMasterwork(maker, anon_0, anon_1) end
+function item:notifyCreatedMasterwork(maker) end
 
 function item:notifyLostMasterwork() end
 
----@param anon_0 number
----@param anon_1 number
----@param anon_2 number
-function item:addMagic(anon_0, anon_1, anon_2) end
+---@param ptype df.item_magicness_type
+---@param availpower number
+---@param donorpower number
+function item:addpower(ptype, availpower, donorpower) end
 
----@param anon_0 number
----@param anon_1 number
-function item:magic_unk1(anon_0, anon_1) end
+---@param item df.item
+---@param dwarfmake boolean
+function item:additempower(item, dwarfmake) end
 
----@param anon_0 number
----@param anon_1 number
-function item:magic_unk2(anon_0, anon_1) end
+---@param imp df.itemimprovement
+---@param dwarfmake boolean
+function item:addimppower(imp, dwarfmake) end
 
----@param anon_0 number
-function item:magic_unk3(anon_0) end
+---@param dwarfmake boolean
+function item:addnamepower(dwarfmake) end
 
----@param anon_0 number
----@param anon_1 number
----@param anon_2 number
-function item:magic_unk4(anon_0, anon_1, anon_2) end
+---@param availpower number
+---@param dwarfmake boolean
+---@param subtract_current boolean
+function item:getavailpower(availpower, dwarfmake, subtract_current) end
 
----@param anon_0 DFPointer<integer>
-function item:setDisplayColor(anon_0) end
+---@param bg number
+function item:setDisplayColor(bg) end
 
 ---@return boolean
 function item:isDamagedByHeat() end
@@ -866,10 +935,10 @@ function item:isTameableVermin() end
 ---@return boolean
 function item:isDye() end
 
----@param anon_0 number
----@param anon_1 number
+---@param container_allowed boolean
+---@param checkres boolean
 ---@return boolean
-function item:isMilkable(anon_0, anon_1) end
+function item:isMilkable(container_allowed, checkres) end
 
 ---@return boolean
 function item:isSandBearing() end
@@ -880,24 +949,24 @@ function item:isLyeBearing() end
 ---@return boolean
 function item:isAnimalProduct() end
 
----@param item_type number
----@param material_category number
+---@param item_type df.item_type
+---@param material_category DFPointer<integer>
 function item:getStorageInfo(item_type, material_category) end
 
 ---@param delta number
----@param simple boolean
 ---@param lose_masterwork boolean
+---@param persist_parts boolean
 ---@return boolean
-function item:addWear(delta, simple, lose_masterwork) end
+function item:addWear(delta, lose_masterwork, persist_parts) end
 
 ---@param delta number
 ---@return boolean
 function item:incWearTimer(delta) end
 
----@param simple boolean
 ---@param lose_masterwork boolean
+---@param persist_parts boolean
 ---@return boolean
-function item:checkWearDestroy(simple, lose_masterwork) end
+function item:checkWearDestroy(lose_masterwork, persist_parts) end
 
 ---@param mat_type number
 ---@param mat_index number
@@ -925,11 +994,11 @@ function item:tradeUnitContaminants(anon_0, body_part_id) end
 function item:tradeItemContaminants(anon_0) end
 
 ---@param anon_0 df.item_actual
-function item:tradeItemContaminants2(anon_0) end
+function item:tradeItemActualContaminants(anon_0) end
 
 ---@param anon_0 df.unit
 ---@param anon_1 df.unit_wound
----@param shift integer
+---@param shift number
 ---@param body_part_id number
 function item:contaminateWound(anon_0, anon_1, shift, body_part_id) end
 
@@ -947,7 +1016,7 @@ function item:getWeaponAttacks() end
 function item:isNotHeld() end
 
 ---@return boolean
-function item:isSplittable() end
+function item:isActual() end
 
 ---@param anon_0 df.historical_entity add default thread improvement to items made of cloth
 function item:addDefaultThreadImprovement(anon_0) end
@@ -960,6 +1029,9 @@ function item:propagateUnitRefs() end
 
 ---@return boolean
 function item:isSand() end
+
+---@return number
+function item:get_production_zone_id() end
 
 ---@return number
 function item:getStackSize() end
@@ -982,18 +1054,15 @@ function item:isAutoClean() end
 ---@param z number
 ---@param _local boolean
 ---@param contained boolean
----@return boolean
 function item:setTemperatureFromMapTile(x, y, z, _local, contained) end
 
 ---@param _local boolean
 ---@param contained boolean
----@return boolean
 function item:setTemperatureFromMap(_local, contained) end
 
 ---@param temp integer
 ---@param _local boolean
 ---@param contained boolean
----@return boolean
 function item:setTemperature(temp, _local, contained) end
 
 ---@param _local boolean
@@ -1014,8 +1083,11 @@ function item:updateTemperature(temp, _local, contained, adjust, multiplier) end
 ---@return boolean
 function item:updateFromWeather() end
 
+---@param x number
+---@param y number
+---@param z number
 ---@return boolean
-function item:updateContaminants() end
+function item:updateContaminants(x, y, z) end
 
 ---@return boolean
 function item:checkTemperatureDamage() end
@@ -1026,10 +1098,10 @@ function item:checkHeatColdDamage() end
 ---@return boolean
 function item:checkMeltBoil() end
 
----@return number
+---@return df.job_skill
 function item:getMeleeSkill() end
 
----@return number
+---@return df.job_skill
 function item:getRangedSkill() end
 
 ---@param quality number
@@ -1054,8 +1126,8 @@ function item:getProjectileSize() end
 function item:isImprovable(anon_0, mat_type, mat_index) end
 
 ---@param item_quality number
----@param unk1 number when 0, set item_rockst sharpness to 0
-function item:setSharpness(item_quality, unk1) end
+---@param force_edge boolean
+function item:setSharpness(item_quality, force_edge) end
 
 ---@return number
 function item:getSharpness() end
@@ -1107,10 +1179,10 @@ function item:getEffectiveArmorLevel() end
 function item:isConstructed() end
 
 ---@return boolean
-function item:isItemOrganicCloth() end
+function item:wantsThreadImprovement() end
 
 ---@return boolean
-function item:isMadeOfOrganicCloth() end
+function item:wantsClothImprovement() end
 
 ---@param mat_type number
 ---@param mat_index number
@@ -1128,7 +1200,7 @@ function item:hasImprovements() end
 ---@return boolean
 function item:isImproved() end
 
----@return DFPointer<integer>
+---@return df.item_magicalst
 function item:getMagic() end
 
 ---@param anon_0 string
@@ -1136,7 +1208,7 @@ function item:getMagic() end
 function item:getItemDescription(anon_0, plurality) end
 
 ---@param anon_0 string
----@param mode number
+---@param mode df.article_type
 function item:getItemDescriptionPrefix(anon_0, mode) end
 
 ---@param anon_0 string
@@ -1203,19 +1275,19 @@ function item:getStockpile2() end
 ---@param j df.job
 function item:randomizeThreadImprovement(mat_type, mat_index, u, j) end
 
----@param anon_0 number
----@param anon_1 number
----@param anon_2 number
----@param anon_3 number
+---@param art_chunk_id number
+---@param art_chunk_offse number
+---@param art_civ number
+---@param art_site number
 ---@param material number
 ---@param matgloss number
----@param anon_4 number
----@param anon_5 number
----@param anon_6 number
----@param anon_7 number
----@param anon_8 number
----@param anon_9 number
-function item:addImprovement(anon_0, anon_1, anon_2, anon_3, material, matgloss, anon_4, anon_5, anon_6, anon_7, anon_8, anon_9) end
+---@param dye_material number
+---@param dye_matgloss number
+---@param item df.item
+---@param quality number
+---@param skill_level number
+---@param artist_hf number
+function item:addImprovement(art_chunk_id, art_chunk_offse, art_civ, art_site, material, matgloss, dye_material, dye_matgloss, item, quality, skill_level, artist_hf) end
 
 ---@param anon_0 df.item
 function item:copyImprovementsFrom(anon_0) end
@@ -1245,6 +1317,36 @@ function item:calcUniformScore(anon_0, exact_match, best_any, best_melee, best_r
 ---@return number
 function item:calcBaseUniformScore() end
 
+---@param race_id number
+---@param caste_id number
+---@param maximum number
+---@return number
+function item:get_attack_clothing_size(race_id, caste_id, maximum) end
+
+---@return boolean
+function item:is_structurally_elastic() end
+
+---@return boolean
+function item:is_woven() end
+
+---@param kill_event number
+---@param slayer_hf number
+function item:add_hf_kill(kill_event, slayer_hf) end
+
+---@param race number
+---@param caste number
+---@param subregion number
+---@param feature_layer number
+---@param site number
+---@param kill_flag number
+---@param slayer_hf number
+---@param quantity number
+function item:add_non_hf_kill(race, caste, subregion, feature_layer, site, kill_flag, slayer_hf, quantity) end
+
+function item:add_block_parry_deflect() end
+
+function item:add_strike() end
+
 ---@return df.slab_engraving_type
 function item:getSlabEngravingType() end
 
@@ -1252,16 +1354,25 @@ function item:getSlabEngravingType() end
 function item:getAbsorption() end
 
 ---@return boolean
-function item:isGemMaterial() end
+function item:isGlazed() end
+
+---@return boolean
+function item:isGemShapeable() end
 
 ---@param shape number References: `df.descriptor_shape`
 function item:setGemShape(shape) end
 
 ---@return boolean
-function item:hasGemShape() end
+function item:isStoneShapeable() end
 
 ---@return number
 function item:getGemShape() end
+
+---@return number
+function item:getFaceUp() end
+
+---@return boolean
+function item:isStrappable() end
 
 ---@return boolean
 function item:hasWriting() end
@@ -1318,7 +1429,7 @@ function _item_general_refs:erase(index) end
 -- ACTUAL ITEM
 ---@class (exact) df.item_kill_info: DFStruct
 ---@field _type identity.item_kill_info
----@field targets df.historical_kills
+---@field targets df.item_kill_info.T_targets
 ---@field slayers DFNumberVector Wielders
 ---@field slayer_kill_counts DFNumberVector
 
@@ -1328,6 +1439,41 @@ df.item_kill_info = {}
 
 ---@return df.item_kill_info
 function df.item_kill_info:new() end
+
+-- not actually a compound, do NOT replace with kill_profilest!
+---@class (exact) df.item_kill_info.T_targets: DFStruct
+---@field _type identity.item_kill_info.targets
+---@field events DFNumberVector Important
+---@field killed_race DFNumberVector Misc
+---@field killed_caste DFNumberVector
+---@field killed_underground_region DFNumberVector
+---@field killed_region DFNumberVector
+---@field killed_site DFNumberVector
+---@field killed_undead _item_kill_info_targets_killed_undead
+---@field killed_count DFNumberVector
+
+---@class identity.item_kill_info.targets: DFCompoundType
+---@field _kind 'struct-type'
+df.item_kill_info.T_targets = {}
+
+---@return df.item_kill_info.T_targets
+function df.item_kill_info.T_targets:new() end
+
+---@class _item_kill_info_targets_killed_undead: DFContainer
+---@field [integer] df.undead_flags
+local _item_kill_info_targets_killed_undead
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.undead_flags>
+function _item_kill_info_targets_killed_undead:_field(index) end
+
+---@param index '#'|integer
+---@param item df.undead_flags
+function _item_kill_info_targets_killed_undead:insert(index, item) end
+
+---@param index integer
+function _item_kill_info_targets_killed_undead:erase(index) end
 
 ---@class (exact) df.item_history_info: DFStruct
 ---@field _type identity.item_history_info
@@ -1342,16 +1488,27 @@ df.item_history_info = {}
 ---@return df.item_history_info
 function df.item_history_info:new() end
 
+---@class (exact) df.item_profilest: DFStruct
+---@field _type identity.item_profilest
+---@field combat df.item_history_info
+
+---@class identity.item_profilest: DFCompoundType
+---@field _kind 'struct-type'
+df.item_profilest = {}
+
+---@return df.item_profilest
+function df.item_profilest:new() end
+
 ---@class (exact) df.item_actual: DFStruct, df.item
 ---@field _type identity.item_actual
 ---@field stack_size number
----@field history_info DFPointer<integer>
----@field magic DFPointer<integer>
+---@field history_info df.item_profilest
+---@field magic df.item_magicalst
 ---@field contaminants DFPointer<integer>
 ---@field temperature df.temperaturest
 ---@field wear number
 ---@field wear_timer number counts up to 806400
----@field unk_1 number
+---@field production_zone_id number
 ---@field temp_updated_frame number
 
 ---@class identity.item_actual: DFCompoundType
@@ -1516,6 +1673,7 @@ df.body_part_status = {}
 ---@field [1] "leaking"
 df.body_layer_status = {}
 
+-- not a real structure
 ---@class (exact) df.body_component_info: DFStruct
 ---@field _type identity.body_component_info
 ---@field body_part_status _body_component_info_body_part_status
@@ -1566,6 +1724,7 @@ function _body_component_info_layer_status:insert(index, item) end
 ---@param index integer
 function _body_component_info_layer_status:erase(index) end
 
+-- not a real structure
 ---@class (exact) df.body_size_info: DFStruct
 ---@field _type identity.body_size_info
 ---@field size_cur number
@@ -1588,6 +1747,7 @@ function df.body_size_info:new() end
 ---| 2 # Leather
 ---| 3 # Bone
 ---| 4 # Shell
+---| 5 # Wood
 ---| 6 # Soap
 ---| 7 # Tooth
 ---| 8 # Horn
@@ -1596,8 +1756,8 @@ function df.body_size_info:new() end
 ---| 11 # Yarn
 
 ---@class identity.corpse_material_type: DFEnumType
----@field Plant 0
----@field [0] "Plant"
+---@field Plant 0 bay12: ItemBodyComponentMaterialType
+---@field [0] "Plant" bay12: ItemBodyComponentMaterialType
 ---@field Silk 1
 ---@field [1] "Silk"
 ---@field Leather 2
@@ -1606,6 +1766,8 @@ function df.body_size_info:new() end
 ---@field [3] "Bone"
 ---@field Shell 4
 ---@field [4] "Shell"
+---@field Wood 5
+---@field [5] "Wood"
 ---@field Soap 6
 ---@field [6] "Soap"
 ---@field Tooth 7
@@ -1630,7 +1792,7 @@ df.corpse_material_type = {}
 ---@field normal_race number unit.enemy.normal_race<br>References: `df.creature_raw`
 ---@field normal_caste number unit.enemy.normal_caste<br>References: `df.caste_raw`
 ---@field rot_timer number
----@field unk_8c number if zero, item is a generic instance of its race and caste; do not process unit id
+---@field from_custom_body number
 ---@field body df.item_body_component.T_body
 ---@field size_modifier number =unit.appearance.size_modifier
 ---@field birth_year number
@@ -1649,8 +1811,8 @@ df.corpse_material_type = {}
 ---@field unit_id2 number References: `df.unit`
 ---@field corpse_flags df.item_body_component.T_corpse_flags
 ---@field material_amount DFEnumVector<df.corpse_material_type, number>
----@field bone1 df.item_body_component.T_bone1
----@field bone2 df.item_body_component.T_bone2
+---@field largest_tissue df.item_body_component.T_largest_tissue
+---@field largest_unrottable_tissue df.item_body_component.T_largest_unrottable_tissue
 
 ---@class identity.item_body_component: DFCompoundType
 ---@field _kind 'class-type'
@@ -1661,8 +1823,8 @@ function df.item_body_component:new() end
 
 ---@class (exact) df.item_body_component.T_body: DFStruct
 ---@field _type identity.item_body_component.body
----@field wounds _item_body_component_body_wounds
----@field unk_100 number[] unit.body.unk_39c
+---@field wounds _item_body_component_body_wounds not a compound
+---@field systemic_wound_id DFEnumVector<df.wound_effect_type, number>
 ---@field wound_next_id number
 ---@field components df.body_component_info
 ---@field physical_attr_value DFEnumVector<df.physical_attribute_type, number>
@@ -1697,8 +1859,8 @@ function _item_body_component_body_wounds:erase(index) end
 
 ---@class (exact) df.item_body_component.T_appearance: DFStruct
 ---@field _type identity.item_body_component.appearance
----@field colors DFNumberVector
----@field tissue_style DFNumberVector
+---@field colors DFNumberVector not a compound
+---@field tissue_style _item_body_component_appearance_tissue_style
 ---@field tissue_style_civ_id DFNumberVector
 ---@field tissue_style_id DFNumberVector
 ---@field tissue_style_type DFNumberVector
@@ -1710,10 +1872,26 @@ df.item_body_component.T_appearance = {}
 ---@return df.item_body_component.T_appearance
 function df.item_body_component.T_appearance:new() end
 
+---@class _item_body_component_appearance_tissue_style: DFContainer
+---@field [integer] df.tissue_style_type
+local _item_body_component_appearance_tissue_style
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.tissue_style_type>
+function _item_body_component_appearance_tissue_style:_field(index) end
+
+---@param index '#'|integer
+---@param item df.tissue_style_type
+function _item_body_component_appearance_tissue_style:insert(index, item) end
+
+---@param index integer
+function _item_body_component_appearance_tissue_style:erase(index) end
+
 ---@class df.item_body_component.T_corpse_flags: DFBitfield
 ---@field _enum identity.item_body_component.corpse_flags
----@field unbutchered boolean
----@field [0] boolean
+---@field unbutchered boolean bay12: ITEM_BODY_COMPONENT_FLAG_*
+---@field [0] boolean bay12: ITEM_BODY_COMPONENT_FLAG_*
 ---@field plant boolean
 ---@field [1] boolean
 ---@field silk boolean
@@ -1724,6 +1902,7 @@ function df.item_body_component.T_appearance:new() end
 ---@field [4] boolean
 ---@field shell boolean
 ---@field [5] boolean
+---@field wood boolean
 ---@field [6] boolean
 ---@field soap boolean
 ---@field [7] boolean
@@ -1733,20 +1912,24 @@ function df.item_body_component.T_appearance:new() end
 ---@field [9] boolean
 ---@field pearl boolean
 ---@field [10] boolean
----@field skull1 boolean
+---@field rottable boolean
 ---@field [11] boolean
----@field skull2 boolean
+---@field skull boolean
 ---@field [12] boolean
----@field separated_part boolean ?
----@field [13] boolean ?
+---@field use_blood_color boolean
+---@field [13] boolean
 ---@field hair_wool boolean
 ---@field [14] boolean
 ---@field yarn boolean
 ---@field [15] boolean
+---@field must_rot_body boolean
+---@field [16] boolean
+---@field must_refresh_texture boolean
+---@field [17] boolean
 
 ---@class identity.item_body_component.corpse_flags: DFBitfieldType
----@field unbutchered 0
----@field [0] "unbutchered"
+---@field unbutchered 0 bay12: ITEM_BODY_COMPONENT_FLAG_*
+---@field [0] "unbutchered" bay12: ITEM_BODY_COMPONENT_FLAG_*
 ---@field plant 1
 ---@field [1] "plant"
 ---@field silk 2
@@ -1757,6 +1940,8 @@ function df.item_body_component.T_appearance:new() end
 ---@field [4] "bone"
 ---@field shell 5
 ---@field [5] "shell"
+---@field wood 6
+---@field [6] "wood"
 ---@field soap 7
 ---@field [7] "soap"
 ---@field tooth 8
@@ -1765,50 +1950,51 @@ function df.item_body_component.T_appearance:new() end
 ---@field [9] "horn"
 ---@field pearl 10
 ---@field [10] "pearl"
----@field skull1 11
----@field [11] "skull1"
----@field skull2 12
----@field [12] "skull2"
----@field separated_part 13 ?
----@field [13] "separated_part" ?
+---@field rottable 11
+---@field [11] "rottable"
+---@field skull 12
+---@field [12] "skull"
+---@field use_blood_color 13
+---@field [13] "use_blood_color"
 ---@field hair_wool 14
 ---@field [14] "hair_wool"
 ---@field yarn 15
 ---@field [15] "yarn"
+---@field must_rot_body 16
+---@field [16] "must_rot_body"
+---@field must_refresh_texture 17
+---@field [17] "must_refresh_texture"
 df.item_body_component.T_corpse_flags = {}
 
----@class (exact) df.item_body_component.T_bone1: DFStruct
----@field _type identity.item_body_component.bone1
+---@class (exact) df.item_body_component.T_largest_tissue: DFStruct
+---@field _type identity.item_body_component.largest_tissue
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 
----@class identity.item_body_component.bone1: DFCompoundType
+---@class identity.item_body_component.largest_tissue: DFCompoundType
 ---@field _kind 'struct-type'
-df.item_body_component.T_bone1 = {}
+df.item_body_component.T_largest_tissue = {}
 
----@return df.item_body_component.T_bone1
-function df.item_body_component.T_bone1:new() end
+---@return df.item_body_component.T_largest_tissue
+function df.item_body_component.T_largest_tissue:new() end
 
----@class (exact) df.item_body_component.T_bone2: DFStruct
----@field _type identity.item_body_component.bone2
+---@class (exact) df.item_body_component.T_largest_unrottable_tissue: DFStruct
+---@field _type identity.item_body_component.largest_unrottable_tissue
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 
----@class identity.item_body_component.bone2: DFCompoundType
+---@class identity.item_body_component.largest_unrottable_tissue: DFCompoundType
 ---@field _kind 'struct-type'
-df.item_body_component.T_bone2 = {}
+df.item_body_component.T_largest_unrottable_tissue = {}
 
----@return df.item_body_component.T_bone2
-function df.item_body_component.T_bone2:new() end
+---@return df.item_body_component.T_largest_unrottable_tissue
+function df.item_body_component.T_largest_unrottable_tissue:new() end
 
 ---@class (exact) df.item_corpsest: DFStruct, df.item_body_component
 ---@field _type identity.item_corpsest
----@field unused_380 DFPointer<integer>
----@field unused_388 DFPointer<integer>
----@field unused_390 DFPointer<integer>
----@field unused_398 number
----@field unused_39c number
----@field unused_3a0 number
+---@field texpos number[][]
+---@field texpos_currently_in_use boolean[][]
+---@field sheet_icon_texpos number
 
 ---@class identity.item_corpsest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1844,27 +2030,9 @@ df.item_critter = {}
 function df.item_critter:new() end
 
 -- LIQUID/POWER
----@class df.item_matstate: DFBitfield
----@field _enum identity.item_matstate
----@field no_auto_clean boolean isAutoClean returns false
----@field [0] boolean isAutoClean returns false
----@field pressed boolean
----@field [1] boolean
----@field paste boolean
----@field [2] boolean
-
----@class identity.item_matstate: DFBitfieldType
----@field no_auto_clean 0 isAutoClean returns false
----@field [0] "no_auto_clean" isAutoClean returns false
----@field pressed 1
----@field [1] "pressed"
----@field paste 2
----@field [2] "paste"
-df.item_matstate = {}
-
 ---@class (exact) df.item_liquipowder: DFStruct, df.item_actual
 ---@field _type identity.item_liquipowder
----@field mat_state df.item_matstate
+---@field lp_flags df.item_liquipowder.T_lp_flags
 ---@field dimension number
 
 ---@class identity.item_liquipowder: DFCompoundType
@@ -1874,10 +2042,18 @@ df.item_liquipowder = {}
 ---@return df.item_liquipowder
 function df.item_liquipowder:new() end
 
+---@class df.item_liquipowder.T_lp_flags: DFBitfield
+---@field _enum identity.item_liquipowder.lp_flags
+---@field no_auto_clean boolean bay12: ITEMFLAG_LIQUIPOWDER_*
+---@field [0] boolean bay12: ITEMFLAG_LIQUIPOWDER_*
+
+---@class identity.item_liquipowder.lp_flags: DFBitfieldType
+---@field no_auto_clean 0 bay12: ITEMFLAG_LIQUIPOWDER_*
+---@field [0] "no_auto_clean" bay12: ITEMFLAG_LIQUIPOWDER_*
+df.item_liquipowder.T_lp_flags = {}
+
 ---@class (exact) df.item_liquid: DFStruct, df.item_liquipowder
 ---@field _type identity.item_liquid
----@field mat_type number References: `df.material`
----@field mat_index number
 
 ---@class identity.item_liquid: DFCompoundType
 ---@field _kind 'class-type'
@@ -1888,8 +2064,6 @@ function df.item_liquid:new() end
 
 ---@class (exact) df.item_powder: DFStruct, df.item_liquipowder
 ---@field _type identity.item_powder
----@field mat_type number References: `df.material`
----@field mat_index number
 
 ---@class identity.item_powder: DFCompoundType
 ---@field _kind 'class-type'
@@ -1901,7 +2075,7 @@ function df.item_powder:new() end
 -- MISC
 ---@class (exact) df.item_barst: DFStruct, df.item_actual
 ---@field _type identity.item_barst
----@field subtype number
+---@field subtype number supposedly used for coal
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field dimension number
@@ -1991,7 +2165,7 @@ function df.item_branchst:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field sharpness number
----@field unk_84 number
+---@field rock_flag df.item_rockst.T_rock_flag
 
 ---@class identity.item_rockst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1999,6 +2173,20 @@ df.item_rockst = {}
 
 ---@return df.item_rockst
 function df.item_rockst:new() end
+
+---@class df.item_rockst.T_rock_flag: DFBitfield
+---@field _enum identity.item_rockst.rock_flag
+---@field scraper boolean bay12: ITEM_ROCK_FLAG_*
+---@field [0] boolean bay12: ITEM_ROCK_FLAG_*
+---@field chisel boolean
+---@field [1] boolean
+
+---@class identity.item_rockst.rock_flag: DFBitfieldType
+---@field scraper 0 bay12: ITEM_ROCK_FLAG_*
+---@field [0] "scraper" bay12: ITEM_ROCK_FLAG_*
+---@field chisel 1
+---@field [1] "chisel"
+df.item_rockst.T_rock_flag = {}
 
 ---@class (exact) df.item_seedsst: DFStruct, df.item_actual
 ---@field _type identity.item_seedsst
@@ -2018,7 +2206,7 @@ function df.item_seedsst:new() end
 ---@field _type identity.item_skin_tannedst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_80 number
+---@field rot_timer number even though leather does not rot
 
 ---@class identity.item_skin_tannedst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2086,7 +2274,7 @@ function df.item_cheesest:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number
----@field mat_state df.item_matstate
+---@field glob_flags df.item_globst.T_glob_flags
 ---@field dimension number
 
 ---@class identity.item_globst: DFCompoundType
@@ -2095,6 +2283,24 @@ df.item_globst = {}
 
 ---@return df.item_globst
 function df.item_globst:new() end
+
+---@class df.item_globst.T_glob_flags: DFBitfield
+---@field _enum identity.item_globst.glob_flags
+---@field no_auto_clean boolean bay12: ITEMFLAG_GLOB_*
+---@field [0] boolean bay12: ITEMFLAG_GLOB_*
+---@field pressed boolean
+---@field [1] boolean
+---@field paste boolean
+---@field [2] boolean
+
+---@class identity.item_globst.glob_flags: DFBitfieldType
+---@field no_auto_clean 0 bay12: ITEMFLAG_GLOB_*
+---@field [0] "no_auto_clean" bay12: ITEMFLAG_GLOB_*
+---@field pressed 1
+---@field [1] "pressed"
+---@field paste 2
+---@field [2] "paste"
+df.item_globst.T_glob_flags = {}
 
 ---@class (exact) df.item_remainsst: DFStruct, df.item_actual
 ---@field _type identity.item_remainsst
@@ -2190,16 +2396,18 @@ function df.item_petst:new() end
 
 ---@class df.item_petst.T_pet_flags: DFBitfield
 ---@field _enum identity.item_petst.pet_flags
----@field available_for_adoption boolean
----@field [0] boolean
+---@field available_for_adoption boolean bay12: ITEM_PET_FLAG_*
+---@field [0] boolean bay12: ITEM_PET_FLAG_*
 
 ---@class identity.item_petst.pet_flags: DFBitfieldType
----@field available_for_adoption 0
----@field [0] "available_for_adoption"
+---@field available_for_adoption 0 bay12: ITEM_PET_FLAG_*
+---@field [0] "available_for_adoption" bay12: ITEM_PET_FLAG_*
 df.item_petst.T_pet_flags = {}
 
 ---@class (exact) df.item_drinkst: DFStruct, df.item_liquid
 ---@field _type identity.item_drinkst
+---@field mat_type number References: `df.material`
+---@field mat_index number
 
 ---@class identity.item_drinkst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2210,6 +2418,8 @@ function df.item_drinkst:new() end
 
 ---@class (exact) df.item_powder_miscst: DFStruct, df.item_powder
 ---@field _type identity.item_powder_miscst
+---@field mat_type number References: `df.material`
+---@field mat_index number
 
 ---@class identity.item_powder_miscst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2220,7 +2430,9 @@ function df.item_powder_miscst:new() end
 
 ---@class (exact) df.item_liquid_miscst: DFStruct, df.item_liquid
 ---@field _type identity.item_liquid_miscst
----@field unk_88 number
+---@field mat_type number References: `df.material`
+---@field mat_index number
+---@field liquid_misc_flags df.item_liquid_miscst.T_liquid_misc_flags
 
 ---@class identity.item_liquid_miscst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2228,6 +2440,16 @@ df.item_liquid_miscst = {}
 
 ---@return df.item_liquid_miscst
 function df.item_liquid_miscst:new() end
+
+---@class df.item_liquid_miscst.T_liquid_misc_flags: DFBitfield
+---@field _enum identity.item_liquid_miscst.liquid_misc_flags
+---@field paste boolean bay12: LIQUID_MISC_FLAG_*
+---@field [0] boolean bay12: LIQUID_MISC_FLAG_*
+
+---@class identity.item_liquid_miscst.liquid_misc_flags: DFBitfieldType
+---@field paste 0 bay12: LIQUID_MISC_FLAG_*
+---@field [0] "paste" bay12: LIQUID_MISC_FLAG_*
+df.item_liquid_miscst.T_liquid_misc_flags = {}
 
 ---@class (exact) df.item_threadst: DFStruct, df.item_actual
 ---@field _type identity.item_threadst
@@ -2238,9 +2460,9 @@ function df.item_liquid_miscst:new() end
 ---@field dyer number References: `df.historical_figure`
 ---@field dye_masterpiece_event number References: `df.history_event`
 ---@field dye_quality number
----@field unk_92 number
----@field unk_94 number
----@field unk_98 number
+---@field dye_skill number
+---@field dye_age number
+---@field is_thick boolean
 ---@field dimension number
 
 ---@class identity.item_threadst: DFCompoundType
@@ -2260,18 +2482,18 @@ function df.item_threadst:new() end
 ---@field incubation_counter number increments when fertile in unforbidden nestbox, hatch at >= 100800 (3 months)
 ---@field hatchling_civ_id number hatchlings will have this civ_id<br>References: `df.historical_entity`
 ---@field hatchling_population_id number hatchlings will have this population_id<br>References: `df.entity_population`
----@field hatchling_unit_unk_c0 number hatchlings will have this unit.unk_c0 value
----@field unk_2 number
----@field mothers_genes df.unit_genes position uncertain
+---@field hatchling_breed_id number References: `df.breed`
+---@field hatchling_cultural_identity_id number References: `df.cultural_identity`
+---@field mothers_genes df.unit_genes object owned by egg item
 ---@field mothers_caste number References: `df.caste_raw`
----@field unk_3 number
+---@field mother_hf number References: `df.historical_figure`
 ---@field fathers_genes df.unit_genes object owned by egg item
 ---@field fathers_caste number -1 if no father genes<br>References: `df.caste_raw`
----@field unk_4 number
+---@field father_hf number References: `df.historical_figure`
 ---@field hatchling_flags1 df.unit_flags1 used primarily for bit_flag:tame
 ---@field hatchling_flags2 df.unit_flags2 used primarily for bit_flag:roaming_wilderness_population_source
 ---@field hatchling_flags3 df.unit_flags3 not normally used, most/all do not stick
----@field unk_v42_1 number
+---@field hatchling_flags4 df.unit_flags4 not normally used, most/all do not stick
 ---@field hatchling_training_level df.animal_training_level
 ---@field hatchling_animal_population df.world_population_ref
 ---@field hatchling_mother_id number References: `df.unit`
@@ -2286,12 +2508,16 @@ function df.item_eggst:new() end
 
 ---@class df.item_eggst.T_egg_flags: DFBitfield
 ---@field _enum identity.item_eggst.egg_flags
----@field fertile boolean allows the incubation_counter to be checked/incremented
----@field [0] boolean allows the incubation_counter to be checked/incremented
+---@field fertile boolean bay12: ITEM_EGG_FLAG_*
+---@field [0] boolean bay12: ITEM_EGG_FLAG_*
+---@field make_nemesis boolean
+---@field [1] boolean
 
 ---@class identity.item_eggst.egg_flags: DFBitfieldType
----@field fertile 0 allows the incubation_counter to be checked/incremented
----@field [0] "fertile" allows the incubation_counter to be checked/incremented
+---@field fertile 0 bay12: ITEM_EGG_FLAG_*
+---@field [0] "fertile" bay12: ITEM_EGG_FLAG_*
+---@field make_nemesis 1
+---@field [1] "make_nemesis"
 df.item_eggst.T_egg_flags = {}
 
 -- CONSTRUCTED
@@ -2741,10 +2967,21 @@ df.item_helmst = {}
 ---@return df.item_helmst
 function df.item_helmst:new() end
 
+---@alias df.glove_handedness
+---| 0 # RIGHT
+---| 1 # LEFT
+
+---@class identity.glove_handedness: DFEnumType
+---@field RIGHT 0 bay12: ItemGloveFlagType, no base type
+---@field [0] "RIGHT" bay12: ItemGloveFlagType, no base type
+---@field LEFT 1
+---@field [1] "LEFT"
+df.glove_handedness = {}
+
 ---@class (exact) df.item_glovesst: DFStruct, df.item_constructed
 ---@field _type identity.item_glovesst
 ---@field subtype df.itemdef_glovesst
----@field handedness _item_glovesst_handedness 1 right, 2 left
+---@field handedness _item_glovesst_handedness
 
 ---@class identity.item_glovesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2754,16 +2991,16 @@ df.item_glovesst = {}
 function df.item_glovesst:new() end
 
 ---@class _item_glovesst_handedness: DFContainer
----@field [integer] table<integer, boolean>
+---@field [integer] table<df.glove_handedness, boolean>
 local _item_glovesst_handedness
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<integer, boolean>>
+---@return DFPointer<table<df.glove_handedness, boolean>>
 function _item_glovesst_handedness:_field(index) end
 
 ---@param index '#'|integer
----@param item table<integer, boolean>
+---@param item table<df.glove_handedness, boolean>
 function _item_glovesst_handedness:insert(index, item) end
 
 ---@param index integer
@@ -2834,8 +3071,8 @@ function df.item_trapcompst:new() end
 ---@field sharpness number
 ---@field stockpile df.item_stockpile_ref
 ---@field vehicle_id number References: `df.vehicle`
----@field unk_2 number
----@field unk_3 number
+---@field shape number References: `df.descriptor_shape`
+---@field face_up number
 
 ---@class identity.item_toolst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2894,8 +3131,8 @@ function df.item_gemst:new() end
 ---@field _type identity.item_statuest
 ---@field image df.art_image_ref
 ---@field description string
----@field unk_110 number
----@field unk_114 number
+---@field art_graphics_type number
+---@field art_graphics_id number
 
 ---@class identity.item_statuest: DFCompoundType
 ---@field _kind 'class-type'
@@ -2919,7 +3156,7 @@ function df.item_figurinest:new() end
 ---@class (exact) df.item_slabst: DFStruct, df.item_constructed
 ---@field _type identity.item_slabst
 ---@field description string
----@field topic number or interaction id for secrets?<br>References: `df.historical_figure`
+---@field topic number or interaction id for secrets<br>References: `df.historical_figure`
 ---@field engraving_type df.slab_engraving_type
 
 ---@class identity.item_slabst: DFCompoundType
@@ -3003,7 +3240,7 @@ function df.item_ballistaarrowheadst:new() end
 ---@class (exact) df.item_sheetst: DFStruct, df.item_constructed
 ---@field _type identity.item_sheetst
 ---@field dimension number
----@field unk_2 number
+---@field sheet_flags df.item_sheetst.T_sheet_flags
 
 ---@class identity.item_sheetst: DFCompoundType
 ---@field _kind 'class-type'
@@ -3011,4 +3248,18 @@ df.item_sheetst = {}
 
 ---@return df.item_sheetst
 function df.item_sheetst:new() end
+
+---@class df.item_sheetst.T_sheet_flags: DFBitfield
+---@field _enum identity.item_sheetst.sheet_flags
+---@field paste boolean bay12: ITEMFLAG_SHEET_*
+---@field [0] boolean bay12: ITEMFLAG_SHEET_*
+---@field pressed boolean
+---@field [1] boolean
+
+---@class identity.item_sheetst.sheet_flags: DFBitfieldType
+---@field paste 0 bay12: ITEMFLAG_SHEET_*
+---@field [0] "paste" bay12: ITEMFLAG_SHEET_*
+---@field pressed 1
+---@field [1] "pressed"
+df.item_sheetst.T_sheet_flags = {}
 

@@ -53,8 +53,8 @@
 ---| 48 # REDUCE_FEVER
 
 ---@class identity.creature_interaction_effect_type: DFEnumType
----@field PAIN 0
----@field [0] "PAIN"
+---@field PAIN 0 bay12: CreatureInteractionEffectType
+---@field [0] "PAIN" bay12: CreatureInteractionEffectType
 ---@field SWELLING 1
 ---@field [1] "SWELLING"
 ---@field OOZING 2
@@ -155,8 +155,8 @@ df.creature_interaction_effect_type = {}
 
 ---@class df.creature_interaction_effect_flags: DFBitfield
 ---@field _enum identity.creature_interaction_effect_flags
----@field SIZE_DELAYS boolean
----@field [0] boolean
+---@field SIZE_DELAYS boolean bay12: CREATURE_INTERACTION_EFFECT_FLAG_*
+---@field [0] boolean bay12: CREATURE_INTERACTION_EFFECT_FLAG_*
 ---@field SIZE_DILUTES boolean
 ---@field [1] boolean
 ---@field VASCULAR_ONLY boolean
@@ -177,8 +177,8 @@ df.creature_interaction_effect_type = {}
 ---@field [9] boolean
 
 ---@class identity.creature_interaction_effect_flags: DFBitfieldType
----@field SIZE_DELAYS 0
----@field [0] "SIZE_DELAYS"
+---@field SIZE_DELAYS 0 bay12: CREATURE_INTERACTION_EFFECT_FLAG_*
+---@field [0] "SIZE_DELAYS" bay12: CREATURE_INTERACTION_EFFECT_FLAG_*
 ---@field SIZE_DILUTES 1
 ---@field [1] "SIZE_DILUTES"
 ---@field VASCULAR_ONLY 2
@@ -201,8 +201,8 @@ df.creature_interaction_effect_flags = {}
 
 ---@class df.cie_add_tag_mask1: DFBitfield
 ---@field _enum identity.cie_add_tag_mask1
----@field EXTRAVISION boolean
----@field [0] boolean
+---@field EXTRAVISION boolean bay12: CE_ADD_CREATURE_CASTE_FLAG_*
+---@field [0] boolean bay12: CE_ADD_CREATURE_CASTE_FLAG_*
 ---@field OPPOSED_TO_LIFE boolean
 ---@field [1] boolean
 ---@field NOT_LIVING boolean
@@ -227,7 +227,7 @@ df.creature_interaction_effect_flags = {}
 ---@field [11] boolean
 ---@field NOEMOTION boolean
 ---@field [12] boolean
----@field LIKES_FIGHTING boolean
+---@field NIGHT_CREATURE_EXPERIMENTER boolean
 ---@field [13] boolean
 ---@field PARALYZEIMMUNE boolean
 ---@field [14] boolean
@@ -263,11 +263,10 @@ df.creature_interaction_effect_flags = {}
 ---@field [29] boolean
 ---@field SUPERNATURAL boolean
 ---@field [30] boolean
----@field [31] boolean
 
 ---@class identity.cie_add_tag_mask1: DFBitfieldType
----@field EXTRAVISION 0
----@field [0] "EXTRAVISION"
+---@field EXTRAVISION 0 bay12: CE_ADD_CREATURE_CASTE_FLAG_*
+---@field [0] "EXTRAVISION" bay12: CE_ADD_CREATURE_CASTE_FLAG_*
 ---@field OPPOSED_TO_LIFE 1
 ---@field [1] "OPPOSED_TO_LIFE"
 ---@field NOT_LIVING 2
@@ -292,8 +291,8 @@ df.creature_interaction_effect_flags = {}
 ---@field [11] "TRANCES"
 ---@field NOEMOTION 12
 ---@field [12] "NOEMOTION"
----@field LIKES_FIGHTING 13
----@field [13] "LIKES_FIGHTING"
+---@field NIGHT_CREATURE_EXPERIMENTER 13
+---@field [13] "NIGHT_CREATURE_EXPERIMENTER"
 ---@field PARALYZEIMMUNE 14
 ---@field [14] "PARALYZEIMMUNE"
 ---@field NOFEAR 15
@@ -332,8 +331,8 @@ df.cie_add_tag_mask1 = {}
 
 ---@class df.cie_add_tag_mask2: DFBitfield
 ---@field _enum identity.cie_add_tag_mask2
----@field NO_AGING boolean
----@field [0] boolean
+---@field NO_AGING boolean bay12: CE_ADD_PROPERTY_*
+---@field [0] boolean bay12: CE_ADD_PROPERTY_*
 ---@field MORTAL boolean
 ---@field [1] boolean
 ---@field STERILE boolean
@@ -344,8 +343,8 @@ df.cie_add_tag_mask1 = {}
 ---@field [4] boolean
 
 ---@class identity.cie_add_tag_mask2: DFBitfieldType
----@field NO_AGING 0
----@field [0] "NO_AGING"
+---@field NO_AGING 0 bay12: CE_ADD_PROPERTY_*
+---@field [0] "NO_AGING" bay12: CE_ADD_PROPERTY_*
 ---@field MORTAL 1
 ---@field [1] "MORTAL"
 ---@field STERILE 2
@@ -362,14 +361,15 @@ df.cie_add_tag_mask2 = {}
 ---| 2 # BY_CATEGORY
 
 ---@class identity.creature_interaction_effect_target_mode: DFEnumType
----@field BY_TYPE 0
----@field [0] "BY_TYPE"
+---@field BY_TYPE 0 bay12: BodyPartGroupType
+---@field [0] "BY_TYPE" bay12: BodyPartGroupType
 ---@field BY_TOKEN 1
 ---@field [1] "BY_TOKEN"
 ---@field BY_CATEGORY 2
 ---@field [2] "BY_CATEGORY"
 df.creature_interaction_effect_target_mode = {}
 
+-- not a real structure
 ---@class (exact) df.creature_interaction_effect_target: DFStruct
 ---@field _type identity.creature_interaction_effect_target
 ---@field mode _creature_interaction_effect_target_mode
@@ -446,26 +446,53 @@ function creature_interaction_effect:getTargetTissues() end
 ---@return boolean
 function creature_interaction_effect:checkAddFlag1(anon_0) end
 
----@param anon_0 DFPointer<integer>
-function creature_interaction_effect:setBodyMatInteractionName(anon_0) end
+---@param tok string
+function creature_interaction_effect:parseLineInteraction(tok) end
 
----@param type DFPointer<integer>
-function creature_interaction_effect:parseSynAcquireType(type) end
+---@param tok string
+function creature_interaction_effect:parseLineSyndromeFlag(tok) end
 
----@param race DFPointer<integer>
----@param caste DFPointer<integer>
-function creature_interaction_effect:setBodyTransform(race, caste) end
+---@param tok1 string
+---@param tok2 string
+function creature_interaction_effect:parseLineCreature(tok1, tok2) end
 
----@param anon_0 DFPointer<integer>
----@param anon_1 DFPointer<integer>
----@param anon_2 DFPointer<integer>
-function creature_interaction_effect:addPeriodic(anon_0, anon_1, anon_2) end
+---@param tok string
+function creature_interaction_effect:parseLineCreatureFlag(tok) end
 
----@param anon_0 DFPointer<integer>
----@param anon_1 DFPointer<integer>
----@param anon_2 DFPointer<integer>
----@param anon_3 DFPointer<integer>
-function creature_interaction_effect:addCounterTrigger(anon_0, anon_1, anon_2, anon_3) end
+---@param tok string
+function creature_interaction_effect:parseLineForbiddenCreatureFlag(tok) end
+
+---@param tok string
+function creature_interaction_effect:parseLineCreatureCasteFlag(tok) end
+
+---@param tok string
+function creature_interaction_effect:parseLineForbiddenCreatureCasteFlag(tok) end
+
+---@param speed number
+function creature_interaction_effect:parseLineMinGaitSpeed(speed) end
+
+---@param speed number
+function creature_interaction_effect:parseLineMaxGaitSpeed(speed) end
+
+---@param tok1 string
+---@param tok2 string
+---@param tok3 string
+function creature_interaction_effect:parseLinePeriodic(tok1, tok2, tok3) end
+
+---@param tok1 string
+---@param tok2 string
+---@param tok3 string
+---@param tok4 string
+function creature_interaction_effect:parseLineCounter(tok1, tok2, tok3, tok4) end
+
+---@param hf df.historical_figure
+---@param worldgen boolean
+function creature_interaction_effect:applyToHistfig(hf, worldgen) end
+
+function creature_interaction_effect:finalize() end
+
+---@return df.creature_interaction
+function creature_interaction_effect:getCreatureInteraction() end
 
 
 ---@class identity.creature_interaction_effect: DFCompoundType
@@ -486,10 +513,10 @@ function df.creature_interaction_effect.get_vector() end
 
 ---@class (exact) df.creature_interaction_effect.T_counter_trigger: DFStruct
 ---@field _type identity.creature_interaction_effect.counter_trigger
----@field counter _creature_interaction_effect_counter_trigger_counter
+---@field counter _creature_interaction_effect_counter_trigger_counter not a compound
 ---@field minval DFNumberVector ?
 ---@field maxval DFNumberVector ?
----@field required DFNumberVector
+---@field required DFIntegerVector
 
 ---@class identity.creature_interaction_effect.counter_trigger: DFCompoundType
 ---@field _kind 'struct-type'
@@ -716,7 +743,7 @@ function df.creature_interaction_effect_dizzinessst:new() end
 ---@field name string
 ---@field name_plural string
 ---@field name_adj string
----@field unk_1 number
+---@field name_flags df.creature_interaction_effect_display_namest.T_name_flags
 
 ---@class identity.creature_interaction_effect_display_namest: DFCompoundType
 ---@field _kind 'class-type'
@@ -725,10 +752,20 @@ df.creature_interaction_effect_display_namest = {}
 ---@return df.creature_interaction_effect_display_namest
 function df.creature_interaction_effect_display_namest:new() end
 
+---@class df.creature_interaction_effect_display_namest.T_name_flags: DFBitfield
+---@field _enum identity.creature_interaction_effect_display_namest.name_flags
+---@field can_be_hidden boolean bay12: CIE_DISPLAY_NAME_FLAG_*
+---@field [0] boolean bay12: CIE_DISPLAY_NAME_FLAG_*
+
+---@class identity.creature_interaction_effect_display_namest.name_flags: DFBitfieldType
+---@field can_be_hidden 0 bay12: CIE_DISPLAY_NAME_FLAG_*
+---@field [0] "can_be_hidden" bay12: CIE_DISPLAY_NAME_FLAG_*
+df.creature_interaction_effect_display_namest.T_name_flags = {}
+
 ---@class (exact) df.creature_interaction_effect_body_appearance_modifierst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_body_appearance_modifierst
----@field unk_60 number
----@field unk_64 number
+---@field appearance_modifier df.appearance_modifier_type
+---@field appearance_modifier_value number
 
 ---@class identity.creature_interaction_effect_body_appearance_modifierst: DFCompoundType
 ---@field _kind 'class-type'
@@ -739,8 +776,8 @@ function df.creature_interaction_effect_body_appearance_modifierst:new() end
 
 ---@class (exact) df.creature_interaction_effect_bp_appearance_modifierst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_bp_appearance_modifierst
----@field unk_6c number
----@field value number
+---@field appearance_modifier df.appearance_modifier_type
+---@field appearance_modifier_value number
 ---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_bp_appearance_modifierst: DFCompoundType
@@ -752,8 +789,8 @@ function df.creature_interaction_effect_bp_appearance_modifierst:new() end
 
 ---@class (exact) df.creature_interaction_effect_body_transformationst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_body_transformationst
----@field chance number %
----@field race_str string
+---@field bt_flags integer
+---@field race_str string bay12: flags unknown
 ---@field caste_str string
 ---@field race DFNumberVector
 ---@field caste DFNumberVector
@@ -761,8 +798,8 @@ function df.creature_interaction_effect_bp_appearance_modifierst:new() end
 ---@field forbidden_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags
 ---@field required_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags
 ---@field forbidden_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags
----@field unk_1 number
----@field unk_2 number
+---@field minimum_effortless_gait_speed number
+---@field maximum_effortless_gait_speed number
 
 ---@class identity.creature_interaction_effect_body_transformationst: DFCompoundType
 ---@field _kind 'class-type'
@@ -785,8 +822,9 @@ function df.creature_interaction_effect_skill_roll_adjustst:new() end
 
 ---@class (exact) df.creature_interaction_effect_display_symbolst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_display_symbolst
----@field tile number
----@field color number
+---@field tile integer
+---@field sym_color number[]
+---@field tile_flags df.creature_interaction_effect_display_symbolst.T_tile_flags
 
 ---@class identity.creature_interaction_effect_display_symbolst: DFCompoundType
 ---@field _kind 'class-type'
@@ -795,12 +833,23 @@ df.creature_interaction_effect_display_symbolst = {}
 ---@return df.creature_interaction_effect_display_symbolst
 function df.creature_interaction_effect_display_symbolst:new() end
 
+---@class df.creature_interaction_effect_display_symbolst.T_tile_flags: DFBitfield
+---@field _enum identity.creature_interaction_effect_display_symbolst.tile_flags
+---@field can_be_hidden boolean bay12: CIE_DISPLAY_TILE_FLAG_*
+---@field [0] boolean bay12: CIE_DISPLAY_TILE_FLAG_*
+
+---@class identity.creature_interaction_effect_display_symbolst.tile_flags: DFBitfieldType
+---@field can_be_hidden 0 bay12: CIE_DISPLAY_TILE_FLAG_*
+---@field [0] "can_be_hidden" bay12: CIE_DISPLAY_TILE_FLAG_*
+df.creature_interaction_effect_display_symbolst.T_tile_flags = {}
+
 ---@class (exact) df.creature_interaction_effect_flash_symbolst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_flash_symbolst
----@field sym_color integer[]
+---@field tile integer
+---@field sym_color number[]
 ---@field period number
 ---@field time number
----@field unk_78 number
+---@field tile_flags df.creature_interaction_effect_flash_symbolst.T_tile_flags
 
 ---@class identity.creature_interaction_effect_flash_symbolst: DFCompoundType
 ---@field _kind 'class-type'
@@ -808,6 +857,16 @@ df.creature_interaction_effect_flash_symbolst = {}
 
 ---@return df.creature_interaction_effect_flash_symbolst
 function df.creature_interaction_effect_flash_symbolst:new() end
+
+---@class df.creature_interaction_effect_flash_symbolst.T_tile_flags: DFBitfield
+---@field _enum identity.creature_interaction_effect_flash_symbolst.tile_flags
+---@field can_be_hidden boolean bay12: CIE_DISPLAY_TILE_FLAG_*
+---@field [0] boolean bay12: CIE_DISPLAY_TILE_FLAG_*
+
+---@class identity.creature_interaction_effect_flash_symbolst.tile_flags: DFBitfieldType
+---@field can_be_hidden 0 bay12: CIE_DISPLAY_TILE_FLAG_*
+---@field [0] "can_be_hidden" bay12: CIE_DISPLAY_TILE_FLAG_*
+df.creature_interaction_effect_flash_symbolst.T_tile_flags = {}
 
 ---@class (exact) df.creature_interaction_effect_phys_att_changest: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_phys_att_changest
@@ -873,9 +932,9 @@ function df.creature_interaction_effect_speed_changest:new() end
 ---@field _type identity.creature_interaction_effect_body_mat_interactionst
 ---@field interaction_name string
 ---@field interaction_id number References: `df.interaction`
----@field unk_8c number
----@field unk_90 number
----@field unk_94 string
+---@field bmi_flag integer
+---@field cis_flag integer
+---@field mat_token string
 
 ---@class identity.creature_interaction_effect_body_mat_interactionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -886,9 +945,9 @@ function df.creature_interaction_effect_body_mat_interactionst:new() end
 
 ---@class (exact) df.creature_interaction_effect_material_force_adjustst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_material_force_adjustst
----@field unk_6c string
----@field unk_88 string
----@field unk_a4 string
+---@field mat_str1 string
+---@field mat_str2 string
+---@field mat_str3 string
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field fraction_mul number
@@ -915,7 +974,7 @@ function df.creature_interaction_effect_can_do_interactionst:new() end
 ---@class (exact) df.creature_interaction_effect_sense_creature_classst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_sense_creature_classst
 ---@field class_name string
----@field tile number
+---@field tile integer
 ---@field color_foreground number
 ---@field color_background number
 ---@field foreground_brightness number
@@ -963,10 +1022,8 @@ function df.creature_interaction_effect_erratic_behaviorst:new() end
 
 ---@class (exact) df.creature_interaction_effect_close_open_woundsst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_close_open_woundsst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_close_open_woundsst_unk_2
----@field unk_3 _creature_interaction_effect_close_open_woundsst_unk_3
----@field unk_4 _creature_interaction_effect_close_open_woundsst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_close_open_woundsst: DFCompoundType
 ---@field _kind 'class-type'
@@ -975,122 +1032,10 @@ df.creature_interaction_effect_close_open_woundsst = {}
 ---@return df.creature_interaction_effect_close_open_woundsst
 function df.creature_interaction_effect_close_open_woundsst:new() end
 
----@class _creature_interaction_effect_close_open_woundsst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_close_open_woundsst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_close_open_woundsst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_close_open_woundsst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_close_open_woundsst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_close_open_woundsst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_close_open_woundsst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_close_open_woundsst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_close_open_woundsst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_close_open_woundsst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_close_open_woundsst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_close_open_woundsst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_close_open_woundsst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_close_open_woundsst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_close_open_woundsst_unk_4:erase(index) end
-
----@class (exact) df.creature_interaction_effect_cure_infectionsst: DFStruct, df.creature_interaction_effect
----@field _type identity.creature_interaction_effect_cure_infectionsst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_cure_infectionsst_unk_2
----@field unk_3 _creature_interaction_effect_cure_infectionsst_unk_3
----@field unk_4 _creature_interaction_effect_cure_infectionsst_unk_4
-
----@class identity.creature_interaction_effect_cure_infectionsst: DFCompoundType
----@field _kind 'class-type'
-df.creature_interaction_effect_cure_infectionsst = {}
-
----@return df.creature_interaction_effect_cure_infectionsst
-function df.creature_interaction_effect_cure_infectionsst:new() end
-
----@class _creature_interaction_effect_cure_infectionsst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_cure_infectionsst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_cure_infectionsst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_cure_infectionsst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_cure_infectionsst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_cure_infectionsst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_cure_infectionsst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_cure_infectionsst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_cure_infectionsst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_cure_infectionsst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_cure_infectionsst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_cure_infectionsst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_cure_infectionsst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_cure_infectionsst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_cure_infectionsst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_heal_nervesst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_heal_nervesst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_heal_nervesst_unk_2
----@field unk_3 _creature_interaction_effect_heal_nervesst_unk_3
----@field unk_4 _creature_interaction_effect_heal_nervesst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_heal_nervesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1099,60 +1044,10 @@ df.creature_interaction_effect_heal_nervesst = {}
 ---@return df.creature_interaction_effect_heal_nervesst
 function df.creature_interaction_effect_heal_nervesst:new() end
 
----@class _creature_interaction_effect_heal_nervesst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_heal_nervesst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_heal_nervesst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_heal_nervesst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_heal_nervesst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_heal_nervesst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_heal_nervesst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_heal_nervesst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_heal_nervesst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_heal_nervesst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_heal_nervesst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_heal_nervesst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_heal_nervesst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_heal_nervesst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_heal_nervesst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_heal_tissuesst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_heal_tissuesst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_heal_tissuesst_unk_2
----@field unk_3 _creature_interaction_effect_heal_tissuesst_unk_3
----@field unk_4 _creature_interaction_effect_heal_tissuesst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_heal_tissuesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1161,57 +1056,9 @@ df.creature_interaction_effect_heal_tissuesst = {}
 ---@return df.creature_interaction_effect_heal_tissuesst
 function df.creature_interaction_effect_heal_tissuesst:new() end
 
----@class _creature_interaction_effect_heal_tissuesst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_heal_tissuesst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_heal_tissuesst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_heal_tissuesst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_heal_tissuesst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_heal_tissuesst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_heal_tissuesst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_heal_tissuesst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_heal_tissuesst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_heal_tissuesst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_heal_tissuesst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_heal_tissuesst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_heal_tissuesst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_heal_tissuesst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_heal_tissuesst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_reduce_dizzinessst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_reduce_dizzinessst
----@field unk_1 number
+---@field sev number
 
 ---@class identity.creature_interaction_effect_reduce_dizzinessst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1222,7 +1069,7 @@ function df.creature_interaction_effect_reduce_dizzinessst:new() end
 
 ---@class (exact) df.creature_interaction_effect_reduce_feverst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_reduce_feverst
----@field unk_1 number
+---@field sev number
 
 ---@class identity.creature_interaction_effect_reduce_feverst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1233,7 +1080,7 @@ function df.creature_interaction_effect_reduce_feverst:new() end
 
 ---@class (exact) df.creature_interaction_effect_reduce_nauseast: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_reduce_nauseast
----@field unk_1 number
+---@field sev number
 
 ---@class identity.creature_interaction_effect_reduce_nauseast: DFCompoundType
 ---@field _kind 'class-type'
@@ -1244,10 +1091,8 @@ function df.creature_interaction_effect_reduce_nauseast:new() end
 
 ---@class (exact) df.creature_interaction_effect_reduce_painst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_reduce_painst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_reduce_painst_unk_2
----@field unk_3 _creature_interaction_effect_reduce_painst_unk_3
----@field unk_4 _creature_interaction_effect_reduce_painst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_reduce_painst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1256,60 +1101,10 @@ df.creature_interaction_effect_reduce_painst = {}
 ---@return df.creature_interaction_effect_reduce_painst
 function df.creature_interaction_effect_reduce_painst:new() end
 
----@class _creature_interaction_effect_reduce_painst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_painst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_painst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_painst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_painst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_reduce_painst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_painst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_painst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_painst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_painst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_reduce_painst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_painst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_painst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_painst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_painst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_reduce_paralysisst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_reduce_paralysisst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_reduce_paralysisst_unk_2
----@field unk_3 _creature_interaction_effect_reduce_paralysisst_unk_3
----@field unk_4 _creature_interaction_effect_reduce_paralysisst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_reduce_paralysisst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1318,60 +1113,10 @@ df.creature_interaction_effect_reduce_paralysisst = {}
 ---@return df.creature_interaction_effect_reduce_paralysisst
 function df.creature_interaction_effect_reduce_paralysisst:new() end
 
----@class _creature_interaction_effect_reduce_paralysisst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_paralysisst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_paralysisst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_paralysisst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_paralysisst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_reduce_paralysisst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_paralysisst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_paralysisst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_paralysisst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_paralysisst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_reduce_paralysisst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_paralysisst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_paralysisst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_paralysisst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_paralysisst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_reduce_swellingst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_reduce_swellingst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_reduce_swellingst_unk_2
----@field unk_3 _creature_interaction_effect_reduce_swellingst_unk_3
----@field unk_4 _creature_interaction_effect_reduce_swellingst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_reduce_swellingst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1380,60 +1125,10 @@ df.creature_interaction_effect_reduce_swellingst = {}
 ---@return df.creature_interaction_effect_reduce_swellingst
 function df.creature_interaction_effect_reduce_swellingst:new() end
 
----@class _creature_interaction_effect_reduce_swellingst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_swellingst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_swellingst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_swellingst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_swellingst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_reduce_swellingst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_swellingst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_swellingst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_swellingst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_swellingst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_reduce_swellingst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_reduce_swellingst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_reduce_swellingst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_reduce_swellingst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_reduce_swellingst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_regrow_partsst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_regrow_partsst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_regrow_partsst_unk_2
----@field unk_3 _creature_interaction_effect_regrow_partsst_unk_3
----@field unk_4 _creature_interaction_effect_regrow_partsst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_regrow_partsst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1442,59 +1137,11 @@ df.creature_interaction_effect_regrow_partsst = {}
 ---@return df.creature_interaction_effect_regrow_partsst
 function df.creature_interaction_effect_regrow_partsst:new() end
 
----@class _creature_interaction_effect_regrow_partsst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_regrow_partsst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_regrow_partsst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_regrow_partsst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_regrow_partsst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_regrow_partsst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_regrow_partsst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_regrow_partsst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_regrow_partsst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_regrow_partsst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_regrow_partsst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_regrow_partsst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_regrow_partsst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_regrow_partsst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_regrow_partsst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_special_attack_interactionst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_special_attack_interactionst
----@field unk_1 DFNumberVector
----@field unk_2 DFStringVector
----@field unk_3 string
+---@field attack_bp _creature_interaction_effect_special_attack_interactionst_attack_bp
+---@field attack_target DFStringVector
+---@field interaction_token string
 
 ---@class identity.creature_interaction_effect_special_attack_interactionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1503,12 +1150,26 @@ df.creature_interaction_effect_special_attack_interactionst = {}
 ---@return df.creature_interaction_effect_special_attack_interactionst
 function df.creature_interaction_effect_special_attack_interactionst:new() end
 
+---@class _creature_interaction_effect_special_attack_interactionst_attack_bp: DFContainer
+---@field [integer] df.creature_interaction_effect_target_mode
+local _creature_interaction_effect_special_attack_interactionst_attack_bp
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_interaction_effect_target_mode>
+function _creature_interaction_effect_special_attack_interactionst_attack_bp:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_interaction_effect_target_mode
+function _creature_interaction_effect_special_attack_interactionst_attack_bp:insert(index, item) end
+
+---@param index integer
+function _creature_interaction_effect_special_attack_interactionst_attack_bp:erase(index) end
+
 ---@class (exact) df.creature_interaction_effect_stop_bleedingst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_stop_bleedingst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_stop_bleedingst_unk_2
----@field unk_3 _creature_interaction_effect_stop_bleedingst_unk_3
----@field unk_4 _creature_interaction_effect_stop_bleedingst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_stop_bleedingst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1517,60 +1178,10 @@ df.creature_interaction_effect_stop_bleedingst = {}
 ---@return df.creature_interaction_effect_stop_bleedingst
 function df.creature_interaction_effect_stop_bleedingst:new() end
 
----@class _creature_interaction_effect_stop_bleedingst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_stop_bleedingst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_stop_bleedingst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_stop_bleedingst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_stop_bleedingst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_stop_bleedingst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_stop_bleedingst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_stop_bleedingst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_stop_bleedingst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_stop_bleedingst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_stop_bleedingst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_stop_bleedingst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_stop_bleedingst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_stop_bleedingst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_stop_bleedingst_unk_4:erase(index) end
-
 ---@class (exact) df.creature_interaction_effect_cure_infectionst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_cure_infectionst
----@field unk_1 number
----@field unk_2 _creature_interaction_effect_cure_infectionst_unk_2
----@field unk_3 _creature_interaction_effect_cure_infectionst_unk_3
----@field unk_4 _creature_interaction_effect_cure_infectionst_unk_4
+---@field sev number
+---@field target df.creature_interaction_effect_target
 
 ---@class identity.creature_interaction_effect_cure_infectionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1579,62 +1190,15 @@ df.creature_interaction_effect_cure_infectionst = {}
 ---@return df.creature_interaction_effect_cure_infectionst
 function df.creature_interaction_effect_cure_infectionst:new() end
 
----@class _creature_interaction_effect_cure_infectionst_unk_2: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_cure_infectionst_unk_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_cure_infectionst_unk_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_cure_infectionst_unk_2:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_cure_infectionst_unk_2:erase(index) end
-
----@class _creature_interaction_effect_cure_infectionst_unk_3: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_cure_infectionst_unk_3
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_cure_infectionst_unk_3:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_cure_infectionst_unk_3:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_cure_infectionst_unk_3:erase(index) end
-
----@class _creature_interaction_effect_cure_infectionst_unk_4: DFContainer
----@field [integer] any[]
-local _creature_interaction_effect_cure_infectionst_unk_4
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _creature_interaction_effect_cure_infectionst_unk_4:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _creature_interaction_effect_cure_infectionst_unk_4:insert(index, item) end
-
----@param index integer
-function _creature_interaction_effect_cure_infectionst_unk_4:erase(index) end
-
 ---@class df.syndrome_flags: DFBitfield
 ---@field _enum identity.syndrome_flags
----@field SYN_INJECTED boolean
----@field [0] boolean
+---@field SYN_INJECTED boolean bay12: CREATURE_INTERACTION_SYNDROME_FLAG_*
+---@field [0] boolean bay12: CREATURE_INTERACTION_SYNDROME_FLAG_*
 ---@field SYN_CONTACT boolean
 ---@field [1] boolean
 ---@field SYN_INHALED boolean
 ---@field [2] boolean
+---@field INHERENT boolean
 ---@field [3] boolean
 ---@field SYN_INGESTED boolean
 ---@field [4] boolean
@@ -1642,12 +1206,14 @@ function _creature_interaction_effect_cure_infectionst_unk_4:erase(index) end
 ---@field [5] boolean
 
 ---@class identity.syndrome_flags: DFBitfieldType
----@field SYN_INJECTED 0
----@field [0] "SYN_INJECTED"
+---@field SYN_INJECTED 0 bay12: CREATURE_INTERACTION_SYNDROME_FLAG_*
+---@field [0] "SYN_INJECTED" bay12: CREATURE_INTERACTION_SYNDROME_FLAG_*
 ---@field SYN_CONTACT 1
 ---@field [1] "SYN_CONTACT"
 ---@field SYN_INHALED 2
 ---@field [2] "SYN_INHALED"
+---@field INHERENT 3
+---@field [3] "INHERENT"
 ---@field SYN_INGESTED 4
 ---@field [4] "SYN_INGESTED"
 ---@field SYN_NO_HOSPITAL 5

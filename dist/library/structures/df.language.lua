@@ -3,8 +3,8 @@
 
 ---@class df.language_word_flags: DFBitfield
 ---@field _enum identity.language_word_flags
----@field front_compound_noun_sing boolean
----@field [0] boolean
+---@field front_compound_noun_sing boolean bay12: WORDFLAG_*
+---@field [0] boolean bay12: WORDFLAG_*
 ---@field front_compound_noun_plur boolean
 ---@field [1] boolean
 ---@field front_compound_adj boolean
@@ -35,10 +35,12 @@
 ---@field [14] boolean
 ---@field standard_verb boolean
 ---@field [15] boolean
+---@field generated boolean
+---@field [16] boolean
 
 ---@class identity.language_word_flags: DFBitfieldType
----@field front_compound_noun_sing 0
----@field [0] "front_compound_noun_sing"
+---@field front_compound_noun_sing 0 bay12: WORDFLAG_*
+---@field [0] "front_compound_noun_sing" bay12: WORDFLAG_*
 ---@field front_compound_noun_plur 1
 ---@field [1] "front_compound_noun_plur"
 ---@field front_compound_adj 2
@@ -69,6 +71,8 @@
 ---@field [14] "of_noun_plur"
 ---@field standard_verb 15
 ---@field [15] "standard_verb"
+---@field generated 16
+---@field [16] "generated"
 df.language_word_flags = {}
 
 ---@alias df.part_of_speech
@@ -83,8 +87,8 @@ df.language_word_flags = {}
 ---| 8 # VerbGerund
 
 ---@class identity.part_of_speech: DFEnumType
----@field Noun 0
----@field [0] "Noun"
+---@field Noun 0 bay12: WordAspect
+---@field [0] "Noun" bay12: WordAspect
 ---@field NounPlural 1
 ---@field [1] "NounPlural"
 ---@field Adjective 2
@@ -112,8 +116,8 @@ df.part_of_speech = {}
 ---| 5 # OfX
 
 ---@class identity.language_word_table_index: DFEnumType
----@field FrontCompound 0
----@field [0] "FrontCompound"
+---@field FrontCompound 0 bay12: WordPlace
+---@field [0] "FrontCompound" bay12: WordPlace
 ---@field RearCompound 1
 ---@field [1] "RearCompound"
 ---@field FirstName 2
@@ -260,8 +264,8 @@ df.language_word_table_index = {}
 ---| 129 # YOUTH
 
 ---@class identity.sphere_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: SphereType
+---@field [-1] "NONE" bay12: SphereType
 ---@field AGRICULTURE 0
 ---@field [0] "AGRICULTURE"
 ---@field ANIMALS 1
@@ -528,8 +532,10 @@ df.sphere_type = {}
 ---@field _type identity.language_word
 ---@field word string
 ---@field forms DFEnumVector<df.part_of_speech, string>
----@field adj_dist integer
----@field flags df.language_word_flags
+---@field adj_dist number bay12: actually WordDefStrings which happens to match
+---@field s_empty number bay12: char[WordDefChars]
+---@field l_empty number bay12: short[WordDefShorts]
+---@field flags df.language_word_flags bay12: int32_t[WordDefLongs]
 ---@field str DFStringVector
 
 ---@class identity.language_word: DFCompoundType
@@ -551,10 +557,10 @@ function df.language_word.get_vector() end
 ---@class (exact) df.language_translation: DFStruct
 ---@field _type identity.language_translation
 ---@field name string
----@field unknown1 DFStringVector looks like english words
----@field unknown2 DFStringVector looks like translated words
+---@field word_token DFStringVector looks like english words
+---@field word_gloss_tmp DFStringVector looks like translated words
 ---@field words DFStringVector
----@field flags number 1 = generated
+---@field flags df.language_translation.T_flags
 ---@field str DFStringVector
 
 ---@class identity.language_translation: DFCompoundType
@@ -573,12 +579,22 @@ function df.language_translation.find(key) end
 ---@return language_translation_vector # df.global.world.raws.language.translations
 function df.language_translation.get_vector() end
 
+---@class df.language_translation.T_flags: DFBitfield
+---@field _enum identity.language_translation.flags
+---@field generated boolean bay12: TRANSLATIONFLAG_*
+---@field [0] boolean bay12: TRANSLATIONFLAG_*
+
+---@class identity.language_translation.flags: DFBitfieldType
+---@field generated 0 bay12: TRANSLATIONFLAG_*
+---@field [0] "generated" bay12: TRANSLATIONFLAG_*
+df.language_translation.T_flags = {}
+
 ---@class (exact) df.language_symbol: DFStruct
 ---@field _type identity.language_symbol
 ---@field name string
----@field unknown _language_symbol_unknown empty
+---@field s_word_token DFStringVector
 ---@field words DFNumberVector
----@field flags number
+---@field flags df.language_symbol.T_flags
 ---@field str DFStringVector
 
 ---@class identity.language_symbol: DFCompoundType
@@ -597,21 +613,15 @@ function df.language_symbol.find(key) end
 ---@return language_symbol_vector # df.global.world.raws.language.symbols
 function df.language_symbol.get_vector() end
 
----@class _language_symbol_unknown: DFContainer
----@field [integer] any[]
-local _language_symbol_unknown
+---@class df.language_symbol.T_flags: DFBitfield
+---@field _enum identity.language_symbol.flags
+---@field generated boolean bay12: SYMBOLFLAG_*
+---@field [0] boolean bay12: SYMBOLFLAG_*
 
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _language_symbol_unknown:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _language_symbol_unknown:insert(index, item) end
-
----@param index integer
-function _language_symbol_unknown:erase(index) end
+---@class identity.language_symbol.flags: DFBitfieldType
+---@field generated 0 bay12: SYMBOLFLAG_*
+---@field [0] "generated" bay12: SYMBOLFLAG_*
+df.language_symbol.T_flags = {}
 
 ---@class (exact) df.language_name: DFStruct
 ---@field _type identity.language_name
@@ -705,12 +715,12 @@ function _language_word_table_parts:erase(index) end
 ---| 42 # CommonReligion
 ---| 43 # Temple
 ---| 44 # Keep
----| 45 # Unknown2
----| 46 # SymbolArtifice
----| 47 # SymbolViolent
----| 48 # SymbolProtect
----| 49 # SymbolDomestic
----| 50 # SymbolFood
+---| 45 # MeadHall
+---| 46 # CraftStore
+---| 47 # WeaponStore
+---| 48 # ArmorStore
+---| 49 # GeneralStore
+---| 50 # FoodStore
 ---| 51 # War
 ---| 52 # Battle
 ---| 53 # Siege
@@ -719,23 +729,23 @@ function _language_word_table_parts:erase(index) end
 ---| 56 # Bridge
 ---| 57 # Tunnel
 ---| 58 # Tomb
----| 59 # SymbolProtect2
+---| 59 # Vault
 ---| 60 # Library
 ---| 61 # Festival
 ---| 62 # EntityMerchantCompany
 ---| 63 # CountingHouse
----| 64 # EntityMerchantCompany2
+---| 64 # CraftGuild
 ---| 65 # Guildhall
 ---| 66 # NecromancerTower
 ---| 67 # Hospital
 
 ---@class identity.language_name_category: DFEnumType
----@field Unit 0
----@field [0] "Unit"
----@field Artifact 1
----@field [1] "Artifact"
----@field ArtifactEvil 2
----@field [2] "ArtifactEvil"
+---@field Unit 0 bay12: DefaultName
+---@field [0] "Unit" bay12: DefaultName
+---@field Artifact 1 ItemGood
+---@field [1] "Artifact" ItemGood
+---@field ArtifactEvil 2 ItemBad
+---@field [2] "ArtifactEvil" ItemBad
 ---@field Swamp 3
 ---@field [3] "Swamp"
 ---@field Desert 4
@@ -820,18 +830,18 @@ function _language_word_table_parts:erase(index) end
 ---@field [43] "Temple"
 ---@field Keep 44
 ---@field [44] "Keep"
----@field Unknown2 45
----@field [45] "Unknown2"
----@field SymbolArtifice 46
----@field [46] "SymbolArtifice"
----@field SymbolViolent 47
----@field [47] "SymbolViolent"
----@field SymbolProtect 48
----@field [48] "SymbolProtect"
----@field SymbolDomestic 49
----@field [49] "SymbolDomestic"
----@field SymbolFood 50
----@field [50] "SymbolFood"
+---@field MeadHall 45
+---@field [45] "MeadHall"
+---@field CraftStore 46
+---@field [46] "CraftStore"
+---@field WeaponStore 47
+---@field [47] "WeaponStore"
+---@field ArmorStore 48
+---@field [48] "ArmorStore"
+---@field GeneralStore 49
+---@field [49] "GeneralStore"
+---@field FoodStore 50
+---@field [50] "FoodStore"
 ---@field War 51
 ---@field [51] "War"
 ---@field Battle 52
@@ -848,8 +858,8 @@ function _language_word_table_parts:erase(index) end
 ---@field [57] "Tunnel"
 ---@field Tomb 58
 ---@field [58] "Tomb"
----@field SymbolProtect2 59
----@field [59] "SymbolProtect2"
+---@field Vault 59
+---@field [59] "Vault"
 ---@field Library 60
 ---@field [60] "Library"
 ---@field Festival 61
@@ -858,8 +868,8 @@ function _language_word_table_parts:erase(index) end
 ---@field [62] "EntityMerchantCompany"
 ---@field CountingHouse 63
 ---@field [63] "CountingHouse"
----@field EntityMerchantCompany2 64
----@field [64] "EntityMerchantCompany2"
+---@field CraftGuild 64
+---@field [64] "CraftGuild"
 ---@field Guildhall 65
 ---@field [65] "Guildhall"
 ---@field NecromancerTower 66
@@ -882,10 +892,10 @@ df.language_name_category = {}
 ---| 9 # FigureNoFirst
 ---| 10 # FigureFirstOnly
 ---| 11 # ArtImage
----| 12 # AdventuringGroup
+---| 12 # EntitySite
 ---| 13 # ElfTree
----| 14 # SiteGovernment
----| 15 # NomadicGroup
+---| 14 # NomadicGroup
+---| 15 # MigratingGroup
 ---| 16 # Vessel
 ---| 17 # MilitaryUnit
 ---| 18 # Religion
@@ -894,11 +904,11 @@ df.language_name_category = {}
 ---| 21 # Temple
 ---| 22 # Keep
 ---| 23 # MeadHall
----| 24 # SymbolArtifice
----| 25 # SymbolViolent
----| 26 # SymbolProtect
----| 27 # SymbolDomestic
----| 28 # SymbolFood
+---| 24 # CraftStore
+---| 25 # WeaponStore
+---| 26 # ArmorStore
+---| 27 # GeneralStore
+---| 28 # FoodStore
 ---| 29 # War
 ---| 30 # Battle
 ---| 31 # Siege
@@ -906,12 +916,12 @@ df.language_name_category = {}
 ---| 33 # Wall
 ---| 34 # Bridge
 ---| 35 # Tunnel
----| 36 # PretentiousEntityPosition
+---| 36 # HighPriest
 ---| 37 # Monument
 ---| 38 # Tomb
 ---| 39 # OutcastGroup
 ---| 40 # TrueName
----| 41 # SymbolProtect2
+---| 41 # Vault
 ---| 42 # PerformanceTroupe
 ---| 43 # Library
 ---| 44 # PoeticForm
@@ -927,42 +937,42 @@ df.language_name_category = {}
 ---| 54 # Hospital
 
 ---@class identity.language_name_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: NameType
+---@field [-1] "NONE" bay12: NameType
 ---@field Figure 0 0
 ---@field [0] "Figure" 0
----@field Artifact 1
----@field [1] "Artifact"
+---@field Artifact 1 Item
+---@field [1] "Artifact" Item
 ---@field Civilization 2
 ---@field [2] "Civilization"
 ---@field Squad 3
 ---@field [3] "Squad"
----@field Site 4
----@field [4] "Site"
+---@field Site 4 Fortress
+---@field [4] "Site" Fortress
 ---@field World 5
 ---@field [5] "World"
 ---@field Region 6
 ---@field [6] "Region"
----@field Dungeon 7
----@field [7] "Dungeon"
----@field LegendaryFigure 8
----@field [8] "LegendaryFigure"
----@field FigureNoFirst 9
----@field [9] "FigureNoFirst"
+---@field Dungeon 7 Cave
+---@field [7] "Dungeon" Cave
+---@field LegendaryFigure 8 Unit_OfThe
+---@field [8] "LegendaryFigure" Unit_OfThe
+---@field FigureNoFirst 9 Unit_Rear
+---@field [9] "FigureNoFirst" Unit_Rear
 ---@field FigureFirstOnly 10 10
 ---@field [10] "FigureFirstOnly" 10
 ---@field ArtImage 11
 ---@field [11] "ArtImage"
----@field AdventuringGroup 12
----@field [12] "AdventuringGroup"
----@field ElfTree 13
----@field [13] "ElfTree"
----@field SiteGovernment 14
----@field [14] "SiteGovernment"
----@field NomadicGroup 15
----@field [15] "NomadicGroup"
----@field Vessel 16 uses site word table. Can also be SiteGovernment founded by a group not belonging to a civ.
----@field [16] "Vessel" uses site word table. Can also be SiteGovernment founded by a group not belonging to a civ.
+---@field EntitySite 12
+---@field [12] "EntitySite"
+---@field ElfTree 13 Vegetation
+---@field [13] "ElfTree" Vegetation
+---@field NomadicGroup 14
+---@field [14] "NomadicGroup"
+---@field MigratingGroup 15
+---@field [15] "MigratingGroup"
+---@field Vessel 16
+---@field [16] "Vessel"
 ---@field MilitaryUnit 17
 ---@field [17] "MilitaryUnit"
 ---@field Religion 18
@@ -977,16 +987,16 @@ df.language_name_category = {}
 ---@field [22] "Keep"
 ---@field MeadHall 23
 ---@field [23] "MeadHall"
----@field SymbolArtifice 24
----@field [24] "SymbolArtifice"
----@field SymbolViolent 25
----@field [25] "SymbolViolent"
----@field SymbolProtect 26
----@field [26] "SymbolProtect"
----@field SymbolDomestic 27 Market
----@field [27] "SymbolDomestic" Market
----@field SymbolFood 28 Tavern
----@field [28] "SymbolFood" Tavern
+---@field CraftStore 24
+---@field [24] "CraftStore"
+---@field WeaponStore 25
+---@field [25] "WeaponStore"
+---@field ArmorStore 26
+---@field [26] "ArmorStore"
+---@field GeneralStore 27
+---@field [27] "GeneralStore"
+---@field FoodStore 28
+---@field [28] "FoodStore"
 ---@field War 29
 ---@field [29] "War"
 ---@field Battle 30 30
@@ -1001,8 +1011,8 @@ df.language_name_category = {}
 ---@field [34] "Bridge"
 ---@field Tunnel 35
 ---@field [35] "Tunnel"
----@field PretentiousEntityPosition 36
----@field [36] "PretentiousEntityPosition"
+---@field HighPriest 36
+---@field [36] "HighPriest"
 ---@field Monument 37
 ---@field [37] "Monument"
 ---@field Tomb 38
@@ -1011,8 +1021,8 @@ df.language_name_category = {}
 ---@field [39] "OutcastGroup"
 ---@field TrueName 40 40
 ---@field [40] "TrueName" 40
----@field SymbolProtect2 41
----@field [41] "SymbolProtect2"
+---@field Vault 41
+---@field [41] "Vault"
 ---@field PerformanceTroupe 42
 ---@field [42] "PerformanceTroupe"
 ---@field Library 43 uses military unit word table
@@ -1051,8 +1061,8 @@ df.language_name_type = {}
 ---| 6 # OfX
 
 ---@class identity.language_name_component: DFEnumType
----@field FrontCompound 0
----@field [0] "FrontCompound"
+---@field FrontCompound 0 bay12: NamePlaceType
+---@field [0] "FrontCompound" bay12: NamePlaceType
 ---@field RearCompound 1
 ---@field [1] "RearCompound"
 ---@field FirstAdjective 2

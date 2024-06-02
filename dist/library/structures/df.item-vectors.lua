@@ -27,7 +27,7 @@
 ---| 21 # ANY_REFUSE
 ---| 22 # ANY_GOOD_FOOD
 ---| 23 # ANY_AUTO_CLEAN
----| 24 # ANY_GENERIC24
+---| 24 # ANY_EXTRACTABLE
 ---| 25 # ANY_BUTCHERABLE
 ---| 26 # ANY_FURNITURE
 ---| 27 # ANY_CAGE_OR_TRAP
@@ -39,10 +39,10 @@
 ---| 33 # ANY_CAN_ROT
 ---| 34 # ANY_MURDERED
 ---| 35 # ANY_DEAD_DWARF
----| 36 # ANY_GENERIC36
----| 37 # ANY_GENERIC37
----| 38 # ANY_GENERIC38
----| 39 # ANY_GENERIC39
+---| 36 # ANY_GOES_IN_CHEST
+---| 37 # ANY_GOES_IN_CABINET
+---| 38 # ANY_GOES_IN_WEAPONRACK
+---| 39 # ANY_GOES_IN_ARMORSTAND
 ---| 40 # DOOR
 ---| 41 # FLOODGATE
 ---| 42 # HATCH_COVER
@@ -88,7 +88,7 @@
 ---| 82 # LIQUID_MISC
 ---| 83 # POWDER_MISC
 ---| 84 # ANY_COOKABLE
----| 85 # ANY_GENERIC84
+---| 85 # ANY_GLASSABLE
 ---| 86 # VERMIN
 ---| 87 # PET
 ---| 88 # ANY_CRITTER
@@ -132,7 +132,7 @@
 ---| 126 # SHOES
 ---| 127 # HELM
 ---| 128 # GLOVES
----| 129 # ANY_GENERIC128
+---| 129 # POSSIBLE_CONTAINER
 ---| 130 # FOOD_STORAGE
 ---| 131 # ANY_RECENTLY_DROPPED
 ---| 132 # ANY_MELT_DESIGNATED
@@ -146,8 +146,8 @@
 ---@field [1] "ANY_ARTIFACT"
 ---@field WEAPON 2
 ---@field [2] "WEAPON"
----@field ANY_WEAPON 3
----@field [3] "ANY_WEAPON"
+---@field ANY_WEAPON 3 trapcomp, also weapons
+---@field [3] "ANY_WEAPON" trapcomp, also weapons
 ---@field ANY_SPIKE 4
 ---@field [4] "ANY_SPIKE"
 ---@field ANY_TRUE_ARMOR 5
@@ -188,8 +188,8 @@
 ---@field [22] "ANY_GOOD_FOOD"
 ---@field ANY_AUTO_CLEAN 23
 ---@field [23] "ANY_AUTO_CLEAN"
----@field ANY_GENERIC24 24
----@field [24] "ANY_GENERIC24"
+---@field ANY_EXTRACTABLE 24
+---@field [24] "ANY_EXTRACTABLE"
 ---@field ANY_BUTCHERABLE 25
 ---@field [25] "ANY_BUTCHERABLE"
 ---@field ANY_FURNITURE 26
@@ -212,14 +212,14 @@
 ---@field [34] "ANY_MURDERED"
 ---@field ANY_DEAD_DWARF 35
 ---@field [35] "ANY_DEAD_DWARF"
----@field ANY_GENERIC36 36
----@field [36] "ANY_GENERIC36"
----@field ANY_GENERIC37 37
----@field [37] "ANY_GENERIC37"
----@field ANY_GENERIC38 38
----@field [38] "ANY_GENERIC38"
----@field ANY_GENERIC39 39
----@field [39] "ANY_GENERIC39"
+---@field ANY_GOES_IN_CHEST 36
+---@field [36] "ANY_GOES_IN_CHEST"
+---@field ANY_GOES_IN_CABINET 37
+---@field [37] "ANY_GOES_IN_CABINET"
+---@field ANY_GOES_IN_WEAPONRACK 38
+---@field [38] "ANY_GOES_IN_WEAPONRACK"
+---@field ANY_GOES_IN_ARMORSTAND 39
+---@field [39] "ANY_GOES_IN_ARMORSTAND"
 ---@field DOOR 40 40
 ---@field [40] "DOOR" 40
 ---@field FLOODGATE 41
@@ -310,8 +310,8 @@
 ---@field [83] "POWDER_MISC"
 ---@field ANY_COOKABLE 84
 ---@field [84] "ANY_COOKABLE"
----@field ANY_GENERIC84 85 sand-containing?
----@field [85] "ANY_GENERIC84" sand-containing?
+---@field ANY_GLASSABLE 85
+---@field [85] "ANY_GLASSABLE"
 ---@field VERMIN 86
 ---@field [86] "VERMIN"
 ---@field PET 87
@@ -398,8 +398,8 @@
 ---@field [127] "HELM"
 ---@field GLOVES 128
 ---@field [128] "GLOVES"
----@field ANY_GENERIC128 129
----@field [129] "ANY_GENERIC128"
+---@field POSSIBLE_CONTAINER 129
+---@field [129] "POSSIBLE_CONTAINER"
 ---@field FOOD_STORAGE 130
 ---@field [130] "FOOD_STORAGE"
 ---@field ANY_RECENTLY_DROPPED 131 130
@@ -443,7 +443,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANY_REFUSE { item: "NONE", generic_item: "CORPSE" }
 ---@field ANY_GOOD_FOOD { item: "NONE", generic_item: "BOX" }
 ---@field ANY_AUTO_CLEAN { item: "NONE", generic_item: "DRINK" }
----@field ANY_GENERIC24 { item: "NONE", generic_item: "CAGE" }
+---@field ANY_EXTRACTABLE { item: "NONE", generic_item: "CAGE" }
 ---@field ANY_BUTCHERABLE { item: "NONE", generic_item: "CAGE" }
 ---@field ANY_FURNITURE { item: "NONE" }
 ---@field ANY_CAGE_OR_TRAP { item: "NONE", generic_item: "CAGE" }
@@ -455,10 +455,10 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANY_CAN_ROT { item: "NONE", generic_item: "CORPSE" }
 ---@field ANY_MURDERED { item: "NONE", generic_item: "CORPSE" }
 ---@field ANY_DEAD_DWARF { item: "NONE" }
----@field ANY_GENERIC36 { item: "NONE", generic_item: "BAR" }
----@field ANY_GENERIC37 { item: "NONE", generic_item: "ARMOR" }
----@field ANY_GENERIC38 { item: "NONE", generic_item: "WEAPON" }
----@field ANY_GENERIC39 { item: "NONE", generic_item: "ARMOR" }
+---@field ANY_GOES_IN_CHEST { item: "NONE", generic_item: "BAR" }
+---@field ANY_GOES_IN_CABINET { item: "NONE", generic_item: "ARMOR" }
+---@field ANY_GOES_IN_WEAPONRACK { item: "NONE", generic_item: "WEAPON" }
+---@field ANY_GOES_IN_ARMORSTAND { item: "NONE", generic_item: "ARMOR" }
 ---@field DOOR { item: "DOOR" }
 ---@field FLOODGATE { item: "FLOODGATE" }
 ---@field HATCH_COVER { item: "HATCH_COVER" }
@@ -504,7 +504,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field LIQUID_MISC { item: "LIQUID_MISC" }
 ---@field POWDER_MISC { item: "POWDER_MISC" }
 ---@field ANY_COOKABLE { item: "NONE", generic_item: "FLASK" }
----@field ANY_GENERIC84 { item: "NONE", generic_item: "BOX" }
+---@field ANY_GLASSABLE { item: "NONE", generic_item: "BOX" }
 ---@field VERMIN { item: "NONE", generic_item: "VERMIN" }
 ---@field PET { item: "NONE", generic_item: "PET" }
 ---@field ANY_CRITTER { item: "NONE", generic_item: "VERMIN" }
@@ -548,7 +548,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field SHOES { item: "SHOES" }
 ---@field HELM { item: "HELM" }
 ---@field GLOVES { item: "GLOVES" }
----@field ANY_GENERIC128 { item: "NONE", generic_item: "FLASK" }
+---@field POSSIBLE_CONTAINER { item: "NONE", generic_item: "FLASK" }
 ---@field FOOD_STORAGE { item: "NONE", generic_item: "BARREL" }
 ---@field ANY_RECENTLY_DROPPED { item: "NONE" }
 ---@field ANY_MELT_DESIGNATED { item: "NONE" }
@@ -569,7 +569,7 @@ df.items_other_id.attrs = {}
 ---| 11 # ANY_ARMOR_PANTS
 ---| 12 # QUIVER
 ---| 13 # SPLINT
----| 14 # ANY_14
+---| 14 # ORTHOPEDIC_CAST
 ---| 15 # CRUTCH
 ---| 16 # BACKPACK
 ---| 17 # AMMO
@@ -579,7 +579,7 @@ df.items_other_id.attrs = {}
 ---| 21 # ANY_REFUSE
 ---| 22 # ANY_GOOD_FOOD
 ---| 23 # ANY_AUTO_CLEAN
----| 24 # ANY_GENERIC24
+---| 24 # ANY_EXTRACTABLE
 ---| 25 # ANY_BUTCHERABLE
 ---| 26 # ANY_FURNITURE
 ---| 27 # ANY_CAGE_OR_TRAP
@@ -591,10 +591,10 @@ df.items_other_id.attrs = {}
 ---| 33 # ANY_CAN_ROT
 ---| 34 # ANY_MURDERED
 ---| 35 # ANY_DEAD_DWARF
----| 36 # ANY_GENERIC36
----| 37 # ANY_GENERIC37
----| 38 # ANY_GENERIC38
----| 39 # ANY_GENERIC39
+---| 36 # ANY_GOES_IN_CHEST
+---| 37 # ANY_GOES_IN_CABINET
+---| 38 # ANY_GOES_IN_WEAPONRACK
+---| 39 # ANY_GOES_IN_ARMORSTAND
 ---| 40 # DOOR
 ---| 41 # FLOODGATE
 ---| 42 # HATCH_COVER
@@ -636,7 +636,7 @@ df.items_other_id.attrs = {}
 ---| 78 # LIQUID_MISC
 ---| 79 # POWDER_MISC
 ---| 80 # ANY_COOKABLE
----| 81 # ANY_GENERIC84
+---| 81 # ANY_GLASSABLE
 ---| 82 # VERMIN
 ---| 83 # PET
 ---| 84 # ANY_CRITTER
@@ -678,14 +678,17 @@ df.items_other_id.attrs = {}
 ---| 121 # SHOES
 ---| 122 # HELM
 ---| 123 # GLOVES
----| 124 # ANY_124
----| 125 # ANY_125
+---| 124 # TOOL
+---| 125 # SLAB
 ---| 126 # EGG
----| 127 # ANY_127
+---| 127 # POSSIBLE_CONTAINER
 ---| 128 # ANY_CORPSE
 ---| 129 # BOOK
+---| 130 # FOOD_STORAGE
+---| 131 # INSTRUMENT_STATIONARY
 ---| 132 # SHEET
 ---| 133 # BRANCH
+---| 134 # BAG
 
 ---@class identity.job_item_vector_id: DFEnumType
 ---@field ANY 0
@@ -716,8 +719,8 @@ df.items_other_id.attrs = {}
 ---@field [12] "QUIVER"
 ---@field SPLINT 13
 ---@field [13] "SPLINT"
----@field ANY_14 14 supposed to be ORTHOPEDIC_CAST
----@field [14] "ANY_14" supposed to be ORTHOPEDIC_CAST
+---@field ORTHOPEDIC_CAST 14
+---@field [14] "ORTHOPEDIC_CAST"
 ---@field CRUTCH 15
 ---@field [15] "CRUTCH"
 ---@field BACKPACK 16
@@ -736,8 +739,8 @@ df.items_other_id.attrs = {}
 ---@field [22] "ANY_GOOD_FOOD"
 ---@field ANY_AUTO_CLEAN 23
 ---@field [23] "ANY_AUTO_CLEAN"
----@field ANY_GENERIC24 24 vermin cage?
----@field [24] "ANY_GENERIC24" vermin cage?
+---@field ANY_EXTRACTABLE 24
+---@field [24] "ANY_EXTRACTABLE"
 ---@field ANY_BUTCHERABLE 25
 ---@field [25] "ANY_BUTCHERABLE"
 ---@field ANY_FURNITURE 26
@@ -760,14 +763,14 @@ df.items_other_id.attrs = {}
 ---@field [34] "ANY_MURDERED"
 ---@field ANY_DEAD_DWARF 35
 ---@field [35] "ANY_DEAD_DWARF"
----@field ANY_GENERIC36 36
----@field [36] "ANY_GENERIC36"
----@field ANY_GENERIC37 37
----@field [37] "ANY_GENERIC37"
----@field ANY_GENERIC38 38
----@field [38] "ANY_GENERIC38"
----@field ANY_GENERIC39 39
----@field [39] "ANY_GENERIC39"
+---@field ANY_GOES_IN_CHEST 36
+---@field [36] "ANY_GOES_IN_CHEST"
+---@field ANY_GOES_IN_CABINET 37
+---@field [37] "ANY_GOES_IN_CABINET"
+---@field ANY_GOES_IN_WEAPONRACK 38
+---@field [38] "ANY_GOES_IN_WEAPONRACK"
+---@field ANY_GOES_IN_ARMORSTAND 39
+---@field [39] "ANY_GOES_IN_ARMORSTAND"
 ---@field DOOR 40
 ---@field [40] "DOOR"
 ---@field FLOODGATE 41 41
@@ -850,8 +853,8 @@ df.items_other_id.attrs = {}
 ---@field [79] "POWDER_MISC" 79
 ---@field ANY_COOKABLE 80
 ---@field [80] "ANY_COOKABLE"
----@field ANY_GENERIC84 81
----@field [81] "ANY_GENERIC84"
+---@field ANY_GLASSABLE 81
+---@field [81] "ANY_GLASSABLE"
 ---@field VERMIN 82
 ---@field [82] "VERMIN"
 ---@field PET 83
@@ -934,22 +937,28 @@ df.items_other_id.attrs = {}
 ---@field [122] "HELM"
 ---@field GLOVES 123
 ---@field [123] "GLOVES"
----@field ANY_124 124 supposed to be TOOL
----@field [124] "ANY_124" supposed to be TOOL
----@field ANY_125 125 supposed to be SLAB
----@field [125] "ANY_125" supposed to be SLAB
+---@field TOOL 124
+---@field [124] "TOOL"
+---@field SLAB 125
+---@field [125] "SLAB"
 ---@field EGG 126
 ---@field [126] "EGG"
----@field ANY_127 127 supposed to be FOOD_STORAGE
----@field [127] "ANY_127" supposed to be FOOD_STORAGE
+---@field POSSIBLE_CONTAINER 127
+---@field [127] "POSSIBLE_CONTAINER"
 ---@field ANY_CORPSE 128
 ---@field [128] "ANY_CORPSE"
 ---@field BOOK 129
 ---@field [129] "BOOK"
+---@field FOOD_STORAGE 130
+---@field [130] "FOOD_STORAGE"
+---@field INSTRUMENT_STATIONARY 131 131
+---@field [131] "INSTRUMENT_STATIONARY" 131
 ---@field SHEET 132
 ---@field [132] "SHEET"
 ---@field BRANCH 133
 ---@field [133] "BRANCH"
+---@field BAG 134
+---@field [134] "BAG"
 df.job_item_vector_id = {}
 
 ---@class job_item_vector_id_attr_entry_type: DFCompoundType
@@ -957,7 +966,7 @@ df.job_item_vector_id = {}
 df.job_item_vector_id._attr_entry_type = {}
 
 ---@class (exact) job_item_vector_id_attr_entry_type_fields
----@field other DFCompoundField
+---@field other DFCompoundField bay12: ItemArrayType
 df.job_item_vector_id._attr_entry_type._fields = {}
 
 ---@class job_item_vector_id_attrs
@@ -975,7 +984,7 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field ANY_ARMOR_PANTS { other: "ANY_ARMOR_PANTS" }
 ---@field QUIVER { other: "QUIVER" }
 ---@field SPLINT { other: "SPLINT" }
----@field ANY_14 { other: "ANY" }
+---@field ORTHOPEDIC_CAST { other: "ORTHOPEDIC_CAST" }
 ---@field CRUTCH { other: "CRUTCH" }
 ---@field BACKPACK { other: "BACKPACK" }
 ---@field AMMO { other: "AMMO" }
@@ -985,7 +994,7 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field ANY_REFUSE { other: "ANY_REFUSE" }
 ---@field ANY_GOOD_FOOD { other: "ANY_GOOD_FOOD" }
 ---@field ANY_AUTO_CLEAN { other: "ANY_AUTO_CLEAN" }
----@field ANY_GENERIC24 { other: "ANY_GENERIC24" }
+---@field ANY_EXTRACTABLE { other: "ANY_EXTRACTABLE" }
 ---@field ANY_BUTCHERABLE { other: "ANY_BUTCHERABLE" }
 ---@field ANY_FURNITURE { other: "ANY_FURNITURE" }
 ---@field ANY_CAGE_OR_TRAP { other: "ANY_CAGE_OR_TRAP" }
@@ -997,10 +1006,10 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field ANY_CAN_ROT { other: "ANY_CAN_ROT" }
 ---@field ANY_MURDERED { other: "ANY_MURDERED" }
 ---@field ANY_DEAD_DWARF { other: "ANY_DEAD_DWARF" }
----@field ANY_GENERIC36 { other: "ANY_GENERIC36" }
----@field ANY_GENERIC37 { other: "ANY_GENERIC37" }
----@field ANY_GENERIC38 { other: "ANY_GENERIC38" }
----@field ANY_GENERIC39 { other: "ANY_GENERIC39" }
+---@field ANY_GOES_IN_CHEST { other: "ANY_GOES_IN_CHEST" }
+---@field ANY_GOES_IN_CABINET { other: "ANY_GOES_IN_CABINET" }
+---@field ANY_GOES_IN_WEAPONRACK { other: "ANY_GOES_IN_WEAPONRACK" }
+---@field ANY_GOES_IN_ARMORSTAND { other: "ANY_GOES_IN_ARMORSTAND" }
 ---@field DOOR { other: "DOOR" }
 ---@field FLOODGATE { other: "FLOODGATE" }
 ---@field HATCH_COVER { other: "HATCH_COVER" }
@@ -1042,7 +1051,7 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field LIQUID_MISC { other: "LIQUID_MISC" }
 ---@field POWDER_MISC { other: "POWDER_MISC" }
 ---@field ANY_COOKABLE { other: "ANY_COOKABLE" }
----@field ANY_GENERIC84 { other: "ANY_GENERIC84" }
+---@field ANY_GLASSABLE { other: "ANY_GLASSABLE" }
 ---@field VERMIN { other: "VERMIN" }
 ---@field PET { other: "PET" }
 ---@field ANY_CRITTER { other: "ANY_CRITTER" }
@@ -1084,14 +1093,17 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field SHOES { other: "SHOES" }
 ---@field HELM { other: "HELM" }
 ---@field GLOVES { other: "GLOVES" }
----@field ANY_124 { other: "ANY" }
----@field ANY_125 { other: "ANY" }
+---@field TOOL { other: "TOOL" }
+---@field SLAB { other: "SLAB" }
 ---@field EGG { other: "EGG" }
----@field ANY_127 { other: "ANY" }
+---@field POSSIBLE_CONTAINER { other: "POSSIBLE_CONTAINER" }
 ---@field ANY_CORPSE { other: "ANY_CORPSE" }
 ---@field BOOK { other: "BOOK" }
+---@field FOOD_STORAGE { other: "FOOD_STORAGE" }
+---@field INSTRUMENT_STATIONARY { other: "INSTRUMENT_STATIONARY" }
 ---@field SHEET { other: "SHEET" }
 ---@field BRANCH { other: "BRANCH" }
+---@field BAG { other: "BAG" }
 df.job_item_vector_id.attrs = {}
 
 ---@class (exact) df.items_other: DFStruct
@@ -1120,7 +1132,7 @@ df.job_item_vector_id.attrs = {}
 ---@field ANY_REFUSE _items_other_ANY_REFUSE
 ---@field ANY_GOOD_FOOD _items_other_ANY_GOOD_FOOD
 ---@field ANY_AUTO_CLEAN _items_other_ANY_AUTO_CLEAN
----@field ANY_GENERIC24 _items_other_ANY_GENERIC24
+---@field ANY_EXTRACTABLE _items_other_ANY_EXTRACTABLE
 ---@field ANY_BUTCHERABLE _items_other_ANY_BUTCHERABLE
 ---@field ANY_FURNITURE _items_other_ANY_FURNITURE
 ---@field ANY_CAGE_OR_TRAP _items_other_ANY_CAGE_OR_TRAP
@@ -1132,10 +1144,10 @@ df.job_item_vector_id.attrs = {}
 ---@field ANY_CAN_ROT _items_other_ANY_CAN_ROT
 ---@field ANY_MURDERED _items_other_ANY_MURDERED
 ---@field ANY_DEAD_DWARF _items_other_ANY_DEAD_DWARF
----@field ANY_GENERIC36 _items_other_ANY_GENERIC36
----@field ANY_GENERIC37 _items_other_ANY_GENERIC37
----@field ANY_GENERIC38 _items_other_ANY_GENERIC38
----@field ANY_GENERIC39 _items_other_ANY_GENERIC39
+---@field ANY_GOES_IN_CHEST _items_other_ANY_GOES_IN_CHEST
+---@field ANY_GOES_IN_CABINET _items_other_ANY_GOES_IN_CABINET
+---@field ANY_GOES_IN_WEAPONRACK _items_other_ANY_GOES_IN_WEAPONRACK
+---@field ANY_GOES_IN_ARMORSTAND _items_other_ANY_GOES_IN_ARMORSTAND
 ---@field DOOR _items_other_DOOR
 ---@field FLOODGATE _items_other_FLOODGATE
 ---@field HATCH_COVER _items_other_HATCH_COVER
@@ -1181,7 +1193,7 @@ df.job_item_vector_id.attrs = {}
 ---@field LIQUID_MISC _items_other_LIQUID_MISC
 ---@field POWDER_MISC _items_other_POWDER_MISC
 ---@field ANY_COOKABLE _items_other_ANY_COOKABLE
----@field ANY_GENERIC84 _items_other_ANY_GENERIC84
+---@field ANY_GLASSABLE _items_other_ANY_GLASSABLE
 ---@field VERMIN _items_other_VERMIN
 ---@field PET _items_other_PET
 ---@field ANY_CRITTER _items_other_ANY_CRITTER
@@ -1225,7 +1237,7 @@ df.job_item_vector_id.attrs = {}
 ---@field SHOES _items_other_SHOES
 ---@field HELM _items_other_HELM
 ---@field GLOVES _items_other_GLOVES
----@field ANY_GENERIC128 _items_other_ANY_GENERIC128
+---@field POSSIBLE_CONTAINER _items_other_POSSIBLE_CONTAINER
 ---@field FOOD_STORAGE _items_other_FOOD_STORAGE
 ---@field ANY_RECENTLY_DROPPED _items_other_ANY_RECENTLY_DROPPED
 ---@field ANY_MELT_DESIGNATED _items_other_ANY_MELT_DESIGNATED
@@ -1621,21 +1633,21 @@ function _items_other_ANY_AUTO_CLEAN:insert(index, item) end
 ---@param index integer
 function _items_other_ANY_AUTO_CLEAN:erase(index) end
 
----@class _items_other_ANY_GENERIC24: DFContainer
+---@class _items_other_ANY_EXTRACTABLE: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC24
+local _items_other_ANY_EXTRACTABLE
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC24:_field(index) end
+function _items_other_ANY_EXTRACTABLE:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC24:insert(index, item) end
+function _items_other_ANY_EXTRACTABLE:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC24:erase(index) end
+function _items_other_ANY_EXTRACTABLE:erase(index) end
 
 ---@class _items_other_ANY_BUTCHERABLE: DFContainer
 ---@field [integer] df.item
@@ -1813,69 +1825,69 @@ function _items_other_ANY_DEAD_DWARF:insert(index, item) end
 ---@param index integer
 function _items_other_ANY_DEAD_DWARF:erase(index) end
 
----@class _items_other_ANY_GENERIC36: DFContainer
+---@class _items_other_ANY_GOES_IN_CHEST: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC36
+local _items_other_ANY_GOES_IN_CHEST
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC36:_field(index) end
+function _items_other_ANY_GOES_IN_CHEST:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC36:insert(index, item) end
+function _items_other_ANY_GOES_IN_CHEST:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC36:erase(index) end
+function _items_other_ANY_GOES_IN_CHEST:erase(index) end
 
----@class _items_other_ANY_GENERIC37: DFContainer
+---@class _items_other_ANY_GOES_IN_CABINET: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC37
+local _items_other_ANY_GOES_IN_CABINET
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC37:_field(index) end
+function _items_other_ANY_GOES_IN_CABINET:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC37:insert(index, item) end
+function _items_other_ANY_GOES_IN_CABINET:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC37:erase(index) end
+function _items_other_ANY_GOES_IN_CABINET:erase(index) end
 
----@class _items_other_ANY_GENERIC38: DFContainer
+---@class _items_other_ANY_GOES_IN_WEAPONRACK: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC38
+local _items_other_ANY_GOES_IN_WEAPONRACK
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC38:_field(index) end
+function _items_other_ANY_GOES_IN_WEAPONRACK:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC38:insert(index, item) end
+function _items_other_ANY_GOES_IN_WEAPONRACK:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC38:erase(index) end
+function _items_other_ANY_GOES_IN_WEAPONRACK:erase(index) end
 
----@class _items_other_ANY_GENERIC39: DFContainer
+---@class _items_other_ANY_GOES_IN_ARMORSTAND: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC39
+local _items_other_ANY_GOES_IN_ARMORSTAND
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC39:_field(index) end
+function _items_other_ANY_GOES_IN_ARMORSTAND:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC39:insert(index, item) end
+function _items_other_ANY_GOES_IN_ARMORSTAND:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC39:erase(index) end
+function _items_other_ANY_GOES_IN_ARMORSTAND:erase(index) end
 
 ---@class _items_other_DOOR: DFContainer
 ---@field [integer] df.item_doorst
@@ -2597,21 +2609,21 @@ function _items_other_ANY_COOKABLE:insert(index, item) end
 ---@param index integer
 function _items_other_ANY_COOKABLE:erase(index) end
 
----@class _items_other_ANY_GENERIC84: DFContainer
+---@class _items_other_ANY_GLASSABLE: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC84
+local _items_other_ANY_GLASSABLE
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC84:_field(index) end
+function _items_other_ANY_GLASSABLE:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC84:insert(index, item) end
+function _items_other_ANY_GLASSABLE:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC84:erase(index) end
+function _items_other_ANY_GLASSABLE:erase(index) end
 
 ---@class _items_other_VERMIN: DFContainer
 ---@field [integer] df.item_verminst
@@ -3301,21 +3313,21 @@ function _items_other_GLOVES:insert(index, item) end
 ---@param index integer
 function _items_other_GLOVES:erase(index) end
 
----@class _items_other_ANY_GENERIC128: DFContainer
+---@class _items_other_POSSIBLE_CONTAINER: DFContainer
 ---@field [integer] df.item
-local _items_other_ANY_GENERIC128
+local _items_other_POSSIBLE_CONTAINER
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item>
-function _items_other_ANY_GENERIC128:_field(index) end
+function _items_other_POSSIBLE_CONTAINER:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item
-function _items_other_ANY_GENERIC128:insert(index, item) end
+function _items_other_POSSIBLE_CONTAINER:insert(index, item) end
 
 ---@param index integer
-function _items_other_ANY_GENERIC128:erase(index) end
+function _items_other_POSSIBLE_CONTAINER:erase(index) end
 
 ---@class _items_other_FOOD_STORAGE: DFContainer
 ---@field [integer] df.item

@@ -783,8 +783,8 @@
 ---@field [209] "CURRENT_DATE"
 ---@field NO_GRASP_FOR_PICKUP 210
 ---@field [210] "NO_GRASP_FOR_PICKUP"
----@field CANNOT_CHOP_TREE 211 formerly TRAVEL_ADVISORY
----@field [211] "CANNOT_CHOP_TREE" formerly TRAVEL_ADVISORY
+---@field CANNOT_CHOP_TREE 211
+---@field [211] "CANNOT_CHOP_TREE"
 ---@field CANNOT_CLIMB 212
 ---@field [212] "CANNOT_CLIMB"
 ---@field CANNOT_STAND 213
@@ -1076,7 +1076,7 @@ df.announcement_type = {}
 df.announcement_type._attr_entry_type = {}
 
 ---@class (exact) announcement_type_attr_entry_type_fields
----@field alert_type DFCompoundField
+---@field alert_type DFCompoundField bay12: AnnouncementType
 df.announcement_type._attr_entry_type._fields = {}
 
 ---@class announcement_type_attrs
@@ -1478,8 +1478,8 @@ df.announcement_type.attrs = {}
 ---| 36 # HUNTING
 
 ---@class identity.announcement_alert_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: AnnouncementAlertType
+---@field [-1] "NONE" bay12: AnnouncementAlertType
 ---@field GENERAL 0
 ---@field [0] "GENERAL"
 ---@field ERA_CHANGE 1
@@ -1558,8 +1558,8 @@ df.announcement_alert_type = {}
 
 ---@class df.announcement_flags: DFBitfield
 ---@field _enum identity.announcement_flags
----@field DO_MEGA boolean BOX
----@field [0] boolean BOX
+---@field DO_MEGA boolean bay12: INIT_ANNOUNCEMENT_FLAG_*
+---@field [0] boolean bay12: INIT_ANNOUNCEMENT_FLAG_*
 ---@field PAUSE boolean P
 ---@field [1] boolean P
 ---@field RECENTER boolean R
@@ -1576,8 +1576,8 @@ df.announcement_alert_type = {}
 ---@field [7] boolean ALERT
 
 ---@class identity.announcement_flags: DFBitfieldType
----@field DO_MEGA 0 BOX
----@field [0] "DO_MEGA" BOX
+---@field DO_MEGA 0 bay12: INIT_ANNOUNCEMENT_FLAG_*
+---@field [0] "DO_MEGA" bay12: INIT_ANNOUNCEMENT_FLAG_*
 ---@field PAUSE 1 P
 ---@field [1] "PAUSE" P
 ---@field RECENTER 2 R
@@ -1643,16 +1643,16 @@ function df.report.get_vector() end
 
 ---@class df.report.T_flags: DFBitfield
 ---@field _enum identity.report.flags
----@field continuation boolean When split into multiple lines, set on all but the first
----@field [0] boolean When split into multiple lines, set on all but the first
+---@field continuation boolean bay12: ANNOUNCEMENTFLAG_*
+---@field [0] boolean bay12: ANNOUNCEMENTFLAG_*
 ---@field unconscious boolean units.active[0]
 ---@field [1] boolean units.active[0]
 ---@field announcement boolean
 ---@field [2] boolean
 
 ---@class identity.report.flags: DFBitfieldType
----@field continuation 0 When split into multiple lines, set on all but the first
----@field [0] "continuation" When split into multiple lines, set on all but the first
+---@field continuation 0 bay12: ANNOUNCEMENTFLAG_*
+---@field [0] "continuation" bay12: ANNOUNCEMENTFLAG_*
 ---@field unconscious 1 units.active[0]
 ---@field [1] "unconscious" units.active[0]
 ---@field announcement 2
@@ -1665,8 +1665,8 @@ df.report.T_flags = {}
 ---| 2 # Unit
 
 ---@class identity.report_zoom_type: DFEnumType
----@field Generic 0
----@field [0] "Generic"
+---@field Generic 0 bay12: AnnouncementLocationType
+---@field [0] "Generic" bay12: AnnouncementLocationType
 ---@field Item 1
 ---@field [1] "Item"
 ---@field Unit 2
@@ -1743,11 +1743,11 @@ function df.announcement_infost:new() end
 
 ---@class df.announcement_infost.T_flags: DFBitfield
 ---@field _enum identity.announcement_infost.flags
----@field SPARRING_EVENT boolean determined by unit_action_data_attack.flags.sparring_hit
----@field [0] boolean determined by unit_action_data_attack.flags.sparring_hit
+---@field SPARRING_EVENT boolean bay12: ANNOUNCEMENT_INFO_FLAG_*
+---@field [0] boolean bay12: ANNOUNCEMENT_INFO_FLAG_*
 
 ---@class identity.announcement_infost.flags: DFBitfieldType
----@field SPARRING_EVENT 0 determined by unit_action_data_attack.flags.sparring_hit
----@field [0] "SPARRING_EVENT" determined by unit_action_data_attack.flags.sparring_hit
+---@field SPARRING_EVENT 0 bay12: ANNOUNCEMENT_INFO_FLAG_*
+---@field [0] "SPARRING_EVENT" bay12: ANNOUNCEMENT_INFO_FLAG_*
 df.announcement_infost.T_flags = {}
 

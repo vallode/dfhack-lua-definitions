@@ -171,10 +171,48 @@ df.incident_hfid = {}
 ---@return df.incident_hfid
 function df.incident_hfid:new() end
 
+---@alias df.incident_type
+---| 0 # Death
+---| 1 # Crime
+---| 2 # Attack
+---| 3 # Escalation
+---| 4 # Reunion
+---| 5 # YieldDemand
+---| 6 # Performance
+---| 7 # Artifact
+---| 8 # Writing
+---| 9 # SelfID
+---| 10 # RefusedID
+
+---@class identity.incident_type: DFEnumType
+---@field Death 0 bay12: IncidentType
+---@field [0] "Death" bay12: IncidentType
+---@field Crime 1 Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
+---@field [1] "Crime" Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
+---@field Attack 2
+---@field [2] "Attack"
+---@field Escalation 3
+---@field [3] "Escalation"
+---@field Reunion 4
+---@field [4] "Reunion"
+---@field YieldDemand 5
+---@field [5] "YieldDemand"
+---@field Performance 6
+---@field [6] "Performance"
+---@field Artifact 7
+---@field [7] "Artifact"
+---@field Writing 8
+---@field [8] "Writing"
+---@field SelfID 9
+---@field [9] "SelfID"
+---@field RefusedID 10
+---@field [10] "RefusedID"
+df.incident_type = {}
+
 ---@class (exact) df.incident: DFStruct
 ---@field _type identity.incident
 ---@field id number dtor 0x8C1AE10
----@field type df.incident.T_type
+---@field type df.incident_type
 ---@field witnesses DFNumberVector
 ---@field unk_year number
 ---@field unk_year_tick number
@@ -223,44 +261,6 @@ function df.incident.find(key) end
 
 ---@return incident_vector # df.global.world.incidents.all
 function df.incident.get_vector() end
-
----@alias df.incident.T_type
----| 0 # Death
----| 1 # Crime
----| 2 # Attack
----| 3 # Escalation
----| 4 # Reunion
----| 5 # YieldDemand
----| 6 # Performance
----| 7 # Artifact
----| 8 # Writing
----| 9 # SelfID
----| 10 # RefusedID
-
----@class identity.incident.type: DFEnumType
----@field Death 0
----@field [0] "Death"
----@field Crime 1 Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
----@field [1] "Crime" Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
----@field Attack 2
----@field [2] "Attack"
----@field Escalation 3
----@field [3] "Escalation"
----@field Reunion 4
----@field [4] "Reunion"
----@field YieldDemand 5
----@field [5] "YieldDemand"
----@field Performance 6
----@field [6] "Performance"
----@field Artifact 7
----@field [7] "Artifact"
----@field Writing 8
----@field [8] "Writing"
----@field SelfID 9
----@field [9] "SelfID"
----@field RefusedID 10
----@field [10] "RefusedID"
-df.incident.T_type = {}
 
 ---@class df.incident.T_flags: DFBitfield
 ---@field _enum identity.incident.flags
@@ -437,11 +437,73 @@ function _incident_data_identity_unk_1:insert(index, item) end
 ---@param index integer
 function _incident_data_identity_unk_1:erase(index) end
 
+---@alias df.crime_type
+---| 0 # ProductionOrderViolation
+---| 1 # ExportViolation
+---| 2 # JobOrderViolation
+---| 3 # ConspiracyToSlowLabor
+---| 4 # Murder
+---| 5 # DisorderlyBehavior
+---| 6 # BuildingDestruction
+---| 7 # Vandalism
+---| 8 # Theft
+---| 9 # Robbery
+---| 10 # BloodDrinking
+---| 11 # Embezzlement
+---| 12 # AttemptedMurder
+---| 13 # Kidnapping
+---| 14 # AttemptedKidnapping
+---| 15 # AttemptedTheft
+---| 16 # Treason
+---| 17 # Espionage
+---| 18 # Bribery
+
+---@class identity.crime_type: DFEnumType
+---@field ProductionOrderViolation 0 bay12: CrimeType
+---@field [0] "ProductionOrderViolation" bay12: CrimeType
+---@field ExportViolation 1
+---@field [1] "ExportViolation"
+---@field JobOrderViolation 2
+---@field [2] "JobOrderViolation"
+---@field ConspiracyToSlowLabor 3
+---@field [3] "ConspiracyToSlowLabor"
+---@field Murder 4
+---@field [4] "Murder"
+---@field DisorderlyBehavior 5
+---@field [5] "DisorderlyBehavior"
+---@field BuildingDestruction 6
+---@field [6] "BuildingDestruction"
+---@field Vandalism 7
+---@field [7] "Vandalism"
+---@field Theft 8
+---@field [8] "Theft"
+---@field Robbery 9
+---@field [9] "Robbery"
+---@field BloodDrinking 10
+---@field [10] "BloodDrinking"
+---@field Embezzlement 11
+---@field [11] "Embezzlement"
+---@field AttemptedMurder 12
+---@field [12] "AttemptedMurder"
+---@field Kidnapping 13
+---@field [13] "Kidnapping"
+---@field AttemptedKidnapping 14
+---@field [14] "AttemptedKidnapping"
+---@field AttemptedTheft 15
+---@field [15] "AttemptedTheft"
+---@field Treason 16
+---@field [16] "Treason"
+---@field Espionage 17
+---@field [17] "Espionage"
+---@field Bribery 18
+---@field [18] "Bribery"
+df.crime_type = {}
+
 ---@class (exact) df.crime: DFStruct
 ---@field _type identity.crime
 ---@field id number dtor 0x8C166D0
----@field mode df.crime.T_mode
----@field punishment df.crime.T_punishment
+---@field mode df.crime_type
+---@field punishment df.punishmentst
 ---@field criminal number References: `df.unit`
 ---@field criminal_hf number References: `df.historical_figure`
 ---@field criminal_hf_2 number Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss<br>References: `df.historical_figure`
@@ -484,81 +546,6 @@ function df.crime.find(key) end
 
 ---@return crime_vector # df.global.world.crimes.all
 function df.crime.get_vector() end
-
----@alias df.crime.T_mode
----| 0 # ProductionOrderViolation
----| 1 # ExportViolation
----| 2 # JobOrderViolation
----| 3 # ConspiracyToSlowLabor
----| 4 # Murder
----| 5 # DisorderlyBehavior
----| 6 # BuildingDestruction
----| 7 # Vandalism
----| 8 # Theft
----| 9 # Robbery
----| 10 # BloodDrinking
----| 11 # Embezzlement
----| 12 # AttemptedMurder
----| 13 # Kidnapping
----| 14 # AttemptedKidnapping
----| 15 # AttemptedTheft
----| 16 # Treason
----| 17 # Espionage
----| 18 # Bribery
-
----@class identity.crime.mode: DFEnumType
----@field ProductionOrderViolation 0
----@field [0] "ProductionOrderViolation"
----@field ExportViolation 1
----@field [1] "ExportViolation"
----@field JobOrderViolation 2
----@field [2] "JobOrderViolation"
----@field ConspiracyToSlowLabor 3
----@field [3] "ConspiracyToSlowLabor"
----@field Murder 4
----@field [4] "Murder"
----@field DisorderlyBehavior 5
----@field [5] "DisorderlyBehavior"
----@field BuildingDestruction 6
----@field [6] "BuildingDestruction"
----@field Vandalism 7
----@field [7] "Vandalism"
----@field Theft 8
----@field [8] "Theft"
----@field Robbery 9
----@field [9] "Robbery"
----@field BloodDrinking 10
----@field [10] "BloodDrinking"
----@field Embezzlement 11
----@field [11] "Embezzlement"
----@field AttemptedMurder 12
----@field [12] "AttemptedMurder"
----@field Kidnapping 13
----@field [13] "Kidnapping"
----@field AttemptedKidnapping 14
----@field [14] "AttemptedKidnapping"
----@field AttemptedTheft 15
----@field [15] "AttemptedTheft"
----@field Treason 16
----@field [16] "Treason"
----@field Espionage 17
----@field [17] "Espionage"
----@field Bribery 18
----@field [18] "Bribery"
-df.crime.T_mode = {}
-
----@class (exact) df.crime.T_punishment: DFStruct
----@field _type identity.crime.punishment
----@field hammerstrikes number
----@field prison_time number
----@field give_beating number
-
----@class identity.crime.punishment: DFCompoundType
----@field _kind 'struct-type'
-df.crime.T_punishment = {}
-
----@return df.crime.T_punishment
-function df.crime.T_punishment:new() end
 
 ---@class (exact) df.crime.T_convict_data: DFStruct
 ---@field _type identity.crime.convict_data
@@ -817,7 +804,7 @@ function _spoils_report_item_types:erase(index) end
 ---@field officer_hf number References: `df.historical_figure`
 ---@field subject_hf number References: `df.historical_figure`
 ---@field officer_name string
----@field unk_3 number
+---@field flags df.interrogation_report.T_flags
 ---@field year number
 ---@field tick number
 ---@field unk df.interrogation_report.T_unk
@@ -838,6 +825,20 @@ df.interrogation_report = {}
 
 ---@return df.interrogation_report
 function df.interrogation_report:new() end
+
+---@class df.interrogation_report.T_flags: DFBitfield
+---@field _enum identity.interrogation_report.flags
+---@field viewed boolean bay12: INTERROGATION_REPORT_FLAG_*
+---@field [0] boolean bay12: INTERROGATION_REPORT_FLAG_*
+---@field current_id_is_newly_revealed boolean
+---@field [1] boolean
+
+---@class identity.interrogation_report.flags: DFBitfieldType
+---@field viewed 0 bay12: INTERROGATION_REPORT_FLAG_*
+---@field [0] "viewed" bay12: INTERROGATION_REPORT_FLAG_*
+---@field current_id_is_newly_revealed 1
+---@field [1] "current_id_is_newly_revealed"
+df.interrogation_report.T_flags = {}
 
 ---@class (exact) df.interrogation_report.T_unk: DFStruct
 ---@field _type identity.interrogation_report.unk

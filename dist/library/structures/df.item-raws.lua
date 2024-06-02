@@ -290,7 +290,7 @@ df.item_type = {}
 df.item_type._attr_entry_type = {}
 
 ---@class (exact) item_type_attr_entry_type_fields
----@field caption DFCompoundField
+---@field caption DFCompoundField bay12: ItemType
 ---@field is_rawable DFCompoundField
 ---@field is_stackable DFCompoundField
 ---@field is_caste_mat DFCompoundField instead of material, uses a creature/caste pair
@@ -414,14 +414,14 @@ function df.weapon_attack:new() end
 
 ---@class df.weapon_attack.T_flags: DFBitfield
 ---@field _enum identity.weapon_attack.flags
----@field independent_multiattack boolean
----@field [0] boolean
+---@field independent_multiattack boolean bay12: ITEMDEF_ATTACK_FLAG_*
+---@field [0] boolean bay12: ITEMDEF_ATTACK_FLAG_*
 ---@field bad_multiattack boolean
 ---@field [1] boolean
 
 ---@class identity.weapon_attack.flags: DFBitfieldType
----@field independent_multiattack 0
----@field [0] "independent_multiattack"
+---@field independent_multiattack 0 bay12: ITEMDEF_ATTACK_FLAG_*
+---@field [0] "independent_multiattack" bay12: ITEMDEF_ATTACK_FLAG_*
 ---@field bad_multiattack 1
 ---@field [1] "bad_multiattack"
 df.weapon_attack.T_flags = {}
@@ -430,9 +430,59 @@ df.weapon_attack.T_flags = {}
 ---| 0 # GENERATED
 
 ---@class identity.itemdef_flags: DFEnumType
----@field GENERATED 0
----@field [0] "GENERATED"
+---@field GENERATED 0 bay12: ItemDefFlagType
+---@field [0] "GENERATED" bay12: ItemDefFlagType
 df.itemdef_flags = {}
+
+---@alias df.itemdef_type
+---| -1 # NONE
+---| 0 # WEAPON
+---| 1 # TOY
+---| 2 # TOOL
+---| 3 # INSTRUMENT
+---| 4 # TRAPCOMP
+---| 5 # ARMOR
+---| 6 # AMMO
+---| 7 # SIEGEAMMO
+---| 8 # GLOVES
+---| 9 # SHOES
+---| 10 # SHIELD
+---| 11 # HELM
+---| 12 # PANTS
+---| 13 # FOOD
+
+---@class identity.itemdef_type: DFEnumType
+---@field NONE -1 bay12: ItemDefType
+---@field [-1] "NONE" bay12: ItemDefType
+---@field WEAPON 0
+---@field [0] "WEAPON"
+---@field TOY 1
+---@field [1] "TOY"
+---@field TOOL 2
+---@field [2] "TOOL"
+---@field INSTRUMENT 3
+---@field [3] "INSTRUMENT"
+---@field TRAPCOMP 4
+---@field [4] "TRAPCOMP"
+---@field ARMOR 5
+---@field [5] "ARMOR"
+---@field AMMO 6
+---@field [6] "AMMO"
+---@field SIEGEAMMO 7
+---@field [7] "SIEGEAMMO"
+---@field GLOVES 8
+---@field [8] "GLOVES"
+---@field SHOES 9
+---@field [9] "SHOES"
+---@field SHIELD 10
+---@field [10] "SHIELD"
+---@field HELM 11
+---@field [11] "HELM"
+---@field PANTS 12
+---@field [12] "PANTS"
+---@field FOOD 13
+---@field [13] "FOOD"
+df.itemdef_type = {}
 
 ---@class (exact) df.itemdef: DFStruct
 ---@field _type identity.itemdef
@@ -442,18 +492,26 @@ df.itemdef_flags = {}
 ---@field source_hfid number References: `df.historical_figure`
 ---@field source_enid number References: `df.historical_entity`
 ---@field raw_strings DFStringVector
+---@field statue_texpos_top number
+---@field statue_texpos_bottom number
 local itemdef
 
----@param anon_0 DFPointer<integer>
----@param anon_1 DFPointer<integer>
----@param anon_2 DFPointer<integer>
----@param anon_3 DFPointer<integer>
----@param anon_4 DFPointer<integer>
-function itemdef:parseRaws(anon_0, anon_1, anon_2, anon_3, anon_4) end
+---@return df.itemdef_type
+function itemdef:getType() end
+
+---@param context DFPointer<integer>
+---@param str string
+---@param maintok string
+---@param pos number
+---@param can_use_internal boolean
+---@return boolean
+function itemdef:parseRaws(context, str, maintok, pos, can_use_internal) end
 
 function itemdef:categorize() end
 
 function itemdef:finalize() end
+
+function itemdef:init_material_information() end
 
 
 ---@class identity.itemdef: DFCompoundType
@@ -483,8 +541,8 @@ function _itemdef_base_flags:erase(index) end
 ---| 0 # HAS_EDGE_ATTACK
 
 ---@class identity.ammo_flags: DFEnumType
----@field HAS_EDGE_ATTACK 0
----@field [0] "HAS_EDGE_ATTACK"
+---@field HAS_EDGE_ATTACK 0 bay12: ItemDefAmmoFlagType
+---@field [0] "HAS_EDGE_ATTACK" bay12: ItemDefAmmoFlagType
 df.ammo_flags = {}
 
 ---@class (exact) df.itemdef_ammost: DFStruct, df.itemdef
@@ -497,6 +555,8 @@ df.ammo_flags = {}
 ---@field size number divided by 10
 ---@field value number
 ---@field attacks _itemdef_ammost_attacks
+---@field texpos number[]
+---@field graphics_info _itemdef_ammost_graphics_info itemdef_ammo_graphics_infost
 
 ---@class identity.itemdef_ammost: DFCompoundType
 ---@field _kind 'class-type'
@@ -546,6 +606,22 @@ function _itemdef_ammost_attacks:insert(index, item) end
 ---@param index integer
 function _itemdef_ammost_attacks:erase(index) end
 
+---@class _itemdef_ammost_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_ammost_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_ammost_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_ammost_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_ammost_graphics_info:erase(index) end
+
 ---@alias df.armor_general_flags
 ---| 0 # SOFT
 ---| 1 # HARD
@@ -560,8 +636,8 @@ function _itemdef_ammost_attacks:erase(index) end
 ---| 10 # STRUCTURAL_ELASTICITY_CHAIN_ALL
 
 ---@class identity.armor_general_flags: DFEnumType
----@field SOFT 0
----@field [0] "SOFT"
+---@field SOFT 0 bay12: ClothingDefFlagType
+---@field [0] "SOFT" bay12: ClothingDefFlagType
 ---@field HARD 1
 ---@field [1] "HARD"
 ---@field METAL 2
@@ -584,10 +660,27 @@ function _itemdef_ammost_attacks:erase(index) end
 ---@field [10] "STRUCTURAL_ELASTICITY_CHAIN_ALL"
 df.armor_general_flags = {}
 
+---@alias df.clothing_layer_type
+---| 0 # UNDER
+---| 1 # OVER
+---| 2 # ARMOR
+---| 3 # COVER
+
+---@class identity.clothing_layer_type: DFEnumType
+---@field UNDER 0 bay12: ClothingLayer, does NOT have matching typedef so use compiler default
+---@field [0] "UNDER" bay12: ClothingLayer, does NOT have matching typedef so use compiler default
+---@field OVER 1
+---@field [1] "OVER"
+---@field ARMOR 2
+---@field [2] "ARMOR"
+---@field COVER 3
+---@field [3] "COVER"
+df.clothing_layer_type = {}
+
 ---@class (exact) df.armor_properties: DFStruct
 ---@field _type identity.armor_properties
 ---@field flags _armor_properties_flags
----@field layer number
+---@field layer df.clothing_layer_type
 ---@field layer_size number
 ---@field layer_permit number
 ---@field coverage number
@@ -619,8 +712,8 @@ function _armor_properties_flags:erase(index) end
 ---| 0 # METAL_ARMOR_LEVELS
 
 ---@class identity.armor_flags: DFEnumType
----@field METAL_ARMOR_LEVELS 0
----@field [0] "METAL_ARMOR_LEVELS"
+---@field METAL_ARMOR_LEVELS 0 bay12: ItemDefArmorFlagType
+---@field [0] "METAL_ARMOR_LEVELS" bay12: ItemDefArmorFlagType
 df.armor_flags = {}
 
 ---@class (exact) df.itemdef_armorst: DFStruct, df.itemdef
@@ -637,6 +730,8 @@ df.armor_flags = {}
 ---@field material_size number
 ---@field props df.armor_properties
 ---@field flags _itemdef_armorst_flags
+---@field texpos_item number
+---@field graphics_info _itemdef_armorst_graphics_info item_armor_graphics_infost
 
 ---@class identity.itemdef_armorst: DFCompoundType
 ---@field _kind 'class-type'
@@ -670,10 +765,28 @@ function _itemdef_armorst_flags:insert(index, item) end
 ---@param index integer
 function _itemdef_armorst_flags:erase(index) end
 
+---@class _itemdef_armorst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_armorst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_armorst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_armorst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_armorst_graphics_info:erase(index) end
+
 ---@class (exact) df.itemdef_foodst: DFStruct, df.itemdef
 ---@field _type identity.itemdef_foodst
 ---@field name string
 ---@field level number
+---@field texpos_item number
+---@field texpos_food_container_top number
 
 ---@class identity.itemdef_foodst: DFCompoundType
 ---@field _kind 'class-type'
@@ -695,8 +808,8 @@ function df.itemdef_foodst.get_vector() end
 ---| 0 # METAL_ARMOR_LEVELS
 
 ---@class identity.gloves_flags: DFEnumType
----@field METAL_ARMOR_LEVELS 0
----@field [0] "METAL_ARMOR_LEVELS"
+---@field METAL_ARMOR_LEVELS 0 bay12: ItemDefGlovesFlagType
+---@field [0] "METAL_ARMOR_LEVELS" bay12: ItemDefGlovesFlagType
 df.gloves_flags = {}
 
 ---@class (exact) df.itemdef_glovesst: DFStruct, df.itemdef
@@ -710,6 +823,8 @@ df.gloves_flags = {}
 ---@field flags _itemdef_glovesst_flags
 ---@field material_size number
 ---@field props df.armor_properties
+---@field texpos_item number
+---@field graphics_info _itemdef_glovesst_graphics_info item_gloves_graphics_infost
 
 ---@class identity.itemdef_glovesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -743,12 +858,28 @@ function _itemdef_glovesst_flags:insert(index, item) end
 ---@param index integer
 function _itemdef_glovesst_flags:erase(index) end
 
+---@class _itemdef_glovesst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_glovesst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_glovesst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_glovesst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_glovesst_graphics_info:erase(index) end
+
 ---@alias df.helm_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
 ---@class identity.helm_flags: DFEnumType
----@field METAL_ARMOR_LEVELS 0
----@field [0] "METAL_ARMOR_LEVELS"
+---@field METAL_ARMOR_LEVELS 0 bay12: ItemDefHelmFlagType
+---@field [0] "METAL_ARMOR_LEVELS" bay12: ItemDefHelmFlagType
 df.helm_flags = {}
 
 ---@class (exact) df.itemdef_helmst: DFStruct, df.itemdef
@@ -761,6 +892,8 @@ df.helm_flags = {}
 ---@field flags _itemdef_helmst_flags
 ---@field material_size number
 ---@field props df.armor_properties
+---@field texpos_item number
+---@field graphics_info _itemdef_helmst_graphics_info item_helm_graphics_infost
 
 ---@class identity.itemdef_helmst: DFCompoundType
 ---@field _kind 'class-type'
@@ -794,6 +927,22 @@ function _itemdef_helmst_flags:insert(index, item) end
 ---@param index integer
 function _itemdef_helmst_flags:erase(index) end
 
+---@class _itemdef_helmst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_helmst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_helmst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_helmst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_helmst_graphics_info:erase(index) end
+
 ---@alias df.instrument_flags
 ---| 0 # INDEFINITE_PITCH
 ---| 1 # PLACED_AS_BUILDING
@@ -806,8 +955,8 @@ function _itemdef_helmst_flags:erase(index) end
 ---| 8 # BONE_MAT
 
 ---@class identity.instrument_flags: DFEnumType
----@field INDEFINITE_PITCH 0
----@field [0] "INDEFINITE_PITCH"
+---@field INDEFINITE_PITCH 0 bay12: ItemDefInstrumentFlagType
+---@field [0] "INDEFINITE_PITCH" bay12: ItemDefInstrumentFlagType
 ---@field PLACED_AS_BUILDING 1
 ---@field [1] "PLACED_AS_BUILDING"
 ---@field METAL_MAT 2
@@ -844,17 +993,17 @@ df.instrument_flags = {}
 ---@field sound_production _itemdef_instrumentst_sound_production
 ---@field sound_production_parm1 DFStringVector
 ---@field sound_production_parm2 DFStringVector
----@field unk_100 DFNumberVector
----@field unk_110 DFNumberVector
+---@field sound_production_actor_id DFNumberVector
+---@field sound_production_target_id DFNumberVector
 ---@field pitch_choice _itemdef_instrumentst_pitch_choice
 ---@field pitch_choice_parm1 DFStringVector
 ---@field pitch_choice_parm2 DFStringVector
----@field unk_150 DFNumberVector
----@field unk_160 DFNumberVector
+---@field pitch_choice_piece_id1 DFNumberVector
+---@field pitch_choice_piece_id2 DFNumberVector
 ---@field tuning _itemdef_instrumentst_tuning
 ---@field tuning_parm DFStringVector
----@field unk_190 DFNumberVector
----@field registers _itemdef_instrumentst_registers
+---@field tuning_piece_id DFNumberVector
+---@field registers _itemdef_instrumentst_registers bay12: timbre_infost
 ---@field timbre _itemdef_instrumentst_timbre
 ---@field description string
 
@@ -1010,8 +1159,8 @@ function _itemdef_instrumentst_timbre:erase(index) end
 ---| 20 # AIR_AGAINST_FIPPLE
 
 ---@class identity.sound_production_type: DFEnumType
----@field PLUCKED_BY_BP 0
----@field [0] "PLUCKED_BY_BP"
+---@field PLUCKED_BY_BP 0 bay12: SoundProductionMethodType
+---@field [0] "PLUCKED_BY_BP" bay12: SoundProductionMethodType
 ---@field PLUCKED 1
 ---@field [1] "PLUCKED"
 ---@field BOWED 2
@@ -1069,8 +1218,8 @@ df.sound_production_type = {}
 ---| 11 # FOOT_PEDALS
 
 ---@class identity.pitch_choice_type: DFEnumType
----@field MEMBRANE_POSITION 0
----@field [0] "MEMBRANE_POSITION"
+---@field MEMBRANE_POSITION 0 bay12: PitchChoiceMethodType
+---@field [0] "MEMBRANE_POSITION" bay12: PitchChoiceMethodType
 ---@field SUBPART_CHOICE 1
 ---@field [1] "SUBPART_CHOICE"
 ---@field KEYBOARD 2
@@ -1103,8 +1252,8 @@ df.pitch_choice_type = {}
 ---| 4 # LEVERS
 
 ---@class identity.tuning_type: DFEnumType
----@field PEGS 0
----@field [0] "PEGS"
+---@field PEGS 0 bay12: TuningMethodType
+---@field [0] "PEGS" bay12: TuningMethodType
 ---@field ADJUSTABLE_BRIDGES 1
 ---@field [1] "ADJUSTABLE_BRIDGES"
 ---@field CROOKS 2
@@ -1181,8 +1330,8 @@ df.tuning_type = {}
 ---| 62 # SPARKLING
 
 ---@class identity.timbre_type: DFEnumType
----@field CLEAR 0
----@field [0] "CLEAR"
+---@field CLEAR 0 bay12: TimbreType
+---@field [0] "CLEAR" bay12: TimbreType
 ---@field NOISY 1
 ---@field [1] "NOISY"
 ---@field FULL 2
@@ -1327,14 +1476,14 @@ function df.instrument_piece:new() end
 
 ---@class df.instrument_piece.T_flags: DFBitfield
 ---@field _enum identity.instrument_piece.flags
----@field always_singular boolean
----@field [0] boolean
+---@field always_singular boolean bay12: INSTRUMENT_PIECE_DEF_FLAG_*
+---@field [0] boolean bay12: INSTRUMENT_PIECE_DEF_FLAG_*
 ---@field always_plural boolean
 ---@field [1] boolean
 
 ---@class identity.instrument_piece.flags: DFBitfieldType
----@field always_singular 0
----@field [0] "always_singular"
+---@field always_singular 0 bay12: INSTRUMENT_PIECE_DEF_FLAG_*
+---@field [0] "always_singular" bay12: INSTRUMENT_PIECE_DEF_FLAG_*
 ---@field always_plural 1
 ---@field [1] "always_plural"
 df.instrument_piece.T_flags = {}
@@ -1372,8 +1521,8 @@ function _instrument_register_timbres:erase(index) end
 ---| 0 # METAL_ARMOR_LEVELS
 
 ---@class identity.pants_flags: DFEnumType
----@field METAL_ARMOR_LEVELS 0
----@field [0] "METAL_ARMOR_LEVELS"
+---@field METAL_ARMOR_LEVELS 0 bay12: ItemDefPantsFlagType
+---@field [0] "METAL_ARMOR_LEVELS" bay12: ItemDefPantsFlagType
 df.pants_flags = {}
 
 ---@class (exact) df.itemdef_pantsst: DFStruct, df.itemdef
@@ -1389,6 +1538,8 @@ df.pants_flags = {}
 ---@field material_size number
 ---@field lbstep number
 ---@field props df.armor_properties
+---@field texpos_item number
+---@field graphics_info _itemdef_pantsst_graphics_info item_pants_graphics_infost
 
 ---@class identity.itemdef_pantsst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1422,6 +1573,22 @@ function _itemdef_pantsst_flags:insert(index, item) end
 ---@param index integer
 function _itemdef_pantsst_flags:erase(index) end
 
+---@class _itemdef_pantsst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_pantsst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_pantsst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_pantsst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_pantsst_graphics_info:erase(index) end
+
 ---@class (exact) df.itemdef_shieldst: DFStruct, df.itemdef
 ---@field _type identity.itemdef_shieldst
 ---@field name string
@@ -1432,6 +1599,9 @@ function _itemdef_pantsst_flags:erase(index) end
 ---@field armorlevel number
 ---@field upstep number
 ---@field material_size number
+---@field texpos_item number
+---@field texpos_item_wooden number
+---@field graphics_info _itemdef_shieldst_graphics_info item_shield_graphics_infost
 
 ---@class identity.itemdef_shieldst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1449,12 +1619,28 @@ function df.itemdef_shieldst.find(key) end
 ---@return itemdef_shieldst_vector # df.global.world.raws.itemdefs.shields
 function df.itemdef_shieldst.get_vector() end
 
+---@class _itemdef_shieldst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_shieldst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_shieldst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_shieldst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_shieldst_graphics_info:erase(index) end
+
 ---@alias df.shoes_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
 ---@class identity.shoes_flags: DFEnumType
----@field METAL_ARMOR_LEVELS 0
----@field [0] "METAL_ARMOR_LEVELS"
+---@field METAL_ARMOR_LEVELS 0 bay12: ItemDefShoesFlagType
+---@field [0] "METAL_ARMOR_LEVELS" bay12: ItemDefShoesFlagType
 df.shoes_flags = {}
 
 ---@class (exact) df.itemdef_shoesst: DFStruct, df.itemdef
@@ -1468,6 +1654,9 @@ df.shoes_flags = {}
 ---@field flags _itemdef_shoesst_flags
 ---@field material_size number
 ---@field props df.armor_properties
+---@field texpos_item number
+---@field texpos_item_metal number
+---@field graphics_info _itemdef_shoesst_graphics_info item_shoes_graphics_infost
 
 ---@class identity.itemdef_shoesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1501,11 +1690,29 @@ function _itemdef_shoesst_flags:insert(index, item) end
 ---@param index integer
 function _itemdef_shoesst_flags:erase(index) end
 
+---@class _itemdef_shoesst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_shoesst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_shoesst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_shoesst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_shoesst_graphics_info:erase(index) end
+
 ---@class (exact) df.itemdef_siegeammost: DFStruct, df.itemdef
 ---@field _type identity.itemdef_siegeammost
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
+---@field texpos number[]
+---@field graphics_info _itemdef_siegeammost_graphics_info itemdef_siegeammo_graphics_infost
 
 ---@class identity.itemdef_siegeammost: DFCompoundType
 ---@field _kind 'class-type'
@@ -1522,6 +1729,22 @@ function df.itemdef_siegeammost.find(key) end
 
 ---@return itemdef_siegeammost_vector # df.global.world.raws.itemdefs.siege_ammo
 function df.itemdef_siegeammost.get_vector() end
+
+---@class _itemdef_siegeammost_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_siegeammost_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_siegeammost_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_siegeammost_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_siegeammost_graphics_info:erase(index) end
 
 ---@alias df.tool_flags
 ---| 0 # HARD_MAT
@@ -1544,10 +1767,12 @@ function df.itemdef_siegeammost.get_vector() end
 ---| 17 # NO_DEFAULT_JOB
 ---| 18 # INCOMPLETE_ITEM
 ---| 19 # SHEET_MAT
+---| 20 # NO_DEFAULT_IMPROVEMENTS
+---| 21 # USES_FACE_IMAGE_SET
 
 ---@class identity.tool_flags: DFEnumType
----@field HARD_MAT 0
----@field [0] "HARD_MAT"
+---@field HARD_MAT 0 bay12: ItemDefToolFlagType
+---@field [0] "HARD_MAT" bay12: ItemDefToolFlagType
 ---@field METAL_MAT 1
 ---@field [1] "METAL_MAT"
 ---@field HAS_EDGE_ATTACK 2
@@ -1586,6 +1811,10 @@ function df.itemdef_siegeammost.get_vector() end
 ---@field [18] "INCOMPLETE_ITEM"
 ---@field SHEET_MAT 19
 ---@field [19] "SHEET_MAT"
+---@field NO_DEFAULT_IMPROVEMENTS 20
+---@field [20] "NO_DEFAULT_IMPROVEMENTS"
+---@field USES_FACE_IMAGE_SET 21
+---@field [21] "USES_FACE_IMAGE_SET"
 df.tool_flags = {}
 
 ---@alias df.tool_uses
@@ -1618,8 +1847,8 @@ df.tool_flags = {}
 ---| 25 # GAMES_OF_CHANCE
 
 ---@class identity.tool_uses: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: ItemDefToolUseType
+---@field [-1] "NONE" bay12: ItemDefToolUseType
 ---@field LIQUID_COOKING 0
 ---@field [0] "LIQUID_COOKING"
 ---@field LIQUID_SCOOP 1
@@ -1698,6 +1927,11 @@ df.tool_uses = {}
 ---@field shape_category DFNumberVector
 ---@field description string
 ---@field default_improvements _itemdef_toolst_default_improvements
+---@field texpos number[]
+---@field texpos_global_shape_index DFNumberVector
+---@field texpos_global_shape_texpos DFNumberVector
+---@field graphics_info _itemdef_toolst_graphics_info item_tool_graphics_infost
+---@field food_container_graphics_info _itemdef_toolst_food_container_graphics_info item_food_container_graphics_infost
 
 ---@class identity.itemdef_toolst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1779,12 +2013,44 @@ function _itemdef_toolst_default_improvements:insert(index, item) end
 ---@param index integer
 function _itemdef_toolst_default_improvements:erase(index) end
 
+---@class _itemdef_toolst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_toolst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_toolst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_toolst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_toolst_graphics_info:erase(index) end
+
+---@class _itemdef_toolst_food_container_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_toolst_food_container_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_toolst_food_container_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_toolst_food_container_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_toolst_food_container_graphics_info:erase(index) end
+
 ---@alias df.toy_flags
 ---| 0 # HARD_MAT
 
 ---@class identity.toy_flags: DFEnumType
----@field HARD_MAT 0
----@field [0] "HARD_MAT"
+---@field HARD_MAT 0 bay12: ItemDefToyFlagType
+---@field [0] "HARD_MAT" bay12: ItemDefToyFlagType
 df.toy_flags = {}
 
 ---@class (exact) df.itemdef_toyst: DFStruct, df.itemdef
@@ -1792,6 +2058,12 @@ df.toy_flags = {}
 ---@field name string
 ---@field name_plural string
 ---@field flags _itemdef_toyst_flags
+---@field texpos_item number
+---@field texpos_item_wood number
+---@field texpos_item_stone number
+---@field texpos_item_metal number
+---@field texpos_item_glass number
+---@field graphics_info _itemdef_toyst_graphics_info item_toy_graphics_infost
 
 ---@class identity.itemdef_toyst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1825,6 +2097,22 @@ function _itemdef_toyst_flags:insert(index, item) end
 ---@param index integer
 function _itemdef_toyst_flags:erase(index) end
 
+---@class _itemdef_toyst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_toyst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_toyst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_toyst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_toyst_graphics_info:erase(index) end
+
 ---@alias df.trapcomp_flags
 ---| 0 # IS_SCREW
 ---| 1 # IS_SPIKE
@@ -1833,8 +2121,8 @@ function _itemdef_toyst_flags:erase(index) end
 ---| 4 # HAS_EDGE_ATTACK
 
 ---@class identity.trapcomp_flags: DFEnumType
----@field IS_SCREW 0
----@field [0] "IS_SCREW"
+---@field IS_SCREW 0 bay12: ItemDefTrapCompFlagType
+---@field [0] "IS_SCREW" bay12: ItemDefTrapCompFlagType
 ---@field IS_SPIKE 1
 ---@field [1] "IS_SPIKE"
 ---@field WOOD 2
@@ -1856,6 +2144,8 @@ df.trapcomp_flags = {}
 ---@field material_size number
 ---@field flags _itemdef_trapcompst_flags
 ---@field attacks _itemdef_trapcompst_attacks
+---@field texpos number[]
+---@field graphics_info _itemdef_trapcompst_graphics_info itemdef_trapcomp_graphics_infost
 
 ---@class identity.itemdef_trapcompst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1905,14 +2195,30 @@ function _itemdef_trapcompst_attacks:insert(index, item) end
 ---@param index integer
 function _itemdef_trapcompst_attacks:erase(index) end
 
+---@class _itemdef_trapcompst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_trapcompst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_trapcompst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_trapcompst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_trapcompst_graphics_info:erase(index) end
+
 ---@alias df.weapon_flags
 ---| 0 # CAN_STONE
 ---| 1 # HAS_EDGE_ATTACK
 ---| 2 # TRAINING
 
 ---@class identity.weapon_flags: DFEnumType
----@field CAN_STONE 0
----@field [0] "CAN_STONE"
+---@field CAN_STONE 0 bay12: ItemDefWeaponFlagType
+---@field [0] "CAN_STONE" bay12: ItemDefWeaponFlagType
 ---@field HAS_EDGE_ATTACK 1
 ---@field [1] "HAS_EDGE_ATTACK"
 ---@field TRAINING 2
@@ -1936,6 +2242,8 @@ df.weapon_flags = {}
 ---@field attacks _itemdef_weaponst_attacks
 ---@field shoot_force number
 ---@field shoot_maxvel number
+---@field texpos number[]
+---@field graphics_info _itemdef_weaponst_graphics_info itemdef_weapon_graphics_infost
 
 ---@class identity.itemdef_weaponst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1984,4 +2292,20 @@ function _itemdef_weaponst_attacks:insert(index, item) end
 
 ---@param index integer
 function _itemdef_weaponst_attacks:erase(index) end
+
+---@class _itemdef_weaponst_graphics_info: DFContainer
+---@field [integer] any[]
+local _itemdef_weaponst_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _itemdef_weaponst_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _itemdef_weaponst_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_weaponst_graphics_info:erase(index) end
 
