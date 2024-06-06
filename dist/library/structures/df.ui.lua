@@ -12,7 +12,7 @@
 ---@field block_y DFNumberVector
 ---@field block_z DFNumberVector
 ---@field units DFNumberVector
----@field limit_workshops number
+---@field flags df.burrow.T_flags
 ---@field solid_texpos number
 ---@field blended_texpos number
 ---@field symbol_index number
@@ -39,6 +39,20 @@ function df.burrow.find(key) end
 ---@return burrow_vector # df.global.plotinfo.burrows.list
 function df.burrow.get_vector() end
 
+---@class df.burrow.T_flags: DFBitfield
+---@field _enum identity.burrow.flags
+---@field limit_workshops boolean bay12: BURROW_FLAG_*
+---@field [0] boolean bay12: BURROW_FLAG_*
+---@field suspended boolean
+---@field [1] boolean
+
+---@class identity.burrow.flags: DFBitfieldType
+---@field limit_workshops 0 bay12: BURROW_FLAG_*
+---@field [0] "limit_workshops" bay12: BURROW_FLAG_*
+---@field suspended 1
+---@field [1] "suspended"
+df.burrow.T_flags = {}
+
 ---@class (exact) df.ui_hotkey: DFStruct
 ---@field _type identity.ui_hotkey
 ---@field name string
@@ -63,8 +77,8 @@ function df.ui_hotkey:new() end
 ---| 2 # FollowItem
 
 ---@class identity.ui_hotkey.cmd: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: HotKeyType
+---@field [-1] "None" bay12: HotKeyType
 ---@field Zoom 0
 ---@field [0] "Zoom"
 ---@field FollowUnit 1
@@ -119,22 +133,21 @@ df.ui_hotkey.T_cmd = {}
 ---| 42 # Zones
 ---| 43 # ZonesPenInfo
 ---| 44 # ZonesPitInfo
----| 45 # ZonesHospitalInfo
----| 46 # ZonesGatherInfo
----| 47 # DesignateRemoveConstruction
----| 48 # DepotAccess
----| 49 # NotesPoints
----| 50 # NotesRoutes
----| 51 # Burrows
----| 52 # Hauling
----| 53 # ArenaWeather
----| 54 # ArenaTrees
----| 55 # BuildingLocationInfo
----| 56 # ZonesLocationInfo
+---| 45 # ZonesGatherInfo
+---| 46 # DesignateRemoveConstruction
+---| 47 # DepotAccess
+---| 48 # NotesPoints
+---| 49 # NotesRoutes
+---| 50 # Burrows
+---| 51 # Hauling
+---| 52 # ArenaWeather
+---| 53 # ArenaTrees
+---| 54 # BuildingLocationInfo
+---| 55 # ZonesLocationInfo
 
 ---@class identity.ui_sidebar_mode: DFEnumType
----@field Default 0
----@field [0] "Default"
+---@field Default 0 bay12: DwarfViewModes, no base type
+---@field [0] "Default" bay12: DwarfViewModes, no base type
 ---@field Squads 1
 ---@field [1] "Squads"
 ---@field DesignateMine 2 2
@@ -223,30 +236,28 @@ df.ui_hotkey.T_cmd = {}
 ---@field [43] "ZonesPenInfo"
 ---@field ZonesPitInfo 44
 ---@field [44] "ZonesPitInfo"
----@field ZonesHospitalInfo 45
----@field [45] "ZonesHospitalInfo"
----@field ZonesGatherInfo 46
----@field [46] "ZonesGatherInfo"
----@field DesignateRemoveConstruction 47 47
----@field [47] "DesignateRemoveConstruction" 47
----@field DepotAccess 48
----@field [48] "DepotAccess"
----@field NotesPoints 49
----@field [49] "NotesPoints"
----@field NotesRoutes 50
----@field [50] "NotesRoutes"
----@field Burrows 51
----@field [51] "Burrows"
----@field Hauling 52
----@field [52] "Hauling"
----@field ArenaWeather 53 53
----@field [53] "ArenaWeather" 53
----@field ArenaTrees 54
----@field [54] "ArenaTrees"
----@field BuildingLocationInfo 55 55
----@field [55] "BuildingLocationInfo" 55
----@field ZonesLocationInfo 56
----@field [56] "ZonesLocationInfo"
+---@field ZonesGatherInfo 45
+---@field [45] "ZonesGatherInfo"
+---@field DesignateRemoveConstruction 46 47
+---@field [46] "DesignateRemoveConstruction" 47
+---@field DepotAccess 47
+---@field [47] "DepotAccess"
+---@field NotesPoints 48
+---@field [48] "NotesPoints"
+---@field NotesRoutes 49
+---@field [49] "NotesRoutes"
+---@field Burrows 50
+---@field [50] "Burrows"
+---@field Hauling 51
+---@field [51] "Hauling"
+---@field ArenaWeather 52 53
+---@field [52] "ArenaWeather" 53
+---@field ArenaTrees 53
+---@field [53] "ArenaTrees"
+---@field BuildingLocationInfo 54 55
+---@field [54] "BuildingLocationInfo" 55
+---@field ZonesLocationInfo 55
+---@field [55] "ZonesLocationInfo"
 df.ui_sidebar_mode = {}
 
 ---@class (exact) df.punishment: DFStruct
@@ -256,7 +267,7 @@ df.ui_sidebar_mode = {}
 ---@field beating number
 ---@field hammer_strikes number
 ---@field prison_counter number
----@field unk_10 number 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
+---@field time_to_assign number
 ---@field chain number References: `df.building`
 ---@field victims DFNumberVector
 
@@ -267,18 +278,20 @@ df.punishment = {}
 ---@return df.punishment
 function df.punishment:new() end
 
----@alias df.kitchen_exc_type
----| 1 # Cook
----| 2 # Brew
+---@class df.kitchen_exc_type: DFBitfield
+---@field _enum identity.kitchen_exc_type
+---@field Cook boolean bay12: KITCHENRESTRICTION_*
+---@field [0] boolean bay12: KITCHENRESTRICTION_*
+---@field Brew boolean
+---@field [1] boolean
 
----@class identity.kitchen_exc_type: DFEnumType
----@field Cook 1
----@field [1] "Cook"
----@field Brew 2
----@field [2] "Brew"
+---@class identity.kitchen_exc_type: DFBitfieldType
+---@field Cook 0 bay12: KITCHENRESTRICTION_*
+---@field [0] "Cook" bay12: KITCHENRESTRICTION_*
+---@field Brew 1
+---@field [1] "Brew"
 df.kitchen_exc_type = {}
 
--- below was copied wholesale from df.viewscreen
 ---@alias df.save_substage
 ---| 0 # Initializing
 ---| 1 # CheckingDirectoryStructure
@@ -333,10 +346,9 @@ df.kitchen_exc_type = {}
 ---| 50 # ClosingFile
 ---| 51 # Finishing
 
--- below was copied wholesale from df.viewscreen
 ---@class identity.save_substage: DFEnumType
----@field Initializing 0
----@field [0] "Initializing"
+---@field Initializing 0 bay12: SaveStageType
+---@field [0] "Initializing" bay12: SaveStageType
 ---@field CheckingDirectoryStructure 1
 ---@field [1] "CheckingDirectoryStructure"
 ---@field PreliminaryCleaning 2
@@ -443,8 +455,8 @@ df.save_substage = {}
 
 ---@class df.equipment_update: DFBitfield
 ---@field _enum identity.equipment_update
----@field weapon boolean
----@field [0] boolean
+---@field weapon boolean bay12: EQUIP_INFO_FLAG_*
+---@field [0] boolean bay12: EQUIP_INFO_FLAG_*
 ---@field armor boolean
 ---@field [1] boolean
 ---@field shoes boolean
@@ -465,13 +477,13 @@ df.save_substage = {}
 ---@field [9] boolean
 ---@field flask boolean
 ---@field [10] boolean
----@field [11] boolean
+---@field [11] boolean unused
 ---@field buildings boolean
 ---@field [12] boolean
 
 ---@class identity.equipment_update: DFBitfieldType
----@field weapon 0
----@field [0] "weapon"
+---@field weapon 0 bay12: EQUIP_INFO_FLAG_*
+---@field [0] "weapon" bay12: EQUIP_INFO_FLAG_*
 ---@field armor 1
 ---@field [1] "armor"
 ---@field shoes 2
@@ -501,7 +513,7 @@ df.equipment_update = {}
 ---@field flags df.labor_infost.T_flags
 ---@field work_details _labor_infost_work_details
 ---@field chores DFEnumVector<df.unit_labor, boolean>
----@field chores_exempted_children DFNumberVector toady: no_chore_child_unid
+---@field chores_exempted_children DFNumberVector
 
 ---@class identity.labor_infost: DFCompoundType
 ---@field _kind 'struct-type'
@@ -512,12 +524,12 @@ function df.labor_infost:new() end
 
 ---@class df.labor_infost.T_flags: DFBitfield
 ---@field _enum identity.labor_infost.flags
----@field children_do_chores boolean
----@field [0] boolean
+---@field children_do_chores boolean bay12: LABOR_INFO_FLAG_*
+---@field [0] boolean bay12: LABOR_INFO_FLAG_*
 
 ---@class identity.labor_infost.flags: DFBitfieldType
----@field children_do_chores 0
----@field [0] "children_do_chores"
+---@field children_do_chores 0 bay12: LABOR_INFO_FLAG_*
+---@field [0] "children_do_chores" bay12: LABOR_INFO_FLAG_*
 df.labor_infost.T_flags = {}
 
 ---@class _labor_infost_work_details: DFContainer
@@ -536,14 +548,34 @@ function _labor_infost_work_details:insert(index, item) end
 ---@param index integer
 function _labor_infost_work_details:erase(index) end
 
+---@alias df.end_cause_type
+---| -1 # NONE
+---| 0 # DIED
+---| 1 # INVASION
+---| 2 # RETIRE
+---| 3 # ABANDON
+
+---@class identity.end_cause_type: DFEnumType
+---@field NONE -1 bay12: EndCauseType
+---@field [-1] "NONE" bay12: EndCauseType
+---@field DIED 0
+---@field [0] "DIED"
+---@field INVASION 1
+---@field [1] "INVASION"
+---@field RETIRE 2
+---@field [2] "RETIRE"
+---@field ABANDON 3
+---@field [3] "ABANDON"
+df.end_cause_type = {}
+
 ---@class (exact) df.plotinfost: DFStruct
 ---@field _type identity.plotinfost
----@field game_state number ctor 86e33c0 x<br>dtor 8534190
+---@field game_state df.end_cause_type
 ---@field lost_to_siege_civ number References: `df.historical_entity`
 ---@field tax_collection df.plotinfost.T_tax_collection
 ---@field nobles df.plotinfost.T_nobles
 ---@field caravans _plotinfost_caravans bay12: merchant
----@field unk_2 number
+---@field firstmerchant number
 ---@field fortress_rank number
 ---@field progress_population number outpost/hamlet/village/town/city/metropolis
 ---@field progress_trade number (unles that's what the above is)
@@ -581,20 +613,18 @@ function _labor_infost_work_details:erase(index) end
 ---@field site_id number References: `df.world_site`
 ---@field group_id number i.e. specifically the fortress dwarves<br>References: `df.historical_entity`
 ---@field race_id number References: `df.creature_raw`
----@field unk_races DFNumberVector
+---@field usable_stockpile_race DFNumberVector
 ---@field farm_crops DFNumberVector
 ---@field farm_seasons _plotinfost_farm_seasons
 ---@field economy_prices df.plotinfost.T_economy_prices
 ---@field stockpile df.plotinfost.T_stockpile
----@field unk2a8c df.plotinfost.T_unk2a8c[][]
----@field unk_mapedge_x DFNumberVector
----@field unk_mapedge_y DFNumberVector
----@field unk_mapedge_z DFNumberVector
+---@field border df.coord2d[][]
+---@field wilderpop_enter df.coord_path
 ---@field map_edge df.plotinfost.T_map_edge
----@field feature_x DFNumberVector
----@field feature_y DFNumberVector
----@field feature_id_local DFNumberVector
----@field feature_id_global DFNumberVector
+---@field no_fishing_feature_x DFNumberVector
+---@field no_fishing_feature_y DFNumberVector
+---@field no_fishing_feature_idx DFNumberVector
+---@field no_fishing_feature_layer DFNumberVector
 ---@field event_collections DFNumberVector
 ---@field stone_mat_types DFNumberVector
 ---@field stone_mat_indexes DFNumberVector
@@ -602,12 +632,13 @@ function _labor_infost_work_details:erase(index) end
 ---@field burrows df.plotinfost.T_burrows
 ---@field alerts df.plotinfost.T_alerts
 ---@field equipment df.plotinfost.T_equipment
+---@field training df.plotinfost.T_training
 ---@field hauling df.plotinfost.T_hauling
 ---@field labor_info df.labor_infost
----@field petitions DFNumberVector related to agreements
----@field unk_6 DFNumberVector observed allocating 4 bytes
----@field unk_7 _plotinfost_unk_7
----@field theft_intrigues _plotinfost_theft_intrigues related to job_type unk_fake_no_activity
+---@field petitions DFNumberVector unapproved agreements
+---@field continuing_agreement_id DFNumberVector
+---@field artifact_hand_off _plotinfost_artifact_hand_off
+---@field theft_intrigues _plotinfost_theft_intrigues related to job_type AcceptHeistItem
 ---@field infiltrator_histfigs DFNumberVector
 ---@field infiltrator_years DFNumberVector
 ---@field infiltrator_year_ticks DFNumberVector
@@ -658,7 +689,7 @@ function df.plotinfost.T_tax_collection:new() end
 
 ---@class (exact) df.plotinfost.T_nobles: DFStruct
 ---@field _type identity.plotinfost.nobles
----@field unk_1 number bay12: plotinfo_positionst
+---@field flags integer bay12: plotinfo_positionst
 ---@field manager_cooldown number 0-1008
 ---@field bookkeeper_cooldown number 0-1008
 ---@field bookkeeper_precision number
@@ -741,7 +772,7 @@ function _plotinfost_dip_meeting_info:erase(index) end
 
 ---@class (exact) df.plotinfost.T_invasions: DFStruct
 ---@field _type identity.plotinfost.invasions
----@field list _plotinfost_invasions_list
+---@field list _plotinfost_invasions_list bay12: plot_invasion_infost
 ---@field next_id number
 
 ---@class identity.plotinfost.invasions: DFCompoundType
@@ -880,40 +911,40 @@ function _plotinfost_kitchen_exc_types:erase(index) end
 
 ---@class df.plotinfost.T_flags: DFBitfield
 ---@field _enum identity.plotinfost.flags
----@field first_year boolean (FIRSTYEAR)
----@field [0] boolean (FIRSTYEAR)
----@field recheck_aid_requests boolean (EVAL_REQUESTERCANCHECK)
----@field [1] boolean (EVAL_REQUESTERCANCHECK)
----@field force_elections boolean (RUN_SPECIAL_ELECTIONS)
----@field [2] boolean (RUN_SPECIAL_ELECTIONS)
----@field need_to_do_tutorial boolean (NEED_TO_DO_TUTORIAL)
----@field [3] boolean (NEED_TO_DO_TUTORIAL)
----@field minor_victory boolean (MINOR_VICTORY)
----@field [4] boolean (MINOR_VICTORY)
----@field major_victory boolean (MAJOR_VICTORY)
----@field [5] boolean (MAJOR_VICTORY)
----@field did_first_caravan_announcement boolean (DID_FIRST_CARAVAN_ANNOUNCEMENT)
----@field [6] boolean (DID_FIRST_CARAVAN_ANNOUNCEMENT)
----@field did_first_cavern_announcement boolean (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
----@field [7] boolean (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+---@field first_year boolean bay12: PLOTINFOFLAG_*
+---@field [0] boolean bay12: PLOTINFOFLAG_*
+---@field recheck_aid_requests boolean
+---@field [1] boolean
+---@field force_elections boolean
+---@field [2] boolean
+---@field need_to_do_tutorial boolean
+---@field [3] boolean
+---@field minor_victory boolean
+---@field [4] boolean
+---@field major_victory boolean
+---@field [5] boolean
+---@field did_first_caravan_announcement boolean
+---@field [6] boolean
+---@field did_first_cavern_announcement boolean required for CAVERNS_OPENED music context
+---@field [7] boolean required for CAVERNS_OPENED music context
 
 ---@class identity.plotinfost.flags: DFBitfieldType
----@field first_year 0 (FIRSTYEAR)
----@field [0] "first_year" (FIRSTYEAR)
----@field recheck_aid_requests 1 (EVAL_REQUESTERCANCHECK)
----@field [1] "recheck_aid_requests" (EVAL_REQUESTERCANCHECK)
----@field force_elections 2 (RUN_SPECIAL_ELECTIONS)
----@field [2] "force_elections" (RUN_SPECIAL_ELECTIONS)
----@field need_to_do_tutorial 3 (NEED_TO_DO_TUTORIAL)
----@field [3] "need_to_do_tutorial" (NEED_TO_DO_TUTORIAL)
----@field minor_victory 4 (MINOR_VICTORY)
----@field [4] "minor_victory" (MINOR_VICTORY)
----@field major_victory 5 (MAJOR_VICTORY)
----@field [5] "major_victory" (MAJOR_VICTORY)
----@field did_first_caravan_announcement 6 (DID_FIRST_CARAVAN_ANNOUNCEMENT)
----@field [6] "did_first_caravan_announcement" (DID_FIRST_CARAVAN_ANNOUNCEMENT)
----@field did_first_cavern_announcement 7 (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
----@field [7] "did_first_cavern_announcement" (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+---@field first_year 0 bay12: PLOTINFOFLAG_*
+---@field [0] "first_year" bay12: PLOTINFOFLAG_*
+---@field recheck_aid_requests 1
+---@field [1] "recheck_aid_requests"
+---@field force_elections 2
+---@field [2] "force_elections"
+---@field need_to_do_tutorial 3
+---@field [3] "need_to_do_tutorial"
+---@field minor_victory 4
+---@field [4] "minor_victory"
+---@field major_victory 5
+---@field [5] "major_victory"
+---@field did_first_caravan_announcement 6
+---@field [6] "did_first_caravan_announcement"
+---@field did_first_cavern_announcement 7 required for CAVERNS_OPENED music context
+---@field [7] "did_first_cavern_announcement" required for CAVERNS_OPENED music context
 df.plotinfost.T_flags = {}
 
 ---@class _plotinfost_farm_seasons: DFContainer
@@ -944,9 +975,10 @@ df.plotinfost.T_economy_prices = {}
 ---@return df.plotinfost.T_economy_prices
 function df.plotinfost.T_economy_prices:new() end
 
+-- not a real compound
 ---@class (exact) df.plotinfost.T_economy_prices.T_price_adjustment: DFStruct
 ---@field _type identity.plotinfost.economy_prices.price_adjustment
----@field general_items DFNumberVector
+---@field general_items DFNumberVector not a real compound
 ---@field weapons DFNumberVector
 ---@field armor DFNumberVector
 ---@field handwear DFNumberVector
@@ -988,7 +1020,7 @@ function df.plotinfost.T_economy_prices.T_price_adjustment:new() end
 
 ---@class (exact) df.plotinfost.T_economy_prices.T_price_setter: DFStruct
 ---@field _type identity.plotinfost.economy_prices.price_setter
----@field general_items _plotinfost_economy_prices_price_setter_general_items
+---@field general_items _plotinfost_economy_prices_price_setter_general_items not a real compound
 ---@field weapons _plotinfost_economy_prices_price_setter_weapons
 ---@field armor _plotinfost_economy_prices_price_setter_armor
 ---@field handwear _plotinfost_economy_prices_price_setter_handwear
@@ -1542,7 +1574,7 @@ function _plotinfost_economy_prices_price_setter_pets:erase(index) end
 
 ---@class (exact) df.plotinfost.T_stockpile: DFStruct
 ---@field _type identity.plotinfost.stockpile
----@field reserved_bins number
+---@field reserved_bins number not a compound
 ---@field reserved_barrels number
 ---@field custom_settings df.stockpile_settings
 
@@ -1552,18 +1584,6 @@ df.plotinfost.T_stockpile = {}
 
 ---@return df.plotinfost.T_stockpile
 function df.plotinfost.T_stockpile:new() end
-
----@class (exact) df.plotinfost.T_unk2a8c: DFStruct
----@field _type identity.plotinfost.unk2a8c
----@field unk1 number
----@field unk2 number
-
----@class identity.plotinfost.unk2a8c: DFCompoundType
----@field _kind 'struct-type'
-df.plotinfost.T_unk2a8c = {}
-
----@return df.plotinfost.T_unk2a8c
-function df.plotinfost.T_unk2a8c:new() end
 
 ---@class (exact) df.plotinfost.T_map_edge: DFStruct
 ---@field _type identity.plotinfost.map_edge
@@ -1583,23 +1603,22 @@ function df.plotinfost.T_map_edge:new() end
 
 ---@class (exact) df.plotinfost.T_waypoints: DFStruct
 ---@field _type identity.plotinfost.waypoints
----@field points _plotinfost_waypoints_points
+---@field points _plotinfost_waypoints_points bay12: point_infost
 ---@field routes _plotinfost_waypoints_routes
 ---@field sym_selector number
----@field unk_1 number
 ---@field cur_point_index number
 ---@field in_edit_name_mode boolean
 ---@field in_edit_text_mode boolean
 ---@field sym_tile integer
 ---@field sym_fg_color number
 ---@field sym_bg_color number
----@field unk5c04 DFStringVector
----@field next_point_id number
+---@field text_box DFStringVector
+---@field next_point_id number curses_text_boxst
 ---@field next_route_id number
 ---@field sel_route_idx number
 ---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
----@field unk_42_06 _plotinfost_waypoints_unk_42_06
+---@field location_detail _plotinfost_waypoints_location_detail
 
 ---@class identity.plotinfost.waypoints: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1640,25 +1659,25 @@ function _plotinfost_waypoints_routes:insert(index, item) end
 ---@param index integer
 function _plotinfost_waypoints_routes:erase(index) end
 
----@class _plotinfost_waypoints_unk_42_06: DFContainer
----@field [integer] any[]
-local _plotinfost_waypoints_unk_42_06
+---@class _plotinfost_waypoints_location_detail: DFContainer
+---@field [integer] DFPointer<integer>
+local _plotinfost_waypoints_location_detail
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
-function _plotinfost_waypoints_unk_42_06:_field(index) end
+---@return DFPointer<DFPointer<integer>>
+function _plotinfost_waypoints_location_detail:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
-function _plotinfost_waypoints_unk_42_06:insert(index, item) end
+---@param item DFPointer<integer>
+function _plotinfost_waypoints_location_detail:insert(index, item) end
 
 ---@param index integer
-function _plotinfost_waypoints_unk_42_06:erase(index) end
+function _plotinfost_waypoints_location_detail:erase(index) end
 
 ---@class (exact) df.plotinfost.T_burrows: DFStruct
 ---@field _type identity.plotinfost.burrows
----@field list _plotinfost_burrows_list
+---@field list _plotinfost_burrows_list bay12: burrow_infost
 ---@field next_id number
 ---@field sel_index number
 ---@field sel_id number References: `df.burrow`
@@ -1673,7 +1692,7 @@ function _plotinfost_waypoints_unk_42_06:erase(index) end
 ---@field brush_mode number
 ---@field in_edit_name_mode boolean
 ---@field sym_selector number
----@field sym_tile number
+---@field sym_tile integer
 ---@field sym_fg_color number
 ---@field sym_bg_color number
 
@@ -1734,7 +1753,7 @@ function _plotinfost_burrows_sel_units:erase(index) end
 
 ---@class (exact) df.plotinfost.T_alerts: DFStruct
 ---@field _type identity.plotinfost.alerts
----@field list _plotinfost_alerts_list
+---@field list _plotinfost_alerts_list bay12: alert_state_infost
 ---@field next_id number
 ---@field routines _plotinfost_alerts_routines
 ---@field next_routine_id number
@@ -1781,7 +1800,7 @@ function _plotinfost_alerts_routines:erase(index) end
 
 ---@class (exact) df.plotinfost.T_equipment: DFStruct
 ---@field _type identity.plotinfost.equipment
----@field items_unmanifested DFEnumVector<df.item_type, number>
+---@field items_unmanifested DFEnumVector<df.item_type, number> bay12: equip_infost
 ---@field items_unassigned DFEnumVector<df.item_type, number>
 ---@field items_assigned DFEnumVector<df.item_type, number>
 ---@field update df.equipment_update
@@ -1790,7 +1809,6 @@ function _plotinfost_alerts_routines:erase(index) end
 ---@field hunter_ammunition _plotinfost_equipment_hunter_ammunition
 ---@field ammo_items DFNumberVector
 ---@field ammo_units DFNumberVector
----@field training_assignments _plotinfost_equipment_training_assignments sorted by animal_id
 
 ---@class identity.plotinfost.equipment: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1815,25 +1833,36 @@ function _plotinfost_equipment_hunter_ammunition:insert(index, item) end
 ---@param index integer
 function _plotinfost_equipment_hunter_ammunition:erase(index) end
 
----@class _plotinfost_equipment_training_assignments: DFContainer
+---@class (exact) df.plotinfost.T_training: DFStruct
+---@field _type identity.plotinfost.training
+---@field training_assignments _plotinfost_training_training_assignments bay12: animal_training_infost
+
+---@class identity.plotinfost.training: DFCompoundType
+---@field _kind 'struct-type'
+df.plotinfost.T_training = {}
+
+---@return df.plotinfost.T_training
+function df.plotinfost.T_training:new() end
+
+---@class _plotinfost_training_training_assignments: DFContainer
 ---@field [integer] df.training_assignment
-local _plotinfost_equipment_training_assignments
+local _plotinfost_training_training_assignments
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.training_assignment>
-function _plotinfost_equipment_training_assignments:_field(index) end
+function _plotinfost_training_training_assignments:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.training_assignment
-function _plotinfost_equipment_training_assignments:insert(index, item) end
+function _plotinfost_training_training_assignments:insert(index, item) end
 
 ---@param index integer
-function _plotinfost_equipment_training_assignments:erase(index) end
+function _plotinfost_training_training_assignments:erase(index) end
 
 ---@class (exact) df.plotinfost.T_hauling: DFStruct
 ---@field _type identity.plotinfost.hauling
----@field routes _plotinfost_hauling_routes
+---@field routes _plotinfost_hauling_routes bay12: hauling_infost
 ---@field next_id number
 ---@field scroll_position number
 ---@field scrolling boolean
@@ -1919,29 +1948,29 @@ function _plotinfost_hauling_view_bad:erase(index) end
 
 ---@class df.plotinfost.T_hauling.T_view_bad: DFBitfield
 ---@field _enum identity.plotinfost.hauling.view_bad
----@field DISCONNECTED_TRACK boolean
----@field [0] boolean
+---@field DISCONNECTED_TRACK boolean bay12: MODE_HAULING_STOP_FLAG_*
+---@field [0] boolean bay12: MODE_HAULING_STOP_FLAG_*
 
 ---@class identity.plotinfost.hauling.view_bad: DFBitfieldType
----@field DISCONNECTED_TRACK 0
----@field [0] "DISCONNECTED_TRACK"
+---@field DISCONNECTED_TRACK 0 bay12: MODE_HAULING_STOP_FLAG_*
+---@field [0] "DISCONNECTED_TRACK" bay12: MODE_HAULING_STOP_FLAG_*
 df.plotinfost.T_hauling.T_view_bad = {}
 
----@class _plotinfost_unk_7: DFContainer
----@field [integer] any[]
-local _plotinfost_unk_7
+---@class _plotinfost_artifact_hand_off: DFContainer
+---@field [integer] DFPointer<integer>
+local _plotinfost_artifact_hand_off
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
-function _plotinfost_unk_7:_field(index) end
+---@return DFPointer<DFPointer<integer>>
+function _plotinfost_artifact_hand_off:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
-function _plotinfost_unk_7:insert(index, item) end
+---@param item DFPointer<integer>
+function _plotinfost_artifact_hand_off:insert(index, item) end
 
 ---@param index integer
-function _plotinfost_unk_7:erase(index) end
+function _plotinfost_artifact_hand_off:erase(index) end
 
 ---@class _plotinfost_theft_intrigues: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1993,27 +2022,28 @@ function _plotinfost_tutorial_seen:erase(index) end
 
 ---@class (exact) df.plotinfost.T_main: DFStruct
 ---@field _type identity.plotinfost.main
----@field hotkeys df.ui_hotkey[]
----@field traffic_cost_high number 0.50.01
+---@field hotkeys df.ui_hotkey[] not a compound
+---@field custom_hotkeys _plotinfost_main_custom_hotkeys
+---@field traffic_cost_high number
 ---@field traffic_cost_normal number
 ---@field traffic_cost_low number
 ---@field traffic_cost_restricted number
----@field dead_citizens _plotinfost_main_dead_citizens ?
+---@field dead_citizens _plotinfost_main_dead_citizens
 ---@field custom_difficulty df.difficultyst
 ---@field fortress_entity df.historical_entity entity pointed to by group_id
 ---@field fortress_site df.world_site
 ---@field mode df.ui_sidebar_mode
----@field unk_v50_3 number
----@field unk_v50_4 number
+---@field viewmode_buildjob_mastering number
+---@field viewmode_des_selected number
 ---@field autosave_request boolean
 ---@field autosave_timer number
 ---@field file df.file_compressorst
 ---@field save_progress df.plotinfost.T_main.T_save_progress
----@field unk_v50_7 number
----@field unk_44_12b df.nemesis_offload
----@field unk_44_12c boolean
----@field unk_44_12d number padding?
----@field selected_hotkey number
+---@field do_unit_offload number
+---@field offload_unit_info df.nemesis_offload
+---@field unit_offload_have_set_count boolean
+---@field unit_offload_render_count integer
+---@field selected_hotkey number bay12: hotkey_interfacest
 ---@field in_rename_hotkey boolean
 
 ---@class identity.plotinfost.main: DFCompoundType
@@ -2022,6 +2052,22 @@ df.plotinfost.T_main = {}
 
 ---@return df.plotinfost.T_main
 function df.plotinfost.T_main:new() end
+
+---@class _plotinfost_main_custom_hotkeys: DFContainer
+---@field [integer] df.ui_hotkey
+local _plotinfost_main_custom_hotkeys
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.ui_hotkey>
+function _plotinfost_main_custom_hotkeys:_field(index) end
+
+---@param index '#'|integer
+---@param item df.ui_hotkey
+function _plotinfost_main_custom_hotkeys:insert(index, item) end
+
+---@param index integer
+function _plotinfost_main_custom_hotkeys:erase(index) end
 
 ---@class _plotinfost_main_dead_citizens: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -2041,7 +2087,7 @@ function _plotinfost_main_dead_citizens:erase(index) end
 
 ---@class (exact) df.plotinfost.T_main.T_save_progress: DFStruct
 ---@field _type identity.plotinfost.main.save_progress
----@field substage df.save_substage
+---@field substage df.save_substage bay12: saverst
 ---@field stage number
 ---@field info df.nemesis_offload
 
@@ -2054,13 +2100,13 @@ function df.plotinfost.T_main.T_save_progress:new() end
 
 ---@class (exact) df.plotinfost.T_squads: DFStruct
 ---@field _type identity.plotinfost.squads
----@field list _plotinfost_squads_list valid only when ui is displayed
----@field unk6e08 _plotinfost_squads_unk6e08
+---@field list _plotinfost_squads_list bay12: interface_squad_modest
+---@field squad_id DFNumberVector
 ---@field sel_squads _plotinfost_squads_sel_squads
 ---@field indiv_selected DFNumberVector
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad number
----@field unk_70 number
+---@field viewing_squad_index number
 ---@field squad_list_scroll number
 ---@field squad_list_first_id number
 ---@field nearest_squad df.squad
@@ -2098,22 +2144,6 @@ function _plotinfost_squads_list:insert(index, item) end
 
 ---@param index integer
 function _plotinfost_squads_list:erase(index) end
-
----@class _plotinfost_squads_unk6e08: DFContainer
----@field [integer] any[]
-local _plotinfost_squads_unk6e08
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _plotinfost_squads_unk6e08:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _plotinfost_squads_unk6e08:insert(index, item) end
-
----@param index integer
-function _plotinfost_squads_unk6e08:erase(index) end
 
 ---@class _plotinfost_squads_sel_squads: DFContainer
 ---@field [integer] any[]
@@ -2208,8 +2238,8 @@ function _plotinfost_available_seeds:erase(index) end
 ---| 9 # TributeCaravan
 
 ---@class identity.timed_event_type: DFEnumType
----@field Caravan 0
----@field [0] "Caravan"
+---@field Caravan 0 bay12: PlotEventTypes
+---@field [0] "Caravan" bay12: PlotEventTypes
 ---@field Migrants 1
 ---@field [1] "Migrants"
 ---@field Diplomat 2
@@ -2251,17 +2281,19 @@ function df.timed_event:new() end
 ---@class (exact) df.map_viewport: DFStruct
 ---@field _type identity.map_viewport
 ---@field adv_mode boolean
----@field unk1 boolean
----@field map_rotation integer
+---@field export_local boolean
+---@field map_rotation number
 ---@field min_x number
 ---@field min_y number
 ---@field max_x number
 ---@field max_y number
----@field window_x number
----@field window_y number
----@field window_z number
+---@field window_x df.coord
 ---@field main_viewport df.graphic_viewportst
 ---@field lower_viewport df.graphic_viewportst[]
+---@field under_limit_start number
+---@field under_limit number
+---@field under_limit_dx number
+---@field under_limit_dy number
 
 ---@class identity.map_viewport: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2272,8 +2304,7 @@ function df.map_viewport:new() end
 
 ---@class (exact) df.map_renderer: DFStruct
 ---@field _type identity.map_renderer
----@field entity integer[][]
----@field unk_v50_1 number[][]
+---@field entity number[][]
 ---@field cursor_units _map_renderer_cursor_units
 ---@field cursor_guts df.unit
 ---@field multiple_guts boolean
@@ -2285,18 +2316,18 @@ function df.map_viewport:new() end
 ---@field cursor_bones_cnt number
 ---@field cursor_other df.item
 ---@field cursor_other_cnt number
----@field unk_10034 number
----@field unk_10035 number
----@field cur_tick_count number GetTickCount
+---@field export_local boolean
+---@field map_rotation number
+---@field cur_tick_count integer GetTickCount
 ---@field tick_phase number cur_year_tick%10080
 ---@field dim_colors number
----@field unk_1 number
----@field unk_2 number[]
----@field unk_3 number[]
----@field unk_4 df.map_renderer.T_unk_4[]
----@field unk_5 number[]
----@field unk_6 number
----@field unk_7 number
+---@field in_conflict boolean
+---@field unit_move df.unit_action_type[]
+---@field unit_move_dir df.map_renderer.T_unit_move_dir[]
+---@field unit_move_coord df.map_renderer.T_unit_move_coord[]
+---@field unit_move_phase number[]
+---@field unit_move_num number
+---@field unit_move_greatest_phase number
 
 ---@class identity.map_renderer: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2321,15 +2352,37 @@ function _map_renderer_cursor_units:insert(index, item) end
 ---@param index integer
 function _map_renderer_cursor_units:erase(index) end
 
----@class (exact) df.map_renderer.T_unk_4: DFStruct
----@field _type identity.map_renderer.unk_4
+---@class df.map_renderer.T_unit_move_dir: DFBitfield
+---@field _enum identity.map_renderer.unit_move_dir
+---@field N boolean bay12: UNIT_MOVE_DIR_*
+---@field [0] boolean bay12: UNIT_MOVE_DIR_*
+---@field S boolean
+---@field [1] boolean
+---@field E boolean
+---@field [2] boolean
+---@field W boolean
+---@field [3] boolean
+
+---@class identity.map_renderer.unit_move_dir: DFBitfieldType
+---@field N 0 bay12: UNIT_MOVE_DIR_*
+---@field [0] "N" bay12: UNIT_MOVE_DIR_*
+---@field S 1
+---@field [1] "S"
+---@field E 2
+---@field [2] "E"
+---@field W 3
+---@field [3] "W"
+df.map_renderer.T_unit_move_dir = {}
+
+---@class (exact) df.map_renderer.T_unit_move_coord: DFStruct
+---@field _type identity.map_renderer.unit_move_coord
 ---@field x number
 ---@field y number
 
----@class identity.map_renderer.unk_4: DFCompoundType
+---@class identity.map_renderer.unit_move_coord: DFCompoundType
 ---@field _kind 'struct-type'
-df.map_renderer.T_unk_4 = {}
+df.map_renderer.T_unit_move_coord = {}
 
----@return df.map_renderer.T_unk_4
-function df.map_renderer.T_unk_4:new() end
+---@return df.map_renderer.T_unit_move_coord
+function df.map_renderer.T_unit_move_coord:new() end
 

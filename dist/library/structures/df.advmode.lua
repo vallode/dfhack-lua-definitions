@@ -327,7 +327,7 @@ function _conversation_speech:erase(index) end
 ---| 16 # ReplyImpersonate
 ---| 17 # BringUpIncident
 ---| 18 # TellNothingChanged
----| 19 # Goodbye2
+---| 19 # GoodbyeReply
 ---| 20 # ReturnTopic
 ---| 21 # ChangeSubject
 ---| 22 # AskTargetAction
@@ -336,20 +336,23 @@ function _conversation_speech:erase(index) end
 ---| 25 # AskJoinRescue
 ---| 26 # StateOpinion
 ---| 27 # RespondJoinInsurrection
+---| 28 # GeneralCompanionReaffirm
 ---| 29 # AllowPermissionSleep
 ---| 30 # DenyPermissionSleep
+---| 31 # SleepInterrupt
 ---| 32 # AskJoinAdventure
 ---| 33 # AskGuideLocation
----| 34 # RespondJoin
----| 35 # RespondJoin2
+---| 34 # RespondJoinAdventure
+---| 35 # RespondJoinGuide
 ---| 36 # OfferCondolences
 ---| 37 # StateNotAcquainted
 ---| 38 # SuggestTravel
 ---| 39 # SuggestTalk
 ---| 40 # RequestSelfRescue
 ---| 41 # AskWhatHappened
----| 42 # AskBeRescued
+---| 42 # JoinBeRescued
 ---| 43 # SayNotRemember
+---| 44 # RespondJoinRescue
 ---| 45 # SayNoFamily
 ---| 46 # StateUnitLocation
 ---| 47 # ReferToElder
@@ -384,8 +387,8 @@ function _conversation_speech:erase(index) end
 ---| 76 # AskDirectionsPerson
 ---| 77 # AskDirectionsPlace
 ---| 78 # AskWhereabouts
----| 79 # RequestGuide
----| 80 # RequestGuide2
+---| 79 # RequestGuideSite
+---| 80 # RequestGuideHistfig
 ---| 81 # ProvideDirections
 ---| 82 # ProvideWhereabouts
 ---| 83 # TellTargetSelf
@@ -400,13 +403,13 @@ function _conversation_speech:erase(index) end
 ---| 92 # ComplyOrder
 ---| 93 # AgreeFollow
 ---| 94 # ExchangeItems
----| 95 # AskComeCloser2
+---| 95 # BarterAskComeCloser
 ---| 96 # InitiateBarter
 ---| 97 # AgreeCeaseHostile
----| 98 # RefuseCeaseHostile
----| 99 # RefuseCeaseHostile2
----| 100 # RefuseYield
----| 101 # RefuseYield2
+---| 98 # RefuseCeaseHostileArena
+---| 99 # RefuseCeaseHostile
+---| 100 # RefuseYieldArena
+---| 101 # RefuseYield
 ---| 102 # Brag
 ---| 103 # DescribeRelation
 ---| 104 # ClaimSite
@@ -417,6 +420,7 @@ function _conversation_speech:erase(index) end
 ---| 109 # TellRemainVigilant
 ---| 110 # GiveServiceOrder
 ---| 111 # WelcomeSelfHome
+---| 112 # RespondJoinForRescue
 ---| 113 # AskTravelReason
 ---| 114 # TellTravelReason
 ---| 115 # AskLocalRuler
@@ -487,6 +491,7 @@ function _conversation_speech:erase(index) end
 ---| 180 # AskJoinEntertain
 ---| 181 # RespondJoinEntertain
 ---| 182 # AskJoinTroupe
+---| 183 # AcceptIntoTroupe
 ---| 184 # RefuseTroupeApplication
 ---| 185 # InviteJoinTroupe
 ---| 186 # AcceptTroupeInvitation
@@ -505,7 +510,7 @@ function _conversation_speech:erase(index) end
 ---| 199 # SayNoOrderYet
 ---| 200 # ProvideDirectionsBuilding
 ---| 201 # Argue
----| 202 # Flatter
+---| 202 # FlatterArgument
 ---| 203 # DismissArgument
 ---| 204 # RespondPassively
 ---| 205 # Acquiesce
@@ -528,10 +533,35 @@ function _conversation_speech:erase(index) end
 ---| 222 # SuggestTrade
 ---| 223 # AcceptNotTrade
 ---| 224 # DemandIdentity
+---| 225 # Interrogate
+---| 226 # FishForMaster
+---| 227 # FishForPlots
+---| 228 # GiveUpRandomMaster
+---| 229 # GiveUpRandomPlot
+---| 230 # RefuseInterrogation
+---| 231 # Flatter
+---| 232 # Pacify
+---| 233 # TellJoke
+---| 234 # DerideCalming
+---| 235 # AcceptCompliment
+---| 236 # AcceptCalming
+---| 237 # DidNotNeedCalming
+---| 238 # ApproveJoke
+---| 239 # RejectJoke
+---| 240 # ImpatientGoodbye
+---| 241 # RejectCompliment
+---| 242 # RejectCalming
+---| 243 # MockRepeatedPersuadeFailure
+---| 244 # MockRepeatedIntimidateFailure
+---| 245 # NamePet
+---| 246 # GiftAPet
+---| 247 # GiftSpecificPet
+---| 248 # HorrifiedByPetGift
+---| 249 # ThankForPetGift
 
 ---@class identity.talk_choice_type: DFEnumType
----@field Greet 0 0
----@field [0] "Greet" 0
+---@field Greet 0 bay12: ConversationChoiceType<br>0
+---@field [0] "Greet" bay12: ConversationChoiceType<br>0
 ---@field Nevermind 1
 ---@field [1] "Nevermind"
 ---@field Trade 2
@@ -568,8 +598,8 @@ function _conversation_speech:erase(index) end
 ---@field [17] "BringUpIncident"
 ---@field TellNothingChanged 18
 ---@field [18] "TellNothingChanged"
----@field Goodbye2 19
----@field [19] "Goodbye2"
+---@field GoodbyeReply 19
+---@field [19] "GoodbyeReply"
 ---@field ReturnTopic 20 20
 ---@field [20] "ReturnTopic" 20
 ---@field ChangeSubject 21
@@ -586,18 +616,22 @@ function _conversation_speech:erase(index) end
 ---@field [26] "StateOpinion"
 ---@field RespondJoinInsurrection 27
 ---@field [27] "RespondJoinInsurrection"
+---@field GeneralCompanionReaffirm 28
+---@field [28] "GeneralCompanionReaffirm"
 ---@field AllowPermissionSleep 29
 ---@field [29] "AllowPermissionSleep"
 ---@field DenyPermissionSleep 30 30
 ---@field [30] "DenyPermissionSleep" 30
+---@field SleepInterrupt 31
+---@field [31] "SleepInterrupt"
 ---@field AskJoinAdventure 32
 ---@field [32] "AskJoinAdventure"
 ---@field AskGuideLocation 33
 ---@field [33] "AskGuideLocation"
----@field RespondJoin 34
----@field [34] "RespondJoin"
----@field RespondJoin2 35
----@field [35] "RespondJoin2"
+---@field RespondJoinAdventure 34
+---@field [34] "RespondJoinAdventure"
+---@field RespondJoinGuide 35
+---@field [35] "RespondJoinGuide"
 ---@field OfferCondolences 36
 ---@field [36] "OfferCondolences"
 ---@field StateNotAcquainted 37
@@ -610,10 +644,12 @@ function _conversation_speech:erase(index) end
 ---@field [40] "RequestSelfRescue" 40
 ---@field AskWhatHappened 41
 ---@field [41] "AskWhatHappened"
----@field AskBeRescued 42
----@field [42] "AskBeRescued"
+---@field JoinBeRescued 42
+---@field [42] "JoinBeRescued"
 ---@field SayNotRemember 43
 ---@field [43] "SayNotRemember"
+---@field RespondJoinRescue 44
+---@field [44] "RespondJoinRescue"
 ---@field SayNoFamily 45
 ---@field [45] "SayNoFamily"
 ---@field StateUnitLocation 46
@@ -682,10 +718,10 @@ function _conversation_speech:erase(index) end
 ---@field [77] "AskDirectionsPlace"
 ---@field AskWhereabouts 78
 ---@field [78] "AskWhereabouts"
----@field RequestGuide 79
----@field [79] "RequestGuide"
----@field RequestGuide2 80 80
----@field [80] "RequestGuide2" 80
+---@field RequestGuideSite 79
+---@field [79] "RequestGuideSite"
+---@field RequestGuideHistfig 80 80
+---@field [80] "RequestGuideHistfig" 80
 ---@field ProvideDirections 81
 ---@field [81] "ProvideDirections"
 ---@field ProvideWhereabouts 82
@@ -714,20 +750,20 @@ function _conversation_speech:erase(index) end
 ---@field [93] "AgreeFollow"
 ---@field ExchangeItems 94
 ---@field [94] "ExchangeItems"
----@field AskComeCloser2 95
----@field [95] "AskComeCloser2"
+---@field BarterAskComeCloser 95
+---@field [95] "BarterAskComeCloser"
 ---@field InitiateBarter 96
 ---@field [96] "InitiateBarter"
 ---@field AgreeCeaseHostile 97
 ---@field [97] "AgreeCeaseHostile"
----@field RefuseCeaseHostile 98
----@field [98] "RefuseCeaseHostile"
----@field RefuseCeaseHostile2 99
----@field [99] "RefuseCeaseHostile2"
----@field RefuseYield 100 100
----@field [100] "RefuseYield" 100
----@field RefuseYield2 101
----@field [101] "RefuseYield2"
+---@field RefuseCeaseHostileArena 98
+---@field [98] "RefuseCeaseHostileArena"
+---@field RefuseCeaseHostile 99
+---@field [99] "RefuseCeaseHostile"
+---@field RefuseYieldArena 100 100
+---@field [100] "RefuseYieldArena" 100
+---@field RefuseYield 101
+---@field [101] "RefuseYield"
 ---@field Brag 102
 ---@field [102] "Brag"
 ---@field DescribeRelation 103
@@ -748,6 +784,8 @@ function _conversation_speech:erase(index) end
 ---@field [110] "GiveServiceOrder" 110
 ---@field WelcomeSelfHome 111
 ---@field [111] "WelcomeSelfHome"
+---@field RespondJoinForRescue 112
+---@field [112] "RespondJoinForRescue"
 ---@field AskTravelReason 113
 ---@field [113] "AskTravelReason"
 ---@field TellTravelReason 114
@@ -888,6 +926,8 @@ function _conversation_speech:erase(index) end
 ---@field [181] "RespondJoinEntertain"
 ---@field AskJoinTroupe 182
 ---@field [182] "AskJoinTroupe"
+---@field AcceptIntoTroupe 183
+---@field [183] "AcceptIntoTroupe"
 ---@field RefuseTroupeApplication 184
 ---@field [184] "RefuseTroupeApplication"
 ---@field InviteJoinTroupe 185
@@ -924,8 +964,8 @@ function _conversation_speech:erase(index) end
 ---@field [200] "ProvideDirectionsBuilding" 200
 ---@field Argue 201
 ---@field [201] "Argue"
----@field Flatter 202
----@field [202] "Flatter"
+---@field FlatterArgument 202
+---@field [202] "FlatterArgument"
 ---@field DismissArgument 203
 ---@field [203] "DismissArgument"
 ---@field RespondPassively 204
@@ -970,6 +1010,56 @@ function _conversation_speech:erase(index) end
 ---@field [223] "AcceptNotTrade"
 ---@field DemandIdentity 224
 ---@field [224] "DemandIdentity"
+---@field Interrogate 225
+---@field [225] "Interrogate"
+---@field FishForMaster 226
+---@field [226] "FishForMaster"
+---@field FishForPlots 227
+---@field [227] "FishForPlots"
+---@field GiveUpRandomMaster 228
+---@field [228] "GiveUpRandomMaster"
+---@field GiveUpRandomPlot 229
+---@field [229] "GiveUpRandomPlot"
+---@field RefuseInterrogation 230 230
+---@field [230] "RefuseInterrogation" 230
+---@field Flatter 231
+---@field [231] "Flatter"
+---@field Pacify 232
+---@field [232] "Pacify"
+---@field TellJoke 233
+---@field [233] "TellJoke"
+---@field DerideCalming 234
+---@field [234] "DerideCalming"
+---@field AcceptCompliment 235
+---@field [235] "AcceptCompliment"
+---@field AcceptCalming 236
+---@field [236] "AcceptCalming"
+---@field DidNotNeedCalming 237
+---@field [237] "DidNotNeedCalming"
+---@field ApproveJoke 238
+---@field [238] "ApproveJoke"
+---@field RejectJoke 239
+---@field [239] "RejectJoke"
+---@field ImpatientGoodbye 240 240
+---@field [240] "ImpatientGoodbye" 240
+---@field RejectCompliment 241
+---@field [241] "RejectCompliment"
+---@field RejectCalming 242
+---@field [242] "RejectCalming"
+---@field MockRepeatedPersuadeFailure 243
+---@field [243] "MockRepeatedPersuadeFailure"
+---@field MockRepeatedIntimidateFailure 244
+---@field [244] "MockRepeatedIntimidateFailure"
+---@field NamePet 245
+---@field [245] "NamePet"
+---@field GiftAPet 246
+---@field [246] "GiftAPet"
+---@field GiftSpecificPet 247
+---@field [247] "GiftSpecificPet"
+---@field HorrifiedByPetGift 248
+---@field [248] "HorrifiedByPetGift"
+---@field ThankForPetGift 249
+---@field [249] "ThankForPetGift"
 df.talk_choice_type = {}
 
 ---@alias df.assume_identity_mode
@@ -1683,7 +1773,7 @@ function _adventurest_world_debug_army:erase(index) end
 ---@field page_bottom_choices DFNumberVector bay12: conv_choicE_page_bottom
 ---@field choices _adventurest_conversation_choices bay12: conv_choice info; type adventure_conversation_choice_infost
 ---@field filter string bay12: conv_string_filter
----@field conv_tact df.adventurest.T_conversation.T_conv_tact
+---@field conv_tact df.conversation_tact_type
 ---@field targets _adventurest_conversation_targets bay12: talk_list; type talk_list_optionst
 ---@field cursor_target number bay12: talk_sel
 
@@ -1741,20 +1831,6 @@ function _adventurest_conversation_choices:insert(index, item) end
 
 ---@param index integer
 function _adventurest_conversation_choices:erase(index) end
-
----@alias df.adventurest.T_conversation.T_conv_tact
----| -1 # NONE
----| 0 # Persuade
----| 1 # Intimidate
-
----@class identity.adventurest.conversation.conv_tact: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
----@field Persuade 0
----@field [0] "Persuade"
----@field Intimidate 1
----@field [1] "Intimidate"
-df.adventurest.T_conversation.T_conv_tact = {}
 
 ---@class _adventurest_conversation_targets: DFContainer
 ---@field [integer] DFPointer<integer>

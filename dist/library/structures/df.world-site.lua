@@ -1934,16 +1934,7 @@ function _cultural_identity_unk_2:erase(index) end
 ---@class (exact) df.world_site_inhabitant: DFStruct
 ---@field _type identity.world_site_inhabitant
 ---@field count number
----@field race number References: `df.creature_raw`
----@field population_id number References: `df.entity_population`
----@field entity_id number can be Religion, Civilization, and SiteGovernment as well as Outcast<br>References: `df.historical_entity`
----@field unk_10 number
----@field cultural_identity_id number References: `df.cultural_identity`
----@field interaction_id number References: `df.interaction`
----@field interaction_effect_idx number index into the above interaction, usually refers to an ANIMATE effect
----@field related_entity_id number Founder if outcast_id=-1, else Outcast and equal to outcast_id<br>References: `df.historical_entity`
----@field unk_24 number 0 and 1 seen
----@field unk_28 number
+---@field pop_spec df.entity_pop_specifierst
 
 ---@class identity.world_site_inhabitant: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2659,8 +2650,8 @@ df.site_shop_type = {}
 ---| 14 # FURNITURE_METAL
 
 ---@class identity.town_labor_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: TownLaborType
+---@field [-1] "NONE" bay12: TownLaborType
 ---@field CLOTH 0
 ---@field [0] "CLOTH"
 ---@field TANNING 1

@@ -31,6 +31,8 @@
 ---@field md5File function
 ---@field getSuppressDuplicateKeyboardEvents function
 ---@field setSuppressDuplicateKeyboardEvents function
+---@field setMortalMode function
+---@field setArmokTools function
 ---@field getPerfCounters function
 dfhack.internal = {}
 

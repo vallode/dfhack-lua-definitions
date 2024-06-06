@@ -13,7 +13,7 @@ local dialogs
 
 local DialogWindow
 
-function DialogWindow:init(info) end
+function DialogWindow:init() end
 
 function DialogWindow:accept() end
 
@@ -25,7 +25,7 @@ function DialogWindow:onInput(keys) end
 
 local DialogScreen
 
-function DialogScreen:init() end
+function DialogScreen:init(args) end
 
 function DialogScreen:onDismiss() end
 
@@ -33,7 +33,7 @@ function DialogScreen:onDismiss() end
 
 function dialogs.showMessage(title, text, tcolor, on_close) end
 
-function dialogs.showYesNoPrompt(title, text, tcolor, on_accept, on_cancel) end
+function dialogs.showYesNoPrompt(title, text, tcolor, on_accept, on_cancel, on_pause, on_settings) end
 
 ------------------------
 

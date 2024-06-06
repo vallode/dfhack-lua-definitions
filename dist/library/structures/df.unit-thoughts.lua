@@ -1,7 +1,6 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
--- bay12: Emotion
 ---@alias df.emotion_type
 ---| -1 # ANYTHING
 ---| 0 # ACCEPTANCE
@@ -19,22 +18,30 @@
 ---| 12 # ANGST
 ---| 13 # ANGUISH
 ---| 14 # ANNOYANCE
+---| 15 # ANTICIPATION
 ---| 16 # ANXIETY
 ---| 17 # APATHY
+---| 18 # APPREHENSION
 ---| 19 # AROUSAL
 ---| 20 # ASTONISHMENT
+---| 21 # ATTRACTION
 ---| 22 # AVERSION
 ---| 23 # AWE
 ---| 24 # BITTERNESS
 ---| 25 # BLISS
 ---| 26 # BOREDOM
 ---| 27 # CARING
+---| 28 # CHEERFULNESS
 ---| 29 # CONFUSION
 ---| 30 # CONTEMPT
 ---| 31 # CONTENTMENT
+---| 32 # COURAGE
+---| 33 # CURIOSITY
 ---| 34 # DEFEAT
 ---| 35 # DEJECTION
 ---| 36 # DELIGHT
+---| 37 # DEPRESSION
+---| 38 # DESIRE
 ---| 39 # DESPAIR
 ---| 40 # DISAPPOINTMENT
 ---| 41 # DISGUST
@@ -44,13 +51,17 @@
 ---| 45 # DISPLEASURE
 ---| 46 # DISTRESS
 ---| 47 # DOUBT
+---| 48 # DREAD
 ---| 49 # EAGERNESS
+---| 50 # ECSTASY
 ---| 51 # ELATION
 ---| 52 # EMBARRASSMENT
 ---| 53 # EMPATHY
 ---| 54 # EMPTINESS
 ---| 55 # ENJOYMENT
+---| 56 # ENTHRALLMENT
 ---| 57 # ENTHUSIASM
+---| 58 # ENVY
 ---| 59 # EUPHORIA
 ---| 60 # EXASPERATION
 ---| 61 # EXCITEMENT
@@ -62,11 +73,14 @@
 ---| 67 # FREEDOM
 ---| 68 # FRIGHT
 ---| 69 # FRUSTRATION
+---| 70 # FURY
 ---| 71 # GAIETY
+---| 72 # GLADNESS
 ---| 73 # GLEE
 ---| 74 # GLOOM
 ---| 75 # GLUMNESS
 ---| 76 # GRATITUDE
+---| 77 # GRATIFICATION
 ---| 78 # GRIEF
 ---| 79 # GRIM_SATISFACTION
 ---| 80 # GROUCHINESS
@@ -74,24 +88,35 @@
 ---| 82 # GUILT
 ---| 83 # HAPPINESS
 ---| 84 # HATRED
+---| 85 # HOMESICKNESS
 ---| 86 # HOPE
 ---| 87 # HOPELESSNESS
 ---| 88 # HORROR
+---| 89 # HOSTILITY
 ---| 90 # HUMILIATION
+---| 91 # HURT
+---| 92 # HYSTERIA
+---| 93 # INFATUATED
+---| 94 # INSECURITY
 ---| 95 # INSULT
 ---| 96 # INTEREST
 ---| 97 # IRRITATION
 ---| 98 # ISOLATION
+---| 99 # JEALOUSY
 ---| 100 # JOLLINESS
 ---| 101 # JOVIALITY
 ---| 102 # JOY
 ---| 103 # JUBILATION
 ---| 104 # LOATHING
 ---| 105 # LONELINESS
+---| 106 # LONGING
 ---| 107 # LOVE
+---| 108 # LOVESICKNESS
 ---| 109 # LUST
+---| 110 # MELANCHOLY
 ---| 111 # MISERY
 ---| 112 # MORTIFICATION
+---| 113 # NEGLECT
 ---| 114 # NERVOUSNESS
 ---| 115 # NOSTALGIA
 ---| 116 # OPTIMISM
@@ -100,6 +125,7 @@
 ---| 119 # PATIENCE
 ---| 120 # PASSION
 ---| 121 # PESSIMISM
+---| 122 # PITY
 ---| 123 # PLEASURE
 ---| 124 # PRIDE
 ---| 125 # RAGE
@@ -110,31 +136,43 @@
 ---| 130 # REMORSE
 ---| 131 # REPENTANCE
 ---| 132 # RESENTMENT
+---| 133 # REVULSION
 ---| 134 # RIGHTEOUS_INDIGNATION
 ---| 135 # SADNESS
 ---| 136 # SATISFACTION
+---| 137 # SCORN
 ---| 138 # SELF_PITY
+---| 139 # SENTIMENTAL
 ---| 140 # SERVILE
 ---| 141 # SHAKEN
 ---| 142 # SHAME
 ---| 143 # SHOCK
+---| 144 # SORROW
+---| 145 # SPITE
+---| 146 # SUFFERING
+---| 147 # SURPRISE
 ---| 148 # SUSPICION
 ---| 149 # SYMPATHY
 ---| 150 # TENDERNESS
+---| 151 # TENSENESS
 ---| 152 # TERROR
 ---| 153 # THRILL
+---| 154 # TORMENT
 ---| 155 # TRIUMPH
 ---| 156 # UNEASINESS
 ---| 157 # UNHAPPINESS
 ---| 158 # VENGEFULNESS
+---| 159 # WOE
 ---| 160 # WONDER
 ---| 161 # WORRY
 ---| 162 # WRATH
 ---| 163 # ZEAL
+---| 164 # ZEST
+---| 165 # INSTINCTUAL_HUNT
+---| 166 # BOGEYMAN_TAUNT
 ---| 167 # RESTLESS
 ---| 168 # ADMIRATION
 
--- bay12: Emotion
 ---@class identity.emotion_type: DFEnumType
 ---@field ANYTHING -1
 ---@field [-1] "ANYTHING"
@@ -168,14 +206,20 @@
 ---@field [13] "ANGUISH"
 ---@field ANNOYANCE 14
 ---@field [14] "ANNOYANCE"
+---@field ANTICIPATION 15 not yet in game
+---@field [15] "ANTICIPATION" not yet in game
 ---@field ANXIETY 16
 ---@field [16] "ANXIETY"
 ---@field APATHY 17
 ---@field [17] "APATHY"
+---@field APPREHENSION 18 not yet in game
+---@field [18] "APPREHENSION" not yet in game
 ---@field AROUSAL 19
 ---@field [19] "AROUSAL"
 ---@field ASTONISHMENT 20 20
 ---@field [20] "ASTONISHMENT" 20
+---@field ATTRACTION 21 not yet in game
+---@field [21] "ATTRACTION" not yet in game
 ---@field AVERSION 22
 ---@field [22] "AVERSION"
 ---@field AWE 23
@@ -188,26 +232,36 @@
 ---@field [26] "BOREDOM"
 ---@field CARING 27
 ---@field [27] "CARING"
+---@field CHEERFULNESS 28 not yet in game
+---@field [28] "CHEERFULNESS" not yet in game
 ---@field CONFUSION 29
 ---@field [29] "CONFUSION"
 ---@field CONTEMPT 30 30
 ---@field [30] "CONTEMPT" 30
 ---@field CONTENTMENT 31
 ---@field [31] "CONTENTMENT"
+---@field COURAGE 32 not yet in game
+---@field [32] "COURAGE" not yet in game
+---@field CURIOSITY 33 not yet in game
+---@field [33] "CURIOSITY" not yet in game
 ---@field DEFEAT 34
 ---@field [34] "DEFEAT"
 ---@field DEJECTION 35
 ---@field [35] "DEJECTION"
 ---@field DELIGHT 36
 ---@field [36] "DELIGHT"
+---@field DEPRESSION 37 not yet in game
+---@field [37] "DEPRESSION" not yet in game
+---@field DESIRE 38 not yet in game
+---@field [38] "DESIRE" not yet in game
 ---@field DESPAIR 39
 ---@field [39] "DESPAIR"
 ---@field DISAPPOINTMENT 40 40
 ---@field [40] "DISAPPOINTMENT" 40
 ---@field DISGUST 41
 ---@field [41] "DISGUST"
----@field DISILLUSIONMENT 42
----@field [42] "DISILLUSIONMENT"
+---@field DISILLUSIONMENT 42 DISILLUSIONED
+---@field [42] "DISILLUSIONMENT" DISILLUSIONED
 ---@field DISLIKE 43
 ---@field [43] "DISLIKE"
 ---@field DISMAY 44
@@ -218,8 +272,12 @@
 ---@field [46] "DISTRESS"
 ---@field DOUBT 47
 ---@field [47] "DOUBT"
+---@field DREAD 48 not yet in game
+---@field [48] "DREAD" not yet in game
 ---@field EAGERNESS 49
 ---@field [49] "EAGERNESS"
+---@field ECSTASY 50 50
+---@field [50] "ECSTASY" 50
 ---@field ELATION 51
 ---@field [51] "ELATION"
 ---@field EMBARRASSMENT 52
@@ -230,8 +288,12 @@
 ---@field [54] "EMPTINESS"
 ---@field ENJOYMENT 55
 ---@field [55] "ENJOYMENT"
+---@field ENTHRALLMENT 56 not yet in game
+---@field [56] "ENTHRALLMENT" not yet in game
 ---@field ENTHUSIASM 57
 ---@field [57] "ENTHUSIASM"
+---@field ENVY 58 not yet in game
+---@field [58] "ENVY" not yet in game
 ---@field EUPHORIA 59
 ---@field [59] "EUPHORIA"
 ---@field EXASPERATION 60 60
@@ -248,14 +310,18 @@
 ---@field [65] "FEROCITY"
 ---@field FONDNESS 66
 ---@field [66] "FONDNESS"
----@field FREEDOM 67
----@field [67] "FREEDOM"
+---@field FREEDOM 67 FREE
+---@field [67] "FREEDOM" FREE
 ---@field FRIGHT 68
 ---@field [68] "FRIGHT"
 ---@field FRUSTRATION 69
 ---@field [69] "FRUSTRATION"
+---@field FURY 70 70
+---@field [70] "FURY" 70
 ---@field GAIETY 71
 ---@field [71] "GAIETY"
+---@field GLADNESS 72 not yet in game
+---@field [72] "GLADNESS" not yet in game
 ---@field GLEE 73
 ---@field [73] "GLEE"
 ---@field GLOOM 74
@@ -264,6 +330,8 @@
 ---@field [75] "GLUMNESS"
 ---@field GRATITUDE 76
 ---@field [76] "GRATITUDE"
+---@field GRATIFICATION 77 not yet in game
+---@field [77] "GRATIFICATION" not yet in game
 ---@field GRIEF 78
 ---@field [78] "GRIEF"
 ---@field GRIM_SATISFACTION 79
@@ -278,14 +346,26 @@
 ---@field [83] "HAPPINESS"
 ---@field HATRED 84
 ---@field [84] "HATRED"
+---@field HOMESICKNESS 85 not yet in game
+---@field [85] "HOMESICKNESS" not yet in game
 ---@field HOPE 86
 ---@field [86] "HOPE"
 ---@field HOPELESSNESS 87
 ---@field [87] "HOPELESSNESS"
 ---@field HORROR 88
 ---@field [88] "HORROR"
+---@field HOSTILITY 89 not yet in game
+---@field [89] "HOSTILITY" not yet in game
 ---@field HUMILIATION 90 90
 ---@field [90] "HUMILIATION" 90
+---@field HURT 91 not yet in game
+---@field [91] "HURT" not yet in game
+---@field HYSTERIA 92 not yet in game
+---@field [92] "HYSTERIA" not yet in game
+---@field INFATUATED 93 not yet in game
+---@field [93] "INFATUATED" not yet in game
+---@field INSECURITY 94 not yet in game
+---@field [94] "INSECURITY" not yet in game
 ---@field INSULT 95
 ---@field [95] "INSULT"
 ---@field INTEREST 96
@@ -294,6 +374,8 @@
 ---@field [97] "IRRITATION"
 ---@field ISOLATION 98
 ---@field [98] "ISOLATION"
+---@field JEALOUSY 99 not yet in game
+---@field [99] "JEALOUSY" not yet in game
 ---@field JOLLINESS 100 100
 ---@field [100] "JOLLINESS" 100
 ---@field JOVIALITY 101
@@ -306,14 +388,22 @@
 ---@field [104] "LOATHING"
 ---@field LONELINESS 105
 ---@field [105] "LONELINESS"
+---@field LONGING 106 not yet in game
+---@field [106] "LONGING" not yet in game
 ---@field LOVE 107
 ---@field [107] "LOVE"
+---@field LOVESICKNESS 108 not yet in game
+---@field [108] "LOVESICKNESS" not yet in game
 ---@field LUST 109
 ---@field [109] "LUST"
+---@field MELANCHOLY 110 110
+---@field [110] "MELANCHOLY" 110
 ---@field MISERY 111
 ---@field [111] "MISERY"
 ---@field MORTIFICATION 112
 ---@field [112] "MORTIFICATION"
+---@field NEGLECT 113 not yet in game
+---@field [113] "NEGLECT" not yet in game
 ---@field NERVOUSNESS 114
 ---@field [114] "NERVOUSNESS"
 ---@field NOSTALGIA 115
@@ -330,6 +420,8 @@
 ---@field [120] "PASSION" 120
 ---@field PESSIMISM 121
 ---@field [121] "PESSIMISM"
+---@field PITY 122 not yet in game
+---@field [122] "PITY" not yet in game
 ---@field PLEASURE 123
 ---@field [123] "PLEASURE"
 ---@field PRIDE 124
@@ -350,14 +442,20 @@
 ---@field [131] "REPENTANCE"
 ---@field RESENTMENT 132
 ---@field [132] "RESENTMENT"
+---@field REVULSION 133 not yet in game
+---@field [133] "REVULSION" not yet in game
 ---@field RIGHTEOUS_INDIGNATION 134
 ---@field [134] "RIGHTEOUS_INDIGNATION"
 ---@field SADNESS 135
 ---@field [135] "SADNESS"
 ---@field SATISFACTION 136
 ---@field [136] "SATISFACTION"
+---@field SCORN 137 not yet in game
+---@field [137] "SCORN" not yet in game
 ---@field SELF_PITY 138
 ---@field [138] "SELF_PITY"
+---@field SENTIMENTAL 139 not yet in game
+---@field [139] "SENTIMENTAL" not yet in game
 ---@field SERVILE 140 140
 ---@field [140] "SERVILE" 140
 ---@field SHAKEN 141
@@ -366,16 +464,28 @@
 ---@field [142] "SHAME"
 ---@field SHOCK 143
 ---@field [143] "SHOCK"
+---@field SORROW 144 not yet in game
+---@field [144] "SORROW" not yet in game
+---@field SPITE 145 not yet in game
+---@field [145] "SPITE" not yet in game
+---@field SUFFERING 146 not yet in game
+---@field [146] "SUFFERING" not yet in game
+---@field SURPRISE 147 not yet in game
+---@field [147] "SURPRISE" not yet in game
 ---@field SUSPICION 148
 ---@field [148] "SUSPICION"
 ---@field SYMPATHY 149
 ---@field [149] "SYMPATHY"
 ---@field TENDERNESS 150 150
 ---@field [150] "TENDERNESS" 150
+---@field TENSENESS 151 not yet in game
+---@field [151] "TENSENESS" not yet in game
 ---@field TERROR 152
 ---@field [152] "TERROR"
 ---@field THRILL 153
 ---@field [153] "THRILL"
+---@field TORMENT 154 not yet in game
+---@field [154] "TORMENT" not yet in game
 ---@field TRIUMPH 155
 ---@field [155] "TRIUMPH"
 ---@field UNEASINESS 156
@@ -384,6 +494,8 @@
 ---@field [157] "UNHAPPINESS"
 ---@field VENGEFULNESS 158
 ---@field [158] "VENGEFULNESS"
+---@field WOE 159 not yet in game
+---@field [159] "WOE" not yet in game
 ---@field WONDER 160 160
 ---@field [160] "WONDER" 160
 ---@field WORRY 161
@@ -392,6 +504,12 @@
 ---@field [162] "WRATH"
 ---@field ZEAL 163
 ---@field [163] "ZEAL"
+---@field ZEST 164 not yet in game
+---@field [164] "ZEST" not yet in game
+---@field INSTINCTUAL_HUNT 165 not yet in game
+---@field [165] "INSTINCTUAL_HUNT" not yet in game
+---@field BOGEYMAN_TAUNT 166 not yet in game
+---@field [166] "BOGEYMAN_TAUNT" not yet in game
 ---@field RESTLESS 167
 ---@field [167] "RESTLESS"
 ---@field ADMIRATION 168
@@ -403,7 +521,7 @@ df.emotion_type = {}
 df.emotion_type._attr_entry_type = {}
 
 ---@class (exact) emotion_type_attr_entry_type_fields
----@field color DFCompoundField
+---@field color DFCompoundField bay12: EmotionType
 ---@field divider DFCompoundField
 df.emotion_type._attr_entry_type._fields = {}
 
@@ -424,22 +542,30 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field ANGST { color: "14", divider: "1" }
 ---@field ANGUISH { color: "14", divider: "1" }
 ---@field ANNOYANCE { color: "6", divider: "8" }
+---@field ANTICIPATION { color: "7", divider: "0" }
 ---@field ANXIETY { color: "6", divider: "4" }
 ---@field APATHY { color: "7", divider: "0" }
+---@field APPREHENSION { color: "7", divider: "0" }
 ---@field AROUSAL { color: "11", divider: "-8" }
 ---@field ASTONISHMENT { color: "9", divider: "0" }
+---@field ATTRACTION { color: "7", divider: "0" }
 ---@field AVERSION { color: "6", divider: "4" }
 ---@field AWE { color: "9", divider: "0" }
 ---@field BITTERNESS { color: "6", divider: "2" }
 ---@field BLISS { color: "10", divider: "-1" }
 ---@field BOREDOM { color: "6", divider: "8" }
 ---@field CARING { color: "11", divider: "-2" }
+---@field CHEERFULNESS { color: "7", divider: "0" }
 ---@field CONFUSION { color: "6", divider: "8" }
 ---@field CONTEMPT { color: "6", divider: "4" }
 ---@field CONTENTMENT { color: "10", divider: "-8" }
+---@field COURAGE { color: "7", divider: "0" }
+---@field CURIOSITY { color: "7", divider: "0" }
 ---@field DEFEAT { color: "14", divider: "2" }
 ---@field DEJECTION { color: "6", divider: "4" }
 ---@field DELIGHT { color: "10", divider: "-1" }
+---@field DEPRESSION { color: "7", divider: "0" }
+---@field DESIRE { color: "7", divider: "0" }
 ---@field DESPAIR { color: "14", divider: "1" }
 ---@field DISAPPOINTMENT { color: "6", divider: "8" }
 ---@field DISGUST { color: "14", divider: "4" }
@@ -449,13 +575,17 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field DISPLEASURE { color: "6", divider: "8" }
 ---@field DISTRESS { color: "14", divider: "2" }
 ---@field DOUBT { color: "6", divider: "8" }
+---@field DREAD { color: "7", divider: "0" }
 ---@field EAGERNESS { color: "9", divider: "-4" }
+---@field ECSTASY { color: "7", divider: "0" }
 ---@field ELATION { color: "10", divider: "-2" }
 ---@field EMBARRASSMENT { color: "6", divider: "8" }
 ---@field EMPATHY { color: "11", divider: "-2" }
 ---@field EMPTINESS { color: "14", divider: "4" }
 ---@field ENJOYMENT { color: "10", divider: "-8" }
+---@field ENTHRALLMENT { color: "7", divider: "0" }
 ---@field ENTHUSIASM { color: "10", divider: "-8" }
+---@field ENVY { color: "7", divider: "0" }
 ---@field EUPHORIA { color: "10", divider: "-1" }
 ---@field EXASPERATION { color: "6", divider: "8" }
 ---@field EXCITEMENT { color: "9", divider: "-2" }
@@ -467,11 +597,14 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field FREEDOM { color: "10", divider: "-4" }
 ---@field FRIGHT { color: "14", divider: "2" }
 ---@field FRUSTRATION { color: "6", divider: "8" }
+---@field FURY { color: "7", divider: "0" }
 ---@field GAIETY { color: "10", divider: "-2" }
+---@field GLADNESS { color: "7", divider: "0" }
 ---@field GLEE { color: "10", divider: "-2" }
 ---@field GLOOM { color: "6", divider: "4" }
 ---@field GLUMNESS { color: "6", divider: "8" }
 ---@field GRATITUDE { color: "11", divider: "-4" }
+---@field GRATIFICATION { color: "7", divider: "0" }
 ---@field GRIEF { color: "14", divider: "2" }
 ---@field GRIM_SATISFACTION { color: "13", divider: "0" }
 ---@field GROUCHINESS { color: "6", divider: "8" }
@@ -479,24 +612,35 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field GUILT { color: "6", divider: "4" }
 ---@field HAPPINESS { color: "10", divider: "-2" }
 ---@field HATRED { color: "12", divider: "2" }
+---@field HOMESICKNESS { color: "7", divider: "0" }
 ---@field HOPE { color: "10", divider: "-2" }
 ---@field HOPELESSNESS { color: "14", divider: "2" }
 ---@field HORROR { color: "12", divider: "1" }
+---@field HOSTILITY { color: "7", divider: "0" }
 ---@field HUMILIATION { color: "14", divider: "4" }
+---@field HURT { color: "7", divider: "0" }
+---@field HYSTERIA { color: "7", divider: "0" }
+---@field INFATUATED { color: "7", divider: "0" }
+---@field INSECURITY { color: "7", divider: "0" }
 ---@field INSULT { color: "6", divider: "4" }
 ---@field INTEREST { color: "9", divider: "-8" }
 ---@field IRRITATION { color: "6", divider: "8" }
 ---@field ISOLATION { color: "6", divider: "4" }
+---@field JEALOUSY { color: "7", divider: "0" }
 ---@field JOLLINESS { color: "10", divider: "-4" }
 ---@field JOVIALITY { color: "10", divider: "-2" }
 ---@field JOY { color: "10", divider: "-1" }
 ---@field JUBILATION { color: "10", divider: "-1" }
 ---@field LOATHING { color: "12", divider: "2" }
 ---@field LONELINESS { color: "6", divider: "4" }
+---@field LONGING { color: "7", divider: "0" }
 ---@field LOVE { color: "11", divider: "-1" }
+---@field LOVESICKNESS { color: "7", divider: "0" }
 ---@field LUST { color: "11", divider: "-8" }
+---@field MELANCHOLY { color: "7", divider: "0" }
 ---@field MISERY { color: "14", divider: "1" }
 ---@field MORTIFICATION { color: "14", divider: "2" }
+---@field NEGLECT { color: "7", divider: "0" }
 ---@field NERVOUSNESS { color: "6", divider: "8" }
 ---@field NOSTALGIA { color: "9", divider: "-8" }
 ---@field OPTIMISM { color: "10", divider: "-4" }
@@ -505,6 +649,7 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field PATIENCE { color: "7", divider: "-8" }
 ---@field PASSION { color: "11", divider: "-2" }
 ---@field PESSIMISM { color: "6", divider: "8" }
+---@field PITY { color: "7", divider: "0" }
 ---@field PLEASURE { color: "11", divider: "-4" }
 ---@field PRIDE { color: "11", divider: "-4" }
 ---@field RAGE { color: "12", divider: "1" }
@@ -515,27 +660,40 @@ df.emotion_type._attr_entry_type._fields = {}
 ---@field REMORSE { color: "6", divider: "4" }
 ---@field REPENTANCE { color: "9", divider: "-2" }
 ---@field RESENTMENT { color: "6", divider: "8" }
+---@field REVULSION { color: "7", divider: "0" }
 ---@field RIGHTEOUS_INDIGNATION { color: "6", divider: "8" }
 ---@field SADNESS { color: "14", divider: "4" }
 ---@field SATISFACTION { color: "10", divider: "-8" }
+---@field SCORN { color: "7", divider: "0" }
 ---@field SELF_PITY { color: "6", divider: "8" }
+---@field SENTIMENTAL { color: "7", divider: "0" }
 ---@field SERVILE { color: "9", divider: "0" }
 ---@field SHAKEN { color: "14", divider: "1" }
 ---@field SHAME { color: "14", divider: "4" }
 ---@field SHOCK { color: "14", divider: "1" }
+---@field SORROW { color: "7", divider: "0" }
+---@field SPITE { color: "7", divider: "0" }
+---@field SUFFERING { color: "7", divider: "0" }
+---@field SURPRISE { color: "7", divider: "0" }
 ---@field SUSPICION { color: "13", divider: "8" }
 ---@field SYMPATHY { color: "11", divider: "-8" }
 ---@field TENDERNESS { color: "11", divider: "-2" }
+---@field TENSENESS { color: "7", divider: "0" }
 ---@field TERROR { color: "12", divider: "1" }
 ---@field THRILL { color: "9", divider: "-2" }
+---@field TORMENT { color: "7", divider: "0" }
 ---@field TRIUMPH { color: "10", divider: "-2" }
 ---@field UNEASINESS { color: "6", divider: "8" }
 ---@field UNHAPPINESS { color: "6", divider: "4" }
 ---@field VENGEFULNESS { color: "12", divider: "4" }
+---@field WOE { color: "7", divider: "0" }
 ---@field WONDER { color: "9", divider: "-8" }
 ---@field WORRY { color: "6", divider: "8" }
 ---@field WRATH { color: "12", divider: "1" }
 ---@field ZEAL { color: "9", divider: "-4" }
+---@field ZEST { color: "7", divider: "0" }
+---@field INSTINCTUAL_HUNT { color: "7", divider: "0" }
+---@field BOGEYMAN_TAUNT { color: "7", divider: "0" }
 ---@field RESTLESS { color: "6", divider: "8" }
 ---@field ADMIRATION { color: "11", divider: "-8" }
 df.emotion_type.attrs = {}
@@ -801,18 +959,18 @@ df.emotion_type.attrs = {}
 ---| 256 # AbandonedTemplePetition
 ---| 257 # DeferredToSuperior
 ---| 258 # AcceptedGuildhallPetition
----| 259 # EstablishedGuildhallPetition
+---| 259 # EstablishedGuildhallRecognition
 ---| 260 # RejectedGuildhallPetition
 ---| 261 # IgnoredGuildhallPetition
----| 262 # AbandonedGuildhallPetition
+---| 262 # AbandonedGuildhallAgreement
 ---| 263 # InfiltrationMission
 ---| 264 # BreakUp
 ---| 265 # Divorce
----| 266 # Unk266
----| 267 # Unk267
----| 268 # Unk268
----| 269 # Unk269
----| 270 # Unk270
+---| 266 # ActivePreacherPerformance
+---| 267 # ActiveSermonWorship
+---| 268 # ActiveSermonSphere
+---| 269 # ActiveSermonPromoteValue
+---| 270 # ActiveSermonRefuseValue
 ---| 271 # IntellectualDiscussion
 ---| 272 # SharePersonalInsight
 ---| 273 # ShareOthersPersonalInsight
@@ -1344,30 +1502,30 @@ df.emotion_type.attrs = {}
 ---@field [257] "DeferredToSuperior"
 ---@field AcceptedGuildhallPetition 258
 ---@field [258] "AcceptedGuildhallPetition"
----@field EstablishedGuildhallPetition 259
----@field [259] "EstablishedGuildhallPetition"
+---@field EstablishedGuildhallRecognition 259
+---@field [259] "EstablishedGuildhallRecognition"
 ---@field RejectedGuildhallPetition 260 260
 ---@field [260] "RejectedGuildhallPetition" 260
 ---@field IgnoredGuildhallPetition 261
 ---@field [261] "IgnoredGuildhallPetition"
----@field AbandonedGuildhallPetition 262
----@field [262] "AbandonedGuildhallPetition"
+---@field AbandonedGuildhallAgreement 262
+---@field [262] "AbandonedGuildhallAgreement"
 ---@field InfiltrationMission 263
 ---@field [263] "InfiltrationMission"
 ---@field BreakUp 264
 ---@field [264] "BreakUp"
 ---@field Divorce 265
 ---@field [265] "Divorce"
----@field Unk266 266
----@field [266] "Unk266"
----@field Unk267 267
----@field [267] "Unk267"
----@field Unk268 268
----@field [268] "Unk268"
----@field Unk269 269
----@field [269] "Unk269"
----@field Unk270 270 270
----@field [270] "Unk270" 270
+---@field ActivePreacherPerformance 266
+---@field [266] "ActivePreacherPerformance"
+---@field ActiveSermonWorship 267
+---@field [267] "ActiveSermonWorship"
+---@field ActiveSermonSphere 268
+---@field [268] "ActiveSermonSphere"
+---@field ActiveSermonPromoteValue 269
+---@field [269] "ActiveSermonPromoteValue"
+---@field ActiveSermonRefuseValue 270 270
+---@field [270] "ActiveSermonRefuseValue" 270
 ---@field IntellectualDiscussion 271
 ---@field [271] "IntellectualDiscussion"
 ---@field SharePersonalInsight 272
@@ -1393,7 +1551,7 @@ df.unit_thought_type = {}
 df.unit_thought_type._attr_entry_type = {}
 
 ---@class (exact) unit_thought_type_attr_entry_type_fields
----@field caption DFCompoundField original name is 'Circumstance'
+---@field caption DFCompoundField bay12: CircumstanceType
 ---@field xml_caption DFCompoundField
 df.unit_thought_type._attr_entry_type._fields = {}
 
@@ -1652,32 +1810,32 @@ df.unit_thought_type._attr_entry_type._fields = {}
 ---@field FromAfar { caption: "from afar", xml_caption: "from afar" }
 ---@field AcceptedTemplePetition { caption: "after the acceptance of a petition for a temple for [entity]", xml_caption: "temple petition accepted" }
 ---@field EstablishedTemple { caption: "after the establishment of a temple for [entity]", xml_caption: "entity temple recognition" }
----@field RejectedTemplePetition { xml_caption: "guildhall petition accepted" }
----@field IgnoredTemplePetition { xml_caption: "guildhall petition accepted" }
----@field AbandonedTemplePetition { xml_caption: "guildhall petition accepted" }
+---@field RejectedTemplePetition { xml_caption: "temple petition rejected" }
+---@field IgnoredTemplePetition { xml_caption: "temple petition ignored" }
+---@field AbandonedTemplePetition { xml_caption: "temple agreement abandoned" }
 ---@field DeferredToSuperior { xml_caption: "is entity subordinate" }
 ---@field AcceptedGuildhallPetition { caption: "after the acceptance of a petition for a guildhall for [entity]", xml_caption: "guildhall petition accepted" }
----@field EstablishedGuildhallPetition { caption: "after the establishment of a guildhall for [entity]", xml_caption: "entity temple recognition" }
----@field RejectedGuildhallPetition { xml_caption: "" }
----@field IgnoredGuildhallPetition { xml_caption: "" }
----@field AbandonedGuildhallPetition { xml_caption: "" }
+---@field EstablishedGuildhallRecognition { caption: "after the establishment of a guildhall for [entity]", xml_caption: "entity temple recognition" }
+---@field RejectedGuildhallPetition { xml_caption: "guildhall petition rejected" }
+---@field IgnoredGuildhallPetition { xml_caption: "guildhall petition ignored" }
+---@field AbandonedGuildhallAgreement { xml_caption: "guildhall agreement abandoned" }
 ---@field InfiltrationMission { caption: "during an infiltration mission", xml_caption: "during an infilitration mission" }
 ---@field BreakUp { caption: "after a break up", xml_caption: "broke up with lover" }
 ---@field Divorce { caption: "after getting divorced", xml_caption: "divorced" }
----@field Unk266 { xml_caption: "active performance preacher" }
----@field Unk267 { xml_caption: "active sermon worship hfid" }
----@field Unk268 { xml_caption: "active sermon sphere" }
----@field Unk269 { xml_caption: "active sermon promote value" }
----@field Unk270 { xml_caption: "active sermon refuse value" }
+---@field ActivePreacherPerformance { xml_caption: "active performance preacher" }
+---@field ActiveSermonWorship { xml_caption: "active sermon worship hfid" }
+---@field ActiveSermonSphere { xml_caption: "active sermon sphere" }
+---@field ActiveSermonPromoteValue { xml_caption: "active sermon promote value" }
+---@field ActiveSermonRefuseValue { xml_caption: "active sermon refuse value" }
 ---@field IntellectualDiscussion { caption: "having an intellectual discussion with [somebody]", xml_caption: "relation abstract chat" }
 ---@field SharePersonalInsight { caption: "sharing a personal insight with [somebody]", xml_caption: "relation gave personal chat" }
 ---@field ShareOthersPersonalInsight { caption: "sharing [somebody]'s personal insight", xml_caption: "relation received personal chat" }
 ---@field DiscussProblems { caption: "discussing their problems with [somebody]", xml_caption: "relation gave stress complaint chat" }
 ---@field DiscussOthersProblems { caption: "discussing [somebody]'s problems", xml_caption: "relation received stress complaint chat" }
----@field PerformedRiteDedicatedTemple { caption: "performing the rites of [entity] in a dedicated temple" }
----@field PerformedRiteImproperlyDedicatedTemple { caption: "incompletely performing the rites of [entity] in an improperly dedicated temple" }
----@field PerformedRiteUndedicatedTemple { caption: "incompletely performing the rites of [entity] in an undedicated temple" }
----@field PrayedDedicatedTemple { caption: "communing with [histfig] in a dedicated temple" }
+---@field PerformedRiteDedicatedTemple { caption: "performing the rites of [entity] in a dedicated temple", xml_caption: "religion prayer" }
+---@field PerformedRiteImproperlyDedicatedTemple { caption: "incompletely performing the rites of [entity] in an improperly dedicated temple", xml_caption: "religion prayer in incorrect temple" }
+---@field PerformedRiteUndedicatedTemple { caption: "incompletely performing the rites of [entity] in an undedicated temple", xml_caption: "religion prayer in godless temple" }
+---@field PrayedDedicatedTemple { caption: "communing with [histfig] in a dedicated temple", xml_caption: "pray to hf in dedicated temple" }
 df.unit_thought_type.attrs = {}
 
 ---@alias df.opinion_type

@@ -3,19 +3,24 @@
 
 ---@class df.vermin_flags: DFBitfield
 ---@field _enum identity.vermin_flags
----@field [0] boolean
+---@field already_deleting boolean bay12: VERMINEVENTFLAG_*
+---@field [0] boolean bay12: VERMINEVENTFLAG_*
 ---@field is_colony boolean A vermin colony. For example an anthill or bee hive.
 ---@field [1] boolean A vermin colony. For example an anthill or bee hive.
+---@field triggerable boolean
 ---@field [2] boolean
----@field is_roaming_colony boolean colony building vermin away from colony
----@field [3] boolean colony building vermin away from colony
----@field [4] boolean
+---@field is_roaming_colony boolean bay12: NOT_LIMITING; colony building vermin away from colony
+---@field [3] boolean bay12: NOT_LIMITING; colony building vermin away from colony
 
 ---@class identity.vermin_flags: DFBitfieldType
+---@field already_deleting 0 bay12: VERMINEVENTFLAG_*
+---@field [0] "already_deleting" bay12: VERMINEVENTFLAG_*
 ---@field is_colony 1 A vermin colony. For example an anthill or bee hive.
 ---@field [1] "is_colony" A vermin colony. For example an anthill or bee hive.
----@field is_roaming_colony 3 colony building vermin away from colony
----@field [3] "is_roaming_colony" colony building vermin away from colony
+---@field triggerable 2
+---@field [2] "triggerable"
+---@field is_roaming_colony 3 bay12: NOT_LIMITING; colony building vermin away from colony
+---@field [3] "is_roaming_colony" bay12: NOT_LIMITING; colony building vermin away from colony
 df.vermin_flags = {}
 
 ---@alias df.vermin_category
@@ -24,14 +29,15 @@ df.vermin_flags = {}
 ---| 1 # Grounder
 ---| 2 # Rotter
 ---| 3 # Swamper
----| 4 # Searched
----| 5 # Disturbed
----| 6 # Dropped
----| 7 # Underworld
+---| 4 # Colony
+---| 5 # Triggered
+---| 6 # Item
+---| 7 # Sphere
+---| 8 # FromColony
 
 ---@class identity.vermin_category: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: VerminCreationType
+---@field [-1] "None" bay12: VerminCreationType
 ---@field Eater 0
 ---@field [0] "Eater"
 ---@field Grounder 1
@@ -40,14 +46,16 @@ df.vermin_flags = {}
 ---@field [2] "Rotter"
 ---@field Swamper 3
 ---@field [3] "Swamper"
----@field Searched 4
----@field [4] "Searched"
----@field Disturbed 5
----@field [5] "Disturbed"
----@field Dropped 6
----@field [6] "Dropped"
----@field Underworld 7 last used in 40d for vermin in eerie glowing pits
----@field [7] "Underworld" last used in 40d for vermin in eerie glowing pits
+---@field Colony 4
+---@field [4] "Colony"
+---@field Triggered 5
+---@field [5] "Triggered"
+---@field Item 6
+---@field [6] "Item"
+---@field Sphere 7
+---@field [7] "Sphere"
+---@field FromColony 8
+---@field [8] "FromColony"
 df.vermin_category = {}
 
 ---@class (exact) df.vermin: DFStruct

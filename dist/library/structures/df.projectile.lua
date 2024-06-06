@@ -7,8 +7,8 @@
 ---| 2 # Magic
 
 ---@class identity.projectile_type: DFEnumType
----@field Item 0
----@field [0] "Item"
+---@field Item 0 bay12: Projectile
+---@field [0] "Item" bay12: Projectile
 ---@field Unit 1
 ---@field [1] "Unit"
 ---@field Magic 2
@@ -30,10 +30,10 @@ function df.proj_list_link:new() end
 
 ---@class df.projectile_flags: DFBitfield
 ---@field _enum identity.projectile_flags
----@field no_impact_destroy boolean
----@field [0] boolean
----@field has_hit_ground boolean
----@field [1] boolean
+---@field no_impact_destroy boolean bay12: PROJFLAG_*
+---@field [0] boolean bay12: PROJFLAG_*
+---@field has_hit_ground boolean DELETE
+---@field [1] boolean DELETE
 ---@field bouncing boolean
 ---@field [2] boolean
 ---@field high_flying boolean
@@ -64,10 +64,10 @@ function df.proj_list_link:new() end
 ---@field [15] boolean
 
 ---@class identity.projectile_flags: DFBitfieldType
----@field no_impact_destroy 0
----@field [0] "no_impact_destroy"
----@field has_hit_ground 1
----@field [1] "has_hit_ground"
+---@field no_impact_destroy 0 bay12: PROJFLAG_*
+---@field [0] "no_impact_destroy" bay12: PROJFLAG_*
+---@field has_hit_ground 1 DELETE
+---@field [1] "has_hit_ground" DELETE
 ---@field bouncing 2
 ---@field [2] "bouncing"
 ---@field high_flying 3
@@ -115,12 +115,12 @@ df.projectile_flags = {}
 ---@field fall_counter number counts down from delay to 0, then it moves
 ---@field fall_delay number
 ---@field hit_rating number
----@field unk21 number
----@field unk22 number
+---@field total_z_dist number
+---@field velocity number
 ---@field bow_id number References: `df.item`
----@field unk_item_id number Parabolic projectile info:<br>References: `df.item`
----@field unk_unit_id number References: `df.unit`
----@field unk_v40_1 number uninitialized+saved
+---@field last_knock_item number Parabolic projectile info:<br>References: `df.item`
+---@field last_knock_unit number References: `df.unit`
+---@field spec_target_unit number uninitialized+saved<br>References: `df.unit`
 ---@field pos_x number
 ---@field pos_y number
 ---@field pos_z number
@@ -148,6 +148,12 @@ function projectile:read_file(file, loadversion) end
 
 ---@param file df.file_compressorst
 function projectile:write_file(file) end
+
+---@param anon_0 df.map_viewport
+function projectile:print(anon_0) end
+
+---@param anon_0 df.map_viewport
+function projectile:print_to_viewport(anon_0) end
 
 ---@return boolean
 function projectile:isObjectLost() end
@@ -182,9 +188,17 @@ df.proj_unitst = {}
 ---@return df.proj_unitst
 function df.proj_unitst:new() end
 
+---@alias df.proj_magic_type
+---| 0 # FIREBALL
+
+---@class identity.proj_magic_type: DFEnumType
+---@field FIREBALL 0 bay12: ProjMagicType
+---@field [0] "FIREBALL" bay12: ProjMagicType
+df.proj_magic_type = {}
+
 ---@class (exact) df.proj_magicst: DFStruct, df.projectile
 ---@field _type identity.proj_magicst
----@field type number
+---@field type df.proj_magic_type
 ---@field damage number
 
 ---@class identity.proj_magicst: DFCompoundType

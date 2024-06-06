@@ -421,7 +421,7 @@ df.profession = {}
 df.profession._attr_entry_type = {}
 
 ---@class (exact) profession_attr_entry_type_fields
----@field caption DFCompoundField
+---@field caption DFCompoundField bay12: UnitType
 ---@field military DFCompoundField
 ---@field parent DFCompoundField
 ---@field can_assign_labor DFCompoundField Can be assigned any labors, i.e. not child or baby
@@ -586,8 +586,8 @@ df.profession.attrs = {}
 
 -- ---LABOR -----
 ---@class identity.unit_labor_category: DFEnumType
----@field Other -13 used in viewscreen_dwarfmodest::unit_labors_sidemenu
----@field [-13] "Other" used in viewscreen_dwarfmodest::unit_labors_sidemenu
+---@field Other -13 bay12: SUPER_PROFESSION_*<br>used in viewscreen_dwarfmodest::unit_labors_sidemenu
+---@field [-13] "Other" bay12: SUPER_PROFESSION_*<br>used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field Hauling -12
 ---@field [-12] "Hauling"
 ---@field Engineering -11
@@ -692,24 +692,24 @@ df.unit_labor_category = {}
 ---| 73 # HANDLE_VEHICLES
 ---| 74 # HAUL_TRADE
 ---| 75 # PULL_LEVER
----| 76 # REMOVE_CONSTRUCTION
+---| 76 # UNUSED_13
 ---| 77 # HAUL_WATER
 ---| 78 # GELD
 ---| 79 # BUILD_ROAD
 ---| 80 # BUILD_CONSTRUCTION
 ---| 81 # PAPERMAKING
 ---| 82 # BOOKBINDING
----| 83 # ANON_LABOR_83
----| 84 # ANON_LABOR_84
----| 85 # ANON_LABOR_85
----| 86 # ANON_LABOR_86
----| 87 # ANON_LABOR_87
----| 88 # ANON_LABOR_88
----| 89 # ANON_LABOR_89
----| 90 # ANON_LABOR_90
----| 91 # ANON_LABOR_91
----| 92 # ANON_LABOR_92
----| 93 # ANON_LABOR_93
+---| 83 # UNUSED_20
+---| 84 # UNUSED_21
+---| 85 # UNUSED_22
+---| 86 # UNUSED_23
+---| 87 # UNUSED_24
+---| 88 # UNUSED_25
+---| 89 # UNUSED_26
+---| 90 # UNUSED_27
+---| 91 # UNUSED_28
+---| 92 # UNUSED_29
+---| 93 # UNUSED_30
 
 ---@class identity.unit_labor: DFEnumType
 ---@field NONE -1
@@ -866,8 +866,8 @@ df.unit_labor_category = {}
 ---@field [74] "HAUL_TRADE"
 ---@field PULL_LEVER 75
 ---@field [75] "PULL_LEVER"
----@field REMOVE_CONSTRUCTION 76
----@field [76] "REMOVE_CONSTRUCTION"
+---@field UNUSED_13 76
+---@field [76] "UNUSED_13"
 ---@field HAUL_WATER 77
 ---@field [77] "HAUL_WATER"
 ---@field GELD 78
@@ -880,28 +880,28 @@ df.unit_labor_category = {}
 ---@field [81] "PAPERMAKING"
 ---@field BOOKBINDING 82
 ---@field [82] "BOOKBINDING"
----@field ANON_LABOR_83 83
----@field [83] "ANON_LABOR_83"
----@field ANON_LABOR_84 84
----@field [84] "ANON_LABOR_84"
----@field ANON_LABOR_85 85
----@field [85] "ANON_LABOR_85"
----@field ANON_LABOR_86 86
----@field [86] "ANON_LABOR_86"
----@field ANON_LABOR_87 87
----@field [87] "ANON_LABOR_87"
----@field ANON_LABOR_88 88
----@field [88] "ANON_LABOR_88"
----@field ANON_LABOR_89 89
----@field [89] "ANON_LABOR_89"
----@field ANON_LABOR_90 90
----@field [90] "ANON_LABOR_90"
----@field ANON_LABOR_91 91
----@field [91] "ANON_LABOR_91"
----@field ANON_LABOR_92 92
----@field [92] "ANON_LABOR_92"
----@field ANON_LABOR_93 93
----@field [93] "ANON_LABOR_93"
+---@field UNUSED_20 83
+---@field [83] "UNUSED_20"
+---@field UNUSED_21 84
+---@field [84] "UNUSED_21"
+---@field UNUSED_22 85
+---@field [85] "UNUSED_22"
+---@field UNUSED_23 86
+---@field [86] "UNUSED_23"
+---@field UNUSED_24 87
+---@field [87] "UNUSED_24"
+---@field UNUSED_25 88
+---@field [88] "UNUSED_25"
+---@field UNUSED_26 89
+---@field [89] "UNUSED_26"
+---@field UNUSED_27 90
+---@field [90] "UNUSED_27"
+---@field UNUSED_28 91
+---@field [91] "UNUSED_28"
+---@field UNUSED_29 92
+---@field [92] "UNUSED_29"
+---@field UNUSED_30 93
+---@field [93] "UNUSED_30"
 df.unit_labor = {}
 
 ---@class unit_labor_attr_entry_type: DFCompoundType
@@ -909,7 +909,7 @@ df.unit_labor = {}
 df.unit_labor._attr_entry_type = {}
 
 ---@class (exact) unit_labor_attr_entry_type_fields
----@field caption DFCompoundField
+---@field caption DFCompoundField bay12: ProfessionType
 ---@field category DFCompoundField
 df.unit_labor._attr_entry_type._fields = {}
 
@@ -991,24 +991,24 @@ df.unit_labor._attr_entry_type._fields = {}
 ---@field HANDLE_VEHICLES { caption: "Push/Haul Vehicles", category: "Hauling" }
 ---@field HAUL_TRADE { caption: "Trade Good Hauling", category: "Hauling" }
 ---@field PULL_LEVER { caption: "Lever Operation", category: "Other" }
----@field REMOVE_CONSTRUCTION { caption: "Construction Removal", category: "Other" }
+---@field UNUSED_13 { category: "None" }
 ---@field HAUL_WATER { caption: "Water Hauling", category: "Hauling" }
 ---@field GELD { caption: "Gelding", category: "Farming" }
 ---@field BUILD_ROAD { caption: "Road Building", category: "Other" }
 ---@field BUILD_CONSTRUCTION { caption: "Wall/Floor Construction", category: "Other" }
 ---@field PAPERMAKING { caption: "Papermaking", category: "Crafts" }
 ---@field BOOKBINDING { caption: "Bookbinding", category: "Crafts" }
----@field ANON_LABOR_83 { category: "None" }
----@field ANON_LABOR_84 { category: "None" }
----@field ANON_LABOR_85 { category: "None" }
----@field ANON_LABOR_86 { category: "None" }
----@field ANON_LABOR_87 { category: "None" }
----@field ANON_LABOR_88 { category: "None" }
----@field ANON_LABOR_89 { category: "None" }
----@field ANON_LABOR_90 { category: "None" }
----@field ANON_LABOR_91 { category: "None" }
----@field ANON_LABOR_92 { category: "None" }
----@field ANON_LABOR_93 { category: "None" }
+---@field UNUSED_20 { category: "None" }
+---@field UNUSED_21 { category: "None" }
+---@field UNUSED_22 { category: "None" }
+---@field UNUSED_23 { category: "None" }
+---@field UNUSED_24 { category: "None" }
+---@field UNUSED_25 { category: "None" }
+---@field UNUSED_26 { category: "None" }
+---@field UNUSED_27 { category: "None" }
+---@field UNUSED_28 { category: "None" }
+---@field UNUSED_29 { category: "None" }
+---@field UNUSED_30 { category: "None" }
 df.unit_labor.attrs = {}
 
 -- ---SKILL -----
@@ -1508,7 +1508,7 @@ df.job_skill = {}
 df.job_skill._attr_entry_type = {}
 
 ---@class (exact) job_skill_attr_entry_type_fields
----@field caption DFCompoundField
+---@field caption DFCompoundField bay12: SkillType
 ---@field caption_noun DFCompoundField
 ---@field profession DFCompoundField
 ---@field labor DFCompoundField

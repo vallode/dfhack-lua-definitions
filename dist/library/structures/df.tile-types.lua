@@ -2448,7 +2448,7 @@ df.tiletype = {}
 df.tiletype._attr_entry_type = {}
 
 ---@class (exact) tiletype_attr_entry_type_fields
----@field caption DFCompoundField Declare attributes:
+---@field caption DFCompoundField bay12: MapTileType<br>Declare attributes:
 ---@field shape DFCompoundField
 ---@field material DFCompoundField
 ---@field variant DFCompoundField

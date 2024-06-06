@@ -742,7 +742,7 @@ function item:get_art_graphics_type_ptr() end
 ---@return number
 function item:get_art_graphics_id_ptr() end
 
----@param anon_0 df.item_filter_spec
+---@param anon_0 df.squad_ammo_spec
 ---@return boolean
 function item:isMatchingAmmoItem(anon_0) end
 

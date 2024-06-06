@@ -4056,7 +4056,7 @@ df.unit_action_type = {}
 df.unit_action_type._attr_entry_type = {}
 
 ---@class (exact) unit_action_type_attr_entry_type_fields
----@field tag DFCompoundField for unit_action.data
+---@field tag DFCompoundField bay12: UnitMoveType
 ---@field group DFCompoundField
 df.unit_action_type._attr_entry_type._fields = {}
 

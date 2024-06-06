@@ -42,6 +42,9 @@ function helpdb.get_entry_long_help(entry, width) end
 -- returns the set of tags associated with the entry
 function helpdb.get_entry_tags(entry) end
 
+-- returns whether the given entry exists and has the specified tag
+function helpdb.has_tag(entry, tag) end
+
 -- returns whether the given string (or list of strings) matches a tag name
 function helpdb.is_tag(str) end
 

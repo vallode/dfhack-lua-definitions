@@ -1,7 +1,6 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
--- bay12: ResourceAllotment
 ---@alias df.resource_allotment_specifier_type
 ---| 0 # CROP
 ---| 1 # STONE
@@ -104,10 +103,9 @@
 ---| 98 # UNUSED_98
 ---| 99 # UNUSED_99
 
--- bay12: ResourceAllotment
 ---@class identity.resource_allotment_specifier_type: DFEnumType
----@field CROP 0
----@field [0] "CROP"
+---@field CROP 0 bay12: ResourceAllotmentType
+---@field [0] "CROP" bay12: ResourceAllotmentType
 ---@field STONE 1
 ---@field [1] "STONE"
 ---@field METAL 2
@@ -310,9 +308,9 @@ df.resource_allotment_specifier_type = {}
 
 ---@class (exact) df.resource_allotment_specifier: DFStruct
 ---@field _type identity.resource_allotment_specifier
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
+---@field flags integer
+---@field town_labor df.town_labor_type
+---@field last_spec_hours number
 local resource_allotment_specifier
 
 ---@return df.resource_allotment_specifier_type
@@ -335,10 +333,14 @@ function df.resource_allotment_specifier:new() end
 
 ---@class (exact) df.resource_allotment_specifier_cropst: DFStruct, df.resource_allotment_specifier
 ---@field _type identity.resource_allotment_specifier_cropst
----@field mat_type number index to world.raws.plant.all<br>References: `df.plant_raw`
----@field unk_4 number
----@field unk_v40_01 number
----@field unk_5 number[]
+---@field plant_type number References: `df.plant_raw`
+---@field growth_index number
+---@field crop_flags df.resource_allotment_specifier_cropst.T_crop_flags
+---@field pz_ai_mill_product number
+---@field pz_ai_extract_still_vial number
+---@field pz_ai_extract_barrel number
+---@field pz_ai_extract_vial number
+---@field pz_ai_thread number
 
 ---@class identity.resource_allotment_specifier_cropst: DFCompoundType
 ---@field _kind 'class-type'
@@ -347,13 +349,63 @@ df.resource_allotment_specifier_cropst = {}
 ---@return df.resource_allotment_specifier_cropst
 function df.resource_allotment_specifier_cropst:new() end
 
+---@class df.resource_allotment_specifier_cropst.T_crop_flags: DFBitfield
+---@field _enum identity.resource_allotment_specifier_cropst.crop_flags
+---@field edible_raw boolean bay12: RAS_CROP_FLAG_*
+---@field [0] boolean bay12: RAS_CROP_FLAG_*
+---@field edible_cooked boolean
+---@field [1] boolean
+---@field thread boolean
+---@field [2] boolean
+---@field millable boolean
+---@field [3] boolean
+---@field extractable_vial boolean
+---@field [4] boolean
+---@field extractable_barrel boolean
+---@field [5] boolean
+---@field extractable_still_vial boolean
+---@field [6] boolean
+---@field orchard boolean
+---@field [7] boolean
+---@field garden boolean
+---@field [8] boolean
+---@field farmed boolean
+---@field [9] boolean
+
+---@class identity.resource_allotment_specifier_cropst.crop_flags: DFBitfieldType
+---@field edible_raw 0 bay12: RAS_CROP_FLAG_*
+---@field [0] "edible_raw" bay12: RAS_CROP_FLAG_*
+---@field edible_cooked 1
+---@field [1] "edible_cooked"
+---@field thread 2
+---@field [2] "thread"
+---@field millable 3
+---@field [3] "millable"
+---@field extractable_vial 4
+---@field [4] "extractable_vial"
+---@field extractable_barrel 5
+---@field [5] "extractable_barrel"
+---@field extractable_still_vial 6
+---@field [6] "extractable_still_vial"
+---@field orchard 7
+---@field [7] "orchard"
+---@field garden 8
+---@field [8] "garden"
+---@field farmed 9
+---@field [9] "farmed"
+df.resource_allotment_specifier_cropst.T_crop_flags = {}
+
 ---@class (exact) df.resource_allotment_specifier_stonest: DFStruct, df.resource_allotment_specifier
 ---@field _type identity.resource_allotment_specifier_stonest
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number[]
+---@field frequency number
+---@field stone_flags df.resource_allotment_specifier_stonest.T_stone_flags
+---@field pz_ai_gem number
+---@field pz_ai_chair number
+---@field pz_ai_table number
+---@field pz_ai_box number
+---@field pz_ai_cabinet number
 
 ---@class identity.resource_allotment_specifier_stonest: DFCompoundType
 ---@field _kind 'class-type'
@@ -362,12 +414,37 @@ df.resource_allotment_specifier_stonest = {}
 ---@return df.resource_allotment_specifier_stonest
 function df.resource_allotment_specifier_stonest:new() end
 
+---@class df.resource_allotment_specifier_stonest.T_stone_flags: DFBitfield
+---@field _enum identity.resource_allotment_specifier_stonest.stone_flags
+---@field metal_ore boolean bay12: RAS_STONE_FLAG_*
+---@field [0] boolean bay12: RAS_STONE_FLAG_*
+---@field rough_gem boolean
+---@field [1] boolean
+
+---@class identity.resource_allotment_specifier_stonest.stone_flags: DFBitfieldType
+---@field metal_ore 0 bay12: RAS_STONE_FLAG_*
+---@field [0] "metal_ore" bay12: RAS_STONE_FLAG_*
+---@field rough_gem 1
+---@field [1] "rough_gem"
+df.resource_allotment_specifier_stonest.T_stone_flags = {}
+
 ---@class (exact) df.resource_allotment_specifier_metalst: DFStruct, df.resource_allotment_specifier
 ---@field _type identity.resource_allotment_specifier_metalst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
----@field unk_5 number[]
+---@field metal_flags df.resource_allotment_specifier_metalst.T_metal_flags
+---@field pz_ai_pants number
+---@field pz_ai_body number
+---@field pz_ai_boots number
+---@field pz_ai_gloves number
+---@field pz_ai_helm number
+---@field pz_ai_weapon_melee number
+---@field pz_ai_chair number
+---@field pz_ai_table number
+---@field pz_ai_box number
+---@field pz_ai_cabinet number
+---@field pz_ai_crafts number
+---@field pz_ai_ammo number
 
 ---@class identity.resource_allotment_specifier_metalst: DFCompoundType
 ---@field _kind 'class-type'
@@ -376,16 +453,50 @@ df.resource_allotment_specifier_metalst = {}
 ---@return df.resource_allotment_specifier_metalst
 function df.resource_allotment_specifier_metalst:new() end
 
+---@class df.resource_allotment_specifier_metalst.T_metal_flags: DFBitfield
+---@field _enum identity.resource_allotment_specifier_metalst.metal_flags
+---@field items_weapon boolean bay12: RAS_METAL_FLAG_*
+---@field [0] boolean bay12: RAS_METAL_FLAG_*
+---@field items_weapon_ranged boolean
+---@field [1] boolean
+---@field anvil boolean
+---@field [2] boolean
+---@field ammo boolean
+---@field [3] boolean
+---@field digger boolean
+---@field [4] boolean
+---@field armor boolean
+---@field [5] boolean
+---@field hard boolean
+---@field [6] boolean
+
+---@class identity.resource_allotment_specifier_metalst.metal_flags: DFBitfieldType
+---@field items_weapon 0 bay12: RAS_METAL_FLAG_*
+---@field [0] "items_weapon" bay12: RAS_METAL_FLAG_*
+---@field items_weapon_ranged 1
+---@field [1] "items_weapon_ranged"
+---@field anvil 2
+---@field [2] "anvil"
+---@field ammo 3
+---@field [3] "ammo"
+---@field digger 4
+---@field [4] "digger"
+---@field armor 5
+---@field [5] "armor"
+---@field hard 6
+---@field [6] "hard"
+df.resource_allotment_specifier_metalst.T_metal_flags = {}
+
 ---@class (exact) df.resource_allotment_specifier_woodst: DFStruct, df.resource_allotment_specifier
 ---@field _type identity.resource_allotment_specifier_woodst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
----@field unk_9 number
+---@field pz_ai_weapon_ranged number
+---@field pz_ai_chair number
+---@field pz_ai_table number
+---@field pz_ai_box number
+---@field pz_ai_cabinet number
+---@field pz_ai_bed number
 
 ---@class identity.resource_allotment_specifier_woodst: DFCompoundType
 ---@field _kind 'class-type'
@@ -578,7 +689,7 @@ function df.resource_allotment_specifier_gemsst:new() end
 ---@field _type identity.resource_allotment_specifier_threadst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
+---@field pz_ai_cloth number
 
 ---@class identity.resource_allotment_specifier_threadst: DFCompoundType
 ---@field _kind 'class-type'
@@ -591,11 +702,11 @@ function df.resource_allotment_specifier_threadst:new() end
 ---@field _type identity.resource_allotment_specifier_clothst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
+---@field pz_ai_pants number
+---@field pz_ai_body number
+---@field pz_ai_boots number
+---@field pz_ai_gloves number
+---@field pz_ai_helm number
 
 ---@class identity.resource_allotment_specifier_clothst: DFCompoundType
 ---@field _kind 'class-type'
@@ -608,16 +719,16 @@ function df.resource_allotment_specifier_clothst:new() end
 ---@field _type identity.resource_allotment_specifier_leatherst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
----@field unk_9 number
----@field unk_10 number
----@field unk_11 number
----@field unk_12 number
----@field unk_13 number
+---@field pz_ai_pants number
+---@field pz_ai_body number
+---@field pz_ai_boots number
+---@field pz_ai_gloves number
+---@field pz_ai_helm number
+---@field pz_ai_quiver number
+---@field pz_ai_backpack number
+---@field pz_ai_flask number
+---@field pz_ai_bag number
+---@field pz_ai_crafts number
 
 ---@class identity.resource_allotment_specifier_leatherst: DFCompoundType
 ---@field _kind 'class-type'
@@ -762,7 +873,7 @@ function df.resource_allotment_specifier_meatst:new() end
 ---@field _type identity.resource_allotment_specifier_bonest
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
+---@field pz_ai_crafts number
 
 ---@class identity.resource_allotment_specifier_bonest: DFCompoundType
 ---@field _kind 'class-type'
@@ -775,7 +886,7 @@ function df.resource_allotment_specifier_bonest:new() end
 ---@field _type identity.resource_allotment_specifier_hornst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
+---@field pz_ai_crafts number
 
 ---@class identity.resource_allotment_specifier_hornst: DFCompoundType
 ---@field _kind 'class-type'
@@ -788,7 +899,7 @@ function df.resource_allotment_specifier_hornst:new() end
 ---@field _type identity.resource_allotment_specifier_shellst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
+---@field pz_ai_crafts number
 
 ---@class identity.resource_allotment_specifier_shellst: DFCompoundType
 ---@field _kind 'class-type'
@@ -813,7 +924,7 @@ function df.resource_allotment_specifier_tallowst:new() end
 ---@field _type identity.resource_allotment_specifier_toothst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
+---@field pz_ai_crafts number
 
 ---@class identity.resource_allotment_specifier_toothst: DFCompoundType
 ---@field _kind 'class-type'
@@ -850,10 +961,10 @@ function df.resource_allotment_specifier_soapst:new() end
 ---@field _type identity.resource_allotment_specifier_extractst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
----@field mat_type2 number References: `df.material`
----@field mat_index2 number
----@field unk_5 number uninitialized
+---@field extract_flags df.resource_allotment_specifier_extractst.T_extract_flags
+---@field cheese_mat_type number References: `df.material`
+---@field cheese_mat_index number
+---@field pz_ai_cheese number
 
 ---@class identity.resource_allotment_specifier_extractst: DFCompoundType
 ---@field _kind 'class-type'
@@ -861,6 +972,24 @@ df.resource_allotment_specifier_extractst = {}
 
 ---@return df.resource_allotment_specifier_extractst
 function df.resource_allotment_specifier_extractst:new() end
+
+---@class df.resource_allotment_specifier_extractst.T_extract_flags: DFBitfield
+---@field _enum identity.resource_allotment_specifier_extractst.extract_flags
+---@field edible_raw boolean bay12: RAS_EXTRACT_FLAG_*
+---@field [0] boolean bay12: RAS_EXTRACT_FLAG_*
+---@field edible_cooked boolean
+---@field [1] boolean
+---@field cheeseable boolean
+---@field [2] boolean
+
+---@class identity.resource_allotment_specifier_extractst.extract_flags: DFBitfieldType
+---@field edible_raw 0 bay12: RAS_EXTRACT_FLAG_*
+---@field [0] "edible_raw" bay12: RAS_EXTRACT_FLAG_*
+---@field edible_cooked 1
+---@field [1] "edible_cooked"
+---@field cheeseable 2
+---@field [2] "cheeseable"
+df.resource_allotment_specifier_extractst.T_extract_flags = {}
 
 ---@class (exact) df.resource_allotment_specifier_cheesest: DFStruct, df.resource_allotment_specifier
 ---@field _type identity.resource_allotment_specifier_cheesest
@@ -878,9 +1007,9 @@ function df.resource_allotment_specifier_cheesest:new() end
 ---@field _type identity.resource_allotment_specifier_skinst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field mat_type2 number References: `df.material`
----@field mat_index2 number
----@field unk_4 number
+---@field product_mat_type number References: `df.material`
+---@field product_mat_index number
+---@field pz_ai_leather number
 
 ---@class identity.resource_allotment_specifier_skinst: DFCompoundType
 ---@field _kind 'class-type'
@@ -893,7 +1022,7 @@ function df.resource_allotment_specifier_skinst:new() end
 ---@field _type identity.resource_allotment_specifier_powderst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field unk_4 number
+---@field extract_flags df.resource_allotment_specifier_powderst.T_extract_flags
 
 ---@class identity.resource_allotment_specifier_powderst: DFCompoundType
 ---@field _kind 'class-type'
@@ -902,14 +1031,28 @@ df.resource_allotment_specifier_powderst = {}
 ---@return df.resource_allotment_specifier_powderst
 function df.resource_allotment_specifier_powderst:new() end
 
+---@class df.resource_allotment_specifier_powderst.T_extract_flags: DFBitfield
+---@field _enum identity.resource_allotment_specifier_powderst.extract_flags
+---@field edible_raw boolean bay12: RAS_POWDER_FLAG_*
+---@field [0] boolean bay12: RAS_POWDER_FLAG_*
+---@field edible_cooked boolean
+---@field [1] boolean
+
+---@class identity.resource_allotment_specifier_powderst.extract_flags: DFBitfieldType
+---@field edible_raw 0 bay12: RAS_POWDER_FLAG_*
+---@field [0] "edible_raw" bay12: RAS_POWDER_FLAG_*
+---@field edible_cooked 1
+---@field [1] "edible_cooked"
+df.resource_allotment_specifier_powderst.T_extract_flags = {}
+
 ---@class (exact) df.resource_allotment_data: DFStruct
 ---@field _type identity.resource_allotment_data
 ---@field index number
 ---@field resource_allotments df.resource_allotment_specifier[]
 ---@field center_x number
 ---@field center_y number
----@field producing_civilization_enid number
----@field last_market_stid number
+---@field producing_civilization_enid number References: `df.historical_entity`
+---@field last_market_stid number References: `df.world_site`
 ---@field butchery_specifier _resource_allotment_data_butchery_specifier
 
 ---@class identity.resource_allotment_data: DFCompoundType

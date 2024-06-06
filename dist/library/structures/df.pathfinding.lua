@@ -219,8 +219,8 @@
 ---| 213 # SeekHeistHandoff
 
 ---@class identity.unit_path_goal: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: PathGoalType
+---@field [-1] "None" bay12: PathGoalType
 ---@field ComeToJobBuilding 0
 ---@field [0] "ComeToJobBuilding"
 ---@field ValidPondDumpUnit 1
@@ -657,7 +657,6 @@ df.unit_path_goal = {}
 ---| 1 # DungeonCommander
 ---| 2 # InsaneMood
 ---| 3 # UndeadHunt
----| 4 # SiegerPatrol
 ---| 5 # MaraudeTarget
 ---| 6 # SiegerBasepoint
 ---| 7 # SiegerMill
@@ -697,18 +696,16 @@ df.unit_path_goal = {}
 ---| 41 # WaitOrder
 
 ---@class identity.unit_station_type: DFEnumType
----@field None -1
----@field [-1] "None"
----@field Nonsense 0
----@field [0] "Nonsense"
+---@field None -1 bay12: StationType
+---@field [-1] "None" bay12: StationType
+---@field Nonsense 0 INITIAL_SITE
+---@field [0] "Nonsense" INITIAL_SITE
 ---@field DungeonCommander 1
 ---@field [1] "DungeonCommander"
 ---@field InsaneMood 2
 ---@field [2] "InsaneMood"
 ---@field UndeadHunt 3
 ---@field [3] "UndeadHunt"
----@field SiegerPatrol 4
----@field [4] "SiegerPatrol"
 ---@field MaraudeTarget 5
 ---@field [5] "MaraudeTarget"
 ---@field SiegerBasepoint 6
@@ -785,11 +782,10 @@ df.unit_path_goal = {}
 ---@field [41] "WaitOrder"
 df.unit_station_type = {}
 
--- bay12: PathPermit
 ---@class df.pathfinding_flags: DFBitfield
 ---@field _enum identity.pathfinding_flags
----@field Desperate boolean bay12: FORBIDDENTERRAIN
----@field [0] boolean bay12: FORBIDDENTERRAIN
+---@field Desperate boolean bay12: PATH_PERMIT_*
+---@field [0] boolean bay12: PATH_PERMIT_*
 ---@field Reckless boolean bay12: BONKERS
 ---@field [1] boolean bay12: BONKERS
 ---@field BuildingDestroyer1 boolean bay12: WOODENDOOR_IGNORE
@@ -802,7 +798,7 @@ df.unit_station_type = {}
 ---@field [5] boolean bay12: HIDDEN
 ---@field Doors boolean bay12: DOOR_STOP
 ---@field [6] boolean bay12: DOOR_STOP
----@field UnkDoor_7 boolean bay12: DOOR_STOP_TOTAL
+---@field DoorTotal boolean bay12: DOOR_STOP_TOTAL
 ---@field [7] boolean bay12: DOOR_STOP_TOTAL
 ---@field CanLearn boolean bay12: USE_TRAFFIC
 ---@field [8] boolean bay12: USE_TRAFFIC
@@ -832,16 +828,16 @@ df.unit_station_type = {}
 ---@field [20] boolean bay12: BREATHE_AIR
 ---@field ImmobileLand boolean bay12: ENTERING_FROM_AIR
 ---@field [21] boolean bay12: ENTERING_FROM_AIR
----@field ZeroWalkTag boolean bay12: ENTERING_FROM_LEVE_MAPLESS
----@field [22] boolean bay12: ENTERING_FROM_LEVE_MAPLESS
+---@field ZeroWalkTag boolean bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field [22] boolean bay12: ENTERING_FROM_LEVEL_MAPLESS
 ---@field LevelMapless boolean
 ---@field [23] boolean
 ---@field Ghostly boolean
 ---@field [24] boolean
 
 ---@class identity.pathfinding_flags: DFBitfieldType
----@field Desperate 0 bay12: FORBIDDENTERRAIN
----@field [0] "Desperate" bay12: FORBIDDENTERRAIN
+---@field Desperate 0 bay12: PATH_PERMIT_*
+---@field [0] "Desperate" bay12: PATH_PERMIT_*
 ---@field Reckless 1 bay12: BONKERS
 ---@field [1] "Reckless" bay12: BONKERS
 ---@field BuildingDestroyer1 2 bay12: WOODENDOOR_IGNORE
@@ -854,8 +850,8 @@ df.unit_station_type = {}
 ---@field [5] "AllowUnrevealed" bay12: HIDDEN
 ---@field Doors 6 bay12: DOOR_STOP
 ---@field [6] "Doors" bay12: DOOR_STOP
----@field UnkDoor_7 7 bay12: DOOR_STOP_TOTAL
----@field [7] "UnkDoor_7" bay12: DOOR_STOP_TOTAL
+---@field DoorTotal 7 bay12: DOOR_STOP_TOTAL
+---@field [7] "DoorTotal" bay12: DOOR_STOP_TOTAL
 ---@field CanLearn 8 bay12: USE_TRAFFIC
 ---@field [8] "CanLearn" bay12: USE_TRAFFIC
 ---@field SolidWall 9
@@ -884,8 +880,8 @@ df.unit_station_type = {}
 ---@field [20] "WalkLand" bay12: BREATHE_AIR
 ---@field ImmobileLand 21 bay12: ENTERING_FROM_AIR
 ---@field [21] "ImmobileLand" bay12: ENTERING_FROM_AIR
----@field ZeroWalkTag 22 bay12: ENTERING_FROM_LEVE_MAPLESS
----@field [22] "ZeroWalkTag" bay12: ENTERING_FROM_LEVE_MAPLESS
+---@field ZeroWalkTag 22 bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field [22] "ZeroWalkTag" bay12: ENTERING_FROM_LEVEL_MAPLESS
 ---@field LevelMapless 23
 ---@field [23] "LevelMapless"
 ---@field Ghostly 24

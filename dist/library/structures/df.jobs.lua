@@ -3,8 +3,8 @@
 
 ---@class df.job_material_category: DFBitfield
 ---@field _enum identity.job_material_category
----@field plant boolean
----@field [0] boolean
+---@field plant boolean bay12: JOB_ITEM_FLAG_*
+---@field [0] boolean bay12: JOB_ITEM_FLAG_*
 ---@field wood boolean wood log
 ---@field [1] boolean wood log
 ---@field cloth boolean
@@ -33,8 +33,8 @@
 ---@field [13] boolean
 
 ---@class identity.job_material_category: DFBitfieldType
----@field plant 0
----@field [0] "plant"
+---@field plant 0 bay12: JOB_ITEM_FLAG_*
+---@field [0] "plant" bay12: JOB_ITEM_FLAG_*
 ---@field wood 1 wood log
 ---@field [1] "wood" wood log
 ---@field cloth 2
@@ -168,74 +168,75 @@ df.job_list_link = {}
 ---@return df.job_list_link
 function df.job_list_link:new() end
 
+-- bay12: tlink{jobst}
 ---@class df.job_flags: DFBitfield
 ---@field _enum identity.job_flags
----@field ["repeat"] boolean
----@field [0] boolean
+---@field ["repeat"] boolean bay12: JOBFLAG_*
+---@field [0] boolean bay12: JOBFLAG_*
 ---@field suspend boolean
 ---@field [1] boolean
 ---@field working boolean not for food, or store in sp
 ---@field [2] boolean not for food, or store in sp
 ---@field fetching boolean Actually going out to bring; corresponds to items->is_fetching
 ---@field [3] boolean Actually going out to bring; corresponds to items->is_fetching
----@field special boolean toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field [4] boolean toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field bringing boolean toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field [5] boolean toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field item_lost boolean toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field [6] boolean toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field noise boolean on the sleep job causes thoughts
----@field [7] boolean on the sleep job causes thoughts
+---@field special boolean bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] boolean bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing boolean bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] boolean bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost boolean bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field [6] boolean bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field noise boolean bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field [7] boolean bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
 ---@field by_manager boolean --
 ---@field [9] boolean --
----@field store_item boolean toady: ITEMSOURCE
----@field [10] boolean toady: ITEMSOURCE
----@field quality boolean toady: BONUS1/2/3; set by improvement code
----@field [11] boolean toady: BONUS1/2/3; set by improvement code
+---@field store_item boolean bay12: ITEMSOURCE
+---@field [10] boolean bay12: ITEMSOURCE
+---@field quality boolean bay12: BONUS; set by improvement code
+---@field [11] boolean bay12: BONUS; set by improvement code
 ---@field non_fluid boolean
 ---@field [14] boolean
 ---@field could_not_find_building_use_1 boolean
 ---@field [15] boolean
----@field on_break boolean toady: COUNTS_AS_BREAK; job displayed as On Break
----@field [16] boolean toady: COUNTS_AS_BREAK; job displayed as On Break
----@field dessource boolean
----@field [17] boolean
----@field do_now boolean toady: DO_ME_NOW
----@field [18] boolean toady: DO_ME_NOW
+---@field on_break boolean bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field [16] boolean bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field dessource boolean created from designation
+---@field [17] boolean created from designation
+---@field do_now boolean bay12: DO_ME_NOW
+---@field [18] boolean bay12: DO_ME_NOW
 
 ---@class identity.job_flags: DFBitfieldType
----@field ["repeat"] 0
----@field [0] "repeat"
+---@field ["repeat"] 0 bay12: JOBFLAG_*
+---@field [0] "repeat" bay12: JOBFLAG_*
 ---@field suspend 1
 ---@field [1] "suspend"
 ---@field working 2 not for food, or store in sp
 ---@field [2] "working" not for food, or store in sp
 ---@field fetching 3 Actually going out to bring; corresponds to items->is_fetching
 ---@field [3] "fetching" Actually going out to bring; corresponds to items->is_fetching
----@field special 4 toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field [4] "special" toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field bringing 5 toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field [5] "bringing" toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field item_lost 6 toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field [6] "item_lost" toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field noise 7 on the sleep job causes thoughts
----@field [7] "noise" on the sleep job causes thoughts
+---@field special 4 bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] "special" bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing 5 bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] "bringing" bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost 6 bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field [6] "item_lost" bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field noise 7 bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field [7] "noise" bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
 ---@field by_manager 9 --
 ---@field [9] "by_manager" --
----@field store_item 10 toady: ITEMSOURCE
----@field [10] "store_item" toady: ITEMSOURCE
----@field quality 11 toady: BONUS1/2/3; set by improvement code
----@field [11] "quality" toady: BONUS1/2/3; set by improvement code
+---@field store_item 10 bay12: ITEMSOURCE
+---@field [10] "store_item" bay12: ITEMSOURCE
+---@field quality 11 bay12: BONUS; set by improvement code
+---@field [11] "quality" bay12: BONUS; set by improvement code
 ---@field non_fluid 14
 ---@field [14] "non_fluid"
 ---@field could_not_find_building_use_1 15
 ---@field [15] "could_not_find_building_use_1"
----@field on_break 16 toady: COUNTS_AS_BREAK; job displayed as On Break
----@field [16] "on_break" toady: COUNTS_AS_BREAK; job displayed as On Break
----@field dessource 17
----@field [17] "dessource"
----@field do_now 18 toady: DO_ME_NOW
----@field [18] "do_now" toady: DO_ME_NOW
+---@field on_break 16 bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field [16] "on_break" bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field dessource 17 created from designation
+---@field [17] "dessource" created from designation
+---@field do_now 18 bay12: DO_ME_NOW
+---@field [18] "do_now" bay12: DO_ME_NOW
 df.job_flags = {}
 
 ---@alias df.job_subtype_surgery
@@ -246,8 +247,8 @@ df.job_flags = {}
 ---| 3 # RemoveRottenTissue
 
 ---@class identity.job_subtype_surgery: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: JobStageType
+---@field [-1] "None" bay12: JobStageType
 ---@field Surgery 0
 ---@field [0] "Surgery"
 ---@field StopBleeding 1
@@ -283,48 +284,48 @@ function df.job_spec_flags:new() end
 
 ---@class df.job_spec_flags.T_construct_building_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.construct_building_flags
----@field SWITCHED_SPOT boolean
----@field [0] boolean
+---@field SWITCHED_SPOT boolean bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
 
 ---@class identity.job_spec_flags.construct_building_flags: DFBitfieldType
----@field SWITCHED_SPOT 0
----@field [0] "SWITCHED_SPOT"
+---@field SWITCHED_SPOT 0 bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
+---@field [0] "SWITCHED_SPOT" bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
 df.job_spec_flags.T_construct_building_flags = {}
 
 ---@class df.job_spec_flags.T_clean_patient_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.clean_patient_flags
----@field TRIED_SOAP boolean
----@field [0] boolean
+---@field TRIED_SOAP boolean bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
 
 ---@class identity.job_spec_flags.clean_patient_flags: DFBitfieldType
----@field TRIED_SOAP 0
----@field [0] "TRIED_SOAP"
+---@field TRIED_SOAP 0 bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
+---@field [0] "TRIED_SOAP" bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
 df.job_spec_flags.T_clean_patient_flags = {}
 
 ---@class df.job_spec_flags.T_clean_self_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.clean_self_flags
----@field TRIED_SOAP boolean
----@field [0] boolean
+---@field TRIED_SOAP boolean bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
 
 ---@class identity.job_spec_flags.clean_self_flags: DFBitfieldType
----@field TRIED_SOAP 0
----@field [0] "TRIED_SOAP"
+---@field TRIED_SOAP 0 bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
+---@field [0] "TRIED_SOAP" bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
 df.job_spec_flags.T_clean_self_flags = {}
 
 ---@class df.job_spec_flags.T_place_track_vehicle_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.place_track_vehicle_flags
----@field CLEARED_JOBS boolean
----@field [0] boolean
+---@field CLEARED_JOBS boolean bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
 
 ---@class identity.job_spec_flags.place_track_vehicle_flags: DFBitfieldType
----@field CLEARED_JOBS 0
----@field [0] "CLEARED_JOBS"
+---@field CLEARED_JOBS 0 bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
+---@field [0] "CLEARED_JOBS" bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
 df.job_spec_flags.T_place_track_vehicle_flags = {}
 
 ---@class df.job_spec_flags.T_gather_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.gather_flags
----@field FROM_ZONE boolean
----@field [0] boolean
+---@field FROM_ZONE boolean bay12: JOB_SPEC_FLAG_GATHER_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_GATHER_*
 ---@field PICK_TREES boolean
 ---@field [1] boolean
 ---@field PICK_SHRUBS boolean
@@ -339,8 +340,8 @@ df.job_spec_flags.T_place_track_vehicle_flags = {}
 ---@field [6] boolean
 
 ---@class identity.job_spec_flags.gather_flags: DFBitfieldType
----@field FROM_ZONE 0
----@field [0] "FROM_ZONE"
+---@field FROM_ZONE 0 bay12: JOB_SPEC_FLAG_GATHER_*
+---@field [0] "FROM_ZONE" bay12: JOB_SPEC_FLAG_GATHER_*
 ---@field PICK_TREES 1
 ---@field [1] "PICK_TREES"
 ---@field PICK_SHRUBS 2
@@ -357,42 +358,42 @@ df.job_spec_flags.T_gather_flags = {}
 
 ---@class df.job_spec_flags.T_drink_item_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.drink_item_flags
----@field LOOKED_FOR_NEARBY_GOBLET boolean
----@field [0] boolean
+---@field LOOKED_FOR_NEARBY_GOBLET boolean bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
 
 ---@class identity.job_spec_flags.drink_item_flags: DFBitfieldType
----@field LOOKED_FOR_NEARBY_GOBLET 0
----@field [0] "LOOKED_FOR_NEARBY_GOBLET"
+---@field LOOKED_FOR_NEARBY_GOBLET 0 bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
+---@field [0] "LOOKED_FOR_NEARBY_GOBLET" bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
 df.job_spec_flags.T_drink_item_flags = {}
 
 ---@class df.job_spec_flags.T_interrogation_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.interrogation_flags
----@field DID_OFFICE_ATTEMPT boolean
----@field [0] boolean
+---@field DID_OFFICE_ATTEMPT boolean bay12: JOB_SPEC_FLAG_INTERROGATION_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_INTERROGATION_*
 
 ---@class identity.job_spec_flags.interrogation_flags: DFBitfieldType
----@field DID_OFFICE_ATTEMPT 0
----@field [0] "DID_OFFICE_ATTEMPT"
+---@field DID_OFFICE_ATTEMPT 0 bay12: JOB_SPEC_FLAG_INTERROGATION_*
+---@field [0] "DID_OFFICE_ATTEMPT" bay12: JOB_SPEC_FLAG_INTERROGATION_*
 df.job_spec_flags.T_interrogation_flags = {}
 
 ---@class df.job_spec_flags.T_weave_cloth_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.weave_cloth_flags
----@field USE_DYED boolean
----@field [0] boolean
+---@field USE_DYED boolean bay12: N/A
+---@field [0] boolean bay12: N/A
 
 ---@class identity.job_spec_flags.weave_cloth_flags: DFBitfieldType
----@field USE_DYED 0
----@field [0] "USE_DYED"
+---@field USE_DYED 0 bay12: N/A
+---@field [0] "USE_DYED" bay12: N/A
 df.job_spec_flags.T_weave_cloth_flags = {}
 
 ---@class df.job_spec_flags.T_link_building_to_trigger_flags: DFBitfield
 ---@field _enum identity.job_spec_flags.link_building_to_trigger_flags
----@field UNKNOWN boolean
----@field [0] boolean
+---@field UNKNOWN boolean bay12: N/A
+---@field [0] boolean bay12: N/A
 
 ---@class identity.job_spec_flags.link_building_to_trigger_flags: DFBitfieldType
----@field UNKNOWN 0
----@field [0] "UNKNOWN"
+---@field UNKNOWN 0 bay12: N/A
+---@field [0] "UNKNOWN" bay12: N/A
 df.job_spec_flags.T_link_building_to_trigger_flags = {}
 
 ---@class (exact) df.job: DFStruct
@@ -401,7 +402,7 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field list_link df.job_list_link
 ---@field posting_index number index into world.job_postings
 ---@field job_type df.job_type
----@field job_subtype df.job_subtype_surgery toady: stage
+---@field job_subtype df.job_subtype_surgery bay12: stage
 ---@field pos df.coord
 ---@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
 ---@field maxdur number
@@ -412,7 +413,7 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field item_type df.item_type for Bait Trap jobs
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
 ---@field specflag df.job_spec_flags
----@field hist_figure_id number toady: spec_id<br>References: `df.historical_figure`
+---@field hist_figure_id number bay12: spec_id<br>References: `df.historical_figure`
 ---@field race number References: `df.creature_raw`
 ---@field improvement df.improvement_type
 ---@field material_category df.job_material_category bay12: uint32_t job_item_flag
@@ -423,7 +424,7 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field items _job_items
 ---@field specific_refs _job_specific_refs
 ---@field general_refs _job_general_refs
----@field job_items _job_job_items
+---@field job_items df.job_reqst
 ---@field guide_path df.coord_path
 ---@field cur_path_index number
 ---@field spec_loc df.coord toady: spec_x/spec_y/spec_z
@@ -485,27 +486,38 @@ function _job_general_refs:insert(index, item) end
 ---@param index integer
 function _job_general_refs:erase(index) end
 
----@class _job_job_items: DFContainer
+---@class (exact) df.job_reqst: DFStruct
+---@field _type identity.job_reqst
+---@field elements _job_reqst_elements
+
+---@class identity.job_reqst: DFCompoundType
+---@field _kind 'struct-type'
+df.job_reqst = {}
+
+---@return df.job_reqst
+function df.job_reqst:new() end
+
+---@class _job_reqst_elements: DFContainer
 ---@field [integer] df.job_item
-local _job_job_items
+local _job_reqst_elements
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.job_item>
-function _job_job_items:_field(index) end
+function _job_reqst_elements:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.job_item
-function _job_job_items:insert(index, item) end
+function _job_reqst_elements:insert(index, item) end
 
 ---@param index integer
-function _job_job_items:erase(index) end
+function _job_reqst_elements:erase(index) end
 
 ---@class (exact) df.job_item_ref: DFStruct
 ---@field _type identity.job_item_ref
 ---@field item df.item
 ---@field role df.job_item_ref.T_role
----@field is_fetching number 0 immediately once taken to be brought
+---@field flags df.job_item_ref.T_flags
 ---@field job_item_idx number
 
 ---@class identity.job_item_ref: DFCompoundType
@@ -519,39 +531,52 @@ function df.job_item_ref:new() end
 ---| 0 # Other
 ---| 1 # Reagent
 ---| 2 # Hauled
----| 3 # LinkToTarget
----| 4 # LinkToTrigger
+---| 3 # LinkToTrigger
+---| 4 # LinkToTarget
+---| 5 # CleanSite
 ---| 6 # TargetContainer
 ---| 7 # QueuedContainer
 ---| 8 # PushHaulVehicle
 
 ---@class identity.job_item_ref.role: DFEnumType
----@field Other 0 eat, drink, pickup equipment
----@field [0] "Other" eat, drink, pickup equipment
----@field Reagent 1
----@field [1] "Reagent"
----@field Hauled 2
----@field [2] "Hauled"
----@field LinkToTarget 3 used when linking a lever to a building, not sure if swapped
----@field [3] "LinkToTarget" used when linking a lever to a building, not sure if swapped
----@field LinkToTrigger 4
----@field [4] "LinkToTrigger"
----@field TargetContainer 6
----@field [6] "TargetContainer"
----@field QueuedContainer 7 queued to be put in a container
----@field [7] "QueuedContainer" queued to be put in a container
----@field PushHaulVehicle 8 wheelbarrow
----@field [8] "PushHaulVehicle" wheelbarrow
+---@field Other 0 bay12: JobRoleTypes
+---@field [0] "Other" bay12: JobRoleTypes
+---@field Reagent 1 MATERIAL
+---@field [1] "Reagent" MATERIAL
+---@field Hauled 2 REQUIRED
+---@field [2] "Hauled" REQUIRED
+---@field LinkToTrigger 3
+---@field [3] "LinkToTrigger"
+---@field LinkToTarget 4
+---@field [4] "LinkToTarget"
+---@field CleanSite 5
+---@field [5] "CleanSite"
+---@field TargetContainer 6 NOTAG
+---@field [6] "TargetContainer" NOTAG
+---@field QueuedContainer 7 INCIDENTAL_HAUL; queued to be put in a container
+---@field [7] "QueuedContainer" INCIDENTAL_HAUL; queued to be put in a container
+---@field PushHaulVehicle 8 HAULER_ITEM; wheelbarrow
+---@field [8] "PushHaulVehicle" HAULER_ITEM; wheelbarrow
 df.job_item_ref.T_role = {}
+
+---@class df.job_item_ref.T_flags: DFBitfield
+---@field _enum identity.job_item_ref.flags
+---@field is_fetching boolean bay12: JOBITEMFLAG_*
+---@field [0] boolean bay12: JOBITEMFLAG_*
+
+---@class identity.job_item_ref.flags: DFBitfieldType
+---@field is_fetching 0 bay12: JOBITEMFLAG_*
+---@field [0] "is_fetching" bay12: JOBITEMFLAG_*
+df.job_item_ref.T_flags = {}
 
 ---@class df.job_item_flags1: DFBitfield
 ---@field _enum identity.job_item_flags1
----@field improvable boolean vtable[155]:eax,-1,-1
----@field [0] boolean vtable[155]:eax,-1,-1
----@field butcherable boolean (call 0074c6d0)
----@field [1] boolean (call 0074c6d0)
----@field millable boolean vtable[79]
----@field [2] boolean vtable[79]
+---@field improvable boolean bay12: ITEMNEEDEDFLAG_*
+---@field [0] boolean bay12: ITEMNEEDEDFLAG_*
+---@field butcherable boolean
+---@field [1] boolean
+---@field millable boolean
+---@field [2] boolean
 ---@field allow_buryable boolean ALLOW items with flag "dead_dwarf"
 ---@field [3] boolean ALLOW items with flag "dead_dwarf"
 ---@field unrotten boolean check for item flag "rotten"
@@ -560,46 +585,43 @@ df.job_item_ref.T_role = {}
 ---@field [5] boolean check for item flag "spider_web"
 ---@field collected boolean check for item flag "spider_web"
 ---@field [6] boolean check for item flag "spider_web"
----@field sharpenable boolean vtable[25]
----@field [7] boolean vtable[25]
+---@field sharpenable boolean
+---@field [7] boolean
 ---@field murdered boolean check for item flag
 ---@field [8] boolean check for item flag
----@field distillable boolean vtable[105],1
----@field [9] boolean vtable[105],1
----@field empty boolean (call 00753a40)
----@field [10] boolean (call 00753a40)
----@field processable boolean vtable[80]
----@field [11] boolean vtable[80]
----@field bag boolean vtable[131]
----@field [12] boolean vtable[131]
----@field cookable boolean (call 00753fe0)
----@field [13] boolean (call 00753fe0)
----@field extract_bearing_plant boolean vtable[164]
----@field [14] boolean vtable[164]
----@field extract_bearing_fish boolean vtable[181]
----@field [15] boolean vtable[181]
----@field extract_bearing_vermin boolean vtable[182]
----@field [16] boolean vtable[182]
----@field processable_to_vial boolean vtable[81]
----@field [17] boolean vtable[81]
----@field processable_to_bag boolean vtable[82]
----@field [18] boolean vtable[82]
----@field processable_to_barrel boolean vtable[83]
----@field [19] boolean vtable[83]
----@field solid boolean vtable[74]
----@field [20] boolean vtable[74]
----@field tameable_vermin boolean vtable[104]
----@field [21] boolean vtable[104]
+---@field [9] boolean unused, formerly distillable
+---@field empty boolean
+---@field [10] boolean
+---@field processable boolean processable plant, e.g. to thread
+---@field [11] boolean processable plant, e.g. to thread
+---@field [12] boolean unused, formerly is_bag
+---@field cookable boolean
+---@field [13] boolean
+---@field extract_bearing_plant boolean
+---@field [14] boolean
+---@field extract_bearing_fish boolean
+---@field [15] boolean
+---@field extract_bearing_vermin boolean
+---@field [16] boolean
+---@field processable_to_vial boolean
+---@field [17] boolean
+---@field [18] boolean unused, formerly processable_to_bag
+---@field processable_to_barrel boolean
+---@field [19] boolean
+---@field solid boolean
+---@field [20] boolean
+---@field tameable_vermin boolean
+---@field [21] boolean
 ---@field nearby boolean
 ---@field [22] boolean
----@field sand_bearing boolean vtable[108]
----@field [23] boolean vtable[108]
+---@field sand_bearing boolean
+---@field [23] boolean
 ---@field glass boolean check for material flag IS_GLASS
 ---@field [24] boolean check for material flag IS_GLASS
----@field milk boolean (call 00753d30 - check if material has CHEESE_MAT?)
----@field [25] boolean (call 00753d30 - check if material has CHEESE_MAT?)
----@field milkable boolean vtable[107],1,1
----@field [26] boolean vtable[107],1,1
+---@field milk boolean check if material has CHEESE_MAT
+---@field [25] boolean check if material has CHEESE_MAT
+---@field milkable boolean
+---@field [26] boolean
 ---@field finished_goods boolean
 ---@field [27] boolean
 ---@field ammo boolean
@@ -612,12 +634,12 @@ df.job_item_ref.T_role = {}
 ---@field [31] boolean
 
 ---@class identity.job_item_flags1: DFBitfieldType
----@field improvable 0 vtable[155]:eax,-1,-1
----@field [0] "improvable" vtable[155]:eax,-1,-1
----@field butcherable 1 (call 0074c6d0)
----@field [1] "butcherable" (call 0074c6d0)
----@field millable 2 vtable[79]
----@field [2] "millable" vtable[79]
+---@field improvable 0 bay12: ITEMNEEDEDFLAG_*
+---@field [0] "improvable" bay12: ITEMNEEDEDFLAG_*
+---@field butcherable 1
+---@field [1] "butcherable"
+---@field millable 2
+---@field [2] "millable"
 ---@field allow_buryable 3 ALLOW items with flag "dead_dwarf"
 ---@field [3] "allow_buryable" ALLOW items with flag "dead_dwarf"
 ---@field unrotten 4 check for item flag "rotten"
@@ -626,46 +648,40 @@ df.job_item_ref.T_role = {}
 ---@field [5] "undisturbed" check for item flag "spider_web"
 ---@field collected 6 check for item flag "spider_web"
 ---@field [6] "collected" check for item flag "spider_web"
----@field sharpenable 7 vtable[25]
----@field [7] "sharpenable" vtable[25]
+---@field sharpenable 7
+---@field [7] "sharpenable"
 ---@field murdered 8 check for item flag
 ---@field [8] "murdered" check for item flag
----@field distillable 9 vtable[105],1
----@field [9] "distillable" vtable[105],1
----@field empty 10 (call 00753a40)
----@field [10] "empty" (call 00753a40)
----@field processable 11 vtable[80]
----@field [11] "processable" vtable[80]
----@field bag 12 vtable[131]
----@field [12] "bag" vtable[131]
----@field cookable 13 (call 00753fe0)
----@field [13] "cookable" (call 00753fe0)
----@field extract_bearing_plant 14 vtable[164]
----@field [14] "extract_bearing_plant" vtable[164]
----@field extract_bearing_fish 15 vtable[181]
----@field [15] "extract_bearing_fish" vtable[181]
----@field extract_bearing_vermin 16 vtable[182]
----@field [16] "extract_bearing_vermin" vtable[182]
----@field processable_to_vial 17 vtable[81]
----@field [17] "processable_to_vial" vtable[81]
----@field processable_to_bag 18 vtable[82]
----@field [18] "processable_to_bag" vtable[82]
----@field processable_to_barrel 19 vtable[83]
----@field [19] "processable_to_barrel" vtable[83]
----@field solid 20 vtable[74]
----@field [20] "solid" vtable[74]
----@field tameable_vermin 21 vtable[104]
----@field [21] "tameable_vermin" vtable[104]
+---@field empty 10
+---@field [10] "empty"
+---@field processable 11 processable plant, e.g. to thread
+---@field [11] "processable" processable plant, e.g. to thread
+---@field cookable 13
+---@field [13] "cookable"
+---@field extract_bearing_plant 14
+---@field [14] "extract_bearing_plant"
+---@field extract_bearing_fish 15
+---@field [15] "extract_bearing_fish"
+---@field extract_bearing_vermin 16
+---@field [16] "extract_bearing_vermin"
+---@field processable_to_vial 17
+---@field [17] "processable_to_vial"
+---@field processable_to_barrel 19
+---@field [19] "processable_to_barrel"
+---@field solid 20
+---@field [20] "solid"
+---@field tameable_vermin 21
+---@field [21] "tameable_vermin"
 ---@field nearby 22
 ---@field [22] "nearby"
----@field sand_bearing 23 vtable[108]
----@field [23] "sand_bearing" vtable[108]
+---@field sand_bearing 23
+---@field [23] "sand_bearing"
 ---@field glass 24 check for material flag IS_GLASS
 ---@field [24] "glass" check for material flag IS_GLASS
----@field milk 25 (call 00753d30 - check if material has CHEESE_MAT?)
----@field [25] "milk" (call 00753d30 - check if material has CHEESE_MAT?)
----@field milkable 26 vtable[107],1,1
----@field [26] "milkable" vtable[107],1,1
+---@field milk 25 check if material has CHEESE_MAT
+---@field [25] "milk" check if material has CHEESE_MAT
+---@field milkable 26
+---@field [26] "milkable"
 ---@field finished_goods 27
 ---@field [27] "finished_goods"
 ---@field ammo 28
@@ -680,32 +696,32 @@ df.job_item_flags1 = {}
 
 ---@class df.job_item_flags2: DFBitfield
 ---@field _enum identity.job_item_flags2
----@field dye boolean vtable[106]
----@field [0] boolean vtable[106]
----@field dyeable boolean vtable[159]
----@field [1] boolean vtable[159]
----@field dyed boolean vtable[161]
----@field [2] boolean vtable[161]
----@field sewn_imageless boolean vtable[162]
----@field [3] boolean vtable[162]
----@field glass_making boolean vtable[26]
----@field [4] boolean vtable[26]
----@field screw boolean vtable[46]
----@field [5] boolean vtable[46]
----@field building_material boolean vtable[47]
----@field [6] boolean vtable[47]
----@field fire_safe boolean vtable[48],1
----@field [7] boolean vtable[48],1
----@field magma_safe boolean vtable[48],2
----@field [8] boolean vtable[48],2
+---@field dye boolean bay12: ITEMNEEDEDFLAG2_*
+---@field [0] boolean bay12: ITEMNEEDEDFLAG2_*
+---@field dyeable boolean
+---@field [1] boolean
+---@field dyed boolean
+---@field [2] boolean
+---@field sewn_imageless boolean
+---@field [3] boolean
+---@field glass_making boolean
+---@field [4] boolean
+---@field screw boolean
+---@field [5] boolean
+---@field building_material boolean
+---@field [6] boolean
+---@field fire_safe boolean
+---@field [7] boolean
+---@field magma_safe boolean
+---@field [8] boolean
 ---@field deep_material boolean check for inorganic material flag DEEP
 ---@field [9] boolean check for inorganic material flag DEEP
 ---@field melt_designated boolean check for item flag "melt"
 ---@field [10] boolean check for item flag "melt"
----@field non_economic boolean (call 0076be60)
----@field [11] boolean (call 0076be60)
----@field allow_melt_dump boolean item can be designated for melting or dumping
----@field [12] boolean item can be designated for melting or dumping
+---@field non_economic boolean
+---@field [11] boolean
+---@field allow_melt_dump boolean CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field [12] boolean CAN_USE_GARBAGE; item can be designated for melting or dumping
 ---@field allow_artifact boolean item can be artifact
 ---@field [13] boolean item can be artifact
 ---@field plant boolean check if material is a PLANT_MAT
@@ -718,59 +734,59 @@ df.job_item_flags1 = {}
 ---@field [17] boolean check for material flag BONE
 ---@field shell boolean check for material flag SHELL
 ---@field [18] boolean check for material flag SHELL
----@field totemable boolean vtable[158]
----@field [19] boolean vtable[158]
+---@field totemable boolean
+---@field [19] boolean
 ---@field horn boolean check for material flag HORN
 ---@field [20] boolean check for material flag HORN
 ---@field pearl boolean check for material flag PEARL
 ---@field [21] boolean check for material flag PEARL
----@field plaster_containing boolean vtable[17]
----@field [22] boolean vtable[17]
----@field [23] boolean
+---@field plaster_containing boolean
+---@field [22] boolean
+---@field [23] boolean unused
 ---@field soap boolean check for material flag SOAP
 ---@field [24] boolean check for material flag SOAP
 ---@field body_part boolean itemtype CORPSE or CORPSEPIECE
 ---@field [25] boolean itemtype CORPSE or CORPSEPIECE
 ---@field ivory_tooth boolean check for material flag TOOTH
 ---@field [26] boolean check for material flag TOOTH
----@field lye_milk_free boolean (call 00759110)
----@field [27] boolean (call 00759110)
----@field blunt boolean vtable[157]
----@field [28] boolean vtable[157]
----@field unengraved boolean vtable[214]
----@field [29] boolean vtable[214]
----@field hair_wool boolean ??? (pretty sure this is [ANY_STRAND_TISSUE])
----@field [30] boolean ??? (pretty sure this is [ANY_STRAND_TISSUE])
+---@field lye_milk_free boolean
+---@field [27] boolean
+---@field blunt boolean
+---@field [28] boolean
+---@field unengraved boolean
+---@field [29] boolean
+---@field hair_wool boolean ANY_STRAND_TISSUE
+---@field [30] boolean ANY_STRAND_TISSUE
 ---@field yarn boolean check for material flag YARN
 ---@field [31] boolean check for material flag YARN
 
 ---@class identity.job_item_flags2: DFBitfieldType
----@field dye 0 vtable[106]
----@field [0] "dye" vtable[106]
----@field dyeable 1 vtable[159]
----@field [1] "dyeable" vtable[159]
----@field dyed 2 vtable[161]
----@field [2] "dyed" vtable[161]
----@field sewn_imageless 3 vtable[162]
----@field [3] "sewn_imageless" vtable[162]
----@field glass_making 4 vtable[26]
----@field [4] "glass_making" vtable[26]
----@field screw 5 vtable[46]
----@field [5] "screw" vtable[46]
----@field building_material 6 vtable[47]
----@field [6] "building_material" vtable[47]
----@field fire_safe 7 vtable[48],1
----@field [7] "fire_safe" vtable[48],1
----@field magma_safe 8 vtable[48],2
----@field [8] "magma_safe" vtable[48],2
+---@field dye 0 bay12: ITEMNEEDEDFLAG2_*
+---@field [0] "dye" bay12: ITEMNEEDEDFLAG2_*
+---@field dyeable 1
+---@field [1] "dyeable"
+---@field dyed 2
+---@field [2] "dyed"
+---@field sewn_imageless 3
+---@field [3] "sewn_imageless"
+---@field glass_making 4
+---@field [4] "glass_making"
+---@field screw 5
+---@field [5] "screw"
+---@field building_material 6
+---@field [6] "building_material"
+---@field fire_safe 7
+---@field [7] "fire_safe"
+---@field magma_safe 8
+---@field [8] "magma_safe"
 ---@field deep_material 9 check for inorganic material flag DEEP
 ---@field [9] "deep_material" check for inorganic material flag DEEP
 ---@field melt_designated 10 check for item flag "melt"
 ---@field [10] "melt_designated" check for item flag "melt"
----@field non_economic 11 (call 0076be60)
----@field [11] "non_economic" (call 0076be60)
----@field allow_melt_dump 12 item can be designated for melting or dumping
----@field [12] "allow_melt_dump" item can be designated for melting or dumping
+---@field non_economic 11
+---@field [11] "non_economic"
+---@field allow_melt_dump 12 CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field [12] "allow_melt_dump" CAN_USE_GARBAGE; item can be designated for melting or dumping
 ---@field allow_artifact 13 item can be artifact
 ---@field [13] "allow_artifact" item can be artifact
 ---@field plant 14 check if material is a PLANT_MAT
@@ -783,54 +799,55 @@ df.job_item_flags1 = {}
 ---@field [17] "bone" check for material flag BONE
 ---@field shell 18 check for material flag SHELL
 ---@field [18] "shell" check for material flag SHELL
----@field totemable 19 vtable[158]
----@field [19] "totemable" vtable[158]
+---@field totemable 19
+---@field [19] "totemable"
 ---@field horn 20 check for material flag HORN
 ---@field [20] "horn" check for material flag HORN
 ---@field pearl 21 check for material flag PEARL
 ---@field [21] "pearl" check for material flag PEARL
----@field plaster_containing 22 vtable[17]
----@field [22] "plaster_containing" vtable[17]
+---@field plaster_containing 22
+---@field [22] "plaster_containing"
 ---@field soap 24 check for material flag SOAP
 ---@field [24] "soap" check for material flag SOAP
 ---@field body_part 25 itemtype CORPSE or CORPSEPIECE
 ---@field [25] "body_part" itemtype CORPSE or CORPSEPIECE
 ---@field ivory_tooth 26 check for material flag TOOTH
 ---@field [26] "ivory_tooth" check for material flag TOOTH
----@field lye_milk_free 27 (call 00759110)
----@field [27] "lye_milk_free" (call 00759110)
----@field blunt 28 vtable[157]
----@field [28] "blunt" vtable[157]
----@field unengraved 29 vtable[214]
----@field [29] "unengraved" vtable[214]
----@field hair_wool 30 ??? (pretty sure this is [ANY_STRAND_TISSUE])
----@field [30] "hair_wool" ??? (pretty sure this is [ANY_STRAND_TISSUE])
+---@field lye_milk_free 27
+---@field [27] "lye_milk_free"
+---@field blunt 28
+---@field [28] "blunt"
+---@field unengraved 29
+---@field [29] "unengraved"
+---@field hair_wool 30 ANY_STRAND_TISSUE
+---@field [30] "hair_wool" ANY_STRAND_TISSUE
 ---@field yarn 31 check for material flag YARN
 ---@field [31] "yarn" check for material flag YARN
 df.job_item_flags2 = {}
 
 ---@class df.job_item_flags3: DFBitfield
 ---@field _enum identity.job_item_flags3
----@field unimproved boolean vtable[176]
----@field [0] boolean vtable[176]
+---@field unimproved boolean bay12: ITEMNEEDEDFLAG3_*
+---@field [0] boolean bay12: ITEMNEEDEDFLAG3_*
 ---@field any_raw_material boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
 ---@field [1] boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
----@field non_absorbent boolean vtable[215]
----@field [2] boolean vtable[215]
----@field non_pressed boolean vtable[91]
----@field [3] boolean vtable[91]
+---@field non_absorbent boolean
+---@field [2] boolean
+---@field non_pressed boolean
+---@field [3] boolean
 ---@field allow_liquid_powder boolean
 ---@field [4] boolean
 ---@field any_craft boolean FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
 ---@field [5] boolean FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
 ---@field hard boolean check for material flag ITEMS_HARD
 ---@field [6] boolean check for material flag ITEMS_HARD
----@field food_storage boolean vtable[15]
----@field [7] boolean vtable[15]
+---@field food_storage boolean
+---@field [7] boolean
 ---@field metal boolean
 ---@field [8] boolean
 ---@field sand boolean
 ---@field [9] boolean
+---@field can_use_location_reserved boolean
 ---@field [10] boolean
 ---@field written_on boolean
 ---@field [11] boolean
@@ -856,26 +873,28 @@ df.job_item_flags2 = {}
 ---@field [21] boolean
 
 ---@class identity.job_item_flags3: DFBitfieldType
----@field unimproved 0 vtable[176]
----@field [0] "unimproved" vtable[176]
+---@field unimproved 0 bay12: ITEMNEEDEDFLAG3_*
+---@field [0] "unimproved" bay12: ITEMNEEDEDFLAG3_*
 ---@field any_raw_material 1 itemtype BAR, BOULDER, POWDER_MISC, or GLOB
 ---@field [1] "any_raw_material" itemtype BAR, BOULDER, POWDER_MISC, or GLOB
----@field non_absorbent 2 vtable[215]
----@field [2] "non_absorbent" vtable[215]
----@field non_pressed 3 vtable[91]
----@field [3] "non_pressed" vtable[91]
+---@field non_absorbent 2
+---@field [2] "non_absorbent"
+---@field non_pressed 3
+---@field [3] "non_pressed"
 ---@field allow_liquid_powder 4
 ---@field [4] "allow_liquid_powder"
 ---@field any_craft 5 FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
 ---@field [5] "any_craft" FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
 ---@field hard 6 check for material flag ITEMS_HARD
 ---@field [6] "hard" check for material flag ITEMS_HARD
----@field food_storage 7 vtable[15]
----@field [7] "food_storage" vtable[15]
+---@field food_storage 7
+---@field [7] "food_storage"
 ---@field metal 8
 ---@field [8] "metal"
 ---@field sand 9
 ---@field [9] "sand"
+---@field can_use_location_reserved 10
+---@field [10] "can_use_location_reserved"
 ---@field written_on 11
 ---@field [11] "written_on"
 ---@field edged 12
@@ -916,15 +935,15 @@ df.job_item_flags3 = {}
 ---@field metal_ore number Custom:<br>References: `df.inorganic_raw`
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field min_dimension number pure guess by context
+---@field min_dimension number
 ---@field reagent_index number
 ---@field contains DFNumberVector used with custom reactions
 ---@field reaction_id number References: `df.reaction`
 ---@field has_tool_use df.tool_uses
----@field unk_v43_1 number
----@field unk_v43_2 number
----@field unk_v43_3 number
----@field unk_v43_4 number
+---@field job_details_flags df.job_item.T_job_details_flags
+---@field job_details_mat_type number References: `df.material`
+---@field job_details_mat_index number
+---@field job_details_item_flags2 df.job_item_flags2
 
 ---@class identity.job_item: DFCompoundType
 ---@field _kind 'struct-type'
@@ -932,6 +951,16 @@ df.job_item = {}
 
 ---@return df.job_item
 function df.job_item:new() end
+
+---@class df.job_item.T_job_details_flags: DFBitfield
+---@field _enum identity.job_item.job_details_flags
+---@field have_set_job_details boolean bay12: JRE_JOB_DETAILS_FLAG_*
+---@field [0] boolean bay12: JRE_JOB_DETAILS_FLAG_*
+
+---@class identity.job_item.job_details_flags: DFBitfieldType
+---@field have_set_job_details 0 bay12: JRE_JOB_DETAILS_FLAG_*
+---@field [0] "have_set_job_details" bay12: JRE_JOB_DETAILS_FLAG_*
+df.job_item.T_job_details_flags = {}
 
 ---@class (exact) df.job_item_filter: DFStruct
 ---@field _type identity.job_item_filter
@@ -962,13 +991,13 @@ function df.job_item:new() end
 ---@field use_contains boolean
 ---@field has_tool_use df.tool_uses
 ---@field has_melee_skill df.job_skill
----@field unk_v40_1 number noticed in v0.40.24
+---@field can_steal_haul_items boolean noticed in v0.40.24
 ---@field pos df.coord
 ---@field unit df.unit
 ---@field job df.job
 ---@field building df.building
----@field unk_74 DFPointer<integer>
----@field unk_v4305_1 number
+---@field site df.world_site
+---@field total_dim_count number
 ---@field burrows DFNumberVector
 ---@field use_burrows boolean
 ---@field take_from DFPointer<integer>
@@ -982,39 +1011,26 @@ function df.job_item_filter:new() end
 
 ---@class df.manager_order_status: DFBitfield
 ---@field _enum identity.manager_order_status
----@field validated boolean
----@field [0] boolean
+---@field validated boolean bay12: WORKQUOTA_FLAG_*
+---@field [0] boolean bay12: WORKQUOTA_FLAG_*
 ---@field active boolean
 ---@field [1] boolean
 
 ---@class identity.manager_order_status: DFBitfieldType
----@field validated 0
----@field [0] "validated"
+---@field validated 0 bay12: WORKQUOTA_FLAG_*
+---@field [0] "validated" bay12: WORKQUOTA_FLAG_*
 ---@field active 1
 ---@field [1] "active"
 df.manager_order_status = {}
 
----@class (exact) df.job_art_specification: DFStruct
----@field _type identity.job_art_specification
----@field type df.job_art_specification.T_type
----@field id number
----@field subid number
-
----@class identity.job_art_specification: DFCompoundType
----@field _kind 'struct-type'
-df.job_art_specification = {}
-
----@return df.job_art_specification
-function df.job_art_specification:new() end
-
----@alias df.job_art_specification.T_type
+---@alias df.job_art_specifier_type
 ---| -1 # None
 ---| 0 # HistoricalFigure
 ---| 1 # Site
 ---| 2 # Entity
 ---| 3 # ArtImage
 
----@class identity.job_art_specification.type: DFEnumType
+---@class identity.job_art_specifier_type: DFEnumType
 ---@field None -1 bay12: JobArtSpecifierType
 ---@field [-1] "None" bay12: JobArtSpecifierType
 ---@field HistoricalFigure 0
@@ -1025,7 +1041,21 @@ function df.job_art_specification:new() end
 ---@field [2] "Entity"
 ---@field ArtImage 3
 ---@field [3] "ArtImage"
-df.job_art_specification.T_type = {}
+df.job_art_specifier_type = {}
+
+-- not a real structure
+---@class (exact) df.job_art_specification: DFStruct
+---@field _type identity.job_art_specification
+---@field type df.job_art_specifier_type
+---@field id number
+---@field subid number
+
+---@class identity.job_art_specification: DFCompoundType
+---@field _kind 'struct-type'
+df.job_art_specification = {}
+
+---@return df.job_art_specification
+function df.job_art_specification:new() end
 
 ---@class (exact) df.manager_order: DFStruct
 ---@field _type identity.manager_order
@@ -1036,8 +1066,10 @@ df.job_art_specification.T_type = {}
 ---@field reaction_name string
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field item_category df.stockpile_group_set
----@field hist_figure_id number References: `df.historical_figure`
+---@field specflag df.job_spec_flags
+---@field hist_figure_id number bay12: spec_id<br>References: `df.historical_figure`
+---@field race number References: `df.creature_raw`
+---@field improvement df.improvement_type
 ---@field material_category df.job_material_category
 ---@field art_spec df.job_art_specification
 ---@field amount_left number
@@ -1050,7 +1082,7 @@ df.job_art_specification.T_type = {}
 ---@field max_workshops number 0 is unlimited
 ---@field item_conditions _manager_order_item_conditions
 ---@field order_conditions _manager_order_order_conditions
----@field items DFPointer<integer>
+---@field items df.job_reqst
 
 ---@class identity.manager_order: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1067,8 +1099,8 @@ function df.manager_order:new() end
 ---| 4 # Yearly
 
 ---@class identity.manager_order.frequency: DFEnumType
----@field OneTime 0
----@field [0] "OneTime"
+---@field OneTime 0 bay12: WorkQuotaFrequencyType
+---@field [0] "OneTime" bay12: WorkQuotaFrequencyType
 ---@field Daily 1
 ---@field [1] "Daily"
 ---@field Monthly 2
@@ -1126,7 +1158,7 @@ function _manager_order_order_conditions:erase(index) end
 ---@field flags5 integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field inorganic_bearing number References: `df.inorganic_raw`
+---@field metal_ore number References: `df.inorganic_raw`
 ---@field min_dimension number
 ---@field contains DFNumberVector
 ---@field reaction_id number References: `df.reaction`
@@ -1148,25 +1180,25 @@ function df.manager_order_condition_item:new() end
 ---| 5 # Not
 
 ---@class identity.manager_order_condition_item.compare_type: DFEnumType
----@field AtLeast 0
----@field [0] "AtLeast"
----@field AtMost 1
----@field [1] "AtMost"
----@field GreaterThan 2
----@field [2] "GreaterThan"
----@field LessThan 3
----@field [3] "LessThan"
----@field Exactly 4
----@field [4] "Exactly"
----@field Not 5
----@field [5] "Not"
+---@field AtLeast 0 bay12: LogicConditionType
+---@field [0] "AtLeast" bay12: LogicConditionType
+---@field AtMost 1 LESSER_EQUAL
+---@field [1] "AtMost" LESSER_EQUAL
+---@field GreaterThan 2 GREATER
+---@field [2] "GreaterThan" GREATER
+---@field LessThan 3 LESSER
+---@field [3] "LessThan" LESSER
+---@field Exactly 4 EQUAL
+---@field [4] "Exactly" EQUAL
+---@field Not 5 NOT_EQUAL
+---@field [5] "Not" NOT_EQUAL
 df.manager_order_condition_item.T_compare_type = {}
 
 ---@class (exact) df.manager_order_condition_order: DFStruct
 ---@field _type identity.manager_order_condition_order
 ---@field order_id number References: `df.manager_order`
 ---@field condition df.manager_order_condition_order.T_condition
----@field unk_1 number
+---@field flags df.manager_order_condition_order.T_flags
 
 ---@class identity.manager_order_condition_order: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1180,13 +1212,22 @@ function df.manager_order_condition_order:new() end
 ---| 1 # Completed
 
 ---@class identity.manager_order_condition_order.condition: DFEnumType
----@field Activated 0
----@field [0] "Activated"
+---@field Activated 0 bay12: WQOrderConditionType
+---@field [0] "Activated" bay12: WQOrderConditionType
 ---@field Completed 1
 ---@field [1] "Completed"
 df.manager_order_condition_order.T_condition = {}
 
--- jminfost
+---@class df.manager_order_condition_order.T_flags: DFBitfield
+---@field _enum identity.manager_order_condition_order.flags
+---@field satisfied boolean bay12: WQ_ORDER_CONDITION_FLAG_*
+---@field [0] boolean bay12: WQ_ORDER_CONDITION_FLAG_*
+
+---@class identity.manager_order_condition_order.flags: DFBitfieldType
+---@field satisfied 0 bay12: WQ_ORDER_CONDITION_FLAG_*
+---@field [0] "satisfied" bay12: WQ_ORDER_CONDITION_FLAG_*
+df.manager_order_condition_order.T_flags = {}
+
 ---@class (exact) df.manager_order_template: DFStruct
 ---@field _type identity.manager_order_template
 ---@field job_type df.job_type
@@ -1195,8 +1236,10 @@ df.manager_order_condition_order.T_condition = {}
 ---@field item_subtype number
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field item_category df.stockpile_group_set specflag
----@field hist_figure_id number References: `df.historical_figure`
+---@field specflag df.job_spec_flags
+---@field hist_figure_id number bay12: spec_id<br>References: `df.historical_figure`
+---@field race number References: `df.creature_raw`
+---@field improvement df.improvement_type
 ---@field material_category df.job_material_category
 ---@field match_value number
 ---@field name string
@@ -1258,8 +1301,8 @@ df.punishmentst.T_flags = {}
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
 ---@field punishment df.punishmentst
----@field punish_multiple integer
----@field unk4 number
+---@field punish_multiple number mega_punish, likely dates back to 23a Mining mandates
+---@field flags df.mandate.T_flags
 
 ---@class identity.mandate: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1274,13 +1317,23 @@ function df.mandate:new() end
 ---| 2 # Guild
 
 ---@class identity.mandate.mode: DFEnumType
----@field Export 0
----@field [0] "Export"
+---@field Export 0 bay12: Mandates, no external base type
+---@field [0] "Export" bay12: Mandates, no external base type
 ---@field Make 1
 ---@field [1] "Make"
 ---@field Guild 2
 ---@field [2] "Guild"
 df.mandate.T_mode = {}
+
+---@class df.mandate.T_flags: DFBitfield
+---@field _enum identity.mandate.flags
+---@field mandate_total_exempt boolean bay12: MANDATEFLAG_*
+---@field [0] boolean bay12: MANDATEFLAG_*
+
+---@class identity.mandate.flags: DFBitfieldType
+---@field mandate_total_exempt 0 bay12: MANDATEFLAG_*
+---@field [0] "mandate_total_exempt" bay12: MANDATEFLAG_*
+df.mandate.T_flags = {}
 
 ---@class (exact) df.training_assignment: DFStruct
 ---@field _type identity.training_assignment
@@ -1301,13 +1354,13 @@ function df.training_assignment.find(key) end
 
 ---@class training_assignment_vector: DFVector, { [integer]: df.training_assignment }
 
----@return training_assignment_vector # df.global.plotinfo.equipment.training_assignments
+---@return training_assignment_vector # df.global.plotinfo.training.training_assignments
 function df.training_assignment.get_vector() end
 
 ---@class df.training_assignment.T_flags: DFBitfield
 ---@field _enum identity.training_assignment.flags
----@field any_trainer boolean
----@field [0] boolean
+---@field any_trainer boolean bay12: UNIT_ANIMAL_TRAINING_INFO_FLAG_*
+---@field [0] boolean bay12: UNIT_ANIMAL_TRAINING_INFO_FLAG_*
 ---@field any_unassigned_trainer boolean
 ---@field [1] boolean
 ---@field train_war boolean
@@ -1316,8 +1369,8 @@ function df.training_assignment.get_vector() end
 ---@field [3] boolean
 
 ---@class identity.training_assignment.flags: DFBitfieldType
----@field any_trainer 0
----@field [0] "any_trainer"
+---@field any_trainer 0 bay12: UNIT_ANIMAL_TRAINING_INFO_FLAG_*
+---@field [0] "any_trainer" bay12: UNIT_ANIMAL_TRAINING_INFO_FLAG_*
 ---@field any_unassigned_trainer 1
 ---@field [1] "any_unassigned_trainer"
 ---@field train_war 2
@@ -1328,7 +1381,7 @@ df.training_assignment.T_flags = {}
 
 ---@class (exact) df.unit_demand: DFStruct
 ---@field _type identity.unit_demand
----@field unk_0 number
+---@field overtype number
 ---@field place df.unit_demand.T_place
 ---@field item_type df.item_type
 ---@field item_subtype number
@@ -1351,8 +1404,8 @@ function df.unit_demand:new() end
 ---| 3 # Tomb
 
 ---@class identity.unit_demand.place: DFEnumType
----@field Office 0
----@field [0] "Office"
+---@field Office 0 bay12: DemandRooms
+---@field [0] "Office" bay12: DemandRooms
 ---@field Bedroom 1
 ---@field [1] "Bedroom"
 ---@field DiningRoom 2
@@ -1473,34 +1526,35 @@ df.unit_demand.T_place = {}
 ---| 108 # CLAY_VANISHED
 ---| 109 # NEED_CLAY_COLLECTION_ZONE
 ---| 110 # NO_COLONY
----| 111 # NOT_APPOINTED
+---| 111 # REPORTING_CRIME
 ---| 112 # NO_WEAPON_FOR_EXECUTION
----| 113 # NO_LONGER_REQUESTED
----| 114 # MORTALLY_AFRAID
----| 115 # EMOTIONAL_SHOCK
----| 116 # HORRIFIED
----| 117 # GRIEVING
----| 118 # TERRIFIED
----| 119 # IN_CUSTODY
----| 120 # TOO_DEPRESSED
----| 121 # OBLIVIOUS
----| 122 # CATATONIC
----| 123 # TOO_SAD
----| 124 # IN_AGONY
----| 125 # ANGUISHED
----| 126 # DESPAIRING
----| 127 # DISMAYED
----| 128 # DISTRESSED
----| 129 # FRIGHTENED
----| 130 # MISERABLE
----| 131 # MORTIFIED
----| 132 # SHAKEN
----| 133 # IN_EXISTENTIAL_CRISIS
----| 134 # NEEDS_SPECIFIC_ITEM_2
+---| 113 # NOT_APPOINTED
+---| 114 # TRAINING_MISMATCH
+---| 115 # MORTALLY_AFRAID
+---| 116 # EMOTIONAL_SHOCK
+---| 117 # HORRIFIED
+---| 118 # GRIEVING
+---| 119 # TERRIFIED
+---| 120 # IN_CUSTODY
+---| 121 # TOO_DEPRESSED
+---| 122 # OBLIVIOUS
+---| 123 # CATATONIC
+---| 124 # TOO_SAD
+---| 125 # IN_AGONY
+---| 126 # ANGUISHED
+---| 127 # DESPAIRING
+---| 128 # DISMAYED
+---| 129 # DISTRESSED
+---| 130 # FRIGHTENED
+---| 131 # MISERABLE
+---| 132 # MORTIFIED
+---| 133 # SHAKEN
+---| 134 # IN_EXISTENTIAL_CRISIS
+---| 135 # NEEDS_SPECIFIC_ITEM_LINKED_STOCKPILE
 
 ---@class identity.killjob_exception_type: DFEnumType
----@field CANNOT_REACH_SITE 0
----@field [0] "CANNOT_REACH_SITE"
+---@field CANNOT_REACH_SITE 0 bay12: KillJobExceptionType
+---@field [0] "CANNOT_REACH_SITE" bay12: KillJobExceptionType
 ---@field INTERRUPTED 1
 ---@field [1] "INTERRUPTED"
 ---@field MOVED 2
@@ -1721,56 +1775,59 @@ df.unit_demand.T_place = {}
 ---@field [109] "NEED_CLAY_COLLECTION_ZONE"
 ---@field NO_COLONY 110
 ---@field [110] "NO_COLONY"
----@field NOT_APPOINTED 111
----@field [111] "NOT_APPOINTED"
+---@field REPORTING_CRIME 111
+---@field [111] "REPORTING_CRIME"
 ---@field NO_WEAPON_FOR_EXECUTION 112
 ---@field [112] "NO_WEAPON_FOR_EXECUTION"
----@field NO_LONGER_REQUESTED 113
----@field [113] "NO_LONGER_REQUESTED"
----@field MORTALLY_AFRAID 114
----@field [114] "MORTALLY_AFRAID"
----@field EMOTIONAL_SHOCK 115
----@field [115] "EMOTIONAL_SHOCK"
----@field HORRIFIED 116
----@field [116] "HORRIFIED"
----@field GRIEVING 117
----@field [117] "GRIEVING"
----@field TERRIFIED 118
----@field [118] "TERRIFIED"
----@field IN_CUSTODY 119
----@field [119] "IN_CUSTODY"
----@field TOO_DEPRESSED 120
----@field [120] "TOO_DEPRESSED"
----@field OBLIVIOUS 121
----@field [121] "OBLIVIOUS"
----@field CATATONIC 122
----@field [122] "CATATONIC"
----@field TOO_SAD 123
----@field [123] "TOO_SAD"
----@field IN_AGONY 124
----@field [124] "IN_AGONY"
----@field ANGUISHED 125
----@field [125] "ANGUISHED"
----@field DESPAIRING 126
----@field [126] "DESPAIRING"
----@field DISMAYED 127
----@field [127] "DISMAYED"
----@field DISTRESSED 128
----@field [128] "DISTRESSED"
----@field FRIGHTENED 129
----@field [129] "FRIGHTENED"
----@field MISERABLE 130
----@field [130] "MISERABLE"
----@field MORTIFIED 131
----@field [131] "MORTIFIED"
----@field SHAKEN 132
----@field [132] "SHAKEN"
----@field IN_EXISTENTIAL_CRISIS 133
----@field [133] "IN_EXISTENTIAL_CRISIS"
----@field NEEDS_SPECIFIC_ITEM_2 134
----@field [134] "NEEDS_SPECIFIC_ITEM_2"
+---@field NOT_APPOINTED 113
+---@field [113] "NOT_APPOINTED"
+---@field TRAINING_MISMATCH 114
+---@field [114] "TRAINING_MISMATCH"
+---@field MORTALLY_AFRAID 115
+---@field [115] "MORTALLY_AFRAID"
+---@field EMOTIONAL_SHOCK 116
+---@field [116] "EMOTIONAL_SHOCK"
+---@field HORRIFIED 117
+---@field [117] "HORRIFIED"
+---@field GRIEVING 118
+---@field [118] "GRIEVING"
+---@field TERRIFIED 119
+---@field [119] "TERRIFIED"
+---@field IN_CUSTODY 120
+---@field [120] "IN_CUSTODY"
+---@field TOO_DEPRESSED 121
+---@field [121] "TOO_DEPRESSED"
+---@field OBLIVIOUS 122
+---@field [122] "OBLIVIOUS"
+---@field CATATONIC 123
+---@field [123] "CATATONIC"
+---@field TOO_SAD 124
+---@field [124] "TOO_SAD"
+---@field IN_AGONY 125
+---@field [125] "IN_AGONY"
+---@field ANGUISHED 126
+---@field [126] "ANGUISHED"
+---@field DESPAIRING 127
+---@field [127] "DESPAIRING"
+---@field DISMAYED 128
+---@field [128] "DISMAYED"
+---@field DISTRESSED 129
+---@field [129] "DISTRESSED"
+---@field FRIGHTENED 130
+---@field [130] "FRIGHTENED"
+---@field MISERABLE 131
+---@field [131] "MISERABLE"
+---@field MORTIFIED 132
+---@field [132] "MORTIFIED"
+---@field SHAKEN 133
+---@field [133] "SHAKEN"
+---@field IN_EXISTENTIAL_CRISIS 134
+---@field [134] "IN_EXISTENTIAL_CRISIS"
+---@field NEEDS_SPECIFIC_ITEM_LINKED_STOCKPILE 135
+---@field [135] "NEEDS_SPECIFIC_ITEM_LINKED_STOCKPILE"
 df.killjob_exception_type = {}
 
+-- not used by DFHack, included for disassembly
 ---@class (exact) df.killjob_exceptionst: DFStruct
 ---@field _type identity.killjob_exceptionst
 ---@field type df.killjob_exception_type
@@ -1778,11 +1835,12 @@ df.killjob_exception_type = {}
 ---@field item_subtype number
 ---@field item_material number
 ---@field item_matgloss number
----@field item_flag1 number
----@field item_flag2 number
----@field item_flag3 number
----@field item_flag4 number
----@field item_flag5 number
+---@field item_flag1 df.job_item_flags1
+---@field item_flag2 df.job_item_flags2
+---@field item_flag3 df.job_item_flags3
+---@field item_flag4 integer
+---@field item_flag5 integer
+---@field item_number number
 ---@field id_number number
 ---@field item_reaction_class string
 ---@field item_reaction_product_class string

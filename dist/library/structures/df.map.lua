@@ -1,6 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+-- not a real structure
 ---@class (exact) df.coord2d: DFStruct
 ---@field _type identity.coord2d
 ---@field x number
@@ -13,6 +14,7 @@ df.coord2d = {}
 ---@return df.coord2d
 function df.coord2d:new() end
 
+-- not a real structure
 ---@class (exact) df.coord2d_path: DFStruct
 ---@field _type identity.coord2d_path
 ---@field x DFNumberVector
@@ -25,6 +27,7 @@ df.coord2d_path = {}
 ---@return df.coord2d_path
 function df.coord2d_path:new() end
 
+-- not a real structure
 ---@class (exact) df.coord: DFStruct
 ---@field _type identity.coord
 ---@field x number
@@ -38,6 +41,7 @@ df.coord = {}
 ---@return df.coord
 function df.coord:new() end
 
+-- not a real structure
 ---@class (exact) df.coord_path: DFStruct
 ---@field _type identity.coord_path
 ---@field x DFNumberVector
@@ -58,8 +62,8 @@ function df.coord_path:new() end
 ---| 3 # Restricted
 
 ---@class identity.tile_traffic: DFEnumType
----@field Normal 0
----@field [0] "Normal"
+---@field Normal 0 bay12: TRAFFIC_DESIGNATION_*
+---@field [0] "Normal" bay12: TRAFFIC_DESIGNATION_*
 ---@field Low 1
 ---@field [1] "Low"
 ---@field High 2
@@ -78,8 +82,8 @@ df.tile_traffic = {}
 ---| 6 # UpStair
 
 ---@class identity.tile_dig_designation: DFEnumType
----@field No 0 no designation
----@field [0] "No" no designation
+---@field No 0 bay12: DIG_DESIGNATION_*
+---@field [0] "No" bay12: DIG_DESIGNATION_*
 ---@field Default 1 dig walls, remove stairs and ramps, gather plants, fell trees
 ---@field [1] "Default" dig walls, remove stairs and ramps, gather plants, fell trees
 ---@field UpDownStair 2
@@ -99,16 +103,16 @@ df.tile_dig_designation = {}
 ---| 1 # Magma
 
 ---@class identity.tile_liquid: DFEnumType
----@field Water 0
----@field [0] "Water"
+---@field Water 0 bay12: LIQUID_TYPE_*
+---@field [0] "Water" bay12: LIQUID_TYPE_*
 ---@field Magma 1
 ---@field [1] "Magma"
 df.tile_liquid = {}
 
 ---@class df.tile_designation: DFBitfield
 ---@field _enum identity.tile_designation
----@field flow_size boolean liquid amount
----@field [0] boolean liquid amount
+---@field flow_size boolean bay12: DESIGNATION_*
+---@field [0] boolean bay12: DESIGNATION_*
 ---@field pile boolean stockpile; Adventure: lit
 ---@field [3] boolean stockpile; Adventure: lit
 ---@field dig boolean Adventure: line_of_sight, furniture_memory, item_memory
@@ -149,8 +153,8 @@ df.tile_liquid = {}
 ---@field [31] boolean
 
 ---@class identity.tile_designation: DFBitfieldType
----@field flow_size 0 liquid amount
----@field [0] "flow_size" liquid amount
+---@field flow_size 0 bay12: DESIGNATION_*
+---@field [0] "flow_size" bay12: DESIGNATION_*
 ---@field pile 3 stockpile; Adventure: lit
 ---@field [3] "pile" stockpile; Adventure: lit
 ---@field dig 4 Adventure: line_of_sight, furniture_memory, item_memory
@@ -202,28 +206,28 @@ df.tile_designation = {}
 ---| 7 # Dynamic
 
 ---@class identity.tile_building_occ: DFEnumType
----@field None 0 no building
----@field [0] "None" no building
----@field Planned 1 nothing built yet
----@field [1] "Planned" nothing built yet
----@field Passable 2
----@field [2] "Passable"
----@field Obstacle 3 workshop tile; ~fortification
----@field [3] "Obstacle" workshop tile; ~fortification
----@field Well 4
----@field [4] "Well"
----@field Floored 5 depot; lowered bridge
----@field [5] "Floored" depot; lowered bridge
----@field Impassable 6
----@field [6] "Impassable"
----@field Dynamic 7 doors, grates, etc
----@field [7] "Dynamic" doors, grates, etc
+---@field None 0 bay12: BUILDING_OCCUPANCY_*
+---@field [0] "None" bay12: BUILDING_OCCUPANCY_*
+---@field Planned 1 CONST; nothing built yet
+---@field [1] "Planned" CONST; nothing built yet
+---@field Passable 2 NO_BLOCK
+---@field [2] "Passable" NO_BLOCK
+---@field Obstacle 3 BLOCK_FLOOR
+---@field [3] "Obstacle" BLOCK_FLOOR
+---@field Well 4 BLOCK
+---@field [4] "Well" BLOCK
+---@field Floored 5 FLOOR; depot; lowered bridge
+---@field [5] "Floored" FLOOR; depot; lowered bridge
+---@field Impassable 6 TOTAL
+---@field [6] "Impassable" TOTAL
+---@field Dynamic 7 SPECIAL; doors, grates, etc
+---@field [7] "Dynamic" SPECIAL; doors, grates, etc
 df.tile_building_occ = {}
 
 ---@class df.tile_occupancy: DFBitfield
 ---@field _enum identity.tile_occupancy
----@field building boolean
----@field [0] boolean
+---@field building boolean bay12: OCCUPANCY_*
+---@field [0] boolean bay12: OCCUPANCY_*
 ---@field unit boolean standing
 ---@field [3] boolean standing
 ---@field unit_grounded boolean prone
@@ -266,10 +270,12 @@ df.tile_building_occ = {}
 ---@field [25] boolean
 ---@field heavy_aquifer boolean Light/Heavy aquifer flag
 ---@field [26] boolean Light/Heavy aquifer flag
+---@field temp_value boolean bay12: currently used by location calcs
+---@field [27] boolean bay12: currently used by location calcs
 
 ---@class identity.tile_occupancy: DFBitfieldType
----@field building 0
----@field [0] "building"
+---@field building 0 bay12: OCCUPANCY_*
+---@field [0] "building" bay12: OCCUPANCY_*
 ---@field unit 3 standing
 ---@field [3] "unit" standing
 ---@field unit_grounded 4 prone
@@ -312,12 +318,14 @@ df.tile_building_occ = {}
 ---@field [25] "dig_auto"
 ---@field heavy_aquifer 26 Light/Heavy aquifer flag
 ---@field [26] "heavy_aquifer" Light/Heavy aquifer flag
+---@field temp_value 27 bay12: currently used by location calcs
+---@field [27] "temp_value" bay12: currently used by location calcs
 df.tile_occupancy = {}
 
 ---@class df.block_flags: DFBitfield
 ---@field _enum identity.block_flags
----@field designated boolean for jobs etc
----@field [0] boolean for jobs etc
+---@field designated boolean bay12: BLOCKFLAG_*
+---@field [0] boolean bay12: BLOCKFLAG_*
 ---@field update_temperature boolean
 ---@field [1] boolean
 ---@field update_liquid boolean
@@ -330,12 +338,12 @@ df.tile_occupancy = {}
 ---@field [5] boolean reindex_pathfinding set and flag cleared if temperature above 10000
 ---@field has_aquifer boolean has at least one "water_table" designation flag
 ---@field [6] boolean has at least one "water_table" designation flag
----@field check_aquifer boolean has tiles that may get flooded by an adjacent aquifer
----@field [7] boolean has tiles that may get flooded by an adjacent aquifer
----@field may_have_item_spatter boolean Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
----@field [8] boolean Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
----@field subterranean_water boolean bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
----@field [9] boolean bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
+---@field check_aquifer boolean bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
+---@field [7] boolean bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
+---@field may_have_item_spatter boolean
+---@field [8] boolean
+---@field may_have_material_spatter boolean usually mud
+---@field [9] boolean usually mud
 ---@field has_magma_close boolean
 ---@field [10] boolean
 ---@field has_magma_far boolean
@@ -350,8 +358,8 @@ df.tile_occupancy = {}
 ---@field [15] boolean
 
 ---@class identity.block_flags: DFBitfieldType
----@field designated 0 for jobs etc
----@field [0] "designated" for jobs etc
+---@field designated 0 bay12: BLOCKFLAG_*
+---@field [0] "designated" bay12: BLOCKFLAG_*
 ---@field update_temperature 1
 ---@field [1] "update_temperature"
 ---@field update_liquid 2
@@ -364,12 +372,12 @@ df.tile_occupancy = {}
 ---@field [5] "repath_on_melt" reindex_pathfinding set and flag cleared if temperature above 10000
 ---@field has_aquifer 6 has at least one "water_table" designation flag
 ---@field [6] "has_aquifer" has at least one "water_table" designation flag
----@field check_aquifer 7 has tiles that may get flooded by an adjacent aquifer
----@field [7] "check_aquifer" has tiles that may get flooded by an adjacent aquifer
----@field may_have_item_spatter 8 Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
----@field [8] "may_have_item_spatter" Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
----@field subterranean_water 9 bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
----@field [9] "subterranean_water" bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
+---@field check_aquifer 7 bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
+---@field [7] "check_aquifer" bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
+---@field may_have_item_spatter 8
+---@field [8] "may_have_item_spatter"
+---@field may_have_material_spatter 9 usually mud
+---@field [9] "may_have_material_spatter" usually mud
 ---@field has_magma_close 10
 ---@field [10] "has_magma_close"
 ---@field has_magma_far 11
@@ -402,8 +410,8 @@ df.block_flags = {}
 ---@field [2] "update_twice" bay12: REMOVE_ADJUSTMENTS_FLAGS
 df.z_level_flags = {}
 
----@alias df.tile_liquid_flow_dir
----| 0 # none
+---@alias df.tile_liquid_temp_flow_dir
+---| 0 # north
 ---| 1 # south
 ---| 2 # east
 ---| 3 # northeast
@@ -411,18 +419,10 @@ df.z_level_flags = {}
 ---| 5 # northwest
 ---| 6 # southeast
 ---| 7 # southwest
----| 8 # inv_8
----| 9 # inv_9
----| 10 # north
----| 11 # inv_b
----| 12 # inv_c
----| 13 # inv_d
----| 14 # inv_e
----| 15 # inv_f
 
----@class identity.tile_liquid_flow_dir: DFEnumType
----@field none 0
----@field [0] "none"
+---@class identity.tile_liquid_temp_flow_dir: DFEnumType
+---@field north 0 bay12: FLOW_DIR_TEMP_DIR_*
+---@field [0] "north" bay12: FLOW_DIR_TEMP_DIR_*
 ---@field south 1
 ---@field [1] "south"
 ---@field east 2
@@ -437,28 +437,50 @@ df.z_level_flags = {}
 ---@field [6] "southeast"
 ---@field southwest 7
 ---@field [7] "southwest"
----@field inv_8 8
----@field [8] "inv_8"
----@field inv_9 9
----@field [9] "inv_9"
+df.tile_liquid_temp_flow_dir = {}
+
+---@alias df.tile_liquid_flow_dir
+---| 0 # inactive
+---| 1 # south
+---| 2 # east
+---| 3 # northeast
+---| 4 # west
+---| 5 # northwest
+---| 6 # southeast
+---| 7 # southwest
+---| 8 # down
+---| 9 # none
+---| 10 # north
+
+---@class identity.tile_liquid_flow_dir: DFEnumType
+---@field inactive 0 bay12: FLOW_DIR_SINK_DIR_*
+---@field [0] "inactive" bay12: FLOW_DIR_SINK_DIR_*
+---@field south 1
+---@field [1] "south"
+---@field east 2
+---@field [2] "east"
+---@field northeast 3
+---@field [3] "northeast"
+---@field west 4
+---@field [4] "west"
+---@field northwest 5
+---@field [5] "northwest"
+---@field southeast 6
+---@field [6] "southeast"
+---@field southwest 7
+---@field [7] "southwest"
+---@field down 8
+---@field [8] "down"
+---@field none 9
+---@field [9] "none"
 ---@field north 10
 ---@field [10] "north"
----@field inv_b 11
----@field [11] "inv_b"
----@field inv_c 12
----@field [12] "inv_c"
----@field inv_d 13
----@field [13] "inv_d"
----@field inv_e 14
----@field [14] "inv_e"
----@field inv_f 15
----@field [15] "inv_f"
 df.tile_liquid_flow_dir = {}
 
 ---@class df.tile_liquid_flow: DFBitfield
 ---@field _enum identity.tile_liquid_flow
----@field temp_flow_timer boolean set when water sloshes around, counts down to zero
----@field [0] boolean set when water sloshes around, counts down to zero
+---@field temp_flow_timer boolean bay12: FLOW_DIR_*
+---@field [0] boolean bay12: FLOW_DIR_*
 ---@field temp_dir boolean
 ---@field [3] boolean
 ---@field perm_flow_dir boolean
@@ -467,8 +489,8 @@ df.tile_liquid_flow_dir = {}
 ---@field [10] boolean periodically set whenever perm_flow_dir is nonzero
 
 ---@class identity.tile_liquid_flow: DFBitfieldType
----@field temp_flow_timer 0 set when water sloshes around, counts down to zero
----@field [0] "temp_flow_timer" set when water sloshes around, counts down to zero
+---@field temp_flow_timer 0 bay12: FLOW_DIR_*
+---@field [0] "temp_flow_timer" bay12: FLOW_DIR_*
 ---@field temp_dir 3
 ---@field [3] "temp_dir"
 ---@field perm_flow_dir 6
@@ -477,6 +499,7 @@ df.tile_liquid_flow_dir = {}
 ---@field [10] "sink_dist" periodically set whenever perm_flow_dir is nonzero
 df.tile_liquid_flow = {}
 
+-- not in DF, 16x16 bitmask
 ---@class (exact) df.tile_bitmask: DFStruct
 ---@field _type identity.tile_bitmask
 ---@field bits integer[]
@@ -514,6 +537,7 @@ df.block_burrow_link = {}
 ---@return df.block_burrow_link
 function df.block_burrow_link:new() end
 
+-- bay12: tlink{burrow_blockst}
 ---@class (exact) df.map_block: DFStruct
 ---@field _type identity.map_block
 ---@field flags df.block_flags
@@ -527,7 +551,7 @@ function df.block_burrow_link:new() end
 ---@field default_liquid df.tile_designation
 ---@field items DFNumberVector
 ---@field flows _map_block_flows
----@field flow_pool df.flow_reuse_pool
+---@field flow_pool df.flow_reuse_pool actually inline
 ---@field map_pos df.coord
 ---@field region_pos df.coord2d
 ---@field tiletype df.tiletype[][]
@@ -536,13 +560,13 @@ function df.block_burrow_link:new() end
 ---@field fog_of_war integer[][] bay12: memmap; for adventure mode
 ---@field path_cost number[][] flood; 256*cost for straight, 362*cost for diagonal
 ---@field path_tag integer[][] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
----@field walkable integer[][] 0 = non-walkable; same nonzero at A and B = walkable from A to B
----@field map_edge_distance integer[][] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
----@field temperature_1 integer[][]
----@field temperature_2 integer[][]
+---@field walkable number[][] 0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@field map_edge_distance number[][] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field temperature_1 integer[][] bay12: current_temperature
+---@field temperature_2 integer[][] bay12: normal_temperature
 ---@field lighting integer[][]
 ---@field liquid_flow df.tile_liquid_flow[][]
----@field region_offset integer[]
+---@field region_offset number[]
 
 ---@class identity.map_block: DFCompoundType
 ---@field _kind 'struct-type'
@@ -616,7 +640,7 @@ function df.cave_column_link:new() end
 ---@field _type identity.cave_column
 ---@field base_z number
 ---@field top_z number
----@field rect_index number
+---@field rect_index integer
 ---@field flags df.cave_column.T_flags
 local cave_column
 
@@ -637,14 +661,14 @@ function df.cave_column:new() end
 
 ---@class df.cave_column.T_flags: DFBitfield
 ---@field _enum identity.cave_column.flags
----@field UNSTABLE boolean
----@field [0] boolean
+---@field UNSTABLE boolean bay12: CAVE_COLUMN_FLAG_*
+---@field [0] boolean bay12: CAVE_COLUMN_FLAG_*
 ---@field ULTRA_SUPPORTED boolean
 ---@field [1] boolean
 
 ---@class identity.cave_column.flags: DFBitfieldType
----@field UNSTABLE 0
----@field [0] "UNSTABLE"
+---@field UNSTABLE 0 bay12: CAVE_COLUMN_FLAG_*
+---@field [0] "UNSTABLE" bay12: CAVE_COLUMN_FLAG_*
 ---@field ULTRA_SUPPORTED 1
 ---@field [1] "ULTRA_SUPPORTED"
 df.cave_column.T_flags = {}
@@ -680,36 +704,43 @@ function df.cave_column_rectangle:new() end
 
 ---@class df.cave_column_rectangle.T_flags: DFBitfield
 ---@field _enum identity.cave_column_rectangle.flags
----@field SUPPORTED boolean
----@field [0] boolean
+---@field SUPPORTED boolean bay12: CAVE_COLUMN_RECTANGLE_FLAG_*
+---@field [0] boolean bay12: CAVE_COLUMN_RECTANGLE_FLAG_*
 ---@field UNSTABLE boolean
 ---@field [1] boolean
 ---@field ULTRA_SUPPORTED boolean
 ---@field [2] boolean
 
 ---@class identity.cave_column_rectangle.flags: DFBitfieldType
----@field SUPPORTED 0
----@field [0] "SUPPORTED"
+---@field SUPPORTED 0 bay12: CAVE_COLUMN_RECTANGLE_FLAG_*
+---@field [0] "SUPPORTED" bay12: CAVE_COLUMN_RECTANGLE_FLAG_*
 ---@field UNSTABLE 1
 ---@field [1] "UNSTABLE"
 ---@field ULTRA_SUPPORTED 2
 ---@field [2] "ULTRA_SUPPORTED"
 df.cave_column_rectangle.T_flags = {}
 
+---@alias df.map_block_column_flags
+---| 0 # UPDATE_CAVE_COLUMNS
+
+---@class identity.map_block_column_flags: DFEnumType
+---@field UPDATE_CAVE_COLUMNS 0 bay12: BlockColumnFlagType
+---@field [0] "UPDATE_CAVE_COLUMNS" bay12: BlockColumnFlagType
+df.map_block_column_flags = {}
+
 ---@class (exact) df.map_block_column: DFStruct
 ---@field _type identity.map_block_column
----@field sink_level number water at or above this level sinks into aquifer tiles
----@field beach_level number water at this level disappears if above more water
----@field ground_level number for coloring unallocated blocks
+---@field sink_level number bay12: water_el_table_block; water at or above this level sinks into aquifer tiles
+---@field beach_level number bay12: water_el_sink_height; water at this level disappears if above more water
+---@field ground_level number bay12: central_el_z; for coloring unallocated blocks
 ---@field unmined_glyphs _map_block_column_unmined_glyphs
 ---@field z_base number
 ---@field cave_columns df.cave_column_link[][]
 ---@field column_rectangles _map_block_column_column_rectangles
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
----@field flags _map_block_column_flags 0 process cave columns for caveins
+---@field flags _map_block_column_flags
 ---@field elevation number[][]
----@field map_pos df.coord2d top left in tiles
----@field unk_c3c number uninitialized
+---@field map_pos df.coord top left in tiles
 ---@field region_pos df.coord2d
 ---@field plants _map_block_column_plants Only populated for the top left column in each mid level tile
 
@@ -769,16 +800,16 @@ function _map_block_column_column_rectangles:insert(index, item) end
 function _map_block_column_column_rectangles:erase(index) end
 
 ---@class _map_block_column_flags: DFContainer
----@field [integer] table<integer, boolean>
+---@field [integer] table<df.map_block_column_flags, boolean>
 local _map_block_column_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<table<integer, boolean>>
+---@return DFPointer<table<df.map_block_column_flags, boolean>>
 function _map_block_column_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item table<integer, boolean>
+---@param item table<df.map_block_column_flags, boolean>
 function _map_block_column_flags:insert(index, item) end
 
 ---@param index integer
@@ -811,8 +842,8 @@ function _map_block_column_plants:erase(index) end
 ---| 7 # designation_priority
 
 ---@class identity.block_square_event_type: DFEnumType
----@field mineral 0
----@field [0] "mineral"
+---@field mineral 0 bay12: BlockSquareEventType
+---@field [0] "mineral" bay12: BlockSquareEventType
 ---@field frozen_liquid 1
 ---@field [1] "frozen_liquid"
 ---@field world_construction 2
@@ -848,7 +879,7 @@ function block_square_event:isEmpty() end
 
 ---@param x number
 ---@param y number
----@param temperature number
+---@param temperature integer
 function block_square_event:checkTemperature(x, y, temperature) end
 
 
@@ -874,8 +905,8 @@ function df.block_square_event_mineralst:new() end
 
 ---@class df.block_square_event_mineralst.T_flags: DFBitfield
 ---@field _enum identity.block_square_event_mineralst.flags
----@field discovered boolean
----@field [0] boolean
+---@field discovered boolean bay12: MINERAL_EVENT_FLAG_*
+---@field [0] boolean bay12: MINERAL_EVENT_FLAG_*
 ---@field cluster boolean
 ---@field [1] boolean
 ---@field vein boolean
@@ -886,8 +917,8 @@ function df.block_square_event_mineralst:new() end
 ---@field [4] boolean
 
 ---@class identity.block_square_event_mineralst.flags: DFBitfieldType
----@field discovered 0
----@field [0] "discovered"
+---@field discovered 0 bay12: MINERAL_EVENT_FLAG_*
+---@field [0] "discovered" bay12: MINERAL_EVENT_FLAG_*
 ---@field cluster 1
 ---@field [1] "cluster"
 ---@field vein 2
@@ -941,7 +972,7 @@ function df.block_square_event_material_spatterst:new() end
 ---@class (exact) df.block_square_event_grassst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_grassst
 ---@field plant_index number References: `df.plant_raw`
----@field amount number[][]
+---@field amount integer[][]
 
 ---@class identity.block_square_event_grassst: DFCompoundType
 ---@field _kind 'class-type'
@@ -950,13 +981,109 @@ df.block_square_event_grassst = {}
 ---@return df.block_square_event_grassst
 function df.block_square_event_grassst:new() end
 
+---@class df.spoor_flag: DFBitfield
+---@field _enum identity.spoor_flag
+---@field present boolean bay12: BSE_SPOOR_FLAG_*
+---@field [0] boolean bay12: BSE_SPOOR_FLAG_*
+---@field has_direction boolean
+---@field [1] boolean
+---@field direction boolean
+---@field [2] boolean
+---@field yours boolean
+---@field [5] boolean
+---@field liquid_print boolean
+---@field [6] boolean
+---@field level boolean
+---@field [7] boolean
+
+---@class identity.spoor_flag: DFBitfieldType
+---@field present 0 bay12: BSE_SPOOR_FLAG_*
+---@field [0] "present" bay12: BSE_SPOOR_FLAG_*
+---@field has_direction 1
+---@field [1] "has_direction"
+---@field direction 2
+---@field [2] "direction"
+---@field yours 5
+---@field [5] "yours"
+---@field liquid_print 6
+---@field [6] "liquid_print"
+---@field level 7
+---@field [7] "level"
+df.spoor_flag = {}
+
+---@alias df.spoor_flag_dir
+---| 0 # north
+---| 1 # south
+---| 2 # east
+---| 3 # northeast
+---| 4 # west
+---| 5 # northwest
+---| 6 # southeast
+---| 7 # southwest
+
+---@class identity.spoor_flag_dir: DFEnumType
+---@field north 0 bay12: BSE_SPOOR_FLAG_DIR_*
+---@field [0] "north" bay12: BSE_SPOOR_FLAG_DIR_*
+---@field south 1
+---@field [1] "south"
+---@field east 2
+---@field [2] "east"
+---@field northeast 3
+---@field [3] "northeast"
+---@field west 4
+---@field [4] "west"
+---@field northwest 5
+---@field [5] "northwest"
+---@field southeast 6
+---@field [6] "southeast"
+---@field southwest 7
+---@field [7] "southwest"
+df.spoor_flag_dir = {}
+
+---@alias df.spoor_flag_level
+---| 0 # normal
+---| 1 # vague
+---| 2 # light
+---| 3 # heavy
+
+---@class identity.spoor_flag_level: DFEnumType
+---@field normal 0 bay12: BSE_SPOOR_FLAG_LEVEL_*
+---@field [0] "normal" bay12: BSE_SPOOR_FLAG_LEVEL_*
+---@field vague 1
+---@field [1] "vague"
+---@field light 2
+---@field [2] "light"
+---@field heavy 3
+---@field [3] "heavy"
+df.spoor_flag_level = {}
+
+---@alias df.spoor_type
+---| -1 # NONE
+---| 0 # BROKEN_VEGETATION
+---| 1 # HFID_COMBINEDCASTE_BP
+---| 2 # ITEMT_ITEMST_ORIENT
+---| 3 # MESS
+
+---@class identity.spoor_type: DFEnumType
+---@field NONE -1 bay12: BSESpoorType, defined as Uint8_t but that won't work here
+---@field [-1] "NONE" bay12: BSESpoorType, defined as Uint8_t but that won't work here
+---@field BROKEN_VEGETATION 0
+---@field [0] "BROKEN_VEGETATION"
+---@field HFID_COMBINEDCASTE_BP 1
+---@field [1] "HFID_COMBINEDCASTE_BP"
+---@field ITEMT_ITEMST_ORIENT 2
+---@field [2] "ITEMT_ITEMST_ORIENT"
+---@field MESS 3
+---@field [3] "MESS"
+df.spoor_type = {}
+
 ---@class (exact) df.block_square_event_spoorst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_spoorst
----@field flags df.block_square_event_spoorst.T_flags[][]
----@field unk_2 df.block_square_event_spoorst.T_unk_2[][]
----@field unk_3 number[][]
----@field race number[][]
----@field caste number[][]
+---@field flags df.spoor_flag[][] bay12: block_square_event_spoor_infost
+---@field type df.spoor_type[][]
+---@field id1 number[][]
+---@field race number[][] bay12: id2, varies based on type
+---@field caste number[][] bay12: id3, varies based on type
 ---@field age number[][] in half-seconds
 ---@field year number
 ---@field year_tick number
@@ -968,37 +1095,15 @@ df.block_square_event_spoorst = {}
 ---@return df.block_square_event_spoorst
 function df.block_square_event_spoorst:new() end
 
----@class df.block_square_event_spoorst.T_flags: DFBitfield
----@field _enum identity.block_square_event_spoorst.flags
----@field [0] boolean
----@field [1] boolean
----@field [2] boolean
----@field [3] boolean
----@field [4] boolean
----@field [5] boolean
----@field [6] boolean
----@field [7] boolean
----@field [8] boolean
+---@class df.item_spatter_flag: DFBitfield
+---@field _enum identity.item_spatter_flag
+---@field season_full_timer boolean bay12: BLOCK_SQUARE_EVENT_ITEM_SPATTER_FLAG_*
+---@field [0] boolean bay12: BLOCK_SQUARE_EVENT_ITEM_SPATTER_FLAG_*
 
----@class identity.block_square_event_spoorst.flags: DFBitfieldType
-df.block_square_event_spoorst.T_flags = {}
-
----@alias df.block_square_event_spoorst.T_unk_2
----| 0 # unk_2_a
----| 1 # unk_2_b
----| 2 # unk_2_c
----| 3 # unk_2_d
-
----@class identity.block_square_event_spoorst.unk_2: DFEnumType
----@field unk_2_a 0
----@field [0] "unk_2_a"
----@field unk_2_b 1
----@field [1] "unk_2_b"
----@field unk_2_c 2
----@field [2] "unk_2_c"
----@field unk_2_d 3
----@field [3] "unk_2_d"
-df.block_square_event_spoorst.T_unk_2 = {}
+---@class identity.item_spatter_flag: DFBitfieldType
+---@field season_full_timer 0 bay12: BLOCK_SQUARE_EVENT_ITEM_SPATTER_FLAG_*
+---@field [0] "season_full_timer" bay12: BLOCK_SQUARE_EVENT_ITEM_SPATTER_FLAG_*
+df.item_spatter_flag = {}
 
 ---@class (exact) df.block_square_event_item_spatterst: DFStruct, df.block_square_event
 ---@field _type identity.block_square_event_item_spatterst
@@ -1006,11 +1111,11 @@ df.block_square_event_spoorst.T_unk_2 = {}
 ---@field item_subtype number
 ---@field mattype number References: `df.material`
 ---@field matindex number
----@field unk1 number
+---@field print_variant number
 ---@field amount number[][]
----@field unk2 number[][]
----@field temp1 integer
----@field temp2 integer
+---@field flag df.item_spatter_flag[][]
+---@field min_temperature integer
+---@field max_temperature integer
 
 ---@class identity.block_square_event_item_spatterst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1043,8 +1148,8 @@ function df.block_square_event_designation_priorityst:new() end
 ---| 9 # underworld_from_layer
 
 ---@class identity.feature_type: DFEnumType
----@field outdoor_river 0
----@field [0] "outdoor_river"
+---@field outdoor_river 0 bay12: FeatureType
+---@field [0] "outdoor_river" bay12: FeatureType
 ---@field cave 1
 ---@field [1] "cave"
 ---@field pit 2
@@ -1089,6 +1194,8 @@ function feature:read_file(file, loadversion) end
 ---@param y number
 ---@param z number
 function feature:shiftCoords(x, y, z) end
+
+function feature:discovery_realize() end
 
 
 ---@class identity.feature: DFCompoundType
@@ -1225,8 +1332,8 @@ function df.feature_underworld_from_layerst:new() end
 ---| 5 # AnnouncedFully
 
 ---@class identity.feature_init_flags: DFEnumType
----@field AddSavage 0
----@field [0] "AddSavage"
+---@field AddSavage 0 bay12: FeatureInitFlagType
+---@field [0] "AddSavage" bay12: FeatureInitFlagType
 ---@field AddEvil 1
 ---@field [1] "AddEvil"
 ---@field AddGood 2
@@ -1301,6 +1408,18 @@ function feature_init:getFeature() end
 ---@param mat_index number
 function feature_init:getMaterial(mat_type, mat_index) end
 
+---@return boolean
+function feature_init:generates_river_vermin() end
+
+---@return boolean
+function feature_init:outdoor_wildlife_feature() end
+
+---@return boolean
+function feature_init:indoor_wildlife_feature() end
+
+---@return boolean
+function feature_init:fishing_feature() end
+
 ---@param foreground number
 ---@param background number
 ---@param bright number
@@ -1322,7 +1441,10 @@ function feature_init:isMagma() end
 function feature_init:isChasm() end
 
 ---@return boolean
-function feature_init:isLayer() end
+function feature_init:isUnderworld() end
+
+---@return boolean
+function feature_init:isOutdoorRiver() end
 
 ---@return number
 function feature_init:getLayer() end
@@ -1491,8 +1613,8 @@ function df.feature_init_underworld_from_layerst:new() end
 ---| 1 # new_lava_fill_z
 
 ---@class identity.feature_alteration_type: DFEnumType
----@field new_pop_max 0
----@field [0] "new_pop_max"
+---@field new_pop_max 0 bay12: FeatureAlterationType
+---@field [0] "new_pop_max" bay12: FeatureAlterationType
 ---@field new_lava_fill_z 1
 ---@field [1] "new_lava_fill_z"
 df.feature_alteration_type = {}
@@ -1521,8 +1643,8 @@ function df.feature_alteration:new() end
 
 ---@class (exact) df.feature_alteration_new_pop_maxst: DFStruct, df.feature_alteration
 ---@field _type identity.feature_alteration_new_pop_maxst
----@field unk_1 number
----@field unk_2 number
+---@field index number
+---@field new_num number
 
 ---@class identity.feature_alteration_new_pop_maxst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1542,22 +1664,22 @@ df.feature_alteration_new_lava_fill_zst = {}
 ---@return df.feature_alteration_new_lava_fill_zst
 function df.feature_alteration_new_lava_fill_zst:new() end
 
----@alias df.world_construction_type
+---@alias df.world_construction_square_type
 ---| 0 # ROAD
 ---| 1 # TUNNEL
 ---| 2 # BRIDGE
 ---| 3 # WALL
 
----@class identity.world_construction_type: DFEnumType
----@field ROAD 0
----@field [0] "ROAD"
+---@class identity.world_construction_square_type: DFEnumType
+---@field ROAD 0 bay12: WorldConstructionSquareType
+---@field [0] "ROAD" bay12: WorldConstructionSquareType
 ---@field TUNNEL 1
 ---@field [1] "TUNNEL"
 ---@field BRIDGE 2
 ---@field [2] "BRIDGE"
 ---@field WALL 3
 ---@field [3] "WALL"
-df.world_construction_type = {}
+df.world_construction_square_type = {}
 
 ---@class (exact) df.world_construction_square: DFStruct
 ---@field _type identity.world_construction_square
@@ -1565,11 +1687,11 @@ df.world_construction_type = {}
 ---@field construction_id number References: `df.world_construction`
 ---@field embark_x DFNumberVector
 ---@field embark_y DFNumberVector
----@field embark_unk DFNumberVector
+---@field embark_exit DFNumberVector
 ---@field embark_z DFNumberVector
 local world_construction_square
 
----@return df.world_construction_type
+---@return df.world_construction_square_type
 function world_construction_square:getType() end
 
 ---@param file df.file_compressorst
@@ -1613,7 +1735,7 @@ function df.world_construction_square_tunnelst:new() end
 
 ---@class (exact) df.world_construction_square_bridgest: DFStruct, df.world_construction_square
 ---@field _type identity.world_construction_square_bridgest
----@field road_id number guess<br>References: `df.world_construction`
+---@field road_id number References: `df.world_construction`
 ---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `df.material`
@@ -1639,6 +1761,23 @@ df.world_construction_square_wallst = {}
 
 ---@return df.world_construction_square_wallst
 function df.world_construction_square_wallst:new() end
+
+---@alias df.world_construction_type
+---| 0 # ROAD
+---| 1 # TUNNEL
+---| 2 # BRIDGE
+---| 3 # WALL
+
+---@class identity.world_construction_type: DFEnumType
+---@field ROAD 0 bay12: WorldConstructionType
+---@field [0] "ROAD" bay12: WorldConstructionType
+---@field TUNNEL 1
+---@field [1] "TUNNEL"
+---@field BRIDGE 2
+---@field [2] "BRIDGE"
+---@field WALL 3
+---@field [3] "WALL"
+df.world_construction_type = {}
 
 ---@class (exact) df.world_construction: DFStruct
 ---@field _type identity.world_construction
@@ -1900,7 +2039,7 @@ df.biome_type = {}
 df.biome_type._attr_entry_type = {}
 
 ---@class (exact) biome_type_attr_entry_type_fields
----@field caption DFCompoundField
+---@field caption DFCompoundField bay12: Biome, no base type
 ---@field plant_raw_flag DFCompoundField
 df.biome_type._attr_entry_type._fields = {}
 
@@ -1960,16 +2099,16 @@ df.biome_type.attrs = {}
 
 ---@class df.construction_flags: DFBitfield
 ---@field _enum identity.construction_flags
----@field no_build_item boolean build item is created from scratch upon removing construction, does not exist beforehand
----@field [0] boolean build item is created from scratch upon removing construction, does not exist beforehand
----@field top_of_wall boolean used on the floors above constructed walls so you cannot remove them
----@field [1] boolean used on the floors above constructed walls so you cannot remove them
+---@field no_build_item boolean bay12: EVENT_CONSTRUCTION_FLAG_*
+---@field [0] boolean bay12: EVENT_CONSTRUCTION_FLAG_*
+---@field top_of_wall boolean bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
+---@field [1] boolean bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
 
 ---@class identity.construction_flags: DFBitfieldType
----@field no_build_item 0 build item is created from scratch upon removing construction, does not exist beforehand
----@field [0] "no_build_item" build item is created from scratch upon removing construction, does not exist beforehand
----@field top_of_wall 1 used on the floors above constructed walls so you cannot remove them
----@field [1] "top_of_wall" used on the floors above constructed walls so you cannot remove them
+---@field no_build_item 0 bay12: EVENT_CONSTRUCTION_FLAG_*
+---@field [0] "no_build_item" bay12: EVENT_CONSTRUCTION_FLAG_*
+---@field top_of_wall 1 bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
+---@field [1] "top_of_wall" bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
 df.construction_flags = {}
 
 ---@class (exact) df.construction: DFStruct
@@ -2015,12 +2154,12 @@ function df.construction.get_vector() end
 ---| 13 # ItemCloud
 
 ---@class identity.flow_type: DFEnumType
----@field Miasma 0
----@field [0] "Miasma"
----@field Steam 1 only if mat_type=1
----@field [1] "Steam" only if mat_type=1
----@field Mist 2
----@field [2] "Mist"
+---@field Miasma 0 bay12: FlowTypes, no base type
+---@field [0] "Miasma" bay12: FlowTypes, no base type
+---@field Steam 1 bay12: MIST_WATER
+---@field [1] "Steam" bay12: MIST_WATER
+---@field Mist 2 bay12: MIST_WATERFALL
+---@field [2] "Mist" bay12: MIST_WATERFALL
 ---@field MaterialDust 3
 ---@field [3] "MaterialDust"
 ---@field MagmaMist 4
@@ -2054,7 +2193,7 @@ df.flow_type = {}
 ---@field pos df.coord
 ---@field dest df.coord
 ---@field expanding boolean
----@field reuse boolean
+---@field flags df.flow_info.T_flags
 ---@field guide_id number References: `df.flow_guide`
 
 ---@class identity.flow_info: DFCompoundType
@@ -2063,6 +2202,24 @@ df.flow_info = {}
 
 ---@return df.flow_info
 function df.flow_info:new() end
+
+---@class df.flow_info.T_flags: DFBitfield
+---@field _enum identity.flow_info.flags
+---@field DEAD boolean bay12: EVENTFLOW_FLAG_*
+---@field [0] boolean bay12: EVENTFLOW_FLAG_*
+---@field FAST boolean
+---@field [1] boolean
+---@field CREEPING boolean
+---@field [2] boolean
+
+---@class identity.flow_info.flags: DFBitfieldType
+---@field DEAD 0 bay12: EVENTFLOW_FLAG_*
+---@field [0] "DEAD" bay12: EVENTFLOW_FLAG_*
+---@field FAST 1
+---@field [1] "FAST"
+---@field CREEPING 2
+---@field [2] "CREEPING"
+df.flow_info.T_flags = {}
 
 ---@class (exact) df.flow_reuse_pool: DFStruct
 ---@field _type identity.flow_reuse_pool
@@ -2078,12 +2235,12 @@ function df.flow_reuse_pool:new() end
 
 ---@class df.flow_reuse_pool.T_flags: DFBitfield
 ---@field _enum identity.flow_reuse_pool.flags
----@field active boolean
----@field [0] boolean
+---@field active boolean bay12: FLOWTRACKER_FLAG_*
+---@field [0] boolean bay12: FLOWTRACKER_FLAG_*
 
 ---@class identity.flow_reuse_pool.flags: DFBitfieldType
----@field active 0
----@field [0] "active"
+---@field active 0 bay12: FLOWTRACKER_FLAG_*
+---@field [0] "active" bay12: FLOWTRACKER_FLAG_*
 df.flow_reuse_pool.T_flags = {}
 
 ---@alias df.flow_guide_type
@@ -2091,8 +2248,8 @@ df.flow_reuse_pool.T_flags = {}
 ---| 1 # ItemCloud
 
 ---@class identity.flow_guide_type: DFEnumType
----@field TrailingFlow 0
----@field [0] "TrailingFlow"
+---@field TrailingFlow 0 bay12: FlowGuideType
+---@field [0] "TrailingFlow" bay12: FlowGuideType
 ---@field ItemCloud 1
 ---@field [1] "ItemCloud"
 df.flow_guide_type = {}
@@ -2100,7 +2257,7 @@ df.flow_guide_type = {}
 ---@class (exact) df.flow_guide: DFStruct
 ---@field _type identity.flow_guide
 ---@field id number
----@field unk_8 number
+---@field tagged boolean for culling
 local flow_guide
 
 ---@return df.flow_guide_type
@@ -2117,6 +2274,9 @@ function flow_guide:write_file(file) end
 ---@param file df.file_compressorst
 ---@param loadversion df.save_version
 function flow_guide:read_file(file, loadversion) end
+
+---@param anon_0 df.flow_info
+function flow_guide:advance_flow(anon_0) end
 
 
 ---@class identity.flow_guide: DFCompoundType
@@ -2137,7 +2297,7 @@ function df.flow_guide.get_vector() end
 
 ---@class (exact) df.flow_guide_trailing_flowst: DFStruct, df.flow_guide
 ---@field _type identity.flow_guide_trailing_flowst
----@field unk_1 df.coord[]
+---@field line df.coord[]
 
 ---@class identity.flow_guide_trailing_flowst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2152,9 +2312,9 @@ function df.flow_guide_trailing_flowst:new() end
 ---@field item_subtype number
 ---@field mattype number References: `df.material`
 ---@field matindex number
----@field unk_18 number
----@field unk_1c number
----@field unk_1 df.coord[]
+---@field print_variant number
+---@field flags df.flow_guide_item_cloudst.T_flags
+---@field line df.coord[]
 
 ---@class identity.flow_guide_item_cloudst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2163,16 +2323,45 @@ df.flow_guide_item_cloudst = {}
 ---@return df.flow_guide_item_cloudst
 function df.flow_guide_item_cloudst:new() end
 
+---@class df.flow_guide_item_cloudst.T_flags: DFBitfield
+---@field _enum identity.flow_guide_item_cloudst.flags
+---@field undirected boolean bay12: FLOW_GUIDE_ITEM_CLOUD_FLAG_*
+---@field [0] boolean bay12: FLOW_GUIDE_ITEM_CLOUD_FLAG_*
+---@field trailing boolean
+---@field [1] boolean
+
+---@class identity.flow_guide_item_cloudst.flags: DFBitfieldType
+---@field undirected 0 bay12: FLOW_GUIDE_ITEM_CLOUD_FLAG_*
+---@field [0] "undirected" bay12: FLOW_GUIDE_ITEM_CLOUD_FLAG_*
+---@field trailing 1
+---@field [1] "trailing"
+df.flow_guide_item_cloudst.T_flags = {}
+
+---@alias df.effect_type
+---| 0 # Sparkles
+---| 1 # Color
+---| 2 # ShrinkingDot
+
+---@class identity.effect_type: DFEnumType
+---@field Sparkles 0 bay12: Effects, no base type
+---@field [0] "Sparkles" bay12: Effects, no base type
+---@field Color 1
+---@field [1] "Color"
+---@field ShrinkingDot 2
+---@field [2] "ShrinkingDot"
+df.effect_type = {}
+
 ---@class (exact) df.effect_info: DFStruct
 ---@field _type identity.effect_info
----@field id number assigned during Save
+---@field save_idx number
 ---@field job df.job
----@field type number 2 = falling into chasm
+---@field type df.effect_type
 ---@field foreground number
 ---@field background number
 ---@field bright number
 ---@field pos df.coord
 ---@field timer number
+---@field id number
 
 ---@class identity.effect_info: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2185,8 +2374,8 @@ function df.effect_info:new() end
 ---| 0 # SphereField
 
 ---@class identity.region_block_event_type: DFEnumType
----@field SphereField 0
----@field [0] "SphereField"
+---@field SphereField 0 bay12: RegionBlockEventType
+---@field [0] "SphereField" bay12: RegionBlockEventType
 df.region_block_event_type = {}
 
 ---@class (exact) df.region_block_eventst: DFStruct
@@ -2203,6 +2392,9 @@ function region_block_eventst:write_file(file) end
 ---@param loadversion df.save_version
 function region_block_eventst:read_file(file, loadversion) end
 
+---@return boolean
+function region_block_eventst:isEmpty() end
+
 
 ---@class identity.region_block_eventst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2213,7 +2405,7 @@ function df.region_block_eventst:new() end
 
 ---@class (exact) df.region_block_event_sphere_fieldst: DFStruct, df.region_block_eventst
 ---@field _type identity.region_block_event_sphere_fieldst
----@field unk_1 number[]
+---@field tile_bitmask df.tile_bitmask
 
 ---@class identity.region_block_event_sphere_fieldst: DFCompoundType
 ---@field _kind 'class-type'

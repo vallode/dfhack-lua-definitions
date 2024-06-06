@@ -5940,10 +5940,47 @@ df.hash_rngst = {}
 ---@return df.hash_rngst
 function df.hash_rngst:new() end
 
+---@alias df.setting_difficulty_enemies_type
+---| -1 # None
+---| 0 # Off
+---| 1 # Normal
+---| 2 # Hard
+---| 3 # Custom
+
+---@class identity.setting_difficulty_enemies_type: DFEnumType
+---@field None -1 bay12: SettingDifficultyEnemiesType
+---@field [-1] "None" bay12: SettingDifficultyEnemiesType
+---@field Off 0
+---@field [0] "Off"
+---@field Normal 1
+---@field [1] "Normal"
+---@field Hard 2
+---@field [2] "Hard"
+---@field Custom 3
+---@field [3] "Custom"
+df.setting_difficulty_enemies_type = {}
+
+---@alias df.setting_difficulty_economy_type
+---| -1 # None
+---| 0 # Normal
+---| 1 # Hard
+---| 2 # Custom
+
+---@class identity.setting_difficulty_economy_type: DFEnumType
+---@field None -1 bay12: SettingDifficultyEconomyType
+---@field [-1] "None" bay12: SettingDifficultyEconomyType
+---@field Normal 0
+---@field [0] "Normal"
+---@field Hard 1
+---@field [1] "Hard"
+---@field Custom 2
+---@field [2] "Custom"
+df.setting_difficulty_economy_type = {}
+
 ---@class (exact) df.difficultyst: DFStruct
 ---@field _type identity.difficultyst
----@field difficulty_enemies number 0=off, 1=normal, 2=hard, 3=custom
----@field difficulty_economy number 0=normal, 1=hard, 2=custom
+---@field difficulty_enemies df.setting_difficulty_enemies_type
+---@field difficulty_economy df.setting_difficulty_economy_type
 ---@field enemy_pop_trigger number[]
 ---@field enemy_prod_trigger number[]
 ---@field enemy_trade_trigger number[]
@@ -5992,8 +6029,8 @@ function df.difficultyst:new() end
 
 ---@class df.difficultyst.T_flags: DFBitfield
 ---@field _enum identity.difficultyst.flags
----@field sieges boolean
----@field [0] boolean
+---@field sieges boolean bay12: DIFFICULTY_ENEMY_FLAG_*
+---@field [0] boolean bay12: DIFFICULTY_ENEMY_FLAG_*
 ---@field megabeasts boolean
 ---@field [1] boolean
 ---@field werebeasts boolean
@@ -6002,8 +6039,8 @@ function df.difficultyst:new() end
 ---@field [3] boolean
 
 ---@class identity.difficultyst.flags: DFBitfieldType
----@field sieges 0
----@field [0] "sieges"
+---@field sieges 0 bay12: DIFFICULTY_ENEMY_FLAG_*
+---@field [0] "sieges" bay12: DIFFICULTY_ENEMY_FLAG_*
 ---@field megabeasts 1
 ---@field [1] "megabeasts"
 ---@field werebeasts 2

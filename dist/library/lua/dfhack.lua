@@ -71,11 +71,13 @@ dfhack.HIDE_CONSOLE_ON_STARTUP = true
 ---@nodiscard
 ---@return boolean
 function dfhack.getHideConsoleOnStartup() end
+function dfhack.setHideConsoleOnStartup(value) end
 
 dfhack.HIDE_ARMOK_TOOLS = false
 ---@nodiscard
 ---@return boolean
-function dfhack.getHideArmokTools() end
+function dfhack.getMortalMode() end
+function dfhack.setMortalMode(value) end
 
 safecall = dfhack.safecall
 curry = dfhack.curry

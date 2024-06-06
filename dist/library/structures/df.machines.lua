@@ -7,8 +7,8 @@
 
 -- MACHINE
 ---@class identity.machine_type: DFEnumType
----@field standard 0
----@field [0] "standard"
+---@field standard 0 bay12: MachineType
+---@field [0] "standard" bay12: MachineType
 df.machine_type = {}
 
 ---@class (exact) df.machine_info: DFStruct
@@ -25,12 +25,12 @@ function df.machine_info:new() end
 
 ---@class df.machine_info.T_flags: DFBitfield
 ---@field _enum identity.machine_info.flags
----@field frozen boolean
----@field [0] boolean
+---@field frozen boolean bay12: BUILDING_MACHINE_INFO_FLAG_*
+---@field [0] boolean bay12: BUILDING_MACHINE_INFO_FLAG_*
 
 ---@class identity.machine_info.flags: DFBitfieldType
----@field frozen 0
----@field [0] "frozen"
+---@field frozen 0 bay12: BUILDING_MACHINE_INFO_FLAG_*
+---@field [0] "frozen" bay12: BUILDING_MACHINE_INFO_FLAG_*
 df.machine_info.T_flags = {}
 
 ---@class (exact) df.power_info: DFStruct
@@ -47,8 +47,8 @@ function df.power_info:new() end
 
 ---@class df.machine_conn_modes: DFBitfield
 ---@field _enum identity.machine_conn_modes
----@field up boolean
----@field [0] boolean
+---@field up boolean bay12: BUILDING_MACHINE_HOOKUP_DIR_*
+---@field [0] boolean bay12: BUILDING_MACHINE_HOOKUP_DIR_*
 ---@field down boolean
 ---@field [1] boolean
 ---@field right boolean
@@ -61,8 +61,8 @@ function df.power_info:new() end
 ---@field [5] boolean
 
 ---@class identity.machine_conn_modes: DFBitfieldType
----@field up 0
----@field [0] "up"
+---@field up 0 bay12: BUILDING_MACHINE_HOOKUP_DIR_*
+---@field [0] "up" bay12: BUILDING_MACHINE_HOOKUP_DIR_*
 ---@field down 1
 ---@field [1] "down"
 ---@field right 2
@@ -167,20 +167,20 @@ function _machine_components:erase(index) end
 
 ---@class df.machine.T_flags: DFBitfield
 ---@field _enum identity.machine.flags
----@field active boolean
----@field [0] boolean
----@field frozen boolean ?
----@field [1] boolean ?
----@field unfreeze boolean ?
----@field [2] boolean ?
+---@field active boolean bay12: MACHINE_FLAG_*
+---@field [0] boolean bay12: MACHINE_FLAG_*
+---@field frozen boolean
+---@field [1] boolean
+---@field unfreeze_check boolean
+---@field [2] boolean
 
 ---@class identity.machine.flags: DFBitfieldType
----@field active 0
----@field [0] "active"
----@field frozen 1 ?
----@field [1] "frozen" ?
----@field unfreeze 2 ?
----@field [2] "unfreeze" ?
+---@field active 0 bay12: MACHINE_FLAG_*
+---@field [0] "active" bay12: MACHINE_FLAG_*
+---@field frozen 1
+---@field [1] "frozen"
+---@field unfreeze_check 2
+---@field [2] "unfreeze_check"
 df.machine.T_flags = {}
 
 ---@class (exact) df.machine_standardst: DFStruct, df.machine
@@ -231,12 +231,12 @@ function df.building_gear_assemblyst:new() end
 
 ---@class df.building_gear_assemblyst.T_gear_flags: DFBitfield
 ---@field _enum identity.building_gear_assemblyst.gear_flags
----@field disengaged boolean
----@field [0] boolean
+---@field disengaged boolean bay12: BUILDINGFLAG_GEAR_ASSEMBLY_*
+---@field [0] boolean bay12: BUILDINGFLAG_GEAR_ASSEMBLY_*
 
 ---@class identity.building_gear_assemblyst.gear_flags: DFBitfieldType
----@field disengaged 0
----@field [0] "disengaged"
+---@field disengaged 0 bay12: BUILDINGFLAG_GEAR_ASSEMBLY_*
+---@field [0] "disengaged" bay12: BUILDINGFLAG_GEAR_ASSEMBLY_*
 df.building_gear_assemblyst.T_gear_flags = {}
 
 ---@class (exact) df.building_windmillst: DFStruct, df.building_actual
@@ -245,7 +245,7 @@ df.building_gear_assemblyst.T_gear_flags = {}
 ---@field orient_x number
 ---@field orient_y number
 ---@field is_working number
----@field visual_rotated boolean
+---@field rotation number
 ---@field rotate_timer number
 ---@field orient_timer number
 
@@ -276,8 +276,8 @@ function df.building_water_wheelst:new() end
 ---| 3 # FromWest
 
 ---@class identity.screw_pump_direction: DFEnumType
----@field FromNorth 0
----@field [0] "FromNorth"
+---@field FromNorth 0 bay12: BUILDING_SCREW_PUMP_DIR_*
+---@field [0] "FromNorth" bay12: BUILDING_SCREW_PUMP_DIR_*
 ---@field FromEast 1
 ---@field [1] "FromEast"
 ---@field FromSouth 2
@@ -289,7 +289,7 @@ df.screw_pump_direction = {}
 ---@class (exact) df.building_screw_pumpst: DFStruct, df.building_actual
 ---@field _type identity.building_screw_pumpst
 ---@field machine df.machine_info
----@field pump_energy integer decreases by 1 every frame. powering or manually pumping maintains near 100
+---@field pump_energy number decreases by 1 every frame. powering or manually pumping maintains near 100
 ---@field direction df.screw_pump_direction
 ---@field pump_manually boolean
 

@@ -5,14 +5,17 @@
 ---| 0 # FUEL
 ---| 1 # AUTOMATIC
 ---| 2 # ADVENTURE_MODE_ENABLED
+---| 3 # GENERATED
 
 ---@class identity.reaction_flags: DFEnumType
----@field FUEL 0
----@field [0] "FUEL"
+---@field FUEL 0 bay12: ReactionFlagType
+---@field [0] "FUEL" bay12: ReactionFlagType
 ---@field AUTOMATIC 1
 ---@field [1] "AUTOMATIC"
 ---@field ADVENTURE_MODE_ENABLED 2
 ---@field [2] "ADVENTURE_MODE_ENABLED"
+---@field GENERATED 3
+---@field [3] "GENERATED"
 df.reaction_flags = {}
 
 ---@class (exact) df.reaction: DFStruct
@@ -31,9 +34,9 @@ df.reaction_flags = {}
 ---@field raw_strings DFStringVector
 ---@field category string
 ---@field descriptions _reaction_descriptions
----@field quality_adj1 number
----@field quality_adj2 number
----@field unk_1 number
+---@field rand_range number
+---@field skill_mult number
+---@field attr_gain number
 ---@field exp_gain number
 
 ---@class identity.reaction: DFCompoundType
@@ -102,11 +105,12 @@ function _reaction_products:erase(index) end
 
 ---@class (exact) df.reaction.T_building: DFStruct
 ---@field _type identity.reaction.building
----@field str string[]
+---@field token DFStringVector not a compound
+---@field temp_job_key _reaction_building_temp_job_key
 ---@field type _reaction_building_type
 ---@field subtype DFNumberVector
 ---@field custom DFNumberVector
----@field hotkey DFNumberVector
+---@field hotkey _reaction_building_hotkey
 
 ---@class identity.reaction.building: DFCompoundType
 ---@field _kind 'struct-type'
@@ -114,6 +118,22 @@ df.reaction.T_building = {}
 
 ---@return df.reaction.T_building
 function df.reaction.T_building:new() end
+
+---@class _reaction_building_temp_job_key: DFContainer
+---@field [integer] df.interface_key
+local _reaction_building_temp_job_key
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.interface_key>
+function _reaction_building_temp_job_key:_field(index) end
+
+---@param index '#'|integer
+---@param item df.interface_key
+function _reaction_building_temp_job_key:insert(index, item) end
+
+---@param index integer
+function _reaction_building_temp_job_key:erase(index) end
 
 ---@class _reaction_building_type: DFContainer
 ---@field [integer] df.building_type
@@ -130,6 +150,22 @@ function _reaction_building_type:insert(index, item) end
 
 ---@param index integer
 function _reaction_building_type:erase(index) end
+
+---@class _reaction_building_hotkey: DFContainer
+---@field [integer] df.interface_key
+local _reaction_building_hotkey
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.interface_key>
+function _reaction_building_hotkey:_field(index) end
+
+---@param index '#'|integer
+---@param item df.interface_key
+function _reaction_building_hotkey:insert(index, item) end
+
+---@param index integer
+function _reaction_building_hotkey:erase(index) end
 
 ---@class _reaction_descriptions: DFContainer
 ---@field [integer] df.reaction_description
@@ -152,7 +188,7 @@ function _reaction_descriptions:erase(index) end
 ---@field id string
 ---@field parent string
 ---@field name string
----@field key number
+---@field key df.interface_key
 ---@field description string
 
 ---@class identity.reaction_category: DFCompoundType
@@ -164,9 +200,9 @@ function df.reaction_category:new() end
 
 ---@class (exact) df.reaction_description: DFStruct
 ---@field _type identity.reaction_description
----@field unk_1 string
+---@field text string
 ---@field item_type df.item_type
----@field unk_2 string
+---@field item_token string
 
 ---@class identity.reaction_description: DFCompoundType
 ---@field _kind 'struct-type'
@@ -179,8 +215,8 @@ function df.reaction_description:new() end
 ---| 0 # item
 
 ---@class identity.reaction_reagent_type: DFEnumType
----@field item 0
----@field [0] "item"
+---@field item 0 bay12: ReactionReagentType
+---@field [0] "item" bay12: ReactionReagentType
 df.reaction_reagent_type = {}
 
 ---@class (exact) df.reaction_reagent: DFStruct
@@ -193,8 +229,22 @@ local reaction_reagent
 ---@return df.reaction_reagent_type
 function reaction_reagent:getType() end
 
+---@param bld df.building
+---@param boulder_count DFPointer<integer>
+---@param ore_count DFPointer<integer>
+---@param reaction_class DFPointer<integer>
+---@param class_count DFPointer<integer>
+---@param overall_reaction_index number
+---@return boolean
+function reaction_reagent:have_enough_from_precalc_info(bld, boulder_count, ore_count, reaction_class, class_count, overall_reaction_index) end
+
 ---@param reactionID number
 function reaction_reagent:resolveTokens(reactionID) end
+
+---@param jbr df.job_reqst
+---@param reagent_idx number
+---@param reaction_idx number
+function reaction_reagent:contribute_to_job_req(jbr, reagent_idx, reaction_idx) end
 
 ---@param anon_0 df.item
 ---@param index number References: `df.reaction`
@@ -202,7 +252,7 @@ function reaction_reagent:resolveTokens(reactionID) end
 function reaction_reagent:matchesRoot(anon_0, index) end
 
 ---@param anon_0 df.item
----@param anon_1 df.reaction or maybe reaction code string ref
+---@param anon_1 df.reaction
 ---@param index number References: `df.reaction`
 ---@return boolean
 function reaction_reagent:matchesChild(anon_0, anon_1, index) end
@@ -224,16 +274,16 @@ function df.reaction_reagent:new() end
 
 ---@class df.reaction_reagent_flags: DFBitfield
 ---@field _enum identity.reaction_reagent_flags
----@field PRESERVE_REAGENT boolean
----@field [0] boolean
+---@field PRESERVE_REAGENT boolean bay12: REACTION_REAGENT_FLAG_*
+---@field [0] boolean bay12: REACTION_REAGENT_FLAG_*
 ---@field IN_CONTAINER boolean
 ---@field [1] boolean
 ---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT boolean
 ---@field [2] boolean
 
 ---@class identity.reaction_reagent_flags: DFBitfieldType
----@field PRESERVE_REAGENT 0
----@field [0] "PRESERVE_REAGENT"
+---@field PRESERVE_REAGENT 0 bay12: REACTION_REAGENT_FLAG_*
+---@field [0] "PRESERVE_REAGENT" bay12: REACTION_REAGENT_FLAG_*
 ---@field IN_CONTAINER 1
 ---@field [1] "IN_CONTAINER"
 ---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT 2
@@ -274,8 +324,8 @@ function df.reaction_reagent_itemst:new() end
 ---| 1 # improvement
 
 ---@class identity.reaction_product_type: DFEnumType
----@field item 0
----@field [0] "item"
+---@field item 0 bay12: ReactionProductType
+---@field [0] "item" bay12: ReactionProductType
 ---@field improvement 1
 ---@field [1] "improvement"
 df.reaction_product_type = {}
@@ -302,8 +352,8 @@ function reaction_product:resolveTokens(reactionID) end
 ---@param job_quality number gets +10 for matching preferences, uses cutoffs 23/30/35/45/55 for Well/Fine/Superior/Exceptional/Masterwork
 ---@param entity df.historical_entity
 ---@param site df.world_site
----@param unk4 DFPointer<integer> only used when making improvements
-function reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
+---@param improv_items DFPointer<integer> only used when making improvements
+function reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, improv_items) end
 
 ---@param desc string
 function reaction_product:getDescription(desc) end
@@ -323,10 +373,13 @@ function df.reaction_product:new() end
 ---| 3 # PASTE
 ---| 4 # PRESSED
 ---| 5 # CRAFTS
+---| 6 # USE_FULL_REACTION_PRODUCT_CLASS
+---| 7 # USE_REAGENT_ITEM
+---| 8 # TRANSFER_ARTIFACT_STATUS
 
 ---@class identity.reaction_product_item_flags: DFEnumType
----@field GET_MATERIAL_SAME 0
----@field [0] "GET_MATERIAL_SAME"
+---@field GET_MATERIAL_SAME 0 bay12: ReactionProductItemFlagType
+---@field [0] "GET_MATERIAL_SAME" bay12: ReactionProductItemFlagType
 ---@field GET_MATERIAL_PRODUCT 1
 ---@field [1] "GET_MATERIAL_PRODUCT"
 ---@field FORCE_EDGE 2
@@ -337,6 +390,12 @@ function df.reaction_product:new() end
 ---@field [4] "PRESSED"
 ---@field CRAFTS 5
 ---@field [5] "CRAFTS"
+---@field USE_FULL_REACTION_PRODUCT_CLASS 6
+---@field [6] "USE_FULL_REACTION_PRODUCT_CLASS"
+---@field USE_REAGENT_ITEM 7
+---@field [7] "USE_REAGENT_ITEM"
+---@field TRANSFER_ARTIFACT_STATUS 8
+---@field [8] "TRANSFER_ARTIFACT_STATUS"
 df.reaction_product_item_flags = {}
 
 ---@class (exact) df.reaction_product_itemst: DFStruct, df.reaction_product
@@ -378,7 +437,7 @@ function _reaction_product_itemst_flags:erase(index) end
 
 ---@class (exact) df.reaction_product_itemst.T_get_material: DFStruct
 ---@field _type identity.reaction_product_itemst.get_material
----@field reagent_code string
+---@field reagent_code string not a compound
 ---@field product_code string
 
 ---@class identity.reaction_product_itemst.get_material: DFCompoundType
@@ -394,8 +453,8 @@ function df.reaction_product_itemst.T_get_material:new() end
 ---| 2 # GLAZED
 
 ---@class identity.reaction_product_improvement_flags: DFEnumType
----@field GET_MATERIAL_SAME 0
----@field [0] "GET_MATERIAL_SAME"
+---@field GET_MATERIAL_SAME 0 bay12: ReactionProductItemImprovementFlagType
+---@field [0] "GET_MATERIAL_SAME" bay12: ReactionProductItemImprovementFlagType
 ---@field GET_MATERIAL_PRODUCT 1
 ---@field [1] "GET_MATERIAL_PRODUCT"
 ---@field GLAZED 2
@@ -412,8 +471,8 @@ df.reaction_product_improvement_flags = {}
 ---@field probability number
 ---@field flags _reaction_product_item_improvementst_flags
 ---@field get_material df.reaction_product_item_improvementst.T_get_material
+---@field part_token string
 ---@field material_str string[]
----@field unk_v4201_2 string
 
 ---@class identity.reaction_product_item_improvementst: DFCompoundType
 ---@field _kind 'class-type'
@@ -440,7 +499,7 @@ function _reaction_product_item_improvementst_flags:erase(index) end
 
 ---@class (exact) df.reaction_product_item_improvementst.T_get_material: DFStruct
 ---@field _type identity.reaction_product_item_improvementst.get_material
----@field reagent_code string
+---@field reagent_code string not a compound
 ---@field product_code string
 
 ---@class identity.reaction_product_item_improvementst.get_material: DFCompoundType

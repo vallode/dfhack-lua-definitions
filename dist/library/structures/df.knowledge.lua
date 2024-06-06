@@ -1333,6 +1333,30 @@ df.knowledge_scholar_flags_12 = {}
 ---@field [29] "engineering_machine_trip_hammer"
 df.knowledge_scholar_flags_13 = {}
 
+---@class (exact) df.topicst: DFStruct
+---@field _type identity.topicst
+---@field topic df.topicst.T_topic
+---@field research df.knowledge_scholar_category_flag
+
+---@class identity.topicst: DFCompoundType
+---@field _kind 'struct-type'
+df.topicst = {}
+
+---@return df.topicst
+function df.topicst:new() end
+
+---@alias df.topicst.T_topic
+---| -1 # None
+---| 0 # ResearchProject
+
+---@class identity.topicst.topic: DFEnumType
+---@field None -1
+---@field [-1] "None"
+---@field ResearchProject 0
+---@field [0] "ResearchProject"
+df.topicst.T_topic = {}
+
+-- not a real structure
 ---@class (exact) df.knowledge_scholar_category_flag: DFStruct
 ---@field _type identity.knowledge_scholar_category_flag
 ---@field flag_type df.knowledge_scholar_category_flag.T_flag_type research_project_type; determines which bitflags to use

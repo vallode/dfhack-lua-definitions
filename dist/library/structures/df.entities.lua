@@ -369,8 +369,7 @@ df.entity_activity_statistics.T_found_misc = {}
 
 ---@class (exact) df.caravan_state: DFStruct
 ---@field _type identity.caravan_state
----@field total_capacity number bay12: supportedweight; actually a massst
----@field total_capacity_fraction number fraction part of total_capacity
+---@field total_capacity df.massst
 ---@field trade_state df.caravan_state.T_trade_state bay12: stage
 ---@field depot_notified number bay12: havecomplained; has it warned you that you need a depot
 ---@field time_remaining number bay12: timer

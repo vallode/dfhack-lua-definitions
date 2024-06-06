@@ -601,11 +601,6 @@ df.meat_category_type = {}
 ---@field reaction_product df.material_common.T_reaction_product
 ---@field hardens_with_water df.material_common.T_hardens_with_water
 ---@field reaction_class DFStringVector
----@field tile integer
----@field basic_color number[]
----@field build_color number[]
----@field tile_color number[]
----@field item_symbol integer
 
 ---@class identity.material_common: DFCompoundType
 ---@field _kind 'struct-type'
@@ -709,6 +704,11 @@ function df.material_common.T_hardens_with_water:new() end
 -- does not actually inherit
 ---@class (exact) df.material: DFStruct, df.material_common
 ---@field _type identity.material
+---@field tile integer
+---@field basic_color number[]
+---@field build_color number[]
+---@field tile_color number[]
+---@field item_symbol integer
 ---@field mat_rgb number[]
 ---@field powder_dye number
 ---@field temp_diet_info number // color token index
@@ -767,6 +767,11 @@ function df.material_vec_ref:new() end
 -- does not actually inherit
 ---@class (exact) df.material_template: DFStruct, df.material_common
 ---@field _type identity.material_template
+---@field tile integer
+---@field basic_color number[]
+---@field build_color number[]
+---@field tile_color number[]
+---@field item_symbol integer
 ---@field powder_dye number
 ---@field temp_diet_info number // color token index
 ---@field syndrome df.creature_interactionst

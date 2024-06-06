@@ -3218,17 +3218,15 @@ function _occupation_service_order:insert(index, item) end
 ---@param index integer
 function _occupation_service_order:erase(index) end
 
--- bay12: ServiceOrder
 ---@alias df.service_order_type
 ---| -1 # NONE
 ---| 0 # DRINK
 ---| 1 # ROOM_RENTAL
 ---| 2 # EXTEND_ROOM_RENTAL
 
--- bay12: ServiceOrder
 ---@class identity.service_order_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: ServiceOrderType
+---@field [-1] "NONE" bay12: ServiceOrderType
 ---@field DRINK 0
 ---@field [0] "DRINK"
 ---@field ROOM_RENTAL 1

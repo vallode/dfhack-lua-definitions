@@ -81,9 +81,9 @@ df.job_type_class = {}
 ---| 17 # Eat
 ---| 18 # GetProvisions
 ---| 19 # Drink
----| 20 # Drink2
+---| 20 # DrinkItem
 ---| 21 # FillWaterskin
----| 22 # FillWaterskin2
+---| 22 # FillWaterskinItem
 ---| 23 # Sleep
 ---| 24 # CollectSand
 ---| 25 # Fish
@@ -109,7 +109,7 @@ df.job_type_class = {}
 ---| 45 # SeekArtifact
 ---| 46 # SeekInfant
 ---| 47 # GoShopping
----| 48 # GoShopping2
+---| 48 # GoShoppingSpecific
 ---| 49 # Clean
 ---| 50 # Rest
 ---| 51 # PickupEquipment
@@ -209,7 +209,6 @@ df.job_type_class = {}
 ---| 145 # EncrustWithStones
 ---| 146 # LinkBuildingToTrigger
 ---| 147 # PullLever
----| 148 # _unk_0x94
 ---| 149 # ExtractFromPlants
 ---| 150 # ExtractFromRawFish
 ---| 151 # ExtractFromLandAnimal
@@ -239,8 +238,8 @@ df.job_type_class = {}
 ---| 175 # FillPond
 ---| 176 # GiveWater
 ---| 177 # GiveFood
----| 178 # GiveWater2
----| 179 # GiveFood2
+---| 178 # GiveWaterPet
+---| 179 # GiveFoodPet
 ---| 180 # RecoverPet
 ---| 181 # PitLargeAnimal
 ---| 182 # PitSmallAnimal
@@ -300,9 +299,9 @@ df.job_type_class = {}
 ---| 236 # MakeBracelet
 ---| 237 # MakeGem
 ---| 238 # PutItemOnDisplay
----| 239 # unk_fake_no_job
+---| 239 # HeistItem
 ---| 240 # InterrogateSubject
----| 241 # unk_fake_no_activity
+---| 241 # AcceptHeistItem
 
 ---@class identity.job_type: DFEnumType
 ---@field NONE -1 unused
@@ -345,14 +344,14 @@ df.job_type_class = {}
 ---@field [17] "Eat"
 ---@field GetProvisions 18
 ---@field [18] "GetProvisions"
----@field Drink 19
----@field [19] "Drink"
----@field Drink2 20
----@field [20] "Drink2"
----@field FillWaterskin 21
----@field [21] "FillWaterskin"
----@field FillWaterskin2 22 22
----@field [22] "FillWaterskin2" 22
+---@field Drink 19 from drink area
+---@field [19] "Drink" from drink area
+---@field DrinkItem 20 from container
+---@field [20] "DrinkItem" from container
+---@field FillWaterskin 21 from drink area
+---@field [21] "FillWaterskin" from drink area
+---@field FillWaterskinItem 22 22
+---@field [22] "FillWaterskinItem" 22
 ---@field Sleep 23
 ---@field [23] "Sleep"
 ---@field CollectSand 24
@@ -403,8 +402,8 @@ df.job_type_class = {}
 ---@field [46] "SeekInfant"
 ---@field GoShopping 47
 ---@field [47] "GoShopping"
----@field GoShopping2 48 48
----@field [48] "GoShopping2" 48
+---@field GoShoppingSpecific 48 48
+---@field [48] "GoShoppingSpecific" 48
 ---@field Clean 49
 ---@field [49] "Clean"
 ---@field Rest 50
@@ -603,8 +602,6 @@ df.job_type_class = {}
 ---@field [146] "LinkBuildingToTrigger"
 ---@field PullLever 147
 ---@field [147] "PullLever"
----@field _unk_0x94 148
----@field [148] "_unk_0x94"
 ---@field ExtractFromPlants 149 149
 ---@field [149] "ExtractFromPlants" 149
 ---@field ExtractFromRawFish 150
@@ -663,10 +660,10 @@ df.job_type_class = {}
 ---@field [176] "GiveWater"
 ---@field GiveFood 177
 ---@field [177] "GiveFood"
----@field GiveWater2 178 178
----@field [178] "GiveWater2" 178
----@field GiveFood2 179 for pets
----@field [179] "GiveFood2" for pets
+---@field GiveWaterPet 178 178
+---@field [178] "GiveWaterPet" 178
+---@field GiveFoodPet 179
+---@field [179] "GiveFoodPet"
 ---@field RecoverPet 180
 ---@field [180] "RecoverPet"
 ---@field PitLargeAnimal 181
@@ -749,8 +746,8 @@ df.job_type_class = {}
 ---@field [219] "CollectHiveProducts"
 ---@field CauseTrouble 220
 ---@field [220] "CauseTrouble"
----@field DrinkBlood 221 ??
----@field [221] "DrinkBlood" ??
+---@field DrinkBlood 221
+---@field [221] "DrinkBlood"
 ---@field ReportCrime 222
 ---@field [222] "ReportCrime"
 ---@field ExecuteCriminal 223
@@ -785,12 +782,12 @@ df.job_type_class = {}
 ---@field [237] "MakeGem"
 ---@field PutItemOnDisplay 238 238
 ---@field [238] "PutItemOnDisplay" 238
----@field unk_fake_no_job 239
----@field [239] "unk_fake_no_job"
+---@field HeistItem 239
+---@field [239] "HeistItem"
 ---@field InterrogateSubject 240
 ---@field [240] "InterrogateSubject"
----@field unk_fake_no_activity 241
----@field [241] "unk_fake_no_activity"
+---@field AcceptHeistItem 241
+---@field [241] "AcceptHeistItem"
 df.job_type = {}
 
 ---@class job_type_attr_entry_type: DFCompoundType
@@ -798,7 +795,7 @@ df.job_type = {}
 df.job_type._attr_entry_type = {}
 
 ---@class (exact) job_type_attr_entry_type_fields
----@field caption DFCompoundField Declare attributes:
+---@field caption DFCompoundField bay12: JobType<br>Declare attributes:
 ---@field type DFCompoundField
 ---@field labor DFCompoundField
 ---@field item DFCompoundField
@@ -814,11 +811,11 @@ df.job_type._attr_entry_type._fields = {}
 
 ---@class job_type_attrs
 ---@field NONE { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field CarveFortification { caption: "Carve Fortification", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
----@field SmoothWall { caption: "Smooth Wall", type: "Carving", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
----@field SmoothFloor { caption: "Smooth Floor", type: "Carving", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
----@field DetailWall { caption: "Detail Wall", type: "Carving", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
----@field DetailFloor { caption: "Detail Floor", type: "Carving", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field CarveFortification { caption: "Carve Fortification", type: "Digging", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field SmoothWall { caption: "Smooth Wall", type: "Carving", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field SmoothFloor { caption: "Smooth Floor", type: "Carving", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field DetailWall { caption: "Detail Wall", type: "Carving", labor: "NONE", item: "NONE", skill: "ENGRAVE_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field DetailFloor { caption: "Detail Floor", type: "Carving", labor: "NONE", item: "NONE", skill: "ENGRAVE_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
 ---@field Dig { caption: "Dig", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
 ---@field CarveUpwardStaircase { caption: "Carve Upward Staircase", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
 ---@field CarveDownwardStaircase { caption: "Carve Downward Staircase", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
@@ -827,16 +824,16 @@ df.job_type._attr_entry_type._fields = {}
 ---@field DigChannel { caption: "Dig Channel", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
 ---@field FellTree { caption: "Fell Tree", type: "Gathering", labor: "NONE", item: "WOOD", skill: "WOODCUTTING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
 ---@field GatherPlants { caption: "Gather Plants", type: "Gathering", labor: "NONE", item: "PLANT", skill: "HERBALISM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
----@field RemoveConstruction { caption: "Remove Construction", type: "Building", labor: "REMOVE_CONSTRUCTION", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field RemoveConstruction { caption: "Remove Construction", type: "Building", labor: "MINE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
 ---@field CollectWebs { caption: "Collect Webs", type: "Gathering", labor: "NONE", item: "THREAD", material: "silk", skill: "WEAVING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field BringItemToDepot { caption: "Bring Item to Depot", type: "Hauling", labor: "HAUL_TRADE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field BringItemToShop { caption: "Bring Item to Shop", type: "Hauling", labor: "HAUL_ITEM", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field Eat { caption: "Eat", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field GetProvisions { caption: "Get Provisions", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field Drink { caption: "Drink", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field Drink2 { caption: "Drink", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DrinkItem { caption: "Drink", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field FillWaterskin { caption: "Fill Waterskin", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field FillWaterskin2 { caption: "Fill Waterskin", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FillWaterskinItem { caption: "Fill Waterskin", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field Sleep { caption: "Sleep", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field CollectSand { caption: "Collect Sand", type: "Gathering", labor: "HAUL_ITEM", item: "POWDER_MISC", material: "sand", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field Fish { caption: "Fish", type: "Gathering", labor: "NONE", item: "FISH_RAW", skill: "FISH", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
@@ -862,7 +859,7 @@ df.job_type._attr_entry_type._fields = {}
 ---@field SeekArtifact { caption: "Seek Artifact", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field SeekInfant { caption: "Seek Infant", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field GoShopping { caption: "Go Shopping", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field GoShopping2 { caption: "Go Shopping", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GoShoppingSpecific { caption: "Go Shopping", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field Clean { caption: "Clean", type: "TidyUp", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field Rest { caption: "Rest", type: "Leisure", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field PickupEquipment { caption: "Pickup Equipment", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
@@ -894,7 +891,7 @@ df.job_type._attr_entry_type._fields = {}
 ---@field ConstructWeaponRack { caption: "Construct Weapon Rack", type: "Manufacture", labor: "NONE", item: "WEAPONRACK", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field ConstructCabinet { caption: "Construct Cabinet", type: "Manufacture", labor: "NONE", item: "CABINET", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field ConstructStatue { caption: "Construct Statue", type: "Manufacture", labor: "NONE", item: "STATUE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field ConstructBlocks { caption: "Construct Blocks", type: "Manufacture", labor: "NONE", item: "BLOCKS", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBlocks { caption: "Construct Blocks", type: "Manufacture", labor: "NONE", item: "BLOCKS", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field MakeRawGlass { caption: "Make Raw Glass", type: "Manufacture", labor: "NONE", item: "ROUGH", skill: "GLASSMAKER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field MakeCrafts { caption: "Make Crafts", type: "Manufacture", labor: "NONE", item: "NONE", possible_item: "FIGURINE", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
 ---@field MintCoins { caption: "Mint Coins", type: "Manufacture", labor: "NONE", item: "COIN", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "METALCRAFT", is_designation: "false" }
@@ -962,7 +959,6 @@ df.job_type._attr_entry_type._fields = {}
 ---@field EncrustWithStones { caption: "Encrust With Stones", type: "Improvement", labor: "NONE", item: "NONE", skill: "ENCRUSTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field LinkBuildingToTrigger { caption: "Link a Building to Trigger", type: "Building", labor: "NONE", item: "NONE", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field PullLever { caption: "Pull the Lever", type: "Misc", labor: "PULL_LEVER", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field _unk_0x94 { caption: "Unknown Job 0x94", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field ExtractFromPlants { caption: "Extract from Plants", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "HERBALISM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field ExtractFromRawFish { caption: "Extract from Raw Fish", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "DISSECT_FISH", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field ExtractFromLandAnimal { caption: "Extract from Land Animal", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "DISSECT_VERMIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
@@ -992,8 +988,8 @@ df.job_type._attr_entry_type._fields = {}
 ---@field FillPond { caption: "Fill Pond", type: "Hauling", labor: "HAUL_WATER", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field GiveWater { caption: "Give Water", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field GiveFood { caption: "Give Food", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field GiveWater2 { caption: "Give Water", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field GiveFood2 { caption: "Give Food", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GiveWaterPet { caption: "Give Water", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GiveFoodPet { caption: "Give Food", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field RecoverPet { caption: "Recover Pet", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field PitLargeAnimal { caption: "Pit/Pond Large Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field PitSmallAnimal { caption: "Pit/Pond Small Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
@@ -1039,7 +1035,7 @@ df.job_type._attr_entry_type._fields = {}
 ---@field ReportCrime { caption: "Report Crime", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field ExecuteCriminal { caption: "Execute Criminal", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field TrainAnimal { caption: "Train Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "ANIMALTRAIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field CarveTrack { caption: "Carve Track", type: "Carving", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CarveTrack { caption: "Carve Track", type: "Carving", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field PushTrackVehicle { caption: "Push Track Vehicle", type: "Hauling", labor: "HANDLE_VEHICLES", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field PlaceTrackVehicle { caption: "Place Track Vehicle", type: "Hauling", labor: "HANDLE_VEHICLES", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field StoreItemInVehicle { caption: "Store Item in Vehicle", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
@@ -1053,8 +1049,8 @@ df.job_type._attr_entry_type._fields = {}
 ---@field MakeBracelet { caption: "Make Bracelet", type: "Manufacture", labor: "NONE", item: "BRACELET", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
 ---@field MakeGem { caption: "Make Large Gem", type: "Manufacture", labor: "NONE", item: "GEM", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
 ---@field PutItemOnDisplay { caption: "Put Item on Display", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field unk_fake_no_job { caption: "No Job", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field HeistItem { caption: "No Job", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field InterrogateSubject { caption: "Interrogate Subject", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
----@field unk_fake_no_activity { caption: "No Activity", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field AcceptHeistItem { caption: "No Activity", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 df.job_type.attrs = {}
 

@@ -4,7 +4,7 @@
 ---@class (exact) df.dipscript_info: DFStruct
 ---@field _type identity.dipscript_info
 ---@field id number assigned during Save
----@field script_steps _dipscript_info_script_steps
+---@field script_steps _dipscript_info_script_steps bay12: scriptst
 ---@field script_vars _dipscript_info_script_vars
 ---@field code string DWARF_LIAISON etc
 
@@ -153,7 +153,7 @@ function df.script_step_conditionalst:new() end
 
 ---@class (exact) df.script_step_conditionalst.T_condition: DFStruct
 ---@field _type identity.script_step_conditionalst.condition
----@field var1_type string
+---@field var1_type string bay12: conditionalst
 ---@field var1_name string
 ---@field comparison string
 ---@field var2_type string
@@ -366,7 +366,8 @@ function df.meeting_variable:new() end
 ---@class (exact) df.meeting_diplomat_info: DFStruct
 ---@field _type identity.meeting_diplomat_info
 ---@field civ_id number References: `df.historical_entity`
----@field unk1 number maybe is_first_contact
+---@field activeplotindex number
+---@field standard_type df.meeting_standard_type
 ---@field diplomat_id number References: `df.historical_figure`
 ---@field associate_id number References: `df.historical_figure`
 ---@field topic_list _meeting_diplomat_info_topic_list
@@ -376,8 +377,8 @@ function df.meeting_variable:new() end
 ---@field dipscript df.dipscript_info
 ---@field cur_step number
 ---@field active_script_vars _meeting_diplomat_info_active_script_vars
----@field unk_50 string
----@field unk_6c string
+---@field outcome_varspace string
+---@field outcome_varname string
 ---@field flags df.meeting_diplomat_info.T_flags
 ---@field events _meeting_diplomat_info_events
 ---@field agreement_entity DFNumberVector
@@ -430,16 +431,16 @@ function _meeting_diplomat_info_active_script_vars:erase(index) end
 
 ---@class df.meeting_diplomat_info.T_flags: DFBitfield
 ---@field _enum identity.meeting_diplomat_info.flags
----@field dynamic_load boolean destroy dipscript_info in destructor
----@field [0] boolean destroy dipscript_info in destructor
+---@field dynamic_load boolean bay12: DIPLOMACYFLAG_*
+---@field [0] boolean bay12: DIPLOMACYFLAG_*
 ---@field failure boolean
 ---@field [1] boolean
 ---@field success boolean
 ---@field [2] boolean
 
 ---@class identity.meeting_diplomat_info.flags: DFBitfieldType
----@field dynamic_load 0 destroy dipscript_info in destructor
----@field [0] "dynamic_load" destroy dipscript_info in destructor
+---@field dynamic_load 0 bay12: DIPLOMACYFLAG_*
+---@field [0] "dynamic_load" bay12: DIPLOMACYFLAG_*
 ---@field failure 1
 ---@field [1] "failure"
 ---@field success 2
@@ -489,10 +490,13 @@ function _meeting_diplomat_info_agreement_topic:erase(index) end
 ---| 7 # PleasantPlace
 ---| 8 # WorldStatus
 ---| 9 # TributeAgreement
+---| 10 # DemandSurrender
+---| 11 # InduceWar
+---| 12 # InducePeace
 
 ---@class identity.meeting_topic: DFEnumType
----@field DiscussCurrent 0
----@field [0] "DiscussCurrent"
+---@field DiscussCurrent 0 bay12: DiplomacyTopicType
+---@field [0] "DiscussCurrent" bay12: DiplomacyTopicType
 ---@field RequestPeace 1
 ---@field [1] "RequestPeace"
 ---@field TreeQuota 2
@@ -511,7 +515,27 @@ function _meeting_diplomat_info_agreement_topic:erase(index) end
 ---@field [8] "WorldStatus"
 ---@field TributeAgreement 9
 ---@field [9] "TributeAgreement"
+---@field DemandSurrender 10
+---@field [10] "DemandSurrender"
+---@field InduceWar 11
+---@field [11] "InduceWar"
+---@field InducePeace 12
+---@field [12] "InducePeace"
 df.meeting_topic = {}
+
+---@alias df.meeting_standard_type
+---| 0 # Standard
+---| 1 # FirstContact
+---| 2 # ActivePlot
+
+---@class identity.meeting_standard_type: DFEnumType
+---@field Standard 0 bay12: StandardDiplomacyTypes, no base type
+---@field [0] "Standard" bay12: StandardDiplomacyTypes, no base type
+---@field FirstContact 1
+---@field [1] "FirstContact"
+---@field ActivePlot 2
+---@field [2] "ActivePlot"
+df.meeting_standard_type = {}
 
 ---@alias df.meeting_event_type
 ---| 0 # AcceptAgreement
@@ -522,8 +546,8 @@ df.meeting_topic = {}
 ---| 5 # ImportAgreement
 
 ---@class identity.meeting_event_type: DFEnumType
----@field AcceptAgreement 0
----@field [0] "AcceptAgreement"
+---@field AcceptAgreement 0 bay12: AgreementTypes, no base type
+---@field [0] "AcceptAgreement" bay12: AgreementTypes, no base type
 ---@field RejectAgreement 1
 ---@field [1] "RejectAgreement"
 ---@field AcceptPeace 2
@@ -541,7 +565,7 @@ df.meeting_event_type = {}
 ---@field type df.meeting_event_type
 ---@field topic df.meeting_topic
 ---@field topic_parm number
----@field topic_epid DFNumberVector
+---@field topic_epid DFNumberVector entity position?
 ---@field topic_hfid DFNumberVector
 ---@field quota_total number
 ---@field quota_remaining number
@@ -560,13 +584,13 @@ function df.meeting_event:new() end
 ---@class (exact) df.activity_info: DFStruct
 ---@field _type identity.activity_info
 ---@field id number bay12: save_index; assigned during Save
----@field unit_actor number bay12: actor_unid; diplomat or worker<br>References: `df.unit`
----@field unit_noble number bay12: target_unid; meeting recipient<br>References: `df.unit`
+---@field unit_actor number diplomat or worker<br>References: `df.unit`
+---@field unit_noble number meeting recipient<br>References: `df.unit`
 ---@field place number bay12: civzone_id<br>References: `df.building`
 ---@field flags df.activity_info.T_flags
 ---@field worstroomrank number
----@field delay number bay12: discusscount
----@field tree_quota number bay12: tempvalue
+---@field delay number discusscount
+---@field tree_quota number tempvalue
 
 ---@class identity.activity_info: DFCompoundType
 ---@field _kind 'struct-type'
@@ -577,94 +601,62 @@ function df.activity_info:new() end
 
 ---@class df.activity_info.T_flags: DFBitfield
 ---@field _enum identity.activity_info.flags
----@field next_step boolean
----@field [0] boolean
----@field checked_building boolean bay12: SITESEARCHED
----@field [1] boolean bay12: SITESEARCHED
----@field add_delay boolean bay12: ARRIVEDATSITE
----@field [2] boolean bay12: ARRIVEDATSITE
----@field topic_discussed boolean bay12: INITIALDISCUSS
----@field [3] boolean bay12: INITIALDISCUSS
----@field meeting_done boolean bay12: DISCUSSINGTOPIC
----@field [4] boolean bay12: DISCUSSINGTOPIC
+---@field next_step boolean bay12: ACTIVITYFLAG_*
+---@field [0] boolean bay12: ACTIVITYFLAG_*
+---@field checked_building boolean ARRIVEDATSITE
+---@field [1] boolean ARRIVEDATSITE
+---@field add_delay boolean INITIALDISCUSS
+---@field [2] boolean INITIALDISCUSS
+---@field topic_discussed boolean DISCUSSINGTOPIC
+---@field [3] boolean DISCUSSINGTOPIC
+---@field meeting_done boolean
+---@field [4] boolean
 
 ---@class identity.activity_info.flags: DFBitfieldType
----@field next_step 0
----@field [0] "next_step"
----@field checked_building 1 bay12: SITESEARCHED
----@field [1] "checked_building" bay12: SITESEARCHED
----@field add_delay 2 bay12: ARRIVEDATSITE
----@field [2] "add_delay" bay12: ARRIVEDATSITE
----@field topic_discussed 3 bay12: INITIALDISCUSS
----@field [3] "topic_discussed" bay12: INITIALDISCUSS
----@field meeting_done 4 bay12: DISCUSSINGTOPIC
----@field [4] "meeting_done" bay12: DISCUSSINGTOPIC
+---@field next_step 0 bay12: ACTIVITYFLAG_*
+---@field [0] "next_step" bay12: ACTIVITYFLAG_*
+---@field checked_building 1 ARRIVEDATSITE
+---@field [1] "checked_building" ARRIVEDATSITE
+---@field add_delay 2 INITIALDISCUSS
+---@field [2] "add_delay" INITIALDISCUSS
+---@field topic_discussed 3 DISCUSSINGTOPIC
+---@field [3] "topic_discussed" DISCUSSINGTOPIC
+---@field meeting_done 4
+---@field [4] "meeting_done"
 df.activity_info.T_flags = {}
-
----@class (exact) df.room_rent_info: DFStruct
----@field _type identity.room_rent_info
----@field elements _room_rent_info_elements
----@field rent_value number
----@field flags df.room_rent_info.T_flags
-
----@class identity.room_rent_info: DFCompoundType
----@field _kind 'struct-type'
-df.room_rent_info = {}
-
----@return df.room_rent_info
-function df.room_rent_info:new() end
-
----@class _room_rent_info_elements: DFContainer
----@field [integer] df.building
-local _room_rent_info_elements
-
----@nodiscard
----@param index integer
----@return DFPointer<df.building>
-function _room_rent_info_elements:_field(index) end
-
----@param index '#'|integer
----@param item df.building
-function _room_rent_info_elements:insert(index, item) end
-
----@param index integer
-function _room_rent_info_elements:erase(index) end
-
----@class df.room_rent_info.T_flags: DFBitfield
----@field _enum identity.room_rent_info.flags
----@field eviction_underway boolean
----@field [0] boolean
----@field move_underway boolean
----@field [1] boolean
-
----@class identity.room_rent_info.flags: DFBitfieldType
----@field eviction_underway 0
----@field [0] "eviction_underway"
----@field move_underway 1
----@field [1] "move_underway"
-df.room_rent_info.T_flags = {}
 
 ---@alias df.activity_entry_type
 ---| 0 # TrainingSession
 ---| 1 # IndividualSkillDrill
 ---| 2 # Conflict
+---| 3 # Harassment
+---| 4 # Guard
 ---| 5 # Conversation
+---| 6 # Reunion
 ---| 7 # Prayer
 ---| 8 # Socialize
 ---| 9 # Research
 ---| 10 # FillServiceOrder
 ---| 11 # Read
 ---| 12 # Play
+---| 13 # Encounter
+---| 14 # StoreObject
 
 ---@class identity.activity_entry_type: DFEnumType
----@field TrainingSession 0
----@field [0] "TrainingSession"
+---@field TrainingSession 0 bay12: ActivityType
+---@field [0] "TrainingSession" bay12: ActivityType
 ---@field IndividualSkillDrill 1
 ---@field [1] "IndividualSkillDrill"
 ---@field Conflict 2
 ---@field [2] "Conflict"
+---@field Harassment 3
+---@field [3] "Harassment"
+---@field Guard 4
+---@field [4] "Guard"
 ---@field Conversation 5
 ---@field [5] "Conversation"
+---@field Reunion 6
+---@field [6] "Reunion"
 ---@field Prayer 7
 ---@field [7] "Prayer"
 ---@field Socialize 8
@@ -677,6 +669,10 @@ df.room_rent_info.T_flags = {}
 ---@field [11] "Read"
 ---@field Play 12
 ---@field [12] "Play"
+---@field Encounter 13
+---@field [13] "Encounter"
+---@field StoreObject 14
+---@field [14] "StoreObject"
 df.activity_entry_type = {}
 
 ---@class (exact) df.activity_entry: DFStruct
@@ -750,8 +746,8 @@ function _activity_entry_events:erase(index) end
 ---| 27 # StoreObject
 
 ---@class identity.activity_event_type: DFEnumType
----@field TrainingSession 0
----@field [0] "TrainingSession"
+---@field TrainingSession 0 bay12: ActivityEventType
+---@field [0] "TrainingSession" bay12: ActivityEventType
 ---@field CombatTraining 1
 ---@field [1] "CombatTraining"
 ---@field SkillDemonstration 2
@@ -835,8 +831,8 @@ function df.activity_event_participants:new() end
 ---| 6 # TOY
 
 ---@class identity.activity_event_item_role_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: ActivityEventItemRoleType
+---@field [-1] "NONE" bay12: ActivityEventItemRoleType
 ---@field TARGET_TO_POUR 0
 ---@field [0] "TARGET_TO_POUR"
 ---@field TARGET_TO_FILL 1
@@ -861,8 +857,8 @@ df.activity_event_item_role_type = {}
 ---| 3 # PERFORMANCE_INSTRUMENT
 
 ---@class identity.activity_event_building_role_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: ActivityEventBuildingRoleType
+---@field [-1] "NONE" bay12: ActivityEventBuildingRoleType
 ---@field SIT_AND_READ 0
 ---@field [0] "SIT_AND_READ"
 ---@field SIT_AND_WRITE 1
@@ -875,9 +871,9 @@ df.activity_event_building_role_type = {}
 
 ---@class (exact) df.activity_event: DFStruct
 ---@field _type identity.activity_event
----@field event_id number bay12: local_id; mostly, but not always, the index in activity.events
----@field activity_id number bay12: source_activity_id<br>References: `df.activity_entry`
----@field parent_event_id number bay12: source_activity_event_id<br>References: `df.activity_event`
+---@field event_id number mostly, but not always, the index in activity.events
+---@field activity_id number References: `df.activity_entry`
+---@field parent_event_id number References: `df.activity_event`
 ---@field flags df.activity_event.T_flags
 ---@field item _activity_event_item
 ---@field building _activity_event_building
@@ -899,8 +895,8 @@ function activity_event:isEmpty() end
 ---@return number
 function activity_event:get_building_id() end
 
----@param anon_0 number
-function activity_event:set_building_id(anon_0) end
+---@param id number
+function activity_event:set_building_id(id) end
 
 ---@return df.activity_event_participants
 function activity_event:getParticipantInfo() end
@@ -915,18 +911,18 @@ function activity_event:move(dx, dy, dz) end
 
 ---@param histfig number
 ---@param unit number
----@param anon_0 boolean
-function activity_event:removeParticipant(histfig, unit, anon_0) end
+---@param moving_to_related boolean
+function activity_event:removeParticipant(histfig, unit, moving_to_related) end
 
 ---@param context df.dungeon_contextst
 ---@param unit df.unit
 function activity_event:follow_order(context, unit) end
 
 ---@param unit df.unit
----@return number
+---@return df.squad_order_cannot_reason
 function activity_event:checkDrillInvalid(unit) end
 
----@param anon_0 number
+---@param anon_0 df.unit
 ---@return boolean
 function activity_event:decUniformLock(anon_0) end
 
@@ -954,7 +950,7 @@ function activity_event:getBuilding() end
 ---@return boolean
 function activity_event:isSparring() end
 
----@return number
+---@return df.unit_uniform_mode_type
 function activity_event:getUniformType() end
 
 ---@param unit_id number
@@ -971,16 +967,16 @@ function df.activity_event:new() end
 
 ---@class df.activity_event.T_flags: DFBitfield
 ---@field _enum identity.activity_event.flags
----@field dismissed boolean bay12: DEAD; to be removed from squad_position, anyway
----@field [0] boolean bay12: DEAD; to be removed from squad_position, anyway
----@field squad boolean bay12: SQUAD; for all in training session, but not ind.drill
----@field [1] boolean bay12: SQUAD; for all in training session, but not ind.drill
+---@field dismissed boolean bay12: ACTIVITY_EVENT_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_FLAG_*
+---@field squad boolean for all in training session, but not ind.drill
+---@field [1] boolean for all in training session, but not ind.drill
 
 ---@class identity.activity_event.flags: DFBitfieldType
----@field dismissed 0 bay12: DEAD; to be removed from squad_position, anyway
----@field [0] "dismissed" bay12: DEAD; to be removed from squad_position, anyway
----@field squad 1 bay12: SQUAD; for all in training session, but not ind.drill
----@field [1] "squad" bay12: SQUAD; for all in training session, but not ind.drill
+---@field dismissed 0 bay12: ACTIVITY_EVENT_FLAG_*
+---@field [0] "dismissed" bay12: ACTIVITY_EVENT_FLAG_*
+---@field squad 1 for all in training session, but not ind.drill
+---@field [1] "squad" for all in training session, but not ind.drill
 df.activity_event.T_flags = {}
 
 ---@class _activity_event_item: DFContainer
@@ -1107,6 +1103,8 @@ function _activity_event_sparringst_groups:erase(index) end
 ---@field _type identity.activity_event_ranged_practicest
 ---@field participants df.activity_event_participants
 ---@field building_id number References: `df.building`
+---@field fire_from df.coord2d
+---@field countdown number
 
 ---@class identity.activity_event_ranged_practicest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1115,16 +1113,33 @@ df.activity_event_ranged_practicest = {}
 ---@return df.activity_event_ranged_practicest
 function df.activity_event_ranged_practicest:new() end
 
+---@alias df.harassment_stage_type
+---| -1 # None
+---| 0 # Interview
+---| 1 # Confront
+---| 2 # Torment
+
+---@class identity.harassment_stage_type: DFEnumType
+---@field None -1 bay12: HarassmentStageType
+---@field [-1] "None" bay12: HarassmentStageType
+---@field Interview 0
+---@field [0] "Interview"
+---@field Confront 1
+---@field [1] "Confront"
+---@field Torment 2
+---@field [2] "Torment"
+df.harassment_stage_type = {}
+
 ---@class (exact) df.activity_event_harassmentst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_harassmentst
----@field unk_1 DFNumberVector
----@field unk_2 _activity_event_harassmentst_unk_2
----@field unk_3 number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
+---@field harasser_hf DFNumberVector
+---@field target_profile _activity_event_harassmentst_target_profile
+---@field stage df.harassment_stage_type
+---@field inactivity_timer number
+---@field initiated_year number
+---@field initiated_season_count number
+---@field talker_hfid number References: `df.historical_figure`
+---@field yield_timer number
 
 ---@class identity.activity_event_harassmentst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1133,27 +1148,33 @@ df.activity_event_harassmentst = {}
 ---@return df.activity_event_harassmentst
 function df.activity_event_harassmentst:new() end
 
----@class _activity_event_harassmentst_unk_2: DFContainer
+---@class _activity_event_harassmentst_target_profile: DFContainer
 ---@field [integer] DFPointer<integer>
-local _activity_event_harassmentst_unk_2
+local _activity_event_harassmentst_target_profile
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _activity_event_harassmentst_unk_2:_field(index) end
+function _activity_event_harassmentst_target_profile:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _activity_event_harassmentst_unk_2:insert(index, item) end
+function _activity_event_harassmentst_target_profile:insert(index, item) end
 
 ---@param index integer
-function _activity_event_harassmentst_unk_2:erase(index) end
+function _activity_event_harassmentst_target_profile:erase(index) end
 
 ---@alias df.conversation_menu
 ---| -1 # None
 ---| 0 # RespondGreeting
 ---| 1 # MainMenu
+---| 2 # CurrentProblems
+---| 3 # BringUpIncident
+---| 4 # GeneralTroublesSummary
+---| 5 # Incident
+---| 6 # Rumor
 ---| 7 # RespondGoodbye
+---| 8 # Bail
 ---| 9 # DenyPermissionSleep
 ---| 10 # AskJoin
 ---| 11 # RespondJoin
@@ -1162,44 +1183,95 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---| 14 # DiscussTrade
 ---| 15 # DiscussSurroundingArea
 ---| 16 # RespondAccusation
----| 17 # DiscussFamily
----| 18 # RespondArmistice
----| 19 # RespondDemandYield
+---| 17 # DiscussProfession
+---| 18 # DiscussFamily
+---| 19 # RespondArmistice
+---| 20 # RespondDemandYield
+---| 21 # TroublesSummary
+---| 22 # SpecificTrouble
 ---| 23 # AskDirections
+---| 24 # AskedSiteDirections
+---| 25 # AskedHistfigDirections
+---| 26 # AskedForSiteGuide
+---| 27 # AskedForHistfigGuide
+---| 28 # JoinGuideDestination
+---| 29 # AskAboutBuilding
 ---| 30 # Demand
+---| 31 # PlacedOrder
+---| 32 # BouncedOrder
+---| 33 # RequestedFollow
 ---| 34 # Barter
 ---| 35 # DiscussHearthpersonDuties
+---| 36 # AskedJoinSquad
 ---| 37 # DiscussJourney
 ---| 38 # DiscussGroup
 ---| 39 # DiscussConflict
 ---| 40 # DiscussSite
 ---| 41 # RespondDemand
+---| 42 # RespondItemLocation
 ---| 43 # RespondTributeDemand
 ---| 44 # RespondTributeOffer
 ---| 45 # DiscussTradeCancellation
 ---| 46 # RespondPeaceOffer
 ---| 47 # DiscussAgreementConclusion
 ---| 48 # RespondAdoptionRequest
+---| 49 # InvitedJoinSquad
+---| 50 # KickedOutOfSquad
 ---| 51 # RespondPositionOffer
 ---| 52 # RespondInvocation
+---| 53 # GaveSquadTaskReport
 ---| 54 # AskAboutPerson
+---| 55 # AskedAboutHistfig
 ---| 56 # DiscussFeelings
+---| 57 # RequestServiceStateAB
+---| 58 # ListServiceStateAB
+---| 59 # RequestSpecficStateService
+---| 60 # RespondJoinEntertain
+---| 61 # AskJoinTroupe
+---| 62 # InvitedJoinTroupe
+---| 63 # KickedOutOfTroupe
+---| 64 # LeftTroupe
 ---| 65 # StateGeneralThoughts
 ---| 66 # DiscussValues
 ---| 67 # RespondValues
 ---| 68 # RespondPassiveReply
 ---| 69 # RespondFlattery
 ---| 70 # RespondDismissal
+---| 71 # AskPersonalOccupation
+---| 72 # AskEntireEntityOccupation
+---| 73 # MissingArtifact
+---| 74 # RequestIdentityForSiteClearance
+---| 75 # Interrogate
+---| 76 # FishForMaster
+---| 77 # FishForPlots
+---| 78 # Flatter
+---| 79 # Pacify
+---| 80 # UnneededPacify
+---| 81 # ToldJoke
+---| 82 # GiftPet
+---| 83 # GavePet
 
 ---@class identity.conversation_menu: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: ConversationStateType
+---@field [-1] "None" bay12: ConversationStateType
 ---@field RespondGreeting 0
 ---@field [0] "RespondGreeting"
 ---@field MainMenu 1
 ---@field [1] "MainMenu"
+---@field CurrentProblems 2
+---@field [2] "CurrentProblems"
+---@field BringUpIncident 3
+---@field [3] "BringUpIncident"
+---@field GeneralTroublesSummary 4
+---@field [4] "GeneralTroublesSummary"
+---@field Incident 5
+---@field [5] "Incident"
+---@field Rumor 6
+---@field [6] "Rumor"
 ---@field RespondGoodbye 7
 ---@field [7] "RespondGoodbye"
+---@field Bail 8
+---@field [8] "Bail"
 ---@field DenyPermissionSleep 9
 ---@field [9] "DenyPermissionSleep"
 ---@field AskJoin 10
@@ -1216,20 +1288,46 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---@field [15] "DiscussSurroundingArea"
 ---@field RespondAccusation 16
 ---@field [16] "RespondAccusation"
----@field DiscussFamily 17
----@field [17] "DiscussFamily"
----@field RespondArmistice 18
----@field [18] "RespondArmistice"
----@field RespondDemandYield 19
----@field [19] "RespondDemandYield"
+---@field DiscussProfession 17
+---@field [17] "DiscussProfession"
+---@field DiscussFamily 18
+---@field [18] "DiscussFamily"
+---@field RespondArmistice 19
+---@field [19] "RespondArmistice"
+---@field RespondDemandYield 20
+---@field [20] "RespondDemandYield"
+---@field TroublesSummary 21
+---@field [21] "TroublesSummary"
+---@field SpecificTrouble 22
+---@field [22] "SpecificTrouble"
 ---@field AskDirections 23
 ---@field [23] "AskDirections"
+---@field AskedSiteDirections 24
+---@field [24] "AskedSiteDirections"
+---@field AskedHistfigDirections 25
+---@field [25] "AskedHistfigDirections"
+---@field AskedForSiteGuide 26
+---@field [26] "AskedForSiteGuide"
+---@field AskedForHistfigGuide 27
+---@field [27] "AskedForHistfigGuide"
+---@field JoinGuideDestination 28
+---@field [28] "JoinGuideDestination"
+---@field AskAboutBuilding 29
+---@field [29] "AskAboutBuilding"
 ---@field Demand 30
 ---@field [30] "Demand"
+---@field PlacedOrder 31
+---@field [31] "PlacedOrder"
+---@field BouncedOrder 32
+---@field [32] "BouncedOrder"
+---@field RequestedFollow 33
+---@field [33] "RequestedFollow"
 ---@field Barter 34
 ---@field [34] "Barter"
 ---@field DiscussHearthpersonDuties 35
 ---@field [35] "DiscussHearthpersonDuties"
+---@field AskedJoinSquad 36
+---@field [36] "AskedJoinSquad"
 ---@field DiscussJourney 37
 ---@field [37] "DiscussJourney"
 ---@field DiscussGroup 38
@@ -1240,6 +1338,8 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---@field [40] "DiscussSite"
 ---@field RespondDemand 41
 ---@field [41] "RespondDemand"
+---@field RespondItemLocation 42
+---@field [42] "RespondItemLocation"
 ---@field RespondTributeDemand 43
 ---@field [43] "RespondTributeDemand"
 ---@field RespondTributeOffer 44
@@ -1252,14 +1352,38 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---@field [47] "DiscussAgreementConclusion"
 ---@field RespondAdoptionRequest 48
 ---@field [48] "RespondAdoptionRequest"
+---@field InvitedJoinSquad 49
+---@field [49] "InvitedJoinSquad"
+---@field KickedOutOfSquad 50
+---@field [50] "KickedOutOfSquad"
 ---@field RespondPositionOffer 51
 ---@field [51] "RespondPositionOffer"
 ---@field RespondInvocation 52
 ---@field [52] "RespondInvocation"
+---@field GaveSquadTaskReport 53
+---@field [53] "GaveSquadTaskReport"
 ---@field AskAboutPerson 54
 ---@field [54] "AskAboutPerson"
+---@field AskedAboutHistfig 55
+---@field [55] "AskedAboutHistfig"
 ---@field DiscussFeelings 56
 ---@field [56] "DiscussFeelings"
+---@field RequestServiceStateAB 57
+---@field [57] "RequestServiceStateAB"
+---@field ListServiceStateAB 58
+---@field [58] "ListServiceStateAB"
+---@field RequestSpecficStateService 59
+---@field [59] "RequestSpecficStateService"
+---@field RespondJoinEntertain 60
+---@field [60] "RespondJoinEntertain"
+---@field AskJoinTroupe 61
+---@field [61] "AskJoinTroupe"
+---@field InvitedJoinTroupe 62
+---@field [62] "InvitedJoinTroupe"
+---@field KickedOutOfTroupe 63
+---@field [63] "KickedOutOfTroupe"
+---@field LeftTroupe 64
+---@field [64] "LeftTroupe"
 ---@field StateGeneralThoughts 65
 ---@field [65] "StateGeneralThoughts"
 ---@field DiscussValues 66
@@ -1272,33 +1396,128 @@ function _activity_event_harassmentst_unk_2:erase(index) end
 ---@field [69] "RespondFlattery"
 ---@field RespondDismissal 70
 ---@field [70] "RespondDismissal"
+---@field AskPersonalOccupation 71
+---@field [71] "AskPersonalOccupation"
+---@field AskEntireEntityOccupation 72
+---@field [72] "AskEntireEntityOccupation"
+---@field MissingArtifact 73
+---@field [73] "MissingArtifact"
+---@field RequestIdentityForSiteClearance 74
+---@field [74] "RequestIdentityForSiteClearance"
+---@field Interrogate 75
+---@field [75] "Interrogate"
+---@field FishForMaster 76
+---@field [76] "FishForMaster"
+---@field FishForPlots 77
+---@field [77] "FishForPlots"
+---@field Flatter 78
+---@field [78] "Flatter"
+---@field Pacify 79
+---@field [79] "Pacify"
+---@field UnneededPacify 80
+---@field [80] "UnneededPacify"
+---@field ToldJoke 81
+---@field [81] "ToldJoke"
+---@field GiftPet 82
+---@field [82] "GiftPet"
+---@field GavePet 83
+---@field [83] "GavePet"
 df.conversation_menu = {}
+
+---@alias df.conversation_trouble_type
+---| -1 # None
+---| 0 # Death
+---| 1 # Crime
+---| 2 # Conflict
+---| 3 # ArmyMarching
+---| 4 # Abduction
+---| 5 # Occupation
+---| 6 # BeastPresent
+---| 7 # Criminals
+---| 8 # Bandits
+---| 9 # Skulking
+---| 10 # EvilSite
+---| 11 # ArmyHarassing
+---| 12 # War
+---| 13 # BrewingTroubleWithNeighbors
+---| 14 # MissingArtifact
+
+---@class identity.conversation_trouble_type: DFEnumType
+---@field None -1 bay12: ConversationTroubleType
+---@field [-1] "None" bay12: ConversationTroubleType
+---@field Death 0
+---@field [0] "Death"
+---@field Crime 1
+---@field [1] "Crime"
+---@field Conflict 2
+---@field [2] "Conflict"
+---@field ArmyMarching 3
+---@field [3] "ArmyMarching"
+---@field Abduction 4
+---@field [4] "Abduction"
+---@field Occupation 5
+---@field [5] "Occupation"
+---@field BeastPresent 6
+---@field [6] "BeastPresent"
+---@field Criminals 7
+---@field [7] "Criminals"
+---@field Bandits 8
+---@field [8] "Bandits"
+---@field Skulking 9
+---@field [9] "Skulking"
+---@field EvilSite 10
+---@field [10] "EvilSite"
+---@field ArmyHarassing 11
+---@field [11] "ArmyHarassing"
+---@field War 12
+---@field [12] "War"
+---@field BrewingTroubleWithNeighbors 13
+---@field [13] "BrewingTroubleWithNeighbors"
+---@field MissingArtifact 14
+---@field [14] "MissingArtifact"
+df.conversation_trouble_type = {}
+
+---@alias df.conversation_tact_type
+---| -1 # None
+---| 0 # Persuade
+---| 1 # Intimidate
+
+---@class identity.conversation_tact_type: DFEnumType
+---@field None -1 bay12: ConversationTactType
+---@field [-1] "None" bay12: ConversationTactType
+---@field Persuade 0
+---@field [0] "Persuade"
+---@field Intimidate 1
+---@field [1] "Intimidate"
+df.conversation_tact_type = {}
 
 ---@class (exact) df.activity_event_conversationst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_conversationst
 ---@field participants _activity_event_conversationst_participants
 ---@field menu df.conversation_menu
----@field unk1 df.entity_event
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 number
----@field unk_v42_3 number
----@field unk_v42_4 DFNumberVector
----@field unk_5 DFNumberVector
----@field unk_6 _activity_event_conversationst_unk_6
----@field unk_7 DFNumberVector
----@field unk_8 DFNumberVector
----@field unk_b4 df.activity_event_conversationst.T_unk_b4
+---@field state_rumor df.entity_event
+---@field state_incident_id number
+---@field relevant_id_1 number value_type, asker_entity
+---@field relevant_id_2 number value_level, consider_entity, question_identity
+---@field relevant_id_3 number attack_roll, occupation_type
+---@field relevant_id_4 number defense_roll
+---@field state_trouble_type _activity_event_conversationst_state_trouble_type
+---@field state_trouble_amount DFNumberVector
+---@field state_service_order_template _activity_event_conversationst_state_service_order_template
+---@field state_mentioned_stid DFNumberVector
+---@field state_mentioned_hfid DFNumberVector
+---@field state_incident_hf df.incident_hfid
+---@field state_tact df.conversation_tact_type
 ---@field turns _activity_event_conversationst_turns
 ---@field floor_holder number -1 = no one's turn<br>References: `df.unit`
 ---@field floor_holder_hfid number -1 = no one's turn<br>References: `df.historical_figure`
 ---@field pause number ticks since the last turn
----@field flags2 df.activity_event_conversationst.T_flags2
----@field unk2 df.activity_event_conversationst.T_unk2
+---@field spec_flag df.activity_event_conversationst.T_spec_flag
+---@field conflict_report df.activity_event_conversationst.T_conflict_report
 ---@field choices _activity_event_conversationst_choices
----@field unk3 df.conversation_menu
----@field unk4 number[] uninitialized
+---@field return_topic_state df.conversation_menu
+---@field return_topic_rumor df.entity_event
+---@field return_topic_incident_id number
 
 ---@class identity.activity_event_conversationst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1323,36 +1542,37 @@ function _activity_event_conversationst_participants:insert(index, item) end
 ---@param index integer
 function _activity_event_conversationst_participants:erase(index) end
 
----@class _activity_event_conversationst_unk_6: DFContainer
+---@class _activity_event_conversationst_state_trouble_type: DFContainer
+---@field [integer] df.conversation_trouble_type
+local _activity_event_conversationst_state_trouble_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.conversation_trouble_type>
+function _activity_event_conversationst_state_trouble_type:_field(index) end
+
+---@param index '#'|integer
+---@param item df.conversation_trouble_type
+function _activity_event_conversationst_state_trouble_type:insert(index, item) end
+
+---@param index integer
+function _activity_event_conversationst_state_trouble_type:erase(index) end
+
+---@class _activity_event_conversationst_state_service_order_template: DFContainer
 ---@field [integer] DFPointer<integer>
-local _activity_event_conversationst_unk_6
+local _activity_event_conversationst_state_service_order_template
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _activity_event_conversationst_unk_6:_field(index) end
+function _activity_event_conversationst_state_service_order_template:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _activity_event_conversationst_unk_6:insert(index, item) end
+function _activity_event_conversationst_state_service_order_template:insert(index, item) end
 
 ---@param index integer
-function _activity_event_conversationst_unk_6:erase(index) end
-
----@class (exact) df.activity_event_conversationst.T_unk_b4: DFStruct
----@field _type identity.activity_event_conversationst.unk_b4
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 DFNumberVector
----@field unk_5 number
-
----@class identity.activity_event_conversationst.unk_b4: DFCompoundType
----@field _kind 'struct-type'
-df.activity_event_conversationst.T_unk_b4 = {}
-
----@return df.activity_event_conversationst.T_unk_b4
-function df.activity_event_conversationst.T_unk_b4:new() end
+function _activity_event_conversationst_state_service_order_template:erase(index) end
 
 ---@class _activity_event_conversationst_turns: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -1370,71 +1590,84 @@ function _activity_event_conversationst_turns:insert(index, item) end
 ---@param index integer
 function _activity_event_conversationst_turns:erase(index) end
 
----@class df.activity_event_conversationst.T_flags2: DFBitfield
----@field _enum identity.activity_event_conversationst.flags2
----@field [0] boolean
+---@class df.activity_event_conversationst.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_conversationst.spec_flag
+---@field monologue boolean bay12: ACTIVITY_EVENT_CONVERSATION_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_CONVERSATION_FLAG_*
 ---@field shouting boolean
 ---@field [1] boolean
 
----@class identity.activity_event_conversationst.flags2: DFBitfieldType
+---@class identity.activity_event_conversationst.spec_flag: DFBitfieldType
+---@field monologue 0 bay12: ACTIVITY_EVENT_CONVERSATION_FLAG_*
+---@field [0] "monologue" bay12: ACTIVITY_EVENT_CONVERSATION_FLAG_*
 ---@field shouting 1
 ---@field [1] "shouting"
-df.activity_event_conversationst.T_flags2 = {}
+df.activity_event_conversationst.T_spec_flag = {}
 
----@class (exact) df.activity_event_conversationst.T_unk2: DFStruct
----@field _type identity.activity_event_conversationst.unk2
----@field unk_1 _activity_event_conversationst_unk2_unk_1
----@field unk_2 number
----@field unk_3 number
----@field unk_4 DFNumberVector
----@field unk_5 DFNumberVector
----@field unk_6 DFNumberVector
----@field unk_7 DFNumberVector
----@field unk_8 DFNumberVector
----@field unk_9 DFNumberVector
----@field unk_10 DFNumberVector
----@field unk_11 DFNumberVector
----@field unk_12 DFNumberVector
----@field unk_13 DFNumberVector
----@field unk_14 DFNumberVector
----@field unk_15 DFNumberVector
----@field unk_16 DFNumberVector
----@field unk_17 DFNumberVector
----@field unk_18 number
----@field unk_19 number
----@field unk_20 number
----@field unk_21 number
----@field unk_22 number
----@field unk_23 number
----@field unk_24 number
----@field unk_25 number
----@field unk_26 number
----@field unk_27 number
----@field unk_28 number
----@field unk_29 number
+---@class (exact) df.activity_event_conversationst.T_conflict_report: DFStruct
+---@field _type identity.activity_event_conversationst.conflict_report
+---@field incident _activity_event_conversationst_conflict_report_incident bay12: conflict_reportst
+---@field earliest_year number
+---@field earliest_season_tick number
+---@field personal_kill_hf DFNumberVector
+---@field personal_kill_batch_race DFNumberVector
+---@field personal_kill_batch_caste DFNumberVector
+---@field personal_kill_batch_civ DFNumberVector
+---@field personal_kill_batch_number DFNumberVector
+---@field died_hf DFNumberVector
+---@field slayer_hf DFNumberVector
+---@field slayer_race DFNumberVector
+---@field slayer_caste DFNumberVector
+---@field slayer_civ DFNumberVector
+---@field died_batch_race DFNumberVector
+---@field died_batch_caste DFNumberVector
+---@field died_batch_civ DFNumberVector
+---@field died_batch_number DFNumberVector
+---@field starter_actor_hf number References: `df.historical_figure`
+---@field starter_actor_race number
+---@field starter_actor_caste number
+---@field starter_actor_civ number References: `df.historical_entity`
+---@field starter_target_hf number References: `df.historical_figure`
+---@field starter_target_race number
+---@field starter_target_caste number
+---@field starter_target_civ number References: `df.historical_entity`
+---@field flags df.activity_event_conversationst.T_conflict_report.T_flags
+---@field location_sr number References: `df.world_region`
+---@field location_fl number References: `df.world_underground_region`
+---@field location_st number References: `df.world_site`
 
----@class identity.activity_event_conversationst.unk2: DFCompoundType
+---@class identity.activity_event_conversationst.conflict_report: DFCompoundType
 ---@field _kind 'struct-type'
-df.activity_event_conversationst.T_unk2 = {}
+df.activity_event_conversationst.T_conflict_report = {}
 
----@return df.activity_event_conversationst.T_unk2
-function df.activity_event_conversationst.T_unk2:new() end
+---@return df.activity_event_conversationst.T_conflict_report
+function df.activity_event_conversationst.T_conflict_report:new() end
 
----@class _activity_event_conversationst_unk2_unk_1: DFContainer
+---@class _activity_event_conversationst_conflict_report_incident: DFContainer
 ---@field [integer] df.incident
-local _activity_event_conversationst_unk2_unk_1
+local _activity_event_conversationst_conflict_report_incident
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.incident>
-function _activity_event_conversationst_unk2_unk_1:_field(index) end
+function _activity_event_conversationst_conflict_report_incident:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.incident
-function _activity_event_conversationst_unk2_unk_1:insert(index, item) end
+function _activity_event_conversationst_conflict_report_incident:insert(index, item) end
 
 ---@param index integer
-function _activity_event_conversationst_unk2_unk_1:erase(index) end
+function _activity_event_conversationst_conflict_report_incident:erase(index) end
+
+---@class df.activity_event_conversationst.T_conflict_report.T_flags: DFBitfield
+---@field _enum identity.activity_event_conversationst.conflict_report.flags
+---@field personally_involved boolean bay12: CONFLICT_REPORT_FLAG_*
+---@field [0] boolean bay12: CONFLICT_REPORT_FLAG_*
+
+---@class identity.activity_event_conversationst.conflict_report.flags: DFBitfieldType
+---@field personally_involved 0 bay12: CONFLICT_REPORT_FLAG_*
+---@field [0] "personally_involved" bay12: CONFLICT_REPORT_FLAG_*
+df.activity_event_conversationst.T_conflict_report.T_flags = {}
 
 ---@class _activity_event_conversationst_choices: DFContainer
 ---@field [integer] df.talk_choice
@@ -1455,10 +1688,11 @@ function _activity_event_conversationst_choices:erase(index) end
 ---@class (exact) df.activity_event_conflictst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_conflictst
 ---@field sides _activity_event_conflictst_sides
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_v42_3 number
+---@field next_side_local_id number
+---@field eventcol number References: `df.history_event_collection`
+---@field inactivity_timer number
+---@field attack_inactivity_timer number
+---@field stop_fort_fights_timer number
 
 ---@class identity.activity_event_conflictst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1485,9 +1719,9 @@ function _activity_event_conflictst_sides:erase(index) end
 
 ---@class (exact) df.activity_event_guardst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_guardst
----@field unk_1 DFNumberVector
----@field unk_2 df.coord
----@field unk_3 number
+---@field guard_hfid DFNumberVector
+---@field pos df.coord
+---@field dist number
 
 ---@class identity.activity_event_guardst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1498,13 +1732,13 @@ function df.activity_event_guardst:new() end
 
 ---@class (exact) df.activity_event_reunionst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_reunionst
----@field unk_1 DFNumberVector
----@field unk_2 DFNumberVector
----@field unk_3 number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
+---@field reunion_hf DFNumberVector
+---@field reunion_unit DFNumberVector
+---@field inactivity_timer number
+---@field initiated_year number
+---@field initiated_season_count number
+---@field good_contact_checks number
+---@field spec_flag df.activity_event_reunionst.T_spec_flag
 
 ---@class identity.activity_event_reunionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1513,11 +1747,21 @@ df.activity_event_reunionst = {}
 ---@return df.activity_event_reunionst
 function df.activity_event_reunionst:new() end
 
+---@class df.activity_event_reunionst.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_reunionst.spec_flag
+---@field embraced boolean bay12: ACTIVITY_EVENT_REUNION_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_REUNION_FLAG_*
+
+---@class identity.activity_event_reunionst.spec_flag: DFBitfieldType
+---@field embraced 0 bay12: ACTIVITY_EVENT_REUNION_FLAG_*
+---@field [0] "embraced" bay12: ACTIVITY_EVENT_REUNION_FLAG_*
+df.activity_event_reunionst.T_spec_flag = {}
+
 ---@class (exact) df.activity_event_prayerst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_prayerst
 ---@field participants df.activity_event_participants
----@field histfig_id number deity<br>References: `df.historical_figure`
----@field topic df.sphere_type -1 when praying
+---@field histfig_id number praying to deity<br>References: `df.historical_figure`
+---@field topic df.sphere_type praying to sphere
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
 ---@field building_id number References: `df.building`
@@ -1536,7 +1780,7 @@ function df.activity_event_prayerst:new() end
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
 ---@field building_id number
----@field unk_1 number
+---@field down_time_counter number
 
 ---@class identity.activity_event_socializest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1551,7 +1795,7 @@ function df.activity_event_socializest:new() end
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
 ---@field building_id number
----@field unk_1 number
+---@field down_time_counter number
 
 ---@class identity.activity_event_worshipst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1561,92 +1805,109 @@ df.activity_event_worshipst = {}
 function df.activity_event_worshipst:new() end
 
 ---@alias df.performance_event_type
----| 0 # STORY
----| 1 # POETRY
----| 2 # MUSIC
+---| -1 # NONE
+---| 0 # STORYTELLING_EVENT
+---| 1 # POETRY_RECITAL
+---| 2 # MUSIC_RECITAL
 ---| 3 # DANCE
----| 4 # SERMON_EVENT
+---| 4 # SERMON_WORSHIP_HFID
 ---| 5 # SERMON_SPHERE
 ---| 6 # SERMON_PROMOTE_VALUE
----| 7 # SERMON_INVEIGH_AGAINST_VALUE
+---| 7 # SERMON_REFUSE_VALUE
 
 ---@class identity.performance_event_type: DFEnumType
----@field STORY 0
----@field [0] "STORY"
----@field POETRY 1
----@field [1] "POETRY"
----@field MUSIC 2
----@field [2] "MUSIC"
+---@field NONE -1 bay12: PerformanceType
+---@field [-1] "NONE" bay12: PerformanceType
+---@field STORYTELLING_EVENT 0
+---@field [0] "STORYTELLING_EVENT"
+---@field POETRY_RECITAL 1
+---@field [1] "POETRY_RECITAL"
+---@field MUSIC_RECITAL 2
+---@field [2] "MUSIC_RECITAL"
 ---@field DANCE 3
 ---@field [3] "DANCE"
----@field SERMON_EVENT 4
----@field [4] "SERMON_EVENT"
+---@field SERMON_WORSHIP_HFID 4
+---@field [4] "SERMON_WORSHIP_HFID"
 ---@field SERMON_SPHERE 5
 ---@field [5] "SERMON_SPHERE"
 ---@field SERMON_PROMOTE_VALUE 6
 ---@field [6] "SERMON_PROMOTE_VALUE"
----@field SERMON_INVEIGH_AGAINST_VALUE 7
----@field [7] "SERMON_INVEIGH_AGAINST_VALUE"
+---@field SERMON_REFUSE_VALUE 7
+---@field [7] "SERMON_REFUSE_VALUE"
 df.performance_event_type = {}
 
 ---@alias df.performance_participant_type
----| 0 # TELL_STORY
----| 1 # RECITE_POETRY
----| 2 # MAKE_MUSIC
----| 3 # PERFORM_DANCE
----| 4 # LISTEN
----| 5 # HEAR
+---| -1 # NONE
+---| 0 # STORYTELLER
+---| 1 # POEM_RECITER
+---| 2 # MUSICAL_VOICE
+---| 3 # DANCER
+---| 4 # SPECTATOR
+---| 5 # INCIDENTAL_SPECTATOR
+---| 6 # PREACHER
 
 ---@class identity.performance_participant_type: DFEnumType
----@field TELL_STORY 0
----@field [0] "TELL_STORY"
----@field RECITE_POETRY 1
----@field [1] "RECITE_POETRY"
----@field MAKE_MUSIC 2
----@field [2] "MAKE_MUSIC"
----@field PERFORM_DANCE 3
----@field [3] "PERFORM_DANCE"
----@field LISTEN 4
----@field [4] "LISTEN"
----@field HEAR 5
----@field [5] "HEAR"
+---@field NONE -1 bay12: PerformanceRoleType
+---@field [-1] "NONE" bay12: PerformanceRoleType
+---@field STORYTELLER 0
+---@field [0] "STORYTELLER"
+---@field POEM_RECITER 1
+---@field [1] "POEM_RECITER"
+---@field MUSICAL_VOICE 2
+---@field [2] "MUSICAL_VOICE"
+---@field DANCER 3
+---@field [3] "DANCER"
+---@field SPECTATOR 4
+---@field [4] "SPECTATOR"
+---@field INCIDENTAL_SPECTATOR 5
+---@field [5] "INCIDENTAL_SPECTATOR"
+---@field PREACHER 6
+---@field [6] "PREACHER"
 df.performance_participant_type = {}
+
+---@class (exact) df.activity_event_flow_mapst: DFStruct
+---@field _type identity.activity_event_flow_mapst
+---@field map integer[]
+---@field local_center df.coord
+
+---@class identity.activity_event_flow_mapst: DFCompoundType
+---@field _kind 'struct-type'
+df.activity_event_flow_mapst = {}
+
+---@return df.activity_event_flow_mapst
+function df.activity_event_flow_mapst:new() end
 
 ---@class (exact) df.activity_event_performancest: DFStruct, df.activity_event
 ---@field _type identity.activity_event_performancest
 ---@field participants df.activity_event_participants
 ---@field type df.performance_event_type
----@field event number used for story<br>References: `df.history_event`
+---@field main_form_id number depends on type, could be poetry/music/dance form
 ---@field written_content_id number References: `df.written_content`
 ---@field poetic_form number References: `df.poetic_form`
 ---@field music_form number References: `df.musical_form`
 ---@field dance_form number References: `df.dance_form`
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
+---@field learn_pwc_id number
+---@field learn_mwc_id number
+---@field learn_dwc_id number
+---@field bld_id number References: `df.building`
+---@field current_section number
+---@field current_position number
 ---@field participant_actions _activity_event_performancest_participant_actions
----@field pos_performer_2d df.coord2d
----@field pos_performer df.coord
----@field unk_pos_1_x0 number
----@field unk_pos_1_y0 number
----@field unk_pos_1_x1 number
----@field unk_pos_1_y1 number
----@field unk_pos_1_z number
----@field unk_pos_2_x0 number
----@field unk_pos_2_y0 number
----@field unk_pos_2_x1 number
----@field unk_pos_2_y1 number
----@field unk_pos_2_z number
+---@field reader_pos_min df.coord2d
+---@field reader_pos_max df.coord2d
+---@field reader_pos_z number
+---@field music_pos_min df.coord2d
+---@field music_pos_max df.coord2d
+---@field music_pos_z number
+---@field dance_pos_min df.coord2d
+---@field dance_pos_max df.coord2d
+---@field dance_pos_z number
 ---@field play_orders _activity_event_performancest_play_orders
----@field unk_11 number
----@field unk_12 number[]
----@field unk_13 df.coord
----@field unk_16 number
----@field unk_17 number
----@field unk_18 number
+---@field kill_timer number
+---@field flow_map df.activity_event_flow_mapst
+---@field spec_flag df.activity_event_performancest.T_spec_flag
+---@field adv_missed_step number
+---@field adv_saw_step number
 
 ---@class identity.activity_event_performancest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1687,13 +1948,27 @@ function _activity_event_performancest_play_orders:insert(index, item) end
 ---@param index integer
 function _activity_event_performancest_play_orders:erase(index) end
 
+---@class df.activity_event_performancest.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_performancest.spec_flag
+---@field announced_type boolean bay12: ACTIVITY_EVENT_PERFORMANCE_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_PERFORMANCE_FLAG_*
+---@field legal_post_start_place_change boolean
+---@field [1] boolean
+
+---@class identity.activity_event_performancest.spec_flag: DFBitfieldType
+---@field announced_type 0 bay12: ACTIVITY_EVENT_PERFORMANCE_FLAG_*
+---@field [0] "announced_type" bay12: ACTIVITY_EVENT_PERFORMANCE_FLAG_*
+---@field legal_post_start_place_change 1
+---@field [1] "legal_post_start_place_change"
+df.activity_event_performancest.T_spec_flag = {}
+
 ---@class (exact) df.performance_play_orderst: DFStruct
 ---@field _type identity.performance_play_orderst
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 _performance_play_orderst_unk_4
----@field unk_5 number
+---@field play_order_index number
+---@field number_of_iterations number
+---@field total_position_duration number
+---@field dance_snapshot _performance_play_orderst_dance_snapshot
+---@field dance_snapshot_dancer_num number
 local performance_play_orderst
 
 ---@param file df.file_compressorst
@@ -1711,21 +1986,21 @@ df.performance_play_orderst = {}
 ---@return df.performance_play_orderst
 function df.performance_play_orderst:new() end
 
----@class _performance_play_orderst_unk_4: DFContainer
+---@class _performance_play_orderst_dance_snapshot: DFContainer
 ---@field [integer] DFPointer<integer>
-local _performance_play_orderst_unk_4
+local _performance_play_orderst_dance_snapshot
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _performance_play_orderst_unk_4:_field(index) end
+function _performance_play_orderst_dance_snapshot:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _performance_play_orderst_unk_4:insert(index, item) end
+function _performance_play_orderst_dance_snapshot:insert(index, item) end
 
 ---@param index integer
-function _performance_play_orderst_unk_4:erase(index) end
+function _performance_play_orderst_dance_snapshot:erase(index) end
 
 ---@class (exact) df.activity_event_researchst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_researchst
@@ -1747,8 +2022,7 @@ function df.activity_event_researchst:new() end
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
 ---@field building_id number
----@field unk_1 number
----@field knowledge df.knowledge_scholar_category_flag
+---@field topic df.topicst
 ---@field timer number
 
 ---@class identity.activity_event_ponder_topicst: DFCompoundType
@@ -1764,11 +2038,10 @@ function df.activity_event_ponder_topicst:new() end
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
 ---@field building_id number
----@field unk_1 number
----@field knowledge df.knowledge_scholar_category_flag
+---@field topic df.topicst
 ---@field timer number
----@field unk_2 number
----@field unk_3 number References: `df.historical_figure`
+---@field leader_bail_count number
+---@field leader_hf number References: `df.historical_figure`
 
 ---@class identity.activity_event_discuss_topicst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1783,7 +2056,7 @@ function df.activity_event_discuss_topicst:new() end
 ---@field building_id number
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
----@field state number 0 if not in progress, 1 if reading
+---@field spec_flag df.activity_event_readst.T_spec_flag
 ---@field timer number
 
 ---@class identity.activity_event_readst: DFCompoundType
@@ -1793,12 +2066,22 @@ df.activity_event_readst = {}
 ---@return df.activity_event_readst
 function df.activity_event_readst:new() end
 
+---@class df.activity_event_readst.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_readst.spec_flag
+---@field checked_for_chair boolean bay12: ACTIVITY_EVENT_READ_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_READ_FLAG_*
+
+---@class identity.activity_event_readst.spec_flag: DFBitfieldType
+---@field checked_for_chair 0 bay12: ACTIVITY_EVENT_READ_FLAG_*
+---@field [0] "checked_for_chair" bay12: ACTIVITY_EVENT_READ_FLAG_*
+df.activity_event_readst.T_spec_flag = {}
+
 ---@class (exact) df.activity_event_fill_service_orderst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_fill_service_orderst
 ---@field histfig_id number References: `df.historical_figure`
 ---@field unit_id number References: `df.unit`
 ---@field occupation_id number References: `df.occupation`
----@field unk_1 number
+---@field service_order_id number
 
 ---@class identity.activity_event_fill_service_orderst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1810,15 +2093,14 @@ function df.activity_event_fill_service_orderst:new() end
 ---@class (exact) df.activity_event_writest: DFStruct, df.activity_event
 ---@field _type identity.activity_event_writest
 ---@field participants df.activity_event_participants
----@field building_id number
----@field site_id number
----@field location_id number
----@field unk_1 df.activity_event_writest.T_unk_1
+---@field building_id number References: `df.building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
+---@field spec_flag df.activity_event_writest.T_spec_flag
 ---@field timer number
----@field unk_2 number
----@field unk_3 number
----@field mode df.activity_event_writest.T_mode
----@field knowledge df.knowledge_scholar_category_flag
+---@field form df.written_content_type
+---@field form_id number References: `df.written_content`
+---@field topic df.topicst
 
 ---@class identity.activity_event_writest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1827,34 +2109,36 @@ df.activity_event_writest = {}
 ---@return df.activity_event_writest
 function df.activity_event_writest:new() end
 
----@class df.activity_event_writest.T_unk_1: DFBitfield
----@field _enum identity.activity_event_writest.unk_1
----@field [0] boolean
+---@class df.activity_event_writest.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_writest.spec_flag
+---@field checked_for_chair boolean bay12: ACTIVITY_EVENT_WRITE_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_WRITE_FLAG_*
+---@field placed_materials boolean
 ---@field [1] boolean
+---@field checked_for_table boolean
 ---@field [2] boolean
 
----@class identity.activity_event_writest.unk_1: DFBitfieldType
-df.activity_event_writest.T_unk_1 = {}
-
----@alias df.activity_event_writest.T_mode
----| 0 # WriteAboutKnowledge
-
----@class identity.activity_event_writest.mode: DFEnumType
----@field WriteAboutKnowledge 0
----@field [0] "WriteAboutKnowledge"
-df.activity_event_writest.T_mode = {}
+---@class identity.activity_event_writest.spec_flag: DFBitfieldType
+---@field checked_for_chair 0 bay12: ACTIVITY_EVENT_WRITE_FLAG_*
+---@field [0] "checked_for_chair" bay12: ACTIVITY_EVENT_WRITE_FLAG_*
+---@field placed_materials 1
+---@field [1] "placed_materials"
+---@field checked_for_table 2
+---@field [2] "checked_for_table"
+df.activity_event_writest.T_spec_flag = {}
 
 ---@class (exact) df.activity_event_copy_written_contentst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_copy_written_contentst
 ---@field unit_id number References: `df.unit`
 ---@field histfig_id number References: `df.historical_figure`
 ---@field occupation_id number
----@field building_id number
----@field site_id number
----@field location_id number
----@field flagsmaybe df.activity_event_copy_written_contentst.T_flagsmaybe
----@field unk_1 number
+---@field building_id number References: `df.building`
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
+---@field ab_order_id number
+---@field spec_flag df.activity_event_copy_written_contentst.T_spec_flag
 ---@field timer number
+---@field inactivity_timer number
 
 ---@class identity.activity_event_copy_written_contentst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1863,37 +2147,34 @@ df.activity_event_copy_written_contentst = {}
 ---@return df.activity_event_copy_written_contentst
 function df.activity_event_copy_written_contentst:new() end
 
----@class df.activity_event_copy_written_contentst.T_flagsmaybe: DFBitfield
----@field _enum identity.activity_event_copy_written_contentst.flagsmaybe
----@field unk0 boolean
----@field [0] boolean
+---@class df.activity_event_copy_written_contentst.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_copy_written_contentst.spec_flag
+---@field checked_for_chair boolean bay12: ACTIVITY_EVENT_COPY_WRITTEN_CONTENT_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_COPY_WRITTEN_CONTENT_FLAG_*
+---@field placed_materials boolean
 ---@field [1] boolean
+---@field checked_for_table boolean
 ---@field [2] boolean
----@field [3] boolean
----@field [4] boolean
----@field [5] boolean
----@field [6] boolean
----@field [7] boolean
----@field [8] boolean
----@field [9] boolean
 
----@class identity.activity_event_copy_written_contentst.flagsmaybe: DFBitfieldType
----@field unk0 0
----@field [0] "unk0"
-df.activity_event_copy_written_contentst.T_flagsmaybe = {}
+---@class identity.activity_event_copy_written_contentst.spec_flag: DFBitfieldType
+---@field checked_for_chair 0 bay12: ACTIVITY_EVENT_COPY_WRITTEN_CONTENT_FLAG_*
+---@field [0] "checked_for_chair" bay12: ACTIVITY_EVENT_COPY_WRITTEN_CONTENT_FLAG_*
+---@field placed_materials 1
+---@field [1] "placed_materials"
+---@field checked_for_table 2
+---@field [2] "checked_for_table"
+df.activity_event_copy_written_contentst.T_spec_flag = {}
 
 ---@class (exact) df.activity_event_teach_topicst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_teach_topicst
 ---@field participants df.activity_event_participants
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
----@field unk_9 number
+---@field site_id number References: `df.world_site`
+---@field location_id number References: `df.abstract_building`
+---@field building_id number References: `df.building`
+---@field topic df.topicst
+---@field time_left number
+---@field instructor_bail_count number
+---@field instructor_hfid number References: `df.historical_figure`
 
 ---@class identity.activity_event_teach_topicst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1905,9 +2186,8 @@ function df.activity_event_teach_topicst:new() end
 ---@class (exact) df.activity_event_playst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_playst
 ---@field participants df.activity_event_participants
----@field unk_1 number
----@field unk_2 number[]
----@field unk_3 df.coord
+---@field down_time_counter number
+---@field flow_map df.activity_event_flow_mapst
 
 ---@class identity.activity_event_playst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1919,11 +2199,10 @@ function df.activity_event_playst:new() end
 ---@class (exact) df.activity_event_make_believest: DFStruct, df.activity_event
 ---@field _type identity.activity_event_make_believest
 ---@field participants df.activity_event_participants
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 number[]
----@field unk_5 df.coord
+---@field kill_timer number
+---@field spec_flag df.activity_event_make_believest.T_spec_flag
+---@field time_left number
+---@field flow_map df.activity_event_flow_mapst
 
 ---@class identity.activity_event_make_believest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1932,15 +2211,28 @@ df.activity_event_make_believest = {}
 ---@return df.activity_event_make_believest
 function df.activity_event_make_believest:new() end
 
+---@class df.activity_event_make_believest.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_make_believest.spec_flag
+---@field announced_type boolean bay12: ACTIVITY_EVENT_MAKE_BELIEVE_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_MAKE_BELIEVE_FLAG_*
+---@field underway boolean
+---@field [1] boolean
+
+---@class identity.activity_event_make_believest.spec_flag: DFBitfieldType
+---@field announced_type 0 bay12: ACTIVITY_EVENT_MAKE_BELIEVE_FLAG_*
+---@field [0] "announced_type" bay12: ACTIVITY_EVENT_MAKE_BELIEVE_FLAG_*
+---@field underway 1
+---@field [1] "underway"
+df.activity_event_make_believest.T_spec_flag = {}
+
 ---@class (exact) df.activity_event_play_with_toyst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_play_with_toyst
 ---@field participants df.activity_event_participants
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk df.activity_event_play_with_toyst.T_unk
----@field unk_4 number
----@field unk_5 DFIntegerVector
+---@field kill_timer number
+---@field spec_flag df.activity_event_play_with_toyst.T_spec_flag
+---@field time_left number
+---@field flow_map df.activity_event_flow_mapst
+---@field toy_assignment _activity_event_play_with_toyst_toy_assignment
 
 ---@class identity.activity_event_play_with_toyst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1949,29 +2241,47 @@ df.activity_event_play_with_toyst = {}
 ---@return df.activity_event_play_with_toyst
 function df.activity_event_play_with_toyst:new() end
 
----@class (exact) df.activity_event_play_with_toyst.T_unk: DFStruct
----@field _type identity.activity_event_play_with_toyst.unk
----@field unk_1 number[]
----@field unk_2 df.coord
+---@class df.activity_event_play_with_toyst.T_spec_flag: DFBitfield
+---@field _enum identity.activity_event_play_with_toyst.spec_flag
+---@field announced_type boolean bay12: ACTIVITY_EVENT_PLAY_WITH_TOY_FLAG_*
+---@field [0] boolean bay12: ACTIVITY_EVENT_PLAY_WITH_TOY_FLAG_*
+---@field underway boolean
+---@field [1] boolean
 
----@class identity.activity_event_play_with_toyst.unk: DFCompoundType
----@field _kind 'struct-type'
-df.activity_event_play_with_toyst.T_unk = {}
+---@class identity.activity_event_play_with_toyst.spec_flag: DFBitfieldType
+---@field announced_type 0 bay12: ACTIVITY_EVENT_PLAY_WITH_TOY_FLAG_*
+---@field [0] "announced_type" bay12: ACTIVITY_EVENT_PLAY_WITH_TOY_FLAG_*
+---@field underway 1
+---@field [1] "underway"
+df.activity_event_play_with_toyst.T_spec_flag = {}
 
----@return df.activity_event_play_with_toyst.T_unk
-function df.activity_event_play_with_toyst.T_unk:new() end
+---@class _activity_event_play_with_toyst_toy_assignment: DFContainer
+---@field [integer] DFPointer<integer>
+local _activity_event_play_with_toyst_toy_assignment
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function _activity_event_play_with_toyst_toy_assignment:_field(index) end
+
+---@param index '#'|integer
+---@param item DFPointer<integer>
+function _activity_event_play_with_toyst_toy_assignment:insert(index, item) end
+
+---@param index integer
+function _activity_event_play_with_toyst_toy_assignment:erase(index) end
 
 ---@class (exact) df.activity_event_encounterst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_encounterst
----@field unk_1 _activity_event_encounterst_unk_1
----@field unk_2 _activity_event_encounterst_unk_2
----@field unk_3 DFNumberVector
----@field unk_4 DFNumberVector
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
----@field unk_9 number
+---@field unit_target _activity_event_encounterst_unit_target
+---@field item_target _activity_event_encounterst_item_target
+---@field encounter_hf DFNumberVector
+---@field encounter_en DFNumberVector
+---@field encounter_ac number
+---@field inactivity_timer number
+---@field initiated_year number
+---@field initiated_season_count number
+---@field talker_hf number References: `df.historical_figure`
 
 ---@class identity.activity_event_encounterst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1980,45 +2290,45 @@ df.activity_event_encounterst = {}
 ---@return df.activity_event_encounterst
 function df.activity_event_encounterst:new() end
 
----@class _activity_event_encounterst_unk_1: DFContainer
+---@class _activity_event_encounterst_unit_target: DFContainer
 ---@field [integer] DFPointer<integer>
-local _activity_event_encounterst_unk_1
+local _activity_event_encounterst_unit_target
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _activity_event_encounterst_unk_1:_field(index) end
+function _activity_event_encounterst_unit_target:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _activity_event_encounterst_unk_1:insert(index, item) end
+function _activity_event_encounterst_unit_target:insert(index, item) end
 
 ---@param index integer
-function _activity_event_encounterst_unk_1:erase(index) end
+function _activity_event_encounterst_unit_target:erase(index) end
 
----@class _activity_event_encounterst_unk_2: DFContainer
+---@class _activity_event_encounterst_item_target: DFContainer
 ---@field [integer] DFPointer<integer>
-local _activity_event_encounterst_unk_2
+local _activity_event_encounterst_item_target
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _activity_event_encounterst_unk_2:_field(index) end
+function _activity_event_encounterst_item_target:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _activity_event_encounterst_unk_2:insert(index, item) end
+function _activity_event_encounterst_item_target:insert(index, item) end
 
 ---@param index integer
-function _activity_event_encounterst_unk_2:erase(index) end
+function _activity_event_encounterst_item_target:erase(index) end
 
 ---@class (exact) df.activity_event_store_objectst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_store_objectst
----@field unk_1 number
----@field unk_2 df.coord
+---@field item_id number References: `df.item`
+---@field goal df.coord
 ---@field building_id number References: `df.building`
----@field unk_3 number
----@field unk_4 number
+---@field goal_zone_id number References: `df.building`
+---@field inactivity_timer number
 
 ---@class identity.activity_event_store_objectst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2030,7 +2340,7 @@ function df.activity_event_store_objectst:new() end
 ---@class (exact) df.schedule_info: DFStruct
 ---@field _type identity.schedule_info
 ---@field id number
----@field unk_1 number
+---@field ax number
 ---@field slots _schedule_info_slots
 
 ---@class identity.schedule_info: DFCompoundType
@@ -2065,12 +2375,38 @@ function _schedule_info_slots:insert(index, item) end
 ---@param index integer
 function _schedule_info_slots:erase(index) end
 
+---@alias df.schedule_type
+---| 0 # Eat
+---| 1 # Sleep
+---| 2 # HangOut
+---| 3 # TendShop
+---| 4 # Patrol
+---| 5 # Wander
+---| 6 # Minister
+
+---@class identity.schedule_type: DFEnumType
+---@field Eat 0 bay12: Schedule, no base type
+---@field [0] "Eat" bay12: Schedule, no base type
+---@field Sleep 1
+---@field [1] "Sleep"
+---@field HangOut 2
+---@field [2] "HangOut"
+---@field TendShop 3
+---@field [3] "TendShop"
+---@field Patrol 4
+---@field [4] "Patrol"
+---@field Wander 5
+---@field [5] "Wander"
+---@field Minister 6
+---@field [6] "Minister"
+df.schedule_type = {}
+
 ---@class (exact) df.schedule_slot: DFStruct
 ---@field _type identity.schedule_slot
----@field type number 0:Eat, 1:Sleep, 2-4:???
+---@field type df.schedule_type
 ---@field start_time number
 ---@field end_time number
----@field unk_1 number
+---@field priority number
 ---@field processed number
 
 ---@class identity.schedule_slot: DFCompoundType
