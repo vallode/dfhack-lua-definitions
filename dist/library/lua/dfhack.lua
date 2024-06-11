@@ -67,13 +67,11 @@ COLOR_DARKGRAY = COLOR_DARKGREY
 ---| `COLOR_GRAY`
 ---| `COLOR_DARKGRAY`
 
-dfhack.HIDE_CONSOLE_ON_STARTUP = true
 ---@nodiscard
 ---@return boolean
 function dfhack.getHideConsoleOnStartup() end
 function dfhack.setHideConsoleOnStartup(value) end
 
-dfhack.HIDE_ARMOK_TOOLS = false
 ---@nodiscard
 ---@return boolean
 function dfhack.getMortalMode() end

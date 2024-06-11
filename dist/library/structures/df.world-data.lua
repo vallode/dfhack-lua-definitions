@@ -94,7 +94,6 @@ function _resource_pilest_allotment_crop:insert(index, item) end
 ---@param index integer
 function _resource_pilest_allotment_crop:erase(index) end
 
--- WilderPopTypes
 ---@alias df.world_population_type
 ---| 0 # Animal
 ---| 1 # Vermin
@@ -106,10 +105,9 @@ function _resource_pilest_allotment_crop:erase(index) end
 ---| 7 # Bush
 ---| 8 # Unused9
 
--- WilderPopTypes
 ---@class identity.world_population_type: DFEnumType
----@field Animal 0 ROAMING
----@field [0] "Animal" ROAMING
+---@field Animal 0 bay12: WilderPopTypes
+---@field [0] "Animal" bay12: WilderPopTypes
 ---@field Vermin 1
 ---@field [1] "Vermin"
 ---@field Unused3 2
@@ -187,8 +185,8 @@ function df.local_population:new() end
 
 ---@class df.local_population.T_flags: DFBitfield
 ---@field _enum identity.local_population.flags
----@field discovered boolean
----@field [0] boolean
+---@field discovered boolean bay12: WILDERPOPFLAG_*
+---@field [0] boolean bay12: WILDERPOPFLAG_*
 ---@field extinct boolean
 ---@field [1] boolean
 ---@field already_removed boolean no longer in world.populations
@@ -197,8 +195,8 @@ function df.local_population:new() end
 ---@field [3] boolean
 
 ---@class identity.local_population.flags: DFBitfieldType
----@field discovered 0
----@field [0] "discovered"
+---@field discovered 0 bay12: WILDERPOPFLAG_*
+---@field [0] "discovered" bay12: WILDERPOPFLAG_*
 ---@field extinct 1
 ---@field [1] "extinct"
 ---@field already_removed 2 no longer in world.populations
@@ -260,22 +258,22 @@ function df.world_landmass.get_vector() end
 ---@alias df.world_region_type
 ---| 0 # Swamp
 ---| 1 # Desert
----| 2 # Jungle
+---| 2 # Forest
 ---| 3 # Mountains
 ---| 4 # Ocean
 ---| 5 # Lake
 ---| 6 # Glacier
 ---| 7 # Tundra
----| 8 # Steppe
+---| 8 # Grassland
 ---| 9 # Hills
 
 ---@class identity.world_region_type: DFEnumType
----@field Swamp 0
----@field [0] "Swamp"
+---@field Swamp 0 bay12: RegionType
+---@field [0] "Swamp" bay12: RegionType
 ---@field Desert 1
 ---@field [1] "Desert"
----@field Jungle 2
----@field [2] "Jungle"
+---@field Forest 2
+---@field [2] "Forest"
 ---@field Mountains 3
 ---@field [3] "Mountains"
 ---@field Ocean 4
@@ -286,10 +284,10 @@ function df.world_landmass.get_vector() end
 ---@field [6] "Glacier"
 ---@field Tundra 7
 ---@field [7] "Tundra"
----@field Steppe 8
----@field [8] "Steppe"
----@field Hills 9 Steppe and Hills share the same set of biomes, differing only in Drainage
----@field [9] "Hills" Steppe and Hills share the same set of biomes, differing only in Drainage
+---@field Grassland 8
+---@field [8] "Grassland"
+---@field Hills 9 Grassland and Hills share the same set of biomes, differing only in Drainage
+---@field [9] "Hills" Grassland and Hills share the same set of biomes, differing only in Drainage
 df.world_region_type = {}
 
 ---@class (exact) df.world_region: DFStruct
@@ -378,7 +376,7 @@ function _world_region_tree_biomes:erase(index) end
 
 ---@class (exact) df.world_underground_region: DFStruct
 ---@field _type identity.world_underground_region
----@field type df.world_underground_region.T_type
+---@field type df.feature_layer_type
 ---@field name df.language_name
 ---@field index number
 ---@field layer_depth number 0-2 caves, 3 magma sea, 4 hell
@@ -411,20 +409,6 @@ function df.world_underground_region.find(key) end
 
 ---@return world_underground_region_vector # df.global.world.world_data.underground_regions
 function df.world_underground_region.get_vector() end
-
----@alias df.world_underground_region.T_type
----| 0 # Cavern
----| 1 # MagmaSea
----| 2 # Underworld
-
----@class identity.world_underground_region.type: DFEnumType
----@field Cavern 0
----@field [0] "Cavern"
----@field MagmaSea 1
----@field [1] "MagmaSea"
----@field Underworld 2
----@field [2] "Underworld"
-df.world_underground_region.T_type = {}
 
 -- Additional river information:
 -- The flow element affects the width of the river and seems to follow the
@@ -459,7 +443,7 @@ df.world_underground_region.T_type = {}
 ---@field exit_tile DFNumberVector
 ---@field elevation DFNumberVector 0 - 15
 ---@field end_pos df.coord2d
----@field flags _world_river_flags
+---@field flags _world_river_flags RiverFlagType, none used yet
 
 ---@class identity.world_river: DFCompoundType
 ---@field _kind 'struct-type'
@@ -521,7 +505,7 @@ df.geo_layer_type = {}
 df.geo_layer_type._attr_entry_type = {}
 
 ---@class (exact) geo_layer_type_attr_entry_type_fields
----@field flag DFCompoundField
+---@field flag DFCompoundField bay12: GeologicalLayerType
 df.geo_layer_type._attr_entry_type._fields = {}
 
 ---@class geo_layer_type_attrs
@@ -570,9 +554,38 @@ function _world_geo_layer_vein_type:insert(index, item) end
 ---@param index integer
 function _world_geo_layer_vein_type:erase(index) end
 
+---@alias df.geo_biome_type
+---| 0 # NORMAL_STANDARD
+---| 1 # NORMAL_VOLCANIC
+---| 2 # OCEAN_DEEP_STANDARD
+---| 3 # OCEAN_DEEP_VOLCANIC
+---| 4 # OCEAN_SHALLOW_STANDARD
+---| 5 # OCEAN_SHALLOW_VOLCANIC
+---| 6 # DESERT_SAND_STANDARD
+---| 7 # DESERT_SAND_VOLCANIC
+
+---@class identity.geo_biome_type: DFEnumType
+---@field NORMAL_STANDARD 0 bay12: GeologicalRegionType
+---@field [0] "NORMAL_STANDARD" bay12: GeologicalRegionType
+---@field NORMAL_VOLCANIC 1
+---@field [1] "NORMAL_VOLCANIC"
+---@field OCEAN_DEEP_STANDARD 2
+---@field [2] "OCEAN_DEEP_STANDARD"
+---@field OCEAN_DEEP_VOLCANIC 3
+---@field [3] "OCEAN_DEEP_VOLCANIC"
+---@field OCEAN_SHALLOW_STANDARD 4
+---@field [4] "OCEAN_SHALLOW_STANDARD"
+---@field OCEAN_SHALLOW_VOLCANIC 5
+---@field [5] "OCEAN_SHALLOW_VOLCANIC"
+---@field DESERT_SAND_STANDARD 6
+---@field [6] "DESERT_SAND_STANDARD"
+---@field DESERT_SAND_VOLCANIC 7
+---@field [7] "DESERT_SAND_VOLCANIC"
+df.geo_biome_type = {}
+
 ---@class (exact) df.world_geo_biome: DFStruct
 ---@field _type identity.world_geo_biome
----@field type number
+---@field type df.geo_biome_type
 ---@field index number
 ---@field layers _world_geo_biome_layers
 
@@ -828,7 +841,6 @@ function _world_region_details_features:erase(index) end
 
 ---@alias df.region_map_entry_flags
 ---| 0 # has_river
----| 1 # tile_variant
 ---| 2 # new_lake
 ---| 3 # has_site
 ---| 4 # temp_river
@@ -845,18 +857,10 @@ function _world_region_details_features:erase(index) end
 ---| 15 # is_brook
 ---| 16 # has_road
 ---| 17 # orig_river_source
----| 18 # unused_19
----| 19 # unused_20
----| 20 # unused_21
----| 21 # unused_22
----| 22 # unused_23
----| 23 # unused_24
 
 ---@class identity.region_map_entry_flags: DFEnumType
----@field has_river 0
----@field [0] "has_river"
----@field tile_variant 1 now unused?
----@field [1] "tile_variant" now unused?
+---@field has_river 0 bay12: RegionSquareFlagType
+---@field [0] "has_river" bay12: RegionSquareFlagType
 ---@field new_lake 2
 ---@field [2] "new_lake"
 ---@field has_site 3
@@ -889,18 +893,6 @@ function _world_region_details_features:erase(index) end
 ---@field [16] "has_road" any construction
 ---@field orig_river_source 17
 ---@field [17] "orig_river_source"
----@field unused_19 18
----@field [18] "unused_19"
----@field unused_20 19
----@field [19] "unused_20"
----@field unused_21 20
----@field [20] "unused_21"
----@field unused_22 21
----@field [21] "unused_22"
----@field unused_23 22
----@field [22] "unused_23"
----@field unused_24 23
----@field [23] "unused_24"
 df.region_map_entry_flags = {}
 
 ---@alias df.front_type
@@ -910,8 +902,8 @@ df.region_map_entry_flags = {}
 ---| 3 # front_occluded
 
 ---@class identity.front_type: DFEnumType
----@field front_none 0
----@field [0] "front_none"
+---@field front_none 0 bay12: REGION_WEATHER_FRONT_*
+---@field [0] "front_none" bay12: REGION_WEATHER_FRONT_*
 ---@field front_warm 1
 ---@field [1] "front_warm"
 ---@field front_cold 2
@@ -927,8 +919,8 @@ df.front_type = {}
 ---| 3 # cumulus_nimbus
 
 ---@class identity.cumulus_type: DFEnumType
----@field cumulus_none 0
----@field [0] "cumulus_none"
+---@field cumulus_none 0 bay12: REGION_WEATHER_CUMULUS_*
+---@field [0] "cumulus_none" bay12: REGION_WEATHER_CUMULUS_*
 ---@field cumulus_medium 1
 ---@field [1] "cumulus_medium"
 ---@field cumulus_multi 2
@@ -944,8 +936,8 @@ df.cumulus_type = {}
 ---| 3 # stratus_nimbus
 
 ---@class identity.stratus_type: DFEnumType
----@field stratus_none 0
----@field [0] "stratus_none"
+---@field stratus_none 0 bay12: REGION_WEATHER_STRATUS_*
+---@field [0] "stratus_none" bay12: REGION_WEATHER_STRATUS_*
 ---@field stratus_alto 1
 ---@field [1] "stratus_alto"
 ---@field stratus_proper 2
@@ -961,8 +953,8 @@ df.stratus_type = {}
 ---| 3 # fog_thick
 
 ---@class identity.fog_type: DFEnumType
----@field fog_none 0
----@field [0] "fog_none"
+---@field fog_none 0 bay12: REGION_WEATHER_FOG_*
+---@field [0] "fog_none" bay12: REGION_WEATHER_FOG_*
 ---@field fog_mist 1
 ---@field [1] "fog_mist"
 ---@field fog_normal 2
@@ -977,7 +969,7 @@ df.fog_type = {}
 ---@field finder_rank number
 ---@field sites _region_map_entry_sites
 ---@field flags _region_map_entry_flags
----@field elevation number 0-99=Ocean, 150+=Mountains, 100-149: all other biomes. Note that PSV elevation uses 100-299 for normal biomes, with range later cut to 1/4, and Mountains shifted down
+---@field elevation number bay12: actually an int16 array indexed by worldgen_range_type
 ---@field rainfall number 0-100
 ---@field vegetation number 0-100
 ---@field temperature number Urists. 10000 Urists=0 Celsius. Urist steps equals Fahrenheit steps, which is equal to 5/9 Celsius steps
@@ -1046,8 +1038,8 @@ function _region_map_entry_flags:erase(index) end
 
 ---@class df.region_map_entry.T_clouds: DFBitfield
 ---@field _enum identity.region_map_entry.clouds
----@field front boolean
----@field [0] boolean
+---@field front boolean bay12: REGION_WEATHER_*
+---@field [0] boolean bay12: REGION_WEATHER_*
 ---@field cumulus boolean
 ---@field [2] boolean
 ---@field cirrus boolean
@@ -1060,8 +1052,8 @@ function _region_map_entry_flags:erase(index) end
 ---@field [9] boolean A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 
 ---@class identity.region_map_entry.clouds: DFBitfieldType
----@field front 0
----@field [0] "front"
+---@field front 0 bay12: REGION_WEATHER_*
+---@field [0] "front" bay12: REGION_WEATHER_*
 ---@field cumulus 2
 ---@field [2] "cumulus"
 ---@field cirrus 4
@@ -1077,8 +1069,8 @@ df.region_map_entry.T_clouds = {}
 -- blows toward direction in morning
 ---@class df.region_map_entry.T_wind: DFBitfield
 ---@field _enum identity.region_map_entry.wind
----@field north_1 boolean
----@field [0] boolean
+---@field north_1 boolean bay12: REGION_DAILY_WINDS_*
+---@field [0] boolean bay12: REGION_DAILY_WINDS_*
 ---@field south_1 boolean
 ---@field [1] boolean
 ---@field east_1 boolean
@@ -1095,8 +1087,8 @@ df.region_map_entry.T_clouds = {}
 ---@field [7] boolean
 
 ---@class identity.region_map_entry.wind: DFBitfieldType
----@field north_1 0
----@field [0] "north_1"
+---@field north_1 0 bay12: REGION_DAILY_WINDS_*
+---@field [0] "north_1" bay12: REGION_DAILY_WINDS_*
 ---@field south_1 1
 ---@field [1] "south_1"
 ---@field east_1 2
@@ -1113,19 +1105,31 @@ df.region_map_entry.T_clouds = {}
 ---@field [7] "west_2"
 df.region_map_entry.T_wind = {}
 
--- actually two completely different classes, entity_influencest and entity_territoryst
----@class (exact) df.entity_claim_mask: DFStruct
----@field _type identity.entity_claim_mask
+---@class (exact) df.entity_influencest: DFStruct
+---@field _type identity.entity_influencest
 ---@field map DFPointer<integer>
 ---@field width number
 ---@field height number
 
----@class identity.entity_claim_mask: DFCompoundType
+---@class identity.entity_influencest: DFCompoundType
 ---@field _kind 'struct-type'
-df.entity_claim_mask = {}
+df.entity_influencest = {}
 
----@return df.entity_claim_mask
-function df.entity_claim_mask:new() end
+---@return df.entity_influencest
+function df.entity_influencest:new() end
+
+---@class (exact) df.entity_territoryst: DFStruct
+---@field _type identity.entity_territoryst
+---@field map DFPointer<integer>
+---@field width number
+---@field height number
+
+---@class identity.entity_territoryst: DFCompoundType
+---@field _kind 'struct-type'
+df.entity_territoryst = {}
+
+---@return df.entity_territoryst
+function df.entity_territoryst:new() end
 
 ---@class (exact) df.world_object_data: DFStruct
 ---@field _type identity.world_object_data
@@ -1230,7 +1234,7 @@ function _world_object_data_creation_zone_alterations:erase(index) end
 -- also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
 ---@class (exact) df.world_object_data.T_picked_growths: DFStruct
 ---@field _type identity.world_object_data.picked_growths
----@field x DFNumberVector 0 - 47, within the MLT
+---@field x DFNumberVector not a compound
 ---@field y DFNumberVector 0 - 47, within the MLT
 ---@field z DFNumberVector z coordinate using the elevation coordinate system
 ---@field subtype DFNumberVector subtype of the growth picked within the raws of the implicit plant
@@ -1247,7 +1251,7 @@ function df.world_object_data.T_picked_growths:new() end
 -- probably used by Adventurer mode
 ---@class (exact) df.world_object_data.T_pulled_branches: DFStruct
 ---@field _type identity.world_object_data.pulled_branches
----@field x DFNumberVector probably MLT relative x coordinate
+---@field x DFNumberVector not a compound
 ---@field y DFNumberVector probably MLT relative y coordinate
 ---@field z DFNumberVector probably z coordinate using the elevation coordinate system
 ---@field year DFNumberVector 233/234 seen
@@ -1261,10 +1265,13 @@ function df.world_object_data.T_pulled_branches:new() end
 
 ---@alias df.mountain_peak_flags
 ---| 0 # is_volcano
+---| 1 # climbed
 
 ---@class identity.mountain_peak_flags: DFEnumType
----@field is_volcano 0
----@field [0] "is_volcano"
+---@field is_volcano 0 bay12: PeakFlagType
+---@field [0] "is_volcano" bay12: PeakFlagType
+---@field climbed 1
+---@field [1] "climbed"
 df.mountain_peak_flags = {}
 
 ---@class (exact) df.world_mountain_peak: DFStruct
@@ -1338,9 +1345,10 @@ df.smm_pathing_datast = {}
 ---@return df.smm_pathing_datast
 function df.smm_pathing_datast:new() end
 
+-- bay12: smm_pathing_blockst
 ---@class (exact) df.smm_pathing_datast.T_spb: DFStruct
 ---@field _type identity.smm_pathing_datast.spb
----@field pmap number[][]
+---@field pmap number[][] bay12: smm_pathing_blockst
 ---@field dirmap number[][]
 
 ---@class identity.smm_pathing_datast.spb: DFCompoundType
@@ -1353,7 +1361,7 @@ function df.smm_pathing_datast.T_spb:new() end
 ---@class (exact) df.world_data: DFStruct
 ---@field _type identity.world_data
 ---@field name df.language_name name of the world
----@field permission number[]
+---@field permission DFEnumVector<df.region_permission_type, number>
 ---@field next_site_id number
 ---@field next_resource_pile_id number
 ---@field next_resource_allotment_id number
@@ -1364,24 +1372,15 @@ function df.smm_pathing_datast.T_spb:new() end
 ---@field world_height number
 ---@field moon_angle number
 ---@field moon_phase number
----@field flip_latitude df.world_data.T_flip_latitude bay12: pole
+---@field flip_latitude df.world_data.T_flip_latitude
 ---@field flip_longitude number bay12: sunrise
 ---@field incoming_temp number[]
 ---@field front_count number[]
 ---@field edge_data df.region_edge_datast
----@field region_details _world_data_region_details
----@field adv_region_x number
----@field adv_region_y number
----@field adv_emb_x number
----@field adv_emb_y number
----@field loadarea_sx number
----@field loadarea_sy number
----@field loadarea_ex number
----@field loadarea_ey number
----@field midmap_place _world_data_midmap_place std::map<std::pair<int16_t,int16_t>,VIndex>; not saved
+---@field midmap_data df.world_data.T_midmap_data
 ---@field constructions df.world_data.T_constructions
----@field entity_claims1 df.entity_claim_mask bay12: entity_influence
----@field entity_claims2 df.entity_claim_mask bay12: entity_territory
+---@field entity_influence df.entity_influencest
+---@field entity_territory df.entity_territoryst
 ---@field sites _world_data_sites
 ---@field resource_pile _world_data_resource_pile
 ---@field resource_allotments _world_data_resource_allotments bay12: production_zone
@@ -1415,7 +1414,7 @@ function df.smm_pathing_datast.T_spb:new() end
 ---@field temp_value_start number
 ---@field temp_value_clear number
 ---@field old_temp_value_advance number
----@field world_gen_wandering_group _world_data_world_gen_wandering_group exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
+---@field world_gen_wandering_group _world_data_world_gen_wandering_group exists during worldgen only, before it finishes
 ---@field open_list df.world_data.T_open_list
 
 ---@class identity.world_data: DFCompoundType
@@ -1425,17 +1424,15 @@ df.world_data = {}
 ---@return df.world_data
 function df.world_data:new() end
 
--- bay12: pole
 ---@alias df.world_data.T_flip_latitude
 ---| -1 # None
 ---| 0 # North
 ---| 1 # South
 ---| 2 # Both
 
--- bay12: pole
 ---@class identity.world_data.flip_latitude: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: PoleType, base int32_t
+---@field [-1] "None" bay12: PoleType, base int32_t
 ---@field North 0
 ---@field [0] "North"
 ---@field South 1
@@ -1444,42 +1441,61 @@ function df.world_data:new() end
 ---@field [2] "Both"
 df.world_data.T_flip_latitude = {}
 
----@class _world_data_region_details: DFContainer
+---@class (exact) df.world_data.T_midmap_data: DFStruct
+---@field _type identity.world_data.midmap_data
+---@field region_details _world_data_midmap_data_region_details bay12: region_midmap_datast
+---@field adv_region_x number
+---@field adv_region_y number
+---@field adv_emb_x number
+---@field adv_emb_y number
+---@field loadarea_sx number
+---@field loadarea_sy number
+---@field loadarea_ex number
+---@field loadarea_ey number
+---@field midmap_place _world_data_midmap_data_midmap_place std::map<std::pair<int16_t,int16_t>,VIndex>; not saved
+
+---@class identity.world_data.midmap_data: DFCompoundType
+---@field _kind 'struct-type'
+df.world_data.T_midmap_data = {}
+
+---@return df.world_data.T_midmap_data
+function df.world_data.T_midmap_data:new() end
+
+---@class _world_data_midmap_data_region_details: DFContainer
 ---@field [integer] df.world_region_details
-local _world_data_region_details
+local _world_data_midmap_data_region_details
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.world_region_details>
-function _world_data_region_details:_field(index) end
+function _world_data_midmap_data_region_details:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.world_region_details
-function _world_data_region_details:insert(index, item) end
+function _world_data_midmap_data_region_details:insert(index, item) end
 
 ---@param index integer
-function _world_data_region_details:erase(index) end
+function _world_data_midmap_data_region_details:erase(index) end
 
----@class _world_data_midmap_place: DFContainer
+---@class _world_data_midmap_data_midmap_place: DFContainer
 ---@field [integer] any[]
-local _world_data_midmap_place
+local _world_data_midmap_data_midmap_place
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function _world_data_midmap_place:_field(index) end
+function _world_data_midmap_data_midmap_place:_field(index) end
 
 ---@param index '#'|integer
 ---@param item any[]
-function _world_data_midmap_place:insert(index, item) end
+function _world_data_midmap_data_midmap_place:insert(index, item) end
 
 ---@param index integer
-function _world_data_midmap_place:erase(index) end
+function _world_data_midmap_data_midmap_place:erase(index) end
 
--- bay12: world_construction_datast/
 ---@class (exact) df.world_data.T_constructions: DFStruct
 ---@field _type identity.world_data.constructions
----@field width number
+---@field width number bay12: world_construction_datast
 ---@field height number
 ---@field map DFPointer<integer>
 ---@field list _world_data_constructions_list
@@ -1749,25 +1765,24 @@ function _world_data_active_site:insert(index, item) end
 function _world_data_active_site:erase(index) end
 
 ---@class _world_data_world_gen_wandering_group: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.world_gen_wandering_groupst
 local _world_data_world_gen_wandering_group
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.world_gen_wandering_groupst>
 function _world_data_world_gen_wandering_group:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.world_gen_wandering_groupst
 function _world_data_world_gen_wandering_group:insert(index, item) end
 
 ---@param index integer
 function _world_data_world_gen_wandering_group:erase(index) end
 
--- type: open_list_binary_heap_2Dst
 ---@class (exact) df.world_data.T_open_list: DFStruct
 ---@field _type identity.world_data.open_list
----@field node df.world_data.T_open_list.T_node[]
+---@field node df.world_data.T_open_list.T_node[] bay12: open_list_binary_heap_2Dst
 ---@field size number
 ---@field x1 number
 ---@field y1 number
@@ -1861,7 +1876,7 @@ function _gene_poolst_color_modifier:erase(index) end
 ---@class (exact) df.breed: DFStruct
 ---@field _type identity.breed
 ---@field id number
----@field race number
+---@field race number References: `df.creature_raw`
 ---@field gene_pool df.gene_poolst
 
 ---@class identity.breed: DFCompoundType
@@ -1883,8 +1898,7 @@ function df.breed.get_vector() end
 ---@class (exact) df.battlefield: DFStruct
 ---@field _type identity.battlefield
 ---@field id number
----@field sapient_deaths _battlefield_sapient_deaths Seems to be by squad. Trolls/Blizzard Men not counted
----@field hfs_killed DFNumberVector some victims are not listed, for some reason, and culled HFs can be present
+---@field location_death df.location_deathst Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field x1 number
 ---@field y1 number
 ---@field x2 number
@@ -1908,22 +1922,6 @@ function df.battlefield.find(key) end
 ---@return battlefield_vector # df.global.world.world_data.battlefields
 function df.battlefield.get_vector() end
 
----@class _battlefield_sapient_deaths: DFContainer
----@field [integer] DFPointer<integer>
-local _battlefield_sapient_deaths
-
----@nodiscard
----@param index integer
----@return DFPointer<DFPointer<integer>>
-function _battlefield_sapient_deaths:_field(index) end
-
----@param index '#'|integer
----@param item DFPointer<integer>
-function _battlefield_sapient_deaths:insert(index, item) end
-
----@param index integer
-function _battlefield_sapient_deaths:erase(index) end
-
 ---@alias df.region_weather_type
 ---| 0 # CreepingGas
 ---| 1 # CreepingVapor
@@ -1931,8 +1929,8 @@ function _battlefield_sapient_deaths:erase(index) end
 ---| 3 # FallingMaterial
 
 ---@class identity.region_weather_type: DFEnumType
----@field CreepingGas 0
----@field [0] "CreepingGas"
+---@field CreepingGas 0 bay12: RegionWeatherType
+---@field [0] "CreepingGas" bay12: RegionWeatherType
 ---@field CreepingVapor 1 doesn't seem to be generated by DF, but appears if hacked
 ---@field [1] "CreepingVapor" doesn't seem to be generated by DF, but appears if hacked
 ---@field CreepingDust 2
@@ -1948,7 +1946,7 @@ df.region_weather_type = {}
 ---@field type df.region_weather_type Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
----@field announcement boolean Guess based on seeing it appear for an entry when hitting the embark, resulting in an announcement
+---@field flags df.region_weather.T_flags
 ---@field region_x number world tile, used with evil rain. Probably uninitialized with cloud
 ---@field region_y number world tile, used with evil rain. Probably uninitialized with cloud
 ---@field world_in_game_x number used with evil clouds, indicating global in-game coordinates
@@ -1974,4 +1972,14 @@ function df.region_weather.find(key) end
 
 ---@return region_weather_vector # df.global.world.world_data.region_weather
 function df.region_weather.get_vector() end
+
+---@class df.region_weather.T_flags: DFBitfield
+---@field _enum identity.region_weather.flags
+---@field announced boolean bay12: REGION_WEATHER_FLAG_*
+---@field [0] boolean bay12: REGION_WEATHER_FLAG_*
+
+---@class identity.region_weather.flags: DFBitfieldType
+---@field announced 0 bay12: REGION_WEATHER_FLAG_*
+---@field [0] "announced" bay12: REGION_WEATHER_FLAG_*
+df.region_weather.T_flags = {}
 

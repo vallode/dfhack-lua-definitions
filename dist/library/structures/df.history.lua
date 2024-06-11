@@ -833,6 +833,94 @@ function df.messagest.T_plot_data.T_order_to_perform_action:new() end
 ---@field [0] "infiltrate_society"
 df.messagest.T_plot_data.T_order_to_perform_action.T_action = {}
 
+---@class (exact) df.relationship_profile_hf_visualst: DFStruct
+---@field _type identity.relationship_profile_hf_visualst
+---@field histfig_id number References: `df.historical_figure`
+---@field flags df.relationship_profile_hf_visualst.T_flags
+---@field known_associated_identity_id DFNumberVector Involves adventurer knowing name?
+---@field attitude _relationship_profile_hf_visualst_attitude Probably ordered
+---@field counter DFNumberVector One element for each 'attitude' element. Guess 0 - 100
+---@field rank df.vague_relationship_type
+---@field core df.core_hf_relationshipst
+---@field meet_count number
+---@field last_meet_year number probably latest contact. Seen -1
+---@field last_meet_season_tick number
+---@field abs_x number
+---@field abs_y number
+---@field abs_z number
+---@field transient_attitude number
+---@field transient_patience number
+---@field transient_confidence number
+---@field transient_agitation number
+---@field transient_failed_persuade_attempts number
+---@field transient_failed_intimidate_attempts number
+---@field first_year number transient_last_reset
+---@field first_year_tick number
+
+---@class identity.relationship_profile_hf_visualst: DFCompoundType
+---@field _kind 'struct-type'
+df.relationship_profile_hf_visualst = {}
+
+---@return df.relationship_profile_hf_visualst
+function df.relationship_profile_hf_visualst:new() end
+
+---@class df.relationship_profile_hf_visualst.T_flags: DFBitfield
+---@field _enum identity.relationship_profile_hf_visualst.flags
+---@field basic_name_known boolean bay12: RELATIONSHIP_PROFILE_HF_FLAG_*
+---@field [0] boolean bay12: RELATIONSHIP_PROFILE_HF_FLAG_*
+
+---@class identity.relationship_profile_hf_visualst.flags: DFBitfieldType
+---@field basic_name_known 0 bay12: RELATIONSHIP_PROFILE_HF_FLAG_*
+---@field [0] "basic_name_known" bay12: RELATIONSHIP_PROFILE_HF_FLAG_*
+df.relationship_profile_hf_visualst.T_flags = {}
+
+---@class _relationship_profile_hf_visualst_attitude: DFContainer
+---@field [integer] df.reputation_type
+local _relationship_profile_hf_visualst_attitude
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.reputation_type>
+function _relationship_profile_hf_visualst_attitude:_field(index) end
+
+---@param index '#'|integer
+---@param item df.reputation_type
+function _relationship_profile_hf_visualst_attitude:insert(index, item) end
+
+---@param index integer
+function _relationship_profile_hf_visualst_attitude:erase(index) end
+
+---@class (exact) df.relationship_profile_hf_historicalst: DFStruct
+---@field _type identity.relationship_profile_hf_historicalst
+---@field histfig_id number References: `df.historical_figure`
+---@field known_associated_identity_id DFNumberVector
+---@field attitude _relationship_profile_hf_historicalst_attitude
+---@field counter DFNumberVector One element for each 'attitude' element
+---@field core df.core_hf_relationshipst
+
+---@class identity.relationship_profile_hf_historicalst: DFCompoundType
+---@field _kind 'struct-type'
+df.relationship_profile_hf_historicalst = {}
+
+---@return df.relationship_profile_hf_historicalst
+function df.relationship_profile_hf_historicalst:new() end
+
+---@class _relationship_profile_hf_historicalst_attitude: DFContainer
+---@field [integer] df.reputation_type
+local _relationship_profile_hf_historicalst_attitude
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.reputation_type>
+function _relationship_profile_hf_historicalst_attitude:_field(index) end
+
+---@param index '#'|integer
+---@param item df.reputation_type
+function _relationship_profile_hf_historicalst_attitude:insert(index, item) end
+
+---@param index integer
+function _relationship_profile_hf_historicalst_attitude:erase(index) end
+
 ---@class (exact) df.historical_figure_relationships: DFStruct
 ---@field _type identity.historical_figure_relationships
 ---@field hf_visual _historical_figure_relationships_hf_visual
@@ -851,32 +939,32 @@ df.historical_figure_relationships = {}
 function df.historical_figure_relationships:new() end
 
 ---@class _historical_figure_relationships_hf_visual: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.relationship_profile_hf_visualst
 local _historical_figure_relationships_hf_visual
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.relationship_profile_hf_visualst>
 function _historical_figure_relationships_hf_visual:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.relationship_profile_hf_visualst
 function _historical_figure_relationships_hf_visual:insert(index, item) end
 
 ---@param index integer
 function _historical_figure_relationships_hf_visual:erase(index) end
 
 ---@class _historical_figure_relationships_hf_historical: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.relationship_profile_hf_historicalst
 local _historical_figure_relationships_hf_historical
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.relationship_profile_hf_historicalst>
 function _historical_figure_relationships_hf_historical:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.relationship_profile_hf_historicalst
 function _historical_figure_relationships_hf_historical:insert(index, item) end
 
 ---@param index integer
@@ -7516,6 +7604,26 @@ function df.intrigue.find(key) end
 ---@return intrigue_vector # df.global.world.history.intrigues
 function df.intrigue.get_vector() end
 
+---@alias df.intrigue_corruption_result_rel_factor_type
+---| 0 # Trust
+---| 1 # Loyalty
+---| 2 # Love
+---| 3 # Fear
+---| 4 # Respect
+
+---@class identity.intrigue_corruption_result_rel_factor_type: DFEnumType
+---@field Trust 0 bay12: IntrigueCorruptionResultRelFactorType
+---@field [0] "Trust" bay12: IntrigueCorruptionResultRelFactorType
+---@field Loyalty 1
+---@field [1] "Loyalty"
+---@field Love 2
+---@field [2] "Love"
+---@field Fear 3
+---@field [3] "Fear"
+---@field Respect 4
+---@field [4] "Respect"
+df.intrigue_corruption_result_rel_factor_type = {}
+
 ---@class (exact) df.intrigue_corruption: DFStruct
 ---@field _type identity.intrigue_corruption
 ---@field action df.intrigue_corruption_action_type
@@ -7533,7 +7641,7 @@ function df.intrigue.get_vector() end
 ---@field manipulated_value df.value_type
 ---@field value_rating number
 ---@field value_roll number
----@field manipulated_emotion df.intrigue_corruption.T_manipulated_emotion
+---@field manipulated_emotion df.intrigue_corruption_result_rel_factor_type
 ---@field emotion_rating number -100 to 125 seen
 ---@field emotion_roll number -10 to 12 seen
 ---@field flags df.intrigue_corruption.T_flags
@@ -7579,26 +7687,6 @@ function df.intrigue_corruption:new() end
 ---@field Immortality 7
 ---@field [7] "Immortality"
 df.intrigue_corruption.T_manipulation_type = {}
-
----@alias df.intrigue_corruption.T_manipulated_emotion
----| 0 # Trust
----| 1 # Loyalty
----| 2 # Love
----| 3 # Fear
----| 4 # Respect
-
----@class identity.intrigue_corruption.manipulated_emotion: DFEnumType
----@field Trust 0 bay12: IntrigueCorruptionResultRelFactorType
----@field [0] "Trust" bay12: IntrigueCorruptionResultRelFactorType
----@field Loyalty 1
----@field [1] "Loyalty"
----@field Love 2
----@field [2] "Love"
----@field Fear 3
----@field [3] "Fear"
----@field Respect 4
----@field [4] "Respect"
-df.intrigue_corruption.T_manipulated_emotion = {}
 
 ---@class df.intrigue_corruption.T_flags: DFBitfield
 ---@field _enum identity.intrigue_corruption.flags

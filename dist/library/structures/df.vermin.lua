@@ -85,6 +85,6 @@ function df.vermin.find(key) end
 
 ---@class vermin_vector: DFVector, { [integer]: df.vermin }
 
----@return vermin_vector # df.global.world.vermin.all
+---@return vermin_vector # df.global.world.event.vermin
 function df.vermin.get_vector() end
 

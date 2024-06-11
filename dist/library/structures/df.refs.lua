@@ -75,8 +75,8 @@
 ---| 69 # UNIT_INTERROGATEE
 
 ---@class identity.general_ref_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: GeneralRef, no base type
+---@field [-1] "NONE" bay12: GeneralRef, no base type
 ---@field ARTIFACT 0
 ---@field [0] "ARTIFACT"
 ---@field IS_ARTIFACT 1
@@ -281,7 +281,8 @@ function general_ref:clone() end
 function general_ref:generateTitle(form, title) end
 
 ---@param str string
-function general_ref:getDescription(str) end
+---@param context_flag integer
+function general_ref:getDescription(str, context_flag) end
 
 ---@param str string
 function general_ref:getDescription2(str) end
@@ -442,9 +443,9 @@ function df.general_ref_locationst:new() end
 ---@class (exact) df.general_ref_interactionst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_interactionst
 ---@field interaction_id number References: `df.interaction`
----@field source_id number References: `df.interaction_source`
----@field unk_08 number
----@field unk_0c number
+---@field source_idx number References: `df.interaction_source`
+---@field target_idx number References: `df.interaction_target`
+---@field effect_idx number References: `df.interaction_effect`
 
 ---@class identity.general_ref_interactionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -533,9 +534,9 @@ function df.general_ref_historical_figurest:new() end
 
 ---@class (exact) df.general_ref_entity_popst: DFStruct, df.general_ref
 ---@field _type identity.general_ref_entity_popst
----@field unk_1 number
+---@field pop_id number References: `df.entity_population`
 ---@field race number References: `df.creature_raw`
----@field unk_2 number
+---@field num number
 ---@field flags df.undead_flags
 
 ---@class identity.general_ref_entity_popst: DFCompoundType
@@ -549,8 +550,8 @@ function df.general_ref_entity_popst:new() end
 ---@field _type identity.general_ref_creaturest
 ---@field race number References: `df.creature_raw`
 ---@field caste number References: `df.caste_raw`
----@field unk_1 number
----@field unk_2 number
+---@field pop_id number References: `df.entity_population`
+---@field num number
 ---@field flags df.undead_flags
 
 ---@class identity.general_ref_creaturest: DFCompoundType
@@ -597,7 +598,7 @@ function df.general_ref_value_levelst:new() end
 
 ---@class (exact) df.general_ref_languagest: DFStruct, df.general_ref
 ---@field _type identity.general_ref_languagest
----@field unk_1 number
+---@field language_idx number
 
 ---@class identity.general_ref_languagest: DFCompoundType
 ---@field _kind 'class-type'
@@ -733,12 +734,12 @@ function df.general_ref_unit_itemownerst:new() end
 
 ---@class df.general_ref_unit_itemownerst.T_flags: DFBitfield
 ---@field _enum identity.general_ref_unit_itemownerst.flags
----@field litter boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
----@field [0] boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+---@field litter boolean bay12: GENERAL_REF_UNIT_ITEMOWNER_FLAG_*
+---@field [0] boolean bay12: GENERAL_REF_UNIT_ITEMOWNER_FLAG_*
 
 ---@class identity.general_ref_unit_itemownerst.flags: DFBitfieldType
----@field litter 0 apparetly set after 1000 ticks, then confiscated in 1000 more ticks
----@field [0] "litter" apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+---@field litter 0 bay12: GENERAL_REF_UNIT_ITEMOWNER_FLAG_*
+---@field [0] "litter" bay12: GENERAL_REF_UNIT_ITEMOWNER_FLAG_*
 df.general_ref_unit_itemownerst.T_flags = {}
 
 ---@class (exact) df.general_ref_unit_tradebringerst: DFStruct, df.general_ref_unit
@@ -973,7 +974,7 @@ function df.general_ref_building_holderst:new() end
 
 ---@class (exact) df.general_ref_building_well_tag: DFStruct, df.general_ref_building
 ---@field _type identity.general_ref_building_well_tag
----@field direction number
+---@field direction integer
 
 ---@class identity.general_ref_building_well_tag: DFCompoundType
 ---@field _kind 'class-type'
@@ -1159,7 +1160,7 @@ df.specific_ref_type = {}
 df.specific_ref_type._attr_entry_type = {}
 
 ---@class (exact) specific_ref_type_attr_entry_type_fields
----@field union_field DFCompoundField Bay12: ReferenceType
+---@field union_field DFCompoundField bay12: ReferenceType
 df.specific_ref_type._attr_entry_type._fields = {}
 
 ---@class specific_ref_type_attrs
@@ -1210,7 +1211,7 @@ function df.specific_ref.T_data:new() end
 
 ---@class (exact) df.specific_ref.T_data.T_wrestle: DFStruct
 ---@field _type identity.specific_ref.data.wrestle
----@field unk_1 DFPointer<integer>
+---@field unit df.unit
 ---@field item df.unit_item_wrestle
 
 ---@class identity.specific_ref.data.wrestle: DFCompoundType
@@ -1241,8 +1242,8 @@ function df.specific_ref.T_data.T_wrestle:new() end
 ---| 17 # RESIDENT
 
 ---@class identity.histfig_entity_link_type: DFEnumType
----@field MEMBER 0
----@field [0] "MEMBER"
+---@field MEMBER 0 bay12: HistFigEntityLinkType
+---@field [0] "MEMBER" bay12: HistFigEntityLinkType
 ---@field FORMER_MEMBER 1
 ---@field [1] "FORMER_MEMBER"
 ---@field MERCENARY 2
@@ -1295,6 +1296,12 @@ function histfig_entity_link:write_file(file) end
 ---@param file df.file_compressorst
 ---@param loadversion df.save_version
 function histfig_entity_link:read_file(file, loadversion) end
+
+---@return number
+function histfig_entity_link:getSquadId() end
+
+---@return number
+function histfig_entity_link:getSquadPosition() end
 
 ---@return number
 function histfig_entity_link:getPosition() end
@@ -1460,7 +1467,7 @@ function df.histfig_entity_link_position_claimst:new() end
 
 ---@class (exact) df.histfig_entity_link_squadst: DFStruct, df.histfig_entity_link
 ---@field _type identity.histfig_entity_link_squadst
----@field squad_id number
+---@field squad_id number References: `df.squad`
 ---@field squad_position number
 ---@field start_year number
 
@@ -1473,7 +1480,7 @@ function df.histfig_entity_link_squadst:new() end
 
 ---@class (exact) df.histfig_entity_link_former_squadst: DFStruct, df.histfig_entity_link
 ---@field _type identity.histfig_entity_link_former_squadst
----@field squad_id number
+---@field squad_id number References: `df.squad`
 ---@field start_year number
 ---@field end_year number
 
@@ -1486,7 +1493,7 @@ function df.histfig_entity_link_former_squadst:new() end
 
 ---@class (exact) df.histfig_entity_link_occupationst: DFStruct, df.histfig_entity_link
 ---@field _type identity.histfig_entity_link_occupationst
----@field occupation_id number
+---@field occupation_id number References: `df.occupation`
 ---@field start_year number
 
 ---@class identity.histfig_entity_link_occupationst: DFCompoundType
@@ -1498,7 +1505,7 @@ function df.histfig_entity_link_occupationst:new() end
 
 ---@class (exact) df.histfig_entity_link_former_occupationst: DFStruct, df.histfig_entity_link
 ---@field _type identity.histfig_entity_link_former_occupationst
----@field occupation_id number
+---@field occupation_id number References: `df.occupation`
 ---@field start_year number
 ---@field end_year number
 
@@ -1522,8 +1529,8 @@ function df.histfig_entity_link_former_occupationst:new() end
 ---| 9 # PRISON_SITE_BUILDING_PROFILE
 
 ---@class identity.histfig_site_link_type: DFEnumType
----@field OCCUPATION 0
----@field [0] "OCCUPATION"
+---@field OCCUPATION 0 bay12: HistFigSiteLinkType
+---@field [0] "OCCUPATION" bay12: HistFigSiteLinkType
 ---@field SEAT_OF_POWER 1
 ---@field [1] "SEAT_OF_POWER"
 ---@field HANGOUT 2
@@ -1575,7 +1582,7 @@ function df.histfig_site_link:new() end
 
 ---@class (exact) df.histfig_site_link_occupationst: DFStruct, df.histfig_site_link
 ---@field _type identity.histfig_site_link_occupationst
----@field unk_1 number
+---@field occupation_id number References: `df.occupation`
 
 ---@class identity.histfig_site_link_occupationst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1693,8 +1700,8 @@ function df.histfig_site_link_prison_site_building_profilest:new() end
 ---| 15 # DECEASED_SPOUSE
 
 ---@class identity.histfig_hf_link_type: DFEnumType
----@field MOTHER 0
----@field [0] "MOTHER"
+---@field MOTHER 0 bay12: HistFigHfLinkType
+---@field [0] "MOTHER" bay12: HistFigHfLinkType
 ---@field FATHER 1
 ---@field [1] "FATHER"
 ---@field SPOUSE 2
@@ -1731,6 +1738,7 @@ df.histfig_hf_link_type = {}
 ---@field _type identity.histfig_hf_link
 ---@field target_hf number References: `df.historical_figure`
 ---@field link_strength number
+---@field hf_vector_idx number
 local histfig_hf_link
 
 ---@return df.histfig_hf_link_type
@@ -1857,8 +1865,8 @@ function df.histfig_hf_link_apprenticest:new() end
 
 ---@class (exact) df.histfig_hf_link_companionst: DFStruct, df.histfig_hf_link
 ---@field _type identity.histfig_hf_link_companionst
----@field unk_1 number
----@field unk_2 number
+---@field agreement_id number
+---@field agreement_party_id number
 
 ---@class identity.histfig_hf_link_companionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1923,8 +1931,8 @@ function df.histfig_hf_link_deceased_spousest:new() end
 ---| 2 # RELIGIOUS
 
 ---@class identity.entity_entity_link_type: DFEnumType
----@field PARENT 0
----@field [0] "PARENT"
+---@field PARENT 0 bay12: EntityAssociation, no base type
+---@field [0] "PARENT" bay12: EntityAssociation, no base type
 ---@field CHILD 1
 ---@field [1] "CHILD"
 ---@field RELIGIOUS 2 Seen between religion and merc company.
@@ -1944,7 +1952,6 @@ df.entity_entity_link = {}
 ---@return df.entity_entity_link
 function df.entity_entity_link:new() end
 
--- Enum names updated per Putnam
 ---@alias df.entity_site_link_type
 ---| -1 # None
 ---| 0 # All
@@ -1953,10 +1960,9 @@ function df.entity_entity_link:new() end
 ---| 3 # Outskirts
 ---| 4 # Local_Activity
 
--- Enum names updated per Putnam
 ---@class identity.entity_site_link_type: DFEnumType
----@field None -1 Mostly guesswork, hence the 'research notes' below. Interacts highly with status<br>Putnam has provided us with some source details, so enum names have been amended to match what she provided
----@field [-1] "None" Mostly guesswork, hence the 'research notes' below. Interacts highly with status<br>Putnam has provided us with some source details, so enum names have been amended to match what she provided
+---@field None -1 bay12: EntitySiteProfileLocationType
+---@field [-1] "None" bay12: EntitySiteProfileLocationType
 ---@field All 0 Probably inactive/failed/NA. Seen with status = 0/2/8/16/128/144/8192. Entities Civilization/SiteGovernment/NomadicGroup/Outcast (not all value/entity permutations)
 ---@field [0] "All" Probably inactive/failed/NA. Seen with status = 0/2/8/16/128/144/8192. Entities Civilization/SiteGovernment/NomadicGroup/Outcast (not all value/entity permutations)
 ---@field Inside_Wall 1 Civilization: status = 0 if any flags set and status = 2 if not, with the exception of "fortress" that can be set in either case. capital, monument, reclaim, and land_for_holding flags seen.<br>does not seem to indicate clearly whether the site is owned currently. Note that civs don't have links to most of its sites, as it normally goes via site governments.<br>SiteGovernment: flags.residence => status = 0. No flags set with any other status value. Thus, SiteGovernment/type=Claim/status=0 probably means it's the current official local government.<br>NomadicGroup: flags.residence => status = 0. Probably official local government (mostly Camp). Other status values (1/129) have no flags set.<br>Religion: all were Fortress (and had that flag) and had status = 0. Thus, probably civ level "owner", as the monasteries seem to have local site governments.<br>MilitaryUnit: residence+fortress flags => status = 0 and owner (with no local site government). status = 5 and no flags set was the alternative seen.<br>Outcast: flags.residence => status = 0 and local government. Alternative seen is status = 1 and no flags set.
@@ -1971,8 +1977,8 @@ df.entity_site_link_type = {}
 
 ---@class df.entity_site_link_flags: DFBitfield
 ---@field _enum identity.entity_site_link_flags
----@field residence boolean site is residence
----@field [0] boolean site is residence
+---@field residence boolean bay12: ENTITY_SITE_PROFILE_FLAG_*
+---@field [0] boolean bay12: ENTITY_SITE_PROFILE_FLAG_*
 ---@field capital boolean site is capital
 ---@field [1] boolean site is capital
 ---@field fortress boolean used at least by those castles which arent currently in
@@ -2007,8 +2013,8 @@ df.entity_site_link_type = {}
 ---@field [16] boolean for the holy city of a religion
 
 ---@class identity.entity_site_link_flags: DFBitfieldType
----@field residence 0 site is residence
----@field [0] "residence" site is residence
+---@field residence 0 bay12: ENTITY_SITE_PROFILE_FLAG_*
+---@field [0] "residence" bay12: ENTITY_SITE_PROFILE_FLAG_*
 ---@field capital 1 site is capital
 ---@field [1] "capital" site is capital
 ---@field fortress 2 used at least by those castles which arent currently in
@@ -2045,7 +2051,7 @@ df.entity_site_link_flags = {}
 
 ---@class (exact) df.entity_site_link: DFStruct
 ---@field _type identity.entity_site_link
----@field target number toady's name for this is entity_site_profilest<br>References: `df.world_site`
+---@field target number References: `df.world_site`
 ---@field entity_id number this is a union in toady code but we can probably ignore that per putnam<br>References: `df.historical_entity`
 ---@field entity_cache_index number not saved
 ---@field position_profile_id number index into entity.positions.assignments of Civilization (?)
@@ -2088,14 +2094,14 @@ function _entity_site_link_ab_profile:erase(index) end
 
 ---@class df.undead_flags: DFBitfield
 ---@field _enum identity.undead_flags
----@field zombie boolean
----@field [0] boolean
+---@field zombie boolean bay12: HF_KILL_FLAG_*, GEN_REF_EPOP_FLAG_* and GEN_REF_CREATURE_FLAG_*
+---@field [0] boolean bay12: HF_KILL_FLAG_*, GEN_REF_EPOP_FLAG_* and GEN_REF_CREATURE_FLAG_*
 ---@field ghostly boolean
 ---@field [1] boolean
 
 ---@class identity.undead_flags: DFBitfieldType
----@field zombie 0
----@field [0] "zombie"
+---@field zombie 0 bay12: HF_KILL_FLAG_*, GEN_REF_EPOP_FLAG_* and GEN_REF_CREATURE_FLAG_*
+---@field [0] "zombie" bay12: HF_KILL_FLAG_*, GEN_REF_EPOP_FLAG_* and GEN_REF_CREATURE_FLAG_*
 ---@field ghostly 1
 ---@field [1] "ghostly"
 df.undead_flags = {}

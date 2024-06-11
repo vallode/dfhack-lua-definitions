@@ -103,8 +103,8 @@ df.tile_dig_designation = {}
 ---| 1 # Magma
 
 ---@class identity.tile_liquid: DFEnumType
----@field Water 0 bay12: LIQUID_TYPE_*
----@field [0] "Water" bay12: LIQUID_TYPE_*
+---@field Water 0 bay12: LiquidType, LIQUID_TYPE_*
+---@field [0] "Water" bay12: LiquidType, LIQUID_TYPE_*
 ---@field Magma 1
 ---@field [1] "Magma"
 df.tile_liquid = {}
@@ -2134,7 +2134,7 @@ function df.construction.find(key) end
 
 ---@class construction_vector: DFVector, { [integer]: df.construction }
 
----@return construction_vector # df.global.world.constructions
+---@return construction_vector # df.global.world.event.constructions
 function df.construction.get_vector() end
 
 ---@alias df.flow_type

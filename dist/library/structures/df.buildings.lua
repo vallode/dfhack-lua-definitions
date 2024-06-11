@@ -2764,6 +2764,30 @@ function df.pressure_plate_info:new() end
 ---@field [5] "track"
 df.pressure_plate_info.T_flags = {}
 
+---@class (exact) df.track_stop_profilest: DFStruct
+---@field _type identity.track_stop_profilest
+---@field friction number
+---@field track_flags df.track_stop_profilest.T_track_flags
+---@field dump_x_shift number
+---@field dump_y_shift number
+
+---@class identity.track_stop_profilest: DFCompoundType
+---@field _kind 'struct-type'
+df.track_stop_profilest = {}
+
+---@return df.track_stop_profilest
+function df.track_stop_profilest:new() end
+
+---@class df.track_stop_profilest.T_track_flags: DFBitfield
+---@field _enum identity.track_stop_profilest.track_flags
+---@field use_dump boolean bay12: TRACK_STOP_PROFILE_FLAG_*
+---@field [0] boolean bay12: TRACK_STOP_PROFILE_FLAG_*
+
+---@class identity.track_stop_profilest.track_flags: DFBitfieldType
+---@field use_dump 0 bay12: TRACK_STOP_PROFILE_FLAG_*
+---@field [0] "use_dump" bay12: TRACK_STOP_PROFILE_FLAG_*
+df.track_stop_profilest.T_track_flags = {}
+
 ---@class (exact) df.building_trapst: DFStruct, df.building_actual
 ---@field _type identity.building_trapst
 ---@field trap_type df.trap_type
@@ -2775,10 +2799,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field observed_by_civs DFNumberVector
 ---@field profile df.workshop_profile
 ---@field plate_info df.pressure_plate_info
----@field friction number
----@field track_flags df.building_trapst.T_track_flags
----@field dump_x_shift number
----@field dump_y_shift number
+---@field track_stop_info df.track_stop_profilest
 ---@field stop_trigger_timer number
 
 ---@class identity.building_trapst: DFCompoundType
@@ -2821,16 +2842,6 @@ function _building_trapst_linked_mechanisms:insert(index, item) end
 
 ---@param index integer
 function _building_trapst_linked_mechanisms:erase(index) end
-
----@class df.building_trapst.T_track_flags: DFBitfield
----@field _enum identity.building_trapst.track_flags
----@field use_dump boolean bay12: TRACK_STOP_PROFILE_FLAG_*
----@field [0] boolean bay12: TRACK_STOP_PROFILE_FLAG_*
-
----@class identity.building_trapst.track_flags: DFBitfieldType
----@field use_dump 0 bay12: TRACK_STOP_PROFILE_FLAG_*
----@field [0] "use_dump" bay12: TRACK_STOP_PROFILE_FLAG_*
-df.building_trapst.T_track_flags = {}
 
 ---@class (exact) df.building_wagonst: DFStruct, df.building_actual
 ---@field _type identity.building_wagonst

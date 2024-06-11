@@ -3,8 +3,8 @@
 
 ---@class df.unit_flags1: DFBitfield
 ---@field _enum identity.unit_flags1
----@field move_state boolean (CANMOVE) Can the dwarf move or are they waiting for their movement timer
----@field [0] boolean (CANMOVE) Can the dwarf move or are they waiting for their movement timer
+---@field move_state boolean bay12: UNITFLAG_*
+---@field [0] boolean bay12: UNITFLAG_*
 ---@field inactive boolean (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
 ---@field [1] boolean (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
 ---@field has_mood boolean (MOOD) Currently in mood
@@ -27,10 +27,10 @@
 ---@field [10] boolean
 ---@field diplomat boolean
 ---@field [11] boolean
----@field zombie boolean (TEMPORARY_FLAG) used as a temporary marker in certain places
----@field [12] boolean (TEMPORARY_FLAG) used as a temporary marker in certain places
----@field skeleton boolean (SHOULD_CHECK_FOR_ACTIVE_HEIST)
----@field [13] boolean (SHOULD_CHECK_FOR_ACTIVE_HEIST)
+---@field temp_flag boolean used as a temporary marker in certain places
+---@field [12] boolean used as a temporary marker in certain places
+---@field check_active_heist boolean
+---@field [13] boolean
 ---@field can_swap boolean (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
 ---@field [14] boolean (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
 ---@field on_ground boolean (GROUNDED) The creature is laying on the floor, can be conscious
@@ -45,10 +45,10 @@
 ---@field [19] boolean (INVADER_ORIG) Invader origin (could be inactive and fleeing)
 ---@field coward boolean (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
 ---@field [20] boolean (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field hidden_ambusher boolean (INVADERFORAY) Active marauder/invader moving inward?
----@field [21] boolean (INVADERFORAY) Active marauder/invader moving inward?
----@field invades boolean (INVADERFORAY2) Marauder resident/invader moving in all the way
----@field [22] boolean (INVADERFORAY2) Marauder resident/invader moving in all the way
+---@field hidden_ambusher boolean (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field [21] boolean (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field invades boolean (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
+---@field [22] boolean (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
 ---@field check_flows boolean (FLOWCHECK) Check against flows next time you get a chance
 ---@field [23] boolean (FLOWCHECK) Check against flows next time you get a chance
 ---@field ridden boolean
@@ -59,9 +59,7 @@
 ---@field [26] boolean
 ---@field chained boolean
 ---@field [27] boolean
----@field royal_guard boolean (UNUSED_1_29)
 ---@field [28] boolean (UNUSED_1_29)
----@field fortress_guard boolean (UNUSED_1_30)
 ---@field [29] boolean (UNUSED_1_30)
 ---@field suppress_wield boolean (WIELDSUPPRESS)
 ---@field [30] boolean (WIELDSUPPRESS)
@@ -69,8 +67,8 @@
 ---@field [31] boolean (NEMESIS) Is an important historical figure
 
 ---@class identity.unit_flags1: DFBitfieldType
----@field move_state 0 (CANMOVE) Can the dwarf move or are they waiting for their movement timer
----@field [0] "move_state" (CANMOVE) Can the dwarf move or are they waiting for their movement timer
+---@field move_state 0 bay12: UNITFLAG_*
+---@field [0] "move_state" bay12: UNITFLAG_*
 ---@field inactive 1 (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
 ---@field [1] "inactive" (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
 ---@field has_mood 2 (MOOD) Currently in mood
@@ -93,10 +91,10 @@
 ---@field [10] "incoming"
 ---@field diplomat 11
 ---@field [11] "diplomat"
----@field zombie 12 (TEMPORARY_FLAG) used as a temporary marker in certain places
----@field [12] "zombie" (TEMPORARY_FLAG) used as a temporary marker in certain places
----@field skeleton 13 (SHOULD_CHECK_FOR_ACTIVE_HEIST)
----@field [13] "skeleton" (SHOULD_CHECK_FOR_ACTIVE_HEIST)
+---@field temp_flag 12 used as a temporary marker in certain places
+---@field [12] "temp_flag" used as a temporary marker in certain places
+---@field check_active_heist 13
+---@field [13] "check_active_heist"
 ---@field can_swap 14 (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
 ---@field [14] "can_swap" (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
 ---@field on_ground 15 (GROUNDED) The creature is laying on the floor, can be conscious
@@ -111,10 +109,10 @@
 ---@field [19] "invader_origin" (INVADER_ORIG) Invader origin (could be inactive and fleeing)
 ---@field coward 20 (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
 ---@field [20] "coward" (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field hidden_ambusher 21 (INVADERFORAY) Active marauder/invader moving inward?
----@field [21] "hidden_ambusher" (INVADERFORAY) Active marauder/invader moving inward?
----@field invades 22 (INVADERFORAY2) Marauder resident/invader moving in all the way
----@field [22] "invades" (INVADERFORAY2) Marauder resident/invader moving in all the way
+---@field hidden_ambusher 21 (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field [21] "hidden_ambusher" (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field invades 22 (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
+---@field [22] "invades" (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
 ---@field check_flows 23 (FLOWCHECK) Check against flows next time you get a chance
 ---@field [23] "check_flows" (FLOWCHECK) Check against flows next time you get a chance
 ---@field ridden 24
@@ -125,10 +123,6 @@
 ---@field [26] "tame"
 ---@field chained 27
 ---@field [27] "chained"
----@field royal_guard 28 (UNUSED_1_29)
----@field [28] "royal_guard" (UNUSED_1_29)
----@field fortress_guard 29 (UNUSED_1_30)
----@field [29] "fortress_guard" (UNUSED_1_30)
 ---@field suppress_wield 30 (WIELDSUPPRESS)
 ---@field [30] "suppress_wield" (WIELDSUPPRESS)
 ---@field important_historical_figure 31 (NEMESIS) Is an important historical figure
@@ -137,8 +131,8 @@ df.unit_flags1 = {}
 
 ---@class df.unit_flags2: DFBitfield
 ---@field _enum identity.unit_flags2
----@field swimming boolean
----@field [0] boolean
+---@field swimming boolean bay12: UNITFLAG2_*
+---@field [0] boolean bay12: UNITFLAG2_*
 ---@field sparring boolean (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
 ---@field [1] boolean (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
 ---@field no_notify boolean (NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
@@ -167,10 +161,9 @@ df.unit_flags1 = {}
 ---@field [13] boolean (EVALUATE_LEAKS)
 ---@field gutted boolean (HEALTH_GUTTED)
 ---@field [14] boolean (HEALTH_GUTTED)
----@field circulatory_spray boolean (UNUSED_16)
 ---@field [15] boolean (UNUSED_16)
----@field locked_in_for_trading boolean (TRADE_LOCKED) Locked in for trading (it's a projectile on the other set of flags, might be what the flying was)
----@field [16] boolean (TRADE_LOCKED) Locked in for trading (it's a projectile on the other set of flags, might be what the flying was)
+---@field locked_in_for_trading boolean (TRADE_LOCKED) Locked in for trading
+---@field [16] boolean (TRADE_LOCKED) Locked in for trading
 ---@field slaughter boolean (BUTCHERABLE) marked for slaughter
 ---@field [17] boolean (BUTCHERABLE) marked for slaughter
 ---@field underworld boolean (DEFENDER) Underworld creature
@@ -203,8 +196,8 @@ df.unit_flags1 = {}
 ---@field [31] boolean ROAMING_WILDERPOP_NOT_FEATURE
 
 ---@class identity.unit_flags2: DFBitfieldType
----@field swimming 0
----@field [0] "swimming"
+---@field swimming 0 bay12: UNITFLAG2_*
+---@field [0] "swimming" bay12: UNITFLAG2_*
 ---@field sparring 1 (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
 ---@field [1] "sparring" (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
 ---@field no_notify 2 (NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
@@ -233,10 +226,8 @@ df.unit_flags1 = {}
 ---@field [13] "has_breaks" (EVALUATE_LEAKS)
 ---@field gutted 14 (HEALTH_GUTTED)
 ---@field [14] "gutted" (HEALTH_GUTTED)
----@field circulatory_spray 15 (UNUSED_16)
----@field [15] "circulatory_spray" (UNUSED_16)
----@field locked_in_for_trading 16 (TRADE_LOCKED) Locked in for trading (it's a projectile on the other set of flags, might be what the flying was)
----@field [16] "locked_in_for_trading" (TRADE_LOCKED) Locked in for trading (it's a projectile on the other set of flags, might be what the flying was)
+---@field locked_in_for_trading 16 (TRADE_LOCKED) Locked in for trading
+---@field [16] "locked_in_for_trading" (TRADE_LOCKED) Locked in for trading
 ---@field slaughter 17 (BUTCHERABLE) marked for slaughter
 ---@field [17] "slaughter" (BUTCHERABLE) marked for slaughter
 ---@field underworld 18 (DEFENDER) Underworld creature
@@ -271,8 +262,8 @@ df.unit_flags2 = {}
 
 ---@class df.unit_flags3: DFBitfield
 ---@field _enum identity.unit_flags3
----@field body_part_relsize_computed boolean (RELSIZES_CALCULATED)
----@field [0] boolean (RELSIZES_CALCULATED)
+---@field body_part_relsize_computed boolean bay12: UNITFLAG3_*
+---@field [0] boolean bay12: UNITFLAG3_*
 ---@field size_modifier_computed boolean (TOTAL_APP_SIZE_MOD_CALCULATED)
 ---@field [1] boolean (TOTAL_APP_SIZE_MOD_CALCULATED)
 ---@field stuck_weapon_computed boolean (STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
@@ -337,8 +328,8 @@ df.unit_flags2 = {}
 ---@field [31] boolean causes No Activity to be displayed
 
 ---@class identity.unit_flags3: DFBitfieldType
----@field body_part_relsize_computed 0 (RELSIZES_CALCULATED)
----@field [0] "body_part_relsize_computed" (RELSIZES_CALCULATED)
+---@field body_part_relsize_computed 0 bay12: UNITFLAG3_*
+---@field [0] "body_part_relsize_computed" bay12: UNITFLAG3_*
 ---@field size_modifier_computed 1 (TOTAL_APP_SIZE_MOD_CALCULATED)
 ---@field [1] "size_modifier_computed" (TOTAL_APP_SIZE_MOD_CALCULATED)
 ---@field stuck_weapon_computed 2 (STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
@@ -405,8 +396,8 @@ df.unit_flags3 = {}
 
 ---@class df.unit_flags4: DFBitfield
 ---@field _enum identity.unit_flags4
----@field lazy_goblet_check boolean
----@field [0] boolean
+---@field lazy_goblet_check boolean bay12: UNITFLAG4_*
+---@field [0] boolean bay12: UNITFLAG4_*
 ---@field urgent_goblet_check boolean
 ---@field [1] boolean
 ---@field counts_as_great_beast boolean
@@ -437,8 +428,8 @@ df.unit_flags3 = {}
 ---@field [14] boolean
 
 ---@class identity.unit_flags4: DFBitfieldType
----@field lazy_goblet_check 0
----@field [0] "lazy_goblet_check"
+---@field lazy_goblet_check 0 bay12: UNITFLAG4_*
+---@field [0] "lazy_goblet_check" bay12: UNITFLAG4_*
 ---@field urgent_goblet_check 1
 ---@field [1] "urgent_goblet_check"
 ---@field counts_as_great_beast 2
@@ -468,28 +459,6 @@ df.unit_flags3 = {}
 ---@field portrait_must_be_refreshed 14
 ---@field [14] "portrait_must_be_refreshed"
 df.unit_flags4 = {}
-
----@class df.work_detail_flags: DFBitfield
----@field _enum identity.work_detail_flags
----@field no_modify boolean
----@field [0] boolean
----@field no_everyone_does_this boolean
----@field [1] boolean
----@field enabled boolean by itself is everybody does this, enabled|limited is only selected
----@field [2] boolean by itself is everybody does this, enabled|limited is only selected
----@field limited boolean by itself is nobody does this
----@field [3] boolean by itself is nobody does this
-
----@class identity.work_detail_flags: DFBitfieldType
----@field no_modify 0
----@field [0] "no_modify"
----@field no_everyone_does_this 1
----@field [1] "no_everyone_does_this"
----@field enabled 2 by itself is everybody does this, enabled|limited is only selected
----@field [2] "enabled" by itself is everybody does this, enabled|limited is only selected
----@field limited 3 by itself is nobody does this
----@field [3] "limited" by itself is nobody does this
-df.work_detail_flags = {}
 
 ---@alias df.value_type
 ---| -1 # NONE
@@ -528,8 +497,8 @@ df.work_detail_flags = {}
 ---| 32 # KNOWLEDGE
 
 ---@class identity.value_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: PersonalityValueType
+---@field [-1] "NONE" bay12: PersonalityValueType
 ---@field LAW 0
 ---@field [0] "LAW"
 ---@field LOYALTY 1
@@ -653,7 +622,7 @@ df.goal_type = {}
 df.goal_type._attr_entry_type = {}
 
 ---@class (exact) goal_type_attr_entry_type_fields
----@field short_name DFCompoundField Goal name in up to 20 characters for displaying in fixed width column
+---@field short_name DFCompoundField bay12: PersonalityGoalType
 ---@field achieved_short_name DFCompoundField Achieved goal name in up to 20 characters for displaying in fixed width column
 df.goal_type._attr_entry_type._fields = {}
 
@@ -729,8 +698,8 @@ df.goal_type.attrs = {}
 ---| 49 # ART_INCLINED
 
 ---@class identity.personality_facet_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: PersonalityNFacetType
+---@field [-1] "NONE" bay12: PersonalityNFacetType
 ---@field LOVE_PROPENSITY 0
 ---@field [0] "LOVE_PROPENSITY"
 ---@field HATE_PROPENSITY 1
@@ -842,8 +811,8 @@ df.personality_facet_type = {}
 ---| 5 # DISEASE_RESISTANCE
 
 ---@class identity.physical_attribute_type: DFEnumType
----@field STRENGTH 0
----@field [0] "STRENGTH"
+---@field STRENGTH 0 bay12: PhysicalAttribute
+---@field [0] "STRENGTH" bay12: PhysicalAttribute
 ---@field AGILITY 1
 ---@field [1] "AGILITY"
 ---@field TOUGHNESS 2
@@ -872,8 +841,8 @@ df.physical_attribute_type = {}
 ---| 12 # SOCIAL_AWARENESS
 
 ---@class identity.mental_attribute_type: DFEnumType
----@field ANALYTICAL_ABILITY 0
----@field [0] "ANALYTICAL_ABILITY"
+---@field ANALYTICAL_ABILITY 0 bay12: MentalAttribute
+---@field [0] "ANALYTICAL_ABILITY" bay12: MentalAttribute
 ---@field FOCUS 1
 ---@field [1] "FOCUS"
 ---@field WILLPOWER 2
@@ -914,8 +883,8 @@ df.mental_attribute_type = {}
 ---| 9 # Traumatized
 
 ---@class identity.mood_type: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: Moods
+---@field [-1] "None" bay12: Moods
 ---@field Fey 0
 ---@field [0] "Fey"
 ---@field Secretive 1
@@ -953,30 +922,30 @@ df.mood_type = {}
 ---| 10 # ForlornHaunt
 
 ---@class identity.ghost_type: DFEnumType
----@field None -1
----@field [-1] "None"
----@field MurderousGhost 0
----@field [0] "MurderousGhost"
----@field SadisticGhost 1
----@field [1] "SadisticGhost"
----@field SecretivePoltergeist 2
----@field [2] "SecretivePoltergeist"
----@field EnergeticPoltergeist 3
----@field [3] "EnergeticPoltergeist"
----@field AngryGhost 4
----@field [4] "AngryGhost"
----@field ViolentGhost 5
----@field [5] "ViolentGhost"
----@field MoaningSpirit 6
----@field [6] "MoaningSpirit"
----@field HowlingSpirit 7
----@field [7] "HowlingSpirit"
----@field TroublesomePoltergeist 8
----@field [8] "TroublesomePoltergeist"
----@field RestlessHaunt 9
----@field [9] "RestlessHaunt"
----@field ForlornHaunt 10
----@field [10] "ForlornHaunt"
+---@field None -1 bay12: GhostType
+---@field [-1] "None" bay12: GhostType
+---@field MurderousGhost 0 MURDEROUS
+---@field [0] "MurderousGhost" MURDEROUS
+---@field SadisticGhost 1 SADISTIC
+---@field [1] "SadisticGhost" SADISTIC
+---@field SecretivePoltergeist 2 HIDER
+---@field [2] "SecretivePoltergeist" HIDER
+---@field EnergeticPoltergeist 3 TOPPLER
+---@field [3] "EnergeticPoltergeist" TOPPLER
+---@field AngryGhost 4 POSSESSOR
+---@field [4] "AngryGhost" POSSESSOR
+---@field ViolentGhost 5 ANGRY
+---@field [5] "ViolentGhost" ANGRY
+---@field MoaningSpirit 6 MOANING
+---@field [6] "MoaningSpirit" MOANING
+---@field HowlingSpirit 7 HOWLING
+---@field [7] "HowlingSpirit" HOWLING
+---@field TroublesomePoltergeist 8 THROWER
+---@field [8] "TroublesomePoltergeist" THROWER
+---@field RestlessHaunt 9 HAUNTER_RELATIVES
+---@field [9] "RestlessHaunt" HAUNTER_RELATIVES
+---@field ForlornHaunt 10 HAUNTER_KNOWN_LOCATIONS
+---@field [10] "ForlornHaunt" HAUNTER_KNOWN_LOCATIONS
 df.ghost_type = {}
 
 ---@alias df.animal_training_level
@@ -988,12 +957,12 @@ df.ghost_type = {}
 ---| 5 # ExceptionallyTrained
 ---| 6 # MasterfullyTrained
 ---| 7 # Domesticated
----| 8 # Unk8
+---| 8 # NUM
 ---| 9 # WildUntamed
 
 ---@class identity.animal_training_level: DFEnumType
----@field SemiWild 0
----@field [0] "SemiWild"
+---@field SemiWild 0 bay12: AnimalTrainingStatusType
+---@field [0] "SemiWild" bay12: AnimalTrainingStatusType
 ---@field Trained 1
 ---@field [1] "Trained"
 ---@field WellTrained 2
@@ -1008,22 +977,20 @@ df.ghost_type = {}
 ---@field [6] "MasterfullyTrained"
 ---@field Domesticated 7
 ---@field [7] "Domesticated"
----@field Unk8 8
----@field [8] "Unk8"
----@field WildUntamed 9 Seems to be used as default when not flags1.tame
----@field [9] "WildUntamed" Seems to be used as default when not flags1.tame
+---@field NUM 8
+---@field [8] "NUM"
+---@field WildUntamed 9 Actually NONE, since Toady forgot to set this equal to -1
+---@field [9] "WildUntamed" Actually NONE, since Toady forgot to set this equal to -1
 df.animal_training_level = {}
 
--- (UnitAnnouncementCategory)
 ---@alias df.unit_report_type
 ---| 0 # Combat
 ---| 1 # Sparring
 ---| 2 # Hunting
 
--- (UnitAnnouncementCategory)
 ---@class identity.unit_report_type: DFEnumType
----@field Combat 0
----@field [0] "Combat"
+---@field Combat 0 bay12: UnitAnnouncementCategory
+---@field [0] "Combat" bay12: UnitAnnouncementCategory
 ---@field Sparring 1
 ---@field [1] "Sparring"
 ---@field Hunting 2
@@ -1103,7 +1070,7 @@ df.skill_rating = {}
 df.skill_rating._attr_entry_type = {}
 
 ---@class (exact) skill_rating_attr_entry_type_fields
----@field xp_threshold DFCompoundField
+---@field xp_threshold DFCompoundField Not in DF
 ---@field caption DFCompoundField
 df.skill_rating._attr_entry_type._fields = {}
 
@@ -1131,10 +1098,9 @@ df.skill_rating._attr_entry_type._fields = {}
 ---@field Legendary5 { caption: "Legendary+5" }
 df.skill_rating.attrs = {}
 
--- Used in unit.relations
 ---@alias df.unit_relationship_type
 ---| -1 # None
----| 0 # Pet
+---| 0 # PetOwner
 ---| 1 # Spouse
 ---| 2 # Mother
 ---| 3 # Father
@@ -1143,8 +1109,8 @@ df.skill_rating.attrs = {}
 ---| 6 # Draggee
 ---| 7 # Dragger
 ---| 8 # RiderMount
----| 9 # Lover
----| 10 # unk10
+---| 9 # NUM
+---| 10 # Lover
 ---| 11 # Sibling
 ---| 12 # Child
 ---| 13 # Friend
@@ -1169,7 +1135,7 @@ df.skill_rating.attrs = {}
 ---| 32 # ConsidersBrigand
 ---| 33 # LoyalSoldier
 ---| 34 # ConsidersMonster
----| 35 # ConsidersStoryteller
+---| 35 # ConsidersPreacher
 ---| 36 # ConsidersPoet
 ---| 37 # ConsidersBard
 ---| 38 # ConsidersDancer
@@ -1182,21 +1148,26 @@ df.skill_rating.attrs = {}
 ---| 45 # ConsidersFlatterer
 ---| 46 # Hunter
 ---| 47 # ProtectorOfTheWeak
+---| 48 # TreasureHunter
+---| 49 # Thief
+---| 50 # KnowledgePreserver
+---| 51 # Pet
+---| 52 # Intruder
+---| 53 # ConsidersStoryteller
 
--- Used in unit.relations
 ---@class identity.unit_relationship_type: DFEnumType
----@field None -1 Can be checked through viewscreen_layer_unit_relationshipst
----@field [-1] "None" Can be checked through viewscreen_layer_unit_relationshipst
----@field Pet 0
----@field [0] "Pet"
+---@field None -1 bay12: RelationType
+---@field [-1] "None" bay12: RelationType
+---@field PetOwner 0
+---@field [0] "PetOwner"
 ---@field Spouse 1
 ---@field [1] "Spouse"
 ---@field Mother 2
 ---@field [2] "Mother"
 ---@field Father 3
 ---@field [3] "Father"
----@field LastAttacker 4
----@field [4] "LastAttacker"
+---@field LastAttacker 4 SLAYER
+---@field [4] "LastAttacker" SLAYER
 ---@field GroupLeader 5
 ---@field [5] "GroupLeader"
 ---@field Draggee 6
@@ -1205,10 +1176,10 @@ df.skill_rating.attrs = {}
 ---@field [7] "Dragger"
 ---@field RiderMount 8
 ---@field [8] "RiderMount"
----@field Lover 9
----@field [9] "Lover"
----@field unk10 10
----@field [10] "unk10"
+---@field NUM 9 end of simple types, rest used elsewhere
+---@field [9] "NUM" end of simple types, rest used elsewhere
+---@field Lover 10
+---@field [10] "Lover"
 ---@field Sibling 11
 ---@field [11] "Sibling"
 ---@field Child 12
@@ -1257,8 +1228,8 @@ df.skill_rating.attrs = {}
 ---@field [33] "LoyalSoldier"
 ---@field ConsidersMonster 34
 ---@field [34] "ConsidersMonster"
----@field ConsidersStoryteller 35
----@field [35] "ConsidersStoryteller"
+---@field ConsidersPreacher 35
+---@field [35] "ConsidersPreacher"
 ---@field ConsidersPoet 36
 ---@field [36] "ConsidersPoet"
 ---@field ConsidersBard 37
@@ -1283,6 +1254,18 @@ df.skill_rating.attrs = {}
 ---@field [46] "Hunter"
 ---@field ProtectorOfTheWeak 47
 ---@field [47] "ProtectorOfTheWeak"
+---@field TreasureHunter 48
+---@field [48] "TreasureHunter"
+---@field Thief 49
+---@field [49] "Thief"
+---@field KnowledgePreserver 50
+---@field [50] "KnowledgePreserver"
+---@field Pet 51
+---@field [51] "Pet"
+---@field Intruder 52
+---@field [52] "Intruder"
+---@field ConsidersStoryteller 53
+---@field [53] "ConsidersStoryteller"
 df.unit_relationship_type = {}
 
 ---@alias df.need_type
@@ -1318,8 +1301,8 @@ df.unit_relationship_type = {}
 ---| 29 # AdmireArt
 
 ---@class identity.need_type: DFEnumType
----@field Socialize 0
----@field [0] "Socialize"
+---@field Socialize 0 bay12: PersonalityNeedType
+---@field [0] "Socialize" bay12: PersonalityNeedType
 ---@field DrinkAlcohol 1
 ---@field [1] "DrinkAlcohol"
 ---@field PrayOrMeditate 2
@@ -1381,11 +1364,14 @@ df.unit_relationship_type = {}
 df.need_type = {}
 
 ---@alias df.pronoun_type
+---| -2 # unknown
 ---| -1 # it
 ---| 0 # she
 ---| 1 # he
 
 ---@class identity.pronoun_type: DFEnumType
+---@field unknown -2
+---@field [-2] "unknown"
 ---@field it -1
 ---@field [-1] "it"
 ---@field she 0
@@ -1399,7 +1385,7 @@ df.pronoun_type = {}
 df.pronoun_type._attr_entry_type = {}
 
 ---@class (exact) pronoun_type_attr_entry_type_fields
----@field symbol DFCompoundField Dwarf Fortress calls the functions that use this type to determine the pronouns for abstract_building, so it's not anything biology-related.
+---@field symbol DFCompoundField bay12: Gender<br>Dwarf Fortress calls the functions that use this type to determine the pronouns for abstract_building, so it's not anything biology-related.
 ---@field subject DFCompoundField [PRO_SUB]
 ---@field object DFCompoundField [PRO_OBJ]
 ---@field posessive DFCompoundField [PRO_POS]
@@ -1407,12 +1393,12 @@ df.pronoun_type._attr_entry_type = {}
 df.pronoun_type._attr_entry_type._fields = {}
 
 ---@class pronoun_type_attrs
+---@field unknown { subject: "it", object: "it", posessive: "its", reflexive: "itself" }
 ---@field it { subject: "it", object: "it", posessive: "its", reflexive: "itself" }
 ---@field she { symbol: "\x0c", subject: "she", object: "her", posessive: "her", reflexive: "herself" }
 ---@field he { symbol: "\x0b", subject: "he", object: "him", posessive: "his", reflexive: "himself" }
 df.pronoun_type.attrs = {}
 
--- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
 ---@alias df.mill_pref_type
 ---| -1 # NONE
 ---| 0 # GATE
@@ -1426,10 +1412,9 @@ df.pronoun_type.attrs = {}
 ---| 8 # UNDERGROUND
 ---| 9 # MUSEUM
 
--- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
 ---@class identity.mill_pref_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: MillPrefType
+---@field [-1] "NONE" bay12: MillPrefType
 ---@field GATE 0
 ---@field [0] "GATE"
 ---@field ANYWHERE 1
@@ -1452,7 +1437,6 @@ df.pronoun_type.attrs = {}
 ---@field [9] "MUSEUM"
 df.mill_pref_type = {}
 
--- bay12: UnitUniformModeType
 ---@alias df.unit_uniform_mode_type
 ---| -1 # NONE
 ---| 0 # CLOTHING
@@ -1460,10 +1444,9 @@ df.mill_pref_type = {}
 ---| 2 # TRAINING
 ---| 3 # TRAINING_RANGED
 
--- bay12: UnitUniformModeType
 ---@class identity.unit_uniform_mode_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: UnitUniformModeType
+---@field [-1] "NONE" bay12: UnitUniformModeType
 ---@field CLOTHING 0
 ---@field [0] "CLOTHING"
 ---@field REGULAR 1
@@ -1474,20 +1457,17 @@ df.mill_pref_type = {}
 ---@field [3] "TRAINING_RANGED"
 df.unit_uniform_mode_type = {}
 
--- bay12: MoodStages
 ---@alias df.mood_stage_type
 ---| 0 # INITIAL
 ---| 1 # WORKING
 
--- bay12: MoodStages
 ---@class identity.mood_stage_type: DFEnumType
----@field INITIAL 0
----@field [0] "INITIAL"
+---@field INITIAL 0 bay12: MoodStages, no base type
+---@field [0] "INITIAL" bay12: MoodStages, no base type
 ---@field WORKING 1
 ---@field [1] "WORKING"
 df.mood_stage_type = {}
 
--- bay12: UnitOwner
 ---@alias df.unit_owner_type
 ---| -1 # NONE
 ---| 0 # PET_MASTER
@@ -1501,10 +1481,9 @@ df.mood_stage_type = {}
 ---| 8 # PARENT
 ---| 9 # COMMANDER
 
--- bay12: UnitOwner
 ---@class identity.unit_owner_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: UnitOwner
+---@field [-1] "NONE" bay12: UnitOwner
 ---@field PET_MASTER 0
 ---@field [0] "PET_MASTER"
 ---@field DEAD_PET_MASTER 1
@@ -1527,7 +1506,6 @@ df.mood_stage_type = {}
 ---@field [9] "COMMANDER"
 df.unit_owner_type = {}
 
--- bay12: RiderPositions
 ---@alias df.rider_positions_type
 ---| 0 # STANDARD
 ---| 1 # CARRIED
@@ -1535,10 +1513,9 @@ df.unit_owner_type = {}
 ---| 3 # WAGONPULL2
 ---| 4 # WAGONLEADER
 
--- bay12: RiderPositions
 ---@class identity.rider_positions_type: DFEnumType
----@field STANDARD 0
----@field [0] "STANDARD"
+---@field STANDARD 0 bay12: RiderPositions
+---@field [0] "STANDARD" bay12: RiderPositions
 ---@field CARRIED 1
 ---@field [1] "CARRIED"
 ---@field WAGONPULL1 2
@@ -1551,50 +1528,59 @@ df.rider_positions_type = {}
 
 ---@class df.unit_target_flags: DFBitfield
 ---@field _enum identity.unit_target_flags
----@field INV_BLOCK_WHILE_INCAP boolean if set, the unit will try to remove the helmet of their target
----@field [0] boolean if set, the unit will try to remove the helmet of their target
+---@field INV_BLOCK_WHILE_INCAP boolean bay12: UNIT_TARGET_FLAG_*
+---@field [0] boolean bay12: UNIT_TARGET_FLAG_*
 
 ---@class identity.unit_target_flags: DFBitfieldType
----@field INV_BLOCK_WHILE_INCAP 0 if set, the unit will try to remove the helmet of their target
----@field [0] "INV_BLOCK_WHILE_INCAP" if set, the unit will try to remove the helmet of their target
+---@field INV_BLOCK_WHILE_INCAP 0 bay12: UNIT_TARGET_FLAG_*
+---@field [0] "INV_BLOCK_WHILE_INCAP" bay12: UNIT_TARGET_FLAG_*
 df.unit_target_flags = {}
 
--- bay12: Command
 ---@alias df.command_type
 ---| -1 # NONE
 ---| 0 # MOVE_TO_TILE
 
--- bay12: Command
 ---@class identity.command_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: CommandType
+---@field [-1] "NONE" bay12: CommandType
 ---@field MOVE_TO_TILE 0
 ---@field [0] "MOVE_TO_TILE"
 df.command_type = {}
 
 ---@class df.command_flags: DFBitfield
 ---@field _enum identity.command_flags
----@field DEAD boolean
----@field [0] boolean
+---@field DEAD boolean bay12: COMMAND_FLAG_*
+---@field [0] boolean bay12: COMMAND_FLAG_*
 
 ---@class identity.command_flags: DFBitfieldType
----@field DEAD 0
----@field [0] "DEAD"
+---@field DEAD 0 bay12: COMMAND_FLAG_*
+---@field [0] "DEAD" bay12: COMMAND_FLAG_*
 df.command_flags = {}
 
 ---@class df.unit_command_flags: DFBitfield
 ---@field _enum identity.unit_command_flags
----@field HAVE_COMMAND_GAIT boolean
----@field [0] boolean
+---@field HAVE_COMMAND_GAIT boolean bay12: UNIT_COMMAND_FLAG_*
+---@field [0] boolean bay12: UNIT_COMMAND_FLAG_*
 ---@field AUTOMATED_TACTICAL boolean
 ---@field [1] boolean
 
 ---@class identity.unit_command_flags: DFBitfieldType
----@field HAVE_COMMAND_GAIT 0
----@field [0] "HAVE_COMMAND_GAIT"
+---@field HAVE_COMMAND_GAIT 0 bay12: UNIT_COMMAND_FLAG_*
+---@field [0] "HAVE_COMMAND_GAIT" bay12: UNIT_COMMAND_FLAG_*
 ---@field AUTOMATED_TACTICAL 1
 ---@field [1] "AUTOMATED_TACTICAL"
 df.unit_command_flags = {}
+
+---@class (exact) df.command_move_to_tilest: DFStruct
+---@field _type identity.command_move_to_tilest
+---@field pos df.coord
+
+---@class identity.command_move_to_tilest: DFCompoundType
+---@field _kind 'struct-type'
+df.command_move_to_tilest = {}
+
+---@return df.command_move_to_tilest
+function df.command_move_to_tilest:new() end
 
 ---@class (exact) df.command: DFStruct
 ---@field _type identity.command
@@ -1602,7 +1588,7 @@ df.unit_command_flags = {}
 ---@field commander_unid number References: `df.unit`
 ---@field command_hfid number References: `df.historical_figure`
 ---@field flags df.command_flags following field not saved:
----@field pos df.coord following field saved if first field is 0
+---@field MOVE_TO_TILE df.command_move_to_tilest
 
 ---@class identity.command: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1613,13 +1599,67 @@ function df.command:new() end
 
 ---@class df.unit_active_animation_flags: DFBitfield
 ---@field _enum identity.unit_active_animation_flags
----@field CORPSE boolean
----@field [0] boolean
+---@field CORPSE boolean bay12: UNIT_ACTIVE_ANIMATION_FLAG_*
+---@field [0] boolean bay12: UNIT_ACTIVE_ANIMATION_FLAG_*
 
 ---@class identity.unit_active_animation_flags: DFBitfieldType
----@field CORPSE 0
----@field [0] "CORPSE"
+---@field CORPSE 0 bay12: UNIT_ACTIVE_ANIMATION_FLAG_*
+---@field [0] "CORPSE" bay12: UNIT_ACTIVE_ANIMATION_FLAG_*
 df.unit_active_animation_flags = {}
+
+---@class df.attack_awareness_flags: DFBitfield
+---@field _enum identity.attack_awareness_flags
+---@field ATTACKING_PART_KNOWN boolean bay12: ATTACK_AWARENESS_FLAG_*
+---@field [0] boolean bay12: ATTACK_AWARENESS_FLAG_*
+---@field ATTACK_TARGET_PART_KNOWN boolean
+---@field [1] boolean
+---@field STRIKE_TIME_KNOWN boolean
+---@field [2] boolean
+---@field STRIKE_CHARACTER_KNOWN boolean
+---@field [3] boolean
+
+---@class identity.attack_awareness_flags: DFBitfieldType
+---@field ATTACKING_PART_KNOWN 0 bay12: ATTACK_AWARENESS_FLAG_*
+---@field [0] "ATTACKING_PART_KNOWN" bay12: ATTACK_AWARENESS_FLAG_*
+---@field ATTACK_TARGET_PART_KNOWN 1
+---@field [1] "ATTACK_TARGET_PART_KNOWN"
+---@field STRIKE_TIME_KNOWN 2
+---@field [2] "STRIKE_TIME_KNOWN"
+---@field STRIKE_CHARACTER_KNOWN 3
+---@field [3] "STRIKE_CHARACTER_KNOWN"
+df.attack_awareness_flags = {}
+
+---@alias df.walker_goal_type
+---| -1 # NONE
+---| 0 # STROLL
+---| 1 # GET_WATER
+---| 2 # VISIT_TEMPLE
+---| 3 # VISIT_TAVERN
+---| 4 # PATROL
+---| 5 # VISIT_LIBRARY
+---| 6 # HOLD_TERF
+---| 7 # VISIT_SHRINE
+
+---@class identity.walker_goal_type: DFEnumType
+---@field NONE -1 bay12: SRWalkerGoalType
+---@field [-1] "NONE" bay12: SRWalkerGoalType
+---@field STROLL 0
+---@field [0] "STROLL"
+---@field GET_WATER 1
+---@field [1] "GET_WATER"
+---@field VISIT_TEMPLE 2
+---@field [2] "VISIT_TEMPLE"
+---@field VISIT_TAVERN 3
+---@field [3] "VISIT_TAVERN"
+---@field PATROL 4
+---@field [4] "PATROL"
+---@field VISIT_LIBRARY 5
+---@field [5] "VISIT_LIBRARY"
+---@field HOLD_TERF 6
+---@field [6] "HOLD_TERF"
+---@field VISIT_SHRINE 7
+---@field [7] "VISIT_SHRINE"
+df.walker_goal_type = {}
 
 ---@class (exact) df.opinion_infost: DFStruct
 ---@field _type identity.opinion_infost
@@ -1675,14 +1715,16 @@ function _opinion_infost_entity_opinion:erase(index) end
 ---@field schedule_id number References: `df.schedule_info`
 ---@field civ_id number References: `df.historical_entity`
 ---@field population_id number References: `df.entity_population`
----@field breed_id number
+---@field breed_id number References: `df.breed`
 ---@field cultural_identity number References: `df.cultural_identity`
 ---@field invasion_id number References: `df.invasion_info`
 ---@field patrol_route df.coord_path used by necromancers for corpse locations, siegers etc
----@field patrol_index number from 23a
+---@field patrol_index number
 ---@field specific_refs _unit_specific_refs
 ---@field general_refs _unit_general_refs
 ---@field military df.unit.T_military
+---@field uniform df.unit.T_uniform
+---@field individual_drills DFNumberVector
 ---@field social_activities DFNumberVector
 ---@field conversations DFNumberVector
 ---@field activities DFNumberVector bay12: conflict_activity_id
@@ -1709,8 +1751,9 @@ function _opinion_infost_entity_opinion:erase(index) end
 ---@field following df.unit
 ---@field owner_type df.unit_owner_type invalid unless following
 ---@field relationship_ids DFEnumVector<df.unit_relationship_type, number>
----@field mount_type df.rider_positions_type TODO: find correct location and enumify
+---@field mount_type df.rider_positions_type bay12: riderposition
 ---@field last_hit df.history_hit_item
+---@field on_item_id number not real compound<br>References: `df.item`
 ---@field inventory _unit_inventory
 ---@field owned_items DFNumberVector
 ---@field traded_items DFNumberVector items brought to trade depot
@@ -1732,14 +1775,13 @@ function _opinion_infost_entity_opinion:erase(index) end
 ---@field syndromes df.unit.T_syndromes
 ---@field reports df.unit.T_reports
 ---@field health df.unit_health_info
----@field used_items _unit_used_items unit_patient_profilest *patient_profile
+---@field used_items _unit_used_items Contains worn clothes, armor, weapons, arrows fired by archers
 ---@field enemy df.unit.T_enemy
 ---@field healing_rate DFNumberVector
 ---@field effective_rate number bay12: heal_rate_recuperation
 ---@field tendons_heal number
 ---@field ligaments_heal number
----@field weight number
----@field weight_fraction number 1e-6
+---@field weight df.massst
 ---@field burrows DFNumberVector
 ---@field inactive_burrows DFNumberVector
 ---@field vision_cone DFPointer<integer>
@@ -1749,8 +1791,8 @@ function _opinion_infost_entity_opinion:erase(index) end
 ---@field sheet_icon_texpos number
 ---@field texpos_currently_in_use boolean[][]
 ---@field portrait_texpos number
----@field cached_glowtile_type number
----@field pool_index integer
+---@field cached_glowtile_type df.unit.T_cached_glowtile_type bay12: unit_cache_vars
+---@field pool_index integer protected:
 ---@field mtx lightuserdata
 local unit
 
@@ -1787,7 +1829,7 @@ function df.unit.get_vector() end
 
 ---@class (exact) df.unit.T_path: DFStruct
 ---@field _type identity.unit.path
----@field dest df.coord
+---@field dest df.coord not a compound
 ---@field goal df.unit_path_goal
 ---@field path df.coord_path
 
@@ -1800,7 +1842,7 @@ function df.unit.T_path:new() end
 
 ---@class (exact) df.unit.T_meeting: DFStruct
 ---@field _type identity.unit.meeting
----@field state df.unit.T_meeting.T_state
+---@field state df.unit.T_meeting.T_state bay12: unitplotst
 ---@field target_entity number References: `df.historical_entity`
 ---@field target_role df.entity_position_responsibility
 
@@ -1811,15 +1853,17 @@ df.unit.T_meeting = {}
 ---@return df.unit.T_meeting
 function df.unit.T_meeting:new() end
 
+-- bay12: unitplotst
 ---@alias df.unit.T_meeting.T_state
 ---| 0 # SelectNoble
 ---| 1 # FollowNoble
 ---| 2 # DoMeeting
 ---| 3 # LeaveMap
 
+-- bay12: unitplotst
 ---@class identity.unit.meeting.state: DFEnumType
----@field SelectNoble 0
----@field [0] "SelectNoble"
+---@field SelectNoble 0 bay12: ???
+---@field [0] "SelectNoble" bay12: ???
 ---@field FollowNoble 1
 ---@field [1] "FollowNoble"
 ---@field DoMeeting 2
@@ -1862,17 +1906,10 @@ function _unit_general_refs:erase(index) end
 
 ---@class (exact) df.unit.T_military: DFStruct
 ---@field _type identity.unit.military
----@field squad_id number References: `df.squad`
+---@field squad_id number bay12: squad_infost<br>References: `df.squad`
 ---@field squad_position number
 ---@field patrol_cooldown number
 ---@field patrol_timer number
----@field cur_uniform df.unit_uniform_mode_type
----@field clothing_item_id DFNumberVector
----@field uniforms DFEnumVector<df.unit_uniform_mode_type, number>
----@field pickup_flags df.unit.T_military.T_pickup_flags
----@field uniform_pickup DFNumberVector
----@field uniform_drop DFNumberVector
----@field individual_drills DFNumberVector
 
 ---@class identity.unit.military: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1881,19 +1918,35 @@ df.unit.T_military = {}
 ---@return df.unit.T_military
 function df.unit.T_military:new() end
 
----@class df.unit.T_military.T_pickup_flags: DFBitfield
----@field _enum identity.unit.military.pickup_flags
----@field update boolean
----@field [0] boolean
+---@class (exact) df.unit.T_uniform: DFStruct
+---@field _type identity.unit.uniform
+---@field cur_uniform df.unit_uniform_mode_type bay12: unit_clothing_infost
+---@field clothing_item_id DFNumberVector
+---@field uniforms DFEnumVector<df.unit_uniform_mode_type, number>
+---@field pickup_flags df.unit.T_uniform.T_pickup_flags
+---@field uniform_pickup DFNumberVector
+---@field uniform_drop DFNumberVector
 
----@class identity.unit.military.pickup_flags: DFBitfieldType
----@field update 0
----@field [0] "update"
-df.unit.T_military.T_pickup_flags = {}
+---@class identity.unit.uniform: DFCompoundType
+---@field _kind 'struct-type'
+df.unit.T_uniform = {}
+
+---@return df.unit.T_uniform
+function df.unit.T_uniform:new() end
+
+---@class df.unit.T_uniform.T_pickup_flags: DFBitfield
+---@field _enum identity.unit.uniform.pickup_flags
+---@field update boolean bay12: UNIT_CLOTHING_FLAG_*
+---@field [0] boolean bay12: UNIT_CLOTHING_FLAG_*
+
+---@class identity.unit.uniform.pickup_flags: DFBitfieldType
+---@field update 0 bay12: UNIT_CLOTHING_FLAG_*
+---@field [0] "update" bay12: UNIT_CLOTHING_FLAG_*
+df.unit.T_uniform.T_pickup_flags = {}
 
 ---@class (exact) df.unit.T_animal: DFStruct
 ---@field _type identity.unit.animal
----@field population df.world_population_ref
+---@field population df.world_population_ref not a compound
 ---@field leave_countdown number once 0, it heads for the edge and leaves
 ---@field vanish_countdown number once 0, it vanishes in a puff of smoke
 
@@ -1906,7 +1959,7 @@ function df.unit.T_animal:new() end
 
 ---@class (exact) df.unit.T_opponent: DFStruct
 ---@field _type identity.unit.opponent
----@field unit_id number This was used by a vampire scared of cave creatures and doing FleeFromOpponent panic<br>References: `df.unit`
+---@field unit_id number not a compound<br>This was used by a vampire scared of cave creatures and doing FleeFromOpponent panic<br>References: `df.unit`
 ---@field unit_pos df.coord
 ---@field timer number
 
@@ -1951,7 +2004,7 @@ function _unit_owned_buildings:erase(index) end
 
 ---@class (exact) df.unit.T_job: DFStruct
 ---@field _type identity.unit.job
----@field account number
+---@field account number not a compound
 ---@field satisfaction number bay12: seasonpay: amount earned recently for jobs
 ---@field random_appearance_number integer
 ---@field hunt_target df.unit
@@ -1961,7 +2014,7 @@ function _unit_owned_buildings:erase(index) end
 ---@field vision_y number
 ---@field vision_z number
 ---@field vision_angle number
----@field move_momentum_dir number
+---@field move_momentum_dir integer
 ---@field gait_buildup number bay12: move_momentum_perc
 ---@field climb_hold df.coord
 ---@field hold_itid number References: `df.item`
@@ -1979,15 +2032,15 @@ function df.unit.T_job:new() end
 
 ---@class (exact) df.unit.T_body: DFStruct
 ---@field _type identity.unit.body
----@field components df.body_component_info
----@field wounds _unit_body_wounds
+---@field components df.body_component_info not a compound
+---@field wounds _unit_body_wounds not real compound
 ---@field wound_next_id number
----@field unk_39c number[]
+---@field systemic_wound_id DFEnumVector<df.wound_effect_type, number>
 ---@field body_plan df.caste_body_info
 ---@field weapon_bp number
 ---@field physical_attrs DFEnumVector<df.physical_attribute_type, df.unit_attribute>
 ---@field size_info df.body_size_info
----@field blood_max integer
+---@field blood_max integer not real compound
 ---@field blood_count integer
 ---@field infection_level number GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
 ---@field spatters _unit_body_spatters
@@ -2016,16 +2069,16 @@ function _unit_body_wounds:insert(index, item) end
 function _unit_body_wounds:erase(index) end
 
 ---@class _unit_body_spatters: DFContainer
----@field [integer] df.spatter
+---@field [integer] df.unit_spatter
 local _unit_body_spatters
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.spatter>
+---@return DFPointer<df.unit_spatter>
 function _unit_body_spatters:_field(index) end
 
 ---@param index '#'|integer
----@param item df.spatter
+---@param item df.unit_spatter
 function _unit_body_spatters:insert(index, item) end
 
 ---@param index integer
@@ -2033,10 +2086,10 @@ function _unit_body_spatters:erase(index) end
 
 ---@class (exact) df.unit.T_appearance: DFStruct
 ---@field _type identity.unit.appearance
----@field body_modifiers DFNumberVector
+---@field body_modifiers DFNumberVector not a compound
 ---@field bp_modifiers DFNumberVector
 ---@field size_modifier number product of all H/B/LENGTH body modifiers, in %
----@field tissue_style DFNumberVector Something for bp_appearance.layers_*
+---@field tissue_style _unit_appearance_tissue_style Something for bp_appearance.layers_*
 ---@field tissue_style_civ_id DFNumberVector
 ---@field tissue_style_id DFNumberVector
 ---@field tissue_style_type DFNumberVector
@@ -2050,6 +2103,22 @@ df.unit.T_appearance = {}
 
 ---@return df.unit.T_appearance
 function df.unit.T_appearance:new() end
+
+---@class _unit_appearance_tissue_style: DFContainer
+---@field [integer] df.tissue_style_type
+local _unit_appearance_tissue_style
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.tissue_style_type>
+function _unit_appearance_tissue_style:_field(index) end
+
+---@param index '#'|integer
+---@param item df.tissue_style_type
+function _unit_appearance_tissue_style:insert(index, item) end
+
+---@param index integer
+function _unit_appearance_tissue_style:erase(index) end
 
 ---@class _unit_actions: DFContainer
 ---@field [integer] df.unit_action
@@ -2069,14 +2138,14 @@ function _unit_actions:erase(index) end
 
 ---@class (exact) df.unit.T_counters: DFStruct
 ---@field _type identity.unit.counters
----@field think_counter number
----@field job_counter number // 53c decrements every job_counter reroll, set when changing jobs
----@field swap_counter number // 540 current_job unit/walk done when reach -1, decremented every tick
+---@field think_counter number not a compound:
+---@field job_counter number movewait
+---@field swap_counter number
 ---@field death_cause df.death_type
 ---@field death_id number References: `df.incident`
 ---@field winded number
 ---@field stunned number
----@field unconscious number // 54c decrements every tick, unstun at 0
+---@field unconscious number
 ---@field suffocation number counts up while winded, results in death
 ---@field webbed number
 ---@field guts_trail1 df.coord When gutted:
@@ -2103,8 +2172,8 @@ function df.unit.T_counters:new() end
 ---| 4 # Oblivious
 
 ---@class identity.unit.counters.soldier_mood: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: SoldierMoodType, actually int32 base type but overridden to int16 here
+---@field [-1] "None" bay12: SoldierMoodType, actually int32 base type but overridden to int16 here
 ---@field MartialTrance 0
 ---@field [0] "MartialTrance"
 ---@field Enraged 1
@@ -2119,7 +2188,7 @@ df.unit.T_counters.T_soldier_mood = {}
 
 ---@class (exact) df.unit.T_curse: DFStruct
 ---@field _type identity.unit.curse
----@field flags integer moved from end of counters in 0.43.05
+---@field flags integer not a compound
 ---@field add_tags1 df.cie_add_tag_mask1
 ---@field rem_tags1 df.cie_add_tag_mask1
 ---@field add_tags2 df.cie_add_tag_mask2
@@ -2128,8 +2197,14 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field name string
 ---@field name_plural string
 ---@field name_adjective string
----@field sym_and_color1 integer
----@field sym_and_color2 integer
+---@field display_tile integer
+---@field display_f number
+---@field display_b number
+---@field display_br number
+---@field flash_tile integer
+---@field flash_f number
+---@field flash_b number
+---@field flash_br number
 ---@field flash_period integer
 ---@field flash_time2 integer
 ---@field body_appearance DFNumberVector
@@ -2139,7 +2214,7 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field attr_change df.curse_attr_change
 ---@field luck_mul_percent integer
 ---@field erratic_level number
----@field interaction_id DFNumberVector
+---@field interaction_id DFNumberVector bay12: unit_usable_interactionst
 ---@field interaction_time DFNumberVector
 ---@field interaction_delay DFNumberVector
 ---@field time_on_site number
@@ -2155,7 +2230,7 @@ function df.unit.T_curse:new() end
 
 ---@class (exact) df.unit.T_counters2: DFStruct
 ---@field _type identity.unit.counters2
----@field paralysis integer
+---@field paralysis integer not a compound
 ---@field numbness integer
 ---@field fever integer
 ---@field exhaustion integer
@@ -2176,7 +2251,7 @@ function df.unit.T_counters2:new() end
 
 ---@class (exact) df.unit.T_status: DFStruct
 ---@field _type identity.unit.status
----@field misc_traits _unit_status_misc_traits
+---@field misc_traits _unit_status_misc_traits not a compound
 ---@field eat_history DFPointer<integer>
 ---@field demand_timeout number also used for wagon trampling
 ---@field mandate_timeout number
@@ -2356,7 +2431,7 @@ function _unit_status_commands:erase(index) end
 
 ---@class (exact) df.unit.T_status2: DFStruct
 ---@field _type identity.unit.status2
----@field limbs_stand_max number
+---@field limbs_stand_max number not a compound
 ---@field limbs_stand_count number
 ---@field limbs_grasp_max number
 ---@field limbs_grasp_count number
@@ -2393,7 +2468,7 @@ function _unit_status2_body_part_temperature:erase(index) end
 
 ---@class (exact) df.unit.T_syndrome_advancement: DFStruct
 ---@field _type identity.unit.syndrome_advancement
----@field pre_hf_active_interaction_index DFNumberVector
+---@field pre_hf_active_interaction_index DFNumberVector not a compound
 ---@field pre_hf_active_interaction_effect_index DFNumberVector
 
 ---@class identity.unit.syndrome_advancement: DFCompoundType
@@ -2405,7 +2480,7 @@ function df.unit.T_syndrome_advancement:new() end
 
 ---@class (exact) df.unit.T_syndromes: DFStruct
 ---@field _type identity.unit.syndromes
----@field active _unit_syndromes_active Sorted by type:
+---@field active _unit_syndromes_active not a compound<br>Sorted by type:
 ---@field reinfection_type DFNumberVector Seems to be incremented every new infection:
 ---@field reinfection_count DFNumberVector
 
@@ -2434,7 +2509,7 @@ function _unit_syndromes_active:erase(index) end
 
 ---@class (exact) df.unit.T_reports: DFStruct
 ---@field _type identity.unit.reports
----@field log DFEnumVector<df.unit_report_type, number>
+---@field log DFEnumVector<df.unit_report_type, number> not a compound
 ---@field last_year DFEnumVector<df.unit_report_type, number> Garbage when the matching vector is empty:
 ---@field last_year_tick DFEnumVector<df.unit_report_type, number>
 
@@ -2461,21 +2536,19 @@ function _unit_used_items:insert(index, item) end
 ---@param index integer
 function _unit_used_items:erase(index) end
 
--- svector((item_familiarityst *)) item_familiarity
--- !!this is not actually a compound!!
 ---@class (exact) df.unit.T_enemy: DFStruct
 ---@field _type identity.unit.enemy
----@field sound_cooldown DFNumberVector
----@field undead DFPointer<integer> svector((int32_t)) sound_timer
----@field were_race number unit_active_animation *active_animation<br>References: `df.creature_raw`
+---@field sound_cooldown DFNumberVector not a compound
+---@field undead DFPointer<integer>
+---@field were_race number References: `df.creature_raw`
 ---@field were_caste number transform_race<br>References: `df.caste_raw`
 ---@field normal_race number transform_caste<br>References: `df.creature_raw`
 ---@field normal_caste number birth_race<br>References: `df.caste_raw`
----@field interaction number birth_caste
----@field appearances _unit_enemy_appearances retraction_body_action_index (???)
----@field witness_reports _unit_enemy_witness_reports svector((physical_formst *)) physical_form
+---@field retraction_interaction number birth_caste
+---@field appearances _unit_enemy_appearances
+---@field witness_reports _unit_enemy_witness_reports
 ---@field rumor _unit_enemy_rumor
----@field gait_index DFEnumVector<df.gait_type, number> rumor_infost rumor_info
+---@field gait_index DFEnumVector<df.gait_type, number>
 ---@field attack_awareness df.unit.T_enemy.T_attack_awareness
 ---@field detection_info df.unit.T_enemy.T_detection_info
 ---@field sr_pop_spec DFPointer<integer>
@@ -2495,13 +2568,13 @@ function _unit_used_items:erase(index) end
 ---@field caste_flags _unit_enemy_caste_flags
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
----@field motor_nervenet DFIntegerVector
----@field sensory_nervenet DFIntegerVector
+---@field motor_nervenet DFNumberVector
+---@field sensory_nervenet DFNumberVector
 ---@field body_part_relsize DFNumberVector 0 blocks pains, nausea
----@field body_part_useable DFIntegerVector
----@field body_part_base_ins DFIntegerVector
----@field body_part_clothing_ins DFIntegerVector
----@field invorder_bp_start DFIntegerVector
+---@field body_part_useable DFNumberVector
+---@field body_part_base_ins DFNumberVector
+---@field body_part_clothing_ins DFNumberVector
+---@field invorder_bp_start DFNumberVector
 ---@field invorder_item_id DFNumberVector
 ---@field invorder_coverage DFNumberVector
 
@@ -2560,14 +2633,13 @@ function _unit_enemy_rumor:insert(index, item) end
 ---@param index integer
 function _unit_enemy_rumor:erase(index) end
 
--- int32_t gait_index[GAITNUM]
 ---@class (exact) df.unit.T_enemy.T_attack_awareness: DFStruct
 ---@field _type identity.unit.enemy.attack_awareness
----@field unit_id number[] attack_awarenessst
+---@field unit_id number[] bay12: attack_awarenessst
 ---@field unit_mvid number[]
 ---@field precise_phase number[] unused elements probably uninitialized
 ---@field abs_season number[] unused elements probably uninitialized
----@field flag number[] unused elements probably uninitialized
+---@field flag df.attack_awareness_flags[] unused elements probably uninitialized
 
 ---@class identity.unit.enemy.attack_awareness: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2578,7 +2650,7 @@ function df.unit.T_enemy.T_attack_awareness:new() end
 
 ---@class (exact) df.unit.T_enemy.T_detection_info: DFStruct
 ---@field _type identity.unit.enemy.detection_info
----@field last_spotted_unid number[] detection_infost
+---@field last_spotted_unid number[] bay12: detection_infost
 ---@field last_spotted_unid_num number
 
 ---@class identity.unit.enemy.detection_info: DFCompoundType
@@ -2620,10 +2692,29 @@ function _unit_occupations:insert(index, item) end
 ---@param index integer
 function _unit_occupations:erase(index) end
 
+-- bay12: unit_cache_vars
+---@alias df.unit.T_cached_glowtile_type
+---| -1 # NEED_CHECK
+---| 0 # NO_GLOW
+---| 1 # OTHER
+---| 2 # EYES
+
+-- bay12: unit_cache_vars
+---@class identity.unit.cached_glowtile_type: DFEnumType
+---@field NEED_CHECK -1 bay12: GlowtileType, an enum-struct with defined size!
+---@field [-1] "NEED_CHECK" bay12: GlowtileType, an enum-struct with defined size!
+---@field NO_GLOW 0
+---@field [0] "NO_GLOW"
+---@field OTHER 1
+---@field [1] "OTHER"
+---@field EYES 2
+---@field [2] "EYES"
+df.unit.T_cached_glowtile_type = {}
+
 ---@class df.witness_report_flags: DFBitfield
 ---@field _enum identity.witness_report_flags
----@field HAVE_SET_RPHS boolean
----@field [0] boolean
+---@field HAVE_SET_RPHS boolean bay12: HF_REP_QUERY_FLAG_*
+---@field [0] boolean bay12: HF_REP_QUERY_FLAG_*
 ---@field DO_NOT_SEARCH_WI_IF_NULL boolean
 ---@field [1] boolean
 ---@field INCIDENT_NO_RUMOR_DATA_IF_WI_SET boolean
@@ -2632,8 +2723,8 @@ function _unit_occupations:erase(index) end
 ---@field [3] boolean
 
 ---@class identity.witness_report_flags: DFBitfieldType
----@field HAVE_SET_RPHS 0
----@field [0] "HAVE_SET_RPHS"
+---@field HAVE_SET_RPHS 0 bay12: HF_REP_QUERY_FLAG_*
+---@field [0] "HAVE_SET_RPHS" bay12: HF_REP_QUERY_FLAG_*
 ---@field DO_NOT_SEARCH_WI_IF_NULL 1
 ---@field [1] "DO_NOT_SEARCH_WI_IF_NULL"
 ---@field INCIDENT_NO_RUMOR_DATA_IF_WI_SET 2
@@ -2679,8 +2770,8 @@ function df.witness_incidentst:new() end
 ---| 7 # ToppleBuilding
 
 ---@class identity.ghost_goal: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 bay12: GhostActivityType
+---@field [-1] "None" bay12: GhostActivityType
 ---@field ScareToDeath 0
 ---@field [0] "ScareToDeath"
 ---@field Stun 1
@@ -2702,12 +2793,12 @@ df.ghost_goal = {}
 ---@class (exact) df.unit_ghost_info: DFStruct
 ---@field _type identity.unit_ghost_info
 ---@field type df.ghost_type
----@field type2 df.ghost_type seems to have same value as type
+---@field initial_type df.ghost_type at start of raise
 ---@field goal df.ghost_goal
 ---@field target df.unit_ghost_info.T_target
 ---@field misplace_pos df.coord
 ---@field action_timer number time since last action
----@field unk_18 number
+---@field activity_timer number
 ---@field flags df.unit_ghost_info.T_flags
 ---@field death_x number in tiles, global to world
 ---@field death_y number
@@ -2722,7 +2813,7 @@ function df.unit_ghost_info:new() end
 
 ---@class (exact) df.unit_ghost_info.T_target: DFStruct
 ---@field _type identity.unit_ghost_info.target
----@field unit number References: `df.unit`
+---@field unit number based on goal<br>References: `df.unit`
 ---@field item number References: `df.item`
 ---@field building number References: `df.building`
 
@@ -2735,14 +2826,14 @@ function df.unit_ghost_info.T_target:new() end
 
 ---@class df.unit_ghost_info.T_flags: DFBitfield
 ---@field _enum identity.unit_ghost_info.flags
----@field announced boolean
----@field [0] boolean
+---@field announced boolean bay12: GHOST_PROFILE_FLAG_*
+---@field [0] boolean bay12: GHOST_PROFILE_FLAG_*
 ---@field was_at_rest boolean
 ---@field [1] boolean
 
 ---@class identity.unit_ghost_info.flags: DFBitfieldType
----@field announced 0
----@field [0] "announced"
+---@field announced 0 bay12: GHOST_PROFILE_FLAG_*
+---@field [0] "announced" bay12: GHOST_PROFILE_FLAG_*
 ---@field was_at_rest 1
 ---@field [1] "was_at_rest"
 df.unit_ghost_info.T_flags = {}
@@ -2788,16 +2879,16 @@ function df.unit_inventory_item:new() end
 ---| 10 # Strapped
 
 ---@class identity.unit_inventory_item.mode: DFEnumType
----@field Hauled 0
----@field [0] "Hauled"
+---@field Hauled 0 bay12: InvItemRoleType
+---@field [0] "Hauled" bay12: InvItemRoleType
 ---@field Weapon 1 also shield, crutch
 ---@field [1] "Weapon" also shield, crutch
 ---@field Worn 2 quiver
 ---@field [2] "Worn" quiver
 ---@field Piercing 3
 ---@field [3] "Piercing"
----@field Flask 4 attached to clothing
----@field [4] "Flask" attached to clothing
+---@field Flask 4 WORN_STUFFED
+---@field [4] "Flask" WORN_STUFFED
 ---@field WrappedAround 5 e.g. bandage
 ---@field [5] "WrappedAround" e.g. bandage
 ---@field StuckIn 6
@@ -2840,7 +2931,7 @@ function df.unit_attribute:new() end
 ---@field symptoms _unit_syndrome_symptoms
 ---@field reinfection_count number set from unit.reinfection_count[i]++
 ---@field flags df.unit_syndrome.T_flags
----@field unk4 DFNumberVector
+---@field failed_diagnosis_unid DFNumberVector
 
 ---@class identity.unit_syndrome: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2867,25 +2958,31 @@ function _unit_syndrome_symptoms:erase(index) end
 
 ---@class df.unit_syndrome.T_flags: DFBitfield
 ---@field _enum identity.unit_syndrome.flags
----@field is_sick boolean cause rq_diagnosis:
----@field [0] boolean cause rq_diagnosis:
----@field is_sick_low boolean less sick? fever: 5-19 low, 20-* full
----@field [1] boolean less sick? fever: 5-19 low, 20-* full
----@field [2] boolean prevent rq_diagnosis or needs_healthcare:
+---@field is_sick boolean bay12: ACTIVE_SYNDROME_FLAG_*
+---@field [0] boolean bay12: ACTIVE_SYNDROME_FLAG_*
+---@field is_sick_low boolean care needed
+---@field [1] boolean care needed
+---@field diagnosis_attempted boolean
+---@field [2] boolean
+---@field diagnosed boolean
 ---@field [3] boolean
 
 ---@class identity.unit_syndrome.flags: DFBitfieldType
----@field is_sick 0 cause rq_diagnosis:
----@field [0] "is_sick" cause rq_diagnosis:
----@field is_sick_low 1 less sick? fever: 5-19 low, 20-* full
----@field [1] "is_sick_low" less sick? fever: 5-19 low, 20-* full
+---@field is_sick 0 bay12: ACTIVE_SYNDROME_FLAG_*
+---@field [0] "is_sick" bay12: ACTIVE_SYNDROME_FLAG_*
+---@field is_sick_low 1 care needed
+---@field [1] "is_sick_low" care needed
+---@field diagnosis_attempted 2
+---@field [2] "diagnosis_attempted"
+---@field diagnosed 3
+---@field [3] "diagnosed"
 df.unit_syndrome.T_flags = {}
 
 ---@alias df.wound_effect_type
 ---| 0 # Bruise
----| 1 # Burn
+---| 1 # Heat
 ---| 2 # Frostbite
----| 3 # Burn2
+---| 3 # Burn
 ---| 4 # Melting
 ---| 5 # Boiling
 ---| 6 # Freezing
@@ -2896,12 +2993,12 @@ df.unit_syndrome.T_flags = {}
 ---@class identity.wound_effect_type: DFEnumType
 ---@field Bruise 0 bay12: WoundDamageType
 ---@field [0] "Bruise" bay12: WoundDamageType
----@field Burn 1
----@field [1] "Burn"
+---@field Heat 1
+---@field [1] "Heat"
 ---@field Frostbite 2
 ---@field [2] "Frostbite"
----@field Burn2 3
----@field [3] "Burn2"
+---@field Burn 3
+---@field [3] "Burn"
 ---@field Melting 4
 ---@field [4] "Melting"
 ---@field Boiling 5
@@ -2918,8 +3015,8 @@ df.wound_effect_type = {}
 
 ---@class df.wound_damage_flags1: DFBitfield
 ---@field _enum identity.wound_damage_flags1
----@field cut boolean
----@field [0] boolean
+---@field cut boolean bay12: UNIT_WOUND_LAYER_FLAG_*
+---@field [0] boolean bay12: UNIT_WOUND_LAYER_FLAG_*
 ---@field smashed boolean
 ---@field [1] boolean
 ---@field scar_cut boolean straight scar
@@ -2984,8 +3081,8 @@ df.wound_effect_type = {}
 ---@field [31] boolean
 
 ---@class identity.wound_damage_flags1: DFBitfieldType
----@field cut 0
----@field [0] "cut"
+---@field cut 0 bay12: UNIT_WOUND_LAYER_FLAG_*
+---@field [0] "cut" bay12: UNIT_WOUND_LAYER_FLAG_*
 ---@field smashed 1
 ---@field [1] "smashed"
 ---@field scar_cut 2 straight scar
@@ -3052,16 +3149,16 @@ df.wound_damage_flags1 = {}
 
 ---@class df.wound_damage_flags2: DFBitfield
 ---@field _enum identity.wound_damage_flags2
----@field needs_setting boolean
----@field [0] boolean
+---@field needs_setting boolean bay12: UNIT_WOUND_LAYER_FLAG2_*
+---@field [0] boolean bay12: UNIT_WOUND_LAYER_FLAG2_*
 ---@field entire_surface boolean
 ---@field [1] boolean
 ---@field gelded boolean
 ---@field [2] boolean
 
 ---@class identity.wound_damage_flags2: DFBitfieldType
----@field needs_setting 0
----@field [0] "needs_setting"
+---@field needs_setting 0 bay12: UNIT_WOUND_LAYER_FLAG2_*
+---@field [0] "needs_setting" bay12: UNIT_WOUND_LAYER_FLAG2_*
 ---@field entire_surface 1
 ---@field [1] "entire_surface"
 ---@field gelded 2
@@ -3084,8 +3181,8 @@ df.wound_damage_flags2 = {}
 ---@field numbness number
 ---@field fever number
 ---@field curse df.wound_curse_info
----@field unk_v42_1 number
----@field unk_v42_2 number
+---@field last_paralysis number
+---@field last_numbness number
 
 ---@class identity.unit_wound: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3112,9 +3209,9 @@ function _unit_wound_parts:erase(index) end
 
 ---@class df.unit_wound.T_flags: DFBitfield
 ---@field _enum identity.unit_wound.flags
----@field severed_part boolean
----@field [0] boolean
----@field mortal_wound boolean
+---@field severed_part boolean bay12: UNIT_WOUND_FLAG_*
+---@field [0] boolean bay12: UNIT_WOUND_FLAG_*
+---@field popped_out boolean
 ---@field [1] boolean
 ---@field stuck_weapon boolean
 ---@field [2] boolean
@@ -3126,10 +3223,10 @@ function _unit_wound_parts:erase(index) end
 ---@field [5] boolean
 
 ---@class identity.unit_wound.flags: DFBitfieldType
----@field severed_part 0
----@field [0] "severed_part"
----@field mortal_wound 1
----@field [1] "mortal_wound"
+---@field severed_part 0 bay12: UNIT_WOUND_FLAG_*
+---@field [0] "severed_part" bay12: UNIT_WOUND_FLAG_*
+---@field popped_out 1
+---@field [1] "popped_out"
 ---@field stuck_weapon 2
 ---@field [2] "stuck_weapon"
 ---@field diagnosed 3
@@ -3154,9 +3251,20 @@ df.curse_attr_change = {}
 ---@return df.curse_attr_change
 function df.curse_attr_change:new() end
 
+---@class (exact) df.soul_personality_changest: DFStruct
+---@field _type identity.soul_personality_changest
+---@field traits DFEnumVector<df.personality_facet_type, number>
+
+---@class identity.soul_personality_changest: DFCompoundType
+---@field _kind 'struct-type'
+df.soul_personality_changest = {}
+
+---@return df.soul_personality_changest
+function df.soul_personality_changest:new() end
+
 ---@class (exact) df.wound_curse_info: DFStruct
 ---@field _type identity.wound_curse_info
----@field unk_v40_1 number
+---@field flags df.wound_curse_info.T_flags
 ---@field add_tags1 df.cie_add_tag_mask1
 ---@field rem_tags1 df.cie_add_tag_mask1
 ---@field add_tags2 df.cie_add_tag_mask2
@@ -3165,18 +3273,23 @@ function df.curse_attr_change:new() end
 ---@field name string
 ---@field name_plural string
 ---@field name_adjective string
----@field sym_and_color1 integer
----@field sym_and_color2 integer
+---@field display_tile integer
+---@field display_f number
+---@field display_b number
+---@field display_br number
+---@field flash_tile integer
+---@field flash_f number
+---@field flash_b number
+---@field flash_br number
 ---@field flash_period integer
 ---@field flash_time2 integer
 ---@field speed_add integer
 ---@field speed_mul_percent integer
 ---@field attr_change df.curse_attr_change
----@field unk_v42_1 number
+---@field pers_change df.soul_personality_changest
 ---@field luck_mul_percent integer
----@field unk_v42_2 number
----@field interaction_id DFNumberVector
----@field timing df.wound_curse_info.T_timing
+---@field erratic_level number
+---@field usable_interaction df.wound_curse_info.T_usable_interaction
 ---@field were_race number References: `df.creature_raw`
 ---@field were_caste number References: `df.caste_raw`
 ---@field body_appearance DFNumberVector
@@ -3189,17 +3302,28 @@ df.wound_curse_info = {}
 ---@return df.wound_curse_info
 function df.wound_curse_info:new() end
 
----@class (exact) df.wound_curse_info.T_timing: DFStruct
----@field _type identity.wound_curse_info.timing
+---@class df.wound_curse_info.T_flags: DFBitfield
+---@field _enum identity.wound_curse_info.flags
+---@field has_sense_creature_class boolean bay12: UWSS_FLAG_*
+---@field [0] boolean bay12: UWSS_FLAG_*
+
+---@class identity.wound_curse_info.flags: DFBitfieldType
+---@field has_sense_creature_class 0 bay12: UWSS_FLAG_*
+---@field [0] "has_sense_creature_class" bay12: UWSS_FLAG_*
+df.wound_curse_info.T_flags = {}
+
+---@class (exact) df.wound_curse_info.T_usable_interaction: DFStruct
+---@field _type identity.wound_curse_info.usable_interaction
+---@field interaction_id DFNumberVector bay12: wound_usable_interactionst
 ---@field interaction_time DFNumberVector
 ---@field time_counter number
 
----@class identity.wound_curse_info.timing: DFCompoundType
+---@class identity.wound_curse_info.usable_interaction: DFCompoundType
 ---@field _kind 'struct-type'
-df.wound_curse_info.T_timing = {}
+df.wound_curse_info.T_usable_interaction = {}
 
----@return df.wound_curse_info.T_timing
-function df.wound_curse_info.T_timing:new() end
+---@return df.wound_curse_info.T_usable_interaction
+function df.wound_curse_info.T_usable_interaction:new() end
 
 ---@alias df.misc_trait_type
 ---| 0 # RequestWaterCooldown
@@ -3216,12 +3340,21 @@ function df.wound_curse_info.T_timing:new() end
 ---| 11 # ClaimTrinketCooldown
 ---| 12 # ClaimClothingCooldown
 ---| 13 # WantsDrink
+---| 14 # InfiltrationMiceDelay
 ---| 15 # PrepareToDie
 ---| 16 # CaveAdapt
+---| 17 # HuntCheckDelay
+---| 18 # FishCheckDelay
+---| 19 # WagonPathCheck
+---| 20 # NastyWaterPermitted
 ---| 21 # FollowUnitCooldown
+---| 22 # ForcedToFight
+---| 23 # RecentlyFledConflict
+---| 24 # MustEvaluateMilling
 ---| 25 # DangerousTerrainCooldown
 ---| 26 # Beaching
 ---| 27 # IdleAreaCooldown
+---| 28 # MillAreaCooldown
 ---| 29 # DiagnosePatientCooldown
 ---| 30 # DressWoundCooldown
 ---| 31 # CleanPatientCooldown
@@ -3232,18 +3365,35 @@ function df.wound_curse_info.T_timing:new() end
 ---| 36 # ApplyCastCooldown
 ---| 37 # ImmobilizeBreakCooldown
 ---| 38 # BringCrutchCooldown
+---| 39 # RebuildUniformAgain
 ---| 40 # MilkCounter
----| 41 # HadDrill
----| 42 # CompletedDrill
+---| 41 # HadArcheryDrill
+---| 42 # HadMeleeDrill
 ---| 43 # EggSpent
 ---| 44 # GroundedAnimalAnger
+---| 45 # GrazeCheckDelay
 ---| 46 # TimeSinceSuckedBlood
 ---| 47 # DrinkingBlood
+---| 48 # IncidentalChatter
+---| 49 # FleeingInteractionRestricted
 ---| 50 # RevertWildTimer
+---| 51 # AnimalTrainCheck
 ---| 52 # NoPantsAnger
 ---| 53 # NoShirtAnger
 ---| 54 # NoShoesAnger
+---| 55 # TookPartInConflict
+---| 56 # ClimbAccident
+---| 57 # DesperateMillingAttempts
+---| 58 # HaveRecentlyFledAlarm
+---| 59 # ConsolidatePets
+---| 60 # StressBreakdown
+---| 61 # DelayReading
+---| 62 # DelayResearchWriting
+---| 63 # DelayFreeWriting
 ---| 64 # CitizenshipCooldown
+---| 65 # NeedMillingDelayed
+---| 66 # BuildingDestroyerDelay
+---| 67 # HeistPaused
 
 ---@class identity.misc_trait_type: DFEnumType
 ---@field RequestWaterCooldown 0 0 --
@@ -3274,18 +3424,36 @@ function df.wound_curse_info.T_timing:new() end
 ---@field [12] "ClaimClothingCooldown" auto-decrement
 ---@field WantsDrink 13 auto-increment to 403200
 ---@field [13] "WantsDrink" auto-increment to 403200
+---@field InfiltrationMiceDelay 14
+---@field [14] "InfiltrationMiceDelay"
 ---@field PrepareToDie 15 auto-decrement
 ---@field [15] "PrepareToDie" auto-decrement
 ---@field CaveAdapt 16
 ---@field [16] "CaveAdapt"
+---@field HuntCheckDelay 17 auto-decrement
+---@field [17] "HuntCheckDelay" auto-decrement
+---@field FishCheckDelay 18 auto-decrement
+---@field [18] "FishCheckDelay" auto-decrement
+---@field WagonPathCheck 19
+---@field [19] "WagonPathCheck"
+---@field NastyWaterPermitted 20 20 --
+---@field [20] "NastyWaterPermitted" 20 --
 ---@field FollowUnitCooldown 21 0-20, 200 on failed path, auto-decrement
 ---@field [21] "FollowUnitCooldown" 0-20, 200 on failed path, auto-decrement
+---@field ForcedToFight 22 auto-decrement
+---@field [22] "ForcedToFight" auto-decrement
+---@field RecentlyFledConflict 23 auto-decrement
+---@field [23] "RecentlyFledConflict" auto-decrement
+---@field MustEvaluateMilling 24
+---@field [24] "MustEvaluateMilling"
 ---@field DangerousTerrainCooldown 25 created at 200, blocks repath?, auto-decrement
 ---@field [25] "DangerousTerrainCooldown" created at 200, blocks repath?, auto-decrement
 ---@field Beaching 26 triggered by BEACH_FREQUENCY, auto-decrement
 ---@field [26] "Beaching" triggered by BEACH_FREQUENCY, auto-decrement
 ---@field IdleAreaCooldown 27 auto-decrement
 ---@field [27] "IdleAreaCooldown" auto-decrement
+---@field MillAreaCooldown 28 auto-decrement
+---@field [28] "MillAreaCooldown" auto-decrement
 ---@field DiagnosePatientCooldown 29 0-2000, auto-decrement
 ---@field [29] "DiagnosePatientCooldown" 0-2000, auto-decrement
 ---@field DressWoundCooldown 30 30 --
@@ -3306,30 +3474,64 @@ function df.wound_curse_info.T_timing:new() end
 ---@field [37] "ImmobilizeBreakCooldown" auto-decrement
 ---@field BringCrutchCooldown 38 auto-decrement
 ---@field [38] "BringCrutchCooldown" auto-decrement
+---@field RebuildUniformAgain 39 auto-decrement, set military pickup flag upon reaching zero
+---@field [39] "RebuildUniformAgain" auto-decrement, set military pickup flag upon reaching zero
 ---@field MilkCounter 40 40 --
 ---@field [40] "MilkCounter" 40 --
----@field HadDrill 41 auto-decrement
----@field [41] "HadDrill" auto-decrement
----@field CompletedDrill 42 auto-decrement
----@field [42] "CompletedDrill" auto-decrement
+---@field HadArcheryDrill 41 auto-decrement
+---@field [41] "HadArcheryDrill" auto-decrement
+---@field HadMeleeDrill 42 auto-decrement
+---@field [42] "HadMeleeDrill" auto-decrement
 ---@field EggSpent 43 auto-decrement
 ---@field [43] "EggSpent" auto-decrement
 ---@field GroundedAnimalAnger 44 auto-decrement
 ---@field [44] "GroundedAnimalAnger" auto-decrement
+---@field GrazeCheckDelay 45 auto-decrement
+---@field [45] "GrazeCheckDelay" auto-decrement
 ---@field TimeSinceSuckedBlood 46
 ---@field [46] "TimeSinceSuckedBlood"
 ---@field DrinkingBlood 47 auto-decrement
 ---@field [47] "DrinkingBlood" auto-decrement
+---@field IncidentalChatter 48 auto-decrement
+---@field [48] "IncidentalChatter" auto-decrement
+---@field FleeingInteractionRestricted 49 auto-decrement
+---@field [49] "FleeingInteractionRestricted" auto-decrement
 ---@field RevertWildTimer 50 50 --
 ---@field [50] "RevertWildTimer" 50 --
+---@field AnimalTrainCheck 51 auto-decrement
+---@field [51] "AnimalTrainCheck" auto-decrement
 ---@field NoPantsAnger 52 auto-decrement
 ---@field [52] "NoPantsAnger" auto-decrement
 ---@field NoShirtAnger 53 auto-decrement
 ---@field [53] "NoShirtAnger" auto-decrement
 ---@field NoShoesAnger 54 auto-decrement
 ---@field [54] "NoShoesAnger" auto-decrement
+---@field TookPartInConflict 55 auto-decrement
+---@field [55] "TookPartInConflict" auto-decrement
+---@field ClimbAccident 56 auto-decrement
+---@field [56] "ClimbAccident" auto-decrement
+---@field DesperateMillingAttempts 57
+---@field [57] "DesperateMillingAttempts"
+---@field HaveRecentlyFledAlarm 58 auto-decrement
+---@field [58] "HaveRecentlyFledAlarm" auto-decrement
+---@field ConsolidatePets 59 auto-decrement
+---@field [59] "ConsolidatePets" auto-decrement
+---@field StressBreakdown 60 60 --
+---@field [60] "StressBreakdown" 60 --
+---@field DelayReading 61 auto-decrement
+---@field [61] "DelayReading" auto-decrement
+---@field DelayResearchWriting 62 auto-decrement
+---@field [62] "DelayResearchWriting" auto-decrement
+---@field DelayFreeWriting 63 auto-decrement
+---@field [63] "DelayFreeWriting" auto-decrement
 ---@field CitizenshipCooldown 64 starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
 ---@field [64] "CitizenshipCooldown" starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
+---@field NeedMillingDelayed 65 auto-decrement
+---@field [65] "NeedMillingDelayed" auto-decrement
+---@field BuildingDestroyerDelay 66 auto-decrement
+---@field [66] "BuildingDestroyerDelay" auto-decrement
+---@field HeistPaused 67 auto-decrement
+---@field [67] "HeistPaused" auto-decrement
 df.misc_trait_type = {}
 
 ---@class misc_trait_type_attr_entry_type: DFCompoundType
@@ -3337,7 +3539,7 @@ df.misc_trait_type = {}
 df.misc_trait_type._attr_entry_type = {}
 
 ---@class (exact) misc_trait_type_attr_entry_type_fields
----@field tag DFCompoundField
+---@field tag DFCompoundField bay12: CounterType
 df.misc_trait_type._attr_entry_type._fields = {}
 
 ---@class misc_trait_type_attrs
@@ -3362,18 +3564,35 @@ df.unit_misc_trait = {}
 ---@return df.unit_misc_trait
 function df.unit_misc_trait:new() end
 
+---@alias df.wrestle_state_type
+---| 0 # LatchedOn
+---| 1 # Grab
+---| 2 # JointLock
+---| 3 # Choke
+
+---@class identity.wrestle_state_type: DFEnumType
+---@field LatchedOn 0 bay12: WrestleStateType
+---@field [0] "LatchedOn" bay12: WrestleStateType
+---@field Grab 1
+---@field [1] "Grab"
+---@field JointLock 2
+---@field [2] "JointLock"
+---@field Choke 3
+---@field [3] "Choke"
+df.wrestle_state_type = {}
+
 ---@class (exact) df.unit_item_wrestle: DFStruct
 ---@field _type identity.unit_item_wrestle
 ---@field unit number References: `df.unit`
 ---@field self_bp number
 ---@field other_bp number
----@field unk_c number
----@field unk_10 number
+---@field sub_bp number
+---@field other_sub_bp number
 ---@field item1 number References: `df.item`
 ---@field item2 number References: `df.item`
----@field unk_1c number
----@field unk_1e number 1 grabs, -1 grabbed
----@field unk_20 number
+---@field state df.wrestle_state_type
+---@field advantage number 1 grabs, -1 grabbed
+---@field opp_active_wound_id number
 
 ---@class identity.unit_item_wrestle: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3386,7 +3605,7 @@ function df.unit_item_wrestle:new() end
 ---@field _type identity.unit_item_use
 ---@field id number References: `df.item`
 ---@field time_in_use number
----@field has_grown_attached number
+---@field flags df.unit_item_use.T_flags
 ---@field affection_level number min 50 for attached, 1000 for name
 
 ---@class identity.unit_item_use: DFCompoundType
@@ -3396,14 +3615,24 @@ df.unit_item_use = {}
 ---@return df.unit_item_use
 function df.unit_item_use:new() end
 
+---@class df.unit_item_use.T_flags: DFBitfield
+---@field _enum identity.unit_item_use.flags
+---@field has_grown_attached boolean bay12: ITEM_FAMILIARITY_*
+---@field [0] boolean bay12: ITEM_FAMILIARITY_*
+
+---@class identity.unit_item_use.flags: DFBitfieldType
+---@field has_grown_attached 0 bay12: ITEM_FAMILIARITY_*
+---@field [0] "has_grown_attached" bay12: ITEM_FAMILIARITY_*
+df.unit_item_use.T_flags = {}
+
 ---@class df.unit_health_flags: DFBitfield
 ---@field _enum identity.unit_health_flags
----@field rq_diagnosis boolean
----@field [0] boolean
----@field needs_recovery boolean needs diagnosis but cannot walk
----@field [1] boolean needs diagnosis but cannot walk
----@field needs_healthcare boolean ???; set when rq_diagnosis is, and not blocked by having a diagnosis
----@field [2] boolean ???; set when rq_diagnosis is, and not blocked by having a diagnosis
+---@field rq_diagnosis boolean bay12: UNIT_PATIENT_PROFILE_FLAG_*
+---@field [0] boolean bay12: UNIT_PATIENT_PROFILE_FLAG_*
+---@field should_not_move boolean
+---@field [1] boolean
+---@field needs_healthcare boolean
+---@field [2] boolean
 ---@field rq_immobilize boolean
 ---@field [3] boolean
 ---@field rq_dressing boolean
@@ -3422,12 +3651,12 @@ function df.unit_item_use:new() end
 ---@field [10] boolean
 
 ---@class identity.unit_health_flags: DFBitfieldType
----@field rq_diagnosis 0
----@field [0] "rq_diagnosis"
----@field needs_recovery 1 needs diagnosis but cannot walk
----@field [1] "needs_recovery" needs diagnosis but cannot walk
----@field needs_healthcare 2 ???; set when rq_diagnosis is, and not blocked by having a diagnosis
----@field [2] "needs_healthcare" ???; set when rq_diagnosis is, and not blocked by having a diagnosis
+---@field rq_diagnosis 0 bay12: UNIT_PATIENT_PROFILE_FLAG_*
+---@field [0] "rq_diagnosis" bay12: UNIT_PATIENT_PROFILE_FLAG_*
+---@field should_not_move 1
+---@field [1] "should_not_move"
+---@field needs_healthcare 2
+---@field [2] "needs_healthcare"
 ---@field rq_immobilize 3
 ---@field [3] "rq_immobilize"
 ---@field rq_dressing 4
@@ -3448,8 +3677,8 @@ df.unit_health_flags = {}
 
 ---@class df.unit_bp_health_flags: DFBitfield
 ---@field _enum identity.unit_bp_health_flags
----@field rq_immobilize boolean
----@field [0] boolean
+---@field rq_immobilize boolean bay12: UNIT_PATIENT_PROFILE_BP_FLAG_*
+---@field [0] boolean bay12: UNIT_PATIENT_PROFILE_BP_FLAG_*
 ---@field rq_dressing boolean
 ---@field [1] boolean
 ---@field rq_cleaning boolean
@@ -3470,8 +3699,8 @@ df.unit_health_flags = {}
 ---@field [9] boolean used to remove once not needed
 
 ---@class identity.unit_bp_health_flags: DFBitfieldType
----@field rq_immobilize 0
----@field [0] "rq_immobilize"
+---@field rq_immobilize 0 bay12: UNIT_PATIENT_PROFILE_BP_FLAG_*
+---@field [0] "rq_immobilize" bay12: UNIT_PATIENT_PROFILE_BP_FLAG_*
 ---@field rq_dressing 1
 ---@field [1] "rq_dressing"
 ---@field rq_cleaning 2
@@ -3563,8 +3792,8 @@ function _unit_health_info_syndrome_diagnosis:erase(index) end
 
 ---@class df.orientation_flags: DFBitfield
 ---@field _enum identity.orientation_flags
----@field indeterminate boolean only seen on adventurers
----@field [0] boolean only seen on adventurers
+---@field indeterminate boolean bay12: SEXUAL_ORIENTATION_FLAG_*
+---@field [0] boolean bay12: SEXUAL_ORIENTATION_FLAG_*
 ---@field romance_male boolean
 ---@field [1] boolean
 ---@field marry_male boolean
@@ -3575,8 +3804,8 @@ function _unit_health_info_syndrome_diagnosis:erase(index) end
 ---@field [4] boolean
 
 ---@class identity.orientation_flags: DFBitfieldType
----@field indeterminate 0 only seen on adventurers
----@field [0] "indeterminate" only seen on adventurers
+---@field indeterminate 0 bay12: SEXUAL_ORIENTATION_FLAG_*
+---@field [0] "indeterminate" bay12: SEXUAL_ORIENTATION_FLAG_*
 ---@field romance_male 1
 ---@field [1] "romance_male"
 ---@field marry_male 2
@@ -3591,18 +3820,18 @@ df.orientation_flags = {}
 ---@field _type identity.unit_soul
 ---@field id number
 ---@field name df.language_name
----@field race integer References: `df.creature_raw`
+---@field race number References: `df.creature_raw`
 ---@field sex df.pronoun_type
----@field caste integer References: `df.caste_raw`
+---@field caste number References: `df.caste_raw`
 ---@field orientation_flags df.orientation_flags
----@field unk2 number
----@field unk3 number
----@field unk4 number
----@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 number
----@field unk_5 number
+---@field birth_year number
+---@field birth_time number
+---@field curse_year number bay12: frozen_age_year
+---@field curse_time number bay12: frozen_age_season_count
+---@field birth_year_bias number bay12: credit_age_year
+---@field birth_time_bias number bay12: credit_age_season_count
+---@field old_year number bay12: age_death_year
+---@field old_time number bay12: age_death_season_count
 ---@field mental_attrs DFEnumVector<df.mental_attribute_type, df.unit_attribute>
 ---@field skills _unit_soul_skills
 ---@field preferences _unit_soul_preferences
@@ -3650,7 +3879,7 @@ function _unit_soul_preferences:erase(index) end
 
 ---@class (exact) df.unit_instrument_skill: DFStruct
 ---@field _type identity.unit_instrument_skill
----@field id number
+---@field id number References: `df.itemdef_instrumentst`
 ---@field rating df.skill_rating
 ---@field experience number
 
@@ -3663,7 +3892,7 @@ function df.unit_instrument_skill:new() end
 
 ---@class (exact) df.unit_poetic_skill: DFStruct
 ---@field _type identity.unit_poetic_skill
----@field id number
+---@field id number References: `df.poetic_form`
 ---@field rating df.skill_rating
 ---@field experience number
 
@@ -3676,7 +3905,7 @@ function df.unit_poetic_skill:new() end
 
 ---@class (exact) df.unit_musical_skill: DFStruct
 ---@field _type identity.unit_musical_skill
----@field id number
+---@field id number References: `df.musical_form`
 ---@field rating df.skill_rating
 ---@field experience number
 
@@ -3689,7 +3918,7 @@ function df.unit_musical_skill:new() end
 
 ---@class (exact) df.unit_dance_skill: DFStruct
 ---@field _type identity.unit_dance_skill
----@field id number
+---@field id number References: `df.dance_form`
 ---@field rating df.skill_rating
 ---@field experience number
 
@@ -3703,16 +3932,16 @@ function df.unit_dance_skill:new() end
 ---@class (exact) df.unit_emotion_memory: DFStruct
 ---@field _type identity.unit_emotion_memory
 ---@field type df.emotion_type
----@field unk2 number
 ---@field strength number
+---@field relative_strength number
 ---@field thought df.unit_thought_type
 ---@field subthought number for certain thoughts
 ---@field severity number
----@field unk_1 number
+---@field flags df.unit_emotion_memory.T_flags
 ---@field year number
 ---@field year_tick number
----@field unk_v50_1 number
----@field unk_v50_2 number
+---@field created_year number
+---@field created_tick number
 
 ---@class identity.unit_emotion_memory: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3720,6 +3949,16 @@ df.unit_emotion_memory = {}
 
 ---@return df.unit_emotion_memory
 function df.unit_emotion_memory:new() end
+
+---@class df.unit_emotion_memory.T_flags: DFBitfield
+---@field _enum identity.unit_emotion_memory.flags
+---@field has_remembered boolean bay12: PERSONALITY_MEMORY_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_MEMORY_FLAG_*
+
+---@class identity.unit_emotion_memory.flags: DFBitfieldType
+---@field has_remembered 0 bay12: PERSONALITY_MEMORY_FLAG_*
+---@field [0] "has_remembered" bay12: PERSONALITY_MEMORY_FLAG_*
+df.unit_emotion_memory.T_flags = {}
 
 ---@class (exact) df.personality_moodst: DFStruct
 ---@field _type identity.personality_moodst
@@ -3743,8 +3982,8 @@ function df.personality_moodst:new() end
 
 ---@class df.personality_moodst.T_flags: DFBitfield
 ---@field _enum identity.personality_moodst.flags
----@field failed_to_overcome boolean
----@field [0] boolean
+---@field failed_to_overcome boolean bay12: PERSONALITY_MOOD_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_MOOD_FLAG_*
 ---@field was_dream_goal boolean
 ---@field [1] boolean
 ---@field vocalized boolean
@@ -3763,8 +4002,8 @@ function df.personality_moodst:new() end
 ---@field [8] boolean
 
 ---@class identity.personality_moodst.flags: DFBitfieldType
----@field failed_to_overcome 0
----@field [0] "failed_to_overcome"
+---@field failed_to_overcome 0 bay12: PERSONALITY_MOOD_FLAG_*
+---@field [0] "failed_to_overcome" bay12: PERSONALITY_MOOD_FLAG_*
 ---@field was_dream_goal 1
 ---@field [1] "was_dream_goal"
 ---@field vocalized 2
@@ -3790,7 +4029,7 @@ df.personality_moodst.T_flags = {}
 ---@field emotions _unit_personality_emotions bay12: mood
 ---@field dreams _unit_personality_dreams
 ---@field next_dream_id number
----@field unk_v40_6 _unit_personality_unk_v40_6
+---@field preferences _unit_personality_preferences
 ---@field traits DFEnumVector<df.personality_facet_type, integer>
 ---@field civ_id number References: `df.historical_entity`
 ---@field cultural_identity number References: `df.cultural_identity`
@@ -3804,7 +4043,7 @@ df.personality_moodst.T_flags = {}
 ---@field outdoor_dislike_counter number incremented when unit is in rain
 ---@field needs _unit_personality_needs
 ---@field flags df.unit_personality.T_flags
----@field temporary_trait_changes DFPointer<integer> sum of inebriation or so personality changing effects
+---@field temporary_trait_changes df.soul_personality_changest
 ---@field slack_end_year number
 ---@field slack_end_year_tick number
 ---@field memories DFPointer<integer>
@@ -3815,6 +4054,7 @@ df.personality_moodst.T_flags = {}
 ---@field longterm_stress number
 ---@field current_focus number weighted sum of needs focus_level-s
 ---@field undistracted_focus number usually number of needs multiplied by 4
+---@field debug df.unit_personality.T_debug
 
 ---@class identity.unit_personality: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3887,21 +4127,21 @@ function _unit_personality_dreams:insert(index, item) end
 ---@param index integer
 function _unit_personality_dreams:erase(index) end
 
----@class _unit_personality_unk_v40_6: DFContainer
+---@class _unit_personality_preferences: DFContainer
 ---@field [integer] DFPointer<integer>
-local _unit_personality_unk_v40_6
+local _unit_personality_preferences
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<DFPointer<integer>>
-function _unit_personality_unk_v40_6:_field(index) end
+function _unit_personality_preferences:_field(index) end
 
 ---@param index '#'|integer
 ---@param item DFPointer<integer>
-function _unit_personality_unk_v40_6:insert(index, item) end
+function _unit_personality_preferences:insert(index, item) end
 
 ---@param index integer
-function _unit_personality_unk_v40_6:erase(index) end
+function _unit_personality_preferences:erase(index) end
 
 ---@class _unit_personality_mannerism: DFContainer
 ---@field [integer] DFPointer<integer>
@@ -3937,17 +4177,44 @@ function _unit_personality_needs:erase(index) end
 
 ---@class df.unit_personality.T_flags: DFBitfield
 ---@field _enum identity.unit_personality.flags
----@field distraction_calculated boolean
----@field [0] boolean
+---@field distraction_calculated boolean bay12: PERSONALITY_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_FLAG_*
 ---@field has_unmet_needs boolean focus_level is below -999 for at least one need
 ---@field [1] boolean focus_level is below -999 for at least one need
 
 ---@class identity.unit_personality.flags: DFBitfieldType
----@field distraction_calculated 0
----@field [0] "distraction_calculated"
+---@field distraction_calculated 0 bay12: PERSONALITY_FLAG_*
+---@field [0] "distraction_calculated" bay12: PERSONALITY_FLAG_*
 ---@field has_unmet_needs 1 focus_level is below -999 for at least one need
 ---@field [1] "has_unmet_needs" focus_level is below -999 for at least one need
 df.unit_personality.T_flags = {}
+
+---@class (exact) df.unit_personality.T_debug: DFStruct
+---@field _type identity.unit_personality.debug
+---@field total_circ_stress DFEnumVector<df.unit_thought_type, number> bay12: personality_debugst
+---@field total_circ_memory_stress DFEnumVector<df.unit_thought_type, number>
+---@field total_eustress_gain number
+---@field total_distress_gain number
+---@field total_eustress_loss number
+---@field total_distress_loss number
+---@field flags df.unit_personality.T_debug.T_flags
+
+---@class identity.unit_personality.debug: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_personality.T_debug = {}
+
+---@return df.unit_personality.T_debug
+function df.unit_personality.T_debug:new() end
+
+---@class df.unit_personality.T_debug.T_flags: DFBitfield
+---@field _enum identity.unit_personality.debug.flags
+---@field on boolean bay12: PERSONALITY_DEBUG_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_DEBUG_FLAG_*
+
+---@class identity.unit_personality.debug.flags: DFBitfieldType
+---@field on 0 bay12: PERSONALITY_DEBUG_FLAG_*
+---@field [0] "on" bay12: PERSONALITY_DEBUG_FLAG_*
+df.unit_personality.T_debug.T_flags = {}
 
 -- for the action timer API, not in DF
 ---@alias df.unit_action_type_group
@@ -3988,15 +4255,15 @@ df.unit_action_type_group = {}
 ---| 12 # Recover
 ---| 13 # StandUp
 ---| 14 # LieDown
----| 15 # Job2
+---| 15 # JobRecover
 ---| 16 # PushObject
 ---| 17 # SuckBlood
 ---| 18 # HoldItem
 ---| 19 # ReleaseItem
----| 20 # Unk20
----| 21 # Unk21
----| 22 # Unk22
----| 23 # Unk23
+---| 20 # Mount
+---| 21 # Dismount
+---| 22 # LeadAnimal
+---| 23 # StopLeadAnimal
 
 ---@class identity.unit_action_type: DFEnumType
 ---@field None -1
@@ -4031,8 +4298,8 @@ df.unit_action_type_group = {}
 ---@field [13] "StandUp"
 ---@field LieDown 14
 ---@field [14] "LieDown"
----@field Job2 15
----@field [15] "Job2"
+---@field JobRecover 15
+---@field [15] "JobRecover"
 ---@field PushObject 16
 ---@field [16] "PushObject"
 ---@field SuckBlood 17
@@ -4041,14 +4308,14 @@ df.unit_action_type_group = {}
 ---@field [18] "HoldItem"
 ---@field ReleaseItem 19
 ---@field [19] "ReleaseItem"
----@field Unk20 20
----@field [20] "Unk20"
----@field Unk21 21
----@field [21] "Unk21"
----@field Unk22 22
----@field [22] "Unk22"
----@field Unk23 23
----@field [23] "Unk23"
+---@field Mount 20
+---@field [20] "Mount"
+---@field Dismount 21
+---@field [21] "Dismount"
+---@field LeadAnimal 22
+---@field [22] "LeadAnimal"
+---@field StopLeadAnimal 23
+---@field [23] "StopLeadAnimal"
 df.unit_action_type = {}
 
 ---@class unit_action_type_attr_entry_type: DFCompoundType
@@ -4077,15 +4344,15 @@ df.unit_action_type._attr_entry_type._fields = {}
 ---@field Recover { tag: "recover", group: "All" }
 ---@field StandUp { tag: "standup", group: "All" }
 ---@field LieDown { tag: "liedown", group: "All" }
----@field Job2 { tag: "job2", group: "All" }
+---@field JobRecover { tag: "job", group: "All" }
 ---@field PushObject { tag: "pushobject", group: "All" }
 ---@field SuckBlood { tag: "suckblood", group: "All" }
 ---@field HoldItem { tag: "holditem" }
 ---@field ReleaseItem { tag: "releaseitem" }
----@field Unk20 { tag: "unk20" }
----@field Unk21 { tag: "unk21" }
----@field Unk22 { tag: "unk22" }
----@field Unk23 { tag: "unk23" }
+---@field Mount { tag: "mount" }
+---@field Dismount { tag: "dismount" }
+---@field LeadAnimal { tag: "leadanimal" }
+---@field StopLeadAnimal { tag: "stopleadanimal" }
 df.unit_action_type.attrs = {}
 
 ---@class (exact) df.unit_action: DFStruct
@@ -4119,15 +4386,15 @@ function df.unit_action:new() end
 ---@field recover df.unit_action_data_recover
 ---@field standup df.unit_action_data_stand_up
 ---@field liedown df.unit_action_data_lie_down
----@field job2 df.unit_action_data_job2
+---@field jobrecover df.unit_action_data_job_recover
 ---@field pushobject df.unit_action_data_push_object
 ---@field suckblood df.unit_action_data_suck_blood
 ---@field holditem df.unit_action_data_hold_item
 ---@field releaseitem df.unit_action_data_release_item
----@field unk20 df.unit_action_data_unk_sub_20
----@field unk21 df.unit_action_data_unk_sub_21
----@field unk22 df.unit_action_data_unk_sub_22
----@field unk23 df.unit_action_data_unk_sub_23
+---@field mount df.unit_action_data_mount
+---@field dismount df.unit_action_data_dismount
+---@field leadanimal df.unit_action_data_lead_animal
+---@field stopleadanimal df.unit_action_data_stop_lead_animal
 
 ---@class identity.unit_action.data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4155,24 +4422,28 @@ function df.unit_action_data_move:new() end
 
 ---@class df.unit_action_data_move.T_flags: DFBitfield
 ---@field _enum identity.unit_action_data_move.flags
----@field charge boolean
----@field [0] boolean
+---@field charge boolean bay12: UNIT_MOVE_MOVE_FLAG_*
+---@field [0] boolean bay12: UNIT_MOVE_MOVE_FLAG_*
+---@field from_sparring boolean
+---@field [1] boolean
 
 ---@class identity.unit_action_data_move.flags: DFBitfieldType
----@field charge 0
----@field [0] "charge"
+---@field charge 0 bay12: UNIT_MOVE_MOVE_FLAG_*
+---@field [0] "charge" bay12: UNIT_MOVE_MOVE_FLAG_*
+---@field from_sparring 1
+---@field [1] "from_sparring"
 df.unit_action_data_move.T_flags = {}
 
 ---@class (exact) df.unit_action_data_attack: DFStruct
 ---@field _type identity.unit_action_data_attack
 ---@field target_unit_id number References: `df.unit`
----@field unk_4 df.unit_action_data_attack.T_unk_4
+---@field wrestle_info df.unit_action_data_attack.T_wrestle_info
 ---@field attack_item_id number References: `df.item`
 ---@field target_body_part_id number
 ---@field attack_body_part_id number
 ---@field attack_id number refers to weapon_attack or caste_attack
----@field unk_28 number
----@field unk_2c number
+---@field hit_chance_modifier number
+---@field hit_squareness_modifier number
 ---@field attack_velocity number
 ---@field flags df.unit_action_data_attack.T_flags
 ---@field attack_skill df.job_skill
@@ -4187,98 +4458,153 @@ df.unit_action_data_attack = {}
 ---@return df.unit_action_data_attack
 function df.unit_action_data_attack:new() end
 
----@class (exact) df.unit_action_data_attack.T_unk_4: DFStruct
----@field _type identity.unit_action_data_attack.unk_4
----@field wrestle_type df.unit_action_data_attack.T_unk_4.T_wrestle_type
----@field unk_4 number
----@field unk_6 number
----@field unk_8 number
----@field unk_c number
----@field unk_10 number
----@field unk_14 number
+---@class (exact) df.unit_action_data_attack.T_wrestle_info: DFStruct
+---@field _type identity.unit_action_data_attack.wrestle_info
+---@field wrestle_type df.unit_action_data_attack.T_wrestle_info.T_wrestle_type bay12: wrestle_infost
+---@field grapple_a_bp number
+---@field grapple_d_bp number
+---@field grapple_a_item_id number
+---@field grapple_d_item_id number
+---@field grapple_attack df.unit_action_data_attack.T_wrestle_info.T_grapple_attack
+---@field grapple_bp_targ number
 
----@class identity.unit_action_data_attack.unk_4: DFCompoundType
+---@class identity.unit_action_data_attack.wrestle_info: DFCompoundType
 ---@field _kind 'struct-type'
-df.unit_action_data_attack.T_unk_4 = {}
+df.unit_action_data_attack.T_wrestle_info = {}
 
----@return df.unit_action_data_attack.T_unk_4
-function df.unit_action_data_attack.T_unk_4:new() end
+---@return df.unit_action_data_attack.T_wrestle_info
+function df.unit_action_data_attack.T_wrestle_info:new() end
 
----@alias df.unit_action_data_attack.T_unk_4.T_wrestle_type
+-- bay12: wrestle_infost
+---@alias df.unit_action_data_attack.T_wrestle_info.T_wrestle_type
 ---| 0 # Wrestle
 ---| 1 # Grab
+---| 2 # WrestleGeneric
+---| 3 # GrabGeneric
 
----@class identity.unit_action_data_attack.unk_4.wrestle_type: DFEnumType
----@field Wrestle 0
----@field [0] "Wrestle"
+-- bay12: wrestle_infost
+---@class identity.unit_action_data_attack.wrestle_info.wrestle_type: DFEnumType
+---@field Wrestle 0 bay12: DungeonWrestleType
+---@field [0] "Wrestle" bay12: DungeonWrestleType
 ---@field Grab 1
 ---@field [1] "Grab"
-df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
+---@field WrestleGeneric 2
+---@field [2] "WrestleGeneric"
+---@field GrabGeneric 3
+---@field [3] "GrabGeneric"
+df.unit_action_data_attack.T_wrestle_info.T_wrestle_type = {}
+
+---@alias df.unit_action_data_attack.T_wrestle_info.T_grapple_attack
+---| 0 # JointLock
+---| 1 # Choke
+---| 2 # Takedown
+---| 3 # Throw
+---| 4 # Pinch
+---| 5 # Gouge
+---| 6 # Smash
+---| 7 # Disarm
+---| 8 # Twist
+---| 9 # VulnerabilityAttack
+---| 10 # FollowBreak
+---| 11 # FollowLoosen
+---| 12 # FollowShake
+---| 13 # FollowStrangle
+
+---@class identity.unit_action_data_attack.wrestle_info.grapple_attack: DFEnumType
+---@field JointLock 0 bay12: WrestleAttackType
+---@field [0] "JointLock" bay12: WrestleAttackType
+---@field Choke 1
+---@field [1] "Choke"
+---@field Takedown 2
+---@field [2] "Takedown"
+---@field Throw 3
+---@field [3] "Throw"
+---@field Pinch 4
+---@field [4] "Pinch"
+---@field Gouge 5
+---@field [5] "Gouge"
+---@field Smash 6
+---@field [6] "Smash"
+---@field Disarm 7
+---@field [7] "Disarm"
+---@field Twist 8
+---@field [8] "Twist"
+---@field VulnerabilityAttack 9
+---@field [9] "VulnerabilityAttack"
+---@field FollowBreak 10
+---@field [10] "FollowBreak"
+---@field FollowLoosen 11
+---@field [11] "FollowLoosen"
+---@field FollowShake 12
+---@field [12] "FollowShake"
+---@field FollowStrangle 13
+---@field [13] "FollowStrangle"
+df.unit_action_data_attack.T_wrestle_info.T_grapple_attack = {}
 
 ---@class df.unit_action_data_attack.T_flags: DFBitfield
 ---@field _enum identity.unit_action_data_attack.flags
----@field force_small_aim_minus boolean (FORCE_SMALL_AIM_MINUS)
----@field [0] boolean (FORCE_SMALL_AIM_MINUS)
----@field can_get_momentum_bonus boolean (CAN_GET_MOMENTUM_BONUS)
----@field [1] boolean (CAN_GET_MOMENTUM_BONUS)
----@field no_parry boolean (NO_PARRY)
----@field [2] boolean (NO_PARRY)
----@field no_block boolean (NO_BLOCK)
----@field [3] boolean (NO_BLOCK)
----@field does_not_stop_wait boolean (DOES_NOT_STOP_WAIT)
----@field [4] boolean (DOES_NOT_STOP_WAIT)
----@field quick boolean (QUICK)
----@field [5] boolean (QUICK)
----@field heavy boolean (HEAVY)
----@field [6] boolean (HEAVY)
----@field wild boolean (WILD)
----@field [7] boolean (WILD)
----@field precise boolean (PRECISE)
----@field [8] boolean (PRECISE)
+---@field force_small_aim_minus boolean bay12: UNIT_MOVE_ATTACK_FLAG_*
+---@field [0] boolean bay12: UNIT_MOVE_ATTACK_FLAG_*
+---@field can_get_momentum_bonus boolean
+---@field [1] boolean
+---@field no_parry boolean
+---@field [2] boolean
+---@field no_block boolean
+---@field [3] boolean
+---@field does_not_stop_wait boolean
+---@field [4] boolean
+---@field quick boolean
+---@field [5] boolean
+---@field heavy boolean
+---@field [6] boolean
+---@field wild boolean
+---@field [7] boolean
+---@field precise boolean
+---@field [8] boolean
 ---@field charge boolean (INDEPENDENT_MULTIATTACK)
 ---@field [9] boolean (INDEPENDENT_MULTIATTACK)
----@field bad_multiattack boolean (BAD_MULTIATTACK)
----@field [10] boolean (BAD_MULTIATTACK)
----@field zero_criticals boolean (ZERO_CRITICALS)
----@field [11] boolean (ZERO_CRITICALS)
+---@field bad_multiattack boolean
+---@field [10] boolean
+---@field zero_criticals boolean
+---@field [11] boolean
 ---@field lightly_tap boolean (NO_LETHAL_INTENT)
 ---@field [12] boolean (NO_LETHAL_INTENT)
----@field automatic_hit boolean (AUTOMATIC_HIT)
----@field [13] boolean (AUTOMATIC_HIT)
----@field sparring_hit boolean (SPARRING_HIT)
----@field [14] boolean (SPARRING_HIT)
+---@field automatic_hit boolean
+---@field [13] boolean
+---@field sparring_hit boolean
+---@field [14] boolean
 
 ---@class identity.unit_action_data_attack.flags: DFBitfieldType
----@field force_small_aim_minus 0 (FORCE_SMALL_AIM_MINUS)
----@field [0] "force_small_aim_minus" (FORCE_SMALL_AIM_MINUS)
----@field can_get_momentum_bonus 1 (CAN_GET_MOMENTUM_BONUS)
----@field [1] "can_get_momentum_bonus" (CAN_GET_MOMENTUM_BONUS)
----@field no_parry 2 (NO_PARRY)
----@field [2] "no_parry" (NO_PARRY)
----@field no_block 3 (NO_BLOCK)
----@field [3] "no_block" (NO_BLOCK)
----@field does_not_stop_wait 4 (DOES_NOT_STOP_WAIT)
----@field [4] "does_not_stop_wait" (DOES_NOT_STOP_WAIT)
----@field quick 5 (QUICK)
----@field [5] "quick" (QUICK)
----@field heavy 6 (HEAVY)
----@field [6] "heavy" (HEAVY)
----@field wild 7 (WILD)
----@field [7] "wild" (WILD)
----@field precise 8 (PRECISE)
----@field [8] "precise" (PRECISE)
+---@field force_small_aim_minus 0 bay12: UNIT_MOVE_ATTACK_FLAG_*
+---@field [0] "force_small_aim_minus" bay12: UNIT_MOVE_ATTACK_FLAG_*
+---@field can_get_momentum_bonus 1
+---@field [1] "can_get_momentum_bonus"
+---@field no_parry 2
+---@field [2] "no_parry"
+---@field no_block 3
+---@field [3] "no_block"
+---@field does_not_stop_wait 4
+---@field [4] "does_not_stop_wait"
+---@field quick 5
+---@field [5] "quick"
+---@field heavy 6
+---@field [6] "heavy"
+---@field wild 7
+---@field [7] "wild"
+---@field precise 8
+---@field [8] "precise"
 ---@field charge 9 (INDEPENDENT_MULTIATTACK)
 ---@field [9] "charge" (INDEPENDENT_MULTIATTACK)
----@field bad_multiattack 10 (BAD_MULTIATTACK)
----@field [10] "bad_multiattack" (BAD_MULTIATTACK)
----@field zero_criticals 11 (ZERO_CRITICALS)
----@field [11] "zero_criticals" (ZERO_CRITICALS)
+---@field bad_multiattack 10
+---@field [10] "bad_multiattack"
+---@field zero_criticals 11
+---@field [11] "zero_criticals"
 ---@field lightly_tap 12 (NO_LETHAL_INTENT)
 ---@field [12] "lightly_tap" (NO_LETHAL_INTENT)
----@field automatic_hit 13 (AUTOMATIC_HIT)
----@field [13] "automatic_hit" (AUTOMATIC_HIT)
----@field sparring_hit 14 (SPARRING_HIT)
----@field [14] "sparring_hit" (SPARRING_HIT)
+---@field automatic_hit 13
+---@field [13] "automatic_hit"
+---@field sparring_hit 14
+---@field [14] "sparring_hit"
 df.unit_action_data_attack.T_flags = {}
 
 ---@class (exact) df.unit_action_data_jump: DFStruct
@@ -4369,19 +4695,21 @@ function df.unit_action_data_job:new() end
 
 ---@class (exact) df.unit_action_data_talk: DFStruct
 ---@field _type identity.unit_action_data_talk
----@field unk_0 number
+---@field choice df.talk_choice_type
 ---@field activity_id number References: `df.activity_entry`
 ---@field activity_event_idx number References: `df.activity_event`
 ---@field event df.entity_event
----@field unk_34 number
+---@field incident_id number
 ---@field timer number
----@field unk_3c number
----@field unk_40 number
----@field unk_44 number
----@field unk_48 number
----@field unk_4c number
----@field unk_50 number
----@field unk_54 number
+---@field target_unit number References: `df.unit`
+---@field target_hf number References: `df.historical_figure`
+---@field volume number
+---@field tact df.conversation_tact_type
+---@field tact_roll number
+---@field var1 number
+---@field var2 number
+---@field var3 number
+---@field var4 number
 
 ---@class identity.unit_action_data_talk: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4447,7 +4775,7 @@ function df.unit_action_data_dodge:new() end
 ---@class (exact) df.unit_action_data_recover: DFStruct
 ---@field _type identity.unit_action_data_recover
 ---@field timer number
----@field unk_4 number
+---@field item_id number References: `df.item`
 
 ---@class identity.unit_action_data_recover: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4478,16 +4806,16 @@ df.unit_action_data_lie_down = {}
 ---@return df.unit_action_data_lie_down
 function df.unit_action_data_lie_down:new() end
 
----@class (exact) df.unit_action_data_job2: DFStruct
----@field _type identity.unit_action_data_job2
+---@class (exact) df.unit_action_data_job_recover: DFStruct
+---@field _type identity.unit_action_data_job_recover
 ---@field timer number
 
----@class identity.unit_action_data_job2: DFCompoundType
+---@class identity.unit_action_data_job_recover: DFCompoundType
 ---@field _kind 'struct-type'
-df.unit_action_data_job2 = {}
+df.unit_action_data_job_recover = {}
 
----@return df.unit_action_data_job2
-function df.unit_action_data_job2:new() end
+---@return df.unit_action_data_job_recover
+function df.unit_action_data_job_recover:new() end
 
 ---@class (exact) df.unit_action_data_push_object: DFStruct
 ---@field _type identity.unit_action_data_push_object
@@ -4501,7 +4829,7 @@ function df.unit_action_data_job2:new() end
 ---@field y3 number
 ---@field z3 number
 ---@field timer number
----@field unk_18 number
+---@field item_id number References: `df.item`
 
 ---@class identity.unit_action_data_push_object: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4530,9 +4858,9 @@ function df.unit_action_data_suck_blood:new() end
 ---@field x2 number
 ---@field y2 number
 ---@field z2 number
----@field unk_c number
----@field unk_10 number
----@field unk_14 number
+---@field item_id number References: `df.item`
+---@field timer number
+---@field fatigue number
 
 ---@class identity.unit_action_data_hold_item: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4543,7 +4871,7 @@ function df.unit_action_data_hold_item:new() end
 
 ---@class (exact) df.unit_action_data_release_item: DFStruct
 ---@field _type identity.unit_action_data_release_item
----@field unk_0 number
+---@field item_id number References: `df.item`
 
 ---@class identity.unit_action_data_release_item: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4552,51 +4880,65 @@ df.unit_action_data_release_item = {}
 ---@return df.unit_action_data_release_item
 function df.unit_action_data_release_item:new() end
 
----@class (exact) df.unit_action_data_unk_sub_20: DFStruct
----@field _type identity.unit_action_data_unk_sub_20
----@field unk_0 number[]
----@field unk_1 number[]
+---@class (exact) df.unit_action_data_mount: DFStruct
+---@field _type identity.unit_action_data_mount
+---@field x1 number
+---@field y1 number
+---@field z1 number
+---@field x2 number
+---@field y2 number
+---@field z2 number
+---@field unit_id number References: `df.unit`
+---@field riderposition number
+---@field timer number
+---@field fatigue number
 
----@class identity.unit_action_data_unk_sub_20: DFCompoundType
+---@class identity.unit_action_data_mount: DFCompoundType
 ---@field _kind 'struct-type'
-df.unit_action_data_unk_sub_20 = {}
+df.unit_action_data_mount = {}
 
----@return df.unit_action_data_unk_sub_20
-function df.unit_action_data_unk_sub_20:new() end
+---@return df.unit_action_data_mount
+function df.unit_action_data_mount:new() end
 
----@class (exact) df.unit_action_data_unk_sub_21: DFStruct
----@field _type identity.unit_action_data_unk_sub_21
----@field unk_0 number[]
----@field unk_1 number[]
+---@class (exact) df.unit_action_data_dismount: DFStruct
+---@field _type identity.unit_action_data_dismount
+---@field x1 number
+---@field y1 number
+---@field z1 number
+---@field x2 number
+---@field y2 number
+---@field z2 number
+---@field timer number
+---@field fatigue number
 
----@class identity.unit_action_data_unk_sub_21: DFCompoundType
+---@class identity.unit_action_data_dismount: DFCompoundType
 ---@field _kind 'struct-type'
-df.unit_action_data_unk_sub_21 = {}
+df.unit_action_data_dismount = {}
 
----@return df.unit_action_data_unk_sub_21
-function df.unit_action_data_unk_sub_21:new() end
+---@return df.unit_action_data_dismount
+function df.unit_action_data_dismount:new() end
 
----@class (exact) df.unit_action_data_unk_sub_22: DFStruct
----@field _type identity.unit_action_data_unk_sub_22
----@field unk_0 number
+---@class (exact) df.unit_action_data_lead_animal: DFStruct
+---@field _type identity.unit_action_data_lead_animal
+---@field unit_id number References: `df.unit`
 
----@class identity.unit_action_data_unk_sub_22: DFCompoundType
+---@class identity.unit_action_data_lead_animal: DFCompoundType
 ---@field _kind 'struct-type'
-df.unit_action_data_unk_sub_22 = {}
+df.unit_action_data_lead_animal = {}
 
----@return df.unit_action_data_unk_sub_22
-function df.unit_action_data_unk_sub_22:new() end
+---@return df.unit_action_data_lead_animal
+function df.unit_action_data_lead_animal:new() end
 
----@class (exact) df.unit_action_data_unk_sub_23: DFStruct
----@field _type identity.unit_action_data_unk_sub_23
----@field unk_0 number
+---@class (exact) df.unit_action_data_stop_lead_animal: DFStruct
+---@field _type identity.unit_action_data_stop_lead_animal
+---@field unit_id number References: `df.unit`
 
----@class identity.unit_action_data_unk_sub_23: DFCompoundType
+---@class identity.unit_action_data_stop_lead_animal: DFCompoundType
 ---@field _kind 'struct-type'
-df.unit_action_data_unk_sub_23 = {}
+df.unit_action_data_stop_lead_animal = {}
 
----@return df.unit_action_data_unk_sub_23
-function df.unit_action_data_unk_sub_23:new() end
+---@return df.unit_action_data_stop_lead_animal
+function df.unit_action_data_stop_lead_animal:new() end
 
 ---@class (exact) df.unit_skill: DFStruct
 ---@field _type identity.unit_skill
@@ -4632,7 +4974,7 @@ function df.unit_skill:new() end
 ---@field matindex number
 ---@field mat_state df.matter_state
 ---@field active boolean
----@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
+---@field prefstring_seed number bay12: UNITPREFFLAG_*
 
 ---@class identity.unit_preference: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4656,8 +4998,8 @@ function df.unit_preference:new() end
 ---| 11 # LikeDanceForm
 
 ---@class identity.unit_preference.type: DFEnumType
----@field LikeMaterial 0
----@field [0] "LikeMaterial"
+---@field LikeMaterial 0 bay12: UnitPrefs
+---@field [0] "LikeMaterial" bay12: UnitPrefs
 ---@field LikeCreature 1
 ---@field [1] "LikeCreature"
 ---@field LikeFood 2
@@ -4710,14 +5052,14 @@ function df.unit_parley:new() end
 
 ---@class df.unit_parley.T_flags: DFBitfield
 ---@field _enum identity.unit_parley.flags
----@field did_topic_meeting boolean
----@field [0] boolean
+---@field did_topic_meeting boolean bay12: PARLEY_FLAG_*
+---@field [0] boolean bay12: PARLEY_FLAG_*
 ---@field returning_treasure boolean
 ---@field [1] boolean
 
 ---@class identity.unit_parley.flags: DFBitfieldType
----@field did_topic_meeting 0
----@field [0] "did_topic_meeting"
+---@field did_topic_meeting 0 bay12: PARLEY_FLAG_*
+---@field [0] "did_topic_meeting" bay12: PARLEY_FLAG_*
 ---@field returning_treasure 1
 ---@field [1] "returning_treasure"
 df.unit_parley.T_flags = {}
@@ -4737,10 +5079,13 @@ function df.unit_request:new() end
 
 ---@alias df.unit_request.T_type
 ---| 0 # DoGuildJobs
+---| 1 # MakeWeapons
 
 ---@class identity.unit_request.type: DFEnumType
----@field DoGuildJobs 0
----@field [0] "DoGuildJobs"
+---@field DoGuildJobs 0 bay12: RequestTypes
+---@field [0] "DoGuildJobs" bay12: RequestTypes
+---@field MakeWeapons 1
+---@field [1] "MakeWeapons"
 df.unit_request.T_type = {}
 
 ---@class (exact) df.unit_coin_debt: DFStruct
@@ -4776,9 +5121,10 @@ function df.unit_chunk.find(key) end
 ---@return unit_chunk_vector # df.global.world.unit_chunks
 function df.unit_chunk.get_vector() end
 
+-- bay12: unit_chunk_memberst
 ---@class (exact) df.unit_chunk.T_units: DFStruct
 ---@field _type identity.unit_chunk.units
----@field items _unit_chunk_units_items
+---@field items _unit_chunk_units_items bay12: unit_chunk_memberst
 ---@field unit df.unit
 
 ---@class identity.unit_chunk.units: DFCompoundType
@@ -4807,24 +5153,23 @@ function _unit_chunk_units_items:erase(index) end
 -- physical_formst
 ---@class (exact) df.unit_appearance: DFStruct
 ---@field _type identity.unit_appearance
----@field unk_1 number
+---@field local_id number
 ---@field caste_index number also refers to $global.world.raws.creatures.list_caste[$]
----@field unk_3 number
+---@field favoredgrasp_bp number
 ---@field physical_attributes DFEnumVector<df.physical_attribute_type, df.unit_attribute>
----@field unk_5 number
+---@field energy_storage number
 ---@field body_modifiers DFNumberVector
 ---@field bp_modifiers DFNumberVector
----@field unk_8 number
----@field tissue_style DFNumberVector
+---@field total_appearance_size_modifier number
+---@field tissue_style _unit_appearance_tissue_style
 ---@field tissue_style_civ_id DFNumberVector
 ---@field tissue_style_id DFNumberVector
 ---@field tissue_style_type DFNumberVector
 ---@field tissue_length DFNumberVector
----@field appearance_genes DFIntegerVector
----@field color_genes DFIntegerVector
+---@field genes df.unit_genes
 ---@field color_modifiers DFNumberVector
----@field unk_18 number
----@field unk_19 number
+---@field age_death_year number
+---@field age_death_season_tick number
 
 ---@class identity.unit_appearance: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4833,6 +5178,40 @@ df.unit_appearance = {}
 ---@return df.unit_appearance
 function df.unit_appearance:new() end
 
+---@class _unit_appearance_tissue_style: DFContainer
+---@field [integer] df.tissue_style_type
+local _unit_appearance_tissue_style
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.tissue_style_type>
+function _unit_appearance_tissue_style:_field(index) end
+
+---@param index '#'|integer
+---@param item df.tissue_style_type
+function _unit_appearance_tissue_style:insert(index, item) end
+
+---@param index integer
+function _unit_appearance_tissue_style:erase(index) end
+
+---@class df.work_detail_flags: DFBitfield
+---@field _enum identity.work_detail_flags
+---@field no_modify boolean bay12: WORK_DETAIL_FLAG_*
+---@field [0] boolean bay12: WORK_DETAIL_FLAG_*
+---@field cannot_be_everybody boolean
+---@field [1] boolean
+---@field mode boolean
+---@field [2] boolean
+
+---@class identity.work_detail_flags: DFBitfieldType
+---@field no_modify 0 bay12: WORK_DETAIL_FLAG_*
+---@field [0] "no_modify" bay12: WORK_DETAIL_FLAG_*
+---@field cannot_be_everybody 1
+---@field [1] "cannot_be_everybody"
+---@field mode 2
+---@field [2] "mode"
+df.work_detail_flags = {}
+
 ---@alias df.work_detail_mode
 ---| 0 # Default
 ---| 1 # EverybodyDoesThis
@@ -4840,8 +5219,8 @@ function df.unit_appearance:new() end
 ---| 3 # OnlySelectedDoesThis
 
 ---@class identity.work_detail_mode: DFEnumType
----@field Default 0
----@field [0] "Default"
+---@field Default 0 bay12: WORK_DETAIL_FLAG_*
+---@field [0] "Default" bay12: WORK_DETAIL_FLAG_*
 ---@field EverybodyDoesThis 1
 ---@field [1] "EverybodyDoesThis"
 ---@field NobodyDoesThis 2
@@ -4853,7 +5232,7 @@ df.work_detail_mode = {}
 ---@class (exact) df.work_detail: DFStruct
 ---@field _type identity.work_detail
 ---@field name string
----@field work_detail_flags df.work_detail.T_work_detail_flags
+---@field flags df.work_detail_flags
 ---@field assigned_units DFNumberVector toady: unid
 ---@field allowed_labors DFEnumVector<df.unit_labor, boolean> toady: profession
 ---@field icon df.work_detail.T_icon
@@ -4865,84 +5244,66 @@ df.work_detail = {}
 ---@return df.work_detail
 function df.work_detail:new() end
 
----@class df.work_detail.T_work_detail_flags: DFBitfield
----@field _enum identity.work_detail.work_detail_flags
----@field no_modify boolean toady: DEFAULT
----@field [0] boolean toady: DEFAULT
----@field cannot_be_everybody boolean
----@field [1] boolean
----@field mode boolean
----@field [2] boolean
-
----@class identity.work_detail.work_detail_flags: DFBitfieldType
----@field no_modify 0 toady: DEFAULT
----@field [0] "no_modify" toady: DEFAULT
----@field cannot_be_everybody 1
----@field [1] "cannot_be_everybody"
----@field mode 2
----@field [2] "mode"
-df.work_detail.T_work_detail_flags = {}
-
 ---@alias df.work_detail.T_icon
----| -1 # ICON_NONE
----| 0 # ICON_MINERS
----| 1 # ICON_WOODCUTTERS
----| 2 # ICON_HUNTERS
----| 3 # ICON_PLANTERS
----| 4 # ICON_FISHERMEN
----| 5 # ICON_STONECUTTERS
----| 6 # ICON_ENGRAVERS
----| 7 # ICON_PLANT_GATHERERS
----| 8 # ICON_HAULERS
----| 9 # ICON_ORDERLIES
----| 10 # ICON_CUSTOM_1
----| 11 # ICON_CUSTOM_2
----| 12 # ICON_CUSTOM_3
----| 13 # ICON_CUSTOM_4
----| 14 # ICON_CUSTOM_5
----| 15 # ICON_CUSTOM_6
----| 16 # ICON_CUSTOM_7
----| 17 # ICON_CUSTOM_8
+---| -1 # NONE
+---| 0 # MINERS
+---| 1 # WOODCUTTERS
+---| 2 # HUNTERS
+---| 3 # PLANTERS
+---| 4 # FISHERMEN
+---| 5 # STONECUTTERS
+---| 6 # ENGRAVERS
+---| 7 # PLANT_GATHERERS
+---| 8 # HAULERS
+---| 9 # ORDERLIES
+---| 10 # CUSTOM_1
+---| 11 # CUSTOM_2
+---| 12 # CUSTOM_3
+---| 13 # CUSTOM_4
+---| 14 # CUSTOM_5
+---| 15 # CUSTOM_6
+---| 16 # CUSTOM_7
+---| 17 # CUSTOM_8
 
 ---@class identity.work_detail.icon: DFEnumType
----@field ICON_NONE -1
----@field [-1] "ICON_NONE"
----@field ICON_MINERS 0
----@field [0] "ICON_MINERS"
----@field ICON_WOODCUTTERS 1
----@field [1] "ICON_WOODCUTTERS"
----@field ICON_HUNTERS 2
----@field [2] "ICON_HUNTERS"
----@field ICON_PLANTERS 3
----@field [3] "ICON_PLANTERS"
----@field ICON_FISHERMEN 4
----@field [4] "ICON_FISHERMEN"
----@field ICON_STONECUTTERS 5
----@field [5] "ICON_STONECUTTERS"
----@field ICON_ENGRAVERS 6
----@field [6] "ICON_ENGRAVERS"
----@field ICON_PLANT_GATHERERS 7
----@field [7] "ICON_PLANT_GATHERERS"
----@field ICON_HAULERS 8
----@field [8] "ICON_HAULERS"
----@field ICON_ORDERLIES 9
----@field [9] "ICON_ORDERLIES"
----@field ICON_CUSTOM_1 10
----@field [10] "ICON_CUSTOM_1"
----@field ICON_CUSTOM_2 11
----@field [11] "ICON_CUSTOM_2"
----@field ICON_CUSTOM_3 12
----@field [12] "ICON_CUSTOM_3"
----@field ICON_CUSTOM_4 13
----@field [13] "ICON_CUSTOM_4"
----@field ICON_CUSTOM_5 14
----@field [14] "ICON_CUSTOM_5"
----@field ICON_CUSTOM_6 15
----@field [15] "ICON_CUSTOM_6"
----@field ICON_CUSTOM_7 16
----@field [16] "ICON_CUSTOM_7"
----@field ICON_CUSTOM_8 17
----@field [17] "ICON_CUSTOM_8"
+---@field NONE -1 bay12: WorkDetailIcon
+---@field [-1] "NONE" bay12: WorkDetailIcon
+---@field MINERS 0
+---@field [0] "MINERS"
+---@field WOODCUTTERS 1
+---@field [1] "WOODCUTTERS"
+---@field HUNTERS 2
+---@field [2] "HUNTERS"
+---@field PLANTERS 3
+---@field [3] "PLANTERS"
+---@field FISHERMEN 4
+---@field [4] "FISHERMEN"
+---@field STONECUTTERS 5
+---@field [5] "STONECUTTERS"
+---@field ENGRAVERS 6
+---@field [6] "ENGRAVERS"
+---@field PLANT_GATHERERS 7
+---@field [7] "PLANT_GATHERERS"
+---@field HAULERS 8
+---@field [8] "HAULERS"
+---@field ORDERLIES 9
+---@field [9] "ORDERLIES"
+---@field CUSTOM_1 10
+---@field [10] "CUSTOM_1"
+---@field CUSTOM_2 11
+---@field [11] "CUSTOM_2"
+---@field CUSTOM_3 12
+---@field [12] "CUSTOM_3"
+---@field CUSTOM_4 13
+---@field [13] "CUSTOM_4"
+---@field CUSTOM_5 14
+---@field [14] "CUSTOM_5"
+---@field CUSTOM_6 15
+---@field [15] "CUSTOM_6"
+---@field CUSTOM_7 16
+---@field [16] "CUSTOM_7"
+---@field CUSTOM_8 17
+---@field [17] "CUSTOM_8"
 df.work_detail.T_icon = {}
 
 ---@class (exact) df.dungeon_contextst: DFStruct
@@ -4957,8 +5318,8 @@ df.work_detail.T_icon = {}
 ---@field spotted_unit df.unit[]
 ---@field spotted_num number
 ---@field conflict_name df.activity_event_conflictst
----@field alarm_activity_id number
----@field alarm_unit_id number
+---@field alarm_activity_id number References: `df.activity_entry`
+---@field alarm_unit_id number References: `df.unit`
 
 ---@class identity.dungeon_contextst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4969,8 +5330,8 @@ function df.dungeon_contextst:new() end
 
 ---@class df.dungeon_contextst.T_flags: DFBitfield
 ---@field _enum identity.dungeon_contextst.flags
----@field IN_CONFLICT boolean
----@field [0] boolean
+---@field IN_CONFLICT boolean bay12: DUNGEON_CONTEXT_FLAG_*
+---@field [0] boolean bay12: DUNGEON_CONTEXT_FLAG_*
 ---@field CLOSE_OPPONENT boolean
 ---@field [1] boolean
 ---@field CAN_SEE_TARGET boolean
@@ -4983,8 +5344,8 @@ function df.dungeon_contextst:new() end
 ---@field [5] boolean
 
 ---@class identity.dungeon_contextst.flags: DFBitfieldType
----@field IN_CONFLICT 0
----@field [0] "IN_CONFLICT"
+---@field IN_CONFLICT 0 bay12: DUNGEON_CONTEXT_FLAG_*
+---@field [0] "IN_CONFLICT" bay12: DUNGEON_CONTEXT_FLAG_*
 ---@field CLOSE_OPPONENT 1
 ---@field [1] "CLOSE_OPPONENT"
 ---@field CAN_SEE_TARGET 2

@@ -27,8 +27,8 @@ function df.file_compressorst:new() end
 ---| 3 # TOFIRST
 
 ---@class identity.interface_breakdown_types: DFEnumType
----@field NONE 0
----@field [0] "NONE"
+---@field NONE 0 bay12: InterfaceBreakdownTypes, no base type
+---@field [0] "NONE" bay12: InterfaceBreakdownTypes, no base type
 ---@field QUIT 1
 ---@field [1] "QUIT"
 ---@field STOPSCREEN 2
@@ -44,8 +44,8 @@ df.interface_breakdown_types = {}
 ---| 3 # AT_FRONT
 
 ---@class identity.interface_push_types: DFEnumType
----@field AS_PARENT 0
----@field [0] "AS_PARENT"
+---@field AS_PARENT 0 bay12: InterfacePushType, no base type
+---@field [0] "AS_PARENT" bay12: InterfacePushType, no base type
 ---@field AS_CHILD 1
 ---@field [1] "AS_CHILD"
 ---@field AT_BACK 2
@@ -123,6 +123,141 @@ df.interfacest = {}
 ---@return df.interfacest
 function df.interfacest:new() end
 
+-- technically still here, though nothing uses it
+---@class (exact) df.layer_object: DFStruct
+---@field _type identity.layer_object
+---@field enabled boolean
+---@field active boolean
+local layer_object
+
+---@return number
+function layer_object:getFirstVisible() end
+
+---@return number
+function layer_object:getLastVisible() end
+
+---@return number
+function layer_object:getX1() end
+
+---@return number
+function layer_object:getY1() end
+
+---@return number
+function layer_object:getX2() end
+
+---@return number
+function layer_object:getY2() end
+
+---@return number
+function layer_object:getPageSize() end
+
+---@return number
+function layer_object:getListCursor() end
+
+---@param anon_0 number
+function layer_object:setListCursor(anon_0) end
+
+---@param events DFPointer<integer>
+function layer_object:feed(events) end
+
+---@return boolean
+function layer_object:isSetMouseLRCur() end
+
+---@return boolean
+function layer_object:isSetMouseLCur() end
+
+---@return boolean
+function layer_object:isSetMouseRCur() end
+
+---@return number
+function layer_object:getMouseLCur() end
+
+---@return number
+function layer_object:getMouseRCur() end
+
+---@param x number
+---@param y number
+function layer_object:getMouseLClickPos(x, y) end
+
+---@param x number
+---@param y number
+function layer_object:getMouseRClickPos(x, y) end
+
+---@return number
+function layer_object:getListLength() end
+
+---@param anon_0 number
+function layer_object:setListLength(anon_0) end
+
+---@return number
+function layer_object:getMouseX() end
+
+---@return number
+function layer_object:getMouseY() end
+
+---@return number
+function layer_object:getMouseXOld() end
+
+---@return number
+function layer_object:getMouseYOld() end
+
+
+---@class identity.layer_object: DFCompoundType
+---@field _kind 'class-type'
+df.layer_object = {}
+
+---@return df.layer_object
+function df.layer_object:new() end
+
+---@class (exact) df.layer_object_listst: DFStruct, df.layer_object
+---@field _type identity.layer_object_listst
+---@field cursor number
+---@field num_entries number
+---@field x1 number
+---@field y1 number
+---@field page_size number
+---@field x2 number
+---@field y2 number
+---@field mouse_l_cur number
+---@field mouse_r_cur number
+---@field rclick_scrolls boolean
+---@field flag integer for standardscrolling
+---@field key_lclick df.interface_key
+---@field key_rclick df.interface_key
+
+---@class identity.layer_object_listst: DFCompoundType
+---@field _kind 'class-type'
+df.layer_object_listst = {}
+
+---@return df.layer_object_listst
+function df.layer_object_listst:new() end
+
+---@class (exact) df.layer_object_buttonst: DFStruct, df.layer_object
+---@field _type identity.layer_object_buttonst
+---@field x1 number
+---@field y1 number
+---@field x2 number
+---@field y2 number
+---@field has_mouse_lclick number
+---@field has_mouse_rclick number
+---@field mouse_lclick_x number
+---@field mouse_lclick_y number
+---@field mouse_rclick_x number
+---@field mouse_rclick_y number
+---@field mouse_x number
+---@field mouse_y number
+---@field mouse_x_old number
+---@field mouse_y_old number
+---@field handle_mouselbtndown boolean
+---@field handle_mouserbtndown boolean
+
+---@class identity.layer_object_buttonst: DFCompoundType
+---@field _kind 'class-type'
+df.layer_object_buttonst = {}
+
+---@return df.layer_object_buttonst
+function df.layer_object_buttonst:new() end
+
 ---@class (exact) df.scrollbarst: DFStruct
 ---@field _type identity.scrollbarst
 ---@field sel number
@@ -155,9 +290,9 @@ df.extentst = {}
 ---@return df.extentst
 function df.extentst:new() end
 
----@class (exact) df.widget: DFStruct
+---@class (exact) df.widget: DFStruct, df.abstract_interfacest
 ---@field _type identity.widget
----@field parent DFPointer<integer>
+---@field parent df.abstract_interfacest
 ---@field rect df.extentst
 ---@field custom_feed _widget_custom_feed
 ---@field custom_logic _widget_custom_logic
@@ -181,23 +316,6 @@ function df.extentst:new() end
 ---@field search_string string
 ---@field activation_hotkeys _widget_activation_hotkeys
 local widget
-
----@return df.extentst
-function widget:get_rect() end
-
----@param events DFPointer<integer>
-function widget:feed(events) end
-
-function widget:logic() end
-
-function widget:render() end
-
-function widget:arrange() end
-
----@param w DFPointer<integer>
-function widget:remove_child(w) end
-
-function widget:clear() end
 
 
 ---@class identity.widget: DFCompoundType
@@ -273,20 +391,20 @@ function _widget_custom_activated:erase(index) end
 
 ---@class df.widget.T_visibility_flags: DFBitfield
 ---@field _enum identity.widget.visibility_flags
----@field WIDGET_VISIBILITY_ACTIVE boolean
----@field [0] boolean
+---@field WIDGET_VISIBILITY_ACTIVE boolean bay12: VisibilityFlagType
+---@field [0] boolean bay12: VisibilityFlagType
 ---@field WIDGET_VISIBILITY_VISIBLE boolean
 ---@field [1] boolean
----@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE boolean
----@field [2] boolean
+---@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE boolean plus ACTUALLY_VISIBLE for both of the above
+---@field [2] boolean plus ACTUALLY_VISIBLE for both of the above
 
 ---@class identity.widget.visibility_flags: DFBitfieldType
----@field WIDGET_VISIBILITY_ACTIVE 0
----@field [0] "WIDGET_VISIBILITY_ACTIVE"
+---@field WIDGET_VISIBILITY_ACTIVE 0 bay12: VisibilityFlagType
+---@field [0] "WIDGET_VISIBILITY_ACTIVE" bay12: VisibilityFlagType
 ---@field WIDGET_VISIBILITY_VISIBLE 1
 ---@field [1] "WIDGET_VISIBILITY_VISIBLE"
----@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE 2
----@field [2] "WIDGET_VISIBILITY_CAN_KEY_ACTIVATE"
+---@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE 2 plus ACTUALLY_VISIBLE for both of the above
+---@field [2] "WIDGET_VISIBILITY_CAN_KEY_ACTIVATE" plus ACTUALLY_VISIBLE for both of the above
 df.widget.T_visibility_flags = {}
 
 ---@class _widget_tooltip: DFContainer
@@ -312,8 +430,8 @@ function _widget_tooltip:erase(index) end
 ---| 2 # BELOW
 
 ---@class identity.widget.tooltip_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: TooltipType
+---@field [-1] "NONE" bay12: TooltipType
 ---@field REPLACE_MINIMAP 0
 ---@field [0] "REPLACE_MINIMAP"
 ---@field ABOVE 1
@@ -370,21 +488,34 @@ df.widget_text = {}
 ---@return df.widget_text
 function df.widget_text:new() end
 
----@class (exact) df.text_truncated: DFStruct, df.widget_text
----@field _type identity.text_truncated
+---@class (exact) df.widget_text_truncated: DFStruct, df.widget_text
+---@field _type identity.widget_text_truncated
 ---@field original_str string
----@field truncate_mode_flags number
+---@field truncate_mode_flags df.widget_text_truncated.T_truncate_mode_flags
 
----@class identity.text_truncated: DFCompoundType
+---@class identity.widget_text_truncated: DFCompoundType
 ---@field _kind 'class-type'
-df.text_truncated = {}
+df.widget_text_truncated = {}
 
----@return df.text_truncated
-function df.text_truncated:new() end
+---@return df.widget_text_truncated
+function df.widget_text_truncated:new() end
+
+---@class df.widget_text_truncated.T_truncate_mode_flags: DFBitfield
+---@field _enum identity.widget_text_truncated.truncate_mode_flags
+---@field abbreviate boolean bay12: TRUNCATE_MODE_*
+---@field [0] boolean bay12: TRUNCATE_MODE_*
+---@field ellipses boolean
+---@field [1] boolean
+
+---@class identity.widget_text_truncated.truncate_mode_flags: DFBitfieldType
+---@field abbreviate 0 bay12: TRUNCATE_MODE_*
+---@field [0] "abbreviate" bay12: TRUNCATE_MODE_*
+---@field ellipses 1
+---@field [1] "ellipses"
+df.widget_text_truncated.T_truncate_mode_flags = {}
 
 ---@class (exact) df.widget_text_multiline: DFStruct, df.widget_text
 ---@field _type identity.widget_text_multiline
----@field strs DFStringVector
 
 ---@class identity.widget_text_multiline: DFCompoundType
 ---@field _kind 'class-type'
@@ -395,8 +526,8 @@ function df.widget_text_multiline:new() end
 
 ---@class df.override_tile_type: DFBitfield
 ---@field _enum identity.override_tile_type
----@field OVERRIDE_CHAR boolean
----@field [0] boolean
+---@field OVERRIDE_CHAR boolean bay12: OVERRIDE_*
+---@field [0] boolean bay12: OVERRIDE_*
 ---@field OVERRIDE_TILE boolean
 ---@field [1] boolean
 ---@field OVERRIDE_TOP_TILE boolean
@@ -411,8 +542,8 @@ function df.widget_text_multiline:new() end
 ---@field [6] boolean
 
 ---@class identity.override_tile_type: DFBitfieldType
----@field OVERRIDE_CHAR 0
----@field [0] "OVERRIDE_CHAR"
+---@field OVERRIDE_CHAR 0 bay12: OVERRIDE_*
+---@field [0] "OVERRIDE_CHAR" bay12: OVERRIDE_*
 ---@field OVERRIDE_TILE 1
 ---@field [1] "OVERRIDE_TILE"
 ---@field OVERRIDE_TOP_TILE 2
@@ -518,7 +649,7 @@ function _widget_graphics_switcher_ascii_widget:insert(index, item) end
 ---@param index integer
 function _widget_graphics_switcher_ascii_widget:erase(index) end
 
----@class (exact) df.widget_menu: DFStruct, df.widget
+---@class (exact) df.widget_menu: DFStruct
 ---@field _type identity.widget_menu
 ---@field lines _widget_menu_lines
 ---@field selection number
@@ -527,7 +658,7 @@ function _widget_graphics_switcher_ascii_widget:erase(index) end
 ---@field colors _widget_menu_colors
 
 ---@class identity.widget_menu: DFCompoundType
----@field _kind 'class-type'
+---@field _kind 'struct-type'
 df.widget_menu = {}
 
 ---@return df.widget_menu
@@ -565,16 +696,14 @@ function _widget_menu_colors:insert(index, item) end
 ---@param index integer
 function _widget_menu_colors:erase(index) end
 
--- bay12: TextboxType
 ---@alias df.textbox_type
 ---| 0 # FILTER
 ---| 1 # NAME
 ---| 2 # NONE
 
--- bay12: TextboxType
 ---@class identity.textbox_type: DFEnumType
----@field FILTER 0
----@field [0] "FILTER"
+---@field FILTER 0 bay12: TextboxType, no base type
+---@field [0] "FILTER" bay12: TextboxType, no base type
 ---@field NAME 1
 ---@field [1] "NAME"
 ---@field NONE 2
@@ -584,7 +713,7 @@ df.textbox_type = {}
 ---@class (exact) df.widget_textbox: DFStruct, df.widget
 ---@field _type identity.widget_textbox
 ---@field str string
----@field flags number
+---@field flags df.widget_textbox.T_flags
 ---@field callback _widget_textbox_callback arguments are textbox*
 ---@field fg number
 ---@field bg number
@@ -598,6 +727,40 @@ df.widget_textbox = {}
 
 ---@return df.widget_textbox
 function df.widget_textbox:new() end
+
+---@class df.widget_textbox.T_flags: DFBitfield
+---@field _enum identity.widget_textbox.flags
+---@field LETTERS boolean bay12: STRINGENTRY_*
+---@field [0] boolean bay12: STRINGENTRY_*
+---@field SPACE boolean
+---@field [1] boolean
+---@field NUMBERS boolean
+---@field [2] boolean
+---@field CAPS boolean
+---@field [3] boolean
+---@field SYMBOLS boolean
+---@field [4] boolean
+---@field FILENAME boolean
+---@field [5] boolean
+---@field REMOVEKEYS boolean
+---@field [6] boolean
+
+---@class identity.widget_textbox.flags: DFBitfieldType
+---@field LETTERS 0 bay12: STRINGENTRY_*
+---@field [0] "LETTERS" bay12: STRINGENTRY_*
+---@field SPACE 1
+---@field [1] "SPACE"
+---@field NUMBERS 2
+---@field [2] "NUMBERS"
+---@field CAPS 3
+---@field [3] "CAPS"
+---@field SYMBOLS 4
+---@field [4] "SYMBOLS"
+---@field FILENAME 5
+---@field [5] "FILENAME"
+---@field REMOVEKEYS 6
+---@field [6] "REMOVEKEYS"
+df.widget_textbox.T_flags = {}
 
 ---@class _widget_textbox_callback: DFContainer
 ---@field [integer] function[]
@@ -650,6 +813,8 @@ function _widget_dropdown_callback:erase(index) end
 ---@field open df.widget
 ---@field last_visible boolean
 ---@field controlled_set _widget_folder_controlled_set std::unordered_set<std::shared_ptr<widget>>
+---@field controlled_visible boolean
+---@field label df.widget_text
 
 ---@class identity.widget_folder: DFCompoundType
 ---@field _kind 'class-type'
@@ -673,6 +838,22 @@ function _widget_folder_controlled_set:insert(index, item) end
 
 ---@param index integer
 function _widget_folder_controlled_set:erase(index) end
+
+---@class _widget_folder_widget_container: DFContainer
+---@field [integer] df.widget_container
+local _widget_folder_widget_container
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.widget_container>
+function _widget_folder_widget_container:_field(index) end
+
+---@param index '#'|integer
+---@param item df.widget_container
+function _widget_folder_widget_container:insert(index, item) end
+
+---@param index integer
+function _widget_folder_widget_container:erase(index) end
 
 ---@class (exact) df.filter_entry: DFStruct
 ---@field _type identity.filter_entry
@@ -1049,8 +1230,8 @@ function _widget_tabs_rows:erase(index) end
 ---| 3 # SHORT_SUBSUB
 
 ---@class identity.widget_tabs.tab_type: DFEnumType
----@field DEFAULT 0
----@field [0] "DEFAULT"
+---@field DEFAULT 0 bay12: TabType
+---@field [0] "DEFAULT" bay12: TabType
 ---@field SHORT 1
 ---@field [1] "SHORT"
 ---@field SHORT_SUB 2
@@ -1065,6 +1246,7 @@ df.widget_tabs.T_tab_type = {}
 ---@field num_visible number
 ---@field scrolling boolean
 ---@field scrollbar df.scrollbarst
+---@field scrollbar_display_flags number
 
 ---@class identity.widget_scroll_rows: DFCompoundType
 ---@field _kind 'class-type'
@@ -1354,10 +1536,11 @@ function df.widget_job_details_button:new() end
 ---| 12 # SHOW_GENDER
 ---| 13 # CUSTOM_BUILD
 ---| 14 # FORCE_JOB_WIDTH
+---| 15 # ACTIVATE_ON_CURSOR
 
 ---@class identity.unit_list_options: DFEnumType
----@field NONE 0
----@field [0] "NONE"
+---@field NONE 0 bay12: unit_list_options
+---@field [0] "NONE" bay12: unit_list_options
 ---@field PORTRAIT 1
 ---@field [1] "PORTRAIT"
 ---@field NAME_PROF 2
@@ -1386,12 +1569,14 @@ function df.widget_job_details_button:new() end
 ---@field [13] "CUSTOM_BUILD"
 ---@field FORCE_JOB_WIDTH 14
 ---@field [14] "FORCE_JOB_WIDTH"
+---@field ACTIVATE_ON_CURSOR 15
+---@field [15] "ACTIVATE_ON_CURSOR"
 df.unit_list_options = {}
 
 ---@class df.unit_list_flag: DFBitfield
 ---@field _enum identity.unit_list_flag
----@field show_gender boolean
----@field [0] boolean
+---@field show_gender boolean bay12: UNIT_LIST_FLAG_*
+---@field [0] boolean bay12: UNIT_LIST_FLAG_*
 ---@field custom_build boolean
 ---@field [1] boolean
 ---@field force_job_width boolean
@@ -1400,8 +1585,8 @@ df.unit_list_options = {}
 ---@field [3] boolean
 
 ---@class identity.unit_list_flag: DFBitfieldType
----@field show_gender 0
----@field [0] "show_gender"
+---@field show_gender 0 bay12: UNIT_LIST_FLAG_*
+---@field [0] "show_gender" bay12: UNIT_LIST_FLAG_*
 ---@field custom_build 1
 ---@field [1] "custom_build"
 ---@field force_job_width 2
@@ -1800,7 +1985,7 @@ df.widget_sort_widget = {}
 ---@return df.widget_sort_widget
 function df.widget_sort_widget:new() end
 
--- original-name for this class is not yet known
+-- template specialization using unit_list + unit_list::item_or_unit
 ---@class (exact) df.widget_unit_sort_widget: DFStruct, df.widget_sort_widget
 ---@field _type identity.widget_unit_sort_widget
 
@@ -1837,8 +2022,8 @@ function df.MacroScreenSave:new() end
 
 ---@class (exact) df.shared_world_headerst: DFStruct
 ---@field _type identity.shared_world_headerst
----@field id1 number based on tick at start of game
----@field id2 number based on tick at creation time
+---@field id1 integer based on tick at start of game
+---@field id2 integer based on tick at creation time
 ---@field world_name string
 ---@field timeline_name string
 ---@field manual_name string
@@ -1863,8 +2048,8 @@ function df.shared_world_headerst:new() end
 ---| 3 # AUTO
 
 ---@class identity.shared_world_headerst.save_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: SaveTypeType
+---@field [-1] "NONE" bay12: SaveTypeType
 ---@field ACTIVE 0
 ---@field [0] "ACTIVE"
 ---@field INACTIVE 1
@@ -1875,11 +2060,61 @@ function df.shared_world_headerst:new() end
 ---@field [3] "AUTO"
 df.shared_world_headerst.T_save_type = {}
 
+---@alias df.region_permission_type
+---| 0 # ADVENTURE_MAIN
+---| 1 # UNUSED11
+---| 2 # UNUSED12
+---| 3 # DWARF_MAIN
+---| 4 # UNUSED0
+---| 5 # UNUSED1
+---| 6 # UNUSED2
+---| 7 # UNUSED3
+---| 8 # UNUSED4
+---| 9 # UNUSED5
+---| 10 # UNUSED6
+---| 11 # UNUSED7
+---| 12 # UNUSED8
+---| 13 # UNUSED9
+---| 14 # UNUSED10
+
+---@class identity.region_permission_type: DFEnumType
+---@field ADVENTURE_MAIN 0 bay12: RegionPermission
+---@field [0] "ADVENTURE_MAIN" bay12: RegionPermission
+---@field UNUSED11 1
+---@field [1] "UNUSED11"
+---@field UNUSED12 2 used as index-enum, so name all entries
+---@field [2] "UNUSED12" used as index-enum, so name all entries
+---@field DWARF_MAIN 3
+---@field [3] "DWARF_MAIN"
+---@field UNUSED0 4
+---@field [4] "UNUSED0"
+---@field UNUSED1 5
+---@field [5] "UNUSED1"
+---@field UNUSED2 6
+---@field [6] "UNUSED2"
+---@field UNUSED3 7
+---@field [7] "UNUSED3"
+---@field UNUSED4 8
+---@field [8] "UNUSED4"
+---@field UNUSED5 9
+---@field [9] "UNUSED5"
+---@field UNUSED6 10
+---@field [10] "UNUSED6"
+---@field UNUSED7 11
+---@field [11] "UNUSED7"
+---@field UNUSED8 12
+---@field [12] "UNUSED8"
+---@field UNUSED9 13
+---@field [13] "UNUSED9"
+---@field UNUSED10 14
+---@field [14] "UNUSED10"
+df.region_permission_type = {}
+
 ---@class (exact) df.region_headerst: DFStruct
 ---@field _type identity.region_headerst
 ---@field name df.language_name
 ---@field display_name string
----@field permission number[] same as the one at the top of world_data
+---@field permission DFEnumVector<df.region_permission_type, number>
 ---@field last_id df.region_headerst.T_last_id
 ---@field world_header df.shared_world_headerst
 ---@field filename_noext string
@@ -1894,7 +2129,7 @@ function df.region_headerst:new() end
 -- when loading, DF sets *_next_id to these fields plus 1
 ---@class (exact) df.region_headerst.T_last_id: DFStruct
 ---@field _type identity.region_headerst.last_id
----@field unit number
+---@field unit number not a compound
 ---@field soul number
 ---@field item number
 ---@field entity number
@@ -1994,8 +2229,8 @@ function df.viewscreen_adopt_regionst:new() end
 ---| 35 # Failed
 
 ---@class identity.viewscreen_adopt_regionst.cur_step: DFEnumType
----@field OpeningFile 0
----@field [0] "OpeningFile"
+---@field OpeningFile 0 bay12: AdoptRegionStageType
+---@field [0] "OpeningFile" bay12: AdoptRegionStageType
 ---@field ProcessingRawData 1
 ---@field [1] "ProcessingRawData"
 ---@field AllocatingSpace 2
@@ -2093,8 +2328,8 @@ df.viewscreen_adopt_regionst.T_cur_step = {}
 ---| 21 # Sand
 
 ---@class identity.embark_finder_option: DFEnumType
----@field DimensionX 0
----@field [0] "DimensionX"
+---@field DimensionX 0 bay12: FindSiteParamType
+---@field [0] "DimensionX" bay12: FindSiteParamType
 ---@field DimensionY 1
 ---@field [1] "DimensionY"
 ---@field Savagery 2
@@ -2139,7 +2374,6 @@ df.viewscreen_adopt_regionst.T_cur_step = {}
 ---@field [21] "Sand"
 df.embark_finder_option = {}
 
--- starter_infost?
 ---@class (exact) df.embark_location: DFStruct
 ---@field _type identity.embark_location
 ---@field region_pos df.coord2d
@@ -2154,6 +2388,29 @@ df.embark_location = {}
 
 ---@return df.embark_location
 function df.embark_location:new() end
+
+---@alias df.embark_neighbor_state_type
+---| -1 # NONE
+---| 0 # WAR
+---| 1 # HOSTILE
+---| 2 # NO_COMM
+---| 3 # NO_TRADE
+---| 4 # NORMAL
+
+---@class identity.embark_neighbor_state_type: DFEnumType
+---@field NONE -1 bay12: EmbarkNeighborStateType
+---@field [-1] "NONE" bay12: EmbarkNeighborStateType
+---@field WAR 0
+---@field [0] "WAR"
+---@field HOSTILE 1
+---@field [1] "HOSTILE"
+---@field NO_COMM 2
+---@field [2] "NO_COMM"
+---@field NO_TRADE 3
+---@field [3] "NO_TRADE"
+---@field NORMAL 4
+---@field [4] "NORMAL"
+df.embark_neighbor_state_type = {}
 
 ---@class (exact) df.viewscreen_choose_start_sitest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_choose_start_sitest
@@ -2177,7 +2434,7 @@ function df.embark_location:new() end
 ---@field def_candidate _viewscreen_choose_start_sitest_def_candidate
 ---@field def_candidate_nearst _viewscreen_choose_start_sitest_def_candidate_nearst
 ---@field def_candidate_mindist DFNumberVector
----@field def_candidate_state DFNumberVector
+---@field def_candidate_state _viewscreen_choose_start_sitest_def_candidate_state
 ---@field zoomed_in boolean
 ---@field zoom_cent_x number
 ---@field zoom_cent_y number
@@ -2208,7 +2465,7 @@ function df.embark_location:new() end
 ---@field start_civ_nem_num DFNumberVector
 ---@field start_civ_entpop_num DFNumberVector
 ---@field start_civ_site_num DFNumberVector
----@field reclaim_detail_box DFStringVector
+---@field reclaim_detail_box df.curses_text_boxst
 ---@field reclaim_detail_he df.history_event
 ---@field reclaim_detail_she df.history_event
 ---@field reclaim_detail_box_last_processing_dimx number
@@ -2232,7 +2489,7 @@ function df.embark_location:new() end
 ---@field find_mm_sy number
 ---@field find_mm_ey number
 ---@field note_index DFNumberVector
----@field text_box DFStringVector
+---@field text_box df.curses_text_boxst
 ---@field notes_entering_text boolean
 ---@field notes_list_select number
 ---@field notes_cur_sym number
@@ -2255,13 +2512,13 @@ function df.viewscreen_choose_start_sitest:new() end
 ---| 3 # Elevation
 ---| 4 # Cliffs
 ---| 5 # Reclaim
----| 6 # Reclaim2
+---| 6 # ReclaimDetails
 ---| 7 # Find
 ---| 8 # Notes
 
 ---@class identity.viewscreen_choose_start_sitest.page: DFEnumType
----@field Biome 0
----@field [0] "Biome"
+---@field Biome 0 bay12: ChooseStartSiteViewMode, no base type!
+---@field [0] "Biome" bay12: ChooseStartSiteViewMode, no base type!
 ---@field Neighbors 1
 ---@field [1] "Neighbors"
 ---@field Civilization 2
@@ -2272,8 +2529,8 @@ function df.viewscreen_choose_start_sitest:new() end
 ---@field [4] "Cliffs"
 ---@field Reclaim 5
 ---@field [5] "Reclaim"
----@field Reclaim2 6
----@field [6] "Reclaim2"
+---@field ReclaimDetails 6
+---@field [6] "ReclaimDetails"
 ---@field Find 7
 ---@field [7] "Find"
 ---@field Notes 8
@@ -2312,10 +2569,26 @@ function _viewscreen_choose_start_sitest_def_candidate_nearst:insert(index, item
 ---@param index integer
 function _viewscreen_choose_start_sitest_def_candidate_nearst:erase(index) end
 
+---@class _viewscreen_choose_start_sitest_def_candidate_state: DFContainer
+---@field [integer] df.embark_neighbor_state_type
+local _viewscreen_choose_start_sitest_def_candidate_state
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.embark_neighbor_state_type>
+function _viewscreen_choose_start_sitest_def_candidate_state:_field(index) end
+
+---@param index '#'|integer
+---@param item df.embark_neighbor_state_type
+function _viewscreen_choose_start_sitest_def_candidate_state:insert(index, item) end
+
+---@param index integer
+function _viewscreen_choose_start_sitest_def_candidate_state:erase(index) end
+
 ---@class df.viewscreen_choose_start_sitest.T_warn_flags: DFBitfield
 ---@field _enum identity.viewscreen_choose_start_sitest.warn_flags
----@field GENERIC boolean
----@field [0] boolean
+---@field GENERIC boolean bay12: WARN_FLAG_*
+---@field [0] boolean bay12: WARN_FLAG_*
 ---@field WATER_TABLE boolean
 ---@field [1] boolean
 ---@field HEAVY_WATER_TABLE boolean
@@ -2336,8 +2609,8 @@ function _viewscreen_choose_start_sitest_def_candidate_nearst:erase(index) end
 ---@field [9] boolean
 
 ---@class identity.viewscreen_choose_start_sitest.warn_flags: DFBitfieldType
----@field GENERIC 0
----@field [0] "GENERIC"
+---@field GENERIC 0 bay12: WARN_FLAG_*
+---@field [0] "GENERIC" bay12: WARN_FLAG_*
 ---@field WATER_TABLE 1
 ---@field [1] "WATER_TABLE"
 ---@field HEAVY_WATER_TABLE 2
@@ -2381,8 +2654,8 @@ function _viewscreen_choose_start_sitest_start_civ:erase(index) end
 ---| 2 # Suitable
 
 ---@class identity.viewscreen_choose_start_sitest.find_results: DFEnumType
----@field None -1
----@field [-1] "None"
+---@field None -1 not a real enum
+---@field [-1] "None" not a real enum
 ---@field NoResult 0
 ---@field [0] "NoResult"
 ---@field Partial 1
@@ -2390,82 +2663,6 @@ function _viewscreen_choose_start_sitest_start_civ:erase(index) end
 ---@field Suitable 2
 ---@field [2] "Suitable"
 df.viewscreen_choose_start_sitest.T_find_results = {}
-
----@class (exact) df.mission: DFStruct
----@field _type identity.mission
----@field army_controller number References: `df.army_controller`
----@field entity number References: `df.historical_entity`
----@field target_site number References: `df.world_site`
----@field unk_2 number
----@field target_x number -1
----@field target_y number
----@field unk_3 number
----@field unk_4 number
----@field unk_5 number
----@field unk_6 number
----@field unk_7 number
----@field unk_8 number
----@field unk_9 number
----@field unk_10 number
----@field year number
----@field year_tick number
----@field unk_12 number
----@field army_controller2 number -1<br>References: `df.army_controller`
----@field histfig number References: `df.historical_figure`
----@field unk_14 number
----@field unk_16 number -1
----@field unk_17 number
----@field unk_18 number
----@field unk_19 number
----@field unk_20 number
----@field unk_21 number
----@field unk_15 number
----@field unk_22 number
----@field squads DFNumberVector
----@field messengers DFNumberVector
----@field unk_23 number
----@field unk_24 number
----@field details df.mission.T_details
----@field type df.mission.T_type
----@field unk_25 number
-
----@class identity.mission: DFCompoundType
----@field _kind 'struct-type'
-df.mission = {}
-
----@return df.mission
-function df.mission:new() end
-
----@class (exact) df.mission.T_details: DFStruct
----@field _type identity.mission.details
----@field raid DFPointer<integer>
----@field recovery DFPointer<integer>
----@field rescue DFPointer<integer>
----@field request DFPointer<integer>
-
----@class identity.mission.details: DFCompoundType
----@field _kind 'struct-type'
-df.mission.T_details = {}
-
----@return df.mission.T_details
-function df.mission.T_details:new() end
-
----@alias df.mission.T_type
----| 2 # Raid
----| 17 # RecoverArtifact
----| 18 # RescuePerson
----| 19 # RequestWorkers
-
----@class identity.mission.type: DFEnumType
----@field Raid 2
----@field [2] "Raid"
----@field RecoverArtifact 17
----@field [17] "RecoverArtifact"
----@field RescuePerson 18
----@field [18] "RescuePerson"
----@field RequestWorkers 19
----@field [19] "RequestWorkers"
-df.mission.T_type = {}
 
 ---@class (exact) df.viewscreen_dwarfmodest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_dwarfmodest
@@ -2543,7 +2740,7 @@ function _viewscreen_dwarfmodest_trained_animals:erase(index) end
 ---@field play_now boolean
 ---@field state df.viewscreen_export_regionst.T_state
 ---@field progress number 0..40
----@field units_progress df.viewscreen_export_regionst.T_units_progress
+---@field units_progress df.nemesis_offload
 ---@field compressor df.file_compressorst
 ---@field folder_name string
 ---@field timeline_name string
@@ -2597,8 +2794,8 @@ function df.viewscreen_export_regionst:new() end
 ---| 38 # SynchronizingFolders
 
 ---@class identity.viewscreen_export_regionst.state: DFEnumType
----@field Initializing 0
----@field [0] "Initializing"
+---@field Initializing 0 bay12: ExportRegionStageType
+---@field [0] "Initializing" bay12: ExportRegionStageType
 ---@field PreliminaryCleaning 1
 ---@field [1] "PreliminaryCleaning"
 ---@field OffloadingUnits 2
@@ -2677,38 +2874,6 @@ function df.viewscreen_export_regionst:new() end
 ---@field [38] "SynchronizingFolders"
 df.viewscreen_export_regionst.T_state = {}
 
----@class (exact) df.viewscreen_export_regionst.T_units_progress: DFStruct
----@field _type identity.viewscreen_export_regionst.units_progress
----@field save_file_id DFNumberVector
----@field save_file_member_idx DFNumberVector
----@field units _viewscreen_export_regionst_units_progress_units
----@field current_chunk df.unit_chunk
----@field current_save_file_id number
----@field offloaded_units number
-
----@class identity.viewscreen_export_regionst.units_progress: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_export_regionst.T_units_progress = {}
-
----@return df.viewscreen_export_regionst.T_units_progress
-function df.viewscreen_export_regionst.T_units_progress:new() end
-
----@class _viewscreen_export_regionst_units_progress_units: DFContainer
----@field [integer] df.unit
-local _viewscreen_export_regionst_units_progress_units
-
----@nodiscard
----@param index integer
----@return DFPointer<df.unit>
-function _viewscreen_export_regionst_units_progress_units:_field(index) end
-
----@param index '#'|integer
----@param item df.unit
-function _viewscreen_export_regionst_units_progress_units:insert(index, item) end
-
----@param index integer
-function _viewscreen_export_regionst_units_progress_units:erase(index) end
-
 ---@class (exact) df.viewscreen_game_cleanerst: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_game_cleanerst
 ---@field state df.viewscreen_game_cleanerst.T_state
@@ -2726,8 +2891,8 @@ function df.viewscreen_game_cleanerst:new() end
 ---| 2 # CleaningPlayObjects
 
 ---@class identity.viewscreen_game_cleanerst.state: DFEnumType
----@field CleaningGameObjects 0
----@field [0] "CleaningGameObjects"
+---@field CleaningGameObjects 0 bay12: GameClean, no base type
+---@field [0] "CleaningGameObjects" bay12: GameClean, no base type
 ---@field CleaningStrandedObjects 1
 ---@field [1] "CleaningStrandedObjects"
 ---@field CleaningPlayObjects 2
@@ -2738,7 +2903,7 @@ df.viewscreen_game_cleanerst.T_state = {}
 ---@field _type identity.viewscreen_initial_prepst
 ---@field render_count number
 ---@field logic_step number
----@field unk_90 lightuserdata
+---@field process lightuserdata
 
 ---@class identity.viewscreen_initial_prepst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2916,8 +3081,8 @@ function df.legend_pagest:new() end
 ---| 13 # POPULATIONS
 
 ---@class identity.legend_pagest.mode: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: LegendsModeType
+---@field [-1] "NONE" bay12: LegendsModeType
 ---@field MAIN 0
 ---@field [0] "MAIN"
 ---@field HFS 1
@@ -2971,7 +3136,7 @@ df.legend_pagest.T_mode = {}
 ---@field era_choice_num DFNumberVector
 ---@field era_choice_denom DFNumberVector
 ---@field hec_id DFNumberVector
----@field showing_all_era_collections number
+---@field showing_all_era_collections boolean
 ---@field region_snapshot _viewscreen_legendsst_region_snapshot
 ---@field region_view_x number
 ---@field region_view_y number
@@ -2992,8 +3157,8 @@ df.legend_pagest.T_mode = {}
 ---@field page _viewscreen_legendsst_page
 ---@field active_page_index number
 ---@field page_scroll number
----@field unk_338 lightuserdata
----@field unk_348 number
+---@field xml_dump_future lightuserdata
+---@field dumping_xml boolean
 
 ---@class identity.viewscreen_legendsst: DFCompoundType
 ---@field _kind 'class-type'
@@ -3003,16 +3168,16 @@ df.viewscreen_legendsst = {}
 function df.viewscreen_legendsst:new() end
 
 ---@class _viewscreen_legendsst_region_snapshot: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.region_snapshotst
 local _viewscreen_legendsst_region_snapshot
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.region_snapshotst>
 function _viewscreen_legendsst_region_snapshot:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.region_snapshotst
 function _viewscreen_legendsst_region_snapshot:insert(index, item) end
 
 ---@param index integer
@@ -3077,7 +3242,7 @@ function _viewscreen_legendsst_page:erase(index) end
 ---@field max_belief_system_id number
 ---@field max_image_set_id number
 ---@field max_divination_set_id number
----@field gametype df.game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
+---@field gametype df.game_type
 ---@field fort_name string
 ---@field world_name string
 ---@field year number
@@ -3311,7 +3476,7 @@ function _region_object_datast_generated_languages:erase(index) end
 
 ---@class (exact) df.viewscreen_loadgamest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_loadgamest
----@field cur_step df.viewscreen_loadgamest.T_cur_step After the on-screen text shown while loading.
+---@field cur_step df.viewscreen_loadgamest.T_cur_step
 ---@field progress number
 ---@field compressor df.file_compressorst
 ---@field rod df.region_object_datast
@@ -3325,7 +3490,6 @@ df.viewscreen_loadgamest = {}
 ---@return df.viewscreen_loadgamest
 function df.viewscreen_loadgamest:new() end
 
--- After the on-screen text shown while loading.
 ---@alias df.viewscreen_loadgamest.T_cur_step
 ---| 0 # OpeningFile
 ---| 1 # ProcessingRawData
@@ -3378,11 +3542,11 @@ function df.viewscreen_loadgamest:new() end
 ---| 48 # PreparingGameScreen
 ---| 49 # HandlingCompatibilityIssues
 ---| 50 # Finishing
+---| 51 # Failed
 
--- After the on-screen text shown while loading.
 ---@class identity.viewscreen_loadgamest.cur_step: DFEnumType
----@field OpeningFile 0
----@field [0] "OpeningFile"
+---@field OpeningFile 0 bay12: LoadGameStageType
+---@field [0] "OpeningFile" bay12: LoadGameStageType
 ---@field ProcessingRawData 1
 ---@field [1] "ProcessingRawData"
 ---@field AllocatingSpace 2
@@ -3483,6 +3647,8 @@ function df.viewscreen_loadgamest:new() end
 ---@field [49] "HandlingCompatibilityIssues"
 ---@field Finishing 50
 ---@field [50] "Finishing"
+---@field Failed 51
+---@field [51] "Failed"
 df.viewscreen_loadgamest.T_cur_step = {}
 
 ---@class (exact) df.worldgen_parms: DFStruct
@@ -3504,7 +3670,7 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field partial_ocean_edge_min number
 ---@field complete_ocean_edge_min number
 ---@field volcano_min number
----@field region_counts DFEnumVector<df.worldgen_region_type, number>[]
+---@field region_counts DFEnumVector<df.world_region_type, number>[]
 ---@field river_mins number[]
 ---@field subregion_max number
 ---@field cavern_layer_count number
@@ -3595,7 +3761,7 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field all_caves_visible number
 ---@field show_embark_tunnel number
 ---@field pole number
----@field unk_1 boolean
+---@field immune_to_resize boolean
 
 ---@class identity.worldgen_parms: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3657,7 +3823,7 @@ function df.worldgen_parms_ps:new() end
 ---@field abort_world_gen_dialogue number
 ---@field reject_dialogue number
 ---@field reject_dialogue_type number
----@field text_box DFStringVector
+---@field text_box df.curses_text_boxst bay12: MapRejectType
 ---@field mouse_scrolling_map boolean
 ---@field mouse_anchor_mx number
 ---@field mouse_anchor_my number
@@ -3666,7 +3832,7 @@ function df.worldgen_parms_ps:new() end
 ---@field raw_load boolean
 ---@field stage_count number
 ---@field raw_load_stage number
----@field doing_mods boolean
+---@field doing_mods boolean bay12: NewRegionRawLoadStageType
 ---@field scroll_position_available_mods number
 ---@field scrolling_available_mods boolean
 ---@field scroll_position_selected_mods number
@@ -3692,7 +3858,7 @@ function df.worldgen_parms_ps:new() end
 ---@field available_name DFStringVector
 ---@field available_displayed_version DFStringVector
 ---@field available_mod_header _viewscreen_new_regionst_available_mod_header
----@field hover_mod_description DFStringVector
+---@field hover_mod_description df.curses_text_boxst
 ---@field last_hover_mod_id string
 ---@field last_hover_mod_version number
 ---@field last_hover_width number
@@ -3818,11 +3984,13 @@ function _nemesis_offload_units:erase(index) end
 
 ---@class (exact) df.viewscreen_savegamest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_savegamest
----@field unk_1 string
----@field cur_step df.viewscreen_savegamest.T_cur_step
----@field progress number
----@field offload df.nemesis_offload
+---@field confirm_string string
+---@field saver df.saverst
 ---@field compressor df.file_compressorst
+---@field folder_name string
+---@field timeline_name string
+---@field manual_name string
+---@field save_type number
 
 ---@class identity.viewscreen_savegamest: DFCompoundType
 ---@field _kind 'class-type'
@@ -3830,167 +3998,6 @@ df.viewscreen_savegamest = {}
 
 ---@return df.viewscreen_savegamest
 function df.viewscreen_savegamest:new() end
-
----@alias df.viewscreen_savegamest.T_cur_step
----| 0 # Initializing
----| 1 # CheckingDirectoryStructure
----| 2 # PreliminaryCleaning
----| 3 # OffloadingUnits
----| 4 # OffloadingArt
----| 5 # OpeningFile
----| 6 # CharacterizingRawData
----| 7 # AllocatingSpace
----| 8 # SavingItems
----| 9 # SavingUnits
----| 10 # SavingJobs
----| 11 # SavingSchedules
----| 12 # SavingProjectiles
----| 13 # SavingBuildings
----| 14 # SavingMachines
----| 15 # SavingFlowGuides
----| 16 # SavingEffects
----| 17 # SavingEntities
----| 18 # SavingLocalAnimalPopulations
----| 19 # SavingEvents
----| 20 # SavingMandates
----| 21 # SavingWorkQuotas
----| 22 # SavingWorldEvents
----| 23 # SavingCoinInformation
----| 24 # SavingSquads
----| 25 # SavingFormations
----| 26 # SavingActivities
----| 27 # SavingInteractions
----| 28 # SavingWrittenContent
----| 29 # SavingIdentities
----| 30 # SavingIncidents
----| 31 # SavingCrimes
----| 32 # SavingVehicles
----| 33 # SavingArmies
----| 34 # SavingArmyControllers
----| 35 # SavingTrackingInformation
----| 36 # SavingCulturalIdentities
----| 37 # SavingAgreement
----| 38 # SavingArtForms
----| 39 # SavingOccupations
----| 40 # SavingBeliefSystems
----| 41 # SavingImageSets
----| 42 # SavingDivinationSets
----| 43 # SavingAnnouncements
----| 44 # SavingFortressInformation
----| 45 # SavingWorldInformation
----| 46 # SavingArtifacts
----| 47 # SavingActiveHistoricalFigures
----| 48 # SavingAdventureData
----| 49 # SavingGeneralInformation
----| 50 # ClosingFile
----| 51 # Finishing
-
----@class identity.viewscreen_savegamest.cur_step: DFEnumType
----@field Initializing 0
----@field [0] "Initializing"
----@field CheckingDirectoryStructure 1
----@field [1] "CheckingDirectoryStructure"
----@field PreliminaryCleaning 2
----@field [2] "PreliminaryCleaning"
----@field OffloadingUnits 3
----@field [3] "OffloadingUnits"
----@field OffloadingArt 4
----@field [4] "OffloadingArt"
----@field OpeningFile 5
----@field [5] "OpeningFile"
----@field CharacterizingRawData 6
----@field [6] "CharacterizingRawData"
----@field AllocatingSpace 7
----@field [7] "AllocatingSpace"
----@field SavingItems 8
----@field [8] "SavingItems"
----@field SavingUnits 9
----@field [9] "SavingUnits"
----@field SavingJobs 10
----@field [10] "SavingJobs"
----@field SavingSchedules 11
----@field [11] "SavingSchedules"
----@field SavingProjectiles 12
----@field [12] "SavingProjectiles"
----@field SavingBuildings 13
----@field [13] "SavingBuildings"
----@field SavingMachines 14
----@field [14] "SavingMachines"
----@field SavingFlowGuides 15
----@field [15] "SavingFlowGuides"
----@field SavingEffects 16
----@field [16] "SavingEffects"
----@field SavingEntities 17
----@field [17] "SavingEntities"
----@field SavingLocalAnimalPopulations 18
----@field [18] "SavingLocalAnimalPopulations"
----@field SavingEvents 19
----@field [19] "SavingEvents"
----@field SavingMandates 20
----@field [20] "SavingMandates"
----@field SavingWorkQuotas 21
----@field [21] "SavingWorkQuotas"
----@field SavingWorldEvents 22
----@field [22] "SavingWorldEvents"
----@field SavingCoinInformation 23
----@field [23] "SavingCoinInformation"
----@field SavingSquads 24
----@field [24] "SavingSquads"
----@field SavingFormations 25
----@field [25] "SavingFormations"
----@field SavingActivities 26
----@field [26] "SavingActivities"
----@field SavingInteractions 27
----@field [27] "SavingInteractions"
----@field SavingWrittenContent 28
----@field [28] "SavingWrittenContent"
----@field SavingIdentities 29
----@field [29] "SavingIdentities"
----@field SavingIncidents 30
----@field [30] "SavingIncidents"
----@field SavingCrimes 31
----@field [31] "SavingCrimes"
----@field SavingVehicles 32
----@field [32] "SavingVehicles"
----@field SavingArmies 33
----@field [33] "SavingArmies"
----@field SavingArmyControllers 34
----@field [34] "SavingArmyControllers"
----@field SavingTrackingInformation 35
----@field [35] "SavingTrackingInformation"
----@field SavingCulturalIdentities 36
----@field [36] "SavingCulturalIdentities"
----@field SavingAgreement 37
----@field [37] "SavingAgreement"
----@field SavingArtForms 38
----@field [38] "SavingArtForms"
----@field SavingOccupations 39
----@field [39] "SavingOccupations"
----@field SavingBeliefSystems 40
----@field [40] "SavingBeliefSystems"
----@field SavingImageSets 41
----@field [41] "SavingImageSets"
----@field SavingDivinationSets 42
----@field [42] "SavingDivinationSets"
----@field SavingAnnouncements 43
----@field [43] "SavingAnnouncements"
----@field SavingFortressInformation 44
----@field [44] "SavingFortressInformation"
----@field SavingWorldInformation 45
----@field [45] "SavingWorldInformation"
----@field SavingArtifacts 46
----@field [46] "SavingArtifacts"
----@field SavingActiveHistoricalFigures 47
----@field [47] "SavingActiveHistoricalFigures"
----@field SavingAdventureData 48
----@field [48] "SavingAdventureData"
----@field SavingGeneralInformation 49
----@field [49] "SavingGeneralInformation"
----@field ClosingFile 50
----@field [50] "ClosingFile"
----@field Finishing 51
----@field [51] "Finishing"
-df.viewscreen_savegamest.T_cur_step = {}
 
 ---@alias df.adventurer_attribute_level
 ---| 0 # VeryLow
@@ -4055,12 +4062,12 @@ df.adv_background_option_type = {}
 ---@field skilllevel DFEnumVector<df.job_skill, df.skill_rating>
 ---@field quick_entity_id number References: `df.historical_entity`
 ---@field entity_population_id number
----@field breed_id number
+---@field breed_id number References: `df.breed`
 ---@field cultural_identity_id number References: `df.cultural_identity`
 ---@field nemesis_index number References: `df.nemesis_record`
----@field start_mil_type number
----@field start_civ_type number
----@field skill_picks_left number
+---@field start_mil_type df.profession
+---@field start_civ_type df.profession Toady directly used the enum here
+---@field skill_picks_left number rather than the matching typedef
 ---@field phys_att_range_val DFEnumVector<df.physical_attribute_type, df.adventurer_attribute_level>
 ---@field ment_att_range_val DFEnumVector<df.mental_attribute_type, df.adventurer_attribute_level>
 ---@field difficulty df.setup_character_info.T_difficulty
@@ -4078,9 +4085,9 @@ df.adv_background_option_type = {}
 ---@field age_death_season_count number
 ---@field pers df.unit_personality
 ---@field is_from_wilderpop_or_feature boolean
----@field flag integer
+---@field flag df.setup_character_info.T_flag
 ---@field sub_mode df.setup_character_info.T_sub_mode
----@field visited_mode boolean[]
+---@field visited_mode boolean[] indexed by the above enum
 ---@field selecting_atts boolean
 ---@field selected_att number
 ---@field att_points number
@@ -4089,26 +4096,26 @@ df.adv_background_option_type = {}
 ---@field ip number
 ---@field entering_name boolean
 ---@field old_name string
----@field background_text DFStringVector
+---@field background_text df.curses_text_boxst
 ---@field goodsite _setup_character_info_goodsite
 ---@field active_column number
 ---@field background_option _setup_character_info_background_option
 ---@field background_option_squad_epp_id DFNumberVector
----@field background_option_unit DFNumberVector type should be profession?
----@field religious_practice_option DFNumberVector
----@field religious_practice_id DFNumberVector
+---@field background_option_unit _setup_character_info_background_option_unit
+---@field religious_practice_option _setup_character_info_religious_practice_option
+---@field religious_practice_id _setup_character_info_religious_practice_id
 ---@field pos_caste DFNumberVector
 ---@field st_selector number
 ---@field bo_selector number
 ---@field rp_selector number
----@field background_desc DFStringVector
----@field appearance_text DFStringVector
+---@field background_desc df.curses_text_boxst
+---@field appearance_text df.curses_text_boxst
 ---@field appearance_offscreen_randomized boolean
 ---@field appearance_was_fully_randomized boolean
 ---@field pers_scroll_y number
----@field personal_values_text DFStringVector
----@field personality_text DFStringVector
----@field civ_values_text DFStringVector
+---@field personal_values_text df.curses_text_boxst
+---@field personality_text df.curses_text_boxst
+---@field civ_values_text df.curses_text_boxst
 ---@field doing_specific_personality boolean
 ---@field selected_specific_pers_item number
 ---@field min_pers DFEnumVector<df.personality_facet_type, number>
@@ -4118,11 +4125,11 @@ df.adv_background_option_type = {}
 ---@field s_item _setup_character_info_s_item
 ---@field selected_i number
 ---@field etl df.embark_item_choice
----@field itype number
+---@field itype df.item_type
 ---@field istype number
 ---@field imat number
 ---@field imatg number
----@field item_desc DFStringVector
+---@field item_desc df.curses_text_boxst
 ---@field selected_pet_l number
 ---@field selected_pet_r number
 ---@field pet_side number
@@ -4149,6 +4156,16 @@ function df.setup_character_info:new() end
 ---@field [2] "Demigod"
 df.setup_character_info.T_difficulty = {}
 
+---@class df.setup_character_info.T_flag: DFBitfield
+---@field _enum identity.setup_character_info.flag
+---@field receiving_item boolean bay12: STARTUP_CHARACTERSHEET_FLAG_*
+---@field [0] boolean bay12: STARTUP_CHARACTERSHEET_FLAG_*
+
+---@class identity.setup_character_info.flag: DFBitfieldType
+---@field receiving_item 0 bay12: STARTUP_CHARACTERSHEET_FLAG_*
+---@field [0] "receiving_item" bay12: STARTUP_CHARACTERSHEET_FLAG_*
+df.setup_character_info.T_flag = {}
+
 ---@alias df.setup_character_info.T_sub_mode
 ---| -1 # NONE
 ---| 0 # RACE
@@ -4165,8 +4182,8 @@ df.setup_character_info.T_difficulty = {}
 ---| 11 # FINAL_CONFIRMATION
 
 ---@class identity.setup_character_info.sub_mode: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: SetupAdventureType
+---@field [-1] "NONE" bay12: SetupAdventureType
 ---@field RACE 0
 ---@field [0] "RACE"
 ---@field SUBRACE 1
@@ -4240,6 +4257,54 @@ function _setup_character_info_background_option:insert(index, item) end
 
 ---@param index integer
 function _setup_character_info_background_option:erase(index) end
+
+---@class _setup_character_info_background_option_unit: DFContainer
+---@field [integer] df.profession
+local _setup_character_info_background_option_unit
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.profession>
+function _setup_character_info_background_option_unit:_field(index) end
+
+---@param index '#'|integer
+---@param item df.profession
+function _setup_character_info_background_option_unit:insert(index, item) end
+
+---@param index integer
+function _setup_character_info_background_option_unit:erase(index) end
+
+---@class _setup_character_info_religious_practice_option: DFContainer
+---@field [integer] df.religious_practice_type
+local _setup_character_info_religious_practice_option
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.religious_practice_type>
+function _setup_character_info_religious_practice_option:_field(index) end
+
+---@param index '#'|integer
+---@param item df.religious_practice_type
+function _setup_character_info_religious_practice_option:insert(index, item) end
+
+---@param index integer
+function _setup_character_info_religious_practice_option:erase(index) end
+
+---@class _setup_character_info_religious_practice_id: DFContainer
+---@field [integer] df.religious_practice_data
+local _setup_character_info_religious_practice_id
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.religious_practice_data>
+function _setup_character_info_religious_practice_id:_field(index) end
+
+---@param index '#'|integer
+---@param item df.religious_practice_data
+function _setup_character_info_religious_practice_id:insert(index, item) end
+
+---@param index integer
+function _setup_character_info_religious_practice_id:erase(index) end
 
 ---@class _setup_character_info_s_item: DFContainer
 ---@field [integer] df.item_actual
@@ -4322,12 +4387,12 @@ function _embark_item_choice_profession:erase(index) end
 ---@class (exact) df.embark_profile: DFStruct
 ---@field _type identity.embark_profile
 ---@field name string
----@field skill_type DFNumberVector
+---@field skill_type _embark_profile_skill_type
 ---@field skill_dwarf_idx DFNumberVector
 ---@field skill_level DFNumberVector
 ---@field reclaim_dwarf_idx DFNumberVector
----@field reclaim_prof1 _embark_profile_reclaim_prof1
----@field reclaim_prof2 _embark_profile_reclaim_prof2
+---@field reclaim_prof_soldier _embark_profile_reclaim_prof_soldier
+---@field reclaim_prof_civilian _embark_profile_reclaim_prof_civilian
 ---@field item_type DFNumberVector
 ---@field item_subtype DFNumberVector
 ---@field mat_type DFNumberVector
@@ -4345,37 +4410,53 @@ df.embark_profile = {}
 ---@return df.embark_profile
 function df.embark_profile:new() end
 
----@class _embark_profile_reclaim_prof1: DFContainer
+---@class _embark_profile_skill_type: DFContainer
+---@field [integer] df.job_skill
+local _embark_profile_skill_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_skill>
+function _embark_profile_skill_type:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_skill
+function _embark_profile_skill_type:insert(index, item) end
+
+---@param index integer
+function _embark_profile_skill_type:erase(index) end
+
+---@class _embark_profile_reclaim_prof_soldier: DFContainer
 ---@field [integer] df.profession
-local _embark_profile_reclaim_prof1
+local _embark_profile_reclaim_prof_soldier
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.profession>
-function _embark_profile_reclaim_prof1:_field(index) end
+function _embark_profile_reclaim_prof_soldier:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.profession
-function _embark_profile_reclaim_prof1:insert(index, item) end
+function _embark_profile_reclaim_prof_soldier:insert(index, item) end
 
 ---@param index integer
-function _embark_profile_reclaim_prof1:erase(index) end
+function _embark_profile_reclaim_prof_soldier:erase(index) end
 
----@class _embark_profile_reclaim_prof2: DFContainer
+---@class _embark_profile_reclaim_prof_civilian: DFContainer
 ---@field [integer] df.profession
-local _embark_profile_reclaim_prof2
+local _embark_profile_reclaim_prof_civilian
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.profession>
-function _embark_profile_reclaim_prof2:_field(index) end
+function _embark_profile_reclaim_prof_civilian:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.profession
-function _embark_profile_reclaim_prof2:insert(index, item) end
+function _embark_profile_reclaim_prof_civilian:insert(index, item) end
 
 ---@param index integer
-function _embark_profile_reclaim_prof2:erase(index) end
+function _embark_profile_reclaim_prof_civilian:erase(index) end
 
 ---@class _embark_profile_pet_profession: DFContainer
 ---@field [integer] df.profession
@@ -4393,76 +4474,31 @@ function _embark_profile_pet_profession:insert(index, item) end
 ---@param index integer
 function _embark_profile_pet_profession:erase(index) end
 
----@class (exact) df.embark_symbol: DFStruct
----@field _type identity.embark_symbol
----@field unk_v43_1 _embark_symbol_unk_v43_1
----@field unk_v43_2 _embark_symbol_unk_v43_2
----@field unk_v43_3 number
----@field unk_v43_4 df.language_name
----@field unk_v43_sub9 df.embark_symbol.T_unk_v43_sub9
----@field unk_v43_10 number[] uninitialized?
+---@alias df.embark_skill_tab_type
+---| -1 # NONE
+---| 0 # CRUCIAL
+---| 1 # LABOR
+---| 2 # COMBAT
+---| 3 # OTHER
 
----@class identity.embark_symbol: DFCompoundType
----@field _kind 'struct-type'
-df.embark_symbol = {}
-
----@return df.embark_symbol
-function df.embark_symbol:new() end
-
----@class _embark_symbol_unk_v43_1: DFContainer
----@field [integer] any[]
-local _embark_symbol_unk_v43_1
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _embark_symbol_unk_v43_1:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _embark_symbol_unk_v43_1:insert(index, item) end
-
----@param index integer
-function _embark_symbol_unk_v43_1:erase(index) end
-
----@class _embark_symbol_unk_v43_2: DFContainer
----@field [integer] any[]
-local _embark_symbol_unk_v43_2
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _embark_symbol_unk_v43_2:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _embark_symbol_unk_v43_2:insert(index, item) end
-
----@param index integer
-function _embark_symbol_unk_v43_2:erase(index) end
-
----@class (exact) df.embark_symbol.T_unk_v43_sub9: DFStruct
----@field _type identity.embark_symbol.unk_v43_sub9
----@field unk_s1 number
----@field unk_s2 number
----@field unk_s3 number
----@field unk_s4 number
----@field unk_s5 number
----@field unk_s6 number
----@field unk_s7 DFPointer<integer>
-
----@class identity.embark_symbol.unk_v43_sub9: DFCompoundType
----@field _kind 'struct-type'
-df.embark_symbol.T_unk_v43_sub9 = {}
-
----@return df.embark_symbol.T_unk_v43_sub9
-function df.embark_symbol.T_unk_v43_sub9:new() end
+---@class identity.embark_skill_tab_type: DFEnumType
+---@field NONE -1 bay12: EmbarkSkillTabType
+---@field [-1] "NONE" bay12: EmbarkSkillTabType
+---@field CRUCIAL 0
+---@field [0] "CRUCIAL"
+---@field LABOR 1
+---@field [1] "LABOR"
+---@field COMBAT 2
+---@field [2] "COMBAT"
+---@field OTHER 3
+---@field [3] "OTHER"
+df.embark_skill_tab_type = {}
 
 ---@class (exact) df.viewscreen_setupdwarfgamest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_setupdwarfgamest
 ---@field title string
 ---@field dwarf_info _viewscreen_setupdwarfgamest_dwarf_info
----@field embark_skills df.job_skill[]
+---@field embark_skills DFEnumVector<df.embark_skill_tab_type, df.job_skill>
 ---@field reclaim_professions _viewscreen_setupdwarfgamest_reclaim_professions
 ---@field preparing_map_timer number
 ---@field preparing_map_timer_quick_start boolean
@@ -4478,7 +4514,7 @@ function df.embark_symbol.T_unk_v43_sub9:new() end
 ---@field selected_u number
 ---@field scroll number
 ---@field selected_i number
----@field current_skill_tab number
+---@field current_skill_tab df.embark_skill_tab_type
 ---@field scrolling_skill_list boolean
 ---@field selected_sk number
 ---@field selected_pet number
@@ -4528,7 +4564,7 @@ function df.embark_symbol.T_unk_v43_sub9:new() end
 ---@field add_item_subtype number
 ---@field add_mattype number References: `df.material`
 ---@field add_matindex number
----@field adding_item number
+---@field adding_item_flag integer
 
 ---@class identity.viewscreen_setupdwarfgamest: DFCompoundType
 ---@field _kind 'class-type'
@@ -4553,21 +4589,21 @@ function _viewscreen_setupdwarfgamest_dwarf_info:insert(index, item) end
 ---@param index integer
 function _viewscreen_setupdwarfgamest_dwarf_info:erase(index) end
 
----@class _viewscreen_setupdwarfgamest_embark_skills_job_skill: DFContainer
+---@class _viewscreen_setupdwarfgamest_embark_skills: DFContainer
 ---@field [integer] df.job_skill
-local _viewscreen_setupdwarfgamest_embark_skills_job_skill
+local _viewscreen_setupdwarfgamest_embark_skills
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.job_skill>
-function _viewscreen_setupdwarfgamest_embark_skills_job_skill:_field(index) end
+function _viewscreen_setupdwarfgamest_embark_skills:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.job_skill
-function _viewscreen_setupdwarfgamest_embark_skills_job_skill:insert(index, item) end
+function _viewscreen_setupdwarfgamest_embark_skills:insert(index, item) end
 
 ---@param index integer
-function _viewscreen_setupdwarfgamest_embark_skills_job_skill:erase(index) end
+function _viewscreen_setupdwarfgamest_embark_skills:erase(index) end
 
 ---@class _viewscreen_setupdwarfgamest_reclaim_professions: DFContainer
 ---@field [integer] df.profession
@@ -4651,7 +4687,7 @@ function _viewscreen_setupdwarfgamest_s_unit:erase(index) end
 
 ---@class (exact) df.viewscreen_choose_game_typest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_choose_game_typest
----@field gametypes DFNumberVector
+---@field gametypes _viewscreen_choose_game_typest_gametypes
 
 ---@class identity.viewscreen_choose_game_typest: DFCompoundType
 ---@field _kind 'class-type'
@@ -4660,15 +4696,29 @@ df.viewscreen_choose_game_typest = {}
 ---@return df.viewscreen_choose_game_typest
 function df.viewscreen_choose_game_typest:new() end
 
--- bay12: SaveGameSort
+---@class _viewscreen_choose_game_typest_gametypes: DFContainer
+---@field [integer] df.game_type
+local _viewscreen_choose_game_typest_gametypes
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.game_type>
+function _viewscreen_choose_game_typest_gametypes:_field(index) end
+
+---@param index '#'|integer
+---@param item df.game_type
+function _viewscreen_choose_game_typest_gametypes:insert(index, item) end
+
+---@param index integer
+function _viewscreen_choose_game_typest_gametypes:erase(index) end
+
 ---@alias df.save_game_sort_type
 ---| 0 # Name
 ---| 1 # Folder
 
--- bay12: SaveGameSort
 ---@class identity.save_game_sort_type: DFEnumType
----@field Name 0
----@field [0] "Name"
+---@field Name 0 bay12: SaveGameSort
+---@field [0] "Name" bay12: SaveGameSort
 ---@field Folder 1
 ---@field [1] "Folder"
 df.save_game_sort_type = {}
@@ -4676,6 +4726,7 @@ df.save_game_sort_type = {}
 ---@class (exact) df.viewscreen_titlest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_titlest
 ---@field str_histories string
+---@field str string
 ---@field clean_first boolean
 ---@field mode number
 ---@field selected number
@@ -4711,14 +4762,14 @@ df.save_game_sort_type = {}
 ---@field mod _viewscreen_titlest_mod
 ---@field scroll_position_mods number
 ---@field scrolling_mods boolean
----@field hover_mod_description DFStringVector
+---@field hover_mod_description df.curses_text_boxst
 ---@field last_hover_mod_id string
 ---@field last_hover_mod_version number
 ---@field last_hover_width number
----@field uploading_mods boolean begin Steam Specific
+---@field uploading_mods boolean
 ---@field scroll_position_upload_mods number
 ---@field scrolling_upload_mods boolean
----@field hover_upload_mod_description DFStringVector
+---@field hover_upload_mod_description df.curses_text_boxst
 ---@field last_hover_upload_mod_id string
 ---@field last_hover_upload_mod_version number
 ---@field last_hover_upload_width number
@@ -4768,8 +4819,8 @@ function _viewscreen_titlest_menu_line_id:erase(index) end
 ---| 7 # Quit
 
 ---@class identity.viewscreen_titlest.menu_line_id.menu_line_id: DFEnumType
----@field Continue 0
----@field [0] "Continue"
+---@field Continue 0 bay12: MainChoice
+---@field [0] "Continue" bay12: MainChoice
 ---@field Start 1
 ---@field [1] "Start"
 ---@field NewWorld 2
@@ -4906,8 +4957,8 @@ function df.viewscreen_update_regionst:new() end
 ---| 7 # ARTIFACTS
 
 ---@class identity.world_view_mode_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: WorldViewModeType
+---@field [-1] "NONE" bay12: WorldViewModeType
 ---@field NORMAL 0
 ---@field [0] "NORMAL"
 ---@field CIVILIZATIONS 1
@@ -4925,6 +4976,146 @@ function df.viewscreen_update_regionst:new() end
 ---@field ARTIFACTS 7
 ---@field [7] "ARTIFACTS"
 df.world_view_mode_type = {}
+
+---@class (exact) df.region_snapshotst: DFStruct
+---@field _type identity.region_snapshotst
+---@field year number
+---@field territory df.entity_territoryst
+---@field site_id DFNumberVector
+---@field site_population DFNumberVector
+
+---@class identity.region_snapshotst: DFCompoundType
+---@field _kind 'struct-type'
+df.region_snapshotst = {}
+
+---@return df.region_snapshotst
+function df.region_snapshotst:new() end
+
+---@class (exact) df.region_print_datast: DFStruct
+---@field _type identity.region_print_datast
+---@field rss df.region_snapshotst
+---@field flags df.region_print_datast.T_flags
+---@field relevant_id number
+---@field highlight_civ_id DFPointer<integer>
+---@field mission_report df.mission_report
+---@field mission_path_data_index number
+---@field mission_path_data_path_index number
+---@field indicator_data df.rpd_indicator_datast
+---@field legend_entity_id number[]
+---@field legend_entity_id_num number
+---@field mm_cent_x number
+---@field mm_cent_y number
+---@field embark_rectangle_sx number
+---@field embark_rectangle_ex number
+---@field embark_rectangle_sy number
+---@field embark_rectangle_ey number
+---@field find_metal_ore DFPointer<integer>
+---@field skip_metal_ore DFPointer<integer>
+---@field highlight_site_id number References: `df.world_site`
+
+---@class identity.region_print_datast: DFCompoundType
+---@field _kind 'struct-type'
+df.region_print_datast = {}
+
+---@return df.region_print_datast
+function df.region_print_datast:new() end
+
+---@class df.region_print_datast.T_flags: DFBitfield
+---@field _enum identity.region_print_datast.flags
+---@field use_territory boolean bay12: REGION_PRINT_DATA_FLAG_*
+---@field [0] boolean bay12: REGION_PRINT_DATA_FLAG_*
+---@field use_territory_civs boolean
+---@field [1] boolean
+---@field use_site_info boolean
+---@field [2] boolean
+---@field use_notes boolean
+---@field [3] boolean
+---@field use_find_results boolean
+---@field [4] boolean
+---@field show_embark_restrictions boolean
+---@field [5] boolean
+---@field show_cliffs boolean
+---@field [6] boolean
+---@field show_elevation boolean
+---@field [7] boolean
+
+---@class identity.region_print_datast.flags: DFBitfieldType
+---@field use_territory 0 bay12: REGION_PRINT_DATA_FLAG_*
+---@field [0] "use_territory" bay12: REGION_PRINT_DATA_FLAG_*
+---@field use_territory_civs 1
+---@field [1] "use_territory_civs"
+---@field use_site_info 2
+---@field [2] "use_site_info"
+---@field use_notes 3
+---@field [3] "use_notes"
+---@field use_find_results 4
+---@field [4] "use_find_results"
+---@field show_embark_restrictions 5
+---@field [5] "show_embark_restrictions"
+---@field show_cliffs 6
+---@field [6] "show_cliffs"
+---@field show_elevation 7
+---@field [7] "show_elevation"
+df.region_print_datast.T_flags = {}
+
+---@class (exact) df.rpd_indicator_datast: DFStruct
+---@field _type identity.rpd_indicator_datast
+---@field line_s_xy df.rpd_indicator_datast.T_line_s_xy[]
+---@field line_e_xy df.rpd_indicator_datast.T_line_e_xy[]
+---@field line_char integer[]
+---@field line_f integer[]
+---@field line_b integer[]
+---@field line_br integer[]
+---@field line_num number
+---@field marker_xy df.rpd_indicator_datast.T_marker_xy[]
+---@field marker_char number[]
+---@field marker_f number[]
+---@field marker_b number[]
+---@field marker_br number[]
+---@field marker_num number
+
+---@class identity.rpd_indicator_datast: DFCompoundType
+---@field _kind 'struct-type'
+df.rpd_indicator_datast = {}
+
+---@return df.rpd_indicator_datast
+function df.rpd_indicator_datast:new() end
+
+---@class (exact) df.rpd_indicator_datast.T_line_s_xy: DFStruct
+---@field _type identity.rpd_indicator_datast.line_s_xy
+---@field x number
+---@field y number
+
+---@class identity.rpd_indicator_datast.line_s_xy: DFCompoundType
+---@field _kind 'struct-type'
+df.rpd_indicator_datast.T_line_s_xy = {}
+
+---@return df.rpd_indicator_datast.T_line_s_xy
+function df.rpd_indicator_datast.T_line_s_xy:new() end
+
+---@class (exact) df.rpd_indicator_datast.T_line_e_xy: DFStruct
+---@field _type identity.rpd_indicator_datast.line_e_xy
+---@field x number
+---@field y number
+
+---@class identity.rpd_indicator_datast.line_e_xy: DFCompoundType
+---@field _kind 'struct-type'
+df.rpd_indicator_datast.T_line_e_xy = {}
+
+---@return df.rpd_indicator_datast.T_line_e_xy
+function df.rpd_indicator_datast.T_line_e_xy:new() end
+
+---@class (exact) df.rpd_indicator_datast.T_marker_xy: DFStruct
+---@field _type identity.rpd_indicator_datast.marker_xy
+---@field x number
+---@field y number
+
+---@class identity.rpd_indicator_datast.marker_xy: DFCompoundType
+---@field _kind 'struct-type'
+df.rpd_indicator_datast.T_marker_xy = {}
+
+---@return df.rpd_indicator_datast.T_marker_xy
+function df.rpd_indicator_datast.T_marker_xy:new() end
 
 ---@class (exact) df.viewscreen_worldst: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_worldst
@@ -4949,7 +5140,7 @@ df.world_view_mode_type = {}
 ---@field last_hover_ent df.historical_entity
 ---@field relnem _viewscreen_worldst_relnem
 ---@field relnem_precedence DFNumberVector
----@field relag _viewscreen_worldst_relag civ_agreementst
+---@field relag _viewscreen_worldst_relag
 ---@field relag_pending DFNumberVector
 ---@field scroll_position_civlist number
 ---@field scrolling_civlist boolean
@@ -4971,26 +5162,26 @@ df.world_view_mode_type = {}
 ---@field scroll_position_request_nem number
 ---@field scrolling_request_nem boolean
 ---@field rumor_master _viewscreen_worldst_rumor_master
----@field rumor_rpd df.viewscreen_worldst.T_rumor_rpd
----@field rumor_rpd_indicator_data df.viewscreen_worldst.T_rumor_rpd_indicator_data
+---@field rumor_rpd df.region_print_datast
+---@field rumor_rpd_indicator_data df.rpd_indicator_datast
 ---@field last_hover_rumor_x number
 ---@field last_hover_rumor_y number
 ---@field focused_on_last_hover_rumor boolean
----@field rumor_text DFStringVector
+---@field rumor_text df.curses_text_boxst
 ---@field scroll_position_rumor number
 ---@field scrolling_rumor boolean
 ---@field mission_report_index DFNumberVector
 ---@field tribute_report_index DFNumberVector
 ---@field croll_position_report number
 ---@field scrolling_report boolean
----@field active_mission_report DFPointer<integer> mission_reportst
+---@field active_mission_report df.mission_report
 ---@field mission_cursor_x number
 ---@field mission_cursor_y number
 ---@field mission_path_data_index number
 ---@field mission_path_data_path_index number
 ---@field mission_heid_data_index number
 ---@field mission_heid_data_heid_index number
----@field mission_text_box DFStringVector
+---@field mission_text_box df.curses_text_boxst
 ---@field mission_text_box_color DFNumberVector
 ---@field mission_timer_year number
 ---@field mission_timer_season_count number
@@ -5000,7 +5191,7 @@ df.world_view_mode_type = {}
 ---@field mission_fade_start_ind number
 ---@field scroll_position_mission number
 ---@field scrolling_mission boolean
----@field active_tribute_report DFPointer<integer> tribute_reportst
+---@field active_tribute_report df.spoils_report
 ---@field scroll_position_tribute number
 ---@field scrolling_tribute boolean
 ---@field hf _viewscreen_worldst_hf
@@ -5012,8 +5203,8 @@ df.world_view_mode_type = {}
 ---@field scroll_position_artifacts number
 ---@field scrolling_artifacts boolean
 ---@field last_hover_artifact df.artifact_record
----@field artifact_description DFStringVector
----@field artifact_eac DFPointer<integer> entity_artifact_claimst
+---@field artifact_description df.curses_text_boxst
+---@field artifact_eac df.artifact_claim
 ---@field artifact_rpa_holder df.historical_figure
 ---@field artifact_fac_holder df.historical_figure
 
@@ -5105,16 +5296,16 @@ function _viewscreen_worldst_relnem:insert(index, item) end
 function _viewscreen_worldst_relnem:erase(index) end
 
 ---@class _viewscreen_worldst_relag: DFContainer
----@field [integer] any[]
+---@field [integer] df.meeting_event
 local _viewscreen_worldst_relag
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<df.meeting_event>
 function _viewscreen_worldst_relag:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item df.meeting_event
 function _viewscreen_worldst_relag:insert(index, item) end
 
 ---@param index integer
@@ -5201,78 +5392,20 @@ function _viewscreen_worldst_request_nem:insert(index, item) end
 function _viewscreen_worldst_request_nem:erase(index) end
 
 ---@class _viewscreen_worldst_rumor_master: DFContainer
----@field [integer] any[]
+---@field [integer] df.entity_event
 local _viewscreen_worldst_rumor_master
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<df.entity_event>
 function _viewscreen_worldst_rumor_master:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item df.entity_event
 function _viewscreen_worldst_rumor_master:insert(index, item) end
 
 ---@param index integer
 function _viewscreen_worldst_rumor_master:erase(index) end
-
--- region_print_datast
----@class (exact) df.viewscreen_worldst.T_rumor_rpd: DFStruct
----@field _type identity.viewscreen_worldst.rumor_rpd
-
----@class identity.viewscreen_worldst.rumor_rpd: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_worldst.T_rumor_rpd = {}
-
----@return df.viewscreen_worldst.T_rumor_rpd
-function df.viewscreen_worldst.T_rumor_rpd:new() end
-
--- rpd_indicator_datast
----@class (exact) df.viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
----@field _type identity.viewscreen_worldst.rumor_rpd_indicator_data
-
----@class identity.viewscreen_worldst.rumor_rpd_indicator_data: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
-
----@return df.viewscreen_worldst.T_rumor_rpd_indicator_data
-function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
-
----@class (exact) df.viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
----@field _type identity.viewscreen_worldst.rumor_rpd_indicator_data
----@field a number
----@field b number
-
----@class identity.viewscreen_worldst.rumor_rpd_indicator_data: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
-
----@return df.viewscreen_worldst.T_rumor_rpd_indicator_data
-function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
-
----@class (exact) df.viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
----@field _type identity.viewscreen_worldst.rumor_rpd_indicator_data
----@field a number
----@field b number
-
----@class identity.viewscreen_worldst.rumor_rpd_indicator_data: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
-
----@return df.viewscreen_worldst.T_rumor_rpd_indicator_data
-function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
-
----@class (exact) df.viewscreen_worldst.T_rumor_rpd_indicator_data: DFStruct
----@field _type identity.viewscreen_worldst.rumor_rpd_indicator_data
----@field a number
----@field b number
-
----@class identity.viewscreen_worldst.rumor_rpd_indicator_data: DFCompoundType
----@field _kind 'struct-type'
-df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
-
----@return df.viewscreen_worldst.T_rumor_rpd_indicator_data
-function df.viewscreen_worldst.T_rumor_rpd_indicator_data:new() end
 
 ---@class _viewscreen_worldst_hf: DFContainer
 ---@field [integer] df.historical_figure
@@ -5324,41 +5457,41 @@ function _viewscreen_worldst_artifact_arl:erase(index) end
 
 ---@class (exact) df.viewscreen_new_arenast: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_new_arenast
----@field unk_88 number
+---@field raw_load boolean
 ---@field progress number
 ---@field cur_step number
----@field unk_94 number
----@field unk_98 number
----@field unk_9c number
----@field unk_a0 number
----@field unk_a4 number
----@field unk_a8 number
----@field unk_ac number
----@field unk_b0 DFStringVector
----@field unk_c8 DFNumberVector
----@field unk_e0 DFNumberVector
----@field unk_f8 DFStringVector
----@field unk_110 DFStringVector
----@field unk_128 DFStringVector
----@field unk_mods _viewscreen_new_arenast_unk_mods
----@field unk_158 DFStringVector
----@field unk_170 DFNumberVector
----@field unk_188 DFNumberVector
----@field unk_1a0 DFStringVector
----@field unk_1b8 DFStringVector
----@field unk_1d0 DFStringVector
----@field unk_mods2 _viewscreen_new_arenast_unk_mods2
----@field unk_200 DFStringVector
----@field unk_218 DFNumberVector
----@field unk_230 DFNumberVector
----@field unk_248 DFStringVector
----@field unk_260 DFStringVector
----@field unk_278 _viewscreen_new_arenast_unk_278
----@field unk_290 _viewscreen_new_arenast_unk_290
----@field unk_2a8 DFStringVector
----@field unk_2c0 string
----@field unk_2e0 number
----@field unk_2e4 number
+---@field scroll_position_arena_profile number bay12: NewRegionRawLoadStage
+---@field scrolling_arena_profile boolean
+---@field doing_mods boolean
+---@field scroll_position_available_mods number
+---@field scrolling_available_mods boolean
+---@field scroll_position_selected_mods number
+---@field scrolling_selected_mods boolean
+---@field base_available_id DFStringVector
+---@field base_available_numeric_version DFNumberVector
+---@field base_available_earliest_compat_numeric_version DFNumberVector
+---@field base_available_src_dir DFStringVector
+---@field base_available_name DFStringVector
+---@field base_available_displayed_version DFStringVector
+---@field base_available_mod_header _viewscreen_new_arenast_base_available_mod_header
+---@field object_load_order_id DFStringVector
+---@field object_load_order_numeric_version DFNumberVector
+---@field object_load_order_earliest_compat_numeric_version DFNumberVector
+---@field object_load_order_src_dir DFStringVector
+---@field object_load_order_name DFStringVector
+---@field object_load_order_displayed_version DFStringVector
+---@field object_load_order_mod_header _viewscreen_new_arenast_object_load_order_mod_header
+---@field available_id DFStringVector
+---@field available_numeric_version DFNumberVector
+---@field available_earliest_compat_numeric_version DFNumberVector
+---@field available_src_dir DFStringVector
+---@field available_name DFStringVector
+---@field available_displayed_version DFStringVector
+---@field available_mod_header _viewscreen_new_arenast_available_mod_header
+---@field hover_mod_description df.curses_text_boxst
+---@field last_hover_mod_id string
+---@field last_hover_mod_version number
+---@field last_hover_width number
 
 ---@class identity.viewscreen_new_arenast: DFCompoundType
 ---@field _kind 'class-type'
@@ -5367,67 +5500,51 @@ df.viewscreen_new_arenast = {}
 ---@return df.viewscreen_new_arenast
 function df.viewscreen_new_arenast:new() end
 
----@class _viewscreen_new_arenast_unk_mods: DFContainer
+---@class _viewscreen_new_arenast_base_available_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
-local _viewscreen_new_arenast_unk_mods
+local _viewscreen_new_arenast_base_available_mod_header
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.mod_headerst>
-function _viewscreen_new_arenast_unk_mods:_field(index) end
+function _viewscreen_new_arenast_base_available_mod_header:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.mod_headerst
-function _viewscreen_new_arenast_unk_mods:insert(index, item) end
+function _viewscreen_new_arenast_base_available_mod_header:insert(index, item) end
 
 ---@param index integer
-function _viewscreen_new_arenast_unk_mods:erase(index) end
+function _viewscreen_new_arenast_base_available_mod_header:erase(index) end
 
----@class _viewscreen_new_arenast_unk_mods2: DFContainer
+---@class _viewscreen_new_arenast_object_load_order_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
-local _viewscreen_new_arenast_unk_mods2
+local _viewscreen_new_arenast_object_load_order_mod_header
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.mod_headerst>
-function _viewscreen_new_arenast_unk_mods2:_field(index) end
+function _viewscreen_new_arenast_object_load_order_mod_header:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.mod_headerst
-function _viewscreen_new_arenast_unk_mods2:insert(index, item) end
+function _viewscreen_new_arenast_object_load_order_mod_header:insert(index, item) end
 
 ---@param index integer
-function _viewscreen_new_arenast_unk_mods2:erase(index) end
+function _viewscreen_new_arenast_object_load_order_mod_header:erase(index) end
 
----@class _viewscreen_new_arenast_unk_278: DFContainer
----@field [integer] any[]
-local _viewscreen_new_arenast_unk_278
+---@class _viewscreen_new_arenast_available_mod_header: DFContainer
+---@field [integer] df.mod_headerst
+local _viewscreen_new_arenast_available_mod_header
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
-function _viewscreen_new_arenast_unk_278:_field(index) end
+---@return DFPointer<df.mod_headerst>
+function _viewscreen_new_arenast_available_mod_header:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
-function _viewscreen_new_arenast_unk_278:insert(index, item) end
+---@param item df.mod_headerst
+function _viewscreen_new_arenast_available_mod_header:insert(index, item) end
 
 ---@param index integer
-function _viewscreen_new_arenast_unk_278:erase(index) end
-
----@class _viewscreen_new_arenast_unk_290: DFContainer
----@field [integer] any[]
-local _viewscreen_new_arenast_unk_290
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _viewscreen_new_arenast_unk_290:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _viewscreen_new_arenast_unk_290:insert(index, item) end
-
----@param index integer
-function _viewscreen_new_arenast_unk_290:erase(index) end
+function _viewscreen_new_arenast_available_mod_header:erase(index) end
 

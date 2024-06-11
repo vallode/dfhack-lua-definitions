@@ -365,6 +365,11 @@ function dfhack.units.getNemesis(unit) end
 ---@param unit df.unit
 function dfhack.units.makeown(unit) end
 
+---@param race number
+---@param caste number
+---@return df.unit
+function dfhack.units.create(race, caste) end
+
 ---@param unit df.unit
 ---@param attr df.physical_attribute_type
 ---@return integer

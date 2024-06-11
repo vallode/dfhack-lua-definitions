@@ -587,7 +587,7 @@ function df.interaction_source:new() end
 ---@class (exact) df.interaction_source_regionst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_regionst
 ---@field region_flags df.interaction_source_regionst.T_region_flags
----@field regions DFEnumVector<df.worldgen_region_type, number>
+---@field regions DFEnumVector<df.world_region_type, number>
 
 ---@class identity.interaction_source_regionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1103,6 +1103,44 @@ df.interaction_target_locationst = {}
 
 ---@return df.interaction_target_locationst
 function df.interaction_target_locationst:new() end
+
+---@class (exact) df.interaction_target_instance_listst: DFStruct
+---@field _type identity.interaction_target_instance_listst
+---@field gen_ref _interaction_target_instance_listst_gen_ref
+---@field flags df.interaction_target_instance_listst.T_flags
+
+---@class identity.interaction_target_instance_listst: DFCompoundType
+---@field _kind 'struct-type'
+df.interaction_target_instance_listst = {}
+
+---@return df.interaction_target_instance_listst
+function df.interaction_target_instance_listst:new() end
+
+---@class _interaction_target_instance_listst_gen_ref: DFContainer
+---@field [integer] df.general_ref
+local _interaction_target_instance_listst_gen_ref
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.general_ref>
+function _interaction_target_instance_listst_gen_ref:_field(index) end
+
+---@param index '#'|integer
+---@param item df.general_ref
+function _interaction_target_instance_listst_gen_ref:insert(index, item) end
+
+---@param index integer
+function _interaction_target_instance_listst_gen_ref:erase(index) end
+
+---@class df.interaction_target_instance_listst.T_flags: DFBitfield
+---@field _enum identity.interaction_target_instance_listst.flags
+---@field needs_manual_input boolean bay12: ITIL_FLAG_*
+---@field [0] boolean bay12: ITIL_FLAG_*
+
+---@class identity.interaction_target_instance_listst.flags: DFBitfieldType
+---@field needs_manual_input 0 bay12: ITIL_FLAG_*
+---@field [0] "needs_manual_input" bay12: ITIL_FLAG_*
+df.interaction_target_instance_listst.T_flags = {}
 
 ---@class (exact) df.interaction_instance: DFStruct
 ---@field _type identity.interaction_instance

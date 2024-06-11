@@ -308,13 +308,47 @@ function df.spatter:new() end
 
 ---@class df.spatter.T_flags: DFBitfield
 ---@field _enum identity.spatter.flags
----@field water_soluble boolean bay12: ITEM_CONTAMINANT_FLAG_
----@field [0] boolean bay12: ITEM_CONTAMINANT_FLAG_
+---@field water_soluble boolean bay12: ITEM_CONTAMINANT_FLAG_*
+---@field [0] boolean bay12: ITEM_CONTAMINANT_FLAG_*
 
 ---@class identity.spatter.flags: DFBitfieldType
----@field water_soluble 0 bay12: ITEM_CONTAMINANT_FLAG_
----@field [0] "water_soluble" bay12: ITEM_CONTAMINANT_FLAG_
+---@field water_soluble 0 bay12: ITEM_CONTAMINANT_FLAG_*
+---@field [0] "water_soluble" bay12: ITEM_CONTAMINANT_FLAG_*
 df.spatter.T_flags = {}
+
+---@class (exact) df.unit_spatter: DFStruct
+---@field _type identity.unit_spatter
+---@field base df.spatter_common
+---@field body_part_id number sub-element, NOT subclass!
+---@field flags df.unit_spatter.T_flags
+
+---@class identity.unit_spatter: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_spatter = {}
+
+---@return df.unit_spatter
+function df.unit_spatter:new() end
+
+---@class df.unit_spatter.T_flags: DFBitfield
+---@field _enum identity.unit_spatter.flags
+---@field external boolean bay12: UNIT_CONTAMINANT_FLAG_*
+---@field [0] boolean bay12: UNIT_CONTAMINANT_FLAG_*
+
+---@class identity.unit_spatter.flags: DFBitfieldType
+---@field external 0 bay12: UNIT_CONTAMINANT_FLAG_*
+---@field [0] "external" bay12: UNIT_CONTAMINANT_FLAG_*
+df.unit_spatter.T_flags = {}
+
+---@class (exact) df.plant_spatter: DFStruct
+---@field _type identity.plant_spatter
+---@field base df.spatter_common
+
+---@class identity.plant_spatter: DFCompoundType
+---@field _kind 'struct-type'
+df.plant_spatter = {}
+
+---@return df.plant_spatter
+function df.plant_spatter:new() end
 
 ---@alias df.item_quality
 ---| 0 # Ordinary

@@ -453,6 +453,19 @@ df.kitchen_exc_type = {}
 ---@field [51] "Finishing"
 df.save_substage = {}
 
+---@class (exact) df.saverst: DFStruct
+---@field _type identity.saverst
+---@field substage df.save_substage
+---@field stage number
+---@field info df.nemesis_offload
+
+---@class identity.saverst: DFCompoundType
+---@field _kind 'struct-type'
+df.saverst = {}
+
+---@return df.saverst
+function df.saverst:new() end
+
 ---@class df.equipment_update: DFBitfield
 ---@field _enum identity.equipment_update
 ---@field weapon boolean bay12: EQUIP_INFO_FLAG_*
@@ -567,6 +580,34 @@ function _labor_infost_work_details:erase(index) end
 ---@field ABANDON 3
 ---@field [3] "ABANDON"
 df.end_cause_type = {}
+
+---@class (exact) df.location_detailst: DFStruct
+---@field _type identity.location_detailst
+---@field art_specifier df.job_art_specifier_type
+---@field art_spec_id1 number
+---@field art_spec_id2 number
+---@field pos df.coord
+
+---@class identity.location_detailst: DFCompoundType
+---@field _kind 'struct-type'
+df.location_detailst = {}
+
+---@return df.location_detailst
+function df.location_detailst:new() end
+
+---@class (exact) df.adv_art_specifierst: DFStruct
+---@field _type identity.adv_art_specifierst
+---@field name string
+---@field art_specifier df.job_art_specifier_type
+---@field art_spec_id1 number
+---@field art_spec_id2 number
+
+---@class identity.adv_art_specifierst: DFCompoundType
+---@field _kind 'struct-type'
+df.adv_art_specifierst = {}
+
+---@return df.adv_art_specifierst
+function df.adv_art_specifierst:new() end
 
 ---@class (exact) df.plotinfost: DFStruct
 ---@field _type identity.plotinfost
@@ -1660,16 +1701,16 @@ function _plotinfost_waypoints_routes:insert(index, item) end
 function _plotinfost_waypoints_routes:erase(index) end
 
 ---@class _plotinfost_waypoints_location_detail: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.location_detailst
 local _plotinfost_waypoints_location_detail
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.location_detailst>
 function _plotinfost_waypoints_location_detail:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.location_detailst
 function _plotinfost_waypoints_location_detail:insert(index, item) end
 
 ---@param index integer
@@ -2038,7 +2079,7 @@ function _plotinfost_tutorial_seen:erase(index) end
 ---@field autosave_request boolean
 ---@field autosave_timer number
 ---@field file df.file_compressorst
----@field save_progress df.plotinfost.T_main.T_save_progress
+---@field save_progress df.saverst
 ---@field do_unit_offload number
 ---@field offload_unit_info df.nemesis_offload
 ---@field unit_offload_have_set_count boolean
@@ -2084,19 +2125,6 @@ function _plotinfost_main_dead_citizens:insert(index, item) end
 
 ---@param index integer
 function _plotinfost_main_dead_citizens:erase(index) end
-
----@class (exact) df.plotinfost.T_main.T_save_progress: DFStruct
----@field _type identity.plotinfost.main.save_progress
----@field substage df.save_substage bay12: saverst
----@field stage number
----@field info df.nemesis_offload
-
----@class identity.plotinfost.main.save_progress: DFCompoundType
----@field _kind 'struct-type'
-df.plotinfost.T_main.T_save_progress = {}
-
----@return df.plotinfost.T_main.T_save_progress
-function df.plotinfost.T_main.T_save_progress:new() end
 
 ---@class (exact) df.plotinfost.T_squads: DFStruct
 ---@field _type identity.plotinfost.squads

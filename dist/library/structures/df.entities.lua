@@ -367,6 +367,110 @@ function df.entity_activity_statistics.T_wealth:new() end
 ---@field [0] "deep_special" bay12: REPORT_SITE_FLAG_*
 df.entity_activity_statistics.T_found_misc = {}
 
+---@class (exact) df.tradegoodslistst: DFStruct
+---@field _type identity.tradegoodslistst
+---@field it df.item
+---@field dist number
+---@field tag number
+---@field prohibited boolean
+---@field value number
+---@field expanded_container boolean
+---@field container_amount number
+---@field sort_value number
+
+---@class identity.tradegoodslistst: DFCompoundType
+---@field _kind 'struct-type'
+df.tradegoodslistst = {}
+
+---@return df.tradegoodslistst
+function df.tradegoodslistst:new() end
+
+---@class (exact) df.assign_trade_itemlistst: DFStruct
+---@field _type identity.assign_trade_itemlistst
+---@field tgi _assign_trade_itemlistst_tgi
+
+---@class identity.assign_trade_itemlistst: DFCompoundType
+---@field _kind 'struct-type'
+df.assign_trade_itemlistst = {}
+
+---@return df.assign_trade_itemlistst
+function df.assign_trade_itemlistst:new() end
+
+---@class _assign_trade_itemlistst_tgi: DFContainer
+---@field [integer] df.tradegoodslistst
+local _assign_trade_itemlistst_tgi
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.tradegoodslistst>
+function _assign_trade_itemlistst_tgi:_field(index) end
+
+---@param index '#'|integer
+---@param item df.tradegoodslistst
+function _assign_trade_itemlistst_tgi:insert(index, item) end
+
+---@param index integer
+function _assign_trade_itemlistst_tgi:erase(index) end
+
+---@class (exact) df.abstractitemlistst: DFStruct
+---@field _type identity.abstractitemlistst
+---@field type DFNumberVector
+---@field subtype DFNumberVector
+---@field subcat1 DFNumberVector
+---@field subcat2 DFNumberVector
+---@field amount DFNumberVector
+---@field expanded _abstractitemlistst_expanded
+
+---@class identity.abstractitemlistst: DFCompoundType
+---@field _kind 'struct-type'
+df.abstractitemlistst = {}
+
+---@return df.abstractitemlistst
+function df.abstractitemlistst:new() end
+
+---@class _abstractitemlistst_expanded: DFContainer
+---@field [integer] any[]
+local _abstractitemlistst_expanded
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _abstractitemlistst_expanded:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _abstractitemlistst_expanded:insert(index, item) end
+
+---@param index integer
+function _abstractitemlistst_expanded:erase(index) end
+
+---@class (exact) df.itemlistst: DFStruct
+---@field _type identity.itemlistst
+---@field l_item _itemlistst_l_item
+
+---@class identity.itemlistst: DFCompoundType
+---@field _kind 'struct-type'
+df.itemlistst = {}
+
+---@return df.itemlistst
+function df.itemlistst:new() end
+
+---@class _itemlistst_l_item: DFContainer
+---@field [integer] df.item
+local _itemlistst_l_item
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _itemlistst_l_item:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _itemlistst_l_item:insert(index, item) end
+
+---@param index integer
+function _itemlistst_l_item:erase(index) end
+
 ---@class (exact) df.caravan_state: DFStruct
 ---@field _type identity.caravan_state
 ---@field total_capacity df.massst
@@ -1148,7 +1252,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 ---@field children DFNumberVector territory entities
 ---@field metal_proficiency number bay12: army_strength_material_bonus
 ---@field weapon_proficiencies _historical_entity_weapon_proficiencies
----@field resource_allotment df.resource_allotment_data bay12: production_zonest *production_zone
+---@field resource_allotment df.resource_allotment_data Only for SiteGovernment, but not all
 ---@field local_poetic_form _historical_entity_local_poetic_form
 ---@field local_musical_form _historical_entity_local_musical_form
 ---@field local_dance_form _historical_entity_local_dance_form
@@ -3806,8 +3910,8 @@ function df.agreement_details_data_plot_conviction:new() end
 ---@field government number References: `df.agreement_party`
 ---@field site number References: `df.world_site`
 ---@field type df.abstract_building_type
----@field deity_type df.temple_deity_type
----@field deity_data df.temple_deity_data
+---@field deity_type df.religious_practice_type
+---@field deity_data df.religious_practice_data
 ---@field profession df.profession
 ---@field tier number 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
 ---@field flags df.agreement_details_data_location.T_flags

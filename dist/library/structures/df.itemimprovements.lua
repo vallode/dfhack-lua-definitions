@@ -685,6 +685,6 @@ function df.engraving.find(key) end
 
 ---@class engraving_vector: DFVector, { [integer]: df.engraving }
 
----@return engraving_vector # df.global.world.engravings
+---@return engraving_vector # df.global.world.event.engravings
 function df.engraving.get_vector() end
 

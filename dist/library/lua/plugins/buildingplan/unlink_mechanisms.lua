@@ -2,27 +2,9 @@
 ---@meta plugins.buildingplan.unlink_mechanisms
 
 ---@class unlinkMechanisms
----@field ConfirmWindow unlinkMechanisms.ConfirmWindow
----@field ConfirmScreen unlinkMechanisms.ConfirmScreen
 ---@field MechLinkOverlay unlinkMechanisms.MechLinkOverlay
 ---@field MechItemOverlay unlinkMechanisms.MechItemOverlay
 local unlinkMechanisms
-
-saved_mode = saved_mode or 0
-
-------------------------
-
-local ConfirmWindow
-
-function ConfirmWindow:init() end
-
-function ConfirmWindow:proceed() end
-
-function ConfirmWindow:suppress() end
-
-local ConfirmScreen
-
-function ConfirmScreen:init() end
 
 local MechLinkOverlay
 
@@ -41,8 +23,6 @@ function MechLinkOverlay:get_button(n, ensure) end
 function MechLinkOverlay:activate_button(n) end
 
 function MechLinkOverlay:ask_unlink_all() end
-
-function MechLinkOverlay:do_unlink_all() end
 
 function MechLinkOverlay:update_buttons() end
 
@@ -63,8 +43,6 @@ function MechItemOverlay:get_button(n, ensure) end
 function MechItemOverlay:activate_button(n) end
 
 function MechItemOverlay:ask_free_all() end
-
-function MechItemOverlay:do_free_all() end
 
 function MechItemOverlay:update_buttons() end
 

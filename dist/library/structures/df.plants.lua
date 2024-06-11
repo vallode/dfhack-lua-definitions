@@ -8,8 +8,8 @@
 ---| 3 # WET_PLANT
 
 ---@class identity.plant_type: DFEnumType
----@field DRY_TREE 0 bay12: VegType
----@field [0] "DRY_TREE" bay12: VegType
+---@field DRY_TREE 0
+---@field [0] "DRY_TREE"
 ---@field WET_TREE 1
 ---@field [1] "WET_TREE"
 ---@field DRY_PLANT 2
@@ -17,6 +17,22 @@
 ---@field WET_PLANT 3
 ---@field [3] "WET_PLANT"
 df.plant_type = {}
+
+---@class plant_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.plant_type._attr_entry_type = {}
+
+---@class (exact) plant_type_attr_entry_type_fields
+---@field watery DFCompoundField bay12: VegType
+---@field is_shrub DFCompoundField
+df.plant_type._attr_entry_type._fields = {}
+
+---@class plant_type_attrs
+---@field DRY_TREE { watery: "false", is_shrub: "false" }
+---@field WET_TREE { watery: "true", is_shrub: "false" }
+---@field DRY_PLANT { watery: "false", is_shrub: "true" }
+---@field WET_PLANT { watery: "true", is_shrub: "true" }
+df.plant_type.attrs = {}
 
 ---@class (exact) df.plant: DFStruct
 ---@field _type identity.plant
@@ -30,7 +46,7 @@ df.plant_type = {}
 ---@field site_id number References: `df.world_site`
 ---@field srb_id number References: `df.site_realization_building`
 ---@field contaminants _plant_contaminants
----@field tree_info df.plant_tree_info bay12: actually veg_contaminantst
+---@field tree_info df.plant_tree_info Sapling if NULL
 
 ---@class identity.plant: DFCompoundType
 ---@field _kind 'struct-type'
@@ -67,16 +83,16 @@ function df.plant.get_vector() end
 df.plant.T_damage_flags = {}
 
 ---@class _plant_contaminants: DFContainer
----@field [integer] df.spatter_common
+---@field [integer] df.plant_spatter
 local _plant_contaminants
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.spatter_common>
+---@return DFPointer<df.plant_spatter>
 function _plant_contaminants:_field(index) end
 
 ---@param index '#'|integer
----@param item df.spatter_common
+---@param item df.plant_spatter
 function _plant_contaminants:insert(index, item) end
 
 ---@param index integer

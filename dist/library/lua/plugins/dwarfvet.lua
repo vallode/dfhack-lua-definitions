@@ -27,7 +27,7 @@ local HospitalZone
 
 function HospitalZone:find_spot(unit_pos) end
 
--- TODO: If health.requires_recovery is set, the creature can't move under its own power
+-- TODO: If health.should_not_move is set, the creature can't move under its own power
 --   and a Recover Wounded or Pen/Pasture job must be created by hand
 function HospitalZone:assign_spot(unit, unit_pos) end
 

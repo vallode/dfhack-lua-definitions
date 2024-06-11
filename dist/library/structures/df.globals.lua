@@ -29,7 +29,7 @@
 ---@field ui_building_assign_is_marked boolean
 ---@field ui_building_assign_units df.unit
 ---@field ui_building_assign_items df.item
----@field ui_look_list df.ui_look_list
+---@field ui_look_list df.lookinfost
 ---@field game df.gamest
 ---@field world df.world
 ---@field version df.save_version .bss primitive
@@ -282,6 +282,22 @@ function _global_ui_building_assign_items:insert(index, item) end
 
 ---@param index integer
 function _global_ui_building_assign_items:erase(index) end
+
+---@class _global_ui_look_list: DFContainer
+---@field [integer] df.lookinfost
+local _global_ui_look_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.lookinfost>
+function _global_ui_look_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.lookinfost
+function _global_ui_look_list:insert(index, item) end
+
+---@param index integer
+function _global_ui_look_list:erase(index) end
 
 ---@alias df.weather_type
 ---| 0 # None
