@@ -13,8 +13,12 @@ jobs:
     
   update_definitions:
     uses: ./.github/workflows/update-definitions.yml
+    needs: update_submodules
     permissions:
       contents: write
 
   build:
+    needs:
+      - update_submodules
+      - update_definitions
     uses: ./.github/workflows/build.yml
