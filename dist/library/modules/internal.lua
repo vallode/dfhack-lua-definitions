@@ -34,6 +34,7 @@
 ---@field setMortalMode function
 ---@field setArmokTools function
 ---@field getPerfCounters function
+---@field getPreferredNumberFormat function
 dfhack.internal = {}
 
 ---@param n integer
