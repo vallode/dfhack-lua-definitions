@@ -15,7 +15,7 @@ function suspendmanager.isKeptSuspended(job) end
 
 function suspendmanager.isBuildingPlanJob(job) end
 
-function suspendmanager.runOnce(prevent_blocking, quiet) end
+function suspendmanager.runOnce(prevent_blocking, quiet, unsuspend_everything) end
 
 function suspendmanager.unsuspend_command(...) end
 
