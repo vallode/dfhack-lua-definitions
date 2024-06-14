@@ -13,6 +13,7 @@ jobs:
           - develop
           - 50.*
           - 0.47.*
+          - adv-beta
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
