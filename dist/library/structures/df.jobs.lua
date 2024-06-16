@@ -396,6 +396,19 @@ df.job_spec_flags.T_weave_cloth_flags = {}
 ---@field [0] "UNKNOWN" bay12: N/A
 df.job_spec_flags.T_link_building_to_trigger_flags = {}
 
+---@class (exact) df.job_spec_data: DFStruct
+---@field _type identity.job_spec_data
+---@field hist_figure_id number References: `df.historical_figure`
+---@field race number References: `df.creature_raw`
+---@field improvement df.improvement_type
+
+---@class identity.job_spec_data: DFCompoundType
+---@field _kind 'struct-type'
+df.job_spec_data = {}
+
+---@return df.job_spec_data
+function df.job_spec_data:new() end
+
 ---@class (exact) df.job: DFStruct
 ---@field _type identity.job
 ---@field id number
@@ -413,7 +426,7 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field item_type df.item_type for Bait Trap jobs
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
 ---@field specflag df.job_spec_flags
----@field specdata df.job.T_specdata
+---@field specdata df.job_spec_data
 ---@field material_category df.job_material_category bay12: uint32_t job_item_flag
 ---@field reaction_name string
 ---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
@@ -435,19 +448,6 @@ df.job = {}
 
 ---@return df.job
 function df.job:new() end
-
----@class (exact) df.job.T_specdata: DFStruct
----@field _type identity.job.specdata
----@field hist_figure_id number References: `df.historical_figure`
----@field race number References: `df.creature_raw`
----@field improvement df.improvement_type
-
----@class identity.job.specdata: DFCompoundType
----@field _kind 'struct-type'
-df.job.T_specdata = {}
-
----@return df.job.T_specdata
-function df.job.T_specdata:new() end
 
 ---@class _job_items: DFContainer
 ---@field [integer] df.job_item_ref
@@ -1078,7 +1078,7 @@ function df.job_art_specification:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field specflag df.job_spec_flags
----@field specdata df.manager_order.T_specdata
+---@field specdata df.job_spec_data
 ---@field material_category df.job_material_category
 ---@field art_spec df.job_art_specification
 ---@field amount_left number
@@ -1099,19 +1099,6 @@ df.manager_order = {}
 
 ---@return df.manager_order
 function df.manager_order:new() end
-
----@class (exact) df.manager_order.T_specdata: DFStruct
----@field _type identity.manager_order.specdata
----@field hist_figure_id number References: `df.historical_figure`
----@field race number References: `df.creature_raw`
----@field improvement df.improvement_type
-
----@class identity.manager_order.specdata: DFCompoundType
----@field _kind 'struct-type'
-df.manager_order.T_specdata = {}
-
----@return df.manager_order.T_specdata
-function df.manager_order.T_specdata:new() end
 
 ---@alias df.manager_order.T_frequency
 ---| 0 # OneTime
@@ -1259,7 +1246,7 @@ df.manager_order_condition_order.T_flags = {}
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field specflag df.job_spec_flags
----@field specdata df.manager_order_template.T_specdata
+---@field specdata df.job_spec_data
 ---@field material_category df.job_material_category
 ---@field match_value number
 ---@field name string
@@ -1272,19 +1259,6 @@ df.manager_order_template = {}
 
 ---@return df.manager_order_template
 function df.manager_order_template:new() end
-
----@class (exact) df.manager_order_template.T_specdata: DFStruct
----@field _type identity.manager_order_template.specdata
----@field hist_figure_id number References: `df.historical_figure`
----@field race number References: `df.creature_raw`
----@field improvement df.improvement_type
-
----@class identity.manager_order_template.specdata: DFCompoundType
----@field _kind 'struct-type'
-df.manager_order_template.T_specdata = {}
-
----@return df.manager_order_template.T_specdata
-function df.manager_order_template.T_specdata:new() end
 
 ---@class (exact) df.punishmentst: DFStruct
 ---@field _type identity.punishmentst

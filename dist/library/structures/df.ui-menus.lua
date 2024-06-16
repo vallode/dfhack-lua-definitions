@@ -470,7 +470,7 @@ function df.interface_button_building_material_selectorst:new() end
 ---@field material number References: `df.material`
 ---@field matgloss number
 ---@field specflag df.job_spec_flags
----@field specdata df.interface_button_building_new_jobst.T_specdata
+---@field specdata df.job_spec_data
 ---@field job_item_flag df.job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
@@ -483,19 +483,6 @@ df.interface_button_building_new_jobst = {}
 
 ---@return df.interface_button_building_new_jobst
 function df.interface_button_building_new_jobst:new() end
-
----@class (exact) df.interface_button_building_new_jobst.T_specdata: DFStruct
----@field _type identity.interface_button_building_new_jobst.specdata
----@field hist_figure_id number References: `df.historical_figure`
----@field race number References: `df.creature_raw`
----@field improvement df.improvement_type
-
----@class identity.interface_button_building_new_jobst.specdata: DFCompoundType
----@field _kind 'struct-type'
-df.interface_button_building_new_jobst.T_specdata = {}
-
----@return df.interface_button_building_new_jobst.T_specdata
-function df.interface_button_building_new_jobst.T_specdata:new() end
 
 ---@class (exact) df.interface_button_building_custom_category_selectorst: DFStruct, df.interface_button_buildingst
 ---@field _type identity.interface_button_building_custom_category_selectorst
