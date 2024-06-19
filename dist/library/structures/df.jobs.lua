@@ -418,12 +418,12 @@ function df.job_spec_data:new() end
 ---@field job_subtype df.job_subtype_surgery bay12: stage
 ---@field pos df.coord
 ---@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
----@field maxdur number
+---@field maxdur number uninitialized
 ---@field flags df.job_flags
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field spell number almost certainly no longer used
----@field item_type df.item_type for Bait Trap jobs
+---@field item_type df.item_type for Bait Trap jobs; otherwise uninitialized
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
 ---@field specflag df.job_spec_flags
 ---@field specdata df.job_spec_data

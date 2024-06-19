@@ -36,7 +36,7 @@ function MaterialDialog:addMaterial(choices, mat, typ, idx, pfix, parent) end
 
 function MaterialDialog:pushContext(name, choices) end
 
-function MaterialDialog:onGoBack() end
+function MaterialDialog:onEsc() end
 
 function MaterialDialog:submitMaterial(typ, index) end
 

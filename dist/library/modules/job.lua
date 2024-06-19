@@ -71,18 +71,18 @@ function dfhack.job.checkBuildingsNow() end
 
 function dfhack.job.checkDesignationsNow() end
 
----@param item df.job_item
+---@param jitem df.job_item
 ---@param itype df.item_type
 ---@param isubtype integer
 ---@return boolean
-function dfhack.job.isSuitableItem(item, itype, isubtype) end
+function dfhack.job.isSuitableItem(jitem, itype, isubtype) end
 
----@param item df.job_item
+---@param jitem df.job_item
 ---@param mat_type integer
 ---@param mat_index integer
 ---@param itype df.item_type
 ---@return boolean
-function dfhack.job.isSuitableMaterial(item, mat_type, mat_index, itype) end
+function dfhack.job.isSuitableMaterial(jitem, mat_type, mat_index, itype) end
 
 ---@param job df.job
 ---@return string
