@@ -47,6 +47,12 @@ function gui.mkdims_xy(x1,y1,x2,y2) end
 ---@return gui.dimension
 function gui.mkdims_wh(x1,y1,w,h) end
 
+---@return gui.dimension
+function gui.get_interface_rect() end
+
+---@return widgets.Widget.frame
+function gui.get_interface_frame() end
+
 ---@param rect gui.dimension
 ---@param x integer
 ---@param y integer
