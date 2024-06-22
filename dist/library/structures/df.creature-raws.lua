@@ -1932,6 +1932,7 @@ function _caste_body_info_gait_info:erase(index) end
 df.lair_characteristic_type = {}
 
 ---@alias df.habit_type
+---| -1 # NONE
 ---| 0 # GRIND_BONE_MEAL
 ---| 1 # COOK_BLOOD
 ---| 2 # GRIND_VERMIN
@@ -1944,8 +1945,10 @@ df.lair_characteristic_type = {}
 ---| 9 # GIANT_NEST
 
 ---@class identity.habit_type: DFEnumType
----@field GRIND_BONE_MEAL 0 bay12: HabitType
----@field [0] "GRIND_BONE_MEAL" bay12: HabitType
+---@field NONE -1 bay12: HabitType
+---@field [-1] "NONE" bay12: HabitType
+---@field GRIND_BONE_MEAL 0
+---@field [0] "GRIND_BONE_MEAL"
 ---@field COOK_BLOOD 1
 ---@field [1] "COOK_BLOOD"
 ---@field GRIND_VERMIN 2
@@ -1965,6 +1968,48 @@ df.lair_characteristic_type = {}
 ---@field GIANT_NEST 9
 ---@field [9] "GIANT_NEST"
 df.habit_type = {}
+
+---@alias df.creature_sound_type
+---| -1 # NONE
+---| 0 # ALERT
+---| 1 # PEACEFUL_INTERMITTENT
+
+---@class identity.creature_sound_type: DFEnumType
+---@field NONE -1 bay12: CreatureSoundType
+---@field [-1] "NONE" bay12: CreatureSoundType
+---@field ALERT 0
+---@field [0] "ALERT"
+---@field PEACEFUL_INTERMITTENT 1
+---@field [1] "PEACEFUL_INTERMITTENT"
+df.creature_sound_type = {}
+
+---@alias df.creature_sound_method_type
+---| -1 # NONE
+---| 0 # VOCALIZATION
+
+---@class identity.creature_sound_method_type: DFEnumType
+---@field NONE -1 bay12: CreatureSoundMethodType
+---@field [-1] "NONE" bay12: CreatureSoundMethodType
+---@field VOCALIZATION 0
+---@field [0] "VOCALIZATION"
+df.creature_sound_method_type = {}
+
+---@class (exact) df.creature_soundst: DFStruct
+---@field _type identity.creature_soundst
+---@field type df.creature_sound_type
+---@field range number
+---@field period number
+---@field method df.creature_sound_method_type
+---@field verb_2nd string
+---@field verb_3rd string
+---@field noun string
+
+---@class identity.creature_soundst: DFCompoundType
+---@field _kind 'struct-type'
+df.creature_soundst = {}
+
+---@return df.creature_soundst
+function df.creature_soundst:new() end
 
 ---@class (exact) df.caste_raw: DFStruct
 ---@field _type identity.caste_raw
@@ -2018,7 +2063,30 @@ df.habit_type = {}
 ---@field extracts df.caste_raw.T_extracts
 ---@field secretion _caste_raw_secretion
 ---@field creature_class DFStringVector
----@field unknown2 df.caste_raw.T_unknown2
+---@field syndrome_dilution_identifier DFStringVector SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_factor DFNumberVector SYNDROME_DILUTION_FACTOR
+---@field gobble_vermin_class DFStringVector
+---@field gobble_vermin_creature DFStringVector
+---@field gobble_vermin_caste DFStringVector
+---@field infect_all DFNumberVector for Injected syndromes
+---@field infect_local DFNumberVector for Contact syndromes
+---@field infect_inhaled DFNumberVector
+---@field infect_ingested DFNumberVector
+---@field mannerism_flag _caste_raw_mannerism_flag
+---@field mannerism_situation_flag _caste_raw_mannerism_situation_flag
+---@field armor_sizes number[][] index by UBSTEP
+---@field pants_sizes number[] index by LBSTEP
+---@field helm_size number
+---@field shield_sizes number[] index by UPSTEP
+---@field shoes_sizes number[] index by UPSTEP
+---@field gloves_sizes number[] index by UPSTEP
+---@field worldgen_materials df.material_vec_ref for world generation
+---@field worldgen_material_states _caste_raw_worldgen_material_states
+---@field worldgen_material_small DFNumberVector
+---@field worldgen_material_butcher_amount DFNumberVector
+---@field worldgen_material_defining_flag DFNumberVector
+---@field meat_mat_type number muscle:<br>References: `df.material`
+---@field meat_mat_index number
 ---@field habit_num number[]
 ---@field habit_type _caste_raw_habit_type
 ---@field habit_chance DFNumberVector
@@ -2138,7 +2206,7 @@ function _caste_raw_flags:erase(index) end
 
 ---@class (exact) df.caste_raw.T_attributes: DFStruct
 ---@field _type identity.caste_raw.attributes
----@field phys_att_range DFEnumVector<df.physical_attribute_type, number[]>
+---@field phys_att_range DFEnumVector<df.physical_attribute_type, number[]> not a compound
 ---@field ment_att_range DFEnumVector<df.mental_attribute_type, number[]>
 ---@field phys_att_rates DFEnumVector<df.physical_attribute_type, number[]>
 ---@field ment_att_rates DFEnumVector<df.mental_attribute_type, number[]>
@@ -2372,87 +2440,53 @@ function _caste_raw_secretion:insert(index, item) end
 ---@param index integer
 function _caste_raw_secretion:erase(index) end
 
----@class (exact) df.caste_raw.T_unknown2: DFStruct
----@field _type identity.caste_raw.unknown2
----@field syndrome_dilution_identifier DFStringVector not actually a compound
----@field syndrome_dilution_factor DFNumberVector SYNDROME_DILUTION_FACTOR
----@field gobble_vermin_class DFStringVector
----@field gobble_vermin_creature DFStringVector
----@field gobble_vermin_caste DFStringVector
----@field infect_all DFNumberVector for Injected syndromes
----@field infect_local DFNumberVector for Contact syndromes
----@field infect_inhaled DFNumberVector
----@field infect_ingested DFNumberVector
----@field mannerism_flag _caste_raw_unknown2_mannerism_flag
----@field mannerism_situation_flag _caste_raw_unknown2_mannerism_situation_flag
----@field armor_sizes number[][] index by UBSTEP
----@field pants_sizes number[] index by LBSTEP
----@field helm_size number
----@field shield_sizes number[] index by UPSTEP
----@field shoes_sizes number[] index by UPSTEP
----@field gloves_sizes number[] index by UPSTEP
----@field materials df.material_vec_ref for world generation
----@field material_states _caste_raw_unknown2_material_states
----@field material_small DFNumberVector
----@field material_butcher_amount DFNumberVector
----@field material_defining_flag DFNumberVector
----@field mat_type number muscle:<br>References: `df.material`
----@field mat_index number
-
----@class identity.caste_raw.unknown2: DFCompoundType
----@field _kind 'struct-type'
-df.caste_raw.T_unknown2 = {}
-
----@return df.caste_raw.T_unknown2
-function df.caste_raw.T_unknown2:new() end
-
----@class _caste_raw_unknown2_mannerism_flag: DFContainer
+---@class _caste_raw_mannerism_flag: DFContainer
 ---@field [integer] table<integer, boolean>
-local _caste_raw_unknown2_mannerism_flag
+local _caste_raw_mannerism_flag
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function _caste_raw_unknown2_mannerism_flag:_field(index) end
+function _caste_raw_mannerism_flag:_field(index) end
 
 ---@param index '#'|integer
 ---@param item table<integer, boolean>
-function _caste_raw_unknown2_mannerism_flag:insert(index, item) end
+function _caste_raw_mannerism_flag:insert(index, item) end
 
 ---@param index integer
-function _caste_raw_unknown2_mannerism_flag:erase(index) end
+function _caste_raw_mannerism_flag:erase(index) end
 
----@class _caste_raw_unknown2_mannerism_situation_flag: DFContainer
+---@class _caste_raw_mannerism_situation_flag: DFContainer
 ---@field [integer] table<integer, boolean>
-local _caste_raw_unknown2_mannerism_situation_flag
+local _caste_raw_mannerism_situation_flag
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<table<integer, boolean>>
-function _caste_raw_unknown2_mannerism_situation_flag:_field(index) end
+function _caste_raw_mannerism_situation_flag:_field(index) end
 
 ---@param index '#'|integer
 ---@param item table<integer, boolean>
-function _caste_raw_unknown2_mannerism_situation_flag:insert(index, item) end
+function _caste_raw_mannerism_situation_flag:insert(index, item) end
 
 ---@param index integer
-function _caste_raw_unknown2_mannerism_situation_flag:erase(index) end
+function _caste_raw_mannerism_situation_flag:erase(index) end
 
----@class _caste_raw_unknown2_material_states: DFContainer
+---@class _caste_raw_worldgen_material_states: DFContainer
 ---@field [integer] df.matter_state
-local _caste_raw_unknown2_material_states
+local _caste_raw_worldgen_material_states
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.matter_state>
-function _caste_raw_unknown2_material_states:_field(index) end
+function _caste_raw_worldgen_material_states:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.matter_state
-function _caste_raw_unknown2_material_states:insert(index, item) end
+function _caste_raw_worldgen_material_states:insert(index, item) end
 
 ---@param index integer
-function _caste_raw_unknown2_material_states:erase(index) end
+function _caste_raw_worldgen_material_states:erase(index) end
 
 ---@class _caste_raw_habit_type: DFContainer
 ---@field [integer] df.habit_type
@@ -2529,16 +2563,16 @@ df.caste_raw.T_specific_food = {}
 function df.caste_raw.T_specific_food:new() end
 
 ---@class _caste_raw_sound: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.creature_soundst
 local _caste_raw_sound
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.creature_soundst>
 function _caste_raw_sound:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.creature_soundst
 function _caste_raw_sound:insert(index, item) end
 
 ---@param index integer

@@ -484,7 +484,7 @@ function df.graphic.T_tileset:new() end
 ---@field texpos_button_picture_box_sel_highlighted number[][]
 ---@field texpos_button_picture_box_light number[][]
 ---@field texpos_button_picture_box_dark number[][]
----@field texpos_unk_v50_06 number[]
+---@field texpos_button_picture_box_divider number[]
 ---@field texpos_button_add number[][]
 ---@field texpos_button_add_hover number[][]
 ---@field texpos_button_add_pressed number[][]

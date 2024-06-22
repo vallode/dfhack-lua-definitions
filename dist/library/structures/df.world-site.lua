@@ -1756,6 +1756,49 @@ function _world_site_wg_quest_posting:insert(index, item) end
 ---@param index integer
 function _world_site_wg_quest_posting:erase(index) end
 
+---@class df.cultural_identity_entity_flags: DFBitfield
+---@field _enum identity.cultural_identity_entity_flags
+---@field hostile_occupation boolean bay12: CULTURAL_IDENTITY_ENTITY_FLAG_*
+---@field [0] boolean bay12: CULTURAL_IDENTITY_ENTITY_FLAG_*
+---@field part_of_occupation boolean
+---@field [1] boolean
+
+---@class identity.cultural_identity_entity_flags: DFBitfieldType
+---@field hostile_occupation 0 bay12: CULTURAL_IDENTITY_ENTITY_FLAG_*
+---@field [0] "hostile_occupation" bay12: CULTURAL_IDENTITY_ENTITY_FLAG_*
+---@field part_of_occupation 1
+---@field [1] "part_of_occupation"
+df.cultural_identity_entity_flags = {}
+
+---@alias df.opinion_collection_type
+---| -1 # NONE
+---| 0 # PRO_OCCUPATION
+---| 1 # NEUTRAL_TO_OCCUPATION
+---| 2 # AGAINST_OCCUPATION
+---| 3 # PART_OF_OCCUPATION
+---| 4 # PRO_RULER
+---| 5 # NEUTRAL_TO_RULER
+---| 6 # AGASINT_RULER
+
+---@class identity.opinion_collection_type: DFEnumType
+---@field NONE -1 bay12: OpinionCollectionType
+---@field [-1] "NONE" bay12: OpinionCollectionType
+---@field PRO_OCCUPATION 0
+---@field [0] "PRO_OCCUPATION"
+---@field NEUTRAL_TO_OCCUPATION 1
+---@field [1] "NEUTRAL_TO_OCCUPATION"
+---@field AGAINST_OCCUPATION 2
+---@field [2] "AGAINST_OCCUPATION"
+---@field PART_OF_OCCUPATION 3
+---@field [3] "PART_OF_OCCUPATION"
+---@field PRO_RULER 4
+---@field [4] "PRO_RULER"
+---@field NEUTRAL_TO_RULER 5
+---@field [5] "NEUTRAL_TO_RULER"
+---@field AGASINT_RULER 6
+---@field [6] "AGASINT_RULER"
+df.opinion_collection_type = {}
+
 ---@class (exact) df.cultural_identity: DFStruct
 ---@field _type identity.cultural_identity
 ---@field id number

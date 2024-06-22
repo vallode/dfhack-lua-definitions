@@ -1601,30 +1601,30 @@ function _item_constructed_improvements:erase(index) end
 -- BODY COMPONENT
 ---@class df.body_part_status: DFBitfield
 ---@field _enum identity.body_part_status
----@field on_fire boolean
----@field [0] boolean
+---@field on_fire boolean bay12: UNIT_BP_FLAG_*
+---@field [0] boolean bay12: UNIT_BP_FLAG_*
 ---@field missing boolean
 ---@field [1] boolean
----@field organ_loss boolean cyan
----@field [2] boolean cyan
----@field organ_damage boolean yellow
----@field [3] boolean yellow
+---@field organ_loss boolean FUNCTION_LOSS; cyan
+---@field [2] boolean FUNCTION_LOSS; cyan
+---@field organ_damage boolean ANY_FUNCTION_DAMAGE; yellow
+---@field [3] boolean ANY_FUNCTION_DAMAGE; yellow
 ---@field muscle_loss boolean red
 ---@field [4] boolean red
 ---@field muscle_damage boolean yellow
 ---@field [5] boolean yellow
----@field bone_loss boolean red
----@field [6] boolean red
----@field bone_damage boolean yellow
----@field [7] boolean yellow
----@field skin_damage boolean brown
----@field [8] boolean brown
+---@field bone_loss boolean STRUCTURE_LOSS; red
+---@field [6] boolean STRUCTURE_LOSS; red
+---@field bone_damage boolean ANY_STRUCTURE_DAMAGE; yellow
+---@field [7] boolean ANY_STRUCTURE_DAMAGE; yellow
+---@field skin_damage boolean ANY_DAMAGE; brown
+---@field [8] boolean ANY_DAMAGE; brown
 ---@field motor_nerve_severed boolean
 ---@field [9] boolean
 ---@field sensory_nerve_severed boolean
 ---@field [10] boolean
----@field spilled_guts boolean
----@field [11] boolean
+---@field spilled_guts boolean HAS_POPPED_OUT
+---@field [11] boolean HAS_POPPED_OUT
 ---@field has_splint boolean
 ---@field [12] boolean
 ---@field has_bandage boolean
@@ -1633,44 +1633,44 @@ function _item_constructed_improvements:erase(index) end
 ---@field [14] boolean
 ---@field grime boolean
 ---@field [15] boolean
----@field severed_or_jammed boolean seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field [18] boolean seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field under_shell boolean
----@field [19] boolean
----@field is_shell boolean
----@field [20] boolean
----@field mangled boolean a wounded body part is described as being mangled beyond recognition when this flag is set
----@field [21] boolean a wounded body part is described as being mangled beyond recognition when this flag is set
----@field unk20 boolean on zombified head
----@field [22] boolean on zombified head
+---@field severed_or_jammed boolean TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field [18] boolean TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field under_shell boolean RETRACTED
+---@field [19] boolean RETRACTED
+---@field is_shell boolean RETRACT_COVER
+---@field [20] boolean RETRACT_COVER
+---@field mangled boolean PULPED
+---@field [21] boolean PULPED
+---@field has_pulped_tissue boolean
+---@field [22] boolean
 ---@field gelded boolean set on GELDABLE body parts after a unit has been gelded
 ---@field [23] boolean set on GELDABLE body parts after a unit has been gelded
 
 ---@class identity.body_part_status: DFBitfieldType
----@field on_fire 0
----@field [0] "on_fire"
+---@field on_fire 0 bay12: UNIT_BP_FLAG_*
+---@field [0] "on_fire" bay12: UNIT_BP_FLAG_*
 ---@field missing 1
 ---@field [1] "missing"
----@field organ_loss 2 cyan
----@field [2] "organ_loss" cyan
----@field organ_damage 3 yellow
----@field [3] "organ_damage" yellow
+---@field organ_loss 2 FUNCTION_LOSS; cyan
+---@field [2] "organ_loss" FUNCTION_LOSS; cyan
+---@field organ_damage 3 ANY_FUNCTION_DAMAGE; yellow
+---@field [3] "organ_damage" ANY_FUNCTION_DAMAGE; yellow
 ---@field muscle_loss 4 red
 ---@field [4] "muscle_loss" red
 ---@field muscle_damage 5 yellow
 ---@field [5] "muscle_damage" yellow
----@field bone_loss 6 red
----@field [6] "bone_loss" red
----@field bone_damage 7 yellow
----@field [7] "bone_damage" yellow
----@field skin_damage 8 brown
----@field [8] "skin_damage" brown
+---@field bone_loss 6 STRUCTURE_LOSS; red
+---@field [6] "bone_loss" STRUCTURE_LOSS; red
+---@field bone_damage 7 ANY_STRUCTURE_DAMAGE; yellow
+---@field [7] "bone_damage" ANY_STRUCTURE_DAMAGE; yellow
+---@field skin_damage 8 ANY_DAMAGE; brown
+---@field [8] "skin_damage" ANY_DAMAGE; brown
 ---@field motor_nerve_severed 9
 ---@field [9] "motor_nerve_severed"
 ---@field sensory_nerve_severed 10
 ---@field [10] "sensory_nerve_severed"
----@field spilled_guts 11
----@field [11] "spilled_guts"
+---@field spilled_guts 11 HAS_POPPED_OUT
+---@field [11] "spilled_guts" HAS_POPPED_OUT
 ---@field has_splint 12
 ---@field [12] "has_splint"
 ---@field has_bandage 13
@@ -1679,16 +1679,16 @@ function _item_constructed_improvements:erase(index) end
 ---@field [14] "has_plaster_cast"
 ---@field grime 15
 ---@field [15] "grime"
----@field severed_or_jammed 18 seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field [18] "severed_or_jammed" seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field under_shell 19
----@field [19] "under_shell"
----@field is_shell 20
----@field [20] "is_shell"
----@field mangled 21 a wounded body part is described as being mangled beyond recognition when this flag is set
----@field [21] "mangled" a wounded body part is described as being mangled beyond recognition when this flag is set
----@field unk20 22 on zombified head
----@field [22] "unk20" on zombified head
+---@field severed_or_jammed 18 TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field [18] "severed_or_jammed" TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field under_shell 19 RETRACTED
+---@field [19] "under_shell" RETRACTED
+---@field is_shell 20 RETRACT_COVER
+---@field [20] "is_shell" RETRACT_COVER
+---@field mangled 21 PULPED
+---@field [21] "mangled" PULPED
+---@field has_pulped_tissue 22
+---@field [22] "has_pulped_tissue"
 ---@field gelded 23 set on GELDABLE body parts after a unit has been gelded
 ---@field [23] "gelded" set on GELDABLE body parts after a unit has been gelded
 df.body_part_status = {}

@@ -7,7 +7,7 @@
 ---@field filter df.job_item_filter
 ---@field candidates _ui_build_item_req_candidates
 ---@field candidate_selected DFBooleanVector
----@field unk_a0 DFNumberVector
+---@field level_map DFNumberVector map_block.walkable
 ---@field candidate_enabled DFBooleanVector
 ---@field count_required number
 ---@field count_max number if 0, fixed at required
