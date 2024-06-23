@@ -1205,9 +1205,9 @@ df.body_part_relation_type = {}
 ---@field healing_rate number
 ---@field vascular number
 ---@field pain_receptors number
----@field position number
----@field relation df.body_part_position_type
----@field relation_bp df.body_part_relation_type
+---@field position df.body_part_position_type
+---@field relation df.body_part_relation_type
+---@field relation_bp number
 ---@field bp_modifiers DFNumberVector
 ---@field layer_id number across all body parts
 ---@field parent_idx number For subordinate layers:
