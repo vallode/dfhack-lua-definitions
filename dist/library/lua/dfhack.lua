@@ -283,14 +283,12 @@ function string:split(delimiter, plain) end
 function string:trim() end
 
 -- Inserts newlines into a string so no individual line exceeds the given width.
--- Lines are split at space-separated word boundaries. Any existing newlines are
--- kept in place. If a single word is longer than width, it is split over
--- multiple lines. If width is not specified, 72 is used.
 ---@nodiscard
 ---@param self string
 ---@param width number
----@return string
-function string:wrap(width) end
+---@param opts {return_as_table:boolean, keep_trailing_spaces:boolean}
+---@return string|string[]
+function string:wrap(width, opts) end
 
 ---@nodiscard
 ---@param self string

@@ -314,7 +314,6 @@ function Painter:key_string(keycode, text, ...) end
 ---@field subviews gui.View[]
 ---@field parent_view? gui.View
 ---@field focus_group gui.View.focus_group
----@field focus_path? string
 ---@field focus boolean
 ---@field active boolean|fun(): boolean
 ---@field visible boolean|fun(): boolean
@@ -385,6 +384,7 @@ function View:onInput(keys) end
 ---@class gui.Screen.attrs: gui.View.attrs
 ---@field text_input_mode boolean
 ---@field request_full_screen_refresh boolean
+---@field focus_path string
 
 ---@class gui.Screen.attrs.partial: gui.Screen.attrs
 

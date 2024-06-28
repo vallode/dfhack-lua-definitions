@@ -35,6 +35,7 @@
 ---@field setArmokTools function
 ---@field getPerfCounters function
 ---@field getPreferredNumberFormat function
+---@field getClipboardTextCp437Multiline function
 dfhack.internal = {}
 
 ---@param n integer
