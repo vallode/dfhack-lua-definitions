@@ -20,6 +20,17 @@ function dfhack.job.is_equal(job1, job2) end
 function dfhack.job.is_item_equal(job1, job2) end
 
 ---@param job df.job
+---@param type df.general_ref_type
+---@param id number
+---@return boolean
+function dfhack.job.addGeneralRef(job, type, id) end
+
+---@param job df.job
+---@param unit df.unit
+---@return boolean
+function dfhack.job.addWorker(job, unit) end
+
+---@param job df.job
 ---@param item df.item
 ---@param role df.job_item_ref::T_role
 ---@param filter_idx integer
