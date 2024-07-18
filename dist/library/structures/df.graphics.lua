@@ -357,7 +357,17 @@ function df.texblitst:new() end
 ---@field original_rect number
 ---@field dimx number
 ---@field dimy number
----@field tileset df.graphic.T_tileset
+---@field black_background_texpos number[] do NOT put these in a compound, because it will break alignment!
+---@field texture_indices1 number[]
+---@field texpos_custom_symbol DFNumberVector
+---@field texture_indices2 number[]
+---@field graphical_interface df.interface_setst
+---@field classic_interface df.interface_setst
+---@field texture_indices3 number[]
+---@field texpos_boulder DFNumberVector
+---@field texture_indices4 number[]
+---@field texpos_item_statue_artifact DFNumberVector
+---@field texture_indices5 number[]
 
 ---@class identity.graphic: DFCompoundType
 ---@field _kind 'struct-type'
@@ -413,27 +423,6 @@ function _graphic_texblits:insert(index, item) end
 
 ---@param index integer
 function _graphic_texblits:erase(index) end
-
----@class (exact) df.graphic.T_tileset: DFStruct
----@field _type identity.graphic.tileset
----@field black_background_texpos number[]
----@field texture_indices1 number[]
----@field texpos_custom_symbol DFNumberVector
----@field texture_indices2 number[]
----@field graphical_interface df.interface_setst
----@field classic_interface df.interface_setst
----@field texture_indices3 number[]
----@field texpos_boulder DFNumberVector
----@field texture_indices4 number[]
----@field texpos_item_statue_artifact DFNumberVector
----@field texture_indices5 number[]
-
----@class identity.graphic.tileset: DFCompoundType
----@field _kind 'struct-type'
-df.graphic.T_tileset = {}
-
----@return df.graphic.T_tileset
-function df.graphic.T_tileset:new() end
 
 ---@class (exact) df.interface_setst: DFStruct
 ---@field _type identity.interface_setst

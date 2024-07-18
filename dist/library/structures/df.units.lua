@@ -2095,7 +2095,7 @@ function _unit_body_spatters:erase(index) end
 ---@field tissue_style_type DFNumberVector
 ---@field tissue_length DFNumberVector description uses bp_modifiers[style_list_idx[index]]
 ---@field genes df.unit_genes
----@field colors DFNumberVector
+---@field colors DFNumberVector colors[i] refers to caste_raw.color_modifiers[i].pattern_index
 
 ---@class identity.unit.appearance: DFCompoundType
 ---@field _kind 'struct-type'
