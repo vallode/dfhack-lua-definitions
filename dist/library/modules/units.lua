@@ -3,6 +3,7 @@
 
 ---@class dfhack.units
 ---@field getStressCutoffs function
+---@field getReadableName function
 dfhack.units = {}
 
 ---@param unit df.unit
@@ -15,9 +16,9 @@ function dfhack.units.getPosition(unit) end
 function dfhack.units.getOuterContainerRef(unit, init_ref) end
 
 ---@param pvec table<integer, unknown>
----@param unit df.unit
+---@param hf df.historical_figure
 ---@return boolean
-function dfhack.units.getNoblePositions(pvec, unit) end
+function dfhack.units.getNoblePositions(pvec, hf) end
 
 -- returns index of creature actually read or -1 if no creature can be found
 ---@param x1 number
@@ -42,6 +43,16 @@ function dfhack.units.getUnitsByNobleRole(noble) end
 ---@param trainer_id number
 ---@return boolean
 function dfhack.units.assignTrainer(unit, trainer_id) end
+
+---@param hf df.historical_figure
+---@return df.language_name
+function dfhack.units.getVisibleName(hf) end
+
+---@param hf df.historical_figure
+---@param ignore_noble boolean|nil
+---@param plural boolean|nil
+---@return string
+function dfhack.units.getProfessionName(hf, ignore_noble, plural) end
 
 ---@param u df.unit
 ---@param x1 number
@@ -351,10 +362,6 @@ function dfhack.units.getContainer(unit) end
 function dfhack.units.setNickname(unit, nick) end
 
 ---@param unit df.unit
----@return df.language_name
-function dfhack.units.getVisibleName(unit) end
-
----@param unit df.unit
 ---@return df.identity
 function dfhack.units.getIdentity(unit) end
 
@@ -436,12 +443,6 @@ function dfhack.units.computeMovementSpeed(unit) end
 ---@return number
 function dfhack.units.computeSlowdownFactor(unit) end
 
----@param unit df.unit
----@param ignore_noble boolean|nil
----@param plural boolean|nil
----@return string
-function dfhack.units.getProfessionName(unit, ignore_noble, plural) end
-
 ---@param race integer
 ---@param casteid integer
 ---@param pid df.profession
@@ -507,10 +508,6 @@ function dfhack.units.getRaceChildName(unit) end
 ---@param id number
 ---@return string
 function dfhack.units.getRaceChildNameById(id) end
-
----@param unit df.unit
----@return string
-function dfhack.units.getReadableName(unit) end
 
 ---@param unit df.unit
 ---@return df.activity_entry
