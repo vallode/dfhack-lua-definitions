@@ -1492,8 +1492,8 @@ function _wg_site_culturest_identity:erase(index) end
 ---@field realization df.world_site_realization
 ---@field subtype_info df.site_map_infost bay12: site_map_info
 ---@field location_death df.location_deathst
----@field is_mountain_halls number bay12: min_depth
----@field is_fortress number bay12: max_depth
+---@field min_depth number compared to feature_init.end_depth
+---@field max_depth number compared to feature_init.start_depth
 ---@field mined_hours number only MountainHalls, but only subset of them
 ---@field architecture_change _world_site_architecture_change
 ---@field active_site_conquest _world_site_active_site_conquest
