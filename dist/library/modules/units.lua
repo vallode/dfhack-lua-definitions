@@ -20,15 +20,14 @@ function dfhack.units.getOuterContainerRef(unit, init_ref) end
 ---@return boolean
 function dfhack.units.getNoblePositions(pvec, hf) end
 
--- returns index of creature actually read or -1 if no creature can be found
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
+---@param box unknown
+---@return unknown
+function dfhack.units.isUnitInBox(box) end
+
+---@param box unknown
+---@param std::function<bool(df::unit unknown
 ---@return table<integer, df.unit>
-function dfhack.units.getUnitsInBox(x1, y1, z1, x2, y2, z2) end
+function dfhack.units.getUnitsInBox(box, std::function<bool(df::unit) end
 
 ---@param exclude_residents boolean|nil
 ---@param include_insane boolean|nil
@@ -38,6 +37,11 @@ function dfhack.units.getCitizens(exclude_residents, include_insane) end
 ---@param noble string
 ---@return table<integer, df.unit>
 function dfhack.units.getUnitsByNobleRole(noble) end
+
+---@param race integer
+---@param caste integer
+---@return df.caste_raw
+function dfhack.units.getCasteRaw(race, caste) end
 
 ---@param unit df.unit
 ---@param trainer_id number
@@ -51,18 +55,9 @@ function dfhack.units.getVisibleName(hf) end
 ---@param hf df.historical_figure
 ---@param ignore_noble boolean|nil
 ---@param plural boolean|nil
+---@param land_title boolean|nil
 ---@return string
-function dfhack.units.getProfessionName(hf, ignore_noble, plural) end
-
----@param u df.unit
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@return boolean
-function dfhack.units.isUnitInBox(u, x1, y1, z1, x2, y2, z2) end
+function dfhack.units.getProfessionName(hf, ignore_noble, plural, land_title) end
 
 ---@param unit df.unit
 ---@return boolean
@@ -86,17 +81,14 @@ function dfhack.units.isResident(unit, include_insane) end
 ---@return boolean
 function dfhack.units.isFortControlled(unit) end
 
--- (don't try to pasture/slaughter random untame animals)
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isOwnCiv(unit) end
 
--- check if creature belongs to the player's group
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isOwnGroup(unit) end
 
--- (in combination with check for civ helps to filter out own dwarves)
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isOwnRace(unit) end
@@ -158,8 +150,9 @@ function dfhack.units.isAdult(unit) end
 function dfhack.units.isGay(unit) end
 
 ---@param unit df.unit
+---@param no_items boolean|nil
 ---@return boolean
-function dfhack.units.isNaked(unit) end
+function dfhack.units.isNaked(unit, no_items) end
 
 ---@param unit df.unit
 ---@return boolean
@@ -177,12 +170,10 @@ function dfhack.units.isTrainableWar(unit) end
 ---@return boolean
 function dfhack.units.isTrained(unit) end
 
--- check for profession "hunting creature"
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isHunter(unit) end
 
--- check for profession "war creature"
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isWar(unit) end
@@ -195,7 +186,6 @@ function dfhack.units.isTame(unit) end
 ---@return boolean
 function dfhack.units.isTamable(unit) end
 
--- seems to be the only way to really tell if it's completely safe to autonestbox it (training can revert)
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isDomesticated(unit) end
@@ -256,7 +246,6 @@ function dfhack.units.isForest(unit) end
 ---@return boolean
 function dfhack.units.isMischievous(unit) end
 
--- check if unit is marked as available for adoption
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isAvailableForAdoption(unit) end
@@ -302,9 +291,9 @@ function dfhack.units.isVisitor(unit) end
 function dfhack.units.isInvader(unit) end
 
 ---@param unit df.unit
----@param include_vamps boolean|nil
+---@param hiding_curse boolean|nil
 ---@return boolean
-function dfhack.units.isUndead(unit, include_vamps) end
+function dfhack.units.isUndead(unit, hiding_curse) end
 
 ---@param unit df.unit
 ---@return boolean
@@ -331,8 +320,9 @@ function dfhack.units.isForgottenBeast(unit) end
 function dfhack.units.isDemon(unit) end
 
 ---@param unit df.unit
+---@param hiding_curse boolean|nil
 ---@return boolean
-function dfhack.units.isDanger(unit) end
+function dfhack.units.isDanger(unit, hiding_curse) end
 
 ---@param unit df.unit
 ---@return boolean
@@ -443,6 +433,10 @@ function dfhack.units.computeMovementSpeed(unit) end
 ---@return number
 function dfhack.units.computeSlowdownFactor(unit) end
 
+---@param unit df.unit
+---@return df.profession
+function dfhack.units.getProfession(unit) end
+
 ---@param race integer
 ---@param casteid integer
 ---@param pid df.profession
@@ -476,38 +470,49 @@ function dfhack.units.getGoalName(unit, goalIndex) end
 ---@return boolean
 function dfhack.units.isGoalAchieved(unit, goalIndex) end
 
----@param unit df.unit
----@return string
-function dfhack.units.getPhysicalDescription(unit) end
-
----@param unit df.unit
----@return string
-function dfhack.units.getRaceName(unit) end
-
----@param unit df.unit
----@return string
-function dfhack.units.getRaceNamePlural(unit) end
-
--- get race name by id or unit pointer
 ---@param id number
 ---@return string
 function dfhack.units.getRaceNameById(id) end
 
 ---@param unit df.unit
 ---@return string
-function dfhack.units.getRaceBabyName(unit) end
+function dfhack.units.getRaceName(unit) end
 
 ---@param id number
 ---@return string
-function dfhack.units.getRaceBabyNameById(id) end
+function dfhack.units.getRaceReadableNameById(id) end
 
 ---@param unit df.unit
 ---@return string
-function dfhack.units.getRaceChildName(unit) end
+function dfhack.units.getRaceReadableName(unit) end
 
 ---@param id number
 ---@return string
-function dfhack.units.getRaceChildNameById(id) end
+function dfhack.units.getRaceNamePluralById(id) end
+
+---@param unit df.unit
+---@return string
+function dfhack.units.getRaceNamePlural(unit) end
+
+---@param id number
+---@param plural boolean|nil
+---@return string
+function dfhack.units.getRaceBabyNameById(id, plural) end
+
+---@param unit df.unit
+---@param plural boolean|nil
+---@return string
+function dfhack.units.getRaceBabyName(unit, plural) end
+
+---@param id number
+---@param plural boolean|nil
+---@return string
+function dfhack.units.getRaceChildNameById(id, plural) end
+
+---@param unit df.unit
+---@param plural boolean|nil
+---@return string
+function dfhack.units.getRaceChildName(unit, plural) end
 
 ---@param unit df.unit
 ---@return df.activity_entry
