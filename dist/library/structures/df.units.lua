@@ -4347,12 +4347,12 @@ df.unit_action_type._attr_entry_type._fields = {}
 ---@field JobRecover { tag: "job", group: "All" }
 ---@field PushObject { tag: "pushobject", group: "All" }
 ---@field SuckBlood { tag: "suckblood", group: "All" }
----@field HoldItem { tag: "holditem" }
----@field ReleaseItem { tag: "releaseitem" }
----@field Mount { tag: "mount" }
----@field Dismount { tag: "dismount" }
----@field LeadAnimal { tag: "leadanimal" }
----@field StopLeadAnimal { tag: "stopleadanimal" }
+---@field HoldItem { tag: "holditem", group: "All" }
+---@field ReleaseItem { tag: "releaseitem", group: "All" }
+---@field Mount { tag: "mount", group: "All" }
+---@field Dismount { tag: "dismount", group: "All" }
+---@field LeadAnimal { tag: "leadanimal", group: "All" }
+---@field StopLeadAnimal { tag: "stopleadanimal", group: "All" }
 df.unit_action_type.attrs = {}
 
 ---@class (exact) df.unit_action: DFStruct
