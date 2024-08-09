@@ -413,7 +413,7 @@ function df.building_drawbuffer:new() end
 ---@field jobs _building_jobs
 ---@field specific_refs _building_specific_refs
 ---@field general_refs _building_general_refs
----@field relations _building_relations zone(s) this building is in
+---@field relations _building_relations zone(s) this building is in; **not sorted**
 ---@field job_claim_suppress _building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
 ---@field activities _building_activities
@@ -1344,7 +1344,7 @@ df.civzone_type = {}
 ---@field zone_num number
 ---@field zone_settings df.building_civzonest.T_zone_settings
 ---@field home_general_hf DFNumberVector
----@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds
+---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds; **not sorted**
 ---@field assigned_unit_id number References: `df.unit`
 ---@field assigned_unit df.unit
 ---@field squad_room_info _building_civzonest_squad_room_info
