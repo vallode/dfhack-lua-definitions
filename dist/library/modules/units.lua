@@ -288,6 +288,14 @@ function dfhack.units.isVisitor(unit) end
 
 ---@param unit df.unit
 ---@return boolean
+function dfhack.units.isWildlife(unit) end
+
+---@param unit df.unit
+---@return boolean
+function dfhack.units.isAgitated(unit) end
+
+---@param unit df.unit
+---@return boolean
 function dfhack.units.isInvader(unit) end
 
 ---@param unit df.unit
@@ -320,9 +328,8 @@ function dfhack.units.isForgottenBeast(unit) end
 function dfhack.units.isDemon(unit) end
 
 ---@param unit df.unit
----@param hiding_curse boolean|nil
 ---@return boolean
-function dfhack.units.isDanger(unit, hiding_curse) end
+function dfhack.units.isDanger(unit) end
 
 ---@param unit df.unit
 ---@return boolean
