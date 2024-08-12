@@ -5,10 +5,6 @@
 dfhack.items = {}
 
 ---@param item df.item
----@return df.coord
-function dfhack.items.getPosition(item) end
-
----@param item df.item
 ---@param init_ref boolean|nil
 ---@return df.specific_ref spec_ref
 function dfhack.items.getOuterContainerRef(item, init_ref) end
@@ -16,6 +12,10 @@ function dfhack.items.getOuterContainerRef(item, init_ref) end
 ---@param item df.item
 ---@param items table<integer, df.item>
 function dfhack.items.getContainedItems(item, items) end
+
+---@param item df.item
+---@return df.coord
+function dfhack.items.getPosition(item) end
 
 ---@param item df.item
 ---@param building df.building_actual
@@ -49,6 +49,19 @@ function dfhack.items.findType(token) end
 ---@return number
 function dfhack.items.findSubtype(token) end
 
+---@param itype df.item_type
+---@return boolean
+function dfhack.items.isCasteMaterial(itype) end
+
+---@param itype df.item_type
+---@return integer
+function dfhack.items.getSubtypeCount(itype) end
+
+---@param itype df.item_type
+---@param subtype integer
+---@return df.itemdef
+function dfhack.items.getSubtypeDef(itype, subtype) end
+
 ---@param item df.item
 ---@param type df.general_ref_type
 ---@return df.general_ref
@@ -80,7 +93,6 @@ function dfhack.items.getHolderBuilding(item) end
 ---@return df.unit
 function dfhack.items.getHolderUnit(item) end
 
--- It's not impossible the functionality of this operation is provided by one of the unmapped item functions.
 ---@param item df.item
 ---@return string
 function dfhack.items.getBookTitle(item) end
@@ -95,18 +107,24 @@ function dfhack.items.getDescription(item, type, decorate) end
 ---@return string
 function dfhack.items.getReadableDescription(item) end
 
----@param itype df.item_type
+---@param item df.item
+---@param pos df.coord
 ---@return boolean
-function dfhack.items.isCasteMaterial(itype) end
+function dfhack.items.moveToGround(item, pos) end
 
----@param itype df.item_type
----@return integer
-function dfhack.items.getSubtypeCount(itype) end
+---@param item df.item
+---@param container df.item
+---@return boolean
+function dfhack.items.moveToContainer(item, container) end
 
----@param itype df.item_type
----@param subtype integer
----@return df.itemdef
-function dfhack.items.getSubtypeDef(itype, subtype) end
+---@param item df.item
+---@param no_uncat boolean|nil
+---@return boolean
+function dfhack.items.remove(item, no_uncat) end
+
+---@param item df.item
+---@return df.proj_itemst
+function dfhack.items.makeProjectile(item) end
 
 ---@param item_type number
 ---@param item_subtype number
@@ -119,11 +137,6 @@ function dfhack.items.getItemBaseValue(item_type, item_subtype, mat_type, mat_su
 ---@param caravan df.caravan_state
 ---@return integer
 function dfhack.items.getValue(item, caravan) end
-
----@param item df.item
----@param caravan df.caravan_state
----@return boolean
-function dfhack.items.isRequestedTradeGood(item, caravan) end
 
 ---@param item df.item
 ---@return boolean
@@ -146,7 +159,12 @@ function dfhack.items.canTradeAnyWithContents(item) end
 ---@return boolean
 function dfhack.items.markForTrade(item, depot) end
 
--- (i.e., returning true if and only if the item has a "designate for melting" button in game)
+---@param item df.item
+---@param caravan df.caravan_state
+---@return boolean
+function dfhack.items.isRequestedTradeGood(item, caravan) end
+
+-- / (i.e., returning true if and only if the item has a "designate for melting" button in game)
 ---@param item df.item
 ---@param game_ui boolean|nil
 ---@return boolean
@@ -168,26 +186,8 @@ function dfhack.items.isRouteVehicle(item) end
 ---@return boolean
 function dfhack.items.isSquadEquipment(item) end
 
+-- / Bay12 name for this function: not known
 ---@param item df.item
 ---@return number
 function dfhack.items.getCapacity(item) end
-
----@param item df.item
----@param pos df.coord
----@return boolean
-function dfhack.items.moveToGround(item, pos) end
-
----@param item df.item
----@param container df.item
----@return boolean
-function dfhack.items.moveToContainer(item, container) end
-
----@param item df.item
----@return df.proj_itemst
-function dfhack.items.makeProjectile(item) end
-
----@param item df.item
----@param no_uncat boolean|nil
----@return boolean
-function dfhack.items.remove(item, no_uncat) end
 
