@@ -38,11 +38,28 @@ function ItemLine:reduce_quantity(used_quantity) end
 --------------------------------
 
 -- Used to store a table of the following format:
--- table<integer, { label: string, mats: string[] }>
--- integer: quick filter slot
+-- table<string, { label: string, mats: string[] }>
+-- string: quick filter slot (must be strings because of the way persistence works)
 -- label: string representation of the filter
 -- mats: list of material names allowed by the filter
 BUILDINGPLAN_FILTERS_KEY = "buildingplan/quick-filters"
+
+-- old saves may use numbers as keys, which we convert to string keys on load
+dfhack.onStateChange[BUILDINGPLAN_FILTERS_KEY] = function(sc)
+    if sc ~= SC_MAP_LOADED or df.global.gamemode ~= df.game_mode.DWARF then
+        return
+    end
+    local saved_filters = dfhack.persistent.getSiteData(BUILDINGPLAN_FILTERS_KEY, {})
+    local new_filters = {}
+    for k, v in pairs(saved_filters) do
+        if type(k) == 'number' then
+            new_filters[tostring(k)] = v
+        elseif type(k) == 'string' then
+            new_filters[k] = v
+        end
+    end
+    dfhack.persistent.saveSiteData(BUILDINGPLAN_FILTERS_KEY, new_filters)
+end
 
 local QuickFilter
 
