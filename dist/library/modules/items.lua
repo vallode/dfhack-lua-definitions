@@ -36,10 +36,9 @@ function dfhack.items.moveToInventory(item, unit, mode, body_part) end
 ---@param item_subtype number
 ---@param mat_type number
 ---@param mat_index number
----@param growth_print number
 ---@param no_floor boolean|nil
 ---@return boolean
-function dfhack.items.createItem(unit, item_type, item_subtype, mat_type, mat_index, growth_print, no_floor) end
+function dfhack.items.createItem(unit, item_type, item_subtype, mat_type, mat_index, no_floor) end
 
 ---@param token string
 ---@return number
