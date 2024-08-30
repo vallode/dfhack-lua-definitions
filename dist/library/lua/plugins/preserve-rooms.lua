@@ -5,6 +5,12 @@
 ---@field ReservedWidget preserveRooms.ReservedWidget
 local preserveRooms
 
+DEBUG = DEBUG or false
+
+------------------
+
+function preserveRooms.assignToRole(code, bld) end
+
 ------------------
 
 function preserveRooms.parse_commandline(args) end
@@ -29,6 +35,11 @@ dfhack.onStateChange[GLOBAL_KEY] = function(sc)
     if sc ~= SC_MAP_LOADED or not dfhack.world.isFortressMode() then
         return
     end
+    local positions = {}
+    add_positions(positions, df.historical_entity.find(df.global.plotinfo.civ_id));
+    add_positions(positions, df.historical_entity.find(df.global.plotinfo.group_id));
+    codes = get_codes(positions)
+    code_lookup = get_api_lookup_table(codes)
     new_world_loaded = true
 end
 
