@@ -9,6 +9,9 @@ DEBUG = DEBUG or false
 
 ------------------
 
+-- updated on world load
+code_lookup = code_lookup or {}
+
 function preserveRooms.assignToRole(code, bld) end
 
 ------------------
@@ -19,11 +22,16 @@ function preserveRooms.parse_commandline(args) end
 
 local ReservedWidget
 
+new_world_loaded = true
+
 function ReservedWidget:init() end
 
 function ReservedWidget:onInput(keys) end
 
 function ReservedWidget:render(dc) end
+
+-- updated on world load
+codes = codes or {}
 
 function ReservedWidget:refresh_role_list() end
 

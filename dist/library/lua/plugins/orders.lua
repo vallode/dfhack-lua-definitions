@@ -38,6 +38,8 @@ function SkillRestrictionOverlay:onInput(keys) end
 
 local LaborRestrictionsOverlay
 
+function orders.can_set_labors() end
+
 -- used by quickfort
 function orders.get_profile_labors(bld_type, bld_subtype) end
 
