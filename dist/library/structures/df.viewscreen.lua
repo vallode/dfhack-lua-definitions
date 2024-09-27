@@ -299,7 +299,7 @@ function df.extentst:new() end
 ---@field custom_render _widget_custom_render
 ---@field custom_activated _widget_custom_activated
 ---@field name string
----@field visibility_flags df.widget.T_visibility_flags
+---@field flag df.widget.T_flag
 ---@field offset_bottom number
 ---@field offset_left number
 ---@field offset_right number
@@ -389,23 +389,27 @@ function _widget_custom_activated:insert(index, item) end
 ---@param index integer
 function _widget_custom_activated:erase(index) end
 
----@class df.widget.T_visibility_flags: DFBitfield
----@field _enum identity.widget.visibility_flags
----@field WIDGET_VISIBILITY_ACTIVE boolean bay12: VisibilityFlagType
----@field [0] boolean bay12: VisibilityFlagType
+---@class df.widget.T_flag: DFBitfield
+---@field _enum identity.widget.flag
+---@field WIDGET_VISIBILITY_ACTIVE boolean bay12: WidgetFlag
+---@field [0] boolean bay12: WidgetFlag
 ---@field WIDGET_VISIBILITY_VISIBLE boolean
 ---@field [1] boolean
----@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE boolean plus ACTUALLY_VISIBLE for both of the above
+---@field WIDGET_CAN_KEY_ACTIVATE boolean plus ACTUALLY_VISIBLE for both of the above
 ---@field [2] boolean plus ACTUALLY_VISIBLE for both of the above
+---@field WIDGET_GLOBAL_POSITIONING boolean
+---@field [3] boolean
 
----@class identity.widget.visibility_flags: DFBitfieldType
----@field WIDGET_VISIBILITY_ACTIVE 0 bay12: VisibilityFlagType
----@field [0] "WIDGET_VISIBILITY_ACTIVE" bay12: VisibilityFlagType
+---@class identity.widget.flag: DFBitfieldType
+---@field WIDGET_VISIBILITY_ACTIVE 0 bay12: WidgetFlag
+---@field [0] "WIDGET_VISIBILITY_ACTIVE" bay12: WidgetFlag
 ---@field WIDGET_VISIBILITY_VISIBLE 1
 ---@field [1] "WIDGET_VISIBILITY_VISIBLE"
----@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE 2 plus ACTUALLY_VISIBLE for both of the above
----@field [2] "WIDGET_VISIBILITY_CAN_KEY_ACTIVATE" plus ACTUALLY_VISIBLE for both of the above
-df.widget.T_visibility_flags = {}
+---@field WIDGET_CAN_KEY_ACTIVATE 2 plus ACTUALLY_VISIBLE for both of the above
+---@field [2] "WIDGET_CAN_KEY_ACTIVATE" plus ACTUALLY_VISIBLE for both of the above
+---@field WIDGET_GLOBAL_POSITIONING 3
+---@field [3] "WIDGET_GLOBAL_POSITIONING"
+df.widget.T_flag = {}
 
 ---@class _widget_tooltip: DFContainer
 ---@field [integer] any[]

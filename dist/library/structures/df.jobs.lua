@@ -882,6 +882,8 @@ df.job_item_flags2 = {}
 ---@field [20] boolean
 ---@field empty_or_water boolean
 ---@field [21] boolean
+---@field grown_not_crafted boolean
+---@field [22] boolean
 
 ---@class identity.job_item_flags3: DFBitfieldType
 ---@field unimproved 0 bay12: ITEMNEEDEDFLAG3_*
@@ -928,6 +930,8 @@ df.job_item_flags2 = {}
 ---@field [20] "gem"
 ---@field empty_or_water 21
 ---@field [21] "empty_or_water"
+---@field grown_not_crafted 22
+---@field [22] "grown_not_crafted"
 df.job_item_flags3 = {}
 
 ---@class (exact) df.job_item: DFStruct
