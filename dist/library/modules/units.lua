@@ -369,6 +369,12 @@ function dfhack.units.getNemesis(unit) end
 ---@param unit df.unit
 function dfhack.units.makeown(unit) end
 
+-- functionality reverse-engineered from DF's unitst::set_goal
+---@param unit df.unit
+---@param pos df.coord
+---@param goal df.unit_path_goal
+function dfhack.units.setPathGoal(unit, pos, goal) end
+
 ---@param race number
 ---@param caste number
 ---@return df.unit
