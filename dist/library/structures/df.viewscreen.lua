@@ -391,24 +391,24 @@ function _widget_custom_activated:erase(index) end
 
 ---@class df.widget.T_flag: DFBitfield
 ---@field _enum identity.widget.flag
----@field WIDGET_VISIBILITY_ACTIVE boolean bay12: WidgetFlag
+---@field VISIBILITY_ACTIVE boolean bay12: WidgetFlag
 ---@field [0] boolean bay12: WidgetFlag
----@field WIDGET_VISIBILITY_VISIBLE boolean
+---@field VISIBILITY_VISIBLE boolean
 ---@field [1] boolean
----@field WIDGET_CAN_KEY_ACTIVATE boolean plus ACTUALLY_VISIBLE for both of the above
+---@field CAN_KEY_ACTIVATE boolean plus ACTUALLY_VISIBLE for both of the above
 ---@field [2] boolean plus ACTUALLY_VISIBLE for both of the above
----@field WIDGET_GLOBAL_POSITIONING boolean
+---@field GLOBAL_POSITIONING boolean
 ---@field [3] boolean
 
 ---@class identity.widget.flag: DFBitfieldType
----@field WIDGET_VISIBILITY_ACTIVE 0 bay12: WidgetFlag
----@field [0] "WIDGET_VISIBILITY_ACTIVE" bay12: WidgetFlag
----@field WIDGET_VISIBILITY_VISIBLE 1
----@field [1] "WIDGET_VISIBILITY_VISIBLE"
----@field WIDGET_CAN_KEY_ACTIVATE 2 plus ACTUALLY_VISIBLE for both of the above
----@field [2] "WIDGET_CAN_KEY_ACTIVATE" plus ACTUALLY_VISIBLE for both of the above
----@field WIDGET_GLOBAL_POSITIONING 3
----@field [3] "WIDGET_GLOBAL_POSITIONING"
+---@field VISIBILITY_ACTIVE 0 bay12: WidgetFlag
+---@field [0] "VISIBILITY_ACTIVE" bay12: WidgetFlag
+---@field VISIBILITY_VISIBLE 1
+---@field [1] "VISIBILITY_VISIBLE"
+---@field CAN_KEY_ACTIVATE 2 plus ACTUALLY_VISIBLE for both of the above
+---@field [2] "CAN_KEY_ACTIVATE" plus ACTUALLY_VISIBLE for both of the above
+---@field GLOBAL_POSITIONING 3
+---@field [3] "GLOBAL_POSITIONING"
 df.widget.T_flag = {}
 
 ---@class _widget_tooltip: DFContainer

@@ -172,6 +172,7 @@
 ---@field translate_name function[]
 ---@field history_figurest_create function[]
 ---@field unitst_make_own function[]
+---@field unitst_set_automatic_professions function[]
 df.global = {}
 
 ---@class (exact) df.global.T_cursor: DFStruct
