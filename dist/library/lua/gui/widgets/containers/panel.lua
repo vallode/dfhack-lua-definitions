@@ -6,8 +6,6 @@
 -- Panel --
 -----------
 
-DOUBLE_CLICK_MS = 500
-
 ---@class widgets.Panel.attrs: widgets.Widget.attrs
 ---@field frame_style? gui.Frame|fun(): gui.Frame
 ---@field frame_title? string
@@ -85,7 +83,5 @@ function Panel:onDragEnd(success, new_frame) end
 function Panel:onResizeBegin() end
 
 function Panel:onResizeEnd(success, new_frame) end
-
-Panel.DOUBLE_CLICK_MS = DOUBLE_CLICK_MS
 
 return Panel

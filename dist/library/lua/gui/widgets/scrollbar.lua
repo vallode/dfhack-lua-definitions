@@ -2,24 +2,9 @@
 ---@meta
 
 
----@enum STANDARDSCROLL
-STANDARDSCROLL = {
-    STANDARDSCROLL_UP = -1,
-    KEYBOARD_CURSOR_UP = -1,
-    STANDARDSCROLL_DOWN = 1,
-    KEYBOARD_CURSOR_DOWN = 1,
-    STANDARDSCROLL_PAGEUP = '-page',
-    KEYBOARD_CURSOR_UP_FAST = '-page',
-    STANDARDSCROLL_PAGEDOWN = '+page',
-    KEYBOARD_CURSOR_DOWN_FAST = '+page',
-}
-
 ---------------
 -- Scrollbar --
 ---------------
-
-SCROLL_INITIAL_DELAY_MS = 300
-SCROLL_DELAY_MS = 20
 
 ---@class widgets.Scrollbar.attrs: widgets.Widget.attrs
 ---@field on_scroll? fun(new_top_elem?: integer)
@@ -47,9 +32,5 @@ function Scrollbar:update(top_elem, elems_per_page, num_elems) end
 function Scrollbar:onRenderBody(dc) end
 
 function Scrollbar:onInput(keys) end
-
-Scrollbar.STANDARDSCROLL = STANDARDSCROLL
-Scrollbar.SCROLL_INITIAL_DELAY_MS = SCROLL_INITIAL_DELAY_MS
-Scrollbar.SCROLL_DELAY_MS = SCROLL_DELAY_MS
 
 return Scrollbar

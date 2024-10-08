@@ -31,10 +31,18 @@ DimensionsTooltip = require('gui.widgets.dimensions_tooltip')
 
 Tab = TabBar.Tab
 makeButtonLabelText = Label.makeButtonLabelText
+STANDARDSCROLL = common.STANDARDSCROLL
 
-DOUBLE_CLICK_MS = Panel.DOUBLE_CLICK_MS
-STANDARDSCROLL = Scrollbar.STANDARDSCROLL
-SCROLL_INITIAL_DELAY_MS = Scrollbar.SCROLL_INITIAL_DELAY_MS
-SCROLL_DELAY_MS = Scrollbar.SCROLL_DELAY_MS
+---@return boolean
+function widgets.getDoubleClickMs() end
+function widgets.setDoubleClickMs(value) end
+
+---@return boolean
+function widgets.getScrollInitialDelayMs() end
+function widgets.setScrollInitialDelayMs(value) end
+
+---@return boolean
+function widgets.getScrollDelayMs() end
+function widgets.setScrollDelayMs(value) end
 
 return widgets
