@@ -286,7 +286,7 @@ function string:trim() end
 ---@nodiscard
 ---@param self string
 ---@param width number
----@param opts {return_as_table:boolean, keep_trailing_spaces:boolean}
+---@param opts {return_as_table:boolean, keep_trailing_spaces:boolean, keep_original_newlines:boolean}
 ---@return string|string[]
 function string:wrap(width, opts) end
 
