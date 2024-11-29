@@ -56,6 +56,14 @@ function Tab:onInput(keys) end
 ---@field get_pens? fun(index: integer, tabbar: self): widgets.TabPens
 ---@field key string
 ---@field key_back string
+---@field wrap boolean
+---@field scroll_step integer
+---@field scroll_key string
+---@field scroll_key_back string
+---@field fast_scroll_modifier integer
+---@field scroll_into_view_offset integer
+---@field scroll_label_text_pen dfhack.pen
+---@field scroll_label_text_hpen dfhack.pen
 
 ---@class widgets.TabBar.attrs.partial: widgets.TabBar.attrs
 
@@ -71,7 +79,37 @@ local TabBar
 ---@param self widgets.TabBar
 function TabBar:init() end
 
+function TabBar:updateScrollElements() end
+
+function TabBar:leftScrollVisible() end
+
+function TabBar:showScrollLeft() end
+
+function TabBar:rightScrollVisible() end
+
+function TabBar:showScrollRight() end
+
+function TabBar:updateTabPanelPosition() end
+
+function TabBar:tabsElement() end
+
+function TabBar:scrollLeftElement() end
+
+function TabBar:scrollRightElement() end
+
+function TabBar:scrollTabIntoView(idx) end
+
+function TabBar:capScrollOffset() end
+
+function TabBar:scrollRight(alternate_step) end
+
+function TabBar:scrollLeft(alternate_step) end
+
+function TabBar:isMouseOver() end
+
 function TabBar:postComputeFrame(body) end
+
+function TabBar:fastStep() end
 
 function TabBar:onInput(keys) end
 
