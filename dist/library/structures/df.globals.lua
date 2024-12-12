@@ -462,22 +462,24 @@ df.global_table_entry = {}
 function df.global_table_entry:new() end
 
 ---@alias df.game_mode
----| -1 # NONE
 ---| 0 # DWARF
 ---| 1 # ADVENTURE
+---| 2 # num
+---| 3 # NONE
 
 ---@class identity.game_mode: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
 ---@field DWARF 0
 ---@field [0] "DWARF"
 ---@field ADVENTURE 1
 ---@field [1] "ADVENTURE"
+---@field num 2
+---@field [2] "num"
+---@field NONE 3
+---@field [3] "NONE"
 df.game_mode = {}
 
 -- bay12: GameType
 ---@alias df.game_type
----| -1 # NONE
 ---| 0 # DWARF_MAIN
 ---| 1 # ADVENTURE_MAIN
 ---| 2 # VIEW_LEGENDS
@@ -488,11 +490,11 @@ df.game_mode = {}
 ---| 7 # DWARF_TUTORIAL
 ---| 8 # DWARF_UNRETIRE
 ---| 9 # ADVENTURE_WORLD_DEBUG
+---| 10 # num
+---| 11 # NONE
 
 -- bay12: GameType
 ---@class identity.game_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
 ---@field DWARF_MAIN 0
 ---@field [0] "DWARF_MAIN"
 ---@field ADVENTURE_MAIN 1
@@ -513,6 +515,10 @@ df.game_mode = {}
 ---@field [8] "DWARF_UNRETIRE"
 ---@field ADVENTURE_WORLD_DEBUG 9
 ---@field [9] "ADVENTURE_WORLD_DEBUG"
+---@field num 10
+---@field [10] "num"
+---@field NONE 11
+---@field [11] "NONE"
 df.game_type = {}
 
 ---@alias df.lever_target_type
