@@ -60,6 +60,7 @@ df.d_init_idlers = {}
 ---| 2 # SHOW_IMP_QUALITY
 ---| 3 # SHOW_FLOW_AMOUNTS
 ---| 4 # SHOW_RAMP_ARROWS
+---| 5 # FORT_SHOW_CLOTHING_DYES
 
 ---@class identity.d_init_flags1: DFEnumType
 ---@field VARIED_GROUND_TILES 0 bay12: DInitDisplayFlagType
@@ -72,6 +73,8 @@ df.d_init_idlers = {}
 ---@field [3] "SHOW_FLOW_AMOUNTS"
 ---@field SHOW_RAMP_ARROWS 4
 ---@field [4] "SHOW_RAMP_ARROWS"
+---@field FORT_SHOW_CLOTHING_DYES 5
+---@field [5] "FORT_SHOW_CLOTHING_DYES"
 df.d_init_flags1 = {}
 
 ---@alias df.d_init_flags2
@@ -124,8 +127,8 @@ df.d_init_flags2 = {}
 ---@field [13] "PAUSE_ON_LOAD"
 ---@field EMBARK_WARNING_ALWAYS 14
 ---@field [14] "EMBARK_WARNING_ALWAYS"
----@field SHOW_ALL_HISTORY_IN_DWARF_MODE 15
----@field [15] "SHOW_ALL_HISTORY_IN_DWARF_MODE"
+---@field SHOW_ALL_HISTORY_IN_DWARF_MODE 15 SHOW_ALL_HISTORY_IN_FORT_MODE
+---@field [15] "SHOW_ALL_HISTORY_IN_DWARF_MODE" SHOW_ALL_HISTORY_IN_FORT_MODE
 ---@field TESTING_ARENA 16
 ---@field [16] "TESTING_ARENA"
 ---@field WALKING_SPREADS_SPATTER_DWF 17

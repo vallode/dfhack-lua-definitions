@@ -366,8 +366,12 @@ function df.texblitst:new() end
 ---@field texture_indices3 number[]
 ---@field texpos_boulder DFNumberVector
 ---@field texture_indices4 number[]
----@field texpos_item_statue_artifact DFNumberVector
+---@field texpos_item_barrel_top number[]
 ---@field texture_indices5 number[]
+---@field texpos_item_bin_top number[]
+---@field texture_indices6 number[]
+---@field texpos_item_statue_artifact DFNumberVector
+---@field texture_indices7 number[]
 
 ---@class identity.graphic: DFCompoundType
 ---@field _kind 'struct-type'

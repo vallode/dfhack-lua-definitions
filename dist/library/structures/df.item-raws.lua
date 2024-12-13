@@ -1928,6 +1928,14 @@ df.tool_uses = {}
 ---@field description string
 ---@field default_improvements _itemdef_toolst_default_improvements
 ---@field texpos number[]
+---@field texpos_container_top_plant DFNumberVector
+---@field texpos_container_top_plant_subterranean DFNumberVector
+---@field texpos_container_top_meal DFNumberVector
+---@field texpos_container_top_cheese DFNumberVector
+---@field texpos_container_top_meat DFNumberVector
+---@field texpos_container_top_fish DFNumberVector
+---@field texpos_container_top_bag DFNumberVector
+---@field texpos2 number[]
 ---@field texpos_global_shape_index DFNumberVector
 ---@field texpos_global_shape_texpos DFNumberVector
 ---@field graphics_info _itemdef_toolst_graphics_info item_tool_graphics_infost
