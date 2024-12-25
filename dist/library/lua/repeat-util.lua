@@ -12,6 +12,10 @@ dfhack.onStateChange.repeatUtilStateChange = function(code)
     end
 end
 
+function repeatUtil.isScheduled(name) end
+
+function repeatUtil.listScheduled() end
+
 function repeatUtil.cancel(name) end
 
 function repeatUtil.scheduleEvery(name, time, timeUnits, func) end
