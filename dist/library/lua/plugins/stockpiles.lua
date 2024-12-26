@@ -2,7 +2,7 @@
 ---@meta plugins.stockpiles
 
 ---@class stockpiles
----@field StockpilesExport stockpiles.StockpilesExport
+---@field ConfigModal stockpiles.ConfigModal
 ---@field MinimizeButton stockpiles.MinimizeButton
 ---@field StockpilesOverlay stockpiles.StockpilesOverlay
 local stockpiles
@@ -17,11 +17,15 @@ function stockpiles.import_settings(name, opts) end
 
 function stockpiles.parse_commandline(args) end
 
+-------------------------
+-- import/export dialogs
+-------------------------
+
 --------------------
--- dialogs
+-- ConfigModal
 --------------------
 
-local StockpilesExport
+local ConfigModal
 
 function ConfigModal:init() end
 
