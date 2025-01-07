@@ -2315,7 +2315,7 @@ function df.timed_event:new() end
 ---@field min_y number
 ---@field max_x number
 ---@field max_y number
----@field window_x df.coord
+---@field corner df.coord
 ---@field main_viewport df.graphic_viewportst
 ---@field lower_viewport df.graphic_viewportst[]
 ---@field under_limit_start number
