@@ -85,8 +85,6 @@ function siegeEngine.scoreTargets(engine, reachable) end
 
 function siegeEngine.pickUniqueTargets(reachable) end
 
-function siegeEngine.describeUnit(unit) end
-
 function siegeEngine.produceCombatReport(operator, item, target) end
 
 function siegeEngine.doAimProjectile(engine, item, target_min, target_max, operator, skill) end

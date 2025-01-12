@@ -6,6 +6,8 @@
 ---@field RecheckOverlay orders.RecheckOverlay
 ---@field SkillRestrictionOverlay orders.SkillRestrictionOverlay
 ---@field LaborRestrictionsOverlay orders.LaborRestrictionsOverlay
+---@field ConditionsQuantityRightClickOverlay orders.ConditionsQuantityRightClickOverlay
+---@field QuantityRightClickOverlay orders.QuantityRightClickOverlay
 local orders
 
 local OrdersOverlay
@@ -42,5 +44,33 @@ function orders.can_set_labors() end
 
 -- used by quickfort
 function orders.get_profile_labors(bld_type, bld_subtype) end
+
+function ConditionsRightClickOverlay:onInput(keys) end
+
+---
+--- ConditionsQuantityRightClickOverlay
+---
+
+local ConditionsQuantityRightClickOverlay
+
+function ConditionsQuantityRightClickOverlay:onInput(keys) end
+
+---
+--- QuantityRightClickOverlay
+---
+
+local QuantityRightClickOverlay
+
+function QuantityRightClickOverlay:onInput(keys) end
+
+OVERLAY_WIDGETS = {
+    recheck=RecheckOverlay,
+    importexport=OrdersOverlay,
+    skillrestrictions=SkillRestrictionOverlay,
+    laborrestrictions=LaborRestrictionsOverlay,
+    conditionsrightclick=ConditionsRightClickOverlay,
+    conditionsquantityrightclick=ConditionsQuantityRightClickOverlay,
+    quantityrightclick=QuantityRightClickOverlay,
+}
 
 return orders

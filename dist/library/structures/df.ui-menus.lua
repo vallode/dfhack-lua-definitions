@@ -1913,6 +1913,23 @@ df.main_bottom_mode_type = {}
 ---@field [35] "ERASE"
 df.main_designation_type = {}
 
+---@alias df.work_order_condition_change_type
+---| -1 # NONE
+---| 0 # TYPE
+---| 1 # MATERIAL
+---| 2 # ADJECTIVE
+
+---@class identity.work_order_condition_change_type: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field TYPE 0
+---@field [0] "TYPE"
+---@field MATERIAL 1
+---@field [1] "MATERIAL"
+---@field ADJECTIVE 2
+---@field [2] "ADJECTIVE"
+df.work_order_condition_change_type = {}
+
 ---@class (exact) df.markup_text_box_widget: DFStruct, df.widget
 ---@field _type identity.markup_text_box_widget
 ---@field scroll number
@@ -2654,7 +2671,7 @@ function df.info_interfacest.T_work_orders:new() end
 ---@field scrolling_suggested boolean
 ---@field filter string
 ---@field compare_master DFStringVector
----@field change_type number
+---@field change_type df.work_order_condition_change_type
 ---@field change_wqc df.manager_order_condition_item
 ---@field scroll_position_change number
 ---@field scrolling_change number
