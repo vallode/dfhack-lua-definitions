@@ -8,5 +8,6 @@
 ---@field getWorldDataString function
 ---@field saveWorldDataString function
 ---@field deleteWorldData function
+---@field getUnsavedSeconds function
 dfhack.persistent = {}
 
