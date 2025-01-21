@@ -2,6 +2,16 @@
 ---@meta
 
 
+local OneLineWrappedText
+
+function OneLineWrappedText:update(text) end
+
+local TextFieldArea
+
+function TextFieldArea:onInput(keys) end
+
+function TextFieldArea:getPreferredFocusState() end
+
 ----------------
 -- Edit field --
 ----------------
@@ -32,16 +42,17 @@ function EditField:preinit(init_table) end
 
 function EditField:init() end
 
+function EditField:onFocus() end
+
 function EditField:getPreferredFocusState() end
 
 function EditField:setCursor(cursor) end
 
 function EditField:setText(text, cursor) end
 
-function EditField:postUpdateLayout() end
+function EditField:onTextAreaTextChange(text) end
 
----@param dc gui.Painter
-function EditField:onRenderBody(dc) end
+function EditField:setFocus(focus) end
 
 function EditField:insert(text) end
 

@@ -2,11 +2,13 @@
 ---@meta
 
 
+local OneLineWrappedText
+
+function OneLineWrappedText:update(text) end
+
 local TextAreaContent
 
 function TextAreaContent:init() end
-
-function TextAreaContent:normalizeText(text) end
 
 function TextAreaContent:setRenderStartLineY(render_start_line_y) end
 
@@ -33,6 +35,8 @@ function TextAreaContent:paste() end
 function TextAreaContent:setText(text) end
 
 function TextAreaContent:insert(text) end
+
+function TextAreaContent:normalizeLine(text_line) end
 
 function TextAreaContent:onRenderBody(dc) end
 
