@@ -2654,6 +2654,7 @@ function _world_entities_order_load:erase(index) end
 ---@field all _world_units_all bay12: unit_handlerst
 ---@field active _world_units_active not sorted, entry 0 is adventurer
 ---@field other df.units_other
+---@field adv_unit df.unit
 ---@field temp_save _world_units_temp_save
 ---@field unit_context_block _world_units_unit_context_block
 
@@ -3333,6 +3334,7 @@ function _world_activities_order_load:erase(index) end
 ---@field announcements _world_status_announcements
 ---@field popups _world_status_popups
 ---@field mega_text df.markup_text_boxst
+---@field mega_portrait_hfid number References: `df.historical_figure`
 ---@field next_report_id number
 ---@field flags df.world.T_status.T_flags
 ---@field current_numeric_unid number[]
@@ -3343,6 +3345,11 @@ function _world_activities_order_load:erase(index) end
 ---@field alert_button_announcement_id DFNumberVector entries are report ids
 ---@field display_timer number bay12: announcetime
 ---@field slots df.world.T_status.T_slots
+---@field temp_flag df.world.T_status.T_temp_flag
+---@field adv_scroll_position number
+---@field adv_scrolling boolean
+---@field adv_highest_scroll_position number
+---@field adv_announcement _world_status_adv_announcement
 ---@field announcement_mutex lightuserdata bay12: mtx
 
 ---@class identity.world.status: DFCompoundType
@@ -3562,6 +3569,48 @@ function df.world.T_status.T_slots.T_slotdata:new() end
 ---@field liquipowder 6
 ---@field [6] "liquipowder"
 df.world.T_status.T_slots.T_slotdata.T_flags = {}
+
+---@class df.world.T_status.T_temp_flag: DFBitfield
+---@field _enum identity.world.status.temp_flag
+---@field adv_handle_announcements boolean bay12: ANNOUNCEMENT_TEMP_FLAG_*
+---@field [0] boolean bay12: ANNOUNCEMENT_TEMP_FLAG_*
+---@field adv_doing_more boolean
+---@field [1] boolean
+---@field adv_preserve_announcements boolean
+---@field [2] boolean
+---@field adv_have_more boolean
+---@field [3] boolean
+---@field adv_showing_announcements boolean
+---@field [4] boolean
+
+---@class identity.world.status.temp_flag: DFBitfieldType
+---@field adv_handle_announcements 0 bay12: ANNOUNCEMENT_TEMP_FLAG_*
+---@field [0] "adv_handle_announcements" bay12: ANNOUNCEMENT_TEMP_FLAG_*
+---@field adv_doing_more 1
+---@field [1] "adv_doing_more"
+---@field adv_preserve_announcements 2
+---@field [2] "adv_preserve_announcements"
+---@field adv_have_more 3
+---@field [3] "adv_have_more"
+---@field adv_showing_announcements 4
+---@field [4] "adv_showing_announcements"
+df.world.T_status.T_temp_flag = {}
+
+---@class _world_status_adv_announcement: DFContainer
+---@field [integer] df.adv_announcementst
+local _world_status_adv_announcement
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adv_announcementst>
+function _world_status_adv_announcement:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adv_announcementst
+function _world_status_adv_announcement:insert(index, item) end
+
+---@param index integer
+function _world_status_adv_announcement:erase(index) end
 
 ---@class (exact) df.world.T_interaction_instances: DFStruct
 ---@field _type identity.world.interaction_instances
@@ -4659,6 +4708,7 @@ function _world_map_extras_inactive_spoor_bse:erase(index) end
 ---@field made_cave_pops boolean
 ---@field made_cave_civs boolean
 ---@field finished_prehistory boolean
+---@field mythical_site _world_worldgen_status_mythical_site
 ---@field caves _world_worldgen_status_caves
 ---@field orig_cave _world_worldgen_status_orig_cave
 ---@field current_bandit_num number
@@ -4681,6 +4731,7 @@ function _world_map_extras_inactive_spoor_bse:erase(index) end
 ---@field o_final_cave_choice_y DFNumberVector
 ---@field mountain_cave_left number
 ---@field non_mountain_cave_left number
+---@field mythical_site_left number
 ---@field candidate_demon_c DFNumberVector
 ---@field candidate_demon_cc DFNumberVector
 ---@field libraries _world_worldgen_status_libraries
@@ -4705,6 +4756,7 @@ function _world_map_extras_inactive_spoor_bse:erase(index) end
 ---@field text_box df.markup_text_boxst
 ---@field last_chronicle_add_time number
 ---@field last_event_id_added number
+---@field mythical_sphere _world_worldgen_status_mythical_sphere
 
 ---@class identity.world.worldgen_status: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4787,6 +4839,22 @@ function _world_worldgen_status_sites:insert(index, item) end
 
 ---@param index integer
 function _world_worldgen_status_sites:erase(index) end
+
+---@class _world_worldgen_status_mythical_site: DFContainer
+---@field [integer] df.world_site
+local _world_worldgen_status_mythical_site
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.world_site>
+function _world_worldgen_status_mythical_site:_field(index) end
+
+---@param index '#'|integer
+---@param item df.world_site
+function _world_worldgen_status_mythical_site:insert(index, item) end
+
+---@param index integer
+function _world_worldgen_status_mythical_site:erase(index) end
 
 ---@class _world_worldgen_status_caves: DFContainer
 ---@field [integer] df.world_site
@@ -5092,6 +5160,22 @@ function _world_worldgen_status_move_plotter_actor:insert(index, item) end
 ---@param index integer
 function _world_worldgen_status_move_plotter_actor:erase(index) end
 
+---@class _world_worldgen_status_mythical_sphere: DFContainer
+---@field [integer] df.sphere_type
+local _world_worldgen_status_mythical_sphere
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.sphere_type>
+function _world_worldgen_status_mythical_sphere:_field(index) end
+
+---@param index '#'|integer
+---@param item df.sphere_type
+function _world_worldgen_status_mythical_sphere:insert(index, item) end
+
+---@param index integer
+function _world_worldgen_status_mythical_sphere:erase(index) end
+
 -- NOT A COMPOUND!
 ---@class (exact) df.world.T_area_grasses: DFStruct
 ---@field _type identity.world.area_grasses
@@ -5324,10 +5408,10 @@ function df.world.T_cur_savegame:new() end
 ---@field verify_load_order_index number
 ---@field asking_about_update boolean
 ---@field notifying_about_failure boolean
----@field notifying_about_failure_mod_install_err number
+---@field notifying_about_failure_mod_install_err df.world.T_rod_loader.T_notifying_about_failure_mod_install_err
 ---@field newest_mh df.mod_headerst
 ---@field current_mh df.mod_headerst
----@field flag integer
+---@field flag df.world.T_rod_loader.T_flag
 
 ---@class identity.world.rod_loader: DFCompoundType
 ---@field _kind 'struct-type'
@@ -5513,6 +5597,31 @@ function df.world.T_rod_loader:new() end
 ---@field Done 56
 ---@field [56] "Done"
 df.world.T_rod_loader.T_state = {}
+
+---@alias df.world.T_rod_loader.T_notifying_about_failure_mod_install_err
+---| 0 # GENERAL
+---| 2 # NONE
+
+---@class identity.world.rod_loader.notifying_about_failure_mod_install_err: DFEnumType
+---@field GENERAL 0 bay12: ModInstallErrorType
+---@field [0] "GENERAL" bay12: ModInstallErrorType
+---@field NONE 2
+---@field [2] "NONE"
+df.world.T_rod_loader.T_notifying_about_failure_mod_install_err = {}
+
+---@class df.world.T_rod_loader.T_flag: DFBitfield
+---@field _enum identity.world.rod_loader.flag
+---@field UPDATE_ALL_OLD_MODS boolean bay12: ROD_LOADER_FLAG_*
+---@field [0] boolean bay12: ROD_LOADER_FLAG_*
+---@field KEEP_ALL_OLD_MODS boolean
+---@field [1] boolean
+
+---@class identity.world.rod_loader.flag: DFBitfieldType
+---@field UPDATE_ALL_OLD_MODS 0 bay12: ROD_LOADER_FLAG_*
+---@field [0] "UPDATE_ALL_OLD_MODS" bay12: ROD_LOADER_FLAG_*
+---@field KEEP_ALL_OLD_MODS 1
+---@field [1] "KEEP_ALL_OLD_MODS"
+df.world.T_rod_loader.T_flag = {}
 
 ---@class (exact) df.world.T_object_loader: DFStruct
 ---@field _type identity.world.object_loader
@@ -5899,16 +6008,16 @@ df.world.T_attack_chance_info = {}
 function df.world.T_attack_chance_info:new() end
 
 ---@class _world_attack_chance_info_modifier: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.attack_chance_modifierst
 local _world_attack_chance_info_modifier
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.attack_chance_modifierst>
 function _world_attack_chance_info_modifier:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.attack_chance_modifierst
 function _world_attack_chance_info_modifier:insert(index, item) end
 
 ---@param index integer

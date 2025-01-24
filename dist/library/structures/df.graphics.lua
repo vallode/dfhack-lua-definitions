@@ -211,6 +211,7 @@ function df.graphic_viewportst:new() end
 ---@field screentexpos_river number
 ---@field screentexpos_road number
 ---@field screentexpos_site number
+---@field screentexpos_army number
 ---@field screentexpos_interface number
 ---@field screentexpos_detail_to_n number
 ---@field screentexpos_detail_to_s number
@@ -220,6 +221,8 @@ function df.graphic_viewportst:new() end
 ---@field screentexpos_detail_to_ne number
 ---@field screentexpos_detail_to_sw number
 ---@field screentexpos_detail_to_se number
+---@field screentexpos_site_to_s number
+---@field screentexpos_cloud_bits integer
 ---@field screentexpos_base_old number
 ---@field screentexpos_edge_old number[]
 ---@field screentexpos_edge2_old number[]
@@ -228,6 +231,7 @@ function df.graphic_viewportst:new() end
 ---@field screentexpos_river_old number
 ---@field screentexpos_road_old number
 ---@field screentexpos_site_old number
+---@field screentexpos_army_old number
 ---@field screentexpos_interface_old number
 ---@field screentexpos_detail_to_n_old number
 ---@field screentexpos_detail_to_s_old number
@@ -237,6 +241,8 @@ function df.graphic_viewportst:new() end
 ---@field screentexpos_detail_to_ne_old number
 ---@field screentexpos_detail_to_sw_old number
 ---@field screentexpos_detail_to_se_old number
+---@field screentexpos_site_to_s_old number
+---@field screentexpos_cloud_bits_old integer
 ---@field edge_biome_data number
 ---@field edge_type_n number
 ---@field edge_type_s number
@@ -338,7 +344,8 @@ function df.texblitst:new() end
 ---@field screentexpos_top_anchored_y number
 ---@field screentexpos_top_flag integer
 ---@field display_title boolean
----@field display_background boolean
+---@field display_background number
+---@field last_display_background number
 ---@field screentexpos_refresh_buffer number
 ---@field refresh_buffer_val number
 ---@field main_thread_requesting_reshape boolean set to true by main thread, set to false by graphics thread
@@ -372,6 +379,12 @@ function df.texblitst:new() end
 ---@field texture_indices6 number[]
 ---@field texpos_item_statue_artifact DFNumberVector
 ---@field texture_indices7 number[]
+---@field texpos_site_map number[]
+---@field texture_indices8 number[]
+---@field texpos_site_map_hillock number[]
+---@field texture_indices9 number[]
+---@field texpos_map_drawn number[]
+---@field texture_indices10 number[]
 
 ---@class identity.graphic: DFCompoundType
 ---@field _kind 'struct-type'
@@ -548,10 +561,25 @@ function _graphic_texblits:erase(index) end
 ---@field texpos_type_filter_left number[]
 ---@field texpos_type_filter_right number[]
 ---@field texpos_type_filter_text number[]
+---@field texpos_pinned number[]
+---@field texpos_not_pinned number[]
+---@field texpos_button_wrestle_right number[]
+---@field texpos_button_wrestle_equal number[]
+---@field texpos_button_wrestle_left number[]
+---@field texpos_button_adventure_tactical_mode_on number[][]
+---@field texpos_button_adventure_tactical_mode_off number[][]
+---@field texpos_adventure_log_pinned_active number[][]
+---@field texpos_adventure_log_pinned_inactive number[][]
+---@field texpos_adventure_log_item_active number[][]
+---@field texpos_adventure_log_item_inactive number[][]
 ---@field texpos_button_announcement_open_all_announcements number[][]
 ---@field texpos_button_announcement_not_pausing_on_new_report number[]
 ---@field texpos_button_announcement_pausing_on_new_report number[]
 ---@field texpos_button_announcement_open_from_main number[][]
+---@field texpos_button_quality_up number[][]
+---@field texpos_button_quality_down number[][]
+---@field texpos_button_quality_up_inactive number[][]
+---@field texpos_button_quality_down_inactive number[][]
 ---@field texpos_button_stocks_recenter number[][]
 ---@field texpos_button_stocks_view_item number[][]
 ---@field texpos_button_stocks_forbid number[][]
@@ -596,6 +624,17 @@ function _graphic_texblits:erase(index) end
 ---@field texpos_button_unit_sheet number[][][]
 ---@field texpos_button_large_unit_sheet number[][][]
 ---@field texpos_button_pets_livestock number[][][]
+---@field texpos_button_inventory_item number[][][]
+---@field texpos_adventure_travel_dir number[]
+---@field texpos_skill_progress_bar_left_full number
+---@field texpos_skill_progress_bar_mid_full number
+---@field texpos_skill_progress_bar_right_full number
+---@field texpos_skill_progress_bar_left_half number
+---@field texpos_skill_progress_bar_mid_half number
+---@field texpos_skill_progress_bar_right_half number
+---@field texpos_skill_progress_bar_left_empty number
+---@field texpos_skill_progress_bar_mid_empty number
+---@field texpos_skill_progress_bar_right_empty number
 ---@field texpos_liquid_numbers_on number[][]
 ---@field texpos_liquid_numbers_off number[][]
 ---@field texpos_ramp_arrows_on number[][]
@@ -604,6 +643,17 @@ function _graphic_texblits:erase(index) end
 ---@field texpos_zoom_in_off number[][]
 ---@field texpos_zoom_out_on number[][]
 ---@field texpos_zoom_out_off number[][]
+---@field texpos_adv_liquid_numbers_on number[][]
+---@field texpos_adv_liquid_numbers_off number[][]
+---@field texpos_adv_ramp_arrows_on number[][]
+---@field texpos_adv_ramp_arrows_off number[][]
+---@field texpos_adv_zoom_in_on number[][]
+---@field texpos_adv_zoom_in_off number[][]
+---@field texpos_adv_zoom_out_on number[][]
+---@field texpos_adv_zoom_out_off number[][]
+---@field texpos_adv_tracks_on number[][]
+---@field texpos_adv_tracks_off number[][]
+---@field texpos_adv_env number[][][]
 ---@field texpos_legends_tab_page_left number[][]
 ---@field texpos_legends_tab_page_right number[][]
 ---@field texpos_legends_tab_close_inactive number[]
@@ -623,6 +673,8 @@ function _graphic_texblits:erase(index) end
 ---@field texpos_embark_expand_x_inactive number[]
 ---@field texpos_embark_contract_x_active number[]
 ---@field texpos_embark_contract_x_inactive number[]
+---@field texpos_adventure_burden_light number[]
+---@field texpos_adventure_burden_heavy number[]
 ---@field texpos_bottom_button_border_nw number
 ---@field texpos_bottom_button_border_w number
 ---@field texpos_bottom_button_border_n number

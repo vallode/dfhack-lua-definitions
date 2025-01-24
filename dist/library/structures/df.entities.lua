@@ -963,16 +963,7 @@ df.honors_type.T_required_skill_type = {}
 ---@field claim_year number Written contents often seem to lack info of being claimed
 ---@field claim_year_tick number usually init
 ---@field renounce_event number References: `df.history_event`
----@field artifact df.artifact_record bay12: artifact_rumor_locationst
----@field site number References: `df.world_site`
----@field structure_local number
----@field holder_hf number might be owner_hf. all cases encountered have had both field the same when claimed by entity<br>References: `df.historical_figure`
----@field subregion number References: `df.world_region`
----@field feature_layer_id number References: `df.world_underground_region`
----@field latest_year number
----@field latest_season_tick number
----@field flags integer
----@field witness df.witness_incidentst
+---@field temp_arl df.artifact_rumor_locationst
 ---@field temp_site_ent df.historical_entity
 ---@field temp_civ_ent df.historical_entity
 
@@ -3644,18 +3635,20 @@ df.intrigue_corruption_action_type = {}
 ---| 13 # PlotInfiltrationCoup
 ---| 14 # PlotFrameTreason
 ---| 15 # PlotInduceWar
+---| 16 # OfferService
+---| 17 # RetrieveArtifact
 
 ---@class identity.agreement_details_type: DFEnumType
 ---@field JoinParty 0 bay12: AgreementSubjectType
 ---@field [0] "JoinParty" bay12: AgreementSubjectType
----@field DemonicBinding 1
----@field [1] "DemonicBinding"
----@field Residency 2
----@field [2] "Residency"
----@field Citizenship 3
----@field [3] "Citizenship"
----@field Parley 4
----@field [4] "Parley"
+---@field DemonicBinding 1 ATTACH_TO_WORLD
+---@field [1] "DemonicBinding" ATTACH_TO_WORLD
+---@field Residency 2 BECOME_RESIDENT
+---@field [2] "Residency" BECOME_RESIDENT
+---@field Citizenship 3 BECOME_CITIZEN
+---@field [3] "Citizenship" BECOME_CITIZEN
+---@field Parley 4 ARRANGE_PARLEY
+---@field [4] "Parley" ARRANGE_PARLEY
 ---@field PositionCorruption 5 Embezzlement and accepting bribes seen. For own gain and for 'sponsor'
 ---@field [5] "PositionCorruption" Embezzlement and accepting bribes seen. For own gain and for 'sponsor'
 ---@field PlotStealArtifact 6
@@ -3668,16 +3661,20 @@ df.intrigue_corruption_action_type = {}
 ---@field [9] "PlotAbduct"
 ---@field PlotSabotage 10
 ---@field [10] "PlotSabotage"
----@field PlotConviction 11
----@field [11] "PlotConviction"
----@field Location 12
----@field [12] "Location"
----@field PlotInfiltrationCoup 13
----@field [13] "PlotInfiltrationCoup"
----@field PlotFrameTreason 14
----@field [14] "PlotFrameTreason"
----@field PlotInduceWar 15
----@field [15] "PlotInduceWar"
+---@field PlotConviction 11 FOILED_CONSPIRACY
+---@field [11] "PlotConviction" FOILED_CONSPIRACY
+---@field Location 12 BUILD_LOCATION
+---@field [12] "Location" BUILD_LOCATION
+---@field PlotInfiltrationCoup 13 INFILTRATE_SOCIETY
+---@field [13] "PlotInfiltrationCoup" INFILTRATE_SOCIETY
+---@field PlotFrameTreason 14 FRAME_FOR_CRIME
+---@field [14] "PlotFrameTreason" FRAME_FOR_CRIME
+---@field PlotInduceWar 15 START_WAR_WITH_ENTITY
+---@field [15] "PlotInduceWar" START_WAR_WITH_ENTITY
+---@field OfferService 16
+---@field [16] "OfferService"
+---@field RetrieveArtifact 17
+---@field [17] "RetrieveArtifact"
 df.agreement_details_type = {}
 
 ---@class (exact) df.agreement_details: DFStruct
@@ -3713,6 +3710,8 @@ function df.agreement_details:new() end
 ---@field PlotInfiltrationCoup df.agreement_details_data_plot_infiltration_coup
 ---@field PlotFrameTreason df.agreement_details_data_plot_frame_treason
 ---@field PlotInduceWar df.agreement_details_data_plot_induce_war
+---@field OfferService df.agreement_details_data_offer_service
+---@field RetrieveArtifact df.agreement_details_data_retrieve_artifact
 
 ---@class identity.agreement_details.data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3975,4 +3974,32 @@ df.agreement_details_data_plot_induce_war = {}
 
 ---@return df.agreement_details_data_plot_induce_war
 function df.agreement_details_data_plot_induce_war:new() end
+
+---@class (exact) df.agreement_details_data_offer_service: DFStruct
+---@field _type identity.agreement_details_data_offer_service
+---@field requesting_party number References: `df.agreement_party`
+---@field serving_party number References: `df.agreement_party`
+---@field served_entity number References: `df.historical_entity`
+
+---@class identity.agreement_details_data_offer_service: DFCompoundType
+---@field _kind 'struct-type'
+df.agreement_details_data_offer_service = {}
+
+---@return df.agreement_details_data_offer_service
+function df.agreement_details_data_offer_service:new() end
+
+---@class (exact) df.agreement_details_data_retrieve_artifact: DFStruct
+---@field _type identity.agreement_details_data_retrieve_artifact
+---@field retrieving_party number References: `df.agreement_party`
+---@field requesting_party number References: `df.agreement_party`
+---@field artifact number References: `df.artifact_record`
+---@field artifact_site number References: `df.world_site`
+---@field receiving_entity number References: `df.historical_entity`
+
+---@class identity.agreement_details_data_retrieve_artifact: DFCompoundType
+---@field _kind 'struct-type'
+df.agreement_details_data_retrieve_artifact = {}
+
+---@return df.agreement_details_data_retrieve_artifact
+function df.agreement_details_data_retrieve_artifact:new() end
 

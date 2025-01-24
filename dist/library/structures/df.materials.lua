@@ -824,6 +824,9 @@ function _material_template_sphere:erase(index) end
 ---| 17 # SOIL
 ---| 18 # DEEP_SPECIAL
 ---| 19 # DIVINE
+---| 20 # MYTHICAL
+---| 21 # MYTHICAL_REMNANT
+---| 22 # MYTHICAL_SUBSTANCE
 ---| 25 # WAFERS
 
 ---@class identity.inorganic_flags: DFEnumType
@@ -867,6 +870,12 @@ function _material_template_sphere:erase(index) end
 ---@field [18] "DEEP_SPECIAL"
 ---@field DIVINE 19
 ---@field [19] "DIVINE"
+---@field MYTHICAL 20
+---@field [20] "MYTHICAL"
+---@field MYTHICAL_REMNANT 21
+---@field [21] "MYTHICAL_REMNANT"
+---@field MYTHICAL_SUBSTANCE 22
+---@field [22] "MYTHICAL_SUBSTANCE"
 ---@field WAFERS 25
 ---@field [25] "WAFERS"
 df.inorganic_flags = {}

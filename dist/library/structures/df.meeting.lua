@@ -1164,7 +1164,7 @@ function _activity_event_harassmentst_target_profile:insert(index, item) end
 ---@param index integer
 function _activity_event_harassmentst_target_profile:erase(index) end
 
----@alias df.conversation_menu
+---@alias df.conversation_state_type
 ---| -1 # None
 ---| 0 # RespondGreeting
 ---| 1 # MainMenu
@@ -1250,8 +1250,9 @@ function _activity_event_harassmentst_target_profile:erase(index) end
 ---| 81 # ToldJoke
 ---| 82 # GiftPet
 ---| 83 # GavePet
+---| 84 # OfferedService
 
----@class identity.conversation_menu: DFEnumType
+---@class identity.conversation_state_type: DFEnumType
 ---@field None -1 bay12: ConversationStateType
 ---@field [-1] "None" bay12: ConversationStateType
 ---@field RespondGreeting 0
@@ -1422,7 +1423,9 @@ function _activity_event_harassmentst_target_profile:erase(index) end
 ---@field [82] "GiftPet"
 ---@field GavePet 83
 ---@field [83] "GavePet"
-df.conversation_menu = {}
+---@field OfferedService 84
+---@field [84] "OfferedService"
+df.conversation_state_type = {}
 
 ---@alias df.conversation_trouble_type
 ---| -1 # None
@@ -1491,16 +1494,113 @@ df.conversation_trouble_type = {}
 ---@field [1] "Intimidate"
 df.conversation_tact_type = {}
 
+---@class (exact) df.service_order_templatest: DFStruct
+---@field _type identity.service_order_templatest
+---@field type df.service_order_type
+---@field item_type df.item_type
+---@field item_subtype number
+---@field mat_type number
+---@field mat_index number
+---@field cost number
+---@field full_cost number
+---@field room_ab_local_id number not zone or abstract building id
+
+---@class identity.service_order_templatest: DFCompoundType
+---@field _kind 'struct-type'
+df.service_order_templatest = {}
+
+---@return df.service_order_templatest
+function df.service_order_templatest:new() end
+
+---@class (exact) df.utterancest: DFStruct
+---@field _type identity.utterancest
+---@field speaker number References: `df.unit`
+---@field speaker_hfid number References: `df.historical_figure`
+---@field type df.talk_choice_type
+---@field rumor df.entity_event
+---@field incident_id number
+---@field foreground number
+---@field background number
+---@field bright number
+---@field year number
+---@field ticks number
+---@field variable1 number
+---@field adventure_desire df.adventure_desire_state_type
+---@field opinion df.opinion_type
+---@field sleep_zone_id number
+---@field main_relevant_id number
+---@field banter_item_id number References: `df.item`
+---@field trouble_type df.conversation_trouble_type
+---@field squad_id number References: `df.squad`
+---@field agreement_id number References: `df.agreement`
+---@field giver_entity_id number References: `df.historical_entity`
+---@field asker_entity_id number References: `df.historical_entity`
+---@field emotion df.emotion_type
+---@field position_entity_id number References: `df.historical_entity`
+---@field invocation_target_hfid number References: `df.historical_figure`
+---@field service_order_id number
+---@field value_type df.value_type
+---@field squad_order_type df.squad_order_type
+---@field belief_system_id number
+---@field retrieve_artifact_quest_art_id number References: `df.artifact_record`
+---@field variable2 number
+---@field reason df.history_event_reason
+---@field site_id2 number References: `df.world_site`
+---@field banter_bld_id number
+---@field trouble_amount number
+---@field dipstate_holder_enid number References: `df.historical_entity`
+---@field squad_joiner_unid number References: `df.unit`
+---@field taker_entity_id number References: `df.historical_entity`
+---@field considerer_entity_id number References: `df.historical_entity`
+---@field circumstance df.unit_thought_type
+---@field witness df.witness_type
+---@field position_profile_id number
+---@field invocation_target_identity_id number
+---@field service_order_occid number
+---@field value_level number
+---@field squad_order_target_hfid number References: `df.historical_figure`
+---@field story_index number
+---@field question_identity_id number
+---@field retrieve_artifact_quest_site_id number References: `df.world_site`
+---@field variable3 number
+---@field banter_entity_id number References: `df.historical_entity`
+---@field agreement_subject_id number
+---@field order_squad_id number References: `df.squad`
+---@field circumstance_id number
+---@field occupation_type df.occupation_type
+---@field squad_order_target_stid number References: `df.world_site`
+---@field story_frame_index number
+---@field retrieve_artifact_quest_giver_entity_id number References: `df.historical_entity`
+---@field variable4 number
+---@field circumstance_value number
+---@field occupation_unid number References: `df.unit`
+---@field squad_order_target_enid number References: `df.historical_entity`
+
+---@class identity.utterancest: DFCompoundType
+---@field _kind 'struct-type'
+df.utterancest = {}
+
+---@return df.utterancest
+function df.utterancest:new() end
+
 ---@class (exact) df.activity_event_conversationst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_conversationst
 ---@field participants _activity_event_conversationst_participants
----@field menu df.conversation_menu
+---@field menu df.conversation_state_type
 ---@field state_rumor df.entity_event
 ---@field state_incident_id number
----@field relevant_id_1 number value_type, asker_entity
----@field relevant_id_2 number value_level, consider_entity, question_identity
----@field relevant_id_3 number attack_roll, occupation_type
----@field relevant_id_4 number defense_roll
+---@field state_relevant_id number
+---@field state_value_type number
+---@field state_asker_entity_id number References: `df.historical_entity`
+---@field state_relevant_id_2 number
+---@field state_value_level number
+---@field state_considerer_entity_id number References: `df.historical_entity`
+---@field state_question_identity_id number
+---@field state_relevant_id_3 number
+---@field state_attack_roll number
+---@field state_occupation_type number
+---@field state_relevant_id_4 number
+---@field state_defense_roll number
 ---@field state_trouble_type _activity_event_conversationst_state_trouble_type
 ---@field state_trouble_amount DFNumberVector
 ---@field state_service_order_template _activity_event_conversationst_state_service_order_template
@@ -1515,7 +1615,7 @@ df.conversation_tact_type = {}
 ---@field spec_flag df.activity_event_conversationst.T_spec_flag
 ---@field conflict_report df.activity_event_conversationst.T_conflict_report
 ---@field choices _activity_event_conversationst_choices
----@field return_topic_state df.conversation_menu
+---@field return_topic_state df.conversation_state_type
 ---@field return_topic_rumor df.entity_event
 ---@field return_topic_incident_id number
 
@@ -1559,32 +1659,32 @@ function _activity_event_conversationst_state_trouble_type:insert(index, item) e
 function _activity_event_conversationst_state_trouble_type:erase(index) end
 
 ---@class _activity_event_conversationst_state_service_order_template: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.service_order_templatest
 local _activity_event_conversationst_state_service_order_template
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.service_order_templatest>
 function _activity_event_conversationst_state_service_order_template:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.service_order_templatest
 function _activity_event_conversationst_state_service_order_template:insert(index, item) end
 
 ---@param index integer
 function _activity_event_conversationst_state_service_order_template:erase(index) end
 
 ---@class _activity_event_conversationst_turns: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.utterancest
 local _activity_event_conversationst_turns
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.utterancest>
 function _activity_event_conversationst_turns:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.utterancest
 function _activity_event_conversationst_turns:insert(index, item) end
 
 ---@param index integer

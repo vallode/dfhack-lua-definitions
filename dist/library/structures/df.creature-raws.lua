@@ -1678,8 +1678,9 @@ df.gait_info.T_flags = {}
 ---@field [4] "SELF_ONLY"
 df.creature_interaction_target_flags = {}
 
----@class (exact) df.creature_interaction: DFStruct
----@field _type identity.creature_interaction
+---@class (exact) df.interaction_informationst: DFStruct
+---@field _type identity.interaction_informationst
+---@field token string
 ---@field bp_required_type DFStringVector
 ---@field bp_required_name DFStringVector
 ---@field item_str0 string
@@ -1697,60 +1698,62 @@ df.creature_interaction_target_flags = {}
 ---@field target_verb_3rd string
 ---@field interaction_type string
 ---@field type_id number References: `df.interaction`
----@field usage_hint _creature_interaction_usage_hint
----@field location_hint _creature_interaction_location_hint
----@field flags df.creature_interaction.T_flags
+---@field usage_hint _interaction_informationst_usage_hint
+---@field location_hint _interaction_informationst_location_hint
+---@field flags df.interaction_informationst.T_flags
 ---@field target_token DFStringVector
----@field target_flags _creature_interaction_target_flags
+---@field target_flags _interaction_informationst_target_flags
 ---@field target_ranges DFNumberVector
 ---@field max_target_token DFStringVector
 ---@field max_target_numbers DFNumberVector
 ---@field verbal_speeches DFNumberVector
----@field verbal_speeches_token _creature_interaction_verbal_speeches_token
+---@field verbal_speeches_token _interaction_informationst_verbal_speeches_token
 ---@field adv_name string
 ---@field wait_period number
+---@field texpos_list_icon number[][]
+---@field texpos_default_list_icon number InterfaceButtonMain
 
----@class identity.creature_interaction: DFCompoundType
+---@class identity.interaction_informationst: DFCompoundType
 ---@field _kind 'struct-type'
-df.creature_interaction = {}
+df.interaction_informationst = {}
 
----@return df.creature_interaction
-function df.creature_interaction:new() end
+---@return df.interaction_informationst
+function df.interaction_informationst:new() end
 
----@class _creature_interaction_usage_hint: DFContainer
+---@class _interaction_informationst_usage_hint: DFContainer
 ---@field [integer] df.interaction_source_usage_hint
-local _creature_interaction_usage_hint
+local _interaction_informationst_usage_hint
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.interaction_source_usage_hint>
-function _creature_interaction_usage_hint:_field(index) end
+function _interaction_informationst_usage_hint:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.interaction_source_usage_hint
-function _creature_interaction_usage_hint:insert(index, item) end
+function _interaction_informationst_usage_hint:insert(index, item) end
 
 ---@param index integer
-function _creature_interaction_usage_hint:erase(index) end
+function _interaction_informationst_usage_hint:erase(index) end
 
----@class _creature_interaction_location_hint: DFContainer
+---@class _interaction_informationst_location_hint: DFContainer
 ---@field [integer] df.interaction_effect_location_hint
-local _creature_interaction_location_hint
+local _interaction_informationst_location_hint
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.interaction_effect_location_hint>
-function _creature_interaction_location_hint:_field(index) end
+function _interaction_informationst_location_hint:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.interaction_effect_location_hint
-function _creature_interaction_location_hint:insert(index, item) end
+function _interaction_informationst_location_hint:insert(index, item) end
 
 ---@param index integer
-function _creature_interaction_location_hint:erase(index) end
+function _interaction_informationst_location_hint:erase(index) end
 
----@class df.creature_interaction.T_flags: DFBitfield
----@field _enum identity.creature_interaction.flags
+---@class df.interaction_informationst.T_flags: DFBitfield
+---@field _enum identity.interaction_informationst.flags
 ---@field CAN_BE_MUTUAL boolean bay12: INTERACTION_INFORMATION_FLAG_*
 ---@field [0] boolean bay12: INTERACTION_INFORMATION_FLAG_*
 ---@field VERBAL boolean
@@ -1758,46 +1761,72 @@ function _creature_interaction_location_hint:erase(index) end
 ---@field FREE_ACTION boolean
 ---@field [2] boolean
 
----@class identity.creature_interaction.flags: DFBitfieldType
+---@class identity.interaction_informationst.flags: DFBitfieldType
 ---@field CAN_BE_MUTUAL 0 bay12: INTERACTION_INFORMATION_FLAG_*
 ---@field [0] "CAN_BE_MUTUAL" bay12: INTERACTION_INFORMATION_FLAG_*
 ---@field VERBAL 1
 ---@field [1] "VERBAL"
 ---@field FREE_ACTION 2
 ---@field [2] "FREE_ACTION"
-df.creature_interaction.T_flags = {}
+df.interaction_informationst.T_flags = {}
 
----@class _creature_interaction_target_flags: DFContainer
+---@class _interaction_informationst_target_flags: DFContainer
 ---@field [integer] df.creature_interaction_target_flags
-local _creature_interaction_target_flags
+local _interaction_informationst_target_flags
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.creature_interaction_target_flags>
-function _creature_interaction_target_flags:_field(index) end
+function _interaction_informationst_target_flags:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.creature_interaction_target_flags
-function _creature_interaction_target_flags:insert(index, item) end
+function _interaction_informationst_target_flags:insert(index, item) end
 
 ---@param index integer
-function _creature_interaction_target_flags:erase(index) end
+function _interaction_informationst_target_flags:erase(index) end
 
----@class _creature_interaction_verbal_speeches_token: DFContainer
+---@class _interaction_informationst_verbal_speeches_token: DFContainer
 ---@field [integer] any[]
-local _creature_interaction_verbal_speeches_token
+local _interaction_informationst_verbal_speeches_token
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<any[]>
-function _creature_interaction_verbal_speeches_token:_field(index) end
+function _interaction_informationst_verbal_speeches_token:_field(index) end
 
 ---@param index '#'|integer
 ---@param item any[]
-function _creature_interaction_verbal_speeches_token:insert(index, item) end
+function _interaction_informationst_verbal_speeches_token:insert(index, item) end
 
 ---@param index integer
-function _creature_interaction_verbal_speeches_token:erase(index) end
+function _interaction_informationst_verbal_speeches_token:erase(index) end
+
+---@class (exact) df.body_actionst: DFStruct
+---@field _type identity.body_actionst
+---@field type df.body_actionst.T_type
+---@field interaction df.interaction_informationst
+
+---@class identity.body_actionst: DFCompoundType
+---@field _kind 'struct-type'
+df.body_actionst = {}
+
+---@return df.body_actionst
+function df.body_actionst:new() end
+
+---@alias df.body_actionst.T_type
+---| 0 # RETRACT_INTO_BP
+---| 1 # CAN_DO_INTERACTION
+---| 2 # ROOT_AROUND
+
+---@class identity.body_actionst.type: DFEnumType
+---@field RETRACT_INTO_BP 0 bay12: BodyActionType
+---@field [0] "RETRACT_INTO_BP" bay12: BodyActionType
+---@field CAN_DO_INTERACTION 1
+---@field [1] "CAN_DO_INTERACTION"
+---@field ROOT_AROUND 2
+---@field [2] "ROOT_AROUND"
+df.body_actionst.T_type = {}
 
 ---@class (exact) df.caste_body_info: DFStruct
 ---@field _type identity.caste_body_info
@@ -1862,16 +1891,16 @@ function _caste_body_info_attacks:insert(index, item) end
 function _caste_body_info_attacks:erase(index) end
 
 ---@class _caste_body_info_interactions: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.body_actionst
 local _caste_body_info_interactions
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.body_actionst>
 function _caste_body_info_interactions:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.body_actionst
 function _caste_body_info_interactions:insert(index, item) end
 
 ---@param index integer
@@ -3099,6 +3128,10 @@ df.creature_small_texture_type = {}
 ---@field skeleton_texpos number
 ---@field layer_unitless_texpos DFEnumVector<df.profession, number[][]>
 ---@field layer_unitless_sheet_icon_texpos DFEnumVector<df.profession, number>
+---@field texpos_glow number
+---@field texpos_glow_left_gone number
+---@field texpos_glow_right_gone number
+---@field texpos_glow_child number
 
 ---@class identity.creature_raw_graphics: DFCompoundType
 ---@field _kind 'struct-type'

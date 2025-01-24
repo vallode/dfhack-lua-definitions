@@ -491,7 +491,7 @@ function creature_interaction_effect:applyToHistfig(hf, worldgen) end
 
 function creature_interaction_effect:finalize() end
 
----@return df.creature_interaction
+---@return df.interaction_informationst
 function creature_interaction_effect:getCreatureInteraction() end
 
 
@@ -962,7 +962,7 @@ function df.creature_interaction_effect_material_force_adjustst:new() end
 
 ---@class (exact) df.creature_interaction_effect_can_do_interactionst: DFStruct, df.creature_interaction_effect
 ---@field _type identity.creature_interaction_effect_can_do_interactionst
----@field interaction df.creature_interaction
+---@field interaction df.interaction_informationst
 
 ---@class identity.creature_interaction_effect_can_do_interactionst: DFCompoundType
 ---@field _kind 'class-type'

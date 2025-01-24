@@ -710,6 +710,7 @@ df.fortress_type = {}
 ---| -1 # NONE
 ---| 0 # TOMB
 ---| 1 # VAULT
+---| 2 # MYTHICAL
 
 ---@class identity.monument_type: DFEnumType
 ---@field NONE -1 bay12: MonumentType
@@ -718,6 +719,8 @@ df.fortress_type = {}
 ---@field [0] "TOMB"
 ---@field VAULT 1
 ---@field [1] "VAULT"
+---@field MYTHICAL 2
+---@field [2] "MYTHICAL"
 df.monument_type = {}
 
 ---@alias df.lair_type
@@ -2181,6 +2184,470 @@ function _site_underground_layerst_item:insert(index, item) end
 ---@param index integer
 function _site_underground_layerst_item:erase(index) end
 
+---@alias df.site_graphics_tile_type
+---| -1 # NONE
+---| 0 # CROPS
+---| 1 # CROPS_FALLOW
+---| 2 # MEADOW
+---| 3 # PASTURE
+---| 4 # INNER_YARD
+---| 5 # ORCHARD
+---| 6 # SOLID_BUILDINGS
+---| 7 # BUILDINGS_ROAD_NSWE
+---| 8 # BUILDINGS_ROAD_SWE
+---| 9 # BUILDINGS_ROAD_NWE
+---| 10 # BUILDINGS_ROAD_NSE
+---| 11 # BUILDINGS_ROAD_NSW
+---| 12 # BUILDINGS_ROAD_NS
+---| 13 # BUILDINGS_ROAD_NW
+---| 14 # BUILDINGS_ROAD_NE
+---| 15 # BUILDINGS_ROAD_SW
+---| 16 # BUILDINGS_ROAD_SE
+---| 17 # BUILDINGS_ROAD_WE
+---| 18 # BUILDINGS_ROAD_N
+---| 19 # BUILDINGS_ROAD_S
+---| 20 # BUILDINGS_ROAD_W
+---| 21 # BUILDINGS_ROAD_E
+---| 22 # ISOLATED_BUILDING
+---| 23 # SPECIAL_BUILDING_11
+---| 24 # SPECIAL_BUILDING_21_W
+---| 25 # SPECIAL_BUILDING_21_E
+---| 26 # SPECIAL_BUILDING_12_N
+---| 27 # SPECIAL_BUILDING_12_S
+---| 28 # SPECIAL_BUILDING_22_NW
+---| 29 # SPECIAL_BUILDING_22_NE
+---| 30 # SPECIAL_BUILDING_22_SW
+---| 31 # SPECIAL_BUILDING_22_SE
+---| 32 # PLAZA
+---| 33 # DIRT_FIELD
+---| 34 # ROAD_PAVED_NSWE
+---| 35 # ROAD_PAVED_SWE
+---| 36 # ROAD_PAVED_NWE
+---| 37 # ROAD_PAVED_NSE
+---| 38 # ROAD_PAVED_NSW
+---| 39 # ROAD_PAVED_NS
+---| 40 # ROAD_PAVED_NW
+---| 41 # ROAD_PAVED_NE
+---| 42 # ROAD_PAVED_SW
+---| 43 # ROAD_PAVED_SE
+---| 44 # ROAD_PAVED_WE
+---| 45 # ROAD_PAVED_N
+---| 46 # ROAD_PAVED_S
+---| 47 # ROAD_PAVED_W
+---| 48 # ROAD_PAVED_E
+---| 49 # ROAD_DIRT_NSWE
+---| 50 # ROAD_DIRT_SWE
+---| 51 # ROAD_DIRT_NWE
+---| 52 # ROAD_DIRT_NSE
+---| 53 # ROAD_DIRT_NSW
+---| 54 # ROAD_DIRT_NS
+---| 55 # ROAD_DIRT_NW
+---| 56 # ROAD_DIRT_NE
+---| 57 # ROAD_DIRT_SW
+---| 58 # ROAD_DIRT_SE
+---| 59 # ROAD_DIRT_WE
+---| 60 # ROAD_DIRT_N
+---| 61 # ROAD_DIRT_S
+---| 62 # ROAD_DIRT_W
+---| 63 # ROAD_DIRT_E
+---| 64 # BROOK
+---| 65 # RIVER
+---| 66 # CASTLE
+---| 67 # CASTLE_WALL_NSWE
+---| 68 # CASTLE_WALL_SWE
+---| 69 # CASTLE_WALL_NWE
+---| 70 # CASTLE_WALL_NSE
+---| 71 # CASTLE_WALL_NSW
+---| 72 # CASTLE_WALL_NS
+---| 73 # CASTLE_WALL_NW
+---| 74 # CASTLE_WALL_NE
+---| 75 # CASTLE_WALL_SW
+---| 76 # CASTLE_WALL_SE
+---| 77 # CASTLE_WALL_WE
+---| 78 # CASTLE_KEEP
+---| 79 # WOODEN_WALL_NSWE
+---| 80 # WOODEN_WALL_SWE
+---| 81 # WOODEN_WALL_NWE
+---| 82 # WOODEN_WALL_NSE
+---| 83 # WOODEN_WALL_NSW
+---| 84 # WOODEN_WALL_NS
+---| 85 # WOODEN_WALL_NW
+---| 86 # WOODEN_WALL_NE
+---| 87 # WOODEN_WALL_SW
+---| 88 # WOODEN_WALL_SE
+---| 89 # WOODEN_WALL_WE
+---| 90 # WOODEN_KEEP
+---| 91 # BRIDGE_BROOK_WE
+---| 92 # BRIDGE_BROOK_NS
+---| 93 # BRIDGE_RIVER_WE
+---| 94 # BRIDGE_RIVER_NS
+---| 95 # GATE_NS
+---| 96 # GATE_WE
+---| 97 # WOODEN_GATE_TOWER
+---| 98 # STONE_GATE_TOWER
+---| 99 # GREAT_DARK_TOWER
+---| 100 # GREAT_DARK_TOWER_00
+---| 101 # GREAT_DARK_TOWER_10
+---| 102 # GREAT_DARK_TOWER_20
+---| 103 # GREAT_DARK_TOWER_01
+---| 104 # GREAT_DARK_TOWER_11
+---| 105 # GREAT_DARK_TOWER_21
+---| 106 # GREAT_DARK_TOWER_02
+---| 107 # GREAT_DARK_TOWER_12
+---| 108 # GREAT_DARK_TOWER_22
+---| 109 # DARK_TOWER
+---| 110 # TRENCH_NSWE
+---| 111 # TRENCH_SWE
+---| 112 # TRENCH_NWE
+---| 113 # TRENCH_NSE
+---| 114 # TRENCH_NSW
+---| 115 # TRENCH_NS
+---| 116 # TRENCH_NW
+---| 117 # TRENCH_NE
+---| 118 # TRENCH_SW
+---| 119 # TRENCH_SE
+---| 120 # TRENCH_WE
+---| 121 # TRENCH_N
+---| 122 # TRENCH_S
+---| 123 # TRENCH_W
+---| 124 # TRENCH_E
+---| 125 # TRENCH
+---| 126 # HILLOCK_HOUSE
+---| 127 # HILLOCK_HALL
+---| 128 # HILLOCK_TAVERN
+---| 129 # HILLOCK_CIVIC
+---| 130 # TREE_RESIDENTIAL
+---| 131 # TREE_HOME
+---| 132 # TREE_INDUSTRY
+---| 133 # TREE_MARKET
+---| 134 # TREE_INN
+---| 135 # TREE_LIBRARY
+---| 136 # TREE_BUILDING
+---| 137 # TOWER_UNDEAD
+---| 138 # BUILDING
+---| 139 # VAULT
+---| 140 # VAULT_00
+---| 141 # VAULT_10
+---| 142 # VAULT_20
+---| 143 # VAULT_01
+---| 144 # VAULT_11
+---| 145 # VAULT_21
+---| 146 # VAULT_02
+---| 147 # VAULT_12
+---| 148 # VAULT_22
+---| 149 # MYTHICAL_PALACE
+---| 150 # MYTHICAL_DUNGEON
+---| 151 # MYTHICAL_LAIR
+
+---@class identity.site_graphics_tile_type: DFEnumType
+---@field NONE -1 bay12: SiteGraphicsTileType
+---@field [-1] "NONE" bay12: SiteGraphicsTileType
+---@field CROPS 0
+---@field [0] "CROPS"
+---@field CROPS_FALLOW 1
+---@field [1] "CROPS_FALLOW"
+---@field MEADOW 2
+---@field [2] "MEADOW"
+---@field PASTURE 3
+---@field [3] "PASTURE"
+---@field INNER_YARD 4
+---@field [4] "INNER_YARD"
+---@field ORCHARD 5
+---@field [5] "ORCHARD"
+---@field SOLID_BUILDINGS 6
+---@field [6] "SOLID_BUILDINGS"
+---@field BUILDINGS_ROAD_NSWE 7
+---@field [7] "BUILDINGS_ROAD_NSWE"
+---@field BUILDINGS_ROAD_SWE 8
+---@field [8] "BUILDINGS_ROAD_SWE"
+---@field BUILDINGS_ROAD_NWE 9
+---@field [9] "BUILDINGS_ROAD_NWE"
+---@field BUILDINGS_ROAD_NSE 10
+---@field [10] "BUILDINGS_ROAD_NSE"
+---@field BUILDINGS_ROAD_NSW 11
+---@field [11] "BUILDINGS_ROAD_NSW"
+---@field BUILDINGS_ROAD_NS 12
+---@field [12] "BUILDINGS_ROAD_NS"
+---@field BUILDINGS_ROAD_NW 13
+---@field [13] "BUILDINGS_ROAD_NW"
+---@field BUILDINGS_ROAD_NE 14
+---@field [14] "BUILDINGS_ROAD_NE"
+---@field BUILDINGS_ROAD_SW 15
+---@field [15] "BUILDINGS_ROAD_SW"
+---@field BUILDINGS_ROAD_SE 16
+---@field [16] "BUILDINGS_ROAD_SE"
+---@field BUILDINGS_ROAD_WE 17
+---@field [17] "BUILDINGS_ROAD_WE"
+---@field BUILDINGS_ROAD_N 18
+---@field [18] "BUILDINGS_ROAD_N"
+---@field BUILDINGS_ROAD_S 19
+---@field [19] "BUILDINGS_ROAD_S"
+---@field BUILDINGS_ROAD_W 20
+---@field [20] "BUILDINGS_ROAD_W"
+---@field BUILDINGS_ROAD_E 21
+---@field [21] "BUILDINGS_ROAD_E"
+---@field ISOLATED_BUILDING 22
+---@field [22] "ISOLATED_BUILDING"
+---@field SPECIAL_BUILDING_11 23
+---@field [23] "SPECIAL_BUILDING_11"
+---@field SPECIAL_BUILDING_21_W 24
+---@field [24] "SPECIAL_BUILDING_21_W"
+---@field SPECIAL_BUILDING_21_E 25
+---@field [25] "SPECIAL_BUILDING_21_E"
+---@field SPECIAL_BUILDING_12_N 26
+---@field [26] "SPECIAL_BUILDING_12_N"
+---@field SPECIAL_BUILDING_12_S 27
+---@field [27] "SPECIAL_BUILDING_12_S"
+---@field SPECIAL_BUILDING_22_NW 28
+---@field [28] "SPECIAL_BUILDING_22_NW"
+---@field SPECIAL_BUILDING_22_NE 29
+---@field [29] "SPECIAL_BUILDING_22_NE"
+---@field SPECIAL_BUILDING_22_SW 30
+---@field [30] "SPECIAL_BUILDING_22_SW"
+---@field SPECIAL_BUILDING_22_SE 31
+---@field [31] "SPECIAL_BUILDING_22_SE"
+---@field PLAZA 32
+---@field [32] "PLAZA"
+---@field DIRT_FIELD 33
+---@field [33] "DIRT_FIELD"
+---@field ROAD_PAVED_NSWE 34
+---@field [34] "ROAD_PAVED_NSWE"
+---@field ROAD_PAVED_SWE 35
+---@field [35] "ROAD_PAVED_SWE"
+---@field ROAD_PAVED_NWE 36
+---@field [36] "ROAD_PAVED_NWE"
+---@field ROAD_PAVED_NSE 37
+---@field [37] "ROAD_PAVED_NSE"
+---@field ROAD_PAVED_NSW 38
+---@field [38] "ROAD_PAVED_NSW"
+---@field ROAD_PAVED_NS 39
+---@field [39] "ROAD_PAVED_NS"
+---@field ROAD_PAVED_NW 40
+---@field [40] "ROAD_PAVED_NW"
+---@field ROAD_PAVED_NE 41
+---@field [41] "ROAD_PAVED_NE"
+---@field ROAD_PAVED_SW 42
+---@field [42] "ROAD_PAVED_SW"
+---@field ROAD_PAVED_SE 43
+---@field [43] "ROAD_PAVED_SE"
+---@field ROAD_PAVED_WE 44
+---@field [44] "ROAD_PAVED_WE"
+---@field ROAD_PAVED_N 45
+---@field [45] "ROAD_PAVED_N"
+---@field ROAD_PAVED_S 46
+---@field [46] "ROAD_PAVED_S"
+---@field ROAD_PAVED_W 47
+---@field [47] "ROAD_PAVED_W"
+---@field ROAD_PAVED_E 48
+---@field [48] "ROAD_PAVED_E"
+---@field ROAD_DIRT_NSWE 49
+---@field [49] "ROAD_DIRT_NSWE"
+---@field ROAD_DIRT_SWE 50
+---@field [50] "ROAD_DIRT_SWE"
+---@field ROAD_DIRT_NWE 51
+---@field [51] "ROAD_DIRT_NWE"
+---@field ROAD_DIRT_NSE 52
+---@field [52] "ROAD_DIRT_NSE"
+---@field ROAD_DIRT_NSW 53
+---@field [53] "ROAD_DIRT_NSW"
+---@field ROAD_DIRT_NS 54
+---@field [54] "ROAD_DIRT_NS"
+---@field ROAD_DIRT_NW 55
+---@field [55] "ROAD_DIRT_NW"
+---@field ROAD_DIRT_NE 56
+---@field [56] "ROAD_DIRT_NE"
+---@field ROAD_DIRT_SW 57
+---@field [57] "ROAD_DIRT_SW"
+---@field ROAD_DIRT_SE 58
+---@field [58] "ROAD_DIRT_SE"
+---@field ROAD_DIRT_WE 59
+---@field [59] "ROAD_DIRT_WE"
+---@field ROAD_DIRT_N 60
+---@field [60] "ROAD_DIRT_N"
+---@field ROAD_DIRT_S 61
+---@field [61] "ROAD_DIRT_S"
+---@field ROAD_DIRT_W 62
+---@field [62] "ROAD_DIRT_W"
+---@field ROAD_DIRT_E 63
+---@field [63] "ROAD_DIRT_E"
+---@field BROOK 64
+---@field [64] "BROOK"
+---@field RIVER 65
+---@field [65] "RIVER"
+---@field CASTLE 66
+---@field [66] "CASTLE"
+---@field CASTLE_WALL_NSWE 67
+---@field [67] "CASTLE_WALL_NSWE"
+---@field CASTLE_WALL_SWE 68
+---@field [68] "CASTLE_WALL_SWE"
+---@field CASTLE_WALL_NWE 69
+---@field [69] "CASTLE_WALL_NWE"
+---@field CASTLE_WALL_NSE 70
+---@field [70] "CASTLE_WALL_NSE"
+---@field CASTLE_WALL_NSW 71
+---@field [71] "CASTLE_WALL_NSW"
+---@field CASTLE_WALL_NS 72
+---@field [72] "CASTLE_WALL_NS"
+---@field CASTLE_WALL_NW 73
+---@field [73] "CASTLE_WALL_NW"
+---@field CASTLE_WALL_NE 74
+---@field [74] "CASTLE_WALL_NE"
+---@field CASTLE_WALL_SW 75
+---@field [75] "CASTLE_WALL_SW"
+---@field CASTLE_WALL_SE 76
+---@field [76] "CASTLE_WALL_SE"
+---@field CASTLE_WALL_WE 77
+---@field [77] "CASTLE_WALL_WE"
+---@field CASTLE_KEEP 78
+---@field [78] "CASTLE_KEEP"
+---@field WOODEN_WALL_NSWE 79
+---@field [79] "WOODEN_WALL_NSWE"
+---@field WOODEN_WALL_SWE 80
+---@field [80] "WOODEN_WALL_SWE"
+---@field WOODEN_WALL_NWE 81
+---@field [81] "WOODEN_WALL_NWE"
+---@field WOODEN_WALL_NSE 82
+---@field [82] "WOODEN_WALL_NSE"
+---@field WOODEN_WALL_NSW 83
+---@field [83] "WOODEN_WALL_NSW"
+---@field WOODEN_WALL_NS 84
+---@field [84] "WOODEN_WALL_NS"
+---@field WOODEN_WALL_NW 85
+---@field [85] "WOODEN_WALL_NW"
+---@field WOODEN_WALL_NE 86
+---@field [86] "WOODEN_WALL_NE"
+---@field WOODEN_WALL_SW 87
+---@field [87] "WOODEN_WALL_SW"
+---@field WOODEN_WALL_SE 88
+---@field [88] "WOODEN_WALL_SE"
+---@field WOODEN_WALL_WE 89
+---@field [89] "WOODEN_WALL_WE"
+---@field WOODEN_KEEP 90
+---@field [90] "WOODEN_KEEP"
+---@field BRIDGE_BROOK_WE 91
+---@field [91] "BRIDGE_BROOK_WE"
+---@field BRIDGE_BROOK_NS 92
+---@field [92] "BRIDGE_BROOK_NS"
+---@field BRIDGE_RIVER_WE 93
+---@field [93] "BRIDGE_RIVER_WE"
+---@field BRIDGE_RIVER_NS 94
+---@field [94] "BRIDGE_RIVER_NS"
+---@field GATE_NS 95
+---@field [95] "GATE_NS"
+---@field GATE_WE 96
+---@field [96] "GATE_WE"
+---@field WOODEN_GATE_TOWER 97
+---@field [97] "WOODEN_GATE_TOWER"
+---@field STONE_GATE_TOWER 98
+---@field [98] "STONE_GATE_TOWER"
+---@field GREAT_DARK_TOWER 99
+---@field [99] "GREAT_DARK_TOWER"
+---@field GREAT_DARK_TOWER_00 100
+---@field [100] "GREAT_DARK_TOWER_00"
+---@field GREAT_DARK_TOWER_10 101
+---@field [101] "GREAT_DARK_TOWER_10"
+---@field GREAT_DARK_TOWER_20 102
+---@field [102] "GREAT_DARK_TOWER_20"
+---@field GREAT_DARK_TOWER_01 103
+---@field [103] "GREAT_DARK_TOWER_01"
+---@field GREAT_DARK_TOWER_11 104
+---@field [104] "GREAT_DARK_TOWER_11"
+---@field GREAT_DARK_TOWER_21 105
+---@field [105] "GREAT_DARK_TOWER_21"
+---@field GREAT_DARK_TOWER_02 106
+---@field [106] "GREAT_DARK_TOWER_02"
+---@field GREAT_DARK_TOWER_12 107
+---@field [107] "GREAT_DARK_TOWER_12"
+---@field GREAT_DARK_TOWER_22 108
+---@field [108] "GREAT_DARK_TOWER_22"
+---@field DARK_TOWER 109
+---@field [109] "DARK_TOWER"
+---@field TRENCH_NSWE 110
+---@field [110] "TRENCH_NSWE"
+---@field TRENCH_SWE 111
+---@field [111] "TRENCH_SWE"
+---@field TRENCH_NWE 112
+---@field [112] "TRENCH_NWE"
+---@field TRENCH_NSE 113
+---@field [113] "TRENCH_NSE"
+---@field TRENCH_NSW 114
+---@field [114] "TRENCH_NSW"
+---@field TRENCH_NS 115
+---@field [115] "TRENCH_NS"
+---@field TRENCH_NW 116
+---@field [116] "TRENCH_NW"
+---@field TRENCH_NE 117
+---@field [117] "TRENCH_NE"
+---@field TRENCH_SW 118
+---@field [118] "TRENCH_SW"
+---@field TRENCH_SE 119
+---@field [119] "TRENCH_SE"
+---@field TRENCH_WE 120
+---@field [120] "TRENCH_WE"
+---@field TRENCH_N 121
+---@field [121] "TRENCH_N"
+---@field TRENCH_S 122
+---@field [122] "TRENCH_S"
+---@field TRENCH_W 123
+---@field [123] "TRENCH_W"
+---@field TRENCH_E 124
+---@field [124] "TRENCH_E"
+---@field TRENCH 125
+---@field [125] "TRENCH"
+---@field HILLOCK_HOUSE 126
+---@field [126] "HILLOCK_HOUSE"
+---@field HILLOCK_HALL 127
+---@field [127] "HILLOCK_HALL"
+---@field HILLOCK_TAVERN 128
+---@field [128] "HILLOCK_TAVERN"
+---@field HILLOCK_CIVIC 129
+---@field [129] "HILLOCK_CIVIC"
+---@field TREE_RESIDENTIAL 130
+---@field [130] "TREE_RESIDENTIAL"
+---@field TREE_HOME 131
+---@field [131] "TREE_HOME"
+---@field TREE_INDUSTRY 132
+---@field [132] "TREE_INDUSTRY"
+---@field TREE_MARKET 133
+---@field [133] "TREE_MARKET"
+---@field TREE_INN 134
+---@field [134] "TREE_INN"
+---@field TREE_LIBRARY 135
+---@field [135] "TREE_LIBRARY"
+---@field TREE_BUILDING 136
+---@field [136] "TREE_BUILDING"
+---@field TOWER_UNDEAD 137
+---@field [137] "TOWER_UNDEAD"
+---@field BUILDING 138
+---@field [138] "BUILDING"
+---@field VAULT 139
+---@field [139] "VAULT"
+---@field VAULT_00 140
+---@field [140] "VAULT_00"
+---@field VAULT_10 141
+---@field [141] "VAULT_10"
+---@field VAULT_20 142
+---@field [142] "VAULT_20"
+---@field VAULT_01 143
+---@field [143] "VAULT_01"
+---@field VAULT_11 144
+---@field [144] "VAULT_11"
+---@field VAULT_21 145
+---@field [145] "VAULT_21"
+---@field VAULT_02 146
+---@field [146] "VAULT_02"
+---@field VAULT_12 147
+---@field [147] "VAULT_12"
+---@field VAULT_22 148
+---@field [148] "VAULT_22"
+---@field MYTHICAL_PALACE 149
+---@field [149] "MYTHICAL_PALACE"
+---@field MYTHICAL_DUNGEON 150
+---@field [150] "MYTHICAL_DUNGEON"
+---@field MYTHICAL_LAIR 151
+---@field [151] "MYTHICAL_LAIR"
+df.site_graphics_tile_type = {}
+
 ---@class (exact) df.world_site_realization: DFStruct
 ---@field _type identity.world_site_realization
 ---@field buildings _world_site_realization_buildings
@@ -2190,15 +2657,22 @@ function _site_underground_layerst_item:erase(index) end
 ---@field mini_flags df.world_site_realization.T_mini_flags[][]
 ---@field mini_tiles integer[][]
 ---@field mini_colors number[][]
----@field road_map df.site_realization_crossroads[][] 2601 = 51*51 = 17*3*17*3
+---@field map_tile_g df.site_graphics_tile_type[][]
+---@field map_tile_g_sc1 number[][]
+---@field map_tile_g_sc2 number[][]
+---@field road_map df.site_realization_crossroads[][]
 ---@field river_map df.river_infost[][]
 ---@field underground_info df.world_site_realization.T_underground_info[][]
 ---@field building_map df.world_site_realization.T_building_map[][]
 ---@field flags_map df.world_site_realization.T_flags_map.T_flags[][]
+---@field square_id number[][]
 ---@field zoom_tiles integer[][]
 ---@field zoom_colors integer[][]
 ---@field zoom_movemask integer[][]
----@field area_map number[][] 2704 = 52*52
+---@field site_map_tile_g df.site_graphics_tile_type[][]
+---@field site_map_tile_g_sc1 number[][]
+---@field site_map_tile_g_sc2 number[][]
+---@field area_map number[][]
 ---@field areas _world_site_realization_areas
 ---@field flags df.world_site_realization.T_flags
 ---@field army_controller_pos_x number
@@ -2735,6 +3209,9 @@ function df.river_infost:new() end
 ---| 29 # dininghall
 ---| 30 # necromancer_tower
 ---| 31 # barrow
+---| 32 # mythical_palace
+---| 33 # mythical_dungeon
+---| 34 # mythical_lair
 
 ---@class identity.site_realization_building_type: DFEnumType
 ---@field cottage_plot 0 bay12: SiteRealizationBuildingType
@@ -2801,6 +3278,12 @@ function df.river_infost:new() end
 ---@field [30] "necromancer_tower" 30
 ---@field barrow 31
 ---@field [31] "barrow"
+---@field mythical_palace 32
+---@field [32] "mythical_palace"
+---@field mythical_dungeon 33
+---@field [33] "mythical_dungeon"
+---@field mythical_lair 34
+---@field [34] "mythical_lair"
 df.site_realization_building_type = {}
 
 ---@alias df.site_realization_building_facing_type

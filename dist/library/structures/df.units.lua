@@ -410,22 +410,26 @@ df.unit_flags3 = {}
 ---@field [5] boolean does not count containers
 ---@field might_possess_artifact boolean counts containers and inventory
 ---@field [6] boolean counts containers and inventory
----@field invader_waits_for_parley boolean 
----@field [7] boolean 
----@field might_have_moving_inventory boolean 
----@field [8] boolean 
----@field any_texture_must_be_refreshed boolean 
----@field [9] boolean 
----@field only_do_assigned_jobs boolean 
----@field [10] boolean 
----@field mood_succeeded boolean 
----@field [11] boolean 
----@field agitated_wilderness_creature boolean 
----@field [12] boolean 
+---@field invader_waits_for_parley boolean
+---@field [7] boolean
+---@field might_have_moving_inventory boolean
+---@field [8] boolean
+---@field any_texture_must_be_refreshed boolean
+---@field [9] boolean
+---@field only_do_assigned_jobs boolean
+---@field [10] boolean
+---@field mood_succeeded boolean
+---@field [11] boolean
+---@field agitated_wilderness_creature boolean
+---@field [12] boolean
 ---@field path_failed_recently boolean
 ---@field [13] boolean
 ---@field portrait_must_be_refreshed boolean
 ---@field [14] boolean
+---@field may_have_magical_inventory_item boolean
+---@field [15] boolean
+---@field may_have_mythical_substance boolean
+---@field [16] boolean
 
 ---@class identity.unit_flags4: DFBitfieldType
 ---@field lazy_goblet_check 0 bay12: UNITFLAG4_*
@@ -442,22 +446,26 @@ df.unit_flags3 = {}
 ---@field [5] "might_be_holding_artifact" does not count containers
 ---@field might_possess_artifact 6 counts containers and inventory
 ---@field [6] "might_possess_artifact" counts containers and inventory
----@field invader_waits_for_parley 7 
----@field [7] "invader_waits_for_parley" 
----@field might_have_moving_inventory 8 
----@field [8] "might_have_moving_inventory" 
----@field any_texture_must_be_refreshed 9 
----@field [9] "any_texture_must_be_refreshed" 
----@field only_do_assigned_jobs 10 
----@field [10] "only_do_assigned_jobs" 
----@field mood_succeeded 11 
----@field [11] "mood_succeeded" 
----@field agitated_wilderness_creature 12 
----@field [12] "agitated_wilderness_creature" 
+---@field invader_waits_for_parley 7
+---@field [7] "invader_waits_for_parley"
+---@field might_have_moving_inventory 8
+---@field [8] "might_have_moving_inventory"
+---@field any_texture_must_be_refreshed 9
+---@field [9] "any_texture_must_be_refreshed"
+---@field only_do_assigned_jobs 10
+---@field [10] "only_do_assigned_jobs"
+---@field mood_succeeded 11
+---@field [11] "mood_succeeded"
+---@field agitated_wilderness_creature 12
+---@field [12] "agitated_wilderness_creature"
 ---@field path_failed_recently 13
 ---@field [13] "path_failed_recently"
 ---@field portrait_must_be_refreshed 14
 ---@field [14] "portrait_must_be_refreshed"
+---@field may_have_magical_inventory_item 15
+---@field [15] "may_have_magical_inventory_item"
+---@field may_have_mythical_substance 16
+---@field [16] "may_have_mythical_substance"
 df.unit_flags4 = {}
 
 ---@alias df.value_type
@@ -1792,6 +1800,7 @@ function _opinion_infost_entity_opinion:erase(index) end
 ---@field texpos_currently_in_use boolean[][]
 ---@field portrait_texpos number
 ---@field cached_glowtile_type df.unit.T_cached_glowtile_type bay12: unit_cache_vars
+---@field dungeon_control df.unit.T_dungeon_control
 ---@field pool_index integer protected:
 ---@field mtx lightuserdata
 local unit
@@ -1804,6 +1813,9 @@ function unit:getCorpseTile() end
 
 ---@return integer
 function unit:getGlowTile() end
+
+---@return number
+function unit:getGlowTexture() end
 
 ---@param important number
 ---@param inplay number
@@ -2711,6 +2723,20 @@ function _unit_occupations:erase(index) end
 ---@field [2] "EYES"
 df.unit.T_cached_glowtile_type = {}
 
+---@alias df.unit.T_dungeon_control
+---| 0 # PROMPT
+---| 1 # CONTINUE
+---| 2 # CONTINUE_IGNORE_DISTRACTIONS
+
+---@class identity.unit.dungeon_control: DFEnumType
+---@field PROMPT 0 bay12: DungeonControlState
+---@field [0] "PROMPT" bay12: DungeonControlState
+---@field CONTINUE 1
+---@field [1] "CONTINUE"
+---@field CONTINUE_IGNORE_DISTRACTIONS 2
+---@field [2] "CONTINUE_IGNORE_DISTRACTIONS"
+df.unit.T_dungeon_control = {}
+
 ---@class df.witness_report_flags: DFBitfield
 ---@field _enum identity.witness_report_flags
 ---@field HAVE_SET_RPHS boolean bay12: HF_REP_QUERY_FLAG_*
@@ -3394,6 +3420,21 @@ function df.wound_curse_info.T_usable_interaction:new() end
 ---| 65 # NeedMillingDelayed
 ---| 66 # BuildingDestroyerDelay
 ---| 67 # HeistPaused
+---| 68 # HaveIngestedMythicalSubstance
+---| 69 # DidInteractionAnnouncementReducePain
+---| 70 # DidInteractionAnnouncementReduceSwelling
+---| 71 # DidInteractionAnnouncementCureInfection
+---| 72 # DidInteractionAnnouncementHealNerves
+---| 73 # DidInteractionAnnouncementStopBleeding
+---| 74 # DidInteractionAnnouncementCloseOpenWounds
+---| 75 # DidInteractionAnnouncementHealTissues
+---| 76 # DidInteractionAnnouncementRegrowParts
+---| 77 # DidInteractionAnnouncementReduceParalysis
+---| 78 # DidInteractionAnnouncementReduceFever
+---| 79 # DidInteractionAnnouncementReduceNausea
+---| 80 # DidInteractionAnnouncementReduceDizzness
+---| 81 # HaveCheckedFavorDodge
+---| 82 # DidStrainExhaustionKO
 
 ---@class identity.misc_trait_type: DFEnumType
 ---@field RequestWaterCooldown 0 0 --
@@ -3532,6 +3573,36 @@ function df.wound_curse_info.T_usable_interaction:new() end
 ---@field [66] "BuildingDestroyerDelay" auto-decrement
 ---@field HeistPaused 67 auto-decrement
 ---@field [67] "HeistPaused" auto-decrement
+---@field HaveIngestedMythicalSubstance 68
+---@field [68] "HaveIngestedMythicalSubstance"
+---@field DidInteractionAnnouncementReducePain 69
+---@field [69] "DidInteractionAnnouncementReducePain"
+---@field DidInteractionAnnouncementReduceSwelling 70 70 --
+---@field [70] "DidInteractionAnnouncementReduceSwelling" 70 --
+---@field DidInteractionAnnouncementCureInfection 71
+---@field [71] "DidInteractionAnnouncementCureInfection"
+---@field DidInteractionAnnouncementHealNerves 72
+---@field [72] "DidInteractionAnnouncementHealNerves"
+---@field DidInteractionAnnouncementStopBleeding 73
+---@field [73] "DidInteractionAnnouncementStopBleeding"
+---@field DidInteractionAnnouncementCloseOpenWounds 74
+---@field [74] "DidInteractionAnnouncementCloseOpenWounds"
+---@field DidInteractionAnnouncementHealTissues 75
+---@field [75] "DidInteractionAnnouncementHealTissues"
+---@field DidInteractionAnnouncementRegrowParts 76
+---@field [76] "DidInteractionAnnouncementRegrowParts"
+---@field DidInteractionAnnouncementReduceParalysis 77
+---@field [77] "DidInteractionAnnouncementReduceParalysis"
+---@field DidInteractionAnnouncementReduceFever 78
+---@field [78] "DidInteractionAnnouncementReduceFever"
+---@field DidInteractionAnnouncementReduceNausea 79
+---@field [79] "DidInteractionAnnouncementReduceNausea"
+---@field DidInteractionAnnouncementReduceDizzness 80 80 --
+---@field [80] "DidInteractionAnnouncementReduceDizzness" 80 --
+---@field HaveCheckedFavorDodge 81
+---@field [81] "HaveCheckedFavorDodge"
+---@field DidStrainExhaustionKO 82
+---@field [82] "DidStrainExhaustionKO"
 df.misc_trait_type = {}
 
 ---@class misc_trait_type_attr_entry_type: DFCompoundType
@@ -4434,6 +4505,26 @@ function df.unit_action_data_move:new() end
 ---@field [1] "from_sparring"
 df.unit_action_data_move.T_flags = {}
 
+---@alias df.dungeon_wrestle_type
+---| 0 # Wrestle
+---| 1 # Grab
+---| 2 # WrestleGeneric
+---| 3 # GrabGeneric
+---| 4 # StruggleForItem
+
+---@class identity.dungeon_wrestle_type: DFEnumType
+---@field Wrestle 0 bay12: DungeonWrestleType
+---@field [0] "Wrestle" bay12: DungeonWrestleType
+---@field Grab 1
+---@field [1] "Grab"
+---@field WrestleGeneric 2
+---@field [2] "WrestleGeneric"
+---@field GrabGeneric 3
+---@field [3] "GrabGeneric"
+---@field StruggleForItem 4
+---@field [4] "StruggleForItem"
+df.dungeon_wrestle_type = {}
+
 ---@class (exact) df.unit_action_data_attack: DFStruct
 ---@field _type identity.unit_action_data_attack
 ---@field target_unit_id number References: `df.unit`
@@ -4460,7 +4551,7 @@ function df.unit_action_data_attack:new() end
 
 ---@class (exact) df.unit_action_data_attack.T_wrestle_info: DFStruct
 ---@field _type identity.unit_action_data_attack.wrestle_info
----@field wrestle_type df.unit_action_data_attack.T_wrestle_info.T_wrestle_type bay12: wrestle_infost
+---@field wrestle_type df.dungeon_wrestle_type bay12: wrestle_infost
 ---@field grapple_a_bp number
 ---@field grapple_d_bp number
 ---@field grapple_a_item_id number
@@ -4474,25 +4565,6 @@ df.unit_action_data_attack.T_wrestle_info = {}
 
 ---@return df.unit_action_data_attack.T_wrestle_info
 function df.unit_action_data_attack.T_wrestle_info:new() end
-
--- bay12: wrestle_infost
----@alias df.unit_action_data_attack.T_wrestle_info.T_wrestle_type
----| 0 # Wrestle
----| 1 # Grab
----| 2 # WrestleGeneric
----| 3 # GrabGeneric
-
--- bay12: wrestle_infost
----@class identity.unit_action_data_attack.wrestle_info.wrestle_type: DFEnumType
----@field Wrestle 0 bay12: DungeonWrestleType
----@field [0] "Wrestle" bay12: DungeonWrestleType
----@field Grab 1
----@field [1] "Grab"
----@field WrestleGeneric 2
----@field [2] "WrestleGeneric"
----@field GrabGeneric 3
----@field [3] "GrabGeneric"
-df.unit_action_data_attack.T_wrestle_info.T_wrestle_type = {}
 
 ---@alias df.unit_action_data_attack.T_wrestle_info.T_grapple_attack
 ---| 0 # JointLock

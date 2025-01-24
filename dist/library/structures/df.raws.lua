@@ -464,7 +464,8 @@ function _world_raws_creature_variations:erase(index) end
 ---@field liquid_graphics_info _world_raws_itemdefs_liquid_graphics_info 0.50.01
 ---@field powder_graphics_info _world_raws_itemdefs_powder_graphics_info 0.50.01
 ---@field pipe_section_graphics_info _world_raws_itemdefs_pipe_section_graphics_info 0.50.01
----@field statue_texpos_top number[] 0.50.01
+---@field rock_graphics_info _world_raws_itemdefs_rock_graphics_info 0.50.01
+---@field statue_texpos_top number[] 0.51.01
 ---@field statue_texpos_bottom number[] 0.50.01
 
 ---@class identity.world_raws.itemdefs: DFCompoundType
@@ -1594,6 +1595,22 @@ function _world_raws_itemdefs_pipe_section_graphics_info:insert(index, item) end
 ---@param index integer
 function _world_raws_itemdefs_pipe_section_graphics_info:erase(index) end
 
+---@class _world_raws_itemdefs_rock_graphics_info: DFContainer
+---@field [integer] any[]
+local _world_raws_itemdefs_rock_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _world_raws_itemdefs_rock_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _world_raws_itemdefs_rock_graphics_info:insert(index, item) end
+
+---@param index integer
+function _world_raws_itemdefs_rock_graphics_info:erase(index) end
+
 ---@class _world_raws_entities: DFContainer
 ---@field [integer] df.entity_raw
 local _world_raws_entities
@@ -1693,6 +1710,7 @@ function _world_raws_language_translations:erase(index) end
 ---@field fortification_graphics_info _world_raws_descriptors_fortification_graphics_info 0.50.01
 ---@field track_graphics_info _world_raws_descriptors_track_graphics_info 0.50.01
 ---@field spatter_graphics_info _world_raws_descriptors_spatter_graphics_info 0.50.01
+---@field combat_animation_swish_graphics_info _world_raws_descriptors_combat_animation_swish_graphics_info 0.50.08-beta
 
 ---@class identity.world_raws.descriptors: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1924,6 +1942,22 @@ function _world_raws_descriptors_spatter_graphics_info:insert(index, item) end
 
 ---@param index integer
 function _world_raws_descriptors_spatter_graphics_info:erase(index) end
+
+---@class _world_raws_descriptors_combat_animation_swish_graphics_info: DFContainer
+---@field [integer] any[]
+local _world_raws_descriptors_combat_animation_swish_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _world_raws_descriptors_combat_animation_swish_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _world_raws_descriptors_combat_animation_swish_graphics_info:insert(index, item) end
+
+---@param index integer
+function _world_raws_descriptors_combat_animation_swish_graphics_info:erase(index) end
 
 -- Reaction RAWs
 ---@class (exact) df.world_raws.T_reactions: DFStruct

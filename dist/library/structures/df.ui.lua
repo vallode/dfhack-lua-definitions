@@ -968,6 +968,8 @@ function _plotinfost_kitchen_exc_types:erase(index) end
 ---@field [6] boolean
 ---@field did_first_cavern_announcement boolean required for CAVERNS_OPENED music context
 ---@field [7] boolean required for CAVERNS_OPENED music context
+---@field did_first_ghost_announcement boolean
+---@field [8] boolean
 
 ---@class identity.plotinfost.flags: DFBitfieldType
 ---@field first_year 0 bay12: PLOTINFOFLAG_*
@@ -986,6 +988,8 @@ function _plotinfost_kitchen_exc_types:erase(index) end
 ---@field [6] "did_first_caravan_announcement"
 ---@field did_first_cavern_announcement 7 required for CAVERNS_OPENED music context
 ---@field [7] "did_first_cavern_announcement" required for CAVERNS_OPENED music context
+---@field did_first_ghost_announcement 8
+---@field [8] "did_first_ghost_announcement"
 df.plotinfost.T_flags = {}
 
 ---@class _plotinfost_farm_seasons: DFContainer
@@ -2353,6 +2357,7 @@ function df.map_viewport:new() end
 ---@field unit_move df.unit_action_type[]
 ---@field unit_move_dir df.map_renderer.T_unit_move_dir[]
 ---@field unit_move_coord df.map_renderer.T_unit_move_coord[]
+---@field unit_move_coord_mxy df.map_renderer.T_unit_move_coord_mxy[]
 ---@field unit_move_phase number[]
 ---@field unit_move_num number
 ---@field unit_move_greatest_phase number
@@ -2413,4 +2418,16 @@ df.map_renderer.T_unit_move_coord = {}
 
 ---@return df.map_renderer.T_unit_move_coord
 function df.map_renderer.T_unit_move_coord:new() end
+
+---@class (exact) df.map_renderer.T_unit_move_coord_mxy: DFStruct
+---@field _type identity.map_renderer.unit_move_coord_mxy
+---@field x number
+---@field y number
+
+---@class identity.map_renderer.unit_move_coord_mxy: DFCompoundType
+---@field _kind 'struct-type'
+df.map_renderer.T_unit_move_coord_mxy = {}
+
+---@return df.map_renderer.T_unit_move_coord_mxy
+function df.map_renderer.T_unit_move_coord_mxy:new() end
 

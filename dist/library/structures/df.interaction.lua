@@ -23,6 +23,8 @@ df.interaction_flags = {}
 ---@field effects _interaction_effects I_EFFECT
 ---@field source_hfid number References: `df.historical_figure`
 ---@field source_enid number References: `df.historical_entity`
+---@field texpos_list_icon number[][]
+---@field texpos_default_list_icon number InterfaceButtonMain
 
 ---@class identity.interaction: DFCompoundType
 ---@field _kind 'struct-type'
@@ -213,7 +215,9 @@ function interaction_effect:read_file(file, loadversion) end
 ---@param target df.unit
 ---@param instance df.interaction_instance
 ---@param new_unit boolean
-function interaction_effect:activateOnUnit(target, instance, new_unit) end
+---@param start_year DFPointer<integer> actually std::optional(int32_t)
+---@param end_year DFPointer<integer> actually std::optional(int32_t)
+function interaction_effect:activateOnUnit(target, instance, new_unit, start_year, end_year) end
 
 ---@param target df.item
 function interaction_effect:activateOnItem(target) end
@@ -513,6 +517,8 @@ df.interaction_effect_summon_unitst.T_spec_flags = {}
 ---| 6 # CREATURE_ACTION
 ---| 7 # UNDERGROUND_SPECIAL
 ---| 8 # EXPERIMENT
+---| 9 # MYTHICAL
+---| 10 # ITEM_POWER
 
 ---@class identity.interaction_source_type: DFEnumType
 ---@field REGION 0 bay12: InteractionSourceType
@@ -533,6 +539,10 @@ df.interaction_effect_summon_unitst.T_spec_flags = {}
 ---@field [7] "UNDERGROUND_SPECIAL"
 ---@field EXPERIMENT 8
 ---@field [8] "EXPERIMENT"
+---@field MYTHICAL 9
+---@field [9] "MYTHICAL"
+---@field ITEM_POWER 10
+---@field [10] "ITEM_POWER"
 df.interaction_source_type = {}
 
 ---@class (exact) df.interaction_source: DFStruct
@@ -837,6 +847,29 @@ df.interaction_source_experimentst = {}
 
 ---@return df.interaction_source_experimentst
 function df.interaction_source_experimentst:new() end
+
+---@class (exact) df.interaction_source_mythicalst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_mythicalst
+---@field power_level number
+
+---@class identity.interaction_source_mythicalst: DFCompoundType
+---@field _kind 'class-type'
+df.interaction_source_mythicalst = {}
+
+---@return df.interaction_source_mythicalst
+function df.interaction_source_mythicalst:new() end
+
+---@class (exact) df.interaction_source_item_powerst: DFStruct, df.interaction_source
+---@field _type identity.interaction_source_item_powerst
+---@field info df.interaction_informationst
+---@field item_description string
+
+---@class identity.interaction_source_item_powerst: DFCompoundType
+---@field _kind 'class-type'
+df.interaction_source_item_powerst = {}
+
+---@return df.interaction_source_item_powerst
+function df.interaction_source_item_powerst:new() end
 
 ---@alias df.interaction_target_type
 ---| 0 # CORPSE

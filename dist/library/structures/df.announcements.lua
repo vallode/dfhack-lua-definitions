@@ -226,10 +226,10 @@
 ---| 220 # DAWN_BREAKS
 ---| 221 # NOON
 ---| 222 # NIGHTFALL
----| 223 # NO_INV_INTERACTION
+---| 223 # UNUSED_0001
 ---| 224 # EMPTY_CONTAINER
 ---| 225 # TAKE_OUT_OF_CONTAINER
----| 226 # NO_CONTAINER_FOR_ITEM
+---| 226 # UNUSED_0002
 ---| 227 # PUT_INTO_CONTAINER
 ---| 228 # EAT_ITEM
 ---| 229 # DRINK_ITEM
@@ -352,11 +352,13 @@
 ---| 346 # SATISFIED_MONARCH
 ---| 347 # MOUNTAINHOME
 ---| 348 # FOOD_WARNING
----| 349 # UNUSED_46
----| 350 # UNUSED_47
----| 351 # UNUSED_48
----| 352 # UNUSED_49
----| 353 # UNUSED_50
+---| 349 # PUT_ON_ITEM
+---| 350 # TAKE_OFF_ITEM
+---| 351 # DEITY_PRONOUNCEMENT
+---| 352 # UNUSED_47
+---| 353 # UNUSED_48
+---| 354 # UNUSED_49
+---| 355 # UNUSED_50
 
 ---@class identity.announcement_type: DFEnumType
 ---@field NONE -1
@@ -807,14 +809,14 @@
 ---@field [221] "NOON"
 ---@field NIGHTFALL 222
 ---@field [222] "NIGHTFALL"
----@field NO_INV_INTERACTION 223
----@field [223] "NO_INV_INTERACTION"
+---@field UNUSED_0001 223
+---@field [223] "UNUSED_0001"
 ---@field EMPTY_CONTAINER 224
 ---@field [224] "EMPTY_CONTAINER"
 ---@field TAKE_OUT_OF_CONTAINER 225
 ---@field [225] "TAKE_OUT_OF_CONTAINER"
----@field NO_CONTAINER_FOR_ITEM 226
----@field [226] "NO_CONTAINER_FOR_ITEM"
+---@field UNUSED_0002 226
+---@field [226] "UNUSED_0002"
 ---@field PUT_INTO_CONTAINER 227
 ---@field [227] "PUT_INTO_CONTAINER"
 ---@field EAT_ITEM 228
@@ -1059,16 +1061,20 @@
 ---@field [347] "MOUNTAINHOME"
 ---@field FOOD_WARNING 348
 ---@field [348] "FOOD_WARNING"
----@field UNUSED_46 349
----@field [349] "UNUSED_46"
----@field UNUSED_47 350
----@field [350] "UNUSED_47"
----@field UNUSED_48 351
----@field [351] "UNUSED_48"
----@field UNUSED_49 352
----@field [352] "UNUSED_49"
----@field UNUSED_50 353
----@field [353] "UNUSED_50"
+---@field PUT_ON_ITEM 349
+---@field [349] "PUT_ON_ITEM"
+---@field TAKE_OFF_ITEM 350
+---@field [350] "TAKE_OFF_ITEM"
+---@field DEITY_PRONOUNCEMENT 351
+---@field [351] "DEITY_PRONOUNCEMENT"
+---@field UNUSED_47 352
+---@field [352] "UNUSED_47"
+---@field UNUSED_48 353
+---@field [353] "UNUSED_48"
+---@field UNUSED_49 354
+---@field [354] "UNUSED_49"
+---@field UNUSED_50 355
+---@field [355] "UNUSED_50"
 df.announcement_type = {}
 
 ---@class announcement_type_attr_entry_type: DFCompoundType
@@ -1304,10 +1310,10 @@ df.announcement_type._attr_entry_type._fields = {}
 ---@field DAWN_BREAKS { alert_type: "GENERAL" }
 ---@field NOON { alert_type: "GENERAL" }
 ---@field NIGHTFALL { alert_type: "GENERAL" }
----@field NO_INV_INTERACTION { alert_type: "GENERAL" }
+---@field UNUSED_0001 { alert_type: "GENERAL" }
 ---@field EMPTY_CONTAINER { alert_type: "GENERAL" }
 ---@field TAKE_OUT_OF_CONTAINER { alert_type: "GENERAL" }
----@field NO_CONTAINER_FOR_ITEM { alert_type: "GENERAL" }
+---@field UNUSED_0002 { alert_type: "GENERAL" }
 ---@field PUT_INTO_CONTAINER { alert_type: "GENERAL" }
 ---@field EAT_ITEM { alert_type: "GENERAL" }
 ---@field DRINK_ITEM { alert_type: "GENERAL" }
@@ -1430,7 +1436,9 @@ df.announcement_type._attr_entry_type._fields = {}
 ---@field SATISFIED_MONARCH { alert_type: "GENERAL" }
 ---@field MOUNTAINHOME { alert_type: "GENERAL" }
 ---@field FOOD_WARNING { alert_type: "DEATH" }
----@field UNUSED_46 { alert_type: "GENERAL" }
+---@field PUT_ON_ITEM { alert_type: "GENERAL" }
+---@field TAKE_OFF_ITEM { alert_type: "GENERAL" }
+---@field DEITY_PRONOUNCEMENT { alert_type: "GENERAL" }
 ---@field UNUSED_47 { alert_type: "GENERAL" }
 ---@field UNUSED_48 { alert_type: "GENERAL" }
 ---@field UNUSED_49 { alert_type: "GENERAL" }
@@ -1673,11 +1681,24 @@ df.report.T_flags = {}
 ---@field [2] "Unit"
 df.report_zoom_type = {}
 
+---@class (exact) df.adv_announcementst: DFStruct
+---@field _type identity.adv_announcementst
+---@field str string
+---@field parent df.report
+
+---@class identity.adv_announcementst: DFCompoundType
+---@field _kind 'struct-type'
+df.adv_announcementst = {}
+
+---@return df.adv_announcementst
+function df.adv_announcementst:new() end
+
 ---@class (exact) df.popup_message: DFStruct
 ---@field _type identity.popup_message
 ---@field text string
 ---@field color number
 ---@field bright boolean
+---@field portrait_hfid number References: `df.historical_figure`
 
 ---@class identity.popup_message: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1733,6 +1754,7 @@ function _announcement_alertst_report_unit_announcement_category:erase(index) en
 ---@field activity_event_id number same as field in report
 ---@field speaker_id number References: `df.unit`
 ---@field flags df.announcement_infost.T_flags
+---@field portrait_hfid number References: `df.historical_figure`
 
 ---@class identity.announcement_infost: DFCompoundType
 ---@field _kind 'struct-type'

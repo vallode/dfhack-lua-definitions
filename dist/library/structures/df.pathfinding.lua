@@ -217,6 +217,8 @@
 ---| 211 # GoToInterrogationTarget
 ---| 212 # InterrogationOffice
 ---| 213 # SeekHeistHandoff
+---| 214 # AdventureAutomove
+---| 215 # AdventureAutomoveAcrobatic
 
 ---@class identity.unit_path_goal: DFEnumType
 ---@field None -1 bay12: PathGoalType
@@ -649,6 +651,10 @@
 ---@field [212] "InterrogationOffice"
 ---@field SeekHeistHandoff 213
 ---@field [213] "SeekHeistHandoff"
+---@field AdventureAutomove 214
+---@field [214] "AdventureAutomove"
+---@field AdventureAutomoveAcrobatic 215
+---@field [215] "AdventureAutomoveAcrobatic"
 df.unit_path_goal = {}
 
 ---@alias df.unit_station_type

@@ -1051,6 +1051,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---| 1 # Depot
 ---| 2 # Stockpile
 ---| 3 # NobleQuarters
+---| 4 # Shop
 ---| 7 # MeadHall
 ---| 8 # ThroneRoom
 ---| 10 # Temple
@@ -1151,6 +1152,8 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [2] "Stockpile"
 ---@field NobleQuarters 3
 ---@field [3] "NobleQuarters"
+---@field Shop 4
+---@field [4] "Shop"
 ---@field MeadHall 7 Invalid Type
 ---@field [7] "MeadHall" Invalid Type
 ---@field ThroneRoom 8

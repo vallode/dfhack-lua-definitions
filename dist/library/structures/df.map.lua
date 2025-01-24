@@ -740,6 +740,7 @@ df.map_block_column_flags = {}
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
 ---@field flags _map_block_column_flags
 ---@field elevation number[][]
+---@field minimum_river_z number
 ---@field map_pos df.coord top left in tiles
 ---@field region_pos df.coord2d
 ---@field plants _map_block_column_plants Only populated for the top left column in each mid level tile

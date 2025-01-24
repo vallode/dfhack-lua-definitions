@@ -11,7 +11,7 @@
 ---| 5 # ZONE_DEPOT
 ---| 6 # ZONE_STOCKPILE
 ---| 7 # ZONE_NOBLE_QUARTERS
----| 8 # ZONE_INVALID4
+---| 8 # ZONE_SHOP
 ---| 9 # ZONE_INVALID5
 ---| 10 # ZONE_INVALID6
 ---| 11 # ZONE_MEAD_HALL
@@ -212,8 +212,8 @@
 ---@field [6] "ZONE_STOCKPILE"
 ---@field ZONE_NOBLE_QUARTERS 7
 ---@field [7] "ZONE_NOBLE_QUARTERS"
----@field ZONE_INVALID4 8
----@field [8] "ZONE_INVALID4"
+---@field ZONE_SHOP 8
+---@field [8] "ZONE_SHOP"
 ---@field ZONE_INVALID5 9
 ---@field [9] "ZONE_INVALID5"
 ---@field ZONE_INVALID6 10
@@ -598,7 +598,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_DEPOT { building: "Civzone", civzone: "Depot" }
 ---@field ZONE_STOCKPILE { building: "Civzone", civzone: "Stockpile" }
 ---@field ZONE_NOBLE_QUARTERS { building: "Civzone", civzone: "NobleQuarters" }
----@field ZONE_INVALID4 { building: "NONE" }
+---@field ZONE_SHOP { building: "Civzone", civzone: "Shop" }
 ---@field ZONE_INVALID5 { building: "NONE" }
 ---@field ZONE_INVALID6 { building: "NONE" }
 ---@field ZONE_MEAD_HALL { building: "Civzone", civzone: "MeadHall" }
@@ -791,7 +791,7 @@ df.buildings_other_id.attrs = {}
 ---@field ZONE_DEPOT _buildings_other_ZONE_DEPOT
 ---@field ZONE_STOCKPILE _buildings_other_ZONE_STOCKPILE
 ---@field ZONE_NOBLE_QUARTERS _buildings_other_ZONE_NOBLE_QUARTERS
----@field ZONE_INVALID4 _buildings_other_ZONE_INVALID4
+---@field ZONE_SHOP _buildings_other_ZONE_SHOP
 ---@field ZONE_INVALID5 _buildings_other_ZONE_INVALID5
 ---@field ZONE_INVALID6 _buildings_other_ZONE_INVALID6
 ---@field ZONE_MEAD_HALL _buildings_other_ZONE_MEAD_HALL
@@ -1108,21 +1108,21 @@ function _buildings_other_ZONE_NOBLE_QUARTERS:insert(index, item) end
 ---@param index integer
 function _buildings_other_ZONE_NOBLE_QUARTERS:erase(index) end
 
----@class _buildings_other_ZONE_INVALID4: DFContainer
+---@class _buildings_other_ZONE_SHOP: DFContainer
 ---@field [integer] df.building_civzonest
-local _buildings_other_ZONE_INVALID4
+local _buildings_other_ZONE_SHOP
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.building_civzonest>
-function _buildings_other_ZONE_INVALID4:_field(index) end
+function _buildings_other_ZONE_SHOP:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.building_civzonest
-function _buildings_other_ZONE_INVALID4:insert(index, item) end
+function _buildings_other_ZONE_SHOP:insert(index, item) end
 
 ---@param index integer
-function _buildings_other_ZONE_INVALID4:erase(index) end
+function _buildings_other_ZONE_SHOP:erase(index) end
 
 ---@class _buildings_other_ZONE_INVALID5: DFContainer
 ---@field [integer] df.building_civzonest

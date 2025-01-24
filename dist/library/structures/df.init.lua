@@ -116,10 +116,13 @@ df.init_media_flags = {}
 ---@field _type identity.init_media
 ---@field flag _init_media_flag
 ---@field volume_master number
----@field volume_music number
----@field volume_ambience number
----@field volume_sfx number
----@field time_between_songs number
+---@field volume_music_fort number
+---@field volume_ambience_fort number
+---@field volume_sfx_fort number
+---@field time_between_songs_fort number
+---@field volume_music_adv number
+---@field volume_ambience_adv number
+---@field volume_sfx_adv number
 
 ---@class identity.init_media: DFCompoundType
 ---@field _kind 'struct-type'

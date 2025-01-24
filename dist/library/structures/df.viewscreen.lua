@@ -2307,6 +2307,896 @@ function df.viewscreen_adopt_regionst:new() end
 ---@field [35] "Failed"
 df.viewscreen_adopt_regionst.T_cur_step = {}
 
+---@alias df.adventure_log_mode
+---| 0 # EVENTS
+---| 1 # AGREEMENTS
+---| 2 # PEOPLE
+---| 3 # SITES
+---| 4 # ENTITIES
+---| 5 # SUBREGIONS
+---| 6 # BESTIARY
+---| 7 # ARTIFACTS
+---| 8 # INTRIGUE
+---| 9 # INTRIGUE_ACTORS
+---| 10 # INTRIGUE_ORGANIZATIONS
+---| 11 # INTRIGUE_PLOTS
+---| 12 # BLANK_10
+---| 13 # BLANK_11
+---| 14 # BLANK_12
+
+---@class identity.adventure_log_mode: DFEnumType
+---@field EVENTS 0 bay12: AdventureLogModeType
+---@field [0] "EVENTS" bay12: AdventureLogModeType
+---@field AGREEMENTS 1
+---@field [1] "AGREEMENTS"
+---@field PEOPLE 2
+---@field [2] "PEOPLE"
+---@field SITES 3
+---@field [3] "SITES"
+---@field ENTITIES 4
+---@field [4] "ENTITIES"
+---@field SUBREGIONS 5
+---@field [5] "SUBREGIONS"
+---@field BESTIARY 6
+---@field [6] "BESTIARY"
+---@field ARTIFACTS 7
+---@field [7] "ARTIFACTS"
+---@field INTRIGUE 8
+---@field [8] "INTRIGUE"
+---@field INTRIGUE_ACTORS 9
+---@field [9] "INTRIGUE_ACTORS"
+---@field INTRIGUE_ORGANIZATIONS 10
+---@field [10] "INTRIGUE_ORGANIZATIONS"
+---@field INTRIGUE_PLOTS 11
+---@field [11] "INTRIGUE_PLOTS"
+---@field BLANK_10 12
+---@field [12] "BLANK_10"
+---@field BLANK_11 13
+---@field [13] "BLANK_11"
+---@field BLANK_12 14
+---@field [14] "BLANK_12"
+df.adventure_log_mode = {}
+
+---@class (exact) df.viewscreen_adventure_logst: DFStruct, df.viewscreen
+---@field _type identity.viewscreen_adventure_logst
+---@field base_actor_entry _viewscreen_adventure_logst_base_actor_entry
+---@field base_organization_entry _viewscreen_adventure_logst_base_organization_entry
+---@field base_plot_entry _viewscreen_adventure_logst_base_plot_entry
+---@field evidence_repository df.evidence_repositoryst
+---@field map_display df.viewscreen_adventure_logst.T_map_display
+---@field selected number
+---@field line_on number
+---@field mode df.adventure_log_mode
+---@field submode df.adventure_log_mode
+---@field saved_submode_intrigue df.adventure_log_mode
+---@field adventure_log_event_text_scroll number
+---@field histfig_text_scroll number
+---@field bestiary_text_scroll number
+---@field entity_text_scroll number
+---@field site_text_scroll number
+---@field subregion_text_scroll number
+---@field artifact_text_scroll number
+---@field expand_text boolean
+---@field selected_oen df.organization_entry_nodest
+---@field filter_str string
+---@field entering_filter boolean
+---@field initialized_intrigue_mode boolean
+---@field scroll_position_events number
+---@field scroll_position_agreements number
+---@field scroll_position_people number
+---@field scroll_position_sites number
+---@field scroll_position_entities number
+---@field scroll_position_subregions number
+---@field scroll_position_bestiary number
+---@field scroll_position_artifacts number
+---@field scroll_position_intrigue_actors number
+---@field scroll_position_intrigue_organizations number
+---@field scroll_position_intrigue_plots number
+---@field scrolling boolean
+---@field base_site_entry _viewscreen_adventure_logst_base_site_entry
+---@field base_entity_entry _viewscreen_adventure_logst_base_entity_entry
+---@field base_subregion_entry _viewscreen_adventure_logst_base_subregion_entry
+---@field base_feature_layer _viewscreen_adventure_logst_base_feature_layer
+---@field base_agreement_entry _viewscreen_adventure_logst_base_agreement_entry
+---@field base_bestiary_entry _viewscreen_adventure_logst_base_bestiary_entry
+---@field base_adventure_log_event _viewscreen_adventure_logst_base_adventure_log_event
+---@field base_histfig_entry _viewscreen_adventure_logst_base_histfig_entry
+---@field base_artifact_entry _viewscreen_adventure_logst_base_artifact_entry
+---@field priority_sort_site boolean
+---@field priority_sort_entity boolean
+---@field priority_sort_histfig boolean
+---@field event_sort_mode number
+---@field set_priority_site boolean
+---@field set_priority_entity boolean
+---@field set_priority_histfig boolean
+---@field set_priority_event boolean
+---@field value_site_entry _viewscreen_adventure_logst_value_site_entry
+---@field value_entity_entry _viewscreen_adventure_logst_value_entity_entry
+---@field value_subregion_entry _viewscreen_adventure_logst_value_subregion_entry
+---@field value_feature_layer _viewscreen_adventure_logst_value_feature_layer
+---@field value_agreement_entry _viewscreen_adventure_logst_value_agreement_entry
+---@field value_bestiary_entry _viewscreen_adventure_logst_value_bestiary_entry
+---@field value_adventure_log_event _viewscreen_adventure_logst_value_adventure_log_event
+---@field value_histfig_entry _viewscreen_adventure_logst_value_histfig_entry
+---@field value_artifact_entry _viewscreen_adventure_logst_value_artifact_entry
+---@field value_actor_entry _viewscreen_adventure_logst_value_actor_entry
+---@field value_organization_entry _viewscreen_adventure_logst_value_organization_entry
+---@field value_plot_entry _viewscreen_adventure_logst_value_plot_entry
+---@field site_entry _viewscreen_adventure_logst_site_entry
+---@field entity_entry _viewscreen_adventure_logst_entity_entry
+---@field subregion_entry _viewscreen_adventure_logst_subregion_entry
+---@field feature_layer _viewscreen_adventure_logst_feature_layer
+---@field agreement_entry _viewscreen_adventure_logst_agreement_entry
+---@field bestiary_entry _viewscreen_adventure_logst_bestiary_entry
+---@field adventure_log_event _viewscreen_adventure_logst_adventure_log_event
+---@field histfig_entry _viewscreen_adventure_logst_histfig_entry
+---@field artifact_entry _viewscreen_adventure_logst_artifact_entry
+---@field actor_entry _viewscreen_adventure_logst_actor_entry
+---@field organization_entry _viewscreen_adventure_logst_organization_entry
+---@field plot_entry _viewscreen_adventure_logst_plot_entry
+
+---@class identity.viewscreen_adventure_logst: DFCompoundType
+---@field _kind 'class-type'
+df.viewscreen_adventure_logst = {}
+
+---@return df.viewscreen_adventure_logst
+function df.viewscreen_adventure_logst:new() end
+
+---@class _viewscreen_adventure_logst_base_actor_entry: DFContainer
+---@field [integer] df.actor_entryst
+local _viewscreen_adventure_logst_base_actor_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.actor_entryst>
+function _viewscreen_adventure_logst_base_actor_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.actor_entryst
+function _viewscreen_adventure_logst_base_actor_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_actor_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_organization_entry: DFContainer
+---@field [integer] df.organization_entryst
+local _viewscreen_adventure_logst_base_organization_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.organization_entryst>
+function _viewscreen_adventure_logst_base_organization_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.organization_entryst
+function _viewscreen_adventure_logst_base_organization_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_organization_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_plot_entry: DFContainer
+---@field [integer] df.plot_entryst
+local _viewscreen_adventure_logst_base_plot_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.plot_entryst>
+function _viewscreen_adventure_logst_base_plot_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.plot_entryst
+function _viewscreen_adventure_logst_base_plot_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_plot_entry:erase(index) end
+
+---@class (exact) df.viewscreen_adventure_logst.T_map_display: DFStruct
+---@field _type identity.viewscreen_adventure_logst.map_display
+---@field map number bay12: adventure_log_map_displayst
+---@field midmap number
+---@field localmap number
+---@field hide_map number
+---@field cur_loc df.coord2d
+---@field cur_mm_loc df.coord2d
+---@field min df.coord2d
+---@field max df.coord2d
+---@field cursor df.coord2d
+---@field midmap_highlight_sx number
+---@field midmap_highlight_ex number
+---@field midmap_highlight_sy number
+---@field midmap_highlight_ey number
+
+---@class identity.viewscreen_adventure_logst.map_display: DFCompoundType
+---@field _kind 'struct-type'
+df.viewscreen_adventure_logst.T_map_display = {}
+
+---@return df.viewscreen_adventure_logst.T_map_display
+function df.viewscreen_adventure_logst.T_map_display:new() end
+
+---@class _viewscreen_adventure_logst_base_site_entry: DFContainer
+---@field [integer] df.site_entryst
+local _viewscreen_adventure_logst_base_site_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.site_entryst>
+function _viewscreen_adventure_logst_base_site_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.site_entryst
+function _viewscreen_adventure_logst_base_site_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_site_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_entity_entry: DFContainer
+---@field [integer] df.entity_entryst
+local _viewscreen_adventure_logst_base_entity_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_entryst>
+function _viewscreen_adventure_logst_base_entity_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_entryst
+function _viewscreen_adventure_logst_base_entity_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_entity_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_subregion_entry: DFContainer
+---@field [integer] df.subregion_entryst
+local _viewscreen_adventure_logst_base_subregion_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.subregion_entryst>
+function _viewscreen_adventure_logst_base_subregion_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.subregion_entryst
+function _viewscreen_adventure_logst_base_subregion_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_subregion_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_feature_layer: DFContainer
+---@field [integer] df.world_underground_region
+local _viewscreen_adventure_logst_base_feature_layer
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.world_underground_region>
+function _viewscreen_adventure_logst_base_feature_layer:_field(index) end
+
+---@param index '#'|integer
+---@param item df.world_underground_region
+function _viewscreen_adventure_logst_base_feature_layer:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_feature_layer:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_agreement_entry: DFContainer
+---@field [integer] df.agreement_entryst
+local _viewscreen_adventure_logst_base_agreement_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.agreement_entryst>
+function _viewscreen_adventure_logst_base_agreement_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.agreement_entryst
+function _viewscreen_adventure_logst_base_agreement_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_agreement_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_bestiary_entry: DFContainer
+---@field [integer] df.bestiary_entryst
+local _viewscreen_adventure_logst_base_bestiary_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.bestiary_entryst>
+function _viewscreen_adventure_logst_base_bestiary_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.bestiary_entryst
+function _viewscreen_adventure_logst_base_bestiary_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_bestiary_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_adventure_log_event: DFContainer
+---@field [integer] df.adventure_log_eventst
+local _viewscreen_adventure_logst_base_adventure_log_event
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_log_eventst>
+function _viewscreen_adventure_logst_base_adventure_log_event:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_log_eventst
+function _viewscreen_adventure_logst_base_adventure_log_event:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_adventure_log_event:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_histfig_entry: DFContainer
+---@field [integer] df.histfig_entryst
+local _viewscreen_adventure_logst_base_histfig_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.histfig_entryst>
+function _viewscreen_adventure_logst_base_histfig_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.histfig_entryst
+function _viewscreen_adventure_logst_base_histfig_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_histfig_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_base_artifact_entry: DFContainer
+---@field [integer] df.artifact_entryst
+local _viewscreen_adventure_logst_base_artifact_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.artifact_entryst>
+function _viewscreen_adventure_logst_base_artifact_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.artifact_entryst
+function _viewscreen_adventure_logst_base_artifact_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_base_artifact_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_site_entry: DFContainer
+---@field [integer] df.site_entryst
+local _viewscreen_adventure_logst_value_site_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.site_entryst>
+function _viewscreen_adventure_logst_value_site_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.site_entryst
+function _viewscreen_adventure_logst_value_site_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_site_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_entity_entry: DFContainer
+---@field [integer] df.entity_entryst
+local _viewscreen_adventure_logst_value_entity_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_entryst>
+function _viewscreen_adventure_logst_value_entity_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_entryst
+function _viewscreen_adventure_logst_value_entity_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_entity_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_subregion_entry: DFContainer
+---@field [integer] df.subregion_entryst
+local _viewscreen_adventure_logst_value_subregion_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.subregion_entryst>
+function _viewscreen_adventure_logst_value_subregion_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.subregion_entryst
+function _viewscreen_adventure_logst_value_subregion_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_subregion_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_feature_layer: DFContainer
+---@field [integer] df.world_underground_region
+local _viewscreen_adventure_logst_value_feature_layer
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.world_underground_region>
+function _viewscreen_adventure_logst_value_feature_layer:_field(index) end
+
+---@param index '#'|integer
+---@param item df.world_underground_region
+function _viewscreen_adventure_logst_value_feature_layer:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_feature_layer:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_agreement_entry: DFContainer
+---@field [integer] df.agreement_entryst
+local _viewscreen_adventure_logst_value_agreement_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.agreement_entryst>
+function _viewscreen_adventure_logst_value_agreement_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.agreement_entryst
+function _viewscreen_adventure_logst_value_agreement_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_agreement_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_bestiary_entry: DFContainer
+---@field [integer] df.bestiary_entryst
+local _viewscreen_adventure_logst_value_bestiary_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.bestiary_entryst>
+function _viewscreen_adventure_logst_value_bestiary_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.bestiary_entryst
+function _viewscreen_adventure_logst_value_bestiary_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_bestiary_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_adventure_log_event: DFContainer
+---@field [integer] df.adventure_log_eventst
+local _viewscreen_adventure_logst_value_adventure_log_event
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_log_eventst>
+function _viewscreen_adventure_logst_value_adventure_log_event:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_log_eventst
+function _viewscreen_adventure_logst_value_adventure_log_event:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_adventure_log_event:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_histfig_entry: DFContainer
+---@field [integer] df.histfig_entryst
+local _viewscreen_adventure_logst_value_histfig_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.histfig_entryst>
+function _viewscreen_adventure_logst_value_histfig_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.histfig_entryst
+function _viewscreen_adventure_logst_value_histfig_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_histfig_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_artifact_entry: DFContainer
+---@field [integer] df.artifact_entryst
+local _viewscreen_adventure_logst_value_artifact_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.artifact_entryst>
+function _viewscreen_adventure_logst_value_artifact_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.artifact_entryst
+function _viewscreen_adventure_logst_value_artifact_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_artifact_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_actor_entry: DFContainer
+---@field [integer] df.actor_entryst
+local _viewscreen_adventure_logst_value_actor_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.actor_entryst>
+function _viewscreen_adventure_logst_value_actor_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.actor_entryst
+function _viewscreen_adventure_logst_value_actor_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_actor_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_organization_entry: DFContainer
+---@field [integer] df.organization_entryst
+local _viewscreen_adventure_logst_value_organization_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.organization_entryst>
+function _viewscreen_adventure_logst_value_organization_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.organization_entryst
+function _viewscreen_adventure_logst_value_organization_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_organization_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_value_plot_entry: DFContainer
+---@field [integer] df.plot_entryst
+local _viewscreen_adventure_logst_value_plot_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.plot_entryst>
+function _viewscreen_adventure_logst_value_plot_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.plot_entryst
+function _viewscreen_adventure_logst_value_plot_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_value_plot_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_site_entry: DFContainer
+---@field [integer] df.site_entryst
+local _viewscreen_adventure_logst_site_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.site_entryst>
+function _viewscreen_adventure_logst_site_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.site_entryst
+function _viewscreen_adventure_logst_site_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_site_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_entity_entry: DFContainer
+---@field [integer] df.entity_entryst
+local _viewscreen_adventure_logst_entity_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_entryst>
+function _viewscreen_adventure_logst_entity_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_entryst
+function _viewscreen_adventure_logst_entity_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_entity_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_subregion_entry: DFContainer
+---@field [integer] df.subregion_entryst
+local _viewscreen_adventure_logst_subregion_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.subregion_entryst>
+function _viewscreen_adventure_logst_subregion_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.subregion_entryst
+function _viewscreen_adventure_logst_subregion_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_subregion_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_feature_layer: DFContainer
+---@field [integer] df.world_underground_region
+local _viewscreen_adventure_logst_feature_layer
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.world_underground_region>
+function _viewscreen_adventure_logst_feature_layer:_field(index) end
+
+---@param index '#'|integer
+---@param item df.world_underground_region
+function _viewscreen_adventure_logst_feature_layer:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_feature_layer:erase(index) end
+
+---@class _viewscreen_adventure_logst_agreement_entry: DFContainer
+---@field [integer] df.agreement_entryst
+local _viewscreen_adventure_logst_agreement_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.agreement_entryst>
+function _viewscreen_adventure_logst_agreement_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.agreement_entryst
+function _viewscreen_adventure_logst_agreement_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_agreement_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_bestiary_entry: DFContainer
+---@field [integer] df.bestiary_entryst
+local _viewscreen_adventure_logst_bestiary_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.bestiary_entryst>
+function _viewscreen_adventure_logst_bestiary_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.bestiary_entryst
+function _viewscreen_adventure_logst_bestiary_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_bestiary_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_adventure_log_event: DFContainer
+---@field [integer] df.adventure_log_eventst
+local _viewscreen_adventure_logst_adventure_log_event
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_log_eventst>
+function _viewscreen_adventure_logst_adventure_log_event:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_log_eventst
+function _viewscreen_adventure_logst_adventure_log_event:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_adventure_log_event:erase(index) end
+
+---@class _viewscreen_adventure_logst_histfig_entry: DFContainer
+---@field [integer] df.histfig_entryst
+local _viewscreen_adventure_logst_histfig_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.histfig_entryst>
+function _viewscreen_adventure_logst_histfig_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.histfig_entryst
+function _viewscreen_adventure_logst_histfig_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_histfig_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_artifact_entry: DFContainer
+---@field [integer] df.artifact_entryst
+local _viewscreen_adventure_logst_artifact_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.artifact_entryst>
+function _viewscreen_adventure_logst_artifact_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.artifact_entryst
+function _viewscreen_adventure_logst_artifact_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_artifact_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_actor_entry: DFContainer
+---@field [integer] df.actor_entryst
+local _viewscreen_adventure_logst_actor_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.actor_entryst>
+function _viewscreen_adventure_logst_actor_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.actor_entryst
+function _viewscreen_adventure_logst_actor_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_actor_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_organization_entry: DFContainer
+---@field [integer] df.organization_entryst
+local _viewscreen_adventure_logst_organization_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.organization_entryst>
+function _viewscreen_adventure_logst_organization_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.organization_entryst
+function _viewscreen_adventure_logst_organization_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_organization_entry:erase(index) end
+
+---@class _viewscreen_adventure_logst_plot_entry: DFContainer
+---@field [integer] df.plot_entryst
+local _viewscreen_adventure_logst_plot_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.plot_entryst>
+function _viewscreen_adventure_logst_plot_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.plot_entryst
+function _viewscreen_adventure_logst_plot_entry:insert(index, item) end
+
+---@param index integer
+function _viewscreen_adventure_logst_plot_entry:erase(index) end
+
+---@class (exact) df.bestiary_entryst: DFStruct
+---@field _type identity.bestiary_entryst
+---@field alpha_index number
+---@field ck df.creature_knowledgest
+---@field list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+
+---@class identity.bestiary_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.bestiary_entryst = {}
+
+---@return df.bestiary_entryst
+function df.bestiary_entryst:new() end
+
+---@class (exact) df.agreement_entryst: DFStruct
+---@field _type identity.agreement_entryst
+---@field ag df.agreement
+---@field sq df.squad
+---@field so df.squad_order
+---@field squad_order_repeatable boolean
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+---@field showing_commander boolean
+---@field ax number
+---@field ay number
+
+---@class identity.agreement_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.agreement_entryst = {}
+
+---@return df.agreement_entryst
+function df.agreement_entryst:new() end
+
+---@class (exact) df.histfig_entryst: DFStruct
+---@field _type identity.histfig_entryst
+---@field hf df.historical_figure
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+---@field iden df.identity
+---@field value number
+
+---@class identity.histfig_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.histfig_entryst = {}
+
+---@return df.histfig_entryst
+function df.histfig_entryst:new() end
+
+---@class (exact) df.site_entryst: DFStruct
+---@field _type identity.site_entryst
+---@field st df.world_site
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+---@field value number
+
+---@class identity.site_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.site_entryst = {}
+
+---@return df.site_entryst
+function df.site_entryst:new() end
+
+---@class (exact) df.entity_entryst: DFStruct
+---@field _type identity.entity_entryst
+---@field ent df.historical_entity
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+---@field value number
+
+---@class identity.entity_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.entity_entryst = {}
+
+---@return df.entity_entryst
+function df.entity_entryst:new() end
+
+---@class (exact) df.subregion_entryst: DFStruct
+---@field _type identity.subregion_entryst
+---@field sr df.world_region
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+
+---@class identity.subregion_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.subregion_entryst = {}
+
+---@return df.subregion_entryst
+function df.subregion_entryst:new() end
+
+---@alias df.adventure_log_event_type
+---| 0 # INCIDENT
+---| 1 # RUMOR
+
+---@class identity.adventure_log_event_type: DFEnumType
+---@field INCIDENT 0 bay12: AdventureLogEventType
+---@field [0] "INCIDENT" bay12: AdventureLogEventType
+---@field RUMOR 1
+---@field [1] "RUMOR"
+df.adventure_log_event_type = {}
+
+---@class (exact) df.adventure_log_eventst: DFStruct
+---@field _type identity.adventure_log_eventst
+---@field type df.adventure_log_event_type
+---@field rumor df.entity_event
+---@field incident df.incident
+---@field ard df.adventure_rumor_datast
+---@field year number
+---@field season_count number
+---@field list_name string
+---@field simple_list_name string
+---@field summary string
+---@field key_word DFStringVector
+---@field p_list_name string
+---@field p_list_box df.curses_text_boxst
+---@field main_text_box df.curses_text_boxst
+---@field ax number
+---@field ay number
+---@field recenter_mode number
+---@field has_recenter_mode boolean[]
+
+---@class identity.adventure_log_eventst: DFCompoundType
+---@field _kind 'struct-type'
+df.adventure_log_eventst = {}
+
+---@return df.adventure_log_eventst
+function df.adventure_log_eventst:new() end
+
+---@class (exact) df.artifact_entryst: DFStruct
+---@field _type identity.artifact_entryst
+---@field art df.artifact_record
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box df.curses_text_boxst
+---@field arl df.artifact_rumor_locationst
+---@field ax number
+---@field ay number
+
+---@class identity.artifact_entryst: DFCompoundType
+---@field _kind 'struct-type'
+df.artifact_entryst = {}
+
+---@return df.artifact_entryst
+function df.artifact_entryst:new() end
+
 ---@alias df.embark_finder_option
 ---| 0 # DimensionX
 ---| 1 # DimensionY
@@ -2668,6 +3558,19 @@ function _viewscreen_choose_start_sitest_start_civ:erase(index) end
 ---@field [2] "Suitable"
 df.viewscreen_choose_start_sitest.T_find_results = {}
 
+---@class (exact) df.viewscreen_dungeonmodest: DFStruct, df.viewscreen
+---@field _type identity.viewscreen_dungeonmodest
+---@field x number
+---@field y number
+---@field z number
+
+---@class identity.viewscreen_dungeonmodest: DFCompoundType
+---@field _kind 'class-type'
+df.viewscreen_dungeonmodest = {}
+
+---@return df.viewscreen_dungeonmodest
+function df.viewscreen_dungeonmodest:new() end
+
 ---@class (exact) df.viewscreen_dwarfmodest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_dwarfmodest
 ---@field shown_site_name number
@@ -2903,11 +3806,26 @@ function df.viewscreen_game_cleanerst:new() end
 ---@field [2] "CleaningPlayObjects"
 df.viewscreen_game_cleanerst.T_state = {}
 
+---@class (exact) df.sound_loaderst: DFStruct
+---@field _type identity.sound_loaderst
+---@field file string
+---@field enum_member number
+---@field is_sound boolean
+---@field loops boolean
+
+---@class identity.sound_loaderst: DFCompoundType
+---@field _kind 'struct-type'
+df.sound_loaderst = {}
+
+---@return df.sound_loaderst
+function df.sound_loaderst:new() end
+
 ---@class (exact) df.viewscreen_initial_prepst: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_initial_prepst
 ---@field render_count number
----@field logic_step number
----@field process lightuserdata
+---@field to_load _viewscreen_initial_prepst_to_load
+---@field initial_load_size number
+---@field has_loaded boolean
 
 ---@class identity.viewscreen_initial_prepst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2915,6 +3833,22 @@ df.viewscreen_initial_prepst = {}
 
 ---@return df.viewscreen_initial_prepst
 function df.viewscreen_initial_prepst:new() end
+
+---@class _viewscreen_initial_prepst_to_load: DFContainer
+---@field [integer] df.sound_loaderst
+local _viewscreen_initial_prepst_to_load
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.sound_loaderst>
+function _viewscreen_initial_prepst_to_load:_field(index) end
+
+---@param index '#'|integer
+---@param item df.sound_loaderst
+function _viewscreen_initial_prepst_to_load:insert(index, item) end
+
+---@param index integer
+function _viewscreen_initial_prepst_to_load:erase(index) end
 
 ---@class (exact) df.world_gen_param_basest: DFStruct
 ---@field _type identity.world_gen_param_basest
@@ -3697,6 +4631,7 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field cave_max_size number
 ---@field mountain_cave_min number
 ---@field non_mountain_cave_min number
+---@field mythical_site_num number
 ---@field total_civ_number number
 ---@field rain_ranges_1 number
 ---@field rain_ranges_0 number
@@ -3737,6 +4672,8 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field evil_cloud_number number
 ---@field evil_rain_number number
 ---@field generate_divine_materials number
+---@field use_mythical_materials number
+---@field allow_mythical_healing number
 ---@field allow_divination number
 ---@field allow_demonic_experiments number
 ---@field allow_necromancer_experiments number
@@ -4043,6 +4980,26 @@ df.startup_charactersheet_petst = {}
 ---@return df.startup_charactersheet_petst
 function df.startup_charactersheet_petst:new() end
 
+---@class (exact) df.character_archetypest: DFStruct
+---@field _type identity.character_archetypest
+---@field name string
+---@field name_by_skill number
+---@field primary_skill DFNumberVector
+---@field secondary_skill DFNumberVector
+---@field tertiary_skill DFNumberVector
+---@field phys_att_range_val DFEnumVector<df.physical_attribute_type, df.adventurer_attribute_level>
+---@field ment_att_range_val DFEnumVector<df.mental_attribute_type, df.adventurer_attribute_level>
+---@field att_points number
+---@field skilllevel DFEnumVector<df.job_skill, df.skill_rating>
+---@field ip number
+
+---@class identity.character_archetypest: DFCompoundType
+---@field _kind 'struct-type'
+df.character_archetypest = {}
+
+---@return df.character_archetypest
+function df.character_archetypest:new() end
+
 ---@alias df.adv_background_option_type
 ---| -1 # NONE
 ---| 0 # SQUAD_EPPID
@@ -4057,7 +5014,54 @@ function df.startup_charactersheet_petst:new() end
 ---@field [1] "REGULAR_UNIT"
 df.adv_background_option_type = {}
 
--- startup_charactersheetst
+---@alias df.setup_adventure_type
+---| -1 # NONE
+---| 0 # DIFFICULTY
+---| 1 # RACE
+---| 2 # SUBRACE
+---| 3 # NEMESIS
+---| 4 # ENTITY
+---| 5 # DOING_SUB
+---| 6 # SUB_SKILLS
+---| 7 # SUB_APPEARANCE
+---| 8 # SUB_PERSONALITY
+---| 9 # SUB_BACKGROUND
+---| 10 # SUB_EQUIPMENT
+---| 11 # SUB_MOUNTS_AND_PETS
+---| 12 # FINAL_CONFIRMATION
+
+---@class identity.setup_adventure_type: DFEnumType
+---@field NONE -1 bay12: SetupAdventureType
+---@field [-1] "NONE" bay12: SetupAdventureType
+---@field DIFFICULTY 0
+---@field [0] "DIFFICULTY"
+---@field RACE 1
+---@field [1] "RACE"
+---@field SUBRACE 2
+---@field [2] "SUBRACE"
+---@field NEMESIS 3
+---@field [3] "NEMESIS"
+---@field ENTITY 4
+---@field [4] "ENTITY"
+---@field DOING_SUB 5
+---@field [5] "DOING_SUB"
+---@field SUB_SKILLS 6
+---@field [6] "SUB_SKILLS"
+---@field SUB_APPEARANCE 7
+---@field [7] "SUB_APPEARANCE"
+---@field SUB_PERSONALITY 8
+---@field [8] "SUB_PERSONALITY"
+---@field SUB_BACKGROUND 9
+---@field [9] "SUB_BACKGROUND"
+---@field SUB_EQUIPMENT 10
+---@field [10] "SUB_EQUIPMENT"
+---@field SUB_MOUNTS_AND_PETS 11
+---@field [11] "SUB_MOUNTS_AND_PETS"
+---@field FINAL_CONFIRMATION 12
+---@field [12] "FINAL_CONFIRMATION"
+df.setup_adventure_type = {}
+
+-- bay12: startup_charactersheetst
 ---@class (exact) df.setup_character_info: DFStruct
 ---@field _type identity.setup_character_info
 ---@field name df.language_name
@@ -4074,7 +5078,7 @@ df.adv_background_option_type = {}
 ---@field skill_picks_left number rather than the matching typedef
 ---@field phys_att_range_val DFEnumVector<df.physical_attribute_type, df.adventurer_attribute_level>
 ---@field ment_att_range_val DFEnumVector<df.mental_attribute_type, df.adventurer_attribute_level>
----@field difficulty df.setup_character_info.T_difficulty
+---@field difficulty df.setup_character_info.T_difficulty chosen_destiny
 ---@field start_site_id number References: `df.world_site`
 ---@field background_start_squad_epp_id number
 ---@field background_unit df.profession
@@ -4089,15 +5093,21 @@ df.adv_background_option_type = {}
 ---@field age_death_season_count number
 ---@field pers df.unit_personality
 ---@field is_from_wilderpop_or_feature boolean
----@field flag df.setup_character_info.T_flag
----@field sub_mode df.setup_character_info.T_sub_mode
----@field visited_mode boolean[] indexed by the above enum
----@field selecting_atts boolean
+---@field flag integer none used
+---@field sub_mode df.setup_adventure_type
+---@field visited_mode DFEnumVector<df.setup_adventure_type, boolean>
+---@field customizing_skills boolean
 ---@field selected_att number
+---@field scrolling_att boolean
+---@field selected_skill number
+---@field scrolling_skill boolean
 ---@field att_points number
 ---@field posskill _setup_character_info_posskill
----@field selected_sk number
 ---@field ip number
+---@field archetype _setup_character_info_archetype
+---@field selected_archetype number
+---@field scroll_archetype number
+---@field scrolling_archetype boolean
 ---@field entering_name boolean
 ---@field old_name string
 ---@field background_text df.curses_text_boxst
@@ -4109,33 +5119,53 @@ df.adv_background_option_type = {}
 ---@field religious_practice_option _setup_character_info_religious_practice_option
 ---@field religious_practice_id _setup_character_info_religious_practice_id
 ---@field pos_caste DFNumberVector
----@field st_selector number
----@field bo_selector number
----@field rp_selector number
 ---@field background_desc df.curses_text_boxst
+---@field desc_st_index number
+---@field desc_bo_index number
+---@field desc_rp_index number
+---@field scroll_st number
+---@field scrolling_st boolean
+---@field scroll_bo number
+---@field scrolling_bo boolean
+---@field scroll_rp number
+---@field scrolling_rp boolean
 ---@field appearance_text df.curses_text_boxst
 ---@field appearance_offscreen_randomized boolean
 ---@field appearance_was_fully_randomized boolean
+---@field portrait_texpos_selected number
+---@field portrait_texpos number
 ---@field pers_scroll_y number
 ---@field personal_values_text df.curses_text_boxst
 ---@field personality_text df.curses_text_boxst
 ---@field civ_values_text df.curses_text_boxst
 ---@field doing_specific_personality boolean
+---@field scroll_position_specific_personality number
+---@field scrolling_specific_personality boolean
 ---@field selected_specific_pers_item number
 ---@field min_pers DFEnumVector<df.personality_facet_type, number>
 ---@field max_pers DFEnumVector<df.personality_facet_type, number>
 ---@field civ_value_level DFEnumVector<df.value_type, number>
 ---@field eqpet_points number
----@field s_item _setup_character_info_s_item
----@field selected_i number
+---@field s_item DFEnumVector<df.entity_sell_category, df.item_actual>
 ---@field etl df.embark_item_choice
----@field itype df.item_type
+---@field itype number
 ---@field istype number
 ---@field imat number
 ---@field imatg number
----@field item_desc df.curses_text_boxst
+---@field item_expander_on DFEnumVector<df.entity_sell_category, boolean>
+---@field scroll_position_item number
+---@field current_category df.entity_sell_category
+---@field scroll_position_category number
+---@field scroll_position_category_item number
+---@field scrolling_item boolean
+---@field scrolling_category boolean
+---@field scrolling_category_item boolean
+---@field item_filter string
+---@field entering_item_filter boolean
 ---@field selected_pet_l number
+---@field scrolling_pet_l boolean
 ---@field selected_pet_r number
+---@field scrolling_pet_r boolean
 ---@field pet_side number
 ---@field pet _setup_character_info_pet
 
@@ -4146,11 +5176,13 @@ df.setup_character_info = {}
 ---@return df.setup_character_info
 function df.setup_character_info:new() end
 
+-- chosen_destiny
 ---@alias df.setup_character_info.T_difficulty
 ---| 0 # Peasant
 ---| 1 # Hero
 ---| 2 # Demigod
 
+-- chosen_destiny
 ---@class identity.setup_character_info.difficulty: DFEnumType
 ---@field Peasant 0
 ---@field [0] "Peasant"
@@ -4159,60 +5191,6 @@ function df.setup_character_info:new() end
 ---@field Demigod 2
 ---@field [2] "Demigod"
 df.setup_character_info.T_difficulty = {}
-
----@class df.setup_character_info.T_flag: DFBitfield
----@field _enum identity.setup_character_info.flag
----@field receiving_item boolean bay12: STARTUP_CHARACTERSHEET_FLAG_*
----@field [0] boolean bay12: STARTUP_CHARACTERSHEET_FLAG_*
-
----@class identity.setup_character_info.flag: DFBitfieldType
----@field receiving_item 0 bay12: STARTUP_CHARACTERSHEET_FLAG_*
----@field [0] "receiving_item" bay12: STARTUP_CHARACTERSHEET_FLAG_*
-df.setup_character_info.T_flag = {}
-
----@alias df.setup_character_info.T_sub_mode
----| -1 # NONE
----| 0 # RACE
----| 1 # SUBRACE
----| 2 # NEMESIS
----| 3 # ENTITY
----| 4 # DOING_SUB
----| 5 # SUB_SKILLS
----| 6 # SUB_APPEARANCE
----| 7 # SUB_PERSONALITY
----| 8 # SUB_BACKGROUND
----| 9 # SUB_EQUIPMENT
----| 10 # SUB_MOUNTS_AND_PETS
----| 11 # FINAL_CONFIRMATION
-
----@class identity.setup_character_info.sub_mode: DFEnumType
----@field NONE -1 bay12: SetupAdventureType
----@field [-1] "NONE" bay12: SetupAdventureType
----@field RACE 0
----@field [0] "RACE"
----@field SUBRACE 1
----@field [1] "SUBRACE"
----@field NEMESIS 2
----@field [2] "NEMESIS"
----@field ENTITY 3
----@field [3] "ENTITY"
----@field DOING_SUB 4
----@field [4] "DOING_SUB"
----@field SUB_SKILLS 5
----@field [5] "SUB_SKILLS"
----@field SUB_APPEARANCE 6
----@field [6] "SUB_APPEARANCE"
----@field SUB_PERSONALITY 7
----@field [7] "SUB_PERSONALITY"
----@field SUB_BACKGROUND 8
----@field [8] "SUB_BACKGROUND"
----@field SUB_EQUIPMENT 9
----@field [9] "SUB_EQUIPMENT"
----@field SUB_MOUNTS_AND_PETS 10
----@field [10] "SUB_MOUNTS_AND_PETS"
----@field FINAL_CONFIRMATION 11
----@field [11] "FINAL_CONFIRMATION"
-df.setup_character_info.T_sub_mode = {}
 
 ---@class _setup_character_info_posskill: DFContainer
 ---@field [integer] df.job_skill
@@ -4229,6 +5207,22 @@ function _setup_character_info_posskill:insert(index, item) end
 
 ---@param index integer
 function _setup_character_info_posskill:erase(index) end
+
+---@class _setup_character_info_archetype: DFContainer
+---@field [integer] df.character_archetypest
+local _setup_character_info_archetype
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.character_archetypest>
+function _setup_character_info_archetype:_field(index) end
+
+---@param index '#'|integer
+---@param item df.character_archetypest
+function _setup_character_info_archetype:insert(index, item) end
+
+---@param index integer
+function _setup_character_info_archetype:erase(index) end
 
 ---@class _setup_character_info_goodsite: DFContainer
 ---@field [integer] df.world_site
@@ -4498,6 +5492,155 @@ function _embark_profile_pet_profession:erase(index) end
 ---@field [3] "OTHER"
 df.embark_skill_tab_type = {}
 
+---@class (exact) df.setup_race_selectionst: DFStruct
+---@field _type identity.setup_race_selectionst
+---@field race number References: `df.creature_raw`
+---@field civ_id number References: `df.historical_entity`
+---@field tier_count number
+---@field flags df.setup_race_selectionst.T_flags
+
+---@class identity.setup_race_selectionst: DFCompoundType
+---@field _kind 'struct-type'
+df.setup_race_selectionst = {}
+
+---@return df.setup_race_selectionst
+function df.setup_race_selectionst:new() end
+
+---@class df.setup_race_selectionst.T_flags: DFBitfield
+---@field _enum identity.setup_race_selectionst.flags
+---@field is_regionpop boolean bay12: SETUP_RACE_SELECTION_FLAG_*
+---@field [0] boolean bay12: SETUP_RACE_SELECTION_FLAG_*
+---@field allows_chosen boolean
+---@field [1] boolean
+---@field allows_hero boolean
+---@field [2] boolean
+
+---@class identity.setup_race_selectionst.flags: DFBitfieldType
+---@field is_regionpop 0 bay12: SETUP_RACE_SELECTION_FLAG_*
+---@field [0] "is_regionpop" bay12: SETUP_RACE_SELECTION_FLAG_*
+---@field allows_chosen 1
+---@field [1] "allows_chosen"
+---@field allows_hero 2
+---@field [2] "allows_hero"
+df.setup_race_selectionst.T_flags = {}
+
+---@class (exact) df.viewscreen_setupadventurest: DFStruct, df.viewscreen
+---@field _type identity.viewscreen_setupadventurest
+---@field mode df.setup_adventure_type
+---@field race_selection _viewscreen_setupadventurest_race_selection
+---@field chosen_destiny number
+---@field chosen_allowed boolean
+---@field hero_allowed boolean
+---@field chosen_difficulty number
+---@field destiny_desc df.curses_text_boxst[]
+---@field difficulty_desc df.curses_text_boxst
+---@field want_tutorial boolean
+---@field chosen_race number
+---@field chosen_is_from_wilderpop_or_feature boolean
+---@field race_desc df.curses_text_boxst
+---@field race_desc_index number
+---@field civ_desc df.curses_text_boxst
+---@field civ_desc_id number
+---@field sheet_page number
+---@field valid_race DFNumberVector
+---@field highlight_entity_id DFNumberVector
+---@field selected_race number
+---@field scroll_position_race number
+---@field scrolling_race boolean
+---@field valid_subrace DFNumberVector
+---@field selected_subrace number
+---@field scroll_position_subrace number
+---@field scrolling_subrace boolean
+---@field nemesis_index DFNumberVector
+---@field selected_nem number
+---@field scroll_position_nem number
+---@field scrolling_nem boolean
+---@field valid_civ_id DFNumberVector
+---@field selected_civ_id number
+---@field scroll_position_civ_id number
+---@field scrolling_civ_id boolean
+---@field csheet _viewscreen_setupadventurest_csheet
+---@field active_sheet_index number
+---@field item_tab_order DFNumberVector
+---@field tooltip_phys_att_box df.curses_text_boxst
+---@field tooltip_phys_att_box_index number
+---@field tooltip_ment_att_box df.curses_text_boxst
+---@field tooltip_ment_att_box_index number
+---@field tooltip_skill_box df.curses_text_boxst
+---@field tooltip_skill_box_index number
+---@field final_start_site_id_cand DFNumberVector
+---@field selected_final_start_site_index number
+---@field scroll_final number
+---@field scrolling_final boolean
+---@field dungeon_mode_start_sheet df.viewscreen_setupadventurest.T_dungeon_mode_start_sheet
+
+---@class identity.viewscreen_setupadventurest: DFCompoundType
+---@field _kind 'class-type'
+df.viewscreen_setupadventurest = {}
+
+---@return df.viewscreen_setupadventurest
+function df.viewscreen_setupadventurest:new() end
+
+---@class _viewscreen_setupadventurest_race_selection: DFContainer
+---@field [integer] df.setup_race_selectionst
+local _viewscreen_setupadventurest_race_selection
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.setup_race_selectionst>
+function _viewscreen_setupadventurest_race_selection:_field(index) end
+
+---@param index '#'|integer
+---@param item df.setup_race_selectionst
+function _viewscreen_setupadventurest_race_selection:insert(index, item) end
+
+---@param index integer
+function _viewscreen_setupadventurest_race_selection:erase(index) end
+
+---@class _viewscreen_setupadventurest_csheet: DFContainer
+---@field [integer] df.setup_character_info
+local _viewscreen_setupadventurest_csheet
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.setup_character_info>
+function _viewscreen_setupadventurest_csheet:_field(index) end
+
+---@param index '#'|integer
+---@param item df.setup_character_info
+function _viewscreen_setupadventurest_csheet:insert(index, item) end
+
+---@param index integer
+function _viewscreen_setupadventurest_csheet:erase(index) end
+
+---@class (exact) df.viewscreen_setupadventurest.T_dungeon_mode_start_sheet: DFStruct
+---@field _type identity.viewscreen_setupadventurest.dungeon_mode_start_sheet
+---@field csheet _viewscreen_setupadventurest_dungeon_mode_start_sheet_csheet bay12: dungeon_mode_start_sheetst
+---@field start_site_id number
+
+---@class identity.viewscreen_setupadventurest.dungeon_mode_start_sheet: DFCompoundType
+---@field _kind 'struct-type'
+df.viewscreen_setupadventurest.T_dungeon_mode_start_sheet = {}
+
+---@return df.viewscreen_setupadventurest.T_dungeon_mode_start_sheet
+function df.viewscreen_setupadventurest.T_dungeon_mode_start_sheet:new() end
+
+---@class _viewscreen_setupadventurest_dungeon_mode_start_sheet_csheet: DFContainer
+---@field [integer] df.setup_character_info
+local _viewscreen_setupadventurest_dungeon_mode_start_sheet_csheet
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.setup_character_info>
+function _viewscreen_setupadventurest_dungeon_mode_start_sheet_csheet:_field(index) end
+
+---@param index '#'|integer
+---@param item df.setup_character_info
+function _viewscreen_setupadventurest_dungeon_mode_start_sheet_csheet:insert(index, item) end
+
+---@param index integer
+function _viewscreen_setupadventurest_dungeon_mode_start_sheet_csheet:erase(index) end
+
 ---@class (exact) df.viewscreen_setupdwarfgamest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_setupdwarfgamest
 ---@field title string
@@ -4692,6 +5835,7 @@ function _viewscreen_setupdwarfgamest_s_unit:erase(index) end
 ---@class (exact) df.viewscreen_choose_game_typest: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_choose_game_typest
 ---@field gametypes _viewscreen_choose_game_typest_gametypes
+---@field game_type_box DFEnumVector<df.game_type, df.curses_text_boxst>
 
 ---@class identity.viewscreen_choose_game_typest: DFCompoundType
 ---@field _kind 'class-type'
@@ -5009,6 +6153,9 @@ function df.region_snapshotst:new() end
 ---@field legend_entity_id_num number
 ---@field mm_cent_x number
 ---@field mm_cent_y number
+---@field smm_cent_x number
+---@field smm_cent_y number
+---@field cent_z number
 ---@field embark_rectangle_sx number
 ---@field embark_rectangle_ex number
 ---@field embark_rectangle_sy number
@@ -5016,6 +6163,11 @@ function df.region_snapshotst:new() end
 ---@field find_metal_ore DFPointer<integer>
 ---@field skip_metal_ore DFPointer<integer>
 ---@field highlight_site_id number References: `df.world_site`
+---@field line_start_x number
+---@field line_start_y number
+---@field line_end_x number
+---@field line_end_y number
+---@field draw_entire_line boolean
 
 ---@class identity.region_print_datast: DFCompoundType
 ---@field _kind 'struct-type'
@@ -5042,6 +6194,10 @@ function df.region_print_datast:new() end
 ---@field [6] boolean
 ---@field show_elevation boolean
 ---@field [7] boolean
+---@field triple_zoomed boolean
+---@field [8] boolean
+---@field show_travel_restriction_site boolean
+---@field [9] boolean
 
 ---@class identity.region_print_datast.flags: DFBitfieldType
 ---@field use_territory 0 bay12: REGION_PRINT_DATA_FLAG_*
@@ -5060,6 +6216,10 @@ function df.region_print_datast:new() end
 ---@field [6] "show_cliffs"
 ---@field show_elevation 7
 ---@field [7] "show_elevation"
+---@field triple_zoomed 8
+---@field [8] "triple_zoomed"
+---@field show_travel_restriction_site 9
+---@field [9] "show_travel_restriction_site"
 df.region_print_datast.T_flags = {}
 
 ---@class (exact) df.rpd_indicator_datast: DFStruct
@@ -5176,7 +6336,7 @@ function df.rpd_indicator_datast.T_marker_xy:new() end
 ---@field scrolling_rumor boolean
 ---@field mission_report_index DFNumberVector
 ---@field tribute_report_index DFNumberVector
----@field croll_position_report number
+---@field scroll_position_report number
 ---@field scrolling_report boolean
 ---@field active_mission_report df.mission_report
 ---@field mission_cursor_x number

@@ -45,6 +45,7 @@
 ---| 40 # AT_PEACE_WITH_WILDLIFE
 ---| 41 # EQUIPMENT_IMPROVEMENTS
 ---| 42 # ABUSE_BODIES
+---| 43 # MYTHICAL
 ---| 44 # GENERATED
 ---| 45 # SKULKING
 ---| 46 # HAS_LAND_HOLDER
@@ -165,6 +166,8 @@
 ---@field [41] "EQUIPMENT_IMPROVEMENTS"
 ---@field ABUSE_BODIES 42
 ---@field [42] "ABUSE_BODIES"
+---@field MYTHICAL 43
+---@field [43] "MYTHICAL"
 ---@field GENERATED 44
 ---@field [44] "GENERATED"
 ---@field SKULKING 45

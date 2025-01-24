@@ -546,6 +546,50 @@ df.night_creature_experiment_type = {}
 ---@field [12] "ARMOR"
 df.inventory_profile_skill_type = {}
 
+---@class (exact) df.creature_knowledgest: DFStruct
+---@field _type identity.creature_knowledgest
+---@field combined_caste_id number
+---@field flags df.creature_knowledgest.T_flags
+---@field site DFNumberVector
+---@field region DFNumberVector
+---@field layer DFNumberVector
+---@field scholar_flags df.creature_knowledgest.T_scholar_flags
+
+---@class identity.creature_knowledgest: DFCompoundType
+---@field _kind 'struct-type'
+df.creature_knowledgest = {}
+
+---@return df.creature_knowledgest
+function df.creature_knowledgest:new() end
+
+---@class df.creature_knowledgest.T_flags: DFBitfield
+---@field _enum identity.creature_knowledgest.flags
+---@field heard_of boolean bay12: CREATURE_KNOWLEDGE_FLAG_*
+---@field [0] boolean bay12: CREATURE_KNOWLEDGE_FLAG_*
+---@field old_local boolean
+---@field [1] boolean
+---@field recent_encounter boolean
+---@field [2] boolean
+
+---@class identity.creature_knowledgest.flags: DFBitfieldType
+---@field heard_of 0 bay12: CREATURE_KNOWLEDGE_FLAG_*
+---@field [0] "heard_of" bay12: CREATURE_KNOWLEDGE_FLAG_*
+---@field old_local 1
+---@field [1] "old_local"
+---@field recent_encounter 2
+---@field [2] "recent_encounter"
+df.creature_knowledgest.T_flags = {}
+
+---@class df.creature_knowledgest.T_scholar_flags: DFBitfield
+---@field _enum identity.creature_knowledgest.scholar_flags
+---@field foraging_behavior boolean bay12: CREATURE_KNOWLEDGE_SCHOLAR_FLAG_*
+---@field [0] boolean bay12: CREATURE_KNOWLEDGE_SCHOLAR_FLAG_*
+
+---@class identity.creature_knowledgest.scholar_flags: DFBitfieldType
+---@field foraging_behavior 0 bay12: CREATURE_KNOWLEDGE_SCHOLAR_FLAG_*
+---@field [0] "foraging_behavior" bay12: CREATURE_KNOWLEDGE_SCHOLAR_FLAG_*
+df.creature_knowledgest.T_scholar_flags = {}
+
 ---@class (exact) df.knowledge_profilest: DFStruct
 ---@field _type identity.knowledge_profilest
 ---@field known_secrets _knowledge_profilest_known_secrets bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
@@ -622,16 +666,16 @@ function _knowledge_profilest_known_events:insert(index, item) end
 function _knowledge_profilest_known_events:erase(index) end
 
 ---@class _knowledge_profilest_creature_knowledge: DFContainer
----@field [integer] DFPointer<integer>
+---@field [integer] df.creature_knowledgest
 local _knowledge_profilest_creature_knowledge
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<DFPointer<integer>>
+---@return DFPointer<df.creature_knowledgest>
 function _knowledge_profilest_creature_knowledge:_field(index) end
 
 ---@param index '#'|integer
----@param item DFPointer<integer>
+---@param item df.creature_knowledgest
 function _knowledge_profilest_creature_knowledge:insert(index, item) end
 
 ---@param index integer
@@ -639,7 +683,7 @@ function _knowledge_profilest_creature_knowledge:erase(index) end
 
 ---@class (exact) df.historical_figure_info: DFStruct
 ---@field _type identity.historical_figure_info
----@field spheres DFPointer<integer>
+---@field metaphysical DFPointer<integer>
 ---@field skills DFPointer<integer>
 ---@field pets DFPointer<integer>
 ---@field personality DFPointer<integer>
@@ -2472,6 +2516,7 @@ df.history_event_type = {}
 ---| 91 # conviction_exile
 ---| 92 # priest_vent
 ---| 93 # priest_cry
+---| 94 # success
 
 ---@class identity.history_event_reason: DFEnumType
 ---@field none -1
@@ -2664,6 +2709,8 @@ df.history_event_type = {}
 ---@field [92] "priest_vent"
 ---@field priest_cry 93
 ---@field [93] "priest_cry"
+---@field success 94
+---@field [94] "success"
 df.history_event_reason = {}
 
 ---@class history_event_reason_attr_entry_type: DFCompoundType
@@ -7605,6 +7652,7 @@ function df.intrigue.find(key) end
 function df.intrigue.get_vector() end
 
 ---@alias df.intrigue_corruption_result_rel_factor_type
+---| -1 # None
 ---| 0 # Trust
 ---| 1 # Loyalty
 ---| 2 # Love
@@ -7612,8 +7660,10 @@ function df.intrigue.get_vector() end
 ---| 4 # Respect
 
 ---@class identity.intrigue_corruption_result_rel_factor_type: DFEnumType
----@field Trust 0 bay12: IntrigueCorruptionResultRelFactorType
----@field [0] "Trust" bay12: IntrigueCorruptionResultRelFactorType
+---@field None -1 bay12: IntrigueCorruptionResultRelFactorType
+---@field [-1] "None" bay12: IntrigueCorruptionResultRelFactorType
+---@field Trust 0
+---@field [0] "Trust"
 ---@field Loyalty 1
 ---@field [1] "Loyalty"
 ---@field Love 2

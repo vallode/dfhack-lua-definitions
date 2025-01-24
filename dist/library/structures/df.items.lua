@@ -160,61 +160,18 @@ df.item_flags = {}
 ---@field [5] "might_contain_artifact"
 df.item_flags2 = {}
 
----@alias df.item_magicness_type
----| 0 # Sparkle
----| 1 # AirWarped
----| 2 # Whistle
----| 3 # OddlySquare
----| 4 # SmallBumps
----| 5 # EarthSmell
----| 6 # Lightning
----| 7 # GrayHairs
----| 8 # RustlingLeaves
+---@class (exact) df.item_powerst: DFStruct
+---@field _type identity.item_powerst
+---@field interaction_index number
+---@field interaction_source_index number
+---@field delay number
 
----@class identity.item_magicness_type: DFEnumType
----@field Sparkle 0 bay12: ItemPowers, no base type
----@field [0] "Sparkle" bay12: ItemPowers, no base type
----@field AirWarped 1 Storage
----@field [1] "AirWarped" Storage
----@field Whistle 2 Add Damage
----@field [2] "Whistle" Add Damage
----@field OddlySquare 3 Add DamBlock
----@field [3] "OddlySquare" Add DamBlock
----@field SmallBumps 4 Resist Pierce
----@field [4] "SmallBumps" Resist Pierce
----@field EarthSmell 5 Resist Bludgeon
----@field [5] "EarthSmell" Resist Bludgeon
----@field Lightning 6 Resist Slash
----@field [6] "Lightning" Resist Slash
----@field GrayHairs 7 Resist Gore; with value of 10 or higher, creatures that look at the item cannot think negative thoughts
----@field [7] "GrayHairs" Resist Gore; with value of 10 or higher, creatures that look at the item cannot think negative thoughts
----@field RustlingLeaves 8 Thorn Burst
----@field [8] "RustlingLeaves" Thorn Burst
-df.item_magicness_type = {}
-
----@class (exact) df.item_magicness: DFStruct
----@field _type identity.item_magicness
----@field type df.item_magicness_type
----@field value number boosts item value by 50*this
----@field gloss number
----@field flags df.item_magicness.T_flags
-
----@class identity.item_magicness: DFCompoundType
+---@class identity.item_powerst: DFCompoundType
 ---@field _kind 'struct-type'
-df.item_magicness = {}
+df.item_powerst = {}
 
----@return df.item_magicness
-function df.item_magicness:new() end
-
----@class df.item_magicness.T_flags: DFBitfield
----@field _enum identity.item_magicness.flags
----@field inactive boolean bay12: MAGICALPOWERFLAG_
----@field [0] boolean bay12: MAGICALPOWERFLAG_
-
----@class identity.item_magicness.flags: DFBitfieldType
----@field inactive 0 bay12: MAGICALPOWERFLAG_
----@field [0] "inactive" bay12: MAGICALPOWERFLAG_
-df.item_magicness.T_flags = {}
+---@return df.item_powerst
+function df.item_powerst:new() end
 
 ---@class (exact) df.item_magicalst: DFStruct
 ---@field _type identity.item_magicalst
@@ -228,16 +185,16 @@ df.item_magicalst = {}
 function df.item_magicalst:new() end
 
 ---@class _item_magicalst_power: DFContainer
----@field [integer] df.item_magicness
+---@field [integer] df.item_powerst
 local _item_magicalst_power
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.item_magicness>
+---@return DFPointer<df.item_powerst>
 function _item_magicalst_power:_field(index) end
 
 ---@param index '#'|integer
----@param item df.item_magicness
+---@param item df.item_powerst
 function _item_magicalst_power:insert(index, item) end
 
 ---@param index integer
@@ -379,11 +336,6 @@ df.item_quality = {}
 ---@alias df.slab_engraving_type
 ---| -1 # Slab
 ---| 0 # Memorial
----| 1 # CraftShopSign
----| 2 # WeaponsmithShopSign
----| 3 # ArmorsmithShopSign
----| 4 # GeneralStoreSign
----| 5 # FoodShopSign
 ---| 6 # Secrets
 ---| 7 # FoodImportsSign
 ---| 8 # ClothingImportsSign
@@ -411,16 +363,6 @@ df.item_quality = {}
 ---@field [-1] "Slab" bay12: EngravingIntentType
 ---@field Memorial 0
 ---@field [0] "Memorial"
----@field CraftShopSign 1 STORE_CRAFTS
----@field [1] "CraftShopSign" STORE_CRAFTS
----@field WeaponsmithShopSign 2 STORE_WEAPON
----@field [2] "WeaponsmithShopSign" STORE_WEAPON
----@field ArmorsmithShopSign 3 STORE_ARMOR
----@field [3] "ArmorsmithShopSign" STORE_ARMOR
----@field GeneralStoreSign 4 STORE_GENERAL
----@field [4] "GeneralStoreSign" STORE_GENERAL
----@field FoodShopSign 5 STORE_FOOD
----@field [5] "FoodShopSign" STORE_FOOD
 ---@field Secrets 6 from the gods? (SECRET)
 ---@field [6] "Secrets" from the gods? (SECRET)
 ---@field FoodImportsSign 7 SRB_SHOP_IMPORT_FOOD
@@ -431,8 +373,8 @@ df.item_quality = {}
 ---@field [9] "GeneralImportsSign" SRB_SHOP_IMPORT_GENERAL
 ---@field ClothShopSign 10 SRB_SHOP_CLOTH
 ---@field [10] "ClothShopSign" SRB_SHOP_CLOTH
----@field LeatherShopSign 11 SRB_SHOP_LEATHER
----@field [11] "LeatherShopSign" SRB_SHOP_LEATHER
+---@field LeatherShopSign 11 SRB_SHOP_TANNING
+---@field [11] "LeatherShopSign" SRB_SHOP_TANNING
 ---@field WovenClothingShopSign 12 SRB_SHOP_CLOTHING_CLOTH
 ---@field [12] "WovenClothingShopSign" SRB_SHOP_CLOTHING_CLOTH
 ---@field LeatherClothingShopSign 13 SRB_SHOP_CLOTHING_LEATHER
@@ -451,8 +393,8 @@ df.item_quality = {}
 ---@field [19] "ArmorsmithShopSign2" SRB_SHOP_METAL_ARMOR_SMITH
 ---@field MetalCraftShopSign 20 SRB_SHOP_METAL_CRAFTER
 ---@field [20] "MetalCraftShopSign" SRB_SHOP_METAL_CRAFTER
----@field LeatherGoodsShopSign 21 SRB_SHOP_FURNITURE_WOOD
----@field [21] "LeatherGoodsShopSign" SRB_SHOP_FURNITURE_WOOD
+---@field LeatherGoodsShopSign 21 SRB_SHOP_LEATHER_ACCESSORIES
+---@field [21] "LeatherGoodsShopSign" SRB_SHOP_LEATHER_ACCESSORIES
 ---@field CarpenterShopSign 22 SRB_SHOP_FURNITURE_WOOD
 ---@field [22] "CarpenterShopSign" SRB_SHOP_FURNITURE_WOOD
 ---@field StoneFurnitureShopSign 23 SRB_SHOP_FURNITURE_STONE
@@ -926,27 +868,6 @@ function item:assignQualityRoll(maker, job_skill, skill_roll) end
 function item:notifyCreatedMasterwork(maker) end
 
 function item:notifyLostMasterwork() end
-
----@param ptype df.item_magicness_type
----@param availpower number
----@param donorpower number
-function item:addpower(ptype, availpower, donorpower) end
-
----@param item df.item
----@param dwarfmake boolean
-function item:additempower(item, dwarfmake) end
-
----@param imp df.itemimprovement
----@param dwarfmake boolean
-function item:addimppower(imp, dwarfmake) end
-
----@param dwarfmake boolean
-function item:addnamepower(dwarfmake) end
-
----@param availpower number
----@param dwarfmake boolean
----@param subtract_current boolean
-function item:getavailpower(availpower, dwarfmake, subtract_current) end
 
 ---@param bg number
 function item:setDisplayColor(bg) end

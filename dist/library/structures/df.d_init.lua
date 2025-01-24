@@ -61,6 +61,7 @@ df.d_init_idlers = {}
 ---| 3 # SHOW_FLOW_AMOUNTS
 ---| 4 # SHOW_RAMP_ARROWS
 ---| 5 # FORT_SHOW_CLOTHING_DYES
+---| 6 # ADV_SHOW_CLOTHING_DYES
 
 ---@class identity.d_init_flags1: DFEnumType
 ---@field VARIED_GROUND_TILES 0 bay12: DInitDisplayFlagType
@@ -75,6 +76,8 @@ df.d_init_idlers = {}
 ---@field [4] "SHOW_RAMP_ARROWS"
 ---@field FORT_SHOW_CLOTHING_DYES 5
 ---@field [5] "FORT_SHOW_CLOTHING_DYES"
+---@field ADV_SHOW_CLOTHING_DYES 6
+---@field [6] "ADV_SHOW_CLOTHING_DYES"
 df.d_init_flags1 = {}
 
 ---@alias df.d_init_flags2

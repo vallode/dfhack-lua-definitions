@@ -1839,6 +1839,7 @@ df.unit_thought_type._attr_entry_type._fields = {}
 df.unit_thought_type.attrs = {}
 
 ---@alias df.opinion_type
+---| -1 # NONE
 ---| 0 # MUST_BE_STOPPED_WITH_VIOLENT_FORCE
 ---| 1 # NOT_MY_PROBLEM
 ---| 2 # INEVITABLE
@@ -1903,8 +1904,10 @@ df.unit_thought_type.attrs = {}
 ---| 61 # ACCORDS_WITH_FAITH
 
 ---@class identity.opinion_type: DFEnumType
----@field MUST_BE_STOPPED_WITH_VIOLENT_FORCE 0 bay12: OpinionType
----@field [0] "MUST_BE_STOPPED_WITH_VIOLENT_FORCE" bay12: OpinionType
+---@field NONE -1 bay12: OpinionType
+---@field [-1] "NONE" bay12: OpinionType
+---@field MUST_BE_STOPPED_WITH_VIOLENT_FORCE 0
+---@field [0] "MUST_BE_STOPPED_WITH_VIOLENT_FORCE"
 ---@field NOT_MY_PROBLEM 1
 ---@field [1] "NOT_MY_PROBLEM"
 ---@field INEVITABLE 2

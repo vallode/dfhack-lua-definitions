@@ -873,6 +873,13 @@ df.custom_symbol_context_type = {}
 ---| 3 # LOCATION_NAME
 ---| 4 # SQUAD_NAME
 ---| 5 # INFO_NOBLES_ELEVATING_POSITION_SYMBOL
+---| 6 # ADVENTURER_INVENTORY_ITEM
+---| 7 # ADVENTURER_PET
+---| 8 # ADVENTURER_PERFORMANCE_TROUPE
+---| 9 # ADVENTURER_SITE_ENTITY
+---| 10 # CHARGEN_NAME
+---| 11 # CHARGEN_PET_NAME
+---| 12 # ASSUME_IDENTITY_NAME
 
 ---@class identity.name_creator_context_type: DFEnumType
 ---@field NONE -1 bay12: NameCreatorContextType
@@ -889,6 +896,20 @@ df.custom_symbol_context_type = {}
 ---@field [4] "SQUAD_NAME"
 ---@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL 5
 ---@field [5] "INFO_NOBLES_ELEVATING_POSITION_SYMBOL"
+---@field ADVENTURER_INVENTORY_ITEM 6
+---@field [6] "ADVENTURER_INVENTORY_ITEM"
+---@field ADVENTURER_PET 7
+---@field [7] "ADVENTURER_PET"
+---@field ADVENTURER_PERFORMANCE_TROUPE 8
+---@field [8] "ADVENTURER_PERFORMANCE_TROUPE"
+---@field ADVENTURER_SITE_ENTITY 9
+---@field [9] "ADVENTURER_SITE_ENTITY"
+---@field CHARGEN_NAME 10
+---@field [10] "CHARGEN_NAME"
+---@field CHARGEN_PET_NAME 11
+---@field [11] "CHARGEN_PET_NAME"
+---@field ASSUME_IDENTITY_NAME 12
+---@field [12] "ASSUME_IDENTITY_NAME"
 df.name_creator_context_type = {}
 
 ---@alias df.image_creator_context_type
@@ -897,6 +918,7 @@ df.name_creator_context_type = {}
 ---| 1 # JOB_DETAILS_MAIN
 ---| 2 # JOB_DETAILS_IMPROVEMENT
 ---| 3 # DESIGNATION_ENGRAVING
+---| 4 # ADVENTURER_CREATION
 
 ---@class identity.image_creator_context_type: DFEnumType
 ---@field NONE -1 bay12: ImageCreatorContextType
@@ -909,6 +931,8 @@ df.name_creator_context_type = {}
 ---@field [2] "JOB_DETAILS_IMPROVEMENT"
 ---@field DESIGNATION_ENGRAVING 3
 ---@field [3] "DESIGNATION_ENGRAVING"
+---@field ADVENTURER_CREATION 4
+---@field [4] "ADVENTURER_CREATION"
 df.image_creator_context_type = {}
 
 ---@alias df.image_creator_option_type
@@ -1445,13 +1469,15 @@ df.info_interface_mode_type = {}
 ---| 4 # SUCCUMB_TO_INVASION
 ---| 5 # ABANDON_FORTRESS
 ---| 6 # RETIRE_FORTRESS
----| 7 # QUIT_WITHOUT_SAVING
----| 8 # END_GAME
----| 9 # SAVE_TO_EXISTING_FOLDER
----| 10 # SAVE_TO_NEW_FOLDER_NEW_TIMELINE
----| 11 # SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE
----| 12 # RETURN_TO_TITLE
----| 13 # CONTINUE
+---| 7 # ABANDON_ADVENTURER
+---| 8 # RETIRE_ADVENTURER
+---| 9 # QUIT_WITHOUT_SAVING
+---| 10 # END_GAME
+---| 11 # SAVE_TO_EXISTING_FOLDER
+---| 12 # SAVE_TO_NEW_FOLDER_NEW_TIMELINE
+---| 13 # SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE
+---| 14 # RETURN_TO_TITLE
+---| 15 # CONTINUE
 
 ---@class identity.main_menu_option_type: DFEnumType
 ---@field NONE -1 bay12: MainMenuOptionType
@@ -1470,20 +1496,24 @@ df.info_interface_mode_type = {}
 ---@field [5] "ABANDON_FORTRESS"
 ---@field RETIRE_FORTRESS 6
 ---@field [6] "RETIRE_FORTRESS"
----@field QUIT_WITHOUT_SAVING 7
----@field [7] "QUIT_WITHOUT_SAVING"
----@field END_GAME 8
----@field [8] "END_GAME"
----@field SAVE_TO_EXISTING_FOLDER 9
----@field [9] "SAVE_TO_EXISTING_FOLDER"
----@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE 10
----@field [10] "SAVE_TO_NEW_FOLDER_NEW_TIMELINE"
----@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE 11
----@field [11] "SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE"
----@field RETURN_TO_TITLE 12
----@field [12] "RETURN_TO_TITLE"
----@field CONTINUE 13
----@field [13] "CONTINUE"
+---@field ABANDON_ADVENTURER 7
+---@field [7] "ABANDON_ADVENTURER"
+---@field RETIRE_ADVENTURER 8
+---@field [8] "RETIRE_ADVENTURER"
+---@field QUIT_WITHOUT_SAVING 9
+---@field [9] "QUIT_WITHOUT_SAVING"
+---@field END_GAME 10
+---@field [10] "END_GAME"
+---@field SAVE_TO_EXISTING_FOLDER 11
+---@field [11] "SAVE_TO_EXISTING_FOLDER"
+---@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE 12
+---@field [12] "SAVE_TO_NEW_FOLDER_NEW_TIMELINE"
+---@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE 13
+---@field [13] "SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE"
+---@field RETURN_TO_TITLE 14
+---@field [14] "RETURN_TO_TITLE"
+---@field CONTINUE 15
+---@field [15] "CONTINUE"
 df.main_menu_option_type = {}
 
 ---@alias df.options_context_type
@@ -1494,6 +1524,12 @@ df.main_menu_option_type = {}
 ---| 3 # MAIN_DWARF_SAVE_AND_EXIT_CHOICES
 ---| 4 # MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED
 ---| 5 # ABORT_FROM_STARTING_GAME
+---| 6 # MAIN_ADVENTURE
+---| 7 # MAIN_ADVENTURE_SAVE_AND_EXIT_CHOICES
+---| 8 # MAIN_ADVENTURE_SAVE_AND_EXIT_CHOICES_ENDED
+---| 9 # MAIN_ADVENTURE_GAME_OVER_RETIRED
+---| 10 # MAIN_ADVENTURE_GAME_OVER_ABANDONED
+---| 11 # MAIN_ADVENTURE_HELP
 
 ---@class identity.options_context_type: DFEnumType
 ---@field NONE -1 bay12: OptionsContextType
@@ -1510,6 +1546,18 @@ df.main_menu_option_type = {}
 ---@field [4] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED"
 ---@field ABORT_FROM_STARTING_GAME 5
 ---@field [5] "ABORT_FROM_STARTING_GAME"
+---@field MAIN_ADVENTURE 6
+---@field [6] "MAIN_ADVENTURE"
+---@field MAIN_ADVENTURE_SAVE_AND_EXIT_CHOICES 7
+---@field [7] "MAIN_ADVENTURE_SAVE_AND_EXIT_CHOICES"
+---@field MAIN_ADVENTURE_SAVE_AND_EXIT_CHOICES_ENDED 8
+---@field [8] "MAIN_ADVENTURE_SAVE_AND_EXIT_CHOICES_ENDED"
+---@field MAIN_ADVENTURE_GAME_OVER_RETIRED 9
+---@field [9] "MAIN_ADVENTURE_GAME_OVER_RETIRED"
+---@field MAIN_ADVENTURE_GAME_OVER_ABANDONED 10
+---@field [10] "MAIN_ADVENTURE_GAME_OVER_ABANDONED"
+---@field MAIN_ADVENTURE_HELP 11
+---@field [11] "MAIN_ADVENTURE_HELP"
 df.options_context_type = {}
 
 ---@alias df.help_context_type
@@ -1562,6 +1610,36 @@ df.options_context_type = {}
 ---| 45 # GUIDE_DEEPER
 ---| 46 # GUIDE_HAPPINESS
 ---| 47 # GUIDE_GOALS
+---| 48 # ADVENTURE_START_MESSAGE
+---| 49 # ADVENTURE_START_TUTORIAL_CAMERA_CONTROLS
+---| 50 # ADVENTURE_START_TUTORIAL_MOVEMENT
+---| 51 # ADVENTURE_START_TUTORIAL_MENU_OVERVIEW
+---| 52 # ADVENTURE_DONE_WITH_FIRST_STEPS_MESSAGE
+---| 53 # ADVENTURE_REVISIT_CAMERA_CONTROLS
+---| 54 # ADVENTURE_REVISIT_MOVEMENT
+---| 55 # ADVENTURE_REVISIT_MENU_OVERVIEW
+---| 56 # ADVENTURE_POPUP_COMPANIONS
+---| 57 # ADVENTURE_POPUP_LOG
+---| 58 # ADVENTURE_POPUP_INVENTORY
+---| 59 # ADVENTURE_POPUP_MOVEMENT_OPTIONS
+---| 60 # ADVENTURE_POPUP_HOLD_CLIMB
+---| 61 # ADVENTURE_POPUP_TALK
+---| 62 # ADVENTURE_POPUP_PERFORM
+---| 63 # ADVENTURE_POPUP_CRAFT
+---| 64 # ADVENTURE_POPUP_ABILITY
+---| 65 # ADVENTURE_POPUP_ATTACK
+---| 66 # ADVENTURE_POPUP_WRESTLE
+---| 67 # ADVENTURE_POPUP_SHOOT
+---| 68 # ADVENTURE_POPUP_TRAVEL
+---| 69 # ADVENTURE_POPUP_SLEEP_REST
+---| 70 # ADVENTURE_GUIDE_SURVIVAL
+---| 71 # ADVENTURE_GUIDE_COMBAT
+---| 72 # ADVENTURE_GUIDE_THE_PARTY_AND_FOLLOWERS
+---| 73 # ADVENTURE_GUIDE_CONVERSATIONS
+---| 74 # ADVENTURE_GUIDE_TRADING
+---| 75 # ADVENTURE_GUIDE_QUESTS_AND_REPUTATION
+---| 76 # ADVENTURE_GUIDE_FORTRESS_MODE
+---| 77 # ADVENTURE_GUIDE_RETIREMENT
 
 ---@class identity.help_context_type: DFEnumType
 ---@field NONE -1 bay12: HelpContextType
@@ -1662,6 +1740,66 @@ df.options_context_type = {}
 ---@field [46] "GUIDE_HAPPINESS"
 ---@field GUIDE_GOALS 47
 ---@field [47] "GUIDE_GOALS"
+---@field ADVENTURE_START_MESSAGE 48
+---@field [48] "ADVENTURE_START_MESSAGE"
+---@field ADVENTURE_START_TUTORIAL_CAMERA_CONTROLS 49
+---@field [49] "ADVENTURE_START_TUTORIAL_CAMERA_CONTROLS"
+---@field ADVENTURE_START_TUTORIAL_MOVEMENT 50
+---@field [50] "ADVENTURE_START_TUTORIAL_MOVEMENT"
+---@field ADVENTURE_START_TUTORIAL_MENU_OVERVIEW 51
+---@field [51] "ADVENTURE_START_TUTORIAL_MENU_OVERVIEW"
+---@field ADVENTURE_DONE_WITH_FIRST_STEPS_MESSAGE 52
+---@field [52] "ADVENTURE_DONE_WITH_FIRST_STEPS_MESSAGE"
+---@field ADVENTURE_REVISIT_CAMERA_CONTROLS 53
+---@field [53] "ADVENTURE_REVISIT_CAMERA_CONTROLS"
+---@field ADVENTURE_REVISIT_MOVEMENT 54
+---@field [54] "ADVENTURE_REVISIT_MOVEMENT"
+---@field ADVENTURE_REVISIT_MENU_OVERVIEW 55
+---@field [55] "ADVENTURE_REVISIT_MENU_OVERVIEW"
+---@field ADVENTURE_POPUP_COMPANIONS 56
+---@field [56] "ADVENTURE_POPUP_COMPANIONS"
+---@field ADVENTURE_POPUP_LOG 57
+---@field [57] "ADVENTURE_POPUP_LOG"
+---@field ADVENTURE_POPUP_INVENTORY 58
+---@field [58] "ADVENTURE_POPUP_INVENTORY"
+---@field ADVENTURE_POPUP_MOVEMENT_OPTIONS 59
+---@field [59] "ADVENTURE_POPUP_MOVEMENT_OPTIONS"
+---@field ADVENTURE_POPUP_HOLD_CLIMB 60
+---@field [60] "ADVENTURE_POPUP_HOLD_CLIMB"
+---@field ADVENTURE_POPUP_TALK 61
+---@field [61] "ADVENTURE_POPUP_TALK"
+---@field ADVENTURE_POPUP_PERFORM 62
+---@field [62] "ADVENTURE_POPUP_PERFORM"
+---@field ADVENTURE_POPUP_CRAFT 63
+---@field [63] "ADVENTURE_POPUP_CRAFT"
+---@field ADVENTURE_POPUP_ABILITY 64
+---@field [64] "ADVENTURE_POPUP_ABILITY"
+---@field ADVENTURE_POPUP_ATTACK 65
+---@field [65] "ADVENTURE_POPUP_ATTACK"
+---@field ADVENTURE_POPUP_WRESTLE 66
+---@field [66] "ADVENTURE_POPUP_WRESTLE"
+---@field ADVENTURE_POPUP_SHOOT 67
+---@field [67] "ADVENTURE_POPUP_SHOOT"
+---@field ADVENTURE_POPUP_TRAVEL 68
+---@field [68] "ADVENTURE_POPUP_TRAVEL"
+---@field ADVENTURE_POPUP_SLEEP_REST 69
+---@field [69] "ADVENTURE_POPUP_SLEEP_REST"
+---@field ADVENTURE_GUIDE_SURVIVAL 70
+---@field [70] "ADVENTURE_GUIDE_SURVIVAL"
+---@field ADVENTURE_GUIDE_COMBAT 71
+---@field [71] "ADVENTURE_GUIDE_COMBAT"
+---@field ADVENTURE_GUIDE_THE_PARTY_AND_FOLLOWERS 72
+---@field [72] "ADVENTURE_GUIDE_THE_PARTY_AND_FOLLOWERS"
+---@field ADVENTURE_GUIDE_CONVERSATIONS 73
+---@field [73] "ADVENTURE_GUIDE_CONVERSATIONS"
+---@field ADVENTURE_GUIDE_TRADING 74
+---@field [74] "ADVENTURE_GUIDE_TRADING"
+---@field ADVENTURE_GUIDE_QUESTS_AND_REPUTATION 75
+---@field [75] "ADVENTURE_GUIDE_QUESTS_AND_REPUTATION"
+---@field ADVENTURE_GUIDE_FORTRESS_MODE 76
+---@field [76] "ADVENTURE_GUIDE_FORTRESS_MODE"
+---@field ADVENTURE_GUIDE_RETIREMENT 77
+---@field [77] "ADVENTURE_GUIDE_RETIREMENT"
 df.help_context_type = {}
 
 ---@alias df.settings_tab_type
@@ -1694,6 +1832,7 @@ df.settings_tab_type = {}
 ---| -1 # NONE
 ---| 0 # OUTSIDE_PLAY
 ---| 1 # FORT_MODE
+---| 2 # ADVENTURE_MODE
 
 ---@class identity.settings_context_type: DFEnumType
 ---@field NONE -1 bay12: SettingsContextType
@@ -1702,6 +1841,8 @@ df.settings_tab_type = {}
 ---@field [0] "OUTSIDE_PLAY"
 ---@field FORT_MODE 1
 ---@field [1] "FORT_MODE"
+---@field ADVENTURE_MODE 2
+---@field [2] "ADVENTURE_MODE"
 df.settings_context_type = {}
 
 ---@alias df.arena_context_type
@@ -2981,6 +3122,339 @@ df.announcements_interfacest = {}
 ---@return df.announcements_interfacest
 function df.announcements_interfacest:new() end
 
+---@alias df.adventure_interface_option_list_context_type
+---| -1 # NONE
+---| 0 # GROUND
+---| 1 # HOLD
+---| 2 # MOVE
+---| 3 # DIRECT_CLICK
+---| 4 # AIM_PROJECTILE
+---| 5 # BUILDING_INTERACT
+---| 6 # DIRECT_CLICK_MOVE_ONLY
+---| 7 # LOOK
+
+---@class identity.adventure_interface_option_list_context_type: DFEnumType
+---@field NONE -1 bay12: AdventureInterfaceOptionListContextType
+---@field [-1] "NONE" bay12: AdventureInterfaceOptionListContextType
+---@field GROUND 0
+---@field [0] "GROUND"
+---@field HOLD 1
+---@field [1] "HOLD"
+---@field MOVE 2
+---@field [2] "MOVE"
+---@field DIRECT_CLICK 3
+---@field [3] "DIRECT_CLICK"
+---@field AIM_PROJECTILE 4
+---@field [4] "AIM_PROJECTILE"
+---@field BUILDING_INTERACT 5
+---@field [5] "BUILDING_INTERACT"
+---@field DIRECT_CLICK_MOVE_ONLY 6
+---@field [6] "DIRECT_CLICK_MOVE_ONLY"
+---@field LOOK 7
+---@field [7] "LOOK"
+df.adventure_interface_option_list_context_type = {}
+
+---@alias df.adventure_interface_inventory_context_type
+---| -1 # NONE
+---| 0 # MAIN
+---| 1 # DROP
+---| 2 # WEAR
+---| 3 # REMOVE
+---| 4 # PUT_IN
+---| 5 # EAT_DRINK
+---| 6 # INTERACT
+---| 7 # PUT_IN_DESTINATION
+---| 8 # INTERACT_LIST
+---| 9 # ONE_ITEM_FULL_LIST
+---| 10 # THROW
+
+---@class identity.adventure_interface_inventory_context_type: DFEnumType
+---@field NONE -1 bay12: AdventureInterfaceInventoryContextType
+---@field [-1] "NONE" bay12: AdventureInterfaceInventoryContextType
+---@field MAIN 0
+---@field [0] "MAIN"
+---@field DROP 1
+---@field [1] "DROP"
+---@field WEAR 2
+---@field [2] "WEAR"
+---@field REMOVE 3
+---@field [3] "REMOVE"
+---@field PUT_IN 4
+---@field [4] "PUT_IN"
+---@field EAT_DRINK 5
+---@field [5] "EAT_DRINK"
+---@field INTERACT 6
+---@field [6] "INTERACT"
+---@field PUT_IN_DESTINATION 7
+---@field [7] "PUT_IN_DESTINATION"
+---@field INTERACT_LIST 8
+---@field [8] "INTERACT_LIST"
+---@field ONE_ITEM_FULL_LIST 9
+---@field [9] "ONE_ITEM_FULL_LIST"
+---@field THROW 10
+---@field [10] "THROW"
+df.adventure_interface_inventory_context_type = {}
+
+---@alias df.adventure_inventory_option_list_type
+---| -1 # NONE
+---| 0 # MAIN
+---| 1 # DETAILS
+---| 2 # DROP
+---| 3 # WEAR
+---| 4 # REMOVE
+---| 5 # PUT_IN
+---| 6 # EAT_DRINK
+---| 7 # INTERACT
+---| 8 # THROW
+
+---@class identity.adventure_inventory_option_list_type: DFEnumType
+---@field NONE -1 bay12: AdventureInventoryOptionListType
+---@field [-1] "NONE" bay12: AdventureInventoryOptionListType
+---@field MAIN 0
+---@field [0] "MAIN"
+---@field DETAILS 1
+---@field [1] "DETAILS"
+---@field DROP 2
+---@field [2] "DROP"
+---@field WEAR 3
+---@field [3] "WEAR"
+---@field REMOVE 4
+---@field [4] "REMOVE"
+---@field PUT_IN 5
+---@field [5] "PUT_IN"
+---@field EAT_DRINK 6
+---@field [6] "EAT_DRINK"
+---@field INTERACT 7
+---@field [7] "INTERACT"
+---@field THROW 8
+---@field [8] "THROW"
+df.adventure_inventory_option_list_type = {}
+
+---@alias df.adventure_interface_attack_mode_type
+---| -1 # NONE
+---| 0 # UNIT_CHOICE
+---| 1 # CONFIRM
+---| 2 # MOVE_CHOICE
+---| 3 # AIM_TARGET
+---| 4 # AIM_ATTACK
+---| 5 # PARRY_CHOICE
+---| 6 # BLOCK_CHOICE
+---| 7 # DODGE_CHOICE
+---| 8 # WRESTLE_GRASP
+---| 9 # WRESTLE_MOVE
+
+---@class identity.adventure_interface_attack_mode_type: DFEnumType
+---@field NONE -1 bay12: AdventureInterfaceAttackModeType
+---@field [-1] "NONE" bay12: AdventureInterfaceAttackModeType
+---@field UNIT_CHOICE 0
+---@field [0] "UNIT_CHOICE"
+---@field CONFIRM 1
+---@field [1] "CONFIRM"
+---@field MOVE_CHOICE 2
+---@field [2] "MOVE_CHOICE"
+---@field AIM_TARGET 3
+---@field [3] "AIM_TARGET"
+---@field AIM_ATTACK 4
+---@field [4] "AIM_ATTACK"
+---@field PARRY_CHOICE 5
+---@field [5] "PARRY_CHOICE"
+---@field BLOCK_CHOICE 6
+---@field [6] "BLOCK_CHOICE"
+---@field DODGE_CHOICE 7
+---@field [7] "DODGE_CHOICE"
+---@field WRESTLE_GRASP 8
+---@field [8] "WRESTLE_GRASP"
+---@field WRESTLE_MOVE 9
+---@field [9] "WRESTLE_MOVE"
+df.adventure_interface_attack_mode_type = {}
+
+---@alias df.adventure_interface_abilities_context
+---| -1 # NONE
+---| 0 # NORMAL
+
+---@class identity.adventure_interface_abilities_context: DFEnumType
+---@field NONE -1 bay12: AdventureInterfaceAbilitiesContextType
+---@field [-1] "NONE" bay12: AdventureInterfaceAbilitiesContextType
+---@field NORMAL 0
+---@field [0] "NORMAL"
+df.adventure_interface_abilities_context = {}
+
+---@alias df.adventure_interface_create_mode_type
+---| -1 # NONE
+---| 0 # MAIN_LIST
+---| 1 # CHOOSE_BUTCHER_TARGET
+---| 2 # CHOOSE_BUTCHER_CUTTER
+---| 3 # CHOOSE_REACTION_REAGENT
+---| 4 # SPECIFY_REACTION_IMAGES
+---| 5 # FINISHED_REACTION_IMAGES
+
+---@class identity.adventure_interface_create_mode_type: DFEnumType
+---@field NONE -1 bay12: AdventureInterfaceCreateModeType
+---@field [-1] "NONE" bay12: AdventureInterfaceCreateModeType
+---@field MAIN_LIST 0
+---@field [0] "MAIN_LIST"
+---@field CHOOSE_BUTCHER_TARGET 1
+---@field [1] "CHOOSE_BUTCHER_TARGET"
+---@field CHOOSE_BUTCHER_CUTTER 2
+---@field [2] "CHOOSE_BUTCHER_CUTTER"
+---@field CHOOSE_REACTION_REAGENT 3
+---@field [3] "CHOOSE_REACTION_REAGENT"
+---@field SPECIFY_REACTION_IMAGES 4
+---@field [4] "SPECIFY_REACTION_IMAGES"
+---@field FINISHED_REACTION_IMAGES 5
+---@field [5] "FINISHED_REACTION_IMAGES"
+df.adventure_interface_create_mode_type = {}
+
+---@alias df.performance_menu_mode_type
+---| -1 # NONE
+---| 0 # START
+---| 1 # STORY_TYPES
+---| 2 # STORY_SITES
+---| 3 # STORY_PEOPLE
+---| 4 # STORY_ENTITIES
+---| 5 # STORY_SUBREGIONS
+---| 6 # STORY_EVENTS
+---| 7 # POETRY_FORMS_PIECES
+---| 8 # MUSIC_FORMS_PIECES
+---| 9 # MUSIC_ROLES
+---| 10 # DANCE_FORMS_PIECES
+---| 11 # SERMON_TYPE
+---| 12 # SERMON_HFID
+---| 13 # SERMON_SPHERE
+---| 14 # SERMON_PROMOTE_VALUE
+---| 15 # SERMON_REFUSE_VALUE
+---| 16 # COMPOSE_POEM
+---| 17 # COMPOSE_MUSICAL_COMPOSITION
+---| 18 # COMPOSE_CHOREOGRAPHY
+---| 19 # WRITE_TARGET
+---| 20 # WRITE_FORM_OR_WC
+
+---@class identity.performance_menu_mode_type: DFEnumType
+---@field NONE -1 bay12: PerformanceMenuModeType
+---@field [-1] "NONE" bay12: PerformanceMenuModeType
+---@field START 0
+---@field [0] "START"
+---@field STORY_TYPES 1
+---@field [1] "STORY_TYPES"
+---@field STORY_SITES 2
+---@field [2] "STORY_SITES"
+---@field STORY_PEOPLE 3
+---@field [3] "STORY_PEOPLE"
+---@field STORY_ENTITIES 4
+---@field [4] "STORY_ENTITIES"
+---@field STORY_SUBREGIONS 5
+---@field [5] "STORY_SUBREGIONS"
+---@field STORY_EVENTS 6
+---@field [6] "STORY_EVENTS"
+---@field POETRY_FORMS_PIECES 7
+---@field [7] "POETRY_FORMS_PIECES"
+---@field MUSIC_FORMS_PIECES 8
+---@field [8] "MUSIC_FORMS_PIECES"
+---@field MUSIC_ROLES 9
+---@field [9] "MUSIC_ROLES"
+---@field DANCE_FORMS_PIECES 10
+---@field [10] "DANCE_FORMS_PIECES"
+---@field SERMON_TYPE 11
+---@field [11] "SERMON_TYPE"
+---@field SERMON_HFID 12
+---@field [12] "SERMON_HFID"
+---@field SERMON_SPHERE 13
+---@field [13] "SERMON_SPHERE"
+---@field SERMON_PROMOTE_VALUE 14
+---@field [14] "SERMON_PROMOTE_VALUE"
+---@field SERMON_REFUSE_VALUE 15
+---@field [15] "SERMON_REFUSE_VALUE"
+---@field COMPOSE_POEM 16
+---@field [16] "COMPOSE_POEM"
+---@field COMPOSE_MUSICAL_COMPOSITION 17
+---@field [17] "COMPOSE_MUSICAL_COMPOSITION"
+---@field COMPOSE_CHOREOGRAPHY 18
+---@field [18] "COMPOSE_CHOREOGRAPHY"
+---@field WRITE_TARGET 19
+---@field [19] "WRITE_TARGET"
+---@field WRITE_FORM_OR_WC 20
+---@field [20] "WRITE_FORM_OR_WC"
+df.performance_menu_mode_type = {}
+
+---@alias df.attack_move_choice_type
+---| -1 # NONE
+---| 0 # STRIKE
+---| 1 # WRESTLE
+---| 2 # PARRY
+---| 3 # BLOCK
+---| 4 # DODGE_AWAY
+
+---@class identity.attack_move_choice_type: DFEnumType
+---@field NONE -1 bay12: AttackMoveChoiceType
+---@field [-1] "NONE" bay12: AttackMoveChoiceType
+---@field STRIKE 0
+---@field [0] "STRIKE"
+---@field WRESTLE 1
+---@field [1] "WRESTLE"
+---@field PARRY 2
+---@field [2] "PARRY"
+---@field BLOCK 3
+---@field [3] "BLOCK"
+---@field DODGE_AWAY 4
+---@field [4] "DODGE_AWAY"
+df.attack_move_choice_type = {}
+
+---@class (exact) df.adventure_conversation_choice_infost: DFStruct
+---@field _type identity.adventure_conversation_choice_infost
+---@field choice df.talk_choice
+---@field keywords DFStringVector
+---@field title df.curses_text_boxst
+---@field orig_index number
+---@field ranking number
+
+---@class identity.adventure_conversation_choice_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.adventure_conversation_choice_infost = {}
+
+---@return df.adventure_conversation_choice_infost
+function df.adventure_conversation_choice_infost:new() end
+
+---@alias df.memory_map_type
+---| -1 # NONE
+---| 0 # MONSTER
+---| 1 # ITEM
+---| 2 # BUILDING
+---| 3 # WALL
+---| 4 # STAIR_UP
+---| 5 # STAIR_DOWN
+---| 6 # STAIR_UPDOWN
+---| 7 # RAMP_UP
+---| 8 # RAMP_DOWN
+---| 9 # FLOOR
+---| 10 # AIR
+
+---@class identity.memory_map_type: DFEnumType
+---@field NONE -1 bay12: MemoryMapType
+---@field [-1] "NONE" bay12: MemoryMapType
+---@field MONSTER 0
+---@field [0] "MONSTER"
+---@field ITEM 1
+---@field [1] "ITEM"
+---@field BUILDING 2
+---@field [2] "BUILDING"
+---@field WALL 3
+---@field [3] "WALL"
+---@field STAIR_UP 4
+---@field [4] "STAIR_UP"
+---@field STAIR_DOWN 5
+---@field [5] "STAIR_DOWN"
+---@field STAIR_UPDOWN 6
+---@field [6] "STAIR_UPDOWN"
+---@field RAMP_UP 7
+---@field [7] "RAMP_UP"
+---@field RAMP_DOWN 8
+---@field [8] "RAMP_DOWN"
+---@field FLOOR 9
+---@field [9] "FLOOR"
+---@field AIR 10
+---@field [10] "AIR"
+df.memory_map_type = {}
+
 ---@class (exact) df.main_interface: DFStruct
 ---@field _type identity.main_interface
 ---@field designation df.main_interface.T_designation
@@ -3032,6 +3506,7 @@ function df.announcements_interfacest:new() end
 ---@field arena_unit df.main_interface.T_arena_unit
 ---@field arena_tree df.main_interface.T_arena_tree
 ---@field arena_weather df.main_interface.T_arena_weather
+---@field adventure df.main_interface.T_adventure
 ---@field viewunit_list DFNumberVector
 ---@field exporting_local number
 ---@field mouse_zone number
@@ -3067,7 +3542,7 @@ function df.announcements_interfacest:new() end
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x number
 ---@field current_hover_bot_y number
----@field hover_instruction df.curses_text_boxst[]
+---@field hover_instruction DFEnumVector<df.main_hover_instruction, df.curses_text_boxst>
 ---@field last_displayed_hover_inst number
 ---@field last_displayed_hover_id1 number
 ---@field last_displayed_hover_id2 number
@@ -3081,6 +3556,10 @@ function df.announcements_interfacest:new() end
 ---@field hover_announcement_alert_button_color DFNumberVector
 ---@field hover_announcement_alert_button_bright DFNumberVector
 ---@field hover_announcement_alert_button_width number
+---@field current_compass_stid number
+---@field hover_compass_stid number
+---@field hover_compass_text df.curses_text_boxst
+---@field hover_compass_width number
 ---@field last_hover_click_update integer
 ---@field last_hover_m df.coord
 ---@field recenter_indicator_m df.coord
@@ -4125,8 +4604,14 @@ function _main_interface_assign_display_item_current_type_a_on:erase(index) end
 ---@field entering_first_name boolean
 ---@field entering_cull_str boolean
 ---@field cull_str string
----@field adv_naming_pet_actev df.activity_event_conversationst
+---@field name_item_ptr df.item
+---@field name_item df.language_name used when naming items
+---@field adv_naming_act df.activity_entry
+---@field adv_naming_actev df.activity_event_conversationst
+---@field adv_naming_cc df.talk_choice
+---@field adv_naming_conv_tact df.conversation_tact_type
 ---@field named_unit df.unit
+---@field named_entity df.historical_entity
 
 ---@class identity.main_interface.name_creator: DFCompoundType
 ---@field _kind 'struct-type'
@@ -5829,8 +6314,11 @@ function df.main_interface.T_hotkey:new() end
 ---@field header string
 ---@field text df.curses_text_boxst
 ---@field fort_retirement_confirm boolean
+---@field adv_retirement_confirm boolean
 ---@field fort_abandon_confirm boolean
+---@field adv_abandon_confirm boolean
 ---@field fort_quit_without_saving_confirm boolean
+---@field adv_quit_without_saving_confirm boolean
 ---@field option _main_interface_options_option
 ---@field option_index DFNumberVector
 ---@field entering_manual_folder boolean
@@ -6068,6 +6556,1538 @@ df.main_interface.T_arena_weather = {}
 
 ---@return df.main_interface.T_arena_weather
 function df.main_interface.T_arena_weather:new() end
+
+---@class (exact) df.main_interface.T_adventure: DFStruct
+---@field _type identity.main_interface.adventure
+---@field option_list df.main_interface.T_adventure.T_option_list
+---@field inventory df.main_interface.T_adventure.T_inventory
+---@field jump df.main_interface.T_adventure.T_jump
+---@field conversation df.main_interface.T_adventure.T_conversation
+---@field perform df.main_interface.T_adventure.T_perform
+---@field attack df.main_interface.T_adventure.T_attack
+---@field combat_pref df.main_interface.T_adventure.T_combat_pref
+---@field aim_projectile df.main_interface.T_adventure.T_aim_projectile
+---@field companions df.main_interface.T_adventure.T_companions
+---@field announcements df.main_interface.T_adventure.T_announcements
+---@field sleep df.main_interface.T_adventure.T_sleep
+---@field movement_options df.main_interface.T_adventure.T_movement_options
+---@field travel df.main_interface.T_adventure.T_travel
+---@field barter df.main_interface.T_adventure.T_barter
+---@field abilities df.main_interface.T_adventure.T_abilities
+---@field create df.main_interface.T_adventure.T_create
+---@field assume_identity df.main_interface.T_adventure.T_assume_identity
+---@field journal_outliner df.main_interface.T_adventure.T_journal_outliner
+---@field look df.main_interface.T_adventure.T_look
+---@field must_renew_adv_env_hover_flag df.main_interface.T_adventure.T_must_renew_adv_env_hover_flag
+
+---@class identity.main_interface.adventure: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure = {}
+
+---@return df.main_interface.T_adventure
+function df.main_interface.T_adventure:new() end
+
+-- bay12: adventure_interfacest
+---@class (exact) df.main_interface.T_adventure.T_option_list: DFStruct
+---@field _type identity.main_interface.adventure.option_list
+---@field open boolean bay12: adventure_interface_option_listst
+---@field context df.adventure_interface_option_list_context_type
+---@field context_pos df.coord
+---@field context_tmx number
+---@field context_tmy number
+---@field option _main_interface_adventure_option_list_option
+---@field scrolling boolean
+---@field scroll_position number
+---@field doing_pickup_amount boolean
+---@field pickup_amount_index number
+---@field pickup_amount_max number
+---@field number_amount number
+---@field entering_number boolean
+---@field number_str string
+
+---@class identity.main_interface.adventure.option_list: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_option_list = {}
+
+---@return df.main_interface.T_adventure.T_option_list
+function df.main_interface.T_adventure.T_option_list:new() end
+
+---@class _main_interface_adventure_option_list_option: DFContainer
+---@field [integer] df.adventure_optionst
+local _main_interface_adventure_option_list_option
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_optionst>
+function _main_interface_adventure_option_list_option:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_optionst
+function _main_interface_adventure_option_list_option:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_option_list_option:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_inventory: DFStruct
+---@field _type identity.main_interface.adventure.inventory
+---@field open boolean bay12: adventure_interface_inventoryst
+---@field context df.adventure_interface_inventory_context_type
+---@field context_item df.item
+---@field started_from_main boolean
+---@field option_current _main_interface_adventure_inventory_option_current
+---@field option DFEnumVector<df.adventure_inventory_option_list_type, df.adventure_optionst>
+---@field scrolling boolean
+---@field scroll_position number
+
+---@class identity.main_interface.adventure.inventory: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_inventory = {}
+
+---@return df.main_interface.T_adventure.T_inventory
+function df.main_interface.T_adventure.T_inventory:new() end
+
+---@class _main_interface_adventure_inventory_option_current: DFContainer
+---@field [integer] df.adventure_optionst
+local _main_interface_adventure_inventory_option_current
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_optionst>
+function _main_interface_adventure_inventory_option_current:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_optionst
+function _main_interface_adventure_inventory_option_current:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_inventory_option_current:erase(index) end
+
+---@class _main_interface_adventure_inventory_option: DFContainer
+---@field [integer] df.adventure_optionst
+local _main_interface_adventure_inventory_option
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_optionst>
+function _main_interface_adventure_inventory_option:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_optionst
+function _main_interface_adventure_inventory_option:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_inventory_option:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_jump: DFStruct
+---@field _type identity.main_interface.adventure.jump
+---@field open boolean bay12: adventure_interface_jumpst
+---@field cursor df.coord
+
+---@class identity.main_interface.adventure.jump: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_jump = {}
+
+---@return df.main_interface.T_adventure.T_jump
+function df.main_interface.T_adventure.T_jump:new() end
+
+---@class (exact) df.main_interface.T_adventure.T_conversation: DFStruct
+---@field _type identity.main_interface.adventure.conversation
+---@field open boolean bay12: adventure_interface_conversationst
+---@field selecting_conversation boolean
+---@field select_option _main_interface_adventure_conversation_select_option
+---@field select_scrolling boolean
+---@field select_scroll_position number
+---@field conv_act df.activity_entry
+---@field conv_actce df.activity_event_conversationst
+---@field conv_choice_info _main_interface_adventure_conversation_conv_choice_info
+---@field entering_conv_string_filter boolean
+---@field conv_string_filter string
+---@field conv_tact df.conversation_tact_type
+---@field choice_scrolling boolean
+---@field choice_scroll_position number
+---@field selecting_tact boolean
+---@field tact_cci df.adventure_conversation_choice_infost
+---@field tact_list _main_interface_adventure_conversation_tact_list
+---@field tact_scrolling boolean
+---@field tact_scroll_position number
+---@field adv_announcement _main_interface_adventure_conversation_adv_announcement
+
+---@class identity.main_interface.adventure.conversation: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_conversation = {}
+
+---@return df.main_interface.T_adventure.T_conversation
+function df.main_interface.T_adventure.T_conversation:new() end
+
+---@class _main_interface_adventure_conversation_select_option: DFContainer
+---@field [integer] df.adventure_optionst
+local _main_interface_adventure_conversation_select_option
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_optionst>
+function _main_interface_adventure_conversation_select_option:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_optionst
+function _main_interface_adventure_conversation_select_option:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_conversation_select_option:erase(index) end
+
+---@class _main_interface_adventure_conversation_conv_choice_info: DFContainer
+---@field [integer] df.adventure_conversation_choice_infost
+local _main_interface_adventure_conversation_conv_choice_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adventure_conversation_choice_infost>
+function _main_interface_adventure_conversation_conv_choice_info:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adventure_conversation_choice_infost
+function _main_interface_adventure_conversation_conv_choice_info:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_conversation_conv_choice_info:erase(index) end
+
+---@class _main_interface_adventure_conversation_tact_list: DFContainer
+---@field [integer] df.conversation_tact_type
+local _main_interface_adventure_conversation_tact_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.conversation_tact_type>
+function _main_interface_adventure_conversation_tact_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.conversation_tact_type
+function _main_interface_adventure_conversation_tact_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_conversation_tact_list:erase(index) end
+
+---@class _main_interface_adventure_conversation_adv_announcement: DFContainer
+---@field [integer] df.adv_announcementst
+local _main_interface_adventure_conversation_adv_announcement
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adv_announcementst>
+function _main_interface_adventure_conversation_adv_announcement:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adv_announcementst
+function _main_interface_adventure_conversation_adv_announcement:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_conversation_adv_announcement:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_perform: DFStruct
+---@field _type identity.main_interface.adventure.perform
+---@field open boolean bay12: adventure_interface_performst
+---@field mode df.performance_menu_mode_type
+---@field base_choice _main_interface_adventure_perform_base_choice
+---@field choice _main_interface_adventure_perform_choice
+---@field scroll_position_choice number
+---@field scrolling_choice boolean
+---@field filter_str string
+---@field entering_filter boolean
+---@field relevant_choice df.performance_menu_choice_type
+---@field relevant_id number
+---@field color_box df.color_text_boxst
+---@field color_box_choice df.performance_menu_choicest
+---@field para_tex_width number
+---@field un df.unit
+---@field total_item_list _main_interface_adventure_perform_total_item_list
+---@field compose_writing_form _main_interface_adventure_perform_compose_writing_form
+---@field poetic_form _main_interface_adventure_perform_poetic_form
+---@field musical_form _main_interface_adventure_perform_musical_form
+---@field dance_form _main_interface_adventure_perform_dance_form
+---@field selected_writing_form df.written_content_type
+---@field write_object df.item
+---@field write_target _main_interface_adventure_perform_write_target
+---@field write_writing_form _main_interface_adventure_perform_write_writing_form
+---@field write_wc _main_interface_adventure_perform_write_wc
+
+---@class identity.main_interface.adventure.perform: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_perform = {}
+
+---@return df.main_interface.T_adventure.T_perform
+function df.main_interface.T_adventure.T_perform:new() end
+
+---@class _main_interface_adventure_perform_base_choice: DFContainer
+---@field [integer] df.performance_menu_choicest
+local _main_interface_adventure_perform_base_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.performance_menu_choicest>
+function _main_interface_adventure_perform_base_choice:_field(index) end
+
+---@param index '#'|integer
+---@param item df.performance_menu_choicest
+function _main_interface_adventure_perform_base_choice:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_base_choice:erase(index) end
+
+---@class _main_interface_adventure_perform_choice: DFContainer
+---@field [integer] df.performance_menu_choicest
+local _main_interface_adventure_perform_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.performance_menu_choicest>
+function _main_interface_adventure_perform_choice:_field(index) end
+
+---@param index '#'|integer
+---@param item df.performance_menu_choicest
+function _main_interface_adventure_perform_choice:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_choice:erase(index) end
+
+---@class _main_interface_adventure_perform_total_item_list: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_perform_total_item_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_perform_total_item_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_perform_total_item_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_total_item_list:erase(index) end
+
+---@class _main_interface_adventure_perform_compose_writing_form: DFContainer
+---@field [integer] df.written_content_type
+local _main_interface_adventure_perform_compose_writing_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.written_content_type>
+function _main_interface_adventure_perform_compose_writing_form:_field(index) end
+
+---@param index '#'|integer
+---@param item df.written_content_type
+function _main_interface_adventure_perform_compose_writing_form:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_compose_writing_form:erase(index) end
+
+---@class _main_interface_adventure_perform_poetic_form: DFContainer
+---@field [integer] df.poetic_form
+local _main_interface_adventure_perform_poetic_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.poetic_form>
+function _main_interface_adventure_perform_poetic_form:_field(index) end
+
+---@param index '#'|integer
+---@param item df.poetic_form
+function _main_interface_adventure_perform_poetic_form:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_poetic_form:erase(index) end
+
+---@class _main_interface_adventure_perform_musical_form: DFContainer
+---@field [integer] df.musical_form
+local _main_interface_adventure_perform_musical_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.musical_form>
+function _main_interface_adventure_perform_musical_form:_field(index) end
+
+---@param index '#'|integer
+---@param item df.musical_form
+function _main_interface_adventure_perform_musical_form:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_musical_form:erase(index) end
+
+---@class _main_interface_adventure_perform_dance_form: DFContainer
+---@field [integer] df.dance_form
+local _main_interface_adventure_perform_dance_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.dance_form>
+function _main_interface_adventure_perform_dance_form:_field(index) end
+
+---@param index '#'|integer
+---@param item df.dance_form
+function _main_interface_adventure_perform_dance_form:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_dance_form:erase(index) end
+
+---@class _main_interface_adventure_perform_write_target: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_perform_write_target
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_perform_write_target:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_perform_write_target:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_write_target:erase(index) end
+
+---@class _main_interface_adventure_perform_write_writing_form: DFContainer
+---@field [integer] df.written_content_type
+local _main_interface_adventure_perform_write_writing_form
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.written_content_type>
+function _main_interface_adventure_perform_write_writing_form:_field(index) end
+
+---@param index '#'|integer
+---@param item df.written_content_type
+function _main_interface_adventure_perform_write_writing_form:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_write_writing_form:erase(index) end
+
+---@class _main_interface_adventure_perform_write_wc: DFContainer
+---@field [integer] df.written_content
+local _main_interface_adventure_perform_write_wc
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.written_content>
+function _main_interface_adventure_perform_write_wc:_field(index) end
+
+---@param index '#'|integer
+---@param item df.written_content
+function _main_interface_adventure_perform_write_wc:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_perform_write_wc:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_attack: DFStruct
+---@field _type identity.main_interface.adventure.attack
+---@field open boolean bay12: adventure_interface_attackst
+---@field mode df.adventure_interface_attack_mode_type
+---@field always_do_something boolean
+---@field unit_choice _main_interface_adventure_attack_unit_choice
+---@field scroll_position_unit_choice number
+---@field scrolling_unit_choice boolean
+---@field confirm_unit df.unit
+---@field attack_unit df.unit
+---@field special_combat df.main_interface.T_adventure.T_attack.T_special_combat
+---@field move_choice _main_interface_adventure_attack_move_choice
+---@field scroll_position_move_choice number
+---@field scrolling_move_choice boolean
+---@field scroll_position_aim_target number
+---@field scrolling_aim_target boolean
+---@field custom_combat df.main_interface.T_adventure.T_attack.T_custom_combat
+---@field aim_attack_flag df.main_interface.T_adventure.T_attack.T_aim_attack_flag
+---@field aim_attack_charge_restrict df.main_interface.T_adventure.T_attack.T_aim_attack_charge_restrict
+---@field scroll_position_aim_attack number
+---@field scrolling_aim_attack boolean
+---@field wrestle _main_interface_adventure_attack_wrestle
+---@field shared_it _main_interface_adventure_attack_shared_it
+---@field scroll_position_wrestle number
+---@field scrolling_wrestle boolean
+---@field selected_bp number
+---@field scrselected_item_idoll_position_wrestle number
+---@field cl_type _main_interface_adventure_attack_cl_type
+---@field cl_index DFNumberVector
+---@field combat_list df.main_interface.T_adventure.T_attack.T_combat_list
+---@field scroll_position_cl number
+---@field scrolling_cl boolean
+---@field old_scroll_position_cl number
+---@field allow_strike boolean
+---@field allow_wrestle boolean
+
+---@class identity.main_interface.adventure.attack: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_attack = {}
+
+---@return df.main_interface.T_adventure.T_attack
+function df.main_interface.T_adventure.T_attack:new() end
+
+---@class _main_interface_adventure_attack_unit_choice: DFContainer
+---@field [integer] df.unit
+local _main_interface_adventure_attack_unit_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit>
+function _main_interface_adventure_attack_unit_choice:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit
+function _main_interface_adventure_attack_unit_choice:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_unit_choice:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_attack.T_special_combat: DFStruct
+---@field _type identity.main_interface.adventure.attack.special_combat
+---@field parry_wld _main_interface_adventure_attack_special_combat_parry_wld bay12: special_combatst
+---@field parry_move _main_interface_adventure_attack_special_combat_parry_move
+---@field block_wld _main_interface_adventure_attack_special_combat_block_wld
+---@field block_move _main_interface_adventure_attack_special_combat_block_move
+---@field can_jump_dodge boolean
+---@field jumpsquare df.coord2d_path
+
+---@class identity.main_interface.adventure.attack.special_combat: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_attack.T_special_combat = {}
+
+---@return df.main_interface.T_adventure.T_attack.T_special_combat
+function df.main_interface.T_adventure.T_attack.T_special_combat:new() end
+
+---@class _main_interface_adventure_attack_special_combat_parry_wld: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_attack_special_combat_parry_wld
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_attack_special_combat_parry_wld:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_attack_special_combat_parry_wld:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_special_combat_parry_wld:erase(index) end
+
+---@class _main_interface_adventure_attack_special_combat_parry_move: DFContainer
+---@field [integer] df.unit_action
+local _main_interface_adventure_attack_special_combat_parry_move
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_action>
+function _main_interface_adventure_attack_special_combat_parry_move:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_action
+function _main_interface_adventure_attack_special_combat_parry_move:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_special_combat_parry_move:erase(index) end
+
+---@class _main_interface_adventure_attack_special_combat_block_wld: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_attack_special_combat_block_wld
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_attack_special_combat_block_wld:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_attack_special_combat_block_wld:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_special_combat_block_wld:erase(index) end
+
+---@class _main_interface_adventure_attack_special_combat_block_move: DFContainer
+---@field [integer] df.unit_action
+local _main_interface_adventure_attack_special_combat_block_move
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_action>
+function _main_interface_adventure_attack_special_combat_block_move:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_action
+function _main_interface_adventure_attack_special_combat_block_move:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_special_combat_block_move:erase(index) end
+
+---@class _main_interface_adventure_attack_move_choice: DFContainer
+---@field [integer] df.attack_move_choice_type
+local _main_interface_adventure_attack_move_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.attack_move_choice_type>
+function _main_interface_adventure_attack_move_choice:_field(index) end
+
+---@param index '#'|integer
+---@param item df.attack_move_choice_type
+function _main_interface_adventure_attack_move_choice:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_move_choice:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_attack.T_custom_combat: DFStruct
+---@field _type identity.main_interface.adventure.attack.custom_combat
+---@field aim_mod _main_interface_adventure_attack_custom_combat_aim_mod bay12: adventure_custom_combatst
+
+---@class identity.main_interface.adventure.attack.custom_combat: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_attack.T_custom_combat = {}
+
+---@return df.main_interface.T_adventure.T_attack.T_custom_combat
+function df.main_interface.T_adventure.T_attack.T_custom_combat:new() end
+
+---@class _main_interface_adventure_attack_custom_combat_aim_mod: DFContainer
+---@field [integer] df.attack_chance_modifierst
+local _main_interface_adventure_attack_custom_combat_aim_mod
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.attack_chance_modifierst>
+function _main_interface_adventure_attack_custom_combat_aim_mod:_field(index) end
+
+---@param index '#'|integer
+---@param item df.attack_chance_modifierst
+function _main_interface_adventure_attack_custom_combat_aim_mod:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_custom_combat_aim_mod:erase(index) end
+
+---@class df.main_interface.T_adventure.T_attack.T_aim_attack_flag: DFBitfield
+---@field _enum identity.main_interface.adventure.attack.aim_attack_flag
+---@field charge boolean bay12: AIM_ATTACK_FLAG_*
+---@field [0] boolean bay12: AIM_ATTACK_FLAG_*
+---@field multi boolean
+---@field [1] boolean
+---@field quick boolean
+---@field [2] boolean
+---@field heavy boolean
+---@field [3] boolean
+---@field wild boolean
+---@field [4] boolean
+---@field precise boolean
+---@field [5] boolean
+---@field automatic_hit boolean
+---@field [6] boolean
+---@field sparring_hit boolean
+---@field [7] boolean
+
+---@class identity.main_interface.adventure.attack.aim_attack_flag: DFBitfieldType
+---@field charge 0 bay12: AIM_ATTACK_FLAG_*
+---@field [0] "charge" bay12: AIM_ATTACK_FLAG_*
+---@field multi 1
+---@field [1] "multi"
+---@field quick 2
+---@field [2] "quick"
+---@field heavy 3
+---@field [3] "heavy"
+---@field wild 4
+---@field [4] "wild"
+---@field precise 5
+---@field [5] "precise"
+---@field automatic_hit 6
+---@field [6] "automatic_hit"
+---@field sparring_hit 7
+---@field [7] "sparring_hit"
+df.main_interface.T_adventure.T_attack.T_aim_attack_flag = {}
+
+---@alias df.main_interface.T_adventure.T_attack.T_aim_attack_charge_restrict
+---| -1 # None
+---| 0 # NoTarget
+---| 1 # SelfProne
+---| 2 # SelfMounted
+---| 3 # SelfChained
+---| 4 # SelfUncontrolledFlight
+---| 5 # SelfVehicle
+---| 6 # SelfProjectile
+---| 7 # SelfClimbing
+---| 8 # TargetProne
+---| 9 # TargetMounted
+---| 10 # TargetChained
+---| 11 # TargetUncontrolledFlight
+---| 12 # TargetVehicle
+---| 13 # TargetProjectile
+---| 14 # TargetClimbing
+---| 15 # TargetSharesLocation
+---| 16 # TargetLocationInaccessible
+
+---@class identity.main_interface.adventure.attack.aim_attack_charge_restrict: DFEnumType
+---@field None -1 bay12: ChargeRestrictType
+---@field [-1] "None" bay12: ChargeRestrictType
+---@field NoTarget 0
+---@field [0] "NoTarget"
+---@field SelfProne 1
+---@field [1] "SelfProne"
+---@field SelfMounted 2
+---@field [2] "SelfMounted"
+---@field SelfChained 3
+---@field [3] "SelfChained"
+---@field SelfUncontrolledFlight 4
+---@field [4] "SelfUncontrolledFlight"
+---@field SelfVehicle 5
+---@field [5] "SelfVehicle"
+---@field SelfProjectile 6
+---@field [6] "SelfProjectile"
+---@field SelfClimbing 7
+---@field [7] "SelfClimbing"
+---@field TargetProne 8
+---@field [8] "TargetProne"
+---@field TargetMounted 9
+---@field [9] "TargetMounted"
+---@field TargetChained 10
+---@field [10] "TargetChained"
+---@field TargetUncontrolledFlight 11
+---@field [11] "TargetUncontrolledFlight"
+---@field TargetVehicle 12
+---@field [12] "TargetVehicle"
+---@field TargetProjectile 13
+---@field [13] "TargetProjectile"
+---@field TargetClimbing 14
+---@field [14] "TargetClimbing"
+---@field TargetSharesLocation 15
+---@field [15] "TargetSharesLocation"
+---@field TargetLocationInaccessible 16
+---@field [16] "TargetLocationInaccessible"
+df.main_interface.T_adventure.T_attack.T_aim_attack_charge_restrict = {}
+
+---@class _main_interface_adventure_attack_wrestle: DFContainer
+---@field [integer] df.unit_item_wrestle
+local _main_interface_adventure_attack_wrestle
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_item_wrestle>
+function _main_interface_adventure_attack_wrestle:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_item_wrestle
+function _main_interface_adventure_attack_wrestle:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_wrestle:erase(index) end
+
+---@class _main_interface_adventure_attack_shared_it: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_attack_shared_it
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_attack_shared_it:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_attack_shared_it:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_shared_it:erase(index) end
+
+---@class _main_interface_adventure_attack_cl_type: DFContainer
+---@field [integer] df.dungeon_wrestle_type
+local _main_interface_adventure_attack_cl_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.dungeon_wrestle_type>
+function _main_interface_adventure_attack_cl_type:_field(index) end
+
+---@param index '#'|integer
+---@param item df.dungeon_wrestle_type
+function _main_interface_adventure_attack_cl_type:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_cl_type:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_attack.T_combat_list: DFStruct
+---@field _type identity.main_interface.adventure.attack.combat_list
+---@field target df.unit bay12: combat_listst
+---@field strike number
+---@field wrestle number
+---@field a_item_list _main_interface_adventure_attack_combat_list_a_item_list
+---@field a_bp_list DFNumberVector
+---@field d_item_list _main_interface_adventure_attack_combat_list_d_item_list
+---@field d_bp_list DFNumberVector
+---@field a_wrestle _main_interface_adventure_attack_combat_list_a_wrestle
+---@field d_wrestle _main_interface_adventure_attack_combat_list_d_wrestle
+---@field a_invitem _main_interface_adventure_attack_combat_list_a_invitem
+---@field d_invitem _main_interface_adventure_attack_combat_list_d_invitem
+---@field grapple_attack_a_bp DFNumberVector
+---@field grapple_attack_a_item DFNumberVector
+---@field grapple_attack_d_bp DFNumberVector
+---@field grapple_attack_d_item DFNumberVector
+---@field wrestle_attack_ind DFNumberVector
+---@field wrestle_attack_type DFNumberVector
+---@field wrestle_attack_bp DFNumberVector
+
+---@class identity.main_interface.adventure.attack.combat_list: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_attack.T_combat_list = {}
+
+---@return df.main_interface.T_adventure.T_attack.T_combat_list
+function df.main_interface.T_adventure.T_attack.T_combat_list:new() end
+
+---@class _main_interface_adventure_attack_combat_list_a_item_list: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_attack_combat_list_a_item_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_attack_combat_list_a_item_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_attack_combat_list_a_item_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_combat_list_a_item_list:erase(index) end
+
+---@class _main_interface_adventure_attack_combat_list_d_item_list: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_attack_combat_list_d_item_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_attack_combat_list_d_item_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_attack_combat_list_d_item_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_combat_list_d_item_list:erase(index) end
+
+---@class _main_interface_adventure_attack_combat_list_a_wrestle: DFContainer
+---@field [integer] df.unit_item_wrestle
+local _main_interface_adventure_attack_combat_list_a_wrestle
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_item_wrestle>
+function _main_interface_adventure_attack_combat_list_a_wrestle:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_item_wrestle
+function _main_interface_adventure_attack_combat_list_a_wrestle:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_combat_list_a_wrestle:erase(index) end
+
+---@class _main_interface_adventure_attack_combat_list_d_wrestle: DFContainer
+---@field [integer] df.unit_item_wrestle
+local _main_interface_adventure_attack_combat_list_d_wrestle
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_item_wrestle>
+function _main_interface_adventure_attack_combat_list_d_wrestle:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_item_wrestle
+function _main_interface_adventure_attack_combat_list_d_wrestle:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_combat_list_d_wrestle:erase(index) end
+
+---@class _main_interface_adventure_attack_combat_list_a_invitem: DFContainer
+---@field [integer] df.unit_inventory_item
+local _main_interface_adventure_attack_combat_list_a_invitem
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_inventory_item>
+function _main_interface_adventure_attack_combat_list_a_invitem:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_inventory_item
+function _main_interface_adventure_attack_combat_list_a_invitem:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_combat_list_a_invitem:erase(index) end
+
+---@class _main_interface_adventure_attack_combat_list_d_invitem: DFContainer
+---@field [integer] df.unit_inventory_item
+local _main_interface_adventure_attack_combat_list_d_invitem
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_inventory_item>
+function _main_interface_adventure_attack_combat_list_d_invitem:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_inventory_item
+function _main_interface_adventure_attack_combat_list_d_invitem:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_attack_combat_list_d_invitem:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_combat_pref: DFStruct
+---@field _type identity.main_interface.adventure.combat_pref
+---@field open boolean bay12: adventure_interface_combat_prefst
+
+---@class identity.main_interface.adventure.combat_pref: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_combat_pref = {}
+
+---@return df.main_interface.T_adventure.T_combat_pref
+function df.main_interface.T_adventure.T_combat_pref:new() end
+
+---@class (exact) df.main_interface.T_adventure.T_aim_projectile: DFStruct
+---@field _type identity.main_interface.adventure.aim_projectile
+---@field open boolean bay12: adventure_interface_aim_projectilest
+---@field cursor df.coord
+---@field shooting boolean
+---@field shooter_it df.item
+---@field ammo_it df.item
+---@field thrown_it df.item
+---@field projectile_target_list _main_interface_adventure_aim_projectile_projectile_target_list
+
+---@class identity.main_interface.adventure.aim_projectile: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_aim_projectile = {}
+
+---@return df.main_interface.T_adventure.T_aim_projectile
+function df.main_interface.T_adventure.T_aim_projectile:new() end
+
+---@class _main_interface_adventure_aim_projectile_projectile_target_list: DFContainer
+---@field [integer] DFPointer<integer>
+local _main_interface_adventure_aim_projectile_projectile_target_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function _main_interface_adventure_aim_projectile_projectile_target_list:_field(index) end
+
+---@param index '#'|integer
+---@param item DFPointer<integer>
+function _main_interface_adventure_aim_projectile_projectile_target_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_aim_projectile_projectile_target_list:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_companions: DFStruct
+---@field _type identity.main_interface.adventure.companions
+---@field open boolean bay12: adventure_interface_companionsst
+---@field companion_party_nem _main_interface_adventure_companions_companion_party_nem
+---@field companion _main_interface_adventure_companions_companion
+---@field companion_visible _main_interface_adventure_companions_companion_visible
+---@field companion_pos df.coord_path
+---@field scrolling boolean
+---@field scroll_position number
+
+---@class identity.main_interface.adventure.companions: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_companions = {}
+
+---@return df.main_interface.T_adventure.T_companions
+function df.main_interface.T_adventure.T_companions:new() end
+
+---@class _main_interface_adventure_companions_companion_party_nem: DFContainer
+---@field [integer] df.nemesis_record
+local _main_interface_adventure_companions_companion_party_nem
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _main_interface_adventure_companions_companion_party_nem:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _main_interface_adventure_companions_companion_party_nem:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_companions_companion_party_nem:erase(index) end
+
+---@class _main_interface_adventure_companions_companion: DFContainer
+---@field [integer] df.unit
+local _main_interface_adventure_companions_companion
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit>
+function _main_interface_adventure_companions_companion:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit
+function _main_interface_adventure_companions_companion:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_companions_companion:erase(index) end
+
+---@class _main_interface_adventure_companions_companion_visible: DFContainer
+---@field [integer] any[]
+local _main_interface_adventure_companions_companion_visible
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _main_interface_adventure_companions_companion_visible:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _main_interface_adventure_companions_companion_visible:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_companions_companion_visible:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_announcements: DFStruct
+---@field _type identity.main_interface.adventure.announcements
+---@field open boolean bay12: adventure_interface_announcementsst
+---@field adv_announcement _main_interface_adventure_announcements_adv_announcement
+---@field scrolling boolean
+---@field scroll_position number
+
+---@class identity.main_interface.adventure.announcements: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_announcements = {}
+
+---@return df.main_interface.T_adventure.T_announcements
+function df.main_interface.T_adventure.T_announcements:new() end
+
+---@class _main_interface_adventure_announcements_adv_announcement: DFContainer
+---@field [integer] df.adv_announcementst
+local _main_interface_adventure_announcements_adv_announcement
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adv_announcementst>
+function _main_interface_adventure_announcements_adv_announcement:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adv_announcementst
+function _main_interface_adventure_announcements_adv_announcement:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_announcements_adv_announcement:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_sleep: DFStruct
+---@field _type identity.main_interface.adventure.sleep
+---@field open boolean bay12: adventure_interface_sleepst
+---@field no_sky boolean
+
+---@class identity.main_interface.adventure.sleep: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_sleep = {}
+
+---@return df.main_interface.T_adventure.T_sleep
+function df.main_interface.T_adventure.T_sleep:new() end
+
+---@class (exact) df.main_interface.T_adventure.T_movement_options: DFStruct
+---@field _type identity.main_interface.adventure.movement_options
+---@field open boolean bay12: adventure_interface_movement_optionsst
+---@field scroll_gait number
+---@field scrolling_gait boolean
+---@field speed_sneak_un df.unit
+---@field gait_type df.gait_type
+
+---@class identity.main_interface.adventure.movement_options: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_movement_options = {}
+
+---@return df.main_interface.T_adventure.T_movement_options
+function df.main_interface.T_adventure.T_movement_options:new() end
+
+---@class (exact) df.main_interface.T_adventure.T_travel: DFStruct
+---@field _type identity.main_interface.adventure.travel
+---@field hover_text_ax number bay12: adventure_interface_travelst
+---@field hover_text_ay number
+---@field hover_text df.markup_text_boxst
+
+---@class identity.main_interface.adventure.travel: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_travel = {}
+
+---@return df.main_interface.T_adventure.T_travel
+function df.main_interface.T_adventure.T_travel:new() end
+
+---@class (exact) df.main_interface.T_adventure.T_barter: DFStruct
+---@field _type identity.main_interface.adventure.barter
+---@field open boolean bay12: adventure_interface_barterst
+---@field merchant df.unit
+---@field your_trader df.unit
+---@field zone df.building_civzonest
+---@field conv df.activity_event_conversationst
+---@field personal boolean
+---@field demand_only boolean
+---@field strong_affiliation_bonus boolean
+---@field good df.item[]
+---@field goodflag integer[]
+---@field good_amount number[]
+---@field your_currency _main_interface_adventure_barter_your_currency
+---@field merchant_currency _main_interface_adventure_barter_merchant_currency
+---@field i_height number[]
+---@field master_type_a_type number[]
+---@field master_type_a_subtype number[]
+---@field master_type_a_expanded any[][]
+---@field current_type_a_type number[]
+---@field current_type_a_subtype number[]
+---@field current_type_a_expanded any[][]
+---@field current_type_a_on any[][]
+---@field current_type_a_flag integer[]
+---@field scroll_position_item number[]
+---@field scrolling_item boolean[]
+---@field item_filter string[]
+---@field entering_item_filter boolean[]
+---@field talkline number trade reply
+---@field buildlists number
+---@field max_currency number[]
+---@field currency_trade number[]
+---@field entering_amount number
+---@field entering_ask_currency number
+---@field entering_offer_currency number
+---@field amount_str string
+---@field amount_side number
+---@field amount_index number
+---@field big_announce df.curses_text_boxst
+---@field scroll_position_big_announce number
+---@field scrolling_big_announce boolean
+
+---@class identity.main_interface.adventure.barter: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_barter = {}
+
+---@return df.main_interface.T_adventure.T_barter
+function df.main_interface.T_adventure.T_barter:new() end
+
+---@class _main_interface_adventure_barter_good: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_barter_good
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_barter_good:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_barter_good:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_barter_good:erase(index) end
+
+---@class _main_interface_adventure_barter_your_currency: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_barter_your_currency
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_barter_your_currency:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_barter_your_currency:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_barter_your_currency:erase(index) end
+
+---@class _main_interface_adventure_barter_merchant_currency: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_barter_merchant_currency
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_barter_merchant_currency:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_barter_merchant_currency:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_barter_merchant_currency:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_abilities: DFStruct
+---@field _type identity.main_interface.adventure.abilities
+---@field open boolean bay12: adventure_interface_abilitiesst
+---@field context df.adventure_interface_abilities_context
+---@field targeting boolean
+---@field cursor df.coord
+---@field have_target_list boolean
+---@field target_scrolling boolean
+---@field target_scroll_position number
+---@field ctarget_scrolling boolean
+---@field ctarget_scroll_position number
+---@field body_action _main_interface_adventure_abilities_body_action
+---@field body_action_use_flag DFIntegerVector
+---@field body_action_interaction DFNumberVector
+---@field interaction_cdi _main_interface_adventure_abilities_interaction_cdi
+---@field interaction_cdi_use_flag DFIntegerVector
+---@field interaction_cdi_mat_effect_index DFNumberVector
+---@field item _main_interface_adventure_abilities_item
+---@field item_power _main_interface_adventure_abilities_item_power
+---@field item_power_use_flag DFIntegerVector
+---@field scrolling boolean
+---@field scroll_position number
+
+---@class identity.main_interface.adventure.abilities: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_abilities = {}
+
+---@return df.main_interface.T_adventure.T_abilities
+function df.main_interface.T_adventure.T_abilities:new() end
+
+---@class _main_interface_adventure_abilities_body_action: DFContainer
+---@field [integer] df.body_actionst
+local _main_interface_adventure_abilities_body_action
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.body_actionst>
+function _main_interface_adventure_abilities_body_action:_field(index) end
+
+---@param index '#'|integer
+---@param item df.body_actionst
+function _main_interface_adventure_abilities_body_action:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_abilities_body_action:erase(index) end
+
+---@class _main_interface_adventure_abilities_interaction_cdi: DFContainer
+---@field [integer] df.creature_interaction_effect_can_do_interactionst
+local _main_interface_adventure_abilities_interaction_cdi
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_interaction_effect_can_do_interactionst>
+function _main_interface_adventure_abilities_interaction_cdi:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_interaction_effect_can_do_interactionst
+function _main_interface_adventure_abilities_interaction_cdi:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_abilities_interaction_cdi:erase(index) end
+
+---@class _main_interface_adventure_abilities_item: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_abilities_item
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_abilities_item:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_abilities_item:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_abilities_item:erase(index) end
+
+---@class _main_interface_adventure_abilities_item_power: DFContainer
+---@field [integer] df.item_powerst
+local _main_interface_adventure_abilities_item_power
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item_powerst>
+function _main_interface_adventure_abilities_item_power:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item_powerst
+function _main_interface_adventure_abilities_item_power:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_abilities_item_power:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_create: DFStruct
+---@field _type identity.main_interface.adventure.create
+---@field open boolean bay12: adventure_interface_createst
+---@field mode df.adventure_interface_create_mode_type
+---@field total_item_list _main_interface_adventure_create_total_item_list
+---@field scrolling boolean
+---@field scroll_position number
+---@field reaction_list _main_interface_adventure_create_reaction_list
+---@field reaction_category DFStringVector
+---@field current_reaction_category string
+---@field valid_item_list _main_interface_adventure_create_valid_item_list
+---@field current_reagent_list _main_interface_adventure_create_current_reagent_list
+---@field current_reagent_index DFNumberVector
+---@field selected_reaction df.reaction
+---@field reagent_index number
+---@field number_left number
+---@field prod_adv_art_specifier _main_interface_adventure_create_prod_adv_art_specifier
+---@field prod_adv_art_index number
+---@field exit_flag df.main_interface.T_adventure.T_create.T_exit_flag
+---@field butcher_object df.item
+---@field butcher_target _main_interface_adventure_create_butcher_target
+---@field butcher_cutter _main_interface_adventure_create_butcher_cutter
+
+---@class identity.main_interface.adventure.create: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_create = {}
+
+---@return df.main_interface.T_adventure.T_create
+function df.main_interface.T_adventure.T_create:new() end
+
+---@class _main_interface_adventure_create_total_item_list: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_create_total_item_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_create_total_item_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_create_total_item_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_total_item_list:erase(index) end
+
+---@class _main_interface_adventure_create_reaction_list: DFContainer
+---@field [integer] df.reaction
+local _main_interface_adventure_create_reaction_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.reaction>
+function _main_interface_adventure_create_reaction_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.reaction
+function _main_interface_adventure_create_reaction_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_reaction_list:erase(index) end
+
+---@class _main_interface_adventure_create_valid_item_list: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_create_valid_item_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_create_valid_item_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_create_valid_item_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_valid_item_list:erase(index) end
+
+---@class _main_interface_adventure_create_current_reagent_list: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_create_current_reagent_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_create_current_reagent_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_create_current_reagent_list:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_current_reagent_list:erase(index) end
+
+---@class _main_interface_adventure_create_prod_adv_art_specifier: DFContainer
+---@field [integer] df.adv_art_specifierst
+local _main_interface_adventure_create_prod_adv_art_specifier
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.adv_art_specifierst>
+function _main_interface_adventure_create_prod_adv_art_specifier:_field(index) end
+
+---@param index '#'|integer
+---@param item df.adv_art_specifierst
+function _main_interface_adventure_create_prod_adv_art_specifier:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_prod_adv_art_specifier:erase(index) end
+
+---@class df.main_interface.T_adventure.T_create.T_exit_flag: DFBitfield
+---@field _enum identity.main_interface.adventure.create.exit_flag
+---@field delayed boolean bay12: VLUA_INTERACTION_USE_FLAG_* (from viewscreen_layer_unit_actionst)
+---@field [0] boolean bay12: VLUA_INTERACTION_USE_FLAG_* (from viewscreen_layer_unit_actionst)
+---@field already_retracted boolean
+---@field [1] boolean
+
+---@class identity.main_interface.adventure.create.exit_flag: DFBitfieldType
+---@field delayed 0 bay12: VLUA_INTERACTION_USE_FLAG_* (from viewscreen_layer_unit_actionst)
+---@field [0] "delayed" bay12: VLUA_INTERACTION_USE_FLAG_* (from viewscreen_layer_unit_actionst)
+---@field already_retracted 1
+---@field [1] "already_retracted"
+df.main_interface.T_adventure.T_create.T_exit_flag = {}
+
+---@class _main_interface_adventure_create_butcher_target: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_create_butcher_target
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_create_butcher_target:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_create_butcher_target:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_butcher_target:erase(index) end
+
+---@class _main_interface_adventure_create_butcher_cutter: DFContainer
+---@field [integer] df.item
+local _main_interface_adventure_create_butcher_cutter
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _main_interface_adventure_create_butcher_cutter:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _main_interface_adventure_create_butcher_cutter:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_create_butcher_cutter:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_assume_identity: DFStruct
+---@field _type identity.main_interface.adventure.assume_identity
+---@field open boolean bay12: adventure_interface_assume_identityst
+---@field mode df.assume_identity_mode
+---@field new_id_name df.language_name
+---@field new_id_fake_worship_hfid number References: `df.historical_figure`
+---@field new_id_fake_unit df.profession
+---@field new_id_fake_entity_id number References: `df.historical_entity`
+---@field scroll_position number
+---@field scrolling boolean
+---@field base_choice _main_interface_adventure_assume_identity_base_choice
+---@field choice _main_interface_adventure_assume_identity_choice
+---@field filter_str string
+---@field entering_filter boolean
+
+---@class identity.main_interface.adventure.assume_identity: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_assume_identity = {}
+
+---@return df.main_interface.T_adventure.T_assume_identity
+function df.main_interface.T_adventure.T_assume_identity:new() end
+
+---@class _main_interface_adventure_assume_identity_base_choice: DFContainer
+---@field [integer] df.assume_identity_menu_choicest
+local _main_interface_adventure_assume_identity_base_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.assume_identity_menu_choicest>
+function _main_interface_adventure_assume_identity_base_choice:_field(index) end
+
+---@param index '#'|integer
+---@param item df.assume_identity_menu_choicest
+function _main_interface_adventure_assume_identity_base_choice:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_assume_identity_base_choice:erase(index) end
+
+---@class _main_interface_adventure_assume_identity_choice: DFContainer
+---@field [integer] df.assume_identity_menu_choicest
+local _main_interface_adventure_assume_identity_choice
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.assume_identity_menu_choicest>
+function _main_interface_adventure_assume_identity_choice:_field(index) end
+
+---@param index '#'|integer
+---@param item df.assume_identity_menu_choicest
+function _main_interface_adventure_assume_identity_choice:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_assume_identity_choice:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_journal_outliner: DFStruct
+---@field _type identity.main_interface.adventure.journal_outliner
+---@field agreement_entry _main_interface_adventure_journal_outliner_agreement_entry bay12: adventure_interface_journal_outlinerst
+
+---@class identity.main_interface.adventure.journal_outliner: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_journal_outliner = {}
+
+---@return df.main_interface.T_adventure.T_journal_outliner
+function df.main_interface.T_adventure.T_journal_outliner:new() end
+
+---@class _main_interface_adventure_journal_outliner_agreement_entry: DFContainer
+---@field [integer] df.agreement_entryst
+local _main_interface_adventure_journal_outliner_agreement_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.agreement_entryst>
+function _main_interface_adventure_journal_outliner_agreement_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.agreement_entryst
+function _main_interface_adventure_journal_outliner_agreement_entry:insert(index, item) end
+
+---@param index integer
+function _main_interface_adventure_journal_outliner_agreement_entry:erase(index) end
+
+---@class (exact) df.main_interface.T_adventure.T_look: DFStruct
+---@field _type identity.main_interface.adventure.look
+---@field open boolean bay12: adventure_interface_lookst
+---@field cursor df.coord
+
+---@class identity.main_interface.adventure.look: DFCompoundType
+---@field _kind 'struct-type'
+df.main_interface.T_adventure.T_look = {}
+
+---@return df.main_interface.T_adventure.T_look
+function df.main_interface.T_adventure.T_look:new() end
+
+---@class df.main_interface.T_adventure.T_must_renew_adv_env_hover_flag: DFBitfield
+---@field _enum identity.main_interface.adventure.must_renew_adv_env_hover_flag
+---@field odor boolean bay12: MUST_RENEW_ADV_ENV_HOVER_FLAG_*
+---@field [0] boolean bay12: MUST_RENEW_ADV_ENV_HOVER_FLAG_*
+---@field fog boolean
+---@field [1] boolean
+---@field precip boolean
+---@field [2] boolean
+---@field cloud boolean
+---@field [3] boolean
+---@field wind boolean
+---@field [4] boolean
+---@field light boolean
+---@field [5] boolean
+---@field moon boolean
+---@field [6] boolean
+---@field temp boolean
+---@field [7] boolean
+---@field freshest_track boolean
+---@field [8] boolean
+
+---@class identity.main_interface.adventure.must_renew_adv_env_hover_flag: DFBitfieldType
+---@field odor 0 bay12: MUST_RENEW_ADV_ENV_HOVER_FLAG_*
+---@field [0] "odor" bay12: MUST_RENEW_ADV_ENV_HOVER_FLAG_*
+---@field fog 1
+---@field [1] "fog"
+---@field precip 2
+---@field [2] "precip"
+---@field cloud 3
+---@field [3] "cloud"
+---@field wind 4
+---@field [4] "wind"
+---@field light 5
+---@field [5] "light"
+---@field moon 6
+---@field [6] "moon"
+---@field temp 7
+---@field [7] "temp"
+---@field freshest_track 8
+---@field [8] "freshest_track"
+df.main_interface.T_adventure.T_must_renew_adv_env_hover_flag = {}
 
 ---@class _main_interface_barracks_squad: DFContainer
 ---@field [integer] df.squad
@@ -7050,6 +9070,9 @@ function df.lookinfost:new() end
 ---| 10 # Water
 ---| 11 # Magma
 ---| 12 # Spoor
+---| 13 # Sound
+---| 14 # MemoryMap
+---| 15 # ExtraSense
 
 ---@class identity.lookinfost.type: DFEnumType
 ---@field Item 0 bay12: LookInfoType
@@ -7078,6 +9101,12 @@ function df.lookinfost:new() end
 ---@field [11] "Magma"
 ---@field Spoor 12
 ---@field [12] "Spoor"
+---@field Sound 13
+---@field [13] "Sound"
+---@field MemoryMap 14
+---@field [14] "MemoryMap"
+---@field ExtraSense 15
+---@field [15] "ExtraSense"
 df.lookinfost.T_type = {}
 
 ---@class (exact) df.lookinfost.T_data: DFStruct
@@ -7095,6 +9124,9 @@ df.lookinfost.T_type = {}
 ---@field liquid_water df.lookinfost.T_data.T_liquid_water
 ---@field liquid_magma df.lookinfost.T_data.T_liquid_magma
 ---@field spoor df.lookinfost.T_data.T_spoor
+---@field sound df.lookinfost.T_data.T_sound
+---@field memory_map df.lookinfost.T_data.T_memory_map
+---@field extra_sense df.lookinfost.T_data.T_extra_sense
 
 ---@class identity.lookinfost.data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -7300,6 +9332,44 @@ df.lookinfost.T_data.T_spoor = {}
 
 ---@return df.lookinfost.T_data.T_spoor
 function df.lookinfost.T_data.T_spoor:new() end
+
+---@class (exact) df.lookinfost.T_data.T_sound: DFStruct
+---@field _type identity.lookinfost.data.sound
+---@field type df.sound_indicator_type bay12: lookinfo_soundst
+---@field size number
+---@field timer number
+
+---@class identity.lookinfost.data.sound: DFCompoundType
+---@field _kind 'struct-type'
+df.lookinfost.T_data.T_sound = {}
+
+---@return df.lookinfost.T_data.T_sound
+function df.lookinfost.T_data.T_sound:new() end
+
+---@class (exact) df.lookinfost.T_data.T_memory_map: DFStruct
+---@field _type identity.lookinfost.data.memory_map
+---@field type df.memory_map_type bay12: lookinfo_memory_mapst
+
+---@class identity.lookinfost.data.memory_map: DFCompoundType
+---@field _kind 'struct-type'
+df.lookinfost.T_data.T_memory_map = {}
+
+---@return df.lookinfost.T_data.T_memory_map
+function df.lookinfost.T_data.T_memory_map:new() end
+
+---@class (exact) df.lookinfost.T_data.T_extra_sense: DFStruct
+---@field _type identity.lookinfost.data.extra_sense
+---@field sense_tile integer bay12: lookinfo_extra_sensest
+---@field sense_f number
+---@field sense_b number
+---@field sense_br number
+
+---@class identity.lookinfost.data.extra_sense: DFCompoundType
+---@field _kind 'struct-type'
+df.lookinfost.T_data.T_extra_sense = {}
+
+---@return df.lookinfost.T_data.T_extra_sense
+function df.lookinfost.T_data.T_extra_sense:new() end
 
 ---@class (exact) df.ui_unit_view_mode: DFStruct
 ---@field _type identity.ui_unit_view_mode
@@ -7844,7 +9914,127 @@ df.ui_unit_view_mode.T_value = {}
 ---| 495 # ARENA_FLUIDS_REMOVE
 ---| 496 # ARENA_CREATE_TREE
 ---| 497 # ARENA_WEATHER
----| 498 # Generic
+---| 498 # ADVENTURE_COMBAT_PREF_STRIKE
+---| 499 # ADVENTURE_COMBAT_PREF_CHARGE
+---| 500 # ADVENTURE_COMBAT_PREF_WRESTLE
+---| 501 # ADVENTURE_COMBAT_PREF_ACCORDING
+---| 502 # ADVENTURE_COMBAT_PREF_DODGE_MOVE
+---| 503 # ADVENTURE_COMBAT_PREF_DODGE_STAND
+---| 504 # ADVENTURE_COMBAT_PREF_CHARGE_DEF_MOVE
+---| 505 # ADVENTURE_COMBAT_PREF_CHARGE_DEF_STAND
+---| 506 # ADVENTURE_COMBAT_PREF_CHARGE_DEF_ACCORDING
+---| 507 # OPEN_ANNOUNCEMENTS_FROM_ADV
+---| 508 # ADVENTURE_RECENTER
+---| 509 # ADVENTURE_MOVE_UP
+---| 510 # ADVENTURE_MOVE_DOWN
+---| 511 # ADVENTURE_TRAVEL
+---| 512 # ADVENTURE_SLEEP
+---| 513 # ADVENTURE_BUILD
+---| 514 # ADVENTURE_STATUS
+---| 515 # ADVENTURE_LOG
+---| 516 # ADVENTURE_INVENTORY
+---| 517 # ADVENTURE_MOVEMENT_OPTIONS
+---| 518 # ADVENTURE_COMBAT_OPTIONS
+---| 519 # ADVENTURE_INTERACT
+---| 520 # ADVENTURE_SEARCH
+---| 521 # ADVENTURE_CLIMB
+---| 522 # ADVENTURE_JUMP
+---| 523 # ADVENTURE_TALK
+---| 524 # ADVENTURE_PERFORM
+---| 525 # ADVENTURE_CRAFT
+---| 526 # ADVENTURE_ABILITY
+---| 527 # ADVENTURE_STRIKE
+---| 528 # ADVENTURE_WRESTLE
+---| 529 # ADVENTURE_SHOOT
+---| 530 # ADVENTURE_TACTICAL_MODE_IS_ON
+---| 531 # ADVENTURE_TACTICAL_MODE_IS_OFF
+---| 532 # ADVENTURE_COMPANIONS
+---| 533 # ADVENTURE_IS_YIELDED
+---| 534 # ADVENTURE_IS_NOT_YIELDED
+---| 535 # ADVENTURE_HAVE_DRAWN_WEAPON
+---| 536 # ADVENTURE_HAVE_STRAPPED_WEAPON
+---| 537 # ADVENTURE_HAVE_NO_WEAPON
+---| 538 # ADVENTURE_IS_PROJECTILE
+---| 539 # ADVENTURE_IS_RIDER
+---| 540 # ADVENTURE_IS_GROUNDED
+---| 541 # ADVENTURE_IS_STANDING
+---| 542 # ADVENTURE_CLOSE_MAP
+---| 543 # ADVENTURE_TRAVEL_GO_UP
+---| 544 # ADVENTURE_TRAVEL_GO_DOWN
+---| 545 # ADVENTURE_TRAVEL_LOG
+---| 546 # ADVENTURE_END_TRAVEL
+---| 547 # ADVENTURE_TRAVEL_TOGGLE_SNEAKING
+---| 548 # ADVENTURE_TRAVEL_MAP
+---| 549 # ADVENTURE_TRAVEL_SLEEP
+---| 550 # ADVENTURE_TRAVEL_CLOUDS
+---| 551 # ADVENTURE_TRAVEL_TOGGLE_TRACKS
+---| 552 # ADVENTURE_INVENTORY_TOP_DROP
+---| 553 # ADVENTURE_INVENTORY_TOP_WEAR
+---| 554 # ADVENTURE_INVENTORY_TOP_REMOVE
+---| 555 # ADVENTURE_INVENTORY_TOP_PUT_INTO
+---| 556 # ADVENTURE_INVENTORY_TOP_EAT_DRINK
+---| 557 # ADVENTURE_INVENTORY_TOP_INTERACT
+---| 558 # ADVENTURE_INVENTORY_DETAILS
+---| 559 # ADVENTURE_INVENTORY_DROP
+---| 560 # ADVENTURE_INVENTORY_WEAR
+---| 561 # ADVENTURE_INVENTORY_REMOVE
+---| 562 # ADVENTURE_INVENTORY_PUT_INTO
+---| 563 # ADVENTURE_INVENTORY_EAT_DRINK
+---| 564 # ADVENTURE_INVENTORY_INTERACT
+---| 565 # ADVENTURE_COMPANIONS_CURRENTLY_AUTOMATED
+---| 566 # ADVENTURE_COMPANIONS_NOT_CURRENTLY_AUTOMATED
+---| 567 # ADVENTURE_COMPANIONS_ASSUME_CONTROL
+---| 568 # ADVENTURE_TOGGLE_SNEAKING
+---| 569 # ADVENTURE_UNIT_STATUS_WEBBED
+---| 570 # ADVENTURE_UNIT_STATUS_SLEEPING
+---| 571 # ADVENTURE_UNIT_STATUS_UNCONSCIOUS
+---| 572 # ADVENTURE_UNIT_STATUS_PARALYZED
+---| 573 # ADVENTURE_UNIT_STATUS_WRESTLING
+---| 574 # ADVENTURE_UNIT_STATUS_NAUSEA
+---| 575 # ADVENTURE_UNIT_STATUS_STUNNED
+---| 576 # ADVENTURE_UNIT_STATUS_WINDED
+---| 577 # ADVENTURE_UNIT_STATUS_MAJOR_INJURY
+---| 578 # ADVENTURE_UNIT_STATUS_MINOR_INJURY
+---| 579 # ADVENTURE_UNIT_STATUS_FEVERED
+---| 580 # ADVENTURE_UNIT_STATUS_THIRSTY
+---| 581 # ADVENTURE_UNIT_STATUS_HUNGRY
+---| 582 # ADVENTURE_UNIT_STATUS_DROWSY
+---| 583 # ADVENTURE_UNIT_STATUS_STRESSED
+---| 584 # ADVENTURE_UNIT_STATUS_DISTRACTED
+---| 585 # ADVENTURE_UNIT_STATUS_SOLDIERMOOD_ENRAGED
+---| 586 # ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TRANCE
+---| 587 # ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TANTRUM
+---| 588 # ADVENTURE_UNIT_STATUS_SOLDIERMOOD_DEPRESSED
+---| 589 # ADVENTURE_UNIT_STATUS_SOLDIERMOOD_OBLIVIOUS
+---| 590 # ADVENTURE_UNIT_STATUS_MOOD_FELL
+---| 591 # ADVENTURE_UNIT_STATUS_MOOD_MACABRE
+---| 592 # ADVENTURE_UNIT_STATUS_MOOD_FEY
+---| 593 # ADVENTURE_UNIT_STATUS_MOOD_SECRETIVE
+---| 594 # ADVENTURE_UNIT_STATUS_MOOD_POSSESSED
+---| 595 # ADVENTURE_UNIT_STATUS_MOOD_MELANCHOLY
+---| 596 # ADVENTURE_UNIT_STATUS_MOOD_INSANE
+---| 597 # ADVENTURE_UNIT_STATUS_MOOD_BERSERK
+---| 598 # ADVENTURE_UNIT_STATUS_MOOD_CATATONIC
+---| 599 # ADVENTURE_UNIT_STATUS_TERRIFIED
+---| 600 # DYNAMIC_ADV_ENV_ODOR
+---| 601 # DYNAMIC_ADV_ENV_FOG
+---| 602 # DYNAMIC_ADV_ENV_PRECIP
+---| 603 # DYNAMIC_ADV_ENV_CLOUD
+---| 604 # DYNAMIC_ADV_ENV_WIND
+---| 605 # DYNAMIC_ADV_ENV_LIGHT
+---| 606 # DYNAMIC_ADV_ENV_MOON
+---| 607 # DYNAMIC_ADV_ENV_TEMP
+---| 608 # DYNAMIC_ADV_ENV_FRESHEST_TRACK
+---| 609 # TRACK_TOGGLE
+---| 610 # ADVENTURE_MOVE_DOWN_RAMP_N
+---| 611 # ADVENTURE_MOVE_DOWN_RAMP_S
+---| 612 # ADVENTURE_MOVE_DOWN_RAMP_E
+---| 613 # ADVENTURE_MOVE_DOWN_RAMP_W
+---| 614 # ADVENTURE_MOVE_DOWN_RAMP_NW
+---| 615 # ADVENTURE_MOVE_DOWN_RAMP_NE
+---| 616 # ADVENTURE_MOVE_DOWN_RAMP_SW
+---| 617 # ADVENTURE_MOVE_DOWN_RAMP_SE
+---| 618 # Generic
 
 -- generated by devel/dump-tooltip-ids
 ---@class identity.main_hover_instruction: DFEnumType
@@ -8844,8 +11034,248 @@ df.ui_unit_view_mode.T_value = {}
 ---@field [496] "ARENA_CREATE_TREE"
 ---@field ARENA_WEATHER 497
 ---@field [497] "ARENA_WEATHER"
----@field Generic 498
----@field [498] "Generic"
+---@field ADVENTURE_COMBAT_PREF_STRIKE 498
+---@field [498] "ADVENTURE_COMBAT_PREF_STRIKE"
+---@field ADVENTURE_COMBAT_PREF_CHARGE 499
+---@field [499] "ADVENTURE_COMBAT_PREF_CHARGE"
+---@field ADVENTURE_COMBAT_PREF_WRESTLE 500 500
+---@field [500] "ADVENTURE_COMBAT_PREF_WRESTLE" 500
+---@field ADVENTURE_COMBAT_PREF_ACCORDING 501
+---@field [501] "ADVENTURE_COMBAT_PREF_ACCORDING"
+---@field ADVENTURE_COMBAT_PREF_DODGE_MOVE 502
+---@field [502] "ADVENTURE_COMBAT_PREF_DODGE_MOVE"
+---@field ADVENTURE_COMBAT_PREF_DODGE_STAND 503
+---@field [503] "ADVENTURE_COMBAT_PREF_DODGE_STAND"
+---@field ADVENTURE_COMBAT_PREF_CHARGE_DEF_MOVE 504
+---@field [504] "ADVENTURE_COMBAT_PREF_CHARGE_DEF_MOVE"
+---@field ADVENTURE_COMBAT_PREF_CHARGE_DEF_STAND 505
+---@field [505] "ADVENTURE_COMBAT_PREF_CHARGE_DEF_STAND"
+---@field ADVENTURE_COMBAT_PREF_CHARGE_DEF_ACCORDING 506
+---@field [506] "ADVENTURE_COMBAT_PREF_CHARGE_DEF_ACCORDING"
+---@field OPEN_ANNOUNCEMENTS_FROM_ADV 507
+---@field [507] "OPEN_ANNOUNCEMENTS_FROM_ADV"
+---@field ADVENTURE_RECENTER 508
+---@field [508] "ADVENTURE_RECENTER"
+---@field ADVENTURE_MOVE_UP 509
+---@field [509] "ADVENTURE_MOVE_UP"
+---@field ADVENTURE_MOVE_DOWN 510 510
+---@field [510] "ADVENTURE_MOVE_DOWN" 510
+---@field ADVENTURE_TRAVEL 511
+---@field [511] "ADVENTURE_TRAVEL"
+---@field ADVENTURE_SLEEP 512
+---@field [512] "ADVENTURE_SLEEP"
+---@field ADVENTURE_BUILD 513
+---@field [513] "ADVENTURE_BUILD"
+---@field ADVENTURE_STATUS 514
+---@field [514] "ADVENTURE_STATUS"
+---@field ADVENTURE_LOG 515
+---@field [515] "ADVENTURE_LOG"
+---@field ADVENTURE_INVENTORY 516
+---@field [516] "ADVENTURE_INVENTORY"
+---@field ADVENTURE_MOVEMENT_OPTIONS 517
+---@field [517] "ADVENTURE_MOVEMENT_OPTIONS"
+---@field ADVENTURE_COMBAT_OPTIONS 518
+---@field [518] "ADVENTURE_COMBAT_OPTIONS"
+---@field ADVENTURE_INTERACT 519
+---@field [519] "ADVENTURE_INTERACT"
+---@field ADVENTURE_SEARCH 520 520
+---@field [520] "ADVENTURE_SEARCH" 520
+---@field ADVENTURE_CLIMB 521
+---@field [521] "ADVENTURE_CLIMB"
+---@field ADVENTURE_JUMP 522
+---@field [522] "ADVENTURE_JUMP"
+---@field ADVENTURE_TALK 523
+---@field [523] "ADVENTURE_TALK"
+---@field ADVENTURE_PERFORM 524
+---@field [524] "ADVENTURE_PERFORM"
+---@field ADVENTURE_CRAFT 525
+---@field [525] "ADVENTURE_CRAFT"
+---@field ADVENTURE_ABILITY 526
+---@field [526] "ADVENTURE_ABILITY"
+---@field ADVENTURE_STRIKE 527
+---@field [527] "ADVENTURE_STRIKE"
+---@field ADVENTURE_WRESTLE 528
+---@field [528] "ADVENTURE_WRESTLE"
+---@field ADVENTURE_SHOOT 529
+---@field [529] "ADVENTURE_SHOOT"
+---@field ADVENTURE_TACTICAL_MODE_IS_ON 530 530
+---@field [530] "ADVENTURE_TACTICAL_MODE_IS_ON" 530
+---@field ADVENTURE_TACTICAL_MODE_IS_OFF 531
+---@field [531] "ADVENTURE_TACTICAL_MODE_IS_OFF"
+---@field ADVENTURE_COMPANIONS 532
+---@field [532] "ADVENTURE_COMPANIONS"
+---@field ADVENTURE_IS_YIELDED 533
+---@field [533] "ADVENTURE_IS_YIELDED"
+---@field ADVENTURE_IS_NOT_YIELDED 534
+---@field [534] "ADVENTURE_IS_NOT_YIELDED"
+---@field ADVENTURE_HAVE_DRAWN_WEAPON 535
+---@field [535] "ADVENTURE_HAVE_DRAWN_WEAPON"
+---@field ADVENTURE_HAVE_STRAPPED_WEAPON 536
+---@field [536] "ADVENTURE_HAVE_STRAPPED_WEAPON"
+---@field ADVENTURE_HAVE_NO_WEAPON 537
+---@field [537] "ADVENTURE_HAVE_NO_WEAPON"
+---@field ADVENTURE_IS_PROJECTILE 538
+---@field [538] "ADVENTURE_IS_PROJECTILE"
+---@field ADVENTURE_IS_RIDER 539
+---@field [539] "ADVENTURE_IS_RIDER"
+---@field ADVENTURE_IS_GROUNDED 540 540
+---@field [540] "ADVENTURE_IS_GROUNDED" 540
+---@field ADVENTURE_IS_STANDING 541
+---@field [541] "ADVENTURE_IS_STANDING"
+---@field ADVENTURE_CLOSE_MAP 542
+---@field [542] "ADVENTURE_CLOSE_MAP"
+---@field ADVENTURE_TRAVEL_GO_UP 543
+---@field [543] "ADVENTURE_TRAVEL_GO_UP"
+---@field ADVENTURE_TRAVEL_GO_DOWN 544
+---@field [544] "ADVENTURE_TRAVEL_GO_DOWN"
+---@field ADVENTURE_TRAVEL_LOG 545
+---@field [545] "ADVENTURE_TRAVEL_LOG"
+---@field ADVENTURE_END_TRAVEL 546
+---@field [546] "ADVENTURE_END_TRAVEL"
+---@field ADVENTURE_TRAVEL_TOGGLE_SNEAKING 547
+---@field [547] "ADVENTURE_TRAVEL_TOGGLE_SNEAKING"
+---@field ADVENTURE_TRAVEL_MAP 548
+---@field [548] "ADVENTURE_TRAVEL_MAP"
+---@field ADVENTURE_TRAVEL_SLEEP 549
+---@field [549] "ADVENTURE_TRAVEL_SLEEP"
+---@field ADVENTURE_TRAVEL_CLOUDS 550 550
+---@field [550] "ADVENTURE_TRAVEL_CLOUDS" 550
+---@field ADVENTURE_TRAVEL_TOGGLE_TRACKS 551
+---@field [551] "ADVENTURE_TRAVEL_TOGGLE_TRACKS"
+---@field ADVENTURE_INVENTORY_TOP_DROP 552
+---@field [552] "ADVENTURE_INVENTORY_TOP_DROP"
+---@field ADVENTURE_INVENTORY_TOP_WEAR 553
+---@field [553] "ADVENTURE_INVENTORY_TOP_WEAR"
+---@field ADVENTURE_INVENTORY_TOP_REMOVE 554
+---@field [554] "ADVENTURE_INVENTORY_TOP_REMOVE"
+---@field ADVENTURE_INVENTORY_TOP_PUT_INTO 555
+---@field [555] "ADVENTURE_INVENTORY_TOP_PUT_INTO"
+---@field ADVENTURE_INVENTORY_TOP_EAT_DRINK 556
+---@field [556] "ADVENTURE_INVENTORY_TOP_EAT_DRINK"
+---@field ADVENTURE_INVENTORY_TOP_INTERACT 557
+---@field [557] "ADVENTURE_INVENTORY_TOP_INTERACT"
+---@field ADVENTURE_INVENTORY_DETAILS 558
+---@field [558] "ADVENTURE_INVENTORY_DETAILS"
+---@field ADVENTURE_INVENTORY_DROP 559
+---@field [559] "ADVENTURE_INVENTORY_DROP"
+---@field ADVENTURE_INVENTORY_WEAR 560 560
+---@field [560] "ADVENTURE_INVENTORY_WEAR" 560
+---@field ADVENTURE_INVENTORY_REMOVE 561
+---@field [561] "ADVENTURE_INVENTORY_REMOVE"
+---@field ADVENTURE_INVENTORY_PUT_INTO 562
+---@field [562] "ADVENTURE_INVENTORY_PUT_INTO"
+---@field ADVENTURE_INVENTORY_EAT_DRINK 563
+---@field [563] "ADVENTURE_INVENTORY_EAT_DRINK"
+---@field ADVENTURE_INVENTORY_INTERACT 564
+---@field [564] "ADVENTURE_INVENTORY_INTERACT"
+---@field ADVENTURE_COMPANIONS_CURRENTLY_AUTOMATED 565
+---@field [565] "ADVENTURE_COMPANIONS_CURRENTLY_AUTOMATED"
+---@field ADVENTURE_COMPANIONS_NOT_CURRENTLY_AUTOMATED 566
+---@field [566] "ADVENTURE_COMPANIONS_NOT_CURRENTLY_AUTOMATED"
+---@field ADVENTURE_COMPANIONS_ASSUME_CONTROL 567
+---@field [567] "ADVENTURE_COMPANIONS_ASSUME_CONTROL"
+---@field ADVENTURE_TOGGLE_SNEAKING 568
+---@field [568] "ADVENTURE_TOGGLE_SNEAKING"
+---@field ADVENTURE_UNIT_STATUS_WEBBED 569
+---@field [569] "ADVENTURE_UNIT_STATUS_WEBBED"
+---@field ADVENTURE_UNIT_STATUS_SLEEPING 570 570
+---@field [570] "ADVENTURE_UNIT_STATUS_SLEEPING" 570
+---@field ADVENTURE_UNIT_STATUS_UNCONSCIOUS 571
+---@field [571] "ADVENTURE_UNIT_STATUS_UNCONSCIOUS"
+---@field ADVENTURE_UNIT_STATUS_PARALYZED 572
+---@field [572] "ADVENTURE_UNIT_STATUS_PARALYZED"
+---@field ADVENTURE_UNIT_STATUS_WRESTLING 573
+---@field [573] "ADVENTURE_UNIT_STATUS_WRESTLING"
+---@field ADVENTURE_UNIT_STATUS_NAUSEA 574
+---@field [574] "ADVENTURE_UNIT_STATUS_NAUSEA"
+---@field ADVENTURE_UNIT_STATUS_STUNNED 575
+---@field [575] "ADVENTURE_UNIT_STATUS_STUNNED"
+---@field ADVENTURE_UNIT_STATUS_WINDED 576
+---@field [576] "ADVENTURE_UNIT_STATUS_WINDED"
+---@field ADVENTURE_UNIT_STATUS_MAJOR_INJURY 577
+---@field [577] "ADVENTURE_UNIT_STATUS_MAJOR_INJURY"
+---@field ADVENTURE_UNIT_STATUS_MINOR_INJURY 578
+---@field [578] "ADVENTURE_UNIT_STATUS_MINOR_INJURY"
+---@field ADVENTURE_UNIT_STATUS_FEVERED 579
+---@field [579] "ADVENTURE_UNIT_STATUS_FEVERED"
+---@field ADVENTURE_UNIT_STATUS_THIRSTY 580 580
+---@field [580] "ADVENTURE_UNIT_STATUS_THIRSTY" 580
+---@field ADVENTURE_UNIT_STATUS_HUNGRY 581
+---@field [581] "ADVENTURE_UNIT_STATUS_HUNGRY"
+---@field ADVENTURE_UNIT_STATUS_DROWSY 582
+---@field [582] "ADVENTURE_UNIT_STATUS_DROWSY"
+---@field ADVENTURE_UNIT_STATUS_STRESSED 583
+---@field [583] "ADVENTURE_UNIT_STATUS_STRESSED"
+---@field ADVENTURE_UNIT_STATUS_DISTRACTED 584
+---@field [584] "ADVENTURE_UNIT_STATUS_DISTRACTED"
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_ENRAGED 585
+---@field [585] "ADVENTURE_UNIT_STATUS_SOLDIERMOOD_ENRAGED"
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TRANCE 586
+---@field [586] "ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TRANCE"
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TANTRUM 587
+---@field [587] "ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TANTRUM"
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_DEPRESSED 588
+---@field [588] "ADVENTURE_UNIT_STATUS_SOLDIERMOOD_DEPRESSED"
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_OBLIVIOUS 589
+---@field [589] "ADVENTURE_UNIT_STATUS_SOLDIERMOOD_OBLIVIOUS"
+---@field ADVENTURE_UNIT_STATUS_MOOD_FELL 590 590
+---@field [590] "ADVENTURE_UNIT_STATUS_MOOD_FELL" 590
+---@field ADVENTURE_UNIT_STATUS_MOOD_MACABRE 591
+---@field [591] "ADVENTURE_UNIT_STATUS_MOOD_MACABRE"
+---@field ADVENTURE_UNIT_STATUS_MOOD_FEY 592
+---@field [592] "ADVENTURE_UNIT_STATUS_MOOD_FEY"
+---@field ADVENTURE_UNIT_STATUS_MOOD_SECRETIVE 593
+---@field [593] "ADVENTURE_UNIT_STATUS_MOOD_SECRETIVE"
+---@field ADVENTURE_UNIT_STATUS_MOOD_POSSESSED 594
+---@field [594] "ADVENTURE_UNIT_STATUS_MOOD_POSSESSED"
+---@field ADVENTURE_UNIT_STATUS_MOOD_MELANCHOLY 595
+---@field [595] "ADVENTURE_UNIT_STATUS_MOOD_MELANCHOLY"
+---@field ADVENTURE_UNIT_STATUS_MOOD_INSANE 596
+---@field [596] "ADVENTURE_UNIT_STATUS_MOOD_INSANE"
+---@field ADVENTURE_UNIT_STATUS_MOOD_BERSERK 597
+---@field [597] "ADVENTURE_UNIT_STATUS_MOOD_BERSERK"
+---@field ADVENTURE_UNIT_STATUS_MOOD_CATATONIC 598
+---@field [598] "ADVENTURE_UNIT_STATUS_MOOD_CATATONIC"
+---@field ADVENTURE_UNIT_STATUS_TERRIFIED 599
+---@field [599] "ADVENTURE_UNIT_STATUS_TERRIFIED"
+---@field DYNAMIC_ADV_ENV_ODOR 600 600
+---@field [600] "DYNAMIC_ADV_ENV_ODOR" 600
+---@field DYNAMIC_ADV_ENV_FOG 601
+---@field [601] "DYNAMIC_ADV_ENV_FOG"
+---@field DYNAMIC_ADV_ENV_PRECIP 602
+---@field [602] "DYNAMIC_ADV_ENV_PRECIP"
+---@field DYNAMIC_ADV_ENV_CLOUD 603
+---@field [603] "DYNAMIC_ADV_ENV_CLOUD"
+---@field DYNAMIC_ADV_ENV_WIND 604
+---@field [604] "DYNAMIC_ADV_ENV_WIND"
+---@field DYNAMIC_ADV_ENV_LIGHT 605
+---@field [605] "DYNAMIC_ADV_ENV_LIGHT"
+---@field DYNAMIC_ADV_ENV_MOON 606
+---@field [606] "DYNAMIC_ADV_ENV_MOON"
+---@field DYNAMIC_ADV_ENV_TEMP 607
+---@field [607] "DYNAMIC_ADV_ENV_TEMP"
+---@field DYNAMIC_ADV_ENV_FRESHEST_TRACK 608
+---@field [608] "DYNAMIC_ADV_ENV_FRESHEST_TRACK"
+---@field TRACK_TOGGLE 609
+---@field [609] "TRACK_TOGGLE"
+---@field ADVENTURE_MOVE_DOWN_RAMP_N 610 610
+---@field [610] "ADVENTURE_MOVE_DOWN_RAMP_N" 610
+---@field ADVENTURE_MOVE_DOWN_RAMP_S 611
+---@field [611] "ADVENTURE_MOVE_DOWN_RAMP_S"
+---@field ADVENTURE_MOVE_DOWN_RAMP_E 612
+---@field [612] "ADVENTURE_MOVE_DOWN_RAMP_E"
+---@field ADVENTURE_MOVE_DOWN_RAMP_W 613
+---@field [613] "ADVENTURE_MOVE_DOWN_RAMP_W"
+---@field ADVENTURE_MOVE_DOWN_RAMP_NW 614
+---@field [614] "ADVENTURE_MOVE_DOWN_RAMP_NW"
+---@field ADVENTURE_MOVE_DOWN_RAMP_NE 615
+---@field [615] "ADVENTURE_MOVE_DOWN_RAMP_NE"
+---@field ADVENTURE_MOVE_DOWN_RAMP_SW 616
+---@field [616] "ADVENTURE_MOVE_DOWN_RAMP_SW"
+---@field ADVENTURE_MOVE_DOWN_RAMP_SE 617
+---@field [617] "ADVENTURE_MOVE_DOWN_RAMP_SE"
+---@field Generic 618
+---@field [618] "Generic"
 df.main_hover_instruction = {}
 
 ---@class main_hover_instruction_attr_entry_type: DFCompoundType
@@ -9355,6 +11785,126 @@ df.main_hover_instruction._attr_entry_type._fields = {}
 ---@field ARENA_FLUIDS_REMOVE { caption: "Remove fluids and spatter from the arena." }
 ---@field ARENA_CREATE_TREE { caption: "Create a tree to place in the arena." }
 ---@field ARENA_WEATHER { caption: "Change the weather, temperature, and time." }
+---@field ADVENTURE_COMBAT_PREF_STRIKE { caption: "Default attack is a strike without charging or wrestling." }
+---@field ADVENTURE_COMBAT_PREF_CHARGE { caption: "Default attack is a charging strike." }
+---@field ADVENTURE_COMBAT_PREF_WRESTLE { caption: "Default attack is a wrestling move." }
+---@field ADVENTURE_COMBAT_PREF_ACCORDING { caption: "Choose default attack according to opponent." }
+---@field ADVENTURE_COMBAT_PREF_DODGE_MOVE { caption: "Freely move between tiles when dodging if necessary" }
+---@field ADVENTURE_COMBAT_PREF_DODGE_STAND { caption: "Do not move from current tile when dodging even if it means being struck." }
+---@field ADVENTURE_COMBAT_PREF_CHARGE_DEF_MOVE { caption: "Dodge away from charging opponents to avoid being knocked over." }
+---@field ADVENTURE_COMBAT_PREF_CHARGE_DEF_STAND { caption: "Attempt to stop charging opponents, standing your ground." }
+---@field ADVENTURE_COMBAT_PREF_CHARGE_DEF_ACCORDING { caption: "Handle charging attacks according to the opponent." }
+---@field OPEN_ANNOUNCEMENTS_FROM_ADV { caption: "View all announcements." }
+---@field ADVENTURE_RECENTER { caption: "Recenter on yourself." }
+---@field ADVENTURE_MOVE_UP { caption: "Move upward." }
+---@field ADVENTURE_MOVE_DOWN { caption: "Move downward." }
+---@field ADVENTURE_TRAVEL { caption: "Travel." }
+---@field ADVENTURE_SLEEP { caption: "Sleep or wait a while." }
+---@field ADVENTURE_BUILD { caption: "Build. (coming soon)" }
+---@field ADVENTURE_STATUS { caption: "View your status." }
+---@field ADVENTURE_LOG { caption: "View your log. (coming soon)" }
+---@field ADVENTURE_INVENTORY { caption: "Open your inventory." }
+---@field ADVENTURE_MOVEMENT_OPTIONS { caption: "Set movement options." }
+---@field ADVENTURE_COMBAT_OPTIONS { caption: "Set combat options." }
+---@field ADVENTURE_INTERACT { caption: "Interact with nearby objects." }
+---@field ADVENTURE_SEARCH { caption: "Search for bugs." }
+---@field ADVENTURE_CLIMB { caption: "Climb or hold terrain." }
+---@field ADVENTURE_JUMP { caption: "Jump where." }
+---@field ADVENTURE_TALK { caption: "Talk to somebody." }
+---@field ADVENTURE_PERFORM { caption: "Start a performance. This can take several turns to complete." }
+---@field ADVENTURE_CRAFT { caption: "Craft or butcher. (coming soon)" }
+---@field ADVENTURE_ABILITY { caption: "Use ability. (coming soon)" }
+---@field ADVENTURE_STRIKE { caption: "Strike or wrestle somebody adjacent with a melee attack." }
+---@field ADVENTURE_WRESTLE { caption: "Continue active wrestling. (coming soon - use regular combat to continue wrestling)" }
+---@field ADVENTURE_SHOOT { caption: "Shoot. Requires a ranged weapon and ammunition." }
+---@field ADVENTURE_TACTICAL_MODE_IS_ON { caption: "Tactical mode is on. You control everybody manually. Click to control only this character (others will follow you.)" }
+---@field ADVENTURE_TACTICAL_MODE_IS_OFF { caption: "Tactical mode is off. Companions are following you. Click to control everybody." }
+---@field ADVENTURE_COMPANIONS { caption: "View your companions and tactical settings, or switch party members." }
+---@field ADVENTURE_IS_YIELDED { caption: "You are currently yielded. Click to stop yielding." }
+---@field ADVENTURE_IS_NOT_YIELDED { caption: "You are not yielded. Click to yield to opponents." }
+---@field ADVENTURE_HAVE_DRAWN_WEAPON { caption: "You have a weapon drawn. Click to strap it." }
+---@field ADVENTURE_HAVE_STRAPPED_WEAPON { caption: "You have a weapon available to draw. Click to draw it." }
+---@field ADVENTURE_HAVE_NO_WEAPON { caption: "You do not have a weapon." }
+---@field ADVENTURE_IS_PROJECTILE { caption: "You are a projectile." }
+---@field ADVENTURE_IS_RIDER { caption: "You are a rider." }
+---@field ADVENTURE_IS_GROUNDED { caption: "You are prone. Click to stand." }
+---@field ADVENTURE_IS_STANDING { caption: "You are not prone. Click to go prone." }
+---@field ADVENTURE_CLOSE_MAP { caption: "Close the map." }
+---@field ADVENTURE_TRAVEL_GO_UP { caption: "Go upward." }
+---@field ADVENTURE_TRAVEL_GO_DOWN { caption: "Go downward." }
+---@field ADVENTURE_TRAVEL_LOG { caption: "View your log. (coming soon)" }
+---@field ADVENTURE_END_TRAVEL { caption: "End travel." }
+---@field ADVENTURE_TRAVEL_TOGGLE_SNEAKING { caption: "Toggle sneaking." }
+---@field ADVENTURE_TRAVEL_MAP { caption: "View the map." }
+---@field ADVENTURE_TRAVEL_SLEEP { caption: "Sleep or wait a while." }
+---@field ADVENTURE_TRAVEL_CLOUDS { caption: "Toggle cloud view." }
+---@field ADVENTURE_TRAVEL_TOGGLE_TRACKS { caption: "Toggle track view. (coming soon)" }
+---@field ADVENTURE_INVENTORY_TOP_DROP { caption: "Drop an item." }
+---@field ADVENTURE_INVENTORY_TOP_WEAR { caption: "Wear an item." }
+---@field ADVENTURE_INVENTORY_TOP_REMOVE { caption: "Remove an item." }
+---@field ADVENTURE_INVENTORY_TOP_PUT_INTO { caption: "Put an item into a container." }
+---@field ADVENTURE_INVENTORY_TOP_EAT_DRINK { caption: "Eat or drink an item." }
+---@field ADVENTURE_INVENTORY_TOP_INTERACT { caption: "Interact with an item in a different way." }
+---@field ADVENTURE_INVENTORY_DETAILS { caption: "View this item." }
+---@field ADVENTURE_INVENTORY_DROP { caption: "Drop this item." }
+---@field ADVENTURE_INVENTORY_WEAR { caption: "Wear this item." }
+---@field ADVENTURE_INVENTORY_REMOVE { caption: "Remove this item." }
+---@field ADVENTURE_INVENTORY_PUT_INTO { caption: "Put this item into a container." }
+---@field ADVENTURE_INVENTORY_EAT_DRINK { caption: "Eat or drink this item." }
+---@field ADVENTURE_INVENTORY_INTERACT { caption: "Interact with this item in a different way (opens menu.)" }
+---@field ADVENTURE_COMPANIONS_CURRENTLY_AUTOMATED { caption: "This party member is currently automated in tactical mode." }
+---@field ADVENTURE_COMPANIONS_NOT_CURRENTLY_AUTOMATED { caption: "This party member is manually controlled in tactical mode." }
+---@field ADVENTURE_COMPANIONS_ASSUME_CONTROL { caption: "Assume control of this party member." }
+---@field ADVENTURE_TOGGLE_SNEAKING { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_WEBBED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_SLEEPING { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_UNCONSCIOUS { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_PARALYZED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_WRESTLING { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_NAUSEA { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_STUNNED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_WINDED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MAJOR_INJURY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MINOR_INJURY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_FEVERED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_THIRSTY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_HUNGRY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_DROWSY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_STRESSED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_DISTRACTED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_ENRAGED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TRANCE { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_TANTRUM { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_DEPRESSED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_SOLDIERMOOD_OBLIVIOUS { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_FELL { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_MACABRE { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_FEY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_SECRETIVE { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_POSSESSED { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_MELANCHOLY { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_INSANE { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_BERSERK { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_MOOD_CATATONIC { caption: "" }
+---@field ADVENTURE_UNIT_STATUS_TERRIFIED { caption: "" }
+---@field DYNAMIC_ADV_ENV_ODOR { caption: "" }
+---@field DYNAMIC_ADV_ENV_FOG { caption: "" }
+---@field DYNAMIC_ADV_ENV_PRECIP { caption: "" }
+---@field DYNAMIC_ADV_ENV_CLOUD { caption: "" }
+---@field DYNAMIC_ADV_ENV_WIND { caption: "" }
+---@field DYNAMIC_ADV_ENV_LIGHT { caption: "" }
+---@field DYNAMIC_ADV_ENV_MOON { caption: "" }
+---@field DYNAMIC_ADV_ENV_TEMP { caption: "" }
+---@field DYNAMIC_ADV_ENV_FRESHEST_TRACK { caption: "" }
+---@field TRACK_TOGGLE { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_N { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_S { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_E { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_W { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_NW { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_NE { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_SW { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_SE { caption: "" }
 ---@field Generic { caption: "" }
 df.main_hover_instruction.attrs = {}
 

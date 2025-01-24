@@ -134,8 +134,9 @@
 ---| 128 # GLOVES
 ---| 129 # POSSIBLE_CONTAINER
 ---| 130 # FOOD_STORAGE
----| 131 # ANY_RECENTLY_DROPPED
----| 132 # ANY_MELT_DESIGNATED
+---| 131 # MAGICAL
+---| 132 # ANY_RECENTLY_DROPPED
+---| 133 # ANY_MELT_DESIGNATED
 
 ---@class identity.items_other_id: DFEnumType
 ---@field ANY -1
@@ -402,10 +403,12 @@
 ---@field [129] "POSSIBLE_CONTAINER"
 ---@field FOOD_STORAGE 130
 ---@field [130] "FOOD_STORAGE"
----@field ANY_RECENTLY_DROPPED 131 130
----@field [131] "ANY_RECENTLY_DROPPED" 130
----@field ANY_MELT_DESIGNATED 132
----@field [132] "ANY_MELT_DESIGNATED"
+---@field MAGICAL 131 130
+---@field [131] "MAGICAL" 130
+---@field ANY_RECENTLY_DROPPED 132
+---@field [132] "ANY_RECENTLY_DROPPED"
+---@field ANY_MELT_DESIGNATED 133
+---@field [133] "ANY_MELT_DESIGNATED"
 df.items_other_id = {}
 
 ---@class items_other_id_attr_entry_type: DFCompoundType
@@ -550,6 +553,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field GLOVES { item: "GLOVES" }
 ---@field POSSIBLE_CONTAINER { item: "NONE", generic_item: "FLASK" }
 ---@field FOOD_STORAGE { item: "NONE", generic_item: "BARREL" }
+---@field MAGICAL { item: "NONE" }
 ---@field ANY_RECENTLY_DROPPED { item: "NONE" }
 ---@field ANY_MELT_DESIGNATED { item: "NONE" }
 df.items_other_id.attrs = {}
@@ -689,6 +693,7 @@ df.items_other_id.attrs = {}
 ---| 132 # SHEET
 ---| 133 # BRANCH
 ---| 134 # BAG
+---| 135 # MAGICAL
 
 ---@class identity.job_item_vector_id: DFEnumType
 ---@field ANY 0
@@ -959,6 +964,8 @@ df.items_other_id.attrs = {}
 ---@field [133] "BRANCH"
 ---@field BAG 134
 ---@field [134] "BAG"
+---@field MAGICAL 135
+---@field [135] "MAGICAL"
 df.job_item_vector_id = {}
 
 ---@class job_item_vector_id_attr_entry_type: DFCompoundType
@@ -1104,6 +1111,7 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field SHEET { other: "SHEET" }
 ---@field BRANCH { other: "BRANCH" }
 ---@field BAG { other: "BAG" }
+---@field MAGICAL { other: "MAGICAL" }
 df.job_item_vector_id.attrs = {}
 
 ---@class (exact) df.items_other: DFStruct
@@ -1239,6 +1247,7 @@ df.job_item_vector_id.attrs = {}
 ---@field GLOVES _items_other_GLOVES
 ---@field POSSIBLE_CONTAINER _items_other_POSSIBLE_CONTAINER
 ---@field FOOD_STORAGE _items_other_FOOD_STORAGE
+---@field MAGICAL _items_other_MAGICAL
 ---@field ANY_RECENTLY_DROPPED _items_other_ANY_RECENTLY_DROPPED
 ---@field ANY_MELT_DESIGNATED _items_other_ANY_MELT_DESIGNATED
 
@@ -3344,6 +3353,22 @@ function _items_other_FOOD_STORAGE:insert(index, item) end
 
 ---@param index integer
 function _items_other_FOOD_STORAGE:erase(index) end
+
+---@class _items_other_MAGICAL: DFContainer
+---@field [integer] df.item
+local _items_other_MAGICAL
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _items_other_MAGICAL:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _items_other_MAGICAL:insert(index, item) end
+
+---@param index integer
+function _items_other_MAGICAL:erase(index) end
 
 ---@class _items_other_ANY_RECENTLY_DROPPED: DFContainer
 ---@field [integer] df.item
