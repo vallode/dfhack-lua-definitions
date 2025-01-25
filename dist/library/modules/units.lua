@@ -439,6 +439,9 @@ function dfhack.units.isValidLabor(unit, labor) end
 function dfhack.units.setLaborValidity(labor, isValid) end
 
 ---@param unit df.unit
+function dfhack.units.setAutomaticProfessions(unit) end
+
+---@param unit df.unit
 ---@return integer
 function dfhack.units.computeMovementSpeed(unit) end
 
