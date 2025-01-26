@@ -16,6 +16,8 @@ function TextArea:setCursor(cursor_offset) end
 
 function TextArea:clearHistory() end
 
+function TextArea:hasFocus() end
+
 function TextArea:onCursorChange(cursor, old_cursor) end
 
 function TextArea:scrollToCursor(cursor_offset) end
