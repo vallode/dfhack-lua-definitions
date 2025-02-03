@@ -762,6 +762,18 @@ function renderer:update_full_map_port(vp) end
 
 function renderer:clean_tile_cache() end
 
+function renderer:tidy_tile_cache() end
+
+---@param texpos number
+---@param r number
+---@param g number
+---@param b number
+---@param br number
+---@param bg number
+---@param bb number
+---@param flag integer
+function renderer:clean_cached_tile(texpos, r, g, b, br, bg, bb, flag) end
+
 function renderer:render() end
 
 function renderer:set_fullscreen() end
@@ -779,6 +791,12 @@ function renderer:grid_resize(w, h) end
 
 ---@param nfactor number
 function renderer:set_viewport_zoom_factor(nfactor) end
+
+---@return DFPointer<integer>
+function renderer:get_renderer() end
+
+---@return DFPointer<integer>
+function renderer:get_window() end
 
 ---@param px number
 ---@param py number
