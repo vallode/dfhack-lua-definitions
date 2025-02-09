@@ -18,3 +18,7 @@ function dfhack.military.updateRoomAssignments(squad_id, civzone_id, flags) end
 ---@return string
 function dfhack.military.getSquadName(squad_id) end
 
+---@param unit_id number
+---@return boolean
+function dfhack.military.removeFromSquad(unit_id) end
+
