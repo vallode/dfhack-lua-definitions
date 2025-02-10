@@ -1,0 +1,17249 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@class (exact) df.hash_rngst: DFStruct
+---@field _type identity.hash_rngst
+---@field splitmix64_state integer
+---@field s integer[]
+
+---@class identity.hash_rngst: DFCompoundType
+---@field _kind 'struct-type'
+df.hash_rngst = {}
+
+---@return df.hash_rngst
+function df.hash_rngst:new() end
+
+---@alias df.civzone_type
+---| 0 # Home
+---| 1 # Depot
+---| 2 # Stockpile
+---| 3 # NobleQuarters
+---| 4 # Shop
+---| 7 # MeadHall
+---| 8 # ThroneRoom
+---| 10 # Temple
+---| 11 # Kitchen
+---| 12 # CaptiveRoom
+---| 13 # TowerTop
+---| 14 # Courtyard
+---| 15 # Treasury
+---| 16 # GuardPost
+---| 17 # Entrance
+---| 18 # SecretLibrary
+---| 19 # Library
+---| 20 # Plot
+---| 21 # MarketStall
+---| 22 # RoadCenter
+---| 23 # Campground
+---| 24 # CommandTent
+---| 25 # Tent
+---| 26 # CommandTentBld
+---| 27 # TentBld
+---| 28 # MechanismRoom
+---| 29 # DungeonCell
+---| 30 # AnimalPit
+---| 31 # ClothPit
+---| 32 # TanningPit
+---| 33 # ClothClothingPit
+---| 34 # LeatherClothingPit
+---| 35 # BoneCarvingPit
+---| 36 # GemCuttingPit
+---| 37 # WeaponsmithingPit
+---| 38 # BowmakingPit
+---| 39 # BlacksmithingPit
+---| 40 # ArmorsmithingPit
+---| 41 # MetalCraftingPit
+---| 42 # LeatherworkingPit
+---| 43 # CarpentryPit
+---| 44 # StoneworkingPit
+---| 45 # ForgingPit
+---| 46 # FightingPit
+---| 47 # Well
+---| 48 # RoadExitNorth
+---| 49 # RoadExitSouth
+---| 50 # RoadExitEast
+---| 51 # RoadExitWest
+---| 52 # TunnelCenter
+---| 53 # AnimalWorkshop
+---| 54 # ClothWorkshop
+---| 55 # TanningWorkshop
+---| 56 # ClothClothingWorkshop
+---| 57 # LeatherClothingWorkshop
+---| 58 # BoneCarvingWorkshop
+---| 59 # GemCuttingWorkshop
+---| 60 # WeaponsmithingWorkshop
+---| 61 # BowmakingWorkshop
+---| 62 # BlacksmithingWorkshop
+---| 63 # ArmorsmithingWorkshop
+---| 64 # MetalCraftingWorkshop
+---| 65 # LeatherworkingShop
+---| 66 # CarpentryWorkshop
+---| 67 # StoneworkingWorkshop
+---| 68 # ForgingWorkshop
+---| 69 # CountingHouseOffices
+---| 70 # CountingHouseStorage
+---| 71 # GuildhallOffices
+---| 72 # GuildhallStorage
+---| 73 # TowerEntrance
+---| 74 # TowerFeasthall
+---| 75 # TowerBedroom
+---| 76 # TowerTreasury
+---| 77 # TowerDungeon
+---| 78 # TowerAttic
+---| 79 # Dormitory
+---| 80 # DiningHall
+---| 81 # Shrine
+---| 82 # WaterSource
+---| 83 # Dump
+---| 84 # SandCollection
+---| 85 # FishingArea
+---| 86 # Pond
+---| 87 # MeetingHall
+---| 88 # Pen
+---| 89 # ClayCollection
+---| 90 # AnimalTraining
+---| 91 # PlantGathering
+---| 92 # Bedroom
+---| 93 # Office
+---| 94 # ArcheryRange
+---| 95 # Barracks
+---| 96 # Dungeon
+---| 97 # Tomb
+
+---@class identity.civzone_type: DFEnumType
+---@field Home 0 bay12: BuildingCivzoneType
+---@field [0] "Home" bay12: BuildingCivzoneType
+---@field Depot 1
+---@field [1] "Depot"
+---@field Stockpile 2
+---@field [2] "Stockpile"
+---@field NobleQuarters 3
+---@field [3] "NobleQuarters"
+---@field Shop 4
+---@field [4] "Shop"
+---@field MeadHall 7 Invalid Type
+---@field [7] "MeadHall" Invalid Type
+---@field ThroneRoom 8
+---@field [8] "ThroneRoom"
+---@field Temple 10 formerly ActivityZone
+---@field [10] "Temple" formerly ActivityZone
+---@field Kitchen 11
+---@field [11] "Kitchen"
+---@field CaptiveRoom 12
+---@field [12] "CaptiveRoom"
+---@field TowerTop 13
+---@field [13] "TowerTop"
+---@field Courtyard 14
+---@field [14] "Courtyard"
+---@field Treasury 15
+---@field [15] "Treasury"
+---@field GuardPost 16
+---@field [16] "GuardPost"
+---@field Entrance 17
+---@field [17] "Entrance"
+---@field SecretLibrary 18
+---@field [18] "SecretLibrary"
+---@field Library 19
+---@field [19] "Library"
+---@field Plot 20
+---@field [20] "Plot"
+---@field MarketStall 21
+---@field [21] "MarketStall"
+---@field RoadCenter 22
+---@field [22] "RoadCenter"
+---@field Campground 23
+---@field [23] "Campground"
+---@field CommandTent 24
+---@field [24] "CommandTent"
+---@field Tent 25
+---@field [25] "Tent"
+---@field CommandTentBld 26
+---@field [26] "CommandTentBld"
+---@field TentBld 27
+---@field [27] "TentBld"
+---@field MechanismRoom 28
+---@field [28] "MechanismRoom"
+---@field DungeonCell 29
+---@field [29] "DungeonCell"
+---@field AnimalPit 30
+---@field [30] "AnimalPit"
+---@field ClothPit 31
+---@field [31] "ClothPit"
+---@field TanningPit 32
+---@field [32] "TanningPit"
+---@field ClothClothingPit 33
+---@field [33] "ClothClothingPit"
+---@field LeatherClothingPit 34
+---@field [34] "LeatherClothingPit"
+---@field BoneCarvingPit 35
+---@field [35] "BoneCarvingPit"
+---@field GemCuttingPit 36
+---@field [36] "GemCuttingPit"
+---@field WeaponsmithingPit 37
+---@field [37] "WeaponsmithingPit"
+---@field BowmakingPit 38
+---@field [38] "BowmakingPit"
+---@field BlacksmithingPit 39
+---@field [39] "BlacksmithingPit"
+---@field ArmorsmithingPit 40
+---@field [40] "ArmorsmithingPit"
+---@field MetalCraftingPit 41
+---@field [41] "MetalCraftingPit"
+---@field LeatherworkingPit 42
+---@field [42] "LeatherworkingPit"
+---@field CarpentryPit 43
+---@field [43] "CarpentryPit"
+---@field StoneworkingPit 44
+---@field [44] "StoneworkingPit"
+---@field ForgingPit 45
+---@field [45] "ForgingPit"
+---@field FightingPit 46
+---@field [46] "FightingPit"
+---@field Well 47
+---@field [47] "Well"
+---@field RoadExitNorth 48
+---@field [48] "RoadExitNorth"
+---@field RoadExitSouth 49
+---@field [49] "RoadExitSouth"
+---@field RoadExitEast 50
+---@field [50] "RoadExitEast"
+---@field RoadExitWest 51
+---@field [51] "RoadExitWest"
+---@field TunnelCenter 52
+---@field [52] "TunnelCenter"
+---@field AnimalWorkshop 53
+---@field [53] "AnimalWorkshop"
+---@field ClothWorkshop 54
+---@field [54] "ClothWorkshop"
+---@field TanningWorkshop 55
+---@field [55] "TanningWorkshop"
+---@field ClothClothingWorkshop 56
+---@field [56] "ClothClothingWorkshop"
+---@field LeatherClothingWorkshop 57
+---@field [57] "LeatherClothingWorkshop"
+---@field BoneCarvingWorkshop 58
+---@field [58] "BoneCarvingWorkshop"
+---@field GemCuttingWorkshop 59
+---@field [59] "GemCuttingWorkshop"
+---@field WeaponsmithingWorkshop 60
+---@field [60] "WeaponsmithingWorkshop"
+---@field BowmakingWorkshop 61
+---@field [61] "BowmakingWorkshop"
+---@field BlacksmithingWorkshop 62
+---@field [62] "BlacksmithingWorkshop"
+---@field ArmorsmithingWorkshop 63
+---@field [63] "ArmorsmithingWorkshop"
+---@field MetalCraftingWorkshop 64
+---@field [64] "MetalCraftingWorkshop"
+---@field LeatherworkingShop 65
+---@field [65] "LeatherworkingShop"
+---@field CarpentryWorkshop 66
+---@field [66] "CarpentryWorkshop"
+---@field StoneworkingWorkshop 67
+---@field [67] "StoneworkingWorkshop"
+---@field ForgingWorkshop 68
+---@field [68] "ForgingWorkshop"
+---@field CountingHouseOffices 69
+---@field [69] "CountingHouseOffices"
+---@field CountingHouseStorage 70
+---@field [70] "CountingHouseStorage"
+---@field GuildhallOffices 71
+---@field [71] "GuildhallOffices"
+---@field GuildhallStorage 72
+---@field [72] "GuildhallStorage"
+---@field TowerEntrance 73
+---@field [73] "TowerEntrance"
+---@field TowerFeasthall 74
+---@field [74] "TowerFeasthall"
+---@field TowerBedroom 75
+---@field [75] "TowerBedroom"
+---@field TowerTreasury 76
+---@field [76] "TowerTreasury"
+---@field TowerDungeon 77
+---@field [77] "TowerDungeon"
+---@field TowerAttic 78
+---@field [78] "TowerAttic"
+---@field Dormitory 79
+---@field [79] "Dormitory"
+---@field DiningHall 80
+---@field [80] "DiningHall"
+---@field Shrine 81
+---@field [81] "Shrine"
+---@field WaterSource 82
+---@field [82] "WaterSource"
+---@field Dump 83
+---@field [83] "Dump"
+---@field SandCollection 84
+---@field [84] "SandCollection"
+---@field FishingArea 85
+---@field [85] "FishingArea"
+---@field Pond 86
+---@field [86] "Pond"
+---@field MeetingHall 87
+---@field [87] "MeetingHall"
+---@field Pen 88
+---@field [88] "Pen"
+---@field ClayCollection 89
+---@field [89] "ClayCollection"
+---@field AnimalTraining 90
+---@field [90] "AnimalTraining"
+---@field PlantGathering 91
+---@field [91] "PlantGathering"
+---@field Bedroom 92
+---@field [92] "Bedroom"
+---@field Office 93
+---@field [93] "Office"
+---@field ArcheryRange 94
+---@field [94] "ArcheryRange"
+---@field Barracks 95
+---@field [95] "Barracks"
+---@field Dungeon 96
+---@field [96] "Dungeon"
+---@field Tomb 97
+---@field [97] "Tomb"
+df.civzone_type = {}
+
+---@alias df.temp_diet_info_type
+---| -1 # NONE
+---| 0 # BLOOD
+---| 1 # SLIME
+---| 2 # VOMIT
+---| 3 # ICHOR
+---| 4 # PUS
+---| 5 # GOO
+---| 6 # GRIME
+---| 7 # FILTH
+
+---@class identity.temp_diet_info_type: DFEnumType
+---@field NONE -1 bay12: TempDietInfoType
+---@field [-1] "NONE" bay12: TempDietInfoType
+---@field BLOOD 0
+---@field [0] "BLOOD"
+---@field SLIME 1
+---@field [1] "SLIME"
+---@field VOMIT 2
+---@field [2] "VOMIT"
+---@field ICHOR 3
+---@field [3] "ICHOR"
+---@field PUS 4
+---@field [4] "PUS"
+---@field GOO 5
+---@field [5] "GOO"
+---@field GRIME 6
+---@field [6] "GRIME"
+---@field FILTH 7
+---@field [7] "FILTH"
+df.temp_diet_info_type = {}
+
+---@alias df.meat_category_type
+---| -1 # NONE
+---| 0 # STANDARD
+---| 1 # EYE
+---| 2 # LUNG
+---| 3 # HEART
+---| 4 # INTESTINES
+---| 5 # LIVER
+---| 6 # STOMACH
+---| 7 # PANCREAS
+---| 8 # SPLEEN
+---| 9 # KIDNEY
+---| 10 # BRAIN
+---| 11 # GIZZARD
+
+---@class identity.meat_category_type: DFEnumType
+---@field NONE -1 bay12: MeatCategoryType
+---@field [-1] "NONE" bay12: MeatCategoryType
+---@field STANDARD 0
+---@field [0] "STANDARD"
+---@field EYE 1
+---@field [1] "EYE"
+---@field LUNG 2
+---@field [2] "LUNG"
+---@field HEART 3
+---@field [3] "HEART"
+---@field INTESTINES 4
+---@field [4] "INTESTINES"
+---@field LIVER 5
+---@field [5] "LIVER"
+---@field STOMACH 6
+---@field [6] "STOMACH"
+---@field PANCREAS 7
+---@field [7] "PANCREAS"
+---@field SPLEEN 8
+---@field [8] "SPLEEN"
+---@field KIDNEY 9
+---@field [9] "KIDNEY"
+---@field BRAIN 10
+---@field [10] "BRAIN"
+---@field GIZZARD 11
+---@field [11] "GIZZARD"
+df.meat_category_type = {}
+
+---@alias df.crime_type
+---| -1 # NONE
+---| 0 # ProductionOrderViolation
+---| 1 # ExportViolation
+---| 2 # JobOrderViolation
+---| 3 # ConspiracyToSlowLabor
+---| 4 # Murder
+---| 5 # DisorderlyBehavior
+---| 6 # BuildingDestruction
+---| 7 # Vandalism
+---| 8 # Theft
+---| 9 # Robbery
+---| 10 # BloodDrinking
+---| 11 # Embezzlement
+---| 12 # AttemptedMurder
+---| 13 # Kidnapping
+---| 14 # AttemptedKidnapping
+---| 15 # AttemptedTheft
+---| 16 # Treason
+---| 17 # Espionage
+---| 18 # Bribery
+
+---@class identity.crime_type: DFEnumType
+---@field NONE -1 bay12: CrimeType
+---@field [-1] "NONE" bay12: CrimeType
+---@field ProductionOrderViolation 0
+---@field [0] "ProductionOrderViolation"
+---@field ExportViolation 1
+---@field [1] "ExportViolation"
+---@field JobOrderViolation 2
+---@field [2] "JobOrderViolation"
+---@field ConspiracyToSlowLabor 3
+---@field [3] "ConspiracyToSlowLabor"
+---@field Murder 4
+---@field [4] "Murder"
+---@field DisorderlyBehavior 5
+---@field [5] "DisorderlyBehavior"
+---@field BuildingDestruction 6
+---@field [6] "BuildingDestruction"
+---@field Vandalism 7
+---@field [7] "Vandalism"
+---@field Theft 8
+---@field [8] "Theft"
+---@field Robbery 9
+---@field [9] "Robbery"
+---@field BloodDrinking 10
+---@field [10] "BloodDrinking"
+---@field Embezzlement 11
+---@field [11] "Embezzlement"
+---@field AttemptedMurder 12
+---@field [12] "AttemptedMurder"
+---@field Kidnapping 13
+---@field [13] "Kidnapping"
+---@field AttemptedKidnapping 14
+---@field [14] "AttemptedKidnapping"
+---@field AttemptedTheft 15
+---@field [15] "AttemptedTheft"
+---@field Treason 16
+---@field [16] "Treason"
+---@field Espionage 17
+---@field [17] "Espionage"
+---@field Bribery 18
+---@field [18] "Bribery"
+df.crime_type = {}
+
+---@alias df.abstract_building_flags
+---| -1 # NONE
+---| 0 # WG_RUINED
+---| 1 # DOES_NOT_EXIST
+---| 2 # DISCOVERED
+---| 3 # PWG_RUINED
+---| 4 # VISITORS_ALLOWED
+---| 5 # NON_CITIZENS_ALLOWED
+---| 6 # MEMBERS_ONLY
+
+---@class identity.abstract_building_flags: DFEnumType
+---@field NONE -1 bay12: AbstractBuildingFlag
+---@field [-1] "NONE" bay12: AbstractBuildingFlag
+---@field WG_RUINED 0
+---@field [0] "WG_RUINED"
+---@field DOES_NOT_EXIST 1
+---@field [1] "DOES_NOT_EXIST"
+---@field DISCOVERED 2 gets toggled when an adventurer has visited it.
+---@field [2] "DISCOVERED" gets toggled when an adventurer has visited it.
+---@field PWG_RUINED 3
+---@field [3] "PWG_RUINED"
+---@field VISITORS_ALLOWED 4
+---@field [4] "VISITORS_ALLOWED"
+---@field NON_CITIZENS_ALLOWED 5
+---@field [5] "NON_CITIZENS_ALLOWED"
+---@field MEMBERS_ONLY 6
+---@field [6] "MEMBERS_ONLY"
+df.abstract_building_flags = {}
+
+---@alias df.abstract_building_type
+---| -1 # NONE
+---| 0 # MEAD_HALL
+---| 1 # KEEP
+---| 2 # TEMPLE
+---| 3 # DARK_TOWER
+---| 4 # MARKET
+---| 5 # TOMB
+---| 6 # DUNGEON
+---| 7 # UNDERWORLD_SPIRE
+---| 8 # INN_TAVERN
+---| 9 # LIBRARY
+---| 10 # COUNTING_HOUSE
+---| 11 # GUILDHALL
+---| 12 # TOWER
+---| 13 # HOSPITAL
+
+---@class identity.abstract_building_type: DFEnumType
+---@field NONE -1 bay12: AbstractBuilding
+---@field [-1] "NONE" bay12: AbstractBuilding
+---@field MEAD_HALL 0
+---@field [0] "MEAD_HALL"
+---@field KEEP 1
+---@field [1] "KEEP"
+---@field TEMPLE 2
+---@field [2] "TEMPLE"
+---@field DARK_TOWER 3
+---@field [3] "DARK_TOWER"
+---@field MARKET 4
+---@field [4] "MARKET"
+---@field TOMB 5
+---@field [5] "TOMB"
+---@field DUNGEON 6
+---@field [6] "DUNGEON"
+---@field UNDERWORLD_SPIRE 7
+---@field [7] "UNDERWORLD_SPIRE"
+---@field INN_TAVERN 8
+---@field [8] "INN_TAVERN"
+---@field LIBRARY 9
+---@field [9] "LIBRARY"
+---@field COUNTING_HOUSE 10
+---@field [10] "COUNTING_HOUSE"
+---@field GUILDHALL 11
+---@field [11] "GUILDHALL"
+---@field TOWER 12
+---@field [12] "TOWER"
+---@field HOSPITAL 13
+---@field [13] "HOSPITAL"
+df.abstract_building_type = {}
+
+---@alias df.intrigue_corruption_action_type
+---| -1 # NONE
+---| 0 # BRIBE_OFFICIAL
+---| 1 # BRING_INTO_ASSET_NETWORK
+---| 2 # CORRUPT_IN_PLACE_GENERALLY
+---| 3 # INDUCE_TO_EMBEZZLE
+
+---@class identity.intrigue_corruption_action_type: DFEnumType
+---@field NONE -1 bay12: IntrigueCorruptionActionType
+---@field [-1] "NONE" bay12: IntrigueCorruptionActionType
+---@field BRIBE_OFFICIAL 0
+---@field [0] "BRIBE_OFFICIAL"
+---@field BRING_INTO_ASSET_NETWORK 1
+---@field [1] "BRING_INTO_ASSET_NETWORK"
+---@field CORRUPT_IN_PLACE_GENERALLY 2
+---@field [2] "CORRUPT_IN_PLACE_GENERALLY"
+---@field INDUCE_TO_EMBEZZLE 3
+---@field [3] "INDUCE_TO_EMBEZZLE"
+df.intrigue_corruption_action_type = {}
+
+---@alias df.intrigue_corruption_method_type
+---| 0 # Threat
+---| 1 # Flattery
+---| 2 # Authority
+---| 3 # BlackmailForEmbezzlement
+---| 4 # Bribery
+---| 5 # Sympathy
+---| 6 # Revenge
+---| 7 # Immortality
+
+---@class identity.intrigue_corruption_method_type: DFEnumType
+---@field Threat 0 bay12: IntrigueCorruptionMethodType
+---@field [0] "Threat" bay12: IntrigueCorruptionMethodType
+---@field Flattery 1
+---@field [1] "Flattery"
+---@field Authority 2
+---@field [2] "Authority"
+---@field BlackmailForEmbezzlement 3
+---@field [3] "BlackmailForEmbezzlement"
+---@field Bribery 4
+---@field [4] "Bribery"
+---@field Sympathy 5
+---@field [5] "Sympathy"
+---@field Revenge 6
+---@field [6] "Revenge"
+---@field Immortality 7
+---@field [7] "Immortality"
+df.intrigue_corruption_method_type = {}
+
+---@alias df.interrogation_method_type
+---| -1 # NONE
+---| 0 # INTIMIDATE
+---| 1 # FLATTER
+---| 2 # RELIGIOUS_SYMPATHY
+---| 3 # APPEAL_TO_VALUE
+---| 4 # BUILD_RAPPORT
+---| 5 # LIE
+
+---@class identity.interrogation_method_type: DFEnumType
+---@field NONE -1 bay12: InterrogationMethodType
+---@field [-1] "NONE" bay12: InterrogationMethodType
+---@field INTIMIDATE 0
+---@field [0] "INTIMIDATE"
+---@field FLATTER 1
+---@field [1] "FLATTER"
+---@field RELIGIOUS_SYMPATHY 2
+---@field [2] "RELIGIOUS_SYMPATHY"
+---@field APPEAL_TO_VALUE 3
+---@field [3] "APPEAL_TO_VALUE"
+---@field BUILD_RAPPORT 4
+---@field [4] "BUILD_RAPPORT"
+---@field LIE 5
+---@field [5] "LIE"
+df.interrogation_method_type = {}
+
+---@alias df.message_type
+---| -1 # NONE
+---| 0 # quest_retrieve_artifact
+---| 1 # hire_plot_actor
+---| 2 # hiring_proposition
+---| 3 # delegate_plot
+---| 4 # delegate_plot_proposition
+---| 5 # order_to_perform_action
+
+---@class identity.message_type: DFEnumType
+---@field NONE -1 bay12: MessageType
+---@field [-1] "NONE" bay12: MessageType
+---@field quest_retrieve_artifact 0
+---@field [0] "quest_retrieve_artifact"
+---@field hire_plot_actor 1
+---@field [1] "hire_plot_actor"
+---@field hiring_proposition 2
+---@field [2] "hiring_proposition"
+---@field delegate_plot 3
+---@field [3] "delegate_plot"
+---@field delegate_plot_proposition 4
+---@field [4] "delegate_plot_proposition"
+---@field order_to_perform_action 5
+---@field [5] "order_to_perform_action"
+df.message_type = {}
+
+---@class (exact) df.message_quest_retrieve_artifactst: DFStruct
+---@field _type identity.message_quest_retrieve_artifactst
+---@field giver_civ number References: `df.historical_entity`
+---@field giver_hf number References: `df.historical_figure`
+---@field artifact_id number References: `df.artifact_record`
+---@field return_site number References: `df.world_site`
+---@field return_bld number References: `df.abstract_building`
+
+---@class identity.message_quest_retrieve_artifactst: DFCompoundType
+---@field _kind 'struct-type'
+df.message_quest_retrieve_artifactst = {}
+
+---@return df.message_quest_retrieve_artifactst
+function df.message_quest_retrieve_artifactst:new() end
+
+---@class (exact) df.message_hire_plot_actorst: DFStruct
+---@field _type identity.message_hire_plot_actorst
+---@field plot_origin_hf number References: `df.historical_figure`
+---@field plot_id number
+---@field hire_hf number References: `df.historical_figure`
+---@field rate number
+
+---@class identity.message_hire_plot_actorst: DFCompoundType
+---@field _kind 'struct-type'
+df.message_hire_plot_actorst = {}
+
+---@return df.message_hire_plot_actorst
+function df.message_hire_plot_actorst:new() end
+
+---@class (exact) df.message_hiring_propositionst: DFStruct
+---@field _type identity.message_hiring_propositionst
+---@field plot_origin_hf number References: `df.historical_figure`
+---@field plot_id number
+---@field rate number
+
+---@class identity.message_hiring_propositionst: DFCompoundType
+---@field _kind 'struct-type'
+df.message_hiring_propositionst = {}
+
+---@return df.message_hiring_propositionst
+function df.message_hiring_propositionst:new() end
+
+---@class (exact) df.message_delegate_plot_propositionst: DFStruct
+---@field _type identity.message_delegate_plot_propositionst
+---@field plot_origin_hf number References: `df.historical_figure`
+---@field plot_id number
+---@field rate number
+
+---@class identity.message_delegate_plot_propositionst: DFCompoundType
+---@field _kind 'struct-type'
+df.message_delegate_plot_propositionst = {}
+
+---@return df.message_delegate_plot_propositionst
+function df.message_delegate_plot_propositionst:new() end
+
+---@class (exact) df.message_delegate_plotst: DFStruct
+---@field _type identity.message_delegate_plotst
+---@field plot_origin_hf number References: `df.historical_figure`
+---@field plot_id number
+---@field delegate_hf number References: `df.historical_figure`
+---@field rate number
+
+---@class identity.message_delegate_plotst: DFCompoundType
+---@field _kind 'struct-type'
+df.message_delegate_plotst = {}
+
+---@return df.message_delegate_plotst
+function df.message_delegate_plotst:new() end
+
+---@alias df.message_action_type
+---| -1 # NONE
+---| 0 # infiltrate_society
+
+---@class identity.message_action_type: DFEnumType
+---@field NONE -1 bay12: MessageActionType
+---@field [-1] "NONE" bay12: MessageActionType
+---@field infiltrate_society 0
+---@field [0] "infiltrate_society"
+df.message_action_type = {}
+
+---@class (exact) df.message_order_to_perform_actionst: DFStruct
+---@field _type identity.message_order_to_perform_actionst
+---@field commander_hf number References: `df.historical_figure`
+---@field ordered_hf number References: `df.historical_figure`
+---@field action_id number
+---@field action_transfer_flag integer
+
+---@class identity.message_order_to_perform_actionst: DFCompoundType
+---@field _kind 'struct-type'
+df.message_order_to_perform_actionst = {}
+
+---@return df.message_order_to_perform_actionst
+function df.message_order_to_perform_actionst:new() end
+
+---@class df.message_flag: DFBitfield
+---@field _enum identity.message_flag
+---@field dead boolean bay12: MESSAGE_FLAG_*
+---@field [0] boolean bay12: MESSAGE_FLAG_*
+
+---@class identity.message_flag: DFBitfieldType
+---@field dead 0 bay12: MESSAGE_FLAG_*
+---@field [0] "dead" bay12: MESSAGE_FLAG_*
+df.message_flag = {}
+
+---@class (exact) df.messagest: DFStruct
+---@field _type identity.messagest
+---@field id number
+---@field type df.message_type
+---@field flags df.message_flag
+---@field post_year number
+---@field post_season_tick number
+---@field plot_data df.messagest.T_plot_data
+---@field last_holder_hf number References: `df.historical_figure`
+
+---@class identity.messagest: DFCompoundType
+---@field _kind 'struct-type'
+df.messagest = {}
+
+---@return df.messagest
+function df.messagest:new() end
+
+---@class (exact) df.messagest.T_plot_data: DFStruct
+---@field _type identity.messagest.plot_data
+---@field quest_retrieve_artifact df.message_quest_retrieve_artifactst
+---@field hire_plot_actor df.message_hire_plot_actorst
+---@field hiring_proposition df.message_hiring_propositionst
+---@field delegate_plot df.message_delegate_plotst
+---@field delegate_plot_proposition df.message_delegate_plot_propositionst
+---@field order_to_perform_action df.message_order_to_perform_actionst
+
+---@class identity.messagest.plot_data: DFCompoundType
+---@field _kind 'struct-type'
+df.messagest.T_plot_data = {}
+
+---@return df.messagest.T_plot_data
+function df.messagest.T_plot_data:new() end
+
+---@alias df.religious_practice_type
+---| -1 # NONE
+---| 0 # WORSHIP_HFID
+---| 1 # RELIGION_ENID
+
+---@class identity.religious_practice_type: DFEnumType
+---@field NONE -1 bay12: ReligiousPracticeType
+---@field [-1] "NONE" bay12: ReligiousPracticeType
+---@field WORSHIP_HFID 0
+---@field [0] "WORSHIP_HFID"
+---@field RELIGION_ENID 1
+---@field [1] "RELIGION_ENID"
+df.religious_practice_type = {}
+
+---@alias df.resource_allotment_specifier_type
+---| 0 # CROP
+---| 1 # STONE
+---| 2 # METAL
+---| 3 # WOOD
+---| 4 # ARMOR_BODY
+---| 5 # ARMOR_PANTS
+---| 6 # ARMOR_GLOVES
+---| 7 # ARMOR_BOOTS
+---| 8 # ARMOR_HELM
+---| 9 # CLOTHING_BODY
+---| 10 # CLOTHING_PANTS
+---| 11 # CLOTHING_GLOVES
+---| 12 # CLOTHING_BOOTS
+---| 13 # CLOTHING_HELM
+---| 14 # WEAPON_MELEE
+---| 15 # WEAPON_RANGED
+---| 16 # ANVIL
+---| 17 # GEMS
+---| 18 # THREAD
+---| 19 # CLOTH
+---| 20 # LEATHER
+---| 21 # QUIVER
+---| 22 # BACKPACK
+---| 23 # FLASK
+---| 24 # BAG
+---| 25 # TABLE
+---| 26 # CABINET
+---| 27 # CHAIR
+---| 28 # BOX
+---| 29 # BED
+---| 30 # CRAFTS
+---| 31 # MEAT
+---| 32 # BONE
+---| 33 # HORN
+---| 34 # SHELL
+---| 35 # TALLOW
+---| 36 # TOOTH
+---| 37 # PEARL
+---| 38 # SOAP
+---| 39 # EXTRACT
+---| 40 # CHEESE
+---| 41 # SKIN
+---| 42 # POWDER
+---| 43 # AMMO
+---| 44 # UNUSED_44
+---| 45 # UNUSED_45
+---| 46 # UNUSED_46
+---| 47 # UNUSED_47
+---| 48 # UNUSED_48
+---| 49 # UNUSED_49
+---| 50 # UNUSED_50
+---| 51 # UNUSED_51
+---| 52 # UNUSED_52
+---| 53 # UNUSED_53
+---| 54 # UNUSED_54
+---| 55 # UNUSED_55
+---| 56 # UNUSED_56
+---| 57 # UNUSED_57
+---| 58 # UNUSED_58
+---| 59 # UNUSED_59
+---| 60 # UNUSED_60
+---| 61 # UNUSED_61
+---| 62 # UNUSED_62
+---| 63 # UNUSED_63
+---| 64 # UNUSED_64
+---| 65 # UNUSED_65
+---| 66 # UNUSED_66
+---| 67 # UNUSED_67
+---| 68 # UNUSED_68
+---| 69 # UNUSED_69
+---| 70 # UNUSED_70
+---| 71 # UNUSED_71
+---| 72 # UNUSED_72
+---| 73 # UNUSED_73
+---| 74 # UNUSED_74
+---| 75 # UNUSED_75
+---| 76 # UNUSED_76
+---| 77 # UNUSED_77
+---| 78 # UNUSED_78
+---| 79 # UNUSED_79
+---| 80 # UNUSED_80
+---| 81 # UNUSED_81
+---| 82 # UNUSED_82
+---| 83 # UNUSED_83
+---| 84 # UNUSED_84
+---| 85 # UNUSED_85
+---| 86 # UNUSED_86
+---| 87 # UNUSED_87
+---| 88 # UNUSED_88
+---| 89 # UNUSED_89
+---| 90 # UNUSED_90
+---| 91 # UNUSED_91
+---| 92 # UNUSED_92
+---| 93 # UNUSED_93
+---| 94 # UNUSED_94
+---| 95 # UNUSED_95
+---| 96 # UNUSED_96
+---| 97 # UNUSED_97
+---| 98 # UNUSED_98
+---| 99 # UNUSED_99
+
+---@class identity.resource_allotment_specifier_type: DFEnumType
+---@field CROP 0 bay12: ResourceAllotmentType
+---@field [0] "CROP" bay12: ResourceAllotmentType
+---@field STONE 1
+---@field [1] "STONE"
+---@field METAL 2
+---@field [2] "METAL"
+---@field WOOD 3
+---@field [3] "WOOD"
+---@field ARMOR_BODY 4
+---@field [4] "ARMOR_BODY"
+---@field ARMOR_PANTS 5
+---@field [5] "ARMOR_PANTS"
+---@field ARMOR_GLOVES 6
+---@field [6] "ARMOR_GLOVES"
+---@field ARMOR_BOOTS 7
+---@field [7] "ARMOR_BOOTS"
+---@field ARMOR_HELM 8
+---@field [8] "ARMOR_HELM"
+---@field CLOTHING_BODY 9
+---@field [9] "CLOTHING_BODY"
+---@field CLOTHING_PANTS 10
+---@field [10] "CLOTHING_PANTS"
+---@field CLOTHING_GLOVES 11
+---@field [11] "CLOTHING_GLOVES"
+---@field CLOTHING_BOOTS 12
+---@field [12] "CLOTHING_BOOTS"
+---@field CLOTHING_HELM 13
+---@field [13] "CLOTHING_HELM"
+---@field WEAPON_MELEE 14
+---@field [14] "WEAPON_MELEE"
+---@field WEAPON_RANGED 15
+---@field [15] "WEAPON_RANGED"
+---@field ANVIL 16
+---@field [16] "ANVIL"
+---@field GEMS 17
+---@field [17] "GEMS"
+---@field THREAD 18
+---@field [18] "THREAD"
+---@field CLOTH 19
+---@field [19] "CLOTH"
+---@field LEATHER 20
+---@field [20] "LEATHER"
+---@field QUIVER 21
+---@field [21] "QUIVER"
+---@field BACKPACK 22
+---@field [22] "BACKPACK"
+---@field FLASK 23
+---@field [23] "FLASK"
+---@field BAG 24
+---@field [24] "BAG"
+---@field TABLE 25
+---@field [25] "TABLE"
+---@field CABINET 26
+---@field [26] "CABINET"
+---@field CHAIR 27
+---@field [27] "CHAIR"
+---@field BOX 28
+---@field [28] "BOX"
+---@field BED 29
+---@field [29] "BED"
+---@field CRAFTS 30
+---@field [30] "CRAFTS"
+---@field MEAT 31
+---@field [31] "MEAT"
+---@field BONE 32
+---@field [32] "BONE"
+---@field HORN 33
+---@field [33] "HORN"
+---@field SHELL 34
+---@field [34] "SHELL"
+---@field TALLOW 35
+---@field [35] "TALLOW"
+---@field TOOTH 36
+---@field [36] "TOOTH"
+---@field PEARL 37
+---@field [37] "PEARL"
+---@field SOAP 38
+---@field [38] "SOAP"
+---@field EXTRACT 39
+---@field [39] "EXTRACT"
+---@field CHEESE 40
+---@field [40] "CHEESE"
+---@field SKIN 41
+---@field [41] "SKIN"
+---@field POWDER 42
+---@field [42] "POWDER"
+---@field AMMO 43
+---@field [43] "AMMO"
+---@field UNUSED_44 44
+---@field [44] "UNUSED_44"
+---@field UNUSED_45 45
+---@field [45] "UNUSED_45"
+---@field UNUSED_46 46
+---@field [46] "UNUSED_46"
+---@field UNUSED_47 47
+---@field [47] "UNUSED_47"
+---@field UNUSED_48 48
+---@field [48] "UNUSED_48"
+---@field UNUSED_49 49
+---@field [49] "UNUSED_49"
+---@field UNUSED_50 50
+---@field [50] "UNUSED_50"
+---@field UNUSED_51 51
+---@field [51] "UNUSED_51"
+---@field UNUSED_52 52
+---@field [52] "UNUSED_52"
+---@field UNUSED_53 53
+---@field [53] "UNUSED_53"
+---@field UNUSED_54 54
+---@field [54] "UNUSED_54"
+---@field UNUSED_55 55
+---@field [55] "UNUSED_55"
+---@field UNUSED_56 56
+---@field [56] "UNUSED_56"
+---@field UNUSED_57 57
+---@field [57] "UNUSED_57"
+---@field UNUSED_58 58
+---@field [58] "UNUSED_58"
+---@field UNUSED_59 59
+---@field [59] "UNUSED_59"
+---@field UNUSED_60 60
+---@field [60] "UNUSED_60"
+---@field UNUSED_61 61
+---@field [61] "UNUSED_61"
+---@field UNUSED_62 62
+---@field [62] "UNUSED_62"
+---@field UNUSED_63 63
+---@field [63] "UNUSED_63"
+---@field UNUSED_64 64
+---@field [64] "UNUSED_64"
+---@field UNUSED_65 65
+---@field [65] "UNUSED_65"
+---@field UNUSED_66 66
+---@field [66] "UNUSED_66"
+---@field UNUSED_67 67
+---@field [67] "UNUSED_67"
+---@field UNUSED_68 68
+---@field [68] "UNUSED_68"
+---@field UNUSED_69 69
+---@field [69] "UNUSED_69"
+---@field UNUSED_70 70
+---@field [70] "UNUSED_70"
+---@field UNUSED_71 71
+---@field [71] "UNUSED_71"
+---@field UNUSED_72 72
+---@field [72] "UNUSED_72"
+---@field UNUSED_73 73
+---@field [73] "UNUSED_73"
+---@field UNUSED_74 74
+---@field [74] "UNUSED_74"
+---@field UNUSED_75 75
+---@field [75] "UNUSED_75"
+---@field UNUSED_76 76
+---@field [76] "UNUSED_76"
+---@field UNUSED_77 77
+---@field [77] "UNUSED_77"
+---@field UNUSED_78 78
+---@field [78] "UNUSED_78"
+---@field UNUSED_79 79
+---@field [79] "UNUSED_79"
+---@field UNUSED_80 80
+---@field [80] "UNUSED_80"
+---@field UNUSED_81 81
+---@field [81] "UNUSED_81"
+---@field UNUSED_82 82
+---@field [82] "UNUSED_82"
+---@field UNUSED_83 83
+---@field [83] "UNUSED_83"
+---@field UNUSED_84 84
+---@field [84] "UNUSED_84"
+---@field UNUSED_85 85
+---@field [85] "UNUSED_85"
+---@field UNUSED_86 86
+---@field [86] "UNUSED_86"
+---@field UNUSED_87 87
+---@field [87] "UNUSED_87"
+---@field UNUSED_88 88
+---@field [88] "UNUSED_88"
+---@field UNUSED_89 89
+---@field [89] "UNUSED_89"
+---@field UNUSED_90 90
+---@field [90] "UNUSED_90"
+---@field UNUSED_91 91
+---@field [91] "UNUSED_91"
+---@field UNUSED_92 92
+---@field [92] "UNUSED_92"
+---@field UNUSED_93 93
+---@field [93] "UNUSED_93"
+---@field UNUSED_94 94
+---@field [94] "UNUSED_94"
+---@field UNUSED_95 95
+---@field [95] "UNUSED_95"
+---@field UNUSED_96 96
+---@field [96] "UNUSED_96"
+---@field UNUSED_97 97
+---@field [97] "UNUSED_97"
+---@field UNUSED_98 98
+---@field [98] "UNUSED_98"
+---@field UNUSED_99 99
+---@field [99] "UNUSED_99"
+df.resource_allotment_specifier_type = {}
+
+---@alias df.theft_method_type
+---| 0 # Theft
+---| 1 # Confiscated
+---| 2 # Looted
+---| 3 # Recovered
+
+---@class identity.theft_method_type: DFEnumType
+---@field Theft 0 bay12: ItemTheftType
+---@field [0] "Theft" bay12: ItemTheftType
+---@field Confiscated 1
+---@field [1] "Confiscated"
+---@field Looted 2
+---@field [2] "Looted"
+---@field Recovered 3
+---@field [3] "Recovered"
+df.theft_method_type = {}
+
+---@alias df.artifact_claim_type
+---| 0 # Symbol
+---| 1 # Heirloom
+---| 2 # Treasure
+---| 3 # HolyRelic
+
+---@class identity.artifact_claim_type: DFEnumType
+---@field Symbol 0 bay12: ArtifactClaimType
+---@field [0] "Symbol" bay12: ArtifactClaimType
+---@field Heirloom 1
+---@field [1] "Heirloom"
+---@field Treasure 2
+---@field [2] "Treasure"
+---@field HolyRelic 3
+---@field [3] "HolyRelic"
+df.artifact_claim_type = {}
+
+---@alias df.mood_type
+---| -1 # None
+---| 0 # Fey
+---| 1 # Secretive
+---| 2 # Possessed
+---| 3 # Macabre
+---| 4 # Fell
+---| 5 # Melancholy
+---| 6 # Raving
+---| 7 # Berserk
+---| 8 # Baby
+---| 9 # Traumatized
+
+---@class identity.mood_type: DFEnumType
+---@field None -1 bay12: Moods
+---@field [-1] "None" bay12: Moods
+---@field Fey 0
+---@field [0] "Fey"
+---@field Secretive 1
+---@field [1] "Secretive"
+---@field Possessed 2
+---@field [2] "Possessed"
+---@field Macabre 3
+---@field [3] "Macabre"
+---@field Fell 4
+---@field [4] "Fell"
+---@field Melancholy 5
+---@field [5] "Melancholy"
+---@field Raving 6
+---@field [6] "Raving"
+---@field Berserk 7
+---@field [7] "Berserk"
+---@field Baby 8
+---@field [8] "Baby"
+---@field Traumatized 9
+---@field [9] "Traumatized"
+df.mood_type = {}
+
+---@class df.orientation_flags: DFBitfield
+---@field _enum identity.orientation_flags
+---@field indeterminate boolean bay12: SEXUAL_ORIENTATION_FLAG_*
+---@field [0] boolean bay12: SEXUAL_ORIENTATION_FLAG_*
+---@field romance_male boolean
+---@field [1] boolean
+---@field marry_male boolean
+---@field [2] boolean
+---@field romance_female boolean
+---@field [3] boolean
+---@field marry_female boolean
+---@field [4] boolean
+
+---@class identity.orientation_flags: DFBitfieldType
+---@field indeterminate 0 bay12: SEXUAL_ORIENTATION_FLAG_*
+---@field [0] "indeterminate" bay12: SEXUAL_ORIENTATION_FLAG_*
+---@field romance_male 1
+---@field [1] "romance_male"
+---@field marry_male 2
+---@field [2] "marry_male"
+---@field romance_female 3
+---@field [3] "romance_female"
+---@field marry_female 4
+---@field [4] "marry_female"
+df.orientation_flags = {}
+
+---@alias df.job_art_specifier_type
+---| -1 # None
+---| 0 # HistoricalFigure
+---| 1 # Site
+---| 2 # Entity
+---| 3 # ArtImage
+
+---@class identity.job_art_specifier_type: DFEnumType
+---@field None -1 bay12: JobArtSpecifierType
+---@field [-1] "None" bay12: JobArtSpecifierType
+---@field HistoricalFigure 0
+---@field [0] "HistoricalFigure"
+---@field Site 1
+---@field [1] "Site"
+---@field Entity 2
+---@field [2] "Entity"
+---@field ArtImage 3
+---@field [3] "ArtImage"
+df.job_art_specifier_type = {}
+
+---@class (exact) df.adv_art_specifierst: DFStruct
+---@field _type identity.adv_art_specifierst
+---@field name string
+---@field art_specifier df.job_art_specifier_type
+---@field art_spec_id1 number
+---@field art_spec_id2 number
+
+---@class identity.adv_art_specifierst: DFCompoundType
+---@field _kind 'struct-type'
+df.adv_art_specifierst = {}
+
+---@return df.adv_art_specifierst
+function df.adv_art_specifierst:new() end
+
+---@alias df.squad_order_type
+---| 0 # MOVE
+---| 1 # KILL_LIST
+---| 2 # DEFEND_BURROWS
+---| 3 # PATROL_ROUTE
+---| 4 # TRAIN
+---| 5 # DRIVE_ENTITY_OFF_SITE
+---| 6 # CAUSE_TROUBLE_FOR_ENTITY
+---| 7 # KILL_HF
+---| 8 # DRIVE_ARMIES_FROM_SITE
+---| 9 # RETRIEVE_ARTIFACT
+---| 10 # RAID_SITE
+---| 11 # RESCUE_HF
+
+---@class identity.squad_order_type: DFEnumType
+---@field MOVE 0 bay12: SquadOrderType
+---@field [0] "MOVE" bay12: SquadOrderType
+---@field KILL_LIST 1
+---@field [1] "KILL_LIST"
+---@field DEFEND_BURROWS 2
+---@field [2] "DEFEND_BURROWS"
+---@field PATROL_ROUTE 3
+---@field [3] "PATROL_ROUTE"
+---@field TRAIN 4
+---@field [4] "TRAIN"
+---@field DRIVE_ENTITY_OFF_SITE 5
+---@field [5] "DRIVE_ENTITY_OFF_SITE"
+---@field CAUSE_TROUBLE_FOR_ENTITY 6
+---@field [6] "CAUSE_TROUBLE_FOR_ENTITY"
+---@field KILL_HF 7
+---@field [7] "KILL_HF"
+---@field DRIVE_ARMIES_FROM_SITE 8
+---@field [8] "DRIVE_ARMIES_FROM_SITE"
+---@field RETRIEVE_ARTIFACT 9
+---@field [9] "RETRIEVE_ARTIFACT"
+---@field RAID_SITE 10
+---@field [10] "RAID_SITE"
+---@field RESCUE_HF 11
+---@field [11] "RESCUE_HF"
+df.squad_order_type = {}
+
+---@alias df.value_type
+---| -1 # NONE
+---| 0 # LAW
+---| 1 # LOYALTY
+---| 2 # FAMILY
+---| 3 # FRIENDSHIP
+---| 4 # POWER
+---| 5 # TRUTH
+---| 6 # CUNNING
+---| 7 # ELOQUENCE
+---| 8 # FAIRNESS
+---| 9 # DECORUM
+---| 10 # TRADITION
+---| 11 # ARTWORK
+---| 12 # COOPERATION
+---| 13 # INDEPENDENCE
+---| 14 # STOICISM
+---| 15 # INTROSPECTION
+---| 16 # SELF_CONTROL
+---| 17 # TRANQUILITY
+---| 18 # HARMONY
+---| 19 # MERRIMENT
+---| 20 # CRAFTSMANSHIP
+---| 21 # MARTIAL_PROWESS
+---| 22 # SKILL
+---| 23 # HARD_WORK
+---| 24 # SACRIFICE
+---| 25 # COMPETITION
+---| 26 # PERSEVERENCE
+---| 27 # LEISURE_TIME
+---| 28 # COMMERCE
+---| 29 # ROMANCE
+---| 30 # NATURE
+---| 31 # PEACE
+---| 32 # KNOWLEDGE
+
+---@class identity.value_type: DFEnumType
+---@field NONE -1 bay12: PersonalityValueType
+---@field [-1] "NONE" bay12: PersonalityValueType
+---@field LAW 0
+---@field [0] "LAW"
+---@field LOYALTY 1
+---@field [1] "LOYALTY"
+---@field FAMILY 2
+---@field [2] "FAMILY"
+---@field FRIENDSHIP 3
+---@field [3] "FRIENDSHIP"
+---@field POWER 4
+---@field [4] "POWER"
+---@field TRUTH 5
+---@field [5] "TRUTH"
+---@field CUNNING 6
+---@field [6] "CUNNING"
+---@field ELOQUENCE 7
+---@field [7] "ELOQUENCE"
+---@field FAIRNESS 8
+---@field [8] "FAIRNESS"
+---@field DECORUM 9
+---@field [9] "DECORUM"
+---@field TRADITION 10
+---@field [10] "TRADITION"
+---@field ARTWORK 11
+---@field [11] "ARTWORK"
+---@field COOPERATION 12
+---@field [12] "COOPERATION"
+---@field INDEPENDENCE 13
+---@field [13] "INDEPENDENCE"
+---@field STOICISM 14
+---@field [14] "STOICISM"
+---@field INTROSPECTION 15
+---@field [15] "INTROSPECTION"
+---@field SELF_CONTROL 16
+---@field [16] "SELF_CONTROL"
+---@field TRANQUILITY 17
+---@field [17] "TRANQUILITY"
+---@field HARMONY 18
+---@field [18] "HARMONY"
+---@field MERRIMENT 19
+---@field [19] "MERRIMENT"
+---@field CRAFTSMANSHIP 20
+---@field [20] "CRAFTSMANSHIP"
+---@field MARTIAL_PROWESS 21
+---@field [21] "MARTIAL_PROWESS"
+---@field SKILL 22
+---@field [22] "SKILL"
+---@field HARD_WORK 23
+---@field [23] "HARD_WORK"
+---@field SACRIFICE 24
+---@field [24] "SACRIFICE"
+---@field COMPETITION 25
+---@field [25] "COMPETITION"
+---@field PERSEVERENCE 26
+---@field [26] "PERSEVERENCE"
+---@field LEISURE_TIME 27
+---@field [27] "LEISURE_TIME"
+---@field COMMERCE 28
+---@field [28] "COMMERCE"
+---@field ROMANCE 29
+---@field [29] "ROMANCE"
+---@field NATURE 30
+---@field [30] "NATURE"
+---@field PEACE 31
+---@field [31] "PEACE"
+---@field KNOWLEDGE 32
+---@field [32] "KNOWLEDGE"
+df.value_type = {}
+
+---@alias df.abstract_building_reputation_type
+---| 0 # DRINK_AVAILABILITY
+---| 1 # ARCHITECTURE_QUALITY
+---| 2 # KNOWLEDGE_QUALITY
+---| 3 # DANGER
+---| 4 # DELAY
+---| 5 # ABILITY_TO_PRAY
+---| 6 # ABILITY_TO_RESEARCH
+---| 7 # ABILITY_TO_RELAX
+
+---@class identity.abstract_building_reputation_type: DFEnumType
+---@field DRINK_AVAILABILITY 0 bay12: AbstractBuildingReputationType
+---@field [0] "DRINK_AVAILABILITY" bay12: AbstractBuildingReputationType
+---@field ARCHITECTURE_QUALITY 1
+---@field [1] "ARCHITECTURE_QUALITY"
+---@field KNOWLEDGE_QUALITY 2
+---@field [2] "KNOWLEDGE_QUALITY"
+---@field DANGER 3
+---@field [3] "DANGER"
+---@field DELAY 4
+---@field [4] "DELAY"
+---@field ABILITY_TO_PRAY 5
+---@field [5] "ABILITY_TO_PRAY"
+---@field ABILITY_TO_RESEARCH 6
+---@field [6] "ABILITY_TO_RESEARCH"
+---@field ABILITY_TO_RELAX 7
+---@field [7] "ABILITY_TO_RELAX"
+df.abstract_building_reputation_type = {}
+
+---@alias df.timbre_type
+---| 0 # CLEAR
+---| 1 # NOISY
+---| 2 # FULL
+---| 3 # THIN
+---| 4 # ROUND
+---| 5 # SHARP
+---| 6 # SMOOTH
+---| 7 # CHOPPY
+---| 8 # STEADY
+---| 9 # EVOLVING
+---| 10 # STRONG
+---| 11 # DELICATE
+---| 12 # BRIGHT
+---| 13 # GRACEFUL
+---| 14 # SPARSE
+---| 15 # BREATHY
+---| 16 # STRAINED
+---| 17 # BROAD
+---| 18 # LIGHT
+---| 19 # MELLOW
+---| 20 # WOBBLING
+---| 21 # FOCUSED
+---| 22 # EVEN
+---| 23 # FLUID
+---| 24 # VIBRATING
+---| 25 # QUAVERING
+---| 26 # EERIE
+---| 27 # FRAGILE
+---| 28 # BRITTLE
+---| 29 # PURE_
+---| 30 # PIERCING
+---| 31 # STRIDENT
+---| 32 # WAVERING
+---| 33 # HARSH
+---| 34 # REEDY
+---| 35 # NASAL
+---| 36 # BUZZY
+---| 37 # ROUGH
+---| 38 # WARM
+---| 39 # RUGGED
+---| 40 # HEAVY
+---| 41 # FLAT
+---| 42 # DARK
+---| 43 # CRISP
+---| 44 # SONOROUS
+---| 45 # WATERY
+---| 46 # GENTLE
+---| 47 # SLICING
+---| 48 # LIQUID
+---| 49 # RAUCOUS
+---| 50 # BREEZY
+---| 51 # RASPY
+---| 52 # WISPY
+---| 53 # SHRILL
+---| 54 # MUDDY
+---| 55 # RICH
+---| 56 # DULL
+---| 57 # FLOATING
+---| 58 # RINGING
+---| 59 # RESONANT
+---| 60 # SWEET
+---| 61 # RIPPLING
+---| 62 # SPARKLING
+
+---@class identity.timbre_type: DFEnumType
+---@field CLEAR 0 bay12: TimbreType
+---@field [0] "CLEAR" bay12: TimbreType
+---@field NOISY 1
+---@field [1] "NOISY"
+---@field FULL 2
+---@field [2] "FULL"
+---@field THIN 3
+---@field [3] "THIN"
+---@field ROUND 4
+---@field [4] "ROUND"
+---@field SHARP 5
+---@field [5] "SHARP"
+---@field SMOOTH 6
+---@field [6] "SMOOTH"
+---@field CHOPPY 7
+---@field [7] "CHOPPY"
+---@field STEADY 8
+---@field [8] "STEADY"
+---@field EVOLVING 9
+---@field [9] "EVOLVING"
+---@field STRONG 10
+---@field [10] "STRONG"
+---@field DELICATE 11
+---@field [11] "DELICATE"
+---@field BRIGHT 12
+---@field [12] "BRIGHT"
+---@field GRACEFUL 13
+---@field [13] "GRACEFUL"
+---@field SPARSE 14
+---@field [14] "SPARSE"
+---@field BREATHY 15
+---@field [15] "BREATHY"
+---@field STRAINED 16
+---@field [16] "STRAINED"
+---@field BROAD 17
+---@field [17] "BROAD"
+---@field LIGHT 18
+---@field [18] "LIGHT"
+---@field MELLOW 19
+---@field [19] "MELLOW"
+---@field WOBBLING 20
+---@field [20] "WOBBLING"
+---@field FOCUSED 21
+---@field [21] "FOCUSED"
+---@field EVEN 22
+---@field [22] "EVEN"
+---@field FLUID 23
+---@field [23] "FLUID"
+---@field VIBRATING 24
+---@field [24] "VIBRATING"
+---@field QUAVERING 25
+---@field [25] "QUAVERING"
+---@field EERIE 26
+---@field [26] "EERIE"
+---@field FRAGILE 27
+---@field [27] "FRAGILE"
+---@field BRITTLE 28
+---@field [28] "BRITTLE"
+---@field PURE_ 29
+---@field [29] "PURE_"
+---@field PIERCING 30
+---@field [30] "PIERCING"
+---@field STRIDENT 31
+---@field [31] "STRIDENT"
+---@field WAVERING 32
+---@field [32] "WAVERING"
+---@field HARSH 33
+---@field [33] "HARSH"
+---@field REEDY 34
+---@field [34] "REEDY"
+---@field NASAL 35
+---@field [35] "NASAL"
+---@field BUZZY 36
+---@field [36] "BUZZY"
+---@field ROUGH 37
+---@field [37] "ROUGH"
+---@field WARM 38
+---@field [38] "WARM"
+---@field RUGGED 39
+---@field [39] "RUGGED"
+---@field HEAVY 40
+---@field [40] "HEAVY"
+---@field FLAT 41
+---@field [41] "FLAT"
+---@field DARK 42
+---@field [42] "DARK"
+---@field CRISP 43
+---@field [43] "CRISP"
+---@field SONOROUS 44
+---@field [44] "SONOROUS"
+---@field WATERY 45
+---@field [45] "WATERY"
+---@field GENTLE 46
+---@field [46] "GENTLE"
+---@field SLICING 47
+---@field [47] "SLICING"
+---@field LIQUID 48
+---@field [48] "LIQUID"
+---@field RAUCOUS 49
+---@field [49] "RAUCOUS"
+---@field BREEZY 50
+---@field [50] "BREEZY"
+---@field RASPY 51
+---@field [51] "RASPY"
+---@field WISPY 52
+---@field [52] "WISPY"
+---@field SHRILL 53
+---@field [53] "SHRILL"
+---@field MUDDY 54
+---@field [54] "MUDDY"
+---@field RICH 55
+---@field [55] "RICH"
+---@field DULL 56
+---@field [56] "DULL"
+---@field FLOATING 57
+---@field [57] "FLOATING"
+---@field RINGING 58
+---@field [58] "RINGING"
+---@field RESONANT 59
+---@field [59] "RESONANT"
+---@field SWEET 60
+---@field [60] "SWEET"
+---@field RIPPLING 61
+---@field [61] "RIPPLING"
+---@field SPARKLING 62
+---@field [62] "SPARKLING"
+df.timbre_type = {}
+
+---@alias df.performance_participant_type
+---| -1 # NONE
+---| 0 # STORYTELLER
+---| 1 # POEM_RECITER
+---| 2 # MUSICAL_VOICE
+---| 3 # DANCER
+---| 4 # SPECTATOR
+---| 5 # INCIDENTAL_SPECTATOR
+---| 6 # PREACHER
+
+---@class identity.performance_participant_type: DFEnumType
+---@field NONE -1 bay12: PerformanceRoleType
+---@field [-1] "NONE" bay12: PerformanceRoleType
+---@field STORYTELLER 0
+---@field [0] "STORYTELLER"
+---@field POEM_RECITER 1
+---@field [1] "POEM_RECITER"
+---@field MUSICAL_VOICE 2
+---@field [2] "MUSICAL_VOICE"
+---@field DANCER 3
+---@field [3] "DANCER"
+---@field SPECTATOR 4
+---@field [4] "SPECTATOR"
+---@field INCIDENTAL_SPECTATOR 5
+---@field [5] "INCIDENTAL_SPECTATOR"
+---@field PREACHER 6
+---@field [6] "PREACHER"
+df.performance_participant_type = {}
+
+---@alias df.performance_event_type
+---| -1 # NONE
+---| 0 # STORYTELLING_EVENT
+---| 1 # POETRY_RECITAL
+---| 2 # MUSIC_RECITAL
+---| 3 # DANCE
+---| 4 # SERMON_WORSHIP_HFID
+---| 5 # SERMON_SPHERE
+---| 6 # SERMON_PROMOTE_VALUE
+---| 7 # SERMON_REFUSE_VALUE
+
+---@class identity.performance_event_type: DFEnumType
+---@field NONE -1 bay12: PerformanceType
+---@field [-1] "NONE" bay12: PerformanceType
+---@field STORYTELLING_EVENT 0
+---@field [0] "STORYTELLING_EVENT"
+---@field POETRY_RECITAL 1
+---@field [1] "POETRY_RECITAL"
+---@field MUSIC_RECITAL 2
+---@field [2] "MUSIC_RECITAL"
+---@field DANCE 3
+---@field [3] "DANCE"
+---@field SERMON_WORSHIP_HFID 4
+---@field [4] "SERMON_WORSHIP_HFID"
+---@field SERMON_SPHERE 5
+---@field [5] "SERMON_SPHERE"
+---@field SERMON_PROMOTE_VALUE 6
+---@field [6] "SERMON_PROMOTE_VALUE"
+---@field SERMON_REFUSE_VALUE 7
+---@field [7] "SERMON_REFUSE_VALUE"
+df.performance_event_type = {}
+
+---@alias df.occupation_type
+---| 0 # TAVERN_KEEPER
+---| 1 # PERFORMER
+---| 2 # SCHOLAR
+---| 3 # MERCENARY
+---| 4 # MONSTER_SLAYER
+---| 5 # SCRIBE
+---| 6 # UNUSED_01
+---| 7 # DOCTOR
+---| 8 # DIAGNOSTICIAN
+---| 9 # SURGEON
+---| 10 # BONE_DOCTOR
+
+---@class identity.occupation_type: DFEnumType
+---@field TAVERN_KEEPER 0 bay12: OccupationType
+---@field [0] "TAVERN_KEEPER" bay12: OccupationType
+---@field PERFORMER 1
+---@field [1] "PERFORMER"
+---@field SCHOLAR 2
+---@field [2] "SCHOLAR"
+---@field MERCENARY 3
+---@field [3] "MERCENARY"
+---@field MONSTER_SLAYER 4
+---@field [4] "MONSTER_SLAYER"
+---@field SCRIBE 5
+---@field [5] "SCRIBE"
+---@field UNUSED_01 6
+---@field [6] "UNUSED_01"
+---@field DOCTOR 7
+---@field [7] "DOCTOR"
+---@field DIAGNOSTICIAN 8
+---@field [8] "DIAGNOSTICIAN"
+---@field SURGEON 9
+---@field [9] "SURGEON"
+---@field BONE_DOCTOR 10
+---@field [10] "BONE_DOCTOR"
+df.occupation_type = {}
+
+---@alias df.emotion_type
+---| -1 # ANYTHING
+---| 0 # ACCEPTANCE
+---| 1 # ADORATION
+---| 2 # AFFECTION
+---| 3 # AGITATION
+---| 4 # AGGRAVATION
+---| 5 # AGONY
+---| 6 # ALARM
+---| 7 # ALIENATION
+---| 8 # AMAZEMENT
+---| 9 # AMBIVALENCE
+---| 10 # AMUSEMENT
+---| 11 # ANGER
+---| 12 # ANGST
+---| 13 # ANGUISH
+---| 14 # ANNOYANCE
+---| 15 # ANTICIPATION
+---| 16 # ANXIETY
+---| 17 # APATHY
+---| 18 # APPREHENSION
+---| 19 # AROUSAL
+---| 20 # ASTONISHMENT
+---| 21 # ATTRACTION
+---| 22 # AVERSION
+---| 23 # AWE
+---| 24 # BITTERNESS
+---| 25 # BLISS
+---| 26 # BOREDOM
+---| 27 # CARING
+---| 28 # CHEERFULNESS
+---| 29 # CONFUSION
+---| 30 # CONTEMPT
+---| 31 # CONTENTMENT
+---| 32 # COURAGE
+---| 33 # CURIOSITY
+---| 34 # DEFEAT
+---| 35 # DEJECTION
+---| 36 # DELIGHT
+---| 37 # DEPRESSION
+---| 38 # DESIRE
+---| 39 # DESPAIR
+---| 40 # DISAPPOINTMENT
+---| 41 # DISGUST
+---| 42 # DISILLUSIONMENT
+---| 43 # DISLIKE
+---| 44 # DISMAY
+---| 45 # DISPLEASURE
+---| 46 # DISTRESS
+---| 47 # DOUBT
+---| 48 # DREAD
+---| 49 # EAGERNESS
+---| 50 # ECSTASY
+---| 51 # ELATION
+---| 52 # EMBARRASSMENT
+---| 53 # EMPATHY
+---| 54 # EMPTINESS
+---| 55 # ENJOYMENT
+---| 56 # ENTHRALLMENT
+---| 57 # ENTHUSIASM
+---| 58 # ENVY
+---| 59 # EUPHORIA
+---| 60 # EXASPERATION
+---| 61 # EXCITEMENT
+---| 62 # EXHILARATION
+---| 63 # EXPECTANCY
+---| 64 # FEAR
+---| 65 # FEROCITY
+---| 66 # FONDNESS
+---| 67 # FREEDOM
+---| 68 # FRIGHT
+---| 69 # FRUSTRATION
+---| 70 # FURY
+---| 71 # GAIETY
+---| 72 # GLADNESS
+---| 73 # GLEE
+---| 74 # GLOOM
+---| 75 # GLUMNESS
+---| 76 # GRATITUDE
+---| 77 # GRATIFICATION
+---| 78 # GRIEF
+---| 79 # GRIM_SATISFACTION
+---| 80 # GROUCHINESS
+---| 81 # GRUMPINESS
+---| 82 # GUILT
+---| 83 # HAPPINESS
+---| 84 # HATRED
+---| 85 # HOMESICKNESS
+---| 86 # HOPE
+---| 87 # HOPELESSNESS
+---| 88 # HORROR
+---| 89 # HOSTILITY
+---| 90 # HUMILIATION
+---| 91 # HURT
+---| 92 # HYSTERIA
+---| 93 # INFATUATED
+---| 94 # INSECURITY
+---| 95 # INSULT
+---| 96 # INTEREST
+---| 97 # IRRITATION
+---| 98 # ISOLATION
+---| 99 # JEALOUSY
+---| 100 # JOLLINESS
+---| 101 # JOVIALITY
+---| 102 # JOY
+---| 103 # JUBILATION
+---| 104 # LOATHING
+---| 105 # LONELINESS
+---| 106 # LONGING
+---| 107 # LOVE
+---| 108 # LOVESICKNESS
+---| 109 # LUST
+---| 110 # MELANCHOLY
+---| 111 # MISERY
+---| 112 # MORTIFICATION
+---| 113 # NEGLECT
+---| 114 # NERVOUSNESS
+---| 115 # NOSTALGIA
+---| 116 # OPTIMISM
+---| 117 # OUTRAGE
+---| 118 # PANIC
+---| 119 # PATIENCE
+---| 120 # PASSION
+---| 121 # PESSIMISM
+---| 122 # PITY
+---| 123 # PLEASURE
+---| 124 # PRIDE
+---| 125 # RAGE
+---| 126 # RAPTURE
+---| 127 # REJECTION
+---| 128 # RELIEF
+---| 129 # REGRET
+---| 130 # REMORSE
+---| 131 # REPENTANCE
+---| 132 # RESENTMENT
+---| 133 # REVULSION
+---| 134 # RIGHTEOUS_INDIGNATION
+---| 135 # SADNESS
+---| 136 # SATISFACTION
+---| 137 # SCORN
+---| 138 # SELF_PITY
+---| 139 # SENTIMENTAL
+---| 140 # SERVILE
+---| 141 # SHAKEN
+---| 142 # SHAME
+---| 143 # SHOCK
+---| 144 # SORROW
+---| 145 # SPITE
+---| 146 # SUFFERING
+---| 147 # SURPRISE
+---| 148 # SUSPICION
+---| 149 # SYMPATHY
+---| 150 # TENDERNESS
+---| 151 # TENSENESS
+---| 152 # TERROR
+---| 153 # THRILL
+---| 154 # TORMENT
+---| 155 # TRIUMPH
+---| 156 # UNEASINESS
+---| 157 # UNHAPPINESS
+---| 158 # VENGEFULNESS
+---| 159 # WOE
+---| 160 # WONDER
+---| 161 # WORRY
+---| 162 # WRATH
+---| 163 # ZEAL
+---| 164 # ZEST
+---| 165 # INSTINCTUAL_HUNT
+---| 166 # BOGEYMAN_TAUNT
+---| 167 # RESTLESS
+---| 168 # ADMIRATION
+
+---@class identity.emotion_type: DFEnumType
+---@field ANYTHING -1
+---@field [-1] "ANYTHING"
+---@field ACCEPTANCE 0
+---@field [0] "ACCEPTANCE"
+---@field ADORATION 1
+---@field [1] "ADORATION"
+---@field AFFECTION 2
+---@field [2] "AFFECTION"
+---@field AGITATION 3
+---@field [3] "AGITATION"
+---@field AGGRAVATION 4
+---@field [4] "AGGRAVATION"
+---@field AGONY 5
+---@field [5] "AGONY"
+---@field ALARM 6
+---@field [6] "ALARM"
+---@field ALIENATION 7
+---@field [7] "ALIENATION"
+---@field AMAZEMENT 8
+---@field [8] "AMAZEMENT"
+---@field AMBIVALENCE 9
+---@field [9] "AMBIVALENCE"
+---@field AMUSEMENT 10 10
+---@field [10] "AMUSEMENT" 10
+---@field ANGER 11
+---@field [11] "ANGER"
+---@field ANGST 12
+---@field [12] "ANGST"
+---@field ANGUISH 13
+---@field [13] "ANGUISH"
+---@field ANNOYANCE 14
+---@field [14] "ANNOYANCE"
+---@field ANTICIPATION 15 not yet in game
+---@field [15] "ANTICIPATION" not yet in game
+---@field ANXIETY 16
+---@field [16] "ANXIETY"
+---@field APATHY 17
+---@field [17] "APATHY"
+---@field APPREHENSION 18 not yet in game
+---@field [18] "APPREHENSION" not yet in game
+---@field AROUSAL 19
+---@field [19] "AROUSAL"
+---@field ASTONISHMENT 20 20
+---@field [20] "ASTONISHMENT" 20
+---@field ATTRACTION 21 not yet in game
+---@field [21] "ATTRACTION" not yet in game
+---@field AVERSION 22
+---@field [22] "AVERSION"
+---@field AWE 23
+---@field [23] "AWE"
+---@field BITTERNESS 24
+---@field [24] "BITTERNESS"
+---@field BLISS 25
+---@field [25] "BLISS"
+---@field BOREDOM 26
+---@field [26] "BOREDOM"
+---@field CARING 27
+---@field [27] "CARING"
+---@field CHEERFULNESS 28 not yet in game
+---@field [28] "CHEERFULNESS" not yet in game
+---@field CONFUSION 29
+---@field [29] "CONFUSION"
+---@field CONTEMPT 30 30
+---@field [30] "CONTEMPT" 30
+---@field CONTENTMENT 31
+---@field [31] "CONTENTMENT"
+---@field COURAGE 32 not yet in game
+---@field [32] "COURAGE" not yet in game
+---@field CURIOSITY 33 not yet in game
+---@field [33] "CURIOSITY" not yet in game
+---@field DEFEAT 34
+---@field [34] "DEFEAT"
+---@field DEJECTION 35
+---@field [35] "DEJECTION"
+---@field DELIGHT 36
+---@field [36] "DELIGHT"
+---@field DEPRESSION 37 not yet in game
+---@field [37] "DEPRESSION" not yet in game
+---@field DESIRE 38 not yet in game
+---@field [38] "DESIRE" not yet in game
+---@field DESPAIR 39
+---@field [39] "DESPAIR"
+---@field DISAPPOINTMENT 40 40
+---@field [40] "DISAPPOINTMENT" 40
+---@field DISGUST 41
+---@field [41] "DISGUST"
+---@field DISILLUSIONMENT 42 DISILLUSIONED
+---@field [42] "DISILLUSIONMENT" DISILLUSIONED
+---@field DISLIKE 43
+---@field [43] "DISLIKE"
+---@field DISMAY 44
+---@field [44] "DISMAY"
+---@field DISPLEASURE 45
+---@field [45] "DISPLEASURE"
+---@field DISTRESS 46
+---@field [46] "DISTRESS"
+---@field DOUBT 47
+---@field [47] "DOUBT"
+---@field DREAD 48 not yet in game
+---@field [48] "DREAD" not yet in game
+---@field EAGERNESS 49
+---@field [49] "EAGERNESS"
+---@field ECSTASY 50 50
+---@field [50] "ECSTASY" 50
+---@field ELATION 51
+---@field [51] "ELATION"
+---@field EMBARRASSMENT 52
+---@field [52] "EMBARRASSMENT"
+---@field EMPATHY 53
+---@field [53] "EMPATHY"
+---@field EMPTINESS 54
+---@field [54] "EMPTINESS"
+---@field ENJOYMENT 55
+---@field [55] "ENJOYMENT"
+---@field ENTHRALLMENT 56 not yet in game
+---@field [56] "ENTHRALLMENT" not yet in game
+---@field ENTHUSIASM 57
+---@field [57] "ENTHUSIASM"
+---@field ENVY 58 not yet in game
+---@field [58] "ENVY" not yet in game
+---@field EUPHORIA 59
+---@field [59] "EUPHORIA"
+---@field EXASPERATION 60 60
+---@field [60] "EXASPERATION" 60
+---@field EXCITEMENT 61
+---@field [61] "EXCITEMENT"
+---@field EXHILARATION 62
+---@field [62] "EXHILARATION"
+---@field EXPECTANCY 63
+---@field [63] "EXPECTANCY"
+---@field FEAR 64
+---@field [64] "FEAR"
+---@field FEROCITY 65
+---@field [65] "FEROCITY"
+---@field FONDNESS 66
+---@field [66] "FONDNESS"
+---@field FREEDOM 67 FREE
+---@field [67] "FREEDOM" FREE
+---@field FRIGHT 68
+---@field [68] "FRIGHT"
+---@field FRUSTRATION 69
+---@field [69] "FRUSTRATION"
+---@field FURY 70 70
+---@field [70] "FURY" 70
+---@field GAIETY 71
+---@field [71] "GAIETY"
+---@field GLADNESS 72 not yet in game
+---@field [72] "GLADNESS" not yet in game
+---@field GLEE 73
+---@field [73] "GLEE"
+---@field GLOOM 74
+---@field [74] "GLOOM"
+---@field GLUMNESS 75
+---@field [75] "GLUMNESS"
+---@field GRATITUDE 76
+---@field [76] "GRATITUDE"
+---@field GRATIFICATION 77 not yet in game
+---@field [77] "GRATIFICATION" not yet in game
+---@field GRIEF 78
+---@field [78] "GRIEF"
+---@field GRIM_SATISFACTION 79
+---@field [79] "GRIM_SATISFACTION"
+---@field GROUCHINESS 80 80
+---@field [80] "GROUCHINESS" 80
+---@field GRUMPINESS 81
+---@field [81] "GRUMPINESS"
+---@field GUILT 82
+---@field [82] "GUILT"
+---@field HAPPINESS 83
+---@field [83] "HAPPINESS"
+---@field HATRED 84
+---@field [84] "HATRED"
+---@field HOMESICKNESS 85 not yet in game
+---@field [85] "HOMESICKNESS" not yet in game
+---@field HOPE 86
+---@field [86] "HOPE"
+---@field HOPELESSNESS 87
+---@field [87] "HOPELESSNESS"
+---@field HORROR 88
+---@field [88] "HORROR"
+---@field HOSTILITY 89 not yet in game
+---@field [89] "HOSTILITY" not yet in game
+---@field HUMILIATION 90 90
+---@field [90] "HUMILIATION" 90
+---@field HURT 91 not yet in game
+---@field [91] "HURT" not yet in game
+---@field HYSTERIA 92 not yet in game
+---@field [92] "HYSTERIA" not yet in game
+---@field INFATUATED 93 not yet in game
+---@field [93] "INFATUATED" not yet in game
+---@field INSECURITY 94 not yet in game
+---@field [94] "INSECURITY" not yet in game
+---@field INSULT 95
+---@field [95] "INSULT"
+---@field INTEREST 96
+---@field [96] "INTEREST"
+---@field IRRITATION 97
+---@field [97] "IRRITATION"
+---@field ISOLATION 98
+---@field [98] "ISOLATION"
+---@field JEALOUSY 99 not yet in game
+---@field [99] "JEALOUSY" not yet in game
+---@field JOLLINESS 100 100
+---@field [100] "JOLLINESS" 100
+---@field JOVIALITY 101
+---@field [101] "JOVIALITY"
+---@field JOY 102
+---@field [102] "JOY"
+---@field JUBILATION 103
+---@field [103] "JUBILATION"
+---@field LOATHING 104
+---@field [104] "LOATHING"
+---@field LONELINESS 105
+---@field [105] "LONELINESS"
+---@field LONGING 106 not yet in game
+---@field [106] "LONGING" not yet in game
+---@field LOVE 107
+---@field [107] "LOVE"
+---@field LOVESICKNESS 108 not yet in game
+---@field [108] "LOVESICKNESS" not yet in game
+---@field LUST 109
+---@field [109] "LUST"
+---@field MELANCHOLY 110 110
+---@field [110] "MELANCHOLY" 110
+---@field MISERY 111
+---@field [111] "MISERY"
+---@field MORTIFICATION 112
+---@field [112] "MORTIFICATION"
+---@field NEGLECT 113 not yet in game
+---@field [113] "NEGLECT" not yet in game
+---@field NERVOUSNESS 114
+---@field [114] "NERVOUSNESS"
+---@field NOSTALGIA 115
+---@field [115] "NOSTALGIA"
+---@field OPTIMISM 116
+---@field [116] "OPTIMISM"
+---@field OUTRAGE 117
+---@field [117] "OUTRAGE"
+---@field PANIC 118
+---@field [118] "PANIC"
+---@field PATIENCE 119
+---@field [119] "PATIENCE"
+---@field PASSION 120 120
+---@field [120] "PASSION" 120
+---@field PESSIMISM 121
+---@field [121] "PESSIMISM"
+---@field PITY 122 not yet in game
+---@field [122] "PITY" not yet in game
+---@field PLEASURE 123
+---@field [123] "PLEASURE"
+---@field PRIDE 124
+---@field [124] "PRIDE"
+---@field RAGE 125
+---@field [125] "RAGE"
+---@field RAPTURE 126
+---@field [126] "RAPTURE"
+---@field REJECTION 127
+---@field [127] "REJECTION"
+---@field RELIEF 128
+---@field [128] "RELIEF"
+---@field REGRET 129
+---@field [129] "REGRET"
+---@field REMORSE 130 130
+---@field [130] "REMORSE" 130
+---@field REPENTANCE 131
+---@field [131] "REPENTANCE"
+---@field RESENTMENT 132
+---@field [132] "RESENTMENT"
+---@field REVULSION 133 not yet in game
+---@field [133] "REVULSION" not yet in game
+---@field RIGHTEOUS_INDIGNATION 134
+---@field [134] "RIGHTEOUS_INDIGNATION"
+---@field SADNESS 135
+---@field [135] "SADNESS"
+---@field SATISFACTION 136
+---@field [136] "SATISFACTION"
+---@field SCORN 137 not yet in game
+---@field [137] "SCORN" not yet in game
+---@field SELF_PITY 138
+---@field [138] "SELF_PITY"
+---@field SENTIMENTAL 139 not yet in game
+---@field [139] "SENTIMENTAL" not yet in game
+---@field SERVILE 140 140
+---@field [140] "SERVILE" 140
+---@field SHAKEN 141
+---@field [141] "SHAKEN"
+---@field SHAME 142
+---@field [142] "SHAME"
+---@field SHOCK 143
+---@field [143] "SHOCK"
+---@field SORROW 144 not yet in game
+---@field [144] "SORROW" not yet in game
+---@field SPITE 145 not yet in game
+---@field [145] "SPITE" not yet in game
+---@field SUFFERING 146 not yet in game
+---@field [146] "SUFFERING" not yet in game
+---@field SURPRISE 147 not yet in game
+---@field [147] "SURPRISE" not yet in game
+---@field SUSPICION 148
+---@field [148] "SUSPICION"
+---@field SYMPATHY 149
+---@field [149] "SYMPATHY"
+---@field TENDERNESS 150 150
+---@field [150] "TENDERNESS" 150
+---@field TENSENESS 151 not yet in game
+---@field [151] "TENSENESS" not yet in game
+---@field TERROR 152
+---@field [152] "TERROR"
+---@field THRILL 153
+---@field [153] "THRILL"
+---@field TORMENT 154 not yet in game
+---@field [154] "TORMENT" not yet in game
+---@field TRIUMPH 155
+---@field [155] "TRIUMPH"
+---@field UNEASINESS 156
+---@field [156] "UNEASINESS"
+---@field UNHAPPINESS 157
+---@field [157] "UNHAPPINESS"
+---@field VENGEFULNESS 158
+---@field [158] "VENGEFULNESS"
+---@field WOE 159 not yet in game
+---@field [159] "WOE" not yet in game
+---@field WONDER 160 160
+---@field [160] "WONDER" 160
+---@field WORRY 161
+---@field [161] "WORRY"
+---@field WRATH 162
+---@field [162] "WRATH"
+---@field ZEAL 163
+---@field [163] "ZEAL"
+---@field ZEST 164 not yet in game
+---@field [164] "ZEST" not yet in game
+---@field INSTINCTUAL_HUNT 165 not yet in game
+---@field [165] "INSTINCTUAL_HUNT" not yet in game
+---@field BOGEYMAN_TAUNT 166 not yet in game
+---@field [166] "BOGEYMAN_TAUNT" not yet in game
+---@field RESTLESS 167
+---@field [167] "RESTLESS"
+---@field ADMIRATION 168
+---@field [168] "ADMIRATION"
+df.emotion_type = {}
+
+---@class emotion_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.emotion_type._attr_entry_type = {}
+
+---@class (exact) emotion_type_attr_entry_type_fields
+---@field color DFCompoundField bay12: EmotionType
+---@field divider DFCompoundField
+df.emotion_type._attr_entry_type._fields = {}
+
+---@class emotion_type_attrs
+---@field ANYTHING { color: "7", divider: "0" }
+---@field ACCEPTANCE { color: "7", divider: "-8" }
+---@field ADORATION { color: "11", divider: "-1" }
+---@field AFFECTION { color: "11", divider: "-2" }
+---@field AGITATION { color: "6", divider: "4" }
+---@field AGGRAVATION { color: "6", divider: "4" }
+---@field AGONY { color: "14", divider: "1" }
+---@field ALARM { color: "12", divider: "4" }
+---@field ALIENATION { color: "6", divider: "8" }
+---@field AMAZEMENT { color: "9", divider: "0" }
+---@field AMBIVALENCE { color: "7", divider: "0" }
+---@field AMUSEMENT { color: "10", divider: "-4" }
+---@field ANGER { color: "12", divider: "2" }
+---@field ANGST { color: "14", divider: "1" }
+---@field ANGUISH { color: "14", divider: "1" }
+---@field ANNOYANCE { color: "6", divider: "8" }
+---@field ANTICIPATION { color: "7", divider: "0" }
+---@field ANXIETY { color: "6", divider: "4" }
+---@field APATHY { color: "7", divider: "0" }
+---@field APPREHENSION { color: "7", divider: "0" }
+---@field AROUSAL { color: "11", divider: "-8" }
+---@field ASTONISHMENT { color: "9", divider: "0" }
+---@field ATTRACTION { color: "7", divider: "0" }
+---@field AVERSION { color: "6", divider: "4" }
+---@field AWE { color: "9", divider: "0" }
+---@field BITTERNESS { color: "6", divider: "2" }
+---@field BLISS { color: "10", divider: "-1" }
+---@field BOREDOM { color: "6", divider: "8" }
+---@field CARING { color: "11", divider: "-2" }
+---@field CHEERFULNESS { color: "7", divider: "0" }
+---@field CONFUSION { color: "6", divider: "8" }
+---@field CONTEMPT { color: "6", divider: "4" }
+---@field CONTENTMENT { color: "10", divider: "-8" }
+---@field COURAGE { color: "7", divider: "0" }
+---@field CURIOSITY { color: "7", divider: "0" }
+---@field DEFEAT { color: "14", divider: "2" }
+---@field DEJECTION { color: "6", divider: "4" }
+---@field DELIGHT { color: "10", divider: "-1" }
+---@field DEPRESSION { color: "7", divider: "0" }
+---@field DESIRE { color: "7", divider: "0" }
+---@field DESPAIR { color: "14", divider: "1" }
+---@field DISAPPOINTMENT { color: "6", divider: "8" }
+---@field DISGUST { color: "14", divider: "4" }
+---@field DISILLUSIONMENT { color: "6", divider: "8" }
+---@field DISLIKE { color: "6", divider: "8" }
+---@field DISMAY { color: "14", divider: "2" }
+---@field DISPLEASURE { color: "6", divider: "8" }
+---@field DISTRESS { color: "14", divider: "2" }
+---@field DOUBT { color: "6", divider: "8" }
+---@field DREAD { color: "7", divider: "0" }
+---@field EAGERNESS { color: "9", divider: "-4" }
+---@field ECSTASY { color: "7", divider: "0" }
+---@field ELATION { color: "10", divider: "-2" }
+---@field EMBARRASSMENT { color: "6", divider: "8" }
+---@field EMPATHY { color: "11", divider: "-2" }
+---@field EMPTINESS { color: "14", divider: "4" }
+---@field ENJOYMENT { color: "10", divider: "-8" }
+---@field ENTHRALLMENT { color: "7", divider: "0" }
+---@field ENTHUSIASM { color: "10", divider: "-8" }
+---@field ENVY { color: "7", divider: "0" }
+---@field EUPHORIA { color: "10", divider: "-1" }
+---@field EXASPERATION { color: "6", divider: "8" }
+---@field EXCITEMENT { color: "9", divider: "-2" }
+---@field EXHILARATION { color: "9", divider: "-2" }
+---@field EXPECTANCY { color: "10", divider: "-8" }
+---@field FEAR { color: "12", divider: "1" }
+---@field FEROCITY { color: "12", divider: "2" }
+---@field FONDNESS { color: "11", divider: "-8" }
+---@field FREEDOM { color: "10", divider: "-4" }
+---@field FRIGHT { color: "14", divider: "2" }
+---@field FRUSTRATION { color: "6", divider: "8" }
+---@field FURY { color: "7", divider: "0" }
+---@field GAIETY { color: "10", divider: "-2" }
+---@field GLADNESS { color: "7", divider: "0" }
+---@field GLEE { color: "10", divider: "-2" }
+---@field GLOOM { color: "6", divider: "4" }
+---@field GLUMNESS { color: "6", divider: "8" }
+---@field GRATITUDE { color: "11", divider: "-4" }
+---@field GRATIFICATION { color: "7", divider: "0" }
+---@field GRIEF { color: "14", divider: "2" }
+---@field GRIM_SATISFACTION { color: "13", divider: "0" }
+---@field GROUCHINESS { color: "6", divider: "8" }
+---@field GRUMPINESS { color: "6", divider: "8" }
+---@field GUILT { color: "6", divider: "4" }
+---@field HAPPINESS { color: "10", divider: "-2" }
+---@field HATRED { color: "12", divider: "2" }
+---@field HOMESICKNESS { color: "7", divider: "0" }
+---@field HOPE { color: "10", divider: "-2" }
+---@field HOPELESSNESS { color: "14", divider: "2" }
+---@field HORROR { color: "12", divider: "1" }
+---@field HOSTILITY { color: "7", divider: "0" }
+---@field HUMILIATION { color: "14", divider: "4" }
+---@field HURT { color: "7", divider: "0" }
+---@field HYSTERIA { color: "7", divider: "0" }
+---@field INFATUATED { color: "7", divider: "0" }
+---@field INSECURITY { color: "7", divider: "0" }
+---@field INSULT { color: "6", divider: "4" }
+---@field INTEREST { color: "9", divider: "-8" }
+---@field IRRITATION { color: "6", divider: "8" }
+---@field ISOLATION { color: "6", divider: "4" }
+---@field JEALOUSY { color: "7", divider: "0" }
+---@field JOLLINESS { color: "10", divider: "-4" }
+---@field JOVIALITY { color: "10", divider: "-2" }
+---@field JOY { color: "10", divider: "-1" }
+---@field JUBILATION { color: "10", divider: "-1" }
+---@field LOATHING { color: "12", divider: "2" }
+---@field LONELINESS { color: "6", divider: "4" }
+---@field LONGING { color: "7", divider: "0" }
+---@field LOVE { color: "11", divider: "-1" }
+---@field LOVESICKNESS { color: "7", divider: "0" }
+---@field LUST { color: "11", divider: "-8" }
+---@field MELANCHOLY { color: "7", divider: "0" }
+---@field MISERY { color: "14", divider: "1" }
+---@field MORTIFICATION { color: "14", divider: "2" }
+---@field NEGLECT { color: "7", divider: "0" }
+---@field NERVOUSNESS { color: "6", divider: "8" }
+---@field NOSTALGIA { color: "9", divider: "-8" }
+---@field OPTIMISM { color: "10", divider: "-4" }
+---@field OUTRAGE { color: "12", divider: "2" }
+---@field PANIC { color: "14", divider: "1" }
+---@field PATIENCE { color: "7", divider: "-8" }
+---@field PASSION { color: "11", divider: "-2" }
+---@field PESSIMISM { color: "6", divider: "8" }
+---@field PITY { color: "7", divider: "0" }
+---@field PLEASURE { color: "11", divider: "-4" }
+---@field PRIDE { color: "11", divider: "-4" }
+---@field RAGE { color: "12", divider: "1" }
+---@field RAPTURE { color: "11", divider: "-1" }
+---@field REJECTION { color: "6", divider: "4" }
+---@field RELIEF { color: "10", divider: "-2" }
+---@field REGRET { color: "6", divider: "8" }
+---@field REMORSE { color: "6", divider: "4" }
+---@field REPENTANCE { color: "9", divider: "-2" }
+---@field RESENTMENT { color: "6", divider: "8" }
+---@field REVULSION { color: "7", divider: "0" }
+---@field RIGHTEOUS_INDIGNATION { color: "6", divider: "8" }
+---@field SADNESS { color: "14", divider: "4" }
+---@field SATISFACTION { color: "10", divider: "-8" }
+---@field SCORN { color: "7", divider: "0" }
+---@field SELF_PITY { color: "6", divider: "8" }
+---@field SENTIMENTAL { color: "7", divider: "0" }
+---@field SERVILE { color: "9", divider: "0" }
+---@field SHAKEN { color: "14", divider: "1" }
+---@field SHAME { color: "14", divider: "4" }
+---@field SHOCK { color: "14", divider: "1" }
+---@field SORROW { color: "7", divider: "0" }
+---@field SPITE { color: "7", divider: "0" }
+---@field SUFFERING { color: "7", divider: "0" }
+---@field SURPRISE { color: "7", divider: "0" }
+---@field SUSPICION { color: "13", divider: "8" }
+---@field SYMPATHY { color: "11", divider: "-8" }
+---@field TENDERNESS { color: "11", divider: "-2" }
+---@field TENSENESS { color: "7", divider: "0" }
+---@field TERROR { color: "12", divider: "1" }
+---@field THRILL { color: "9", divider: "-2" }
+---@field TORMENT { color: "7", divider: "0" }
+---@field TRIUMPH { color: "10", divider: "-2" }
+---@field UNEASINESS { color: "6", divider: "8" }
+---@field UNHAPPINESS { color: "6", divider: "4" }
+---@field VENGEFULNESS { color: "12", divider: "4" }
+---@field WOE { color: "7", divider: "0" }
+---@field WONDER { color: "9", divider: "-8" }
+---@field WORRY { color: "6", divider: "8" }
+---@field WRATH { color: "12", divider: "1" }
+---@field ZEAL { color: "9", divider: "-4" }
+---@field ZEST { color: "7", divider: "0" }
+---@field INSTINCTUAL_HUNT { color: "7", divider: "0" }
+---@field BOGEYMAN_TAUNT { color: "7", divider: "0" }
+---@field RESTLESS { color: "6", divider: "8" }
+---@field ADMIRATION { color: "11", divider: "-8" }
+df.emotion_type.attrs = {}
+
+---@alias df.personality_facet_type
+---| -1 # NONE
+---| 0 # LOVE_PROPENSITY
+---| 1 # HATE_PROPENSITY
+---| 2 # ENVY_PROPENSITY
+---| 3 # CHEER_PROPENSITY
+---| 4 # DEPRESSION_PROPENSITY
+---| 5 # ANGER_PROPENSITY
+---| 6 # ANXIETY_PROPENSITY
+---| 7 # LUST_PROPENSITY
+---| 8 # STRESS_VULNERABILITY
+---| 9 # GREED
+---| 10 # IMMODERATION
+---| 11 # VIOLENT
+---| 12 # PERSEVERENCE
+---| 13 # WASTEFULNESS
+---| 14 # DISCORD
+---| 15 # FRIENDLINESS
+---| 16 # POLITENESS
+---| 17 # DISDAIN_ADVICE
+---| 18 # BRAVERY
+---| 19 # CONFIDENCE
+---| 20 # VANITY
+---| 21 # AMBITION
+---| 22 # GRATITUDE
+---| 23 # IMMODESTY
+---| 24 # HUMOR
+---| 25 # VENGEFUL
+---| 26 # PRIDE
+---| 27 # CRUELTY
+---| 28 # SINGLEMINDED
+---| 29 # HOPEFUL
+---| 30 # CURIOUS
+---| 31 # BASHFUL
+---| 32 # PRIVACY
+---| 33 # PERFECTIONIST
+---| 34 # CLOSEMINDED
+---| 35 # TOLERANT
+---| 36 # EMOTIONALLY_OBSESSIVE
+---| 37 # SWAYED_BY_EMOTIONS
+---| 38 # ALTRUISM
+---| 39 # DUTIFULNESS
+---| 40 # THOUGHTLESSNESS
+---| 41 # ORDERLINESS
+---| 42 # TRUST
+---| 43 # GREGARIOUSNESS
+---| 44 # ASSERTIVENESS
+---| 45 # ACTIVITY_LEVEL
+---| 46 # EXCITEMENT_SEEKING
+---| 47 # IMAGINATION
+---| 48 # ABSTRACT_INCLINED
+---| 49 # ART_INCLINED
+
+---@class identity.personality_facet_type: DFEnumType
+---@field NONE -1 bay12: PersonalityNFacetType
+---@field [-1] "NONE" bay12: PersonalityNFacetType
+---@field LOVE_PROPENSITY 0
+---@field [0] "LOVE_PROPENSITY"
+---@field HATE_PROPENSITY 1
+---@field [1] "HATE_PROPENSITY"
+---@field ENVY_PROPENSITY 2
+---@field [2] "ENVY_PROPENSITY"
+---@field CHEER_PROPENSITY 3
+---@field [3] "CHEER_PROPENSITY"
+---@field DEPRESSION_PROPENSITY 4
+---@field [4] "DEPRESSION_PROPENSITY"
+---@field ANGER_PROPENSITY 5
+---@field [5] "ANGER_PROPENSITY"
+---@field ANXIETY_PROPENSITY 6
+---@field [6] "ANXIETY_PROPENSITY"
+---@field LUST_PROPENSITY 7
+---@field [7] "LUST_PROPENSITY"
+---@field STRESS_VULNERABILITY 8
+---@field [8] "STRESS_VULNERABILITY"
+---@field GREED 9
+---@field [9] "GREED"
+---@field IMMODERATION 10
+---@field [10] "IMMODERATION"
+---@field VIOLENT 11
+---@field [11] "VIOLENT"
+---@field PERSEVERENCE 12
+---@field [12] "PERSEVERENCE"
+---@field WASTEFULNESS 13
+---@field [13] "WASTEFULNESS"
+---@field DISCORD 14
+---@field [14] "DISCORD"
+---@field FRIENDLINESS 15
+---@field [15] "FRIENDLINESS"
+---@field POLITENESS 16
+---@field [16] "POLITENESS"
+---@field DISDAIN_ADVICE 17
+---@field [17] "DISDAIN_ADVICE"
+---@field BRAVERY 18
+---@field [18] "BRAVERY"
+---@field CONFIDENCE 19
+---@field [19] "CONFIDENCE"
+---@field VANITY 20
+---@field [20] "VANITY"
+---@field AMBITION 21
+---@field [21] "AMBITION"
+---@field GRATITUDE 22
+---@field [22] "GRATITUDE"
+---@field IMMODESTY 23
+---@field [23] "IMMODESTY"
+---@field HUMOR 24
+---@field [24] "HUMOR"
+---@field VENGEFUL 25
+---@field [25] "VENGEFUL"
+---@field PRIDE 26
+---@field [26] "PRIDE"
+---@field CRUELTY 27
+---@field [27] "CRUELTY"
+---@field SINGLEMINDED 28
+---@field [28] "SINGLEMINDED"
+---@field HOPEFUL 29
+---@field [29] "HOPEFUL"
+---@field CURIOUS 30
+---@field [30] "CURIOUS"
+---@field BASHFUL 31
+---@field [31] "BASHFUL"
+---@field PRIVACY 32
+---@field [32] "PRIVACY"
+---@field PERFECTIONIST 33
+---@field [33] "PERFECTIONIST"
+---@field CLOSEMINDED 34
+---@field [34] "CLOSEMINDED"
+---@field TOLERANT 35
+---@field [35] "TOLERANT"
+---@field EMOTIONALLY_OBSESSIVE 36
+---@field [36] "EMOTIONALLY_OBSESSIVE"
+---@field SWAYED_BY_EMOTIONS 37
+---@field [37] "SWAYED_BY_EMOTIONS"
+---@field ALTRUISM 38
+---@field [38] "ALTRUISM"
+---@field DUTIFULNESS 39
+---@field [39] "DUTIFULNESS"
+---@field THOUGHTLESSNESS 40
+---@field [40] "THOUGHTLESSNESS"
+---@field ORDERLINESS 41
+---@field [41] "ORDERLINESS"
+---@field TRUST 42
+---@field [42] "TRUST"
+---@field GREGARIOUSNESS 43
+---@field [43] "GREGARIOUSNESS"
+---@field ASSERTIVENESS 44
+---@field [44] "ASSERTIVENESS"
+---@field ACTIVITY_LEVEL 45
+---@field [45] "ACTIVITY_LEVEL"
+---@field EXCITEMENT_SEEKING 46
+---@field [46] "EXCITEMENT_SEEKING"
+---@field IMAGINATION 47
+---@field [47] "IMAGINATION"
+---@field ABSTRACT_INCLINED 48
+---@field [48] "ABSTRACT_INCLINED"
+---@field ART_INCLINED 49
+---@field [49] "ART_INCLINED"
+df.personality_facet_type = {}
+
+---@alias df.witness_type
+---| -1 # NONE
+---| 0 # SAW_ACTUAL_INCIDENT
+---| 1 # FOUND_BODY
+---| 2 # SAW_THAT_OBJECT_WAS_MISSING
+---| 3 # SAW_DISTURBED_OBJECT
+---| 4 # SOMEBODY_ADMIRED_OBJECT
+---| 5 # CONFESSED
+---| 6 # COCONSPIRATOR_IMPLICATED
+
+---@class identity.witness_type: DFEnumType
+---@field NONE -1 bay12: WitnessType
+---@field [-1] "NONE" bay12: WitnessType
+---@field SAW_ACTUAL_INCIDENT 0
+---@field [0] "SAW_ACTUAL_INCIDENT"
+---@field FOUND_BODY 1
+---@field [1] "FOUND_BODY"
+---@field SAW_THAT_OBJECT_WAS_MISSING 2
+---@field [2] "SAW_THAT_OBJECT_WAS_MISSING"
+---@field SAW_DISTURBED_OBJECT 3
+---@field [3] "SAW_DISTURBED_OBJECT"
+---@field SOMEBODY_ADMIRED_OBJECT 4
+---@field [4] "SOMEBODY_ADMIRED_OBJECT"
+---@field CONFESSED 5
+---@field [5] "CONFESSED"
+---@field COCONSPIRATOR_IMPLICATED 6
+---@field [6] "COCONSPIRATOR_IMPLICATED"
+df.witness_type = {}
+
+-- Unused: ClimbingAbilityType
+---@alias df.goal_type
+---| 0 # STAY_ALIVE
+---| 1 # MAINTAIN_ENTITY_STATUS
+---| 2 # START_A_FAMILY
+---| 3 # RULE_THE_WORLD
+---| 4 # CREATE_A_GREAT_WORK_OF_ART
+---| 5 # CRAFT_A_MASTERWORK
+---| 6 # BRING_PEACE_TO_THE_WORLD
+---| 7 # BECOME_A_LEGENDARY_WARRIOR
+---| 8 # MASTER_A_SKILL
+---| 9 # FALL_IN_LOVE
+---| 10 # SEE_THE_GREAT_NATURAL_SITES
+---| 11 # IMMORTALITY
+---| 12 # MAKE_A_GREAT_DISCOVERY
+---| 13 # ATTAIN_RANK_IN_SOCIETY
+---| 14 # BATHE_WORLD_IN_CHAOS
+
+-- Unused: ClimbingAbilityType
+---@class identity.goal_type: DFEnumType
+---@field STAY_ALIVE 0
+---@field [0] "STAY_ALIVE"
+---@field MAINTAIN_ENTITY_STATUS 1
+---@field [1] "MAINTAIN_ENTITY_STATUS"
+---@field START_A_FAMILY 2
+---@field [2] "START_A_FAMILY"
+---@field RULE_THE_WORLD 3
+---@field [3] "RULE_THE_WORLD"
+---@field CREATE_A_GREAT_WORK_OF_ART 4
+---@field [4] "CREATE_A_GREAT_WORK_OF_ART"
+---@field CRAFT_A_MASTERWORK 5
+---@field [5] "CRAFT_A_MASTERWORK"
+---@field BRING_PEACE_TO_THE_WORLD 6
+---@field [6] "BRING_PEACE_TO_THE_WORLD"
+---@field BECOME_A_LEGENDARY_WARRIOR 7
+---@field [7] "BECOME_A_LEGENDARY_WARRIOR"
+---@field MASTER_A_SKILL 8
+---@field [8] "MASTER_A_SKILL"
+---@field FALL_IN_LOVE 9
+---@field [9] "FALL_IN_LOVE"
+---@field SEE_THE_GREAT_NATURAL_SITES 10
+---@field [10] "SEE_THE_GREAT_NATURAL_SITES"
+---@field IMMORTALITY 11
+---@field [11] "IMMORTALITY"
+---@field MAKE_A_GREAT_DISCOVERY 12
+---@field [12] "MAKE_A_GREAT_DISCOVERY"
+---@field ATTAIN_RANK_IN_SOCIETY 13
+---@field [13] "ATTAIN_RANK_IN_SOCIETY"
+---@field BATHE_WORLD_IN_CHAOS 14
+---@field [14] "BATHE_WORLD_IN_CHAOS"
+df.goal_type = {}
+
+---@class goal_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.goal_type._attr_entry_type = {}
+
+---@class (exact) goal_type_attr_entry_type_fields
+---@field short_name DFCompoundField bay12: PersonalityGoalType
+---@field achieved_short_name DFCompoundField Achieved goal name in up to 20 characters for displaying in fixed width column
+df.goal_type._attr_entry_type._fields = {}
+
+---@class goal_type_attrs
+---@field STAY_ALIVE { short_name: "Stay Alive", achieved_short_name: "Stayed Alive" }
+---@field MAINTAIN_ENTITY_STATUS { short_name: "Maintain Status", achieved_short_name: "Maintained Status" }
+---@field START_A_FAMILY { short_name: "Be a Parent", achieved_short_name: "Is a Parent" }
+---@field RULE_THE_WORLD { short_name: "Rule the World", achieved_short_name: "Ruled the World" }
+---@field CREATE_A_GREAT_WORK_OF_ART { short_name: "Create Great Artwork", achieved_short_name: "Made Great Artwork" }
+---@field CRAFT_A_MASTERWORK { short_name: "Craft a Masterwork", achieved_short_name: "Crafted a Masterwork" }
+---@field BRING_PEACE_TO_THE_WORLD { short_name: "Bring Peace to World", achieved_short_name: "Brought World Peace" }
+---@field BECOME_A_LEGENDARY_WARRIOR { short_name: "Be Legendary Warrior", achieved_short_name: "Is Legendary Warrior" }
+---@field MASTER_A_SKILL { short_name: "Master a Skill", achieved_short_name: "Mastered a Skill" }
+---@field FALL_IN_LOVE { short_name: "Fall in Love", achieved_short_name: "Fell in Love" }
+---@field SEE_THE_GREAT_NATURAL_SITES { short_name: "See Natural Wonders", achieved_short_name: "Saw Natural Wonders" }
+---@field IMMORTALITY { short_name: "Immortality", achieved_short_name: "Immortal" }
+---@field MAKE_A_GREAT_DISCOVERY { short_name: "Make Great Discovery", achieved_short_name: "Made Great Discovery" }
+---@field ATTAIN_RANK_IN_SOCIETY { short_name: "Attain Social Rank", achieved_short_name: "Attained Social Rank" }
+---@field BATHE_WORLD_IN_CHAOS { short_name: "Bathe World in Chaos", achieved_short_name: "World is in Chaos" }
+df.goal_type.attrs = {}
+
+---@alias df.insurrection_outcome
+---| 0 # LeadershipOverthrown
+---| 1 # PopulationGone
+---| 2 # Crushed
+
+---@class identity.insurrection_outcome: DFEnumType
+---@field LeadershipOverthrown 0 bay12: InsurrectionOutcomeType
+---@field [0] "LeadershipOverthrown" bay12: InsurrectionOutcomeType
+---@field PopulationGone 1
+---@field [1] "PopulationGone"
+---@field Crushed 2
+---@field [2] "Crushed"
+df.insurrection_outcome = {}
+
+-- Helper type for history_event_reason
+---@class (exact) df.history_event_reason_id: DFStruct
+---@field _type identity.history_event_reason_id
+---@field glorify_hf number References: `df.historical_figure`
+---@field sanctify_hf number References: `df.historical_figure`
+---@field artifact_is_heirloom_of_family_hfid number References: `df.historical_figure`
+---@field artifact_is_symbol_of_entity_position number References: `df.historical_entity`
+
+---@class identity.history_event_reason_id: DFCompoundType
+---@field _kind 'struct-type'
+df.history_event_reason_id = {}
+
+---@return df.history_event_reason_id
+function df.history_event_reason_id:new() end
+
+---@alias df.history_event_reason
+---| -1 # none
+---| 0 # insurrection
+---| 1 # adventure
+---| 2 # guide
+---| 3 # rescued
+---| 4 # sphere_alignment
+---| 5 # maintain_balance_in_universe
+---| 6 # highlight_boundaries_between_worlds
+---| 7 # sow_the_seeds_of_chaos_in_the_world
+---| 8 # provide_opportunities_for_courage
+---| 9 # bring_death_to_the_world
+---| 10 # liked_appearance
+---| 11 # because_it_was_destined
+---| 12 # great_fortresses_built_and_tested
+---| 13 # whim
+---| 14 # bring_misery_to_the_world
+---| 15 # bring_murder_to_the_world
+---| 16 # bring_nightmares_into_reality
+---| 17 # bring_thralldom_to_the_world
+---| 18 # bring_torture_to_the_world
+---| 19 # provide_opportunities_for_acts_of_valor
+---| 20 # bring_war_to_the_world
+---| 21 # find_relative
+---| 22 # offer_condolences
+---| 23 # be_brought_to_safety
+---| 24 # help_with_rescue
+---| 25 # insufficient_work
+---| 26 # work_request
+---| 27 # make_weapon
+---| 28 # vent_at_boss
+---| 29 # cry_on_boss
+---| 30 # should_have_reached_goal
+---| 31 # insufficient_progress_toward_goal
+---| 32 # going_wrong_direction
+---| 33 # arrived_at_location
+---| 34 # entity_no_longer_rules
+---| 35 # left_site
+---| 36 # reunited_with_loved_one
+---| 37 # violent_disagreement
+---| 38 # adopted
+---| 39 # true_name_invocation
+---| 40 # arrived_at_person
+---| 41 # eradicate_beasts
+---| 42 # entertain_people
+---| 43 # make_a_living_as_a_warrior
+---| 44 # study
+---| 45 # flight
+---| 46 # scholarship
+---| 47 # be_with_master
+---| 48 # become_citizen
+---| 49 # prefers_working_alone
+---| 50 # jealousy
+---| 51 # glorify_hf
+---| 52 # have_not_performed
+---| 53 # prevented_from_leaving
+---| 54 # curiosity
+---| 55 # hire_on_as_mercenary
+---| 56 # hire_on_as_performer
+---| 57 # hire_on_as_scholar
+---| 58 # drink
+---| 59 # admire_architecture
+---| 60 # pray
+---| 61 # relax
+---| 62 # danger
+---| 63 # cannot_find_artifact
+---| 64 # failed_mood
+---| 65 # lack_of_sleep
+---| 66 # trapped_in_cage
+---| 67 # great_deal_of_stress
+---| 68 # unable_to_leave_location
+---| 69 # sanctify_hf
+---| 70 # artifact_is_heirloom_of_family_hfid
+---| 71 # cement_bonds_of_friendship
+---| 72 # as_a_symbol_of_everlasting_peace
+---| 73 # on_a_pilgrimage
+---| 74 # gather_information
+---| 75 # seek_sanctuary
+---| 76 # part_of_trade_negotiation
+---| 77 # artifact_is_symbol_of_entity_position
+---| 78 # fear_of_persecution
+---| 79 # smooth_operation
+---| 80 # nuance_belief
+---| 81 # shared_interest
+---| 82 # envy_living
+---| 83 # death_panic
+---| 84 # death_fear
+---| 85 # avoid_judgement
+---| 86 # death_pride
+---| 87 # death_vain
+---| 88 # death_ambition
+---| 89 # lack_of_funds
+---| 90 # battle_losses
+---| 91 # conviction_exile
+---| 92 # priest_vent
+---| 93 # priest_cry
+---| 94 # success
+
+---@class identity.history_event_reason: DFEnumType
+---@field none -1
+---@field [-1] "none"
+---@field insurrection 0
+---@field [0] "insurrection"
+---@field adventure 1
+---@field [1] "adventure"
+---@field guide 2
+---@field [2] "guide"
+---@field rescued 3
+---@field [3] "rescued"
+---@field sphere_alignment 4
+---@field [4] "sphere_alignment"
+---@field maintain_balance_in_universe 5
+---@field [5] "maintain_balance_in_universe"
+---@field highlight_boundaries_between_worlds 6
+---@field [6] "highlight_boundaries_between_worlds"
+---@field sow_the_seeds_of_chaos_in_the_world 7
+---@field [7] "sow_the_seeds_of_chaos_in_the_world"
+---@field provide_opportunities_for_courage 8
+---@field [8] "provide_opportunities_for_courage"
+---@field bring_death_to_the_world 9
+---@field [9] "bring_death_to_the_world"
+---@field liked_appearance 10 10
+---@field [10] "liked_appearance" 10
+---@field because_it_was_destined 11
+---@field [11] "because_it_was_destined"
+---@field great_fortresses_built_and_tested 12
+---@field [12] "great_fortresses_built_and_tested"
+---@field whim 13
+---@field [13] "whim"
+---@field bring_misery_to_the_world 14
+---@field [14] "bring_misery_to_the_world"
+---@field bring_murder_to_the_world 15
+---@field [15] "bring_murder_to_the_world"
+---@field bring_nightmares_into_reality 16
+---@field [16] "bring_nightmares_into_reality"
+---@field bring_thralldom_to_the_world 17
+---@field [17] "bring_thralldom_to_the_world"
+---@field bring_torture_to_the_world 18
+---@field [18] "bring_torture_to_the_world"
+---@field provide_opportunities_for_acts_of_valor 19
+---@field [19] "provide_opportunities_for_acts_of_valor"
+---@field bring_war_to_the_world 20 20
+---@field [20] "bring_war_to_the_world" 20
+---@field find_relative 21
+---@field [21] "find_relative"
+---@field offer_condolences 22
+---@field [22] "offer_condolences"
+---@field be_brought_to_safety 23
+---@field [23] "be_brought_to_safety"
+---@field help_with_rescue 24
+---@field [24] "help_with_rescue"
+---@field insufficient_work 25
+---@field [25] "insufficient_work"
+---@field work_request 26
+---@field [26] "work_request"
+---@field make_weapon 27
+---@field [27] "make_weapon"
+---@field vent_at_boss 28
+---@field [28] "vent_at_boss"
+---@field cry_on_boss 29
+---@field [29] "cry_on_boss"
+---@field should_have_reached_goal 30 30
+---@field [30] "should_have_reached_goal" 30
+---@field insufficient_progress_toward_goal 31
+---@field [31] "insufficient_progress_toward_goal"
+---@field going_wrong_direction 32
+---@field [32] "going_wrong_direction"
+---@field arrived_at_location 33
+---@field [33] "arrived_at_location"
+---@field entity_no_longer_rules 34
+---@field [34] "entity_no_longer_rules"
+---@field left_site 35
+---@field [35] "left_site"
+---@field reunited_with_loved_one 36
+---@field [36] "reunited_with_loved_one"
+---@field violent_disagreement 37
+---@field [37] "violent_disagreement"
+---@field adopted 38
+---@field [38] "adopted"
+---@field true_name_invocation 39
+---@field [39] "true_name_invocation"
+---@field arrived_at_person 40 40
+---@field [40] "arrived_at_person" 40
+---@field eradicate_beasts 41
+---@field [41] "eradicate_beasts"
+---@field entertain_people 42
+---@field [42] "entertain_people"
+---@field make_a_living_as_a_warrior 43
+---@field [43] "make_a_living_as_a_warrior"
+---@field study 44
+---@field [44] "study"
+---@field flight 45
+---@field [45] "flight"
+---@field scholarship 46
+---@field [46] "scholarship"
+---@field be_with_master 47
+---@field [47] "be_with_master"
+---@field become_citizen 48
+---@field [48] "become_citizen"
+---@field prefers_working_alone 49
+---@field [49] "prefers_working_alone"
+---@field jealousy 50 50
+---@field [50] "jealousy" 50
+---@field glorify_hf 51
+---@field [51] "glorify_hf"
+---@field have_not_performed 52
+---@field [52] "have_not_performed"
+---@field prevented_from_leaving 53
+---@field [53] "prevented_from_leaving"
+---@field curiosity 54
+---@field [54] "curiosity"
+---@field hire_on_as_mercenary 55
+---@field [55] "hire_on_as_mercenary"
+---@field hire_on_as_performer 56
+---@field [56] "hire_on_as_performer"
+---@field hire_on_as_scholar 57
+---@field [57] "hire_on_as_scholar"
+---@field drink 58
+---@field [58] "drink"
+---@field admire_architecture 59
+---@field [59] "admire_architecture"
+---@field pray 60 60
+---@field [60] "pray" 60
+---@field relax 61
+---@field [61] "relax"
+---@field danger 62
+---@field [62] "danger"
+---@field cannot_find_artifact 63
+---@field [63] "cannot_find_artifact"
+---@field failed_mood 64
+---@field [64] "failed_mood"
+---@field lack_of_sleep 65
+---@field [65] "lack_of_sleep"
+---@field trapped_in_cage 66
+---@field [66] "trapped_in_cage"
+---@field great_deal_of_stress 67
+---@field [67] "great_deal_of_stress"
+---@field unable_to_leave_location 68
+---@field [68] "unable_to_leave_location"
+---@field sanctify_hf 69
+---@field [69] "sanctify_hf"
+---@field artifact_is_heirloom_of_family_hfid 70 70
+---@field [70] "artifact_is_heirloom_of_family_hfid" 70
+---@field cement_bonds_of_friendship 71
+---@field [71] "cement_bonds_of_friendship"
+---@field as_a_symbol_of_everlasting_peace 72
+---@field [72] "as_a_symbol_of_everlasting_peace"
+---@field on_a_pilgrimage 73
+---@field [73] "on_a_pilgrimage"
+---@field gather_information 74
+---@field [74] "gather_information"
+---@field seek_sanctuary 75
+---@field [75] "seek_sanctuary"
+---@field part_of_trade_negotiation 76
+---@field [76] "part_of_trade_negotiation"
+---@field artifact_is_symbol_of_entity_position 77
+---@field [77] "artifact_is_symbol_of_entity_position"
+---@field fear_of_persecution 78 The ones below were introduced in 0.47.01 as well
+---@field [78] "fear_of_persecution" The ones below were introduced in 0.47.01 as well
+---@field smooth_operation 79
+---@field [79] "smooth_operation"
+---@field nuance_belief 80 80
+---@field [80] "nuance_belief" 80
+---@field shared_interest 81
+---@field [81] "shared_interest"
+---@field envy_living 82
+---@field [82] "envy_living"
+---@field death_panic 83
+---@field [83] "death_panic"
+---@field death_fear 84
+---@field [84] "death_fear"
+---@field avoid_judgement 85
+---@field [85] "avoid_judgement"
+---@field death_pride 86
+---@field [86] "death_pride"
+---@field death_vain 87
+---@field [87] "death_vain"
+---@field death_ambition 88
+---@field [88] "death_ambition"
+---@field lack_of_funds 89
+---@field [89] "lack_of_funds"
+---@field battle_losses 90 90
+---@field [90] "battle_losses" 90
+---@field conviction_exile 91
+---@field [91] "conviction_exile"
+---@field priest_vent 92
+---@field [92] "priest_vent"
+---@field priest_cry 93
+---@field [93] "priest_cry"
+---@field success 94
+---@field [94] "success"
+df.history_event_reason = {}
+
+---@class history_event_reason_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.history_event_reason._attr_entry_type = {}
+
+---@class (exact) history_event_reason_attr_entry_type_fields
+---@field caption DFCompoundField bay12: ReasonType
+df.history_event_reason._attr_entry_type._fields = {}
+
+---@class history_event_reason_attrs
+---@field insurrection { caption: "for an insurrection" }
+---@field adventure { caption: "to adventure" }
+---@field guide { caption: "as a guide" }
+---@field rescued { caption: "in order to be rescued" }
+---@field sphere_alignment { caption: "due to their cosmic similarity" }
+---@field maintain_balance_in_universe { caption: "in order to maintain balance in the universe" }
+---@field highlight_boundaries_between_worlds { caption: "to create a monument to the boundaries between realities" }
+---@field sow_the_seeds_of_chaos_in_the_world { caption: "to sow the seeds of chaos within" }
+---@field provide_opportunities_for_courage { caption: "to provide opportunities for courage to rise" }
+---@field bring_death_to_the_world { caption: "that more might die" }
+---@field liked_appearance { caption: "that all should gaze upon a truly gruesome visage" }
+---@field because_it_was_destined { caption: "because it was destined" }
+---@field great_fortresses_built_and_tested { caption: "that great fortresses might be raised and tested in siege" }
+---@field whim { caption: "on a whim" }
+---@field bring_misery_to_the_world { caption: "that it might bathe in misery forever" }
+---@field bring_murder_to_the_world { caption: "that more might be murdered" }
+---@field bring_nightmares_into_reality { caption: "in order to make nightmares reality" }
+---@field bring_thralldom_to_the_world { caption: "in order to make thralls of everyone" }
+---@field bring_torture_to_the_world { caption: "in order that acts of torture be perpetrated" }
+---@field provide_opportunities_for_acts_of_valor { caption: "to provide opportunities for acts of valor to be performed" }
+---@field bring_war_to_the_world { caption: "that war might rage forever" }
+---@field find_relative { caption: "in order to find a relative" }
+---@field offer_condolences { caption: "to offer condolences" }
+---@field be_brought_to_safety { caption: "in order to be brought to safety" }
+---@field help_with_rescue { caption: "to help with a rescue" }
+---@field insufficient_work { caption: "due to insufficient work" }
+---@field work_request { caption: "to request work" }
+---@field make_weapon { caption: "that weapons be made" }
+---@field vent_at_boss { caption: "to vent at somebody in charge" }
+---@field cry_on_boss { caption: "to cry on somebody in charge" }
+---@field should_have_reached_goal { caption: "as the goal was not reached" }
+---@field insufficient_progress_toward_goal { caption: "as insufficient progress was made toward the goal" }
+---@field going_wrong_direction { caption: "after going the wrong direction" }
+---@field arrived_at_location { caption: "after arriving at the location" }
+---@field entity_no_longer_rules { caption: "as the relevant government was no longer in control" }
+---@field left_site { caption: "after leaving the site" }
+---@field reunited_with_loved_one { caption: "after being reunited with a loved one" }
+---@field violent_disagreement { caption: "after a violent disagreement" }
+---@field adopted { caption: "after adoption" }
+---@field true_name_invocation { caption: "after invocation of the true name" }
+---@field arrived_at_person { caption: "after finding an unknown creature" }
+---@field eradicate_beasts { caption: "in order to eradicate beasts" }
+---@field entertain_people { caption: "in order to entertain people" }
+---@field make_a_living_as_a_warrior { caption: "in order to make a living as a warrior" }
+---@field study { caption: "in order to study" }
+---@field flight { caption: "in order to flee" }
+---@field scholarship { caption: "in order to pursue scholarship" }
+---@field be_with_master { caption: "in order to be with the master" }
+---@field become_citizen { caption: "in order to become a citizen" }
+---@field prefers_working_alone { caption: "in order to continue working alone" }
+---@field jealousy { caption: "due to jealousy" }
+---@field glorify_hf { caption: "in order to glorify an unknown creature" }
+---@field have_not_performed { caption: "due to a lack of performances" }
+---@field prevented_from_leaving { caption: "after being prevented from leaving" }
+---@field curiosity { caption: "out of curiosity" }
+---@field hire_on_as_mercenary { caption: "to fill a role as a mercenary" }
+---@field hire_on_as_performer { caption: "to fill a role as a performer" }
+---@field hire_on_as_scholar { caption: "to fill a role as a scholar" }
+---@field drink { caption: "in order to drink" }
+---@field admire_architecture { caption: "in order to admire achitecture" }
+---@field pray { caption: "in order to pray" }
+---@field relax { caption: "in order to relax" }
+---@field danger { caption: "to experience danger" }
+---@field cannot_find_artifact { caption: "after being unable to find an artifact" }
+---@field failed_mood { caption: "after failing to create an artifact" }
+---@field lack_of_sleep { caption: "due to a lack of sleep" }
+---@field trapped_in_cage { caption: "after being trapped in a cage" }
+---@field great_deal_of_stress { caption: "after a great deal of stress" }
+---@field unable_to_leave_location { caption: "after being unable to leave a location" }
+---@field sanctify_hf { caption: "in order to sanctify an unknown creature" }
+---@field artifact_is_heirloom_of_family_hfid { caption: "as an heirloom of the an unknown creature family" }
+---@field cement_bonds_of_friendship { caption: "in order to cement the bonds of friendship" }
+---@field as_a_symbol_of_everlasting_peace { caption: "as a symbol of everlasting peace" }
+---@field on_a_pilgrimage { caption: "on a pilgrimage" }
+---@field gather_information { caption: "to gather information" }
+---@field seek_sanctuary { caption: "in order to find sactuary" }
+---@field part_of_trade_negotiation { caption: "as part of a trade negotiation" }
+---@field artifact_is_symbol_of_entity_position { caption: "as a symbol of authority within an unknown civilization" }
+---@field fear_of_persecution { caption: "due to fear of persecution" }
+---@field smooth_operation { caption: "to smooth the operation of an unknown civilization" }
+---@field nuance_belief { caption: "due to a belief in nuances of" }
+---@field shared_interest { caption: "due to a shared interest in" }
+---@field envy_living { caption: "due to envy of those that live on" }
+---@field death_panic { caption: "due to panic about what happens after death" }
+---@field death_fear { caption: "due to fear of death" }
+---@field avoid_judgement { caption: "unable to face any possible judgment and the afterlife" }
+---@field death_pride { caption: "being too proud to give in to death" }
+---@field death_vain { caption: "being too vain to give in to death" }
+---@field death_ambition { caption: "having ambitions for which death was only a small obstacle" }
+---@field lack_of_funds { caption: "due to lack of funds" }
+---@field battle_losses { caption: "after taking heavy losses in battle" }
+---@field conviction_exile { caption: "after being exiled following a criminal conviction" }
+---@field priest_vent { caption: "to vent at a priest" }
+---@field priest_cry { caption: "to cry on a priest" }
+df.history_event_reason.attrs = {}
+
+-- Unused: ArmyStopReasonType
+---@alias df.incident_type
+---| 0 # Death
+---| 1 # Crime
+---| 2 # Attack
+---| 3 # Escalation
+---| 4 # Reunion
+---| 5 # YieldDemand
+---| 6 # Performance
+---| 7 # Artifact
+---| 8 # Writing
+---| 9 # SelfID
+---| 10 # RefusedID
+
+-- Unused: ArmyStopReasonType
+---@class identity.incident_type: DFEnumType
+---@field Death 0 bay12: IncidentType
+---@field [0] "Death" bay12: IncidentType
+---@field Crime 1 Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
+---@field [1] "Crime" Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
+---@field Attack 2
+---@field [2] "Attack"
+---@field Escalation 3
+---@field [3] "Escalation"
+---@field Reunion 4
+---@field [4] "Reunion"
+---@field YieldDemand 5
+---@field [5] "YieldDemand"
+---@field Performance 6
+---@field [6] "Performance"
+---@field Artifact 7
+---@field [7] "Artifact"
+---@field Writing 8
+---@field [8] "Writing"
+---@field SelfID 9
+---@field [9] "SelfID"
+---@field RefusedID 10
+---@field [10] "RefusedID"
+df.incident_type = {}
+
+---@alias df.adventure_desire_state_type
+---| -1 # NONE
+---| 0 # DRUNK
+---| 1 # EXCITED
+---| 2 # ADVENTUROUS
+---| 3 # EXCITED_ADVENTUROUS
+---| 4 # WILLING_SOLDIER
+---| 5 # DUTY
+---| 6 # LEVEL_2
+---| 7 # LEVEL_1
+---| 8 # FOLLOWERS
+---| 9 # PRISONER_YES
+---| 10 # SLAVE_YES
+---| 11 # SLAVE_NO
+---| 12 # NOT_INTERESTED_IN_GOAL
+---| 13 # YES_URGENT
+---| 14 # YES_WORTHY_OF_STRUGGLE
+---| 15 # ART_LEVEL_2
+---| 16 # ART_LEVEL_1
+---| 17 # ART_FOLLOWERS
+---| 18 # PERS_ART_VAL_ART_VAL_MERR
+---| 19 # VAL_ART_VAL_MERR
+---| 20 # PERS_ART_VAL_MERR
+---| 21 # PERS_ART_VAL_ART
+---| 22 # PERS_ART
+---| 23 # VAL_ART
+---| 24 # VAL_MERR
+---| 25 # YES_ALREADY_IN_TROUPE
+---| 26 # ART_DEMONSTRATION_MIGHT_HELP
+---| 27 # ON_JOURNEY
+
+---@class identity.adventure_desire_state_type: DFEnumType
+---@field NONE -1 bay12: AdventureDesireStateType
+---@field [-1] "NONE" bay12: AdventureDesireStateType
+---@field DRUNK 0
+---@field [0] "DRUNK"
+---@field EXCITED 1
+---@field [1] "EXCITED"
+---@field ADVENTUROUS 2
+---@field [2] "ADVENTUROUS"
+---@field EXCITED_ADVENTUROUS 3
+---@field [3] "EXCITED_ADVENTUROUS"
+---@field WILLING_SOLDIER 4
+---@field [4] "WILLING_SOLDIER"
+---@field DUTY 5
+---@field [5] "DUTY"
+---@field LEVEL_2 6
+---@field [6] "LEVEL_2"
+---@field LEVEL_1 7
+---@field [7] "LEVEL_1"
+---@field FOLLOWERS 8
+---@field [8] "FOLLOWERS"
+---@field PRISONER_YES 9
+---@field [9] "PRISONER_YES"
+---@field SLAVE_YES 10
+---@field [10] "SLAVE_YES"
+---@field SLAVE_NO 11
+---@field [11] "SLAVE_NO"
+---@field NOT_INTERESTED_IN_GOAL 12
+---@field [12] "NOT_INTERESTED_IN_GOAL"
+---@field YES_URGENT 13
+---@field [13] "YES_URGENT"
+---@field YES_WORTHY_OF_STRUGGLE 14
+---@field [14] "YES_WORTHY_OF_STRUGGLE"
+---@field ART_LEVEL_2 15
+---@field [15] "ART_LEVEL_2"
+---@field ART_LEVEL_1 16
+---@field [16] "ART_LEVEL_1"
+---@field ART_FOLLOWERS 17
+---@field [17] "ART_FOLLOWERS"
+---@field PERS_ART_VAL_ART_VAL_MERR 18
+---@field [18] "PERS_ART_VAL_ART_VAL_MERR"
+---@field VAL_ART_VAL_MERR 19
+---@field [19] "VAL_ART_VAL_MERR"
+---@field PERS_ART_VAL_MERR 20
+---@field [20] "PERS_ART_VAL_MERR"
+---@field PERS_ART_VAL_ART 21
+---@field [21] "PERS_ART_VAL_ART"
+---@field PERS_ART 22
+---@field [22] "PERS_ART"
+---@field VAL_ART 23
+---@field [23] "VAL_ART"
+---@field VAL_MERR 24
+---@field [24] "VAL_MERR"
+---@field YES_ALREADY_IN_TROUPE 25
+---@field [25] "YES_ALREADY_IN_TROUPE"
+---@field ART_DEMONSTRATION_MIGHT_HELP 26
+---@field [26] "ART_DEMONSTRATION_MIGHT_HELP"
+---@field ON_JOURNEY 27
+---@field [27] "ON_JOURNEY"
+df.adventure_desire_state_type = {}
+
+---@alias df.action_type
+---| -1 # NONE
+---| 0 # RESOLVE_CONFLICT
+---| 1 # FLEE_CONFLICT
+---| 2 # FLEE_CONFLICT_IN_TERROR
+---| 3 # FOLLOW_ORDER_IN_ACTIVITY_EVENT
+---| 4 # YIELD
+---| 5 # YIELD_IN_TERROR
+---| 6 # COMMUNICATE
+---| 7 # WALK_THROUGH_SITE
+---| 8 # FLEE_TERRAIN_LEAVE_WALL
+---| 9 # FLEE_TERRAIN_REMAIN_WITH_GOAL_IF_PRESENT
+---| 10 # FLEE_TERRAIN_MILL_AROUND
+---| 11 # FLEE_TERRAIN
+---| 12 # PERFORM_JOB
+---| 13 # INCAPACITATED_DO_NOTHING
+---| 14 # HIGH_PRIORITY_SAFECAGE_UNIT
+---| 15 # HIGH_PRIORITY_REPORT_CRIME
+---| 16 # HIGH_PRIORITY_SLEEP_GROUND
+---| 17 # HIGH_PRIORITY_SLEEP_BARRACKS
+---| 18 # HIGH_PRIORITY_SLEEP_BED
+---| 19 # HIGH_PRIORITY_SEEK_INFANT
+---| 20 # HIGH_PRIORITY_SUCK_BLOOD
+---| 21 # HIGH_PRIORITY_HUNGER_HUNT_VERMIN
+---| 22 # HIGH_PRIORITY_HUNGER_EAT_FOOD
+---| 23 # HIGH_PRIORITY_THIRST_DRINK_DISTANT_AREA
+---| 24 # HIGH_PRIORITY_THIRST_DRINK_WELL
+---| 25 # HIGH_PRIORITY_THIRST_DRINK_DISTANT_ITEM
+---| 26 # HIGH_PRIORITY_THIRST_DRINK_ITEM
+---| 27 # TANTRUM_THROW_HAULED_ITEM
+---| 28 # TANTRUM_GRAB_GROUND_ITEM
+---| 29 # TANTRUM_GRAB_VERMIN
+---| 30 # TANTRUM_START_FISTFIGHT
+---| 31 # SQUAD_ORDER_MOVE
+---| 32 # SQUAD_ORDER_KILL_LIST
+---| 33 # SQUAD_ORDER_DEFEND_BURROW
+---| 34 # SQUAD_ORDER_PATROL
+---| 35 # STORE_OWNED_ITEM
+---| 36 # PICK_UP_EQUIPMENT
+---| 37 # CAPTURE_SMALL_PET
+---| 38 # GIVE_WATER_TO_PET
+---| 39 # GIVE_FOOD_TO_PET
+---| 40 # UNCHAIN_PET
+---| 41 # UNCAGE_PET
+---| 42 # MANAGE_WORK_ORDERS
+---| 43 # UPDATE_STOCKPILE_RECORDS
+---| 44 # CONDUCT_MEETING
+---| 45 # HEAD_TO_MEETING
+---| 46 # LEAVE_THROUGH_BORDER_WITH_HITUP
+---| 47 # SEEK_STATION
+---| 48 # MERCHANT_PACK_UP_GOODS
+---| 49 # MERCHANT_DROP_OFF_GOODS
+---| 50 # MERCHANT_SEEK_DEPOT
+---| 51 # GHOST
+---| 52 # UNDEAD_HUNT
+---| 53 # LAY_EGGS
+---| 54 # GO_TO_OWNER
+---| 55 # GO_TO_COMMANDER
+---| 56 # CONSOLIDATE_OBJECT
+---| 57 # EXPLORE_MAP
+---| 58 # LEAVE_THROUGH_BORDER
+---| 59 # WILDERNESS_STEAL_ITEM
+---| 60 # SET_AND_SEEK_STATION
+---| 61 # INVADER_SIEGER
+---| 62 # INVADER_AMBUSHER
+---| 63 # GREMLIN
+---| 64 # INITIATE_KIDNAP
+---| 65 # INVADER_STEAL_ITEM
+---| 66 # LASH_OUT
+---| 67 # GRAZE
+---| 68 # SET_IMMEDIATE_GOAL
+---| 69 # TRAIN_UNIT
+---| 70 # HUNT
+---| 71 # FISH
+---| 72 # CLEAN_FLOOR
+---| 73 # CLEAN_SELF_AREA
+---| 74 # CLEAN_SELF_WELL
+---| 75 # REST_IN_BED
+---| 76 # REST_ON_HOSPITAL_FLOOR
+---| 77 # ROOT_AROUND
+---| 78 # GOBBLE_VERMIN
+---| 79 # KILL_VERMIN
+---| 80 # DIVE_ON_VERMIN
+---| 81 # HUNT_VERMIN
+---| 82 # STAND_UP
+---| 83 # LIE_DOWN
+---| 84 # FINISH_WRESTLING
+---| 85 # SLEEP_IN_CAMP
+---| 86 # MARKET_BANTER
+---| 87 # SEEK_AND_DESTROY_BUILDING
+---| 88 # LAIR_HUNTER
+---| 89 # OFF_SITE_ARMY_WALK
+---| 90 # BREAKDOWN_IN_FEAR
+---| 91 # BREAKDOWN_IN_SHOCK
+---| 92 # BREAKDOWN_IN_HORROR
+---| 93 # BREAKDOWN_IN_GRIEF
+---| 94 # BREAKDOWN_IN_TERROR
+---| 95 # REACT_TO_ALARM
+---| 96 # REORGANIZE_POSSESSIONS
+---| 97 # FLEE_FROM_ACTIVITY
+---| 98 # FLEE_FROM_UNIT
+---| 99 # BREAKDOWN_IN_DEPRESSION
+---| 100 # CATATONIC
+---| 101 # BREAKDOWN_IN_SADNESS
+---| 102 # BREAKDOWN_IN_AGONY
+---| 103 # BREAKDOWN_IN_ANGUISH
+---| 104 # BREAKDOWN_IN_DESPAIR
+---| 105 # BREAKDOWN_IN_DISMAY
+---| 106 # BREAKDOWN_IN_DISTRESS
+---| 107 # BREAKDOWN_IN_FRIGHT
+---| 108 # BREAKDOWN_IN_MISERY
+---| 109 # BREAKDOWN_IN_MORTIFICATION
+---| 110 # BREAKDOWN_IN_SHAKEN
+---| 111 # BREAKDOWN_IN_ANGST
+---| 112 # SHOUT_PROPHECY
+---| 113 # LEAVE_MAP_FOR_SQUAD_ORDER
+---| 114 # DELIVER_PARLEY_ARTIFACT
+---| 115 # FOLLOW_COMMAND
+---| 116 # GO_TO_MOUNT
+---| 117 # MOUNT
+---| 118 # DISMOUNT
+---| 119 # HIGH_PRIORITY_HEIST_ITEM
+
+---@class identity.action_type: DFEnumType
+---@field NONE -1 bay12: ActionType
+---@field [-1] "NONE" bay12: ActionType
+---@field RESOLVE_CONFLICT 0
+---@field [0] "RESOLVE_CONFLICT"
+---@field FLEE_CONFLICT 1
+---@field [1] "FLEE_CONFLICT"
+---@field FLEE_CONFLICT_IN_TERROR 2
+---@field [2] "FLEE_CONFLICT_IN_TERROR"
+---@field FOLLOW_ORDER_IN_ACTIVITY_EVENT 3
+---@field [3] "FOLLOW_ORDER_IN_ACTIVITY_EVENT"
+---@field YIELD 4
+---@field [4] "YIELD"
+---@field YIELD_IN_TERROR 5
+---@field [5] "YIELD_IN_TERROR"
+---@field COMMUNICATE 6
+---@field [6] "COMMUNICATE"
+---@field WALK_THROUGH_SITE 7
+---@field [7] "WALK_THROUGH_SITE"
+---@field FLEE_TERRAIN_LEAVE_WALL 8
+---@field [8] "FLEE_TERRAIN_LEAVE_WALL"
+---@field FLEE_TERRAIN_REMAIN_WITH_GOAL_IF_PRESENT 9
+---@field [9] "FLEE_TERRAIN_REMAIN_WITH_GOAL_IF_PRESENT"
+---@field FLEE_TERRAIN_MILL_AROUND 10
+---@field [10] "FLEE_TERRAIN_MILL_AROUND"
+---@field FLEE_TERRAIN 11
+---@field [11] "FLEE_TERRAIN"
+---@field PERFORM_JOB 12
+---@field [12] "PERFORM_JOB"
+---@field INCAPACITATED_DO_NOTHING 13
+---@field [13] "INCAPACITATED_DO_NOTHING"
+---@field HIGH_PRIORITY_SAFECAGE_UNIT 14
+---@field [14] "HIGH_PRIORITY_SAFECAGE_UNIT"
+---@field HIGH_PRIORITY_REPORT_CRIME 15
+---@field [15] "HIGH_PRIORITY_REPORT_CRIME"
+---@field HIGH_PRIORITY_SLEEP_GROUND 16
+---@field [16] "HIGH_PRIORITY_SLEEP_GROUND"
+---@field HIGH_PRIORITY_SLEEP_BARRACKS 17
+---@field [17] "HIGH_PRIORITY_SLEEP_BARRACKS"
+---@field HIGH_PRIORITY_SLEEP_BED 18
+---@field [18] "HIGH_PRIORITY_SLEEP_BED"
+---@field HIGH_PRIORITY_SEEK_INFANT 19
+---@field [19] "HIGH_PRIORITY_SEEK_INFANT"
+---@field HIGH_PRIORITY_SUCK_BLOOD 20
+---@field [20] "HIGH_PRIORITY_SUCK_BLOOD"
+---@field HIGH_PRIORITY_HUNGER_HUNT_VERMIN 21
+---@field [21] "HIGH_PRIORITY_HUNGER_HUNT_VERMIN"
+---@field HIGH_PRIORITY_HUNGER_EAT_FOOD 22
+---@field [22] "HIGH_PRIORITY_HUNGER_EAT_FOOD"
+---@field HIGH_PRIORITY_THIRST_DRINK_DISTANT_AREA 23
+---@field [23] "HIGH_PRIORITY_THIRST_DRINK_DISTANT_AREA"
+---@field HIGH_PRIORITY_THIRST_DRINK_WELL 24
+---@field [24] "HIGH_PRIORITY_THIRST_DRINK_WELL"
+---@field HIGH_PRIORITY_THIRST_DRINK_DISTANT_ITEM 25
+---@field [25] "HIGH_PRIORITY_THIRST_DRINK_DISTANT_ITEM"
+---@field HIGH_PRIORITY_THIRST_DRINK_ITEM 26
+---@field [26] "HIGH_PRIORITY_THIRST_DRINK_ITEM"
+---@field TANTRUM_THROW_HAULED_ITEM 27
+---@field [27] "TANTRUM_THROW_HAULED_ITEM"
+---@field TANTRUM_GRAB_GROUND_ITEM 28
+---@field [28] "TANTRUM_GRAB_GROUND_ITEM"
+---@field TANTRUM_GRAB_VERMIN 29
+---@field [29] "TANTRUM_GRAB_VERMIN"
+---@field TANTRUM_START_FISTFIGHT 30
+---@field [30] "TANTRUM_START_FISTFIGHT"
+---@field SQUAD_ORDER_MOVE 31
+---@field [31] "SQUAD_ORDER_MOVE"
+---@field SQUAD_ORDER_KILL_LIST 32
+---@field [32] "SQUAD_ORDER_KILL_LIST"
+---@field SQUAD_ORDER_DEFEND_BURROW 33
+---@field [33] "SQUAD_ORDER_DEFEND_BURROW"
+---@field SQUAD_ORDER_PATROL 34
+---@field [34] "SQUAD_ORDER_PATROL"
+---@field STORE_OWNED_ITEM 35
+---@field [35] "STORE_OWNED_ITEM"
+---@field PICK_UP_EQUIPMENT 36
+---@field [36] "PICK_UP_EQUIPMENT"
+---@field CAPTURE_SMALL_PET 37
+---@field [37] "CAPTURE_SMALL_PET"
+---@field GIVE_WATER_TO_PET 38
+---@field [38] "GIVE_WATER_TO_PET"
+---@field GIVE_FOOD_TO_PET 39
+---@field [39] "GIVE_FOOD_TO_PET"
+---@field UNCHAIN_PET 40
+---@field [40] "UNCHAIN_PET"
+---@field UNCAGE_PET 41
+---@field [41] "UNCAGE_PET"
+---@field MANAGE_WORK_ORDERS 42
+---@field [42] "MANAGE_WORK_ORDERS"
+---@field UPDATE_STOCKPILE_RECORDS 43
+---@field [43] "UPDATE_STOCKPILE_RECORDS"
+---@field CONDUCT_MEETING 44
+---@field [44] "CONDUCT_MEETING"
+---@field HEAD_TO_MEETING 45
+---@field [45] "HEAD_TO_MEETING"
+---@field LEAVE_THROUGH_BORDER_WITH_HITUP 46
+---@field [46] "LEAVE_THROUGH_BORDER_WITH_HITUP"
+---@field SEEK_STATION 47
+---@field [47] "SEEK_STATION"
+---@field MERCHANT_PACK_UP_GOODS 48
+---@field [48] "MERCHANT_PACK_UP_GOODS"
+---@field MERCHANT_DROP_OFF_GOODS 49
+---@field [49] "MERCHANT_DROP_OFF_GOODS"
+---@field MERCHANT_SEEK_DEPOT 50
+---@field [50] "MERCHANT_SEEK_DEPOT"
+---@field GHOST 51
+---@field [51] "GHOST"
+---@field UNDEAD_HUNT 52
+---@field [52] "UNDEAD_HUNT"
+---@field LAY_EGGS 53
+---@field [53] "LAY_EGGS"
+---@field GO_TO_OWNER 54
+---@field [54] "GO_TO_OWNER"
+---@field GO_TO_COMMANDER 55
+---@field [55] "GO_TO_COMMANDER"
+---@field CONSOLIDATE_OBJECT 56
+---@field [56] "CONSOLIDATE_OBJECT"
+---@field EXPLORE_MAP 57
+---@field [57] "EXPLORE_MAP"
+---@field LEAVE_THROUGH_BORDER 58
+---@field [58] "LEAVE_THROUGH_BORDER"
+---@field WILDERNESS_STEAL_ITEM 59
+---@field [59] "WILDERNESS_STEAL_ITEM"
+---@field SET_AND_SEEK_STATION 60
+---@field [60] "SET_AND_SEEK_STATION"
+---@field INVADER_SIEGER 61
+---@field [61] "INVADER_SIEGER"
+---@field INVADER_AMBUSHER 62
+---@field [62] "INVADER_AMBUSHER"
+---@field GREMLIN 63
+---@field [63] "GREMLIN"
+---@field INITIATE_KIDNAP 64
+---@field [64] "INITIATE_KIDNAP"
+---@field INVADER_STEAL_ITEM 65
+---@field [65] "INVADER_STEAL_ITEM"
+---@field LASH_OUT 66
+---@field [66] "LASH_OUT"
+---@field GRAZE 67
+---@field [67] "GRAZE"
+---@field SET_IMMEDIATE_GOAL 68
+---@field [68] "SET_IMMEDIATE_GOAL"
+---@field TRAIN_UNIT 69
+---@field [69] "TRAIN_UNIT"
+---@field HUNT 70
+---@field [70] "HUNT"
+---@field FISH 71
+---@field [71] "FISH"
+---@field CLEAN_FLOOR 72
+---@field [72] "CLEAN_FLOOR"
+---@field CLEAN_SELF_AREA 73
+---@field [73] "CLEAN_SELF_AREA"
+---@field CLEAN_SELF_WELL 74
+---@field [74] "CLEAN_SELF_WELL"
+---@field REST_IN_BED 75
+---@field [75] "REST_IN_BED"
+---@field REST_ON_HOSPITAL_FLOOR 76
+---@field [76] "REST_ON_HOSPITAL_FLOOR"
+---@field ROOT_AROUND 77
+---@field [77] "ROOT_AROUND"
+---@field GOBBLE_VERMIN 78
+---@field [78] "GOBBLE_VERMIN"
+---@field KILL_VERMIN 79
+---@field [79] "KILL_VERMIN"
+---@field DIVE_ON_VERMIN 80
+---@field [80] "DIVE_ON_VERMIN"
+---@field HUNT_VERMIN 81
+---@field [81] "HUNT_VERMIN"
+---@field STAND_UP 82
+---@field [82] "STAND_UP"
+---@field LIE_DOWN 83
+---@field [83] "LIE_DOWN"
+---@field FINISH_WRESTLING 84
+---@field [84] "FINISH_WRESTLING"
+---@field SLEEP_IN_CAMP 85
+---@field [85] "SLEEP_IN_CAMP"
+---@field MARKET_BANTER 86
+---@field [86] "MARKET_BANTER"
+---@field SEEK_AND_DESTROY_BUILDING 87
+---@field [87] "SEEK_AND_DESTROY_BUILDING"
+---@field LAIR_HUNTER 88
+---@field [88] "LAIR_HUNTER"
+---@field OFF_SITE_ARMY_WALK 89
+---@field [89] "OFF_SITE_ARMY_WALK"
+---@field BREAKDOWN_IN_FEAR 90
+---@field [90] "BREAKDOWN_IN_FEAR"
+---@field BREAKDOWN_IN_SHOCK 91
+---@field [91] "BREAKDOWN_IN_SHOCK"
+---@field BREAKDOWN_IN_HORROR 92
+---@field [92] "BREAKDOWN_IN_HORROR"
+---@field BREAKDOWN_IN_GRIEF 93
+---@field [93] "BREAKDOWN_IN_GRIEF"
+---@field BREAKDOWN_IN_TERROR 94
+---@field [94] "BREAKDOWN_IN_TERROR"
+---@field REACT_TO_ALARM 95
+---@field [95] "REACT_TO_ALARM"
+---@field REORGANIZE_POSSESSIONS 96
+---@field [96] "REORGANIZE_POSSESSIONS"
+---@field FLEE_FROM_ACTIVITY 97
+---@field [97] "FLEE_FROM_ACTIVITY"
+---@field FLEE_FROM_UNIT 98
+---@field [98] "FLEE_FROM_UNIT"
+---@field BREAKDOWN_IN_DEPRESSION 99
+---@field [99] "BREAKDOWN_IN_DEPRESSION"
+---@field CATATONIC 100
+---@field [100] "CATATONIC"
+---@field BREAKDOWN_IN_SADNESS 101
+---@field [101] "BREAKDOWN_IN_SADNESS"
+---@field BREAKDOWN_IN_AGONY 102
+---@field [102] "BREAKDOWN_IN_AGONY"
+---@field BREAKDOWN_IN_ANGUISH 103
+---@field [103] "BREAKDOWN_IN_ANGUISH"
+---@field BREAKDOWN_IN_DESPAIR 104
+---@field [104] "BREAKDOWN_IN_DESPAIR"
+---@field BREAKDOWN_IN_DISMAY 105
+---@field [105] "BREAKDOWN_IN_DISMAY"
+---@field BREAKDOWN_IN_DISTRESS 106
+---@field [106] "BREAKDOWN_IN_DISTRESS"
+---@field BREAKDOWN_IN_FRIGHT 107
+---@field [107] "BREAKDOWN_IN_FRIGHT"
+---@field BREAKDOWN_IN_MISERY 108
+---@field [108] "BREAKDOWN_IN_MISERY"
+---@field BREAKDOWN_IN_MORTIFICATION 109
+---@field [109] "BREAKDOWN_IN_MORTIFICATION"
+---@field BREAKDOWN_IN_SHAKEN 110
+---@field [110] "BREAKDOWN_IN_SHAKEN"
+---@field BREAKDOWN_IN_ANGST 111
+---@field [111] "BREAKDOWN_IN_ANGST"
+---@field SHOUT_PROPHECY 112
+---@field [112] "SHOUT_PROPHECY"
+---@field LEAVE_MAP_FOR_SQUAD_ORDER 113
+---@field [113] "LEAVE_MAP_FOR_SQUAD_ORDER"
+---@field DELIVER_PARLEY_ARTIFACT 114
+---@field [114] "DELIVER_PARLEY_ARTIFACT"
+---@field FOLLOW_COMMAND 115
+---@field [115] "FOLLOW_COMMAND"
+---@field GO_TO_MOUNT 116
+---@field [116] "GO_TO_MOUNT"
+---@field MOUNT 117
+---@field [117] "MOUNT"
+---@field DISMOUNT 118
+---@field [118] "DISMOUNT"
+---@field HIGH_PRIORITY_HEIST_ITEM 119
+---@field [119] "HIGH_PRIORITY_HEIST_ITEM"
+df.action_type = {}
+
+-- Unused: TalkFactType
+---@alias df.unit_action_type
+---| -1 # None
+---| 0 # Move
+---| 1 # Attack
+---| 2 # Jump
+---| 3 # HoldTerrain
+---| 4 # ReleaseTerrain
+---| 5 # Climb
+---| 6 # Job
+---| 7 # Talk
+---| 8 # Unsteady
+---| 9 # Parry
+---| 10 # Block
+---| 11 # Dodge
+---| 12 # Recover
+---| 13 # StandUp
+---| 14 # LieDown
+---| 15 # JobRecover
+---| 16 # PushObject
+---| 17 # SuckBlood
+---| 18 # HoldItem
+---| 19 # ReleaseItem
+---| 20 # Mount
+---| 21 # Dismount
+---| 22 # LeadAnimal
+---| 23 # StopLeadAnimal
+
+-- Unused: TalkFactType
+---@class identity.unit_action_type: DFEnumType
+---@field None -1
+---@field [-1] "None"
+---@field Move 0
+---@field [0] "Move"
+---@field Attack 1
+---@field [1] "Attack"
+---@field Jump 2
+---@field [2] "Jump"
+---@field HoldTerrain 3
+---@field [3] "HoldTerrain"
+---@field ReleaseTerrain 4
+---@field [4] "ReleaseTerrain"
+---@field Climb 5
+---@field [5] "Climb"
+---@field Job 6
+---@field [6] "Job"
+---@field Talk 7
+---@field [7] "Talk"
+---@field Unsteady 8
+---@field [8] "Unsteady"
+---@field Parry 9
+---@field [9] "Parry"
+---@field Block 10
+---@field [10] "Block"
+---@field Dodge 11
+---@field [11] "Dodge"
+---@field Recover 12
+---@field [12] "Recover"
+---@field StandUp 13
+---@field [13] "StandUp"
+---@field LieDown 14
+---@field [14] "LieDown"
+---@field JobRecover 15
+---@field [15] "JobRecover"
+---@field PushObject 16
+---@field [16] "PushObject"
+---@field SuckBlood 17
+---@field [17] "SuckBlood"
+---@field HoldItem 18
+---@field [18] "HoldItem"
+---@field ReleaseItem 19
+---@field [19] "ReleaseItem"
+---@field Mount 20
+---@field [20] "Mount"
+---@field Dismount 21
+---@field [21] "Dismount"
+---@field LeadAnimal 22
+---@field [22] "LeadAnimal"
+---@field StopLeadAnimal 23
+---@field [23] "StopLeadAnimal"
+df.unit_action_type = {}
+
+---@class unit_action_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_action_type._attr_entry_type = {}
+
+---@class (exact) unit_action_type_attr_entry_type_fields
+---@field tag DFCompoundField bay12: UnitMoveType
+---@field group DFCompoundField
+df.unit_action_type._attr_entry_type._fields = {}
+
+---@class unit_action_type_attrs
+---@field None { tag: "raw_data" }
+---@field Move { tag: "move", group: "All" }
+---@field Attack { tag: "attack", group: "All" }
+---@field Jump { tag: "jump", group: "All" }
+---@field HoldTerrain { tag: "holdterrain", group: "All" }
+---@field ReleaseTerrain { tag: "releaseterrain", group: "All" }
+---@field Climb { tag: "climb", group: "All" }
+---@field Job { tag: "job", group: "All" }
+---@field Talk { tag: "talk", group: "All" }
+---@field Unsteady { tag: "unsteady", group: "All" }
+---@field Parry { tag: "parry", group: "All" }
+---@field Block { tag: "block", group: "All" }
+---@field Dodge { tag: "dodge", group: "All" }
+---@field Recover { tag: "recover", group: "All" }
+---@field StandUp { tag: "standup", group: "All" }
+---@field LieDown { tag: "liedown", group: "All" }
+---@field JobRecover { tag: "job", group: "All" }
+---@field PushObject { tag: "pushobject", group: "All" }
+---@field SuckBlood { tag: "suckblood", group: "All" }
+---@field HoldItem { tag: "holditem", group: "All" }
+---@field ReleaseItem { tag: "releaseitem", group: "All" }
+---@field Mount { tag: "mount", group: "All" }
+---@field Dismount { tag: "dismount", group: "All" }
+---@field LeadAnimal { tag: "leadanimal", group: "All" }
+---@field StopLeadAnimal { tag: "stopleadanimal", group: "All" }
+df.unit_action_type.attrs = {}
+
+---@alias df.misc_trait_type
+---| 0 # RequestWaterCooldown
+---| 1 # RequestFoodCooldown
+---| 2 # RequestRescueCooldown
+---| 3 # RequestHealthcareCooldown
+---| 4 # GetDrinkCooldown
+---| 5 # GetFoodCooldown
+---| 6 # CleanSelfCooldown
+---| 7 # Migrant
+---| 8 # RoomComplaint
+---| 9 # UnnamedResident
+---| 10 # RentBedroomCooldown
+---| 11 # ClaimTrinketCooldown
+---| 12 # ClaimClothingCooldown
+---| 13 # WantsDrink
+---| 14 # InfiltrationMiceDelay
+---| 15 # PrepareToDie
+---| 16 # CaveAdapt
+---| 17 # HuntCheckDelay
+---| 18 # FishCheckDelay
+---| 19 # WagonPathCheck
+---| 20 # NastyWaterPermitted
+---| 21 # FollowUnitCooldown
+---| 22 # ForcedToFight
+---| 23 # RecentlyFledConflict
+---| 24 # MustEvaluateMilling
+---| 25 # DangerousTerrainCooldown
+---| 26 # Beaching
+---| 27 # IdleAreaCooldown
+---| 28 # MillAreaCooldown
+---| 29 # DiagnosePatientCooldown
+---| 30 # DressWoundCooldown
+---| 31 # CleanPatientCooldown
+---| 32 # SurgeryCooldown
+---| 33 # SutureCooldown
+---| 34 # SetBoneCooldown
+---| 35 # PlaceInTractionCooldown
+---| 36 # ApplyCastCooldown
+---| 37 # ImmobilizeBreakCooldown
+---| 38 # BringCrutchCooldown
+---| 39 # RebuildUniformAgain
+---| 40 # MilkCounter
+---| 41 # HadArcheryDrill
+---| 42 # HadMeleeDrill
+---| 43 # EggSpent
+---| 44 # GroundedAnimalAnger
+---| 45 # GrazeCheckDelay
+---| 46 # TimeSinceSuckedBlood
+---| 47 # DrinkingBlood
+---| 48 # IncidentalChatter
+---| 49 # FleeingInteractionRestricted
+---| 50 # RevertWildTimer
+---| 51 # AnimalTrainCheck
+---| 52 # NoPantsAnger
+---| 53 # NoShirtAnger
+---| 54 # NoShoesAnger
+---| 55 # TookPartInConflict
+---| 56 # ClimbAccident
+---| 57 # DesperateMillingAttempts
+---| 58 # HaveRecentlyFledAlarm
+---| 59 # ConsolidatePets
+---| 60 # StressBreakdown
+---| 61 # DelayReading
+---| 62 # DelayResearchWriting
+---| 63 # DelayFreeWriting
+---| 64 # CitizenshipCooldown
+---| 65 # NeedMillingDelayed
+---| 66 # BuildingDestroyerDelay
+---| 67 # HeistPaused
+---| 68 # HaveIngestedMythicalSubstance
+---| 69 # DidInteractionAnnouncementReducePain
+---| 70 # DidInteractionAnnouncementReduceSwelling
+---| 71 # DidInteractionAnnouncementCureInfection
+---| 72 # DidInteractionAnnouncementHealNerves
+---| 73 # DidInteractionAnnouncementStopBleeding
+---| 74 # DidInteractionAnnouncementCloseOpenWounds
+---| 75 # DidInteractionAnnouncementHealTissues
+---| 76 # DidInteractionAnnouncementRegrowParts
+---| 77 # DidInteractionAnnouncementReduceParalysis
+---| 78 # DidInteractionAnnouncementReduceFever
+---| 79 # DidInteractionAnnouncementReduceNausea
+---| 80 # DidInteractionAnnouncementReduceDizzness
+---| 81 # HaveCheckedFavorDodge
+---| 82 # DidStrainExhaustionKO
+
+---@class identity.misc_trait_type: DFEnumType
+---@field RequestWaterCooldown 0 0 --
+---@field [0] "RequestWaterCooldown" 0 --
+---@field RequestFoodCooldown 1 for thirsty patients
+---@field [1] "RequestFoodCooldown" for thirsty patients
+---@field RequestRescueCooldown 2 for hungry patients
+---@field [2] "RequestRescueCooldown" for hungry patients
+---@field RequestHealthcareCooldown 3
+---@field [3] "RequestHealthcareCooldown"
+---@field GetDrinkCooldown 4 auto-decrement
+---@field [4] "GetDrinkCooldown" auto-decrement
+---@field GetFoodCooldown 5 auto-decrement
+---@field [5] "GetFoodCooldown" auto-decrement
+---@field CleanSelfCooldown 6 auto-decrement
+---@field [6] "CleanSelfCooldown" auto-decrement
+---@field Migrant 7 auto-decrement
+---@field [7] "Migrant" auto-decrement
+---@field RoomComplaint 8 auto-decrement
+---@field [8] "RoomComplaint" auto-decrement
+---@field UnnamedResident 9 upon reaching zero, resident creature gets named
+---@field [9] "UnnamedResident" upon reaching zero, resident creature gets named
+---@field RentBedroomCooldown 10 handled manually<br>10 --
+---@field [10] "RentBedroomCooldown" handled manually<br>10 --
+---@field ClaimTrinketCooldown 11 auto-decrement
+---@field [11] "ClaimTrinketCooldown" auto-decrement
+---@field ClaimClothingCooldown 12 auto-decrement
+---@field [12] "ClaimClothingCooldown" auto-decrement
+---@field WantsDrink 13 auto-increment to 403200
+---@field [13] "WantsDrink" auto-increment to 403200
+---@field InfiltrationMiceDelay 14
+---@field [14] "InfiltrationMiceDelay"
+---@field PrepareToDie 15 auto-decrement
+---@field [15] "PrepareToDie" auto-decrement
+---@field CaveAdapt 16
+---@field [16] "CaveAdapt"
+---@field HuntCheckDelay 17 auto-decrement
+---@field [17] "HuntCheckDelay" auto-decrement
+---@field FishCheckDelay 18 auto-decrement
+---@field [18] "FishCheckDelay" auto-decrement
+---@field WagonPathCheck 19
+---@field [19] "WagonPathCheck"
+---@field NastyWaterPermitted 20 20 --
+---@field [20] "NastyWaterPermitted" 20 --
+---@field FollowUnitCooldown 21 0-20, 200 on failed path, auto-decrement
+---@field [21] "FollowUnitCooldown" 0-20, 200 on failed path, auto-decrement
+---@field ForcedToFight 22 auto-decrement
+---@field [22] "ForcedToFight" auto-decrement
+---@field RecentlyFledConflict 23 auto-decrement
+---@field [23] "RecentlyFledConflict" auto-decrement
+---@field MustEvaluateMilling 24
+---@field [24] "MustEvaluateMilling"
+---@field DangerousTerrainCooldown 25 created at 200, blocks repath?, auto-decrement
+---@field [25] "DangerousTerrainCooldown" created at 200, blocks repath?, auto-decrement
+---@field Beaching 26 triggered by BEACH_FREQUENCY, auto-decrement
+---@field [26] "Beaching" triggered by BEACH_FREQUENCY, auto-decrement
+---@field IdleAreaCooldown 27 auto-decrement
+---@field [27] "IdleAreaCooldown" auto-decrement
+---@field MillAreaCooldown 28 auto-decrement
+---@field [28] "MillAreaCooldown" auto-decrement
+---@field DiagnosePatientCooldown 29 0-2000, auto-decrement
+---@field [29] "DiagnosePatientCooldown" 0-2000, auto-decrement
+---@field DressWoundCooldown 30 30 --
+---@field [30] "DressWoundCooldown" 30 --
+---@field CleanPatientCooldown 31 auto-decrement
+---@field [31] "CleanPatientCooldown" auto-decrement
+---@field SurgeryCooldown 32 auto-decrement
+---@field [32] "SurgeryCooldown" auto-decrement
+---@field SutureCooldown 33 auto-decrement
+---@field [33] "SutureCooldown" auto-decrement
+---@field SetBoneCooldown 34 auto-decrement
+---@field [34] "SetBoneCooldown" auto-decrement
+---@field PlaceInTractionCooldown 35 auto-decrement
+---@field [35] "PlaceInTractionCooldown" auto-decrement
+---@field ApplyCastCooldown 36 auto-decrement
+---@field [36] "ApplyCastCooldown" auto-decrement
+---@field ImmobilizeBreakCooldown 37 auto-decrement
+---@field [37] "ImmobilizeBreakCooldown" auto-decrement
+---@field BringCrutchCooldown 38 auto-decrement
+---@field [38] "BringCrutchCooldown" auto-decrement
+---@field RebuildUniformAgain 39 auto-decrement, set military pickup flag upon reaching zero
+---@field [39] "RebuildUniformAgain" auto-decrement, set military pickup flag upon reaching zero
+---@field MilkCounter 40 40 --
+---@field [40] "MilkCounter" 40 --
+---@field HadArcheryDrill 41 auto-decrement
+---@field [41] "HadArcheryDrill" auto-decrement
+---@field HadMeleeDrill 42 auto-decrement
+---@field [42] "HadMeleeDrill" auto-decrement
+---@field EggSpent 43 auto-decrement
+---@field [43] "EggSpent" auto-decrement
+---@field GroundedAnimalAnger 44 auto-decrement
+---@field [44] "GroundedAnimalAnger" auto-decrement
+---@field GrazeCheckDelay 45 auto-decrement
+---@field [45] "GrazeCheckDelay" auto-decrement
+---@field TimeSinceSuckedBlood 46
+---@field [46] "TimeSinceSuckedBlood"
+---@field DrinkingBlood 47 auto-decrement
+---@field [47] "DrinkingBlood" auto-decrement
+---@field IncidentalChatter 48 auto-decrement
+---@field [48] "IncidentalChatter" auto-decrement
+---@field FleeingInteractionRestricted 49 auto-decrement
+---@field [49] "FleeingInteractionRestricted" auto-decrement
+---@field RevertWildTimer 50 50 --
+---@field [50] "RevertWildTimer" 50 --
+---@field AnimalTrainCheck 51 auto-decrement
+---@field [51] "AnimalTrainCheck" auto-decrement
+---@field NoPantsAnger 52 auto-decrement
+---@field [52] "NoPantsAnger" auto-decrement
+---@field NoShirtAnger 53 auto-decrement
+---@field [53] "NoShirtAnger" auto-decrement
+---@field NoShoesAnger 54 auto-decrement
+---@field [54] "NoShoesAnger" auto-decrement
+---@field TookPartInConflict 55 auto-decrement
+---@field [55] "TookPartInConflict" auto-decrement
+---@field ClimbAccident 56 auto-decrement
+---@field [56] "ClimbAccident" auto-decrement
+---@field DesperateMillingAttempts 57
+---@field [57] "DesperateMillingAttempts"
+---@field HaveRecentlyFledAlarm 58 auto-decrement
+---@field [58] "HaveRecentlyFledAlarm" auto-decrement
+---@field ConsolidatePets 59 auto-decrement
+---@field [59] "ConsolidatePets" auto-decrement
+---@field StressBreakdown 60 60 --
+---@field [60] "StressBreakdown" 60 --
+---@field DelayReading 61 auto-decrement
+---@field [61] "DelayReading" auto-decrement
+---@field DelayResearchWriting 62 auto-decrement
+---@field [62] "DelayResearchWriting" auto-decrement
+---@field DelayFreeWriting 63 auto-decrement
+---@field [63] "DelayFreeWriting" auto-decrement
+---@field CitizenshipCooldown 64 starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
+---@field [64] "CitizenshipCooldown" starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
+---@field NeedMillingDelayed 65 auto-decrement
+---@field [65] "NeedMillingDelayed" auto-decrement
+---@field BuildingDestroyerDelay 66 auto-decrement
+---@field [66] "BuildingDestroyerDelay" auto-decrement
+---@field HeistPaused 67 auto-decrement
+---@field [67] "HeistPaused" auto-decrement
+---@field HaveIngestedMythicalSubstance 68
+---@field [68] "HaveIngestedMythicalSubstance"
+---@field DidInteractionAnnouncementReducePain 69
+---@field [69] "DidInteractionAnnouncementReducePain"
+---@field DidInteractionAnnouncementReduceSwelling 70 70 --
+---@field [70] "DidInteractionAnnouncementReduceSwelling" 70 --
+---@field DidInteractionAnnouncementCureInfection 71
+---@field [71] "DidInteractionAnnouncementCureInfection"
+---@field DidInteractionAnnouncementHealNerves 72
+---@field [72] "DidInteractionAnnouncementHealNerves"
+---@field DidInteractionAnnouncementStopBleeding 73
+---@field [73] "DidInteractionAnnouncementStopBleeding"
+---@field DidInteractionAnnouncementCloseOpenWounds 74
+---@field [74] "DidInteractionAnnouncementCloseOpenWounds"
+---@field DidInteractionAnnouncementHealTissues 75
+---@field [75] "DidInteractionAnnouncementHealTissues"
+---@field DidInteractionAnnouncementRegrowParts 76
+---@field [76] "DidInteractionAnnouncementRegrowParts"
+---@field DidInteractionAnnouncementReduceParalysis 77
+---@field [77] "DidInteractionAnnouncementReduceParalysis"
+---@field DidInteractionAnnouncementReduceFever 78
+---@field [78] "DidInteractionAnnouncementReduceFever"
+---@field DidInteractionAnnouncementReduceNausea 79
+---@field [79] "DidInteractionAnnouncementReduceNausea"
+---@field DidInteractionAnnouncementReduceDizzness 80 80 --
+---@field [80] "DidInteractionAnnouncementReduceDizzness" 80 --
+---@field HaveCheckedFavorDodge 81
+---@field [81] "HaveCheckedFavorDodge"
+---@field DidStrainExhaustionKO 82
+---@field [82] "DidStrainExhaustionKO"
+df.misc_trait_type = {}
+
+---@class misc_trait_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.misc_trait_type._attr_entry_type = {}
+
+---@class (exact) misc_trait_type_attr_entry_type_fields
+---@field tag DFCompoundField bay12: CounterType
+df.misc_trait_type._attr_entry_type._fields = {}
+
+---@class misc_trait_type_attrs
+---@field WantsDrink { tag: "ALCOHOLIC" }
+---@field CaveAdapt { tag: "CAVE_ADAPT" }
+---@field MilkCounter { tag: "MILK_COUNTER" }
+---@field EggSpent { tag: "EGG_SPENT" }
+---@field GroundedAnimalAnger { tag: "GROUNDED_ANIMAL_ANGER" }
+---@field TimeSinceSuckedBlood { tag: "TIME_SINCE_SUCKED_BLOOD" }
+---@field DrinkingBlood { tag: "DRINKING_BLOOD" }
+df.misc_trait_type.attrs = {}
+
+---@alias df.charge_restrict_type
+---| -1 # None
+---| 0 # NoTarget
+---| 1 # SelfProne
+---| 2 # SelfMounted
+---| 3 # SelfChained
+---| 4 # SelfUncontrolledFlight
+---| 5 # SelfVehicle
+---| 6 # SelfProjectile
+---| 7 # SelfClimbing
+---| 8 # TargetProne
+---| 9 # TargetMounted
+---| 10 # TargetChained
+---| 11 # TargetUncontrolledFlight
+---| 12 # TargetVehicle
+---| 13 # TargetProjectile
+---| 14 # TargetClimbing
+---| 15 # TargetSharesLocation
+---| 16 # TargetLocationInaccessible
+
+---@class identity.charge_restrict_type: DFEnumType
+---@field None -1 bay12: ChargeRestrictType
+---@field [-1] "None" bay12: ChargeRestrictType
+---@field NoTarget 0
+---@field [0] "NoTarget"
+---@field SelfProne 1
+---@field [1] "SelfProne"
+---@field SelfMounted 2
+---@field [2] "SelfMounted"
+---@field SelfChained 3
+---@field [3] "SelfChained"
+---@field SelfUncontrolledFlight 4
+---@field [4] "SelfUncontrolledFlight"
+---@field SelfVehicle 5
+---@field [5] "SelfVehicle"
+---@field SelfProjectile 6
+---@field [6] "SelfProjectile"
+---@field SelfClimbing 7
+---@field [7] "SelfClimbing"
+---@field TargetProne 8
+---@field [8] "TargetProne"
+---@field TargetMounted 9
+---@field [9] "TargetMounted"
+---@field TargetChained 10
+---@field [10] "TargetChained"
+---@field TargetUncontrolledFlight 11
+---@field [11] "TargetUncontrolledFlight"
+---@field TargetVehicle 12
+---@field [12] "TargetVehicle"
+---@field TargetProjectile 13
+---@field [13] "TargetProjectile"
+---@field TargetClimbing 14
+---@field [14] "TargetClimbing"
+---@field TargetSharesLocation 15
+---@field [15] "TargetSharesLocation"
+---@field TargetLocationInaccessible 16
+---@field [16] "TargetLocationInaccessible"
+df.charge_restrict_type = {}
+
+---@alias df.reputation_type
+---| -1 # NONE
+---| 0 # Hero
+---| 1 # AnimalPartner
+---| 2 # Brawler
+---| 3 # Psycho
+---| 4 # TradePartner
+---| 5 # Friendly
+---| 6 # Killer
+---| 7 # Murderer
+---| 8 # Comrade
+---| 9 # RespectedGroup
+---| 10 # HatedGroup
+---| 11 # EnemyFighter
+---| 12 # FriendlyFighter
+---| 13 # Bully
+---| 14 # Brigand
+---| 15 # LoyalSoldier
+---| 16 # Monster
+---| 17 # Storyteller
+---| 18 # Poet
+---| 19 # Bard
+---| 20 # Dancer
+---| 21 # Quarreler
+---| 22 # Flatterer
+---| 23 # Hunter
+---| 24 # ProtectorOfWeak
+---| 25 # TreasureHunter
+---| 26 # Thief
+---| 27 # InformationSource
+---| 28 # PreserverOfKnowledge
+---| 29 # Intruder
+---| 30 # Preacher
+
+---@class identity.reputation_type: DFEnumType
+---@field NONE -1 bay12: PersonalReputationType
+---@field [-1] "NONE" bay12: PersonalReputationType
+---@field Hero 0
+---@field [0] "Hero"
+---@field AnimalPartner 1
+---@field [1] "AnimalPartner"
+---@field Brawler 2
+---@field [2] "Brawler"
+---@field Psycho 3
+---@field [3] "Psycho"
+---@field TradePartner 4
+---@field [4] "TradePartner"
+---@field Friendly 5
+---@field [5] "Friendly"
+---@field Killer 6
+---@field [6] "Killer"
+---@field Murderer 7
+---@field [7] "Murderer"
+---@field Comrade 8
+---@field [8] "Comrade"
+---@field RespectedGroup 9
+---@field [9] "RespectedGroup"
+---@field HatedGroup 10
+---@field [10] "HatedGroup"
+---@field EnemyFighter 11
+---@field [11] "EnemyFighter"
+---@field FriendlyFighter 12
+---@field [12] "FriendlyFighter"
+---@field Bully 13
+---@field [13] "Bully"
+---@field Brigand 14
+---@field [14] "Brigand"
+---@field LoyalSoldier 15
+---@field [15] "LoyalSoldier"
+---@field Monster 16
+---@field [16] "Monster"
+---@field Storyteller 17
+---@field [17] "Storyteller"
+---@field Poet 18
+---@field [18] "Poet"
+---@field Bard 19
+---@field [19] "Bard"
+---@field Dancer 20
+---@field [20] "Dancer"
+---@field Quarreler 21
+---@field [21] "Quarreler"
+---@field Flatterer 22
+---@field [22] "Flatterer"
+---@field Hunter 23
+---@field [23] "Hunter"
+---@field ProtectorOfWeak 24
+---@field [24] "ProtectorOfWeak"
+---@field TreasureHunter 25
+---@field [25] "TreasureHunter"
+---@field Thief 26
+---@field [26] "Thief"
+---@field InformationSource 27
+---@field [27] "InformationSource"
+---@field PreserverOfKnowledge 28
+---@field [28] "PreserverOfKnowledge"
+---@field Intruder 29
+---@field [29] "Intruder"
+---@field Preacher 30
+---@field [30] "Preacher"
+df.reputation_type = {}
+
+---@alias df.animal_training_level
+---| 0 # SemiWild
+---| 1 # Trained
+---| 2 # WellTrained
+---| 3 # SkilfullyTrained
+---| 4 # ExpertlyTrained
+---| 5 # ExceptionallyTrained
+---| 6 # MasterfullyTrained
+---| 7 # Domesticated
+---| 8 # NUM
+---| 9 # WildUntamed
+
+---@class identity.animal_training_level: DFEnumType
+---@field SemiWild 0 bay12: AnimalTrainingStatusType
+---@field [0] "SemiWild" bay12: AnimalTrainingStatusType
+---@field Trained 1
+---@field [1] "Trained"
+---@field WellTrained 2
+---@field [2] "WellTrained"
+---@field SkilfullyTrained 3
+---@field [3] "SkilfullyTrained"
+---@field ExpertlyTrained 4
+---@field [4] "ExpertlyTrained"
+---@field ExceptionallyTrained 5
+---@field [5] "ExceptionallyTrained"
+---@field MasterfullyTrained 6
+---@field [6] "MasterfullyTrained"
+---@field Domesticated 7
+---@field [7] "Domesticated"
+---@field NUM 8
+---@field [8] "NUM"
+---@field WildUntamed 9 Actually NONE, since Toady forgot to set this equal to -1
+---@field [9] "WildUntamed" Actually NONE, since Toady forgot to set this equal to -1
+df.animal_training_level = {}
+
+---@alias df.written_content_type
+---| -1 # NONE
+---| 0 # Manual
+---| 1 # Guide
+---| 2 # Chronicle
+---| 3 # ShortStory
+---| 4 # Novel
+---| 5 # Biography
+---| 6 # Autobiography
+---| 7 # Poem
+---| 8 # Play
+---| 9 # Letter
+---| 10 # Essay
+---| 11 # Dialog
+---| 12 # MusicalComposition
+---| 13 # Choreography
+---| 14 # ComparativeBiography
+---| 15 # BiographicalDictionary
+---| 16 # Genealogy
+---| 17 # Encyclopedia
+---| 18 # CulturalHistory
+---| 19 # CulturalComparison
+---| 20 # AlternateHistory
+---| 21 # TreatiseOnTechnologicalEvolution
+---| 22 # Dictionary
+---| 23 # StarChart
+---| 24 # StarCatalogue
+---| 25 # Atlas
+
+---@class identity.written_content_type: DFEnumType
+---@field NONE -1 bay12: WritingFormType
+---@field [-1] "NONE" bay12: WritingFormType
+---@field Manual 0
+---@field [0] "Manual"
+---@field Guide 1
+---@field [1] "Guide"
+---@field Chronicle 2
+---@field [2] "Chronicle"
+---@field ShortStory 3
+---@field [3] "ShortStory"
+---@field Novel 4
+---@field [4] "Novel"
+---@field Biography 5
+---@field [5] "Biography"
+---@field Autobiography 6
+---@field [6] "Autobiography"
+---@field Poem 7
+---@field [7] "Poem"
+---@field Play 8
+---@field [8] "Play"
+---@field Letter 9
+---@field [9] "Letter"
+---@field Essay 10
+---@field [10] "Essay"
+---@field Dialog 11
+---@field [11] "Dialog"
+---@field MusicalComposition 12
+---@field [12] "MusicalComposition"
+---@field Choreography 13
+---@field [13] "Choreography"
+---@field ComparativeBiography 14
+---@field [14] "ComparativeBiography"
+---@field BiographicalDictionary 15
+---@field [15] "BiographicalDictionary"
+---@field Genealogy 16
+---@field [16] "Genealogy"
+---@field Encyclopedia 17
+---@field [17] "Encyclopedia"
+---@field CulturalHistory 18
+---@field [18] "CulturalHistory"
+---@field CulturalComparison 19
+---@field [19] "CulturalComparison"
+---@field AlternateHistory 20
+---@field [20] "AlternateHistory"
+---@field TreatiseOnTechnologicalEvolution 21
+---@field [21] "TreatiseOnTechnologicalEvolution"
+---@field Dictionary 22
+---@field [22] "Dictionary"
+---@field StarChart 23
+---@field [23] "StarChart"
+---@field StarCatalogue 24
+---@field [24] "StarCatalogue"
+---@field Atlas 25
+---@field [25] "Atlas"
+df.written_content_type = {}
+
+---@alias df.written_content_style
+---| -1 # NONE
+---| 0 # Meandering
+---| 1 # Cheerful
+---| 2 # Depressing
+---| 3 # Rigid
+---| 4 # Serious
+---| 5 # Disjointed
+---| 6 # Ornate
+---| 7 # Forceful
+---| 8 # Humorous
+---| 9 # Immature
+---| 10 # SelfIndulgent
+---| 11 # Touching
+---| 12 # Compassionate
+---| 13 # Vicious
+---| 14 # Concise
+---| 15 # Scornful
+---| 16 # Witty
+---| 17 # Ranting
+
+---@class identity.written_content_style: DFEnumType
+---@field NONE -1 bay12: WritingStyleType
+---@field [-1] "NONE" bay12: WritingStyleType
+---@field Meandering 0
+---@field [0] "Meandering"
+---@field Cheerful 1
+---@field [1] "Cheerful"
+---@field Depressing 2
+---@field [2] "Depressing"
+---@field Rigid 3
+---@field [3] "Rigid"
+---@field Serious 4
+---@field [4] "Serious"
+---@field Disjointed 5
+---@field [5] "Disjointed"
+---@field Ornate 6
+---@field [6] "Ornate"
+---@field Forceful 7
+---@field [7] "Forceful"
+---@field Humorous 8
+---@field [8] "Humorous"
+---@field Immature 9
+---@field [9] "Immature"
+---@field SelfIndulgent 10
+---@field [10] "SelfIndulgent"
+---@field Touching 11
+---@field [11] "Touching"
+---@field Compassionate 12
+---@field [12] "Compassionate"
+---@field Vicious 13
+---@field [13] "Vicious"
+---@field Concise 14
+---@field [14] "Concise"
+---@field Scornful 15
+---@field [15] "Scornful"
+---@field Witty 16
+---@field [16] "Witty"
+---@field Ranting 17
+---@field [17] "Ranting"
+df.written_content_style = {}
+
+---@alias df.writing_style_modifier_type
+---| -1 # NONE
+---| 0 # Thorough
+---| 1 # Somewhat
+---| 2 # Hint
+
+---@class identity.writing_style_modifier_type: DFEnumType
+---@field NONE -1 bay12: WritingStyleModifierType
+---@field [-1] "NONE" bay12: WritingStyleModifierType
+---@field Thorough 0
+---@field [0] "Thorough"
+---@field Somewhat 1
+---@field [1] "Somewhat"
+---@field Hint 2
+---@field [2] "Hint"
+df.writing_style_modifier_type = {}
+
+---@alias df.writing_role_type
+---| -1 # NONE
+---| 0 # Subject
+---| 1 # Narrator
+---| 2 # Character
+---| 3 # Writer
+---| 4 # Recipient
+---| 5 # Chapter
+---| 6 # MoralLesson
+---| 7 # AssociatedPoem
+---| 8 # AssociatedMusicalComposition
+---| 9 # ValueAgenda
+
+---@class identity.writing_role_type: DFEnumType
+---@field NONE -1 bay12: WritingRoleType
+---@field [-1] "NONE" bay12: WritingRoleType
+---@field Subject 0
+---@field [0] "Subject"
+---@field Narrator 1
+---@field [1] "Narrator"
+---@field Character 2
+---@field [2] "Character"
+---@field Writer 3
+---@field [3] "Writer"
+---@field Recipient 4
+---@field [4] "Recipient"
+---@field Chapter 5
+---@field [5] "Chapter"
+---@field MoralLesson 6
+---@field [6] "MoralLesson"
+---@field AssociatedPoem 7 from MusicalComposition
+---@field [7] "AssociatedPoem" from MusicalComposition
+---@field AssociatedMusicalComposition 8 from Choreography
+---@field [8] "AssociatedMusicalComposition" from Choreography
+---@field ValueAgenda 9
+---@field [9] "ValueAgenda"
+df.writing_role_type = {}
+
+---@alias df.conflict_level
+---| -1 # None
+---| 0 # Encounter
+---| 1 # Horseplay
+---| 2 # Training
+---| 3 # Brawl
+---| 4 # Nonlethal
+---| 5 # Lethal
+---| 6 # NoQuarter
+
+---@class identity.conflict_level: DFEnumType
+---@field None -1 bay12: ConflictStateType
+---@field [-1] "None" bay12: ConflictStateType
+---@field Encounter 0
+---@field [0] "Encounter"
+---@field Horseplay 1
+---@field [1] "Horseplay"
+---@field Training 2
+---@field [2] "Training"
+---@field Brawl 3
+---@field [3] "Brawl"
+---@field Nonlethal 4
+---@field [4] "Nonlethal"
+---@field Lethal 5
+---@field [5] "Lethal"
+---@field NoQuarter 6
+---@field [6] "NoQuarter"
+df.conflict_level = {}
+
+-- Unused: RegionPrint
+---@alias df.interaction_effect_location_hint
+---| -1 # NONE
+---| 0 # IN_WATER
+---| 1 # IN_MAGMA
+---| 2 # NO_WATER
+---| 3 # NO_MAGMA
+---| 4 # NO_THICK_FOG
+---| 5 # OUTSIDE
+
+-- Unused: RegionPrint
+---@class identity.interaction_effect_location_hint: DFEnumType
+---@field NONE -1 bay12: LocationHintType
+---@field [-1] "NONE" bay12: LocationHintType
+---@field IN_WATER 0
+---@field [0] "IN_WATER"
+---@field IN_MAGMA 1
+---@field [1] "IN_MAGMA"
+---@field NO_WATER 2
+---@field [2] "NO_WATER"
+---@field NO_MAGMA 3
+---@field [3] "NO_MAGMA"
+---@field NO_THICK_FOG 4
+---@field [4] "NO_THICK_FOG"
+---@field OUTSIDE 5
+---@field [5] "OUTSIDE"
+df.interaction_effect_location_hint = {}
+
+---@alias df.interaction_source_usage_hint
+---| -1 # NONE
+---| 0 # MAJOR_CURSE
+---| 1 # GREETING
+---| 2 # CLEAN_SELF
+---| 3 # CLEAN_FRIEND
+---| 4 # ATTACK
+---| 5 # FLEEING
+---| 6 # NEGATIVE_SOCIAL_RESPONSE
+---| 7 # TORMENT
+---| 8 # DEFEND
+---| 9 # MEDIUM_CURSE
+---| 10 # MINOR_CURSE
+---| 11 # MEDIUM_BLESSING
+---| 12 # MINOR_BLESSING
+
+---@class identity.interaction_source_usage_hint: DFEnumType
+---@field NONE -1 bay12: UsageHintType
+---@field [-1] "NONE" bay12: UsageHintType
+---@field MAJOR_CURSE 0
+---@field [0] "MAJOR_CURSE"
+---@field GREETING 1
+---@field [1] "GREETING"
+---@field CLEAN_SELF 2
+---@field [2] "CLEAN_SELF"
+---@field CLEAN_FRIEND 3
+---@field [3] "CLEAN_FRIEND"
+---@field ATTACK 4
+---@field [4] "ATTACK"
+---@field FLEEING 5
+---@field [5] "FLEEING"
+---@field NEGATIVE_SOCIAL_RESPONSE 6
+---@field [6] "NEGATIVE_SOCIAL_RESPONSE"
+---@field TORMENT 7
+---@field [7] "TORMENT"
+---@field DEFEND 8
+---@field [8] "DEFEND"
+---@field MEDIUM_CURSE 9
+---@field [9] "MEDIUM_CURSE"
+---@field MINOR_CURSE 10
+---@field [10] "MINOR_CURSE"
+---@field MEDIUM_BLESSING 11
+---@field [11] "MEDIUM_BLESSING"
+---@field MINOR_BLESSING 12
+---@field [12] "MINOR_BLESSING"
+df.interaction_source_usage_hint = {}
+
+-- Unused: BodyPartPrintType
+---@alias df.trade_good_purpose
+---| -1 # NONE
+---| 0 # MERCHANT
+---| 1 # TRAVELER
+---| 2 # RICH_TRAVELER
+---| 3 # STORE_CRAFTS
+---| 4 # STORE_WEAPON
+---| 5 # STORE_ARMOR
+---| 6 # STORE_GENERAL
+---| 7 # STORE_FOOD
+---| 8 # CONTAINER
+---| 9 # PRODUCTION_SHODDY
+---| 10 # PRODUCTION_BEGINNER
+---| 11 # PRODUCTION_MIDDLING
+---| 12 # PRODUCTION_HIGH
+---| 13 # PRODUCTION_EXCELLENT
+---| 14 # TOMB_TREASURE
+---| 15 # TREASURE_ROOM
+---| 16 # PILLAGE
+
+-- Unused: BodyPartPrintType
+---@class identity.trade_good_purpose: DFEnumType
+---@field NONE -1 bay12: TradeGoodPurposeType
+---@field [-1] "NONE" bay12: TradeGoodPurposeType
+---@field MERCHANT 0
+---@field [0] "MERCHANT"
+---@field TRAVELER 1
+---@field [1] "TRAVELER"
+---@field RICH_TRAVELER 2
+---@field [2] "RICH_TRAVELER"
+---@field STORE_CRAFTS 3
+---@field [3] "STORE_CRAFTS"
+---@field STORE_WEAPON 4
+---@field [4] "STORE_WEAPON"
+---@field STORE_ARMOR 5
+---@field [5] "STORE_ARMOR"
+---@field STORE_GENERAL 6
+---@field [6] "STORE_GENERAL"
+---@field STORE_FOOD 7
+---@field [7] "STORE_FOOD"
+---@field CONTAINER 8
+---@field [8] "CONTAINER"
+---@field PRODUCTION_SHODDY 9
+---@field [9] "PRODUCTION_SHODDY"
+---@field PRODUCTION_BEGINNER 10
+---@field [10] "PRODUCTION_BEGINNER"
+---@field PRODUCTION_MIDDLING 11
+---@field [11] "PRODUCTION_MIDDLING"
+---@field PRODUCTION_HIGH 12
+---@field [12] "PRODUCTION_HIGH"
+---@field PRODUCTION_EXCELLENT 13
+---@field [13] "PRODUCTION_EXCELLENT"
+---@field TOMB_TREASURE 14
+---@field [14] "TOMB_TREASURE"
+---@field TREASURE_ROOM 15
+---@field [15] "TREASURE_ROOM"
+---@field PILLAGE 16
+---@field [16] "PILLAGE"
+df.trade_good_purpose = {}
+
+---@alias df.creature_sound_type
+---| -1 # NONE
+---| 0 # ALERT
+---| 1 # PEACEFUL_INTERMITTENT
+
+---@class identity.creature_sound_type: DFEnumType
+---@field NONE -1 bay12: CreatureSoundType
+---@field [-1] "NONE" bay12: CreatureSoundType
+---@field ALERT 0
+---@field [0] "ALERT"
+---@field PEACEFUL_INTERMITTENT 1
+---@field [1] "PEACEFUL_INTERMITTENT"
+df.creature_sound_type = {}
+
+---@alias df.creature_sound_method_type
+---| -1 # NONE
+---| 0 # VOCALIZATION
+
+---@class identity.creature_sound_method_type: DFEnumType
+---@field NONE -1 bay12: CreatureSoundMethodType
+---@field [-1] "NONE" bay12: CreatureSoundMethodType
+---@field VOCALIZATION 0
+---@field [0] "VOCALIZATION"
+df.creature_sound_method_type = {}
+
+-- Unused: PATH_DESPERATION_*
+---@class df.pathfinding_flags: DFBitfield
+---@field _enum identity.pathfinding_flags
+---@field Desperate boolean bay12: PATH_PERMIT_*
+---@field [0] boolean bay12: PATH_PERMIT_*
+---@field Reckless boolean bay12: BONKERS
+---@field [1] boolean bay12: BONKERS
+---@field BuildingDestroyer1 boolean bay12: WOODENDOOR_IGNORE
+---@field [2] boolean bay12: WOODENDOOR_IGNORE
+---@field BuildingDestroyer2 boolean bay12: DOOR_IGNORE
+---@field [3] boolean bay12: DOOR_IGNORE
+---@field StuckInBuilding boolean bay12: BUILDING_IGNORE
+---@field [4] boolean bay12: BUILDING_IGNORE
+---@field AllowUnrevealed boolean bay12: HIDDEN
+---@field [5] boolean bay12: HIDDEN
+---@field Doors boolean bay12: DOOR_STOP
+---@field [6] boolean bay12: DOOR_STOP
+---@field DoorTotal boolean bay12: DOOR_STOP_TOTAL
+---@field [7] boolean bay12: DOOR_STOP_TOTAL
+---@field CanLearn boolean bay12: USE_TRAFFIC
+---@field [8] boolean bay12: USE_TRAFFIC
+---@field SolidWall boolean
+---@field [9] boolean
+---@field JumpCliff boolean bay12: LEAPER
+---@field [10] boolean bay12: LEAPER
+---@field Air boolean bay12: FLY
+---@field [11] boolean bay12: FLY
+---@field ShallowWater boolean bay12: WATER_TOUCH
+---@field [12] boolean bay12: WATER_TOUCH
+---@field DeepWater boolean bay12: WATER_SWIM
+---@field [13] boolean bay12: WATER_SWIM
+---@field Underwater boolean bay12: WATER_UNDER
+---@field [14] boolean bay12: WATER_UNDER
+---@field ShallowMagma boolean bay12: LAVA_TOUCH
+---@field [15] boolean bay12: LAVA_TOUCH
+---@field DeepMagma boolean bay12: LAVA_SWIM
+---@field [16] boolean bay12: LAVA_SWIM
+---@field UnderMagma boolean bay12: LAVA_UNDER
+---@field [17] boolean bay12: LAVA_UNDER
+---@field InWater boolean bay12: ENTERING_FROM_WATER
+---@field [18] boolean bay12: ENTERING_FROM_WATER
+---@field InMagma boolean bay12: ENTERING_FROM_LAVA
+---@field [19] boolean bay12: ENTERING_FROM_LAVA
+---@field WalkLand boolean bay12: BREATHE_AIR
+---@field [20] boolean bay12: BREATHE_AIR
+---@field ImmobileLand boolean bay12: ENTERING_FROM_AIR
+---@field [21] boolean bay12: ENTERING_FROM_AIR
+---@field ZeroWalkTag boolean bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field [22] boolean bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field LevelMapless boolean
+---@field [23] boolean
+---@field Ghostly boolean
+---@field [24] boolean
+
+---@class identity.pathfinding_flags: DFBitfieldType
+---@field Desperate 0 bay12: PATH_PERMIT_*
+---@field [0] "Desperate" bay12: PATH_PERMIT_*
+---@field Reckless 1 bay12: BONKERS
+---@field [1] "Reckless" bay12: BONKERS
+---@field BuildingDestroyer1 2 bay12: WOODENDOOR_IGNORE
+---@field [2] "BuildingDestroyer1" bay12: WOODENDOOR_IGNORE
+---@field BuildingDestroyer2 3 bay12: DOOR_IGNORE
+---@field [3] "BuildingDestroyer2" bay12: DOOR_IGNORE
+---@field StuckInBuilding 4 bay12: BUILDING_IGNORE
+---@field [4] "StuckInBuilding" bay12: BUILDING_IGNORE
+---@field AllowUnrevealed 5 bay12: HIDDEN
+---@field [5] "AllowUnrevealed" bay12: HIDDEN
+---@field Doors 6 bay12: DOOR_STOP
+---@field [6] "Doors" bay12: DOOR_STOP
+---@field DoorTotal 7 bay12: DOOR_STOP_TOTAL
+---@field [7] "DoorTotal" bay12: DOOR_STOP_TOTAL
+---@field CanLearn 8 bay12: USE_TRAFFIC
+---@field [8] "CanLearn" bay12: USE_TRAFFIC
+---@field SolidWall 9
+---@field [9] "SolidWall"
+---@field JumpCliff 10 bay12: LEAPER
+---@field [10] "JumpCliff" bay12: LEAPER
+---@field Air 11 bay12: FLY
+---@field [11] "Air" bay12: FLY
+---@field ShallowWater 12 bay12: WATER_TOUCH
+---@field [12] "ShallowWater" bay12: WATER_TOUCH
+---@field DeepWater 13 bay12: WATER_SWIM
+---@field [13] "DeepWater" bay12: WATER_SWIM
+---@field Underwater 14 bay12: WATER_UNDER
+---@field [14] "Underwater" bay12: WATER_UNDER
+---@field ShallowMagma 15 bay12: LAVA_TOUCH
+---@field [15] "ShallowMagma" bay12: LAVA_TOUCH
+---@field DeepMagma 16 bay12: LAVA_SWIM
+---@field [16] "DeepMagma" bay12: LAVA_SWIM
+---@field UnderMagma 17 bay12: LAVA_UNDER
+---@field [17] "UnderMagma" bay12: LAVA_UNDER
+---@field InWater 18 bay12: ENTERING_FROM_WATER
+---@field [18] "InWater" bay12: ENTERING_FROM_WATER
+---@field InMagma 19 bay12: ENTERING_FROM_LAVA
+---@field [19] "InMagma" bay12: ENTERING_FROM_LAVA
+---@field WalkLand 20 bay12: BREATHE_AIR
+---@field [20] "WalkLand" bay12: BREATHE_AIR
+---@field ImmobileLand 21 bay12: ENTERING_FROM_AIR
+---@field [21] "ImmobileLand" bay12: ENTERING_FROM_AIR
+---@field ZeroWalkTag 22 bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field [22] "ZeroWalkTag" bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field LevelMapless 23
+---@field [23] "LevelMapless"
+---@field Ghostly 24
+---@field [24] "Ghostly"
+df.pathfinding_flags = {}
+
+---@alias df.pronoun_type
+---| -2 # unknown
+---| -1 # it
+---| 0 # she
+---| 1 # he
+
+---@class identity.pronoun_type: DFEnumType
+---@field unknown -2
+---@field [-2] "unknown"
+---@field it -1
+---@field [-1] "it"
+---@field she 0
+---@field [0] "she"
+---@field he 1
+---@field [1] "he"
+df.pronoun_type = {}
+
+---@class pronoun_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.pronoun_type._attr_entry_type = {}
+
+---@class (exact) pronoun_type_attr_entry_type_fields
+---@field symbol DFCompoundField bay12: Gender<br>Dwarf Fortress calls the functions that use this type to determine the pronouns for abstract_building, so it's not anything biology-related.
+---@field subject DFCompoundField [PRO_SUB]
+---@field object DFCompoundField [PRO_OBJ]
+---@field posessive DFCompoundField [PRO_POS]
+---@field reflexive DFCompoundField [PRO_REF]
+df.pronoun_type._attr_entry_type._fields = {}
+
+---@class pronoun_type_attrs
+---@field unknown { subject: "it", object: "it", posessive: "its", reflexive: "itself" }
+---@field it { subject: "it", object: "it", posessive: "its", reflexive: "itself" }
+---@field she { symbol: "\x0c", subject: "she", object: "her", posessive: "her", reflexive: "herself" }
+---@field he { symbol: "\x0b", subject: "he", object: "him", posessive: "his", reflexive: "himself" }
+df.pronoun_type.attrs = {}
+
+---@class (exact) df.massst: DFStruct
+---@field _type identity.massst
+---@field whole number kilograms
+---@field fraction number milligrams
+
+---@class identity.massst: DFCompoundType
+---@field _kind 'struct-type'
+df.massst = {}
+
+---@return df.massst
+function df.massst:new() end
+
+-- Unused: CombatTrainingCategoryType
+---@alias df.squad_water_level_type
+---| -1 # None
+---| 0 # NoWater
+---| 1 # Water
+---| 2 # AnyDrink
+
+-- Unused: CombatTrainingCategoryType
+---@class identity.squad_water_level_type: DFEnumType
+---@field None -1 bay12: SquadWaterLevelType
+---@field [-1] "None" bay12: SquadWaterLevelType
+---@field NoWater 0
+---@field [0] "NoWater"
+---@field Water 1
+---@field [1] "Water"
+---@field AnyDrink 2
+---@field [2] "AnyDrink"
+df.squad_water_level_type = {}
+
+---@alias df.dungeon_type
+---| 0 # DUNGEON
+---| 1 # SEWERS
+---| 2 # CATACOMBS
+
+---@class identity.dungeon_type: DFEnumType
+---@field DUNGEON 0 bay12: DungeonType
+---@field [0] "DUNGEON" bay12: DungeonType
+---@field SEWERS 1
+---@field [1] "SEWERS"
+---@field CATACOMBS 2
+---@field [2] "CATACOMBS"
+df.dungeon_type = {}
+
+---@alias df.fortress_type
+---| -1 # NONE
+---| 0 # CASTLE
+---| 1 # TOWER
+---| 2 # MONASTERY
+---| 3 # FORT
+
+---@class identity.fortress_type: DFEnumType
+---@field NONE -1 bay12: FortressType
+---@field [-1] "NONE" bay12: FortressType
+---@field CASTLE 0
+---@field [0] "CASTLE"
+---@field TOWER 1
+---@field [1] "TOWER"
+---@field MONASTERY 2
+---@field [2] "MONASTERY"
+---@field FORT 3
+---@field [3] "FORT"
+df.fortress_type = {}
+
+---@alias df.monument_type
+---| -1 # NONE
+---| 0 # TOMB
+---| 1 # VAULT
+---| 2 # MYTHICAL
+
+---@class identity.monument_type: DFEnumType
+---@field NONE -1 bay12: MonumentType
+---@field [-1] "NONE" bay12: MonumentType
+---@field TOMB 0
+---@field [0] "TOMB"
+---@field VAULT 1
+---@field [1] "VAULT"
+---@field MYTHICAL 2
+---@field [2] "MYTHICAL"
+df.monument_type = {}
+
+---@alias df.lair_type
+---| -1 # NONE
+---| 0 # SIMPLE_MOUND
+---| 1 # SIMPLE_BURROW
+---| 2 # LABYRINTH
+---| 3 # SHRINE
+---| 4 # WILDERNESS_LOCATION
+
+---@class identity.lair_type: DFEnumType
+---@field NONE -1 bay12: LairType
+---@field [-1] "NONE" bay12: LairType
+---@field SIMPLE_MOUND 0 Night creatures
+---@field [0] "SIMPLE_MOUND" Night creatures
+---@field SIMPLE_BURROW 1 animal, (semi)megabeast, night creature(!)
+---@field [1] "SIMPLE_BURROW" animal, (semi)megabeast, night creature(!)
+---@field LABYRINTH 2
+---@field [2] "LABYRINTH"
+---@field SHRINE 3
+---@field [3] "SHRINE"
+---@field WILDERNESS_LOCATION 4 In mountains, hosting Rocs in vanilla
+---@field [4] "WILDERNESS_LOCATION" In mountains, hosting Rocs in vanilla
+df.lair_type = {}
+
+---@alias df.lair_characteristic_type
+---| -1 # NONE
+---| 0 # HAS_DOORS
+
+---@class identity.lair_characteristic_type: DFEnumType
+---@field NONE -1 bay12: LairCharacteristicType
+---@field [-1] "NONE" bay12: LairCharacteristicType
+---@field HAS_DOORS 0
+---@field [0] "HAS_DOORS"
+df.lair_characteristic_type = {}
+
+---@alias df.habit_type
+---| -1 # NONE
+---| 0 # GRIND_BONE_MEAL
+---| 1 # COOK_BLOOD
+---| 2 # GRIND_VERMIN
+---| 3 # COOK_VERMIN
+---| 4 # COOK_PEOPLE
+---| 5 # COLLECT_TROPHIES
+---| 6 # EAT_BONE_PORRIDGE
+---| 7 # USE_ANY_MELEE_WEAPON
+---| 8 # COLLECT_WEALTH
+---| 9 # GIANT_NEST
+
+---@class identity.habit_type: DFEnumType
+---@field NONE -1 bay12: HabitType
+---@field [-1] "NONE" bay12: HabitType
+---@field GRIND_BONE_MEAL 0
+---@field [0] "GRIND_BONE_MEAL"
+---@field COOK_BLOOD 1
+---@field [1] "COOK_BLOOD"
+---@field GRIND_VERMIN 2
+---@field [2] "GRIND_VERMIN"
+---@field COOK_VERMIN 3
+---@field [3] "COOK_VERMIN"
+---@field COOK_PEOPLE 4
+---@field [4] "COOK_PEOPLE"
+---@field COLLECT_TROPHIES 5
+---@field [5] "COLLECT_TROPHIES"
+---@field EAT_BONE_PORRIDGE 6
+---@field [6] "EAT_BONE_PORRIDGE"
+---@field USE_ANY_MELEE_WEAPON 7
+---@field [7] "USE_ANY_MELEE_WEAPON"
+---@field COLLECT_WEALTH 8
+---@field [8] "COLLECT_WEALTH"
+---@field GIANT_NEST 9
+---@field [9] "GIANT_NEST"
+df.habit_type = {}
+
+---@alias df.tool_uses
+---| -1 # NONE
+---| 0 # LIQUID_COOKING
+---| 1 # LIQUID_SCOOP
+---| 2 # GRIND_POWDER_RECEPTACLE
+---| 3 # GRIND_POWDER_GRINDER
+---| 4 # MEAT_CARVING
+---| 5 # MEAT_BONING
+---| 6 # MEAT_SLICING
+---| 7 # MEAT_CLEAVING
+---| 8 # HOLD_MEAT_FOR_CARVING
+---| 9 # MEAL_CONTAINER
+---| 10 # LIQUID_CONTAINER
+---| 11 # FOOD_STORAGE
+---| 12 # HIVE
+---| 13 # NEST_BOX
+---| 14 # SMALL_OBJECT_STORAGE
+---| 15 # TRACK_CART
+---| 16 # HEAVY_OBJECT_HAULING
+---| 17 # STAND_AND_WORK_ABOVE
+---| 18 # ROLL_UP_SHEET
+---| 19 # PROTECT_FOLDED_SHEETS
+---| 20 # CONTAIN_WRITING
+---| 21 # BOOKCASE
+---| 22 # DISPLAY_OBJECT
+---| 23 # PLACE_OFFERING
+---| 24 # DIVINATION
+---| 25 # GAMES_OF_CHANCE
+
+---@class identity.tool_uses: DFEnumType
+---@field NONE -1 bay12: ItemDefToolUseType
+---@field [-1] "NONE" bay12: ItemDefToolUseType
+---@field LIQUID_COOKING 0
+---@field [0] "LIQUID_COOKING"
+---@field LIQUID_SCOOP 1
+---@field [1] "LIQUID_SCOOP"
+---@field GRIND_POWDER_RECEPTACLE 2
+---@field [2] "GRIND_POWDER_RECEPTACLE"
+---@field GRIND_POWDER_GRINDER 3
+---@field [3] "GRIND_POWDER_GRINDER"
+---@field MEAT_CARVING 4
+---@field [4] "MEAT_CARVING"
+---@field MEAT_BONING 5
+---@field [5] "MEAT_BONING"
+---@field MEAT_SLICING 6
+---@field [6] "MEAT_SLICING"
+---@field MEAT_CLEAVING 7
+---@field [7] "MEAT_CLEAVING"
+---@field HOLD_MEAT_FOR_CARVING 8
+---@field [8] "HOLD_MEAT_FOR_CARVING"
+---@field MEAL_CONTAINER 9
+---@field [9] "MEAL_CONTAINER"
+---@field LIQUID_CONTAINER 10
+---@field [10] "LIQUID_CONTAINER"
+---@field FOOD_STORAGE 11
+---@field [11] "FOOD_STORAGE"
+---@field HIVE 12
+---@field [12] "HIVE"
+---@field NEST_BOX 13
+---@field [13] "NEST_BOX"
+---@field SMALL_OBJECT_STORAGE 14
+---@field [14] "SMALL_OBJECT_STORAGE"
+---@field TRACK_CART 15
+---@field [15] "TRACK_CART"
+---@field HEAVY_OBJECT_HAULING 16
+---@field [16] "HEAVY_OBJECT_HAULING"
+---@field STAND_AND_WORK_ABOVE 17
+---@field [17] "STAND_AND_WORK_ABOVE"
+---@field ROLL_UP_SHEET 18
+---@field [18] "ROLL_UP_SHEET"
+---@field PROTECT_FOLDED_SHEETS 19
+---@field [19] "PROTECT_FOLDED_SHEETS"
+---@field CONTAIN_WRITING 20
+---@field [20] "CONTAIN_WRITING"
+---@field BOOKCASE 21
+---@field [21] "BOOKCASE"
+---@field DISPLAY_OBJECT 22
+---@field [22] "DISPLAY_OBJECT"
+---@field PLACE_OFFERING 23
+---@field [23] "PLACE_OFFERING"
+---@field DIVINATION 24
+---@field [24] "DIVINATION"
+---@field GAMES_OF_CHANCE 25
+---@field [25] "GAMES_OF_CHANCE"
+df.tool_uses = {}
+
+---@alias df.uniform_category
+---| -1 # NONE
+---| 0 # body
+---| 1 # head
+---| 2 # pants
+---| 3 # gloves
+---| 4 # shoes
+---| 5 # shield
+---| 6 # weapon
+
+---@class identity.uniform_category: DFEnumType
+---@field NONE -1 bay12: EntityUniformItemCategoryType
+---@field [-1] "NONE" bay12: EntityUniformItemCategoryType
+---@field body 0
+---@field [0] "body"
+---@field head 1
+---@field [1] "head"
+---@field pants 2
+---@field [2] "pants"
+---@field gloves 3
+---@field [3] "gloves"
+---@field shoes 4
+---@field [4] "shoes"
+---@field shield 5
+---@field [5] "shield"
+---@field weapon 6
+---@field [6] "weapon"
+df.uniform_category = {}
+
+---@alias df.tissue_style_type
+---| -1 # NONE
+---| 0 # NEATLY_COMBED
+---| 1 # BRAIDED
+---| 2 # DOUBLE_BRAIDS
+---| 3 # PONY_TAILS
+---| 4 # CLEAN_SHAVEN
+
+---@class identity.tissue_style_type: DFEnumType
+---@field NONE -1 bay12: TissueLayerShapingType
+---@field [-1] "NONE" bay12: TissueLayerShapingType
+---@field NEATLY_COMBED 0
+---@field [0] "NEATLY_COMBED"
+---@field BRAIDED 1
+---@field [1] "BRAIDED"
+---@field DOUBLE_BRAIDS 2
+---@field [2] "DOUBLE_BRAIDS"
+---@field PONY_TAILS 3
+---@field [3] "PONY_TAILS"
+---@field CLEAN_SHAVEN 4
+---@field [4] "CLEAN_SHAVEN"
+df.tissue_style_type = {}
+
+---@alias df.genetic_model_type
+---| -1 # NONE
+---| 0 # MIX
+---| 1 # DOMINANT_LESS
+---| 2 # DOMINANT_MORE
+
+---@class identity.genetic_model_type: DFEnumType
+---@field NONE -1 bay12: GeneticModelType
+---@field [-1] "NONE" bay12: GeneticModelType
+---@field MIX 0
+---@field [0] "MIX"
+---@field DOMINANT_LESS 1
+---@field [1] "DOMINANT_LESS"
+---@field DOMINANT_MORE 2
+---@field [2] "DOMINANT_MORE"
+df.genetic_model_type = {}
+
+---@alias df.tuning_type
+---| -1 # NONE
+---| 0 # PEGS
+---| 1 # ADJUSTABLE_BRIDGES
+---| 2 # CROOKS
+---| 3 # TIGHTENING
+---| 4 # LEVERS
+
+---@class identity.tuning_type: DFEnumType
+---@field NONE -1 bay12: TuningMethodType
+---@field [-1] "NONE" bay12: TuningMethodType
+---@field PEGS 0
+---@field [0] "PEGS"
+---@field ADJUSTABLE_BRIDGES 1
+---@field [1] "ADJUSTABLE_BRIDGES"
+---@field CROOKS 2
+---@field [2] "CROOKS"
+---@field TIGHTENING 3
+---@field [3] "TIGHTENING"
+---@field LEVERS 4
+---@field [4] "LEVERS"
+df.tuning_type = {}
+
+---@alias df.sound_production_type
+---| -1 # NONE
+---| 0 # PLUCKED_BY_BP
+---| 1 # PLUCKED
+---| 2 # BOWED
+---| 3 # STRUCK_BY_BP
+---| 4 # STRUCK
+---| 5 # VIBRATE_BP_AGAINST_OPENING
+---| 6 # BLOW_AGAINST_FIPPLE
+---| 7 # BLOW_OVER_OPENING_SIDE
+---| 8 # BLOW_OVER_OPENING_END
+---| 9 # BLOW_OVER_SINGLE_REED
+---| 10 # BLOW_OVER_DOUBLE_REED
+---| 11 # BLOW_OVER_FREE_REED
+---| 12 # STRUCK_TOGETHER
+---| 13 # SHAKEN
+---| 14 # SCRAPED
+---| 15 # FRICTION
+---| 16 # RESONATOR
+---| 17 # BAG_OVER_REED
+---| 18 # AIR_OVER_REED
+---| 19 # AIR_OVER_FREE_REED
+---| 20 # AIR_AGAINST_FIPPLE
+
+---@class identity.sound_production_type: DFEnumType
+---@field NONE -1 bay12: SoundProductionMethodType
+---@field [-1] "NONE" bay12: SoundProductionMethodType
+---@field PLUCKED_BY_BP 0
+---@field [0] "PLUCKED_BY_BP"
+---@field PLUCKED 1
+---@field [1] "PLUCKED"
+---@field BOWED 2
+---@field [2] "BOWED"
+---@field STRUCK_BY_BP 3
+---@field [3] "STRUCK_BY_BP"
+---@field STRUCK 4
+---@field [4] "STRUCK"
+---@field VIBRATE_BP_AGAINST_OPENING 5
+---@field [5] "VIBRATE_BP_AGAINST_OPENING"
+---@field BLOW_AGAINST_FIPPLE 6
+---@field [6] "BLOW_AGAINST_FIPPLE"
+---@field BLOW_OVER_OPENING_SIDE 7
+---@field [7] "BLOW_OVER_OPENING_SIDE"
+---@field BLOW_OVER_OPENING_END 8
+---@field [8] "BLOW_OVER_OPENING_END"
+---@field BLOW_OVER_SINGLE_REED 9
+---@field [9] "BLOW_OVER_SINGLE_REED"
+---@field BLOW_OVER_DOUBLE_REED 10
+---@field [10] "BLOW_OVER_DOUBLE_REED"
+---@field BLOW_OVER_FREE_REED 11
+---@field [11] "BLOW_OVER_FREE_REED"
+---@field STRUCK_TOGETHER 12
+---@field [12] "STRUCK_TOGETHER"
+---@field SHAKEN 13
+---@field [13] "SHAKEN"
+---@field SCRAPED 14
+---@field [14] "SCRAPED"
+---@field FRICTION 15
+---@field [15] "FRICTION"
+---@field RESONATOR 16
+---@field [16] "RESONATOR"
+---@field BAG_OVER_REED 17
+---@field [17] "BAG_OVER_REED"
+---@field AIR_OVER_REED 18
+---@field [18] "AIR_OVER_REED"
+---@field AIR_OVER_FREE_REED 19
+---@field [19] "AIR_OVER_FREE_REED"
+---@field AIR_AGAINST_FIPPLE 20
+---@field [20] "AIR_AGAINST_FIPPLE"
+df.sound_production_type = {}
+
+---@alias df.pitch_choice_type
+---| -1 # NONE
+---| 0 # MEMBRANE_POSITION
+---| 1 # SUBPART_CHOICE
+---| 2 # KEYBOARD
+---| 3 # STOPPING_FRET
+---| 4 # STOPPING_AGAINST_BODY
+---| 5 # STOPPING_HOLE
+---| 6 # STOPPING_HOLE_KEY
+---| 7 # SLIDE
+---| 8 # HARMONIC_SERIES
+---| 9 # VALVE_ROUTES_AIR
+---| 10 # BP_IN_BELL
+---| 11 # FOOT_PEDALS
+
+---@class identity.pitch_choice_type: DFEnumType
+---@field NONE -1 bay12: PitchChoiceMethodType
+---@field [-1] "NONE" bay12: PitchChoiceMethodType
+---@field MEMBRANE_POSITION 0
+---@field [0] "MEMBRANE_POSITION"
+---@field SUBPART_CHOICE 1
+---@field [1] "SUBPART_CHOICE"
+---@field KEYBOARD 2
+---@field [2] "KEYBOARD"
+---@field STOPPING_FRET 3
+---@field [3] "STOPPING_FRET"
+---@field STOPPING_AGAINST_BODY 4
+---@field [4] "STOPPING_AGAINST_BODY"
+---@field STOPPING_HOLE 5
+---@field [5] "STOPPING_HOLE"
+---@field STOPPING_HOLE_KEY 6
+---@field [6] "STOPPING_HOLE_KEY"
+---@field SLIDE 7
+---@field [7] "SLIDE"
+---@field HARMONIC_SERIES 8
+---@field [8] "HARMONIC_SERIES"
+---@field VALVE_ROUTES_AIR 9
+---@field [9] "VALVE_ROUTES_AIR"
+---@field BP_IN_BELL 10
+---@field [10] "BP_IN_BELL"
+---@field FOOT_PEDALS 11
+---@field [11] "FOOT_PEDALS"
+df.pitch_choice_type = {}
+
+---@alias df.word_property_type
+---| -1 # NONE
+---| 0 # SINGULAR
+---| 1 # PLURAL
+
+---@class identity.word_property_type: DFEnumType
+---@field NONE -1 bay12: WordPropertyType
+---@field [-1] "NONE" bay12: WordPropertyType
+---@field SINGULAR 0
+---@field [0] "SINGULAR"
+---@field PLURAL 1
+---@field [1] "PLURAL"
+df.word_property_type = {}
+
+---@alias df.layer_connection_type
+---| -1 # NONE
+---| 0 # CAVE_TOP
+---| 1 # CAVE_PASSAGE
+---| 2 # CAVE_BOTTOM
+---| 3 # PIT_TOP
+---| 4 # PIT_BOTTOM
+---| 5 # CAVE_TOP_DEAD_END
+---| 6 # MAGMA_POOL_TOP
+---| 7 # MAGMA_POOL_CLOSED_PIPE
+---| 8 # MAGMA_POOL_BOTTOM
+---| 9 # VOLCANO_TOP
+---| 10 # VOLCANO_CLOSED_PIPE
+---| 11 # VOLCANO_BOTTOM
+---| 12 # DEEP_SPECIAL_EXPOSED_CAP
+---| 13 # DEEP_SPECIAL_TUBE_TO_CAP
+---| 14 # DEEP_SPECIAL_BURIED_CAP
+---| 15 # DEEP_SURFACE_MOUNTAIN
+---| 16 # DEEP_SURFACE_TUBE
+---| 17 # DEEP_SURFACE_PORTAL
+
+---@class identity.layer_connection_type: DFEnumType
+---@field NONE -1 bay12: LayerConnectionType
+---@field [-1] "NONE" bay12: LayerConnectionType
+---@field CAVE_TOP 0
+---@field [0] "CAVE_TOP"
+---@field CAVE_PASSAGE 1
+---@field [1] "CAVE_PASSAGE"
+---@field CAVE_BOTTOM 2
+---@field [2] "CAVE_BOTTOM"
+---@field PIT_TOP 3
+---@field [3] "PIT_TOP"
+---@field PIT_BOTTOM 4
+---@field [4] "PIT_BOTTOM"
+---@field CAVE_TOP_DEAD_END 5
+---@field [5] "CAVE_TOP_DEAD_END"
+---@field MAGMA_POOL_TOP 6
+---@field [6] "MAGMA_POOL_TOP"
+---@field MAGMA_POOL_CLOSED_PIPE 7
+---@field [7] "MAGMA_POOL_CLOSED_PIPE"
+---@field MAGMA_POOL_BOTTOM 8
+---@field [8] "MAGMA_POOL_BOTTOM"
+---@field VOLCANO_TOP 9
+---@field [9] "VOLCANO_TOP"
+---@field VOLCANO_CLOSED_PIPE 10
+---@field [10] "VOLCANO_CLOSED_PIPE"
+---@field VOLCANO_BOTTOM 11
+---@field [11] "VOLCANO_BOTTOM"
+---@field DEEP_SPECIAL_EXPOSED_CAP 12
+---@field [12] "DEEP_SPECIAL_EXPOSED_CAP"
+---@field DEEP_SPECIAL_TUBE_TO_CAP 13
+---@field [13] "DEEP_SPECIAL_TUBE_TO_CAP"
+---@field DEEP_SPECIAL_BURIED_CAP 14
+---@field [14] "DEEP_SPECIAL_BURIED_CAP"
+---@field DEEP_SURFACE_MOUNTAIN 15
+---@field [15] "DEEP_SURFACE_MOUNTAIN"
+---@field DEEP_SURFACE_TUBE 16
+---@field [16] "DEEP_SURFACE_TUBE"
+---@field DEEP_SURFACE_PORTAL 17
+---@field [17] "DEEP_SURFACE_PORTAL"
+df.layer_connection_type = {}
+
+---@alias df.strain_type
+---| -1 # NONE
+---| 0 # BENDING
+---| 1 # SHEAR
+---| 2 # TORSION
+---| 3 # IMPACT
+---| 4 # TENSILE
+---| 5 # COMPRESSIVE
+
+---@class identity.strain_type: DFEnumType
+---@field NONE -1 bay12: PhysicalForceType
+---@field [-1] "NONE" bay12: PhysicalForceType
+---@field BENDING 0
+---@field [0] "BENDING"
+---@field SHEAR 1
+---@field [1] "SHEAR"
+---@field TORSION 2
+---@field [2] "TORSION"
+---@field IMPACT 3
+---@field [3] "IMPACT"
+---@field TENSILE 4
+---@field [4] "TENSILE"
+---@field COMPRESSIVE 5
+---@field [5] "COMPRESSIVE"
+df.strain_type = {}
+
+---@alias df.entity_position_raw_flags
+---| -1 # NONE
+---| 0 # SITE
+---| 1 # ELECTED
+---| 2 # CONQUERED_SITE
+---| 3 # MILITARY_SCREEN_ONLY
+---| 4 # GENDER_MALE
+---| 5 # GENDER_FEMALE
+---| 6 # SUCCESSION_BY_HEIR
+---| 7 # EXPORTED_IN_LEGENDS
+---| 8 # FLASHES
+---| 9 # BRAG_ON_KILL
+---| 10 # CHAT_WORTHY
+---| 11 # DO_NOT_CULL
+---| 12 # KILL_QUEST
+---| 13 # DETERMINES_COIN_DESIGN
+---| 14 # ACCOUNT_EXEMPT
+---| 15 # DUTY_BOUND
+---| 16 # COLOR
+---| 17 # RULES_FROM_LOCATION
+---| 18 # MENIAL_WORK_EXEMPTION
+---| 19 # MENIAL_WORK_EXEMPTION_SPOUSE
+---| 20 # SLEEP_PRETENSION
+---| 21 # PUNISHMENT_EXEMPTION
+---| 22 # QUEST_GIVER
+---| 23 # SPECIAL_BURIAL
+---| 24 # REQUIRES_MARKET
+
+---@class identity.entity_position_raw_flags: DFEnumType
+---@field NONE -1 bay12: EntityDefPositionFlagType
+---@field [-1] "NONE" bay12: EntityDefPositionFlagType
+---@field SITE 0
+---@field [0] "SITE"
+---@field ELECTED 1
+---@field [1] "ELECTED"
+---@field CONQUERED_SITE 2
+---@field [2] "CONQUERED_SITE"
+---@field MILITARY_SCREEN_ONLY 3
+---@field [3] "MILITARY_SCREEN_ONLY"
+---@field GENDER_MALE 4
+---@field [4] "GENDER_MALE"
+---@field GENDER_FEMALE 5
+---@field [5] "GENDER_FEMALE"
+---@field SUCCESSION_BY_HEIR 6
+---@field [6] "SUCCESSION_BY_HEIR"
+---@field EXPORTED_IN_LEGENDS 7
+---@field [7] "EXPORTED_IN_LEGENDS"
+---@field FLASHES 8
+---@field [8] "FLASHES"
+---@field BRAG_ON_KILL 9
+---@field [9] "BRAG_ON_KILL"
+---@field CHAT_WORTHY 10
+---@field [10] "CHAT_WORTHY"
+---@field DO_NOT_CULL 11
+---@field [11] "DO_NOT_CULL"
+---@field KILL_QUEST 12
+---@field [12] "KILL_QUEST"
+---@field DETERMINES_COIN_DESIGN 13
+---@field [13] "DETERMINES_COIN_DESIGN"
+---@field ACCOUNT_EXEMPT 14
+---@field [14] "ACCOUNT_EXEMPT"
+---@field DUTY_BOUND 15
+---@field [15] "DUTY_BOUND"
+---@field COLOR 16
+---@field [16] "COLOR"
+---@field RULES_FROM_LOCATION 17
+---@field [17] "RULES_FROM_LOCATION"
+---@field MENIAL_WORK_EXEMPTION 18
+---@field [18] "MENIAL_WORK_EXEMPTION"
+---@field MENIAL_WORK_EXEMPTION_SPOUSE 19
+---@field [19] "MENIAL_WORK_EXEMPTION_SPOUSE"
+---@field SLEEP_PRETENSION 20
+---@field [20] "SLEEP_PRETENSION"
+---@field PUNISHMENT_EXEMPTION 21
+---@field [21] "PUNISHMENT_EXEMPTION"
+---@field QUEST_GIVER 22
+---@field [22] "QUEST_GIVER"
+---@field SPECIAL_BURIAL 23
+---@field [23] "SPECIAL_BURIAL"
+---@field REQUIRES_MARKET 24
+---@field [24] "REQUIRES_MARKET"
+df.entity_position_raw_flags = {}
+
+---@alias df.entity_position_flags
+---| -1 # NONE
+---| 0 # IS_LAW_MAKER
+---| 1 # ELECTED
+---| 2 # DUTY_BOUND
+---| 3 # MILITARY_SCREEN_ONLY
+---| 4 # GENDER_MALE
+---| 5 # GENDER_FEMALE
+---| 6 # SUCCESSION_BY_HEIR
+---| 7 # HAS_RESPONSIBILITIES
+---| 8 # FLASHES
+---| 9 # BRAG_ON_KILL
+---| 10 # CHAT_WORTHY
+---| 11 # DO_NOT_CULL
+---| 12 # KILL_QUEST
+---| 13 # IS_LEADER
+---| 14 # IS_DIPLOMAT
+---| 15 # EXPORTED_IN_LEGENDS
+---| 16 # DETERMINES_COIN_DESIGN
+---| 17 # ACCOUNT_EXEMPT
+---| 18 # HAS_MET_POP_REQ
+---| 19 # HAS_BEEN_REPLACED
+---| 20 # COLOR
+---| 21 # RULES_FROM_LOCATION
+---| 22 # MENIAL_WORK_EXEMPTION
+---| 23 # MENIAL_WORK_EXEMPTION_SPOUSE
+---| 24 # SLEEP_PRETENSION
+---| 25 # PUNISHMENT_EXEMPTION
+---| 26 # HAS_RECEIVED_POSITIONS
+---| 27 # ACTIVE
+---| 28 # QUEST_GIVER
+---| 29 # SPECIAL_BURIAL
+---| 30 # REQUIRES_MARKET
+---| 31 # HAS_MET_MARKET_REQ
+
+---@class identity.entity_position_flags: DFEnumType
+---@field NONE -1 bay12: EntityPositionFlagType
+---@field [-1] "NONE" bay12: EntityPositionFlagType
+---@field IS_LAW_MAKER 0 bay12: ATTACK_IS_TREASON
+---@field [0] "IS_LAW_MAKER" bay12: ATTACK_IS_TREASON
+---@field ELECTED 1
+---@field [1] "ELECTED"
+---@field DUTY_BOUND 2
+---@field [2] "DUTY_BOUND"
+---@field MILITARY_SCREEN_ONLY 3
+---@field [3] "MILITARY_SCREEN_ONLY"
+---@field GENDER_MALE 4 bay12: FORCED_GENDER_MALE
+---@field [4] "GENDER_MALE" bay12: FORCED_GENDER_MALE
+---@field GENDER_FEMALE 5 bay12: FORCED_GENDER_FEMALE
+---@field [5] "GENDER_FEMALE" bay12: FORCED_GENDER_FEMALE
+---@field SUCCESSION_BY_HEIR 6
+---@field [6] "SUCCESSION_BY_HEIR"
+---@field HAS_RESPONSIBILITIES 7
+---@field [7] "HAS_RESPONSIBILITIES"
+---@field FLASHES 8
+---@field [8] "FLASHES"
+---@field BRAG_ON_KILL 9
+---@field [9] "BRAG_ON_KILL"
+---@field CHAT_WORTHY 10
+---@field [10] "CHAT_WORTHY"
+---@field DO_NOT_CULL 11
+---@field [11] "DO_NOT_CULL"
+---@field KILL_QUEST 12
+---@field [12] "KILL_QUEST"
+---@field IS_LEADER 13 bay12: ADD_CONV_SKILLS_AT_WORLD_GEN
+---@field [13] "IS_LEADER" bay12: ADD_CONV_SKILLS_AT_WORLD_GEN
+---@field IS_DIPLOMAT 14 bay12: DIPLOMATIC_DRAFT_AVOIDANCE
+---@field [14] "IS_DIPLOMAT" bay12: DIPLOMATIC_DRAFT_AVOIDANCE
+---@field EXPORTED_IN_LEGENDS 15
+---@field [15] "EXPORTED_IN_LEGENDS"
+---@field DETERMINES_COIN_DESIGN 16
+---@field [16] "DETERMINES_COIN_DESIGN"
+---@field ACCOUNT_EXEMPT 17
+---@field [17] "ACCOUNT_EXEMPT"
+---@field HAS_MET_POP_REQ 18
+---@field [18] "HAS_MET_POP_REQ"
+---@field HAS_BEEN_REPLACED 19
+---@field [19] "HAS_BEEN_REPLACED"
+---@field COLOR 20 bay12: USE_COLOR
+---@field [20] "COLOR" bay12: USE_COLOR
+---@field RULES_FROM_LOCATION 21
+---@field [21] "RULES_FROM_LOCATION"
+---@field MENIAL_WORK_EXEMPTION 22
+---@field [22] "MENIAL_WORK_EXEMPTION"
+---@field MENIAL_WORK_EXEMPTION_SPOUSE 23
+---@field [23] "MENIAL_WORK_EXEMPTION_SPOUSE"
+---@field SLEEP_PRETENSION 24
+---@field [24] "SLEEP_PRETENSION"
+---@field PUNISHMENT_EXEMPTION 25
+---@field [25] "PUNISHMENT_EXEMPTION"
+---@field HAS_RECEIVED_POSITIONS 26
+---@field [26] "HAS_RECEIVED_POSITIONS"
+---@field ACTIVE 27
+---@field [27] "ACTIVE"
+---@field QUEST_GIVER 28
+---@field [28] "QUEST_GIVER"
+---@field SPECIAL_BURIAL 29
+---@field [29] "SPECIAL_BURIAL"
+---@field REQUIRES_MARKET 30
+---@field [30] "REQUIRES_MARKET"
+---@field HAS_MET_MARKET_REQ 31
+---@field [31] "HAS_MET_MARKET_REQ"
+df.entity_position_flags = {}
+
+-- Unused: PronounType
+---@alias df.organic_mat_category
+---| -1 # NONE
+---| 0 # Meat
+---| 1 # Fish
+---| 2 # UnpreparedFish
+---| 3 # Eggs
+---| 4 # Plants
+---| 5 # PlantDrink
+---| 6 # CreatureDrink
+---| 7 # PlantCheese
+---| 8 # CreatureCheese
+---| 9 # Seed
+---| 10 # PlantGrowth
+---| 11 # PlantPowder
+---| 12 # CreaturePowder
+---| 13 # Glob
+---| 14 # PlantLiquid
+---| 15 # CreatureLiquid
+---| 16 # MiscLiquid
+---| 17 # Leather
+---| 18 # Silk
+---| 19 # PlantFiber
+---| 20 # Bone
+---| 21 # Shell
+---| 22 # Wood
+---| 23 # Horn
+---| 24 # Pearl
+---| 25 # Tooth
+---| 26 # EdibleCheese
+---| 27 # AnyDrink
+---| 28 # EdiblePlant
+---| 29 # CookableLiquid
+---| 30 # CookablePowder
+---| 31 # CookableSeed
+---| 32 # CookablePlantGrowth
+---| 33 # Paste
+---| 34 # Pressed
+---| 35 # Yarn
+---| 36 # MetalThread
+---| 37 # Paper
+---| 38 # Parchment
+
+-- Unused: PronounType
+---@class identity.organic_mat_category: DFEnumType
+---@field NONE -1 bay12: StockpileIndexType
+---@field [-1] "NONE" bay12: StockpileIndexType
+---@field Meat 0
+---@field [0] "Meat"
+---@field Fish 1
+---@field [1] "Fish"
+---@field UnpreparedFish 2
+---@field [2] "UnpreparedFish"
+---@field Eggs 3
+---@field [3] "Eggs"
+---@field Plants 4
+---@field [4] "Plants"
+---@field PlantDrink 5
+---@field [5] "PlantDrink"
+---@field CreatureDrink 6
+---@field [6] "CreatureDrink"
+---@field PlantCheese 7
+---@field [7] "PlantCheese"
+---@field CreatureCheese 8
+---@field [8] "CreatureCheese"
+---@field Seed 9
+---@field [9] "Seed"
+---@field PlantGrowth 10
+---@field [10] "PlantGrowth"
+---@field PlantPowder 11
+---@field [11] "PlantPowder"
+---@field CreaturePowder 12
+---@field [12] "CreaturePowder"
+---@field Glob 13
+---@field [13] "Glob"
+---@field PlantLiquid 14
+---@field [14] "PlantLiquid"
+---@field CreatureLiquid 15
+---@field [15] "CreatureLiquid"
+---@field MiscLiquid 16
+---@field [16] "MiscLiquid"
+---@field Leather 17
+---@field [17] "Leather"
+---@field Silk 18
+---@field [18] "Silk"
+---@field PlantFiber 19
+---@field [19] "PlantFiber"
+---@field Bone 20
+---@field [20] "Bone"
+---@field Shell 21
+---@field [21] "Shell"
+---@field Wood 22
+---@field [22] "Wood"
+---@field Horn 23
+---@field [23] "Horn"
+---@field Pearl 24
+---@field [24] "Pearl"
+---@field Tooth 25
+---@field [25] "Tooth"
+---@field EdibleCheese 26
+---@field [26] "EdibleCheese"
+---@field AnyDrink 27
+---@field [27] "AnyDrink"
+---@field EdiblePlant 28
+---@field [28] "EdiblePlant"
+---@field CookableLiquid 29
+---@field [29] "CookableLiquid"
+---@field CookablePowder 30
+---@field [30] "CookablePowder"
+---@field CookableSeed 31
+---@field [31] "CookableSeed"
+---@field CookablePlantGrowth 32
+---@field [32] "CookablePlantGrowth"
+---@field Paste 33
+---@field [33] "Paste"
+---@field Pressed 34
+---@field [34] "Pressed"
+---@field Yarn 35
+---@field [35] "Yarn"
+---@field MetalThread 36
+---@field [36] "MetalThread"
+---@field Paper 37
+---@field [37] "Paper"
+---@field Parchment 38
+---@field [38] "Parchment"
+df.organic_mat_category = {}
+
+---@class df.job_item_flags1: DFBitfield
+---@field _enum identity.job_item_flags1
+---@field improvable boolean bay12: ITEMNEEDEDFLAG_*
+---@field [0] boolean bay12: ITEMNEEDEDFLAG_*
+---@field butcherable boolean
+---@field [1] boolean
+---@field millable boolean
+---@field [2] boolean
+---@field allow_buryable boolean ALLOW items with flag "dead_dwarf"
+---@field [3] boolean ALLOW items with flag "dead_dwarf"
+---@field unrotten boolean check for item flag "rotten"
+---@field [4] boolean check for item flag "rotten"
+---@field undisturbed boolean check for item flag "spider_web"
+---@field [5] boolean check for item flag "spider_web"
+---@field collected boolean check for item flag "spider_web"
+---@field [6] boolean check for item flag "spider_web"
+---@field sharpenable boolean
+---@field [7] boolean
+---@field murdered boolean check for item flag
+---@field [8] boolean check for item flag
+---@field [9] boolean unused, formerly distillable
+---@field empty boolean
+---@field [10] boolean
+---@field processable boolean processable plant, e.g. to thread
+---@field [11] boolean processable plant, e.g. to thread
+---@field [12] boolean unused, formerly is_bag
+---@field cookable boolean
+---@field [13] boolean
+---@field extract_bearing_plant boolean
+---@field [14] boolean
+---@field extract_bearing_fish boolean
+---@field [15] boolean
+---@field extract_bearing_vermin boolean
+---@field [16] boolean
+---@field processable_to_vial boolean
+---@field [17] boolean
+---@field [18] boolean unused, formerly processable_to_bag
+---@field processable_to_barrel boolean
+---@field [19] boolean
+---@field solid boolean
+---@field [20] boolean
+---@field tameable_vermin boolean
+---@field [21] boolean
+---@field nearby boolean
+---@field [22] boolean
+---@field sand_bearing boolean
+---@field [23] boolean
+---@field glass boolean check for material flag IS_GLASS
+---@field [24] boolean check for material flag IS_GLASS
+---@field milk boolean check if material has CHEESE_MAT
+---@field [25] boolean check if material has CHEESE_MAT
+---@field milkable boolean
+---@field [26] boolean
+---@field finished_goods boolean
+---@field [27] boolean
+---@field ammo boolean
+---@field [28] boolean
+---@field furniture boolean
+---@field [29] boolean
+---@field not_bin boolean
+---@field [30] boolean
+---@field lye_bearing boolean
+---@field [31] boolean
+
+---@class identity.job_item_flags1: DFBitfieldType
+---@field improvable 0 bay12: ITEMNEEDEDFLAG_*
+---@field [0] "improvable" bay12: ITEMNEEDEDFLAG_*
+---@field butcherable 1
+---@field [1] "butcherable"
+---@field millable 2
+---@field [2] "millable"
+---@field allow_buryable 3 ALLOW items with flag "dead_dwarf"
+---@field [3] "allow_buryable" ALLOW items with flag "dead_dwarf"
+---@field unrotten 4 check for item flag "rotten"
+---@field [4] "unrotten" check for item flag "rotten"
+---@field undisturbed 5 check for item flag "spider_web"
+---@field [5] "undisturbed" check for item flag "spider_web"
+---@field collected 6 check for item flag "spider_web"
+---@field [6] "collected" check for item flag "spider_web"
+---@field sharpenable 7
+---@field [7] "sharpenable"
+---@field murdered 8 check for item flag
+---@field [8] "murdered" check for item flag
+---@field empty 10
+---@field [10] "empty"
+---@field processable 11 processable plant, e.g. to thread
+---@field [11] "processable" processable plant, e.g. to thread
+---@field cookable 13
+---@field [13] "cookable"
+---@field extract_bearing_plant 14
+---@field [14] "extract_bearing_plant"
+---@field extract_bearing_fish 15
+---@field [15] "extract_bearing_fish"
+---@field extract_bearing_vermin 16
+---@field [16] "extract_bearing_vermin"
+---@field processable_to_vial 17
+---@field [17] "processable_to_vial"
+---@field processable_to_barrel 19
+---@field [19] "processable_to_barrel"
+---@field solid 20
+---@field [20] "solid"
+---@field tameable_vermin 21
+---@field [21] "tameable_vermin"
+---@field nearby 22
+---@field [22] "nearby"
+---@field sand_bearing 23
+---@field [23] "sand_bearing"
+---@field glass 24 check for material flag IS_GLASS
+---@field [24] "glass" check for material flag IS_GLASS
+---@field milk 25 check if material has CHEESE_MAT
+---@field [25] "milk" check if material has CHEESE_MAT
+---@field milkable 26
+---@field [26] "milkable"
+---@field finished_goods 27
+---@field [27] "finished_goods"
+---@field ammo 28
+---@field [28] "ammo"
+---@field furniture 29
+---@field [29] "furniture"
+---@field not_bin 30
+---@field [30] "not_bin"
+---@field lye_bearing 31
+---@field [31] "lye_bearing"
+df.job_item_flags1 = {}
+
+---@class df.job_item_flags2: DFBitfield
+---@field _enum identity.job_item_flags2
+---@field dye boolean bay12: ITEMNEEDEDFLAG2_*
+---@field [0] boolean bay12: ITEMNEEDEDFLAG2_*
+---@field dyeable boolean
+---@field [1] boolean
+---@field dyed boolean
+---@field [2] boolean
+---@field sewn_imageless boolean
+---@field [3] boolean
+---@field glass_making boolean
+---@field [4] boolean
+---@field screw boolean
+---@field [5] boolean
+---@field building_material boolean
+---@field [6] boolean
+---@field fire_safe boolean
+---@field [7] boolean
+---@field magma_safe boolean
+---@field [8] boolean
+---@field deep_material boolean check for inorganic material flag DEEP
+---@field [9] boolean check for inorganic material flag DEEP
+---@field melt_designated boolean check for item flag "melt"
+---@field [10] boolean check for item flag "melt"
+---@field non_economic boolean
+---@field [11] boolean
+---@field allow_melt_dump boolean CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field [12] boolean CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field allow_artifact boolean item can be artifact
+---@field [13] boolean item can be artifact
+---@field plant boolean check if material is a PLANT_MAT
+---@field [14] boolean check if material is a PLANT_MAT
+---@field silk boolean check for material flag SILK
+---@field [15] boolean check for material flag SILK
+---@field leather boolean check for material flag LEATHER
+---@field [16] boolean check for material flag LEATHER
+---@field bone boolean check for material flag BONE
+---@field [17] boolean check for material flag BONE
+---@field shell boolean check for material flag SHELL
+---@field [18] boolean check for material flag SHELL
+---@field totemable boolean
+---@field [19] boolean
+---@field horn boolean check for material flag HORN
+---@field [20] boolean check for material flag HORN
+---@field pearl boolean check for material flag PEARL
+---@field [21] boolean check for material flag PEARL
+---@field plaster_containing boolean
+---@field [22] boolean
+---@field [23] boolean unused
+---@field soap boolean check for material flag SOAP
+---@field [24] boolean check for material flag SOAP
+---@field body_part boolean itemtype CORPSE or CORPSEPIECE
+---@field [25] boolean itemtype CORPSE or CORPSEPIECE
+---@field ivory_tooth boolean check for material flag TOOTH
+---@field [26] boolean check for material flag TOOTH
+---@field lye_milk_free boolean
+---@field [27] boolean
+---@field blunt boolean
+---@field [28] boolean
+---@field unengraved boolean
+---@field [29] boolean
+---@field hair_wool boolean ANY_STRAND_TISSUE
+---@field [30] boolean ANY_STRAND_TISSUE
+---@field yarn boolean check for material flag YARN
+---@field [31] boolean check for material flag YARN
+
+---@class identity.job_item_flags2: DFBitfieldType
+---@field dye 0 bay12: ITEMNEEDEDFLAG2_*
+---@field [0] "dye" bay12: ITEMNEEDEDFLAG2_*
+---@field dyeable 1
+---@field [1] "dyeable"
+---@field dyed 2
+---@field [2] "dyed"
+---@field sewn_imageless 3
+---@field [3] "sewn_imageless"
+---@field glass_making 4
+---@field [4] "glass_making"
+---@field screw 5
+---@field [5] "screw"
+---@field building_material 6
+---@field [6] "building_material"
+---@field fire_safe 7
+---@field [7] "fire_safe"
+---@field magma_safe 8
+---@field [8] "magma_safe"
+---@field deep_material 9 check for inorganic material flag DEEP
+---@field [9] "deep_material" check for inorganic material flag DEEP
+---@field melt_designated 10 check for item flag "melt"
+---@field [10] "melt_designated" check for item flag "melt"
+---@field non_economic 11
+---@field [11] "non_economic"
+---@field allow_melt_dump 12 CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field [12] "allow_melt_dump" CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field allow_artifact 13 item can be artifact
+---@field [13] "allow_artifact" item can be artifact
+---@field plant 14 check if material is a PLANT_MAT
+---@field [14] "plant" check if material is a PLANT_MAT
+---@field silk 15 check for material flag SILK
+---@field [15] "silk" check for material flag SILK
+---@field leather 16 check for material flag LEATHER
+---@field [16] "leather" check for material flag LEATHER
+---@field bone 17 check for material flag BONE
+---@field [17] "bone" check for material flag BONE
+---@field shell 18 check for material flag SHELL
+---@field [18] "shell" check for material flag SHELL
+---@field totemable 19
+---@field [19] "totemable"
+---@field horn 20 check for material flag HORN
+---@field [20] "horn" check for material flag HORN
+---@field pearl 21 check for material flag PEARL
+---@field [21] "pearl" check for material flag PEARL
+---@field plaster_containing 22
+---@field [22] "plaster_containing"
+---@field soap 24 check for material flag SOAP
+---@field [24] "soap" check for material flag SOAP
+---@field body_part 25 itemtype CORPSE or CORPSEPIECE
+---@field [25] "body_part" itemtype CORPSE or CORPSEPIECE
+---@field ivory_tooth 26 check for material flag TOOTH
+---@field [26] "ivory_tooth" check for material flag TOOTH
+---@field lye_milk_free 27
+---@field [27] "lye_milk_free"
+---@field blunt 28
+---@field [28] "blunt"
+---@field unengraved 29
+---@field [29] "unengraved"
+---@field hair_wool 30 ANY_STRAND_TISSUE
+---@field [30] "hair_wool" ANY_STRAND_TISSUE
+---@field yarn 31 check for material flag YARN
+---@field [31] "yarn" check for material flag YARN
+df.job_item_flags2 = {}
+
+---@class df.job_item_flags3: DFBitfield
+---@field _enum identity.job_item_flags3
+---@field unimproved boolean bay12: ITEMNEEDEDFLAG3_*
+---@field [0] boolean bay12: ITEMNEEDEDFLAG3_*
+---@field any_raw_material boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field [1] boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field non_absorbent boolean
+---@field [2] boolean
+---@field non_pressed boolean
+---@field [3] boolean
+---@field allow_liquid_powder boolean
+---@field [4] boolean
+---@field any_craft boolean FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field [5] boolean FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field hard boolean check for material flag ITEMS_HARD
+---@field [6] boolean check for material flag ITEMS_HARD
+---@field food_storage boolean
+---@field [7] boolean
+---@field metal boolean
+---@field [8] boolean
+---@field sand boolean
+---@field [9] boolean
+---@field can_use_location_reserved boolean
+---@field [10] boolean
+---@field written_on boolean
+---@field [11] boolean
+---@field edged boolean
+---@field [12] boolean
+---@field on_ground boolean
+---@field [13] boolean
+---@field divine boolean
+---@field [14] boolean
+---@field crafted_artifact boolean
+---@field [15] boolean
+---@field wood boolean
+---@field [16] boolean
+---@field stone boolean
+---@field [17] boolean
+---@field non_artifact boolean
+---@field [18] boolean
+---@field woven boolean
+---@field [19] boolean
+---@field gem boolean
+---@field [20] boolean
+---@field empty_or_water boolean
+---@field [21] boolean
+---@field grown_not_crafted boolean
+---@field [22] boolean
+
+---@class identity.job_item_flags3: DFBitfieldType
+---@field unimproved 0 bay12: ITEMNEEDEDFLAG3_*
+---@field [0] "unimproved" bay12: ITEMNEEDEDFLAG3_*
+---@field any_raw_material 1 itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field [1] "any_raw_material" itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field non_absorbent 2
+---@field [2] "non_absorbent"
+---@field non_pressed 3
+---@field [3] "non_pressed"
+---@field allow_liquid_powder 4
+---@field [4] "allow_liquid_powder"
+---@field any_craft 5 FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field [5] "any_craft" FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field hard 6 check for material flag ITEMS_HARD
+---@field [6] "hard" check for material flag ITEMS_HARD
+---@field food_storage 7
+---@field [7] "food_storage"
+---@field metal 8
+---@field [8] "metal"
+---@field sand 9
+---@field [9] "sand"
+---@field can_use_location_reserved 10
+---@field [10] "can_use_location_reserved"
+---@field written_on 11
+---@field [11] "written_on"
+---@field edged 12
+---@field [12] "edged"
+---@field on_ground 13
+---@field [13] "on_ground"
+---@field divine 14
+---@field [14] "divine"
+---@field crafted_artifact 15
+---@field [15] "crafted_artifact"
+---@field wood 16
+---@field [16] "wood"
+---@field stone 17
+---@field [17] "stone"
+---@field non_artifact 18
+---@field [18] "non_artifact"
+---@field woven 19
+---@field [19] "woven"
+---@field gem 20
+---@field [20] "gem"
+---@field empty_or_water 21
+---@field [21] "empty_or_water"
+---@field grown_not_crafted 22
+---@field [22] "grown_not_crafted"
+df.job_item_flags3 = {}
+
+---@class df.job_material_category: DFBitfield
+---@field _enum identity.job_material_category
+---@field plant boolean bay12: JOB_ITEM_FLAG_*
+---@field [0] boolean bay12: JOB_ITEM_FLAG_*
+---@field wood boolean wood log
+---@field [1] boolean wood log
+---@field cloth boolean
+---@field [2] boolean
+---@field silk boolean
+---@field [3] boolean
+---@field leather boolean
+---@field [4] boolean
+---@field bone boolean
+---@field [5] boolean
+---@field shell boolean
+---@field [6] boolean
+---@field wood2 boolean wood material
+---@field [7] boolean wood material
+---@field soap boolean
+---@field [8] boolean
+---@field tooth boolean
+---@field [9] boolean
+---@field horn boolean
+---@field [10] boolean
+---@field pearl boolean
+---@field [11] boolean
+---@field yarn boolean
+---@field [12] boolean
+---@field strand boolean
+---@field [13] boolean
+
+---@class identity.job_material_category: DFBitfieldType
+---@field plant 0 bay12: JOB_ITEM_FLAG_*
+---@field [0] "plant" bay12: JOB_ITEM_FLAG_*
+---@field wood 1 wood log
+---@field [1] "wood" wood log
+---@field cloth 2
+---@field [2] "cloth"
+---@field silk 3
+---@field [3] "silk"
+---@field leather 4
+---@field [4] "leather"
+---@field bone 5
+---@field [5] "bone"
+---@field shell 6
+---@field [6] "shell"
+---@field wood2 7 wood material
+---@field [7] "wood2" wood material
+---@field soap 8
+---@field [8] "soap"
+---@field tooth 9
+---@field [9] "tooth"
+---@field horn 10
+---@field [10] "horn"
+---@field pearl 11
+---@field [11] "pearl"
+---@field yarn 12
+---@field [12] "yarn"
+---@field strand 13
+---@field [13] "strand"
+df.job_material_category = {}
+
+---@alias df.body_part_raw_flags
+---| 0 # HEAD
+---| 1 # UPPERBODY
+---| 2 # LOWERBODY
+---| 3 # SIGHT
+---| 4 # EMBEDDED
+---| 5 # INTERNAL
+---| 6 # CIRCULATION
+---| 7 # SKELETON
+---| 8 # LIMB
+---| 9 # GRASP
+---| 10 # STANCE
+---| 11 # GUTS
+---| 12 # BREATHE
+---| 13 # SMALL
+---| 14 # THROAT
+---| 15 # JOINT
+---| 16 # THOUGHT
+---| 17 # NERVOUS
+---| 18 # RIGHT
+---| 19 # LEFT
+---| 20 # HEAR
+---| 21 # SMELL
+---| 22 # FLIER
+---| 23 # DIGIT
+---| 24 # MOUTH
+---| 25 # APERTURE
+---| 26 # SOCKET
+---| 27 # TOTEMABLE
+---| 28 # HAS_TENDONS
+---| 29 # HAS_LIGAMENTS
+---| 30 # UNDER_PRESSURE
+---| 31 # CANNOT_WRESTLE
+---| 32 # VERMIN_BUTCHER_ITEM
+---| 33 # CONNECTOR
+---| 34 # HAS_CONNECTOR_CHILD
+---| 35 # EXTRA_BUTCHER_OBJECT
+---| 36 # PREVENTS_PARENT_COLLAPSE
+---| 37 # HAS_PREVENTS_PARENT_COLLAPSE_CHILD
+---| 38 # GELDABLE
+---| 39 # HAS_HEAD_CHILD
+
+---@class identity.body_part_raw_flags: DFEnumType
+---@field HEAD 0 bay12: BodyPartFlagType
+---@field [0] "HEAD" bay12: BodyPartFlagType
+---@field UPPERBODY 1
+---@field [1] "UPPERBODY"
+---@field LOWERBODY 2
+---@field [2] "LOWERBODY"
+---@field SIGHT 3
+---@field [3] "SIGHT"
+---@field EMBEDDED 4
+---@field [4] "EMBEDDED"
+---@field INTERNAL 5
+---@field [5] "INTERNAL"
+---@field CIRCULATION 6
+---@field [6] "CIRCULATION"
+---@field SKELETON 7
+---@field [7] "SKELETON"
+---@field LIMB 8
+---@field [8] "LIMB"
+---@field GRASP 9
+---@field [9] "GRASP"
+---@field STANCE 10
+---@field [10] "STANCE"
+---@field GUTS 11
+---@field [11] "GUTS"
+---@field BREATHE 12
+---@field [12] "BREATHE"
+---@field SMALL 13
+---@field [13] "SMALL"
+---@field THROAT 14
+---@field [14] "THROAT"
+---@field JOINT 15
+---@field [15] "JOINT"
+---@field THOUGHT 16
+---@field [16] "THOUGHT"
+---@field NERVOUS 17
+---@field [17] "NERVOUS"
+---@field RIGHT 18
+---@field [18] "RIGHT"
+---@field LEFT 19
+---@field [19] "LEFT"
+---@field HEAR 20
+---@field [20] "HEAR"
+---@field SMELL 21
+---@field [21] "SMELL"
+---@field FLIER 22
+---@field [22] "FLIER"
+---@field DIGIT 23
+---@field [23] "DIGIT"
+---@field MOUTH 24
+---@field [24] "MOUTH"
+---@field APERTURE 25
+---@field [25] "APERTURE"
+---@field SOCKET 26
+---@field [26] "SOCKET"
+---@field TOTEMABLE 27
+---@field [27] "TOTEMABLE"
+---@field HAS_TENDONS 28
+---@field [28] "HAS_TENDONS"
+---@field HAS_LIGAMENTS 29
+---@field [29] "HAS_LIGAMENTS"
+---@field UNDER_PRESSURE 30
+---@field [30] "UNDER_PRESSURE"
+---@field CANNOT_WRESTLE 31
+---@field [31] "CANNOT_WRESTLE"
+---@field VERMIN_BUTCHER_ITEM 32
+---@field [32] "VERMIN_BUTCHER_ITEM"
+---@field CONNECTOR 33
+---@field [33] "CONNECTOR"
+---@field HAS_CONNECTOR_CHILD 34
+---@field [34] "HAS_CONNECTOR_CHILD"
+---@field EXTRA_BUTCHER_OBJECT 35
+---@field [35] "EXTRA_BUTCHER_OBJECT"
+---@field PREVENTS_PARENT_COLLAPSE 36
+---@field [36] "PREVENTS_PARENT_COLLAPSE"
+---@field HAS_PREVENTS_PARENT_COLLAPSE_CHILD 37
+---@field [37] "HAS_PREVENTS_PARENT_COLLAPSE_CHILD"
+---@field GELDABLE 38
+---@field [38] "GELDABLE"
+---@field HAS_HEAD_CHILD 39
+---@field [39] "HAS_HEAD_CHILD"
+df.body_part_raw_flags = {}
+
+-- Unused: BodyPartShorts
+-- Unused: BodyPartStrings
+-- Unused: MaterialParameterType
+---@alias df.pattern_type
+---| -1 # NONE
+---| 0 # MONOTONE
+---| 1 # STRIPES
+---| 2 # IRIS_EYE
+---| 3 # SPOTS
+---| 4 # PUPIL_EYE
+---| 5 # MOTTLED
+
+-- Unused: BodyPartShorts
+-- Unused: BodyPartStrings
+-- Unused: MaterialParameterType
+---@class identity.pattern_type: DFEnumType
+---@field NONE -1 bay12: PatternType
+---@field [-1] "NONE" bay12: PatternType
+---@field MONOTONE 0
+---@field [0] "MONOTONE"
+---@field STRIPES 1
+---@field [1] "STRIPES"
+---@field IRIS_EYE 2
+---@field [2] "IRIS_EYE"
+---@field SPOTS 3
+---@field [3] "SPOTS"
+---@field PUPIL_EYE 4
+---@field [4] "PUPIL_EYE"
+---@field MOTTLED 5
+---@field [5] "MOTTLED"
+df.pattern_type = {}
+
+---@alias df.appearance_modifier_growth_interval
+---| -1 # NONE
+---| 0 # DAILY
+---| 1 # WEEKLY
+---| 2 # MONTHLY
+---| 3 # YEARLY
+
+---@class identity.appearance_modifier_growth_interval: DFEnumType
+---@field NONE -1 bay12: AppearanceModifierRateScaleType
+---@field [-1] "NONE" bay12: AppearanceModifierRateScaleType
+---@field DAILY 0
+---@field [0] "DAILY"
+---@field WEEKLY 1
+---@field [1] "WEEKLY"
+---@field MONTHLY 2
+---@field [2] "MONTHLY"
+---@field YEARLY 3
+---@field [3] "YEARLY"
+df.appearance_modifier_growth_interval = {}
+
+---@alias df.replacement_method_type
+---| -1 # NONE
+---| 0 # FADE
+---| 1 # ROOT
+
+---@class identity.replacement_method_type: DFEnumType
+---@field NONE -1 bay12: ReplacementMethodType
+---@field [-1] "NONE" bay12: ReplacementMethodType
+---@field FADE 0
+---@field [0] "FADE"
+---@field ROOT 1
+---@field [1] "ROOT"
+df.replacement_method_type = {}
+
+---@alias df.tissue_shape_type
+---| -1 # NONE
+---| 0 # LAYER
+---| 1 # STRANDS
+---| 2 # FEATHERS
+---| 3 # SCALES
+---| 4 # CUSTOM
+
+---@class identity.tissue_shape_type: DFEnumType
+---@field NONE -1 bay12: TissueShapeType
+---@field [-1] "NONE" bay12: TissueShapeType
+---@field LAYER 0
+---@field [0] "LAYER"
+---@field STRANDS 1
+---@field [1] "STRANDS"
+---@field FEATHERS 2
+---@field [2] "FEATHERS"
+---@field SCALES 3
+---@field [3] "SCALES"
+---@field CUSTOM 4
+---@field [4] "CUSTOM"
+df.tissue_shape_type = {}
+
+---@alias df.appearance_modifier_type
+---| -1 # NONE
+---| 0 # HEIGHT
+---| 1 # BROADNESS
+---| 2 # LENGTH
+---| 3 # CLOSE_SET
+---| 4 # DEEP_SET
+---| 5 # HIGH_POSITION
+---| 6 # LARGE_IRIS
+---| 7 # WRINKLY
+---| 8 # CURLY
+---| 9 # CONVEX
+---| 10 # DENSE
+---| 11 # THICKNESS
+---| 12 # UPTURNED
+---| 13 # SPLAYED_OUT
+---| 14 # HANGING_LOBES
+---| 15 # GAPS
+---| 16 # HIGH_CHEEKBONES
+---| 17 # BROAD_CHIN
+---| 18 # JUTTING_CHIN
+---| 19 # SQUARE_CHIN
+---| 20 # ROUND_VS_NARROW
+---| 21 # GREASY
+---| 22 # DEEP_VOICE
+---| 23 # RASPY_VOICE
+
+---@class identity.appearance_modifier_type: DFEnumType
+---@field NONE -1 bay12: AppearanceModifierType
+---@field [-1] "NONE" bay12: AppearanceModifierType
+---@field HEIGHT 0
+---@field [0] "HEIGHT"
+---@field BROADNESS 1
+---@field [1] "BROADNESS"
+---@field LENGTH 2
+---@field [2] "LENGTH"
+---@field CLOSE_SET 3
+---@field [3] "CLOSE_SET"
+---@field DEEP_SET 4
+---@field [4] "DEEP_SET"
+---@field HIGH_POSITION 5
+---@field [5] "HIGH_POSITION"
+---@field LARGE_IRIS 6
+---@field [6] "LARGE_IRIS"
+---@field WRINKLY 7
+---@field [7] "WRINKLY"
+---@field CURLY 8
+---@field [8] "CURLY"
+---@field CONVEX 9
+---@field [9] "CONVEX"
+---@field DENSE 10
+---@field [10] "DENSE"
+---@field THICKNESS 11
+---@field [11] "THICKNESS"
+---@field UPTURNED 12
+---@field [12] "UPTURNED"
+---@field SPLAYED_OUT 13
+---@field [13] "SPLAYED_OUT"
+---@field HANGING_LOBES 14
+---@field [14] "HANGING_LOBES"
+---@field GAPS 15
+---@field [15] "GAPS"
+---@field HIGH_CHEEKBONES 16
+---@field [16] "HIGH_CHEEKBONES"
+---@field BROAD_CHIN 17
+---@field [17] "BROAD_CHIN"
+---@field JUTTING_CHIN 18
+---@field [18] "JUTTING_CHIN"
+---@field SQUARE_CHIN 19
+---@field [19] "SQUARE_CHIN"
+---@field ROUND_VS_NARROW 20
+---@field [20] "ROUND_VS_NARROW"
+---@field GREASY 21
+---@field [21] "GREASY"
+---@field DEEP_VOICE 22
+---@field [22] "DEEP_VOICE"
+---@field RASPY_VOICE 23
+---@field [23] "RASPY_VOICE"
+df.appearance_modifier_type = {}
+
+---@alias df.body_part_position_type
+---| -1 # NONE
+---| 0 # FRONT
+---| 1 # BACK
+---| 2 # SIDES
+---| 3 # RIGHT
+---| 4 # LEFT
+---| 5 # TOP
+---| 6 # BOTTOM
+
+---@class identity.body_part_position_type: DFEnumType
+---@field NONE -1 bay12: BodyPartPositionType
+---@field [-1] "NONE" bay12: BodyPartPositionType
+---@field FRONT 0
+---@field [0] "FRONT"
+---@field BACK 1
+---@field [1] "BACK"
+---@field SIDES 2
+---@field [2] "SIDES"
+---@field RIGHT 3
+---@field [3] "RIGHT"
+---@field LEFT 4
+---@field [4] "LEFT"
+---@field TOP 5
+---@field [5] "TOP"
+---@field BOTTOM 6
+---@field [6] "BOTTOM"
+df.body_part_position_type = {}
+
+---@alias df.body_part_relation_type
+---| -1 # NONE
+---| 0 # AROUND
+---| 1 # SURROUNDED_BY
+---| 2 # ABOVE
+---| 3 # BELOW
+---| 4 # IN_FRONT
+---| 5 # BEHIND
+---| 6 # CLEANS
+---| 7 # CLEANED_BY
+
+---@class identity.body_part_relation_type: DFEnumType
+---@field NONE -1 bay12: BodyPartRelationType
+---@field [-1] "NONE" bay12: BodyPartRelationType
+---@field AROUND 0
+---@field [0] "AROUND"
+---@field SURROUNDED_BY 1
+---@field [1] "SURROUNDED_BY"
+---@field ABOVE 2
+---@field [2] "ABOVE"
+---@field BELOW 3
+---@field [3] "BELOW"
+---@field IN_FRONT 4
+---@field [4] "IN_FRONT"
+---@field BEHIND 5
+---@field [5] "BEHIND"
+---@field CLEANS 6
+---@field [6] "CLEANS"
+---@field CLEANED_BY 7
+---@field [7] "CLEANED_BY"
+df.body_part_relation_type = {}
+
+---@alias df.creature_interaction_effect_target_mode
+---| -1 # NONE
+---| 0 # BY_TYPE
+---| 1 # BY_TOKEN
+---| 2 # BY_CATEGORY
+
+---@class identity.creature_interaction_effect_target_mode: DFEnumType
+---@field NONE -1 bay12: BodyPartGroupType
+---@field [-1] "NONE" bay12: BodyPartGroupType
+---@field BY_TYPE 0
+---@field [0] "BY_TYPE"
+---@field BY_TOKEN 1
+---@field [1] "BY_TOKEN"
+---@field BY_CATEGORY 2
+---@field [2] "BY_CATEGORY"
+df.creature_interaction_effect_target_mode = {}
+
+---@alias df.battle_outcome_type
+---| -1 # NONE
+---| 0 # ATTACKER_WON
+---| 1 # DEFENDER_WON
+
+---@class identity.battle_outcome_type: DFEnumType
+---@field NONE -1 bay12: BattleOutcomeType
+---@field [-1] "NONE" bay12: BattleOutcomeType
+---@field ATTACKER_WON 0
+---@field [0] "ATTACKER_WON"
+---@field DEFENDER_WON 1
+---@field [1] "DEFENDER_WON"
+df.battle_outcome_type = {}
+
+---@alias df.entity_position_responsibility
+---| -1 # NONE
+---| 0 # LAW_MAKING
+---| 1 # LAW_ENFORCEMENT
+---| 2 # RECEIVE_DIPLOMATS
+---| 3 # MEET_WORKERS
+---| 4 # MANAGE_PRODUCTION
+---| 5 # TRADE
+---| 6 # ACCOUNTING
+---| 7 # ESTABLISH_COLONY_TRADE_AGREEMENTS
+---| 8 # MAKE_INTRODUCTIONS
+---| 9 # MAKE_PEACE_AGREEMENTS
+---| 10 # MAKE_TOPIC_AGREEMENTS
+---| 11 # COLLECT_TAXES
+---| 12 # ESCORT_TAX_COLLECTOR
+---| 13 # EXECUTIONS
+---| 14 # TAME_EXOTICS
+---| 15 # RELIGION
+---| 16 # ATTACK_ENEMIES
+---| 17 # PATROL_TERRITORY
+---| 18 # MILITARY_GOALS
+---| 19 # MILITARY_STRATEGY
+---| 20 # UPGRADE_SQUAD_EQUIPMENT
+---| 21 # EQUIPMENT_MANIFESTS
+---| 22 # SORT_AMMUNITION
+---| 23 # BUILD_MORALE
+---| 24 # HEALTH_MANAGEMENT
+---| 25 # ESPIONAGE
+---| 26 # ADVISE_LEADERS
+---| 27 # OVERSEE_LEADER_HOUSEHOLD
+---| 28 # MANAGE_ANIMALS
+---| 29 # MANAGE_LEADER_HOUSEHOLD_FOOD
+---| 30 # MANAGE_LEADER_HOUSEHOLD_DRINKS
+---| 31 # PREPARE_LEADER_MEALS
+---| 32 # MANAGE_LEADER_HOUSEHOLD_CLEANLINESS
+---| 33 # MAINTAIN_SEWERS
+---| 34 # FOOD_SUPPLY
+---| 35 # FIRE_SAFETY
+---| 36 # JUDGE
+---| 37 # BUILDING_SAFETY
+---| 38 # CONSTRUCTION_PERMITS
+---| 39 # MAINTAIN_ROADS
+---| 40 # MAINTAIN_BRIDGES
+---| 41 # MAINTAIN_TUNNELS
+---| 42 # DELIVER_MESSAGES
+
+---@class identity.entity_position_responsibility: DFEnumType
+---@field NONE -1 bay12: PositionResponsibilityType
+---@field [-1] "NONE" bay12: PositionResponsibilityType
+---@field LAW_MAKING 0
+---@field [0] "LAW_MAKING"
+---@field LAW_ENFORCEMENT 1
+---@field [1] "LAW_ENFORCEMENT"
+---@field RECEIVE_DIPLOMATS 2
+---@field [2] "RECEIVE_DIPLOMATS"
+---@field MEET_WORKERS 3
+---@field [3] "MEET_WORKERS"
+---@field MANAGE_PRODUCTION 4
+---@field [4] "MANAGE_PRODUCTION"
+---@field TRADE 5
+---@field [5] "TRADE"
+---@field ACCOUNTING 6
+---@field [6] "ACCOUNTING"
+---@field ESTABLISH_COLONY_TRADE_AGREEMENTS 7
+---@field [7] "ESTABLISH_COLONY_TRADE_AGREEMENTS"
+---@field MAKE_INTRODUCTIONS 8
+---@field [8] "MAKE_INTRODUCTIONS"
+---@field MAKE_PEACE_AGREEMENTS 9
+---@field [9] "MAKE_PEACE_AGREEMENTS"
+---@field MAKE_TOPIC_AGREEMENTS 10
+---@field [10] "MAKE_TOPIC_AGREEMENTS"
+---@field COLLECT_TAXES 11
+---@field [11] "COLLECT_TAXES"
+---@field ESCORT_TAX_COLLECTOR 12
+---@field [12] "ESCORT_TAX_COLLECTOR"
+---@field EXECUTIONS 13
+---@field [13] "EXECUTIONS"
+---@field TAME_EXOTICS 14
+---@field [14] "TAME_EXOTICS"
+---@field RELIGION 15
+---@field [15] "RELIGION"
+---@field ATTACK_ENEMIES 16
+---@field [16] "ATTACK_ENEMIES"
+---@field PATROL_TERRITORY 17
+---@field [17] "PATROL_TERRITORY"
+---@field MILITARY_GOALS 18
+---@field [18] "MILITARY_GOALS"
+---@field MILITARY_STRATEGY 19
+---@field [19] "MILITARY_STRATEGY"
+---@field UPGRADE_SQUAD_EQUIPMENT 20
+---@field [20] "UPGRADE_SQUAD_EQUIPMENT"
+---@field EQUIPMENT_MANIFESTS 21
+---@field [21] "EQUIPMENT_MANIFESTS"
+---@field SORT_AMMUNITION 22
+---@field [22] "SORT_AMMUNITION"
+---@field BUILD_MORALE 23
+---@field [23] "BUILD_MORALE"
+---@field HEALTH_MANAGEMENT 24
+---@field [24] "HEALTH_MANAGEMENT"
+---@field ESPIONAGE 25
+---@field [25] "ESPIONAGE"
+---@field ADVISE_LEADERS 26
+---@field [26] "ADVISE_LEADERS"
+---@field OVERSEE_LEADER_HOUSEHOLD 27
+---@field [27] "OVERSEE_LEADER_HOUSEHOLD"
+---@field MANAGE_ANIMALS 28
+---@field [28] "MANAGE_ANIMALS"
+---@field MANAGE_LEADER_HOUSEHOLD_FOOD 29
+---@field [29] "MANAGE_LEADER_HOUSEHOLD_FOOD"
+---@field MANAGE_LEADER_HOUSEHOLD_DRINKS 30
+---@field [30] "MANAGE_LEADER_HOUSEHOLD_DRINKS"
+---@field PREPARE_LEADER_MEALS 31
+---@field [31] "PREPARE_LEADER_MEALS"
+---@field MANAGE_LEADER_HOUSEHOLD_CLEANLINESS 32
+---@field [32] "MANAGE_LEADER_HOUSEHOLD_CLEANLINESS"
+---@field MAINTAIN_SEWERS 33
+---@field [33] "MAINTAIN_SEWERS"
+---@field FOOD_SUPPLY 34
+---@field [34] "FOOD_SUPPLY"
+---@field FIRE_SAFETY 35
+---@field [35] "FIRE_SAFETY"
+---@field JUDGE 36
+---@field [36] "JUDGE"
+---@field BUILDING_SAFETY 37
+---@field [37] "BUILDING_SAFETY"
+---@field CONSTRUCTION_PERMITS 38
+---@field [38] "CONSTRUCTION_PERMITS"
+---@field MAINTAIN_ROADS 39
+---@field [39] "MAINTAIN_ROADS"
+---@field MAINTAIN_BRIDGES 40
+---@field [40] "MAINTAIN_BRIDGES"
+---@field MAINTAIN_TUNNELS 41
+---@field [41] "MAINTAIN_TUNNELS"
+---@field DELIVER_MESSAGES 42
+---@field [42] "DELIVER_MESSAGES"
+df.entity_position_responsibility = {}
+
+---@alias df.squad_event_type
+---| -1 # None
+---| 0 # Order
+---| 1 # Barracks
+---| 2 # Specific
+
+---@class identity.squad_event_type: DFEnumType
+---@field None -1 bay12: SquadActivityIndexType
+---@field [-1] "None" bay12: SquadActivityIndexType
+---@field Order 0
+---@field [0] "Order"
+---@field Barracks 1
+---@field [1] "Barracks"
+---@field Specific 2
+---@field [2] "Specific"
+df.squad_event_type = {}
+
+---@class df.undead_flags: DFBitfield
+---@field _enum identity.undead_flags
+---@field zombie boolean bay12: HF_KILL_FLAG_*
+---@field [0] boolean bay12: HF_KILL_FLAG_*
+---@field ghostly boolean
+---@field [1] boolean
+
+---@class identity.undead_flags: DFBitfieldType
+---@field zombie 0 bay12: HF_KILL_FLAG_*
+---@field [0] "zombie" bay12: HF_KILL_FLAG_*
+---@field ghostly 1
+---@field [1] "ghostly"
+df.undead_flags = {}
+
+-- Unused: HFSpecialAttackType
+---@alias df.whereabouts_type
+---| -1 # NONE
+---| 0 # wanderer
+---| 1 # settler
+---| 2 # refugee
+---| 3 # army_died
+---| 4 # army_survived
+---| 5 # visitor
+
+-- Unused: HFSpecialAttackType
+---@class identity.whereabouts_type: DFEnumType
+---@field NONE -1 bay12: HistFigStateType
+---@field [-1] "NONE" bay12: HistFigStateType
+---@field wanderer 0 wandering the wilds/region/depths of the world (none/region/underground_region)
+---@field [0] "wanderer" wandering the wilds/region/depths of the world (none/region/underground_region)
+---@field settler 1 site/region, region only for dead 'monsters'
+---@field [1] "settler" site/region, region only for dead 'monsters'
+---@field refugee 2 into region only for dead. refugees and abucted-imprisoned-turned
+---@field [2] "refugee" into region only for dead. refugees and abucted-imprisoned-turned
+---@field army_died 3 either no record of participation in battle, or character died and defender won (character on either side)
+---@field [3] "army_died" either no record of participation in battle, or character died and defender won (character on either side)
+---@field army_survived 4 either no record of participation in battle, or character survived and defender won (character on either side)
+---@field [4] "army_survived" either no record of participation in battle, or character survived and defender won (character on either side)
+---@field visitor 5 'visited' as last movement seems to be the key
+---@field [5] "visitor" 'visited' as last movement seems to be the key
+df.whereabouts_type = {}
+
+---@alias df.world_site_type
+---| -1 # NONE
+---| 0 # PlayerFortress
+---| 1 # DarkFortress
+---| 2 # Cave
+---| 3 # MountainHalls
+---| 4 # ForestRetreat
+---| 5 # Town
+---| 6 # ImportantLocation
+---| 7 # LairShrine
+---| 8 # Fortress
+---| 9 # Camp
+---| 10 # Monument
+
+---@class identity.world_site_type: DFEnumType
+---@field NONE -1 bay12: SiteType
+---@field [-1] "NONE" bay12: SiteType
+---@field PlayerFortress 0
+---@field [0] "PlayerFortress"
+---@field DarkFortress 1
+---@field [1] "DarkFortress"
+---@field Cave 2
+---@field [2] "Cave"
+---@field MountainHalls 3
+---@field [3] "MountainHalls"
+---@field ForestRetreat 4
+---@field [4] "ForestRetreat"
+---@field Town 5
+---@field [5] "Town"
+---@field ImportantLocation 6
+---@field [6] "ImportantLocation"
+---@field LairShrine 7
+---@field [7] "LairShrine"
+---@field Fortress 8
+---@field [8] "Fortress"
+---@field Camp 9
+---@field [9] "Camp"
+---@field Monument 10
+---@field [10] "Monument"
+df.world_site_type = {}
+
+---@alias df.world_construction_type
+---| 0 # ROAD
+---| 1 # TUNNEL
+---| 2 # BRIDGE
+---| 3 # WALL
+
+---@class identity.world_construction_type: DFEnumType
+---@field ROAD 0 bay12: WorldConstructionType
+---@field [0] "ROAD" bay12: WorldConstructionType
+---@field TUNNEL 1
+---@field [1] "TUNNEL"
+---@field BRIDGE 2
+---@field [2] "BRIDGE"
+---@field WALL 3
+---@field [3] "WALL"
+df.world_construction_type = {}
+
+-- Unused: Compass
+-- Unused: Religion
+---@alias df.map_reject_type
+---| -1 # NONE
+---| 0 # NO_PEAK
+---| 1 # NO_MED_ALT
+---| 2 # NO_MED_ALT_2
+---| 3 # NO_LOW_ALT
+---| 4 # NO_MED_ALT_3
+---| 5 # NO_HI_ALT
+---| 6 # NO_EDGE_OCEANS
+---| 7 # RAINFALL_COUNT
+---| 8 # GEOLOGY_COUNT
+---| 9 # SAVAGERY_COUNT
+---| 10 # VOLCANISM_COUNT
+---| 11 # SWAMP_REGION_1
+---| 12 # DESERT_REGION_1
+---| 13 # FOREST_REGION_1
+---| 14 # MOUNTAINS_REGION_1
+---| 15 # OCEAN_REGION_1
+---| 16 # GLACIER_REGION_1
+---| 17 # TUNDRA_REGION_1
+---| 18 # GRASSLAND_REGION_1
+---| 19 # HILLS_REGION_1
+---| 20 # NO_VOLCANOS
+---| 21 # SWAMP_REGION_2
+---| 22 # DESERT_REGION_2
+---| 23 # FOREST_REGION_2
+---| 24 # MOUNTAINS_REGION_2
+---| 25 # OCEAN_REGION_2
+---| 26 # GLACIER_REGION_2
+---| 27 # TUNDRA_REGION_2
+---| 28 # GRASSLAND_REGION_2
+---| 29 # HILLS_REGION_2
+---| 30 # RIVER
+---| 31 # TOO_MANY_SUBS
+---| 32 # MED_ALT_ERO
+---| 33 # LOW_ALT_ERO
+---| 34 # HI_ALT_ERO
+---| 35 # MOUNTAIN_CAVE_1
+---| 36 # MOUNTAIN_CAVE_2
+---| 37 # NMOUNTAIN_CAVE_1
+---| 38 # NMOUNTAIN_CAVE_2
+---| 39 # NO_ENTITY_PLACE
+---| 40 # NO_ENTITY_DEF
+---| 41 # NO_CONTROLLABLE
+---| 42 # DIDNT_CONTROLLABLE
+---| 43 # SWAMP_REGION_3
+---| 44 # DESERT_REGION_3
+---| 45 # FOREST_REGION_3
+---| 46 # MOUNTAINS_REGION_3
+---| 47 # OCEAN_REGION_3
+---| 48 # GLACIER_REGION_3
+---| 49 # TUNDRA_REGION_3
+---| 50 # GRASSLAND_REGION_3
+---| 51 # HILLS_REGION_3
+---| 52 # BAD_FARMER
+
+-- Unused: Compass
+-- Unused: Religion
+---@class identity.map_reject_type: DFEnumType
+---@field NONE -1 bay12: MapRejectType
+---@field [-1] "NONE" bay12: MapRejectType
+---@field NO_PEAK 0
+---@field [0] "NO_PEAK"
+---@field NO_MED_ALT 1
+---@field [1] "NO_MED_ALT"
+---@field NO_MED_ALT_2 2
+---@field [2] "NO_MED_ALT_2"
+---@field NO_LOW_ALT 3
+---@field [3] "NO_LOW_ALT"
+---@field NO_MED_ALT_3 4
+---@field [4] "NO_MED_ALT_3"
+---@field NO_HI_ALT 5
+---@field [5] "NO_HI_ALT"
+---@field NO_EDGE_OCEANS 6
+---@field [6] "NO_EDGE_OCEANS"
+---@field RAINFALL_COUNT 7
+---@field [7] "RAINFALL_COUNT"
+---@field GEOLOGY_COUNT 8
+---@field [8] "GEOLOGY_COUNT"
+---@field SAVAGERY_COUNT 9
+---@field [9] "SAVAGERY_COUNT"
+---@field VOLCANISM_COUNT 10
+---@field [10] "VOLCANISM_COUNT"
+---@field SWAMP_REGION_1 11
+---@field [11] "SWAMP_REGION_1"
+---@field DESERT_REGION_1 12
+---@field [12] "DESERT_REGION_1"
+---@field FOREST_REGION_1 13
+---@field [13] "FOREST_REGION_1"
+---@field MOUNTAINS_REGION_1 14
+---@field [14] "MOUNTAINS_REGION_1"
+---@field OCEAN_REGION_1 15
+---@field [15] "OCEAN_REGION_1"
+---@field GLACIER_REGION_1 16
+---@field [16] "GLACIER_REGION_1"
+---@field TUNDRA_REGION_1 17
+---@field [17] "TUNDRA_REGION_1"
+---@field GRASSLAND_REGION_1 18
+---@field [18] "GRASSLAND_REGION_1"
+---@field HILLS_REGION_1 19
+---@field [19] "HILLS_REGION_1"
+---@field NO_VOLCANOS 20
+---@field [20] "NO_VOLCANOS"
+---@field SWAMP_REGION_2 21
+---@field [21] "SWAMP_REGION_2"
+---@field DESERT_REGION_2 22
+---@field [22] "DESERT_REGION_2"
+---@field FOREST_REGION_2 23
+---@field [23] "FOREST_REGION_2"
+---@field MOUNTAINS_REGION_2 24
+---@field [24] "MOUNTAINS_REGION_2"
+---@field OCEAN_REGION_2 25
+---@field [25] "OCEAN_REGION_2"
+---@field GLACIER_REGION_2 26
+---@field [26] "GLACIER_REGION_2"
+---@field TUNDRA_REGION_2 27
+---@field [27] "TUNDRA_REGION_2"
+---@field GRASSLAND_REGION_2 28
+---@field [28] "GRASSLAND_REGION_2"
+---@field HILLS_REGION_2 29
+---@field [29] "HILLS_REGION_2"
+---@field RIVER 30
+---@field [30] "RIVER"
+---@field TOO_MANY_SUBS 31
+---@field [31] "TOO_MANY_SUBS"
+---@field MED_ALT_ERO 32
+---@field [32] "MED_ALT_ERO"
+---@field LOW_ALT_ERO 33
+---@field [33] "LOW_ALT_ERO"
+---@field HI_ALT_ERO 34
+---@field [34] "HI_ALT_ERO"
+---@field MOUNTAIN_CAVE_1 35
+---@field [35] "MOUNTAIN_CAVE_1"
+---@field MOUNTAIN_CAVE_2 36
+---@field [36] "MOUNTAIN_CAVE_2"
+---@field NMOUNTAIN_CAVE_1 37
+---@field [37] "NMOUNTAIN_CAVE_1"
+---@field NMOUNTAIN_CAVE_2 38
+---@field [38] "NMOUNTAIN_CAVE_2"
+---@field NO_ENTITY_PLACE 39
+---@field [39] "NO_ENTITY_PLACE"
+---@field NO_ENTITY_DEF 40
+---@field [40] "NO_ENTITY_DEF"
+---@field NO_CONTROLLABLE 41
+---@field [41] "NO_CONTROLLABLE"
+---@field DIDNT_CONTROLLABLE 42
+---@field [42] "DIDNT_CONTROLLABLE"
+---@field SWAMP_REGION_3 43
+---@field [43] "SWAMP_REGION_3"
+---@field DESERT_REGION_3 44
+---@field [44] "DESERT_REGION_3"
+---@field FOREST_REGION_3 45
+---@field [45] "FOREST_REGION_3"
+---@field MOUNTAINS_REGION_3 46
+---@field [46] "MOUNTAINS_REGION_3"
+---@field OCEAN_REGION_3 47
+---@field [47] "OCEAN_REGION_3"
+---@field GLACIER_REGION_3 48
+---@field [48] "GLACIER_REGION_3"
+---@field TUNDRA_REGION_3 49
+---@field [49] "TUNDRA_REGION_3"
+---@field GRASSLAND_REGION_3 50
+---@field [50] "GRASSLAND_REGION_3"
+---@field HILLS_REGION_3 51
+---@field [51] "HILLS_REGION_3"
+---@field BAD_FARMER 52
+---@field [52] "BAD_FARMER"
+df.map_reject_type = {}
+
+-- Unused: ArchitecturalConcept
+---@alias df.architectural_justification
+---| -1 # NONE
+---| 0 # representation
+---| 1 # proximity
+---| 2 # experience
+---| 3 # reminder
+---| 4 # antithetical
+
+-- Unused: ArchitecturalConcept
+---@class identity.architectural_justification: DFEnumType
+---@field NONE -1 bay12: Justification
+---@field [-1] "NONE" bay12: Justification
+---@field representation 0
+---@field [0] "representation"
+---@field proximity 1
+---@field [1] "proximity"
+---@field experience 2
+---@field [2] "experience"
+---@field reminder 3
+---@field [3] "reminder"
+---@field antithetical 4
+---@field [4] "antithetical"
+df.architectural_justification = {}
+
+---@alias df.architectural_element
+---| -1 # NONE
+---| 0 # paved_outdoor_area
+---| 1 # uneven_pillars
+---| 2 # square_of_pillars
+---| 3 # pillars_on_the_perimeter
+---| 4 # upper_floors
+---| 5 # lower_floors
+---| 6 # water_pool
+---| 7 # lava_pool
+---| 8 # stagnant_pool
+---| 9 # open_structure
+---| 10 # paved_indoor_areas
+---| 11 # detailed_surfaces
+
+---@class identity.architectural_element: DFEnumType
+---@field NONE -1 bay12: ArchitecturalElement
+---@field [-1] "NONE" bay12: ArchitecturalElement
+---@field paved_outdoor_area 0
+---@field [0] "paved_outdoor_area"
+---@field uneven_pillars 1
+---@field [1] "uneven_pillars"
+---@field square_of_pillars 2
+---@field [2] "square_of_pillars"
+---@field pillars_on_the_perimeter 3
+---@field [3] "pillars_on_the_perimeter"
+---@field upper_floors 4
+---@field [4] "upper_floors"
+---@field lower_floors 5
+---@field [5] "lower_floors"
+---@field water_pool 6
+---@field [6] "water_pool"
+---@field lava_pool 7
+---@field [7] "lava_pool"
+---@field stagnant_pool 8
+---@field [8] "stagnant_pool"
+---@field open_structure 9
+---@field [9] "open_structure"
+---@field paved_indoor_areas 10
+---@field [10] "paved_indoor_areas"
+---@field detailed_surfaces 11
+---@field [11] "detailed_surfaces"
+df.architectural_element = {}
+
+---@alias df.masterpiece_loss_type
+---| 0 # MELT
+---| 1 # MAGMA
+---| 2 # FORTIFICATION
+---| 3 # MINING
+---| 4 # CAVEIN
+---| 5 # VEGETATION
+
+---@class identity.masterpiece_loss_type: DFEnumType
+---@field MELT 0 bay12: DestructionReason
+---@field [0] "MELT" bay12: DestructionReason
+---@field MAGMA 1
+---@field [1] "MAGMA"
+---@field FORTIFICATION 2
+---@field [2] "FORTIFICATION"
+---@field MINING 3
+---@field [3] "MINING"
+---@field CAVEIN 4
+---@field [4] "CAVEIN"
+---@field VEGETATION 5
+---@field [5] "VEGETATION"
+df.masterpiece_loss_type = {}
+
+---@alias df.histfig_relationship_type
+---| -1 # None
+---| 0 # Mother
+---| 1 # Father
+---| 2 # Parent
+---| 3 # Husband
+---| 4 # Wife
+---| 5 # Spouse
+---| 6 # SonEldest
+---| 7 # SonEldest2
+---| 8 # SonEldest3
+---| 9 # SonEldest4
+---| 10 # SonEldest5
+---| 11 # SonEldest6
+---| 12 # SonEldest7
+---| 13 # SonEldest8
+---| 14 # SonEldest9
+---| 15 # SonEldest10
+---| 16 # Son
+---| 17 # SonYoungest
+---| 18 # SonOnly
+---| 19 # DaughterEldest
+---| 20 # DaughterEldest2
+---| 21 # DaughterEldest3
+---| 22 # DaughterEldest4
+---| 23 # DaughterEldest5
+---| 24 # DaughterEldest6
+---| 25 # DaughterEldest7
+---| 26 # DaughterEldest8
+---| 27 # DaughterEldest9
+---| 28 # DaughterEldest10
+---| 29 # Daughter
+---| 30 # DaughterOnly
+---| 31 # DaughterYoungest
+---| 32 # ChildEldest
+---| 33 # ChildEldest2
+---| 34 # ChildEldest3
+---| 35 # ChildEldest4
+---| 36 # ChildEldest5
+---| 37 # ChildEldest6
+---| 38 # ChildEldest7
+---| 39 # ChildEldest8
+---| 40 # ChildEldest9
+---| 41 # ChildEldest10
+---| 42 # Child
+---| 43 # ChildYoungest
+---| 44 # ChildOnly
+---| 45 # PaternalGrandmother
+---| 46 # PaternalGrandfather
+---| 47 # MaternalGrandmother
+---| 48 # MaternalGrandfather
+---| 49 # Grandmother
+---| 50 # Grandfather
+---| 51 # Grandparent
+---| 52 # OlderBrother
+---| 53 # OlderSister
+---| 54 # OlderSibling
+---| 55 # YoungerBrother
+---| 56 # YoungerSister
+---| 57 # YoungerSibling
+---| 58 # Cousin
+---| 59 # Aunt
+---| 60 # Uncle
+---| 61 # Niece
+---| 62 # Nephew
+---| 63 # Sibling
+---| 64 # Grandchild
+---| 65 # OlderHalfBrother
+---| 66 # OlderHalfSister
+---| 67 # OlderHalfSibling
+---| 68 # YoungerHalfBrother
+---| 69 # YoungerHalfSister
+---| 70 # YoungerHalfSibling
+---| 71 # HalfSibling
+
+---@class identity.histfig_relationship_type: DFEnumType
+---@field None -1 bay12: FamilyRelationshipType
+---@field [-1] "None" bay12: FamilyRelationshipType
+---@field Mother 0
+---@field [0] "Mother"
+---@field Father 1
+---@field [1] "Father"
+---@field Parent 2
+---@field [2] "Parent"
+---@field Husband 3
+---@field [3] "Husband"
+---@field Wife 4
+---@field [4] "Wife"
+---@field Spouse 5
+---@field [5] "Spouse"
+---@field SonEldest 6
+---@field [6] "SonEldest"
+---@field SonEldest2 7
+---@field [7] "SonEldest2"
+---@field SonEldest3 8
+---@field [8] "SonEldest3"
+---@field SonEldest4 9
+---@field [9] "SonEldest4"
+---@field SonEldest5 10 10
+---@field [10] "SonEldest5" 10
+---@field SonEldest6 11
+---@field [11] "SonEldest6"
+---@field SonEldest7 12
+---@field [12] "SonEldest7"
+---@field SonEldest8 13
+---@field [13] "SonEldest8"
+---@field SonEldest9 14
+---@field [14] "SonEldest9"
+---@field SonEldest10 15
+---@field [15] "SonEldest10"
+---@field Son 16
+---@field [16] "Son"
+---@field SonYoungest 17
+---@field [17] "SonYoungest"
+---@field SonOnly 18
+---@field [18] "SonOnly"
+---@field DaughterEldest 19
+---@field [19] "DaughterEldest"
+---@field DaughterEldest2 20 20
+---@field [20] "DaughterEldest2" 20
+---@field DaughterEldest3 21
+---@field [21] "DaughterEldest3"
+---@field DaughterEldest4 22
+---@field [22] "DaughterEldest4"
+---@field DaughterEldest5 23
+---@field [23] "DaughterEldest5"
+---@field DaughterEldest6 24
+---@field [24] "DaughterEldest6"
+---@field DaughterEldest7 25
+---@field [25] "DaughterEldest7"
+---@field DaughterEldest8 26
+---@field [26] "DaughterEldest8"
+---@field DaughterEldest9 27
+---@field [27] "DaughterEldest9"
+---@field DaughterEldest10 28
+---@field [28] "DaughterEldest10"
+---@field Daughter 29
+---@field [29] "Daughter"
+---@field DaughterOnly 30 30
+---@field [30] "DaughterOnly" 30
+---@field DaughterYoungest 31
+---@field [31] "DaughterYoungest"
+---@field ChildEldest 32
+---@field [32] "ChildEldest"
+---@field ChildEldest2 33
+---@field [33] "ChildEldest2"
+---@field ChildEldest3 34
+---@field [34] "ChildEldest3"
+---@field ChildEldest4 35
+---@field [35] "ChildEldest4"
+---@field ChildEldest5 36
+---@field [36] "ChildEldest5"
+---@field ChildEldest6 37
+---@field [37] "ChildEldest6"
+---@field ChildEldest7 38
+---@field [38] "ChildEldest7"
+---@field ChildEldest8 39
+---@field [39] "ChildEldest8"
+---@field ChildEldest9 40 40
+---@field [40] "ChildEldest9" 40
+---@field ChildEldest10 41
+---@field [41] "ChildEldest10"
+---@field Child 42
+---@field [42] "Child"
+---@field ChildYoungest 43
+---@field [43] "ChildYoungest"
+---@field ChildOnly 44
+---@field [44] "ChildOnly"
+---@field PaternalGrandmother 45
+---@field [45] "PaternalGrandmother"
+---@field PaternalGrandfather 46
+---@field [46] "PaternalGrandfather"
+---@field MaternalGrandmother 47
+---@field [47] "MaternalGrandmother"
+---@field MaternalGrandfather 48
+---@field [48] "MaternalGrandfather"
+---@field Grandmother 49
+---@field [49] "Grandmother"
+---@field Grandfather 50 50
+---@field [50] "Grandfather" 50
+---@field Grandparent 51
+---@field [51] "Grandparent"
+---@field OlderBrother 52
+---@field [52] "OlderBrother"
+---@field OlderSister 53
+---@field [53] "OlderSister"
+---@field OlderSibling 54
+---@field [54] "OlderSibling"
+---@field YoungerBrother 55
+---@field [55] "YoungerBrother"
+---@field YoungerSister 56
+---@field [56] "YoungerSister"
+---@field YoungerSibling 57
+---@field [57] "YoungerSibling"
+---@field Cousin 58
+---@field [58] "Cousin"
+---@field Aunt 59
+---@field [59] "Aunt"
+---@field Uncle 60 60
+---@field [60] "Uncle" 60
+---@field Niece 61
+---@field [61] "Niece"
+---@field Nephew 62
+---@field [62] "Nephew"
+---@field Sibling 63
+---@field [63] "Sibling"
+---@field Grandchild 64
+---@field [64] "Grandchild"
+---@field OlderHalfBrother 65 'since' valid for this entry and those below
+---@field [65] "OlderHalfBrother" 'since' valid for this entry and those below
+---@field OlderHalfSister 66
+---@field [66] "OlderHalfSister"
+---@field OlderHalfSibling 67
+---@field [67] "OlderHalfSibling"
+---@field YoungerHalfBrother 68
+---@field [68] "YoungerHalfBrother"
+---@field YoungerHalfSister 69
+---@field [69] "YoungerHalfSister"
+---@field YoungerHalfSibling 70 70
+---@field [70] "YoungerHalfSibling" 70
+---@field HalfSibling 71
+---@field [71] "HalfSibling"
+df.histfig_relationship_type = {}
+
+---@alias df.ethic_type
+---| -1 # NONE
+---| 0 # KILL_ENTITY_MEMBER
+---| 1 # KILL_NEUTRAL
+---| 2 # KILL_ENEMY
+---| 3 # KILL_ANIMAL
+---| 4 # KILL_PLANT
+---| 5 # TORTURE_AS_EXAMPLE
+---| 6 # TORTURE_FOR_INFORMATION
+---| 7 # TORTURE_FOR_FUN
+---| 8 # TORTURE_ANIMALS
+---| 9 # TREASON
+---| 10 # OATH_BREAKING
+---| 11 # LYING
+---| 12 # VANDALISM
+---| 13 # TRESPASSING
+---| 14 # THEFT
+---| 15 # ASSAULT
+---| 16 # SLAVERY
+---| 17 # EAT_SAPIENT_OTHER
+---| 18 # EAT_SAPIENT_KILL
+---| 19 # MAKE_TROPHY_SAME_RACE
+---| 20 # MAKE_TROPHY_SAPIENT
+---| 21 # MAKE_TROPHY_ANIMAL
+
+---@class identity.ethic_type: DFEnumType
+---@field NONE -1 bay12: EthicType
+---@field [-1] "NONE" bay12: EthicType
+---@field KILL_ENTITY_MEMBER 0
+---@field [0] "KILL_ENTITY_MEMBER"
+---@field KILL_NEUTRAL 1
+---@field [1] "KILL_NEUTRAL"
+---@field KILL_ENEMY 2
+---@field [2] "KILL_ENEMY"
+---@field KILL_ANIMAL 3
+---@field [3] "KILL_ANIMAL"
+---@field KILL_PLANT 4
+---@field [4] "KILL_PLANT"
+---@field TORTURE_AS_EXAMPLE 5
+---@field [5] "TORTURE_AS_EXAMPLE"
+---@field TORTURE_FOR_INFORMATION 6
+---@field [6] "TORTURE_FOR_INFORMATION"
+---@field TORTURE_FOR_FUN 7
+---@field [7] "TORTURE_FOR_FUN"
+---@field TORTURE_ANIMALS 8
+---@field [8] "TORTURE_ANIMALS"
+---@field TREASON 9
+---@field [9] "TREASON"
+---@field OATH_BREAKING 10
+---@field [10] "OATH_BREAKING"
+---@field LYING 11
+---@field [11] "LYING"
+---@field VANDALISM 12
+---@field [12] "VANDALISM"
+---@field TRESPASSING 13
+---@field [13] "TRESPASSING"
+---@field THEFT 14
+---@field [14] "THEFT"
+---@field ASSAULT 15
+---@field [15] "ASSAULT"
+---@field SLAVERY 16
+---@field [16] "SLAVERY"
+---@field EAT_SAPIENT_OTHER 17
+---@field [17] "EAT_SAPIENT_OTHER"
+---@field EAT_SAPIENT_KILL 18
+---@field [18] "EAT_SAPIENT_KILL"
+---@field MAKE_TROPHY_SAME_RACE 19
+---@field [19] "MAKE_TROPHY_SAME_RACE"
+---@field MAKE_TROPHY_SAPIENT 20
+---@field [20] "MAKE_TROPHY_SAPIENT"
+---@field MAKE_TROPHY_ANIMAL 21
+---@field [21] "MAKE_TROPHY_ANIMAL"
+df.ethic_type = {}
+
+---@alias df.ethic_response
+---| -1 # NONE
+---| 0 # NOT_APPLICABLE
+---| 1 # ACCEPTABLE
+---| 2 # PERSONAL_MATTER
+---| 3 # JUSTIFIED_IF_NO_REPERCUSSIONS
+---| 4 # JUSTIFIED_IF_GOOD_REASON
+---| 5 # JUSTIFIED_IF_EXTREME_REASON
+---| 6 # JUSTIFIED_IF_SELF_DEFENSE
+---| 7 # ONLY_IF_SANCTIONED
+---| 8 # MISGUIDED
+---| 9 # SHUN
+---| 10 # APPALLING
+---| 11 # PUNISH_REPRIMAND
+---| 12 # PUNISH_SERIOUS
+---| 13 # PUNISH_EXILE
+---| 14 # PUNISH_CAPITAL
+---| 15 # UNTHINKABLE
+---| 16 # REQUIRED
+
+---@class identity.ethic_response: DFEnumType
+---@field NONE -1 bay12: EthicResponseType
+---@field [-1] "NONE" bay12: EthicResponseType
+---@field NOT_APPLICABLE 0
+---@field [0] "NOT_APPLICABLE"
+---@field ACCEPTABLE 1
+---@field [1] "ACCEPTABLE"
+---@field PERSONAL_MATTER 2
+---@field [2] "PERSONAL_MATTER"
+---@field JUSTIFIED_IF_NO_REPERCUSSIONS 3
+---@field [3] "JUSTIFIED_IF_NO_REPERCUSSIONS"
+---@field JUSTIFIED_IF_GOOD_REASON 4
+---@field [4] "JUSTIFIED_IF_GOOD_REASON"
+---@field JUSTIFIED_IF_EXTREME_REASON 5
+---@field [5] "JUSTIFIED_IF_EXTREME_REASON"
+---@field JUSTIFIED_IF_SELF_DEFENSE 6
+---@field [6] "JUSTIFIED_IF_SELF_DEFENSE"
+---@field ONLY_IF_SANCTIONED 7
+---@field [7] "ONLY_IF_SANCTIONED"
+---@field MISGUIDED 8
+---@field [8] "MISGUIDED"
+---@field SHUN 9
+---@field [9] "SHUN"
+---@field APPALLING 10
+---@field [10] "APPALLING"
+---@field PUNISH_REPRIMAND 11
+---@field [11] "PUNISH_REPRIMAND"
+---@field PUNISH_SERIOUS 12
+---@field [12] "PUNISH_SERIOUS"
+---@field PUNISH_EXILE 13
+---@field [13] "PUNISH_EXILE"
+---@field PUNISH_CAPITAL 14
+---@field [14] "PUNISH_CAPITAL"
+---@field UNTHINKABLE 15
+---@field [15] "UNTHINKABLE"
+---@field REQUIRED 16
+---@field [16] "REQUIRED"
+df.ethic_response = {}
+
+---@alias df.research_project_type
+---| -1 # None
+---| 0 # PHILOSOPHY_FLAG
+---| 1 # PHILOSOPHY_FLAG2
+---| 2 # MATHEMATICS_FLAG
+---| 3 # MATHEMATICS_FLAG2
+---| 4 # HISTORY_FLAG
+---| 5 # ASTRONOMY_FLAG
+---| 6 # NATURALIST_FLAG
+---| 7 # CHEMISTRY_FLAG
+---| 8 # GEOGRAPHY_FLAG
+---| 9 # MEDICINE_FLAG
+---| 10 # MEDICINE_FLAG2
+---| 11 # MEDICINE_FLAG3
+---| 12 # ENGINEERING_FLAG
+---| 13 # ENGINEERING_FLAG2
+
+---@class identity.research_project_type: DFEnumType
+---@field None -1 bay12: ResearchProjectType
+---@field [-1] "None" bay12: ResearchProjectType
+---@field PHILOSOPHY_FLAG 0
+---@field [0] "PHILOSOPHY_FLAG"
+---@field PHILOSOPHY_FLAG2 1
+---@field [1] "PHILOSOPHY_FLAG2"
+---@field MATHEMATICS_FLAG 2
+---@field [2] "MATHEMATICS_FLAG"
+---@field MATHEMATICS_FLAG2 3
+---@field [3] "MATHEMATICS_FLAG2"
+---@field HISTORY_FLAG 4
+---@field [4] "HISTORY_FLAG"
+---@field ASTRONOMY_FLAG 5
+---@field [5] "ASTRONOMY_FLAG"
+---@field NATURALIST_FLAG 6
+---@field [6] "NATURALIST_FLAG"
+---@field CHEMISTRY_FLAG 7
+---@field [7] "CHEMISTRY_FLAG"
+---@field GEOGRAPHY_FLAG 8
+---@field [8] "GEOGRAPHY_FLAG"
+---@field MEDICINE_FLAG 9
+---@field [9] "MEDICINE_FLAG"
+---@field MEDICINE_FLAG2 10
+---@field [10] "MEDICINE_FLAG2"
+---@field MEDICINE_FLAG3 11
+---@field [11] "MEDICINE_FLAG3"
+---@field ENGINEERING_FLAG 12
+---@field [12] "ENGINEERING_FLAG"
+---@field ENGINEERING_FLAG2 13
+---@field [13] "ENGINEERING_FLAG2"
+df.research_project_type = {}
+
+---@class df.knowledge_scholar_flags_0: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_0
+---@field philosophy_logic_formal_reasoning boolean bay12: SK_PHILOSOPHY_FLAG_*
+---@field [0] boolean bay12: SK_PHILOSOPHY_FLAG_*
+---@field philosophy_logic_deductive_reasoning boolean
+---@field [1] boolean
+---@field philosophy_logic_syllogistic_logic boolean
+---@field [2] boolean
+---@field philosophy_logic_hypothetical_syllogisms boolean
+---@field [3] boolean
+---@field philosophy_logic_propositional_logic boolean
+---@field [4] boolean
+---@field philosophy_logic_dialectic_reasoning boolean
+---@field [5] boolean
+---@field philosophy_logic_analogical_inference boolean
+---@field [6] boolean
+---@field philosophy_ethics_applied_medical boolean
+---@field [7] boolean
+---@field philosophy_ethics_individual_value boolean
+---@field [8] boolean
+---@field philosophy_ethics_state_consequentialism boolean
+---@field [9] boolean
+---@field philosophy_epistemology_truth boolean
+---@field [10] boolean
+---@field philosophy_epistemology_perception boolean
+---@field [11] boolean
+---@field philosophy_epistemology_justification boolean
+---@field [12] boolean
+---@field philosophy_epistemology_belief boolean
+---@field [13] boolean
+---@field philosophy_metaphysics_existence boolean
+---@field [14] boolean
+---@field philosophy_metaphysics_time boolean
+---@field [15] boolean
+---@field philosophy_metaphysics_mind_body boolean
+---@field [16] boolean
+---@field philosophy_metaphysics_objects_and_properties boolean
+---@field [17] boolean
+---@field philosophy_metaphysics_wholes_and_parts boolean
+---@field [18] boolean
+---@field philosophy_metaphysics_events boolean
+---@field [19] boolean
+---@field philosophy_metaphysics_processes boolean
+---@field [20] boolean
+---@field philosophy_metaphysics_causation boolean
+---@field [21] boolean
+---@field philosophy_ethics_applied_military boolean
+---@field [22] boolean
+---@field philosophy_ethics_applied_interpersonal_conduct boolean
+---@field [23] boolean
+---@field philosophy_specialized_law boolean
+---@field [24] boolean
+---@field philosophy_specialized_education boolean
+---@field [25] boolean
+---@field philosophy_specialized_language_grammar boolean
+---@field [26] boolean
+---@field philosophy_specialized_language_etymology boolean
+---@field [27] boolean
+---@field philosophy_specialized_politics_diplomacy boolean
+---@field [28] boolean
+---@field philosophy_specialized_politics_government_forms boolean
+---@field [29] boolean
+---@field philosophy_specialized_politics_economic_policy boolean
+---@field [30] boolean
+---@field philosophy_specialized_politics_social_welfare boolean
+---@field [31] boolean
+
+---@class identity.knowledge_scholar_flags_0: DFBitfieldType
+---@field philosophy_logic_formal_reasoning 0 bay12: SK_PHILOSOPHY_FLAG_*
+---@field [0] "philosophy_logic_formal_reasoning" bay12: SK_PHILOSOPHY_FLAG_*
+---@field philosophy_logic_deductive_reasoning 1
+---@field [1] "philosophy_logic_deductive_reasoning"
+---@field philosophy_logic_syllogistic_logic 2
+---@field [2] "philosophy_logic_syllogistic_logic"
+---@field philosophy_logic_hypothetical_syllogisms 3
+---@field [3] "philosophy_logic_hypothetical_syllogisms"
+---@field philosophy_logic_propositional_logic 4
+---@field [4] "philosophy_logic_propositional_logic"
+---@field philosophy_logic_dialectic_reasoning 5
+---@field [5] "philosophy_logic_dialectic_reasoning"
+---@field philosophy_logic_analogical_inference 6
+---@field [6] "philosophy_logic_analogical_inference"
+---@field philosophy_ethics_applied_medical 7
+---@field [7] "philosophy_ethics_applied_medical"
+---@field philosophy_ethics_individual_value 8
+---@field [8] "philosophy_ethics_individual_value"
+---@field philosophy_ethics_state_consequentialism 9
+---@field [9] "philosophy_ethics_state_consequentialism"
+---@field philosophy_epistemology_truth 10
+---@field [10] "philosophy_epistemology_truth"
+---@field philosophy_epistemology_perception 11
+---@field [11] "philosophy_epistemology_perception"
+---@field philosophy_epistemology_justification 12
+---@field [12] "philosophy_epistemology_justification"
+---@field philosophy_epistemology_belief 13
+---@field [13] "philosophy_epistemology_belief"
+---@field philosophy_metaphysics_existence 14
+---@field [14] "philosophy_metaphysics_existence"
+---@field philosophy_metaphysics_time 15
+---@field [15] "philosophy_metaphysics_time"
+---@field philosophy_metaphysics_mind_body 16
+---@field [16] "philosophy_metaphysics_mind_body"
+---@field philosophy_metaphysics_objects_and_properties 17
+---@field [17] "philosophy_metaphysics_objects_and_properties"
+---@field philosophy_metaphysics_wholes_and_parts 18
+---@field [18] "philosophy_metaphysics_wholes_and_parts"
+---@field philosophy_metaphysics_events 19
+---@field [19] "philosophy_metaphysics_events"
+---@field philosophy_metaphysics_processes 20
+---@field [20] "philosophy_metaphysics_processes"
+---@field philosophy_metaphysics_causation 21
+---@field [21] "philosophy_metaphysics_causation"
+---@field philosophy_ethics_applied_military 22
+---@field [22] "philosophy_ethics_applied_military"
+---@field philosophy_ethics_applied_interpersonal_conduct 23
+---@field [23] "philosophy_ethics_applied_interpersonal_conduct"
+---@field philosophy_specialized_law 24
+---@field [24] "philosophy_specialized_law"
+---@field philosophy_specialized_education 25
+---@field [25] "philosophy_specialized_education"
+---@field philosophy_specialized_language_grammar 26
+---@field [26] "philosophy_specialized_language_grammar"
+---@field philosophy_specialized_language_etymology 27
+---@field [27] "philosophy_specialized_language_etymology"
+---@field philosophy_specialized_politics_diplomacy 28
+---@field [28] "philosophy_specialized_politics_diplomacy"
+---@field philosophy_specialized_politics_government_forms 29
+---@field [29] "philosophy_specialized_politics_government_forms"
+---@field philosophy_specialized_politics_economic_policy 30
+---@field [30] "philosophy_specialized_politics_economic_policy"
+---@field philosophy_specialized_politics_social_welfare 31
+---@field [31] "philosophy_specialized_politics_social_welfare"
+df.knowledge_scholar_flags_0 = {}
+
+---@class df.knowledge_scholar_flags_1: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_1
+---@field philosophy_logic_inductive_reasoning boolean bay12: SK_PHILOSOPHY_FLAG2_*
+---@field [0] boolean bay12: SK_PHILOSOPHY_FLAG2_*
+---@field philosophy_logic_direct_inference boolean
+---@field [1] boolean
+---@field philosophy_aesthetics_nature_of_beauty boolean
+---@field [2] boolean
+---@field philosophy_aesthetics_value_of_art boolean
+---@field [3] boolean
+---@field philosophy_specialized_language_dictionary boolean
+---@field [4] boolean
+
+---@class identity.knowledge_scholar_flags_1: DFBitfieldType
+---@field philosophy_logic_inductive_reasoning 0 bay12: SK_PHILOSOPHY_FLAG2_*
+---@field [0] "philosophy_logic_inductive_reasoning" bay12: SK_PHILOSOPHY_FLAG2_*
+---@field philosophy_logic_direct_inference 1
+---@field [1] "philosophy_logic_direct_inference"
+---@field philosophy_aesthetics_nature_of_beauty 2
+---@field [2] "philosophy_aesthetics_nature_of_beauty"
+---@field philosophy_aesthetics_value_of_art 3
+---@field [3] "philosophy_aesthetics_value_of_art"
+---@field philosophy_specialized_language_dictionary 4
+---@field [4] "philosophy_specialized_language_dictionary"
+df.knowledge_scholar_flags_1 = {}
+
+---@class df.knowledge_scholar_flags_2: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_2
+---@field mathematics_method_proof_by_contradiction boolean bay12: SK_MATHEMATICS_FLAG_*
+---@field [0] boolean bay12: SK_MATHEMATICS_FLAG_*
+---@field mathematics_notation_zero boolean
+---@field [1] boolean
+---@field mathematics_notation_negative_numbers boolean
+---@field [2] boolean
+---@field mathematics_notation_large_numbers boolean
+---@field [3] boolean
+---@field mathematics_notation_positional boolean
+---@field [4] boolean
+---@field mathematics_geometry_basic_objects boolean
+---@field [5] boolean
+---@field mathematics_method_exhaustion boolean
+---@field [6] boolean
+---@field mathematics_geometry_similar_and_congruent_triangles boolean
+---@field [7] boolean
+---@field mathematics_geometry_geometric_mean_theorem boolean
+---@field [8] boolean
+---@field mathematics_geometry_isosceles_base_angles_equal boolean
+---@field [9] boolean
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right boolean
+---@field [10] boolean
+---@field mathematics_geometry_pythagorean_theorem boolean
+---@field [11] boolean
+---@field mathematics_geometry_pythagorean_triples_small boolean
+---@field [12] boolean
+---@field mathematics_geometry_pythagorean_triples_3_digit boolean
+---@field [13] boolean
+---@field mathematics_geometry_pythagorean_triples_4_digit boolean
+---@field [14] boolean
+---@field mathematics_geometry_existence_of_incommensurable_ratios boolean
+---@field [15] boolean
+---@field mathematics_method_axiomatic_reasoning boolean
+---@field [16] boolean
+---@field mathematics_numbers_unique_prime_factorization boolean
+---@field [17] boolean
+---@field mathematics_numbers_algorithm_for_computing_gcd boolean
+---@field [18] boolean
+---@field mathematics_geometry_volume_of_pyramid boolean
+---@field [19] boolean
+---@field mathematics_geometry_volume_of_cone boolean
+---@field [20] boolean
+---@field mathematics_geometry_volume_of_sphere boolean
+---@field [21] boolean
+---@field mathematics_geometry_pi_to_4_digits boolean
+---@field [22] boolean
+---@field mathematics_numbers_division_algorithm boolean
+---@field [23] boolean
+---@field mathematics_geometry_table_of_chord_values boolean
+---@field [24] boolean
+---@field mathematics_geometry_area_of_triangle_from_side_lengths boolean
+---@field [25] boolean
+---@field mathematics_geometry_area_of_circle boolean
+---@field [26] boolean
+---@field mathematics_geometry_pi_to_6_digits boolean
+---@field [27] boolean
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections boolean
+---@field [28] boolean
+---@field mathematics_numbers_chinese_remainder_algorithm boolean
+---@field [29] boolean
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola boolean
+---@field [30] boolean
+---@field mathematics_numbers_sieve_algorithm_for_primes boolean
+---@field [31] boolean
+
+---@class identity.knowledge_scholar_flags_2: DFBitfieldType
+---@field mathematics_method_proof_by_contradiction 0 bay12: SK_MATHEMATICS_FLAG_*
+---@field [0] "mathematics_method_proof_by_contradiction" bay12: SK_MATHEMATICS_FLAG_*
+---@field mathematics_notation_zero 1
+---@field [1] "mathematics_notation_zero"
+---@field mathematics_notation_negative_numbers 2
+---@field [2] "mathematics_notation_negative_numbers"
+---@field mathematics_notation_large_numbers 3
+---@field [3] "mathematics_notation_large_numbers"
+---@field mathematics_notation_positional 4
+---@field [4] "mathematics_notation_positional"
+---@field mathematics_geometry_basic_objects 5
+---@field [5] "mathematics_geometry_basic_objects"
+---@field mathematics_method_exhaustion 6
+---@field [6] "mathematics_method_exhaustion"
+---@field mathematics_geometry_similar_and_congruent_triangles 7
+---@field [7] "mathematics_geometry_similar_and_congruent_triangles"
+---@field mathematics_geometry_geometric_mean_theorem 8
+---@field [8] "mathematics_geometry_geometric_mean_theorem"
+---@field mathematics_geometry_isosceles_base_angles_equal 9
+---@field [9] "mathematics_geometry_isosceles_base_angles_equal"
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right 10
+---@field [10] "mathematics_geometry_inscribed_triangle_on_diameter_is_right"
+---@field mathematics_geometry_pythagorean_theorem 11
+---@field [11] "mathematics_geometry_pythagorean_theorem"
+---@field mathematics_geometry_pythagorean_triples_small 12
+---@field [12] "mathematics_geometry_pythagorean_triples_small"
+---@field mathematics_geometry_pythagorean_triples_3_digit 13
+---@field [13] "mathematics_geometry_pythagorean_triples_3_digit"
+---@field mathematics_geometry_pythagorean_triples_4_digit 14
+---@field [14] "mathematics_geometry_pythagorean_triples_4_digit"
+---@field mathematics_geometry_existence_of_incommensurable_ratios 15
+---@field [15] "mathematics_geometry_existence_of_incommensurable_ratios"
+---@field mathematics_method_axiomatic_reasoning 16
+---@field [16] "mathematics_method_axiomatic_reasoning"
+---@field mathematics_numbers_unique_prime_factorization 17
+---@field [17] "mathematics_numbers_unique_prime_factorization"
+---@field mathematics_numbers_algorithm_for_computing_gcd 18
+---@field [18] "mathematics_numbers_algorithm_for_computing_gcd"
+---@field mathematics_geometry_volume_of_pyramid 19
+---@field [19] "mathematics_geometry_volume_of_pyramid"
+---@field mathematics_geometry_volume_of_cone 20
+---@field [20] "mathematics_geometry_volume_of_cone"
+---@field mathematics_geometry_volume_of_sphere 21
+---@field [21] "mathematics_geometry_volume_of_sphere"
+---@field mathematics_geometry_pi_to_4_digits 22
+---@field [22] "mathematics_geometry_pi_to_4_digits"
+---@field mathematics_numbers_division_algorithm 23
+---@field [23] "mathematics_numbers_division_algorithm"
+---@field mathematics_geometry_table_of_chord_values 24
+---@field [24] "mathematics_geometry_table_of_chord_values"
+---@field mathematics_geometry_area_of_triangle_from_side_lengths 25
+---@field [25] "mathematics_geometry_area_of_triangle_from_side_lengths"
+---@field mathematics_geometry_area_of_circle 26
+---@field [26] "mathematics_geometry_area_of_circle"
+---@field mathematics_geometry_pi_to_6_digits 27
+---@field [27] "mathematics_geometry_pi_to_6_digits"
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections 28
+---@field [28] "mathematics_geometry_definitions_and_basic_properties_of_conic_sections"
+---@field mathematics_numbers_chinese_remainder_algorithm 29
+---@field [29] "mathematics_numbers_chinese_remainder_algorithm"
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola 30
+---@field [30] "mathematics_geometry_area_enclosed_by_line_and_parabola"
+---@field mathematics_numbers_sieve_algorithm_for_primes 31
+---@field [31] "mathematics_numbers_sieve_algorithm_for_primes"
+df.knowledge_scholar_flags_2 = {}
+
+---@class df.knowledge_scholar_flags_3: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_3
+---@field mathematics_numbers_root_2_to_5_digits boolean bay12: SK_MATHEMATICS_FLAG2_*
+---@field [0] boolean bay12: SK_MATHEMATICS_FLAG2_*
+---@field mathematics_numbers_infinite_primes boolean
+---@field [1] boolean
+---@field mathematics_numbers_root_2_irrational boolean
+---@field [2] boolean
+---@field mathematics_geometry_surface_area_of_sphere boolean
+---@field [3] boolean
+---@field mathematics_algebra_finite_summation_formulas boolean
+---@field [4] boolean
+---@field mathematics_algebra_solving_linear_systems boolean
+---@field [5] boolean
+---@field mathematics_algebra_balancing_and_completion boolean
+---@field [6] boolean
+---@field mathematics_algebra_quadratic_by_completing_square boolean
+---@field [7] boolean
+---@field mathematics_algebra_quadratic_formula boolean
+---@field [8] boolean
+---@field mathematics_notation_syncopated_algebra boolean
+---@field [9] boolean
+---@field mathematics_geometry_law_of_sines boolean
+---@field [10] boolean
+---@field mathematics_geometry_angle_sum_difference_trig_identities boolean
+---@field [11] boolean
+---@field mathematics_algebra_pascals_triangle boolean
+---@field [12] boolean
+---@field mathematics_algebra_solving_higher_order_polynomials boolean
+---@field [13] boolean
+---@field mathematics_notation_early_symbols_for_operations boolean
+---@field [14] boolean
+---@field mathematics_algebra_divergence_of_harmonic_series boolean
+---@field [15] boolean
+---@field mathematics_geometry_properties_of_chords boolean
+---@field [16] boolean
+
+---@class identity.knowledge_scholar_flags_3: DFBitfieldType
+---@field mathematics_numbers_root_2_to_5_digits 0 bay12: SK_MATHEMATICS_FLAG2_*
+---@field [0] "mathematics_numbers_root_2_to_5_digits" bay12: SK_MATHEMATICS_FLAG2_*
+---@field mathematics_numbers_infinite_primes 1
+---@field [1] "mathematics_numbers_infinite_primes"
+---@field mathematics_numbers_root_2_irrational 2
+---@field [2] "mathematics_numbers_root_2_irrational"
+---@field mathematics_geometry_surface_area_of_sphere 3
+---@field [3] "mathematics_geometry_surface_area_of_sphere"
+---@field mathematics_algebra_finite_summation_formulas 4
+---@field [4] "mathematics_algebra_finite_summation_formulas"
+---@field mathematics_algebra_solving_linear_systems 5
+---@field [5] "mathematics_algebra_solving_linear_systems"
+---@field mathematics_algebra_balancing_and_completion 6
+---@field [6] "mathematics_algebra_balancing_and_completion"
+---@field mathematics_algebra_quadratic_by_completing_square 7
+---@field [7] "mathematics_algebra_quadratic_by_completing_square"
+---@field mathematics_algebra_quadratic_formula 8
+---@field [8] "mathematics_algebra_quadratic_formula"
+---@field mathematics_notation_syncopated_algebra 9
+---@field [9] "mathematics_notation_syncopated_algebra"
+---@field mathematics_geometry_law_of_sines 10
+---@field [10] "mathematics_geometry_law_of_sines"
+---@field mathematics_geometry_angle_sum_difference_trig_identities 11
+---@field [11] "mathematics_geometry_angle_sum_difference_trig_identities"
+---@field mathematics_algebra_pascals_triangle 12
+---@field [12] "mathematics_algebra_pascals_triangle"
+---@field mathematics_algebra_solving_higher_order_polynomials 13
+---@field [13] "mathematics_algebra_solving_higher_order_polynomials"
+---@field mathematics_notation_early_symbols_for_operations 14
+---@field [14] "mathematics_notation_early_symbols_for_operations"
+---@field mathematics_algebra_divergence_of_harmonic_series 15
+---@field [15] "mathematics_algebra_divergence_of_harmonic_series"
+---@field mathematics_geometry_properties_of_chords 16
+---@field [16] "mathematics_geometry_properties_of_chords"
+df.knowledge_scholar_flags_3 = {}
+
+---@class df.knowledge_scholar_flags_4: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_4
+---@field history_sourcing_basic_reliability boolean bay12: SK_HISTORY_FLAG_*
+---@field [0] boolean bay12: SK_HISTORY_FLAG_*
+---@field history_sourcing_role_of_systemic_bias boolean
+---@field [1] boolean
+---@field history_sourcing_role_of_state_bias_and_propaganda boolean
+---@field [2] boolean
+---@field history_sourcing_personal_interviews boolean
+---@field [3] boolean
+---@field history_theory_historical_causation boolean
+---@field [4] boolean
+---@field history_theory_historical_cycles boolean
+---@field [5] boolean
+---@field history_theory_social_cohesion boolean
+---@field [6] boolean
+---@field history_theory_social_conflict boolean
+---@field [7] boolean
+---@field history_form_biography boolean
+---@field [8] boolean
+---@field history_form_comparative_biography boolean
+---@field [9] boolean
+---@field history_form_biographical_dictionaries boolean
+---@field [10] boolean
+---@field history_form_autobiographical_adventure boolean
+---@field [11] boolean
+---@field history_form_genealogy boolean
+---@field [12] boolean
+---@field history_form_encyclopedia boolean
+---@field [13] boolean
+---@field history_form_cultural_history boolean
+---@field [14] boolean
+---@field history_form_cultural_comparison boolean
+---@field [15] boolean
+---@field history_sourcing_role_of_cultural_differences boolean
+---@field [16] boolean
+---@field history_form_alternate_history boolean
+---@field [17] boolean
+---@field history_sourcing_basic_archaeology boolean
+---@field [18] boolean
+---@field history_form_treatise_on_tech_evolution boolean
+---@field [19] boolean
+
+---@class identity.knowledge_scholar_flags_4: DFBitfieldType
+---@field history_sourcing_basic_reliability 0 bay12: SK_HISTORY_FLAG_*
+---@field [0] "history_sourcing_basic_reliability" bay12: SK_HISTORY_FLAG_*
+---@field history_sourcing_role_of_systemic_bias 1
+---@field [1] "history_sourcing_role_of_systemic_bias"
+---@field history_sourcing_role_of_state_bias_and_propaganda 2
+---@field [2] "history_sourcing_role_of_state_bias_and_propaganda"
+---@field history_sourcing_personal_interviews 3
+---@field [3] "history_sourcing_personal_interviews"
+---@field history_theory_historical_causation 4
+---@field [4] "history_theory_historical_causation"
+---@field history_theory_historical_cycles 5
+---@field [5] "history_theory_historical_cycles"
+---@field history_theory_social_cohesion 6
+---@field [6] "history_theory_social_cohesion"
+---@field history_theory_social_conflict 7
+---@field [7] "history_theory_social_conflict"
+---@field history_form_biography 8
+---@field [8] "history_form_biography"
+---@field history_form_comparative_biography 9
+---@field [9] "history_form_comparative_biography"
+---@field history_form_biographical_dictionaries 10
+---@field [10] "history_form_biographical_dictionaries"
+---@field history_form_autobiographical_adventure 11
+---@field [11] "history_form_autobiographical_adventure"
+---@field history_form_genealogy 12
+---@field [12] "history_form_genealogy"
+---@field history_form_encyclopedia 13
+---@field [13] "history_form_encyclopedia"
+---@field history_form_cultural_history 14
+---@field [14] "history_form_cultural_history"
+---@field history_form_cultural_comparison 15
+---@field [15] "history_form_cultural_comparison"
+---@field history_sourcing_role_of_cultural_differences 16
+---@field [16] "history_sourcing_role_of_cultural_differences"
+---@field history_form_alternate_history 17
+---@field [17] "history_form_alternate_history"
+---@field history_sourcing_basic_archaeology 18
+---@field [18] "history_sourcing_basic_archaeology"
+---@field history_form_treatise_on_tech_evolution 19
+---@field [19] "history_form_treatise_on_tech_evolution"
+df.knowledge_scholar_flags_4 = {}
+
+---@class df.knowledge_scholar_flags_5: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_5
+---@field astronomy_phases_of_the_moon boolean bay12: SK_ASTRONOMY_FLAG_*
+---@field [0] boolean bay12: SK_ASTRONOMY_FLAG_*
+---@field astronomy_summer_winter_moon boolean
+---@field [1] boolean
+---@field astronomy_path_of_the_moon boolean
+---@field [2] boolean
+---@field astronomy_tides_and_the_moon boolean
+---@field [3] boolean
+---@field astronomy_height_of_tides_vs_moon_and_sun boolean
+---@field [4] boolean
+---@field astronomy_summer_winter_sun boolean
+---@field [5] boolean
+---@field astronomy_relationship_between_lunar_solar_year boolean
+---@field [6] boolean
+---@field astronomy_daylight_variation_with_solar_year boolean
+---@field [7] boolean
+---@field astronomy_geocentric_model boolean
+---@field [8] boolean
+---@field astronomy_heliocentric_model boolean
+---@field [9] boolean
+---@field astronomy_dates_of_lunar_and_solar_eclipses boolean
+---@field [10] boolean
+---@field astronomy_star_charts boolean
+---@field [11] boolean
+---@field astronomy_star_catalogues_100 boolean
+---@field [12] boolean
+---@field astronomy_star_catalogues_1000 boolean
+---@field [13] boolean
+---@field astronomy_star_color_classification boolean
+---@field [14] boolean
+---@field astronomy_star_magnitude_classification boolean
+---@field [15] boolean
+---@field astronomy_shape_of_the_world boolean
+---@field [16] boolean
+---@field astronomy_precession_of_equinoxes boolean
+---@field [17] boolean
+---@field astronomy_method_empirical_observation boolean
+---@field [18] boolean
+---@field astronomy_method_path_models boolean
+---@field [19] boolean
+
+---@class identity.knowledge_scholar_flags_5: DFBitfieldType
+---@field astronomy_phases_of_the_moon 0 bay12: SK_ASTRONOMY_FLAG_*
+---@field [0] "astronomy_phases_of_the_moon" bay12: SK_ASTRONOMY_FLAG_*
+---@field astronomy_summer_winter_moon 1
+---@field [1] "astronomy_summer_winter_moon"
+---@field astronomy_path_of_the_moon 2
+---@field [2] "astronomy_path_of_the_moon"
+---@field astronomy_tides_and_the_moon 3
+---@field [3] "astronomy_tides_and_the_moon"
+---@field astronomy_height_of_tides_vs_moon_and_sun 4
+---@field [4] "astronomy_height_of_tides_vs_moon_and_sun"
+---@field astronomy_summer_winter_sun 5
+---@field [5] "astronomy_summer_winter_sun"
+---@field astronomy_relationship_between_lunar_solar_year 6
+---@field [6] "astronomy_relationship_between_lunar_solar_year"
+---@field astronomy_daylight_variation_with_solar_year 7
+---@field [7] "astronomy_daylight_variation_with_solar_year"
+---@field astronomy_geocentric_model 8
+---@field [8] "astronomy_geocentric_model"
+---@field astronomy_heliocentric_model 9
+---@field [9] "astronomy_heliocentric_model"
+---@field astronomy_dates_of_lunar_and_solar_eclipses 10
+---@field [10] "astronomy_dates_of_lunar_and_solar_eclipses"
+---@field astronomy_star_charts 11
+---@field [11] "astronomy_star_charts"
+---@field astronomy_star_catalogues_100 12
+---@field [12] "astronomy_star_catalogues_100"
+---@field astronomy_star_catalogues_1000 13
+---@field [13] "astronomy_star_catalogues_1000"
+---@field astronomy_star_color_classification 14
+---@field [14] "astronomy_star_color_classification"
+---@field astronomy_star_magnitude_classification 15
+---@field [15] "astronomy_star_magnitude_classification"
+---@field astronomy_shape_of_the_world 16
+---@field [16] "astronomy_shape_of_the_world"
+---@field astronomy_precession_of_equinoxes 17
+---@field [17] "astronomy_precession_of_equinoxes"
+---@field astronomy_method_empirical_observation 18
+---@field [18] "astronomy_method_empirical_observation"
+---@field astronomy_method_path_models 19
+---@field [19] "astronomy_method_path_models"
+df.knowledge_scholar_flags_5 = {}
+
+---@class df.knowledge_scholar_flags_6: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_6
+---@field naturalist_method_dissection boolean bay12: SK_NATURALIST_FLAG_*
+---@field [0] boolean bay12: SK_NATURALIST_FLAG_*
+---@field naturalist_observation_anatomy boolean
+---@field [1] boolean
+---@field naturalist_theory_comparative_anatomy boolean
+---@field [2] boolean
+---@field naturalist_theory_classification_by_physical_features boolean
+---@field [3] boolean
+---@field naturalist_observation_migration_patterns boolean
+---@field [4] boolean
+---@field naturalist_observation_reproductive_behavior boolean
+---@field [5] boolean
+---@field naturalist_observation_foraging_behavior_and_diet boolean
+---@field [6] boolean
+---@field naturalist_theory_food_chain boolean
+---@field [7] boolean
+---@field naturalist_observation_social_behavior boolean
+---@field [8] boolean
+---@field naturalist_observation_diseases boolean
+---@field [9] boolean
+---@field naturalist_theory_climactic_adaptation boolean
+---@field [10] boolean
+---@field naturalist_observation_embriological_development boolean
+---@field [11] boolean
+---@field naturalist_theory_struggle_for_existence boolean
+---@field [12] boolean
+
+---@class identity.knowledge_scholar_flags_6: DFBitfieldType
+---@field naturalist_method_dissection 0 bay12: SK_NATURALIST_FLAG_*
+---@field [0] "naturalist_method_dissection" bay12: SK_NATURALIST_FLAG_*
+---@field naturalist_observation_anatomy 1
+---@field [1] "naturalist_observation_anatomy"
+---@field naturalist_theory_comparative_anatomy 2
+---@field [2] "naturalist_theory_comparative_anatomy"
+---@field naturalist_theory_classification_by_physical_features 3
+---@field [3] "naturalist_theory_classification_by_physical_features"
+---@field naturalist_observation_migration_patterns 4
+---@field [4] "naturalist_observation_migration_patterns"
+---@field naturalist_observation_reproductive_behavior 5
+---@field [5] "naturalist_observation_reproductive_behavior"
+---@field naturalist_observation_foraging_behavior_and_diet 6
+---@field [6] "naturalist_observation_foraging_behavior_and_diet"
+---@field naturalist_theory_food_chain 7
+---@field [7] "naturalist_theory_food_chain"
+---@field naturalist_observation_social_behavior 8
+---@field [8] "naturalist_observation_social_behavior"
+---@field naturalist_observation_diseases 9
+---@field [9] "naturalist_observation_diseases"
+---@field naturalist_theory_climactic_adaptation 10
+---@field [10] "naturalist_theory_climactic_adaptation"
+---@field naturalist_observation_embriological_development 11
+---@field [11] "naturalist_observation_embriological_development"
+---@field naturalist_theory_struggle_for_existence 12
+---@field [12] "naturalist_theory_struggle_for_existence"
+df.knowledge_scholar_flags_6 = {}
+
+---@class df.knowledge_scholar_flags_7: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_7
+---@field chemistry_classification_combustibles boolean bay12: SK_CHEMISTRY_FLAG_*
+---@field [0] boolean bay12: SK_CHEMISTRY_FLAG_*
+---@field chemistry_classification_ores boolean
+---@field [1] boolean
+---@field chemistry_metallurgy_alloys boolean
+---@field [2] boolean
+---@field chemistry_classification_scratch_test boolean
+---@field [3] boolean
+---@field chemistry_classification_elemental_theory boolean
+---@field [4] boolean
+---@field chemistry_chemicals_adhesives boolean
+---@field [5] boolean
+---@field chemistry_laboratory_blast_furnace boolean
+---@field [6] boolean
+---@field chemistry_laboratory_alembic boolean
+---@field [7] boolean
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction boolean
+---@field [8] boolean
+---@field chemistry_laboratory_theory_of_distillation boolean
+---@field [9] boolean
+---@field chemistry_laboratory_theory_of_evaporation boolean
+---@field [10] boolean
+---@field chemistry_classification_alkali_and_acids boolean
+---@field [11] boolean
+---@field chemistry_laboratory_systematic_experiments boolean
+---@field [12] boolean
+---@field chemistry_laboratory_glass_flask boolean
+---@field [13] boolean
+---@field chemistry_laboratory_glass_beaker boolean
+---@field [14] boolean
+---@field chemistry_laboratory_glass_vial boolean
+---@field [15] boolean
+---@field chemistry_laboratory_glass_funnel boolean
+---@field [16] boolean
+---@field chemistry_laboratory_crucible boolean
+---@field [17] boolean
+---@field chemistry_chemicals_nitric_acid boolean
+---@field [18] boolean
+---@field chemistry_chemicals_sulfuric_acid boolean
+---@field [19] boolean
+---@field chemistry_chemicals_aqua_regia boolean
+---@field [20] boolean
+---@field chemistry_laboratory_glass_ampoule boolean
+---@field [21] boolean
+---@field chemistry_laboratory_glass_retort boolean
+---@field [22] boolean
+---@field chemistry_laboratory_lab_ovens boolean
+---@field [23] boolean
+
+---@class identity.knowledge_scholar_flags_7: DFBitfieldType
+---@field chemistry_classification_combustibles 0 bay12: SK_CHEMISTRY_FLAG_*
+---@field [0] "chemistry_classification_combustibles" bay12: SK_CHEMISTRY_FLAG_*
+---@field chemistry_classification_ores 1
+---@field [1] "chemistry_classification_ores"
+---@field chemistry_metallurgy_alloys 2
+---@field [2] "chemistry_metallurgy_alloys"
+---@field chemistry_classification_scratch_test 3
+---@field [3] "chemistry_classification_scratch_test"
+---@field chemistry_classification_elemental_theory 4
+---@field [4] "chemistry_classification_elemental_theory"
+---@field chemistry_chemicals_adhesives 5
+---@field [5] "chemistry_chemicals_adhesives"
+---@field chemistry_laboratory_blast_furnace 6
+---@field [6] "chemistry_laboratory_blast_furnace"
+---@field chemistry_laboratory_alembic 7
+---@field [7] "chemistry_laboratory_alembic"
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction 8
+---@field [8] "chemistry_laboratory_theory_of_liquid_liquid_extraction"
+---@field chemistry_laboratory_theory_of_distillation 9
+---@field [9] "chemistry_laboratory_theory_of_distillation"
+---@field chemistry_laboratory_theory_of_evaporation 10
+---@field [10] "chemistry_laboratory_theory_of_evaporation"
+---@field chemistry_classification_alkali_and_acids 11
+---@field [11] "chemistry_classification_alkali_and_acids"
+---@field chemistry_laboratory_systematic_experiments 12
+---@field [12] "chemistry_laboratory_systematic_experiments"
+---@field chemistry_laboratory_glass_flask 13
+---@field [13] "chemistry_laboratory_glass_flask"
+---@field chemistry_laboratory_glass_beaker 14
+---@field [14] "chemistry_laboratory_glass_beaker"
+---@field chemistry_laboratory_glass_vial 15
+---@field [15] "chemistry_laboratory_glass_vial"
+---@field chemistry_laboratory_glass_funnel 16
+---@field [16] "chemistry_laboratory_glass_funnel"
+---@field chemistry_laboratory_crucible 17
+---@field [17] "chemistry_laboratory_crucible"
+---@field chemistry_chemicals_nitric_acid 18
+---@field [18] "chemistry_chemicals_nitric_acid"
+---@field chemistry_chemicals_sulfuric_acid 19
+---@field [19] "chemistry_chemicals_sulfuric_acid"
+---@field chemistry_chemicals_aqua_regia 20
+---@field [20] "chemistry_chemicals_aqua_regia"
+---@field chemistry_laboratory_glass_ampoule 21
+---@field [21] "chemistry_laboratory_glass_ampoule"
+---@field chemistry_laboratory_glass_retort 22
+---@field [22] "chemistry_laboratory_glass_retort"
+---@field chemistry_laboratory_lab_ovens 23
+---@field [23] "chemistry_laboratory_lab_ovens"
+df.knowledge_scholar_flags_7 = {}
+
+---@class df.knowledge_scholar_flags_8: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_8
+---@field geography_surveying_basic boolean bay12: SK_GEOGRAPHY_FLAG_*
+---@field [0] boolean bay12: SK_GEOGRAPHY_FLAG_*
+---@field geography_surveying_staff boolean
+---@field [1] boolean
+---@field geography_cartography_basic boolean
+---@field [2] boolean
+---@field geography_surveying_triangulation boolean
+---@field [3] boolean
+---@field geography_surveying_cartographical boolean
+---@field [4] boolean
+---@field geography_surveying_land boolean
+---@field [5] boolean
+---@field geography_surveying_military boolean
+---@field [6] boolean
+---@field geography_surveying_engineering boolean
+---@field [7] boolean
+---@field geography_cartography_geological boolean
+---@field [8] boolean
+---@field geography_cartography_grid_system boolean
+---@field [9] boolean
+---@field geography_cartography_distance_scale boolean
+---@field [10] boolean
+---@field geography_cartography_height_measurements boolean
+---@field [11] boolean
+---@field geography_method_economic_data_collection boolean
+---@field [12] boolean
+---@field geography_cartography_economic boolean
+---@field [13] boolean
+---@field geography_form_atlas boolean
+---@field [14] boolean
+---@field geography_theory_delta_formation boolean
+---@field [15] boolean
+---@field geography_theory_wind_patterns boolean
+---@field [16] boolean
+---@field geography_theory_origin_of_rainfall_from_evap_condense boolean
+---@field [17] boolean
+---@field geography_theory_water_cycle boolean
+---@field [18] boolean
+---@field geography_theory_latitude_climate_zones boolean
+---@field [19] boolean
+---@field geography_cartography_accurate_maps boolean
+---@field [20] boolean
+---@field geography_cartography_map_projections boolean
+---@field [21] boolean
+
+---@class identity.knowledge_scholar_flags_8: DFBitfieldType
+---@field geography_surveying_basic 0 bay12: SK_GEOGRAPHY_FLAG_*
+---@field [0] "geography_surveying_basic" bay12: SK_GEOGRAPHY_FLAG_*
+---@field geography_surveying_staff 1
+---@field [1] "geography_surveying_staff"
+---@field geography_cartography_basic 2
+---@field [2] "geography_cartography_basic"
+---@field geography_surveying_triangulation 3
+---@field [3] "geography_surveying_triangulation"
+---@field geography_surveying_cartographical 4
+---@field [4] "geography_surveying_cartographical"
+---@field geography_surveying_land 5
+---@field [5] "geography_surveying_land"
+---@field geography_surveying_military 6
+---@field [6] "geography_surveying_military"
+---@field geography_surveying_engineering 7
+---@field [7] "geography_surveying_engineering"
+---@field geography_cartography_geological 8
+---@field [8] "geography_cartography_geological"
+---@field geography_cartography_grid_system 9
+---@field [9] "geography_cartography_grid_system"
+---@field geography_cartography_distance_scale 10
+---@field [10] "geography_cartography_distance_scale"
+---@field geography_cartography_height_measurements 11
+---@field [11] "geography_cartography_height_measurements"
+---@field geography_method_economic_data_collection 12
+---@field [12] "geography_method_economic_data_collection"
+---@field geography_cartography_economic 13
+---@field [13] "geography_cartography_economic"
+---@field geography_form_atlas 14
+---@field [14] "geography_form_atlas"
+---@field geography_theory_delta_formation 15
+---@field [15] "geography_theory_delta_formation"
+---@field geography_theory_wind_patterns 16
+---@field [16] "geography_theory_wind_patterns"
+---@field geography_theory_origin_of_rainfall_from_evap_condense 17
+---@field [17] "geography_theory_origin_of_rainfall_from_evap_condense"
+---@field geography_theory_water_cycle 18
+---@field [18] "geography_theory_water_cycle"
+---@field geography_theory_latitude_climate_zones 19
+---@field [19] "geography_theory_latitude_climate_zones"
+---@field geography_cartography_accurate_maps 20
+---@field [20] "geography_cartography_accurate_maps"
+---@field geography_cartography_map_projections 21
+---@field [21] "geography_cartography_map_projections"
+df.knowledge_scholar_flags_8 = {}
+
+---@class df.knowledge_scholar_flags_9: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_9
+---@field medicine_theory_disease_and_fouled_water boolean bay12: SK_MEDICINE_FLAG_*
+---@field [0] boolean bay12: SK_MEDICINE_FLAG_*
+---@field medicine_method_physical_examination boolean
+---@field [1] boolean
+---@field medicine_method_autopsy boolean
+---@field [2] boolean
+---@field medicine_theory_prognosis boolean
+---@field [3] boolean
+---@field medicine_tool_herbal_remedies boolean
+---@field [4] boolean
+---@field medicine_tool_animal_remedies boolean
+---@field [5] boolean
+---@field medicine_tool_mineral_remedies boolean
+---@field [6] boolean
+---@field medicine_tool_bandages boolean
+---@field [7] boolean
+---@field medicine_theory_disease_classification boolean
+---@field [8] boolean
+---@field medicine_theory_toxicology boolean
+---@field [9] boolean
+---@field medicine_theory_acute_and_chronic_conditions boolean
+---@field [10] boolean
+---@field medicine_theory_endemic_disease boolean
+---@field [11] boolean
+---@field medicine_theory_epidemic_disease boolean
+---@field [12] boolean
+---@field medicine_theory_exacerbation boolean
+---@field [13] boolean
+---@field medicine_theory_paroxysm boolean
+---@field [14] boolean
+---@field medicine_theory_relapse boolean
+---@field [15] boolean
+---@field medicine_theory_convalescence boolean
+---@field [16] boolean
+---@field medicine_method_treatment_of_traumatic_injuries boolean
+---@field [17] boolean
+---@field medicine_method_fracture_treatment boolean
+---@field [18] boolean
+---@field medicine_theory_fracture_classification boolean
+---@field [19] boolean
+---@field medicine_tool_traction_bench boolean
+---@field [20] boolean
+---@field medicine_method_fracture_immobilization boolean
+---@field [21] boolean
+---@field medicine_tool_orthopedic_cast boolean
+---@field [22] boolean
+---@field medicine_method_surgery_excision boolean
+---@field [23] boolean
+---@field medicine_method_surgery_incision boolean
+---@field [24] boolean
+---@field medicine_method_hernia_surgery boolean
+---@field [25] boolean
+---@field medicine_method_tracheotomy_surgery boolean
+---@field [26] boolean
+---@field medicine_method_lithotomy_surgery boolean
+---@field [27] boolean
+---@field medicine_method_surgery_scraping boolean
+---@field [28] boolean
+---@field medicine_method_surgery_draining boolean
+---@field [29] boolean
+---@field medicine_method_surgery_probing boolean
+---@field [30] boolean
+---@field medicine_method_surgery_suturing boolean
+---@field [31] boolean
+
+---@class identity.knowledge_scholar_flags_9: DFBitfieldType
+---@field medicine_theory_disease_and_fouled_water 0 bay12: SK_MEDICINE_FLAG_*
+---@field [0] "medicine_theory_disease_and_fouled_water" bay12: SK_MEDICINE_FLAG_*
+---@field medicine_method_physical_examination 1
+---@field [1] "medicine_method_physical_examination"
+---@field medicine_method_autopsy 2
+---@field [2] "medicine_method_autopsy"
+---@field medicine_theory_prognosis 3
+---@field [3] "medicine_theory_prognosis"
+---@field medicine_tool_herbal_remedies 4
+---@field [4] "medicine_tool_herbal_remedies"
+---@field medicine_tool_animal_remedies 5
+---@field [5] "medicine_tool_animal_remedies"
+---@field medicine_tool_mineral_remedies 6
+---@field [6] "medicine_tool_mineral_remedies"
+---@field medicine_tool_bandages 7
+---@field [7] "medicine_tool_bandages"
+---@field medicine_theory_disease_classification 8
+---@field [8] "medicine_theory_disease_classification"
+---@field medicine_theory_toxicology 9
+---@field [9] "medicine_theory_toxicology"
+---@field medicine_theory_acute_and_chronic_conditions 10
+---@field [10] "medicine_theory_acute_and_chronic_conditions"
+---@field medicine_theory_endemic_disease 11
+---@field [11] "medicine_theory_endemic_disease"
+---@field medicine_theory_epidemic_disease 12
+---@field [12] "medicine_theory_epidemic_disease"
+---@field medicine_theory_exacerbation 13
+---@field [13] "medicine_theory_exacerbation"
+---@field medicine_theory_paroxysm 14
+---@field [14] "medicine_theory_paroxysm"
+---@field medicine_theory_relapse 15
+---@field [15] "medicine_theory_relapse"
+---@field medicine_theory_convalescence 16
+---@field [16] "medicine_theory_convalescence"
+---@field medicine_method_treatment_of_traumatic_injuries 17
+---@field [17] "medicine_method_treatment_of_traumatic_injuries"
+---@field medicine_method_fracture_treatment 18
+---@field [18] "medicine_method_fracture_treatment"
+---@field medicine_theory_fracture_classification 19
+---@field [19] "medicine_theory_fracture_classification"
+---@field medicine_tool_traction_bench 20
+---@field [20] "medicine_tool_traction_bench"
+---@field medicine_method_fracture_immobilization 21
+---@field [21] "medicine_method_fracture_immobilization"
+---@field medicine_tool_orthopedic_cast 22
+---@field [22] "medicine_tool_orthopedic_cast"
+---@field medicine_method_surgery_excision 23
+---@field [23] "medicine_method_surgery_excision"
+---@field medicine_method_surgery_incision 24
+---@field [24] "medicine_method_surgery_incision"
+---@field medicine_method_hernia_surgery 25
+---@field [25] "medicine_method_hernia_surgery"
+---@field medicine_method_tracheotomy_surgery 26
+---@field [26] "medicine_method_tracheotomy_surgery"
+---@field medicine_method_lithotomy_surgery 27
+---@field [27] "medicine_method_lithotomy_surgery"
+---@field medicine_method_surgery_scraping 28
+---@field [28] "medicine_method_surgery_scraping"
+---@field medicine_method_surgery_draining 29
+---@field [29] "medicine_method_surgery_draining"
+---@field medicine_method_surgery_probing 30
+---@field [30] "medicine_method_surgery_probing"
+---@field medicine_method_surgery_suturing 31
+---@field [31] "medicine_method_surgery_suturing"
+df.knowledge_scholar_flags_9 = {}
+
+---@class df.knowledge_scholar_flags_10: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_10
+---@field medicine_method_surgery_ligature boolean bay12: SK_MEDICINE_FLAG2_*
+---@field [0] boolean bay12: SK_MEDICINE_FLAG2_*
+---@field medicine_theory_surgical_models boolean
+---@field [1] boolean
+---@field medicine_tool_mud_bags_as_surgical_models boolean
+---@field [2] boolean
+---@field medicine_tool_plants_as_surgical_models boolean
+---@field [3] boolean
+---@field medicine_tool_animals_as_surgical_models boolean
+---@field [4] boolean
+---@field medicine_theory_specialized_surgical_instruments boolean
+---@field [5] boolean
+---@field medicine_tool_forceps boolean
+---@field [6] boolean
+---@field medicine_tool_scalpel boolean
+---@field [7] boolean
+---@field medicine_tool_surgical_scissors boolean
+---@field [8] boolean
+---@field medicine_tool_surgical_needles boolean
+---@field [9] boolean
+---@field medicine_method_cataract_surgery boolean
+---@field [10] boolean
+---@field medicine_method_cauterization boolean
+---@field [11] boolean
+---@field medicine_method_anesthesia boolean
+---@field [12] boolean
+---@field medicine_theory_pulmonary_medicine boolean
+---@field [13] boolean
+---@field medicine_theory_anatomical_studies boolean
+---@field [14] boolean
+---@field medicine_theory_classification_of_bodily_fluids boolean
+---@field [15] boolean
+---@field medicine_theory_eye_anatomy boolean
+---@field [16] boolean
+---@field medicine_theory_motor_vs_sensory_nerves boolean
+---@field [17] boolean
+---@field medicine_theory_nervous_system_function boolean
+---@field [18] boolean
+---@field medicine_theory_reaction_time boolean
+---@field [19] boolean
+---@field medicine_theory_blood_vessels boolean
+---@field [20] boolean
+---@field medicine_theory_pulmonary_circulation boolean
+---@field [21] boolean
+---@field medicine_theory_comparative_anatomy boolean
+---@field [22] boolean
+---@field medicine_theory_the_voice boolean
+---@field [23] boolean
+---@field medicine_theory_classification_of_muscles boolean
+---@field [24] boolean
+---@field medicine_theory_classification_of_mental_illnesses boolean
+---@field [25] boolean
+---@field medicine_theory_treatment_of_mental_illnesses boolean
+---@field [26] boolean
+---@field medicine_tool_dedicated_hospitals boolean
+---@field [27] boolean
+---@field medicine_method_professional_hospital_staff boolean
+---@field [28] boolean
+---@field medicine_method_specialized_wards boolean
+---@field [29] boolean
+---@field medicine_method_hospital_lab boolean
+---@field [30] boolean
+---@field medicine_method_medical_school boolean
+---@field [31] boolean
+
+---@class identity.knowledge_scholar_flags_10: DFBitfieldType
+---@field medicine_method_surgery_ligature 0 bay12: SK_MEDICINE_FLAG2_*
+---@field [0] "medicine_method_surgery_ligature" bay12: SK_MEDICINE_FLAG2_*
+---@field medicine_theory_surgical_models 1
+---@field [1] "medicine_theory_surgical_models"
+---@field medicine_tool_mud_bags_as_surgical_models 2
+---@field [2] "medicine_tool_mud_bags_as_surgical_models"
+---@field medicine_tool_plants_as_surgical_models 3
+---@field [3] "medicine_tool_plants_as_surgical_models"
+---@field medicine_tool_animals_as_surgical_models 4
+---@field [4] "medicine_tool_animals_as_surgical_models"
+---@field medicine_theory_specialized_surgical_instruments 5
+---@field [5] "medicine_theory_specialized_surgical_instruments"
+---@field medicine_tool_forceps 6
+---@field [6] "medicine_tool_forceps"
+---@field medicine_tool_scalpel 7
+---@field [7] "medicine_tool_scalpel"
+---@field medicine_tool_surgical_scissors 8
+---@field [8] "medicine_tool_surgical_scissors"
+---@field medicine_tool_surgical_needles 9
+---@field [9] "medicine_tool_surgical_needles"
+---@field medicine_method_cataract_surgery 10
+---@field [10] "medicine_method_cataract_surgery"
+---@field medicine_method_cauterization 11
+---@field [11] "medicine_method_cauterization"
+---@field medicine_method_anesthesia 12
+---@field [12] "medicine_method_anesthesia"
+---@field medicine_theory_pulmonary_medicine 13
+---@field [13] "medicine_theory_pulmonary_medicine"
+---@field medicine_theory_anatomical_studies 14
+---@field [14] "medicine_theory_anatomical_studies"
+---@field medicine_theory_classification_of_bodily_fluids 15
+---@field [15] "medicine_theory_classification_of_bodily_fluids"
+---@field medicine_theory_eye_anatomy 16
+---@field [16] "medicine_theory_eye_anatomy"
+---@field medicine_theory_motor_vs_sensory_nerves 17
+---@field [17] "medicine_theory_motor_vs_sensory_nerves"
+---@field medicine_theory_nervous_system_function 18
+---@field [18] "medicine_theory_nervous_system_function"
+---@field medicine_theory_reaction_time 19
+---@field [19] "medicine_theory_reaction_time"
+---@field medicine_theory_blood_vessels 20
+---@field [20] "medicine_theory_blood_vessels"
+---@field medicine_theory_pulmonary_circulation 21
+---@field [21] "medicine_theory_pulmonary_circulation"
+---@field medicine_theory_comparative_anatomy 22
+---@field [22] "medicine_theory_comparative_anatomy"
+---@field medicine_theory_the_voice 23
+---@field [23] "medicine_theory_the_voice"
+---@field medicine_theory_classification_of_muscles 24
+---@field [24] "medicine_theory_classification_of_muscles"
+---@field medicine_theory_classification_of_mental_illnesses 25
+---@field [25] "medicine_theory_classification_of_mental_illnesses"
+---@field medicine_theory_treatment_of_mental_illnesses 26
+---@field [26] "medicine_theory_treatment_of_mental_illnesses"
+---@field medicine_tool_dedicated_hospitals 27
+---@field [27] "medicine_tool_dedicated_hospitals"
+---@field medicine_method_professional_hospital_staff 28
+---@field [28] "medicine_method_professional_hospital_staff"
+---@field medicine_method_specialized_wards 29
+---@field [29] "medicine_method_specialized_wards"
+---@field medicine_method_hospital_lab 30
+---@field [30] "medicine_method_hospital_lab"
+---@field medicine_method_medical_school 31
+---@field [31] "medicine_method_medical_school"
+df.knowledge_scholar_flags_10 = {}
+
+---@class df.knowledge_scholar_flags_11: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_11
+---@field medicine_method_asylum_for_mentally_ill boolean bay12: SK_MEDICINE_FLAG3_*
+---@field [0] boolean bay12: SK_MEDICINE_FLAG3_*
+
+---@class identity.knowledge_scholar_flags_11: DFBitfieldType
+---@field medicine_method_asylum_for_mentally_ill 0 bay12: SK_MEDICINE_FLAG3_*
+---@field [0] "medicine_method_asylum_for_mentally_ill" bay12: SK_MEDICINE_FLAG3_*
+df.knowledge_scholar_flags_11 = {}
+
+---@class df.knowledge_scholar_flags_12: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_12
+---@field engineering_horology_shadow_clock boolean bay12: SK_ENGINEERING_FLAG_*
+---@field [0] boolean bay12: SK_ENGINEERING_FLAG_*
+---@field engineering_horology_water_clock boolean
+---@field [1] boolean
+---@field engineering_horology_conical_water_clock boolean
+---@field [2] boolean
+---@field engineering_horology_water_clock_reservoir boolean
+---@field [3] boolean
+---@field engineering_horology_astrarium boolean
+---@field [4] boolean
+---@field engineering_horology_hourglass boolean
+---@field [5] boolean
+---@field engineering_horology_mechanical_clock boolean
+---@field [6] boolean
+---@field engineering_machine_theory_of_pulley boolean
+---@field [7] boolean
+---@field engineering_machine_pulley boolean
+---@field [8] boolean
+---@field engineering_machine_theory_of_screw boolean
+---@field [9] boolean
+---@field engineering_machine_screw boolean
+---@field [10] boolean
+---@field engineering_machine_theory_of_wheel_and_axle boolean
+---@field [11] boolean
+---@field engineering_machine_windlass boolean
+---@field [12] boolean
+---@field engineering_machine_theory_of_wedge boolean
+---@field [13] boolean
+---@field engineering_machine_theory_of_lever boolean
+---@field [14] boolean
+---@field engineering_machine_lever boolean
+---@field [15] boolean
+---@field engineering_machine_straight_beam_balance boolean
+---@field [16] boolean
+---@field engineering_machine_theory_of_gears boolean
+---@field [17] boolean
+---@field engineering_machine_warded_lock boolean
+---@field [18] boolean
+---@field engineering_machine_tumbler_lock boolean
+---@field [19] boolean
+---@field engineering_machine_padlock boolean
+---@field [20] boolean
+---@field engineering_machine_camshaft boolean
+---@field [21] boolean
+---@field engineering_machine_crankshaft boolean
+---@field [22] boolean
+---@field engineering_machine_water_powered_sawmill boolean
+---@field [23] boolean
+---@field engineering_machine_chariot_odometer boolean
+---@field [24] boolean
+---@field engineering_machine_chain_drive boolean
+---@field [25] boolean
+---@field engineering_machine_mechanical_compass boolean
+---@field [26] boolean
+---@field engineering_machine_differential_gear boolean
+---@field [27] boolean
+---@field engineering_machine_combination_lock boolean
+---@field [28] boolean
+---@field engineering_machine_verge_escapement boolean
+---@field [29] boolean
+---@field engineering_machine_balance_wheel boolean
+---@field [30] boolean
+---@field engineering_fluid_theory_of_siphon boolean
+---@field [31] boolean
+
+---@class identity.knowledge_scholar_flags_12: DFBitfieldType
+---@field engineering_horology_shadow_clock 0 bay12: SK_ENGINEERING_FLAG_*
+---@field [0] "engineering_horology_shadow_clock" bay12: SK_ENGINEERING_FLAG_*
+---@field engineering_horology_water_clock 1
+---@field [1] "engineering_horology_water_clock"
+---@field engineering_horology_conical_water_clock 2
+---@field [2] "engineering_horology_conical_water_clock"
+---@field engineering_horology_water_clock_reservoir 3
+---@field [3] "engineering_horology_water_clock_reservoir"
+---@field engineering_horology_astrarium 4
+---@field [4] "engineering_horology_astrarium"
+---@field engineering_horology_hourglass 5
+---@field [5] "engineering_horology_hourglass"
+---@field engineering_horology_mechanical_clock 6
+---@field [6] "engineering_horology_mechanical_clock"
+---@field engineering_machine_theory_of_pulley 7
+---@field [7] "engineering_machine_theory_of_pulley"
+---@field engineering_machine_pulley 8
+---@field [8] "engineering_machine_pulley"
+---@field engineering_machine_theory_of_screw 9
+---@field [9] "engineering_machine_theory_of_screw"
+---@field engineering_machine_screw 10
+---@field [10] "engineering_machine_screw"
+---@field engineering_machine_theory_of_wheel_and_axle 11
+---@field [11] "engineering_machine_theory_of_wheel_and_axle"
+---@field engineering_machine_windlass 12
+---@field [12] "engineering_machine_windlass"
+---@field engineering_machine_theory_of_wedge 13
+---@field [13] "engineering_machine_theory_of_wedge"
+---@field engineering_machine_theory_of_lever 14
+---@field [14] "engineering_machine_theory_of_lever"
+---@field engineering_machine_lever 15
+---@field [15] "engineering_machine_lever"
+---@field engineering_machine_straight_beam_balance 16
+---@field [16] "engineering_machine_straight_beam_balance"
+---@field engineering_machine_theory_of_gears 17
+---@field [17] "engineering_machine_theory_of_gears"
+---@field engineering_machine_warded_lock 18
+---@field [18] "engineering_machine_warded_lock"
+---@field engineering_machine_tumbler_lock 19
+---@field [19] "engineering_machine_tumbler_lock"
+---@field engineering_machine_padlock 20
+---@field [20] "engineering_machine_padlock"
+---@field engineering_machine_camshaft 21
+---@field [21] "engineering_machine_camshaft"
+---@field engineering_machine_crankshaft 22
+---@field [22] "engineering_machine_crankshaft"
+---@field engineering_machine_water_powered_sawmill 23
+---@field [23] "engineering_machine_water_powered_sawmill"
+---@field engineering_machine_chariot_odometer 24
+---@field [24] "engineering_machine_chariot_odometer"
+---@field engineering_machine_chain_drive 25
+---@field [25] "engineering_machine_chain_drive"
+---@field engineering_machine_mechanical_compass 26
+---@field [26] "engineering_machine_mechanical_compass"
+---@field engineering_machine_differential_gear 27
+---@field [27] "engineering_machine_differential_gear"
+---@field engineering_machine_combination_lock 28
+---@field [28] "engineering_machine_combination_lock"
+---@field engineering_machine_verge_escapement 29
+---@field [29] "engineering_machine_verge_escapement"
+---@field engineering_machine_balance_wheel 30
+---@field [30] "engineering_machine_balance_wheel"
+---@field engineering_fluid_theory_of_siphon 31
+---@field [31] "engineering_fluid_theory_of_siphon"
+df.knowledge_scholar_flags_12 = {}
+
+---@class df.knowledge_scholar_flags_13: DFBitfield
+---@field _enum identity.knowledge_scholar_flags_13
+---@field engineering_fluid_valves boolean bay12: SK_ENGINEERING_FLAG2_*
+---@field [0] boolean bay12: SK_ENGINEERING_FLAG2_*
+---@field engineering_fluid_force_pump boolean
+---@field [1] boolean
+---@field engineering_optics_crystal_lens boolean
+---@field [2] boolean
+---@field engineering_optics_water_filled_spheres boolean
+---@field [3] boolean
+---@field engineering_optics_glass_lens boolean
+---@field [4] boolean
+---@field engineering_optics_camera_obscura boolean
+---@field [5] boolean
+---@field engineering_optics_parabolic_mirror boolean
+---@field [6] boolean
+---@field engineering_optics_theory_of_color boolean
+---@field [7] boolean
+---@field engineering_optics_theory_of_rainbows boolean
+---@field [8] boolean
+---@field engineering_optics_law_of_refraction boolean
+---@field [9] boolean
+---@field engineering_design_models_and_templates boolean
+---@field [10] boolean
+---@field engineering_construction_wood_lamination boolean
+---@field [11] boolean
+---@field engineering_astronomy_dioptra boolean
+---@field [12] boolean
+---@field engineering_astronomy_astrolabe boolean
+---@field [13] boolean
+---@field engineering_astronomy_armillary_sphere boolean
+---@field [14] boolean
+---@field engineering_astronomy_spherical_astrolabe boolean
+---@field [15] boolean
+---@field engineering_astronomy_mural_instrument boolean
+---@field [16] boolean
+---@field engineering_astronomy_orrery boolean
+---@field [17] boolean
+---@field engineering_machine_water_powered_trip_hammer boolean
+---@field [18] boolean
+---@field engineering_machine_double_acting_piston_bellows boolean
+---@field [19] boolean
+---@field engineering_fluid_archimedes_principle boolean
+---@field [20] boolean
+---@field engineering_optics_atmospheric_refraction boolean
+---@field [21] boolean
+---@field engineering_optics_cause_of_twilight boolean
+---@field [22] boolean
+---@field engineering_optics_height_of_atmosphere boolean
+---@field [23] boolean
+---@field engineering_machine_piston boolean
+---@field [24] boolean
+---@field engineering_machine_crank boolean
+---@field [25] boolean
+---@field engineering_machine_bellows boolean
+---@field [26] boolean
+---@field engineering_machine_water_powered_piston_bellows boolean
+---@field [27] boolean
+---@field engineering_machine_water_wheel boolean
+---@field [28] boolean
+---@field engineering_machine_trip_hammer boolean
+---@field [29] boolean
+
+---@class identity.knowledge_scholar_flags_13: DFBitfieldType
+---@field engineering_fluid_valves 0 bay12: SK_ENGINEERING_FLAG2_*
+---@field [0] "engineering_fluid_valves" bay12: SK_ENGINEERING_FLAG2_*
+---@field engineering_fluid_force_pump 1
+---@field [1] "engineering_fluid_force_pump"
+---@field engineering_optics_crystal_lens 2
+---@field [2] "engineering_optics_crystal_lens"
+---@field engineering_optics_water_filled_spheres 3
+---@field [3] "engineering_optics_water_filled_spheres"
+---@field engineering_optics_glass_lens 4
+---@field [4] "engineering_optics_glass_lens"
+---@field engineering_optics_camera_obscura 5
+---@field [5] "engineering_optics_camera_obscura"
+---@field engineering_optics_parabolic_mirror 6
+---@field [6] "engineering_optics_parabolic_mirror"
+---@field engineering_optics_theory_of_color 7
+---@field [7] "engineering_optics_theory_of_color"
+---@field engineering_optics_theory_of_rainbows 8
+---@field [8] "engineering_optics_theory_of_rainbows"
+---@field engineering_optics_law_of_refraction 9
+---@field [9] "engineering_optics_law_of_refraction"
+---@field engineering_design_models_and_templates 10
+---@field [10] "engineering_design_models_and_templates"
+---@field engineering_construction_wood_lamination 11
+---@field [11] "engineering_construction_wood_lamination"
+---@field engineering_astronomy_dioptra 12
+---@field [12] "engineering_astronomy_dioptra"
+---@field engineering_astronomy_astrolabe 13
+---@field [13] "engineering_astronomy_astrolabe"
+---@field engineering_astronomy_armillary_sphere 14
+---@field [14] "engineering_astronomy_armillary_sphere"
+---@field engineering_astronomy_spherical_astrolabe 15
+---@field [15] "engineering_astronomy_spherical_astrolabe"
+---@field engineering_astronomy_mural_instrument 16
+---@field [16] "engineering_astronomy_mural_instrument"
+---@field engineering_astronomy_orrery 17
+---@field [17] "engineering_astronomy_orrery"
+---@field engineering_machine_water_powered_trip_hammer 18
+---@field [18] "engineering_machine_water_powered_trip_hammer"
+---@field engineering_machine_double_acting_piston_bellows 19
+---@field [19] "engineering_machine_double_acting_piston_bellows"
+---@field engineering_fluid_archimedes_principle 20
+---@field [20] "engineering_fluid_archimedes_principle"
+---@field engineering_optics_atmospheric_refraction 21
+---@field [21] "engineering_optics_atmospheric_refraction"
+---@field engineering_optics_cause_of_twilight 22
+---@field [22] "engineering_optics_cause_of_twilight"
+---@field engineering_optics_height_of_atmosphere 23
+---@field [23] "engineering_optics_height_of_atmosphere"
+---@field engineering_machine_piston 24
+---@field [24] "engineering_machine_piston"
+---@field engineering_machine_crank 25
+---@field [25] "engineering_machine_crank"
+---@field engineering_machine_bellows 26
+---@field [26] "engineering_machine_bellows"
+---@field engineering_machine_water_powered_piston_bellows 27
+---@field [27] "engineering_machine_water_powered_piston_bellows"
+---@field engineering_machine_water_wheel 28
+---@field [28] "engineering_machine_water_wheel"
+---@field engineering_machine_trip_hammer 29
+---@field [29] "engineering_machine_trip_hammer"
+df.knowledge_scholar_flags_13 = {}
+
+---@alias df.topic_type
+---| -1 # None
+---| 0 # ResearchProject
+
+---@class identity.topic_type: DFEnumType
+---@field None -1 bay12: TopicType
+---@field [-1] "None" bay12: TopicType
+---@field ResearchProject 0
+---@field [0] "ResearchProject"
+df.topic_type = {}
+
+---@class (exact) df.topicst: DFStruct
+---@field _type identity.topicst
+---@field topic df.topic_type
+---@field research df.knowledge_scholar_category_flag
+
+---@class identity.topicst: DFCompoundType
+---@field _kind 'struct-type'
+df.topicst = {}
+
+---@return df.topicst
+function df.topicst:new() end
+
+---@alias df.art_facet_type
+---| -1 # NONE
+---| 0 # OWN_RACE
+---| 1 # FANCIFUL
+---| 2 # GOOD
+---| 3 # EVIL
+
+---@class identity.art_facet_type: DFEnumType
+---@field NONE -1 bay12: ArtFacet
+---@field [-1] "NONE" bay12: ArtFacet
+---@field OWN_RACE 0
+---@field [0] "OWN_RACE"
+---@field FANCIFUL 1
+---@field [1] "FANCIFUL"
+---@field GOOD 2
+---@field [2] "GOOD"
+---@field EVIL 3
+---@field [3] "EVIL"
+df.art_facet_type = {}
+
+---@alias df.art_image_property_verb
+---| -1 # NONE
+---| 0 # Withering
+---| 1 # SurroundedBy
+---| 2 # Massacring
+---| 3 # Fighting
+---| 4 # Laboring
+---| 5 # Greeting
+---| 6 # Refusing
+---| 7 # Speaking
+---| 8 # Embracing
+---| 9 # StrikingDown
+---| 10 # MenacingPose
+---| 11 # Traveling
+---| 12 # Raising
+---| 13 # Hiding
+---| 14 # LookingConfused
+---| 15 # LookingTerrified
+---| 16 # Devouring
+---| 17 # Admiring
+---| 18 # Burning
+---| 19 # Weeping
+---| 20 # LookingDejected
+---| 21 # Cringing
+---| 22 # Screaming
+---| 23 # SubmissiveGesture
+---| 24 # FetalPosition
+---| 25 # SmearedIntoSpiral
+---| 26 # Falling
+---| 27 # Dead
+---| 28 # Laughing
+---| 29 # LookingOffended
+---| 30 # BeingShot
+---| 31 # PlaintiveGesture
+---| 32 # Melting
+---| 33 # Shooting
+---| 34 # Torturing
+---| 35 # CommittingDepravedAct
+---| 36 # Praying
+---| 37 # Contemplating
+---| 38 # Cooking
+---| 39 # Engraving
+---| 40 # Prostrating
+---| 41 # Suffering
+---| 42 # BeingImpaled
+---| 43 # BeingContorted
+---| 44 # BeingFlayed
+---| 45 # HangingFrom
+---| 46 # BeingMutilated
+---| 47 # TriumphantPose
+
+---@class identity.art_image_property_verb: DFEnumType
+---@field NONE -1 bay12: ArtImageActionType
+---@field [-1] "NONE" bay12: ArtImageActionType
+---@field Withering 0
+---@field [0] "Withering"
+---@field SurroundedBy 1
+---@field [1] "SurroundedBy"
+---@field Massacring 2
+---@field [2] "Massacring"
+---@field Fighting 3
+---@field [3] "Fighting"
+---@field Laboring 4
+---@field [4] "Laboring"
+---@field Greeting 5
+---@field [5] "Greeting"
+---@field Refusing 6
+---@field [6] "Refusing"
+---@field Speaking 7
+---@field [7] "Speaking"
+---@field Embracing 8
+---@field [8] "Embracing"
+---@field StrikingDown 9
+---@field [9] "StrikingDown"
+---@field MenacingPose 10
+---@field [10] "MenacingPose"
+---@field Traveling 11
+---@field [11] "Traveling"
+---@field Raising 12
+---@field [12] "Raising"
+---@field Hiding 13
+---@field [13] "Hiding"
+---@field LookingConfused 14
+---@field [14] "LookingConfused"
+---@field LookingTerrified 15
+---@field [15] "LookingTerrified"
+---@field Devouring 16
+---@field [16] "Devouring"
+---@field Admiring 17
+---@field [17] "Admiring"
+---@field Burning 18
+---@field [18] "Burning"
+---@field Weeping 19
+---@field [19] "Weeping"
+---@field LookingDejected 20
+---@field [20] "LookingDejected"
+---@field Cringing 21
+---@field [21] "Cringing"
+---@field Screaming 22
+---@field [22] "Screaming"
+---@field SubmissiveGesture 23
+---@field [23] "SubmissiveGesture"
+---@field FetalPosition 24
+---@field [24] "FetalPosition"
+---@field SmearedIntoSpiral 25
+---@field [25] "SmearedIntoSpiral"
+---@field Falling 26
+---@field [26] "Falling"
+---@field Dead 27
+---@field [27] "Dead"
+---@field Laughing 28
+---@field [28] "Laughing"
+---@field LookingOffended 29
+---@field [29] "LookingOffended"
+---@field BeingShot 30
+---@field [30] "BeingShot"
+---@field PlaintiveGesture 31
+---@field [31] "PlaintiveGesture"
+---@field Melting 32
+---@field [32] "Melting"
+---@field Shooting 33
+---@field [33] "Shooting"
+---@field Torturing 34
+---@field [34] "Torturing"
+---@field CommittingDepravedAct 35
+---@field [35] "CommittingDepravedAct"
+---@field Praying 36
+---@field [36] "Praying"
+---@field Contemplating 37
+---@field [37] "Contemplating"
+---@field Cooking 38
+---@field [38] "Cooking"
+---@field Engraving 39
+---@field [39] "Engraving"
+---@field Prostrating 40
+---@field [40] "Prostrating"
+---@field Suffering 41
+---@field [41] "Suffering"
+---@field BeingImpaled 42
+---@field [42] "BeingImpaled"
+---@field BeingContorted 43
+---@field [43] "BeingContorted"
+---@field BeingFlayed 44
+---@field [44] "BeingFlayed"
+---@field HangingFrom 45
+---@field [45] "HangingFrom"
+---@field BeingMutilated 46
+---@field [46] "BeingMutilated"
+---@field TriumphantPose 47
+---@field [47] "TriumphantPose"
+df.art_image_property_verb = {}
+
+---@alias df.art_image_element_type
+---| -1 # NONE
+---| 0 # CREATURE
+---| 1 # PLANT
+---| 2 # TREE
+---| 3 # SHAPE
+---| 4 # ITEM
+
+---@class identity.art_image_element_type: DFEnumType
+---@field NONE -1 bay12: ArtImageElement
+---@field [-1] "NONE" bay12: ArtImageElement
+---@field CREATURE 0
+---@field [0] "CREATURE"
+---@field PLANT 1
+---@field [1] "PLANT"
+---@field TREE 2
+---@field [2] "TREE"
+---@field SHAPE 3
+---@field [3] "SHAPE"
+---@field ITEM 4
+---@field [4] "ITEM"
+df.art_image_element_type = {}
+
+---@alias df.improvement_type
+---| -1 # NONE
+---| 0 # ART_IMAGE
+---| 1 # COVERED
+---| 2 # RINGS_HANGING
+---| 3 # BANDS
+---| 4 # SPIKES
+---| 5 # ITEMSPECIFIC
+---| 6 # THREAD
+---| 7 # CLOTH
+---| 8 # SEWN_IMAGE
+---| 9 # PAGES
+---| 10 # ILLUSTRATION
+---| 11 # INSTRUMENT_PIECE
+---| 12 # WRITING
+---| 13 # IMAGE_SET
+
+---@class identity.improvement_type: DFEnumType
+---@field NONE -1 bay12: ItemImprovementType
+---@field [-1] "NONE" bay12: ItemImprovementType
+---@field ART_IMAGE 0
+---@field [0] "ART_IMAGE"
+---@field COVERED 1
+---@field [1] "COVERED"
+---@field RINGS_HANGING 2
+---@field [2] "RINGS_HANGING"
+---@field BANDS 3
+---@field [3] "BANDS"
+---@field SPIKES 4
+---@field [4] "SPIKES"
+---@field ITEMSPECIFIC 5
+---@field [5] "ITEMSPECIFIC"
+---@field THREAD 6
+---@field [6] "THREAD"
+---@field CLOTH 7
+---@field [7] "CLOTH"
+---@field SEWN_IMAGE 8
+---@field [8] "SEWN_IMAGE"
+---@field PAGES 9
+---@field [9] "PAGES"
+---@field ILLUSTRATION 10
+---@field [10] "ILLUSTRATION"
+---@field INSTRUMENT_PIECE 11
+---@field [11] "INSTRUMENT_PIECE"
+---@field WRITING 12
+---@field [12] "WRITING"
+---@field IMAGE_SET 13
+---@field [13] "IMAGE_SET"
+df.improvement_type = {}
+
+---@alias df.itemimprovement_specific_type
+---| -1 # NONE
+---| 0 # HANDLE
+---| 1 # ROLLERS
+---| 2 # TRACTION_BENCH_ROPE
+---| 3 # TRACTION_BENCH_CHAIN
+
+---@class identity.itemimprovement_specific_type: DFEnumType
+---@field NONE -1 bay12: ItemSpecificImprovementType
+---@field [-1] "NONE" bay12: ItemSpecificImprovementType
+---@field HANDLE 0
+---@field [0] "HANDLE"
+---@field ROLLERS 1
+---@field [1] "ROLLERS"
+---@field TRACTION_BENCH_ROPE 2
+---@field [2] "TRACTION_BENCH_ROPE"
+---@field TRACTION_BENCH_CHAIN 3
+---@field [3] "TRACTION_BENCH_CHAIN"
+df.itemimprovement_specific_type = {}
+
+-- Unused: CaveSupport
+-- Unused: LightColumn
+---@alias df.unit_station_type
+---| -1 # None
+---| 0 # Nonsense
+---| 1 # DungeonCommander
+---| 2 # InsaneMood
+---| 3 # UndeadHunt
+---| 5 # MaraudeTarget
+---| 6 # SiegerBasepoint
+---| 7 # SiegerMill
+---| 8 # AmbushPatrol
+---| 9 # MarauderMill
+---| 10 # WildernessCuriousWander
+---| 11 # WildernessCuriousStealTarget
+---| 12 # WildernessRoamer
+---| 13 # PatternPatrol
+---| 14 # InactiveMarauder
+---| 15 # Owner
+---| 16 # Commander
+---| 17 # ChainedAnimal
+---| 18 # MeetingLocation
+---| 19 # MeetingLocationBuilding
+---| 20 # Depot
+---| 21 # VerminHunting
+---| 22 # SeekCommander
+---| 23 # ReturnToBase
+---| 24 # MillAnywhere
+---| 25 # Wagon
+---| 26 # MillBuilding
+---| 27 # HeadForEdge
+---| 28 # MillingFlood
+---| 29 # MillingBurrow
+---| 30 # SquadMove
+---| 31 # SquadKillList
+---| 32 # SquadPatrol
+---| 33 # SquadDefendBurrow
+---| 34 # SquadDefendBurrowFromTarget
+---| 35 # LairHunter
+---| 36 # Graze
+---| 37 # Guard
+---| 38 # Alarm
+---| 39 # MoveToSite
+---| 40 # ClaimSite
+---| 41 # WaitOrder
+
+-- Unused: CaveSupport
+-- Unused: LightColumn
+---@class identity.unit_station_type: DFEnumType
+---@field None -1 bay12: StationType
+---@field [-1] "None" bay12: StationType
+---@field Nonsense 0 INITIAL_SITE
+---@field [0] "Nonsense" INITIAL_SITE
+---@field DungeonCommander 1
+---@field [1] "DungeonCommander"
+---@field InsaneMood 2
+---@field [2] "InsaneMood"
+---@field UndeadHunt 3
+---@field [3] "UndeadHunt"
+---@field MaraudeTarget 5
+---@field [5] "MaraudeTarget"
+---@field SiegerBasepoint 6
+---@field [6] "SiegerBasepoint"
+---@field SiegerMill 7
+---@field [7] "SiegerMill"
+---@field AmbushPatrol 8
+---@field [8] "AmbushPatrol"
+---@field MarauderMill 9
+---@field [9] "MarauderMill"
+---@field WildernessCuriousWander 10
+---@field [10] "WildernessCuriousWander"
+---@field WildernessCuriousStealTarget 11
+---@field [11] "WildernessCuriousStealTarget"
+---@field WildernessRoamer 12
+---@field [12] "WildernessRoamer"
+---@field PatternPatrol 13
+---@field [13] "PatternPatrol"
+---@field InactiveMarauder 14
+---@field [14] "InactiveMarauder"
+---@field Owner 15
+---@field [15] "Owner"
+---@field Commander 16
+---@field [16] "Commander"
+---@field ChainedAnimal 17
+---@field [17] "ChainedAnimal"
+---@field MeetingLocation 18
+---@field [18] "MeetingLocation"
+---@field MeetingLocationBuilding 19
+---@field [19] "MeetingLocationBuilding"
+---@field Depot 20
+---@field [20] "Depot"
+---@field VerminHunting 21
+---@field [21] "VerminHunting"
+---@field SeekCommander 22
+---@field [22] "SeekCommander"
+---@field ReturnToBase 23
+---@field [23] "ReturnToBase"
+---@field MillAnywhere 24
+---@field [24] "MillAnywhere"
+---@field Wagon 25
+---@field [25] "Wagon"
+---@field MillBuilding 26
+---@field [26] "MillBuilding"
+---@field HeadForEdge 27
+---@field [27] "HeadForEdge"
+---@field MillingFlood 28
+---@field [28] "MillingFlood"
+---@field MillingBurrow 29
+---@field [29] "MillingBurrow"
+---@field SquadMove 30
+---@field [30] "SquadMove"
+---@field SquadKillList 31
+---@field [31] "SquadKillList"
+---@field SquadPatrol 32
+---@field [32] "SquadPatrol"
+---@field SquadDefendBurrow 33
+---@field [33] "SquadDefendBurrow"
+---@field SquadDefendBurrowFromTarget 34
+---@field [34] "SquadDefendBurrowFromTarget"
+---@field LairHunter 35
+---@field [35] "LairHunter"
+---@field Graze 36
+---@field [36] "Graze"
+---@field Guard 37
+---@field [37] "Guard"
+---@field Alarm 38
+---@field [38] "Alarm"
+---@field MoveToSite 39
+---@field [39] "MoveToSite"
+---@field ClaimSite 40
+---@field [40] "ClaimSite"
+---@field WaitOrder 41
+---@field [41] "WaitOrder"
+df.unit_station_type = {}
+
+---@alias df.unit_path_goal
+---| -1 # None
+---| 0 # ComeToJobBuilding
+---| 1 # ValidPondDumpUnit
+---| 2 # ValidPondDump
+---| 3 # ConflictDefense
+---| 4 # AdventureMove
+---| 5 # MarauderMill
+---| 6 # WildernessCuriousStealTarget
+---| 7 # WildernessRoamer
+---| 8 # ThiefTarget
+---| 9 # Owner
+---| 10 # CheckChest
+---| 11 # SleepBed
+---| 12 # SleepBarracks
+---| 13 # SleepGround
+---| 14 # LeaveWall
+---| 15 # FleeTerrain
+---| 16 # TaxRoom
+---| 17 # GuardTaxes
+---| 18 # RansackTaxes
+---| 19 # GetEmptySandBag
+---| 20 # SandZone
+---| 21 # GrabCage
+---| 22 # UncageAnimal
+---| 23 # CaptureSmallPet
+---| 24 # GrabCageUnit
+---| 25 # GoToCage
+---| 26 # GrabAnimalTrap
+---| 27 # CageVermin
+---| 28 # GrabUnfillBucket
+---| 29 # SeekFillBucket
+---| 30 # SeekPatientForCarry
+---| 31 # SeekPatientForDiagnosis
+---| 32 # SeekPatientForImmobilizeBreak
+---| 33 # SeekPatientForCrutch
+---| 34 # SeekPatientForSuturing
+---| 35 # SeekSurgerySite
+---| 36 # CarryPatientToBed
+---| 37 # SeekGiveWaterBucket
+---| 38 # SeekJobItem
+---| 39 # SeekUnitForItemDrop
+---| 40 # SeekUnitForJob
+---| 41 # SeekSplint
+---| 42 # SeekCrutch
+---| 43 # SeekSutureThread
+---| 44 # SeekDressingCloth
+---| 45 # GoToGiveWaterTarget
+---| 46 # SeekFoodForTarget
+---| 47 # SeekTargetForFood
+---| 48 # SeekAnimalForSlaughter
+---| 49 # SeekSlaughterBuilding
+---| 50 # SeekAnimalForChain
+---| 51 # SeekChainForAnimal
+---| 52 # SeekCageForUnchain
+---| 53 # SeekAnimalForUnchain
+---| 54 # GrabFoodForTaming
+---| 55 # SeekAnimalForTaming
+---| 56 # SeekDrinkItem
+---| 57 # SeekFoodItem
+---| 58 # SeekEatingChair
+---| 59 # SeekEatingChair2
+---| 60 # SeekBadMoodBuilding
+---| 61 # SetGlassMoodBuilding
+---| 62 # SetMoodBuilding
+---| 63 # SeekFellVictim
+---| 64 # CleanBuildingSite
+---| 65 # ResetPriorityGoal
+---| 66 # MainJobBuilding
+---| 67 # DropOffJobItems
+---| 68 # GrabJobResources
+---| 69 # WorkAtBuilding
+---| 70 # GrabUniform
+---| 71 # GrabClothing
+---| 72 # GrabWeapon
+---| 73 # GrabAmmunition
+---| 74 # GrabShield
+---| 75 # GrabArmor
+---| 76 # GrabHelm
+---| 77 # GrabBoots
+---| 78 # GrabGloves
+---| 79 # GrabPants
+---| 80 # GrabQuiver
+---| 81 # GrabBackpack
+---| 82 # GrabWaterskin
+---| 83 # StartHunt
+---| 84 # StartFish
+---| 85 # Clean
+---| 86 # HuntVermin
+---| 87 # Patrol
+---| 88 # SquadStation
+---| 89 # SeekInfant
+---| 90 # ShopSpecific
+---| 91 # MillInShop
+---| 92 # GoToShop
+---| 93 # SeekTrainingAmmunition
+---| 94 # ArcheryTrainingSite
+---| 95 # SparringPartner
+---| 96 # SparringSite
+---| 97 # SeekArtifact
+---| 98 # GrabAmmunitionForBuilding
+---| 99 # SeekBuildingForAmmunition
+---| 100 # SeekItemForStorage
+---| 101 # StoreItem
+---| 102 # GrabKill
+---| 103 # DropKillAtButcher
+---| 104 # DropKillOutFront
+---| 105 # GoToBeatingTarget
+---| 106 # SeekKidnapVictim
+---| 107 # SeekHuntingTarget
+---| 108 # SeekTargetMechanism
+---| 109 # SeekTargetForMechanism
+---| 110 # SeekMechanismForTrigger
+---| 111 # SeekTriggerForMechanism
+---| 112 # SeekTrapForVerminCatch
+---| 113 # SeekVerminForCatching
+---| 114 # SeekVerminCatchLocation
+---| 115 # WanderVerminCatchLocation
+---| 116 # SeekVerminForHunting
+---| 117 # SeekVerminHuntingSpot
+---| 118 # WanderVerminHuntingSpot
+---| 119 # SeekFishTrap
+---| 120 # SeekFishCatchLocation
+---| 121 # SeekWellForWater
+---| 122 # SeekDrinkAreaForWater
+---| 123 # UpgradeSquadEquipment
+---| 124 # PrepareEquipmentManifests
+---| 125 # WanderDepot
+---| 126 # SeekUpdateOffice
+---| 127 # SeekManageOffice
+---| 128 # AssignedBuildingJob
+---| 129 # ChaseOpponent
+---| 130 # FleeFromOpponent
+---| 131 # AttackBuilding
+---| 132 # StartBedCarry
+---| 133 # StartGiveFoodWater
+---| 134 # StartMedicalAid
+---| 135 # SeekStationFlood
+---| 136 # SeekStation
+---| 137 # StartWaterJobWell
+---| 138 # StartWaterJobDrinkArea
+---| 139 # StartEatJob
+---| 140 # ScheduledMeal
+---| 141 # ScheduledSleepBed
+---| 142 # ScheduledSleepGround
+---| 143 # Rest
+---| 144 # RemoveConstruction
+---| 145 # Chop
+---| 146 # Detail
+---| 147 # GatherPlant
+---| 148 # Dig
+---| 149 # Mischief
+---| 150 # ChaseOpponentSameSquare
+---| 151 # RestRecovered
+---| 152 # RestReset
+---| 153 # CombatTraining
+---| 154 # SkillDemonstration
+---| 155 # IndividualSkillDrill
+---| 156 # SeekBuildingForItemDrop
+---| 157 # SeekBuildingForJob
+---| 158 # GrabMilkUnit
+---| 159 # GoToMilkStation
+---| 160 # SeekPatientForDressWound
+---| 161 # UndeadHunt
+---| 162 # GrabShearUnit
+---| 163 # GoToShearStation
+---| 164 # LayEggNestBox
+---| 165 # ClayZone
+---| 166 # ColonyToInstall
+---| 167 # ReturnColonyToInstall
+---| 168 # Nonsense
+---| 169 # SeekBloodSuckVictim
+---| 170 # SeekSheriff
+---| 171 # GrabExecutionWeapon
+---| 172 # TrainAnimal
+---| 173 # GuardPath
+---| 174 # Harass
+---| 175 # SiteWalk
+---| 176 # SiteWalkToBuilding
+---| 177 # Reunion
+---| 178 # ArmyWalk
+---| 179 # ChaseOpponentFlood
+---| 180 # ChargeAttack
+---| 181 # FleeFromOpponentClimb
+---| 182 # SeekLadderToClimb
+---| 183 # SeekLadderToMove
+---| 184 # PlaceLadder
+---| 185 # SeekAnimalForGelding
+---| 186 # SeekGeldingBuilding
+---| 187 # Prayer
+---| 188 # Socialize
+---| 189 # Performance
+---| 190 # Research
+---| 191 # PonderTopic
+---| 192 # FillServiceOrder
+---| 193 # GetWrittenContent
+---| 194 # GoToReadingPlace
+---| 195 # GetWritingMaterials
+---| 196 # GoToWritingPlace
+---| 197 # Worship
+---| 198 # GrabInstrument
+---| 199 # Play
+---| 200 # MakeBelieve
+---| 201 # PlayWithToy
+---| 202 # GrabToy
+---| 203 # Encounter
+---| 204 # StoreObject
+---| 205 # LeaveSiteSquadOrder
+---| 206 # ParleyUnit
+---| 207 # ParleyItem
+---| 208 # FollowCommand
+---| 209 # SeekHeistItem
+---| 210 # SeekHeistMaster
+---| 211 # GoToInterrogationTarget
+---| 212 # InterrogationOffice
+---| 213 # SeekHeistHandoff
+---| 214 # AdventureAutomove
+---| 215 # AdventureAutomoveAcrobatic
+
+---@class identity.unit_path_goal: DFEnumType
+---@field None -1 bay12: PathGoalType
+---@field [-1] "None" bay12: PathGoalType
+---@field ComeToJobBuilding 0
+---@field [0] "ComeToJobBuilding"
+---@field ValidPondDumpUnit 1
+---@field [1] "ValidPondDumpUnit"
+---@field ValidPondDump 2
+---@field [2] "ValidPondDump"
+---@field ConflictDefense 3
+---@field [3] "ConflictDefense"
+---@field AdventureMove 4
+---@field [4] "AdventureMove"
+---@field MarauderMill 5
+---@field [5] "MarauderMill"
+---@field WildernessCuriousStealTarget 6
+---@field [6] "WildernessCuriousStealTarget"
+---@field WildernessRoamer 7
+---@field [7] "WildernessRoamer"
+---@field ThiefTarget 8
+---@field [8] "ThiefTarget"
+---@field Owner 9
+---@field [9] "Owner"
+---@field CheckChest 10
+---@field [10] "CheckChest"
+---@field SleepBed 11
+---@field [11] "SleepBed"
+---@field SleepBarracks 12
+---@field [12] "SleepBarracks"
+---@field SleepGround 13
+---@field [13] "SleepGround"
+---@field LeaveWall 14
+---@field [14] "LeaveWall"
+---@field FleeTerrain 15
+---@field [15] "FleeTerrain"
+---@field TaxRoom 16
+---@field [16] "TaxRoom"
+---@field GuardTaxes 17
+---@field [17] "GuardTaxes"
+---@field RansackTaxes 18
+---@field [18] "RansackTaxes"
+---@field GetEmptySandBag 19
+---@field [19] "GetEmptySandBag"
+---@field SandZone 20
+---@field [20] "SandZone"
+---@field GrabCage 21
+---@field [21] "GrabCage"
+---@field UncageAnimal 22
+---@field [22] "UncageAnimal"
+---@field CaptureSmallPet 23
+---@field [23] "CaptureSmallPet"
+---@field GrabCageUnit 24
+---@field [24] "GrabCageUnit"
+---@field GoToCage 25
+---@field [25] "GoToCage"
+---@field GrabAnimalTrap 26
+---@field [26] "GrabAnimalTrap"
+---@field CageVermin 27
+---@field [27] "CageVermin"
+---@field GrabUnfillBucket 28
+---@field [28] "GrabUnfillBucket"
+---@field SeekFillBucket 29
+---@field [29] "SeekFillBucket"
+---@field SeekPatientForCarry 30
+---@field [30] "SeekPatientForCarry"
+---@field SeekPatientForDiagnosis 31
+---@field [31] "SeekPatientForDiagnosis"
+---@field SeekPatientForImmobilizeBreak 32
+---@field [32] "SeekPatientForImmobilizeBreak"
+---@field SeekPatientForCrutch 33
+---@field [33] "SeekPatientForCrutch"
+---@field SeekPatientForSuturing 34
+---@field [34] "SeekPatientForSuturing"
+---@field SeekSurgerySite 35
+---@field [35] "SeekSurgerySite"
+---@field CarryPatientToBed 36
+---@field [36] "CarryPatientToBed"
+---@field SeekGiveWaterBucket 37
+---@field [37] "SeekGiveWaterBucket"
+---@field SeekJobItem 38
+---@field [38] "SeekJobItem"
+---@field SeekUnitForItemDrop 39
+---@field [39] "SeekUnitForItemDrop"
+---@field SeekUnitForJob 40
+---@field [40] "SeekUnitForJob"
+---@field SeekSplint 41
+---@field [41] "SeekSplint"
+---@field SeekCrutch 42
+---@field [42] "SeekCrutch"
+---@field SeekSutureThread 43
+---@field [43] "SeekSutureThread"
+---@field SeekDressingCloth 44
+---@field [44] "SeekDressingCloth"
+---@field GoToGiveWaterTarget 45
+---@field [45] "GoToGiveWaterTarget"
+---@field SeekFoodForTarget 46
+---@field [46] "SeekFoodForTarget"
+---@field SeekTargetForFood 47
+---@field [47] "SeekTargetForFood"
+---@field SeekAnimalForSlaughter 48
+---@field [48] "SeekAnimalForSlaughter"
+---@field SeekSlaughterBuilding 49
+---@field [49] "SeekSlaughterBuilding"
+---@field SeekAnimalForChain 50
+---@field [50] "SeekAnimalForChain"
+---@field SeekChainForAnimal 51
+---@field [51] "SeekChainForAnimal"
+---@field SeekCageForUnchain 52
+---@field [52] "SeekCageForUnchain"
+---@field SeekAnimalForUnchain 53
+---@field [53] "SeekAnimalForUnchain"
+---@field GrabFoodForTaming 54
+---@field [54] "GrabFoodForTaming"
+---@field SeekAnimalForTaming 55
+---@field [55] "SeekAnimalForTaming"
+---@field SeekDrinkItem 56
+---@field [56] "SeekDrinkItem"
+---@field SeekFoodItem 57
+---@field [57] "SeekFoodItem"
+---@field SeekEatingChair 58
+---@field [58] "SeekEatingChair"
+---@field SeekEatingChair2 59
+---@field [59] "SeekEatingChair2"
+---@field SeekBadMoodBuilding 60
+---@field [60] "SeekBadMoodBuilding"
+---@field SetGlassMoodBuilding 61
+---@field [61] "SetGlassMoodBuilding"
+---@field SetMoodBuilding 62
+---@field [62] "SetMoodBuilding"
+---@field SeekFellVictim 63
+---@field [63] "SeekFellVictim"
+---@field CleanBuildingSite 64
+---@field [64] "CleanBuildingSite"
+---@field ResetPriorityGoal 65
+---@field [65] "ResetPriorityGoal"
+---@field MainJobBuilding 66
+---@field [66] "MainJobBuilding"
+---@field DropOffJobItems 67
+---@field [67] "DropOffJobItems"
+---@field GrabJobResources 68
+---@field [68] "GrabJobResources"
+---@field WorkAtBuilding 69
+---@field [69] "WorkAtBuilding"
+---@field GrabUniform 70
+---@field [70] "GrabUniform"
+---@field GrabClothing 71
+---@field [71] "GrabClothing"
+---@field GrabWeapon 72
+---@field [72] "GrabWeapon"
+---@field GrabAmmunition 73
+---@field [73] "GrabAmmunition"
+---@field GrabShield 74
+---@field [74] "GrabShield"
+---@field GrabArmor 75
+---@field [75] "GrabArmor"
+---@field GrabHelm 76
+---@field [76] "GrabHelm"
+---@field GrabBoots 77
+---@field [77] "GrabBoots"
+---@field GrabGloves 78
+---@field [78] "GrabGloves"
+---@field GrabPants 79
+---@field [79] "GrabPants"
+---@field GrabQuiver 80
+---@field [80] "GrabQuiver"
+---@field GrabBackpack 81
+---@field [81] "GrabBackpack"
+---@field GrabWaterskin 82
+---@field [82] "GrabWaterskin"
+---@field StartHunt 83
+---@field [83] "StartHunt"
+---@field StartFish 84
+---@field [84] "StartFish"
+---@field Clean 85
+---@field [85] "Clean"
+---@field HuntVermin 86
+---@field [86] "HuntVermin"
+---@field Patrol 87
+---@field [87] "Patrol"
+---@field SquadStation 88
+---@field [88] "SquadStation"
+---@field SeekInfant 89
+---@field [89] "SeekInfant"
+---@field ShopSpecific 90
+---@field [90] "ShopSpecific"
+---@field MillInShop 91
+---@field [91] "MillInShop"
+---@field GoToShop 92
+---@field [92] "GoToShop"
+---@field SeekTrainingAmmunition 93
+---@field [93] "SeekTrainingAmmunition"
+---@field ArcheryTrainingSite 94
+---@field [94] "ArcheryTrainingSite"
+---@field SparringPartner 95
+---@field [95] "SparringPartner"
+---@field SparringSite 96
+---@field [96] "SparringSite"
+---@field SeekArtifact 97
+---@field [97] "SeekArtifact"
+---@field GrabAmmunitionForBuilding 98
+---@field [98] "GrabAmmunitionForBuilding"
+---@field SeekBuildingForAmmunition 99
+---@field [99] "SeekBuildingForAmmunition"
+---@field SeekItemForStorage 100
+---@field [100] "SeekItemForStorage"
+---@field StoreItem 101
+---@field [101] "StoreItem"
+---@field GrabKill 102
+---@field [102] "GrabKill"
+---@field DropKillAtButcher 103
+---@field [103] "DropKillAtButcher"
+---@field DropKillOutFront 104
+---@field [104] "DropKillOutFront"
+---@field GoToBeatingTarget 105
+---@field [105] "GoToBeatingTarget"
+---@field SeekKidnapVictim 106
+---@field [106] "SeekKidnapVictim"
+---@field SeekHuntingTarget 107
+---@field [107] "SeekHuntingTarget"
+---@field SeekTargetMechanism 108
+---@field [108] "SeekTargetMechanism"
+---@field SeekTargetForMechanism 109
+---@field [109] "SeekTargetForMechanism"
+---@field SeekMechanismForTrigger 110
+---@field [110] "SeekMechanismForTrigger"
+---@field SeekTriggerForMechanism 111
+---@field [111] "SeekTriggerForMechanism"
+---@field SeekTrapForVerminCatch 112
+---@field [112] "SeekTrapForVerminCatch"
+---@field SeekVerminForCatching 113
+---@field [113] "SeekVerminForCatching"
+---@field SeekVerminCatchLocation 114
+---@field [114] "SeekVerminCatchLocation"
+---@field WanderVerminCatchLocation 115
+---@field [115] "WanderVerminCatchLocation"
+---@field SeekVerminForHunting 116
+---@field [116] "SeekVerminForHunting"
+---@field SeekVerminHuntingSpot 117
+---@field [117] "SeekVerminHuntingSpot"
+---@field WanderVerminHuntingSpot 118
+---@field [118] "WanderVerminHuntingSpot"
+---@field SeekFishTrap 119
+---@field [119] "SeekFishTrap"
+---@field SeekFishCatchLocation 120
+---@field [120] "SeekFishCatchLocation"
+---@field SeekWellForWater 121
+---@field [121] "SeekWellForWater"
+---@field SeekDrinkAreaForWater 122
+---@field [122] "SeekDrinkAreaForWater"
+---@field UpgradeSquadEquipment 123
+---@field [123] "UpgradeSquadEquipment"
+---@field PrepareEquipmentManifests 124
+---@field [124] "PrepareEquipmentManifests"
+---@field WanderDepot 125
+---@field [125] "WanderDepot"
+---@field SeekUpdateOffice 126
+---@field [126] "SeekUpdateOffice"
+---@field SeekManageOffice 127
+---@field [127] "SeekManageOffice"
+---@field AssignedBuildingJob 128
+---@field [128] "AssignedBuildingJob"
+---@field ChaseOpponent 129
+---@field [129] "ChaseOpponent"
+---@field FleeFromOpponent 130
+---@field [130] "FleeFromOpponent"
+---@field AttackBuilding 131
+---@field [131] "AttackBuilding"
+---@field StartBedCarry 132
+---@field [132] "StartBedCarry"
+---@field StartGiveFoodWater 133
+---@field [133] "StartGiveFoodWater"
+---@field StartMedicalAid 134
+---@field [134] "StartMedicalAid"
+---@field SeekStationFlood 135
+---@field [135] "SeekStationFlood"
+---@field SeekStation 136
+---@field [136] "SeekStation"
+---@field StartWaterJobWell 137
+---@field [137] "StartWaterJobWell"
+---@field StartWaterJobDrinkArea 138
+---@field [138] "StartWaterJobDrinkArea"
+---@field StartEatJob 139
+---@field [139] "StartEatJob"
+---@field ScheduledMeal 140
+---@field [140] "ScheduledMeal"
+---@field ScheduledSleepBed 141
+---@field [141] "ScheduledSleepBed"
+---@field ScheduledSleepGround 142
+---@field [142] "ScheduledSleepGround"
+---@field Rest 143
+---@field [143] "Rest"
+---@field RemoveConstruction 144
+---@field [144] "RemoveConstruction"
+---@field Chop 145
+---@field [145] "Chop"
+---@field Detail 146
+---@field [146] "Detail"
+---@field GatherPlant 147
+---@field [147] "GatherPlant"
+---@field Dig 148
+---@field [148] "Dig"
+---@field Mischief 149
+---@field [149] "Mischief"
+---@field ChaseOpponentSameSquare 150
+---@field [150] "ChaseOpponentSameSquare"
+---@field RestRecovered 151
+---@field [151] "RestRecovered"
+---@field RestReset 152
+---@field [152] "RestReset"
+---@field CombatTraining 153
+---@field [153] "CombatTraining"
+---@field SkillDemonstration 154
+---@field [154] "SkillDemonstration"
+---@field IndividualSkillDrill 155
+---@field [155] "IndividualSkillDrill"
+---@field SeekBuildingForItemDrop 156
+---@field [156] "SeekBuildingForItemDrop"
+---@field SeekBuildingForJob 157
+---@field [157] "SeekBuildingForJob"
+---@field GrabMilkUnit 158
+---@field [158] "GrabMilkUnit"
+---@field GoToMilkStation 159
+---@field [159] "GoToMilkStation"
+---@field SeekPatientForDressWound 160
+---@field [160] "SeekPatientForDressWound"
+---@field UndeadHunt 161
+---@field [161] "UndeadHunt"
+---@field GrabShearUnit 162
+---@field [162] "GrabShearUnit"
+---@field GoToShearStation 163
+---@field [163] "GoToShearStation"
+---@field LayEggNestBox 164
+---@field [164] "LayEggNestBox"
+---@field ClayZone 165
+---@field [165] "ClayZone"
+---@field ColonyToInstall 166
+---@field [166] "ColonyToInstall"
+---@field ReturnColonyToInstall 167
+---@field [167] "ReturnColonyToInstall"
+---@field Nonsense 168
+---@field [168] "Nonsense"
+---@field SeekBloodSuckVictim 169
+---@field [169] "SeekBloodSuckVictim"
+---@field SeekSheriff 170
+---@field [170] "SeekSheriff"
+---@field GrabExecutionWeapon 171
+---@field [171] "GrabExecutionWeapon"
+---@field TrainAnimal 172
+---@field [172] "TrainAnimal"
+---@field GuardPath 173
+---@field [173] "GuardPath"
+---@field Harass 174
+---@field [174] "Harass"
+---@field SiteWalk 175
+---@field [175] "SiteWalk"
+---@field SiteWalkToBuilding 176
+---@field [176] "SiteWalkToBuilding"
+---@field Reunion 177
+---@field [177] "Reunion"
+---@field ArmyWalk 178
+---@field [178] "ArmyWalk"
+---@field ChaseOpponentFlood 179
+---@field [179] "ChaseOpponentFlood"
+---@field ChargeAttack 180
+---@field [180] "ChargeAttack"
+---@field FleeFromOpponentClimb 181
+---@field [181] "FleeFromOpponentClimb"
+---@field SeekLadderToClimb 182
+---@field [182] "SeekLadderToClimb"
+---@field SeekLadderToMove 183
+---@field [183] "SeekLadderToMove"
+---@field PlaceLadder 184
+---@field [184] "PlaceLadder"
+---@field SeekAnimalForGelding 185
+---@field [185] "SeekAnimalForGelding"
+---@field SeekGeldingBuilding 186
+---@field [186] "SeekGeldingBuilding"
+---@field Prayer 187
+---@field [187] "Prayer"
+---@field Socialize 188
+---@field [188] "Socialize"
+---@field Performance 189
+---@field [189] "Performance"
+---@field Research 190
+---@field [190] "Research"
+---@field PonderTopic 191
+---@field [191] "PonderTopic"
+---@field FillServiceOrder 192
+---@field [192] "FillServiceOrder"
+---@field GetWrittenContent 193
+---@field [193] "GetWrittenContent"
+---@field GoToReadingPlace 194
+---@field [194] "GoToReadingPlace"
+---@field GetWritingMaterials 195
+---@field [195] "GetWritingMaterials"
+---@field GoToWritingPlace 196
+---@field [196] "GoToWritingPlace"
+---@field Worship 197
+---@field [197] "Worship"
+---@field GrabInstrument 198
+---@field [198] "GrabInstrument"
+---@field Play 199
+---@field [199] "Play"
+---@field MakeBelieve 200
+---@field [200] "MakeBelieve"
+---@field PlayWithToy 201
+---@field [201] "PlayWithToy"
+---@field GrabToy 202
+---@field [202] "GrabToy"
+---@field Encounter 203
+---@field [203] "Encounter"
+---@field StoreObject 204
+---@field [204] "StoreObject"
+---@field LeaveSiteSquadOrder 205
+---@field [205] "LeaveSiteSquadOrder"
+---@field ParleyUnit 206
+---@field [206] "ParleyUnit"
+---@field ParleyItem 207
+---@field [207] "ParleyItem"
+---@field FollowCommand 208
+---@field [208] "FollowCommand"
+---@field SeekHeistItem 209
+---@field [209] "SeekHeistItem"
+---@field SeekHeistMaster 210
+---@field [210] "SeekHeistMaster"
+---@field GoToInterrogationTarget 211
+---@field [211] "GoToInterrogationTarget"
+---@field InterrogationOffice 212
+---@field [212] "InterrogationOffice"
+---@field SeekHeistHandoff 213
+---@field [213] "SeekHeistHandoff"
+---@field AdventureAutomove 214
+---@field [214] "AdventureAutomove"
+---@field AdventureAutomoveAcrobatic 215
+---@field [215] "AdventureAutomoveAcrobatic"
+df.unit_path_goal = {}
+
+-- Unused: BuildPathResult
+---@alias df.breath_attack_type
+---| -1 # NONE
+---| 0 # TRAILING_DUST_FLOW
+---| 1 # TRAILING_VAPOR_FLOW
+---| 2 # TRAILING_GAS_FLOW
+---| 3 # SOLID_GLOB
+---| 4 # LIQUID_GLOB
+---| 5 # UNDIRECTED_GAS
+---| 6 # UNDIRECTED_VAPOR
+---| 7 # UNDIRECTED_DUST
+---| 8 # WEB_SPRAY
+---| 9 # DRAGONFIRE
+---| 10 # FIREJET
+---| 11 # FIREBALL
+---| 12 # WEATHER_CREEPING_GAS
+---| 13 # WEATHER_CREEPING_VAPOR
+---| 14 # WEATHER_CREEPING_DUST
+---| 15 # WEATHER_FALLING_MATERIAL
+---| 16 # SPATTER_POWDER
+---| 17 # SPATTER_LIQUID
+---| 18 # UNDIRECTED_ITEM_CLOUD
+---| 19 # TRAILING_ITEM_FLOW
+---| 20 # SHARP_ROCK
+---| 21 # MAXNUM
+
+-- Unused: BuildPathResult
+---@class identity.breath_attack_type: DFEnumType
+---@field NONE -1 bay12: BreathAttackType
+---@field [-1] "NONE" bay12: BreathAttackType
+---@field TRAILING_DUST_FLOW 0
+---@field [0] "TRAILING_DUST_FLOW"
+---@field TRAILING_VAPOR_FLOW 1
+---@field [1] "TRAILING_VAPOR_FLOW"
+---@field TRAILING_GAS_FLOW 2
+---@field [2] "TRAILING_GAS_FLOW"
+---@field SOLID_GLOB 3
+---@field [3] "SOLID_GLOB"
+---@field LIQUID_GLOB 4
+---@field [4] "LIQUID_GLOB"
+---@field UNDIRECTED_GAS 5
+---@field [5] "UNDIRECTED_GAS"
+---@field UNDIRECTED_VAPOR 6
+---@field [6] "UNDIRECTED_VAPOR"
+---@field UNDIRECTED_DUST 7
+---@field [7] "UNDIRECTED_DUST"
+---@field WEB_SPRAY 8
+---@field [8] "WEB_SPRAY"
+---@field DRAGONFIRE 9
+---@field [9] "DRAGONFIRE"
+---@field FIREJET 10
+---@field [10] "FIREJET"
+---@field FIREBALL 11
+---@field [11] "FIREBALL"
+---@field WEATHER_CREEPING_GAS 12
+---@field [12] "WEATHER_CREEPING_GAS"
+---@field WEATHER_CREEPING_VAPOR 13
+---@field [13] "WEATHER_CREEPING_VAPOR"
+---@field WEATHER_CREEPING_DUST 14
+---@field [14] "WEATHER_CREEPING_DUST"
+---@field WEATHER_FALLING_MATERIAL 15
+---@field [15] "WEATHER_FALLING_MATERIAL"
+---@field SPATTER_POWDER 16
+---@field [16] "SPATTER_POWDER"
+---@field SPATTER_LIQUID 17
+---@field [17] "SPATTER_LIQUID"
+---@field UNDIRECTED_ITEM_CLOUD 18
+---@field [18] "UNDIRECTED_ITEM_CLOUD"
+---@field TRAILING_ITEM_FLOW 19
+---@field [19] "TRAILING_ITEM_FLOW"
+---@field SHARP_ROCK 20
+---@field [20] "SHARP_ROCK"
+---@field MAXNUM 21 used instead of NONE as initial value in interaction_informationst
+---@field [21] "MAXNUM" used instead of NONE as initial value in interaction_informationst
+df.breath_attack_type = {}
+
+---@alias df.matter_state
+---| -1 # None
+---| 0 # Solid
+---| 1 # Liquid
+---| 2 # Gas
+---| 3 # Powder
+---| 4 # Paste
+---| 5 # Pressed
+
+---@class identity.matter_state: DFEnumType
+---@field None -1 bay12: MaterialStateType
+---@field [-1] "None" bay12: MaterialStateType
+---@field Solid 0
+---@field [0] "Solid"
+---@field Liquid 1
+---@field [1] "Liquid"
+---@field Gas 2
+---@field [2] "Gas"
+---@field Powder 3
+---@field [3] "Powder"
+---@field Paste 4
+---@field [4] "Paste"
+---@field Pressed 5
+---@field [5] "Pressed"
+df.matter_state = {}
+
+---@alias df.material_flags
+---| 0 # BONE
+---| 1 # MEAT
+---| 2 # EDIBLE_VERMIN
+---| 3 # EDIBLE_RAW
+---| 4 # EDIBLE_COOKED
+---| 5 # ALCOHOL
+---| 6 # ITEMS_METAL
+---| 7 # ITEMS_BARRED
+---| 8 # ITEMS_SCALED
+---| 9 # ITEMS_LEATHER
+---| 10 # ITEMS_SOFT
+---| 11 # ITEMS_HARD
+---| 12 # IMPLIES_ANIMAL_KILL
+---| 13 # ALCOHOL_PLANT
+---| 14 # ALCOHOL_CREATURE
+---| 15 # CHEESE_PLANT
+---| 16 # CHEESE_CREATURE
+---| 17 # POWDER_MISC_PLANT
+---| 18 # POWDER_MISC_CREATURE
+---| 19 # STOCKPILE_GLOB
+---| 20 # LIQUID_MISC_PLANT
+---| 21 # LIQUID_MISC_CREATURE
+---| 22 # LIQUID_MISC_OTHER
+---| 23 # WOOD
+---| 24 # THREAD_PLANT
+---| 25 # TOOTH
+---| 26 # HORN
+---| 27 # PEARL
+---| 28 # SHELL
+---| 29 # LEATHER
+---| 30 # SILK
+---| 31 # SOAP
+---| 32 # ROTS
+---| 33 # IS_DYE
+---| 34 # POWDER_MISC
+---| 35 # LIQUID_MISC
+---| 36 # STRUCTURAL_PLANT_MAT
+---| 37 # SEED_MAT
+---| 38 # STOCKPILE_PLANT_GROWTH
+---| 39 # CHEESE
+---| 40 # ENTERS_BLOOD
+---| 41 # BLOOD_MAP_DESCRIPTOR
+---| 42 # ICHOR_MAP_DESCRIPTOR
+---| 43 # GOO_MAP_DESCRIPTOR
+---| 44 # SLIME_MAP_DESCRIPTOR
+---| 45 # PUS_MAP_DESCRIPTOR
+---| 46 # GENERATES_MIASMA
+---| 47 # IS_METAL
+---| 48 # IS_GEM
+---| 49 # IS_GLASS
+---| 50 # CRYSTAL_GLASSABLE
+---| 51 # ITEMS_WEAPON
+---| 52 # ITEMS_WEAPON_RANGED
+---| 53 # ITEMS_ANVIL
+---| 54 # ITEMS_AMMO
+---| 55 # ITEMS_DIGGER
+---| 56 # ITEMS_ARMOR
+---| 57 # ITEMS_DELICATE
+---| 58 # ITEMS_SIEGE_ENGINE
+---| 59 # ITEMS_QUERN
+---| 60 # IS_STONE
+---| 61 # UNDIGGABLE
+---| 62 # YARN
+---| 63 # STOCKPILE_GLOB_PASTE
+---| 64 # STOCKPILE_GLOB_PRESSED
+---| 65 # DISPLAY_UNGLAZED
+---| 66 # DO_NOT_CLEAN_GLOB
+---| 67 # NO_STONE_STOCKPILE
+---| 68 # STOCKPILE_THREAD_METAL
+---| 69 # SWEAT_MAP_DESCRIPTOR
+---| 70 # TEARS_MAP_DESCRIPTOR
+---| 71 # SPIT_MAP_DESCRIPTOR
+---| 72 # EVAPORATES
+---| 73 # STOCKPILE_PLANT
+---| 74 # IS_CERAMIC
+---| 75 # CARTILAGE
+---| 76 # FEATHER
+---| 77 # SCALE
+---| 78 # HAIR
+---| 79 # NERVOUS_TISSUE
+---| 80 # HOOF
+---| 81 # CHITIN
+---| 82 # ANTLER
+
+---@class identity.material_flags: DFEnumType
+---@field BONE 0
+---@field [0] "BONE"
+---@field MEAT 1
+---@field [1] "MEAT"
+---@field EDIBLE_VERMIN 2
+---@field [2] "EDIBLE_VERMIN"
+---@field EDIBLE_RAW 3
+---@field [3] "EDIBLE_RAW"
+---@field EDIBLE_COOKED 4
+---@field [4] "EDIBLE_COOKED"
+---@field ALCOHOL 5
+---@field [5] "ALCOHOL"
+---@field ITEMS_METAL 6
+---@field [6] "ITEMS_METAL"
+---@field ITEMS_BARRED 7
+---@field [7] "ITEMS_BARRED"
+---@field ITEMS_SCALED 8
+---@field [8] "ITEMS_SCALED"
+---@field ITEMS_LEATHER 9
+---@field [9] "ITEMS_LEATHER"
+---@field ITEMS_SOFT 10
+---@field [10] "ITEMS_SOFT"
+---@field ITEMS_HARD 11
+---@field [11] "ITEMS_HARD"
+---@field IMPLIES_ANIMAL_KILL 12
+---@field [12] "IMPLIES_ANIMAL_KILL"
+---@field ALCOHOL_PLANT 13
+---@field [13] "ALCOHOL_PLANT"
+---@field ALCOHOL_CREATURE 14
+---@field [14] "ALCOHOL_CREATURE"
+---@field CHEESE_PLANT 15
+---@field [15] "CHEESE_PLANT"
+---@field CHEESE_CREATURE 16
+---@field [16] "CHEESE_CREATURE"
+---@field POWDER_MISC_PLANT 17
+---@field [17] "POWDER_MISC_PLANT"
+---@field POWDER_MISC_CREATURE 18
+---@field [18] "POWDER_MISC_CREATURE"
+---@field STOCKPILE_GLOB 19
+---@field [19] "STOCKPILE_GLOB"
+---@field LIQUID_MISC_PLANT 20 also STOCKPILE_GLOB_SOLID
+---@field [20] "LIQUID_MISC_PLANT" also STOCKPILE_GLOB_SOLID
+---@field LIQUID_MISC_CREATURE 21
+---@field [21] "LIQUID_MISC_CREATURE"
+---@field LIQUID_MISC_OTHER 22
+---@field [22] "LIQUID_MISC_OTHER"
+---@field WOOD 23
+---@field [23] "WOOD"
+---@field THREAD_PLANT 24
+---@field [24] "THREAD_PLANT"
+---@field TOOTH 25
+---@field [25] "TOOTH"
+---@field HORN 26
+---@field [26] "HORN"
+---@field PEARL 27
+---@field [27] "PEARL"
+---@field SHELL 28
+---@field [28] "SHELL"
+---@field LEATHER 29
+---@field [29] "LEATHER"
+---@field SILK 30
+---@field [30] "SILK"
+---@field SOAP 31
+---@field [31] "SOAP"
+---@field ROTS 32
+---@field [32] "ROTS"
+---@field IS_DYE 33
+---@field [33] "IS_DYE"
+---@field POWDER_MISC 34
+---@field [34] "POWDER_MISC"
+---@field LIQUID_MISC 35
+---@field [35] "LIQUID_MISC"
+---@field STRUCTURAL_PLANT_MAT 36
+---@field [36] "STRUCTURAL_PLANT_MAT"
+---@field SEED_MAT 37
+---@field [37] "SEED_MAT"
+---@field STOCKPILE_PLANT_GROWTH 38
+---@field [38] "STOCKPILE_PLANT_GROWTH"
+---@field CHEESE 39
+---@field [39] "CHEESE"
+---@field ENTERS_BLOOD 40
+---@field [40] "ENTERS_BLOOD"
+---@field BLOOD_MAP_DESCRIPTOR 41
+---@field [41] "BLOOD_MAP_DESCRIPTOR"
+---@field ICHOR_MAP_DESCRIPTOR 42
+---@field [42] "ICHOR_MAP_DESCRIPTOR"
+---@field GOO_MAP_DESCRIPTOR 43
+---@field [43] "GOO_MAP_DESCRIPTOR"
+---@field SLIME_MAP_DESCRIPTOR 44
+---@field [44] "SLIME_MAP_DESCRIPTOR"
+---@field PUS_MAP_DESCRIPTOR 45
+---@field [45] "PUS_MAP_DESCRIPTOR"
+---@field GENERATES_MIASMA 46
+---@field [46] "GENERATES_MIASMA"
+---@field IS_METAL 47
+---@field [47] "IS_METAL"
+---@field IS_GEM 48
+---@field [48] "IS_GEM"
+---@field IS_GLASS 49
+---@field [49] "IS_GLASS"
+---@field CRYSTAL_GLASSABLE 50
+---@field [50] "CRYSTAL_GLASSABLE"
+---@field ITEMS_WEAPON 51
+---@field [51] "ITEMS_WEAPON"
+---@field ITEMS_WEAPON_RANGED 52
+---@field [52] "ITEMS_WEAPON_RANGED"
+---@field ITEMS_ANVIL 53
+---@field [53] "ITEMS_ANVIL"
+---@field ITEMS_AMMO 54
+---@field [54] "ITEMS_AMMO"
+---@field ITEMS_DIGGER 55
+---@field [55] "ITEMS_DIGGER"
+---@field ITEMS_ARMOR 56
+---@field [56] "ITEMS_ARMOR"
+---@field ITEMS_DELICATE 57
+---@field [57] "ITEMS_DELICATE"
+---@field ITEMS_SIEGE_ENGINE 58
+---@field [58] "ITEMS_SIEGE_ENGINE"
+---@field ITEMS_QUERN 59
+---@field [59] "ITEMS_QUERN"
+---@field IS_STONE 60
+---@field [60] "IS_STONE"
+---@field UNDIGGABLE 61
+---@field [61] "UNDIGGABLE"
+---@field YARN 62
+---@field [62] "YARN"
+---@field STOCKPILE_GLOB_PASTE 63
+---@field [63] "STOCKPILE_GLOB_PASTE"
+---@field STOCKPILE_GLOB_PRESSED 64
+---@field [64] "STOCKPILE_GLOB_PRESSED"
+---@field DISPLAY_UNGLAZED 65
+---@field [65] "DISPLAY_UNGLAZED"
+---@field DO_NOT_CLEAN_GLOB 66
+---@field [66] "DO_NOT_CLEAN_GLOB"
+---@field NO_STONE_STOCKPILE 67
+---@field [67] "NO_STONE_STOCKPILE"
+---@field STOCKPILE_THREAD_METAL 68
+---@field [68] "STOCKPILE_THREAD_METAL"
+---@field SWEAT_MAP_DESCRIPTOR 69
+---@field [69] "SWEAT_MAP_DESCRIPTOR"
+---@field TEARS_MAP_DESCRIPTOR 70
+---@field [70] "TEARS_MAP_DESCRIPTOR"
+---@field SPIT_MAP_DESCRIPTOR 71
+---@field [71] "SPIT_MAP_DESCRIPTOR"
+---@field EVAPORATES 72
+---@field [72] "EVAPORATES"
+---@field STOCKPILE_PLANT 73
+---@field [73] "STOCKPILE_PLANT"
+---@field IS_CERAMIC 74
+---@field [74] "IS_CERAMIC"
+---@field CARTILAGE 75
+---@field [75] "CARTILAGE"
+---@field FEATHER 76 new in 50.0x
+---@field [76] "FEATHER" new in 50.0x
+---@field SCALE 77
+---@field [77] "SCALE"
+---@field HAIR 78
+---@field [78] "HAIR"
+---@field NERVOUS_TISSUE 79
+---@field [79] "NERVOUS_TISSUE"
+---@field HOOF 80
+---@field [80] "HOOF"
+---@field CHITIN 81
+---@field [81] "CHITIN"
+---@field ANTLER 82
+---@field [82] "ANTLER"
+df.material_flags = {}
+
+---@class material_flags_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.material_flags._attr_entry_type = {}
+
+---@class (exact) material_flags_attr_entry_type_fields
+---@field type DFCompoundField bay12: MaterialDefinitionFlagType
+df.material_flags._attr_entry_type._fields = {}
+
+---@class material_flags_attrs
+---@field BONE { type: "Bone" }
+---@field MEAT { type: "None" }
+---@field EDIBLE_VERMIN { type: "None" }
+---@field EDIBLE_RAW { type: "None" }
+---@field EDIBLE_COOKED { type: "None" }
+---@field ALCOHOL { type: "None" }
+---@field ITEMS_METAL { type: "None" }
+---@field ITEMS_BARRED { type: "None" }
+---@field ITEMS_SCALED { type: "None" }
+---@field ITEMS_LEATHER { type: "None" }
+---@field ITEMS_SOFT { type: "None" }
+---@field ITEMS_HARD { type: "None" }
+---@field IMPLIES_ANIMAL_KILL { type: "None" }
+---@field ALCOHOL_PLANT { type: "None" }
+---@field ALCOHOL_CREATURE { type: "None" }
+---@field CHEESE_PLANT { type: "None" }
+---@field CHEESE_CREATURE { type: "None" }
+---@field POWDER_MISC_PLANT { type: "None" }
+---@field POWDER_MISC_CREATURE { type: "None" }
+---@field STOCKPILE_GLOB { type: "None" }
+---@field LIQUID_MISC_PLANT { type: "None" }
+---@field LIQUID_MISC_CREATURE { type: "None" }
+---@field LIQUID_MISC_OTHER { type: "None" }
+---@field WOOD { type: "Wood" }
+---@field THREAD_PLANT { type: "Cloth" }
+---@field TOOTH { type: "Ivory" }
+---@field HORN { type: "Horn" }
+---@field PEARL { type: "Pearl" }
+---@field SHELL { type: "Shell" }
+---@field LEATHER { type: "Leather" }
+---@field SILK { type: "Cloth" }
+---@field SOAP { type: "None" }
+---@field ROTS { type: "None" }
+---@field IS_DYE { type: "None" }
+---@field POWDER_MISC { type: "None" }
+---@field LIQUID_MISC { type: "None" }
+---@field STRUCTURAL_PLANT_MAT { type: "None" }
+---@field SEED_MAT { type: "None" }
+---@field STOCKPILE_PLANT_GROWTH { type: "None" }
+---@field CHEESE { type: "None" }
+---@field ENTERS_BLOOD { type: "None" }
+---@field BLOOD_MAP_DESCRIPTOR { type: "None" }
+---@field ICHOR_MAP_DESCRIPTOR { type: "None" }
+---@field GOO_MAP_DESCRIPTOR { type: "None" }
+---@field SLIME_MAP_DESCRIPTOR { type: "None" }
+---@field PUS_MAP_DESCRIPTOR { type: "None" }
+---@field GENERATES_MIASMA { type: "None" }
+---@field IS_METAL { type: "Metal" }
+---@field IS_GEM { type: "Gem" }
+---@field IS_GLASS { type: "Glass" }
+---@field CRYSTAL_GLASSABLE { type: "None" }
+---@field ITEMS_WEAPON { type: "None" }
+---@field ITEMS_WEAPON_RANGED { type: "None" }
+---@field ITEMS_ANVIL { type: "None" }
+---@field ITEMS_AMMO { type: "None" }
+---@field ITEMS_DIGGER { type: "None" }
+---@field ITEMS_ARMOR { type: "None" }
+---@field ITEMS_DELICATE { type: "None" }
+---@field ITEMS_SIEGE_ENGINE { type: "None" }
+---@field ITEMS_QUERN { type: "None" }
+---@field IS_STONE { type: "Stone" }
+---@field UNDIGGABLE { type: "None" }
+---@field YARN { type: "Cloth" }
+---@field STOCKPILE_GLOB_PASTE { type: "None" }
+---@field STOCKPILE_GLOB_PRESSED { type: "None" }
+---@field DISPLAY_UNGLAZED { type: "None" }
+---@field DO_NOT_CLEAN_GLOB { type: "None" }
+---@field NO_STONE_STOCKPILE { type: "None" }
+---@field STOCKPILE_THREAD_METAL { type: "None" }
+---@field SWEAT_MAP_DESCRIPTOR { type: "None" }
+---@field TEARS_MAP_DESCRIPTOR { type: "None" }
+---@field SPIT_MAP_DESCRIPTOR { type: "None" }
+---@field EVAPORATES { type: "None" }
+---@field STOCKPILE_PLANT { type: "None" }
+---@field IS_CERAMIC { type: "None" }
+---@field CARTILAGE { type: "None" }
+---@field FEATHER { type: "None" }
+---@field SCALE { type: "None" }
+---@field HAIR { type: "None" }
+---@field NERVOUS_TISSUE { type: "None" }
+---@field HOOF { type: "None" }
+---@field CHITIN { type: "None" }
+---@field ANTLER { type: "None" }
+df.material_flags.attrs = {}
+
+---@alias df.builtin_mats
+---| -1 # NONE
+---| 0 # INORGANIC
+---| 1 # AMBER
+---| 2 # CORAL
+---| 3 # GLASS_GREEN
+---| 4 # GLASS_CLEAR
+---| 5 # GLASS_CRYSTAL
+---| 6 # WATER
+---| 7 # COAL
+---| 8 # POTASH
+---| 9 # ASH
+---| 10 # PEARLASH
+---| 11 # LYE
+---| 12 # MUD
+---| 13 # VOMIT
+---| 14 # SALT
+---| 15 # FILTH_B
+---| 16 # FILTH_Y
+---| 17 # UNKNOWN_SUBSTANCE
+---| 18 # GRIME
+
+---@class identity.builtin_mats: DFEnumType
+---@field NONE -1 bay12: MaterialType
+---@field [-1] "NONE" bay12: MaterialType
+---@field INORGANIC 0
+---@field [0] "INORGANIC"
+---@field AMBER 1
+---@field [1] "AMBER"
+---@field CORAL 2
+---@field [2] "CORAL"
+---@field GLASS_GREEN 3
+---@field [3] "GLASS_GREEN"
+---@field GLASS_CLEAR 4
+---@field [4] "GLASS_CLEAR"
+---@field GLASS_CRYSTAL 5
+---@field [5] "GLASS_CRYSTAL"
+---@field WATER 6
+---@field [6] "WATER"
+---@field COAL 7
+---@field [7] "COAL"
+---@field POTASH 8
+---@field [8] "POTASH"
+---@field ASH 9
+---@field [9] "ASH"
+---@field PEARLASH 10
+---@field [10] "PEARLASH"
+---@field LYE 11
+---@field [11] "LYE"
+---@field MUD 12
+---@field [12] "MUD"
+---@field VOMIT 13
+---@field [13] "VOMIT"
+---@field SALT 14
+---@field [14] "SALT"
+---@field FILTH_B 15
+---@field [15] "FILTH_B"
+---@field FILTH_Y 16
+---@field [16] "FILTH_Y"
+---@field UNKNOWN_SUBSTANCE 17
+---@field [17] "UNKNOWN_SUBSTANCE"
+---@field GRIME 18
+---@field [18] "GRIME"
+df.builtin_mats = {}
+
+-- Unused: MatGlossCoal
+---@alias df.entity_material_category
+---| -1 # None
+---| 0 # Clothing
+---| 1 # Leather
+---| 2 # Cloth
+---| 3 # Wood
+---| 4 # Crafts
+---| 5 # Stone
+---| 6 # Improvement
+---| 7 # Vial
+---| 8 # Barrel
+---| 9 # Bag
+---| 10 # Cage
+---| 11 # WeaponMelee
+---| 12 # WeaponRanged
+---| 13 # Ammo
+---| 14 # AmmoMetal
+---| 15 # Pick
+---| 16 # Armor
+---| 17 # Gem
+---| 18 # Bone
+---| 19 # Shell
+---| 20 # Pearl
+---| 21 # Ivory
+---| 22 # Horn
+---| 23 # Other
+---| 24 # Anvil
+---| 25 # Booze
+---| 26 # Chain
+---| 27 # PlantFiber
+---| 28 # Silk
+---| 29 # Wool
+---| 30 # PermFurniture
+---| 31 # TempFurniture
+---| 32 # Tent
+---| 33 # Sheet
+
+-- Unused: MatGlossCoal
+---@class identity.entity_material_category: DFEnumType
+---@field None -1 bay12: EntityMaterialType
+---@field [-1] "None" bay12: EntityMaterialType
+---@field Clothing 0 cloth or leather
+---@field [0] "Clothing" cloth or leather
+---@field Leather 1 organic.leather
+---@field [1] "Leather" organic.leather
+---@field Cloth 2 any cloth
+---@field [2] "Cloth" any cloth
+---@field Wood 3 organic.wood, used for training weapons
+---@field [3] "Wood" organic.wood, used for training weapons
+---@field Crafts 4 misc_mat.crafts
+---@field [4] "Crafts" misc_mat.crafts
+---@field Stone 5 stones
+---@field [5] "Stone" stones
+---@field Improvement 6 misc_mat.crafts
+---@field [6] "Improvement" misc_mat.crafts
+---@field Vial 7 misc_mat.vials
+---@field [7] "Vial" misc_mat.vials
+---@field Barrel 8 misc_mat.barrels, also used for buckets
+---@field [8] "Barrel" misc_mat.barrels, also used for buckets
+---@field Bag 9 cloth/leather
+---@field [9] "Bag" cloth/leather
+---@field Cage 10 misc_mat.cages
+---@field [10] "Cage" misc_mat.cages
+---@field WeaponMelee 11 metal.weapon
+---@field [11] "WeaponMelee" metal.weapon
+---@field WeaponRanged 12 metal.ranged
+---@field [12] "WeaponRanged" metal.ranged
+---@field Ammo 13 metal.ammo
+---@field [13] "Ammo" metal.ammo
+---@field AmmoMetal 14 metal.ammo_metal
+---@field [14] "AmmoMetal" metal.ammo_metal
+---@field Pick 15 metal.pick
+---@field [15] "Pick" metal.pick
+---@field Armor 16 metal.armor, also used for shields, tools, instruments, and toys
+---@field [16] "Armor" metal.armor, also used for shields, tools, instruments, and toys
+---@field Gem 17 gems
+---@field [17] "Gem" gems
+---@field Bone 18 refuse.bone
+---@field [18] "Bone" refuse.bone
+---@field Shell 19 refuse.shell
+---@field [19] "Shell" refuse.shell
+---@field Pearl 20 refuse.pearl
+---@field [20] "Pearl" refuse.pearl
+---@field Ivory 21 refuse.ivory
+---@field [21] "Ivory" refuse.ivory
+---@field Horn 22 refuse.horn
+---@field [22] "Horn" refuse.horn
+---@field Other 23 misc_mat.others
+---@field [23] "Other" misc_mat.others
+---@field Anvil 24 metal.anvil
+---@field [24] "Anvil" metal.anvil
+---@field Booze 25 misc_mat.booze
+---@field [25] "Booze" misc_mat.booze
+---@field Chain 26 metals with ITEMS_HARD, used for chains
+---@field [26] "Chain" metals with ITEMS_HARD, used for chains
+---@field PlantFiber 27 organic.fiber
+---@field [27] "PlantFiber" organic.fiber
+---@field Silk 28 organic.silk
+---@field [28] "Silk" organic.silk
+---@field Wool 29 organic.wool
+---@field [29] "Wool" organic.wool
+---@field PermFurniture 30 misc_mat.perm_furniture
+---@field [30] "PermFurniture" misc_mat.perm_furniture
+---@field TempFurniture 31 misc_mat.temp_furniture
+---@field [31] "TempFurniture" misc_mat.temp_furniture
+---@field Tent 32
+---@field [32] "Tent"
+---@field Sheet 33
+---@field [33] "Sheet"
+df.entity_material_category = {}
+
+-- Unused: TrampleType
+-- Unused: VISION_FLAG_*
+-- Unused: CREATURE_DISPLAYFLAG_*
+-- Unused: SYMMETRYFLAG_*
+-- Unused: FORCEPRINT_*
+-- Unused: SiteClean
+---@alias df.game_clean_type
+---| 0 # CleaningGameObjects
+---| 1 # CleaningStrandedObjects
+---| 2 # CleaningPlayObjects
+
+-- Unused: TrampleType
+-- Unused: VISION_FLAG_*
+-- Unused: CREATURE_DISPLAYFLAG_*
+-- Unused: SYMMETRYFLAG_*
+-- Unused: FORCEPRINT_*
+-- Unused: SiteClean
+---@class identity.game_clean_type: DFEnumType
+---@field CleaningGameObjects 0 bay12: GameClean
+---@field [0] "CleaningGameObjects" bay12: GameClean
+---@field CleaningStrandedObjects 1
+---@field [1] "CleaningStrandedObjects"
+---@field CleaningPlayObjects 2
+---@field [2] "CleaningPlayObjects"
+df.game_clean_type = {}
+
+-- Unused: DigStyle
+---@alias df.entity_sell_category
+---| -1 # NONE
+---| 0 # Leather
+---| 1 # ClothPlant
+---| 2 # ClothSilk
+---| 3 # Crafts
+---| 4 # Wood
+---| 5 # MetalBars
+---| 6 # SmallCutGems
+---| 7 # LargeCutGems
+---| 8 # StoneBlocks
+---| 9 # Seeds
+---| 10 # Anvils
+---| 11 # Weapons
+---| 12 # TrainingWeapons
+---| 13 # Ammo
+---| 14 # TrapComponents
+---| 15 # DiggingImplements
+---| 16 # Bodywear
+---| 17 # Headwear
+---| 18 # Handwear
+---| 19 # Footwear
+---| 20 # Legwear
+---| 21 # Shields
+---| 22 # Toys
+---| 23 # Instruments
+---| 24 # Pets
+---| 25 # Drinks
+---| 26 # Cheese
+---| 27 # Powders
+---| 28 # Extracts
+---| 29 # Meat
+---| 30 # Fish
+---| 31 # Plants
+---| 32 # FruitsNuts
+---| 33 # GardenVegetables
+---| 34 # MeatFishRecipes
+---| 35 # OtherRecipes
+---| 36 # Stone
+---| 37 # Cages
+---| 38 # BagsLeather
+---| 39 # BagsPlant
+---| 40 # BagsSilk
+---| 41 # ThreadPlant
+---| 42 # ThreadSilk
+---| 43 # RopesPlant
+---| 44 # RopesSilk
+---| 45 # Barrels
+---| 46 # FlasksWaterskins
+---| 47 # Quivers
+---| 48 # Backpacks
+---| 49 # Sand
+---| 50 # Glass
+---| 51 # Miscellaneous
+---| 52 # Buckets
+---| 53 # Splints
+---| 54 # Crutches
+---| 55 # Eggs
+---| 56 # BagsYarn
+---| 57 # RopesYarn
+---| 58 # ClothYarn
+---| 59 # ThreadYarn
+---| 60 # Tools
+---| 61 # Clay
+---| 62 # Parchment
+---| 63 # CupsMugsGoblets
+
+-- Unused: DigStyle
+---@class identity.entity_sell_category: DFEnumType
+---@field NONE -1 bay12: CivRequestTabType
+---@field [-1] "NONE" bay12: CivRequestTabType
+---@field Leather 0
+---@field [0] "Leather"
+---@field ClothPlant 1
+---@field [1] "ClothPlant"
+---@field ClothSilk 2
+---@field [2] "ClothSilk"
+---@field Crafts 3
+---@field [3] "Crafts"
+---@field Wood 4
+---@field [4] "Wood"
+---@field MetalBars 5
+---@field [5] "MetalBars"
+---@field SmallCutGems 6
+---@field [6] "SmallCutGems"
+---@field LargeCutGems 7
+---@field [7] "LargeCutGems"
+---@field StoneBlocks 8
+---@field [8] "StoneBlocks"
+---@field Seeds 9
+---@field [9] "Seeds"
+---@field Anvils 10
+---@field [10] "Anvils"
+---@field Weapons 11
+---@field [11] "Weapons"
+---@field TrainingWeapons 12
+---@field [12] "TrainingWeapons"
+---@field Ammo 13
+---@field [13] "Ammo"
+---@field TrapComponents 14
+---@field [14] "TrapComponents"
+---@field DiggingImplements 15
+---@field [15] "DiggingImplements"
+---@field Bodywear 16
+---@field [16] "Bodywear"
+---@field Headwear 17
+---@field [17] "Headwear"
+---@field Handwear 18
+---@field [18] "Handwear"
+---@field Footwear 19
+---@field [19] "Footwear"
+---@field Legwear 20
+---@field [20] "Legwear"
+---@field Shields 21
+---@field [21] "Shields"
+---@field Toys 22
+---@field [22] "Toys"
+---@field Instruments 23
+---@field [23] "Instruments"
+---@field Pets 24
+---@field [24] "Pets"
+---@field Drinks 25
+---@field [25] "Drinks"
+---@field Cheese 26
+---@field [26] "Cheese"
+---@field Powders 27
+---@field [27] "Powders"
+---@field Extracts 28
+---@field [28] "Extracts"
+---@field Meat 29
+---@field [29] "Meat"
+---@field Fish 30
+---@field [30] "Fish"
+---@field Plants 31
+---@field [31] "Plants"
+---@field FruitsNuts 32
+---@field [32] "FruitsNuts"
+---@field GardenVegetables 33
+---@field [33] "GardenVegetables"
+---@field MeatFishRecipes 34
+---@field [34] "MeatFishRecipes"
+---@field OtherRecipes 35
+---@field [35] "OtherRecipes"
+---@field Stone 36
+---@field [36] "Stone"
+---@field Cages 37
+---@field [37] "Cages"
+---@field BagsLeather 38
+---@field [38] "BagsLeather"
+---@field BagsPlant 39
+---@field [39] "BagsPlant"
+---@field BagsSilk 40
+---@field [40] "BagsSilk"
+---@field ThreadPlant 41
+---@field [41] "ThreadPlant"
+---@field ThreadSilk 42
+---@field [42] "ThreadSilk"
+---@field RopesPlant 43
+---@field [43] "RopesPlant"
+---@field RopesSilk 44
+---@field [44] "RopesSilk"
+---@field Barrels 45
+---@field [45] "Barrels"
+---@field FlasksWaterskins 46
+---@field [46] "FlasksWaterskins"
+---@field Quivers 47
+---@field [47] "Quivers"
+---@field Backpacks 48
+---@field [48] "Backpacks"
+---@field Sand 49
+---@field [49] "Sand"
+---@field Glass 50
+---@field [50] "Glass"
+---@field Miscellaneous 51
+---@field [51] "Miscellaneous"
+---@field Buckets 52
+---@field [52] "Buckets"
+---@field Splints 53
+---@field [53] "Splints"
+---@field Crutches 54
+---@field [54] "Crutches"
+---@field Eggs 55
+---@field [55] "Eggs"
+---@field BagsYarn 56
+---@field [56] "BagsYarn"
+---@field RopesYarn 57
+---@field [57] "RopesYarn"
+---@field ClothYarn 58
+---@field [58] "ClothYarn"
+---@field ThreadYarn 59
+---@field [59] "ThreadYarn"
+---@field Tools 60
+---@field [60] "Tools"
+---@field Clay 61
+---@field [61] "Clay"
+---@field Parchment 62
+---@field [62] "Parchment"
+---@field CupsMugsGoblets 63
+---@field [63] "CupsMugsGoblets"
+df.entity_sell_category = {}
+
+-- Unused: ConversationTask
+---@alias df.record_precision_level_type
+---| -1 # NONE
+---| 0 # nearest_10
+---| 1 # nearest_100
+---| 2 # nearest_1000
+---| 3 # nearest_10000
+---| 4 # all_accurate
+
+-- Unused: ConversationTask
+---@class identity.record_precision_level_type: DFEnumType
+---@field NONE -1 bay12: RecordPrecisionLevelType, no actual base type
+---@field [-1] "NONE" bay12: RecordPrecisionLevelType, no actual base type
+---@field nearest_10 0
+---@field [0] "nearest_10"
+---@field nearest_100 1
+---@field [1] "nearest_100"
+---@field nearest_1000 2
+---@field [2] "nearest_1000"
+---@field nearest_10000 3
+---@field [3] "nearest_10000"
+---@field all_accurate 4
+---@field [4] "all_accurate"
+df.record_precision_level_type = {}
+
+-- Unused: PrecisionRoundType
+---@alias df.article_type
+---| -1 # NONE
+---| 0 # INDEFINITE
+---| 1 # DEFINITE
+
+-- Unused: PrecisionRoundType
+---@class identity.article_type: DFEnumType
+---@field NONE -1 bay12: Article, no base type
+---@field [-1] "NONE" bay12: Article, no base type
+---@field INDEFINITE 0 a
+---@field [0] "INDEFINITE" a
+---@field DEFINITE 1 the
+---@field [1] "DEFINITE" the
+df.article_type = {}
+
+-- Unused: CanDrinkValue
+-- Unused: CanEatValue
+-- Unused: SafeTemperatureValue
+---@alias df.inclusion_type
+---| -1 # NONE
+---| 0 # TOTAL
+---| 1 # VEIN
+---| 2 # CLUSTER
+---| 3 # CLUSTER_SMALL
+---| 4 # CLUSTER_ONE
+
+-- Unused: CanDrinkValue
+-- Unused: CanEatValue
+-- Unused: SafeTemperatureValue
+---@class identity.inclusion_type: DFEnumType
+---@field NONE -1 bay12: InclusionType, no base type
+---@field [-1] "NONE" bay12: InclusionType, no base type
+---@field TOTAL 0
+---@field [0] "TOTAL"
+---@field VEIN 1
+---@field [1] "VEIN"
+---@field CLUSTER 2
+---@field [2] "CLUSTER"
+---@field CLUSTER_SMALL 3
+---@field [3] "CLUSTER_SMALL"
+---@field CLUSTER_ONE 4
+---@field [4] "CLUSTER_ONE"
+df.inclusion_type = {}
+
+---@alias df.geo_biome_type
+---| 0 # NORMAL_STANDARD
+---| 1 # NORMAL_VOLCANIC
+---| 2 # OCEAN_DEEP_STANDARD
+---| 3 # OCEAN_DEEP_VOLCANIC
+---| 4 # OCEAN_SHALLOW_STANDARD
+---| 5 # OCEAN_SHALLOW_VOLCANIC
+---| 6 # DESERT_SAND_STANDARD
+---| 7 # DESERT_SAND_VOLCANIC
+
+---@class identity.geo_biome_type: DFEnumType
+---@field NORMAL_STANDARD 0 bay12: GeologicalRegionType
+---@field [0] "NORMAL_STANDARD" bay12: GeologicalRegionType
+---@field NORMAL_VOLCANIC 1
+---@field [1] "NORMAL_VOLCANIC"
+---@field OCEAN_DEEP_STANDARD 2
+---@field [2] "OCEAN_DEEP_STANDARD"
+---@field OCEAN_DEEP_VOLCANIC 3
+---@field [3] "OCEAN_DEEP_VOLCANIC"
+---@field OCEAN_SHALLOW_STANDARD 4
+---@field [4] "OCEAN_SHALLOW_STANDARD"
+---@field OCEAN_SHALLOW_VOLCANIC 5
+---@field [5] "OCEAN_SHALLOW_VOLCANIC"
+---@field DESERT_SAND_STANDARD 6
+---@field [6] "DESERT_SAND_STANDARD"
+---@field DESERT_SAND_VOLCANIC 7
+---@field [7] "DESERT_SAND_VOLCANIC"
+df.geo_biome_type = {}
+
+---@alias df.geo_layer_type
+---| 0 # SOIL
+---| 1 # SEDIMENTARY
+---| 2 # METAMORPHIC
+---| 3 # IGNEOUS_EXTRUSIVE
+---| 4 # IGNEOUS_INTRUSIVE
+---| 5 # SOIL_OCEAN
+---| 6 # SOIL_SAND
+---| 7 # SEDIMENTARY_OCEAN_SHALLOW
+---| 8 # SEDIMENTARY_OCEAN_DEEP
+
+---@class identity.geo_layer_type: DFEnumType
+---@field SOIL 0
+---@field [0] "SOIL"
+---@field SEDIMENTARY 1
+---@field [1] "SEDIMENTARY"
+---@field METAMORPHIC 2
+---@field [2] "METAMORPHIC"
+---@field IGNEOUS_EXTRUSIVE 3
+---@field [3] "IGNEOUS_EXTRUSIVE"
+---@field IGNEOUS_INTRUSIVE 4
+---@field [4] "IGNEOUS_INTRUSIVE"
+---@field SOIL_OCEAN 5
+---@field [5] "SOIL_OCEAN"
+---@field SOIL_SAND 6
+---@field [6] "SOIL_SAND"
+---@field SEDIMENTARY_OCEAN_SHALLOW 7
+---@field [7] "SEDIMENTARY_OCEAN_SHALLOW"
+---@field SEDIMENTARY_OCEAN_DEEP 8
+---@field [8] "SEDIMENTARY_OCEAN_DEEP"
+df.geo_layer_type = {}
+
+---@class geo_layer_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.geo_layer_type._attr_entry_type = {}
+
+---@class (exact) geo_layer_type_attr_entry_type_fields
+---@field flag DFCompoundField bay12: GeologicalLayerType
+df.geo_layer_type._attr_entry_type._fields = {}
+
+---@class geo_layer_type_attrs
+---@field SOIL { flag: "SOIL" }
+---@field SEDIMENTARY { flag: "SEDIMENTARY" }
+---@field METAMORPHIC { flag: "METAMORPHIC" }
+---@field IGNEOUS_EXTRUSIVE { flag: "IGNEOUS_EXTRUSIVE" }
+---@field IGNEOUS_INTRUSIVE { flag: "IGNEOUS_INTRUSIVE" }
+---@field SOIL_OCEAN { flag: "SOIL_OCEAN" }
+---@field SOIL_SAND { flag: "SOIL_SAND" }
+---@field SEDIMENTARY_OCEAN_SHALLOW { flag: "SEDIMENTARY_OCEAN_SHALLOW" }
+---@field SEDIMENTARY_OCEAN_DEEP { flag: "SEDIMENTARY_OCEAN_DEEP" }
+df.geo_layer_type.attrs = {}
+
+---@alias df.environment_type
+---| 0 # SOIL
+---| 1 # SOIL_OCEAN
+---| 2 # SOIL_SAND
+---| 3 # METAMORPHIC
+---| 4 # SEDIMENTARY
+---| 5 # IGNEOUS_INTRUSIVE
+---| 6 # IGNEOUS_EXTRUSIVE
+---| 7 # ALLUVIAL
+
+---@class identity.environment_type: DFEnumType
+---@field SOIL 0 bay12: StoneEnvironment, no base type
+---@field [0] "SOIL" bay12: StoneEnvironment, no base type
+---@field SOIL_OCEAN 1
+---@field [1] "SOIL_OCEAN"
+---@field SOIL_SAND 2
+---@field [2] "SOIL_SAND"
+---@field METAMORPHIC 3
+---@field [3] "METAMORPHIC"
+---@field SEDIMENTARY 4
+---@field [4] "SEDIMENTARY"
+---@field IGNEOUS_INTRUSIVE 5
+---@field [5] "IGNEOUS_INTRUSIVE"
+---@field IGNEOUS_EXTRUSIVE 6
+---@field [6] "IGNEOUS_EXTRUSIVE"
+---@field ALLUVIAL 7
+---@field [7] "ALLUVIAL"
+df.environment_type = {}
+
+-- Unused: LayerInclusionGoal
+---@class (exact) df.temperaturest: DFStruct
+---@field _type identity.temperaturest
+---@field whole integer seems like a convenient name
+---@field fraction number
+
+---@class identity.temperaturest: DFCompoundType
+---@field _kind 'struct-type'
+df.temperaturest = {}
+
+---@return df.temperaturest
+function df.temperaturest:new() end
+
+-- Unused: FireState
+-- Unused: GeneralGroupingType
+---@alias df.creature_graphics_role
+---| -1 # NONE
+---| 0 # DEFAULT
+---| 1 # LAW_ENFORCE
+---| 2 # TAX_ESCORT
+---| 3 # ANIMATED
+---| 4 # ADVENTURER
+---| 5 # GHOST
+---| 6 # CORPSE
+
+-- Unused: FireState
+-- Unused: GeneralGroupingType
+---@class identity.creature_graphics_role: DFEnumType
+---@field NONE -1 bay12: CreatureTextureType
+---@field [-1] "NONE" bay12: CreatureTextureType
+---@field DEFAULT 0
+---@field [0] "DEFAULT"
+---@field LAW_ENFORCE 1
+---@field [1] "LAW_ENFORCE"
+---@field TAX_ESCORT 2
+---@field [2] "TAX_ESCORT"
+---@field ANIMATED 3
+---@field [3] "ANIMATED"
+---@field ADVENTURER 4
+---@field [4] "ADVENTURER"
+---@field GHOST 5
+---@field [5] "GHOST"
+---@field CORPSE 6
+---@field [6] "CORPSE"
+df.creature_graphics_role = {}
+
+---@alias df.histfig_entity_link_type
+---| -1 # NONE
+---| 0 # MEMBER
+---| 1 # FORMER_MEMBER
+---| 2 # MERCENARY
+---| 3 # FORMER_MERCENARY
+---| 4 # SLAVE
+---| 5 # FORMER_SLAVE
+---| 6 # PRISONER
+---| 7 # FORMER_PRISONER
+---| 8 # ENEMY
+---| 9 # CRIMINAL
+---| 10 # POSITION
+---| 11 # FORMER_POSITION
+---| 12 # POSITION_CLAIM
+---| 13 # SQUAD
+---| 14 # FORMER_SQUAD
+---| 15 # OCCUPATION
+---| 16 # FORMER_OCCUPATION
+---| 17 # RESIDENT
+
+---@class identity.histfig_entity_link_type: DFEnumType
+---@field NONE -1 bay12: HistFigEntityLinkType
+---@field [-1] "NONE" bay12: HistFigEntityLinkType
+---@field MEMBER 0
+---@field [0] "MEMBER"
+---@field FORMER_MEMBER 1
+---@field [1] "FORMER_MEMBER"
+---@field MERCENARY 2
+---@field [2] "MERCENARY"
+---@field FORMER_MERCENARY 3
+---@field [3] "FORMER_MERCENARY"
+---@field SLAVE 4
+---@field [4] "SLAVE"
+---@field FORMER_SLAVE 5
+---@field [5] "FORMER_SLAVE"
+---@field PRISONER 6
+---@field [6] "PRISONER"
+---@field FORMER_PRISONER 7
+---@field [7] "FORMER_PRISONER"
+---@field ENEMY 8
+---@field [8] "ENEMY"
+---@field CRIMINAL 9
+---@field [9] "CRIMINAL"
+---@field POSITION 10
+---@field [10] "POSITION"
+---@field FORMER_POSITION 11
+---@field [11] "FORMER_POSITION"
+---@field POSITION_CLAIM 12
+---@field [12] "POSITION_CLAIM"
+---@field SQUAD 13
+---@field [13] "SQUAD"
+---@field FORMER_SQUAD 14
+---@field [14] "FORMER_SQUAD"
+---@field OCCUPATION 15
+---@field [15] "OCCUPATION"
+---@field FORMER_OCCUPATION 16
+---@field [16] "FORMER_OCCUPATION"
+---@field RESIDENT 17
+---@field [17] "RESIDENT"
+df.histfig_entity_link_type = {}
+
+---@alias df.histfig_hf_link_type
+---| -1 # NONE
+---| 0 # MOTHER
+---| 1 # FATHER
+---| 2 # SPOUSE
+---| 3 # CHILD
+---| 4 # DEITY
+---| 5 # LOVER
+---| 6 # PRISONER
+---| 7 # IMPRISONER
+---| 8 # MASTER
+---| 9 # APPRENTICE
+---| 10 # COMPANION
+---| 11 # FORMER_MASTER
+---| 12 # FORMER_APPRENTICE
+---| 13 # PET_OWNER
+---| 14 # FORMER_SPOUSE
+---| 15 # DECEASED_SPOUSE
+
+---@class identity.histfig_hf_link_type: DFEnumType
+---@field NONE -1 bay12: HistFigHfLinkType
+---@field [-1] "NONE" bay12: HistFigHfLinkType
+---@field MOTHER 0
+---@field [0] "MOTHER"
+---@field FATHER 1
+---@field [1] "FATHER"
+---@field SPOUSE 2
+---@field [2] "SPOUSE"
+---@field CHILD 3
+---@field [3] "CHILD"
+---@field DEITY 4
+---@field [4] "DEITY"
+---@field LOVER 5
+---@field [5] "LOVER"
+---@field PRISONER 6
+---@field [6] "PRISONER"
+---@field IMPRISONER 7
+---@field [7] "IMPRISONER"
+---@field MASTER 8
+---@field [8] "MASTER"
+---@field APPRENTICE 9
+---@field [9] "APPRENTICE"
+---@field COMPANION 10
+---@field [10] "COMPANION"
+---@field FORMER_MASTER 11
+---@field [11] "FORMER_MASTER"
+---@field FORMER_APPRENTICE 12
+---@field [12] "FORMER_APPRENTICE"
+---@field PET_OWNER 13
+---@field [13] "PET_OWNER"
+---@field FORMER_SPOUSE 14
+---@field [14] "FORMER_SPOUSE"
+---@field DECEASED_SPOUSE 15
+---@field [15] "DECEASED_SPOUSE"
+df.histfig_hf_link_type = {}
+
+---@alias df.histfig_site_link_type
+---| -1 # NONE
+---| 0 # OCCUPATION
+---| 1 # SEAT_OF_POWER
+---| 2 # HANGOUT
+---| 3 # HOME_SITE_ABSTRACT_BUILDING
+---| 4 # HOME_SITE_REALIZATION_BUILDING
+---| 5 # LAIR
+---| 6 # HOME_SITE_REALIZATION_SUL
+---| 7 # HOME_SITE_SAVED_CIVZONE
+---| 8 # PRISON_ABSTRACT_BUILDING
+---| 9 # PRISON_SITE_BUILDING_PROFILE
+
+---@class identity.histfig_site_link_type: DFEnumType
+---@field NONE -1 bay12: HistFigSiteLinkType
+---@field [-1] "NONE" bay12: HistFigSiteLinkType
+---@field OCCUPATION 0
+---@field [0] "OCCUPATION"
+---@field SEAT_OF_POWER 1
+---@field [1] "SEAT_OF_POWER"
+---@field HANGOUT 2
+---@field [2] "HANGOUT"
+---@field HOME_SITE_ABSTRACT_BUILDING 3
+---@field [3] "HOME_SITE_ABSTRACT_BUILDING"
+---@field HOME_SITE_REALIZATION_BUILDING 4
+---@field [4] "HOME_SITE_REALIZATION_BUILDING"
+---@field LAIR 5
+---@field [5] "LAIR"
+---@field HOME_SITE_REALIZATION_SUL 6
+---@field [6] "HOME_SITE_REALIZATION_SUL"
+---@field HOME_SITE_SAVED_CIVZONE 7
+---@field [7] "HOME_SITE_SAVED_CIVZONE"
+---@field PRISON_ABSTRACT_BUILDING 8
+---@field [8] "PRISON_ABSTRACT_BUILDING"
+---@field PRISON_SITE_BUILDING_PROFILE 9
+---@field [9] "PRISON_SITE_BUILDING_PROFILE"
+df.histfig_site_link_type = {}
+
+---@alias df.world_region_type
+---| -1 # NONE
+---| 0 # Swamp
+---| 1 # Desert
+---| 2 # Forest
+---| 3 # Mountains
+---| 4 # Ocean
+---| 5 # Lake
+---| 6 # Glacier
+---| 7 # Tundra
+---| 8 # Grassland
+---| 9 # Hills
+
+---@class identity.world_region_type: DFEnumType
+---@field NONE -1 bay12: RegionType
+---@field [-1] "NONE" bay12: RegionType
+---@field Swamp 0
+---@field [0] "Swamp"
+---@field Desert 1
+---@field [1] "Desert"
+---@field Forest 2
+---@field [2] "Forest"
+---@field Mountains 3
+---@field [3] "Mountains"
+---@field Ocean 4
+---@field [4] "Ocean"
+---@field Lake 5
+---@field [5] "Lake"
+---@field Glacier 6
+---@field [6] "Glacier"
+---@field Tundra 7
+---@field [7] "Tundra"
+---@field Grassland 8
+---@field [8] "Grassland"
+---@field Hills 9 Grassland and Hills share the same set of biomes, differing only in Drainage
+---@field [9] "Hills" Grassland and Hills share the same set of biomes, differing only in Drainage
+df.world_region_type = {}
+
+---@alias df.worldgen_range_type
+---| -1 # NONE
+---| 0 # ELEVATION
+---| 1 # RAINFALL
+---| 2 # VEGETATION
+---| 3 # TEMPERATURE
+---| 4 # EVIL
+---| 5 # DRAINAGE
+---| 6 # VOLCANISM
+---| 7 # SAVAGERY
+---| 8 # AIRMASS_TEMP
+---| 9 # AIRMASS_X
+---| 10 # AIRMASS_Y
+---| 11 # WEATHER
+---| 12 # DAILY_WINDS
+---| 13 # SNOWFALL
+---| 14 # SALINITY
+
+---@class identity.worldgen_range_type: DFEnumType
+---@field NONE -1 bay12: RegionField
+---@field [-1] "NONE" bay12: RegionField
+---@field ELEVATION 0
+---@field [0] "ELEVATION"
+---@field RAINFALL 1
+---@field [1] "RAINFALL"
+---@field VEGETATION 2
+---@field [2] "VEGETATION"
+---@field TEMPERATURE 3
+---@field [3] "TEMPERATURE"
+---@field EVIL 4
+---@field [4] "EVIL"
+---@field DRAINAGE 5 GEOLOGY
+---@field [5] "DRAINAGE" GEOLOGY
+---@field VOLCANISM 6
+---@field [6] "VOLCANISM"
+---@field SAVAGERY 7
+---@field [7] "SAVAGERY"
+---@field AIRMASS_TEMP 8
+---@field [8] "AIRMASS_TEMP"
+---@field AIRMASS_X 9
+---@field [9] "AIRMASS_X"
+---@field AIRMASS_Y 10
+---@field [10] "AIRMASS_Y"
+---@field WEATHER 11
+---@field [11] "WEATHER"
+---@field DAILY_WINDS 12
+---@field [12] "DAILY_WINDS"
+---@field SNOWFALL 13
+---@field [13] "SNOWFALL"
+---@field SALINITY 14
+---@field [14] "SALINITY"
+df.worldgen_range_type = {}
+
+---@alias df.biome_type
+---| 0 # MOUNTAIN
+---| 1 # GLACIER
+---| 2 # TUNDRA
+---| 3 # SWAMP_TEMPERATE_FRESHWATER
+---| 4 # SWAMP_TEMPERATE_SALTWATER
+---| 5 # MARSH_TEMPERATE_FRESHWATER
+---| 6 # MARSH_TEMPERATE_SALTWATER
+---| 7 # SWAMP_TROPICAL_FRESHWATER
+---| 8 # SWAMP_TROPICAL_SALTWATER
+---| 9 # SWAMP_MANGROVE
+---| 10 # MARSH_TROPICAL_FRESHWATER
+---| 11 # MARSH_TROPICAL_SALTWATER
+---| 12 # FOREST_TAIGA
+---| 13 # FOREST_TEMPERATE_CONIFER
+---| 14 # FOREST_TEMPERATE_BROADLEAF
+---| 15 # FOREST_TROPICAL_CONIFER
+---| 16 # FOREST_TROPICAL_DRY_BROADLEAF
+---| 17 # FOREST_TROPICAL_MOIST_BROADLEAF
+---| 18 # GRASSLAND_TEMPERATE
+---| 19 # SAVANNA_TEMPERATE
+---| 20 # SHRUBLAND_TEMPERATE
+---| 21 # GRASSLAND_TROPICAL
+---| 22 # SAVANNA_TROPICAL
+---| 23 # SHRUBLAND_TROPICAL
+---| 24 # DESERT_BADLAND
+---| 25 # DESERT_ROCK
+---| 26 # DESERT_SAND
+---| 27 # OCEAN_TROPICAL
+---| 28 # OCEAN_TEMPERATE
+---| 29 # OCEAN_ARCTIC
+---| 30 # POOL_TEMPERATE_FRESHWATER
+---| 31 # POOL_TEMPERATE_BRACKISHWATER
+---| 32 # POOL_TEMPERATE_SALTWATER
+---| 33 # POOL_TROPICAL_FRESHWATER
+---| 34 # POOL_TROPICAL_BRACKISHWATER
+---| 35 # POOL_TROPICAL_SALTWATER
+---| 36 # LAKE_TEMPERATE_FRESHWATER
+---| 37 # LAKE_TEMPERATE_BRACKISHWATER
+---| 38 # LAKE_TEMPERATE_SALTWATER
+---| 39 # LAKE_TROPICAL_FRESHWATER
+---| 40 # LAKE_TROPICAL_BRACKISHWATER
+---| 41 # LAKE_TROPICAL_SALTWATER
+---| 42 # RIVER_TEMPERATE_FRESHWATER
+---| 43 # RIVER_TEMPERATE_BRACKISHWATER
+---| 44 # RIVER_TEMPERATE_SALTWATER
+---| 45 # RIVER_TROPICAL_FRESHWATER
+---| 46 # RIVER_TROPICAL_BRACKISHWATER
+---| 47 # RIVER_TROPICAL_SALTWATER
+---| 48 # SUBTERRANEAN_WATER
+---| 49 # SUBTERRANEAN_CHASM
+---| 50 # SUBTERRANEAN_LAVA
+
+---@class identity.biome_type: DFEnumType
+---@field MOUNTAIN 0
+---@field [0] "MOUNTAIN"
+---@field GLACIER 1
+---@field [1] "GLACIER"
+---@field TUNDRA 2
+---@field [2] "TUNDRA"
+---@field SWAMP_TEMPERATE_FRESHWATER 3
+---@field [3] "SWAMP_TEMPERATE_FRESHWATER"
+---@field SWAMP_TEMPERATE_SALTWATER 4
+---@field [4] "SWAMP_TEMPERATE_SALTWATER"
+---@field MARSH_TEMPERATE_FRESHWATER 5
+---@field [5] "MARSH_TEMPERATE_FRESHWATER"
+---@field MARSH_TEMPERATE_SALTWATER 6
+---@field [6] "MARSH_TEMPERATE_SALTWATER"
+---@field SWAMP_TROPICAL_FRESHWATER 7
+---@field [7] "SWAMP_TROPICAL_FRESHWATER"
+---@field SWAMP_TROPICAL_SALTWATER 8
+---@field [8] "SWAMP_TROPICAL_SALTWATER"
+---@field SWAMP_MANGROVE 9
+---@field [9] "SWAMP_MANGROVE"
+---@field MARSH_TROPICAL_FRESHWATER 10
+---@field [10] "MARSH_TROPICAL_FRESHWATER"
+---@field MARSH_TROPICAL_SALTWATER 11
+---@field [11] "MARSH_TROPICAL_SALTWATER"
+---@field FOREST_TAIGA 12
+---@field [12] "FOREST_TAIGA"
+---@field FOREST_TEMPERATE_CONIFER 13
+---@field [13] "FOREST_TEMPERATE_CONIFER"
+---@field FOREST_TEMPERATE_BROADLEAF 14
+---@field [14] "FOREST_TEMPERATE_BROADLEAF"
+---@field FOREST_TROPICAL_CONIFER 15
+---@field [15] "FOREST_TROPICAL_CONIFER"
+---@field FOREST_TROPICAL_DRY_BROADLEAF 16
+---@field [16] "FOREST_TROPICAL_DRY_BROADLEAF"
+---@field FOREST_TROPICAL_MOIST_BROADLEAF 17
+---@field [17] "FOREST_TROPICAL_MOIST_BROADLEAF"
+---@field GRASSLAND_TEMPERATE 18
+---@field [18] "GRASSLAND_TEMPERATE"
+---@field SAVANNA_TEMPERATE 19
+---@field [19] "SAVANNA_TEMPERATE"
+---@field SHRUBLAND_TEMPERATE 20
+---@field [20] "SHRUBLAND_TEMPERATE"
+---@field GRASSLAND_TROPICAL 21
+---@field [21] "GRASSLAND_TROPICAL"
+---@field SAVANNA_TROPICAL 22
+---@field [22] "SAVANNA_TROPICAL"
+---@field SHRUBLAND_TROPICAL 23
+---@field [23] "SHRUBLAND_TROPICAL"
+---@field DESERT_BADLAND 24
+---@field [24] "DESERT_BADLAND"
+---@field DESERT_ROCK 25
+---@field [25] "DESERT_ROCK"
+---@field DESERT_SAND 26
+---@field [26] "DESERT_SAND"
+---@field OCEAN_TROPICAL 27
+---@field [27] "OCEAN_TROPICAL"
+---@field OCEAN_TEMPERATE 28
+---@field [28] "OCEAN_TEMPERATE"
+---@field OCEAN_ARCTIC 29
+---@field [29] "OCEAN_ARCTIC"
+---@field POOL_TEMPERATE_FRESHWATER 30
+---@field [30] "POOL_TEMPERATE_FRESHWATER"
+---@field POOL_TEMPERATE_BRACKISHWATER 31
+---@field [31] "POOL_TEMPERATE_BRACKISHWATER"
+---@field POOL_TEMPERATE_SALTWATER 32
+---@field [32] "POOL_TEMPERATE_SALTWATER"
+---@field POOL_TROPICAL_FRESHWATER 33
+---@field [33] "POOL_TROPICAL_FRESHWATER"
+---@field POOL_TROPICAL_BRACKISHWATER 34
+---@field [34] "POOL_TROPICAL_BRACKISHWATER"
+---@field POOL_TROPICAL_SALTWATER 35
+---@field [35] "POOL_TROPICAL_SALTWATER"
+---@field LAKE_TEMPERATE_FRESHWATER 36
+---@field [36] "LAKE_TEMPERATE_FRESHWATER"
+---@field LAKE_TEMPERATE_BRACKISHWATER 37
+---@field [37] "LAKE_TEMPERATE_BRACKISHWATER"
+---@field LAKE_TEMPERATE_SALTWATER 38
+---@field [38] "LAKE_TEMPERATE_SALTWATER"
+---@field LAKE_TROPICAL_FRESHWATER 39
+---@field [39] "LAKE_TROPICAL_FRESHWATER"
+---@field LAKE_TROPICAL_BRACKISHWATER 40
+---@field [40] "LAKE_TROPICAL_BRACKISHWATER"
+---@field LAKE_TROPICAL_SALTWATER 41
+---@field [41] "LAKE_TROPICAL_SALTWATER"
+---@field RIVER_TEMPERATE_FRESHWATER 42
+---@field [42] "RIVER_TEMPERATE_FRESHWATER"
+---@field RIVER_TEMPERATE_BRACKISHWATER 43
+---@field [43] "RIVER_TEMPERATE_BRACKISHWATER"
+---@field RIVER_TEMPERATE_SALTWATER 44
+---@field [44] "RIVER_TEMPERATE_SALTWATER"
+---@field RIVER_TROPICAL_FRESHWATER 45
+---@field [45] "RIVER_TROPICAL_FRESHWATER"
+---@field RIVER_TROPICAL_BRACKISHWATER 46
+---@field [46] "RIVER_TROPICAL_BRACKISHWATER"
+---@field RIVER_TROPICAL_SALTWATER 47
+---@field [47] "RIVER_TROPICAL_SALTWATER"
+---@field SUBTERRANEAN_WATER 48
+---@field [48] "SUBTERRANEAN_WATER"
+---@field SUBTERRANEAN_CHASM 49
+---@field [49] "SUBTERRANEAN_CHASM"
+---@field SUBTERRANEAN_LAVA 50
+---@field [50] "SUBTERRANEAN_LAVA"
+df.biome_type = {}
+
+---@class biome_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.biome_type._attr_entry_type = {}
+
+---@class (exact) biome_type_attr_entry_type_fields
+---@field caption DFCompoundField bay12: Biome, no base type
+---@field plant_raw_flag DFCompoundField
+df.biome_type._attr_entry_type._fields = {}
+
+---@class biome_type_attrs
+---@field MOUNTAIN { caption: "Mountain", plant_raw_flag: "BIOME_MOUNTAIN" }
+---@field GLACIER { caption: "Glacier", plant_raw_flag: "BIOME_GLACIER" }
+---@field TUNDRA { caption: "Tundra", plant_raw_flag: "BIOME_TUNDRA" }
+---@field SWAMP_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Swamp", plant_raw_flag: "BIOME_SWAMP_TEMPERATE_FRESHWATER" }
+---@field SWAMP_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Swamp", plant_raw_flag: "BIOME_SWAMP_TEMPERATE_SALTWATER" }
+---@field MARSH_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Marsh", plant_raw_flag: "BIOME_MARSH_TEMPERATE_FRESHWATER" }
+---@field MARSH_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Marsh", plant_raw_flag: "BIOME_MARSH_TEMPERATE_SALTWATER" }
+---@field SWAMP_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Swamp", plant_raw_flag: "BIOME_SWAMP_TROPICAL_FRESHWATER" }
+---@field SWAMP_TROPICAL_SALTWATER { caption: "Tropical Saltwater Swamp", plant_raw_flag: "BIOME_SWAMP_TROPICAL_SALTWATER" }
+---@field SWAMP_MANGROVE { caption: "Mangrove Swamp", plant_raw_flag: "BIOME_SWAMP_MANGROVE" }
+---@field MARSH_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Marsh", plant_raw_flag: "BIOME_MARSH_TROPICAL_FRESHWATER" }
+---@field MARSH_TROPICAL_SALTWATER { caption: "Tropical Saltwater Marsh", plant_raw_flag: "BIOME_MARSH_TROPICAL_SALTWATER" }
+---@field FOREST_TAIGA { caption: "Taiga Forest", plant_raw_flag: "BIOME_FOREST_TAIGA" }
+---@field FOREST_TEMPERATE_CONIFER { caption: "Temperate Conifer Forest", plant_raw_flag: "BIOME_FOREST_TEMPERATE_CONIFER" }
+---@field FOREST_TEMPERATE_BROADLEAF { caption: "Temperate Broadleaf Forest", plant_raw_flag: "BIOME_FOREST_TEMPERATE_BROADLEAF" }
+---@field FOREST_TROPICAL_CONIFER { caption: "Tropical Conifer Forest", plant_raw_flag: "BIOME_FOREST_TROPICAL_CONIFER" }
+---@field FOREST_TROPICAL_DRY_BROADLEAF { caption: "Tropical Dry Broadleaf Forest", plant_raw_flag: "BIOME_FOREST_TROPICAL_DRY_BROADLEAF" }
+---@field FOREST_TROPICAL_MOIST_BROADLEAF { caption: "Tropical Moist Broadleaf Forest", plant_raw_flag: "BIOME_FOREST_TROPICAL_MOIST_BROADLEAF" }
+---@field GRASSLAND_TEMPERATE { caption: "Temperate Grassland", plant_raw_flag: "BIOME_GRASSLAND_TEMPERATE" }
+---@field SAVANNA_TEMPERATE { caption: "Temperate Savanna", plant_raw_flag: "BIOME_SAVANNA_TEMPERATE" }
+---@field SHRUBLAND_TEMPERATE { caption: "Temperate Shrubland", plant_raw_flag: "BIOME_SHRUBLAND_TEMPERATE" }
+---@field GRASSLAND_TROPICAL { caption: "Tropical Grassland", plant_raw_flag: "BIOME_GRASSLAND_TROPICAL" }
+---@field SAVANNA_TROPICAL { caption: "Tropical Savanna", plant_raw_flag: "BIOME_SAVANNA_TROPICAL" }
+---@field SHRUBLAND_TROPICAL { caption: "Tropical Shrubland", plant_raw_flag: "BIOME_SHRUBLAND_TROPICAL" }
+---@field DESERT_BADLAND { caption: "Badland Desert", plant_raw_flag: "BIOME_DESERT_BADLAND" }
+---@field DESERT_ROCK { caption: "Rock Desert", plant_raw_flag: "BIOME_DESERT_ROCK" }
+---@field DESERT_SAND { caption: "Sand Desert", plant_raw_flag: "BIOME_DESERT_SAND" }
+---@field OCEAN_TROPICAL { caption: "Tropical Ocean", plant_raw_flag: "BIOME_OCEAN_TROPICAL" }
+---@field OCEAN_TEMPERATE { caption: "Temperate Ocean", plant_raw_flag: "BIOME_OCEAN_TEMPERATE" }
+---@field OCEAN_ARCTIC { caption: "Arctic Ocean", plant_raw_flag: "BIOME_OCEAN_ARCTIC" }
+---@field POOL_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Pool", plant_raw_flag: "BIOME_POOL_TEMPERATE_FRESHWATER" }
+---@field POOL_TEMPERATE_BRACKISHWATER { caption: "Temperate Brackishwater Pool", plant_raw_flag: "BIOME_POOL_TEMPERATE_BRACKISHWATER" }
+---@field POOL_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Pool", plant_raw_flag: "BIOME_POOL_TEMPERATE_SALTWATER" }
+---@field POOL_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Pool", plant_raw_flag: "BIOME_POOL_TROPICAL_FRESHWATER" }
+---@field POOL_TROPICAL_BRACKISHWATER { caption: "Tropical Brackishwater Pool", plant_raw_flag: "BIOME_POOL_TROPICAL_BRACKISHWATER" }
+---@field POOL_TROPICAL_SALTWATER { caption: "Tropical Saltwater Pool", plant_raw_flag: "BIOME_POOL_TROPICAL_SALTWATER" }
+---@field LAKE_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater Lake", plant_raw_flag: "BIOME_LAKE_TEMPERATE_FRESHWATER" }
+---@field LAKE_TEMPERATE_BRACKISHWATER { caption: "Temperate Brackishwater Lake", plant_raw_flag: "BIOME_LAKE_TEMPERATE_BRACKISHWATER" }
+---@field LAKE_TEMPERATE_SALTWATER { caption: "Temperate Saltwater Lake", plant_raw_flag: "BIOME_LAKE_TEMPERATE_SALTWATER" }
+---@field LAKE_TROPICAL_FRESHWATER { caption: "Tropical Freshwater Lake", plant_raw_flag: "BIOME_LAKE_TROPICAL_FRESHWATER" }
+---@field LAKE_TROPICAL_BRACKISHWATER { caption: "Tropical Brackishwater Lake", plant_raw_flag: "BIOME_LAKE_TROPICAL_BRACKISHWATER" }
+---@field LAKE_TROPICAL_SALTWATER { caption: "Tropical Saltwater Lake", plant_raw_flag: "BIOME_LAKE_TROPICAL_SALTWATER" }
+---@field RIVER_TEMPERATE_FRESHWATER { caption: "Temperate Freshwater River", plant_raw_flag: "BIOME_RIVER_TEMPERATE_FRESHWATER" }
+---@field RIVER_TEMPERATE_BRACKISHWATER { caption: "Temperate Brackishwater River", plant_raw_flag: "BIOME_RIVER_TEMPERATE_BRACKISHWATER" }
+---@field RIVER_TEMPERATE_SALTWATER { caption: "Temperate Saltwater River", plant_raw_flag: "BIOME_RIVER_TEMPERATE_SALTWATER" }
+---@field RIVER_TROPICAL_FRESHWATER { caption: "Tropical Freshwater River", plant_raw_flag: "BIOME_RIVER_TROPICAL_FRESHWATER" }
+---@field RIVER_TROPICAL_BRACKISHWATER { caption: "Tropical Brackishwater River", plant_raw_flag: "BIOME_RIVER_TROPICAL_BRACKISHWATER" }
+---@field RIVER_TROPICAL_SALTWATER { caption: "Tropical Saltwater River", plant_raw_flag: "BIOME_RIVER_TROPICAL_SALTWATER" }
+---@field SUBTERRANEAN_WATER { caption: "Subterranean Water", plant_raw_flag: "BIOME_SUBTERRANEAN_WATER" }
+---@field SUBTERRANEAN_CHASM { caption: "Subterranean Chasm", plant_raw_flag: "BIOME_SUBTERRANEAN_CHASM" }
+---@field SUBTERRANEAN_LAVA { caption: "Subterranean Lava", plant_raw_flag: "BIOME_SUBTERRANEAN_LAVA" }
+df.biome_type.attrs = {}
+
+-- Unused: TextSetType
+---@alias df.schedule_type
+---| 0 # Eat
+---| 1 # Sleep
+---| 2 # HangOut
+---| 3 # TendShop
+---| 4 # Patrol
+---| 5 # Wander
+---| 6 # Minister
+
+-- Unused: TextSetType
+---@class identity.schedule_type: DFEnumType
+---@field Eat 0 bay12: Schedule, no base type
+---@field [0] "Eat" bay12: Schedule, no base type
+---@field Sleep 1
+---@field [1] "Sleep"
+---@field HangOut 2
+---@field [2] "HangOut"
+---@field TendShop 3
+---@field [3] "TendShop"
+---@field Patrol 4
+---@field [4] "Patrol"
+---@field Wander 5
+---@field [5] "Wander"
+---@field Minister 6
+---@field [6] "Minister"
+df.schedule_type = {}
+
+---@alias df.profession
+---| -1 # NONE
+---| 0 # MINER
+---| 1 # WOODWORKER
+---| 2 # CARPENTER
+---| 3 # BOWYER
+---| 4 # WOODCUTTER
+---| 5 # STONEWORKER
+---| 6 # STONECUTTER
+---| 7 # STONE_CARVER
+---| 8 # ENGRAVER
+---| 9 # MASON
+---| 10 # RANGER
+---| 11 # ANIMAL_CARETAKER
+---| 12 # ANIMAL_TRAINER
+---| 13 # HUNTER
+---| 14 # TRAPPER
+---| 15 # ANIMAL_DISSECTOR
+---| 16 # METALSMITH
+---| 17 # FURNACE_OPERATOR
+---| 18 # WEAPONSMITH
+---| 19 # ARMORER
+---| 20 # BLACKSMITH
+---| 21 # METALCRAFTER
+---| 22 # JEWELER
+---| 23 # GEM_CUTTER
+---| 24 # GEM_SETTER
+---| 25 # CRAFTSMAN
+---| 26 # WOODCRAFTER
+---| 27 # STONECRAFTER
+---| 28 # LEATHERWORKER
+---| 29 # BONE_CARVER
+---| 30 # WEAVER
+---| 31 # CLOTHIER
+---| 32 # GLASSMAKER
+---| 33 # POTTER
+---| 34 # GLAZER
+---| 35 # WAX_WORKER
+---| 36 # STRAND_EXTRACTOR
+---| 37 # FISHERY_WORKER
+---| 38 # FISHERMAN
+---| 39 # FISH_DISSECTOR
+---| 40 # FISH_CLEANER
+---| 41 # FARMER
+---| 42 # CHEESE_MAKER
+---| 43 # MILKER
+---| 44 # COOK
+---| 45 # THRESHER
+---| 46 # MILLER
+---| 47 # BUTCHER
+---| 48 # TANNER
+---| 49 # DYER
+---| 50 # PLANTER
+---| 51 # HERBALIST
+---| 52 # BREWER
+---| 53 # SOAP_MAKER
+---| 54 # POTASH_MAKER
+---| 55 # LYE_MAKER
+---| 56 # WOOD_BURNER
+---| 57 # SHEARER
+---| 58 # SPINNER
+---| 59 # PRESSER
+---| 60 # BEEKEEPER
+---| 61 # ENGINEER
+---| 62 # MECHANIC
+---| 63 # SIEGE_ENGINEER
+---| 64 # SIEGE_OPERATOR
+---| 65 # PUMP_OPERATOR
+---| 66 # CLERK
+---| 67 # ADMINISTRATOR
+---| 68 # TRADER
+---| 69 # DOCTOR
+---| 70 # DIAGNOSER
+---| 71 # BONE_SETTER
+---| 72 # SUTURER
+---| 73 # SURGEON
+---| 74 # MERCHANT
+---| 75 # HAMMERMAN
+---| 76 # MASTER_HAMMERMAN
+---| 77 # SPEARMAN
+---| 78 # MASTER_SPEARMAN
+---| 79 # CROSSBOWMAN
+---| 80 # MASTER_CROSSBOWMAN
+---| 81 # WRESTLER
+---| 82 # MASTER_WRESTLER
+---| 83 # AXEMAN
+---| 84 # MASTER_AXEMAN
+---| 85 # SWORDSMAN
+---| 86 # MASTER_SWORDSMAN
+---| 87 # MACEMAN
+---| 88 # MASTER_MACEMAN
+---| 89 # PIKEMAN
+---| 90 # MASTER_PIKEMAN
+---| 91 # BOWMAN
+---| 92 # MASTER_BOWMAN
+---| 93 # BLOWGUNMAN
+---| 94 # MASTER_BLOWGUNMAN
+---| 95 # LASHER
+---| 96 # MASTER_LASHER
+---| 97 # RECRUIT
+---| 98 # TRAINED_HUNTER
+---| 99 # TRAINED_WAR
+---| 100 # MASTER_THIEF
+---| 101 # THIEF
+---| 102 # STANDARD
+---| 103 # CHILD
+---| 104 # BABY
+---| 105 # DRUNK
+---| 106 # MONSTER_SLAYER
+---| 107 # SCOUT
+---| 108 # BEAST_HUNTER
+---| 109 # SNATCHER
+---| 110 # MERCENARY
+---| 111 # GELDER
+---| 112 # PERFORMER
+---| 113 # POET
+---| 114 # BARD
+---| 115 # DANCER
+---| 116 # SAGE
+---| 117 # SCHOLAR
+---| 118 # PHILOSOPHER
+---| 119 # MATHEMATICIAN
+---| 120 # HISTORIAN
+---| 121 # ASTRONOMER
+---| 122 # NATURALIST
+---| 123 # CHEMIST
+---| 124 # GEOGRAPHER
+---| 125 # SCRIBE
+---| 126 # PAPERMAKER
+---| 127 # BOOKBINDER
+---| 128 # TAVERN_KEEPER
+---| 129 # CRIMINAL
+---| 130 # PEDDLER
+---| 131 # PROPHET
+---| 132 # PILGRIM
+---| 133 # MONK
+---| 134 # MESSENGER
+
+---@class identity.profession: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field MINER 0 0
+---@field [0] "MINER" 0
+---@field WOODWORKER 1
+---@field [1] "WOODWORKER"
+---@field CARPENTER 2
+---@field [2] "CARPENTER"
+---@field BOWYER 3
+---@field [3] "BOWYER"
+---@field WOODCUTTER 4
+---@field [4] "WOODCUTTER"
+---@field STONEWORKER 5
+---@field [5] "STONEWORKER"
+---@field STONECUTTER 6
+---@field [6] "STONECUTTER"
+---@field STONE_CARVER 7
+---@field [7] "STONE_CARVER"
+---@field ENGRAVER 8
+---@field [8] "ENGRAVER"
+---@field MASON 9
+---@field [9] "MASON"
+---@field RANGER 10
+---@field [10] "RANGER"
+---@field ANIMAL_CARETAKER 11
+---@field [11] "ANIMAL_CARETAKER"
+---@field ANIMAL_TRAINER 12 12
+---@field [12] "ANIMAL_TRAINER" 12
+---@field HUNTER 13
+---@field [13] "HUNTER"
+---@field TRAPPER 14
+---@field [14] "TRAPPER"
+---@field ANIMAL_DISSECTOR 15
+---@field [15] "ANIMAL_DISSECTOR"
+---@field METALSMITH 16
+---@field [16] "METALSMITH"
+---@field FURNACE_OPERATOR 17
+---@field [17] "FURNACE_OPERATOR"
+---@field WEAPONSMITH 18
+---@field [18] "WEAPONSMITH"
+---@field ARMORER 19
+---@field [19] "ARMORER"
+---@field BLACKSMITH 20
+---@field [20] "BLACKSMITH"
+---@field METALCRAFTER 21
+---@field [21] "METALCRAFTER"
+---@field JEWELER 22 22
+---@field [22] "JEWELER" 22
+---@field GEM_CUTTER 23
+---@field [23] "GEM_CUTTER"
+---@field GEM_SETTER 24
+---@field [24] "GEM_SETTER"
+---@field CRAFTSMAN 25
+---@field [25] "CRAFTSMAN"
+---@field WOODCRAFTER 26
+---@field [26] "WOODCRAFTER"
+---@field STONECRAFTER 27
+---@field [27] "STONECRAFTER"
+---@field LEATHERWORKER 28
+---@field [28] "LEATHERWORKER"
+---@field BONE_CARVER 29
+---@field [29] "BONE_CARVER"
+---@field WEAVER 30
+---@field [30] "WEAVER"
+---@field CLOTHIER 31
+---@field [31] "CLOTHIER"
+---@field GLASSMAKER 32 32
+---@field [32] "GLASSMAKER" 32
+---@field POTTER 33
+---@field [33] "POTTER"
+---@field GLAZER 34
+---@field [34] "GLAZER"
+---@field WAX_WORKER 35
+---@field [35] "WAX_WORKER"
+---@field STRAND_EXTRACTOR 36
+---@field [36] "STRAND_EXTRACTOR"
+---@field FISHERY_WORKER 37
+---@field [37] "FISHERY_WORKER"
+---@field FISHERMAN 38
+---@field [38] "FISHERMAN"
+---@field FISH_DISSECTOR 39
+---@field [39] "FISH_DISSECTOR"
+---@field FISH_CLEANER 40
+---@field [40] "FISH_CLEANER"
+---@field FARMER 41
+---@field [41] "FARMER"
+---@field CHEESE_MAKER 42 42
+---@field [42] "CHEESE_MAKER" 42
+---@field MILKER 43
+---@field [43] "MILKER"
+---@field COOK 44
+---@field [44] "COOK"
+---@field THRESHER 45
+---@field [45] "THRESHER"
+---@field MILLER 46
+---@field [46] "MILLER"
+---@field BUTCHER 47
+---@field [47] "BUTCHER"
+---@field TANNER 48
+---@field [48] "TANNER"
+---@field DYER 49
+---@field [49] "DYER"
+---@field PLANTER 50
+---@field [50] "PLANTER"
+---@field HERBALIST 51
+---@field [51] "HERBALIST"
+---@field BREWER 52 52
+---@field [52] "BREWER" 52
+---@field SOAP_MAKER 53
+---@field [53] "SOAP_MAKER"
+---@field POTASH_MAKER 54
+---@field [54] "POTASH_MAKER"
+---@field LYE_MAKER 55
+---@field [55] "LYE_MAKER"
+---@field WOOD_BURNER 56
+---@field [56] "WOOD_BURNER"
+---@field SHEARER 57
+---@field [57] "SHEARER"
+---@field SPINNER 58
+---@field [58] "SPINNER"
+---@field PRESSER 59
+---@field [59] "PRESSER"
+---@field BEEKEEPER 60
+---@field [60] "BEEKEEPER"
+---@field ENGINEER 61
+---@field [61] "ENGINEER"
+---@field MECHANIC 62 62
+---@field [62] "MECHANIC" 62
+---@field SIEGE_ENGINEER 63
+---@field [63] "SIEGE_ENGINEER"
+---@field SIEGE_OPERATOR 64
+---@field [64] "SIEGE_OPERATOR"
+---@field PUMP_OPERATOR 65
+---@field [65] "PUMP_OPERATOR"
+---@field CLERK 66
+---@field [66] "CLERK"
+---@field ADMINISTRATOR 67
+---@field [67] "ADMINISTRATOR"
+---@field TRADER 68
+---@field [68] "TRADER"
+---@field DOCTOR 69
+---@field [69] "DOCTOR"
+---@field DIAGNOSER 70 70
+---@field [70] "DIAGNOSER" 70
+---@field BONE_SETTER 71
+---@field [71] "BONE_SETTER"
+---@field SUTURER 72
+---@field [72] "SUTURER"
+---@field SURGEON 73
+---@field [73] "SURGEON"
+---@field MERCHANT 74
+---@field [74] "MERCHANT"
+---@field HAMMERMAN 75
+---@field [75] "HAMMERMAN"
+---@field MASTER_HAMMERMAN 76
+---@field [76] "MASTER_HAMMERMAN"
+---@field SPEARMAN 77
+---@field [77] "SPEARMAN"
+---@field MASTER_SPEARMAN 78
+---@field [78] "MASTER_SPEARMAN"
+---@field CROSSBOWMAN 79
+---@field [79] "CROSSBOWMAN"
+---@field MASTER_CROSSBOWMAN 80 80
+---@field [80] "MASTER_CROSSBOWMAN" 80
+---@field WRESTLER 81
+---@field [81] "WRESTLER"
+---@field MASTER_WRESTLER 82
+---@field [82] "MASTER_WRESTLER"
+---@field AXEMAN 83
+---@field [83] "AXEMAN"
+---@field MASTER_AXEMAN 84
+---@field [84] "MASTER_AXEMAN"
+---@field SWORDSMAN 85
+---@field [85] "SWORDSMAN"
+---@field MASTER_SWORDSMAN 86
+---@field [86] "MASTER_SWORDSMAN"
+---@field MACEMAN 87
+---@field [87] "MACEMAN"
+---@field MASTER_MACEMAN 88
+---@field [88] "MASTER_MACEMAN"
+---@field PIKEMAN 89
+---@field [89] "PIKEMAN"
+---@field MASTER_PIKEMAN 90 90
+---@field [90] "MASTER_PIKEMAN" 90
+---@field BOWMAN 91
+---@field [91] "BOWMAN"
+---@field MASTER_BOWMAN 92
+---@field [92] "MASTER_BOWMAN"
+---@field BLOWGUNMAN 93
+---@field [93] "BLOWGUNMAN"
+---@field MASTER_BLOWGUNMAN 94
+---@field [94] "MASTER_BLOWGUNMAN"
+---@field LASHER 95
+---@field [95] "LASHER"
+---@field MASTER_LASHER 96
+---@field [96] "MASTER_LASHER"
+---@field RECRUIT 97
+---@field [97] "RECRUIT"
+---@field TRAINED_HUNTER 98
+---@field [98] "TRAINED_HUNTER"
+---@field TRAINED_WAR 99
+---@field [99] "TRAINED_WAR"
+---@field MASTER_THIEF 100 100
+---@field [100] "MASTER_THIEF" 100
+---@field THIEF 101
+---@field [101] "THIEF"
+---@field STANDARD 102
+---@field [102] "STANDARD"
+---@field CHILD 103
+---@field [103] "CHILD"
+---@field BABY 104
+---@field [104] "BABY"
+---@field DRUNK 105
+---@field [105] "DRUNK"
+---@field MONSTER_SLAYER 106
+---@field [106] "MONSTER_SLAYER"
+---@field SCOUT 107
+---@field [107] "SCOUT"
+---@field BEAST_HUNTER 108
+---@field [108] "BEAST_HUNTER"
+---@field SNATCHER 109
+---@field [109] "SNATCHER"
+---@field MERCENARY 110 110
+---@field [110] "MERCENARY" 110
+---@field GELDER 111
+---@field [111] "GELDER"
+---@field PERFORMER 112
+---@field [112] "PERFORMER"
+---@field POET 113
+---@field [113] "POET"
+---@field BARD 114
+---@field [114] "BARD"
+---@field DANCER 115
+---@field [115] "DANCER"
+---@field SAGE 116
+---@field [116] "SAGE"
+---@field SCHOLAR 117
+---@field [117] "SCHOLAR"
+---@field PHILOSOPHER 118
+---@field [118] "PHILOSOPHER"
+---@field MATHEMATICIAN 119
+---@field [119] "MATHEMATICIAN"
+---@field HISTORIAN 120 120
+---@field [120] "HISTORIAN" 120
+---@field ASTRONOMER 121
+---@field [121] "ASTRONOMER"
+---@field NATURALIST 122
+---@field [122] "NATURALIST"
+---@field CHEMIST 123
+---@field [123] "CHEMIST"
+---@field GEOGRAPHER 124
+---@field [124] "GEOGRAPHER"
+---@field SCRIBE 125
+---@field [125] "SCRIBE"
+---@field PAPERMAKER 126
+---@field [126] "PAPERMAKER"
+---@field BOOKBINDER 127
+---@field [127] "BOOKBINDER"
+---@field TAVERN_KEEPER 128
+---@field [128] "TAVERN_KEEPER"
+---@field CRIMINAL 129
+---@field [129] "CRIMINAL"
+---@field PEDDLER 130 130
+---@field [130] "PEDDLER" 130
+---@field PROPHET 131
+---@field [131] "PROPHET"
+---@field PILGRIM 132
+---@field [132] "PILGRIM"
+---@field MONK 133
+---@field [133] "MONK"
+---@field MESSENGER 134
+---@field [134] "MESSENGER"
+df.profession = {}
+
+---@class profession_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.profession._attr_entry_type = {}
+
+---@class (exact) profession_attr_entry_type_fields
+---@field caption DFCompoundField bay12: UnitType
+---@field military DFCompoundField
+---@field parent DFCompoundField
+---@field can_assign_labor DFCompoundField Can be assigned any labors, i.e. not child or baby
+---@field color DFCompoundField
+---@field moodable DFCompoundField
+df.profession._attr_entry_type._fields = {}
+
+---@class profession_attrs
+---@field NONE { military: "false", parent: "NONE", can_assign_labor: "true", color: "-1", moodable: "false" }
+---@field MINER { caption: "Miner", military: "false", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "true" }
+---@field WOODWORKER { caption: "Woodworker", military: "false", parent: "NONE", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field CARPENTER { caption: "Carpenter", military: "false", parent: "WOODWORKER", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field BOWYER { caption: "Bowyer", military: "false", parent: "WOODWORKER", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field WOODCUTTER { caption: "Woodcutter", military: "false", parent: "WOODWORKER", can_assign_labor: "true", color: "14", moodable: "true" }
+---@field STONEWORKER { caption: "Stoneworker", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field STONECUTTER { caption: "Stonecutter", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field STONE_CARVER { caption: "Stone Carver", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field ENGRAVER { caption: "Engraver", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field MASON { caption: "Mason", military: "false", parent: "STONEWORKER", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field RANGER { caption: "Ranger", military: "false", parent: "NONE", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field ANIMAL_CARETAKER { caption: "Animal Caretaker", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field ANIMAL_TRAINER { caption: "Animal Trainer", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field HUNTER { caption: "Hunter", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field TRAPPER { caption: "Trapper", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field ANIMAL_DISSECTOR { caption: "Animal Dissector", military: "false", parent: "RANGER", can_assign_labor: "true", color: "2", moodable: "true" }
+---@field METALSMITH { caption: "Metalsmith", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field FURNACE_OPERATOR { caption: "Furnace Operator", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field WEAPONSMITH { caption: "Weaponsmith", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field ARMORER { caption: "Armorer", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field BLACKSMITH { caption: "Blacksmith", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field METALCRAFTER { caption: "Metalcrafter", military: "false", parent: "METALSMITH", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field JEWELER { caption: "Jeweler", military: "false", parent: "NONE", can_assign_labor: "true", color: "10", moodable: "true" }
+---@field GEM_CUTTER { caption: "Gem Cutter", military: "false", parent: "JEWELER", can_assign_labor: "true", color: "10", moodable: "true" }
+---@field GEM_SETTER { caption: "Gem Setter", military: "false", parent: "JEWELER", can_assign_labor: "true", color: "10", moodable: "true" }
+---@field CRAFTSMAN { caption: "Craftsman", military: "false", parent: "NONE", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field WOODCRAFTER { caption: "Woodcrafter", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field STONECRAFTER { caption: "Stonecrafter", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field LEATHERWORKER { caption: "Leatherworker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field BONE_CARVER { caption: "Bone Carver", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field WEAVER { caption: "Weaver", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field CLOTHIER { caption: "Clothier", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field GLASSMAKER { caption: "Glassmaker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field POTTER { caption: "Potter", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field GLAZER { caption: "Glazer", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field WAX_WORKER { caption: "Wax Worker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field STRAND_EXTRACTOR { caption: "Strand Extractor", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field FISHERY_WORKER { caption: "Fishery Worker", military: "false", parent: "NONE", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FISHERMAN { caption: "Fisherman", military: "false", parent: "FISHERY_WORKER", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FISH_DISSECTOR { caption: "Fish Dissector", military: "false", parent: "FISHERY_WORKER", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FISH_CLEANER { caption: "Fish Cleaner", military: "false", parent: "FISHERY_WORKER", can_assign_labor: "true", color: "1", moodable: "true" }
+---@field FARMER { caption: "Farmer", military: "false", parent: "NONE", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field CHEESE_MAKER { caption: "Cheesemaker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field MILKER { caption: "Milker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field COOK { caption: "Cook", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field THRESHER { caption: "Thresher", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field MILLER { caption: "Miller", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field BUTCHER { caption: "Butcher", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field TANNER { caption: "Tanner", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field DYER { caption: "Dyer", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field PLANTER { caption: "Planter", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field HERBALIST { caption: "Herbalist", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field BREWER { caption: "Brewer", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field SOAP_MAKER { caption: "Soap Maker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field POTASH_MAKER { caption: "Potash Maker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field LYE_MAKER { caption: "Lye Maker", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field WOOD_BURNER { caption: "Wood Burner", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field SHEARER { caption: "Shearer", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field SPINNER { caption: "Spinner", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field PRESSER { caption: "Presser", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field BEEKEEPER { caption: "Beekeeper", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field ENGINEER { caption: "Engineer", military: "false", parent: "NONE", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field MECHANIC { caption: "Mechanic", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field SIEGE_ENGINEER { caption: "Siege Engineer", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field SIEGE_OPERATOR { caption: "Siege Operator", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field PUMP_OPERATOR { caption: "Pump Operator", military: "false", parent: "ENGINEER", can_assign_labor: "true", color: "12", moodable: "true" }
+---@field CLERK { caption: "Clerk", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field ADMINISTRATOR { caption: "Administrator", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field TRADER { caption: "Trader", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field DOCTOR { caption: "Doctor", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field DIAGNOSER { caption: "Diagnoser", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field BONE_SETTER { caption: "Bone Doctor", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SUTURER { caption: "Suturer", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SURGEON { caption: "Surgeon", military: "false", parent: "DOCTOR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field MERCHANT { caption: "Merchant", military: "false", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "false" }
+---@field HAMMERMAN { caption: "Hammerman", military: "true", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "false" }
+---@field MASTER_HAMMERMAN { caption: "Hammer Lord", military: "true", parent: "HAMMERMAN", can_assign_labor: "true", color: "13", moodable: "false" }
+---@field SPEARMAN { caption: "Spearman", military: "true", parent: "NONE", can_assign_labor: "true", color: "6", moodable: "false" }
+---@field MASTER_SPEARMAN { caption: "Spearmaster", military: "true", parent: "SPEARMAN", can_assign_labor: "true", color: "14", moodable: "false" }
+---@field CROSSBOWMAN { caption: "Crossbowman", military: "true", parent: "NONE", can_assign_labor: "true", color: "2", moodable: "false" }
+---@field MASTER_CROSSBOWMAN { caption: "Elite Crossbowman", military: "true", parent: "CROSSBOWMAN", can_assign_labor: "true", color: "10", moodable: "false" }
+---@field WRESTLER { caption: "Wrestler", military: "true", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "false" }
+---@field MASTER_WRESTLER { caption: "Elite Wrestler", military: "true", parent: "WRESTLER", can_assign_labor: "true", color: "15", moodable: "false" }
+---@field AXEMAN { caption: "Axeman", military: "true", parent: "NONE", can_assign_labor: "true", color: "1", moodable: "false" }
+---@field MASTER_AXEMAN { caption: "Axe Lord", military: "true", parent: "AXEMAN", can_assign_labor: "true", color: "9", moodable: "false" }
+---@field SWORDSMAN { caption: "Swordsman", military: "true", parent: "NONE", can_assign_labor: "true", color: "3", moodable: "false" }
+---@field MASTER_SWORDSMAN { caption: "Swordsmaster", military: "true", parent: "SWORDSMAN", can_assign_labor: "true", color: "11", moodable: "false" }
+---@field MACEMAN { caption: "Maceman", military: "true", parent: "NONE", can_assign_labor: "true", color: "4", moodable: "false" }
+---@field MASTER_MACEMAN { caption: "Mace Lord", military: "true", parent: "MACEMAN", can_assign_labor: "true", color: "12", moodable: "false" }
+---@field PIKEMAN { caption: "Pikeman", military: "true", parent: "NONE", can_assign_labor: "true", color: "6", moodable: "false" }
+---@field MASTER_PIKEMAN { caption: "Pikemaster", military: "true", parent: "PIKEMAN", can_assign_labor: "true", color: "14", moodable: "false" }
+---@field BOWMAN { caption: "Bowman", military: "true", parent: "NONE", can_assign_labor: "true", color: "2", moodable: "false" }
+---@field MASTER_BOWMAN { caption: "Elite Bowman", military: "true", parent: "BOWMAN", can_assign_labor: "true", color: "10", moodable: "false" }
+---@field BLOWGUNMAN { caption: "Blowgunner", military: "true", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field MASTER_BLOWGUNMAN { caption: "Master Blowgunner", military: "true", parent: "BLOWGUNMAN", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field LASHER { caption: "Lasher", military: "true", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field MASTER_LASHER { caption: "Master Lasher", military: "true", parent: "LASHER", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field RECRUIT { caption: "Recruit", military: "true", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field TRAINED_HUNTER { caption: "Hunting Animal", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "false" }
+---@field TRAINED_WAR { caption: "War Animal", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field MASTER_THIEF { caption: "Master Thief", military: "false", parent: "THIEF", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field THIEF { caption: "Thief", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "false" }
+---@field STANDARD { caption: "Peasant", military: "false", parent: "NONE", can_assign_labor: "true", color: "-1", moodable: "true" }
+---@field CHILD { caption: "Child", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "4", moodable: "true" }
+---@field BABY { caption: "Baby", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "4", moodable: "false" }
+---@field DRUNK { caption: "Drunk", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field MONSTER_SLAYER { caption: "Monster slayer", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field SCOUT { caption: "Scout", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field BEAST_HUNTER { caption: "Beast hunter", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field SNATCHER { caption: "Snatcher", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field MERCENARY { caption: "Mercenary", military: "false", parent: "STANDARD", can_assign_labor: "false", color: "6", moodable: "false" }
+---@field GELDER { caption: "Gelder", military: "false", parent: "FARMER", can_assign_labor: "true", color: "6", moodable: "true" }
+---@field PERFORMER { caption: "Performer", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field POET { caption: "Poet", military: "false", parent: "PERFORMER", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field BARD { caption: "Bard", military: "false", parent: "PERFORMER", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field DANCER { caption: "Dancer", military: "false", parent: "PERFORMER", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SAGE { caption: "Sage", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SCHOLAR { caption: "Scholar", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field PHILOSOPHER { caption: "Philosopher", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field MATHEMATICIAN { caption: "Mathematician", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field HISTORIAN { caption: "Historian", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field ASTRONOMER { caption: "Astronomer", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field NATURALIST { caption: "Naturalist", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field CHEMIST { caption: "Chemist", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field GEOGRAPHER { caption: "Geographer", military: "false", parent: "SCHOLAR", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field SCRIBE { caption: "Scribe", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field PAPERMAKER { caption: "Papermaker", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field BOOKBINDER { caption: "Bookbinder", military: "false", parent: "CRAFTSMAN", can_assign_labor: "true", color: "9", moodable: "true" }
+---@field TAVERN_KEEPER { caption: "Tavern Keeper", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+---@field CRIMINAL { caption: "Criminal", military: "false", parent: "NONE", can_assign_labor: "true", color: "8", moodable: "true" }
+---@field PEDDLER { caption: "Peddler", military: "false", parent: "NONE", can_assign_labor: "true", color: "7", moodable: "true" }
+---@field PROPHET { caption: "Prophet", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field PILGRIM { caption: "Pilgrim", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field MONK { caption: "Monk", military: "false", parent: "NONE", can_assign_labor: "true", color: "15", moodable: "true" }
+---@field MESSENGER { caption: "Messenger", military: "false", parent: "NONE", can_assign_labor: "true", color: "5", moodable: "true" }
+df.profession.attrs = {}
+
+-- Unused: vstringst
+-- Helper type for tiletype
+---@alias df.tiletype_shape_basic
+---| -1 # None
+---| 0 # Open
+---| 1 # Floor
+---| 2 # Ramp
+---| 3 # Wall
+---| 4 # Stair
+
+-- Unused: vstringst
+-- Helper type for tiletype
+---@class identity.tiletype_shape_basic: DFEnumType
+---@field None -1
+---@field [-1] "None"
+---@field Open 0
+---@field [0] "Open"
+---@field Floor 1
+---@field [1] "Floor"
+---@field Ramp 2
+---@field [2] "Ramp"
+---@field Wall 3
+---@field [3] "Wall"
+---@field Stair 4
+---@field [4] "Stair"
+df.tiletype_shape_basic = {}
+
+-- Helper type for tiletype
+---@alias df.tiletype_shape
+---| -1 # NONE
+---| 0 # EMPTY
+---| 1 # FLOOR
+---| 2 # BOULDER
+---| 3 # PEBBLES
+---| 4 # WALL
+---| 5 # FORTIFICATION
+---| 6 # STAIR_UP
+---| 7 # STAIR_DOWN
+---| 8 # STAIR_UPDOWN
+---| 9 # RAMP
+---| 10 # RAMP_TOP
+---| 11 # BROOK_BED
+---| 12 # BROOK_TOP
+---| 13 # BRANCH
+---| 14 # TRUNK_BRANCH
+---| 15 # TWIG
+---| 16 # SAPLING
+---| 17 # SHRUB
+---| 18 # ENDLESS_PIT
+
+-- Helper type for tiletype
+---@class identity.tiletype_shape: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field EMPTY 0
+---@field [0] "EMPTY"
+---@field FLOOR 1
+---@field [1] "FLOOR"
+---@field BOULDER 2
+---@field [2] "BOULDER"
+---@field PEBBLES 3
+---@field [3] "PEBBLES"
+---@field WALL 4
+---@field [4] "WALL"
+---@field FORTIFICATION 5
+---@field [5] "FORTIFICATION"
+---@field STAIR_UP 6
+---@field [6] "STAIR_UP"
+---@field STAIR_DOWN 7
+---@field [7] "STAIR_DOWN"
+---@field STAIR_UPDOWN 8
+---@field [8] "STAIR_UPDOWN"
+---@field RAMP 9
+---@field [9] "RAMP"
+---@field RAMP_TOP 10
+---@field [10] "RAMP_TOP"
+---@field BROOK_BED 11
+---@field [11] "BROOK_BED"
+---@field BROOK_TOP 12
+---@field [12] "BROOK_TOP"
+---@field BRANCH 13
+---@field [13] "BRANCH"
+---@field TRUNK_BRANCH 14
+---@field [14] "TRUNK_BRANCH"
+---@field TWIG 15
+---@field [15] "TWIG"
+---@field SAPLING 16
+---@field [16] "SAPLING"
+---@field SHRUB 17
+---@field [17] "SHRUB"
+---@field ENDLESS_PIT 18
+---@field [18] "ENDLESS_PIT"
+df.tiletype_shape = {}
+
+---@class tiletype_shape_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.tiletype_shape._attr_entry_type = {}
+
+---@class (exact) tiletype_shape_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field basic_shape DFCompoundField
+---@field passable_low DFCompoundField tile is missing a floor
+---@field passable_high DFCompoundField tile is missing a roof
+---@field passable_flow DFCompoundField tile is non-solid
+---@field passable_flow_down DFCompoundField floor is non-solid
+---@field walkable DFCompoundField can be stood upon
+---@field walkable_up DFCompoundField can walk to ceiling
+df.tiletype_shape._attr_entry_type._fields = {}
+
+---@class tiletype_shape_attrs
+---@field NONE { basic_shape: "None", passable_low: "false", passable_high: "false", passable_flow: "false", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field EMPTY { basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field FLOOR { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field BOULDER { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field PEBBLES { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field WALL { basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "false", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field FORTIFICATION { basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field STAIR_UP { basic_shape: "Stair", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "true" }
+---@field STAIR_DOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field STAIR_UPDOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "true" }
+---@field RAMP { caption: "ramps have no direction", basic_shape: "Ramp", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "true" }
+---@field RAMP_TOP { caption: "used for pathing?", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field BROOK_BED { caption: "mineable, water-passable rock on the bottom of a brook", basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field BROOK_TOP { caption: "water-passable floor on top of BROOK_BED tiles", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field BRANCH { caption: "small tree branch", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field TRUNK_BRANCH { caption: "large tree branch", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field TWIG { caption: "tiny tree branch, not strong enough to support creatures", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field SAPLING { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field SHRUB { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field ENDLESS_PIT { caption: "a fake endless pit", basic_shape: "Open", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+df.tiletype_shape.attrs = {}
+
+-- Helper type for tiletype
+---@alias df.tiletype_material
+---| -1 # NONE
+---| 0 # AIR
+---| 1 # SOIL
+---| 2 # STONE
+---| 3 # FEATURE
+---| 4 # LAVA_STONE
+---| 5 # MINERAL
+---| 6 # FROZEN_LIQUID
+---| 7 # CONSTRUCTION
+---| 8 # GRASS_LIGHT
+---| 9 # GRASS_DARK
+---| 10 # GRASS_DRY
+---| 11 # GRASS_DEAD
+---| 12 # PLANT
+---| 13 # HFS
+---| 14 # CAMPFIRE
+---| 15 # FIRE
+---| 16 # ASHES
+---| 17 # MAGMA
+---| 18 # DRIFTWOOD
+---| 19 # POOL
+---| 20 # BROOK
+---| 21 # RIVER
+---| 22 # ROOT
+---| 23 # TREE
+---| 24 # MUSHROOM
+---| 25 # UNDERWORLD_GATE
+
+-- Helper type for tiletype
+---@class identity.tiletype_material: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field AIR 0
+---@field [0] "AIR"
+---@field SOIL 1
+---@field [1] "SOIL"
+---@field STONE 2
+---@field [2] "STONE"
+---@field FEATURE 3
+---@field [3] "FEATURE"
+---@field LAVA_STONE 4
+---@field [4] "LAVA_STONE"
+---@field MINERAL 5
+---@field [5] "MINERAL"
+---@field FROZEN_LIQUID 6
+---@field [6] "FROZEN_LIQUID"
+---@field CONSTRUCTION 7
+---@field [7] "CONSTRUCTION"
+---@field GRASS_LIGHT 8
+---@field [8] "GRASS_LIGHT"
+---@field GRASS_DARK 9
+---@field [9] "GRASS_DARK"
+---@field GRASS_DRY 10
+---@field [10] "GRASS_DRY"
+---@field GRASS_DEAD 11
+---@field [11] "GRASS_DEAD"
+---@field PLANT 12
+---@field [12] "PLANT"
+---@field HFS 13
+---@field [13] "HFS"
+---@field CAMPFIRE 14
+---@field [14] "CAMPFIRE"
+---@field FIRE 15
+---@field [15] "FIRE"
+---@field ASHES 16
+---@field [16] "ASHES"
+---@field MAGMA 17
+---@field [17] "MAGMA"
+---@field DRIFTWOOD 18
+---@field [18] "DRIFTWOOD"
+---@field POOL 19
+---@field [19] "POOL"
+---@field BROOK 20
+---@field [20] "BROOK"
+---@field RIVER 21
+---@field [21] "RIVER"
+---@field ROOT 22
+---@field [22] "ROOT"
+---@field TREE 23
+---@field [23] "TREE"
+---@field MUSHROOM 24
+---@field [24] "MUSHROOM"
+---@field UNDERWORLD_GATE 25
+---@field [25] "UNDERWORLD_GATE"
+df.tiletype_material = {}
+
+---@class tiletype_material_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.tiletype_material._attr_entry_type = {}
+
+---@class (exact) tiletype_material_attr_entry_type_fields
+---@field caption DFCompoundField
+df.tiletype_material._attr_entry_type._fields = {}
+
+---@class tiletype_material_attrs
+---@field AIR { caption: "empty" }
+---@field SOIL { caption: "ordinary soil. material depends on geology" }
+---@field STONE { caption: "ordinary layer stone. material depends on geology" }
+---@field FEATURE { caption: "map special stone. used for things like hell, curious structures, or adamantine tubes. material depends on local/global special" }
+---@field LAVA_STONE { caption: "lava stone created by mixing magma and water" }
+---@field MINERAL { caption: "vein stone. material depends on mineral veins present" }
+---@field FROZEN_LIQUID { caption: "frozen liquid. material depends on ice vein present (which also indicates what was on the tile before it froze)" }
+---@field CONSTRUCTION { caption: "material depends on the construction present" }
+---@field GRASS_LIGHT { caption: "light grass" }
+---@field GRASS_DARK { caption: "dark grass" }
+---@field GRASS_DRY { caption: "dry grass" }
+---@field GRASS_DEAD { caption: "dead grass" }
+---@field PLANT { caption: "plant" }
+---@field HFS { caption: "the stuff glowing barriers/floors and eerie pits are made of - this makes them different from ordinary walls/floors and chasms" }
+---@field CAMPFIRE { caption: "human armies make them when they siege. original tile is lost?" }
+---@field FIRE { caption: "burning grass" }
+---@field ASHES { caption: "what remains from a fire" }
+---@field MAGMA { caption: "material for semi-molten rock and magma flow tiles" }
+---@field DRIFTWOOD { caption: "driftwood. normally shows up on beaches" }
+---@field POOL { caption: "A pool. Gathers water while it's raining." }
+---@field BROOK { caption: "Brook beds and floors" }
+---@field RIVER { caption: "It's a riverbed. Basically a tile that doesn't get muddy." }
+---@field ROOT { caption: "tree root" }
+---@field TREE { caption: "tree trunk/branch" }
+---@field MUSHROOM { caption: "mushroom cap" }
+---@field UNDERWORLD_GATE { caption: "Underworld Gate" }
+df.tiletype_material.attrs = {}
+
+-- Helper type for tiletype
+---@alias df.tiletype_variant
+---| -1 # NONE
+---| 0 # VAR_1
+---| 1 # VAR_2
+---| 2 # VAR_3
+---| 3 # VAR_4
+
+-- Helper type for tiletype
+---@class identity.tiletype_variant: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field VAR_1 0
+---@field [0] "VAR_1"
+---@field VAR_2 1
+---@field [1] "VAR_2"
+---@field VAR_3 2
+---@field [2] "VAR_3"
+---@field VAR_4 3
+---@field [3] "VAR_4"
+df.tiletype_variant = {}
+
+-- Helper type for tiletype
+---@alias df.tiletype_special
+---| -1 # NONE
+---| 0 # NORMAL
+---| 1 # RIVER_SOURCE
+---| 2 # WATERFALL
+---| 3 # SMOOTH
+---| 4 # FURROWED
+---| 5 # WET
+---| 6 # DEAD
+---| 7 # WORN_1
+---| 8 # WORN_2
+---| 9 # WORN_3
+---| 10 # TRACK
+---| 11 # SMOOTH_DEAD
+
+-- Helper type for tiletype
+---@class identity.tiletype_special: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field NORMAL 0
+---@field [0] "NORMAL"
+---@field RIVER_SOURCE 1
+---@field [1] "RIVER_SOURCE"
+---@field WATERFALL 2
+---@field [2] "WATERFALL"
+---@field SMOOTH 3
+---@field [3] "SMOOTH"
+---@field FURROWED 4
+---@field [4] "FURROWED"
+---@field WET 5
+---@field [5] "WET"
+---@field DEAD 6
+---@field [6] "DEAD"
+---@field WORN_1 7
+---@field [7] "WORN_1"
+---@field WORN_2 8
+---@field [8] "WORN_2"
+---@field WORN_3 9
+---@field [9] "WORN_3"
+---@field TRACK 10
+---@field [10] "TRACK"
+---@field SMOOTH_DEAD 11
+---@field [11] "SMOOTH_DEAD"
+df.tiletype_special = {}
+
+---@class tiletype_special_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.tiletype_special._attr_entry_type = {}
+
+---@class (exact) tiletype_special_attr_entry_type_fields
+---@field caption DFCompoundField
+df.tiletype_special._attr_entry_type._fields = {}
+
+---@class tiletype_special_attrs
+---@field NORMAL { caption: "default for all tiles, nothing special about it" }
+---@field RIVER_SOURCE { caption: "river source, when it exists on a map" }
+---@field WATERFALL { caption: "waterfall from nowhere, used by cave rivers back in 40d" }
+---@field SMOOTH { caption: "smooth walls and floors, including constructions" }
+---@field FURROWED { caption: "furrowed soil, left by roads/farms and removing constructions" }
+---@field WET { caption: "wet soil, found on beaches" }
+---@field DEAD { caption: "dead, used by plants" }
+---@field WORN_1 { caption: "partially (25%) mined walls" }
+---@field WORN_2 { caption: "partially (50%) mined walls" }
+---@field WORN_3 { caption: "partially (75%) mined walls" }
+---@field TRACK { caption: "mine cart track" }
+---@field SMOOTH_DEAD { caption: "smooth dead leaves, a unique combination" }
+df.tiletype_special.attrs = {}
+
+---@alias df.tiletype
+---| 0 # Void
+---| 1 # RampTop
+---| 2 # MurkyPool
+---| 3 # MurkyPoolRamp
+---| 4 # UnderworldGateStairU
+---| 5 # UnderworldGateStairD
+---| 6 # UnderworldGateStairUD
+---| 7 # TreeCapInterior
+---| 8 # TreeCapWallThickSW
+---| 9 # TreeCapWallThickSE
+---| 10 # TreeCapWallThickNW
+---| 11 # TreeCapWallThickNE
+---| 12 # TreeCapWallThickN
+---| 13 # TreeCapWallThickS
+---| 14 # TreeCapWallThickW
+---| 15 # TreeCapWallThickE
+---| 16 # TreeCapWallNSWE
+---| 17 # TreeCapWallNSW
+---| 18 # TreeCapWallNSE
+---| 19 # Driftwood
+---| 20 # TreeCapWallNWE
+---| 21 # TreeCapWallSWE
+---| 22 # TreeCapWallNS
+---| 23 # TreeCapWallWE
+---| 24 # Unused999
+---| 25 # FrozenStairUD
+---| 26 # FrozenStairD
+---| 27 # FrozenStairU
+---| 28 # Unused9999
+---| 29 # Unused99999
+---| 30 # Unused999999
+---| 31 # TreeDeadCapInterior
+---| 32 # OpenSpace
+---| 33 # TreeDeadCapWallThickSW
+---| 34 # Shrub
+---| 35 # Chasm
+---| 36 # LavaStairUD
+---| 37 # LavaStairD
+---| 38 # LavaStairU
+---| 39 # SoilStairUD
+---| 40 # SoilStairD
+---| 41 # SoilStairU
+---| 42 # EeriePit
+---| 43 # StoneFloorSmooth
+---| 44 # LavaFloorSmooth
+---| 45 # FeatureFloorSmooth
+---| 46 # MineralFloorSmooth
+---| 47 # FrozenFloorSmooth
+---| 48 # TreeDeadCapWallThickSE
+---| 49 # Grass1StairUD
+---| 50 # Grass1StairD
+---| 51 # Grass1StairU
+---| 52 # Grass2StairUD
+---| 53 # Grass2StairD
+---| 54 # Grass2StairU
+---| 55 # StoneStairUD
+---| 56 # StoneStairD
+---| 57 # StoneStairU
+---| 58 # MineralStairUD
+---| 59 # MineralStairD
+---| 60 # MineralStairU
+---| 61 # FeatureStairUD
+---| 62 # FeatureStairD
+---| 63 # FeatureStairU
+---| 64 # TreeDeadCapWallThickNW
+---| 65 # StoneFortification
+---| 66 # TreeDeadCapWallThickNE
+---| 67 # Campfire
+---| 68 # TreeDeadCapWallThickN
+---| 69 # TreeDeadCapWallThickS
+---| 70 # Fire
+---| 71 # BurningTreeTrunk
+---| 72 # BurningTreeBranches
+---| 73 # BurningTreeTwigs
+---| 74 # BurningTreeCapWall
+---| 75 # BurningTreeCapRamp
+---| 76 # BurningTreeCapFloor
+---| 77 # TreeDeadCapWallThickW
+---| 78 # TreeDeadCapWallThickE
+---| 79 # StonePillar
+---| 80 # LavaPillar
+---| 81 # FeaturePillar
+---| 82 # MineralPillar
+---| 83 # FrozenPillar
+---| 84 # TreeDeadCapWallNSWE
+---| 85 # TreeDeadCapWallNSW
+---| 86 # TreeDeadCapWallNSE
+---| 87 # TreeDeadCapWallNWE
+---| 88 # TreeDeadCapWallSWE
+---| 89 # Waterfall
+---| 90 # RiverSource
+---| 91 # TreeRootSloping
+---| 92 # TreeRoots
+---| 93 # TreeTrunkPillar
+---| 94 # TreeTrunkSloping
+---| 95 # TreeTrunkThickN
+---| 96 # TreeTrunkThickS
+---| 97 # TreeTrunkThickE
+---| 98 # TreeTrunkThickW
+---| 99 # TreeTrunkThickNW
+---| 100 # TreeTrunkThickNE
+---| 101 # TreeTrunkThickSW
+---| 102 # TreeTrunkThickSE
+---| 103 # TreeTrunkBranchN
+---| 104 # TreeTrunkBranchS
+---| 105 # TreeTrunkBranchE
+---| 106 # TreeTrunkBranchW
+---| 107 # TreeBranchNS
+---| 108 # TreeBranchEW
+---| 109 # TreeBranchesSmooth
+---| 110 # TreeDeadBranchesSmooth
+---| 111 # TreeBranchNW
+---| 112 # TreeBranchNE
+---| 113 # TreeBranchSW
+---| 114 # TreeBranchSE
+---| 115 # TreeBranches
+---| 116 # TreeTwigs
+---| 117 # TreeCapRamp
+---| 118 # TreeCapPillar
+---| 119 # TreeCapWallN
+---| 120 # TreeCapWallS
+---| 121 # TreeCapWallE
+---| 122 # TreeCapWallW
+---| 123 # TreeCapWallNW
+---| 124 # TreeCapWallNE
+---| 125 # TreeCapWallSW
+---| 126 # TreeCapWallSE
+---| 127 # TreeCapFloor1
+---| 128 # TreeCapFloor2
+---| 129 # TreeCapFloor3
+---| 130 # TreeCapFloor4
+---| 131 # TreeDeadRootSloping
+---| 132 # TreeDeadRoots
+---| 133 # TreeDeadTrunkPillar
+---| 134 # TreeDeadTrunkSloping
+---| 135 # TreeDeadTrunkThickN
+---| 136 # TreeDeadTrunkThickS
+---| 137 # TreeDeadTrunkThickE
+---| 138 # TreeDeadTrunkThickW
+---| 139 # TreeDeadTrunkThickNW
+---| 140 # TreeDeadTrunkThickNE
+---| 141 # TreeDeadTrunkThickSW
+---| 142 # TreeDeadTrunkThickSE
+---| 143 # TreeDeadTrunkBranchN
+---| 144 # TreeDeadTrunkBranchS
+---| 145 # TreeDeadTrunkBranchE
+---| 146 # TreeDeadTrunkBranchW
+---| 147 # TreeDeadBranchNS
+---| 148 # TreeDeadBranchEW
+---| 149 # TreeBranch
+---| 150 # TreeDeadBranch
+---| 151 # TreeDeadBranchNW
+---| 152 # TreeDeadBranchNE
+---| 153 # TreeDeadBranchSW
+---| 154 # TreeDeadBranchSE
+---| 155 # TreeDeadBranches
+---| 156 # TreeDeadTwigs
+---| 157 # TreeDeadCapRamp
+---| 158 # TreeDeadCapPillar
+---| 159 # TreeDeadCapWallN
+---| 160 # TreeDeadCapWallS
+---| 161 # TreeDeadCapWallE
+---| 162 # TreeDeadCapWallW
+---| 163 # TreeDeadCapWallNW
+---| 164 # TreeDeadCapWallNE
+---| 165 # TreeDeadCapWallSW
+---| 166 # TreeDeadCapWallSE
+---| 167 # TreeDeadCapFloor1
+---| 168 # TreeDeadCapFloor2
+---| 169 # TreeDeadCapFloor3
+---| 170 # TreeDeadCapFloor4
+---| 171 # TreeDeadCapWallNS
+---| 172 # StoneWallWorn1
+---| 173 # StoneWallWorn2
+---| 174 # StoneWallWorn3
+---| 175 # TreeBranchNSE
+---| 176 # TreeBranchNSW
+---| 177 # TreeBranchNEW
+---| 178 # TreeBranchSEW
+---| 179 # TreeBranchNSEW
+---| 180 # TreeDeadBranchNSE
+---| 181 # TreeDeadBranchNSW
+---| 182 # TreeDeadBranchNEW
+---| 183 # TreeDeadBranchSEW
+---| 184 # TreeDeadBranchNSEW
+---| 185 # TreeTrunkNSE
+---| 186 # TreeTrunkNSW
+---| 187 # TreeTrunkNEW
+---| 188 # TreeTrunkSEW
+---| 189 # TreeTrunkNS
+---| 190 # TreeTrunkEW
+---| 191 # TreeTrunkNSEW
+---| 192 # TreeTrunkInterior
+---| 193 # TreeDeadTrunkNSE
+---| 194 # TreeDeadTrunkNSW
+---| 195 # TreeDeadTrunkNEW
+---| 196 # TreeDeadTrunkSEW
+---| 197 # TreeDeadTrunkNS
+---| 198 # TreeDeadTrunkEW
+---| 199 # TreeDeadTrunkNSEW
+---| 200 # TreeDeadTrunkInterior
+---| 201 # TreeTrunkNW
+---| 202 # TreeTrunkNE
+---| 203 # TreeTrunkSW
+---| 204 # TreeTrunkSE
+---| 205 # TreeDeadTrunkNW
+---| 206 # TreeDeadTrunkNE
+---| 207 # TreeDeadTrunkSW
+---| 208 # TreeDeadTrunkSE
+---| 209 # TreeTrunkN
+---| 210 # TreeTrunkS
+---| 211 # TreeTrunkW
+---| 212 # TreeTrunkE
+---| 213 # TreeDeadTrunkN
+---| 214 # TreeDeadTrunkS
+---| 215 # StoneWall
+---| 216 # TreeDeadTrunkW
+---| 217 # TreeDeadTrunkE
+---| 218 # TreeBranchS
+---| 219 # TreeBranchN
+---| 220 # TreeBranchW
+---| 221 # TreeBranchE
+---| 222 # TreeDeadBranchS
+---| 223 # TreeDeadBranchN
+---| 224 # TreeDeadBranchW
+---| 225 # TreeDeadBranchE
+---| 226 # TreeDeadCapPillarWE
+---| 227 # Sapling
+---| 228 # Unused888
+---| 229 # GrassDryRamp
+---| 230 # GrassDeadRamp
+---| 231 # GrassLightRamp
+---| 232 # GrassDarkRamp
+---| 233 # StoneRamp
+---| 234 # LavaRamp
+---| 235 # FeatureRamp
+---| 236 # MineralRamp
+---| 237 # SoilRamp
+---| 238 # Ashes1
+---| 239 # Ashes2
+---| 240 # Ashes3
+---| 241 # FrozenRamp
+---| 242 # Unused8888
+---| 243 # Unused88888
+---| 244 # Unused888888
+---| 245 # Unused245
+---| 246 # Unused246
+---| 247 # Unused247
+---| 248 # Unused248
+---| 249 # Unused249
+---| 250 # Unused250
+---| 251 # Unused251
+---| 252 # Unused252
+---| 253 # Unused253
+---| 254 # FrozenFloor2
+---| 255 # FrozenFloor3
+---| 256 # FrozenFloor4
+---| 257 # FurrowedSoil
+---| 258 # FrozenFloor1
+---| 259 # SemiMoltenRock
+---| 260 # MagmaFlow
+---| 261 # SoilWall
+---| 262 # GlowingBarrier
+---| 263 # GlowingFloor
+---| 264 # Unused264
+---| 265 # LavaWallSmoothRD2
+---| 266 # LavaWallSmoothR2D
+---| 267 # LavaWallSmoothR2U
+---| 268 # LavaWallSmoothRU2
+---| 269 # LavaWallSmoothL2U
+---| 270 # LavaWallSmoothLU2
+---| 271 # LavaWallSmoothL2D
+---| 272 # LavaWallSmoothLD2
+---| 273 # LavaWallSmoothLRUD
+---| 274 # LavaWallSmoothRUD
+---| 275 # LavaWallSmoothLRD
+---| 276 # LavaWallSmoothLRU
+---| 277 # LavaWallSmoothLUD
+---| 278 # LavaWallSmoothRD
+---| 279 # LavaWallSmoothRU
+---| 280 # LavaWallSmoothLU
+---| 281 # LavaWallSmoothLD
+---| 282 # LavaWallSmoothUD
+---| 283 # LavaWallSmoothLR
+---| 284 # FeatureWallSmoothRD2
+---| 285 # FeatureWallSmoothR2D
+---| 286 # FeatureWallSmoothR2U
+---| 287 # FeatureWallSmoothRU2
+---| 288 # FeatureWallSmoothL2U
+---| 289 # FeatureWallSmoothLU2
+---| 290 # FeatureWallSmoothL2D
+---| 291 # FeatureWallSmoothLD2
+---| 292 # FeatureWallSmoothLRUD
+---| 293 # FeatureWallSmoothRUD
+---| 294 # FeatureWallSmoothLRD
+---| 295 # FeatureWallSmoothLRU
+---| 296 # FeatureWallSmoothLUD
+---| 297 # FeatureWallSmoothRD
+---| 298 # FeatureWallSmoothRU
+---| 299 # FeatureWallSmoothLU
+---| 300 # FeatureWallSmoothLD
+---| 301 # FeatureWallSmoothUD
+---| 302 # FeatureWallSmoothLR
+---| 303 # StoneWallSmoothRD2
+---| 304 # StoneWallSmoothR2D
+---| 305 # StoneWallSmoothR2U
+---| 306 # StoneWallSmoothRU2
+---| 307 # StoneWallSmoothL2U
+---| 308 # StoneWallSmoothLU2
+---| 309 # StoneWallSmoothL2D
+---| 310 # StoneWallSmoothLD2
+---| 311 # StoneWallSmoothLRUD
+---| 312 # StoneWallSmoothRUD
+---| 313 # StoneWallSmoothLRD
+---| 314 # StoneWallSmoothLRU
+---| 315 # StoneWallSmoothLUD
+---| 316 # StoneWallSmoothRD
+---| 317 # StoneWallSmoothRU
+---| 318 # StoneWallSmoothLU
+---| 319 # StoneWallSmoothLD
+---| 320 # StoneWallSmoothUD
+---| 321 # StoneWallSmoothLR
+---| 322 # LavaFortification
+---| 323 # FeatureFortification
+---| 324 # LavaWallWorn1
+---| 325 # LavaWallWorn2
+---| 326 # LavaWallWorn3
+---| 327 # LavaWall
+---| 328 # FeatureWallWorn1
+---| 329 # FeatureWallWorn2
+---| 330 # FeatureWallWorn3
+---| 331 # FeatureWall
+---| 332 # StoneFloor1
+---| 333 # StoneFloor2
+---| 334 # StoneFloor3
+---| 335 # StoneFloor4
+---| 336 # LavaFloor1
+---| 337 # LavaFloor2
+---| 338 # LavaFloor3
+---| 339 # LavaFloor4
+---| 340 # FeatureFloor1
+---| 341 # FeatureFloor2
+---| 342 # FeatureFloor3
+---| 343 # FeatureFloor4
+---| 344 # GrassDarkFloor1
+---| 345 # GrassDarkFloor2
+---| 346 # GrassDarkFloor3
+---| 347 # GrassDarkFloor4
+---| 348 # SoilFloor1
+---| 349 # SoilFloor2
+---| 350 # SoilFloor3
+---| 351 # SoilFloor4
+---| 352 # SoilWetFloor1
+---| 353 # SoilWetFloor2
+---| 354 # SoilWetFloor3
+---| 355 # SoilWetFloor4
+---| 356 # FrozenFortification
+---| 357 # FrozenWallWorn1
+---| 358 # FrozenWallWorn2
+---| 359 # FrozenWallWorn3
+---| 360 # FrozenWall
+---| 361 # RiverN
+---| 362 # RiverS
+---| 363 # RiverE
+---| 364 # RiverW
+---| 365 # RiverNW
+---| 366 # RiverNE
+---| 367 # RiverSW
+---| 368 # RiverSE
+---| 369 # BrookN
+---| 370 # BrookS
+---| 371 # BrookE
+---| 372 # BrookW
+---| 373 # BrookNW
+---| 374 # BrookNE
+---| 375 # BrookSW
+---| 376 # BrookSE
+---| 377 # BrookTop1
+---| 378 # BrookTop2
+---| 379 # BrookTop3
+---| 380 # BrookTop4
+---| 381 # Unused381
+---| 382 # Unused382
+---| 383 # GrassDryFloor1
+---| 384 # GrassDryFloor2
+---| 385 # GrassDryFloor3
+---| 386 # GrassDryFloor4
+---| 387 # Unused387
+---| 388 # SaplingDead
+---| 389 # ShrubDead
+---| 390 # GrassDeadFloor1
+---| 391 # GrassDeadFloor2
+---| 392 # GrassDeadFloor3
+---| 393 # GrassDeadFloor4
+---| 394 # GrassLightFloor1
+---| 395 # GrassLightFloor2
+---| 396 # GrassLightFloor3
+---| 397 # GrassLightFloor4
+---| 398 # StoneBoulder
+---| 399 # LavaBoulder
+---| 400 # FeatureBoulder
+---| 401 # StonePebbles1
+---| 402 # StonePebbles2
+---| 403 # StonePebbles3
+---| 404 # StonePebbles4
+---| 405 # LavaPebbles1
+---| 406 # LavaPebbles2
+---| 407 # LavaPebbles3
+---| 408 # LavaPebbles4
+---| 409 # FeaturePebbles1
+---| 410 # FeaturePebbles2
+---| 411 # FeaturePebbles3
+---| 412 # FeaturePebbles4
+---| 413 # MineralWallSmoothRD2
+---| 414 # MineralWallSmoothR2D
+---| 415 # MineralWallSmoothR2U
+---| 416 # MineralWallSmoothRU2
+---| 417 # MineralWallSmoothL2U
+---| 418 # MineralWallSmoothLU2
+---| 419 # MineralWallSmoothL2D
+---| 420 # MineralWallSmoothLD2
+---| 421 # MineralWallSmoothLRUD
+---| 422 # MineralWallSmoothRUD
+---| 423 # MineralWallSmoothLRD
+---| 424 # MineralWallSmoothLRU
+---| 425 # MineralWallSmoothLUD
+---| 426 # MineralWallSmoothRD
+---| 427 # MineralWallSmoothRU
+---| 428 # MineralWallSmoothLU
+---| 429 # MineralWallSmoothLD
+---| 430 # MineralWallSmoothUD
+---| 431 # MineralWallSmoothLR
+---| 432 # MineralFortification
+---| 433 # MineralWallWorn1
+---| 434 # MineralWallWorn2
+---| 435 # MineralWallWorn3
+---| 436 # MineralWall
+---| 437 # MineralFloor1
+---| 438 # MineralFloor2
+---| 439 # MineralFloor3
+---| 440 # MineralFloor4
+---| 441 # MineralBoulder
+---| 442 # MineralPebbles1
+---| 443 # MineralPebbles2
+---| 444 # MineralPebbles3
+---| 445 # MineralPebbles4
+---| 446 # FrozenWallSmoothRD2
+---| 447 # FrozenWallSmoothR2D
+---| 448 # FrozenWallSmoothR2U
+---| 449 # FrozenWallSmoothRU2
+---| 450 # FrozenWallSmoothL2U
+---| 451 # FrozenWallSmoothLU2
+---| 452 # FrozenWallSmoothL2D
+---| 453 # FrozenWallSmoothLD2
+---| 454 # FrozenWallSmoothLRUD
+---| 455 # FrozenWallSmoothRUD
+---| 456 # FrozenWallSmoothLRD
+---| 457 # FrozenWallSmoothLRU
+---| 458 # FrozenWallSmoothLUD
+---| 459 # FrozenWallSmoothRD
+---| 460 # FrozenWallSmoothRU
+---| 461 # FrozenWallSmoothLU
+---| 462 # FrozenWallSmoothLD
+---| 463 # FrozenWallSmoothUD
+---| 464 # FrozenWallSmoothLR
+---| 465 # RiverRampN
+---| 466 # RiverRampS
+---| 467 # RiverRampE
+---| 468 # RiverRampW
+---| 469 # RiverRampNW
+---| 470 # RiverRampNE
+---| 471 # RiverRampSW
+---| 472 # RiverRampSE
+---| 473 # Unused473
+---| 474 # Unused474
+---| 475 # Unused475
+---| 476 # Unused476
+---| 477 # Unused477
+---| 478 # Unused478
+---| 479 # Unused479
+---| 480 # Unused480
+---| 481 # Unused481
+---| 482 # Unused482
+---| 483 # Unused483
+---| 484 # Unused484
+---| 485 # Unused485
+---| 486 # Unused486
+---| 487 # Unused487
+---| 488 # Unused488
+---| 489 # ConstructedFloor
+---| 490 # ConstructedFortification
+---| 491 # ConstructedPillar
+---| 492 # ConstructedWallRD2
+---| 493 # ConstructedWallR2D
+---| 494 # ConstructedWallR2U
+---| 495 # ConstructedWallRU2
+---| 496 # ConstructedWallL2U
+---| 497 # ConstructedWallLU2
+---| 498 # ConstructedWallL2D
+---| 499 # ConstructedWallLD2
+---| 500 # ConstructedWallLRUD
+---| 501 # ConstructedWallRUD
+---| 502 # ConstructedWallLRD
+---| 503 # ConstructedWallLRU
+---| 504 # ConstructedWallLUD
+---| 505 # ConstructedWallRD
+---| 506 # ConstructedWallRU
+---| 507 # ConstructedWallLU
+---| 508 # ConstructedWallLD
+---| 509 # ConstructedWallUD
+---| 510 # ConstructedWallLR
+---| 511 # ConstructedStairUD
+---| 512 # ConstructedStairD
+---| 513 # ConstructedStairU
+---| 514 # ConstructedRamp
+---| 515 # StoneFloorTrackN
+---| 516 # StoneFloorTrackS
+---| 517 # StoneFloorTrackE
+---| 518 # StoneFloorTrackW
+---| 519 # StoneFloorTrackNS
+---| 520 # StoneFloorTrackNE
+---| 521 # StoneFloorTrackNW
+---| 522 # StoneFloorTrackSE
+---| 523 # StoneFloorTrackSW
+---| 524 # StoneFloorTrackEW
+---| 525 # StoneFloorTrackNSE
+---| 526 # StoneFloorTrackNSW
+---| 527 # StoneFloorTrackNEW
+---| 528 # StoneFloorTrackSEW
+---| 529 # StoneFloorTrackNSEW
+---| 530 # LavaFloorTrackN
+---| 531 # LavaFloorTrackS
+---| 532 # LavaFloorTrackE
+---| 533 # LavaFloorTrackW
+---| 534 # LavaFloorTrackNS
+---| 535 # LavaFloorTrackNE
+---| 536 # LavaFloorTrackNW
+---| 537 # LavaFloorTrackSE
+---| 538 # LavaFloorTrackSW
+---| 539 # LavaFloorTrackEW
+---| 540 # LavaFloorTrackNSE
+---| 541 # LavaFloorTrackNSW
+---| 542 # LavaFloorTrackNEW
+---| 543 # LavaFloorTrackSEW
+---| 544 # LavaFloorTrackNSEW
+---| 545 # FeatureFloorTrackN
+---| 546 # FeatureFloorTrackS
+---| 547 # FeatureFloorTrackE
+---| 548 # FeatureFloorTrackW
+---| 549 # FeatureFloorTrackNS
+---| 550 # FeatureFloorTrackNE
+---| 551 # FeatureFloorTrackNW
+---| 552 # FeatureFloorTrackSE
+---| 553 # FeatureFloorTrackSW
+---| 554 # FeatureFloorTrackEW
+---| 555 # FeatureFloorTrackNSE
+---| 556 # FeatureFloorTrackNSW
+---| 557 # FeatureFloorTrackNEW
+---| 558 # FeatureFloorTrackSEW
+---| 559 # FeatureFloorTrackNSEW
+---| 560 # MineralFloorTrackN
+---| 561 # MineralFloorTrackS
+---| 562 # MineralFloorTrackE
+---| 563 # MineralFloorTrackW
+---| 564 # MineralFloorTrackNS
+---| 565 # MineralFloorTrackNE
+---| 566 # MineralFloorTrackNW
+---| 567 # MineralFloorTrackSE
+---| 568 # MineralFloorTrackSW
+---| 569 # MineralFloorTrackEW
+---| 570 # MineralFloorTrackNSE
+---| 571 # MineralFloorTrackNSW
+---| 572 # MineralFloorTrackNEW
+---| 573 # MineralFloorTrackSEW
+---| 574 # MineralFloorTrackNSEW
+---| 575 # FrozenFloorTrackN
+---| 576 # FrozenFloorTrackS
+---| 577 # FrozenFloorTrackE
+---| 578 # FrozenFloorTrackW
+---| 579 # FrozenFloorTrackNS
+---| 580 # FrozenFloorTrackNE
+---| 581 # FrozenFloorTrackNW
+---| 582 # FrozenFloorTrackSE
+---| 583 # FrozenFloorTrackSW
+---| 584 # FrozenFloorTrackEW
+---| 585 # FrozenFloorTrackNSE
+---| 586 # FrozenFloorTrackNSW
+---| 587 # FrozenFloorTrackNEW
+---| 588 # FrozenFloorTrackSEW
+---| 589 # FrozenFloorTrackNSEW
+---| 590 # ConstructedFloorTrackN
+---| 591 # ConstructedFloorTrackS
+---| 592 # ConstructedFloorTrackE
+---| 593 # ConstructedFloorTrackW
+---| 594 # ConstructedFloorTrackNS
+---| 595 # ConstructedFloorTrackNE
+---| 596 # ConstructedFloorTrackNW
+---| 597 # ConstructedFloorTrackSE
+---| 598 # ConstructedFloorTrackSW
+---| 599 # ConstructedFloorTrackEW
+---| 600 # ConstructedFloorTrackNSE
+---| 601 # ConstructedFloorTrackNSW
+---| 602 # ConstructedFloorTrackNEW
+---| 603 # ConstructedFloorTrackSEW
+---| 604 # ConstructedFloorTrackNSEW
+---| 605 # StoneRampTrackN
+---| 606 # StoneRampTrackS
+---| 607 # StoneRampTrackE
+---| 608 # StoneRampTrackW
+---| 609 # StoneRampTrackNS
+---| 610 # StoneRampTrackNE
+---| 611 # StoneRampTrackNW
+---| 612 # StoneRampTrackSE
+---| 613 # StoneRampTrackSW
+---| 614 # StoneRampTrackEW
+---| 615 # StoneRampTrackNSE
+---| 616 # StoneRampTrackNSW
+---| 617 # StoneRampTrackNEW
+---| 618 # StoneRampTrackSEW
+---| 619 # StoneRampTrackNSEW
+---| 620 # LavaRampTrackN
+---| 621 # LavaRampTrackS
+---| 622 # LavaRampTrackE
+---| 623 # LavaRampTrackW
+---| 624 # LavaRampTrackNS
+---| 625 # LavaRampTrackNE
+---| 626 # LavaRampTrackNW
+---| 627 # LavaRampTrackSE
+---| 628 # LavaRampTrackSW
+---| 629 # LavaRampTrackEW
+---| 630 # LavaRampTrackNSE
+---| 631 # LavaRampTrackNSW
+---| 632 # LavaRampTrackNEW
+---| 633 # LavaRampTrackSEW
+---| 634 # LavaRampTrackNSEW
+---| 635 # FeatureRampTrackN
+---| 636 # FeatureRampTrackS
+---| 637 # FeatureRampTrackE
+---| 638 # FeatureRampTrackW
+---| 639 # FeatureRampTrackNS
+---| 640 # FeatureRampTrackNE
+---| 641 # FeatureRampTrackNW
+---| 642 # FeatureRampTrackSE
+---| 643 # FeatureRampTrackSW
+---| 644 # FeatureRampTrackEW
+---| 645 # FeatureRampTrackNSE
+---| 646 # FeatureRampTrackNSW
+---| 647 # FeatureRampTrackNEW
+---| 648 # FeatureRampTrackSEW
+---| 649 # FeatureRampTrackNSEW
+---| 650 # MineralRampTrackN
+---| 651 # MineralRampTrackS
+---| 652 # MineralRampTrackE
+---| 653 # MineralRampTrackW
+---| 654 # MineralRampTrackNS
+---| 655 # MineralRampTrackNE
+---| 656 # MineralRampTrackNW
+---| 657 # MineralRampTrackSE
+---| 658 # MineralRampTrackSW
+---| 659 # MineralRampTrackEW
+---| 660 # MineralRampTrackNSE
+---| 661 # MineralRampTrackNSW
+---| 662 # MineralRampTrackNEW
+---| 663 # MineralRampTrackSEW
+---| 664 # MineralRampTrackNSEW
+---| 665 # FrozenRampTrackN
+---| 666 # FrozenRampTrackS
+---| 667 # FrozenRampTrackE
+---| 668 # FrozenRampTrackW
+---| 669 # FrozenRampTrackNS
+---| 670 # FrozenRampTrackNE
+---| 671 # FrozenRampTrackNW
+---| 672 # FrozenRampTrackSE
+---| 673 # FrozenRampTrackSW
+---| 674 # FrozenRampTrackEW
+---| 675 # FrozenRampTrackNSE
+---| 676 # FrozenRampTrackNSW
+---| 677 # FrozenRampTrackNEW
+---| 678 # FrozenRampTrackSEW
+---| 679 # FrozenRampTrackNSEW
+---| 680 # ConstructedRampTrackN
+---| 681 # ConstructedRampTrackS
+---| 682 # ConstructedRampTrackE
+---| 683 # ConstructedRampTrackW
+---| 684 # ConstructedRampTrackNS
+---| 685 # ConstructedRampTrackNE
+---| 686 # ConstructedRampTrackNW
+---| 687 # ConstructedRampTrackSE
+---| 688 # ConstructedRampTrackSW
+---| 689 # ConstructedRampTrackEW
+---| 690 # ConstructedRampTrackNSE
+---| 691 # ConstructedRampTrackNSW
+---| 692 # ConstructedRampTrackNEW
+---| 693 # ConstructedRampTrackSEW
+---| 694 # ConstructedRampTrackNSEW
+---| 695 # Unused695
+---| 696 # Unused696
+
+---@class identity.tiletype: DFEnumType
+---@field Void 0 0x000
+---@field [0] "Void" 0x000
+---@field RampTop 1 MAPTILE_RAMPSPACE
+---@field [1] "RampTop" MAPTILE_RAMPSPACE
+---@field MurkyPool 2 MAPTILE_POOL
+---@field [2] "MurkyPool" MAPTILE_POOL
+---@field MurkyPoolRamp 3 MAPTILE_POOL_RAMP
+---@field [3] "MurkyPoolRamp" MAPTILE_POOL_RAMP
+---@field UnderworldGateStairU 4 MAPTILE_UNDERWORLD_GATE_UP
+---@field [4] "UnderworldGateStairU" MAPTILE_UNDERWORLD_GATE_UP
+---@field UnderworldGateStairD 5 MAPTILE_UNDERWORLD_GATE_DOWN
+---@field [5] "UnderworldGateStairD" MAPTILE_UNDERWORLD_GATE_DOWN
+---@field UnderworldGateStairUD 6 MAPTILE_UNDERWORLD_GATE_UPDOWN
+---@field [6] "UnderworldGateStairUD" MAPTILE_UNDERWORLD_GATE_UPDOWN
+---@field TreeCapInterior 7 MAPTILE_TREE_CAP_INTERIOR
+---@field [7] "TreeCapInterior" MAPTILE_TREE_CAP_INTERIOR
+---@field TreeCapWallThickSW 8 MAPTILE_TREE_CAP_WALL_THICK_SW
+---@field [8] "TreeCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW
+---@field TreeCapWallThickSE 9 MAPTILE_TREE_CAP_WALL_THICK_SE
+---@field [9] "TreeCapWallThickSE" MAPTILE_TREE_CAP_WALL_THICK_SE
+---@field TreeCapWallThickNW 10 MAPTILE_TREE_CAP_WALL_THICK_NW
+---@field [10] "TreeCapWallThickNW" MAPTILE_TREE_CAP_WALL_THICK_NW
+---@field TreeCapWallThickNE 11 MAPTILE_TREE_CAP_WALL_THICK_NE
+---@field [11] "TreeCapWallThickNE" MAPTILE_TREE_CAP_WALL_THICK_NE
+---@field TreeCapWallThickN 12 MAPTILE_TREE_CAP_WALL_THICK_N
+---@field [12] "TreeCapWallThickN" MAPTILE_TREE_CAP_WALL_THICK_N
+---@field TreeCapWallThickS 13 MAPTILE_TREE_CAP_WALL_THICK_S
+---@field [13] "TreeCapWallThickS" MAPTILE_TREE_CAP_WALL_THICK_S
+---@field TreeCapWallThickW 14 MAPTILE_TREE_CAP_WALL_THICK_W
+---@field [14] "TreeCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W
+---@field TreeCapWallThickE 15 MAPTILE_TREE_CAP_WALL_THICK_E
+---@field [15] "TreeCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E
+---@field TreeCapWallNSWE 16 0x010
+---@field [16] "TreeCapWallNSWE" 0x010
+---@field TreeCapWallNSW 17 MAPTILE_TREE_CAP_WALL_N_S_W
+---@field [17] "TreeCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W
+---@field TreeCapWallNSE 18 MAPTILE_TREE_CAP_WALL_N_S_E
+---@field [18] "TreeCapWallNSE" MAPTILE_TREE_CAP_WALL_N_S_E
+---@field Driftwood 19 MAPTILE_DRIFTWOOD_STACK
+---@field [19] "Driftwood" MAPTILE_DRIFTWOOD_STACK
+---@field TreeCapWallNWE 20 MAPTILE_TREE_CAP_WALL_N_W_E
+---@field [20] "TreeCapWallNWE" MAPTILE_TREE_CAP_WALL_N_W_E
+---@field TreeCapWallSWE 21 MAPTILE_TREE_CAP_WALL_S_W_E
+---@field [21] "TreeCapWallSWE" MAPTILE_TREE_CAP_WALL_S_W_E
+---@field TreeCapWallNS 22 MAPTILE_TREE_CAP_WALL_N_S
+---@field [22] "TreeCapWallNS" MAPTILE_TREE_CAP_WALL_N_S
+---@field TreeCapWallWE 23 MAPTILE_TREE_CAP_WALL_W_E
+---@field [23] "TreeCapWallWE" MAPTILE_TREE_CAP_WALL_W_E
+---@field Unused999 24 MAPTILE_UNUSED_999
+---@field [24] "Unused999" MAPTILE_UNUSED_999
+---@field FrozenStairUD 25 MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
+---@field [25] "FrozenStairUD" MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
+---@field FrozenStairD 26 MAPTILE_STAIR_DOWN_FROZEN_LIQUID
+---@field [26] "FrozenStairD" MAPTILE_STAIR_DOWN_FROZEN_LIQUID
+---@field FrozenStairU 27 MAPTILE_STAIR_UP_FROZEN_LIQUID
+---@field [27] "FrozenStairU" MAPTILE_STAIR_UP_FROZEN_LIQUID
+---@field Unused9999 28 MAPTILE_UNUSED_9999
+---@field [28] "Unused9999" MAPTILE_UNUSED_9999
+---@field Unused99999 29 MAPTILE_UNUSED_99999
+---@field [29] "Unused99999" MAPTILE_UNUSED_99999
+---@field Unused999999 30 MAPTILE_UNUSED_999999
+---@field [30] "Unused999999" MAPTILE_UNUSED_999999
+---@field TreeDeadCapInterior 31 MAPTILE_TREE_CAP_INTERIOR_DEAD
+---@field [31] "TreeDeadCapInterior" MAPTILE_TREE_CAP_INTERIOR_DEAD
+---@field OpenSpace 32 0x020
+---@field [32] "OpenSpace" 0x020
+---@field TreeDeadCapWallThickSW 33 MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
+---@field [33] "TreeDeadCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
+---@field Shrub 34 MAPTILE_SHRUB
+---@field [34] "Shrub" MAPTILE_SHRUB
+---@field Chasm 35 MAPTILE_CHASM
+---@field [35] "Chasm" MAPTILE_CHASM
+---@field LavaStairUD 36 MAPTILE_STAIR_UPDOWN_LAVASTONE
+---@field [36] "LavaStairUD" MAPTILE_STAIR_UPDOWN_LAVASTONE
+---@field LavaStairD 37 MAPTILE_STAIR_DOWN_LAVASTONE
+---@field [37] "LavaStairD" MAPTILE_STAIR_DOWN_LAVASTONE
+---@field LavaStairU 38 MAPTILE_STAIR_UP_LAVASTONE
+---@field [38] "LavaStairU" MAPTILE_STAIR_UP_LAVASTONE
+---@field SoilStairUD 39 MAPTILE_STAIR_UPDOWN_SOIL
+---@field [39] "SoilStairUD" MAPTILE_STAIR_UPDOWN_SOIL
+---@field SoilStairD 40 MAPTILE_STAIR_DOWN_SOIL
+---@field [40] "SoilStairD" MAPTILE_STAIR_DOWN_SOIL
+---@field SoilStairU 41 MAPTILE_STAIR_UP_SOIL
+---@field [41] "SoilStairU" MAPTILE_STAIR_UP_SOIL
+---@field EeriePit 42 MAPTILE_EERIE_PIT
+---@field [42] "EeriePit" MAPTILE_EERIE_PIT
+---@field StoneFloorSmooth 43 MAPTILE_STONE_FLOOR_DETAILED
+---@field [43] "StoneFloorSmooth" MAPTILE_STONE_FLOOR_DETAILED
+---@field LavaFloorSmooth 44 MAPTILE_LAVASTONE_FLOOR_DETAILED
+---@field [44] "LavaFloorSmooth" MAPTILE_LAVASTONE_FLOOR_DETAILED
+---@field FeatureFloorSmooth 45 MAPTILE_FEATSTONE_FLOOR_DETAILED
+---@field [45] "FeatureFloorSmooth" MAPTILE_FEATSTONE_FLOOR_DETAILED
+---@field MineralFloorSmooth 46 MAPTILE_MINSTONE_FLOOR_DETAILED
+---@field [46] "MineralFloorSmooth" MAPTILE_MINSTONE_FLOOR_DETAILED
+---@field FrozenFloorSmooth 47 MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
+---@field [47] "FrozenFloorSmooth" MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
+---@field TreeDeadCapWallThickSE 48 0x030
+---@field [48] "TreeDeadCapWallThickSE" 0x030
+---@field Grass1StairUD 49 MAPTILE_STAIR_UPDOWN_GRASS1
+---@field [49] "Grass1StairUD" MAPTILE_STAIR_UPDOWN_GRASS1
+---@field Grass1StairD 50 MAPTILE_STAIR_DOWN_GRASS1
+---@field [50] "Grass1StairD" MAPTILE_STAIR_DOWN_GRASS1
+---@field Grass1StairU 51 MAPTILE_STAIR_UP_GRASS1
+---@field [51] "Grass1StairU" MAPTILE_STAIR_UP_GRASS1
+---@field Grass2StairUD 52 MAPTILE_STAIR_UPDOWN_GRASS2
+---@field [52] "Grass2StairUD" MAPTILE_STAIR_UPDOWN_GRASS2
+---@field Grass2StairD 53 MAPTILE_STAIR_DOWN_GRASS2
+---@field [53] "Grass2StairD" MAPTILE_STAIR_DOWN_GRASS2
+---@field Grass2StairU 54 MAPTILE_STAIR_UP_GRASS2
+---@field [54] "Grass2StairU" MAPTILE_STAIR_UP_GRASS2
+---@field StoneStairUD 55 MAPTILE_STAIR_UPDOWN_STONE
+---@field [55] "StoneStairUD" MAPTILE_STAIR_UPDOWN_STONE
+---@field StoneStairD 56 MAPTILE_STAIR_DOWN_STONE
+---@field [56] "StoneStairD" MAPTILE_STAIR_DOWN_STONE
+---@field StoneStairU 57 MAPTILE_STAIR_UP_STONE
+---@field [57] "StoneStairU" MAPTILE_STAIR_UP_STONE
+---@field MineralStairUD 58 MAPTILE_STAIR_UPDOWN_MINSTONE
+---@field [58] "MineralStairUD" MAPTILE_STAIR_UPDOWN_MINSTONE
+---@field MineralStairD 59 MAPTILE_STAIR_DOWN_MINSTONE
+---@field [59] "MineralStairD" MAPTILE_STAIR_DOWN_MINSTONE
+---@field MineralStairU 60 MAPTILE_STAIR_UP_MINSTONE
+---@field [60] "MineralStairU" MAPTILE_STAIR_UP_MINSTONE
+---@field FeatureStairUD 61 MAPTILE_STAIR_UPDOWN_FEATSTONE
+---@field [61] "FeatureStairUD" MAPTILE_STAIR_UPDOWN_FEATSTONE
+---@field FeatureStairD 62 MAPTILE_STAIR_DOWN_FEATSTONE
+---@field [62] "FeatureStairD" MAPTILE_STAIR_DOWN_FEATSTONE
+---@field FeatureStairU 63 MAPTILE_STAIR_UP_FEATSTONE
+---@field [63] "FeatureStairU" MAPTILE_STAIR_UP_FEATSTONE
+---@field TreeDeadCapWallThickNW 64 0x040
+---@field [64] "TreeDeadCapWallThickNW" 0x040
+---@field StoneFortification 65 MAPTILE_STONE_FORTIFICATION
+---@field [65] "StoneFortification" MAPTILE_STONE_FORTIFICATION
+---@field TreeDeadCapWallThickNE 66 MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
+---@field [66] "TreeDeadCapWallThickNE" MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
+---@field Campfire 67 MAPTILE_CAMPFIRE
+---@field [67] "Campfire" MAPTILE_CAMPFIRE
+---@field TreeDeadCapWallThickN 68 MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
+---@field [68] "TreeDeadCapWallThickN" MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
+---@field TreeDeadCapWallThickS 69 MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
+---@field [69] "TreeDeadCapWallThickS" MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
+---@field Fire 70 MAPTILE_FIRE
+---@field [70] "Fire" MAPTILE_FIRE
+---@field BurningTreeTrunk 71 MAPTILE_FIRE_TREE_TRUNK
+---@field [71] "BurningTreeTrunk" MAPTILE_FIRE_TREE_TRUNK
+---@field BurningTreeBranches 72 MAPTILE_FIRE_TREE_BRANCHES
+---@field [72] "BurningTreeBranches" MAPTILE_FIRE_TREE_BRANCHES
+---@field BurningTreeTwigs 73 MAPTILE_FIRE_TREE_TWIGS
+---@field [73] "BurningTreeTwigs" MAPTILE_FIRE_TREE_TWIGS
+---@field BurningTreeCapWall 74 MAPTILE_FIRE_TREE_CAP_WALL
+---@field [74] "BurningTreeCapWall" MAPTILE_FIRE_TREE_CAP_WALL
+---@field BurningTreeCapRamp 75 MAPTILE_FIRE_TREE_CAP_RAMP
+---@field [75] "BurningTreeCapRamp" MAPTILE_FIRE_TREE_CAP_RAMP
+---@field BurningTreeCapFloor 76 MAPTILE_FIRE_TREE_CAP_FLOOR
+---@field [76] "BurningTreeCapFloor" MAPTILE_FIRE_TREE_CAP_FLOOR
+---@field TreeDeadCapWallThickW 77 MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
+---@field [77] "TreeDeadCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
+---@field TreeDeadCapWallThickE 78 MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
+---@field [78] "TreeDeadCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
+---@field StonePillar 79 MAPTILE_STONE_PILLAR
+---@field [79] "StonePillar" MAPTILE_STONE_PILLAR
+---@field LavaPillar 80 0x050
+---@field [80] "LavaPillar" 0x050
+---@field FeaturePillar 81 MAPTILE_FEATSTONE_PILLAR
+---@field [81] "FeaturePillar" MAPTILE_FEATSTONE_PILLAR
+---@field MineralPillar 82 MAPTILE_MINSTONE_PILLAR
+---@field [82] "MineralPillar" MAPTILE_MINSTONE_PILLAR
+---@field FrozenPillar 83 MAPTILE_FROZEN_LIQUID_PILLAR
+---@field [83] "FrozenPillar" MAPTILE_FROZEN_LIQUID_PILLAR
+---@field TreeDeadCapWallNSWE 84 MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
+---@field [84] "TreeDeadCapWallNSWE" MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
+---@field TreeDeadCapWallNSW 85 MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
+---@field [85] "TreeDeadCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
+---@field TreeDeadCapWallNSE 86 MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
+---@field [86] "TreeDeadCapWallNSE" MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
+---@field TreeDeadCapWallNWE 87 MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
+---@field [87] "TreeDeadCapWallNWE" MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
+---@field TreeDeadCapWallSWE 88 MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
+---@field [88] "TreeDeadCapWallSWE" MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
+---@field Waterfall 89 MAPTILE_WATERFALL_LANDING
+---@field [89] "Waterfall" MAPTILE_WATERFALL_LANDING
+---@field RiverSource 90 MAPTILE_RIVER_SOURCE
+---@field [90] "RiverSource" MAPTILE_RIVER_SOURCE
+---@field TreeRootSloping 91 MAPTILE_TREE_ROOT_SLOPING
+---@field [91] "TreeRootSloping" MAPTILE_TREE_ROOT_SLOPING
+---@field TreeRoots 92 MAPTILE_TREE_ROOTS
+---@field [92] "TreeRoots" MAPTILE_TREE_ROOTS
+---@field TreeTrunkPillar 93 MAPTILE_TREE_TRUNK_PILLAR
+---@field [93] "TreeTrunkPillar" MAPTILE_TREE_TRUNK_PILLAR
+---@field TreeTrunkSloping 94 MAPTILE_TREE_TRUNK_SLOPING
+---@field [94] "TreeTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING
+---@field TreeTrunkThickN 95 MAPTILE_TREE_TRUNK_THICK_N
+---@field [95] "TreeTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N
+---@field TreeTrunkThickS 96 0x060
+---@field [96] "TreeTrunkThickS" 0x060
+---@field TreeTrunkThickE 97 MAPTILE_TREE_TRUNK_THICK_E
+---@field [97] "TreeTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E
+---@field TreeTrunkThickW 98 MAPTILE_TREE_TRUNK_THICK_W
+---@field [98] "TreeTrunkThickW" MAPTILE_TREE_TRUNK_THICK_W
+---@field TreeTrunkThickNW 99 MAPTILE_TREE_TRUNK_THICK_NW
+---@field [99] "TreeTrunkThickNW" MAPTILE_TREE_TRUNK_THICK_NW
+---@field TreeTrunkThickNE 100 MAPTILE_TREE_TRUNK_THICK_NE
+---@field [100] "TreeTrunkThickNE" MAPTILE_TREE_TRUNK_THICK_NE
+---@field TreeTrunkThickSW 101 MAPTILE_TREE_TRUNK_THICK_SW
+---@field [101] "TreeTrunkThickSW" MAPTILE_TREE_TRUNK_THICK_SW
+---@field TreeTrunkThickSE 102 MAPTILE_TREE_TRUNK_THICK_SE
+---@field [102] "TreeTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE
+---@field TreeTrunkBranchN 103 MAPTILE_TREE_TRUNK_BRANCH_N
+---@field [103] "TreeTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N
+---@field TreeTrunkBranchS 104 MAPTILE_TREE_TRUNK_BRANCH_S
+---@field [104] "TreeTrunkBranchS" MAPTILE_TREE_TRUNK_BRANCH_S
+---@field TreeTrunkBranchE 105 MAPTILE_TREE_TRUNK_BRANCH_E
+---@field [105] "TreeTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E
+---@field TreeTrunkBranchW 106 MAPTILE_TREE_TRUNK_BRANCH_W
+---@field [106] "TreeTrunkBranchW" MAPTILE_TREE_TRUNK_BRANCH_W
+---@field TreeBranchNS 107 MAPTILE_TREE_BRANCH_NS
+---@field [107] "TreeBranchNS" MAPTILE_TREE_BRANCH_NS
+---@field TreeBranchEW 108 MAPTILE_TREE_BRANCH_EW
+---@field [108] "TreeBranchEW" MAPTILE_TREE_BRANCH_EW
+---@field TreeBranchesSmooth 109 MAPTILE_TREE_SMOOTH_BRANCHES
+---@field [109] "TreeBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES
+---@field TreeDeadBranchesSmooth 110 MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
+---@field [110] "TreeDeadBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
+---@field TreeBranchNW 111 MAPTILE_TREE_BRANCH_NW
+---@field [111] "TreeBranchNW" MAPTILE_TREE_BRANCH_NW
+---@field TreeBranchNE 112 0x070
+---@field [112] "TreeBranchNE" 0x070
+---@field TreeBranchSW 113 MAPTILE_TREE_BRANCH_SW
+---@field [113] "TreeBranchSW" MAPTILE_TREE_BRANCH_SW
+---@field TreeBranchSE 114 MAPTILE_TREE_BRANCH_SE
+---@field [114] "TreeBranchSE" MAPTILE_TREE_BRANCH_SE
+---@field TreeBranches 115 MAPTILE_TREE_BRANCHES
+---@field [115] "TreeBranches" MAPTILE_TREE_BRANCHES
+---@field TreeTwigs 116 MAPTILE_TREE_TWIGS
+---@field [116] "TreeTwigs" MAPTILE_TREE_TWIGS
+---@field TreeCapRamp 117 MAPTILE_TREE_CAP_RAMP
+---@field [117] "TreeCapRamp" MAPTILE_TREE_CAP_RAMP
+---@field TreeCapPillar 118 MAPTILE_TREE_CAP_PILLAR
+---@field [118] "TreeCapPillar" MAPTILE_TREE_CAP_PILLAR
+---@field TreeCapWallN 119 MAPTILE_TREE_CAP_WALL_N
+---@field [119] "TreeCapWallN" MAPTILE_TREE_CAP_WALL_N
+---@field TreeCapWallS 120 MAPTILE_TREE_CAP_WALL_S
+---@field [120] "TreeCapWallS" MAPTILE_TREE_CAP_WALL_S
+---@field TreeCapWallE 121 MAPTILE_TREE_CAP_WALL_E
+---@field [121] "TreeCapWallE" MAPTILE_TREE_CAP_WALL_E
+---@field TreeCapWallW 122 MAPTILE_TREE_CAP_WALL_W
+---@field [122] "TreeCapWallW" MAPTILE_TREE_CAP_WALL_W
+---@field TreeCapWallNW 123 MAPTILE_TREE_CAP_WALL_N_W
+---@field [123] "TreeCapWallNW" MAPTILE_TREE_CAP_WALL_N_W
+---@field TreeCapWallNE 124 MAPTILE_TREE_CAP_WALL_N_E
+---@field [124] "TreeCapWallNE" MAPTILE_TREE_CAP_WALL_N_E
+---@field TreeCapWallSW 125 MAPTILE_TREE_CAP_WALL_S_W
+---@field [125] "TreeCapWallSW" MAPTILE_TREE_CAP_WALL_S_W
+---@field TreeCapWallSE 126 MAPTILE_TREE_CAP_WALL_S_E
+---@field [126] "TreeCapWallSE" MAPTILE_TREE_CAP_WALL_S_E
+---@field TreeCapFloor1 127 MAPTILE_TREE_CAP_FLOOR1
+---@field [127] "TreeCapFloor1" MAPTILE_TREE_CAP_FLOOR1
+---@field TreeCapFloor2 128 0x080
+---@field [128] "TreeCapFloor2" 0x080
+---@field TreeCapFloor3 129 MAPTILE_TREE_CAP_FLOOR3
+---@field [129] "TreeCapFloor3" MAPTILE_TREE_CAP_FLOOR3
+---@field TreeCapFloor4 130 MAPTILE_TREE_CAP_FLOOR4
+---@field [130] "TreeCapFloor4" MAPTILE_TREE_CAP_FLOOR4
+---@field TreeDeadRootSloping 131 MAPTILE_TREE_ROOT_SLOPING_DEAD
+---@field [131] "TreeDeadRootSloping" MAPTILE_TREE_ROOT_SLOPING_DEAD
+---@field TreeDeadRoots 132 MAPTILE_TREE_ROOTS_DEAD
+---@field [132] "TreeDeadRoots" MAPTILE_TREE_ROOTS_DEAD
+---@field TreeDeadTrunkPillar 133 MAPTILE_TREE_TRUNK_PILLAR_DEAD
+---@field [133] "TreeDeadTrunkPillar" MAPTILE_TREE_TRUNK_PILLAR_DEAD
+---@field TreeDeadTrunkSloping 134 MAPTILE_TREE_TRUNK_SLOPING_DEAD
+---@field [134] "TreeDeadTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING_DEAD
+---@field TreeDeadTrunkThickN 135 MAPTILE_TREE_TRUNK_THICK_N_DEAD
+---@field [135] "TreeDeadTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N_DEAD
+---@field TreeDeadTrunkThickS 136 MAPTILE_TREE_TRUNK_THICK_S_DEAD
+---@field [136] "TreeDeadTrunkThickS" MAPTILE_TREE_TRUNK_THICK_S_DEAD
+---@field TreeDeadTrunkThickE 137 MAPTILE_TREE_TRUNK_THICK_E_DEAD
+---@field [137] "TreeDeadTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E_DEAD
+---@field TreeDeadTrunkThickW 138 MAPTILE_TREE_TRUNK_THICK_W_DEAD
+---@field [138] "TreeDeadTrunkThickW" MAPTILE_TREE_TRUNK_THICK_W_DEAD
+---@field TreeDeadTrunkThickNW 139 MAPTILE_TREE_TRUNK_THICK_NW_DEAD
+---@field [139] "TreeDeadTrunkThickNW" MAPTILE_TREE_TRUNK_THICK_NW_DEAD
+---@field TreeDeadTrunkThickNE 140 MAPTILE_TREE_TRUNK_THICK_NE_DEAD
+---@field [140] "TreeDeadTrunkThickNE" MAPTILE_TREE_TRUNK_THICK_NE_DEAD
+---@field TreeDeadTrunkThickSW 141 MAPTILE_TREE_TRUNK_THICK_SW_DEAD
+---@field [141] "TreeDeadTrunkThickSW" MAPTILE_TREE_TRUNK_THICK_SW_DEAD
+---@field TreeDeadTrunkThickSE 142 MAPTILE_TREE_TRUNK_THICK_SE_DEAD
+---@field [142] "TreeDeadTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE_DEAD
+---@field TreeDeadTrunkBranchN 143 MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
+---@field [143] "TreeDeadTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
+---@field TreeDeadTrunkBranchS 144 0x090
+---@field [144] "TreeDeadTrunkBranchS" 0x090
+---@field TreeDeadTrunkBranchE 145 MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
+---@field [145] "TreeDeadTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
+---@field TreeDeadTrunkBranchW 146 MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
+---@field [146] "TreeDeadTrunkBranchW" MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
+---@field TreeDeadBranchNS 147 MAPTILE_TREE_BRANCH_NS_DEAD
+---@field [147] "TreeDeadBranchNS" MAPTILE_TREE_BRANCH_NS_DEAD
+---@field TreeDeadBranchEW 148 MAPTILE_TREE_BRANCH_EW_DEAD
+---@field [148] "TreeDeadBranchEW" MAPTILE_TREE_BRANCH_EW_DEAD
+---@field TreeBranch 149 MAPTILE_TREE_BRANCH
+---@field [149] "TreeBranch" MAPTILE_TREE_BRANCH
+---@field TreeDeadBranch 150 MAPTILE_TREE_BRANCH_DEAD
+---@field [150] "TreeDeadBranch" MAPTILE_TREE_BRANCH_DEAD
+---@field TreeDeadBranchNW 151 MAPTILE_TREE_BRANCH_NW_DEAD
+---@field [151] "TreeDeadBranchNW" MAPTILE_TREE_BRANCH_NW_DEAD
+---@field TreeDeadBranchNE 152 MAPTILE_TREE_BRANCH_NE_DEAD
+---@field [152] "TreeDeadBranchNE" MAPTILE_TREE_BRANCH_NE_DEAD
+---@field TreeDeadBranchSW 153 MAPTILE_TREE_BRANCH_SW_DEAD
+---@field [153] "TreeDeadBranchSW" MAPTILE_TREE_BRANCH_SW_DEAD
+---@field TreeDeadBranchSE 154 MAPTILE_TREE_BRANCH_SE_DEAD
+---@field [154] "TreeDeadBranchSE" MAPTILE_TREE_BRANCH_SE_DEAD
+---@field TreeDeadBranches 155 MAPTILE_TREE_BRANCHES_DEAD
+---@field [155] "TreeDeadBranches" MAPTILE_TREE_BRANCHES_DEAD
+---@field TreeDeadTwigs 156 MAPTILE_TREE_TWIGS_DEAD
+---@field [156] "TreeDeadTwigs" MAPTILE_TREE_TWIGS_DEAD
+---@field TreeDeadCapRamp 157 MAPTILE_TREE_CAP_RAMP_DEAD
+---@field [157] "TreeDeadCapRamp" MAPTILE_TREE_CAP_RAMP_DEAD
+---@field TreeDeadCapPillar 158 MAPTILE_TREE_CAP_PILLAR_DEAD
+---@field [158] "TreeDeadCapPillar" MAPTILE_TREE_CAP_PILLAR_DEAD
+---@field TreeDeadCapWallN 159 MAPTILE_TREE_CAP_WALL_N_DEAD
+---@field [159] "TreeDeadCapWallN" MAPTILE_TREE_CAP_WALL_N_DEAD
+---@field TreeDeadCapWallS 160 0x0A0
+---@field [160] "TreeDeadCapWallS" 0x0A0
+---@field TreeDeadCapWallE 161 MAPTILE_TREE_CAP_WALL_E_DEAD
+---@field [161] "TreeDeadCapWallE" MAPTILE_TREE_CAP_WALL_E_DEAD
+---@field TreeDeadCapWallW 162 MAPTILE_TREE_CAP_WALL_W_DEAD
+---@field [162] "TreeDeadCapWallW" MAPTILE_TREE_CAP_WALL_W_DEAD
+---@field TreeDeadCapWallNW 163 MAPTILE_TREE_CAP_WALL_N_W_DEAD
+---@field [163] "TreeDeadCapWallNW" MAPTILE_TREE_CAP_WALL_N_W_DEAD
+---@field TreeDeadCapWallNE 164 MAPTILE_TREE_CAP_WALL_N_E_DEAD
+---@field [164] "TreeDeadCapWallNE" MAPTILE_TREE_CAP_WALL_N_E_DEAD
+---@field TreeDeadCapWallSW 165 MAPTILE_TREE_CAP_WALL_S_W_DEAD
+---@field [165] "TreeDeadCapWallSW" MAPTILE_TREE_CAP_WALL_S_W_DEAD
+---@field TreeDeadCapWallSE 166 MAPTILE_TREE_CAP_WALL_S_E_DEAD
+---@field [166] "TreeDeadCapWallSE" MAPTILE_TREE_CAP_WALL_S_E_DEAD
+---@field TreeDeadCapFloor1 167 MAPTILE_TREE_CAP_FLOOR1_DEAD
+---@field [167] "TreeDeadCapFloor1" MAPTILE_TREE_CAP_FLOOR1_DEAD
+---@field TreeDeadCapFloor2 168 MAPTILE_TREE_CAP_FLOOR2_DEAD
+---@field [168] "TreeDeadCapFloor2" MAPTILE_TREE_CAP_FLOOR2_DEAD
+---@field TreeDeadCapFloor3 169 MAPTILE_TREE_CAP_FLOOR3_DEAD
+---@field [169] "TreeDeadCapFloor3" MAPTILE_TREE_CAP_FLOOR3_DEAD
+---@field TreeDeadCapFloor4 170 MAPTILE_TREE_CAP_FLOOR4_DEAD
+---@field [170] "TreeDeadCapFloor4" MAPTILE_TREE_CAP_FLOOR4_DEAD
+---@field TreeDeadCapWallNS 171 MAPTILE_TREE_CAP_WALL_N_S_DEAD
+---@field [171] "TreeDeadCapWallNS" MAPTILE_TREE_CAP_WALL_N_S_DEAD
+---@field StoneWallWorn1 172 MAPTILE_STONE_WALL_WORN1
+---@field [172] "StoneWallWorn1" MAPTILE_STONE_WALL_WORN1
+---@field StoneWallWorn2 173 MAPTILE_STONE_WALL_WORN2
+---@field [173] "StoneWallWorn2" MAPTILE_STONE_WALL_WORN2
+---@field StoneWallWorn3 174 MAPTILE_STONE_WALL_WORN3
+---@field [174] "StoneWallWorn3" MAPTILE_STONE_WALL_WORN3
+---@field TreeBranchNSE 175 MAPTILE_TREE_BRANCH_NSE
+---@field [175] "TreeBranchNSE" MAPTILE_TREE_BRANCH_NSE
+---@field TreeBranchNSW 176 0x0B0
+---@field [176] "TreeBranchNSW" 0x0B0
+---@field TreeBranchNEW 177 MAPTILE_TREE_BRANCH_NEW
+---@field [177] "TreeBranchNEW" MAPTILE_TREE_BRANCH_NEW
+---@field TreeBranchSEW 178 MAPTILE_TREE_BRANCH_SEW
+---@field [178] "TreeBranchSEW" MAPTILE_TREE_BRANCH_SEW
+---@field TreeBranchNSEW 179 MAPTILE_TREE_BRANCH_NSEW
+---@field [179] "TreeBranchNSEW" MAPTILE_TREE_BRANCH_NSEW
+---@field TreeDeadBranchNSE 180 MAPTILE_TREE_BRANCH_NSE_DEAD
+---@field [180] "TreeDeadBranchNSE" MAPTILE_TREE_BRANCH_NSE_DEAD
+---@field TreeDeadBranchNSW 181 MAPTILE_TREE_BRANCH_NSW_DEAD
+---@field [181] "TreeDeadBranchNSW" MAPTILE_TREE_BRANCH_NSW_DEAD
+---@field TreeDeadBranchNEW 182 MAPTILE_TREE_BRANCH_NEW_DEAD
+---@field [182] "TreeDeadBranchNEW" MAPTILE_TREE_BRANCH_NEW_DEAD
+---@field TreeDeadBranchSEW 183 MAPTILE_TREE_BRANCH_SEW_DEAD
+---@field [183] "TreeDeadBranchSEW" MAPTILE_TREE_BRANCH_SEW_DEAD
+---@field TreeDeadBranchNSEW 184 MAPTILE_TREE_BRANCH_NSEW_DEAD
+---@field [184] "TreeDeadBranchNSEW" MAPTILE_TREE_BRANCH_NSEW_DEAD
+---@field TreeTrunkNSE 185 MAPTILE_TREE_TRUNK_NSE
+---@field [185] "TreeTrunkNSE" MAPTILE_TREE_TRUNK_NSE
+---@field TreeTrunkNSW 186 MAPTILE_TREE_TRUNK_NSW
+---@field [186] "TreeTrunkNSW" MAPTILE_TREE_TRUNK_NSW
+---@field TreeTrunkNEW 187 MAPTILE_TREE_TRUNK_NEW
+---@field [187] "TreeTrunkNEW" MAPTILE_TREE_TRUNK_NEW
+---@field TreeTrunkSEW 188 MAPTILE_TREE_TRUNK_SEW
+---@field [188] "TreeTrunkSEW" MAPTILE_TREE_TRUNK_SEW
+---@field TreeTrunkNS 189 MAPTILE_TREE_TRUNK_NS
+---@field [189] "TreeTrunkNS" MAPTILE_TREE_TRUNK_NS
+---@field TreeTrunkEW 190 MAPTILE_TREE_TRUNK_EW
+---@field [190] "TreeTrunkEW" MAPTILE_TREE_TRUNK_EW
+---@field TreeTrunkNSEW 191 MAPTILE_TREE_TRUNK_NSEW
+---@field [191] "TreeTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW
+---@field TreeTrunkInterior 192 0x0C0
+---@field [192] "TreeTrunkInterior" 0x0C0
+---@field TreeDeadTrunkNSE 193 MAPTILE_TREE_TRUNK_NSE_DEAD
+---@field [193] "TreeDeadTrunkNSE" MAPTILE_TREE_TRUNK_NSE_DEAD
+---@field TreeDeadTrunkNSW 194 MAPTILE_TREE_TRUNK_NSW_DEAD
+---@field [194] "TreeDeadTrunkNSW" MAPTILE_TREE_TRUNK_NSW_DEAD
+---@field TreeDeadTrunkNEW 195 MAPTILE_TREE_TRUNK_NEW_DEAD
+---@field [195] "TreeDeadTrunkNEW" MAPTILE_TREE_TRUNK_NEW_DEAD
+---@field TreeDeadTrunkSEW 196 MAPTILE_TREE_TRUNK_SEW_DEAD
+---@field [196] "TreeDeadTrunkSEW" MAPTILE_TREE_TRUNK_SEW_DEAD
+---@field TreeDeadTrunkNS 197 MAPTILE_TREE_TRUNK_NS_DEAD
+---@field [197] "TreeDeadTrunkNS" MAPTILE_TREE_TRUNK_NS_DEAD
+---@field TreeDeadTrunkEW 198 MAPTILE_TREE_TRUNK_EW_DEAD
+---@field [198] "TreeDeadTrunkEW" MAPTILE_TREE_TRUNK_EW_DEAD
+---@field TreeDeadTrunkNSEW 199 MAPTILE_TREE_TRUNK_NSEW_DEAD
+---@field [199] "TreeDeadTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW_DEAD
+---@field TreeDeadTrunkInterior 200 MAPTILE_TREE_TRUNK_INTERIOR_DEAD
+---@field [200] "TreeDeadTrunkInterior" MAPTILE_TREE_TRUNK_INTERIOR_DEAD
+---@field TreeTrunkNW 201 MAPTILE_TREE_TRUNK_NW
+---@field [201] "TreeTrunkNW" MAPTILE_TREE_TRUNK_NW
+---@field TreeTrunkNE 202 MAPTILE_TREE_TRUNK_NE
+---@field [202] "TreeTrunkNE" MAPTILE_TREE_TRUNK_NE
+---@field TreeTrunkSW 203 MAPTILE_TREE_TRUNK_SW
+---@field [203] "TreeTrunkSW" MAPTILE_TREE_TRUNK_SW
+---@field TreeTrunkSE 204 MAPTILE_TREE_TRUNK_SE
+---@field [204] "TreeTrunkSE" MAPTILE_TREE_TRUNK_SE
+---@field TreeDeadTrunkNW 205 MAPTILE_TREE_TRUNK_NW_DEAD
+---@field [205] "TreeDeadTrunkNW" MAPTILE_TREE_TRUNK_NW_DEAD
+---@field TreeDeadTrunkNE 206 MAPTILE_TREE_TRUNK_NE_DEAD
+---@field [206] "TreeDeadTrunkNE" MAPTILE_TREE_TRUNK_NE_DEAD
+---@field TreeDeadTrunkSW 207 MAPTILE_TREE_TRUNK_SW_DEAD
+---@field [207] "TreeDeadTrunkSW" MAPTILE_TREE_TRUNK_SW_DEAD
+---@field TreeDeadTrunkSE 208 0x0D0
+---@field [208] "TreeDeadTrunkSE" 0x0D0
+---@field TreeTrunkN 209 MAPTILE_TREE_TRUNK_N
+---@field [209] "TreeTrunkN" MAPTILE_TREE_TRUNK_N
+---@field TreeTrunkS 210 MAPTILE_TREE_TRUNK_S
+---@field [210] "TreeTrunkS" MAPTILE_TREE_TRUNK_S
+---@field TreeTrunkW 211 MAPTILE_TREE_TRUNK_W
+---@field [211] "TreeTrunkW" MAPTILE_TREE_TRUNK_W
+---@field TreeTrunkE 212 MAPTILE_TREE_TRUNK_E
+---@field [212] "TreeTrunkE" MAPTILE_TREE_TRUNK_E
+---@field TreeDeadTrunkN 213 MAPTILE_TREE_TRUNK_N_DEAD
+---@field [213] "TreeDeadTrunkN" MAPTILE_TREE_TRUNK_N_DEAD
+---@field TreeDeadTrunkS 214 MAPTILE_TREE_TRUNK_S_DEAD
+---@field [214] "TreeDeadTrunkS" MAPTILE_TREE_TRUNK_S_DEAD
+---@field StoneWall 215 MAPTILE_STONE_WALL
+---@field [215] "StoneWall" MAPTILE_STONE_WALL
+---@field TreeDeadTrunkW 216 MAPTILE_TREE_TRUNK_W_DEAD
+---@field [216] "TreeDeadTrunkW" MAPTILE_TREE_TRUNK_W_DEAD
+---@field TreeDeadTrunkE 217 MAPTILE_TREE_TRUNK_E_DEAD
+---@field [217] "TreeDeadTrunkE" MAPTILE_TREE_TRUNK_E_DEAD
+---@field TreeBranchS 218 MAPTILE_TREE_BRANCH_N
+---@field [218] "TreeBranchS" MAPTILE_TREE_BRANCH_N
+---@field TreeBranchN 219 MAPTILE_TREE_BRANCH_S
+---@field [219] "TreeBranchN" MAPTILE_TREE_BRANCH_S
+---@field TreeBranchW 220 MAPTILE_TREE_BRANCH_E
+---@field [220] "TreeBranchW" MAPTILE_TREE_BRANCH_E
+---@field TreeBranchE 221 MAPTILE_TREE_BRANCH_W
+---@field [221] "TreeBranchE" MAPTILE_TREE_BRANCH_W
+---@field TreeDeadBranchS 222 MAPTILE_TREE_BRANCH_N_DEAD
+---@field [222] "TreeDeadBranchS" MAPTILE_TREE_BRANCH_N_DEAD
+---@field TreeDeadBranchN 223 MAPTILE_TREE_BRANCH_S_DEAD
+---@field [223] "TreeDeadBranchN" MAPTILE_TREE_BRANCH_S_DEAD
+---@field TreeDeadBranchW 224 0x0E0
+---@field [224] "TreeDeadBranchW" 0x0E0
+---@field TreeDeadBranchE 225 MAPTILE_TREE_BRANCH_W_DEAD
+---@field [225] "TreeDeadBranchE" MAPTILE_TREE_BRANCH_W_DEAD
+---@field TreeDeadCapPillarWE 226 MAPTILE_TREE_CAP_WALL_W_E_DEAD
+---@field [226] "TreeDeadCapPillarWE" MAPTILE_TREE_CAP_WALL_W_E_DEAD
+---@field Sapling 227 MAPTILE_SAPLING
+---@field [227] "Sapling" MAPTILE_SAPLING
+---@field Unused888 228 MAPTILE_UNUSED_888
+---@field [228] "Unused888" MAPTILE_UNUSED_888
+---@field GrassDryRamp 229 MAPTILE_RAMP_GRASS_DRY
+---@field [229] "GrassDryRamp" MAPTILE_RAMP_GRASS_DRY
+---@field GrassDeadRamp 230 MAPTILE_RAMP_GRASS_DEAD
+---@field [230] "GrassDeadRamp" MAPTILE_RAMP_GRASS_DEAD
+---@field GrassLightRamp 231 MAPTILE_RAMP_GRASS1
+---@field [231] "GrassLightRamp" MAPTILE_RAMP_GRASS1
+---@field GrassDarkRamp 232 MAPTILE_RAMP_GRASS2
+---@field [232] "GrassDarkRamp" MAPTILE_RAMP_GRASS2
+---@field StoneRamp 233 MAPTILE_RAMP_STONE
+---@field [233] "StoneRamp" MAPTILE_RAMP_STONE
+---@field LavaRamp 234 MAPTILE_RAMP_LAVASTONE
+---@field [234] "LavaRamp" MAPTILE_RAMP_LAVASTONE
+---@field FeatureRamp 235 MAPTILE_RAMP_FEATSTONE
+---@field [235] "FeatureRamp" MAPTILE_RAMP_FEATSTONE
+---@field MineralRamp 236 MAPTILE_RAMP_MINSTONE
+---@field [236] "MineralRamp" MAPTILE_RAMP_MINSTONE
+---@field SoilRamp 237 MAPTILE_RAMP_SOIL
+---@field [237] "SoilRamp" MAPTILE_RAMP_SOIL
+---@field Ashes1 238 MAPTILE_ASH1
+---@field [238] "Ashes1" MAPTILE_ASH1
+---@field Ashes2 239 MAPTILE_ASH2
+---@field [239] "Ashes2" MAPTILE_ASH2
+---@field Ashes3 240 0x0F0
+---@field [240] "Ashes3" 0x0F0
+---@field FrozenRamp 241 MAPTILE_RAMP_FROZEN_LIQUID
+---@field [241] "FrozenRamp" MAPTILE_RAMP_FROZEN_LIQUID
+---@field Unused8888 242 MAPTILE_UNUSED_8888
+---@field [242] "Unused8888" MAPTILE_UNUSED_8888
+---@field Unused88888 243 MAPTILE_UNUSED_88888
+---@field [243] "Unused88888" MAPTILE_UNUSED_88888
+---@field Unused888888 244 MAPTILE_UNUSED_888888
+---@field [244] "Unused888888" MAPTILE_UNUSED_888888
+---@field Unused245 245 MAPTILE_UNUSED245
+---@field [245] "Unused245" MAPTILE_UNUSED245
+---@field Unused246 246 MAPTILE_UNUSED246
+---@field [246] "Unused246" MAPTILE_UNUSED246
+---@field Unused247 247 MAPTILE_UNUSED247
+---@field [247] "Unused247" MAPTILE_UNUSED247
+---@field Unused248 248 MAPTILE_UNUSED248
+---@field [248] "Unused248" MAPTILE_UNUSED248
+---@field Unused249 249 MAPTILE_UNUSED249
+---@field [249] "Unused249" MAPTILE_UNUSED249
+---@field Unused250 250 MAPTILE_UNUSED250
+---@field [250] "Unused250" MAPTILE_UNUSED250
+---@field Unused251 251 MAPTILE_UNUSED251
+---@field [251] "Unused251" MAPTILE_UNUSED251
+---@field Unused252 252 MAPTILE_UNUSED252
+---@field [252] "Unused252" MAPTILE_UNUSED252
+---@field Unused253 253 MAPTILE_UNUSED253
+---@field [253] "Unused253" MAPTILE_UNUSED253
+---@field FrozenFloor2 254 MAPTILE_FROZEN_LIQUID_1
+---@field [254] "FrozenFloor2" MAPTILE_FROZEN_LIQUID_1
+---@field FrozenFloor3 255 MAPTILE_FROZEN_LIQUID_2
+---@field [255] "FrozenFloor3" MAPTILE_FROZEN_LIQUID_2
+---@field FrozenFloor4 256 0x100
+---@field [256] "FrozenFloor4" 0x100
+---@field FurrowedSoil 257 MAPTILE_FURROWED_SOIL
+---@field [257] "FurrowedSoil" MAPTILE_FURROWED_SOIL
+---@field FrozenFloor1 258 MAPTILE_FROZEN_LIQUID_0
+---@field [258] "FrozenFloor1" MAPTILE_FROZEN_LIQUID_0
+---@field SemiMoltenRock 259 MAPTILE_LAVA_SOLID
+---@field [259] "SemiMoltenRock" MAPTILE_LAVA_SOLID
+---@field MagmaFlow 260 MAPTILE_LAVA
+---@field [260] "MagmaFlow" MAPTILE_LAVA
+---@field SoilWall 261 MAPTILE_SOIL_WALL
+---@field [261] "SoilWall" MAPTILE_SOIL_WALL
+---@field GlowingBarrier 262 MAPTILE_GLOWING_BARRIER_WALL
+---@field [262] "GlowingBarrier" MAPTILE_GLOWING_BARRIER_WALL
+---@field GlowingFloor 263 MAPTILE_GLOWING_BARRIER_FLOOR
+---@field [263] "GlowingFloor" MAPTILE_GLOWING_BARRIER_FLOOR
+---@field Unused264 264 MAPTILE_UNUSED_264
+---@field [264] "Unused264" MAPTILE_UNUSED_264
+---@field LavaWallSmoothRD2 265 MAPTILE_LAVASTONE_WALL_DET_RD2
+---@field [265] "LavaWallSmoothRD2" MAPTILE_LAVASTONE_WALL_DET_RD2
+---@field LavaWallSmoothR2D 266 MAPTILE_LAVASTONE_WALL_DET_R2D
+---@field [266] "LavaWallSmoothR2D" MAPTILE_LAVASTONE_WALL_DET_R2D
+---@field LavaWallSmoothR2U 267 MAPTILE_LAVASTONE_WALL_DET_R2U
+---@field [267] "LavaWallSmoothR2U" MAPTILE_LAVASTONE_WALL_DET_R2U
+---@field LavaWallSmoothRU2 268 MAPTILE_LAVASTONE_WALL_DET_RU2
+---@field [268] "LavaWallSmoothRU2" MAPTILE_LAVASTONE_WALL_DET_RU2
+---@field LavaWallSmoothL2U 269 MAPTILE_LAVASTONE_WALL_DET_L2U
+---@field [269] "LavaWallSmoothL2U" MAPTILE_LAVASTONE_WALL_DET_L2U
+---@field LavaWallSmoothLU2 270 MAPTILE_LAVASTONE_WALL_DET_LU2
+---@field [270] "LavaWallSmoothLU2" MAPTILE_LAVASTONE_WALL_DET_LU2
+---@field LavaWallSmoothL2D 271 MAPTILE_LAVASTONE_WALL_DET_L2D
+---@field [271] "LavaWallSmoothL2D" MAPTILE_LAVASTONE_WALL_DET_L2D
+---@field LavaWallSmoothLD2 272 0x110
+---@field [272] "LavaWallSmoothLD2" 0x110
+---@field LavaWallSmoothLRUD 273 MAPTILE_LAVASTONE_WALL_DET_LRUD
+---@field [273] "LavaWallSmoothLRUD" MAPTILE_LAVASTONE_WALL_DET_LRUD
+---@field LavaWallSmoothRUD 274 MAPTILE_LAVASTONE_WALL_DET_RUD
+---@field [274] "LavaWallSmoothRUD" MAPTILE_LAVASTONE_WALL_DET_RUD
+---@field LavaWallSmoothLRD 275 MAPTILE_LAVASTONE_WALL_DET_LRD
+---@field [275] "LavaWallSmoothLRD" MAPTILE_LAVASTONE_WALL_DET_LRD
+---@field LavaWallSmoothLRU 276 MAPTILE_LAVASTONE_WALL_DET_LRU
+---@field [276] "LavaWallSmoothLRU" MAPTILE_LAVASTONE_WALL_DET_LRU
+---@field LavaWallSmoothLUD 277 MAPTILE_LAVASTONE_WALL_DET_LUD
+---@field [277] "LavaWallSmoothLUD" MAPTILE_LAVASTONE_WALL_DET_LUD
+---@field LavaWallSmoothRD 278 MAPTILE_LAVASTONE_WALL_DET_RD
+---@field [278] "LavaWallSmoothRD" MAPTILE_LAVASTONE_WALL_DET_RD
+---@field LavaWallSmoothRU 279 MAPTILE_LAVASTONE_WALL_DET_RU
+---@field [279] "LavaWallSmoothRU" MAPTILE_LAVASTONE_WALL_DET_RU
+---@field LavaWallSmoothLU 280 MAPTILE_LAVASTONE_WALL_DET_LU
+---@field [280] "LavaWallSmoothLU" MAPTILE_LAVASTONE_WALL_DET_LU
+---@field LavaWallSmoothLD 281 MAPTILE_LAVASTONE_WALL_DET_LD
+---@field [281] "LavaWallSmoothLD" MAPTILE_LAVASTONE_WALL_DET_LD
+---@field LavaWallSmoothUD 282 MAPTILE_LAVASTONE_WALL_DET_UD
+---@field [282] "LavaWallSmoothUD" MAPTILE_LAVASTONE_WALL_DET_UD
+---@field LavaWallSmoothLR 283 MAPTILE_LAVASTONE_WALL_DET_LR
+---@field [283] "LavaWallSmoothLR" MAPTILE_LAVASTONE_WALL_DET_LR
+---@field FeatureWallSmoothRD2 284 MAPTILE_FEATSTONE_WALL_DET_RD2
+---@field [284] "FeatureWallSmoothRD2" MAPTILE_FEATSTONE_WALL_DET_RD2
+---@field FeatureWallSmoothR2D 285 MAPTILE_FEATSTONE_WALL_DET_R2D
+---@field [285] "FeatureWallSmoothR2D" MAPTILE_FEATSTONE_WALL_DET_R2D
+---@field FeatureWallSmoothR2U 286 MAPTILE_FEATSTONE_WALL_DET_R2U
+---@field [286] "FeatureWallSmoothR2U" MAPTILE_FEATSTONE_WALL_DET_R2U
+---@field FeatureWallSmoothRU2 287 MAPTILE_FEATSTONE_WALL_DET_RU2
+---@field [287] "FeatureWallSmoothRU2" MAPTILE_FEATSTONE_WALL_DET_RU2
+---@field FeatureWallSmoothL2U 288 0x120
+---@field [288] "FeatureWallSmoothL2U" 0x120
+---@field FeatureWallSmoothLU2 289 MAPTILE_FEATSTONE_WALL_DET_LU2
+---@field [289] "FeatureWallSmoothLU2" MAPTILE_FEATSTONE_WALL_DET_LU2
+---@field FeatureWallSmoothL2D 290 MAPTILE_FEATSTONE_WALL_DET_L2D
+---@field [290] "FeatureWallSmoothL2D" MAPTILE_FEATSTONE_WALL_DET_L2D
+---@field FeatureWallSmoothLD2 291 MAPTILE_FEATSTONE_WALL_DET_LD2
+---@field [291] "FeatureWallSmoothLD2" MAPTILE_FEATSTONE_WALL_DET_LD2
+---@field FeatureWallSmoothLRUD 292 MAPTILE_FEATSTONE_WALL_DET_LRUD
+---@field [292] "FeatureWallSmoothLRUD" MAPTILE_FEATSTONE_WALL_DET_LRUD
+---@field FeatureWallSmoothRUD 293 MAPTILE_FEATSTONE_WALL_DET_RUD
+---@field [293] "FeatureWallSmoothRUD" MAPTILE_FEATSTONE_WALL_DET_RUD
+---@field FeatureWallSmoothLRD 294 MAPTILE_FEATSTONE_WALL_DET_LRD
+---@field [294] "FeatureWallSmoothLRD" MAPTILE_FEATSTONE_WALL_DET_LRD
+---@field FeatureWallSmoothLRU 295 MAPTILE_FEATSTONE_WALL_DET_LRU
+---@field [295] "FeatureWallSmoothLRU" MAPTILE_FEATSTONE_WALL_DET_LRU
+---@field FeatureWallSmoothLUD 296 MAPTILE_FEATSTONE_WALL_DET_LUD
+---@field [296] "FeatureWallSmoothLUD" MAPTILE_FEATSTONE_WALL_DET_LUD
+---@field FeatureWallSmoothRD 297 MAPTILE_FEATSTONE_WALL_DET_RD
+---@field [297] "FeatureWallSmoothRD" MAPTILE_FEATSTONE_WALL_DET_RD
+---@field FeatureWallSmoothRU 298 MAPTILE_FEATSTONE_WALL_DET_RU
+---@field [298] "FeatureWallSmoothRU" MAPTILE_FEATSTONE_WALL_DET_RU
+---@field FeatureWallSmoothLU 299 MAPTILE_FEATSTONE_WALL_DET_LU
+---@field [299] "FeatureWallSmoothLU" MAPTILE_FEATSTONE_WALL_DET_LU
+---@field FeatureWallSmoothLD 300 MAPTILE_FEATSTONE_WALL_DET_LD
+---@field [300] "FeatureWallSmoothLD" MAPTILE_FEATSTONE_WALL_DET_LD
+---@field FeatureWallSmoothUD 301 MAPTILE_FEATSTONE_WALL_DET_UD
+---@field [301] "FeatureWallSmoothUD" MAPTILE_FEATSTONE_WALL_DET_UD
+---@field FeatureWallSmoothLR 302 MAPTILE_FEATSTONE_WALL_DET_LR
+---@field [302] "FeatureWallSmoothLR" MAPTILE_FEATSTONE_WALL_DET_LR
+---@field StoneWallSmoothRD2 303 MAPTILE_STONE_WALL_DET_RD2
+---@field [303] "StoneWallSmoothRD2" MAPTILE_STONE_WALL_DET_RD2
+---@field StoneWallSmoothR2D 304 0x130
+---@field [304] "StoneWallSmoothR2D" 0x130
+---@field StoneWallSmoothR2U 305 MAPTILE_STONE_WALL_DET_R2U
+---@field [305] "StoneWallSmoothR2U" MAPTILE_STONE_WALL_DET_R2U
+---@field StoneWallSmoothRU2 306 MAPTILE_STONE_WALL_DET_RU2
+---@field [306] "StoneWallSmoothRU2" MAPTILE_STONE_WALL_DET_RU2
+---@field StoneWallSmoothL2U 307 MAPTILE_STONE_WALL_DET_L2U
+---@field [307] "StoneWallSmoothL2U" MAPTILE_STONE_WALL_DET_L2U
+---@field StoneWallSmoothLU2 308 MAPTILE_STONE_WALL_DET_LU2
+---@field [308] "StoneWallSmoothLU2" MAPTILE_STONE_WALL_DET_LU2
+---@field StoneWallSmoothL2D 309 MAPTILE_STONE_WALL_DET_L2D
+---@field [309] "StoneWallSmoothL2D" MAPTILE_STONE_WALL_DET_L2D
+---@field StoneWallSmoothLD2 310 MAPTILE_STONE_WALL_DET_LD2
+---@field [310] "StoneWallSmoothLD2" MAPTILE_STONE_WALL_DET_LD2
+---@field StoneWallSmoothLRUD 311 MAPTILE_STONE_WALL_DET_LRUD
+---@field [311] "StoneWallSmoothLRUD" MAPTILE_STONE_WALL_DET_LRUD
+---@field StoneWallSmoothRUD 312 MAPTILE_STONE_WALL_DET_RUD
+---@field [312] "StoneWallSmoothRUD" MAPTILE_STONE_WALL_DET_RUD
+---@field StoneWallSmoothLRD 313 MAPTILE_STONE_WALL_DET_LRD
+---@field [313] "StoneWallSmoothLRD" MAPTILE_STONE_WALL_DET_LRD
+---@field StoneWallSmoothLRU 314 MAPTILE_STONE_WALL_DET_LRU
+---@field [314] "StoneWallSmoothLRU" MAPTILE_STONE_WALL_DET_LRU
+---@field StoneWallSmoothLUD 315 MAPTILE_STONE_WALL_DET_LUD
+---@field [315] "StoneWallSmoothLUD" MAPTILE_STONE_WALL_DET_LUD
+---@field StoneWallSmoothRD 316 MAPTILE_STONE_WALL_DET_RD
+---@field [316] "StoneWallSmoothRD" MAPTILE_STONE_WALL_DET_RD
+---@field StoneWallSmoothRU 317 MAPTILE_STONE_WALL_DET_RU
+---@field [317] "StoneWallSmoothRU" MAPTILE_STONE_WALL_DET_RU
+---@field StoneWallSmoothLU 318 MAPTILE_STONE_WALL_DET_LU
+---@field [318] "StoneWallSmoothLU" MAPTILE_STONE_WALL_DET_LU
+---@field StoneWallSmoothLD 319 MAPTILE_STONE_WALL_DET_LD
+---@field [319] "StoneWallSmoothLD" MAPTILE_STONE_WALL_DET_LD
+---@field StoneWallSmoothUD 320 0x140
+---@field [320] "StoneWallSmoothUD" 0x140
+---@field StoneWallSmoothLR 321 MAPTILE_STONE_WALL_DET_LR
+---@field [321] "StoneWallSmoothLR" MAPTILE_STONE_WALL_DET_LR
+---@field LavaFortification 322 MAPTILE_LAVASTONE_FORTIFICATION
+---@field [322] "LavaFortification" MAPTILE_LAVASTONE_FORTIFICATION
+---@field FeatureFortification 323 MAPTILE_FEATSTONE_FORTIFICATION
+---@field [323] "FeatureFortification" MAPTILE_FEATSTONE_FORTIFICATION
+---@field LavaWallWorn1 324 MAPTILE_LAVASTONE_WALL_WORN1
+---@field [324] "LavaWallWorn1" MAPTILE_LAVASTONE_WALL_WORN1
+---@field LavaWallWorn2 325 MAPTILE_LAVASTONE_WALL_WORN2
+---@field [325] "LavaWallWorn2" MAPTILE_LAVASTONE_WALL_WORN2
+---@field LavaWallWorn3 326 MAPTILE_LAVASTONE_WALL_WORN3
+---@field [326] "LavaWallWorn3" MAPTILE_LAVASTONE_WALL_WORN3
+---@field LavaWall 327 MAPTILE_LAVASTONE_WALL
+---@field [327] "LavaWall" MAPTILE_LAVASTONE_WALL
+---@field FeatureWallWorn1 328 MAPTILE_FEATSTONE_WALL_WORN1
+---@field [328] "FeatureWallWorn1" MAPTILE_FEATSTONE_WALL_WORN1
+---@field FeatureWallWorn2 329 MAPTILE_FEATSTONE_WALL_WORN2
+---@field [329] "FeatureWallWorn2" MAPTILE_FEATSTONE_WALL_WORN2
+---@field FeatureWallWorn3 330 MAPTILE_FEATSTONE_WALL_WORN3
+---@field [330] "FeatureWallWorn3" MAPTILE_FEATSTONE_WALL_WORN3
+---@field FeatureWall 331 MAPTILE_FEATSTONE_WALL
+---@field [331] "FeatureWall" MAPTILE_FEATSTONE_WALL
+---@field StoneFloor1 332 MAPTILE_STONE_FLOOR1
+---@field [332] "StoneFloor1" MAPTILE_STONE_FLOOR1
+---@field StoneFloor2 333 MAPTILE_STONE_FLOOR2
+---@field [333] "StoneFloor2" MAPTILE_STONE_FLOOR2
+---@field StoneFloor3 334 MAPTILE_STONE_FLOOR3
+---@field [334] "StoneFloor3" MAPTILE_STONE_FLOOR3
+---@field StoneFloor4 335 MAPTILE_STONE_FLOOR4
+---@field [335] "StoneFloor4" MAPTILE_STONE_FLOOR4
+---@field LavaFloor1 336 0x150
+---@field [336] "LavaFloor1" 0x150
+---@field LavaFloor2 337 MAPTILE_LAVASTONE_FLOOR2
+---@field [337] "LavaFloor2" MAPTILE_LAVASTONE_FLOOR2
+---@field LavaFloor3 338 MAPTILE_LAVASTONE_FLOOR3
+---@field [338] "LavaFloor3" MAPTILE_LAVASTONE_FLOOR3
+---@field LavaFloor4 339 MAPTILE_LAVASTONE_FLOOR4
+---@field [339] "LavaFloor4" MAPTILE_LAVASTONE_FLOOR4
+---@field FeatureFloor1 340 MAPTILE_FEATSTONE_FLOOR1
+---@field [340] "FeatureFloor1" MAPTILE_FEATSTONE_FLOOR1
+---@field FeatureFloor2 341 MAPTILE_FEATSTONE_FLOOR2
+---@field [341] "FeatureFloor2" MAPTILE_FEATSTONE_FLOOR2
+---@field FeatureFloor3 342 MAPTILE_FEATSTONE_FLOOR3
+---@field [342] "FeatureFloor3" MAPTILE_FEATSTONE_FLOOR3
+---@field FeatureFloor4 343 MAPTILE_FEATSTONE_FLOOR4
+---@field [343] "FeatureFloor4" MAPTILE_FEATSTONE_FLOOR4
+---@field GrassDarkFloor1 344 MAPTILE_GRASS_FLOOR1
+---@field [344] "GrassDarkFloor1" MAPTILE_GRASS_FLOOR1
+---@field GrassDarkFloor2 345 MAPTILE_GRASS_FLOOR2
+---@field [345] "GrassDarkFloor2" MAPTILE_GRASS_FLOOR2
+---@field GrassDarkFloor3 346 MAPTILE_GRASS_FLOOR3
+---@field [346] "GrassDarkFloor3" MAPTILE_GRASS_FLOOR3
+---@field GrassDarkFloor4 347 MAPTILE_GRASS_FLOOR4
+---@field [347] "GrassDarkFloor4" MAPTILE_GRASS_FLOOR4
+---@field SoilFloor1 348 MAPTILE_SOIL_FLOOR1
+---@field [348] "SoilFloor1" MAPTILE_SOIL_FLOOR1
+---@field SoilFloor2 349 MAPTILE_SOIL_FLOOR2
+---@field [349] "SoilFloor2" MAPTILE_SOIL_FLOOR2
+---@field SoilFloor3 350 MAPTILE_SOIL_FLOOR3
+---@field [350] "SoilFloor3" MAPTILE_SOIL_FLOOR3
+---@field SoilFloor4 351 MAPTILE_SOIL_FLOOR4
+---@field [351] "SoilFloor4" MAPTILE_SOIL_FLOOR4
+---@field SoilWetFloor1 352 0x160
+---@field [352] "SoilWetFloor1" 0x160
+---@field SoilWetFloor2 353 MAPTILE_SOIL_FLOOR2_WET
+---@field [353] "SoilWetFloor2" MAPTILE_SOIL_FLOOR2_WET
+---@field SoilWetFloor3 354 MAPTILE_SOIL_FLOOR3_WET
+---@field [354] "SoilWetFloor3" MAPTILE_SOIL_FLOOR3_WET
+---@field SoilWetFloor4 355 MAPTILE_SOIL_FLOOR4_WET
+---@field [355] "SoilWetFloor4" MAPTILE_SOIL_FLOOR4_WET
+---@field FrozenFortification 356 MAPTILE_FROZEN_LIQUID_FORTIFICATION
+---@field [356] "FrozenFortification" MAPTILE_FROZEN_LIQUID_FORTIFICATION
+---@field FrozenWallWorn1 357 MAPTILE_FROZEN_LIQUID_WALL_WORN1
+---@field [357] "FrozenWallWorn1" MAPTILE_FROZEN_LIQUID_WALL_WORN1
+---@field FrozenWallWorn2 358 MAPTILE_FROZEN_LIQUID_WALL_WORN2
+---@field [358] "FrozenWallWorn2" MAPTILE_FROZEN_LIQUID_WALL_WORN2
+---@field FrozenWallWorn3 359 MAPTILE_FROZEN_LIQUID_WALL_WORN3
+---@field [359] "FrozenWallWorn3" MAPTILE_FROZEN_LIQUID_WALL_WORN3
+---@field FrozenWall 360 MAPTILE_FROZEN_LIQUID_WALL
+---@field [360] "FrozenWall" MAPTILE_FROZEN_LIQUID_WALL
+---@field RiverN 361 MAPTILE_RIVER_N
+---@field [361] "RiverN" MAPTILE_RIVER_N
+---@field RiverS 362 MAPTILE_RIVER_S
+---@field [362] "RiverS" MAPTILE_RIVER_S
+---@field RiverE 363 MAPTILE_RIVER_E
+---@field [363] "RiverE" MAPTILE_RIVER_E
+---@field RiverW 364 MAPTILE_RIVER_W
+---@field [364] "RiverW" MAPTILE_RIVER_W
+---@field RiverNW 365 MAPTILE_RIVER_NW
+---@field [365] "RiverNW" MAPTILE_RIVER_NW
+---@field RiverNE 366 MAPTILE_RIVER_NE
+---@field [366] "RiverNE" MAPTILE_RIVER_NE
+---@field RiverSW 367 MAPTILE_RIVER_SW
+---@field [367] "RiverSW" MAPTILE_RIVER_SW
+---@field RiverSE 368 0x170
+---@field [368] "RiverSE" 0x170
+---@field BrookN 369 MAPTILE_STREAM_BED_WALL_N
+---@field [369] "BrookN" MAPTILE_STREAM_BED_WALL_N
+---@field BrookS 370 MAPTILE_STREAM_BED_WALL_S
+---@field [370] "BrookS" MAPTILE_STREAM_BED_WALL_S
+---@field BrookE 371 MAPTILE_STREAM_BED_WALL_E
+---@field [371] "BrookE" MAPTILE_STREAM_BED_WALL_E
+---@field BrookW 372 MAPTILE_STREAM_BED_WALL_W
+---@field [372] "BrookW" MAPTILE_STREAM_BED_WALL_W
+---@field BrookNW 373 MAPTILE_STREAM_BED_WALL_NW
+---@field [373] "BrookNW" MAPTILE_STREAM_BED_WALL_NW
+---@field BrookNE 374 MAPTILE_STREAM_BED_WALL_NE
+---@field [374] "BrookNE" MAPTILE_STREAM_BED_WALL_NE
+---@field BrookSW 375 MAPTILE_STREAM_BED_WALL_SW
+---@field [375] "BrookSW" MAPTILE_STREAM_BED_WALL_SW
+---@field BrookSE 376 MAPTILE_STREAM_BED_WALL_SE
+---@field [376] "BrookSE" MAPTILE_STREAM_BED_WALL_SE
+---@field BrookTop1 377 MAPTILE_STREAM_BED_TOP
+---@field [377] "BrookTop1" MAPTILE_STREAM_BED_TOP
+---@field BrookTop2 378 MAPTILE_STREAM_BED_TOP2
+---@field [378] "BrookTop2" MAPTILE_STREAM_BED_TOP2
+---@field BrookTop3 379 MAPTILE_STREAM_BED_TOP3
+---@field [379] "BrookTop3" MAPTILE_STREAM_BED_TOP3
+---@field BrookTop4 380 MAPTILE_STREAM_BED_TOP4
+---@field [380] "BrookTop4" MAPTILE_STREAM_BED_TOP4
+---@field Unused381 381 MAPTILE_UNUSED_381
+---@field [381] "Unused381" MAPTILE_UNUSED_381
+---@field Unused382 382 MAPTILE_UNUSED_382
+---@field [382] "Unused382" MAPTILE_UNUSED_382
+---@field GrassDryFloor1 383 MAPTILE_GRASS_FLOOR1_DRY
+---@field [383] "GrassDryFloor1" MAPTILE_GRASS_FLOOR1_DRY
+---@field GrassDryFloor2 384 0x180
+---@field [384] "GrassDryFloor2" 0x180
+---@field GrassDryFloor3 385 MAPTILE_GRASS_FLOOR3_DRY
+---@field [385] "GrassDryFloor3" MAPTILE_GRASS_FLOOR3_DRY
+---@field GrassDryFloor4 386 MAPTILE_GRASS_FLOOR4_DRY
+---@field [386] "GrassDryFloor4" MAPTILE_GRASS_FLOOR4_DRY
+---@field Unused387 387 MAPTILE_UNUSED_387
+---@field [387] "Unused387" MAPTILE_UNUSED_387
+---@field SaplingDead 388 MAPTILE_SAPLING_DEAD
+---@field [388] "SaplingDead" MAPTILE_SAPLING_DEAD
+---@field ShrubDead 389 MAPTILE_SHRUB_DEAD
+---@field [389] "ShrubDead" MAPTILE_SHRUB_DEAD
+---@field GrassDeadFloor1 390 MAPTILE_GRASS_FLOOR1_DEAD
+---@field [390] "GrassDeadFloor1" MAPTILE_GRASS_FLOOR1_DEAD
+---@field GrassDeadFloor2 391 MAPTILE_GRASS_FLOOR2_DEAD
+---@field [391] "GrassDeadFloor2" MAPTILE_GRASS_FLOOR2_DEAD
+---@field GrassDeadFloor3 392 MAPTILE_GRASS_FLOOR3_DEAD
+---@field [392] "GrassDeadFloor3" MAPTILE_GRASS_FLOOR3_DEAD
+---@field GrassDeadFloor4 393 MAPTILE_GRASS_FLOOR4_DEAD
+---@field [393] "GrassDeadFloor4" MAPTILE_GRASS_FLOOR4_DEAD
+---@field GrassLightFloor1 394 MAPTILE_GRASS_FLOOR1B
+---@field [394] "GrassLightFloor1" MAPTILE_GRASS_FLOOR1B
+---@field GrassLightFloor2 395 MAPTILE_GRASS_FLOOR2B
+---@field [395] "GrassLightFloor2" MAPTILE_GRASS_FLOOR2B
+---@field GrassLightFloor3 396 MAPTILE_GRASS_FLOOR3B
+---@field [396] "GrassLightFloor3" MAPTILE_GRASS_FLOOR3B
+---@field GrassLightFloor4 397 MAPTILE_GRASS_FLOOR4B
+---@field [397] "GrassLightFloor4" MAPTILE_GRASS_FLOOR4B
+---@field StoneBoulder 398 MAPTILE_STONE_BOULDER
+---@field [398] "StoneBoulder" MAPTILE_STONE_BOULDER
+---@field LavaBoulder 399 MAPTILE_LAVASTONE_BOULDER
+---@field [399] "LavaBoulder" MAPTILE_LAVASTONE_BOULDER
+---@field FeatureBoulder 400 0x190
+---@field [400] "FeatureBoulder" 0x190
+---@field StonePebbles1 401 MAPTILE_STONE_PEBBLE1
+---@field [401] "StonePebbles1" MAPTILE_STONE_PEBBLE1
+---@field StonePebbles2 402 MAPTILE_STONE_PEBBLE2
+---@field [402] "StonePebbles2" MAPTILE_STONE_PEBBLE2
+---@field StonePebbles3 403 MAPTILE_STONE_PEBBLE3
+---@field [403] "StonePebbles3" MAPTILE_STONE_PEBBLE3
+---@field StonePebbles4 404 MAPTILE_STONE_PEBBLE4
+---@field [404] "StonePebbles4" MAPTILE_STONE_PEBBLE4
+---@field LavaPebbles1 405 MAPTILE_LAVASTONE_PEBBLE1
+---@field [405] "LavaPebbles1" MAPTILE_LAVASTONE_PEBBLE1
+---@field LavaPebbles2 406 MAPTILE_LAVASTONE_PEBBLE2
+---@field [406] "LavaPebbles2" MAPTILE_LAVASTONE_PEBBLE2
+---@field LavaPebbles3 407 MAPTILE_LAVASTONE_PEBBLE3
+---@field [407] "LavaPebbles3" MAPTILE_LAVASTONE_PEBBLE3
+---@field LavaPebbles4 408 MAPTILE_LAVASTONE_PEBBLE4
+---@field [408] "LavaPebbles4" MAPTILE_LAVASTONE_PEBBLE4
+---@field FeaturePebbles1 409 MAPTILE_FEATSTONE_PEBBLE1
+---@field [409] "FeaturePebbles1" MAPTILE_FEATSTONE_PEBBLE1
+---@field FeaturePebbles2 410 MAPTILE_FEATSTONE_PEBBLE2
+---@field [410] "FeaturePebbles2" MAPTILE_FEATSTONE_PEBBLE2
+---@field FeaturePebbles3 411 MAPTILE_FEATSTONE_PEBBLE3
+---@field [411] "FeaturePebbles3" MAPTILE_FEATSTONE_PEBBLE3
+---@field FeaturePebbles4 412 MAPTILE_FEATSTONE_PEBBLE4
+---@field [412] "FeaturePebbles4" MAPTILE_FEATSTONE_PEBBLE4
+---@field MineralWallSmoothRD2 413 MAPTILE_MINSTONE_WALL_DET_RD2
+---@field [413] "MineralWallSmoothRD2" MAPTILE_MINSTONE_WALL_DET_RD2
+---@field MineralWallSmoothR2D 414 MAPTILE_MINSTONE_WALL_DET_R2D
+---@field [414] "MineralWallSmoothR2D" MAPTILE_MINSTONE_WALL_DET_R2D
+---@field MineralWallSmoothR2U 415 0x1A0
+---@field [415] "MineralWallSmoothR2U" 0x1A0
+---@field MineralWallSmoothRU2 416 MAPTILE_MINSTONE_WALL_DET_RU2
+---@field [416] "MineralWallSmoothRU2" MAPTILE_MINSTONE_WALL_DET_RU2
+---@field MineralWallSmoothL2U 417 MAPTILE_MINSTONE_WALL_DET_L2U
+---@field [417] "MineralWallSmoothL2U" MAPTILE_MINSTONE_WALL_DET_L2U
+---@field MineralWallSmoothLU2 418 MAPTILE_MINSTONE_WALL_DET_LU2
+---@field [418] "MineralWallSmoothLU2" MAPTILE_MINSTONE_WALL_DET_LU2
+---@field MineralWallSmoothL2D 419 MAPTILE_MINSTONE_WALL_DET_L2D
+---@field [419] "MineralWallSmoothL2D" MAPTILE_MINSTONE_WALL_DET_L2D
+---@field MineralWallSmoothLD2 420 MAPTILE_MINSTONE_WALL_DET_LD2
+---@field [420] "MineralWallSmoothLD2" MAPTILE_MINSTONE_WALL_DET_LD2
+---@field MineralWallSmoothLRUD 421 MAPTILE_MINSTONE_WALL_DET_LRUD
+---@field [421] "MineralWallSmoothLRUD" MAPTILE_MINSTONE_WALL_DET_LRUD
+---@field MineralWallSmoothRUD 422 MAPTILE_MINSTONE_WALL_DET_RUD
+---@field [422] "MineralWallSmoothRUD" MAPTILE_MINSTONE_WALL_DET_RUD
+---@field MineralWallSmoothLRD 423 MAPTILE_MINSTONE_WALL_DET_LRD
+---@field [423] "MineralWallSmoothLRD" MAPTILE_MINSTONE_WALL_DET_LRD
+---@field MineralWallSmoothLRU 424 MAPTILE_MINSTONE_WALL_DET_LRU
+---@field [424] "MineralWallSmoothLRU" MAPTILE_MINSTONE_WALL_DET_LRU
+---@field MineralWallSmoothLUD 425 MAPTILE_MINSTONE_WALL_DET_LUD
+---@field [425] "MineralWallSmoothLUD" MAPTILE_MINSTONE_WALL_DET_LUD
+---@field MineralWallSmoothRD 426 MAPTILE_MINSTONE_WALL_DET_RD
+---@field [426] "MineralWallSmoothRD" MAPTILE_MINSTONE_WALL_DET_RD
+---@field MineralWallSmoothRU 427 MAPTILE_MINSTONE_WALL_DET_RU
+---@field [427] "MineralWallSmoothRU" MAPTILE_MINSTONE_WALL_DET_RU
+---@field MineralWallSmoothLU 428 MAPTILE_MINSTONE_WALL_DET_LU
+---@field [428] "MineralWallSmoothLU" MAPTILE_MINSTONE_WALL_DET_LU
+---@field MineralWallSmoothLD 429 MAPTILE_MINSTONE_WALL_DET_LD
+---@field [429] "MineralWallSmoothLD" MAPTILE_MINSTONE_WALL_DET_LD
+---@field MineralWallSmoothUD 430 MAPTILE_MINSTONE_WALL_DET_UD
+---@field [430] "MineralWallSmoothUD" MAPTILE_MINSTONE_WALL_DET_UD
+---@field MineralWallSmoothLR 431 MAPTILE_MINSTONE_WALL_DET_LR
+---@field [431] "MineralWallSmoothLR" MAPTILE_MINSTONE_WALL_DET_LR
+---@field MineralFortification 432 0x1B0
+---@field [432] "MineralFortification" 0x1B0
+---@field MineralWallWorn1 433 MAPTILE_MINSTONE_WALL_WORN1
+---@field [433] "MineralWallWorn1" MAPTILE_MINSTONE_WALL_WORN1
+---@field MineralWallWorn2 434 MAPTILE_MINSTONE_WALL_WORN2
+---@field [434] "MineralWallWorn2" MAPTILE_MINSTONE_WALL_WORN2
+---@field MineralWallWorn3 435 MAPTILE_MINSTONE_WALL_WORN3
+---@field [435] "MineralWallWorn3" MAPTILE_MINSTONE_WALL_WORN3
+---@field MineralWall 436 MAPTILE_MINSTONE_WALL
+---@field [436] "MineralWall" MAPTILE_MINSTONE_WALL
+---@field MineralFloor1 437 MAPTILE_MINSTONE_FLOOR1
+---@field [437] "MineralFloor1" MAPTILE_MINSTONE_FLOOR1
+---@field MineralFloor2 438 MAPTILE_MINSTONE_FLOOR2
+---@field [438] "MineralFloor2" MAPTILE_MINSTONE_FLOOR2
+---@field MineralFloor3 439 MAPTILE_MINSTONE_FLOOR3
+---@field [439] "MineralFloor3" MAPTILE_MINSTONE_FLOOR3
+---@field MineralFloor4 440 MAPTILE_MINSTONE_FLOOR4
+---@field [440] "MineralFloor4" MAPTILE_MINSTONE_FLOOR4
+---@field MineralBoulder 441 MAPTILE_MINSTONE_BOULDER
+---@field [441] "MineralBoulder" MAPTILE_MINSTONE_BOULDER
+---@field MineralPebbles1 442 MAPTILE_MINSTONE_PEBBLE1
+---@field [442] "MineralPebbles1" MAPTILE_MINSTONE_PEBBLE1
+---@field MineralPebbles2 443 MAPTILE_MINSTONE_PEBBLE2
+---@field [443] "MineralPebbles2" MAPTILE_MINSTONE_PEBBLE2
+---@field MineralPebbles3 444 MAPTILE_MINSTONE_PEBBLE3
+---@field [444] "MineralPebbles3" MAPTILE_MINSTONE_PEBBLE3
+---@field MineralPebbles4 445 MAPTILE_MINSTONE_PEBBLE4
+---@field [445] "MineralPebbles4" MAPTILE_MINSTONE_PEBBLE4
+---@field FrozenWallSmoothRD2 446 MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
+---@field [446] "FrozenWallSmoothRD2" MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
+---@field FrozenWallSmoothR2D 447 MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
+---@field [447] "FrozenWallSmoothR2D" MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
+---@field FrozenWallSmoothR2U 448 0x1C0
+---@field [448] "FrozenWallSmoothR2U" 0x1C0
+---@field FrozenWallSmoothRU2 449 MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
+---@field [449] "FrozenWallSmoothRU2" MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
+---@field FrozenWallSmoothL2U 450 MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
+---@field [450] "FrozenWallSmoothL2U" MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
+---@field FrozenWallSmoothLU2 451 MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
+---@field [451] "FrozenWallSmoothLU2" MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
+---@field FrozenWallSmoothL2D 452 MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
+---@field [452] "FrozenWallSmoothL2D" MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
+---@field FrozenWallSmoothLD2 453 MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
+---@field [453] "FrozenWallSmoothLD2" MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
+---@field FrozenWallSmoothLRUD 454 MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
+---@field [454] "FrozenWallSmoothLRUD" MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
+---@field FrozenWallSmoothRUD 455 MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
+---@field [455] "FrozenWallSmoothRUD" MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
+---@field FrozenWallSmoothLRD 456 MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
+---@field [456] "FrozenWallSmoothLRD" MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
+---@field FrozenWallSmoothLRU 457 MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
+---@field [457] "FrozenWallSmoothLRU" MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
+---@field FrozenWallSmoothLUD 458 MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
+---@field [458] "FrozenWallSmoothLUD" MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
+---@field FrozenWallSmoothRD 459 MAPTILE_FROZEN_LIQUID_WALL_DET_RD
+---@field [459] "FrozenWallSmoothRD" MAPTILE_FROZEN_LIQUID_WALL_DET_RD
+---@field FrozenWallSmoothRU 460 MAPTILE_FROZEN_LIQUID_WALL_DET_RU
+---@field [460] "FrozenWallSmoothRU" MAPTILE_FROZEN_LIQUID_WALL_DET_RU
+---@field FrozenWallSmoothLU 461 MAPTILE_FROZEN_LIQUID_WALL_DET_LU
+---@field [461] "FrozenWallSmoothLU" MAPTILE_FROZEN_LIQUID_WALL_DET_LU
+---@field FrozenWallSmoothLD 462 MAPTILE_FROZEN_LIQUID_WALL_DET_LD
+---@field [462] "FrozenWallSmoothLD" MAPTILE_FROZEN_LIQUID_WALL_DET_LD
+---@field FrozenWallSmoothUD 463 MAPTILE_FROZEN_LIQUID_WALL_DET_UD
+---@field [463] "FrozenWallSmoothUD" MAPTILE_FROZEN_LIQUID_WALL_DET_UD
+---@field FrozenWallSmoothLR 464 0x1D0
+---@field [464] "FrozenWallSmoothLR" 0x1D0
+---@field RiverRampN 465 MAPTILE_RIVER_RAMP_N
+---@field [465] "RiverRampN" MAPTILE_RIVER_RAMP_N
+---@field RiverRampS 466 MAPTILE_RIVER_RAMP_S
+---@field [466] "RiverRampS" MAPTILE_RIVER_RAMP_S
+---@field RiverRampE 467 MAPTILE_RIVER_RAMP_E
+---@field [467] "RiverRampE" MAPTILE_RIVER_RAMP_E
+---@field RiverRampW 468 MAPTILE_RIVER_RAMP_W
+---@field [468] "RiverRampW" MAPTILE_RIVER_RAMP_W
+---@field RiverRampNW 469 MAPTILE_RIVER_RAMP_NW
+---@field [469] "RiverRampNW" MAPTILE_RIVER_RAMP_NW
+---@field RiverRampNE 470 MAPTILE_RIVER_RAMP_NE
+---@field [470] "RiverRampNE" MAPTILE_RIVER_RAMP_NE
+---@field RiverRampSW 471 MAPTILE_RIVER_RAMP_SW
+---@field [471] "RiverRampSW" MAPTILE_RIVER_RAMP_SW
+---@field RiverRampSE 472 MAPTILE_RIVER_RAMP_SE
+---@field [472] "RiverRampSE" MAPTILE_RIVER_RAMP_SE
+---@field Unused473 473 MAPTILE_UNUSED_473
+---@field [473] "Unused473" MAPTILE_UNUSED_473
+---@field Unused474 474 MAPTILE_UNUSED_474
+---@field [474] "Unused474" MAPTILE_UNUSED_474
+---@field Unused475 475 MAPTILE_UNUSED_475
+---@field [475] "Unused475" MAPTILE_UNUSED_475
+---@field Unused476 476 MAPTILE_UNUSED_476
+---@field [476] "Unused476" MAPTILE_UNUSED_476
+---@field Unused477 477 MAPTILE_UNUSED_477
+---@field [477] "Unused477" MAPTILE_UNUSED_477
+---@field Unused478 478 MAPTILE_UNUSED_478
+---@field [478] "Unused478" MAPTILE_UNUSED_478
+---@field Unused479 479 MAPTILE_UNUSED_479
+---@field [479] "Unused479" MAPTILE_UNUSED_479
+---@field Unused480 480 0x1E0
+---@field [480] "Unused480" 0x1E0
+---@field Unused481 481 MAPTILE_UNUSED_481
+---@field [481] "Unused481" MAPTILE_UNUSED_481
+---@field Unused482 482 MAPTILE_UNUSED_482
+---@field [482] "Unused482" MAPTILE_UNUSED_482
+---@field Unused483 483 MAPTILE_UNUSED_483
+---@field [483] "Unused483" MAPTILE_UNUSED_483
+---@field Unused484 484 MAPTILE_UNUSED_484
+---@field [484] "Unused484" MAPTILE_UNUSED_484
+---@field Unused485 485 MAPTILE_UNUSED_485
+---@field [485] "Unused485" MAPTILE_UNUSED_485
+---@field Unused486 486 MAPTILE_UNUSED_486
+---@field [486] "Unused486" MAPTILE_UNUSED_486
+---@field Unused487 487 MAPTILE_UNUSED_487
+---@field [487] "Unused487" MAPTILE_UNUSED_487
+---@field Unused488 488 MAPTILE_UNUSED_488
+---@field [488] "Unused488" MAPTILE_UNUSED_488
+---@field ConstructedFloor 489 MAPTILE_CONSTRUCTED_FLOOR_DETAILED
+---@field [489] "ConstructedFloor" MAPTILE_CONSTRUCTED_FLOOR_DETAILED
+---@field ConstructedFortification 490 MAPTILE_CONSTRUCTED_FORTIFICATION
+---@field [490] "ConstructedFortification" MAPTILE_CONSTRUCTED_FORTIFICATION
+---@field ConstructedPillar 491 MAPTILE_CONSTRUCTED_PILLAR
+---@field [491] "ConstructedPillar" MAPTILE_CONSTRUCTED_PILLAR
+---@field ConstructedWallRD2 492 MAPTILE_CONSTRUCTED_WALL_DET_RD2
+---@field [492] "ConstructedWallRD2" MAPTILE_CONSTRUCTED_WALL_DET_RD2
+---@field ConstructedWallR2D 493 MAPTILE_CONSTRUCTED_WALL_DET_R2D
+---@field [493] "ConstructedWallR2D" MAPTILE_CONSTRUCTED_WALL_DET_R2D
+---@field ConstructedWallR2U 494 MAPTILE_CONSTRUCTED_WALL_DET_R2U
+---@field [494] "ConstructedWallR2U" MAPTILE_CONSTRUCTED_WALL_DET_R2U
+---@field ConstructedWallRU2 495 MAPTILE_CONSTRUCTED_WALL_DET_RU2
+---@field [495] "ConstructedWallRU2" MAPTILE_CONSTRUCTED_WALL_DET_RU2
+---@field ConstructedWallL2U 496 0x1F0
+---@field [496] "ConstructedWallL2U" 0x1F0
+---@field ConstructedWallLU2 497 MAPTILE_CONSTRUCTED_WALL_DET_LU2
+---@field [497] "ConstructedWallLU2" MAPTILE_CONSTRUCTED_WALL_DET_LU2
+---@field ConstructedWallL2D 498 MAPTILE_CONSTRUCTED_WALL_DET_L2D
+---@field [498] "ConstructedWallL2D" MAPTILE_CONSTRUCTED_WALL_DET_L2D
+---@field ConstructedWallLD2 499 MAPTILE_CONSTRUCTED_WALL_DET_LD2
+---@field [499] "ConstructedWallLD2" MAPTILE_CONSTRUCTED_WALL_DET_LD2
+---@field ConstructedWallLRUD 500 MAPTILE_CONSTRUCTED_WALL_DET_LRUD
+---@field [500] "ConstructedWallLRUD" MAPTILE_CONSTRUCTED_WALL_DET_LRUD
+---@field ConstructedWallRUD 501 MAPTILE_CONSTRUCTED_WALL_DET_RUD
+---@field [501] "ConstructedWallRUD" MAPTILE_CONSTRUCTED_WALL_DET_RUD
+---@field ConstructedWallLRD 502 MAPTILE_CONSTRUCTED_WALL_DET_LRD
+---@field [502] "ConstructedWallLRD" MAPTILE_CONSTRUCTED_WALL_DET_LRD
+---@field ConstructedWallLRU 503 MAPTILE_CONSTRUCTED_WALL_DET_LRU
+---@field [503] "ConstructedWallLRU" MAPTILE_CONSTRUCTED_WALL_DET_LRU
+---@field ConstructedWallLUD 504 MAPTILE_CONSTRUCTED_WALL_DET_LUD
+---@field [504] "ConstructedWallLUD" MAPTILE_CONSTRUCTED_WALL_DET_LUD
+---@field ConstructedWallRD 505 MAPTILE_CONSTRUCTED_WALL_DET_RD
+---@field [505] "ConstructedWallRD" MAPTILE_CONSTRUCTED_WALL_DET_RD
+---@field ConstructedWallRU 506 MAPTILE_CONSTRUCTED_WALL_DET_RU
+---@field [506] "ConstructedWallRU" MAPTILE_CONSTRUCTED_WALL_DET_RU
+---@field ConstructedWallLU 507 MAPTILE_CONSTRUCTED_WALL_DET_LU
+---@field [507] "ConstructedWallLU" MAPTILE_CONSTRUCTED_WALL_DET_LU
+---@field ConstructedWallLD 508 MAPTILE_CONSTRUCTED_WALL_DET_LD
+---@field [508] "ConstructedWallLD" MAPTILE_CONSTRUCTED_WALL_DET_LD
+---@field ConstructedWallUD 509 MAPTILE_CONSTRUCTED_WALL_DET_UD
+---@field [509] "ConstructedWallUD" MAPTILE_CONSTRUCTED_WALL_DET_UD
+---@field ConstructedWallLR 510 MAPTILE_CONSTRUCTED_WALL_DET_LR
+---@field [510] "ConstructedWallLR" MAPTILE_CONSTRUCTED_WALL_DET_LR
+---@field ConstructedStairUD 511 MAPTILE_STAIR_UPDOWN_CONSTRUCTED
+---@field [511] "ConstructedStairUD" MAPTILE_STAIR_UPDOWN_CONSTRUCTED
+---@field ConstructedStairD 512 0x200
+---@field [512] "ConstructedStairD" 0x200
+---@field ConstructedStairU 513 MAPTILE_STAIR_UP_CONSTRUCTED
+---@field [513] "ConstructedStairU" MAPTILE_STAIR_UP_CONSTRUCTED
+---@field ConstructedRamp 514 MAPTILE_RAMP_CONSTRUCTED
+---@field [514] "ConstructedRamp" MAPTILE_RAMP_CONSTRUCTED
+---@field StoneFloorTrackN 515 MAPTILE_STONE_TRACK_N
+---@field [515] "StoneFloorTrackN" MAPTILE_STONE_TRACK_N
+---@field StoneFloorTrackS 516 MAPTILE_STONE_TRACK_S
+---@field [516] "StoneFloorTrackS" MAPTILE_STONE_TRACK_S
+---@field StoneFloorTrackE 517 MAPTILE_STONE_TRACK_E
+---@field [517] "StoneFloorTrackE" MAPTILE_STONE_TRACK_E
+---@field StoneFloorTrackW 518 MAPTILE_STONE_TRACK_W
+---@field [518] "StoneFloorTrackW" MAPTILE_STONE_TRACK_W
+---@field StoneFloorTrackNS 519 MAPTILE_STONE_TRACK_NS
+---@field [519] "StoneFloorTrackNS" MAPTILE_STONE_TRACK_NS
+---@field StoneFloorTrackNE 520 MAPTILE_STONE_TRACK_NE
+---@field [520] "StoneFloorTrackNE" MAPTILE_STONE_TRACK_NE
+---@field StoneFloorTrackNW 521 MAPTILE_STONE_TRACK_NW
+---@field [521] "StoneFloorTrackNW" MAPTILE_STONE_TRACK_NW
+---@field StoneFloorTrackSE 522 MAPTILE_STONE_TRACK_SE
+---@field [522] "StoneFloorTrackSE" MAPTILE_STONE_TRACK_SE
+---@field StoneFloorTrackSW 523 MAPTILE_STONE_TRACK_SW
+---@field [523] "StoneFloorTrackSW" MAPTILE_STONE_TRACK_SW
+---@field StoneFloorTrackEW 524 MAPTILE_STONE_TRACK_EW
+---@field [524] "StoneFloorTrackEW" MAPTILE_STONE_TRACK_EW
+---@field StoneFloorTrackNSE 525 MAPTILE_STONE_TRACK_NSE
+---@field [525] "StoneFloorTrackNSE" MAPTILE_STONE_TRACK_NSE
+---@field StoneFloorTrackNSW 526 MAPTILE_STONE_TRACK_NSW
+---@field [526] "StoneFloorTrackNSW" MAPTILE_STONE_TRACK_NSW
+---@field StoneFloorTrackNEW 527 MAPTILE_STONE_TRACK_NEW
+---@field [527] "StoneFloorTrackNEW" MAPTILE_STONE_TRACK_NEW
+---@field StoneFloorTrackSEW 528 0x210
+---@field [528] "StoneFloorTrackSEW" 0x210
+---@field StoneFloorTrackNSEW 529 MAPTILE_STONE_TRACK_NSEW
+---@field [529] "StoneFloorTrackNSEW" MAPTILE_STONE_TRACK_NSEW
+---@field LavaFloorTrackN 530 MAPTILE_LAVASTONE_TRACK_N
+---@field [530] "LavaFloorTrackN" MAPTILE_LAVASTONE_TRACK_N
+---@field LavaFloorTrackS 531 MAPTILE_LAVASTONE_TRACK_S
+---@field [531] "LavaFloorTrackS" MAPTILE_LAVASTONE_TRACK_S
+---@field LavaFloorTrackE 532 MAPTILE_LAVASTONE_TRACK_E
+---@field [532] "LavaFloorTrackE" MAPTILE_LAVASTONE_TRACK_E
+---@field LavaFloorTrackW 533 MAPTILE_LAVASTONE_TRACK_W
+---@field [533] "LavaFloorTrackW" MAPTILE_LAVASTONE_TRACK_W
+---@field LavaFloorTrackNS 534 MAPTILE_LAVASTONE_TRACK_NS
+---@field [534] "LavaFloorTrackNS" MAPTILE_LAVASTONE_TRACK_NS
+---@field LavaFloorTrackNE 535 MAPTILE_LAVASTONE_TRACK_NE
+---@field [535] "LavaFloorTrackNE" MAPTILE_LAVASTONE_TRACK_NE
+---@field LavaFloorTrackNW 536 MAPTILE_LAVASTONE_TRACK_NW
+---@field [536] "LavaFloorTrackNW" MAPTILE_LAVASTONE_TRACK_NW
+---@field LavaFloorTrackSE 537 MAPTILE_LAVASTONE_TRACK_SE
+---@field [537] "LavaFloorTrackSE" MAPTILE_LAVASTONE_TRACK_SE
+---@field LavaFloorTrackSW 538 MAPTILE_LAVASTONE_TRACK_SW
+---@field [538] "LavaFloorTrackSW" MAPTILE_LAVASTONE_TRACK_SW
+---@field LavaFloorTrackEW 539 MAPTILE_LAVASTONE_TRACK_EW
+---@field [539] "LavaFloorTrackEW" MAPTILE_LAVASTONE_TRACK_EW
+---@field LavaFloorTrackNSE 540 MAPTILE_LAVASTONE_TRACK_NSE
+---@field [540] "LavaFloorTrackNSE" MAPTILE_LAVASTONE_TRACK_NSE
+---@field LavaFloorTrackNSW 541 MAPTILE_LAVASTONE_TRACK_NSW
+---@field [541] "LavaFloorTrackNSW" MAPTILE_LAVASTONE_TRACK_NSW
+---@field LavaFloorTrackNEW 542 MAPTILE_LAVASTONE_TRACK_NEW
+---@field [542] "LavaFloorTrackNEW" MAPTILE_LAVASTONE_TRACK_NEW
+---@field LavaFloorTrackSEW 543 MAPTILE_LAVASTONE_TRACK_SEW
+---@field [543] "LavaFloorTrackSEW" MAPTILE_LAVASTONE_TRACK_SEW
+---@field LavaFloorTrackNSEW 544 0x220
+---@field [544] "LavaFloorTrackNSEW" 0x220
+---@field FeatureFloorTrackN 545 MAPTILE_FEATSTONE_TRACK_N
+---@field [545] "FeatureFloorTrackN" MAPTILE_FEATSTONE_TRACK_N
+---@field FeatureFloorTrackS 546 MAPTILE_FEATSTONE_TRACK_S
+---@field [546] "FeatureFloorTrackS" MAPTILE_FEATSTONE_TRACK_S
+---@field FeatureFloorTrackE 547 MAPTILE_FEATSTONE_TRACK_E
+---@field [547] "FeatureFloorTrackE" MAPTILE_FEATSTONE_TRACK_E
+---@field FeatureFloorTrackW 548 MAPTILE_FEATSTONE_TRACK_W
+---@field [548] "FeatureFloorTrackW" MAPTILE_FEATSTONE_TRACK_W
+---@field FeatureFloorTrackNS 549 MAPTILE_FEATSTONE_TRACK_NS
+---@field [549] "FeatureFloorTrackNS" MAPTILE_FEATSTONE_TRACK_NS
+---@field FeatureFloorTrackNE 550 MAPTILE_FEATSTONE_TRACK_NE
+---@field [550] "FeatureFloorTrackNE" MAPTILE_FEATSTONE_TRACK_NE
+---@field FeatureFloorTrackNW 551 MAPTILE_FEATSTONE_TRACK_NW
+---@field [551] "FeatureFloorTrackNW" MAPTILE_FEATSTONE_TRACK_NW
+---@field FeatureFloorTrackSE 552 MAPTILE_FEATSTONE_TRACK_SE
+---@field [552] "FeatureFloorTrackSE" MAPTILE_FEATSTONE_TRACK_SE
+---@field FeatureFloorTrackSW 553 MAPTILE_FEATSTONE_TRACK_SW
+---@field [553] "FeatureFloorTrackSW" MAPTILE_FEATSTONE_TRACK_SW
+---@field FeatureFloorTrackEW 554 MAPTILE_FEATSTONE_TRACK_EW
+---@field [554] "FeatureFloorTrackEW" MAPTILE_FEATSTONE_TRACK_EW
+---@field FeatureFloorTrackNSE 555 MAPTILE_FEATSTONE_TRACK_NSE
+---@field [555] "FeatureFloorTrackNSE" MAPTILE_FEATSTONE_TRACK_NSE
+---@field FeatureFloorTrackNSW 556 MAPTILE_FEATSTONE_TRACK_NSW
+---@field [556] "FeatureFloorTrackNSW" MAPTILE_FEATSTONE_TRACK_NSW
+---@field FeatureFloorTrackNEW 557 MAPTILE_FEATSTONE_TRACK_NEW
+---@field [557] "FeatureFloorTrackNEW" MAPTILE_FEATSTONE_TRACK_NEW
+---@field FeatureFloorTrackSEW 558 MAPTILE_FEATSTONE_TRACK_SEW
+---@field [558] "FeatureFloorTrackSEW" MAPTILE_FEATSTONE_TRACK_SEW
+---@field FeatureFloorTrackNSEW 559 MAPTILE_FEATSTONE_TRACK_NSEW
+---@field [559] "FeatureFloorTrackNSEW" MAPTILE_FEATSTONE_TRACK_NSEW
+---@field MineralFloorTrackN 560 0x230
+---@field [560] "MineralFloorTrackN" 0x230
+---@field MineralFloorTrackS 561 MAPTILE_MINSTONE_TRACK_S
+---@field [561] "MineralFloorTrackS" MAPTILE_MINSTONE_TRACK_S
+---@field MineralFloorTrackE 562 MAPTILE_MINSTONE_TRACK_E
+---@field [562] "MineralFloorTrackE" MAPTILE_MINSTONE_TRACK_E
+---@field MineralFloorTrackW 563 MAPTILE_MINSTONE_TRACK_W
+---@field [563] "MineralFloorTrackW" MAPTILE_MINSTONE_TRACK_W
+---@field MineralFloorTrackNS 564 MAPTILE_MINSTONE_TRACK_NS
+---@field [564] "MineralFloorTrackNS" MAPTILE_MINSTONE_TRACK_NS
+---@field MineralFloorTrackNE 565 MAPTILE_MINSTONE_TRACK_NE
+---@field [565] "MineralFloorTrackNE" MAPTILE_MINSTONE_TRACK_NE
+---@field MineralFloorTrackNW 566 MAPTILE_MINSTONE_TRACK_NW
+---@field [566] "MineralFloorTrackNW" MAPTILE_MINSTONE_TRACK_NW
+---@field MineralFloorTrackSE 567 MAPTILE_MINSTONE_TRACK_SE
+---@field [567] "MineralFloorTrackSE" MAPTILE_MINSTONE_TRACK_SE
+---@field MineralFloorTrackSW 568 MAPTILE_MINSTONE_TRACK_SW
+---@field [568] "MineralFloorTrackSW" MAPTILE_MINSTONE_TRACK_SW
+---@field MineralFloorTrackEW 569 MAPTILE_MINSTONE_TRACK_EW
+---@field [569] "MineralFloorTrackEW" MAPTILE_MINSTONE_TRACK_EW
+---@field MineralFloorTrackNSE 570 MAPTILE_MINSTONE_TRACK_NSE
+---@field [570] "MineralFloorTrackNSE" MAPTILE_MINSTONE_TRACK_NSE
+---@field MineralFloorTrackNSW 571 MAPTILE_MINSTONE_TRACK_NSW
+---@field [571] "MineralFloorTrackNSW" MAPTILE_MINSTONE_TRACK_NSW
+---@field MineralFloorTrackNEW 572 MAPTILE_MINSTONE_TRACK_NEW
+---@field [572] "MineralFloorTrackNEW" MAPTILE_MINSTONE_TRACK_NEW
+---@field MineralFloorTrackSEW 573 MAPTILE_MINSTONE_TRACK_SEW
+---@field [573] "MineralFloorTrackSEW" MAPTILE_MINSTONE_TRACK_SEW
+---@field MineralFloorTrackNSEW 574 MAPTILE_MINSTONE_TRACK_NSEW
+---@field [574] "MineralFloorTrackNSEW" MAPTILE_MINSTONE_TRACK_NSEW
+---@field FrozenFloorTrackN 575 MAPTILE_FROZEN_LIQUID_TRACK_N
+---@field [575] "FrozenFloorTrackN" MAPTILE_FROZEN_LIQUID_TRACK_N
+---@field FrozenFloorTrackS 576 0x240
+---@field [576] "FrozenFloorTrackS" 0x240
+---@field FrozenFloorTrackE 577 MAPTILE_FROZEN_LIQUID_TRACK_E
+---@field [577] "FrozenFloorTrackE" MAPTILE_FROZEN_LIQUID_TRACK_E
+---@field FrozenFloorTrackW 578 MAPTILE_FROZEN_LIQUID_TRACK_W
+---@field [578] "FrozenFloorTrackW" MAPTILE_FROZEN_LIQUID_TRACK_W
+---@field FrozenFloorTrackNS 579 MAPTILE_FROZEN_LIQUID_TRACK_NS
+---@field [579] "FrozenFloorTrackNS" MAPTILE_FROZEN_LIQUID_TRACK_NS
+---@field FrozenFloorTrackNE 580 MAPTILE_FROZEN_LIQUID_TRACK_NE
+---@field [580] "FrozenFloorTrackNE" MAPTILE_FROZEN_LIQUID_TRACK_NE
+---@field FrozenFloorTrackNW 581 MAPTILE_FROZEN_LIQUID_TRACK_NW
+---@field [581] "FrozenFloorTrackNW" MAPTILE_FROZEN_LIQUID_TRACK_NW
+---@field FrozenFloorTrackSE 582 MAPTILE_FROZEN_LIQUID_TRACK_SE
+---@field [582] "FrozenFloorTrackSE" MAPTILE_FROZEN_LIQUID_TRACK_SE
+---@field FrozenFloorTrackSW 583 MAPTILE_FROZEN_LIQUID_TRACK_SW
+---@field [583] "FrozenFloorTrackSW" MAPTILE_FROZEN_LIQUID_TRACK_SW
+---@field FrozenFloorTrackEW 584 MAPTILE_FROZEN_LIQUID_TRACK_EW
+---@field [584] "FrozenFloorTrackEW" MAPTILE_FROZEN_LIQUID_TRACK_EW
+---@field FrozenFloorTrackNSE 585 MAPTILE_FROZEN_LIQUID_TRACK_NSE
+---@field [585] "FrozenFloorTrackNSE" MAPTILE_FROZEN_LIQUID_TRACK_NSE
+---@field FrozenFloorTrackNSW 586 MAPTILE_FROZEN_LIQUID_TRACK_NSW
+---@field [586] "FrozenFloorTrackNSW" MAPTILE_FROZEN_LIQUID_TRACK_NSW
+---@field FrozenFloorTrackNEW 587 MAPTILE_FROZEN_LIQUID_TRACK_NEW
+---@field [587] "FrozenFloorTrackNEW" MAPTILE_FROZEN_LIQUID_TRACK_NEW
+---@field FrozenFloorTrackSEW 588 MAPTILE_FROZEN_LIQUID_TRACK_SEW
+---@field [588] "FrozenFloorTrackSEW" MAPTILE_FROZEN_LIQUID_TRACK_SEW
+---@field FrozenFloorTrackNSEW 589 MAPTILE_FROZEN_LIQUID_TRACK_NSEW
+---@field [589] "FrozenFloorTrackNSEW" MAPTILE_FROZEN_LIQUID_TRACK_NSEW
+---@field ConstructedFloorTrackN 590 MAPTILE_CONSTRUCTED_TRACK_N
+---@field [590] "ConstructedFloorTrackN" MAPTILE_CONSTRUCTED_TRACK_N
+---@field ConstructedFloorTrackS 591 MAPTILE_CONSTRUCTED_TRACK_S
+---@field [591] "ConstructedFloorTrackS" MAPTILE_CONSTRUCTED_TRACK_S
+---@field ConstructedFloorTrackE 592 0x250
+---@field [592] "ConstructedFloorTrackE" 0x250
+---@field ConstructedFloorTrackW 593 MAPTILE_CONSTRUCTED_TRACK_W
+---@field [593] "ConstructedFloorTrackW" MAPTILE_CONSTRUCTED_TRACK_W
+---@field ConstructedFloorTrackNS 594 MAPTILE_CONSTRUCTED_TRACK_NS
+---@field [594] "ConstructedFloorTrackNS" MAPTILE_CONSTRUCTED_TRACK_NS
+---@field ConstructedFloorTrackNE 595 MAPTILE_CONSTRUCTED_TRACK_NE
+---@field [595] "ConstructedFloorTrackNE" MAPTILE_CONSTRUCTED_TRACK_NE
+---@field ConstructedFloorTrackNW 596 MAPTILE_CONSTRUCTED_TRACK_NW
+---@field [596] "ConstructedFloorTrackNW" MAPTILE_CONSTRUCTED_TRACK_NW
+---@field ConstructedFloorTrackSE 597 MAPTILE_CONSTRUCTED_TRACK_SE
+---@field [597] "ConstructedFloorTrackSE" MAPTILE_CONSTRUCTED_TRACK_SE
+---@field ConstructedFloorTrackSW 598 MAPTILE_CONSTRUCTED_TRACK_SW
+---@field [598] "ConstructedFloorTrackSW" MAPTILE_CONSTRUCTED_TRACK_SW
+---@field ConstructedFloorTrackEW 599 MAPTILE_CONSTRUCTED_TRACK_EW
+---@field [599] "ConstructedFloorTrackEW" MAPTILE_CONSTRUCTED_TRACK_EW
+---@field ConstructedFloorTrackNSE 600 MAPTILE_CONSTRUCTED_TRACK_NSE
+---@field [600] "ConstructedFloorTrackNSE" MAPTILE_CONSTRUCTED_TRACK_NSE
+---@field ConstructedFloorTrackNSW 601 MAPTILE_CONSTRUCTED_TRACK_NSW
+---@field [601] "ConstructedFloorTrackNSW" MAPTILE_CONSTRUCTED_TRACK_NSW
+---@field ConstructedFloorTrackNEW 602 MAPTILE_CONSTRUCTED_TRACK_NEW
+---@field [602] "ConstructedFloorTrackNEW" MAPTILE_CONSTRUCTED_TRACK_NEW
+---@field ConstructedFloorTrackSEW 603 MAPTILE_CONSTRUCTED_TRACK_SEW
+---@field [603] "ConstructedFloorTrackSEW" MAPTILE_CONSTRUCTED_TRACK_SEW
+---@field ConstructedFloorTrackNSEW 604 MAPTILE_CONSTRUCTED_TRACK_NSEW
+---@field [604] "ConstructedFloorTrackNSEW" MAPTILE_CONSTRUCTED_TRACK_NSEW
+---@field StoneRampTrackN 605 MAPTILE_RAMP_STONE_TRACK_N
+---@field [605] "StoneRampTrackN" MAPTILE_RAMP_STONE_TRACK_N
+---@field StoneRampTrackS 606 MAPTILE_RAMP_STONE_TRACK_S
+---@field [606] "StoneRampTrackS" MAPTILE_RAMP_STONE_TRACK_S
+---@field StoneRampTrackE 607 MAPTILE_RAMP_STONE_TRACK_E
+---@field [607] "StoneRampTrackE" MAPTILE_RAMP_STONE_TRACK_E
+---@field StoneRampTrackW 608 0x260
+---@field [608] "StoneRampTrackW" 0x260
+---@field StoneRampTrackNS 609 MAPTILE_RAMP_STONE_TRACK_NS
+---@field [609] "StoneRampTrackNS" MAPTILE_RAMP_STONE_TRACK_NS
+---@field StoneRampTrackNE 610 MAPTILE_RAMP_STONE_TRACK_NE
+---@field [610] "StoneRampTrackNE" MAPTILE_RAMP_STONE_TRACK_NE
+---@field StoneRampTrackNW 611 MAPTILE_RAMP_STONE_TRACK_NW
+---@field [611] "StoneRampTrackNW" MAPTILE_RAMP_STONE_TRACK_NW
+---@field StoneRampTrackSE 612 MAPTILE_RAMP_STONE_TRACK_SE
+---@field [612] "StoneRampTrackSE" MAPTILE_RAMP_STONE_TRACK_SE
+---@field StoneRampTrackSW 613 MAPTILE_RAMP_STONE_TRACK_SW
+---@field [613] "StoneRampTrackSW" MAPTILE_RAMP_STONE_TRACK_SW
+---@field StoneRampTrackEW 614 MAPTILE_RAMP_STONE_TRACK_EW
+---@field [614] "StoneRampTrackEW" MAPTILE_RAMP_STONE_TRACK_EW
+---@field StoneRampTrackNSE 615 MAPTILE_RAMP_STONE_TRACK_NSE
+---@field [615] "StoneRampTrackNSE" MAPTILE_RAMP_STONE_TRACK_NSE
+---@field StoneRampTrackNSW 616 MAPTILE_RAMP_STONE_TRACK_NSW
+---@field [616] "StoneRampTrackNSW" MAPTILE_RAMP_STONE_TRACK_NSW
+---@field StoneRampTrackNEW 617 MAPTILE_RAMP_STONE_TRACK_NEW
+---@field [617] "StoneRampTrackNEW" MAPTILE_RAMP_STONE_TRACK_NEW
+---@field StoneRampTrackSEW 618 MAPTILE_RAMP_STONE_TRACK_SEW
+---@field [618] "StoneRampTrackSEW" MAPTILE_RAMP_STONE_TRACK_SEW
+---@field StoneRampTrackNSEW 619 MAPTILE_RAMP_STONE_TRACK_NSEW
+---@field [619] "StoneRampTrackNSEW" MAPTILE_RAMP_STONE_TRACK_NSEW
+---@field LavaRampTrackN 620 MAPTILE_RAMP_LAVASTONE_TRACK_N
+---@field [620] "LavaRampTrackN" MAPTILE_RAMP_LAVASTONE_TRACK_N
+---@field LavaRampTrackS 621 MAPTILE_RAMP_LAVASTONE_TRACK_S
+---@field [621] "LavaRampTrackS" MAPTILE_RAMP_LAVASTONE_TRACK_S
+---@field LavaRampTrackE 622 MAPTILE_RAMP_LAVASTONE_TRACK_E
+---@field [622] "LavaRampTrackE" MAPTILE_RAMP_LAVASTONE_TRACK_E
+---@field LavaRampTrackW 623 MAPTILE_RAMP_LAVASTONE_TRACK_W
+---@field [623] "LavaRampTrackW" MAPTILE_RAMP_LAVASTONE_TRACK_W
+---@field LavaRampTrackNS 624 0x270
+---@field [624] "LavaRampTrackNS" 0x270
+---@field LavaRampTrackNE 625 MAPTILE_RAMP_LAVASTONE_TRACK_NE
+---@field [625] "LavaRampTrackNE" MAPTILE_RAMP_LAVASTONE_TRACK_NE
+---@field LavaRampTrackNW 626 MAPTILE_RAMP_LAVASTONE_TRACK_NW
+---@field [626] "LavaRampTrackNW" MAPTILE_RAMP_LAVASTONE_TRACK_NW
+---@field LavaRampTrackSE 627 MAPTILE_RAMP_LAVASTONE_TRACK_SE
+---@field [627] "LavaRampTrackSE" MAPTILE_RAMP_LAVASTONE_TRACK_SE
+---@field LavaRampTrackSW 628 MAPTILE_RAMP_LAVASTONE_TRACK_SW
+---@field [628] "LavaRampTrackSW" MAPTILE_RAMP_LAVASTONE_TRACK_SW
+---@field LavaRampTrackEW 629 MAPTILE_RAMP_LAVASTONE_TRACK_EW
+---@field [629] "LavaRampTrackEW" MAPTILE_RAMP_LAVASTONE_TRACK_EW
+---@field LavaRampTrackNSE 630 MAPTILE_RAMP_LAVASTONE_TRACK_NSE
+---@field [630] "LavaRampTrackNSE" MAPTILE_RAMP_LAVASTONE_TRACK_NSE
+---@field LavaRampTrackNSW 631 MAPTILE_RAMP_LAVASTONE_TRACK_NSW
+---@field [631] "LavaRampTrackNSW" MAPTILE_RAMP_LAVASTONE_TRACK_NSW
+---@field LavaRampTrackNEW 632 MAPTILE_RAMP_LAVASTONE_TRACK_NEW
+---@field [632] "LavaRampTrackNEW" MAPTILE_RAMP_LAVASTONE_TRACK_NEW
+---@field LavaRampTrackSEW 633 MAPTILE_RAMP_LAVASTONE_TRACK_SEW
+---@field [633] "LavaRampTrackSEW" MAPTILE_RAMP_LAVASTONE_TRACK_SEW
+---@field LavaRampTrackNSEW 634 MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
+---@field [634] "LavaRampTrackNSEW" MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
+---@field FeatureRampTrackN 635 MAPTILE_RAMP_FEATSTONE_TRACK_N
+---@field [635] "FeatureRampTrackN" MAPTILE_RAMP_FEATSTONE_TRACK_N
+---@field FeatureRampTrackS 636 MAPTILE_RAMP_FEATSTONE_TRACK_S
+---@field [636] "FeatureRampTrackS" MAPTILE_RAMP_FEATSTONE_TRACK_S
+---@field FeatureRampTrackE 637 MAPTILE_RAMP_FEATSTONE_TRACK_E
+---@field [637] "FeatureRampTrackE" MAPTILE_RAMP_FEATSTONE_TRACK_E
+---@field FeatureRampTrackW 638 MAPTILE_RAMP_FEATSTONE_TRACK_W
+---@field [638] "FeatureRampTrackW" MAPTILE_RAMP_FEATSTONE_TRACK_W
+---@field FeatureRampTrackNS 639 MAPTILE_RAMP_FEATSTONE_TRACK_NS
+---@field [639] "FeatureRampTrackNS" MAPTILE_RAMP_FEATSTONE_TRACK_NS
+---@field FeatureRampTrackNE 640 0x280
+---@field [640] "FeatureRampTrackNE" 0x280
+---@field FeatureRampTrackNW 641 MAPTILE_RAMP_FEATSTONE_TRACK_NW
+---@field [641] "FeatureRampTrackNW" MAPTILE_RAMP_FEATSTONE_TRACK_NW
+---@field FeatureRampTrackSE 642 MAPTILE_RAMP_FEATSTONE_TRACK_SE
+---@field [642] "FeatureRampTrackSE" MAPTILE_RAMP_FEATSTONE_TRACK_SE
+---@field FeatureRampTrackSW 643 MAPTILE_RAMP_FEATSTONE_TRACK_SW
+---@field [643] "FeatureRampTrackSW" MAPTILE_RAMP_FEATSTONE_TRACK_SW
+---@field FeatureRampTrackEW 644 MAPTILE_RAMP_FEATSTONE_TRACK_EW
+---@field [644] "FeatureRampTrackEW" MAPTILE_RAMP_FEATSTONE_TRACK_EW
+---@field FeatureRampTrackNSE 645 MAPTILE_RAMP_FEATSTONE_TRACK_NSE
+---@field [645] "FeatureRampTrackNSE" MAPTILE_RAMP_FEATSTONE_TRACK_NSE
+---@field FeatureRampTrackNSW 646 MAPTILE_RAMP_FEATSTONE_TRACK_NSW
+---@field [646] "FeatureRampTrackNSW" MAPTILE_RAMP_FEATSTONE_TRACK_NSW
+---@field FeatureRampTrackNEW 647 MAPTILE_RAMP_FEATSTONE_TRACK_NEW
+---@field [647] "FeatureRampTrackNEW" MAPTILE_RAMP_FEATSTONE_TRACK_NEW
+---@field FeatureRampTrackSEW 648 MAPTILE_RAMP_FEATSTONE_TRACK_SEW
+---@field [648] "FeatureRampTrackSEW" MAPTILE_RAMP_FEATSTONE_TRACK_SEW
+---@field FeatureRampTrackNSEW 649 MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
+---@field [649] "FeatureRampTrackNSEW" MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
+---@field MineralRampTrackN 650 MAPTILE_RAMP_MINSTONE_TRACK_N
+---@field [650] "MineralRampTrackN" MAPTILE_RAMP_MINSTONE_TRACK_N
+---@field MineralRampTrackS 651 MAPTILE_RAMP_MINSTONE_TRACK_S
+---@field [651] "MineralRampTrackS" MAPTILE_RAMP_MINSTONE_TRACK_S
+---@field MineralRampTrackE 652 MAPTILE_RAMP_MINSTONE_TRACK_E
+---@field [652] "MineralRampTrackE" MAPTILE_RAMP_MINSTONE_TRACK_E
+---@field MineralRampTrackW 653 MAPTILE_RAMP_MINSTONE_TRACK_W
+---@field [653] "MineralRampTrackW" MAPTILE_RAMP_MINSTONE_TRACK_W
+---@field MineralRampTrackNS 654 MAPTILE_RAMP_MINSTONE_TRACK_NS
+---@field [654] "MineralRampTrackNS" MAPTILE_RAMP_MINSTONE_TRACK_NS
+---@field MineralRampTrackNE 655 MAPTILE_RAMP_MINSTONE_TRACK_NE
+---@field [655] "MineralRampTrackNE" MAPTILE_RAMP_MINSTONE_TRACK_NE
+---@field MineralRampTrackNW 656 0x290
+---@field [656] "MineralRampTrackNW" 0x290
+---@field MineralRampTrackSE 657 MAPTILE_RAMP_MINSTONE_TRACK_SE
+---@field [657] "MineralRampTrackSE" MAPTILE_RAMP_MINSTONE_TRACK_SE
+---@field MineralRampTrackSW 658 MAPTILE_RAMP_MINSTONE_TRACK_SW
+---@field [658] "MineralRampTrackSW" MAPTILE_RAMP_MINSTONE_TRACK_SW
+---@field MineralRampTrackEW 659 MAPTILE_RAMP_MINSTONE_TRACK_EW
+---@field [659] "MineralRampTrackEW" MAPTILE_RAMP_MINSTONE_TRACK_EW
+---@field MineralRampTrackNSE 660 MAPTILE_RAMP_MINSTONE_TRACK_NSE
+---@field [660] "MineralRampTrackNSE" MAPTILE_RAMP_MINSTONE_TRACK_NSE
+---@field MineralRampTrackNSW 661 MAPTILE_RAMP_MINSTONE_TRACK_NSW
+---@field [661] "MineralRampTrackNSW" MAPTILE_RAMP_MINSTONE_TRACK_NSW
+---@field MineralRampTrackNEW 662 MAPTILE_RAMP_MINSTONE_TRACK_NEW
+---@field [662] "MineralRampTrackNEW" MAPTILE_RAMP_MINSTONE_TRACK_NEW
+---@field MineralRampTrackSEW 663 MAPTILE_RAMP_MINSTONE_TRACK_SEW
+---@field [663] "MineralRampTrackSEW" MAPTILE_RAMP_MINSTONE_TRACK_SEW
+---@field MineralRampTrackNSEW 664 MAPTILE_RAMP_MINSTONE_TRACK_NSEW
+---@field [664] "MineralRampTrackNSEW" MAPTILE_RAMP_MINSTONE_TRACK_NSEW
+---@field FrozenRampTrackN 665 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
+---@field [665] "FrozenRampTrackN" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
+---@field FrozenRampTrackS 666 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
+---@field [666] "FrozenRampTrackS" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
+---@field FrozenRampTrackE 667 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
+---@field [667] "FrozenRampTrackE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
+---@field FrozenRampTrackW 668 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
+---@field [668] "FrozenRampTrackW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
+---@field FrozenRampTrackNS 669 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
+---@field [669] "FrozenRampTrackNS" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
+---@field FrozenRampTrackNE 670 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
+---@field [670] "FrozenRampTrackNE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
+---@field FrozenRampTrackNW 671 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
+---@field [671] "FrozenRampTrackNW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
+---@field FrozenRampTrackSE 672 0x2A0
+---@field [672] "FrozenRampTrackSE" 0x2A0
+---@field FrozenRampTrackSW 673 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
+---@field [673] "FrozenRampTrackSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
+---@field FrozenRampTrackEW 674 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
+---@field [674] "FrozenRampTrackEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
+---@field FrozenRampTrackNSE 675 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
+---@field [675] "FrozenRampTrackNSE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
+---@field FrozenRampTrackNSW 676 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
+---@field [676] "FrozenRampTrackNSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
+---@field FrozenRampTrackNEW 677 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
+---@field [677] "FrozenRampTrackNEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
+---@field FrozenRampTrackSEW 678 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
+---@field [678] "FrozenRampTrackSEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
+---@field FrozenRampTrackNSEW 679 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
+---@field [679] "FrozenRampTrackNSEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
+---@field ConstructedRampTrackN 680 MAPTILE_RAMP_CONSTRUCTED_TRACK_N
+---@field [680] "ConstructedRampTrackN" MAPTILE_RAMP_CONSTRUCTED_TRACK_N
+---@field ConstructedRampTrackS 681 MAPTILE_RAMP_CONSTRUCTED_TRACK_S
+---@field [681] "ConstructedRampTrackS" MAPTILE_RAMP_CONSTRUCTED_TRACK_S
+---@field ConstructedRampTrackE 682 MAPTILE_RAMP_CONSTRUCTED_TRACK_E
+---@field [682] "ConstructedRampTrackE" MAPTILE_RAMP_CONSTRUCTED_TRACK_E
+---@field ConstructedRampTrackW 683 MAPTILE_RAMP_CONSTRUCTED_TRACK_W
+---@field [683] "ConstructedRampTrackW" MAPTILE_RAMP_CONSTRUCTED_TRACK_W
+---@field ConstructedRampTrackNS 684 MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
+---@field [684] "ConstructedRampTrackNS" MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
+---@field ConstructedRampTrackNE 685 MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
+---@field [685] "ConstructedRampTrackNE" MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
+---@field ConstructedRampTrackNW 686 MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
+---@field [686] "ConstructedRampTrackNW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
+---@field ConstructedRampTrackSE 687 MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
+---@field [687] "ConstructedRampTrackSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
+---@field ConstructedRampTrackSW 688 0x2B0
+---@field [688] "ConstructedRampTrackSW" 0x2B0
+---@field ConstructedRampTrackEW 689 MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
+---@field [689] "ConstructedRampTrackEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
+---@field ConstructedRampTrackNSE 690 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
+---@field [690] "ConstructedRampTrackNSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
+---@field ConstructedRampTrackNSW 691 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
+---@field [691] "ConstructedRampTrackNSW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
+---@field ConstructedRampTrackNEW 692 MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
+---@field [692] "ConstructedRampTrackNEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
+---@field ConstructedRampTrackSEW 693 MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
+---@field [693] "ConstructedRampTrackSEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
+---@field ConstructedRampTrackNSEW 694 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
+---@field [694] "ConstructedRampTrackNSEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
+---@field Unused695 695 MAPTILE_UNUSED_695
+---@field [695] "Unused695" MAPTILE_UNUSED_695
+---@field Unused696 696 MAPTILE_UNUSED_696
+---@field [696] "Unused696" MAPTILE_UNUSED_696
+df.tiletype = {}
+
+---@class tiletype_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.tiletype._attr_entry_type = {}
+
+---@class (exact) tiletype_attr_entry_type_fields
+---@field caption DFCompoundField bay12: MapTileType<br>Declare attributes:
+---@field shape DFCompoundField
+---@field material DFCompoundField
+---@field variant DFCompoundField
+---@field special DFCompoundField
+---@field direction DFCompoundField
+df.tiletype._attr_entry_type._fields = {}
+
+---@class tiletype_attrs
+---@field Void { caption: "void", shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field RampTop { caption: "ramp top", shape: "RAMP_TOP", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MurkyPool { caption: "murky pool", shape: "FLOOR", material: "POOL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MurkyPoolRamp { caption: "murky pool slope", shape: "RAMP", material: "POOL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairU { caption: "underworld gate up", shape: "STAIR_UP", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairD { caption: "underworld gate down", shape: "STAIR_DOWN", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairUD { caption: "underworld gate up/down", shape: "STAIR_UPDOWN", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapInterior { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeCapWallThickSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SW" }
+---@field TreeCapWallThickSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SE" }
+---@field TreeCapWallThickNW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NW" }
+---@field TreeCapWallThickNE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NE" }
+---@field TreeCapWallThickN { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "N" }
+---@field TreeCapWallThickS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "N" }
+---@field TreeCapWallThickW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "W" }
+---@field TreeCapWallThickE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "E" }
+---@field TreeCapWallNSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSWE" }
+---@field TreeCapWallNSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSW" }
+---@field TreeCapWallNSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSE" }
+---@field Driftwood { caption: "driftwood", shape: "FLOOR", material: "DRIFTWOOD", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapWallNWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NWE" }
+---@field TreeCapWallSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SWE" }
+---@field TreeCapWallNS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NS" }
+---@field TreeCapWallWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "WE" }
+---@field Unused999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairUD { caption: "ice stair up/down", shape: "STAIR_UPDOWN", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairD { caption: "ice stair down", shape: "STAIR_DOWN", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairU { caption: "ice stair up", shape: "STAIR_UP", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused9999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused99999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused999999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapInterior { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field OpenSpace { caption: "open space", shape: "EMPTY", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SW" }
+---@field Shrub { caption: "shrub", shape: "SHRUB", material: "PLANT", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field Chasm { caption: "chasm", shape: "ENDLESS_PIT", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairUD { caption: "obsidian stair up/down", shape: "STAIR_UPDOWN", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairD { caption: "obsidian stair down", shape: "STAIR_DOWN", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairU { caption: "obsidian stair up", shape: "STAIR_UP", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairUD { caption: "soil stair up/down", shape: "STAIR_UPDOWN", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairD { caption: "soil stair down", shape: "STAIR_DOWN", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairU { caption: "soil stair up", shape: "STAIR_UP", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field EeriePit { caption: "eerie pit", shape: "ENDLESS_PIT", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneFloorSmooth { caption: "smooth stone floor", shape: "FLOOR", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field LavaFloorSmooth { caption: "smooth obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FeatureFloorSmooth { caption: "smooth featstone floor", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field MineralFloorSmooth { caption: "smooth vein floor", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FrozenFloorSmooth { caption: "smooth ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadCapWallThickSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SE" }
+---@field Grass1StairUD { caption: "light grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass1StairD { caption: "light grass stair down", shape: "STAIR_DOWN", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass1StairU { caption: "light grass stair up", shape: "STAIR_UP", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairUD { caption: "dark grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairD { caption: "dark grass stair down", shape: "STAIR_DOWN", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairU { caption: "dark grass stair up", shape: "STAIR_UP", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairUD { caption: "stone stair up/down", shape: "STAIR_UPDOWN", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairD { caption: "stone stair down", shape: "STAIR_DOWN", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairU { caption: "stone stair up", shape: "STAIR_UP", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairUD { caption: "vein stair up/down", shape: "STAIR_UPDOWN", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairD { caption: "vein stair down", shape: "STAIR_DOWN", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairU { caption: "vein stair up", shape: "STAIR_UP", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairUD { caption: "featstone stair up/down", shape: "STAIR_UPDOWN", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairD { caption: "featstone stair down", shape: "STAIR_DOWN", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairU { caption: "featstone stair up", shape: "STAIR_UP", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickNW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NW" }
+---@field StoneFortification { caption: "stone fortification", shape: "FORTIFICATION", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickNE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NE" }
+---@field Campfire { caption: "campfire", shape: "FLOOR", material: "CAMPFIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickN { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "N" }
+---@field TreeDeadCapWallThickS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "S" }
+---@field Fire { caption: "fire", shape: "FLOOR", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeTrunk { caption: "fire", shape: "WALL", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeBranches { caption: "fire", shape: "BRANCH", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeTwigs { caption: "fire", shape: "TWIG", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapWall { caption: "fire", shape: "WALL", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapRamp { caption: "fire", shape: "RAMP", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapFloor { caption: "fire", shape: "FLOOR", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "W" }
+---@field TreeDeadCapWallThickE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "E" }
+---@field StonePillar { caption: "stone pillar", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field LavaPillar { caption: "obsidian pillar", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FeaturePillar { caption: "featstone pillar", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field MineralPillar { caption: "vein pillar", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FrozenPillar { caption: "ice pillar", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadCapWallNSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSWE" }
+---@field TreeDeadCapWallNSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSW" }
+---@field TreeDeadCapWallNSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSE" }
+---@field TreeDeadCapWallNWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NWE" }
+---@field TreeDeadCapWallSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SWE" }
+---@field Waterfall { caption: "waterfall", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "WATERFALL", direction: "--------" }
+---@field RiverSource { caption: "river source", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "RIVER_SOURCE", direction: "--------" }
+---@field TreeRootSloping { caption: "sloping roots", shape: "RAMP", material: "ROOT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeRoots { caption: "roots", shape: "WALL", material: "ROOT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTrunkPillar { caption: "trunk pillar", shape: "WALL", material: "TREE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeTrunkSloping { caption: "sloping trunk", shape: "RAMP", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTrunkThickN { caption: "trunk (N)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkThickS { caption: "trunk (S)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkThickE { caption: "trunk (E)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeTrunkThickW { caption: "trunk (W)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeTrunkThickNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeTrunkThickNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeTrunkThickSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeTrunkThickSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeTrunkBranchN { caption: "trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkBranchS { caption: "trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkBranchE { caption: "trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeTrunkBranchW { caption: "trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeBranchNS { caption: "branch (NS)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NS" }
+---@field TreeBranchEW { caption: "branch (EW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "EW" }
+---@field TreeBranchesSmooth { caption: "smooth branch", shape: "BRANCH", material: "TREE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadBranchesSmooth { caption: "smooth dead branch", shape: "BRANCH", material: "TREE", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeBranchNW { caption: "branch (NW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeBranchNE { caption: "branch (NE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeBranchSW { caption: "branch (SW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeBranchSE { caption: "branch (SE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeBranches { caption: "branches", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTwigs { caption: "twigs", shape: "TWIG", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapRamp { caption: "cap ramp", shape: "RAMP", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapPillar { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeCapWallN { caption: "cap wall (N)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeCapWallS { caption: "cap wall (S)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeCapWallE { caption: "cap wall (E)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeCapWallW { caption: "cap wall (W)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeCapWallNW { caption: "cap wall (NW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeCapWallNE { caption: "cap wall (NE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeCapWallSW { caption: "cap wall (SW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeCapWallSE { caption: "cap wall (SE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeCapFloor1 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field TreeCapFloor2 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field TreeCapFloor3 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field TreeCapFloor4 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field TreeDeadRootSloping { caption: "dead sloping roots", shape: "RAMP", material: "ROOT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadRoots { caption: "dead roots", shape: "WALL", material: "ROOT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTrunkPillar { caption: "dead trunk pillar", shape: "WALL", material: "TREE", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeDeadTrunkSloping { caption: "dead sloping trunk", shape: "RAMP", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTrunkThickN { caption: "dead trunk (N)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkThickS { caption: "dead trunk (S)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadTrunkThickE { caption: "dead trunk (E)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadTrunkThickW { caption: "dead trunk (W)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadTrunkThickNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadTrunkThickNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadTrunkThickSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadTrunkThickSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadTrunkBranchN { caption: "dead trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkBranchS { caption: "dead trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadTrunkBranchE { caption: "dead trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadTrunkBranchW { caption: "dead trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadBranchNS { caption: "dead branch (NS)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NS" }
+---@field TreeDeadBranchEW { caption: "dead branch (EW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "EW" }
+---@field TreeBranch { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeDeadBranch { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeDeadBranchNW { caption: "dead branch (NW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadBranchNE { caption: "dead branch (NE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadBranchSW { caption: "dead branch (SW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadBranchSE { caption: "dead branch (SE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadBranches { caption: "dead branches", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTwigs { caption: "dead twigs", shape: "TWIG", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapRamp { caption: "dead cap ramp", shape: "RAMP", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapPillar { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeDeadCapWallN { caption: "dead cap wall (N)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadCapWallS { caption: "dead cap wall (S)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadCapWallE { caption: "dead cap wall (E)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadCapWallW { caption: "dead cap wall (W)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadCapWallNW { caption: "dead cap wall (NW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadCapWallNE { caption: "dead cap wall (NE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadCapWallSW { caption: "dead cap wall (SW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadCapWallSE { caption: "dead cap wall (SE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadCapFloor1 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor2 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor3 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor4 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapWallNS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NS" }
+---@field StoneWallWorn1 { caption: "worn 1 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field StoneWallWorn2 { caption: "worn 2 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field StoneWallWorn3 { caption: "worn 3 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field TreeBranchNSE { caption: "branches (NSE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSE" }
+---@field TreeBranchNSW { caption: "branches (NSW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSW" }
+---@field TreeBranchNEW { caption: "branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NEW" }
+---@field TreeBranchSEW { caption: "branches (SEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SEW" }
+---@field TreeBranchNSEW { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeDeadBranchNSE { caption: "dead branches (NSW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSW" }
+---@field TreeDeadBranchNSW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadBranchNEW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadBranchSEW { caption: "dead branches (SEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SEW" }
+---@field TreeDeadBranchNSEW { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeTrunkNSE { caption: "trunk (NSE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSE" }
+---@field TreeTrunkNSW { caption: "trunk (NSW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSW" }
+---@field TreeTrunkNEW { caption: "trunk (NEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NEW" }
+---@field TreeTrunkSEW { caption: "trunk (SEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SEW" }
+---@field TreeTrunkNS { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NS" }
+---@field TreeTrunkEW { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "EW" }
+---@field TreeTrunkNSEW { caption: "trunk (NSEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeTrunkInterior { caption: "trunk interior", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadTrunkNSE { caption: "dead trunk (NSE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSE" }
+---@field TreeDeadTrunkNSW { caption: "dead trunk (NSW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSW" }
+---@field TreeDeadTrunkNEW { caption: "dead trunk (NEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadTrunkSEW { caption: "dead trunk (SEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SEW" }
+---@field TreeDeadTrunkNS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NS" }
+---@field TreeDeadTrunkEW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "EW" }
+---@field TreeDeadTrunkNSEW { caption: "dead trunk (NSEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeDeadTrunkInterior { caption: "dead trunk interior", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeTrunkNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeTrunkNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeTrunkSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeTrunkSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeDeadTrunkNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadTrunkNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadTrunkSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadTrunkSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeTrunkN { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkS { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkW { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeTrunkE { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeDeadTrunkN { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field StoneWall { caption: "stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field TreeDeadTrunkW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadTrunkE { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeDeadBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadCapPillarWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "WE" }
+---@field Sapling { caption: "sapling", shape: "SAPLING", material: "PLANT", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field Unused888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDryRamp { caption: "dry grass ramp", shape: "RAMP", material: "GRASS_DRY", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDeadRamp { caption: "dead grass ramp", shape: "RAMP", material: "GRASS_DEAD", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassLightRamp { caption: "light grass ramp", shape: "RAMP", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDarkRamp { caption: "dark grass ramp", shape: "RAMP", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneRamp { caption: "stone ramp", shape: "RAMP", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaRamp { caption: "obsidian ramp", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureRamp { caption: "featstone ramp", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralRamp { caption: "vein ramp", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilRamp { caption: "soil ramp", shape: "RAMP", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Ashes1 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field Ashes2 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field Ashes3 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field FrozenRamp { caption: "ice ramp", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused8888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused88888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused888888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused245 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused246 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused247 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused248 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused249 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused250 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused251 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused252 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused253 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenFloor2 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field FrozenFloor3 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field FrozenFloor4 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field FurrowedSoil { caption: "furrowed soil", shape: "FLOOR", material: "SOIL", variant: "NONE", special: "FURROWED", direction: "--------" }
+---@field FrozenFloor1 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field SemiMoltenRock { caption: "semi-molten rock", shape: "WALL", material: "MAGMA", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MagmaFlow { caption: "magma flow", shape: "FLOOR", material: "MAGMA", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilWall { caption: "soil wall", shape: "WALL", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GlowingBarrier { caption: "glowing barrier", shape: "WALL", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GlowingFloor { caption: "glowing floor", shape: "FLOOR", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused264 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaWallSmoothRD2 { caption: "smooth obsidian wall RD2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field LavaWallSmoothR2D { caption: "smooth obsidian wall R2D", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field LavaWallSmoothR2U { caption: "smooth obsidian wall R2U", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field LavaWallSmoothRU2 { caption: "smooth obsidian wall RU2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field LavaWallSmoothL2U { caption: "smooth obsidian wall L2U", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field LavaWallSmoothLU2 { caption: "smooth obsidian wall LU2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field LavaWallSmoothL2D { caption: "smooth obsidian wall L2D", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field LavaWallSmoothLD2 { caption: "smooth obsidian wall LD2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field LavaWallSmoothLRUD { caption: "smooth obsidian wall LRUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field LavaWallSmoothRUD { caption: "smooth obsidian wall RUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field LavaWallSmoothLRD { caption: "smooth obsidian wall LRD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field LavaWallSmoothLRU { caption: "smooth obsidian wall LRU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field LavaWallSmoothLUD { caption: "smooth obsidian wall LUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field LavaWallSmoothRD { caption: "smooth obsidian wall RD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field LavaWallSmoothRU { caption: "smooth obsidian wall RU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field LavaWallSmoothLU { caption: "smooth obsidian wall LU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field LavaWallSmoothLD { caption: "smooth obsidian wall LD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field LavaWallSmoothUD { caption: "smooth obsidian wall UD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field LavaWallSmoothLR { caption: "smooth obsidian wall LR", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field FeatureWallSmoothRD2 { caption: "smooth featstone wall RD2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field FeatureWallSmoothR2D { caption: "smooth featstone wall R2D", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field FeatureWallSmoothR2U { caption: "smooth featstone wall R2U", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field FeatureWallSmoothRU2 { caption: "smooth featstone wall RU2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field FeatureWallSmoothL2U { caption: "smooth featstone wall L2U", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field FeatureWallSmoothLU2 { caption: "smooth featstone wall LU2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field FeatureWallSmoothL2D { caption: "smooth featstone wall L2D", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field FeatureWallSmoothLD2 { caption: "smooth featstone wall LD2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field FeatureWallSmoothLRUD { caption: "smooth featstone wall LRUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field FeatureWallSmoothRUD { caption: "smooth featstone wall RUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field FeatureWallSmoothLRD { caption: "smooth featstone wall LRD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field FeatureWallSmoothLRU { caption: "smooth featstone wall LRU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field FeatureWallSmoothLUD { caption: "smooth featstone wall LUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field FeatureWallSmoothRD { caption: "smooth featstone wall RD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field FeatureWallSmoothRU { caption: "smooth featstone wall RU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field FeatureWallSmoothLU { caption: "smooth featstone wall LU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field FeatureWallSmoothLD { caption: "smooth featstone wall LD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field FeatureWallSmoothUD { caption: "smooth featstone wall UD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field FeatureWallSmoothLR { caption: "smooth featstone wall LR", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field StoneWallSmoothRD2 { caption: "smooth stone wall RD2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field StoneWallSmoothR2D { caption: "smooth stone wall R2D", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field StoneWallSmoothR2U { caption: "smooth stone wall R2U", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field StoneWallSmoothRU2 { caption: "smooth stone wall RU2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field StoneWallSmoothL2U { caption: "smooth stone wall L2U", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field StoneWallSmoothLU2 { caption: "smooth stone wall LU2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field StoneWallSmoothL2D { caption: "smooth stone wall L2D", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field StoneWallSmoothLD2 { caption: "smooth stone wall LD2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field StoneWallSmoothLRUD { caption: "smooth stone wall LRUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field StoneWallSmoothRUD { caption: "smooth stone wall RUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field StoneWallSmoothLRD { caption: "smooth stone wall LRD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field StoneWallSmoothLRU { caption: "smooth stone wall LRU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field StoneWallSmoothLUD { caption: "smooth stone wall LUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field StoneWallSmoothRD { caption: "smooth stone wall RD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field StoneWallSmoothRU { caption: "smooth stone wall RU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field StoneWallSmoothLU { caption: "smooth stone wall LU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field StoneWallSmoothLD { caption: "smooth stone wall LD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field StoneWallSmoothUD { caption: "smooth stone wall UD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field StoneWallSmoothLR { caption: "smooth stone wall LR", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field LavaFortification { caption: "obsidian fortification", shape: "FORTIFICATION", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureFortification { caption: "featstone fortification", shape: "FORTIFICATION", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaWallWorn1 { caption: "worn 1 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field LavaWallWorn2 { caption: "worn 2 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field LavaWallWorn3 { caption: "worn 3 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field LavaWall { caption: "obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field FeatureWallWorn1 { caption: "worn 1 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field FeatureWallWorn2 { caption: "worn 2 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field FeatureWallWorn3 { caption: "worn 3 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field FeatureWall { caption: "featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field StoneFloor1 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field StoneFloor2 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field StoneFloor3 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field StoneFloor4 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field LavaFloor1 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field LavaFloor2 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field LavaFloor3 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field LavaFloor4 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor1 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor2 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor3 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor4 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field GrassDarkFloor1 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor2 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor3 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor4 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field SoilFloor1 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field SoilFloor2 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field SoilFloor3 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field SoilFloor4 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field SoilWetFloor1 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "WET", direction: "--------" }
+---@field SoilWetFloor2 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "WET", direction: "--------" }
+---@field SoilWetFloor3 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "WET", direction: "--------" }
+---@field SoilWetFloor4 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "WET", direction: "--------" }
+---@field FrozenFortification { caption: "ice fortification", shape: "FORTIFICATION", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenWallWorn1 { caption: "worn 1 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field FrozenWallWorn2 { caption: "worn 2 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field FrozenWallWorn3 { caption: "worn 3 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field FrozenWall { caption: "ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field RiverN { caption: "river N", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "N" }
+---@field RiverS { caption: "river S", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "S" }
+---@field RiverE { caption: "river E", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "E" }
+---@field RiverW { caption: "river W", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "W" }
+---@field RiverNW { caption: "river NW", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "NW" }
+---@field RiverNE { caption: "river NE", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "NE" }
+---@field RiverSW { caption: "river SW", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "SW" }
+---@field RiverSE { caption: "river SE", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "SE" }
+---@field BrookN { caption: "brook bed N", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "N" }
+---@field BrookS { caption: "brook bed S", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "S" }
+---@field BrookE { caption: "brook bed E", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "E" }
+---@field BrookW { caption: "brook bed W", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "W" }
+---@field BrookNW { caption: "brook bed NW", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "NW" }
+---@field BrookNE { caption: "brook bed NE", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "NE" }
+---@field BrookSW { caption: "brook bed SW", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "SW" }
+---@field BrookSE { caption: "brook bed SE", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "SE" }
+---@field BrookTop1 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field BrookTop2 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field BrookTop3 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field BrookTop4 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field Unused381 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused382 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDryFloor1 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDryFloor2 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDryFloor3 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDryFloor4 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field Unused387 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SaplingDead { caption: "dead sapling", shape: "SAPLING", material: "PLANT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field ShrubDead { caption: "dead shrub", shape: "SHRUB", material: "PLANT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field GrassDeadFloor1 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor2 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor3 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor4 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field GrassLightFloor1 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassLightFloor2 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassLightFloor3 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassLightFloor4 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field StoneBoulder { caption: "boulder", shape: "BOULDER", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaBoulder { caption: "obsidian boulder", shape: "BOULDER", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureBoulder { caption: "featstone boulder", shape: "BOULDER", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StonePebbles1 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field StonePebbles2 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field StonePebbles3 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field StonePebbles4 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field LavaPebbles1 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field LavaPebbles2 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field LavaPebbles3 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field LavaPebbles4 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field FeaturePebbles1 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field FeaturePebbles2 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field FeaturePebbles3 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field FeaturePebbles4 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field MineralWallSmoothRD2 { caption: "smooth vein wall RD2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field MineralWallSmoothR2D { caption: "smooth vein wall R2D", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field MineralWallSmoothR2U { caption: "smooth vein wall R2U", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field MineralWallSmoothRU2 { caption: "smooth vein wall RU2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field MineralWallSmoothL2U { caption: "smooth vein wall L2U", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field MineralWallSmoothLU2 { caption: "smooth vein wall LU2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field MineralWallSmoothL2D { caption: "smooth vein wall L2D", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field MineralWallSmoothLD2 { caption: "smooth vein wall LD2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field MineralWallSmoothLRUD { caption: "smooth vein wall LRUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field MineralWallSmoothRUD { caption: "smooth vein wall RUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field MineralWallSmoothLRD { caption: "smooth vein wall LRD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field MineralWallSmoothLRU { caption: "smooth vein wall LRU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field MineralWallSmoothLUD { caption: "smooth vein wall LUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field MineralWallSmoothRD { caption: "smooth vein wall RD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field MineralWallSmoothRU { caption: "smooth vein wall RU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field MineralWallSmoothLU { caption: "smooth vein wall LU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field MineralWallSmoothLD { caption: "smooth vein wall LD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field MineralWallSmoothUD { caption: "smooth vein wall UD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field MineralWallSmoothLR { caption: "smooth vein wall LR", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field MineralFortification { caption: "vein fortification", shape: "FORTIFICATION", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralWallWorn1 { caption: "worn 1 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field MineralWallWorn2 { caption: "worn 2 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field MineralWallWorn3 { caption: "worn 3 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field MineralWall { caption: "vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field MineralFloor1 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field MineralFloor2 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field MineralFloor3 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field MineralFloor4 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field MineralBoulder { caption: "vein boulder", shape: "BOULDER", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralPebbles1 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field MineralPebbles2 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field MineralPebbles3 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field MineralPebbles4 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field FrozenWallSmoothRD2 { caption: "smooth ice wall RD2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field FrozenWallSmoothR2D { caption: "smooth ice wall R2D", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field FrozenWallSmoothR2U { caption: "smooth ice wall R2U", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field FrozenWallSmoothRU2 { caption: "smooth ice wall RU2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field FrozenWallSmoothL2U { caption: "smooth ice wall L2U", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field FrozenWallSmoothLU2 { caption: "smooth ice wall LU2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field FrozenWallSmoothL2D { caption: "smooth ice wall L2D", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field FrozenWallSmoothLD2 { caption: "smooth ice wall LD2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field FrozenWallSmoothLRUD { caption: "smooth ice wall LRUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field FrozenWallSmoothRUD { caption: "smooth ice wall RUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field FrozenWallSmoothLRD { caption: "smooth ice wall LRD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field FrozenWallSmoothLRU { caption: "smooth ice wall LRU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field FrozenWallSmoothLUD { caption: "smooth ice wall LUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field FrozenWallSmoothRD { caption: "smooth ice wall RD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field FrozenWallSmoothRU { caption: "smooth ice wall RU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field FrozenWallSmoothLU { caption: "smooth ice wall LU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field FrozenWallSmoothLD { caption: "smooth ice wall LD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field FrozenWallSmoothUD { caption: "smooth ice wall UD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field FrozenWallSmoothLR { caption: "smooth ice wall LR", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field RiverRampN { caption: "river ramp N", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "N" }
+---@field RiverRampS { caption: "river ramp S", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "S" }
+---@field RiverRampE { caption: "river ramp E", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "E" }
+---@field RiverRampW { caption: "river ramp W", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "W" }
+---@field RiverRampNW { caption: "river ramp NW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NW" }
+---@field RiverRampNE { caption: "river ramp NE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NE" }
+---@field RiverRampSW { caption: "river ramp SW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SW" }
+---@field RiverRampSE { caption: "river ramp SE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SE" }
+---@field Unused473 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused474 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused475 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused476 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused477 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused478 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused479 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused480 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused481 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused482 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused483 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused484 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused485 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused486 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused487 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused488 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedFloor { caption: "constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field ConstructedFortification { caption: "constructed fortification", shape: "FORTIFICATION", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedPillar { caption: "constructed pillar", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field ConstructedWallRD2 { caption: "constructed wall RD2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field ConstructedWallR2D { caption: "constructed wall R2D", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field ConstructedWallR2U { caption: "constructed wall R2U", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field ConstructedWallRU2 { caption: "constructed wall RU2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field ConstructedWallL2U { caption: "constructed wall L2U", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field ConstructedWallLU2 { caption: "constructed wall LU2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field ConstructedWallL2D { caption: "constructed wall L2D", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field ConstructedWallLD2 { caption: "constructed wall LD2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field ConstructedWallLRUD { caption: "constructed wall LRUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field ConstructedWallRUD { caption: "constructed wall RUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field ConstructedWallLRD { caption: "constructed wall LRD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field ConstructedWallLRU { caption: "constructed wall LRU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field ConstructedWallLUD { caption: "constructed wall LUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field ConstructedWallRD { caption: "constructed wall RD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field ConstructedWallRU { caption: "constructed wall RU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field ConstructedWallLU { caption: "constructed wall LU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field ConstructedWallLD { caption: "constructed wall LD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field ConstructedWallUD { caption: "constructed wall UD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field ConstructedWallLR { caption: "constructed wall LR", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field ConstructedStairUD { caption: "constructed stair up/down", shape: "STAIR_UPDOWN", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedStairD { caption: "constructed stair down", shape: "STAIR_DOWN", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedStairU { caption: "constructed stair up", shape: "STAIR_UP", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedRamp { caption: "constructed ramp", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneFloorTrackN { caption: "stone floor track N", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field StoneFloorTrackS { caption: "stone floor track S", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field StoneFloorTrackE { caption: "stone floor track E", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field StoneFloorTrackW { caption: "stone floor track W", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field StoneFloorTrackNS { caption: "stone floor track NS", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field StoneFloorTrackNE { caption: "stone floor track NE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field StoneFloorTrackNW { caption: "stone floor track NW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field StoneFloorTrackSE { caption: "stone floor track SE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field StoneFloorTrackSW { caption: "stone floor track SW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field StoneFloorTrackEW { caption: "stone floor track EW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field StoneFloorTrackNSE { caption: "stone floor track NSE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field StoneFloorTrackNSW { caption: "stone floor track NSW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field StoneFloorTrackNEW { caption: "stone floor track NEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field StoneFloorTrackSEW { caption: "stone floor track SEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field StoneFloorTrackNSEW { caption: "stone floor track NSEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field LavaFloorTrackN { caption: "obsidian floor track N", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field LavaFloorTrackS { caption: "obsidian floor track S", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field LavaFloorTrackE { caption: "obsidian floor track E", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field LavaFloorTrackW { caption: "obsidian floor track W", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field LavaFloorTrackNS { caption: "obsidian floor track NS", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field LavaFloorTrackNE { caption: "obsidian floor track NE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field LavaFloorTrackNW { caption: "obsidian floor track NW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field LavaFloorTrackSE { caption: "obsidian floor track SE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field LavaFloorTrackSW { caption: "obsidian floor track SW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field LavaFloorTrackEW { caption: "obsidian floor track EW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field LavaFloorTrackNSE { caption: "obsidian floor track NSE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field LavaFloorTrackNSW { caption: "obsidian floor track NSW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field LavaFloorTrackNEW { caption: "obsidian floor track NEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field LavaFloorTrackSEW { caption: "obsidian floor track SEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field LavaFloorTrackNSEW { caption: "obsidian floor track NSEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FeatureFloorTrackN { caption: "featstone floor track N", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FeatureFloorTrackS { caption: "featstone floor track S", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FeatureFloorTrackE { caption: "featstone floor track E", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FeatureFloorTrackW { caption: "featstone floor track W", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FeatureFloorTrackNS { caption: "featstone floor track NS", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FeatureFloorTrackNE { caption: "featstone floor track NE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FeatureFloorTrackNW { caption: "featstone floor track NW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FeatureFloorTrackSE { caption: "featstone floor track SE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FeatureFloorTrackSW { caption: "featstone floor track SW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FeatureFloorTrackEW { caption: "featstone floor track EW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FeatureFloorTrackNSE { caption: "featstone floor track NSE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FeatureFloorTrackNSW { caption: "featstone floor track NSW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FeatureFloorTrackNEW { caption: "featstone floor track NEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FeatureFloorTrackSEW { caption: "featstone floor track SEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FeatureFloorTrackNSEW { caption: "featstone floor track NSEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field MineralFloorTrackN { caption: "vein floor track N", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "N" }
+---@field MineralFloorTrackS { caption: "vein floor track S", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "S" }
+---@field MineralFloorTrackE { caption: "vein floor track E", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "E" }
+---@field MineralFloorTrackW { caption: "vein floor track W", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "W" }
+---@field MineralFloorTrackNS { caption: "vein floor track NS", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field MineralFloorTrackNE { caption: "vein floor track NE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field MineralFloorTrackNW { caption: "vein floor track NW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field MineralFloorTrackSE { caption: "vein floor track SE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field MineralFloorTrackSW { caption: "vein floor track SW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field MineralFloorTrackEW { caption: "vein floor track EW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field MineralFloorTrackNSE { caption: "vein floor track NSE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field MineralFloorTrackNSW { caption: "vein floor track NSW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field MineralFloorTrackNEW { caption: "vein floor track NEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field MineralFloorTrackSEW { caption: "vein floor track SEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field MineralFloorTrackNSEW { caption: "vein floor track NSEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FrozenFloorTrackN { caption: "ice floor track N", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FrozenFloorTrackS { caption: "ice floor track S", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FrozenFloorTrackE { caption: "ice floor track E", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FrozenFloorTrackW { caption: "ice floor track W", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FrozenFloorTrackNS { caption: "ice floor track NS", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FrozenFloorTrackNE { caption: "ice floor track NE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FrozenFloorTrackNW { caption: "ice floor track NW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FrozenFloorTrackSE { caption: "ice floor track SE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FrozenFloorTrackSW { caption: "ice floor track SW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FrozenFloorTrackEW { caption: "ice floor track EW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FrozenFloorTrackNSE { caption: "ice floor track NSE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FrozenFloorTrackNSW { caption: "ice floor track NSW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FrozenFloorTrackNEW { caption: "ice floor track NEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FrozenFloorTrackSEW { caption: "ice floor track SEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FrozenFloorTrackNSEW { caption: "ice floor track NSEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field ConstructedFloorTrackN { caption: "constructed floor track N", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "N" }
+---@field ConstructedFloorTrackS { caption: "constructed floor track S", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "S" }
+---@field ConstructedFloorTrackE { caption: "constructed floor track E", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "E" }
+---@field ConstructedFloorTrackW { caption: "constructed floor track W", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "W" }
+---@field ConstructedFloorTrackNS { caption: "constructed floor track NS", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field ConstructedFloorTrackNE { caption: "constructed floor track NE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field ConstructedFloorTrackNW { caption: "constructed floor track NW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field ConstructedFloorTrackSE { caption: "constructed floor track SE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field ConstructedFloorTrackSW { caption: "constructed floor track SW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field ConstructedFloorTrackEW { caption: "constructed floor track EW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field ConstructedFloorTrackNSE { caption: "constructed floor track NSE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field ConstructedFloorTrackNSW { caption: "constructed floor track NSW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field ConstructedFloorTrackNEW { caption: "constructed floor track NEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field ConstructedFloorTrackSEW { caption: "constructed floor track SEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field ConstructedFloorTrackNSEW { caption: "constructed floor track NSEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field StoneRampTrackN { caption: "stone ramp track N", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field StoneRampTrackS { caption: "stone ramp track S", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field StoneRampTrackE { caption: "stone ramp track E", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field StoneRampTrackW { caption: "stone ramp track W", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field StoneRampTrackNS { caption: "stone ramp track NS", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field StoneRampTrackNE { caption: "stone ramp track NE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field StoneRampTrackNW { caption: "stone ramp track NW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field StoneRampTrackSE { caption: "stone ramp track SE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field StoneRampTrackSW { caption: "stone ramp track SW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field StoneRampTrackEW { caption: "stone ramp track EW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field StoneRampTrackNSE { caption: "stone ramp track NSE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field StoneRampTrackNSW { caption: "stone ramp track NSW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field StoneRampTrackNEW { caption: "stone ramp track NEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field StoneRampTrackSEW { caption: "stone ramp track SEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field StoneRampTrackNSEW { caption: "stone ramp track NSEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field LavaRampTrackN { caption: "obsidian ramp track N", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field LavaRampTrackS { caption: "obsidian ramp track S", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field LavaRampTrackE { caption: "obsidian ramp track E", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field LavaRampTrackW { caption: "obsidian ramp track W", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field LavaRampTrackNS { caption: "obsidian ramp track NS", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field LavaRampTrackNE { caption: "obsidian ramp track NE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field LavaRampTrackNW { caption: "obsidian ramp track NW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field LavaRampTrackSE { caption: "obsidian ramp track SE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field LavaRampTrackSW { caption: "obsidian ramp track SW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field LavaRampTrackEW { caption: "obsidian ramp track EW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field LavaRampTrackNSE { caption: "obsidian ramp track NSE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field LavaRampTrackNSW { caption: "obsidian ramp track NSW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field LavaRampTrackNEW { caption: "obsidian ramp track NEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field LavaRampTrackSEW { caption: "obsidian ramp track SEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field LavaRampTrackNSEW { caption: "obsidian ramp track NSEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FeatureRampTrackN { caption: "featstone ramp track N", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FeatureRampTrackS { caption: "featstone ramp track S", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FeatureRampTrackE { caption: "featstone ramp track E", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FeatureRampTrackW { caption: "featstone ramp track W", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FeatureRampTrackNS { caption: "featstone ramp track NS", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FeatureRampTrackNE { caption: "featstone ramp track NE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FeatureRampTrackNW { caption: "featstone ramp track NW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FeatureRampTrackSE { caption: "featstone ramp track SE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FeatureRampTrackSW { caption: "featstone ramp track SW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FeatureRampTrackEW { caption: "featstone ramp track EW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FeatureRampTrackNSE { caption: "featstone ramp track NSE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FeatureRampTrackNSW { caption: "featstone ramp track NSW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FeatureRampTrackNEW { caption: "featstone ramp track NEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FeatureRampTrackSEW { caption: "featstone ramp track SEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FeatureRampTrackNSEW { caption: "featstone ramp track NSEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field MineralRampTrackN { caption: "vein ramp track N", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "N" }
+---@field MineralRampTrackS { caption: "vein ramp track S", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "S" }
+---@field MineralRampTrackE { caption: "vein ramp track E", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "E" }
+---@field MineralRampTrackW { caption: "vein ramp track W", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "W" }
+---@field MineralRampTrackNS { caption: "vein ramp track NS", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field MineralRampTrackNE { caption: "vein ramp track NE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field MineralRampTrackNW { caption: "vein ramp track NW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field MineralRampTrackSE { caption: "vein ramp track SE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field MineralRampTrackSW { caption: "vein ramp track SW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field MineralRampTrackEW { caption: "vein ramp track EW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field MineralRampTrackNSE { caption: "vein ramp track NSE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field MineralRampTrackNSW { caption: "vein ramp track NSW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field MineralRampTrackNEW { caption: "vein ramp track NEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field MineralRampTrackSEW { caption: "vein ramp track SEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field MineralRampTrackNSEW { caption: "vein ramp track NSEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FrozenRampTrackN { caption: "ice ramp track N", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FrozenRampTrackS { caption: "ice ramp track S", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FrozenRampTrackE { caption: "ice ramp track E", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FrozenRampTrackW { caption: "ice ramp track W", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FrozenRampTrackNS { caption: "ice ramp track NS", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FrozenRampTrackNE { caption: "ice ramp track NE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FrozenRampTrackNW { caption: "ice ramp track NW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FrozenRampTrackSE { caption: "ice ramp track SE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FrozenRampTrackSW { caption: "ice ramp track SW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FrozenRampTrackEW { caption: "ice ramp track EW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FrozenRampTrackNSE { caption: "ice ramp track NSE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FrozenRampTrackNSW { caption: "ice ramp track NSW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FrozenRampTrackNEW { caption: "ice ramp track NEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FrozenRampTrackSEW { caption: "ice ramp track SEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FrozenRampTrackNSEW { caption: "ice ramp track NSEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field ConstructedRampTrackN { caption: "constructed ramp track N", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "N" }
+---@field ConstructedRampTrackS { caption: "constructed ramp track S", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "S" }
+---@field ConstructedRampTrackE { caption: "constructed ramp track E", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "E" }
+---@field ConstructedRampTrackW { caption: "constructed ramp track W", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "W" }
+---@field ConstructedRampTrackNS { caption: "constructed ramp track NS", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field ConstructedRampTrackNE { caption: "constructed ramp track NE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field ConstructedRampTrackNW { caption: "constructed ramp track NW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field ConstructedRampTrackSE { caption: "constructed ramp track SE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field ConstructedRampTrackSW { caption: "constructed ramp track SW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field ConstructedRampTrackEW { caption: "constructed ramp track EW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field ConstructedRampTrackNSE { caption: "constructed ramp track NSE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field ConstructedRampTrackNSW { caption: "constructed ramp track NSW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field ConstructedRampTrackNEW { caption: "constructed ramp track NEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field ConstructedRampTrackSEW { caption: "constructed ramp track SEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field ConstructedRampTrackNSEW { caption: "constructed ramp track NSEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field Unused695 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused696 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+df.tiletype.attrs = {}
+
+---@alias df.season
+---| -1 # None
+---| 0 # Spring
+---| 1 # Summer
+---| 2 # Autumn
+---| 3 # Winter
+
+---@class identity.season: DFEnumType
+---@field None -1 bay12: SeasonType, int32
+---@field [-1] "None" bay12: SeasonType, int32
+---@field Spring 0
+---@field [0] "Spring"
+---@field Summer 1
+---@field [1] "Summer"
+---@field Autumn 2
+---@field [2] "Autumn"
+---@field Winter 3
+---@field [3] "Winter"
+df.season = {}
+
+---@alias df.weather_type
+---| 0 # None
+---| 1 # Rain
+---| 2 # Snow
+
+---@class identity.weather_type: DFEnumType
+---@field None 0 bay12: WeatherState, no base type
+---@field [0] "None" bay12: WeatherState, no base type
+---@field Rain 1
+---@field [1] "Rain"
+---@field Snow 2
+---@field [2] "Snow"
+df.weather_type = {}
+
+---@alias df.entity_raw_flags
+---| 0 # CIV_CONTROLLABLE
+---| 1 # INDIV_CONTROLLABLE
+---| 2 # LAYER_LINKED
+---| 3 # INDOOR_WOOD
+---| 4 # WOOD_ARMOR
+---| 5 # SIEGER
+---| 6 # AMBUSHER
+---| 7 # BABYSNATCHER
+---| 8 # ITEM_THIEF
+---| 9 # CLOTHING
+---| 10 # CURRENCY_BY_YEAR
+---| 11 # METAL_PREF
+---| 12 # GEM_PREF
+---| 13 # STONE_PREF
+---| 14 # WOOD_WEAPONS
+---| 15 # BUILDS_OUTDOOR_FORTIFICATIONS
+---| 16 # RIVER_PRODUCTS
+---| 17 # OCEAN_PRODUCTS
+---| 18 # INDOOR_FARMING
+---| 19 # OUTDOOR_FARMING
+---| 20 # USE_CAVE_ANIMALS
+---| 21 # USE_EVIL_ANIMALS
+---| 22 # USE_ANIMAL_PRODUCTS
+---| 23 # COMMON_DOMESTIC_PACK
+---| 24 # COMMON_DOMESTIC_PULL
+---| 25 # COMMON_DOMESTIC_MOUNT
+---| 26 # COMMON_DOMESTIC_PET
+---| 27 # SUBTERRANEAN_CLOTHING
+---| 28 # USE_EVIL_WOOD
+---| 29 # USE_GOOD_WOOD
+---| 30 # USE_EVIL_PLANTS
+---| 31 # USE_GOOD_PLANTS
+---| 32 # USE_GOOD_ANIMALS
+---| 33 # USE_ANY_PET_RACE
+---| 34 # USE_MISC_PROCESSED_WOOD_PRODUCTS
+---| 35 # IMPROVED_BOWS
+---| 36 # OUTDOOR_WOOD
+---| 37 # LOCAL_BANDITRY
+---| 38 # BUILDS_OUTDOOR_TOMBS
+---| 39 # INVADERS_IGNORE_NEUTRALS
+---| 40 # AT_PEACE_WITH_WILDLIFE
+---| 41 # EQUIPMENT_IMPROVEMENTS
+---| 42 # ABUSE_BODIES
+---| 43 # MYTHICAL
+---| 44 # GENERATED
+---| 45 # SKULKING
+---| 46 # HAS_LAND_HOLDER
+---| 47 # MERCHANT_NOBILITY
+---| 48 # TREE_CAP_DIPLOMACY
+---| 49 # DIPLOMAT_BODYGUARDS
+---| 50 # MERCHANT_BODYGUARDS
+---| 51 # INDOOR_ORCHARDS
+---| 52 # OUTDOOR_ORCHARDS
+---| 53 # WANDERER
+---| 54 # BEAST_HUNTER
+---| 55 # SCOUT
+---| 56 # WILL_ACCEPT_TRIBUTE
+---| 57 # INDOOR_GARDENS
+---| 58 # OUTDOOR_GARDENS
+---| 59 # MERCENARY
+---| 60 # SITE_GUARDIAN
+---| 61 # DIVINE_MAT_WEAPONS
+---| 62 # DIVINE_MAT_ARMOR
+---| 63 # DIVINE_MAT_CRAFTS
+---| 64 # DIVINE_MAT_CLOTHING
+---| 65 # GENERATE_KEYBOARD_INSTRUMENTS
+---| 66 # GENERATE_STRINGED_INSTRUMENTS
+---| 67 # GENERATE_WIND_INSTRUMENTS
+---| 68 # GENERATE_PERCUSSION_INSTRUMENTS
+---| 69 # GENERATE_POETIC_FORMS
+---| 70 # GENERATE_MUSICAL_FORMS
+---| 71 # GENERATE_DANCE_FORMS
+---| 72 # SET_SCHOLARS_ON_VALUES_AND_JOBS
+---| 73 # NO_ARTIFACT_CLAIMS
+---| 74 # USE_NON_EXOTIC_PET_RACE
+---| 75 # MISSING_UNDERWORLD_DISASTERS
+
+---@class identity.entity_raw_flags: DFEnumType
+---@field CIV_CONTROLLABLE 0 bay12: EntityDefFlagType
+---@field [0] "CIV_CONTROLLABLE" bay12: EntityDefFlagType
+---@field INDIV_CONTROLLABLE 1 SITE_CONTROLLABLE
+---@field [1] "INDIV_CONTROLLABLE" SITE_CONTROLLABLE
+---@field LAYER_LINKED 2 ALL_MAIN_POPS_CONTROLLABLE
+---@field [2] "LAYER_LINKED" ALL_MAIN_POPS_CONTROLLABLE
+---@field INDOOR_WOOD 3
+---@field [3] "INDOOR_WOOD"
+---@field WOOD_ARMOR 4
+---@field [4] "WOOD_ARMOR"
+---@field SIEGER 5
+---@field [5] "SIEGER"
+---@field AMBUSHER 6
+---@field [6] "AMBUSHER"
+---@field BABYSNATCHER 7
+---@field [7] "BABYSNATCHER"
+---@field ITEM_THIEF 8
+---@field [8] "ITEM_THIEF"
+---@field CLOTHING 9
+---@field [9] "CLOTHING"
+---@field CURRENCY_BY_YEAR 10
+---@field [10] "CURRENCY_BY_YEAR"
+---@field METAL_PREF 11
+---@field [11] "METAL_PREF"
+---@field GEM_PREF 12
+---@field [12] "GEM_PREF"
+---@field STONE_PREF 13
+---@field [13] "STONE_PREF"
+---@field WOOD_WEAPONS 14
+---@field [14] "WOOD_WEAPONS"
+---@field BUILDS_OUTDOOR_FORTIFICATIONS 15
+---@field [15] "BUILDS_OUTDOOR_FORTIFICATIONS"
+---@field RIVER_PRODUCTS 16
+---@field [16] "RIVER_PRODUCTS"
+---@field OCEAN_PRODUCTS 17
+---@field [17] "OCEAN_PRODUCTS"
+---@field INDOOR_FARMING 18
+---@field [18] "INDOOR_FARMING"
+---@field OUTDOOR_FARMING 19
+---@field [19] "OUTDOOR_FARMING"
+---@field USE_CAVE_ANIMALS 20
+---@field [20] "USE_CAVE_ANIMALS"
+---@field USE_EVIL_ANIMALS 21
+---@field [21] "USE_EVIL_ANIMALS"
+---@field USE_ANIMAL_PRODUCTS 22
+---@field [22] "USE_ANIMAL_PRODUCTS"
+---@field COMMON_DOMESTIC_PACK 23
+---@field [23] "COMMON_DOMESTIC_PACK"
+---@field COMMON_DOMESTIC_PULL 24
+---@field [24] "COMMON_DOMESTIC_PULL"
+---@field COMMON_DOMESTIC_MOUNT 25
+---@field [25] "COMMON_DOMESTIC_MOUNT"
+---@field COMMON_DOMESTIC_PET 26
+---@field [26] "COMMON_DOMESTIC_PET"
+---@field SUBTERRANEAN_CLOTHING 27
+---@field [27] "SUBTERRANEAN_CLOTHING"
+---@field USE_EVIL_WOOD 28
+---@field [28] "USE_EVIL_WOOD"
+---@field USE_GOOD_WOOD 29
+---@field [29] "USE_GOOD_WOOD"
+---@field USE_EVIL_PLANTS 30
+---@field [30] "USE_EVIL_PLANTS"
+---@field USE_GOOD_PLANTS 31
+---@field [31] "USE_GOOD_PLANTS"
+---@field USE_GOOD_ANIMALS 32
+---@field [32] "USE_GOOD_ANIMALS"
+---@field USE_ANY_PET_RACE 33
+---@field [33] "USE_ANY_PET_RACE"
+---@field USE_MISC_PROCESSED_WOOD_PRODUCTS 34
+---@field [34] "USE_MISC_PROCESSED_WOOD_PRODUCTS"
+---@field IMPROVED_BOWS 35
+---@field [35] "IMPROVED_BOWS"
+---@field OUTDOOR_WOOD 36
+---@field [36] "OUTDOOR_WOOD"
+---@field LOCAL_BANDITRY 37
+---@field [37] "LOCAL_BANDITRY"
+---@field BUILDS_OUTDOOR_TOMBS 38
+---@field [38] "BUILDS_OUTDOOR_TOMBS"
+---@field INVADERS_IGNORE_NEUTRALS 39
+---@field [39] "INVADERS_IGNORE_NEUTRALS"
+---@field AT_PEACE_WITH_WILDLIFE 40
+---@field [40] "AT_PEACE_WITH_WILDLIFE"
+---@field EQUIPMENT_IMPROVEMENTS 41
+---@field [41] "EQUIPMENT_IMPROVEMENTS"
+---@field ABUSE_BODIES 42
+---@field [42] "ABUSE_BODIES"
+---@field MYTHICAL 43
+---@field [43] "MYTHICAL"
+---@field GENERATED 44
+---@field [44] "GENERATED"
+---@field SKULKING 45
+---@field [45] "SKULKING"
+---@field HAS_LAND_HOLDER 46
+---@field [46] "HAS_LAND_HOLDER"
+---@field MERCHANT_NOBILITY 47
+---@field [47] "MERCHANT_NOBILITY"
+---@field TREE_CAP_DIPLOMACY 48
+---@field [48] "TREE_CAP_DIPLOMACY"
+---@field DIPLOMAT_BODYGUARDS 49
+---@field [49] "DIPLOMAT_BODYGUARDS"
+---@field MERCHANT_BODYGUARDS 50
+---@field [50] "MERCHANT_BODYGUARDS"
+---@field INDOOR_ORCHARDS 51
+---@field [51] "INDOOR_ORCHARDS"
+---@field OUTDOOR_ORCHARDS 52
+---@field [52] "OUTDOOR_ORCHARDS"
+---@field WANDERER 53
+---@field [53] "WANDERER"
+---@field BEAST_HUNTER 54
+---@field [54] "BEAST_HUNTER"
+---@field SCOUT 55
+---@field [55] "SCOUT"
+---@field WILL_ACCEPT_TRIBUTE 56
+---@field [56] "WILL_ACCEPT_TRIBUTE"
+---@field INDOOR_GARDENS 57
+---@field [57] "INDOOR_GARDENS"
+---@field OUTDOOR_GARDENS 58
+---@field [58] "OUTDOOR_GARDENS"
+---@field MERCENARY 59
+---@field [59] "MERCENARY"
+---@field SITE_GUARDIAN 60
+---@field [60] "SITE_GUARDIAN"
+---@field DIVINE_MAT_WEAPONS 61
+---@field [61] "DIVINE_MAT_WEAPONS"
+---@field DIVINE_MAT_ARMOR 62
+---@field [62] "DIVINE_MAT_ARMOR"
+---@field DIVINE_MAT_CRAFTS 63
+---@field [63] "DIVINE_MAT_CRAFTS"
+---@field DIVINE_MAT_CLOTHING 64
+---@field [64] "DIVINE_MAT_CLOTHING"
+---@field GENERATE_KEYBOARD_INSTRUMENTS 65
+---@field [65] "GENERATE_KEYBOARD_INSTRUMENTS"
+---@field GENERATE_STRINGED_INSTRUMENTS 66
+---@field [66] "GENERATE_STRINGED_INSTRUMENTS"
+---@field GENERATE_WIND_INSTRUMENTS 67
+---@field [67] "GENERATE_WIND_INSTRUMENTS"
+---@field GENERATE_PERCUSSION_INSTRUMENTS 68
+---@field [68] "GENERATE_PERCUSSION_INSTRUMENTS"
+---@field GENERATE_POETIC_FORMS 69
+---@field [69] "GENERATE_POETIC_FORMS"
+---@field GENERATE_MUSICAL_FORMS 70
+---@field [70] "GENERATE_MUSICAL_FORMS"
+---@field GENERATE_DANCE_FORMS 71
+---@field [71] "GENERATE_DANCE_FORMS"
+---@field SET_SCHOLARS_ON_VALUES_AND_JOBS 72
+---@field [72] "SET_SCHOLARS_ON_VALUES_AND_JOBS"
+---@field NO_ARTIFACT_CLAIMS 73
+---@field [73] "NO_ARTIFACT_CLAIMS"
+---@field USE_NON_EXOTIC_PET_RACE 74
+---@field [74] "USE_NON_EXOTIC_PET_RACE"
+---@field MISSING_UNDERWORLD_DISASTERS 75
+---@field [75] "MISSING_UNDERWORLD_DISASTERS"
+df.entity_raw_flags = {}
+
+---@alias df.building_type
+---| -1 # NONE
+---| 0 # Chair
+---| 1 # Bed
+---| 2 # Table
+---| 3 # Coffin
+---| 4 # FarmPlot
+---| 5 # Furnace
+---| 6 # TradeDepot
+---| 7 # Shop
+---| 8 # Door
+---| 9 # Floodgate
+---| 10 # Box
+---| 11 # Weaponrack
+---| 12 # Armorstand
+---| 13 # Workshop
+---| 14 # Cabinet
+---| 15 # Statue
+---| 16 # WindowGlass
+---| 17 # WindowGem
+---| 18 # Well
+---| 19 # Bridge
+---| 20 # RoadDirt
+---| 21 # RoadPaved
+---| 22 # SiegeEngine
+---| 23 # Trap
+---| 24 # AnimalTrap
+---| 25 # Support
+---| 26 # ArcheryTarget
+---| 27 # Chain
+---| 28 # Cage
+---| 29 # Stockpile
+---| 30 # Civzone
+---| 31 # Weapon
+---| 32 # Wagon
+---| 33 # ScrewPump
+---| 34 # Construction
+---| 35 # Hatch
+---| 36 # GrateWall
+---| 37 # GrateFloor
+---| 38 # BarsVertical
+---| 39 # BarsFloor
+---| 40 # GearAssembly
+---| 41 # AxleHorizontal
+---| 42 # AxleVertical
+---| 43 # WaterWheel
+---| 44 # Windmill
+---| 45 # TractionBench
+---| 46 # Slab
+---| 47 # Nest
+---| 48 # NestBox
+---| 49 # Hive
+---| 50 # Rollers
+---| 51 # Instrument
+---| 52 # Bookcase
+---| 53 # DisplayFurniture
+---| 54 # OfferingPlace
+
+---@class identity.building_type: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field Chair 0
+---@field [0] "Chair"
+---@field Bed 1
+---@field [1] "Bed"
+---@field Table 2
+---@field [2] "Table"
+---@field Coffin 3
+---@field [3] "Coffin"
+---@field FarmPlot 4
+---@field [4] "FarmPlot"
+---@field Furnace 5
+---@field [5] "Furnace"
+---@field TradeDepot 6
+---@field [6] "TradeDepot"
+---@field Shop 7
+---@field [7] "Shop"
+---@field Door 8
+---@field [8] "Door"
+---@field Floodgate 9
+---@field [9] "Floodgate"
+---@field Box 10
+---@field [10] "Box"
+---@field Weaponrack 11
+---@field [11] "Weaponrack"
+---@field Armorstand 12
+---@field [12] "Armorstand"
+---@field Workshop 13
+---@field [13] "Workshop"
+---@field Cabinet 14
+---@field [14] "Cabinet"
+---@field Statue 15
+---@field [15] "Statue"
+---@field WindowGlass 16
+---@field [16] "WindowGlass"
+---@field WindowGem 17
+---@field [17] "WindowGem"
+---@field Well 18
+---@field [18] "Well"
+---@field Bridge 19
+---@field [19] "Bridge"
+---@field RoadDirt 20
+---@field [20] "RoadDirt"
+---@field RoadPaved 21
+---@field [21] "RoadPaved"
+---@field SiegeEngine 22
+---@field [22] "SiegeEngine"
+---@field Trap 23
+---@field [23] "Trap"
+---@field AnimalTrap 24
+---@field [24] "AnimalTrap"
+---@field Support 25
+---@field [25] "Support"
+---@field ArcheryTarget 26
+---@field [26] "ArcheryTarget"
+---@field Chain 27
+---@field [27] "Chain"
+---@field Cage 28
+---@field [28] "Cage"
+---@field Stockpile 29
+---@field [29] "Stockpile"
+---@field Civzone 30
+---@field [30] "Civzone"
+---@field Weapon 31
+---@field [31] "Weapon"
+---@field Wagon 32
+---@field [32] "Wagon"
+---@field ScrewPump 33
+---@field [33] "ScrewPump"
+---@field Construction 34
+---@field [34] "Construction"
+---@field Hatch 35
+---@field [35] "Hatch"
+---@field GrateWall 36
+---@field [36] "GrateWall"
+---@field GrateFloor 37
+---@field [37] "GrateFloor"
+---@field BarsVertical 38
+---@field [38] "BarsVertical"
+---@field BarsFloor 39
+---@field [39] "BarsFloor"
+---@field GearAssembly 40
+---@field [40] "GearAssembly"
+---@field AxleHorizontal 41
+---@field [41] "AxleHorizontal"
+---@field AxleVertical 42
+---@field [42] "AxleVertical"
+---@field WaterWheel 43
+---@field [43] "WaterWheel"
+---@field Windmill 44
+---@field [44] "Windmill"
+---@field TractionBench 45
+---@field [45] "TractionBench"
+---@field Slab 46
+---@field [46] "Slab"
+---@field Nest 47
+---@field [47] "Nest"
+---@field NestBox 48
+---@field [48] "NestBox"
+---@field Hive 49
+---@field [49] "Hive"
+---@field Rollers 50
+---@field [50] "Rollers"
+---@field Instrument 51
+---@field [51] "Instrument"
+---@field Bookcase 52
+---@field [52] "Bookcase"
+---@field DisplayFurniture 53
+---@field [53] "DisplayFurniture"
+---@field OfferingPlace 54
+---@field [54] "OfferingPlace"
+df.building_type = {}
+
+---@class building_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.building_type._attr_entry_type = {}
+
+---@class (exact) building_type_attr_entry_type_fields
+---@field name DFCompoundField bay12: BuildingType
+---@field classname DFCompoundField
+df.building_type._attr_entry_type._fields = {}
+
+---@class building_type_attrs
+---@field NONE { name: "NONE" }
+---@field Chair { name: "Chair", classname: "building_chairst" }
+---@field Bed { name: "Bed", classname: "building_bedst" }
+---@field Table { name: "Table", classname: "building_tablest" }
+---@field Coffin { name: "Coffin", classname: "building_coffinst" }
+---@field FarmPlot { name: "Farm Plot", classname: "building_farmplotst" }
+---@field Furnace { name: "Furnace", classname: "building_furnacest" }
+---@field TradeDepot { name: "Trade Depot", classname: "building_tradedepotst" }
+---@field Shop { name: "Shop", classname: "building_shopst" }
+---@field Door { name: "Door", classname: "building_doorst" }
+---@field Floodgate { name: "Floodgate", classname: "building_floodgatest" }
+---@field Box { name: "Box", classname: "building_boxst" }
+---@field Weaponrack { name: "Weapon Rack", classname: "building_weaponrackst" }
+---@field Armorstand { name: "Armor Stand", classname: "building_armorstandst" }
+---@field Workshop { name: "Workshop", classname: "building_workshopst" }
+---@field Cabinet { name: "Cabinet", classname: "building_cabinetst" }
+---@field Statue { name: "Statue", classname: "building_statuest" }
+---@field WindowGlass { name: "Glass Window", classname: "building_window_glassst" }
+---@field WindowGem { name: "Gem Window", classname: "building_window_gemst" }
+---@field Well { name: "Well", classname: "building_wellst" }
+---@field Bridge { name: "Bridge", classname: "building_bridgest" }
+---@field RoadDirt { name: "Dirt Road", classname: "building_road_dirtst" }
+---@field RoadPaved { name: "Paved Road", classname: "building_road_pavedst" }
+---@field SiegeEngine { name: "Siege Engine", classname: "building_siegeenginest" }
+---@field Trap { name: "Trap", classname: "building_trapst" }
+---@field AnimalTrap { name: "Animal Trap", classname: "building_animaltrapst" }
+---@field Support { name: "Support", classname: "building_supportst" }
+---@field ArcheryTarget { name: "Archery Target", classname: "building_archerytargetst" }
+---@field Chain { name: "Chain", classname: "building_chainst" }
+---@field Cage { name: "Cage", classname: "building_cagest" }
+---@field Stockpile { name: "Stockpile", classname: "building_stockpilest" }
+---@field Civzone { name: "Zone", classname: "building_civzonest" }
+---@field Weapon { name: "Weapon", classname: "building_weaponst" }
+---@field Wagon { name: "Wagon", classname: "building_wagonst" }
+---@field ScrewPump { name: "Screw Pump", classname: "building_screw_pumpst" }
+---@field Construction { name: "Construction", classname: "building_constructionst" }
+---@field Hatch { name: "Hatch", classname: "building_hatchst" }
+---@field GrateWall { name: "Wall Grate", classname: "building_grate_wallst" }
+---@field GrateFloor { name: "Floor Grate", classname: "building_grate_floorst" }
+---@field BarsVertical { name: "Vertical Bars", classname: "building_bars_verticalst" }
+---@field BarsFloor { name: "Floor Bars", classname: "building_bars_floorst" }
+---@field GearAssembly { name: "Gear Assembly", classname: "building_gear_assemblyst" }
+---@field AxleHorizontal { name: "Horizontal Axle", classname: "building_axle_horizontalst" }
+---@field AxleVertical { name: "Vertical Axle", classname: "building_axle_verticalst" }
+---@field WaterWheel { name: "Water Wheel", classname: "building_water_wheelst" }
+---@field Windmill { name: "Windmill", classname: "building_windmillst" }
+---@field TractionBench { name: "Traction Bench", classname: "building_traction_benchst" }
+---@field Slab { name: "Slab", classname: "building_slabst" }
+---@field Nest { name: "Nest", classname: "building_nestst" }
+---@field NestBox { name: "Nest Box", classname: "building_nest_boxst" }
+---@field Hive { name: "Hive", classname: "building_hivest" }
+---@field Rollers { name: "Rollers", classname: "building_rollersst" }
+---@field Instrument { name: "Instrument", classname: "building_instrumentst" }
+---@field Bookcase { name: "Bookcase", classname: "building_bookcasest" }
+---@field DisplayFurniture { name: "Display Furniture", classname: "building_display_furniturest" }
+---@field OfferingPlace { name: "Offering Place", classname: "building_offering_placest" }
+df.building_type.attrs = {}
+
+---@class df.tile_designation: DFBitfield
+---@field _enum identity.tile_designation
+---@field flow_size boolean bay12: DESIGNATION_*
+---@field [0] boolean bay12: DESIGNATION_*
+---@field pile boolean stockpile; Adventure: lit
+---@field [3] boolean stockpile; Adventure: lit
+---@field dig boolean Adventure: line_of_sight, furniture_memory, item_memory
+---@field [4] boolean Adventure: line_of_sight, furniture_memory, item_memory
+---@field smooth boolean Adventure: creature_memory, original_cave
+---@field [7] boolean Adventure: creature_memory, original_cave
+---@field hidden boolean
+---@field [9] boolean
+---@field geolayer_index boolean
+---@field [10] boolean
+---@field light boolean
+---@field [14] boolean
+---@field subterranean boolean
+---@field [15] boolean
+---@field outside boolean
+---@field [16] boolean
+---@field biome boolean
+---@field [17] boolean
+---@field liquid_type boolean
+---@field [21] boolean
+---@field water_table boolean aquifer
+---@field [22] boolean aquifer
+---@field rained boolean
+---@field [23] boolean
+---@field traffic boolean
+---@field [24] boolean
+---@field flow_forbid boolean
+---@field [26] boolean
+---@field liquid_static boolean
+---@field [27] boolean
+---@field feature_local boolean
+---@field [28] boolean
+---@field feature_global boolean
+---@field [29] boolean
+---@field water_stagnant boolean
+---@field [30] boolean
+---@field water_salt boolean
+---@field [31] boolean
+
+---@class identity.tile_designation: DFBitfieldType
+---@field flow_size 0 bay12: DESIGNATION_*
+---@field [0] "flow_size" bay12: DESIGNATION_*
+---@field pile 3 stockpile; Adventure: lit
+---@field [3] "pile" stockpile; Adventure: lit
+---@field dig 4 Adventure: line_of_sight, furniture_memory, item_memory
+---@field [4] "dig" Adventure: line_of_sight, furniture_memory, item_memory
+---@field smooth 7 Adventure: creature_memory, original_cave
+---@field [7] "smooth" Adventure: creature_memory, original_cave
+---@field hidden 9
+---@field [9] "hidden"
+---@field geolayer_index 10
+---@field [10] "geolayer_index"
+---@field light 14
+---@field [14] "light"
+---@field subterranean 15
+---@field [15] "subterranean"
+---@field outside 16
+---@field [16] "outside"
+---@field biome 17
+---@field [17] "biome"
+---@field liquid_type 21
+---@field [21] "liquid_type"
+---@field water_table 22 aquifer
+---@field [22] "water_table" aquifer
+---@field rained 23
+---@field [23] "rained"
+---@field traffic 24
+---@field [24] "traffic"
+---@field flow_forbid 26
+---@field [26] "flow_forbid"
+---@field liquid_static 27
+---@field [27] "liquid_static"
+---@field feature_local 28
+---@field [28] "feature_local"
+---@field feature_global 29
+---@field [29] "feature_global"
+---@field water_stagnant 30
+---@field [30] "water_stagnant"
+---@field water_salt 31
+---@field [31] "water_salt"
+df.tile_designation = {}
+
+---@alias df.tile_dig_designation
+---| 0 # No
+---| 1 # Default
+---| 2 # UpDownStair
+---| 3 # Channel
+---| 4 # Ramp
+---| 5 # DownStair
+---| 6 # UpStair
+
+---@class identity.tile_dig_designation: DFEnumType
+---@field No 0 bay12: DIG_DESIGNATION_*
+---@field [0] "No" bay12: DIG_DESIGNATION_*
+---@field Default 1 dig walls, remove stairs and ramps, gather plants, fell trees
+---@field [1] "Default" dig walls, remove stairs and ramps, gather plants, fell trees
+---@field UpDownStair 2
+---@field [2] "UpDownStair"
+---@field Channel 3
+---@field [3] "Channel"
+---@field Ramp 4
+---@field [4] "Ramp"
+---@field DownStair 5
+---@field [5] "DownStair"
+---@field UpStair 6
+---@field [6] "UpStair"
+df.tile_dig_designation = {}
+
+---@alias df.tile_liquid
+---| 0 # Water
+---| 1 # Magma
+
+---@class identity.tile_liquid: DFEnumType
+---@field Water 0 bay12: LiquidType, LIQUID_TYPE_*
+---@field [0] "Water" bay12: LiquidType, LIQUID_TYPE_*
+---@field Magma 1
+---@field [1] "Magma"
+df.tile_liquid = {}
+
+---@alias df.tile_traffic
+---| 0 # Normal
+---| 1 # Low
+---| 2 # High
+---| 3 # Restricted
+
+---@class identity.tile_traffic: DFEnumType
+---@field Normal 0 bay12: TRAFFIC_DESIGNATION_*
+---@field [0] "Normal" bay12: TRAFFIC_DESIGNATION_*
+---@field Low 1
+---@field [1] "Low"
+---@field High 2
+---@field [2] "High"
+---@field Restricted 3
+---@field [3] "Restricted"
+df.tile_traffic = {}
+
+---@class df.tile_occupancy: DFBitfield
+---@field _enum identity.tile_occupancy
+---@field building boolean bay12: OCCUPANCY_*
+---@field [0] boolean bay12: OCCUPANCY_*
+---@field unit boolean standing
+---@field [3] boolean standing
+---@field unit_grounded boolean prone
+---@field [4] boolean prone
+---@field item boolean
+---@field [5] boolean
+---@field edge_flow_in boolean if set on an edge tile, water or magma will flow in
+---@field [6] boolean if set on an edge tile, water or magma will flow in
+---@field moss boolean
+---@field [7] boolean
+---@field arrow_color boolean
+---@field [8] boolean
+---@field arrow_variant boolean
+---@field [12] boolean
+---@field unhide_trigger boolean when noncitizen moves in, something happens and it is cleared
+---@field [13] boolean when noncitizen moves in, something happens and it is cleared
+---@field monster_lair boolean bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field [14] boolean bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field no_grow boolean seems to be set on terrain tiles where grass growth is impossible
+---@field [15] boolean seems to be set on terrain tiles where grass growth is impossible
+---@field forced_subterranean_constructions boolean
+---@field [16] boolean
+---@field subterranean_light_column boolean
+---@field [17] boolean
+---@field carve_track_north boolean
+---@field [18] boolean
+---@field carve_track_south boolean
+---@field [19] boolean
+---@field carve_track_east boolean
+---@field [20] boolean
+---@field carve_track_west boolean
+---@field [21] boolean
+---@field spoor boolean
+---@field [22] boolean
+---@field eerie_light boolean
+---@field [23] boolean
+---@field dig_marked boolean
+---@field [24] boolean
+---@field dig_auto boolean
+---@field [25] boolean
+---@field heavy_aquifer boolean Light/Heavy aquifer flag
+---@field [26] boolean Light/Heavy aquifer flag
+---@field temp_value boolean bay12: currently used by location calcs
+---@field [27] boolean bay12: currently used by location calcs
+
+---@class identity.tile_occupancy: DFBitfieldType
+---@field building 0 bay12: OCCUPANCY_*
+---@field [0] "building" bay12: OCCUPANCY_*
+---@field unit 3 standing
+---@field [3] "unit" standing
+---@field unit_grounded 4 prone
+---@field [4] "unit_grounded" prone
+---@field item 5
+---@field [5] "item"
+---@field edge_flow_in 6 if set on an edge tile, water or magma will flow in
+---@field [6] "edge_flow_in" if set on an edge tile, water or magma will flow in
+---@field moss 7
+---@field [7] "moss"
+---@field arrow_color 8
+---@field [8] "arrow_color"
+---@field arrow_variant 12
+---@field [12] "arrow_variant"
+---@field unhide_trigger 13 when noncitizen moves in, something happens and it is cleared
+---@field [13] "unhide_trigger" when noncitizen moves in, something happens and it is cleared
+---@field monster_lair 14 bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field [14] "monster_lair" bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field no_grow 15 seems to be set on terrain tiles where grass growth is impossible
+---@field [15] "no_grow" seems to be set on terrain tiles where grass growth is impossible
+---@field forced_subterranean_constructions 16
+---@field [16] "forced_subterranean_constructions"
+---@field subterranean_light_column 17
+---@field [17] "subterranean_light_column"
+---@field carve_track_north 18
+---@field [18] "carve_track_north"
+---@field carve_track_south 19
+---@field [19] "carve_track_south"
+---@field carve_track_east 20
+---@field [20] "carve_track_east"
+---@field carve_track_west 21
+---@field [21] "carve_track_west"
+---@field spoor 22
+---@field [22] "spoor"
+---@field eerie_light 23
+---@field [23] "eerie_light"
+---@field dig_marked 24
+---@field [24] "dig_marked"
+---@field dig_auto 25
+---@field [25] "dig_auto"
+---@field heavy_aquifer 26 Light/Heavy aquifer flag
+---@field [26] "heavy_aquifer" Light/Heavy aquifer flag
+---@field temp_value 27 bay12: currently used by location calcs
+---@field [27] "temp_value" bay12: currently used by location calcs
+df.tile_occupancy = {}
+
+---@alias df.tile_building_occ
+---| 0 # None
+---| 1 # Planned
+---| 2 # Passable
+---| 3 # Obstacle
+---| 4 # Well
+---| 5 # Floored
+---| 6 # Impassable
+---| 7 # Dynamic
+
+---@class identity.tile_building_occ: DFEnumType
+---@field None 0 bay12: BUILDING_OCCUPANCY_*
+---@field [0] "None" bay12: BUILDING_OCCUPANCY_*
+---@field Planned 1 CONST; nothing built yet
+---@field [1] "Planned" CONST; nothing built yet
+---@field Passable 2 NO_BLOCK
+---@field [2] "Passable" NO_BLOCK
+---@field Obstacle 3 BLOCK_FLOOR
+---@field [3] "Obstacle" BLOCK_FLOOR
+---@field Well 4 BLOCK
+---@field [4] "Well" BLOCK
+---@field Floored 5 FLOOR; depot; lowered bridge
+---@field [5] "Floored" FLOOR; depot; lowered bridge
+---@field Impassable 6 TOTAL
+---@field [6] "Impassable" TOTAL
+---@field Dynamic 7 SPECIAL; doors, grates, etc
+---@field [7] "Dynamic" SPECIAL; doors, grates, etc
+df.tile_building_occ = {}
+
+---@class df.tile_liquid_flow: DFBitfield
+---@field _enum identity.tile_liquid_flow
+---@field temp_flow_timer boolean bay12: FLOW_DIR_*
+---@field [0] boolean bay12: FLOW_DIR_*
+---@field temp_dir boolean
+---@field [3] boolean
+---@field perm_flow_dir boolean
+---@field [6] boolean
+---@field sink_dist boolean periodically set whenever perm_flow_dir is nonzero
+---@field [10] boolean periodically set whenever perm_flow_dir is nonzero
+
+---@class identity.tile_liquid_flow: DFBitfieldType
+---@field temp_flow_timer 0 bay12: FLOW_DIR_*
+---@field [0] "temp_flow_timer" bay12: FLOW_DIR_*
+---@field temp_dir 3
+---@field [3] "temp_dir"
+---@field perm_flow_dir 6
+---@field [6] "perm_flow_dir"
+---@field sink_dist 10 periodically set whenever perm_flow_dir is nonzero
+---@field [10] "sink_dist" periodically set whenever perm_flow_dir is nonzero
+df.tile_liquid_flow = {}
+
+---@alias df.tile_liquid_temp_flow_dir
+---| 0 # north
+---| 1 # south
+---| 2 # east
+---| 3 # northeast
+---| 4 # west
+---| 5 # northwest
+---| 6 # southeast
+---| 7 # southwest
+
+---@class identity.tile_liquid_temp_flow_dir: DFEnumType
+---@field north 0 bay12: FLOW_DIR_TEMP_DIR_*
+---@field [0] "north" bay12: FLOW_DIR_TEMP_DIR_*
+---@field south 1
+---@field [1] "south"
+---@field east 2
+---@field [2] "east"
+---@field northeast 3
+---@field [3] "northeast"
+---@field west 4
+---@field [4] "west"
+---@field northwest 5
+---@field [5] "northwest"
+---@field southeast 6
+---@field [6] "southeast"
+---@field southwest 7
+---@field [7] "southwest"
+df.tile_liquid_temp_flow_dir = {}
+
+---@alias df.tile_liquid_flow_dir
+---| 0 # inactive
+---| 1 # south
+---| 2 # east
+---| 3 # northeast
+---| 4 # west
+---| 5 # northwest
+---| 6 # southeast
+---| 7 # southwest
+---| 8 # down
+---| 9 # none
+---| 10 # north
+
+---@class identity.tile_liquid_flow_dir: DFEnumType
+---@field inactive 0 bay12: FLOW_DIR_SINK_DIR_*
+---@field [0] "inactive" bay12: FLOW_DIR_SINK_DIR_*
+---@field south 1
+---@field [1] "south"
+---@field east 2
+---@field [2] "east"
+---@field northeast 3
+---@field [3] "northeast"
+---@field west 4
+---@field [4] "west"
+---@field northwest 5
+---@field [5] "northwest"
+---@field southeast 6
+---@field [6] "southeast"
+---@field southwest 7
+---@field [7] "southwest"
+---@field down 8
+---@field [8] "down"
+---@field none 9
+---@field [9] "none"
+---@field north 10
+---@field [10] "north"
+df.tile_liquid_flow_dir = {}
+
+---@alias df.mental_attribute_type
+---| 0 # ANALYTICAL_ABILITY
+---| 1 # FOCUS
+---| 2 # WILLPOWER
+---| 3 # CREATIVITY
+---| 4 # INTUITION
+---| 5 # PATIENCE
+---| 6 # MEMORY
+---| 7 # LINGUISTIC_ABILITY
+---| 8 # SPATIAL_SENSE
+---| 9 # MUSICALITY
+---| 10 # KINESTHETIC_SENSE
+---| 11 # EMPATHY
+---| 12 # SOCIAL_AWARENESS
+
+---@class identity.mental_attribute_type: DFEnumType
+---@field ANALYTICAL_ABILITY 0 bay12: MentalAttribute
+---@field [0] "ANALYTICAL_ABILITY" bay12: MentalAttribute
+---@field FOCUS 1
+---@field [1] "FOCUS"
+---@field WILLPOWER 2
+---@field [2] "WILLPOWER"
+---@field CREATIVITY 3
+---@field [3] "CREATIVITY"
+---@field INTUITION 4
+---@field [4] "INTUITION"
+---@field PATIENCE 5
+---@field [5] "PATIENCE"
+---@field MEMORY 6
+---@field [6] "MEMORY"
+---@field LINGUISTIC_ABILITY 7
+---@field [7] "LINGUISTIC_ABILITY"
+---@field SPATIAL_SENSE 8
+---@field [8] "SPATIAL_SENSE"
+---@field MUSICALITY 9
+---@field [9] "MUSICALITY"
+---@field KINESTHETIC_SENSE 10
+---@field [10] "KINESTHETIC_SENSE"
+---@field EMPATHY 11
+---@field [11] "EMPATHY"
+---@field SOCIAL_AWARENESS 12
+---@field [12] "SOCIAL_AWARENESS"
+df.mental_attribute_type = {}
+
+---@alias df.physical_attribute_type
+---| 0 # STRENGTH
+---| 1 # AGILITY
+---| 2 # TOUGHNESS
+---| 3 # ENDURANCE
+---| 4 # RECUPERATION
+---| 5 # DISEASE_RESISTANCE
+
+---@class identity.physical_attribute_type: DFEnumType
+---@field STRENGTH 0 bay12: PhysicalAttribute
+---@field [0] "STRENGTH" bay12: PhysicalAttribute
+---@field AGILITY 1
+---@field [1] "AGILITY"
+---@field TOUGHNESS 2
+---@field [2] "TOUGHNESS"
+---@field ENDURANCE 3
+---@field [3] "ENDURANCE"
+---@field RECUPERATION 4
+---@field [4] "RECUPERATION"
+---@field DISEASE_RESISTANCE 5
+---@field [5] "DISEASE_RESISTANCE"
+df.physical_attribute_type = {}
+
+---@alias df.unit_labor
+---| -1 # NONE
+---| 0 # MINE
+---| 1 # HAUL_STONE
+---| 2 # HAUL_WOOD
+---| 3 # HAUL_BODY
+---| 4 # HAUL_FOOD
+---| 5 # HAUL_REFUSE
+---| 6 # HAUL_ITEM
+---| 7 # HAUL_FURNITURE
+---| 8 # HAUL_ANIMALS
+---| 9 # CLEAN
+---| 10 # CUTWOOD
+---| 11 # CARPENTER
+---| 12 # STONECUTTER
+---| 13 # STONE_CARVER
+---| 14 # ENGRAVER
+---| 15 # MASON
+---| 16 # ANIMALTRAIN
+---| 17 # ANIMALCARE
+---| 18 # DIAGNOSE
+---| 19 # SURGERY
+---| 20 # BONE_SETTING
+---| 21 # SUTURING
+---| 22 # DRESSING_WOUNDS
+---| 23 # FEED_WATER_CIVILIANS
+---| 24 # RECOVER_WOUNDED
+---| 25 # BUTCHER
+---| 26 # TRAPPER
+---| 27 # DISSECT_VERMIN
+---| 28 # LEATHER
+---| 29 # TANNER
+---| 30 # BREWER
+---| 31 # SOAP_MAKER
+---| 32 # WEAVER
+---| 33 # CLOTHESMAKER
+---| 34 # MILLER
+---| 35 # PROCESS_PLANT
+---| 36 # MAKE_CHEESE
+---| 37 # MILK
+---| 38 # COOK
+---| 39 # PLANT
+---| 40 # HERBALIST
+---| 41 # FISH
+---| 42 # CLEAN_FISH
+---| 43 # DISSECT_FISH
+---| 44 # HUNT
+---| 45 # SMELT
+---| 46 # FORGE_WEAPON
+---| 47 # FORGE_ARMOR
+---| 48 # FORGE_FURNITURE
+---| 49 # METAL_CRAFT
+---| 50 # CUT_GEM
+---| 51 # ENCRUST_GEM
+---| 52 # WOOD_CRAFT
+---| 53 # STONE_CRAFT
+---| 54 # BONE_CARVE
+---| 55 # GLASSMAKER
+---| 56 # EXTRACT_STRAND
+---| 57 # SIEGECRAFT
+---| 58 # SIEGEOPERATE
+---| 59 # BOWYER
+---| 60 # MECHANIC
+---| 61 # POTASH_MAKING
+---| 62 # LYE_MAKING
+---| 63 # DYER
+---| 64 # BURN_WOOD
+---| 65 # OPERATE_PUMP
+---| 66 # SHEARER
+---| 67 # SPINNER
+---| 68 # POTTERY
+---| 69 # GLAZING
+---| 70 # PRESSING
+---| 71 # BEEKEEPING
+---| 72 # WAX_WORKING
+---| 73 # HANDLE_VEHICLES
+---| 74 # HAUL_TRADE
+---| 75 # PULL_LEVER
+---| 76 # UNUSED_13
+---| 77 # HAUL_WATER
+---| 78 # GELD
+---| 79 # BUILD_ROAD
+---| 80 # BUILD_CONSTRUCTION
+---| 81 # PAPERMAKING
+---| 82 # BOOKBINDING
+---| 83 # UNUSED_20
+---| 84 # UNUSED_21
+---| 85 # UNUSED_22
+---| 86 # UNUSED_23
+---| 87 # UNUSED_24
+---| 88 # UNUSED_25
+---| 89 # UNUSED_26
+---| 90 # UNUSED_27
+---| 91 # UNUSED_28
+---| 92 # UNUSED_29
+---| 93 # UNUSED_30
+
+---@class identity.unit_labor: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field MINE 0 0
+---@field [0] "MINE" 0
+---@field HAUL_STONE 1
+---@field [1] "HAUL_STONE"
+---@field HAUL_WOOD 2
+---@field [2] "HAUL_WOOD"
+---@field HAUL_BODY 3
+---@field [3] "HAUL_BODY"
+---@field HAUL_FOOD 4
+---@field [4] "HAUL_FOOD"
+---@field HAUL_REFUSE 5
+---@field [5] "HAUL_REFUSE"
+---@field HAUL_ITEM 6
+---@field [6] "HAUL_ITEM"
+---@field HAUL_FURNITURE 7
+---@field [7] "HAUL_FURNITURE"
+---@field HAUL_ANIMALS 8
+---@field [8] "HAUL_ANIMALS"
+---@field CLEAN 9
+---@field [9] "CLEAN"
+---@field CUTWOOD 10 10
+---@field [10] "CUTWOOD" 10
+---@field CARPENTER 11
+---@field [11] "CARPENTER"
+---@field STONECUTTER 12
+---@field [12] "STONECUTTER"
+---@field STONE_CARVER 13
+---@field [13] "STONE_CARVER"
+---@field ENGRAVER 14
+---@field [14] "ENGRAVER"
+---@field MASON 15
+---@field [15] "MASON"
+---@field ANIMALTRAIN 16
+---@field [16] "ANIMALTRAIN"
+---@field ANIMALCARE 17
+---@field [17] "ANIMALCARE"
+---@field DIAGNOSE 18
+---@field [18] "DIAGNOSE"
+---@field SURGERY 19
+---@field [19] "SURGERY"
+---@field BONE_SETTING 20
+---@field [20] "BONE_SETTING"
+---@field SUTURING 21 21
+---@field [21] "SUTURING" 21
+---@field DRESSING_WOUNDS 22
+---@field [22] "DRESSING_WOUNDS"
+---@field FEED_WATER_CIVILIANS 23
+---@field [23] "FEED_WATER_CIVILIANS"
+---@field RECOVER_WOUNDED 24
+---@field [24] "RECOVER_WOUNDED"
+---@field BUTCHER 25
+---@field [25] "BUTCHER"
+---@field TRAPPER 26
+---@field [26] "TRAPPER"
+---@field DISSECT_VERMIN 27
+---@field [27] "DISSECT_VERMIN"
+---@field LEATHER 28
+---@field [28] "LEATHER"
+---@field TANNER 29
+---@field [29] "TANNER"
+---@field BREWER 30
+---@field [30] "BREWER"
+---@field SOAP_MAKER 31 31
+---@field [31] "SOAP_MAKER" 31
+---@field WEAVER 32
+---@field [32] "WEAVER"
+---@field CLOTHESMAKER 33
+---@field [33] "CLOTHESMAKER"
+---@field MILLER 34
+---@field [34] "MILLER"
+---@field PROCESS_PLANT 35
+---@field [35] "PROCESS_PLANT"
+---@field MAKE_CHEESE 36
+---@field [36] "MAKE_CHEESE"
+---@field MILK 37
+---@field [37] "MILK"
+---@field COOK 38
+---@field [38] "COOK"
+---@field PLANT 39
+---@field [39] "PLANT"
+---@field HERBALIST 40 40
+---@field [40] "HERBALIST" 40
+---@field FISH 41
+---@field [41] "FISH"
+---@field CLEAN_FISH 42
+---@field [42] "CLEAN_FISH"
+---@field DISSECT_FISH 43
+---@field [43] "DISSECT_FISH"
+---@field HUNT 44
+---@field [44] "HUNT"
+---@field SMELT 45
+---@field [45] "SMELT"
+---@field FORGE_WEAPON 46
+---@field [46] "FORGE_WEAPON"
+---@field FORGE_ARMOR 47
+---@field [47] "FORGE_ARMOR"
+---@field FORGE_FURNITURE 48
+---@field [48] "FORGE_FURNITURE"
+---@field METAL_CRAFT 49
+---@field [49] "METAL_CRAFT"
+---@field CUT_GEM 50 50
+---@field [50] "CUT_GEM" 50
+---@field ENCRUST_GEM 51
+---@field [51] "ENCRUST_GEM"
+---@field WOOD_CRAFT 52
+---@field [52] "WOOD_CRAFT"
+---@field STONE_CRAFT 53
+---@field [53] "STONE_CRAFT"
+---@field BONE_CARVE 54
+---@field [54] "BONE_CARVE"
+---@field GLASSMAKER 55
+---@field [55] "GLASSMAKER"
+---@field EXTRACT_STRAND 56
+---@field [56] "EXTRACT_STRAND"
+---@field SIEGECRAFT 57
+---@field [57] "SIEGECRAFT"
+---@field SIEGEOPERATE 58
+---@field [58] "SIEGEOPERATE"
+---@field BOWYER 59
+---@field [59] "BOWYER"
+---@field MECHANIC 60 60
+---@field [60] "MECHANIC" 60
+---@field POTASH_MAKING 61
+---@field [61] "POTASH_MAKING"
+---@field LYE_MAKING 62
+---@field [62] "LYE_MAKING"
+---@field DYER 63
+---@field [63] "DYER"
+---@field BURN_WOOD 64
+---@field [64] "BURN_WOOD"
+---@field OPERATE_PUMP 65
+---@field [65] "OPERATE_PUMP"
+---@field SHEARER 66
+---@field [66] "SHEARER"
+---@field SPINNER 67
+---@field [67] "SPINNER"
+---@field POTTERY 68
+---@field [68] "POTTERY"
+---@field GLAZING 69
+---@field [69] "GLAZING"
+---@field PRESSING 70 70
+---@field [70] "PRESSING" 70
+---@field BEEKEEPING 71
+---@field [71] "BEEKEEPING"
+---@field WAX_WORKING 72
+---@field [72] "WAX_WORKING"
+---@field HANDLE_VEHICLES 73
+---@field [73] "HANDLE_VEHICLES"
+---@field HAUL_TRADE 74
+---@field [74] "HAUL_TRADE"
+---@field PULL_LEVER 75
+---@field [75] "PULL_LEVER"
+---@field UNUSED_13 76
+---@field [76] "UNUSED_13"
+---@field HAUL_WATER 77
+---@field [77] "HAUL_WATER"
+---@field GELD 78
+---@field [78] "GELD"
+---@field BUILD_ROAD 79
+---@field [79] "BUILD_ROAD"
+---@field BUILD_CONSTRUCTION 80 80
+---@field [80] "BUILD_CONSTRUCTION" 80
+---@field PAPERMAKING 81
+---@field [81] "PAPERMAKING"
+---@field BOOKBINDING 82
+---@field [82] "BOOKBINDING"
+---@field UNUSED_20 83
+---@field [83] "UNUSED_20"
+---@field UNUSED_21 84
+---@field [84] "UNUSED_21"
+---@field UNUSED_22 85
+---@field [85] "UNUSED_22"
+---@field UNUSED_23 86
+---@field [86] "UNUSED_23"
+---@field UNUSED_24 87
+---@field [87] "UNUSED_24"
+---@field UNUSED_25 88
+---@field [88] "UNUSED_25"
+---@field UNUSED_26 89
+---@field [89] "UNUSED_26"
+---@field UNUSED_27 90
+---@field [90] "UNUSED_27"
+---@field UNUSED_28 91
+---@field [91] "UNUSED_28"
+---@field UNUSED_29 92
+---@field [92] "UNUSED_29"
+---@field UNUSED_30 93
+---@field [93] "UNUSED_30"
+df.unit_labor = {}
+
+---@class unit_labor_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_labor._attr_entry_type = {}
+
+---@class (exact) unit_labor_attr_entry_type_fields
+---@field caption DFCompoundField bay12: ProfessionType
+---@field category DFCompoundField
+df.unit_labor._attr_entry_type._fields = {}
+
+---@class unit_labor_attrs
+---@field NONE { category: "None" }
+---@field MINE { caption: "Mining", category: "None" }
+---@field HAUL_STONE { caption: "Stone Hauling", category: "Hauling" }
+---@field HAUL_WOOD { caption: "Wood Hauling", category: "Hauling" }
+---@field HAUL_BODY { caption: "Burial", category: "Hauling" }
+---@field HAUL_FOOD { caption: "Food Hauling", category: "Hauling" }
+---@field HAUL_REFUSE { caption: "Refuse Hauling", category: "Hauling" }
+---@field HAUL_ITEM { caption: "Item Hauling", category: "Hauling" }
+---@field HAUL_FURNITURE { caption: "Furniture Hauling", category: "Hauling" }
+---@field HAUL_ANIMALS { caption: "Animal Hauling", category: "Hauling" }
+---@field CLEAN { caption: "Cleaning", category: "Other" }
+---@field CUTWOOD { caption: "Wood Cutting", category: "Woodworking" }
+---@field CARPENTER { caption: "Carpentry", category: "Woodworking" }
+---@field STONECUTTER { caption: "Stone Cutting", category: "Stoneworking" }
+---@field STONE_CARVER { caption: "Stone Carving", category: "Stoneworking" }
+---@field ENGRAVER { caption: "Stone Engraving", category: "Stoneworking" }
+---@field MASON { caption: "Masonry", category: "Stoneworking" }
+---@field ANIMALTRAIN { caption: "Animal Training", category: "Hunting" }
+---@field ANIMALCARE { caption: "Animal Care", category: "Hunting" }
+---@field DIAGNOSE { caption: "Diagnosis", category: "Healthcare" }
+---@field SURGERY { caption: "Surgery", category: "Healthcare" }
+---@field BONE_SETTING { caption: "Setting Bones", category: "Healthcare" }
+---@field SUTURING { caption: "Suturing", category: "Healthcare" }
+---@field DRESSING_WOUNDS { caption: "Dressing Wounds", category: "Healthcare" }
+---@field FEED_WATER_CIVILIANS { caption: "Feed Patients/Prisoners", category: "Healthcare" }
+---@field RECOVER_WOUNDED { caption: "Recovering Wounded", category: "Healthcare" }
+---@field BUTCHER { caption: "Butchery", category: "Farming" }
+---@field TRAPPER { caption: "Trapping", category: "Hunting" }
+---@field DISSECT_VERMIN { caption: "Small Animal Dissection", category: "Hunting" }
+---@field LEATHER { caption: "Leatherworking", category: "Crafts" }
+---@field TANNER { caption: "Tanning", category: "Farming" }
+---@field BREWER { caption: "Brewing", category: "Farming" }
+---@field SOAP_MAKER { caption: "Soap Maker", category: "Farming" }
+---@field WEAVER { caption: "Weaving", category: "Crafts" }
+---@field CLOTHESMAKER { caption: "Clothesmaking", category: "Crafts" }
+---@field MILLER { caption: "Milling", category: "Farming" }
+---@field PROCESS_PLANT { caption: "Plant Processing", category: "Farming" }
+---@field MAKE_CHEESE { caption: "Cheese Making", category: "Farming" }
+---@field MILK { caption: "Milking", category: "Farming" }
+---@field COOK { caption: "Cooking", category: "Farming" }
+---@field PLANT { caption: "Farming (Fields)", category: "Farming" }
+---@field HERBALIST { caption: "Plant Gathering", category: "Farming" }
+---@field FISH { caption: "Fishing", category: "Fishing" }
+---@field CLEAN_FISH { caption: "Fish Cleaning", category: "Fishing" }
+---@field DISSECT_FISH { caption: "Fish Dissection", category: "Fishing" }
+---@field HUNT { caption: "Hunting", category: "Hunting" }
+---@field SMELT { caption: "Furnace Operating", category: "Metalsmithing" }
+---@field FORGE_WEAPON { caption: "Weaponsmithing", category: "Metalsmithing" }
+---@field FORGE_ARMOR { caption: "Armoring", category: "Metalsmithing" }
+---@field FORGE_FURNITURE { caption: "Blacksmithing", category: "Metalsmithing" }
+---@field METAL_CRAFT { caption: "Metalcrafting", category: "Metalsmithing" }
+---@field CUT_GEM { caption: "Gem Cutting", category: "Jewelry" }
+---@field ENCRUST_GEM { caption: "Gem Setting", category: "Jewelry" }
+---@field WOOD_CRAFT { caption: "Woodcrafting", category: "Crafts" }
+---@field STONE_CRAFT { caption: "Stonecrafting", category: "Crafts" }
+---@field BONE_CARVE { caption: "Bone Carving", category: "Crafts" }
+---@field GLASSMAKER { caption: "Glassmaking", category: "Crafts" }
+---@field EXTRACT_STRAND { caption: "Strand Extraction", category: "Crafts" }
+---@field SIEGECRAFT { caption: "Siege Engineering", category: "Engineering" }
+---@field SIEGEOPERATE { caption: "Siege Operating", category: "Engineering" }
+---@field BOWYER { caption: "Crossbow-making", category: "Woodworking" }
+---@field MECHANIC { caption: "Mechanics", category: "Engineering" }
+---@field POTASH_MAKING { caption: "Potash Making", category: "Farming" }
+---@field LYE_MAKING { caption: "Lye Making", category: "Farming" }
+---@field DYER { caption: "Dyeing", category: "Farming" }
+---@field BURN_WOOD { caption: "Wood Burning", category: "Farming" }
+---@field OPERATE_PUMP { caption: "Pump Operating", category: "Engineering" }
+---@field SHEARER { caption: "Shearing", category: "Farming" }
+---@field SPINNER { caption: "Spinning", category: "Farming" }
+---@field POTTERY { caption: "Pottery", category: "Crafts" }
+---@field GLAZING { caption: "Glazing", category: "Crafts" }
+---@field PRESSING { caption: "Pressing", category: "Farming" }
+---@field BEEKEEPING { caption: "Bee Keeping", category: "Farming" }
+---@field WAX_WORKING { caption: "Wax Working", category: "Crafts" }
+---@field HANDLE_VEHICLES { caption: "Push/Haul Vehicles", category: "Hauling" }
+---@field HAUL_TRADE { caption: "Trade Good Hauling", category: "Hauling" }
+---@field PULL_LEVER { caption: "Lever Operation", category: "Other" }
+---@field UNUSED_13 { category: "None" }
+---@field HAUL_WATER { caption: "Water Hauling", category: "Hauling" }
+---@field GELD { caption: "Gelding", category: "Farming" }
+---@field BUILD_ROAD { caption: "Road Building", category: "Other" }
+---@field BUILD_CONSTRUCTION { caption: "Wall/Floor Construction", category: "Other" }
+---@field PAPERMAKING { caption: "Papermaking", category: "Crafts" }
+---@field BOOKBINDING { caption: "Bookbinding", category: "Crafts" }
+---@field UNUSED_20 { category: "None" }
+---@field UNUSED_21 { category: "None" }
+---@field UNUSED_22 { category: "None" }
+---@field UNUSED_23 { category: "None" }
+---@field UNUSED_24 { category: "None" }
+---@field UNUSED_25 { category: "None" }
+---@field UNUSED_26 { category: "None" }
+---@field UNUSED_27 { category: "None" }
+---@field UNUSED_28 { category: "None" }
+---@field UNUSED_29 { category: "None" }
+---@field UNUSED_30 { category: "None" }
+df.unit_labor.attrs = {}
+
+---@alias df.unit_labor_category
+---| -13 # Other
+---| -12 # Hauling
+---| -11 # Engineering
+---| -10 # Crafts
+---| -9 # Jewelry
+---| -8 # Metalsmithing
+---| -7 # Fishing
+---| -6 # Farming
+---| -5 # Healthcare
+---| -4 # Hunting
+---| -3 # Stoneworking
+---| -2 # Woodworking
+---| -1 # None
+
+---@class identity.unit_labor_category: DFEnumType
+---@field Other -13 bay12: SUPER_PROFESSION_*
+---@field [-13] "Other" bay12: SUPER_PROFESSION_*
+---@field Hauling -12
+---@field [-12] "Hauling"
+---@field Engineering -11
+---@field [-11] "Engineering"
+---@field Crafts -10 -10
+---@field [-10] "Crafts" -10
+---@field Jewelry -9
+---@field [-9] "Jewelry"
+---@field Metalsmithing -8
+---@field [-8] "Metalsmithing"
+---@field Fishing -7
+---@field [-7] "Fishing"
+---@field Farming -6
+---@field [-6] "Farming"
+---@field Healthcare -5 -5
+---@field [-5] "Healthcare" -5
+---@field Hunting -4
+---@field [-4] "Hunting"
+---@field Stoneworking -3
+---@field [-3] "Stoneworking"
+---@field Woodworking -2
+---@field [-2] "Woodworking"
+---@field None -1
+---@field [-1] "None"
+df.unit_labor_category = {}
+
+---@alias df.item_type
+---| -1 # NONE
+---| 0 # BAR
+---| 1 # SMALLGEM
+---| 2 # BLOCKS
+---| 3 # ROUGH
+---| 4 # BOULDER
+---| 5 # WOOD
+---| 6 # DOOR
+---| 7 # FLOODGATE
+---| 8 # BED
+---| 9 # CHAIR
+---| 10 # CHAIN
+---| 11 # FLASK
+---| 12 # GOBLET
+---| 13 # INSTRUMENT
+---| 14 # TOY
+---| 15 # WINDOW
+---| 16 # CAGE
+---| 17 # BARREL
+---| 18 # BUCKET
+---| 19 # ANIMALTRAP
+---| 20 # TABLE
+---| 21 # COFFIN
+---| 22 # STATUE
+---| 23 # CORPSE
+---| 24 # WEAPON
+---| 25 # ARMOR
+---| 26 # SHOES
+---| 27 # SHIELD
+---| 28 # HELM
+---| 29 # GLOVES
+---| 30 # BOX
+---| 31 # BAG
+---| 32 # BIN
+---| 33 # ARMORSTAND
+---| 34 # WEAPONRACK
+---| 35 # CABINET
+---| 36 # FIGURINE
+---| 37 # AMULET
+---| 38 # SCEPTER
+---| 39 # AMMO
+---| 40 # CROWN
+---| 41 # RING
+---| 42 # EARRING
+---| 43 # BRACELET
+---| 44 # GEM
+---| 45 # ANVIL
+---| 46 # CORPSEPIECE
+---| 47 # REMAINS
+---| 48 # MEAT
+---| 49 # FISH
+---| 50 # FISH_RAW
+---| 51 # VERMIN
+---| 52 # PET
+---| 53 # SEEDS
+---| 54 # PLANT
+---| 55 # SKIN_TANNED
+---| 56 # PLANT_GROWTH
+---| 57 # THREAD
+---| 58 # CLOTH
+---| 59 # TOTEM
+---| 60 # PANTS
+---| 61 # BACKPACK
+---| 62 # QUIVER
+---| 63 # CATAPULTPARTS
+---| 64 # BALLISTAPARTS
+---| 65 # SIEGEAMMO
+---| 66 # BALLISTAARROWHEAD
+---| 67 # TRAPPARTS
+---| 68 # TRAPCOMP
+---| 69 # DRINK
+---| 70 # POWDER_MISC
+---| 71 # CHEESE
+---| 72 # FOOD
+---| 73 # LIQUID_MISC
+---| 74 # COIN
+---| 75 # GLOB
+---| 76 # ROCK
+---| 77 # PIPE_SECTION
+---| 78 # HATCH_COVER
+---| 79 # GRATE
+---| 80 # QUERN
+---| 81 # MILLSTONE
+---| 82 # SPLINT
+---| 83 # CRUTCH
+---| 84 # TRACTION_BENCH
+---| 85 # ORTHOPEDIC_CAST
+---| 86 # TOOL
+---| 87 # SLAB
+---| 88 # EGG
+---| 89 # BOOK
+---| 90 # SHEET
+---| 91 # BRANCH
+
+---@class identity.item_type: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field BAR 0 Bars, such as metal, fuel, or soap.
+---@field [0] "BAR" Bars, such as metal, fuel, or soap.
+---@field SMALLGEM 1 Cut gemstones usable in jewelers workshop
+---@field [1] "SMALLGEM" Cut gemstones usable in jewelers workshop
+---@field BLOCKS 2 Blocks of any kind.
+---@field [2] "BLOCKS" Blocks of any kind.
+---@field ROUGH 3 Rough gemstones.
+---@field [3] "ROUGH" Rough gemstones.
+---@field BOULDER 4 Raw mined stone.
+---@field [4] "BOULDER" Raw mined stone.
+---@field WOOD 5 Wooden logs.
+---@field [5] "WOOD" Wooden logs.
+---@field DOOR 6 Doors.
+---@field [6] "DOOR" Doors.
+---@field FLOODGATE 7 Floodgates.
+---@field [7] "FLOODGATE" Floodgates.
+---@field BED 8 Beds.
+---@field [8] "BED" Beds.
+---@field CHAIR 9 Chairs and thrones.
+---@field [9] "CHAIR" Chairs and thrones.
+---@field CHAIN 10 Restraints.
+---@field [10] "CHAIN" Restraints.
+---@field FLASK 11 Flasks.
+---@field [11] "FLASK" Flasks.
+---@field GOBLET 12 Goblets.
+---@field [12] "GOBLET" Goblets.
+---@field INSTRUMENT 13 Musical instruments.
+---@field [13] "INSTRUMENT" Musical instruments.
+---@field TOY 14 Toys.
+---@field [14] "TOY" Toys.
+---@field WINDOW 15 Glass windows.
+---@field [15] "WINDOW" Glass windows.
+---@field CAGE 16 Cages.
+---@field [16] "CAGE" Cages.
+---@field BARREL 17 Barrels.
+---@field [17] "BARREL" Barrels.
+---@field BUCKET 18 Buckets.
+---@field [18] "BUCKET" Buckets.
+---@field ANIMALTRAP 19 Animal traps.
+---@field [19] "ANIMALTRAP" Animal traps.
+---@field TABLE 20 Tables.
+---@field [20] "TABLE" Tables.
+---@field COFFIN 21 Coffins.
+---@field [21] "COFFIN" Coffins.
+---@field STATUE 22 Statues.
+---@field [22] "STATUE" Statues.
+---@field CORPSE 23 Corpses. Does not have a material.
+---@field [23] "CORPSE" Corpses. Does not have a material.
+---@field WEAPON 24 Weapons.
+---@field [24] "WEAPON" Weapons.
+---@field ARMOR 25 Armor and clothing worn on the upper body.
+---@field [25] "ARMOR" Armor and clothing worn on the upper body.
+---@field SHOES 26 Armor and clothing worn on the feet.
+---@field [26] "SHOES" Armor and clothing worn on the feet.
+---@field SHIELD 27 Shields and bucklers.
+---@field [27] "SHIELD" Shields and bucklers.
+---@field HELM 28 Armor and clothing worn on the head.
+---@field [28] "HELM" Armor and clothing worn on the head.
+---@field GLOVES 29 Armor and clothing worn on the hands.
+---@field [29] "GLOVES" Armor and clothing worn on the hands.
+---@field BOX 30 Chests (wood), coffers (stone), and boxes (glass).
+---@field [30] "BOX" Chests (wood), coffers (stone), and boxes (glass).
+---@field BAG 31 Bags (cloth or leather).
+---@field [31] "BAG" Bags (cloth or leather).
+---@field BIN 32 Bins.
+---@field [32] "BIN" Bins.
+---@field ARMORSTAND 33 Armor stands.
+---@field [33] "ARMORSTAND" Armor stands.
+---@field WEAPONRACK 34 Weapon racks.
+---@field [34] "WEAPONRACK" Weapon racks.
+---@field CABINET 35 Cabinets.
+---@field [35] "CABINET" Cabinets.
+---@field FIGURINE 36 Figurines.
+---@field [36] "FIGURINE" Figurines.
+---@field AMULET 37 Amulets.
+---@field [37] "AMULET" Amulets.
+---@field SCEPTER 38 Scepters.
+---@field [38] "SCEPTER" Scepters.
+---@field AMMO 39 Ammunition for hand-held weapons.
+---@field [39] "AMMO" Ammunition for hand-held weapons.
+---@field CROWN 40 Crowns.
+---@field [40] "CROWN" Crowns.
+---@field RING 41 Rings.
+---@field [41] "RING" Rings.
+---@field EARRING 42 Earrings.
+---@field [42] "EARRING" Earrings.
+---@field BRACELET 43 Bracelets.
+---@field [43] "BRACELET" Bracelets.
+---@field GEM 44 Large gems.
+---@field [44] "GEM" Large gems.
+---@field ANVIL 45 Anvils.
+---@field [45] "ANVIL" Anvils.
+---@field CORPSEPIECE 46 Body parts. Does not have a material.
+---@field [46] "CORPSEPIECE" Body parts. Does not have a material.
+---@field REMAINS 47 Dead vermin bodies. Material is CREATURE_ID:CASTE.
+---@field [47] "REMAINS" Dead vermin bodies. Material is CREATURE_ID:CASTE.
+---@field MEAT 48 Butchered meat.
+---@field [48] "MEAT" Butchered meat.
+---@field FISH 49 Prepared fish. Material is CREATURE_ID:CASTE.
+---@field [49] "FISH" Prepared fish. Material is CREATURE_ID:CASTE.
+---@field FISH_RAW 50 Unprepared fish. Material is CREATURE_ID:CASTE.
+---@field [50] "FISH_RAW" Unprepared fish. Material is CREATURE_ID:CASTE.
+---@field VERMIN 51 Live vermin. Material is CREATURE_ID:CASTE.
+---@field [51] "VERMIN" Live vermin. Material is CREATURE_ID:CASTE.
+---@field PET 52 Tame vermin. Material is CREATURE_ID:CASTE.
+---@field [52] "PET" Tame vermin. Material is CREATURE_ID:CASTE.
+---@field SEEDS 53 Seeds from plants.
+---@field [53] "SEEDS" Seeds from plants.
+---@field PLANT 54 Plants.
+---@field [54] "PLANT" Plants.
+---@field SKIN_TANNED 55 Tanned skins.
+---@field [55] "SKIN_TANNED" Tanned skins.
+---@field PLANT_GROWTH 56 Assorted plant growths, including leaves and berries
+---@field [56] "PLANT_GROWTH" Assorted plant growths, including leaves and berries
+---@field THREAD 57 Thread gathered from webs or made at the farmers workshop.
+---@field [57] "THREAD" Thread gathered from webs or made at the farmers workshop.
+---@field CLOTH 58 Cloth made at the loom.
+---@field [58] "CLOTH" Cloth made at the loom.
+---@field TOTEM 59 Skull totems.
+---@field [59] "TOTEM" Skull totems.
+---@field PANTS 60 Armor and clothing worn on the legs.
+---@field [60] "PANTS" Armor and clothing worn on the legs.
+---@field BACKPACK 61 Backpacks.
+---@field [61] "BACKPACK" Backpacks.
+---@field QUIVER 62 Quivers.
+---@field [62] "QUIVER" Quivers.
+---@field CATAPULTPARTS 63 Catapult parts.
+---@field [63] "CATAPULTPARTS" Catapult parts.
+---@field BALLISTAPARTS 64 Ballista parts.
+---@field [64] "BALLISTAPARTS" Ballista parts.
+---@field SIEGEAMMO 65 Siege engine ammunition.
+---@field [65] "SIEGEAMMO" Siege engine ammunition.
+---@field BALLISTAARROWHEAD 66 Ballista arrow heads.
+---@field [66] "BALLISTAARROWHEAD" Ballista arrow heads.
+---@field TRAPPARTS 67 Mechanisms.
+---@field [67] "TRAPPARTS" Mechanisms.
+---@field TRAPCOMP 68 Trap components.
+---@field [68] "TRAPCOMP" Trap components.
+---@field DRINK 69 Alcoholic drinks.
+---@field [69] "DRINK" Alcoholic drinks.
+---@field POWDER_MISC 70 Powders such as flour, gypsum plaster, dye, or sand.
+---@field [70] "POWDER_MISC" Powders such as flour, gypsum plaster, dye, or sand.
+---@field CHEESE 71 Pieces of cheese.
+---@field [71] "CHEESE" Pieces of cheese.
+---@field FOOD 72 Prepared meals. Subtypes come from item_food.txt
+---@field [72] "FOOD" Prepared meals. Subtypes come from item_food.txt
+---@field LIQUID_MISC 73 Liquids such as water, lye, and extracts.
+---@field [73] "LIQUID_MISC" Liquids such as water, lye, and extracts.
+---@field COIN 74 Coins.
+---@field [74] "COIN" Coins.
+---@field GLOB 75 Fat, tallow, pastes/pressed objects, and small bits of molten rock/metal.
+---@field [75] "GLOB" Fat, tallow, pastes/pressed objects, and small bits of molten rock/metal.
+---@field ROCK 76 Small rocks (usually sharpened and/or thrown in adventurer mode)
+---@field [76] "ROCK" Small rocks (usually sharpened and/or thrown in adventurer mode)
+---@field PIPE_SECTION 77 Pipe sections.
+---@field [77] "PIPE_SECTION" Pipe sections.
+---@field HATCH_COVER 78 Hatch covers.
+---@field [78] "HATCH_COVER" Hatch covers.
+---@field GRATE 79 Grates.
+---@field [79] "GRATE" Grates.
+---@field QUERN 80 Querns.
+---@field [80] "QUERN" Querns.
+---@field MILLSTONE 81 Millstones.
+---@field [81] "MILLSTONE" Millstones.
+---@field SPLINT 82 Splints.
+---@field [82] "SPLINT" Splints.
+---@field CRUTCH 83 Crutches.
+---@field [83] "CRUTCH" Crutches.
+---@field TRACTION_BENCH 84 Traction benches.
+---@field [84] "TRACTION_BENCH" Traction benches.
+---@field ORTHOPEDIC_CAST 85 Casts
+---@field [85] "ORTHOPEDIC_CAST" Casts
+---@field TOOL 86 Tools.
+---@field [86] "TOOL" Tools.
+---@field SLAB 87 Slabs.
+---@field [87] "SLAB" Slabs.
+---@field EGG 88 Eggs. Material is CREATURE_ID:CASTE.
+---@field [88] "EGG" Eggs. Material is CREATURE_ID:CASTE.
+---@field BOOK 89 Books.
+---@field [89] "BOOK" Books.
+---@field SHEET 90 Sheets of paper
+---@field [90] "SHEET" Sheets of paper
+---@field BRANCH 91 Tree branches
+---@field [91] "BRANCH" Tree branches
+df.item_type = {}
+
+---@class item_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.item_type._attr_entry_type = {}
+
+---@class (exact) item_type_attr_entry_type_fields
+---@field caption DFCompoundField bay12: ItemType
+---@field is_rawable DFCompoundField
+---@field is_stackable DFCompoundField
+---@field is_caste_mat DFCompoundField instead of material, uses a creature/caste pair
+---@field classname DFCompoundField
+df.item_type._attr_entry_type._fields = {}
+
+---@class item_type_attrs
+---@field BAR { caption: "bars", classname: "item_barst" }
+---@field SMALLGEM { caption: "cut gem", classname: "item_smallgemst" }
+---@field BLOCKS { caption: "blocks", classname: "item_blocksst" }
+---@field ROUGH { caption: "rough gem", classname: "item_roughst" }
+---@field BOULDER { caption: "boulder", classname: "item_boulderst" }
+---@field WOOD { caption: "logs", classname: "item_woodst" }
+---@field DOOR { caption: "door", classname: "item_doorst" }
+---@field FLOODGATE { caption: "floodgate", classname: "item_floodgatest" }
+---@field BED { caption: "bed", classname: "item_bedst" }
+---@field CHAIR { caption: "chair", classname: "item_chairst" }
+---@field CHAIN { caption: "chain", classname: "item_chainst" }
+---@field FLASK { caption: "flask", classname: "item_flaskst" }
+---@field GOBLET { caption: "goblet", classname: "item_gobletst" }
+---@field INSTRUMENT { caption: "instrument", is_rawable: "true", classname: "item_instrumentst" }
+---@field TOY { caption: "toy", is_rawable: "true", classname: "item_toyst" }
+---@field WINDOW { caption: "window", classname: "item_windowst" }
+---@field CAGE { caption: "cage", classname: "item_cagest" }
+---@field BARREL { caption: "barrel", classname: "item_barrelst" }
+---@field BUCKET { caption: "bucket", classname: "item_bucketst" }
+---@field ANIMALTRAP { caption: "animal trap", classname: "item_animaltrapst" }
+---@field TABLE { caption: "table", classname: "item_tablest" }
+---@field COFFIN { caption: "coffin", classname: "item_coffinst" }
+---@field STATUE { caption: "statue", classname: "item_statuest" }
+---@field CORPSE { caption: "corpse", classname: "item_corpsest" }
+---@field WEAPON { caption: "weapon", is_rawable: "true", classname: "item_weaponst" }
+---@field ARMOR { caption: "armor", is_rawable: "true", classname: "item_armorst" }
+---@field SHOES { caption: "footwear", is_rawable: "true", classname: "item_shoesst" }
+---@field SHIELD { caption: "shield", is_rawable: "true", classname: "item_shieldst" }
+---@field HELM { caption: "headwear", is_rawable: "true", classname: "item_helmst" }
+---@field GLOVES { caption: "handwear", is_rawable: "true", classname: "item_glovesst" }
+---@field BOX { caption: "box", classname: "item_boxst" }
+---@field BAG { caption: "bag", classname: "item_bagst" }
+---@field BIN { caption: "bin", classname: "item_binst" }
+---@field ARMORSTAND { caption: "armor stand", classname: "item_armorstandst" }
+---@field WEAPONRACK { caption: "weapon rack", classname: "item_weaponrackst" }
+---@field CABINET { caption: "cabinet", classname: "item_cabinetst" }
+---@field FIGURINE { caption: "figurine", classname: "item_figurinest" }
+---@field AMULET { caption: "amulet", classname: "item_amuletst" }
+---@field SCEPTER { caption: "scepter", classname: "item_scepterst" }
+---@field AMMO { caption: "ammo", is_rawable: "true", is_stackable: "true", classname: "item_ammost" }
+---@field CROWN { caption: "crown", classname: "item_crownst" }
+---@field RING { caption: "ring", classname: "item_ringst" }
+---@field EARRING { caption: "earring", classname: "item_earringst" }
+---@field BRACELET { caption: "bracelet", classname: "item_braceletst" }
+---@field GEM { caption: "large gem", classname: "item_gemst" }
+---@field ANVIL { caption: "anvil", classname: "item_anvilst" }
+---@field CORPSEPIECE { caption: "body part", classname: "item_corpsepiecest" }
+---@field REMAINS { caption: "remains", is_stackable: "true", is_caste_mat: "true", classname: "item_remainsst" }
+---@field MEAT { caption: "meat", is_stackable: "true", classname: "item_meatst" }
+---@field FISH { caption: "fish", is_stackable: "true", is_caste_mat: "true", classname: "item_fishst" }
+---@field FISH_RAW { caption: "raw fish", is_stackable: "true", is_caste_mat: "true", classname: "item_fish_rawst" }
+---@field VERMIN { caption: "vermin", is_caste_mat: "true", classname: "item_verminst" }
+---@field PET { caption: "tame vermin", is_caste_mat: "true", classname: "item_petst" }
+---@field SEEDS { caption: "seeds", classname: "item_seedsst" }
+---@field PLANT { caption: "plant", is_stackable: "true", classname: "item_plantst" }
+---@field SKIN_TANNED { caption: "leather", classname: "item_skin_tannedst" }
+---@field PLANT_GROWTH { caption: "plant growth", is_stackable: "true", classname: "item_plant_growthst" }
+---@field THREAD { caption: "thread", classname: "item_threadst" }
+---@field CLOTH { caption: "cloth", classname: "item_clothst" }
+---@field TOTEM { caption: "totem", classname: "item_totemst" }
+---@field PANTS { caption: "legwear", is_rawable: "true", classname: "item_pantsst" }
+---@field BACKPACK { caption: "backpack", classname: "item_backpackst" }
+---@field QUIVER { caption: "quiver", classname: "item_quiverst" }
+---@field CATAPULTPARTS { caption: "catapult part", classname: "item_catapultpartsst" }
+---@field BALLISTAPARTS { caption: "ballista part", classname: "item_ballistapartsst" }
+---@field SIEGEAMMO { caption: "siege ammo", is_rawable: "true", classname: "item_siegeammost" }
+---@field BALLISTAARROWHEAD { caption: "ballista arrow head", classname: "item_ballistaarrowheadst" }
+---@field TRAPPARTS { caption: "mechanism", classname: "item_trappartsst" }
+---@field TRAPCOMP { caption: "trap component", is_rawable: "true", classname: "item_trapcompst" }
+---@field DRINK { caption: "drink", is_stackable: "true", classname: "item_drinkst" }
+---@field POWDER_MISC { caption: "powder", is_stackable: "true", classname: "item_powder_miscst" }
+---@field CHEESE { caption: "cheese", is_stackable: "true", classname: "item_cheesest" }
+---@field FOOD { caption: "prepared meal", is_stackable: "true", classname: "item_foodst" }
+---@field LIQUID_MISC { caption: "liquid", is_stackable: "true", classname: "item_liquid_miscst" }
+---@field COIN { caption: "coin", is_stackable: "true", classname: "item_coinst" }
+---@field GLOB { caption: "glob", classname: "item_globst" }
+---@field ROCK { caption: "small rock", classname: "item_rockst" }
+---@field PIPE_SECTION { caption: "pipe section", classname: "item_pipe_sectionst" }
+---@field HATCH_COVER { caption: "hatch cover", classname: "item_hatch_coverst" }
+---@field GRATE { caption: "grate", classname: "item_gratest" }
+---@field QUERN { caption: "quern", classname: "item_quernst" }
+---@field MILLSTONE { caption: "millstone", classname: "item_millstonest" }
+---@field SPLINT { caption: "splint", classname: "item_splintst" }
+---@field CRUTCH { caption: "crutch", classname: "item_crutchst" }
+---@field TRACTION_BENCH { caption: "traction bench", classname: "item_traction_benchst" }
+---@field ORTHOPEDIC_CAST { caption: "orthopedic cast", classname: "item_orthopedic_castst" }
+---@field TOOL { caption: "tool", is_rawable: "true", classname: "item_toolst" }
+---@field SLAB { caption: "slab", classname: "item_slabst" }
+---@field EGG { caption: "egg", is_stackable: "true", is_caste_mat: "true", classname: "item_eggst" }
+---@field BOOK { caption: "book", classname: "item_bookst" }
+---@field SHEET { caption: "sheet", classname: "item_sheetst" }
+---@field BRANCH { caption: "branch", classname: "item_branchst" }
+df.item_type.attrs = {}
+
+---@alias df.entity_name_type
+---| -1 # NONE
+---| 0 # OTHER
+---| 1 # CIV
+---| 2 # SITE
+---| 3 # VESSEL
+---| 4 # MILITARY_UNIT
+---| 5 # RELIGION
+---| 6 # TEMPLE
+---| 7 # WAR
+---| 8 # BATTLE
+---| 9 # SIEGE
+---| 10 # ROAD
+---| 11 # BRIDGE
+---| 12 # TUNNEL
+---| 13 # WALL
+---| 14 # LIBRARY
+---| 15 # FESTIVAL
+---| 16 # MERCHANT_COMPANY
+---| 17 # CRAFT_GUILD
+---| 18 # HOSPITAL
+
+---@class identity.entity_name_type: DFEnumType
+---@field NONE -1 bay12: EntityDefSelector
+---@field [-1] "NONE" bay12: EntityDefSelector
+---@field OTHER 0 MAIN
+---@field [0] "OTHER" MAIN
+---@field CIV 1
+---@field [1] "CIV"
+---@field SITE 2
+---@field [2] "SITE"
+---@field VESSEL 3
+---@field [3] "VESSEL"
+---@field MILITARY_UNIT 4
+---@field [4] "MILITARY_UNIT"
+---@field RELIGION 5
+---@field [5] "RELIGION"
+---@field TEMPLE 6
+---@field [6] "TEMPLE"
+---@field WAR 7
+---@field [7] "WAR"
+---@field BATTLE 8
+---@field [8] "BATTLE"
+---@field SIEGE 9
+---@field [9] "SIEGE"
+---@field ROAD 10
+---@field [10] "ROAD"
+---@field BRIDGE 11
+---@field [11] "BRIDGE"
+---@field TUNNEL 12
+---@field [12] "TUNNEL"
+---@field WALL 13
+---@field [13] "WALL"
+---@field LIBRARY 14
+---@field [14] "LIBRARY"
+---@field FESTIVAL 15
+---@field [15] "FESTIVAL"
+---@field MERCHANT_COMPANY 16
+---@field [16] "MERCHANT_COMPANY"
+---@field CRAFT_GUILD 17
+---@field [17] "CRAFT_GUILD"
+---@field HOSPITAL 18
+---@field [18] "HOSPITAL"
+df.entity_name_type = {}
+
+---@alias df.history_damage_type
+---| -1 # NONE
+---| 0 # BLUDGEON
+---| 1 # SLASH
+---| 2 # PIERCE
+---| 3 # GORE
+---| 4 # BURN
+
+---@class identity.history_damage_type: DFEnumType
+---@field NONE -1 bay12: HistDamageType
+---@field [-1] "NONE" bay12: HistDamageType
+---@field BLUDGEON 0
+---@field [0] "BLUDGEON"
+---@field SLASH 1
+---@field [1] "SLASH"
+---@field PIERCE 2
+---@field [2] "PIERCE"
+---@field GORE 3
+---@field [3] "GORE"
+---@field BURN 4
+---@field [4] "BURN"
+df.history_damage_type = {}
+
+---@alias df.wound_effect_type
+---| -1 # NONE
+---| 0 # Bruise
+---| 1 # Heat
+---| 2 # Frostbite
+---| 3 # Burn
+---| 4 # Melting
+---| 5 # Boiling
+---| 6 # Freezing
+---| 7 # Condensation
+---| 8 # Necrosis
+---| 9 # Blister
+
+---@class identity.wound_effect_type: DFEnumType
+---@field NONE -1 bay12: WoundDamageType
+---@field [-1] "NONE" bay12: WoundDamageType
+---@field Bruise 0
+---@field [0] "Bruise"
+---@field Heat 1
+---@field [1] "Heat"
+---@field Frostbite 2
+---@field [2] "Frostbite"
+---@field Burn 3
+---@field [3] "Burn"
+---@field Melting 4
+---@field [4] "Melting"
+---@field Boiling 5
+---@field [5] "Boiling"
+---@field Freezing 6
+---@field [6] "Freezing"
+---@field Condensation 7
+---@field [7] "Condensation"
+---@field Necrosis 8
+---@field [8] "Necrosis"
+---@field Blister 9
+---@field [9] "Blister"
+df.wound_effect_type = {}
+
+-- Unused: EntityReactionType
+---@alias df.diplomacy_state_type
+---| -1 # NONE
+---| 0 # Peace
+---| 1 # TotalWar
+---| 2 # NoContact
+---| 3 # AcceptingTribute
+---| 4 # OfferingTribute
+---| 5 # Skirmishing
+
+-- Unused: EntityReactionType
+---@class identity.diplomacy_state_type: DFEnumType
+---@field NONE -1 bay12: DiplomacyStateType
+---@field [-1] "NONE" bay12: DiplomacyStateType
+---@field Peace 0
+---@field [0] "Peace"
+---@field TotalWar 1
+---@field [1] "TotalWar"
+---@field NoContact 2
+---@field [2] "NoContact"
+---@field AcceptingTribute 3
+---@field [3] "AcceptingTribute"
+---@field OfferingTribute 4
+---@field [4] "OfferingTribute"
+---@field Skirmishing 5
+---@field [5] "Skirmishing"
+df.diplomacy_state_type = {}
+
+---@alias df.death_type
+---| -1 # NONE
+---| 0 # OLD_AGE
+---| 1 # HUNGER
+---| 2 # THIRST
+---| 3 # SHOT
+---| 4 # BLEED
+---| 5 # DROWN
+---| 6 # SUFFOCATE
+---| 7 # STRUCK_DOWN
+---| 8 # SCUTTLE
+---| 9 # COLLISION
+---| 10 # MAGMA
+---| 11 # MAGMA_MIST
+---| 12 # DRAGONFIRE
+---| 13 # FIRE
+---| 14 # SCALD
+---| 15 # CAVEIN
+---| 16 # DRAWBRIDGE
+---| 17 # FALLING_ROCKS
+---| 18 # CHASM
+---| 19 # CAGE
+---| 20 # MURDER
+---| 21 # TRAP
+---| 22 # VANISH
+---| 23 # QUIT
+---| 24 # ABANDON
+---| 25 # HEAT
+---| 26 # COLD
+---| 27 # SPIKE
+---| 28 # ENCASE_LAVA
+---| 29 # ENCASE_MAGMA
+---| 30 # ENCASE_ICE
+---| 31 # BEHEAD
+---| 32 # CRUCIFY
+---| 33 # BURY_ALIVE
+---| 34 # DROWN_BY
+---| 35 # BURN_ALIVE
+---| 36 # FEED_TO_BEASTS
+---| 37 # HACK_TO_PIECES
+---| 38 # LEAVE_OUT_IN_AIR
+---| 39 # BOIL
+---| 40 # MELT
+---| 41 # CONDENSE
+---| 42 # SOLIDIFY
+---| 43 # INFECTION
+---| 44 # MEMORIALIZE
+---| 45 # SCARE
+---| 46 # DARKNESS
+---| 47 # COLLAPSE
+---| 48 # DRAIN_BLOOD
+---| 49 # SLAUGHTER
+---| 50 # VEHICLE
+---| 51 # FALLING_OBJECT
+---| 52 # LEAPT_FROM_HEIGHT
+---| 53 # DROWN_SELF
+---| 54 # EXECUTION_GENERIC
+
+---@class identity.death_type: DFEnumType
+---@field NONE -1 bay12: KillCauseType
+---@field [-1] "NONE" bay12: KillCauseType
+---@field OLD_AGE 0
+---@field [0] "OLD_AGE"
+---@field HUNGER 1
+---@field [1] "HUNGER"
+---@field THIRST 2
+---@field [2] "THIRST"
+---@field SHOT 3
+---@field [3] "SHOT"
+---@field BLEED 4
+---@field [4] "BLEED"
+---@field DROWN 5
+---@field [5] "DROWN"
+---@field SUFFOCATE 6
+---@field [6] "SUFFOCATE"
+---@field STRUCK_DOWN 7
+---@field [7] "STRUCK_DOWN"
+---@field SCUTTLE 8 stuck wagons
+---@field [8] "SCUTTLE" stuck wagons
+---@field COLLISION 9
+---@field [9] "COLLISION"
+---@field MAGMA 10 does not happen anymore?
+---@field [10] "MAGMA" does not happen anymore?
+---@field MAGMA_MIST 11 does not happen anymore?
+---@field [11] "MAGMA_MIST" does not happen anymore?
+---@field DRAGONFIRE 12
+---@field [12] "DRAGONFIRE"
+---@field FIRE 13
+---@field [13] "FIRE"
+---@field SCALD 14 does not happen anymore?
+---@field [14] "SCALD" does not happen anymore?
+---@field CAVEIN 15
+---@field [15] "CAVEIN"
+---@field DRAWBRIDGE 16
+---@field [16] "DRAWBRIDGE"
+---@field FALLING_ROCKS 17 does not happen anymore?
+---@field [17] "FALLING_ROCKS" does not happen anymore?
+---@field CHASM 18
+---@field [18] "CHASM"
+---@field CAGE 19
+---@field [19] "CAGE"
+---@field MURDER 20
+---@field [20] "MURDER"
+---@field TRAP 21
+---@field [21] "TRAP"
+---@field VANISH 22 bogeyman
+---@field [22] "VANISH" bogeyman
+---@field QUIT 23 Give in to starvation as adventurer
+---@field [23] "QUIT" Give in to starvation as adventurer
+---@field ABANDON 24
+---@field [24] "ABANDON"
+---@field HEAT 25
+---@field [25] "HEAT"
+---@field COLD 26
+---@field [26] "COLD"
+---@field SPIKE 27
+---@field [27] "SPIKE"
+---@field ENCASE_LAVA 28
+---@field [28] "ENCASE_LAVA"
+---@field ENCASE_MAGMA 29
+---@field [29] "ENCASE_MAGMA"
+---@field ENCASE_ICE 30
+---@field [30] "ENCASE_ICE"
+---@field BEHEAD 31 execution during worldgen
+---@field [31] "BEHEAD" execution during worldgen
+---@field CRUCIFY 32 execution during worldgen
+---@field [32] "CRUCIFY" execution during worldgen
+---@field BURY_ALIVE 33 execution during worldgen
+---@field [33] "BURY_ALIVE" execution during worldgen
+---@field DROWN_BY 34 execution during worldgen
+---@field [34] "DROWN_BY" execution during worldgen
+---@field BURN_ALIVE 35 execution during worldgen
+---@field [35] "BURN_ALIVE" execution during worldgen
+---@field FEED_TO_BEASTS 36 execution during worldgen
+---@field [36] "FEED_TO_BEASTS" execution during worldgen
+---@field HACK_TO_PIECES 37 execution during worldgen
+---@field [37] "HACK_TO_PIECES" execution during worldgen
+---@field LEAVE_OUT_IN_AIR 38 execution during worldgen
+---@field [38] "LEAVE_OUT_IN_AIR" execution during worldgen
+---@field BOIL 39 material state change
+---@field [39] "BOIL" material state change
+---@field MELT 40 material state change
+---@field [40] "MELT" material state change
+---@field CONDENSE 41 material state change
+---@field [41] "CONDENSE" material state change
+---@field SOLIDIFY 42 material state change
+---@field [42] "SOLIDIFY" material state change
+---@field INFECTION 43
+---@field [43] "INFECTION"
+---@field MEMORIALIZE 44 put to rest
+---@field [44] "MEMORIALIZE" put to rest
+---@field SCARE 45
+---@field [45] "SCARE"
+---@field DARKNESS 46 died in the dark
+---@field [46] "DARKNESS" died in the dark
+---@field COLLAPSE 47 used in 0.31 for undead
+---@field [47] "COLLAPSE" used in 0.31 for undead
+---@field DRAIN_BLOOD 48
+---@field [48] "DRAIN_BLOOD"
+---@field SLAUGHTER 49
+---@field [49] "SLAUGHTER"
+---@field VEHICLE 50
+---@field [50] "VEHICLE"
+---@field FALLING_OBJECT 51
+---@field [51] "FALLING_OBJECT"
+---@field LEAPT_FROM_HEIGHT 52
+---@field [52] "LEAPT_FROM_HEIGHT"
+---@field DROWN_SELF 53
+---@field [53] "DROWN_SELF"
+---@field EXECUTION_GENERIC 54
+---@field [54] "EXECUTION_GENERIC"
+df.death_type = {}
+
+---@alias df.night_creature_experiment_type
+---| -1 # NONE
+---| 0 # HUMANOID
+---| 1 # HUMANOID_GIANT
+---| 2 # BEAST_SMALL
+---| 3 # BEAST_LARGE
+---| 4 # FAILED_EXPERIMENT_SMALL
+---| 5 # FAILED_EXPERIMENT_LARGE
+
+---@class identity.night_creature_experiment_type: DFEnumType
+---@field NONE -1 bay12: NightCreatureExperimentType
+---@field [-1] "NONE" bay12: NightCreatureExperimentType
+---@field HUMANOID 0
+---@field [0] "HUMANOID"
+---@field HUMANOID_GIANT 1
+---@field [1] "HUMANOID_GIANT"
+---@field BEAST_SMALL 2
+---@field [2] "BEAST_SMALL"
+---@field BEAST_LARGE 3
+---@field [3] "BEAST_LARGE"
+---@field FAILED_EXPERIMENT_SMALL 4
+---@field [4] "FAILED_EXPERIMENT_SMALL"
+---@field FAILED_EXPERIMENT_LARGE 5
+---@field [5] "FAILED_EXPERIMENT_LARGE"
+df.night_creature_experiment_type = {}
+
+-- Unused: RandomCreatureType
+-- Unused: RandomCreatureProfileDemonType
+-- Unused: RandomCreatureProfileNightCreatureType
+-- Unused: RandomCreatureProfileAngelType
+-- Unused: RandomInteractionType
+-- Unused: RANDOM_CREATURE_FLAG_*
+-- Unused: RandomCreatureClassType
+-- Unused: RandomCreatureBodyBaseType
+-- Unused: random_creature_profilest
+---@alias df.body_abuse_sculpture_type
+---| -1 # NONE
+---| 0 # GrislyMound
+---| 1 # GrotesquePillar
+---| 2 # GruesomeSculpture
+
+-- Unused: RandomCreatureType
+-- Unused: RandomCreatureProfileDemonType
+-- Unused: RandomCreatureProfileNightCreatureType
+-- Unused: RandomCreatureProfileAngelType
+-- Unused: RandomInteractionType
+-- Unused: RANDOM_CREATURE_FLAG_*
+-- Unused: RandomCreatureClassType
+-- Unused: RandomCreatureBodyBaseType
+-- Unused: random_creature_profilest
+---@class identity.body_abuse_sculpture_type: DFEnumType
+---@field NONE -1 bay12: BodyAbuseSculptureType, actually int16_t
+---@field [-1] "NONE" bay12: BodyAbuseSculptureType, actually int16_t
+---@field GrislyMound 0
+---@field [0] "GrislyMound"
+---@field GrotesquePillar 1
+---@field [1] "GrotesquePillar"
+---@field GruesomeSculpture 2
+---@field [2] "GruesomeSculpture"
+df.body_abuse_sculpture_type = {}
+
+---@alias df.body_abuse_method_type
+---| -1 # NONE
+---| 0 # Impaled
+---| 1 # Piled
+---| 2 # Flayed
+---| 3 # Hung
+---| 4 # Mutilated
+---| 5 # Animated
+
+---@class identity.body_abuse_method_type: DFEnumType
+---@field NONE -1 bay12: BodyAbuseMethodType
+---@field [-1] "NONE" bay12: BodyAbuseMethodType
+---@field Impaled 0
+---@field [0] "Impaled"
+---@field Piled 1
+---@field [1] "Piled"
+---@field Flayed 2
+---@field [2] "Flayed"
+---@field Hung 3
+---@field [3] "Hung"
+---@field Mutilated 4
+---@field [4] "Mutilated"
+---@field Animated 5
+---@field [5] "Animated"
+df.body_abuse_method_type = {}
+
+-- Unused: abs_range_rectst
+---@class df.context_flag: DFBitfield
+---@field _enum identity.context_flag
+---@field is_interrogation_report boolean bay12: CONTEXT_FLAG_*
+---@field [0] boolean bay12: CONTEXT_FLAG_*
+---@field do_markup boolean
+---@field [1] boolean
+
+---@class identity.context_flag: DFBitfieldType
+---@field is_interrogation_report 0 bay12: CONTEXT_FLAG_*
+---@field [0] "is_interrogation_report" bay12: CONTEXT_FLAG_*
+---@field do_markup 1
+---@field [1] "do_markup"
+df.context_flag = {}
+
+---@class (exact) df.history_event_context: DFStruct
+---@field _type identity.history_event_context
+---@field flags df.context_flag
+---@field interrogator_relationships df.historical_figure_relationships
+---@field interrogation df.interrogation_report evidence_repositoryst
+---@field artifact_id number References: `df.artifact_record`
+---@field entity_id number References: `df.historical_entity`
+---@field histfig_id number References: `df.historical_figure`
+---@field speaker_id number References: `df.historical_figure`
+---@field site_id number References: `df.world_site`
+---@field region_id number References: `df.world_region`
+---@field layer_id number References: `df.world_underground_region`
+---@field entity_population_id number References: `df.entity_population`
+---@field abstract_building_id number References: `df.abstract_building`
+---@field sphere df.sphere_type
+---@field architectural_element df.architectural_element
+---@field architectural_justification df.architectural_justification
+---@field family_relationship df.histfig_relationship_type not initialized
+---@field number number
+---@field prof df.profession
+---@field race number References: `df.creature_raw`
+---@field racegloss_material number
+---@field racegloss_mat_index number
+---@field gender number
+---@field caste number References: `df.caste_raw`
+---@field undead_flags df.undead_flags
+---@field histfig_state df.whereabouts_type
+---@field squad_id number References: `df.squad`
+---@field formation_id number ID within world.formations.all
+---@field activity_id number References: `df.activity_entry`
+---@field breed_id number References: `df.breed`
+---@field battlefield_id number References: `df.battlefield`
+---@field interaction_instance_id number References: `df.interaction_instance`
+---@field written_content_id number References: `df.written_content`
+---@field identity_id number References: `df.identity`
+---@field incident_id number References: `df.incident`
+---@field crime_id number References: `df.crime`
+---@field region_weather_id number References: `df.region_weather`
+---@field creation_zone_id number References: `df.world_object_data`
+---@field vehicle_id number References: `df.vehicle`
+---@field army_id number References: `df.army`
+---@field army_controller_id number References: `df.army_controller`
+---@field army_tracking_info_id number References: `df.army_tracking_info`
+---@field cultural_identity_id number References: `df.cultural_identity`
+---@field agreement_id number References: `df.agreement`
+---@field poetic_form_id number References: `df.poetic_form`
+---@field musical_form_id number References: `df.musical_form`
+---@field dance_form_id number References: `df.dance_form`
+---@field scale_id number References: `df.scale`
+---@field rhythm_id number References: `df.rhythm`
+---@field occupation_id number References: `df.occupation`
+---@field belief_system_id number References: `df.belief_system`
+---@field image_set_id number References: `df.image_set`
+---@field divination_set_id number References: `df.divination_set`
+
+---@class identity.history_event_context: DFCompoundType
+---@field _kind 'struct-type'
+df.history_event_context = {}
+
+---@return df.history_event_context
+function df.history_event_context:new() end
+

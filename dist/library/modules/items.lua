@@ -26,7 +26,7 @@ function dfhack.items.moveToBuilding(item, building, use_mode, force_in_building
 
 ---@param item df.item
 ---@param unit df.unit
----@param mode df.unit_inventory_item::T_mode
+---@param mode df.inv_item_role_type
 ---@param body_part integer
 ---@return boolean
 function dfhack.items.moveToInventory(item, unit, mode, body_part) end

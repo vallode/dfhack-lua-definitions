@@ -1,0 +1,1200 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@class (exact) df.palettest: DFStruct
+---@field _type identity.palettest
+---@field color integer[]
+
+---@class identity.palettest: DFCompoundType
+---@field _kind 'struct-type'
+df.palettest = {}
+
+---@return df.palettest
+function df.palettest:new() end
+
+---@alias df.sphere_type
+---| -1 # NONE
+---| 0 # AGRICULTURE
+---| 1 # ANIMALS
+---| 2 # ART
+---| 3 # BALANCE
+---| 4 # BEAUTY
+---| 5 # BIRTH
+---| 6 # BLIGHT
+---| 7 # BOUNDARIES
+---| 8 # CAVERNS
+---| 9 # CHAOS
+---| 10 # CHARITY
+---| 11 # CHILDREN
+---| 12 # COASTS
+---| 13 # CONSOLATION
+---| 14 # COURAGE
+---| 15 # CRAFTS
+---| 16 # CREATION
+---| 17 # DANCE
+---| 18 # DARKNESS
+---| 19 # DAWN
+---| 20 # DAY
+---| 21 # DEATH
+---| 22 # DEFORMITY
+---| 23 # DEPRAVITY
+---| 24 # DISCIPLINE
+---| 25 # DISEASE
+---| 26 # DREAMS
+---| 27 # DUSK
+---| 28 # DUTY
+---| 29 # EARTH
+---| 30 # FAMILY
+---| 31 # FAME
+---| 32 # FATE
+---| 33 # FERTILITY
+---| 34 # FESTIVALS
+---| 35 # FIRE
+---| 36 # FISH
+---| 37 # FISHING
+---| 38 # FOOD
+---| 39 # FORGIVENESS
+---| 40 # FORTRESSES
+---| 41 # FREEDOM
+---| 42 # GAMBLING
+---| 43 # GAMES
+---| 44 # GENEROSITY
+---| 45 # HAPPINESS
+---| 46 # HEALING
+---| 47 # HOSPITALITY
+---| 48 # HUNTING
+---| 49 # INSPIRATION
+---| 50 # JEALOUSY
+---| 51 # JEWELS
+---| 52 # JUSTICE
+---| 53 # LABOR
+---| 54 # LAKES
+---| 55 # LAWS
+---| 56 # LIES
+---| 57 # LIGHT
+---| 58 # LIGHTNING
+---| 59 # LONGEVITY
+---| 60 # LOVE
+---| 61 # LOYALTY
+---| 62 # LUCK
+---| 63 # LUST
+---| 64 # MARRIAGE
+---| 65 # MERCY
+---| 66 # METALS
+---| 67 # MINERALS
+---| 68 # MISERY
+---| 69 # MIST
+---| 70 # MOON
+---| 71 # MOUNTAINS
+---| 72 # MUCK
+---| 73 # MURDER
+---| 74 # MUSIC
+---| 75 # NATURE
+---| 76 # NIGHT
+---| 77 # NIGHTMARES
+---| 78 # OATHS
+---| 79 # OCEANS
+---| 80 # ORDER
+---| 81 # PAINTING
+---| 82 # PEACE
+---| 83 # PERSUASION
+---| 84 # PLANTS
+---| 85 # POETRY
+---| 86 # PREGNANCY
+---| 87 # RAIN
+---| 88 # RAINBOWS
+---| 89 # REBIRTH
+---| 90 # REVELRY
+---| 91 # REVENGE
+---| 92 # RIVERS
+---| 93 # RULERSHIP
+---| 94 # RUMORS
+---| 95 # SACRIFICE
+---| 96 # SALT
+---| 97 # SCHOLARSHIP
+---| 98 # SEASONS
+---| 99 # SILENCE
+---| 100 # SKY
+---| 101 # SONG
+---| 102 # SPEECH
+---| 103 # STARS
+---| 104 # STORMS
+---| 105 # STRENGTH
+---| 106 # SUICIDE
+---| 107 # SUN
+---| 108 # THEFT
+---| 109 # THRALLDOM
+---| 110 # THUNDER
+---| 111 # TORTURE
+---| 112 # TRADE
+---| 113 # TRAVELERS
+---| 114 # TREACHERY
+---| 115 # TREES
+---| 116 # TRICKERY
+---| 117 # TRUTH
+---| 118 # TWILIGHT
+---| 119 # VALOR
+---| 120 # VICTORY
+---| 121 # VOLCANOS
+---| 122 # WAR
+---| 123 # WATER
+---| 124 # WEALTH
+---| 125 # WEATHER
+---| 126 # WIND
+---| 127 # WISDOM
+---| 128 # WRITING
+---| 129 # YOUTH
+
+---@class identity.sphere_type: DFEnumType
+---@field NONE -1 bay12: SphereType
+---@field [-1] "NONE" bay12: SphereType
+---@field AGRICULTURE 0
+---@field [0] "AGRICULTURE"
+---@field ANIMALS 1
+---@field [1] "ANIMALS"
+---@field ART 2
+---@field [2] "ART"
+---@field BALANCE 3
+---@field [3] "BALANCE"
+---@field BEAUTY 4
+---@field [4] "BEAUTY"
+---@field BIRTH 5
+---@field [5] "BIRTH"
+---@field BLIGHT 6
+---@field [6] "BLIGHT"
+---@field BOUNDARIES 7
+---@field [7] "BOUNDARIES"
+---@field CAVERNS 8
+---@field [8] "CAVERNS"
+---@field CHAOS 9
+---@field [9] "CHAOS"
+---@field CHARITY 10
+---@field [10] "CHARITY"
+---@field CHILDREN 11
+---@field [11] "CHILDREN"
+---@field COASTS 12
+---@field [12] "COASTS"
+---@field CONSOLATION 13
+---@field [13] "CONSOLATION"
+---@field COURAGE 14
+---@field [14] "COURAGE"
+---@field CRAFTS 15
+---@field [15] "CRAFTS"
+---@field CREATION 16
+---@field [16] "CREATION"
+---@field DANCE 17
+---@field [17] "DANCE"
+---@field DARKNESS 18
+---@field [18] "DARKNESS"
+---@field DAWN 19
+---@field [19] "DAWN"
+---@field DAY 20
+---@field [20] "DAY"
+---@field DEATH 21
+---@field [21] "DEATH"
+---@field DEFORMITY 22
+---@field [22] "DEFORMITY"
+---@field DEPRAVITY 23
+---@field [23] "DEPRAVITY"
+---@field DISCIPLINE 24
+---@field [24] "DISCIPLINE"
+---@field DISEASE 25
+---@field [25] "DISEASE"
+---@field DREAMS 26
+---@field [26] "DREAMS"
+---@field DUSK 27
+---@field [27] "DUSK"
+---@field DUTY 28
+---@field [28] "DUTY"
+---@field EARTH 29
+---@field [29] "EARTH"
+---@field FAMILY 30
+---@field [30] "FAMILY"
+---@field FAME 31
+---@field [31] "FAME"
+---@field FATE 32
+---@field [32] "FATE"
+---@field FERTILITY 33
+---@field [33] "FERTILITY"
+---@field FESTIVALS 34
+---@field [34] "FESTIVALS"
+---@field FIRE 35
+---@field [35] "FIRE"
+---@field FISH 36
+---@field [36] "FISH"
+---@field FISHING 37
+---@field [37] "FISHING"
+---@field FOOD 38
+---@field [38] "FOOD"
+---@field FORGIVENESS 39
+---@field [39] "FORGIVENESS"
+---@field FORTRESSES 40
+---@field [40] "FORTRESSES"
+---@field FREEDOM 41
+---@field [41] "FREEDOM"
+---@field GAMBLING 42
+---@field [42] "GAMBLING"
+---@field GAMES 43
+---@field [43] "GAMES"
+---@field GENEROSITY 44
+---@field [44] "GENEROSITY"
+---@field HAPPINESS 45
+---@field [45] "HAPPINESS"
+---@field HEALING 46
+---@field [46] "HEALING"
+---@field HOSPITALITY 47
+---@field [47] "HOSPITALITY"
+---@field HUNTING 48
+---@field [48] "HUNTING"
+---@field INSPIRATION 49
+---@field [49] "INSPIRATION"
+---@field JEALOUSY 50
+---@field [50] "JEALOUSY"
+---@field JEWELS 51
+---@field [51] "JEWELS"
+---@field JUSTICE 52
+---@field [52] "JUSTICE"
+---@field LABOR 53
+---@field [53] "LABOR"
+---@field LAKES 54
+---@field [54] "LAKES"
+---@field LAWS 55
+---@field [55] "LAWS"
+---@field LIES 56
+---@field [56] "LIES"
+---@field LIGHT 57
+---@field [57] "LIGHT"
+---@field LIGHTNING 58
+---@field [58] "LIGHTNING"
+---@field LONGEVITY 59
+---@field [59] "LONGEVITY"
+---@field LOVE 60
+---@field [60] "LOVE"
+---@field LOYALTY 61
+---@field [61] "LOYALTY"
+---@field LUCK 62
+---@field [62] "LUCK"
+---@field LUST 63
+---@field [63] "LUST"
+---@field MARRIAGE 64
+---@field [64] "MARRIAGE"
+---@field MERCY 65
+---@field [65] "MERCY"
+---@field METALS 66
+---@field [66] "METALS"
+---@field MINERALS 67
+---@field [67] "MINERALS"
+---@field MISERY 68
+---@field [68] "MISERY"
+---@field MIST 69
+---@field [69] "MIST"
+---@field MOON 70
+---@field [70] "MOON"
+---@field MOUNTAINS 71
+---@field [71] "MOUNTAINS"
+---@field MUCK 72
+---@field [72] "MUCK"
+---@field MURDER 73
+---@field [73] "MURDER"
+---@field MUSIC 74
+---@field [74] "MUSIC"
+---@field NATURE 75
+---@field [75] "NATURE"
+---@field NIGHT 76
+---@field [76] "NIGHT"
+---@field NIGHTMARES 77
+---@field [77] "NIGHTMARES"
+---@field OATHS 78
+---@field [78] "OATHS"
+---@field OCEANS 79
+---@field [79] "OCEANS"
+---@field ORDER 80
+---@field [80] "ORDER"
+---@field PAINTING 81
+---@field [81] "PAINTING"
+---@field PEACE 82
+---@field [82] "PEACE"
+---@field PERSUASION 83
+---@field [83] "PERSUASION"
+---@field PLANTS 84
+---@field [84] "PLANTS"
+---@field POETRY 85
+---@field [85] "POETRY"
+---@field PREGNANCY 86
+---@field [86] "PREGNANCY"
+---@field RAIN 87
+---@field [87] "RAIN"
+---@field RAINBOWS 88
+---@field [88] "RAINBOWS"
+---@field REBIRTH 89
+---@field [89] "REBIRTH"
+---@field REVELRY 90
+---@field [90] "REVELRY"
+---@field REVENGE 91
+---@field [91] "REVENGE"
+---@field RIVERS 92
+---@field [92] "RIVERS"
+---@field RULERSHIP 93
+---@field [93] "RULERSHIP"
+---@field RUMORS 94
+---@field [94] "RUMORS"
+---@field SACRIFICE 95
+---@field [95] "SACRIFICE"
+---@field SALT 96
+---@field [96] "SALT"
+---@field SCHOLARSHIP 97
+---@field [97] "SCHOLARSHIP"
+---@field SEASONS 98
+---@field [98] "SEASONS"
+---@field SILENCE 99
+---@field [99] "SILENCE"
+---@field SKY 100
+---@field [100] "SKY"
+---@field SONG 101
+---@field [101] "SONG"
+---@field SPEECH 102
+---@field [102] "SPEECH"
+---@field STARS 103
+---@field [103] "STARS"
+---@field STORMS 104
+---@field [104] "STORMS"
+---@field STRENGTH 105
+---@field [105] "STRENGTH"
+---@field SUICIDE 106
+---@field [106] "SUICIDE"
+---@field SUN 107
+---@field [107] "SUN"
+---@field THEFT 108
+---@field [108] "THEFT"
+---@field THRALLDOM 109
+---@field [109] "THRALLDOM"
+---@field THUNDER 110
+---@field [110] "THUNDER"
+---@field TORTURE 111
+---@field [111] "TORTURE"
+---@field TRADE 112
+---@field [112] "TRADE"
+---@field TRAVELERS 113
+---@field [113] "TRAVELERS"
+---@field TREACHERY 114
+---@field [114] "TREACHERY"
+---@field TREES 115
+---@field [115] "TREES"
+---@field TRICKERY 116
+---@field [116] "TRICKERY"
+---@field TRUTH 117
+---@field [117] "TRUTH"
+---@field TWILIGHT 118
+---@field [118] "TWILIGHT"
+---@field VALOR 119
+---@field [119] "VALOR"
+---@field VICTORY 120
+---@field [120] "VICTORY"
+---@field VOLCANOS 121
+---@field [121] "VOLCANOS"
+---@field WAR 122
+---@field [122] "WAR"
+---@field WATER 123
+---@field [123] "WATER"
+---@field WEALTH 124
+---@field [124] "WEALTH"
+---@field WEATHER 125
+---@field [125] "WEATHER"
+---@field WIND 126
+---@field [126] "WIND"
+---@field WISDOM 127
+---@field [127] "WISDOM"
+---@field WRITING 128
+---@field [128] "WRITING"
+---@field YOUTH 129
+---@field [129] "YOUTH"
+df.sphere_type = {}
+
+---@alias df.slab_engraving_type
+---| -1 # Slab
+---| 0 # Memorial
+---| 6 # Secrets
+---| 7 # FoodImportsSign
+---| 8 # ClothingImportsSign
+---| 9 # GeneralImportsSign
+---| 10 # ClothShopSign
+---| 11 # LeatherShopSign
+---| 12 # WovenClothingShopSign
+---| 13 # LeatherClothingShopSign
+---| 14 # BoneCarverShopSign
+---| 15 # GemCutterShopSign
+---| 16 # WeaponsmithShopSign2
+---| 17 # BowyerShopSign
+---| 18 # BlacksmithShopSign
+---| 19 # ArmorsmithShopSign2
+---| 20 # MetalCraftShopSign
+---| 21 # LeatherGoodsShopSign
+---| 22 # CarpenterShopSign
+---| 23 # StoneFurnitureShopSign
+---| 24 # MetalFurnitureShopSign
+---| 25 # TavernSign
+---| 26 # DemonIdentity
+
+---@class identity.slab_engraving_type: DFEnumType
+---@field Slab -1 bay12: EngravingIntentType
+---@field [-1] "Slab" bay12: EngravingIntentType
+---@field Memorial 0
+---@field [0] "Memorial"
+---@field Secrets 6 from the gods? (SECRET)
+---@field [6] "Secrets" from the gods? (SECRET)
+---@field FoodImportsSign 7 SRB_SHOP_IMPORT_FOOD
+---@field [7] "FoodImportsSign" SRB_SHOP_IMPORT_FOOD
+---@field ClothingImportsSign 8 SRB_SHOP_IMPORT_CLOTHING
+---@field [8] "ClothingImportsSign" SRB_SHOP_IMPORT_CLOTHING
+---@field GeneralImportsSign 9 SRB_SHOP_IMPORT_GENERAL
+---@field [9] "GeneralImportsSign" SRB_SHOP_IMPORT_GENERAL
+---@field ClothShopSign 10 SRB_SHOP_CLOTH
+---@field [10] "ClothShopSign" SRB_SHOP_CLOTH
+---@field LeatherShopSign 11 SRB_SHOP_TANNING
+---@field [11] "LeatherShopSign" SRB_SHOP_TANNING
+---@field WovenClothingShopSign 12 SRB_SHOP_CLOTHING_CLOTH
+---@field [12] "WovenClothingShopSign" SRB_SHOP_CLOTHING_CLOTH
+---@field LeatherClothingShopSign 13 SRB_SHOP_CLOTHING_LEATHER
+---@field [13] "LeatherClothingShopSign" SRB_SHOP_CLOTHING_LEATHER
+---@field BoneCarverShopSign 14 SRB_SHOP_CRAFTS_BONE_CARVER
+---@field [14] "BoneCarverShopSign" SRB_SHOP_CRAFTS_BONE_CARVER
+---@field GemCutterShopSign 15 SRB_SHOP_GEM_CUTTER
+---@field [15] "GemCutterShopSign" SRB_SHOP_GEM_CUTTER
+---@field WeaponsmithShopSign2 16 SRB_SHOP_METAL_WEAPON_SMITH
+---@field [16] "WeaponsmithShopSign2" SRB_SHOP_METAL_WEAPON_SMITH
+---@field BowyerShopSign 17 SRB_SHOP_WOOD_WEAPON_SMITH
+---@field [17] "BowyerShopSign" SRB_SHOP_WOOD_WEAPON_SMITH
+---@field BlacksmithShopSign 18 SRB_SHOP_BLACK_SMITH
+---@field [18] "BlacksmithShopSign" SRB_SHOP_BLACK_SMITH
+---@field ArmorsmithShopSign2 19 SRB_SHOP_METAL_ARMOR_SMITH
+---@field [19] "ArmorsmithShopSign2" SRB_SHOP_METAL_ARMOR_SMITH
+---@field MetalCraftShopSign 20 SRB_SHOP_METAL_CRAFTER
+---@field [20] "MetalCraftShopSign" SRB_SHOP_METAL_CRAFTER
+---@field LeatherGoodsShopSign 21 SRB_SHOP_LEATHER_ACCESSORIES
+---@field [21] "LeatherGoodsShopSign" SRB_SHOP_LEATHER_ACCESSORIES
+---@field CarpenterShopSign 22 SRB_SHOP_FURNITURE_WOOD
+---@field [22] "CarpenterShopSign" SRB_SHOP_FURNITURE_WOOD
+---@field StoneFurnitureShopSign 23 SRB_SHOP_FURNITURE_STONE
+---@field [23] "StoneFurnitureShopSign" SRB_SHOP_FURNITURE_STONE
+---@field MetalFurnitureShopSign 24 SRB_SHOP_FURNITURE_METAL
+---@field [24] "MetalFurnitureShopSign" SRB_SHOP_FURNITURE_METAL
+---@field TavernSign 25 AB_TAVERN
+---@field [25] "TavernSign" AB_TAVERN
+---@field DemonIdentity 26 when a demon assumes identity? (TRUE_NAME)
+---@field [26] "DemonIdentity" when a demon assumes identity? (TRUE_NAME)
+df.slab_engraving_type = {}
+
+---@alias df.combat_animation_swish_type
+---| -1 # NONE
+---| 0 # HIT
+---| 1 # MISS
+---| 2 # BLOCK
+---| 3 # PARRY
+
+---@class identity.combat_animation_swish_type: DFEnumType
+---@field NONE -1 bay12: CombatAnimationSwishType
+---@field [-1] "NONE" bay12: CombatAnimationSwishType
+---@field HIT 0
+---@field [0] "HIT"
+---@field MISS 1
+---@field [1] "MISS"
+---@field BLOCK 2
+---@field [2] "BLOCK"
+---@field PARRY 3
+---@field [3] "PARRY"
+df.combat_animation_swish_type = {}
+
+---@alias df.combat_animation_swish_direction_type
+---| -1 # NONE
+---| 0 # N
+---| 1 # S
+---| 2 # W
+---| 3 # E
+---| 4 # NW
+---| 5 # NE
+---| 6 # SW
+---| 7 # SE
+
+---@class identity.combat_animation_swish_direction_type: DFEnumType
+---@field NONE -1 bay12: CombatAnimationSwishDirectionType
+---@field [-1] "NONE" bay12: CombatAnimationSwishDirectionType
+---@field N 0
+---@field [0] "N"
+---@field S 1
+---@field [1] "S"
+---@field W 2
+---@field [2] "W"
+---@field E 3
+---@field [3] "E"
+---@field NW 4
+---@field [4] "NW"
+---@field NE 5
+---@field [5] "NE"
+---@field SW 6
+---@field [6] "SW"
+---@field SE 7
+---@field [7] "SE"
+df.combat_animation_swish_direction_type = {}
+
+-- Unused: GraphicsTrackingSymbolWeightType
+-- Unused: GraphicsTrackingSymbolDirType
+-- Unused: MoveIndicatorType
+-- Unused: MoveIndicatorDirectionType
+-- Unused: GraphicsSoundIndicatorType
+-- Unused: PCGLayeringType, actually referenced elsewhere but not worth adding here
+-- Unused: PCGLayeringModifierType
+-- Unused: UnitStatusType
+-- Unused: SideIndicatorType
+-- Unused: TreeWoodTileType
+-- Unused: Texture
+-- Unused: SCREENTEXPOS_FLAG_*
+-- Unused: RectangleCursorType
+-- Unused: MAP_PORT_CLOUD_BITS_*
+---@class df.graphic_map_port_flag: DFBitfield
+---@field _enum identity.graphic_map_port_flag
+---@field active boolean bay12: GRAPHIC_MAP_PORT_FLAG_*
+---@field [0] boolean bay12: GRAPHIC_MAP_PORT_FLAG_*
+
+---@class identity.graphic_map_port_flag: DFBitfieldType
+---@field active 0 bay12: GRAPHIC_MAP_PORT_FLAG_*
+---@field [0] "active" bay12: GRAPHIC_MAP_PORT_FLAG_*
+df.graphic_map_port_flag = {}
+
+---@class (exact) df.graphic_map_portst: DFStruct
+---@field _type identity.graphic_map_portst
+---@field flag df.graphic_map_port_flag
+---@field dim_x number
+---@field dim_y number
+---@field clipx number[]
+---@field clipy number[]
+---@field screen_x number
+---@field screen_y number
+---@field top_left_corner_x number
+---@field top_left_corner_y number
+---@field pixel_perc_x number
+---@field pixel_perc_y number
+---@field screentexpos_base number
+---@field screentexpos_edge number[]
+---@field screentexpos_edge2 number[]
+---@field screentexpos_detail number
+---@field screentexpos_tunnel number
+---@field screentexpos_river number
+---@field screentexpos_road number
+---@field screentexpos_site number
+---@field screentexpos_army number
+---@field screentexpos_interface number
+---@field screentexpos_detail_to_n number
+---@field screentexpos_detail_to_s number
+---@field screentexpos_detail_to_w number
+---@field screentexpos_detail_to_e number
+---@field screentexpos_detail_to_nw number
+---@field screentexpos_detail_to_ne number
+---@field screentexpos_detail_to_sw number
+---@field screentexpos_detail_to_se number
+---@field screentexpos_site_to_s number
+---@field screentexpos_cloud_bits integer
+---@field screentexpos_base_old number
+---@field screentexpos_edge_old number[]
+---@field screentexpos_edge2_old number[]
+---@field screentexpos_detail_old number
+---@field screentexpos_tunnel_old number
+---@field screentexpos_river_old number
+---@field screentexpos_road_old number
+---@field screentexpos_site_old number
+---@field screentexpos_army_old number
+---@field screentexpos_interface_old number
+---@field screentexpos_detail_to_n_old number
+---@field screentexpos_detail_to_s_old number
+---@field screentexpos_detail_to_w_old number
+---@field screentexpos_detail_to_e_old number
+---@field screentexpos_detail_to_nw_old number
+---@field screentexpos_detail_to_ne_old number
+---@field screentexpos_detail_to_sw_old number
+---@field screentexpos_detail_to_se_old number
+---@field screentexpos_site_to_s_old number
+---@field screentexpos_cloud_bits_old integer
+---@field edge_biome_data number
+---@field edge_type_n number
+---@field edge_type_s number
+---@field edge_type_w number
+---@field edge_type_e number
+---@field edge_type_nw number
+---@field edge_type_ne number
+---@field edge_type_sw number
+---@field edge_type_se number
+---@field edge_biome_n number
+---@field edge_biome_s number
+---@field edge_biome_w number
+---@field edge_biome_e number
+---@field edge_biome_nw number
+---@field edge_biome_ne number
+---@field edge_biome_sw number
+---@field edge_biome_se number
+
+---@class identity.graphic_map_portst: DFCompoundType
+---@field _kind 'struct-type'
+df.graphic_map_portst = {}
+
+---@return df.graphic_map_portst
+function df.graphic_map_portst:new() end
+
+-- Unused: EdgingType
+-- Skipped: VIEWPORT_FLOOR_FLAG_*
+-- Unused: VIEWPORT_WALL_FLAG_*
+-- Unused: GraphicsRampType
+-- Skipped: VIEWPORT_RAMP_FLAG_*
+-- Skipped: VIEWPORT_SHADOW_FLAG_*
+---@class df.graphic_viewport_flag: DFBitfield
+---@field _enum identity.graphic_viewport_flag
+---@field active boolean bay12: GRAPHIC_VIEWPORT_FLAG_*
+---@field [0] boolean bay12: GRAPHIC_VIEWPORT_FLAG_*
+---@field show_liquid_numbers boolean
+---@field [1] boolean
+
+---@class identity.graphic_viewport_flag: DFBitfieldType
+---@field active 0 bay12: GRAPHIC_VIEWPORT_FLAG_*
+---@field [0] "active" bay12: GRAPHIC_VIEWPORT_FLAG_*
+---@field show_liquid_numbers 1
+---@field [1] "show_liquid_numbers"
+df.graphic_viewport_flag = {}
+
+---@class (exact) df.graphic_viewportst: DFStruct
+---@field _type identity.graphic_viewportst
+---@field flag df.graphic_viewport_flag
+---@field dim_x number
+---@field dim_y number
+---@field clipx number[]
+---@field clipy number[]
+---@field screen_x number
+---@field screen_y number
+---@field screentexpos_background number floor
+---@field screentexpos_floor_flag integer
+---@field screentexpos_background_two number VIEWPORT_FLOOR_FLAG_*
+---@field screentexpos_liquid_flag integer
+---@field screentexpos_spatter_flag integer VIEWPORT_LIQUID_FLAG_*
+---@field screentexpos_spatter number VIEWPORT_SPATTER_FLAG_*
+---@field screentexpos_ramp_flag integer
+---@field screentexpos_shadow_flag integer VIEWPORT_RAMP_FLAG_*
+---@field screentexpos_building_one number VIEWPORT_SHADOW_FLAG_*
+---@field screentexpos_item number ground stuff
+---@field screentexpos_vehicle number
+---@field screentexpos_vermin number
+---@field screentexpos_left_creature number
+---@field screentexpos number creature, etc.
+---@field screentexpos_right_creature number
+---@field screentexpos_building_two number high furniture/interior signposting
+---@field screentexpos_projectile number
+---@field screentexpos_high_flow number
+---@field screentexpos_top_shadow number
+---@field screentexpos_signpost number stuff that sticks up from below
+---@field screentexpos_upleft_creature number
+---@field screentexpos_up_creature number
+---@field screentexpos_upright_creature number
+---@field screentexpos_designation number
+---@field screentexpos_interface number cursor, etc
+---@field screentexpos_background_old number
+---@field screentexpos_floor_flag_old integer
+---@field screentexpos_background_two_old number
+---@field screentexpos_liquid_flag_old integer
+---@field screentexpos_spatter_flag_old integer
+---@field screentexpos_spatter_old number
+---@field screentexpos_ramp_flag_old integer
+---@field screentexpos_shadow_flag_old integer
+---@field screentexpos_building_one_old number
+---@field screentexpos_item_old number
+---@field screentexpos_vehicle_old number
+---@field screentexpos_vermin_old number
+---@field screentexpos_left_creature_old number
+---@field screentexpos_old number
+---@field screentexpos_right_creature_old number
+---@field screentexpos_building_two_old number
+---@field screentexpos_projectile_old number
+---@field screentexpos_high_flow_old number
+---@field screentexpos_top_shadow_old number
+---@field screentexpos_signpost_old number
+---@field screentexpos_upleft_creature_old number
+---@field screentexpos_up_creature_old number
+---@field screentexpos_upright_creature_old number
+---@field screentexpos_designation_old number
+---@field screentexpos_interface_old number
+---@field core_tree_species_plus_one number
+---@field shadow_tree_species_plus_one number
+
+---@class identity.graphic_viewportst: DFCompoundType
+---@field _kind 'struct-type'
+df.graphic_viewportst = {}
+
+---@return df.graphic_viewportst
+function df.graphic_viewportst:new() end
+
+-- Skipped: InterfaceButtonMainType (referenced from interaction.h and material.h)
+-- Unused: InterfaceButtonSmallType
+-- Unused: InterfaceButtonAssignTradeType
+-- Unused: InterfaceButtonBuildingInfoType
+-- Unused: InterfaceButtonLargeUnitSheetType
+-- Unused: InterfaceButtonPetsLivestockType
+-- Unused: InterfaceButtonInventoryItemType
+-- Unused: InterfaceButtonBuildingSheetType
+-- Unused: InterfaceButtonUnitSheetType
+-- Unused: InterfaceAdventureTravelDirType
+-- Unused: InterfaceMoonWeatherType
+-- Unused: TextureMapDrawnType
+-- Unused: TextureBridgeType
+-- Skipped: VIEWPORT_LIQUID_FLAG_*
+-- Skipped: VIEWPORT_SPATTER_FLAG_*
+-- Unused: InterfaceAdvEnvTextureType
+---@class (exact) df.interface_setst: DFStruct
+---@field _type identity.interface_setst
+---@field texpos_calendar_month number[][]
+---@field texpos_calendar_day_past number[]
+---@field texpos_calendar_day_current number[]
+---@field texpos_calendar_day_future number[]
+---@field texpos_border_top_left number[][]
+---@field texpos_border_top_right number[][]
+---@field texpos_border_bottom_left number[][]
+---@field texpos_border_bottom_right number[][]
+---@field texpos_border_top_intersection number[][]
+---@field texpos_border_bottom_intersection number[][]
+---@field texpos_border_middle_intersection number[]
+---@field texpos_border_left_intersection number[][]
+---@field texpos_border_right_intersection number[][]
+---@field texpos_border_left number[]
+---@field texpos_border_right number[]
+---@field texpos_border_top number[]
+---@field texpos_border_bottom number[]
+---@field texpos_hover_rectangle number[][]
+---@field texpos_hover_rectangle_join_w_sw number
+---@field texpos_hover_rectangle_join_w_s number
+---@field texpos_hover_rectangle_join_e_s number
+---@field texpos_hover_rectangle_join_e_se number
+---@field texpos_hover_close number[][]
+---@field texpos_hover_tab number[][]
+---@field texpos_hover_tab_inactive number[]
+---@field texpos_hover_tab_inside_corner_top number
+---@field texpos_hover_tab_inside_corner_bottom number
+---@field texpos_button_rectangle number[][]
+---@field texpos_button_rectangle_selected number[][]
+---@field texpos_button_rectangle_light number[][]
+---@field texpos_button_rectangle_dark number[][]
+---@field texpos_button_rectangle_divider number[]
+---@field texpos_button_category_rectangle number[][]
+---@field texpos_button_category_rectangle_selected number[][]
+---@field texpos_button_category_rectangle_on number[][]
+---@field texpos_button_category_rectangle_on_selected number[][]
+---@field texpos_button_category_rectangle_off number[][]
+---@field texpos_button_category_rectangle_off_selected number[][]
+---@field texpos_button_filter number[][]
+---@field texpos_button_filter_no_mag_right number[]
+---@field texpos_button_filter_name number[][]
+---@field texpos_button_picture_box number[][]
+---@field texpos_button_picture_box_selected number[][]
+---@field texpos_button_picture_box_highlighted number[][]
+---@field texpos_button_picture_box_sel_highlighted number[][]
+---@field texpos_button_picture_box_light number[][]
+---@field texpos_button_picture_box_dark number[][]
+---@field texpos_button_picture_box_divider number[]
+---@field texpos_button_add number[][]
+---@field texpos_button_add_hover number[][]
+---@field texpos_button_add_pressed number[][]
+---@field texpos_button_add_invalid number[][]
+---@field texpos_button_subtract number[][]
+---@field texpos_button_subtract_hover number[][]
+---@field texpos_button_subtract_pressed number[][]
+---@field texpos_button_subtract_invalid number[][]
+---@field texpos_button_expander_closed number[][]
+---@field texpos_button_expander_open number[][]
+---@field texpos_scrollbar number[][]
+---@field texpos_scrollbar_up_hover number[]
+---@field texpos_scrollbar_up_pressed number[]
+---@field texpos_scrollbar_down_hover number[]
+---@field texpos_scrollbar_down_pressed number[]
+---@field texpos_scrollbar_small_scroller number[][]
+---@field texpos_scrollbar_small_scroller_hover number[][]
+---@field texpos_scrollbar_top_scroller number[]
+---@field texpos_scrollbar_top_scroller_hover number[]
+---@field texpos_scrollbar_bottom_scroller number[]
+---@field texpos_scrollbar_bottom_scroller_hover number[]
+---@field texpos_scrollbar_blank_scroller number[]
+---@field texpos_scrollbar_blank_scroller_hover number[]
+---@field texpos_scrollbar_center_scroller number[]
+---@field texpos_scrollbar_center_scroller_hover number[]
+---@field texpos_scrollbar_offcenter_scroller number[][]
+---@field texpos_scrollbar_offcenter_scroller_hover number[][]
+---@field texpos_scrollbar_sky number[]
+---@field texpos_scrollbar_ground number[]
+---@field texpos_scrollbar_underground number[]
+---@field texpos_slider_background number[][]
+---@field texpos_slider number[][]
+---@field texpos_slider_hover number[][]
+---@field texpos_tab number[][]
+---@field texpos_tab_selected number[][]
+---@field texpos_short_tab number[][]
+---@field texpos_short_tab_selected number[][]
+---@field texpos_short_subtab number[][]
+---@field texpos_short_subtab_selected number[][]
+---@field texpos_short_subsubtab number[][]
+---@field texpos_short_subsubtab_selected number[][]
+---@field texpos_interface_background number
+---@field texpos_button_main number[][][]
+---@field texpos_button_small number[][][]
+---@field texpos_button_horizontal_option_left_ornament number[][]
+---@field texpos_button_horizontal_option_active number[][]
+---@field texpos_button_horizontal_option_inactive number[][]
+---@field texpos_button_horizontal_option_right_ornament number[][]
+---@field texpos_button_horizontal_option_remove number[][]
+---@field texpos_button_horizontal_option_confirm number[][]
+---@field texpos_interior_border_n_s_w_e number
+---@field texpos_interior_border_n_w_e number
+---@field texpos_interior_border_s_w_e number
+---@field texpos_interior_border_w_e number
+---@field texpos_interior_border_n_s number
+---@field texpos_sort_ascending_active number[]
+---@field texpos_sort_ascending_inactive number[]
+---@field texpos_sort_descending_active number[]
+---@field texpos_sort_descending_inactive number[]
+---@field texpos_sort_text_active number[]
+---@field texpos_sort_text_inactive number[]
+---@field texpos_siege_light number[][]
+---@field texpos_diplomacy_light number[][]
+---@field texpos_petitions_light number[][]
+---@field texpos_grid_cell_inactive number[][]
+---@field texpos_grid_cell_active number[][]
+---@field texpos_grid_cell_button number[][]
+---@field texpos_type_filter_left number[]
+---@field texpos_type_filter_right number[]
+---@field texpos_type_filter_text number[]
+---@field texpos_pinned number[]
+---@field texpos_not_pinned number[]
+---@field texpos_button_wrestle_right number[]
+---@field texpos_button_wrestle_equal number[]
+---@field texpos_button_wrestle_left number[]
+---@field texpos_button_adventure_tactical_mode_on number[][]
+---@field texpos_button_adventure_tactical_mode_off number[][]
+---@field texpos_adventure_log_pinned_active number[][]
+---@field texpos_adventure_log_pinned_inactive number[][]
+---@field texpos_adventure_log_item_active number[][]
+---@field texpos_adventure_log_item_inactive number[][]
+---@field texpos_button_announcement_open_all_announcements number[][]
+---@field texpos_button_announcement_not_pausing_on_new_report number[]
+---@field texpos_button_announcement_pausing_on_new_report number[]
+---@field texpos_button_announcement_open_from_main number[][]
+---@field texpos_button_quality_up number[][]
+---@field texpos_button_quality_down number[][]
+---@field texpos_button_quality_up_inactive number[][]
+---@field texpos_button_quality_down_inactive number[][]
+---@field texpos_button_stocks_recenter number[][]
+---@field texpos_button_stocks_view_item number[][]
+---@field texpos_button_stocks_forbid number[][]
+---@field texpos_button_stocks_forbid_active number[][]
+---@field texpos_button_stocks_dump number[][]
+---@field texpos_button_stocks_dump_active number[][]
+---@field texpos_button_stocks_melt number[][]
+---@field texpos_button_stocks_melt_active number[][]
+---@field texpos_button_stocks_hide number[][]
+---@field texpos_button_stocks_hide_active number[][]
+---@field texpos_button_short_forbid number[][]
+---@field texpos_button_short_forbid_active number[][]
+---@field texpos_button_short_dump number[][]
+---@field texpos_button_short_dump_active number[][]
+---@field texpos_button_short_melt number[][]
+---@field texpos_button_short_melt_active number[][]
+---@field texpos_button_short_hide number[][]
+---@field texpos_button_short_hide_active number[][]
+---@field texpos_building_short_item_task number[][]
+---@field texpos_building_item_task number[][]
+---@field texpos_building_item_incorporated number[][]
+---@field texpos_building_item_trade number[][]
+---@field texpos_building_item_animal number[][]
+---@field texpos_building_item_bait number[][]
+---@field texpos_building_item_loaded number[][]
+---@field texpos_building_item_dead number[][]
+---@field texpos_building_item_other number[][]
+---@field texpos_building_jobs_repeat number[][]
+---@field texpos_building_jobs_repeat_active number[][]
+---@field texpos_building_jobs_do_now number[][]
+---@field texpos_building_jobs_do_now_active number[][]
+---@field texpos_building_jobs_suspended number[][]
+---@field texpos_building_jobs_suspended_active number[][]
+---@field texpos_building_jobs_priority_up number[][]
+---@field texpos_building_jobs_remove number[][]
+---@field texpos_building_jobs_active number[][]
+---@field texpos_building_jobs_quota number[][]
+---@field texpos_building_jobs_remove_worker number[][]
+---@field texpos_button_assign_trade number[][][]
+---@field texpos_button_building_info number[][][]
+---@field texpos_button_building_sheet number[][][]
+---@field texpos_button_unit_sheet number[][][]
+---@field texpos_button_large_unit_sheet number[][][]
+---@field texpos_button_pets_livestock number[][][]
+---@field texpos_button_inventory_item number[][][]
+---@field texpos_adventure_travel_dir number[]
+---@field texpos_skill_progress_bar_left_full number
+---@field texpos_skill_progress_bar_mid_full number
+---@field texpos_skill_progress_bar_right_full number
+---@field texpos_skill_progress_bar_left_half number
+---@field texpos_skill_progress_bar_mid_half number
+---@field texpos_skill_progress_bar_right_half number
+---@field texpos_skill_progress_bar_left_empty number
+---@field texpos_skill_progress_bar_mid_empty number
+---@field texpos_skill_progress_bar_right_empty number
+---@field texpos_liquid_numbers_on number[][]
+---@field texpos_liquid_numbers_off number[][]
+---@field texpos_ramp_arrows_on number[][]
+---@field texpos_ramp_arrows_off number[][]
+---@field texpos_zoom_in_on number[][]
+---@field texpos_zoom_in_off number[][]
+---@field texpos_zoom_out_on number[][]
+---@field texpos_zoom_out_off number[][]
+---@field texpos_adv_liquid_numbers_on number[][]
+---@field texpos_adv_liquid_numbers_off number[][]
+---@field texpos_adv_ramp_arrows_on number[][]
+---@field texpos_adv_ramp_arrows_off number[][]
+---@field texpos_adv_zoom_in_on number[][]
+---@field texpos_adv_zoom_in_off number[][]
+---@field texpos_adv_zoom_out_on number[][]
+---@field texpos_adv_zoom_out_off number[][]
+---@field texpos_adv_tracks_on number[][]
+---@field texpos_adv_tracks_off number[][]
+---@field texpos_adv_env number[][][]
+---@field texpos_legends_tab_page_left number[][]
+---@field texpos_legends_tab_page_right number[][]
+---@field texpos_legends_tab_close_inactive number[]
+---@field texpos_legends_tab_close_active number[]
+---@field texpos_help_border number[][]
+---@field texpos_help_corner number[][]
+---@field texpos_help_close number[][]
+---@field texpos_help_hide number[][]
+---@field texpos_help_reveal number[][]
+---@field texpos_embark_selected number[][]
+---@field texpos_embark_not_selected number[][]
+---@field texpos_embark_expand_y_active number[][]
+---@field texpos_embark_expand_y_inactive number[][]
+---@field texpos_embark_contract_y_active number[][]
+---@field texpos_embark_contract_y_inactive number[][]
+---@field texpos_embark_expand_x_active number[]
+---@field texpos_embark_expand_x_inactive number[]
+---@field texpos_embark_contract_x_active number[]
+---@field texpos_embark_contract_x_inactive number[]
+---@field texpos_adventure_burden_light number[]
+---@field texpos_adventure_burden_heavy number[]
+---@field texpos_bottom_button_border_nw number
+---@field texpos_bottom_button_border_w number
+---@field texpos_bottom_button_border_n number
+---@field texpos_bottom_button_border_interior number
+---@field texpos_bottom_button_border_ne number
+---@field texpos_bottom_button_border_e number
+
+---@class identity.interface_setst: DFCompoundType
+---@field _kind 'struct-type'
+df.interface_setst = {}
+
+---@return df.interface_setst
+function df.interface_setst:new() end
+
+---@class (exact) df.cached_texturest: DFStruct
+---@field _type identity.cached_texturest
+---@field w number
+---@field h number
+---@field tex DFPointer<integer>
+---@field tex_n number
+
+---@class identity.cached_texturest: DFCompoundType
+---@field _kind 'struct-type'
+df.cached_texturest = {}
+
+---@return df.cached_texturest
+function df.cached_texturest:new() end
+
+---@class (exact) df.texblitst: DFStruct
+---@field _type identity.texblitst
+---@field x number
+---@field y number
+---@field tex number
+
+---@class identity.texblitst: DFCompoundType
+---@field _kind 'struct-type'
+df.texblitst = {}
+
+---@return df.texblitst
+function df.texblitst:new() end
+
+---@class df.override_tile_type: DFBitfield
+---@field _enum identity.override_tile_type
+---@field OVERRIDE_CHAR boolean bay12: OVERRIDE_*
+---@field [0] boolean bay12: OVERRIDE_*
+---@field OVERRIDE_TILE boolean
+---@field [1] boolean
+---@field OVERRIDE_TOP_TILE boolean
+---@field [2] boolean
+---@field OVERRIDE_LOWER_TILE boolean
+---@field [3] boolean
+---@field OVERRIDE_TOP_LOWER_TILE boolean
+---@field [4] boolean
+---@field OVERRIDE_ANCHORED_TILE boolean
+---@field [5] boolean
+---@field OVERRIDE_TOP_ANCHORED_TILE boolean
+---@field [6] boolean
+
+---@class identity.override_tile_type: DFBitfieldType
+---@field OVERRIDE_CHAR 0 bay12: OVERRIDE_*
+---@field [0] "OVERRIDE_CHAR" bay12: OVERRIDE_*
+---@field OVERRIDE_TILE 1
+---@field [1] "OVERRIDE_TILE"
+---@field OVERRIDE_TOP_TILE 2
+---@field [2] "OVERRIDE_TOP_TILE"
+---@field OVERRIDE_LOWER_TILE 3
+---@field [3] "OVERRIDE_LOWER_TILE"
+---@field OVERRIDE_TOP_LOWER_TILE 4
+---@field [4] "OVERRIDE_TOP_LOWER_TILE"
+---@field OVERRIDE_ANCHORED_TILE 5
+---@field [5] "OVERRIDE_ANCHORED_TILE"
+---@field OVERRIDE_TOP_ANCHORED_TILE 6
+---@field [6] "OVERRIDE_TOP_ANCHORED_TILE"
+df.override_tile_type = {}
+
+---@class (exact) df.graphic: DFStruct
+---@field _type identity.graphic
+---@field viewport _graphic_viewport
+---@field main_viewport df.graphic_viewportst
+---@field lower_viewport df.graphic_viewportst[]
+---@field map_port _graphic_map_port
+---@field main_map_port df.graphic_map_portst
+---@field viewport_zoom_factor number
+---@field screenx number
+---@field screeny number
+---@field screenf df.curses_color
+---@field screenb df.curses_color
+---@field screenbright boolean
+---@field use_old_16_colors boolean use F:B:BR instead of straight RGB
+---@field screen_color_r integer
+---@field screen_color_g integer
+---@field screen_color_b integer
+---@field screen_color_br integer
+---@field screen_color_bg integer
+---@field screen_color_bb integer
+---@field ccolor number[][] The curses-RGB mapping used for non-curses display modes
+---@field uccolor integer[][] The curses-RGB mapping used for non-curses display modes
+---@field color integer[][]
+---@field mouse_x number tile offset
+---@field mouse_y number tile offset
+---@field precise_mouse_x number pixel offset
+---@field precise_mouse_y number pixel offset
+---@field screen_pixel_x number
+---@field screen_pixel_y number
+---@field tile_pixel_x number
+---@field tile_pixel_y number
+---@field screen integer
+---@field screen_limit integer pointer to last element of screen
+---@field screentexpos number
+---@field screentexpos_lower number
+---@field screentexpos_anchored number
+---@field screentexpos_anchored_x number
+---@field screentexpos_anchored_y number
+---@field screentexpos_flag integer
+---@field top_in_use boolean //we assume top is not in use unless a flag is set, and reprint the screen when it goes away, to avoid cell by cell checks
+---@field screen_top integer
+---@field screen_top_limit integer
+---@field screentexpos_top_lower number
+---@field screentexpos_top_anchored number
+---@field screentexpos_top number
+---@field screentexpos_top_anchored_x number
+---@field screentexpos_top_anchored_y number
+---@field screentexpos_top_flag integer
+---@field display_title boolean
+---@field display_background number
+---@field last_display_background number
+---@field screentexpos_refresh_buffer number
+---@field refresh_buffer_val number
+---@field main_thread_requesting_reshape boolean set to true by main thread, set to false by graphics thread
+---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
+---@field clipx number[]
+---@field clipy number[]
+---@field tex df.cached_texturest[]
+---@field texblits _graphic_texblits
+---@field rect_id number
+---@field print_time df.large_integer[]
+---@field print_index number
+---@field display_frames number
+---@field force_full_display_count number
+---@field do_clean_tile_cache number true by main, false by graphics
+---@field do_post_init_texture_clear number true by main, false by graphics
+---@field original_rect number
+---@field dimx number
+---@field dimy number
+---@field black_background_texpos number[] do NOT put these in a compound, because it will break alignment!
+---@field texture_indices1 number[]
+---@field texpos_custom_symbol DFNumberVector
+---@field texture_indices2 number[]
+---@field graphical_interface df.interface_setst
+---@field classic_interface df.interface_setst
+---@field texture_indices3 number[]
+---@field texpos_boulder DFNumberVector
+---@field texture_indices4 number[]
+---@field texpos_item_barrel_top number[]
+---@field texture_indices5 number[]
+---@field texpos_item_bin_top number[]
+---@field texture_indices6 number[]
+---@field texpos_item_statue_artifact DFNumberVector
+---@field texture_indices7 number[]
+---@field texpos_site_map number[]
+---@field texture_indices8 number[]
+---@field texpos_site_map_hillock number[]
+---@field texture_indices9 number[]
+---@field texpos_map_drawn number[]
+---@field texture_indices10 number[]
+
+---@class identity.graphic: DFCompoundType
+---@field _kind 'struct-type'
+df.graphic = {}
+
+---@return df.graphic
+function df.graphic:new() end
+
+---@class _graphic_viewport: DFContainer
+---@field [integer] df.graphic_viewportst
+local _graphic_viewport
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.graphic_viewportst>
+function _graphic_viewport:_field(index) end
+
+---@param index '#'|integer
+---@param item df.graphic_viewportst
+function _graphic_viewport:insert(index, item) end
+
+---@param index integer
+function _graphic_viewport:erase(index) end
+
+---@class _graphic_map_port: DFContainer
+---@field [integer] df.graphic_map_portst
+local _graphic_map_port
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.graphic_map_portst>
+function _graphic_map_port:_field(index) end
+
+---@param index '#'|integer
+---@param item df.graphic_map_portst
+function _graphic_map_port:insert(index, item) end
+
+---@param index integer
+function _graphic_map_port:erase(index) end
+
+---@class _graphic_texblits: DFContainer
+---@field [integer] df.texblitst
+local _graphic_texblits
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.texblitst>
+function _graphic_texblits:_field(index) end
+
+---@param index '#'|integer
+---@param item df.texblitst
+function _graphic_texblits:insert(index, item) end
+
+---@param index integer
+function _graphic_texblits:erase(index) end
+

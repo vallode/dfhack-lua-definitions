@@ -1,0 +1,2049 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@class df.global: DFGlobal
+---@field global_table df.global_table_entry[]
+df.global = {}
+
+-- Data types defined specifically for DFHack, as well as others that don't have a good place to live
+---@class (exact) df.global_table_entry: DFStruct
+---@field _type identity.global_table_entry
+---@field name df.DFPointer<string>
+---@field address DFPointer<integer>
+---@field size integer
+
+---@class identity.global_table_entry: DFCompoundType
+---@field _kind 'struct-type'
+df.global_table_entry = {}
+
+---@return df.global_table_entry
+function df.global_table_entry:new() end
+
+-- not in DF, 16x16 bitmask
+---@class (exact) df.tile_bitmask: DFStruct
+---@field _type identity.tile_bitmask
+---@field bits integer[]
+
+---@class identity.tile_bitmask: DFCompoundType
+---@field _kind 'struct-type'
+df.tile_bitmask = {}
+
+---@return df.tile_bitmask
+function df.tile_bitmask:new() end
+
+-- Not in DF
+-- Royal Throne Room   | Royal Bedroom   | Royal Dining Room  | Royal Mausoleum
+-- Opulent Throne Room | Grand Bedroom   | Grand Dining Room  | Grand Mausoleum
+-- Throne Room         | Great Bedroom   | Great Dining Room  | Mausoleum
+-- Splendid Office     | Fine Quarters   | Fine Dining Room   | Fine Tomb
+-- Decent Office       | Decent Quarters | Decent Dining Room | Tomb
+-- Office              | Quarters        | Dining Room        | Burial Chamber
+-- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
+-- Meager Office       | Meager Quarters | Meager Dining Room | Grave
+---@alias df.dfhack_room_quality_level
+---| 0 # Meager
+---| 1 # Modest
+---| 2 # Normal
+---| 3 # Decent
+---| 4 # Fine
+---| 5 # Great
+---| 6 # Grand
+---| 7 # Royal
+
+-- Not in DF
+-- Royal Throne Room   | Royal Bedroom   | Royal Dining Room  | Royal Mausoleum
+-- Opulent Throne Room | Grand Bedroom   | Grand Dining Room  | Grand Mausoleum
+-- Throne Room         | Great Bedroom   | Great Dining Room  | Mausoleum
+-- Splendid Office     | Fine Quarters   | Fine Dining Room   | Fine Tomb
+-- Decent Office       | Decent Quarters | Decent Dining Room | Tomb
+-- Office              | Quarters        | Dining Room        | Burial Chamber
+-- Modest Office       | Modest Quarters | Modest Dining Room | Servant's Burial Chamber
+-- Meager Office       | Meager Quarters | Meager Dining Room | Grave
+---@class identity.dfhack_room_quality_level: DFEnumType
+---@field Meager 0
+---@field [0] "Meager"
+---@field Modest 1
+---@field [1] "Modest"
+---@field Normal 2
+---@field [2] "Normal"
+---@field Decent 3
+---@field [3] "Decent"
+---@field Fine 4
+---@field [4] "Fine"
+---@field Great 5
+---@field [5] "Great"
+---@field Grand 6
+---@field [6] "Grand"
+---@field Royal 7
+---@field [7] "Royal"
+df.dfhack_room_quality_level = {}
+
+---@class dfhack_room_quality_level_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.dfhack_room_quality_level._attr_entry_type = {}
+
+---@class (exact) dfhack_room_quality_level_attr_entry_type_fields
+---@field min_value DFCompoundField
+---@field office DFCompoundField
+---@field bedroom DFCompoundField
+---@field dining_room DFCompoundField
+---@field burial DFCompoundField
+df.dfhack_room_quality_level._attr_entry_type._fields = {}
+
+---@class dfhack_room_quality_level_attrs
+---@field Meager { min_value: "0", office: "Meager Office", bedroom: "Meager Quarters", dining_room: "Meager Dining Room", burial: "Grave" }
+---@field Modest { min_value: "100", office: "Modest Office", bedroom: "Modest Quarters", dining_room: "Modest Dining Room", burial: "Servant's Burial Chamber" }
+---@field Normal { min_value: "250", office: "Office", bedroom: "Quarters", dining_room: "Dining Room", burial: "Burial Chamber" }
+---@field Decent { min_value: "500", office: "Decent Office", bedroom: "Decent Quarters", dining_room: "Decent Dining Room", burial: "Tomb" }
+---@field Fine { min_value: "1000", office: "Splendid Office", bedroom: "Fine Quarters", dining_room: "Fine Dining Room", burial: "Fine Tomb" }
+---@field Great { min_value: "1500", office: "Throne Room", bedroom: "Great Bedroom", dining_room: "Great Dining Room", burial: "Mausoleum" }
+---@field Grand { min_value: "2500", office: "Opulent Throne Room", bedroom: "Grand Bedroom", dining_room: "Grand Dining Room", burial: "Grand Mausoleum" }
+---@field Royal { min_value: "10000", office: "Royal Throne Room", bedroom: "Royal Bedroom", dining_room: "Royal Dining Room", burial: "Royal Mausoleum" }
+df.dfhack_room_quality_level.attrs = {}
+
+---@alias df.curses_color
+---| 0 # Black
+---| 1 # Blue
+---| 2 # Green
+---| 3 # Cyan
+---| 4 # Red
+---| 5 # Magenta
+---| 6 # Yellow
+---| 7 # White
+
+---@class identity.curses_color: DFEnumType
+---@field Black 0 Using the color names without "dark" or "light", favoring primaries.
+---@field [0] "Black" Using the color names without "dark" or "light", favoring primaries.
+---@field Blue 1
+---@field [1] "Blue"
+---@field Green 2
+---@field [2] "Green"
+---@field Cyan 3
+---@field [3] "Cyan"
+---@field Red 4
+---@field [4] "Red"
+---@field Magenta 5
+---@field [5] "Magenta"
+---@field Yellow 6
+---@field [6] "Yellow"
+---@field White 7
+---@field [7] "White"
+df.curses_color = {}
+
+---@class df.cmv_attribute: DFBitfield
+---@field _enum identity.cmv_attribute
+---@field fg boolean
+---@field [0] boolean
+---@field bg boolean
+---@field [3] boolean
+---@field bright boolean
+---@field [6] boolean
+
+---@class identity.cmv_attribute: DFBitfieldType
+---@field fg 0
+---@field [0] "fg"
+---@field bg 3
+---@field [3] "bg"
+---@field bright 6
+---@field [6] "bright"
+df.cmv_attribute = {}
+
+---@alias df.item_quality
+---| 0 # Ordinary
+---| 1 # WellCrafted
+---| 2 # FinelyCrafted
+---| 3 # Superior
+---| 4 # Exceptional
+---| 5 # Masterful
+---| 6 # Artifact
+
+---@class identity.item_quality: DFEnumType
+---@field Ordinary 0 DFHack-only
+---@field [0] "Ordinary" DFHack-only
+---@field WellCrafted 1
+---@field [1] "WellCrafted"
+---@field FinelyCrafted 2
+---@field [2] "FinelyCrafted"
+---@field Superior 3
+---@field [3] "Superior"
+---@field Exceptional 4
+---@field [4] "Exceptional"
+---@field Masterful 5
+---@field [5] "Masterful"
+---@field Artifact 6
+---@field [6] "Artifact"
+df.item_quality = {}
+
+-- An extended version of job_material_category,
+-- for use in some plugins, like workflow.
+---@class df.dfhack_material_category: DFBitfield
+---@field _enum identity.dfhack_material_category
+---@field plant boolean
+---@field [0] boolean
+---@field wood boolean
+---@field [1] boolean
+---@field cloth boolean
+---@field [2] boolean
+---@field silk boolean
+---@field [3] boolean
+---@field leather boolean
+---@field [4] boolean
+---@field bone boolean
+---@field [5] boolean
+---@field shell boolean
+---@field [6] boolean
+---@field wood2 boolean
+---@field [7] boolean
+---@field soap boolean
+---@field [8] boolean
+---@field tooth boolean
+---@field [9] boolean
+---@field horn boolean
+---@field [10] boolean
+---@field pearl boolean
+---@field [11] boolean
+---@field yarn boolean
+---@field [12] boolean
+---@field strand boolean
+---@field [13] boolean
+---@field metal boolean
+---@field [14] boolean
+---@field stone boolean
+---@field [15] boolean
+---@field sand boolean
+---@field [16] boolean
+---@field glass boolean
+---@field [17] boolean
+---@field clay boolean
+---@field [18] boolean
+---@field milk boolean
+---@field [19] boolean
+---@field gem boolean
+---@field [20] boolean
+
+---@class identity.dfhack_material_category: DFBitfieldType
+---@field plant 0
+---@field [0] "plant"
+---@field wood 1
+---@field [1] "wood"
+---@field cloth 2
+---@field [2] "cloth"
+---@field silk 3
+---@field [3] "silk"
+---@field leather 4
+---@field [4] "leather"
+---@field bone 5
+---@field [5] "bone"
+---@field shell 6
+---@field [6] "shell"
+---@field wood2 7
+---@field [7] "wood2"
+---@field soap 8
+---@field [8] "soap"
+---@field tooth 9
+---@field [9] "tooth"
+---@field horn 10
+---@field [10] "horn"
+---@field pearl 11
+---@field [11] "pearl"
+---@field yarn 12
+---@field [12] "yarn"
+---@field strand 13
+---@field [13] "strand"
+---@field metal 14
+---@field [14] "metal"
+---@field stone 15
+---@field [15] "stone"
+---@field sand 16
+---@field [16] "sand"
+---@field glass 17
+---@field [17] "glass"
+---@field clay 18
+---@field [18] "clay"
+---@field milk 19
+---@field [19] "milk"
+---@field gem 20
+---@field [20] "gem"
+df.dfhack_material_category = {}
+
+-- not in DF
+---@alias df.job_type_class
+---| 0 # Misc
+---| 1 # Digging
+---| 2 # Building
+---| 3 # Hauling
+---| 4 # LifeSupport
+---| 5 # TidyUp
+---| 6 # Leisure
+---| 7 # Gathering
+---| 8 # Manufacture
+---| 9 # Improvement
+---| 10 # Crime
+---| 11 # LawEnforcement
+---| 12 # StrangeMood
+---| 13 # UnitHandling
+---| 14 # SiegeWeapon
+---| 15 # Medicine
+---| 16 # Carving
+
+-- not in DF
+---@class identity.job_type_class: DFEnumType
+---@field Misc 0
+---@field [0] "Misc"
+---@field Digging 1
+---@field [1] "Digging"
+---@field Building 2
+---@field [2] "Building"
+---@field Hauling 3
+---@field [3] "Hauling"
+---@field LifeSupport 4
+---@field [4] "LifeSupport"
+---@field TidyUp 5
+---@field [5] "TidyUp"
+---@field Leisure 6
+---@field [6] "Leisure"
+---@field Gathering 7
+---@field [7] "Gathering"
+---@field Manufacture 8
+---@field [8] "Manufacture"
+---@field Improvement 9
+---@field [9] "Improvement"
+---@field Crime 10
+---@field [10] "Crime"
+---@field LawEnforcement 11
+---@field [11] "LawEnforcement"
+---@field StrangeMood 12
+---@field [12] "StrangeMood"
+---@field UnitHandling 13
+---@field [13] "UnitHandling"
+---@field SiegeWeapon 14
+---@field [14] "SiegeWeapon"
+---@field Medicine 15
+---@field [15] "Medicine"
+---@field Carving 16
+---@field [16] "Carving"
+df.job_type_class = {}
+
+-- not a real structure
+---@class (exact) df.knowledge_scholar_category_flag: DFStruct
+---@field _type identity.knowledge_scholar_category_flag
+---@field flag_type df.knowledge_scholar_category_flag.T_flag_type clone of research_project_type; determines which bitflags to use
+---@field flag_data df.knowledge_scholar_category_flag.T_flag_data
+
+---@class identity.knowledge_scholar_category_flag: DFCompoundType
+---@field _kind 'struct-type'
+df.knowledge_scholar_category_flag = {}
+
+---@return df.knowledge_scholar_category_flag
+function df.knowledge_scholar_category_flag:new() end
+
+-- clone of research_project_type; determines which bitflags to use
+---@alias df.knowledge_scholar_category_flag.T_flag_type
+---| 0 # flags_0
+---| 1 # flags_1
+---| 2 # flags_2
+---| 3 # flags_3
+---| 4 # flags_4
+---| 5 # flags_5
+---| 6 # flags_6
+---| 7 # flags_7
+---| 8 # flags_8
+---| 9 # flags_9
+---| 10 # flags_10
+---| 11 # flags_11
+---| 12 # flags_12
+---| 13 # flags_13
+
+-- clone of research_project_type; determines which bitflags to use
+---@class identity.knowledge_scholar_category_flag.flag_type: DFEnumType
+---@field flags_0 0
+---@field [0] "flags_0"
+---@field flags_1 1
+---@field [1] "flags_1"
+---@field flags_2 2
+---@field [2] "flags_2"
+---@field flags_3 3
+---@field [3] "flags_3"
+---@field flags_4 4
+---@field [4] "flags_4"
+---@field flags_5 5
+---@field [5] "flags_5"
+---@field flags_6 6
+---@field [6] "flags_6"
+---@field flags_7 7
+---@field [7] "flags_7"
+---@field flags_8 8
+---@field [8] "flags_8"
+---@field flags_9 9
+---@field [9] "flags_9"
+---@field flags_10 10
+---@field [10] "flags_10"
+---@field flags_11 11
+---@field [11] "flags_11"
+---@field flags_12 12
+---@field [12] "flags_12"
+---@field flags_13 13
+---@field [13] "flags_13"
+df.knowledge_scholar_category_flag.T_flag_type = {}
+
+---@class (exact) df.knowledge_scholar_category_flag.T_flag_data: DFStruct
+---@field _type identity.knowledge_scholar_category_flag.flag_data
+---@field flags_0 df.knowledge_scholar_flags_0
+---@field flags_1 df.knowledge_scholar_flags_1
+---@field flags_2 df.knowledge_scholar_flags_2
+---@field flags_3 df.knowledge_scholar_flags_3
+---@field flags_4 df.knowledge_scholar_flags_4
+---@field flags_5 df.knowledge_scholar_flags_5
+---@field flags_6 df.knowledge_scholar_flags_6
+---@field flags_7 df.knowledge_scholar_flags_7
+---@field flags_8 df.knowledge_scholar_flags_8
+---@field flags_9 df.knowledge_scholar_flags_9
+---@field flags_10 df.knowledge_scholar_flags_10
+---@field flags_11 df.knowledge_scholar_flags_11
+---@field flags_12 df.knowledge_scholar_flags_12
+---@field flags_13 df.knowledge_scholar_flags_13
+---@field whole integer
+
+---@class identity.knowledge_scholar_category_flag.flag_data: DFCompoundType
+---@field _kind 'struct-type'
+df.knowledge_scholar_category_flag.T_flag_data = {}
+
+---@return df.knowledge_scholar_category_flag.T_flag_data
+function df.knowledge_scholar_category_flag.T_flag_data:new() end
+
+-- not in DF
+---@alias df.dfhack_knowledge_scholar_flag
+---| 0 # philosophy_logic_formal_reasoning
+---| 1 # philosophy_logic_deductive_reasoning
+---| 2 # philosophy_logic_syllogistic_logic
+---| 3 # philosophy_logic_hypothetical_syllogisms
+---| 4 # philosophy_logic_propositional_logic
+---| 5 # philosophy_logic_dialectic_reasoning
+---| 6 # philosophy_logic_analogical_inference
+---| 7 # philosophy_ethics_applied_medical
+---| 8 # philosophy_ethics_individual_value
+---| 9 # philosophy_ethics_state_consequentialism
+---| 10 # philosophy_epistemology_truth
+---| 11 # philosophy_epistemology_perception
+---| 12 # philosophy_epistemology_justification
+---| 13 # philosophy_epistemology_belief
+---| 14 # philosophy_metaphysics_existence
+---| 15 # philosophy_metaphysics_time
+---| 16 # philosophy_metaphysics_mind_body
+---| 17 # philosophy_metaphysics_objects_and_properties
+---| 18 # philosophy_metaphysics_wholes_and_parts
+---| 19 # philosophy_metaphysics_events
+---| 20 # philosophy_metaphysics_processes
+---| 21 # philosophy_metaphysics_causation
+---| 22 # philosophy_ethics_applied_military
+---| 23 # philosophy_ethics_applied_interpersonal_conduct
+---| 24 # philosophy_specialized_law
+---| 25 # philosophy_specialized_education
+---| 26 # philosophy_specialized_language_grammar
+---| 27 # philosophy_specialized_language_etymology
+---| 28 # philosophy_specialized_politics_diplomacy
+---| 29 # philosophy_specialized_politics_government_forms
+---| 30 # philosophy_specialized_politics_economic_policy
+---| 31 # philosophy_specialized_politics_social_welfare
+---| 32 # philosophy_logic_inductive_reasoning
+---| 33 # philosophy_logic_direct_inference
+---| 34 # philosophy_aesthetics_nature_of_beauty
+---| 35 # philosophy_aesthetics_value_of_art
+---| 36 # philosophy_specialized_language_dictionary
+---| 64 # mathematics_method_proof_by_contradiction
+---| 65 # mathematics_notation_zero
+---| 66 # mathematics_notation_negative_numbers
+---| 67 # mathematics_notation_large_numbers
+---| 68 # mathematics_notation_positional
+---| 69 # mathematics_geometry_basic_objects
+---| 70 # mathematics_method_exhaustion
+---| 71 # mathematics_geometry_similar_and_congruent_triangles
+---| 72 # mathematics_geometry_geometric_mean_theorem
+---| 73 # mathematics_geometry_isosceles_base_angles_equal
+---| 74 # mathematics_geometry_inscribed_triangle_on_diameter_is_right
+---| 75 # mathematics_geometry_pythagorean_theorem
+---| 76 # mathematics_geometry_pythagorean_triples_small
+---| 77 # mathematics_geometry_pythagorean_triples_3_digit
+---| 78 # mathematics_geometry_pythagorean_triples_4_digit
+---| 79 # mathematics_geometry_existence_of_incommensurable_ratios
+---| 80 # mathematics_method_axiomatic_reasoning
+---| 81 # mathematics_numbers_unique_prime_factorization
+---| 82 # mathematics_numbers_algorithm_for_computing_gcd
+---| 83 # mathematics_geometry_volume_of_pyramid
+---| 84 # mathematics_geometry_volume_of_cone
+---| 85 # mathematics_geometry_volume_of_sphere
+---| 86 # mathematics_geometry_pi_to_4_digits
+---| 87 # mathematics_numbers_division_algorithm
+---| 88 # mathematics_geometry_table_of_chord_values
+---| 89 # mathematics_geometry_area_of_triangle_from_side_lengths
+---| 90 # mathematics_geometry_area_of_circle
+---| 91 # mathematics_geometry_pi_to_6_digits
+---| 92 # mathematics_geometry_definitions_and_basic_properties_of_conic_sections
+---| 93 # mathematics_numbers_chinese_remainder_algorithm
+---| 94 # mathematics_geometry_area_enclosed_by_line_and_parabola
+---| 95 # mathematics_numbers_sieve_algorithm_for_primes
+---| 96 # mathematics_numbers_root_2_to_5_digits
+---| 97 # mathematics_numbers_infinite_primes
+---| 98 # mathematics_numbers_root_2_irrational
+---| 99 # mathematics_geometry_surface_area_of_sphere
+---| 100 # mathematics_algebra_finite_summation_formulas
+---| 101 # mathematics_algebra_solving_linear_systems
+---| 102 # mathematics_algebra_balancing_and_completion
+---| 103 # mathematics_algebra_quadratic_by_completing_square
+---| 104 # mathematics_algebra_quadratic_formula
+---| 105 # mathematics_notation_syncopated_algebra
+---| 106 # mathematics_geometry_law_of_sines
+---| 107 # mathematics_geometry_angle_sum_difference_trig_identities
+---| 108 # mathematics_algebra_pascals_triangle
+---| 109 # mathematics_algebra_solving_higher_order_polynomials
+---| 110 # mathematics_notation_early_symbols_for_operations
+---| 111 # mathematics_algebra_divergence_of_harmonic_series
+---| 112 # mathematics_geometry_properties_of_chords
+---| 128 # history_sourcing_basic_reliability
+---| 129 # history_sourcing_role_of_systemic_bias
+---| 130 # history_sourcing_role_of_state_bias_and_propaganda
+---| 131 # history_sourcing_personal_interviews
+---| 132 # history_theory_historical_causation
+---| 133 # history_theory_historical_cycles
+---| 134 # history_theory_social_cohesion
+---| 135 # history_theory_social_conflict
+---| 136 # history_form_biography
+---| 137 # history_form_comparative_biography
+---| 138 # history_form_biographical_dictionaries
+---| 139 # history_form_autobiographical_adventure
+---| 140 # history_form_genealogy
+---| 141 # history_form_encyclopedia
+---| 142 # history_form_cultural_history
+---| 143 # history_form_cultural_comparison
+---| 144 # history_sourcing_role_of_cultural_differences
+---| 145 # history_form_alternate_history
+---| 146 # history_sourcing_basic_archaeology
+---| 147 # history_form_treatise_on_tech_evolution
+---| 160 # astronomy_phases_of_the_moon
+---| 161 # astronomy_summer_winter_moon
+---| 162 # astronomy_path_of_the_moon
+---| 163 # astronomy_tides_and_the_moon
+---| 164 # astronomy_height_of_tides_vs_moon_and_sun
+---| 165 # astronomy_summer_winter_sun
+---| 166 # astronomy_relationship_between_lunar_solar_year
+---| 167 # astronomy_daylight_variation_with_solar_year
+---| 168 # astronomy_geocentric_model
+---| 169 # astronomy_heliocentric_model
+---| 170 # astronomy_dates_of_lunar_and_solar_eclipses
+---| 171 # astronomy_star_charts
+---| 172 # astronomy_star_catalogues_100
+---| 173 # astronomy_star_catalogues_1000
+---| 174 # astronomy_star_color_classification
+---| 175 # astronomy_star_magnitude_classification
+---| 176 # astronomy_shape_of_the_world
+---| 177 # astronomy_precession_of_equinoxes
+---| 178 # astronomy_method_empirical_observation
+---| 179 # astronomy_method_path_models
+---| 192 # naturalist_method_dissection
+---| 193 # naturalist_observation_anatomy
+---| 194 # naturalist_theory_comparative_anatomy
+---| 195 # naturalist_theory_classification_by_physical_features
+---| 196 # naturalist_observation_migration_patterns
+---| 197 # naturalist_observation_reproductive_behavior
+---| 198 # naturalist_observation_foraging_behavior_and_diet
+---| 199 # naturalist_theory_food_chain
+---| 200 # naturalist_observation_social_behavior
+---| 201 # naturalist_observation_diseases
+---| 202 # naturalist_theory_climactic_adaptation
+---| 203 # naturalist_observation_embriological_development
+---| 204 # naturalist_theory_struggle_for_existence
+---| 224 # chemistry_classification_combustibles
+---| 225 # chemistry_classification_ores
+---| 226 # chemistry_metallurgy_alloys
+---| 227 # chemistry_classification_scratch_test
+---| 228 # chemistry_classification_elemental_theory
+---| 229 # chemistry_chemicals_adhesives
+---| 230 # chemistry_laboratory_blast_furnace
+---| 231 # chemistry_laboratory_alembic
+---| 232 # chemistry_laboratory_theory_of_liquid_liquid_extraction
+---| 233 # chemistry_laboratory_theory_of_distillation
+---| 234 # chemistry_laboratory_theory_of_evaporation
+---| 235 # chemistry_classification_alkali_and_acids
+---| 236 # chemistry_laboratory_systematic_experiments
+---| 237 # chemistry_laboratory_glass_flask
+---| 238 # chemistry_laboratory_glass_beaker
+---| 239 # chemistry_laboratory_glass_vial
+---| 240 # chemistry_laboratory_glass_funnel
+---| 241 # chemistry_laboratory_crucible
+---| 242 # chemistry_chemicals_nitric_acid
+---| 243 # chemistry_chemicals_sulfuric_acid
+---| 244 # chemistry_chemicals_aqua_regia
+---| 245 # chemistry_laboratory_glass_ampoule
+---| 246 # chemistry_laboratory_glass_retort
+---| 247 # chemistry_laboratory_lab_ovens
+---| 256 # geography_surveying_basic
+---| 257 # geography_surveying_staff
+---| 258 # geography_cartography_basic
+---| 259 # geography_surveying_triangulation
+---| 260 # geography_surveying_cartographical
+---| 261 # geography_surveying_land
+---| 262 # geography_surveying_military
+---| 263 # geography_surveying_engineering
+---| 264 # geography_cartography_geological
+---| 265 # geography_cartography_grid_system
+---| 266 # geography_cartography_distance_scale
+---| 267 # geography_cartography_height_measurements
+---| 268 # geography_method_economic_data_collection
+---| 269 # geography_cartography_economic
+---| 270 # geography_form_atlas
+---| 271 # geography_theory_delta_formation
+---| 272 # geography_theory_wind_patterns
+---| 273 # geography_theory_origin_of_rainfall_from_evap_condense
+---| 274 # geography_theory_water_cycle
+---| 275 # geography_theory_latitude_climate_zones
+---| 276 # geography_cartography_accurate_maps
+---| 277 # geography_cartography_map_projections
+---| 288 # medicine_theory_disease_and_fouled_water
+---| 289 # medicine_method_physical_examination
+---| 290 # medicine_method_autopsy
+---| 291 # medicine_theory_prognosis
+---| 292 # medicine_tool_herbal_remedies
+---| 293 # medicine_tool_animal_remedies
+---| 294 # medicine_tool_mineral_remedies
+---| 295 # medicine_tool_bandages
+---| 296 # medicine_theory_disease_classification
+---| 297 # medicine_theory_toxicology
+---| 298 # medicine_theory_acute_and_chronic_conditions
+---| 299 # medicine_theory_endemic_disease
+---| 300 # medicine_theory_epidemic_disease
+---| 301 # medicine_theory_exacerbation
+---| 302 # medicine_theory_paroxysm
+---| 303 # medicine_theory_relapse
+---| 304 # medicine_theory_convalescence
+---| 305 # medicine_method_treatment_of_traumatic_injuries
+---| 306 # medicine_method_fracture_treatment
+---| 307 # medicine_theory_fracture_classification
+---| 308 # medicine_tool_traction_bench
+---| 309 # medicine_method_fracture_immobilization
+---| 310 # medicine_tool_orthopedic_cast
+---| 311 # medicine_method_surgery_excision
+---| 312 # medicine_method_surgery_incision
+---| 313 # medicine_method_hernia_surgery
+---| 314 # medicine_method_tracheotomy_surgery
+---| 315 # medicine_method_lithotomy_surgery
+---| 316 # medicine_method_surgery_scraping
+---| 317 # medicine_method_surgery_draining
+---| 318 # medicine_method_surgery_probing
+---| 319 # medicine_method_surgery_suturing
+---| 320 # medicine_method_surgery_ligature
+---| 321 # medicine_theory_surgical_models
+---| 322 # medicine_tool_mud_bags_as_surgical_models
+---| 323 # medicine_tool_plants_as_surgical_models
+---| 324 # medicine_tool_animals_as_surgical_models
+---| 325 # medicine_theory_specialized_surgical_instruments
+---| 326 # medicine_tool_forceps
+---| 327 # medicine_tool_scalpel
+---| 328 # medicine_tool_surgical_scissors
+---| 329 # medicine_tool_surgical_needles
+---| 330 # medicine_method_cataract_surgery
+---| 331 # medicine_method_cauterization
+---| 332 # medicine_method_anesthesia
+---| 333 # medicine_theory_pulmonary_medicine
+---| 334 # medicine_theory_anatomical_studies
+---| 335 # medicine_theory_classification_of_bodily_fluids
+---| 336 # medicine_theory_eye_anatomy
+---| 337 # medicine_theory_motor_vs_sensory_nerves
+---| 338 # medicine_theory_nervous_system_function
+---| 339 # medicine_theory_reaction_time
+---| 340 # medicine_theory_blood_vessels
+---| 341 # medicine_theory_pulmonary_circulation
+---| 342 # medicine_theory_comparative_anatomy
+---| 343 # medicine_theory_the_voice
+---| 344 # medicine_theory_classification_of_muscles
+---| 345 # medicine_theory_classification_of_mental_illnesses
+---| 346 # medicine_theory_treatment_of_mental_illnesses
+---| 347 # medicine_tool_dedicated_hospitals
+---| 348 # medicine_method_professional_hospital_staff
+---| 349 # medicine_method_specialized_wards
+---| 350 # medicine_method_hospital_lab
+---| 351 # medicine_method_medical_school
+---| 352 # medicine_method_asylum_for_mentally_ill
+---| 384 # engineering_horology_shadow_clock
+---| 385 # engineering_horology_water_clock
+---| 386 # engineering_horology_conical_water_clock
+---| 387 # engineering_horology_water_clock_reservoir
+---| 388 # engineering_horology_astrarium
+---| 389 # engineering_horology_hourglass
+---| 390 # engineering_horology_mechanical_clock
+---| 391 # engineering_machine_theory_of_pulley
+---| 392 # engineering_machine_pulley
+---| 393 # engineering_machine_theory_of_screw
+---| 394 # engineering_machine_screw
+---| 395 # engineering_machine_theory_of_wheel_and_axle
+---| 396 # engineering_machine_windlass
+---| 397 # engineering_machine_theory_of_wedge
+---| 398 # engineering_machine_theory_of_lever
+---| 399 # engineering_machine_lever
+---| 400 # engineering_machine_straight_beam_balance
+---| 401 # engineering_machine_theory_of_gears
+---| 402 # engineering_machine_warded_lock
+---| 403 # engineering_machine_tumbler_lock
+---| 404 # engineering_machine_padlock
+---| 405 # engineering_machine_camshaft
+---| 406 # engineering_machine_crankshaft
+---| 407 # engineering_machine_water_powered_sawmill
+---| 408 # engineering_machine_chariot_odometer
+---| 409 # engineering_machine_chain_drive
+---| 410 # engineering_machine_mechanical_compass
+---| 411 # engineering_machine_differential_gear
+---| 412 # engineering_machine_combination_lock
+---| 413 # engineering_machine_verge_escapement
+---| 414 # engineering_machine_balance_wheel
+---| 415 # engineering_fluid_theory_of_siphon
+---| 416 # engineering_fluid_valves
+---| 417 # engineering_fluid_force_pump
+---| 418 # engineering_optics_crystal_lens
+---| 419 # engineering_optics_water_filled_spheres
+---| 420 # engineering_optics_glass_lens
+---| 421 # engineering_optics_camera_obscura
+---| 422 # engineering_optics_parabolic_mirror
+---| 423 # engineering_optics_theory_of_color
+---| 424 # engineering_optics_theory_of_rainbows
+---| 425 # engineering_optics_law_of_refraction
+---| 426 # engineering_design_models_and_templates
+---| 427 # engineering_construction_wood_lamination
+---| 428 # engineering_astronomy_dioptra
+---| 429 # engineering_astronomy_astrolabe
+---| 430 # engineering_astronomy_armillary_sphere
+---| 431 # engineering_astronomy_spherical_astrolabe
+---| 432 # engineering_astronomy_mural_instrument
+---| 433 # engineering_astronomy_orrery
+---| 434 # engineering_machine_water_powered_trip_hammer
+---| 435 # engineering_machine_double_acting_piston_bellows
+---| 436 # engineering_fluid_archimedes_principle
+---| 437 # engineering_optics_atmospheric_refraction
+---| 438 # engineering_optics_cause_of_twilight
+---| 439 # engineering_optics_height_of_atmosphere
+---| 440 # engineering_machine_piston
+---| 441 # engineering_machine_crank
+---| 442 # engineering_machine_bellows
+---| 443 # engineering_machine_water_powered_piston_bellows
+---| 444 # engineering_machine_water_wheel
+---| 445 # engineering_machine_trip_hammer
+
+-- not in DF
+---@class identity.dfhack_knowledge_scholar_flag: DFEnumType
+---@field philosophy_logic_formal_reasoning 0
+---@field [0] "philosophy_logic_formal_reasoning"
+---@field philosophy_logic_deductive_reasoning 1
+---@field [1] "philosophy_logic_deductive_reasoning"
+---@field philosophy_logic_syllogistic_logic 2
+---@field [2] "philosophy_logic_syllogistic_logic"
+---@field philosophy_logic_hypothetical_syllogisms 3
+---@field [3] "philosophy_logic_hypothetical_syllogisms"
+---@field philosophy_logic_propositional_logic 4
+---@field [4] "philosophy_logic_propositional_logic"
+---@field philosophy_logic_dialectic_reasoning 5
+---@field [5] "philosophy_logic_dialectic_reasoning"
+---@field philosophy_logic_analogical_inference 6
+---@field [6] "philosophy_logic_analogical_inference"
+---@field philosophy_ethics_applied_medical 7
+---@field [7] "philosophy_ethics_applied_medical"
+---@field philosophy_ethics_individual_value 8
+---@field [8] "philosophy_ethics_individual_value"
+---@field philosophy_ethics_state_consequentialism 9
+---@field [9] "philosophy_ethics_state_consequentialism"
+---@field philosophy_epistemology_truth 10
+---@field [10] "philosophy_epistemology_truth"
+---@field philosophy_epistemology_perception 11
+---@field [11] "philosophy_epistemology_perception"
+---@field philosophy_epistemology_justification 12
+---@field [12] "philosophy_epistemology_justification"
+---@field philosophy_epistemology_belief 13
+---@field [13] "philosophy_epistemology_belief"
+---@field philosophy_metaphysics_existence 14
+---@field [14] "philosophy_metaphysics_existence"
+---@field philosophy_metaphysics_time 15
+---@field [15] "philosophy_metaphysics_time"
+---@field philosophy_metaphysics_mind_body 16
+---@field [16] "philosophy_metaphysics_mind_body"
+---@field philosophy_metaphysics_objects_and_properties 17
+---@field [17] "philosophy_metaphysics_objects_and_properties"
+---@field philosophy_metaphysics_wholes_and_parts 18
+---@field [18] "philosophy_metaphysics_wholes_and_parts"
+---@field philosophy_metaphysics_events 19
+---@field [19] "philosophy_metaphysics_events"
+---@field philosophy_metaphysics_processes 20
+---@field [20] "philosophy_metaphysics_processes"
+---@field philosophy_metaphysics_causation 21
+---@field [21] "philosophy_metaphysics_causation"
+---@field philosophy_ethics_applied_military 22
+---@field [22] "philosophy_ethics_applied_military"
+---@field philosophy_ethics_applied_interpersonal_conduct 23
+---@field [23] "philosophy_ethics_applied_interpersonal_conduct"
+---@field philosophy_specialized_law 24
+---@field [24] "philosophy_specialized_law"
+---@field philosophy_specialized_education 25
+---@field [25] "philosophy_specialized_education"
+---@field philosophy_specialized_language_grammar 26
+---@field [26] "philosophy_specialized_language_grammar"
+---@field philosophy_specialized_language_etymology 27
+---@field [27] "philosophy_specialized_language_etymology"
+---@field philosophy_specialized_politics_diplomacy 28
+---@field [28] "philosophy_specialized_politics_diplomacy"
+---@field philosophy_specialized_politics_government_forms 29
+---@field [29] "philosophy_specialized_politics_government_forms"
+---@field philosophy_specialized_politics_economic_policy 30
+---@field [30] "philosophy_specialized_politics_economic_policy"
+---@field philosophy_specialized_politics_social_welfare 31
+---@field [31] "philosophy_specialized_politics_social_welfare"
+---@field philosophy_logic_inductive_reasoning 32
+---@field [32] "philosophy_logic_inductive_reasoning"
+---@field philosophy_logic_direct_inference 33
+---@field [33] "philosophy_logic_direct_inference"
+---@field philosophy_aesthetics_nature_of_beauty 34
+---@field [34] "philosophy_aesthetics_nature_of_beauty"
+---@field philosophy_aesthetics_value_of_art 35
+---@field [35] "philosophy_aesthetics_value_of_art"
+---@field philosophy_specialized_language_dictionary 36
+---@field [36] "philosophy_specialized_language_dictionary"
+---@field mathematics_method_proof_by_contradiction 64
+---@field [64] "mathematics_method_proof_by_contradiction"
+---@field mathematics_notation_zero 65
+---@field [65] "mathematics_notation_zero"
+---@field mathematics_notation_negative_numbers 66
+---@field [66] "mathematics_notation_negative_numbers"
+---@field mathematics_notation_large_numbers 67
+---@field [67] "mathematics_notation_large_numbers"
+---@field mathematics_notation_positional 68
+---@field [68] "mathematics_notation_positional"
+---@field mathematics_geometry_basic_objects 69
+---@field [69] "mathematics_geometry_basic_objects"
+---@field mathematics_method_exhaustion 70
+---@field [70] "mathematics_method_exhaustion"
+---@field mathematics_geometry_similar_and_congruent_triangles 71
+---@field [71] "mathematics_geometry_similar_and_congruent_triangles"
+---@field mathematics_geometry_geometric_mean_theorem 72
+---@field [72] "mathematics_geometry_geometric_mean_theorem"
+---@field mathematics_geometry_isosceles_base_angles_equal 73
+---@field [73] "mathematics_geometry_isosceles_base_angles_equal"
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right 74
+---@field [74] "mathematics_geometry_inscribed_triangle_on_diameter_is_right"
+---@field mathematics_geometry_pythagorean_theorem 75
+---@field [75] "mathematics_geometry_pythagorean_theorem"
+---@field mathematics_geometry_pythagorean_triples_small 76
+---@field [76] "mathematics_geometry_pythagorean_triples_small"
+---@field mathematics_geometry_pythagorean_triples_3_digit 77
+---@field [77] "mathematics_geometry_pythagorean_triples_3_digit"
+---@field mathematics_geometry_pythagorean_triples_4_digit 78
+---@field [78] "mathematics_geometry_pythagorean_triples_4_digit"
+---@field mathematics_geometry_existence_of_incommensurable_ratios 79
+---@field [79] "mathematics_geometry_existence_of_incommensurable_ratios"
+---@field mathematics_method_axiomatic_reasoning 80
+---@field [80] "mathematics_method_axiomatic_reasoning"
+---@field mathematics_numbers_unique_prime_factorization 81
+---@field [81] "mathematics_numbers_unique_prime_factorization"
+---@field mathematics_numbers_algorithm_for_computing_gcd 82
+---@field [82] "mathematics_numbers_algorithm_for_computing_gcd"
+---@field mathematics_geometry_volume_of_pyramid 83
+---@field [83] "mathematics_geometry_volume_of_pyramid"
+---@field mathematics_geometry_volume_of_cone 84
+---@field [84] "mathematics_geometry_volume_of_cone"
+---@field mathematics_geometry_volume_of_sphere 85
+---@field [85] "mathematics_geometry_volume_of_sphere"
+---@field mathematics_geometry_pi_to_4_digits 86
+---@field [86] "mathematics_geometry_pi_to_4_digits"
+---@field mathematics_numbers_division_algorithm 87
+---@field [87] "mathematics_numbers_division_algorithm"
+---@field mathematics_geometry_table_of_chord_values 88
+---@field [88] "mathematics_geometry_table_of_chord_values"
+---@field mathematics_geometry_area_of_triangle_from_side_lengths 89
+---@field [89] "mathematics_geometry_area_of_triangle_from_side_lengths"
+---@field mathematics_geometry_area_of_circle 90
+---@field [90] "mathematics_geometry_area_of_circle"
+---@field mathematics_geometry_pi_to_6_digits 91
+---@field [91] "mathematics_geometry_pi_to_6_digits"
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections 92
+---@field [92] "mathematics_geometry_definitions_and_basic_properties_of_conic_sections"
+---@field mathematics_numbers_chinese_remainder_algorithm 93
+---@field [93] "mathematics_numbers_chinese_remainder_algorithm"
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola 94
+---@field [94] "mathematics_geometry_area_enclosed_by_line_and_parabola"
+---@field mathematics_numbers_sieve_algorithm_for_primes 95
+---@field [95] "mathematics_numbers_sieve_algorithm_for_primes"
+---@field mathematics_numbers_root_2_to_5_digits 96
+---@field [96] "mathematics_numbers_root_2_to_5_digits"
+---@field mathematics_numbers_infinite_primes 97
+---@field [97] "mathematics_numbers_infinite_primes"
+---@field mathematics_numbers_root_2_irrational 98
+---@field [98] "mathematics_numbers_root_2_irrational"
+---@field mathematics_geometry_surface_area_of_sphere 99
+---@field [99] "mathematics_geometry_surface_area_of_sphere"
+---@field mathematics_algebra_finite_summation_formulas 100
+---@field [100] "mathematics_algebra_finite_summation_formulas"
+---@field mathematics_algebra_solving_linear_systems 101
+---@field [101] "mathematics_algebra_solving_linear_systems"
+---@field mathematics_algebra_balancing_and_completion 102
+---@field [102] "mathematics_algebra_balancing_and_completion"
+---@field mathematics_algebra_quadratic_by_completing_square 103
+---@field [103] "mathematics_algebra_quadratic_by_completing_square"
+---@field mathematics_algebra_quadratic_formula 104
+---@field [104] "mathematics_algebra_quadratic_formula"
+---@field mathematics_notation_syncopated_algebra 105
+---@field [105] "mathematics_notation_syncopated_algebra"
+---@field mathematics_geometry_law_of_sines 106
+---@field [106] "mathematics_geometry_law_of_sines"
+---@field mathematics_geometry_angle_sum_difference_trig_identities 107
+---@field [107] "mathematics_geometry_angle_sum_difference_trig_identities"
+---@field mathematics_algebra_pascals_triangle 108
+---@field [108] "mathematics_algebra_pascals_triangle"
+---@field mathematics_algebra_solving_higher_order_polynomials 109
+---@field [109] "mathematics_algebra_solving_higher_order_polynomials"
+---@field mathematics_notation_early_symbols_for_operations 110
+---@field [110] "mathematics_notation_early_symbols_for_operations"
+---@field mathematics_algebra_divergence_of_harmonic_series 111
+---@field [111] "mathematics_algebra_divergence_of_harmonic_series"
+---@field mathematics_geometry_properties_of_chords 112
+---@field [112] "mathematics_geometry_properties_of_chords"
+---@field history_sourcing_basic_reliability 128
+---@field [128] "history_sourcing_basic_reliability"
+---@field history_sourcing_role_of_systemic_bias 129
+---@field [129] "history_sourcing_role_of_systemic_bias"
+---@field history_sourcing_role_of_state_bias_and_propaganda 130
+---@field [130] "history_sourcing_role_of_state_bias_and_propaganda"
+---@field history_sourcing_personal_interviews 131
+---@field [131] "history_sourcing_personal_interviews"
+---@field history_theory_historical_causation 132
+---@field [132] "history_theory_historical_causation"
+---@field history_theory_historical_cycles 133
+---@field [133] "history_theory_historical_cycles"
+---@field history_theory_social_cohesion 134
+---@field [134] "history_theory_social_cohesion"
+---@field history_theory_social_conflict 135
+---@field [135] "history_theory_social_conflict"
+---@field history_form_biography 136
+---@field [136] "history_form_biography"
+---@field history_form_comparative_biography 137
+---@field [137] "history_form_comparative_biography"
+---@field history_form_biographical_dictionaries 138
+---@field [138] "history_form_biographical_dictionaries"
+---@field history_form_autobiographical_adventure 139
+---@field [139] "history_form_autobiographical_adventure"
+---@field history_form_genealogy 140
+---@field [140] "history_form_genealogy"
+---@field history_form_encyclopedia 141
+---@field [141] "history_form_encyclopedia"
+---@field history_form_cultural_history 142
+---@field [142] "history_form_cultural_history"
+---@field history_form_cultural_comparison 143
+---@field [143] "history_form_cultural_comparison"
+---@field history_sourcing_role_of_cultural_differences 144
+---@field [144] "history_sourcing_role_of_cultural_differences"
+---@field history_form_alternate_history 145
+---@field [145] "history_form_alternate_history"
+---@field history_sourcing_basic_archaeology 146
+---@field [146] "history_sourcing_basic_archaeology"
+---@field history_form_treatise_on_tech_evolution 147
+---@field [147] "history_form_treatise_on_tech_evolution"
+---@field astronomy_phases_of_the_moon 160
+---@field [160] "astronomy_phases_of_the_moon"
+---@field astronomy_summer_winter_moon 161
+---@field [161] "astronomy_summer_winter_moon"
+---@field astronomy_path_of_the_moon 162
+---@field [162] "astronomy_path_of_the_moon"
+---@field astronomy_tides_and_the_moon 163
+---@field [163] "astronomy_tides_and_the_moon"
+---@field astronomy_height_of_tides_vs_moon_and_sun 164
+---@field [164] "astronomy_height_of_tides_vs_moon_and_sun"
+---@field astronomy_summer_winter_sun 165
+---@field [165] "astronomy_summer_winter_sun"
+---@field astronomy_relationship_between_lunar_solar_year 166
+---@field [166] "astronomy_relationship_between_lunar_solar_year"
+---@field astronomy_daylight_variation_with_solar_year 167
+---@field [167] "astronomy_daylight_variation_with_solar_year"
+---@field astronomy_geocentric_model 168
+---@field [168] "astronomy_geocentric_model"
+---@field astronomy_heliocentric_model 169
+---@field [169] "astronomy_heliocentric_model"
+---@field astronomy_dates_of_lunar_and_solar_eclipses 170
+---@field [170] "astronomy_dates_of_lunar_and_solar_eclipses"
+---@field astronomy_star_charts 171
+---@field [171] "astronomy_star_charts"
+---@field astronomy_star_catalogues_100 172
+---@field [172] "astronomy_star_catalogues_100"
+---@field astronomy_star_catalogues_1000 173
+---@field [173] "astronomy_star_catalogues_1000"
+---@field astronomy_star_color_classification 174
+---@field [174] "astronomy_star_color_classification"
+---@field astronomy_star_magnitude_classification 175
+---@field [175] "astronomy_star_magnitude_classification"
+---@field astronomy_shape_of_the_world 176
+---@field [176] "astronomy_shape_of_the_world"
+---@field astronomy_precession_of_equinoxes 177
+---@field [177] "astronomy_precession_of_equinoxes"
+---@field astronomy_method_empirical_observation 178
+---@field [178] "astronomy_method_empirical_observation"
+---@field astronomy_method_path_models 179
+---@field [179] "astronomy_method_path_models"
+---@field naturalist_method_dissection 192
+---@field [192] "naturalist_method_dissection"
+---@field naturalist_observation_anatomy 193
+---@field [193] "naturalist_observation_anatomy"
+---@field naturalist_theory_comparative_anatomy 194
+---@field [194] "naturalist_theory_comparative_anatomy"
+---@field naturalist_theory_classification_by_physical_features 195
+---@field [195] "naturalist_theory_classification_by_physical_features"
+---@field naturalist_observation_migration_patterns 196
+---@field [196] "naturalist_observation_migration_patterns"
+---@field naturalist_observation_reproductive_behavior 197
+---@field [197] "naturalist_observation_reproductive_behavior"
+---@field naturalist_observation_foraging_behavior_and_diet 198
+---@field [198] "naturalist_observation_foraging_behavior_and_diet"
+---@field naturalist_theory_food_chain 199
+---@field [199] "naturalist_theory_food_chain"
+---@field naturalist_observation_social_behavior 200
+---@field [200] "naturalist_observation_social_behavior"
+---@field naturalist_observation_diseases 201
+---@field [201] "naturalist_observation_diseases"
+---@field naturalist_theory_climactic_adaptation 202
+---@field [202] "naturalist_theory_climactic_adaptation"
+---@field naturalist_observation_embriological_development 203
+---@field [203] "naturalist_observation_embriological_development"
+---@field naturalist_theory_struggle_for_existence 204
+---@field [204] "naturalist_theory_struggle_for_existence"
+---@field chemistry_classification_combustibles 224
+---@field [224] "chemistry_classification_combustibles"
+---@field chemistry_classification_ores 225
+---@field [225] "chemistry_classification_ores"
+---@field chemistry_metallurgy_alloys 226
+---@field [226] "chemistry_metallurgy_alloys"
+---@field chemistry_classification_scratch_test 227
+---@field [227] "chemistry_classification_scratch_test"
+---@field chemistry_classification_elemental_theory 228
+---@field [228] "chemistry_classification_elemental_theory"
+---@field chemistry_chemicals_adhesives 229
+---@field [229] "chemistry_chemicals_adhesives"
+---@field chemistry_laboratory_blast_furnace 230
+---@field [230] "chemistry_laboratory_blast_furnace"
+---@field chemistry_laboratory_alembic 231
+---@field [231] "chemistry_laboratory_alembic"
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction 232
+---@field [232] "chemistry_laboratory_theory_of_liquid_liquid_extraction"
+---@field chemistry_laboratory_theory_of_distillation 233
+---@field [233] "chemistry_laboratory_theory_of_distillation"
+---@field chemistry_laboratory_theory_of_evaporation 234
+---@field [234] "chemistry_laboratory_theory_of_evaporation"
+---@field chemistry_classification_alkali_and_acids 235
+---@field [235] "chemistry_classification_alkali_and_acids"
+---@field chemistry_laboratory_systematic_experiments 236
+---@field [236] "chemistry_laboratory_systematic_experiments"
+---@field chemistry_laboratory_glass_flask 237
+---@field [237] "chemistry_laboratory_glass_flask"
+---@field chemistry_laboratory_glass_beaker 238
+---@field [238] "chemistry_laboratory_glass_beaker"
+---@field chemistry_laboratory_glass_vial 239
+---@field [239] "chemistry_laboratory_glass_vial"
+---@field chemistry_laboratory_glass_funnel 240
+---@field [240] "chemistry_laboratory_glass_funnel"
+---@field chemistry_laboratory_crucible 241
+---@field [241] "chemistry_laboratory_crucible"
+---@field chemistry_chemicals_nitric_acid 242
+---@field [242] "chemistry_chemicals_nitric_acid"
+---@field chemistry_chemicals_sulfuric_acid 243
+---@field [243] "chemistry_chemicals_sulfuric_acid"
+---@field chemistry_chemicals_aqua_regia 244
+---@field [244] "chemistry_chemicals_aqua_regia"
+---@field chemistry_laboratory_glass_ampoule 245
+---@field [245] "chemistry_laboratory_glass_ampoule"
+---@field chemistry_laboratory_glass_retort 246
+---@field [246] "chemistry_laboratory_glass_retort"
+---@field chemistry_laboratory_lab_ovens 247
+---@field [247] "chemistry_laboratory_lab_ovens"
+---@field geography_surveying_basic 256
+---@field [256] "geography_surveying_basic"
+---@field geography_surveying_staff 257
+---@field [257] "geography_surveying_staff"
+---@field geography_cartography_basic 258
+---@field [258] "geography_cartography_basic"
+---@field geography_surveying_triangulation 259
+---@field [259] "geography_surveying_triangulation"
+---@field geography_surveying_cartographical 260
+---@field [260] "geography_surveying_cartographical"
+---@field geography_surveying_land 261
+---@field [261] "geography_surveying_land"
+---@field geography_surveying_military 262
+---@field [262] "geography_surveying_military"
+---@field geography_surveying_engineering 263
+---@field [263] "geography_surveying_engineering"
+---@field geography_cartography_geological 264
+---@field [264] "geography_cartography_geological"
+---@field geography_cartography_grid_system 265
+---@field [265] "geography_cartography_grid_system"
+---@field geography_cartography_distance_scale 266
+---@field [266] "geography_cartography_distance_scale"
+---@field geography_cartography_height_measurements 267
+---@field [267] "geography_cartography_height_measurements"
+---@field geography_method_economic_data_collection 268
+---@field [268] "geography_method_economic_data_collection"
+---@field geography_cartography_economic 269
+---@field [269] "geography_cartography_economic"
+---@field geography_form_atlas 270
+---@field [270] "geography_form_atlas"
+---@field geography_theory_delta_formation 271
+---@field [271] "geography_theory_delta_formation"
+---@field geography_theory_wind_patterns 272
+---@field [272] "geography_theory_wind_patterns"
+---@field geography_theory_origin_of_rainfall_from_evap_condense 273
+---@field [273] "geography_theory_origin_of_rainfall_from_evap_condense"
+---@field geography_theory_water_cycle 274
+---@field [274] "geography_theory_water_cycle"
+---@field geography_theory_latitude_climate_zones 275
+---@field [275] "geography_theory_latitude_climate_zones"
+---@field geography_cartography_accurate_maps 276
+---@field [276] "geography_cartography_accurate_maps"
+---@field geography_cartography_map_projections 277
+---@field [277] "geography_cartography_map_projections"
+---@field medicine_theory_disease_and_fouled_water 288
+---@field [288] "medicine_theory_disease_and_fouled_water"
+---@field medicine_method_physical_examination 289
+---@field [289] "medicine_method_physical_examination"
+---@field medicine_method_autopsy 290
+---@field [290] "medicine_method_autopsy"
+---@field medicine_theory_prognosis 291
+---@field [291] "medicine_theory_prognosis"
+---@field medicine_tool_herbal_remedies 292
+---@field [292] "medicine_tool_herbal_remedies"
+---@field medicine_tool_animal_remedies 293
+---@field [293] "medicine_tool_animal_remedies"
+---@field medicine_tool_mineral_remedies 294
+---@field [294] "medicine_tool_mineral_remedies"
+---@field medicine_tool_bandages 295
+---@field [295] "medicine_tool_bandages"
+---@field medicine_theory_disease_classification 296
+---@field [296] "medicine_theory_disease_classification"
+---@field medicine_theory_toxicology 297
+---@field [297] "medicine_theory_toxicology"
+---@field medicine_theory_acute_and_chronic_conditions 298
+---@field [298] "medicine_theory_acute_and_chronic_conditions"
+---@field medicine_theory_endemic_disease 299
+---@field [299] "medicine_theory_endemic_disease"
+---@field medicine_theory_epidemic_disease 300
+---@field [300] "medicine_theory_epidemic_disease"
+---@field medicine_theory_exacerbation 301
+---@field [301] "medicine_theory_exacerbation"
+---@field medicine_theory_paroxysm 302
+---@field [302] "medicine_theory_paroxysm"
+---@field medicine_theory_relapse 303
+---@field [303] "medicine_theory_relapse"
+---@field medicine_theory_convalescence 304
+---@field [304] "medicine_theory_convalescence"
+---@field medicine_method_treatment_of_traumatic_injuries 305
+---@field [305] "medicine_method_treatment_of_traumatic_injuries"
+---@field medicine_method_fracture_treatment 306
+---@field [306] "medicine_method_fracture_treatment"
+---@field medicine_theory_fracture_classification 307
+---@field [307] "medicine_theory_fracture_classification"
+---@field medicine_tool_traction_bench 308
+---@field [308] "medicine_tool_traction_bench"
+---@field medicine_method_fracture_immobilization 309
+---@field [309] "medicine_method_fracture_immobilization"
+---@field medicine_tool_orthopedic_cast 310
+---@field [310] "medicine_tool_orthopedic_cast"
+---@field medicine_method_surgery_excision 311
+---@field [311] "medicine_method_surgery_excision"
+---@field medicine_method_surgery_incision 312
+---@field [312] "medicine_method_surgery_incision"
+---@field medicine_method_hernia_surgery 313
+---@field [313] "medicine_method_hernia_surgery"
+---@field medicine_method_tracheotomy_surgery 314
+---@field [314] "medicine_method_tracheotomy_surgery"
+---@field medicine_method_lithotomy_surgery 315
+---@field [315] "medicine_method_lithotomy_surgery"
+---@field medicine_method_surgery_scraping 316
+---@field [316] "medicine_method_surgery_scraping"
+---@field medicine_method_surgery_draining 317
+---@field [317] "medicine_method_surgery_draining"
+---@field medicine_method_surgery_probing 318
+---@field [318] "medicine_method_surgery_probing"
+---@field medicine_method_surgery_suturing 319
+---@field [319] "medicine_method_surgery_suturing"
+---@field medicine_method_surgery_ligature 320
+---@field [320] "medicine_method_surgery_ligature"
+---@field medicine_theory_surgical_models 321
+---@field [321] "medicine_theory_surgical_models"
+---@field medicine_tool_mud_bags_as_surgical_models 322
+---@field [322] "medicine_tool_mud_bags_as_surgical_models"
+---@field medicine_tool_plants_as_surgical_models 323
+---@field [323] "medicine_tool_plants_as_surgical_models"
+---@field medicine_tool_animals_as_surgical_models 324
+---@field [324] "medicine_tool_animals_as_surgical_models"
+---@field medicine_theory_specialized_surgical_instruments 325
+---@field [325] "medicine_theory_specialized_surgical_instruments"
+---@field medicine_tool_forceps 326
+---@field [326] "medicine_tool_forceps"
+---@field medicine_tool_scalpel 327
+---@field [327] "medicine_tool_scalpel"
+---@field medicine_tool_surgical_scissors 328
+---@field [328] "medicine_tool_surgical_scissors"
+---@field medicine_tool_surgical_needles 329
+---@field [329] "medicine_tool_surgical_needles"
+---@field medicine_method_cataract_surgery 330
+---@field [330] "medicine_method_cataract_surgery"
+---@field medicine_method_cauterization 331
+---@field [331] "medicine_method_cauterization"
+---@field medicine_method_anesthesia 332
+---@field [332] "medicine_method_anesthesia"
+---@field medicine_theory_pulmonary_medicine 333
+---@field [333] "medicine_theory_pulmonary_medicine"
+---@field medicine_theory_anatomical_studies 334
+---@field [334] "medicine_theory_anatomical_studies"
+---@field medicine_theory_classification_of_bodily_fluids 335
+---@field [335] "medicine_theory_classification_of_bodily_fluids"
+---@field medicine_theory_eye_anatomy 336
+---@field [336] "medicine_theory_eye_anatomy"
+---@field medicine_theory_motor_vs_sensory_nerves 337
+---@field [337] "medicine_theory_motor_vs_sensory_nerves"
+---@field medicine_theory_nervous_system_function 338
+---@field [338] "medicine_theory_nervous_system_function"
+---@field medicine_theory_reaction_time 339
+---@field [339] "medicine_theory_reaction_time"
+---@field medicine_theory_blood_vessels 340
+---@field [340] "medicine_theory_blood_vessels"
+---@field medicine_theory_pulmonary_circulation 341
+---@field [341] "medicine_theory_pulmonary_circulation"
+---@field medicine_theory_comparative_anatomy 342
+---@field [342] "medicine_theory_comparative_anatomy"
+---@field medicine_theory_the_voice 343
+---@field [343] "medicine_theory_the_voice"
+---@field medicine_theory_classification_of_muscles 344
+---@field [344] "medicine_theory_classification_of_muscles"
+---@field medicine_theory_classification_of_mental_illnesses 345
+---@field [345] "medicine_theory_classification_of_mental_illnesses"
+---@field medicine_theory_treatment_of_mental_illnesses 346
+---@field [346] "medicine_theory_treatment_of_mental_illnesses"
+---@field medicine_tool_dedicated_hospitals 347
+---@field [347] "medicine_tool_dedicated_hospitals"
+---@field medicine_method_professional_hospital_staff 348
+---@field [348] "medicine_method_professional_hospital_staff"
+---@field medicine_method_specialized_wards 349
+---@field [349] "medicine_method_specialized_wards"
+---@field medicine_method_hospital_lab 350
+---@field [350] "medicine_method_hospital_lab"
+---@field medicine_method_medical_school 351
+---@field [351] "medicine_method_medical_school"
+---@field medicine_method_asylum_for_mentally_ill 352
+---@field [352] "medicine_method_asylum_for_mentally_ill"
+---@field engineering_horology_shadow_clock 384
+---@field [384] "engineering_horology_shadow_clock"
+---@field engineering_horology_water_clock 385
+---@field [385] "engineering_horology_water_clock"
+---@field engineering_horology_conical_water_clock 386
+---@field [386] "engineering_horology_conical_water_clock"
+---@field engineering_horology_water_clock_reservoir 387
+---@field [387] "engineering_horology_water_clock_reservoir"
+---@field engineering_horology_astrarium 388
+---@field [388] "engineering_horology_astrarium"
+---@field engineering_horology_hourglass 389
+---@field [389] "engineering_horology_hourglass"
+---@field engineering_horology_mechanical_clock 390
+---@field [390] "engineering_horology_mechanical_clock"
+---@field engineering_machine_theory_of_pulley 391
+---@field [391] "engineering_machine_theory_of_pulley"
+---@field engineering_machine_pulley 392
+---@field [392] "engineering_machine_pulley"
+---@field engineering_machine_theory_of_screw 393
+---@field [393] "engineering_machine_theory_of_screw"
+---@field engineering_machine_screw 394
+---@field [394] "engineering_machine_screw"
+---@field engineering_machine_theory_of_wheel_and_axle 395
+---@field [395] "engineering_machine_theory_of_wheel_and_axle"
+---@field engineering_machine_windlass 396
+---@field [396] "engineering_machine_windlass"
+---@field engineering_machine_theory_of_wedge 397
+---@field [397] "engineering_machine_theory_of_wedge"
+---@field engineering_machine_theory_of_lever 398
+---@field [398] "engineering_machine_theory_of_lever"
+---@field engineering_machine_lever 399
+---@field [399] "engineering_machine_lever"
+---@field engineering_machine_straight_beam_balance 400
+---@field [400] "engineering_machine_straight_beam_balance"
+---@field engineering_machine_theory_of_gears 401
+---@field [401] "engineering_machine_theory_of_gears"
+---@field engineering_machine_warded_lock 402
+---@field [402] "engineering_machine_warded_lock"
+---@field engineering_machine_tumbler_lock 403
+---@field [403] "engineering_machine_tumbler_lock"
+---@field engineering_machine_padlock 404
+---@field [404] "engineering_machine_padlock"
+---@field engineering_machine_camshaft 405
+---@field [405] "engineering_machine_camshaft"
+---@field engineering_machine_crankshaft 406
+---@field [406] "engineering_machine_crankshaft"
+---@field engineering_machine_water_powered_sawmill 407
+---@field [407] "engineering_machine_water_powered_sawmill"
+---@field engineering_machine_chariot_odometer 408
+---@field [408] "engineering_machine_chariot_odometer"
+---@field engineering_machine_chain_drive 409
+---@field [409] "engineering_machine_chain_drive"
+---@field engineering_machine_mechanical_compass 410
+---@field [410] "engineering_machine_mechanical_compass"
+---@field engineering_machine_differential_gear 411
+---@field [411] "engineering_machine_differential_gear"
+---@field engineering_machine_combination_lock 412
+---@field [412] "engineering_machine_combination_lock"
+---@field engineering_machine_verge_escapement 413
+---@field [413] "engineering_machine_verge_escapement"
+---@field engineering_machine_balance_wheel 414
+---@field [414] "engineering_machine_balance_wheel"
+---@field engineering_fluid_theory_of_siphon 415
+---@field [415] "engineering_fluid_theory_of_siphon"
+---@field engineering_fluid_valves 416
+---@field [416] "engineering_fluid_valves"
+---@field engineering_fluid_force_pump 417
+---@field [417] "engineering_fluid_force_pump"
+---@field engineering_optics_crystal_lens 418
+---@field [418] "engineering_optics_crystal_lens"
+---@field engineering_optics_water_filled_spheres 419
+---@field [419] "engineering_optics_water_filled_spheres"
+---@field engineering_optics_glass_lens 420
+---@field [420] "engineering_optics_glass_lens"
+---@field engineering_optics_camera_obscura 421
+---@field [421] "engineering_optics_camera_obscura"
+---@field engineering_optics_parabolic_mirror 422
+---@field [422] "engineering_optics_parabolic_mirror"
+---@field engineering_optics_theory_of_color 423
+---@field [423] "engineering_optics_theory_of_color"
+---@field engineering_optics_theory_of_rainbows 424
+---@field [424] "engineering_optics_theory_of_rainbows"
+---@field engineering_optics_law_of_refraction 425
+---@field [425] "engineering_optics_law_of_refraction"
+---@field engineering_design_models_and_templates 426
+---@field [426] "engineering_design_models_and_templates"
+---@field engineering_construction_wood_lamination 427
+---@field [427] "engineering_construction_wood_lamination"
+---@field engineering_astronomy_dioptra 428
+---@field [428] "engineering_astronomy_dioptra"
+---@field engineering_astronomy_astrolabe 429
+---@field [429] "engineering_astronomy_astrolabe"
+---@field engineering_astronomy_armillary_sphere 430
+---@field [430] "engineering_astronomy_armillary_sphere"
+---@field engineering_astronomy_spherical_astrolabe 431
+---@field [431] "engineering_astronomy_spherical_astrolabe"
+---@field engineering_astronomy_mural_instrument 432
+---@field [432] "engineering_astronomy_mural_instrument"
+---@field engineering_astronomy_orrery 433
+---@field [433] "engineering_astronomy_orrery"
+---@field engineering_machine_water_powered_trip_hammer 434
+---@field [434] "engineering_machine_water_powered_trip_hammer"
+---@field engineering_machine_double_acting_piston_bellows 435
+---@field [435] "engineering_machine_double_acting_piston_bellows"
+---@field engineering_fluid_archimedes_principle 436
+---@field [436] "engineering_fluid_archimedes_principle"
+---@field engineering_optics_atmospheric_refraction 437
+---@field [437] "engineering_optics_atmospheric_refraction"
+---@field engineering_optics_cause_of_twilight 438
+---@field [438] "engineering_optics_cause_of_twilight"
+---@field engineering_optics_height_of_atmosphere 439
+---@field [439] "engineering_optics_height_of_atmosphere"
+---@field engineering_machine_piston 440
+---@field [440] "engineering_machine_piston"
+---@field engineering_machine_crank 441
+---@field [441] "engineering_machine_crank"
+---@field engineering_machine_bellows 442
+---@field [442] "engineering_machine_bellows"
+---@field engineering_machine_water_powered_piston_bellows 443
+---@field [443] "engineering_machine_water_powered_piston_bellows"
+---@field engineering_machine_water_wheel 444
+---@field [444] "engineering_machine_water_wheel"
+---@field engineering_machine_trip_hammer 445
+---@field [445] "engineering_machine_trip_hammer"
+df.dfhack_knowledge_scholar_flag = {}
+
+-- not a real structure
+---@class (exact) df.coord2d: DFStruct
+---@field _type identity.coord2d
+---@field x number
+---@field y number
+
+---@class identity.coord2d: DFCompoundType
+---@field _kind 'struct-type'
+df.coord2d = {}
+
+---@return df.coord2d
+function df.coord2d:new() end
+
+-- not a real structure
+---@class (exact) df.coord2d_path: DFStruct
+---@field _type identity.coord2d_path
+---@field x DFNumberVector
+---@field y DFNumberVector
+
+---@class identity.coord2d_path: DFCompoundType
+---@field _kind 'struct-type'
+df.coord2d_path = {}
+
+---@return df.coord2d_path
+function df.coord2d_path:new() end
+
+-- not a real structure
+---@class (exact) df.coord: DFStruct
+---@field _type identity.coord
+---@field x number
+---@field y number
+---@field z number
+
+---@class identity.coord: DFCompoundType
+---@field _kind 'struct-type'
+df.coord = {}
+
+---@return df.coord
+function df.coord:new() end
+
+-- not a real structure
+---@class (exact) df.coord_path: DFStruct
+---@field _type identity.coord_path
+---@field x DFNumberVector
+---@field y DFNumberVector
+---@field z DFNumberVector
+
+---@class identity.coord_path: DFCompoundType
+---@field _kind 'struct-type'
+df.coord_path = {}
+
+---@return df.coord_path
+function df.coord_path:new() end
+
+-- Not an actual DF enum
+---@alias df.layer_type
+---| -1 # Surface
+---| 0 # Cavern1
+---| 1 # Cavern2
+---| 2 # Cavern3
+---| 3 # MagmaSea
+---| 4 # Underworld
+
+-- Not an actual DF enum
+---@class identity.layer_type: DFEnumType
+---@field Surface -1
+---@field [-1] "Surface"
+---@field Cavern1 0
+---@field [0] "Cavern1"
+---@field Cavern2 1
+---@field [1] "Cavern2"
+---@field Cavern3 2
+---@field [2] "Cavern3"
+---@field MagmaSea 3
+---@field [3] "MagmaSea"
+---@field Underworld 4
+---@field [4] "Underworld"
+df.layer_type = {}
+
+-- not in DF
+---@alias df.craft_material_class
+---| -1 # None
+---| 0 # Metal
+---| 1 # Wood
+---| 2 # Gem
+---| 3 # Glass
+---| 4 # Stone
+---| 5 # Bone
+---| 6 # Ivory
+---| 7 # Horn
+---| 8 # Pearl
+---| 9 # Shell
+---| 10 # Leather
+---| 11 # Cloth
+
+-- not in DF
+---@class identity.craft_material_class: DFEnumType
+---@field None -1
+---@field [-1] "None"
+---@field Metal 0
+---@field [0] "Metal"
+---@field Wood 1
+---@field [1] "Wood"
+---@field Gem 2
+---@field [2] "Gem"
+---@field Glass 3
+---@field [3] "Glass"
+---@field Stone 4
+---@field [4] "Stone"
+---@field Bone 5
+---@field [5] "Bone"
+---@field Ivory 6
+---@field [6] "Ivory"
+---@field Horn 7
+---@field [7] "Horn"
+---@field Pearl 8
+---@field [8] "Pearl"
+---@field Shell 9
+---@field [9] "Shell"
+---@field Leather 10
+---@field [10] "Leather"
+---@field Cloth 11
+---@field [11] "Cloth"
+df.craft_material_class = {}
+
+---@class craft_material_class_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.craft_material_class._attr_entry_type = {}
+
+---@class (exact) craft_material_class_attr_entry_type_fields
+---@field make_skill DFCompoundField
+---@field improve_skill DFCompoundField
+df.craft_material_class._attr_entry_type._fields = {}
+
+---@class craft_material_class_attrs
+---@field None { make_skill: "NONE", improve_skill: "NONE" }
+---@field Metal { make_skill: "FORGE_FURNITURE", improve_skill: "METALCRAFT" }
+---@field Wood { make_skill: "CARPENTRY", improve_skill: "WOODCRAFT" }
+---@field Gem { make_skill: "CUTGEM", improve_skill: "ENCRUSTGEM" }
+---@field Glass { make_skill: "GLASSMAKER", improve_skill: "NONE" }
+---@field Stone { make_skill: "MASONRY", improve_skill: "NONE" }
+---@field Bone { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Ivory { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Horn { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Pearl { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Shell { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Leather { make_skill: "LEATHERWORK", improve_skill: "LEATHERWORK" }
+---@field Cloth { make_skill: "CLOTHESMAKING", improve_skill: "CLOTHESMAKING" }
+df.craft_material_class.attrs = {}
+
+-- not a real structure, only used for convenience
+---@class (exact) df.material_vec_ref: DFStruct
+---@field _type identity.material_vec_ref
+---@field mat_type DFNumberVector
+---@field mat_index DFNumberVector
+
+---@class identity.material_vec_ref: DFCompoundType
+---@field _kind 'struct-type'
+df.material_vec_ref = {}
+
+---@return df.material_vec_ref
+function df.material_vec_ref:new() end
+
+-- not in DF
+---@alias df.job_skill_class
+---| 0 # Normal
+---| 1 # Medical
+---| 2 # Personal
+---| 3 # Social
+---| 4 # Cultural
+---| 5 # MilitaryWeapon
+---| 6 # MilitaryUnarmed
+---| 7 # MilitaryAttack
+---| 8 # MilitaryDefense
+---| 9 # MilitaryMisc
+
+-- not in DF
+---@class identity.job_skill_class: DFEnumType
+---@field Normal 0
+---@field [0] "Normal"
+---@field Medical 1
+---@field [1] "Medical"
+---@field Personal 2
+---@field [2] "Personal"
+---@field Social 3
+---@field [3] "Social"
+---@field Cultural 4
+---@field [4] "Cultural"
+---@field MilitaryWeapon 5
+---@field [5] "MilitaryWeapon"
+---@field MilitaryUnarmed 6
+---@field [6] "MilitaryUnarmed"
+---@field MilitaryAttack 7
+---@field [7] "MilitaryAttack"
+---@field MilitaryDefense 8
+---@field [8] "MilitaryDefense"
+---@field MilitaryMisc 9
+---@field [9] "MilitaryMisc"
+df.job_skill_class = {}
+
+---@alias df.skill_rating
+---| 0 # Dabbling
+---| 1 # Novice
+---| 2 # Adequate
+---| 3 # Competent
+---| 4 # Skilled
+---| 5 # Proficient
+---| 6 # Talented
+---| 7 # Adept
+---| 8 # Expert
+---| 9 # Professional
+---| 10 # Accomplished
+---| 11 # Great
+---| 12 # Master
+---| 13 # HighMaster
+---| 14 # GrandMaster
+---| 15 # Legendary
+---| 16 # Legendary1
+---| 17 # Legendary2
+---| 18 # Legendary3
+---| 19 # Legendary4
+---| 20 # Legendary5
+
+---@class identity.skill_rating: DFEnumType
+---@field Dabbling 0
+---@field [0] "Dabbling"
+---@field Novice 1
+---@field [1] "Novice"
+---@field Adequate 2
+---@field [2] "Adequate"
+---@field Competent 3
+---@field [3] "Competent"
+---@field Skilled 4
+---@field [4] "Skilled"
+---@field Proficient 5
+---@field [5] "Proficient"
+---@field Talented 6
+---@field [6] "Talented"
+---@field Adept 7
+---@field [7] "Adept"
+---@field Expert 8
+---@field [8] "Expert"
+---@field Professional 9
+---@field [9] "Professional"
+---@field Accomplished 10
+---@field [10] "Accomplished"
+---@field Great 11
+---@field [11] "Great"
+---@field Master 12
+---@field [12] "Master"
+---@field HighMaster 13
+---@field [13] "HighMaster"
+---@field GrandMaster 14
+---@field [14] "GrandMaster"
+---@field Legendary 15
+---@field [15] "Legendary"
+---@field Legendary1 16
+---@field [16] "Legendary1"
+---@field Legendary2 17
+---@field [17] "Legendary2"
+---@field Legendary3 18
+---@field [18] "Legendary3"
+---@field Legendary4 19
+---@field [19] "Legendary4"
+---@field Legendary5 20
+---@field [20] "Legendary5"
+df.skill_rating = {}
+
+---@class skill_rating_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.skill_rating._attr_entry_type = {}
+
+---@class (exact) skill_rating_attr_entry_type_fields
+---@field xp_threshold DFCompoundField Not in DF
+---@field caption DFCompoundField
+df.skill_rating._attr_entry_type._fields = {}
+
+---@class skill_rating_attrs
+---@field Dabbling { xp_threshold: "500", caption: "Dabbling" }
+---@field Novice { xp_threshold: "600", caption: "Novice" }
+---@field Adequate { xp_threshold: "700", caption: "Adequate" }
+---@field Competent { xp_threshold: "800", caption: "Competent" }
+---@field Skilled { xp_threshold: "900", caption: "Skilled" }
+---@field Proficient { xp_threshold: "1000", caption: "Proficient" }
+---@field Talented { xp_threshold: "1100", caption: "Talented" }
+---@field Adept { xp_threshold: "1200", caption: "Adept" }
+---@field Expert { xp_threshold: "1300", caption: "Expert" }
+---@field Professional { xp_threshold: "1400", caption: "Professional" }
+---@field Accomplished { xp_threshold: "1500", caption: "Accomplished" }
+---@field Great { xp_threshold: "1600", caption: "Great" }
+---@field Master { xp_threshold: "1700", caption: "Master" }
+---@field HighMaster { xp_threshold: "1800", caption: "High Master" }
+---@field GrandMaster { xp_threshold: "1900", caption: "Grand Master" }
+---@field Legendary { xp_threshold: "2000", caption: "Legendary" }
+---@field Legendary1 { xp_threshold: "2100", caption: "Legendary+1" }
+---@field Legendary2 { xp_threshold: "2200", caption: "Legendary+2" }
+---@field Legendary3 { xp_threshold: "2300", caption: "Legendary+3" }
+---@field Legendary4 { xp_threshold: "2400", caption: "Legendary+4" }
+---@field Legendary5 { caption: "Legendary+5" }
+df.skill_rating.attrs = {}
+
+-- for the action timer API, not in DF
+---@alias df.unit_action_type_group
+---| 0 # All
+---| 1 # Movement
+---| 2 # MovementFeet
+---| 3 # Combat
+---| 4 # Work
+
+-- for the action timer API, not in DF
+---@class identity.unit_action_type_group: DFEnumType
+---@field All 0
+---@field [0] "All"
+---@field Movement 1
+---@field [1] "Movement"
+---@field MovementFeet 2
+---@field [2] "MovementFeet"
+---@field Combat 3
+---@field [3] "Combat"
+---@field Work 4
+---@field [4] "Work"
+df.unit_action_type_group = {}
+
+---@alias df.cmv_version
+---| 10000 # CMV_0
+---| 10001 # CMV_1
+
+---@class identity.cmv_version: DFEnumType
+---@field CMV_0 10000
+---@field [10000] "CMV_0"
+---@field CMV_1 10001 adds support for sound
+---@field [10001] "CMV_1" adds support for sound
+df.cmv_version = {}
+
+---@alias df.save_version
+---| 1107 # v0_21_93_19a
+---| 1108 # v0_21_93_19c
+---| 1108 # v0_21_95_19a
+---| 1108 # v0_21_95_19b
+---| 1110 # v0_21_95_19c
+---| 1121 # v0_21_104_19d
+---| 1123 # v0_21_104_21a
+---| 1125 # v0_21_104_21b
+---| 1128 # v0_21_105_21a
+---| 1128 # v0_22_107_21a
+---| 1134 # v0_22_110_22e
+---| 1137 # v0_22_110_22f
+---| 1148 # v0_22_110_23a
+---| 1151 # v0_22_120_23a
+---| 1161 # v0_22_121_23b
+---| 1165 # v0_22_123_23a
+---| 1169 # v0_23_130_23a
+---| 1205 # v0_27_169_32a
+---| 1206 # v0_27_169_33a
+---| 1209 # v0_27_169_33b
+---| 1211 # v0_27_169_33c
+---| 1212 # v0_27_169_33d
+---| 1255 # v0_28_181_39b
+---| 1256 # v0_28_181_39c
+---| 1259 # v0_28_181_39d
+---| 1260 # v0_28_181_39e
+---| 1261 # v0_28_181_39f
+---| 1265 # v0_28_181_40a
+---| 1266 # v0_28_181_40b
+---| 1267 # v0_28_181_40c
+---| 1268 # v0_28_181_40d
+---| 1287 # v0_31_01
+---| 1288 # v0_31_02
+---| 1289 # v0_31_03
+---| 1292 # v0_31_04
+---| 1295 # v0_31_05
+---| 1297 # v0_31_06
+---| 1300 # v0_31_08
+---| 1304 # v0_31_09
+---| 1305 # v0_31_10
+---| 1310 # v0_31_11
+---| 1311 # v0_31_12
+---| 1323 # v0_31_13
+---| 1325 # v0_31_14
+---| 1326 # v0_31_15
+---| 1327 # v0_31_16
+---| 1340 # v0_31_17
+---| 1341 # v0_31_18
+---| 1351 # v0_31_19
+---| 1353 # v0_31_20
+---| 1354 # v0_31_21
+---| 1359 # v0_31_22
+---| 1360 # v0_31_23
+---| 1361 # v0_31_24
+---| 1362 # v0_31_25
+---| 1372 # v0_34_01
+---| 1374 # v0_34_02
+---| 1376 # v0_34_03
+---| 1377 # v0_34_04
+---| 1378 # v0_34_05
+---| 1382 # v0_34_06
+---| 1383 # v0_34_07
+---| 1400 # v0_34_08
+---| 1402 # v0_34_09
+---| 1403 # v0_34_10
+---| 1404 # v0_34_11
+---| 1441 # v0_40_01
+---| 1442 # v0_40_02
+---| 1443 # v0_40_03
+---| 1444 # v0_40_04
+---| 1445 # v0_40_05
+---| 1446 # v0_40_06
+---| 1448 # v0_40_07
+---| 1449 # v0_40_08
+---| 1451 # v0_40_09
+---| 1452 # v0_40_10
+---| 1456 # v0_40_11
+---| 1459 # v0_40_12
+---| 1462 # v0_40_13
+---| 1469 # v0_40_14
+---| 1470 # v0_40_15
+---| 1471 # v0_40_16
+---| 1472 # v0_40_17
+---| 1473 # v0_40_18
+---| 1474 # v0_40_19
+---| 1477 # v0_40_20
+---| 1478 # v0_40_21
+---| 1479 # v0_40_22
+---| 1480 # v0_40_23
+---| 1481 # v0_40_24
+---| 1531 # v0_42_01
+---| 1532 # v0_42_02
+---| 1533 # v0_42_03
+---| 1534 # v0_42_04
+---| 1537 # v0_42_05
+---| 1542 # v0_42_06
+---| 1551 # v0_43_01
+---| 1552 # v0_43_02
+---| 1553 # v0_43_03
+---| 1555 # v0_43_04
+---| 1556 # v0_43_05
+---| 1596 # v0_44_01
+---| 1597 # v0_44_02
+---| 1600 # v0_44_03
+---| 1603 # v0_44_04
+---| 1604 # v0_44_05
+---| 1611 # v0_44_06
+---| 1612 # v0_44_07
+---| 1613 # v0_44_08
+---| 1614 # v0_44_09
+---| 1620 # v0_44_10
+---| 1623 # v0_44_11
+---| 1625 # v0_44_12
+---| 1710 # v0_47_01
+---| 1711 # v0_47_02
+---| 1713 # v0_47_03
+---| 1715 # v0_47_04
+---| 1716 # v0_47_05
+
+---@class identity.save_version: DFEnumType
+---@field v0_21_93_19a 1107
+---@field [1107] "v0_21_93_19a"
+---@field v0_21_93_19c 1108
+---@field [1108] "v0_21_93_19c"
+---@field v0_21_95_19a 1108
+---@field [1108] "v0_21_95_19a"
+---@field v0_21_95_19b 1108
+---@field [1108] "v0_21_95_19b"
+---@field v0_21_95_19c 1110
+---@field [1110] "v0_21_95_19c"
+---@field v0_21_104_19d 1121
+---@field [1121] "v0_21_104_19d"
+---@field v0_21_104_21a 1123
+---@field [1123] "v0_21_104_21a"
+---@field v0_21_104_21b 1125
+---@field [1125] "v0_21_104_21b"
+---@field v0_21_105_21a 1128
+---@field [1128] "v0_21_105_21a"
+---@field v0_22_107_21a 1128
+---@field [1128] "v0_22_107_21a"
+---@field v0_22_110_22e 1134
+---@field [1134] "v0_22_110_22e"
+---@field v0_22_110_22f 1137
+---@field [1137] "v0_22_110_22f"
+---@field v0_22_110_23a 1148
+---@field [1148] "v0_22_110_23a"
+---@field v0_22_120_23a 1151
+---@field [1151] "v0_22_120_23a"
+---@field v0_22_121_23b 1161
+---@field [1161] "v0_22_121_23b"
+---@field v0_22_123_23a 1165
+---@field [1165] "v0_22_123_23a"
+---@field v0_23_130_23a 1169
+---@field [1169] "v0_23_130_23a"
+---@field v0_27_169_32a 1205
+---@field [1205] "v0_27_169_32a"
+---@field v0_27_169_33a 1206
+---@field [1206] "v0_27_169_33a"
+---@field v0_27_169_33b 1209
+---@field [1209] "v0_27_169_33b"
+---@field v0_27_169_33c 1211
+---@field [1211] "v0_27_169_33c"
+---@field v0_27_169_33d 1212
+---@field [1212] "v0_27_169_33d"
+---@field v0_28_181_39b 1255
+---@field [1255] "v0_28_181_39b"
+---@field v0_28_181_39c 1256
+---@field [1256] "v0_28_181_39c"
+---@field v0_28_181_39d 1259
+---@field [1259] "v0_28_181_39d"
+---@field v0_28_181_39e 1260
+---@field [1260] "v0_28_181_39e"
+---@field v0_28_181_39f 1261
+---@field [1261] "v0_28_181_39f"
+---@field v0_28_181_40a 1265
+---@field [1265] "v0_28_181_40a"
+---@field v0_28_181_40b 1266
+---@field [1266] "v0_28_181_40b"
+---@field v0_28_181_40c 1267
+---@field [1267] "v0_28_181_40c"
+---@field v0_28_181_40d 1268
+---@field [1268] "v0_28_181_40d"
+---@field v0_31_01 1287
+---@field [1287] "v0_31_01"
+---@field v0_31_02 1288
+---@field [1288] "v0_31_02"
+---@field v0_31_03 1289
+---@field [1289] "v0_31_03"
+---@field v0_31_04 1292
+---@field [1292] "v0_31_04"
+---@field v0_31_05 1295
+---@field [1295] "v0_31_05"
+---@field v0_31_06 1297
+---@field [1297] "v0_31_06"
+---@field v0_31_08 1300
+---@field [1300] "v0_31_08"
+---@field v0_31_09 1304
+---@field [1304] "v0_31_09"
+---@field v0_31_10 1305
+---@field [1305] "v0_31_10"
+---@field v0_31_11 1310
+---@field [1310] "v0_31_11"
+---@field v0_31_12 1311
+---@field [1311] "v0_31_12"
+---@field v0_31_13 1323
+---@field [1323] "v0_31_13"
+---@field v0_31_14 1325
+---@field [1325] "v0_31_14"
+---@field v0_31_15 1326
+---@field [1326] "v0_31_15"
+---@field v0_31_16 1327
+---@field [1327] "v0_31_16"
+---@field v0_31_17 1340
+---@field [1340] "v0_31_17"
+---@field v0_31_18 1341
+---@field [1341] "v0_31_18"
+---@field v0_31_19 1351
+---@field [1351] "v0_31_19"
+---@field v0_31_20 1353
+---@field [1353] "v0_31_20"
+---@field v0_31_21 1354
+---@field [1354] "v0_31_21"
+---@field v0_31_22 1359
+---@field [1359] "v0_31_22"
+---@field v0_31_23 1360
+---@field [1360] "v0_31_23"
+---@field v0_31_24 1361
+---@field [1361] "v0_31_24"
+---@field v0_31_25 1362
+---@field [1362] "v0_31_25"
+---@field v0_34_01 1372
+---@field [1372] "v0_34_01"
+---@field v0_34_02 1374
+---@field [1374] "v0_34_02"
+---@field v0_34_03 1376
+---@field [1376] "v0_34_03"
+---@field v0_34_04 1377
+---@field [1377] "v0_34_04"
+---@field v0_34_05 1378
+---@field [1378] "v0_34_05"
+---@field v0_34_06 1382
+---@field [1382] "v0_34_06"
+---@field v0_34_07 1383
+---@field [1383] "v0_34_07"
+---@field v0_34_08 1400
+---@field [1400] "v0_34_08"
+---@field v0_34_09 1402
+---@field [1402] "v0_34_09"
+---@field v0_34_10 1403
+---@field [1403] "v0_34_10"
+---@field v0_34_11 1404
+---@field [1404] "v0_34_11"
+---@field v0_40_01 1441
+---@field [1441] "v0_40_01"
+---@field v0_40_02 1442
+---@field [1442] "v0_40_02"
+---@field v0_40_03 1443
+---@field [1443] "v0_40_03"
+---@field v0_40_04 1444
+---@field [1444] "v0_40_04"
+---@field v0_40_05 1445
+---@field [1445] "v0_40_05"
+---@field v0_40_06 1446
+---@field [1446] "v0_40_06"
+---@field v0_40_07 1448
+---@field [1448] "v0_40_07"
+---@field v0_40_08 1449
+---@field [1449] "v0_40_08"
+---@field v0_40_09 1451
+---@field [1451] "v0_40_09"
+---@field v0_40_10 1452
+---@field [1452] "v0_40_10"
+---@field v0_40_11 1456
+---@field [1456] "v0_40_11"
+---@field v0_40_12 1459
+---@field [1459] "v0_40_12"
+---@field v0_40_13 1462
+---@field [1462] "v0_40_13"
+---@field v0_40_14 1469
+---@field [1469] "v0_40_14"
+---@field v0_40_15 1470
+---@field [1470] "v0_40_15"
+---@field v0_40_16 1471
+---@field [1471] "v0_40_16"
+---@field v0_40_17 1472
+---@field [1472] "v0_40_17"
+---@field v0_40_18 1473
+---@field [1473] "v0_40_18"
+---@field v0_40_19 1474
+---@field [1474] "v0_40_19"
+---@field v0_40_20 1477
+---@field [1477] "v0_40_20"
+---@field v0_40_21 1478
+---@field [1478] "v0_40_21"
+---@field v0_40_22 1479
+---@field [1479] "v0_40_22"
+---@field v0_40_23 1480
+---@field [1480] "v0_40_23"
+---@field v0_40_24 1481
+---@field [1481] "v0_40_24"
+---@field v0_42_01 1531
+---@field [1531] "v0_42_01"
+---@field v0_42_02 1532
+---@field [1532] "v0_42_02"
+---@field v0_42_03 1533
+---@field [1533] "v0_42_03"
+---@field v0_42_04 1534
+---@field [1534] "v0_42_04"
+---@field v0_42_05 1537
+---@field [1537] "v0_42_05"
+---@field v0_42_06 1542
+---@field [1542] "v0_42_06"
+---@field v0_43_01 1551
+---@field [1551] "v0_43_01"
+---@field v0_43_02 1552
+---@field [1552] "v0_43_02"
+---@field v0_43_03 1553
+---@field [1553] "v0_43_03"
+---@field v0_43_04 1555
+---@field [1555] "v0_43_04"
+---@field v0_43_05 1556
+---@field [1556] "v0_43_05"
+---@field v0_44_01 1596
+---@field [1596] "v0_44_01"
+---@field v0_44_02 1597
+---@field [1597] "v0_44_02"
+---@field v0_44_03 1600
+---@field [1600] "v0_44_03"
+---@field v0_44_04 1603
+---@field [1603] "v0_44_04"
+---@field v0_44_05 1604
+---@field [1604] "v0_44_05"
+---@field v0_44_06 1611
+---@field [1611] "v0_44_06"
+---@field v0_44_07 1612
+---@field [1612] "v0_44_07"
+---@field v0_44_08 1613
+---@field [1613] "v0_44_08"
+---@field v0_44_09 1614
+---@field [1614] "v0_44_09"
+---@field v0_44_10 1620
+---@field [1620] "v0_44_10"
+---@field v0_44_11 1623
+---@field [1623] "v0_44_11"
+---@field v0_44_12 1625
+---@field [1625] "v0_44_12"
+---@field v0_47_01 1710
+---@field [1710] "v0_47_01"
+---@field v0_47_02 1711
+---@field [1711] "v0_47_02"
+---@field v0_47_03 1713
+---@field [1713] "v0_47_03"
+---@field v0_47_04 1715
+---@field [1715] "v0_47_04"
+---@field v0_47_05 1716
+---@field [1716] "v0_47_05"
+df.save_version = {}
+

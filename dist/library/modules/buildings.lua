@@ -59,18 +59,18 @@ function dfhack.buildings.allocInstance(pos, type, subtype, custom) end
 
 ---@param pos df.coord
 ---@param size df.coord2d
----@param ext df.building_extents
+---@param bld df.building
 ---@param create_ext boolean|nil
 ---@param allow_occupied boolean|nil
 ---@param allow_wall boolean|nil
 ---@param allow_flow boolean|nil
 ---@return boolean
-function dfhack.buildings.checkFreeTiles(pos, size, ext, create_ext, allow_occupied, allow_wall, allow_flow) end
+function dfhack.buildings.checkFreeTiles(pos, size, bld, create_ext, allow_occupied, allow_wall, allow_flow) end
 
----@param ext df.building_extents
+---@param bld df.building
 ---@param defval integer
 ---@return integer
-function dfhack.buildings.countExtentTiles(ext, defval) end
+function dfhack.buildings.countExtentTiles(bld, defval) end
 
 ---@param pos df.coord
 ---@param size df.coord2d

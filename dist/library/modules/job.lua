@@ -32,7 +32,7 @@ function dfhack.job.addWorker(job, unit) end
 
 ---@param job df.job
 ---@param item df.item
----@param role df.job_item_ref::T_role
+---@param role df.job_role_type
 ---@param filter_idx integer
 ---@param insert_idx integer
 ---@return boolean

@@ -1,34 +1,6 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias df.d_init_nickname
----| 0 # REPLACE_FIRST
----| 1 # CENTRALIZE
----| 2 # REPLACE_ALL
-
----@class identity.d_init_nickname: DFEnumType
----@field REPLACE_FIRST 0 bay12: NicknameDisplayType
----@field [0] "REPLACE_FIRST" bay12: NicknameDisplayType
----@field CENTRALIZE 1
----@field [1] "CENTRALIZE"
----@field REPLACE_ALL 2
----@field [2] "REPLACE_ALL"
-df.d_init_nickname = {}
-
----@alias df.d_init_embark_confirm
----| 0 # ALWAYS
----| 1 # IF_POINTS_REMAIN
----| 2 # NO
-
----@class identity.d_init_embark_confirm: DFEnumType
----@field ALWAYS 0 bay12: PostPrepareEmbarkConfirmationType
----@field [0] "ALWAYS" bay12: PostPrepareEmbarkConfirmationType
----@field IF_POINTS_REMAIN 1
----@field [1] "IF_POINTS_REMAIN"
----@field NO 2
----@field [2] "NO"
-df.d_init_embark_confirm = {}
-
 ---@alias df.d_init_tunnel
 ---| 0 # NO
 ---| 1 # FINDER
@@ -42,17 +14,6 @@ df.d_init_embark_confirm = {}
 ---@field ALWAYS 2
 ---@field [2] "ALWAYS"
 df.d_init_tunnel = {}
-
----@alias df.d_init_idlers
----| 0 # TOP
----| 1 # BOTTOM
-
----@class identity.d_init_idlers: DFEnumType
----@field TOP 0 bay12: InitDisplayIdlersType
----@field [0] "TOP" bay12: InitDisplayIdlersType
----@field BOTTOM 1
----@field [1] "BOTTOM"
-df.d_init_idlers = {}
 
 ---@alias df.d_init_flags1
 ---| 0 # VARIED_GROUND_TILES
@@ -80,6 +41,93 @@ df.d_init_idlers = {}
 ---@field [6] "ADV_SHOW_CLOTHING_DYES"
 df.d_init_flags1 = {}
 
+---@alias df.d_init_nickname
+---| 0 # REPLACE_FIRST
+---| 1 # CENTRALIZE
+---| 2 # REPLACE_ALL
+
+---@class identity.d_init_nickname: DFEnumType
+---@field REPLACE_FIRST 0 bay12: NicknameDisplayType
+---@field [0] "REPLACE_FIRST" bay12: NicknameDisplayType
+---@field CENTRALIZE 1
+---@field [1] "CENTRALIZE"
+---@field REPLACE_ALL 2
+---@field [2] "REPLACE_ALL"
+df.d_init_nickname = {}
+
+---@alias df.d_init_idlers
+---| -1 # NONE
+---| 0 # TOP
+---| 1 # BOTTOM
+
+---@class identity.d_init_idlers: DFEnumType
+---@field NONE -1 bay12: InitDisplayIdlersType
+---@field [-1] "NONE" bay12: InitDisplayIdlersType
+---@field TOP 0
+---@field [0] "TOP"
+---@field BOTTOM 1
+---@field [1] "BOTTOM"
+df.d_init_idlers = {}
+
+-- Unused: TILE_FLAG_*
+---@class (exact) df.d_init_displayst: DFStruct
+---@field _type identity.d_init_displayst
+---@field flags _d_init_displayst_flags
+---@field nickname DFEnumVector<df.game_type, df.d_init_nickname>
+---@field sky_tile integer
+---@field sky_color number[]
+---@field chasm_tile integer
+---@field pillar_tile integer
+---@field track_tiles integer[] N S E W NS NE NW SE SW EW NSE NSW NEW SEW NSEW
+---@field track_tile_invert integer[]
+---@field track_ramp_tiles integer[]
+---@field track_ramp_invert integer[]
+---@field tree_tiles integer[]
+---@field chasm_color number[]
+---@field wound_color df.d_init_displayst.T_wound_color
+---@field idlers df.d_init_idlers
+---@field show_embark_tunnel df.d_init_tunnel
+---@field number_of_lower_elevations_shown number
+
+---@class identity.d_init_displayst: DFCompoundType
+---@field _kind 'struct-type'
+df.d_init_displayst = {}
+
+---@return df.d_init_displayst
+function df.d_init_displayst:new() end
+
+---@class _d_init_displayst_flags: DFContainer
+---@field [integer] table<df.d_init_flags1, boolean>
+local _d_init_displayst_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<df.d_init_flags1, boolean>>
+function _d_init_displayst_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item table<df.d_init_flags1, boolean>
+function _d_init_displayst_flags:insert(index, item) end
+
+---@param index integer
+function _d_init_displayst_flags:erase(index) end
+
+---@class (exact) df.d_init_displayst.T_wound_color: DFStruct
+---@field _type identity.d_init_displayst.wound_color
+---@field none number[]
+---@field minor number[]
+---@field inhibited number[]
+---@field function_loss number[]
+---@field broken number[]
+---@field missing number[]
+
+---@class identity.d_init_displayst.wound_color: DFCompoundType
+---@field _kind 'struct-type'
+df.d_init_displayst.T_wound_color = {}
+
+---@return df.d_init_displayst.T_wound_color
+function df.d_init_displayst.T_wound_color:new() end
+
 ---@alias df.d_init_flags2
 ---| 0 # MORE
 ---| 1 # ADVENTURER_TRAPS
@@ -93,6 +141,91 @@ df.d_init_flags1 = {}
 ---@field ADVENTURER_ALWAYS_CENTER 2
 ---@field [2] "ADVENTURER_ALWAYS_CENTER"
 df.d_init_flags2 = {}
+
+---@alias df.d_init_adventurer_zview
+---| 0 # OFF
+---| 1 # UNHIDDEN
+---| 2 # CREATURE
+---| 3 # ON
+
+---@class identity.d_init_adventurer_zview: DFEnumType
+---@field OFF 0 bay12: AdventureZViewType
+---@field [0] "OFF" bay12: AdventureZViewType
+---@field UNHIDDEN 1
+---@field [1] "UNHIDDEN"
+---@field CREATURE 2
+---@field [2] "CREATURE"
+---@field ON 3
+---@field [3] "ON"
+df.d_init_adventurer_zview = {}
+
+---@class (exact) df.d_init_adventurest: DFStruct
+---@field _type identity.d_init_adventurest
+---@field flags _d_init_adventurest_flags
+---@field display_length number
+---@field z_view_display_type df.d_init_adventurer_zview
+---@field z_view_size number
+
+---@class identity.d_init_adventurest: DFCompoundType
+---@field _kind 'struct-type'
+df.d_init_adventurest = {}
+
+---@return df.d_init_adventurest
+function df.d_init_adventurest:new() end
+
+---@class _d_init_adventurest_flags: DFContainer
+---@field [integer] table<df.d_init_flags2, boolean>
+local _d_init_adventurest_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<df.d_init_flags2, boolean>>
+function _d_init_adventurest_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item table<df.d_init_flags2, boolean>
+function _d_init_adventurest_flags:insert(index, item) end
+
+---@param index integer
+function _d_init_adventurest_flags:erase(index) end
+
+---@class (exact) df.d_init_dwarfst: DFStruct
+---@field _type identity.d_init_dwarfst
+---@field population_cap number
+---@field strict_population_cap number
+---@field baby_cap_absolute number
+---@field baby_cap_percent number
+---@field visitor_cap number
+---@field specific_seed_cap number
+---@field fortress_seed_cap number
+---@field path_cost number[]
+---@field embark_rect number[] not an array
+---@field store_dist df.d_init_dwarfst.T_store_dist
+---@field graze_coefficient number
+---@field maximum_embark_dim number
+---@field cull_dead_units_at number
+
+---@class identity.d_init_dwarfst: DFCompoundType
+---@field _kind 'struct-type'
+df.d_init_dwarfst = {}
+
+---@return df.d_init_dwarfst
+function df.d_init_dwarfst:new() end
+
+---@class (exact) df.d_init_dwarfst.T_store_dist: DFStruct
+---@field _type identity.d_init_dwarfst.store_dist
+---@field item_decrease number not a compound
+---@field seed_combine number
+---@field bucket_combine number
+---@field barrel_combine number
+---@field bin_combine number
+
+---@class identity.d_init_dwarfst.store_dist: DFCompoundType
+---@field _kind 'struct-type'
+df.d_init_dwarfst.T_store_dist = {}
+
+---@return df.d_init_dwarfst.T_store_dist
+function df.d_init_dwarfst.T_store_dist:new() end
 
 ---@alias df.d_init_flags4
 ---| 0 # TEMPERATURE
@@ -144,6 +277,20 @@ df.d_init_flags2 = {}
 ---@field [20] "MULTITHREADING"
 df.d_init_flags4 = {}
 
+---@alias df.d_init_embark_confirm
+---| 0 # ALWAYS
+---| 1 # IF_POINTS_REMAIN
+---| 2 # NO
+
+---@class identity.d_init_embark_confirm: DFEnumType
+---@field ALWAYS 0 bay12: PostPrepareEmbarkConfirmationType
+---@field [0] "ALWAYS" bay12: PostPrepareEmbarkConfirmationType
+---@field IF_POINTS_REMAIN 1
+---@field [1] "IF_POINTS_REMAIN"
+---@field NO 2
+---@field [2] "NO"
+df.d_init_embark_confirm = {}
+
 ---@alias df.d_init_autosave
 ---| -1 # NONE
 ---| 0 # SEASONAL
@@ -161,29 +308,90 @@ df.d_init_flags4 = {}
 ---@field [2] "SEMIANNUAL"
 df.d_init_autosave = {}
 
----@alias df.d_init_adventurer_zview
----| 0 # OFF
----| 1 # UNHIDDEN
----| 2 # CREATURE
----| 3 # ON
+---@class (exact) df.d_init_featurest: DFStruct
+---@field _type identity.d_init_featurest
+---@field flags _d_init_featurest_flags
+---@field post_prepare_embark_confirmation df.d_init_embark_confirm
+---@field autosave df.d_init_autosave
 
----@class identity.d_init_adventurer_zview: DFEnumType
----@field OFF 0 bay12: AdventureZViewType
----@field [0] "OFF" bay12: AdventureZViewType
----@field UNHIDDEN 1
----@field [1] "UNHIDDEN"
----@field CREATURE 2
----@field [2] "CREATURE"
----@field ON 3
----@field [3] "ON"
-df.d_init_adventurer_zview = {}
+---@class identity.d_init_featurest: DFCompoundType
+---@field _kind 'struct-type'
+df.d_init_featurest = {}
+
+---@return df.d_init_featurest
+function df.d_init_featurest:new() end
+
+---@class _d_init_featurest_flags: DFContainer
+---@field [integer] table<df.d_init_flags4, boolean>
+local _d_init_featurest_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<table<df.d_init_flags4, boolean>>
+function _d_init_featurest_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item table<df.d_init_flags4, boolean>
+function _d_init_featurest_flags:insert(index, item) end
+
+---@param index integer
+function _d_init_featurest_flags:erase(index) end
+
+---@class df.announcement_flags: DFBitfield
+---@field _enum identity.announcement_flags
+---@field DO_MEGA boolean bay12: INIT_ANNOUNCEMENT_FLAG_*
+---@field [0] boolean bay12: INIT_ANNOUNCEMENT_FLAG_*
+---@field PAUSE boolean P
+---@field [1] boolean P
+---@field RECENTER boolean R
+---@field [2] boolean R
+---@field A_DISPLAY boolean A_D
+---@field [3] boolean A_D
+---@field D_DISPLAY boolean D_D
+---@field [4] boolean D_D
+---@field UNIT_COMBAT_REPORT boolean UCR
+---@field [5] boolean UCR
+---@field UNIT_COMBAT_REPORT_ALL_ACTIVE boolean UCR_A
+---@field [6] boolean UCR_A
+---@field ALERT boolean ALERT
+---@field [7] boolean ALERT
+
+---@class identity.announcement_flags: DFBitfieldType
+---@field DO_MEGA 0 bay12: INIT_ANNOUNCEMENT_FLAG_*
+---@field [0] "DO_MEGA" bay12: INIT_ANNOUNCEMENT_FLAG_*
+---@field PAUSE 1 P
+---@field [1] "PAUSE" P
+---@field RECENTER 2 R
+---@field [2] "RECENTER" R
+---@field A_DISPLAY 3 A_D
+---@field [3] "A_DISPLAY" A_D
+---@field D_DISPLAY 4 D_D
+---@field [4] "D_DISPLAY" D_D
+---@field UNIT_COMBAT_REPORT 5 UCR
+---@field [5] "UNIT_COMBAT_REPORT" UCR
+---@field UNIT_COMBAT_REPORT_ALL_ACTIVE 6 UCR_A
+---@field [6] "UNIT_COMBAT_REPORT_ALL_ACTIVE" UCR_A
+---@field ALERT 7 ALERT
+---@field [7] "ALERT" ALERT
+df.announcement_flags = {}
+
+---@class (exact) df.announcements: DFStruct
+---@field _type identity.announcements
+---@field flags DFEnumVector<df.announcement_type, df.announcement_flags>
+
+---@class identity.announcements: DFCompoundType
+---@field _kind 'struct-type'
+df.announcements = {}
+
+---@return df.announcements
+function df.announcements:new() end
 
 ---@class (exact) df.d_init: DFStruct
 ---@field _type identity.d_init
----@field display df.d_init.T_display
----@field adventure df.d_init.T_adventure
----@field dwarf df.d_init.T_dwarf
----@field feature df.d_init.T_feature
+---@field display df.d_init_displayst
+---@field adventure df.d_init_adventurest
+---@field dwarf df.d_init_dwarfst
+---@field feature df.d_init_featurest
 ---@field announcements df.announcements
 
 ---@class identity.d_init: DFCompoundType
@@ -192,159 +400,4 @@ df.d_init = {}
 
 ---@return df.d_init
 function df.d_init:new() end
-
----@class (exact) df.d_init.T_display: DFStruct
----@field _type identity.d_init.display
----@field flags _d_init_display_flags bay12: d_init_displayst
----@field nickname DFEnumVector<df.game_type, df.d_init_nickname>
----@field sky_tile integer
----@field sky_color number[]
----@field chasm_tile integer
----@field pillar_tile integer
----@field track_tiles integer[] N S E W NS NE NW SE SW EW NSE NSW NEW SEW NSEW
----@field track_tile_invert integer[]
----@field track_ramp_tiles integer[]
----@field track_ramp_invert integer[]
----@field tree_tiles integer[]
----@field chasm_color number[]
----@field wound_color df.d_init.T_display.T_wound_color
----@field idlers df.d_init_idlers
----@field show_embark_tunnel df.d_init_tunnel
----@field number_of_lower_elevations_shown number
-
----@class identity.d_init.display: DFCompoundType
----@field _kind 'struct-type'
-df.d_init.T_display = {}
-
----@return df.d_init.T_display
-function df.d_init.T_display:new() end
-
----@class _d_init_display_flags: DFContainer
----@field [integer] table<df.d_init_flags1, boolean>
-local _d_init_display_flags
-
----@nodiscard
----@param index integer
----@return DFPointer<table<df.d_init_flags1, boolean>>
-function _d_init_display_flags:_field(index) end
-
----@param index '#'|integer
----@param item table<df.d_init_flags1, boolean>
-function _d_init_display_flags:insert(index, item) end
-
----@param index integer
-function _d_init_display_flags:erase(index) end
-
----@class (exact) df.d_init.T_display.T_wound_color: DFStruct
----@field _type identity.d_init.display.wound_color
----@field none number[]
----@field minor number[]
----@field inhibited number[]
----@field function_loss number[]
----@field broken number[]
----@field missing number[]
-
----@class identity.d_init.display.wound_color: DFCompoundType
----@field _kind 'struct-type'
-df.d_init.T_display.T_wound_color = {}
-
----@return df.d_init.T_display.T_wound_color
-function df.d_init.T_display.T_wound_color:new() end
-
----@class (exact) df.d_init.T_adventure: DFStruct
----@field _type identity.d_init.adventure
----@field flags _d_init_adventure_flags bay12: d_init_adventurest
----@field display_length number
----@field z_view_display_type df.d_init_adventurer_zview
----@field z_view_size number
-
----@class identity.d_init.adventure: DFCompoundType
----@field _kind 'struct-type'
-df.d_init.T_adventure = {}
-
----@return df.d_init.T_adventure
-function df.d_init.T_adventure:new() end
-
----@class _d_init_adventure_flags: DFContainer
----@field [integer] table<df.d_init_flags2, boolean>
-local _d_init_adventure_flags
-
----@nodiscard
----@param index integer
----@return DFPointer<table<df.d_init_flags2, boolean>>
-function _d_init_adventure_flags:_field(index) end
-
----@param index '#'|integer
----@param item table<df.d_init_flags2, boolean>
-function _d_init_adventure_flags:insert(index, item) end
-
----@param index integer
-function _d_init_adventure_flags:erase(index) end
-
----@class (exact) df.d_init.T_dwarf: DFStruct
----@field _type identity.d_init.dwarf
----@field population_cap number bay12: d_init_dwarfst
----@field strict_population_cap number
----@field baby_cap_absolute number
----@field baby_cap_percent number
----@field visitor_cap number
----@field specific_seed_cap number
----@field fortress_seed_cap number
----@field path_cost number[]
----@field embark_rect number[]
----@field store_dist df.d_init.T_dwarf.T_store_dist
----@field graze_coefficient number
----@field maximum_embark_dim number
----@field cull_dead_units_at number
-
----@class identity.d_init.dwarf: DFCompoundType
----@field _kind 'struct-type'
-df.d_init.T_dwarf = {}
-
----@return df.d_init.T_dwarf
-function df.d_init.T_dwarf:new() end
-
----@class (exact) df.d_init.T_dwarf.T_store_dist: DFStruct
----@field _type identity.d_init.dwarf.store_dist
----@field item_decrease number
----@field seed_combine number
----@field bucket_combine number
----@field barrel_combine number
----@field bin_combine number
-
----@class identity.d_init.dwarf.store_dist: DFCompoundType
----@field _kind 'struct-type'
-df.d_init.T_dwarf.T_store_dist = {}
-
----@return df.d_init.T_dwarf.T_store_dist
-function df.d_init.T_dwarf.T_store_dist:new() end
-
----@class (exact) df.d_init.T_feature: DFStruct
----@field _type identity.d_init.feature
----@field flags _d_init_feature_flags bay12: d_init_featurest
----@field post_prepare_embark_confirmation df.d_init_embark_confirm
----@field autosave df.d_init_autosave
-
----@class identity.d_init.feature: DFCompoundType
----@field _kind 'struct-type'
-df.d_init.T_feature = {}
-
----@return df.d_init.T_feature
-function df.d_init.T_feature:new() end
-
----@class _d_init_feature_flags: DFContainer
----@field [integer] table<df.d_init_flags4, boolean>
-local _d_init_feature_flags
-
----@nodiscard
----@param index integer
----@return DFPointer<table<df.d_init_flags4, boolean>>
-function _d_init_feature_flags:_field(index) end
-
----@param index '#'|integer
----@param item table<df.d_init_flags4, boolean>
-function _d_init_feature_flags:insert(index, item) end
-
----@param index integer
-function _d_init_feature_flags:erase(index) end
 

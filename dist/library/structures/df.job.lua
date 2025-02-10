@@ -1,0 +1,2026 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+---@class df.jre_job_details_flag: DFBitfield
+---@field _enum identity.jre_job_details_flag
+---@field have_set_job_details boolean bay12: JRE_JOB_DETAILS_FLAG_*
+---@field [0] boolean bay12: JRE_JOB_DETAILS_FLAG_*
+
+---@class identity.jre_job_details_flag: DFBitfieldType
+---@field have_set_job_details 0 bay12: JRE_JOB_DETAILS_FLAG_*
+---@field [0] "have_set_job_details" bay12: JRE_JOB_DETAILS_FLAG_*
+df.jre_job_details_flag = {}
+
+---@class (exact) df.job_item: DFStruct
+---@field _type identity.job_item
+---@field item_type df.item_type
+---@field item_subtype number
+---@field mat_type number References: `df.material`
+---@field mat_index number
+---@field flags1 df.job_item_flags1
+---@field quantity number
+---@field vector_id df.job_item_vector_id
+---@field flags2 df.job_item_flags2
+---@field flags3 df.job_item_flags3
+---@field flags4 integer
+---@field flags5 integer
+---@field metal_ore number Custom:<br>References: `df.inorganic_raw`
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field min_dimension number
+---@field reagent_index number
+---@field contains DFNumberVector used with custom reactions
+---@field reaction_id number References: `df.reaction`
+---@field has_tool_use df.tool_uses
+---@field job_details_flags df.jre_job_details_flag
+---@field job_details_mat_type number References: `df.material`
+---@field job_details_mat_index number
+---@field job_details_item_flags2 df.job_item_flags2
+
+---@class identity.job_item: DFCompoundType
+---@field _kind 'struct-type'
+df.job_item = {}
+
+---@return df.job_item
+function df.job_item:new() end
+
+---@class (exact) df.job_reqst: DFStruct
+---@field _type identity.job_reqst
+---@field elements _job_reqst_elements
+
+---@class identity.job_reqst: DFCompoundType
+---@field _kind 'struct-type'
+df.job_reqst = {}
+
+---@return df.job_reqst
+function df.job_reqst:new() end
+
+---@class _job_reqst_elements: DFContainer
+---@field [integer] df.job_item
+local _job_reqst_elements
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_item>
+function _job_reqst_elements:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_item
+function _job_reqst_elements:insert(index, item) end
+
+---@param index integer
+function _job_reqst_elements:erase(index) end
+
+---@alias df.job_role_type
+---| 0 # Other
+---| 1 # Reagent
+---| 2 # Hauled
+---| 3 # LinkToTrigger
+---| 4 # LinkToTarget
+---| 5 # CleanSite
+---| 6 # TargetContainer
+---| 7 # QueuedContainer
+---| 8 # PushHaulVehicle
+
+---@class identity.job_role_type: DFEnumType
+---@field Other 0 bay12: JobRoleTypes
+---@field [0] "Other" bay12: JobRoleTypes
+---@field Reagent 1 MATERIAL
+---@field [1] "Reagent" MATERIAL
+---@field Hauled 2 REQUIRED
+---@field [2] "Hauled" REQUIRED
+---@field LinkToTrigger 3
+---@field [3] "LinkToTrigger"
+---@field LinkToTarget 4
+---@field [4] "LinkToTarget"
+---@field CleanSite 5
+---@field [5] "CleanSite"
+---@field TargetContainer 6 NOTAG
+---@field [6] "TargetContainer" NOTAG
+---@field QueuedContainer 7 INCIDENTAL_HAUL; queued to be put in a container
+---@field [7] "QueuedContainer" INCIDENTAL_HAUL; queued to be put in a container
+---@field PushHaulVehicle 8 HAULER_ITEM; wheelbarrow
+---@field [8] "PushHaulVehicle" HAULER_ITEM; wheelbarrow
+df.job_role_type = {}
+
+---@class df.jobitem_flag: DFBitfield
+---@field _enum identity.jobitem_flag
+---@field is_fetching boolean bay12: JOBITEMFLAG_*
+---@field [0] boolean bay12: JOBITEMFLAG_*
+
+---@class identity.jobitem_flag: DFBitfieldType
+---@field is_fetching 0 bay12: JOBITEMFLAG_*
+---@field [0] "is_fetching" bay12: JOBITEMFLAG_*
+df.jobitem_flag = {}
+
+---@class (exact) df.job_item_ref: DFStruct
+---@field _type identity.job_item_ref
+---@field item df.item
+---@field role df.job_role_type
+---@field flags df.jobitem_flag
+---@field job_item_idx number
+
+---@class identity.job_item_ref: DFCompoundType
+---@field _kind 'struct-type'
+df.job_item_ref = {}
+
+---@return df.job_item_ref
+function df.job_item_ref:new() end
+
+-- Unused: Spells
+---@alias df.job_type
+---| -1 # NONE
+---| 0 # CarveFortification
+---| 1 # SmoothWall
+---| 2 # SmoothFloor
+---| 3 # DetailWall
+---| 4 # DetailFloor
+---| 5 # Dig
+---| 6 # CarveUpwardStaircase
+---| 7 # CarveDownwardStaircase
+---| 8 # CarveUpDownStaircase
+---| 9 # CarveRamp
+---| 10 # DigChannel
+---| 11 # FellTree
+---| 12 # GatherPlants
+---| 13 # RemoveConstruction
+---| 14 # CollectWebs
+---| 15 # BringItemToDepot
+---| 16 # BringItemToShop
+---| 17 # Eat
+---| 18 # GetProvisions
+---| 19 # Drink
+---| 20 # DrinkItem
+---| 21 # FillWaterskin
+---| 22 # FillWaterskinItem
+---| 23 # Sleep
+---| 24 # CollectSand
+---| 25 # Fish
+---| 26 # Hunt
+---| 27 # HuntVermin
+---| 28 # Kidnap
+---| 29 # BeatCriminal
+---| 30 # StartingFistFight
+---| 31 # CollectTaxes
+---| 32 # GuardTaxCollector
+---| 33 # CatchLiveLandAnimal
+---| 34 # CatchLiveFish
+---| 35 # ReturnKill
+---| 36 # StoreOwnedItem
+---| 37 # PlaceItemInTomb
+---| 38 # StoreItemInStockpile
+---| 39 # StoreItemInBag
+---| 40 # StoreItemInLocation
+---| 41 # StoreWeapon
+---| 42 # StoreArmor
+---| 43 # StoreItemInBarrel
+---| 44 # StoreItemInBin
+---| 45 # SeekArtifact
+---| 46 # SeekInfant
+---| 47 # GoShopping
+---| 48 # GoShoppingSpecific
+---| 49 # Clean
+---| 50 # Rest
+---| 51 # PickupEquipment
+---| 52 # DumpItem
+---| 53 # StrangeMoodCrafter
+---| 54 # StrangeMoodJeweller
+---| 55 # StrangeMoodForge
+---| 56 # StrangeMoodMagmaForge
+---| 57 # StrangeMoodBrooding
+---| 58 # StrangeMoodFell
+---| 59 # StrangeMoodCarpenter
+---| 60 # StrangeMoodMason
+---| 61 # StrangeMoodBowyer
+---| 62 # StrangeMoodTanner
+---| 63 # StrangeMoodWeaver
+---| 64 # StrangeMoodGlassmaker
+---| 65 # StrangeMoodMechanics
+---| 66 # ConstructBuilding
+---| 67 # ConstructDoor
+---| 68 # ConstructFloodgate
+---| 69 # ConstructBed
+---| 70 # ConstructThrone
+---| 71 # ConstructCoffin
+---| 72 # ConstructTable
+---| 73 # ConstructChest
+---| 74 # ConstructBag
+---| 75 # ConstructBin
+---| 76 # ConstructArmorStand
+---| 77 # ConstructWeaponRack
+---| 78 # ConstructCabinet
+---| 79 # ConstructStatue
+---| 80 # ConstructBlocks
+---| 81 # MakeRawGlass
+---| 82 # MakeCrafts
+---| 83 # MintCoins
+---| 84 # CutGems
+---| 85 # CutGlass
+---| 86 # EncrustWithGems
+---| 87 # EncrustWithGlass
+---| 88 # DestroyBuilding
+---| 89 # SmeltOre
+---| 90 # MeltMetalObject
+---| 91 # ExtractMetalStrands
+---| 92 # PlantSeeds
+---| 93 # HarvestPlants
+---| 94 # TrainHuntingAnimal
+---| 95 # TrainWarAnimal
+---| 96 # MakeWeapon
+---| 97 # ForgeAnvil
+---| 98 # ConstructCatapultParts
+---| 99 # ConstructBallistaParts
+---| 100 # MakeArmor
+---| 101 # MakeHelm
+---| 102 # MakePants
+---| 103 # StudWith
+---| 104 # ButcherAnimal
+---| 105 # PrepareRawFish
+---| 106 # MillPlants
+---| 107 # BaitTrap
+---| 108 # MilkCreature
+---| 109 # MakeCheese
+---| 110 # ProcessPlants
+---| 111 # PolishStones
+---| 112 # ProcessPlantsVial
+---| 113 # ProcessPlantsBarrel
+---| 114 # PrepareMeal
+---| 115 # WeaveCloth
+---| 116 # MakeGloves
+---| 117 # MakeShoes
+---| 118 # MakeShield
+---| 119 # MakeCage
+---| 120 # MakeChain
+---| 121 # MakeFlask
+---| 122 # MakeGoblet
+---| 123 # MakeToy
+---| 124 # MakeAnimalTrap
+---| 125 # MakeBarrel
+---| 126 # MakeBucket
+---| 127 # MakeWindow
+---| 128 # MakeTotem
+---| 129 # MakeAmmo
+---| 130 # DecorateWith
+---| 131 # MakeBackpack
+---| 132 # MakeQuiver
+---| 133 # MakeBallistaArrowHead
+---| 134 # AssembleSiegeAmmo
+---| 135 # LoadCatapult
+---| 136 # LoadBallista
+---| 137 # FireCatapult
+---| 138 # FireBallista
+---| 139 # ConstructMechanisms
+---| 140 # MakeTrapComponent
+---| 141 # LoadCageTrap
+---| 142 # LoadStoneTrap
+---| 143 # LoadWeaponTrap
+---| 144 # CleanTrap
+---| 145 # EncrustWithStones
+---| 146 # LinkBuildingToTrigger
+---| 147 # PullLever
+---| 149 # ExtractFromPlants
+---| 150 # ExtractFromRawFish
+---| 151 # ExtractFromLandAnimal
+---| 152 # TameVermin
+---| 153 # TameAnimal
+---| 154 # ChainAnimal
+---| 155 # UnchainAnimal
+---| 156 # UnchainPet
+---| 157 # ReleaseLargeCreature
+---| 158 # ReleasePet
+---| 159 # ReleaseSmallCreature
+---| 160 # HandleSmallCreature
+---| 161 # HandleLargeCreature
+---| 162 # CageLargeCreature
+---| 163 # CageSmallCreature
+---| 164 # RecoverWounded
+---| 165 # DiagnosePatient
+---| 166 # ImmobilizeBreak
+---| 167 # DressWound
+---| 168 # CleanPatient
+---| 169 # Surgery
+---| 170 # Suture
+---| 171 # SetBone
+---| 172 # PlaceInTraction
+---| 173 # DrainAquarium
+---| 174 # FillAquarium
+---| 175 # FillPond
+---| 176 # GiveWater
+---| 177 # GiveFood
+---| 178 # GiveWaterPet
+---| 179 # GiveFoodPet
+---| 180 # RecoverPet
+---| 181 # PitLargeAnimal
+---| 182 # PitSmallAnimal
+---| 183 # SlaughterAnimal
+---| 184 # MakeCharcoal
+---| 185 # MakeAsh
+---| 186 # MakeLye
+---| 187 # MakePotashFromLye
+---| 188 # FertilizeField
+---| 189 # MakePotashFromAsh
+---| 190 # DyeThread
+---| 191 # DyeCloth
+---| 192 # SewImage
+---| 193 # MakePipeSection
+---| 194 # OperatePump
+---| 195 # ManageWorkOrders
+---| 196 # UpdateStockpileRecords
+---| 197 # TradeAtDepot
+---| 198 # ConstructHatchCover
+---| 199 # ConstructGrate
+---| 200 # RemoveStairs
+---| 201 # ConstructQuern
+---| 202 # ConstructMillstone
+---| 203 # ConstructSplint
+---| 204 # ConstructCrutch
+---| 205 # ConstructTractionBench
+---| 206 # CleanSelf
+---| 207 # BringCrutch
+---| 208 # ApplyCast
+---| 209 # CustomReaction
+---| 210 # ConstructSlab
+---| 211 # EngraveSlab
+---| 212 # ShearCreature
+---| 213 # SpinThread
+---| 214 # PenLargeAnimal
+---| 215 # PenSmallAnimal
+---| 216 # MakeTool
+---| 217 # CollectClay
+---| 218 # InstallColonyInHive
+---| 219 # CollectHiveProducts
+---| 220 # CauseTrouble
+---| 221 # DrinkBlood
+---| 222 # ReportCrime
+---| 223 # ExecuteCriminal
+---| 224 # TrainAnimal
+---| 225 # CarveTrack
+---| 226 # PushTrackVehicle
+---| 227 # PlaceTrackVehicle
+---| 228 # StoreItemInVehicle
+---| 229 # GeldAnimal
+---| 230 # MakeFigurine
+---| 231 # MakeAmulet
+---| 232 # MakeScepter
+---| 233 # MakeCrown
+---| 234 # MakeRing
+---| 235 # MakeEarring
+---| 236 # MakeBracelet
+---| 237 # MakeGem
+---| 238 # PutItemOnDisplay
+---| 239 # HeistItem
+---| 240 # InterrogateSubject
+---| 241 # AcceptHeistItem
+
+-- Unused: Spells
+---@class identity.job_type: DFEnumType
+---@field NONE -1 unused
+---@field [-1] "NONE" unused
+---@field CarveFortification 0 0
+---@field [0] "CarveFortification" 0
+---@field SmoothWall 1
+---@field [1] "SmoothWall"
+---@field SmoothFloor 2
+---@field [2] "SmoothFloor"
+---@field DetailWall 3
+---@field [3] "DetailWall"
+---@field DetailFloor 4
+---@field [4] "DetailFloor"
+---@field Dig 5
+---@field [5] "Dig"
+---@field CarveUpwardStaircase 6
+---@field [6] "CarveUpwardStaircase"
+---@field CarveDownwardStaircase 7
+---@field [7] "CarveDownwardStaircase"
+---@field CarveUpDownStaircase 8
+---@field [8] "CarveUpDownStaircase"
+---@field CarveRamp 9
+---@field [9] "CarveRamp"
+---@field DigChannel 10
+---@field [10] "DigChannel"
+---@field FellTree 11
+---@field [11] "FellTree"
+---@field GatherPlants 12 12
+---@field [12] "GatherPlants" 12
+---@field RemoveConstruction 13
+---@field [13] "RemoveConstruction"
+---@field CollectWebs 14
+---@field [14] "CollectWebs"
+---@field BringItemToDepot 15
+---@field [15] "BringItemToDepot"
+---@field BringItemToShop 16
+---@field [16] "BringItemToShop"
+---@field Eat 17
+---@field [17] "Eat"
+---@field GetProvisions 18
+---@field [18] "GetProvisions"
+---@field Drink 19 from drink area
+---@field [19] "Drink" from drink area
+---@field DrinkItem 20 from container
+---@field [20] "DrinkItem" from container
+---@field FillWaterskin 21 from drink area
+---@field [21] "FillWaterskin" from drink area
+---@field FillWaterskinItem 22 22
+---@field [22] "FillWaterskinItem" 22
+---@field Sleep 23
+---@field [23] "Sleep"
+---@field CollectSand 24
+---@field [24] "CollectSand"
+---@field Fish 25
+---@field [25] "Fish"
+---@field Hunt 26
+---@field [26] "Hunt"
+---@field HuntVermin 27
+---@field [27] "HuntVermin"
+---@field Kidnap 28
+---@field [28] "Kidnap"
+---@field BeatCriminal 29
+---@field [29] "BeatCriminal"
+---@field StartingFistFight 30
+---@field [30] "StartingFistFight"
+---@field CollectTaxes 31
+---@field [31] "CollectTaxes"
+---@field GuardTaxCollector 32 32
+---@field [32] "GuardTaxCollector" 32
+---@field CatchLiveLandAnimal 33
+---@field [33] "CatchLiveLandAnimal"
+---@field CatchLiveFish 34
+---@field [34] "CatchLiveFish"
+---@field ReturnKill 35
+---@field [35] "ReturnKill"
+---@field StoreOwnedItem 36
+---@field [36] "StoreOwnedItem"
+---@field PlaceItemInTomb 37
+---@field [37] "PlaceItemInTomb"
+---@field StoreItemInStockpile 38
+---@field [38] "StoreItemInStockpile"
+---@field StoreItemInBag 39
+---@field [39] "StoreItemInBag"
+---@field StoreItemInLocation 40 40
+---@field [40] "StoreItemInLocation" 40
+---@field StoreWeapon 41
+---@field [41] "StoreWeapon"
+---@field StoreArmor 42
+---@field [42] "StoreArmor"
+---@field StoreItemInBarrel 43
+---@field [43] "StoreItemInBarrel"
+---@field StoreItemInBin 44
+---@field [44] "StoreItemInBin"
+---@field SeekArtifact 45
+---@field [45] "SeekArtifact"
+---@field SeekInfant 46
+---@field [46] "SeekInfant"
+---@field GoShopping 47
+---@field [47] "GoShopping"
+---@field GoShoppingSpecific 48 48
+---@field [48] "GoShoppingSpecific" 48
+---@field Clean 49
+---@field [49] "Clean"
+---@field Rest 50
+---@field [50] "Rest"
+---@field PickupEquipment 51
+---@field [51] "PickupEquipment"
+---@field DumpItem 52
+---@field [52] "DumpItem"
+---@field StrangeMoodCrafter 53
+---@field [53] "StrangeMoodCrafter"
+---@field StrangeMoodJeweller 54
+---@field [54] "StrangeMoodJeweller"
+---@field StrangeMoodForge 55
+---@field [55] "StrangeMoodForge"
+---@field StrangeMoodMagmaForge 56
+---@field [56] "StrangeMoodMagmaForge"
+---@field StrangeMoodBrooding 57
+---@field [57] "StrangeMoodBrooding"
+---@field StrangeMoodFell 58 58
+---@field [58] "StrangeMoodFell" 58
+---@field StrangeMoodCarpenter 59
+---@field [59] "StrangeMoodCarpenter"
+---@field StrangeMoodMason 60
+---@field [60] "StrangeMoodMason"
+---@field StrangeMoodBowyer 61
+---@field [61] "StrangeMoodBowyer"
+---@field StrangeMoodTanner 62
+---@field [62] "StrangeMoodTanner"
+---@field StrangeMoodWeaver 63
+---@field [63] "StrangeMoodWeaver"
+---@field StrangeMoodGlassmaker 64
+---@field [64] "StrangeMoodGlassmaker"
+---@field StrangeMoodMechanics 65
+---@field [65] "StrangeMoodMechanics"
+---@field ConstructBuilding 66
+---@field [66] "ConstructBuilding"
+---@field ConstructDoor 67
+---@field [67] "ConstructDoor"
+---@field ConstructFloodgate 68 68
+---@field [68] "ConstructFloodgate" 68
+---@field ConstructBed 69
+---@field [69] "ConstructBed"
+---@field ConstructThrone 70
+---@field [70] "ConstructThrone"
+---@field ConstructCoffin 71
+---@field [71] "ConstructCoffin"
+---@field ConstructTable 72
+---@field [72] "ConstructTable"
+---@field ConstructChest 73
+---@field [73] "ConstructChest"
+---@field ConstructBag 74
+---@field [74] "ConstructBag"
+---@field ConstructBin 75
+---@field [75] "ConstructBin"
+---@field ConstructArmorStand 76
+---@field [76] "ConstructArmorStand"
+---@field ConstructWeaponRack 77
+---@field [77] "ConstructWeaponRack"
+---@field ConstructCabinet 78
+---@field [78] "ConstructCabinet"
+---@field ConstructStatue 79 79
+---@field [79] "ConstructStatue" 79
+---@field ConstructBlocks 80
+---@field [80] "ConstructBlocks"
+---@field MakeRawGlass 81
+---@field [81] "MakeRawGlass"
+---@field MakeCrafts 82
+---@field [82] "MakeCrafts"
+---@field MintCoins 83
+---@field [83] "MintCoins"
+---@field CutGems 84
+---@field [84] "CutGems"
+---@field CutGlass 85
+---@field [85] "CutGlass"
+---@field EncrustWithGems 86
+---@field [86] "EncrustWithGems"
+---@field EncrustWithGlass 87
+---@field [87] "EncrustWithGlass"
+---@field DestroyBuilding 88
+---@field [88] "DestroyBuilding"
+---@field SmeltOre 89 89
+---@field [89] "SmeltOre" 89
+---@field MeltMetalObject 90
+---@field [90] "MeltMetalObject"
+---@field ExtractMetalStrands 91
+---@field [91] "ExtractMetalStrands"
+---@field PlantSeeds 92
+---@field [92] "PlantSeeds"
+---@field HarvestPlants 93
+---@field [93] "HarvestPlants"
+---@field TrainHuntingAnimal 94
+---@field [94] "TrainHuntingAnimal"
+---@field TrainWarAnimal 95
+---@field [95] "TrainWarAnimal"
+---@field MakeWeapon 96
+---@field [96] "MakeWeapon"
+---@field ForgeAnvil 97
+---@field [97] "ForgeAnvil"
+---@field ConstructCatapultParts 98
+---@field [98] "ConstructCatapultParts"
+---@field ConstructBallistaParts 99 99
+---@field [99] "ConstructBallistaParts" 99
+---@field MakeArmor 100
+---@field [100] "MakeArmor"
+---@field MakeHelm 101
+---@field [101] "MakeHelm"
+---@field MakePants 102
+---@field [102] "MakePants"
+---@field StudWith 103
+---@field [103] "StudWith"
+---@field ButcherAnimal 104
+---@field [104] "ButcherAnimal"
+---@field PrepareRawFish 105
+---@field [105] "PrepareRawFish"
+---@field MillPlants 106
+---@field [106] "MillPlants"
+---@field BaitTrap 107
+---@field [107] "BaitTrap"
+---@field MilkCreature 108
+---@field [108] "MilkCreature"
+---@field MakeCheese 109 109
+---@field [109] "MakeCheese" 109
+---@field ProcessPlants 110
+---@field [110] "ProcessPlants"
+---@field PolishStones 111
+---@field [111] "PolishStones"
+---@field ProcessPlantsVial 112
+---@field [112] "ProcessPlantsVial"
+---@field ProcessPlantsBarrel 113
+---@field [113] "ProcessPlantsBarrel"
+---@field PrepareMeal 114
+---@field [114] "PrepareMeal"
+---@field WeaveCloth 115
+---@field [115] "WeaveCloth"
+---@field MakeGloves 116
+---@field [116] "MakeGloves"
+---@field MakeShoes 117
+---@field [117] "MakeShoes"
+---@field MakeShield 118
+---@field [118] "MakeShield"
+---@field MakeCage 119 119
+---@field [119] "MakeCage" 119
+---@field MakeChain 120
+---@field [120] "MakeChain"
+---@field MakeFlask 121
+---@field [121] "MakeFlask"
+---@field MakeGoblet 122
+---@field [122] "MakeGoblet"
+---@field MakeToy 123
+---@field [123] "MakeToy"
+---@field MakeAnimalTrap 124
+---@field [124] "MakeAnimalTrap"
+---@field MakeBarrel 125
+---@field [125] "MakeBarrel"
+---@field MakeBucket 126
+---@field [126] "MakeBucket"
+---@field MakeWindow 127
+---@field [127] "MakeWindow"
+---@field MakeTotem 128 128
+---@field [128] "MakeTotem" 128
+---@field MakeAmmo 129
+---@field [129] "MakeAmmo"
+---@field DecorateWith 130
+---@field [130] "DecorateWith"
+---@field MakeBackpack 131
+---@field [131] "MakeBackpack"
+---@field MakeQuiver 132
+---@field [132] "MakeQuiver"
+---@field MakeBallistaArrowHead 133
+---@field [133] "MakeBallistaArrowHead"
+---@field AssembleSiegeAmmo 134
+---@field [134] "AssembleSiegeAmmo"
+---@field LoadCatapult 135
+---@field [135] "LoadCatapult"
+---@field LoadBallista 136
+---@field [136] "LoadBallista"
+---@field FireCatapult 137
+---@field [137] "FireCatapult"
+---@field FireBallista 138 138
+---@field [138] "FireBallista" 138
+---@field ConstructMechanisms 139
+---@field [139] "ConstructMechanisms"
+---@field MakeTrapComponent 140
+---@field [140] "MakeTrapComponent"
+---@field LoadCageTrap 141
+---@field [141] "LoadCageTrap"
+---@field LoadStoneTrap 142
+---@field [142] "LoadStoneTrap"
+---@field LoadWeaponTrap 143
+---@field [143] "LoadWeaponTrap"
+---@field CleanTrap 144
+---@field [144] "CleanTrap"
+---@field EncrustWithStones 145
+---@field [145] "EncrustWithStones"
+---@field LinkBuildingToTrigger 146
+---@field [146] "LinkBuildingToTrigger"
+---@field PullLever 147
+---@field [147] "PullLever"
+---@field ExtractFromPlants 149 149
+---@field [149] "ExtractFromPlants" 149
+---@field ExtractFromRawFish 150
+---@field [150] "ExtractFromRawFish"
+---@field ExtractFromLandAnimal 151
+---@field [151] "ExtractFromLandAnimal"
+---@field TameVermin 152
+---@field [152] "TameVermin"
+---@field TameAnimal 153
+---@field [153] "TameAnimal"
+---@field ChainAnimal 154
+---@field [154] "ChainAnimal"
+---@field UnchainAnimal 155
+---@field [155] "UnchainAnimal"
+---@field UnchainPet 156
+---@field [156] "UnchainPet"
+---@field ReleaseLargeCreature 157
+---@field [157] "ReleaseLargeCreature"
+---@field ReleasePet 158 158
+---@field [158] "ReleasePet" 158
+---@field ReleaseSmallCreature 159
+---@field [159] "ReleaseSmallCreature"
+---@field HandleSmallCreature 160
+---@field [160] "HandleSmallCreature"
+---@field HandleLargeCreature 161
+---@field [161] "HandleLargeCreature"
+---@field CageLargeCreature 162
+---@field [162] "CageLargeCreature"
+---@field CageSmallCreature 163
+---@field [163] "CageSmallCreature"
+---@field RecoverWounded 164
+---@field [164] "RecoverWounded"
+---@field DiagnosePatient 165
+---@field [165] "DiagnosePatient"
+---@field ImmobilizeBreak 166
+---@field [166] "ImmobilizeBreak"
+---@field DressWound 167
+---@field [167] "DressWound"
+---@field CleanPatient 168 168
+---@field [168] "CleanPatient" 168
+---@field Surgery 169
+---@field [169] "Surgery"
+---@field Suture 170
+---@field [170] "Suture"
+---@field SetBone 171
+---@field [171] "SetBone"
+---@field PlaceInTraction 172
+---@field [172] "PlaceInTraction"
+---@field DrainAquarium 173
+---@field [173] "DrainAquarium"
+---@field FillAquarium 174
+---@field [174] "FillAquarium"
+---@field FillPond 175
+---@field [175] "FillPond"
+---@field GiveWater 176
+---@field [176] "GiveWater"
+---@field GiveFood 177
+---@field [177] "GiveFood"
+---@field GiveWaterPet 178 178
+---@field [178] "GiveWaterPet" 178
+---@field GiveFoodPet 179
+---@field [179] "GiveFoodPet"
+---@field RecoverPet 180
+---@field [180] "RecoverPet"
+---@field PitLargeAnimal 181
+---@field [181] "PitLargeAnimal"
+---@field PitSmallAnimal 182
+---@field [182] "PitSmallAnimal"
+---@field SlaughterAnimal 183
+---@field [183] "SlaughterAnimal"
+---@field MakeCharcoal 184
+---@field [184] "MakeCharcoal"
+---@field MakeAsh 185
+---@field [185] "MakeAsh"
+---@field MakeLye 186
+---@field [186] "MakeLye"
+---@field MakePotashFromLye 187
+---@field [187] "MakePotashFromLye"
+---@field FertilizeField 188 188
+---@field [188] "FertilizeField" 188
+---@field MakePotashFromAsh 189
+---@field [189] "MakePotashFromAsh"
+---@field DyeThread 190
+---@field [190] "DyeThread"
+---@field DyeCloth 191
+---@field [191] "DyeCloth"
+---@field SewImage 192
+---@field [192] "SewImage"
+---@field MakePipeSection 193
+---@field [193] "MakePipeSection"
+---@field OperatePump 194
+---@field [194] "OperatePump"
+---@field ManageWorkOrders 195
+---@field [195] "ManageWorkOrders"
+---@field UpdateStockpileRecords 196
+---@field [196] "UpdateStockpileRecords"
+---@field TradeAtDepot 197
+---@field [197] "TradeAtDepot"
+---@field ConstructHatchCover 198 198
+---@field [198] "ConstructHatchCover" 198
+---@field ConstructGrate 199
+---@field [199] "ConstructGrate"
+---@field RemoveStairs 200
+---@field [200] "RemoveStairs"
+---@field ConstructQuern 201
+---@field [201] "ConstructQuern"
+---@field ConstructMillstone 202
+---@field [202] "ConstructMillstone"
+---@field ConstructSplint 203
+---@field [203] "ConstructSplint"
+---@field ConstructCrutch 204
+---@field [204] "ConstructCrutch"
+---@field ConstructTractionBench 205
+---@field [205] "ConstructTractionBench"
+---@field CleanSelf 206
+---@field [206] "CleanSelf"
+---@field BringCrutch 207
+---@field [207] "BringCrutch"
+---@field ApplyCast 208 208
+---@field [208] "ApplyCast" 208
+---@field CustomReaction 209
+---@field [209] "CustomReaction"
+---@field ConstructSlab 210
+---@field [210] "ConstructSlab"
+---@field EngraveSlab 211
+---@field [211] "EngraveSlab"
+---@field ShearCreature 212
+---@field [212] "ShearCreature"
+---@field SpinThread 213
+---@field [213] "SpinThread"
+---@field PenLargeAnimal 214
+---@field [214] "PenLargeAnimal"
+---@field PenSmallAnimal 215
+---@field [215] "PenSmallAnimal"
+---@field MakeTool 216
+---@field [216] "MakeTool"
+---@field CollectClay 217
+---@field [217] "CollectClay"
+---@field InstallColonyInHive 218 218
+---@field [218] "InstallColonyInHive" 218
+---@field CollectHiveProducts 219
+---@field [219] "CollectHiveProducts"
+---@field CauseTrouble 220
+---@field [220] "CauseTrouble"
+---@field DrinkBlood 221
+---@field [221] "DrinkBlood"
+---@field ReportCrime 222
+---@field [222] "ReportCrime"
+---@field ExecuteCriminal 223
+---@field [223] "ExecuteCriminal"
+---@field TrainAnimal 224
+---@field [224] "TrainAnimal"
+---@field CarveTrack 225
+---@field [225] "CarveTrack"
+---@field PushTrackVehicle 226
+---@field [226] "PushTrackVehicle"
+---@field PlaceTrackVehicle 227
+---@field [227] "PlaceTrackVehicle"
+---@field StoreItemInVehicle 228 228
+---@field [228] "StoreItemInVehicle" 228
+---@field GeldAnimal 229
+---@field [229] "GeldAnimal"
+---@field MakeFigurine 230
+---@field [230] "MakeFigurine"
+---@field MakeAmulet 231
+---@field [231] "MakeAmulet"
+---@field MakeScepter 232
+---@field [232] "MakeScepter"
+---@field MakeCrown 233
+---@field [233] "MakeCrown"
+---@field MakeRing 234
+---@field [234] "MakeRing"
+---@field MakeEarring 235
+---@field [235] "MakeEarring"
+---@field MakeBracelet 236
+---@field [236] "MakeBracelet"
+---@field MakeGem 237
+---@field [237] "MakeGem"
+---@field PutItemOnDisplay 238 238
+---@field [238] "PutItemOnDisplay" 238
+---@field HeistItem 239
+---@field [239] "HeistItem"
+---@field InterrogateSubject 240
+---@field [240] "InterrogateSubject"
+---@field AcceptHeistItem 241
+---@field [241] "AcceptHeistItem"
+df.job_type = {}
+
+---@class job_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.job_type._attr_entry_type = {}
+
+---@class (exact) job_type_attr_entry_type_fields
+---@field caption DFCompoundField bay12: JobType<br>Declare attributes:
+---@field type DFCompoundField
+---@field labor DFCompoundField
+---@field item DFCompoundField
+---@field possible_item DFCompoundField
+---@field material DFCompoundField
+---@field skill DFCompoundField
+---@field skill_stone DFCompoundField
+---@field skill_wood DFCompoundField
+---@field skill_metal DFCompoundField
+---@field is_designation DFCompoundField
+---@field tag_op_history DFCompoundField
+df.job_type._attr_entry_type._fields = {}
+
+---@class job_type_attrs
+---@field NONE { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CarveFortification { caption: "Carve Fortification", type: "Digging", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field SmoothWall { caption: "Smooth Wall", type: "Carving", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field SmoothFloor { caption: "Smooth Floor", type: "Carving", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field DetailWall { caption: "Detail Wall", type: "Carving", labor: "NONE", item: "NONE", skill: "ENGRAVE_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field DetailFloor { caption: "Detail Floor", type: "Carving", labor: "NONE", item: "NONE", skill: "ENGRAVE_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field Dig { caption: "Dig", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field CarveUpwardStaircase { caption: "Carve Upward Staircase", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field CarveDownwardStaircase { caption: "Carve Downward Staircase", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field CarveUpDownStaircase { caption: "Carve Up/Down Staircase", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field CarveRamp { caption: "Carve Ramp", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field DigChannel { caption: "Dig Channel", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field FellTree { caption: "Fell Tree", type: "Gathering", labor: "NONE", item: "WOOD", skill: "WOODCUTTING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field GatherPlants { caption: "Gather Plants", type: "Gathering", labor: "NONE", item: "PLANT", skill: "HERBALISM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field RemoveConstruction { caption: "Remove Construction", type: "Building", labor: "MINE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field CollectWebs { caption: "Collect Webs", type: "Gathering", labor: "NONE", item: "THREAD", material: "silk", skill: "WEAVING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field BringItemToDepot { caption: "Bring Item to Depot", type: "Hauling", labor: "HAUL_TRADE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field BringItemToShop { caption: "Bring Item to Shop", type: "Hauling", labor: "HAUL_ITEM", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Eat { caption: "Eat", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GetProvisions { caption: "Get Provisions", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Drink { caption: "Drink", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DrinkItem { caption: "Drink", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FillWaterskin { caption: "Fill Waterskin", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FillWaterskinItem { caption: "Fill Waterskin", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Sleep { caption: "Sleep", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CollectSand { caption: "Collect Sand", type: "Gathering", labor: "HAUL_ITEM", item: "POWDER_MISC", material: "sand", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Fish { caption: "Fish", type: "Gathering", labor: "NONE", item: "FISH_RAW", skill: "FISH", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Hunt { caption: "Hunt", type: "Gathering", labor: "NONE", item: "CORPSE", skill: "SNEAK", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field HuntVermin { caption: "Hunt for Small Creature", type: "Gathering", labor: "NONE", item: "REMAINS", skill: "TRAPPING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Kidnap { caption: "Kidnap", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field BeatCriminal { caption: "Beat Criminal", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StartingFistFight { caption: "Starting Fist Fight", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CollectTaxes { caption: "Collect Taxes", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GuardTaxCollector { caption: "Guard Tax Collector", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CatchLiveLandAnimal { caption: "Catch Live Land Animal", type: "Gathering", labor: "NONE", item: "VERMIN", skill: "TRAPPING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CatchLiveFish { caption: "Catch Live Fish", type: "Gathering", labor: "NONE", item: "VERMIN", skill: "FISH", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ReturnKill { caption: "Return Kill", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreOwnedItem { caption: "Store Owned Item", type: "TidyUp", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PlaceItemInTomb { caption: "Place Item in Tomb", type: "Hauling", labor: "HAUL_BODY", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreItemInStockpile { caption: "Store Item in Stockpile", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreItemInBag { caption: "Store Item in Bag", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreItemInLocation { caption: "Store Item In Location", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreWeapon { caption: "Store Weapon", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreArmor { caption: "Store Armor", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreItemInBarrel { caption: "Store Item in Barrel", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreItemInBin { caption: "Store Item in Bin", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field SeekArtifact { caption: "Seek Artifact", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field SeekInfant { caption: "Seek Infant", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GoShopping { caption: "Go Shopping", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GoShoppingSpecific { caption: "Go Shopping", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Clean { caption: "Clean", type: "TidyUp", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Rest { caption: "Rest", type: "Leisure", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PickupEquipment { caption: "Pickup Equipment", type: "LifeSupport", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DumpItem { caption: "Dump Item", type: "Hauling", labor: "HAUL_REFUSE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodCrafter { caption: "Strange Mood (Crafter)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodJeweller { caption: "Strange Mood (Jeweller)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodForge { caption: "Strange Mood (Forge)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodMagmaForge { caption: "Strange Mood (Magma Forge)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodBrooding { caption: "Strange Mood (Brooding)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodFell { caption: "Strange Mood (Fell)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodCarpenter { caption: "Strange Mood (Carpenter)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodMason { caption: "Strange Mood (Mason)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodBowyer { caption: "Strange Mood (Bowyer)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodTanner { caption: "Strange Mood (Leather)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodWeaver { caption: "Strange Mood (Clothier)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodGlassmaker { caption: "Strange Mood (Glassmaker)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StrangeMoodMechanics { caption: "Strange Mood (Mechanics)", type: "StrangeMood", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBuilding { caption: "Construct Building", type: "Building", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructDoor { caption: "Construct Door", type: "Manufacture", labor: "NONE", item: "DOOR", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructFloodgate { caption: "Construct Floodgate", type: "Manufacture", labor: "NONE", item: "FLOODGATE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBed { caption: "Construct Bed", type: "Manufacture", labor: "NONE", item: "BED", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructThrone { caption: "Construct Throne", type: "Manufacture", labor: "NONE", item: "CHAIR", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructCoffin { caption: "Construct Coffin", type: "Manufacture", labor: "NONE", item: "COFFIN", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructTable { caption: "Construct Table", type: "Manufacture", labor: "NONE", item: "TABLE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructChest { caption: "Construct Chest", type: "Manufacture", labor: "NONE", item: "BOX", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBag { caption: "Construct Bag", type: "Manufacture", labor: "NONE", item: "BAG", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBin { caption: "Construct Bin", type: "Manufacture", labor: "NONE", item: "BIN", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructArmorStand { caption: "Construct Armor Stand", type: "Manufacture", labor: "NONE", item: "ARMORSTAND", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructWeaponRack { caption: "Construct Weapon Rack", type: "Manufacture", labor: "NONE", item: "WEAPONRACK", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructCabinet { caption: "Construct Cabinet", type: "Manufacture", labor: "NONE", item: "CABINET", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructStatue { caption: "Construct Statue", type: "Manufacture", labor: "NONE", item: "STATUE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBlocks { caption: "Construct Blocks", type: "Manufacture", labor: "NONE", item: "BLOCKS", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeRawGlass { caption: "Make Raw Glass", type: "Manufacture", labor: "NONE", item: "ROUGH", skill: "GLASSMAKER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeCrafts { caption: "Make Crafts", type: "Manufacture", labor: "NONE", item: "NONE", possible_item: "FIGURINE", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MintCoins { caption: "Mint Coins", type: "Manufacture", labor: "NONE", item: "COIN", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field CutGems { caption: "Cut Gems", type: "Manufacture", labor: "NONE", item: "SMALLGEM", skill: "CUTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CutGlass { caption: "Cut Glass", type: "Manufacture", labor: "NONE", item: "SMALLGEM", skill: "CUTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field EncrustWithGems { caption: "Encrust With Gems", type: "Improvement", labor: "NONE", item: "NONE", skill: "ENCRUSTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field EncrustWithGlass { caption: "Encrust With Glass", type: "Improvement", labor: "NONE", item: "NONE", skill: "ENCRUSTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DestroyBuilding { caption: "Destroy Building", type: "Building", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field SmeltOre { caption: "Smelt Ore", type: "Manufacture", labor: "NONE", item: "BAR", skill: "SMELT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MeltMetalObject { caption: "Melt a Metal Object", type: "Manufacture", labor: "NONE", item: "BAR", material: "metal", skill: "SMELT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ExtractMetalStrands { caption: "Extract Metal Strands", type: "Manufacture", labor: "NONE", item: "THREAD", skill: "EXTRACT_STRAND", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PlantSeeds { caption: "Plant Seeds", type: "Gathering", labor: "NONE", item: "NONE", skill: "PLANT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field HarvestPlants { caption: "Harvest Plants", type: "Gathering", labor: "NONE", item: "PLANT", skill: "PLANT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field TrainHuntingAnimal { caption: "Train Hunting Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "ANIMALTRAIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field TrainWarAnimal { caption: "Train War Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "ANIMALTRAIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeWeapon { caption: "Forge Weapon", type: "Manufacture", labor: "NONE", item: "WEAPON", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_WEAPON", is_designation: "false" }
+---@field ForgeAnvil { caption: "Forge Anvil", type: "Manufacture", labor: "NONE", item: "ANVIL", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructCatapultParts { caption: "Construct Catapult Parts", type: "Manufacture", labor: "NONE", item: "CATAPULTPARTS", skill: "SIEGECRAFT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBallistaParts { caption: "Construct Ballista Parts", type: "Manufacture", labor: "NONE", item: "BALLISTAPARTS", skill: "SIEGECRAFT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeArmor { caption: "Make Armor", type: "Manufacture", labor: "NONE", item: "ARMOR", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_ARMOR", is_designation: "false" }
+---@field MakeHelm { caption: "Forge Helm", type: "Manufacture", labor: "NONE", item: "HELM", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_ARMOR", is_designation: "false" }
+---@field MakePants { caption: "Make Pants", type: "Manufacture", labor: "NONE", item: "PANTS", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_ARMOR", is_designation: "false" }
+---@field StudWith { caption: "Stud With", type: "Improvement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ButcherAnimal { caption: "Butcher an Animal", type: "Manufacture", labor: "NONE", item: "NONE", possible_item: "MEAT", skill: "BUTCHER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PrepareRawFish { caption: "Prepare a Raw Fish", type: "Manufacture", labor: "NONE", item: "FISH", skill: "PROCESSFISH", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MillPlants { caption: "Mill Plants", type: "Manufacture", labor: "NONE", item: "POWDER_MISC", skill: "MILLING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field BaitTrap { caption: "Bait Trap", type: "Hauling", labor: "NONE", item: "NONE", skill: "TRAPPING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MilkCreature { caption: "Milk Creature", type: "Gathering", labor: "NONE", item: "LIQUID_MISC", material: "milk", skill: "MILK", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeCheese { caption: "Make Cheese", type: "Manufacture", labor: "NONE", item: "CHEESE", skill: "CHEESEMAKING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ProcessPlants { caption: "Process Plants", type: "Manufacture", labor: "NONE", item: "THREAD", skill: "PROCESSPLANTS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PolishStones { caption: "Cut Gems", type: "Manufacture", labor: "NONE", item: "SMALLGEM", skill: "CUTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ProcessPlantsVial { caption: "Process Plants (Vial)", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "PROCESSPLANTS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ProcessPlantsBarrel { caption: "Process Plants (Barrel)", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "PROCESSPLANTS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PrepareMeal { caption: "Prepare Meal", type: "Manufacture", labor: "NONE", item: "FOOD", skill: "COOK", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field WeaveCloth { caption: "Weave Cloth", type: "Manufacture", labor: "NONE", item: "CLOTH", skill: "WEAVING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeGloves { caption: "Make Gloves", type: "Manufacture", labor: "NONE", item: "GLOVES", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_ARMOR", is_designation: "false" }
+---@field MakeShoes { caption: "Make Shoes", type: "Manufacture", labor: "NONE", item: "SHOES", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_ARMOR", is_designation: "false" }
+---@field MakeShield { caption: "Make Shield", type: "Misc", labor: "NONE", item: "SHIELD", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_ARMOR", is_designation: "false" }
+---@field MakeCage { caption: "Make Cage", type: "Manufacture", labor: "NONE", item: "CAGE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeChain { caption: "Make Chain", type: "Manufacture", labor: "NONE", item: "CHAIN", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeFlask { caption: "Make Flask", type: "Manufacture", labor: "NONE", item: "FLASK", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeGoblet { caption: "Make Goblet", type: "Manufacture", labor: "NONE", item: "GOBLET", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeToy { caption: "Make Toy", type: "Manufacture", labor: "NONE", item: "TOY", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeAnimalTrap { caption: "Make Animal Trap", type: "Manufacture", labor: "NONE", item: "ANIMALTRAP", skill: "TRAPPING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeBarrel { caption: "Make Barrel", type: "Manufacture", labor: "NONE", item: "BARREL", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeBucket { caption: "Make Bucket", type: "Manufacture", labor: "NONE", item: "BUCKET", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeWindow { caption: "Make Window", type: "Manufacture", labor: "NONE", item: "WINDOW", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeTotem { caption: "Make Totem", type: "Manufacture", labor: "NONE", item: "TOTEM", skill: "BONECARVE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeAmmo { caption: "Make Ammo", type: "Manufacture", labor: "NONE", item: "AMMO", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "FORGE_WEAPON", is_designation: "false" }
+---@field DecorateWith { caption: "Decorate With", type: "Improvement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeBackpack { caption: "Make Backpack", type: "Manufacture", labor: "NONE", item: "BACKPACK", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeQuiver { caption: "Make Quiver", type: "Manufacture", labor: "NONE", item: "QUIVER", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeBallistaArrowHead { caption: "Make Ballista Arrow Head", type: "Manufacture", labor: "NONE", item: "BALLISTAARROWHEAD", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_WEAPON", is_designation: "false" }
+---@field AssembleSiegeAmmo { caption: "Assemble Siege Ammo", type: "Manufacture", labor: "NONE", item: "SIEGEAMMO", skill: "SIEGECRAFT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field LoadCatapult { caption: "Load Catapult", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field LoadBallista { caption: "Load Ballista", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FireCatapult { caption: "Fire Catapult", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FireBallista { caption: "Fire Ballista", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructMechanisms { caption: "Construct Mechanisms", type: "Manufacture", labor: "NONE", item: "TRAPPARTS", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeTrapComponent { caption: "MakeTrapComponent", type: "Manufacture", labor: "NONE", item: "TRAPCOMP", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "FORGE_WEAPON", is_designation: "false" }
+---@field LoadCageTrap { caption: "Load Cage Trap", type: "Hauling", labor: "NONE", item: "NONE", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field LoadStoneTrap { caption: "Load Stone Trap", type: "Hauling", labor: "NONE", item: "NONE", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field LoadWeaponTrap { caption: "Load Weapon Trap", type: "Hauling", labor: "NONE", item: "NONE", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CleanTrap { caption: "Clean Trap", type: "TidyUp", labor: "NONE", item: "NONE", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field EncrustWithStones { caption: "Encrust With Stones", type: "Improvement", labor: "NONE", item: "NONE", skill: "ENCRUSTGEM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field LinkBuildingToTrigger { caption: "Link a Building to Trigger", type: "Building", labor: "NONE", item: "NONE", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PullLever { caption: "Pull the Lever", type: "Misc", labor: "PULL_LEVER", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ExtractFromPlants { caption: "Extract from Plants", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "HERBALISM", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ExtractFromRawFish { caption: "Extract from Raw Fish", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "DISSECT_FISH", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ExtractFromLandAnimal { caption: "Extract from Land Animal", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", skill: "DISSECT_VERMIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field TameVermin { caption: "Tame Small Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "ANIMALTRAIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field TameAnimal { caption: "Tame ?something?", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "ANIMALTRAIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ChainAnimal { caption: "Chain Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UnchainAnimal { caption: "Unchain Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UnchainPet { caption: "Unchain Pet", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ReleaseLargeCreature { caption: "Release Large Creature", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ReleasePet { caption: "Release Pet", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ReleaseSmallCreature { caption: "Release Small Creature", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field HandleSmallCreature { caption: "Handle Small Creature", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field HandleLargeCreature { caption: "Handle Large Creature", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CageLargeCreature { caption: "Cage Large Creature", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CageSmallCreature { caption: "Cage Small Creature", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field RecoverWounded { caption: "Recover Wounded", type: "Hauling", labor: "RECOVER_WOUNDED", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false", tag_op_history: "bed_id" }
+---@field DiagnosePatient { caption: "Diagnose Patient", type: "Medicine", labor: "NONE", item: "NONE", skill: "DIAGNOSE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ImmobilizeBreak { caption: "Immobilize Break", type: "Medicine", labor: "NONE", item: "NONE", skill: "SET_BONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DressWound { caption: "Dress Wound", type: "Medicine", labor: "NONE", item: "NONE", skill: "DRESS_WOUNDS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false", tag_op_history: "bandage" }
+---@field CleanPatient { caption: "Clean Patient", type: "Medicine", labor: "CLEAN", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field Surgery { caption: "Surgery", type: "Medicine", labor: "NONE", item: "NONE", skill: "SURGERY", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false", tag_op_history: "surgery" }
+---@field Suture { caption: "Suture", type: "Medicine", labor: "NONE", item: "NONE", skill: "SUTURE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false", tag_op_history: "bandage" }
+---@field SetBone { caption: "Set Bone", type: "Medicine", labor: "NONE", item: "NONE", skill: "SET_BONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PlaceInTraction { caption: "Place In Traction", type: "Medicine", labor: "NONE", item: "NONE", skill: "SET_BONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DrainAquarium { caption: "Drain Aquarium", type: "Hauling", labor: "HAUL_WATER", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FillAquarium { caption: "Fill Aquarium", type: "Hauling", labor: "HAUL_WATER", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FillPond { caption: "Fill Pond", type: "Hauling", labor: "HAUL_WATER", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GiveWater { caption: "Give Water", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GiveFood { caption: "Give Food", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GiveWaterPet { caption: "Give Water", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GiveFoodPet { caption: "Give Food", type: "LifeSupport", labor: "FEED_WATER_CIVILIANS", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field RecoverPet { caption: "Recover Pet", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PitLargeAnimal { caption: "Pit/Pond Large Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PitSmallAnimal { caption: "Pit/Pond Small Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field SlaughterAnimal { caption: "Slaughter Animal", type: "Gathering", labor: "NONE", item: "NONE", possible_item: "MEAT", skill: "BUTCHER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeCharcoal { caption: "Make Charcoal", type: "Manufacture", labor: "NONE", item: "BAR", material: "COAL", skill: "WOOD_BURNING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeAsh { caption: "Make Ash", type: "Manufacture", labor: "NONE", item: "BAR", material: "ASH", skill: "WOOD_BURNING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeLye { caption: "Make Lye", type: "Manufacture", labor: "NONE", item: "LIQUID_MISC", material: "LYE", skill: "LYE_MAKING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakePotashFromLye { caption: "Make Potash From Lye", type: "Manufacture", labor: "NONE", item: "BAR", material: "POTASH", skill: "POTASH_MAKING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FertilizeField { caption: "Fertilize Field", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakePotashFromAsh { caption: "Make Potash From Ash", type: "Manufacture", labor: "NONE", item: "BAR", material: "POTASH", skill: "POTASH_MAKING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DyeThread { caption: "Dye Thread", type: "Improvement", labor: "NONE", item: "NONE", skill: "DYER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DyeCloth { caption: "Dye Cloth", type: "Improvement", labor: "NONE", item: "NONE", skill: "DYER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field SewImage { caption: "Sew Image", type: "Improvement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakePipeSection { caption: "Make Pipe Section", type: "Manufacture", labor: "NONE", item: "PIPE_SECTION", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field OperatePump { caption: "Operate Pump", type: "Misc", labor: "NONE", item: "NONE", skill: "OPERATE_PUMP", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ManageWorkOrders { caption: "Manage Work Orders", type: "Misc", labor: "NONE", item: "NONE", skill: "ORGANIZATION", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UpdateStockpileRecords { caption: "Update Stockpile Records", type: "Misc", labor: "NONE", item: "NONE", skill: "RECORD_KEEPING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field TradeAtDepot { caption: "Trade at Depot", type: "Misc", labor: "NONE", item: "NONE", skill: "APPRAISAL", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructHatchCover { caption: "Construct Hatch Cover", type: "Manufacture", labor: "NONE", item: "HATCH_COVER", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructGrate { caption: "Construct Grate", type: "Manufacture", labor: "NONE", item: "GRATE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field RemoveStairs { caption: "Remove Stairs/Ramps", type: "Digging", labor: "NONE", item: "NONE", skill: "MINING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "true" }
+---@field ConstructQuern { caption: "Construct Quern", type: "Manufacture", labor: "NONE", item: "QUERN", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructMillstone { caption: "Construct Millstone", type: "Manufacture", labor: "NONE", item: "MILLSTONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructSplint { caption: "Construct Splint", type: "Manufacture", labor: "NONE", item: "SPLINT", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructCrutch { caption: "Construct Crutch", type: "Manufacture", labor: "NONE", item: "CRUTCH", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructTractionBench { caption: "Construct Traction Bench", type: "Manufacture", labor: "NONE", item: "TRACTION_BENCH", skill: "MECHANICS", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CleanSelf { caption: "Clean Self", type: "TidyUp", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field BringCrutch { caption: "Bring Crutch", type: "Medicine", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false", tag_op_history: "crutch" }
+---@field ApplyCast { caption: "Apply Cast", type: "Medicine", labor: "NONE", item: "NONE", skill: "SET_BONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CustomReaction { caption: "Custom Reaction", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructSlab { caption: "Construct Slab", type: "Manufacture", labor: "NONE", item: "SLAB", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field EngraveSlab { caption: "Engrave Memorial Slab", type: "Improvement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ShearCreature { caption: "Shear Creature", type: "Gathering", labor: "NONE", item: "CORPSEPIECE", material: "yarn", skill: "SHEARING", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field SpinThread { caption: "Spin Thread", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PenLargeAnimal { caption: "Pen/Pasture Large Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PenSmallAnimal { caption: "Pen/Pasture Small Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeTool { caption: "Make Tool", type: "Manufacture", labor: "NONE", item: "TOOL", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "NONE", is_designation: "false" }
+---@field CollectClay { caption: "Collect Clay", type: "Gathering", labor: "NONE", item: "BOULDER", material: "clay", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field InstallColonyInHive { caption: "Install Colony In Hive", type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CollectHiveProducts { caption: "Collect Hive Products", type: "Gathering", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CauseTrouble { caption: "Cause Trouble", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DrinkBlood { caption: "No Job", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ReportCrime { caption: "Report Crime", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ExecuteCriminal { caption: "Execute Criminal", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field TrainAnimal { caption: "Train Animal", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "ANIMALTRAIN", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field CarveTrack { caption: "Carve Track", type: "Carving", labor: "NONE", item: "NONE", skill: "CUT_STONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PushTrackVehicle { caption: "Push Track Vehicle", type: "Hauling", labor: "HANDLE_VEHICLES", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field PlaceTrackVehicle { caption: "Place Track Vehicle", type: "Hauling", labor: "HANDLE_VEHICLES", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreItemInVehicle { caption: "Store Item in Vehicle", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field GeldAnimal { caption: "Geld ?something?", type: "UnitHandling", labor: "NONE", item: "NONE", skill: "GELD", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MakeFigurine { caption: "Make Figurine", type: "Manufacture", labor: "NONE", item: "FIGURINE", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeAmulet { caption: "Make Amulet", type: "Manufacture", labor: "NONE", item: "AMULET", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeScepter { caption: "Make Scepter", type: "Manufacture", labor: "NONE", item: "SCEPTER", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeCrown { caption: "Make Crown", type: "Manufacture", labor: "NONE", item: "CROWN", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeRing { caption: "Make Ring", type: "Manufacture", labor: "NONE", item: "RING", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeEarring { caption: "Make Earring", type: "Manufacture", labor: "NONE", item: "EARRING", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeBracelet { caption: "Make Bracelet", type: "Manufacture", labor: "NONE", item: "BRACELET", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field MakeGem { caption: "Make Large Gem", type: "Manufacture", labor: "NONE", item: "GEM", skill: "NONE", skill_stone: "STONECRAFT", skill_wood: "WOODCRAFT", skill_metal: "METALCRAFT", is_designation: "false" }
+---@field PutItemOnDisplay { caption: "Put Item on Display", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field HeistItem { caption: "No Job", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field InterrogateSubject { caption: "Interrogate Subject", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field AcceptHeistItem { caption: "No Activity", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+df.job_type.attrs = {}
+
+---@class df.job_flags: DFBitfield
+---@field _enum identity.job_flags
+---@field ["repeat"] boolean bay12: JOBFLAG_*
+---@field [0] boolean bay12: JOBFLAG_*
+---@field suspend boolean
+---@field [1] boolean
+---@field working boolean not for food, or store in sp
+---@field [2] boolean not for food, or store in sp
+---@field fetching boolean Actually going out to bring; corresponds to items->is_fetching
+---@field [3] boolean Actually going out to bring; corresponds to items->is_fetching
+---@field special boolean bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] boolean bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing boolean bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] boolean bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost boolean bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field [6] boolean bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field noise boolean bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field [7] boolean bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field by_manager boolean --
+---@field [9] boolean --
+---@field store_item boolean bay12: ITEMSOURCE
+---@field [10] boolean bay12: ITEMSOURCE
+---@field quality boolean bay12: BONUS; set by improvement code
+---@field [11] boolean bay12: BONUS; set by improvement code
+---@field non_fluid boolean
+---@field [14] boolean
+---@field could_not_find_building_use_1 boolean
+---@field [15] boolean
+---@field on_break boolean bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field [16] boolean bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field dessource boolean created from designation
+---@field [17] boolean created from designation
+---@field do_now boolean bay12: DO_ME_NOW
+---@field [18] boolean bay12: DO_ME_NOW
+
+---@class identity.job_flags: DFBitfieldType
+---@field ["repeat"] 0 bay12: JOBFLAG_*
+---@field [0] "repeat" bay12: JOBFLAG_*
+---@field suspend 1
+---@field [1] "suspend"
+---@field working 2 not for food, or store in sp
+---@field [2] "working" not for food, or store in sp
+---@field fetching 3 Actually going out to bring; corresponds to items->is_fetching
+---@field [3] "fetching" Actually going out to bring; corresponds to items->is_fetching
+---@field special 4 bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] "special" bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing 5 bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] "bringing" bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost 6 bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field [6] "item_lost" bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field noise 7 bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field [7] "noise" bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field by_manager 9 --
+---@field [9] "by_manager" --
+---@field store_item 10 bay12: ITEMSOURCE
+---@field [10] "store_item" bay12: ITEMSOURCE
+---@field quality 11 bay12: BONUS; set by improvement code
+---@field [11] "quality" bay12: BONUS; set by improvement code
+---@field non_fluid 14
+---@field [14] "non_fluid"
+---@field could_not_find_building_use_1 15
+---@field [15] "could_not_find_building_use_1"
+---@field on_break 16 bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field [16] "on_break" bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field dessource 17 created from designation
+---@field [17] "dessource" created from designation
+---@field do_now 18 bay12: DO_ME_NOW
+---@field [18] "do_now" bay12: DO_ME_NOW
+df.job_flags = {}
+
+---@alias df.killjob_exception_type
+---| 0 # CANNOT_REACH_SITE
+---| 1 # INTERRUPTED
+---| 2 # MOVED
+---| 3 # NEED_EMPTY_BUCKET
+---| 4 # NEED_EMPTY_TRAP
+---| 5 # NEED_EMPTY_BAG
+---| 6 # NEED_EMPTY_CAGE
+---| 7 # INCAPABLE_OF_CARRYING
+---| 8 # TOO_INJURED
+---| 9 # EXHAUSTED
+---| 10 # ANIMAL_INACCESSIBLE
+---| 11 # ITEM_INACCESSIBLE
+---| 12 # PATIENT_INACCESSIBLE
+---| 13 # INFANT_INACCESSIBLE
+---| 14 # NO_PARTNER
+---| 15 # NOTHING_IN_CAGE
+---| 16 # NOTHING_TO_CAGE
+---| 17 # NOTHING_TO_CATCH
+---| 18 # NO_PATIENT
+---| 19 # PATIENT_NOT_RESTING
+---| 20 # NO_INFANT
+---| 21 # ALREADY_LEADING_CREATURE
+---| 22 # NO_FOOD_AVAILABLE
+---| 23 # NEEDS_SPECIFIC_ITEM
+---| 24 # NO_ITEM
+---| 25 # NO_AMMUNITION
+---| 26 # NO_WEAPON
+---| 27 # WRONG_AMMUNITION
+---| 28 # AMMUNITION_INACCESSIBLE
+---| 29 # ITEM_BLOCKING_SITE
+---| 30 # ANIMAL_NOT_RESTRAINED
+---| 31 # NO_CREATURE
+---| 32 # NO_BUILDING
+---| 33 # INAPPROPRIATE_BUILDING
+---| 34 # NO_DESIGNATED_AREA
+---| 35 # NO_FLOOR_SPACE
+---| 36 # NO_PARTY
+---| 37 # WRONG_JUSTICE_STATE
+---| 38 # NOTHING_IN_BUILDING
+---| 39 # RELIEVED
+---| 40 # WATER_IS_FROZEN
+---| 41 # TOO_INSANE
+---| 42 # TAKEN_BY_MOOD
+---| 43 # WENT_INSANE
+---| 44 # THROWING_TANTRUM
+---| 45 # COULD_NOT_FIND_PATH
+---| 46 # PATH_BLOCKED
+---| 47 # SEEKING_ARTIFACT
+---| 48 # HANDLING_DANGEROUS_CREATURE
+---| 49 # GOING_TO_BED
+---| 50 # SEEKING_INFANT
+---| 51 # DANGEROUS_TERRAIN
+---| 52 # JOB_ITEM_LOST
+---| 53 # GETTING_FOOD
+---| 54 # GETTING_WATER
+---| 55 # HUNTING_VERMIN_FOR_FOOD
+---| 56 # TARGET_INACCESSIBLE
+---| 57 # NO_TARGET
+---| 58 # NO_MECHANISM_FOR_TARGET
+---| 59 # NO_TARGET_BUILDING
+---| 60 # NO_MECHANISM_FOR_TRIGGER
+---| 61 # NO_TRIGGER
+---| 62 # NO_AVAILABLE_TRACTION_BENCH
+---| 63 # ATTACKING_BUILDING
+---| 64 # LOST_PICK
+---| 65 # INVALID_OFFICER
+---| 66 # FAREWELL
+---| 67 # REMOVED_FROM_GUARD
+---| 68 # EQUIPMENT_MISMATCH
+---| 69 # UNCONSCIOUS
+---| 70 # WEBBED
+---| 71 # PARALYZED
+---| 72 # CAGED
+---| 73 # GETTING_DRINK
+---| 74 # USING_WELL
+---| 75 # LOST_AXE
+---| 76 # RESTING_INJURY
+---| 77 # UNSCHEDULED
+---| 78 # FORBIDDEN_AREA
+---| 79 # DROFOFF_INACCESSIBLE
+---| 80 # BUILDING_INACCESSIBLE
+---| 81 # AREA_INACCESSIBLE
+---| 82 # WATER_SOURCE_VANISHED
+---| 83 # NO_WATER_SOURCE
+---| 84 # NO_BUCKET_AT_WELL
+---| 85 # BUCKET_NOT_EMPTY
+---| 86 # WELL_DRY
+---| 87 # BUILDING_SITE_SUBMERGED
+---| 88 # NEED_SAND_COLLECTION_ZONE
+---| 89 # SAND_VANISHED
+---| 90 # AREA_BECAME_INAPPROPRIATE
+---| 91 # WATER_SOURCE_CONTAMINATED
+---| 92 # CREATURE_OCCUPYING_SITE
+---| 93 # NEED_OFFICE
+---| 94 # NOT_RESPONSIBLE_FOR_TRADE
+---| 95 # INAPPROPRIATE_DIG_SQUARE
+---| 96 # TARGET_TOO_INJURED
+---| 97 # GETTING_MARRIED
+---| 98 # NEED_SPLINT
+---| 99 # NEED_THREAD
+---| 100 # NEED_CLOTH
+---| 101 # NEED_CRUTCH
+---| 102 # BAD_SCRIPT_1
+---| 103 # BAD_SCRIPT_2
+---| 104 # BAD_SCRIPT_3
+---| 105 # NEED_CAST_POWDER_BAG
+---| 106 # NO_WEAPON_2
+---| 107 # NO_APPROPRIATE_AMMUNITION
+---| 108 # CLAY_VANISHED
+---| 109 # NEED_CLAY_COLLECTION_ZONE
+---| 110 # NO_COLONY
+---| 111 # REPORTING_CRIME
+---| 112 # NO_WEAPON_FOR_EXECUTION
+---| 113 # NOT_APPOINTED
+---| 114 # TRAINING_MISMATCH
+---| 115 # MORTALLY_AFRAID
+---| 116 # EMOTIONAL_SHOCK
+---| 117 # HORRIFIED
+---| 118 # GRIEVING
+---| 119 # TERRIFIED
+---| 120 # IN_CUSTODY
+---| 121 # TOO_DEPRESSED
+---| 122 # OBLIVIOUS
+---| 123 # CATATONIC
+---| 124 # TOO_SAD
+---| 125 # IN_AGONY
+---| 126 # ANGUISHED
+---| 127 # DESPAIRING
+---| 128 # DISMAYED
+---| 129 # DISTRESSED
+---| 130 # FRIGHTENED
+---| 131 # MISERABLE
+---| 132 # MORTIFIED
+---| 133 # SHAKEN
+---| 134 # IN_EXISTENTIAL_CRISIS
+---| 135 # NEEDS_SPECIFIC_ITEM_LINKED_STOCKPILE
+
+---@class identity.killjob_exception_type: DFEnumType
+---@field CANNOT_REACH_SITE 0 bay12: KillJobExceptionType
+---@field [0] "CANNOT_REACH_SITE" bay12: KillJobExceptionType
+---@field INTERRUPTED 1
+---@field [1] "INTERRUPTED"
+---@field MOVED 2
+---@field [2] "MOVED"
+---@field NEED_EMPTY_BUCKET 3
+---@field [3] "NEED_EMPTY_BUCKET"
+---@field NEED_EMPTY_TRAP 4
+---@field [4] "NEED_EMPTY_TRAP"
+---@field NEED_EMPTY_BAG 5
+---@field [5] "NEED_EMPTY_BAG"
+---@field NEED_EMPTY_CAGE 6
+---@field [6] "NEED_EMPTY_CAGE"
+---@field INCAPABLE_OF_CARRYING 7
+---@field [7] "INCAPABLE_OF_CARRYING"
+---@field TOO_INJURED 8
+---@field [8] "TOO_INJURED"
+---@field EXHAUSTED 9
+---@field [9] "EXHAUSTED"
+---@field ANIMAL_INACCESSIBLE 10
+---@field [10] "ANIMAL_INACCESSIBLE"
+---@field ITEM_INACCESSIBLE 11
+---@field [11] "ITEM_INACCESSIBLE"
+---@field PATIENT_INACCESSIBLE 12
+---@field [12] "PATIENT_INACCESSIBLE"
+---@field INFANT_INACCESSIBLE 13
+---@field [13] "INFANT_INACCESSIBLE"
+---@field NO_PARTNER 14
+---@field [14] "NO_PARTNER"
+---@field NOTHING_IN_CAGE 15
+---@field [15] "NOTHING_IN_CAGE"
+---@field NOTHING_TO_CAGE 16
+---@field [16] "NOTHING_TO_CAGE"
+---@field NOTHING_TO_CATCH 17
+---@field [17] "NOTHING_TO_CATCH"
+---@field NO_PATIENT 18
+---@field [18] "NO_PATIENT"
+---@field PATIENT_NOT_RESTING 19
+---@field [19] "PATIENT_NOT_RESTING"
+---@field NO_INFANT 20
+---@field [20] "NO_INFANT"
+---@field ALREADY_LEADING_CREATURE 21
+---@field [21] "ALREADY_LEADING_CREATURE"
+---@field NO_FOOD_AVAILABLE 22
+---@field [22] "NO_FOOD_AVAILABLE"
+---@field NEEDS_SPECIFIC_ITEM 23
+---@field [23] "NEEDS_SPECIFIC_ITEM"
+---@field NO_ITEM 24
+---@field [24] "NO_ITEM"
+---@field NO_AMMUNITION 25
+---@field [25] "NO_AMMUNITION"
+---@field NO_WEAPON 26
+---@field [26] "NO_WEAPON"
+---@field WRONG_AMMUNITION 27
+---@field [27] "WRONG_AMMUNITION"
+---@field AMMUNITION_INACCESSIBLE 28
+---@field [28] "AMMUNITION_INACCESSIBLE"
+---@field ITEM_BLOCKING_SITE 29
+---@field [29] "ITEM_BLOCKING_SITE"
+---@field ANIMAL_NOT_RESTRAINED 30
+---@field [30] "ANIMAL_NOT_RESTRAINED"
+---@field NO_CREATURE 31
+---@field [31] "NO_CREATURE"
+---@field NO_BUILDING 32
+---@field [32] "NO_BUILDING"
+---@field INAPPROPRIATE_BUILDING 33
+---@field [33] "INAPPROPRIATE_BUILDING"
+---@field NO_DESIGNATED_AREA 34
+---@field [34] "NO_DESIGNATED_AREA"
+---@field NO_FLOOR_SPACE 35
+---@field [35] "NO_FLOOR_SPACE"
+---@field NO_PARTY 36
+---@field [36] "NO_PARTY"
+---@field WRONG_JUSTICE_STATE 37
+---@field [37] "WRONG_JUSTICE_STATE"
+---@field NOTHING_IN_BUILDING 38
+---@field [38] "NOTHING_IN_BUILDING"
+---@field RELIEVED 39
+---@field [39] "RELIEVED"
+---@field WATER_IS_FROZEN 40
+---@field [40] "WATER_IS_FROZEN"
+---@field TOO_INSANE 41
+---@field [41] "TOO_INSANE"
+---@field TAKEN_BY_MOOD 42
+---@field [42] "TAKEN_BY_MOOD"
+---@field WENT_INSANE 43
+---@field [43] "WENT_INSANE"
+---@field THROWING_TANTRUM 44
+---@field [44] "THROWING_TANTRUM"
+---@field COULD_NOT_FIND_PATH 45
+---@field [45] "COULD_NOT_FIND_PATH"
+---@field PATH_BLOCKED 46
+---@field [46] "PATH_BLOCKED"
+---@field SEEKING_ARTIFACT 47
+---@field [47] "SEEKING_ARTIFACT"
+---@field HANDLING_DANGEROUS_CREATURE 48
+---@field [48] "HANDLING_DANGEROUS_CREATURE"
+---@field GOING_TO_BED 49
+---@field [49] "GOING_TO_BED"
+---@field SEEKING_INFANT 50
+---@field [50] "SEEKING_INFANT"
+---@field DANGEROUS_TERRAIN 51
+---@field [51] "DANGEROUS_TERRAIN"
+---@field JOB_ITEM_LOST 52
+---@field [52] "JOB_ITEM_LOST"
+---@field GETTING_FOOD 53
+---@field [53] "GETTING_FOOD"
+---@field GETTING_WATER 54
+---@field [54] "GETTING_WATER"
+---@field HUNTING_VERMIN_FOR_FOOD 55
+---@field [55] "HUNTING_VERMIN_FOR_FOOD"
+---@field TARGET_INACCESSIBLE 56
+---@field [56] "TARGET_INACCESSIBLE"
+---@field NO_TARGET 57
+---@field [57] "NO_TARGET"
+---@field NO_MECHANISM_FOR_TARGET 58
+---@field [58] "NO_MECHANISM_FOR_TARGET"
+---@field NO_TARGET_BUILDING 59
+---@field [59] "NO_TARGET_BUILDING"
+---@field NO_MECHANISM_FOR_TRIGGER 60
+---@field [60] "NO_MECHANISM_FOR_TRIGGER"
+---@field NO_TRIGGER 61
+---@field [61] "NO_TRIGGER"
+---@field NO_AVAILABLE_TRACTION_BENCH 62
+---@field [62] "NO_AVAILABLE_TRACTION_BENCH"
+---@field ATTACKING_BUILDING 63
+---@field [63] "ATTACKING_BUILDING"
+---@field LOST_PICK 64
+---@field [64] "LOST_PICK"
+---@field INVALID_OFFICER 65
+---@field [65] "INVALID_OFFICER"
+---@field FAREWELL 66
+---@field [66] "FAREWELL"
+---@field REMOVED_FROM_GUARD 67
+---@field [67] "REMOVED_FROM_GUARD"
+---@field EQUIPMENT_MISMATCH 68
+---@field [68] "EQUIPMENT_MISMATCH"
+---@field UNCONSCIOUS 69
+---@field [69] "UNCONSCIOUS"
+---@field WEBBED 70
+---@field [70] "WEBBED"
+---@field PARALYZED 71
+---@field [71] "PARALYZED"
+---@field CAGED 72
+---@field [72] "CAGED"
+---@field GETTING_DRINK 73
+---@field [73] "GETTING_DRINK"
+---@field USING_WELL 74
+---@field [74] "USING_WELL"
+---@field LOST_AXE 75
+---@field [75] "LOST_AXE"
+---@field RESTING_INJURY 76
+---@field [76] "RESTING_INJURY"
+---@field UNSCHEDULED 77
+---@field [77] "UNSCHEDULED"
+---@field FORBIDDEN_AREA 78
+---@field [78] "FORBIDDEN_AREA"
+---@field DROFOFF_INACCESSIBLE 79
+---@field [79] "DROFOFF_INACCESSIBLE"
+---@field BUILDING_INACCESSIBLE 80
+---@field [80] "BUILDING_INACCESSIBLE"
+---@field AREA_INACCESSIBLE 81
+---@field [81] "AREA_INACCESSIBLE"
+---@field WATER_SOURCE_VANISHED 82
+---@field [82] "WATER_SOURCE_VANISHED"
+---@field NO_WATER_SOURCE 83
+---@field [83] "NO_WATER_SOURCE"
+---@field NO_BUCKET_AT_WELL 84
+---@field [84] "NO_BUCKET_AT_WELL"
+---@field BUCKET_NOT_EMPTY 85
+---@field [85] "BUCKET_NOT_EMPTY"
+---@field WELL_DRY 86
+---@field [86] "WELL_DRY"
+---@field BUILDING_SITE_SUBMERGED 87
+---@field [87] "BUILDING_SITE_SUBMERGED"
+---@field NEED_SAND_COLLECTION_ZONE 88
+---@field [88] "NEED_SAND_COLLECTION_ZONE"
+---@field SAND_VANISHED 89
+---@field [89] "SAND_VANISHED"
+---@field AREA_BECAME_INAPPROPRIATE 90
+---@field [90] "AREA_BECAME_INAPPROPRIATE"
+---@field WATER_SOURCE_CONTAMINATED 91
+---@field [91] "WATER_SOURCE_CONTAMINATED"
+---@field CREATURE_OCCUPYING_SITE 92
+---@field [92] "CREATURE_OCCUPYING_SITE"
+---@field NEED_OFFICE 93
+---@field [93] "NEED_OFFICE"
+---@field NOT_RESPONSIBLE_FOR_TRADE 94
+---@field [94] "NOT_RESPONSIBLE_FOR_TRADE"
+---@field INAPPROPRIATE_DIG_SQUARE 95
+---@field [95] "INAPPROPRIATE_DIG_SQUARE"
+---@field TARGET_TOO_INJURED 96
+---@field [96] "TARGET_TOO_INJURED"
+---@field GETTING_MARRIED 97
+---@field [97] "GETTING_MARRIED"
+---@field NEED_SPLINT 98
+---@field [98] "NEED_SPLINT"
+---@field NEED_THREAD 99
+---@field [99] "NEED_THREAD"
+---@field NEED_CLOTH 100
+---@field [100] "NEED_CLOTH"
+---@field NEED_CRUTCH 101
+---@field [101] "NEED_CRUTCH"
+---@field BAD_SCRIPT_1 102
+---@field [102] "BAD_SCRIPT_1"
+---@field BAD_SCRIPT_2 103
+---@field [103] "BAD_SCRIPT_2"
+---@field BAD_SCRIPT_3 104
+---@field [104] "BAD_SCRIPT_3"
+---@field NEED_CAST_POWDER_BAG 105
+---@field [105] "NEED_CAST_POWDER_BAG"
+---@field NO_WEAPON_2 106
+---@field [106] "NO_WEAPON_2"
+---@field NO_APPROPRIATE_AMMUNITION 107
+---@field [107] "NO_APPROPRIATE_AMMUNITION"
+---@field CLAY_VANISHED 108
+---@field [108] "CLAY_VANISHED"
+---@field NEED_CLAY_COLLECTION_ZONE 109
+---@field [109] "NEED_CLAY_COLLECTION_ZONE"
+---@field NO_COLONY 110
+---@field [110] "NO_COLONY"
+---@field REPORTING_CRIME 111
+---@field [111] "REPORTING_CRIME"
+---@field NO_WEAPON_FOR_EXECUTION 112
+---@field [112] "NO_WEAPON_FOR_EXECUTION"
+---@field NOT_APPOINTED 113
+---@field [113] "NOT_APPOINTED"
+---@field TRAINING_MISMATCH 114
+---@field [114] "TRAINING_MISMATCH"
+---@field MORTALLY_AFRAID 115
+---@field [115] "MORTALLY_AFRAID"
+---@field EMOTIONAL_SHOCK 116
+---@field [116] "EMOTIONAL_SHOCK"
+---@field HORRIFIED 117
+---@field [117] "HORRIFIED"
+---@field GRIEVING 118
+---@field [118] "GRIEVING"
+---@field TERRIFIED 119
+---@field [119] "TERRIFIED"
+---@field IN_CUSTODY 120
+---@field [120] "IN_CUSTODY"
+---@field TOO_DEPRESSED 121
+---@field [121] "TOO_DEPRESSED"
+---@field OBLIVIOUS 122
+---@field [122] "OBLIVIOUS"
+---@field CATATONIC 123
+---@field [123] "CATATONIC"
+---@field TOO_SAD 124
+---@field [124] "TOO_SAD"
+---@field IN_AGONY 125
+---@field [125] "IN_AGONY"
+---@field ANGUISHED 126
+---@field [126] "ANGUISHED"
+---@field DESPAIRING 127
+---@field [127] "DESPAIRING"
+---@field DISMAYED 128
+---@field [128] "DISMAYED"
+---@field DISTRESSED 129
+---@field [129] "DISTRESSED"
+---@field FRIGHTENED 130
+---@field [130] "FRIGHTENED"
+---@field MISERABLE 131
+---@field [131] "MISERABLE"
+---@field MORTIFIED 132
+---@field [132] "MORTIFIED"
+---@field SHAKEN 133
+---@field [133] "SHAKEN"
+---@field IN_EXISTENTIAL_CRISIS 134
+---@field [134] "IN_EXISTENTIAL_CRISIS"
+---@field NEEDS_SPECIFIC_ITEM_LINKED_STOCKPILE 135
+---@field [135] "NEEDS_SPECIFIC_ITEM_LINKED_STOCKPILE"
+df.killjob_exception_type = {}
+
+-- not used by DFHack, included for disassembly
+---@class (exact) df.killjob_exceptionst: DFStruct
+---@field _type identity.killjob_exceptionst
+---@field type df.killjob_exception_type
+---@field item_type df.item_type
+---@field item_subtype number
+---@field item_material number
+---@field item_matgloss number
+---@field item_flag1 df.job_item_flags1
+---@field item_flag2 df.job_item_flags2
+---@field item_flag3 df.job_item_flags3
+---@field item_flag4 integer
+---@field item_flag5 integer
+---@field item_number number
+---@field id_number number
+---@field item_reaction_class string
+---@field item_reaction_product_class string
+---@field metal_ore number
+---@field min_dimension_taken number
+---@field reagent_index DFNumberVector
+---@field reaction_index number
+---@field tool_use df.tool_uses
+---@field pos df.coord
+
+---@class identity.killjob_exceptionst: DFCompoundType
+---@field _kind 'struct-type'
+df.killjob_exceptionst = {}
+
+---@return df.killjob_exceptionst
+function df.killjob_exceptionst:new() end
+
+-- Unused: JobNukeRefType
+---@class df.job_spec_flag_construct_building: DFBitfield
+---@field _enum identity.job_spec_flag_construct_building
+---@field SWITCHED_SPOT boolean bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
+
+---@class identity.job_spec_flag_construct_building: DFBitfieldType
+---@field SWITCHED_SPOT 0 bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
+---@field [0] "SWITCHED_SPOT" bay12: JOB_SPEC_FLAG_CONSTRUCT_BUILDING_*
+df.job_spec_flag_construct_building = {}
+
+---@class df.job_spec_flag_clean_patient: DFBitfield
+---@field _enum identity.job_spec_flag_clean_patient
+---@field TRIED_SOAP boolean bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
+
+---@class identity.job_spec_flag_clean_patient: DFBitfieldType
+---@field TRIED_SOAP 0 bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
+---@field [0] "TRIED_SOAP" bay12: JOB_SPEC_FLAG_CLEAN_PATIENT_*
+df.job_spec_flag_clean_patient = {}
+
+---@class df.job_spec_flag_clean_self: DFBitfield
+---@field _enum identity.job_spec_flag_clean_self
+---@field TRIED_SOAP boolean bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
+
+---@class identity.job_spec_flag_clean_self: DFBitfieldType
+---@field TRIED_SOAP 0 bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
+---@field [0] "TRIED_SOAP" bay12: JOB_SPEC_FLAG_CLEAN_SELF_*
+df.job_spec_flag_clean_self = {}
+
+---@class df.job_spec_flag_place_track_vehicle: DFBitfield
+---@field _enum identity.job_spec_flag_place_track_vehicle
+---@field CLEARED_JOBS boolean bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
+
+---@class identity.job_spec_flag_place_track_vehicle: DFBitfieldType
+---@field CLEARED_JOBS 0 bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
+---@field [0] "CLEARED_JOBS" bay12: JOB_SPEC_FLAG_PLACE_TRACK_VEHICLE_*
+df.job_spec_flag_place_track_vehicle = {}
+
+---@class df.job_spec_flag_gather: DFBitfield
+---@field _enum identity.job_spec_flag_gather
+---@field FROM_ZONE boolean bay12: JOB_SPEC_FLAG_GATHER_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_GATHER_*
+---@field PICK_TREES boolean
+---@field [1] boolean
+---@field PICK_SHRUBS boolean
+---@field [2] boolean
+---@field GATHER_FALLEN boolean
+---@field [3] boolean
+---@field NO_LADDER_SEARCH boolean
+---@field [4] boolean
+---@field LADDER_RESTRICTED boolean
+---@field [5] boolean
+---@field PICK_TREES_GROUND boolean
+---@field [6] boolean
+
+---@class identity.job_spec_flag_gather: DFBitfieldType
+---@field FROM_ZONE 0 bay12: JOB_SPEC_FLAG_GATHER_*
+---@field [0] "FROM_ZONE" bay12: JOB_SPEC_FLAG_GATHER_*
+---@field PICK_TREES 1
+---@field [1] "PICK_TREES"
+---@field PICK_SHRUBS 2
+---@field [2] "PICK_SHRUBS"
+---@field GATHER_FALLEN 3
+---@field [3] "GATHER_FALLEN"
+---@field NO_LADDER_SEARCH 4
+---@field [4] "NO_LADDER_SEARCH"
+---@field LADDER_RESTRICTED 5
+---@field [5] "LADDER_RESTRICTED"
+---@field PICK_TREES_GROUND 6
+---@field [6] "PICK_TREES_GROUND"
+df.job_spec_flag_gather = {}
+
+---@class df.job_spec_flag_drink_item: DFBitfield
+---@field _enum identity.job_spec_flag_drink_item
+---@field LOOKED_FOR_NEARBY_GOBLET boolean bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
+
+---@class identity.job_spec_flag_drink_item: DFBitfieldType
+---@field LOOKED_FOR_NEARBY_GOBLET 0 bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
+---@field [0] "LOOKED_FOR_NEARBY_GOBLET" bay12: JOB_SPEC_FLAG_DRINK_ITEM_*
+df.job_spec_flag_drink_item = {}
+
+---@class df.job_spec_flag_interrogation: DFBitfield
+---@field _enum identity.job_spec_flag_interrogation
+---@field DID_OFFICE_ATTEMPT boolean bay12: JOB_SPEC_FLAG_INTERROGATION_*
+---@field [0] boolean bay12: JOB_SPEC_FLAG_INTERROGATION_*
+
+---@class identity.job_spec_flag_interrogation: DFBitfieldType
+---@field DID_OFFICE_ATTEMPT 0 bay12: JOB_SPEC_FLAG_INTERROGATION_*
+---@field [0] "DID_OFFICE_ATTEMPT" bay12: JOB_SPEC_FLAG_INTERROGATION_*
+df.job_spec_flag_interrogation = {}
+
+-- Helper type for job.specflag
+---@class (exact) df.job_spec_flags: DFStruct
+---@field _type identity.job_spec_flags
+---@field whole integer
+---@field construct_building_flags df.job_spec_flag_construct_building
+---@field clean_patient_flags df.job_spec_flag_clean_patient
+---@field clean_self_flags df.job_spec_flag_clean_self
+---@field place_track_vehicle_flags df.job_spec_flag_place_track_vehicle
+---@field gather_flags df.job_spec_flag_gather
+---@field drink_item_flags df.job_spec_flag_drink_item
+---@field interrogation_flags df.job_spec_flag_interrogation
+---@field weave_cloth_flags df.job_spec_flags.T_weave_cloth_flags
+---@field link_building_to_trigger_flags df.job_spec_flags.T_link_building_to_trigger_flags
+---@field carve_track_flags df.tile_occupancy
+---@field encrust_flags df.stockpile_group_set
+
+---@class identity.job_spec_flags: DFCompoundType
+---@field _kind 'struct-type'
+df.job_spec_flags = {}
+
+---@return df.job_spec_flags
+function df.job_spec_flags:new() end
+
+---@class df.job_spec_flags.T_weave_cloth_flags: DFBitfield
+---@field _enum identity.job_spec_flags.weave_cloth_flags
+---@field USE_DYED boolean bay12: N/A
+---@field [0] boolean bay12: N/A
+
+---@class identity.job_spec_flags.weave_cloth_flags: DFBitfieldType
+---@field USE_DYED 0 bay12: N/A
+---@field [0] "USE_DYED" bay12: N/A
+df.job_spec_flags.T_weave_cloth_flags = {}
+
+---@class df.job_spec_flags.T_link_building_to_trigger_flags: DFBitfield
+---@field _enum identity.job_spec_flags.link_building_to_trigger_flags
+---@field UNKNOWN boolean bay12: N/A
+---@field [0] boolean bay12: N/A
+
+---@class identity.job_spec_flags.link_building_to_trigger_flags: DFBitfieldType
+---@field UNKNOWN 0 bay12: N/A
+---@field [0] "UNKNOWN" bay12: N/A
+df.job_spec_flags.T_link_building_to_trigger_flags = {}
+
+-- Helper type for job.spec_id
+---@class (exact) df.job_spec_data: DFStruct
+---@field _type identity.job_spec_data
+---@field hist_figure_id number References: `df.historical_figure`
+---@field race number References: `df.creature_raw`
+---@field improvement df.improvement_type
+
+---@class identity.job_spec_data: DFCompoundType
+---@field _kind 'struct-type'
+df.job_spec_data = {}
+
+---@return df.job_spec_data
+function df.job_spec_data:new() end
+
+---@alias df.job_subtype_surgery
+---| -1 # None
+---| 0 # Surgery
+---| 1 # StopBleeding
+---| 2 # RepairCompoundFracture
+---| 3 # RemoveRottenTissue
+
+---@class identity.job_subtype_surgery: DFEnumType
+---@field None -1 bay12: JobStageType
+---@field [-1] "None" bay12: JobStageType
+---@field Surgery 0
+---@field [0] "Surgery"
+---@field StopBleeding 1
+---@field [1] "StopBleeding"
+---@field RepairCompoundFracture 2
+---@field [2] "RepairCompoundFracture"
+---@field RemoveRottenTissue 3
+---@field [3] "RemoveRottenTissue"
+df.job_subtype_surgery = {}
+
+---@class (exact) df.job_list_link: DFStruct
+---@field _type identity.job_list_link
+---@field item df.job
+---@field prev df.job_list_link
+---@field next df.job_list_link
+
+---@class identity.job_list_link: DFCompoundType
+---@field _kind 'struct-type'
+df.job_list_link = {}
+
+---@return df.job_list_link
+function df.job_list_link:new() end
+
+-- bay12: tlink{jobst}
+---@class (exact) df.job: DFStruct
+---@field _type identity.job
+---@field id number
+---@field list_link df.job_list_link
+---@field posting_index number index into world.job_postings
+---@field job_type df.job_type
+---@field job_subtype df.job_subtype_surgery bay12: stage
+---@field pos df.coord
+---@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
+---@field maxdur number uninitialized
+---@field flags df.job_flags
+---@field mat_type number References: `df.material`
+---@field mat_index number
+---@field spell number almost certainly no longer used
+---@field item_type df.item_type for Bait Trap jobs; otherwise uninitialized
+---@field item_subtype number when StoreInStockpile this is a unit_labor
+---@field specflag df.job_spec_flags
+---@field specdata df.job_spec_data
+---@field material_category df.job_material_category bay12: uint32_t job_item_flag
+---@field reaction_name string
+---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
+---@field recheck_cntdn number toady: auxilary_counter; for process_jobs
+---@field aux_id number
+---@field items _job_items
+---@field specific_refs _job_specific_refs
+---@field general_refs _job_general_refs
+---@field job_items df.job_reqst
+---@field guide_path df.coord_path
+---@field cur_path_index number
+---@field spec_loc df.coord toady: spec_x/spec_y/spec_z
+---@field art_spec df.job.T_art_spec
+---@field order_id number References: `df.manager_order`
+
+---@class identity.job: DFCompoundType
+---@field _kind 'struct-type'
+df.job = {}
+
+---@return df.job
+function df.job:new() end
+
+---@class _job_items: DFContainer
+---@field [integer] df.job_item_ref
+local _job_items
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_item_ref>
+function _job_items:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_item_ref
+function _job_items:insert(index, item) end
+
+---@param index integer
+function _job_items:erase(index) end
+
+---@class _job_specific_refs: DFContainer
+---@field [integer] df.specific_ref
+local _job_specific_refs
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.specific_ref>
+function _job_specific_refs:_field(index) end
+
+---@param index '#'|integer
+---@param item df.specific_ref
+function _job_specific_refs:insert(index, item) end
+
+---@param index integer
+function _job_specific_refs:erase(index) end
+
+---@class _job_general_refs: DFContainer
+---@field [integer] df.general_ref
+local _job_general_refs
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.general_ref>
+function _job_general_refs:_field(index) end
+
+---@param index '#'|integer
+---@param item df.general_ref
+function _job_general_refs:insert(index, item) end
+
+---@param index integer
+function _job_general_refs:erase(index) end
+
+---@class (exact) df.job.T_art_spec: DFStruct
+---@field _type identity.job.art_spec
+---@field type df.job_art_specifier_type not a compound
+---@field id number
+---@field subid number
+
+---@class identity.job.art_spec: DFCompoundType
+---@field _kind 'struct-type'
+df.job.T_art_spec = {}
+
+---@return df.job.T_art_spec
+function df.job.T_art_spec:new() end
+
+---@class (exact) df.job_postingst: DFStruct
+---@field _type identity.job_postingst
+---@field idx number equal to position in vector
+---@field job df.job bad if dead flag is set
+---@field flags df.job_postingst.T_flags
+---@field rough_number_of_applications number not saved
+
+---@class identity.job_postingst: DFCompoundType
+---@field _kind 'struct-type'
+df.job_postingst = {}
+
+---@return df.job_postingst
+function df.job_postingst:new() end
+
+---@class df.job_postingst.T_flags: DFBitfield
+---@field _enum identity.job_postingst.flags
+---@field dead boolean bay12: JOB_POSTING_FLAG_*
+---@field [0] boolean bay12: JOB_POSTING_FLAG_*
+
+---@class identity.job_postingst.flags: DFBitfieldType
+---@field dead 0 bay12: JOB_POSTING_FLAG_*
+---@field [0] "dead" bay12: JOB_POSTING_FLAG_*
+df.job_postingst.T_flags = {}
+
+---@class (exact) df.job_applicationst: DFStruct
+---@field _type identity.job_applicationst
+---@field applicant df.unit
+---@field posting_index number
+---@field value number
+
+---@class identity.job_applicationst: DFCompoundType
+---@field _kind 'struct-type'
+df.job_applicationst = {}
+
+---@return df.job_applicationst
+function df.job_applicationst:new() end
+
+---@class (exact) df.job_application_binary_heapst: DFStruct
+---@field _type identity.job_application_binary_heapst
+---@field node df.job_applicationst[]
+---@field size number
+
+---@class identity.job_application_binary_heapst: DFCompoundType
+---@field _kind 'struct-type'
+df.job_application_binary_heapst = {}
+
+---@return df.job_application_binary_heapst
+function df.job_application_binary_heapst:new() end
+
+---@class (exact) df.job_handler: DFStruct
+---@field _type identity.job_handler
+---@field list _job_handler_list
+---@field postings _job_handler_postings entries never removed
+---@field job_application_heap df.job_application_binary_heapst this appears to be a priority queue of some sort
+local job_handler
+
+---@param anon_0 df.job
+function job_handler:cancel_job(anon_0) end
+
+
+---@class identity.job_handler: DFCompoundType
+---@field _kind 'class-type'
+df.job_handler = {}
+
+---@return df.job_handler
+function df.job_handler:new() end
+
+---@class _job_handler_list: DFContainer
+---@field [integer] df.job_list_link
+local _job_handler_list
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_list_link>
+function _job_handler_list:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_list_link
+function _job_handler_list:insert(index, item) end
+
+---@param index integer
+function _job_handler_list:erase(index) end
+
+---@class _job_handler_postings: DFContainer
+---@field [integer] df.job_postingst
+local _job_handler_postings
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_postingst>
+function _job_handler_postings:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_postingst
+function _job_handler_postings:insert(index, item) end
+
+---@param index integer
+function _job_handler_postings:erase(index) end
+

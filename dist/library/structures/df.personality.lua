@@ -1,0 +1,1988 @@
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta
+
+-- Unused: personality_vectorst
+-- Unused: PersonalityCategory
+---@alias df.mannerism_type
+---| -1 # NONE
+---| 0 # TALKS_WHISPERS
+---| 1 # TALKS_QUIETLY
+---| 2 # TALKS_LOUDLY
+---| 3 # TALKS_MONOTONE
+---| 4 # TALKS_TRAILS_OFF
+---| 5 # TALKS_SLOWLY
+---| 6 # TALKS_RAPIDLY
+---| 7 # TALKS_DELIBERATELY
+---| 8 # TALKS_MUTTERS_UNDER_BREATH
+---| 9 # TALKS_STUTTERS
+---| 10 # TALKS_TO_INANIMATE_OBJECTS
+---| 11 # TALKS_TO_SELF
+---| 12 # CONVERSATION_DISTRACTED_EASILY
+---| 13 # CONVERSATION_POINTLESS_STORIES
+---| 14 # CONVERSATION_VERY_FOCUSED
+---| 15 # CONVERSATION_LOOKS_FOR_RIGHT_WORD
+---| 16 # CONVERSATION_TOUCHES
+---| 17 # CONVERSATION_ARGUES_IN_AGREEMENT
+---| 18 # CONVERSATION_FILLS_QUIET_PAUSES
+---| 19 # CONVERSATION_PAUSES_BEFORE_SPEAKING
+---| 20 # CONVERSATION_TALKS_ABOUT_OTHERS_BEHIND_BACK
+---| 21 # CONVERSATION_INTERRUPTS_OTHERS
+---| 22 # CONVERSATION_VAGUE_ANSWERS
+---| 23 # CONVERSATION_TURN_TO_SELF
+---| 24 # CONVERSATION_RARELY_SPEAKS
+---| 25 # CONVERSATION_RARELY_STARTS
+---| 26 # CONVERSATION_QUESTION_WITH_QUESTION
+---| 27 # FINGERS_SNAPS
+---| 28 # FINGERS_DRUMS
+---| 29 # FINGERS_SCRATCHES_NOSE
+---| 30 # FINGERS_SCRATCHES_EAR
+---| 31 # FINGERS_SCRATCHES_HEAD
+---| 32 # FINGERS_RUBS_EYES
+---| 33 # FINGERS_POINT
+---| 34 # FINGERS_THROUGH_HAIR
+---| 35 # FINGERS_KNUCKLE_CRACKS
+---| 36 # LAUGHS_VERY_DISTINCTLY
+---| 37 # LAUGHS_CACKLES
+---| 38 # LAUGHS_LOUDLY
+---| 39 # LAUGHS_SILENTLY
+---| 40 # LAUGHS_NERVOUSLY
+---| 41 # LAUGHS_AT_OWN_JOKES
+---| 42 # WALK_ALWAYS_HURRIES
+---| 43 # WALK_SKIPS
+---| 44 # WALK_CONFIDENT
+---| 45 # POSTURE_RIGID
+---| 46 # POSTURE_SLOUCH
+---| 47 # CHEWS_LIP
+---| 48 # CHEWS_CHEEK
+---| 49 # CHEWS_NAIL_BITING
+---| 50 # HUGS
+---| 51 # SMILES_NERVOUSLY
+---| 52 # HANDS_MOVE
+---| 53 # FEET_TAP
+---| 54 # EYES_LOWERS
+---| 55 # EYES_STARES
+---| 56 # EYES_WINKS
+---| 57 # EYES_ROLLS
+---| 58 # BLOWS_BREATH_OUT
+---| 59 # BREATHES_IN
+---| 60 # TONGUE_CLICKS
+---| 61 # TONGUE_STICKS_OUT
+---| 62 # TONGUE_LICKS_LIPS
+---| 63 # STRETCHES
+---| 64 # LEG_BOUNCES
+
+-- Unused: personality_vectorst
+-- Unused: PersonalityCategory
+---@class identity.mannerism_type: DFEnumType
+---@field NONE -1 bay12: MannerismType
+---@field [-1] "NONE" bay12: MannerismType
+---@field TALKS_WHISPERS 0
+---@field [0] "TALKS_WHISPERS"
+---@field TALKS_QUIETLY 1
+---@field [1] "TALKS_QUIETLY"
+---@field TALKS_LOUDLY 2
+---@field [2] "TALKS_LOUDLY"
+---@field TALKS_MONOTONE 3
+---@field [3] "TALKS_MONOTONE"
+---@field TALKS_TRAILS_OFF 4
+---@field [4] "TALKS_TRAILS_OFF"
+---@field TALKS_SLOWLY 5
+---@field [5] "TALKS_SLOWLY"
+---@field TALKS_RAPIDLY 6
+---@field [6] "TALKS_RAPIDLY"
+---@field TALKS_DELIBERATELY 7
+---@field [7] "TALKS_DELIBERATELY"
+---@field TALKS_MUTTERS_UNDER_BREATH 8
+---@field [8] "TALKS_MUTTERS_UNDER_BREATH"
+---@field TALKS_STUTTERS 9
+---@field [9] "TALKS_STUTTERS"
+---@field TALKS_TO_INANIMATE_OBJECTS 10
+---@field [10] "TALKS_TO_INANIMATE_OBJECTS"
+---@field TALKS_TO_SELF 11
+---@field [11] "TALKS_TO_SELF"
+---@field CONVERSATION_DISTRACTED_EASILY 12
+---@field [12] "CONVERSATION_DISTRACTED_EASILY"
+---@field CONVERSATION_POINTLESS_STORIES 13
+---@field [13] "CONVERSATION_POINTLESS_STORIES"
+---@field CONVERSATION_VERY_FOCUSED 14
+---@field [14] "CONVERSATION_VERY_FOCUSED"
+---@field CONVERSATION_LOOKS_FOR_RIGHT_WORD 15
+---@field [15] "CONVERSATION_LOOKS_FOR_RIGHT_WORD"
+---@field CONVERSATION_TOUCHES 16
+---@field [16] "CONVERSATION_TOUCHES"
+---@field CONVERSATION_ARGUES_IN_AGREEMENT 17
+---@field [17] "CONVERSATION_ARGUES_IN_AGREEMENT"
+---@field CONVERSATION_FILLS_QUIET_PAUSES 18
+---@field [18] "CONVERSATION_FILLS_QUIET_PAUSES"
+---@field CONVERSATION_PAUSES_BEFORE_SPEAKING 19
+---@field [19] "CONVERSATION_PAUSES_BEFORE_SPEAKING"
+---@field CONVERSATION_TALKS_ABOUT_OTHERS_BEHIND_BACK 20
+---@field [20] "CONVERSATION_TALKS_ABOUT_OTHERS_BEHIND_BACK"
+---@field CONVERSATION_INTERRUPTS_OTHERS 21
+---@field [21] "CONVERSATION_INTERRUPTS_OTHERS"
+---@field CONVERSATION_VAGUE_ANSWERS 22
+---@field [22] "CONVERSATION_VAGUE_ANSWERS"
+---@field CONVERSATION_TURN_TO_SELF 23
+---@field [23] "CONVERSATION_TURN_TO_SELF"
+---@field CONVERSATION_RARELY_SPEAKS 24
+---@field [24] "CONVERSATION_RARELY_SPEAKS"
+---@field CONVERSATION_RARELY_STARTS 25
+---@field [25] "CONVERSATION_RARELY_STARTS"
+---@field CONVERSATION_QUESTION_WITH_QUESTION 26
+---@field [26] "CONVERSATION_QUESTION_WITH_QUESTION"
+---@field FINGERS_SNAPS 27
+---@field [27] "FINGERS_SNAPS"
+---@field FINGERS_DRUMS 28
+---@field [28] "FINGERS_DRUMS"
+---@field FINGERS_SCRATCHES_NOSE 29
+---@field [29] "FINGERS_SCRATCHES_NOSE"
+---@field FINGERS_SCRATCHES_EAR 30
+---@field [30] "FINGERS_SCRATCHES_EAR"
+---@field FINGERS_SCRATCHES_HEAD 31
+---@field [31] "FINGERS_SCRATCHES_HEAD"
+---@field FINGERS_RUBS_EYES 32
+---@field [32] "FINGERS_RUBS_EYES"
+---@field FINGERS_POINT 33
+---@field [33] "FINGERS_POINT"
+---@field FINGERS_THROUGH_HAIR 34
+---@field [34] "FINGERS_THROUGH_HAIR"
+---@field FINGERS_KNUCKLE_CRACKS 35
+---@field [35] "FINGERS_KNUCKLE_CRACKS"
+---@field LAUGHS_VERY_DISTINCTLY 36
+---@field [36] "LAUGHS_VERY_DISTINCTLY"
+---@field LAUGHS_CACKLES 37
+---@field [37] "LAUGHS_CACKLES"
+---@field LAUGHS_LOUDLY 38
+---@field [38] "LAUGHS_LOUDLY"
+---@field LAUGHS_SILENTLY 39
+---@field [39] "LAUGHS_SILENTLY"
+---@field LAUGHS_NERVOUSLY 40
+---@field [40] "LAUGHS_NERVOUSLY"
+---@field LAUGHS_AT_OWN_JOKES 41
+---@field [41] "LAUGHS_AT_OWN_JOKES"
+---@field WALK_ALWAYS_HURRIES 42
+---@field [42] "WALK_ALWAYS_HURRIES"
+---@field WALK_SKIPS 43
+---@field [43] "WALK_SKIPS"
+---@field WALK_CONFIDENT 44
+---@field [44] "WALK_CONFIDENT"
+---@field POSTURE_RIGID 45
+---@field [45] "POSTURE_RIGID"
+---@field POSTURE_SLOUCH 46
+---@field [46] "POSTURE_SLOUCH"
+---@field CHEWS_LIP 47
+---@field [47] "CHEWS_LIP"
+---@field CHEWS_CHEEK 48
+---@field [48] "CHEWS_CHEEK"
+---@field CHEWS_NAIL_BITING 49
+---@field [49] "CHEWS_NAIL_BITING"
+---@field HUGS 50
+---@field [50] "HUGS"
+---@field SMILES_NERVOUSLY 51
+---@field [51] "SMILES_NERVOUSLY"
+---@field HANDS_MOVE 52
+---@field [52] "HANDS_MOVE"
+---@field FEET_TAP 53
+---@field [53] "FEET_TAP"
+---@field EYES_LOWERS 54
+---@field [54] "EYES_LOWERS"
+---@field EYES_STARES 55
+---@field [55] "EYES_STARES"
+---@field EYES_WINKS 56
+---@field [56] "EYES_WINKS"
+---@field EYES_ROLLS 57
+---@field [57] "EYES_ROLLS"
+---@field BLOWS_BREATH_OUT 58
+---@field [58] "BLOWS_BREATH_OUT"
+---@field BREATHES_IN 59
+---@field [59] "BREATHES_IN"
+---@field TONGUE_CLICKS 60
+---@field [60] "TONGUE_CLICKS"
+---@field TONGUE_STICKS_OUT 61
+---@field [61] "TONGUE_STICKS_OUT"
+---@field TONGUE_LICKS_LIPS 62
+---@field [62] "TONGUE_LICKS_LIPS"
+---@field STRETCHES 63
+---@field [63] "STRETCHES"
+---@field LEG_BOUNCES 64
+---@field [64] "LEG_BOUNCES"
+df.mannerism_type = {}
+
+---@alias df.mannerism_situation_type
+---| -1 # NONE
+---| 0 # WHEN_ANGRY
+---| 1 # WHEN_TRYING_TO_REMEMBER
+---| 2 # WHEN_NERVOUS
+---| 3 # WHEN_EXCITED
+---| 4 # WHEN_SURPRISED
+---| 5 # WHEN_THINKING
+---| 6 # WHEN_EXASPERATED
+---| 7 # WHEN_CONVERSATION_PAUSED
+---| 8 # BEFORE_SPEAKING
+---| 9 # WHEN_SPEAKING
+---| 10 # WHEN_GREETING
+---| 11 # WHEN_BORED
+---| 12 # WHEN_ANNOYED
+---| 13 # WHEN_SITTING
+---| 14 # AFTER_STANDING
+
+---@class identity.mannerism_situation_type: DFEnumType
+---@field NONE -1 bay12: MannerismSituationType
+---@field [-1] "NONE" bay12: MannerismSituationType
+---@field WHEN_ANGRY 0
+---@field [0] "WHEN_ANGRY"
+---@field WHEN_TRYING_TO_REMEMBER 1
+---@field [1] "WHEN_TRYING_TO_REMEMBER"
+---@field WHEN_NERVOUS 2
+---@field [2] "WHEN_NERVOUS"
+---@field WHEN_EXCITED 3
+---@field [3] "WHEN_EXCITED"
+---@field WHEN_SURPRISED 4
+---@field [4] "WHEN_SURPRISED"
+---@field WHEN_THINKING 5
+---@field [5] "WHEN_THINKING"
+---@field WHEN_EXASPERATED 6
+---@field [6] "WHEN_EXASPERATED"
+---@field WHEN_CONVERSATION_PAUSED 7
+---@field [7] "WHEN_CONVERSATION_PAUSED"
+---@field BEFORE_SPEAKING 8
+---@field [8] "BEFORE_SPEAKING"
+---@field WHEN_SPEAKING 9
+---@field [9] "WHEN_SPEAKING"
+---@field WHEN_GREETING 10
+---@field [10] "WHEN_GREETING"
+---@field WHEN_BORED 11
+---@field [11] "WHEN_BORED"
+---@field WHEN_ANNOYED 12
+---@field [12] "WHEN_ANNOYED"
+---@field WHEN_SITTING 13
+---@field [13] "WHEN_SITTING"
+---@field AFTER_STANDING 14
+---@field [14] "AFTER_STANDING"
+df.mannerism_situation_type = {}
+
+---@class (exact) df.mannerismst: DFStruct
+---@field _type identity.mannerismst
+---@field type df.mannerism_type
+---@field situation df.mannerism_situation_type
+
+---@class identity.mannerismst: DFCompoundType
+---@field _kind 'struct-type'
+df.mannerismst = {}
+
+---@return df.mannerismst
+function df.mannerismst:new() end
+
+---@class (exact) df.personality_valuest: DFStruct
+---@field _type identity.personality_valuest
+---@field type df.value_type
+---@field strength number
+
+---@class identity.personality_valuest: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_valuest = {}
+
+---@return df.personality_valuest
+function df.personality_valuest:new() end
+
+---@class (exact) df.personality_ethicst: DFStruct
+---@field _type identity.personality_ethicst
+---@field ethic df.ethic_type
+---@field reponse df.ethic_response
+
+---@class identity.personality_ethicst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_ethicst = {}
+
+---@return df.personality_ethicst
+function df.personality_ethicst:new() end
+
+-- Helper type for unit_thought_type
+---@class (exact) df.circumstance_id: DFStruct
+---@field _type identity.circumstance_id
+---@field Death number References: `df.historical_figure`
+---@field Prayer number References: `df.historical_figure`
+---@field DreamAbout number References: `df.historical_figure`
+---@field Defeated number References: `df.historical_figure`
+---@field Murdered number References: `df.historical_figure`
+---@field HistEventCollection number References: `df.history_event_collection`
+---@field AfterAbducting number References: `df.historical_figure`
+
+---@class identity.circumstance_id: DFCompoundType
+---@field _kind 'struct-type'
+df.circumstance_id = {}
+
+---@return df.circumstance_id
+function df.circumstance_id:new() end
+
+---@alias df.unit_thought_type
+---| -1 # None
+---| 0 # Conflict
+---| 1 # Trauma
+---| 2 # WitnessDeath
+---| 3 # UnexpectedDeath
+---| 4 # Death
+---| 5 # Kill
+---| 6 # LoveSeparated
+---| 7 # LoveReunited
+---| 8 # JoinConflict
+---| 9 # MakeMasterwork
+---| 10 # MadeArtifact
+---| 11 # MasterSkill
+---| 12 # NewRomance
+---| 13 # BecomeParent
+---| 14 # NearConflict
+---| 15 # CancelAgreement
+---| 16 # JoinTravel
+---| 17 # SiteControlled
+---| 18 # TributeCancel
+---| 19 # Incident
+---| 20 # HearRumor
+---| 21 # MilitaryRemoved
+---| 22 # StrangerWeapon
+---| 23 # StrangerSneaking
+---| 24 # SawDrinkBlood
+---| 25 # Complained
+---| 26 # ReceivedComplaint
+---| 27 # AdmireBuilding
+---| 28 # AdmireOwnBuilding
+---| 29 # AdmireArrangedBuilding
+---| 30 # AdmireOwnArrangedBuilding
+---| 31 # LostPet
+---| 32 # ThrownStuff
+---| 33 # JailReleased
+---| 34 # Miscarriage
+---| 35 # SpouseMiscarriage
+---| 36 # OldClothing
+---| 37 # TatteredClothing
+---| 38 # RottedClothing
+---| 39 # GhostNightmare
+---| 40 # GhostHaunt
+---| 41 # Spar
+---| 42 # UnableComplain
+---| 43 # LongPatrol
+---| 44 # SunNausea
+---| 45 # SunIrritated
+---| 46 # Drowsy
+---| 47 # VeryDrowsy
+---| 48 # Thirsty
+---| 49 # Dehydrated
+---| 50 # Hungry
+---| 51 # Starving
+---| 52 # MajorInjuries
+---| 53 # MinorInjuries
+---| 54 # SleepNoise
+---| 55 # Rest
+---| 56 # FreakishWeather
+---| 57 # Rain
+---| 58 # SnowStorm
+---| 59 # Miasma
+---| 60 # Smoke
+---| 61 # Waterfall
+---| 62 # Dust
+---| 63 # Demands
+---| 64 # ImproperPunishment
+---| 65 # PunishmentReduced
+---| 66 # Elected
+---| 67 # Reelected
+---| 68 # RequestApproved
+---| 69 # RequestIgnored
+---| 70 # NoPunishment
+---| 71 # PunishmentDelayed
+---| 72 # DelayedPunishment
+---| 73 # ScarceCageChain
+---| 74 # MandateIgnored
+---| 75 # MandateDeadlineMissed
+---| 76 # LackWork
+---| 77 # SmashedBuilding
+---| 78 # ToppledStuff
+---| 79 # NoblePromotion
+---| 80 # BecomeNoble
+---| 81 # Cavein
+---| 82 # MandateDeadlineMet
+---| 83 # Uncovered
+---| 84 # NoShirt
+---| 85 # NoShoes
+---| 86 # EatPet
+---| 87 # EatLikedCreature
+---| 88 # EatVermin
+---| 89 # FistFight
+---| 90 # GaveBeating
+---| 91 # GotBeaten
+---| 92 # GaveHammering
+---| 93 # GotHammered
+---| 94 # NoHammer
+---| 95 # SameFood
+---| 96 # AteRotten
+---| 97 # GoodMeal
+---| 98 # GoodDrink
+---| 99 # MoreChests
+---| 100 # MoreCabinets
+---| 101 # MoreWeaponRacks
+---| 102 # MoreArmorStands
+---| 103 # RoomPretension
+---| 104 # LackTables
+---| 105 # CrowdedTables
+---| 106 # DiningQuality
+---| 107 # NoDining
+---| 108 # LackChairs
+---| 109 # TrainingBond
+---| 110 # Rescued
+---| 111 # RescuedOther
+---| 112 # SatisfiedAtWork
+---| 113 # TaxedLostProperty
+---| 114 # Taxed
+---| 115 # LackProtection
+---| 116 # TaxRoomUnreachable
+---| 117 # TaxRoomMisinformed
+---| 118 # PleasedNoble
+---| 119 # TaxCollectionSmooth
+---| 120 # DisappointedNoble
+---| 121 # TaxCollectionRough
+---| 122 # MadeFriend
+---| 123 # FormedGrudge
+---| 124 # AnnoyedVermin
+---| 125 # NearVermin
+---| 126 # PesteredVermin
+---| 127 # AcquiredItem
+---| 128 # AdoptedPet
+---| 129 # Jailed
+---| 130 # Bath
+---| 131 # SoapyBath
+---| 132 # SparringAccident
+---| 133 # Attacked
+---| 134 # AttackedByDead
+---| 135 # SameBooze
+---| 136 # DrinkBlood
+---| 137 # DrinkSlime
+---| 138 # DrinkVomit
+---| 139 # DrinkGoo
+---| 140 # DrinkIchor
+---| 141 # DrinkPus
+---| 142 # NastyWater
+---| 143 # DrankSpoiled
+---| 144 # LackWell
+---| 145 # NearCaged
+---| 146 # NearCagedHated
+---| 147 # LackBedroom
+---| 148 # BedroomQuality
+---| 149 # SleptFloor
+---| 150 # SleptMud
+---| 151 # SleptGrass
+---| 152 # SleptRoughFloor
+---| 153 # SleptRocks
+---| 154 # SleptIce
+---| 155 # SleptDirt
+---| 156 # SleptDriftwood
+---| 157 # ArtDefacement
+---| 158 # Evicted
+---| 159 # GaveBirth
+---| 160 # SpouseGaveBirth
+---| 161 # ReceivedWater
+---| 162 # GaveWater
+---| 163 # ReceivedFood
+---| 164 # GaveFood
+---| 165 # Talked
+---| 166 # OfficeQuality
+---| 167 # MeetingInBedroom
+---| 168 # MeetingInDiningRoom
+---| 169 # NoRooms
+---| 170 # TombQuality
+---| 171 # TombLack
+---| 172 # TalkToNoble
+---| 173 # InteractPet
+---| 174 # ConvictionCorpse
+---| 175 # ConvictionAnimal
+---| 176 # ConvictionVictim
+---| 177 # ConvictionJusticeSelf
+---| 178 # ConvictionJusticeFamily
+---| 179 # Decay
+---| 180 # NeedsUnfulfilled
+---| 181 # Prayer
+---| 182 # DrinkWithoutCup
+---| 183 # ResearchBreakthrough
+---| 184 # ResearchStalled
+---| 185 # PonderTopic
+---| 186 # DiscussTopic
+---| 187 # Syndrome
+---| 188 # Perform
+---| 189 # WatchPerform
+---| 190 # RemoveTroupe
+---| 191 # LearnTopic
+---| 192 # LearnSkill
+---| 193 # LearnBook
+---| 194 # LearnInteraction
+---| 195 # LearnPoetry
+---| 196 # LearnMusic
+---| 197 # LearnDance
+---| 198 # TeachTopic
+---| 199 # TeachSkill
+---| 200 # ReadBook
+---| 201 # WriteBook
+---| 202 # BecomeResident
+---| 203 # BecomeCitizen
+---| 204 # DenyResident
+---| 205 # DenyCitizen
+---| 206 # LeaveTroupe
+---| 207 # MakeBelieve
+---| 208 # PlayToy
+---| 209 # DreamAbout
+---| 210 # Dream
+---| 211 # Nightmare
+---| 212 # Argument
+---| 213 # CombatDrills
+---| 214 # ArcheryPractice
+---| 215 # ImproveSkill
+---| 216 # WearItem
+---| 217 # RealizeValue
+---| 218 # OpinionStoryteller
+---| 219 # OpinionRecitation
+---| 220 # OpinionInstrumentSimulation
+---| 221 # OpinionInstrumentPlayer
+---| 222 # OpinionSinger
+---| 223 # OpinionChanter
+---| 224 # OpinionDancer
+---| 225 # OpinionStory
+---| 226 # OpinionPoetry
+---| 227 # OpinionMusic
+---| 228 # OpinionDance
+---| 229 # Defeated
+---| 230 # FavoritePossession
+---| 231 # PreserveBody
+---| 232 # Murdered
+---| 233 # HistEventCollection
+---| 234 # ViewOwnDisplay
+---| 235 # ViewDisplay
+---| 236 # AcquireArtifact
+---| 237 # DenySanctuary
+---| 238 # CaughtSneaking
+---| 239 # GaveArtifact
+---| 240 # SawDeadBody
+---| 241 # Expelled
+---| 242 # RelativeExpelled
+---| 243 # PromisedVampireImmortality
+---| 244 # PromisedNecroImmortality
+---| 245 # SiteLecture
+---| 246 # SitePerformance
+---| 247 # AcceptedBribe
+---| 248 # EmbezzledFunds
+---| 249 # CutOfCorruptFunds
+---| 250 # Abducted
+---| 251 # FromAfar
+---| 252 # AcceptedTemplePetition
+---| 253 # EstablishedTemple
+---| 254 # RejectedTemplePetition
+---| 255 # IgnoredTemplePetition
+---| 256 # AbandonedTemplePetition
+---| 257 # DeferredToSuperior
+---| 258 # AcceptedGuildhallPetition
+---| 259 # EstablishedGuildhallRecognition
+---| 260 # RejectedGuildhallPetition
+---| 261 # IgnoredGuildhallPetition
+---| 262 # AbandonedGuildhallAgreement
+---| 263 # InfiltrationMission
+---| 264 # BreakUp
+---| 265 # Divorce
+---| 266 # ActivePreacherPerformance
+---| 267 # ActiveSermonWorship
+---| 268 # ActiveSermonSphere
+---| 269 # ActiveSermonPromoteValue
+---| 270 # ActiveSermonRefuseValue
+---| 271 # IntellectualDiscussion
+---| 272 # SharePersonalInsight
+---| 273 # ShareOthersPersonalInsight
+---| 274 # DiscussProblems
+---| 275 # DiscussOthersProblems
+---| 276 # PerformedRiteDedicatedTemple
+---| 277 # PerformedRiteImproperlyDedicatedTemple
+---| 278 # PerformedRiteUndedicatedTemple
+---| 279 # PrayedDedicatedTemple
+
+---@class identity.unit_thought_type: DFEnumType
+---@field None -1
+---@field [-1] "None"
+---@field Conflict 0
+---@field [0] "Conflict"
+---@field Trauma 1
+---@field [1] "Trauma"
+---@field WitnessDeath 2
+---@field [2] "WitnessDeath"
+---@field UnexpectedDeath 3
+---@field [3] "UnexpectedDeath"
+---@field Death 4
+---@field [4] "Death"
+---@field Kill 5
+---@field [5] "Kill"
+---@field LoveSeparated 6
+---@field [6] "LoveSeparated"
+---@field LoveReunited 7
+---@field [7] "LoveReunited"
+---@field JoinConflict 8
+---@field [8] "JoinConflict"
+---@field MakeMasterwork 9
+---@field [9] "MakeMasterwork"
+---@field MadeArtifact 10
+---@field [10] "MadeArtifact"
+---@field MasterSkill 11
+---@field [11] "MasterSkill"
+---@field NewRomance 12
+---@field [12] "NewRomance"
+---@field BecomeParent 13
+---@field [13] "BecomeParent"
+---@field NearConflict 14
+---@field [14] "NearConflict"
+---@field CancelAgreement 15
+---@field [15] "CancelAgreement"
+---@field JoinTravel 16
+---@field [16] "JoinTravel"
+---@field SiteControlled 17
+---@field [17] "SiteControlled"
+---@field TributeCancel 18
+---@field [18] "TributeCancel"
+---@field Incident 19
+---@field [19] "Incident"
+---@field HearRumor 20
+---@field [20] "HearRumor"
+---@field MilitaryRemoved 21
+---@field [21] "MilitaryRemoved"
+---@field StrangerWeapon 22
+---@field [22] "StrangerWeapon"
+---@field StrangerSneaking 23
+---@field [23] "StrangerSneaking"
+---@field SawDrinkBlood 24
+---@field [24] "SawDrinkBlood"
+---@field Complained 25
+---@field [25] "Complained"
+---@field ReceivedComplaint 26
+---@field [26] "ReceivedComplaint"
+---@field AdmireBuilding 27
+---@field [27] "AdmireBuilding"
+---@field AdmireOwnBuilding 28
+---@field [28] "AdmireOwnBuilding"
+---@field AdmireArrangedBuilding 29
+---@field [29] "AdmireArrangedBuilding"
+---@field AdmireOwnArrangedBuilding 30
+---@field [30] "AdmireOwnArrangedBuilding"
+---@field LostPet 31
+---@field [31] "LostPet"
+---@field ThrownStuff 32
+---@field [32] "ThrownStuff"
+---@field JailReleased 33
+---@field [33] "JailReleased"
+---@field Miscarriage 34
+---@field [34] "Miscarriage"
+---@field SpouseMiscarriage 35
+---@field [35] "SpouseMiscarriage"
+---@field OldClothing 36
+---@field [36] "OldClothing"
+---@field TatteredClothing 37
+---@field [37] "TatteredClothing"
+---@field RottedClothing 38
+---@field [38] "RottedClothing"
+---@field GhostNightmare 39
+---@field [39] "GhostNightmare"
+---@field GhostHaunt 40
+---@field [40] "GhostHaunt"
+---@field Spar 41
+---@field [41] "Spar"
+---@field UnableComplain 42
+---@field [42] "UnableComplain"
+---@field LongPatrol 43
+---@field [43] "LongPatrol"
+---@field SunNausea 44
+---@field [44] "SunNausea"
+---@field SunIrritated 45
+---@field [45] "SunIrritated"
+---@field Drowsy 46
+---@field [46] "Drowsy"
+---@field VeryDrowsy 47
+---@field [47] "VeryDrowsy"
+---@field Thirsty 48
+---@field [48] "Thirsty"
+---@field Dehydrated 49
+---@field [49] "Dehydrated"
+---@field Hungry 50
+---@field [50] "Hungry"
+---@field Starving 51
+---@field [51] "Starving"
+---@field MajorInjuries 52
+---@field [52] "MajorInjuries"
+---@field MinorInjuries 53
+---@field [53] "MinorInjuries"
+---@field SleepNoise 54
+---@field [54] "SleepNoise"
+---@field Rest 55
+---@field [55] "Rest"
+---@field FreakishWeather 56
+---@field [56] "FreakishWeather"
+---@field Rain 57
+---@field [57] "Rain"
+---@field SnowStorm 58
+---@field [58] "SnowStorm"
+---@field Miasma 59
+---@field [59] "Miasma"
+---@field Smoke 60
+---@field [60] "Smoke"
+---@field Waterfall 61
+---@field [61] "Waterfall"
+---@field Dust 62
+---@field [62] "Dust"
+---@field Demands 63
+---@field [63] "Demands"
+---@field ImproperPunishment 64
+---@field [64] "ImproperPunishment"
+---@field PunishmentReduced 65
+---@field [65] "PunishmentReduced"
+---@field Elected 66
+---@field [66] "Elected"
+---@field Reelected 67
+---@field [67] "Reelected"
+---@field RequestApproved 68
+---@field [68] "RequestApproved"
+---@field RequestIgnored 69
+---@field [69] "RequestIgnored"
+---@field NoPunishment 70
+---@field [70] "NoPunishment"
+---@field PunishmentDelayed 71
+---@field [71] "PunishmentDelayed"
+---@field DelayedPunishment 72
+---@field [72] "DelayedPunishment"
+---@field ScarceCageChain 73
+---@field [73] "ScarceCageChain"
+---@field MandateIgnored 74
+---@field [74] "MandateIgnored"
+---@field MandateDeadlineMissed 75
+---@field [75] "MandateDeadlineMissed"
+---@field LackWork 76
+---@field [76] "LackWork"
+---@field SmashedBuilding 77
+---@field [77] "SmashedBuilding"
+---@field ToppledStuff 78
+---@field [78] "ToppledStuff"
+---@field NoblePromotion 79
+---@field [79] "NoblePromotion"
+---@field BecomeNoble 80
+---@field [80] "BecomeNoble"
+---@field Cavein 81
+---@field [81] "Cavein"
+---@field MandateDeadlineMet 82
+---@field [82] "MandateDeadlineMet"
+---@field Uncovered 83
+---@field [83] "Uncovered"
+---@field NoShirt 84
+---@field [84] "NoShirt"
+---@field NoShoes 85
+---@field [85] "NoShoes"
+---@field EatPet 86
+---@field [86] "EatPet"
+---@field EatLikedCreature 87
+---@field [87] "EatLikedCreature"
+---@field EatVermin 88
+---@field [88] "EatVermin"
+---@field FistFight 89
+---@field [89] "FistFight"
+---@field GaveBeating 90
+---@field [90] "GaveBeating"
+---@field GotBeaten 91
+---@field [91] "GotBeaten"
+---@field GaveHammering 92
+---@field [92] "GaveHammering"
+---@field GotHammered 93
+---@field [93] "GotHammered"
+---@field NoHammer 94
+---@field [94] "NoHammer"
+---@field SameFood 95
+---@field [95] "SameFood"
+---@field AteRotten 96
+---@field [96] "AteRotten"
+---@field GoodMeal 97
+---@field [97] "GoodMeal"
+---@field GoodDrink 98
+---@field [98] "GoodDrink"
+---@field MoreChests 99
+---@field [99] "MoreChests"
+---@field MoreCabinets 100
+---@field [100] "MoreCabinets"
+---@field MoreWeaponRacks 101
+---@field [101] "MoreWeaponRacks"
+---@field MoreArmorStands 102
+---@field [102] "MoreArmorStands"
+---@field RoomPretension 103
+---@field [103] "RoomPretension"
+---@field LackTables 104
+---@field [104] "LackTables"
+---@field CrowdedTables 105
+---@field [105] "CrowdedTables"
+---@field DiningQuality 106
+---@field [106] "DiningQuality"
+---@field NoDining 107
+---@field [107] "NoDining"
+---@field LackChairs 108
+---@field [108] "LackChairs"
+---@field TrainingBond 109
+---@field [109] "TrainingBond"
+---@field Rescued 110
+---@field [110] "Rescued"
+---@field RescuedOther 111
+---@field [111] "RescuedOther"
+---@field SatisfiedAtWork 112
+---@field [112] "SatisfiedAtWork"
+---@field TaxedLostProperty 113
+---@field [113] "TaxedLostProperty"
+---@field Taxed 114
+---@field [114] "Taxed"
+---@field LackProtection 115
+---@field [115] "LackProtection"
+---@field TaxRoomUnreachable 116
+---@field [116] "TaxRoomUnreachable"
+---@field TaxRoomMisinformed 117
+---@field [117] "TaxRoomMisinformed"
+---@field PleasedNoble 118
+---@field [118] "PleasedNoble"
+---@field TaxCollectionSmooth 119
+---@field [119] "TaxCollectionSmooth"
+---@field DisappointedNoble 120
+---@field [120] "DisappointedNoble"
+---@field TaxCollectionRough 121
+---@field [121] "TaxCollectionRough"
+---@field MadeFriend 122
+---@field [122] "MadeFriend"
+---@field FormedGrudge 123
+---@field [123] "FormedGrudge"
+---@field AnnoyedVermin 124
+---@field [124] "AnnoyedVermin"
+---@field NearVermin 125
+---@field [125] "NearVermin"
+---@field PesteredVermin 126
+---@field [126] "PesteredVermin"
+---@field AcquiredItem 127
+---@field [127] "AcquiredItem"
+---@field AdoptedPet 128
+---@field [128] "AdoptedPet"
+---@field Jailed 129
+---@field [129] "Jailed"
+---@field Bath 130
+---@field [130] "Bath"
+---@field SoapyBath 131
+---@field [131] "SoapyBath"
+---@field SparringAccident 132
+---@field [132] "SparringAccident"
+---@field Attacked 133
+---@field [133] "Attacked"
+---@field AttackedByDead 134
+---@field [134] "AttackedByDead"
+---@field SameBooze 135
+---@field [135] "SameBooze"
+---@field DrinkBlood 136
+---@field [136] "DrinkBlood"
+---@field DrinkSlime 137
+---@field [137] "DrinkSlime"
+---@field DrinkVomit 138
+---@field [138] "DrinkVomit"
+---@field DrinkGoo 139
+---@field [139] "DrinkGoo"
+---@field DrinkIchor 140
+---@field [140] "DrinkIchor"
+---@field DrinkPus 141
+---@field [141] "DrinkPus"
+---@field NastyWater 142
+---@field [142] "NastyWater"
+---@field DrankSpoiled 143
+---@field [143] "DrankSpoiled"
+---@field LackWell 144
+---@field [144] "LackWell"
+---@field NearCaged 145
+---@field [145] "NearCaged"
+---@field NearCagedHated 146
+---@field [146] "NearCagedHated"
+---@field LackBedroom 147
+---@field [147] "LackBedroom"
+---@field BedroomQuality 148
+---@field [148] "BedroomQuality"
+---@field SleptFloor 149
+---@field [149] "SleptFloor"
+---@field SleptMud 150
+---@field [150] "SleptMud"
+---@field SleptGrass 151
+---@field [151] "SleptGrass"
+---@field SleptRoughFloor 152
+---@field [152] "SleptRoughFloor"
+---@field SleptRocks 153
+---@field [153] "SleptRocks"
+---@field SleptIce 154
+---@field [154] "SleptIce"
+---@field SleptDirt 155
+---@field [155] "SleptDirt"
+---@field SleptDriftwood 156
+---@field [156] "SleptDriftwood"
+---@field ArtDefacement 157
+---@field [157] "ArtDefacement"
+---@field Evicted 158
+---@field [158] "Evicted"
+---@field GaveBirth 159
+---@field [159] "GaveBirth"
+---@field SpouseGaveBirth 160
+---@field [160] "SpouseGaveBirth"
+---@field ReceivedWater 161
+---@field [161] "ReceivedWater"
+---@field GaveWater 162
+---@field [162] "GaveWater"
+---@field ReceivedFood 163
+---@field [163] "ReceivedFood"
+---@field GaveFood 164
+---@field [164] "GaveFood"
+---@field Talked 165
+---@field [165] "Talked"
+---@field OfficeQuality 166
+---@field [166] "OfficeQuality"
+---@field MeetingInBedroom 167
+---@field [167] "MeetingInBedroom"
+---@field MeetingInDiningRoom 168
+---@field [168] "MeetingInDiningRoom"
+---@field NoRooms 169
+---@field [169] "NoRooms"
+---@field TombQuality 170
+---@field [170] "TombQuality"
+---@field TombLack 171
+---@field [171] "TombLack"
+---@field TalkToNoble 172
+---@field [172] "TalkToNoble"
+---@field InteractPet 173
+---@field [173] "InteractPet"
+---@field ConvictionCorpse 174
+---@field [174] "ConvictionCorpse"
+---@field ConvictionAnimal 175
+---@field [175] "ConvictionAnimal"
+---@field ConvictionVictim 176
+---@field [176] "ConvictionVictim"
+---@field ConvictionJusticeSelf 177
+---@field [177] "ConvictionJusticeSelf"
+---@field ConvictionJusticeFamily 178
+---@field [178] "ConvictionJusticeFamily"
+---@field Decay 179
+---@field [179] "Decay"
+---@field NeedsUnfulfilled 180
+---@field [180] "NeedsUnfulfilled"
+---@field Prayer 181
+---@field [181] "Prayer"
+---@field DrinkWithoutCup 182
+---@field [182] "DrinkWithoutCup"
+---@field ResearchBreakthrough 183
+---@field [183] "ResearchBreakthrough"
+---@field ResearchStalled 184
+---@field [184] "ResearchStalled"
+---@field PonderTopic 185
+---@field [185] "PonderTopic"
+---@field DiscussTopic 186
+---@field [186] "DiscussTopic"
+---@field Syndrome 187
+---@field [187] "Syndrome"
+---@field Perform 188
+---@field [188] "Perform"
+---@field WatchPerform 189
+---@field [189] "WatchPerform"
+---@field RemoveTroupe 190
+---@field [190] "RemoveTroupe"
+---@field LearnTopic 191
+---@field [191] "LearnTopic"
+---@field LearnSkill 192
+---@field [192] "LearnSkill"
+---@field LearnBook 193
+---@field [193] "LearnBook"
+---@field LearnInteraction 194
+---@field [194] "LearnInteraction"
+---@field LearnPoetry 195
+---@field [195] "LearnPoetry"
+---@field LearnMusic 196
+---@field [196] "LearnMusic"
+---@field LearnDance 197
+---@field [197] "LearnDance"
+---@field TeachTopic 198
+---@field [198] "TeachTopic"
+---@field TeachSkill 199
+---@field [199] "TeachSkill"
+---@field ReadBook 200
+---@field [200] "ReadBook"
+---@field WriteBook 201
+---@field [201] "WriteBook"
+---@field BecomeResident 202
+---@field [202] "BecomeResident"
+---@field BecomeCitizen 203
+---@field [203] "BecomeCitizen"
+---@field DenyResident 204
+---@field [204] "DenyResident"
+---@field DenyCitizen 205
+---@field [205] "DenyCitizen"
+---@field LeaveTroupe 206
+---@field [206] "LeaveTroupe"
+---@field MakeBelieve 207
+---@field [207] "MakeBelieve"
+---@field PlayToy 208
+---@field [208] "PlayToy"
+---@field DreamAbout 209
+---@field [209] "DreamAbout"
+---@field Dream 210
+---@field [210] "Dream"
+---@field Nightmare 211
+---@field [211] "Nightmare"
+---@field Argument 212
+---@field [212] "Argument"
+---@field CombatDrills 213
+---@field [213] "CombatDrills"
+---@field ArcheryPractice 214
+---@field [214] "ArcheryPractice"
+---@field ImproveSkill 215
+---@field [215] "ImproveSkill"
+---@field WearItem 216
+---@field [216] "WearItem"
+---@field RealizeValue 217
+---@field [217] "RealizeValue"
+---@field OpinionStoryteller 218
+---@field [218] "OpinionStoryteller"
+---@field OpinionRecitation 219
+---@field [219] "OpinionRecitation"
+---@field OpinionInstrumentSimulation 220
+---@field [220] "OpinionInstrumentSimulation"
+---@field OpinionInstrumentPlayer 221
+---@field [221] "OpinionInstrumentPlayer"
+---@field OpinionSinger 222
+---@field [222] "OpinionSinger"
+---@field OpinionChanter 223
+---@field [223] "OpinionChanter"
+---@field OpinionDancer 224
+---@field [224] "OpinionDancer"
+---@field OpinionStory 225
+---@field [225] "OpinionStory"
+---@field OpinionPoetry 226
+---@field [226] "OpinionPoetry"
+---@field OpinionMusic 227
+---@field [227] "OpinionMusic"
+---@field OpinionDance 228
+---@field [228] "OpinionDance"
+---@field Defeated 229
+---@field [229] "Defeated"
+---@field FavoritePossession 230
+---@field [230] "FavoritePossession"
+---@field PreserveBody 231
+---@field [231] "PreserveBody"
+---@field Murdered 232
+---@field [232] "Murdered"
+---@field HistEventCollection 233
+---@field [233] "HistEventCollection"
+---@field ViewOwnDisplay 234
+---@field [234] "ViewOwnDisplay"
+---@field ViewDisplay 235
+---@field [235] "ViewDisplay"
+---@field AcquireArtifact 236
+---@field [236] "AcquireArtifact"
+---@field DenySanctuary 237
+---@field [237] "DenySanctuary"
+---@field CaughtSneaking 238
+---@field [238] "CaughtSneaking"
+---@field GaveArtifact 239
+---@field [239] "GaveArtifact"
+---@field SawDeadBody 240 240
+---@field [240] "SawDeadBody" 240
+---@field Expelled 241
+---@field [241] "Expelled"
+---@field RelativeExpelled 242
+---@field [242] "RelativeExpelled"
+---@field PromisedVampireImmortality 243
+---@field [243] "PromisedVampireImmortality"
+---@field PromisedNecroImmortality 244
+---@field [244] "PromisedNecroImmortality"
+---@field SiteLecture 245
+---@field [245] "SiteLecture"
+---@field SitePerformance 246
+---@field [246] "SitePerformance"
+---@field AcceptedBribe 247
+---@field [247] "AcceptedBribe"
+---@field EmbezzledFunds 248
+---@field [248] "EmbezzledFunds"
+---@field CutOfCorruptFunds 249
+---@field [249] "CutOfCorruptFunds"
+---@field Abducted 250 250
+---@field [250] "Abducted" 250
+---@field FromAfar 251
+---@field [251] "FromAfar"
+---@field AcceptedTemplePetition 252
+---@field [252] "AcceptedTemplePetition"
+---@field EstablishedTemple 253
+---@field [253] "EstablishedTemple"
+---@field RejectedTemplePetition 254
+---@field [254] "RejectedTemplePetition"
+---@field IgnoredTemplePetition 255
+---@field [255] "IgnoredTemplePetition"
+---@field AbandonedTemplePetition 256
+---@field [256] "AbandonedTemplePetition"
+---@field DeferredToSuperior 257
+---@field [257] "DeferredToSuperior"
+---@field AcceptedGuildhallPetition 258
+---@field [258] "AcceptedGuildhallPetition"
+---@field EstablishedGuildhallRecognition 259
+---@field [259] "EstablishedGuildhallRecognition"
+---@field RejectedGuildhallPetition 260 260
+---@field [260] "RejectedGuildhallPetition" 260
+---@field IgnoredGuildhallPetition 261
+---@field [261] "IgnoredGuildhallPetition"
+---@field AbandonedGuildhallAgreement 262
+---@field [262] "AbandonedGuildhallAgreement"
+---@field InfiltrationMission 263
+---@field [263] "InfiltrationMission"
+---@field BreakUp 264
+---@field [264] "BreakUp"
+---@field Divorce 265
+---@field [265] "Divorce"
+---@field ActivePreacherPerformance 266
+---@field [266] "ActivePreacherPerformance"
+---@field ActiveSermonWorship 267
+---@field [267] "ActiveSermonWorship"
+---@field ActiveSermonSphere 268
+---@field [268] "ActiveSermonSphere"
+---@field ActiveSermonPromoteValue 269
+---@field [269] "ActiveSermonPromoteValue"
+---@field ActiveSermonRefuseValue 270 270
+---@field [270] "ActiveSermonRefuseValue" 270
+---@field IntellectualDiscussion 271
+---@field [271] "IntellectualDiscussion"
+---@field SharePersonalInsight 272
+---@field [272] "SharePersonalInsight"
+---@field ShareOthersPersonalInsight 273
+---@field [273] "ShareOthersPersonalInsight"
+---@field DiscussProblems 274
+---@field [274] "DiscussProblems"
+---@field DiscussOthersProblems 275
+---@field [275] "DiscussOthersProblems"
+---@field PerformedRiteDedicatedTemple 276
+---@field [276] "PerformedRiteDedicatedTemple"
+---@field PerformedRiteImproperlyDedicatedTemple 277
+---@field [277] "PerformedRiteImproperlyDedicatedTemple"
+---@field PerformedRiteUndedicatedTemple 278
+---@field [278] "PerformedRiteUndedicatedTemple"
+---@field PrayedDedicatedTemple 279
+---@field [279] "PrayedDedicatedTemple"
+df.unit_thought_type = {}
+
+---@class unit_thought_type_attr_entry_type: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_thought_type._attr_entry_type = {}
+
+---@class (exact) unit_thought_type_attr_entry_type_fields
+---@field caption DFCompoundField bay12: CircumstanceType
+---@field xml_caption DFCompoundField
+df.unit_thought_type._attr_entry_type._fields = {}
+
+---@class unit_thought_type_attrs
+---@field Conflict { caption: "while in conflict", xml_caption: "conflict" }
+---@field Trauma { caption: "after experiencing trauma", xml_caption: "death and injury" }
+---@field WitnessDeath { caption: "after seeing somebody die", xml_caption: "witnessed death in incident" }
+---@field UnexpectedDeath { caption: "at the unexpected death of [somebody]", xml_caption: "hf died unexpectedly" }
+---@field Death { caption: "at somebody's death", xml_caption: "hf is dead" }
+---@field Kill { caption: "while killing somebody", xml_caption: "slayer in incident" }
+---@field LoveSeparated { caption: "at being separated from a loved one", xml_caption: "separated from hf" }
+---@field LoveReunited { caption: "after being reunited with a loved one", xml_caption: "reunited with hf" }
+---@field JoinConflict { caption: "when joining an existing conflict", xml_caption: "jump into existing conflict" }
+---@field MakeMasterwork { caption: "after producing a masterwork", xml_caption: "produced masterwork" }
+---@field MadeArtifact { caption: "after creating an artifact", xml_caption: "produced artifact" }
+---@field MasterSkill { caption: "upon mastering [skill]", xml_caption: "mastered skill" }
+---@field NewRomance { caption: "as [he] was caught up in a new romance", xml_caption: "fell in love" }
+---@field BecomeParent { caption: "after becoming a parent", xml_caption: "became parent" }
+---@field NearConflict { caption: "being near to a conflict", xml_caption: "nearby conflict" }
+---@field CancelAgreement { caption: "after an agreement was cancelled", xml_caption: "agreement cancelled" }
+---@field JoinTravel { caption: "upon joining a traveling group", xml_caption: "being an agreement companion" }
+---@field SiteControlled { caption: "after a site was controlled", xml_caption: "entity controls site" }
+---@field TributeCancel { caption: "after a tribute cancellation", xml_caption: "entity cancels tribute" }
+---@field Incident { caption: "after an incident", xml_caption: "incident" }
+---@field HearRumor { caption: "after hearing a rumor", xml_caption: "rumor" }
+---@field MilitaryRemoved { caption: "after being removed from a military group", xml_caption: "kicked out of squad" }
+---@field StrangerWeapon { caption: "when a stranger advanced with a weapon", xml_caption: "stranger advancing with weapon" }
+---@field StrangerSneaking { caption: "after seeing a stranger sneaking around", xml_caption: "stranger sneaking around" }
+---@field SawDrinkBlood { caption: "after witnessing a night creature drinking blood", xml_caption: "witnessed blood drinking in incident" }
+---@field Complained { caption: "[multiple]", xml_caption: "made complaint" }
+---@field ReceivedComplaint { caption: "[multiple]", xml_caption: "listened to complaint" }
+---@field AdmireBuilding { caption: "near a [quality] [building]", xml_caption: "admire building" }
+---@field AdmireOwnBuilding { caption: "near [his] own [quality] [building]", xml_caption: "admire owned building" }
+---@field AdmireArrangedBuilding { caption: "near a [quality] tastefully arranged [building]", xml_caption: "admire arranged building" }
+---@field AdmireOwnArrangedBuilding { caption: "near [his] own [quality] tastefully arranged [building]", xml_caption: "admire owned arranged building" }
+---@field LostPet { caption: "after losing a pet", xml_caption: "pet lost" }
+---@field ThrownStuff { caption: "after throwing something", xml_caption: "threw hauled item in tantrum" }
+---@field JailReleased { caption: "after being released from confinement", xml_caption: "freed from prison" }
+---@field Miscarriage { caption: "after a miscarriage", xml_caption: "had miscarriage" }
+---@field SpouseMiscarriage { caption: "after [his] spouse's miscarriage", xml_caption: "spouse had miscarriage" }
+---@field OldClothing { caption: "to be wearing old clothing", xml_caption: "old clothing" }
+---@field TatteredClothing { caption: "to be wearing tattered clothing", xml_caption: "tattered clothing" }
+---@field RottedClothing { caption: "to have clothes rot off of [his] body", xml_caption: "clothing rots away" }
+---@field GhostNightmare { caption: "after being tormented in nightmares by a dead [somebody]", xml_caption: "haunted in dreams" }
+---@field GhostHaunt { caption: "after being haunted/tormented/possessed by a dead [somebody]", xml_caption: "haunted" }
+---@field Spar { caption: "after a sparring session", xml_caption: "good spar" }
+---@field UnableComplain { caption: "after being unable to [meet]", xml_caption: "complaint unregistered" }
+---@field LongPatrol { caption: "during long patrol duty", xml_caption: "long patrol" }
+---@field SunNausea { caption: "after being nauseated bu the sun", xml_caption: "sun nauseated" }
+---@field SunIrritated { caption: "at being out in the sunshine again", xml_caption: "sun irritated" }
+---@field Drowsy { caption: "when drowsy", xml_caption: "drowsy" }
+---@field VeryDrowsy { caption: "when utterly sleep-deprived", xml_caption: "very drowsy" }
+---@field Thirsty { caption: "when thirsty", xml_caption: "thirsty" }
+---@field Dehydrated { caption: "when dehydrated", xml_caption: "dehydrated" }
+---@field Hungry { caption: "when hungry", xml_caption: "hungry" }
+---@field Starving { caption: "when starving", xml_caption: "starving" }
+---@field MajorInjuries { caption: "after suffering a major injury", xml_caption: "suffered major injury" }
+---@field MinorInjuries { caption: "after suffering a minor injury", xml_caption: "suffered minor injury" }
+---@field SleepNoise { caption: "after [varying]", xml_caption: "rough sleep" }
+---@field Rest { caption: "after being able to rest and recuperate", xml_caption: "resting" }
+---@field FreakishWeather { caption: "when caught in freakish weather", xml_caption: "caught in freakish weather" }
+---@field Rain { caption: "when caught in the rain", xml_caption: "caught in rain" }
+---@field SnowStorm { caption: "when caught in a snow storm", xml_caption: "caught in snow" }
+---@field Miasma { caption: "after retching on a miasma", xml_caption: "caught in miasma" }
+---@field Smoke { caption: "after choking on smoke underground", xml_caption: "caught in smoke" }
+---@field Waterfall { caption: "being near to a waterfall", xml_caption: "waterfall mist" }
+---@field Dust { caption: "after choking on dust underground", xml_caption: "caught in dust" }
+---@field Demands { caption: "considering the state of demands", xml_caption: "considering demand" }
+---@field ImproperPunishment { caption: "that a criminal could not be properly punished", xml_caption: "punishment of victimizer reduced" }
+---@field PunishmentReduced { caption: "to have [his] punishment reduced", xml_caption: "personal punishment reduced" }
+---@field Elected { caption: "to be elected", xml_caption: "elected" }
+---@field Reelected { caption: "to be re-elected", xml_caption: "reelected" }
+---@field RequestApproved { caption: "having a request approved", xml_caption: "request approved" }
+---@field RequestIgnored { caption: "having a request ignored", xml_caption: "request ignored" }
+---@field NoPunishment { caption: "that nobody could be punished for a failure", xml_caption: "nobody to punish for failed mandate" }
+---@field PunishmentDelayed { caption: "to have [his] punishment delayed", xml_caption: "personal punishment delayed" }
+---@field DelayedPunishment { caption: "after the delayed punishment of a criminal", xml_caption: "punishment of victimizer delayed" }
+---@field ScarceCageChain { caption: "considering the scarcity of cages and chains", xml_caption: "insufficient justice buildings" }
+---@field MandateIgnored { caption: "having a mandate ignored", xml_caption: "mandate ignored" }
+---@field MandateDeadlineMissed { caption: "having a mandate deadline missed", xml_caption: "mandate only partially completed" }
+---@field LackWork { caption: "after the lack of work last season", xml_caption: "insufficient work" }
+---@field SmashedBuilding { caption: "after smashing up a building", xml_caption: "destroyed building" }
+---@field ToppledStuff { caption: "after toppling something over", xml_caption: "committed vandalism" }
+---@field NoblePromotion { caption: "after receiving a higher rank of nobility", xml_caption: "land holder rank increased" }
+---@field BecomeNoble { caption: "after entering the nobility", xml_caption: "established as land holder" }
+---@field Cavein { caption: "after being knocked out during a cave-in", xml_caption: "knocked out by cavein" }
+---@field MandateDeadlineMet { caption: "to have a mandate deadline met", xml_caption: "mandate was obeyed" }
+---@field Uncovered { caption: "to be uncovered", xml_caption: "naked" }
+---@field NoShirt { caption: "to have no shirt", xml_caption: "no shirt" }
+---@field NoShoes { caption: "to have no shoes", xml_caption: "no shoes" }
+---@field EatPet { caption: "after being forced to eat a treasured pet to survive", xml_caption: "ate own pet while starving" }
+---@field EatLikedCreature { caption: "after being forced to eat a beloved creature to survive", xml_caption: "ate favorite animal while starving" }
+---@field EatVermin { caption: "after being forced to eat vermin to survive", xml_caption: "ate vermin while starving" }
+---@field FistFight { caption: "after starting a fist fight", xml_caption: "beat somebody up" }
+---@field GaveBeating { caption: "after punishing somebody with a beating", xml_caption: "punished somebody with beating" }
+---@field GotBeaten { caption: "after being beaten", xml_caption: "punished by beating" }
+---@field GaveHammering { caption: "after beating somebody with a hammer", xml_caption: "punished somebody with tool" }
+---@field GotHammered { caption: "after being beaten with a hammer", xml_caption: "punished by tool" }
+---@field NoHammer { caption: "after being unable to find a hammer", xml_caption: "cannot get punishment tool" }
+---@field SameFood { caption: "eating the same old food", xml_caption: "tired of food" }
+---@field AteRotten { caption: "after eating rotten food", xml_caption: "eaten rotten food" }
+---@field GoodMeal { caption: "after eating [quality food]", xml_caption: "good food" }
+---@field GoodDrink { caption: "after having [quality drink]", xml_caption: "good drink" }
+---@field MoreChests { caption: "not having enough chests", xml_caption: "do not have enough chests" }
+---@field MoreCabinets { caption: "not having enough cabinets", xml_caption: "do not have enough cabinets" }
+---@field MoreWeaponRacks { caption: "not having enough weapon racks", xml_caption: "do not have enough weapon racks" }
+---@field MoreArmorStands { caption: "not having enough armor stands", xml_caption: "do not have enough armor stands" }
+---@field RoomPretension { caption: "by a lesser's pretentious [room] arrangements", xml_caption: "lesser has better room" }
+---@field LackTables { caption: "at the lack of dining tables", xml_caption: "eating without table" }
+---@field CrowdedTables { caption: "eating at a crowded table", xml_caption: "eating at crowded table" }
+---@field DiningQuality { caption: "dining in [a quality] dining room", xml_caption: "eating in dining room" }
+---@field NoDining { caption: "being without a proper dining room", xml_caption: "eating without dining room" }
+---@field LackChairs { caption: "at the lack of chairs", xml_caption: "eating without chair" }
+---@field TrainingBond { caption: "after forming a bond with an animal training partner", xml_caption: "new bonded relationship" }
+---@field Rescued { caption: "after being rescued", xml_caption: "was rescued" }
+---@field RescuedOther { caption: "after bringing somebody to rest in bed", xml_caption: "rescued somebody" }
+---@field SatisfiedAtWork { caption: "at work", xml_caption: "completed job" }
+---@field TaxedLostProperty { caption: "after losing property to the tax collector's escorts", xml_caption: "tax escort stole property" }
+---@field Taxed { caption: "after being taxed", xml_caption: "lost property to taxes" }
+---@field LackProtection { caption: "not having adequate protection", xml_caption: "have inadequate protection" }
+---@field TaxRoomUnreachable { caption: "after being unable to reach a room for tax collection", xml_caption: "taxable room inaccessible" }
+---@field TaxRoomMisinformed { caption: "after being misinformed about a room for tax collection", xml_caption: "misinformed about taxable room" }
+---@field PleasedNoble { caption: "having pleased a noble", xml_caption: "pleased nobility" }
+---@field TaxCollectionSmooth { caption: "that the tax collection went smoothly", xml_caption: "tax collector succeeded" }
+---@field DisappointedNoble { caption: "having disappointed a noble", xml_caption: "disappointed nobility" }
+---@field TaxCollectionRough { caption: "that the tax collection didn't go smoothly", xml_caption: "tax collector failed" }
+---@field MadeFriend { caption: "after making a friend", xml_caption: "new buddy" }
+---@field FormedGrudge { caption: "after forming a grudge", xml_caption: "new grudge" }
+---@field AnnoyedVermin { caption: "after being accosted by [vermin]", xml_caption: "near hated vermin" }
+---@field NearVermin { caption: "after being near [vermin]", xml_caption: "near favorite animal" }
+---@field PesteredVermin { caption: "after being pestered by [vermin]", xml_caption: "pestered by flying micro vermin" }
+---@field AcquiredItem { caption: "after a satisfying acquisition", xml_caption: "acquired item" }
+---@field AdoptedPet { caption: "after adopting a new pet", xml_caption: "acquired favorite animal as pet" }
+---@field Jailed { caption: "after being confined", xml_caption: "confined" }
+---@field Bath { caption: "after a bath", xml_caption: "cleaned self" }
+---@field SoapyBath { caption: "after a soapy bath", xml_caption: "cleaned self with soap" }
+---@field SparringAccident { caption: "after killing somebody by accident while sparring", xml_caption: "killed somebody in training accident" }
+---@field Attacked { caption: "after being attacked", xml_caption: "attacked" }
+---@field AttackedByDead { caption: "after being attacked by dead [HF relative]", xml_caption: "attacked by zombie possible relative" }
+---@field SameBooze { caption: "drinking the same old booze", xml_caption: "tired of drink" }
+---@field DrinkBlood { caption: "while forced to drink bloody water", xml_caption: "drinking blood" }
+---@field DrinkSlime { caption: "while forced to drink slime", xml_caption: "drinking slime" }
+---@field DrinkVomit { caption: "while forced to drink vomit", xml_caption: "drinking vomit" }
+---@field DrinkGoo { caption: "while forced to drink gooey water", xml_caption: "drinking goo" }
+---@field DrinkIchor { caption: "while forced to drink ichorous water", xml_caption: "drinking ichor" }
+---@field DrinkPus { caption: "while forced to drink purulent water", xml_caption: "drinking pus" }
+---@field NastyWater { caption: "drinking nasty water", xml_caption: "drinking nasty" }
+---@field DrankSpoiled { caption: "after drinking something spoiled", xml_caption: "drinking rotten" }
+---@field LackWell { caption: "after drinking water without a well", xml_caption: "drinking without well" }
+---@field NearCaged { caption: "after being near to a [animal] in a cage", xml_caption: "view favorite animal caged" }
+---@field NearCagedHated { caption: "after being near to a [animal] in a cage", xml_caption: "view hated vermin caged" }
+---@field LackBedroom { caption: "after sleeping without a proper room", xml_caption: "slept without proper room" }
+---@field BedroomQuality { caption: "after sleeing in a [quality] bedroom", xml_caption: "slept in room" }
+---@field SleptFloor { caption: "after sleeping on the floor", xml_caption: "slept on smooth floor" }
+---@field SleptMud { caption: "after sleeping in the mud", xml_caption: "slept in mud" }
+---@field SleptGrass { caption: "after sleeping in the grass", xml_caption: "slept on grass" }
+---@field SleptRoughFloor { caption: "after sleeping on a rough cave floor", xml_caption: "slept on rough stone" }
+---@field SleptRocks { caption: "after sleeping on rocks", xml_caption: "slept on rocks" }
+---@field SleptIce { caption: "after sleeping on ice", xml_caption: "slept on ice" }
+---@field SleptDirt { caption: "after sleeping in the dirt", xml_caption: "slept on dirt" }
+---@field SleptDriftwood { caption: "after sleeping on a pile of driftwood", xml_caption: "slept on driftwood" }
+---@field ArtDefacement { caption: "after suffering the travesty of art defacement", xml_caption: "artwork defaced" }
+---@field Evicted { caption: "after being evicted", xml_caption: "evicted" }
+---@field GaveBirth { caption: "after giving birth to [a baby]", xml_caption: "gave birth" }
+---@field SpouseGaveBirth { caption: "after becoming a parent of [a baby]", xml_caption: "gained relative" }
+---@field ReceivedWater { caption: "after receiving water", xml_caption: "received water" }
+---@field GaveWater { caption: "after giving somebody water", xml_caption: "gave water" }
+---@field ReceivedFood { caption: "after receiving food", xml_caption: "received food" }
+---@field GaveFood { caption: "after giving somebody food", xml_caption: "gave food" }
+---@field Talked { caption: "talking with a [relation]", xml_caption: "relation chat" }
+---@field OfficeQuality { caption: "conducted meeting in a [quality] room", xml_caption: "met in room" }
+---@field MeetingInBedroom { caption: "having to conduct an official meeting in a bedroom", xml_caption: "official meeting in bedroom" }
+---@field MeetingInDiningRoom { caption: "having to conduct an official meeting in a dining room", xml_caption: "official meeting in dining room" }
+---@field NoRooms { caption: "not having any rooms", xml_caption: "official meeting without room" }
+---@field TombQuality { caption: "having a [quality] tomb after gaining another year", xml_caption: "have tomb" }
+---@field TombLack { caption: "about not having a tomb after gaining another year", xml_caption: "have no tomb" }
+---@field TalkToNoble { caption: "after talking to a pillar of society", xml_caption: "interacted with community pillar" }
+---@field InteractPet { caption: "after interacting with a pet", xml_caption: "interacted with pet" }
+---@field ConvictionCorpse { caption: "after a long-dead corpse was convicted of a crime", xml_caption: "dead unit convicted" }
+---@field ConvictionAnimal { caption: "after an animal was convicted of a crime", xml_caption: "animal convicted" }
+---@field ConvictionVictim { caption: "after the bizarre conviction against all reason of the victim of a crime", xml_caption: "victim convicted" }
+---@field ConvictionJusticeSelf { caption: "upon receiving justice through a criminal's conviction", xml_caption: "perpetrator convicted" }
+---@field ConvictionJusticeFamily { caption: "when a family member received justice through a criminal's conviction", xml_caption: "perpetrator against family convicted" }
+---@field Decay { caption: "after being forced to endure the decay of a [relative]", xml_caption: "body of relation rotted" }
+---@field NeedsUnfulfilled { caption: "after [varying]", xml_caption: "unmet needs" }
+---@field Prayer { caption: "after communing with [deity]", xml_caption: "pray to hf" }
+---@field DrinkWithoutCup { caption: "after having a drink without using a goblet, cup or mug", xml_caption: "drinking without goblet" }
+---@field ResearchBreakthrough { caption: "after making a breakthrough concerning [research]", xml_caption: "research breakthrough" }
+---@field ResearchStalled { caption: "after being unable to advance the study of [research]", xml_caption: "stuck on research topic" }
+---@field PonderTopic { caption: "after pondering [research]", xml_caption: "ponder research topic" }
+---@field DiscussTopic { caption: "after discussing [research]", xml_caption: "discuss research topic" }
+---@field Syndrome { caption: "due to [syndrome]", xml_caption: "syndrome emotion" }
+---@field Perform { caption: "while performing", xml_caption: "performed in incident" }
+---@field WatchPerform { caption: "after watching a performance", xml_caption: "saw performance in incident" }
+---@field RemoveTroupe { caption: "after being removed from a performance troupe", xml_caption: "kicked out of troupe" }
+---@field LearnTopic { caption: "after learning about [topic]", xml_caption: "learned scholar flag" }
+---@field LearnSkill { caption: "after learning about [skill]", xml_caption: "learned skill" }
+---@field LearnBook { caption: "after learning [book]", xml_caption: "learned written content" }
+---@field LearnInteraction { caption: "after learning [interaction]", xml_caption: "learned interaction" }
+---@field LearnPoetry { caption: "after learning [poetic form]", xml_caption: "learned poetic form" }
+---@field LearnMusic { caption: "after learning [musical form]", xml_caption: "learned musical form" }
+---@field LearnDance { caption: "after learning [dance form]", xml_caption: "learned dance form" }
+---@field TeachTopic { caption: "after teaching [topic]", xml_caption: "taught scholar flag" }
+---@field TeachSkill { caption: "after teaching [skill]", xml_caption: "taught skill" }
+---@field ReadBook { caption: "after reading [book]", xml_caption: "read written content" }
+---@field WriteBook { caption: "after writing [book]", xml_caption: "wrote written content" }
+---@field BecomeResident { caption: "afer being granted residency", xml_caption: "residency petition accepted" }
+---@field BecomeCitizen { caption: "after being granted citizenship", xml_caption: "citizenship petition accepted" }
+---@field DenyResident { caption: "after being denied residency", xml_caption: "residency petition rejected" }
+---@field DenyCitizen { caption: "after being denied citizenship", xml_caption: "citizenship petition rejected" }
+---@field LeaveTroupe { caption: "after leaving a performance troupe", xml_caption: "left troupe" }
+---@field MakeBelieve { caption: "after playing make believe", xml_caption: "make believe" }
+---@field PlayToy { caption: "after playing with [a toy]", xml_caption: "play with toy" }
+---@field DreamAbout { xml_caption: "dream about hf" }
+---@field Dream { xml_caption: "dream" }
+---@field Nightmare { xml_caption: "nightmare" }
+---@field Argument { caption: "after getting into an argument", xml_caption: "argument" }
+---@field CombatDrills { caption: "after combat drills", xml_caption: "did individual melee drills" }
+---@field ArcheryPractice { caption: "after practicing at the archery target", xml_caption: "did ranged practice" }
+---@field ImproveSkill { caption: "upon improving [skill]", xml_caption: "improved skill" }
+---@field WearItem { caption: "after putting on a [quality] item", xml_caption: "put on quality worn item" }
+---@field RealizeValue { caption: "after realizing the [level] of [value]", xml_caption: "change personality value" }
+---@field OpinionStoryteller { xml_caption: "active performance storyteller" }
+---@field OpinionRecitation { xml_caption: "active performance poem reciter" }
+---@field OpinionInstrumentSimulation { xml_caption: "active performance simulated instrument" }
+---@field OpinionInstrumentPlayer { xml_caption: "active performance instrument" }
+---@field OpinionSinger { xml_caption: "active performance singer" }
+---@field OpinionChanter { xml_caption: "active performance chanter" }
+---@field OpinionDancer { xml_caption: "active performance dancer" }
+---@field OpinionStory { xml_caption: "active story event" }
+---@field OpinionPoetry { xml_caption: "active poetic form" }
+---@field OpinionMusic { xml_caption: "active musical form" }
+---@field OpinionDance { xml_caption: "active dance form" }
+---@field Defeated { xml_caption: "defeated hf" }
+---@field FavoritePossession { xml_caption: "item was favorite possession" }
+---@field PreserveBody { xml_caption: "by preserving part of body" }
+---@field Murdered { xml_caption: "murdered hf" }
+---@field HistEventCollection { xml_caption: "historical event collection" }
+---@field ViewOwnDisplay { xml_caption: "viewed item in own display" }
+---@field ViewDisplay { xml_caption: "viewed displayed item" }
+---@field AcquireArtifact { xml_caption: "acquired artifact" }
+---@field DenySanctuary { xml_caption: "turned child away from sanctuary" }
+---@field CaughtSneaking { xml_caption: "caught sneaking last stand" }
+---@field GaveArtifact { xml_caption: "claimed artifact given away" }
+---@field SawDeadBody { caption: "saw [somebody]'s dead body", xml_caption: "saw a dead body" }
+---@field Expelled { caption: "after being expelled", xml_caption: "expelled" }
+---@field RelativeExpelled { caption: "after [somebody] was expelled", xml_caption: "relative expelled" }
+---@field PromisedVampireImmortality { xml_caption: "preying on civilized for blood" }
+---@field PromisedNecroImmortality { xml_caption: "unnaturally ageless" }
+---@field SiteLecture { caption: "after watching a lecture in [site]", xml_caption: "scholarly lecture in site" }
+---@field SitePerformance { caption: "after watching a performance in [site]", xml_caption: "performance in site" }
+---@field AcceptedBribe { caption: "after accepting bribes in exchange for leniency", xml_caption: "accepting bribes for leniency" }
+---@field EmbezzledFunds { caption: "after embezzling funds", xml_caption: "embezzling funds from position" }
+---@field CutOfCorruptFunds { caption: "after receiving a cut of corruptly-obtained funds", xml_caption: "cut of corrupt funds" }
+---@field Abducted { caption: "after abducting [somebody]", xml_caption: "abducted hf" }
+---@field FromAfar { caption: "from afar", xml_caption: "from afar" }
+---@field AcceptedTemplePetition { caption: "after the acceptance of a petition for a temple for [entity]", xml_caption: "temple petition accepted" }
+---@field EstablishedTemple { caption: "after the establishment of a temple for [entity]", xml_caption: "entity temple recognition" }
+---@field RejectedTemplePetition { xml_caption: "temple petition rejected" }
+---@field IgnoredTemplePetition { xml_caption: "temple petition ignored" }
+---@field AbandonedTemplePetition { xml_caption: "temple agreement abandoned" }
+---@field DeferredToSuperior { xml_caption: "is entity subordinate" }
+---@field AcceptedGuildhallPetition { caption: "after the acceptance of a petition for a guildhall for [entity]", xml_caption: "guildhall petition accepted" }
+---@field EstablishedGuildhallRecognition { caption: "after the establishment of a guildhall for [entity]", xml_caption: "entity temple recognition" }
+---@field RejectedGuildhallPetition { xml_caption: "guildhall petition rejected" }
+---@field IgnoredGuildhallPetition { xml_caption: "guildhall petition ignored" }
+---@field AbandonedGuildhallAgreement { xml_caption: "guildhall agreement abandoned" }
+---@field InfiltrationMission { caption: "during an infiltration mission", xml_caption: "during an infilitration mission" }
+---@field BreakUp { caption: "after a break up", xml_caption: "broke up with lover" }
+---@field Divorce { caption: "after getting divorced", xml_caption: "divorced" }
+---@field ActivePreacherPerformance { xml_caption: "active performance preacher" }
+---@field ActiveSermonWorship { xml_caption: "active sermon worship hfid" }
+---@field ActiveSermonSphere { xml_caption: "active sermon sphere" }
+---@field ActiveSermonPromoteValue { xml_caption: "active sermon promote value" }
+---@field ActiveSermonRefuseValue { xml_caption: "active sermon refuse value" }
+---@field IntellectualDiscussion { caption: "having an intellectual discussion with [somebody]", xml_caption: "relation abstract chat" }
+---@field SharePersonalInsight { caption: "sharing a personal insight with [somebody]", xml_caption: "relation gave personal chat" }
+---@field ShareOthersPersonalInsight { caption: "sharing [somebody]'s personal insight", xml_caption: "relation received personal chat" }
+---@field DiscussProblems { caption: "discussing their problems with [somebody]", xml_caption: "relation gave stress complaint chat" }
+---@field DiscussOthersProblems { caption: "discussing [somebody]'s problems", xml_caption: "relation received stress complaint chat" }
+---@field PerformedRiteDedicatedTemple { caption: "performing the rites of [entity] in a dedicated temple", xml_caption: "religion prayer" }
+---@field PerformedRiteImproperlyDedicatedTemple { caption: "incompletely performing the rites of [entity] in an improperly dedicated temple", xml_caption: "religion prayer in incorrect temple" }
+---@field PerformedRiteUndedicatedTemple { caption: "incompletely performing the rites of [entity] in an undedicated temple", xml_caption: "religion prayer in godless temple" }
+---@field PrayedDedicatedTemple { caption: "communing with [histfig] in a dedicated temple", xml_caption: "pray to hf in dedicated temple" }
+df.unit_thought_type.attrs = {}
+
+---@class df.personality_mood_flag: DFBitfield
+---@field _enum identity.personality_mood_flag
+---@field failed_to_overcome boolean bay12: PERSONALITY_MOOD_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_MOOD_FLAG_*
+---@field was_dream_goal boolean
+---@field [1] boolean
+---@field vocalized boolean
+---@field [2] boolean
+---@field started_at_rel_zero boolean
+---@field [3] boolean
+---@field remembered_longterm boolean bay12: FROM_LONG_TERM_MEMORY
+---@field [4] boolean bay12: FROM_LONG_TERM_MEMORY
+---@field remembered_shortterm boolean bay12: FROM_SHORT_TERM_MEMORY
+---@field [5] boolean bay12: FROM_SHORT_TERM_MEMORY
+---@field remembered_reflected_on boolean bay12: FROM_CORE_MEMORY
+---@field [6] boolean bay12: FROM_CORE_MEMORY
+---@field facet_change boolean
+---@field [7] boolean
+---@field value_change boolean
+---@field [8] boolean
+
+---@class identity.personality_mood_flag: DFBitfieldType
+---@field failed_to_overcome 0 bay12: PERSONALITY_MOOD_FLAG_*
+---@field [0] "failed_to_overcome" bay12: PERSONALITY_MOOD_FLAG_*
+---@field was_dream_goal 1
+---@field [1] "was_dream_goal"
+---@field vocalized 2
+---@field [2] "vocalized"
+---@field started_at_rel_zero 3
+---@field [3] "started_at_rel_zero"
+---@field remembered_longterm 4 bay12: FROM_LONG_TERM_MEMORY
+---@field [4] "remembered_longterm" bay12: FROM_LONG_TERM_MEMORY
+---@field remembered_shortterm 5 bay12: FROM_SHORT_TERM_MEMORY
+---@field [5] "remembered_shortterm" bay12: FROM_SHORT_TERM_MEMORY
+---@field remembered_reflected_on 6 bay12: FROM_CORE_MEMORY
+---@field [6] "remembered_reflected_on" bay12: FROM_CORE_MEMORY
+---@field facet_change 7
+---@field [7] "facet_change"
+---@field value_change 8
+---@field [8] "value_change"
+df.personality_mood_flag = {}
+
+---@class (exact) df.personality_moodst: DFStruct
+---@field _type identity.personality_moodst
+---@field type df.emotion_type
+---@field strength number
+---@field relative_strength number
+---@field thought df.unit_thought_type bay12: circumstance
+---@field subthought number for certain thoughts; bay12: circumstance_id
+---@field severity number bay12: circumstance_value
+---@field flags df.personality_mood_flag
+---@field next_overcome_timer number
+---@field year number bay12: last_used_year
+---@field year_tick number bay12: last_used_season_count
+
+---@class identity.personality_moodst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_moodst = {}
+
+---@return df.personality_moodst
+function df.personality_moodst:new() end
+
+---@class df.personality_goal_flag: DFBitfield
+---@field _enum identity.personality_goal_flag
+---@field accomplished boolean bay12: PERSONALITY_GOAL_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_GOAL_FLAG_*
+
+---@class identity.personality_goal_flag: DFBitfieldType
+---@field accomplished 0 bay12: PERSONALITY_GOAL_FLAG_*
+---@field [0] "accomplished" bay12: PERSONALITY_GOAL_FLAG_*
+df.personality_goal_flag = {}
+
+---@class (exact) df.personality_goalst: DFStruct
+---@field _type identity.personality_goalst
+---@field local_id number next_dream_id related
+---@field type df.goal_type
+---@field id number
+---@field parent_id DFNumberVector
+---@field flags df.personality_goal_flag
+
+---@class identity.personality_goalst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_goalst = {}
+
+---@return df.personality_goalst
+function df.personality_goalst:new() end
+
+---@alias df.personality_preference_type
+---| 0 # Material
+---| 1 # Pet
+---| 2 # Food
+---| 3 # Vermin
+---| 4 # Item
+---| 5 # Plant
+---| 6 # Tree
+---| 7 # Color
+---| 8 # Shape
+---| 9 # Sexual
+
+---@class identity.personality_preference_type: DFEnumType
+---@field Material 0 bay12: PersonalityPreferenceType
+---@field [0] "Material" bay12: PersonalityPreferenceType
+---@field Pet 1
+---@field [1] "Pet"
+---@field Food 2
+---@field [2] "Food"
+---@field Vermin 3
+---@field [3] "Vermin"
+---@field Item 4
+---@field [4] "Item"
+---@field Plant 5
+---@field [5] "Plant"
+---@field Tree 6
+---@field [6] "Tree"
+---@field Color 7
+---@field [7] "Color"
+---@field Shape 8
+---@field [8] "Shape"
+---@field Sexual 9
+---@field [9] "Sexual"
+df.personality_preference_type = {}
+
+---@class (exact) df.personality_preferencest: DFStruct
+---@field _type identity.personality_preferencest
+---@field type df.personality_preference_type
+---@field var1 number
+---@field var2 number
+---@field var3 number
+---@field var4 number
+---@field seed number
+
+---@class identity.personality_preferencest: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_preferencest = {}
+
+---@return df.personality_preferencest
+function df.personality_preferencest:new() end
+
+---@alias df.need_type
+---| 0 # Socialize
+---| 1 # DrinkAlcohol
+---| 2 # PrayOrMeditate
+---| 3 # StayOccupied
+---| 4 # BeCreative
+---| 5 # Excitement
+---| 6 # LearnSomething
+---| 7 # BeWithFamily
+---| 8 # BeWithFriends
+---| 9 # HearEloquence
+---| 10 # UpholdTradition
+---| 11 # SelfExamination
+---| 12 # MakeMerry
+---| 13 # CraftObject
+---| 14 # MartialTraining
+---| 15 # PracticeSkill
+---| 16 # TakeItEasy
+---| 17 # MakeRomance
+---| 18 # SeeAnimal
+---| 19 # SeeGreatBeast
+---| 20 # AcquireObject
+---| 21 # EatGoodMeal
+---| 22 # Fight
+---| 23 # CauseTrouble
+---| 24 # Argue
+---| 25 # BeExtravagant
+---| 26 # Wander
+---| 27 # HelpSomebody
+---| 28 # ThinkAbstractly
+---| 29 # AdmireArt
+
+---@class identity.need_type: DFEnumType
+---@field Socialize 0 bay12: PersonalityNeedType
+---@field [0] "Socialize" bay12: PersonalityNeedType
+---@field DrinkAlcohol 1
+---@field [1] "DrinkAlcohol"
+---@field PrayOrMeditate 2
+---@field [2] "PrayOrMeditate"
+---@field StayOccupied 3
+---@field [3] "StayOccupied"
+---@field BeCreative 4
+---@field [4] "BeCreative"
+---@field Excitement 5
+---@field [5] "Excitement"
+---@field LearnSomething 6
+---@field [6] "LearnSomething"
+---@field BeWithFamily 7
+---@field [7] "BeWithFamily"
+---@field BeWithFriends 8
+---@field [8] "BeWithFriends"
+---@field HearEloquence 9
+---@field [9] "HearEloquence"
+---@field UpholdTradition 10
+---@field [10] "UpholdTradition"
+---@field SelfExamination 11
+---@field [11] "SelfExamination"
+---@field MakeMerry 12
+---@field [12] "MakeMerry"
+---@field CraftObject 13
+---@field [13] "CraftObject"
+---@field MartialTraining 14
+---@field [14] "MartialTraining"
+---@field PracticeSkill 15
+---@field [15] "PracticeSkill"
+---@field TakeItEasy 16
+---@field [16] "TakeItEasy"
+---@field MakeRomance 17
+---@field [17] "MakeRomance"
+---@field SeeAnimal 18
+---@field [18] "SeeAnimal"
+---@field SeeGreatBeast 19
+---@field [19] "SeeGreatBeast"
+---@field AcquireObject 20
+---@field [20] "AcquireObject"
+---@field EatGoodMeal 21
+---@field [21] "EatGoodMeal"
+---@field Fight 22
+---@field [22] "Fight"
+---@field CauseTrouble 23
+---@field [23] "CauseTrouble"
+---@field Argue 24
+---@field [24] "Argue"
+---@field BeExtravagant 25
+---@field [25] "BeExtravagant"
+---@field Wander 26
+---@field [26] "Wander"
+---@field HelpSomebody 27
+---@field [27] "HelpSomebody"
+---@field ThinkAbstractly 28
+---@field [28] "ThinkAbstractly"
+---@field AdmireArt 29
+---@field [29] "AdmireArt"
+df.need_type = {}
+
+---@class (exact) df.personality_needst: DFStruct
+---@field _type identity.personality_needst
+---@field id df.need_type
+---@field deity_id number for pray need
+---@field focus_level number goes to 400 when unit satisfies need
+---@field need_level number how fast focus_level decreases when it below 0
+
+---@class identity.personality_needst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_needst = {}
+
+---@return df.personality_needst
+function df.personality_needst:new() end
+
+-- Unused: CIRCUMSTANCE_FLAG_*
+-- Unused: circumstancest
+---@class (exact) df.soul_personality_changest: DFStruct
+---@field _type identity.soul_personality_changest
+---@field traits DFEnumVector<df.personality_facet_type, number>
+
+---@class identity.soul_personality_changest: DFCompoundType
+---@field _kind 'struct-type'
+df.soul_personality_changest = {}
+
+---@return df.soul_personality_changest
+function df.soul_personality_changest:new() end
+
+---@class df.personality_memory_flag: DFBitfield
+---@field _enum identity.personality_memory_flag
+---@field has_remembered boolean bay12: PERSONALITY_MEMORY_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_MEMORY_FLAG_*
+
+---@class identity.personality_memory_flag: DFBitfieldType
+---@field has_remembered 0 bay12: PERSONALITY_MEMORY_FLAG_*
+---@field [0] "has_remembered" bay12: PERSONALITY_MEMORY_FLAG_*
+df.personality_memory_flag = {}
+
+---@class (exact) df.unit_emotion_memory: DFStruct
+---@field _type identity.unit_emotion_memory
+---@field type df.emotion_type
+---@field strength number
+---@field relative_strength number
+---@field thought df.unit_thought_type
+---@field subthought number for certain thoughts
+---@field severity number
+---@field flags df.personality_memory_flag
+---@field year number
+---@field year_tick number
+---@field created_year number
+---@field created_tick number
+
+---@class identity.unit_emotion_memory: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_emotion_memory = {}
+
+---@return df.unit_emotion_memory
+function df.unit_emotion_memory:new() end
+
+---@class (exact) df.personality_core_memoryst: DFStruct
+---@field _type identity.personality_core_memoryst
+---@field memory df.unit_emotion_memory
+---@field changed_facet df.personality_facet_type
+---@field facet_old number
+---@field facet_new number
+---@field changed_value df.value_type
+---@field value_old number
+---@field value_new number
+
+---@class identity.personality_core_memoryst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_core_memoryst = {}
+
+---@return df.personality_core_memoryst
+function df.personality_core_memoryst:new() end
+
+---@class (exact) df.personality_memory_handlerst: DFStruct
+---@field _type identity.personality_memory_handlerst
+---@field shortterm df.unit_emotion_memory[]
+---@field longterm df.unit_emotion_memory[]
+---@field core_memories _personality_memory_handlerst_core_memories
+
+---@class identity.personality_memory_handlerst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_memory_handlerst = {}
+
+---@return df.personality_memory_handlerst
+function df.personality_memory_handlerst:new() end
+
+---@class _personality_memory_handlerst_core_memories: DFContainer
+---@field [integer] df.personality_core_memoryst
+local _personality_memory_handlerst_core_memories
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_core_memoryst>
+function _personality_memory_handlerst_core_memories:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_core_memoryst
+function _personality_memory_handlerst_core_memories:insert(index, item) end
+
+---@param index integer
+function _personality_memory_handlerst_core_memories:erase(index) end
+
+---@class df.personality_debug_flag: DFBitfield
+---@field _enum identity.personality_debug_flag
+---@field on boolean bay12: PERSONALITY_DEBUG_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_DEBUG_FLAG_*
+
+---@class identity.personality_debug_flag: DFBitfieldType
+---@field on 0 bay12: PERSONALITY_DEBUG_FLAG_*
+---@field [0] "on" bay12: PERSONALITY_DEBUG_FLAG_*
+df.personality_debug_flag = {}
+
+---@class (exact) df.personality_debugst: DFStruct
+---@field _type identity.personality_debugst
+---@field total_circ_stress DFEnumVector<df.unit_thought_type, number>
+---@field total_circ_memory_stress DFEnumVector<df.unit_thought_type, number>
+---@field total_eustress_gain number
+---@field total_distress_gain number
+---@field total_eustress_loss number
+---@field total_distress_loss number
+---@field flags df.personality_debug_flag
+
+---@class identity.personality_debugst: DFCompoundType
+---@field _kind 'struct-type'
+df.personality_debugst = {}
+
+---@return df.personality_debugst
+function df.personality_debugst:new() end
+
+---@class df.personality_flag: DFBitfield
+---@field _enum identity.personality_flag
+---@field distraction_calculated boolean bay12: PERSONALITY_FLAG_*
+---@field [0] boolean bay12: PERSONALITY_FLAG_*
+---@field has_unmet_needs boolean focus_level is below -999 for at least one need
+---@field [1] boolean focus_level is below -999 for at least one need
+
+---@class identity.personality_flag: DFBitfieldType
+---@field distraction_calculated 0 bay12: PERSONALITY_FLAG_*
+---@field [0] "distraction_calculated" bay12: PERSONALITY_FLAG_*
+---@field has_unmet_needs 1 focus_level is below -999 for at least one need
+---@field [1] "has_unmet_needs" focus_level is below -999 for at least one need
+df.personality_flag = {}
+
+---@class (exact) df.unit_personality: DFStruct
+---@field _type identity.unit_personality
+---@field values _unit_personality_values
+---@field ethics _unit_personality_ethics
+---@field emotions _unit_personality_emotions bay12: mood
+---@field dreams _unit_personality_dreams
+---@field next_dream_id number
+---@field preferences _unit_personality_preferences
+---@field traits DFEnumVector<df.personality_facet_type, integer>
+---@field civ_id number References: `df.historical_entity`
+---@field cultural_identity number References: `df.cultural_identity`
+---@field mannerism _unit_personality_mannerism
+---@field habit DFNumberVector
+---@field stress number
+---@field time_without_distress number range 0-806400, higher values cause stress to decrease quicker
+---@field time_without_eustress number range 0-806400, higher values cause stress to increase quicker
+---@field likes_outdoors number migrated from misc_traits
+---@field combat_hardened number migrated from misc_traits
+---@field outdoor_dislike_counter number incremented when unit is in rain
+---@field needs _unit_personality_needs
+---@field flags df.personality_flag
+---@field temporary_trait_changes df.soul_personality_changest
+---@field slack_end_year number
+---@field slack_end_year_tick number
+---@field memories df.personality_memory_handlerst
+---@field temptation_greed number 0-100, for corruption
+---@field temptation_lust number
+---@field temptation_power number
+---@field temptation_anger number
+---@field longterm_stress number
+---@field current_focus number weighted sum of needs focus_level-s
+---@field undistracted_focus number usually number of needs multiplied by 4
+---@field debug df.personality_debugst
+
+---@class identity.unit_personality: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_personality = {}
+
+---@return df.unit_personality
+function df.unit_personality:new() end
+
+---@class _unit_personality_values: DFContainer
+---@field [integer] df.personality_valuest
+local _unit_personality_values
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_valuest>
+function _unit_personality_values:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_valuest
+function _unit_personality_values:insert(index, item) end
+
+---@param index integer
+function _unit_personality_values:erase(index) end
+
+---@class _unit_personality_ethics: DFContainer
+---@field [integer] df.personality_ethicst
+local _unit_personality_ethics
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_ethicst>
+function _unit_personality_ethics:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_ethicst
+function _unit_personality_ethics:insert(index, item) end
+
+---@param index integer
+function _unit_personality_ethics:erase(index) end
+
+---@class _unit_personality_emotions: DFContainer
+---@field [integer] df.personality_moodst
+local _unit_personality_emotions
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_moodst>
+function _unit_personality_emotions:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_moodst
+function _unit_personality_emotions:insert(index, item) end
+
+---@param index integer
+function _unit_personality_emotions:erase(index) end
+
+---@class _unit_personality_dreams: DFContainer
+---@field [integer] df.personality_goalst
+local _unit_personality_dreams
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_goalst>
+function _unit_personality_dreams:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_goalst
+function _unit_personality_dreams:insert(index, item) end
+
+---@param index integer
+function _unit_personality_dreams:erase(index) end
+
+---@class _unit_personality_preferences: DFContainer
+---@field [integer] df.personality_preferencest
+local _unit_personality_preferences
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_preferencest>
+function _unit_personality_preferences:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_preferencest
+function _unit_personality_preferences:insert(index, item) end
+
+---@param index integer
+function _unit_personality_preferences:erase(index) end
+
+---@class _unit_personality_mannerism: DFContainer
+---@field [integer] df.mannerismst
+local _unit_personality_mannerism
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.mannerismst>
+function _unit_personality_mannerism:_field(index) end
+
+---@param index '#'|integer
+---@param item df.mannerismst
+function _unit_personality_mannerism:insert(index, item) end
+
+---@param index integer
+function _unit_personality_mannerism:erase(index) end
+
+---@class _unit_personality_needs: DFContainer
+---@field [integer] df.personality_needst
+local _unit_personality_needs
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.personality_needst>
+function _unit_personality_needs:_field(index) end
+
+---@param index '#'|integer
+---@param item df.personality_needst
+function _unit_personality_needs:insert(index, item) end
+
+---@param index integer
+function _unit_personality_needs:erase(index) end
+
