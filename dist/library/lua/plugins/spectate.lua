@@ -4,6 +4,7 @@
 ---@class spectate
 ---@field TooltipOverlay spectate.TooltipOverlay
 ---@field MouseTooltip spectate.MouseTooltip
+---@field FollowPanelOverlay spectate.FollowPanelOverlay
 local spectate
 
 function spectate.refresh_cpp_config() end
@@ -35,7 +36,16 @@ function MouseTooltip:init() end
 
 function MouseTooltip:render(dc) end
 
+-----------------------------
+
+local FollowPanelOverlay
+
+function FollowPanelOverlay:init() end
+
+function FollowPanelOverlay:onInput(keys) end
+
 OVERLAY_WIDGETS = {
+    followpanel=FollowPanelOverlay,
     tooltip=TooltipOverlay,
 }
 
