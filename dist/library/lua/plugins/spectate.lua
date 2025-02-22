@@ -7,6 +7,9 @@
 ---@field FollowPanelOverlay spectate.FollowPanelOverlay
 local spectate
 
+-- called by gui/spectate
+function spectate.get_config_elem(name, key) end
+
 function spectate.refresh_cpp_config() end
 
 function spectate.show_squads_warning() end

@@ -6,9 +6,12 @@
 ---@field TitleVersionOverlay overlay.TitleVersionOverlay
 local overlay
 
+-- for use by gui/overlay
 function overlay.get_state() end
 
 function overlay.register_trigger_lock_screen(scr, desc) end
+
+function overlay.isOverlayEnabled(name) end
 
 function overlay.normalize_list(element_or_list) end
 
