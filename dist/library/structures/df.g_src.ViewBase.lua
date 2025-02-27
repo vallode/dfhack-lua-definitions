@@ -466,7 +466,7 @@ function _widget_container_children_widget:erase(index) end
 
 ---@class (exact) df.widget_stack: DFStruct, df.widget_container
 ---@field _type identity.widget_stack
----@field do_pop boolean
+---@field defer_flags df.widget_stack.T_defer_flags
 ---@field deferred_replacement _widget_stack_deferred_replacement
 
 ---@class identity.widget_stack: DFCompoundType
@@ -475,6 +475,20 @@ df.widget_stack = {}
 
 ---@return df.widget_stack
 function df.widget_stack:new() end
+
+---@class df.widget_stack.T_defer_flags: DFBitfield
+---@field _enum identity.widget_stack.defer_flags
+---@field POP boolean bay12: WIDGET_STACK_DEFER_FLAG
+---@field [0] boolean bay12: WIDGET_STACK_DEFER_FLAG
+---@field BREAK_DOWN boolean
+---@field [1] boolean
+
+---@class identity.widget_stack.defer_flags: DFBitfieldType
+---@field POP 0 bay12: WIDGET_STACK_DEFER_FLAG
+---@field [0] "POP" bay12: WIDGET_STACK_DEFER_FLAG
+---@field BREAK_DOWN 1
+---@field [1] "BREAK_DOWN"
+df.widget_stack.T_defer_flags = {}
 
 ---@class _widget_stack_deferred_replacement: DFContainer
 ---@field [integer] df.widget

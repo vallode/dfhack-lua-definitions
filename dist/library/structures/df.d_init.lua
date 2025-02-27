@@ -23,6 +23,7 @@ df.d_init_tunnel = {}
 ---| 4 # SHOW_RAMP_ARROWS
 ---| 5 # FORT_SHOW_CLOTHING_DYES
 ---| 6 # ADV_SHOW_CLOTHING_DYES
+---| 7 # SHOW_RECTANGLE_DIMENSIONS
 
 ---@class identity.d_init_flags1: DFEnumType
 ---@field VARIED_GROUND_TILES 0 bay12: DInitDisplayFlagType
@@ -39,6 +40,8 @@ df.d_init_tunnel = {}
 ---@field [5] "FORT_SHOW_CLOTHING_DYES"
 ---@field ADV_SHOW_CLOTHING_DYES 6
 ---@field [6] "ADV_SHOW_CLOTHING_DYES"
+---@field SHOW_RECTANGLE_DIMENSIONS 7
+---@field [7] "SHOW_RECTANGLE_DIMENSIONS"
 df.d_init_flags1 = {}
 
 ---@alias df.d_init_nickname
