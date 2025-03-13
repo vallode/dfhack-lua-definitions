@@ -8309,6 +8309,13 @@ function df.build_req_choice_specst:new() end
 ---@field selection_area number
 ---@field total_sq number
 ---@field total_sq_level_map DFNumberVector
+---@field use_last_material boolean
+---@field set_last_item_search boolean
+---@field last_item_search df.job_item_filter
+---@field last_itype number
+---@field last_isubtype number
+---@field last_mat number
+---@field last_matg number
 ---@field use_closest_material boolean
 ---@field use_same_material boolean
 ---@field build_after_placement boolean

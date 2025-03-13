@@ -1115,6 +1115,8 @@ df.override_tile_type = {}
 ---@field print_time df.large_integer[]
 ---@field print_index number
 ---@field display_frames number
+---@field frame_display_sx number
+---@field frame_display_dy number
 ---@field force_full_display_count number
 ---@field do_clean_tile_cache number true by main, false by graphics
 ---@field do_post_init_texture_clear number true by main, false by graphics
