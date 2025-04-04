@@ -8291,7 +8291,7 @@ function df.build_req_choice_specst:new() end
 ---@field errors DFStringVector
 ---@field warnings DFStringVector
 ---@field tiles df.build_square_type[][]
----@field cur_walk_tag number
+---@field cur_walk_tag number bay12: choice_level_map
 ---@field plate_info df.pressure_plate_info
 ---@field min_weight_races DFNumberVector
 ---@field max_weight_races DFNumberVector

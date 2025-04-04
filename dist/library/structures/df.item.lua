@@ -1282,7 +1282,7 @@ function df.itinfost:new() end
 ---@field stockpile_countdown number -1 per 50 frames; then check if needs moving
 ---@field stockpile_delay number used to reset countdown; randomly varies
 ---@field base_uniform_score number temporary_32
----@field walkable_id number temporary_16; from map_block.walkable
+---@field walkable_id number temporary_32_2; from map_block.walkable
 ---@field spec_heat integer
 ---@field ignite_point integer
 ---@field heatdam_point integer

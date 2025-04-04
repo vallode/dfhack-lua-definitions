@@ -22,3 +22,9 @@ function dfhack.military.getSquadName(squad_id) end
 ---@return boolean
 function dfhack.military.removeFromSquad(unit_id) end
 
+---@param unit_id number
+---@param squad_id number
+---@param squad_pos number
+---@return boolean
+function dfhack.military.addToSquad(unit_id, squad_id, squad_pos) end
+
