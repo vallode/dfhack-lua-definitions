@@ -2261,8 +2261,8 @@ df.civzone_activity_flag = {}
 ---@field zone_settings df.building_civzonest.T_zone_settings
 ---@field home_general_hf DFNumberVector
 ---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds; **not sorted**
----@field assigned_unit_id number References: `df.unit`
----@field assigned_unit df.unit
+---@field assigned_unit_id number bay12: owner_unid<br>References: `df.unit`
+---@field owner_unit_cached_index number
 ---@field squad_room_info _building_civzonest_squad_room_info
 ---@field retained_owner number only used during save<br>References: `df.unit`
 

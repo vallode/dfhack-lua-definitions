@@ -207,6 +207,14 @@ function _d_init_adventurest_flags:erase(index) end
 ---@field graze_coefficient number
 ---@field maximum_embark_dim number
 ---@field cull_dead_units_at number
+---@field horizontal_scroll_speed number
+---@field horizontal_scroll_speed_fast number
+---@field vertical_scroll_speed number
+---@field vertical_scroll_speed_fast number
+---@field horizontal_scroll_speed_world number
+---@field horizontal_scroll_speed_world_fast number
+---@field vertical_scroll_speed_world number
+---@field vertical_scroll_speed_world_fast number
 
 ---@class identity.d_init_dwarfst: DFCompoundType
 ---@field _kind 'struct-type'

@@ -41,6 +41,7 @@ function df.init_font:new() end
 ---| 2 # TEXT
 ---| 3 # NOT_RESIZABLE
 ---| 4 # INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH
+---| 5 # LOAD_TITLE_GRAPHICS
 
 ---@class identity.init_display_flags: DFEnumType
 ---@field USE_GRAPHICS 0 bay12: InitDisplayFlag
@@ -53,6 +54,8 @@ function df.init_font:new() end
 ---@field [3] "NOT_RESIZABLE"
 ---@field INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH 4
 ---@field [4] "INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"
+---@field LOAD_TITLE_GRAPHICS 5
+---@field [5] "LOAD_TITLE_GRAPHICS"
 df.init_display_flags = {}
 
 ---@alias df.init_display_window_mode
@@ -155,6 +158,7 @@ df.init_media_flags = {}
 ---@field volume_music_adv number
 ---@field volume_ambience_adv number
 ---@field volume_sfx_adv number
+---@field title_music_str string
 
 ---@class identity.init_media: DFCompoundType
 ---@field _kind 'struct-type'

@@ -46,6 +46,10 @@ function dfhack.buildings.getGeneralRef(building, type) end
 function dfhack.buildings.getSpecificRef(building, type) end
 
 ---@param bld df.building_civzonest
+---@return df.unit
+function dfhack.buildings.getOwner(bld) end
+
+---@param bld df.building_civzonest
 ---@param unit df.unit
 ---@return boolean
 function dfhack.buildings.setOwner(bld, unit) end
