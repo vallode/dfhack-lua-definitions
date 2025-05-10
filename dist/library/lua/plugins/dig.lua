@@ -6,7 +6,7 @@
 ---@field WarmDampDigConfigScreen dig.WarmDampDigConfigScreen
 ---@field WarmDampToolbarOverlay dig.WarmDampToolbarOverlay
 ---@field WarmDampOverlay dig.WarmDampOverlay
----@field CarveOverlay dig.CarveOverlay
+---@field DesignatedOverlay dig.DesignatedOverlay
 local dig
 
 local WarmDampDigConfig
@@ -39,12 +39,12 @@ function WarmDampOverlay:onInput(keys) end
 
 function WarmDampOverlay:onRenderFrame(dc, rect) end
 
-local CarveOverlay
+local DesignatedOverlay
 
-function CarveOverlay:onRenderFrame() end
+function DesignatedOverlay:onRenderFrame() end
 
 OVERLAY_WIDGETS = {
-    asciicarve=CarveOverlay,
+    asciidesignated=DesignatedOverlay,
     warmdamp=WarmDampOverlay,
     warmdamptoolbar=WarmDampToolbarOverlay,
 }

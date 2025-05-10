@@ -22,4 +22,6 @@ function blueprint.is_meta_phase(opts, phase) end
 -- returns the name of the output file for the given context
 function blueprint.get_filename(opts, phase, ordinal) end
 
+function blueprint.get_logistics_settings(stockpile_number) end
+
 return blueprint
