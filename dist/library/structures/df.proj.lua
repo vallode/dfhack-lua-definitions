@@ -49,6 +49,8 @@ df.projectile_type = {}
 ---@field [14] boolean
 ---@field item_link_deleted boolean
 ---@field [15] boolean
+---@field small_aim_minus boolean
+---@field [16] boolean
 
 ---@class identity.projectile_flags: DFBitfieldType
 ---@field no_impact_destroy 0 bay12: PROJFLAG_*
@@ -83,6 +85,8 @@ df.projectile_type = {}
 ---@field [14] "auto_hit"
 ---@field item_link_deleted 15
 ---@field [15] "item_link_deleted"
+---@field small_aim_minus 16
+---@field [16] "small_aim_minus"
 df.projectile_flags = {}
 
 ---@class (exact) df.proj_list_link: DFStruct
@@ -121,6 +125,8 @@ function df.proj_list_link:new() end
 ---@field last_knock_item number Parabolic projectile info:<br>References: `df.item`
 ---@field last_knock_unit number References: `df.unit`
 ---@field spec_target_unit number uninitialized+saved<br>References: `df.unit`
+---@field target_bp number
+---@field hit_chance_modifier number
 ---@field pos_x number
 ---@field pos_y number
 ---@field pos_z number

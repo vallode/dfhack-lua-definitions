@@ -371,6 +371,7 @@ function df.job_item_ref:new() end
 ---| 239 # HeistItem
 ---| 240 # InterrogateSubject
 ---| 241 # AcceptHeistItem
+---| 242 # StoreSquadEquipmentItem
 
 -- Unused: Spells
 ---@class identity.job_type: DFEnumType
@@ -858,6 +859,8 @@ function df.job_item_ref:new() end
 ---@field [240] "InterrogateSubject"
 ---@field AcceptHeistItem 241
 ---@field [241] "AcceptHeistItem"
+---@field StoreSquadEquipmentItem 242
+---@field [242] "StoreSquadEquipmentItem"
 df.job_type = {}
 
 ---@class job_type_attr_entry_type: DFCompoundType
@@ -1122,6 +1125,7 @@ df.job_type._attr_entry_type._fields = {}
 ---@field HeistItem { caption: "No Job", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field InterrogateSubject { caption: "Interrogate Subject", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field AcceptHeistItem { caption: "No Activity", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field StoreSquadEquipmentItem { caption: "Store Squad Equipment Item", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 df.job_type.attrs = {}
 
 ---@class df.job_flags: DFBitfield

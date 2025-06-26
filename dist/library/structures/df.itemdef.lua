@@ -413,6 +413,20 @@ function df.itemdef_weapon_graphics_infost:new() end
 ---@field [2] "TRAINING"
 df.weapon_flags = {}
 
+---@alias df.weapon_load_type
+---| -1 # NONE
+---| 0 # NOCKED
+---| 1 # LOADED
+
+---@class identity.weapon_load_type: DFEnumType
+---@field NONE -1 bay12: WeaponLoadType
+---@field [-1] "NONE" bay12: WeaponLoadType
+---@field NOCKED 0
+---@field [0] "NOCKED"
+---@field LOADED 1
+---@field [1] "LOADED"
+df.weapon_load_type = {}
+
 ---@class (exact) df.itemdef_weaponst: DFStruct, df.itemdef
 ---@field _type identity.itemdef_weaponst
 ---@field name string
@@ -429,7 +443,19 @@ df.weapon_flags = {}
 ---@field flags _itemdef_weaponst_flags
 ---@field attacks _itemdef_weaponst_attacks
 ---@field shoot_force number
+---@field shot_force_phys_att _itemdef_weaponst_shot_force_phys_att
+---@field shot_force_phys_att_val DFNumberVector
+---@field shot_force_ment_att _itemdef_weaponst_shot_force_ment_att
+---@field shot_force_ment_att_val DFNumberVector
+---@field shot_force_skill _itemdef_weaponst_shot_force_skill
+---@field shot_force_skill_val DFNumberVector
 ---@field shoot_maxvel number
+---@field load_type df.weapon_load_type
+---@field aim_difficulty number
+---@field beginner_load_time number
+---@field advanced_load_time number
+---@field initiate_shot_time number
+---@field shot_recovery_time number
 ---@field texpos number[]
 ---@field graphics_info _itemdef_weaponst_graphics_info
 
@@ -480,6 +506,54 @@ function _itemdef_weaponst_attacks:insert(index, item) end
 
 ---@param index integer
 function _itemdef_weaponst_attacks:erase(index) end
+
+---@class _itemdef_weaponst_shot_force_phys_att: DFContainer
+---@field [integer] df.physical_attribute_type
+local _itemdef_weaponst_shot_force_phys_att
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.physical_attribute_type>
+function _itemdef_weaponst_shot_force_phys_att:_field(index) end
+
+---@param index '#'|integer
+---@param item df.physical_attribute_type
+function _itemdef_weaponst_shot_force_phys_att:insert(index, item) end
+
+---@param index integer
+function _itemdef_weaponst_shot_force_phys_att:erase(index) end
+
+---@class _itemdef_weaponst_shot_force_ment_att: DFContainer
+---@field [integer] df.mental_attribute_type
+local _itemdef_weaponst_shot_force_ment_att
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.mental_attribute_type>
+function _itemdef_weaponst_shot_force_ment_att:_field(index) end
+
+---@param index '#'|integer
+---@param item df.mental_attribute_type
+function _itemdef_weaponst_shot_force_ment_att:insert(index, item) end
+
+---@param index integer
+function _itemdef_weaponst_shot_force_ment_att:erase(index) end
+
+---@class _itemdef_weaponst_shot_force_skill: DFContainer
+---@field [integer] df.job_skill
+local _itemdef_weaponst_shot_force_skill
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_skill>
+function _itemdef_weaponst_shot_force_skill:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_skill
+function _itemdef_weaponst_shot_force_skill:insert(index, item) end
+
+---@param index integer
+function _itemdef_weaponst_shot_force_skill:erase(index) end
 
 ---@class _itemdef_weaponst_graphics_info: DFContainer
 ---@field [integer] df.itemdef_weapon_graphics_infost

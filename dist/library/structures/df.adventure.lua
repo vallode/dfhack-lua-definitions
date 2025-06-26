@@ -588,6 +588,30 @@ df.adventure_item_interact_pull_outst = {}
 ---@return df.adventure_item_interact_pull_outst
 function df.adventure_item_interact_pull_outst:new() end
 
+---@class (exact) df.adventure_item_interact_unnockst: DFStruct, df.adventure_optionst
+---@field _type identity.adventure_item_interact_unnockst
+---@field item df.item
+---@field invitem df.unit_inventory_item
+
+---@class identity.adventure_item_interact_unnockst: DFCompoundType
+---@field _kind 'class-type'
+df.adventure_item_interact_unnockst = {}
+
+---@return df.adventure_item_interact_unnockst
+function df.adventure_item_interact_unnockst:new() end
+
+---@class (exact) df.adventure_item_interact_load_ranged_weaponst: DFStruct, df.adventure_optionst
+---@field _type identity.adventure_item_interact_load_ranged_weaponst
+---@field shooter df.item
+---@field weapon df.item
+
+---@class identity.adventure_item_interact_load_ranged_weaponst: DFCompoundType
+---@field _kind 'class-type'
+df.adventure_item_interact_load_ranged_weaponst = {}
+
+---@return df.adventure_item_interact_load_ranged_weaponst
+function df.adventure_item_interact_load_ranged_weaponst:new() end
+
 ---@class (exact) df.adventure_item_interact_give_namest: DFStruct, df.adventure_optionst
 ---@field _type identity.adventure_item_interact_give_namest
 ---@field item df.item
@@ -1125,6 +1149,7 @@ function df.adventure_movement_optionst:new() end
 ---@field target number References: `df.unit`
 ---@field weapon df.item
 ---@field ammo df.item
+---@field aim_carefully boolean
 
 ---@class identity.adventure_movement_shoot_creaturest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1151,6 +1176,7 @@ function df.adventure_movement_shoot_tilest:new() end
 ---@field from_direct_click boolean
 ---@field target number References: `df.unit`
 ---@field item df.item
+---@field aim_carefully boolean
 
 ---@class identity.adventure_movement_throw_item_at_creaturest: DFCompoundType
 ---@field _kind 'class-type'

@@ -3383,6 +3383,27 @@ df.squad_equipment_context_type = {}
 ---@field squad_id DFNumberVector
 ---@field squad_pos DFNumberVector
 ---@field last_tick_update number
+---@field setting_ammo boolean
+---@field setting_ammo_squad_id number References: `df.squad`
+---@field setting_ammo_scroll_position number
+---@field setting_ammo_scrolling boolean
+---@field setting_ammo_amount_str string
+---@field setting_ammo_entering_amount boolean
+---@field setting_ammo_mat boolean
+---@field setting_ammo_mat_sea_index number
+---@field am_cand_civ_mat _squad_equipment_interfacest_am_cand_civ_mat
+---@field am_cand_spec_mat DFNumberVector
+---@field am_cand_spec_matg DFNumberVector
+---@field setting_ammo_new_type boolean
+---@field am_cand_type DFNumberVector
+---@field am_cand_subtype DFNumberVector
+---@field am_cand_foreign _squad_equipment_interfacest_am_cand_foreign
+---@field setting_ammo_scroll_position_am number
+---@field setting_ammo_scrolling_am boolean
+---@field setting_supplies boolean
+---@field setting_supplies_squad_id DFNumberVector
+---@field setting_supplies_scroll_position number
+---@field setting_supplies_scrolling boolean
 ---@field customizing_equipment boolean
 ---@field customizing_squad_id number
 ---@field customizing_squad_pos number
@@ -3426,6 +3447,38 @@ df.squad_equipment_interfacest = {}
 
 ---@return df.squad_equipment_interfacest
 function df.squad_equipment_interfacest:new() end
+
+---@class _squad_equipment_interfacest_am_cand_civ_mat: DFContainer
+---@field [integer] df.entity_material_category
+local _squad_equipment_interfacest_am_cand_civ_mat
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_material_category>
+function _squad_equipment_interfacest_am_cand_civ_mat:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_material_category
+function _squad_equipment_interfacest_am_cand_civ_mat:insert(index, item) end
+
+---@param index integer
+function _squad_equipment_interfacest_am_cand_civ_mat:erase(index) end
+
+---@class _squad_equipment_interfacest_am_cand_foreign: DFContainer
+---@field [integer] any[]
+local _squad_equipment_interfacest_am_cand_foreign
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _squad_equipment_interfacest_am_cand_foreign:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _squad_equipment_interfacest_am_cand_foreign:insert(index, item) end
+
+---@param index integer
+function _squad_equipment_interfacest_am_cand_foreign:erase(index) end
 
 ---@class _squad_equipment_interfacest_cs_cat: DFContainer
 ---@field [integer] df.uniform_category
@@ -7064,18 +7117,6 @@ function _assign_uniform_interfacest_cand_uniform:insert(index, item) end
 ---@param index integer
 function _assign_uniform_interfacest_cand_uniform:erase(index) end
 
----@class (exact) df.squad_supplies_interfacest: DFStruct
----@field _type identity.squad_supplies_interfacest
----@field open boolean
----@field squad_id number
-
----@class identity.squad_supplies_interfacest: DFCompoundType
----@field _kind 'struct-type'
-df.squad_supplies_interfacest = {}
-
----@return df.squad_supplies_interfacest
-function df.squad_supplies_interfacest:new() end
-
 ---@class (exact) df.create_squad_interfacest: DFStruct
 ---@field _type identity.create_squad_interfacest
 ---@field open boolean
@@ -10382,7 +10423,13 @@ function df.projectile_target_list_optionst:new() end
 ---@field shooter_it df.item
 ---@field ammo_it df.item
 ---@field thrown_it df.item
+---@field show_no_prepped_ammo_warning boolean
 ---@field projectile_target_list _adventure_interface_aim_projectilest_projectile_target_list
+---@field aiming_carefully boolean
+---@field target_unit df.unit
+---@field scroll_position_aim_target number
+---@field scrolling_aim_target boolean
+---@field came_from_direct_click boolean
 
 ---@class identity.adventure_interface_aim_projectilest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -11539,7 +11586,6 @@ function df.adventure_interfacest:new() end
 ---@field info df.info_interfacest
 ---@field squads df.squads_interfacest
 ---@field create_squad df.create_squad_interfacest
----@field squad_supplies df.squad_supplies_interfacest
 ---@field assign_uniform df.assign_uniform_interfacest
 ---@field create_work_order df.create_work_order_interfacest
 ---@field hotkey df.hotkeys_interfacest

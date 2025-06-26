@@ -6715,6 +6715,7 @@ function _items_other_ANY_MELT_DESIGNATED:erase(index) end
 ---@field other df.items_other
 ---@field temp_save _item_handlerst_temp_save
 ---@field temp_save_compat DFNumberVector
+---@field deleters _item_handlerst_deleters std::unordered_set<df::item *>
 
 ---@class identity.item_handlerst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -6754,6 +6755,22 @@ function _item_handlerst_temp_save:insert(index, item) end
 
 ---@param index integer
 function _item_handlerst_temp_save:erase(index) end
+
+---@class _item_handlerst_deleters: DFContainer
+---@field [integer] any[]
+local _item_handlerst_deleters
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _item_handlerst_deleters:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _item_handlerst_deleters:insert(index, item) end
+
+---@param index integer
+function _item_handlerst_deleters:erase(index) end
 
 ---@alias df.artifact_flags
 ---| 0 # ART_REVEALED

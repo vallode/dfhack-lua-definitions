@@ -2593,6 +2593,99 @@ df.unit_action_data_climb = {}
 ---@return df.unit_action_data_climb
 function df.unit_action_data_climb:new() end
 
+---@class df.unit_move_load_ranged_weapon_flag: DFBitfield
+---@field _enum identity.unit_move_load_ranged_weapon_flag
+---@field then_shoot boolean bay12: UNIT_MOVE_LOAD_RANGED_WEAPON_FLAG_*
+---@field [0] boolean bay12: UNIT_MOVE_LOAD_RANGED_WEAPON_FLAG_*
+---@field playcombat boolean
+---@field [1] boolean
+
+---@class identity.unit_move_load_ranged_weapon_flag: DFBitfieldType
+---@field then_shoot 0 bay12: UNIT_MOVE_LOAD_RANGED_WEAPON_FLAG_*
+---@field [0] "then_shoot" bay12: UNIT_MOVE_LOAD_RANGED_WEAPON_FLAG_*
+---@field playcombat 1
+---@field [1] "playcombat"
+df.unit_move_load_ranged_weapon_flag = {}
+
+---@class (exact) df.unit_action_data_load_ranged_weapon: DFStruct
+---@field _type identity.unit_action_data_load_ranged_weapon
+---@field movewait number
+---@field shooter_itid number References: `df.item`
+---@field ammo_itid number References: `df.item`
+---@field flags df.unit_move_load_ranged_weapon_flag
+---@field target_unid number References: `df.unit`
+---@field target_lx number
+---@field target_ly number
+---@field target_lz number
+---@field target_bp number
+---@field target_bp_hit_chance_adjustment number
+
+---@class identity.unit_action_data_load_ranged_weapon: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_action_data_load_ranged_weapon = {}
+
+---@return df.unit_action_data_load_ranged_weapon
+function df.unit_action_data_load_ranged_weapon:new() end
+
+---@class df.unit_move_shoot_ranged_weapon_flag: DFBitfield
+---@field _enum identity.unit_move_shoot_ranged_weapon_flag
+---@field playcombat boolean bay12: UNIT_MOVE_SHOOT_RANGED_WEAPON_FLAG_*
+---@field [0] boolean bay12: UNIT_MOVE_SHOOT_RANGED_WEAPON_FLAG_*
+
+---@class identity.unit_move_shoot_ranged_weapon_flag: DFBitfieldType
+---@field playcombat 0 bay12: UNIT_MOVE_SHOOT_RANGED_WEAPON_FLAG_*
+---@field [0] "playcombat" bay12: UNIT_MOVE_SHOOT_RANGED_WEAPON_FLAG_*
+df.unit_move_shoot_ranged_weapon_flag = {}
+
+---@class (exact) df.unit_action_data_shoot_ranged_weapon: DFStruct
+---@field _type identity.unit_action_data_shoot_ranged_weapon
+---@field movewait number
+---@field shooter_itid number References: `df.item`
+---@field ammo_itid number References: `df.item`
+---@field flags df.unit_move_shoot_ranged_weapon_flag
+---@field target_unid number References: `df.unit`
+---@field target_lx number
+---@field target_ly number
+---@field target_lz number
+---@field target_bp number
+---@field target_bp_hit_chance_adjustment number
+
+---@class identity.unit_action_data_shoot_ranged_weapon: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_action_data_shoot_ranged_weapon = {}
+
+---@return df.unit_action_data_shoot_ranged_weapon
+function df.unit_action_data_shoot_ranged_weapon:new() end
+
+---@class (exact) df.unit_action_data_throw_item: DFStruct
+---@field _type identity.unit_action_data_throw_item
+---@field movewait number
+---@field thrown_itid number References: `df.item`
+---@field target_unid number References: `df.unit`
+---@field target_lx number
+---@field target_ly number
+---@field target_lz number
+---@field target_bp number
+---@field target_bp_hit_chance_adjustment number
+
+---@class identity.unit_action_data_throw_item: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_action_data_throw_item = {}
+
+---@return df.unit_action_data_throw_item
+function df.unit_action_data_throw_item:new() end
+
+---@class (exact) df.unit_action_data_post_shoot_recovery: DFStruct
+---@field _type identity.unit_action_data_post_shoot_recovery
+---@field movewait number
+
+---@class identity.unit_action_data_post_shoot_recovery: DFCompoundType
+---@field _kind 'struct-type'
+df.unit_action_data_post_shoot_recovery = {}
+
+---@return df.unit_action_data_post_shoot_recovery
+function df.unit_action_data_post_shoot_recovery:new() end
+
 ---@class (exact) df.unit_action: DFStruct
 ---@field _type identity.unit_action
 ---@field type df.unit_action_type
@@ -2633,6 +2726,10 @@ function df.unit_action:new() end
 ---@field dismount df.unit_action_data_dismount
 ---@field leadanimal df.unit_action_data_lead_animal
 ---@field stopleadanimal df.unit_action_data_stop_lead_animal
+---@field loadrangedweapon df.unit_action_data_load_ranged_weapon
+---@field shootrangedweapon df.unit_action_data_shoot_ranged_weapon
+---@field throwitem df.unit_action_data_throw_item
+---@field postshootrecovery df.unit_action_data_post_shoot_recovery
 
 ---@class identity.unit_action.data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2823,6 +2920,7 @@ function df.curse_attr_change:new() end
 ---| 8 # Pet
 ---| 9 # SewnInto
 ---| 10 # Strapped
+---| 11 # Nocked
 
 -- Unused: unit_training_assessmentst
 -- Unused: distance_minimizerst
@@ -2851,6 +2949,8 @@ function df.curse_attr_change:new() end
 ---@field [9] "SewnInto"
 ---@field Strapped 10
 ---@field [10] "Strapped"
+---@field Nocked 11
+---@field [11] "Nocked"
 df.inv_item_role_type = {}
 
 ---@class (exact) df.unit_inventory_item: DFStruct
@@ -2859,7 +2959,7 @@ df.inv_item_role_type = {}
 ---@field mode df.inv_item_role_type
 ---@field body_part_id number
 ---@field pet_seed number RNG seed for Pet mode
----@field wound_id number -1 unless suture
+---@field wound_id number also nocked_in_itemid
 
 ---@class identity.unit_inventory_item: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3062,7 +3162,8 @@ df.unit_flags1 = {}
 ---@field [13] boolean (EVALUATE_LEAKS)
 ---@field gutted boolean (HEALTH_GUTTED)
 ---@field [14] boolean (HEALTH_GUTTED)
----@field [15] boolean (UNUSED_16)
+---@field must_forget_completely_keep_rooms boolean
+---@field [15] boolean
 ---@field locked_in_for_trading boolean (TRADE_LOCKED) Locked in for trading
 ---@field [16] boolean (TRADE_LOCKED) Locked in for trading
 ---@field slaughter boolean (BUTCHERABLE) marked for slaughter
@@ -3127,6 +3228,8 @@ df.unit_flags1 = {}
 ---@field [13] "has_breaks" (EVALUATE_LEAKS)
 ---@field gutted 14 (HEALTH_GUTTED)
 ---@field [14] "gutted" (HEALTH_GUTTED)
+---@field must_forget_completely_keep_rooms 15
+---@field [15] "must_forget_completely_keep_rooms"
 ---@field locked_in_for_trading 16 (TRADE_LOCKED) Locked in for trading
 ---@field [16] "locked_in_for_trading" (TRADE_LOCKED) Locked in for trading
 ---@field slaughter 17 (BUTCHERABLE) marked for slaughter
@@ -6274,8 +6377,7 @@ function _unit_actions:erase(index) end
 
 ---@class (exact) df.unit.T_counters: DFStruct
 ---@field _type identity.unit.counters
----@field think_counter number not a compound:
----@field job_counter number movewait
+---@field job_counter number not a compound:
 ---@field swap_counter number
 ---@field death_cause df.death_type
 ---@field death_id number References: `df.incident`

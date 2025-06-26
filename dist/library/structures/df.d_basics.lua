@@ -3599,6 +3599,10 @@ df.action_type = {}
 ---| 21 # Dismount
 ---| 22 # LeadAnimal
 ---| 23 # StopLeadAnimal
+---| 24 # LoadRangedWeapon
+---| 25 # ShootRangedWeapon
+---| 26 # ThrowItem
+---| 27 # PostShootRecovery
 
 -- Unused: TalkFactType
 ---@class identity.unit_action_type: DFEnumType
@@ -3652,6 +3656,14 @@ df.action_type = {}
 ---@field [22] "LeadAnimal"
 ---@field StopLeadAnimal 23
 ---@field [23] "StopLeadAnimal"
+---@field LoadRangedWeapon 24
+---@field [24] "LoadRangedWeapon"
+---@field ShootRangedWeapon 25
+---@field [25] "ShootRangedWeapon"
+---@field ThrowItem 26
+---@field [26] "ThrowItem"
+---@field PostShootRecovery 27
+---@field [27] "PostShootRecovery"
 df.unit_action_type = {}
 
 ---@class unit_action_type_attr_entry_type: DFCompoundType
@@ -3689,6 +3701,10 @@ df.unit_action_type._attr_entry_type._fields = {}
 ---@field Dismount { tag: "dismount", group: "All" }
 ---@field LeadAnimal { tag: "leadanimal", group: "All" }
 ---@field StopLeadAnimal { tag: "stopleadanimal", group: "All" }
+---@field LoadRangedWeapon { tag: "loadrangedweapon", group: "All" }
+---@field ShootRangedWeapon { tag: "shootrangedweapon", group: "All" }
+---@field ThrowItem { tag: "throwitem", group: "All" }
+---@field PostShootRecovery { tag: "postshootrecovery", group: "All" }
 df.unit_action_type.attrs = {}
 
 ---@alias df.misc_trait_type
@@ -3775,6 +3791,7 @@ df.unit_action_type.attrs = {}
 ---| 80 # DidInteractionAnnouncementReduceDizzness
 ---| 81 # HaveCheckedFavorDodge
 ---| 82 # DidStrainExhaustionKO
+---| 83 # CombatSeekAmmo
 
 ---@class identity.misc_trait_type: DFEnumType
 ---@field RequestWaterCooldown 0 0 --
@@ -3943,6 +3960,8 @@ df.unit_action_type.attrs = {}
 ---@field [81] "HaveCheckedFavorDodge"
 ---@field DidStrainExhaustionKO 82
 ---@field [82] "DidStrainExhaustionKO"
+---@field CombatSeekAmmo 83
+---@field [83] "CombatSeekAmmo"
 df.misc_trait_type = {}
 
 ---@class misc_trait_type_attr_entry_type: DFCompoundType
@@ -9256,6 +9275,7 @@ df.unit_station_type = {}
 ---| 213 # SeekHeistHandoff
 ---| 214 # AdventureAutomove
 ---| 215 # AdventureAutomoveAcrobatic
+---| 216 # ArcherReposition
 
 ---@class identity.unit_path_goal: DFEnumType
 ---@field None -1 bay12: PathGoalType
@@ -9692,6 +9712,8 @@ df.unit_station_type = {}
 ---@field [214] "AdventureAutomove"
 ---@field AdventureAutomoveAcrobatic 215
 ---@field [215] "AdventureAutomoveAcrobatic"
+---@field ArcherReposition 216
+---@field [216] "ArcherReposition"
 df.unit_path_goal = {}
 
 -- Unused: BuildPathResult
