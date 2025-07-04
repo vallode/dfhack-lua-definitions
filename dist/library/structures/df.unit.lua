@@ -5985,7 +5985,33 @@ df.dungeon_control_state = {}
 ---@field actions _unit_actions
 ---@field next_action_id number
 ---@field counters df.unit.T_counters
----@field curse df.unit.T_curse
+---@field uwss_flag integer moved from end of counters in 0.43.05
+---@field uwss_add_caste_flag df.cie_add_tag_mask1
+---@field uwss_remove_caste_flag df.cie_add_tag_mask1
+---@field uwss_add_property df.cie_add_tag_mask2
+---@field uwss_remove_property df.cie_add_tag_mask2
+---@field uwss_use_display_name boolean
+---@field uwss_display_name_sing string
+---@field uwss_display_name_plur string
+---@field uwss_display_name_adj string
+---@field uwss_display_tile integer
+---@field uwss_display_color_f number
+---@field uwss_display_color_b number
+---@field uwss_display_color_br number
+---@field uwss_flash_tile integer
+---@field uwss_flash_color_f number
+---@field uwss_flash_color_b number
+---@field uwss_flash_color_br number
+---@field uwss_alt_period integer
+---@field uwss_alt_on_period integer
+---@field uwss_body_modifier DFNumberVector
+---@field uwss_bp_modifer DFNumberVector guess!
+---@field uwss_speed_add integer
+---@field uwss_speed_perc integer
+---@field uwss_att_change df.curse_attr_change
+---@field uwss_skill_role_adjust integer
+---@field uwss_erratic_level number
+---@field usable_interaction df.unit_usable_interactionst
 ---@field counters2 df.unit.T_counters2
 ---@field status df.unit.T_status
 ---@field hist_figure_id number References: `df.historical_figure`
@@ -6400,43 +6426,6 @@ df.unit.T_counters = {}
 
 ---@return df.unit.T_counters
 function df.unit.T_counters:new() end
-
----@class (exact) df.unit.T_curse: DFStruct
----@field _type identity.unit.curse
----@field flags integer not a compound
----@field add_tags1 df.cie_add_tag_mask1
----@field rem_tags1 df.cie_add_tag_mask1
----@field add_tags2 df.cie_add_tag_mask2
----@field rem_tags2 df.cie_add_tag_mask2
----@field name_visible boolean
----@field name string
----@field name_plural string
----@field name_adjective string
----@field display_tile integer
----@field display_f number
----@field display_b number
----@field display_br number
----@field flash_tile integer
----@field flash_f number
----@field flash_b number
----@field flash_br number
----@field flash_period integer
----@field flash_time2 integer
----@field body_appearance DFNumberVector
----@field bp_appearance DFNumberVector guess!
----@field speed_add integer
----@field speed_mul_percent integer
----@field attr_change df.curse_attr_change
----@field luck_mul_percent integer
----@field erratic_level number
----@field interaction df.unit_usable_interactionst
-
----@class identity.unit.curse: DFCompoundType
----@field _kind 'struct-type'
-df.unit.T_curse = {}
-
----@return df.unit.T_curse
-function df.unit.T_curse:new() end
 
 ---@class (exact) df.unit.T_counters2: DFStruct
 ---@field _type identity.unit.counters2
