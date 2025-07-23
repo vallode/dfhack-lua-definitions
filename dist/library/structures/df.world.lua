@@ -49,7 +49,7 @@ df.mod_header_flag = {}
 ---@field dependency_type _mod_headerst_dependency_type
 ---@field conflicts DFStringVector
 ---@field flags df.mod_header_flag
----@field src_dir string
+---@field src_dir df.stl-fs-path
 ---@field steam_file_id integer
 ---@field steam_title string
 ---@field steam_description string
@@ -825,16 +825,16 @@ df.object_loaderst = {}
 function df.object_loaderst:new() end
 
 ---@class _object_loaderst_object_files: DFContainer
----@field [integer] df.DFPointer<string>
+---@field [integer] df.stl-fs-path
 local _object_loaderst_object_files
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.DFPointer<string>>
+---@return DFPointer<df.stl-fs-path>
 function _object_loaderst_object_files:_field(index) end
 
 ---@param index '#'|integer
----@param item df.DFPointer<string>
+---@param item df.stl-fs-path
 function _object_loaderst_object_files:insert(index, item) end
 
 ---@param index integer
@@ -861,43 +861,45 @@ function _object_loaderst_object_files:erase(index) end
 ---| 17 # SortInteractions
 ---| 18 # SortMusic
 ---| 19 # SortSound
----| 20 # ProcessLanguages
----| 21 # ProcessInorganics
----| 22 # ProcessPlants
----| 23 # ProcessItems
----| 24 # ProcessCreatures
----| 25 # ProcessEntities
----| 26 # ProcessReactions
----| 27 # ProcessInteractions
----| 28 # ProcessMusic
----| 29 # ProcessSound
----| 30 # FinalizeLanguages
----| 31 # FinalizeDescriptors
----| 32 # FinalizeMaterialTemplates
----| 33 # FinalizeInorganics
----| 34 # FinalizePlants
----| 35 # FinalizeTissueTemplates
----| 36 # FinalizeItems
----| 37 # FinalizeBuildings
----| 38 # FinalizeBodyDetailPlans
----| 39 # FinalizeCreatureVariation
----| 40 # FinalizeCreatures
----| 41 # FinalizeEntities
----| 42 # FinalizeReactions
----| 43 # FinalizeInteractions
----| 44 # FinalizeMusic
----| 45 # FinalizeSound
----| 46 # InitMaterialData
----| 47 # CustomInorganics
----| 48 # CustomPlants
----| 49 # CustomItems
----| 50 # CustomCreatures
----| 51 # CustomEntities
----| 52 # CustomReactions
----| 53 # CustomInteractions
----| 54 # FinalizeCustomObjects
----| 55 # Graphics
----| 56 # Done
+---| 20 # PreprocessLua
+---| 21 # ProcessLanguages
+---| 22 # ProcessInorganics
+---| 23 # ProcessPlants
+---| 24 # ProcessItems
+---| 25 # ProcessCreatures
+---| 26 # ProcessEntities
+---| 27 # ProcessReactions
+---| 28 # ProcessInteractions
+---| 29 # ProcessMusic
+---| 30 # ProcessSound
+---| 31 # FinalizeLanguages
+---| 32 # FinalizeDescriptors
+---| 33 # FinalizeMaterialTemplates
+---| 34 # FinalizeInorganics
+---| 35 # FinalizePlants
+---| 36 # FinalizeTissueTemplates
+---| 37 # FinalizeItems
+---| 38 # FinalizeBuildings
+---| 39 # FinalizeBodyDetailPlans
+---| 40 # FinalizeCreatureVariation
+---| 41 # FinalizeCreatures
+---| 42 # FinalizeEntities
+---| 43 # FinalizeReactions
+---| 44 # FinalizeInteractions
+---| 45 # FinalizeMusic
+---| 46 # FinalizeSound
+---| 47 # InitMaterialData
+---| 48 # CustomInorganics
+---| 49 # CustomPlants
+---| 50 # CustomItems
+---| 51 # CustomCreatures
+---| 52 # CustomEntities
+---| 53 # CustomReactions
+---| 54 # CustomInteractions
+---| 55 # CustomLua
+---| 56 # FinalizeCustomObjects
+---| 57 # Graphics
+---| 58 # Done
 
 ---@class identity.prepare_rod_stage_type: DFEnumType
 ---@field LoadMusic 0 bay12: PrepareRodStageType
@@ -940,80 +942,84 @@ function _object_loaderst_object_files:erase(index) end
 ---@field [18] "SortMusic"
 ---@field SortSound 19
 ---@field [19] "SortSound"
----@field ProcessLanguages 20
----@field [20] "ProcessLanguages"
----@field ProcessInorganics 21
----@field [21] "ProcessInorganics"
----@field ProcessPlants 22
----@field [22] "ProcessPlants"
----@field ProcessItems 23
----@field [23] "ProcessItems"
----@field ProcessCreatures 24
----@field [24] "ProcessCreatures"
----@field ProcessEntities 25
----@field [25] "ProcessEntities"
----@field ProcessReactions 26
----@field [26] "ProcessReactions"
----@field ProcessInteractions 27
----@field [27] "ProcessInteractions"
----@field ProcessMusic 28
----@field [28] "ProcessMusic"
----@field ProcessSound 29
----@field [29] "ProcessSound"
----@field FinalizeLanguages 30
----@field [30] "FinalizeLanguages"
----@field FinalizeDescriptors 31
----@field [31] "FinalizeDescriptors"
----@field FinalizeMaterialTemplates 32
----@field [32] "FinalizeMaterialTemplates"
----@field FinalizeInorganics 33
----@field [33] "FinalizeInorganics"
----@field FinalizePlants 34
----@field [34] "FinalizePlants"
----@field FinalizeTissueTemplates 35
----@field [35] "FinalizeTissueTemplates"
----@field FinalizeItems 36
----@field [36] "FinalizeItems"
----@field FinalizeBuildings 37
----@field [37] "FinalizeBuildings"
----@field FinalizeBodyDetailPlans 38
----@field [38] "FinalizeBodyDetailPlans"
----@field FinalizeCreatureVariation 39
----@field [39] "FinalizeCreatureVariation"
----@field FinalizeCreatures 40
----@field [40] "FinalizeCreatures"
----@field FinalizeEntities 41
----@field [41] "FinalizeEntities"
----@field FinalizeReactions 42
----@field [42] "FinalizeReactions"
----@field FinalizeInteractions 43
----@field [43] "FinalizeInteractions"
----@field FinalizeMusic 44
----@field [44] "FinalizeMusic"
----@field FinalizeSound 45
----@field [45] "FinalizeSound"
----@field InitMaterialData 46
----@field [46] "InitMaterialData"
----@field CustomInorganics 47
----@field [47] "CustomInorganics"
----@field CustomPlants 48
----@field [48] "CustomPlants"
----@field CustomItems 49
----@field [49] "CustomItems"
----@field CustomCreatures 50
----@field [50] "CustomCreatures"
----@field CustomEntities 51
----@field [51] "CustomEntities"
----@field CustomReactions 52
----@field [52] "CustomReactions"
----@field CustomInteractions 53
----@field [53] "CustomInteractions"
----@field FinalizeCustomObjects 54
----@field [54] "FinalizeCustomObjects"
----@field Graphics 55
----@field [55] "Graphics"
----@field Done 56
----@field [56] "Done"
+---@field PreprocessLua 20
+---@field [20] "PreprocessLua"
+---@field ProcessLanguages 21
+---@field [21] "ProcessLanguages"
+---@field ProcessInorganics 22
+---@field [22] "ProcessInorganics"
+---@field ProcessPlants 23
+---@field [23] "ProcessPlants"
+---@field ProcessItems 24
+---@field [24] "ProcessItems"
+---@field ProcessCreatures 25
+---@field [25] "ProcessCreatures"
+---@field ProcessEntities 26
+---@field [26] "ProcessEntities"
+---@field ProcessReactions 27
+---@field [27] "ProcessReactions"
+---@field ProcessInteractions 28
+---@field [28] "ProcessInteractions"
+---@field ProcessMusic 29
+---@field [29] "ProcessMusic"
+---@field ProcessSound 30
+---@field [30] "ProcessSound"
+---@field FinalizeLanguages 31
+---@field [31] "FinalizeLanguages"
+---@field FinalizeDescriptors 32
+---@field [32] "FinalizeDescriptors"
+---@field FinalizeMaterialTemplates 33
+---@field [33] "FinalizeMaterialTemplates"
+---@field FinalizeInorganics 34
+---@field [34] "FinalizeInorganics"
+---@field FinalizePlants 35
+---@field [35] "FinalizePlants"
+---@field FinalizeTissueTemplates 36
+---@field [36] "FinalizeTissueTemplates"
+---@field FinalizeItems 37
+---@field [37] "FinalizeItems"
+---@field FinalizeBuildings 38
+---@field [38] "FinalizeBuildings"
+---@field FinalizeBodyDetailPlans 39
+---@field [39] "FinalizeBodyDetailPlans"
+---@field FinalizeCreatureVariation 40
+---@field [40] "FinalizeCreatureVariation"
+---@field FinalizeCreatures 41
+---@field [41] "FinalizeCreatures"
+---@field FinalizeEntities 42
+---@field [42] "FinalizeEntities"
+---@field FinalizeReactions 43
+---@field [43] "FinalizeReactions"
+---@field FinalizeInteractions 44
+---@field [44] "FinalizeInteractions"
+---@field FinalizeMusic 45
+---@field [45] "FinalizeMusic"
+---@field FinalizeSound 46
+---@field [46] "FinalizeSound"
+---@field InitMaterialData 47
+---@field [47] "InitMaterialData"
+---@field CustomInorganics 48
+---@field [48] "CustomInorganics"
+---@field CustomPlants 49
+---@field [49] "CustomPlants"
+---@field CustomItems 50
+---@field [50] "CustomItems"
+---@field CustomCreatures 51
+---@field [51] "CustomCreatures"
+---@field CustomEntities 52
+---@field [52] "CustomEntities"
+---@field CustomReactions 53
+---@field [53] "CustomReactions"
+---@field CustomInteractions 54
+---@field [54] "CustomInteractions"
+---@field CustomLua 55
+---@field [55] "CustomLua"
+---@field FinalizeCustomObjects 56
+---@field [56] "FinalizeCustomObjects"
+---@field Graphics 57
+---@field [57] "Graphics"
+---@field Done 58
+---@field [58] "Done"
 df.prepare_rod_stage_type = {}
 
 ---@alias df.mod_install_error_type
@@ -1295,6 +1301,7 @@ df.world_flags = {}
 ---@field dungeon df.dungeonst
 ---@field attack_chance_info df.attack_chance_infost
 ---@field active_tutorial df.active_tutorialst
+---@field loaded_save_path df.stl-fs-path
 
 ---@class identity.world: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1480,6 +1487,7 @@ function _world_map_extras_inactive_spoor_bse:erase(index) end
 ---@field text_set df.text_set_handlerst
 ---@field music df.music_handlerst
 ---@field sound df.sound_handlerst
+---@field random_object df.random_object_handlerst
 ---@field mat_table df.special_mat_table
 
 ---@class identity.world.raws: DFCompoundType

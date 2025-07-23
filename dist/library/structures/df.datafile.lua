@@ -92,6 +92,8 @@ function df.shared_world_headerst:new() end
 ---@field year number
 ---@field world_header df.shared_world_headerst
 ---@field filename_noext string
+---@field full_path df.stl-fs-path
+---@field is_portable boolean
 
 ---@class identity.savegame_headerst: DFCompoundType
 ---@field _kind 'struct-type'

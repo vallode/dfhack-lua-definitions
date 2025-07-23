@@ -895,6 +895,8 @@ function df.world_landmass.get_vector() end
 ---@field last_id df.region_headerst.T_last_id
 ---@field world_header df.shared_world_headerst
 ---@field filename_noext string
+---@field full_path df.stl-fs-path
+---@field is_portable boolean
 
 ---@class identity.region_headerst: DFCompoundType
 ---@field _kind 'struct-type'

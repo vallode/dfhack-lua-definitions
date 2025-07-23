@@ -258,6 +258,9 @@ function itemdef:finalize() end
 
 function itemdef:init_material_information() end
 
+---@param lua_state DFPointer<integer>
+function itemdef:push_to_lua(lua_state) end
+
 
 ---@class identity.itemdef: DFCompoundType
 ---@field _kind 'class-type'

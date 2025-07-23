@@ -323,6 +323,8 @@ function df.reaction_description:new() end
 ---| 1 # AUTOMATIC
 ---| 2 # ADVENTURE_MODE_ENABLED
 ---| 3 # GENERATED
+---| 4 # FORTRESS_MODE_ENABLED
+---| 5 # WORLDGEN_ENABLED
 
 ---@class identity.reaction_flags: DFEnumType
 ---@field FUEL 0 bay12: ReactionFlagType
@@ -333,6 +335,10 @@ function df.reaction_description:new() end
 ---@field [2] "ADVENTURE_MODE_ENABLED"
 ---@field GENERATED 3
 ---@field [3] "GENERATED"
+---@field FORTRESS_MODE_ENABLED 4
+---@field [4] "FORTRESS_MODE_ENABLED"
+---@field WORLDGEN_ENABLED 5
+---@field [5] "WORLDGEN_ENABLED"
 df.reaction_flags = {}
 
 ---@class (exact) df.reaction: DFStruct

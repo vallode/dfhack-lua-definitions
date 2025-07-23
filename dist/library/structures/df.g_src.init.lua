@@ -135,14 +135,14 @@ function _init_display_flag:erase(index) end
 
 ---@alias df.init_media_flags
 ---| 0 # SOUND_OFF
----| 1 # UNUSED_01_02
+---| 1 # PORTABLE_MODE
 ---| 2 # COMPRESS_SAVES
 
 ---@class identity.init_media_flags: DFEnumType
 ---@field SOUND_OFF 0 bay12: InitMediaFlag
 ---@field [0] "SOUND_OFF" bay12: InitMediaFlag
----@field UNUSED_01_02 1
----@field [1] "UNUSED_01_02"
+---@field PORTABLE_MODE 1
+---@field [1] "PORTABLE_MODE"
 ---@field COMPRESS_SAVES 2
 ---@field [2] "COMPRESS_SAVES"
 df.init_media_flags = {}
