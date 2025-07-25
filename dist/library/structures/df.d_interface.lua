@@ -12812,21 +12812,21 @@ df.new_region_raw_load_stage_type = {}
 ---@field base_available_id DFStringVector
 ---@field base_available_numeric_version DFNumberVector
 ---@field base_available_earliest_compat_numeric_version DFNumberVector
----@field base_available_src_dir DFStringVector
+---@field base_available_src_dir _viewscreen_new_regionst_base_available_src_dir
 ---@field base_available_name DFStringVector
 ---@field base_available_displayed_version DFStringVector
 ---@field base_available_mod_header _viewscreen_new_regionst_base_available_mod_header
 ---@field object_load_order_id DFStringVector
 ---@field object_load_order_numeric_version DFNumberVector
 ---@field object_load_order_earliest_compat_numeric_version DFNumberVector
----@field object_load_order_src_dir DFStringVector
+---@field object_load_order_src_dir _viewscreen_new_regionst_object_load_order_src_dir
 ---@field object_load_order_name DFStringVector
 ---@field object_load_order_displayed_version DFStringVector
 ---@field object_load_order_mod_header _viewscreen_new_regionst_object_load_order_mod_header
 ---@field available_id DFStringVector
 ---@field available_numeric_version DFNumberVector
 ---@field available_earliest_compat_numeric_version DFNumberVector
----@field available_src_dir DFStringVector
+---@field available_src_dir _viewscreen_new_regionst_available_src_dir
 ---@field available_name DFStringVector
 ---@field available_displayed_version DFStringVector
 ---@field available_mod_header _viewscreen_new_regionst_available_mod_header
@@ -12874,6 +12874,22 @@ function _viewscreen_new_regionst_member:insert(index, item) end
 ---@param index integer
 function _viewscreen_new_regionst_member:erase(index) end
 
+---@class _viewscreen_new_regionst_base_available_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _viewscreen_new_regionst_base_available_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _viewscreen_new_regionst_base_available_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _viewscreen_new_regionst_base_available_src_dir:insert(index, item) end
+
+---@param index integer
+function _viewscreen_new_regionst_base_available_src_dir:erase(index) end
+
 ---@class _viewscreen_new_regionst_base_available_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
 local _viewscreen_new_regionst_base_available_mod_header
@@ -12890,6 +12906,22 @@ function _viewscreen_new_regionst_base_available_mod_header:insert(index, item) 
 ---@param index integer
 function _viewscreen_new_regionst_base_available_mod_header:erase(index) end
 
+---@class _viewscreen_new_regionst_object_load_order_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _viewscreen_new_regionst_object_load_order_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _viewscreen_new_regionst_object_load_order_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _viewscreen_new_regionst_object_load_order_src_dir:insert(index, item) end
+
+---@param index integer
+function _viewscreen_new_regionst_object_load_order_src_dir:erase(index) end
+
 ---@class _viewscreen_new_regionst_object_load_order_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
 local _viewscreen_new_regionst_object_load_order_mod_header
@@ -12905,6 +12937,22 @@ function _viewscreen_new_regionst_object_load_order_mod_header:insert(index, ite
 
 ---@param index integer
 function _viewscreen_new_regionst_object_load_order_mod_header:erase(index) end
+
+---@class _viewscreen_new_regionst_available_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _viewscreen_new_regionst_available_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _viewscreen_new_regionst_available_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _viewscreen_new_regionst_available_src_dir:insert(index, item) end
+
+---@param index integer
+function _viewscreen_new_regionst_available_src_dir:erase(index) end
 
 ---@class _viewscreen_new_regionst_available_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
@@ -12949,21 +12997,21 @@ function df.viewscreen_update_regionst:new() end
 ---@field base_available_id DFStringVector
 ---@field base_available_numeric_version DFNumberVector
 ---@field base_available_earliest_compat_numeric_version DFNumberVector
----@field base_available_src_dir DFStringVector
+---@field base_available_src_dir _viewscreen_new_arenast_base_available_src_dir
 ---@field base_available_name DFStringVector
 ---@field base_available_displayed_version DFStringVector
 ---@field base_available_mod_header _viewscreen_new_arenast_base_available_mod_header
 ---@field object_load_order_id DFStringVector
 ---@field object_load_order_numeric_version DFNumberVector
 ---@field object_load_order_earliest_compat_numeric_version DFNumberVector
----@field object_load_order_src_dir DFStringVector
+---@field object_load_order_src_dir _viewscreen_new_arenast_object_load_order_src_dir
 ---@field object_load_order_name DFStringVector
 ---@field object_load_order_displayed_version DFStringVector
 ---@field object_load_order_mod_header _viewscreen_new_arenast_object_load_order_mod_header
 ---@field available_id DFStringVector
 ---@field available_numeric_version DFNumberVector
 ---@field available_earliest_compat_numeric_version DFNumberVector
----@field available_src_dir DFStringVector
+---@field available_src_dir _viewscreen_new_arenast_available_src_dir
 ---@field available_name DFStringVector
 ---@field available_displayed_version DFStringVector
 ---@field available_mod_header _viewscreen_new_arenast_available_mod_header
@@ -12978,6 +13026,22 @@ df.viewscreen_new_arenast = {}
 
 ---@return df.viewscreen_new_arenast
 function df.viewscreen_new_arenast:new() end
+
+---@class _viewscreen_new_arenast_base_available_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _viewscreen_new_arenast_base_available_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _viewscreen_new_arenast_base_available_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _viewscreen_new_arenast_base_available_src_dir:insert(index, item) end
+
+---@param index integer
+function _viewscreen_new_arenast_base_available_src_dir:erase(index) end
 
 ---@class _viewscreen_new_arenast_base_available_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
@@ -12995,6 +13059,22 @@ function _viewscreen_new_arenast_base_available_mod_header:insert(index, item) e
 ---@param index integer
 function _viewscreen_new_arenast_base_available_mod_header:erase(index) end
 
+---@class _viewscreen_new_arenast_object_load_order_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _viewscreen_new_arenast_object_load_order_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _viewscreen_new_arenast_object_load_order_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _viewscreen_new_arenast_object_load_order_src_dir:insert(index, item) end
+
+---@param index integer
+function _viewscreen_new_arenast_object_load_order_src_dir:erase(index) end
+
 ---@class _viewscreen_new_arenast_object_load_order_mod_header: DFContainer
 ---@field [integer] df.mod_headerst
 local _viewscreen_new_arenast_object_load_order_mod_header
@@ -13010,6 +13090,22 @@ function _viewscreen_new_arenast_object_load_order_mod_header:insert(index, item
 
 ---@param index integer
 function _viewscreen_new_arenast_object_load_order_mod_header:erase(index) end
+
+---@class _viewscreen_new_arenast_available_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _viewscreen_new_arenast_available_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _viewscreen_new_arenast_available_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _viewscreen_new_arenast_available_src_dir:insert(index, item) end
+
+---@param index integer
+function _viewscreen_new_arenast_available_src_dir:erase(index) end
 
 ---@class _viewscreen_new_arenast_available_mod_header: DFContainer
 ---@field [integer] df.mod_headerst

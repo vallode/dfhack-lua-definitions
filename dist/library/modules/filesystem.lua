@@ -60,3 +60,9 @@ function dfhack.filesystem.mtime(path) end
 ---@return unknown
 function dfhack.filesystem.canonicalize(p) end
 
+---@return unknown
+function dfhack.filesystem.getInstallDir() end
+
+---@return unknown
+function dfhack.filesystem.getBaseDir() end
+

@@ -237,7 +237,7 @@ function _fake_world_infost_language:erase(index) end
 ---@field mod_ids DFStringVector
 ---@field mod_versions DFNumberVector
 ---@field mod_compatible_versions DFNumberVector
----@field mod_folder_paths DFStringVector
+---@field mod_folder_paths _region_object_datast_mod_folder_paths
 ---@field mod_names DFStringVector
 ---@field mod_display_versions DFStringVector
 
@@ -391,6 +391,22 @@ function _region_object_datast_generated_languages:insert(index, item) end
 
 ---@param index integer
 function _region_object_datast_generated_languages:erase(index) end
+
+---@class _region_object_datast_mod_folder_paths: DFContainer
+---@field [integer] df.stl-fs-path
+local _region_object_datast_mod_folder_paths
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _region_object_datast_mod_folder_paths:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _region_object_datast_mod_folder_paths:insert(index, item) end
+
+---@param index integer
+function _region_object_datast_mod_folder_paths:erase(index) end
 
 -- A heap of current boundary tiles.
 ---@class (exact) df.open_list_nodest: DFStruct
@@ -812,8 +828,8 @@ df.load_object_stage_type = {}
 ---@field object_load_order_id DFStringVector
 ---@field object_load_order_numeric_version DFNumberVector
 ---@field object_load_order_earliest_compat_numeric_version DFNumberVector
----@field object_load_order_src_dir DFStringVector
----@field src_dir string
+---@field object_load_order_src_dir _object_loaderst_object_load_order_src_dir
+---@field src_dir df.stl-fs-path
 ---@field object_load_order_name DFStringVector
 ---@field object_load_order_displayed_version DFStringVector
 
@@ -839,6 +855,22 @@ function _object_loaderst_object_files:insert(index, item) end
 
 ---@param index integer
 function _object_loaderst_object_files:erase(index) end
+
+---@class _object_loaderst_object_load_order_src_dir: DFContainer
+---@field [integer] df.stl-fs-path
+local _object_loaderst_object_load_order_src_dir
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stl-fs-path>
+function _object_loaderst_object_load_order_src_dir:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stl-fs-path
+function _object_loaderst_object_load_order_src_dir:insert(index, item) end
+
+---@param index integer
+function _object_loaderst_object_load_order_src_dir:erase(index) end
 
 ---@alias df.prepare_rod_stage_type
 ---| 0 # LoadMusic

@@ -1,6 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+-- Unused: filest
 ---@class (exact) df.file_compressorst: DFStruct
 ---@field _type identity.file_compressorst
 ---@field compressed boolean Note: the assign operator is manually implemented

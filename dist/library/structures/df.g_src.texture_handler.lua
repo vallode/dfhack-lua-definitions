@@ -15,8 +15,8 @@ function df.palette_rowst:new() end
 ---@class (exact) df.palette_pagest: DFStruct
 ---@field _type identity.palette_pagest
 ---@field token string
----@field graphics_dir string
----@field filename string
+---@field graphics_dir df.stl-fs-path
+---@field filename df.stl-fs-path
 ---@field default_row number
 ---@field color_token DFStringVector
 ---@field color_row DFNumberVector
@@ -49,8 +49,8 @@ function _palette_pagest_row:erase(index) end
 ---@class (exact) df.tile_pagest: DFStruct
 ---@field _type identity.tile_pagest
 ---@field token string
----@field graphics_dir string
----@field filename string
+---@field graphics_dir df.stl-fs-path
+---@field filename df.stl-fs-path
 ---@field tile_dim_x number
 ---@field tile_dim_y number
 ---@field page_dim_x number
