@@ -292,6 +292,7 @@ function _inorganic_material_definition_handlerst_cheap:erase(index) end
 ---| 13 # MILL
 ---| 14 # EDIBLE_GROWTH
 ---| 15 # SOIL_BACKGROUND
+---| 16 # PROCESSABLE_GROWTHS
 ---| 20 # WET
 ---| 21 # DRY
 ---| 22 # BIOME_MOUNTAIN
@@ -394,6 +395,8 @@ function _inorganic_material_definition_handlerst_cheap:erase(index) end
 ---@field [14] "EDIBLE_GROWTH"
 ---@field SOIL_BACKGROUND 15
 ---@field [15] "SOIL_BACKGROUND"
+---@field PROCESSABLE_GROWTHS 16
+---@field [16] "PROCESSABLE_GROWTHS"
 ---@field WET 20
 ---@field [20] "WET"
 ---@field DRY 21

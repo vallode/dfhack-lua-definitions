@@ -304,6 +304,8 @@ df.fullscreen_state = {}
 ---@field clock integer note: this is a std::atomic_int
 ---@field mouse_focus boolean
 ---@field last_text_input integer[]
+---@field listening_to_text boolean
+---@field last_message_result number std::atomic_int
 local enabler
 
 ---@param anon_0 df.interface_key
@@ -442,6 +444,9 @@ function _enabler_async_frombox_vals:erase(index) end
 ---@field fps number
 ---@field x number
 ---@field y number
+---@field text string
+---@field caption string
+---@field type integer
 
 ---@class identity.enabler.async_frombox.vals: DFCompoundType
 ---@field _kind 'struct-type'
@@ -458,6 +463,7 @@ function df.enabler.T_async_frombox.T_vals:new() end
 ---| 4 # push_resize
 ---| 5 # pop_resize
 ---| 6 # reset_textures
+---| 7 # show_message
 
 ---@class identity.enabler.async_frombox.vals.msg: DFEnumType
 ---@field quit 0
@@ -474,6 +480,8 @@ function df.enabler.T_async_frombox.T_vals:new() end
 ---@field [5] "pop_resize"
 ---@field reset_textures 6
 ---@field [6] "reset_textures"
+---@field show_message 7
+---@field [7] "show_message"
 df.enabler.T_async_frombox.T_vals.T_msg = {}
 
 ---@class (exact) df.enabler.T_async_zoom: DFStruct

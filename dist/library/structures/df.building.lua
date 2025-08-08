@@ -95,40 +95,45 @@ df.building_extents_type = {}
 ---| 68 # GoodsOther
 ---| 69 # GoodsCoreQuality
 ---| 70 # GoodsTotalQuality
----| 71 # Leather
----| 72 # Cloth
----| 73 # ThreadSilk
----| 74 # ThreadPlant
----| 75 # ThreadYarn
----| 76 # ThreadMetal
----| 77 # ClothSilk
----| 78 # ClothPlant
----| 79 # ClothYarn
----| 80 # ClothMetal
----| 81 # Wood
----| 82 # Weapons
----| 83 # WeaponsType
----| 84 # WeaponsTrapcomp
----| 85 # WeaponsMetal
----| 86 # WeaponsStone
----| 87 # WeaponsOther
----| 88 # WeaponsCoreQuality
----| 89 # WeaponsTotalQuality
----| 90 # Armor
----| 91 # ArmorBody
----| 92 # ArmorHead
----| 93 # ArmorFeet
----| 94 # ArmorHands
----| 95 # ArmorLegs
----| 96 # ArmorShield
----| 97 # ArmorMetal
----| 98 # ArmorOther
----| 99 # ArmorCoreQuality
----| 100 # ArmorTotalQuality
----| 101 # Sheet
----| 102 # SheetPaper
----| 103 # SheetParchment
----| 104 # AdditionalOptions
+---| 71 # GoodsColor
+---| 72 # Leather
+---| 73 # LeatherType
+---| 74 # LeatherColor
+---| 75 # Cloth
+---| 76 # ThreadSilk
+---| 77 # ThreadPlant
+---| 78 # ThreadYarn
+---| 79 # ThreadMetal
+---| 80 # ClothSilk
+---| 81 # ClothPlant
+---| 82 # ClothYarn
+---| 83 # ClothMetal
+---| 84 # ClothColor
+---| 85 # Wood
+---| 86 # Weapons
+---| 87 # WeaponsType
+---| 88 # WeaponsTrapcomp
+---| 89 # WeaponsMetal
+---| 90 # WeaponsStone
+---| 91 # WeaponsOther
+---| 92 # WeaponsCoreQuality
+---| 93 # WeaponsTotalQuality
+---| 94 # Armor
+---| 95 # ArmorBody
+---| 96 # ArmorHead
+---| 97 # ArmorFeet
+---| 98 # ArmorHands
+---| 99 # ArmorLegs
+---| 100 # ArmorShield
+---| 101 # ArmorMetal
+---| 102 # ArmorOther
+---| 103 # ArmorCoreQuality
+---| 104 # ArmorTotalQuality
+---| 105 # ArmorColor
+---| 106 # Sheet
+---| 107 # SheetPaper
+---| 108 # SheetParchment
+---| 109 # AdditionalOptions
 
 ---@class identity.stockpile_list: DFEnumType
 ---@field Animals 0
@@ -273,74 +278,84 @@ df.building_extents_type = {}
 ---@field [69] "GoodsCoreQuality"
 ---@field GoodsTotalQuality 70
 ---@field [70] "GoodsTotalQuality"
----@field Leather 71
----@field [71] "Leather"
----@field Cloth 72
----@field [72] "Cloth"
----@field ThreadSilk 73
----@field [73] "ThreadSilk"
----@field ThreadPlant 74
----@field [74] "ThreadPlant"
----@field ThreadYarn 75
----@field [75] "ThreadYarn"
----@field ThreadMetal 76
----@field [76] "ThreadMetal"
----@field ClothSilk 77
----@field [77] "ClothSilk"
----@field ClothPlant 78
----@field [78] "ClothPlant"
----@field ClothYarn 79
----@field [79] "ClothYarn"
----@field ClothMetal 80
----@field [80] "ClothMetal"
----@field Wood 81
----@field [81] "Wood"
----@field Weapons 82
----@field [82] "Weapons"
----@field WeaponsType 83
----@field [83] "WeaponsType"
----@field WeaponsTrapcomp 84
----@field [84] "WeaponsTrapcomp"
----@field WeaponsMetal 85
----@field [85] "WeaponsMetal"
----@field WeaponsStone 86
----@field [86] "WeaponsStone"
----@field WeaponsOther 87
----@field [87] "WeaponsOther"
----@field WeaponsCoreQuality 88
----@field [88] "WeaponsCoreQuality"
----@field WeaponsTotalQuality 89
----@field [89] "WeaponsTotalQuality"
----@field Armor 90
----@field [90] "Armor"
----@field ArmorBody 91
----@field [91] "ArmorBody"
----@field ArmorHead 92
----@field [92] "ArmorHead"
----@field ArmorFeet 93
----@field [93] "ArmorFeet"
----@field ArmorHands 94
----@field [94] "ArmorHands"
----@field ArmorLegs 95
----@field [95] "ArmorLegs"
----@field ArmorShield 96
----@field [96] "ArmorShield"
----@field ArmorMetal 97
----@field [97] "ArmorMetal"
----@field ArmorOther 98
----@field [98] "ArmorOther"
----@field ArmorCoreQuality 99
----@field [99] "ArmorCoreQuality"
----@field ArmorTotalQuality 100
----@field [100] "ArmorTotalQuality"
----@field Sheet 101
----@field [101] "Sheet"
----@field SheetPaper 102
----@field [102] "SheetPaper"
----@field SheetParchment 103
----@field [103] "SheetParchment"
----@field AdditionalOptions 104
----@field [104] "AdditionalOptions"
+---@field GoodsColor 71
+---@field [71] "GoodsColor"
+---@field Leather 72
+---@field [72] "Leather"
+---@field LeatherType 73
+---@field [73] "LeatherType"
+---@field LeatherColor 74
+---@field [74] "LeatherColor"
+---@field Cloth 75
+---@field [75] "Cloth"
+---@field ThreadSilk 76
+---@field [76] "ThreadSilk"
+---@field ThreadPlant 77
+---@field [77] "ThreadPlant"
+---@field ThreadYarn 78
+---@field [78] "ThreadYarn"
+---@field ThreadMetal 79
+---@field [79] "ThreadMetal"
+---@field ClothSilk 80
+---@field [80] "ClothSilk"
+---@field ClothPlant 81
+---@field [81] "ClothPlant"
+---@field ClothYarn 82
+---@field [82] "ClothYarn"
+---@field ClothMetal 83
+---@field [83] "ClothMetal"
+---@field ClothColor 84
+---@field [84] "ClothColor"
+---@field Wood 85
+---@field [85] "Wood"
+---@field Weapons 86
+---@field [86] "Weapons"
+---@field WeaponsType 87
+---@field [87] "WeaponsType"
+---@field WeaponsTrapcomp 88
+---@field [88] "WeaponsTrapcomp"
+---@field WeaponsMetal 89
+---@field [89] "WeaponsMetal"
+---@field WeaponsStone 90
+---@field [90] "WeaponsStone"
+---@field WeaponsOther 91
+---@field [91] "WeaponsOther"
+---@field WeaponsCoreQuality 92
+---@field [92] "WeaponsCoreQuality"
+---@field WeaponsTotalQuality 93
+---@field [93] "WeaponsTotalQuality"
+---@field Armor 94
+---@field [94] "Armor"
+---@field ArmorBody 95
+---@field [95] "ArmorBody"
+---@field ArmorHead 96
+---@field [96] "ArmorHead"
+---@field ArmorFeet 97
+---@field [97] "ArmorFeet"
+---@field ArmorHands 98
+---@field [98] "ArmorHands"
+---@field ArmorLegs 99
+---@field [99] "ArmorLegs"
+---@field ArmorShield 100
+---@field [100] "ArmorShield"
+---@field ArmorMetal 101
+---@field [101] "ArmorMetal"
+---@field ArmorOther 102
+---@field [102] "ArmorOther"
+---@field ArmorCoreQuality 103
+---@field [103] "ArmorCoreQuality"
+---@field ArmorTotalQuality 104
+---@field [104] "ArmorTotalQuality"
+---@field ArmorColor 105
+---@field [105] "ArmorColor"
+---@field Sheet 106
+---@field [106] "Sheet"
+---@field SheetPaper 107
+---@field [107] "SheetPaper"
+---@field SheetParchment 108
+---@field [108] "SheetParchment"
+---@field AdditionalOptions 109
+---@field [109] "AdditionalOptions"
 df.stockpile_list = {}
 
 ---@class stockpile_list_attr_entry_type: DFCompoundType
@@ -1798,6 +1813,9 @@ df.stockpile_finished_mat = {}
 ---@field type DFBooleanVector
 ---@field other_mats DFBooleanVector
 ---@field mats DFBooleanVector
+---@field color DFBooleanVector
+---@field dyed boolean
+---@field undyed boolean
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 
@@ -1811,6 +1829,9 @@ function df.stockpile_parameter_finishedst:new() end
 ---@class (exact) df.stockpile_parameter_leatherst: DFStruct
 ---@field _type identity.stockpile_parameter_leatherst
 ---@field mats DFBooleanVector
+---@field color DFBooleanVector
+---@field dyed boolean
+---@field undyed boolean
 
 ---@class identity.stockpile_parameter_leatherst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1829,6 +1850,9 @@ function df.stockpile_parameter_leatherst:new() end
 ---@field cloth_plant DFBooleanVector
 ---@field cloth_yarn DFBooleanVector
 ---@field cloth_metal DFBooleanVector
+---@field color DFBooleanVector
+---@field dyed boolean
+---@field undyed boolean
 
 ---@class identity.stockpile_parameter_clothst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1964,10 +1988,13 @@ df.stockpile_armor_mat = {}
 ---@field shield DFBooleanVector
 ---@field other_mats DFBooleanVector
 ---@field mats DFBooleanVector
+---@field color DFBooleanVector
 ---@field quality_core DFEnumVector<df.item_quality, boolean>
 ---@field quality_total DFEnumVector<df.item_quality, boolean>
 ---@field usable boolean
 ---@field unusable boolean
+---@field dyed boolean
+---@field undyed boolean
 
 ---@class identity.stockpile_parameter_armorst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -8049,6 +8076,7 @@ function _building_handler_temp_save:erase(index) end
 ---@field contains DFNumberVector
 ---@field use_contains boolean
 ---@field has_tool_use df.tool_uses
+---@field dye_color number References: `df.descriptor_color`
 ---@field has_melee_skill df.job_skill
 ---@field can_steal_haul_items boolean noticed in v0.40.24
 ---@field pos df.coord

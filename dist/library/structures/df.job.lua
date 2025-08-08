@@ -32,6 +32,7 @@ df.jre_job_details_flag = {}
 ---@field contains DFNumberVector used with custom reactions
 ---@field reaction_id number References: `df.reaction`
 ---@field has_tool_use df.tool_uses
+---@field dye_color number References: `df.descriptor_color`
 ---@field job_details_flags df.jre_job_details_flag
 ---@field job_details_mat_type number References: `df.material`
 ---@field job_details_mat_index number
@@ -372,6 +373,8 @@ function df.job_item_ref:new() end
 ---| 240 # InterrogateSubject
 ---| 241 # AcceptHeistItem
 ---| 242 # StoreSquadEquipmentItem
+---| 243 # MixDye
+---| 244 # DyeLeather
 
 -- Unused: Spells
 ---@class identity.job_type: DFEnumType
@@ -861,6 +864,10 @@ function df.job_item_ref:new() end
 ---@field [241] "AcceptHeistItem"
 ---@field StoreSquadEquipmentItem 242
 ---@field [242] "StoreSquadEquipmentItem"
+---@field MixDye 243
+---@field [243] "MixDye"
+---@field DyeLeather 244
+---@field [244] "DyeLeather"
 df.job_type = {}
 
 ---@class job_type_attr_entry_type: DFCompoundType
@@ -1126,6 +1133,8 @@ df.job_type._attr_entry_type._fields = {}
 ---@field InterrogateSubject { caption: "Interrogate Subject", type: "LawEnforcement", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field AcceptHeistItem { caption: "No Activity", type: "Crime", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field StoreSquadEquipmentItem { caption: "Store Squad Equipment Item", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field MixDye { caption: "Mix Dye", type: "Improvement", labor: "NONE", item: "NONE", skill: "DYER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field DyeLeather { caption: "Dye Leather", type: "Improvement", labor: "NONE", item: "NONE", skill: "DYER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 df.job_type.attrs = {}
 
 ---@class df.job_flags: DFBitfield
@@ -1633,6 +1642,7 @@ df.killjob_exception_type = {}
 ---@field reagent_index DFNumberVector
 ---@field reaction_index number
 ---@field tool_use df.tool_uses
+---@field dye_color number
 ---@field pos df.coord
 
 ---@class identity.killjob_exceptionst: DFCompoundType
@@ -1786,6 +1796,7 @@ df.job_spec_flags.T_link_building_to_trigger_flags = {}
 ---@field hist_figure_id number References: `df.historical_figure`
 ---@field race number References: `df.creature_raw`
 ---@field improvement df.improvement_type
+---@field dye_object_desired_post_dye_color_index number References: `df.descriptor_color`
 
 ---@class identity.job_spec_data: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1840,7 +1851,7 @@ function df.job_list_link:new() end
 ---@field maxdur number uninitialized
 ---@field flags df.job_flags
 ---@field mat_type number References: `df.material`
----@field mat_index number
+---@field mat_index number union: mix_dye_desired_color_index
 ---@field spell number almost certainly no longer used
 ---@field item_type df.item_type for Bait Trap jobs; otherwise uninitialized
 ---@field item_subtype number when StoreInStockpile this is a unit_labor

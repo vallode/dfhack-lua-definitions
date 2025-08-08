@@ -1014,6 +1014,7 @@ df.army_controller_flag = {}
 ---@field mission_report df.mission_report
 ---@field data df.army_controller.T_data
 ---@field goal df.army_controller_goal_type
+---@field pool_id integer
 
 ---@class identity.army_controller: DFCompoundType
 ---@field _kind 'struct-type'

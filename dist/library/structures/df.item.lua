@@ -1,6 +1,7 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+-- Unused: USE_DYE_*
 -- Unused: ArmorRole
 ---@class df.item_body_component_flag: DFBitfield
 ---@field _enum identity.item_body_component_flag
@@ -864,6 +865,7 @@ function df.itemimprovement_itemspecificst:new() end
 ---@class (exact) df.itemimprovement_threadst: DFStruct, df.itemimprovement
 ---@field _type identity.itemimprovement_threadst
 ---@field dye df.itemimprovement_threadst.T_dye
+---@field dye_profile df.entity_dye_descriptor_profilest
 
 ---@class identity.itemimprovement_threadst: DFCompoundType
 ---@field _kind 'class-type'
@@ -903,6 +905,7 @@ function df.itemimprovement_clothst:new() end
 ---@field image df.itemimprovement_sewn_imagest.T_image
 ---@field cloth df.itemimprovement_sewn_imagest.T_cloth
 ---@field dye df.itemimprovement_sewn_imagest.T_dye
+---@field dye_profile df.entity_dye_descriptor_profilest
 
 ---@class identity.itemimprovement_sewn_imagest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1025,6 +1028,23 @@ df.itemimprovement_image_setst = {}
 
 ---@return df.itemimprovement_image_setst
 function df.itemimprovement_image_setst:new() end
+
+---@class (exact) df.itemimprovement_colorationst: DFStruct, df.itemimprovement
+---@field _type identity.itemimprovement_colorationst
+---@field dye_material number References: `df.material`
+---@field dye_matgloss number
+---@field dye_artist_hfid number References: `df.historical_figure`
+---@field dye_craftquality df.item_quality
+---@field dye_skill_at_time df.skill_rating at the moment of creation
+---@field dye_age_counter number
+---@field dye_profile df.entity_dye_descriptor_profilest
+
+---@class identity.itemimprovement_colorationst: DFCompoundType
+---@field _kind 'class-type'
+df.itemimprovement_colorationst = {}
+
+---@return df.itemimprovement_colorationst
+function df.itemimprovement_colorationst:new() end
 
 ---@alias df.food_ingredient_type
 ---| 0 # MINCED
@@ -1677,6 +1697,12 @@ function item:isTameableVermin() end
 ---@return boolean
 function item:isDye() end
 
+---@return number
+function item:getDyeAmount() end
+
+---@return number
+function item:isDyeColor() end
+
 ---@param container_allowed boolean
 ---@param checkres boolean
 ---@return boolean
@@ -2015,7 +2041,9 @@ function item:getStockpile2() end
 ---@param mat_index number
 ---@param u df.unit
 ---@param j df.job
-function item:randomizeThreadImprovement(mat_type, mat_index, u, j) end
+---@param eddp df.entity_dye_descriptor_profilest
+---@param use_dye_degree number
+function item:randomizeThreadImprovement(mat_type, mat_index, u, j, eddp, use_dye_degree) end
 
 ---@param art_chunk_id number
 ---@param art_chunk_offse number
@@ -2037,6 +2065,9 @@ function item:copyImprovementsFrom(anon_0) end
 ---@param caravan df.caravan_state
 ---@return number
 function item:getThreadDyeValue(caravan) end
+
+---@return number
+function item:getColorWhetherDyedOrNot() end
 
 ---@param colors DFPointer<integer>
 ---@param shapes DFPointer<integer>
@@ -2623,6 +2654,7 @@ function df.item_drinkst:new() end
 ---@field _type identity.item_powder_miscst
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
+---@field dye_profile df.entity_dye_descriptor_profilest
 
 ---@class identity.item_powder_miscst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2866,6 +2898,14 @@ function df.item_plantst:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field rot_timer number even though leather does not rot
+---@field dye_material number References: `df.material`
+---@field dye_matgloss number
+---@field dye_artist_hfid number References: `df.historical_figure`
+---@field dye_craftquality number
+---@field dye_skill_at_time number
+---@field dye_age_counter number
+---@field dye_profile df.entity_dye_descriptor_profilest
+---@field dye_creation_heid number References: `df.history_event`
 
 ---@class identity.item_skin_tannedst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2922,10 +2962,11 @@ function df.item_cheesest:new() end
 ---@field dye_mat_type number References: `df.material`
 ---@field dye_mat_index number
 ---@field dyer number References: `df.historical_figure`
----@field dye_masterpiece_event number References: `df.history_event`
 ---@field dye_quality number
 ---@field dye_skill number
 ---@field dye_age number
+---@field dye_profile df.entity_dye_descriptor_profilest
+---@field dye_masterpiece_event number References: `df.history_event`
 ---@field is_thick boolean
 ---@field dimension number
 

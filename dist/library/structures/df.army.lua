@@ -139,6 +139,7 @@ function df.army_nemesisst:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field items _army_items
+---@field pool_id integer
 
 ---@class identity.army: DFCompoundType
 ---@field _kind 'struct-type'

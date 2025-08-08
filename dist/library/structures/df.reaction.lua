@@ -100,6 +100,7 @@ function df.reaction_reagent:new() end
 ---@field min_dimension number
 ---@field contains DFNumberVector
 ---@field has_tool_use df.tool_uses
+---@field dye_color number References: `df.descriptor_color`
 ---@field item_str string[]
 ---@field material_str string[]
 ---@field metal_ore_str string

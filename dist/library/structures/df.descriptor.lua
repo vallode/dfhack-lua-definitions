@@ -9,10 +9,12 @@
 ---@field name string
 ---@field color df.curses_color
 ---@field bold number
+---@field orig_rgb number[]
 ---@field red number
 ---@field green number
 ---@field blue number
 ---@field palette df.palettest
+---@field texpos_swatch number
 
 ---@class identity.descriptor_color: DFCompoundType
 ---@field _kind 'struct-type'
@@ -29,6 +31,17 @@ function df.descriptor_color.find(key) end
 
 ---@return descriptor_color_vector # df.global.world.raws.descriptors.colors
 function df.descriptor_color.get_vector() end
+
+---@class (exact) df.color_mixst: DFStruct
+---@field _type identity.color_mixst
+---@field mix_index number[]
+
+---@class identity.color_mixst: DFCompoundType
+---@field _kind 'struct-type'
+df.color_mixst = {}
+
+---@return df.color_mixst
+function df.color_mixst:new() end
 
 ---@class df.shape_flag: DFBitfield
 ---@field _enum identity.shape_flag

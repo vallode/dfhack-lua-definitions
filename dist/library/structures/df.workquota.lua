@@ -47,6 +47,7 @@ df.logic_condition_type = {}
 ---@field contains DFNumberVector
 ---@field reaction_id number References: `df.reaction`
 ---@field has_tool_use df.tool_uses
+---@field dye_color number References: `df.descriptor_color`
 
 ---@class identity.manager_order_condition_item: DFCompoundType
 ---@field _kind 'struct-type'

@@ -2964,6 +2964,7 @@ df.historical_entity_type = {}
 ---@field local_musical_form _historical_entity_local_musical_form
 ---@field local_dance_form _historical_entity_local_dance_form
 ---@field well_known_wc _historical_entity_well_known_wc
+---@field dye_description_profile _historical_entity_dye_description_profile
 ---@field settlement_x number worldgen only, unsaved
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
@@ -3864,6 +3865,22 @@ function _historical_entity_well_known_wc:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_well_known_wc:erase(index) end
+
+---@class _historical_entity_dye_description_profile: DFContainer
+---@field [integer] df.entity_dye_descriptor_profilest
+local _historical_entity_dye_description_profile
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_dye_descriptor_profilest>
+function _historical_entity_dye_description_profile:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_dye_descriptor_profilest
+function _historical_entity_dye_description_profile:insert(index, item) end
+
+---@param index integer
+function _historical_entity_dye_description_profile:erase(index) end
 
 ---@class _historical_entity_world_gen_entity_debt: DFContainer
 ---@field [integer] df.world_gen_entity_debtst

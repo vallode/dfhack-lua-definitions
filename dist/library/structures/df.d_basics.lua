@@ -13,6 +13,21 @@ df.hash_rngst = {}
 ---@return df.hash_rngst
 function df.hash_rngst:new() end
 
+---@class (exact) df.entity_dye_descriptor_profilest: DFStruct
+---@field _type identity.entity_dye_descriptor_profilest
+---@field color_index number References: `df.descriptor_color`
+---@field dye_material DFNumberVector NOT material_type
+---@field dye_matg DFNumberVector NOT matgloss_type
+---@field degree DFNumberVector
+---@field target_index DFNumberVector
+
+---@class identity.entity_dye_descriptor_profilest: DFCompoundType
+---@field _kind 'struct-type'
+df.entity_dye_descriptor_profilest = {}
+
+---@return df.entity_dye_descriptor_profilest
+function df.entity_dye_descriptor_profilest:new() end
+
 ---@alias df.civzone_type
 ---| 0 # Home
 ---| 1 # Depot
@@ -8868,6 +8883,7 @@ df.art_image_element_type = {}
 ---| 11 # INSTRUMENT_PIECE
 ---| 12 # WRITING
 ---| 13 # IMAGE_SET
+---| 14 # COLORATION
 
 ---@class identity.improvement_type: DFEnumType
 ---@field NONE -1 bay12: ItemImprovementType
@@ -8900,6 +8916,8 @@ df.art_image_element_type = {}
 ---@field [12] "WRITING"
 ---@field IMAGE_SET 13
 ---@field [13] "IMAGE_SET"
+---@field COLORATION 14
+---@field [14] "COLORATION"
 df.improvement_type = {}
 
 ---@alias df.itemimprovement_specific_type

@@ -50,6 +50,7 @@ df.mod_header_flag = {}
 ---@field conflicts DFStringVector
 ---@field flags df.mod_header_flag
 ---@field src_dir df.stl-fs-path
+---@field absolute_path df.stl-fs-path
 ---@field steam_file_id integer
 ---@field steam_title string
 ---@field steam_description string
@@ -817,6 +818,7 @@ function df.active_tutorialst:new() end
 ---@field [21] "DONE"
 df.load_object_stage_type = {}
 
+-- Skipped: ObjectTokenType
 ---@class (exact) df.object_loaderst: DFStruct
 ---@field _type identity.object_loaderst
 ---@field load_object_stage df.load_object_stage_type
@@ -832,6 +834,7 @@ df.load_object_stage_type = {}
 ---@field src_dir df.stl-fs-path
 ---@field object_load_order_name DFStringVector
 ---@field object_load_order_displayed_version DFStringVector
+---@field token_by_mod_id any[][]
 
 ---@class identity.object_loaderst: DFCompoundType
 ---@field _kind 'struct-type'

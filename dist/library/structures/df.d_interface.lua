@@ -192,6 +192,7 @@ function _mod_managerst_mod_upload_header:erase(index) end
 ---@field contains_reaction_index number
 ---@field contains_reagent_index number
 ---@field tool_use df.tool_uses
+---@field dye_color number References: `df.descriptor_color`
 ---@field display_string string
 ---@field on boolean
 
@@ -209,10 +210,13 @@ function df.wqc_item_traitst:new() end
 ---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `df.material`
----@field mat_index number
+---@field mat_index number union: mix_dye_desired_color_index
 ---@field specflag df.job_spec_flags
 ---@field specdata df.job_spec_data
 ---@field material_category df.job_material_category
+---@field art_specifier df.job_art_specifier_type
+---@field art_specifier_id1 number
+---@field art_specifier_id2 number
 ---@field match_value number
 ---@field name string
 ---@field compare_str string
@@ -451,6 +455,10 @@ function df.image_creation_specifierst:new() end
 ---| 5 # OTHER
 ---| 6 # METAL
 ---| 7 # SELECT_MEMORIAL_UNIT
+---| 8 # MIX_DYE_COLOR
+---| 9 # DYE_CLOTH_COLOR
+---| 10 # DYE_THREAD_COLOR
+---| 11 # DYE_LEATHER_COLOR
 
 ---@class identity.interface_category_building: DFEnumType
 ---@field NONE -1 bay12: InterfaceCategoryBuilding
@@ -471,6 +479,14 @@ function df.image_creation_specifierst:new() end
 ---@field [6] "METAL"
 ---@field SELECT_MEMORIAL_UNIT 7
 ---@field [7] "SELECT_MEMORIAL_UNIT"
+---@field MIX_DYE_COLOR 8
+---@field [8] "MIX_DYE_COLOR"
+---@field DYE_CLOTH_COLOR 9
+---@field [9] "DYE_CLOTH_COLOR"
+---@field DYE_THREAD_COLOR 10
+---@field [10] "DYE_THREAD_COLOR"
+---@field DYE_LEATHER_COLOR 11
+---@field [11] "DYE_LEATHER_COLOR"
 df.interface_category_building = {}
 
 ---@alias df.interface_category_construction
@@ -523,6 +539,7 @@ df.interface_button_flag = {}
 ---@field leave_button boolean
 ---@field flag df.interface_button_flag
 ---@field filter_str string
+---@field alpha_order number
 local interface_button
 
 ---@param y number
@@ -563,6 +580,9 @@ function interface_button:get_objection_string() end
 ---@return string
 function interface_button:get_info_string() end
 
+---@return number
+function interface_button:get_swatch_color() end
+
 
 ---@class identity.interface_button: DFCompoundType
 ---@field _kind 'class-type'
@@ -596,6 +616,20 @@ df.interface_button_building_material_selectorst = {}
 ---@return df.interface_button_building_material_selectorst
 function df.interface_button_building_material_selectorst:new() end
 
+---@class (exact) df.interface_button_building_color_selectorst: DFStruct, df.interface_button_buildingst
+---@field _type identity.interface_button_building_color_selectorst
+---@field job df.job_type
+---@field color_index number References: `df.descriptor_color`
+---@field prepare_interface number
+---@field info string
+
+---@class identity.interface_button_building_color_selectorst: DFCompoundType
+---@field _kind 'class-type'
+df.interface_button_building_color_selectorst = {}
+
+---@return df.interface_button_building_color_selectorst
+function df.interface_button_building_color_selectorst:new() end
+
 ---@class (exact) df.interface_button_building_category_selectorst: DFStruct, df.interface_button_buildingst
 ---@field _type identity.interface_button_building_category_selectorst
 ---@field category df.interface_category_building
@@ -615,12 +649,15 @@ function df.interface_button_building_category_selectorst:new() end
 ---@field itemtype df.item_type
 ---@field subtype number
 ---@field material number References: `df.material`
----@field matgloss number
+---@field matgloss number union: mix_dye_desired_color_index
 ---@field specflag df.job_spec_flags
 ---@field specdata df.job_spec_data
 ---@field job_item_flag df.job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
+---@field art_specifier df.job_art_specifier_type
+---@field art_specifier_id1 number
+---@field art_specifier_id2 number
 ---@field objection string
 ---@field info string
 
@@ -652,6 +689,8 @@ function df.interface_button_building_custom_category_selectorst:new() end
 ---@field material number References: `df.material`
 ---@field matgloss number
 ---@field job_item_flag df.job_material_category
+---@field job df.job_type
+---@field color_index number References: `df.descriptor_color`
 ---@field current_custom_category_token string
 ---@field current_tool_tip df.curses_text_boxst
 
@@ -1362,6 +1401,9 @@ function _location_list_interfacest_valid_craft_guild_type:erase(index) end
 ---| 1 # IMAGE
 ---| 2 # CLOTHING_SIZE
 ---| 3 # IMPROVEMENT_TYPE
+---| 4 # DYE_OBJECT_COLOR
+---| 5 # MIX_DYE_COLOR
+---| 6 # PLANT
 
 ---@class identity.job_details_option_type: DFEnumType
 ---@field NONE -1 bay12: JobDetailsOptionType
@@ -1374,6 +1416,12 @@ function _location_list_interfacest_valid_craft_guild_type:erase(index) end
 ---@field [2] "CLOTHING_SIZE"
 ---@field IMPROVEMENT_TYPE 3
 ---@field [3] "IMPROVEMENT_TYPE"
+---@field DYE_OBJECT_COLOR 4
+---@field [4] "DYE_OBJECT_COLOR"
+---@field MIX_DYE_COLOR 5
+---@field [5] "MIX_DYE_COLOR"
+---@field PLANT 6
+---@field [6] "PLANT"
 df.job_details_option_type = {}
 
 ---@alias df.job_details_context_type
@@ -1432,6 +1480,53 @@ df.job_details_context_type = {}
 ---@field improvement_type _job_details_interfacest_improvement_type
 ---@field scroll_position_improvement number
 ---@field scrolling_improvement boolean
+---@field dye_object_job_type number
+---@field dye_object_target_color DFNumberVector
+---@field dye_object_target_color_available DFNumberVector
+---@field dye_object_target_color_is_tint _job_details_interfacest_dye_object_target_color_is_tint
+---@field dye_object_target_color_master DFNumberVector
+---@field dye_object_target_color_available_master DFNumberVector
+---@field dye_object_target_color_is_tint_master _job_details_interfacest_dye_object_target_color_is_tint_master
+---@field scroll_position_dye_object number
+---@field scrolling_dye_object boolean
+---@field dye_object_tint_color number
+---@field dye_object_tint_reagent_color1 DFNumberVector
+---@field dye_object_tint_reagent_color2 DFNumberVector
+---@field dye_object_tint_reagent_available DFNumberVector
+---@field dye_object_tint_reagent_color1_master DFNumberVector
+---@field dye_object_tint_reagent_color2_master DFNumberVector
+---@field dye_object_tint_reagent_available_master DFNumberVector
+---@field scroll_position_dye_object_reagents number
+---@field scrolling_dye_object_reagents boolean
+---@field dye_object_filter string
+---@field dye_object_doing_filter boolean
+---@field mix_dye_target_color DFNumberVector
+---@field mix_dye_target_color_available DFNumberVector
+---@field mix_dye_target_color_master DFNumberVector
+---@field mix_dye_target_color_available_master DFNumberVector
+---@field scroll_position_mix_dye number
+---@field scrolling_mix_dye boolean
+---@field mix_dye_chosen_target_color number
+---@field mix_dye_reagent_color1 DFNumberVector
+---@field mix_dye_reagent_color2 DFNumberVector
+---@field mix_dye_reagent_available DFNumberVector
+---@field mix_dye_reagent_color1_master DFNumberVector
+---@field mix_dye_reagent_color2_master DFNumberVector
+---@field mix_dye_reagent_available_master DFNumberVector
+---@field scroll_position_mix_dye_reagents number
+---@field scrolling_mix_dye_reagents boolean
+---@field mix_dye_filter string
+---@field mix_dye_doing_filter boolean
+---@field plant_mat DFNumberVector
+---@field plant_matgloss DFNumberVector
+---@field plant_count DFNumberVector
+---@field plant_mat_master DFNumberVector
+---@field plant_matgloss_master DFNumberVector
+---@field plant_count_master DFNumberVector
+---@field scroll_position_plant number
+---@field scrolling_plant boolean
+---@field plant_filter string
+---@field plant_doing_filter boolean
 
 ---@class identity.job_details_interfacest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1471,6 +1566,38 @@ function _job_details_interfacest_improvement_type:insert(index, item) end
 
 ---@param index integer
 function _job_details_interfacest_improvement_type:erase(index) end
+
+---@class _job_details_interfacest_dye_object_target_color_is_tint: DFContainer
+---@field [integer] any[]
+local _job_details_interfacest_dye_object_target_color_is_tint
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _job_details_interfacest_dye_object_target_color_is_tint:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _job_details_interfacest_dye_object_target_color_is_tint:insert(index, item) end
+
+---@param index integer
+function _job_details_interfacest_dye_object_target_color_is_tint:erase(index) end
+
+---@class _job_details_interfacest_dye_object_target_color_is_tint_master: DFContainer
+---@field [integer] any[]
+local _job_details_interfacest_dye_object_target_color_is_tint_master
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<any[]>
+function _job_details_interfacest_dye_object_target_color_is_tint_master:_field(index) end
+
+---@param index '#'|integer
+---@param item any[]
+function _job_details_interfacest_dye_object_target_color_is_tint_master:insert(index, item) end
+
+---@param index integer
+function _job_details_interfacest_dye_object_target_color_is_tint_master:erase(index) end
 
 ---@class (exact) df.buildjob_interfacest: DFStruct
 ---@field _type identity.buildjob_interfacest
@@ -1514,6 +1641,8 @@ function df.custom_stockpile_itemst:new() end
 ---| 6 # WEAPON_NON_USABLE
 ---| 7 # ARMOR_USABLE
 ---| 8 # ARMOR_NON_USABLE
+---| 9 # UNDYED
+---| 10 # DYED
 
 ---@class identity.stock_pile_pointer_type: DFEnumType
 ---@field NONE -1 bay12: StockPilePointerType
@@ -1536,6 +1665,10 @@ function df.custom_stockpile_itemst:new() end
 ---@field [7] "ARMOR_USABLE"
 ---@field ARMOR_NON_USABLE 8
 ---@field [8] "ARMOR_NON_USABLE"
+---@field UNDYED 9
+---@field [9] "UNDYED"
+---@field DYED 10
+---@field [10] "DYED"
 df.stock_pile_pointer_type = {}
 
 ---@class (exact) df.custom_stockpile_interfacest: DFStruct
