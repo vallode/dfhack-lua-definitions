@@ -122,3 +122,11 @@ function dfhack.job.disconnectJobGeneralRef(job, ref) end
 ---@return boolean
 function dfhack.job.removeJob(job) end
 
+---@return df.job
+function dfhack.job.createLinked() end
+
+---@param job df.job
+---@param workshop df.building_workshopst
+---@return boolean
+function dfhack.job.assignToWorkshop(job, workshop) end
+

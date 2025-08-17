@@ -60,6 +60,11 @@ function dfhack.units.getVisibleName(hf) end
 function dfhack.units.getProfessionName(hf, ignore_noble, plural, land_title) end
 
 ---@param unit df.unit
+---@param need_types unknown
+---@return number
+function dfhack.units.getFocusPenalty(unit, need_types) end
+
+---@param unit df.unit
 ---@return boolean
 function dfhack.units.isActive(unit) end
 
@@ -583,4 +588,14 @@ function dfhack.units.getUnitByNobleRole(noble) end
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.unassignTrainer(unit) end
+
+-- reverse engineered from unitst::have_unbailable_sp_activities (partial implementation)
+---@param unit df.unit
+---@return boolean
+function dfhack.units.hasUnbailableSocialActivity(unit) end
+
+---@param unit df.unit
+---@param ["false"] unknown
+---@return boolean
+function dfhack.units.isJobAvailable(unit, ["false"]) end
 
