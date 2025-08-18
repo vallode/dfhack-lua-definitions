@@ -120,12 +120,26 @@ function _sub_rhythm_pattern_flags:insert(index, item) end
 ---@param index integer
 function _sub_rhythm_pattern_flags:erase(index) end
 
+---@class df.rhythm_flag: DFBitfield
+---@field _enum identity.rhythm_flag
+---@field fundamental_polyrhythm boolean bay12: RHYTHM_FLAG_*
+---@field [0] boolean bay12: RHYTHM_FLAG_*
+---@field fundamental_polymeter boolean
+---@field [1] boolean
+
+---@class identity.rhythm_flag: DFBitfieldType
+---@field fundamental_polyrhythm 0 bay12: RHYTHM_FLAG_*
+---@field [0] "fundamental_polyrhythm" bay12: RHYTHM_FLAG_*
+---@field fundamental_polymeter 1
+---@field [1] "fundamental_polymeter"
+df.rhythm_flag = {}
+
 ---@class (exact) df.rhythm: DFStruct
 ---@field _type identity.rhythm
 ---@field id number
 ---@field patterns _rhythm_patterns
 ---@field sub_rhythms _rhythm_sub_rhythms
----@field flags df.rhythm.T_flags
+---@field flags df.rhythm_flag
 
 ---@class identity.rhythm: DFCompoundType
 ---@field _kind 'struct-type'
@@ -174,20 +188,6 @@ function _rhythm_sub_rhythms:insert(index, item) end
 
 ---@param index integer
 function _rhythm_sub_rhythms:erase(index) end
-
----@class df.rhythm.T_flags: DFBitfield
----@field _enum identity.rhythm.flags
----@field fundamental_polyrhythm boolean bay12: RHYTHM_FLAG_*
----@field [0] boolean bay12: RHYTHM_FLAG_*
----@field fundamental_polymeter boolean
----@field [1] boolean
-
----@class identity.rhythm.flags: DFBitfieldType
----@field fundamental_polyrhythm 0 bay12: RHYTHM_FLAG_*
----@field [0] "fundamental_polyrhythm" bay12: RHYTHM_FLAG_*
----@field fundamental_polymeter 1
----@field [1] "fundamental_polymeter"
-df.rhythm.T_flags = {}
 
 ---@class (exact) df.rhythm_handlerst: DFStruct
 ---@field _type identity.rhythm_handlerst

@@ -5604,7 +5604,6 @@ df.unit_usable_interactionst = {}
 ---@return df.unit_usable_interactionst
 function df.unit_usable_interactionst:new() end
 
--- physical_formst
 ---@class (exact) df.unit_appearance: DFStruct
 ---@field _type identity.unit_appearance
 ---@field local_id number

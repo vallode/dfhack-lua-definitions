@@ -233,7 +233,7 @@ df.body_profile_flag = {}
 
 ---@class (exact) df.body_profilest: DFStruct
 ---@field _type identity.body_profilest
----@field events DFNumberVector bay12: body_profilest
+---@field events DFNumberVector
 ---@field status _body_profilest_status missing body parts
 ---@field childbirth_year number
 ---@field childbirth_tick number

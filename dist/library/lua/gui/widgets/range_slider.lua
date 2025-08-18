@@ -7,11 +7,11 @@
 --------------------------------
 
 ---@class widgets.RangeSlider.attrs: widgets.Widget.attrs
----@field num_stops integer
 ---@field get_left_idx_fn? function
 ---@field get_right_idx_fn? function
 ---@field on_left_change? fun(index: integer)
 ---@field on_right_change? fun(index: integer)
+---@field is_single boolean
 
 ---@class widgets.RangeSlider.attrs.partial: widgets.RangeSlider.attrs
 
@@ -24,12 +24,8 @@
 ---@overload fun(init_table: widgets.RangeSlider.initTable): self
 local RangeSlider
 
-function RangeSlider:preinit(init_table) end
-
-function RangeSlider:init() end
+function RangeSlider:get_width_per_idx() end
 
 function RangeSlider:onInput(keys) end
-
-function RangeSlider:onRenderBody(dc, rect) end
 
 return RangeSlider
