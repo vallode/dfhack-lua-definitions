@@ -10,6 +10,8 @@ function tailor.setMaterials(names) end
 
 function tailor.setConfiscate(opt) end
 
+function tailor.setAutomateDye(opt) end
+
 function tailor.parse_commandline(...) end
 
 return tailor
