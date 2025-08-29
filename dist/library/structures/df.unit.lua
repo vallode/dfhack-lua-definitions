@@ -4233,6 +4233,22 @@ function _combat_listst_a_wrestle:insert(index, item) end
 ---@param index integer
 function _combat_listst_a_wrestle:erase(index) end
 
+---@class _combat_listst_a_wrestle_unit_item_wrestle: DFContainer
+---@field [integer] df.unit_item_wrestle
+local _combat_listst_a_wrestle_unit_item_wrestle
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_item_wrestle>
+function _combat_listst_a_wrestle_unit_item_wrestle:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_item_wrestle
+function _combat_listst_a_wrestle_unit_item_wrestle:insert(index, item) end
+
+---@param index integer
+function _combat_listst_a_wrestle_unit_item_wrestle:erase(index) end
+
 ---@class _combat_listst_d_wrestle: DFContainer
 ---@field [integer] df.unit_item_wrestle
 local _combat_listst_d_wrestle
@@ -4248,6 +4264,22 @@ function _combat_listst_d_wrestle:insert(index, item) end
 
 ---@param index integer
 function _combat_listst_d_wrestle:erase(index) end
+
+---@class _combat_listst_d_wrestle_unit_item_wrestle: DFContainer
+---@field [integer] df.unit_item_wrestle
+local _combat_listst_d_wrestle_unit_item_wrestle
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_item_wrestle>
+function _combat_listst_d_wrestle_unit_item_wrestle:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_item_wrestle
+function _combat_listst_d_wrestle_unit_item_wrestle:insert(index, item) end
+
+---@param index integer
+function _combat_listst_d_wrestle_unit_item_wrestle:erase(index) end
 
 ---@class _combat_listst_a_invitem: DFContainer
 ---@field [integer] df.unit_inventory_item
@@ -6546,6 +6578,22 @@ function _unit_status_wrestle_items:insert(index, item) end
 
 ---@param index integer
 function _unit_status_wrestle_items:erase(index) end
+
+---@class _unit_status_wrestle_items_unit_item_wrestle: DFContainer
+---@field [integer] df.unit_item_wrestle
+local _unit_status_wrestle_items_unit_item_wrestle
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit_item_wrestle>
+function _unit_status_wrestle_items_unit_item_wrestle:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit_item_wrestle
+function _unit_status_wrestle_items_unit_item_wrestle:insert(index, item) end
+
+---@param index integer
+function _unit_status_wrestle_items_unit_item_wrestle:erase(index) end
 
 ---@class _unit_status_complaints: DFContainer
 ---@field [integer] df.unit_complaint
