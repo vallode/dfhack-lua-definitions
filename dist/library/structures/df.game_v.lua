@@ -85,7 +85,12 @@
 ---@field standing_orders_forbid_other_nohunt integer
 ---@field standing_orders_forbid_own_dead_items integer
 ---@field standing_orders_forbid_other_dead_items integer
----@field created_item_type df.item_type Skipped: standingorder_forbid_floor_and_wall_cleaning<br>Skipped: standingorder_forbid_trap_cleaning<br>Skipped: standingorder_forbid_rearming_traps<br>Skipped: standingorder_forbid_cages_from_sprung_traps<br>Skipped: standingorder_forbid_toppled_building_items<br>Skipped: index2_*
+---@field standing_orders_forbid_floor_and_wall_cleaning integer
+---@field standing_orders_forbid_trap_cleaning integer
+---@field standing_orders_forbid_rearming_traps integer
+---@field standing_orders_forbid_cages_from_sprung_traps integer
+---@field standing_orders_forbid_toppled_building_items integer
+---@field created_item_type df.item_type Skipped: index2_*
 ---@field created_item_subtype number
 ---@field created_item_mattype number
 ---@field created_item_matindex number
