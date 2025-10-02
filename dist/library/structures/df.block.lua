@@ -444,6 +444,7 @@ function df.block_burrow:new() end
 ---@field flow_pool df.flow_reuse_pool actually inline
 ---@field map_pos df.coord
 ---@field region_pos df.coord2d
+---@field pool_id integer
 ---@field tiletype df.tiletype[][]
 ---@field designation df.tile_designation[][]
 ---@field occupancy df.tile_occupancy[][]
