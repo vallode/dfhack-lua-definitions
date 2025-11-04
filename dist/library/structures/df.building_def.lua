@@ -585,6 +585,8 @@ function df.building_water_wheel_graphics_infost:new() end
 ---@field [13] boolean
 ---@field facing boolean
 ---@field [14] boolean
+---@field firing boolean
+---@field [18] boolean
 
 ---@class identity.building_ballista_graphics_flag: DFBitfieldType
 ---@field color_index 0 bay12: BUILDING_BALLISTA_GRAPHICS_FLAG_*
@@ -597,23 +599,49 @@ function df.building_water_wheel_graphics_infost:new() end
 ---@field [13] "planned"
 ---@field facing 14
 ---@field [14] "facing"
+---@field firing 18
+---@field [18] "firing"
 df.building_ballista_graphics_flag = {}
 
 ---@alias df.building_ballista_graphics_flag_facing
 ---| 0 # N
----| 1 # S
----| 2 # W
----| 3 # E
+---| 1 # NE
+---| 2 # E
+---| 3 # SE
+---| 4 # S
+---| 5 # SW
+---| 6 # W
+---| 7 # NW
+---| 8 # CONST0
+---| 9 # CONST1
+---| 10 # CONST2
+---| 11 # CONST3
 
 ---@class identity.building_ballista_graphics_flag_facing: DFEnumType
 ---@field N 0 bay12: BUILDING_BALLISTA_GRAPHICS_FLAG_FACING_*
 ---@field [0] "N" bay12: BUILDING_BALLISTA_GRAPHICS_FLAG_FACING_*
----@field S 1
----@field [1] "S"
----@field W 2
----@field [2] "W"
----@field E 3
----@field [3] "E"
+---@field NE 1
+---@field [1] "NE"
+---@field E 2
+---@field [2] "E"
+---@field SE 3
+---@field [3] "SE"
+---@field S 4
+---@field [4] "S"
+---@field SW 5
+---@field [5] "SW"
+---@field W 6
+---@field [6] "W"
+---@field NW 7
+---@field [7] "NW"
+---@field CONST0 8
+---@field [8] "CONST0"
+---@field CONST1 9
+---@field [9] "CONST1"
+---@field CONST2 10
+---@field [10] "CONST2"
+---@field CONST3 11
+---@field [11] "CONST3"
 df.building_ballista_graphics_flag_facing = {}
 
 ---@class (exact) df.building_ballista_graphics_infost: DFStruct
@@ -641,6 +669,8 @@ function df.building_ballista_graphics_infost:new() end
 ---@field [13] boolean
 ---@field facing boolean
 ---@field [14] boolean
+---@field firing boolean
+---@field [18] boolean
 
 ---@class identity.building_catapult_graphics_flag: DFBitfieldType
 ---@field color_index 0 bay12: BUILDING_CATAPULT_GRAPHICS_FLAG_*
@@ -653,23 +683,49 @@ function df.building_ballista_graphics_infost:new() end
 ---@field [13] "planned"
 ---@field facing 14
 ---@field [14] "facing"
+---@field firing 18
+---@field [18] "firing"
 df.building_catapult_graphics_flag = {}
 
 ---@alias df.building_catapult_graphics_flag_facing
 ---| 0 # N
----| 1 # S
----| 2 # W
----| 3 # E
+---| 1 # NE
+---| 2 # E
+---| 3 # SE
+---| 4 # S
+---| 5 # SW
+---| 6 # W
+---| 7 # NW
+---| 8 # CONST0
+---| 9 # CONST1
+---| 10 # CONST2
+---| 11 # CONST3
 
 ---@class identity.building_catapult_graphics_flag_facing: DFEnumType
 ---@field N 0 bay12: BUILDING_CATAPULT_GRAPHICS_FLAG_FACING_*
 ---@field [0] "N" bay12: BUILDING_CATAPULT_GRAPHICS_FLAG_FACING_*
----@field S 1
----@field [1] "S"
----@field W 2
----@field [2] "W"
----@field E 3
----@field [3] "E"
+---@field NE 1
+---@field [1] "NE"
+---@field E 2
+---@field [2] "E"
+---@field SE 3
+---@field [3] "SE"
+---@field S 4
+---@field [4] "S"
+---@field SW 5
+---@field [5] "SW"
+---@field W 6
+---@field [6] "W"
+---@field NW 7
+---@field [7] "NW"
+---@field CONST0 8
+---@field [8] "CONST0"
+---@field CONST1 9
+---@field [9] "CONST1"
+---@field CONST2 10
+---@field [10] "CONST2"
+---@field CONST3 11
+---@field [11] "CONST3"
 df.building_catapult_graphics_flag_facing = {}
 
 ---@class (exact) df.building_catapult_graphics_infost: DFStruct
@@ -683,6 +739,77 @@ df.building_catapult_graphics_infost = {}
 
 ---@return df.building_catapult_graphics_infost
 function df.building_catapult_graphics_infost:new() end
+
+---@class df.building_bolt_thrower_graphics_flag: DFBitfield
+---@field _enum identity.building_bolt_thrower_graphics_flag
+---@field color_index boolean bay12: BUILDING_BOLT_THROWER_GRAPHICS_FLAG_*
+---@field [0] boolean bay12: BUILDING_BOLT_THROWER_GRAPHICS_FLAG_*
+---@field planned boolean
+---@field [8] boolean
+---@field facing boolean
+---@field [9] boolean
+---@field ammo_level boolean
+---@field [12] boolean
+---@field ammo_color_index boolean
+---@field [15] boolean
+---@field firing boolean
+---@field [23] boolean
+
+---@class identity.building_bolt_thrower_graphics_flag: DFBitfieldType
+---@field color_index 0 bay12: BUILDING_BOLT_THROWER_GRAPHICS_FLAG_*
+---@field [0] "color_index" bay12: BUILDING_BOLT_THROWER_GRAPHICS_FLAG_*
+---@field planned 8
+---@field [8] "planned"
+---@field facing 9
+---@field [9] "facing"
+---@field ammo_level 12
+---@field [12] "ammo_level"
+---@field ammo_color_index 15
+---@field [15] "ammo_color_index"
+---@field firing 23
+---@field [23] "firing"
+df.building_bolt_thrower_graphics_flag = {}
+
+---@alias df.building_bolt_thrower_graphics_flag_facing
+---| 0 # N
+---| 1 # NE
+---| 2 # E
+---| 3 # SE
+---| 4 # S
+---| 5 # SW
+---| 6 # W
+---| 7 # NW
+
+---@class identity.building_bolt_thrower_graphics_flag_facing: DFEnumType
+---@field N 0 bay12: BUILDING_BOLT_THROWER_GRAPHICS_FLAG_FACING_*
+---@field [0] "N" bay12: BUILDING_BOLT_THROWER_GRAPHICS_FLAG_FACING_*
+---@field NE 1
+---@field [1] "NE"
+---@field E 2
+---@field [2] "E"
+---@field SE 3
+---@field [3] "SE"
+---@field S 4
+---@field [4] "S"
+---@field SW 5
+---@field [5] "SW"
+---@field W 6
+---@field [6] "W"
+---@field NW 7
+---@field [7] "NW"
+df.building_bolt_thrower_graphics_flag_facing = {}
+
+---@class (exact) df.building_bolt_thrower_graphics_infost: DFStruct
+---@field _type identity.building_bolt_thrower_graphics_infost
+---@field flags df.building_bolt_thrower_graphics_flag
+---@field texpos number
+
+---@class identity.building_bolt_thrower_graphics_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.building_bolt_thrower_graphics_infost = {}
+
+---@return df.building_bolt_thrower_graphics_infost
+function df.building_bolt_thrower_graphics_infost:new() end
 
 ---@class df.building_rollers_graphics_flag: DFBitfield
 ---@field _enum identity.building_rollers_graphics_flag
@@ -1023,7 +1150,8 @@ function df.workshop_graphics_infost:new() end
 ---@field workshop_graphics_info _building_def_handlerst_workshop_graphics_info 0.50.01
 ---@field ballista_graphics_info _building_def_handlerst_ballista_graphics_info 0.50.01
 ---@field catapult_graphics_info _building_def_handlerst_catapult_graphics_info 0.50.01
----@field support_graphics_info _building_def_handlerst_support_graphics_info 0.50.01
+---@field bolt_thrower_graphics_info _building_def_handlerst_bolt_thrower_graphics_info 0.50.01
+---@field support_graphics_info _building_def_handlerst_support_graphics_info 0.53.01
 ---@field bars_vertical_graphics_info _building_def_handlerst_bars_vertical_graphics_info 0.50.01
 ---@field screwpump_graphics_info _building_def_handlerst_screwpump_graphics_info 0.50.01
 ---@field weapon_rack_graphics_info _building_def_handlerst_weapon_rack_graphics_info 0.50.01
@@ -1307,6 +1435,22 @@ function _building_def_handlerst_catapult_graphics_info:insert(index, item) end
 
 ---@param index integer
 function _building_def_handlerst_catapult_graphics_info:erase(index) end
+
+---@class _building_def_handlerst_bolt_thrower_graphics_info: DFContainer
+---@field [integer] df.building_bolt_thrower_graphics_infost
+local _building_def_handlerst_bolt_thrower_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.building_bolt_thrower_graphics_infost>
+function _building_def_handlerst_bolt_thrower_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item df.building_bolt_thrower_graphics_infost
+function _building_def_handlerst_bolt_thrower_graphics_info:insert(index, item) end
+
+---@param index integer
+function _building_def_handlerst_bolt_thrower_graphics_info:erase(index) end
 
 ---@class _building_def_handlerst_support_graphics_info: DFContainer
 ---@field [integer] df.building_support_graphics_infost

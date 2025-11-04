@@ -98,6 +98,8 @@ df.army_nemesis_flag = {}
 ---@field needs_build_up number
 ---@field mount_nemid number References: `df.nemesis_record`
 ---@field travel_rate number
+---@field section_master_acid number References: `df.army_controller`
+---@field section_index number
 
 ---@class identity.army_nemesisst: DFCompoundType
 ---@field _kind 'struct-type'

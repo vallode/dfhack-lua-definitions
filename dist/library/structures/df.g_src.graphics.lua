@@ -410,6 +410,32 @@ function df.palettest:new() end
 ---@field [129] "YOUTH"
 df.sphere_type = {}
 
+---@alias df.ram_head_type
+---| -1 # NONE
+---| 0 # TREE
+---| 1 # BULL
+---| 2 # RHINO
+---| 3 # DRAGON
+---| 4 # HORNS
+---| 5 # GRID
+
+---@class identity.ram_head_type: DFEnumType
+---@field NONE -1 bay12: RamHeadType
+---@field [-1] "NONE" bay12: RamHeadType
+---@field TREE 0
+---@field [0] "TREE"
+---@field BULL 1
+---@field [1] "BULL"
+---@field RHINO 2
+---@field [2] "RHINO"
+---@field DRAGON 3
+---@field [3] "DRAGON"
+---@field HORNS 4
+---@field [4] "HORNS"
+---@field GRID 5
+---@field [5] "GRID"
+df.ram_head_type = {}
+
 ---@alias df.slab_engraving_type
 ---| -1 # Slab
 ---| 0 # Memorial
@@ -490,6 +516,7 @@ df.slab_engraving_type = {}
 ---| 1 # MISS
 ---| 2 # BLOCK
 ---| 3 # PARRY
+---| 4 # DIG
 
 ---@class identity.combat_animation_swish_type: DFEnumType
 ---@field NONE -1 bay12: CombatAnimationSwishType
@@ -502,6 +529,8 @@ df.slab_engraving_type = {}
 ---@field [2] "BLOCK"
 ---@field PARRY 3
 ---@field [3] "PARRY"
+---@field DIG 4
+---@field [4] "DIG"
 df.combat_animation_swish_type = {}
 
 ---@alias df.combat_animation_swish_direction_type
@@ -535,6 +564,26 @@ df.combat_animation_swish_type = {}
 ---@field SE 7
 ---@field [7] "SE"
 df.combat_animation_swish_direction_type = {}
+
+---@alias df.combat_animation_ram_direction_type
+---| -1 # NONE
+---| 0 # N
+---| 1 # E
+---| 2 # S
+---| 3 # W
+
+---@class identity.combat_animation_ram_direction_type: DFEnumType
+---@field NONE -1 bay12: CombatAnimationRamDirectionType
+---@field [-1] "NONE" bay12: CombatAnimationRamDirectionType
+---@field N 0
+---@field [0] "N"
+---@field E 1
+---@field [1] "E"
+---@field S 2
+---@field [2] "S"
+---@field W 3
+---@field [3] "W"
+df.combat_animation_ram_direction_type = {}
 
 -- Unused: GraphicsTrackingSymbolWeightType
 -- Unused: GraphicsTrackingSymbolDirType
@@ -1132,18 +1181,20 @@ df.override_tile_type = {}
 ---@field texture_indices3 number[]
 ---@field texpos_boulder DFNumberVector
 ---@field texture_indices4 number[]
----@field texpos_item_barrel_top number[]
+---@field texpos_item_door_debris number[]
 ---@field texture_indices5 number[]
----@field texpos_item_bin_top number[]
+---@field texpos_item_barrel_top number[]
 ---@field texture_indices6 number[]
----@field texpos_item_statue_artifact DFNumberVector
+---@field texpos_item_bin_top number[]
 ---@field texture_indices7 number[]
----@field texpos_site_map number[]
+---@field texpos_item_statue_artifact DFNumberVector
 ---@field texture_indices8 number[]
----@field texpos_site_map_hillock number[]
+---@field texpos_site_map number[]
 ---@field texture_indices9 number[]
----@field texpos_map_drawn number[]
+---@field texpos_site_map_hillock number[]
 ---@field texture_indices10 number[]
+---@field texpos_map_drawn number[]
+---@field texture_indices11 number[]
 
 ---@class identity.graphic: DFCompoundType
 ---@field _kind 'struct-type'

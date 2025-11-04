@@ -3954,6 +3954,28 @@ df.item_ballista_parts_graphics_infost = {}
 ---@return df.item_ballista_parts_graphics_infost
 function df.item_ballista_parts_graphics_infost:new() end
 
+---@class df.item_bolt_thrower_parts_graphics_flag: DFBitfield
+---@field _enum identity.item_bolt_thrower_parts_graphics_flag
+---@field color_index boolean bay12: ITEM_BOLT_THROWER_PARTS_GRAPHICS_FLAG_*
+---@field [0] boolean bay12: ITEM_BOLT_THROWER_PARTS_GRAPHICS_FLAG_*
+
+---@class identity.item_bolt_thrower_parts_graphics_flag: DFBitfieldType
+---@field color_index 0 bay12: ITEM_BOLT_THROWER_PARTS_GRAPHICS_FLAG_*
+---@field [0] "color_index" bay12: ITEM_BOLT_THROWER_PARTS_GRAPHICS_FLAG_*
+df.item_bolt_thrower_parts_graphics_flag = {}
+
+---@class (exact) df.item_bolt_thrower_parts_graphics_infost: DFStruct
+---@field _type identity.item_bolt_thrower_parts_graphics_infost
+---@field flags df.item_bolt_thrower_parts_graphics_flag
+---@field texpos number
+
+---@class identity.item_bolt_thrower_parts_graphics_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.item_bolt_thrower_parts_graphics_infost = {}
+
+---@return df.item_bolt_thrower_parts_graphics_infost
+function df.item_bolt_thrower_parts_graphics_infost:new() end
+
 ---@class df.item_mechanisms_graphics_flag: DFBitfield
 ---@field _enum identity.item_mechanisms_graphics_flag
 ---@field color_index boolean bay12: ITEM_MECHANISMS_GRAPHICS_FLAG_*
@@ -4479,6 +4501,7 @@ function df.item_sheet_graphics_infost:new() end
 ---@field quiver_graphics_info _itemdef_handlerst_quiver_graphics_info
 ---@field catapult_parts_graphics_info _itemdef_handlerst_catapult_parts_graphics_info
 ---@field ballista_parts_graphics_info _itemdef_handlerst_ballista_parts_graphics_info
+---@field bolt_thrower_parts_graphics_info _itemdef_handlerst_bolt_thrower_parts_graphics_info
 ---@field mechanisms_graphics_info _itemdef_handlerst_mechanisms_graphics_info
 ---@field egg_graphics_info _itemdef_handlerst_egg_graphics_info
 ---@field book_graphics_info _itemdef_handlerst_book_graphics_info
@@ -5354,6 +5377,22 @@ function _itemdef_handlerst_ballista_parts_graphics_info:insert(index, item) end
 
 ---@param index integer
 function _itemdef_handlerst_ballista_parts_graphics_info:erase(index) end
+
+---@class _itemdef_handlerst_bolt_thrower_parts_graphics_info: DFContainer
+---@field [integer] df.item_bolt_thrower_parts_graphics_infost
+local _itemdef_handlerst_bolt_thrower_parts_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item_bolt_thrower_parts_graphics_infost>
+function _itemdef_handlerst_bolt_thrower_parts_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item_bolt_thrower_parts_graphics_infost
+function _itemdef_handlerst_bolt_thrower_parts_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_handlerst_bolt_thrower_parts_graphics_info:erase(index) end
 
 ---@class _itemdef_handlerst_mechanisms_graphics_info: DFContainer
 ---@field [integer] df.item_mechanisms_graphics_infost

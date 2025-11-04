@@ -28,6 +28,109 @@ df.entity_dye_descriptor_profilest = {}
 ---@return df.entity_dye_descriptor_profilest
 function df.entity_dye_descriptor_profilest:new() end
 
+---@alias df.army_controller_section_type
+---| -1 # NONE
+---| 0 # SCOUTS
+---| 1 # INFANTRY
+---| 2 # ARCHERS
+---| 3 # CAVALRY
+---| 4 # RAM
+---| 5 # LEADER
+---| 6 # LEADER_GROUP
+---| 7 # MOUNTS
+---| 8 # MONSTERS_SMALL
+---| 9 # MONSTERS_LARGE
+---| 10 # MONSTERS_APEX
+---| 11 # MONSTER_ENGINEERS
+---| 12 # ENGINEERS
+---| 13 # PACK_ANIMALS
+
+---@class identity.army_controller_section_type: DFEnumType
+---@field NONE -1 bay12: ArmyControllerSectionType
+---@field [-1] "NONE" bay12: ArmyControllerSectionType
+---@field SCOUTS 0
+---@field [0] "SCOUTS"
+---@field INFANTRY 1
+---@field [1] "INFANTRY"
+---@field ARCHERS 2
+---@field [2] "ARCHERS"
+---@field CAVALRY 3
+---@field [3] "CAVALRY"
+---@field RAM 4
+---@field [4] "RAM"
+---@field LEADER 5
+---@field [5] "LEADER"
+---@field LEADER_GROUP 6
+---@field [6] "LEADER_GROUP"
+---@field MOUNTS 7
+---@field [7] "MOUNTS"
+---@field MONSTERS_SMALL 8
+---@field [8] "MONSTERS_SMALL"
+---@field MONSTERS_LARGE 9
+---@field [9] "MONSTERS_LARGE"
+---@field MONSTERS_APEX 10
+---@field [10] "MONSTERS_APEX"
+---@field MONSTER_ENGINEERS 11
+---@field [11] "MONSTER_ENGINEERS"
+---@field ENGINEERS 12
+---@field [12] "ENGINEERS"
+---@field PACK_ANIMALS 13
+---@field [13] "PACK_ANIMALS"
+df.army_controller_section_type = {}
+
+---@alias df.army_controller_section_role_type
+---| -1 # NONE
+---| 0 # AMBUSHER
+---| 1 # ASSAULT
+---| 2 # SCOUT
+---| 3 # SCREEN
+---| 4 # MAIN_FORCE
+---| 5 # SUPPORT
+---| 6 # FLANKERS_LEFT
+---| 7 # HEAVY
+---| 8 # LEADER
+---| 9 # LEADER_GUARD
+---| 10 # RAM
+---| 11 # ENGINEER
+---| 12 # MOUNTS
+---| 13 # PACK_ANIMALS
+---| 14 # FLANKERS_RIGHT
+
+---@class identity.army_controller_section_role_type: DFEnumType
+---@field NONE -1 bay12: ArmyControllerSectionRoleType
+---@field [-1] "NONE" bay12: ArmyControllerSectionRoleType
+---@field AMBUSHER 0
+---@field [0] "AMBUSHER"
+---@field ASSAULT 1
+---@field [1] "ASSAULT"
+---@field SCOUT 2
+---@field [2] "SCOUT"
+---@field SCREEN 3
+---@field [3] "SCREEN"
+---@field MAIN_FORCE 4
+---@field [4] "MAIN_FORCE"
+---@field SUPPORT 5
+---@field [5] "SUPPORT"
+---@field FLANKERS_LEFT 6
+---@field [6] "FLANKERS_LEFT"
+---@field HEAVY 7
+---@field [7] "HEAVY"
+---@field LEADER 8
+---@field [8] "LEADER"
+---@field LEADER_GUARD 9
+---@field [9] "LEADER_GUARD"
+---@field RAM 10
+---@field [10] "RAM"
+---@field ENGINEER 11
+---@field [11] "ENGINEER"
+---@field MOUNTS 12
+---@field [12] "MOUNTS"
+---@field PACK_ANIMALS 13
+---@field [13] "PACK_ANIMALS"
+---@field FLANKERS_RIGHT 14
+---@field [14] "FLANKERS_RIGHT"
+df.army_controller_section_role_type = {}
+
 ---@alias df.civzone_type
 ---| 0 # Home
 ---| 1 # Depot
@@ -3282,7 +3385,7 @@ df.adventure_desire_state_type = {}
 ---| 58 # LEAVE_THROUGH_BORDER
 ---| 59 # WILDERNESS_STEAL_ITEM
 ---| 60 # SET_AND_SEEK_STATION
----| 61 # INVADER_SIEGER
+---| 61 # INVADER_WAITING_FOR_PARLEY
 ---| 62 # INVADER_AMBUSHER
 ---| 63 # GREMLIN
 ---| 64 # INITIATE_KIDNAP
@@ -3341,6 +3444,8 @@ df.adventure_desire_state_type = {}
 ---| 117 # MOUNT
 ---| 118 # DISMOUNT
 ---| 119 # HIGH_PRIORITY_HEIST_ITEM
+---| 120 # BUILD_SIEGE_CONSTRUCTION
+---| 121 # OPERATE_BATTERING_RAM
 
 ---@class identity.action_type: DFEnumType
 ---@field NONE -1 bay12: ActionType
@@ -3467,8 +3572,8 @@ df.adventure_desire_state_type = {}
 ---@field [59] "WILDERNESS_STEAL_ITEM"
 ---@field SET_AND_SEEK_STATION 60
 ---@field [60] "SET_AND_SEEK_STATION"
----@field INVADER_SIEGER 61
----@field [61] "INVADER_SIEGER"
+---@field INVADER_WAITING_FOR_PARLEY 61
+---@field [61] "INVADER_WAITING_FOR_PARLEY"
 ---@field INVADER_AMBUSHER 62
 ---@field [62] "INVADER_AMBUSHER"
 ---@field GREMLIN 63
@@ -3585,6 +3690,10 @@ df.adventure_desire_state_type = {}
 ---@field [118] "DISMOUNT"
 ---@field HIGH_PRIORITY_HEIST_ITEM 119
 ---@field [119] "HIGH_PRIORITY_HEIST_ITEM"
+---@field BUILD_SIEGE_CONSTRUCTION 120
+---@field [120] "BUILD_SIEGE_CONSTRUCTION"
+---@field OPERATE_BATTERING_RAM 121
+---@field [121] "OPERATE_BATTERING_RAM"
 df.action_type = {}
 
 -- Unused: TalkFactType
@@ -4638,6 +4747,16 @@ df.creature_sound_method_type = {}
 ---@field [23] boolean
 ---@field Ghostly boolean
 ---@field [24] boolean
+---@field ConstructedWallIgnore boolean
+---@field [25] boolean
+---@field HorizontalNaturalWallPass boolean
+---@field [26] boolean
+---@field HorizontalAir boolean
+---@field [27] boolean
+---@field VerticalNaturalWallPass boolean
+---@field [28] boolean
+---@field VerticalAir boolean
+---@field [29] boolean
 
 ---@class identity.pathfinding_flags: DFBitfieldType
 ---@field Desperate 0 bay12: PATH_PERMIT_*
@@ -4690,6 +4809,16 @@ df.creature_sound_method_type = {}
 ---@field [23] "LevelMapless"
 ---@field Ghostly 24
 ---@field [24] "Ghostly"
+---@field ConstructedWallIgnore 25
+---@field [25] "ConstructedWallIgnore"
+---@field HorizontalNaturalWallPass 26
+---@field [26] "HorizontalNaturalWallPass"
+---@field HorizontalAir 27
+---@field [27] "HorizontalAir"
+---@field VerticalNaturalWallPass 28
+---@field [28] "VerticalNaturalWallPass"
+---@field VerticalAir 29
+---@field [29] "VerticalAir"
 df.pathfinding_flags = {}
 
 ---@alias df.pronoun_type
@@ -8948,6 +9077,7 @@ df.itemimprovement_specific_type = {}
 ---| 1 # DungeonCommander
 ---| 2 # InsaneMood
 ---| 3 # UndeadHunt
+---| 4 # MaraudeWaypoint
 ---| 5 # MaraudeTarget
 ---| 6 # SiegerBasepoint
 ---| 7 # SiegerMill
@@ -8966,7 +9096,6 @@ df.itemimprovement_specific_type = {}
 ---| 20 # Depot
 ---| 21 # VerminHunting
 ---| 22 # SeekCommander
----| 23 # ReturnToBase
 ---| 24 # MillAnywhere
 ---| 25 # Wagon
 ---| 26 # MillBuilding
@@ -8999,6 +9128,8 @@ df.itemimprovement_specific_type = {}
 ---@field [2] "InsaneMood"
 ---@field UndeadHunt 3
 ---@field [3] "UndeadHunt"
+---@field MaraudeWaypoint 4
+---@field [4] "MaraudeWaypoint"
 ---@field MaraudeTarget 5
 ---@field [5] "MaraudeTarget"
 ---@field SiegerBasepoint 6
@@ -9035,8 +9166,6 @@ df.itemimprovement_specific_type = {}
 ---@field [21] "VerminHunting"
 ---@field SeekCommander 22
 ---@field [22] "SeekCommander"
----@field ReturnToBase 23
----@field [23] "ReturnToBase"
 ---@field MillAnywhere 24
 ---@field [24] "MillAnywhere"
 ---@field Wagon 25
@@ -9294,6 +9423,7 @@ df.unit_station_type = {}
 ---| 214 # AdventureAutomove
 ---| 215 # AdventureAutomoveAcrobatic
 ---| 216 # ArcherReposition
+---| 217 # BatteringRamPosition
 
 ---@class identity.unit_path_goal: DFEnumType
 ---@field None -1 bay12: PathGoalType
@@ -9732,6 +9862,8 @@ df.unit_station_type = {}
 ---@field [215] "AdventureAutomoveAcrobatic"
 ---@field ArcherReposition 216
 ---@field [216] "ArcherReposition"
+---@field BatteringRamPosition 217
+---@field [217] "BatteringRamPosition"
 df.unit_path_goal = {}
 
 -- Unused: BuildPathResult
@@ -12170,6 +12302,7 @@ df.tiletype_variant = {}
 ---| 9 # WORN_3
 ---| 10 # TRACK
 ---| 11 # SMOOTH_DEAD
+---| 12 # SHODDY
 
 -- Helper type for tiletype
 ---@class identity.tiletype_special: DFEnumType
@@ -12199,6 +12332,8 @@ df.tiletype_variant = {}
 ---@field [10] "TRACK"
 ---@field SMOOTH_DEAD 11
 ---@field [11] "SMOOTH_DEAD"
+---@field SHODDY 12
+---@field [12] "SHODDY"
 df.tiletype_special = {}
 
 ---@class tiletype_special_attr_entry_type: DFCompoundType
@@ -12222,6 +12357,7 @@ df.tiletype_special._attr_entry_type._fields = {}
 ---@field WORN_3 { caption: "partially (75%) mined walls" }
 ---@field TRACK { caption: "mine cart track" }
 ---@field SMOOTH_DEAD { caption: "smooth dead leaves, a unique combination" }
+---@field SHODDY { caption: "shoddy constructions built by siegers" }
 df.tiletype_special.attrs = {}
 
 ---@alias df.tiletype
@@ -12698,13 +12834,13 @@ df.tiletype_special.attrs = {}
 ---| 470 # RiverRampNE
 ---| 471 # RiverRampSW
 ---| 472 # RiverRampSE
----| 473 # Unused473
----| 474 # Unused474
----| 475 # Unused475
----| 476 # Unused476
----| 477 # Unused477
----| 478 # Unused478
----| 479 # Unused479
+---| 473 # ShoddyConstructedFloor1
+---| 474 # ShoddyConstructedFloor2
+---| 475 # ShoddyConstructedFloor3
+---| 476 # ShoddyConstructedFloor4
+---| 477 # ShoddyConstructedStairUD
+---| 478 # ShoddyConstructedStairD
+---| 479 # ShoddyConstructedStairU
 ---| 480 # Unused480
 ---| 481 # Unused481
 ---| 482 # Unused482
@@ -13870,20 +14006,20 @@ df.tiletype_special.attrs = {}
 ---@field [471] "RiverRampSW" MAPTILE_RIVER_RAMP_SW
 ---@field RiverRampSE 472 MAPTILE_RIVER_RAMP_SE
 ---@field [472] "RiverRampSE" MAPTILE_RIVER_RAMP_SE
----@field Unused473 473 MAPTILE_UNUSED_473
----@field [473] "Unused473" MAPTILE_UNUSED_473
----@field Unused474 474 MAPTILE_UNUSED_474
----@field [474] "Unused474" MAPTILE_UNUSED_474
----@field Unused475 475 MAPTILE_UNUSED_475
----@field [475] "Unused475" MAPTILE_UNUSED_475
----@field Unused476 476 MAPTILE_UNUSED_476
----@field [476] "Unused476" MAPTILE_UNUSED_476
----@field Unused477 477 MAPTILE_UNUSED_477
----@field [477] "Unused477" MAPTILE_UNUSED_477
----@field Unused478 478 MAPTILE_UNUSED_478
----@field [478] "Unused478" MAPTILE_UNUSED_478
----@field Unused479 479 MAPTILE_UNUSED_479
----@field [479] "Unused479" MAPTILE_UNUSED_479
+---@field ShoddyConstructedFloor1 473 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_1
+---@field [473] "ShoddyConstructedFloor1" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_1
+---@field ShoddyConstructedFloor2 474 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_2
+---@field [474] "ShoddyConstructedFloor2" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_2
+---@field ShoddyConstructedFloor3 475 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_3
+---@field [475] "ShoddyConstructedFloor3" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_3
+---@field ShoddyConstructedFloor4 476 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_4
+---@field [476] "ShoddyConstructedFloor4" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_4
+---@field ShoddyConstructedStairUD 477 MAPTILE_STAIR_UPDOWN_CONSTRUCTED_SHODDY
+---@field [477] "ShoddyConstructedStairUD" MAPTILE_STAIR_UPDOWN_CONSTRUCTED_SHODDY
+---@field ShoddyConstructedStairD 478 MAPTILE_STAIR_DOWN_CONSTRUCTED_SHODDY
+---@field [478] "ShoddyConstructedStairD" MAPTILE_STAIR_DOWN_CONSTRUCTED_SHODDY
+---@field ShoddyConstructedStairU 479 MAPTILE_STAIR_UP_CONSTRUCTED_SHODDY
+---@field [479] "ShoddyConstructedStairU" MAPTILE_STAIR_UP_CONSTRUCTED_SHODDY
 ---@field Unused480 480 0x1E0
 ---@field [480] "Unused480" 0x1E0
 ---@field Unused481 481 MAPTILE_UNUSED_481
@@ -14807,13 +14943,13 @@ df.tiletype._attr_entry_type._fields = {}
 ---@field RiverRampNE { caption: "river ramp NE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NE" }
 ---@field RiverRampSW { caption: "river ramp SW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SW" }
 ---@field RiverRampSE { caption: "river ramp SE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SE" }
----@field Unused473 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
----@field Unused474 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
----@field Unused475 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
----@field Unused476 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
----@field Unused477 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
----@field Unused478 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
----@field Unused479 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ShoddyConstructedFloor1 { caption: "shoddy constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "VAR_1", special: "SHODDY", direction: "--------" }
+---@field ShoddyConstructedFloor2 { caption: "shoddy constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "VAR_2", special: "SHODDY", direction: "--------" }
+---@field ShoddyConstructedFloor3 { caption: "shoddy constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "VAR_3", special: "SHODDY", direction: "--------" }
+---@field ShoddyConstructedFloor4 { caption: "shoddy constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "VAR_4", special: "SHODDY", direction: "--------" }
+---@field ShoddyConstructedStairUD { caption: "shoddy constructed stair up/down", shape: "STAIR_UPDOWN", material: "CONSTRUCTION", variant: "NONE", special: "SHODDY", direction: "--------" }
+---@field ShoddyConstructedStairD { caption: "shoddy constructed stair down", shape: "STAIR_DOWN", material: "CONSTRUCTION", variant: "NONE", special: "SHODDY", direction: "--------" }
+---@field ShoddyConstructedStairU { caption: "shoddy constructed stair up", shape: "STAIR_UP", material: "CONSTRUCTION", variant: "NONE", special: "SHODDY", direction: "--------" }
 ---@field Unused480 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
 ---@field Unused481 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
 ---@field Unused482 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
@@ -15729,6 +15865,8 @@ df.tile_traffic = {}
 ---@field [26] boolean Light/Heavy aquifer flag
 ---@field temp_value boolean bay12: currently used by location calcs
 ---@field [27] boolean bay12: currently used by location calcs
+---@field vehicle boolean bay12: not minecarts or other item-sized vehicles, those use ITEM
+---@field [28] boolean bay12: not minecarts or other item-sized vehicles, those use ITEM
 
 ---@class identity.tile_occupancy: DFBitfieldType
 ---@field building 0 bay12: OCCUPANCY_*
@@ -15777,6 +15915,8 @@ df.tile_traffic = {}
 ---@field [26] "heavy_aquifer" Light/Heavy aquifer flag
 ---@field temp_value 27 bay12: currently used by location calcs
 ---@field [27] "temp_value" bay12: currently used by location calcs
+---@field vehicle 28 bay12: not minecarts or other item-sized vehicles, those use ITEM
+---@field [28] "vehicle" bay12: not minecarts or other item-sized vehicles, those use ITEM
 df.tile_occupancy = {}
 
 ---@alias df.tile_building_occ
@@ -16499,6 +16639,7 @@ df.unit_labor_category = {}
 ---| 89 # BOOK
 ---| 90 # SHEET
 ---| 91 # BRANCH
+---| 92 # BOLT_THROWER_PARTS
 
 ---@class identity.item_type: DFEnumType
 ---@field NONE -1
@@ -16687,6 +16828,8 @@ df.unit_labor_category = {}
 ---@field [90] "SHEET" Sheets of paper
 ---@field BRANCH 91 Tree branches
 ---@field [91] "BRANCH" Tree branches
+---@field BOLT_THROWER_PARTS 92 Bolt thrower parts
+---@field [92] "BOLT_THROWER_PARTS" Bolt thrower parts
 df.item_type = {}
 
 ---@class item_type_attr_entry_type: DFCompoundType
@@ -16794,6 +16937,7 @@ df.item_type._attr_entry_type._fields = {}
 ---@field BOOK { caption: "book", classname: "item_bookst" }
 ---@field SHEET { caption: "sheet", classname: "item_sheetst" }
 ---@field BRANCH { caption: "branch", classname: "item_branchst" }
+---@field BOLT_THROWER_PARTS { caption: "bolt thrower parts", classname: "item_bolt_thrower_partsst" }
 df.item_type.attrs = {}
 
 ---@alias df.entity_name_type

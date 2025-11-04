@@ -1145,6 +1145,7 @@ df.inventory_profile_flag = {}
 ---@field artifacts_held _inventory_profilest_artifacts_held held as in possession, doesn't include stored
 ---@field army_strength_material_bonus number
 ---@field average_equipment_quality number
+---@field equip_add number
 ---@field invp_skill_ip DFEnumVector<df.inventory_profile_skill_type, number> only when specific_items flag set
 ---@field invp_mat_strength DFEnumVector<df.inventory_profile_skill_type, number> only when specific_items flag set
 ---@field flags df.inventory_profile_flag

@@ -1028,6 +1028,7 @@ df.body_flag = {}
 ---@field fraction_muscle number
 ---@field default_gait_index DFEnumVector<df.gait_type, number>
 ---@field fastest_gait_index DFEnumVector<df.gait_type, number>
+---@field slowest_gait_index DFEnumVector<df.gait_type, number>
 ---@field clothing_items df.clothing_needsst
 
 ---@class identity.caste_body_info: DFCompoundType
@@ -1321,12 +1322,16 @@ function _cgl_bp_conditionst_modifier:erase(index) end
 ---@field [0] boolean bay12: CGL_ITEM_FLAG_*
 ---@field any_held boolean
 ---@field [1] boolean
+---@field any_hauled boolean
+---@field [2] boolean
 
 ---@class identity.cgl_item_flag: DFBitfieldType
 ---@field wield 0 bay12: CGL_ITEM_FLAG_*
 ---@field [0] "wield" bay12: CGL_ITEM_FLAG_*
 ---@field any_held 1
 ---@field [1] "any_held"
+---@field any_hauled 2
+---@field [2] "any_hauled"
 df.cgl_item_flag = {}
 
 ---@class (exact) df.cgl_itemst: DFStruct
@@ -1374,6 +1379,8 @@ function df.creature_graphics_layer_materialst:new() end
 ---@field [2] boolean
 ---@field use_standard_item_palette boolean
 ---@field [3] boolean
+---@field suppressed_by_load_errors boolean
+---@field [4] boolean
 
 ---@class identity.creature_graphics_layer_flag: DFBitfieldType
 ---@field child 0 bay12: CREATURE_GRAPHICS_LAYER_FLAG_*
@@ -1384,6 +1391,8 @@ function df.creature_graphics_layer_materialst:new() end
 ---@field [2] "ghost"
 ---@field use_standard_item_palette 3
 ---@field [3] "use_standard_item_palette"
+---@field suppressed_by_load_errors 4
+---@field [4] "suppressed_by_load_errors"
 df.creature_graphics_layer_flag = {}
 
 ---@class (exact) df.creature_graphics_layerst: DFStruct

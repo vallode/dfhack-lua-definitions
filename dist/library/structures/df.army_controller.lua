@@ -1011,6 +1011,10 @@ df.army_controller_flag = {}
 ---@field assigned_squads DFNumberVector
 ---@field assigned_epp_entity_id DFNumberVector
 ---@field assigned_epp_epp_id DFNumberVector
+---@field section_type _army_controller_section_type
+---@field section_role _army_controller_section_role
+---@field section_linked_index DFNumberVector
+---@field section_stid DFNumberVector
 ---@field mission_report df.mission_report
 ---@field data df.army_controller.T_data
 ---@field goal df.army_controller_goal_type
@@ -1031,6 +1035,38 @@ function df.army_controller.find(key) end
 
 ---@return army_controller_vector # df.global.world.army_controllers.all
 function df.army_controller.get_vector() end
+
+---@class _army_controller_section_type: DFContainer
+---@field [integer] df.army_controller_section_type
+local _army_controller_section_type
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.army_controller_section_type>
+function _army_controller_section_type:_field(index) end
+
+---@param index '#'|integer
+---@param item df.army_controller_section_type
+function _army_controller_section_type:insert(index, item) end
+
+---@param index integer
+function _army_controller_section_type:erase(index) end
+
+---@class _army_controller_section_role: DFContainer
+---@field [integer] df.army_controller_section_role_type
+local _army_controller_section_role
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.army_controller_section_role_type>
+function _army_controller_section_role:_field(index) end
+
+---@param index '#'|integer
+---@param item df.army_controller_section_role_type
+function _army_controller_section_role:insert(index, item) end
+
+---@param index integer
+function _army_controller_section_role:erase(index) end
 
 ---@class (exact) df.army_controller.T_data: DFStruct
 ---@field _type identity.army_controller.data

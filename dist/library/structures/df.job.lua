@@ -375,6 +375,9 @@ function df.job_item_ref:new() end
 ---| 242 # StoreSquadEquipmentItem
 ---| 243 # MixDye
 ---| 244 # DyeLeather
+---| 245 # ConstructBoltThrowerParts
+---| 246 # LoadBoltThrower
+---| 247 # FireBoltThrower
 
 -- Unused: Spells
 ---@class identity.job_type: DFEnumType
@@ -868,6 +871,12 @@ function df.job_item_ref:new() end
 ---@field [243] "MixDye"
 ---@field DyeLeather 244
 ---@field [244] "DyeLeather"
+---@field ConstructBoltThrowerParts 245
+---@field [245] "ConstructBoltThrowerParts"
+---@field LoadBoltThrower 246
+---@field [246] "LoadBoltThrower"
+---@field FireBoltThrower 247
+---@field [247] "FireBoltThrower"
 df.job_type = {}
 
 ---@class job_type_attr_entry_type: DFCompoundType
@@ -1135,6 +1144,9 @@ df.job_type._attr_entry_type._fields = {}
 ---@field StoreSquadEquipmentItem { caption: "Store Squad Equipment Item", type: "Hauling", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field MixDye { caption: "Mix Dye", type: "Improvement", labor: "NONE", item: "NONE", skill: "DYER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field DyeLeather { caption: "Dye Leather", type: "Improvement", labor: "NONE", item: "NONE", skill: "DYER", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field ConstructBoltThrowerParts { caption: "Construct Bolt Thrower Parts", type: "Manufacture", labor: "NONE", item: "BOLT_THROWER_PARTS", skill: "SIEGECRAFT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field LoadBoltThrower { caption: "Load Bolt Thrower", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field FireBoltThrower { caption: "Fire Bolt Thrower", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 df.job_type.attrs = {}
 
 ---@class df.job_flags: DFBitfield

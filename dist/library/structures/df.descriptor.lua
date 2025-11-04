@@ -253,6 +253,8 @@ df.stair_graphics_flag_shape = {}
 ---| 9 # CONSTRUCTED_WOOD
 ---| 10 # CONSTRUCTED_METAL
 ---| 11 # CONSTRUCTED_STONE
+---| 12 # CONSTRUCTED_WOOD_SHODDY
+---| 13 # CONSTRUCTED_STONE_SHODDY
 
 ---@class identity.stair_graphics_flag_material: DFEnumType
 ---@field STONE 0 bay12: STAIR_GRAPHICS_FLAG_MATERIAL_*
@@ -279,6 +281,10 @@ df.stair_graphics_flag_shape = {}
 ---@field [10] "CONSTRUCTED_METAL"
 ---@field CONSTRUCTED_STONE 11
 ---@field [11] "CONSTRUCTED_STONE"
+---@field CONSTRUCTED_WOOD_SHODDY 12
+---@field [12] "CONSTRUCTED_WOOD_SHODDY"
+---@field CONSTRUCTED_STONE_SHODDY 13
+---@field [13] "CONSTRUCTED_STONE_SHODDY"
 df.stair_graphics_flag_material = {}
 
 ---@class (exact) df.stair_graphics_infost: DFStruct
@@ -345,11 +351,35 @@ function df.engraved_floor_graphics_infost:new() end
 ---@field _enum identity.wood_floor_graphics_flag
 ---@field color_index boolean bay12: WOOD_FLOOR_GRAPHICS_FLAG_*
 ---@field [0] boolean bay12: WOOD_FLOOR_GRAPHICS_FLAG_*
+---@field type boolean
+---@field [8] boolean
 
 ---@class identity.wood_floor_graphics_flag: DFBitfieldType
 ---@field color_index 0 bay12: WOOD_FLOOR_GRAPHICS_FLAG_*
 ---@field [0] "color_index" bay12: WOOD_FLOOR_GRAPHICS_FLAG_*
+---@field type 8
+---@field [8] "type"
 df.wood_floor_graphics_flag = {}
+
+---@alias df.wood_floor_graphics_type
+---| 0 # BLOCKS
+---| 1 # SHODDY_1
+---| 2 # SHODDY_2
+---| 3 # SHODDY_3
+---| 4 # SHODDY_4
+
+---@class identity.wood_floor_graphics_type: DFEnumType
+---@field BLOCKS 0 bay12: WOOD_FLOOR_GRAPHICS_TYPE_*
+---@field [0] "BLOCKS" bay12: WOOD_FLOOR_GRAPHICS_TYPE_*
+---@field SHODDY_1 1
+---@field [1] "SHODDY_1"
+---@field SHODDY_2 2
+---@field [2] "SHODDY_2"
+---@field SHODDY_3 3
+---@field [3] "SHODDY_3"
+---@field SHODDY_4 4
+---@field [4] "SHODDY_4"
+df.wood_floor_graphics_type = {}
 
 ---@class (exact) df.wood_floor_graphics_infost: DFStruct
 ---@field _type identity.wood_floor_graphics_infost
@@ -389,11 +419,35 @@ function df.metal_floor_graphics_infost:new() end
 ---@field _enum identity.stone_block_floor_graphics_flag
 ---@field color_index boolean bay12: STONE_BLOCK_FLOOR_GRAPHICS_FLAG_*
 ---@field [0] boolean bay12: STONE_BLOCK_FLOOR_GRAPHICS_FLAG_*
+---@field type boolean
+---@field [8] boolean
 
 ---@class identity.stone_block_floor_graphics_flag: DFBitfieldType
 ---@field color_index 0 bay12: STONE_BLOCK_FLOOR_GRAPHICS_FLAG_*
 ---@field [0] "color_index" bay12: STONE_BLOCK_FLOOR_GRAPHICS_FLAG_*
+---@field type 8
+---@field [8] "type"
 df.stone_block_floor_graphics_flag = {}
+
+---@alias df.stone_block_floor_graphics_type
+---| 0 # BLOCKS
+---| 1 # SHODDY_1
+---| 2 # SHODDY_2
+---| 3 # SHODDY_3
+---| 4 # SHODDY_4
+
+---@class identity.stone_block_floor_graphics_type: DFEnumType
+---@field BLOCKS 0 bay12: STONE_BLOCK_FLOOR_GRAPHICS_TYPE_*
+---@field [0] "BLOCKS" bay12: STONE_BLOCK_FLOOR_GRAPHICS_TYPE_*
+---@field SHODDY_1 1
+---@field [1] "SHODDY_1"
+---@field SHODDY_2 2
+---@field [2] "SHODDY_2"
+---@field SHODDY_3 3
+---@field [3] "SHODDY_3"
+---@field SHODDY_4 4
+---@field [4] "SHODDY_4"
+df.stone_block_floor_graphics_type = {}
 
 ---@class (exact) df.stone_block_floor_graphics_infost: DFStruct
 ---@field _type identity.stone_block_floor_graphics_infost

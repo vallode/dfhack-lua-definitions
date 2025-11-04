@@ -63,6 +63,7 @@ df.nemesis_flags = {}
 ---@field next_plot_year number
 ---@field next_plot_season_count number
 ---@field flags _nemesis_record_flags
+---@field pool_id integer
 
 ---@class identity.nemesis_record: DFCompoundType
 ---@field _kind 'struct-type'

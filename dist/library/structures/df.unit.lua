@@ -2838,6 +2838,7 @@ function _special_combatst_block_move:erase(index) end
 ---@field spec_flag integer
 ---@field body_action df.body_actionst
 ---@field entity df.historical_entity
+---@field vehicle df.vehicle
 
 ---@class identity.actionst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3046,10 +3047,10 @@ df.mood_stage_type = {}
 ---@field [19] boolean (INVADER_ORIG) Invader origin (could be inactive and fleeing)
 ---@field coward boolean (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
 ---@field [20] boolean (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field hidden_ambusher boolean (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field [21] boolean (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field invades boolean (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
----@field [22] boolean (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
+---@field hidden_ambusher boolean (MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field [21] boolean (MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field invades boolean (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
+---@field [22] boolean (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
 ---@field check_flows boolean (FLOWCHECK) Check against flows next time you get a chance
 ---@field [23] boolean (FLOWCHECK) Check against flows next time you get a chance
 ---@field ridden boolean
@@ -3110,10 +3111,10 @@ df.mood_stage_type = {}
 ---@field [19] "invader_origin" (INVADER_ORIG) Invader origin (could be inactive and fleeing)
 ---@field coward 20 (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
 ---@field [20] "coward" (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field hidden_ambusher 21 (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field [21] "hidden_ambusher" (INVADERFORAY/MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field invades 22 (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
----@field [22] "invades" (INVADERFORAY2/MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
+---@field hidden_ambusher 21 (MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field [21] "hidden_ambusher" (MARAUDER_ACTIVE) Active marauder/invader moving inward?
+---@field invades 22 (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
+---@field [22] "invades" (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
 ---@field check_flows 23 (FLOWCHECK) Check against flows next time you get a chance
 ---@field [23] "check_flows" (FLOWCHECK) Check against flows next time you get a chance
 ---@field ridden 24
@@ -5489,6 +5490,10 @@ function df.unit_active_animationst:new() end
 ---@field interaction_effect_index number References: `df.interaction_effect`
 ---@field squad_id number References: `df.squad`
 ---@field squad_epp_id number References: `df.entity_position_assignment`
+---@field skill_add number
+---@field equip_add number
+---@field section_master_acid number References: `df.army_controller`
+---@field section_index number
 ---@field wg_culture_reference_enid number References: `df.historical_entity`
 
 ---@class identity.entity_pop_specifierst: DFCompoundType
@@ -5969,6 +5974,12 @@ df.dungeon_control_state = {}
 ---@field breed_id number References: `df.breed`
 ---@field cultural_identity number References: `df.cultural_identity`
 ---@field invasion_id number References: `df.invasion_info`
+---@field invasion_section_index number
+---@field invasion_role df.army_controller_section_role_type
+---@field invasion_plan_id number
+---@field invasion_plan_path_index number
+---@field invasion_plan_bestattained_path_index number
+---@field invasion_dig_progress_index number
 ---@field patrol_route df.coord_path used by necromancers for corpse locations, siegers etc
 ---@field patrol_index number
 ---@field specific_refs _unit_specific_refs
@@ -6239,6 +6250,8 @@ function _unit_owned_buildings:erase(index) end
 ---@field hunt_target df.unit
 ---@field target_flags df.unit_target_flags
 ---@field destroy_target df.building
+---@field btarget_construction_or_wall df.coord
+---@field siege_boulder df.coord
 ---@field vision_x number
 ---@field vision_y number
 ---@field vision_z number

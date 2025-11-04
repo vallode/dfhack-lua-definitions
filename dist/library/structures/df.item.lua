@@ -217,6 +217,7 @@ df.item_body_component_flag = {}
 ---| 133 # BRANCH
 ---| 134 # BAG
 ---| 135 # MAGICAL
+---| 136 # BOLT_THROWER_PARTS
 
 ---@class identity.job_item_vector_id: DFEnumType
 ---@field ANY 0
@@ -489,6 +490,8 @@ df.item_body_component_flag = {}
 ---@field [134] "BAG"
 ---@field MAGICAL 135
 ---@field [135] "MAGICAL"
+---@field BOLT_THROWER_PARTS 136
+---@field [136] "BOLT_THROWER_PARTS"
 df.job_item_vector_id = {}
 
 ---@class job_item_vector_id_attr_entry_type: DFCompoundType
@@ -635,6 +638,7 @@ df.job_item_vector_id._attr_entry_type._fields = {}
 ---@field BRANCH { other: "BRANCH" }
 ---@field BAG { other: "BAG" }
 ---@field MAGICAL { other: "MAGICAL" }
+---@field BOLT_THROWER_PARTS { other: "BOLT_THROWER_PARTS" }
 df.job_item_vector_id.attrs = {}
 
 ---@class (exact) df.item_kill_info: DFStruct
@@ -3741,6 +3745,16 @@ df.item_ballistapartsst = {}
 ---@return df.item_ballistapartsst
 function df.item_ballistapartsst:new() end
 
+---@class (exact) df.item_bolt_thrower_partsst: DFStruct, df.item_constructed
+---@field _type identity.item_bolt_thrower_partsst
+
+---@class identity.item_bolt_thrower_partsst: DFCompoundType
+---@field _kind 'class-type'
+df.item_bolt_thrower_partsst = {}
+
+---@return df.item_bolt_thrower_partsst
+function df.item_bolt_thrower_partsst:new() end
+
 ---@class (exact) df.item_siegeammost: DFStruct, df.item_constructed
 ---@field _type identity.item_siegeammost
 ---@field subtype df.itemdef_siegeammost
@@ -3978,66 +3992,67 @@ function _abstractitemlistst_expanded:erase(index) end
 ---| 71 # ANVIL
 ---| 72 # CATAPULTPARTS
 ---| 73 # BALLISTAPARTS
----| 74 # SIEGEAMMO
----| 75 # TRAPPARTS
----| 76 # ANY_WEBS
----| 77 # PIPE_SECTION
----| 78 # ANY_ENCASED
----| 79 # ANY_IN_CONSTRUCTION
----| 80 # DRINK
----| 81 # ANY_DRINK
----| 82 # LIQUID_MISC
----| 83 # POWDER_MISC
----| 84 # ANY_COOKABLE
----| 85 # ANY_GLASSABLE
----| 86 # VERMIN
----| 87 # PET
----| 88 # ANY_CRITTER
----| 89 # COIN
----| 90 # GLOB
----| 91 # TRAPCOMP
----| 92 # BAR
----| 93 # SMALLGEM
----| 94 # BLOCKS
----| 95 # ROUGH
----| 96 # ANY_CORPSE
----| 97 # CORPSE
----| 98 # BOOK
----| 99 # FIGURINE
----| 100 # AMULET
----| 101 # SCEPTER
----| 102 # CROWN
----| 103 # RING
----| 104 # EARRING
----| 105 # BRACELET
----| 106 # GEM
----| 107 # CORPSEPIECE
----| 108 # REMAINS
----| 109 # MEAT
----| 110 # FISH
----| 111 # FISH_RAW
----| 112 # EGG
----| 113 # SEEDS
----| 114 # PLANT
----| 115 # SKIN_TANNED
----| 116 # PLANT_GROWTH
----| 117 # THREAD
----| 118 # CLOTH
----| 119 # SHEET
----| 120 # TOTEM
----| 121 # PANTS
----| 122 # CHEESE
----| 123 # FOOD
----| 124 # BALLISTAARROWHEAD
----| 125 # ARMOR
----| 126 # SHOES
----| 127 # HELM
----| 128 # GLOVES
----| 129 # POSSIBLE_CONTAINER
----| 130 # FOOD_STORAGE
----| 131 # MAGICAL
----| 132 # ANY_RECENTLY_DROPPED
----| 133 # ANY_MELT_DESIGNATED
+---| 74 # BOLT_THROWER_PARTS
+---| 75 # SIEGEAMMO
+---| 76 # TRAPPARTS
+---| 77 # ANY_WEBS
+---| 78 # PIPE_SECTION
+---| 79 # ANY_ENCASED
+---| 80 # ANY_IN_CONSTRUCTION
+---| 81 # DRINK
+---| 82 # ANY_DRINK
+---| 83 # LIQUID_MISC
+---| 84 # POWDER_MISC
+---| 85 # ANY_COOKABLE
+---| 86 # ANY_GLASSABLE
+---| 87 # VERMIN
+---| 88 # PET
+---| 89 # ANY_CRITTER
+---| 90 # COIN
+---| 91 # GLOB
+---| 92 # TRAPCOMP
+---| 93 # BAR
+---| 94 # SMALLGEM
+---| 95 # BLOCKS
+---| 96 # ROUGH
+---| 97 # ANY_CORPSE
+---| 98 # CORPSE
+---| 99 # BOOK
+---| 100 # FIGURINE
+---| 101 # AMULET
+---| 102 # SCEPTER
+---| 103 # CROWN
+---| 104 # RING
+---| 105 # EARRING
+---| 106 # BRACELET
+---| 107 # GEM
+---| 108 # CORPSEPIECE
+---| 109 # REMAINS
+---| 110 # MEAT
+---| 111 # FISH
+---| 112 # FISH_RAW
+---| 113 # EGG
+---| 114 # SEEDS
+---| 115 # PLANT
+---| 116 # SKIN_TANNED
+---| 117 # PLANT_GROWTH
+---| 118 # THREAD
+---| 119 # CLOTH
+---| 120 # SHEET
+---| 121 # TOTEM
+---| 122 # PANTS
+---| 123 # CHEESE
+---| 124 # FOOD
+---| 125 # BALLISTAARROWHEAD
+---| 126 # ARMOR
+---| 127 # SHOES
+---| 128 # HELM
+---| 129 # GLOVES
+---| 130 # POSSIBLE_CONTAINER
+---| 131 # FOOD_STORAGE
+---| 132 # MAGICAL
+---| 133 # ANY_RECENTLY_DROPPED
+---| 134 # ANY_MELT_DESIGNATED
 
 -- Unused: ItemSaveCompat
 -- Helper type for item_handlerst
@@ -4192,126 +4207,128 @@ function _abstractitemlistst_expanded:erase(index) end
 ---@field [72] "CATAPULTPARTS"
 ---@field BALLISTAPARTS 73
 ---@field [73] "BALLISTAPARTS"
----@field SIEGEAMMO 74
----@field [74] "SIEGEAMMO"
----@field TRAPPARTS 75
----@field [75] "TRAPPARTS"
----@field ANY_WEBS 76
----@field [76] "ANY_WEBS"
----@field PIPE_SECTION 77
----@field [77] "PIPE_SECTION"
----@field ANY_ENCASED 78
----@field [78] "ANY_ENCASED"
----@field ANY_IN_CONSTRUCTION 79
----@field [79] "ANY_IN_CONSTRUCTION"
----@field DRINK 80
----@field [80] "DRINK"
----@field ANY_DRINK 81 80
----@field [81] "ANY_DRINK" 80
----@field LIQUID_MISC 82
----@field [82] "LIQUID_MISC"
----@field POWDER_MISC 83
----@field [83] "POWDER_MISC"
----@field ANY_COOKABLE 84
----@field [84] "ANY_COOKABLE"
----@field ANY_GLASSABLE 85
----@field [85] "ANY_GLASSABLE"
----@field VERMIN 86
----@field [86] "VERMIN"
----@field PET 87
----@field [87] "PET"
----@field ANY_CRITTER 88
----@field [88] "ANY_CRITTER"
----@field COIN 89
----@field [89] "COIN"
----@field GLOB 90
----@field [90] "GLOB"
----@field TRAPCOMP 91 90
----@field [91] "TRAPCOMP" 90
----@field BAR 92
----@field [92] "BAR"
----@field SMALLGEM 93
----@field [93] "SMALLGEM"
----@field BLOCKS 94
----@field [94] "BLOCKS"
----@field ROUGH 95
----@field [95] "ROUGH"
----@field ANY_CORPSE 96
----@field [96] "ANY_CORPSE"
----@field CORPSE 97
----@field [97] "CORPSE"
----@field BOOK 98
----@field [98] "BOOK"
----@field FIGURINE 99
----@field [99] "FIGURINE"
----@field AMULET 100
----@field [100] "AMULET"
----@field SCEPTER 101 100
----@field [101] "SCEPTER" 100
----@field CROWN 102
----@field [102] "CROWN"
----@field RING 103
----@field [103] "RING"
----@field EARRING 104
----@field [104] "EARRING"
----@field BRACELET 105
----@field [105] "BRACELET"
----@field GEM 106
----@field [106] "GEM"
----@field CORPSEPIECE 107
----@field [107] "CORPSEPIECE"
----@field REMAINS 108
----@field [108] "REMAINS"
----@field MEAT 109
----@field [109] "MEAT"
----@field FISH 110
----@field [110] "FISH"
----@field FISH_RAW 111 110
----@field [111] "FISH_RAW" 110
----@field EGG 112
----@field [112] "EGG"
----@field SEEDS 113
----@field [113] "SEEDS"
----@field PLANT 114
----@field [114] "PLANT"
----@field SKIN_TANNED 115
----@field [115] "SKIN_TANNED"
----@field PLANT_GROWTH 116
----@field [116] "PLANT_GROWTH"
----@field THREAD 117
----@field [117] "THREAD"
----@field CLOTH 118
----@field [118] "CLOTH"
----@field SHEET 119
----@field [119] "SHEET"
----@field TOTEM 120
----@field [120] "TOTEM"
----@field PANTS 121 120
----@field [121] "PANTS" 120
----@field CHEESE 122
----@field [122] "CHEESE"
----@field FOOD 123
----@field [123] "FOOD"
----@field BALLISTAARROWHEAD 124
----@field [124] "BALLISTAARROWHEAD"
----@field ARMOR 125
----@field [125] "ARMOR"
----@field SHOES 126
----@field [126] "SHOES"
----@field HELM 127
----@field [127] "HELM"
----@field GLOVES 128
----@field [128] "GLOVES"
----@field POSSIBLE_CONTAINER 129
----@field [129] "POSSIBLE_CONTAINER"
----@field FOOD_STORAGE 130
----@field [130] "FOOD_STORAGE"
----@field MAGICAL 131 130
----@field [131] "MAGICAL" 130
----@field ANY_RECENTLY_DROPPED 132
----@field [132] "ANY_RECENTLY_DROPPED"
----@field ANY_MELT_DESIGNATED 133
----@field [133] "ANY_MELT_DESIGNATED"
+---@field BOLT_THROWER_PARTS 74
+---@field [74] "BOLT_THROWER_PARTS"
+---@field SIEGEAMMO 75
+---@field [75] "SIEGEAMMO"
+---@field TRAPPARTS 76
+---@field [76] "TRAPPARTS"
+---@field ANY_WEBS 77
+---@field [77] "ANY_WEBS"
+---@field PIPE_SECTION 78
+---@field [78] "PIPE_SECTION"
+---@field ANY_ENCASED 79
+---@field [79] "ANY_ENCASED"
+---@field ANY_IN_CONSTRUCTION 80
+---@field [80] "ANY_IN_CONSTRUCTION"
+---@field DRINK 81 80
+---@field [81] "DRINK" 80
+---@field ANY_DRINK 82
+---@field [82] "ANY_DRINK"
+---@field LIQUID_MISC 83
+---@field [83] "LIQUID_MISC"
+---@field POWDER_MISC 84
+---@field [84] "POWDER_MISC"
+---@field ANY_COOKABLE 85
+---@field [85] "ANY_COOKABLE"
+---@field ANY_GLASSABLE 86
+---@field [86] "ANY_GLASSABLE"
+---@field VERMIN 87
+---@field [87] "VERMIN"
+---@field PET 88
+---@field [88] "PET"
+---@field ANY_CRITTER 89
+---@field [89] "ANY_CRITTER"
+---@field COIN 90
+---@field [90] "COIN"
+---@field GLOB 91 90
+---@field [91] "GLOB" 90
+---@field TRAPCOMP 92
+---@field [92] "TRAPCOMP"
+---@field BAR 93
+---@field [93] "BAR"
+---@field SMALLGEM 94
+---@field [94] "SMALLGEM"
+---@field BLOCKS 95
+---@field [95] "BLOCKS"
+---@field ROUGH 96
+---@field [96] "ROUGH"
+---@field ANY_CORPSE 97
+---@field [97] "ANY_CORPSE"
+---@field CORPSE 98
+---@field [98] "CORPSE"
+---@field BOOK 99
+---@field [99] "BOOK"
+---@field FIGURINE 100
+---@field [100] "FIGURINE"
+---@field AMULET 101 100
+---@field [101] "AMULET" 100
+---@field SCEPTER 102
+---@field [102] "SCEPTER"
+---@field CROWN 103
+---@field [103] "CROWN"
+---@field RING 104
+---@field [104] "RING"
+---@field EARRING 105
+---@field [105] "EARRING"
+---@field BRACELET 106
+---@field [106] "BRACELET"
+---@field GEM 107
+---@field [107] "GEM"
+---@field CORPSEPIECE 108
+---@field [108] "CORPSEPIECE"
+---@field REMAINS 109
+---@field [109] "REMAINS"
+---@field MEAT 110
+---@field [110] "MEAT"
+---@field FISH 111 110
+---@field [111] "FISH" 110
+---@field FISH_RAW 112
+---@field [112] "FISH_RAW"
+---@field EGG 113
+---@field [113] "EGG"
+---@field SEEDS 114
+---@field [114] "SEEDS"
+---@field PLANT 115
+---@field [115] "PLANT"
+---@field SKIN_TANNED 116
+---@field [116] "SKIN_TANNED"
+---@field PLANT_GROWTH 117
+---@field [117] "PLANT_GROWTH"
+---@field THREAD 118
+---@field [118] "THREAD"
+---@field CLOTH 119
+---@field [119] "CLOTH"
+---@field SHEET 120
+---@field [120] "SHEET"
+---@field TOTEM 121 120
+---@field [121] "TOTEM" 120
+---@field PANTS 122
+---@field [122] "PANTS"
+---@field CHEESE 123
+---@field [123] "CHEESE"
+---@field FOOD 124
+---@field [124] "FOOD"
+---@field BALLISTAARROWHEAD 125
+---@field [125] "BALLISTAARROWHEAD"
+---@field ARMOR 126
+---@field [126] "ARMOR"
+---@field SHOES 127
+---@field [127] "SHOES"
+---@field HELM 128
+---@field [128] "HELM"
+---@field GLOVES 129
+---@field [129] "GLOVES"
+---@field POSSIBLE_CONTAINER 130
+---@field [130] "POSSIBLE_CONTAINER"
+---@field FOOD_STORAGE 131 130
+---@field [131] "FOOD_STORAGE" 130
+---@field MAGICAL 132
+---@field [132] "MAGICAL"
+---@field ANY_RECENTLY_DROPPED 133
+---@field [133] "ANY_RECENTLY_DROPPED"
+---@field ANY_MELT_DESIGNATED 134
+---@field [134] "ANY_MELT_DESIGNATED"
 df.items_other_id = {}
 
 ---@class items_other_id_attr_entry_type: DFCompoundType
@@ -4399,6 +4416,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANVIL { item: "ANVIL" }
 ---@field CATAPULTPARTS { item: "CATAPULTPARTS" }
 ---@field BALLISTAPARTS { item: "BALLISTAPARTS" }
+---@field BOLT_THROWER_PARTS { item: "BOLT_THROWER_PARTS" }
 ---@field SIEGEAMMO { item: "SIEGEAMMO" }
 ---@field TRAPPARTS { item: "TRAPPARTS" }
 ---@field ANY_WEBS { item: "NONE", generic_item: "THREAD" }
@@ -4538,6 +4556,7 @@ df.items_other_id.attrs = {}
 ---@field ANVIL _items_other_ANVIL
 ---@field CATAPULTPARTS _items_other_CATAPULTPARTS
 ---@field BALLISTAPARTS _items_other_BALLISTAPARTS
+---@field BOLT_THROWER_PARTS _items_other_BOLT_THROWER_PARTS
 ---@field SIEGEAMMO _items_other_SIEGEAMMO
 ---@field TRAPPARTS _items_other_TRAPPARTS
 ---@field ANY_WEBS _items_other_ANY_WEBS
@@ -5789,6 +5808,22 @@ function _items_other_BALLISTAPARTS:insert(index, item) end
 
 ---@param index integer
 function _items_other_BALLISTAPARTS:erase(index) end
+
+---@class _items_other_BOLT_THROWER_PARTS: DFContainer
+---@field [integer] df.item
+local _items_other_BOLT_THROWER_PARTS
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item>
+function _items_other_BOLT_THROWER_PARTS:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item
+function _items_other_BOLT_THROWER_PARTS:insert(index, item) end
+
+---@param index integer
+function _items_other_BOLT_THROWER_PARTS:erase(index) end
 
 ---@class _items_other_SIEGEAMMO: DFContainer
 ---@field [integer] df.item_siegeammost

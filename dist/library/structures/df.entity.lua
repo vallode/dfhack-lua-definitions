@@ -2687,6 +2687,60 @@ function df.honors_type:new() end
 -- Unused: wg_interrogation_datast
 -- Unused: WG_CONVICTION_DATA_FLAG_*
 -- Unused: wg_conviction_datast
+---@class (exact) df.pim_blockst: DFStruct
+---@field _type identity.pim_blockst
+---@field death_caged_heat integer[][]
+
+---@class identity.pim_blockst: DFCompoundType
+---@field _kind 'struct-type'
+df.pim_blockst = {}
+
+---@return df.pim_blockst
+function df.pim_blockst:new() end
+
+---@class (exact) df.plot_invasion_mapst: DFStruct
+---@field _type identity.plot_invasion_mapst
+---@field block _plot_invasion_mapst_block
+---@field block_index DFPointer<integer>
+---@field blockx number
+---@field blocky number
+---@field blockz number
+
+---@class identity.plot_invasion_mapst: DFCompoundType
+---@field _kind 'struct-type'
+df.plot_invasion_mapst = {}
+
+---@return df.plot_invasion_mapst
+function df.plot_invasion_mapst:new() end
+
+---@class _plot_invasion_mapst_block: DFContainer
+---@field [integer] df.pim_blockst
+local _plot_invasion_mapst_block
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.pim_blockst>
+function _plot_invasion_mapst_block:_field(index) end
+
+---@param index '#'|integer
+---@param item df.pim_blockst
+function _plot_invasion_mapst_block:insert(index, item) end
+
+---@param index integer
+function _plot_invasion_mapst_block:erase(index) end
+
+---@class (exact) df.entity_plot_invasion_mapst: DFStruct
+---@field _type identity.entity_plot_invasion_mapst
+---@field site_id number References: `df.world_site`
+---@field map df.plot_invasion_mapst
+
+---@class identity.entity_plot_invasion_mapst: DFCompoundType
+---@field _kind 'struct-type'
+df.entity_plot_invasion_mapst = {}
+
+---@return df.entity_plot_invasion_mapst
+function df.entity_plot_invasion_mapst:new() end
+
 ---@class df.entity_scholar_flag: DFBitfield
 ---@field _enum identity.entity_scholar_flag
 ---@field PHILOSOPHER boolean bay12: ENTITY_SCHOLAR_FLAG_*
@@ -2936,6 +2990,7 @@ df.historical_entity_type = {}
 ---@field evidence_repository df.evidence_repositoryst
 ---@field divination_sets DFNumberVector
 ---@field founding_site_government number bay12: material_source_enid<br>References: `df.historical_entity`
+---@field plot_invasion_map _historical_entity_plot_invasion_map
 ---@field meeting_events _historical_entity_meeting_events
 ---@field activity_stats df.entity_activity_statistics bay12: reportst *lastreport
 ---@field last_report_season number
@@ -3634,6 +3689,22 @@ function _historical_entity_honors:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_honors:erase(index) end
+
+---@class _historical_entity_plot_invasion_map: DFContainer
+---@field [integer] df.entity_plot_invasion_mapst
+local _historical_entity_plot_invasion_map
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_plot_invasion_mapst>
+function _historical_entity_plot_invasion_map:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_plot_invasion_mapst
+function _historical_entity_plot_invasion_map:insert(index, item) end
+
+---@param index integer
+function _historical_entity_plot_invasion_map:erase(index) end
 
 ---@class _historical_entity_meeting_events: DFContainer
 ---@field [integer] df.meeting_event

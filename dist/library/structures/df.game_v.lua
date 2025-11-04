@@ -148,7 +148,7 @@
 ---@field belief_system_next_id number
 ---@field image_set_next_id number
 ---@field divination_set_next_id number
----@field debug_nopause boolean Skipped: manucomp<br>Skipped: manucomp2<br>Skipped: filecomp_buffer<br>Skipped: filecomp_buffer2<br>Skipped: filecomp_buffer_aux<br>Skipped: filecomp_buffer2_aux<br>Skipped: DEBUG_SHOW_RIVER<br>Skipped: DEBUG_FASTCAVEIN
+---@field debug_nopause boolean Skipped: manucomp<br>Skipped: manucomp2<br>Skipped: filecomp_buffer<br>Skipped: filecomp_buffer2<br>Skipped: filecomp_buffer_aux<br>Skipped: filecomp_buffer2_aux
 ---@field debug_nomoods boolean Same as ARTIFACTS:NO
 ---@field debug_combat boolean Functionality unknown, combat-related
 ---@field debug_wildlife boolean Functionality unknown, wildlife-related

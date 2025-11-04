@@ -402,12 +402,16 @@ function df.ocean_wave:new() end
 ---@field [0] boolean bay12: EVENT_CONSTRUCTION_FLAG_*
 ---@field top_of_wall boolean bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
 ---@field [1] boolean bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
+---@field reinforced boolean
+---@field [2] boolean
 
 ---@class identity.construction_flags: DFBitfieldType
 ---@field no_build_item 0 bay12: EVENT_CONSTRUCTION_FLAG_*
 ---@field [0] "no_build_item" bay12: EVENT_CONSTRUCTION_FLAG_*
 ---@field top_of_wall 1 bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
 ---@field [1] "top_of_wall" bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
+---@field reinforced 2
+---@field [2] "reinforced"
 df.construction_flags = {}
 
 ---@class (exact) df.construction: DFStruct
@@ -419,6 +423,8 @@ df.construction_flags = {}
 ---@field mat_index number
 ---@field flags df.construction_flags
 ---@field original_tile df.tiletype
+---@field sec_i_sc1 number References: `df.material`
+---@field sec_i_sc2 number
 
 ---@class identity.construction: DFCompoundType
 ---@field _kind 'struct-type'

@@ -617,6 +617,8 @@ df.building_archflag = {}
 ---@field flags df.building_archflag
 ---@field hitpoints number
 ---@field max_hitpoints number
+---@field damage_mat number
+---@field damage_matg number
 
 ---@class identity.building_design: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1486,6 +1488,7 @@ df.stockpile_furniture_mat = {}
 ---| 31 # WHEELBARROW
 ---| 32 # OTHER_LARGE_TOOLS
 ---| 33 # SAND_BAG
+---| 34 # BOLT_THROWER_PARTS
 
 ---@class identity.furniture_type: DFEnumType
 ---@field NONE -1 bay12: StockpileFurnitureItemType
@@ -1558,6 +1561,8 @@ df.stockpile_furniture_mat = {}
 ---@field [32] "OTHER_LARGE_TOOLS"
 ---@field SAND_BAG 33
 ---@field [33] "SAND_BAG"
+---@field BOLT_THROWER_PARTS 34
+---@field [34] "BOLT_THROWER_PARTS"
 df.furniture_type = {}
 
 ---@class (exact) df.stockpile_parameter_furniturest: DFStruct
@@ -3172,23 +3177,31 @@ df.building_cagest = {}
 function df.building_cagest:new() end
 
 ---@alias df.siegeengine_type
+---| -1 # NONE
 ---| 0 # Catapult
 ---| 1 # Ballista
+---| 2 # BoltThrower
 
 ---@class identity.siegeengine_type: DFEnumType
----@field Catapult 0 bay12: BuildingSiegeEngineType, no base type
----@field [0] "Catapult" bay12: BuildingSiegeEngineType, no base type
+---@field NONE -1 bay12: BuildingSiegeEngineType, no base type
+---@field [-1] "NONE" bay12: BuildingSiegeEngineType, no base type
+---@field Catapult 0
+---@field [0] "Catapult"
 ---@field Ballista 1
 ---@field [1] "Ballista"
+---@field BoltThrower 2
+---@field [2] "BoltThrower"
 df.siegeengine_type = {}
 
 ---@class (exact) df.building_siegeenginest: DFStruct, df.building_actual
 ---@field _type identity.building_siegeenginest
 ---@field type df.siegeengine_type
 ---@field facing df.building_siegeenginest.T_facing
+---@field resting_orientation df.building_siegeenginest.T_resting_orientation
 ---@field action df.building_siegeenginest.T_action
 ---@field fire_timer number
 ---@field fill_timer number
+---@field rotate_delay number
 
 ---@class identity.building_siegeenginest: DFCompoundType
 ---@field _kind 'class-type'
@@ -3213,6 +3226,23 @@ function df.building_siegeenginest:new() end
 ---@field Down 3
 ---@field [3] "Down"
 df.building_siegeenginest.T_facing = {}
+
+---@alias df.building_siegeenginest.T_resting_orientation
+---| 0 # Orientation_Left
+---| 1 # Orientation_Up
+---| 2 # Orientation_Right
+---| 3 # Orientation_Down
+
+---@class identity.building_siegeenginest.resting_orientation: DFEnumType
+---@field Orientation_Left 0
+---@field [0] "Orientation_Left"
+---@field Orientation_Up 1
+---@field [1] "Orientation_Up"
+---@field Orientation_Right 2
+---@field [2] "Orientation_Right"
+---@field Orientation_Down 3
+---@field [3] "Orientation_Down"
+df.building_siegeenginest.T_resting_orientation = {}
 
 ---@alias df.building_siegeenginest.T_action
 ---| 0 # NotInUse
@@ -3556,6 +3586,7 @@ df.furnace_type.attrs = {}
 ---@field type df.furnace_type
 ---@field profile df.workshop_profile
 ---@field custom_type number References: `df.building_def`
+---@field times_used number
 
 ---@class identity.building_furnacest: DFCompoundType
 ---@field _kind 'class-type'
@@ -3690,6 +3721,7 @@ df.workshop_type.attrs = {}
 ---@field profile df.workshop_profile
 ---@field machine df.machine_info
 ---@field custom_type number References: `df.building_def`
+---@field times_used number
 
 ---@class identity.building_workshopst: DFCompoundType
 ---@field _kind 'class-type'
@@ -3715,6 +3747,7 @@ df.building_tradedepot_flag = {}
 ---@class (exact) df.building_tradedepotst: DFStruct, df.building_actual
 ---@field _type identity.building_tradedepotst
 ---@field trade_flags df.building_tradedepot_flag
+---@field times_used number
 ---@field accessible boolean
 
 ---@class identity.building_tradedepotst: DFCompoundType
@@ -3891,6 +3924,7 @@ function df.building_road_pavedst:new() end
 ---| 34 # TrackRampNEW
 ---| 35 # TrackRampSEW
 ---| 36 # TrackRampNSEW
+---| 37 # ReinforcedWall
 
 ---@class identity.construction_type: DFEnumType
 ---@field NONE -1 bay12: BuildingConstructionType
@@ -3969,6 +4003,8 @@ function df.building_road_pavedst:new() end
 ---@field [35] "TrackRampSEW"
 ---@field TrackRampNSEW 36
 ---@field [36] "TrackRampNSEW"
+---@field ReinforcedWall 37
+---@field [37] "ReinforcedWall"
 df.construction_type = {}
 
 ---@class (exact) df.building_constructionst: DFStruct, df.building_actual

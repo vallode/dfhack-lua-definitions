@@ -499,6 +499,7 @@ function _point_infost_location_detail:erase(index) end
 df.ui_sidebar_mode = {}
 
 ---@alias df.timed_event_type
+---| -1 # NONE
 ---| 0 # Caravan
 ---| 1 # Migrants
 ---| 2 # Diplomat
@@ -511,8 +512,10 @@ df.ui_sidebar_mode = {}
 ---| 9 # TributeCaravan
 
 ---@class identity.timed_event_type: DFEnumType
----@field Caravan 0 bay12: PlotEventTypes
----@field [0] "Caravan" bay12: PlotEventTypes
+---@field NONE -1 bay12: PlotEventType
+---@field [-1] "NONE" bay12: PlotEventType
+---@field Caravan 0
+---@field [0] "Caravan"
 ---@field Migrants 1
 ---@field [1] "Migrants"
 ---@field Diplomat 2
@@ -670,6 +673,48 @@ function df.timed_event:new() end
 ---@field [36] "TraderNone"
 df.talk_line_type = {}
 
+---@class df.plot_invasion_plan_flag: DFBitfield
+---@field _enum identity.plot_invasion_plan_flag
+---@field path_has_liquid boolean bay12: PLOT_INVASION_PLAN_FLAG_*
+---@field [0] boolean bay12: PLOT_INVASION_PLAN_FLAG_*
+---@field path_has_construction boolean
+---@field [1] boolean
+---@field path_has_gap boolean
+---@field [2] boolean
+---@field path_has_natural_wall boolean
+---@field [3] boolean
+
+---@class identity.plot_invasion_plan_flag: DFBitfieldType
+---@field path_has_liquid 0 bay12: PLOT_INVASION_PLAN_FLAG_*
+---@field [0] "path_has_liquid" bay12: PLOT_INVASION_PLAN_FLAG_*
+---@field path_has_construction 1
+---@field [1] "path_has_construction"
+---@field path_has_gap 2
+---@field [2] "path_has_gap"
+---@field path_has_natural_wall 3
+---@field [3] "path_has_natural_wall"
+df.plot_invasion_plan_flag = {}
+
+---@class (exact) df.plot_invasion_planst: DFStruct
+---@field _type identity.plot_invasion_planst
+---@field local_id number
+---@field path df.coord_path
+---@field created_year number
+---@field created_season_count number
+---@field liquid_check_year number
+---@field liquid_check_season_count number
+---@field target_bldid number References: `df.building`
+---@field target_unid number References: `df.unit`
+---@field vehicle_id number References: `df.vehicle`
+---@field flag df.plot_invasion_plan_flag
+
+---@class identity.plot_invasion_planst: DFCompoundType
+---@field _kind 'struct-type'
+df.plot_invasion_planst = {}
+
+---@return df.plot_invasion_planst
+function df.plot_invasion_planst:new() end
+
 ---@class df.plot_invasion_flag: DFBitfield
 ---@field _enum identity.plot_invasion_flag
 ---@field active boolean bay12: PLOTFLAG_INVASION_*
@@ -686,6 +731,12 @@ df.talk_line_type = {}
 ---@field [5] boolean
 ---@field created_parley boolean
 ---@field [6] boolean
+---@field death_caged_scrap_all_plans boolean
+---@field [7] boolean
+---@field can_copy_heat_map boolean
+---@field [8] boolean
+---@field planless boolean
+---@field [9] boolean
 
 ---@class identity.plot_invasion_flag: DFBitfieldType
 ---@field active 0 bay12: PLOTFLAG_INVASION_*
@@ -702,6 +753,12 @@ df.talk_line_type = {}
 ---@field [5] "parley"
 ---@field created_parley 6
 ---@field [6] "created_parley"
+---@field death_caged_scrap_all_plans 7
+---@field [7] "death_caged_scrap_all_plans"
+---@field can_copy_heat_map 8
+---@field [8] "can_copy_heat_map"
+---@field planless 9
+---@field [9] "planless"
 df.plot_invasion_flag = {}
 
 ---@alias df.mission_type
@@ -728,11 +785,41 @@ df.mission_type = {}
 ---@field duration_counter number
 ---@field flags df.plot_invasion_flag
 ---@field mission df.mission_type
+---@field created_year number
+---@field created_season_count number
 ---@field parley_year number
 ---@field parley_season_count number
 ---@field refused_demand_start_year number
 ---@field refused_demand_start_season_count number
 ---@field origin_master_army_controller_id number References: `df.army_controller`
+---@field plan _invasion_info_plan
+---@field next_plan_id number
+---@field entry df.coord
+---@field map df.plot_invasion_mapst
+---@field last_map_copy_year number
+---@field last_map_copy_season_count number
+---@field total_death_cage_number number
+---@field dig_progress number[]
+---@field dig_progress_x number[]
+---@field dig_progress_y number[]
+---@field dig_progress_z number[]
+---@field next_dig_progress_ind number
+---@field cage_spring_unid number[]
+---@field cage_spring_x number[]
+---@field cage_spring_y number[]
+---@field cage_spring_z number[]
+---@field next_cage_spring_ind number
+---@field uninteresting_bldid DFNumberVector
+---@field vehicle_id DFNumberVector
+---@field work_zone_x number[]
+---@field work_zone_y number[]
+---@field work_zone_z number[]
+---@field work_zone_start_year number[]
+---@field work_zone_start_season_count number[]
+---@field next_work_zone_ind number
+---@field work_zone_num number
+---@field entered_planless_year number
+---@field entered_planless_season_count number
 
 ---@class identity.invasion_info: DFCompoundType
 ---@field _kind 'struct-type'
@@ -749,6 +836,22 @@ function df.invasion_info.find(key) end
 
 ---@return invasion_info_vector # df.global.plotinfo.invasions.list
 function df.invasion_info.get_vector() end
+
+---@class _invasion_info_plan: DFContainer
+---@field [integer] df.plot_invasion_planst
+local _invasion_info_plan
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.plot_invasion_planst>
+function _invasion_info_plan:_field(index) end
+
+---@param index '#'|integer
+---@param item df.plot_invasion_planst
+function _invasion_info_plan:insert(index, item) end
+
+---@param index integer
+function _invasion_info_plan:erase(index) end
 
 ---@class (exact) df.plot_invasion_infost: DFStruct
 ---@field _type identity.plot_invasion_infost
@@ -1182,6 +1285,7 @@ function _equip_infost_hunter_ammunition:erase(index) end
 ---| 15 # CUSTOM_6
 ---| 16 # CUSTOM_7
 ---| 17 # CUSTOM_8
+---| 18 # SIEGE_OPERATORS
 
 ---@class identity.work_detail_icon_type: DFEnumType
 ---@field NONE -1 bay12: WorkDetailIconType
@@ -1222,6 +1326,8 @@ function _equip_infost_hunter_ammunition:erase(index) end
 ---@field [16] "CUSTOM_7"
 ---@field CUSTOM_8 17
 ---@field [17] "CUSTOM_8"
+---@field SIEGE_OPERATORS 18
+---@field [18] "SIEGE_OPERATORS"
 df.work_detail_icon_type = {}
 
 ---@class df.work_detail_flags: DFBitfield
@@ -1513,6 +1619,14 @@ df.setting_difficulty_enemies_type = {}
 ---@field [2] boolean
 ---@field curiousbeasts boolean
 ---@field [3] boolean
+---@field no_digging_invaders boolean
+---@field [4] boolean
+---@field no_deconstructing_invaders boolean
+---@field [5] boolean
+---@field no_building_invaders boolean
+---@field [6] boolean
+---@field no_freeing_invaders boolean
+---@field [7] boolean
 
 ---@class identity.difficulty_enemy_flag: DFBitfieldType
 ---@field sieges 0 bay12: DIFFICULTY_ENEMY_FLAG_*
@@ -1523,6 +1637,14 @@ df.setting_difficulty_enemies_type = {}
 ---@field [2] "werebeasts"
 ---@field curiousbeasts 3
 ---@field [3] "curiousbeasts"
+---@field no_digging_invaders 4
+---@field [4] "no_digging_invaders"
+---@field no_deconstructing_invaders 5
+---@field [5] "no_deconstructing_invaders"
+---@field no_building_invaders 6
+---@field [6] "no_building_invaders"
+---@field no_freeing_invaders 7
+---@field [7] "no_freeing_invaders"
 df.difficulty_enemy_flag = {}
 
 ---@alias df.setting_difficulty_economy_type
@@ -1568,6 +1690,15 @@ df.setting_difficulty_economy_type = {}
 ---@field tree_fell_count_savage number
 ---@field tree_fell_count number
 ---@field flags df.difficulty_enemy_flag
+---@field invader_deconstruct_speed number
+---@field invader_deconstruct_path_weight number
+---@field invader_dig_speed number
+---@field invader_dig_path_weight_horizontal number
+---@field invader_dig_path_weight_vertical number
+---@field invader_vertical_dig_day_delay number
+---@field invader_death_path_weight number[]
+---@field invader_construct_speed number
+---@field invader_construct_path_weight number
 ---@field economy_pop_trigger number[]
 ---@field economy_prod_trigger number[]
 ---@field economy_trade_trigger number[]
@@ -1712,6 +1843,20 @@ df.plotinfo_flag = {}
 ---@field tutorial_seen _plotinfost_tutorial_seen 0.50.01
 ---@field food_warn_year number 0.50.01
 ---@field food_warn_year_tick number
+---@field game_loop_animation_type df.combat_animation_swish_type[]
+---@field game_loop_animation_dir df.combat_animation_swish_direction_type[]
+---@field game_loop_animation_color number[]
+---@field game_loop_animation_mx number[]
+---@field game_loop_animation_my number[]
+---@field game_loop_animation_mz number[]
+---@field game_loop_animation_step number[]
+---@field game_loop_animation_num number
+---@field game_loop_ram_animation_type df.combat_animation_ram_direction_type[]
+---@field game_loop_ram_animation_mx number[]
+---@field game_loop_ram_animation_my number[]
+---@field game_loop_ram_animation_mz number[]
+---@field game_loop_ram_animation_step number[]
+---@field game_loop_ram_animation_num number
 ---@field main df.plotinfost.T_main
 ---@field squads df.interface_squad_modest
 ---@field follow_unit number References: `df.unit`
