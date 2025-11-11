@@ -3748,6 +3748,7 @@ df.building_tradedepot_flag = {}
 ---@field _type identity.building_tradedepotst
 ---@field trade_flags df.building_tradedepot_flag
 ---@field times_used number
+---@field times_wagon_completed_dropoff number
 ---@field accessible boolean
 
 ---@class identity.building_tradedepotst: DFCompoundType

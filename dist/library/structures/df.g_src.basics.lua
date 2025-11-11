@@ -29,8 +29,9 @@ df.game_mode = {}
 ---| 7 # DWARF_TUTORIAL
 ---| 8 # DWARF_UNRETIRE
 ---| 9 # ADVENTURE_WORLD_DEBUG
----| 10 # num
----| 11 # NONE
+---| 10 # DWARF_TESTING
+---| 11 # num
+---| 12 # NONE
 
 ---@class identity.game_type: DFEnumType
 ---@field DWARF_MAIN 0 bay12: GameType
@@ -53,10 +54,12 @@ df.game_mode = {}
 ---@field [8] "DWARF_UNRETIRE"
 ---@field ADVENTURE_WORLD_DEBUG 9
 ---@field [9] "ADVENTURE_WORLD_DEBUG"
----@field num 10
----@field [10] "num"
----@field NONE 11
----@field [11] "NONE"
+---@field DWARF_TESTING 10
+---@field [10] "DWARF_TESTING"
+---@field num 11
+---@field [11] "num"
+---@field NONE 12
+---@field [12] "NONE"
 df.game_type = {}
 
 ---@alias df.announcement_type

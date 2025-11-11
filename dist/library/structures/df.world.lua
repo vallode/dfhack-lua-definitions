@@ -486,6 +486,9 @@ function _arena_profilest_level:insert(index, item) end
 ---@param index integer
 function _arena_profilest_level:erase(index) end
 
+-- Skipped: ArenaTestType
+-- Skipped: TestStateType
+-- Skipped: testing_arenast
 ---@class df.arena_flag: DFBitfield
 ---@field _enum identity.arena_flag
 ---@field morale_enable boolean bay12: ARENA_FLAG_*

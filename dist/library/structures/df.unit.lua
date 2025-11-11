@@ -6099,8 +6099,9 @@ function unit:getGlowTexture() end
 
 ---@param important number
 ---@param inplay number
+---@param just_born boolean
 ---@return df.nemesis_record
-function unit:create_nemesis(important, inplay) end
+function unit:create_nemesis(important, inplay, just_born) end
 
 
 ---@class identity.unit: DFCompoundType
