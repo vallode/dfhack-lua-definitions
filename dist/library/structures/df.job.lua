@@ -378,6 +378,16 @@ function df.job_item_ref:new() end
 ---| 245 # ConstructBoltThrowerParts
 ---| 246 # LoadBoltThrower
 ---| 247 # FireBoltThrower
+---| 248 # UNUSED_31
+---| 249 # UNUSED_32
+---| 250 # UNUSED_33
+---| 251 # UNUSED_34
+---| 252 # UNUSED_35
+---| 253 # UNUSED_36
+---| 254 # UNUSED_37
+---| 255 # UNUSED_38
+---| 256 # UNUSED_39
+---| 257 # UNUSED_40
 
 -- Unused: Spells
 ---@class identity.job_type: DFEnumType
@@ -877,6 +887,26 @@ function df.job_item_ref:new() end
 ---@field [246] "LoadBoltThrower"
 ---@field FireBoltThrower 247
 ---@field [247] "FireBoltThrower"
+---@field UNUSED_31 248
+---@field [248] "UNUSED_31"
+---@field UNUSED_32 249
+---@field [249] "UNUSED_32"
+---@field UNUSED_33 250
+---@field [250] "UNUSED_33"
+---@field UNUSED_34 251
+---@field [251] "UNUSED_34"
+---@field UNUSED_35 252
+---@field [252] "UNUSED_35"
+---@field UNUSED_36 253
+---@field [253] "UNUSED_36"
+---@field UNUSED_37 254
+---@field [254] "UNUSED_37"
+---@field UNUSED_38 255
+---@field [255] "UNUSED_38"
+---@field UNUSED_39 256
+---@field [256] "UNUSED_39"
+---@field UNUSED_40 257
+---@field [257] "UNUSED_40"
 df.job_type = {}
 
 ---@class job_type_attr_entry_type: DFCompoundType
@@ -1147,6 +1177,16 @@ df.job_type._attr_entry_type._fields = {}
 ---@field ConstructBoltThrowerParts { caption: "Construct Bolt Thrower Parts", type: "Manufacture", labor: "NONE", item: "BOLT_THROWER_PARTS", skill: "SIEGECRAFT", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field LoadBoltThrower { caption: "Load Bolt Thrower", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 ---@field FireBoltThrower { caption: "Fire Bolt Thrower", type: "SiegeWeapon", labor: "NONE", item: "NONE", skill: "SIEGEOPERATE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_31 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_32 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_33 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_34 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_35 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_36 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_37 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_38 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_39 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
+---@field UNUSED_40 { type: "Misc", labor: "NONE", item: "NONE", skill: "NONE", skill_stone: "NONE", skill_wood: "NONE", skill_metal: "NONE", is_designation: "false" }
 df.job_type.attrs = {}
 
 ---@class df.job_flags: DFBitfield

@@ -406,7 +406,7 @@ function _widget_graphics_switcher_ascii_widget:erase(index) end
 
 ---@class (exact) df.widget_container: DFStruct, df.widget
 ---@field _type identity.widget_container
----@field children_by_name _widget_container_children_by_name std::map<std::string,std::shared_ptr<widget>>
+---@field children_by_name DFStringVector
 ---@field children _widget_container_children
 
 ---@class identity.widget_container: DFCompoundType
@@ -415,22 +415,6 @@ df.widget_container = {}
 
 ---@return df.widget_container
 function df.widget_container:new() end
-
----@class _widget_container_children_by_name: DFContainer
----@field [integer] any[]
-local _widget_container_children_by_name
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _widget_container_children_by_name:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _widget_container_children_by_name:insert(index, item) end
-
----@param index integer
-function _widget_container_children_by_name:erase(index) end
 
 ---@class _widget_container_children: DFContainer
 ---@field [integer] df.widget
@@ -595,7 +579,7 @@ function df.widget_scroll_rows:new() end
 ---@field selected df.widget
 ---@field selected_idx number
 ---@field rows df.widget_scroll_rows
----@field select_callback _widget_radio_rows_select_callback std::map<size_t, std::function<void(widget *)>>
+---@field select_callback DFIntegerVector
 
 ---@class identity.widget_radio_rows: DFCompoundType
 ---@field _kind 'class-type'
@@ -603,22 +587,6 @@ df.widget_radio_rows = {}
 
 ---@return df.widget_radio_rows
 function df.widget_radio_rows:new() end
-
----@class _widget_radio_rows_select_callback: DFContainer
----@field [integer] any[]
-local _widget_radio_rows_select_callback
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _widget_radio_rows_select_callback:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _widget_radio_rows_select_callback:insert(index, item) end
-
----@param index integer
-function _widget_radio_rows_select_callback:erase(index) end
 
 ---@class (exact) df.widget_table: DFStruct, df.widget_container
 ---@field _type identity.widget_table
@@ -873,7 +841,7 @@ function _widget_dropdown_callback:erase(index) end
 ---@field _type identity.widget_folder
 ---@field open df.widget
 ---@field last_visible boolean
----@field controlled_set _widget_folder_controlled_set std::unordered_set<std::shared_ptr<widget>>
+---@field controlled_set _widget_folder_controlled_set
 ---@field controlled_visible boolean
 ---@field label df.widget_text
 
@@ -885,20 +853,36 @@ df.widget_folder = {}
 function df.widget_folder:new() end
 
 ---@class _widget_folder_controlled_set: DFContainer
----@field [integer] any[]
+---@field [integer] df.widget
 local _widget_folder_controlled_set
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<df.widget>
 function _widget_folder_controlled_set:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item df.widget
 function _widget_folder_controlled_set:insert(index, item) end
 
 ---@param index integer
 function _widget_folder_controlled_set:erase(index) end
+
+---@class _widget_folder_controlled_set_widget: DFContainer
+---@field [integer] df.widget
+local _widget_folder_controlled_set_widget
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.widget>
+function _widget_folder_controlled_set_widget:_field(index) end
+
+---@param index '#'|integer
+---@param item df.widget
+function _widget_folder_controlled_set_widget:insert(index, item) end
+
+---@param index integer
+function _widget_folder_controlled_set_widget:erase(index) end
 
 ---@class _widget_folder_widget_container: DFContainer
 ---@field [integer] df.widget_container
@@ -919,7 +903,7 @@ function _widget_folder_widget_container:erase(index) end
 ---@class (exact) df.filter_entry: DFStruct
 ---@field _type identity.filter_entry
 ---@field label _filter_entry_label
----@field filtered_set _filter_entry_filtered_set std::unordered_set<std::shared_ptr<widget>>
+---@field filtered_set _filter_entry_filtered_set
 
 ---@class identity.filter_entry: DFCompoundType
 ---@field _kind 'struct-type'
@@ -945,20 +929,36 @@ function _filter_entry_label:insert(index, item) end
 function _filter_entry_label:erase(index) end
 
 ---@class _filter_entry_filtered_set: DFContainer
----@field [integer] any[]
+---@field [integer] df.widget
 local _filter_entry_filtered_set
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<df.widget>
 function _filter_entry_filtered_set:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item df.widget
 function _filter_entry_filtered_set:insert(index, item) end
 
 ---@param index integer
 function _filter_entry_filtered_set:erase(index) end
+
+---@class _filter_entry_filtered_set_widget: DFContainer
+---@field [integer] df.widget
+local _filter_entry_filtered_set_widget
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.widget>
+function _filter_entry_filtered_set_widget:_field(index) end
+
+---@param index '#'|integer
+---@param item df.widget
+function _filter_entry_filtered_set_widget:insert(index, item) end
+
+---@param index integer
+function _filter_entry_filtered_set_widget:erase(index) end
 
 ---@class (exact) df.widget_filter: DFStruct, df.widget
 ---@field _type identity.widget_filter
@@ -1083,11 +1083,11 @@ function _multifilter_container_parent:erase(index) end
 
 ---@class (exact) df.widget_menu: DFStruct
 ---@field _type identity.widget_menu
----@field lines _widget_menu_lines
+---@field lines DFNumberVector
 ---@field selection number
 ---@field last_displayheight number
 ---@field bleached boolean
----@field colors _widget_menu_colors
+---@field colors DFNumberVector
 
 ---@class identity.widget_menu: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1095,38 +1095,6 @@ df.widget_menu = {}
 
 ---@return df.widget_menu
 function df.widget_menu:new() end
-
----@class _widget_menu_lines: DFContainer
----@field [integer] any[]
-local _widget_menu_lines
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _widget_menu_lines:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _widget_menu_lines:insert(index, item) end
-
----@param index integer
-function _widget_menu_lines:erase(index) end
-
----@class _widget_menu_colors: DFContainer
----@field [integer] any[]
-local _widget_menu_colors
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _widget_menu_colors:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _widget_menu_colors:insert(index, item) end
-
----@param index integer
-function _widget_menu_colors:erase(index) end
 
 ---@alias df.interface_breakdown_types
 ---| 0 # NONE

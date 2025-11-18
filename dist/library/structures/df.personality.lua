@@ -1594,6 +1594,7 @@ df.personality_preferencest = {}
 function df.personality_preferencest:new() end
 
 ---@alias df.need_type
+---| -1 # NONE
 ---| 0 # Socialize
 ---| 1 # DrinkAlcohol
 ---| 2 # PrayOrMeditate
@@ -1626,8 +1627,10 @@ function df.personality_preferencest:new() end
 ---| 29 # AdmireArt
 
 ---@class identity.need_type: DFEnumType
----@field Socialize 0 bay12: PersonalityNeedType
----@field [0] "Socialize" bay12: PersonalityNeedType
+---@field NONE -1 bay12: PersonalityNeedType
+---@field [-1] "NONE" bay12: PersonalityNeedType
+---@field Socialize 0
+---@field [0] "Socialize"
 ---@field DrinkAlcohol 1
 ---@field [1] "DrinkAlcohol"
 ---@field PrayOrMeditate 2

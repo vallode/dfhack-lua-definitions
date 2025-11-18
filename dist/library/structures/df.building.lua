@@ -3193,12 +3193,61 @@ function df.building_cagest:new() end
 ---@field [2] "BoltThrower"
 df.siegeengine_type = {}
 
+---@alias df.siegeengine_orientation
+---| 0 # North
+---| 1 # Northeast
+---| 2 # East
+---| 3 # Southeast
+---| 4 # South
+---| 5 # Southwest
+---| 6 # West
+---| 7 # Northwest
+
+---@class identity.siegeengine_orientation: DFEnumType
+---@field North 0 no bay12 enum
+---@field [0] "North" no bay12 enum
+---@field Northeast 1
+---@field [1] "Northeast"
+---@field East 2
+---@field [2] "East"
+---@field Southeast 3
+---@field [3] "Southeast"
+---@field South 4
+---@field [4] "South"
+---@field Southwest 5
+---@field [5] "Southwest"
+---@field West 6
+---@field [6] "West"
+---@field Northwest 7
+---@field [7] "Northwest"
+df.siegeengine_orientation = {}
+
+---@alias df.siegeengine_action
+---| 0 # NotInUse
+---| 1 # KeepLoaded
+---| 2 # PrepareToFire
+---| 3 # FireAtWill
+---| 4 # PracticeFire
+
+---@class identity.siegeengine_action: DFEnumType
+---@field NotInUse 0 no bay12 enum
+---@field [0] "NotInUse" no bay12 enum
+---@field KeepLoaded 1
+---@field [1] "KeepLoaded"
+---@field PrepareToFire 2
+---@field [2] "PrepareToFire"
+---@field FireAtWill 3
+---@field [3] "FireAtWill"
+---@field PracticeFire 4
+---@field [4] "PracticeFire"
+df.siegeengine_action = {}
+
 ---@class (exact) df.building_siegeenginest: DFStruct, df.building_actual
 ---@field _type identity.building_siegeenginest
 ---@field type df.siegeengine_type
----@field facing df.building_siegeenginest.T_facing
----@field resting_orientation df.building_siegeenginest.T_resting_orientation
----@field action df.building_siegeenginest.T_action
+---@field facing df.siegeengine_orientation
+---@field resting_orientation df.siegeengine_orientation
+---@field action df.siegeengine_action
 ---@field fire_timer number
 ---@field fill_timer number
 ---@field rotate_delay number
@@ -3209,54 +3258,6 @@ df.building_siegeenginest = {}
 
 ---@return df.building_siegeenginest
 function df.building_siegeenginest:new() end
-
----@alias df.building_siegeenginest.T_facing
----| 0 # Left
----| 1 # Up
----| 2 # Right
----| 3 # Down
-
----@class identity.building_siegeenginest.facing: DFEnumType
----@field Left 0
----@field [0] "Left"
----@field Up 1
----@field [1] "Up"
----@field Right 2
----@field [2] "Right"
----@field Down 3
----@field [3] "Down"
-df.building_siegeenginest.T_facing = {}
-
----@alias df.building_siegeenginest.T_resting_orientation
----| 0 # Orientation_Left
----| 1 # Orientation_Up
----| 2 # Orientation_Right
----| 3 # Orientation_Down
-
----@class identity.building_siegeenginest.resting_orientation: DFEnumType
----@field Orientation_Left 0
----@field [0] "Orientation_Left"
----@field Orientation_Up 1
----@field [1] "Orientation_Up"
----@field Orientation_Right 2
----@field [2] "Orientation_Right"
----@field Orientation_Down 3
----@field [3] "Orientation_Down"
-df.building_siegeenginest.T_resting_orientation = {}
-
----@alias df.building_siegeenginest.T_action
----| 0 # NotInUse
----| 1 # PrepareToFire
----| 2 # FireAtWill
-
----@class identity.building_siegeenginest.action: DFEnumType
----@field NotInUse 0
----@field [0] "NotInUse"
----@field PrepareToFire 1
----@field [1] "PrepareToFire"
----@field FireAtWill 2
----@field [2] "FireAtWill"
-df.building_siegeenginest.T_action = {}
 
 ---@class (exact) df.building_traction_benchst: DFStruct, df.building_actual
 ---@field _type identity.building_traction_benchst
@@ -3500,7 +3501,7 @@ df.building_farmplot_flag = {}
 
 ---@class (exact) df.building_farmplotst: DFStruct, df.building_actual
 ---@field _type identity.building_farmplotst
----@field plant_id number[]
+---@field plant_id DFEnumVector<df.season, number>
 ---@field material_amount number
 ---@field farm_flags df.building_farmplot_flag
 ---@field last_season df.season
@@ -4224,8 +4225,8 @@ function df.building_constructionst:new() end
 ---@field [2] "ANY_ZONE"
 ---@field ACTIVITY_ZONE 3
 ---@field [3] "ACTIVITY_ZONE"
----@field ZONE_HOME 4 98 different civzone subtypes
----@field [4] "ZONE_HOME" 98 different civzone subtypes
+---@field ZONE_HOME 4 98 different civzone subtypes: array of length BUILDING_CIVZONENUM
+---@field [4] "ZONE_HOME" 98 different civzone subtypes: array of length BUILDING_CIVZONENUM
 ---@field ZONE_DEPOT 5
 ---@field [5] "ZONE_DEPOT"
 ---@field ZONE_STOCKPILE 6

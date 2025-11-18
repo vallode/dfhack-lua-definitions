@@ -595,7 +595,60 @@ df.combat_animation_ram_direction_type = {}
 -- Unused: UnitStatusType
 -- Unused: SideIndicatorType
 -- Unused: TreeWoodTileType
--- Unused: Texture
+---@alias df.texture_type
+---| -1 # NONE
+---| 0 # MOUSE
+---| 1 # PUBLISHER
+---| 2 # PUBLISHER_SMALL
+---| 3 # PUBLISHER_TINY
+---| 4 # TITLE
+---| 5 # TITLE_BACKGROUND
+---| 6 # TITLE_ADV
+---| 7 # DEVELOPER
+---| 8 # DEVELOPER_SMALL
+---| 9 # DEVELOPER_TINY
+---| 10 # SOUND_SYSTEM
+---| 11 # TITLE_SIEGE
+
+-- Unused: GraphicsTrackingSymbolWeightType
+-- Unused: GraphicsTrackingSymbolDirType
+-- Unused: MoveIndicatorType
+-- Unused: MoveIndicatorDirectionType
+-- Unused: GraphicsSoundIndicatorType
+-- Unused: PCGLayeringType, actually referenced elsewhere but not worth adding here
+-- Unused: PCGLayeringModifierType
+-- Unused: UnitStatusType
+-- Unused: SideIndicatorType
+-- Unused: TreeWoodTileType
+---@class identity.texture_type: DFEnumType
+---@field NONE -1 bay12: Texture, no base type
+---@field [-1] "NONE" bay12: Texture, no base type
+---@field MOUSE 0
+---@field [0] "MOUSE"
+---@field PUBLISHER 1
+---@field [1] "PUBLISHER"
+---@field PUBLISHER_SMALL 2
+---@field [2] "PUBLISHER_SMALL"
+---@field PUBLISHER_TINY 3
+---@field [3] "PUBLISHER_TINY"
+---@field TITLE 4
+---@field [4] "TITLE"
+---@field TITLE_BACKGROUND 5
+---@field [5] "TITLE_BACKGROUND"
+---@field TITLE_ADV 6
+---@field [6] "TITLE_ADV"
+---@field DEVELOPER 7
+---@field [7] "DEVELOPER"
+---@field DEVELOPER_SMALL 8
+---@field [8] "DEVELOPER_SMALL"
+---@field DEVELOPER_TINY 9
+---@field [9] "DEVELOPER_TINY"
+---@field SOUND_SYSTEM 10
+---@field [10] "SOUND_SYSTEM"
+---@field TITLE_SIEGE 11
+---@field [11] "TITLE_SIEGE"
+df.texture_type = {}
+
 -- Unused: SCREENTEXPOS_FLAG_*
 -- Unused: RectangleCursorType
 -- Unused: MAP_PORT_CLOUD_BITS_*
@@ -885,8 +938,8 @@ function df.graphic_viewportst:new() end
 ---@field texpos_short_subsubtab_selected number[][]
 ---@field texpos_interface_background number
 ---@field texpos_button_main number[][][]
----@field texpos_button_small number[][][]
----@field texpos_button_horizontal_option_left_ornament number[][]
+---@field texpos_button_small number[][][] INTERFACE_BUTTON_MAINNUM
+---@field texpos_button_horizontal_option_left_ornament number[][] INTERFACE_BUTTON_SMALLNUM
 ---@field texpos_button_horizontal_option_active number[][]
 ---@field texpos_button_horizontal_option_inactive number[][]
 ---@field texpos_button_horizontal_option_right_ornament number[][]
@@ -970,14 +1023,14 @@ function df.graphic_viewportst:new() end
 ---@field texpos_building_jobs_quota number[][]
 ---@field texpos_building_jobs_remove_worker number[][]
 ---@field texpos_button_assign_trade number[][][]
----@field texpos_button_building_info number[][][]
----@field texpos_button_building_sheet number[][][]
----@field texpos_button_unit_sheet number[][][]
----@field texpos_button_large_unit_sheet number[][][]
----@field texpos_button_pets_livestock number[][][]
----@field texpos_button_inventory_item number[][][]
----@field texpos_adventure_travel_dir number[]
----@field texpos_skill_progress_bar_left_full number
+---@field texpos_button_building_info number[][][] INTERFACE_BUTTON_ASSIGN_TRADENUM
+---@field texpos_button_building_sheet number[][][] INTERFACE_BUTTON_BUILDING_INFONUM
+---@field texpos_button_unit_sheet number[][][] INTERFACE_BUTTON_BUILDING_SHEETNUM
+---@field texpos_button_large_unit_sheet number[][][] INTERFACE_BUTTON_UNIT_SHEETNUM
+---@field texpos_button_pets_livestock number[][][] INTERFACE_BUTTON_LARGE_UNIT_SHEETNUM
+---@field texpos_button_inventory_item number[][][] INTERFACE_BUTTON_PETS_LIVESTOCKNUM
+---@field texpos_adventure_travel_dir number[] INTERFACE_BUTTON_INVENTORY_ITEMNUM
+---@field texpos_skill_progress_bar_left_full number INTERFACE_ADVENTURE_TRAVEL_DIRNUM
 ---@field texpos_skill_progress_bar_mid_full number
 ---@field texpos_skill_progress_bar_right_full number
 ---@field texpos_skill_progress_bar_left_half number
@@ -1005,7 +1058,7 @@ function df.graphic_viewportst:new() end
 ---@field texpos_adv_tracks_on number[][]
 ---@field texpos_adv_tracks_off number[][]
 ---@field texpos_adv_env number[][][]
----@field texpos_legends_tab_page_left number[][]
+---@field texpos_legends_tab_page_left number[][] INTERFACE_ADV_ENV_TEXTURENUM
 ---@field texpos_legends_tab_page_right number[][]
 ---@field texpos_legends_tab_close_inactive number[]
 ---@field texpos_legends_tab_close_active number[]
@@ -1158,7 +1211,7 @@ df.override_tile_type = {}
 ---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
 ---@field clipx number[]
 ---@field clipy number[]
----@field tex df.cached_texturest[]
+---@field tex DFEnumVector<df.texture_type, df.cached_texturest>
 ---@field texblits _graphic_texblits
 ---@field rect_id number
 ---@field print_time df.large_integer[]
@@ -1194,7 +1247,7 @@ df.override_tile_type = {}
 ---@field texpos_site_map_hillock number[]
 ---@field texture_indices10 number[]
 ---@field texpos_map_drawn number[]
----@field texture_indices11 number[]
+---@field texture_indices11 number[] TEXTURE_MAP_DRAWNNUM
 
 ---@class identity.graphic: DFCompoundType
 ---@field _kind 'struct-type'

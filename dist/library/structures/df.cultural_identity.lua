@@ -89,7 +89,7 @@ function df.cultural_identity_interactionst:new() end
 ---@field group_log _cultural_identity_group_log the circumstances of groups joining or leaving this culture
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
----@field events _cultural_identity_events
+---@field events _cultural_identity_events SAVE_VALUENUM
 ---@field world_general_knowledge_year number
 ---@field known_heid DFNumberVector
 ---@field origin_ci_id number References: `df.cultural_identity`

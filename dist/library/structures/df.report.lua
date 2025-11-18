@@ -16,7 +16,7 @@ df.report_site_flag = {}
 ---@field _type identity.entity_activity_statistics
 ---@field food df.entity_activity_statistics.T_food
 ---@field unit_counts DFEnumVector<df.profession, number>
----@field population number
+---@field population number SAVEUNITNUM
 ---@field menial_exempt number
 ---@field omnivores number
 ---@field carnivores number
@@ -25,7 +25,7 @@ df.report_site_flag = {}
 ---@field potential_soldiers number
 ---@field combat_aptitude number
 ---@field item_counts DFEnumVector<df.item_type, number>
----@field created_weapons DFNumberVector
+---@field created_weapons DFNumberVector SAVEITEMNUM
 ---@field wealth df.entity_activity_statistics.T_wealth
 ---@field recent_jobs DFEnumVector<df.job_type, number>[]
 ---@field excavated_tiles number unhidden, subterranean, and excluding map features

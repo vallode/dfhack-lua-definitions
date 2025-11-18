@@ -77,7 +77,7 @@ df.d_init_idlers = {}
 ---@field _type identity.d_init_displayst
 ---@field flags _d_init_displayst_flags
 ---@field nickname DFEnumVector<df.game_type, df.d_init_nickname>
----@field sky_tile integer
+---@field sky_tile integer must specify count 10 because game_type.NONE is not -1
 ---@field sky_color number[]
 ---@field chasm_tile integer
 ---@field pillar_tile integer
@@ -86,7 +86,7 @@ df.d_init_idlers = {}
 ---@field track_ramp_tiles integer[]
 ---@field track_ramp_invert integer[]
 ---@field tree_tiles integer[]
----@field chasm_color number[]
+---@field chasm_color number[] TREE_PART_TILENUM
 ---@field wound_color df.d_init_displayst.T_wound_color
 ---@field idlers df.d_init_idlers
 ---@field show_embark_tunnel df.d_init_tunnel

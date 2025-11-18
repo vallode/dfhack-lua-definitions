@@ -837,7 +837,7 @@ df.load_object_stage_type = {}
 ---@field src_dir df.stl-fs-path
 ---@field object_load_order_name DFStringVector
 ---@field object_load_order_displayed_version DFStringVector
----@field token_by_mod_id any[][]
+---@field token_by_mod_id string[]
 
 ---@class identity.object_loaderst: DFCompoundType
 ---@field _kind 'struct-type'

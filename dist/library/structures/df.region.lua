@@ -1216,6 +1216,7 @@ df.region_print_data_flag = {}
 ---@field embark_rectangle_ex number
 ---@field embark_rectangle_sy number
 ---@field embark_rectangle_ey number
+---@field find_param DFEnumVector<df.embark_finder_option, number>
 ---@field find_metal_ore DFPointer<integer>
 ---@field skip_metal_ore DFPointer<integer>
 ---@field highlight_site_id number References: `df.world_site`
@@ -1810,8 +1811,8 @@ function _world_data_world_gen_wandering_group:erase(index) end
 ---@field _type identity.world_generatorst
 ---@field state df.world_generatorst.T_state
 ---@field num_rejects number
----@field skip_reject number[]
----@field reject_type number[]
+---@field skip_reject DFEnumVector<df.map_reject_type, number>
+---@field reject_type DFEnumVector<df.map_reject_type, number>
 ---@field rejection_reason number
 ---@field new_dimx number
 ---@field new_dimy number
@@ -1860,9 +1861,9 @@ function _world_data_world_gen_wandering_group:erase(index) end
 ---@field entity_race DFNumberVector
 ---@field civ_count number
 ---@field civs_left_to_place number Only valid during civ placement phase
----@field normal_regions df.world_region[] Ditto
----@field good_regions df.world_region[]
----@field evil_regions df.world_region[]
+---@field normal_regions DFEnumVector<df.world_region_type, df.world_region> Ditto
+---@field good_regions DFEnumVector<df.world_region_type, df.world_region>
+---@field evil_regions DFEnumVector<df.world_region_type, df.world_region>
 ---@field cave_choice_x DFNumberVector
 ---@field cave_choice_y DFNumberVector
 ---@field final_cave_choice_x DFNumberVector

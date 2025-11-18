@@ -450,7 +450,38 @@ function _site_map_infost_lair_characteristic:insert(index, item) end
 ---@param index integer
 function _site_map_infost_lair_characteristic:erase(index) end
 
--- Unused: InfrastructureType
+---@alias df.infrastructure_type
+---| -1 # NONE
+---| 0 # VILLAGE
+---| 1 # PASTURE
+---| 2 # MEADOW
+---| 3 # SMALL_CROPS
+---| 4 # ORCHARD
+---| 5 # WOODLAND
+---| 6 # WASTE
+---| 7 # TOWN
+
+---@class identity.infrastructure_type: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
+---@field VILLAGE 0
+---@field [0] "VILLAGE"
+---@field PASTURE 1
+---@field [1] "PASTURE"
+---@field MEADOW 2
+---@field [2] "MEADOW"
+---@field SMALL_CROPS 3
+---@field [3] "SMALL_CROPS"
+---@field ORCHARD 4
+---@field [4] "ORCHARD"
+---@field WOODLAND 5
+---@field [5] "WOODLAND"
+---@field WASTE 6
+---@field [6] "WASTE"
+---@field TOWN 7
+---@field [7] "TOWN"
+df.infrastructure_type = {}
+
 ---@class df.site_crop_flag: DFBitfield
 ---@field _enum identity.site_crop_flag
 ---@field has_growths boolean bay12: SITE_CROP_FLAG_*
@@ -960,7 +991,7 @@ df.site_flag_type = {}
 ---@field added_size number Subset of caves can have non zero.
 ---@field infrastructure_pop_level number Monument 0, LairShrine 5, Camp 20, others varying
 ---@field base_infrastructure_pop_level number  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
----@field infrastructure number[] Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
+---@field infrastructure DFEnumVector<df.infrastructure_type, number> Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
 ---@field small_crop _world_site_small_crop MountainHall, Town, DarkFortress, but not all
 ---@field orchard _world_site_orchard forest retreat
 ---@field culture_infrastructure df.site_culture_infrastructurest

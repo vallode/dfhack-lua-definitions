@@ -938,6 +938,7 @@ df.body_actionst = {}
 function df.body_actionst:new() end
 
 ---@alias df.gait_type
+---| -1 # NONE
 ---| 0 # WALK
 ---| 1 # FLY
 ---| 2 # SWIM
@@ -945,8 +946,10 @@ function df.body_actionst:new() end
 ---| 4 # CLIMB
 
 ---@class identity.gait_type: DFEnumType
----@field WALK 0 bay12: GaitType
----@field [0] "WALK" bay12: GaitType
+---@field NONE -1 bay12: GaitType
+---@field [-1] "NONE" bay12: GaitType
+---@field WALK 0
+---@field [0] "WALK"
 ---@field FLY 1
 ---@field [1] "FLY"
 ---@field SWIM 2
@@ -1411,6 +1414,7 @@ df.creature_graphics_layer_flag = {}
 ---@field required_profession DFNumberVector
 ---@field haul_min_count number
 ---@field haul_max_count number
+---@field body_size_min number
 ---@field required_item _creature_graphics_layerst_required_item
 ---@field forbidden_item _creature_graphics_layerst_forbidden_item
 ---@field dye_color_index DFNumberVector
@@ -1620,15 +1624,15 @@ df.creature_small_texture_type = {}
 ---@field creature_texture_texpos DFEnumVector<df.creature_graphics_role, number[][]>[]
 ---@field creature_texture_add_color DFEnumVector<df.creature_graphics_role, boolean>
 ---@field creature_texture_sheet_icon_texpos DFEnumVector<df.creature_graphics_role, number>[]
----@field entity_link_texpos DFEnumVector<df.histfig_entity_link_type, DFEnumVector<df.creature_graphics_role, number[][]>>[]
----@field entity_link_add_color DFEnumVector<df.histfig_entity_link_type, DFEnumVector<df.creature_graphics_role, boolean>>
----@field entity_link_sheet_icon_texpos DFEnumVector<df.histfig_entity_link_type, DFEnumVector<df.creature_graphics_role, number>>[]
----@field site_link_texpos DFEnumVector<df.histfig_site_link_type, DFEnumVector<df.creature_graphics_role, number[][]>>[]
----@field site_link_add_color DFEnumVector<df.histfig_site_link_type, DFEnumVector<df.creature_graphics_role, boolean>>
----@field site_link_sheet_icon_texpos DFEnumVector<df.histfig_site_link_type, DFEnumVector<df.creature_graphics_role, number>>[]
----@field profession_texpos DFEnumVector<df.profession, DFEnumVector<df.creature_graphics_role, number[][]>>[]
----@field profession_add_color DFEnumVector<df.profession, DFEnumVector<df.creature_graphics_role, boolean>>
----@field profession_sheet_icon_texpos DFEnumVector<df.profession, DFEnumVector<df.creature_graphics_role, number>>[]
+---@field entity_link_texpos DFEnumVector<df.creature_graphics_role, DFEnumVector<df.histfig_entity_link_type, number[][]>>[]
+---@field entity_link_add_color DFEnumVector<df.creature_graphics_role, DFEnumVector<df.histfig_entity_link_type, boolean>>
+---@field entity_link_sheet_icon_texpos DFEnumVector<df.creature_graphics_role, DFEnumVector<df.histfig_entity_link_type, number>>[]
+---@field site_link_texpos DFEnumVector<df.creature_graphics_role, DFEnumVector<df.histfig_site_link_type, number[][]>>[]
+---@field site_link_add_color DFEnumVector<df.creature_graphics_role, DFEnumVector<df.histfig_site_link_type, boolean>>
+---@field site_link_sheet_icon_texpos DFEnumVector<df.creature_graphics_role, DFEnumVector<df.histfig_site_link_type, number>>[]
+---@field profession_texpos DFEnumVector<df.creature_graphics_role, DFEnumVector<df.profession, number[][]>>[]
+---@field profession_add_color DFEnumVector<df.creature_graphics_role, DFEnumVector<df.profession, boolean>>
+---@field profession_sheet_icon_texpos DFEnumVector<df.creature_graphics_role, DFEnumVector<df.profession, number>>[]
 ---@field position_graphics _creature_raw_graphics_position_graphics
 ---@field graphics_layer_set _creature_raw_graphics_graphics_layer_set
 ---@field creature_small_texpos DFEnumVector<df.creature_small_texture_type, number>
@@ -2270,8 +2274,8 @@ df.caste_raw_flags = {}
 ---@field color_modifiers _caste_raw_color_modifiers
 ---@field tissue_styles _caste_raw_tissue_styles
 ---@field shearable_tissue_layer _caste_raw_shearable_tissue_layer
----@field body_app_mode_rate_index any[][]
----@field bp_app_mode_rate_index number[]
+---@field body_app_mode_rate_index DFEnumVector<df.appearance_modifier_growth_interval, number>
+---@field bp_app_mode_rate_index DFEnumVector<df.appearance_modifier_growth_interval, number>
 ---@field appearance_gene_count number
 ---@field color_gene_count number
 ---@field natural_skill_id _caste_raw_natural_skill_id
@@ -2315,8 +2319,7 @@ df.caste_raw_flags = {}
 ---@field lair_hunter_speech df.caste_raw.T_lair_hunter_speech
 ---@field specific_food df.caste_raw.T_specific_food
 ---@field sound _caste_raw_sound
----@field sound_alert DFNumberVector
----@field sound_peaceful_intermittent DFNumberVector bay12: vector[CreatureSoundType]
+---@field sound_index DFEnumVector<df.creature_sound_type, number>
 ---@field material_force_adjust _caste_raw_material_force_adjust
 ---@field smell_trigger number v0.40.01
 ---@field odor_level number
@@ -3406,7 +3409,7 @@ function _creature_raw_hive_product_item_type:erase(index) end
 ---@field list_creature DFNumberVector Together with list_caste, a list of all caste indexes in order.
 ---@field list_caste DFNumberVector
 ---@field action_strings DFStringVector
----@field hist_fig_to_creature_map DFNumberVector unordered_map<int32_t,int32_t>
+---@field hist_fig_to_creature_map DFNumberVector
 local creature_handler
 
 ---@param creature_index number References: `df.creature_raw`

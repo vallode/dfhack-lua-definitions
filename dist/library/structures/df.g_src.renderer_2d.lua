@@ -3,7 +3,7 @@
 
 ---@class (exact) df.tile_cachest: DFStruct
 ---@field _type identity.tile_cachest
----@field tile_cache _tile_cachest_tile_cache unordered_map<texture_fullid, SDL_Texture*\>
+---@field tile_cache _tile_cachest_tile_cache
 
 ---@class identity.tile_cachest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -13,16 +13,16 @@ df.tile_cachest = {}
 function df.tile_cachest:new() end
 
 ---@class _tile_cachest_tile_cache: DFContainer
----@field [integer] any[]
+---@field [integer] df.texture_fullid
 local _tile_cachest_tile_cache
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<df.texture_fullid>
 function _tile_cachest_tile_cache:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item df.texture_fullid
 function _tile_cachest_tile_cache:insert(index, item) end
 
 ---@param index integer

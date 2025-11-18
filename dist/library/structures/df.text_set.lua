@@ -28,7 +28,7 @@ function df.text_setst:new() end
 ---@class (exact) df.text_set_handlerst: DFStruct
 ---@field _type identity.text_set_handlerst
 ---@field text_sets _text_set_handlerst_text_sets
----@field hardcoded_set_index number[]
+---@field hardcoded_set_index DFEnumVector<df.text_set_type, number>
 
 ---@class identity.text_set_handlerst: DFCompoundType
 ---@field _kind 'struct-type'

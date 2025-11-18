@@ -137,6 +137,9 @@ function df.widget_item_name:new() end
 
 ---@class (exact) df.item_or_unit: DFStruct
 ---@field _type identity.item_or_unit
+---@field u df.unit
+---@field i df.item
+---@field t number
 
 ---@class identity.item_or_unit: DFCompoundType
 ---@field _kind 'struct-type'
@@ -147,13 +150,11 @@ function df.item_or_unit:new() end
 
 ---@class (exact) df.widget_unit_list: DFStruct, df.widget_container
 ---@field _type identity.widget_unit_list
----@field deferred_units_builds _widget_unit_list_deferred_units_builds
----@field no_unit_entry _widget_unit_list_no_unit_entry
 ---@field sorting_by _widget_unit_list_sorting_by std::vector<sort_entry<item_or_unit>>
 ---@field always_sorting_by DFBooleanVector
 ---@field partitions DFBooleanVector
----@field ascending_sort _widget_unit_list_ascending_sort
----@field sort_flags df.unit_list_sort_flag std::unordered_map<std::string,bool>
+---@field ascending_sort DFStringVector
+---@field sort_flags df.unit_list_sort_flag
 ---@field flags df.unit_list_flag
 ---@field filter_func DFBooleanVector
 ---@field preprocess_unit_func _widget_unit_list_preprocess_unit_func
@@ -164,7 +165,7 @@ function df.item_or_unit:new() end
 ---@field options _widget_unit_list_options
 ---@field entry_list _widget_unit_list_entry_list
 ---@field selected _widget_unit_list_selected std::unordered_set<void *>
----@field job_sort_str DFStringVector std::unordered_map<void *,std::string>
+---@field job_sort_str _widget_unit_list_job_sort_str
 ---@field cursor_idx number
 ---@field is_selected _widget_unit_list_is_selected std::function<bool(item_or_unit)>
 ---@field on_select_change _widget_unit_list_on_select_change
@@ -172,6 +173,8 @@ function df.item_or_unit:new() end
 ---@field mtx lightuserdata
 ---@field skills DFEnumVector<df.job_skill, number>
 ---@field filter_str string
+---@field deferred_units_builds _widget_unit_list_deferred_units_builds
+---@field no_unit_entry _widget_unit_list_no_unit_entry
 
 ---@class identity.widget_unit_list: DFCompoundType
 ---@field _kind 'class-type'
@@ -179,64 +182,6 @@ df.widget_unit_list = {}
 
 ---@return df.widget_unit_list
 function df.widget_unit_list:new() end
-
----@class _widget_unit_list_deferred_units_builds: DFContainer
----@field [integer] df.widget_unit_list.T_deferred_units_builds
-local _widget_unit_list_deferred_units_builds
-
----@nodiscard
----@param index integer
----@return DFPointer<df.widget_unit_list.T_deferred_units_builds>
-function _widget_unit_list_deferred_units_builds:_field(index) end
-
----@param index '#'|integer
----@param item df.widget_unit_list.T_deferred_units_builds
-function _widget_unit_list_deferred_units_builds:insert(index, item) end
-
----@param index integer
-function _widget_unit_list_deferred_units_builds:erase(index) end
-
----@class (exact) df.widget_unit_list.T_deferred_units_builds: DFStruct
----@field _type identity.widget_unit_list.deferred_units_builds
-
----@class identity.widget_unit_list.deferred_units_builds: DFCompoundType
----@field _kind 'struct-type'
-df.widget_unit_list.T_deferred_units_builds = {}
-
----@return df.widget_unit_list.T_deferred_units_builds
-function df.widget_unit_list.T_deferred_units_builds:new() end
-
----@class _widget_unit_list_deferred_units_builds_widget_container: DFContainer
----@field [integer] df.widget_container
-local _widget_unit_list_deferred_units_builds_widget_container
-
----@nodiscard
----@param index integer
----@return DFPointer<df.widget_container>
-function _widget_unit_list_deferred_units_builds_widget_container:_field(index) end
-
----@param index '#'|integer
----@param item df.widget_container
-function _widget_unit_list_deferred_units_builds_widget_container:insert(index, item) end
-
----@param index integer
-function _widget_unit_list_deferred_units_builds_widget_container:erase(index) end
-
----@class _widget_unit_list_no_unit_entry: DFContainer
----@field [integer] df.widget
-local _widget_unit_list_no_unit_entry
-
----@nodiscard
----@param index integer
----@return DFPointer<df.widget>
-function _widget_unit_list_no_unit_entry:_field(index) end
-
----@param index '#'|integer
----@param item df.widget
-function _widget_unit_list_no_unit_entry:insert(index, item) end
-
----@param index integer
-function _widget_unit_list_no_unit_entry:erase(index) end
 
 ---@class _widget_unit_list_sorting_by: DFContainer
 ---@field [integer] df.sort_entry
@@ -253,22 +198,6 @@ function _widget_unit_list_sorting_by:insert(index, item) end
 
 ---@param index integer
 function _widget_unit_list_sorting_by:erase(index) end
-
----@class _widget_unit_list_ascending_sort: DFContainer
----@field [integer] any[]
-local _widget_unit_list_ascending_sort
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _widget_unit_list_ascending_sort:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _widget_unit_list_ascending_sort:insert(index, item) end
-
----@param index integer
-function _widget_unit_list_ascending_sort:erase(index) end
 
 ---@class _widget_unit_list_preprocess_unit_func: DFContainer
 ---@field [integer] function[]
@@ -383,20 +312,36 @@ function _widget_unit_list_entry_list:insert(index, item) end
 function _widget_unit_list_entry_list:erase(index) end
 
 ---@class _widget_unit_list_selected: DFContainer
----@field [integer] any[]
+---@field [integer] DFPointer<integer>
 local _widget_unit_list_selected
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<DFPointer<integer>>
 function _widget_unit_list_selected:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item DFPointer<integer>
 function _widget_unit_list_selected:insert(index, item) end
 
 ---@param index integer
 function _widget_unit_list_selected:erase(index) end
+
+---@class _widget_unit_list_job_sort_str: DFContainer
+---@field [integer] DFPointer<integer>
+local _widget_unit_list_job_sort_str
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<DFPointer<integer>>
+function _widget_unit_list_job_sort_str:_field(index) end
+
+---@param index '#'|integer
+---@param item DFPointer<integer>
+function _widget_unit_list_job_sort_str:insert(index, item) end
+
+---@param index integer
+function _widget_unit_list_job_sort_str:erase(index) end
 
 ---@class _widget_unit_list_is_selected: DFContainer
 ---@field [integer] function[]
@@ -429,6 +374,64 @@ function _widget_unit_list_on_select_change:insert(index, item) end
 
 ---@param index integer
 function _widget_unit_list_on_select_change:erase(index) end
+
+---@class _widget_unit_list_deferred_units_builds: DFContainer
+---@field [integer] df.widget_unit_list.T_deferred_units_builds
+local _widget_unit_list_deferred_units_builds
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.widget_unit_list.T_deferred_units_builds>
+function _widget_unit_list_deferred_units_builds:_field(index) end
+
+---@param index '#'|integer
+---@param item df.widget_unit_list.T_deferred_units_builds
+function _widget_unit_list_deferred_units_builds:insert(index, item) end
+
+---@param index integer
+function _widget_unit_list_deferred_units_builds:erase(index) end
+
+---@class (exact) df.widget_unit_list.T_deferred_units_builds: DFStruct
+---@field _type identity.widget_unit_list.deferred_units_builds
+
+---@class identity.widget_unit_list.deferred_units_builds: DFCompoundType
+---@field _kind 'struct-type'
+df.widget_unit_list.T_deferred_units_builds = {}
+
+---@return df.widget_unit_list.T_deferred_units_builds
+function df.widget_unit_list.T_deferred_units_builds:new() end
+
+---@class _widget_unit_list_deferred_units_builds_widget_container: DFContainer
+---@field [integer] df.widget_container
+local _widget_unit_list_deferred_units_builds_widget_container
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.widget_container>
+function _widget_unit_list_deferred_units_builds_widget_container:_field(index) end
+
+---@param index '#'|integer
+---@param item df.widget_container
+function _widget_unit_list_deferred_units_builds_widget_container:insert(index, item) end
+
+---@param index integer
+function _widget_unit_list_deferred_units_builds_widget_container:erase(index) end
+
+---@class _widget_unit_list_no_unit_entry: DFContainer
+---@field [integer] df.widget
+local _widget_unit_list_no_unit_entry
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.widget>
+function _widget_unit_list_no_unit_entry:_field(index) end
+
+---@param index '#'|integer
+---@param item df.widget
+function _widget_unit_list_no_unit_entry:insert(index, item) end
+
+---@param index integer
+function _widget_unit_list_no_unit_entry:erase(index) end
 
 -- template specialization using unit_list + unit_list::item_or_unit
 ---@class (exact) df.widget_unit_sort_widget: DFStruct, df.widget_sort_widget

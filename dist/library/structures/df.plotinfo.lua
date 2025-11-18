@@ -510,6 +510,7 @@ df.ui_sidebar_mode = {}
 ---| 7 # WildlifeFlier
 ---| 8 # NightCreature
 ---| 9 # TributeCaravan
+---| 10 # EvaluateAttackAndSendImmediateArmy
 
 ---@class identity.timed_event_type: DFEnumType
 ---@field NONE -1 bay12: PlotEventType
@@ -534,6 +535,8 @@ df.ui_sidebar_mode = {}
 ---@field [8] "NightCreature"
 ---@field TributeCaravan 9
 ---@field [9] "TributeCaravan"
+---@field EvaluateAttackAndSendImmediateArmy 10
+---@field [10] "EvaluateAttackAndSendImmediateArmy"
 df.timed_event_type = {}
 
 ---@class (exact) df.timed_event: DFStruct
@@ -737,6 +740,8 @@ function df.plot_invasion_planst:new() end
 ---@field [8] boolean
 ---@field planless boolean
 ---@field [9] boolean
+---@field scrap_non_vehicle_plans boolean
+---@field [10] boolean
 
 ---@class identity.plot_invasion_flag: DFBitfieldType
 ---@field active 0 bay12: PLOTFLAG_INVASION_*
@@ -759,6 +764,8 @@ function df.plot_invasion_planst:new() end
 ---@field [8] "can_copy_heat_map"
 ---@field planless 9
 ---@field [9] "planless"
+---@field scrap_non_vehicle_plans 10
+---@field [10] "scrap_non_vehicle_plans"
 df.plot_invasion_flag = {}
 
 ---@alias df.mission_type
@@ -1786,7 +1793,7 @@ df.plotinfo_flag = {}
 ---@field lo_temp integer
 ---@field manager_timer number bay12: quota_checktime
 ---@field units_killed DFEnumVector<df.profession, number>
----@field currency_value DFNumberVector
+---@field currency_value DFNumberVector SAVEUNITNUM
 ---@field trees_removed number
 ---@field outdoor_irritation number
 ---@field adamantine_mandate_number number

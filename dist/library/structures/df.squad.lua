@@ -303,14 +303,17 @@ df.squad_order_cause_trouble_for_entityst = {}
 function df.squad_order_cause_trouble_for_entityst:new() end
 
 ---@alias df.barrack_preference_category
+---| -1 # NONE
 ---| 0 # Bed
 ---| 1 # Armorstand
 ---| 2 # Box
 ---| 3 # Cabinet
 
 ---@class identity.barrack_preference_category: DFEnumType
----@field Bed 0 bay12: SquadPositionBuildingType
----@field [0] "Bed" bay12: SquadPositionBuildingType
+---@field NONE -1 bay12: SquadPositionBuildingType
+---@field [-1] "NONE" bay12: SquadPositionBuildingType
+---@field Bed 0
+---@field [0] "Bed"
 ---@field Armorstand 1
 ---@field [1] "Armorstand"
 ---@field Box 2

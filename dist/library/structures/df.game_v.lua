@@ -11,8 +11,8 @@
 ---@field movie_version df.cmv_version
 ---@field flows df.flow_info
 ---@field timed_events df.timed_event
----@field jobvalue number[]
----@field jobvalue_setter df.unit[]
+---@field jobvalue DFEnumVector<df.job_type, number>
+---@field jobvalue_setter DFEnumVector<df.job_type, df.unit>
 ---@field buildreq df.buildreq
 ---@field window_x number
 ---@field window_y number

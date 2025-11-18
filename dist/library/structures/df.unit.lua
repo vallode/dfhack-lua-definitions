@@ -3560,14 +3560,17 @@ function df.unit_preference:new() end
 df.demand_type = {}
 
 ---@alias df.demand_room
+---| -1 # NONE
 ---| 0 # Office
 ---| 1 # Bedroom
 ---| 2 # DiningRoom
 ---| 3 # Tomb
 
 ---@class identity.demand_room: DFEnumType
----@field Office 0 bay12: DemandRooms
----@field [0] "Office" bay12: DemandRooms
+---@field NONE -1 bay12: DemandRooms
+---@field [-1] "NONE" bay12: DemandRooms
+---@field Office 0
+---@field [0] "Office"
 ---@field Bedroom 1
 ---@field [1] "Bedroom"
 ---@field DiningRoom 2
@@ -4981,13 +4984,16 @@ function _unit_syndrome_symptoms:insert(index, item) end
 function _unit_syndrome_symptoms:erase(index) end
 
 ---@alias df.unit_report_type
+---| -1 # NONE
 ---| 0 # Combat
 ---| 1 # Sparring
 ---| 2 # Hunting
 
 ---@class identity.unit_report_type: DFEnumType
----@field Combat 0 bay12: UnitAnnouncementCategoryType
----@field [0] "Combat" bay12: UnitAnnouncementCategoryType
+---@field NONE -1 bay12: UnitAnnouncementCategoryType
+---@field [-1] "NONE" bay12: UnitAnnouncementCategoryType
+---@field Combat 0
+---@field [0] "Combat"
 ---@field Sparring 1
 ---@field [1] "Sparring"
 ---@field Hunting 2
@@ -6013,7 +6019,7 @@ df.dungeon_control_state = {}
 ---@field following df.unit
 ---@field owner_type df.unit_owner_type invalid unless following
 ---@field relationship_ids DFEnumVector<df.unit_relationship_type, number>
----@field mount_type df.rider_positions_type bay12: riderposition
+---@field mount_type df.rider_positions_type unit_relationship_type.NUM
 ---@field last_hit df.unit.T_last_hit
 ---@field on_item_id number References: `df.item`
 ---@field inventory _unit_inventory

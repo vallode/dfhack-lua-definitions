@@ -272,7 +272,7 @@ function _world_region_details_features:erase(index) end
 ---@field loadarea_sy number
 ---@field loadarea_ex number
 ---@field loadarea_ey number
----@field midmap_place _region_midmap_datast_midmap_place std::map<std::pair<int16_t,int16_t>,VIndex>; not saved
+---@field midmap_place _region_midmap_datast_midmap_place not saved
 
 ---@class identity.region_midmap_datast: DFCompoundType
 ---@field _kind 'struct-type'
@@ -298,16 +298,16 @@ function _region_midmap_datast_region_details:insert(index, item) end
 function _region_midmap_datast_region_details:erase(index) end
 
 ---@class _region_midmap_datast_midmap_place: DFContainer
----@field [integer] any[]
+---@field [integer] number[]
 local _region_midmap_datast_midmap_place
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<number[]>
 function _region_midmap_datast_midmap_place:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item number[]
 function _region_midmap_datast_midmap_place:insert(index, item) end
 
 ---@param index integer

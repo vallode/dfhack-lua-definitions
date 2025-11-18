@@ -100,7 +100,20 @@ function _nemesis_record_flags:erase(index) end
 ---@class (exact) df.nemesis_handlerst: DFStruct
 ---@field _type identity.nemesis_handlerst
 ---@field all _nemesis_handlerst_all
----@field other df.nemesis_record[]
+---@field independent_actor _nemesis_handlerst_independent_actor
+---@field civilized_actor _nemesis_handlerst_civilized_actor
+---@field plotter_actor _nemesis_handlerst_plotter_actor
+---@field new_plotter_actor _nemesis_handlerst_new_plotter_actor
+---@field teacher_actor DFEnumVector<df.goal_type, df.nemesis_record>
+---@field artist_actor _nemesis_handlerst_artist_actor
+---@field poet_actor _nemesis_handlerst_poet_actor
+---@field bard_actor _nemesis_handlerst_bard_actor
+---@field dancer_actor _nemesis_handlerst_dancer_actor
+---@field scholar_actor _nemesis_handlerst_scholar_actor
+---@field hero_actor _nemesis_handlerst_hero_actor
+---@field underbelly_actor _nemesis_handlerst_underbelly_actor
+---@field religious_actor _nemesis_handlerst_religious_actor
+---@field merchant_actor _nemesis_handlerst_merchant_actor
 ---@field order_load _nemesis_handlerst_order_load
 ---@field do_not_remove_from_vector boolean
 
@@ -127,21 +140,229 @@ function _nemesis_handlerst_all:insert(index, item) end
 ---@param index integer
 function _nemesis_handlerst_all:erase(index) end
 
----@class _nemesis_handlerst_other: DFContainer
+---@class _nemesis_handlerst_independent_actor: DFContainer
 ---@field [integer] df.nemesis_record
-local _nemesis_handlerst_other
+local _nemesis_handlerst_independent_actor
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.nemesis_record>
-function _nemesis_handlerst_other:_field(index) end
+function _nemesis_handlerst_independent_actor:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.nemesis_record
-function _nemesis_handlerst_other:insert(index, item) end
+function _nemesis_handlerst_independent_actor:insert(index, item) end
 
 ---@param index integer
-function _nemesis_handlerst_other:erase(index) end
+function _nemesis_handlerst_independent_actor:erase(index) end
+
+---@class _nemesis_handlerst_civilized_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_civilized_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_civilized_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_civilized_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_civilized_actor:erase(index) end
+
+---@class _nemesis_handlerst_plotter_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_plotter_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_plotter_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_plotter_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_plotter_actor:erase(index) end
+
+---@class _nemesis_handlerst_new_plotter_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_new_plotter_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_new_plotter_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_new_plotter_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_new_plotter_actor:erase(index) end
+
+---@class _nemesis_handlerst_teacher_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_teacher_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_teacher_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_teacher_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_teacher_actor:erase(index) end
+
+---@class _nemesis_handlerst_artist_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_artist_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_artist_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_artist_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_artist_actor:erase(index) end
+
+---@class _nemesis_handlerst_poet_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_poet_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_poet_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_poet_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_poet_actor:erase(index) end
+
+---@class _nemesis_handlerst_bard_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_bard_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_bard_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_bard_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_bard_actor:erase(index) end
+
+---@class _nemesis_handlerst_dancer_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_dancer_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_dancer_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_dancer_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_dancer_actor:erase(index) end
+
+---@class _nemesis_handlerst_scholar_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_scholar_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_scholar_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_scholar_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_scholar_actor:erase(index) end
+
+---@class _nemesis_handlerst_hero_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_hero_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_hero_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_hero_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_hero_actor:erase(index) end
+
+---@class _nemesis_handlerst_underbelly_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_underbelly_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_underbelly_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_underbelly_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_underbelly_actor:erase(index) end
+
+---@class _nemesis_handlerst_religious_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_religious_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_religious_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_religious_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_religious_actor:erase(index) end
+
+---@class _nemesis_handlerst_merchant_actor: DFContainer
+---@field [integer] df.nemesis_record
+local _nemesis_handlerst_merchant_actor
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.nemesis_record>
+function _nemesis_handlerst_merchant_actor:_field(index) end
+
+---@param index '#'|integer
+---@param item df.nemesis_record
+function _nemesis_handlerst_merchant_actor:insert(index, item) end
+
+---@param index integer
+function _nemesis_handlerst_merchant_actor:erase(index) end
 
 ---@class _nemesis_handlerst_order_load: DFContainer
 ---@field [integer] df.nemesis_record

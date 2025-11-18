@@ -269,7 +269,32 @@ function _init_window_flag:insert(index, item) end
 ---@param index integer
 function _init_window_flag:erase(index) end
 
--- Unused: InitLoadBarTextureType
+---@alias df.init_load_bar_texture_type
+---| -1 # NONE
+---| 0 # LEFT_FULL
+---| 1 # MID_FULL
+---| 2 # RIGHT_FULL
+---| 3 # LEFT_EMPTY
+---| 4 # MID_EMPTY
+---| 5 # RIGHT_EMPTY
+
+---@class identity.init_load_bar_texture_type: DFEnumType
+---@field NONE -1 bay12: InitLoadBarTextureType
+---@field [-1] "NONE" bay12: InitLoadBarTextureType
+---@field LEFT_FULL 0
+---@field [0] "LEFT_FULL"
+---@field MID_FULL 1
+---@field [1] "MID_FULL"
+---@field RIGHT_FULL 2
+---@field [2] "RIGHT_FULL"
+---@field LEFT_EMPTY 3
+---@field [3] "LEFT_EMPTY"
+---@field MID_EMPTY 4
+---@field [4] "MID_EMPTY"
+---@field RIGHT_EMPTY 5
+---@field [5] "RIGHT_EMPTY"
+df.init_load_bar_texture_type = {}
+
 ---@class (exact) df.init: DFStruct
 ---@field _type identity.init
 ---@field display df.init_display
@@ -279,7 +304,7 @@ function _init_window_flag:erase(index) end
 ---@field window df.init_window
 ---@field fps_cap number
 ---@field gfps_cap number
----@field load_bar_texpos number[]
+---@field load_bar_texpos DFEnumVector<df.init_load_bar_texture_type, number>
 ---@field intro_button_texpos number[]
 ---@field texpos_neutral_intro_button number[]
 ---@field texpos_confirm_intro_button number[]
@@ -346,7 +371,7 @@ function _init_window_flag:erase(index) end
 ---@field texpos_sort_descending_inactive number[]
 ---@field texpos_sort_text_active number[]
 ---@field texpos_sort_text_inactive number[]
----@field classic_load_bar_texpos number[]
+---@field classic_load_bar_texpos DFEnumVector<df.init_load_bar_texture_type, number>
 ---@field classic_texpos_neutral_intro_button number[]
 ---@field classic_texpos_confirm_intro_button number[]
 ---@field classic_texpos_cancel_intro_button number[]

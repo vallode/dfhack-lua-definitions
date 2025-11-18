@@ -1014,7 +1014,7 @@ function _pz_butchery_specifierst_resource_allotment:erase(index) end
 ---@class (exact) df.resource_allotment_data: DFStruct
 ---@field _type identity.resource_allotment_data
 ---@field index number
----@field resource_allotments df.resource_allotment_specifier[]
+---@field resource_allotments DFEnumVector<df.resource_allotment_specifier_type, df.resource_allotment_specifier>
 ---@field center_x number
 ---@field center_y number
 ---@field producing_civilization_enid number References: `df.historical_entity`
@@ -1355,9 +1355,9 @@ function df.entity_animal_raw:new() end
 ---@field progress_trigger df.entity_raw.T_progress_trigger
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
----@field variable_value_min DFEnumVector<df.value_type, number>
----@field variable_value_max DFEnumVector<df.value_type, number>
----@field scholar df.entity_scholar_flag
+---@field variable_value_min DFEnumVector<df.value_type, number> SAVE_VALUENUM
+---@field variable_value_max DFEnumVector<df.value_type, number> SAVE_VALUENUM
+---@field scholar df.entity_scholar_flag SAVE_VALUENUM
 ---@field max_site_pop_number number
 ---@field max_pop_number number
 ---@field max_starting_civ_number number
@@ -2185,7 +2185,128 @@ function _entity_tissue_style_preferred_shapings:insert(index, item) end
 ---@param index integer
 function _entity_tissue_style_preferred_shapings:erase(index) end
 
--- Unused: TradeCategoryType
+---@alias df.trade_category_type
+---| -1 # NONE
+---| 0 # FOOD_CARN
+---| 1 # FOOD_OMNI
+---| 2 # WEARABLE_CLOTHING_HELM
+---| 3 # WEARABLE_CLOTHING_BODY
+---| 4 # WEARABLE_CLOTHING_PANTS
+---| 5 # WEARABLE_CLOTHING_GLOVES
+---| 6 # WEARABLE_CLOTHING_BOOTS
+---| 7 # CRAFTS
+---| 8 # THREAD
+---| 9 # CLOTH
+---| 10 # SKIN
+---| 11 # LEATHER
+---| 12 # BONE_CARVABLE
+---| 13 # METAL_WEAPON
+---| 14 # METAL_WEAPON_RANGED
+---| 15 # METAL_ANVIL
+---| 16 # METAL_AMMO
+---| 17 # METAL_DIGGER
+---| 18 # METAL_ARMOR
+---| 19 # METAL_HARD
+---| 20 # STONE
+---| 21 # ROUGH_GEMS
+---| 22 # LEATHER_ACCESSORIES
+---| 23 # TABLE
+---| 24 # CHAIR
+---| 25 # BOX
+---| 26 # BED
+---| 27 # CABINET
+---| 28 # WOOD
+---| 29 # GEMS
+---| 30 # WEAPON_MELEE
+---| 31 # WEAPON_RANGED
+---| 32 # WEARABLE_ARMOR_HELM
+---| 33 # WEARABLE_ARMOR_BODY
+---| 34 # WEARABLE_ARMOR_PANTS
+---| 35 # WEARABLE_ARMOR_GLOVES
+---| 36 # WEARABLE_ARMOR_BOOTS
+---| 37 # AMMO
+
+---@class identity.trade_category_type: DFEnumType
+---@field NONE -1 bay12: TradeCategoryType
+---@field [-1] "NONE" bay12: TradeCategoryType
+---@field FOOD_CARN 0
+---@field [0] "FOOD_CARN"
+---@field FOOD_OMNI 1
+---@field [1] "FOOD_OMNI"
+---@field WEARABLE_CLOTHING_HELM 2
+---@field [2] "WEARABLE_CLOTHING_HELM"
+---@field WEARABLE_CLOTHING_BODY 3
+---@field [3] "WEARABLE_CLOTHING_BODY"
+---@field WEARABLE_CLOTHING_PANTS 4
+---@field [4] "WEARABLE_CLOTHING_PANTS"
+---@field WEARABLE_CLOTHING_GLOVES 5
+---@field [5] "WEARABLE_CLOTHING_GLOVES"
+---@field WEARABLE_CLOTHING_BOOTS 6
+---@field [6] "WEARABLE_CLOTHING_BOOTS"
+---@field CRAFTS 7
+---@field [7] "CRAFTS"
+---@field THREAD 8
+---@field [8] "THREAD"
+---@field CLOTH 9
+---@field [9] "CLOTH"
+---@field SKIN 10
+---@field [10] "SKIN"
+---@field LEATHER 11
+---@field [11] "LEATHER"
+---@field BONE_CARVABLE 12
+---@field [12] "BONE_CARVABLE"
+---@field METAL_WEAPON 13
+---@field [13] "METAL_WEAPON"
+---@field METAL_WEAPON_RANGED 14
+---@field [14] "METAL_WEAPON_RANGED"
+---@field METAL_ANVIL 15
+---@field [15] "METAL_ANVIL"
+---@field METAL_AMMO 16
+---@field [16] "METAL_AMMO"
+---@field METAL_DIGGER 17
+---@field [17] "METAL_DIGGER"
+---@field METAL_ARMOR 18
+---@field [18] "METAL_ARMOR"
+---@field METAL_HARD 19
+---@field [19] "METAL_HARD"
+---@field STONE 20
+---@field [20] "STONE"
+---@field ROUGH_GEMS 21
+---@field [21] "ROUGH_GEMS"
+---@field LEATHER_ACCESSORIES 22
+---@field [22] "LEATHER_ACCESSORIES"
+---@field TABLE 23
+---@field [23] "TABLE"
+---@field CHAIR 24
+---@field [24] "CHAIR"
+---@field BOX 25
+---@field [25] "BOX"
+---@field BED 26
+---@field [26] "BED"
+---@field CABINET 27
+---@field [27] "CABINET"
+---@field WOOD 28
+---@field [28] "WOOD"
+---@field GEMS 29
+---@field [29] "GEMS"
+---@field WEAPON_MELEE 30
+---@field [30] "WEAPON_MELEE"
+---@field WEAPON_RANGED 31
+---@field [31] "WEAPON_RANGED"
+---@field WEARABLE_ARMOR_HELM 32
+---@field [32] "WEARABLE_ARMOR_HELM"
+---@field WEARABLE_ARMOR_BODY 33
+---@field [33] "WEARABLE_ARMOR_BODY"
+---@field WEARABLE_ARMOR_PANTS 34
+---@field [34] "WEARABLE_ARMOR_PANTS"
+---@field WEARABLE_ARMOR_GLOVES 35
+---@field [35] "WEARABLE_ARMOR_GLOVES"
+---@field WEARABLE_ARMOR_BOOTS 36
+---@field [36] "WEARABLE_ARMOR_BOOTS"
+---@field AMMO 37
+---@field [37] "AMMO"
+df.trade_category_type = {}
+
 ---@class (exact) df.world_gen_entity_debtst: DFStruct
 ---@field _type identity.world_gen_entity_debtst
 ---@field civ number References: `df.historical_entity`
@@ -3048,11 +3169,11 @@ df.historical_entity_type = {}
 ---@field peasant_labor_hours number
 ---@field total_food_veg number ?
 ---@field total_food_carn number ?
----@field trade_current_amount number[] ?
----@field trade_needed_amount number[]
----@field trade_wanted_amount number[]
----@field trade_maximum_buy_price number[]
----@field town_labor_hours number[]
+---@field trade_current_amount DFEnumVector<df.trade_category_type, number> ?
+---@field trade_needed_amount DFEnumVector<df.trade_category_type, number>
+---@field trade_wanted_amount DFEnumVector<df.trade_category_type, number>
+---@field trade_maximum_buy_price DFEnumVector<df.trade_category_type, number>
+---@field town_labor_hours DFEnumVector<df.town_labor_type, number>
 ---@field world_gen_entity_debt _historical_entity_world_gen_entity_debt
 ---@field account number
 ---@field burial_request _historical_entity_burial_request
@@ -3170,7 +3291,7 @@ function _historical_entity_site_links:erase(index) end
 ---@field max_temperature number
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
----@field scholar_flag integer
+---@field scholar_flag integer SAVE_VALUENUM
 ---@field permitted_skill DFEnumVector<df.job_skill, boolean> likely ENTITY_SCHOLAR_FLAG_*
 ---@field art_image_types DFNumberVector 0 = civilization symbol, 1 = commissioned
 ---@field art_image_ids DFNumberVector

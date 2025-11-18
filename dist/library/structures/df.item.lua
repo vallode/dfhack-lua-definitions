@@ -2351,6 +2351,13 @@ function df.item_branchst:new() end
 ---| 9 # Pearl
 ---| 10 # HairWool
 ---| 11 # Yarn
+---| 12 # UNUSED_02
+---| 13 # UNUSED_03
+---| 14 # UNUSED_04
+---| 15 # UNUSED_05
+---| 16 # UNUSED_06
+---| 17 # UNUSED_07
+---| 18 # UNUSED_08
 
 ---@class identity.corpse_material_type: DFEnumType
 ---@field NONE -1 bay12: ItemBodyComponentMaterialType
@@ -2379,6 +2386,20 @@ function df.item_branchst:new() end
 ---@field [10] "HairWool"
 ---@field Yarn 11
 ---@field [11] "Yarn"
+---@field UNUSED_02 12
+---@field [12] "UNUSED_02"
+---@field UNUSED_03 13
+---@field [13] "UNUSED_03"
+---@field UNUSED_04 14
+---@field [14] "UNUSED_04"
+---@field UNUSED_05 15
+---@field [15] "UNUSED_05"
+---@field UNUSED_06 16
+---@field [16] "UNUSED_06"
+---@field UNUSED_07 17
+---@field [17] "UNUSED_07"
+---@field UNUSED_08 18
+---@field [18] "UNUSED_08"
 df.corpse_material_type = {}
 
 ---@class (exact) df.item_body_component: DFStruct, df.item_actual
@@ -6791,7 +6812,7 @@ function _items_other_ANY_MELT_DESIGNATED:erase(index) end
 ---@field other df.items_other
 ---@field temp_save _item_handlerst_temp_save
 ---@field temp_save_compat DFNumberVector
----@field deleters _item_handlerst_deleters std::unordered_set<df::item *>
+---@field deleters _item_handlerst_deleters
 
 ---@class identity.item_handlerst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -6833,16 +6854,16 @@ function _item_handlerst_temp_save:insert(index, item) end
 function _item_handlerst_temp_save:erase(index) end
 
 ---@class _item_handlerst_deleters: DFContainer
----@field [integer] any[]
+---@field [integer] df.item
 local _item_handlerst_deleters
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<any[]>
+---@return DFPointer<df.item>
 function _item_handlerst_deleters:_field(index) end
 
 ---@param index '#'|integer
----@param item any[]
+---@param item df.item
 function _item_handlerst_deleters:insert(index, item) end
 
 ---@param index integer

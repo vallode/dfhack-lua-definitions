@@ -80,7 +80,19 @@ df.music_event_type = {}
 -- Unused: Song
 -- Unused: SoundType
 -- Skipped: musicsound_info - platform-dependent implementation?
--- Unused: music_datast
+---@class (exact) df.music_datast: DFStruct
+---@field _type identity.music_datast
+---@field id number
+---@field title string
+---@field author string
+
+---@class identity.music_datast: DFCompoundType
+---@field _kind 'struct-type'
+df.music_datast = {}
+
+---@return df.music_datast
+function df.music_datast:new() end
+
 -- Unused: loading_music_filest
 ---@class (exact) df.musicsoundst: DFStruct
 ---@field _type identity.musicsoundst
@@ -124,10 +136,10 @@ df.music_event_type = {}
 ---@field ambience_last_sound number
 ---@field next_song_id number
 ---@field next_sound_id number
----@field loaded_music _musicsoundst_loaded_music unordered_map<std::string, music_datast>
----@field music_by_id _musicsoundst_music_by_id unordered_map<int, music_datast>
----@field loaded_sounds _musicsoundst_loaded_sounds unordered_map<std::string, int>
----@field loading_files _musicsoundst_loading_files std::ffuture<loading_music_filest>
+---@field loaded_music DFStringVector unordered_map<std::string, music_datast>
+---@field music_by_id DFNumberVector
+---@field loaded_sounds DFStringVector
+---@field loading_files _musicsoundst_loading_files std::future<loading_music_filest>
 ---@field internal DFPointer<integer> musicsound_info
 ---@field song number
 ---@field music_active boolean
@@ -144,54 +156,6 @@ df.musicsoundst = {}
 
 ---@return df.musicsoundst
 function df.musicsoundst:new() end
-
----@class _musicsoundst_loaded_music: DFContainer
----@field [integer] any[]
-local _musicsoundst_loaded_music
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _musicsoundst_loaded_music:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _musicsoundst_loaded_music:insert(index, item) end
-
----@param index integer
-function _musicsoundst_loaded_music:erase(index) end
-
----@class _musicsoundst_music_by_id: DFContainer
----@field [integer] any[]
-local _musicsoundst_music_by_id
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _musicsoundst_music_by_id:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _musicsoundst_music_by_id:insert(index, item) end
-
----@param index integer
-function _musicsoundst_music_by_id:erase(index) end
-
----@class _musicsoundst_loaded_sounds: DFContainer
----@field [integer] any[]
-local _musicsoundst_loaded_sounds
-
----@nodiscard
----@param index integer
----@return DFPointer<any[]>
-function _musicsoundst_loaded_sounds:_field(index) end
-
----@param index '#'|integer
----@param item any[]
-function _musicsoundst_loaded_sounds:insert(index, item) end
-
----@param index integer
-function _musicsoundst_loaded_sounds:erase(index) end
 
 ---@class _musicsoundst_loading_files: DFContainer
 ---@field [integer] any[]

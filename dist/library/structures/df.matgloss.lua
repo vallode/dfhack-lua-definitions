@@ -714,7 +714,7 @@ function _plant_growth_prints:erase(index) end
 ---@class (exact) df.pmd_tree_texture_infost: DFStruct
 ---@field _type identity.pmd_tree_texture_infost
 ---@field texpos_tree_wood_tile number[]
----@field texpos_tree_twigs_full number[] index-enum TreePartTileType
+---@field texpos_tree_twigs_full number[] TREE_PART_TILENUM
 ---@field texpos_tree_twigs number[]
 ---@field texpos_overleaves number[]
 ---@field texpos_tree_overleaves_heavy_branch number[]

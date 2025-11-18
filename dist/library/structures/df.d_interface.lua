@@ -4089,8 +4089,8 @@ df.view_sheet_type = {}
 ---@field trait_magnitude number[]
 ---@field trait_num number
 ---@field last_tick_update number
----@field reqroom number[] demands
----@field curroom number[] demands
+---@field reqroom DFEnumVector<df.demand_room, number> demands
+---@field curroom DFEnumVector<df.demand_room, number> demands
 ---@field labor_skill_ind DFEnumVector<df.job_skill, number>
 ---@field labor_skill_val DFEnumVector<df.job_skill, number>
 ---@field labor_skill_w_rust DFEnumVector<df.job_skill, number>
@@ -4777,6 +4777,7 @@ function _jobs_interfacest_cri_job:erase(index) end
 ---| 2 # STOCKPILES
 ---| 3 # WORKSHOPS
 ---| 4 # FARMPLOTS
+---| 5 # SIEGE_ENGINES
 
 ---@class identity.buildings_mode_type: DFEnumType
 ---@field NONE -1 bay12: BuildingsModeType
@@ -4791,6 +4792,8 @@ function _jobs_interfacest_cri_job:erase(index) end
 ---@field [3] "WORKSHOPS"
 ---@field FARMPLOTS 4
 ---@field [4] "FARMPLOTS"
+---@field SIEGE_ENGINES 5
+---@field [5] "SIEGE_ENGINES"
 df.buildings_mode_type = {}
 
 ---@class (exact) df.buildings_interfacest: DFStruct
@@ -4925,9 +4928,9 @@ df.labor_kitchen_interface_type_filter = {}
 ---@class (exact) df.labor_kitchen_interfacest: DFStruct, df.widget_container
 ---@field _type identity.labor_kitchen_interfacest
 ---@field current_category df.kitchen_pref_category_type
----@field known _labor_kitchen_interfacest_known std::unordered_map<labor_kitchen_interface_food_key,labor_kitchen_interface_food_value>
+---@field known _labor_kitchen_interfacest_known
 ---@field sorting_by _labor_kitchen_interfacest_sorting_by
----@field ascending_sort DFNumberVector std::unordered_map<std::string,bool>
+---@field ascending_sort DFStringVector
 ---@field filter_func _labor_kitchen_interfacest_filter_func
 ---@field filter_str string
 ---@field filter_type df.labor_kitchen_interface_type_filter
@@ -4943,16 +4946,16 @@ df.labor_kitchen_interfacest = {}
 function df.labor_kitchen_interfacest:new() end
 
 ---@class _labor_kitchen_interfacest_known: DFContainer
----@field [integer] df.labor_kitchen_interface_food_value
+---@field [integer] df.labor_kitchen_interface_food_key
 local _labor_kitchen_interfacest_known
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.labor_kitchen_interface_food_value>
+---@return DFPointer<df.labor_kitchen_interface_food_key>
 function _labor_kitchen_interfacest_known:_field(index) end
 
 ---@param index '#'|integer
----@param item df.labor_kitchen_interface_food_value
+---@param item df.labor_kitchen_interface_food_key
 function _labor_kitchen_interfacest_known:insert(index, item) end
 
 ---@param index integer
@@ -5786,7 +5789,6 @@ df.justice_interface_mode_type = {}
 ---@field sorting_guard_nameprof_is_ascending boolean
 ---@field sorting_guard_nameprof_doing_name boolean
 ---@field sorting_guard_nameprof_doing_prof boolean
----@field convicts _justice_interfacest_convicts
 ---@field selected_convict df.unit
 ---@field convict_crime _justice_interfacest_convict_crime
 ---@field convict_lawaction df.punishment
@@ -5817,9 +5819,9 @@ df.justice_interface_mode_type = {}
 ---@field actor_entry _justice_interfacest_actor_entry
 ---@field organization_entry _justice_interfacest_organization_entry
 ---@field plot_entry _justice_interfacest_plot_entry
----@field crimevals DFNumberVector std::unordered_map<unitst *,int32_t>
----@field crimeflag _justice_interfacest_crimeflag std::unordered_map<unitst *,int32_t>
----@field guardvals DFNumberVector std::unordered_map<unitst *,int32_t>
+---@field crimevals _justice_interfacest_crimevals
+---@field crimeflag _justice_interfacest_crimeflag
+---@field guardvals _justice_interfacest_guardvals
 ---@field do_init boolean
 
 ---@class identity.justice_interfacest: DFCompoundType
@@ -5844,22 +5846,6 @@ function _justice_interfacest_cri_fortress_guard:insert(index, item) end
 
 ---@param index integer
 function _justice_interfacest_cri_fortress_guard:erase(index) end
-
----@class _justice_interfacest_convicts: DFContainer
----@field [integer] df.unit
-local _justice_interfacest_convicts
-
----@nodiscard
----@param index integer
----@return DFPointer<df.unit>
-function _justice_interfacest_convicts:_field(index) end
-
----@param index '#'|integer
----@param item df.unit
-function _justice_interfacest_convicts:insert(index, item) end
-
----@param index integer
-function _justice_interfacest_convicts:erase(index) end
 
 ---@class _justice_interfacest_convict_crime: DFContainer
 ---@field [integer] df.crime
@@ -6037,21 +6023,53 @@ function _justice_interfacest_plot_entry:insert(index, item) end
 ---@param index integer
 function _justice_interfacest_plot_entry:erase(index) end
 
+---@class _justice_interfacest_crimevals: DFContainer
+---@field [integer] df.unit
+local _justice_interfacest_crimevals
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit>
+function _justice_interfacest_crimevals:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit
+function _justice_interfacest_crimevals:insert(index, item) end
+
+---@param index integer
+function _justice_interfacest_crimevals:erase(index) end
+
 ---@class _justice_interfacest_crimeflag: DFContainer
----@field [integer] df.justice_screen_interrogation_list_flag
+---@field [integer] df.unit
 local _justice_interfacest_crimeflag
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.justice_screen_interrogation_list_flag>
+---@return DFPointer<df.unit>
 function _justice_interfacest_crimeflag:_field(index) end
 
 ---@param index '#'|integer
----@param item df.justice_screen_interrogation_list_flag
+---@param item df.unit
 function _justice_interfacest_crimeflag:insert(index, item) end
 
 ---@param index integer
 function _justice_interfacest_crimeflag:erase(index) end
+
+---@class _justice_interfacest_guardvals: DFContainer
+---@field [integer] df.unit
+local _justice_interfacest_guardvals
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.unit>
+function _justice_interfacest_guardvals:_field(index) end
+
+---@param index '#'|integer
+---@param item df.unit
+function _justice_interfacest_guardvals:insert(index, item) end
+
+---@param index integer
+function _justice_interfacest_guardvals:erase(index) end
 
 ---@alias df.info_interface_mode_type
 ---| -1 # NONE
@@ -6961,14 +6979,14 @@ df.settings_tab_type = {}
 ---@field [2] "ADVENTURE_MODE"
 df.settings_context_type = {}
 
----@alias df.keybinding_category
+---@alias df.keybinding_category_type
 ---| -1 # NONE
 ---| 0 # GENERAL
 ---| 1 # FORTRESS_MODE
 ---| 2 # BUILDING
 ---| 3 # TEXT_ENTRY
 
----@class identity.keybinding_category: DFEnumType
+---@class identity.keybinding_category_type: DFEnumType
 ---@field NONE -1 bay12: KeybindingCategory
 ---@field [-1] "NONE" bay12: KeybindingCategory
 ---@field GENERAL 0
@@ -6979,7 +6997,7 @@ df.settings_context_type = {}
 ---@field [2] "BUILDING"
 ---@field TEXT_ENTRY 3
 ---@field [3] "TEXT_ENTRY"
-df.keybinding_category = {}
+df.keybinding_category_type = {}
 
 ---@class df.settings_keybinding_flag: DFBitfield
 ---@field _enum identity.settings_keybinding_flag
@@ -7021,11 +7039,11 @@ df.settings_keybinding_flag = {}
 ---@field keybinding_selected_category number
 ---@field keybinding_scroll_position_cat number
 ---@field keybinding_scrolling_cat boolean
----@field keybinding_name string[]
----@field keybinding_key df.interface_key[]
----@field keybinding_binding integer[]
----@field keybinding_binding_name string[]
----@field keybinding_flag df.settings_keybinding_flag[]
+---@field keybinding_name DFEnumVector<df.keybinding_category_type, string>
+---@field keybinding_key DFEnumVector<df.keybinding_category_type, df.interface_key>
+---@field keybinding_binding DFEnumVector<df.keybinding_category_type, integer>
+---@field keybinding_binding_name DFEnumVector<df.keybinding_category_type, string>
+---@field keybinding_flag DFEnumVector<df.keybinding_category_type, df.settings_keybinding_flag>
 ---@field keybinding_scroll_position_key number
 ---@field keybinding_scrolling_key boolean
 ---@field keybinding_registering_index number
@@ -7074,16 +7092,16 @@ function _main_interface_settings_member:insert(index, item) end
 function _main_interface_settings_member:erase(index) end
 
 ---@class _main_interface_settings_keybinding_category: DFContainer
----@field [integer] df.keybinding_category
+---@field [integer] df.keybinding_category_type
 local _main_interface_settings_keybinding_category
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.keybinding_category>
+---@return DFPointer<df.keybinding_category_type>
 function _main_interface_settings_keybinding_category:_field(index) end
 
 ---@param index '#'|integer
----@param item df.keybinding_category
+---@param item df.keybinding_category_type
 function _main_interface_settings_keybinding_category:insert(index, item) end
 
 ---@param index integer
@@ -15761,7 +15779,7 @@ df.health_view_bits3 = {}
 ---@field sel_item number
 ---@field selected_item_ids DFNumberVector sorted
 ---@field sel_column df.viewscreen_assign_display_itemst.T_sel_column
----@field item_type _viewscreen_assign_display_itemst_item_type
+---@field item_types _viewscreen_assign_display_itemst_item_types
 ---@field artifact_list df.itemlistst
 ---@field build_artifact_list boolean
 ---@field i_list DFEnumVector<df.item_type, df.itemlistst>
@@ -15786,19 +15804,19 @@ function df.viewscreen_assign_display_itemst:new() end
 ---@field [1] "Items"
 df.viewscreen_assign_display_itemst.T_sel_column = {}
 
----@class _viewscreen_assign_display_itemst_item_type: DFContainer
+---@class _viewscreen_assign_display_itemst_item_types: DFContainer
 ---@field [integer] df.item_type
-local _viewscreen_assign_display_itemst_item_type
+local _viewscreen_assign_display_itemst_item_types
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.item_type>
-function _viewscreen_assign_display_itemst_item_type:_field(index) end
+function _viewscreen_assign_display_itemst_item_types:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.item_type
-function _viewscreen_assign_display_itemst_item_type:insert(index, item) end
+function _viewscreen_assign_display_itemst_item_types:insert(index, item) end
 
 ---@param index integer
-function _viewscreen_assign_display_itemst_item_type:erase(index) end
+function _viewscreen_assign_display_itemst_item_types:erase(index) end
 

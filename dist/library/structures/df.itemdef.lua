@@ -2534,12 +2534,16 @@ function df.item_coin_graphics_infost:new() end
 ---@field [0] boolean bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
 ---@field color_index boolean
 ---@field [2] boolean
+---@field gem_color_index boolean
+---@field [10] boolean
 
 ---@class identity.item_craft_graphics_flag: DFBitfieldType
 ---@field size 0 bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
 ---@field [0] "size" bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
 ---@field color_index 2
 ---@field [2] "color_index"
+---@field gem_color_index 10
+---@field [10] "gem_color_index"
 df.item_craft_graphics_flag = {}
 
 ---@alias df.item_craft_graphics_flag_material
@@ -4030,12 +4034,20 @@ function df.item_egg_graphics_infost:new() end
 ---@field [0] boolean bay12: ITEM_BOOK_GRAPHICS_FLAG_*
 ---@field material_wood boolean
 ---@field [8] boolean
+---@field material_stone boolean
+---@field [9] boolean
+---@field material_glass boolean
+---@field [10] boolean
 
 ---@class identity.item_book_graphics_flag: DFBitfieldType
 ---@field color_index 0 bay12: ITEM_BOOK_GRAPHICS_FLAG_*
 ---@field [0] "color_index" bay12: ITEM_BOOK_GRAPHICS_FLAG_*
 ---@field material_wood 8
 ---@field [8] "material_wood"
+---@field material_stone 9
+---@field [9] "material_stone"
+---@field material_glass 10
+---@field [10] "material_glass"
 df.item_book_graphics_flag = {}
 
 ---@class (exact) df.item_book_graphics_infost: DFStruct
@@ -4269,12 +4281,16 @@ function df.item_flask_graphics_infost:new() end
 ---@field [0] boolean bay12: ITEM_GOBLET_GRAPHICS_FLAG_*
 ---@field color_index boolean
 ---@field [2] boolean
+---@field gem_color_index boolean
+---@field [10] boolean
 
 ---@class identity.item_goblet_graphics_flag: DFBitfieldType
 ---@field material 0 bay12: ITEM_GOBLET_GRAPHICS_FLAG_*
 ---@field [0] "material" bay12: ITEM_GOBLET_GRAPHICS_FLAG_*
 ---@field color_index 2
 ---@field [2] "color_index"
+---@field gem_color_index 10
+---@field [10] "gem_color_index"
 df.item_goblet_graphics_flag = {}
 
 ---@alias df.item_goblet_graphics_flag_material
@@ -4302,6 +4318,28 @@ df.item_goblet_graphics_infost = {}
 
 ---@return df.item_goblet_graphics_infost
 function df.item_goblet_graphics_infost:new() end
+
+---@class df.item_totem_graphics_flag: DFBitfield
+---@field _enum identity.item_totem_graphics_flag
+---@field color_index boolean bay12: ITEM_TOTEM_GRAPHICS_FLAG_*
+---@field [0] boolean bay12: ITEM_TOTEM_GRAPHICS_FLAG_*
+
+---@class identity.item_totem_graphics_flag: DFBitfieldType
+---@field color_index 0 bay12: ITEM_TOTEM_GRAPHICS_FLAG_*
+---@field [0] "color_index" bay12: ITEM_TOTEM_GRAPHICS_FLAG_*
+df.item_totem_graphics_flag = {}
+
+---@class (exact) df.item_totem_graphics_infost: DFStruct
+---@field _type identity.item_totem_graphics_infost
+---@field flags df.item_totem_graphics_flag
+---@field texpos number
+
+---@class identity.item_totem_graphics_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.item_totem_graphics_infost = {}
+
+---@return df.item_totem_graphics_infost
+function df.item_totem_graphics_infost:new() end
 
 ---@class df.item_bar_graphics_flag: DFBitfield
 ---@field _enum identity.item_bar_graphics_flag
@@ -4520,8 +4558,9 @@ function df.item_sheet_graphics_infost:new() end
 ---@field powder_graphics_info _itemdef_handlerst_powder_graphics_info
 ---@field pipe_section_graphics_info _itemdef_handlerst_pipe_section_graphics_info
 ---@field rock_graphics_info _itemdef_handlerst_rock_graphics_info
----@field statue_texpos_top number[]
----@field statue_texpos_bottom number[]
+---@field totem_graphics_info _itemdef_handlerst_totem_graphics_info
+---@field statue_texpos_top DFEnumVector<df.item_type, number>
+---@field statue_texpos_bottom DFEnumVector<df.item_type, number>
 
 ---@class identity.itemdef_handlerst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -5681,4 +5720,20 @@ function _itemdef_handlerst_rock_graphics_info:insert(index, item) end
 
 ---@param index integer
 function _itemdef_handlerst_rock_graphics_info:erase(index) end
+
+---@class _itemdef_handlerst_totem_graphics_info: DFContainer
+---@field [integer] df.item_totem_graphics_infost
+local _itemdef_handlerst_totem_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item_totem_graphics_infost>
+function _itemdef_handlerst_totem_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item_totem_graphics_infost
+function _itemdef_handlerst_totem_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_handlerst_totem_graphics_info:erase(index) end
 
