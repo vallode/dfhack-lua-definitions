@@ -9424,6 +9424,7 @@ df.unit_station_type = {}
 ---| 215 # AdventureAutomoveAcrobatic
 ---| 216 # ArcherReposition
 ---| 217 # BatteringRamPosition
+---| 218 # BuildSiegeConstruction
 
 ---@class identity.unit_path_goal: DFEnumType
 ---@field None -1 bay12: PathGoalType
@@ -9864,6 +9865,8 @@ df.unit_station_type = {}
 ---@field [216] "ArcherReposition"
 ---@field BatteringRamPosition 217
 ---@field [217] "BatteringRamPosition"
+---@field BuildSiegeConstruction 218
+---@field [218] "BuildSiegeConstruction"
 df.unit_path_goal = {}
 
 -- Unused: BuildPathResult

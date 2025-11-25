@@ -335,7 +335,7 @@ df.widget_nineslice_horizontal = {}
 ---@return df.widget_nineslice_horizontal
 function df.widget_nineslice_horizontal:new() end
 
----@class (exact) df.widget_anchored_tile: DFStruct, df.widget_nineslice
+---@class (exact) df.widget_anchored_tile: DFStruct, df.widget
 ---@field _type identity.widget_anchored_tile
 ---@field texp number
 ---@field offset_x number

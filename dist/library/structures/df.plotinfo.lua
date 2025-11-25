@@ -827,6 +827,10 @@ df.mission_type = {}
 ---@field work_zone_num number
 ---@field entered_planless_year number
 ---@field entered_planless_season_count number
+---@field last_death_caged_scrap_year number
+---@field last_death_caged_scrap_season_count number
+---@field last_non_vehicle_scrap_year number
+---@field last_non_vehicle_scrap_season_count number
 
 ---@class identity.invasion_info: DFCompoundType
 ---@field _kind 'struct-type'

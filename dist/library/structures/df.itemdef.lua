@@ -4483,6 +4483,127 @@ df.item_sheet_graphics_infost = {}
 ---@return df.item_sheet_graphics_infost
 function df.item_sheet_graphics_infost:new() end
 
+---@class df.item_skin_tanned_graphics_flag: DFBitfield
+---@field _enum identity.item_skin_tanned_graphics_flag
+---@field color_index boolean bay12: ITEM_SKIN_TANNED_GRAPHICS_FLAG_*
+---@field [0] boolean bay12: ITEM_SKIN_TANNED_GRAPHICS_FLAG_*
+---@field over_color_index boolean
+---@field [8] boolean
+---@field pattern boolean
+---@field [16] boolean
+
+---@class identity.item_skin_tanned_graphics_flag: DFBitfieldType
+---@field color_index 0 bay12: ITEM_SKIN_TANNED_GRAPHICS_FLAG_*
+---@field [0] "color_index" bay12: ITEM_SKIN_TANNED_GRAPHICS_FLAG_*
+---@field over_color_index 8
+---@field [8] "over_color_index"
+---@field pattern 16
+---@field [16] "pattern"
+df.item_skin_tanned_graphics_flag = {}
+
+---@alias df.item_skin_tanned_graphics_flag_pattern
+---| 0 # MONOTONE
+---| 1 # BICOLOR
+---| 2 # STRIPES
+---| 3 # MOTTLED
+---| 4 # SPOTS
+
+---@class identity.item_skin_tanned_graphics_flag_pattern: DFEnumType
+---@field MONOTONE 0 bay12: ITEM_SKIN_TANNED_GRAPHICS_FLAG_PATTERN_*
+---@field [0] "MONOTONE" bay12: ITEM_SKIN_TANNED_GRAPHICS_FLAG_PATTERN_*
+---@field BICOLOR 1
+---@field [1] "BICOLOR"
+---@field STRIPES 2
+---@field [2] "STRIPES"
+---@field MOTTLED 3
+---@field [3] "MOTTLED"
+---@field SPOTS 4
+---@field [4] "SPOTS"
+df.item_skin_tanned_graphics_flag_pattern = {}
+
+---@class (exact) df.item_skin_tanned_graphics_infost: DFStruct
+---@field _type identity.item_skin_tanned_graphics_infost
+---@field flags df.item_skin_tanned_graphics_flag
+---@field texpos number
+
+---@class identity.item_skin_tanned_graphics_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.item_skin_tanned_graphics_infost = {}
+
+---@return df.item_skin_tanned_graphics_infost
+function df.item_skin_tanned_graphics_infost:new() end
+
+---@class df.item_bodypart_skin_graphics_flag: DFBitfield
+---@field _enum identity.item_bodypart_skin_graphics_flag
+---@field color_index boolean bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_*
+---@field [0] boolean bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_*
+---@field over_color_index boolean
+---@field [8] boolean
+---@field pattern boolean
+---@field [16] boolean
+---@field surface boolean
+---@field [19] boolean
+
+---@class identity.item_bodypart_skin_graphics_flag: DFBitfieldType
+---@field color_index 0 bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_*
+---@field [0] "color_index" bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_*
+---@field over_color_index 8
+---@field [8] "over_color_index"
+---@field pattern 16
+---@field [16] "pattern"
+---@field surface 19
+---@field [19] "surface"
+df.item_bodypart_skin_graphics_flag = {}
+
+---@alias df.item_bodypart_skin_graphics_flag_pattern
+---| 0 # MONOTONE
+---| 1 # BICOLOR
+---| 2 # STRIPES
+---| 3 # MOTTLED
+---| 4 # SPOTS
+
+---@class identity.item_bodypart_skin_graphics_flag_pattern: DFEnumType
+---@field MONOTONE 0 bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_PATTERN_*
+---@field [0] "MONOTONE" bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_PATTERN_*
+---@field BICOLOR 1
+---@field [1] "BICOLOR"
+---@field STRIPES 2
+---@field [2] "STRIPES"
+---@field MOTTLED 3
+---@field [3] "MOTTLED"
+---@field SPOTS 4
+---@field [4] "SPOTS"
+df.item_bodypart_skin_graphics_flag_pattern = {}
+
+---@alias df.item_bodypart_skin_graphics_flag_surface
+---| 0 # HAIR
+---| 1 # SKIN
+---| 2 # SCALES
+---| 3 # FEATHERS
+
+---@class identity.item_bodypart_skin_graphics_flag_surface: DFEnumType
+---@field HAIR 0 bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_SURFACE_*
+---@field [0] "HAIR" bay12: ITEM_BODYPART_SKIN_GRAPHICS_FLAG_SURFACE_*
+---@field SKIN 1
+---@field [1] "SKIN"
+---@field SCALES 2
+---@field [2] "SCALES"
+---@field FEATHERS 3
+---@field [3] "FEATHERS"
+df.item_bodypart_skin_graphics_flag_surface = {}
+
+---@class (exact) df.item_bodypart_skin_graphics_infost: DFStruct
+---@field _type identity.item_bodypart_skin_graphics_infost
+---@field flags df.item_bodypart_skin_graphics_flag
+---@field texpos number
+
+---@class identity.item_bodypart_skin_graphics_infost: DFCompoundType
+---@field _kind 'struct-type'
+df.item_bodypart_skin_graphics_infost = {}
+
+---@return df.item_bodypart_skin_graphics_infost
+function df.item_bodypart_skin_graphics_infost:new() end
+
 -- Unused: itemdef_handling_informationst
 ---@class (exact) df.itemdef_handlerst: DFStruct
 ---@field _type identity.itemdef_handlerst
@@ -4559,6 +4680,8 @@ function df.item_sheet_graphics_infost:new() end
 ---@field pipe_section_graphics_info _itemdef_handlerst_pipe_section_graphics_info
 ---@field rock_graphics_info _itemdef_handlerst_rock_graphics_info
 ---@field totem_graphics_info _itemdef_handlerst_totem_graphics_info
+---@field skin_tanned_graphics_info _itemdef_handlerst_skin_tanned_graphics_info
+---@field bodypart_skin_graphics_info _itemdef_handlerst_bodypart_skin_graphics_info
 ---@field statue_texpos_top DFEnumVector<df.item_type, number>
 ---@field statue_texpos_bottom DFEnumVector<df.item_type, number>
 
@@ -5736,4 +5859,36 @@ function _itemdef_handlerst_totem_graphics_info:insert(index, item) end
 
 ---@param index integer
 function _itemdef_handlerst_totem_graphics_info:erase(index) end
+
+---@class _itemdef_handlerst_skin_tanned_graphics_info: DFContainer
+---@field [integer] df.item_skin_tanned_graphics_infost
+local _itemdef_handlerst_skin_tanned_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item_skin_tanned_graphics_infost>
+function _itemdef_handlerst_skin_tanned_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item_skin_tanned_graphics_infost
+function _itemdef_handlerst_skin_tanned_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_handlerst_skin_tanned_graphics_info:erase(index) end
+
+---@class _itemdef_handlerst_bodypart_skin_graphics_info: DFContainer
+---@field [integer] df.item_bodypart_skin_graphics_infost
+local _itemdef_handlerst_bodypart_skin_graphics_info
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.item_bodypart_skin_graphics_infost>
+function _itemdef_handlerst_bodypart_skin_graphics_info:_field(index) end
+
+---@param index '#'|integer
+---@param item df.item_bodypart_skin_graphics_infost
+function _itemdef_handlerst_bodypart_skin_graphics_info:insert(index, item) end
+
+---@param index integer
+function _itemdef_handlerst_bodypart_skin_graphics_info:erase(index) end
 

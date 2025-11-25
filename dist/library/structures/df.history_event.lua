@@ -2342,6 +2342,7 @@ df.history_event_artifact_created_flag = {}
 ---@field artifact_id number References: `df.artifact_record`
 ---@field creator_unit_id number the unit who created the artifact<br>References: `df.unit`
 ---@field creator_hfid number the figure who created the artifact<br>References: `df.historical_figure`
+---@field entity number References: `df.historical_entity`
 ---@field site number References: `df.world_site`
 ---@field flags2 df.history_event_artifact_created_flag
 ---@field circumstance df.history_event_artifact_createdst.T_circumstance

@@ -3435,6 +3435,8 @@ df.unit_flags3 = {}
 ---@field [15] boolean
 ---@field may_have_mythical_substance boolean
 ---@field [16] boolean
+---@field did_dungeon_move_unit boolean
+---@field [17] boolean
 
 ---@class identity.unit_flags4: DFBitfieldType
 ---@field lazy_goblet_check 0 bay12: UNITFLAG4_*
@@ -3471,6 +3473,8 @@ df.unit_flags3 = {}
 ---@field [15] "may_have_magical_inventory_item"
 ---@field may_have_mythical_substance 16
 ---@field [16] "may_have_mythical_substance"
+---@field did_dungeon_move_unit 17
+---@field [17] "did_dungeon_move_unit"
 df.unit_flags4 = {}
 
 -- Unused: UNITFLAG_CIV_OFFERED
