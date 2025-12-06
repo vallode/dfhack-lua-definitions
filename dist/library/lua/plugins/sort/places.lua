@@ -5,6 +5,18 @@
 ---@field PlacesOverlay places.PlacesOverlay
 local places
 
+---@param siege_engine df.building_siegeenginest
+---@return string
+
+---@param siege_engine df.building_siegeenginest
+---@return string
+
+---@param siege_engine df.building_siegeenginest
+---@return string
+
+---@param siege_engine df.building_siegeenginest
+---@return string
+
 local PlacesOverlay
 
 function PlacesOverlay:init() end
