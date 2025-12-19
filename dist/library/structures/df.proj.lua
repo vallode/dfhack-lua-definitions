@@ -51,6 +51,8 @@ df.projectile_type = {}
 ---@field [15] boolean
 ---@field small_aim_minus boolean
 ---@field [16] boolean
+---@field created_in_tantrum boolean
+---@field [17] boolean
 
 ---@class identity.projectile_flags: DFBitfieldType
 ---@field no_impact_destroy 0 bay12: PROJFLAG_*
@@ -87,6 +89,8 @@ df.projectile_type = {}
 ---@field [15] "item_link_deleted"
 ---@field small_aim_minus 16
 ---@field [16] "small_aim_minus"
+---@field created_in_tantrum 17
+---@field [17] "created_in_tantrum"
 df.projectile_flags = {}
 
 ---@class (exact) df.proj_list_link: DFStruct

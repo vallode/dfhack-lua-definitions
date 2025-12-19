@@ -1423,6 +1423,7 @@ df.creature_graphics_layer_flag = {}
 ---@field use_palette_index DFNumberVector
 ---@field dye_color_iuse_palette_rowndex DFNumberVector
 ---@field use_standard_nex_body_palette_row number
+---@field use_standard_beast_palette_row number
 ---@field use_color_palette_token string
 
 ---@class identity.creature_graphics_layerst: DFCompoundType

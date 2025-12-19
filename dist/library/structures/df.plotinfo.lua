@@ -686,6 +686,8 @@ df.talk_line_type = {}
 ---@field [2] boolean
 ---@field path_has_natural_wall boolean
 ---@field [3] boolean
+---@field path_made_for_leader boolean
+---@field [4] boolean
 
 ---@class identity.plot_invasion_plan_flag: DFBitfieldType
 ---@field path_has_liquid 0 bay12: PLOT_INVASION_PLAN_FLAG_*
@@ -696,6 +698,8 @@ df.talk_line_type = {}
 ---@field [2] "path_has_gap"
 ---@field path_has_natural_wall 3
 ---@field [3] "path_has_natural_wall"
+---@field path_made_for_leader 4
+---@field [4] "path_made_for_leader"
 df.plot_invasion_plan_flag = {}
 
 ---@class (exact) df.plot_invasion_planst: DFStruct
@@ -742,6 +746,10 @@ function df.plot_invasion_planst:new() end
 ---@field [9] boolean
 ---@field scrap_non_vehicle_plans boolean
 ---@field [10] boolean
+---@field handed_over_artifact boolean
+---@field [11] boolean
+---@field leader_plan_enabled boolean
+---@field [12] boolean
 
 ---@class identity.plot_invasion_flag: DFBitfieldType
 ---@field active 0 bay12: PLOTFLAG_INVASION_*
@@ -766,6 +774,10 @@ function df.plot_invasion_planst:new() end
 ---@field [9] "planless"
 ---@field scrap_non_vehicle_plans 10
 ---@field [10] "scrap_non_vehicle_plans"
+---@field handed_over_artifact 11
+---@field [11] "handed_over_artifact"
+---@field leader_plan_enabled 12
+---@field [12] "leader_plan_enabled"
 df.plot_invasion_flag = {}
 
 ---@alias df.mission_type
@@ -827,6 +839,8 @@ df.mission_type = {}
 ---@field work_zone_num number
 ---@field entered_planless_year number
 ---@field entered_planless_season_count number
+---@field leader_planning_stalled_year number
+---@field leader_planning_stalled_season_count number
 ---@field last_death_caged_scrap_year number
 ---@field last_death_caged_scrap_season_count number
 ---@field last_non_vehicle_scrap_year number
@@ -1691,8 +1705,11 @@ df.setting_difficulty_economy_type = {}
 ---@field wild_irritate_decay number
 ---@field werebeast_interval number
 ---@field vampire_fraction number
----@field invasion_cap_regular number[]
----@field invasion_cap_monsters number[]
+---@field invasion_unit_cap number
+---@field invasion_difficulty_first number
+---@field invasion_difficulty_second number
+---@field invasion_difficulty_third number
+---@field invasion_difficulty_scaling number
 ---@field min_raids_before_siege number
 ---@field min_raids_between_sieges number
 ---@field siege_frequency number
@@ -1726,6 +1743,7 @@ df.setting_difficulty_economy_type = {}
 ---@field grand_guild_unit_count number
 ---@field mandate_period number
 ---@field demand_period number
+---@field fort_dig_speed number
 
 ---@class identity.difficultyst: DFCompoundType
 ---@field _kind 'struct-type'

@@ -17655,7 +17655,6 @@ df.night_creature_experiment_type = {}
 -- Unused: RANDOM_CREATURE_FLAG_*
 -- Unused: RandomCreatureClassType
 -- Unused: RandomCreatureBodyBaseType
--- Unused: random_creature_profilest
 ---@alias df.body_abuse_sculpture_type
 ---| -1 # NONE
 ---| 0 # GrislyMound
@@ -17670,7 +17669,6 @@ df.night_creature_experiment_type = {}
 -- Unused: RANDOM_CREATURE_FLAG_*
 -- Unused: RandomCreatureClassType
 -- Unused: RandomCreatureBodyBaseType
--- Unused: random_creature_profilest
 ---@class identity.body_abuse_sculpture_type: DFEnumType
 ---@field NONE -1 bay12: BodyAbuseSculptureType, actually int16_t
 ---@field [-1] "NONE" bay12: BodyAbuseSculptureType, actually int16_t

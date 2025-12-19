@@ -597,6 +597,7 @@ function df.circumstance_id:new() end
 ---| 277 # PerformedRiteImproperlyDedicatedTemple
 ---| 278 # PerformedRiteUndedicatedTemple
 ---| 279 # PrayedDedicatedTemple
+---| 280 # DefendedSiteAgainstInvaders
 
 ---@class identity.unit_thought_type: DFEnumType
 ---@field None -1
@@ -1161,6 +1162,8 @@ function df.circumstance_id:new() end
 ---@field [278] "PerformedRiteUndedicatedTemple"
 ---@field PrayedDedicatedTemple 279
 ---@field [279] "PrayedDedicatedTemple"
+---@field DefendedSiteAgainstInvaders 280
+---@field [280] "DefendedSiteAgainstInvaders"
 df.unit_thought_type = {}
 
 ---@class unit_thought_type_attr_entry_type: DFCompoundType
@@ -1453,6 +1456,7 @@ df.unit_thought_type._attr_entry_type._fields = {}
 ---@field PerformedRiteImproperlyDedicatedTemple { caption: "incompletely performing the rites of [entity] in an improperly dedicated temple", xml_caption: "religion prayer in incorrect temple" }
 ---@field PerformedRiteUndedicatedTemple { caption: "incompletely performing the rites of [entity] in an undedicated temple", xml_caption: "religion prayer in godless temple" }
 ---@field PrayedDedicatedTemple { caption: "communing with [histfig] in a dedicated temple", xml_caption: "pray to hf in dedicated temple" }
+---@field DefendedSiteAgainstInvaders { caption: "", xml_caption: "" }
 df.unit_thought_type.attrs = {}
 
 ---@class df.personality_mood_flag: DFBitfield

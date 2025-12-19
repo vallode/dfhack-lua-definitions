@@ -2657,6 +2657,16 @@ df.unit_action_data_shoot_ranged_weapon = {}
 ---@return df.unit_action_data_shoot_ranged_weapon
 function df.unit_action_data_shoot_ranged_weapon:new() end
 
+---@class df.unit_move_throw_item_flag: DFBitfield
+---@field _enum identity.unit_move_throw_item_flag
+---@field in_tantrum boolean bay12: UNIT_MOVE_THROW_ITEM_FLAG_*
+---@field [0] boolean bay12: UNIT_MOVE_THROW_ITEM_FLAG_*
+
+---@class identity.unit_move_throw_item_flag: DFBitfieldType
+---@field in_tantrum 0 bay12: UNIT_MOVE_THROW_ITEM_FLAG_*
+---@field [0] "in_tantrum" bay12: UNIT_MOVE_THROW_ITEM_FLAG_*
+df.unit_move_throw_item_flag = {}
+
 ---@class (exact) df.unit_action_data_throw_item: DFStruct
 ---@field _type identity.unit_action_data_throw_item
 ---@field movewait number
@@ -2667,6 +2677,7 @@ function df.unit_action_data_shoot_ranged_weapon:new() end
 ---@field target_lz number
 ---@field target_bp number
 ---@field target_bp_hit_chance_adjustment number
+---@field flags df.unit_move_throw_item_flag
 
 ---@class identity.unit_action_data_throw_item: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3437,6 +3448,8 @@ df.unit_flags3 = {}
 ---@field [16] boolean
 ---@field did_dungeon_move_unit boolean
 ---@field [17] boolean
+---@field carrying_somebody boolean
+---@field [18] boolean
 
 ---@class identity.unit_flags4: DFBitfieldType
 ---@field lazy_goblet_check 0 bay12: UNITFLAG4_*
@@ -3475,9 +3488,10 @@ df.unit_flags3 = {}
 ---@field [16] "may_have_mythical_substance"
 ---@field did_dungeon_move_unit 17
 ---@field [17] "did_dungeon_move_unit"
+---@field carrying_somebody 18
+---@field [18] "carrying_somebody"
 df.unit_flags4 = {}
 
--- Unused: UNITFLAG_CIV_OFFERED
 ---@alias df.unitpref_type
 ---| 0 # LikeMaterial
 ---| 1 # LikeCreature
@@ -3492,7 +3506,6 @@ df.unit_flags4 = {}
 ---| 10 # LikeMusicalForm
 ---| 11 # LikeDanceForm
 
--- Unused: UNITFLAG_CIV_OFFERED
 ---@class identity.unitpref_type: DFEnumType
 ---@field LikeMaterial 0 bay12: UnitPrefs, no base type
 ---@field [0] "LikeMaterial" bay12: UnitPrefs, no base type
