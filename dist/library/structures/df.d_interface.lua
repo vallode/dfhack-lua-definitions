@@ -4047,6 +4047,7 @@ df.view_sheets_context_type = {}
 ---| 4 # ENGRAVING_PLANNED
 ---| 5 # UNIT_LIST
 ---| 6 # ITEM_LIST
+---| 7 # VERMIN
 
 ---@class identity.view_sheet_type: DFEnumType
 ---@field NONE -1 bay12: ViewSheetType
@@ -4065,6 +4066,8 @@ df.view_sheets_context_type = {}
 ---@field [5] "UNIT_LIST"
 ---@field ITEM_LIST 6
 ---@field [6] "ITEM_LIST"
+---@field VERMIN 7
+---@field [7] "VERMIN"
 df.view_sheet_type = {}
 
 ---@class (exact) df.view_sheets_interfacest: DFStruct
@@ -4076,11 +4079,14 @@ df.view_sheet_type = {}
 ---@field viewing_unid DFNumberVector
 ---@field viewing_itid DFNumberVector
 ---@field viewing_bldid number
+---@field viewing_vermin_combined_id DFNumberVector creature_handler.list_creature/list_cache
 ---@field viewing_x number
 ---@field viewing_y number
 ---@field viewing_z number
 ---@field scroll_position number
 ---@field scrolling boolean
+---@field vermin_portrait_texpos number
+---@field vermin_text df.curses_text_boxst
 ---@field tab _view_sheets_interfacest_tab
 ---@field tab_id DFNumberVector
 ---@field active_sub_tab number

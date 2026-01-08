@@ -292,31 +292,31 @@ function _itemdef_base_flags:erase(index) end
 ---@field type boolean
 ---@field [8] boolean
 ---@field wood boolean
----@field [14] boolean
+---@field [13] boolean
 ---@field wood_grown boolean
----@field [15] boolean
+---@field [14] boolean
 ---@field stone boolean
----@field [16] boolean
+---@field [15] boolean
 ---@field artifact boolean
----@field [17] boolean
+---@field [16] boolean
 ---@field special_mat boolean
----@field [18] boolean
+---@field [17] boolean
 
 ---@class identity.item_weapon_graphics_flag: DFBitfieldType
 ---@field material_color_index 0 bay12: ITEM_WEAPON_GRAPHICS_FLAG_*
 ---@field [0] "material_color_index" bay12: ITEM_WEAPON_GRAPHICS_FLAG_*
 ---@field type 8
 ---@field [8] "type"
----@field wood 14
----@field [14] "wood"
----@field wood_grown 15
----@field [15] "wood_grown"
----@field stone 16
----@field [16] "stone"
----@field artifact 17
----@field [17] "artifact"
----@field special_mat 18
----@field [18] "special_mat"
+---@field wood 13
+---@field [13] "wood"
+---@field wood_grown 14
+---@field [14] "wood_grown"
+---@field stone 15
+---@field [15] "stone"
+---@field artifact 16
+---@field [16] "artifact"
+---@field special_mat 17
+---@field [17] "special_mat"
 df.item_weapon_graphics_flag = {}
 
 ---@alias df.item_weapon_graphics_type

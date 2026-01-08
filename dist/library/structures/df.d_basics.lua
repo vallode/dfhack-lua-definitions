@@ -1302,6 +1302,8 @@ df.orientation_flags = {}
 ---| 1 # Site
 ---| 2 # Entity
 ---| 3 # ArtImage
+---| 4 # GenericHistfig
+---| 5 # GenericCreature
 
 ---@class identity.job_art_specifier_type: DFEnumType
 ---@field None -1 bay12: JobArtSpecifierType
@@ -1314,6 +1316,10 @@ df.orientation_flags = {}
 ---@field [2] "Entity"
 ---@field ArtImage 3
 ---@field [3] "ArtImage"
+---@field GenericHistfig 4
+---@field [4] "GenericHistfig"
+---@field GenericCreature 5
+---@field [5] "GenericCreature"
 df.job_art_specifier_type = {}
 
 ---@class (exact) df.adv_art_specifierst: DFStruct
