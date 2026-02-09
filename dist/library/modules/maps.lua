@@ -72,6 +72,26 @@ function dfhack.maps.setTileAquifer(x, y, z, heavy) end
 ---@return boolean
 function dfhack.maps.removeTileAquifer(x, y, z) end
 
+-- Based on worldst::add_material_spatter_tile_capped
+---@param pos df.coord
+---@param mat number
+---@param matg number
+---@param state df.matter_state
+---@param amount number
+---@return number
+function dfhack.maps.addMaterialSpatter(pos, mat, matg, state, amount) end
+
+-- Based on worldst::add_item_spatter_tile_capped
+---@param pos df.coord
+---@param i_type df.item_type
+---@param i_subtype number
+---@param i_subcat1 number
+---@param i_subcat2 number
+---@param print_variant number
+---@param amount number
+---@return number
+function dfhack.maps.addItemSpatter(pos, i_type, i_subtype, i_subcat1, i_subcat2, print_variant, amount) end
+
 ---@param bm df.tile_bitmask
 ---@return boolean
 function dfhack.maps.hasTileAssignment(bm) end
