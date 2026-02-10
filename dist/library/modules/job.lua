@@ -99,6 +99,10 @@ function dfhack.job.isSuitableMaterial(jitem, mat_type, mat_index, itype) end
 ---@return string
 function dfhack.job.getName(job) end
 
+---@param order df.manager_order
+---@return string
+function dfhack.job.getManagerOrderName(order) end
+
 ---@param job df.job
 ---@param new_id boolean|nil
 ---@return boolean
