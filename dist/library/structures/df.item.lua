@@ -1,7 +1,6 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
--- Unused: USE_DYE_*
 -- Unused: ArmorRole
 ---@class df.item_body_component_flag: DFBitfield
 ---@field _enum identity.item_body_component_flag
@@ -222,8 +221,8 @@ df.item_body_component_flag = {}
 ---@class identity.job_item_vector_id: DFEnumType
 ---@field ANY 0
 ---@field [0] "ANY"
----@field IN_PLAY 1 1
----@field [1] "IN_PLAY" 1
+---@field IN_PLAY 1
+---@field [1] "IN_PLAY"
 ---@field ANY_ARTIFACT 2
 ---@field [2] "ANY_ARTIFACT"
 ---@field WEAPON 3
@@ -242,8 +241,8 @@ df.item_body_component_flag = {}
 ---@field [9] "SHIELD"
 ---@field ANY_ARMOR_GLOVES 10
 ---@field [10] "ANY_ARMOR_GLOVES"
----@field ANY_ARMOR_PANTS 11 11
----@field [11] "ANY_ARMOR_PANTS" 11
+---@field ANY_ARMOR_PANTS 11
+---@field [11] "ANY_ARMOR_PANTS"
 ---@field QUIVER 12
 ---@field [12] "QUIVER"
 ---@field SPLINT 13
@@ -262,8 +261,8 @@ df.item_body_component_flag = {}
 ---@field [19] "BOULDER"
 ---@field ROCK 20
 ---@field [20] "ROCK"
----@field ANY_REFUSE 21 21
----@field [21] "ANY_REFUSE" 21
+---@field ANY_REFUSE 21
+---@field [21] "ANY_REFUSE"
 ---@field ANY_GOOD_FOOD 22
 ---@field [22] "ANY_GOOD_FOOD"
 ---@field ANY_AUTO_CLEAN 23
@@ -282,8 +281,8 @@ df.item_body_component_flag = {}
 ---@field [29] "ANY_EDIBLE_CARNIVORE"
 ---@field ANY_EDIBLE_BONECARN 30
 ---@field [30] "ANY_EDIBLE_BONECARN"
----@field ANY_EDIBLE_VERMIN 31 31
----@field [31] "ANY_EDIBLE_VERMIN" 31
+---@field ANY_EDIBLE_VERMIN 31
+---@field [31] "ANY_EDIBLE_VERMIN"
 ---@field ANY_EDIBLE_VERMIN_BOX 32
 ---@field [32] "ANY_EDIBLE_VERMIN_BOX"
 ---@field ANY_CAN_ROT 33
@@ -302,8 +301,8 @@ df.item_body_component_flag = {}
 ---@field [39] "ANY_GOES_IN_ARMORSTAND"
 ---@field DOOR 40
 ---@field [40] "DOOR"
----@field FLOODGATE 41 41
----@field [41] "FLOODGATE" 41
+---@field FLOODGATE 41
+---@field [41] "FLOODGATE"
 ---@field HATCH_COVER 42
 ---@field [42] "HATCH_COVER"
 ---@field GRATE 43
@@ -320,8 +319,8 @@ df.item_body_component_flag = {}
 ---@field [48] "INSTRUMENT"
 ---@field TOY 49
 ---@field [49] "TOY"
----@field BUCKET 50 SKIPPED: TOOL<br>50
----@field [50] "BUCKET" SKIPPED: TOOL<br>50
+---@field BUCKET 50
+---@field [50] "BUCKET"
 ---@field BARREL 51
 ---@field [51] "BARREL"
 ---@field CHAIN 52
@@ -340,8 +339,8 @@ df.item_body_component_flag = {}
 ---@field [58] "TABLE"
 ---@field STATUE 59
 ---@field [59] "STATUE"
----@field QUERN 60 60<br>SKIPPED: SLAB
----@field [60] "QUERN" 60<br>SKIPPED: SLAB
+---@field QUERN 60
+---@field [60] "QUERN"
 ---@field MILLSTONE 61
 ---@field [61] "MILLSTONE"
 ---@field BOX 62
@@ -358,8 +357,8 @@ df.item_body_component_flag = {}
 ---@field [67] "ANVIL"
 ---@field CATAPULTPARTS 68
 ---@field [68] "CATAPULTPARTS"
----@field BALLISTAPARTS 69 69
----@field [69] "BALLISTAPARTS" 69
+---@field BALLISTAPARTS 69
+---@field [69] "BALLISTAPARTS"
 ---@field SIEGEAMMO 70
 ---@field [70] "SIEGEAMMO"
 ---@field TRAPPARTS 71
@@ -378,8 +377,8 @@ df.item_body_component_flag = {}
 ---@field [77] "ANY_DRINK"
 ---@field LIQUID_MISC 78
 ---@field [78] "LIQUID_MISC"
----@field POWDER_MISC 79 79
----@field [79] "POWDER_MISC" 79
+---@field POWDER_MISC 79
+---@field [79] "POWDER_MISC"
 ---@field ANY_COOKABLE 80
 ---@field [80] "ANY_COOKABLE"
 ---@field ANY_GLASSABLE 81
@@ -394,16 +393,16 @@ df.item_body_component_flag = {}
 ---@field [85] "COIN"
 ---@field GLOB 86
 ---@field [86] "GLOB"
----@field ANY_RECENTLY_DROPPED 87 87 -> 125
----@field [87] "ANY_RECENTLY_DROPPED" 87 -> 125
+---@field ANY_RECENTLY_DROPPED 87
+---@field [87] "ANY_RECENTLY_DROPPED"
 ---@field ANY_MELT_DESIGNATED 88
 ---@field [88] "ANY_MELT_DESIGNATED"
----@field TRAPCOMP 90 90
----@field [90] "TRAPCOMP" 90
+---@field TRAPCOMP 90
+---@field [90] "TRAPCOMP"
 ---@field BAR 91
 ---@field [91] "BAR"
----@field SMALLGEM 92 92
----@field [92] "SMALLGEM" 92
+---@field SMALLGEM 92
+---@field [92] "SMALLGEM"
 ---@field BLOCKS 93
 ---@field [93] "BLOCKS"
 ---@field ROUGH 94
@@ -422,8 +421,8 @@ df.item_body_component_flag = {}
 ---@field [100] "RING"
 ---@field EARRING 101
 ---@field [101] "EARRING"
----@field BRACELET 102 102
----@field [102] "BRACELET" 102
+---@field BRACELET 102
+---@field [102] "BRACELET"
 ---@field GEM 103
 ---@field [103] "GEM"
 ---@field CORPSEPIECE 104
@@ -436,12 +435,12 @@ df.item_body_component_flag = {}
 ---@field [107] "FISH"
 ---@field FISH_RAW 108
 ---@field [108] "FISH_RAW"
----@field SEEDS 109 LATER: EGG
----@field [109] "SEEDS" LATER: EGG
+---@field SEEDS 109
+---@field [109] "SEEDS"
 ---@field PLANT 110
 ---@field [110] "PLANT"
----@field SKIN_TANNED 111 111
----@field [111] "SKIN_TANNED" 111
+---@field SKIN_TANNED 111
+---@field [111] "SKIN_TANNED"
 ---@field PLANT_GROWTH 112
 ---@field [112] "PLANT_GROWTH"
 ---@field THREAD 113
@@ -460,8 +459,8 @@ df.item_body_component_flag = {}
 ---@field [119] "BALLISTAARROWHEAD"
 ---@field ARMOR 120
 ---@field [120] "ARMOR"
----@field SHOES 121 121
----@field [121] "SHOES" 121
+---@field SHOES 121
+---@field [121] "SHOES"
 ---@field HELM 122
 ---@field [122] "HELM"
 ---@field GLOVES 123
@@ -480,8 +479,8 @@ df.item_body_component_flag = {}
 ---@field [129] "BOOK"
 ---@field FOOD_STORAGE 130
 ---@field [130] "FOOD_STORAGE"
----@field INSTRUMENT_STATIONARY 131 131
----@field [131] "INSTRUMENT_STATIONARY" 131
+---@field INSTRUMENT_STATIONARY 131
+---@field [131] "INSTRUMENT_STATIONARY"
 ---@field SHEET 132
 ---@field [132] "SHEET"
 ---@field BRANCH 133
@@ -654,10 +653,9 @@ df.item_kill_info = {}
 ---@return df.item_kill_info
 function df.item_kill_info:new() end
 
--- not actually a compound, do NOT replace with kill_profilest!
 ---@class (exact) df.item_kill_info.T_targets: DFStruct
 ---@field _type identity.item_kill_info.targets
----@field events DFNumberVector Important
+---@field events DFNumberVector not a compound<br>Important
 ---@field killed_race DFNumberVector Misc
 ---@field killed_caste DFNumberVector
 ---@field killed_underground_region DFNumberVector
@@ -737,24 +735,24 @@ function df.item_stockpile_ref:new() end
 ---@field age_counter number
 local itemimprovement
 
----@param anon_0 df.item
+---@param it df.item
 ---@return df.art_image
-function itemimprovement:getImage(anon_0) end
+function itemimprovement:getImage(it) end
 
----@param colors DFPointer<integer>
----@param shapes DFPointer<integer>
----@param item df.item
-function itemimprovement:getColorAndShape(colors, shapes, item) end
+---@param i_color DFPointer<integer>
+---@param i_shape DFPointer<integer>
+---@param it df.item
+function itemimprovement:getColorAndShape(i_color, i_shape, it) end
 
 ---@return df.itemimprovement
 function itemimprovement:clone() end
 
----@param file df.file_compressorst
-function itemimprovement:write_file(file) end
+---@param filecomp df.file_compressorst
+function itemimprovement:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function itemimprovement:read_file(file, loadversion) end
+function itemimprovement:read_file(filecomp, loadversion) end
 
 ---@return df.improvement_type
 function itemimprovement:getType() end
@@ -762,12 +760,12 @@ function itemimprovement:getType() end
 ---@return boolean
 function itemimprovement:isDecoration() end
 
----@param caravan df.caravan_state
+---@param mer df.caravan_state
 ---@return number
-function itemimprovement:getDyeValue(caravan) end
+function itemimprovement:getDyeValue(mer) end
 
----@param shape number References: `df.descriptor_shape`
-function itemimprovement:setShape(shape) end
+---@param nshape number References: `df.descriptor_shape`
+function itemimprovement:setShape(nshape) end
 
 
 ---@class identity.itemimprovement: DFCompoundType
@@ -1103,7 +1101,8 @@ function df.food_ingredientst:new() end
 ---@field [10] boolean Material used in construction
 ---@field encased boolean Item encased in ice or obsidian
 ---@field [11] boolean Item encased in ice or obsidian
----@field [12] boolean unused
+---@field UNUSED_13 boolean
+---@field [12] boolean
 ---@field murder boolean Implies murder - used in fell moods
 ---@field [13] boolean Implies murder - used in fell moods
 ---@field foreign boolean Item is imported
@@ -1118,8 +1117,8 @@ function df.food_ingredientst:new() end
 ---@field [18] boolean Artifact
 ---@field forbid boolean Forbidden item
 ---@field [19] boolean Forbidden item
----@field already_uncategorized boolean bay12: NONGLOBAL_DELETE
----@field [20] boolean bay12: NONGLOBAL_DELETE
+---@field already_uncategorized boolean
+---@field [20] boolean
 ---@field dump boolean Designated for dumping
 ---@field [21] boolean Designated for dumping
 ---@field on_fire boolean Indicates if item is on fire, Will Set Item On Fire if Set!
@@ -1128,7 +1127,8 @@ function df.food_ingredientst:new() end
 ---@field [23] boolean Designated for melting, if applicable
 ---@field hidden boolean Hidden item
 ---@field [24] boolean Hidden item
----@field [25] boolean unused
+---@field UNUSED_26 boolean
+---@field [25] boolean
 ---@field use_recorded boolean transient in unit.used_items update
 ---@field [26] boolean transient in unit.used_items update
 ---@field artifact_mood boolean created by mood/named existing item
@@ -1139,8 +1139,8 @@ function df.food_ingredientst:new() end
 ---@field [29] boolean
 ---@field top_open boolean
 ---@field [30] boolean
----@field from_worldgen boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
----@field [31] boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
+---@field from_worldgen boolean
+---@field [31] boolean
 
 ---@class identity.item_flags: DFBitfieldType
 ---@field on_ground 0 bay12: ITEMFLAG_*
@@ -1167,6 +1167,8 @@ function df.food_ingredientst:new() end
 ---@field [10] "construction" Material used in construction
 ---@field encased 11 Item encased in ice or obsidian
 ---@field [11] "encased" Item encased in ice or obsidian
+---@field UNUSED_13 12
+---@field [12] "UNUSED_13"
 ---@field murder 13 Implies murder - used in fell moods
 ---@field [13] "murder" Implies murder - used in fell moods
 ---@field foreign 14 Item is imported
@@ -1181,8 +1183,8 @@ function df.food_ingredientst:new() end
 ---@field [18] "artifact" Artifact
 ---@field forbid 19 Forbidden item
 ---@field [19] "forbid" Forbidden item
----@field already_uncategorized 20 bay12: NONGLOBAL_DELETE
----@field [20] "already_uncategorized" bay12: NONGLOBAL_DELETE
+---@field already_uncategorized 20
+---@field [20] "already_uncategorized"
 ---@field dump 21 Designated for dumping
 ---@field [21] "dump" Designated for dumping
 ---@field on_fire 22 Indicates if item is on fire, Will Set Item On Fire if Set!
@@ -1191,6 +1193,8 @@ function df.food_ingredientst:new() end
 ---@field [23] "melt" Designated for melting, if applicable
 ---@field hidden 24 Hidden item
 ---@field [24] "hidden" Hidden item
+---@field UNUSED_26 25
+---@field [25] "UNUSED_26"
 ---@field use_recorded 26 transient in unit.used_items update
 ---@field [26] "use_recorded" transient in unit.used_items update
 ---@field artifact_mood 27 created by mood/named existing item
@@ -1201,8 +1205,8 @@ function df.food_ingredientst:new() end
 ---@field [29] "weight_computed"
 ---@field top_open 30
 ---@field [30] "top_open"
----@field from_worldgen 31 bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
----@field [31] "from_worldgen" bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
+---@field from_worldgen 31
+---@field [31] "from_worldgen"
 df.item_flags = {}
 
 ---@class df.item_flags2: DFBitfield
@@ -1213,8 +1217,8 @@ df.item_flags = {}
 ---@field [1] boolean
 ---@field grown boolean
 ---@field [2] boolean
----@field location_reserved boolean possibly book/written-content-related
----@field [3] boolean possibly book/written-content-related
+---@field location_reserved boolean assigned to a location, such as a library or tavern
+---@field [3] boolean assigned to a location, such as a library or tavern
 ---@field utterly_destroyed boolean
 ---@field [4] boolean
 ---@field might_contain_artifact boolean
@@ -1227,8 +1231,8 @@ df.item_flags = {}
 ---@field [1] "forbid_on_unretire"
 ---@field grown 2
 ---@field [2] "grown"
----@field location_reserved 3 possibly book/written-content-related
----@field [3] "location_reserved" possibly book/written-content-related
+---@field location_reserved 3 assigned to a location, such as a library or tavern
+---@field [3] "location_reserved" assigned to a location, such as a library or tavern
 ---@field utterly_destroyed 4
 ---@field [4] "utterly_destroyed"
 ---@field might_contain_artifact 5
@@ -1305,8 +1309,8 @@ function df.itinfost:new() end
 ---@field world_data_subid number
 ---@field stockpile_countdown number -1 per 50 frames; then check if needs moving
 ---@field stockpile_delay number used to reset countdown; randomly varies
----@field base_uniform_score number temporary_32
----@field walkable_id number temporary_32_2; from map_block.walkable
+---@field base_uniform_score number
+---@field walkable_id number from map_block.walkable
 ---@field spec_heat integer
 ---@field ignite_point integer
 ---@field heatdam_point integer
@@ -1329,14 +1333,14 @@ function item:getMaterial() end
 ---@return number
 function item:getMaterialIndex() end
 
----@param anon_0 number
-function item:setSubtype(anon_0) end
+---@param id number
+function item:setSubtype(id) end
 
----@param anon_0 number
-function item:setMaterial(anon_0) end
+---@param sc number
+function item:setMaterial(sc) end
 
----@param anon_0 number
-function item:setMaterialIndex(anon_0) end
+---@param sc number
+function item:setMaterialIndex(sc) end
 
 ---@return number
 function item:getActualMaterial() end
@@ -1356,8 +1360,8 @@ function item:getPlantID() end
 ---@return number
 function item:getGrowthPrint() end
 
----@param print number
-function item:setGrowthPrint(print) end
+---@param npv number
+function item:setGrowthPrint(npv) end
 
 ---@return number
 function item:getDimension() end
@@ -1365,12 +1369,12 @@ function item:getDimension() end
 ---@return number
 function item:getTotalDimension() end
 
----@param amount number
-function item:setDimension(amount) end
+---@param new_dim number
+function item:setDimension(new_dim) end
 
----@param amount number
+---@param rem_dim number
 ---@return boolean
-function item:subtractDimension(amount) end
+function item:subtractDimension(rem_dim) end
 
 ---@return boolean
 function item:isFoodStorage() end
@@ -1396,16 +1400,16 @@ function item:containsPlaster() end
 ---@return boolean
 function item:isPlaster() end
 
----@param bg number
+---@param backcolor number
 ---@return boolean
-function item:getColorOverride(bg) end
+function item:getColorOverride(backcolor) end
 
 ---@return df.item_profilest
 function item:getHistoryInfo() end
 
----@param use df.tool_uses
+---@param tu df.tool_uses
 ---@return boolean
-function item:hasToolUse(use) end
+function item:hasToolUse(tu) end
 
 ---@return boolean
 function item:hasInvertedTile() end
@@ -1422,15 +1426,15 @@ function item:isSharpStone() end
 ---@return boolean
 function item:isCrystalGlassable() end
 
----@param matIndex number
+---@param metal_index number
 ---@return boolean
-function item:isMetalOre(matIndex) end
+function item:isMetalOre(metal_index) end
 
 function item:clearLastTempUpdateTS() end
 
----@param string_ptr string
----@param flag integer
-function item:listNotableKills(string_ptr, flag) end
+---@param story string
+---@param context_flag integer
+function item:listNotableKills(story, context_flag) end
 
 ---@return integer
 function item:getSpecHeat() end
@@ -1462,20 +1466,20 @@ function item:materialRots() end
 ---@return integer
 function item:getTemperature() end
 
----@param target integer
+---@param newtmp integer
 ---@param amp number
 ---@return boolean
-function item:adjustTemperature(target, amp) end
+function item:adjustTemperature(newtmp, amp) end
 
 function item:evaluate_corpse_flags() end
 
 function item:set_placement_information() end
 
----@return number
+---@return integer
 function item:getGloveHandedness() end
 
----@param flag integer
-function item:setGloveHandedness(flag) end
+---@param sym_flag integer
+function item:setGloveHandedness(sym_flag) end
 
 ---@return boolean
 function item:isSpike() end
@@ -1486,12 +1490,12 @@ function item:isScrew() end
 ---@return boolean
 function item:isBuildMat() end
 
----@param anon_0 number 1 fire, 2 magma
+---@param flame_level number 1 fire, 2 magma
 ---@return boolean
-function item:isTemperatureSafe(anon_0) end
+function item:isTemperatureSafe(flame_level) end
 
----@param entity_id number
-function item:setRandSubtype(entity_id) end
+---@param civ_id number
+function item:setRandSubtype(civ_id) end
 
 ---@return number
 function item:getWeaponSize() end
@@ -1499,20 +1503,20 @@ function item:getWeaponSize() end
 ---@return number
 function item:getWear() end
 
----@param anon_0 number
-function item:setWear(anon_0) end
+---@param new_d number
+function item:setWear(new_d) end
 
 ---@return number
 function item:getMaker() end
 
----@param hf_id number References: `df.historical_figure`
-function item:setMaker(hf_id) end
+---@param n_hfid number References: `df.historical_figure`
+function item:setMaker(n_hfid) end
 
----@param prace number
----@param pcaste number
----@param phfig DFPointer<integer>
----@param punit DFPointer<integer>
-function item:getCorpseInfo(prace, pcaste, phfig, punit) end
+---@param c_race number
+---@param c_caste number
+---@param hf DFPointer<integer>
+---@param un DFPointer<integer>
+function item:getCorpseInfo(c_race, c_caste, hf, un) end
 
 ---@return df.caste_body_info
 function item:getBodyInfo() end
@@ -1529,58 +1533,57 @@ function item:get_art_graphics_type_ptr() end
 ---@return number
 function item:get_art_graphics_id_ptr() end
 
----@param anon_0 df.squad_ammo_spec
+---@param sea df.squad_ammo_spec
 ---@return boolean
-function item:isMatchingAmmoItem(anon_0) end
+function item:isMatchingAmmoItem(sea) end
 
----@param id DFPointer<integer>
----@param subid DFPointer<integer> pointer-to-ref
-function item:getImageRef(id, subid) end
+---@param aici DFPointer<integer>
+---@param aicm DFPointer<integer> pointer-to-ref
+function item:getImageRef(aici, aicm) end
 
----@param civ_id number References: `df.historical_entity`
----@param site_id number References: `df.world_site`
-function item:getImageCivSite(civ_id, site_id) end
+---@param enid number References: `df.historical_entity`
+---@param stid number References: `df.world_site`
+function item:getImageCivSite(enid, stid) end
 
----@param civ_id number References: `df.historical_entity`
----@param site_id number References: `df.world_site`
-function item:setImageCivSite(civ_id, site_id) end
+---@param enid number References: `df.historical_entity`
+---@param stid number References: `df.world_site`
+function item:setImageCivSite(enid, stid) end
 
----@param level number
-function item:setSeedsPlantSkillLevel(level) end
+---@param skat number
+function item:setSeedsPlantSkillLevel(skat) end
 
 ---@return number
 function item:getCorpseSize() end
 
----@param amount number
+---@param season_click number
 ---@return boolean
-function item:ageItem(amount) end
+function item:ageItem(season_click) end
 
 ---@return number
 function item:getCritterAirdrownTimer() end
 
----@param anon_0 number
-function item:setCritterAirdrownTimer(anon_0) end
+---@param ac number
+function item:setCritterAirdrownTimer(ac) end
 
 function item:incrementCritterAirdrownTimer() end
 
 ---@return number
 function item:getRotTimer() end
 
----@param val number
-function item:setRotTimer(val) end
+---@param rc number
+function item:setRotTimer(rc) end
 
 function item:incrementRotTimer() end
 
 ---@return boolean
 function item:instantRot() end
 
----@param civ_request_tab df.entity_sell_category
+---@param crt df.entity_sell_category
 ---@return boolean
-function item:fitsCivRequestTab(civ_request_tab) end
+function item:fitsCivRequestTab(crt) end
 
----@param anon_0 string
 ---@return string
-function item:getAmmoType(anon_0) end
+function item:getAmmoType() end
 
 ---@return boolean
 function item:isLiquidPowder() end
@@ -1594,21 +1597,21 @@ function item:isLiveAnimal() end
 ---@return number
 function item:getVolume() end
 
----@param imp_type df.improvement_type
----@param job df.job
----@param unit df.unit
----@param mat_type number
----@param mat_index number
+---@param imp df.improvement_type
+---@param jbp df.job
+---@param un df.unit
+---@param mat number
+---@param mg number
 ---@param shape number References: `df.descriptor_shape`
 ---@param force_quality number
 ---@param civ df.historical_entity
----@param site df.world_site
+---@param st df.world_site
 ---@param tradegoodpurpose df.trade_good_purpose
 ---@param suppress_shaping boolean
 ---@param use_roll boolean
 ---@param roll number
 ---@return df.itemimprovement
-function item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, force_quality, civ, site, tradegoodpurpose, suppress_shaping, use_roll, roll) end
+function item:addImprovementFromJob(imp, jbp, un, mat, mg, shape, force_quality, civ, st, tradegoodpurpose, suppress_shaping, use_roll, roll) end
 
 ---@return boolean
 function item:isWeapon() end
@@ -1643,20 +1646,20 @@ function item:isEdibleCarnivore(hunger) end
 ---@return boolean
 function item:isEdibleBonecarn(hunger) end
 
----@param x number
----@param y number
----@param z number
+---@param gx number
+---@param gy number
+---@param gz number
 ---@return boolean
-function item:moveToGround(x, y, z) end
+function item:moveToGround(gx, gy, gz) end
 
----@param in_play boolean
-function item:categorize(in_play) end
+---@param play boolean
+function item:categorize(play) end
 
 function item:uncategorize() end
 
----@param empty boolean
+---@param tempallowed boolean
 ---@return boolean
-function item:isFurniture(empty) end
+function item:isFurniture(tempallowed) end
 
 ---@return boolean
 function item:isPressed() end
@@ -1664,31 +1667,31 @@ function item:isPressed() end
 ---@return boolean
 function item:isAnimal() end
 
----@param maker df.unit
----@param job_skill df.job_skill
+---@param un df.unit
+---@param sk df.job_skill
 ---@return df.item_quality
-function item:assignQuality(maker, job_skill) end
+function item:assignQuality(un, sk) end
 
----@param maker df.unit
----@param job_skill df.job_skill
----@param skill_roll number preferences add 10 to this, need 55 to roll masterworks
+---@param un df.unit
+---@param sk df.job_skill
+---@param roll number preferences add 10 to this, need 55 to roll masterworks
 ---@return df.item_quality
-function item:assignQualityRoll(maker, job_skill, skill_roll) end
+function item:assignQualityRoll(un, sk, roll) end
 
----@param maker df.unit
-function item:notifyCreatedMasterwork(maker) end
+---@param un df.unit
+function item:notifyCreatedMasterwork(un) end
 
 function item:notifyLostMasterwork() end
 
----@param bg number
-function item:setDisplayColor(bg) end
+---@param backcolor number
+function item:setDisplayColor(backcolor) end
 
 ---@return boolean
 function item:isDamagedByHeat() end
 
----@param anon_0 number
+---@param size number
 ---@return boolean
-function item:needTwoHandedWield(anon_0) end
+function item:needTwoHandedWield(size) end
 
 ---@param stack_size number
 ---@param preserve_containment boolean
@@ -1701,8 +1704,9 @@ function item:isTameableVermin() end
 ---@return boolean
 function item:isDye() end
 
+---@param color_index number
 ---@return number
-function item:getDyeAmount() end
+function item:getDyeAmount(color_index) end
 
 ---@return number
 function item:isDyeColor() end
@@ -1721,65 +1725,65 @@ function item:isLyeBearing() end
 ---@return boolean
 function item:isAnimalProduct() end
 
----@param item_type df.item_type
----@param material_category DFPointer<integer>
-function item:getStorageInfo(item_type, material_category) end
+---@param storei df.item_type
+---@param storecivmat DFPointer<integer>
+function item:getStorageInfo(storei, storecivmat) end
 
----@param delta number
----@param lose_masterwork boolean
+---@param count number
+---@param insanify boolean
 ---@param persist_parts boolean
 ---@return boolean
-function item:addWear(delta, lose_masterwork, persist_parts) end
+function item:addWear(count, insanify, persist_parts) end
 
----@param delta number
+---@param count number
 ---@return boolean
-function item:incWearTimer(delta) end
+function item:incWearTimer(count) end
 
----@param lose_masterwork boolean
+---@param insanify boolean
 ---@param persist_parts boolean
 ---@return boolean
-function item:checkWearDestroy(lose_masterwork, persist_parts) end
+function item:checkWearDestroy(insanify, persist_parts) end
 
----@param mat_type number
----@param mat_index number
----@param mat_state df.matter_state
----@param temp integer
----@param size number
----@param body_part_id number
----@param flags integer
-function item:addContaminant(mat_type, mat_index, mat_state, temp, size, body_part_id, flags) end
+---@param mat number
+---@param matg number
+---@param state df.matter_state
+---@param ctemp integer
+---@param level number
+---@param bphit number
+---@param flag integer
+function item:addContaminant(mat, matg, state, ctemp, level, bphit, flag) end
 
 ---@param index number
----@param amount number
-function item:removeContaminantByIdx(index, amount) end
+---@param level number
+function item:removeContaminantByIdx(index, level) end
 
----@param mat_type number
----@param mat_index number
----@param amount number
-function item:removeContaminant(mat_type, mat_index, amount) end
+---@param mat number
+---@param matg number
+---@param level number
+function item:removeContaminant(mat, matg, level) end
 
----@param anon_0 df.unit
----@param body_part_id number
-function item:tradeUnitContaminants(anon_0, body_part_id) end
+---@param un df.unit
+---@param bp number
+function item:tradeUnitContaminants(un, bp) end
 
----@param anon_0 df.item
-function item:tradeItemContaminants(anon_0) end
+---@param it df.item
+function item:tradeItemContaminants(it) end
 
----@param anon_0 df.item_actual
-function item:tradeItemActualContaminants(anon_0) end
+---@param it df.item_actual
+function item:tradeItemActualContaminants(it) end
 
----@param anon_0 df.unit
----@param anon_1 df.unit_wound
----@param shift number
----@param body_part_id number
-function item:contaminateWound(anon_0, anon_1, shift, body_part_id) end
+---@param un df.unit
+---@param wnd df.unit_wound
+---@param div number
+---@param wbp number
+function item:contaminateWound(un, wnd, div, wbp) end
 
----@param file df.file_compressorst
-function item:write_file(file) end
+---@param filecomp df.file_compressorst
+function item:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function item:read_file(file, loadversion) end
+function item:read_file(filecomp, loadversion) end
 
 ---@return DFPointer<integer>
 function item:getWeaponAttacks() end
@@ -1790,12 +1794,12 @@ function item:isNotHeld() end
 ---@return boolean
 function item:isActual() end
 
----@param anon_0 df.historical_entity add default thread improvement to items made of cloth
-function item:addDefaultThreadImprovement(anon_0) end
+---@param civ df.historical_entity
+function item:addDefaultThreadImprovement(civ) end
 
----@param anon_0 df.item
----@param anon_1 df.historical_entity add a specific thread improvement to items made of cloth
-function item:addThreadImprovement(anon_0, anon_1) end
+---@param sit df.item
+---@param civ df.historical_entity
+function item:addThreadImprovement(sit, civ) end
 
 function item:propagateUnitRefs() end
 
@@ -1808,15 +1812,15 @@ function item:get_production_zone_id() end
 ---@return number
 function item:getStackSize() end
 
----@param amount number
-function item:addStackSize(amount) end
+---@param d number
+function item:addStackSize(d) end
 
----@param amount number
-function item:setStackSize(amount) end
+---@param d number
+function item:setStackSize(d) end
 
----@param anon_0 string
+---@param check string
 ---@return boolean
-function item:isAmmoClass(anon_0) end
+function item:isAmmoClass(check) end
 
 ---@return boolean
 function item:isAutoClean() end
@@ -1824,42 +1828,42 @@ function item:isAutoClean() end
 ---@param x number
 ---@param y number
 ---@param z number
----@param _local boolean
----@param contained boolean
-function item:setTemperatureFromMapTile(x, y, z, _local, contained) end
+---@param tobject boolean
+---@param tcontents boolean
+function item:setTemperatureFromMapTile(x, y, z, tobject, tcontents) end
 
----@param _local boolean
----@param contained boolean
-function item:setTemperatureFromMap(_local, contained) end
+---@param tobject boolean
+---@param tcontents boolean
+function item:setTemperatureFromMap(tobject, tcontents) end
 
----@param temp integer
----@param _local boolean
----@param contained boolean
-function item:setTemperature(temp, _local, contained) end
+---@param newtmp integer
+---@param tobject boolean
+---@param tcontents boolean
+function item:setTemperature(newtmp, tobject, tcontents) end
 
----@param _local boolean
----@param contained boolean
----@param adjust boolean
----@param multiplier number
+---@param tobject boolean
+---@param tcontents boolean
+---@param main_turn boolean
+---@param amp number
 ---@return boolean
-function item:updateTempFromMap(_local, contained, adjust, multiplier) end
+function item:updateTempFromMap(tobject, tcontents, main_turn, amp) end
 
----@param temp integer
----@param _local boolean
----@param contained boolean
----@param adjust boolean
----@param multiplier number
+---@param newtmp integer
+---@param tobject boolean
+---@param tcontents boolean
+---@param main_turn boolean
+---@param amp number
 ---@return boolean
-function item:updateTemperature(temp, _local, contained, adjust, multiplier) end
+function item:updateTemperature(newtmp, tobject, tcontents, main_turn, amp) end
 
 ---@return boolean
 function item:updateFromWeather() end
 
----@param x number
----@param y number
----@param z number
+---@param lx number
+---@param ly number
+---@param lz number
 ---@return boolean
-function item:updateContaminants(x, y, z) end
+function item:updateContaminants(lx, ly, lz) end
 
 ---@return boolean
 function item:checkTemperatureDamage() end
@@ -1876,8 +1880,8 @@ function item:getMeleeSkill() end
 ---@return df.job_skill
 function item:getRangedSkill() end
 
----@param quality number
-function item:setQuality(quality) end
+---@param new_cq number
+function item:setQuality(new_cq) end
 
 ---@return number
 function item:getQuality() end
@@ -1891,15 +1895,15 @@ function item:getImprovementQuality() end
 ---@return number
 function item:getProjectileSize() end
 
----@param anon_0 df.job
----@param mat_type number
----@param mat_index number
+---@param jbp df.job
+---@param mat number
+---@param mg number
 ---@return boolean
-function item:isImprovable(anon_0, mat_type, mat_index) end
+function item:isImprovable(jbp, mat, mg) end
 
----@param item_quality number
+---@param cq number
 ---@param force_edge boolean
-function item:setSharpness(item_quality, force_edge) end
+function item:setSharpness(cq, force_edge) end
 
 ---@return number
 function item:getSharpness() end
@@ -1925,12 +1929,12 @@ function item:canHaveImageSewnOnto() end
 ---@return boolean
 function item:isProcessableVialAtStill() end
 
----@param item_type df.item_type
----@param item_subtype number
----@param mat_type number
----@param mat_index number
+---@param itemtype df.item_type
+---@param itemsubtype number
+---@param isubcat1 number
+---@param isubcat2 number
 ---@return boolean
-function item:isSimilarToItem(item_type, item_subtype, mat_type, mat_index) end
+function item:isSimilarToItem(itemtype, itemsubtype, isubcat1, isubcat2) end
 
 ---@return number
 function item:getBlockChance() end
@@ -1941,8 +1945,8 @@ function item:getParryChance() end
 ---@return number
 function item:getMakerRace() end
 
----@param anon_0 number
-function item:setMakerRace(anon_0) end
+---@param rm number
+function item:setMakerRace(rm) end
 
 ---@return number
 function item:getEffectiveArmorLevel() end
@@ -1956,15 +1960,15 @@ function item:wantsThreadImprovement() end
 ---@return boolean
 function item:wantsClothImprovement() end
 
----@param mat_type number
----@param mat_index number
----@param mat_state df.matter_state
----@param temperature integer
-function item:coverWithContaminant(mat_type, mat_index, mat_state, temperature) end
+---@param mat number
+---@param matg number
+---@param state df.matter_state
+---@param tmp integer
+function item:coverWithContaminant(mat, matg, state, tmp) end
 
----@param imp_type df.improvement_type
+---@param iitype df.improvement_type
 ---@return boolean
-function item:hasSpecificImprovements(imp_type) end
+function item:hasSpecificImprovements(iitype) end
 
 ---@return boolean
 function item:hasImprovements() end
@@ -1975,20 +1979,20 @@ function item:isImproved() end
 ---@return df.item_magicalst
 function item:getMagic() end
 
----@param anon_0 string
----@param plurality number 0 = prickle berries [2], 1 = prickle berry, 2 = prickle berries
-function item:getItemDescription(anon_0, plurality) end
+---@param str string
+---@param genericonly number 0 = prickle berries [2], 1 = prickle berry, 2 = prickle berries
+function item:getItemDescription(str, genericonly) end
 
----@param anon_0 string
----@param mode df.article_type
-function item:getItemDescriptionPrefix(anon_0, mode) end
+---@param str string
+---@param article df.article_type
+function item:getItemDescriptionPrefix(str, article) end
 
----@param anon_0 string
-function item:getItemBasicName(anon_0) end
+---@param str string
+function item:getItemBasicName(str) end
 
----@param caravan df.caravan_state
+---@param mer df.caravan_state
 ---@return number
-function item:getImprovementsValue(caravan) end
+function item:getImprovementsValue(mer) end
 
 ---@return boolean
 function item:isExtractBearingFish() end
@@ -2023,16 +2027,16 @@ function item:isClothing() end
 ---@return boolean
 function item:isWet() end
 
----@param appraiser df.historical_entity
+---@param civ df.historical_entity
 ---@return number
-function item:getCurrencyValue(appraiser) end
+function item:getCurrencyValue(civ) end
 
 ---@return boolean
 function item:isAssignedToStockpile() end
 
----@param anon_0 number
+---@param stk_id number
 ---@return boolean
-function item:isAssignedToThisStockpile(anon_0) end
+function item:isAssignedToThisStockpile(stk_id) end
 
 function item:detachStockpileAssignment() end
 
@@ -2041,41 +2045,41 @@ function item:removeStockpileAssignment() end
 ---@return df.item_stockpile_ref
 function item:getStockpile2() end
 
----@param mat_type number
----@param mat_index number
----@param u df.unit
----@param j df.job
+---@param mat number
+---@param matg number
+---@param un df.unit
+---@param jb df.job
 ---@param eddp df.entity_dye_descriptor_profilest
 ---@param use_dye_degree number
-function item:randomizeThreadImprovement(mat_type, mat_index, u, j, eddp, use_dye_degree) end
+function item:randomizeThreadImprovement(mat, matg, un, jb, eddp, use_dye_degree) end
 
----@param art_chunk_id number
----@param art_chunk_offse number
----@param art_civ number
----@param art_site number
----@param material number
----@param matgloss number
----@param dye_material number
----@param dye_matgloss number
----@param item df.item
----@param quality number
----@param skill_level number
----@param artist_hf number
-function item:addImprovement(art_chunk_id, art_chunk_offse, art_civ, art_site, material, matgloss, dye_material, dye_matgloss, item, quality, skill_level, artist_hf) end
+---@param chunk_id number
+---@param chunk_member number
+---@param gen_enid number
+---@param gen_stid number
+---@param mat number
+---@param matg number
+---@param dyemat number
+---@param dyematg number
+---@param itmat df.item
+---@param cq number quality
+---@param skat number skill_at_time
+---@param artist_hfid number
+function item:addImprovement(chunk_id, chunk_member, gen_enid, gen_stid, mat, matg, dyemat, dyematg, itmat, cq, skat, artist_hfid) end
 
----@param anon_0 df.item
-function item:copyImprovementsFrom(anon_0) end
+---@param it df.item
+function item:copyImprovementsFrom(it) end
 
----@param caravan df.caravan_state
+---@param mer df.caravan_state
 ---@return number
-function item:getThreadDyeValue(caravan) end
+function item:getThreadDyeValue(mer) end
 
 ---@return number
 function item:getColorWhetherDyedOrNot() end
 
----@param colors DFPointer<integer>
----@param shapes DFPointer<integer>
-function item:getColorAndShape(colors, shapes) end
+---@param i_color DFPointer<integer>
+---@param i_shape DFPointer<integer>
+function item:getColorAndShape(i_color, i_shape) end
 
 ---@return boolean
 function item:isCritter() end
@@ -2083,22 +2087,22 @@ function item:isCritter() end
 ---@return boolean
 function item:isArmor() end
 
----@param anon_0 df.squad_uniform_spec
----@param exact_match boolean
----@param best_any df.job_skill
----@param best_melee df.job_skill
----@param best_ranged df.job_skill
+---@param sl df.squad_uniform_spec
+---@param exact_match_required boolean
+---@param overall_sk df.job_skill
+---@param melee_sk df.job_skill
+---@param ranged_sk df.job_skill
 ---@return number
-function item:calcUniformScore(anon_0, exact_match, best_any, best_melee, best_ranged) end
+function item:calcUniformScore(sl, exact_match_required, overall_sk, melee_sk, ranged_sk) end
 
 ---@return number
 function item:calcBaseUniformScore() end
 
----@param race_id number
----@param caste_id number
----@param maximum number
+---@param race number
+---@param caste number
+---@param contact_area number
 ---@return number
-function item:get_attack_clothing_size(race_id, caste_id, maximum) end
+function item:get_attack_clothing_size(race, caste, contact_area) end
 
 ---@return boolean
 function item:is_structurally_elastic() end
@@ -2106,19 +2110,19 @@ function item:is_structurally_elastic() end
 ---@return boolean
 function item:is_woven() end
 
----@param kill_event number
----@param slayer_hf number
-function item:add_hf_kill(kill_event, slayer_hf) end
+---@param kill_heid number
+---@param nslayer_hfid number
+function item:add_hf_kill(kill_heid, nslayer_hfid) end
 
----@param race number
----@param caste number
----@param subregion number
----@param feature_layer number
----@param site number
----@param kill_flag number
----@param slayer_hf number
----@param quantity number
-function item:add_non_hf_kill(race, caste, subregion, feature_layer, site, kill_flag, slayer_hf, quantity) end
+---@param k_race number
+---@param k_caste number
+---@param srid number
+---@param flid number
+---@param stid number
+---@param kflag number
+---@param nslayer_hfid number
+---@param number number
+function item:add_non_hf_kill(k_race, k_caste, srid, flid, stid, kflag, nslayer_hfid, number) end
 
 function item:add_block_parry_deflect() end
 
@@ -2136,8 +2140,8 @@ function item:isGlazed() end
 ---@return boolean
 function item:isGemShapeable() end
 
----@param shape number References: `df.descriptor_shape`
-function item:setGemShape(shape) end
+---@param nshape number References: `df.descriptor_shape`
+function item:setGemShape(nshape) end
 
 ---@return boolean
 function item:isStoneShapeable() end
@@ -2224,7 +2228,7 @@ function df.item_actual:new() end
 
 ---@class (exact) df.item_barst: DFStruct, df.item_actual
 ---@field _type identity.item_barst
----@field subtype number supposedly used for coal
+---@field subtype number originally used for coal
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field dimension number
@@ -2576,7 +2580,7 @@ function _item_body_component_appearance_tissue_style:erase(index) end
 
 ---@class (exact) df.item_body_component.T_largest_tissue: DFStruct
 ---@field _type identity.item_body_component.largest_tissue
----@field mat_type number References: `df.material`
+---@field mat_type number not a compound<br>References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_body_component.largest_tissue: DFCompoundType
@@ -2588,7 +2592,7 @@ function df.item_body_component.T_largest_tissue:new() end
 
 ---@class (exact) df.item_body_component.T_largest_unrottable_tissue: DFStruct
 ---@field _type identity.item_body_component.largest_unrottable_tissue
----@field mat_type number References: `df.material`
+---@field mat_type number not a compound<br>References: `df.material`
 ---@field mat_index number
 
 ---@class identity.item_body_component.largest_unrottable_tissue: DFCompoundType
@@ -5703,16 +5707,16 @@ function _items_other_BOX:insert(index, item) end
 function _items_other_BOX:erase(index) end
 
 ---@class _items_other_BAG: DFContainer
----@field [integer] df.item
+---@field [integer] df.item_bagst
 local _items_other_BAG
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.item>
+---@return DFPointer<df.item_bagst>
 function _items_other_BAG:_field(index) end
 
 ---@param index '#'|integer
----@param item df.item
+---@param item df.item_bagst
 function _items_other_BAG:insert(index, item) end
 
 ---@param index integer
@@ -5831,16 +5835,16 @@ function _items_other_BALLISTAPARTS:insert(index, item) end
 function _items_other_BALLISTAPARTS:erase(index) end
 
 ---@class _items_other_BOLT_THROWER_PARTS: DFContainer
----@field [integer] df.item
+---@field [integer] df.item_bolt_thrower_partsst
 local _items_other_BOLT_THROWER_PARTS
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.item>
+---@return DFPointer<df.item_bolt_thrower_partsst>
 function _items_other_BOLT_THROWER_PARTS:_field(index) end
 
 ---@param index '#'|integer
----@param item df.item
+---@param item df.item_bolt_thrower_partsst
 function _items_other_BOLT_THROWER_PARTS:insert(index, item) end
 
 ---@param index integer
@@ -5959,16 +5963,16 @@ function _items_other_DRINK:insert(index, item) end
 function _items_other_DRINK:erase(index) end
 
 ---@class _items_other_ANY_DRINK: DFContainer
----@field [integer] df.item_drinkst
+---@field [integer] df.item
 local _items_other_ANY_DRINK
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.item_drinkst>
+---@return DFPointer<df.item>
 function _items_other_ANY_DRINK:_field(index) end
 
 ---@param index '#'|integer
----@param item df.item_drinkst
+---@param item df.item
 function _items_other_ANY_DRINK:insert(index, item) end
 
 ---@param index integer
@@ -6071,16 +6075,16 @@ function _items_other_PET:insert(index, item) end
 function _items_other_PET:erase(index) end
 
 ---@class _items_other_ANY_CRITTER: DFContainer
----@field [integer] df.item
+---@field [integer] df.item_critter
 local _items_other_ANY_CRITTER
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.item>
+---@return DFPointer<df.item_critter>
 function _items_other_ANY_CRITTER:_field(index) end
 
 ---@param index '#'|integer
----@param item df.item
+---@param item df.item_critter
 function _items_other_ANY_CRITTER:insert(index, item) end
 
 ---@param index integer
@@ -6743,16 +6747,16 @@ function _items_other_POSSIBLE_CONTAINER:insert(index, item) end
 function _items_other_POSSIBLE_CONTAINER:erase(index) end
 
 ---@class _items_other_FOOD_STORAGE: DFContainer
----@field [integer] df.item
+---@field [integer] df.item_actual
 local _items_other_FOOD_STORAGE
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.item>
+---@return DFPointer<df.item_actual>
 function _items_other_FOOD_STORAGE:_field(index) end
 
 ---@param index '#'|integer
----@param item df.item
+---@param item df.item_actual
 function _items_other_FOOD_STORAGE:insert(index, item) end
 
 ---@param index integer

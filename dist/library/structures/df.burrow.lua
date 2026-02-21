@@ -25,7 +25,7 @@ df.burrow_flag = {}
 ---@field block_x DFNumberVector
 ---@field block_y DFNumberVector
 ---@field block_z DFNumberVector
----@field units DFNumberVector
+---@field units DFNumberVector binary
 ---@field flags df.burrow_flag
 ---@field solid_texpos number
 ---@field blended_texpos number

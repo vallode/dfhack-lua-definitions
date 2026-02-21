@@ -17,8 +17,8 @@
 ---@field [5] boolean reindex_pathfinding set and flag cleared if temperature above 10000
 ---@field has_aquifer boolean has at least one "water_table" designation flag
 ---@field [6] boolean has at least one "water_table" designation flag
----@field check_aquifer boolean bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
----@field [7] boolean bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
+---@field check_aquifer boolean has tiles that may get flooded by an adjacent aquifer
+---@field [7] boolean has tiles that may get flooded by an adjacent aquifer
 ---@field may_have_item_spatter boolean
 ---@field [8] boolean
 ---@field may_have_material_spatter boolean usually mud
@@ -51,8 +51,8 @@
 ---@field [5] "repath_on_melt" reindex_pathfinding set and flag cleared if temperature above 10000
 ---@field has_aquifer 6 has at least one "water_table" designation flag
 ---@field [6] "has_aquifer" has at least one "water_table" designation flag
----@field check_aquifer 7 bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
----@field [7] "check_aquifer" bay12: NEARBY_WATER_TABLE; has tiles that may get flooded by an adjacent aquifer
+---@field check_aquifer 7 has tiles that may get flooded by an adjacent aquifer
+---@field [7] "check_aquifer" has tiles that may get flooded by an adjacent aquifer
 ---@field may_have_item_spatter 8
 ---@field [8] "may_have_item_spatter"
 ---@field may_have_material_spatter 9 usually mud
@@ -72,6 +72,7 @@
 df.block_flags = {}
 
 ---@alias df.block_square_event_type
+---| -1 # NONE
 ---| 0 # mineral
 ---| 1 # frozen_liquid
 ---| 2 # world_construction
@@ -82,8 +83,10 @@ df.block_flags = {}
 ---| 7 # designation_priority
 
 ---@class identity.block_square_event_type: DFEnumType
----@field mineral 0 bay12: BlockSquareEventType
----@field [0] "mineral" bay12: BlockSquareEventType
+---@field NONE -1 bay12: BlockSquareEventType
+---@field [-1] "NONE" bay12: BlockSquareEventType
+---@field mineral 0
+---@field [0] "mineral"
 ---@field frozen_liquid 1
 ---@field [1] "frozen_liquid"
 ---@field world_construction 2
@@ -107,20 +110,20 @@ local block_square_event
 ---@return df.block_square_event_type
 function block_square_event:getType() end
 
----@param file df.file_compressorst
-function block_square_event:write_file(file) end
+---@param filecomp df.file_compressorst
+function block_square_event:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function block_square_event:read_file(file, loadversion) end
+function block_square_event:read_file(filecomp, loadversion) end
 
 ---@return boolean
 function block_square_event:isEmpty() end
 
 ---@param x number
 ---@param y number
----@param temperature integer
-function block_square_event:checkTemperature(x, y, temperature) end
+---@param ct integer
+function block_square_event:checkTemperature(x, y, ct) end
 
 
 ---@class identity.block_square_event: DFCompoundType
@@ -354,8 +357,8 @@ function df.bse_spoor_datast:new() end
 ---@field flags df.spoor_flag[][]
 ---@field type df.spoor_type[][]
 ---@field id1 number[][]
----@field race number[][] bay12: id2, varies based on type
----@field caste number[][] bay12: id3, varies based on type
+---@field race number[][] varies based on type
+---@field caste number[][] varies based on type
 ---@field age number[][] in half-seconds
 ---@field year number
 ---@field year_tick number
@@ -448,13 +451,13 @@ function df.block_burrow:new() end
 ---@field tiletype df.tiletype[][]
 ---@field designation df.tile_designation[][]
 ---@field occupancy df.tile_occupancy[][]
----@field fog_of_war integer[][] bay12: memmap; for adventure mode
+---@field fog_of_war integer[][] for adventure mode
 ---@field path_cost number[][] flood; 256*cost for straight, 362*cost for diagonal
 ---@field path_tag integer[][] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
 ---@field walkable number[][] 0 = non-walkable; same nonzero at A and B = walkable from A to B
 ---@field map_edge_distance number[][] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
----@field temperature_1 integer[][] bay12: current_temperature
----@field temperature_2 integer[][] bay12: normal_temperature
+---@field temperature_1 integer[][]
+---@field temperature_2 integer[][]
 ---@field lighting integer[][]
 ---@field liquid_flow df.tile_liquid_flow[][]
 ---@field region_offset number[]
@@ -549,12 +552,12 @@ function df.cave_column_link:new() end
 ---@field flags df.cave_column_flag
 local cave_column
 
----@param file df.file_compressorst
-function cave_column:write_file(file) end
+---@param filecomp df.file_compressorst
+function cave_column:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function cave_column:read_file(file, loadversion) end
+function cave_column:read_file(filecomp, loadversion) end
 
 
 ---@class identity.cave_column: DFCompoundType
@@ -596,12 +599,12 @@ df.cave_column_rectangle_flag = {}
 ---@field flags df.cave_column_rectangle_flag
 local cave_column_rectangle
 
----@param file df.file_compressorst
-function cave_column_rectangle:write_file(file) end
+---@param filecomp df.file_compressorst
+function cave_column_rectangle:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function cave_column_rectangle:read_file(file, loadversion) end
+function cave_column_rectangle:read_file(filecomp, loadversion) end
 
 
 ---@class identity.cave_column_rectangle: DFCompoundType
@@ -634,9 +637,9 @@ df.map_block_column_flags = {}
 
 ---@class (exact) df.map_block_column: DFStruct
 ---@field _type identity.map_block_column
----@field sink_level number bay12: water_el_table_block; water at or above this level sinks into aquifer tiles
----@field beach_level number bay12: water_el_sink_height; water at this level disappears if above more water
----@field ground_level number bay12: central_el_z; for coloring unallocated blocks
+---@field sink_level number water at or above this level sinks into aquifer tiles
+---@field beach_level number water at this level disappears if above more water
+---@field ground_level number for coloring unallocated blocks
 ---@field unmined_glyphs _map_block_column_unmined_glyphs
 ---@field z_base number
 ---@field cave_columns df.cave_column_link[][]

@@ -121,12 +121,12 @@ local site_realization_building_infost
 ---@return df.site_realization_building_type
 function site_realization_building_infost:getType() end
 
----@param file df.file_compressorst
-function site_realization_building_infost:write_file(file) end
+---@param filecomp df.file_compressorst
+function site_realization_building_infost:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function site_realization_building_infost:read_file(file, loadversion) end
+function site_realization_building_infost:read_file(filecomp, loadversion) end
 
 
 ---@class identity.site_realization_building_infost: DFCompoundType
@@ -425,9 +425,10 @@ df.site_realization_building_info_trenchesst = {}
 ---@return df.site_realization_building_info_trenchesst
 function df.site_realization_building_info_trenchesst:new() end
 
+-- actually 4 arrays, local_[n/s/e/w]_con
 ---@class (exact) df.site_realization_building_info_trenchesst.T_spokes: DFStruct
 ---@field _type identity.site_realization_building_info_trenchesst.spokes
----@field mound_min number -30000 = nothing here
+---@field mound_min number actually 4 arrays, local_[n/s/e/w]_con
 ---@field trench_min number
 ---@field trench_max number
 ---@field mound_max number

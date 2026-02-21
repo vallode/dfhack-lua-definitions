@@ -12,13 +12,16 @@
 df.announcement_info_flag = {}
 
 ---@alias df.report_zoom_type
+---| -1 # NONE
 ---| 0 # Generic
 ---| 1 # Item
 ---| 2 # Unit
 
 ---@class identity.report_zoom_type: DFEnumType
----@field Generic 0 bay12: AnnouncementLocationType
----@field [0] "Generic" bay12: AnnouncementLocationType
+---@field NONE -1 bay12: AnnouncementLocationType
+---@field [-1] "NONE" bay12: AnnouncementLocationType
+---@field Generic 0
+---@field [0] "Generic"
 ---@field Item 1
 ---@field [1] "Item"
 ---@field Unit 2
@@ -57,16 +60,16 @@ function df.announcement_infost:new() end
 ---@field [0] boolean bay12: ANNOUNCEMENTFLAG_*
 ---@field unconscious boolean units.active[0]
 ---@field [1] boolean units.active[0]
----@field announcement boolean displayed
----@field [2] boolean displayed
+---@field announcement boolean
+---@field [2] boolean
 
 ---@class identity.announcement_flag: DFBitfieldType
 ---@field continuation 0 bay12: ANNOUNCEMENTFLAG_*
 ---@field [0] "continuation" bay12: ANNOUNCEMENTFLAG_*
 ---@field unconscious 1 units.active[0]
 ---@field [1] "unconscious" units.active[0]
----@field announcement 2 displayed
----@field [2] "announcement" displayed
+---@field announcement 2
+---@field [2] "announcement"
 df.announcement_flag = {}
 
 ---@class (exact) df.report: DFStruct
@@ -409,8 +412,8 @@ df.announcement_temp_flag = {}
 
 ---@class (exact) df.announcement_handlerst: DFStruct
 ---@field _type identity.announcement_handlerst
----@field reports _announcement_handlerst_reports global
----@field announcements _announcement_handlerst_announcements display
+---@field reports _announcement_handlerst_reports
+---@field announcements _announcement_handlerst_announcements
 ---@field popups _announcement_handlerst_popups
 ---@field mega_text df.markup_text_boxst
 ---@field mega_portrait_hfid number References: `df.historical_figure`
@@ -422,14 +425,14 @@ df.announcement_temp_flag = {}
 ---@field interrogation_reports _announcement_handlerst_interrogation_reports
 ---@field announcement_alert _announcement_handlerst_announcement_alert
 ---@field alert_button_announcement_id DFNumberVector entries are report ids
----@field display_timer number bay12: announcetime
+---@field display_timer number
 ---@field slots df.combat_event_listst
 ---@field temp_flag df.announcement_temp_flag
 ---@field adv_scroll_position number
 ---@field adv_scrolling boolean
 ---@field adv_highest_scroll_position number
 ---@field adv_announcement _announcement_handlerst_adv_announcement
----@field announcement_mutex lightuserdata bay12: mtx
+---@field announcement_mutex lightuserdata
 
 ---@class identity.announcement_handlerst: DFCompoundType
 ---@field _kind 'struct-type'

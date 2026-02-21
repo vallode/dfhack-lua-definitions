@@ -34,12 +34,12 @@ local world_construction_square
 ---@return df.world_construction_square_type
 function world_construction_square:getType() end
 
----@param file df.file_compressorst
-function world_construction_square:write_file(file) end
+---@param filecomp df.file_compressorst
+function world_construction_square:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function world_construction_square:read_file(file, loadversion) end
+function world_construction_square:read_file(filecomp, loadversion) end
 
 
 ---@class identity.world_construction_square: DFCompoundType
@@ -142,12 +142,12 @@ function world_construction:getType() end
 ---@return df.language_name
 function world_construction:getName() end
 
----@param file df.file_compressorst
-function world_construction:write_file(file) end
+---@param filecomp df.file_compressorst
+function world_construction:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function world_construction:read_file(file, loadversion) end
+function world_construction:read_file(filecomp, loadversion) end
 
 
 ---@class identity.world_construction: DFCompoundType

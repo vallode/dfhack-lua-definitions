@@ -79,7 +79,7 @@ df.interaction_information_flag = {}
 ---@field adv_name string
 ---@field wait_period number
 ---@field texpos_list_icon number[][]
----@field texpos_default_list_icon number InterfaceButtonMain
+---@field texpos_default_list_icon number InterfaceButtonMain, skipped gigantic enum
 
 ---@class identity.interaction_informationst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -399,14 +399,14 @@ function creature_interaction_effect:getType() end
 ---@return df.creature_interaction_effect
 function creature_interaction_effect:clone() end
 
----@param anon_0 df.unit
----@param anon_1 df.unit_syndrome
----@param anon_2 df.syndrome
----@param intensity number
----@param bp_index number
----@param bp_layer number
----@param anon_3 DFPointer<integer>
-function creature_interaction_effect:doAction(anon_0, anon_1, anon_2, intensity, bp_index, bp_layer, anon_3) end
+---@param un df.unit
+---@param as df.unit_syndrome
+---@param cis df.syndrome
+---@param adjusted_level number
+---@param bp number
+---@param tl number
+---@param uw DFPointer<integer>
+function creature_interaction_effect:doAction(un, as, cis, adjusted_level, bp, tl, uw) end
 
 ---@return boolean
 function creature_interaction_effect:isUntargeted() end
@@ -420,37 +420,37 @@ function creature_interaction_effect:getTargetKeys() end
 ---@return DFPointer<integer>
 function creature_interaction_effect:getTargetTissues() end
 
----@param anon_0 integer
+---@param test_flag integer
 ---@return boolean
-function creature_interaction_effect:checkAddFlag1(anon_0) end
+function creature_interaction_effect:checkAddFlag1(test_flag) end
 
----@param tok string
-function creature_interaction_effect:parseLineInteraction(tok) end
+---@param tok1 string
+function creature_interaction_effect:parseLineInteraction(tok1) end
 
----@param tok string
-function creature_interaction_effect:parseLineSyndromeFlag(tok) end
+---@param tok1 string
+function creature_interaction_effect:parseLineSyndromeFlag(tok1) end
 
 ---@param tok1 string
 ---@param tok2 string
 function creature_interaction_effect:parseLineCreature(tok1, tok2) end
 
----@param tok string
-function creature_interaction_effect:parseLineCreatureFlag(tok) end
+---@param tok1 string
+function creature_interaction_effect:parseLineCreatureFlag(tok1) end
 
----@param tok string
-function creature_interaction_effect:parseLineForbiddenCreatureFlag(tok) end
+---@param tok1 string
+function creature_interaction_effect:parseLineForbiddenCreatureFlag(tok1) end
 
----@param tok string
-function creature_interaction_effect:parseLineCreatureCasteFlag(tok) end
+---@param tok1 string
+function creature_interaction_effect:parseLineCreatureCasteFlag(tok1) end
 
----@param tok string
-function creature_interaction_effect:parseLineForbiddenCreatureCasteFlag(tok) end
+---@param tok1 string
+function creature_interaction_effect:parseLineForbiddenCreatureCasteFlag(tok1) end
 
----@param speed number
-function creature_interaction_effect:parseLineMinGaitSpeed(speed) end
+---@param mspeed number
+function creature_interaction_effect:parseLineMinGaitSpeed(mspeed) end
 
----@param speed number
-function creature_interaction_effect:parseLineMaxGaitSpeed(speed) end
+---@param mspeed number
+function creature_interaction_effect:parseLineMaxGaitSpeed(mspeed) end
 
 ---@param tok1 string
 ---@param tok2 string
@@ -464,8 +464,8 @@ function creature_interaction_effect:parseLinePeriodic(tok1, tok2, tok3) end
 function creature_interaction_effect:parseLineCounter(tok1, tok2, tok3, tok4) end
 
 ---@param hf df.historical_figure
----@param worldgen boolean
-function creature_interaction_effect:applyToHistfig(hf, worldgen) end
+---@param in_worldgen boolean
+function creature_interaction_effect:applyToHistfig(hf, in_worldgen) end
 
 function creature_interaction_effect:finalize() end
 
@@ -1725,7 +1725,7 @@ df.cie_display_tile_flag = {}
 ---@field _type identity.creature_interaction_effect_display_symbolst
 ---@field tile integer
 ---@field sym_color number[]
----@field tile_flags df.cie_display_tile_flag
+---@field tile_flags df.cie_display_tile_flag not an array
 
 ---@class identity.creature_interaction_effect_display_symbolst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1738,7 +1738,7 @@ function df.creature_interaction_effect_display_symbolst:new() end
 ---@field _type identity.creature_interaction_effect_flash_symbolst
 ---@field tile integer
 ---@field sym_color number[]
----@field period number
+---@field period number not an array
 ---@field time number
 ---@field tile_flags df.cie_display_tile_flag
 
@@ -1924,7 +1924,7 @@ function df.creature_interaction_effect_body_transformationst:new() end
 ---@field syn_identifier string
 ---@field flags df.syndrome_flags
 ---@field syn_concentration_added number[]
----@field id number
+---@field id number not an array, added+max
 
 ---@class identity.syndrome: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2005,18 +2005,18 @@ function _creature_interactionst_syndrome:erase(index) end
 ---@field butcher_special_type df.item_type
 ---@field butcher_special_subtype number
 ---@field meat_name string[]
----@field meat_organ df.meat_category_type used for texture selection
+---@field meat_organ df.meat_category_type not an array
 ---@field block_name string[]
 ---@field reaction_product df.material_template.T_reaction_product
 ---@field hardens_with_water df.material_template.T_hardens_with_water
 ---@field reaction_class DFStringVector
 ---@field tile integer
 ---@field basic_color number[]
----@field build_color number[]
----@field tile_color number[]
----@field item_symbol integer
+---@field build_color number[] not an array
+---@field tile_color number[] not an array
+---@field item_symbol integer not an array
 ---@field powder_dye number
----@field temp_diet_info df.temp_diet_info_type // color token index
+---@field temp_diet_info df.temp_diet_info_type color token index
 ---@field syndrome df.creature_interactionst
 ---@field soap_level number
 ---@field sphere _material_template_sphere
@@ -2078,6 +2078,7 @@ function _material_template_flags:insert(index, item) end
 ---@param index integer
 function _material_template_flags:erase(index) end
 
+-- not an array
 ---@class (exact) df.material_template.T_reaction_product: DFStruct
 ---@field _type identity.material_template.reaction_product
 ---@field id DFStringVector not a compound
@@ -2185,19 +2186,19 @@ function _material_template_handlerst_all:erase(index) end
 ---@field butcher_special_type df.item_type
 ---@field butcher_special_subtype number
 ---@field meat_name string[]
----@field meat_organ df.meat_category_type used for texture selection
+---@field meat_organ df.meat_category_type not an array
 ---@field block_name string[]
 ---@field reaction_product df.material.T_reaction_product
 ---@field hardens_with_water df.material.T_hardens_with_water
 ---@field reaction_class DFStringVector
 ---@field tile integer
 ---@field basic_color number[]
----@field build_color number[]
----@field tile_color number[]
----@field item_symbol integer
+---@field build_color number[] not an array
+---@field tile_color number[] not an array
+---@field item_symbol integer not an array
 ---@field mat_rgb number[]
 ---@field powder_dye number
----@field temp_diet_info df.temp_diet_info_type // color token index
+---@field temp_diet_info df.temp_diet_info_type color token index
 ---@field syndrome df.creature_interactionst
 ---@field soap_level number
 ---@field sphere _material_sphere
@@ -2270,6 +2271,7 @@ function _material_flags:insert(index, item) end
 ---@param index integer
 function _material_flags:erase(index) end
 
+-- not an array
 ---@class (exact) df.material.T_reaction_product: DFStruct
 ---@field _type identity.material.reaction_product
 ---@field id DFStringVector not a compound
@@ -2348,7 +2350,7 @@ function df.special_mat_table:new() end
 
 ---@class (exact) df.special_mat_table.T_syndromes: DFStruct
 ---@field _type identity.special_mat_table.syndromes
----@field mat_types DFNumberVector
+---@field mat_types DFNumberVector not a compound
 ---@field mat_indexes DFNumberVector
 ---@field interactions DFNumberVector
 ---@field all _special_mat_table_syndromes_all
@@ -2378,7 +2380,7 @@ function _special_mat_table_syndromes_all:erase(index) end
 
 ---@class (exact) df.special_mat_table.T_effects: DFStruct
 ---@field _type identity.special_mat_table.effects
----@field mat_types DFNumberVector
+---@field mat_types DFNumberVector not a compound
 ---@field mat_indexes DFNumberVector
 ---@field interactions DFNumberVector
 ---@field all _special_mat_table_effects_all

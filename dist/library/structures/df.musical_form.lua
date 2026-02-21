@@ -13,12 +13,12 @@
 ---@field [3] boolean
 ---@field PlayRapidRuns boolean
 ---@field [4] boolean
----@field LocallyImprovise boolean Melisma
----@field [5] boolean Melisma
----@field SpreadSyllablesOverManyNotes boolean Syllabic
----@field [6] boolean Syllabic
----@field MatchNotesAndSyllables boolean LocalImprovisation
----@field [7] boolean LocalImprovisation
+---@field LocallyImprovise boolean
+---@field [5] boolean
+---@field SpreadSyllablesOverManyNotes boolean
+---@field [6] boolean
+---@field MatchNotesAndSyllables boolean
+---@field [7] boolean
 ---@field Syncopate boolean
 ---@field [8] boolean
 ---@field AddFills boolean
@@ -47,12 +47,12 @@
 ---@field [3] "MakeTrills"
 ---@field PlayRapidRuns 4
 ---@field [4] "PlayRapidRuns"
----@field LocallyImprovise 5 Melisma
----@field [5] "LocallyImprovise" Melisma
----@field SpreadSyllablesOverManyNotes 6 Syllabic
----@field [6] "SpreadSyllablesOverManyNotes" Syllabic
----@field MatchNotesAndSyllables 7 LocalImprovisation
----@field [7] "MatchNotesAndSyllables" LocalImprovisation
+---@field LocallyImprovise 5
+---@field [5] "LocallyImprovise"
+---@field SpreadSyllablesOverManyNotes 6
+---@field [6] "SpreadSyllablesOverManyNotes"
+---@field MatchNotesAndSyllables 7
+---@field [7] "MatchNotesAndSyllables"
 ---@field Syncopate 8
 ---@field [8] "Syncopate"
 ---@field AddFills 9
@@ -168,18 +168,18 @@ df.musical_form_feature = {}
 ---@field [7] "VeryFast"
 ---@field ExtremelyFast 8
 ---@field [8] "ExtremelyFast"
----@field DoubleTempo 9 twice the tempo of the last passage
----@field [9] "DoubleTempo" twice the tempo of the last passage
+---@field DoubleTempo 9
+---@field [9] "DoubleTempo"
 ---@field HalfTempo 10 10
 ---@field [10] "HalfTempo" 10
----@field Faster 11 more quickly than the last passage
----@field [11] "Faster" more quickly than the last passage
----@field Slower 12 slower than the last passage
----@field [12] "Slower" slower than the last passage
----@field ResumeTempo 13 resumes the previous tempo
----@field [13] "ResumeTempo" resumes the previous tempo
----@field OriginalTempo 14 resumes the original tempo
----@field [14] "OriginalTempo" resumes the original tempo
+---@field Faster 11
+---@field [11] "Faster"
+---@field Slower 12
+---@field [12] "Slower"
+---@field ResumeTempo 13
+---@field [13] "ResumeTempo"
+---@field OriginalTempo 14
+---@field [14] "OriginalTempo"
 ---@field Accelerates 15
 ---@field [15] "Accelerates"
 ---@field SlowsAndBroadens 16
@@ -190,8 +190,8 @@ df.musical_form_feature = {}
 ---@field [18] "HurriedPace"
 ---@field GraduallySlowsAtEnd 19
 ---@field [19] "GraduallySlowsAtEnd"
----@field WhisperedUndertones 20 20<br>dynamic styles
----@field [20] "WhisperedUndertones" 20<br>dynamic styles
+---@field WhisperedUndertones 20 20<br>loudness styles
+---@field [20] "WhisperedUndertones" 20<br>loudness styles
 ---@field VerySoft 21
 ---@field [21] "VerySoft"
 ---@field Soft 22
@@ -212,14 +212,14 @@ df.musical_form_feature = {}
 ---@field [29] "FadeIntoSilence"
 ---@field StartLoudThenImmediatelySoft 30 30
 ---@field [30] "StartLoudThenImmediatelySoft" 30
----@field SlowsAndDiesAwayAtEnd 31 more tempo styles
----@field [31] "SlowsAndDiesAwayAtEnd" more tempo styles
+---@field SlowsAndDiesAwayAtEnd 31 compound styles
+---@field [31] "SlowsAndDiesAwayAtEnd" compound styles
 ---@field BecomesCalmerAtEnd 32
 ---@field [32] "BecomesCalmerAtEnd"
 ---@field BecomesFrenzied 33
 ---@field [33] "BecomesFrenzied"
----@field StressRhythm 34 overall styles
----@field [34] "StressRhythm" overall styles
+---@field StressRhythm 34 mood styles
+---@field [34] "StressRhythm" mood styles
 ---@field BeStately 35
 ---@field [35] "BeStately"
 ---@field BeBright 36
@@ -352,14 +352,17 @@ df.musical_form_interval = {}
 function df.musical_form_interval:new() end
 
 ---@alias df.musical_form_melody_style
+---| -1 # NONE
 ---| 0 # Rising
 ---| 1 # Falling
 ---| 2 # RisingFalling
 ---| 3 # FallingRising
 
 ---@class identity.musical_form_melody_style: DFEnumType
----@field Rising 0 bay12: MelodyPatternType
----@field [0] "Rising" bay12: MelodyPatternType
+---@field NONE -1 bay12: MelodyPatternType
+---@field [-1] "NONE" bay12: MelodyPatternType
+---@field Rising 0
+---@field [0] "Rising"
 ---@field Falling 1
 ---@field [1] "Falling"
 ---@field RisingFalling 2
@@ -369,13 +372,16 @@ function df.musical_form_interval:new() end
 df.musical_form_melody_style = {}
 
 ---@alias df.musical_form_melody_frequency
+---| -1 # NONE
 ---| 0 # Always
 ---| 1 # Often
 ---| 2 # Sometimes
 
 ---@class identity.musical_form_melody_frequency: DFEnumType
----@field Always 0 bay12: MelodyFrequencyType
----@field [0] "Always" bay12: MelodyFrequencyType
+---@field NONE -1 bay12: MelodyFrequencyType
+---@field [-1] "NONE" bay12: MelodyFrequencyType
+---@field Always 0
+---@field [0] "Always"
 ---@field Often 1
 ---@field [1] "Often"
 ---@field Sometimes 2
@@ -422,14 +428,14 @@ function _musical_form_melodies_intervals:erase(index) end
 ---@class identity.musical_form_passage_length_type: DFEnumType
 ---@field NONE -1 bay12: VoicePhraseLengthType
 ---@field [-1] "NONE" bay12: VoicePhraseLengthType
----@field Short 0
----@field [0] "Short"
----@field MidLength 1
----@field [1] "MidLength"
----@field Long 2
----@field [2] "Long"
----@field Varied 3
----@field [3] "Varied"
+---@field Short 0 2 bars
+---@field [0] "Short" 2 bars
+---@field MidLength 1 4 bars
+---@field [1] "MidLength" 4 bars
+---@field Long 2 8 bars
+---@field [2] "Long" 8 bars
+---@field Varied 3 2-8 bars
+---@field [3] "Varied" 2-8 bars
 df.musical_form_passage_length_type = {}
 
 ---@alias df.musical_form_passage_component_type
@@ -473,8 +479,8 @@ df.musical_form_passage_component_type = {}
 ---@class identity.musical_form_passage_type: DFEnumType
 ---@field NONE -1 bay12: MusicalPassageType
 ---@field [-1] "NONE" bay12: MusicalPassageType
----@field Unrelated 0 Simple
----@field [0] "Unrelated" Simple
+---@field Unrelated 0
+---@field [0] "Unrelated"
 ---@field Introduction 1
 ---@field [1] "Introduction"
 ---@field Exposition 2
@@ -605,8 +611,8 @@ df.musical_form_voice_flag = {}
 ---@field instrument_subtype number -1 = vocal<br>References: `df.itemdef_instrumentst`
 ---@field substitutions df.musical_form_voice_flag
 ---@field features df.musical_form_feature
----@field minimum_required number tentative
----@field maximum_permitted number tentative
+---@field minimum_required number
+---@field maximum_permitted number
 ---@field dynamic_style df.musical_form_style
 ---@field overall_style df.musical_form_style
 
@@ -632,14 +638,17 @@ df.musical_form_play_orderst = {}
 function df.musical_form_play_orderst:new() end
 
 ---@alias df.musical_form_purpose
+---| -1 # NONE
 ---| 0 # Entertainment
 ---| 1 # Commemoration
 ---| 2 # Devotion
 ---| 3 # Military
 
 ---@class identity.musical_form_purpose: DFEnumType
----@field Entertainment 0 bay12: MusicalFormIntentType
----@field [0] "Entertainment" bay12: MusicalFormIntentType
+---@field NONE -1 bay12: MusicalFormIntentType
+---@field [-1] "NONE" bay12: MusicalFormIntentType
+---@field Entertainment 0
+---@field [0] "Entertainment"
 ---@field Commemoration 1
 ---@field [1] "Commemoration"
 ---@field Devotion 2
@@ -650,14 +659,14 @@ df.musical_form_purpose = {}
 
 ---@class df.musical_form_flag: DFBitfield
 ---@field _enum identity.musical_form_flag
----@field produces_individual_songs boolean has_compositions
----@field [0] boolean has_compositions
+---@field produces_individual_songs boolean
+---@field [0] boolean
 ---@field repeats_as_necessary boolean
 ---@field [1] boolean
 
 ---@class identity.musical_form_flag: DFBitfieldType
----@field produces_individual_songs 0 has_compositions
----@field [0] "produces_individual_songs" has_compositions
+---@field produces_individual_songs 0
+---@field [0] "produces_individual_songs"
 ---@field repeats_as_necessary 1
 ---@field [1] "repeats_as_necessary"
 df.musical_form_flag = {}

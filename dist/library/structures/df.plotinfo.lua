@@ -34,6 +34,7 @@ function _nemesis_offload_units:insert(index, item) end
 function _nemesis_offload_units:erase(index) end
 
 ---@alias df.save_substage
+---| -1 # NONE
 ---| 0 # Initializing
 ---| 1 # CheckingDirectoryStructure
 ---| 2 # PreliminaryCleaning
@@ -88,8 +89,10 @@ function _nemesis_offload_units:erase(index) end
 ---| 51 # Finishing
 
 ---@class identity.save_substage: DFEnumType
----@field Initializing 0 bay12: SaveStageType
----@field [0] "Initializing" bay12: SaveStageType
+---@field NONE -1 bay12: SaveStageType
+---@field [-1] "NONE" bay12: SaveStageType
+---@field Initializing 0
+---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
 ---@field [1] "CheckingDirectoryStructure"
 ---@field PreliminaryCleaning 2
@@ -726,8 +729,8 @@ function df.plot_invasion_planst:new() end
 ---@field _enum identity.plot_invasion_flag
 ---@field active boolean bay12: PLOTFLAG_INVASION_*
 ---@field [0] boolean bay12: PLOTFLAG_INVASION_*
----@field siege boolean announced
----@field [1] boolean announced
+---@field siege boolean
+---@field [1] boolean
 ---@field layer_source boolean
 ---@field [2] boolean
 ---@field undead_source boolean
@@ -754,8 +757,8 @@ function df.plot_invasion_planst:new() end
 ---@class identity.plot_invasion_flag: DFBitfieldType
 ---@field active 0 bay12: PLOTFLAG_INVASION_*
 ---@field [0] "active" bay12: PLOTFLAG_INVASION_*
----@field siege 1 announced
----@field [1] "siege" announced
+---@field siege 1
+---@field [1] "siege"
 ---@field layer_source 2
 ---@field [2] "layer_source"
 ---@field undead_source 3
@@ -925,7 +928,7 @@ df.plot_tax_stage_type = {}
 ---@field reach_room_timer number
 ---@field tc_protect_timer number
 ---@field guard1_reach_tc_timer number
----@field guard2_reach_tc_timer number
+---@field guard2_reach_tc_timer number actually an array
 ---@field collected number
 ---@field quota number
 ---@field collector_pos df.coord
@@ -934,7 +937,7 @@ df.plot_tax_stage_type = {}
 ---@field guard_pos_z number[]
 ---@field collector df.unit
 ---@field guard1 df.unit
----@field guard2 df.unit
+---@field guard2 df.unit actually an array
 ---@field guard_lack_complained number
 
 ---@class identity.plotinfo_taxinfost: DFCompoundType
@@ -963,59 +966,62 @@ function df.plotinfo_positionst:new() end
 ---@field _enum identity.plot_merchant_flag
 ---@field check_cleanup boolean bay12: MERCHANTEVENTFLAG_*
 ---@field [0] boolean bay12: MERCHANTEVENTFLAG_*
----@field casualty boolean JUSTSPOILED
----@field [1] boolean JUSTSPOILED
----@field hardship boolean WENTBADLY
----@field [2] boolean WENTBADLY
----@field communicate boolean SOMEBODYLIVED; send data to mountainhomes
----@field [3] boolean SOMEBODYLIVED; send data to mountainhomes
----@field seized boolean GOODSSEIZED
----@field [4] boolean GOODSSEIZED
----@field offended boolean NOMORETRADE
----@field [5] boolean NOMORETRADE
----@field [6] boolean UNUSED_07, formerly FIRSTMERCHANT
----@field greatly_offended boolean OFFENDED
----@field [7] boolean OFFENDED
----@field tribute boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
----@field [8] boolean IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
+---@field casualty boolean
+---@field [1] boolean
+---@field hardship boolean
+---@field [2] boolean
+---@field communicate boolean send data to mountainhomes
+---@field [3] boolean send data to mountainhomes
+---@field seized boolean
+---@field [4] boolean
+---@field offended boolean
+---@field [5] boolean
+---@field UNUSED_07 boolean formerly FIRSTMERCHANT
+---@field [6] boolean formerly FIRSTMERCHANT
+---@field greatly_offended boolean
+---@field [7] boolean
+---@field tribute boolean caravan is delivering tribute (not merchant caravan)
+---@field [8] boolean caravan is delivering tribute (not merchant caravan)
 
 ---@class identity.plot_merchant_flag: DFBitfieldType
 ---@field check_cleanup 0 bay12: MERCHANTEVENTFLAG_*
 ---@field [0] "check_cleanup" bay12: MERCHANTEVENTFLAG_*
----@field casualty 1 JUSTSPOILED
----@field [1] "casualty" JUSTSPOILED
----@field hardship 2 WENTBADLY
----@field [2] "hardship" WENTBADLY
----@field communicate 3 SOMEBODYLIVED; send data to mountainhomes
----@field [3] "communicate" SOMEBODYLIVED; send data to mountainhomes
----@field seized 4 GOODSSEIZED
----@field [4] "seized" GOODSSEIZED
----@field offended 5 NOMORETRADE
----@field [5] "offended" NOMORETRADE
----@field greatly_offended 7 OFFENDED
----@field [7] "greatly_offended" OFFENDED
----@field tribute 8 IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
----@field [8] "tribute" IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
+---@field casualty 1
+---@field [1] "casualty"
+---@field hardship 2
+---@field [2] "hardship"
+---@field communicate 3 send data to mountainhomes
+---@field [3] "communicate" send data to mountainhomes
+---@field seized 4
+---@field [4] "seized"
+---@field offended 5
+---@field [5] "offended"
+---@field UNUSED_07 6 formerly FIRSTMERCHANT
+---@field [6] "UNUSED_07" formerly FIRSTMERCHANT
+---@field greatly_offended 7
+---@field [7] "greatly_offended"
+---@field tribute 8 caravan is delivering tribute (not merchant caravan)
+---@field [8] "tribute" caravan is delivering tribute (not merchant caravan)
 df.plot_merchant_flag = {}
 
 ---@class (exact) df.caravan_state: DFStruct
 ---@field _type identity.caravan_state
 ---@field total_capacity df.massst
----@field trade_state df.caravan_state.T_trade_state bay12: stage, no actual enum
----@field depot_notified number bay12: havecomplained; has it warned you that you need a depot
----@field time_remaining number bay12: timer
+---@field trade_state df.caravan_state.T_trade_state no actual enum
+---@field depot_notified number has it warned you that you need a depot
+---@field time_remaining number
 ---@field entity number References: `df.historical_entity`
----@field activity_stats df.entity_activity_statistics bay12: report
+---@field activity_stats df.entity_activity_statistics
 ---@field flags df.plot_merchant_flag
----@field import_value number bay12: goodsvalue_initial
----@field export_value_total number bay12: goodsvalue_end
----@field export_value_personal number bay12: exportvalue_end; excluding foreign-produced items
----@field offer_value number bay12: offervalue_end
----@field animals DFNumberVector bay12: unitroster
----@field sell_prices df.entity_sell_prices bay12: tradeagreement
----@field buy_prices df.entity_buy_prices bay12: requestagreement
----@field goods DFNumberVector bay12: already_appraised_item_id
----@field mood number bay12: tolerance; reflects satisfaction with last trading session
+---@field import_value number
+---@field export_value_total number
+---@field export_value_personal number excluding foreign-produced items
+---@field offer_value number
+---@field animals DFNumberVector
+---@field sell_prices df.entity_sell_prices
+---@field buy_prices df.entity_buy_prices
+---@field goods DFNumberVector
+---@field mood number reflects satisfaction with last trading session
 ---@field haggle_fail_count number
 
 ---@class identity.caravan_state: DFCompoundType
@@ -1025,7 +1031,7 @@ df.caravan_state = {}
 ---@return df.caravan_state
 function df.caravan_state:new() end
 
--- bay12: stage, no actual enum
+-- no actual enum
 ---@alias df.caravan_state.T_trade_state
 ---| 0 # None
 ---| 1 # Approaching
@@ -1033,7 +1039,7 @@ function df.caravan_state:new() end
 ---| 3 # Leaving
 ---| 4 # Stuck
 
--- bay12: stage, no actual enum
+-- no actual enum
 ---@class identity.caravan_state.trade_state: DFEnumType
 ---@field None 0
 ---@field [0] "None"
@@ -1420,7 +1426,7 @@ df.labor_info_flag = {}
 ---@field flags df.labor_info_flag
 ---@field work_details _labor_infost_work_details
 ---@field chores DFEnumVector<df.unit_labor, boolean>
----@field chores_exempted_children DFNumberVector
+---@field chores_exempted_children DFNumberVector binary
 
 ---@class identity.labor_infost: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1800,12 +1806,12 @@ df.plotinfo_flag = {}
 ---@field lost_to_siege_civ number References: `df.historical_entity`
 ---@field tax_collection df.plotinfo_taxinfost
 ---@field nobles df.plotinfo_positionst
----@field caravans _plotinfost_caravans bay12: merchant
+---@field caravans _plotinfost_caravans
 ---@field firstmerchant number
 ---@field fortress_rank number
 ---@field progress_population number outpost/hamlet/village/town/city/metropolis
----@field progress_trade number (unles that's what the above is)
----@field progress_production number ?
+---@field progress_trade number
+---@field progress_production number
 ---@field king_arrived boolean
 ---@field king_hasty boolean
 ---@field economy_active boolean
@@ -1813,7 +1819,7 @@ df.plotinfo_flag = {}
 ---@field justice_active boolean
 ---@field hi_temp integer
 ---@field lo_temp integer
----@field manager_timer number bay12: quota_checktime
+---@field manager_timer number
 ---@field units_killed DFEnumVector<df.profession, number>
 ---@field currency_value DFNumberVector SAVEUNITNUM
 ---@field trees_removed number
@@ -1830,7 +1836,7 @@ df.plotinfo_flag = {}
 ---@field punishments _plotinfost_punishments
 ---@field dipscripts _plotinfost_dipscripts
 ---@field dipscript_texts _plotinfost_dipscript_texts
----@field dipscript_popups _plotinfost_dipscript_popups bay12: meetingmoment; cause viewscreen_meetingst to pop up
+---@field dipscript_popups _plotinfost_dipscript_popups cause viewscreen_meetingst to pop up
 ---@field kitchen df.plotinfost.T_kitchen
 ---@field economic_stone DFBooleanVector
 ---@field flags df.plotinfo_flag
@@ -1839,12 +1845,12 @@ df.plotinfo_flag = {}
 ---@field site_id number References: `df.world_site`
 ---@field group_id number i.e. specifically the fortress dwarves<br>References: `df.historical_entity`
 ---@field race_id number References: `df.creature_raw`
----@field usable_stockpile_race DFNumberVector
+---@field usable_stockpile_race DFNumberVector binary
 ---@field farm_crops DFNumberVector
 ---@field farm_seasons _plotinfost_farm_seasons
 ---@field economy_prices df.plotinfost.T_economy_prices
 ---@field stockpile df.plotinfost.T_stockpile
----@field border df.coord2d[][]
+---@field border df.coord2d[][] region coords for map edge tiles, for choosing wilderpops
 ---@field wilderpop_enter df.coord_path
 ---@field map_edge df.plotinfost.T_map_edge
 ---@field no_fishing_feature_x DFNumberVector

@@ -6,45 +6,45 @@
 ---@field count number
 local art_image_element
 
----@param file df.file_compressorst
-function art_image_element:write_file(file) end
+---@param filecomp df.file_compressorst
+function art_image_element:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function art_image_element:read_file(file, loadversion) end
+function art_image_element:read_file(filecomp, loadversion) end
 
 ---@return df.art_image_element_type
 function art_image_element:getType() end
 
----@param ID number race, item type, plant ID, or shape ID
-function art_image_element:setID(ID) end
+---@param st number race, item type, plant ID, or shape ID
+function art_image_element:setID(st) end
 
 ---@return df.art_image_element
 function art_image_element:clone() end
 
----@param sym integer
+---@param pic integer
 ---@param priority number
-function art_image_element:getSymbol(sym, priority) end
+function art_image_element:getSymbol(pic, priority) end
 
----@param name string
----@param useThe boolean
----@param useName boolean
----@param doMarkup boolean
-function art_image_element:getName(name, useThe, useName, doMarkup) end
+---@param str string
+---@param definite boolean
+---@param full_desc boolean
+---@param do_markup boolean
+function art_image_element:getName(str, definite, full_desc, do_markup) end
 
----@param name string
----@param useThe boolean
-function art_image_element:getShortName(name, useThe) end
+---@param str string
+---@param definite boolean
+function art_image_element:getShortName(str, definite) end
 
----@param gfx_type number
----@param gfx_id number
-function art_image_element:getGraphicsInfo(gfx_type, gfx_id) end
+---@param graphics_type number
+---@param graphics_id number
+function art_image_element:getGraphicsInfo(graphics_type, graphics_id) end
 
 function art_image_element:markDiscovered() end
 
----@param colors DFPointer<integer>
----@param shapes DFPointer<integer>
-function art_image_element:getColorAndShape(colors, shapes) end
+---@param i_color DFPointer<integer>
+---@param i_shape DFPointer<integer>
+function art_image_element:getColorAndShape(i_color, i_shape) end
 
 
 ---@class identity.art_image_element: DFCompoundType
@@ -74,7 +74,7 @@ function df.art_image_element_creaturest:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
 ---@field flags df.item_flags
----@field item_id number for artifacts<br>References: `df.item`
+---@field item_id number References: `df.item`
 
 ---@class identity.art_image_element_itemst: DFCompoundType
 ---@field _kind 'class-type'
@@ -136,12 +136,12 @@ df.art_image_property_type = {}
 ---@field flags _art_image_property_flags currently none used
 local art_image_property
 
----@param file df.file_compressorst
-function art_image_property:write_file(file) end
+---@param filecomp df.file_compressorst
+function art_image_property:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function art_image_property:read_file(file, loadversion) end
+function art_image_property:read_file(filecomp, loadversion) end
 
 ---@return df.art_image_property_type
 function art_image_property:getType() end
@@ -150,10 +150,10 @@ function art_image_property:getType() end
 function art_image_property:clone() end
 
 ---@param str string
----@param image df.art_image
----@param useName boolean
----@param doMarkup boolean
-function art_image_property:getName(str, image, useName, doMarkup) end
+---@param im df.art_image
+---@param full_desc boolean
+---@param do_markup boolean
+function art_image_property:getName(str, im, full_desc, do_markup) end
 
 
 ---@class identity.art_image_property: DFCompoundType

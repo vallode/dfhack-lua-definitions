@@ -300,17 +300,17 @@ df.fullscreen_state = {}
 ---@field tracking_on number
 ---@field textures df.enabler_textures
 ---@field simticks number
----@field gputicks number note: this is a std::atomic_int
----@field clock integer note: this is a std::atomic_int
+---@field gputicks number
+---@field clock integer An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
 ---@field mouse_focus boolean
 ---@field last_text_input integer[]
 ---@field listening_to_text boolean
 ---@field last_message_result number std::atomic_int
 local enabler
 
----@param anon_0 df.interface_key
+---@param binding df.interface_key
 ---@return string
-function enabler:GetKeyDisplay(anon_0) end
+function enabler:GetKeyDisplay(binding) end
 
 
 ---@class identity.enabler: DFCompoundType

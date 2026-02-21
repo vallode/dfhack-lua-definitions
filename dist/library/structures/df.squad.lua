@@ -2,6 +2,7 @@
 ---@meta
 
 ---@alias df.squad_order_cannot_reason
+---| -1 # NONE
 ---| 0 # not_following_order
 ---| 1 # activity_cancelled
 ---| 2 # no_barracks
@@ -26,8 +27,10 @@
 ---| 21 # location_no_longer_in_zone
 
 ---@class identity.squad_order_cannot_reason: DFEnumType
----@field not_following_order 0 bay12: CanFollowOrderType
----@field [0] "not_following_order" bay12: CanFollowOrderType
+---@field NONE -1 bay12: CanFollowOrderType
+---@field [-1] "NONE" bay12: CanFollowOrderType
+---@field not_following_order 0
+---@field [0] "not_following_order"
 ---@field activity_cancelled 1
 ---@field [1] "activity_cancelled"
 ---@field no_barracks 2
@@ -96,12 +99,12 @@ local squad_order
 ---@return df.squad_order
 function squad_order:clone() end
 
----@param file df.file_compressorst
-function squad_order:write_file(file) end
+---@param filecomp df.file_compressorst
+function squad_order:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function squad_order:read_file(file, loadversion) end
+function squad_order:read_file(filecomp, loadversion) end
 
 ---@return df.squad_order_type
 function squad_order:getType() end
@@ -109,23 +112,23 @@ function squad_order:getType() end
 ---@return boolean
 function squad_order:isPatrol() end
 
----@param x number
----@param y number
----@param z number
-function squad_order:offsetPosition(x, y, z) end
+---@param shiftx number
+---@param shifty number
+---@param shiftz number
+function squad_order:offsetPosition(shiftx, shifty, shiftz) end
 
 ---@param action df.actionst
----@param anon_0 df.dungeon_contextst
----@param soldier df.unit
-function squad_order:process(action, anon_0, soldier) end
+---@param context df.dungeon_contextst
+---@param un df.unit
+function squad_order:process(action, context, un) end
 
----@param soldier df.unit
+---@param un df.unit
 ---@return df.squad_order_cannot_reason
-function squad_order:reasonCannot(soldier) end
+function squad_order:reasonCannot(un) end
 
----@param soldier df.unit
+---@param un df.unit
 ---@return boolean
-function squad_order:decUniformLock(soldier) end
+function squad_order:decUniformLock(un) end
 
 ---@return boolean
 function squad_order:isFulfilled() end
@@ -133,23 +136,23 @@ function squad_order:isFulfilled() end
 ---@return DFPointer<integer>
 function squad_order:getTargetUnits() end
 
----@param soldier df.unit
+---@param un df.unit
 ---@return df.unit_uniform_mode_type
-function squad_order:getUniformType(soldier) end
+function squad_order:getUniformType(un) end
 
----@param anon_0 string
-function squad_order:getDescription(anon_0) end
+---@param str string
+function squad_order:getDescription(str) end
 
----@param anon_0 df.unit
+---@param un df.unit
 ---@return boolean
-function squad_order:isInactive(anon_0) end
+function squad_order:isInactive(un) end
 
 ---@return boolean
 function squad_order:isCombat() end
 
----@param other df.squad_order
+---@param cmp df.squad_order
 ---@return boolean
-function squad_order:isEqual(other) end
+function squad_order:isEqual(cmp) end
 
 
 ---@class identity.squad_order: DFCompoundType
@@ -621,7 +624,7 @@ df.squad_equipment_ammo_flag = {}
 ---@field matindex number
 ---@field amount number
 ---@field flags df.squad_equipment_ammo_flag
----@field assigned DFNumberVector
+---@field assigned DFNumberVector binary
 
 ---@class identity.squad_ammo_spec: DFCompoundType
 ---@field _kind 'struct-type'
@@ -654,7 +657,8 @@ function df.squad_ammo_spec:new() end
 ---@field [9] boolean
 ---@field flask boolean
 ---@field [10] boolean
----@field [11] boolean unused
+---@field UNUSED12 boolean
+---@field [11] boolean
 ---@field buildings boolean
 ---@field [12] boolean
 
@@ -681,6 +685,8 @@ function df.squad_ammo_spec:new() end
 ---@field [9] "quiver"
 ---@field flask 10
 ---@field [10] "flask"
+---@field UNUSED12 11
+---@field [11] "UNUSED12"
 ---@field buildings 12
 ---@field [12] "buildings"
 df.equipment_update = {}
@@ -688,10 +694,10 @@ df.equipment_update = {}
 ---@class (exact) df.squad_equipmentst: DFStruct
 ---@field _type identity.squad_equipmentst
 ---@field ammunition _squad_equipmentst_ammunition
----@field train_weapon_free DFNumberVector
----@field train_weapon_inuse DFNumberVector
----@field ammo_items DFNumberVector
----@field ammo_units DFNumberVector
+---@field train_weapon_free DFNumberVector binary
+---@field train_weapon_inuse DFNumberVector binary
+---@field ammo_items DFNumberVector binary
+---@field ammo_units DFNumberVector linked, not binary
 ---@field update df.equipment_update
 
 ---@class identity.squad_equipmentst: DFCompoundType
@@ -739,8 +745,8 @@ function df.squad_suppliesst:new() end
 ---@field schedule df.squad_schedulest
 ---@field cur_routine_idx number
 ---@field rooms _squad_rooms
----@field rack_combat DFNumberVector
----@field rack_training DFNumberVector
+---@field rack_combat DFNumberVector binary
+---@field rack_training DFNumberVector binary
 ---@field uniform_priority number
 ---@field activity number References: `df.activity_entry`
 ---@field ammo df.squad_equipmentst

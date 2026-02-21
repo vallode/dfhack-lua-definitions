@@ -26,6 +26,8 @@
 ---| 20 # MYTHICAL
 ---| 21 # MYTHICAL_REMNANT
 ---| 22 # MYTHICAL_SUBSTANCE
+---| 23 # UNUSED_03_08
+---| 24 # UNUSED_04_01
 ---| 25 # WAFERS
 
 -- Skipped: prefstringst (just a wrapper around string)
@@ -76,6 +78,10 @@
 ---@field [21] "MYTHICAL_REMNANT"
 ---@field MYTHICAL_SUBSTANCE 22
 ---@field [22] "MYTHICAL_SUBSTANCE"
+---@field UNUSED_03_08 23
+---@field [23] "UNUSED_03_08"
+---@field UNUSED_04_01 24
+---@field [24] "UNUSED_04_01"
 ---@field WAFERS 25
 ---@field [25] "WAFERS"
 df.inorganic_flags = {}
@@ -93,7 +99,7 @@ df.inorganic_flags = {}
 ---@field environment_spec df.inorganic_raw.T_environment_spec
 ---@field environment df.inorganic_raw.T_environment
 ---@field times_used_land number
----@field times_used_ocean number
+---@field times_used_ocean number actually an array
 ---@field material df.material
 
 ---@class identity.inorganic_raw: DFCompoundType
@@ -293,6 +299,9 @@ function _inorganic_material_definition_handlerst_cheap:erase(index) end
 ---| 14 # EDIBLE_GROWTH
 ---| 15 # SOIL_BACKGROUND
 ---| 16 # PROCESSABLE_GROWTHS
+---| 17 # UNUSED_03_02
+---| 18 # UNUSED_03_03
+---| 19 # UNUSED_03_04
 ---| 20 # WET
 ---| 21 # DRY
 ---| 22 # BIOME_MOUNTAIN
@@ -397,6 +406,12 @@ function _inorganic_material_definition_handlerst_cheap:erase(index) end
 ---@field [15] "SOIL_BACKGROUND"
 ---@field PROCESSABLE_GROWTHS 16
 ---@field [16] "PROCESSABLE_GROWTHS"
+---@field UNUSED_03_02 17
+---@field [17] "UNUSED_03_02"
+---@field UNUSED_03_03 18
+---@field [18] "UNUSED_03_03"
+---@field UNUSED_03_04 19
+---@field [19] "UNUSED_03_04"
 ---@field WET 20
 ---@field [20] "WET"
 ---@field DRY 21
@@ -536,6 +551,7 @@ function _inorganic_material_definition_handlerst_cheap:erase(index) end
 df.plant_raw_flags = {}
 
 ---@alias df.plant_material_def
+---| -1 # NONE
 ---| 0 # basic_mat
 ---| 1 # tree
 ---| 2 # drink
@@ -547,8 +563,10 @@ df.plant_raw_flags = {}
 ---| 8 # extract_still_vial
 
 ---@class identity.plant_material_def: DFEnumType
----@field basic_mat 0 bay12: PlantMaterialUseType
----@field [0] "basic_mat" bay12: PlantMaterialUseType
+---@field NONE -1 bay12: PlantMaterialUseType
+---@field [-1] "NONE" bay12: PlantMaterialUseType
+---@field basic_mat 0
+---@field [0] "basic_mat"
 ---@field tree 1
 ---@field [1] "tree"
 ---@field drink 2
@@ -608,7 +626,7 @@ df.growth_host_tile_flag = {}
 ---@field tile_growth integer
 ---@field tile_item integer
 ---@field color number[]
----@field timing_start number
+---@field timing_start number not an array
 ---@field timing_end number
 
 ---@class identity.plant_growth_print: DFCompoundType
@@ -672,7 +690,7 @@ df.pmd_growth_flag_graphics_type = {}
 ---@field name string
 ---@field name_plural string
 ---@field str_growth_item string[]
----@field item_type df.item_type
+---@field item_type df.item_type not an array
 ---@field item_subtype number
 ---@field mat_type number References: `df.material`
 ---@field mat_index number
@@ -715,8 +733,8 @@ function _plant_growth_prints:erase(index) end
 ---@field _type identity.pmd_tree_texture_infost
 ---@field texpos_tree_wood_tile number[]
 ---@field texpos_tree_twigs_full number[] TREE_PART_TILENUM
----@field texpos_tree_twigs number[]
----@field texpos_overleaves number[]
+---@field texpos_tree_twigs number[] most of these aren't actually arrays
+---@field texpos_overleaves number[] but definining them all individually will make builds take longer
 ---@field texpos_tree_overleaves_heavy_branch number[]
 ---@field texpos_tree_cap_pillar number
 ---@field texpos_tree_cap_wall_thick number[]
@@ -755,12 +773,12 @@ function df.pmd_tree_texture_infost:new() end
 ---@field mill_dye_color number References: `df.descriptor_color`
 ---@field tiles df.plant_raw.T_tiles
 ---@field texpos number[]
----@field tree_texture_info df.pmd_tree_texture_infost
+---@field tree_texture_info df.pmd_tree_texture_infost not an array
 ---@field growdur number
 ---@field value number
 ---@field colors df.plant_raw.T_colors
 ---@field alt_period number[]
----@field shrub_drown_level number
+---@field shrub_drown_level number not an array
 ---@field tree_drown_level number
 ---@field sapling_drown_level number
 ---@field frequency number
@@ -831,13 +849,13 @@ function _plant_raw_flags:erase(index) end
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
 ---@field dead_shrub_tile integer
----@field tree_tile integer unused
----@field dead_tree_tile integer unused
+---@field tree_tile integer used on world map
+---@field dead_tree_tile integer possibly used on world map
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
 ---@field grass_tiles integer[]
----@field alt_grass_tiles integer[]
----@field tree_tiles integer[]
+---@field alt_grass_tiles integer[] actually multiple arrays
+---@field tree_tiles integer[] actually multiple arrays
 
 ---@class identity.plant_raw.tiles: DFCompoundType
 ---@field _kind 'struct-type'
@@ -849,7 +867,7 @@ function df.plant_raw.T_tiles:new() end
 ---@class (exact) df.plant_raw.T_colors: DFStruct
 ---@field _type identity.plant_raw.colors
 ---@field picked_color number[] not a compound
----@field dead_picked_color number[]
+---@field dead_picked_color number[] none of these are arrays
 ---@field shrub_color number[]
 ---@field dead_shrub_color number[]
 ---@field seed_color number[]
@@ -858,7 +876,7 @@ function df.plant_raw.T_tiles:new() end
 ---@field sapling_color number[]
 ---@field dead_sapling_color number[]
 ---@field grass_colors_f number[]
----@field grass_colors_b number[]
+---@field grass_colors_b number[] these are multiple arrays joined together
 ---@field grass_colors_br number[]
 
 ---@class identity.plant_raw.colors: DFCompoundType
@@ -914,66 +932,20 @@ function _plant_raw_growths:insert(index, item) end
 function _plant_raw_growths:erase(index) end
 
 ---@class _plant_raw_stockpile_growth_flags: DFContainer
----@field [integer] df.plant_raw.T_stockpile_growth_flags
+---@field [integer] df.ras_crop_flag
 local _plant_raw_stockpile_growth_flags
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.plant_raw.T_stockpile_growth_flags>
+---@return DFPointer<df.ras_crop_flag>
 function _plant_raw_stockpile_growth_flags:_field(index) end
 
 ---@param index '#'|integer
----@param item df.plant_raw.T_stockpile_growth_flags
+---@param item df.ras_crop_flag
 function _plant_raw_stockpile_growth_flags:insert(index, item) end
 
 ---@param index integer
 function _plant_raw_stockpile_growth_flags:erase(index) end
-
----@class df.plant_raw.T_stockpile_growth_flags: DFBitfield
----@field _enum identity.plant_raw.stockpile_growth_flags
----@field EDIBLE_RAW boolean bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
----@field [0] boolean bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
----@field EDIBLE_COOKED boolean
----@field [1] boolean
----@field THREAD boolean
----@field [2] boolean
----@field MILLABLE boolean
----@field [3] boolean
----@field EXTRACTABLE_VIAL boolean
----@field [4] boolean
----@field EXTRACTABLE_BARREL boolean
----@field [5] boolean
----@field EXTRACTABLE_STILL_VIAL boolean
----@field [6] boolean
----@field ORCHARD boolean
----@field [7] boolean
----@field GARDEN boolean
----@field [8] boolean
----@field FARMED boolean
----@field [9] boolean
-
----@class identity.plant_raw.stockpile_growth_flags: DFBitfieldType
----@field EDIBLE_RAW 0 bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
----@field [0] "EDIBLE_RAW" bay12: assuming RAS_CROP_FLAG_*; could also be RAS_EXTRACT_FLAG_* or RAS_POWDER_FLAG_*
----@field EDIBLE_COOKED 1
----@field [1] "EDIBLE_COOKED"
----@field THREAD 2
----@field [2] "THREAD"
----@field MILLABLE 3
----@field [3] "MILLABLE"
----@field EXTRACTABLE_VIAL 4
----@field [4] "EXTRACTABLE_VIAL"
----@field EXTRACTABLE_BARREL 5
----@field [5] "EXTRACTABLE_BARREL"
----@field EXTRACTABLE_STILL_VIAL 6
----@field [6] "EXTRACTABLE_STILL_VIAL"
----@field ORCHARD 7
----@field [7] "ORCHARD"
----@field GARDEN 8
----@field [8] "GARDEN"
----@field FARMED 9
----@field [9] "FARMED"
-df.plant_raw.T_stockpile_growth_flags = {}
 
 -- Unused: plant_handling_informationst
 ---@alias df.tree_leaf_tile_type

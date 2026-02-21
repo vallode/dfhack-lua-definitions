@@ -212,11 +212,11 @@ function df.wqc_item_traitst:new() end
 ---@field mat_type number References: `df.material`
 ---@field mat_index number union: mix_dye_desired_color_index
 ---@field specflag df.job_spec_flags
----@field specdata df.job_spec_data
+---@field specdata df.job_spec_data union: dye_object_desired_post_dye_color_index
 ---@field material_category df.job_material_category
 ---@field art_specifier df.job_art_specifier_type
----@field art_specifier_id1 number
----@field art_specifier_id2 number
+---@field art_specifier_id1 number union: mix_dye_source_color_index1, dye_object_desired_pre_dye_color_index
+---@field art_specifier_id2 number union: mix_dye_source_color_index2, dye_object_source_color_index
 ---@field match_value number
 ---@field name string
 ---@field compare_str string
@@ -651,13 +651,13 @@ function df.interface_button_building_category_selectorst:new() end
 ---@field material number References: `df.material`
 ---@field matgloss number union: mix_dye_desired_color_index
 ---@field specflag df.job_spec_flags
----@field specdata df.job_spec_data
+---@field specdata df.job_spec_data union: dye_object_desired_post_dye_color_index
 ---@field job_item_flag df.job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
 ---@field art_specifier df.job_art_specifier_type
----@field art_specifier_id1 number
----@field art_specifier_id2 number
+---@field art_specifier_id1 number union: mix_dye_source_color_index1, dye_object_desired_pre_dye_color_index
+---@field art_specifier_id2 number union: mix_dye_source_color_index2, dye_object_source_color_index
 ---@field objection string
 ---@field info string
 
@@ -1771,7 +1771,7 @@ function _custom_stockpile_interfacest_spec_item:erase(index) end
 ---@field _type identity.assign_display_item_interfacest
 ---@field open boolean
 ---@field display_bld df.building_display_furniturest
----@field new_display_itid DFNumberVector
+---@field new_display_itid DFNumberVector binary
 ---@field type_list DFNumberVector
 ---@field filtered_type_list DFNumberVector
 ---@field current_type df.item_type
@@ -3443,7 +3443,7 @@ df.squad_selector_context_type = {}
 ---@field _type identity.squad_selector_interfacest
 ---@field open boolean
 ---@field context df.squad_selector_context_type
----@field squad_id DFNumberVector
+---@field squad_id DFNumberVector NOT binary
 ---@field bld_id number References: `df.building`
 ---@field scroll_position number
 ---@field scrolling number
@@ -5412,7 +5412,7 @@ function df.work_orders_interfacest:new() end
 ---@field _type identity.noblelistst
 ---@field un df.unit
 ---@field nem df.nemesis_record
----@field upplist DFPointer<integer>
+---@field upplist df.unitpropertyplacementst
 ---@field ep df.entity_position
 ---@field epp df.entity_position_assignment
 ---@field enid number References: `df.historical_entity`
@@ -7382,10 +7382,10 @@ function _create_squad_interfacest_cand_new_squad_new_epp_from_ep:erase(index) e
 ---@field open boolean
 ---@field scroll_position number
 ---@field scrolling boolean
----@field squad_id DFNumberVector
----@field squad_selected _squads_interfacest_squad_selected
+---@field squad_id DFNumberVector binary
+---@field squad_selected _squads_interfacest_squad_selected linked
 ---@field viewing_squad_index number
----@field squad_hfid_selected DFNumberVector
+---@field squad_hfid_selected DFNumberVector binary
 ---@field entering_squad_nickname boolean
 ---@field squad_nickname_str string
 ---@field giving_move_order boolean
@@ -10336,16 +10336,16 @@ function _adventure_interface_createst_butcher_cutter:erase(index) end
 ---@class identity.assume_identity_mode: DFEnumType
 ---@field NONE -1 bay12: AssumeIdentityMenuModeType
 ---@field [-1] "NONE" bay12: AssumeIdentityMenuModeType
----@field SelectIdentity 0 CHOOSE_OR_NEW
----@field [0] "SelectIdentity" CHOOSE_OR_NEW
----@field CreateIdentity 1 NEW_ID
----@field [1] "CreateIdentity" NEW_ID
----@field SelectProfession 2 NEW_ID_UNIT
----@field [2] "SelectProfession" NEW_ID_UNIT
----@field SelectWorship 3 NEW_ID_WORSHIP
----@field [3] "SelectWorship" NEW_ID_WORSHIP
----@field SelectOrigin 4 NEW_ID_ENTITY
----@field [4] "SelectOrigin" NEW_ID_ENTITY
+---@field SelectIdentity 0
+---@field [0] "SelectIdentity"
+---@field CreateIdentity 1
+---@field [1] "CreateIdentity"
+---@field SelectProfession 2
+---@field [2] "SelectProfession"
+---@field SelectWorship 3
+---@field [3] "SelectWorship"
+---@field SelectOrigin 4
+---@field [4] "SelectOrigin"
 df.assume_identity_mode = {}
 
 ---@class (exact) df.adventure_interface_assume_identityst: DFStruct
@@ -10571,7 +10571,7 @@ function _adventure_interface_inventoryst_option:erase(index) end
 ---@class (exact) df.projectile_target_list_optionst: DFStruct
 ---@field _type identity.projectile_target_list_optionst
 ---@field unit_id number References: `df.unit`
----@field histfig_id number bay12: hfid<br>References: `df.historical_figure`
+---@field histfig_id number References: `df.historical_figure`
 
 ---@class identity.projectile_target_list_optionst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -11153,8 +11153,8 @@ function _adventure_interface_performst_write_wc:erase(index) end
 ---@field companion _adventure_interface_companionsst_companion
 ---@field companion_visible _adventure_interface_companionsst_companion_visible
 ---@field companion_pos df.coord_path
----@field scrolling boolean
 ---@field scroll_position number
+---@field scrolling boolean
 
 ---@class identity.adventure_interface_companionsst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -11764,13 +11764,13 @@ function df.adventure_interfacest:new() end
 ---@field viewunit_list DFNumberVector
 ---@field exporting_local number
 ---@field mouse_zone number
----@field skill_ind DFNumberVector formerly unit_skills
+---@field skill_ind DFNumberVector
 ---@field pract_type DFNumberVector
 ---@field pract_ind DFNumberVector
 ---@field skill_combat boolean
 ---@field skill_labor boolean
 ---@field skill_misc boolean
----@field barracks_selected_squad_ind number formerly barracks
+---@field barracks_selected_squad_ind number
 ---@field barracks_squad _main_interface_barracks_squad
 ---@field barracks_squad_flag DFNumberVector
 ---@field entering_building_name boolean
@@ -11788,16 +11788,16 @@ function df.adventure_interfacest:new() end
 ---@field hover_instructions_on boolean
 ---@field hover_instructions_last_hover_tick number
 ---@field current_hover df.main_hover_instruction
----@field current_hover_id1 number union with current_hover_building_type
----@field current_hover_id2 number union with current_hover_building_subtype
----@field current_hover_id3 number union with current_hover_building_custom_id
+---@field current_hover_id1 number union: current_hover_building_type
+---@field current_hover_id2 number union: current_hover_building_subtype
+---@field current_hover_id3 number union: current_hover_building_custom_id
 ---@field current_hover_key df.interface_key
 ---@field current_hover_alert df.announcement_alertst
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x number
 ---@field current_hover_bot_y number
 ---@field hover_instruction DFEnumVector<df.main_hover_instruction, df.curses_text_boxst>
----@field last_displayed_hover_inst number
+---@field last_displayed_hover_inst df.main_hover_instruction
 ---@field last_displayed_hover_id1 number
 ---@field last_displayed_hover_id2 number
 ---@field last_displayed_hover_id3 number
@@ -11810,8 +11810,8 @@ function df.adventure_interfacest:new() end
 ---@field hover_announcement_alert_button_color DFNumberVector
 ---@field hover_announcement_alert_button_bright DFNumberVector
 ---@field hover_announcement_alert_button_width number
----@field current_compass_stid number
----@field hover_compass_stid number
+---@field current_compass_stid number References: `df.world_site`
+---@field hover_compass_stid number References: `df.world_site`
 ---@field hover_compass_text df.curses_text_boxst
 ---@field hover_compass_width number
 ---@field last_hover_click_update integer
@@ -11902,8 +11902,8 @@ function _main_interface_pref_occupation:erase(index) end
 ---| 14 # SUB_CLEAR
 
 ---@class identity.minimap_tile: DFEnumType
----@field BUILTUP3 0
----@field [0] "BUILTUP3"
+---@field BUILTUP3 0 bay12: MinimapTile
+---@field [0] "BUILTUP3" bay12: MinimapTile
 ---@field BUILTUP2 1
 ---@field [1] "BUILTUP2"
 ---@field BUILTUP1 2
@@ -12455,7 +12455,7 @@ function df.lookinfo_campfirest:new() end
 ---@field mat number References: `df.material`
 ---@field matg number
 ---@field matstate df.matter_state
----@field extend number
+---@field extent number
 
 ---@class identity.lookinfo_spatterst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -13449,6 +13449,7 @@ function _viewscreen_legendsst_page:erase(index) end
 -- Unused: LoadTutorialStageType
 -- Unused: LoadDungeonStageType
 ---@alias df.main_choice_type
+---| -1 # NONE
 ---| 0 # Continue
 ---| 1 # Start
 ---| 2 # NewWorld
@@ -13462,8 +13463,10 @@ function _viewscreen_legendsst_page:erase(index) end
 -- Unused: LoadTutorialStageType
 -- Unused: LoadDungeonStageType
 ---@class identity.main_choice_type: DFEnumType
----@field Continue 0 bay12: MainChoice
----@field [0] "Continue" bay12: MainChoice
+---@field NONE -1 bay12: MainChoice
+---@field [-1] "NONE" bay12: MainChoice
+---@field Continue 0
+---@field [0] "Continue"
 ---@field Start 1
 ---@field [1] "Start"
 ---@field NewWorld 2
@@ -13676,7 +13679,7 @@ function _viewscreen_titlest_mod:erase(index) end
 
 ---@class (exact) df.sound_loaderst: DFStruct
 ---@field _type identity.sound_loaderst
----@field file string
+---@field file string declared inside viewscreen_initial_prepst
 ---@field enum_member number
 ---@field is_sound boolean
 ---@field loops boolean
@@ -13803,7 +13806,7 @@ function _viewscreen_dwarfmodest_trained_animals:erase(index) end
 ---@class (exact) df.dungeon_mode_start_sheetst: DFStruct
 ---@field _type identity.dungeon_mode_start_sheetst
 ---@field csheet _dungeon_mode_start_sheetst_csheet
----@field start_site_id number
+---@field start_site_id number References: `df.world_site`
 
 ---@class identity.dungeon_mode_start_sheetst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -13842,6 +13845,7 @@ df.viewscreen_dungeonmodest = {}
 function df.viewscreen_dungeonmodest:new() end
 
 ---@alias df.adopt_region_stage_type
+---| -1 # NONE
 ---| 0 # OpeningFile
 ---| 1 # ProcessingRawData
 ---| 2 # AllocatingSpace
@@ -13880,8 +13884,10 @@ function df.viewscreen_dungeonmodest:new() end
 ---| 35 # Failed
 
 ---@class identity.adopt_region_stage_type: DFEnumType
----@field OpeningFile 0 bay12: AdoptRegionStageType
----@field [0] "OpeningFile" bay12: AdoptRegionStageType
+---@field NONE -1 bay12: AdoptRegionStageType
+---@field [-1] "NONE" bay12: AdoptRegionStageType
+---@field OpeningFile 0
+---@field [0] "OpeningFile"
 ---@field ProcessingRawData 1
 ---@field [1] "ProcessingRawData"
 ---@field AllocatingSpace 2
@@ -13971,6 +13977,7 @@ df.viewscreen_adopt_regionst = {}
 function df.viewscreen_adopt_regionst:new() end
 
 ---@alias df.load_game_stage_type
+---| -1 # NONE
 ---| 0 # OpeningFile
 ---| 1 # ProcessingRawData
 ---| 2 # AllocatingSpace
@@ -14025,8 +14032,10 @@ function df.viewscreen_adopt_regionst:new() end
 ---| 51 # Failed
 
 ---@class identity.load_game_stage_type: DFEnumType
----@field OpeningFile 0 bay12: LoadGameStageType
----@field [0] "OpeningFile" bay12: LoadGameStageType
+---@field NONE -1 bay12: LoadGameStageType
+---@field [-1] "NONE" bay12: LoadGameStageType
+---@field OpeningFile 0
+---@field [0] "OpeningFile"
 ---@field ProcessingRawData 1
 ---@field [1] "ProcessingRawData"
 ---@field AllocatingSpace 2
@@ -14369,7 +14378,7 @@ df.warn_flag = {}
 ---@field neighbor_hover_mm_ex number
 ---@field neighbor_hover_mm_ey number
 ---@field def_candidate _viewscreen_choose_start_sitest_def_candidate
----@field def_candidate_nearst _viewscreen_choose_start_sitest_def_candidate_nearst
+---@field def_candidate_near_st _viewscreen_choose_start_sitest_def_candidate_near_st
 ---@field def_candidate_mindist DFNumberVector
 ---@field def_candidate_pop DFNumberVector
 ---@field def_candidate_state _viewscreen_choose_start_sitest_def_candidate_state
@@ -14459,21 +14468,21 @@ function _viewscreen_choose_start_sitest_def_candidate:insert(index, item) end
 ---@param index integer
 function _viewscreen_choose_start_sitest_def_candidate:erase(index) end
 
----@class _viewscreen_choose_start_sitest_def_candidate_nearst: DFContainer
+---@class _viewscreen_choose_start_sitest_def_candidate_near_st: DFContainer
 ---@field [integer] df.world_site
-local _viewscreen_choose_start_sitest_def_candidate_nearst
+local _viewscreen_choose_start_sitest_def_candidate_near_st
 
 ---@nodiscard
 ---@param index integer
 ---@return DFPointer<df.world_site>
-function _viewscreen_choose_start_sitest_def_candidate_nearst:_field(index) end
+function _viewscreen_choose_start_sitest_def_candidate_near_st:_field(index) end
 
 ---@param index '#'|integer
 ---@param item df.world_site
-function _viewscreen_choose_start_sitest_def_candidate_nearst:insert(index, item) end
+function _viewscreen_choose_start_sitest_def_candidate_near_st:insert(index, item) end
 
 ---@param index integer
-function _viewscreen_choose_start_sitest_def_candidate_nearst:erase(index) end
+function _viewscreen_choose_start_sitest_def_candidate_near_st:erase(index) end
 
 ---@class _viewscreen_choose_start_sitest_def_candidate_state: DFContainer
 ---@field [integer] df.embark_neighbor_state_type
@@ -15292,8 +15301,8 @@ function layer_object:getPageSize() end
 ---@return number
 function layer_object:getListCursor() end
 
----@param anon_0 number
-function layer_object:setListCursor(anon_0) end
+---@param n_sel number
+function layer_object:setListCursor(n_sel) end
 
 ---@param events DFPointer<integer>
 function layer_object:feed(events) end
@@ -15313,19 +15322,19 @@ function layer_object:getMouseLCur() end
 ---@return number
 function layer_object:getMouseRCur() end
 
----@param x number
----@param y number
-function layer_object:getMouseLClickPos(x, y) end
+---@param mx number
+---@param my number
+function layer_object:getMouseLClickPos(mx, my) end
 
----@param x number
----@param y number
-function layer_object:getMouseRClickPos(x, y) end
+---@param mx number
+---@param my number
+function layer_object:getMouseRClickPos(mx, my) end
 
 ---@return number
 function layer_object:getListLength() end
 
----@param anon_0 number
-function layer_object:setListLength(anon_0) end
+---@param n_size number
+function layer_object:setListLength(n_size) end
 
 ---@return number
 function layer_object:getMouseX() end

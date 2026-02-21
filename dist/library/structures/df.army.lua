@@ -111,8 +111,8 @@ function df.army_nemesisst:new() end
 ---@class (exact) df.army: DFStruct
 ---@field _type identity.army
 ---@field id number
----@field pos df.coord
----@field last_pos df.coord
+---@field pos df.coord abs_smm_x,abs_smm_y,layer_depth
+---@field last_pos df.coord o_abs_smm_x,o_abs_smm_y,o_layer_depth
 ---@field travel_count number 1, 2, 5, 10, 15, 20, 21 seen
 ---@field wait_count number When set, large value like army or army_controller id, but no match found
 ---@field watch_time number
@@ -136,7 +136,7 @@ function df.army_nemesisst:new() end
 ---@field max_low_light_vision number
 ---@field sense_creature_classes DFStringVector
 ---@field creature_class DFStringVector Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
----@field item_type df.item_type for tent
+---@field item_type df.item_type
 ---@field item_subtype number
 ---@field mat_type number References: `df.material`
 ---@field mat_index number

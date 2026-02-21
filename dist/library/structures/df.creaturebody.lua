@@ -235,7 +235,7 @@ function df.creaturebody_glossst:new() end
 
 ---@class (exact) df.creaturebody_handlerst: DFStruct
 ---@field _type identity.creaturebody_handlerst
----@field body_templates _creaturebody_handlerst_body_templates bay12: creaturebody
+---@field body_templates _creaturebody_handlerst_body_templates
 ---@field bodyglosses _creaturebody_handlerst_bodyglosses
 
 ---@class identity.creaturebody_handlerst: DFCompoundType

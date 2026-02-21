@@ -439,6 +439,11 @@ df.ram_head_type = {}
 ---@alias df.slab_engraving_type
 ---| -1 # Slab
 ---| 0 # Memorial
+---| 1 # UNUSED_01
+---| 2 # UNUSED_02
+---| 3 # UNUSED_03
+---| 4 # UNUSED_04
+---| 5 # UNUSED_05
 ---| 6 # Secrets
 ---| 7 # FoodImportsSign
 ---| 8 # ClothingImportsSign
@@ -466,48 +471,58 @@ df.ram_head_type = {}
 ---@field [-1] "Slab" bay12: EngravingIntentType
 ---@field Memorial 0
 ---@field [0] "Memorial"
+---@field UNUSED_01 1
+---@field [1] "UNUSED_01"
+---@field UNUSED_02 2
+---@field [2] "UNUSED_02"
+---@field UNUSED_03 3
+---@field [3] "UNUSED_03"
+---@field UNUSED_04 4
+---@field [4] "UNUSED_04"
+---@field UNUSED_05 5
+---@field [5] "UNUSED_05"
 ---@field Secrets 6 from the gods? (SECRET)
 ---@field [6] "Secrets" from the gods? (SECRET)
----@field FoodImportsSign 7 SRB_SHOP_IMPORT_FOOD
----@field [7] "FoodImportsSign" SRB_SHOP_IMPORT_FOOD
----@field ClothingImportsSign 8 SRB_SHOP_IMPORT_CLOTHING
----@field [8] "ClothingImportsSign" SRB_SHOP_IMPORT_CLOTHING
----@field GeneralImportsSign 9 SRB_SHOP_IMPORT_GENERAL
----@field [9] "GeneralImportsSign" SRB_SHOP_IMPORT_GENERAL
----@field ClothShopSign 10 SRB_SHOP_CLOTH
----@field [10] "ClothShopSign" SRB_SHOP_CLOTH
----@field LeatherShopSign 11 SRB_SHOP_TANNING
----@field [11] "LeatherShopSign" SRB_SHOP_TANNING
----@field WovenClothingShopSign 12 SRB_SHOP_CLOTHING_CLOTH
----@field [12] "WovenClothingShopSign" SRB_SHOP_CLOTHING_CLOTH
----@field LeatherClothingShopSign 13 SRB_SHOP_CLOTHING_LEATHER
----@field [13] "LeatherClothingShopSign" SRB_SHOP_CLOTHING_LEATHER
----@field BoneCarverShopSign 14 SRB_SHOP_CRAFTS_BONE_CARVER
----@field [14] "BoneCarverShopSign" SRB_SHOP_CRAFTS_BONE_CARVER
----@field GemCutterShopSign 15 SRB_SHOP_GEM_CUTTER
----@field [15] "GemCutterShopSign" SRB_SHOP_GEM_CUTTER
----@field WeaponsmithShopSign2 16 SRB_SHOP_METAL_WEAPON_SMITH
----@field [16] "WeaponsmithShopSign2" SRB_SHOP_METAL_WEAPON_SMITH
----@field BowyerShopSign 17 SRB_SHOP_WOOD_WEAPON_SMITH
----@field [17] "BowyerShopSign" SRB_SHOP_WOOD_WEAPON_SMITH
----@field BlacksmithShopSign 18 SRB_SHOP_BLACK_SMITH
----@field [18] "BlacksmithShopSign" SRB_SHOP_BLACK_SMITH
----@field ArmorsmithShopSign2 19 SRB_SHOP_METAL_ARMOR_SMITH
----@field [19] "ArmorsmithShopSign2" SRB_SHOP_METAL_ARMOR_SMITH
----@field MetalCraftShopSign 20 SRB_SHOP_METAL_CRAFTER
----@field [20] "MetalCraftShopSign" SRB_SHOP_METAL_CRAFTER
----@field LeatherGoodsShopSign 21 SRB_SHOP_LEATHER_ACCESSORIES
----@field [21] "LeatherGoodsShopSign" SRB_SHOP_LEATHER_ACCESSORIES
----@field CarpenterShopSign 22 SRB_SHOP_FURNITURE_WOOD
----@field [22] "CarpenterShopSign" SRB_SHOP_FURNITURE_WOOD
----@field StoneFurnitureShopSign 23 SRB_SHOP_FURNITURE_STONE
----@field [23] "StoneFurnitureShopSign" SRB_SHOP_FURNITURE_STONE
----@field MetalFurnitureShopSign 24 SRB_SHOP_FURNITURE_METAL
----@field [24] "MetalFurnitureShopSign" SRB_SHOP_FURNITURE_METAL
----@field TavernSign 25 AB_TAVERN
----@field [25] "TavernSign" AB_TAVERN
----@field DemonIdentity 26 when a demon assumes identity? (TRUE_NAME)
----@field [26] "DemonIdentity" when a demon assumes identity? (TRUE_NAME)
+---@field FoodImportsSign 7
+---@field [7] "FoodImportsSign"
+---@field ClothingImportsSign 8
+---@field [8] "ClothingImportsSign"
+---@field GeneralImportsSign 9
+---@field [9] "GeneralImportsSign"
+---@field ClothShopSign 10
+---@field [10] "ClothShopSign"
+---@field LeatherShopSign 11
+---@field [11] "LeatherShopSign"
+---@field WovenClothingShopSign 12
+---@field [12] "WovenClothingShopSign"
+---@field LeatherClothingShopSign 13
+---@field [13] "LeatherClothingShopSign"
+---@field BoneCarverShopSign 14
+---@field [14] "BoneCarverShopSign"
+---@field GemCutterShopSign 15
+---@field [15] "GemCutterShopSign"
+---@field WeaponsmithShopSign2 16
+---@field [16] "WeaponsmithShopSign2"
+---@field BowyerShopSign 17
+---@field [17] "BowyerShopSign"
+---@field BlacksmithShopSign 18
+---@field [18] "BlacksmithShopSign"
+---@field ArmorsmithShopSign2 19
+---@field [19] "ArmorsmithShopSign2"
+---@field MetalCraftShopSign 20
+---@field [20] "MetalCraftShopSign"
+---@field LeatherGoodsShopSign 21
+---@field [21] "LeatherGoodsShopSign"
+---@field CarpenterShopSign 22
+---@field [22] "CarpenterShopSign"
+---@field StoneFurnitureShopSign 23
+---@field [23] "StoneFurnitureShopSign"
+---@field MetalFurnitureShopSign 24
+---@field [24] "MetalFurnitureShopSign"
+---@field TavernSign 25
+---@field [25] "TavernSign"
+---@field DemonIdentity 26 for enslaving or banishing a demon
+---@field [26] "DemonIdentity" for enslaving or banishing a demon
 df.slab_engraving_type = {}
 
 ---@alias df.combat_animation_swish_type
@@ -1097,7 +1112,7 @@ function df.interface_setst:new() end
 ---@field _type identity.cached_texturest
 ---@field w number
 ---@field h number
----@field tex DFPointer<integer>
+---@field tex DFPointer<integer> std::variant{SDL_Texture *, SDL_Surface *}
 ---@field tex_n number
 
 ---@class identity.cached_texturest: DFCompoundType
@@ -1176,7 +1191,7 @@ df.override_tile_type = {}
 ---@field screen_color_bb integer
 ---@field ccolor number[][] The curses-RGB mapping used for non-curses display modes
 ---@field uccolor integer[][] The curses-RGB mapping used for non-curses display modes
----@field color integer[][]
+---@field default_palette df.palettest
 ---@field mouse_x number tile offset
 ---@field mouse_y number tile offset
 ---@field precise_mouse_x number pixel offset

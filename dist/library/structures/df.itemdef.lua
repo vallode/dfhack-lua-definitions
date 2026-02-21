@@ -244,13 +244,13 @@ local itemdef
 ---@return df.itemdef_type
 function itemdef:getType() end
 
----@param context DFPointer<integer>
+---@param info DFPointer<integer> itemdef_handling_informationst
 ---@param str string
 ---@param maintok string
 ---@param pos number
----@param can_use_internal boolean
+---@param can_use_internal_tokens boolean
 ---@return boolean
-function itemdef:parseRaws(context, str, maintok, pos, can_use_internal) end
+function itemdef:parseRaws(info, str, maintok, pos, can_use_internal_tokens) end
 
 function itemdef:categorize() end
 
@@ -258,8 +258,8 @@ function itemdef:finalize() end
 
 function itemdef:init_material_information() end
 
----@param lua_state DFPointer<integer>
-function itemdef:push_to_lua(lua_state) end
+---@param L DFPointer<integer>
+function itemdef:push_to_lua(L) end
 
 
 ---@class identity.itemdef: DFCompoundType
@@ -459,7 +459,15 @@ df.weapon_load_type = {}
 ---@field advanced_load_time number
 ---@field initiate_shot_time number
 ---@field shot_recovery_time number
----@field texpos number[]
+---@field texpos_item_material number
+---@field texpos_item_wood_grown number
+---@field texpos_item_wood number
+---@field texpos_item_stone number
+---@field texpos_item_artifact number
+---@field texpos_item_special_mat number
+---@field texpos_item_default number
+---@field texpos_weapon_trap number
+---@field texpos_upright number[][]
 ---@field graphics_info _itemdef_weaponst_graphics_info
 
 ---@class identity.itemdef_weaponst: DFCompoundType
@@ -580,8 +588,8 @@ function _itemdef_weaponst_graphics_info:erase(index) end
 ---@field [0] boolean bay12: ITEM_TRAPCOMP_GRAPHICS_FLAG_*
 ---@field type boolean
 ---@field [8] boolean
----@field wood boolean
----@field [14] boolean
+---@field wood boolean supposed to be count=5, but has a typo
+---@field [14] boolean supposed to be count=5, but has a typo
 ---@field wood_grown boolean
 ---@field [15] boolean
 
@@ -590,8 +598,8 @@ function _itemdef_weaponst_graphics_info:erase(index) end
 ---@field [0] "material_color_index" bay12: ITEM_TRAPCOMP_GRAPHICS_FLAG_*
 ---@field type 8
 ---@field [8] "type"
----@field wood 14
----@field [14] "wood"
+---@field wood 14 supposed to be count=5, but has a typo
+---@field [14] "wood" supposed to be count=5, but has a typo
 ---@field wood_grown 15
 ---@field [15] "wood_grown"
 df.item_trapcomp_graphics_flag = {}
@@ -710,7 +718,9 @@ df.trapcomp_flags = {}
 ---@field material_size number
 ---@field flags _itemdef_trapcompst_flags
 ---@field attacks _itemdef_trapcompst_attacks
----@field texpos number[]
+---@field texpos_item number
+---@field texpos_weapon_trap number
+---@field texpos_upright number[][]
 ---@field graphics_info _itemdef_trapcompst_graphics_info
 
 ---@class identity.itemdef_trapcompst: DFCompoundType
@@ -1088,7 +1098,14 @@ function df.item_tool_graphics_infost:new() end
 ---@field shape_category DFNumberVector
 ---@field description string
 ---@field default_improvements _itemdef_toolst_default_improvements
----@field texpos number[]
+---@field texpos_item number
+---@field texpos_container_wood_liquid number
+---@field texpos_container_stone_liquid number
+---@field texpos_container_metal_liquid number
+---@field texpos_container_liquid number
+---@field texpos_container_wood_item number
+---@field texpos_container_stone_item number
+---@field texpos_container_metal_item number
 ---@field texpos_container_top_plant DFNumberVector
 ---@field texpos_container_top_plant_subterranean DFNumberVector
 ---@field texpos_container_top_meal DFNumberVector
@@ -1096,7 +1113,28 @@ function df.item_tool_graphics_infost:new() end
 ---@field texpos_container_top_meat DFNumberVector
 ---@field texpos_container_top_fish DFNumberVector
 ---@field texpos_container_top_bag DFNumberVector
----@field texpos2 number[]
+---@field texpos_hive_bld number
+---@field texpos_hive_bld_in_use number
+---@field texpos_hive_bld_products number
+---@field texpos_planned_bld number
+---@field texpos_wood number[]
+---@field texpos_stone number[]
+---@field texpos_metal number[]
+---@field texpos_glass number[]
+---@field texpos_wood_variant number[]
+---@field texpos_stone_variant number[]
+---@field texpos_metal_variant number[]
+---@field texpos_glass_variant number[]
+---@field texpos_spikes number
+---@field texpos_rings number
+---@field texpos_studs number
+---@field texpos_engraving number
+---@field texpos_damage number[]
+---@field texpos_bands number
+---@field texpos_blood number
+---@field texpos_vomit number
+---@field texpos_water number
+---@field texpos_mud number
 ---@field texpos_global_shape_index DFNumberVector
 ---@field texpos_global_shape_texpos DFNumberVector
 ---@field graphics_info _itemdef_toolst_graphics_info
@@ -1845,7 +1883,22 @@ df.ammo_flags = {}
 ---@field size number divided by 10
 ---@field value number
 ---@field attacks _itemdef_ammost_attacks
----@field texpos number[]
+---@field texpos_default_n number
+---@field texpos_default_s number
+---@field texpos_default_w number
+---@field texpos_default_e number
+---@field texpos_default_nw number
+---@field texpos_default_ne number
+---@field texpos_default_sw number
+---@field texpos_default_se number
+---@field texpos_wood_n number
+---@field texpos_wood_s number
+---@field texpos_wood_w number
+---@field texpos_wood_e number
+---@field texpos_wood_nw number
+---@field texpos_wood_ne number
+---@field texpos_wood_sw number
+---@field texpos_wood_se number
 ---@field graphics_info _itemdef_ammost_graphics_info
 
 ---@class identity.itemdef_ammost: DFCompoundType
@@ -1976,7 +2029,30 @@ function df.itemdef_siegeammo_graphics_infost:new() end
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
----@field texpos number[]
+---@field texpos_default_n number
+---@field texpos_default_s number
+---@field texpos_default_w number
+---@field texpos_default_e number
+---@field texpos_default_nw number
+---@field texpos_default_ne number
+---@field texpos_default_sw number
+---@field texpos_default_se number
+---@field texpos_wood_n number
+---@field texpos_wood_s number
+---@field texpos_wood_w number
+---@field texpos_wood_e number
+---@field texpos_wood_nw number
+---@field texpos_wood_ne number
+---@field texpos_wood_sw number
+---@field texpos_wood_se number
+---@field texpos_head_n number
+---@field texpos_head_s number
+---@field texpos_head_w number
+---@field texpos_head_e number
+---@field texpos_head_nw number
+---@field texpos_head_ne number
+---@field texpos_head_sw number
+---@field texpos_head_se number
 ---@field graphics_info _itemdef_siegeammost_graphics_info
 
 ---@class identity.itemdef_siegeammost: DFCompoundType
@@ -2530,7 +2606,7 @@ function df.item_coin_graphics_infost:new() end
 
 ---@class df.item_craft_graphics_flag: DFBitfield
 ---@field _enum identity.item_craft_graphics_flag
----@field size boolean bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
+---@field material boolean bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
 ---@field [0] boolean bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
 ---@field color_index boolean
 ---@field [2] boolean
@@ -2538,8 +2614,8 @@ function df.item_coin_graphics_infost:new() end
 ---@field [10] boolean
 
 ---@class identity.item_craft_graphics_flag: DFBitfieldType
----@field size 0 bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
----@field [0] "size" bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
+---@field material 0 bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
+---@field [0] "material" bay12: ITEM_CRAFT_GRAPHICS_FLAG_*
 ---@field color_index 2
 ---@field [2] "color_index"
 ---@field gem_color_index 10
@@ -3538,14 +3614,14 @@ function df.item_crutch_graphics_infost:new() end
 ---@field _enum identity.item_slab_graphics_flag
 ---@field color_index boolean bay12: ITEM_SLAB_GRAPHICS_FLAG_*
 ---@field [0] boolean bay12: ITEM_SLAB_GRAPHICS_FLAG_*
----@field engraving_intent boolean
----@field [8] boolean
+---@field engraving_intent boolean engraving_intent + 1, to handle NONE
+---@field [8] boolean engraving_intent + 1, to handle NONE
 
 ---@class identity.item_slab_graphics_flag: DFBitfieldType
 ---@field color_index 0 bay12: ITEM_SLAB_GRAPHICS_FLAG_*
 ---@field [0] "color_index" bay12: ITEM_SLAB_GRAPHICS_FLAG_*
----@field engraving_intent 8
----@field [8] "engraving_intent"
+---@field engraving_intent 8 engraving_intent + 1, to handle NONE
+---@field [8] "engraving_intent" engraving_intent + 1, to handle NONE
 df.item_slab_graphics_flag = {}
 
 ---@class (exact) df.item_slab_graphics_infost: DFStruct

@@ -10,7 +10,7 @@
 ---@field x2 number
 ---@field y2 number
 ---@field flid number References: `df.world_underground_region`
----@field event_collections DFNumberVector bay12: hecid; sorted
+---@field event_collections DFNumberVector binary
 
 ---@class identity.battlefield: DFCompoundType
 ---@field _kind 'struct-type'

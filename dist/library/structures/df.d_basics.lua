@@ -132,13 +132,17 @@ df.army_controller_section_type = {}
 df.army_controller_section_role_type = {}
 
 ---@alias df.civzone_type
+---| -1 # NONE
 ---| 0 # Home
 ---| 1 # Depot
 ---| 2 # Stockpile
 ---| 3 # NobleQuarters
 ---| 4 # Shop
+---| 5 # UNUSED_06
+---| 6 # UNUSED_07
 ---| 7 # MeadHall
 ---| 8 # ThroneRoom
+---| 9 # UNUSED_10
 ---| 10 # Temple
 ---| 11 # Kitchen
 ---| 12 # CaptiveRoom
@@ -229,8 +233,10 @@ df.army_controller_section_role_type = {}
 ---| 97 # Tomb
 
 ---@class identity.civzone_type: DFEnumType
----@field Home 0 bay12: BuildingCivzoneType
----@field [0] "Home" bay12: BuildingCivzoneType
+---@field NONE -1 bay12: BuildingCivzoneType
+---@field [-1] "NONE" bay12: BuildingCivzoneType
+---@field Home 0
+---@field [0] "Home"
 ---@field Depot 1
 ---@field [1] "Depot"
 ---@field Stockpile 2
@@ -239,12 +245,18 @@ df.army_controller_section_role_type = {}
 ---@field [3] "NobleQuarters"
 ---@field Shop 4
 ---@field [4] "Shop"
----@field MeadHall 7 Invalid Type
----@field [7] "MeadHall" Invalid Type
+---@field UNUSED_06 5
+---@field [5] "UNUSED_06"
+---@field UNUSED_07 6
+---@field [6] "UNUSED_07"
+---@field MeadHall 7
+---@field [7] "MeadHall"
 ---@field ThroneRoom 8
 ---@field [8] "ThroneRoom"
----@field Temple 10 formerly ActivityZone
----@field [10] "Temple" formerly ActivityZone
+---@field UNUSED_10 9
+---@field [9] "UNUSED_10"
+---@field Temple 10
+---@field [10] "Temple"
 ---@field Kitchen 11
 ---@field [11] "Kitchen"
 ---@field CaptiveRoom 12
@@ -662,6 +674,7 @@ df.abstract_building_type = {}
 df.intrigue_corruption_action_type = {}
 
 ---@alias df.intrigue_corruption_method_type
+---| -1 # NONE
 ---| 0 # Threat
 ---| 1 # Flattery
 ---| 2 # Authority
@@ -672,8 +685,10 @@ df.intrigue_corruption_action_type = {}
 ---| 7 # Immortality
 
 ---@class identity.intrigue_corruption_method_type: DFEnumType
----@field Threat 0 bay12: IntrigueCorruptionMethodType
----@field [0] "Threat" bay12: IntrigueCorruptionMethodType
+---@field NONE -1 bay12: IntrigueCorruptionMethodType
+---@field [-1] "NONE" bay12: IntrigueCorruptionMethodType
+---@field Threat 0
+---@field [0] "Threat"
 ---@field Flattery 1
 ---@field [1] "Flattery"
 ---@field Authority 2
@@ -826,6 +841,7 @@ df.message_action_type = {}
 ---@field _type identity.message_order_to_perform_actionst
 ---@field commander_hf number References: `df.historical_figure`
 ---@field ordered_hf number References: `df.historical_figure`
+---@field action df.message_action_type
 ---@field action_id number
 ---@field action_transfer_flag integer
 
@@ -894,6 +910,7 @@ function df.messagest.T_plot_data:new() end
 df.religious_practice_type = {}
 
 ---@alias df.resource_allotment_specifier_type
+---| -1 # NONE
 ---| 0 # CROP
 ---| 1 # STONE
 ---| 2 # METAL
@@ -996,8 +1013,10 @@ df.religious_practice_type = {}
 ---| 99 # UNUSED_99
 
 ---@class identity.resource_allotment_specifier_type: DFEnumType
----@field CROP 0 bay12: ResourceAllotmentType
----@field [0] "CROP" bay12: ResourceAllotmentType
+---@field NONE -1 bay12: ResourceAllotmentType
+---@field [-1] "NONE" bay12: ResourceAllotmentType
+---@field CROP 0
+---@field [0] "CROP"
 ---@field STONE 1
 ---@field [1] "STONE"
 ---@field METAL 2
@@ -1199,14 +1218,17 @@ df.religious_practice_type = {}
 df.resource_allotment_specifier_type = {}
 
 ---@alias df.theft_method_type
+---| -1 # NONE
 ---| 0 # Theft
 ---| 1 # Confiscated
 ---| 2 # Looted
 ---| 3 # Recovered
 
 ---@class identity.theft_method_type: DFEnumType
----@field Theft 0 bay12: ItemTheftType
----@field [0] "Theft" bay12: ItemTheftType
+---@field NONE -1 bay12: ItemTheftType
+---@field [-1] "NONE" bay12: ItemTheftType
+---@field Theft 0
+---@field [0] "Theft"
 ---@field Confiscated 1
 ---@field [1] "Confiscated"
 ---@field Looted 2
@@ -1216,14 +1238,17 @@ df.resource_allotment_specifier_type = {}
 df.theft_method_type = {}
 
 ---@alias df.artifact_claim_type
+---| -1 # NONE
 ---| 0 # Symbol
 ---| 1 # Heirloom
 ---| 2 # Treasure
 ---| 3 # HolyRelic
 
 ---@class identity.artifact_claim_type: DFEnumType
----@field Symbol 0 bay12: ArtifactClaimType
----@field [0] "Symbol" bay12: ArtifactClaimType
+---@field NONE -1 bay12: ArtifactClaimType
+---@field [-1] "NONE" bay12: ArtifactClaimType
+---@field Symbol 0
+---@field [0] "Symbol"
 ---@field Heirloom 1
 ---@field [1] "Heirloom"
 ---@field Treasure 2
@@ -1337,6 +1362,7 @@ df.adv_art_specifierst = {}
 function df.adv_art_specifierst:new() end
 
 ---@alias df.squad_order_type
+---| -1 # NONE
 ---| 0 # MOVE
 ---| 1 # KILL_LIST
 ---| 2 # DEFEND_BURROWS
@@ -1351,8 +1377,10 @@ function df.adv_art_specifierst:new() end
 ---| 11 # RESCUE_HF
 
 ---@class identity.squad_order_type: DFEnumType
----@field MOVE 0 bay12: SquadOrderType
----@field [0] "MOVE" bay12: SquadOrderType
+---@field NONE -1 bay12: SquadOrderType
+---@field [-1] "NONE" bay12: SquadOrderType
+---@field MOVE 0
+---@field [0] "MOVE"
 ---@field KILL_LIST 1
 ---@field [1] "KILL_LIST"
 ---@field DEFEND_BURROWS 2
@@ -1405,7 +1433,7 @@ df.squad_order_type = {}
 ---| 23 # HARD_WORK
 ---| 24 # SACRIFICE
 ---| 25 # COMPETITION
----| 26 # PERSEVERENCE
+---| 26 # PERSEVERANCE
 ---| 27 # LEISURE_TIME
 ---| 28 # COMMERCE
 ---| 29 # ROMANCE
@@ -1468,8 +1496,8 @@ df.squad_order_type = {}
 ---@field [24] "SACRIFICE"
 ---@field COMPETITION 25
 ---@field [25] "COMPETITION"
----@field PERSEVERENCE 26
----@field [26] "PERSEVERENCE"
+---@field PERSEVERANCE 26
+---@field [26] "PERSEVERANCE"
 ---@field LEISURE_TIME 27
 ---@field [27] "LEISURE_TIME"
 ---@field COMMERCE 28
@@ -1485,6 +1513,7 @@ df.squad_order_type = {}
 df.value_type = {}
 
 ---@alias df.abstract_building_reputation_type
+---| -1 # NONE
 ---| 0 # DRINK_AVAILABILITY
 ---| 1 # ARCHITECTURE_QUALITY
 ---| 2 # KNOWLEDGE_QUALITY
@@ -1495,8 +1524,10 @@ df.value_type = {}
 ---| 7 # ABILITY_TO_RELAX
 
 ---@class identity.abstract_building_reputation_type: DFEnumType
----@field DRINK_AVAILABILITY 0 bay12: AbstractBuildingReputationType
----@field [0] "DRINK_AVAILABILITY" bay12: AbstractBuildingReputationType
+---@field NONE -1 bay12: AbstractBuildingReputationType
+---@field [-1] "NONE" bay12: AbstractBuildingReputationType
+---@field DRINK_AVAILABILITY 0
+---@field [0] "DRINK_AVAILABILITY"
 ---@field ARCHITECTURE_QUALITY 1
 ---@field [1] "ARCHITECTURE_QUALITY"
 ---@field KNOWLEDGE_QUALITY 2
@@ -1514,6 +1545,7 @@ df.value_type = {}
 df.abstract_building_reputation_type = {}
 
 ---@alias df.timbre_type
+---| -1 # NONE
 ---| 0 # CLEAR
 ---| 1 # NOISY
 ---| 2 # FULL
@@ -1543,7 +1575,7 @@ df.abstract_building_reputation_type = {}
 ---| 26 # EERIE
 ---| 27 # FRAGILE
 ---| 28 # BRITTLE
----| 29 # PURE_
+---| 29 # PURE
 ---| 30 # PIERCING
 ---| 31 # STRIDENT
 ---| 32 # WAVERING
@@ -1579,8 +1611,10 @@ df.abstract_building_reputation_type = {}
 ---| 62 # SPARKLING
 
 ---@class identity.timbre_type: DFEnumType
----@field CLEAR 0 bay12: TimbreType
----@field [0] "CLEAR" bay12: TimbreType
+---@field NONE -1 bay12: TimbreType
+---@field [-1] "NONE" bay12: TimbreType
+---@field CLEAR 0
+---@field [0] "CLEAR"
 ---@field NOISY 1
 ---@field [1] "NOISY"
 ---@field FULL 2
@@ -1637,8 +1671,8 @@ df.abstract_building_reputation_type = {}
 ---@field [27] "FRAGILE"
 ---@field BRITTLE 28
 ---@field [28] "BRITTLE"
----@field PURE_ 29
----@field [29] "PURE_"
+---@field PURE 29
+---@field [29] "PURE"
 ---@field PIERCING 30
 ---@field [30] "PIERCING"
 ---@field STRIDENT 31
@@ -1769,6 +1803,7 @@ df.performance_participant_type = {}
 df.performance_event_type = {}
 
 ---@alias df.occupation_type
+---| -1 # NONE
 ---| 0 # TAVERN_KEEPER
 ---| 1 # PERFORMER
 ---| 2 # SCHOLAR
@@ -1782,8 +1817,10 @@ df.performance_event_type = {}
 ---| 10 # BONE_DOCTOR
 
 ---@class identity.occupation_type: DFEnumType
----@field TAVERN_KEEPER 0 bay12: OccupationType
----@field [0] "TAVERN_KEEPER" bay12: OccupationType
+---@field NONE -1 bay12: OccupationType
+---@field [-1] "NONE" bay12: OccupationType
+---@field TAVERN_KEEPER 0
+---@field [0] "TAVERN_KEEPER"
 ---@field PERFORMER 1
 ---@field [1] "PERFORMER"
 ---@field SCHOLAR 2
@@ -2065,8 +2102,8 @@ df.occupation_type = {}
 ---@field [40] "DISAPPOINTMENT" 40
 ---@field DISGUST 41
 ---@field [41] "DISGUST"
----@field DISILLUSIONMENT 42 DISILLUSIONED
----@field [42] "DISILLUSIONMENT" DISILLUSIONED
+---@field DISILLUSIONMENT 42
+---@field [42] "DISILLUSIONMENT"
 ---@field DISLIKE 43
 ---@field [43] "DISLIKE"
 ---@field DISMAY 44
@@ -2115,8 +2152,8 @@ df.occupation_type = {}
 ---@field [65] "FEROCITY"
 ---@field FONDNESS 66
 ---@field [66] "FONDNESS"
----@field FREEDOM 67 FREE
----@field [67] "FREEDOM" FREE
+---@field FREEDOM 67
+---@field [67] "FREEDOM"
 ---@field FRIGHT 68
 ---@field [68] "FRIGHT"
 ---@field FRUSTRATION 69
@@ -2311,10 +2348,10 @@ df.occupation_type = {}
 ---@field [163] "ZEAL"
 ---@field ZEST 164 not yet in game
 ---@field [164] "ZEST" not yet in game
----@field INSTINCTUAL_HUNT 165 not yet in game
----@field [165] "INSTINCTUAL_HUNT" not yet in game
----@field BOGEYMAN_TAUNT 166 not yet in game
----@field [166] "BOGEYMAN_TAUNT" not yet in game
+---@field INSTINCTUAL_HUNT 165 special
+---@field [165] "INSTINCTUAL_HUNT" special
+---@field BOGEYMAN_TAUNT 166 special
+---@field [166] "BOGEYMAN_TAUNT" special
 ---@field RESTLESS 167
 ---@field [167] "RESTLESS"
 ---@field ADMIRATION 168
@@ -2517,7 +2554,7 @@ df.emotion_type.attrs = {}
 ---| 9 # GREED
 ---| 10 # IMMODERATION
 ---| 11 # VIOLENT
----| 12 # PERSEVERENCE
+---| 12 # PERSEVERANCE
 ---| 13 # WASTEFULNESS
 ---| 14 # DISCORD
 ---| 15 # FRIENDLINESS
@@ -2583,8 +2620,8 @@ df.emotion_type.attrs = {}
 ---@field [10] "IMMODERATION"
 ---@field VIOLENT 11
 ---@field [11] "VIOLENT"
----@field PERSEVERENCE 12
----@field [12] "PERSEVERENCE"
+---@field PERSEVERANCE 12
+---@field [12] "PERSEVERANCE"
 ---@field WASTEFULNESS 13
 ---@field [13] "WASTEFULNESS"
 ---@field DISCORD 14
@@ -2770,20 +2807,23 @@ df.goal_type._attr_entry_type._fields = {}
 df.goal_type.attrs = {}
 
 ---@alias df.insurrection_outcome
+---| -1 # NONE
 ---| 0 # LeadershipOverthrown
 ---| 1 # PopulationGone
 ---| 2 # Crushed
 
 ---@class identity.insurrection_outcome: DFEnumType
----@field LeadershipOverthrown 0 bay12: InsurrectionOutcomeType
----@field [0] "LeadershipOverthrown" bay12: InsurrectionOutcomeType
+---@field NONE -1 bay12: InsurrectionOutcomeType
+---@field [-1] "NONE" bay12: InsurrectionOutcomeType
+---@field LeadershipOverthrown 0
+---@field [0] "LeadershipOverthrown"
 ---@field PopulationGone 1
 ---@field [1] "PopulationGone"
 ---@field Crushed 2
 ---@field [2] "Crushed"
 df.insurrection_outcome = {}
 
--- Helper type for history_event_reason
+-- Helper type for history_event_reason - not a real structure
 ---@class (exact) df.history_event_reason_id: DFStruct
 ---@field _type identity.history_event_reason_id
 ---@field glorify_hf number References: `df.historical_figure`
@@ -3198,6 +3238,7 @@ df.history_event_reason.attrs = {}
 
 -- Unused: ArmyStopReasonType
 ---@alias df.incident_type
+---| -1 # NONE
 ---| 0 # Death
 ---| 1 # Crime
 ---| 2 # Attack
@@ -3212,8 +3253,10 @@ df.history_event_reason.attrs = {}
 
 -- Unused: ArmyStopReasonType
 ---@class identity.incident_type: DFEnumType
----@field Death 0 bay12: IncidentType
----@field [0] "Death" bay12: IncidentType
+---@field NONE -1 bay12: IncidentType
+---@field [-1] "NONE" bay12: IncidentType
+---@field Death 0
+---@field [0] "Death"
 ---@field Crime 1 Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
 ---@field [1] "Crime" Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
 ---@field Attack 2
@@ -3838,6 +3881,7 @@ df.unit_action_type._attr_entry_type._fields = {}
 df.unit_action_type.attrs = {}
 
 ---@alias df.misc_trait_type
+---| -1 # NONE
 ---| 0 # RequestWaterCooldown
 ---| 1 # RequestFoodCooldown
 ---| 2 # RequestRescueCooldown
@@ -3924,6 +3968,8 @@ df.unit_action_type.attrs = {}
 ---| 83 # CombatSeekAmmo
 
 ---@class identity.misc_trait_type: DFEnumType
+---@field NONE -1
+---@field [-1] "NONE"
 ---@field RequestWaterCooldown 0 0 --
 ---@field [0] "RequestWaterCooldown" 0 --
 ---@field RequestFoodCooldown 1 for thirsty patients
@@ -4705,50 +4751,50 @@ df.creature_sound_method_type = {}
 ---@field _enum identity.pathfinding_flags
 ---@field Desperate boolean bay12: PATH_PERMIT_*
 ---@field [0] boolean bay12: PATH_PERMIT_*
----@field Reckless boolean bay12: BONKERS
----@field [1] boolean bay12: BONKERS
----@field BuildingDestroyer1 boolean bay12: WOODENDOOR_IGNORE
----@field [2] boolean bay12: WOODENDOOR_IGNORE
----@field BuildingDestroyer2 boolean bay12: DOOR_IGNORE
----@field [3] boolean bay12: DOOR_IGNORE
----@field StuckInBuilding boolean bay12: BUILDING_IGNORE
----@field [4] boolean bay12: BUILDING_IGNORE
----@field AllowUnrevealed boolean bay12: HIDDEN
----@field [5] boolean bay12: HIDDEN
----@field Doors boolean bay12: DOOR_STOP
----@field [6] boolean bay12: DOOR_STOP
----@field DoorTotal boolean bay12: DOOR_STOP_TOTAL
----@field [7] boolean bay12: DOOR_STOP_TOTAL
----@field CanLearn boolean bay12: USE_TRAFFIC
----@field [8] boolean bay12: USE_TRAFFIC
+---@field Reckless boolean
+---@field [1] boolean
+---@field BuildingDestroyer1 boolean
+---@field [2] boolean
+---@field BuildingDestroyer2 boolean
+---@field [3] boolean
+---@field StuckInBuilding boolean
+---@field [4] boolean
+---@field AllowUnrevealed boolean
+---@field [5] boolean
+---@field Doors boolean
+---@field [6] boolean
+---@field DoorTotal boolean
+---@field [7] boolean
+---@field CanLearn boolean
+---@field [8] boolean
 ---@field SolidWall boolean
 ---@field [9] boolean
----@field JumpCliff boolean bay12: LEAPER
----@field [10] boolean bay12: LEAPER
----@field Air boolean bay12: FLY
----@field [11] boolean bay12: FLY
----@field ShallowWater boolean bay12: WATER_TOUCH
----@field [12] boolean bay12: WATER_TOUCH
----@field DeepWater boolean bay12: WATER_SWIM
----@field [13] boolean bay12: WATER_SWIM
----@field Underwater boolean bay12: WATER_UNDER
----@field [14] boolean bay12: WATER_UNDER
----@field ShallowMagma boolean bay12: LAVA_TOUCH
----@field [15] boolean bay12: LAVA_TOUCH
----@field DeepMagma boolean bay12: LAVA_SWIM
----@field [16] boolean bay12: LAVA_SWIM
----@field UnderMagma boolean bay12: LAVA_UNDER
----@field [17] boolean bay12: LAVA_UNDER
----@field InWater boolean bay12: ENTERING_FROM_WATER
----@field [18] boolean bay12: ENTERING_FROM_WATER
----@field InMagma boolean bay12: ENTERING_FROM_LAVA
----@field [19] boolean bay12: ENTERING_FROM_LAVA
----@field WalkLand boolean bay12: BREATHE_AIR
----@field [20] boolean bay12: BREATHE_AIR
----@field ImmobileLand boolean bay12: ENTERING_FROM_AIR
----@field [21] boolean bay12: ENTERING_FROM_AIR
----@field ZeroWalkTag boolean bay12: ENTERING_FROM_LEVEL_MAPLESS
----@field [22] boolean bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field JumpCliff boolean
+---@field [10] boolean
+---@field Air boolean
+---@field [11] boolean
+---@field ShallowWater boolean
+---@field [12] boolean
+---@field DeepWater boolean
+---@field [13] boolean
+---@field Underwater boolean
+---@field [14] boolean
+---@field ShallowMagma boolean
+---@field [15] boolean
+---@field DeepMagma boolean
+---@field [16] boolean
+---@field UnderMagma boolean
+---@field [17] boolean
+---@field InWater boolean
+---@field [18] boolean
+---@field InMagma boolean
+---@field [19] boolean
+---@field WalkLand boolean
+---@field [20] boolean
+---@field ImmobileLand boolean
+---@field [21] boolean
+---@field ZeroWalkTag boolean
+---@field [22] boolean
 ---@field LevelMapless boolean
 ---@field [23] boolean
 ---@field Ghostly boolean
@@ -4767,50 +4813,50 @@ df.creature_sound_method_type = {}
 ---@class identity.pathfinding_flags: DFBitfieldType
 ---@field Desperate 0 bay12: PATH_PERMIT_*
 ---@field [0] "Desperate" bay12: PATH_PERMIT_*
----@field Reckless 1 bay12: BONKERS
----@field [1] "Reckless" bay12: BONKERS
----@field BuildingDestroyer1 2 bay12: WOODENDOOR_IGNORE
----@field [2] "BuildingDestroyer1" bay12: WOODENDOOR_IGNORE
----@field BuildingDestroyer2 3 bay12: DOOR_IGNORE
----@field [3] "BuildingDestroyer2" bay12: DOOR_IGNORE
----@field StuckInBuilding 4 bay12: BUILDING_IGNORE
----@field [4] "StuckInBuilding" bay12: BUILDING_IGNORE
----@field AllowUnrevealed 5 bay12: HIDDEN
----@field [5] "AllowUnrevealed" bay12: HIDDEN
----@field Doors 6 bay12: DOOR_STOP
----@field [6] "Doors" bay12: DOOR_STOP
----@field DoorTotal 7 bay12: DOOR_STOP_TOTAL
----@field [7] "DoorTotal" bay12: DOOR_STOP_TOTAL
----@field CanLearn 8 bay12: USE_TRAFFIC
----@field [8] "CanLearn" bay12: USE_TRAFFIC
+---@field Reckless 1
+---@field [1] "Reckless"
+---@field BuildingDestroyer1 2
+---@field [2] "BuildingDestroyer1"
+---@field BuildingDestroyer2 3
+---@field [3] "BuildingDestroyer2"
+---@field StuckInBuilding 4
+---@field [4] "StuckInBuilding"
+---@field AllowUnrevealed 5
+---@field [5] "AllowUnrevealed"
+---@field Doors 6
+---@field [6] "Doors"
+---@field DoorTotal 7
+---@field [7] "DoorTotal"
+---@field CanLearn 8
+---@field [8] "CanLearn"
 ---@field SolidWall 9
 ---@field [9] "SolidWall"
----@field JumpCliff 10 bay12: LEAPER
----@field [10] "JumpCliff" bay12: LEAPER
----@field Air 11 bay12: FLY
----@field [11] "Air" bay12: FLY
----@field ShallowWater 12 bay12: WATER_TOUCH
----@field [12] "ShallowWater" bay12: WATER_TOUCH
----@field DeepWater 13 bay12: WATER_SWIM
----@field [13] "DeepWater" bay12: WATER_SWIM
----@field Underwater 14 bay12: WATER_UNDER
----@field [14] "Underwater" bay12: WATER_UNDER
----@field ShallowMagma 15 bay12: LAVA_TOUCH
----@field [15] "ShallowMagma" bay12: LAVA_TOUCH
----@field DeepMagma 16 bay12: LAVA_SWIM
----@field [16] "DeepMagma" bay12: LAVA_SWIM
----@field UnderMagma 17 bay12: LAVA_UNDER
----@field [17] "UnderMagma" bay12: LAVA_UNDER
----@field InWater 18 bay12: ENTERING_FROM_WATER
----@field [18] "InWater" bay12: ENTERING_FROM_WATER
----@field InMagma 19 bay12: ENTERING_FROM_LAVA
----@field [19] "InMagma" bay12: ENTERING_FROM_LAVA
----@field WalkLand 20 bay12: BREATHE_AIR
----@field [20] "WalkLand" bay12: BREATHE_AIR
----@field ImmobileLand 21 bay12: ENTERING_FROM_AIR
----@field [21] "ImmobileLand" bay12: ENTERING_FROM_AIR
----@field ZeroWalkTag 22 bay12: ENTERING_FROM_LEVEL_MAPLESS
----@field [22] "ZeroWalkTag" bay12: ENTERING_FROM_LEVEL_MAPLESS
+---@field JumpCliff 10
+---@field [10] "JumpCliff"
+---@field Air 11
+---@field [11] "Air"
+---@field ShallowWater 12
+---@field [12] "ShallowWater"
+---@field DeepWater 13
+---@field [13] "DeepWater"
+---@field Underwater 14
+---@field [14] "Underwater"
+---@field ShallowMagma 15
+---@field [15] "ShallowMagma"
+---@field DeepMagma 16
+---@field [16] "DeepMagma"
+---@field UnderMagma 17
+---@field [17] "UnderMagma"
+---@field InWater 18
+---@field [18] "InWater"
+---@field InMagma 19
+---@field [19] "InMagma"
+---@field WalkLand 20
+---@field [20] "WalkLand"
+---@field ImmobileLand 21
+---@field [21] "ImmobileLand"
+---@field ZeroWalkTag 22
+---@field [22] "ZeroWalkTag"
 ---@field LevelMapless 23
 ---@field [23] "LevelMapless"
 ---@field Ghostly 24
@@ -4865,8 +4911,8 @@ df.pronoun_type.attrs = {}
 
 ---@class (exact) df.massst: DFStruct
 ---@field _type identity.massst
----@field whole number kilograms
----@field fraction number milligrams
+---@field whole number
+---@field fraction number
 
 ---@class identity.massst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -4895,13 +4941,16 @@ function df.massst:new() end
 df.squad_water_level_type = {}
 
 ---@alias df.dungeon_type
+---| -1 # NONE
 ---| 0 # DUNGEON
 ---| 1 # SEWERS
 ---| 2 # CATACOMBS
 
 ---@class identity.dungeon_type: DFEnumType
----@field DUNGEON 0 bay12: DungeonType
----@field [0] "DUNGEON" bay12: DungeonType
+---@field NONE -1 bay12: DungeonType
+---@field [-1] "NONE" bay12: DungeonType
+---@field DUNGEON 0
+---@field [0] "DUNGEON"
 ---@field SEWERS 1
 ---@field [1] "SEWERS"
 ---@field CATACOMBS 2
@@ -5137,7 +5186,7 @@ df.uniform_category = {}
 ---| 0 # NEATLY_COMBED
 ---| 1 # BRAIDED
 ---| 2 # DOUBLE_BRAIDS
----| 3 # PONY_TAILS
+---| 3 # PONY_TAIL
 ---| 4 # CLEAN_SHAVEN
 
 ---@class identity.tissue_style_type: DFEnumType
@@ -5149,8 +5198,8 @@ df.uniform_category = {}
 ---@field [1] "BRAIDED"
 ---@field DOUBLE_BRAIDS 2
 ---@field [2] "DOUBLE_BRAIDS"
----@field PONY_TAILS 3
----@field [3] "PONY_TAILS"
+---@field PONY_TAIL 3
+---@field [3] "PONY_TAIL"
 ---@field CLEAN_SHAVEN 4
 ---@field [4] "CLEAN_SHAVEN"
 df.tissue_style_type = {}
@@ -5533,18 +5582,18 @@ df.entity_position_raw_flags = {}
 ---@class identity.entity_position_flags: DFEnumType
 ---@field NONE -1 bay12: EntityPositionFlagType
 ---@field [-1] "NONE" bay12: EntityPositionFlagType
----@field IS_LAW_MAKER 0 bay12: ATTACK_IS_TREASON
----@field [0] "IS_LAW_MAKER" bay12: ATTACK_IS_TREASON
+---@field IS_LAW_MAKER 0
+---@field [0] "IS_LAW_MAKER"
 ---@field ELECTED 1
 ---@field [1] "ELECTED"
 ---@field DUTY_BOUND 2
 ---@field [2] "DUTY_BOUND"
 ---@field MILITARY_SCREEN_ONLY 3
 ---@field [3] "MILITARY_SCREEN_ONLY"
----@field GENDER_MALE 4 bay12: FORCED_GENDER_MALE
----@field [4] "GENDER_MALE" bay12: FORCED_GENDER_MALE
----@field GENDER_FEMALE 5 bay12: FORCED_GENDER_FEMALE
----@field [5] "GENDER_FEMALE" bay12: FORCED_GENDER_FEMALE
+---@field GENDER_MALE 4
+---@field [4] "GENDER_MALE"
+---@field GENDER_FEMALE 5
+---@field [5] "GENDER_FEMALE"
 ---@field SUCCESSION_BY_HEIR 6
 ---@field [6] "SUCCESSION_BY_HEIR"
 ---@field HAS_RESPONSIBILITIES 7
@@ -5559,10 +5608,10 @@ df.entity_position_raw_flags = {}
 ---@field [11] "DO_NOT_CULL"
 ---@field KILL_QUEST 12
 ---@field [12] "KILL_QUEST"
----@field IS_LEADER 13 bay12: ADD_CONV_SKILLS_AT_WORLD_GEN
----@field [13] "IS_LEADER" bay12: ADD_CONV_SKILLS_AT_WORLD_GEN
----@field IS_DIPLOMAT 14 bay12: DIPLOMATIC_DRAFT_AVOIDANCE
----@field [14] "IS_DIPLOMAT" bay12: DIPLOMATIC_DRAFT_AVOIDANCE
+---@field IS_LEADER 13
+---@field [13] "IS_LEADER"
+---@field IS_DIPLOMAT 14
+---@field [14] "IS_DIPLOMAT"
 ---@field EXPORTED_IN_LEGENDS 15
 ---@field [15] "EXPORTED_IN_LEGENDS"
 ---@field DETERMINES_COIN_DESIGN 16
@@ -5573,8 +5622,8 @@ df.entity_position_raw_flags = {}
 ---@field [18] "HAS_MET_POP_REQ"
 ---@field HAS_BEEN_REPLACED 19
 ---@field [19] "HAS_BEEN_REPLACED"
----@field COLOR 20 bay12: USE_COLOR
----@field [20] "COLOR" bay12: USE_COLOR
+---@field COLOR 20
+---@field [20] "COLOR"
 ---@field RULES_FROM_LOCATION 21
 ---@field [21] "RULES_FROM_LOCATION"
 ---@field MENIAL_WORK_EXEMPTION 22
@@ -5746,11 +5795,13 @@ df.organic_mat_category = {}
 ---@field [7] boolean
 ---@field murdered boolean check for item flag
 ---@field [8] boolean check for item flag
+---@field UNUSED_1_10 boolean unused, formerly distillable
 ---@field [9] boolean unused, formerly distillable
 ---@field empty boolean
 ---@field [10] boolean
 ---@field processable boolean processable plant, e.g. to thread
 ---@field [11] boolean processable plant, e.g. to thread
+---@field UNUSED_1_13 boolean unused, formerly is_bag
 ---@field [12] boolean unused, formerly is_bag
 ---@field cookable boolean
 ---@field [13] boolean
@@ -5762,6 +5813,7 @@ df.organic_mat_category = {}
 ---@field [16] boolean
 ---@field processable_to_vial boolean
 ---@field [17] boolean
+---@field UNUSED_1_19 boolean unused, formerly processable_to_bag
 ---@field [18] boolean unused, formerly processable_to_bag
 ---@field processable_to_barrel boolean
 ---@field [19] boolean
@@ -5809,10 +5861,14 @@ df.organic_mat_category = {}
 ---@field [7] "sharpenable"
 ---@field murdered 8 check for item flag
 ---@field [8] "murdered" check for item flag
+---@field UNUSED_1_10 9 unused, formerly distillable
+---@field [9] "UNUSED_1_10" unused, formerly distillable
 ---@field empty 10
 ---@field [10] "empty"
 ---@field processable 11 processable plant, e.g. to thread
 ---@field [11] "processable" processable plant, e.g. to thread
+---@field UNUSED_1_13 12 unused, formerly is_bag
+---@field [12] "UNUSED_1_13" unused, formerly is_bag
 ---@field cookable 13
 ---@field [13] "cookable"
 ---@field extract_bearing_plant 14
@@ -5823,6 +5879,8 @@ df.organic_mat_category = {}
 ---@field [16] "extract_bearing_vermin"
 ---@field processable_to_vial 17
 ---@field [17] "processable_to_vial"
+---@field UNUSED_1_19 18 unused, formerly processable_to_bag
+---@field [18] "UNUSED_1_19" unused, formerly processable_to_bag
 ---@field processable_to_barrel 19
 ---@field [19] "processable_to_barrel"
 ---@field solid 20
@@ -5877,8 +5935,8 @@ df.job_item_flags1 = {}
 ---@field [10] boolean check for item flag "melt"
 ---@field non_economic boolean
 ---@field [11] boolean
----@field allow_melt_dump boolean CAN_USE_GARBAGE; item can be designated for melting or dumping
----@field [12] boolean CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field allow_melt_dump boolean item can be designated for melting or dumping
+---@field [12] boolean item can be designated for melting or dumping
 ---@field allow_artifact boolean item can be artifact
 ---@field [13] boolean item can be artifact
 ---@field plant boolean check if material is a PLANT_MAT
@@ -5899,6 +5957,7 @@ df.job_item_flags1 = {}
 ---@field [21] boolean check for material flag PEARL
 ---@field plaster_containing boolean
 ---@field [22] boolean
+---@field UNUSED_24 boolean unused
 ---@field [23] boolean unused
 ---@field soap boolean check for material flag SOAP
 ---@field [24] boolean check for material flag SOAP
@@ -5942,8 +6001,8 @@ df.job_item_flags1 = {}
 ---@field [10] "melt_designated" check for item flag "melt"
 ---@field non_economic 11
 ---@field [11] "non_economic"
----@field allow_melt_dump 12 CAN_USE_GARBAGE; item can be designated for melting or dumping
----@field [12] "allow_melt_dump" CAN_USE_GARBAGE; item can be designated for melting or dumping
+---@field allow_melt_dump 12 item can be designated for melting or dumping
+---@field [12] "allow_melt_dump" item can be designated for melting or dumping
 ---@field allow_artifact 13 item can be artifact
 ---@field [13] "allow_artifact" item can be artifact
 ---@field plant 14 check if material is a PLANT_MAT
@@ -5964,6 +6023,8 @@ df.job_item_flags1 = {}
 ---@field [21] "pearl" check for material flag PEARL
 ---@field plaster_containing 22
 ---@field [22] "plaster_containing"
+---@field UNUSED_24 23 unused
+---@field [23] "UNUSED_24" unused
 ---@field soap 24 check for material flag SOAP
 ---@field [24] "soap" check for material flag SOAP
 ---@field body_part 25 itemtype CORPSE or CORPSEPIECE
@@ -6766,14 +6827,17 @@ df.whereabouts_type = {}
 df.world_site_type = {}
 
 ---@alias df.world_construction_type
+---| -1 # NONE
 ---| 0 # ROAD
 ---| 1 # TUNNEL
 ---| 2 # BRIDGE
 ---| 3 # WALL
 
 ---@class identity.world_construction_type: DFEnumType
----@field ROAD 0 bay12: WorldConstructionType
----@field [0] "ROAD" bay12: WorldConstructionType
+---@field NONE -1 bay12: WorldConstructionType
+---@field [-1] "NONE" bay12: WorldConstructionType
+---@field ROAD 0
+---@field [0] "ROAD"
 ---@field TUNNEL 1
 ---@field [1] "TUNNEL"
 ---@field BRIDGE 2
@@ -9102,6 +9166,7 @@ df.itemimprovement_specific_type = {}
 ---| 20 # Depot
 ---| 21 # VerminHunting
 ---| 22 # SeekCommander
+---| 23 # UNUSED_23
 ---| 24 # MillAnywhere
 ---| 25 # Wagon
 ---| 26 # MillBuilding
@@ -9126,8 +9191,8 @@ df.itemimprovement_specific_type = {}
 ---@class identity.unit_station_type: DFEnumType
 ---@field None -1 bay12: StationType
 ---@field [-1] "None" bay12: StationType
----@field Nonsense 0 INITIAL_SITE
----@field [0] "Nonsense" INITIAL_SITE
+---@field Nonsense 0
+---@field [0] "Nonsense"
 ---@field DungeonCommander 1
 ---@field [1] "DungeonCommander"
 ---@field InsaneMood 2
@@ -9172,6 +9237,8 @@ df.itemimprovement_specific_type = {}
 ---@field [21] "VerminHunting"
 ---@field SeekCommander 22
 ---@field [22] "SeekCommander"
+---@field UNUSED_23 23
+---@field [23] "UNUSED_23"
 ---@field MillAnywhere 24
 ---@field [24] "MillAnywhere"
 ---@field Wagon 25
@@ -10103,8 +10170,8 @@ df.matter_state = {}
 ---@field [18] "POWDER_MISC_CREATURE"
 ---@field STOCKPILE_GLOB 19
 ---@field [19] "STOCKPILE_GLOB"
----@field LIQUID_MISC_PLANT 20 also STOCKPILE_GLOB_SOLID
----@field [20] "LIQUID_MISC_PLANT" also STOCKPILE_GLOB_SOLID
+---@field LIQUID_MISC_PLANT 20
+---@field [20] "LIQUID_MISC_PLANT"
 ---@field LIQUID_MISC_CREATURE 21
 ---@field [21] "LIQUID_MISC_CREATURE"
 ---@field LIQUID_MISC_OTHER 22
@@ -10346,6 +10413,646 @@ df.material_flags.attrs = {}
 ---| 16 # FILTH_Y
 ---| 17 # UNKNOWN_SUBSTANCE
 ---| 18 # GRIME
+---| 19 # CREATURE_1
+---| 20 # CREATURE_2
+---| 21 # CREATURE_3
+---| 22 # CREATURE_4
+---| 23 # CREATURE_5
+---| 24 # CREATURE_6
+---| 25 # CREATURE_7
+---| 26 # CREATURE_8
+---| 27 # CREATURE_9
+---| 28 # CREATURE_10
+---| 29 # CREATURE_11
+---| 30 # CREATURE_12
+---| 31 # CREATURE_13
+---| 32 # CREATURE_14
+---| 33 # CREATURE_15
+---| 34 # CREATURE_16
+---| 35 # CREATURE_17
+---| 36 # CREATURE_18
+---| 37 # CREATURE_19
+---| 38 # CREATURE_20
+---| 39 # CREATURE_21
+---| 40 # CREATURE_22
+---| 41 # CREATURE_23
+---| 42 # CREATURE_24
+---| 43 # CREATURE_25
+---| 44 # CREATURE_26
+---| 45 # CREATURE_27
+---| 46 # CREATURE_28
+---| 47 # CREATURE_29
+---| 48 # CREATURE_30
+---| 49 # CREATURE_31
+---| 50 # CREATURE_32
+---| 51 # CREATURE_33
+---| 52 # CREATURE_34
+---| 53 # CREATURE_35
+---| 54 # CREATURE_36
+---| 55 # CREATURE_37
+---| 56 # CREATURE_38
+---| 57 # CREATURE_39
+---| 58 # CREATURE_40
+---| 59 # CREATURE_41
+---| 60 # CREATURE_42
+---| 61 # CREATURE_43
+---| 62 # CREATURE_44
+---| 63 # CREATURE_45
+---| 64 # CREATURE_46
+---| 65 # CREATURE_47
+---| 66 # CREATURE_48
+---| 67 # CREATURE_49
+---| 68 # CREATURE_50
+---| 69 # CREATURE_51
+---| 70 # CREATURE_52
+---| 71 # CREATURE_53
+---| 72 # CREATURE_54
+---| 73 # CREATURE_55
+---| 74 # CREATURE_56
+---| 75 # CREATURE_57
+---| 76 # CREATURE_58
+---| 77 # CREATURE_59
+---| 78 # CREATURE_60
+---| 79 # CREATURE_61
+---| 80 # CREATURE_62
+---| 81 # CREATURE_63
+---| 82 # CREATURE_64
+---| 83 # CREATURE_65
+---| 84 # CREATURE_66
+---| 85 # CREATURE_67
+---| 86 # CREATURE_68
+---| 87 # CREATURE_69
+---| 88 # CREATURE_70
+---| 89 # CREATURE_71
+---| 90 # CREATURE_72
+---| 91 # CREATURE_73
+---| 92 # CREATURE_74
+---| 93 # CREATURE_75
+---| 94 # CREATURE_76
+---| 95 # CREATURE_77
+---| 96 # CREATURE_78
+---| 97 # CREATURE_79
+---| 98 # CREATURE_80
+---| 99 # CREATURE_81
+---| 100 # CREATURE_82
+---| 101 # CREATURE_83
+---| 102 # CREATURE_84
+---| 103 # CREATURE_85
+---| 104 # CREATURE_86
+---| 105 # CREATURE_87
+---| 106 # CREATURE_88
+---| 107 # CREATURE_89
+---| 108 # CREATURE_90
+---| 109 # CREATURE_91
+---| 110 # CREATURE_92
+---| 111 # CREATURE_93
+---| 112 # CREATURE_94
+---| 113 # CREATURE_95
+---| 114 # CREATURE_96
+---| 115 # CREATURE_97
+---| 116 # CREATURE_98
+---| 117 # CREATURE_99
+---| 118 # CREATURE_100
+---| 119 # CREATURE_101
+---| 120 # CREATURE_102
+---| 121 # CREATURE_103
+---| 122 # CREATURE_104
+---| 123 # CREATURE_105
+---| 124 # CREATURE_106
+---| 125 # CREATURE_107
+---| 126 # CREATURE_108
+---| 127 # CREATURE_109
+---| 128 # CREATURE_110
+---| 129 # CREATURE_111
+---| 130 # CREATURE_112
+---| 131 # CREATURE_113
+---| 132 # CREATURE_114
+---| 133 # CREATURE_115
+---| 134 # CREATURE_116
+---| 135 # CREATURE_117
+---| 136 # CREATURE_118
+---| 137 # CREATURE_119
+---| 138 # CREATURE_120
+---| 139 # CREATURE_121
+---| 140 # CREATURE_122
+---| 141 # CREATURE_123
+---| 142 # CREATURE_124
+---| 143 # CREATURE_125
+---| 144 # CREATURE_126
+---| 145 # CREATURE_127
+---| 146 # CREATURE_128
+---| 147 # CREATURE_129
+---| 148 # CREATURE_130
+---| 149 # CREATURE_131
+---| 150 # CREATURE_132
+---| 151 # CREATURE_133
+---| 152 # CREATURE_134
+---| 153 # CREATURE_135
+---| 154 # CREATURE_136
+---| 155 # CREATURE_137
+---| 156 # CREATURE_138
+---| 157 # CREATURE_139
+---| 158 # CREATURE_140
+---| 159 # CREATURE_141
+---| 160 # CREATURE_142
+---| 161 # CREATURE_143
+---| 162 # CREATURE_144
+---| 163 # CREATURE_145
+---| 164 # CREATURE_146
+---| 165 # CREATURE_147
+---| 166 # CREATURE_148
+---| 167 # CREATURE_149
+---| 168 # CREATURE_150
+---| 169 # CREATURE_151
+---| 170 # CREATURE_152
+---| 171 # CREATURE_153
+---| 172 # CREATURE_154
+---| 173 # CREATURE_155
+---| 174 # CREATURE_156
+---| 175 # CREATURE_157
+---| 176 # CREATURE_158
+---| 177 # CREATURE_159
+---| 178 # CREATURE_160
+---| 179 # CREATURE_161
+---| 180 # CREATURE_162
+---| 181 # CREATURE_163
+---| 182 # CREATURE_164
+---| 183 # CREATURE_165
+---| 184 # CREATURE_166
+---| 185 # CREATURE_167
+---| 186 # CREATURE_168
+---| 187 # CREATURE_169
+---| 188 # CREATURE_170
+---| 189 # CREATURE_171
+---| 190 # CREATURE_172
+---| 191 # CREATURE_173
+---| 192 # CREATURE_174
+---| 193 # CREATURE_175
+---| 194 # CREATURE_176
+---| 195 # CREATURE_177
+---| 196 # CREATURE_178
+---| 197 # CREATURE_179
+---| 198 # CREATURE_180
+---| 199 # CREATURE_181
+---| 200 # CREATURE_182
+---| 201 # CREATURE_183
+---| 202 # CREATURE_184
+---| 203 # CREATURE_185
+---| 204 # CREATURE_186
+---| 205 # CREATURE_187
+---| 206 # CREATURE_188
+---| 207 # CREATURE_189
+---| 208 # CREATURE_190
+---| 209 # CREATURE_191
+---| 210 # CREATURE_192
+---| 211 # CREATURE_193
+---| 212 # CREATURE_194
+---| 213 # CREATURE_195
+---| 214 # CREATURE_196
+---| 215 # CREATURE_197
+---| 216 # CREATURE_198
+---| 217 # CREATURE_199
+---| 218 # CREATURE_200
+---| 219 # HIST_FIG_1
+---| 220 # HIST_FIG_2
+---| 221 # HIST_FIG_3
+---| 222 # HIST_FIG_4
+---| 223 # HIST_FIG_5
+---| 224 # HIST_FIG_6
+---| 225 # HIST_FIG_7
+---| 226 # HIST_FIG_8
+---| 227 # HIST_FIG_9
+---| 228 # HIST_FIG_10
+---| 229 # HIST_FIG_11
+---| 230 # HIST_FIG_12
+---| 231 # HIST_FIG_13
+---| 232 # HIST_FIG_14
+---| 233 # HIST_FIG_15
+---| 234 # HIST_FIG_16
+---| 235 # HIST_FIG_17
+---| 236 # HIST_FIG_18
+---| 237 # HIST_FIG_19
+---| 238 # HIST_FIG_20
+---| 239 # HIST_FIG_21
+---| 240 # HIST_FIG_22
+---| 241 # HIST_FIG_23
+---| 242 # HIST_FIG_24
+---| 243 # HIST_FIG_25
+---| 244 # HIST_FIG_26
+---| 245 # HIST_FIG_27
+---| 246 # HIST_FIG_28
+---| 247 # HIST_FIG_29
+---| 248 # HIST_FIG_30
+---| 249 # HIST_FIG_31
+---| 250 # HIST_FIG_32
+---| 251 # HIST_FIG_33
+---| 252 # HIST_FIG_34
+---| 253 # HIST_FIG_35
+---| 254 # HIST_FIG_36
+---| 255 # HIST_FIG_37
+---| 256 # HIST_FIG_38
+---| 257 # HIST_FIG_39
+---| 258 # HIST_FIG_40
+---| 259 # HIST_FIG_41
+---| 260 # HIST_FIG_42
+---| 261 # HIST_FIG_43
+---| 262 # HIST_FIG_44
+---| 263 # HIST_FIG_45
+---| 264 # HIST_FIG_46
+---| 265 # HIST_FIG_47
+---| 266 # HIST_FIG_48
+---| 267 # HIST_FIG_49
+---| 268 # HIST_FIG_50
+---| 269 # HIST_FIG_51
+---| 270 # HIST_FIG_52
+---| 271 # HIST_FIG_53
+---| 272 # HIST_FIG_54
+---| 273 # HIST_FIG_55
+---| 274 # HIST_FIG_56
+---| 275 # HIST_FIG_57
+---| 276 # HIST_FIG_58
+---| 277 # HIST_FIG_59
+---| 278 # HIST_FIG_60
+---| 279 # HIST_FIG_61
+---| 280 # HIST_FIG_62
+---| 281 # HIST_FIG_63
+---| 282 # HIST_FIG_64
+---| 283 # HIST_FIG_65
+---| 284 # HIST_FIG_66
+---| 285 # HIST_FIG_67
+---| 286 # HIST_FIG_68
+---| 287 # HIST_FIG_69
+---| 288 # HIST_FIG_70
+---| 289 # HIST_FIG_71
+---| 290 # HIST_FIG_72
+---| 291 # HIST_FIG_73
+---| 292 # HIST_FIG_74
+---| 293 # HIST_FIG_75
+---| 294 # HIST_FIG_76
+---| 295 # HIST_FIG_77
+---| 296 # HIST_FIG_78
+---| 297 # HIST_FIG_79
+---| 298 # HIST_FIG_80
+---| 299 # HIST_FIG_81
+---| 300 # HIST_FIG_82
+---| 301 # HIST_FIG_83
+---| 302 # HIST_FIG_84
+---| 303 # HIST_FIG_85
+---| 304 # HIST_FIG_86
+---| 305 # HIST_FIG_87
+---| 306 # HIST_FIG_88
+---| 307 # HIST_FIG_89
+---| 308 # HIST_FIG_90
+---| 309 # HIST_FIG_91
+---| 310 # HIST_FIG_92
+---| 311 # HIST_FIG_93
+---| 312 # HIST_FIG_94
+---| 313 # HIST_FIG_95
+---| 314 # HIST_FIG_96
+---| 315 # HIST_FIG_97
+---| 316 # HIST_FIG_98
+---| 317 # HIST_FIG_99
+---| 318 # HIST_FIG_100
+---| 319 # HIST_FIG_101
+---| 320 # HIST_FIG_102
+---| 321 # HIST_FIG_103
+---| 322 # HIST_FIG_104
+---| 323 # HIST_FIG_105
+---| 324 # HIST_FIG_106
+---| 325 # HIST_FIG_107
+---| 326 # HIST_FIG_108
+---| 327 # HIST_FIG_109
+---| 328 # HIST_FIG_110
+---| 329 # HIST_FIG_111
+---| 330 # HIST_FIG_112
+---| 331 # HIST_FIG_113
+---| 332 # HIST_FIG_114
+---| 333 # HIST_FIG_115
+---| 334 # HIST_FIG_116
+---| 335 # HIST_FIG_117
+---| 336 # HIST_FIG_118
+---| 337 # HIST_FIG_119
+---| 338 # HIST_FIG_120
+---| 339 # HIST_FIG_121
+---| 340 # HIST_FIG_122
+---| 341 # HIST_FIG_123
+---| 342 # HIST_FIG_124
+---| 343 # HIST_FIG_125
+---| 344 # HIST_FIG_126
+---| 345 # HIST_FIG_127
+---| 346 # HIST_FIG_128
+---| 347 # HIST_FIG_129
+---| 348 # HIST_FIG_130
+---| 349 # HIST_FIG_131
+---| 350 # HIST_FIG_132
+---| 351 # HIST_FIG_133
+---| 352 # HIST_FIG_134
+---| 353 # HIST_FIG_135
+---| 354 # HIST_FIG_136
+---| 355 # HIST_FIG_137
+---| 356 # HIST_FIG_138
+---| 357 # HIST_FIG_139
+---| 358 # HIST_FIG_140
+---| 359 # HIST_FIG_141
+---| 360 # HIST_FIG_142
+---| 361 # HIST_FIG_143
+---| 362 # HIST_FIG_144
+---| 363 # HIST_FIG_145
+---| 364 # HIST_FIG_146
+---| 365 # HIST_FIG_147
+---| 366 # HIST_FIG_148
+---| 367 # HIST_FIG_149
+---| 368 # HIST_FIG_150
+---| 369 # HIST_FIG_151
+---| 370 # HIST_FIG_152
+---| 371 # HIST_FIG_153
+---| 372 # HIST_FIG_154
+---| 373 # HIST_FIG_155
+---| 374 # HIST_FIG_156
+---| 375 # HIST_FIG_157
+---| 376 # HIST_FIG_158
+---| 377 # HIST_FIG_159
+---| 378 # HIST_FIG_160
+---| 379 # HIST_FIG_161
+---| 380 # HIST_FIG_162
+---| 381 # HIST_FIG_163
+---| 382 # HIST_FIG_164
+---| 383 # HIST_FIG_165
+---| 384 # HIST_FIG_166
+---| 385 # HIST_FIG_167
+---| 386 # HIST_FIG_168
+---| 387 # HIST_FIG_169
+---| 388 # HIST_FIG_170
+---| 389 # HIST_FIG_171
+---| 390 # HIST_FIG_172
+---| 391 # HIST_FIG_173
+---| 392 # HIST_FIG_174
+---| 393 # HIST_FIG_175
+---| 394 # HIST_FIG_176
+---| 395 # HIST_FIG_177
+---| 396 # HIST_FIG_178
+---| 397 # HIST_FIG_179
+---| 398 # HIST_FIG_180
+---| 399 # HIST_FIG_181
+---| 400 # HIST_FIG_182
+---| 401 # HIST_FIG_183
+---| 402 # HIST_FIG_184
+---| 403 # HIST_FIG_185
+---| 404 # HIST_FIG_186
+---| 405 # HIST_FIG_187
+---| 406 # HIST_FIG_188
+---| 407 # HIST_FIG_189
+---| 408 # HIST_FIG_190
+---| 409 # HIST_FIG_191
+---| 410 # HIST_FIG_192
+---| 411 # HIST_FIG_193
+---| 412 # HIST_FIG_194
+---| 413 # HIST_FIG_195
+---| 414 # HIST_FIG_196
+---| 415 # HIST_FIG_197
+---| 416 # HIST_FIG_198
+---| 417 # HIST_FIG_199
+---| 418 # HIST_FIG_200
+---| 419 # PLANT_1
+---| 420 # PLANT_2
+---| 421 # PLANT_3
+---| 422 # PLANT_4
+---| 423 # PLANT_5
+---| 424 # PLANT_6
+---| 425 # PLANT_7
+---| 426 # PLANT_8
+---| 427 # PLANT_9
+---| 428 # PLANT_10
+---| 429 # PLANT_11
+---| 430 # PLANT_12
+---| 431 # PLANT_13
+---| 432 # PLANT_14
+---| 433 # PLANT_15
+---| 434 # PLANT_16
+---| 435 # PLANT_17
+---| 436 # PLANT_18
+---| 437 # PLANT_19
+---| 438 # PLANT_20
+---| 439 # PLANT_21
+---| 440 # PLANT_22
+---| 441 # PLANT_23
+---| 442 # PLANT_24
+---| 443 # PLANT_25
+---| 444 # PLANT_26
+---| 445 # PLANT_27
+---| 446 # PLANT_28
+---| 447 # PLANT_29
+---| 448 # PLANT_30
+---| 449 # PLANT_31
+---| 450 # PLANT_32
+---| 451 # PLANT_33
+---| 452 # PLANT_34
+---| 453 # PLANT_35
+---| 454 # PLANT_36
+---| 455 # PLANT_37
+---| 456 # PLANT_38
+---| 457 # PLANT_39
+---| 458 # PLANT_40
+---| 459 # PLANT_41
+---| 460 # PLANT_42
+---| 461 # PLANT_43
+---| 462 # PLANT_44
+---| 463 # PLANT_45
+---| 464 # PLANT_46
+---| 465 # PLANT_47
+---| 466 # PLANT_48
+---| 467 # PLANT_49
+---| 468 # PLANT_50
+---| 469 # PLANT_51
+---| 470 # PLANT_52
+---| 471 # PLANT_53
+---| 472 # PLANT_54
+---| 473 # PLANT_55
+---| 474 # PLANT_56
+---| 475 # PLANT_57
+---| 476 # PLANT_58
+---| 477 # PLANT_59
+---| 478 # PLANT_60
+---| 479 # PLANT_61
+---| 480 # PLANT_62
+---| 481 # PLANT_63
+---| 482 # PLANT_64
+---| 483 # PLANT_65
+---| 484 # PLANT_66
+---| 485 # PLANT_67
+---| 486 # PLANT_68
+---| 487 # PLANT_69
+---| 488 # PLANT_70
+---| 489 # PLANT_71
+---| 490 # PLANT_72
+---| 491 # PLANT_73
+---| 492 # PLANT_74
+---| 493 # PLANT_75
+---| 494 # PLANT_76
+---| 495 # PLANT_77
+---| 496 # PLANT_78
+---| 497 # PLANT_79
+---| 498 # PLANT_80
+---| 499 # PLANT_81
+---| 500 # PLANT_82
+---| 501 # PLANT_83
+---| 502 # PLANT_84
+---| 503 # PLANT_85
+---| 504 # PLANT_86
+---| 505 # PLANT_87
+---| 506 # PLANT_88
+---| 507 # PLANT_89
+---| 508 # PLANT_90
+---| 509 # PLANT_91
+---| 510 # PLANT_92
+---| 511 # PLANT_93
+---| 512 # PLANT_94
+---| 513 # PLANT_95
+---| 514 # PLANT_96
+---| 515 # PLANT_97
+---| 516 # PLANT_98
+---| 517 # PLANT_99
+---| 518 # PLANT_100
+---| 519 # PLANT_101
+---| 520 # PLANT_102
+---| 521 # PLANT_103
+---| 522 # PLANT_104
+---| 523 # PLANT_105
+---| 524 # PLANT_106
+---| 525 # PLANT_107
+---| 526 # PLANT_108
+---| 527 # PLANT_109
+---| 528 # PLANT_110
+---| 529 # PLANT_111
+---| 530 # PLANT_112
+---| 531 # PLANT_113
+---| 532 # PLANT_114
+---| 533 # PLANT_115
+---| 534 # PLANT_116
+---| 535 # PLANT_117
+---| 536 # PLANT_118
+---| 537 # PLANT_119
+---| 538 # PLANT_120
+---| 539 # PLANT_121
+---| 540 # PLANT_122
+---| 541 # PLANT_123
+---| 542 # PLANT_124
+---| 543 # PLANT_125
+---| 544 # PLANT_126
+---| 545 # PLANT_127
+---| 546 # PLANT_128
+---| 547 # PLANT_129
+---| 548 # PLANT_130
+---| 549 # PLANT_131
+---| 550 # PLANT_132
+---| 551 # PLANT_133
+---| 552 # PLANT_134
+---| 553 # PLANT_135
+---| 554 # PLANT_136
+---| 555 # PLANT_137
+---| 556 # PLANT_138
+---| 557 # PLANT_139
+---| 558 # PLANT_140
+---| 559 # PLANT_141
+---| 560 # PLANT_142
+---| 561 # PLANT_143
+---| 562 # PLANT_144
+---| 563 # PLANT_145
+---| 564 # PLANT_146
+---| 565 # PLANT_147
+---| 566 # PLANT_148
+---| 567 # PLANT_149
+---| 568 # PLANT_150
+---| 569 # PLANT_151
+---| 570 # PLANT_152
+---| 571 # PLANT_153
+---| 572 # PLANT_154
+---| 573 # PLANT_155
+---| 574 # PLANT_156
+---| 575 # PLANT_157
+---| 576 # PLANT_158
+---| 577 # PLANT_159
+---| 578 # PLANT_160
+---| 579 # PLANT_161
+---| 580 # PLANT_162
+---| 581 # PLANT_163
+---| 582 # PLANT_164
+---| 583 # PLANT_165
+---| 584 # PLANT_166
+---| 585 # PLANT_167
+---| 586 # PLANT_168
+---| 587 # PLANT_169
+---| 588 # PLANT_170
+---| 589 # PLANT_171
+---| 590 # PLANT_172
+---| 591 # PLANT_173
+---| 592 # PLANT_174
+---| 593 # PLANT_175
+---| 594 # PLANT_176
+---| 595 # PLANT_177
+---| 596 # PLANT_178
+---| 597 # PLANT_179
+---| 598 # PLANT_180
+---| 599 # PLANT_181
+---| 600 # PLANT_182
+---| 601 # PLANT_183
+---| 602 # PLANT_184
+---| 603 # PLANT_185
+---| 604 # PLANT_186
+---| 605 # PLANT_187
+---| 606 # PLANT_188
+---| 607 # PLANT_189
+---| 608 # PLANT_190
+---| 609 # PLANT_191
+---| 610 # PLANT_192
+---| 611 # PLANT_193
+---| 612 # PLANT_194
+---| 613 # PLANT_195
+---| 614 # PLANT_196
+---| 615 # PLANT_197
+---| 616 # PLANT_198
+---| 617 # PLANT_199
+---| 618 # PLANT_200
+---| 619 # UNUSED01
+---| 620 # UNUSED02
+---| 621 # UNUSED03
+---| 622 # UNUSED04
+---| 623 # UNUSED05
+---| 624 # UNUSED06
+---| 625 # UNUSED07
+---| 626 # UNUSED08
+---| 627 # UNUSED09
+---| 628 # UNUSED10
+---| 629 # UNUSED11
+---| 630 # UNUSED12
+---| 631 # UNUSED13
+---| 632 # UNUSED14
+---| 633 # UNUSED15
+---| 634 # UNUSED16
+---| 635 # UNUSED17
+---| 636 # UNUSED18
+---| 637 # UNUSED19
+---| 638 # UNUSED20
+---| 639 # UNUSED21
+---| 640 # UNUSED22
+---| 641 # UNUSED23
+---| 642 # UNUSED24
+---| 643 # UNUSED25
+---| 644 # UNUSED26
+---| 645 # UNUSED27
+---| 646 # UNUSED28
+---| 647 # UNUSED29
+---| 648 # UNUSED30
+---| 649 # UNUSED31
+---| 650 # UNUSED32
+---| 651 # UNUSED33
+---| 652 # UNUSED34
+---| 653 # UNUSED35
+---| 654 # UNUSED36
+---| 655 # UNUSED37
+---| 656 # UNUSED38
+---| 657 # UNUSED39
+---| 658 # UNUSED40
 
 ---@class identity.builtin_mats: DFEnumType
 ---@field NONE -1 bay12: MaterialType
@@ -10388,6 +11095,1286 @@ df.material_flags.attrs = {}
 ---@field [17] "UNKNOWN_SUBSTANCE"
 ---@field GRIME 18
 ---@field [18] "GRIME"
+---@field CREATURE_1 19
+---@field [19] "CREATURE_1"
+---@field CREATURE_2 20
+---@field [20] "CREATURE_2"
+---@field CREATURE_3 21
+---@field [21] "CREATURE_3"
+---@field CREATURE_4 22
+---@field [22] "CREATURE_4"
+---@field CREATURE_5 23
+---@field [23] "CREATURE_5"
+---@field CREATURE_6 24
+---@field [24] "CREATURE_6"
+---@field CREATURE_7 25
+---@field [25] "CREATURE_7"
+---@field CREATURE_8 26
+---@field [26] "CREATURE_8"
+---@field CREATURE_9 27
+---@field [27] "CREATURE_9"
+---@field CREATURE_10 28
+---@field [28] "CREATURE_10"
+---@field CREATURE_11 29
+---@field [29] "CREATURE_11"
+---@field CREATURE_12 30
+---@field [30] "CREATURE_12"
+---@field CREATURE_13 31
+---@field [31] "CREATURE_13"
+---@field CREATURE_14 32
+---@field [32] "CREATURE_14"
+---@field CREATURE_15 33
+---@field [33] "CREATURE_15"
+---@field CREATURE_16 34
+---@field [34] "CREATURE_16"
+---@field CREATURE_17 35
+---@field [35] "CREATURE_17"
+---@field CREATURE_18 36
+---@field [36] "CREATURE_18"
+---@field CREATURE_19 37
+---@field [37] "CREATURE_19"
+---@field CREATURE_20 38
+---@field [38] "CREATURE_20"
+---@field CREATURE_21 39
+---@field [39] "CREATURE_21"
+---@field CREATURE_22 40
+---@field [40] "CREATURE_22"
+---@field CREATURE_23 41
+---@field [41] "CREATURE_23"
+---@field CREATURE_24 42
+---@field [42] "CREATURE_24"
+---@field CREATURE_25 43
+---@field [43] "CREATURE_25"
+---@field CREATURE_26 44
+---@field [44] "CREATURE_26"
+---@field CREATURE_27 45
+---@field [45] "CREATURE_27"
+---@field CREATURE_28 46
+---@field [46] "CREATURE_28"
+---@field CREATURE_29 47
+---@field [47] "CREATURE_29"
+---@field CREATURE_30 48
+---@field [48] "CREATURE_30"
+---@field CREATURE_31 49
+---@field [49] "CREATURE_31"
+---@field CREATURE_32 50
+---@field [50] "CREATURE_32"
+---@field CREATURE_33 51
+---@field [51] "CREATURE_33"
+---@field CREATURE_34 52
+---@field [52] "CREATURE_34"
+---@field CREATURE_35 53
+---@field [53] "CREATURE_35"
+---@field CREATURE_36 54
+---@field [54] "CREATURE_36"
+---@field CREATURE_37 55
+---@field [55] "CREATURE_37"
+---@field CREATURE_38 56
+---@field [56] "CREATURE_38"
+---@field CREATURE_39 57
+---@field [57] "CREATURE_39"
+---@field CREATURE_40 58
+---@field [58] "CREATURE_40"
+---@field CREATURE_41 59
+---@field [59] "CREATURE_41"
+---@field CREATURE_42 60
+---@field [60] "CREATURE_42"
+---@field CREATURE_43 61
+---@field [61] "CREATURE_43"
+---@field CREATURE_44 62
+---@field [62] "CREATURE_44"
+---@field CREATURE_45 63
+---@field [63] "CREATURE_45"
+---@field CREATURE_46 64
+---@field [64] "CREATURE_46"
+---@field CREATURE_47 65
+---@field [65] "CREATURE_47"
+---@field CREATURE_48 66
+---@field [66] "CREATURE_48"
+---@field CREATURE_49 67
+---@field [67] "CREATURE_49"
+---@field CREATURE_50 68
+---@field [68] "CREATURE_50"
+---@field CREATURE_51 69
+---@field [69] "CREATURE_51"
+---@field CREATURE_52 70
+---@field [70] "CREATURE_52"
+---@field CREATURE_53 71
+---@field [71] "CREATURE_53"
+---@field CREATURE_54 72
+---@field [72] "CREATURE_54"
+---@field CREATURE_55 73
+---@field [73] "CREATURE_55"
+---@field CREATURE_56 74
+---@field [74] "CREATURE_56"
+---@field CREATURE_57 75
+---@field [75] "CREATURE_57"
+---@field CREATURE_58 76
+---@field [76] "CREATURE_58"
+---@field CREATURE_59 77
+---@field [77] "CREATURE_59"
+---@field CREATURE_60 78
+---@field [78] "CREATURE_60"
+---@field CREATURE_61 79
+---@field [79] "CREATURE_61"
+---@field CREATURE_62 80
+---@field [80] "CREATURE_62"
+---@field CREATURE_63 81
+---@field [81] "CREATURE_63"
+---@field CREATURE_64 82
+---@field [82] "CREATURE_64"
+---@field CREATURE_65 83
+---@field [83] "CREATURE_65"
+---@field CREATURE_66 84
+---@field [84] "CREATURE_66"
+---@field CREATURE_67 85
+---@field [85] "CREATURE_67"
+---@field CREATURE_68 86
+---@field [86] "CREATURE_68"
+---@field CREATURE_69 87
+---@field [87] "CREATURE_69"
+---@field CREATURE_70 88
+---@field [88] "CREATURE_70"
+---@field CREATURE_71 89
+---@field [89] "CREATURE_71"
+---@field CREATURE_72 90
+---@field [90] "CREATURE_72"
+---@field CREATURE_73 91
+---@field [91] "CREATURE_73"
+---@field CREATURE_74 92
+---@field [92] "CREATURE_74"
+---@field CREATURE_75 93
+---@field [93] "CREATURE_75"
+---@field CREATURE_76 94
+---@field [94] "CREATURE_76"
+---@field CREATURE_77 95
+---@field [95] "CREATURE_77"
+---@field CREATURE_78 96
+---@field [96] "CREATURE_78"
+---@field CREATURE_79 97
+---@field [97] "CREATURE_79"
+---@field CREATURE_80 98
+---@field [98] "CREATURE_80"
+---@field CREATURE_81 99
+---@field [99] "CREATURE_81"
+---@field CREATURE_82 100
+---@field [100] "CREATURE_82"
+---@field CREATURE_83 101
+---@field [101] "CREATURE_83"
+---@field CREATURE_84 102
+---@field [102] "CREATURE_84"
+---@field CREATURE_85 103
+---@field [103] "CREATURE_85"
+---@field CREATURE_86 104
+---@field [104] "CREATURE_86"
+---@field CREATURE_87 105
+---@field [105] "CREATURE_87"
+---@field CREATURE_88 106
+---@field [106] "CREATURE_88"
+---@field CREATURE_89 107
+---@field [107] "CREATURE_89"
+---@field CREATURE_90 108
+---@field [108] "CREATURE_90"
+---@field CREATURE_91 109
+---@field [109] "CREATURE_91"
+---@field CREATURE_92 110
+---@field [110] "CREATURE_92"
+---@field CREATURE_93 111
+---@field [111] "CREATURE_93"
+---@field CREATURE_94 112
+---@field [112] "CREATURE_94"
+---@field CREATURE_95 113
+---@field [113] "CREATURE_95"
+---@field CREATURE_96 114
+---@field [114] "CREATURE_96"
+---@field CREATURE_97 115
+---@field [115] "CREATURE_97"
+---@field CREATURE_98 116
+---@field [116] "CREATURE_98"
+---@field CREATURE_99 117
+---@field [117] "CREATURE_99"
+---@field CREATURE_100 118
+---@field [118] "CREATURE_100"
+---@field CREATURE_101 119
+---@field [119] "CREATURE_101"
+---@field CREATURE_102 120
+---@field [120] "CREATURE_102"
+---@field CREATURE_103 121
+---@field [121] "CREATURE_103"
+---@field CREATURE_104 122
+---@field [122] "CREATURE_104"
+---@field CREATURE_105 123
+---@field [123] "CREATURE_105"
+---@field CREATURE_106 124
+---@field [124] "CREATURE_106"
+---@field CREATURE_107 125
+---@field [125] "CREATURE_107"
+---@field CREATURE_108 126
+---@field [126] "CREATURE_108"
+---@field CREATURE_109 127
+---@field [127] "CREATURE_109"
+---@field CREATURE_110 128
+---@field [128] "CREATURE_110"
+---@field CREATURE_111 129
+---@field [129] "CREATURE_111"
+---@field CREATURE_112 130
+---@field [130] "CREATURE_112"
+---@field CREATURE_113 131
+---@field [131] "CREATURE_113"
+---@field CREATURE_114 132
+---@field [132] "CREATURE_114"
+---@field CREATURE_115 133
+---@field [133] "CREATURE_115"
+---@field CREATURE_116 134
+---@field [134] "CREATURE_116"
+---@field CREATURE_117 135
+---@field [135] "CREATURE_117"
+---@field CREATURE_118 136
+---@field [136] "CREATURE_118"
+---@field CREATURE_119 137
+---@field [137] "CREATURE_119"
+---@field CREATURE_120 138
+---@field [138] "CREATURE_120"
+---@field CREATURE_121 139
+---@field [139] "CREATURE_121"
+---@field CREATURE_122 140
+---@field [140] "CREATURE_122"
+---@field CREATURE_123 141
+---@field [141] "CREATURE_123"
+---@field CREATURE_124 142
+---@field [142] "CREATURE_124"
+---@field CREATURE_125 143
+---@field [143] "CREATURE_125"
+---@field CREATURE_126 144
+---@field [144] "CREATURE_126"
+---@field CREATURE_127 145
+---@field [145] "CREATURE_127"
+---@field CREATURE_128 146
+---@field [146] "CREATURE_128"
+---@field CREATURE_129 147
+---@field [147] "CREATURE_129"
+---@field CREATURE_130 148
+---@field [148] "CREATURE_130"
+---@field CREATURE_131 149
+---@field [149] "CREATURE_131"
+---@field CREATURE_132 150
+---@field [150] "CREATURE_132"
+---@field CREATURE_133 151
+---@field [151] "CREATURE_133"
+---@field CREATURE_134 152
+---@field [152] "CREATURE_134"
+---@field CREATURE_135 153
+---@field [153] "CREATURE_135"
+---@field CREATURE_136 154
+---@field [154] "CREATURE_136"
+---@field CREATURE_137 155
+---@field [155] "CREATURE_137"
+---@field CREATURE_138 156
+---@field [156] "CREATURE_138"
+---@field CREATURE_139 157
+---@field [157] "CREATURE_139"
+---@field CREATURE_140 158
+---@field [158] "CREATURE_140"
+---@field CREATURE_141 159
+---@field [159] "CREATURE_141"
+---@field CREATURE_142 160
+---@field [160] "CREATURE_142"
+---@field CREATURE_143 161
+---@field [161] "CREATURE_143"
+---@field CREATURE_144 162
+---@field [162] "CREATURE_144"
+---@field CREATURE_145 163
+---@field [163] "CREATURE_145"
+---@field CREATURE_146 164
+---@field [164] "CREATURE_146"
+---@field CREATURE_147 165
+---@field [165] "CREATURE_147"
+---@field CREATURE_148 166
+---@field [166] "CREATURE_148"
+---@field CREATURE_149 167
+---@field [167] "CREATURE_149"
+---@field CREATURE_150 168
+---@field [168] "CREATURE_150"
+---@field CREATURE_151 169
+---@field [169] "CREATURE_151"
+---@field CREATURE_152 170
+---@field [170] "CREATURE_152"
+---@field CREATURE_153 171
+---@field [171] "CREATURE_153"
+---@field CREATURE_154 172
+---@field [172] "CREATURE_154"
+---@field CREATURE_155 173
+---@field [173] "CREATURE_155"
+---@field CREATURE_156 174
+---@field [174] "CREATURE_156"
+---@field CREATURE_157 175
+---@field [175] "CREATURE_157"
+---@field CREATURE_158 176
+---@field [176] "CREATURE_158"
+---@field CREATURE_159 177
+---@field [177] "CREATURE_159"
+---@field CREATURE_160 178
+---@field [178] "CREATURE_160"
+---@field CREATURE_161 179
+---@field [179] "CREATURE_161"
+---@field CREATURE_162 180
+---@field [180] "CREATURE_162"
+---@field CREATURE_163 181
+---@field [181] "CREATURE_163"
+---@field CREATURE_164 182
+---@field [182] "CREATURE_164"
+---@field CREATURE_165 183
+---@field [183] "CREATURE_165"
+---@field CREATURE_166 184
+---@field [184] "CREATURE_166"
+---@field CREATURE_167 185
+---@field [185] "CREATURE_167"
+---@field CREATURE_168 186
+---@field [186] "CREATURE_168"
+---@field CREATURE_169 187
+---@field [187] "CREATURE_169"
+---@field CREATURE_170 188
+---@field [188] "CREATURE_170"
+---@field CREATURE_171 189
+---@field [189] "CREATURE_171"
+---@field CREATURE_172 190
+---@field [190] "CREATURE_172"
+---@field CREATURE_173 191
+---@field [191] "CREATURE_173"
+---@field CREATURE_174 192
+---@field [192] "CREATURE_174"
+---@field CREATURE_175 193
+---@field [193] "CREATURE_175"
+---@field CREATURE_176 194
+---@field [194] "CREATURE_176"
+---@field CREATURE_177 195
+---@field [195] "CREATURE_177"
+---@field CREATURE_178 196
+---@field [196] "CREATURE_178"
+---@field CREATURE_179 197
+---@field [197] "CREATURE_179"
+---@field CREATURE_180 198
+---@field [198] "CREATURE_180"
+---@field CREATURE_181 199
+---@field [199] "CREATURE_181"
+---@field CREATURE_182 200
+---@field [200] "CREATURE_182"
+---@field CREATURE_183 201
+---@field [201] "CREATURE_183"
+---@field CREATURE_184 202
+---@field [202] "CREATURE_184"
+---@field CREATURE_185 203
+---@field [203] "CREATURE_185"
+---@field CREATURE_186 204
+---@field [204] "CREATURE_186"
+---@field CREATURE_187 205
+---@field [205] "CREATURE_187"
+---@field CREATURE_188 206
+---@field [206] "CREATURE_188"
+---@field CREATURE_189 207
+---@field [207] "CREATURE_189"
+---@field CREATURE_190 208
+---@field [208] "CREATURE_190"
+---@field CREATURE_191 209
+---@field [209] "CREATURE_191"
+---@field CREATURE_192 210
+---@field [210] "CREATURE_192"
+---@field CREATURE_193 211
+---@field [211] "CREATURE_193"
+---@field CREATURE_194 212
+---@field [212] "CREATURE_194"
+---@field CREATURE_195 213
+---@field [213] "CREATURE_195"
+---@field CREATURE_196 214
+---@field [214] "CREATURE_196"
+---@field CREATURE_197 215
+---@field [215] "CREATURE_197"
+---@field CREATURE_198 216
+---@field [216] "CREATURE_198"
+---@field CREATURE_199 217
+---@field [217] "CREATURE_199"
+---@field CREATURE_200 218
+---@field [218] "CREATURE_200"
+---@field HIST_FIG_1 219
+---@field [219] "HIST_FIG_1"
+---@field HIST_FIG_2 220
+---@field [220] "HIST_FIG_2"
+---@field HIST_FIG_3 221
+---@field [221] "HIST_FIG_3"
+---@field HIST_FIG_4 222
+---@field [222] "HIST_FIG_4"
+---@field HIST_FIG_5 223
+---@field [223] "HIST_FIG_5"
+---@field HIST_FIG_6 224
+---@field [224] "HIST_FIG_6"
+---@field HIST_FIG_7 225
+---@field [225] "HIST_FIG_7"
+---@field HIST_FIG_8 226
+---@field [226] "HIST_FIG_8"
+---@field HIST_FIG_9 227
+---@field [227] "HIST_FIG_9"
+---@field HIST_FIG_10 228
+---@field [228] "HIST_FIG_10"
+---@field HIST_FIG_11 229
+---@field [229] "HIST_FIG_11"
+---@field HIST_FIG_12 230
+---@field [230] "HIST_FIG_12"
+---@field HIST_FIG_13 231
+---@field [231] "HIST_FIG_13"
+---@field HIST_FIG_14 232
+---@field [232] "HIST_FIG_14"
+---@field HIST_FIG_15 233
+---@field [233] "HIST_FIG_15"
+---@field HIST_FIG_16 234
+---@field [234] "HIST_FIG_16"
+---@field HIST_FIG_17 235
+---@field [235] "HIST_FIG_17"
+---@field HIST_FIG_18 236
+---@field [236] "HIST_FIG_18"
+---@field HIST_FIG_19 237
+---@field [237] "HIST_FIG_19"
+---@field HIST_FIG_20 238
+---@field [238] "HIST_FIG_20"
+---@field HIST_FIG_21 239
+---@field [239] "HIST_FIG_21"
+---@field HIST_FIG_22 240
+---@field [240] "HIST_FIG_22"
+---@field HIST_FIG_23 241
+---@field [241] "HIST_FIG_23"
+---@field HIST_FIG_24 242
+---@field [242] "HIST_FIG_24"
+---@field HIST_FIG_25 243
+---@field [243] "HIST_FIG_25"
+---@field HIST_FIG_26 244
+---@field [244] "HIST_FIG_26"
+---@field HIST_FIG_27 245
+---@field [245] "HIST_FIG_27"
+---@field HIST_FIG_28 246
+---@field [246] "HIST_FIG_28"
+---@field HIST_FIG_29 247
+---@field [247] "HIST_FIG_29"
+---@field HIST_FIG_30 248
+---@field [248] "HIST_FIG_30"
+---@field HIST_FIG_31 249
+---@field [249] "HIST_FIG_31"
+---@field HIST_FIG_32 250
+---@field [250] "HIST_FIG_32"
+---@field HIST_FIG_33 251
+---@field [251] "HIST_FIG_33"
+---@field HIST_FIG_34 252
+---@field [252] "HIST_FIG_34"
+---@field HIST_FIG_35 253
+---@field [253] "HIST_FIG_35"
+---@field HIST_FIG_36 254
+---@field [254] "HIST_FIG_36"
+---@field HIST_FIG_37 255
+---@field [255] "HIST_FIG_37"
+---@field HIST_FIG_38 256
+---@field [256] "HIST_FIG_38"
+---@field HIST_FIG_39 257
+---@field [257] "HIST_FIG_39"
+---@field HIST_FIG_40 258
+---@field [258] "HIST_FIG_40"
+---@field HIST_FIG_41 259
+---@field [259] "HIST_FIG_41"
+---@field HIST_FIG_42 260
+---@field [260] "HIST_FIG_42"
+---@field HIST_FIG_43 261
+---@field [261] "HIST_FIG_43"
+---@field HIST_FIG_44 262
+---@field [262] "HIST_FIG_44"
+---@field HIST_FIG_45 263
+---@field [263] "HIST_FIG_45"
+---@field HIST_FIG_46 264
+---@field [264] "HIST_FIG_46"
+---@field HIST_FIG_47 265
+---@field [265] "HIST_FIG_47"
+---@field HIST_FIG_48 266
+---@field [266] "HIST_FIG_48"
+---@field HIST_FIG_49 267
+---@field [267] "HIST_FIG_49"
+---@field HIST_FIG_50 268
+---@field [268] "HIST_FIG_50"
+---@field HIST_FIG_51 269
+---@field [269] "HIST_FIG_51"
+---@field HIST_FIG_52 270
+---@field [270] "HIST_FIG_52"
+---@field HIST_FIG_53 271
+---@field [271] "HIST_FIG_53"
+---@field HIST_FIG_54 272
+---@field [272] "HIST_FIG_54"
+---@field HIST_FIG_55 273
+---@field [273] "HIST_FIG_55"
+---@field HIST_FIG_56 274
+---@field [274] "HIST_FIG_56"
+---@field HIST_FIG_57 275
+---@field [275] "HIST_FIG_57"
+---@field HIST_FIG_58 276
+---@field [276] "HIST_FIG_58"
+---@field HIST_FIG_59 277
+---@field [277] "HIST_FIG_59"
+---@field HIST_FIG_60 278
+---@field [278] "HIST_FIG_60"
+---@field HIST_FIG_61 279
+---@field [279] "HIST_FIG_61"
+---@field HIST_FIG_62 280
+---@field [280] "HIST_FIG_62"
+---@field HIST_FIG_63 281
+---@field [281] "HIST_FIG_63"
+---@field HIST_FIG_64 282
+---@field [282] "HIST_FIG_64"
+---@field HIST_FIG_65 283
+---@field [283] "HIST_FIG_65"
+---@field HIST_FIG_66 284
+---@field [284] "HIST_FIG_66"
+---@field HIST_FIG_67 285
+---@field [285] "HIST_FIG_67"
+---@field HIST_FIG_68 286
+---@field [286] "HIST_FIG_68"
+---@field HIST_FIG_69 287
+---@field [287] "HIST_FIG_69"
+---@field HIST_FIG_70 288
+---@field [288] "HIST_FIG_70"
+---@field HIST_FIG_71 289
+---@field [289] "HIST_FIG_71"
+---@field HIST_FIG_72 290
+---@field [290] "HIST_FIG_72"
+---@field HIST_FIG_73 291
+---@field [291] "HIST_FIG_73"
+---@field HIST_FIG_74 292
+---@field [292] "HIST_FIG_74"
+---@field HIST_FIG_75 293
+---@field [293] "HIST_FIG_75"
+---@field HIST_FIG_76 294
+---@field [294] "HIST_FIG_76"
+---@field HIST_FIG_77 295
+---@field [295] "HIST_FIG_77"
+---@field HIST_FIG_78 296
+---@field [296] "HIST_FIG_78"
+---@field HIST_FIG_79 297
+---@field [297] "HIST_FIG_79"
+---@field HIST_FIG_80 298
+---@field [298] "HIST_FIG_80"
+---@field HIST_FIG_81 299
+---@field [299] "HIST_FIG_81"
+---@field HIST_FIG_82 300
+---@field [300] "HIST_FIG_82"
+---@field HIST_FIG_83 301
+---@field [301] "HIST_FIG_83"
+---@field HIST_FIG_84 302
+---@field [302] "HIST_FIG_84"
+---@field HIST_FIG_85 303
+---@field [303] "HIST_FIG_85"
+---@field HIST_FIG_86 304
+---@field [304] "HIST_FIG_86"
+---@field HIST_FIG_87 305
+---@field [305] "HIST_FIG_87"
+---@field HIST_FIG_88 306
+---@field [306] "HIST_FIG_88"
+---@field HIST_FIG_89 307
+---@field [307] "HIST_FIG_89"
+---@field HIST_FIG_90 308
+---@field [308] "HIST_FIG_90"
+---@field HIST_FIG_91 309
+---@field [309] "HIST_FIG_91"
+---@field HIST_FIG_92 310
+---@field [310] "HIST_FIG_92"
+---@field HIST_FIG_93 311
+---@field [311] "HIST_FIG_93"
+---@field HIST_FIG_94 312
+---@field [312] "HIST_FIG_94"
+---@field HIST_FIG_95 313
+---@field [313] "HIST_FIG_95"
+---@field HIST_FIG_96 314
+---@field [314] "HIST_FIG_96"
+---@field HIST_FIG_97 315
+---@field [315] "HIST_FIG_97"
+---@field HIST_FIG_98 316
+---@field [316] "HIST_FIG_98"
+---@field HIST_FIG_99 317
+---@field [317] "HIST_FIG_99"
+---@field HIST_FIG_100 318
+---@field [318] "HIST_FIG_100"
+---@field HIST_FIG_101 319
+---@field [319] "HIST_FIG_101"
+---@field HIST_FIG_102 320
+---@field [320] "HIST_FIG_102"
+---@field HIST_FIG_103 321
+---@field [321] "HIST_FIG_103"
+---@field HIST_FIG_104 322
+---@field [322] "HIST_FIG_104"
+---@field HIST_FIG_105 323
+---@field [323] "HIST_FIG_105"
+---@field HIST_FIG_106 324
+---@field [324] "HIST_FIG_106"
+---@field HIST_FIG_107 325
+---@field [325] "HIST_FIG_107"
+---@field HIST_FIG_108 326
+---@field [326] "HIST_FIG_108"
+---@field HIST_FIG_109 327
+---@field [327] "HIST_FIG_109"
+---@field HIST_FIG_110 328
+---@field [328] "HIST_FIG_110"
+---@field HIST_FIG_111 329
+---@field [329] "HIST_FIG_111"
+---@field HIST_FIG_112 330
+---@field [330] "HIST_FIG_112"
+---@field HIST_FIG_113 331
+---@field [331] "HIST_FIG_113"
+---@field HIST_FIG_114 332
+---@field [332] "HIST_FIG_114"
+---@field HIST_FIG_115 333
+---@field [333] "HIST_FIG_115"
+---@field HIST_FIG_116 334
+---@field [334] "HIST_FIG_116"
+---@field HIST_FIG_117 335
+---@field [335] "HIST_FIG_117"
+---@field HIST_FIG_118 336
+---@field [336] "HIST_FIG_118"
+---@field HIST_FIG_119 337
+---@field [337] "HIST_FIG_119"
+---@field HIST_FIG_120 338
+---@field [338] "HIST_FIG_120"
+---@field HIST_FIG_121 339
+---@field [339] "HIST_FIG_121"
+---@field HIST_FIG_122 340
+---@field [340] "HIST_FIG_122"
+---@field HIST_FIG_123 341
+---@field [341] "HIST_FIG_123"
+---@field HIST_FIG_124 342
+---@field [342] "HIST_FIG_124"
+---@field HIST_FIG_125 343
+---@field [343] "HIST_FIG_125"
+---@field HIST_FIG_126 344
+---@field [344] "HIST_FIG_126"
+---@field HIST_FIG_127 345
+---@field [345] "HIST_FIG_127"
+---@field HIST_FIG_128 346
+---@field [346] "HIST_FIG_128"
+---@field HIST_FIG_129 347
+---@field [347] "HIST_FIG_129"
+---@field HIST_FIG_130 348
+---@field [348] "HIST_FIG_130"
+---@field HIST_FIG_131 349
+---@field [349] "HIST_FIG_131"
+---@field HIST_FIG_132 350
+---@field [350] "HIST_FIG_132"
+---@field HIST_FIG_133 351
+---@field [351] "HIST_FIG_133"
+---@field HIST_FIG_134 352
+---@field [352] "HIST_FIG_134"
+---@field HIST_FIG_135 353
+---@field [353] "HIST_FIG_135"
+---@field HIST_FIG_136 354
+---@field [354] "HIST_FIG_136"
+---@field HIST_FIG_137 355
+---@field [355] "HIST_FIG_137"
+---@field HIST_FIG_138 356
+---@field [356] "HIST_FIG_138"
+---@field HIST_FIG_139 357
+---@field [357] "HIST_FIG_139"
+---@field HIST_FIG_140 358
+---@field [358] "HIST_FIG_140"
+---@field HIST_FIG_141 359
+---@field [359] "HIST_FIG_141"
+---@field HIST_FIG_142 360
+---@field [360] "HIST_FIG_142"
+---@field HIST_FIG_143 361
+---@field [361] "HIST_FIG_143"
+---@field HIST_FIG_144 362
+---@field [362] "HIST_FIG_144"
+---@field HIST_FIG_145 363
+---@field [363] "HIST_FIG_145"
+---@field HIST_FIG_146 364
+---@field [364] "HIST_FIG_146"
+---@field HIST_FIG_147 365
+---@field [365] "HIST_FIG_147"
+---@field HIST_FIG_148 366
+---@field [366] "HIST_FIG_148"
+---@field HIST_FIG_149 367
+---@field [367] "HIST_FIG_149"
+---@field HIST_FIG_150 368
+---@field [368] "HIST_FIG_150"
+---@field HIST_FIG_151 369
+---@field [369] "HIST_FIG_151"
+---@field HIST_FIG_152 370
+---@field [370] "HIST_FIG_152"
+---@field HIST_FIG_153 371
+---@field [371] "HIST_FIG_153"
+---@field HIST_FIG_154 372
+---@field [372] "HIST_FIG_154"
+---@field HIST_FIG_155 373
+---@field [373] "HIST_FIG_155"
+---@field HIST_FIG_156 374
+---@field [374] "HIST_FIG_156"
+---@field HIST_FIG_157 375
+---@field [375] "HIST_FIG_157"
+---@field HIST_FIG_158 376
+---@field [376] "HIST_FIG_158"
+---@field HIST_FIG_159 377
+---@field [377] "HIST_FIG_159"
+---@field HIST_FIG_160 378
+---@field [378] "HIST_FIG_160"
+---@field HIST_FIG_161 379
+---@field [379] "HIST_FIG_161"
+---@field HIST_FIG_162 380
+---@field [380] "HIST_FIG_162"
+---@field HIST_FIG_163 381
+---@field [381] "HIST_FIG_163"
+---@field HIST_FIG_164 382
+---@field [382] "HIST_FIG_164"
+---@field HIST_FIG_165 383
+---@field [383] "HIST_FIG_165"
+---@field HIST_FIG_166 384
+---@field [384] "HIST_FIG_166"
+---@field HIST_FIG_167 385
+---@field [385] "HIST_FIG_167"
+---@field HIST_FIG_168 386
+---@field [386] "HIST_FIG_168"
+---@field HIST_FIG_169 387
+---@field [387] "HIST_FIG_169"
+---@field HIST_FIG_170 388
+---@field [388] "HIST_FIG_170"
+---@field HIST_FIG_171 389
+---@field [389] "HIST_FIG_171"
+---@field HIST_FIG_172 390
+---@field [390] "HIST_FIG_172"
+---@field HIST_FIG_173 391
+---@field [391] "HIST_FIG_173"
+---@field HIST_FIG_174 392
+---@field [392] "HIST_FIG_174"
+---@field HIST_FIG_175 393
+---@field [393] "HIST_FIG_175"
+---@field HIST_FIG_176 394
+---@field [394] "HIST_FIG_176"
+---@field HIST_FIG_177 395
+---@field [395] "HIST_FIG_177"
+---@field HIST_FIG_178 396
+---@field [396] "HIST_FIG_178"
+---@field HIST_FIG_179 397
+---@field [397] "HIST_FIG_179"
+---@field HIST_FIG_180 398
+---@field [398] "HIST_FIG_180"
+---@field HIST_FIG_181 399
+---@field [399] "HIST_FIG_181"
+---@field HIST_FIG_182 400
+---@field [400] "HIST_FIG_182"
+---@field HIST_FIG_183 401
+---@field [401] "HIST_FIG_183"
+---@field HIST_FIG_184 402
+---@field [402] "HIST_FIG_184"
+---@field HIST_FIG_185 403
+---@field [403] "HIST_FIG_185"
+---@field HIST_FIG_186 404
+---@field [404] "HIST_FIG_186"
+---@field HIST_FIG_187 405
+---@field [405] "HIST_FIG_187"
+---@field HIST_FIG_188 406
+---@field [406] "HIST_FIG_188"
+---@field HIST_FIG_189 407
+---@field [407] "HIST_FIG_189"
+---@field HIST_FIG_190 408
+---@field [408] "HIST_FIG_190"
+---@field HIST_FIG_191 409
+---@field [409] "HIST_FIG_191"
+---@field HIST_FIG_192 410
+---@field [410] "HIST_FIG_192"
+---@field HIST_FIG_193 411
+---@field [411] "HIST_FIG_193"
+---@field HIST_FIG_194 412
+---@field [412] "HIST_FIG_194"
+---@field HIST_FIG_195 413
+---@field [413] "HIST_FIG_195"
+---@field HIST_FIG_196 414
+---@field [414] "HIST_FIG_196"
+---@field HIST_FIG_197 415
+---@field [415] "HIST_FIG_197"
+---@field HIST_FIG_198 416
+---@field [416] "HIST_FIG_198"
+---@field HIST_FIG_199 417
+---@field [417] "HIST_FIG_199"
+---@field HIST_FIG_200 418
+---@field [418] "HIST_FIG_200"
+---@field PLANT_1 419
+---@field [419] "PLANT_1"
+---@field PLANT_2 420
+---@field [420] "PLANT_2"
+---@field PLANT_3 421
+---@field [421] "PLANT_3"
+---@field PLANT_4 422
+---@field [422] "PLANT_4"
+---@field PLANT_5 423
+---@field [423] "PLANT_5"
+---@field PLANT_6 424
+---@field [424] "PLANT_6"
+---@field PLANT_7 425
+---@field [425] "PLANT_7"
+---@field PLANT_8 426
+---@field [426] "PLANT_8"
+---@field PLANT_9 427
+---@field [427] "PLANT_9"
+---@field PLANT_10 428
+---@field [428] "PLANT_10"
+---@field PLANT_11 429
+---@field [429] "PLANT_11"
+---@field PLANT_12 430
+---@field [430] "PLANT_12"
+---@field PLANT_13 431
+---@field [431] "PLANT_13"
+---@field PLANT_14 432
+---@field [432] "PLANT_14"
+---@field PLANT_15 433
+---@field [433] "PLANT_15"
+---@field PLANT_16 434
+---@field [434] "PLANT_16"
+---@field PLANT_17 435
+---@field [435] "PLANT_17"
+---@field PLANT_18 436
+---@field [436] "PLANT_18"
+---@field PLANT_19 437
+---@field [437] "PLANT_19"
+---@field PLANT_20 438
+---@field [438] "PLANT_20"
+---@field PLANT_21 439
+---@field [439] "PLANT_21"
+---@field PLANT_22 440
+---@field [440] "PLANT_22"
+---@field PLANT_23 441
+---@field [441] "PLANT_23"
+---@field PLANT_24 442
+---@field [442] "PLANT_24"
+---@field PLANT_25 443
+---@field [443] "PLANT_25"
+---@field PLANT_26 444
+---@field [444] "PLANT_26"
+---@field PLANT_27 445
+---@field [445] "PLANT_27"
+---@field PLANT_28 446
+---@field [446] "PLANT_28"
+---@field PLANT_29 447
+---@field [447] "PLANT_29"
+---@field PLANT_30 448
+---@field [448] "PLANT_30"
+---@field PLANT_31 449
+---@field [449] "PLANT_31"
+---@field PLANT_32 450
+---@field [450] "PLANT_32"
+---@field PLANT_33 451
+---@field [451] "PLANT_33"
+---@field PLANT_34 452
+---@field [452] "PLANT_34"
+---@field PLANT_35 453
+---@field [453] "PLANT_35"
+---@field PLANT_36 454
+---@field [454] "PLANT_36"
+---@field PLANT_37 455
+---@field [455] "PLANT_37"
+---@field PLANT_38 456
+---@field [456] "PLANT_38"
+---@field PLANT_39 457
+---@field [457] "PLANT_39"
+---@field PLANT_40 458
+---@field [458] "PLANT_40"
+---@field PLANT_41 459
+---@field [459] "PLANT_41"
+---@field PLANT_42 460
+---@field [460] "PLANT_42"
+---@field PLANT_43 461
+---@field [461] "PLANT_43"
+---@field PLANT_44 462
+---@field [462] "PLANT_44"
+---@field PLANT_45 463
+---@field [463] "PLANT_45"
+---@field PLANT_46 464
+---@field [464] "PLANT_46"
+---@field PLANT_47 465
+---@field [465] "PLANT_47"
+---@field PLANT_48 466
+---@field [466] "PLANT_48"
+---@field PLANT_49 467
+---@field [467] "PLANT_49"
+---@field PLANT_50 468
+---@field [468] "PLANT_50"
+---@field PLANT_51 469
+---@field [469] "PLANT_51"
+---@field PLANT_52 470
+---@field [470] "PLANT_52"
+---@field PLANT_53 471
+---@field [471] "PLANT_53"
+---@field PLANT_54 472
+---@field [472] "PLANT_54"
+---@field PLANT_55 473
+---@field [473] "PLANT_55"
+---@field PLANT_56 474
+---@field [474] "PLANT_56"
+---@field PLANT_57 475
+---@field [475] "PLANT_57"
+---@field PLANT_58 476
+---@field [476] "PLANT_58"
+---@field PLANT_59 477
+---@field [477] "PLANT_59"
+---@field PLANT_60 478
+---@field [478] "PLANT_60"
+---@field PLANT_61 479
+---@field [479] "PLANT_61"
+---@field PLANT_62 480
+---@field [480] "PLANT_62"
+---@field PLANT_63 481
+---@field [481] "PLANT_63"
+---@field PLANT_64 482
+---@field [482] "PLANT_64"
+---@field PLANT_65 483
+---@field [483] "PLANT_65"
+---@field PLANT_66 484
+---@field [484] "PLANT_66"
+---@field PLANT_67 485
+---@field [485] "PLANT_67"
+---@field PLANT_68 486
+---@field [486] "PLANT_68"
+---@field PLANT_69 487
+---@field [487] "PLANT_69"
+---@field PLANT_70 488
+---@field [488] "PLANT_70"
+---@field PLANT_71 489
+---@field [489] "PLANT_71"
+---@field PLANT_72 490
+---@field [490] "PLANT_72"
+---@field PLANT_73 491
+---@field [491] "PLANT_73"
+---@field PLANT_74 492
+---@field [492] "PLANT_74"
+---@field PLANT_75 493
+---@field [493] "PLANT_75"
+---@field PLANT_76 494
+---@field [494] "PLANT_76"
+---@field PLANT_77 495
+---@field [495] "PLANT_77"
+---@field PLANT_78 496
+---@field [496] "PLANT_78"
+---@field PLANT_79 497
+---@field [497] "PLANT_79"
+---@field PLANT_80 498
+---@field [498] "PLANT_80"
+---@field PLANT_81 499
+---@field [499] "PLANT_81"
+---@field PLANT_82 500
+---@field [500] "PLANT_82"
+---@field PLANT_83 501
+---@field [501] "PLANT_83"
+---@field PLANT_84 502
+---@field [502] "PLANT_84"
+---@field PLANT_85 503
+---@field [503] "PLANT_85"
+---@field PLANT_86 504
+---@field [504] "PLANT_86"
+---@field PLANT_87 505
+---@field [505] "PLANT_87"
+---@field PLANT_88 506
+---@field [506] "PLANT_88"
+---@field PLANT_89 507
+---@field [507] "PLANT_89"
+---@field PLANT_90 508
+---@field [508] "PLANT_90"
+---@field PLANT_91 509
+---@field [509] "PLANT_91"
+---@field PLANT_92 510
+---@field [510] "PLANT_92"
+---@field PLANT_93 511
+---@field [511] "PLANT_93"
+---@field PLANT_94 512
+---@field [512] "PLANT_94"
+---@field PLANT_95 513
+---@field [513] "PLANT_95"
+---@field PLANT_96 514
+---@field [514] "PLANT_96"
+---@field PLANT_97 515
+---@field [515] "PLANT_97"
+---@field PLANT_98 516
+---@field [516] "PLANT_98"
+---@field PLANT_99 517
+---@field [517] "PLANT_99"
+---@field PLANT_100 518
+---@field [518] "PLANT_100"
+---@field PLANT_101 519
+---@field [519] "PLANT_101"
+---@field PLANT_102 520
+---@field [520] "PLANT_102"
+---@field PLANT_103 521
+---@field [521] "PLANT_103"
+---@field PLANT_104 522
+---@field [522] "PLANT_104"
+---@field PLANT_105 523
+---@field [523] "PLANT_105"
+---@field PLANT_106 524
+---@field [524] "PLANT_106"
+---@field PLANT_107 525
+---@field [525] "PLANT_107"
+---@field PLANT_108 526
+---@field [526] "PLANT_108"
+---@field PLANT_109 527
+---@field [527] "PLANT_109"
+---@field PLANT_110 528
+---@field [528] "PLANT_110"
+---@field PLANT_111 529
+---@field [529] "PLANT_111"
+---@field PLANT_112 530
+---@field [530] "PLANT_112"
+---@field PLANT_113 531
+---@field [531] "PLANT_113"
+---@field PLANT_114 532
+---@field [532] "PLANT_114"
+---@field PLANT_115 533
+---@field [533] "PLANT_115"
+---@field PLANT_116 534
+---@field [534] "PLANT_116"
+---@field PLANT_117 535
+---@field [535] "PLANT_117"
+---@field PLANT_118 536
+---@field [536] "PLANT_118"
+---@field PLANT_119 537
+---@field [537] "PLANT_119"
+---@field PLANT_120 538
+---@field [538] "PLANT_120"
+---@field PLANT_121 539
+---@field [539] "PLANT_121"
+---@field PLANT_122 540
+---@field [540] "PLANT_122"
+---@field PLANT_123 541
+---@field [541] "PLANT_123"
+---@field PLANT_124 542
+---@field [542] "PLANT_124"
+---@field PLANT_125 543
+---@field [543] "PLANT_125"
+---@field PLANT_126 544
+---@field [544] "PLANT_126"
+---@field PLANT_127 545
+---@field [545] "PLANT_127"
+---@field PLANT_128 546
+---@field [546] "PLANT_128"
+---@field PLANT_129 547
+---@field [547] "PLANT_129"
+---@field PLANT_130 548
+---@field [548] "PLANT_130"
+---@field PLANT_131 549
+---@field [549] "PLANT_131"
+---@field PLANT_132 550
+---@field [550] "PLANT_132"
+---@field PLANT_133 551
+---@field [551] "PLANT_133"
+---@field PLANT_134 552
+---@field [552] "PLANT_134"
+---@field PLANT_135 553
+---@field [553] "PLANT_135"
+---@field PLANT_136 554
+---@field [554] "PLANT_136"
+---@field PLANT_137 555
+---@field [555] "PLANT_137"
+---@field PLANT_138 556
+---@field [556] "PLANT_138"
+---@field PLANT_139 557
+---@field [557] "PLANT_139"
+---@field PLANT_140 558
+---@field [558] "PLANT_140"
+---@field PLANT_141 559
+---@field [559] "PLANT_141"
+---@field PLANT_142 560
+---@field [560] "PLANT_142"
+---@field PLANT_143 561
+---@field [561] "PLANT_143"
+---@field PLANT_144 562
+---@field [562] "PLANT_144"
+---@field PLANT_145 563
+---@field [563] "PLANT_145"
+---@field PLANT_146 564
+---@field [564] "PLANT_146"
+---@field PLANT_147 565
+---@field [565] "PLANT_147"
+---@field PLANT_148 566
+---@field [566] "PLANT_148"
+---@field PLANT_149 567
+---@field [567] "PLANT_149"
+---@field PLANT_150 568
+---@field [568] "PLANT_150"
+---@field PLANT_151 569
+---@field [569] "PLANT_151"
+---@field PLANT_152 570
+---@field [570] "PLANT_152"
+---@field PLANT_153 571
+---@field [571] "PLANT_153"
+---@field PLANT_154 572
+---@field [572] "PLANT_154"
+---@field PLANT_155 573
+---@field [573] "PLANT_155"
+---@field PLANT_156 574
+---@field [574] "PLANT_156"
+---@field PLANT_157 575
+---@field [575] "PLANT_157"
+---@field PLANT_158 576
+---@field [576] "PLANT_158"
+---@field PLANT_159 577
+---@field [577] "PLANT_159"
+---@field PLANT_160 578
+---@field [578] "PLANT_160"
+---@field PLANT_161 579
+---@field [579] "PLANT_161"
+---@field PLANT_162 580
+---@field [580] "PLANT_162"
+---@field PLANT_163 581
+---@field [581] "PLANT_163"
+---@field PLANT_164 582
+---@field [582] "PLANT_164"
+---@field PLANT_165 583
+---@field [583] "PLANT_165"
+---@field PLANT_166 584
+---@field [584] "PLANT_166"
+---@field PLANT_167 585
+---@field [585] "PLANT_167"
+---@field PLANT_168 586
+---@field [586] "PLANT_168"
+---@field PLANT_169 587
+---@field [587] "PLANT_169"
+---@field PLANT_170 588
+---@field [588] "PLANT_170"
+---@field PLANT_171 589
+---@field [589] "PLANT_171"
+---@field PLANT_172 590
+---@field [590] "PLANT_172"
+---@field PLANT_173 591
+---@field [591] "PLANT_173"
+---@field PLANT_174 592
+---@field [592] "PLANT_174"
+---@field PLANT_175 593
+---@field [593] "PLANT_175"
+---@field PLANT_176 594
+---@field [594] "PLANT_176"
+---@field PLANT_177 595
+---@field [595] "PLANT_177"
+---@field PLANT_178 596
+---@field [596] "PLANT_178"
+---@field PLANT_179 597
+---@field [597] "PLANT_179"
+---@field PLANT_180 598
+---@field [598] "PLANT_180"
+---@field PLANT_181 599
+---@field [599] "PLANT_181"
+---@field PLANT_182 600
+---@field [600] "PLANT_182"
+---@field PLANT_183 601
+---@field [601] "PLANT_183"
+---@field PLANT_184 602
+---@field [602] "PLANT_184"
+---@field PLANT_185 603
+---@field [603] "PLANT_185"
+---@field PLANT_186 604
+---@field [604] "PLANT_186"
+---@field PLANT_187 605
+---@field [605] "PLANT_187"
+---@field PLANT_188 606
+---@field [606] "PLANT_188"
+---@field PLANT_189 607
+---@field [607] "PLANT_189"
+---@field PLANT_190 608
+---@field [608] "PLANT_190"
+---@field PLANT_191 609
+---@field [609] "PLANT_191"
+---@field PLANT_192 610
+---@field [610] "PLANT_192"
+---@field PLANT_193 611
+---@field [611] "PLANT_193"
+---@field PLANT_194 612
+---@field [612] "PLANT_194"
+---@field PLANT_195 613
+---@field [613] "PLANT_195"
+---@field PLANT_196 614
+---@field [614] "PLANT_196"
+---@field PLANT_197 615
+---@field [615] "PLANT_197"
+---@field PLANT_198 616
+---@field [616] "PLANT_198"
+---@field PLANT_199 617
+---@field [617] "PLANT_199"
+---@field PLANT_200 618
+---@field [618] "PLANT_200"
+---@field UNUSED01 619
+---@field [619] "UNUSED01"
+---@field UNUSED02 620
+---@field [620] "UNUSED02"
+---@field UNUSED03 621
+---@field [621] "UNUSED03"
+---@field UNUSED04 622
+---@field [622] "UNUSED04"
+---@field UNUSED05 623
+---@field [623] "UNUSED05"
+---@field UNUSED06 624
+---@field [624] "UNUSED06"
+---@field UNUSED07 625
+---@field [625] "UNUSED07"
+---@field UNUSED08 626
+---@field [626] "UNUSED08"
+---@field UNUSED09 627
+---@field [627] "UNUSED09"
+---@field UNUSED10 628
+---@field [628] "UNUSED10"
+---@field UNUSED11 629
+---@field [629] "UNUSED11"
+---@field UNUSED12 630
+---@field [630] "UNUSED12"
+---@field UNUSED13 631
+---@field [631] "UNUSED13"
+---@field UNUSED14 632
+---@field [632] "UNUSED14"
+---@field UNUSED15 633
+---@field [633] "UNUSED15"
+---@field UNUSED16 634
+---@field [634] "UNUSED16"
+---@field UNUSED17 635
+---@field [635] "UNUSED17"
+---@field UNUSED18 636
+---@field [636] "UNUSED18"
+---@field UNUSED19 637
+---@field [637] "UNUSED19"
+---@field UNUSED20 638
+---@field [638] "UNUSED20"
+---@field UNUSED21 639
+---@field [639] "UNUSED21"
+---@field UNUSED22 640
+---@field [640] "UNUSED22"
+---@field UNUSED23 641
+---@field [641] "UNUSED23"
+---@field UNUSED24 642
+---@field [642] "UNUSED24"
+---@field UNUSED25 643
+---@field [643] "UNUSED25"
+---@field UNUSED26 644
+---@field [644] "UNUSED26"
+---@field UNUSED27 645
+---@field [645] "UNUSED27"
+---@field UNUSED28 646
+---@field [646] "UNUSED28"
+---@field UNUSED29 647
+---@field [647] "UNUSED29"
+---@field UNUSED30 648
+---@field [648] "UNUSED30"
+---@field UNUSED31 649
+---@field [649] "UNUSED31"
+---@field UNUSED32 650
+---@field [650] "UNUSED32"
+---@field UNUSED33 651
+---@field [651] "UNUSED33"
+---@field UNUSED34 652
+---@field [652] "UNUSED34"
+---@field UNUSED35 653
+---@field [653] "UNUSED35"
+---@field UNUSED36 654
+---@field [654] "UNUSED36"
+---@field UNUSED37 655
+---@field [655] "UNUSED37"
+---@field UNUSED38 656
+---@field [656] "UNUSED38"
+---@field UNUSED39 657
+---@field [657] "UNUSED39"
+---@field UNUSED40 658
+---@field [658] "UNUSED40"
 df.builtin_mats = {}
 
 -- Unused: MatGlossCoal
@@ -10859,6 +12846,7 @@ df.game_clean_type = {}
 ---@field [106] "UNUSED60"
 df.entity_sell_category = {}
 
+-- Unused: TradeDepotBringType
 -- Unused: ConversationTask
 ---@alias df.record_precision_level_type
 ---| -1 # NONE
@@ -10868,6 +12856,7 @@ df.entity_sell_category = {}
 ---| 3 # nearest_10000
 ---| 4 # all_accurate
 
+-- Unused: TradeDepotBringType
 -- Unused: ConversationTask
 ---@class identity.record_precision_level_type: DFEnumType
 ---@field NONE -1 bay12: RecordPrecisionLevelType, no actual base type
@@ -11011,6 +13000,7 @@ df.geo_layer_type._attr_entry_type._fields = {}
 df.geo_layer_type.attrs = {}
 
 ---@alias df.environment_type
+---| -1 # NONE
 ---| 0 # SOIL
 ---| 1 # SOIL_OCEAN
 ---| 2 # SOIL_SAND
@@ -11021,8 +13011,10 @@ df.geo_layer_type.attrs = {}
 ---| 7 # ALLUVIAL
 
 ---@class identity.environment_type: DFEnumType
----@field SOIL 0 bay12: StoneEnvironment, no base type
----@field [0] "SOIL" bay12: StoneEnvironment, no base type
+---@field NONE -1 bay12: StoneEnvironment, no base type
+---@field [-1] "NONE" bay12: StoneEnvironment, no base type
+---@field SOIL 0
+---@field [0] "SOIL"
 ---@field SOIL_OCEAN 1
 ---@field [1] "SOIL_OCEAN"
 ---@field SOIL_SAND 2
@@ -11319,8 +13311,8 @@ df.world_region_type = {}
 ---@field [3] "TEMPERATURE"
 ---@field EVIL 4
 ---@field [4] "EVIL"
----@field DRAINAGE 5 GEOLOGY
----@field [5] "DRAINAGE" GEOLOGY
+---@field DRAINAGE 5
+---@field [5] "DRAINAGE"
 ---@field VOLCANISM 6
 ---@field [6] "VOLCANISM"
 ---@field SAVAGERY 7
@@ -13422,1398 +15414,1398 @@ df.tiletype_special.attrs = {}
 ---@class identity.tiletype: DFEnumType
 ---@field Void 0 0x000
 ---@field [0] "Void" 0x000
----@field RampTop 1 MAPTILE_RAMPSPACE
----@field [1] "RampTop" MAPTILE_RAMPSPACE
----@field MurkyPool 2 MAPTILE_POOL
----@field [2] "MurkyPool" MAPTILE_POOL
----@field MurkyPoolRamp 3 MAPTILE_POOL_RAMP
----@field [3] "MurkyPoolRamp" MAPTILE_POOL_RAMP
----@field UnderworldGateStairU 4 MAPTILE_UNDERWORLD_GATE_UP
----@field [4] "UnderworldGateStairU" MAPTILE_UNDERWORLD_GATE_UP
----@field UnderworldGateStairD 5 MAPTILE_UNDERWORLD_GATE_DOWN
----@field [5] "UnderworldGateStairD" MAPTILE_UNDERWORLD_GATE_DOWN
----@field UnderworldGateStairUD 6 MAPTILE_UNDERWORLD_GATE_UPDOWN
----@field [6] "UnderworldGateStairUD" MAPTILE_UNDERWORLD_GATE_UPDOWN
----@field TreeCapInterior 7 MAPTILE_TREE_CAP_INTERIOR
----@field [7] "TreeCapInterior" MAPTILE_TREE_CAP_INTERIOR
----@field TreeCapWallThickSW 8 MAPTILE_TREE_CAP_WALL_THICK_SW
----@field [8] "TreeCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW
----@field TreeCapWallThickSE 9 MAPTILE_TREE_CAP_WALL_THICK_SE
----@field [9] "TreeCapWallThickSE" MAPTILE_TREE_CAP_WALL_THICK_SE
----@field TreeCapWallThickNW 10 MAPTILE_TREE_CAP_WALL_THICK_NW
----@field [10] "TreeCapWallThickNW" MAPTILE_TREE_CAP_WALL_THICK_NW
----@field TreeCapWallThickNE 11 MAPTILE_TREE_CAP_WALL_THICK_NE
----@field [11] "TreeCapWallThickNE" MAPTILE_TREE_CAP_WALL_THICK_NE
----@field TreeCapWallThickN 12 MAPTILE_TREE_CAP_WALL_THICK_N
----@field [12] "TreeCapWallThickN" MAPTILE_TREE_CAP_WALL_THICK_N
----@field TreeCapWallThickS 13 MAPTILE_TREE_CAP_WALL_THICK_S
----@field [13] "TreeCapWallThickS" MAPTILE_TREE_CAP_WALL_THICK_S
----@field TreeCapWallThickW 14 MAPTILE_TREE_CAP_WALL_THICK_W
----@field [14] "TreeCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W
----@field TreeCapWallThickE 15 MAPTILE_TREE_CAP_WALL_THICK_E
----@field [15] "TreeCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E
+---@field RampTop 1
+---@field [1] "RampTop"
+---@field MurkyPool 2
+---@field [2] "MurkyPool"
+---@field MurkyPoolRamp 3
+---@field [3] "MurkyPoolRamp"
+---@field UnderworldGateStairU 4
+---@field [4] "UnderworldGateStairU"
+---@field UnderworldGateStairD 5
+---@field [5] "UnderworldGateStairD"
+---@field UnderworldGateStairUD 6
+---@field [6] "UnderworldGateStairUD"
+---@field TreeCapInterior 7
+---@field [7] "TreeCapInterior"
+---@field TreeCapWallThickSW 8
+---@field [8] "TreeCapWallThickSW"
+---@field TreeCapWallThickSE 9
+---@field [9] "TreeCapWallThickSE"
+---@field TreeCapWallThickNW 10
+---@field [10] "TreeCapWallThickNW"
+---@field TreeCapWallThickNE 11
+---@field [11] "TreeCapWallThickNE"
+---@field TreeCapWallThickN 12
+---@field [12] "TreeCapWallThickN"
+---@field TreeCapWallThickS 13
+---@field [13] "TreeCapWallThickS"
+---@field TreeCapWallThickW 14
+---@field [14] "TreeCapWallThickW"
+---@field TreeCapWallThickE 15
+---@field [15] "TreeCapWallThickE"
 ---@field TreeCapWallNSWE 16 0x010
 ---@field [16] "TreeCapWallNSWE" 0x010
----@field TreeCapWallNSW 17 MAPTILE_TREE_CAP_WALL_N_S_W
----@field [17] "TreeCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W
----@field TreeCapWallNSE 18 MAPTILE_TREE_CAP_WALL_N_S_E
----@field [18] "TreeCapWallNSE" MAPTILE_TREE_CAP_WALL_N_S_E
----@field Driftwood 19 MAPTILE_DRIFTWOOD_STACK
----@field [19] "Driftwood" MAPTILE_DRIFTWOOD_STACK
----@field TreeCapWallNWE 20 MAPTILE_TREE_CAP_WALL_N_W_E
----@field [20] "TreeCapWallNWE" MAPTILE_TREE_CAP_WALL_N_W_E
----@field TreeCapWallSWE 21 MAPTILE_TREE_CAP_WALL_S_W_E
----@field [21] "TreeCapWallSWE" MAPTILE_TREE_CAP_WALL_S_W_E
----@field TreeCapWallNS 22 MAPTILE_TREE_CAP_WALL_N_S
----@field [22] "TreeCapWallNS" MAPTILE_TREE_CAP_WALL_N_S
----@field TreeCapWallWE 23 MAPTILE_TREE_CAP_WALL_W_E
----@field [23] "TreeCapWallWE" MAPTILE_TREE_CAP_WALL_W_E
----@field Unused999 24 MAPTILE_UNUSED_999
----@field [24] "Unused999" MAPTILE_UNUSED_999
----@field FrozenStairUD 25 MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
----@field [25] "FrozenStairUD" MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
----@field FrozenStairD 26 MAPTILE_STAIR_DOWN_FROZEN_LIQUID
----@field [26] "FrozenStairD" MAPTILE_STAIR_DOWN_FROZEN_LIQUID
----@field FrozenStairU 27 MAPTILE_STAIR_UP_FROZEN_LIQUID
----@field [27] "FrozenStairU" MAPTILE_STAIR_UP_FROZEN_LIQUID
----@field Unused9999 28 MAPTILE_UNUSED_9999
----@field [28] "Unused9999" MAPTILE_UNUSED_9999
----@field Unused99999 29 MAPTILE_UNUSED_99999
----@field [29] "Unused99999" MAPTILE_UNUSED_99999
----@field Unused999999 30 MAPTILE_UNUSED_999999
----@field [30] "Unused999999" MAPTILE_UNUSED_999999
----@field TreeDeadCapInterior 31 MAPTILE_TREE_CAP_INTERIOR_DEAD
----@field [31] "TreeDeadCapInterior" MAPTILE_TREE_CAP_INTERIOR_DEAD
+---@field TreeCapWallNSW 17
+---@field [17] "TreeCapWallNSW"
+---@field TreeCapWallNSE 18
+---@field [18] "TreeCapWallNSE"
+---@field Driftwood 19
+---@field [19] "Driftwood"
+---@field TreeCapWallNWE 20
+---@field [20] "TreeCapWallNWE"
+---@field TreeCapWallSWE 21
+---@field [21] "TreeCapWallSWE"
+---@field TreeCapWallNS 22
+---@field [22] "TreeCapWallNS"
+---@field TreeCapWallWE 23
+---@field [23] "TreeCapWallWE"
+---@field Unused999 24
+---@field [24] "Unused999"
+---@field FrozenStairUD 25
+---@field [25] "FrozenStairUD"
+---@field FrozenStairD 26
+---@field [26] "FrozenStairD"
+---@field FrozenStairU 27
+---@field [27] "FrozenStairU"
+---@field Unused9999 28
+---@field [28] "Unused9999"
+---@field Unused99999 29
+---@field [29] "Unused99999"
+---@field Unused999999 30
+---@field [30] "Unused999999"
+---@field TreeDeadCapInterior 31
+---@field [31] "TreeDeadCapInterior"
 ---@field OpenSpace 32 0x020
 ---@field [32] "OpenSpace" 0x020
----@field TreeDeadCapWallThickSW 33 MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
----@field [33] "TreeDeadCapWallThickSW" MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
----@field Shrub 34 MAPTILE_SHRUB
----@field [34] "Shrub" MAPTILE_SHRUB
----@field Chasm 35 MAPTILE_CHASM
----@field [35] "Chasm" MAPTILE_CHASM
----@field LavaStairUD 36 MAPTILE_STAIR_UPDOWN_LAVASTONE
----@field [36] "LavaStairUD" MAPTILE_STAIR_UPDOWN_LAVASTONE
----@field LavaStairD 37 MAPTILE_STAIR_DOWN_LAVASTONE
----@field [37] "LavaStairD" MAPTILE_STAIR_DOWN_LAVASTONE
----@field LavaStairU 38 MAPTILE_STAIR_UP_LAVASTONE
----@field [38] "LavaStairU" MAPTILE_STAIR_UP_LAVASTONE
----@field SoilStairUD 39 MAPTILE_STAIR_UPDOWN_SOIL
----@field [39] "SoilStairUD" MAPTILE_STAIR_UPDOWN_SOIL
----@field SoilStairD 40 MAPTILE_STAIR_DOWN_SOIL
----@field [40] "SoilStairD" MAPTILE_STAIR_DOWN_SOIL
----@field SoilStairU 41 MAPTILE_STAIR_UP_SOIL
----@field [41] "SoilStairU" MAPTILE_STAIR_UP_SOIL
----@field EeriePit 42 MAPTILE_EERIE_PIT
----@field [42] "EeriePit" MAPTILE_EERIE_PIT
----@field StoneFloorSmooth 43 MAPTILE_STONE_FLOOR_DETAILED
----@field [43] "StoneFloorSmooth" MAPTILE_STONE_FLOOR_DETAILED
----@field LavaFloorSmooth 44 MAPTILE_LAVASTONE_FLOOR_DETAILED
----@field [44] "LavaFloorSmooth" MAPTILE_LAVASTONE_FLOOR_DETAILED
----@field FeatureFloorSmooth 45 MAPTILE_FEATSTONE_FLOOR_DETAILED
----@field [45] "FeatureFloorSmooth" MAPTILE_FEATSTONE_FLOOR_DETAILED
----@field MineralFloorSmooth 46 MAPTILE_MINSTONE_FLOOR_DETAILED
----@field [46] "MineralFloorSmooth" MAPTILE_MINSTONE_FLOOR_DETAILED
----@field FrozenFloorSmooth 47 MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
----@field [47] "FrozenFloorSmooth" MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
+---@field TreeDeadCapWallThickSW 33
+---@field [33] "TreeDeadCapWallThickSW"
+---@field Shrub 34
+---@field [34] "Shrub"
+---@field Chasm 35
+---@field [35] "Chasm"
+---@field LavaStairUD 36
+---@field [36] "LavaStairUD"
+---@field LavaStairD 37
+---@field [37] "LavaStairD"
+---@field LavaStairU 38
+---@field [38] "LavaStairU"
+---@field SoilStairUD 39
+---@field [39] "SoilStairUD"
+---@field SoilStairD 40
+---@field [40] "SoilStairD"
+---@field SoilStairU 41
+---@field [41] "SoilStairU"
+---@field EeriePit 42
+---@field [42] "EeriePit"
+---@field StoneFloorSmooth 43
+---@field [43] "StoneFloorSmooth"
+---@field LavaFloorSmooth 44
+---@field [44] "LavaFloorSmooth"
+---@field FeatureFloorSmooth 45
+---@field [45] "FeatureFloorSmooth"
+---@field MineralFloorSmooth 46
+---@field [46] "MineralFloorSmooth"
+---@field FrozenFloorSmooth 47
+---@field [47] "FrozenFloorSmooth"
 ---@field TreeDeadCapWallThickSE 48 0x030
 ---@field [48] "TreeDeadCapWallThickSE" 0x030
----@field Grass1StairUD 49 MAPTILE_STAIR_UPDOWN_GRASS1
----@field [49] "Grass1StairUD" MAPTILE_STAIR_UPDOWN_GRASS1
----@field Grass1StairD 50 MAPTILE_STAIR_DOWN_GRASS1
----@field [50] "Grass1StairD" MAPTILE_STAIR_DOWN_GRASS1
----@field Grass1StairU 51 MAPTILE_STAIR_UP_GRASS1
----@field [51] "Grass1StairU" MAPTILE_STAIR_UP_GRASS1
----@field Grass2StairUD 52 MAPTILE_STAIR_UPDOWN_GRASS2
----@field [52] "Grass2StairUD" MAPTILE_STAIR_UPDOWN_GRASS2
----@field Grass2StairD 53 MAPTILE_STAIR_DOWN_GRASS2
----@field [53] "Grass2StairD" MAPTILE_STAIR_DOWN_GRASS2
----@field Grass2StairU 54 MAPTILE_STAIR_UP_GRASS2
----@field [54] "Grass2StairU" MAPTILE_STAIR_UP_GRASS2
----@field StoneStairUD 55 MAPTILE_STAIR_UPDOWN_STONE
----@field [55] "StoneStairUD" MAPTILE_STAIR_UPDOWN_STONE
----@field StoneStairD 56 MAPTILE_STAIR_DOWN_STONE
----@field [56] "StoneStairD" MAPTILE_STAIR_DOWN_STONE
----@field StoneStairU 57 MAPTILE_STAIR_UP_STONE
----@field [57] "StoneStairU" MAPTILE_STAIR_UP_STONE
----@field MineralStairUD 58 MAPTILE_STAIR_UPDOWN_MINSTONE
----@field [58] "MineralStairUD" MAPTILE_STAIR_UPDOWN_MINSTONE
----@field MineralStairD 59 MAPTILE_STAIR_DOWN_MINSTONE
----@field [59] "MineralStairD" MAPTILE_STAIR_DOWN_MINSTONE
----@field MineralStairU 60 MAPTILE_STAIR_UP_MINSTONE
----@field [60] "MineralStairU" MAPTILE_STAIR_UP_MINSTONE
----@field FeatureStairUD 61 MAPTILE_STAIR_UPDOWN_FEATSTONE
----@field [61] "FeatureStairUD" MAPTILE_STAIR_UPDOWN_FEATSTONE
----@field FeatureStairD 62 MAPTILE_STAIR_DOWN_FEATSTONE
----@field [62] "FeatureStairD" MAPTILE_STAIR_DOWN_FEATSTONE
----@field FeatureStairU 63 MAPTILE_STAIR_UP_FEATSTONE
----@field [63] "FeatureStairU" MAPTILE_STAIR_UP_FEATSTONE
+---@field Grass1StairUD 49
+---@field [49] "Grass1StairUD"
+---@field Grass1StairD 50
+---@field [50] "Grass1StairD"
+---@field Grass1StairU 51
+---@field [51] "Grass1StairU"
+---@field Grass2StairUD 52
+---@field [52] "Grass2StairUD"
+---@field Grass2StairD 53
+---@field [53] "Grass2StairD"
+---@field Grass2StairU 54
+---@field [54] "Grass2StairU"
+---@field StoneStairUD 55
+---@field [55] "StoneStairUD"
+---@field StoneStairD 56
+---@field [56] "StoneStairD"
+---@field StoneStairU 57
+---@field [57] "StoneStairU"
+---@field MineralStairUD 58
+---@field [58] "MineralStairUD"
+---@field MineralStairD 59
+---@field [59] "MineralStairD"
+---@field MineralStairU 60
+---@field [60] "MineralStairU"
+---@field FeatureStairUD 61
+---@field [61] "FeatureStairUD"
+---@field FeatureStairD 62
+---@field [62] "FeatureStairD"
+---@field FeatureStairU 63
+---@field [63] "FeatureStairU"
 ---@field TreeDeadCapWallThickNW 64 0x040
 ---@field [64] "TreeDeadCapWallThickNW" 0x040
----@field StoneFortification 65 MAPTILE_STONE_FORTIFICATION
----@field [65] "StoneFortification" MAPTILE_STONE_FORTIFICATION
----@field TreeDeadCapWallThickNE 66 MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
----@field [66] "TreeDeadCapWallThickNE" MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
----@field Campfire 67 MAPTILE_CAMPFIRE
----@field [67] "Campfire" MAPTILE_CAMPFIRE
----@field TreeDeadCapWallThickN 68 MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
----@field [68] "TreeDeadCapWallThickN" MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
----@field TreeDeadCapWallThickS 69 MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
----@field [69] "TreeDeadCapWallThickS" MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
----@field Fire 70 MAPTILE_FIRE
----@field [70] "Fire" MAPTILE_FIRE
----@field BurningTreeTrunk 71 MAPTILE_FIRE_TREE_TRUNK
----@field [71] "BurningTreeTrunk" MAPTILE_FIRE_TREE_TRUNK
----@field BurningTreeBranches 72 MAPTILE_FIRE_TREE_BRANCHES
----@field [72] "BurningTreeBranches" MAPTILE_FIRE_TREE_BRANCHES
----@field BurningTreeTwigs 73 MAPTILE_FIRE_TREE_TWIGS
----@field [73] "BurningTreeTwigs" MAPTILE_FIRE_TREE_TWIGS
----@field BurningTreeCapWall 74 MAPTILE_FIRE_TREE_CAP_WALL
----@field [74] "BurningTreeCapWall" MAPTILE_FIRE_TREE_CAP_WALL
----@field BurningTreeCapRamp 75 MAPTILE_FIRE_TREE_CAP_RAMP
----@field [75] "BurningTreeCapRamp" MAPTILE_FIRE_TREE_CAP_RAMP
----@field BurningTreeCapFloor 76 MAPTILE_FIRE_TREE_CAP_FLOOR
----@field [76] "BurningTreeCapFloor" MAPTILE_FIRE_TREE_CAP_FLOOR
----@field TreeDeadCapWallThickW 77 MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
----@field [77] "TreeDeadCapWallThickW" MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
----@field TreeDeadCapWallThickE 78 MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
----@field [78] "TreeDeadCapWallThickE" MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
----@field StonePillar 79 MAPTILE_STONE_PILLAR
----@field [79] "StonePillar" MAPTILE_STONE_PILLAR
+---@field StoneFortification 65
+---@field [65] "StoneFortification"
+---@field TreeDeadCapWallThickNE 66
+---@field [66] "TreeDeadCapWallThickNE"
+---@field Campfire 67
+---@field [67] "Campfire"
+---@field TreeDeadCapWallThickN 68
+---@field [68] "TreeDeadCapWallThickN"
+---@field TreeDeadCapWallThickS 69
+---@field [69] "TreeDeadCapWallThickS"
+---@field Fire 70
+---@field [70] "Fire"
+---@field BurningTreeTrunk 71
+---@field [71] "BurningTreeTrunk"
+---@field BurningTreeBranches 72
+---@field [72] "BurningTreeBranches"
+---@field BurningTreeTwigs 73
+---@field [73] "BurningTreeTwigs"
+---@field BurningTreeCapWall 74
+---@field [74] "BurningTreeCapWall"
+---@field BurningTreeCapRamp 75
+---@field [75] "BurningTreeCapRamp"
+---@field BurningTreeCapFloor 76
+---@field [76] "BurningTreeCapFloor"
+---@field TreeDeadCapWallThickW 77
+---@field [77] "TreeDeadCapWallThickW"
+---@field TreeDeadCapWallThickE 78
+---@field [78] "TreeDeadCapWallThickE"
+---@field StonePillar 79
+---@field [79] "StonePillar"
 ---@field LavaPillar 80 0x050
 ---@field [80] "LavaPillar" 0x050
----@field FeaturePillar 81 MAPTILE_FEATSTONE_PILLAR
----@field [81] "FeaturePillar" MAPTILE_FEATSTONE_PILLAR
----@field MineralPillar 82 MAPTILE_MINSTONE_PILLAR
----@field [82] "MineralPillar" MAPTILE_MINSTONE_PILLAR
----@field FrozenPillar 83 MAPTILE_FROZEN_LIQUID_PILLAR
----@field [83] "FrozenPillar" MAPTILE_FROZEN_LIQUID_PILLAR
----@field TreeDeadCapWallNSWE 84 MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
----@field [84] "TreeDeadCapWallNSWE" MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
----@field TreeDeadCapWallNSW 85 MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
----@field [85] "TreeDeadCapWallNSW" MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
----@field TreeDeadCapWallNSE 86 MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
----@field [86] "TreeDeadCapWallNSE" MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
----@field TreeDeadCapWallNWE 87 MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
----@field [87] "TreeDeadCapWallNWE" MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
----@field TreeDeadCapWallSWE 88 MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
----@field [88] "TreeDeadCapWallSWE" MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
----@field Waterfall 89 MAPTILE_WATERFALL_LANDING
----@field [89] "Waterfall" MAPTILE_WATERFALL_LANDING
----@field RiverSource 90 MAPTILE_RIVER_SOURCE
----@field [90] "RiverSource" MAPTILE_RIVER_SOURCE
----@field TreeRootSloping 91 MAPTILE_TREE_ROOT_SLOPING
----@field [91] "TreeRootSloping" MAPTILE_TREE_ROOT_SLOPING
----@field TreeRoots 92 MAPTILE_TREE_ROOTS
----@field [92] "TreeRoots" MAPTILE_TREE_ROOTS
----@field TreeTrunkPillar 93 MAPTILE_TREE_TRUNK_PILLAR
----@field [93] "TreeTrunkPillar" MAPTILE_TREE_TRUNK_PILLAR
----@field TreeTrunkSloping 94 MAPTILE_TREE_TRUNK_SLOPING
----@field [94] "TreeTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING
----@field TreeTrunkThickN 95 MAPTILE_TREE_TRUNK_THICK_N
----@field [95] "TreeTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N
+---@field FeaturePillar 81
+---@field [81] "FeaturePillar"
+---@field MineralPillar 82
+---@field [82] "MineralPillar"
+---@field FrozenPillar 83
+---@field [83] "FrozenPillar"
+---@field TreeDeadCapWallNSWE 84
+---@field [84] "TreeDeadCapWallNSWE"
+---@field TreeDeadCapWallNSW 85
+---@field [85] "TreeDeadCapWallNSW"
+---@field TreeDeadCapWallNSE 86
+---@field [86] "TreeDeadCapWallNSE"
+---@field TreeDeadCapWallNWE 87
+---@field [87] "TreeDeadCapWallNWE"
+---@field TreeDeadCapWallSWE 88
+---@field [88] "TreeDeadCapWallSWE"
+---@field Waterfall 89
+---@field [89] "Waterfall"
+---@field RiverSource 90
+---@field [90] "RiverSource"
+---@field TreeRootSloping 91
+---@field [91] "TreeRootSloping"
+---@field TreeRoots 92
+---@field [92] "TreeRoots"
+---@field TreeTrunkPillar 93
+---@field [93] "TreeTrunkPillar"
+---@field TreeTrunkSloping 94
+---@field [94] "TreeTrunkSloping"
+---@field TreeTrunkThickN 95
+---@field [95] "TreeTrunkThickN"
 ---@field TreeTrunkThickS 96 0x060
 ---@field [96] "TreeTrunkThickS" 0x060
----@field TreeTrunkThickE 97 MAPTILE_TREE_TRUNK_THICK_E
----@field [97] "TreeTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E
----@field TreeTrunkThickW 98 MAPTILE_TREE_TRUNK_THICK_W
----@field [98] "TreeTrunkThickW" MAPTILE_TREE_TRUNK_THICK_W
----@field TreeTrunkThickNW 99 MAPTILE_TREE_TRUNK_THICK_NW
----@field [99] "TreeTrunkThickNW" MAPTILE_TREE_TRUNK_THICK_NW
----@field TreeTrunkThickNE 100 MAPTILE_TREE_TRUNK_THICK_NE
----@field [100] "TreeTrunkThickNE" MAPTILE_TREE_TRUNK_THICK_NE
----@field TreeTrunkThickSW 101 MAPTILE_TREE_TRUNK_THICK_SW
----@field [101] "TreeTrunkThickSW" MAPTILE_TREE_TRUNK_THICK_SW
----@field TreeTrunkThickSE 102 MAPTILE_TREE_TRUNK_THICK_SE
----@field [102] "TreeTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE
----@field TreeTrunkBranchN 103 MAPTILE_TREE_TRUNK_BRANCH_N
----@field [103] "TreeTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N
----@field TreeTrunkBranchS 104 MAPTILE_TREE_TRUNK_BRANCH_S
----@field [104] "TreeTrunkBranchS" MAPTILE_TREE_TRUNK_BRANCH_S
----@field TreeTrunkBranchE 105 MAPTILE_TREE_TRUNK_BRANCH_E
----@field [105] "TreeTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E
----@field TreeTrunkBranchW 106 MAPTILE_TREE_TRUNK_BRANCH_W
----@field [106] "TreeTrunkBranchW" MAPTILE_TREE_TRUNK_BRANCH_W
----@field TreeBranchNS 107 MAPTILE_TREE_BRANCH_NS
----@field [107] "TreeBranchNS" MAPTILE_TREE_BRANCH_NS
----@field TreeBranchEW 108 MAPTILE_TREE_BRANCH_EW
----@field [108] "TreeBranchEW" MAPTILE_TREE_BRANCH_EW
----@field TreeBranchesSmooth 109 MAPTILE_TREE_SMOOTH_BRANCHES
----@field [109] "TreeBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES
----@field TreeDeadBranchesSmooth 110 MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
----@field [110] "TreeDeadBranchesSmooth" MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
----@field TreeBranchNW 111 MAPTILE_TREE_BRANCH_NW
----@field [111] "TreeBranchNW" MAPTILE_TREE_BRANCH_NW
+---@field TreeTrunkThickE 97
+---@field [97] "TreeTrunkThickE"
+---@field TreeTrunkThickW 98
+---@field [98] "TreeTrunkThickW"
+---@field TreeTrunkThickNW 99
+---@field [99] "TreeTrunkThickNW"
+---@field TreeTrunkThickNE 100
+---@field [100] "TreeTrunkThickNE"
+---@field TreeTrunkThickSW 101
+---@field [101] "TreeTrunkThickSW"
+---@field TreeTrunkThickSE 102
+---@field [102] "TreeTrunkThickSE"
+---@field TreeTrunkBranchN 103
+---@field [103] "TreeTrunkBranchN"
+---@field TreeTrunkBranchS 104
+---@field [104] "TreeTrunkBranchS"
+---@field TreeTrunkBranchE 105
+---@field [105] "TreeTrunkBranchE"
+---@field TreeTrunkBranchW 106
+---@field [106] "TreeTrunkBranchW"
+---@field TreeBranchNS 107
+---@field [107] "TreeBranchNS"
+---@field TreeBranchEW 108
+---@field [108] "TreeBranchEW"
+---@field TreeBranchesSmooth 109
+---@field [109] "TreeBranchesSmooth"
+---@field TreeDeadBranchesSmooth 110
+---@field [110] "TreeDeadBranchesSmooth"
+---@field TreeBranchNW 111
+---@field [111] "TreeBranchNW"
 ---@field TreeBranchNE 112 0x070
 ---@field [112] "TreeBranchNE" 0x070
----@field TreeBranchSW 113 MAPTILE_TREE_BRANCH_SW
----@field [113] "TreeBranchSW" MAPTILE_TREE_BRANCH_SW
----@field TreeBranchSE 114 MAPTILE_TREE_BRANCH_SE
----@field [114] "TreeBranchSE" MAPTILE_TREE_BRANCH_SE
----@field TreeBranches 115 MAPTILE_TREE_BRANCHES
----@field [115] "TreeBranches" MAPTILE_TREE_BRANCHES
----@field TreeTwigs 116 MAPTILE_TREE_TWIGS
----@field [116] "TreeTwigs" MAPTILE_TREE_TWIGS
----@field TreeCapRamp 117 MAPTILE_TREE_CAP_RAMP
----@field [117] "TreeCapRamp" MAPTILE_TREE_CAP_RAMP
----@field TreeCapPillar 118 MAPTILE_TREE_CAP_PILLAR
----@field [118] "TreeCapPillar" MAPTILE_TREE_CAP_PILLAR
----@field TreeCapWallN 119 MAPTILE_TREE_CAP_WALL_N
----@field [119] "TreeCapWallN" MAPTILE_TREE_CAP_WALL_N
----@field TreeCapWallS 120 MAPTILE_TREE_CAP_WALL_S
----@field [120] "TreeCapWallS" MAPTILE_TREE_CAP_WALL_S
----@field TreeCapWallE 121 MAPTILE_TREE_CAP_WALL_E
----@field [121] "TreeCapWallE" MAPTILE_TREE_CAP_WALL_E
----@field TreeCapWallW 122 MAPTILE_TREE_CAP_WALL_W
----@field [122] "TreeCapWallW" MAPTILE_TREE_CAP_WALL_W
----@field TreeCapWallNW 123 MAPTILE_TREE_CAP_WALL_N_W
----@field [123] "TreeCapWallNW" MAPTILE_TREE_CAP_WALL_N_W
----@field TreeCapWallNE 124 MAPTILE_TREE_CAP_WALL_N_E
----@field [124] "TreeCapWallNE" MAPTILE_TREE_CAP_WALL_N_E
----@field TreeCapWallSW 125 MAPTILE_TREE_CAP_WALL_S_W
----@field [125] "TreeCapWallSW" MAPTILE_TREE_CAP_WALL_S_W
----@field TreeCapWallSE 126 MAPTILE_TREE_CAP_WALL_S_E
----@field [126] "TreeCapWallSE" MAPTILE_TREE_CAP_WALL_S_E
----@field TreeCapFloor1 127 MAPTILE_TREE_CAP_FLOOR1
----@field [127] "TreeCapFloor1" MAPTILE_TREE_CAP_FLOOR1
+---@field TreeBranchSW 113
+---@field [113] "TreeBranchSW"
+---@field TreeBranchSE 114
+---@field [114] "TreeBranchSE"
+---@field TreeBranches 115
+---@field [115] "TreeBranches"
+---@field TreeTwigs 116
+---@field [116] "TreeTwigs"
+---@field TreeCapRamp 117
+---@field [117] "TreeCapRamp"
+---@field TreeCapPillar 118
+---@field [118] "TreeCapPillar"
+---@field TreeCapWallN 119
+---@field [119] "TreeCapWallN"
+---@field TreeCapWallS 120
+---@field [120] "TreeCapWallS"
+---@field TreeCapWallE 121
+---@field [121] "TreeCapWallE"
+---@field TreeCapWallW 122
+---@field [122] "TreeCapWallW"
+---@field TreeCapWallNW 123
+---@field [123] "TreeCapWallNW"
+---@field TreeCapWallNE 124
+---@field [124] "TreeCapWallNE"
+---@field TreeCapWallSW 125
+---@field [125] "TreeCapWallSW"
+---@field TreeCapWallSE 126
+---@field [126] "TreeCapWallSE"
+---@field TreeCapFloor1 127
+---@field [127] "TreeCapFloor1"
 ---@field TreeCapFloor2 128 0x080
 ---@field [128] "TreeCapFloor2" 0x080
----@field TreeCapFloor3 129 MAPTILE_TREE_CAP_FLOOR3
----@field [129] "TreeCapFloor3" MAPTILE_TREE_CAP_FLOOR3
----@field TreeCapFloor4 130 MAPTILE_TREE_CAP_FLOOR4
----@field [130] "TreeCapFloor4" MAPTILE_TREE_CAP_FLOOR4
----@field TreeDeadRootSloping 131 MAPTILE_TREE_ROOT_SLOPING_DEAD
----@field [131] "TreeDeadRootSloping" MAPTILE_TREE_ROOT_SLOPING_DEAD
----@field TreeDeadRoots 132 MAPTILE_TREE_ROOTS_DEAD
----@field [132] "TreeDeadRoots" MAPTILE_TREE_ROOTS_DEAD
----@field TreeDeadTrunkPillar 133 MAPTILE_TREE_TRUNK_PILLAR_DEAD
----@field [133] "TreeDeadTrunkPillar" MAPTILE_TREE_TRUNK_PILLAR_DEAD
----@field TreeDeadTrunkSloping 134 MAPTILE_TREE_TRUNK_SLOPING_DEAD
----@field [134] "TreeDeadTrunkSloping" MAPTILE_TREE_TRUNK_SLOPING_DEAD
----@field TreeDeadTrunkThickN 135 MAPTILE_TREE_TRUNK_THICK_N_DEAD
----@field [135] "TreeDeadTrunkThickN" MAPTILE_TREE_TRUNK_THICK_N_DEAD
----@field TreeDeadTrunkThickS 136 MAPTILE_TREE_TRUNK_THICK_S_DEAD
----@field [136] "TreeDeadTrunkThickS" MAPTILE_TREE_TRUNK_THICK_S_DEAD
----@field TreeDeadTrunkThickE 137 MAPTILE_TREE_TRUNK_THICK_E_DEAD
----@field [137] "TreeDeadTrunkThickE" MAPTILE_TREE_TRUNK_THICK_E_DEAD
----@field TreeDeadTrunkThickW 138 MAPTILE_TREE_TRUNK_THICK_W_DEAD
----@field [138] "TreeDeadTrunkThickW" MAPTILE_TREE_TRUNK_THICK_W_DEAD
----@field TreeDeadTrunkThickNW 139 MAPTILE_TREE_TRUNK_THICK_NW_DEAD
----@field [139] "TreeDeadTrunkThickNW" MAPTILE_TREE_TRUNK_THICK_NW_DEAD
----@field TreeDeadTrunkThickNE 140 MAPTILE_TREE_TRUNK_THICK_NE_DEAD
----@field [140] "TreeDeadTrunkThickNE" MAPTILE_TREE_TRUNK_THICK_NE_DEAD
----@field TreeDeadTrunkThickSW 141 MAPTILE_TREE_TRUNK_THICK_SW_DEAD
----@field [141] "TreeDeadTrunkThickSW" MAPTILE_TREE_TRUNK_THICK_SW_DEAD
----@field TreeDeadTrunkThickSE 142 MAPTILE_TREE_TRUNK_THICK_SE_DEAD
----@field [142] "TreeDeadTrunkThickSE" MAPTILE_TREE_TRUNK_THICK_SE_DEAD
----@field TreeDeadTrunkBranchN 143 MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
----@field [143] "TreeDeadTrunkBranchN" MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
+---@field TreeCapFloor3 129
+---@field [129] "TreeCapFloor3"
+---@field TreeCapFloor4 130
+---@field [130] "TreeCapFloor4"
+---@field TreeDeadRootSloping 131
+---@field [131] "TreeDeadRootSloping"
+---@field TreeDeadRoots 132
+---@field [132] "TreeDeadRoots"
+---@field TreeDeadTrunkPillar 133
+---@field [133] "TreeDeadTrunkPillar"
+---@field TreeDeadTrunkSloping 134
+---@field [134] "TreeDeadTrunkSloping"
+---@field TreeDeadTrunkThickN 135
+---@field [135] "TreeDeadTrunkThickN"
+---@field TreeDeadTrunkThickS 136
+---@field [136] "TreeDeadTrunkThickS"
+---@field TreeDeadTrunkThickE 137
+---@field [137] "TreeDeadTrunkThickE"
+---@field TreeDeadTrunkThickW 138
+---@field [138] "TreeDeadTrunkThickW"
+---@field TreeDeadTrunkThickNW 139
+---@field [139] "TreeDeadTrunkThickNW"
+---@field TreeDeadTrunkThickNE 140
+---@field [140] "TreeDeadTrunkThickNE"
+---@field TreeDeadTrunkThickSW 141
+---@field [141] "TreeDeadTrunkThickSW"
+---@field TreeDeadTrunkThickSE 142
+---@field [142] "TreeDeadTrunkThickSE"
+---@field TreeDeadTrunkBranchN 143
+---@field [143] "TreeDeadTrunkBranchN"
 ---@field TreeDeadTrunkBranchS 144 0x090
 ---@field [144] "TreeDeadTrunkBranchS" 0x090
----@field TreeDeadTrunkBranchE 145 MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
----@field [145] "TreeDeadTrunkBranchE" MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
----@field TreeDeadTrunkBranchW 146 MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
----@field [146] "TreeDeadTrunkBranchW" MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
----@field TreeDeadBranchNS 147 MAPTILE_TREE_BRANCH_NS_DEAD
----@field [147] "TreeDeadBranchNS" MAPTILE_TREE_BRANCH_NS_DEAD
----@field TreeDeadBranchEW 148 MAPTILE_TREE_BRANCH_EW_DEAD
----@field [148] "TreeDeadBranchEW" MAPTILE_TREE_BRANCH_EW_DEAD
----@field TreeBranch 149 MAPTILE_TREE_BRANCH
----@field [149] "TreeBranch" MAPTILE_TREE_BRANCH
----@field TreeDeadBranch 150 MAPTILE_TREE_BRANCH_DEAD
----@field [150] "TreeDeadBranch" MAPTILE_TREE_BRANCH_DEAD
----@field TreeDeadBranchNW 151 MAPTILE_TREE_BRANCH_NW_DEAD
----@field [151] "TreeDeadBranchNW" MAPTILE_TREE_BRANCH_NW_DEAD
----@field TreeDeadBranchNE 152 MAPTILE_TREE_BRANCH_NE_DEAD
----@field [152] "TreeDeadBranchNE" MAPTILE_TREE_BRANCH_NE_DEAD
----@field TreeDeadBranchSW 153 MAPTILE_TREE_BRANCH_SW_DEAD
----@field [153] "TreeDeadBranchSW" MAPTILE_TREE_BRANCH_SW_DEAD
----@field TreeDeadBranchSE 154 MAPTILE_TREE_BRANCH_SE_DEAD
----@field [154] "TreeDeadBranchSE" MAPTILE_TREE_BRANCH_SE_DEAD
----@field TreeDeadBranches 155 MAPTILE_TREE_BRANCHES_DEAD
----@field [155] "TreeDeadBranches" MAPTILE_TREE_BRANCHES_DEAD
----@field TreeDeadTwigs 156 MAPTILE_TREE_TWIGS_DEAD
----@field [156] "TreeDeadTwigs" MAPTILE_TREE_TWIGS_DEAD
----@field TreeDeadCapRamp 157 MAPTILE_TREE_CAP_RAMP_DEAD
----@field [157] "TreeDeadCapRamp" MAPTILE_TREE_CAP_RAMP_DEAD
----@field TreeDeadCapPillar 158 MAPTILE_TREE_CAP_PILLAR_DEAD
----@field [158] "TreeDeadCapPillar" MAPTILE_TREE_CAP_PILLAR_DEAD
----@field TreeDeadCapWallN 159 MAPTILE_TREE_CAP_WALL_N_DEAD
----@field [159] "TreeDeadCapWallN" MAPTILE_TREE_CAP_WALL_N_DEAD
+---@field TreeDeadTrunkBranchE 145
+---@field [145] "TreeDeadTrunkBranchE"
+---@field TreeDeadTrunkBranchW 146
+---@field [146] "TreeDeadTrunkBranchW"
+---@field TreeDeadBranchNS 147
+---@field [147] "TreeDeadBranchNS"
+---@field TreeDeadBranchEW 148
+---@field [148] "TreeDeadBranchEW"
+---@field TreeBranch 149
+---@field [149] "TreeBranch"
+---@field TreeDeadBranch 150
+---@field [150] "TreeDeadBranch"
+---@field TreeDeadBranchNW 151
+---@field [151] "TreeDeadBranchNW"
+---@field TreeDeadBranchNE 152
+---@field [152] "TreeDeadBranchNE"
+---@field TreeDeadBranchSW 153
+---@field [153] "TreeDeadBranchSW"
+---@field TreeDeadBranchSE 154
+---@field [154] "TreeDeadBranchSE"
+---@field TreeDeadBranches 155
+---@field [155] "TreeDeadBranches"
+---@field TreeDeadTwigs 156
+---@field [156] "TreeDeadTwigs"
+---@field TreeDeadCapRamp 157
+---@field [157] "TreeDeadCapRamp"
+---@field TreeDeadCapPillar 158
+---@field [158] "TreeDeadCapPillar"
+---@field TreeDeadCapWallN 159
+---@field [159] "TreeDeadCapWallN"
 ---@field TreeDeadCapWallS 160 0x0A0
 ---@field [160] "TreeDeadCapWallS" 0x0A0
----@field TreeDeadCapWallE 161 MAPTILE_TREE_CAP_WALL_E_DEAD
----@field [161] "TreeDeadCapWallE" MAPTILE_TREE_CAP_WALL_E_DEAD
----@field TreeDeadCapWallW 162 MAPTILE_TREE_CAP_WALL_W_DEAD
----@field [162] "TreeDeadCapWallW" MAPTILE_TREE_CAP_WALL_W_DEAD
----@field TreeDeadCapWallNW 163 MAPTILE_TREE_CAP_WALL_N_W_DEAD
----@field [163] "TreeDeadCapWallNW" MAPTILE_TREE_CAP_WALL_N_W_DEAD
----@field TreeDeadCapWallNE 164 MAPTILE_TREE_CAP_WALL_N_E_DEAD
----@field [164] "TreeDeadCapWallNE" MAPTILE_TREE_CAP_WALL_N_E_DEAD
----@field TreeDeadCapWallSW 165 MAPTILE_TREE_CAP_WALL_S_W_DEAD
----@field [165] "TreeDeadCapWallSW" MAPTILE_TREE_CAP_WALL_S_W_DEAD
----@field TreeDeadCapWallSE 166 MAPTILE_TREE_CAP_WALL_S_E_DEAD
----@field [166] "TreeDeadCapWallSE" MAPTILE_TREE_CAP_WALL_S_E_DEAD
----@field TreeDeadCapFloor1 167 MAPTILE_TREE_CAP_FLOOR1_DEAD
----@field [167] "TreeDeadCapFloor1" MAPTILE_TREE_CAP_FLOOR1_DEAD
----@field TreeDeadCapFloor2 168 MAPTILE_TREE_CAP_FLOOR2_DEAD
----@field [168] "TreeDeadCapFloor2" MAPTILE_TREE_CAP_FLOOR2_DEAD
----@field TreeDeadCapFloor3 169 MAPTILE_TREE_CAP_FLOOR3_DEAD
----@field [169] "TreeDeadCapFloor3" MAPTILE_TREE_CAP_FLOOR3_DEAD
----@field TreeDeadCapFloor4 170 MAPTILE_TREE_CAP_FLOOR4_DEAD
----@field [170] "TreeDeadCapFloor4" MAPTILE_TREE_CAP_FLOOR4_DEAD
----@field TreeDeadCapWallNS 171 MAPTILE_TREE_CAP_WALL_N_S_DEAD
----@field [171] "TreeDeadCapWallNS" MAPTILE_TREE_CAP_WALL_N_S_DEAD
----@field StoneWallWorn1 172 MAPTILE_STONE_WALL_WORN1
----@field [172] "StoneWallWorn1" MAPTILE_STONE_WALL_WORN1
----@field StoneWallWorn2 173 MAPTILE_STONE_WALL_WORN2
----@field [173] "StoneWallWorn2" MAPTILE_STONE_WALL_WORN2
----@field StoneWallWorn3 174 MAPTILE_STONE_WALL_WORN3
----@field [174] "StoneWallWorn3" MAPTILE_STONE_WALL_WORN3
----@field TreeBranchNSE 175 MAPTILE_TREE_BRANCH_NSE
----@field [175] "TreeBranchNSE" MAPTILE_TREE_BRANCH_NSE
+---@field TreeDeadCapWallE 161
+---@field [161] "TreeDeadCapWallE"
+---@field TreeDeadCapWallW 162
+---@field [162] "TreeDeadCapWallW"
+---@field TreeDeadCapWallNW 163
+---@field [163] "TreeDeadCapWallNW"
+---@field TreeDeadCapWallNE 164
+---@field [164] "TreeDeadCapWallNE"
+---@field TreeDeadCapWallSW 165
+---@field [165] "TreeDeadCapWallSW"
+---@field TreeDeadCapWallSE 166
+---@field [166] "TreeDeadCapWallSE"
+---@field TreeDeadCapFloor1 167
+---@field [167] "TreeDeadCapFloor1"
+---@field TreeDeadCapFloor2 168
+---@field [168] "TreeDeadCapFloor2"
+---@field TreeDeadCapFloor3 169
+---@field [169] "TreeDeadCapFloor3"
+---@field TreeDeadCapFloor4 170
+---@field [170] "TreeDeadCapFloor4"
+---@field TreeDeadCapWallNS 171
+---@field [171] "TreeDeadCapWallNS"
+---@field StoneWallWorn1 172
+---@field [172] "StoneWallWorn1"
+---@field StoneWallWorn2 173
+---@field [173] "StoneWallWorn2"
+---@field StoneWallWorn3 174
+---@field [174] "StoneWallWorn3"
+---@field TreeBranchNSE 175
+---@field [175] "TreeBranchNSE"
 ---@field TreeBranchNSW 176 0x0B0
 ---@field [176] "TreeBranchNSW" 0x0B0
----@field TreeBranchNEW 177 MAPTILE_TREE_BRANCH_NEW
----@field [177] "TreeBranchNEW" MAPTILE_TREE_BRANCH_NEW
----@field TreeBranchSEW 178 MAPTILE_TREE_BRANCH_SEW
----@field [178] "TreeBranchSEW" MAPTILE_TREE_BRANCH_SEW
----@field TreeBranchNSEW 179 MAPTILE_TREE_BRANCH_NSEW
----@field [179] "TreeBranchNSEW" MAPTILE_TREE_BRANCH_NSEW
----@field TreeDeadBranchNSE 180 MAPTILE_TREE_BRANCH_NSE_DEAD
----@field [180] "TreeDeadBranchNSE" MAPTILE_TREE_BRANCH_NSE_DEAD
----@field TreeDeadBranchNSW 181 MAPTILE_TREE_BRANCH_NSW_DEAD
----@field [181] "TreeDeadBranchNSW" MAPTILE_TREE_BRANCH_NSW_DEAD
----@field TreeDeadBranchNEW 182 MAPTILE_TREE_BRANCH_NEW_DEAD
----@field [182] "TreeDeadBranchNEW" MAPTILE_TREE_BRANCH_NEW_DEAD
----@field TreeDeadBranchSEW 183 MAPTILE_TREE_BRANCH_SEW_DEAD
----@field [183] "TreeDeadBranchSEW" MAPTILE_TREE_BRANCH_SEW_DEAD
----@field TreeDeadBranchNSEW 184 MAPTILE_TREE_BRANCH_NSEW_DEAD
----@field [184] "TreeDeadBranchNSEW" MAPTILE_TREE_BRANCH_NSEW_DEAD
----@field TreeTrunkNSE 185 MAPTILE_TREE_TRUNK_NSE
----@field [185] "TreeTrunkNSE" MAPTILE_TREE_TRUNK_NSE
----@field TreeTrunkNSW 186 MAPTILE_TREE_TRUNK_NSW
----@field [186] "TreeTrunkNSW" MAPTILE_TREE_TRUNK_NSW
----@field TreeTrunkNEW 187 MAPTILE_TREE_TRUNK_NEW
----@field [187] "TreeTrunkNEW" MAPTILE_TREE_TRUNK_NEW
----@field TreeTrunkSEW 188 MAPTILE_TREE_TRUNK_SEW
----@field [188] "TreeTrunkSEW" MAPTILE_TREE_TRUNK_SEW
----@field TreeTrunkNS 189 MAPTILE_TREE_TRUNK_NS
----@field [189] "TreeTrunkNS" MAPTILE_TREE_TRUNK_NS
----@field TreeTrunkEW 190 MAPTILE_TREE_TRUNK_EW
----@field [190] "TreeTrunkEW" MAPTILE_TREE_TRUNK_EW
----@field TreeTrunkNSEW 191 MAPTILE_TREE_TRUNK_NSEW
----@field [191] "TreeTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW
+---@field TreeBranchNEW 177
+---@field [177] "TreeBranchNEW"
+---@field TreeBranchSEW 178
+---@field [178] "TreeBranchSEW"
+---@field TreeBranchNSEW 179
+---@field [179] "TreeBranchNSEW"
+---@field TreeDeadBranchNSE 180
+---@field [180] "TreeDeadBranchNSE"
+---@field TreeDeadBranchNSW 181
+---@field [181] "TreeDeadBranchNSW"
+---@field TreeDeadBranchNEW 182
+---@field [182] "TreeDeadBranchNEW"
+---@field TreeDeadBranchSEW 183
+---@field [183] "TreeDeadBranchSEW"
+---@field TreeDeadBranchNSEW 184
+---@field [184] "TreeDeadBranchNSEW"
+---@field TreeTrunkNSE 185
+---@field [185] "TreeTrunkNSE"
+---@field TreeTrunkNSW 186
+---@field [186] "TreeTrunkNSW"
+---@field TreeTrunkNEW 187
+---@field [187] "TreeTrunkNEW"
+---@field TreeTrunkSEW 188
+---@field [188] "TreeTrunkSEW"
+---@field TreeTrunkNS 189
+---@field [189] "TreeTrunkNS"
+---@field TreeTrunkEW 190
+---@field [190] "TreeTrunkEW"
+---@field TreeTrunkNSEW 191
+---@field [191] "TreeTrunkNSEW"
 ---@field TreeTrunkInterior 192 0x0C0
 ---@field [192] "TreeTrunkInterior" 0x0C0
----@field TreeDeadTrunkNSE 193 MAPTILE_TREE_TRUNK_NSE_DEAD
----@field [193] "TreeDeadTrunkNSE" MAPTILE_TREE_TRUNK_NSE_DEAD
----@field TreeDeadTrunkNSW 194 MAPTILE_TREE_TRUNK_NSW_DEAD
----@field [194] "TreeDeadTrunkNSW" MAPTILE_TREE_TRUNK_NSW_DEAD
----@field TreeDeadTrunkNEW 195 MAPTILE_TREE_TRUNK_NEW_DEAD
----@field [195] "TreeDeadTrunkNEW" MAPTILE_TREE_TRUNK_NEW_DEAD
----@field TreeDeadTrunkSEW 196 MAPTILE_TREE_TRUNK_SEW_DEAD
----@field [196] "TreeDeadTrunkSEW" MAPTILE_TREE_TRUNK_SEW_DEAD
----@field TreeDeadTrunkNS 197 MAPTILE_TREE_TRUNK_NS_DEAD
----@field [197] "TreeDeadTrunkNS" MAPTILE_TREE_TRUNK_NS_DEAD
----@field TreeDeadTrunkEW 198 MAPTILE_TREE_TRUNK_EW_DEAD
----@field [198] "TreeDeadTrunkEW" MAPTILE_TREE_TRUNK_EW_DEAD
----@field TreeDeadTrunkNSEW 199 MAPTILE_TREE_TRUNK_NSEW_DEAD
----@field [199] "TreeDeadTrunkNSEW" MAPTILE_TREE_TRUNK_NSEW_DEAD
----@field TreeDeadTrunkInterior 200 MAPTILE_TREE_TRUNK_INTERIOR_DEAD
----@field [200] "TreeDeadTrunkInterior" MAPTILE_TREE_TRUNK_INTERIOR_DEAD
----@field TreeTrunkNW 201 MAPTILE_TREE_TRUNK_NW
----@field [201] "TreeTrunkNW" MAPTILE_TREE_TRUNK_NW
----@field TreeTrunkNE 202 MAPTILE_TREE_TRUNK_NE
----@field [202] "TreeTrunkNE" MAPTILE_TREE_TRUNK_NE
----@field TreeTrunkSW 203 MAPTILE_TREE_TRUNK_SW
----@field [203] "TreeTrunkSW" MAPTILE_TREE_TRUNK_SW
----@field TreeTrunkSE 204 MAPTILE_TREE_TRUNK_SE
----@field [204] "TreeTrunkSE" MAPTILE_TREE_TRUNK_SE
----@field TreeDeadTrunkNW 205 MAPTILE_TREE_TRUNK_NW_DEAD
----@field [205] "TreeDeadTrunkNW" MAPTILE_TREE_TRUNK_NW_DEAD
----@field TreeDeadTrunkNE 206 MAPTILE_TREE_TRUNK_NE_DEAD
----@field [206] "TreeDeadTrunkNE" MAPTILE_TREE_TRUNK_NE_DEAD
----@field TreeDeadTrunkSW 207 MAPTILE_TREE_TRUNK_SW_DEAD
----@field [207] "TreeDeadTrunkSW" MAPTILE_TREE_TRUNK_SW_DEAD
+---@field TreeDeadTrunkNSE 193
+---@field [193] "TreeDeadTrunkNSE"
+---@field TreeDeadTrunkNSW 194
+---@field [194] "TreeDeadTrunkNSW"
+---@field TreeDeadTrunkNEW 195
+---@field [195] "TreeDeadTrunkNEW"
+---@field TreeDeadTrunkSEW 196
+---@field [196] "TreeDeadTrunkSEW"
+---@field TreeDeadTrunkNS 197
+---@field [197] "TreeDeadTrunkNS"
+---@field TreeDeadTrunkEW 198
+---@field [198] "TreeDeadTrunkEW"
+---@field TreeDeadTrunkNSEW 199
+---@field [199] "TreeDeadTrunkNSEW"
+---@field TreeDeadTrunkInterior 200
+---@field [200] "TreeDeadTrunkInterior"
+---@field TreeTrunkNW 201
+---@field [201] "TreeTrunkNW"
+---@field TreeTrunkNE 202
+---@field [202] "TreeTrunkNE"
+---@field TreeTrunkSW 203
+---@field [203] "TreeTrunkSW"
+---@field TreeTrunkSE 204
+---@field [204] "TreeTrunkSE"
+---@field TreeDeadTrunkNW 205
+---@field [205] "TreeDeadTrunkNW"
+---@field TreeDeadTrunkNE 206
+---@field [206] "TreeDeadTrunkNE"
+---@field TreeDeadTrunkSW 207
+---@field [207] "TreeDeadTrunkSW"
 ---@field TreeDeadTrunkSE 208 0x0D0
 ---@field [208] "TreeDeadTrunkSE" 0x0D0
----@field TreeTrunkN 209 MAPTILE_TREE_TRUNK_N
----@field [209] "TreeTrunkN" MAPTILE_TREE_TRUNK_N
----@field TreeTrunkS 210 MAPTILE_TREE_TRUNK_S
----@field [210] "TreeTrunkS" MAPTILE_TREE_TRUNK_S
----@field TreeTrunkW 211 MAPTILE_TREE_TRUNK_W
----@field [211] "TreeTrunkW" MAPTILE_TREE_TRUNK_W
----@field TreeTrunkE 212 MAPTILE_TREE_TRUNK_E
----@field [212] "TreeTrunkE" MAPTILE_TREE_TRUNK_E
----@field TreeDeadTrunkN 213 MAPTILE_TREE_TRUNK_N_DEAD
----@field [213] "TreeDeadTrunkN" MAPTILE_TREE_TRUNK_N_DEAD
----@field TreeDeadTrunkS 214 MAPTILE_TREE_TRUNK_S_DEAD
----@field [214] "TreeDeadTrunkS" MAPTILE_TREE_TRUNK_S_DEAD
----@field StoneWall 215 MAPTILE_STONE_WALL
----@field [215] "StoneWall" MAPTILE_STONE_WALL
----@field TreeDeadTrunkW 216 MAPTILE_TREE_TRUNK_W_DEAD
----@field [216] "TreeDeadTrunkW" MAPTILE_TREE_TRUNK_W_DEAD
----@field TreeDeadTrunkE 217 MAPTILE_TREE_TRUNK_E_DEAD
----@field [217] "TreeDeadTrunkE" MAPTILE_TREE_TRUNK_E_DEAD
----@field TreeBranchS 218 MAPTILE_TREE_BRANCH_N
----@field [218] "TreeBranchS" MAPTILE_TREE_BRANCH_N
----@field TreeBranchN 219 MAPTILE_TREE_BRANCH_S
----@field [219] "TreeBranchN" MAPTILE_TREE_BRANCH_S
----@field TreeBranchW 220 MAPTILE_TREE_BRANCH_E
----@field [220] "TreeBranchW" MAPTILE_TREE_BRANCH_E
----@field TreeBranchE 221 MAPTILE_TREE_BRANCH_W
----@field [221] "TreeBranchE" MAPTILE_TREE_BRANCH_W
----@field TreeDeadBranchS 222 MAPTILE_TREE_BRANCH_N_DEAD
----@field [222] "TreeDeadBranchS" MAPTILE_TREE_BRANCH_N_DEAD
----@field TreeDeadBranchN 223 MAPTILE_TREE_BRANCH_S_DEAD
----@field [223] "TreeDeadBranchN" MAPTILE_TREE_BRANCH_S_DEAD
+---@field TreeTrunkN 209
+---@field [209] "TreeTrunkN"
+---@field TreeTrunkS 210
+---@field [210] "TreeTrunkS"
+---@field TreeTrunkW 211
+---@field [211] "TreeTrunkW"
+---@field TreeTrunkE 212
+---@field [212] "TreeTrunkE"
+---@field TreeDeadTrunkN 213
+---@field [213] "TreeDeadTrunkN"
+---@field TreeDeadTrunkS 214
+---@field [214] "TreeDeadTrunkS"
+---@field StoneWall 215
+---@field [215] "StoneWall"
+---@field TreeDeadTrunkW 216
+---@field [216] "TreeDeadTrunkW"
+---@field TreeDeadTrunkE 217
+---@field [217] "TreeDeadTrunkE"
+---@field TreeBranchS 218
+---@field [218] "TreeBranchS"
+---@field TreeBranchN 219
+---@field [219] "TreeBranchN"
+---@field TreeBranchW 220
+---@field [220] "TreeBranchW"
+---@field TreeBranchE 221
+---@field [221] "TreeBranchE"
+---@field TreeDeadBranchS 222
+---@field [222] "TreeDeadBranchS"
+---@field TreeDeadBranchN 223
+---@field [223] "TreeDeadBranchN"
 ---@field TreeDeadBranchW 224 0x0E0
 ---@field [224] "TreeDeadBranchW" 0x0E0
----@field TreeDeadBranchE 225 MAPTILE_TREE_BRANCH_W_DEAD
----@field [225] "TreeDeadBranchE" MAPTILE_TREE_BRANCH_W_DEAD
----@field TreeDeadCapPillarWE 226 MAPTILE_TREE_CAP_WALL_W_E_DEAD
----@field [226] "TreeDeadCapPillarWE" MAPTILE_TREE_CAP_WALL_W_E_DEAD
----@field Sapling 227 MAPTILE_SAPLING
----@field [227] "Sapling" MAPTILE_SAPLING
----@field Unused888 228 MAPTILE_UNUSED_888
----@field [228] "Unused888" MAPTILE_UNUSED_888
----@field GrassDryRamp 229 MAPTILE_RAMP_GRASS_DRY
----@field [229] "GrassDryRamp" MAPTILE_RAMP_GRASS_DRY
----@field GrassDeadRamp 230 MAPTILE_RAMP_GRASS_DEAD
----@field [230] "GrassDeadRamp" MAPTILE_RAMP_GRASS_DEAD
----@field GrassLightRamp 231 MAPTILE_RAMP_GRASS1
----@field [231] "GrassLightRamp" MAPTILE_RAMP_GRASS1
----@field GrassDarkRamp 232 MAPTILE_RAMP_GRASS2
----@field [232] "GrassDarkRamp" MAPTILE_RAMP_GRASS2
----@field StoneRamp 233 MAPTILE_RAMP_STONE
----@field [233] "StoneRamp" MAPTILE_RAMP_STONE
----@field LavaRamp 234 MAPTILE_RAMP_LAVASTONE
----@field [234] "LavaRamp" MAPTILE_RAMP_LAVASTONE
----@field FeatureRamp 235 MAPTILE_RAMP_FEATSTONE
----@field [235] "FeatureRamp" MAPTILE_RAMP_FEATSTONE
----@field MineralRamp 236 MAPTILE_RAMP_MINSTONE
----@field [236] "MineralRamp" MAPTILE_RAMP_MINSTONE
----@field SoilRamp 237 MAPTILE_RAMP_SOIL
----@field [237] "SoilRamp" MAPTILE_RAMP_SOIL
----@field Ashes1 238 MAPTILE_ASH1
----@field [238] "Ashes1" MAPTILE_ASH1
----@field Ashes2 239 MAPTILE_ASH2
----@field [239] "Ashes2" MAPTILE_ASH2
+---@field TreeDeadBranchE 225
+---@field [225] "TreeDeadBranchE"
+---@field TreeDeadCapPillarWE 226
+---@field [226] "TreeDeadCapPillarWE"
+---@field Sapling 227
+---@field [227] "Sapling"
+---@field Unused888 228
+---@field [228] "Unused888"
+---@field GrassDryRamp 229
+---@field [229] "GrassDryRamp"
+---@field GrassDeadRamp 230
+---@field [230] "GrassDeadRamp"
+---@field GrassLightRamp 231
+---@field [231] "GrassLightRamp"
+---@field GrassDarkRamp 232
+---@field [232] "GrassDarkRamp"
+---@field StoneRamp 233
+---@field [233] "StoneRamp"
+---@field LavaRamp 234
+---@field [234] "LavaRamp"
+---@field FeatureRamp 235
+---@field [235] "FeatureRamp"
+---@field MineralRamp 236
+---@field [236] "MineralRamp"
+---@field SoilRamp 237
+---@field [237] "SoilRamp"
+---@field Ashes1 238
+---@field [238] "Ashes1"
+---@field Ashes2 239
+---@field [239] "Ashes2"
 ---@field Ashes3 240 0x0F0
 ---@field [240] "Ashes3" 0x0F0
----@field FrozenRamp 241 MAPTILE_RAMP_FROZEN_LIQUID
----@field [241] "FrozenRamp" MAPTILE_RAMP_FROZEN_LIQUID
----@field Unused8888 242 MAPTILE_UNUSED_8888
----@field [242] "Unused8888" MAPTILE_UNUSED_8888
----@field Unused88888 243 MAPTILE_UNUSED_88888
----@field [243] "Unused88888" MAPTILE_UNUSED_88888
----@field Unused888888 244 MAPTILE_UNUSED_888888
----@field [244] "Unused888888" MAPTILE_UNUSED_888888
----@field Unused245 245 MAPTILE_UNUSED245
----@field [245] "Unused245" MAPTILE_UNUSED245
----@field Unused246 246 MAPTILE_UNUSED246
----@field [246] "Unused246" MAPTILE_UNUSED246
----@field Unused247 247 MAPTILE_UNUSED247
----@field [247] "Unused247" MAPTILE_UNUSED247
----@field Unused248 248 MAPTILE_UNUSED248
----@field [248] "Unused248" MAPTILE_UNUSED248
----@field Unused249 249 MAPTILE_UNUSED249
----@field [249] "Unused249" MAPTILE_UNUSED249
----@field Unused250 250 MAPTILE_UNUSED250
----@field [250] "Unused250" MAPTILE_UNUSED250
----@field Unused251 251 MAPTILE_UNUSED251
----@field [251] "Unused251" MAPTILE_UNUSED251
----@field Unused252 252 MAPTILE_UNUSED252
----@field [252] "Unused252" MAPTILE_UNUSED252
----@field Unused253 253 MAPTILE_UNUSED253
----@field [253] "Unused253" MAPTILE_UNUSED253
----@field FrozenFloor2 254 MAPTILE_FROZEN_LIQUID_1
----@field [254] "FrozenFloor2" MAPTILE_FROZEN_LIQUID_1
----@field FrozenFloor3 255 MAPTILE_FROZEN_LIQUID_2
----@field [255] "FrozenFloor3" MAPTILE_FROZEN_LIQUID_2
+---@field FrozenRamp 241
+---@field [241] "FrozenRamp"
+---@field Unused8888 242
+---@field [242] "Unused8888"
+---@field Unused88888 243
+---@field [243] "Unused88888"
+---@field Unused888888 244
+---@field [244] "Unused888888"
+---@field Unused245 245
+---@field [245] "Unused245"
+---@field Unused246 246
+---@field [246] "Unused246"
+---@field Unused247 247
+---@field [247] "Unused247"
+---@field Unused248 248
+---@field [248] "Unused248"
+---@field Unused249 249
+---@field [249] "Unused249"
+---@field Unused250 250
+---@field [250] "Unused250"
+---@field Unused251 251
+---@field [251] "Unused251"
+---@field Unused252 252
+---@field [252] "Unused252"
+---@field Unused253 253
+---@field [253] "Unused253"
+---@field FrozenFloor2 254
+---@field [254] "FrozenFloor2"
+---@field FrozenFloor3 255
+---@field [255] "FrozenFloor3"
 ---@field FrozenFloor4 256 0x100
 ---@field [256] "FrozenFloor4" 0x100
----@field FurrowedSoil 257 MAPTILE_FURROWED_SOIL
----@field [257] "FurrowedSoil" MAPTILE_FURROWED_SOIL
----@field FrozenFloor1 258 MAPTILE_FROZEN_LIQUID_0
----@field [258] "FrozenFloor1" MAPTILE_FROZEN_LIQUID_0
----@field SemiMoltenRock 259 MAPTILE_LAVA_SOLID
----@field [259] "SemiMoltenRock" MAPTILE_LAVA_SOLID
----@field MagmaFlow 260 MAPTILE_LAVA
----@field [260] "MagmaFlow" MAPTILE_LAVA
----@field SoilWall 261 MAPTILE_SOIL_WALL
----@field [261] "SoilWall" MAPTILE_SOIL_WALL
----@field GlowingBarrier 262 MAPTILE_GLOWING_BARRIER_WALL
----@field [262] "GlowingBarrier" MAPTILE_GLOWING_BARRIER_WALL
----@field GlowingFloor 263 MAPTILE_GLOWING_BARRIER_FLOOR
----@field [263] "GlowingFloor" MAPTILE_GLOWING_BARRIER_FLOOR
----@field Unused264 264 MAPTILE_UNUSED_264
----@field [264] "Unused264" MAPTILE_UNUSED_264
----@field LavaWallSmoothRD2 265 MAPTILE_LAVASTONE_WALL_DET_RD2
----@field [265] "LavaWallSmoothRD2" MAPTILE_LAVASTONE_WALL_DET_RD2
----@field LavaWallSmoothR2D 266 MAPTILE_LAVASTONE_WALL_DET_R2D
----@field [266] "LavaWallSmoothR2D" MAPTILE_LAVASTONE_WALL_DET_R2D
----@field LavaWallSmoothR2U 267 MAPTILE_LAVASTONE_WALL_DET_R2U
----@field [267] "LavaWallSmoothR2U" MAPTILE_LAVASTONE_WALL_DET_R2U
----@field LavaWallSmoothRU2 268 MAPTILE_LAVASTONE_WALL_DET_RU2
----@field [268] "LavaWallSmoothRU2" MAPTILE_LAVASTONE_WALL_DET_RU2
----@field LavaWallSmoothL2U 269 MAPTILE_LAVASTONE_WALL_DET_L2U
----@field [269] "LavaWallSmoothL2U" MAPTILE_LAVASTONE_WALL_DET_L2U
----@field LavaWallSmoothLU2 270 MAPTILE_LAVASTONE_WALL_DET_LU2
----@field [270] "LavaWallSmoothLU2" MAPTILE_LAVASTONE_WALL_DET_LU2
----@field LavaWallSmoothL2D 271 MAPTILE_LAVASTONE_WALL_DET_L2D
----@field [271] "LavaWallSmoothL2D" MAPTILE_LAVASTONE_WALL_DET_L2D
+---@field FurrowedSoil 257
+---@field [257] "FurrowedSoil"
+---@field FrozenFloor1 258
+---@field [258] "FrozenFloor1"
+---@field SemiMoltenRock 259
+---@field [259] "SemiMoltenRock"
+---@field MagmaFlow 260
+---@field [260] "MagmaFlow"
+---@field SoilWall 261
+---@field [261] "SoilWall"
+---@field GlowingBarrier 262
+---@field [262] "GlowingBarrier"
+---@field GlowingFloor 263
+---@field [263] "GlowingFloor"
+---@field Unused264 264
+---@field [264] "Unused264"
+---@field LavaWallSmoothRD2 265
+---@field [265] "LavaWallSmoothRD2"
+---@field LavaWallSmoothR2D 266
+---@field [266] "LavaWallSmoothR2D"
+---@field LavaWallSmoothR2U 267
+---@field [267] "LavaWallSmoothR2U"
+---@field LavaWallSmoothRU2 268
+---@field [268] "LavaWallSmoothRU2"
+---@field LavaWallSmoothL2U 269
+---@field [269] "LavaWallSmoothL2U"
+---@field LavaWallSmoothLU2 270
+---@field [270] "LavaWallSmoothLU2"
+---@field LavaWallSmoothL2D 271
+---@field [271] "LavaWallSmoothL2D"
 ---@field LavaWallSmoothLD2 272 0x110
 ---@field [272] "LavaWallSmoothLD2" 0x110
----@field LavaWallSmoothLRUD 273 MAPTILE_LAVASTONE_WALL_DET_LRUD
----@field [273] "LavaWallSmoothLRUD" MAPTILE_LAVASTONE_WALL_DET_LRUD
----@field LavaWallSmoothRUD 274 MAPTILE_LAVASTONE_WALL_DET_RUD
----@field [274] "LavaWallSmoothRUD" MAPTILE_LAVASTONE_WALL_DET_RUD
----@field LavaWallSmoothLRD 275 MAPTILE_LAVASTONE_WALL_DET_LRD
----@field [275] "LavaWallSmoothLRD" MAPTILE_LAVASTONE_WALL_DET_LRD
----@field LavaWallSmoothLRU 276 MAPTILE_LAVASTONE_WALL_DET_LRU
----@field [276] "LavaWallSmoothLRU" MAPTILE_LAVASTONE_WALL_DET_LRU
----@field LavaWallSmoothLUD 277 MAPTILE_LAVASTONE_WALL_DET_LUD
----@field [277] "LavaWallSmoothLUD" MAPTILE_LAVASTONE_WALL_DET_LUD
----@field LavaWallSmoothRD 278 MAPTILE_LAVASTONE_WALL_DET_RD
----@field [278] "LavaWallSmoothRD" MAPTILE_LAVASTONE_WALL_DET_RD
----@field LavaWallSmoothRU 279 MAPTILE_LAVASTONE_WALL_DET_RU
----@field [279] "LavaWallSmoothRU" MAPTILE_LAVASTONE_WALL_DET_RU
----@field LavaWallSmoothLU 280 MAPTILE_LAVASTONE_WALL_DET_LU
----@field [280] "LavaWallSmoothLU" MAPTILE_LAVASTONE_WALL_DET_LU
----@field LavaWallSmoothLD 281 MAPTILE_LAVASTONE_WALL_DET_LD
----@field [281] "LavaWallSmoothLD" MAPTILE_LAVASTONE_WALL_DET_LD
----@field LavaWallSmoothUD 282 MAPTILE_LAVASTONE_WALL_DET_UD
----@field [282] "LavaWallSmoothUD" MAPTILE_LAVASTONE_WALL_DET_UD
----@field LavaWallSmoothLR 283 MAPTILE_LAVASTONE_WALL_DET_LR
----@field [283] "LavaWallSmoothLR" MAPTILE_LAVASTONE_WALL_DET_LR
----@field FeatureWallSmoothRD2 284 MAPTILE_FEATSTONE_WALL_DET_RD2
----@field [284] "FeatureWallSmoothRD2" MAPTILE_FEATSTONE_WALL_DET_RD2
----@field FeatureWallSmoothR2D 285 MAPTILE_FEATSTONE_WALL_DET_R2D
----@field [285] "FeatureWallSmoothR2D" MAPTILE_FEATSTONE_WALL_DET_R2D
----@field FeatureWallSmoothR2U 286 MAPTILE_FEATSTONE_WALL_DET_R2U
----@field [286] "FeatureWallSmoothR2U" MAPTILE_FEATSTONE_WALL_DET_R2U
----@field FeatureWallSmoothRU2 287 MAPTILE_FEATSTONE_WALL_DET_RU2
----@field [287] "FeatureWallSmoothRU2" MAPTILE_FEATSTONE_WALL_DET_RU2
+---@field LavaWallSmoothLRUD 273
+---@field [273] "LavaWallSmoothLRUD"
+---@field LavaWallSmoothRUD 274
+---@field [274] "LavaWallSmoothRUD"
+---@field LavaWallSmoothLRD 275
+---@field [275] "LavaWallSmoothLRD"
+---@field LavaWallSmoothLRU 276
+---@field [276] "LavaWallSmoothLRU"
+---@field LavaWallSmoothLUD 277
+---@field [277] "LavaWallSmoothLUD"
+---@field LavaWallSmoothRD 278
+---@field [278] "LavaWallSmoothRD"
+---@field LavaWallSmoothRU 279
+---@field [279] "LavaWallSmoothRU"
+---@field LavaWallSmoothLU 280
+---@field [280] "LavaWallSmoothLU"
+---@field LavaWallSmoothLD 281
+---@field [281] "LavaWallSmoothLD"
+---@field LavaWallSmoothUD 282
+---@field [282] "LavaWallSmoothUD"
+---@field LavaWallSmoothLR 283
+---@field [283] "LavaWallSmoothLR"
+---@field FeatureWallSmoothRD2 284
+---@field [284] "FeatureWallSmoothRD2"
+---@field FeatureWallSmoothR2D 285
+---@field [285] "FeatureWallSmoothR2D"
+---@field FeatureWallSmoothR2U 286
+---@field [286] "FeatureWallSmoothR2U"
+---@field FeatureWallSmoothRU2 287
+---@field [287] "FeatureWallSmoothRU2"
 ---@field FeatureWallSmoothL2U 288 0x120
 ---@field [288] "FeatureWallSmoothL2U" 0x120
----@field FeatureWallSmoothLU2 289 MAPTILE_FEATSTONE_WALL_DET_LU2
----@field [289] "FeatureWallSmoothLU2" MAPTILE_FEATSTONE_WALL_DET_LU2
----@field FeatureWallSmoothL2D 290 MAPTILE_FEATSTONE_WALL_DET_L2D
----@field [290] "FeatureWallSmoothL2D" MAPTILE_FEATSTONE_WALL_DET_L2D
----@field FeatureWallSmoothLD2 291 MAPTILE_FEATSTONE_WALL_DET_LD2
----@field [291] "FeatureWallSmoothLD2" MAPTILE_FEATSTONE_WALL_DET_LD2
----@field FeatureWallSmoothLRUD 292 MAPTILE_FEATSTONE_WALL_DET_LRUD
----@field [292] "FeatureWallSmoothLRUD" MAPTILE_FEATSTONE_WALL_DET_LRUD
----@field FeatureWallSmoothRUD 293 MAPTILE_FEATSTONE_WALL_DET_RUD
----@field [293] "FeatureWallSmoothRUD" MAPTILE_FEATSTONE_WALL_DET_RUD
----@field FeatureWallSmoothLRD 294 MAPTILE_FEATSTONE_WALL_DET_LRD
----@field [294] "FeatureWallSmoothLRD" MAPTILE_FEATSTONE_WALL_DET_LRD
----@field FeatureWallSmoothLRU 295 MAPTILE_FEATSTONE_WALL_DET_LRU
----@field [295] "FeatureWallSmoothLRU" MAPTILE_FEATSTONE_WALL_DET_LRU
----@field FeatureWallSmoothLUD 296 MAPTILE_FEATSTONE_WALL_DET_LUD
----@field [296] "FeatureWallSmoothLUD" MAPTILE_FEATSTONE_WALL_DET_LUD
----@field FeatureWallSmoothRD 297 MAPTILE_FEATSTONE_WALL_DET_RD
----@field [297] "FeatureWallSmoothRD" MAPTILE_FEATSTONE_WALL_DET_RD
----@field FeatureWallSmoothRU 298 MAPTILE_FEATSTONE_WALL_DET_RU
----@field [298] "FeatureWallSmoothRU" MAPTILE_FEATSTONE_WALL_DET_RU
----@field FeatureWallSmoothLU 299 MAPTILE_FEATSTONE_WALL_DET_LU
----@field [299] "FeatureWallSmoothLU" MAPTILE_FEATSTONE_WALL_DET_LU
----@field FeatureWallSmoothLD 300 MAPTILE_FEATSTONE_WALL_DET_LD
----@field [300] "FeatureWallSmoothLD" MAPTILE_FEATSTONE_WALL_DET_LD
----@field FeatureWallSmoothUD 301 MAPTILE_FEATSTONE_WALL_DET_UD
----@field [301] "FeatureWallSmoothUD" MAPTILE_FEATSTONE_WALL_DET_UD
----@field FeatureWallSmoothLR 302 MAPTILE_FEATSTONE_WALL_DET_LR
----@field [302] "FeatureWallSmoothLR" MAPTILE_FEATSTONE_WALL_DET_LR
----@field StoneWallSmoothRD2 303 MAPTILE_STONE_WALL_DET_RD2
----@field [303] "StoneWallSmoothRD2" MAPTILE_STONE_WALL_DET_RD2
+---@field FeatureWallSmoothLU2 289
+---@field [289] "FeatureWallSmoothLU2"
+---@field FeatureWallSmoothL2D 290
+---@field [290] "FeatureWallSmoothL2D"
+---@field FeatureWallSmoothLD2 291
+---@field [291] "FeatureWallSmoothLD2"
+---@field FeatureWallSmoothLRUD 292
+---@field [292] "FeatureWallSmoothLRUD"
+---@field FeatureWallSmoothRUD 293
+---@field [293] "FeatureWallSmoothRUD"
+---@field FeatureWallSmoothLRD 294
+---@field [294] "FeatureWallSmoothLRD"
+---@field FeatureWallSmoothLRU 295
+---@field [295] "FeatureWallSmoothLRU"
+---@field FeatureWallSmoothLUD 296
+---@field [296] "FeatureWallSmoothLUD"
+---@field FeatureWallSmoothRD 297
+---@field [297] "FeatureWallSmoothRD"
+---@field FeatureWallSmoothRU 298
+---@field [298] "FeatureWallSmoothRU"
+---@field FeatureWallSmoothLU 299
+---@field [299] "FeatureWallSmoothLU"
+---@field FeatureWallSmoothLD 300
+---@field [300] "FeatureWallSmoothLD"
+---@field FeatureWallSmoothUD 301
+---@field [301] "FeatureWallSmoothUD"
+---@field FeatureWallSmoothLR 302
+---@field [302] "FeatureWallSmoothLR"
+---@field StoneWallSmoothRD2 303
+---@field [303] "StoneWallSmoothRD2"
 ---@field StoneWallSmoothR2D 304 0x130
 ---@field [304] "StoneWallSmoothR2D" 0x130
----@field StoneWallSmoothR2U 305 MAPTILE_STONE_WALL_DET_R2U
----@field [305] "StoneWallSmoothR2U" MAPTILE_STONE_WALL_DET_R2U
----@field StoneWallSmoothRU2 306 MAPTILE_STONE_WALL_DET_RU2
----@field [306] "StoneWallSmoothRU2" MAPTILE_STONE_WALL_DET_RU2
----@field StoneWallSmoothL2U 307 MAPTILE_STONE_WALL_DET_L2U
----@field [307] "StoneWallSmoothL2U" MAPTILE_STONE_WALL_DET_L2U
----@field StoneWallSmoothLU2 308 MAPTILE_STONE_WALL_DET_LU2
----@field [308] "StoneWallSmoothLU2" MAPTILE_STONE_WALL_DET_LU2
----@field StoneWallSmoothL2D 309 MAPTILE_STONE_WALL_DET_L2D
----@field [309] "StoneWallSmoothL2D" MAPTILE_STONE_WALL_DET_L2D
----@field StoneWallSmoothLD2 310 MAPTILE_STONE_WALL_DET_LD2
----@field [310] "StoneWallSmoothLD2" MAPTILE_STONE_WALL_DET_LD2
----@field StoneWallSmoothLRUD 311 MAPTILE_STONE_WALL_DET_LRUD
----@field [311] "StoneWallSmoothLRUD" MAPTILE_STONE_WALL_DET_LRUD
----@field StoneWallSmoothRUD 312 MAPTILE_STONE_WALL_DET_RUD
----@field [312] "StoneWallSmoothRUD" MAPTILE_STONE_WALL_DET_RUD
----@field StoneWallSmoothLRD 313 MAPTILE_STONE_WALL_DET_LRD
----@field [313] "StoneWallSmoothLRD" MAPTILE_STONE_WALL_DET_LRD
----@field StoneWallSmoothLRU 314 MAPTILE_STONE_WALL_DET_LRU
----@field [314] "StoneWallSmoothLRU" MAPTILE_STONE_WALL_DET_LRU
----@field StoneWallSmoothLUD 315 MAPTILE_STONE_WALL_DET_LUD
----@field [315] "StoneWallSmoothLUD" MAPTILE_STONE_WALL_DET_LUD
----@field StoneWallSmoothRD 316 MAPTILE_STONE_WALL_DET_RD
----@field [316] "StoneWallSmoothRD" MAPTILE_STONE_WALL_DET_RD
----@field StoneWallSmoothRU 317 MAPTILE_STONE_WALL_DET_RU
----@field [317] "StoneWallSmoothRU" MAPTILE_STONE_WALL_DET_RU
----@field StoneWallSmoothLU 318 MAPTILE_STONE_WALL_DET_LU
----@field [318] "StoneWallSmoothLU" MAPTILE_STONE_WALL_DET_LU
----@field StoneWallSmoothLD 319 MAPTILE_STONE_WALL_DET_LD
----@field [319] "StoneWallSmoothLD" MAPTILE_STONE_WALL_DET_LD
+---@field StoneWallSmoothR2U 305
+---@field [305] "StoneWallSmoothR2U"
+---@field StoneWallSmoothRU2 306
+---@field [306] "StoneWallSmoothRU2"
+---@field StoneWallSmoothL2U 307
+---@field [307] "StoneWallSmoothL2U"
+---@field StoneWallSmoothLU2 308
+---@field [308] "StoneWallSmoothLU2"
+---@field StoneWallSmoothL2D 309
+---@field [309] "StoneWallSmoothL2D"
+---@field StoneWallSmoothLD2 310
+---@field [310] "StoneWallSmoothLD2"
+---@field StoneWallSmoothLRUD 311
+---@field [311] "StoneWallSmoothLRUD"
+---@field StoneWallSmoothRUD 312
+---@field [312] "StoneWallSmoothRUD"
+---@field StoneWallSmoothLRD 313
+---@field [313] "StoneWallSmoothLRD"
+---@field StoneWallSmoothLRU 314
+---@field [314] "StoneWallSmoothLRU"
+---@field StoneWallSmoothLUD 315
+---@field [315] "StoneWallSmoothLUD"
+---@field StoneWallSmoothRD 316
+---@field [316] "StoneWallSmoothRD"
+---@field StoneWallSmoothRU 317
+---@field [317] "StoneWallSmoothRU"
+---@field StoneWallSmoothLU 318
+---@field [318] "StoneWallSmoothLU"
+---@field StoneWallSmoothLD 319
+---@field [319] "StoneWallSmoothLD"
 ---@field StoneWallSmoothUD 320 0x140
 ---@field [320] "StoneWallSmoothUD" 0x140
----@field StoneWallSmoothLR 321 MAPTILE_STONE_WALL_DET_LR
----@field [321] "StoneWallSmoothLR" MAPTILE_STONE_WALL_DET_LR
----@field LavaFortification 322 MAPTILE_LAVASTONE_FORTIFICATION
----@field [322] "LavaFortification" MAPTILE_LAVASTONE_FORTIFICATION
----@field FeatureFortification 323 MAPTILE_FEATSTONE_FORTIFICATION
----@field [323] "FeatureFortification" MAPTILE_FEATSTONE_FORTIFICATION
----@field LavaWallWorn1 324 MAPTILE_LAVASTONE_WALL_WORN1
----@field [324] "LavaWallWorn1" MAPTILE_LAVASTONE_WALL_WORN1
----@field LavaWallWorn2 325 MAPTILE_LAVASTONE_WALL_WORN2
----@field [325] "LavaWallWorn2" MAPTILE_LAVASTONE_WALL_WORN2
----@field LavaWallWorn3 326 MAPTILE_LAVASTONE_WALL_WORN3
----@field [326] "LavaWallWorn3" MAPTILE_LAVASTONE_WALL_WORN3
----@field LavaWall 327 MAPTILE_LAVASTONE_WALL
----@field [327] "LavaWall" MAPTILE_LAVASTONE_WALL
----@field FeatureWallWorn1 328 MAPTILE_FEATSTONE_WALL_WORN1
----@field [328] "FeatureWallWorn1" MAPTILE_FEATSTONE_WALL_WORN1
----@field FeatureWallWorn2 329 MAPTILE_FEATSTONE_WALL_WORN2
----@field [329] "FeatureWallWorn2" MAPTILE_FEATSTONE_WALL_WORN2
----@field FeatureWallWorn3 330 MAPTILE_FEATSTONE_WALL_WORN3
----@field [330] "FeatureWallWorn3" MAPTILE_FEATSTONE_WALL_WORN3
----@field FeatureWall 331 MAPTILE_FEATSTONE_WALL
----@field [331] "FeatureWall" MAPTILE_FEATSTONE_WALL
----@field StoneFloor1 332 MAPTILE_STONE_FLOOR1
----@field [332] "StoneFloor1" MAPTILE_STONE_FLOOR1
----@field StoneFloor2 333 MAPTILE_STONE_FLOOR2
----@field [333] "StoneFloor2" MAPTILE_STONE_FLOOR2
----@field StoneFloor3 334 MAPTILE_STONE_FLOOR3
----@field [334] "StoneFloor3" MAPTILE_STONE_FLOOR3
----@field StoneFloor4 335 MAPTILE_STONE_FLOOR4
----@field [335] "StoneFloor4" MAPTILE_STONE_FLOOR4
+---@field StoneWallSmoothLR 321
+---@field [321] "StoneWallSmoothLR"
+---@field LavaFortification 322
+---@field [322] "LavaFortification"
+---@field FeatureFortification 323
+---@field [323] "FeatureFortification"
+---@field LavaWallWorn1 324
+---@field [324] "LavaWallWorn1"
+---@field LavaWallWorn2 325
+---@field [325] "LavaWallWorn2"
+---@field LavaWallWorn3 326
+---@field [326] "LavaWallWorn3"
+---@field LavaWall 327
+---@field [327] "LavaWall"
+---@field FeatureWallWorn1 328
+---@field [328] "FeatureWallWorn1"
+---@field FeatureWallWorn2 329
+---@field [329] "FeatureWallWorn2"
+---@field FeatureWallWorn3 330
+---@field [330] "FeatureWallWorn3"
+---@field FeatureWall 331
+---@field [331] "FeatureWall"
+---@field StoneFloor1 332
+---@field [332] "StoneFloor1"
+---@field StoneFloor2 333
+---@field [333] "StoneFloor2"
+---@field StoneFloor3 334
+---@field [334] "StoneFloor3"
+---@field StoneFloor4 335
+---@field [335] "StoneFloor4"
 ---@field LavaFloor1 336 0x150
 ---@field [336] "LavaFloor1" 0x150
----@field LavaFloor2 337 MAPTILE_LAVASTONE_FLOOR2
----@field [337] "LavaFloor2" MAPTILE_LAVASTONE_FLOOR2
----@field LavaFloor3 338 MAPTILE_LAVASTONE_FLOOR3
----@field [338] "LavaFloor3" MAPTILE_LAVASTONE_FLOOR3
----@field LavaFloor4 339 MAPTILE_LAVASTONE_FLOOR4
----@field [339] "LavaFloor4" MAPTILE_LAVASTONE_FLOOR4
----@field FeatureFloor1 340 MAPTILE_FEATSTONE_FLOOR1
----@field [340] "FeatureFloor1" MAPTILE_FEATSTONE_FLOOR1
----@field FeatureFloor2 341 MAPTILE_FEATSTONE_FLOOR2
----@field [341] "FeatureFloor2" MAPTILE_FEATSTONE_FLOOR2
----@field FeatureFloor3 342 MAPTILE_FEATSTONE_FLOOR3
----@field [342] "FeatureFloor3" MAPTILE_FEATSTONE_FLOOR3
----@field FeatureFloor4 343 MAPTILE_FEATSTONE_FLOOR4
----@field [343] "FeatureFloor4" MAPTILE_FEATSTONE_FLOOR4
----@field GrassDarkFloor1 344 MAPTILE_GRASS_FLOOR1
----@field [344] "GrassDarkFloor1" MAPTILE_GRASS_FLOOR1
----@field GrassDarkFloor2 345 MAPTILE_GRASS_FLOOR2
----@field [345] "GrassDarkFloor2" MAPTILE_GRASS_FLOOR2
----@field GrassDarkFloor3 346 MAPTILE_GRASS_FLOOR3
----@field [346] "GrassDarkFloor3" MAPTILE_GRASS_FLOOR3
----@field GrassDarkFloor4 347 MAPTILE_GRASS_FLOOR4
----@field [347] "GrassDarkFloor4" MAPTILE_GRASS_FLOOR4
----@field SoilFloor1 348 MAPTILE_SOIL_FLOOR1
----@field [348] "SoilFloor1" MAPTILE_SOIL_FLOOR1
----@field SoilFloor2 349 MAPTILE_SOIL_FLOOR2
----@field [349] "SoilFloor2" MAPTILE_SOIL_FLOOR2
----@field SoilFloor3 350 MAPTILE_SOIL_FLOOR3
----@field [350] "SoilFloor3" MAPTILE_SOIL_FLOOR3
----@field SoilFloor4 351 MAPTILE_SOIL_FLOOR4
----@field [351] "SoilFloor4" MAPTILE_SOIL_FLOOR4
+---@field LavaFloor2 337
+---@field [337] "LavaFloor2"
+---@field LavaFloor3 338
+---@field [338] "LavaFloor3"
+---@field LavaFloor4 339
+---@field [339] "LavaFloor4"
+---@field FeatureFloor1 340
+---@field [340] "FeatureFloor1"
+---@field FeatureFloor2 341
+---@field [341] "FeatureFloor2"
+---@field FeatureFloor3 342
+---@field [342] "FeatureFloor3"
+---@field FeatureFloor4 343
+---@field [343] "FeatureFloor4"
+---@field GrassDarkFloor1 344
+---@field [344] "GrassDarkFloor1"
+---@field GrassDarkFloor2 345
+---@field [345] "GrassDarkFloor2"
+---@field GrassDarkFloor3 346
+---@field [346] "GrassDarkFloor3"
+---@field GrassDarkFloor4 347
+---@field [347] "GrassDarkFloor4"
+---@field SoilFloor1 348
+---@field [348] "SoilFloor1"
+---@field SoilFloor2 349
+---@field [349] "SoilFloor2"
+---@field SoilFloor3 350
+---@field [350] "SoilFloor3"
+---@field SoilFloor4 351
+---@field [351] "SoilFloor4"
 ---@field SoilWetFloor1 352 0x160
 ---@field [352] "SoilWetFloor1" 0x160
----@field SoilWetFloor2 353 MAPTILE_SOIL_FLOOR2_WET
----@field [353] "SoilWetFloor2" MAPTILE_SOIL_FLOOR2_WET
----@field SoilWetFloor3 354 MAPTILE_SOIL_FLOOR3_WET
----@field [354] "SoilWetFloor3" MAPTILE_SOIL_FLOOR3_WET
----@field SoilWetFloor4 355 MAPTILE_SOIL_FLOOR4_WET
----@field [355] "SoilWetFloor4" MAPTILE_SOIL_FLOOR4_WET
----@field FrozenFortification 356 MAPTILE_FROZEN_LIQUID_FORTIFICATION
----@field [356] "FrozenFortification" MAPTILE_FROZEN_LIQUID_FORTIFICATION
----@field FrozenWallWorn1 357 MAPTILE_FROZEN_LIQUID_WALL_WORN1
----@field [357] "FrozenWallWorn1" MAPTILE_FROZEN_LIQUID_WALL_WORN1
----@field FrozenWallWorn2 358 MAPTILE_FROZEN_LIQUID_WALL_WORN2
----@field [358] "FrozenWallWorn2" MAPTILE_FROZEN_LIQUID_WALL_WORN2
----@field FrozenWallWorn3 359 MAPTILE_FROZEN_LIQUID_WALL_WORN3
----@field [359] "FrozenWallWorn3" MAPTILE_FROZEN_LIQUID_WALL_WORN3
----@field FrozenWall 360 MAPTILE_FROZEN_LIQUID_WALL
----@field [360] "FrozenWall" MAPTILE_FROZEN_LIQUID_WALL
----@field RiverN 361 MAPTILE_RIVER_N
----@field [361] "RiverN" MAPTILE_RIVER_N
----@field RiverS 362 MAPTILE_RIVER_S
----@field [362] "RiverS" MAPTILE_RIVER_S
----@field RiverE 363 MAPTILE_RIVER_E
----@field [363] "RiverE" MAPTILE_RIVER_E
----@field RiverW 364 MAPTILE_RIVER_W
----@field [364] "RiverW" MAPTILE_RIVER_W
----@field RiverNW 365 MAPTILE_RIVER_NW
----@field [365] "RiverNW" MAPTILE_RIVER_NW
----@field RiverNE 366 MAPTILE_RIVER_NE
----@field [366] "RiverNE" MAPTILE_RIVER_NE
----@field RiverSW 367 MAPTILE_RIVER_SW
----@field [367] "RiverSW" MAPTILE_RIVER_SW
+---@field SoilWetFloor2 353
+---@field [353] "SoilWetFloor2"
+---@field SoilWetFloor3 354
+---@field [354] "SoilWetFloor3"
+---@field SoilWetFloor4 355
+---@field [355] "SoilWetFloor4"
+---@field FrozenFortification 356
+---@field [356] "FrozenFortification"
+---@field FrozenWallWorn1 357
+---@field [357] "FrozenWallWorn1"
+---@field FrozenWallWorn2 358
+---@field [358] "FrozenWallWorn2"
+---@field FrozenWallWorn3 359
+---@field [359] "FrozenWallWorn3"
+---@field FrozenWall 360
+---@field [360] "FrozenWall"
+---@field RiverN 361
+---@field [361] "RiverN"
+---@field RiverS 362
+---@field [362] "RiverS"
+---@field RiverE 363
+---@field [363] "RiverE"
+---@field RiverW 364
+---@field [364] "RiverW"
+---@field RiverNW 365
+---@field [365] "RiverNW"
+---@field RiverNE 366
+---@field [366] "RiverNE"
+---@field RiverSW 367
+---@field [367] "RiverSW"
 ---@field RiverSE 368 0x170
 ---@field [368] "RiverSE" 0x170
----@field BrookN 369 MAPTILE_STREAM_BED_WALL_N
----@field [369] "BrookN" MAPTILE_STREAM_BED_WALL_N
----@field BrookS 370 MAPTILE_STREAM_BED_WALL_S
----@field [370] "BrookS" MAPTILE_STREAM_BED_WALL_S
----@field BrookE 371 MAPTILE_STREAM_BED_WALL_E
----@field [371] "BrookE" MAPTILE_STREAM_BED_WALL_E
----@field BrookW 372 MAPTILE_STREAM_BED_WALL_W
----@field [372] "BrookW" MAPTILE_STREAM_BED_WALL_W
----@field BrookNW 373 MAPTILE_STREAM_BED_WALL_NW
----@field [373] "BrookNW" MAPTILE_STREAM_BED_WALL_NW
----@field BrookNE 374 MAPTILE_STREAM_BED_WALL_NE
----@field [374] "BrookNE" MAPTILE_STREAM_BED_WALL_NE
----@field BrookSW 375 MAPTILE_STREAM_BED_WALL_SW
----@field [375] "BrookSW" MAPTILE_STREAM_BED_WALL_SW
----@field BrookSE 376 MAPTILE_STREAM_BED_WALL_SE
----@field [376] "BrookSE" MAPTILE_STREAM_BED_WALL_SE
----@field BrookTop1 377 MAPTILE_STREAM_BED_TOP
----@field [377] "BrookTop1" MAPTILE_STREAM_BED_TOP
----@field BrookTop2 378 MAPTILE_STREAM_BED_TOP2
----@field [378] "BrookTop2" MAPTILE_STREAM_BED_TOP2
----@field BrookTop3 379 MAPTILE_STREAM_BED_TOP3
----@field [379] "BrookTop3" MAPTILE_STREAM_BED_TOP3
----@field BrookTop4 380 MAPTILE_STREAM_BED_TOP4
----@field [380] "BrookTop4" MAPTILE_STREAM_BED_TOP4
----@field Unused381 381 MAPTILE_UNUSED_381
----@field [381] "Unused381" MAPTILE_UNUSED_381
----@field Unused382 382 MAPTILE_UNUSED_382
----@field [382] "Unused382" MAPTILE_UNUSED_382
----@field GrassDryFloor1 383 MAPTILE_GRASS_FLOOR1_DRY
----@field [383] "GrassDryFloor1" MAPTILE_GRASS_FLOOR1_DRY
+---@field BrookN 369
+---@field [369] "BrookN"
+---@field BrookS 370
+---@field [370] "BrookS"
+---@field BrookE 371
+---@field [371] "BrookE"
+---@field BrookW 372
+---@field [372] "BrookW"
+---@field BrookNW 373
+---@field [373] "BrookNW"
+---@field BrookNE 374
+---@field [374] "BrookNE"
+---@field BrookSW 375
+---@field [375] "BrookSW"
+---@field BrookSE 376
+---@field [376] "BrookSE"
+---@field BrookTop1 377
+---@field [377] "BrookTop1"
+---@field BrookTop2 378
+---@field [378] "BrookTop2"
+---@field BrookTop3 379
+---@field [379] "BrookTop3"
+---@field BrookTop4 380
+---@field [380] "BrookTop4"
+---@field Unused381 381
+---@field [381] "Unused381"
+---@field Unused382 382
+---@field [382] "Unused382"
+---@field GrassDryFloor1 383
+---@field [383] "GrassDryFloor1"
 ---@field GrassDryFloor2 384 0x180
 ---@field [384] "GrassDryFloor2" 0x180
----@field GrassDryFloor3 385 MAPTILE_GRASS_FLOOR3_DRY
----@field [385] "GrassDryFloor3" MAPTILE_GRASS_FLOOR3_DRY
----@field GrassDryFloor4 386 MAPTILE_GRASS_FLOOR4_DRY
----@field [386] "GrassDryFloor4" MAPTILE_GRASS_FLOOR4_DRY
----@field Unused387 387 MAPTILE_UNUSED_387
----@field [387] "Unused387" MAPTILE_UNUSED_387
----@field SaplingDead 388 MAPTILE_SAPLING_DEAD
----@field [388] "SaplingDead" MAPTILE_SAPLING_DEAD
----@field ShrubDead 389 MAPTILE_SHRUB_DEAD
----@field [389] "ShrubDead" MAPTILE_SHRUB_DEAD
----@field GrassDeadFloor1 390 MAPTILE_GRASS_FLOOR1_DEAD
----@field [390] "GrassDeadFloor1" MAPTILE_GRASS_FLOOR1_DEAD
----@field GrassDeadFloor2 391 MAPTILE_GRASS_FLOOR2_DEAD
----@field [391] "GrassDeadFloor2" MAPTILE_GRASS_FLOOR2_DEAD
----@field GrassDeadFloor3 392 MAPTILE_GRASS_FLOOR3_DEAD
----@field [392] "GrassDeadFloor3" MAPTILE_GRASS_FLOOR3_DEAD
----@field GrassDeadFloor4 393 MAPTILE_GRASS_FLOOR4_DEAD
----@field [393] "GrassDeadFloor4" MAPTILE_GRASS_FLOOR4_DEAD
----@field GrassLightFloor1 394 MAPTILE_GRASS_FLOOR1B
----@field [394] "GrassLightFloor1" MAPTILE_GRASS_FLOOR1B
----@field GrassLightFloor2 395 MAPTILE_GRASS_FLOOR2B
----@field [395] "GrassLightFloor2" MAPTILE_GRASS_FLOOR2B
----@field GrassLightFloor3 396 MAPTILE_GRASS_FLOOR3B
----@field [396] "GrassLightFloor3" MAPTILE_GRASS_FLOOR3B
----@field GrassLightFloor4 397 MAPTILE_GRASS_FLOOR4B
----@field [397] "GrassLightFloor4" MAPTILE_GRASS_FLOOR4B
----@field StoneBoulder 398 MAPTILE_STONE_BOULDER
----@field [398] "StoneBoulder" MAPTILE_STONE_BOULDER
----@field LavaBoulder 399 MAPTILE_LAVASTONE_BOULDER
----@field [399] "LavaBoulder" MAPTILE_LAVASTONE_BOULDER
+---@field GrassDryFloor3 385
+---@field [385] "GrassDryFloor3"
+---@field GrassDryFloor4 386
+---@field [386] "GrassDryFloor4"
+---@field Unused387 387
+---@field [387] "Unused387"
+---@field SaplingDead 388
+---@field [388] "SaplingDead"
+---@field ShrubDead 389
+---@field [389] "ShrubDead"
+---@field GrassDeadFloor1 390
+---@field [390] "GrassDeadFloor1"
+---@field GrassDeadFloor2 391
+---@field [391] "GrassDeadFloor2"
+---@field GrassDeadFloor3 392
+---@field [392] "GrassDeadFloor3"
+---@field GrassDeadFloor4 393
+---@field [393] "GrassDeadFloor4"
+---@field GrassLightFloor1 394
+---@field [394] "GrassLightFloor1"
+---@field GrassLightFloor2 395
+---@field [395] "GrassLightFloor2"
+---@field GrassLightFloor3 396
+---@field [396] "GrassLightFloor3"
+---@field GrassLightFloor4 397
+---@field [397] "GrassLightFloor4"
+---@field StoneBoulder 398
+---@field [398] "StoneBoulder"
+---@field LavaBoulder 399
+---@field [399] "LavaBoulder"
 ---@field FeatureBoulder 400 0x190
 ---@field [400] "FeatureBoulder" 0x190
----@field StonePebbles1 401 MAPTILE_STONE_PEBBLE1
----@field [401] "StonePebbles1" MAPTILE_STONE_PEBBLE1
----@field StonePebbles2 402 MAPTILE_STONE_PEBBLE2
----@field [402] "StonePebbles2" MAPTILE_STONE_PEBBLE2
----@field StonePebbles3 403 MAPTILE_STONE_PEBBLE3
----@field [403] "StonePebbles3" MAPTILE_STONE_PEBBLE3
----@field StonePebbles4 404 MAPTILE_STONE_PEBBLE4
----@field [404] "StonePebbles4" MAPTILE_STONE_PEBBLE4
----@field LavaPebbles1 405 MAPTILE_LAVASTONE_PEBBLE1
----@field [405] "LavaPebbles1" MAPTILE_LAVASTONE_PEBBLE1
----@field LavaPebbles2 406 MAPTILE_LAVASTONE_PEBBLE2
----@field [406] "LavaPebbles2" MAPTILE_LAVASTONE_PEBBLE2
----@field LavaPebbles3 407 MAPTILE_LAVASTONE_PEBBLE3
----@field [407] "LavaPebbles3" MAPTILE_LAVASTONE_PEBBLE3
----@field LavaPebbles4 408 MAPTILE_LAVASTONE_PEBBLE4
----@field [408] "LavaPebbles4" MAPTILE_LAVASTONE_PEBBLE4
----@field FeaturePebbles1 409 MAPTILE_FEATSTONE_PEBBLE1
----@field [409] "FeaturePebbles1" MAPTILE_FEATSTONE_PEBBLE1
----@field FeaturePebbles2 410 MAPTILE_FEATSTONE_PEBBLE2
----@field [410] "FeaturePebbles2" MAPTILE_FEATSTONE_PEBBLE2
----@field FeaturePebbles3 411 MAPTILE_FEATSTONE_PEBBLE3
----@field [411] "FeaturePebbles3" MAPTILE_FEATSTONE_PEBBLE3
----@field FeaturePebbles4 412 MAPTILE_FEATSTONE_PEBBLE4
----@field [412] "FeaturePebbles4" MAPTILE_FEATSTONE_PEBBLE4
----@field MineralWallSmoothRD2 413 MAPTILE_MINSTONE_WALL_DET_RD2
----@field [413] "MineralWallSmoothRD2" MAPTILE_MINSTONE_WALL_DET_RD2
----@field MineralWallSmoothR2D 414 MAPTILE_MINSTONE_WALL_DET_R2D
----@field [414] "MineralWallSmoothR2D" MAPTILE_MINSTONE_WALL_DET_R2D
+---@field StonePebbles1 401
+---@field [401] "StonePebbles1"
+---@field StonePebbles2 402
+---@field [402] "StonePebbles2"
+---@field StonePebbles3 403
+---@field [403] "StonePebbles3"
+---@field StonePebbles4 404
+---@field [404] "StonePebbles4"
+---@field LavaPebbles1 405
+---@field [405] "LavaPebbles1"
+---@field LavaPebbles2 406
+---@field [406] "LavaPebbles2"
+---@field LavaPebbles3 407
+---@field [407] "LavaPebbles3"
+---@field LavaPebbles4 408
+---@field [408] "LavaPebbles4"
+---@field FeaturePebbles1 409
+---@field [409] "FeaturePebbles1"
+---@field FeaturePebbles2 410
+---@field [410] "FeaturePebbles2"
+---@field FeaturePebbles3 411
+---@field [411] "FeaturePebbles3"
+---@field FeaturePebbles4 412
+---@field [412] "FeaturePebbles4"
+---@field MineralWallSmoothRD2 413
+---@field [413] "MineralWallSmoothRD2"
+---@field MineralWallSmoothR2D 414
+---@field [414] "MineralWallSmoothR2D"
 ---@field MineralWallSmoothR2U 415 0x1A0
 ---@field [415] "MineralWallSmoothR2U" 0x1A0
----@field MineralWallSmoothRU2 416 MAPTILE_MINSTONE_WALL_DET_RU2
----@field [416] "MineralWallSmoothRU2" MAPTILE_MINSTONE_WALL_DET_RU2
----@field MineralWallSmoothL2U 417 MAPTILE_MINSTONE_WALL_DET_L2U
----@field [417] "MineralWallSmoothL2U" MAPTILE_MINSTONE_WALL_DET_L2U
----@field MineralWallSmoothLU2 418 MAPTILE_MINSTONE_WALL_DET_LU2
----@field [418] "MineralWallSmoothLU2" MAPTILE_MINSTONE_WALL_DET_LU2
----@field MineralWallSmoothL2D 419 MAPTILE_MINSTONE_WALL_DET_L2D
----@field [419] "MineralWallSmoothL2D" MAPTILE_MINSTONE_WALL_DET_L2D
----@field MineralWallSmoothLD2 420 MAPTILE_MINSTONE_WALL_DET_LD2
----@field [420] "MineralWallSmoothLD2" MAPTILE_MINSTONE_WALL_DET_LD2
----@field MineralWallSmoothLRUD 421 MAPTILE_MINSTONE_WALL_DET_LRUD
----@field [421] "MineralWallSmoothLRUD" MAPTILE_MINSTONE_WALL_DET_LRUD
----@field MineralWallSmoothRUD 422 MAPTILE_MINSTONE_WALL_DET_RUD
----@field [422] "MineralWallSmoothRUD" MAPTILE_MINSTONE_WALL_DET_RUD
----@field MineralWallSmoothLRD 423 MAPTILE_MINSTONE_WALL_DET_LRD
----@field [423] "MineralWallSmoothLRD" MAPTILE_MINSTONE_WALL_DET_LRD
----@field MineralWallSmoothLRU 424 MAPTILE_MINSTONE_WALL_DET_LRU
----@field [424] "MineralWallSmoothLRU" MAPTILE_MINSTONE_WALL_DET_LRU
----@field MineralWallSmoothLUD 425 MAPTILE_MINSTONE_WALL_DET_LUD
----@field [425] "MineralWallSmoothLUD" MAPTILE_MINSTONE_WALL_DET_LUD
----@field MineralWallSmoothRD 426 MAPTILE_MINSTONE_WALL_DET_RD
----@field [426] "MineralWallSmoothRD" MAPTILE_MINSTONE_WALL_DET_RD
----@field MineralWallSmoothRU 427 MAPTILE_MINSTONE_WALL_DET_RU
----@field [427] "MineralWallSmoothRU" MAPTILE_MINSTONE_WALL_DET_RU
----@field MineralWallSmoothLU 428 MAPTILE_MINSTONE_WALL_DET_LU
----@field [428] "MineralWallSmoothLU" MAPTILE_MINSTONE_WALL_DET_LU
----@field MineralWallSmoothLD 429 MAPTILE_MINSTONE_WALL_DET_LD
----@field [429] "MineralWallSmoothLD" MAPTILE_MINSTONE_WALL_DET_LD
----@field MineralWallSmoothUD 430 MAPTILE_MINSTONE_WALL_DET_UD
----@field [430] "MineralWallSmoothUD" MAPTILE_MINSTONE_WALL_DET_UD
----@field MineralWallSmoothLR 431 MAPTILE_MINSTONE_WALL_DET_LR
----@field [431] "MineralWallSmoothLR" MAPTILE_MINSTONE_WALL_DET_LR
+---@field MineralWallSmoothRU2 416
+---@field [416] "MineralWallSmoothRU2"
+---@field MineralWallSmoothL2U 417
+---@field [417] "MineralWallSmoothL2U"
+---@field MineralWallSmoothLU2 418
+---@field [418] "MineralWallSmoothLU2"
+---@field MineralWallSmoothL2D 419
+---@field [419] "MineralWallSmoothL2D"
+---@field MineralWallSmoothLD2 420
+---@field [420] "MineralWallSmoothLD2"
+---@field MineralWallSmoothLRUD 421
+---@field [421] "MineralWallSmoothLRUD"
+---@field MineralWallSmoothRUD 422
+---@field [422] "MineralWallSmoothRUD"
+---@field MineralWallSmoothLRD 423
+---@field [423] "MineralWallSmoothLRD"
+---@field MineralWallSmoothLRU 424
+---@field [424] "MineralWallSmoothLRU"
+---@field MineralWallSmoothLUD 425
+---@field [425] "MineralWallSmoothLUD"
+---@field MineralWallSmoothRD 426
+---@field [426] "MineralWallSmoothRD"
+---@field MineralWallSmoothRU 427
+---@field [427] "MineralWallSmoothRU"
+---@field MineralWallSmoothLU 428
+---@field [428] "MineralWallSmoothLU"
+---@field MineralWallSmoothLD 429
+---@field [429] "MineralWallSmoothLD"
+---@field MineralWallSmoothUD 430
+---@field [430] "MineralWallSmoothUD"
+---@field MineralWallSmoothLR 431
+---@field [431] "MineralWallSmoothLR"
 ---@field MineralFortification 432 0x1B0
 ---@field [432] "MineralFortification" 0x1B0
----@field MineralWallWorn1 433 MAPTILE_MINSTONE_WALL_WORN1
----@field [433] "MineralWallWorn1" MAPTILE_MINSTONE_WALL_WORN1
----@field MineralWallWorn2 434 MAPTILE_MINSTONE_WALL_WORN2
----@field [434] "MineralWallWorn2" MAPTILE_MINSTONE_WALL_WORN2
----@field MineralWallWorn3 435 MAPTILE_MINSTONE_WALL_WORN3
----@field [435] "MineralWallWorn3" MAPTILE_MINSTONE_WALL_WORN3
----@field MineralWall 436 MAPTILE_MINSTONE_WALL
----@field [436] "MineralWall" MAPTILE_MINSTONE_WALL
----@field MineralFloor1 437 MAPTILE_MINSTONE_FLOOR1
----@field [437] "MineralFloor1" MAPTILE_MINSTONE_FLOOR1
----@field MineralFloor2 438 MAPTILE_MINSTONE_FLOOR2
----@field [438] "MineralFloor2" MAPTILE_MINSTONE_FLOOR2
----@field MineralFloor3 439 MAPTILE_MINSTONE_FLOOR3
----@field [439] "MineralFloor3" MAPTILE_MINSTONE_FLOOR3
----@field MineralFloor4 440 MAPTILE_MINSTONE_FLOOR4
----@field [440] "MineralFloor4" MAPTILE_MINSTONE_FLOOR4
----@field MineralBoulder 441 MAPTILE_MINSTONE_BOULDER
----@field [441] "MineralBoulder" MAPTILE_MINSTONE_BOULDER
----@field MineralPebbles1 442 MAPTILE_MINSTONE_PEBBLE1
----@field [442] "MineralPebbles1" MAPTILE_MINSTONE_PEBBLE1
----@field MineralPebbles2 443 MAPTILE_MINSTONE_PEBBLE2
----@field [443] "MineralPebbles2" MAPTILE_MINSTONE_PEBBLE2
----@field MineralPebbles3 444 MAPTILE_MINSTONE_PEBBLE3
----@field [444] "MineralPebbles3" MAPTILE_MINSTONE_PEBBLE3
----@field MineralPebbles4 445 MAPTILE_MINSTONE_PEBBLE4
----@field [445] "MineralPebbles4" MAPTILE_MINSTONE_PEBBLE4
----@field FrozenWallSmoothRD2 446 MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
----@field [446] "FrozenWallSmoothRD2" MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
----@field FrozenWallSmoothR2D 447 MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
----@field [447] "FrozenWallSmoothR2D" MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
+---@field MineralWallWorn1 433
+---@field [433] "MineralWallWorn1"
+---@field MineralWallWorn2 434
+---@field [434] "MineralWallWorn2"
+---@field MineralWallWorn3 435
+---@field [435] "MineralWallWorn3"
+---@field MineralWall 436
+---@field [436] "MineralWall"
+---@field MineralFloor1 437
+---@field [437] "MineralFloor1"
+---@field MineralFloor2 438
+---@field [438] "MineralFloor2"
+---@field MineralFloor3 439
+---@field [439] "MineralFloor3"
+---@field MineralFloor4 440
+---@field [440] "MineralFloor4"
+---@field MineralBoulder 441
+---@field [441] "MineralBoulder"
+---@field MineralPebbles1 442
+---@field [442] "MineralPebbles1"
+---@field MineralPebbles2 443
+---@field [443] "MineralPebbles2"
+---@field MineralPebbles3 444
+---@field [444] "MineralPebbles3"
+---@field MineralPebbles4 445
+---@field [445] "MineralPebbles4"
+---@field FrozenWallSmoothRD2 446
+---@field [446] "FrozenWallSmoothRD2"
+---@field FrozenWallSmoothR2D 447
+---@field [447] "FrozenWallSmoothR2D"
 ---@field FrozenWallSmoothR2U 448 0x1C0
 ---@field [448] "FrozenWallSmoothR2U" 0x1C0
----@field FrozenWallSmoothRU2 449 MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
----@field [449] "FrozenWallSmoothRU2" MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
----@field FrozenWallSmoothL2U 450 MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
----@field [450] "FrozenWallSmoothL2U" MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
----@field FrozenWallSmoothLU2 451 MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
----@field [451] "FrozenWallSmoothLU2" MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
----@field FrozenWallSmoothL2D 452 MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
----@field [452] "FrozenWallSmoothL2D" MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
----@field FrozenWallSmoothLD2 453 MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
----@field [453] "FrozenWallSmoothLD2" MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
----@field FrozenWallSmoothLRUD 454 MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
----@field [454] "FrozenWallSmoothLRUD" MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
----@field FrozenWallSmoothRUD 455 MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
----@field [455] "FrozenWallSmoothRUD" MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
----@field FrozenWallSmoothLRD 456 MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
----@field [456] "FrozenWallSmoothLRD" MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
----@field FrozenWallSmoothLRU 457 MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
----@field [457] "FrozenWallSmoothLRU" MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
----@field FrozenWallSmoothLUD 458 MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
----@field [458] "FrozenWallSmoothLUD" MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
----@field FrozenWallSmoothRD 459 MAPTILE_FROZEN_LIQUID_WALL_DET_RD
----@field [459] "FrozenWallSmoothRD" MAPTILE_FROZEN_LIQUID_WALL_DET_RD
----@field FrozenWallSmoothRU 460 MAPTILE_FROZEN_LIQUID_WALL_DET_RU
----@field [460] "FrozenWallSmoothRU" MAPTILE_FROZEN_LIQUID_WALL_DET_RU
----@field FrozenWallSmoothLU 461 MAPTILE_FROZEN_LIQUID_WALL_DET_LU
----@field [461] "FrozenWallSmoothLU" MAPTILE_FROZEN_LIQUID_WALL_DET_LU
----@field FrozenWallSmoothLD 462 MAPTILE_FROZEN_LIQUID_WALL_DET_LD
----@field [462] "FrozenWallSmoothLD" MAPTILE_FROZEN_LIQUID_WALL_DET_LD
----@field FrozenWallSmoothUD 463 MAPTILE_FROZEN_LIQUID_WALL_DET_UD
----@field [463] "FrozenWallSmoothUD" MAPTILE_FROZEN_LIQUID_WALL_DET_UD
+---@field FrozenWallSmoothRU2 449
+---@field [449] "FrozenWallSmoothRU2"
+---@field FrozenWallSmoothL2U 450
+---@field [450] "FrozenWallSmoothL2U"
+---@field FrozenWallSmoothLU2 451
+---@field [451] "FrozenWallSmoothLU2"
+---@field FrozenWallSmoothL2D 452
+---@field [452] "FrozenWallSmoothL2D"
+---@field FrozenWallSmoothLD2 453
+---@field [453] "FrozenWallSmoothLD2"
+---@field FrozenWallSmoothLRUD 454
+---@field [454] "FrozenWallSmoothLRUD"
+---@field FrozenWallSmoothRUD 455
+---@field [455] "FrozenWallSmoothRUD"
+---@field FrozenWallSmoothLRD 456
+---@field [456] "FrozenWallSmoothLRD"
+---@field FrozenWallSmoothLRU 457
+---@field [457] "FrozenWallSmoothLRU"
+---@field FrozenWallSmoothLUD 458
+---@field [458] "FrozenWallSmoothLUD"
+---@field FrozenWallSmoothRD 459
+---@field [459] "FrozenWallSmoothRD"
+---@field FrozenWallSmoothRU 460
+---@field [460] "FrozenWallSmoothRU"
+---@field FrozenWallSmoothLU 461
+---@field [461] "FrozenWallSmoothLU"
+---@field FrozenWallSmoothLD 462
+---@field [462] "FrozenWallSmoothLD"
+---@field FrozenWallSmoothUD 463
+---@field [463] "FrozenWallSmoothUD"
 ---@field FrozenWallSmoothLR 464 0x1D0
 ---@field [464] "FrozenWallSmoothLR" 0x1D0
----@field RiverRampN 465 MAPTILE_RIVER_RAMP_N
----@field [465] "RiverRampN" MAPTILE_RIVER_RAMP_N
----@field RiverRampS 466 MAPTILE_RIVER_RAMP_S
----@field [466] "RiverRampS" MAPTILE_RIVER_RAMP_S
----@field RiverRampE 467 MAPTILE_RIVER_RAMP_E
----@field [467] "RiverRampE" MAPTILE_RIVER_RAMP_E
----@field RiverRampW 468 MAPTILE_RIVER_RAMP_W
----@field [468] "RiverRampW" MAPTILE_RIVER_RAMP_W
----@field RiverRampNW 469 MAPTILE_RIVER_RAMP_NW
----@field [469] "RiverRampNW" MAPTILE_RIVER_RAMP_NW
----@field RiverRampNE 470 MAPTILE_RIVER_RAMP_NE
----@field [470] "RiverRampNE" MAPTILE_RIVER_RAMP_NE
----@field RiverRampSW 471 MAPTILE_RIVER_RAMP_SW
----@field [471] "RiverRampSW" MAPTILE_RIVER_RAMP_SW
----@field RiverRampSE 472 MAPTILE_RIVER_RAMP_SE
----@field [472] "RiverRampSE" MAPTILE_RIVER_RAMP_SE
----@field ShoddyConstructedFloor1 473 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_1
----@field [473] "ShoddyConstructedFloor1" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_1
----@field ShoddyConstructedFloor2 474 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_2
----@field [474] "ShoddyConstructedFloor2" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_2
----@field ShoddyConstructedFloor3 475 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_3
----@field [475] "ShoddyConstructedFloor3" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_3
----@field ShoddyConstructedFloor4 476 MAPTILE_CONSTRUCTED_FLOOR_SHODDY_4
----@field [476] "ShoddyConstructedFloor4" MAPTILE_CONSTRUCTED_FLOOR_SHODDY_4
----@field ShoddyConstructedStairUD 477 MAPTILE_STAIR_UPDOWN_CONSTRUCTED_SHODDY
----@field [477] "ShoddyConstructedStairUD" MAPTILE_STAIR_UPDOWN_CONSTRUCTED_SHODDY
----@field ShoddyConstructedStairD 478 MAPTILE_STAIR_DOWN_CONSTRUCTED_SHODDY
----@field [478] "ShoddyConstructedStairD" MAPTILE_STAIR_DOWN_CONSTRUCTED_SHODDY
----@field ShoddyConstructedStairU 479 MAPTILE_STAIR_UP_CONSTRUCTED_SHODDY
----@field [479] "ShoddyConstructedStairU" MAPTILE_STAIR_UP_CONSTRUCTED_SHODDY
+---@field RiverRampN 465
+---@field [465] "RiverRampN"
+---@field RiverRampS 466
+---@field [466] "RiverRampS"
+---@field RiverRampE 467
+---@field [467] "RiverRampE"
+---@field RiverRampW 468
+---@field [468] "RiverRampW"
+---@field RiverRampNW 469
+---@field [469] "RiverRampNW"
+---@field RiverRampNE 470
+---@field [470] "RiverRampNE"
+---@field RiverRampSW 471
+---@field [471] "RiverRampSW"
+---@field RiverRampSE 472
+---@field [472] "RiverRampSE"
+---@field ShoddyConstructedFloor1 473
+---@field [473] "ShoddyConstructedFloor1"
+---@field ShoddyConstructedFloor2 474
+---@field [474] "ShoddyConstructedFloor2"
+---@field ShoddyConstructedFloor3 475
+---@field [475] "ShoddyConstructedFloor3"
+---@field ShoddyConstructedFloor4 476
+---@field [476] "ShoddyConstructedFloor4"
+---@field ShoddyConstructedStairUD 477
+---@field [477] "ShoddyConstructedStairUD"
+---@field ShoddyConstructedStairD 478
+---@field [478] "ShoddyConstructedStairD"
+---@field ShoddyConstructedStairU 479
+---@field [479] "ShoddyConstructedStairU"
 ---@field Unused480 480 0x1E0
 ---@field [480] "Unused480" 0x1E0
----@field Unused481 481 MAPTILE_UNUSED_481
----@field [481] "Unused481" MAPTILE_UNUSED_481
----@field Unused482 482 MAPTILE_UNUSED_482
----@field [482] "Unused482" MAPTILE_UNUSED_482
----@field Unused483 483 MAPTILE_UNUSED_483
----@field [483] "Unused483" MAPTILE_UNUSED_483
----@field Unused484 484 MAPTILE_UNUSED_484
----@field [484] "Unused484" MAPTILE_UNUSED_484
----@field Unused485 485 MAPTILE_UNUSED_485
----@field [485] "Unused485" MAPTILE_UNUSED_485
----@field Unused486 486 MAPTILE_UNUSED_486
----@field [486] "Unused486" MAPTILE_UNUSED_486
----@field Unused487 487 MAPTILE_UNUSED_487
----@field [487] "Unused487" MAPTILE_UNUSED_487
----@field Unused488 488 MAPTILE_UNUSED_488
----@field [488] "Unused488" MAPTILE_UNUSED_488
----@field ConstructedFloor 489 MAPTILE_CONSTRUCTED_FLOOR_DETAILED
----@field [489] "ConstructedFloor" MAPTILE_CONSTRUCTED_FLOOR_DETAILED
----@field ConstructedFortification 490 MAPTILE_CONSTRUCTED_FORTIFICATION
----@field [490] "ConstructedFortification" MAPTILE_CONSTRUCTED_FORTIFICATION
----@field ConstructedPillar 491 MAPTILE_CONSTRUCTED_PILLAR
----@field [491] "ConstructedPillar" MAPTILE_CONSTRUCTED_PILLAR
----@field ConstructedWallRD2 492 MAPTILE_CONSTRUCTED_WALL_DET_RD2
----@field [492] "ConstructedWallRD2" MAPTILE_CONSTRUCTED_WALL_DET_RD2
----@field ConstructedWallR2D 493 MAPTILE_CONSTRUCTED_WALL_DET_R2D
----@field [493] "ConstructedWallR2D" MAPTILE_CONSTRUCTED_WALL_DET_R2D
----@field ConstructedWallR2U 494 MAPTILE_CONSTRUCTED_WALL_DET_R2U
----@field [494] "ConstructedWallR2U" MAPTILE_CONSTRUCTED_WALL_DET_R2U
----@field ConstructedWallRU2 495 MAPTILE_CONSTRUCTED_WALL_DET_RU2
----@field [495] "ConstructedWallRU2" MAPTILE_CONSTRUCTED_WALL_DET_RU2
+---@field Unused481 481
+---@field [481] "Unused481"
+---@field Unused482 482
+---@field [482] "Unused482"
+---@field Unused483 483
+---@field [483] "Unused483"
+---@field Unused484 484
+---@field [484] "Unused484"
+---@field Unused485 485
+---@field [485] "Unused485"
+---@field Unused486 486
+---@field [486] "Unused486"
+---@field Unused487 487
+---@field [487] "Unused487"
+---@field Unused488 488
+---@field [488] "Unused488"
+---@field ConstructedFloor 489
+---@field [489] "ConstructedFloor"
+---@field ConstructedFortification 490
+---@field [490] "ConstructedFortification"
+---@field ConstructedPillar 491
+---@field [491] "ConstructedPillar"
+---@field ConstructedWallRD2 492
+---@field [492] "ConstructedWallRD2"
+---@field ConstructedWallR2D 493
+---@field [493] "ConstructedWallR2D"
+---@field ConstructedWallR2U 494
+---@field [494] "ConstructedWallR2U"
+---@field ConstructedWallRU2 495
+---@field [495] "ConstructedWallRU2"
 ---@field ConstructedWallL2U 496 0x1F0
 ---@field [496] "ConstructedWallL2U" 0x1F0
----@field ConstructedWallLU2 497 MAPTILE_CONSTRUCTED_WALL_DET_LU2
----@field [497] "ConstructedWallLU2" MAPTILE_CONSTRUCTED_WALL_DET_LU2
----@field ConstructedWallL2D 498 MAPTILE_CONSTRUCTED_WALL_DET_L2D
----@field [498] "ConstructedWallL2D" MAPTILE_CONSTRUCTED_WALL_DET_L2D
----@field ConstructedWallLD2 499 MAPTILE_CONSTRUCTED_WALL_DET_LD2
----@field [499] "ConstructedWallLD2" MAPTILE_CONSTRUCTED_WALL_DET_LD2
----@field ConstructedWallLRUD 500 MAPTILE_CONSTRUCTED_WALL_DET_LRUD
----@field [500] "ConstructedWallLRUD" MAPTILE_CONSTRUCTED_WALL_DET_LRUD
----@field ConstructedWallRUD 501 MAPTILE_CONSTRUCTED_WALL_DET_RUD
----@field [501] "ConstructedWallRUD" MAPTILE_CONSTRUCTED_WALL_DET_RUD
----@field ConstructedWallLRD 502 MAPTILE_CONSTRUCTED_WALL_DET_LRD
----@field [502] "ConstructedWallLRD" MAPTILE_CONSTRUCTED_WALL_DET_LRD
----@field ConstructedWallLRU 503 MAPTILE_CONSTRUCTED_WALL_DET_LRU
----@field [503] "ConstructedWallLRU" MAPTILE_CONSTRUCTED_WALL_DET_LRU
----@field ConstructedWallLUD 504 MAPTILE_CONSTRUCTED_WALL_DET_LUD
----@field [504] "ConstructedWallLUD" MAPTILE_CONSTRUCTED_WALL_DET_LUD
----@field ConstructedWallRD 505 MAPTILE_CONSTRUCTED_WALL_DET_RD
----@field [505] "ConstructedWallRD" MAPTILE_CONSTRUCTED_WALL_DET_RD
----@field ConstructedWallRU 506 MAPTILE_CONSTRUCTED_WALL_DET_RU
----@field [506] "ConstructedWallRU" MAPTILE_CONSTRUCTED_WALL_DET_RU
----@field ConstructedWallLU 507 MAPTILE_CONSTRUCTED_WALL_DET_LU
----@field [507] "ConstructedWallLU" MAPTILE_CONSTRUCTED_WALL_DET_LU
----@field ConstructedWallLD 508 MAPTILE_CONSTRUCTED_WALL_DET_LD
----@field [508] "ConstructedWallLD" MAPTILE_CONSTRUCTED_WALL_DET_LD
----@field ConstructedWallUD 509 MAPTILE_CONSTRUCTED_WALL_DET_UD
----@field [509] "ConstructedWallUD" MAPTILE_CONSTRUCTED_WALL_DET_UD
----@field ConstructedWallLR 510 MAPTILE_CONSTRUCTED_WALL_DET_LR
----@field [510] "ConstructedWallLR" MAPTILE_CONSTRUCTED_WALL_DET_LR
----@field ConstructedStairUD 511 MAPTILE_STAIR_UPDOWN_CONSTRUCTED
----@field [511] "ConstructedStairUD" MAPTILE_STAIR_UPDOWN_CONSTRUCTED
+---@field ConstructedWallLU2 497
+---@field [497] "ConstructedWallLU2"
+---@field ConstructedWallL2D 498
+---@field [498] "ConstructedWallL2D"
+---@field ConstructedWallLD2 499
+---@field [499] "ConstructedWallLD2"
+---@field ConstructedWallLRUD 500
+---@field [500] "ConstructedWallLRUD"
+---@field ConstructedWallRUD 501
+---@field [501] "ConstructedWallRUD"
+---@field ConstructedWallLRD 502
+---@field [502] "ConstructedWallLRD"
+---@field ConstructedWallLRU 503
+---@field [503] "ConstructedWallLRU"
+---@field ConstructedWallLUD 504
+---@field [504] "ConstructedWallLUD"
+---@field ConstructedWallRD 505
+---@field [505] "ConstructedWallRD"
+---@field ConstructedWallRU 506
+---@field [506] "ConstructedWallRU"
+---@field ConstructedWallLU 507
+---@field [507] "ConstructedWallLU"
+---@field ConstructedWallLD 508
+---@field [508] "ConstructedWallLD"
+---@field ConstructedWallUD 509
+---@field [509] "ConstructedWallUD"
+---@field ConstructedWallLR 510
+---@field [510] "ConstructedWallLR"
+---@field ConstructedStairUD 511
+---@field [511] "ConstructedStairUD"
 ---@field ConstructedStairD 512 0x200
 ---@field [512] "ConstructedStairD" 0x200
----@field ConstructedStairU 513 MAPTILE_STAIR_UP_CONSTRUCTED
----@field [513] "ConstructedStairU" MAPTILE_STAIR_UP_CONSTRUCTED
----@field ConstructedRamp 514 MAPTILE_RAMP_CONSTRUCTED
----@field [514] "ConstructedRamp" MAPTILE_RAMP_CONSTRUCTED
----@field StoneFloorTrackN 515 MAPTILE_STONE_TRACK_N
----@field [515] "StoneFloorTrackN" MAPTILE_STONE_TRACK_N
----@field StoneFloorTrackS 516 MAPTILE_STONE_TRACK_S
----@field [516] "StoneFloorTrackS" MAPTILE_STONE_TRACK_S
----@field StoneFloorTrackE 517 MAPTILE_STONE_TRACK_E
----@field [517] "StoneFloorTrackE" MAPTILE_STONE_TRACK_E
----@field StoneFloorTrackW 518 MAPTILE_STONE_TRACK_W
----@field [518] "StoneFloorTrackW" MAPTILE_STONE_TRACK_W
----@field StoneFloorTrackNS 519 MAPTILE_STONE_TRACK_NS
----@field [519] "StoneFloorTrackNS" MAPTILE_STONE_TRACK_NS
----@field StoneFloorTrackNE 520 MAPTILE_STONE_TRACK_NE
----@field [520] "StoneFloorTrackNE" MAPTILE_STONE_TRACK_NE
----@field StoneFloorTrackNW 521 MAPTILE_STONE_TRACK_NW
----@field [521] "StoneFloorTrackNW" MAPTILE_STONE_TRACK_NW
----@field StoneFloorTrackSE 522 MAPTILE_STONE_TRACK_SE
----@field [522] "StoneFloorTrackSE" MAPTILE_STONE_TRACK_SE
----@field StoneFloorTrackSW 523 MAPTILE_STONE_TRACK_SW
----@field [523] "StoneFloorTrackSW" MAPTILE_STONE_TRACK_SW
----@field StoneFloorTrackEW 524 MAPTILE_STONE_TRACK_EW
----@field [524] "StoneFloorTrackEW" MAPTILE_STONE_TRACK_EW
----@field StoneFloorTrackNSE 525 MAPTILE_STONE_TRACK_NSE
----@field [525] "StoneFloorTrackNSE" MAPTILE_STONE_TRACK_NSE
----@field StoneFloorTrackNSW 526 MAPTILE_STONE_TRACK_NSW
----@field [526] "StoneFloorTrackNSW" MAPTILE_STONE_TRACK_NSW
----@field StoneFloorTrackNEW 527 MAPTILE_STONE_TRACK_NEW
----@field [527] "StoneFloorTrackNEW" MAPTILE_STONE_TRACK_NEW
+---@field ConstructedStairU 513
+---@field [513] "ConstructedStairU"
+---@field ConstructedRamp 514
+---@field [514] "ConstructedRamp"
+---@field StoneFloorTrackN 515
+---@field [515] "StoneFloorTrackN"
+---@field StoneFloorTrackS 516
+---@field [516] "StoneFloorTrackS"
+---@field StoneFloorTrackE 517
+---@field [517] "StoneFloorTrackE"
+---@field StoneFloorTrackW 518
+---@field [518] "StoneFloorTrackW"
+---@field StoneFloorTrackNS 519
+---@field [519] "StoneFloorTrackNS"
+---@field StoneFloorTrackNE 520
+---@field [520] "StoneFloorTrackNE"
+---@field StoneFloorTrackNW 521
+---@field [521] "StoneFloorTrackNW"
+---@field StoneFloorTrackSE 522
+---@field [522] "StoneFloorTrackSE"
+---@field StoneFloorTrackSW 523
+---@field [523] "StoneFloorTrackSW"
+---@field StoneFloorTrackEW 524
+---@field [524] "StoneFloorTrackEW"
+---@field StoneFloorTrackNSE 525
+---@field [525] "StoneFloorTrackNSE"
+---@field StoneFloorTrackNSW 526
+---@field [526] "StoneFloorTrackNSW"
+---@field StoneFloorTrackNEW 527
+---@field [527] "StoneFloorTrackNEW"
 ---@field StoneFloorTrackSEW 528 0x210
 ---@field [528] "StoneFloorTrackSEW" 0x210
----@field StoneFloorTrackNSEW 529 MAPTILE_STONE_TRACK_NSEW
----@field [529] "StoneFloorTrackNSEW" MAPTILE_STONE_TRACK_NSEW
----@field LavaFloorTrackN 530 MAPTILE_LAVASTONE_TRACK_N
----@field [530] "LavaFloorTrackN" MAPTILE_LAVASTONE_TRACK_N
----@field LavaFloorTrackS 531 MAPTILE_LAVASTONE_TRACK_S
----@field [531] "LavaFloorTrackS" MAPTILE_LAVASTONE_TRACK_S
----@field LavaFloorTrackE 532 MAPTILE_LAVASTONE_TRACK_E
----@field [532] "LavaFloorTrackE" MAPTILE_LAVASTONE_TRACK_E
----@field LavaFloorTrackW 533 MAPTILE_LAVASTONE_TRACK_W
----@field [533] "LavaFloorTrackW" MAPTILE_LAVASTONE_TRACK_W
----@field LavaFloorTrackNS 534 MAPTILE_LAVASTONE_TRACK_NS
----@field [534] "LavaFloorTrackNS" MAPTILE_LAVASTONE_TRACK_NS
----@field LavaFloorTrackNE 535 MAPTILE_LAVASTONE_TRACK_NE
----@field [535] "LavaFloorTrackNE" MAPTILE_LAVASTONE_TRACK_NE
----@field LavaFloorTrackNW 536 MAPTILE_LAVASTONE_TRACK_NW
----@field [536] "LavaFloorTrackNW" MAPTILE_LAVASTONE_TRACK_NW
----@field LavaFloorTrackSE 537 MAPTILE_LAVASTONE_TRACK_SE
----@field [537] "LavaFloorTrackSE" MAPTILE_LAVASTONE_TRACK_SE
----@field LavaFloorTrackSW 538 MAPTILE_LAVASTONE_TRACK_SW
----@field [538] "LavaFloorTrackSW" MAPTILE_LAVASTONE_TRACK_SW
----@field LavaFloorTrackEW 539 MAPTILE_LAVASTONE_TRACK_EW
----@field [539] "LavaFloorTrackEW" MAPTILE_LAVASTONE_TRACK_EW
----@field LavaFloorTrackNSE 540 MAPTILE_LAVASTONE_TRACK_NSE
----@field [540] "LavaFloorTrackNSE" MAPTILE_LAVASTONE_TRACK_NSE
----@field LavaFloorTrackNSW 541 MAPTILE_LAVASTONE_TRACK_NSW
----@field [541] "LavaFloorTrackNSW" MAPTILE_LAVASTONE_TRACK_NSW
----@field LavaFloorTrackNEW 542 MAPTILE_LAVASTONE_TRACK_NEW
----@field [542] "LavaFloorTrackNEW" MAPTILE_LAVASTONE_TRACK_NEW
----@field LavaFloorTrackSEW 543 MAPTILE_LAVASTONE_TRACK_SEW
----@field [543] "LavaFloorTrackSEW" MAPTILE_LAVASTONE_TRACK_SEW
+---@field StoneFloorTrackNSEW 529
+---@field [529] "StoneFloorTrackNSEW"
+---@field LavaFloorTrackN 530
+---@field [530] "LavaFloorTrackN"
+---@field LavaFloorTrackS 531
+---@field [531] "LavaFloorTrackS"
+---@field LavaFloorTrackE 532
+---@field [532] "LavaFloorTrackE"
+---@field LavaFloorTrackW 533
+---@field [533] "LavaFloorTrackW"
+---@field LavaFloorTrackNS 534
+---@field [534] "LavaFloorTrackNS"
+---@field LavaFloorTrackNE 535
+---@field [535] "LavaFloorTrackNE"
+---@field LavaFloorTrackNW 536
+---@field [536] "LavaFloorTrackNW"
+---@field LavaFloorTrackSE 537
+---@field [537] "LavaFloorTrackSE"
+---@field LavaFloorTrackSW 538
+---@field [538] "LavaFloorTrackSW"
+---@field LavaFloorTrackEW 539
+---@field [539] "LavaFloorTrackEW"
+---@field LavaFloorTrackNSE 540
+---@field [540] "LavaFloorTrackNSE"
+---@field LavaFloorTrackNSW 541
+---@field [541] "LavaFloorTrackNSW"
+---@field LavaFloorTrackNEW 542
+---@field [542] "LavaFloorTrackNEW"
+---@field LavaFloorTrackSEW 543
+---@field [543] "LavaFloorTrackSEW"
 ---@field LavaFloorTrackNSEW 544 0x220
 ---@field [544] "LavaFloorTrackNSEW" 0x220
----@field FeatureFloorTrackN 545 MAPTILE_FEATSTONE_TRACK_N
----@field [545] "FeatureFloorTrackN" MAPTILE_FEATSTONE_TRACK_N
----@field FeatureFloorTrackS 546 MAPTILE_FEATSTONE_TRACK_S
----@field [546] "FeatureFloorTrackS" MAPTILE_FEATSTONE_TRACK_S
----@field FeatureFloorTrackE 547 MAPTILE_FEATSTONE_TRACK_E
----@field [547] "FeatureFloorTrackE" MAPTILE_FEATSTONE_TRACK_E
----@field FeatureFloorTrackW 548 MAPTILE_FEATSTONE_TRACK_W
----@field [548] "FeatureFloorTrackW" MAPTILE_FEATSTONE_TRACK_W
----@field FeatureFloorTrackNS 549 MAPTILE_FEATSTONE_TRACK_NS
----@field [549] "FeatureFloorTrackNS" MAPTILE_FEATSTONE_TRACK_NS
----@field FeatureFloorTrackNE 550 MAPTILE_FEATSTONE_TRACK_NE
----@field [550] "FeatureFloorTrackNE" MAPTILE_FEATSTONE_TRACK_NE
----@field FeatureFloorTrackNW 551 MAPTILE_FEATSTONE_TRACK_NW
----@field [551] "FeatureFloorTrackNW" MAPTILE_FEATSTONE_TRACK_NW
----@field FeatureFloorTrackSE 552 MAPTILE_FEATSTONE_TRACK_SE
----@field [552] "FeatureFloorTrackSE" MAPTILE_FEATSTONE_TRACK_SE
----@field FeatureFloorTrackSW 553 MAPTILE_FEATSTONE_TRACK_SW
----@field [553] "FeatureFloorTrackSW" MAPTILE_FEATSTONE_TRACK_SW
----@field FeatureFloorTrackEW 554 MAPTILE_FEATSTONE_TRACK_EW
----@field [554] "FeatureFloorTrackEW" MAPTILE_FEATSTONE_TRACK_EW
----@field FeatureFloorTrackNSE 555 MAPTILE_FEATSTONE_TRACK_NSE
----@field [555] "FeatureFloorTrackNSE" MAPTILE_FEATSTONE_TRACK_NSE
----@field FeatureFloorTrackNSW 556 MAPTILE_FEATSTONE_TRACK_NSW
----@field [556] "FeatureFloorTrackNSW" MAPTILE_FEATSTONE_TRACK_NSW
----@field FeatureFloorTrackNEW 557 MAPTILE_FEATSTONE_TRACK_NEW
----@field [557] "FeatureFloorTrackNEW" MAPTILE_FEATSTONE_TRACK_NEW
----@field FeatureFloorTrackSEW 558 MAPTILE_FEATSTONE_TRACK_SEW
----@field [558] "FeatureFloorTrackSEW" MAPTILE_FEATSTONE_TRACK_SEW
----@field FeatureFloorTrackNSEW 559 MAPTILE_FEATSTONE_TRACK_NSEW
----@field [559] "FeatureFloorTrackNSEW" MAPTILE_FEATSTONE_TRACK_NSEW
+---@field FeatureFloorTrackN 545
+---@field [545] "FeatureFloorTrackN"
+---@field FeatureFloorTrackS 546
+---@field [546] "FeatureFloorTrackS"
+---@field FeatureFloorTrackE 547
+---@field [547] "FeatureFloorTrackE"
+---@field FeatureFloorTrackW 548
+---@field [548] "FeatureFloorTrackW"
+---@field FeatureFloorTrackNS 549
+---@field [549] "FeatureFloorTrackNS"
+---@field FeatureFloorTrackNE 550
+---@field [550] "FeatureFloorTrackNE"
+---@field FeatureFloorTrackNW 551
+---@field [551] "FeatureFloorTrackNW"
+---@field FeatureFloorTrackSE 552
+---@field [552] "FeatureFloorTrackSE"
+---@field FeatureFloorTrackSW 553
+---@field [553] "FeatureFloorTrackSW"
+---@field FeatureFloorTrackEW 554
+---@field [554] "FeatureFloorTrackEW"
+---@field FeatureFloorTrackNSE 555
+---@field [555] "FeatureFloorTrackNSE"
+---@field FeatureFloorTrackNSW 556
+---@field [556] "FeatureFloorTrackNSW"
+---@field FeatureFloorTrackNEW 557
+---@field [557] "FeatureFloorTrackNEW"
+---@field FeatureFloorTrackSEW 558
+---@field [558] "FeatureFloorTrackSEW"
+---@field FeatureFloorTrackNSEW 559
+---@field [559] "FeatureFloorTrackNSEW"
 ---@field MineralFloorTrackN 560 0x230
 ---@field [560] "MineralFloorTrackN" 0x230
----@field MineralFloorTrackS 561 MAPTILE_MINSTONE_TRACK_S
----@field [561] "MineralFloorTrackS" MAPTILE_MINSTONE_TRACK_S
----@field MineralFloorTrackE 562 MAPTILE_MINSTONE_TRACK_E
----@field [562] "MineralFloorTrackE" MAPTILE_MINSTONE_TRACK_E
----@field MineralFloorTrackW 563 MAPTILE_MINSTONE_TRACK_W
----@field [563] "MineralFloorTrackW" MAPTILE_MINSTONE_TRACK_W
----@field MineralFloorTrackNS 564 MAPTILE_MINSTONE_TRACK_NS
----@field [564] "MineralFloorTrackNS" MAPTILE_MINSTONE_TRACK_NS
----@field MineralFloorTrackNE 565 MAPTILE_MINSTONE_TRACK_NE
----@field [565] "MineralFloorTrackNE" MAPTILE_MINSTONE_TRACK_NE
----@field MineralFloorTrackNW 566 MAPTILE_MINSTONE_TRACK_NW
----@field [566] "MineralFloorTrackNW" MAPTILE_MINSTONE_TRACK_NW
----@field MineralFloorTrackSE 567 MAPTILE_MINSTONE_TRACK_SE
----@field [567] "MineralFloorTrackSE" MAPTILE_MINSTONE_TRACK_SE
----@field MineralFloorTrackSW 568 MAPTILE_MINSTONE_TRACK_SW
----@field [568] "MineralFloorTrackSW" MAPTILE_MINSTONE_TRACK_SW
----@field MineralFloorTrackEW 569 MAPTILE_MINSTONE_TRACK_EW
----@field [569] "MineralFloorTrackEW" MAPTILE_MINSTONE_TRACK_EW
----@field MineralFloorTrackNSE 570 MAPTILE_MINSTONE_TRACK_NSE
----@field [570] "MineralFloorTrackNSE" MAPTILE_MINSTONE_TRACK_NSE
----@field MineralFloorTrackNSW 571 MAPTILE_MINSTONE_TRACK_NSW
----@field [571] "MineralFloorTrackNSW" MAPTILE_MINSTONE_TRACK_NSW
----@field MineralFloorTrackNEW 572 MAPTILE_MINSTONE_TRACK_NEW
----@field [572] "MineralFloorTrackNEW" MAPTILE_MINSTONE_TRACK_NEW
----@field MineralFloorTrackSEW 573 MAPTILE_MINSTONE_TRACK_SEW
----@field [573] "MineralFloorTrackSEW" MAPTILE_MINSTONE_TRACK_SEW
----@field MineralFloorTrackNSEW 574 MAPTILE_MINSTONE_TRACK_NSEW
----@field [574] "MineralFloorTrackNSEW" MAPTILE_MINSTONE_TRACK_NSEW
----@field FrozenFloorTrackN 575 MAPTILE_FROZEN_LIQUID_TRACK_N
----@field [575] "FrozenFloorTrackN" MAPTILE_FROZEN_LIQUID_TRACK_N
+---@field MineralFloorTrackS 561
+---@field [561] "MineralFloorTrackS"
+---@field MineralFloorTrackE 562
+---@field [562] "MineralFloorTrackE"
+---@field MineralFloorTrackW 563
+---@field [563] "MineralFloorTrackW"
+---@field MineralFloorTrackNS 564
+---@field [564] "MineralFloorTrackNS"
+---@field MineralFloorTrackNE 565
+---@field [565] "MineralFloorTrackNE"
+---@field MineralFloorTrackNW 566
+---@field [566] "MineralFloorTrackNW"
+---@field MineralFloorTrackSE 567
+---@field [567] "MineralFloorTrackSE"
+---@field MineralFloorTrackSW 568
+---@field [568] "MineralFloorTrackSW"
+---@field MineralFloorTrackEW 569
+---@field [569] "MineralFloorTrackEW"
+---@field MineralFloorTrackNSE 570
+---@field [570] "MineralFloorTrackNSE"
+---@field MineralFloorTrackNSW 571
+---@field [571] "MineralFloorTrackNSW"
+---@field MineralFloorTrackNEW 572
+---@field [572] "MineralFloorTrackNEW"
+---@field MineralFloorTrackSEW 573
+---@field [573] "MineralFloorTrackSEW"
+---@field MineralFloorTrackNSEW 574
+---@field [574] "MineralFloorTrackNSEW"
+---@field FrozenFloorTrackN 575
+---@field [575] "FrozenFloorTrackN"
 ---@field FrozenFloorTrackS 576 0x240
 ---@field [576] "FrozenFloorTrackS" 0x240
----@field FrozenFloorTrackE 577 MAPTILE_FROZEN_LIQUID_TRACK_E
----@field [577] "FrozenFloorTrackE" MAPTILE_FROZEN_LIQUID_TRACK_E
----@field FrozenFloorTrackW 578 MAPTILE_FROZEN_LIQUID_TRACK_W
----@field [578] "FrozenFloorTrackW" MAPTILE_FROZEN_LIQUID_TRACK_W
----@field FrozenFloorTrackNS 579 MAPTILE_FROZEN_LIQUID_TRACK_NS
----@field [579] "FrozenFloorTrackNS" MAPTILE_FROZEN_LIQUID_TRACK_NS
----@field FrozenFloorTrackNE 580 MAPTILE_FROZEN_LIQUID_TRACK_NE
----@field [580] "FrozenFloorTrackNE" MAPTILE_FROZEN_LIQUID_TRACK_NE
----@field FrozenFloorTrackNW 581 MAPTILE_FROZEN_LIQUID_TRACK_NW
----@field [581] "FrozenFloorTrackNW" MAPTILE_FROZEN_LIQUID_TRACK_NW
----@field FrozenFloorTrackSE 582 MAPTILE_FROZEN_LIQUID_TRACK_SE
----@field [582] "FrozenFloorTrackSE" MAPTILE_FROZEN_LIQUID_TRACK_SE
----@field FrozenFloorTrackSW 583 MAPTILE_FROZEN_LIQUID_TRACK_SW
----@field [583] "FrozenFloorTrackSW" MAPTILE_FROZEN_LIQUID_TRACK_SW
----@field FrozenFloorTrackEW 584 MAPTILE_FROZEN_LIQUID_TRACK_EW
----@field [584] "FrozenFloorTrackEW" MAPTILE_FROZEN_LIQUID_TRACK_EW
----@field FrozenFloorTrackNSE 585 MAPTILE_FROZEN_LIQUID_TRACK_NSE
----@field [585] "FrozenFloorTrackNSE" MAPTILE_FROZEN_LIQUID_TRACK_NSE
----@field FrozenFloorTrackNSW 586 MAPTILE_FROZEN_LIQUID_TRACK_NSW
----@field [586] "FrozenFloorTrackNSW" MAPTILE_FROZEN_LIQUID_TRACK_NSW
----@field FrozenFloorTrackNEW 587 MAPTILE_FROZEN_LIQUID_TRACK_NEW
----@field [587] "FrozenFloorTrackNEW" MAPTILE_FROZEN_LIQUID_TRACK_NEW
----@field FrozenFloorTrackSEW 588 MAPTILE_FROZEN_LIQUID_TRACK_SEW
----@field [588] "FrozenFloorTrackSEW" MAPTILE_FROZEN_LIQUID_TRACK_SEW
----@field FrozenFloorTrackNSEW 589 MAPTILE_FROZEN_LIQUID_TRACK_NSEW
----@field [589] "FrozenFloorTrackNSEW" MAPTILE_FROZEN_LIQUID_TRACK_NSEW
----@field ConstructedFloorTrackN 590 MAPTILE_CONSTRUCTED_TRACK_N
----@field [590] "ConstructedFloorTrackN" MAPTILE_CONSTRUCTED_TRACK_N
----@field ConstructedFloorTrackS 591 MAPTILE_CONSTRUCTED_TRACK_S
----@field [591] "ConstructedFloorTrackS" MAPTILE_CONSTRUCTED_TRACK_S
+---@field FrozenFloorTrackE 577
+---@field [577] "FrozenFloorTrackE"
+---@field FrozenFloorTrackW 578
+---@field [578] "FrozenFloorTrackW"
+---@field FrozenFloorTrackNS 579
+---@field [579] "FrozenFloorTrackNS"
+---@field FrozenFloorTrackNE 580
+---@field [580] "FrozenFloorTrackNE"
+---@field FrozenFloorTrackNW 581
+---@field [581] "FrozenFloorTrackNW"
+---@field FrozenFloorTrackSE 582
+---@field [582] "FrozenFloorTrackSE"
+---@field FrozenFloorTrackSW 583
+---@field [583] "FrozenFloorTrackSW"
+---@field FrozenFloorTrackEW 584
+---@field [584] "FrozenFloorTrackEW"
+---@field FrozenFloorTrackNSE 585
+---@field [585] "FrozenFloorTrackNSE"
+---@field FrozenFloorTrackNSW 586
+---@field [586] "FrozenFloorTrackNSW"
+---@field FrozenFloorTrackNEW 587
+---@field [587] "FrozenFloorTrackNEW"
+---@field FrozenFloorTrackSEW 588
+---@field [588] "FrozenFloorTrackSEW"
+---@field FrozenFloorTrackNSEW 589
+---@field [589] "FrozenFloorTrackNSEW"
+---@field ConstructedFloorTrackN 590
+---@field [590] "ConstructedFloorTrackN"
+---@field ConstructedFloorTrackS 591
+---@field [591] "ConstructedFloorTrackS"
 ---@field ConstructedFloorTrackE 592 0x250
 ---@field [592] "ConstructedFloorTrackE" 0x250
----@field ConstructedFloorTrackW 593 MAPTILE_CONSTRUCTED_TRACK_W
----@field [593] "ConstructedFloorTrackW" MAPTILE_CONSTRUCTED_TRACK_W
----@field ConstructedFloorTrackNS 594 MAPTILE_CONSTRUCTED_TRACK_NS
----@field [594] "ConstructedFloorTrackNS" MAPTILE_CONSTRUCTED_TRACK_NS
----@field ConstructedFloorTrackNE 595 MAPTILE_CONSTRUCTED_TRACK_NE
----@field [595] "ConstructedFloorTrackNE" MAPTILE_CONSTRUCTED_TRACK_NE
----@field ConstructedFloorTrackNW 596 MAPTILE_CONSTRUCTED_TRACK_NW
----@field [596] "ConstructedFloorTrackNW" MAPTILE_CONSTRUCTED_TRACK_NW
----@field ConstructedFloorTrackSE 597 MAPTILE_CONSTRUCTED_TRACK_SE
----@field [597] "ConstructedFloorTrackSE" MAPTILE_CONSTRUCTED_TRACK_SE
----@field ConstructedFloorTrackSW 598 MAPTILE_CONSTRUCTED_TRACK_SW
----@field [598] "ConstructedFloorTrackSW" MAPTILE_CONSTRUCTED_TRACK_SW
----@field ConstructedFloorTrackEW 599 MAPTILE_CONSTRUCTED_TRACK_EW
----@field [599] "ConstructedFloorTrackEW" MAPTILE_CONSTRUCTED_TRACK_EW
----@field ConstructedFloorTrackNSE 600 MAPTILE_CONSTRUCTED_TRACK_NSE
----@field [600] "ConstructedFloorTrackNSE" MAPTILE_CONSTRUCTED_TRACK_NSE
----@field ConstructedFloorTrackNSW 601 MAPTILE_CONSTRUCTED_TRACK_NSW
----@field [601] "ConstructedFloorTrackNSW" MAPTILE_CONSTRUCTED_TRACK_NSW
----@field ConstructedFloorTrackNEW 602 MAPTILE_CONSTRUCTED_TRACK_NEW
----@field [602] "ConstructedFloorTrackNEW" MAPTILE_CONSTRUCTED_TRACK_NEW
----@field ConstructedFloorTrackSEW 603 MAPTILE_CONSTRUCTED_TRACK_SEW
----@field [603] "ConstructedFloorTrackSEW" MAPTILE_CONSTRUCTED_TRACK_SEW
----@field ConstructedFloorTrackNSEW 604 MAPTILE_CONSTRUCTED_TRACK_NSEW
----@field [604] "ConstructedFloorTrackNSEW" MAPTILE_CONSTRUCTED_TRACK_NSEW
----@field StoneRampTrackN 605 MAPTILE_RAMP_STONE_TRACK_N
----@field [605] "StoneRampTrackN" MAPTILE_RAMP_STONE_TRACK_N
----@field StoneRampTrackS 606 MAPTILE_RAMP_STONE_TRACK_S
----@field [606] "StoneRampTrackS" MAPTILE_RAMP_STONE_TRACK_S
----@field StoneRampTrackE 607 MAPTILE_RAMP_STONE_TRACK_E
----@field [607] "StoneRampTrackE" MAPTILE_RAMP_STONE_TRACK_E
+---@field ConstructedFloorTrackW 593
+---@field [593] "ConstructedFloorTrackW"
+---@field ConstructedFloorTrackNS 594
+---@field [594] "ConstructedFloorTrackNS"
+---@field ConstructedFloorTrackNE 595
+---@field [595] "ConstructedFloorTrackNE"
+---@field ConstructedFloorTrackNW 596
+---@field [596] "ConstructedFloorTrackNW"
+---@field ConstructedFloorTrackSE 597
+---@field [597] "ConstructedFloorTrackSE"
+---@field ConstructedFloorTrackSW 598
+---@field [598] "ConstructedFloorTrackSW"
+---@field ConstructedFloorTrackEW 599
+---@field [599] "ConstructedFloorTrackEW"
+---@field ConstructedFloorTrackNSE 600
+---@field [600] "ConstructedFloorTrackNSE"
+---@field ConstructedFloorTrackNSW 601
+---@field [601] "ConstructedFloorTrackNSW"
+---@field ConstructedFloorTrackNEW 602
+---@field [602] "ConstructedFloorTrackNEW"
+---@field ConstructedFloorTrackSEW 603
+---@field [603] "ConstructedFloorTrackSEW"
+---@field ConstructedFloorTrackNSEW 604
+---@field [604] "ConstructedFloorTrackNSEW"
+---@field StoneRampTrackN 605
+---@field [605] "StoneRampTrackN"
+---@field StoneRampTrackS 606
+---@field [606] "StoneRampTrackS"
+---@field StoneRampTrackE 607
+---@field [607] "StoneRampTrackE"
 ---@field StoneRampTrackW 608 0x260
 ---@field [608] "StoneRampTrackW" 0x260
----@field StoneRampTrackNS 609 MAPTILE_RAMP_STONE_TRACK_NS
----@field [609] "StoneRampTrackNS" MAPTILE_RAMP_STONE_TRACK_NS
----@field StoneRampTrackNE 610 MAPTILE_RAMP_STONE_TRACK_NE
----@field [610] "StoneRampTrackNE" MAPTILE_RAMP_STONE_TRACK_NE
----@field StoneRampTrackNW 611 MAPTILE_RAMP_STONE_TRACK_NW
----@field [611] "StoneRampTrackNW" MAPTILE_RAMP_STONE_TRACK_NW
----@field StoneRampTrackSE 612 MAPTILE_RAMP_STONE_TRACK_SE
----@field [612] "StoneRampTrackSE" MAPTILE_RAMP_STONE_TRACK_SE
----@field StoneRampTrackSW 613 MAPTILE_RAMP_STONE_TRACK_SW
----@field [613] "StoneRampTrackSW" MAPTILE_RAMP_STONE_TRACK_SW
----@field StoneRampTrackEW 614 MAPTILE_RAMP_STONE_TRACK_EW
----@field [614] "StoneRampTrackEW" MAPTILE_RAMP_STONE_TRACK_EW
----@field StoneRampTrackNSE 615 MAPTILE_RAMP_STONE_TRACK_NSE
----@field [615] "StoneRampTrackNSE" MAPTILE_RAMP_STONE_TRACK_NSE
----@field StoneRampTrackNSW 616 MAPTILE_RAMP_STONE_TRACK_NSW
----@field [616] "StoneRampTrackNSW" MAPTILE_RAMP_STONE_TRACK_NSW
----@field StoneRampTrackNEW 617 MAPTILE_RAMP_STONE_TRACK_NEW
----@field [617] "StoneRampTrackNEW" MAPTILE_RAMP_STONE_TRACK_NEW
----@field StoneRampTrackSEW 618 MAPTILE_RAMP_STONE_TRACK_SEW
----@field [618] "StoneRampTrackSEW" MAPTILE_RAMP_STONE_TRACK_SEW
----@field StoneRampTrackNSEW 619 MAPTILE_RAMP_STONE_TRACK_NSEW
----@field [619] "StoneRampTrackNSEW" MAPTILE_RAMP_STONE_TRACK_NSEW
----@field LavaRampTrackN 620 MAPTILE_RAMP_LAVASTONE_TRACK_N
----@field [620] "LavaRampTrackN" MAPTILE_RAMP_LAVASTONE_TRACK_N
----@field LavaRampTrackS 621 MAPTILE_RAMP_LAVASTONE_TRACK_S
----@field [621] "LavaRampTrackS" MAPTILE_RAMP_LAVASTONE_TRACK_S
----@field LavaRampTrackE 622 MAPTILE_RAMP_LAVASTONE_TRACK_E
----@field [622] "LavaRampTrackE" MAPTILE_RAMP_LAVASTONE_TRACK_E
----@field LavaRampTrackW 623 MAPTILE_RAMP_LAVASTONE_TRACK_W
----@field [623] "LavaRampTrackW" MAPTILE_RAMP_LAVASTONE_TRACK_W
+---@field StoneRampTrackNS 609
+---@field [609] "StoneRampTrackNS"
+---@field StoneRampTrackNE 610
+---@field [610] "StoneRampTrackNE"
+---@field StoneRampTrackNW 611
+---@field [611] "StoneRampTrackNW"
+---@field StoneRampTrackSE 612
+---@field [612] "StoneRampTrackSE"
+---@field StoneRampTrackSW 613
+---@field [613] "StoneRampTrackSW"
+---@field StoneRampTrackEW 614
+---@field [614] "StoneRampTrackEW"
+---@field StoneRampTrackNSE 615
+---@field [615] "StoneRampTrackNSE"
+---@field StoneRampTrackNSW 616
+---@field [616] "StoneRampTrackNSW"
+---@field StoneRampTrackNEW 617
+---@field [617] "StoneRampTrackNEW"
+---@field StoneRampTrackSEW 618
+---@field [618] "StoneRampTrackSEW"
+---@field StoneRampTrackNSEW 619
+---@field [619] "StoneRampTrackNSEW"
+---@field LavaRampTrackN 620
+---@field [620] "LavaRampTrackN"
+---@field LavaRampTrackS 621
+---@field [621] "LavaRampTrackS"
+---@field LavaRampTrackE 622
+---@field [622] "LavaRampTrackE"
+---@field LavaRampTrackW 623
+---@field [623] "LavaRampTrackW"
 ---@field LavaRampTrackNS 624 0x270
 ---@field [624] "LavaRampTrackNS" 0x270
----@field LavaRampTrackNE 625 MAPTILE_RAMP_LAVASTONE_TRACK_NE
----@field [625] "LavaRampTrackNE" MAPTILE_RAMP_LAVASTONE_TRACK_NE
----@field LavaRampTrackNW 626 MAPTILE_RAMP_LAVASTONE_TRACK_NW
----@field [626] "LavaRampTrackNW" MAPTILE_RAMP_LAVASTONE_TRACK_NW
----@field LavaRampTrackSE 627 MAPTILE_RAMP_LAVASTONE_TRACK_SE
----@field [627] "LavaRampTrackSE" MAPTILE_RAMP_LAVASTONE_TRACK_SE
----@field LavaRampTrackSW 628 MAPTILE_RAMP_LAVASTONE_TRACK_SW
----@field [628] "LavaRampTrackSW" MAPTILE_RAMP_LAVASTONE_TRACK_SW
----@field LavaRampTrackEW 629 MAPTILE_RAMP_LAVASTONE_TRACK_EW
----@field [629] "LavaRampTrackEW" MAPTILE_RAMP_LAVASTONE_TRACK_EW
----@field LavaRampTrackNSE 630 MAPTILE_RAMP_LAVASTONE_TRACK_NSE
----@field [630] "LavaRampTrackNSE" MAPTILE_RAMP_LAVASTONE_TRACK_NSE
----@field LavaRampTrackNSW 631 MAPTILE_RAMP_LAVASTONE_TRACK_NSW
----@field [631] "LavaRampTrackNSW" MAPTILE_RAMP_LAVASTONE_TRACK_NSW
----@field LavaRampTrackNEW 632 MAPTILE_RAMP_LAVASTONE_TRACK_NEW
----@field [632] "LavaRampTrackNEW" MAPTILE_RAMP_LAVASTONE_TRACK_NEW
----@field LavaRampTrackSEW 633 MAPTILE_RAMP_LAVASTONE_TRACK_SEW
----@field [633] "LavaRampTrackSEW" MAPTILE_RAMP_LAVASTONE_TRACK_SEW
----@field LavaRampTrackNSEW 634 MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
----@field [634] "LavaRampTrackNSEW" MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
----@field FeatureRampTrackN 635 MAPTILE_RAMP_FEATSTONE_TRACK_N
----@field [635] "FeatureRampTrackN" MAPTILE_RAMP_FEATSTONE_TRACK_N
----@field FeatureRampTrackS 636 MAPTILE_RAMP_FEATSTONE_TRACK_S
----@field [636] "FeatureRampTrackS" MAPTILE_RAMP_FEATSTONE_TRACK_S
----@field FeatureRampTrackE 637 MAPTILE_RAMP_FEATSTONE_TRACK_E
----@field [637] "FeatureRampTrackE" MAPTILE_RAMP_FEATSTONE_TRACK_E
----@field FeatureRampTrackW 638 MAPTILE_RAMP_FEATSTONE_TRACK_W
----@field [638] "FeatureRampTrackW" MAPTILE_RAMP_FEATSTONE_TRACK_W
----@field FeatureRampTrackNS 639 MAPTILE_RAMP_FEATSTONE_TRACK_NS
----@field [639] "FeatureRampTrackNS" MAPTILE_RAMP_FEATSTONE_TRACK_NS
+---@field LavaRampTrackNE 625
+---@field [625] "LavaRampTrackNE"
+---@field LavaRampTrackNW 626
+---@field [626] "LavaRampTrackNW"
+---@field LavaRampTrackSE 627
+---@field [627] "LavaRampTrackSE"
+---@field LavaRampTrackSW 628
+---@field [628] "LavaRampTrackSW"
+---@field LavaRampTrackEW 629
+---@field [629] "LavaRampTrackEW"
+---@field LavaRampTrackNSE 630
+---@field [630] "LavaRampTrackNSE"
+---@field LavaRampTrackNSW 631
+---@field [631] "LavaRampTrackNSW"
+---@field LavaRampTrackNEW 632
+---@field [632] "LavaRampTrackNEW"
+---@field LavaRampTrackSEW 633
+---@field [633] "LavaRampTrackSEW"
+---@field LavaRampTrackNSEW 634
+---@field [634] "LavaRampTrackNSEW"
+---@field FeatureRampTrackN 635
+---@field [635] "FeatureRampTrackN"
+---@field FeatureRampTrackS 636
+---@field [636] "FeatureRampTrackS"
+---@field FeatureRampTrackE 637
+---@field [637] "FeatureRampTrackE"
+---@field FeatureRampTrackW 638
+---@field [638] "FeatureRampTrackW"
+---@field FeatureRampTrackNS 639
+---@field [639] "FeatureRampTrackNS"
 ---@field FeatureRampTrackNE 640 0x280
 ---@field [640] "FeatureRampTrackNE" 0x280
----@field FeatureRampTrackNW 641 MAPTILE_RAMP_FEATSTONE_TRACK_NW
----@field [641] "FeatureRampTrackNW" MAPTILE_RAMP_FEATSTONE_TRACK_NW
----@field FeatureRampTrackSE 642 MAPTILE_RAMP_FEATSTONE_TRACK_SE
----@field [642] "FeatureRampTrackSE" MAPTILE_RAMP_FEATSTONE_TRACK_SE
----@field FeatureRampTrackSW 643 MAPTILE_RAMP_FEATSTONE_TRACK_SW
----@field [643] "FeatureRampTrackSW" MAPTILE_RAMP_FEATSTONE_TRACK_SW
----@field FeatureRampTrackEW 644 MAPTILE_RAMP_FEATSTONE_TRACK_EW
----@field [644] "FeatureRampTrackEW" MAPTILE_RAMP_FEATSTONE_TRACK_EW
----@field FeatureRampTrackNSE 645 MAPTILE_RAMP_FEATSTONE_TRACK_NSE
----@field [645] "FeatureRampTrackNSE" MAPTILE_RAMP_FEATSTONE_TRACK_NSE
----@field FeatureRampTrackNSW 646 MAPTILE_RAMP_FEATSTONE_TRACK_NSW
----@field [646] "FeatureRampTrackNSW" MAPTILE_RAMP_FEATSTONE_TRACK_NSW
----@field FeatureRampTrackNEW 647 MAPTILE_RAMP_FEATSTONE_TRACK_NEW
----@field [647] "FeatureRampTrackNEW" MAPTILE_RAMP_FEATSTONE_TRACK_NEW
----@field FeatureRampTrackSEW 648 MAPTILE_RAMP_FEATSTONE_TRACK_SEW
----@field [648] "FeatureRampTrackSEW" MAPTILE_RAMP_FEATSTONE_TRACK_SEW
----@field FeatureRampTrackNSEW 649 MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
----@field [649] "FeatureRampTrackNSEW" MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
----@field MineralRampTrackN 650 MAPTILE_RAMP_MINSTONE_TRACK_N
----@field [650] "MineralRampTrackN" MAPTILE_RAMP_MINSTONE_TRACK_N
----@field MineralRampTrackS 651 MAPTILE_RAMP_MINSTONE_TRACK_S
----@field [651] "MineralRampTrackS" MAPTILE_RAMP_MINSTONE_TRACK_S
----@field MineralRampTrackE 652 MAPTILE_RAMP_MINSTONE_TRACK_E
----@field [652] "MineralRampTrackE" MAPTILE_RAMP_MINSTONE_TRACK_E
----@field MineralRampTrackW 653 MAPTILE_RAMP_MINSTONE_TRACK_W
----@field [653] "MineralRampTrackW" MAPTILE_RAMP_MINSTONE_TRACK_W
----@field MineralRampTrackNS 654 MAPTILE_RAMP_MINSTONE_TRACK_NS
----@field [654] "MineralRampTrackNS" MAPTILE_RAMP_MINSTONE_TRACK_NS
----@field MineralRampTrackNE 655 MAPTILE_RAMP_MINSTONE_TRACK_NE
----@field [655] "MineralRampTrackNE" MAPTILE_RAMP_MINSTONE_TRACK_NE
+---@field FeatureRampTrackNW 641
+---@field [641] "FeatureRampTrackNW"
+---@field FeatureRampTrackSE 642
+---@field [642] "FeatureRampTrackSE"
+---@field FeatureRampTrackSW 643
+---@field [643] "FeatureRampTrackSW"
+---@field FeatureRampTrackEW 644
+---@field [644] "FeatureRampTrackEW"
+---@field FeatureRampTrackNSE 645
+---@field [645] "FeatureRampTrackNSE"
+---@field FeatureRampTrackNSW 646
+---@field [646] "FeatureRampTrackNSW"
+---@field FeatureRampTrackNEW 647
+---@field [647] "FeatureRampTrackNEW"
+---@field FeatureRampTrackSEW 648
+---@field [648] "FeatureRampTrackSEW"
+---@field FeatureRampTrackNSEW 649
+---@field [649] "FeatureRampTrackNSEW"
+---@field MineralRampTrackN 650
+---@field [650] "MineralRampTrackN"
+---@field MineralRampTrackS 651
+---@field [651] "MineralRampTrackS"
+---@field MineralRampTrackE 652
+---@field [652] "MineralRampTrackE"
+---@field MineralRampTrackW 653
+---@field [653] "MineralRampTrackW"
+---@field MineralRampTrackNS 654
+---@field [654] "MineralRampTrackNS"
+---@field MineralRampTrackNE 655
+---@field [655] "MineralRampTrackNE"
 ---@field MineralRampTrackNW 656 0x290
 ---@field [656] "MineralRampTrackNW" 0x290
----@field MineralRampTrackSE 657 MAPTILE_RAMP_MINSTONE_TRACK_SE
----@field [657] "MineralRampTrackSE" MAPTILE_RAMP_MINSTONE_TRACK_SE
----@field MineralRampTrackSW 658 MAPTILE_RAMP_MINSTONE_TRACK_SW
----@field [658] "MineralRampTrackSW" MAPTILE_RAMP_MINSTONE_TRACK_SW
----@field MineralRampTrackEW 659 MAPTILE_RAMP_MINSTONE_TRACK_EW
----@field [659] "MineralRampTrackEW" MAPTILE_RAMP_MINSTONE_TRACK_EW
----@field MineralRampTrackNSE 660 MAPTILE_RAMP_MINSTONE_TRACK_NSE
----@field [660] "MineralRampTrackNSE" MAPTILE_RAMP_MINSTONE_TRACK_NSE
----@field MineralRampTrackNSW 661 MAPTILE_RAMP_MINSTONE_TRACK_NSW
----@field [661] "MineralRampTrackNSW" MAPTILE_RAMP_MINSTONE_TRACK_NSW
----@field MineralRampTrackNEW 662 MAPTILE_RAMP_MINSTONE_TRACK_NEW
----@field [662] "MineralRampTrackNEW" MAPTILE_RAMP_MINSTONE_TRACK_NEW
----@field MineralRampTrackSEW 663 MAPTILE_RAMP_MINSTONE_TRACK_SEW
----@field [663] "MineralRampTrackSEW" MAPTILE_RAMP_MINSTONE_TRACK_SEW
----@field MineralRampTrackNSEW 664 MAPTILE_RAMP_MINSTONE_TRACK_NSEW
----@field [664] "MineralRampTrackNSEW" MAPTILE_RAMP_MINSTONE_TRACK_NSEW
----@field FrozenRampTrackN 665 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
----@field [665] "FrozenRampTrackN" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
----@field FrozenRampTrackS 666 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
----@field [666] "FrozenRampTrackS" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
----@field FrozenRampTrackE 667 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
----@field [667] "FrozenRampTrackE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
----@field FrozenRampTrackW 668 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
----@field [668] "FrozenRampTrackW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
----@field FrozenRampTrackNS 669 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
----@field [669] "FrozenRampTrackNS" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
----@field FrozenRampTrackNE 670 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
----@field [670] "FrozenRampTrackNE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
----@field FrozenRampTrackNW 671 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
----@field [671] "FrozenRampTrackNW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
+---@field MineralRampTrackSE 657
+---@field [657] "MineralRampTrackSE"
+---@field MineralRampTrackSW 658
+---@field [658] "MineralRampTrackSW"
+---@field MineralRampTrackEW 659
+---@field [659] "MineralRampTrackEW"
+---@field MineralRampTrackNSE 660
+---@field [660] "MineralRampTrackNSE"
+---@field MineralRampTrackNSW 661
+---@field [661] "MineralRampTrackNSW"
+---@field MineralRampTrackNEW 662
+---@field [662] "MineralRampTrackNEW"
+---@field MineralRampTrackSEW 663
+---@field [663] "MineralRampTrackSEW"
+---@field MineralRampTrackNSEW 664
+---@field [664] "MineralRampTrackNSEW"
+---@field FrozenRampTrackN 665
+---@field [665] "FrozenRampTrackN"
+---@field FrozenRampTrackS 666
+---@field [666] "FrozenRampTrackS"
+---@field FrozenRampTrackE 667
+---@field [667] "FrozenRampTrackE"
+---@field FrozenRampTrackW 668
+---@field [668] "FrozenRampTrackW"
+---@field FrozenRampTrackNS 669
+---@field [669] "FrozenRampTrackNS"
+---@field FrozenRampTrackNE 670
+---@field [670] "FrozenRampTrackNE"
+---@field FrozenRampTrackNW 671
+---@field [671] "FrozenRampTrackNW"
 ---@field FrozenRampTrackSE 672 0x2A0
 ---@field [672] "FrozenRampTrackSE" 0x2A0
----@field FrozenRampTrackSW 673 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
----@field [673] "FrozenRampTrackSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
----@field FrozenRampTrackEW 674 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
----@field [674] "FrozenRampTrackEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
----@field FrozenRampTrackNSE 675 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
----@field [675] "FrozenRampTrackNSE" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
----@field FrozenRampTrackNSW 676 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
----@field [676] "FrozenRampTrackNSW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
----@field FrozenRampTrackNEW 677 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
----@field [677] "FrozenRampTrackNEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
----@field FrozenRampTrackSEW 678 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
----@field [678] "FrozenRampTrackSEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
----@field FrozenRampTrackNSEW 679 MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
----@field [679] "FrozenRampTrackNSEW" MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
----@field ConstructedRampTrackN 680 MAPTILE_RAMP_CONSTRUCTED_TRACK_N
----@field [680] "ConstructedRampTrackN" MAPTILE_RAMP_CONSTRUCTED_TRACK_N
----@field ConstructedRampTrackS 681 MAPTILE_RAMP_CONSTRUCTED_TRACK_S
----@field [681] "ConstructedRampTrackS" MAPTILE_RAMP_CONSTRUCTED_TRACK_S
----@field ConstructedRampTrackE 682 MAPTILE_RAMP_CONSTRUCTED_TRACK_E
----@field [682] "ConstructedRampTrackE" MAPTILE_RAMP_CONSTRUCTED_TRACK_E
----@field ConstructedRampTrackW 683 MAPTILE_RAMP_CONSTRUCTED_TRACK_W
----@field [683] "ConstructedRampTrackW" MAPTILE_RAMP_CONSTRUCTED_TRACK_W
----@field ConstructedRampTrackNS 684 MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
----@field [684] "ConstructedRampTrackNS" MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
----@field ConstructedRampTrackNE 685 MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
----@field [685] "ConstructedRampTrackNE" MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
----@field ConstructedRampTrackNW 686 MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
----@field [686] "ConstructedRampTrackNW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
----@field ConstructedRampTrackSE 687 MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
----@field [687] "ConstructedRampTrackSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
+---@field FrozenRampTrackSW 673
+---@field [673] "FrozenRampTrackSW"
+---@field FrozenRampTrackEW 674
+---@field [674] "FrozenRampTrackEW"
+---@field FrozenRampTrackNSE 675
+---@field [675] "FrozenRampTrackNSE"
+---@field FrozenRampTrackNSW 676
+---@field [676] "FrozenRampTrackNSW"
+---@field FrozenRampTrackNEW 677
+---@field [677] "FrozenRampTrackNEW"
+---@field FrozenRampTrackSEW 678
+---@field [678] "FrozenRampTrackSEW"
+---@field FrozenRampTrackNSEW 679
+---@field [679] "FrozenRampTrackNSEW"
+---@field ConstructedRampTrackN 680
+---@field [680] "ConstructedRampTrackN"
+---@field ConstructedRampTrackS 681
+---@field [681] "ConstructedRampTrackS"
+---@field ConstructedRampTrackE 682
+---@field [682] "ConstructedRampTrackE"
+---@field ConstructedRampTrackW 683
+---@field [683] "ConstructedRampTrackW"
+---@field ConstructedRampTrackNS 684
+---@field [684] "ConstructedRampTrackNS"
+---@field ConstructedRampTrackNE 685
+---@field [685] "ConstructedRampTrackNE"
+---@field ConstructedRampTrackNW 686
+---@field [686] "ConstructedRampTrackNW"
+---@field ConstructedRampTrackSE 687
+---@field [687] "ConstructedRampTrackSE"
 ---@field ConstructedRampTrackSW 688 0x2B0
 ---@field [688] "ConstructedRampTrackSW" 0x2B0
----@field ConstructedRampTrackEW 689 MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
----@field [689] "ConstructedRampTrackEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
----@field ConstructedRampTrackNSE 690 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
----@field [690] "ConstructedRampTrackNSE" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
----@field ConstructedRampTrackNSW 691 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
----@field [691] "ConstructedRampTrackNSW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
----@field ConstructedRampTrackNEW 692 MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
----@field [692] "ConstructedRampTrackNEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
----@field ConstructedRampTrackSEW 693 MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
----@field [693] "ConstructedRampTrackSEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
----@field ConstructedRampTrackNSEW 694 MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
----@field [694] "ConstructedRampTrackNSEW" MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
----@field Unused695 695 MAPTILE_UNUSED_695
----@field [695] "Unused695" MAPTILE_UNUSED_695
----@field Unused696 696 MAPTILE_UNUSED_696
----@field [696] "Unused696" MAPTILE_UNUSED_696
+---@field ConstructedRampTrackEW 689
+---@field [689] "ConstructedRampTrackEW"
+---@field ConstructedRampTrackNSE 690
+---@field [690] "ConstructedRampTrackNSE"
+---@field ConstructedRampTrackNSW 691
+---@field [691] "ConstructedRampTrackNSW"
+---@field ConstructedRampTrackNEW 692
+---@field [692] "ConstructedRampTrackNEW"
+---@field ConstructedRampTrackSEW 693
+---@field [693] "ConstructedRampTrackSEW"
+---@field ConstructedRampTrackNSEW 694
+---@field [694] "ConstructedRampTrackNSEW"
+---@field Unused695 695
+---@field [695] "Unused695"
+---@field Unused696 696
+---@field [696] "Unused696"
 df.tiletype = {}
 
 ---@class tiletype_attr_entry_type: DFCompoundType
@@ -15639,15 +17631,16 @@ df.weather_type = {}
 ---| 72 # SET_SCHOLARS_ON_VALUES_AND_JOBS
 ---| 73 # NO_ARTIFACT_CLAIMS
 ---| 74 # USE_NON_EXOTIC_PET_RACE
----| 75 # MISSING_UNDERWORLD_DISASTERS
+---| 75 # MINING_UNDERWORLD_DISASTERS
+---| 76 # SIEGE_SKILLED_MINERS
 
 ---@class identity.entity_raw_flags: DFEnumType
 ---@field CIV_CONTROLLABLE 0 bay12: EntityDefFlagType
 ---@field [0] "CIV_CONTROLLABLE" bay12: EntityDefFlagType
----@field INDIV_CONTROLLABLE 1 SITE_CONTROLLABLE
----@field [1] "INDIV_CONTROLLABLE" SITE_CONTROLLABLE
----@field LAYER_LINKED 2 ALL_MAIN_POPS_CONTROLLABLE
----@field [2] "LAYER_LINKED" ALL_MAIN_POPS_CONTROLLABLE
+---@field INDIV_CONTROLLABLE 1
+---@field [1] "INDIV_CONTROLLABLE"
+---@field LAYER_LINKED 2
+---@field [2] "LAYER_LINKED"
 ---@field INDOOR_WOOD 3
 ---@field [3] "INDOOR_WOOD"
 ---@field WOOD_ARMOR 4
@@ -15792,8 +17785,10 @@ df.weather_type = {}
 ---@field [73] "NO_ARTIFACT_CLAIMS"
 ---@field USE_NON_EXOTIC_PET_RACE 74
 ---@field [74] "USE_NON_EXOTIC_PET_RACE"
----@field MISSING_UNDERWORLD_DISASTERS 75
----@field [75] "MISSING_UNDERWORLD_DISASTERS"
+---@field MINING_UNDERWORLD_DISASTERS 75
+---@field [75] "MINING_UNDERWORLD_DISASTERS"
+---@field SIEGE_SKILLED_MINERS 76
+---@field [76] "SIEGE_SKILLED_MINERS"
 df.entity_raw_flags = {}
 
 ---@alias df.building_type
@@ -16197,8 +18192,8 @@ df.tile_traffic = {}
 ---@field [12] boolean
 ---@field unhide_trigger boolean when noncitizen moves in, something happens and it is cleared
 ---@field [13] boolean when noncitizen moves in, something happens and it is cleared
----@field monster_lair boolean bay12: permanent_mess; A monster lair. Items placed wont be moved.
----@field [14] boolean bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field monster_lair boolean A monster lair. Items placed wont be moved.
+---@field [14] boolean A monster lair. Items placed wont be moved.
 ---@field no_grow boolean seems to be set on terrain tiles where grass growth is impossible
 ---@field [15] boolean seems to be set on terrain tiles where grass growth is impossible
 ---@field forced_subterranean_constructions boolean
@@ -16247,8 +18242,8 @@ df.tile_traffic = {}
 ---@field [12] "arrow_variant"
 ---@field unhide_trigger 13 when noncitizen moves in, something happens and it is cleared
 ---@field [13] "unhide_trigger" when noncitizen moves in, something happens and it is cleared
----@field monster_lair 14 bay12: permanent_mess; A monster lair. Items placed wont be moved.
----@field [14] "monster_lair" bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field monster_lair 14 A monster lair. Items placed wont be moved.
+---@field [14] "monster_lair" A monster lair. Items placed wont be moved.
 ---@field no_grow 15 seems to be set on terrain tiles where grass growth is impossible
 ---@field [15] "no_grow" seems to be set on terrain tiles where grass growth is impossible
 ---@field forced_subterranean_constructions 16
@@ -16292,20 +18287,20 @@ df.tile_occupancy = {}
 ---@class identity.tile_building_occ: DFEnumType
 ---@field None 0 bay12: BUILDING_OCCUPANCY_*
 ---@field [0] "None" bay12: BUILDING_OCCUPANCY_*
----@field Planned 1 CONST; nothing built yet
----@field [1] "Planned" CONST; nothing built yet
----@field Passable 2 NO_BLOCK
----@field [2] "Passable" NO_BLOCK
----@field Obstacle 3 BLOCK_FLOOR
----@field [3] "Obstacle" BLOCK_FLOOR
----@field Well 4 BLOCK
----@field [4] "Well" BLOCK
----@field Floored 5 FLOOR; depot; lowered bridge
----@field [5] "Floored" FLOOR; depot; lowered bridge
----@field Impassable 6 TOTAL
----@field [6] "Impassable" TOTAL
----@field Dynamic 7 SPECIAL; doors, grates, etc
----@field [7] "Dynamic" SPECIAL; doors, grates, etc
+---@field Planned 1 nothing built yet
+---@field [1] "Planned" nothing built yet
+---@field Passable 2
+---@field [2] "Passable"
+---@field Obstacle 3
+---@field [3] "Obstacle"
+---@field Well 4
+---@field [4] "Well"
+---@field Floored 5 depot; lowered bridge
+---@field [5] "Floored" depot; lowered bridge
+---@field Impassable 6
+---@field [6] "Impassable"
+---@field Dynamic 7 doors, grates, etc
+---@field [7] "Dynamic" doors, grates, etc
 df.tile_building_occ = {}
 
 ---@class df.tile_liquid_flow: DFBitfield
@@ -17325,8 +19320,8 @@ df.item_type.attrs = {}
 ---@class identity.entity_name_type: DFEnumType
 ---@field NONE -1 bay12: EntityDefSelector
 ---@field [-1] "NONE" bay12: EntityDefSelector
----@field OTHER 0 MAIN
----@field [0] "OTHER" MAIN
+---@field OTHER 0
+---@field [0] "OTHER"
 ---@field CIV 1
 ---@field [1] "CIV"
 ---@field SITE 2

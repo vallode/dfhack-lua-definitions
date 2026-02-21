@@ -2,6 +2,7 @@
 ---@meta
 
 ---@alias df.history_event_collection_type
+---| -1 # NONE
 ---| 0 # WAR
 ---| 1 # BATTLE
 ---| 2 # DUEL
@@ -22,8 +23,10 @@
 ---| 17 # ENTITY_OVERTHROWN
 
 ---@class identity.history_event_collection_type: DFEnumType
----@field WAR 0 bay12: HistoryEventCollectionType
----@field [0] "WAR" bay12: HistoryEventCollectionType
+---@field NONE -1 bay12: HistoryEventCollectionType
+---@field [-1] "NONE" bay12: HistoryEventCollectionType
+---@field WAR 0
+---@field [0] "WAR"
 ---@field BATTLE 1
 ---@field [1] "BATTLE"
 ---@field DUEL 2
@@ -83,27 +86,27 @@ local history_event_collection
 ---@return df.history_event_collection_type
 function history_event_collection:getType() end
 
----@param anon_0 lightuserdata
----@param indent number
-function history_event_collection:generate_xml(anon_0, indent) end
+---@param fseed lightuserdata
+---@param tabn number
+function history_event_collection:generate_xml(fseed, tabn) end
 
----@param file df.file_compressorst
-function history_event_collection:write_file(file) end
+---@param filecomp df.file_compressorst
+function history_event_collection:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function history_event_collection:read_file(file, loadversion) end
+function history_event_collection:read_file(filecomp, loadversion) end
 
 function history_event_collection:categorize() end
 
 function history_event_collection:uncategorize() end
 
----@param string string
-function history_event_collection:getName(string) end
+---@param str string
+function history_event_collection:getName(str) end
 
----@param x number
----@param y number
-function history_event_collection:getRegionCoords(x, y) end
+---@param n_ax number
+---@param n_ay number
+function history_event_collection:getRegionCoords(n_ax, n_ay) end
 
 ---@return number
 function history_event_collection:getParent() end
@@ -111,10 +114,10 @@ function history_event_collection:getParent() end
 ---@return number
 function history_event_collection:getEraImportance() end
 
----@param civ number
----@param target number
+---@param civ_id number
+---@param target_id number
 ---@return number
-function history_event_collection:getDiplomacyValue(civ, target) end
+function history_event_collection:getDiplomacyValue(civ_id, target_id) end
 
 function history_event_collection:updateEndTime() end
 

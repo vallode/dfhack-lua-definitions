@@ -38,7 +38,7 @@ df.mandate_flag = {}
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
 ---@field punishment df.punishmentst
----@field punish_multiple number mega_punish, likely dates back to 23a Mining mandates
+---@field punish_multiple number punish 10 units, not just 1
 ---@field flags df.mandate_flag
 
 ---@class identity.mandate: DFCompoundType

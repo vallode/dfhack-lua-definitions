@@ -73,7 +73,7 @@ function df.wg_quest_postingst:new() end
 ---@field _type identity.resource_allotmentst
 ---@field production_zone_index number
 ---@field allotment df.resource_allotment_specifier_type
----@field special_controlling_entity_id number
+---@field special_controlling_entity_id number References: `df.historical_entity`
 ---@field count DFNumberVector
 
 ---@class identity.resource_allotmentst: DFCompoundType
@@ -177,10 +177,10 @@ function df.world_site_inhabitant:new() end
 ---@class (exact) df.unit_placement_infost: DFStruct
 ---@field _type identity.unit_placement_infost
 ---@field unit_id number References: `df.unit`
----@field pos_x number this is a union in bay12 but they're both the same type so why bother
+---@field pos_x number
 ---@field pos_y number
 ---@field pos_z number
----@field container_it_id number
+---@field container_it_id number References: `df.item`
 
 ---@class identity.unit_placement_infost: DFCompoundType
 ---@field _kind 'struct-type'
@@ -462,8 +462,8 @@ function _site_map_infost_lair_characteristic:erase(index) end
 ---| 7 # TOWN
 
 ---@class identity.infrastructure_type: DFEnumType
----@field NONE -1
----@field [-1] "NONE"
+---@field NONE -1 bay12: InfrastructureType
+---@field [-1] "NONE" bay12: InfrastructureType
 ---@field VILLAGE 0
 ---@field [0] "VILLAGE"
 ---@field PASTURE 1
@@ -583,10 +583,10 @@ df.site_architecture_flag = {}
 ---@field DOMINANT_ENTITY number References: `df.historical_entity`
 ---@field SRB_RUINED number
 ---@field SRP_RUINED number
----@field GENERALIZED_DAMAGE number percentage
+---@field GENERALIZED_DAMAGE number
 ---@field GENERALIZED_DEATH_ID number
 ---@field year number
----@field year_tick number bay12: season_count
+---@field year_tick number
 ---@field flags df.site_architecture_flag
 ---@field spec_flag df.site_architecture_changest.T_spec_flag
 
@@ -801,7 +801,7 @@ function df.wg_site_culture_identity_interactionst:new() end
 
 ---@class (exact) df.wg_site_culture_identityst: DFStruct
 ---@field _type identity.wg_site_culture_identityst
----@field entity_id number
+---@field entity_id number References: `df.historical_entity`
 ---@field religious_practice _wg_site_culture_identityst_religious_practice
 ---@field interaction _wg_site_culture_identityst_interaction
 
@@ -937,8 +937,8 @@ function _site_culture_infrastructurest_religious_structure_batch:erase(index) e
 ---| 10 # COMPLETELY_SUPERCEDED
 
 ---@class identity.site_flag_type: DFEnumType
----@field HIDDEN 0 SiteFlagType
----@field [0] "HIDDEN" SiteFlagType
+---@field HIDDEN 0 bay12: SiteFlagType
+---@field [0] "HIDDEN" bay12: SiteFlagType
 ---@field RUINED 1
 ---@field [1] "RUINED"
 ---@field IGNORED_BY_LEGENDS 2
@@ -998,15 +998,15 @@ df.site_flag_type = {}
 ---@field flag _world_site_flag
 ---@field buildings _world_site_buildings
 ---@field next_building_id number
----@field property_ownership _world_site_property_ownership bay12: site_building_profile
+---@field property_ownership _world_site_property_ownership
 ---@field next_property_ownership_id number
----@field created_tick number bay12: lastvisited not created
----@field created_year number bay12: lastvisited not created
+---@field created_tick number
+---@field created_year number
 ---@field moss_counter number constant 0
 ---@field weathering_counter number constant 0
 ---@field recorded_entrance df.coord
 ---@field realization df.world_site_realization
----@field subtype_info df.site_map_infost bay12: site_map_info
+---@field subtype_info df.site_map_infost
 ---@field location_death df.location_deathst
 ---@field min_depth number compared to feature_init.end_depth
 ---@field max_depth number compared to feature_init.start_depth

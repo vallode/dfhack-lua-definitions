@@ -2,6 +2,7 @@
 ---@meta
 
 ---@alias df.embark_finder_option
+---| -1 # NONE
 ---| 0 # DimensionX
 ---| 1 # DimensionY
 ---| 2 # Savagery
@@ -26,8 +27,10 @@
 ---| 21 # Sand
 
 ---@class identity.embark_finder_option: DFEnumType
----@field DimensionX 0 bay12: FindSiteParamType
----@field [0] "DimensionX" bay12: FindSiteParamType
+---@field NONE -1 bay12: FindSiteParamType
+---@field [-1] "NONE" bay12: FindSiteParamType
+---@field DimensionX 0
+---@field [0] "DimensionX"
 ---@field DimensionY 1
 ---@field [1] "DimensionY"
 ---@field Savagery 2
@@ -114,7 +117,7 @@ function df.worldgen_parms_ps:new() end
 ---@field volcano_min number
 ---@field region_counts DFEnumVector<df.world_region_type, number>[]
 ---@field river_mins number[]
----@field subregion_max number
+---@field subregion_max number not an array
 ---@field cavern_layer_count number
 ---@field cavern_layer_openness_min number
 ---@field cavern_layer_openness_max number
@@ -163,14 +166,14 @@ function df.worldgen_parms_ps:new() end
 ---@field semimegabeast_cap number
 ---@field titan_number number
 ---@field titan_attack_trigger number[]
----@field demon_number number
+---@field demon_number number not an array - _population, _exported_wealth, _created_wealth
 ---@field night_troll_number number
 ---@field bogeyman_number number
 ---@field nightmare_number number
 ---@field vampire_number number
 ---@field werebeast_number number
 ---@field werebeast_attack_trigger number[]
----@field secret_number number
+---@field secret_number number not an array - _population, _exported_wealth, _created_wealth
 ---@field regional_interaction_number number
 ---@field disturbance_interaction_number number
 ---@field evil_cloud_number number
@@ -191,12 +194,12 @@ function df.worldgen_parms_ps:new() end
 ---@field good_sq_counts_2 number
 ---@field evil_sq_counts_2 number
 ---@field elevation_frequency number[]
----@field rain_frequency number[]
----@field drainage_frequency number[]
----@field savagery_frequency number[]
----@field temperature_frequency number[]
----@field volcanism_frequency number[]
----@field ps df.worldgen_parms_ps
+---@field rain_frequency number[] actually 1 integer plus an array of 5
+---@field drainage_frequency number[] see above
+---@field savagery_frequency number[] see above
+---@field temperature_frequency number[] see above
+---@field volcanism_frequency number[] see above
+---@field ps df.worldgen_parms_ps see above
 ---@field reveal_all_history number
 ---@field cull_historical_figures number
 ---@field erosion_cycle_count number
@@ -298,6 +301,7 @@ df.sunrise_type = {}
 
 ---@alias df.region_map_entry_flags
 ---| 0 # has_river
+---| 1 # UNUSED_02
 ---| 2 # new_lake
 ---| 3 # has_site
 ---| 4 # temp_river
@@ -318,6 +322,8 @@ df.sunrise_type = {}
 ---@class identity.region_map_entry_flags: DFEnumType
 ---@field has_river 0 bay12: RegionSquareFlagType
 ---@field [0] "has_river" bay12: RegionSquareFlagType
+---@field UNUSED_02 1
+---@field [1] "UNUSED_02"
 ---@field new_lake 2
 ---@field [2] "new_lake"
 ---@field has_site 3
@@ -346,12 +352,13 @@ df.sunrise_type = {}
 ---@field [14] "is_lake"
 ---@field is_brook 15
 ---@field [15] "is_brook"
----@field has_road 16 any construction
----@field [16] "has_road" any construction
+---@field has_road 16
+---@field [16] "has_road"
 ---@field orig_river_source 17
 ---@field [17] "orig_river_source"
 df.region_map_entry_flags = {}
 
+-- not to be confused with region_weather_flag, a completely different bitfield
 ---@class df.region_weather_bits: DFBitfield
 ---@field _enum identity.region_weather_bits
 ---@field front boolean bay12: REGION_WEATHER_*
@@ -777,7 +784,7 @@ function _world_geo_biome_layers:erase(index) end
 ---@field layer_depth_p1a number +1
 ---@field layer_depth_p1b number
 ---@field water number
----@field trees number Based on worldgen parameter pair.
+---@field trees number
 ---@field openness_min number
 ---@field openness_max number These parameters correspond to
 ---@field passage_density_min number the similar world gen parameters.
@@ -817,7 +824,7 @@ df.entity_population_flag = {}
 ---@class (exact) df.entity_population: DFStruct
 ---@field _type identity.entity_population
 ---@field name df.language_name
----@field races DFNumberVector all the 3 vectors are always the same length, and thus coupled
+---@field races DFNumberVector all the 4 vectors are always the same length, and thus coupled
 ---@field counts DFNumberVector
 ---@field population_cap DFNumberVector Set only for cave civs. When set, >= counts. Pre first embark all those are equal
 ---@field gene_pool _entity_population_gene_pool
@@ -1312,8 +1319,8 @@ function _world_gen_wandering_groupst_rpop:insert(index, item) end
 ---@param index integer
 function _world_gen_wandering_groupst_rpop:erase(index) end
 
--- Unused: REGION_WALK_*
 -- Unused: GraphicalMapExportModeType
+-- Unused: REGION_WALK_*
 ---@class (exact) df.embark_note: DFStruct
 ---@field _type identity.embark_note
 ---@field tile number
@@ -1412,12 +1419,12 @@ local region_block_eventst
 ---@return df.region_block_event_type
 function region_block_eventst:getType() end
 
----@param file df.file_compressorst
-function region_block_eventst:write_file(file) end
+---@param filecomp df.file_compressorst
+function region_block_eventst:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function region_block_eventst:read_file(file, loadversion) end
+function region_block_eventst:read_file(filecomp, loadversion) end
 
 ---@return boolean
 function region_block_eventst:isEmpty() end
@@ -1510,7 +1517,7 @@ function _region_blockst_army:erase(index) end
 ---@field entity_territory df.entity_territoryst
 ---@field sites _world_data_sites
 ---@field resource_pile _world_data_resource_pile
----@field resource_allotments _world_data_resource_allotments bay12: production_zone
+---@field resource_allotments _world_data_resource_allotments
 ---@field breeds _world_data_breeds
 ---@field battlefields _world_data_battlefields
 ---@field region_weather _world_data_region_weather
@@ -1535,7 +1542,7 @@ function _region_blockst_army:erase(index) end
 ---@field old_sites DFNumberVector
 ---@field old_site_x DFNumberVector
 ---@field old_site_y DFNumberVector
----@field land_rgns df.coord2d_path bay12: migrant_entry
+---@field land_rgns df.coord2d_path
 ---@field path_start number
 ---@field path_clear number
 ---@field temp_value_start number
@@ -1813,7 +1820,7 @@ function _world_data_world_gen_wandering_group:erase(index) end
 ---@field num_rejects number
 ---@field skip_reject DFEnumVector<df.map_reject_type, number>
 ---@field reject_type DFEnumVector<df.map_reject_type, number>
----@field rejection_reason number
+---@field rejection_reason df.map_reject_type
 ---@field new_dimx number
 ---@field new_dimy number
 ---@field lake_x number

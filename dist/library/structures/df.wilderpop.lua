@@ -26,7 +26,7 @@ df.wilderpop_flag = {}
 ---@class (exact) df.local_population: DFStruct
 ---@field _type identity.local_population
 ---@field type df.world_population_type
----@field race number References: `df.creature_raw`
+---@field race number not actually a union, just race<br>References: `df.creature_raw`
 ---@field plant number References: `df.plant_raw`
 ---@field quantity number
 ---@field quantity_max number

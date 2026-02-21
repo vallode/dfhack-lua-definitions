@@ -1,6 +1,20 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@class df.intrigue_corruption_result_flag: DFBitfield
+---@field _enum identity.intrigue_corruption_result_flag
+---@field succeeded boolean bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
+---@field [0] boolean bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
+---@field misread_target boolean
+---@field [1] boolean
+
+---@class identity.intrigue_corruption_result_flag: DFBitfieldType
+---@field succeeded 0 bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
+---@field [0] "succeeded" bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
+---@field misread_target 1
+---@field [1] "misread_target"
+df.intrigue_corruption_result_flag = {}
+
 ---@alias df.intrigue_corruption_result_rel_factor_type
 ---| -1 # None
 ---| 0 # Trust
@@ -44,7 +58,7 @@ df.intrigue_corruption_result_rel_factor_type = {}
 ---@field manipulated_emotion df.intrigue_corruption_result_rel_factor_type
 ---@field emotion_rating number -100 to 125 seen
 ---@field emotion_roll number -10 to 12 seen
----@field flags df.intrigue_corruption.T_flags
+---@field flags df.intrigue_corruption_result_flag
 ---@field position_entity_id number Used to pull rank<br>References: `df.historical_entity`
 ---@field position_assignment_id number References: `df.entity_position_assignment`
 ---@field offered_id number deity or revenge target<br>References: `df.historical_figure`
@@ -58,20 +72,6 @@ df.intrigue_corruption = {}
 
 ---@return df.intrigue_corruption
 function df.intrigue_corruption:new() end
-
----@class df.intrigue_corruption.T_flags: DFBitfield
----@field _enum identity.intrigue_corruption.flags
----@field succeeded boolean bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
----@field [0] boolean bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
----@field misread_target boolean
----@field [1] boolean
-
----@class identity.intrigue_corruption.flags: DFBitfieldType
----@field succeeded 0 bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
----@field [0] "succeeded" bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
----@field misread_target 1
----@field [1] "misread_target"
-df.intrigue_corruption.T_flags = {}
 
 ---@class df.interrogation_result_flag: DFBitfield
 ---@field _enum identity.interrogation_result_flag
@@ -87,7 +87,29 @@ df.intrigue_corruption.T_flags = {}
 ---@field [1] "failed_judgment_test"
 df.interrogation_result_flag = {}
 
--- Unused: InterrogationResultRelFactor
+---@alias df.interrogation_result_rel_factor_type
+---| -1 # None
+---| 0 # Trust
+---| 1 # Loyalty
+---| 2 # Love
+---| 3 # Fear
+---| 4 # Respect
+
+---@class identity.interrogation_result_rel_factor_type: DFEnumType
+---@field None -1 bay12: InterrogationResultRelFactorType
+---@field [-1] "None" bay12: InterrogationResultRelFactorType
+---@field Trust 0
+---@field [0] "Trust"
+---@field Loyalty 1
+---@field [1] "Loyalty"
+---@field Love 2
+---@field [2] "Love"
+---@field Fear 3
+---@field [3] "Fear"
+---@field Respect 4
+---@field [4] "Respect"
+df.interrogation_result_rel_factor_type = {}
+
 ---@class (exact) df.interrogation_resultst: DFStruct
 ---@field _type identity.interrogation_resultst
 ---@field officer_hf number appears identical to officer_hf<br>References: `df.historical_figure`
@@ -103,7 +125,7 @@ df.interrogation_result_flag = {}
 ---@field value df.value_type
 ---@field value_rating number
 ---@field value_modifier number
----@field relationship_factor df.intrigue_corruption_result_rel_factor_type
+---@field relationship_factor df.interrogation_result_rel_factor_type
 ---@field relationship_rating number
 ---@field relationship_modifier number
 ---@field flags df.interrogation_result_flag
@@ -143,11 +165,11 @@ df.interrogation_report_flag = {}
 ---@field year number
 ---@field tick number
 ---@field intcr df.interrogation_resultst
----@field confessed_target_crime_id DFNumberVector
+---@field confessed_target_crime_id DFNumberVector binary
 ---@field subject_identity_id number References: `df.identity`
----@field confessed_identity_id DFNumberVector
----@field revealed_agreement_id DFNumberVector
----@field revealed_event_id DFNumberVector seen hfs_formed_intrigue_relationship
+---@field confessed_identity_id DFNumberVector binary
+---@field revealed_agreement_id DFNumberVector binary
+---@field revealed_event_id DFNumberVector binary, seen hfs_formed_intrigue_relationship
 ---@field details DFStringVector
 
 ---@class identity.interrogation_report: DFCompoundType
@@ -159,11 +181,11 @@ function df.interrogation_report:new() end
 
 ---@class (exact) df.relationship_event_supplement: DFStruct
 ---@field _type identity.relationship_event_supplement
----@field event number bay12: global_id; can be found in the relationship_events
----@field occasion_type number bay12: Circumstance circumstance; only 245/246 seen. 245:scholarly lecture, 246: performance
----@field site number bay12: circumstance_id<br>References: `df.world_site`
----@field reason df.history_event_reason only 81 seen
----@field profession df.profession bay12: reason_id
+---@field event number can be found in the relationship_events
+---@field circumstance df.unit_thought_type
+---@field circumstance_id df.circumstance_id
+---@field reason df.history_event_reason
+---@field reason_id df.history_event_reason_id
 
 ---@class identity.relationship_event_supplement: DFCompoundType
 ---@field _kind 'struct-type'
@@ -176,10 +198,10 @@ function df.relationship_event_supplement:new() end
 ---@field _type identity.relationship_event
 ---@field event number[] not included in the main list
 ---@field relationship df.vague_relationship_type[]
----@field source_hf number[] bay12: hfid_1
----@field target_hf number[] bay12: hfid_2
+---@field source_hf number[]
+---@field target_hf number[]
 ---@field year number[]
----@field next_element number bay12: number; 1024 for all vectors except the last one
+---@field next_element number 1024 for all vectors except the last one
 ---@field start_year number first year of the events contained in the element
 
 ---@class identity.relationship_event: DFCompoundType
@@ -237,6 +259,7 @@ df.intrigue.T_circumstance = {}
 function df.intrigue.T_circumstance:new() end
 
 ---@alias df.era_type
+---| -1 # NONE
 ---| 0 # ThreePowers
 ---| 1 # TwoPowers
 ---| 2 # OnePower
@@ -252,8 +275,10 @@ function df.intrigue.T_circumstance:new() end
 ---| 12 # Emptiness
 
 ---@class identity.era_type: DFEnumType
----@field ThreePowers 0 bay12: EraType
----@field [0] "ThreePowers" bay12: EraType
+---@field NONE -1 bay12: EraType
+---@field [-1] "NONE" bay12: EraType
+---@field ThreePowers 0
+---@field [0] "ThreePowers"
 ---@field TwoPowers 1
 ---@field [1] "TwoPowers"
 ---@field OnePower 2
@@ -342,21 +367,21 @@ function df.history_era:new() end
 ---@field total_megabeasts number
 ---@field total_semimegabeasts number
 ---@field secret_heid DFNumberVector
----@field first_philosophy_flag integer
----@field first_philosophy_flag2 integer
----@field first_mathematics_flag integer
----@field first_mathematics_flag2 integer
----@field first_history_flag integer
----@field first_astronomy_flag integer
----@field first_naturalist_flag integer
----@field first_chemistry_flag integer
----@field first_geography_flag integer
----@field first_medicine_flag integer
----@field first_medicine_flag2 integer
----@field first_medicine_flag3 integer
----@field first_engineering_flag integer
----@field first_engineering_flag2 integer
----@field intrigues _world_history_intrigues bay12: history_support_event
+---@field first_philosophy_flag df.knowledge_scholar_flags_0
+---@field first_philosophy_flag2 df.knowledge_scholar_flags_1
+---@field first_mathematics_flag df.knowledge_scholar_flags_2
+---@field first_mathematics_flag2 df.knowledge_scholar_flags_3
+---@field first_history_flag df.knowledge_scholar_flags_4
+---@field first_astronomy_flag df.knowledge_scholar_flags_5
+---@field first_naturalist_flag df.knowledge_scholar_flags_6
+---@field first_chemistry_flag df.knowledge_scholar_flags_7
+---@field first_geography_flag df.knowledge_scholar_flags_8
+---@field first_medicine_flag df.knowledge_scholar_flags_9
+---@field first_medicine_flag2 df.knowledge_scholar_flags_10
+---@field first_medicine_flag3 df.knowledge_scholar_flags_11
+---@field first_engineering_flag df.knowledge_scholar_flags_12
+---@field first_engineering_flag2 df.knowledge_scholar_flags_13
+---@field intrigues _world_history_intrigues
 ---@field live_megabeasts _world_history_live_megabeasts
 ---@field live_semimegabeasts _world_history_live_semimegabeasts
 ---@field hf_allbeasts _world_history_hf_allbeasts megabeasts AND semimegabeasts
@@ -473,7 +498,7 @@ function _world_history_figures:erase(index) end
 
 ---@class (exact) df.world_history.T_event_collections: DFStruct
 ---@field _type identity.world_history.event_collections
----@field all _world_history_event_collections_all
+---@field all _world_history_event_collections_all not a compound
 ---@field other DFEnumVector<df.history_event_collection_type, df.history_event_collection>
 
 ---@class identity.world_history.event_collections: DFCompoundType

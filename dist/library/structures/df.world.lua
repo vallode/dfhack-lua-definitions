@@ -879,6 +879,7 @@ function _object_loaderst_object_load_order_src_dir:insert(index, item) end
 function _object_loaderst_object_load_order_src_dir:erase(index) end
 
 ---@alias df.prepare_rod_stage_type
+---| -1 # NONE
 ---| 0 # LoadMusic
 ---| 1 # LoadObjects
 ---| 2 # SortText
@@ -940,8 +941,10 @@ function _object_loaderst_object_load_order_src_dir:erase(index) end
 ---| 58 # Done
 
 ---@class identity.prepare_rod_stage_type: DFEnumType
----@field LoadMusic 0 bay12: PrepareRodStageType
----@field [0] "LoadMusic" bay12: PrepareRodStageType
+---@field NONE -1 bay12: PrepareRodStageType
+---@field [-1] "NONE" bay12: PrepareRodStageType
+---@field LoadMusic 0
+---@field [0] "LoadMusic"
 ---@field LoadObjects 1
 ---@field [1] "LoadObjects"
 ---@field SortText 2
@@ -1202,18 +1205,18 @@ function _family_infost_family:erase(index) end
 ---@field _enum identity.z_level_flags
 ---@field update boolean bay12: TEMP_BLOCK_LAYER_FLAG_*
 ---@field [0] boolean bay12: TEMP_BLOCK_LAYER_FLAG_*
----@field can_stop boolean bay12: ADJUSTMENTS
----@field [1] boolean bay12: ADJUSTMENTS
----@field update_twice boolean bay12: REMOVE_ADJUSTMENTS_FLAGS
----@field [2] boolean bay12: REMOVE_ADJUSTMENTS_FLAGS
+---@field can_stop boolean
+---@field [1] boolean
+---@field update_twice boolean
+---@field [2] boolean
 
 ---@class identity.z_level_flags: DFBitfieldType
 ---@field update 0 bay12: TEMP_BLOCK_LAYER_FLAG_*
 ---@field [0] "update" bay12: TEMP_BLOCK_LAYER_FLAG_*
----@field can_stop 1 bay12: ADJUSTMENTS
----@field [1] "can_stop" bay12: ADJUSTMENTS
----@field update_twice 2 bay12: REMOVE_ADJUSTMENTS_FLAGS
----@field [2] "update_twice" bay12: REMOVE_ADJUSTMENTS_FLAGS
+---@field can_stop 1
+---@field [1] "can_stop"
+---@field update_twice 2
+---@field [2] "update_twice"
 df.z_level_flags = {}
 
 ---@alias df.world_flags
@@ -1363,7 +1366,7 @@ function df.world:new() end
 ---@field region_x number
 ---@field region_y number
 ---@field region_z number
----@field distance_lookup number[][] bay12: lightrad
+---@field distance_lookup number[][]
 
 ---@class identity.world.map: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1407,7 +1410,7 @@ function _world_map_map_block_columns:erase(index) end
 ---@class (exact) df.world.T_profession_skills: DFStruct
 ---@field _type identity.world.profession_skills
 ---@field primary DFEnumVector<df.profession, df.job_skill> not a compound, beware of alignment problems
----@field secondary DFEnumVector<df.profession, df.job_skill> bay12: u_mskill_pick
+---@field secondary DFEnumVector<df.profession, df.job_skill>
 
 ---@class identity.world.profession_skills: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1451,8 +1454,8 @@ function _world_profession_skills_secondary_job_skill:erase(index) end
 ---@class (exact) df.world.T_math: DFStruct
 ---@field _type identity.world.math
 ---@field approx df.world.T_math.T_approx[] not a compound, beware of alignment problems
----@field cos number[] bay12: precalc_vision_dot; 100 * cosine of the index in degrees
----@field hypot number[][] bay12: precalc_vision_sqrt; square root of the sum of the squares of the indices
+---@field cos number[] 100 * cosine of the index in degrees
+---@field hypot number[][] square root of the sum of the squares of the indices
 
 ---@class identity.world.math: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1476,7 +1479,7 @@ function df.world.T_math.T_approx:new() end
 ---@class (exact) df.world.T_map_extras: DFStruct
 ---@field _type identity.world.map_extras
 ---@field rotation number not a compound, beware of alignment problems
----@field z_level_flags df.z_level_flags bay12: temp_block_layer_flag
+---@field z_level_flags df.z_level_flags
 ---@field inactive_spoor_bse _world_map_extras_inactive_spoor_bse
 ---@field inactive_spoor_bse_abs_smm_x DFNumberVector
 ---@field inactive_spoor_bse_abs_smm_y DFNumberVector

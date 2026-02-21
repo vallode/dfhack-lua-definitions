@@ -9,6 +9,7 @@
 df.dance_flag = {}
 
 ---@alias df.dance_form_move_type
+---| -1 # NONE
 ---| 0 # SquareStep
 ---| 1 # CircularStep
 ---| 2 # TriangleStep
@@ -45,8 +46,10 @@ df.dance_flag = {}
 ---| 33 # MovementAlongLineOfDance
 
 ---@class identity.dance_form_move_type: DFEnumType
----@field SquareStep 0 bay12: DanceComponentType
----@field [0] "SquareStep" bay12: DanceComponentType
+---@field NONE -1 bay12: DanceComponentType
+---@field [-1] "NONE" bay12: DanceComponentType
+---@field SquareStep 0
+---@field [0] "SquareStep"
 ---@field CircularStep 1
 ---@field [1] "CircularStep"
 ---@field TriangleStep 2
@@ -111,8 +114,8 @@ df.dance_flag = {}
 ---@field [31] "RightwardBend"
 ---@field Footwork 32
 ---@field [32] "Footwork"
----@field MovementAlongLineOfDance 33 BodyFlight
----@field [33] "MovementAlongLineOfDance" BodyFlight
+---@field MovementAlongLineOfDance 33
+---@field [33] "MovementAlongLineOfDance"
 df.dance_form_move_type = {}
 
 ---@alias df.dance_form_move_modifier
@@ -300,13 +303,16 @@ df.dance_form_move_modifier = {}
 df.dance_form_move_location = {}
 
 ---@alias df.dance_form_group_size
+---| -1 # NONE
 ---| 0 # Solo
 ---| 1 # Partner
 ---| 2 # Group
 
 ---@class identity.dance_form_group_size: DFEnumType
----@field Solo 0 bay12: DanceGroupingType
----@field [0] "Solo" bay12: DanceGroupingType
+---@field NONE -1 bay12: DanceGroupingType
+---@field [-1] "NONE" bay12: DanceGroupingType
+---@field Solo 0
+---@field [0] "Solo"
 ---@field Partner 1
 ---@field [1] "Partner"
 ---@field Group 2
@@ -528,7 +534,7 @@ function _dance_form_move_location:erase(index) end
 ---@field partner_cue_frequency df.dance_form_partner_cue_frequency
 ---@field partner_changes _dance_form_section_partner_changes
 ---@field dance_flag integer
----@field acts_out_civ number References: `df.historical_entity`
+---@field acts_out_event number References: `df.history_event`
 ---@field acts_out_hf_story number References: `df.historical_figure`
 ---@field imitate_animal_movement number References: `df.creature_raw`
 ---@field type _dance_form_section_type
@@ -609,6 +615,7 @@ function _dance_form_section_location:insert(index, item) end
 function _dance_form_section_location:erase(index) end
 
 ---@alias df.dance_form_context
+---| -1 # NONE
 ---| 0 # Sacred
 ---| 1 # Celebration
 ---| 2 # Participation
@@ -617,8 +624,10 @@ function _dance_form_section_location:erase(index) end
 ---| 5 # War
 
 ---@class identity.dance_form_context: DFEnumType
----@field Sacred 0 bay12: DancePurposeType
----@field [0] "Sacred" bay12: DancePurposeType
+---@field NONE -1 bay12: DancePurposeType
+---@field [-1] "NONE" bay12: DancePurposeType
+---@field Sacred 0
+---@field [0] "Sacred"
 ---@field Celebration 1
 ---@field [1] "Celebration"
 ---@field Participation 2
@@ -659,7 +668,7 @@ df.dance_form_flag = {}
 ---@field partner_cue_frequency df.dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
 ---@field partner_changes _dance_form_partner_changes
 ---@field dance_flags df.dance_flag
----@field entity number Civilization the dance acts out<br>References: `df.historical_entity`
+---@field event number Event the dance acts out<br>References: `df.history_event`
 ---@field hfid number Character whose story the dance acts out<br>References: `df.historical_figure`
 ---@field race number Creature whose movements are imitated<br>References: `df.creature_raw`
 ---@field move_type _dance_form_move_type

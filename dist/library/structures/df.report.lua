@@ -45,7 +45,7 @@ df.report_site_flag = {}
 ---@field discovered_chasm_features number
 ---@field discovered_magma_features number
 ---@field discovered_underworld_features number
----@field migrant_wave_idx number age_in_years
+---@field migrant_wave_idx number
 ---@field found_minerals DFNumberVector Added after 'you have struck' announcement
 ---@field found_misc df.report_site_flag
 

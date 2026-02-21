@@ -35,6 +35,20 @@
 ---@field [33] "segment_type"
 df.vehicle_ram_graphics_flag = {}
 
+---@alias df.vehicle_ram_graphics_flag_segment_type
+---| 0 # FRONT
+---| 1 # MIDDLE
+---| 3 # BACK
+
+---@class identity.vehicle_ram_graphics_flag_segment_type: DFEnumType
+---@field FRONT 0 bay12: VEHICLE_RAM_GRAPHICS_FLAG_SEGMENT_TYPE_*
+---@field [0] "FRONT" bay12: VEHICLE_RAM_GRAPHICS_FLAG_SEGMENT_TYPE_*
+---@field MIDDLE 1
+---@field [1] "MIDDLE"
+---@field BACK 3
+---@field [3] "BACK"
+df.vehicle_ram_graphics_flag_segment_type = {}
+
 ---@class (exact) df.vehicle_ram_graphics_infost: DFStruct
 ---@field _type identity.vehicle_ram_graphics_infost
 ---@field flags df.vehicle_ram_graphics_flag
@@ -124,7 +138,7 @@ df.vehicle_flag = {}
 ---@field flag df.vehicle_flag
 ---@field route_id number References: `df.hauling_route`
 ---@field last_dump df.coord
----@field time_stopped number bay12: zero_vel_count; frames, up to 1000
+---@field time_stopped number frames, up to 1000
 ---@field invasion_id number References: `df.invasion_info`
 ---@field invasion_section_index number
 ---@field ram_info df.vehicle_ram_infost

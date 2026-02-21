@@ -143,7 +143,7 @@ function df.entity_sell_prices:new() end
 ---@field type df.meeting_event_type
 ---@field topic df.meeting_topic
 ---@field topic_parm number
----@field topic_epid DFNumberVector entity position?
+---@field topic_epid DFNumberVector entity position
 ---@field topic_hfid DFNumberVector
 ---@field quota_total number
 ---@field quota_remaining number

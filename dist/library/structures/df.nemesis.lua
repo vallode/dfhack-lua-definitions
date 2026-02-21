@@ -4,6 +4,7 @@
 -- Unused: nem_unit_specifierst
 ---@alias df.nemesis_flags
 ---| 0 # ACTIVE_ADVENTURER
+---| 1 # UNUSED_02
 ---| 2 # ADVENTURER
 ---| 3 # TEMP_FLAG_ASSOCIATE_PEOPLE_TO_REALIZATION
 ---| 4 # BRAG_ON_KILL
@@ -21,6 +22,8 @@
 ---@class identity.nemesis_flags: DFEnumType
 ---@field ACTIVE_ADVENTURER 0 bay12: NemesisFlagType
 ---@field [0] "ACTIVE_ADVENTURER" bay12: NemesisFlagType
+---@field UNUSED_02 1
+---@field [1] "UNUSED_02"
 ---@field ADVENTURER 2 blue color and guided by forces unknown description in legends mode
 ---@field [2] "ADVENTURER" blue color and guided by forces unknown description in legends mode
 ---@field TEMP_FLAG_ASSOCIATE_PEOPLE_TO_REALIZATION 3

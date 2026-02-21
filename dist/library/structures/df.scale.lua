@@ -2,13 +2,16 @@
 ---@meta
 
 ---@alias df.scale_type
+---| -1 # NONE
 ---| 0 # Octave
 ---| 1 # Variable
 ---| 2 # PerfectFourth
 
 ---@class identity.scale_type: DFEnumType
----@field Octave 0 bay12: ScaleFoundationType
----@field [0] "Octave" bay12: ScaleFoundationType
+---@field NONE -1 bay12: ScaleFoundationType
+---@field [-1] "NONE" bay12: ScaleFoundationType
+---@field Octave 0 The octave is divided into X steps of even length
+---@field [0] "Octave" The octave is divided into X steps of even length
 ---@field Variable 1 The octave is divided into notes at varying intervals, approximated by quartertones
 ---@field [1] "Variable" The octave is divided into notes at varying intervals, approximated by quartertones
 ---@field PerfectFourth 2 The perfect fourth interval is divided into steps of even length
@@ -37,6 +40,7 @@ df.chord = {}
 function df.chord:new() end
 
 ---@alias df.scale_construction_type
+---| -1 # NONE
 ---| 0 # ByInterval
 ---| 1 # PerfectFifthJoinedPerfectFourth
 ---| 2 # PerfectFifthHalfMajorThird
@@ -44,8 +48,10 @@ function df.chord:new() end
 ---| 4 # PerfectFourthWholePerfectFourth
 
 ---@class identity.scale_construction_type: DFEnumType
----@field ByInterval 0 bay12: ScaleConstructionType
----@field [0] "ByInterval" bay12: ScaleConstructionType
+---@field NONE -1 bay12: ScaleConstructionType
+---@field [-1] "NONE" bay12: ScaleConstructionType
+---@field ByInterval 0
+---@field [0] "ByInterval"
 ---@field PerfectFifthJoinedPerfectFourth 1
 ---@field [1] "PerfectFifthJoinedPerfectFourth"
 ---@field PerfectFifthHalfMajorThird 2
@@ -72,14 +78,17 @@ df.named_scale = {}
 function df.named_scale:new() end
 
 ---@alias df.scale_naming_type
+---| -1 # NONE
 ---| 0 # EveryNote
 ---| 1 # PreferredNotes
 ---| 2 # EveryNoteAfterConstructionByDegree
 ---| 3 # PreferredNoteAfterConstructionByDegree
 
 ---@class identity.scale_naming_type: DFEnumType
----@field EveryNote 0 bay12: ScaleNamingType
----@field [0] "EveryNote" bay12: ScaleNamingType
+---@field NONE -1 bay12: ScaleNamingType
+---@field [-1] "NONE" bay12: ScaleNamingType
+---@field EveryNote 0
+---@field [0] "EveryNote"
 ---@field PreferredNotes 1
 ---@field [1] "PreferredNotes"
 ---@field EveryNoteAfterConstructionByDegree 2

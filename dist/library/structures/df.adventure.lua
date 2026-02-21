@@ -133,98 +133,98 @@ function df.sound_indicator_handlerst:new() end
 ---@field [-1] "None" bay12: AdventureViewModes
 ---@field Default 0
 ---@field [0] "Default"
----@field Look 1 MAIN
----@field [1] "Look" MAIN
----@field ConversationAddress 2 LOOK
----@field [2] "ConversationAddress" LOOK
----@field ConversationSelect 3 CONVERSATION_START_NEW
----@field [3] "ConversationSelect" CONVERSATION_START_NEW
----@field ConversationSpeak 4 CONVERSATION_LIST
----@field [4] "ConversationSpeak" CONVERSATION_LIST
----@field Inventory 5 CONVERATION_TALK
----@field [5] "Inventory" CONVERATION_TALK
----@field Drop 6 INVENTORY_LOOK
----@field [6] "Drop" INVENTORY_LOOK
----@field ThrowItem 7 INVENTORY_DROP
----@field [7] "ThrowItem" INVENTORY_DROP
----@field Wear 8 INVENTORY_THROW
----@field [8] "Wear" INVENTORY_THROW
----@field Remove 9 INVENTORY_WEAR
----@field [9] "Remove" INVENTORY_WEAR
----@field Interact 10 INVENTORY_REMOVE
----@field [10] "Interact" INVENTORY_REMOVE
----@field Put 11 INVENTORY_INTERACT
----@field [11] "Put" INVENTORY_INTERACT
----@field PutContainer 12 INVENTORY_PUTIN
----@field [12] "PutContainer" INVENTORY_PUTIN
----@field Eat 13 INVENTORY_PUTIN2
----@field [13] "Eat" INVENTORY_PUTIN2
----@field ThrowAim 14 INVENTORY_EATDRINK
----@field [14] "ThrowAim" INVENTORY_EATDRINK
----@field Fire 15 THROW
----@field [15] "Fire" THROW
----@field Get 16 SHOOET
----@field [16] "Get" SHOOET
----@field GetAmount 17 PICUP
----@field [17] "GetAmount" PICUP
----@field CombatPrefs 18 PICKUP_AMOUNT
----@field [18] "CombatPrefs" PICKUP_AMOUNT
----@field Companions 19 COMBAT
----@field [19] "Companions" COMBAT
----@field MovementPrefs 20 COMPANIONS
----@field [20] "MovementPrefs" COMPANIONS
----@field SpeedPrefs 21 MOVEMENT
----@field [21] "SpeedPrefs" MOVEMENT
----@field InteractAction 22 SPEED_SNEAK
----@field [22] "InteractAction" SPEED_SNEAK
----@field MoveCarefully 23 INTERACT
----@field [23] "MoveCarefully" INTERACT
----@field Announcements 24 MOVE
----@field [24] "Announcements" MOVE
----@field Travel 25 ANNOUNCEMENTS
----@field [25] "Travel" ANNOUNCEMENTS
----@field TravelSleep 26 REGION_MAIN
----@field [26] "TravelSleep" REGION_MAIN
----@field ViewFreshestTrack 27 REGION_SLEEP
----@field [27] "ViewFreshestTrack" REGION_SLEEP
----@field SleepConfirm 28 SPOOR
----@field [28] "SleepConfirm" SPOOR
----@field SelectInteractionTarget 29 SLEEP_CONFIRM
----@field [29] "SelectInteractionTarget" SLEEP_CONFIRM
----@field FallAction 30 INTERACTION_TARGET
----@field [30] "FallAction" INTERACTION_TARGET
----@field ViewTracks 31 REACTION_MOMENT_NO_ATTACKER
----@field [31] "ViewTracks" REACTION_MOMENT_NO_ATTACKER
----@field AttackCreature 32 LOOK_SPOOR
----@field [32] "AttackCreature" LOOK_SPOOR
----@field AttackConfirm 33 ATTACKCREATURE_UNIT_CHOICE
----@field [33] "AttackConfirm" ATTACKCREATURE_UNIT_CHOICE
----@field AttackType 34 ATTACKCREATURE_CONFIRM
----@field [34] "AttackType" ATTACKCREATURE_CONFIRM
----@field AttackBodypart 35 ATTACKCREATURE_MOVE_CHOICE
----@field [35] "AttackBodypart" ATTACKCREATURE_MOVE_CHOICE
----@field AttackStrike 36 ATTACKCREATURE_AIM_TARGET
----@field [36] "AttackStrike" ATTACKCREATURE_AIM_TARGET
----@field DefendParry 37 ATTACKCREATURE_AIM_ATTACK
----@field [37] "DefendParry" ATTACKCREATURE_AIM_ATTACK
----@field DefendBlock 38 ATTACKCREATURE_PARRY_CHOICE
----@field [38] "DefendBlock" ATTACKCREATURE_PARRY_CHOICE
----@field DodgeDirection 39 ATTACKCREATURE_BLOCK_CHOICE
----@field [39] "DodgeDirection" ATTACKCREATURE_BLOCK_CHOICE
----@field PerformanceSelect 40 ATTACKCREATURE_DODGE_CHOICE
----@field [40] "PerformanceSelect" ATTACKCREATURE_DODGE_CHOICE
----@field InterruptPerformanceConfirm 41 START_PERFORMANCE
----@field [41] "InterruptPerformanceConfirm" START_PERFORMANCE
----@field Build 42 MOVE_CONFIRM
----@field [42] "Build" MOVE_CONFIRM
----@field AssumeIdentity 43 CONSTRUCTION
----@field [43] "AssumeIdentity" CONSTRUCTION
----@field NameItem 44 ASSUME_IDENTITY
----@field [44] "NameItem" ASSUME_IDENTITY
----@field BecomePartyMember 45 NAME_ITEM
----@field [45] "BecomePartyMember" NAME_ITEM
----@field PartyTacticalSettings 46 BECOME_COMPANION
----@field [46] "PartyTacticalSettings" BECOME_COMPANION
+---@field Look 1
+---@field [1] "Look"
+---@field ConversationAddress 2
+---@field [2] "ConversationAddress"
+---@field ConversationSelect 3
+---@field [3] "ConversationSelect"
+---@field ConversationSpeak 4
+---@field [4] "ConversationSpeak"
+---@field Inventory 5
+---@field [5] "Inventory"
+---@field Drop 6
+---@field [6] "Drop"
+---@field ThrowItem 7
+---@field [7] "ThrowItem"
+---@field Wear 8
+---@field [8] "Wear"
+---@field Remove 9
+---@field [9] "Remove"
+---@field Interact 10
+---@field [10] "Interact"
+---@field Put 11
+---@field [11] "Put"
+---@field PutContainer 12
+---@field [12] "PutContainer"
+---@field Eat 13
+---@field [13] "Eat"
+---@field ThrowAim 14
+---@field [14] "ThrowAim"
+---@field Fire 15
+---@field [15] "Fire"
+---@field Get 16
+---@field [16] "Get"
+---@field GetAmount 17
+---@field [17] "GetAmount"
+---@field CombatPrefs 18
+---@field [18] "CombatPrefs"
+---@field Companions 19
+---@field [19] "Companions"
+---@field MovementPrefs 20
+---@field [20] "MovementPrefs"
+---@field SpeedPrefs 21
+---@field [21] "SpeedPrefs"
+---@field InteractAction 22
+---@field [22] "InteractAction"
+---@field MoveCarefully 23
+---@field [23] "MoveCarefully"
+---@field Announcements 24
+---@field [24] "Announcements"
+---@field Travel 25
+---@field [25] "Travel"
+---@field TravelSleep 26
+---@field [26] "TravelSleep"
+---@field ViewFreshestTrack 27
+---@field [27] "ViewFreshestTrack"
+---@field SleepConfirm 28
+---@field [28] "SleepConfirm"
+---@field SelectInteractionTarget 29
+---@field [29] "SelectInteractionTarget"
+---@field FallAction 30
+---@field [30] "FallAction"
+---@field ViewTracks 31
+---@field [31] "ViewTracks"
+---@field AttackCreature 32
+---@field [32] "AttackCreature"
+---@field AttackConfirm 33
+---@field [33] "AttackConfirm"
+---@field AttackType 34
+---@field [34] "AttackType"
+---@field AttackBodypart 35
+---@field [35] "AttackBodypart"
+---@field AttackStrike 36
+---@field [36] "AttackStrike"
+---@field DefendParry 37
+---@field [37] "DefendParry"
+---@field DefendBlock 38
+---@field [38] "DefendBlock"
+---@field DodgeDirection 39
+---@field [39] "DodgeDirection"
+---@field PerformanceSelect 40
+---@field [40] "PerformanceSelect"
+---@field InterruptPerformanceConfirm 41
+---@field [41] "InterruptPerformanceConfirm"
+---@field Build 42
+---@field [42] "Build"
+---@field AssumeIdentity 43
+---@field [43] "AssumeIdentity"
+---@field NameItem 44
+---@field [44] "NameItem"
+---@field BecomePartyMember 45
+---@field [45] "BecomePartyMember"
+---@field PartyTacticalSettings 46
+---@field [46] "PartyTacticalSettings"
 df.ui_advmode_menu = {}
 
 -- Unused: DungeonAttackModes
@@ -399,11 +399,11 @@ local adventure_optionst
 ---@return df.adventure_option_type
 function adventure_optionst:getType() end
 
----@param anon_0 string
-function adventure_optionst:getName(anon_0) end
+---@param str string
+function adventure_optionst:getName(str) end
 
----@param anon_0 string
-function adventure_optionst:getFullListName(anon_0) end
+---@param str string
+function adventure_optionst:getFullListName(str) end
 
 ---@return df.item
 function adventure_optionst:getIngestedItem() end
@@ -2222,52 +2222,52 @@ df.adventure_game_loop_type = {}
 ---@field _type identity.adventurest
 ---@field menu df.ui_advmode_menu
 ---@field dungeon_screen df.viewscreen_dungeonmodest
----@field site_level_zoom number bay12: viewmode; when set, the travel map is zoomed in to show site details
----@field travel_origin_x number bay12: local_apparent_abs_smm_x
----@field travel_origin_y number bay12: local_apparent_abs_smm_y
+---@field site_level_zoom number when set, the travel map is zoomed in to show site details
+---@field travel_origin_x number
+---@field travel_origin_y number
 ---@field travel_origin_z number Coordinates of the player on the map when the travel screen is opened. Determine the displayed position whilst travel_not_moved is set
 ---@field travel_clouds number
----@field travel_right_map df.adventurest.T_travel_right_map bay12: travel_map; is an int8_t
----@field message string bay12: travel_exception; you must move from surrounding obstacles
----@field message_color number bay12: travel_exception_color
----@field message_brightness number bay12: travel_exception_bright
+---@field travel_right_map df.adventurest.T_travel_right_map plain integer
+---@field message string you must move from surrounding obstacles
+---@field message_color number
+---@field message_brightness number
 ---@field travel_exception_type df.adventure_travel_exception_type
 ---@field travel_exception_id number
----@field travel_not_moved number bay12: still_local
+---@field travel_not_moved number
 ---@field local_sleep_origination number
 ---@field local_working df.adventure_workingst
 ---@field local_composing_writing_form df.written_content_type
 ---@field local_composing_writing_form_id number
----@field local_write_target_itid number
+---@field local_write_target_itid number References: `df.item`
 ---@field local_write_writing_form df.written_content_type
----@field local_write_wcid number
----@field offload_timer number bay12: offloading_site; Set to 10 when actions which offload the map are undertaken, such as sleeping and making the first fast travel movement. Decreases by 1 each frame thereafter until it reaches 0. Forcing a constant value above 0 prevents progression of the action beyond the Offloading Map message.
----@field tick_counter number bay12: click_per_click; goes up to XXX
----@field frame_counter number bay12: transient_phase; goes up to 10000 (ticks?)
+---@field local_write_wcid number References: `df.written_content`
+---@field offload_timer number Set to 10 when actions which offload the map are undertaken, such as sleeping and making the first fast travel movement. Decreases by 1 each frame thereafter until it reaches 0. Forcing a constant value above 0 prevents progression of the action beyond the Offloading Map message.
+---@field tick_counter number goes up to XXX
+---@field frame_counter number goes up to 10000 (ticks?)
 ---@field last_hour number Appears to increment by 2 every 144 advmode ticks.
 ---@field sleeping number
 ---@field sleep_interrupt number
----@field bogeymen_ambush_size number bay12: bogeymen_number; Setting this to a number greater than 0 causes a bogeyman ambush to begin, spawning the specified number of bogeymen around the adventurer. Normally initialized to 4-7 when the cackling starts.
----@field bogeymen_killed number bay12: bogeymen_killed_this_attack; Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
----@field bogeymen_ambush_delay number bay12: bogeymen_season_timer; Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
+---@field bogeymen_ambush_size number Setting this to a number greater than 0 causes a bogeyman ambush to begin, spawning the specified number of bogeymen around the adventurer. Normally initialized to 4-7 when the cackling starts.
+---@field bogeymen_killed number Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
+---@field bogeymen_ambush_delay number Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
 ---@field fake_ambush_timer number
----@field searched_x DFNumberVector bay12: searched_location_x
----@field searched_y DFNumberVector bay12: searched_location_y
----@field searched_z DFNumberVector bay12: searched_location_z
----@field searched_timeout DFNumberVector bay12: searched_location_timer
+---@field searched_x DFNumberVector
+---@field searched_y DFNumberVector
+---@field searched_z DFNumberVector
+---@field searched_timeout DFNumberVector
 ---@field total_move number
 ---@field start_skill_total number
 ---@field need_start_skill_total number
 ---@field sleep_permission_stid DFNumberVector
 ---@field sleep_permission_srbid DFNumberVector
 ---@field sleep_permission_timer DFNumberVector
----@field player_army_id number bay12: your_army_id<br>References: `df.army`
----@field tracks_x number[] bay12: latest_tract_abs_x; X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
----@field tracks_y number[] bay12: latest_tract_abs_y; Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
----@field tracks_z number[] bay12: latest_tract_abs_z; Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
----@field tracks_next_idx number bay12: latest_track_pos; Index of the next entry in tracks_x, tracks_y, tracks_z
+---@field player_army_id number References: `df.army`
+---@field tracks_x number[] X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
+---@field tracks_y number[] Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
+---@field tracks_z number[] Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
+---@field tracks_next_idx number Index of the next entry in tracks_x, tracks_y, tracks_z
 ---@field tracks_flags df.tracking_flag
----@field tracks_visible number bay12: lit_latest_track_count; The quantity of spoors currently visible to the player.
+---@field tracks_visible number The quantity of spoors currently visible to the player.
 ---@field travel_exemplar_x number[]
 ---@field travel_exemplar_y number[]
 ---@field travel_exemplar_z number[]
@@ -2276,11 +2276,11 @@ df.adventure_game_loop_type = {}
 ---@field travel_exemplar_tile integer[]
 ---@field travel_exemplar_num number[]
 ---@field travel_exemplar_dir integer[]
----@field odor_race number bay12: latest_smell_race; race ID of strongest odor creature<br>References: `df.creature_raw`
----@field odor_caste number bay12: latest_smell_caste; caste ID of strongest odor creature<br>References: `df.caste_raw`
----@field odor_death boolean bay12: latest_smell_death; Overrides creature odor with odor of Death
----@field travel_odor_race number bay12: travel_smell_race; race ID of strongest odor creature in fast travel mode<br>References: `df.creature_raw`
----@field travel_odor_caste number bay12: travel_smell_caste; caste ID of strongest odor creature in fast travel mode<br>References: `df.caste_raw`
+---@field odor_race number race ID of strongest odor creature<br>References: `df.creature_raw`
+---@field odor_caste number caste ID of strongest odor creature<br>References: `df.caste_raw`
+---@field odor_death boolean Overrides creature odor with odor of Death
+---@field travel_odor_race number race ID of strongest odor creature in fast travel mode<br>References: `df.creature_raw`
+---@field travel_odor_caste number caste ID of strongest odor creature in fast travel mode<br>References: `df.caste_raw`
 ---@field travel_odor_death boolean
 ---@field flags df.adventure_flag
 ---@field chosen_flags df.adventure_chosen_flag
@@ -2292,18 +2292,18 @@ df.adventure_game_loop_type = {}
 ---@field rumor_info df.adventure_rumor_infost
 ---@field tactical_mode boolean
 ---@field construction df.adventure_constructionst
----@field wait_timer number bay12: dungeon_waiting; A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
+---@field wait_timer number A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
 ---@field world_debug_pass_time number
 ---@field world_debug_loaded_center_abs_smm_x number
 ---@field world_debug_loaded_center_abs_smm_y number ?
 ---@field world_debug_army _adventurest_world_debug_army ?
 ---@field world_debug_army_scroll number
 ---@field world_debug_viewing_army_details boolean ?
----@field long_action_duration number bay12: travel_goal_count; Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
----@field travel_start_x number bay12: travel_goal_abs_smm_x
----@field travel_start_y number bay12: travel_goal_abs_smm_y
+---@field long_action_duration number Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
+---@field travel_start_x number
+---@field travel_start_y number
 ---@field travel_start_z number Coordinates of the player on the map right after their first fast travel move
----@field player_id number bay12: your_nem_index; name suggests this is a nemesis index, not a nemesis ID, though in practice they should be the same<br>References: `df.nemesis_record`
+---@field player_id number name suggests this is a nemesis index, not a nemesis ID, though in practice they should be the same<br>References: `df.nemesis_record`
 ---@field viewing_spoor df.coord
 ---@field viewing_spoor_bse df.block_square_event_spoorst
 ---@field commands _adventurest_commands
@@ -2354,13 +2354,13 @@ df.adventurest = {}
 ---@return df.adventurest
 function df.adventurest:new() end
 
--- bay12: travel_map; is an int8_t
+-- plain integer
 ---@alias df.adventurest.T_travel_right_map
 ---| 0 # MapNone
 ---| 1 # MapSite
 ---| 2 # MapWorld
 
--- bay12: travel_map; is an int8_t
+-- plain integer
 ---@class identity.adventurest.travel_right_map: DFEnumType
 ---@field MapNone 0
 ---@field [0] "MapNone"

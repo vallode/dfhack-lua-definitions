@@ -110,7 +110,7 @@ function df.incident_performance_rolest:new() end
 ---@field performance_event df.performance_event_type
 ---@field participants _incident_data_performance_participants
 ---@field reference_id number history_event id/poetic_form id/musical_form id/dance_form_id or -1
----@field written_content_id number -1 if not used
+---@field written_content_id number -1 if not used<br>References: `df.written_content`
 ---@field abstract_location number location at which the performance was held<br>References: `df.abstract_building`
 ---@field poetic_form_id number More than one form can be used in a performance, e.g. dance to music<br>References: `df.poetic_form`
 ---@field musical_form_id number References: `df.musical_form`
@@ -140,6 +140,7 @@ function _incident_data_performance_participants:insert(index, item) end
 function _incident_data_performance_participants:erase(index) end
 
 ---@alias df.incident_artifact_location_type
+---| -1 # NONE
 ---| 0 # Held
 ---| 1 # Dropped
 ---| 2 # Gained
@@ -148,8 +149,10 @@ function _incident_data_performance_participants:erase(index) end
 ---| 5 # Destroyed
 
 ---@class identity.incident_artifact_location_type: DFEnumType
----@field Held 0 bay12: IncidentArtifactLocationType
----@field [0] "Held" bay12: IncidentArtifactLocationType
+---@field NONE -1 bay12: IncidentArtifactLocationType
+---@field [-1] "NONE" bay12: IncidentArtifactLocationType
+---@field Held 0
+---@field [0] "Held"
 ---@field Dropped 1
 ---@field [1] "Dropped"
 ---@field Gained 2
@@ -190,12 +193,15 @@ df.incident_data_artifact = {}
 function df.incident_data_artifact:new() end
 
 ---@alias df.incident_written_content_location_type
+---| -1 # NONE
 ---| 0 # Dropped
 ---| 1 # Given
 
 ---@class identity.incident_written_content_location_type: DFEnumType
----@field Dropped 0 bay12: IncidentWrittenContentLocationType
----@field [0] "Dropped" bay12: IncidentWrittenContentLocationType
+---@field NONE -1 bay12: IncidentWrittenContentLocationType
+---@field [-1] "NONE" bay12: IncidentWrittenContentLocationType
+---@field Dropped 0
+---@field [0] "Dropped"
 ---@field Given 1
 ---@field [1] "Given"
 df.incident_written_content_location_type = {}

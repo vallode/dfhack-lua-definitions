@@ -76,7 +76,47 @@ df.musicsound_flag = {}
 ---@field [10] "FIRST_GHOST"
 df.music_event_type = {}
 
--- Unused: MusicContextType
+---@alias df.music_context_type
+---| -1 # NONE
+---| 0 # ANY
+---| 1 # MAIN
+---| 2 # CAVERNS_OPENED
+---| 3 # FIRST_YEAR
+---| 4 # SECOND_YEAR_PLUS
+---| 5 # SPRING
+---| 6 # SUMMER
+---| 7 # AUTUMN
+---| 8 # WINTER
+---| 9 # EXCLUSIVE_MAIN
+---| 10 # EXCLUSIVE_TITLE
+
+---@class identity.music_context_type: DFEnumType
+---@field NONE -1 bay12: MusicContextType
+---@field [-1] "NONE" bay12: MusicContextType
+---@field ANY 0
+---@field [0] "ANY"
+---@field MAIN 1
+---@field [1] "MAIN"
+---@field CAVERNS_OPENED 2
+---@field [2] "CAVERNS_OPENED"
+---@field FIRST_YEAR 3
+---@field [3] "FIRST_YEAR"
+---@field SECOND_YEAR_PLUS 4
+---@field [4] "SECOND_YEAR_PLUS"
+---@field SPRING 5
+---@field [5] "SPRING"
+---@field SUMMER 6
+---@field [6] "SUMMER"
+---@field AUTUMN 7
+---@field [7] "AUTUMN"
+---@field WINTER 8
+---@field [8] "WINTER"
+---@field EXCLUSIVE_MAIN 9
+---@field [9] "EXCLUSIVE_MAIN"
+---@field EXCLUSIVE_TITLE 10
+---@field [10] "EXCLUSIVE_TITLE"
+df.music_context_type = {}
+
 -- Unused: Song
 -- Unused: SoundType
 -- Skipped: musicsound_info - platform-dependent implementation?

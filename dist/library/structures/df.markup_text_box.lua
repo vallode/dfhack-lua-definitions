@@ -78,8 +78,8 @@ function df.markup_text_wordst:new() end
 ---@field [9] "ART_IMAGE"
 ---@field ERA 10
 ---@field [10] "ERA"
----@field HEC 11
----@field [11] "HEC"
+---@field HEC 11 history event collection, most likely
+---@field [11] "HEC" history event collection, most likely
 df.markup_text_link_type = {}
 
 ---@class (exact) df.markup_text_linkst: DFStruct

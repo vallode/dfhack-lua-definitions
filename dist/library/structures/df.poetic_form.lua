@@ -21,30 +21,30 @@
 ---@class identity.poetic_form_pattern: DFEnumType
 ---@field None -1 bay12: PoeticStressType
 ---@field [-1] "None" bay12: PoeticStressType
----@field AA 0 Pyrrhic
----@field [0] "AA" Pyrrhic
----@field AB 1 Iambic
----@field [1] "AB" Iambic
----@field BA 2 Trochaic
----@field [2] "BA" Trochaic
----@field BB 3 Spondaic
----@field [3] "BB" Spondaic
----@field AAA 4 Tribrachic
----@field [4] "AAA" Tribrachic
----@field BAA 5 Dactylic
----@field [5] "BAA" Dactylic
----@field ABA 6 Amphibrachic
----@field [6] "ABA" Amphibrachic
----@field AAB 7 Anapestic
----@field [7] "AAB" Anapestic
----@field ABB 8 Bacchic
----@field [8] "ABB" Bacchic
----@field BBA 9 Antibacchic
----@field [9] "BBA" Antibacchic
----@field BAB 10 Cretic
----@field [10] "BAB" Cretic
----@field BBB 11 Molossic
----@field [11] "BBB" Molossic
+---@field AA 0
+---@field [0] "AA"
+---@field AB 1
+---@field [1] "AB"
+---@field BA 2
+---@field [2] "BA"
+---@field BB 3
+---@field [3] "BB"
+---@field AAA 4
+---@field [4] "AAA"
+---@field BAA 5
+---@field [5] "BAA"
+---@field ABA 6
+---@field [6] "ABA"
+---@field AAB 7
+---@field [7] "AAB"
+---@field ABB 8
+---@field [8] "ABB"
+---@field BBA 9
+---@field [9] "BBA"
+---@field BAB 10
+---@field [10] "BAB"
+---@field BBB 11
+---@field [11] "BBB"
 df.poetic_form_pattern = {}
 
 ---@alias df.poetic_form_caesura_position
@@ -190,10 +190,10 @@ function df.poetic_form_subject_target.T_Concept:new() end
 ---@class identity.poetic_form_subject: DFEnumType
 ---@field None -1 bay12: PoeticSubjectType
 ---@field [-1] "None" bay12: PoeticSubjectType
----@field Past 0 "a chosen subject"
----@field [0] "Past" "a chosen subject"
----@field CurrentEvents 1 Present
----@field [1] "CurrentEvents" Present
+---@field Past 0
+---@field [0] "Past"
+---@field CurrentEvents 1
+---@field [1] "CurrentEvents"
 ---@field Future 2
 ---@field [2] "Future"
 ---@field SomeoneRecentlyDeceased 3
@@ -202,20 +202,20 @@ function df.poetic_form_subject_target.T_Concept:new() end
 ---@field [4] "SomeoneRecentlyRetired"
 ---@field Religion 5
 ---@field [5] "Religion"
----@field SpecificPlace 6 Site
----@field [6] "SpecificPlace" Site
----@field SpecificWildernessRegion 7 Subregion
----@field [7] "SpecificWildernessRegion" Subregion
+---@field SpecificPlace 6
+---@field [6] "SpecificPlace"
+---@field SpecificWildernessRegion 7
+---@field [7] "SpecificWildernessRegion"
 ---@field Nature 8
 ---@field [8] "Nature"
 ---@field Lover 9
 ---@field [9] "Lover"
 ---@field Family 10
 ---@field [10] "Family"
----@field AlcoholicBeverages 11 Booze
----@field [11] "AlcoholicBeverages" Booze
----@field Journey 12 Travels
----@field [12] "Journey" Travels
+---@field AlcoholicBeverages 11
+---@field [11] "AlcoholicBeverages"
+---@field Journey 12
+---@field [12] "Journey"
 ---@field War 13
 ---@field [13] "War"
 ---@field Hunt 14
@@ -230,8 +230,8 @@ function df.poetic_form_subject_target.T_Concept:new() end
 ---@field [18] "SomeonesCharacter"
 ---@field Histfig 19
 ---@field [19] "Histfig"
----@field Concept 20 "a historical figure" or a specific figure
----@field [20] "Concept" "a historical figure" or a specific figure
+---@field Concept 20
+---@field [20] "Concept"
 df.poetic_form_subject = {}
 
 ---@alias df.poetic_form_action
@@ -248,7 +248,7 @@ df.poetic_form_subject = {}
 ---| 9 # TeachMoralLesson
 ---| 10 # MakeAssertion
 ---| 11 # MakeCounterAssertion
----| 12 # MakeConsession
+---| 12 # MakeConcession
 ---| 13 # SynthesizePreviousIdeas
 ---| 14 # DevelopPreviousIdea
 ---| 15 # InvertTheAssertion
@@ -287,8 +287,8 @@ df.poetic_form_subject = {}
 ---@field [10] "MakeAssertion"
 ---@field MakeCounterAssertion 11
 ---@field [11] "MakeCounterAssertion"
----@field MakeConsession 12
----@field [12] "MakeConsession"
+---@field MakeConcession 12
+---@field [12] "MakeConcession"
 ---@field SynthesizePreviousIdeas 13
 ---@field [13] "SynthesizePreviousIdeas"
 ---@field DevelopPreviousIdea 14
@@ -315,8 +315,8 @@ df.poetic_form_action = {}
 ---@field _enum identity.poetic_form_feature
 ---@field InternalRhyme boolean bay12: POETIC_FORM_LINE_FLAG_*
 ---@field [0] boolean bay12: POETIC_FORM_LINE_FLAG_*
----@field EndRhymesDontMatch boolean SoftEndRhyme
----@field [1] boolean SoftEndRhyme
+---@field EndRhymesDontMatch boolean
+---@field [1] boolean
 ---@field Alliteration boolean
 ---@field [2] boolean
 ---@field Onomatopoeia boolean
@@ -325,14 +325,14 @@ df.poetic_form_action = {}
 ---@field [4] boolean
 ---@field DifferentReadings boolean
 ---@field [5] boolean
----@field ReadBackwards boolean "different readings depending on word breaks"
----@field [6] boolean "different readings depending on word breaks"
----@field ReadOrthogonally boolean "can be read backwards as well as forwards"
----@field [7] boolean "can be read backwards as well as forwards"
----@field Emerge boolean "can be read orthogonally across the standard lines"
----@field [8] boolean "can be read orthogonally across the standard lines"
----@field Assonance boolean "emerge when reading along certain prescribed paths across the body of the poem"
----@field [9] boolean "emerge when reading along certain prescribed paths across the body of the poem"
+---@field ReadBackwards boolean
+---@field [6] boolean
+---@field ReadOrthogonally boolean
+---@field [7] boolean
+---@field Emerge boolean
+---@field [8] boolean
+---@field Assonance boolean
+---@field [9] boolean
 ---@field Consonance boolean
 ---@field [10] boolean
 ---@field Elision boolean
@@ -363,8 +363,8 @@ df.poetic_form_action = {}
 ---@class identity.poetic_form_feature: DFBitfieldType
 ---@field InternalRhyme 0 bay12: POETIC_FORM_LINE_FLAG_*
 ---@field [0] "InternalRhyme" bay12: POETIC_FORM_LINE_FLAG_*
----@field EndRhymesDontMatch 1 SoftEndRhyme
----@field [1] "EndRhymesDontMatch" SoftEndRhyme
+---@field EndRhymesDontMatch 1
+---@field [1] "EndRhymesDontMatch"
 ---@field Alliteration 2
 ---@field [2] "Alliteration"
 ---@field Onomatopoeia 3
@@ -373,14 +373,14 @@ df.poetic_form_action = {}
 ---@field [4] "Antanaclasis"
 ---@field DifferentReadings 5
 ---@field [5] "DifferentReadings"
----@field ReadBackwards 6 "different readings depending on word breaks"
----@field [6] "ReadBackwards" "different readings depending on word breaks"
----@field ReadOrthogonally 7 "can be read backwards as well as forwards"
----@field [7] "ReadOrthogonally" "can be read backwards as well as forwards"
----@field Emerge 8 "can be read orthogonally across the standard lines"
----@field [8] "Emerge" "can be read orthogonally across the standard lines"
----@field Assonance 9 "emerge when reading along certain prescribed paths across the body of the poem"
----@field [9] "Assonance" "emerge when reading along certain prescribed paths across the body of the poem"
+---@field ReadBackwards 6
+---@field [6] "ReadBackwards"
+---@field ReadOrthogonally 7
+---@field [7] "ReadOrthogonally"
+---@field Emerge 8
+---@field [8] "Emerge"
+---@field Assonance 9
+---@field [9] "Assonance"
 ---@field Consonance 10
 ---@field [10] "Consonance"
 ---@field Elision 11
@@ -413,16 +413,16 @@ df.poetic_form_feature = {}
 ---@field _enum identity.poetic_form_section_flag
 ---@field end_rhyme_global_pattern boolean bay12: POETIC_FORM_SECTION_FLAG_*
 ---@field [0] boolean bay12: POETIC_FORM_SECTION_FLAG_*
----@field verse_paragraph boolean "line, couplet, tercet" if set, "brief verse paragraphs"/"full verse paragraphs" otherwise
----@field [1] boolean "line, couplet, tercet" if set, "brief verse paragraphs"/"full verse paragraphs" otherwise
+---@field verse_paragraph boolean
+---@field [1] boolean
 ---@field end_rhyme_shared_in_stanzas boolean
 ---@field [2] boolean
 
 ---@class identity.poetic_form_section_flag: DFBitfieldType
 ---@field end_rhyme_global_pattern 0 bay12: POETIC_FORM_SECTION_FLAG_*
 ---@field [0] "end_rhyme_global_pattern" bay12: POETIC_FORM_SECTION_FLAG_*
----@field verse_paragraph 1 "line, couplet, tercet" if set, "brief verse paragraphs"/"full verse paragraphs" otherwise
----@field [1] "verse_paragraph" "line, couplet, tercet" if set, "brief verse paragraphs"/"full verse paragraphs" otherwise
+---@field verse_paragraph 1
+---@field [1] "verse_paragraph"
 ---@field end_rhyme_shared_in_stanzas 2
 ---@field [2] "end_rhyme_shared_in_stanzas"
 df.poetic_form_section_flag = {}
@@ -611,6 +611,7 @@ function _poetic_form_part_certain_lines_additional_features:insert(index, item)
 function _poetic_form_part_certain_lines_additional_features:erase(index) end
 
 ---@alias df.poetic_form_persona_type
+---| -1 # NONE
 ---| 0 # Author
 ---| 1 # Soldier
 ---| 2 # Traveller
@@ -621,8 +622,10 @@ function _poetic_form_part_certain_lines_additional_features:erase(index) end
 ---| 7 # Animal
 
 ---@class identity.poetic_form_persona_type: DFEnumType
----@field Author 0 bay12: PoeticFormPersonaType
----@field [0] "Author" bay12: PoeticFormPersonaType
+---@field NONE -1 bay12: PoeticFormPersonaType
+---@field [-1] "NONE" bay12: PoeticFormPersonaType
+---@field Author 0
+---@field [0] "Author"
 ---@field Soldier 1
 ---@field [1] "Soldier"
 ---@field Traveller 2
@@ -656,14 +659,14 @@ function df.poetic_form_perspective:new() end
 ---@field _enum identity.poetic_form_flag
 ---@field tone_patterns boolean bay12: POETIC_FORM_FLAG_*
 ---@field [0] boolean bay12: POETIC_FORM_FLAG_*
----@field produces_individual_poems boolean has_compositions
----@field [1] boolean has_compositions
+---@field produces_individual_poems boolean
+---@field [1] boolean
 
 ---@class identity.poetic_form_flag: DFBitfieldType
 ---@field tone_patterns 0 bay12: POETIC_FORM_FLAG_*
 ---@field [0] "tone_patterns" bay12: POETIC_FORM_FLAG_*
----@field produces_individual_poems 1 has_compositions
----@field [1] "produces_individual_poems" has_compositions
+---@field produces_individual_poems 1
+---@field [1] "produces_individual_poems"
 df.poetic_form_flag = {}
 
 ---@class (exact) df.poetic_form: DFStruct
@@ -675,7 +678,7 @@ df.poetic_form_flag = {}
 ---@field subject_hf number "originally devised by ..."<br>References: `df.historical_figure`
 ---@field flags df.poetic_form_flag
 ---@field parts _poetic_form_parts
----@field each_line_feet number meter
+---@field each_line_feet number
 ---@field each_line_pattern df.poetic_form_pattern
 ---@field every_line_caesura_position df.poetic_form_caesura_position
 ---@field common_features _poetic_form_common_features "certain lines often ... and they sometimes ..."

@@ -72,19 +72,28 @@ df.d_init_nickname = {}
 ---@field [1] "BOTTOM"
 df.d_init_idlers = {}
 
--- Unused: TILE_FLAG_*
+---@class df.tile_flag: DFBitfield
+---@field _enum identity.tile_flag
+---@field INVERTED boolean
+---@field [0] boolean
+
+---@class identity.tile_flag: DFBitfieldType
+---@field INVERTED 0
+---@field [0] "INVERTED"
+df.tile_flag = {}
+
 ---@class (exact) df.d_init_displayst: DFStruct
 ---@field _type identity.d_init_displayst
 ---@field flags _d_init_displayst_flags
 ---@field nickname DFEnumVector<df.game_type, df.d_init_nickname>
----@field sky_tile integer must specify count 10 because game_type.NONE is not -1
----@field sky_color number[]
+---@field sky_tile integer must specify count because game_type.NONE is not -1
+---@field sky_color number[] not an array
 ---@field chasm_tile integer
 ---@field pillar_tile integer
 ---@field track_tiles integer[] N S E W NS NE NW SE SW EW NSE NSW NEW SEW NSEW
----@field track_tile_invert integer[]
+---@field track_tile_invert df.tile_flag[]
 ---@field track_ramp_tiles integer[]
----@field track_ramp_invert integer[]
+---@field track_ramp_invert df.tile_flag[]
 ---@field tree_tiles integer[]
 ---@field chasm_color number[] TREE_PART_TILENUM
 ---@field wound_color df.d_init_displayst.T_wound_color
@@ -117,12 +126,12 @@ function _d_init_displayst_flags:erase(index) end
 
 ---@class (exact) df.d_init_displayst.T_wound_color: DFStruct
 ---@field _type identity.d_init_displayst.wound_color
----@field none number[]
+---@field none number[] not a compound
 ---@field minor number[]
----@field inhibited number[]
----@field function_loss number[]
----@field broken number[]
----@field missing number[]
+---@field inhibited number[] not an array
+---@field function_loss number[] not an array
+---@field broken number[] not an array
+---@field missing number[] not an array
 
 ---@class identity.d_init_displayst.wound_color: DFCompoundType
 ---@field _kind 'struct-type'
@@ -201,8 +210,8 @@ function _d_init_adventurest_flags:erase(index) end
 ---@field visitor_cap number
 ---@field specific_seed_cap number
 ---@field fortress_seed_cap number
----@field path_cost number[]
----@field embark_rect number[] not an array
+---@field path_cost number[] not an array
+---@field embark_rect number[]
 ---@field store_dist df.d_init_dwarfst.T_store_dist
 ---@field graze_coefficient number
 ---@field maximum_embark_dim number
@@ -241,8 +250,14 @@ function df.d_init_dwarfst.T_store_dist:new() end
 ---@alias df.d_init_flags4
 ---| 0 # TEMPERATURE
 ---| 1 # WEATHER
+---| 2 # UNUSED_01_03
+---| 3 # UNUSED_01_04
+---| 4 # UNUSED_01_05
+---| 5 # UNUSED_01_06
 ---| 6 # AUTOSAVE_PAUSE
+---| 7 # UNUSED_01_08
 ---| 8 # INITIAL_SAVE
+---| 9 # UNUSED_02_02
 ---| 10 # CAVEINS
 ---| 11 # ARTIFACTS
 ---| 12 # LOG_MAP_REJECTS
@@ -260,10 +275,22 @@ function df.d_init_dwarfst.T_store_dist:new() end
 ---@field [0] "TEMPERATURE" bay12: InitFeatureFlagType
 ---@field WEATHER 1
 ---@field [1] "WEATHER"
+---@field UNUSED_01_03 2
+---@field [2] "UNUSED_01_03"
+---@field UNUSED_01_04 3
+---@field [3] "UNUSED_01_04"
+---@field UNUSED_01_05 4
+---@field [4] "UNUSED_01_05"
+---@field UNUSED_01_06 5
+---@field [5] "UNUSED_01_06"
 ---@field AUTOSAVE_PAUSE 6
 ---@field [6] "AUTOSAVE_PAUSE"
+---@field UNUSED_01_08 7
+---@field [7] "UNUSED_01_08"
 ---@field INITIAL_SAVE 8
 ---@field [8] "INITIAL_SAVE"
+---@field UNUSED_02_02 9
+---@field [9] "UNUSED_02_02"
 ---@field CAVEINS 10
 ---@field [10] "CAVEINS"
 ---@field ARTIFACTS 11
@@ -274,8 +301,8 @@ function df.d_init_dwarfst.T_store_dist:new() end
 ---@field [13] "PAUSE_ON_LOAD"
 ---@field EMBARK_WARNING_ALWAYS 14
 ---@field [14] "EMBARK_WARNING_ALWAYS"
----@field SHOW_ALL_HISTORY_IN_DWARF_MODE 15 SHOW_ALL_HISTORY_IN_FORT_MODE
----@field [15] "SHOW_ALL_HISTORY_IN_DWARF_MODE" SHOW_ALL_HISTORY_IN_FORT_MODE
+---@field SHOW_ALL_HISTORY_IN_DWARF_MODE 15
+---@field [15] "SHOW_ALL_HISTORY_IN_DWARF_MODE"
 ---@field TESTING_ARENA 16
 ---@field [16] "TESTING_ARENA"
 ---@field WALKING_SPREADS_SPATTER_DWF 17

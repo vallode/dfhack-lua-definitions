@@ -59,17 +59,17 @@ local machine
 ---@return df.machine_type
 function machine:getType() end
 
----@param x number
----@param y number
----@param z number
-function machine:moveMachine(x, y, z) end
+---@param shiftx number
+---@param shifty number
+---@param shiftz number
+function machine:moveMachine(shiftx, shifty, shiftz) end
 
----@param file df.file_compressorst
-function machine:write_file(file) end
+---@param filecomp df.file_compressorst
+function machine:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function machine:read_file(file, loadversion) end
+function machine:read_file(filecomp, loadversion) end
 
 
 ---@class identity.machine: DFCompoundType
@@ -120,8 +120,8 @@ function df.machine_standardst:new() end
 ---@field temp_save _machine_handler_temp_save
 local machine_handler
 
----@param anon_0 df.building
-function machine_handler:add_to_machine(anon_0) end
+---@param bld df.building
+function machine_handler:add_to_machine(bld) end
 
 
 ---@class identity.machine_handler: DFCompoundType

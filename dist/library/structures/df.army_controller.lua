@@ -338,7 +338,7 @@ function df.army_controller_goal_site_workst:new() end
 ---@field _type identity.army_controller_goal_infiltrate_societyst
 ---@field target_stid number References: `df.world_site`
 ---@field target_enid number References: `df.historical_entity`
----@field agoal_ab_id number abstract building ID, -1 before arrival<br>References: `df.abstract_building`
+---@field goal_ab_id number abstract building ID, -1 before arrival<br>References: `df.abstract_building`
 ---@field reason df.history_event_reason none before arrival
 
 ---@class identity.army_controller_goal_infiltrate_societyst: DFCompoundType

@@ -1135,13 +1135,16 @@ df.creature_personality_profilest = {}
 function df.creature_personality_profilest:new() end
 
 ---@alias df.secretion_condition
+---| -1 # NONE
 ---| 0 # CONTINUOUS
 ---| 1 # EXTREME_EMOTION
 ---| 2 # EXERTION
 
 ---@class identity.secretion_condition: DFEnumType
----@field CONTINUOUS 0 bay12: SecretionCondition, no base type
----@field [0] "CONTINUOUS" bay12: SecretionCondition, no base type
+---@field NONE -1 bay12: SecretionCondition, no base type
+---@field [-1] "NONE" bay12: SecretionCondition, no base type
+---@field CONTINUOUS 0
+---@field [0] "CONTINUOUS"
 ---@field EXTREME_EMOTION 1
 ---@field [1] "EXTREME_EMOTION"
 ---@field EXERTION 2
@@ -1421,7 +1424,7 @@ df.creature_graphics_layer_flag = {}
 ---@field mat df.creature_graphics_layer_materialst
 ---@field flags df.creature_graphics_layer_flag
 ---@field use_palette_index DFNumberVector
----@field dye_color_iuse_palette_rowndex DFNumberVector
+---@field use_palette_row DFNumberVector
 ---@field use_standard_nex_body_palette_row number
 ---@field use_standard_beast_palette_row number
 ---@field use_color_palette_token string
@@ -1983,10 +1986,10 @@ function _creature_raw_graphics_graphics_layer_set:erase(index) end
 ---@field [55] "PET_EXOTIC"
 ---@field HAS_ROTTABLE 56
 ---@field [56] "HAS_ROTTABLE"
----@field CAN_SPEAK 57 aka INTELLIGENT_SPEAKS
----@field [57] "CAN_SPEAK" aka INTELLIGENT_SPEAKS
----@field CAN_LEARN 58 aka INTELLIGENT_LEARNS
----@field [58] "CAN_LEARN" aka INTELLIGENT_LEARNS
+---@field CAN_SPEAK 57
+---@field [57] "CAN_SPEAK"
+---@field CAN_LEARN 58
+---@field [58] "CAN_LEARN"
 ---@field UTTERANCES 59
 ---@field [59] "UTTERANCES"
 ---@field BONECARN 60
@@ -2310,7 +2313,7 @@ df.caste_raw_flags = {}
 ---@field worldgen_material_defining_flag DFNumberVector
 ---@field meat_mat_type number muscle:<br>References: `df.material`
 ---@field meat_mat_index number
----@field habit_num number[]
+---@field habit_num number[] min,max
 ---@field habit_type _caste_raw_habit_type
 ---@field habit_chance DFNumberVector
 ---@field lair_type _caste_raw_lair_type
@@ -2332,7 +2335,7 @@ df.caste_raw_flags = {}
 ---@field sense_creature_b DFNumberVector
 ---@field sense_creature_br DFNumberVector
 ---@field caste_graphics df.creature_raw_graphics
----@field statue_texpos number[]
+---@field statue_texpos number[] top,bottom
 
 ---@class identity.caste_raw: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2344,8 +2347,8 @@ function df.caste_raw:new() end
 -- bay12: short[CreatureCasteShort]
 ---@class (exact) df.caste_raw.T_misc: DFStruct
 ---@field _type identity.caste_raw.misc
+---@field litter_size_max number not a compound
 ---@field litter_size_min number
----@field litter_size_max number
 ---@field penetratepower number
 ---@field vermin_bite_chance number
 ---@field grasstrample number
@@ -2447,7 +2450,7 @@ function _caste_raw_body_appearance_modifiers:erase(index) end
 
 ---@class (exact) df.caste_raw.T_bp_appearance: DFStruct
 ---@field _type identity.caste_raw.bp_appearance
----@field modifiers _caste_raw_bp_appearance_modifiers
+---@field modifiers _caste_raw_bp_appearance_modifiers not a compound
 ---@field modifier_idx DFNumberVector
 ---@field part_idx DFNumberVector
 ---@field layer_idx DFNumberVector
@@ -2560,7 +2563,7 @@ function _caste_raw_natural_skill_lvl:erase(index) end
 
 ---@class (exact) df.caste_raw.T_caste_profession_name: DFStruct
 ---@field _type identity.caste_raw.caste_profession_name
----@field singular DFEnumVector<df.profession, string>
+---@field singular DFEnumVector<df.profession, string> not a compound
 ---@field plural DFEnumVector<df.profession, string>
 
 ---@class identity.caste_raw.caste_profession_name: DFCompoundType
@@ -2572,7 +2575,7 @@ function df.caste_raw.T_caste_profession_name:new() end
 
 ---@class (exact) df.caste_raw.T_extracts: DFStruct
 ---@field _type identity.caste_raw.extracts
----@field extract_mat DFNumberVector
+---@field extract_mat DFNumberVector not a compound
 ---@field extract_matidx DFNumberVector
 ---@field extract_str string[]
 ---@field milkable_mat number
@@ -2583,7 +2586,7 @@ function df.caste_raw.T_caste_profession_name:new() end
 ---@field webber_str string[]
 ---@field vermin_bite_mat number
 ---@field vermin_bite_matidx number
----@field vermin_bite_chance number
+---@field vermin_bite_state df.matter_state
 ---@field vermin_bite_str string[]
 ---@field tendons_mat number
 ---@field tendons_matidx number
@@ -2593,11 +2596,11 @@ function df.caste_raw.T_caste_profession_name:new() end
 ---@field ligaments_matidx number
 ---@field ligaments_str string[]
 ---@field ligaments_heal number
----@field blood_state number
+---@field blood_state df.matter_state
 ---@field blood_mat number
 ---@field blood_matidx number
 ---@field blood_str string[]
----@field pus_state number
+---@field pus_state df.matter_state
 ---@field pus_mat number
 ---@field pus_matidx number
 ---@field pus_str string[]
@@ -2747,7 +2750,7 @@ function _caste_raw_lair_characteristic_type:erase(index) end
 
 ---@class (exact) df.caste_raw.T_lair_hunter_speech: DFStruct
 ---@field _type identity.caste_raw.lair_hunter_speech
----@field index DFNumberVector
+---@field index DFNumberVector not a compound
 ---@field token DFStringVector
 
 ---@class identity.caste_raw.lair_hunter_speech: DFCompoundType
@@ -2759,7 +2762,7 @@ function df.caste_raw.T_lair_hunter_speech:new() end
 
 ---@class (exact) df.caste_raw.T_specific_food: DFStruct
 ---@field _type identity.caste_raw.specific_food
----@field creature DFNumberVector
+---@field creature DFNumberVector not a compound
 ---@field plant DFNumberVector
 ---@field creature_str DFStringVector
 ---@field plant_str DFStringVector
@@ -3177,6 +3180,7 @@ df.creature_raw_flags = {}
 -- Unused: CreatureDefUShort
 -- Unused: CreatureDefUChar
 ---@alias df.genetic_modifier_type
+---| -1 # NONE
 ---| 0 # BODY_APP
 ---| 1 # BP_APP
 ---| 2 # TISSUE_COLOR
@@ -3188,8 +3192,10 @@ df.creature_raw_flags = {}
 -- Unused: CreatureDefUShort
 -- Unused: CreatureDefUChar
 ---@class identity.genetic_modifier_type: DFEnumType
----@field BODY_APP 0 bay12: GeneticModifierType
----@field [0] "BODY_APP" bay12: GeneticModifierType
+---@field NONE -1 bay12: GeneticModifierType
+---@field [-1] "NONE" bay12: GeneticModifierType
+---@field BODY_APP 0
+---@field [0] "BODY_APP"
 ---@field BP_APP 1
 ---@field [1] "BP_APP"
 ---@field TISSUE_COLOR 2
@@ -3214,8 +3220,8 @@ df.genetic_modifier_type = {}
 ---@field temperature2 integer bay12: ushort[CreatureDefUShort]
 ---@field frequency number
 ---@field population_number number[] bay12: short[CreatureDefShort]
----@field cluster_number number[]
----@field triggerable_group number[]
+---@field cluster_number number[] MAX,MIN
+---@field triggerable_group number[] MAX,MIN
 ---@field color number[]
 ---@field glowcolor number[]
 ---@field adultsize number
@@ -3239,7 +3245,7 @@ df.genetic_modifier_type = {}
 ---@field source_enid number References: `df.historical_entity`
 ---@field next_modifier_id number
 ---@field raws DFStringVector
----@field statue_texpos number[]
+---@field statue_texpos number[] top,bottom
 
 ---@class identity.creature_raw: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3339,7 +3345,7 @@ function _creature_raw_tissue:erase(index) end
 
 ---@class (exact) df.creature_raw.T_profession_name: DFStruct
 ---@field _type identity.creature_raw.profession_name
----@field singular DFEnumVector<df.profession, string>
+---@field singular DFEnumVector<df.profession, string> not a compound
 ---@field plural DFEnumVector<df.profession, string>
 
 ---@class identity.creature_raw.profession_name: DFCompoundType
@@ -3367,7 +3373,7 @@ function _creature_raw_modifier_class:erase(index) end
 
 ---@class (exact) df.creature_raw.T_hive_product: DFStruct
 ---@field _type identity.creature_raw.hive_product
----@field number DFNumberVector
+---@field number DFNumberVector not a compound
 ---@field time DFNumberVector
 ---@field item_type _creature_raw_hive_product_item_type
 ---@field item_subtype DFNumberVector
@@ -3413,17 +3419,17 @@ function _creature_raw_hive_product_item_type:erase(index) end
 ---@field hist_fig_to_creature_map DFNumberVector
 local creature_handler
 
----@param creature_index number References: `df.creature_raw`
----@param caste_index number References: `df.caste_raw`
----@param alt boolean
----@param soldier boolean
+---@param race number References: `df.creature_raw`
+---@param caste number References: `df.caste_raw`
+---@param use_alternates boolean
+---@param use_soldier boolean
 ---@return integer
-function creature_handler:getTile(creature_index, caste_index, alt, soldier) end
+function creature_handler:getTile(race, caste, use_alternates, use_soldier) end
 
----@param creature_index number References: `df.creature_raw`
----@param caste_index number References: `df.caste_raw`
+---@param race number References: `df.creature_raw`
+---@param caste number References: `df.caste_raw`
 ---@return integer
-function creature_handler:getGlowTile(creature_index, caste_index) end
+function creature_handler:getGlowTile(race, caste) end
 
 
 ---@class identity.creature_handler: DFCompoundType

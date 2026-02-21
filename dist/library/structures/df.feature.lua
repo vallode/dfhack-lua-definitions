@@ -126,12 +126,12 @@ local feature_alteration
 ---@return df.feature_alteration_type
 function feature_alteration:getType() end
 
----@param file df.file_compressorst
-function feature_alteration:write_file(file) end
+---@param filecomp df.file_compressorst
+function feature_alteration:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function feature_alteration:read_file(file, loadversion) end
+function feature_alteration:read_file(filecomp, loadversion) end
 
 
 ---@class identity.feature_alteration: DFCompoundType
@@ -177,17 +177,17 @@ local feature
 ---@return df.feature_type
 function feature:getType() end
 
----@param file df.file_compressorst
-function feature:write_file(file) end
+---@param filecomp df.file_compressorst
+function feature:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function feature:read_file(file, loadversion) end
+function feature:read_file(filecomp, loadversion) end
 
----@param x number
----@param y number
----@param z number
-function feature:shiftCoords(x, y, z) end
+---@param shiftx number
+---@param shifty number
+---@param shiftz number
+function feature:shiftCoords(shiftx, shifty, shiftz) end
 
 function feature:discovery_realize() end
 
@@ -358,14 +358,14 @@ local feature_init
 ---@return df.feature_type
 function feature_init:getType() end
 
----@param file df.file_compressorst
----@param include_feature boolean
-function feature_init:write_file(file, include_feature) end
+---@param filecomp df.file_compressorst
+---@param active_game boolean
+function feature_init:write_file(filecomp, active_game) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
----@param include_feature boolean
-function feature_init:read_file(file, loadversion, include_feature) end
+---@param active_game boolean
+function feature_init:read_file(filecomp, loadversion, active_game) end
 
 ---@return df.feature
 function feature_init:createFeature() end
@@ -378,9 +378,9 @@ function feature_init:destroyFeature() end
 ---@return df.feature
 function feature_init:getFeature() end
 
----@param mat_type number
----@param mat_index number
-function feature_init:getMaterial(mat_type, mat_index) end
+---@param mat number
+---@param matg number
+function feature_init:getMaterial(mat, matg) end
 
 ---@return boolean
 function feature_init:generates_river_vermin() end
@@ -394,13 +394,13 @@ function feature_init:indoor_wildlife_feature() end
 ---@return boolean
 function feature_init:fishing_feature() end
 
----@param foreground number
----@param background number
----@param bright number
-function feature_init:getColor(foreground, background, bright) end
+---@param cf number
+---@param cb number
+---@param cbr number
+function feature_init:getColor(cf, cb, cbr) end
 
----@param name string
-function feature_init:getName(name) end
+---@param nm string
+function feature_init:getName(nm) end
 
 ---@return boolean
 function feature_init:isWater() end

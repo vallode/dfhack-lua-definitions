@@ -639,10 +639,10 @@ function df.building_design:new() end
 ---@field [3] boolean
 ---@field almost_deleted boolean when requesting delete while in_update
 ---@field [4] boolean when requesting delete while in_update
----@field in_update boolean skip_finalize_blast
----@field [5] boolean skip_finalize_blast
----@field from_worldgen boolean do_not_retain_in_creation_zone
----@field [6] boolean do_not_retain_in_creation_zone
+---@field in_update boolean
+---@field [5] boolean
+---@field from_worldgen boolean
+---@field [6] boolean
 ---@field did_location_value boolean
 ---@field [7] boolean
 
@@ -657,10 +657,10 @@ function df.building_design:new() end
 ---@field [3] "mastering_pile"
 ---@field almost_deleted 4 when requesting delete while in_update
 ---@field [4] "almost_deleted" when requesting delete while in_update
----@field in_update 5 skip_finalize_blast
----@field [5] "in_update" skip_finalize_blast
----@field from_worldgen 6 do_not_retain_in_creation_zone
----@field [6] "from_worldgen" do_not_retain_in_creation_zone
+---@field in_update 5
+---@field [5] "in_update"
+---@field from_worldgen 6
+---@field [6] "from_worldgen"
 ---@field did_location_value 7
 ---@field [7] "did_location_value"
 df.building_flags = {}
@@ -805,8 +805,8 @@ function df.workshop_profile:new() end
 ---@field job_claim_suppress _building_job_claim_suppress
 ---@field name string
 ---@field activities _building_activities
----@field world_data_id number creation_zone_id<br>References: `df.world_object_data`
----@field world_data_subid number creation_zone_alt_id
+---@field world_data_id number References: `df.world_object_data`
+---@field world_data_subid number
 ---@field creation_bld_num number
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
@@ -815,11 +815,11 @@ local building
 ---@return number
 function building:getCustomType() end
 
----@param type number
-function building:setCustomType(type) end
+---@param cbid number
+function building:setCustomType(cbid) end
 
----@param supplies df.abstract_building_contents
-function building:countHospitalSupplies(supplies) end
+---@param li df.abstract_building_contents
+function building:countHospitalSupplies(li) end
 
 ---@return df.stockpile_links
 function building:getStockpileLinks() end
@@ -832,18 +832,18 @@ function building:canLinkToStockpile() end
 ---@return df.building_users
 function building:getUsers() end
 
----@param delta_x number
----@param delta_y number
----@param delta_z number
-function building:moveBuilding(delta_x, delta_y, delta_z) end
+---@param shiftx number
+---@param shifty number
+---@param shiftz number
+function building:moveBuilding(shiftx, shifty, shiftz) end
 
----@param abs_x number
----@param abs_y number
-function building:initOccupancy(abs_x, abs_y) end
+---@param bx number
+---@param by number
+function building:initOccupancy(bx, by) end
 
----@param anon_0 df.job_type
+---@param type df.job_type
 ---@param newoff number
-function building:setFillTimer(anon_0, newoff) end
+function building:setFillTimer(type, newoff) end
 
 ---@return boolean
 function building:isOnFire() end
@@ -869,10 +869,10 @@ function building:updateTemperature() end
 
 function building:updateItems() end
 
----@param temp integer
+---@param tmp integer
 ---@param main_turn boolean
 ---@param amp number
-function building:updateTempFromTile(temp, main_turn, amp) end
+function building:updateTempFromTile(tmp, main_turn, amp) end
 
 ---@return boolean
 function building:isNormalFurniture() end
@@ -886,12 +886,12 @@ function building:getWorkshopProfile() end
 ---@return df.machine_info
 function building:getMachineInfo() end
 
----@param power_info df.power_info
-function building:getPowerInfo(power_info) end
+---@param mpro df.power_info
+function building:getPowerInfo(mpro) end
 
----@param anon_0 df.machine_tile_set
+---@param bmhl df.machine_tile_set
 ---@return boolean
-function building:canConnectToMachine(anon_0) end
+function building:canConnectToMachine(bmhl) end
 
 ---@return df.building_type
 function building:getType() end
@@ -899,8 +899,8 @@ function building:getType() end
 ---@return number
 function building:getSubtype() end
 
----@param subtype number
-function building:setSubtype(subtype) end
+---@param news number
+function building:setSubtype(news) end
 
 ---@return boolean
 function building:isActual() end
@@ -913,11 +913,11 @@ function building:updateAction() end
 ---@return boolean
 function building:isStatueOrRestraint() end
 
----@param amt number
-function building:setMaterialAmount(amt) end
+---@param newa number
+function building:setMaterialAmount(newa) end
 
----@param stage number
-function building:setBuildStage(stage) end
+---@param bs number
+function building:setBuildStage(bs) end
 
 ---@return number
 function building:getBuildStage() end
@@ -937,13 +937,13 @@ function building:trampleOnBuild() end
 ---@return boolean
 function building:isExtentShaped() end
 
----@param abs_x number
----@param abs_y number
-function building:updateOccupancy(abs_x, abs_y) end
+---@param bx number
+---@param by number
+function building:updateOccupancy(bx, by) end
 
----@param anon_0 df.unit
+---@param un df.unit
 ---@return number
-function building:getPersonalValue(anon_0) end
+function building:getPersonalValue(un) end
 
 ---@return boolean
 function building:canBeRoom() end
@@ -953,22 +953,22 @@ function building:getDestroyDuration() end
 
 function building:queueDestroy() end
 
----@param rel_x number
----@param rel_y number
+---@param x number
+---@param y number
 ---@return boolean
-function building:isImpassableTile(rel_x, rel_y) end
+function building:isImpassableTile(x, y) end
 
----@param subtract_pending_jobs boolean
+---@param checkjobs boolean
 ---@return number
-function building:getFreeCapacity(subtract_pending_jobs) end
+function building:getFreeCapacity(checkjobs) end
 
----@param anon_0 df.item
----@param subtract_pending_jobs boolean
+---@param it df.item
+---@param checkjobs boolean
 ---@return boolean
-function building:canStoreItem(anon_0, subtract_pending_jobs) end
+function building:canStoreItem(it, checkjobs) end
 
----@param name string
-function building:getName(name) end
+---@param str string
+function building:getName(str) end
 
 function building:getNameColor() end
 
@@ -980,9 +980,9 @@ function building:getClutterLevel() end
 ---@return boolean
 function building:needsDesign() end
 
----@param anon_0 df.job_type
+---@param jtype df.job_type
 ---@return boolean
-function building:canUseForMood(anon_0) end
+function building:canUseForMood(jtype) end
 
 ---@return boolean
 function building:canBeRoomSubset() end
@@ -1002,47 +1002,47 @@ function building:isAssigned() end
 ---@return boolean
 function building:isJusticeRestraint() end
 
----@param anon_0 df.unit
-function building:detachRestrainedUnit(anon_0) end
+---@param un df.unit
+function building:detachRestrainedUnit(un) end
 
----@param file df.file_compressorst
-function building:write_file(file) end
+---@param filecomp df.file_compressorst
+function building:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function building:read_file(file, loadversion) end
+function building:read_file(filecomp, loadversion) end
 
 ---@return boolean
 function building:isImpassableAtCreation() end
 
----@param in_play boolean
-function building:categorize(in_play) end
+---@param play boolean
+function building:categorize(play) end
 
 function building:uncategorize() end
 
 ---@return number
 function building:getArchValue() end
 
----@param new_state number 0 = active/open, 1 = inactive/closed
-function building:setTriggerState(new_state) end
+---@param t_loaddelay number 0 = active/open, 1 = inactive/closed
+function building:setTriggerState(t_loaddelay) end
 
 ---@return boolean
 function building:needsMagma() end
 
----@param noscatter boolean
----@param lost boolean
-function building:removeUses(noscatter, lost) end
+---@param destitem boolean
+---@param insanify boolean
+function building:removeUses(destitem, insanify) end
 
----@param noscatter boolean
----@param lost boolean
----@param from_damage boolean
-function building:deconstructItems(noscatter, lost, from_damage) end
+---@param destitem boolean
+---@param insanify boolean
+---@param is_from_damage boolean
+function building:deconstructItems(destitem, insanify, is_from_damage) end
 
 function building:cleanupMap() end
 
----@param fire_type number
+---@param level number
 ---@return boolean
-function building:isFireSafe(fire_type) end
+function building:isFireSafe(level) end
 
 function building:fillSidebarMenu() end
 
@@ -1058,22 +1058,22 @@ function building:isHidden() end
 ---@return boolean
 function building:isVisibleInUI() end
 
----@param viewport df.map_viewport
+---@param rparam df.map_viewport
 ---@return boolean
-function building:isVisibleInViewport(viewport) end
+function building:isVisibleInViewport(rparam) end
 
----@param buffer df.building_drawbuffer
-function building:getDrawExtents(buffer) end
+---@param pi df.building_drawbuffer
+function building:getDrawExtents(pi) end
 
 ---@param curtick integer
----@param buffer df.building_drawbuffer
----@param z_offset number building_wellst only
-function building:drawBuilding(curtick, buffer, z_offset) end
+---@param pi df.building_drawbuffer
+---@param bz number building_wellst only
+function building:drawBuilding(curtick, pi, bz) end
 
----@param squad_id number
+---@param sqid number
 ---@param force_flag integer
 ---@return boolean
-function building:isValidSquadAssignment(squad_id, force_flag) end
+function building:isValidSquadAssignment(sqid, force_flag) end
 
 ---@return number
 function building:getSpecificSquad() end
@@ -1081,9 +1081,9 @@ function building:getSpecificSquad() end
 ---@return number
 function building:getSpecificPosition() end
 
----@param squad_id number
----@param squad_pos number
-function building:setSpecificSquadPos(squad_id, squad_pos) end
+---@param n_sqid number
+---@param n_sqp number
+function building:setSpecificSquadPos(n_sqid, n_sqp) end
 
 function building:clearSpecificSquad() end
 
@@ -1238,6 +1238,7 @@ function _building_activities:erase(index) end
 ---| 16 # Armor
 ---| 17 # Sheets
 ---| 18 # Custom
+---| 19 # ALL
 
 ---@class identity.stockpile_category: DFEnumType
 ---@field Remove -1 bay12: DefaultStockPiles
@@ -1280,6 +1281,8 @@ function _building_activities:erase(index) end
 ---@field [17] "Sheets"
 ---@field Custom 18
 ---@field [18] "Custom"
+---@field ALL 19
+---@field [19] "ALL"
 df.stockpile_category = {}
 
 ---@class df.stockpile_group_set: DFBitfield
@@ -2291,9 +2294,9 @@ df.civzone_activity_flag = {}
 ---@field site_realization_sul_id number
 ---@field zone_num number
 ---@field zone_settings df.building_civzonest.T_zone_settings
----@field home_general_hf DFNumberVector
+---@field home_general_hf DFNumberVector binary
 ---@field contained_buildings _building_civzonest_contained_buildings includes eg workshops and beds; **not sorted**
----@field assigned_unit_id number bay12: owner_unid<br>References: `df.unit`
+---@field assigned_unit_id number References: `df.unit`
 ---@field owner_unit_cached_index number
 ---@field squad_room_info _building_civzonest_squad_room_info
 ---@field retained_owner number only used during save<br>References: `df.unit`
@@ -2382,7 +2385,7 @@ df.building_item_role_type = {}
 ---@class (exact) df.buildingitemst: DFStruct
 ---@field _type identity.buildingitemst
 ---@field item df.item
----@field use_mode df.building_item_role_type bay12: role
+---@field use_mode df.building_item_role_type
 
 ---@class identity.buildingitemst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -3427,7 +3430,7 @@ df.building_well_flag = {}
 ---@field well_tag df.well_tag
 ---@field bucket_z number
 ---@field bucket_timer number 0-9; counts up when raising, down when lowering
----@field check_water_timer number bay12: useless_timer
+---@field check_water_timer number
 
 ---@class identity.building_wellst: DFCompoundType
 ---@field _kind 'class-type'
@@ -4421,14 +4424,14 @@ function df.building_constructionst:new() end
 ---@field [100] "ZONE_DUNGEON"
 ---@field ZONE_TOMB 101
 ---@field [101] "ZONE_TOMB"
----@field LOCATION_ASSIGNED 102 AB_BLD_ZONE
----@field [102] "LOCATION_ASSIGNED" AB_BLD_ZONE
+---@field LOCATION_ASSIGNED 102
+---@field [102] "LOCATION_ASSIGNED"
 ---@field ANY_ACTUAL 103
 ---@field [103] "ANY_ACTUAL"
 ---@field ANY_MACHINE 104
 ---@field [104] "ANY_MACHINE"
----@field ANY_HOSPITAL_STORAGE 105 chestcheck
----@field [105] "ANY_HOSPITAL_STORAGE" chestcheck
+---@field ANY_HOSPITAL_STORAGE 105
+---@field [105] "ANY_HOSPITAL_STORAGE"
 ---@field ANY_STORAGE 106
 ---@field [106] "ANY_STORAGE"
 ---@field ANY_BARRACKS 107
@@ -6907,16 +6910,16 @@ function _buildings_other_BARS_FLOOR:insert(index, item) end
 function _buildings_other_BARS_FLOOR:erase(index) end
 
 ---@class _buildings_other_WINDOW_ANY: DFContainer
----@field [integer] df.building
+---@field [integer] df.building_windowst
 local _buildings_other_WINDOW_ANY
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.building>
+---@return DFPointer<df.building_windowst>
 function _buildings_other_WINDOW_ANY:_field(index) end
 
 ---@param index '#'|integer
----@param item df.building
+---@param item df.building_windowst
 function _buildings_other_WINDOW_ANY:insert(index, item) end
 
 ---@param index integer
@@ -8028,23 +8031,23 @@ function _buildings_other_OFFERING_PLACE:erase(index) end
 
 ---@class (exact) df.building_handler: DFStruct
 ---@field _type identity.building_handler
----@field all _building_handler_all bay12: global
+---@field all _building_handler_all
 ---@field other df.buildings_other not a compound in bay12
 ---@field temp_save _building_handler_temp_save
----@field check_bridge_collapse boolean bay12: evaluate_bridge_stability
----@field check_machine_collapse boolean bay12: evaluate_machine_stability
+---@field check_bridge_collapse boolean
+---@field check_machine_collapse boolean
 local building_handler
 
----@param hookups df.machine_tile_set
+---@param bhml df.machine_tile_set
 ---@param type number
 ---@param subtype number
----@param x1 number
----@param y1 number
----@param x2 number
----@param y2 number
+---@param sx number
+---@param sy number
+---@param ex number
+---@param ey number
 ---@param z number
----@param is_vertical boolean
-function building_handler:get_machine_hookup_list(hookups, type, subtype, x1, y1, x2, y2, z, is_vertical) end
+---@param dir boolean
+function building_handler:get_machine_hookup_list(bhml, type, subtype, sx, sy, ex, ey, z, dir) end
 
 
 ---@class identity.building_handler: DFCompoundType
@@ -8283,9 +8286,9 @@ function build_req_choicest:getName(str) end
 ---@return number
 function build_req_choicest:select() end
 
----@param item_id number
+---@param ind number
 ---@return boolean
-function build_req_choicest:isCandidate(item_id) end
+function build_req_choicest:isCandidate(ind) end
 
 ---@return boolean
 function build_req_choicest:deselect() end
@@ -8357,7 +8360,7 @@ function df.build_req_choice_specst:new() end
 ---@field errors DFStringVector
 ---@field warnings DFStringVector
 ---@field tiles df.build_square_type[][]
----@field cur_walk_tag number bay12: choice_level_map
+---@field cur_walk_tag number
 ---@field plate_info df.pressure_plate_info
 ---@field min_weight_races DFNumberVector
 ---@field max_weight_races DFNumberVector
@@ -8387,11 +8390,11 @@ function df.build_req_choice_specst:new() end
 ---@field build_after_placement boolean
 local buildreq
 
----@param x number
----@param y number
----@param z number
+---@param mx number
+---@param my number
+---@param mz number
 ---@param orientation number
-function buildreq:evaluate_buildability(x, y, z, orientation) end
+function buildreq:evaluate_buildability(mx, my, mz, orientation) end
 
 function buildreq:evaluate_items_vs_placement() end
 

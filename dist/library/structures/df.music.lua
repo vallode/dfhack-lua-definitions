@@ -19,8 +19,8 @@ df.music_flag_type = {}
 ---@field source_enid number References: `df.historical_entity`
 ---@field song number
 ---@field card DFNumberVector
----@field m_event DFNumberVector MusicEvent
----@field context DFNumberVector MusicContext
+---@field m_event _musicst_m_event
+---@field context _musicst_context
 ---@field frequency number
 
 ---@class identity.musicst: DFCompoundType
@@ -45,6 +45,38 @@ function _musicst_flags:insert(index, item) end
 
 ---@param index integer
 function _musicst_flags:erase(index) end
+
+---@class _musicst_m_event: DFContainer
+---@field [integer] df.music_event_type
+local _musicst_m_event
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.music_event_type>
+function _musicst_m_event:_field(index) end
+
+---@param index '#'|integer
+---@param item df.music_event_type
+function _musicst_m_event:insert(index, item) end
+
+---@param index integer
+function _musicst_m_event:erase(index) end
+
+---@class _musicst_context: DFContainer
+---@field [integer] df.music_context_type
+local _musicst_context
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.music_context_type>
+function _musicst_context:_field(index) end
+
+---@param index '#'|integer
+---@param item df.music_context_type
+function _musicst_context:insert(index, item) end
+
+---@param index integer
+function _musicst_context:erase(index) end
 
 -- Unused: music_handling_informationst
 ---@class (exact) df.music_handlerst: DFStruct

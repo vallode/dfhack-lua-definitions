@@ -19,10 +19,10 @@
 ---@field [1] "Vermin"
 ---@field Unused3 2
 ---@field [2] "Unused3"
----@field VerminInnumerable 3 SOIL
----@field [3] "VerminInnumerable" SOIL
----@field ColonyInsect 4 SOIL_COLONY
----@field [4] "ColonyInsect" SOIL_COLONY
+---@field VerminInnumerable 3
+---@field [3] "VerminInnumerable"
+---@field ColonyInsect 4
+---@field [4] "ColonyInsect"
 ---@field Tree 5
 ---@field [5] "Tree"
 ---@field Grass 6
@@ -36,7 +36,7 @@ df.world_population_type = {}
 ---@class (exact) df.world_population: DFStruct
 ---@field _type identity.world_population
 ---@field type df.world_population_type
----@field race number References: `df.creature_raw`
+---@field race number not actually a union, just race<br>References: `df.creature_raw`
 ---@field plant number References: `df.plant_raw`
 ---@field count_min number
 ---@field count_max number
@@ -63,7 +63,7 @@ function df.world_population:new() end
 ---@field cave_id number References: `df.world_underground_region`
 ---@field site_id number References: `df.world_site`
 ---@field population_idx number
----@field layer_depth number gets overwritten when creatures arrives on map, so it knows which edge it should go to
+---@field layer_depth number gets overwritten when creatures arrives on map, so it knows which edge it should go to when it leaves
 
 ---@class identity.world_population_ref: DFCompoundType
 ---@field _kind 'struct-type'

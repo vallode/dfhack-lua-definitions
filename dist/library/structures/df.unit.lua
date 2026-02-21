@@ -1343,6 +1343,7 @@ df.artifact_rumor_locationst = {}
 function df.artifact_rumor_locationst:new() end
 
 ---@alias df.talk_choice_type
+---| -1 # NONE
 ---| 0 # Greet
 ---| 1 # Nevermind
 ---| 2 # Trade
@@ -1599,8 +1600,10 @@ function df.artifact_rumor_locationst:new() end
 ---| 253 # ExhortToFinishCurrentQuest
 
 ---@class identity.talk_choice_type: DFEnumType
----@field Greet 0 bay12: ConversationChoiceType<br>0
----@field [0] "Greet" bay12: ConversationChoiceType<br>0
+---@field NONE -1 bay12: ConversationChoiceType
+---@field [-1] "NONE" bay12: ConversationChoiceType
+---@field Greet 0 0
+---@field [0] "Greet" 0
 ---@field Nevermind 1
 ---@field [1] "Nevermind"
 ---@field Trade 2
@@ -2136,7 +2139,7 @@ df.conversation_tact_type = {}
 ---@field volume number
 ---@field tact df.conversation_tact_type
 ---@field tact_roll number
----@field var1 number
+---@field var1 number here be many unions
 ---@field var2 number
 ---@field var3 number
 ---@field var4 number
@@ -2149,6 +2152,7 @@ df.unit_action_data_talk = {}
 function df.unit_action_data_talk:new() end
 
 ---@alias df.wrestle_attack_type
+---| -1 # NONE
 ---| 0 # JointLock
 ---| 1 # Choke
 ---| 2 # Takedown
@@ -2165,8 +2169,10 @@ function df.unit_action_data_talk:new() end
 ---| 13 # FollowStrangle
 
 ---@class identity.wrestle_attack_type: DFEnumType
----@field JointLock 0 bay12: WrestleAttackType
----@field [0] "JointLock" bay12: WrestleAttackType
+---@field NONE -1 bay12: WrestleAttackType
+---@field [-1] "NONE" bay12: WrestleAttackType
+---@field JointLock 0
+---@field [0] "JointLock"
 ---@field Choke 1
 ---@field [1] "Choke"
 ---@field Takedown 2
@@ -2196,6 +2202,7 @@ function df.unit_action_data_talk:new() end
 df.wrestle_attack_type = {}
 
 ---@alias df.dungeon_wrestle_type
+---| -1 # NONE
 ---| 0 # Wrestle
 ---| 1 # Grab
 ---| 2 # WrestleGeneric
@@ -2203,8 +2210,10 @@ df.wrestle_attack_type = {}
 ---| 4 # StruggleForItem
 
 ---@class identity.dungeon_wrestle_type: DFEnumType
----@field Wrestle 0 bay12: DungeonWrestleType
----@field [0] "Wrestle" bay12: DungeonWrestleType
+---@field NONE -1 bay12: DungeonWrestleType
+---@field [-1] "NONE" bay12: DungeonWrestleType
+---@field Wrestle 0
+---@field [0] "Wrestle"
 ---@field Grab 1
 ---@field [1] "Grab"
 ---@field WrestleGeneric 2
@@ -2252,14 +2261,14 @@ function df.wrestle_infost:new() end
 ---@field [7] boolean
 ---@field precise boolean
 ---@field [8] boolean
----@field charge boolean (INDEPENDENT_MULTIATTACK)
----@field [9] boolean (INDEPENDENT_MULTIATTACK)
+---@field charge boolean
+---@field [9] boolean
 ---@field bad_multiattack boolean
 ---@field [10] boolean
 ---@field zero_criticals boolean
 ---@field [11] boolean
----@field lightly_tap boolean (NO_LETHAL_INTENT)
----@field [12] boolean (NO_LETHAL_INTENT)
+---@field lightly_tap boolean
+---@field [12] boolean
 ---@field automatic_hit boolean
 ---@field [13] boolean
 ---@field sparring_hit boolean
@@ -2284,14 +2293,14 @@ function df.wrestle_infost:new() end
 ---@field [7] "wild"
 ---@field precise 8
 ---@field [8] "precise"
----@field charge 9 (INDEPENDENT_MULTIATTACK)
----@field [9] "charge" (INDEPENDENT_MULTIATTACK)
+---@field charge 9
+---@field [9] "charge"
 ---@field bad_multiattack 10
 ---@field [10] "bad_multiattack"
 ---@field zero_criticals 11
 ---@field [11] "zero_criticals"
----@field lightly_tap 12 (NO_LETHAL_INTENT)
----@field [12] "lightly_tap" (NO_LETHAL_INTENT)
+---@field lightly_tap 12
+---@field [12] "lightly_tap"
 ---@field automatic_hit 13
 ---@field [13] "automatic_hit"
 ---@field sparring_hit 14
@@ -2312,8 +2321,8 @@ df.unit_move_attack_flag = {}
 ---@field flags df.unit_move_attack_flag
 ---@field attack_skill df.job_skill
 ---@field attack_accuracy number
----@field timer1 number prepare
----@field timer2 number recover
+---@field timer1 number
+---@field timer2 number
 
 ---@class identity.unit_action_data_attack: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2921,6 +2930,7 @@ function df.curse_attr_change:new() end
 -- Unused: clothing_planst
 -- Unused: NeedHealLevel
 ---@alias df.inv_item_role_type
+---| -1 # NONE
 ---| 0 # Hauled
 ---| 1 # Weapon
 ---| 2 # Worn
@@ -2939,16 +2949,18 @@ function df.curse_attr_change:new() end
 -- Unused: clothing_planst
 -- Unused: NeedHealLevel
 ---@class identity.inv_item_role_type: DFEnumType
----@field Hauled 0 bay12: InvItemRoleType
----@field [0] "Hauled" bay12: InvItemRoleType
+---@field NONE -1 bay12: InvItemRoleType
+---@field [-1] "NONE" bay12: InvItemRoleType
+---@field Hauled 0
+---@field [0] "Hauled"
 ---@field Weapon 1 also shield, crutch
 ---@field [1] "Weapon" also shield, crutch
 ---@field Worn 2 quiver
 ---@field [2] "Worn" quiver
 ---@field Piercing 3
 ---@field [3] "Piercing"
----@field Flask 4 WORN_STUFFED
----@field [4] "Flask" WORN_STUFFED
+---@field Flask 4
+---@field [4] "Flask"
 ---@field WrappedAround 5 e.g. bandage
 ---@field [5] "WrappedAround" e.g. bandage
 ---@field StuckIn 6
@@ -3018,12 +3030,12 @@ df.mood_stage_type = {}
 ---@field _enum identity.unit_flags1
 ---@field move_state boolean bay12: UNITFLAG_*
 ---@field [0] boolean bay12: UNITFLAG_*
----@field inactive boolean (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
----@field [1] boolean (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
----@field has_mood boolean (MOOD) Currently in mood
----@field [2] boolean (MOOD) Currently in mood
----@field had_mood boolean (MOODSPENT) Had a mood already
----@field [3] boolean (MOODSPENT) Had a mood already
+---@field inactive boolean Set for dead units and incoming/leaving critters that are alive but off-map
+---@field [1] boolean Set for dead units and incoming/leaving critters that are alive but off-map
+---@field has_mood boolean Currently in mood
+---@field [2] boolean Currently in mood
+---@field had_mood boolean Had a mood already
+---@field [3] boolean Had a mood already
 ---@field marauder boolean wide class of invader/inside creature attackers
 ---@field [4] boolean wide class of invader/inside creature attackers
 ---@field drowning boolean Is currently drowning
@@ -3044,26 +3056,26 @@ df.mood_stage_type = {}
 ---@field [12] boolean used as a temporary marker in certain places
 ---@field check_active_heist boolean
 ---@field [13] boolean
----@field can_swap boolean (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
----@field [14] boolean (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
----@field on_ground boolean (GROUNDED) The creature is laying on the floor, can be conscious
----@field [15] boolean (GROUNDED) The creature is laying on the floor, can be conscious
+---@field can_swap boolean Can swap tiles during movement (prevents multiple swaps)
+---@field [14] boolean Can swap tiles during movement (prevents multiple swaps)
+---@field on_ground boolean The creature is laying on the floor, can be conscious
+---@field [15] boolean The creature is laying on the floor, can be conscious
 ---@field projectile boolean Launched into the air? Funny.
 ---@field [16] boolean Launched into the air? Funny.
----@field active_invader boolean (INVADER) Active invader (for organized ones)
----@field [17] boolean (INVADER) Active invader (for organized ones)
----@field hidden_in_ambush boolean (AMBUSH)
----@field [18] boolean (AMBUSH)
----@field invader_origin boolean (INVADER_ORIG) Invader origin (could be inactive and fleeing)
----@field [19] boolean (INVADER_ORIG) Invader origin (could be inactive and fleeing)
----@field coward boolean (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field [20] boolean (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field hidden_ambusher boolean (MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field [21] boolean (MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field invades boolean (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
----@field [22] boolean (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
----@field check_flows boolean (FLOWCHECK) Check against flows next time you get a chance
----@field [23] boolean (FLOWCHECK) Check against flows next time you get a chance
+---@field active_invader boolean Active invader (for organized ones)
+---@field [17] boolean Active invader (for organized ones)
+---@field hidden_in_ambush boolean
+---@field [18] boolean
+---@field invader_origin boolean Invader origin (could be inactive and fleeing)
+---@field [19] boolean Invader origin (could be inactive and fleeing)
+---@field coward boolean Will flee if invasion turns around
+---@field [20] boolean Will flee if invasion turns around
+---@field hidden_ambusher boolean Active marauder/invader moving inward?
+---@field [21] boolean Active marauder/invader moving inward?
+---@field invades boolean Marauder resident/invader moving in all the way
+---@field [22] boolean Marauder resident/invader moving in all the way
+---@field check_flows boolean Check against flows next time you get a chance
+---@field [23] boolean Check against flows next time you get a chance
 ---@field ridden boolean
 ---@field [24] boolean
 ---@field caged boolean
@@ -3072,22 +3084,24 @@ df.mood_stage_type = {}
 ---@field [26] boolean
 ---@field chained boolean
 ---@field [27] boolean
----@field [28] boolean (UNUSED_1_29)
----@field [29] boolean (UNUSED_1_30)
----@field suppress_wield boolean (WIELDSUPPRESS)
----@field [30] boolean (WIELDSUPPRESS)
----@field important_historical_figure boolean (NEMESIS) Is an important historical figure
----@field [31] boolean (NEMESIS) Is an important historical figure
+---@field UNUSED_1_29 boolean
+---@field [28] boolean
+---@field UNUSED_1_30 boolean
+---@field [29] boolean
+---@field suppress_wield boolean
+---@field [30] boolean
+---@field important_historical_figure boolean Is an important historical figure
+---@field [31] boolean Is an important historical figure
 
 ---@class identity.unit_flags1: DFBitfieldType
 ---@field move_state 0 bay12: UNITFLAG_*
 ---@field [0] "move_state" bay12: UNITFLAG_*
----@field inactive 1 (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
----@field [1] "inactive" (DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
----@field has_mood 2 (MOOD) Currently in mood
----@field [2] "has_mood" (MOOD) Currently in mood
----@field had_mood 3 (MOODSPENT) Had a mood already
----@field [3] "had_mood" (MOODSPENT) Had a mood already
+---@field inactive 1 Set for dead units and incoming/leaving critters that are alive but off-map
+---@field [1] "inactive" Set for dead units and incoming/leaving critters that are alive but off-map
+---@field has_mood 2 Currently in mood
+---@field [2] "has_mood" Currently in mood
+---@field had_mood 3 Had a mood already
+---@field [3] "had_mood" Had a mood already
 ---@field marauder 4 wide class of invader/inside creature attackers
 ---@field [4] "marauder" wide class of invader/inside creature attackers
 ---@field drowning 5 Is currently drowning
@@ -3108,26 +3122,26 @@ df.mood_stage_type = {}
 ---@field [12] "temp_flag" used as a temporary marker in certain places
 ---@field check_active_heist 13
 ---@field [13] "check_active_heist"
----@field can_swap 14 (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
----@field [14] "can_swap" (CANSWAP) Can swap tiles during movement (prevents multiple swaps)
----@field on_ground 15 (GROUNDED) The creature is laying on the floor, can be conscious
----@field [15] "on_ground" (GROUNDED) The creature is laying on the floor, can be conscious
+---@field can_swap 14 Can swap tiles during movement (prevents multiple swaps)
+---@field [14] "can_swap" Can swap tiles during movement (prevents multiple swaps)
+---@field on_ground 15 The creature is laying on the floor, can be conscious
+---@field [15] "on_ground" The creature is laying on the floor, can be conscious
 ---@field projectile 16 Launched into the air? Funny.
 ---@field [16] "projectile" Launched into the air? Funny.
----@field active_invader 17 (INVADER) Active invader (for organized ones)
----@field [17] "active_invader" (INVADER) Active invader (for organized ones)
----@field hidden_in_ambush 18 (AMBUSH)
----@field [18] "hidden_in_ambush" (AMBUSH)
----@field invader_origin 19 (INVADER_ORIG) Invader origin (could be inactive and fleeing)
----@field [19] "invader_origin" (INVADER_ORIG) Invader origin (could be inactive and fleeing)
----@field coward 20 (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field [20] "coward" (WILLFLEEUNDERLOSSES) Will flee if invasion turns around
----@field hidden_ambusher 21 (MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field [21] "hidden_ambusher" (MARAUDER_ACTIVE) Active marauder/invader moving inward?
----@field invades 22 (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
----@field [22] "invades" (MARAUDER_RESIDENT) Marauder resident/invader moving in all the way
----@field check_flows 23 (FLOWCHECK) Check against flows next time you get a chance
----@field [23] "check_flows" (FLOWCHECK) Check against flows next time you get a chance
+---@field active_invader 17 Active invader (for organized ones)
+---@field [17] "active_invader" Active invader (for organized ones)
+---@field hidden_in_ambush 18
+---@field [18] "hidden_in_ambush"
+---@field invader_origin 19 Invader origin (could be inactive and fleeing)
+---@field [19] "invader_origin" Invader origin (could be inactive and fleeing)
+---@field coward 20 Will flee if invasion turns around
+---@field [20] "coward" Will flee if invasion turns around
+---@field hidden_ambusher 21 Active marauder/invader moving inward?
+---@field [21] "hidden_ambusher" Active marauder/invader moving inward?
+---@field invades 22 Marauder resident/invader moving in all the way
+---@field [22] "invades" Marauder resident/invader moving in all the way
+---@field check_flows 23 Check against flows next time you get a chance
+---@field [23] "check_flows" Check against flows next time you get a chance
 ---@field ridden 24
 ---@field [24] "ridden"
 ---@field caged 25
@@ -3136,174 +3150,178 @@ df.mood_stage_type = {}
 ---@field [26] "tame"
 ---@field chained 27
 ---@field [27] "chained"
----@field suppress_wield 30 (WIELDSUPPRESS)
----@field [30] "suppress_wield" (WIELDSUPPRESS)
----@field important_historical_figure 31 (NEMESIS) Is an important historical figure
----@field [31] "important_historical_figure" (NEMESIS) Is an important historical figure
+---@field UNUSED_1_29 28
+---@field [28] "UNUSED_1_29"
+---@field UNUSED_1_30 29
+---@field [29] "UNUSED_1_30"
+---@field suppress_wield 30
+---@field [30] "suppress_wield"
+---@field important_historical_figure 31 Is an important historical figure
+---@field [31] "important_historical_figure" Is an important historical figure
 df.unit_flags1 = {}
 
 ---@class df.unit_flags2: DFBitfield
 ---@field _enum identity.unit_flags2
 ---@field swimming boolean bay12: UNITFLAG2_*
 ---@field [0] boolean bay12: UNITFLAG2_*
----@field sparring boolean (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
----@field [1] boolean (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
----@field no_notify boolean (NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
----@field [2] boolean (NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
+---@field sparring boolean works, but not set for sparring military dwarves(?) (since 0.40.01?)
+---@field [1] boolean works, but not set for sparring military dwarves(?) (since 0.40.01?)
+---@field no_notify boolean Do not notify about level gains (for embark etc)
+---@field [2] boolean Do not notify about level gains (for embark etc)
 ---@field uniquebody boolean this unit has a unique body plan which will be stored in and loaded from the savefile individually
 ---@field [3] boolean this unit has a unique body plan which will be stored in and loaded from the savefile individually
----@field calculated_nerves boolean (NERVES_CALCULATED)
----@field [4] boolean (NERVES_CALCULATED)
----@field calculated_bodyparts boolean (BPS_CALCULATED)
----@field [5] boolean (BPS_CALCULATED)
----@field important_historical_figure boolean (IS_NEMESIS) Is important historical figure (slight variation)
----@field [6] boolean (IS_NEMESIS) Is important historical figure (slight variation)
----@field killed boolean (HAS_BEEN_KILLED) Has been killed by kill function (slightly different from dead, not necessarily violent death)
----@field [7] boolean (HAS_BEEN_KILLED) Has been killed by kill function (slightly different from dead, not necessarily violent death)
----@field cleanup_1 boolean (MUST_FORGET_COMPLETELY) Must be forgotten by forget function (just cleanup)
----@field [8] boolean (MUST_FORGET_COMPLETELY) Must be forgotten by forget function (just cleanup)
----@field cleanup_2 boolean (MUST_DELETE) Must be deleted (cleanup)
----@field [9] boolean (MUST_DELETE) Must be deleted (cleanup)
----@field cleanup_3 boolean (JUST_FORGOTTEN) Recently forgotten (cleanup)
----@field [10] boolean (JUST_FORGOTTEN) Recently forgotten (cleanup)
----@field for_trade boolean (CIV_OFFERED) Offered for trade
----@field [11] boolean (CIV_OFFERED) Offered for trade
----@field trade_resolved boolean (CIV_RESOLVED)
----@field [12] boolean (CIV_RESOLVED)
----@field has_breaks boolean (EVALUATE_LEAKS)
----@field [13] boolean (EVALUATE_LEAKS)
----@field gutted boolean (HEALTH_GUTTED)
----@field [14] boolean (HEALTH_GUTTED)
+---@field calculated_nerves boolean
+---@field [4] boolean
+---@field calculated_bodyparts boolean
+---@field [5] boolean
+---@field important_historical_figure boolean Is important historical figure (slight variation)
+---@field [6] boolean Is important historical figure (slight variation)
+---@field killed boolean Has been killed by kill function (slightly different from dead, not necessarily violent death)
+---@field [7] boolean Has been killed by kill function (slightly different from dead, not necessarily violent death)
+---@field cleanup_1 boolean Must be forgotten by forget function (just cleanup)
+---@field [8] boolean Must be forgotten by forget function (just cleanup)
+---@field cleanup_2 boolean Must be deleted (cleanup)
+---@field [9] boolean Must be deleted (cleanup)
+---@field cleanup_3 boolean Recently forgotten (cleanup)
+---@field [10] boolean Recently forgotten (cleanup)
+---@field for_trade boolean Offered for trade
+---@field [11] boolean Offered for trade
+---@field trade_resolved boolean
+---@field [12] boolean
+---@field has_breaks boolean
+---@field [13] boolean
+---@field gutted boolean
+---@field [14] boolean
 ---@field must_forget_completely_keep_rooms boolean
 ---@field [15] boolean
----@field locked_in_for_trading boolean (TRADE_LOCKED) Locked in for trading
----@field [16] boolean (TRADE_LOCKED) Locked in for trading
----@field slaughter boolean (BUTCHERABLE) marked for slaughter
----@field [17] boolean (BUTCHERABLE) marked for slaughter
----@field underworld boolean (DEFENDER) Underworld creature
----@field [18] boolean (DEFENDER) Underworld creature
----@field resident boolean (CURRENT_RESIDENT) Current resident
----@field [19] boolean (CURRENT_RESIDENT) Current resident
----@field cleanup_4 boolean (NONGLOBAL_DELETE) Marked for special cleanup as unused load from unit block on disk
----@field [20] boolean (NONGLOBAL_DELETE) Marked for special cleanup as unused load from unit block on disk
----@field calculated_insulation boolean (INSULATION_CALCULATED) Insulation from clothing calculated
----@field [21] boolean (INSULATION_CALCULATED) Insulation from clothing calculated
----@field visitor_uninvited boolean (UNINVITED_GUEST) Uninvited guest
----@field [22] boolean (UNINVITED_GUEST) Uninvited guest
+---@field locked_in_for_trading boolean Locked in for trading
+---@field [16] boolean Locked in for trading
+---@field slaughter boolean marked for slaughter
+---@field [17] boolean marked for slaughter
+---@field underworld boolean Underworld creature
+---@field [18] boolean Underworld creature
+---@field resident boolean Current resident
+---@field [19] boolean Current resident
+---@field cleanup_4 boolean Marked for special cleanup as unused load from unit block on disk
+---@field [20] boolean Marked for special cleanup as unused load from unit block on disk
+---@field calculated_insulation boolean Insulation from clothing calculated
+---@field [21] boolean Insulation from clothing calculated
+---@field visitor_uninvited boolean Uninvited guest
+---@field [22] boolean Uninvited guest
 ---@field visitor boolean
 ---@field [23] boolean
----@field calculated_inventory boolean (INVORDER_CALCULATED) Inventory order calculated
----@field [24] boolean (INVORDER_CALCULATED) Inventory order calculated
----@field vision_good boolean (HEALTH_VISION_HAVEFINE) Vision -- have good part
----@field [25] boolean (HEALTH_VISION_HAVEFINE) Vision -- have good part
----@field vision_damaged boolean (HEALTH_VISION_HAVEDAMAGE) Vision -- have damaged part
----@field [26] boolean (HEALTH_VISION_HAVEDAMAGE) Vision -- have damaged part
----@field vision_missing boolean (HEALTH_VISION_HAVEMISSING) Vision -- have missing part
----@field [27] boolean (HEALTH_VISION_HAVEMISSING) Vision -- have missing part
----@field breathing_good boolean (HEALTH_BREATHING_HAVEFINE) Breathing -- have good part
----@field [28] boolean (HEALTH_BREATHING_HAVEFINE) Breathing -- have good part
----@field breathing_problem boolean (HEALTH_BREATHING_HAVEPROBLEM) Breathing -- having a problem
----@field [29] boolean (HEALTH_BREATHING_HAVEPROBLEM) Breathing -- having a problem
----@field roaming_wilderness_population_source boolean ROMAING_WILDERPOP
----@field [30] boolean ROMAING_WILDERPOP
----@field roaming_wilderness_population_source_not_a_map_feature boolean ROAMING_WILDERPOP_NOT_FEATURE
----@field [31] boolean ROAMING_WILDERPOP_NOT_FEATURE
+---@field calculated_inventory boolean Inventory order calculated
+---@field [24] boolean Inventory order calculated
+---@field vision_good boolean Vision -- have good part
+---@field [25] boolean Vision -- have good part
+---@field vision_damaged boolean Vision -- have damaged part
+---@field [26] boolean Vision -- have damaged part
+---@field vision_missing boolean Vision -- have missing part
+---@field [27] boolean Vision -- have missing part
+---@field breathing_good boolean Breathing -- have good part
+---@field [28] boolean Breathing -- have good part
+---@field breathing_problem boolean Breathing -- having a problem
+---@field [29] boolean Breathing -- having a problem
+---@field roaming_wilderness_population_source boolean
+---@field [30] boolean
+---@field roaming_wilderness_population_source_not_a_map_feature boolean
+---@field [31] boolean
 
 ---@class identity.unit_flags2: DFBitfieldType
 ---@field swimming 0 bay12: UNITFLAG2_*
 ---@field [0] "swimming" bay12: UNITFLAG2_*
----@field sparring 1 (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
----@field [1] "sparring" (PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
----@field no_notify 2 (NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
----@field [2] "no_notify" (NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
+---@field sparring 1 works, but not set for sparring military dwarves(?) (since 0.40.01?)
+---@field [1] "sparring" works, but not set for sparring military dwarves(?) (since 0.40.01?)
+---@field no_notify 2 Do not notify about level gains (for embark etc)
+---@field [2] "no_notify" Do not notify about level gains (for embark etc)
 ---@field uniquebody 3 this unit has a unique body plan which will be stored in and loaded from the savefile individually
 ---@field [3] "uniquebody" this unit has a unique body plan which will be stored in and loaded from the savefile individually
----@field calculated_nerves 4 (NERVES_CALCULATED)
----@field [4] "calculated_nerves" (NERVES_CALCULATED)
----@field calculated_bodyparts 5 (BPS_CALCULATED)
----@field [5] "calculated_bodyparts" (BPS_CALCULATED)
----@field important_historical_figure 6 (IS_NEMESIS) Is important historical figure (slight variation)
----@field [6] "important_historical_figure" (IS_NEMESIS) Is important historical figure (slight variation)
----@field killed 7 (HAS_BEEN_KILLED) Has been killed by kill function (slightly different from dead, not necessarily violent death)
----@field [7] "killed" (HAS_BEEN_KILLED) Has been killed by kill function (slightly different from dead, not necessarily violent death)
----@field cleanup_1 8 (MUST_FORGET_COMPLETELY) Must be forgotten by forget function (just cleanup)
----@field [8] "cleanup_1" (MUST_FORGET_COMPLETELY) Must be forgotten by forget function (just cleanup)
----@field cleanup_2 9 (MUST_DELETE) Must be deleted (cleanup)
----@field [9] "cleanup_2" (MUST_DELETE) Must be deleted (cleanup)
----@field cleanup_3 10 (JUST_FORGOTTEN) Recently forgotten (cleanup)
----@field [10] "cleanup_3" (JUST_FORGOTTEN) Recently forgotten (cleanup)
----@field for_trade 11 (CIV_OFFERED) Offered for trade
----@field [11] "for_trade" (CIV_OFFERED) Offered for trade
----@field trade_resolved 12 (CIV_RESOLVED)
----@field [12] "trade_resolved" (CIV_RESOLVED)
----@field has_breaks 13 (EVALUATE_LEAKS)
----@field [13] "has_breaks" (EVALUATE_LEAKS)
----@field gutted 14 (HEALTH_GUTTED)
----@field [14] "gutted" (HEALTH_GUTTED)
+---@field calculated_nerves 4
+---@field [4] "calculated_nerves"
+---@field calculated_bodyparts 5
+---@field [5] "calculated_bodyparts"
+---@field important_historical_figure 6 Is important historical figure (slight variation)
+---@field [6] "important_historical_figure" Is important historical figure (slight variation)
+---@field killed 7 Has been killed by kill function (slightly different from dead, not necessarily violent death)
+---@field [7] "killed" Has been killed by kill function (slightly different from dead, not necessarily violent death)
+---@field cleanup_1 8 Must be forgotten by forget function (just cleanup)
+---@field [8] "cleanup_1" Must be forgotten by forget function (just cleanup)
+---@field cleanup_2 9 Must be deleted (cleanup)
+---@field [9] "cleanup_2" Must be deleted (cleanup)
+---@field cleanup_3 10 Recently forgotten (cleanup)
+---@field [10] "cleanup_3" Recently forgotten (cleanup)
+---@field for_trade 11 Offered for trade
+---@field [11] "for_trade" Offered for trade
+---@field trade_resolved 12
+---@field [12] "trade_resolved"
+---@field has_breaks 13
+---@field [13] "has_breaks"
+---@field gutted 14
+---@field [14] "gutted"
 ---@field must_forget_completely_keep_rooms 15
 ---@field [15] "must_forget_completely_keep_rooms"
----@field locked_in_for_trading 16 (TRADE_LOCKED) Locked in for trading
----@field [16] "locked_in_for_trading" (TRADE_LOCKED) Locked in for trading
----@field slaughter 17 (BUTCHERABLE) marked for slaughter
----@field [17] "slaughter" (BUTCHERABLE) marked for slaughter
----@field underworld 18 (DEFENDER) Underworld creature
----@field [18] "underworld" (DEFENDER) Underworld creature
----@field resident 19 (CURRENT_RESIDENT) Current resident
----@field [19] "resident" (CURRENT_RESIDENT) Current resident
----@field cleanup_4 20 (NONGLOBAL_DELETE) Marked for special cleanup as unused load from unit block on disk
----@field [20] "cleanup_4" (NONGLOBAL_DELETE) Marked for special cleanup as unused load from unit block on disk
----@field calculated_insulation 21 (INSULATION_CALCULATED) Insulation from clothing calculated
----@field [21] "calculated_insulation" (INSULATION_CALCULATED) Insulation from clothing calculated
----@field visitor_uninvited 22 (UNINVITED_GUEST) Uninvited guest
----@field [22] "visitor_uninvited" (UNINVITED_GUEST) Uninvited guest
+---@field locked_in_for_trading 16 Locked in for trading
+---@field [16] "locked_in_for_trading" Locked in for trading
+---@field slaughter 17 marked for slaughter
+---@field [17] "slaughter" marked for slaughter
+---@field underworld 18 Underworld creature
+---@field [18] "underworld" Underworld creature
+---@field resident 19 Current resident
+---@field [19] "resident" Current resident
+---@field cleanup_4 20 Marked for special cleanup as unused load from unit block on disk
+---@field [20] "cleanup_4" Marked for special cleanup as unused load from unit block on disk
+---@field calculated_insulation 21 Insulation from clothing calculated
+---@field [21] "calculated_insulation" Insulation from clothing calculated
+---@field visitor_uninvited 22 Uninvited guest
+---@field [22] "visitor_uninvited" Uninvited guest
 ---@field visitor 23
 ---@field [23] "visitor"
----@field calculated_inventory 24 (INVORDER_CALCULATED) Inventory order calculated
----@field [24] "calculated_inventory" (INVORDER_CALCULATED) Inventory order calculated
----@field vision_good 25 (HEALTH_VISION_HAVEFINE) Vision -- have good part
----@field [25] "vision_good" (HEALTH_VISION_HAVEFINE) Vision -- have good part
----@field vision_damaged 26 (HEALTH_VISION_HAVEDAMAGE) Vision -- have damaged part
----@field [26] "vision_damaged" (HEALTH_VISION_HAVEDAMAGE) Vision -- have damaged part
----@field vision_missing 27 (HEALTH_VISION_HAVEMISSING) Vision -- have missing part
----@field [27] "vision_missing" (HEALTH_VISION_HAVEMISSING) Vision -- have missing part
----@field breathing_good 28 (HEALTH_BREATHING_HAVEFINE) Breathing -- have good part
----@field [28] "breathing_good" (HEALTH_BREATHING_HAVEFINE) Breathing -- have good part
----@field breathing_problem 29 (HEALTH_BREATHING_HAVEPROBLEM) Breathing -- having a problem
----@field [29] "breathing_problem" (HEALTH_BREATHING_HAVEPROBLEM) Breathing -- having a problem
----@field roaming_wilderness_population_source 30 ROMAING_WILDERPOP
----@field [30] "roaming_wilderness_population_source" ROMAING_WILDERPOP
----@field roaming_wilderness_population_source_not_a_map_feature 31 ROAMING_WILDERPOP_NOT_FEATURE
----@field [31] "roaming_wilderness_population_source_not_a_map_feature" ROAMING_WILDERPOP_NOT_FEATURE
+---@field calculated_inventory 24 Inventory order calculated
+---@field [24] "calculated_inventory" Inventory order calculated
+---@field vision_good 25 Vision -- have good part
+---@field [25] "vision_good" Vision -- have good part
+---@field vision_damaged 26 Vision -- have damaged part
+---@field [26] "vision_damaged" Vision -- have damaged part
+---@field vision_missing 27 Vision -- have missing part
+---@field [27] "vision_missing" Vision -- have missing part
+---@field breathing_good 28 Breathing -- have good part
+---@field [28] "breathing_good" Breathing -- have good part
+---@field breathing_problem 29 Breathing -- having a problem
+---@field [29] "breathing_problem" Breathing -- having a problem
+---@field roaming_wilderness_population_source 30
+---@field [30] "roaming_wilderness_population_source"
+---@field roaming_wilderness_population_source_not_a_map_feature 31
+---@field [31] "roaming_wilderness_population_source_not_a_map_feature"
 df.unit_flags2 = {}
 
 ---@class df.unit_flags3: DFBitfield
 ---@field _enum identity.unit_flags3
 ---@field body_part_relsize_computed boolean bay12: UNITFLAG3_*
 ---@field [0] boolean bay12: UNITFLAG3_*
----@field size_modifier_computed boolean (TOTAL_APP_SIZE_MOD_CALCULATED)
----@field [1] boolean (TOTAL_APP_SIZE_MOD_CALCULATED)
----@field stuck_weapon_computed boolean (STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
----@field [2] boolean (STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
----@field compute_health boolean (WOUND_CHECK_REQUIRED) causes the health structure to be created or updated
----@field [3] boolean (WOUND_CHECK_REQUIRED) causes the health structure to be created or updated
----@field announce_titan boolean *(UNANNOUNCED) Announces creature like an FB or titan.
----@field [4] boolean *(UNANNOUNCED) Announces creature like an FB or titan.
+---@field size_modifier_computed boolean
+---@field [1] boolean
+---@field stuck_weapon_computed boolean cleared if removing StuckIn item to recompute wound flags.
+---@field [2] boolean cleared if removing StuckIn item to recompute wound flags.
+---@field compute_health boolean causes the health structure to be created or updated
+---@field [3] boolean causes the health structure to be created or updated
+---@field announce_titan boolean Announces creature like an FB or titan.
+---@field [4] boolean Announces creature like an FB or titan.
 ---@field training_tired_wait boolean
 ---@field [5] boolean
----@field on_crutch boolean (CRUTCH_WALKING)
----@field [6] boolean (CRUTCH_WALKING)
----@field weight_computed boolean (MASS_CALCULATED)
----@field [7] boolean (MASS_CALCULATED)
----@field body_temp_in_range boolean (BP_TEMP_CHECK_OFF) Is set to 1 every tick for non-dead creatures.
----@field [8] boolean (BP_TEMP_CHECK_OFF) Is set to 1 every tick for non-dead creatures.
----@field wait_until_reveal boolean (FROZEN_IN_TIME) Blocks all kind of things until tile is revealed.
----@field [9] boolean (FROZEN_IN_TIME) Blocks all kind of things until tile is revealed.
----@field scuttle boolean (IS_EQUIPMENT)<br>Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
----@field [10] boolean (IS_EQUIPMENT)<br>Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
+---@field on_crutch boolean
+---@field [6] boolean
+---@field weight_computed boolean
+---@field [7] boolean
+---@field body_temp_in_range boolean Is set to 1 every tick for non-dead creatures.
+---@field [8] boolean Is set to 1 every tick for non-dead creatures.
+---@field wait_until_reveal boolean Blocks all kind of things until tile is revealed.
+---@field [9] boolean Blocks all kind of things until tile is revealed.
+---@field scuttle boolean Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
+---@field [10] boolean Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
 ---@field verify_personal_training boolean
 ---@field [11] boolean
----@field ghostly boolean (GHOST)
----@field [12] boolean (GHOST)
+---@field ghostly boolean
+---@field [12] boolean
 ---@field just_sprung_ambush boolean
 ---@field [13] boolean
 ---@field disturbed_from_death boolean
@@ -3312,64 +3330,64 @@ df.unit_flags2 = {}
 ---@field [15] boolean dropped when znew >= zold
 ---@field flee_if_birth_race boolean something to do with werewolves?
 ---@field [16] boolean something to do with werewolves?
----@field no_meandering boolean (FLEE_WHEN_JOBLESS) for active_invaders
----@field [17] boolean (FLEE_WHEN_JOBLESS) for active_invaders
----@field floundering boolean (FLOUNDERING_IN_LIQUID)
----@field [18] boolean (FLOUNDERING_IN_LIQUID)
----@field exit_vehicle1 boolean (ON_VEHICLE) trapavoid
----@field [19] boolean (ON_VEHICLE) trapavoid
----@field exit_vehicle2 boolean (ON_PROJECTILE) trapavoid
----@field [20] boolean (ON_PROJECTILE) trapavoid
----@field dangerous_terrain boolean (HAVE_FLED_TERRAIN_RECENTLY)
----@field [21] boolean (HAVE_FLED_TERRAIN_RECENTLY)
----@field adv_yield boolean (YIELDED)
----@field [22] boolean (YIELDED)
----@field vision_cone_set boolean (VISION_ARC_OBSOLETE)
----@field [23] boolean (VISION_ARC_OBSOLETE)
+---@field no_meandering boolean for active_invaders
+---@field [17] boolean for active_invaders
+---@field floundering boolean
+---@field [18] boolean
+---@field exit_vehicle1 boolean trapavoid
+---@field [19] boolean trapavoid
+---@field exit_vehicle2 boolean trapavoid
+---@field [20] boolean trapavoid
+---@field dangerous_terrain boolean
+---@field [21] boolean
+---@field adv_yield boolean
+---@field [22] boolean
+---@field vision_cone_set boolean
+---@field [23] boolean
 ---@field multipart_vision_have_at_least_damaged boolean
 ---@field [24] boolean
----@field emotionally_overloaded boolean (PERSONALITY_MOOD_PREVENTS_WORK)
----@field [25] boolean (PERSONALITY_MOOD_PREVENTS_WORK)
+---@field emotionally_overloaded boolean
+---@field [25] boolean
 ---@field check_reorganize_possessions boolean
 ---@field [26] boolean
----@field available_for_adoption boolean (AVAILABLE_FOR_PET_SALE)
----@field [27] boolean (AVAILABLE_FOR_PET_SALE)
+---@field available_for_adoption boolean
+---@field [27] boolean
 ---@field gelded boolean
 ---@field [28] boolean
----@field marked_for_gelding boolean (WANT_GELD_JOB)
----@field [29] boolean (WANT_GELD_JOB)
----@field injury_thought boolean (DID_WOUND_THOUGHT_AND_NOT_WOUNDED_AGAIN)
----@field [30] boolean (DID_WOUND_THOUGHT_AND_NOT_WOUNDED_AGAIN)
+---@field marked_for_gelding boolean
+---@field [29] boolean
+---@field injury_thought boolean
+---@field [30] boolean
 ---@field guest boolean causes No Activity to be displayed
 ---@field [31] boolean causes No Activity to be displayed
 
 ---@class identity.unit_flags3: DFBitfieldType
 ---@field body_part_relsize_computed 0 bay12: UNITFLAG3_*
 ---@field [0] "body_part_relsize_computed" bay12: UNITFLAG3_*
----@field size_modifier_computed 1 (TOTAL_APP_SIZE_MOD_CALCULATED)
----@field [1] "size_modifier_computed" (TOTAL_APP_SIZE_MOD_CALCULATED)
----@field stuck_weapon_computed 2 (STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
----@field [2] "stuck_weapon_computed" (STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
----@field compute_health 3 (WOUND_CHECK_REQUIRED) causes the health structure to be created or updated
----@field [3] "compute_health" (WOUND_CHECK_REQUIRED) causes the health structure to be created or updated
----@field announce_titan 4 *(UNANNOUNCED) Announces creature like an FB or titan.
----@field [4] "announce_titan" *(UNANNOUNCED) Announces creature like an FB or titan.
+---@field size_modifier_computed 1
+---@field [1] "size_modifier_computed"
+---@field stuck_weapon_computed 2 cleared if removing StuckIn item to recompute wound flags.
+---@field [2] "stuck_weapon_computed" cleared if removing StuckIn item to recompute wound flags.
+---@field compute_health 3 causes the health structure to be created or updated
+---@field [3] "compute_health" causes the health structure to be created or updated
+---@field announce_titan 4 Announces creature like an FB or titan.
+---@field [4] "announce_titan" Announces creature like an FB or titan.
 ---@field training_tired_wait 5
 ---@field [5] "training_tired_wait"
----@field on_crutch 6 (CRUTCH_WALKING)
----@field [6] "on_crutch" (CRUTCH_WALKING)
----@field weight_computed 7 (MASS_CALCULATED)
----@field [7] "weight_computed" (MASS_CALCULATED)
----@field body_temp_in_range 8 (BP_TEMP_CHECK_OFF) Is set to 1 every tick for non-dead creatures.
----@field [8] "body_temp_in_range" (BP_TEMP_CHECK_OFF) Is set to 1 every tick for non-dead creatures.
----@field wait_until_reveal 9 (FROZEN_IN_TIME) Blocks all kind of things until tile is revealed.
----@field [9] "wait_until_reveal" (FROZEN_IN_TIME) Blocks all kind of things until tile is revealed.
----@field scuttle 10 (IS_EQUIPMENT)<br>Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
----@field [10] "scuttle" (IS_EQUIPMENT)<br>Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
+---@field on_crutch 6
+---@field [6] "on_crutch"
+---@field weight_computed 7
+---@field [7] "weight_computed"
+---@field body_temp_in_range 8 Is set to 1 every tick for non-dead creatures.
+---@field [8] "body_temp_in_range" Is set to 1 every tick for non-dead creatures.
+---@field wait_until_reveal 9 Blocks all kind of things until tile is revealed.
+---@field [9] "wait_until_reveal" Blocks all kind of things until tile is revealed.
+---@field scuttle 10 Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
+---@field [10] "scuttle" Scuttle creature: causes creature to be killed, leaving a behind<br>corpse and generating negative thoughts like a real kill.
 ---@field verify_personal_training 11
 ---@field [11] "verify_personal_training"
----@field ghostly 12 (GHOST)
----@field [12] "ghostly" (GHOST)
+---@field ghostly 12
+---@field [12] "ghostly"
 ---@field just_sprung_ambush 13
 ---@field [13] "just_sprung_ambush"
 ---@field disturbed_from_death 14
@@ -3378,34 +3396,34 @@ df.unit_flags2 = {}
 ---@field [15] "diving" dropped when znew >= zold
 ---@field flee_if_birth_race 16 something to do with werewolves?
 ---@field [16] "flee_if_birth_race" something to do with werewolves?
----@field no_meandering 17 (FLEE_WHEN_JOBLESS) for active_invaders
----@field [17] "no_meandering" (FLEE_WHEN_JOBLESS) for active_invaders
----@field floundering 18 (FLOUNDERING_IN_LIQUID)
----@field [18] "floundering" (FLOUNDERING_IN_LIQUID)
----@field exit_vehicle1 19 (ON_VEHICLE) trapavoid
----@field [19] "exit_vehicle1" (ON_VEHICLE) trapavoid
----@field exit_vehicle2 20 (ON_PROJECTILE) trapavoid
----@field [20] "exit_vehicle2" (ON_PROJECTILE) trapavoid
----@field dangerous_terrain 21 (HAVE_FLED_TERRAIN_RECENTLY)
----@field [21] "dangerous_terrain" (HAVE_FLED_TERRAIN_RECENTLY)
----@field adv_yield 22 (YIELDED)
----@field [22] "adv_yield" (YIELDED)
----@field vision_cone_set 23 (VISION_ARC_OBSOLETE)
----@field [23] "vision_cone_set" (VISION_ARC_OBSOLETE)
+---@field no_meandering 17 for active_invaders
+---@field [17] "no_meandering" for active_invaders
+---@field floundering 18
+---@field [18] "floundering"
+---@field exit_vehicle1 19 trapavoid
+---@field [19] "exit_vehicle1" trapavoid
+---@field exit_vehicle2 20 trapavoid
+---@field [20] "exit_vehicle2" trapavoid
+---@field dangerous_terrain 21
+---@field [21] "dangerous_terrain"
+---@field adv_yield 22
+---@field [22] "adv_yield"
+---@field vision_cone_set 23
+---@field [23] "vision_cone_set"
 ---@field multipart_vision_have_at_least_damaged 24
 ---@field [24] "multipart_vision_have_at_least_damaged"
----@field emotionally_overloaded 25 (PERSONALITY_MOOD_PREVENTS_WORK)
----@field [25] "emotionally_overloaded" (PERSONALITY_MOOD_PREVENTS_WORK)
+---@field emotionally_overloaded 25
+---@field [25] "emotionally_overloaded"
 ---@field check_reorganize_possessions 26
 ---@field [26] "check_reorganize_possessions"
----@field available_for_adoption 27 (AVAILABLE_FOR_PET_SALE)
----@field [27] "available_for_adoption" (AVAILABLE_FOR_PET_SALE)
+---@field available_for_adoption 27
+---@field [27] "available_for_adoption"
 ---@field gelded 28
 ---@field [28] "gelded"
----@field marked_for_gelding 29 (WANT_GELD_JOB)
----@field [29] "marked_for_gelding" (WANT_GELD_JOB)
----@field injury_thought 30 (DID_WOUND_THOUGHT_AND_NOT_WOUNDED_AGAIN)
----@field [30] "injury_thought" (DID_WOUND_THOUGHT_AND_NOT_WOUNDED_AGAIN)
+---@field marked_for_gelding 29
+---@field [29] "marked_for_gelding"
+---@field injury_thought 30
+---@field [30] "injury_thought"
 ---@field guest 31 causes No Activity to be displayed
 ---@field [31] "guest" causes No Activity to be displayed
 df.unit_flags3 = {}
@@ -3493,6 +3511,7 @@ df.unit_flags3 = {}
 df.unit_flags4 = {}
 
 ---@alias df.unitpref_type
+---| -1 # NONE
 ---| 0 # LikeMaterial
 ---| 1 # LikeCreature
 ---| 2 # LikeFood
@@ -3507,8 +3526,10 @@ df.unit_flags4 = {}
 ---| 11 # LikeDanceForm
 
 ---@class identity.unitpref_type: DFEnumType
----@field LikeMaterial 0 bay12: UnitPrefs, no base type
----@field [0] "LikeMaterial" bay12: UnitPrefs, no base type
+---@field NONE -1 bay12: UnitPrefs, no base type
+---@field [-1] "NONE" bay12: UnitPrefs, no base type
+---@field LikeMaterial 0
+---@field [0] "LikeMaterial"
 ---@field LikeCreature 1
 ---@field [1] "LikeCreature"
 ---@field LikeFood 2
@@ -3546,7 +3567,7 @@ df.unitpref_flag = {}
 ---@class (exact) df.unit_preference: DFStruct
 ---@field _type identity.unit_preference
 ---@field type df.unitpref_type
----@field item_type df.item_type
+---@field item_type df.item_type not actually a union, just an int32
 ---@field creature_id number References: `df.creature_raw`
 ---@field color_id number References: `df.descriptor_color`
 ---@field shape_id number References: `df.descriptor_shape`
@@ -3700,8 +3721,8 @@ function df.unit_skill:new() end
 ---@field [2] "Mother"
 ---@field Father 3
 ---@field [3] "Father"
----@field LastAttacker 4 SLAYER
----@field [4] "LastAttacker" SLAYER
+---@field LastAttacker 4
+---@field [4] "LastAttacker"
 ---@field GroupLeader 5
 ---@field [5] "GroupLeader"
 ---@field Draggee 6
@@ -3870,7 +3891,40 @@ df.unit_item_wrestle = {}
 function df.unit_item_wrestle:new() end
 
 -- Unused: RollType
--- Unused: unitpropertyplacementst
+---@class (exact) df.unitpropertyplacementst: DFStruct
+---@field _type identity.unitpropertyplacementst
+---@field floor df.coord
+---@field box df.coord
+---@field maxfreebox number
+---@field cab df.coord
+---@field maxfreecab number
+---@field rack df.coord
+---@field maxfreerack number
+---@field freestand_armor number
+---@field freestand_helm number
+---@field freestand_shoes number
+---@field freestand_gloves number
+---@field freestand_pants number
+---@field freestand_shield number
+---@field stand_armor df.coord
+---@field stand_helm df.coord
+---@field stand_shoes df.coord
+---@field stand_gloves df.coord
+---@field stand_pants df.coord
+---@field stand_shield df.coord
+---@field flooritems number
+---@field boxcount number
+---@field cabcount number
+---@field rackcount number
+---@field standcount number
+
+---@class identity.unitpropertyplacementst: DFCompoundType
+---@field _kind 'struct-type'
+df.unitpropertyplacementst = {}
+
+---@return df.unitpropertyplacementst
+function df.unitpropertyplacementst:new() end
+
 -- Unused: squad_property_placementst
 ---@class (exact) df.unit_complaint: DFStruct
 ---@field _type identity.unit_complaint
@@ -4341,26 +4395,26 @@ function _combat_listst_d_invitem:erase(index) end
 ---@field [0] boolean bay12: UNIT_BP_FLAG_*
 ---@field missing boolean
 ---@field [1] boolean
----@field organ_loss boolean FUNCTION_LOSS; cyan
----@field [2] boolean FUNCTION_LOSS; cyan
----@field organ_damage boolean ANY_FUNCTION_DAMAGE; yellow
----@field [3] boolean ANY_FUNCTION_DAMAGE; yellow
+---@field organ_loss boolean cyan
+---@field [2] boolean cyan
+---@field organ_damage boolean yellow
+---@field [3] boolean yellow
 ---@field muscle_loss boolean red
 ---@field [4] boolean red
 ---@field muscle_damage boolean yellow
 ---@field [5] boolean yellow
----@field bone_loss boolean STRUCTURE_LOSS; red
----@field [6] boolean STRUCTURE_LOSS; red
----@field bone_damage boolean ANY_STRUCTURE_DAMAGE; yellow
----@field [7] boolean ANY_STRUCTURE_DAMAGE; yellow
----@field skin_damage boolean ANY_DAMAGE; brown
----@field [8] boolean ANY_DAMAGE; brown
+---@field bone_loss boolean red
+---@field [6] boolean red
+---@field bone_damage boolean yellow
+---@field [7] boolean yellow
+---@field skin_damage boolean brown
+---@field [8] boolean brown
 ---@field motor_nerve_severed boolean
 ---@field [9] boolean
 ---@field sensory_nerve_severed boolean
 ---@field [10] boolean
----@field spilled_guts boolean HAS_POPPED_OUT
----@field [11] boolean HAS_POPPED_OUT
+---@field spilled_guts boolean
+---@field [11] boolean
 ---@field has_splint boolean
 ---@field [12] boolean
 ---@field has_bandage boolean
@@ -4369,14 +4423,14 @@ function _combat_listst_d_invitem:erase(index) end
 ---@field [14] boolean
 ---@field grime boolean
 ---@field [15] boolean
----@field severed_or_jammed boolean TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field [18] boolean TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field under_shell boolean RETRACTED
----@field [19] boolean RETRACTED
----@field is_shell boolean RETRACT_COVER
----@field [20] boolean RETRACT_COVER
----@field mangled boolean PULPED
----@field [21] boolean PULPED
+---@field severed_or_jammed boolean seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field [18] boolean seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field under_shell boolean
+---@field [19] boolean
+---@field is_shell boolean
+---@field [20] boolean
+---@field mangled boolean
+---@field [21] boolean
 ---@field has_pulped_tissue boolean
 ---@field [22] boolean
 ---@field gelded boolean set on GELDABLE body parts after a unit has been gelded
@@ -4387,26 +4441,26 @@ function _combat_listst_d_invitem:erase(index) end
 ---@field [0] "on_fire" bay12: UNIT_BP_FLAG_*
 ---@field missing 1
 ---@field [1] "missing"
----@field organ_loss 2 FUNCTION_LOSS; cyan
----@field [2] "organ_loss" FUNCTION_LOSS; cyan
----@field organ_damage 3 ANY_FUNCTION_DAMAGE; yellow
----@field [3] "organ_damage" ANY_FUNCTION_DAMAGE; yellow
+---@field organ_loss 2 cyan
+---@field [2] "organ_loss" cyan
+---@field organ_damage 3 yellow
+---@field [3] "organ_damage" yellow
 ---@field muscle_loss 4 red
 ---@field [4] "muscle_loss" red
 ---@field muscle_damage 5 yellow
 ---@field [5] "muscle_damage" yellow
----@field bone_loss 6 STRUCTURE_LOSS; red
----@field [6] "bone_loss" STRUCTURE_LOSS; red
----@field bone_damage 7 ANY_STRUCTURE_DAMAGE; yellow
----@field [7] "bone_damage" ANY_STRUCTURE_DAMAGE; yellow
----@field skin_damage 8 ANY_DAMAGE; brown
----@field [8] "skin_damage" ANY_DAMAGE; brown
+---@field bone_loss 6 red
+---@field [6] "bone_loss" red
+---@field bone_damage 7 yellow
+---@field [7] "bone_damage" yellow
+---@field skin_damage 8 brown
+---@field [8] "skin_damage" brown
 ---@field motor_nerve_severed 9
 ---@field [9] "motor_nerve_severed"
 ---@field sensory_nerve_severed 10
 ---@field [10] "sensory_nerve_severed"
----@field spilled_guts 11 HAS_POPPED_OUT
----@field [11] "spilled_guts" HAS_POPPED_OUT
+---@field spilled_guts 11
+---@field [11] "spilled_guts"
 ---@field has_splint 12
 ---@field [12] "has_splint"
 ---@field has_bandage 13
@@ -4415,14 +4469,14 @@ function _combat_listst_d_invitem:erase(index) end
 ---@field [14] "has_plaster_cast"
 ---@field grime 15
 ---@field [15] "grime"
----@field severed_or_jammed 18 TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field [18] "severed_or_jammed" TEMP_NOT_ATTACHED; seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field under_shell 19 RETRACTED
----@field [19] "under_shell" RETRACTED
----@field is_shell 20 RETRACT_COVER
----@field [20] "is_shell" RETRACT_COVER
----@field mangled 21 PULPED
----@field [21] "mangled" PULPED
+---@field severed_or_jammed 18 seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field [18] "severed_or_jammed" seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field under_shell 19
+---@field [19] "under_shell"
+---@field is_shell 20
+---@field [20] "is_shell"
+---@field mangled 21
+---@field [21] "mangled"
 ---@field has_pulped_tissue 22
 ---@field [22] "has_pulped_tissue"
 ---@field gelded 23 set on GELDABLE body parts after a unit has been gelded
@@ -4583,8 +4637,8 @@ function _unit_consumption_logst_drink_item_type:erase(index) end
 ---@field [11] boolean
 ---@field edged_damage boolean
 ---@field [12] boolean
----@field smashed_apart boolean ?
----@field [13] boolean ?
+---@field smashed_apart boolean
+---@field [13] boolean
 ---@field major_artery boolean
 ---@field [14] boolean
 ---@field guts_spilled boolean
@@ -4649,8 +4703,8 @@ function _unit_consumption_logst_drink_item_type:erase(index) end
 ---@field [11] "sensory_nerve_severed"
 ---@field edged_damage 12
 ---@field [12] "edged_damage"
----@field smashed_apart 13 ?
----@field [13] "smashed_apart" ?
+---@field smashed_apart 13
+---@field [13] "smashed_apart"
 ---@field major_artery 14
 ---@field [14] "major_artery"
 ---@field guts_spilled 15
@@ -4946,8 +5000,8 @@ function df.active_creature_interaction_effectst:new() end
 ---@field _enum identity.active_syndrome_flag
 ---@field is_sick boolean bay12: ACTIVE_SYNDROME_FLAG_*
 ---@field [0] boolean bay12: ACTIVE_SYNDROME_FLAG_*
----@field is_sick_low boolean care needed
----@field [1] boolean care needed
+---@field is_sick_low boolean
+---@field [1] boolean
 ---@field diagnosis_attempted boolean
 ---@field [2] boolean
 ---@field diagnosed boolean
@@ -4956,8 +5010,8 @@ function df.active_creature_interaction_effectst:new() end
 ---@class identity.active_syndrome_flag: DFBitfieldType
 ---@field is_sick 0 bay12: ACTIVE_SYNDROME_FLAG_*
 ---@field [0] "is_sick" bay12: ACTIVE_SYNDROME_FLAG_*
----@field is_sick_low 1 care needed
----@field [1] "is_sick_low" care needed
+---@field is_sick_low 1
+---@field [1] "is_sick_low"
 ---@field diagnosis_attempted 2
 ---@field [2] "diagnosis_attempted"
 ---@field diagnosed 3
@@ -5032,6 +5086,7 @@ df.unit_patient_profile_completed_jobst = {}
 ---@return df.unit_patient_profile_completed_jobst
 function df.unit_patient_profile_completed_jobst:new() end
 
+-- not actually a union, just five integers num1+num2+num3+num4+num5
 ---@class (exact) df.unit_patient_profile_completed_jobst.T_info: DFStruct
 ---@field _type identity.unit_patient_profile_completed_jobst.info
 ---@field crutch df.unit_patient_profile_completed_jobst.T_info.T_crutch
@@ -5400,28 +5455,28 @@ df.ghost_goal = {}
 ---@class identity.ghost_type: DFEnumType
 ---@field None -1 bay12: GhostType
 ---@field [-1] "None" bay12: GhostType
----@field MurderousGhost 0 MURDEROUS
----@field [0] "MurderousGhost" MURDEROUS
----@field SadisticGhost 1 SADISTIC
----@field [1] "SadisticGhost" SADISTIC
----@field SecretivePoltergeist 2 HIDER
----@field [2] "SecretivePoltergeist" HIDER
----@field EnergeticPoltergeist 3 TOPPLER
----@field [3] "EnergeticPoltergeist" TOPPLER
----@field AngryGhost 4 POSSESSOR
----@field [4] "AngryGhost" POSSESSOR
----@field ViolentGhost 5 ANGRY
----@field [5] "ViolentGhost" ANGRY
----@field MoaningSpirit 6 MOANING
----@field [6] "MoaningSpirit" MOANING
----@field HowlingSpirit 7 HOWLING
----@field [7] "HowlingSpirit" HOWLING
----@field TroublesomePoltergeist 8 THROWER
----@field [8] "TroublesomePoltergeist" THROWER
----@field RestlessHaunt 9 HAUNTER_RELATIVES
----@field [9] "RestlessHaunt" HAUNTER_RELATIVES
----@field ForlornHaunt 10 HAUNTER_KNOWN_LOCATIONS
----@field [10] "ForlornHaunt" HAUNTER_KNOWN_LOCATIONS
+---@field MurderousGhost 0
+---@field [0] "MurderousGhost"
+---@field SadisticGhost 1
+---@field [1] "SadisticGhost"
+---@field SecretivePoltergeist 2
+---@field [2] "SecretivePoltergeist"
+---@field EnergeticPoltergeist 3
+---@field [3] "EnergeticPoltergeist"
+---@field AngryGhost 4
+---@field [4] "AngryGhost"
+---@field ViolentGhost 5
+---@field [5] "ViolentGhost"
+---@field MoaningSpirit 6
+---@field [6] "MoaningSpirit"
+---@field HowlingSpirit 7
+---@field [7] "HowlingSpirit"
+---@field TroublesomePoltergeist 8
+---@field [8] "TroublesomePoltergeist"
+---@field RestlessHaunt 9
+---@field [9] "RestlessHaunt"
+---@field ForlornHaunt 10
+---@field [10] "ForlornHaunt"
 df.ghost_type = {}
 
 ---@class df.ghost_profile_flag: DFBitfield
@@ -5511,7 +5566,7 @@ function df.unit_active_animationst:new() end
 ---@field cultural_identity_id number References: `df.cultural_identity`
 ---@field interaction_index number References: `df.interaction`
 ---@field interaction_effect_index number References: `df.interaction_effect`
----@field squad_id number References: `df.squad`
+---@field squad_enid number References: `df.historical_entity`
 ---@field squad_epp_id number References: `df.entity_position_assignment`
 ---@field skill_add number
 ---@field equip_add number
@@ -5711,6 +5766,7 @@ function _unit_appearance_tissue_style:erase(index) end
 -- Unused: world_view_filterst
 ---@class (exact) df.unit_vision_arcst: DFStruct
 ---@field _type identity.unit_vision_arcst
+---@field tri integer[][]
 
 ---@class identity.unit_vision_arcst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -5797,6 +5853,7 @@ function _opinion_infost_entity_opinion:insert(index, item) end
 function _opinion_infost_entity_opinion:erase(index) end
 
 ---@alias df.travel_log_itinerary_type
+---| -1 # NONE
 ---| 0 # PRAY
 ---| 1 # STUDY
 ---| 2 # RELAX
@@ -5810,8 +5867,10 @@ function _opinion_infost_entity_opinion:erase(index) end
 ---| 10 # ASKING_QUESTIONS
 
 ---@class identity.travel_log_itinerary_type: DFEnumType
----@field PRAY 0 bay12: TravelLogItineraryType
----@field [0] "PRAY" bay12: TravelLogItineraryType
+---@field NONE -1 bay12: TravelLogItineraryType
+---@field [-1] "NONE" bay12: TravelLogItineraryType
+---@field PRAY 0
+---@field [0] "PRAY"
 ---@field STUDY 1
 ---@field [1] "STUDY"
 ---@field RELAX 2
@@ -5867,16 +5926,16 @@ function df.travel_log_itineraryst:new() end
 ---@field _enum identity.travel_log_flag
 ---@field talked_to_local boolean bay12: TRAVEL_LOG_FLAG_*
 ---@field [0] boolean bay12: TRAVEL_LOG_FLAG_*
----@field all_items_complete boolean CHATTED_WITH_LOCAL
----@field [1] boolean CHATTED_WITH_LOCAL
+---@field all_items_complete boolean
+---@field [1] boolean
 ---@field ready_to_leave boolean
 ---@field [2] boolean
 
 ---@class identity.travel_log_flag: DFBitfieldType
 ---@field talked_to_local 0 bay12: TRAVEL_LOG_FLAG_*
 ---@field [0] "talked_to_local" bay12: TRAVEL_LOG_FLAG_*
----@field all_items_complete 1 CHATTED_WITH_LOCAL
----@field [1] "all_items_complete" CHATTED_WITH_LOCAL
+---@field all_items_complete 1
+---@field [1] "all_items_complete"
 ---@field ready_to_leave 2
 ---@field [2] "ready_to_leave"
 df.travel_log_flag = {}
@@ -6012,8 +6071,8 @@ df.dungeon_control_state = {}
 ---@field individual_drills DFNumberVector
 ---@field social_activities DFNumberVector
 ---@field conversations DFNumberVector
----@field activities DFNumberVector bay12: conflict_activity_id
----@field ignored_activities DFNumberVector bay12: ignore_activity_id
+---@field activities DFNumberVector
+---@field ignored_activities DFNumberVector
 ---@field animal df.unit.T_animal
 ---@field opponent df.unit.T_opponent
 ---@field mood df.mood_type
@@ -6027,12 +6086,12 @@ df.dungeon_control_state = {}
 ---@field disturbed_heid number References: `df.history_event`
 ---@field birth_year number
 ---@field birth_time number
----@field curse_year number bay12: frozen_age_year
----@field curse_time number bay12: frozen_age_season_count
----@field birth_year_bias number bay12: credit_age_year
----@field birth_time_bias number bay12: credit_age_season_count
----@field old_year number bay12: age_death_year
----@field old_time number bay12: age_death_season_count
+---@field curse_year number
+---@field curse_time number
+---@field birth_year_bias number
+---@field birth_time_bias number
+---@field old_year number
+---@field old_time number
 ---@field following df.unit
 ---@field owner_type df.unit_owner_type invalid unless following
 ---@field relationship_ids DFEnumVector<df.unit_relationship_type, number>
@@ -6042,7 +6101,7 @@ df.dungeon_control_state = {}
 ---@field inventory _unit_inventory
 ---@field owned_items DFNumberVector
 ---@field traded_items DFNumberVector items brought to trade depot
----@field owned_buildings _unit_owned_buildings bay12: zone_assigned
+---@field owned_buildings _unit_owned_buildings
 ---@field corpse_parts DFNumberVector entries remain even when items are destroyed
 ---@field job df.unit.T_job
 ---@field body df.unit.T_body
@@ -6050,7 +6109,7 @@ df.dungeon_control_state = {}
 ---@field actions _unit_actions
 ---@field next_action_id number
 ---@field counters df.unit.T_counters
----@field uwss_flag integer moved from end of counters in 0.43.05
+---@field uwss_flag df.unit_wound_special_stats_flag
 ---@field uwss_add_caste_flag df.cie_add_tag_mask1
 ---@field uwss_remove_caste_flag df.cie_add_tag_mask1
 ---@field uwss_add_property df.cie_add_tag_mask2
@@ -6080,7 +6139,7 @@ df.dungeon_control_state = {}
 ---@field counters2 df.unit.T_counters2
 ---@field status df.unit.T_status
 ---@field hist_figure_id number References: `df.historical_figure`
----@field hist_figure_id2 number bay12: physical_hfid: used for ghost in AttackedByDead thought<br>References: `df.historical_figure`
+---@field hist_figure_id2 number used for ghost in AttackedByDead thought<br>References: `df.historical_figure`
 ---@field status2 df.unit.T_status2
 ---@field syndrome_advancement df.unit.T_syndrome_advancement
 ---@field syndromes df.unit.T_syndromes
@@ -6089,7 +6148,7 @@ df.dungeon_control_state = {}
 ---@field used_items _unit_used_items Contains worn clothes, armor, weapons, arrows fired by archers
 ---@field enemy df.unit.T_enemy
 ---@field healing_rate DFNumberVector
----@field effective_rate number bay12: heal_rate_recuperation
+---@field effective_rate number
 ---@field tendons_heal number
 ---@field ligaments_heal number
 ---@field weight df.massst
@@ -6104,12 +6163,13 @@ df.dungeon_control_state = {}
 ---@field portrait_texpos number
 ---@field cache df.unit_cache_vars
 ---@field dungeon_control df.dungeon_control_state
----@field pool_index integer protected:
+---@field pool_id integer protected:
 ---@field mtx lightuserdata
 local unit
 
+---@param corpse boolean
 ---@return integer
-function unit:getCreatureTile() end
+function unit:getCreatureTile(corpse) end
 
 ---@return integer
 function unit:getCorpseTile() end
@@ -6269,19 +6329,19 @@ function _unit_owned_buildings:erase(index) end
 ---@class (exact) df.unit.T_job: DFStruct
 ---@field _type identity.unit.job
 ---@field account number not a compound
----@field satisfaction number bay12: seasonpay: amount earned recently for jobs
+---@field satisfaction number amount earned recently for jobs
 ---@field random_appearance_number integer
 ---@field hunt_target df.unit
 ---@field target_flags df.unit_target_flags
 ---@field destroy_target df.building
 ---@field btarget_construction_or_wall df.coord
----@field siege_boulder df.coord
+---@field siege_builder df.coord
 ---@field vision_x number
 ---@field vision_y number
 ---@field vision_z number
 ---@field vision_angle number
 ---@field move_momentum_dir integer
----@field gait_buildup number bay12: move_momentum_perc
+---@field gait_buildup number
 ---@field climb_hold df.coord
 ---@field hold_itid number References: `df.item`
 ---@field current_job df.job df_job
@@ -6480,7 +6540,7 @@ function _unit_actions:erase(index) end
 ---@field unconscious number
 ---@field suffocation number counts up while winded, results in death
 ---@field webbed number
----@field guts_trail1 df.coord When gutted:
+---@field guts_trail1 df.coord When gutted:<br>actually an array, short[2][3]
 ---@field guts_trail2 df.coord
 ---@field soldier_mood_countdown number plus a random amount
 ---@field soldier_mood df.soldier_mood_type
@@ -6541,7 +6601,7 @@ function df.unit.T_counters2:new() end
 ---@field last_command_received_season_count number
 ---@field command_gait_index DFEnumVector<df.gait_type, number> initialized together with enemy.gait_index
 ---@field unit_command_flag df.unit_command_flags
----@field adv_sleep_timer number bay12: dungeonlag
+---@field adv_sleep_timer number
 ---@field recent_job_area df.coord average of the following vector
 ---@field recent_jobs df.coord_path up to 50 locations where jobs were performed recently by the unit
 
@@ -6721,7 +6781,7 @@ function _unit_status_commands:erase(index) end
 ---@field limbs_fly_max number
 ---@field limbs_fly_count number
 ---@field body_part_temperature _unit_status2_body_part_temperature
----@field add_path_flags df.pathfinding_flags bay12: override_permit; pathing flags to OR, set to None after move
+---@field add_path_flags df.pathfinding_flags pathing flags to OR, set to None after move
 ---@field liquid_type df.tile_designation
 ---@field liquid_depth integer
 ---@field histeventcol_id number linked to an active invasion or kidnapping<br>References: `df.history_event_collection`
@@ -6824,30 +6884,30 @@ function _unit_used_items:erase(index) end
 ---@field sound_cooldown DFNumberVector not a compound
 ---@field undead df.unit_active_animationst
 ---@field were_race number References: `df.creature_raw`
----@field were_caste number transform_race<br>References: `df.caste_raw`
----@field normal_race number transform_caste<br>References: `df.creature_raw`
----@field normal_caste number birth_race<br>References: `df.caste_raw`
----@field retraction_interaction number birth_caste
+---@field were_caste number References: `df.caste_raw`
+---@field normal_race number References: `df.creature_raw`
+---@field normal_caste number References: `df.caste_raw`
+---@field retraction_interaction number is set when a RETRACT_INTO_BP interaction is active
 ---@field appearances _unit_enemy_appearances
 ---@field witness_reports _unit_enemy_witness_reports
----@field rumor _unit_enemy_rumor
+---@field rumor_info df.rumor_infost
 ---@field gait_index DFEnumVector<df.gait_type, number>
 ---@field attack_awareness df.attack_awarenessst
 ---@field detection_info df.detection_infost
 ---@field sr_pop_spec df.unit_sr_pop_specst
 ---@field sr_walker df.unit_sr_walker_infost
----@field fallback_candidate_squad_enid number
----@field fallback_candidate_squad_epp_id number probably references a historical_entity
----@field army_controller_id number probably references a entity_position_assignment<br>References: `df.army_controller`
+---@field fallback_candidate_squad_enid number References: `df.historical_entity`
+---@field fallback_candidate_squad_epp_id number References: `df.entity_position_assignment`
+---@field army_controller_id number References: `df.army_controller`
 ---@field army_controller df.army_controller
 ---@field army_info df.unit_army_infost
 ---@field animal_pre_bond_unid DFNumberVector
----@field animal_pre_bond_count DFNumberVector probably references a unit
+---@field animal_pre_bond_count DFNumberVector
 ---@field just_talked_unid DFNumberVector
----@field opinion_info df.opinion_infost probably references a unit
+---@field opinion_info df.opinion_infost
 ---@field travel_log df.travel_logst
 ---@field combat_side_id number
----@field histfig_vector_idx number arena_side<br>below here unsaved --
+---@field histfig_vector_idx number below here unsaved --
 ---@field caste_flags _unit_enemy_caste_flags
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
@@ -6899,22 +6959,6 @@ function _unit_enemy_witness_reports:insert(index, item) end
 
 ---@param index integer
 function _unit_enemy_witness_reports:erase(index) end
-
----@class _unit_enemy_rumor: DFContainer
----@field [integer] df.entity_event
-local _unit_enemy_rumor
-
----@nodiscard
----@param index integer
----@return DFPointer<df.entity_event>
-function _unit_enemy_rumor:_field(index) end
-
----@param index '#'|integer
----@param item df.entity_event
-function _unit_enemy_rumor:insert(index, item) end
-
----@param index integer
-function _unit_enemy_rumor:erase(index) end
 
 ---@class _unit_enemy_caste_flags: DFContainer
 ---@field [integer] table<df.caste_raw_flags, boolean>

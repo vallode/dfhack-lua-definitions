@@ -30,9 +30,9 @@
 ---@field process_jobs boolean Requests building jobs to be processed next frame.
 ---@field cur_year_tick number
 ---@field cur_year_tick_advmode number
----@field cursor df.global.T_cursor
----@field selection_rect df.global.T_selection_rect
----@field gamemode df.game_mode
+---@field cursor df.global.T_cursor actually int32_t[3]
+---@field selection_rect df.global.T_selection_rect actually int32_t[2][3]
+---@field gamemode df.game_mode Skipped: keyboard_point
 ---@field gametype df.game_type
 ---@field save_on_exit boolean Ending the game saves its state back to world.dat or world.sav
 ---@field ui_workshop_job_cursor number

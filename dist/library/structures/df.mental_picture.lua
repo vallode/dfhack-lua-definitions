@@ -26,12 +26,12 @@ local mental_picture_elementst
 ---@return df.mental_picture_element_type
 function mental_picture_elementst:getType() end
 
----@param file df.file_compressorst
-function mental_picture_elementst:write_file(file) end
+---@param filecomp df.file_compressorst
+function mental_picture_elementst:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function mental_picture_elementst:read_file(file, loadversion) end
+function mental_picture_elementst:read_file(filecomp, loadversion) end
 
 
 ---@class identity.mental_picture_elementst: DFCompoundType
@@ -117,12 +117,12 @@ local mental_picture_propertyst
 ---@return df.mental_picture_property_type
 function mental_picture_propertyst:getType() end
 
----@param file df.file_compressorst
-function mental_picture_propertyst:write_file(file) end
+---@param filecomp df.file_compressorst
+function mental_picture_propertyst:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function mental_picture_propertyst:read_file(file, loadversion) end
+function mental_picture_propertyst:read_file(filecomp, loadversion) end
 
 
 ---@class identity.mental_picture_propertyst: DFCompoundType
@@ -250,8 +250,8 @@ function df.mental_picture_property_shapest:new() end
 ---@class identity.mental_picture_adjective_type: DFEnumType
 ---@field NONE -1 bay12: MentalPictureAdjectiveType
 ---@field [-1] "NONE" bay12: MentalPictureAdjectiveType
----@field UNNAMED 0
----@field [0] "UNNAMED"
+---@field UNNAMED 0 literally, MENTAL_PICTURE_ADJECTIVE_
+---@field [0] "UNNAMED" literally, MENTAL_PICTURE_ADJECTIVE_
 df.mental_picture_adjective_type = {}
 
 ---@class (exact) df.mental_picture_property_adjectivest: DFStruct, df.mental_picture_propertyst
@@ -273,8 +273,8 @@ function df.mental_picture_property_adjectivest:new() end
 ---@class identity.mental_picture_position_type: DFEnumType
 ---@field NONE -1 bay12: MentalPicturePositionType
 ---@field [-1] "NONE" bay12: MentalPicturePositionType
----@field UNNAMED 0
----@field [0] "UNNAMED"
+---@field UNNAMED 0 literally, MENTAL_PICTURE_POSITION_
+---@field [0] "UNNAMED" literally, MENTAL_PICTURE_POSITION_
 df.mental_picture_position_type = {}
 
 ---@class (exact) df.mental_picture_property_positionst: DFStruct, df.mental_picture_propertyst

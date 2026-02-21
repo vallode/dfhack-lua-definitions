@@ -83,8 +83,8 @@
 ---@field [22] "ART_IMAGE"
 ---@field CREATURE_DEF 23
 ---@field [23] "CREATURE_DEF"
----@field ENTITY_ART_IMAGE 24 unused?
----@field [24] "ENTITY_ART_IMAGE" unused?
+---@field ENTITY_ART_IMAGE 24
+---@field [24] "ENTITY_ART_IMAGE"
 ---@field ABSTRACT_BUILDING 25
 ---@field [25] "ABSTRACT_BUILDING"
 ---@field ENTITY_POPULATION 26
@@ -149,7 +149,7 @@ function df.specific_ref.T_data:new() end
 
 ---@class (exact) df.specific_ref.T_data.T_wrestle: DFStruct
 ---@field _type identity.specific_ref.data.wrestle
----@field unit df.unit
+---@field unit df.unit not actually like this - second pointer should be outside this union
 ---@field item df.unit_item_wrestle
 
 ---@class identity.specific_ref.data.wrestle: DFCompoundType
@@ -381,12 +381,12 @@ df.general_ref_type = {}
 ---@field _type identity.general_ref
 local general_ref
 
----@param file df.file_compressorst
-function general_ref:write_file(file) end
+---@param filecomp df.file_compressorst
+function general_ref:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function general_ref:read_file(file, loadversion) end
+function general_ref:read_file(filecomp, loadversion) end
 
 ---@return df.general_ref_type
 function general_ref:getType() end
@@ -415,21 +415,21 @@ function general_ref:getNemesis() end
 ---@return df.activity_event
 function general_ref:getEvent() end
 
----@param anon_0 number
-function general_ref:setID(anon_0) end
+---@param new_id number
+function general_ref:setID(new_id) end
 
 ---@return number
 function general_ref:getID() end
 
----@param x number
----@param y number
----@param z number
-function general_ref:setLocation(x, y, z) end
+---@param ax number
+---@param ay number
+---@param az number
+function general_ref:setLocation(ax, ay, az) end
 
----@param out_x number
----@param out_y number
----@param out_z number
-function general_ref:getLocation(out_x, out_y, out_z) end
+---@param ax number
+---@param ay number
+---@param az number
+function general_ref:getLocation(ax, ay, az) end
 
 ---@return df.general_ref
 function general_ref:clone() end
@@ -730,7 +730,7 @@ function df.general_ref_creaturest:new() end
 ---@field type df.item_type
 ---@field subtype number
 ---@field mat_type number References: `df.material`
----@field mat_index number
+---@field mat_index number NOT 32-bit
 
 ---@class identity.general_ref_item_type: DFCompoundType
 ---@field _kind 'class-type'
@@ -741,7 +741,7 @@ function df.general_ref_item_type:new() end
 
 ---@class (exact) df.general_ref_coinbatch: DFStruct, df.general_ref
 ---@field _type identity.general_ref_coinbatch
----@field batch number
+---@field batch number References: `df.coin_batch`
 
 ---@class identity.general_ref_coinbatch: DFCompoundType
 ---@field _kind 'class-type'

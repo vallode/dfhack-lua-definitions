@@ -142,12 +142,12 @@ function _practical_experiencest_dance_forms:erase(index) end
 ---@field orientation_flags df.orientation_flags
 ---@field birth_year number
 ---@field birth_time number
----@field curse_year number bay12: frozen_age_year
----@field curse_time number bay12: frozen_age_season_count
----@field birth_year_bias number bay12: credit_age_year
----@field birth_time_bias number bay12: credit_age_season_count
----@field old_year number bay12: age_death_year
----@field old_time number bay12: age_death_season_count
+---@field curse_year number
+---@field curse_time number
+---@field birth_year_bias number
+---@field birth_time_bias number
+---@field old_year number
+---@field old_time number
 ---@field mental_attrs DFEnumVector<df.mental_attribute_type, df.unit_attribute>
 ---@field skills _unit_soul_skills
 ---@field preferences _unit_soul_preferences

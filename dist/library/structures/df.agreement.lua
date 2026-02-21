@@ -18,8 +18,8 @@ function df.agreement_complaintst:new() end
 ---@class (exact) df.agreement_party: DFStruct
 ---@field _type identity.agreement_party
 ---@field id number
----@field histfig_ids DFNumberVector
----@field entity_ids DFNumberVector
+---@field histfig_ids DFNumberVector binary
+---@field entity_ids DFNumberVector binary
 ---@field complaint _agreement_party_complaint
 
 ---@class identity.agreement_party: DFCompoundType
@@ -68,14 +68,14 @@ function _agreement_party_complaint:erase(index) end
 ---@class identity.agreement_details_type: DFEnumType
 ---@field JoinParty 0 bay12: AgreementSubjectType
 ---@field [0] "JoinParty" bay12: AgreementSubjectType
----@field DemonicBinding 1 ATTACH_TO_WORLD
----@field [1] "DemonicBinding" ATTACH_TO_WORLD
----@field Residency 2 BECOME_RESIDENT
----@field [2] "Residency" BECOME_RESIDENT
----@field Citizenship 3 BECOME_CITIZEN
----@field [3] "Citizenship" BECOME_CITIZEN
----@field Parley 4 ARRANGE_PARLEY
----@field [4] "Parley" ARRANGE_PARLEY
+---@field DemonicBinding 1
+---@field [1] "DemonicBinding"
+---@field Residency 2
+---@field [2] "Residency"
+---@field Citizenship 3
+---@field [3] "Citizenship"
+---@field Parley 4
+---@field [4] "Parley"
 ---@field PositionCorruption 5 Embezzlement and accepting bribes seen. For own gain and for 'sponsor'
 ---@field [5] "PositionCorruption" Embezzlement and accepting bribes seen. For own gain and for 'sponsor'
 ---@field PlotStealArtifact 6
@@ -88,16 +88,16 @@ function _agreement_party_complaint:erase(index) end
 ---@field [9] "PlotAbduct"
 ---@field PlotSabotage 10
 ---@field [10] "PlotSabotage"
----@field PlotConviction 11 FOILED_CONSPIRACY
----@field [11] "PlotConviction" FOILED_CONSPIRACY
----@field Location 12 BUILD_LOCATION
----@field [12] "Location" BUILD_LOCATION
----@field PlotInfiltrationCoup 13 INFILTRATE_SOCIETY
----@field [13] "PlotInfiltrationCoup" INFILTRATE_SOCIETY
----@field PlotFrameTreason 14 FRAME_FOR_CRIME
----@field [14] "PlotFrameTreason" FRAME_FOR_CRIME
----@field PlotInduceWar 15 START_WAR_WITH_ENTITY
----@field [15] "PlotInduceWar" START_WAR_WITH_ENTITY
+---@field PlotConviction 11
+---@field [11] "PlotConviction"
+---@field Location 12
+---@field [12] "Location"
+---@field PlotInfiltrationCoup 13
+---@field [13] "PlotInfiltrationCoup"
+---@field PlotFrameTreason 14
+---@field [14] "PlotFrameTreason"
+---@field PlotInduceWar 15
+---@field [15] "PlotInduceWar"
 ---@field OfferService 16
 ---@field [16] "OfferService"
 ---@field RetrieveArtifact 17
@@ -192,7 +192,7 @@ function df.agreement_details_data_parley:new() end
 ---@field influencer_index number References: `df.agreement_party`
 ---@field intermediary_index number References: `df.agreement_party`
 ---@field target_id number References: `df.historical_entity`
----@field position_id number bay12: related_eppid; position index in the entity's Own entity_position vector
+---@field position_id number position index in the entity's Own entity_position vector
 
 ---@class identity.agreement_details_data_position_corruption: DFCompoundType
 ---@field _kind 'struct-type'

@@ -51,7 +51,7 @@ df.engraving_flags = {}
 ---@field _type identity.engraving
 ---@field artist number References: `df.historical_figure`
 ---@field masterpiece_event number References: `df.history_event`
----@field skill_rating df.skill_rating at the moment of creation
+---@field skill_rating df.skill_rating
 ---@field pos df.coord
 ---@field flags df.engraving_flags
 ---@field tile integer
@@ -176,9 +176,9 @@ function df.edm_rectst:new() end
 ---@class (exact) df.cursed_tomb: DFStruct
 ---@field _type identity.cursed_tomb
 ---@field triggered integer
----@field coffin_skeletons DFNumberVector
+---@field coffin_skeletons DFNumberVector binary
 ---@field disturbance number References: `df.interaction`
----@field treasures DFNumberVector
+---@field treasures DFNumberVector binary
 ---@field site_id number References: `df.world_site`
 ---@field structure_id number References: `df.abstract_building`
 ---@field trigger_regions _cursed_tomb_trigger_regions normally just one, 3x3 around the coffin
@@ -215,8 +215,8 @@ function _cursed_tomb_trigger_regions:erase(index) end
 ---@field [1] boolean A vermin colony. For example an anthill or bee hive.
 ---@field triggerable boolean
 ---@field [2] boolean
----@field is_roaming_colony boolean bay12: NOT_LIMITING; colony building vermin away from colony
----@field [3] boolean bay12: NOT_LIMITING; colony building vermin away from colony
+---@field is_roaming_colony boolean colony building vermin away from colony
+---@field [3] boolean colony building vermin away from colony
 
 ---@class identity.vermin_flags: DFBitfieldType
 ---@field already_deleting 0 bay12: VERMINEVENTFLAG_*
@@ -225,8 +225,8 @@ function _cursed_tomb_trigger_regions:erase(index) end
 ---@field [1] "is_colony" A vermin colony. For example an anthill or bee hive.
 ---@field triggerable 2
 ---@field [2] "triggerable"
----@field is_roaming_colony 3 bay12: NOT_LIMITING; colony building vermin away from colony
----@field [3] "is_roaming_colony" bay12: NOT_LIMITING; colony building vermin away from colony
+---@field is_roaming_colony 3 colony building vermin away from colony
+---@field [3] "is_roaming_colony" colony building vermin away from colony
 df.vermin_flags = {}
 
 ---@alias df.vermin_category
@@ -400,16 +400,16 @@ function df.ocean_wave:new() end
 ---@field _enum identity.construction_flags
 ---@field no_build_item boolean bay12: EVENT_CONSTRUCTION_FLAG_*
 ---@field [0] boolean bay12: EVENT_CONSTRUCTION_FLAG_*
----@field top_of_wall boolean bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
----@field [1] boolean bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
+---@field top_of_wall boolean used on the floors above constructed walls so you cannot remove them
+---@field [1] boolean used on the floors above constructed walls so you cannot remove them
 ---@field reinforced boolean
 ---@field [2] boolean
 
 ---@class identity.construction_flags: DFBitfieldType
 ---@field no_build_item 0 bay12: EVENT_CONSTRUCTION_FLAG_*
 ---@field [0] "no_build_item" bay12: EVENT_CONSTRUCTION_FLAG_*
----@field top_of_wall 1 bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
----@field [1] "top_of_wall" bay12: ITEMLESS_CEILING; used on the floors above constructed walls so you cannot remove them
+---@field top_of_wall 1 used on the floors above constructed walls so you cannot remove them
+---@field [1] "top_of_wall" used on the floors above constructed walls so you cannot remove them
 ---@field reinforced 2
 ---@field [2] "reinforced"
 df.construction_flags = {}
@@ -464,33 +464,33 @@ function df.embark_feature:new() end
 
 ---@class (exact) df.event_handlerst: DFStruct
 ---@field _type identity.event_handlerst
----@field glowing_barriers _event_handlerst_glowing_barriers bay12: underworld_building_monitor
----@field deep_vein_hollows _event_handlerst_deep_vein_hollows bay12: underworld_tube_breach_monitor
----@field divine_treasures _event_handlerst_divine_treasures bay12: tube_treasure_monitor
----@field encased_horrors _event_handlerst_encased_horrors bay12: tube_hazard_monitor
----@field cursed_tombs _event_handlerst_cursed_tombs bay12: disturbance_monitor
----@field engravings _event_handlerst_engravings bay12: detail
----@field vermin _event_handlerst_vermin bay12: vermin
----@field vermin_colonies _event_handlerst_vermin_colonies bay12: vermin_colony
----@field dirty_waters _event_handlerst_dirty_waters bay12: water; for making blood flow downstream in rivers, but also includes mud in artificial water channels
----@field campfires _event_handlerst_campfires bay12: campfire
----@field web_clusters _event_handlerst_web_clusters bay12: web
----@field fires _event_handlerst_fires bay12: fire
----@field ocean_wave_makers _event_handlerst_ocean_wave_makers bay12: ocean_wave_generator
----@field ocean_waves _event_handlerst_ocean_waves bay12: ocean_wave_front
----@field constructions _event_handlerst_constructions bay12: construction
----@field murky_pools _event_handlerst_murky_pools bay12: swamp
----@field embark_features _event_handlerst_embark_features bay12: population; populated at embark
----@field temp_save_glowing_barriers _event_handlerst_temp_save_glowing_barriers bay12: temp_save_underworld_building_monitor
----@field temp_save_deep_vein_hollows _event_handlerst_temp_save_deep_vein_hollows bay12: temp_save_underworld_tube_breach_monitor
----@field temp_save_divine_treasures _event_handlerst_temp_save_divine_treasures bay12: temp_save_tube_treasure_monitor
----@field temp_save_encased_horrors _event_handlerst_temp_save_encased_horrors bay12: temp_save_tube_hazard_monitor
----@field temp_save_cursed_tombs _event_handlerst_temp_save_cursed_tombs bay12: temp_save_disturbance_monitor
----@field temp_save_engravings _event_handlerst_temp_save_engravings bay12: temp_save_detail
----@field temp_save_constructions _event_handlerst_temp_save_constructions bay12: temp_save_construction
----@field temp_save_embark_features _event_handlerst_temp_save_embark_features bay12: temp_save_population
----@field temp_save_ocean_wave_makers _event_handlerst_temp_save_ocean_wave_makers bay12: temp_save_ocean_wave_generator
----@field temp_save_murky_pools _event_handlerst_temp_save_murky_pools bay12: temp_save_swamp
+---@field glowing_barriers _event_handlerst_glowing_barriers
+---@field deep_vein_hollows _event_handlerst_deep_vein_hollows
+---@field divine_treasures _event_handlerst_divine_treasures
+---@field encased_horrors _event_handlerst_encased_horrors
+---@field cursed_tombs _event_handlerst_cursed_tombs
+---@field engravings _event_handlerst_engravings
+---@field vermin _event_handlerst_vermin
+---@field vermin_colonies _event_handlerst_vermin_colonies
+---@field dirty_waters _event_handlerst_dirty_waters for making blood flow downstream in rivers, but also includes mud in artificial water channels
+---@field campfires _event_handlerst_campfires
+---@field web_clusters _event_handlerst_web_clusters
+---@field fires _event_handlerst_fires
+---@field ocean_wave_makers _event_handlerst_ocean_wave_makers
+---@field ocean_waves _event_handlerst_ocean_waves
+---@field constructions _event_handlerst_constructions
+---@field murky_pools _event_handlerst_murky_pools
+---@field embark_features _event_handlerst_embark_features populated at embark
+---@field temp_save_glowing_barriers _event_handlerst_temp_save_glowing_barriers
+---@field temp_save_deep_vein_hollows _event_handlerst_temp_save_deep_vein_hollows
+---@field temp_save_divine_treasures _event_handlerst_temp_save_divine_treasures
+---@field temp_save_encased_horrors _event_handlerst_temp_save_encased_horrors
+---@field temp_save_cursed_tombs _event_handlerst_temp_save_cursed_tombs
+---@field temp_save_engravings _event_handlerst_temp_save_engravings
+---@field temp_save_constructions _event_handlerst_temp_save_constructions
+---@field temp_save_embark_features _event_handlerst_temp_save_embark_features
+---@field temp_save_ocean_wave_makers _event_handlerst_temp_save_ocean_wave_makers
+---@field temp_save_murky_pools _event_handlerst_temp_save_murky_pools
 
 ---@class identity.event_handlerst: DFCompoundType
 ---@field _kind 'struct-type'

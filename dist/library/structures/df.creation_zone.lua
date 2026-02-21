@@ -29,12 +29,12 @@ local creation_zone_pwg_alterationst
 ---@return df.creation_zone_pwg_alteration_type
 function creation_zone_pwg_alterationst:getType() end
 
----@param file df.file_compressorst
-function creation_zone_pwg_alterationst:write_file(file) end
+---@param filecomp df.file_compressorst
+function creation_zone_pwg_alterationst:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function creation_zone_pwg_alterationst:read_file(file, loadversion) end
+function creation_zone_pwg_alterationst:read_file(filecomp, loadversion) end
 
 ---@param map DFPointer<integer> map_generatorst
 function creation_zone_pwg_alterationst:apply_to_map(map) end

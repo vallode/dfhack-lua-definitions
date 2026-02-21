@@ -33,9 +33,30 @@
 ---@field [8] "VerbGerund"
 df.word_definition_string = {}
 
--- Unused: WordDefChars
--- Unused: WordDefShorts
--- Unused: WordDefLongs
+---@alias df.word_def_char
+---| 0 # ADJ_DIST
+
+---@class identity.word_def_char: DFEnumType
+---@field ADJ_DIST 0 bay12: WordDefChars
+---@field [0] "ADJ_DIST" bay12: WordDefChars
+df.word_def_char = {}
+
+---@alias df.word_def_short
+---| 0 # EMPTY
+
+---@class identity.word_def_short: DFEnumType
+---@field EMPTY 0 bay12: WordDefChars
+---@field [0] "EMPTY" bay12: WordDefChars
+df.word_def_short = {}
+
+---@alias df.word_def_long
+---| 0 # EMPTY
+
+---@class identity.word_def_long: DFEnumType
+---@field EMPTY 0 bay12: WordDefChars
+---@field [0] "EMPTY" bay12: WordDefChars
+df.word_def_long = {}
+
 ---@class df.language_word_flags: DFBitfield
 ---@field _enum identity.language_word_flags
 ---@field front_compound_noun_sing boolean bay12: WORDFLAG_*
@@ -110,6 +131,7 @@ df.word_definition_string = {}
 ---@field [16] "generated"
 df.language_word_flags = {}
 
+-- NOTE: this enum actually has no base type, but most places use 16-bit so we're doing this
 ---@alias df.part_of_speech
 ---| 0 # Noun
 ---| 1 # NounPlural
@@ -121,6 +143,7 @@ df.language_word_flags = {}
 ---| 7 # VerbPassive
 ---| 8 # VerbGerund
 
+-- NOTE: this enum actually has no base type, but most places use 16-bit so we're doing this
 ---@class identity.part_of_speech: DFEnumType
 ---@field Noun 0 bay12: WordAspect
 ---@field [0] "Noun" bay12: WordAspect
@@ -142,7 +165,9 @@ df.language_word_flags = {}
 ---@field [8] "VerbGerund"
 df.part_of_speech = {}
 
+-- NOTE: this enum actually has no base type, but most places use 16-bit so we're doing this
 ---@alias df.language_word_table_index
+---| -1 # NONE
 ---| 0 # FrontCompound
 ---| 1 # RearCompound
 ---| 2 # FirstName
@@ -150,9 +175,12 @@ df.part_of_speech = {}
 ---| 4 # TheX
 ---| 5 # OfX
 
+-- NOTE: this enum actually has no base type, but most places use 16-bit so we're doing this
 ---@class identity.language_word_table_index: DFEnumType
----@field FrontCompound 0 bay12: WordPlace
----@field [0] "FrontCompound" bay12: WordPlace
+---@field NONE -1 bay12: WordPlace
+---@field [-1] "NONE" bay12: WordPlace
+---@field FrontCompound 0
+---@field [0] "FrontCompound"
 ---@field RearCompound 1
 ---@field [1] "RearCompound"
 ---@field FirstName 2
@@ -170,9 +198,9 @@ df.language_word_table_index = {}
 ---@field word string
 ---@field forms DFEnumVector<df.word_definition_string, string>
 ---@field adj_dist number
----@field s_empty number bay12: char[WordDefChars]
----@field l_empty number bay12: short[WordDefShorts]
----@field flags df.language_word_flags bay12: int32_t[WordDefLongs]
+---@field var_s DFEnumVector<df.word_def_short, number> bay12: char[WordDefChars]
+---@field var_l DFEnumVector<df.word_def_long, number>
+---@field flags df.language_word_flags
 ---@field str DFStringVector
 
 ---@class identity.language_word: DFCompoundType
@@ -323,32 +351,32 @@ function df.language_translation.get_vector() end
 ---@field [-1] "NONE" bay12: NameType
 ---@field Figure 0 0
 ---@field [0] "Figure" 0
----@field Artifact 1 Item
----@field [1] "Artifact" Item
+---@field Artifact 1
+---@field [1] "Artifact"
 ---@field Civilization 2
 ---@field [2] "Civilization"
 ---@field Squad 3
 ---@field [3] "Squad"
----@field Site 4 Fortress
----@field [4] "Site" Fortress
+---@field Site 4
+---@field [4] "Site"
 ---@field World 5
 ---@field [5] "World"
 ---@field Region 6
 ---@field [6] "Region"
----@field Dungeon 7 Cave
----@field [7] "Dungeon" Cave
----@field LegendaryFigure 8 Unit_OfThe
----@field [8] "LegendaryFigure" Unit_OfThe
----@field FigureNoFirst 9 Unit_Rear
----@field [9] "FigureNoFirst" Unit_Rear
+---@field Dungeon 7
+---@field [7] "Dungeon"
+---@field LegendaryFigure 8
+---@field [8] "LegendaryFigure"
+---@field FigureNoFirst 9
+---@field [9] "FigureNoFirst"
 ---@field FigureFirstOnly 10 10
 ---@field [10] "FigureFirstOnly" 10
 ---@field ArtImage 11
 ---@field [11] "ArtImage"
 ---@field EntitySite 12
 ---@field [12] "EntitySite"
----@field ElfTree 13 Vegetation
----@field [13] "ElfTree" Vegetation
+---@field ElfTree 13
+---@field [13] "ElfTree"
 ---@field NomadicGroup 14
 ---@field [14] "NomadicGroup"
 ---@field MigratingGroup 15
@@ -434,6 +462,7 @@ function df.language_translation.get_vector() end
 df.language_name_type = {}
 
 ---@alias df.language_name_component
+---| -1 # NONE
 ---| 0 # FrontCompound
 ---| 1 # RearCompound
 ---| 2 # FirstAdjective
@@ -443,8 +472,10 @@ df.language_name_type = {}
 ---| 6 # OfX
 
 ---@class identity.language_name_component: DFEnumType
----@field FrontCompound 0 bay12: NamePlaceType
----@field [0] "FrontCompound" bay12: NamePlaceType
+---@field NONE -1 bay12: NamePlaceType
+---@field [-1] "NONE" bay12: NamePlaceType
+---@field FrontCompound 0
+---@field [0] "FrontCompound"
 ---@field RearCompound 1
 ---@field [1] "RearCompound"
 ---@field FirstAdjective 2
@@ -476,7 +507,6 @@ df.language_name = {}
 ---@return df.language_name
 function df.language_name:new() end
 
--- word_selectorst
 ---@class (exact) df.language_word_table: DFStruct
 ---@field _type identity.language_word_table
 ---@field words DFEnumVector<df.language_word_table_index, number>
@@ -506,6 +536,7 @@ function _language_word_table_parts:insert(index, item) end
 function _language_word_table_parts:erase(index) end
 
 ---@alias df.language_name_category
+---| -1 # NONE
 ---| 0 # Unit
 ---| 1 # Artifact
 ---| 2 # ArtifactEvil
@@ -576,12 +607,14 @@ function _language_word_table_parts:erase(index) end
 ---| 67 # Hospital
 
 ---@class identity.language_name_category: DFEnumType
----@field Unit 0 bay12: DefaultName
----@field [0] "Unit" bay12: DefaultName
----@field Artifact 1 ItemGood
----@field [1] "Artifact" ItemGood
----@field ArtifactEvil 2 ItemBad
----@field [2] "ArtifactEvil" ItemBad
+---@field NONE -1 bay12: DefaultName
+---@field [-1] "NONE" bay12: DefaultName
+---@field Unit 0
+---@field [0] "Unit"
+---@field Artifact 1
+---@field [1] "Artifact"
+---@field ArtifactEvil 2
+---@field [2] "ArtifactEvil"
 ---@field Swamp 3
 ---@field [3] "Swamp"
 ---@field Desert 4

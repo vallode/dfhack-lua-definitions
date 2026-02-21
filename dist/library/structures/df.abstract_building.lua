@@ -80,7 +80,7 @@ df.location_info_flag = {}
 ---@field count_soap number
 ---@field update_timer number
 ---@field update_count number
----@field building_ids DFNumberVector
+---@field building_ids DFNumberVector binary
 
 ---@class identity.abstract_building_contents: DFCompoundType
 ---@field _kind 'struct-type'
@@ -145,7 +145,7 @@ function df.location_death_batchst:new() end
 ---@class (exact) df.location_deathst: DFStruct
 ---@field _type identity.location_deathst
 ---@field batch _location_deathst_batch
----@field hfid DFNumberVector killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
+---@field hfid DFNumberVector binary; killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 
 ---@class identity.location_deathst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -178,7 +178,7 @@ function _location_deathst_batch:erase(index) end
 ---@field hfig DFNumberVector
 ---@field architect_hf number References: `df.historical_figure`
 ---@field architectural_elements _architectural_infost_architectural_elements
----@field mat_type number just a guess<br>References: `df.material`
+---@field mat_type number References: `df.material`
 ---@field mat_index number
 
 ---@class identity.architectural_infost: DFCompoundType
@@ -291,7 +291,7 @@ function df.ab_reputation_infost:new() end
 ---@field inhabitants _abstract_building_inhabitants
 ---@field flags _abstract_building_flags
 ---@field archinfo df.architectural_infost
----@field item_id DFNumberVector
+---@field item_id DFNumberVector binary
 ---@field parent_building_id number Tombs use this to hold which catacomb they are part of.<br>References: `df.abstract_building`
 ---@field child_building_ids DFNumberVector Used by catacombs to hold their tombs
 ---@field site_owner_id number entity that constructed the building<br>References: `df.historical_entity`
@@ -299,18 +299,18 @@ function df.ab_reputation_infost:new() end
 ---@field review_info df.site_reputation_info
 ---@field reputation_info df.ab_reputation_infost
 ---@field site_id number not initialized/saved/loaded, assumed member of base class<br>References: `df.world_site`
----@field pos df.coord2d
+---@field pos df.coord2d site_x,site_y
 ---@field occupations _abstract_building_occupations
 local abstract_building
 
 ---@return df.abstract_building_type
 function abstract_building:getType() end
 
----@param tile integer
----@param fg number
----@param bg number
----@param bright number
-function abstract_building:getDisplayTile(tile, fg, bg, bright) end
+---@param symbol integer
+---@param color_f number
+---@param color_b number
+---@param color_br number
+function abstract_building:getDisplayTile(symbol, color_f, color_b, color_br) end
 
 ---@return df.language_name
 function abstract_building:getName() end
@@ -318,12 +318,12 @@ function abstract_building:getName() end
 ---@return df.abstract_building_contents
 function abstract_building:getContents() end
 
----@param file df.file_compressorst
-function abstract_building:write_file(file) end
+---@param filecomp df.file_compressorst
+function abstract_building:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function abstract_building:read_file(file, loadversion) end
+function abstract_building:read_file(filecomp, loadversion) end
 
 ---@return number
 function abstract_building:getReligionID() end
@@ -340,9 +340,9 @@ function abstract_building:getDefensePerc() end
 ---@return df.location_deathst
 function abstract_building:getEntombed() end
 
----@param anon_0 lightuserdata
----@param indent number
-function abstract_building:generate_xml(anon_0, indent) end
+---@param fseed lightuserdata
+---@param anon_0 number
+function abstract_building:generate_xml(fseed, anon_0) end
 
 
 ---@class identity.abstract_building: DFCompoundType
@@ -556,7 +556,7 @@ df.abstract_building_underworld_spirest = {}
 ---@return df.abstract_building_underworld_spirest
 function df.abstract_building_underworld_spirest:new() end
 
--- Inline union
+-- Inline union - not a real structure
 ---@class (exact) df.religious_practice_data: DFStruct
 ---@field _type identity.religious_practice_data
 ---@field practice_id number
@@ -662,7 +662,7 @@ function df.abstract_building_marketst:new() end
 ---@field _type identity.abstract_building_tombst
 ---@field name df.language_name
 ---@field entombed df.location_deathst
----@field precedence number rough_side_size
+---@field precedence number
 
 ---@class identity.abstract_building_tombst: DFCompoundType
 ---@field _kind 'class-type'

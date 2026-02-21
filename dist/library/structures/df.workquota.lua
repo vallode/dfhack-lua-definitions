@@ -13,18 +13,18 @@
 ---@class identity.logic_condition_type: DFEnumType
 ---@field NONE -1 bay12: LogicConditionType
 ---@field [-1] "NONE" bay12: LogicConditionType
----@field AtLeast 0 GREATER_EQUAL
----@field [0] "AtLeast" GREATER_EQUAL
----@field AtMost 1 LESSER_EQUAL
----@field [1] "AtMost" LESSER_EQUAL
----@field GreaterThan 2 GREATER
----@field [2] "GreaterThan" GREATER
----@field LessThan 3 LESSER
----@field [3] "LessThan" LESSER
----@field Exactly 4 EQUAL
----@field [4] "Exactly" EQUAL
----@field Not 5 NOT_EQUAL
----@field [5] "Not" NOT_EQUAL
+---@field AtLeast 0
+---@field [0] "AtLeast"
+---@field AtMost 1
+---@field [1] "AtMost"
+---@field GreaterThan 2
+---@field [2] "GreaterThan"
+---@field LessThan 3
+---@field [3] "LessThan"
+---@field Exactly 4
+---@field [4] "Exactly"
+---@field Not 5
+---@field [5] "Not"
 df.logic_condition_type = {}
 
 ---@class (exact) df.manager_order_condition_item: DFStruct
@@ -94,6 +94,7 @@ df.manager_order_condition_order = {}
 function df.manager_order_condition_order:new() end
 
 ---@alias df.workquota_frequency_type
+---| -1 # NONE
 ---| 0 # OneTime
 ---| 1 # Daily
 ---| 2 # Monthly
@@ -101,8 +102,10 @@ function df.manager_order_condition_order:new() end
 ---| 4 # Yearly
 
 ---@class identity.workquota_frequency_type: DFEnumType
----@field OneTime 0 bay12: WorkQuotaFrequencyType
----@field [0] "OneTime" bay12: WorkQuotaFrequencyType
+---@field NONE -1 bay12: WorkQuotaFrequencyType
+---@field [-1] "NONE" bay12: WorkQuotaFrequencyType
+---@field OneTime 0
+---@field [0] "OneTime"
 ---@field Daily 1
 ---@field [1] "Daily"
 ---@field Monthly 2

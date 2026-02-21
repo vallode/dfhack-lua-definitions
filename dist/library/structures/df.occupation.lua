@@ -46,7 +46,7 @@ df.service_order_flag = {}
 ---@field end_season_count number
 ---@field last_failed_year number
 ---@field last_failed_season_count number
----@field activity_id number
+---@field activity_id number References: `df.activity_entry`
 ---@field activity_event_id number
 ---@field flag df.service_order_flag
 

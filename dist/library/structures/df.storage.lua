@@ -22,10 +22,10 @@
 ---@field [1] "Stone"
 ---@field Wood 2
 ---@field [2] "Wood"
----@field Item 3 Burial
----@field [3] "Item" Burial
----@field Bin 4 Item
----@field [4] "Bin" Item
+---@field Item 3
+---@field [3] "Item"
+---@field Bin 4
+---@field [4] "Bin"
 ---@field Body 5
 ---@field [5] "Body"
 ---@field Food 6

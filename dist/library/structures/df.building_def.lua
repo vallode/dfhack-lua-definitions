@@ -40,8 +40,8 @@ function df.building_def_item:new() end
 ---@field tile integer[][][]
 ---@field tile_color integer[][][][]
 ---@field tile_block integer[][]
----@field graphics_normal integer[][][]
----@field graphics_overlay integer[][][]
+---@field graphics_normal number[][][]
+---@field graphics_overlay number[][][]
 ---@field build_key number
 ---@field needs_magma boolean
 ---@field build_items _building_def_build_items
@@ -1121,7 +1121,7 @@ df.building_workshop_graphics_flag = {}
 ---@class (exact) df.workshop_graphics_infost: DFStruct
 ---@field _type identity.workshop_graphics_infost
 ---@field flags df.building_workshop_graphics_flag
----@field texpos number
+---@field texpos number[][][]
 
 ---@class identity.workshop_graphics_infost: DFCompoundType
 ---@field _kind 'struct-type'

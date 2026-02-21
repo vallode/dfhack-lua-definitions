@@ -2,6 +2,7 @@
 ---@meta
 
 ---@alias df.flow_type
+---| -1 # NONE
 ---| 0 # Miasma
 ---| 1 # Steam
 ---| 2 # Mist
@@ -18,12 +19,14 @@
 ---| 13 # ItemCloud
 
 ---@class identity.flow_type: DFEnumType
----@field Miasma 0 bay12: FlowTypes, no base type
----@field [0] "Miasma" bay12: FlowTypes, no base type
----@field Steam 1 bay12: MIST_WATER
----@field [1] "Steam" bay12: MIST_WATER
----@field Mist 2 bay12: MIST_WATERFALL
----@field [2] "Mist" bay12: MIST_WATERFALL
+---@field NONE -1 bay12: FlowTypes, no base type
+---@field [-1] "NONE" bay12: FlowTypes, no base type
+---@field Miasma 0
+---@field [0] "Miasma"
+---@field Steam 1
+---@field [1] "Steam"
+---@field Mist 2
+---@field [2] "Mist"
 ---@field MaterialDust 3
 ---@field [3] "MaterialDust"
 ---@field MagmaMist 4
@@ -127,20 +130,20 @@ local flow_guide
 ---@return df.flow_guide_type
 function flow_guide:getType() end
 
----@param x number
----@param y number
----@param z number
-function flow_guide:shiftCoords(x, y, z) end
+---@param shiftx number
+---@param shifty number
+---@param shiftz number
+function flow_guide:shiftCoords(shiftx, shifty, shiftz) end
 
----@param file df.file_compressorst
-function flow_guide:write_file(file) end
+---@param filecomp df.file_compressorst
+function flow_guide:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function flow_guide:read_file(file, loadversion) end
+function flow_guide:read_file(filecomp, loadversion) end
 
----@param anon_0 df.flow_info
-function flow_guide:advance_flow(anon_0) end
+---@param ef df.flow_info
+function flow_guide:advance_flow(ef) end
 
 
 ---@class identity.flow_guide: DFCompoundType

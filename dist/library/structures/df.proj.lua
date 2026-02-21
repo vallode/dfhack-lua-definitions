@@ -2,13 +2,16 @@
 ---@meta
 
 ---@alias df.projectile_type
+---| -1 # NONE
 ---| 0 # Item
 ---| 1 # Unit
 ---| 2 # Magic
 
 ---@class identity.projectile_type: DFEnumType
----@field Item 0 bay12: Projectile
----@field [0] "Item" bay12: Projectile
+---@field NONE -1 bay12: Projectile
+---@field [-1] "NONE" bay12: Projectile
+---@field Item 0
+---@field [0] "Item"
 ---@field Unit 1
 ---@field [1] "Unit"
 ---@field Magic 2
@@ -19,8 +22,8 @@ df.projectile_type = {}
 ---@field _enum identity.projectile_flags
 ---@field no_impact_destroy boolean bay12: PROJFLAG_*
 ---@field [0] boolean bay12: PROJFLAG_*
----@field has_hit_ground boolean DELETE
----@field [1] boolean DELETE
+---@field has_hit_ground boolean
+---@field [1] boolean
 ---@field bouncing boolean
 ---@field [2] boolean
 ---@field high_flying boolean
@@ -57,8 +60,8 @@ df.projectile_type = {}
 ---@class identity.projectile_flags: DFBitfieldType
 ---@field no_impact_destroy 0 bay12: PROJFLAG_*
 ---@field [0] "no_impact_destroy" bay12: PROJFLAG_*
----@field has_hit_ground 1 DELETE
----@field [1] "has_hit_ground" DELETE
+---@field has_hit_ground 1
+---@field [1] "has_hit_ground"
 ---@field bouncing 2
 ---@field [2] "bouncing"
 ---@field high_flying 3
@@ -126,12 +129,12 @@ function df.proj_list_link:new() end
 ---@field total_z_dist number
 ---@field velocity number
 ---@field bow_id number References: `df.item`
----@field last_knock_item number Parabolic projectile info:<br>References: `df.item`
+---@field last_knock_item number References: `df.item`
 ---@field last_knock_unit number References: `df.unit`
 ---@field spec_target_unit number uninitialized+saved<br>References: `df.unit`
 ---@field target_bp number
 ---@field hit_chance_modifier number
----@field pos_x number
+---@field pos_x number Parabolic projectile info:
 ---@field pos_y number
 ---@field pos_z number
 ---@field speed_x number
@@ -145,25 +148,25 @@ local projectile
 ---@return df.projectile_type
 function projectile:getType() end
 
----@param noDamageFloor boolean
+---@param goingoutofbounds boolean
 ---@return boolean
-function projectile:checkImpact(noDamageFloor) end
+function projectile:checkImpact(goingoutofbounds) end
 
 ---@return boolean
 function projectile:checkMovement() end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function projectile:read_file(file, loadversion) end
+function projectile:read_file(filecomp, loadversion) end
 
----@param file df.file_compressorst
-function projectile:write_file(file) end
+---@param filecomp df.file_compressorst
+function projectile:write_file(filecomp) end
 
----@param anon_0 df.map_viewport
-function projectile:print(anon_0) end
+---@param rparam df.map_viewport
+function projectile:print(rparam) end
 
----@param anon_0 df.map_viewport
-function projectile:print_to_viewport(anon_0) end
+---@param rparam df.map_viewport
+function projectile:print_to_viewport(rparam) end
 
 ---@return boolean
 function projectile:isObjectLost() end
@@ -189,7 +192,7 @@ function df.proj_itemst:new() end
 
 ---@class (exact) df.proj_unitst: DFStruct, df.projectile
 ---@field _type identity.proj_unitst
----@field unit df.unit ?
+---@field unit df.unit
 
 ---@class identity.proj_unitst: DFCompoundType
 ---@field _kind 'class-type'

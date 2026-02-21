@@ -10,7 +10,7 @@
 ---@field color df.curses_color
 ---@field bold number
 ---@field orig_rgb number[]
----@field red number
+---@field red number actually an array
 ---@field green number
 ---@field blue number
 ---@field palette df.palettest
@@ -249,7 +249,7 @@ df.stair_graphics_flag_shape = {}
 ---| 5 # SAND_B
 ---| 6 # SAND_R
 ---| 7 # SOIL
----| 8 # FOZEN
+---| 8 # FROZEN
 ---| 9 # CONSTRUCTED_WOOD
 ---| 10 # CONSTRUCTED_METAL
 ---| 11 # CONSTRUCTED_STONE
@@ -273,8 +273,8 @@ df.stair_graphics_flag_shape = {}
 ---@field [6] "SAND_R"
 ---@field SOIL 7
 ---@field [7] "SOIL"
----@field FOZEN 8
----@field [8] "FOZEN"
+---@field FROZEN 8
+---@field [8] "FROZEN"
 ---@field CONSTRUCTED_WOOD 9
 ---@field [9] "CONSTRUCTED_WOOD"
 ---@field CONSTRUCTED_METAL 10
@@ -471,26 +471,6 @@ function df.stone_block_floor_graphics_infost:new() end
 ---@field [0] "todo" TODO: defined in g_src/graphics.h
 df.viewport_wall_flag = {}
 
----@class df.viewport_ramp_flag: DFBitfield
----@field _enum identity.viewport_ramp_flag
----@field todo boolean TODO: defined in g_src/graphics.h
----@field [0] boolean TODO: defined in g_src/graphics.h
-
----@class identity.viewport_ramp_flag: DFBitfieldType
----@field todo 0 TODO: defined in g_src/graphics.h
----@field [0] "todo" TODO: defined in g_src/graphics.h
-df.viewport_ramp_flag = {}
-
----@class df.viewport_spatter_flag: DFBitfield
----@field _enum identity.viewport_spatter_flag
----@field todo boolean TODO: defined in g_src/graphics.h
----@field [0] boolean TODO: defined in g_src/graphics.h
-
----@class identity.viewport_spatter_flag: DFBitfieldType
----@field todo 0 TODO: defined in g_src/graphics.h
----@field [0] "todo" TODO: defined in g_src/graphics.h
-df.viewport_spatter_flag = {}
-
 ---@class (exact) df.wall_graphics_infost: DFStruct
 ---@field _type identity.wall_graphics_infost
 ---@field flags df.viewport_wall_flag
@@ -503,6 +483,16 @@ df.wall_graphics_infost = {}
 ---@return df.wall_graphics_infost
 function df.wall_graphics_infost:new() end
 
+---@class df.viewport_ramp_flag: DFBitfield
+---@field _enum identity.viewport_ramp_flag
+---@field todo boolean TODO: defined in g_src/graphics.h
+---@field [0] boolean TODO: defined in g_src/graphics.h
+
+---@class identity.viewport_ramp_flag: DFBitfieldType
+---@field todo 0 TODO: defined in g_src/graphics.h
+---@field [0] "todo" TODO: defined in g_src/graphics.h
+df.viewport_ramp_flag = {}
+
 ---@class (exact) df.ramp_graphics_infost: DFStruct
 ---@field _type identity.ramp_graphics_infost
 ---@field flags df.viewport_ramp_flag
@@ -514,6 +504,16 @@ df.ramp_graphics_infost = {}
 
 ---@return df.ramp_graphics_infost
 function df.ramp_graphics_infost:new() end
+
+---@class df.viewport_spatter_flag: DFBitfield
+---@field _enum identity.viewport_spatter_flag
+---@field todo boolean TODO: defined in g_src/graphics.h
+---@field [0] boolean TODO: defined in g_src/graphics.h
+
+---@class identity.viewport_spatter_flag: DFBitfieldType
+---@field todo 0 TODO: defined in g_src/graphics.h
+---@field [0] "todo" TODO: defined in g_src/graphics.h
+df.viewport_spatter_flag = {}
 
 ---@class (exact) df.spatter_graphics_infost: DFStruct
 ---@field _type identity.spatter_graphics_infost

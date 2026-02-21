@@ -43,34 +43,34 @@ function reaction_reagent:getType() end
 ---@param bld df.building
 ---@param boulder_count DFPointer<integer>
 ---@param ore_count DFPointer<integer>
----@param reaction_class DFPointer<integer>
+---@param rclass DFPointer<integer>
 ---@param class_count DFPointer<integer>
 ---@param overall_reaction_index number
 ---@return boolean
-function reaction_reagent:have_enough_from_precalc_info(bld, boulder_count, ore_count, reaction_class, class_count, overall_reaction_index) end
+function reaction_reagent:have_enough_from_precalc_info(bld, boulder_count, ore_count, rclass, class_count, overall_reaction_index) end
 
----@param reactionID number
-function reaction_reagent:resolveTokens(reactionID) end
+---@param reaction_index number
+function reaction_reagent:resolveTokens(reaction_index) end
 
 ---@param jbr df.job_reqst
----@param reagent_idx number
----@param reaction_idx number
-function reaction_reagent:contribute_to_job_req(jbr, reagent_idx, reaction_idx) end
+---@param reagent_index number
+---@param reaction_index number
+function reaction_reagent:contribute_to_job_req(jbr, reagent_index, reaction_index) end
 
----@param anon_0 df.item
----@param index number References: `df.reaction`
+---@param it df.item
+---@param overall_reaction_index number References: `df.reaction`
 ---@return boolean
-function reaction_reagent:matchesRoot(anon_0, index) end
+function reaction_reagent:matchesRoot(it, overall_reaction_index) end
 
----@param anon_0 df.item
----@param anon_1 df.reaction
----@param index number References: `df.reaction`
+---@param it df.item
+---@param rct df.reaction
+---@param contains_reaction_index number References: `df.reaction`
 ---@return boolean
-function reaction_reagent:matchesChild(anon_0, anon_1, index) end
+function reaction_reagent:matchesChild(it, rct, contains_reaction_index) end
 
----@param anon_0 string
----@param index number References: `df.reaction`
-function reaction_reagent:getDescription(anon_0, index) end
+---@param str string
+---@param overall_reaction_index number References: `df.reaction`
+function reaction_reagent:getDescription(str, overall_reaction_index) end
 
 ---@return boolean
 function reaction_reagent:isLyeBearing() end
@@ -102,8 +102,8 @@ function df.reaction_reagent:new() end
 ---@field has_tool_use df.tool_uses
 ---@field dye_color number References: `df.descriptor_color`
 ---@field item_str string[]
----@field material_str string[]
----@field metal_ore_str string
+---@field material_str string[] not an array
+---@field metal_ore_str string not an array
 ---@field contains_str DFStringVector
 
 ---@class identity.reaction_reagent_itemst: DFCompoundType
@@ -136,24 +136,24 @@ local reaction_product
 ---@return df.reaction_product_type
 function reaction_product:getType() end
 
----@param reactionID number
-function reaction_product:resolveTokens(reactionID) end
+---@param reaction_index number
+function reaction_product:resolveTokens(reaction_index) end
 
----@param maker df.unit
----@param out_products DFPointer<integer>
----@param out_items DFPointer<integer>
----@param in_reag DFPointer<integer>
----@param in_items DFPointer<integer>
----@param quantity number
----@param skill df.job_skill
----@param job_quality number gets +10 for matching preferences, uses cutoffs 23/30/35/45/55 for Well/Fine/Superior/Exceptional/Masterwork
----@param entity df.historical_entity
----@param site df.world_site
----@param improv_items DFPointer<integer> only used when making improvements
-function reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, improv_items) end
+---@param mover df.unit
+---@param itv_product DFPointer<integer>
+---@param itv DFPointer<integer>
+---@param used_reagent DFPointer<integer>
+---@param used_it DFPointer<integer>
+---@param multiplier number
+---@param sk df.job_skill
+---@param roll number gets +10 for matching preferences, uses cutoffs 23/30/35/45/55 for Well/Fine/Superior/Exceptional/Masterwork
+---@param civ df.historical_entity
+---@param st df.world_site
+---@param improved_i DFPointer<integer> only used when making improvements
+function reaction_product:produce(mover, itv_product, itv, used_reagent, used_it, multiplier, sk, roll, civ, st, improved_i) end
 
----@param desc string
-function reaction_product:getDescription(desc) end
+---@param str string
+function reaction_product:getDescription(str) end
 
 
 ---@class identity.reaction_product: DFCompoundType
@@ -207,7 +207,7 @@ df.reaction_product_item_flags = {}
 ---@field flags _reaction_product_itemst_flags
 ---@field get_material df.reaction_product_itemst.T_get_material
 ---@field item_str string[]
----@field material_str string[]
+---@field material_str string[] not an array
 
 ---@class identity.reaction_product_itemst: DFCompoundType
 ---@field _kind 'class-type'

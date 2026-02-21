@@ -288,7 +288,7 @@ function df.personality_valuest:new() end
 ---@class (exact) df.personality_ethicst: DFStruct
 ---@field _type identity.personality_ethicst
 ---@field ethic df.ethic_type
----@field reponse df.ethic_response
+---@field response df.ethic_response
 
 ---@class identity.personality_ethicst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1469,12 +1469,12 @@ df.unit_thought_type.attrs = {}
 ---@field [2] boolean
 ---@field started_at_rel_zero boolean
 ---@field [3] boolean
----@field remembered_longterm boolean bay12: FROM_LONG_TERM_MEMORY
----@field [4] boolean bay12: FROM_LONG_TERM_MEMORY
----@field remembered_shortterm boolean bay12: FROM_SHORT_TERM_MEMORY
----@field [5] boolean bay12: FROM_SHORT_TERM_MEMORY
----@field remembered_reflected_on boolean bay12: FROM_CORE_MEMORY
----@field [6] boolean bay12: FROM_CORE_MEMORY
+---@field remembered_longterm boolean
+---@field [4] boolean
+---@field remembered_shortterm boolean
+---@field [5] boolean
+---@field remembered_reflected_on boolean
+---@field [6] boolean
 ---@field facet_change boolean
 ---@field [7] boolean
 ---@field value_change boolean
@@ -1489,12 +1489,12 @@ df.unit_thought_type.attrs = {}
 ---@field [2] "vocalized"
 ---@field started_at_rel_zero 3
 ---@field [3] "started_at_rel_zero"
----@field remembered_longterm 4 bay12: FROM_LONG_TERM_MEMORY
----@field [4] "remembered_longterm" bay12: FROM_LONG_TERM_MEMORY
----@field remembered_shortterm 5 bay12: FROM_SHORT_TERM_MEMORY
----@field [5] "remembered_shortterm" bay12: FROM_SHORT_TERM_MEMORY
----@field remembered_reflected_on 6 bay12: FROM_CORE_MEMORY
----@field [6] "remembered_reflected_on" bay12: FROM_CORE_MEMORY
+---@field remembered_longterm 4
+---@field [4] "remembered_longterm"
+---@field remembered_shortterm 5
+---@field [5] "remembered_shortterm"
+---@field remembered_reflected_on 6
+---@field [6] "remembered_reflected_on"
 ---@field facet_change 7
 ---@field [7] "facet_change"
 ---@field value_change 8
@@ -1506,13 +1506,13 @@ df.personality_mood_flag = {}
 ---@field type df.emotion_type
 ---@field strength number
 ---@field relative_strength number
----@field thought df.unit_thought_type bay12: circumstance
----@field subthought number for certain thoughts; bay12: circumstance_id
----@field severity number bay12: circumstance_value
+---@field thought df.unit_thought_type
+---@field subthought number for certain thoughts
+---@field severity number should use circumstance_id type here
 ---@field flags df.personality_mood_flag
 ---@field next_overcome_timer number
----@field year number bay12: last_used_year
----@field year_tick number bay12: last_used_season_count
+---@field year number
+---@field year_tick number
 
 ---@class identity.personality_moodst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1536,7 +1536,7 @@ df.personality_goal_flag = {}
 ---@field local_id number next_dream_id related
 ---@field type df.goal_type
 ---@field id number
----@field parent_id DFNumberVector
+---@field parent_id DFNumberVector binary
 ---@field flags df.personality_goal_flag
 
 ---@class identity.personality_goalst: DFCompoundType
@@ -1547,6 +1547,7 @@ df.personality_goalst = {}
 function df.personality_goalst:new() end
 
 ---@alias df.personality_preference_type
+---| -1 # NONE
 ---| 0 # Material
 ---| 1 # Pet
 ---| 2 # Food
@@ -1559,8 +1560,10 @@ function df.personality_goalst:new() end
 ---| 9 # Sexual
 
 ---@class identity.personality_preference_type: DFEnumType
----@field Material 0 bay12: PersonalityPreferenceType
----@field [0] "Material" bay12: PersonalityPreferenceType
+---@field NONE -1 bay12: PersonalityPreferenceType
+---@field [-1] "NONE" bay12: PersonalityPreferenceType
+---@field Material 0
+---@field [0] "Material"
 ---@field Pet 1
 ---@field [1] "Pet"
 ---@field Food 2
@@ -1739,7 +1742,7 @@ df.personality_memory_flag = {}
 ---@field relative_strength number
 ---@field thought df.unit_thought_type
 ---@field subthought number for certain thoughts
----@field severity number
+---@field severity number should use circumstance_id type here
 ---@field flags df.personality_memory_flag
 ---@field year number
 ---@field year_tick number
@@ -1844,7 +1847,7 @@ df.personality_flag = {}
 ---@field _type identity.unit_personality
 ---@field values _unit_personality_values
 ---@field ethics _unit_personality_ethics
----@field emotions _unit_personality_emotions bay12: mood
+---@field emotions _unit_personality_emotions
 ---@field dreams _unit_personality_dreams
 ---@field next_dream_id number
 ---@field preferences _unit_personality_preferences
@@ -1852,7 +1855,7 @@ df.personality_flag = {}
 ---@field civ_id number References: `df.historical_entity`
 ---@field cultural_identity number References: `df.cultural_identity`
 ---@field mannerism _unit_personality_mannerism
----@field habit DFNumberVector
+---@field habit DFNumberVector binary
 ---@field stress number
 ---@field time_without_distress number range 0-806400, higher values cause stress to decrease quicker
 ---@field time_without_eustress number range 0-806400, higher values cause stress to increase quicker

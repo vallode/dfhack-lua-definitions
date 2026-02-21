@@ -2,6 +2,7 @@
 ---@meta
 
 ---@alias df.interaction_source_type
+---| -1 # NONE
 ---| 0 # REGION
 ---| 1 # SECRET
 ---| 2 # DISTURBANCE
@@ -15,8 +16,10 @@
 ---| 10 # ITEM_POWER
 
 ---@class identity.interaction_source_type: DFEnumType
----@field REGION 0 bay12: InteractionSourceType
----@field [0] "REGION" bay12: InteractionSourceType
+---@field NONE -1 bay12: InteractionSourceType
+---@field [-1] "NONE" bay12: InteractionSourceType
+---@field REGION 0
+---@field [0] "REGION"
 ---@field SECRET 1
 ---@field [1] "SECRET"
 ---@field DISTURBANCE 2
@@ -54,20 +57,20 @@ local interaction_source
 ---@return df.interaction_source_type
 function interaction_source:getType() end
 
----@param file df.file_compressorst
-function interaction_source:write_file(file) end
+---@param filecomp df.file_compressorst
+function interaction_source:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function interaction_source:read_file(file, loadversion) end
+function interaction_source:read_file(filecomp, loadversion) end
 
 ---@param token string
 ---@param pos number
 ---@param curstr string
----@param context DFPointer<integer>
----@param allow_internal_tokens boolean
+---@param info DFPointer<integer> interaction_handling_informationst
+---@param can_use_internal_tokens boolean
 ---@return boolean
-function interaction_source:parseRaws(token, pos, curstr, context, allow_internal_tokens) end
+function interaction_source:parseRaws(token, pos, curstr, info, can_use_internal_tokens) end
 
 ---@param idx number
 function interaction_source:finalize(idx) end
@@ -169,8 +172,8 @@ df.interaction_source_secret_flag = {}
 ---@class (exact) df.interaction_source_secretst: DFStruct, df.interaction_source
 ---@field _type identity.interaction_source_secretst
 ---@field learn_flags df.interaction_source_secret_flag
----@field spheres _interaction_source_secretst_spheres
----@field goals _interaction_source_secretst_goals
+---@field spheres _interaction_source_secretst_spheres binary
+---@field goals _interaction_source_secretst_goals binary
 ---@field book_title_filename string
 ---@field book_name_filename string
 ---@field book_title_idx number
@@ -383,43 +386,43 @@ local interaction_target
 ---@return df.interaction_target_type
 function interaction_target:getType() end
 
----@param file df.file_compressorst
-function interaction_target:write_file(file) end
+---@param filecomp df.file_compressorst
+function interaction_target:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function interaction_target:read_file(file, loadversion) end
+function interaction_target:read_file(filecomp, loadversion) end
 
 ---@param token string
 ---@param pos number
 ---@param curstr string
----@param context DFPointer<integer>
----@param allow_internal_tokens boolean
+---@param info DFPointer<integer> interaction_handling_informationst
+---@param can_use_internal_tokens boolean
 ---@return boolean
-function interaction_target:parseRaws(token, pos, curstr, context, allow_internal_tokens) end
+function interaction_target:parseRaws(token, pos, curstr, info, can_use_internal_tokens) end
 
----@param idx number
-function interaction_target:finalize(idx) end
+---@param interaction_index number
+function interaction_target:finalize(interaction_index) end
 
----@param bodypart df.item_body_component
----@param interaction df.interaction
+---@param ic df.item_body_component
+---@param it df.interaction
 ---@return boolean
-function interaction_target:affects_body_component(bodypart, interaction) end
+function interaction_target:affects_body_component(ic, it) end
 
----@param anon_0 number
----@param interaction df.interaction
+---@param un df.unit
+---@param iut df.interaction
 ---@return boolean
-function interaction_target:affects_unit(anon_0, interaction) end
+function interaction_target:affects_unit(un, iut) end
 
----@param histfig df.historical_figure
----@param interaction df.interaction
+---@param hf df.historical_figure
+---@param it df.interaction
 ---@return boolean
-function interaction_target:affects_histfig(histfig, interaction) end
+function interaction_target:affects_histfig(hf, it) end
 
 ---@param race number
----@param Caste number
+---@param caste number
 ---@return boolean
-function interaction_target:affects_race(race, Caste) end
+function interaction_target:affects_race(race, caste) end
 
 
 ---@class identity.interaction_target: DFCompoundType
@@ -442,10 +445,10 @@ df.interaction_target_creature_information_flag = {}
 ---@class (exact) df.interaction_target_info: DFStruct
 ---@field _type identity.interaction_target_info
 ---@field affected_creature_str string[]
----@field affected_creature DFNumberVector IT_AFFECTED_CREATURE
+---@field affected_creature DFNumberVector not an array
 ---@field affected_class DFStringVector IT_AFFECTED_CLASS
 ---@field immune_creature_str string[]
----@field immune_creature DFNumberVector IT_IMMUNE_CREATURE
+---@field immune_creature DFNumberVector not an array
 ---@field immune_class DFStringVector IT_IMMUNE_CLASS
 ---@field forbidden_syndrome_class DFStringVector
 ---@field required_property df.cie_add_tag_mask2
@@ -496,7 +499,7 @@ df.interaction_target_material_flag = {}
 ---@class (exact) df.interaction_target_materialst: DFStruct, df.interaction_target
 ---@field _type identity.interaction_target_materialst
 ---@field material_str string[]
----@field mat_type number References: `df.material`
+---@field mat_type number not an array<br>References: `df.material`
 ---@field mat_index number
 ---@field mat_state df.matter_state
 ---@field breath_attack_type df.breath_attack_type
@@ -602,44 +605,44 @@ local interaction_effect
 ---@return df.interaction_effect_type
 function interaction_effect:getType() end
 
----@param file df.file_compressorst
-function interaction_effect:write_file(file) end
+---@param filecomp df.file_compressorst
+function interaction_effect:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function interaction_effect:read_file(file, loadversion) end
+function interaction_effect:read_file(filecomp, loadversion) end
 
----@param target df.unit
----@param instance df.interaction_instance
+---@param un df.unit
+---@param ii df.interaction_instance
 ---@param new_unit boolean
 ---@param start_year DFPointer<integer> actually std::optional(int32_t)
----@param end_year DFPointer<integer> actually std::optional(int32_t)
-function interaction_effect:activateOnUnit(target, instance, new_unit, start_year, end_year) end
+---@param start_season_tick DFPointer<integer> actually std::optional(int32_t)
+function interaction_effect:activateOnUnit(un, ii, new_unit, start_year, start_season_tick) end
 
----@param target df.item
-function interaction_effect:activateOnItem(target) end
+---@param it df.item
+function interaction_effect:activateOnItem(it) end
 
 ---@param token string
 ---@param pos number
 ---@param curstr string
----@param context DFPointer<integer>
----@param allow_internal_tokens boolean
+---@param info DFPointer<integer> interaction_handling_informationst
+---@param can_use_internal_tokens boolean
 ---@return boolean
-function interaction_effect:parseRaws(token, pos, curstr, context, allow_internal_tokens) end
+function interaction_effect:parseRaws(token, pos, curstr, info, can_use_internal_tokens) end
 
----@param idx number
-function interaction_effect:finalize(idx) end
+---@param interaction_index number
+function interaction_effect:finalize(interaction_index) end
 
 function interaction_effect:applySyndromes() end
 
 ---@param hf df.historical_figure
----@param instance df.interaction_instance
----@param worldgen boolean
-function interaction_effect:activateOnHistfig(hf, instance, worldgen) end
+---@param it df.interaction_instance
+---@param in_worldgen boolean
+function interaction_effect:activateOnHistfig(hf, it, in_worldgen) end
 
----@param anon_0 df.syndrome
+---@param cis df.syndrome
 ---@return boolean
-function interaction_effect:hasSyndrome(anon_0) end
+function interaction_effect:hasSyndrome(cis) end
 
 
 ---@class identity.interaction_effect: DFCompoundType
@@ -772,7 +775,7 @@ df.interaction_effect_summon_unit_flag = {}
 ---@field forbidden_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
 ---@field required_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
 ---@field forbidden_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
----@field min_gait_speed number effortless gaits only
+---@field min_gait_speed number
 ---@field max_gait_speed number
 ---@field time_range_min number IE_TIME_RANGE
 ---@field time_range_max number IE_TIME_RANGE
@@ -868,12 +871,15 @@ df.interaction_effect_material_emissionst = {}
 function df.interaction_effect_material_emissionst:new() end
 
 ---@alias df.interaction_flags
+---| -1 # NONE
 ---| 0 # GENERATED
 ---| 1 # EXPERIMENT_ONLY
 
 ---@class identity.interaction_flags: DFEnumType
----@field GENERATED 0 bay12: InteractionFlagType
----@field [0] "GENERATED" bay12: InteractionFlagType
+---@field NONE -1 bay12: InteractionFlagType
+---@field [-1] "NONE" bay12: InteractionFlagType
+---@field GENERATED 0
+---@field [0] "GENERATED"
 ---@field EXPERIMENT_ONLY 1
 ---@field [1] "EXPERIMENT_ONLY"
 df.interaction_flags = {}

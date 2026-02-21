@@ -89,7 +89,7 @@ function df.cultural_identity_interactionst:new() end
 ---@field group_log _cultural_identity_group_log the circumstances of groups joining or leaving this culture
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
----@field events _cultural_identity_events SAVE_VALUENUM
+---@field rumor_info df.rumor_infost SAVE_VALUENUM
 ---@field world_general_knowledge_year number
 ---@field known_heid DFNumberVector
 ---@field origin_ci_id number References: `df.cultural_identity`
@@ -130,22 +130,6 @@ function _cultural_identity_group_log:insert(index, item) end
 
 ---@param index integer
 function _cultural_identity_group_log:erase(index) end
-
----@class _cultural_identity_events: DFContainer
----@field [integer] df.entity_event
-local _cultural_identity_events
-
----@nodiscard
----@param index integer
----@return DFPointer<df.entity_event>
-function _cultural_identity_events:_field(index) end
-
----@param index '#'|integer
----@param item df.entity_event
-function _cultural_identity_events:insert(index, item) end
-
----@param index integer
-function _cultural_identity_events:erase(index) end
 
 ---@class _cultural_identity_religious_practice: DFContainer
 ---@field [integer] df.cultural_identity_religious_practicest

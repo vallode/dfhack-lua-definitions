@@ -69,7 +69,7 @@ function _widget_sheet_button_callback:erase(index) end
 
 ---@class (exact) df.widget_unit_sheet_button: DFStruct, df.widget_sheet_button
 ---@field _type identity.widget_unit_sheet_button
----@field unid number
+---@field unid number References: `df.unit`
 
 ---@class identity.widget_unit_sheet_button: DFCompoundType
 ---@field _kind 'class-type'
@@ -80,7 +80,7 @@ function df.widget_unit_sheet_button:new() end
 
 ---@class (exact) df.widget_item_sheet_button: DFStruct, df.widget_sheet_button
 ---@field _type identity.widget_item_sheet_button
----@field itid number
+---@field itid number References: `df.item`
 
 ---@class identity.widget_item_sheet_button: DFCompoundType
 ---@field _kind 'class-type'
@@ -91,7 +91,7 @@ function df.widget_item_sheet_button:new() end
 
 ---@class (exact) df.widget_job_details_button: DFStruct, df.widget
 ---@field _type identity.widget_job_details_button
----@field jb DFPointer<integer>
+---@field jb df.job
 ---@field context number
 ---@field callback _widget_job_details_button_callback
 

@@ -13,18 +13,18 @@
 ---@class identity.identity_type: DFEnumType
 ---@field None -1
 ---@field [-1] "None"
----@field HidingCurse 0 HIDDEN_PREDATOR
----@field [0] "HidingCurse" HIDDEN_PREDATOR
----@field Impersonating 1 GOD_PRETENDER
----@field [1] "Impersonating" GOD_PRETENDER
+---@field HidingCurse 0
+---@field [0] "HidingCurse"
+---@field Impersonating 1
+---@field [1] "Impersonating"
 ---@field TrueName 2 E.g. of demonic overlords. Can be used by adventurers to gain sway over them
 ---@field [2] "TrueName" E.g. of demonic overlords. Can be used by adventurers to gain sway over them
----@field FalseIdentity 3 SCOUT_COVER
----@field [3] "FalseIdentity" SCOUT_COVER
----@field InfiltrationIdentity 4 IMPROMPTU_SITE_ID
----@field [4] "InfiltrationIdentity" IMPROMPTU_SITE_ID
----@field Identity 5 VILLAIN
----@field [5] "Identity" VILLAIN
+---@field FalseIdentity 3
+---@field [3] "FalseIdentity"
+---@field InfiltrationIdentity 4
+---@field [4] "InfiltrationIdentity"
+---@field Identity 5
+---@field [5] "Identity"
 df.identity_type = {}
 
 ---@class identity_type_attr_entry_type: DFCompoundType
@@ -52,7 +52,7 @@ df.identity_type.attrs = {}
 ---@field race number References: `df.creature_raw`
 ---@field caste number References: `df.caste_raw`
 ---@field impersonated_hf number only when Impersonating<br>References: `df.historical_figure`
----@field histfig_id number bay12: "originator_hfid", yet Toady apparently stores Nemesis IDs here too?<br>References: `df.historical_figure`
+---@field histfig_id number Toady apparently stores Nemesis IDs here too<br>References: `df.historical_figure`
 ---@field nemesis_id number References: `df.nemesis_record`
 ---@field type df.identity_type
 ---@field birth_year number the fake one, that is

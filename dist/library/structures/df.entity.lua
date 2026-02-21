@@ -252,12 +252,12 @@ local resource_allotment_specifier
 ---@return df.resource_allotment_specifier_type
 function resource_allotment_specifier:getType() end
 
----@param file df.file_compressorst
-function resource_allotment_specifier:write_file(file) end
+---@param filecomp df.file_compressorst
+function resource_allotment_specifier:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function resource_allotment_specifier:read_file(file, loadversion) end
+function resource_allotment_specifier:read_file(filecomp, loadversion) end
 
 
 ---@class identity.resource_allotment_specifier: DFCompoundType
@@ -1198,7 +1198,7 @@ function _embark_profile_pet_profession:erase(index) end
 ---@field succession_by_position DFNumberVector
 ---@field responsibilities DFEnumVector<df.entity_position_responsibility, boolean>
 ---@field color number[]
----@field required_boxes number
+---@field required_boxes number not an array
 ---@field required_cabinets number
 ---@field required_racks number
 ---@field required_stands number
@@ -1345,7 +1345,7 @@ function df.entity_animal_raw:new() end
 ---@field art_image_element_modifier DFEnumVector<df.art_image_element_type, number>
 ---@field item_improvement_modifier DFEnumVector<df.improvement_type, number>
 ---@field friendly_color number[]
----@field default_site_type df.world_site_type
+---@field default_site_type df.world_site_type not an array
 ---@field likes_site DFEnumVector<df.world_site_type, number>
 ---@field tolerates_site DFEnumVector<df.world_site_type, number>
 ---@field biome_support DFEnumVector<df.biome_type, number>
@@ -1398,7 +1398,7 @@ function df.entity_raw.get_vector() end
 
 ---@class (exact) df.entity_raw.T_equipment: DFStruct
 ---@field _type identity.entity_raw.equipment
----@field digger_id DFNumberVector not an actual compound
+---@field digger_id DFNumberVector not a compound
 ---@field weapon_id DFNumberVector
 ---@field armor_id DFNumberVector
 ---@field ammo_id DFNumberVector
@@ -1457,7 +1457,7 @@ function _entity_raw_flags:erase(index) end
 
 ---@class (exact) df.entity_raw.T_symbols: DFStruct
 ---@field _type identity.entity_raw.symbols
----@field symbols_major DFEnumVector<df.entity_name_type, df.language_word_table> not an actual compound
+---@field symbols_major DFEnumVector<df.entity_name_type, df.language_word_table> not a compound
 ---@field symbols_minor DFEnumVector<df.entity_name_type, df.language_word_table>
 ---@field select_symbol DFEnumVector<df.entity_name_type, string>
 ---@field subselect_symbol DFEnumVector<df.entity_name_type, string>
@@ -1472,7 +1472,7 @@ function df.entity_raw.T_symbols:new() end
 
 ---@class (exact) df.entity_raw.T_progress_trigger: DFStruct
 ---@field _type identity.entity_raw.progress_trigger
----@field population number not an actual compound
+---@field population number not a compound
 ---@field production number
 ---@field trade number
 ---@field pop_siege number
@@ -1504,7 +1504,7 @@ function _entity_raw_religion_sphere:erase(index) end
 
 ---@class (exact) df.entity_raw.T_jobs: DFStruct
 ---@field _type identity.entity_raw.jobs
----@field permitted_job DFEnumVector<df.profession, boolean> not an actual compound
+---@field permitted_job DFEnumVector<df.profession, boolean> not a compound
 ---@field permitted_labor DFEnumVector<df.unit_labor, boolean>
 ---@field world_construction DFEnumVector<df.world_construction_type, boolean>
 
@@ -1549,7 +1549,7 @@ function _entity_raw_tissue_styles:erase(index) end
 
 ---@class (exact) df.entity_raw.T_workshops: DFStruct
 ---@field _type identity.entity_raw.workshops
----@field permitted_building_str DFStringVector not an actual compound
+---@field permitted_building_str DFStringVector not a compound
 ---@field permitted_building_id DFNumberVector
 ---@field permitted_reaction_str DFStringVector
 ---@field permitted_reaction_id DFNumberVector
@@ -1805,10 +1805,10 @@ df.entity_site_link_flags = {}
 ---@class (exact) df.entity_site_link: DFStruct
 ---@field _type identity.entity_site_link
 ---@field target number References: `df.world_site`
----@field entity_id number this is a union in toady code but we can probably ignore that per putnam<br>References: `df.historical_entity`
+---@field entity_id number References: `df.historical_entity`
 ---@field entity_cache_index number not saved
 ---@field position_profile_id number index into entity.positions.assignments of Civilization (?)
----@field type df.entity_site_link_type called location in df source
+---@field type df.entity_site_link_type
 ---@field start_hr number
 ---@field end_hr number
 ---@field flags df.entity_site_link_flags
@@ -2032,7 +2032,7 @@ function df.transport_linkst:new() end
 ---@field responsibilities DFEnumVector<df.entity_position_responsibility, boolean>
 ---@field description string
 ---@field color number[]
----@field required_boxes number
+---@field required_boxes number not an array
 ---@field required_cabinets number
 ---@field required_racks number
 ---@field required_stands number
@@ -2100,19 +2100,20 @@ df.entity_position_profile_flags = {}
 
 ---@class (exact) df.entity_position_assignment: DFStruct
 ---@field _type identity.entity_position_assignment
----@field id number bay12: global_id
----@field histfig number bay12: holder_hfid<br>References: `df.historical_figure`
----@field histfig2 number bay12: last_holder_hfid<br>References: `df.historical_figure`
+---@field id number
+---@field histfig number References: `df.historical_figure`
+---@field histfig2 number References: `df.historical_figure`
 ---@field position_id number position within relevant entity
----@field position_vector_idx number bay12: position_cache_index
+---@field position_vector_idx number
 ---@field flags _entity_position_assignment_flags
----@field squad_id number bay12: leads_squad_id<br>References: `df.squad`
+---@field squad_id number References: `df.squad`
 ---@field st_id number
 ---@field ab_id number
 ---@field vassal_of_entity_id number
 ---@field vassal_of_position_profile_id number
 ---@field claim _entity_position_assignment_claim not saved
 ---@field assigned_army_controller_id number unknown size, not initialized or saved
+---@field temp number
 
 ---@class identity.entity_position_assignment: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2351,7 +2352,7 @@ df.entity_burial_request_status_type = {}
 
 ---@class (exact) df.entity_burial_requestst: DFStruct
 ---@field _type identity.entity_burial_requestst
----@field civ number References: `df.historical_entity`
+---@field hfid number References: `df.historical_figure`
 ---@field prof DFNumberVector profession?
 ---@field status df.entity_burial_request_status_type
 
@@ -2445,6 +2446,7 @@ function _entity_animal_training_knowledgest_level:insert(index, item) end
 function _entity_animal_training_knowledgest_level:erase(index) end
 
 ---@alias df.occasion_schedule_feature
+---| -1 # NONE
 ---| 0 # ANIMALS_ACCOMPANYING
 ---| 1 # ANIMALS_MOUNTED
 ---| 2 # STORYTELLING
@@ -2468,8 +2470,10 @@ function _entity_animal_training_knowledgest_level:erase(index) end
 ---| 20 # THE_SACRIFICE_OF_PLANTS
 
 ---@class identity.occasion_schedule_feature: DFEnumType
----@field ANIMALS_ACCOMPANYING 0 bay12: EntityOccasionScheduleElementType
----@field [0] "ANIMALS_ACCOMPANYING" bay12: EntityOccasionScheduleElementType
+---@field NONE -1 bay12: EntityOccasionScheduleElementType
+---@field [-1] "NONE" bay12: EntityOccasionScheduleElementType
+---@field ANIMALS_ACCOMPANYING 0
+---@field [0] "ANIMALS_ACCOMPANYING"
 ---@field ANIMALS_MOUNTED 1 race, caste
 ---@field [1] "ANIMALS_MOUNTED" race, caste
 ---@field STORYTELLING 2 race, caste
@@ -2516,7 +2520,7 @@ df.occasion_schedule_feature = {}
 ---@field _type identity.entity_occasion_schedule_feature
 ---@field feature df.occasion_schedule_feature
 ---@field reference number
----@field reference2 number
+---@field reference2 number actually an array
 ---@field reference3 number
 ---@field reference4 number
 
@@ -2528,6 +2532,7 @@ df.entity_occasion_schedule_feature = {}
 function df.entity_occasion_schedule_feature:new() end
 
 ---@alias df.occasion_schedule_type
+---| -1 # NONE
 ---| 0 # DANCE_PERFORMANCE
 ---| 1 # MUSICAL_PERFORMANCE
 ---| 2 # POETRY_RECITAL
@@ -2545,8 +2550,10 @@ function df.entity_occasion_schedule_feature:new() end
 ---| 14 # CEREMONY
 
 ---@class identity.occasion_schedule_type: DFEnumType
----@field DANCE_PERFORMANCE 0 bay12: EntityOccasionScheduleType
----@field [0] "DANCE_PERFORMANCE" bay12: EntityOccasionScheduleType
+---@field NONE -1 bay12: EntityOccasionScheduleType
+---@field [-1] "NONE" bay12: EntityOccasionScheduleType
+---@field DANCE_PERFORMANCE 0
+---@field [0] "DANCE_PERFORMANCE"
 ---@field MUSICAL_PERFORMANCE 1 dance form
 ---@field [1] "MUSICAL_PERFORMANCE" dance form
 ---@field POETRY_RECITAL 2 musical form
@@ -2591,7 +2598,7 @@ df.entity_occasion_schedule_flag = {}
 ---@field _type identity.entity_occasion_schedule
 ---@field type df.occasion_schedule_type
 ---@field reference number art form / event / item_type /procession start abstract building
----@field reference2 number item_subtype / procession stop abstract building
+---@field reference2 number actually an array
 ---@field reference3 number material
 ---@field reference4 number matgloss
 ---@field flags df.entity_occasion_schedule_flag
@@ -2908,8 +2915,8 @@ df.entity_scholar_flag = {}
 ---@field _enum identity.entity_flag
 ---@field neighbor boolean bay12: ENTITYFLAG_*
 ---@field [0] boolean bay12: ENTITYFLAG_*
----@field player_civ boolean VISIBLE
----@field [1] boolean VISIBLE
+---@field player_civ boolean
+---@field [1] boolean
 ---@field make_nems_check_positions boolean
 ---@field [2] boolean
 ---@field discovered boolean
@@ -2964,8 +2971,8 @@ df.entity_scholar_flag = {}
 ---@class identity.entity_flag: DFBitfieldType
 ---@field neighbor 0 bay12: ENTITYFLAG_*
 ---@field [0] "neighbor" bay12: ENTITYFLAG_*
----@field player_civ 1 VISIBLE
----@field [1] "player_civ" VISIBLE
+---@field player_civ 1
+---@field [1] "player_civ"
 ---@field make_nems_check_positions 2
 ---@field [2] "make_nems_check_positions"
 ---@field discovered 3
@@ -3085,7 +3092,7 @@ df.historical_entity_type = {}
 ---@field squads DFNumberVector
 ---@field global_event_knowledge_year number
 ---@field local_known_events DFNumberVector since the above year
----@field production_zone_id number not sure what this refers to
+---@field production_zone_id number References: `df.resource_allotment_data`
 ---@field law df.entity_lawst
 ---@field worldgen_can_make_guildhall DFEnumVector<df.town_labor_type, number> specialization_hours
 ---@field training_knowledge df.entity_animal_training_knowledgest
@@ -3100,27 +3107,27 @@ df.historical_entity_type = {}
 ---@field performed_dance_forms DFNumberVector
 ---@field performed_scale_id DFNumberVector
 ---@field performed_rhythm_id DFNumberVector
----@field well_known_wcid DFNumberVector wcid == written content ID
----@field occasion_info df.entity_occasion_info bay12: entity_calendarst *calendar
+---@field well_known_wcid DFNumberVector
+---@field occasion_info df.entity_occasion_info only seen on Civilization, SiteGovernment, and Religion, but not all
 ---@field artifact_claims _historical_entity_artifact_claims sorted on artifact id
 ---@field honors _historical_entity_honors Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
----@field equipment_purchases number average equipment quality
----@field attack number hired battle victory
----@field total_battles number hired battle total
+---@field equipment_purchases number
+---@field attack number
+---@field total_battles number
 ---@field evidence_repository df.evidence_repositoryst
 ---@field divination_sets DFNumberVector
----@field founding_site_government number bay12: material_source_enid<br>References: `df.historical_entity`
+---@field founding_site_government number References: `df.historical_entity`
 ---@field plot_invasion_map _historical_entity_plot_invasion_map
 ---@field meeting_events _historical_entity_meeting_events
----@field activity_stats df.entity_activity_statistics bay12: reportst *lastreport
+---@field activity_stats df.entity_activity_statistics
 ---@field last_report_season number
 ---@field last_report_year number
 ---@field imports_from number
 ---@field offerings_from number
 ---@field offerings_recent number since the last migrant wave or diplomat visit
 ---@field offerings_history number[] rotated yearly at 15th of Timber
----@field hostility_level number bay12: brazenness
+---@field hostility_level number
 ---@field siege_tier number
 ---@field dwf_attack_schedule_check_timer number
 ---@field last_petition_year number
@@ -3133,7 +3140,7 @@ df.historical_entity_type = {}
 ---@field assignments_by_type DFEnumVector<df.entity_position_responsibility, df.entity_position_assignment>
 ---@field claims df.historical_entity.T_claims
 ---@field children DFNumberVector territory entities
----@field metal_proficiency number bay12: army_strength_material_bonus
+---@field metal_proficiency number best IMPACT_FRACTURE/10000 + MAX_EDGE/1000 for weapon mats plus best IMPACT_FRACTURE/10000 for armor mats
 ---@field weapon_proficiencies _historical_entity_weapon_proficiencies
 ---@field resource_allotment df.resource_allotment_data Only for SiteGovernment, but not all
 ---@field local_poetic_form _historical_entity_local_poetic_form
@@ -3153,7 +3160,7 @@ df.historical_entity_type = {}
 ---@field snatcher_site_toggle_count number 0
 ---@field war_fatigue number 0
 ---@field army_reeling_attack number 0
----@field unkarmy_reeling_defense number 0
+---@field army_reeling_defense number 0
 ---@field attacked_site_id DFNumberVector used during world gen
 ---@field attacked_site_timer DFNumberVector used during world gen
 ---@field did_wg_variable_position number
@@ -3167,9 +3174,9 @@ df.historical_entity_type = {}
 ---@field layabout_pool number
 ---@field peasant_pool number
 ---@field peasant_labor_hours number
----@field total_food_veg number ?
----@field total_food_carn number ?
----@field trade_current_amount DFEnumVector<df.trade_category_type, number> ?
+---@field total_food_veg number
+---@field total_food_carn number
+---@field trade_current_amount DFEnumVector<df.trade_category_type, number>
 ---@field trade_needed_amount DFEnumVector<df.trade_category_type, number>
 ---@field trade_wanted_amount DFEnumVector<df.trade_category_type, number>
 ---@field trade_maximum_buy_price DFEnumVector<df.trade_category_type, number>
@@ -3472,9 +3479,10 @@ function _historical_entity_resources_other_recipes:insert(index, item) end
 ---@param index integer
 function _historical_entity_resources_other_recipes:erase(index) end
 
+-- not an array
 ---@class (exact) df.historical_entity.T_resources.T_soldier_mats: DFStruct
 ---@field _type identity.historical_entity.resources.soldier_mats
----@field mat_type number
+---@field mat_type number not an array
 ---@field mat_index number
 
 ---@class identity.historical_entity.resources.soldier_mats: DFCompoundType
@@ -3967,7 +3975,7 @@ function _historical_entity_assignments_by_type:erase(index) end
 
 ---@class (exact) df.historical_entity.T_claims: DFStruct
 ---@field _type identity.historical_entity.claims
----@field areas df.coord2d_path
+---@field areas df.coord2d_path not a compound
 ---@field territory df.coord2d_path
 ---@field territory_frontier df.coord2d_path
 

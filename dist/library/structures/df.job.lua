@@ -86,22 +86,22 @@ function _job_reqst_elements:erase(index) end
 ---@class identity.job_role_type: DFEnumType
 ---@field Other 0 bay12: JobRoleTypes
 ---@field [0] "Other" bay12: JobRoleTypes
----@field Reagent 1 MATERIAL
----@field [1] "Reagent" MATERIAL
----@field Hauled 2 REQUIRED
----@field [2] "Hauled" REQUIRED
+---@field Reagent 1
+---@field [1] "Reagent"
+---@field Hauled 2
+---@field [2] "Hauled"
 ---@field LinkToTrigger 3
 ---@field [3] "LinkToTrigger"
 ---@field LinkToTarget 4
 ---@field [4] "LinkToTarget"
 ---@field CleanSite 5
 ---@field [5] "CleanSite"
----@field TargetContainer 6 NOTAG
----@field [6] "TargetContainer" NOTAG
----@field QueuedContainer 7 INCIDENTAL_HAUL; queued to be put in a container
----@field [7] "QueuedContainer" INCIDENTAL_HAUL; queued to be put in a container
----@field PushHaulVehicle 8 HAULER_ITEM; wheelbarrow
----@field [8] "PushHaulVehicle" HAULER_ITEM; wheelbarrow
+---@field TargetContainer 6
+---@field [6] "TargetContainer"
+---@field QueuedContainer 7 queued to be put in a container
+---@field [7] "QueuedContainer" queued to be put in a container
+---@field PushHaulVehicle 8 wheelbarrow
+---@field [8] "PushHaulVehicle" wheelbarrow
 df.job_role_type = {}
 
 ---@class df.jobitem_flag: DFBitfield
@@ -1199,30 +1199,30 @@ df.job_type.attrs = {}
 ---@field [2] boolean not for food, or store in sp
 ---@field fetching boolean Actually going out to bring; corresponds to items->is_fetching
 ---@field [3] boolean Actually going out to bring; corresponds to items->is_fetching
----@field special boolean bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field [4] boolean bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field bringing boolean bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field [5] boolean bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field item_lost boolean bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field [6] boolean bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field noise boolean bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
----@field [7] boolean bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field special boolean Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] boolean Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing boolean When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] boolean When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost boolean set when a Hauled item is removed; causes cancel
+---@field [6] boolean set when a Hauled item is removed; causes cancel
+---@field noise boolean on the sleep job causes thoughts
+---@field [7] boolean on the sleep job causes thoughts
 ---@field by_manager boolean --
 ---@field [9] boolean --
----@field store_item boolean bay12: ITEMSOURCE
----@field [10] boolean bay12: ITEMSOURCE
----@field quality boolean bay12: BONUS; set by improvement code
----@field [11] boolean bay12: BONUS; set by improvement code
+---@field store_item boolean
+---@field [10] boolean
+---@field quality boolean set by improvement code
+---@field [11] boolean set by improvement code
 ---@field non_fluid boolean
 ---@field [14] boolean
 ---@field could_not_find_building_use_1 boolean
 ---@field [15] boolean
----@field on_break boolean bay12: COUNTS_AS_BREAK; job displayed as On Break
----@field [16] boolean bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field on_break boolean job displayed as On Break
+---@field [16] boolean job displayed as On Break
 ---@field dessource boolean created from designation
 ---@field [17] boolean created from designation
----@field do_now boolean bay12: DO_ME_NOW
----@field [18] boolean bay12: DO_ME_NOW
+---@field do_now boolean
+---@field [18] boolean
 
 ---@class identity.job_flags: DFBitfieldType
 ---@field ["repeat"] 0 bay12: JOBFLAG_*
@@ -1233,30 +1233,30 @@ df.job_type.attrs = {}
 ---@field [2] "working" not for food, or store in sp
 ---@field fetching 3 Actually going out to bring; corresponds to items->is_fetching
 ---@field [3] "fetching" Actually going out to bring; corresponds to items->is_fetching
----@field special 4 bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field [4] "special" bay12: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field bringing 5 bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field [5] "bringing" bay12: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
----@field item_lost 6 bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field [6] "item_lost" bay12: HITBYDELETION; set when a Hauled item is removed; causes cancel
----@field noise 7 bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
----@field [7] "noise" bay12: SLEEP_DISTURBED; on the sleep job causes thoughts
+---@field special 4 Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] "special" Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing 5 When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] "bringing" When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost 6 set when a Hauled item is removed; causes cancel
+---@field [6] "item_lost" set when a Hauled item is removed; causes cancel
+---@field noise 7 on the sleep job causes thoughts
+---@field [7] "noise" on the sleep job causes thoughts
 ---@field by_manager 9 --
 ---@field [9] "by_manager" --
----@field store_item 10 bay12: ITEMSOURCE
----@field [10] "store_item" bay12: ITEMSOURCE
----@field quality 11 bay12: BONUS; set by improvement code
----@field [11] "quality" bay12: BONUS; set by improvement code
+---@field store_item 10
+---@field [10] "store_item"
+---@field quality 11 set by improvement code
+---@field [11] "quality" set by improvement code
 ---@field non_fluid 14
 ---@field [14] "non_fluid"
 ---@field could_not_find_building_use_1 15
 ---@field [15] "could_not_find_building_use_1"
----@field on_break 16 bay12: COUNTS_AS_BREAK; job displayed as On Break
----@field [16] "on_break" bay12: COUNTS_AS_BREAK; job displayed as On Break
+---@field on_break 16 job displayed as On Break
+---@field [16] "on_break" job displayed as On Break
 ---@field dessource 17 created from designation
 ---@field [17] "dessource" created from designation
----@field do_now 18 bay12: DO_ME_NOW
----@field [18] "do_now" bay12: DO_ME_NOW
+---@field do_now 18
+---@field [18] "do_now"
 df.job_flags = {}
 
 ---@alias df.killjob_exception_type
@@ -1897,9 +1897,9 @@ function df.job_list_link:new() end
 ---@field list_link df.job_list_link
 ---@field posting_index number index into world.job_postings
 ---@field job_type df.job_type
----@field job_subtype df.job_subtype_surgery bay12: stage
+---@field job_subtype df.job_subtype_surgery
 ---@field pos df.coord
----@field completion_timer number toady: duration; -1 every time unit.counters.job_counter is below 0
+---@field completion_timer number -1 every time unit.counters.job_counter is below 0
 ---@field maxdur number uninitialized
 ---@field flags df.job_flags
 ---@field mat_type number References: `df.material`
@@ -1909,10 +1909,10 @@ function df.job_list_link:new() end
 ---@field item_subtype number when StoreInStockpile this is a unit_labor
 ---@field specflag df.job_spec_flags
 ---@field specdata df.job_spec_data
----@field material_category df.job_material_category bay12: uint32_t job_item_flag
+---@field material_category df.job_material_category
 ---@field reaction_name string
----@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
----@field recheck_cntdn number toady: auxilary_counter; for process_jobs
+---@field expire_timer number for stockpiling, +1 per 50 ticks if no worker; del when 20
+---@field recheck_cntdn number for process_jobs
 ---@field aux_id number
 ---@field items _job_items
 ---@field specific_refs _job_specific_refs
@@ -1920,7 +1920,7 @@ function df.job_list_link:new() end
 ---@field job_items df.job_reqst
 ---@field guide_path df.coord_path
 ---@field cur_path_index number
----@field spec_loc df.coord toady: spec_x/spec_y/spec_z
+---@field spec_loc df.coord
 ---@field art_spec df.job.T_art_spec
 ---@field order_id number References: `df.manager_order`
 
@@ -1982,8 +1982,8 @@ function _job_general_refs:erase(index) end
 ---@class (exact) df.job.T_art_spec: DFStruct
 ---@field _type identity.job.art_spec
 ---@field type df.job_art_specifier_type not a compound
----@field id number
----@field subid number
+---@field id number union: mix_dye_source_color_index1, dye_object_desired_pre_dye_color_index
+---@field subid number union: mix_dye_source_color_index2, dye_object_source_color_index
 
 ---@class identity.job.art_spec: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1992,11 +1992,21 @@ df.job.T_art_spec = {}
 ---@return df.job.T_art_spec
 function df.job.T_art_spec:new() end
 
+---@class df.job_posting_flag: DFBitfield
+---@field _enum identity.job_posting_flag
+---@field dead boolean bay12: JOB_POSTING_FLAG_*
+---@field [0] boolean bay12: JOB_POSTING_FLAG_*
+
+---@class identity.job_posting_flag: DFBitfieldType
+---@field dead 0 bay12: JOB_POSTING_FLAG_*
+---@field [0] "dead" bay12: JOB_POSTING_FLAG_*
+df.job_posting_flag = {}
+
 ---@class (exact) df.job_postingst: DFStruct
 ---@field _type identity.job_postingst
 ---@field idx number equal to position in vector
 ---@field job df.job bad if dead flag is set
----@field flags df.job_postingst.T_flags
+---@field flags df.job_posting_flag
 ---@field rough_number_of_applications number not saved
 
 ---@class identity.job_postingst: DFCompoundType
@@ -2005,16 +2015,6 @@ df.job_postingst = {}
 
 ---@return df.job_postingst
 function df.job_postingst:new() end
-
----@class df.job_postingst.T_flags: DFBitfield
----@field _enum identity.job_postingst.flags
----@field dead boolean bay12: JOB_POSTING_FLAG_*
----@field [0] boolean bay12: JOB_POSTING_FLAG_*
-
----@class identity.job_postingst.flags: DFBitfieldType
----@field dead 0 bay12: JOB_POSTING_FLAG_*
----@field [0] "dead" bay12: JOB_POSTING_FLAG_*
-df.job_postingst.T_flags = {}
 
 ---@class (exact) df.job_applicationst: DFStruct
 ---@field _type identity.job_applicationst
@@ -2048,8 +2048,8 @@ function df.job_application_binary_heapst:new() end
 ---@field job_application_heap df.job_application_binary_heapst this appears to be a priority queue of some sort
 local job_handler
 
----@param anon_0 df.job
-function job_handler:cancel_job(anon_0) end
+---@param ptr df.job
+function job_handler:cancel_job(ptr) end
 
 
 ---@class identity.job_handler: DFCompoundType

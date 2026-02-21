@@ -15,10 +15,10 @@ function df.activity_event_flow_mapst:new() end
 
 ---@class (exact) df.activity_event_participants: DFStruct
 ---@field _type identity.activity_event_participants
----@field histfigs DFNumberVector
----@field units DFNumberVector
+---@field histfigs DFNumberVector binary
+---@field units DFNumberVector linked to participant_hfid by index, NOT binary
 ---@field free_histfigs DFNumberVector Seemingly units that are free to be grouped<br>away into subevents or sparring pairs.
----@field free_units DFNumberVector
+---@field free_units DFNumberVector linked
 ---@field activity_id number Holder event<br>References: `df.activity_entry`
 ---@field event_id number References: `df.activity_event`
 
@@ -244,12 +244,12 @@ local activity_event
 ---@return df.activity_event_type
 function activity_event:getType() end
 
----@param file df.file_compressorst
-function activity_event:write_file(file) end
+---@param filecomp df.file_compressorst
+function activity_event:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function activity_event:read_file(file, loadversion) end
+function activity_event:read_file(filecomp, loadversion) end
 
 ---@return boolean
 function activity_event:isEmpty() end
@@ -266,15 +266,15 @@ function activity_event:getParticipantInfo() end
 ---@param children_too boolean
 function activity_event:dismiss(children_too) end
 
----@param dx number
----@param dy number
----@param dz number
-function activity_event:move(dx, dy, dz) end
+---@param shiftx number
+---@param shifty number
+---@param shiftz number
+function activity_event:move(shiftx, shifty, shiftz) end
 
 ---@param histfig number
 ---@param unit number
----@param moving_to_related boolean
-function activity_event:removeParticipant(histfig, unit, moving_to_related) end
+---@param being_added_to_something_related boolean
+function activity_event:removeParticipant(histfig, unit, being_added_to_something_related) end
 
 ---@param context df.dungeon_contextst
 ---@param unit df.unit
@@ -294,17 +294,17 @@ function activity_event:getSquadEventType() end
 ---@param skill df.job_skill
 function activity_event:setDemoSkill(skill) end
 
----@param wait_countdown number
----@param train_rounds number
----@param train_countdown number
-function activity_event:setSkillDemoTimers(wait_countdown, train_rounds, train_countdown) end
+---@param start number
+---@param number number
+---@param length number
+function activity_event:setSkillDemoTimers(start, number, length) end
 
----@param amount number
-function activity_event:adjustOrganizeCounter(amount) end
+---@param add_time number
+function activity_event:adjustOrganizeCounter(add_time) end
 
----@param hist_figure_id DFPointer<integer>
----@param unit_id DFPointer<integer>
-function activity_event:getOrganizer(hist_figure_id, unit_id) end
+---@param inst_hfid DFPointer<integer>
+---@param inst_unid DFPointer<integer>
+function activity_event:getOrganizer(inst_hfid, inst_unid) end
 
 ---@return number
 function activity_event:getBuilding() end
@@ -433,7 +433,7 @@ function df.activity_event_individual_skill_drillst:new() end
 
 ---@class (exact) df.activity_event_sparring_matchst: DFStruct
 ---@field _type identity.activity_event_sparring_matchst
----@field units DFNumberVector
+---@field units DFNumberVector binary
 ---@field countdown number
 ---@field building_id number References: `df.building`
 
@@ -500,13 +500,13 @@ df.harassment_target_profile_flag = {}
 
 ---@class (exact) df.harassment_target_profilest: DFStruct
 ---@field _type identity.harassment_target_profilest
----@field hfid number is an hfid
+---@field hfid number global_id
 ---@field surround_hfid number[][]
 ---@field demand_item_id number References: `df.item`
 ---@field demand_item_timer number
----@field processed_item_id DFNumberVector
+---@field processed_item_id DFNumberVector binary
 ---@field flags df.harassment_target_profile_flag
----@field demand_incident_id number
+---@field demand_incident_id number References: `df.incident`
 
 ---@class identity.harassment_target_profilest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -534,7 +534,7 @@ df.harassment_stage_type = {}
 
 ---@class (exact) df.activity_event_harassmentst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_harassmentst
----@field harasser_hf DFNumberVector
+---@field harasser_hf DFNumberVector binary
 ---@field target_profile _activity_event_harassmentst_target_profile
 ---@field stage df.harassment_stage_type
 ---@field inactivity_timer number
@@ -591,7 +591,7 @@ df.encounter_unit_stage_type = {}
 
 ---@class (exact) df.encounter_unitst: DFStruct
 ---@field _type identity.encounter_unitst
----@field unit number References: `df.unit`
+---@field unit number global_id<br>References: `df.unit`
 ---@field histfig number References: `df.historical_figure`
 ---@field stage df.encounter_unit_stage_type
 ---@field stage_last_year number
@@ -621,7 +621,7 @@ df.encounter_item_flag = {}
 
 ---@class (exact) df.encounter_itemst: DFStruct
 ---@field _type identity.encounter_itemst
----@field item number References: `df.item`
+---@field item number global_id<br>References: `df.item`
 ---@field artifact_id number References: `df.artifact_record`
 ---@field return_bld_id number References: `df.building`
 ---@field return_st_id number References: `df.world_site`
@@ -641,8 +641,8 @@ function df.encounter_itemst:new() end
 ---@field _type identity.activity_event_encounterst
 ---@field unit_target _activity_event_encounterst_unit_target
 ---@field item_target _activity_event_encounterst_item_target
----@field encounter_hf DFNumberVector
----@field encounter_en DFNumberVector
+---@field encounter_hf DFNumberVector binary
+---@field encounter_en DFNumberVector binary
 ---@field encounter_ac number References: `df.army_controller`
 ---@field inactivity_timer number
 ---@field initiated_year number
@@ -701,7 +701,7 @@ df.activity_event_reunion_flag = {}
 ---@class (exact) df.activity_event_reunionst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_reunionst
 ---@field reunion_hf DFNumberVector
----@field reunion_unit DFNumberVector
+---@field reunion_unit DFNumberVector not linked
 ---@field inactivity_timer number
 ---@field initiated_year number
 ---@field initiated_season_count number
@@ -733,7 +733,7 @@ function df.conversation_participantst:new() end
 ---@field speaker_hfid number References: `df.historical_figure`
 ---@field type df.talk_choice_type
 ---@field rumor df.entity_event
----@field incident_id number
+---@field incident_id number References: `df.incident`
 ---@field foreground number
 ---@field background number
 ---@field bright number
@@ -742,7 +742,7 @@ function df.conversation_participantst:new() end
 ---@field variable1 number
 ---@field adventure_desire df.adventure_desire_state_type
 ---@field opinion df.opinion_type
----@field sleep_zone_id number
+---@field sleep_zone_id number References: `df.building`
 ---@field main_relevant_id number
 ---@field banter_item_id number References: `df.item`
 ---@field trouble_type df.conversation_trouble_type
@@ -1145,7 +1145,7 @@ df.activity_event_conversation_flag = {}
 ---@field participants _activity_event_conversationst_participants
 ---@field menu df.conversation_state_type
 ---@field state_rumor df.entity_event
----@field state_incident_id number
+---@field state_incident_id number References: `df.incident`
 ---@field state_relevant_id number
 ---@field state_value_type number
 ---@field state_asker_entity_id number References: `df.historical_entity`
@@ -1174,7 +1174,7 @@ df.activity_event_conversation_flag = {}
 ---@field choices _activity_event_conversationst_choices
 ---@field return_topic_state df.conversation_state_type
 ---@field return_topic_rumor df.entity_event
----@field return_topic_incident_id number
+---@field return_topic_incident_id number References: `df.incident`
 
 ---@class identity.activity_event_conversationst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1266,7 +1266,7 @@ function _activity_event_conversationst_choices:erase(index) end
 ---@class (exact) df.activity_event_guardst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_guardst
 ---@field guard_hfid DFNumberVector
----@field pos df.coord
+---@field pos df.coord x,y,z
 ---@field dist number
 
 ---@class identity.activity_event_guardst: DFCompoundType
@@ -1472,7 +1472,7 @@ df.performance_role_flag = {}
 ---@field histfig_id number References: `df.historical_figure`
 ---@field used_item number References: `df.item`
 ---@field used_building number References: `df.building`
----@field pos df.coord
+---@field pos df.coord x,y,z
 ---@field flags df.performance_role_flag
 ---@field roll_sum number
 ---@field roll_num number
@@ -1550,7 +1550,7 @@ df.activity_event_read_flag = {}
 ---@class (exact) df.activity_event_readst: DFStruct, df.activity_event
 ---@field _type identity.activity_event_readst
 ---@field participants df.activity_event_participants
----@field building_id number
+---@field building_id number References: `df.building`
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
 ---@field spec_flag df.activity_event_read_flag
@@ -1622,7 +1622,7 @@ df.activity_event_copy_written_content_flag = {}
 ---@field _type identity.activity_event_copy_written_contentst
 ---@field unit_id number References: `df.unit`
 ---@field histfig_id number References: `df.historical_figure`
----@field occupation_id number
+---@field occupation_id number References: `df.occupation`
 ---@field building_id number References: `df.building`
 ---@field site_id number References: `df.world_site`
 ---@field location_id number References: `df.abstract_building`
@@ -1660,12 +1660,12 @@ function df.dance_snapshotst:new() end
 ---@field dance_snapshot_dancer_num number
 local performance_play_orderst
 
----@param file df.file_compressorst
-function performance_play_orderst:write_file(file) end
+---@param filecomp df.file_compressorst
+function performance_play_orderst:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function performance_play_orderst:read_file(file, loadversion) end
+function performance_play_orderst:read_file(filecomp, loadversion) end
 
 
 ---@class identity.performance_play_orderst: DFCompoundType

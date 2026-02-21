@@ -9,26 +9,26 @@ local active_script_varst
 
 function active_script_varst:setColor() end
 
----@param output string
----@param format string
-function active_script_varst:formatString(output, format) end
+---@param curword string
+---@param printtype string
+function active_script_varst:formatString(curword, printtype) end
 
----@param int_value number
----@param ref_value df.specific_ref
-function active_script_varst:getValue(int_value, ref_value) end
+---@param val number
+---@param ref df.specific_ref
+function active_script_varst:getValue(val, ref) end
 
----@param var df.meeting_variable
-function active_script_varst:setValue(var) end
+---@param vvr df.meeting_variable
+function active_script_varst:setValue(vvr) end
 
----@param ref_value df.specific_ref
-function active_script_varst:removeUnit(ref_value) end
+---@param ref df.specific_ref
+function active_script_varst:removeUnit(ref) end
 
----@param file df.file_compressorst
-function active_script_varst:write_file(file) end
+---@param filecomp df.file_compressorst
+function active_script_varst:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function active_script_varst:read_file(file, loadversion) end
+function active_script_varst:read_file(filecomp, loadversion) end
 
 
 ---@class identity.active_script_varst: DFCompoundType
@@ -128,17 +128,17 @@ function df.script_environmentst:new() end
 ---@field next_step_idx number
 local script_stepst
 
----@param idx number
+---@param newst number
 ---@return boolean
-function script_stepst:setNextStep(idx) end
+function script_stepst:setNextStep(newst) end
 
----@param context df.script_environmentst
+---@param env df.script_environmentst
 ---@return number
-function script_stepst:execute(context) end
+function script_stepst:execute(env) end
 
----@param context df.script_environmentst
+---@param env df.script_environmentst
 ---@return number
-function script_stepst:skip(context) end
+function script_stepst:skip(env) end
 
 
 ---@class identity.script_stepst: DFCompoundType

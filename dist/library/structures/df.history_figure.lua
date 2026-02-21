@@ -43,30 +43,30 @@
 ---@field [3] "jealous_relationship_grudge"
 ---@field lover 4
 ---@field [4] "lover"
----@field former_lover 5 bay12: BREAKUP; broke up
----@field [5] "former_lover" bay12: BREAKUP; broke up
----@field scholar_buddy 6 bay12: SCHOLARLY_INTEREST
----@field [6] "scholar_buddy" bay12: SCHOLARLY_INTEREST
----@field artistic_buddy 7 bay12: ARTISTIC_INTEREST
----@field [7] "artistic_buddy" bay12: ARTISTIC_INTEREST
----@field athlete_buddy 8 bay12: ATHLETES
----@field [8] "athlete_buddy" bay12: ATHLETES
----@field athletic_rival 9 bay12: ATHLETES_RIVALS
----@field [9] "athletic_rival" bay12: ATHLETES_RIVALS
----@field business_rival 10 bay12: BUSINESS_RIVALS
----@field [10] "business_rival" bay12: BUSINESS_RIVALS
+---@field former_lover 5
+---@field [5] "former_lover"
+---@field scholar_buddy 6
+---@field [6] "scholar_buddy"
+---@field artistic_buddy 7
+---@field [7] "artistic_buddy"
+---@field athlete_buddy 8
+---@field [8] "athlete_buddy"
+---@field athletic_rival 9
+---@field [9] "athletic_rival"
+---@field business_rival 10
+---@field [10] "business_rival"
 ---@field religious_persecution_grudge 11
 ---@field [11] "religious_persecution_grudge"
 ---@field grudge 12
 ---@field [12] "grudge"
 ---@field persecution_grudge 13
 ---@field [13] "persecution_grudge"
----@field supernatural_grudge 14 bay12: SUPERNATURAL_VENGEANCE
----@field [14] "supernatural_grudge" bay12: SUPERNATURAL_VENGEANCE
----@field lieutenant 15 bay12: INTRIGUE_LIEUTENANT
----@field [15] "lieutenant" bay12: INTRIGUE_LIEUTENANT
----@field worshipped_deity 16 bay12: DEITY
----@field [16] "worshipped_deity" bay12: DEITY
+---@field supernatural_grudge 14
+---@field [14] "supernatural_grudge"
+---@field lieutenant 15
+---@field [15] "lieutenant"
+---@field worshipped_deity 16
+---@field [16] "worshipped_deity"
 ---@field spouse 17
 ---@field [17] "spouse"
 ---@field mother 18
@@ -79,8 +79,8 @@
 ---@field [21] "apprentice"
 ---@field companion 22
 ---@field [22] "companion"
----@field ex_spouse 23 bay12: FORMER_SPOUSE
----@field [23] "ex_spouse" bay12: FORMER_SPOUSE
+---@field ex_spouse 23
+---@field [23] "ex_spouse"
 ---@field neighbor 24
 ---@field [24] "neighbor"
 ---@field shared_entity 25 Religion/PerformanceTroupe/MerchantCompany/Guild
@@ -389,6 +389,7 @@ function _skill_profilest_professions_held:erase(index) end
 
 ---@class (exact) df.pet_profilest: DFStruct
 ---@field _type identity.pet_profilest
+---@field journey_race DFNumberVector binary
 
 ---@class identity.pet_profilest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -491,7 +492,7 @@ function df.entity_personal_reputation_profilest:new() end
 
 ---@class (exact) df.ci_personal_reputation_profilest: DFStruct
 ---@field _type identity.ci_personal_reputation_profilest
----@field entity_id number References: `df.historical_entity`
+---@field cultural_identity_id number References: `df.cultural_identity`
 ---@field reputation df.personal_reputationst
 
 ---@class identity.ci_personal_reputation_profilest: DFCompoundType
@@ -535,14 +536,17 @@ df.journey_milestonest = {}
 function df.journey_milestonest:new() end
 
 ---@alias df.journey_type
+---| -1 # NONE
 ---| 0 # REST_AND_RECOVER
 ---| 1 # RECOVER_ARTIFACT
 ---| 2 # PILGRIMAGE_TO_HOLY_SITE
 ---| 3 # GATHER_INFORMATION
 
 ---@class identity.journey_type: DFEnumType
----@field REST_AND_RECOVER 0 bay12: JourneyType
----@field [0] "REST_AND_RECOVER" bay12: JourneyType
+---@field NONE -1 bay12: JourneyType
+---@field [-1] "NONE" bay12: JourneyType
+---@field REST_AND_RECOVER 0
+---@field [0] "REST_AND_RECOVER"
 ---@field RECOVER_ARTIFACT 1
 ---@field [1] "RECOVER_ARTIFACT"
 ---@field PILGRIMAGE_TO_HOLY_SITE 2
@@ -627,7 +631,7 @@ df.reputation_profile_flag = {}
 ---@field wanted _reputation_profilest_wanted entity_profile
 ---@field cultural_identity_profile _reputation_profilest_cultural_identity_profile
 ---@field cur_identity number References: `df.identity`
----@field all_identities DFNumberVector
+---@field all_identities DFNumberVector binary
 ---@field flags df.reputation_profile_flag
 ---@field journey_profile df.journey_profilest
 
@@ -745,15 +749,29 @@ df.scholar_knowledgest = {}
 ---@return df.scholar_knowledgest
 function df.scholar_knowledgest:new() end
 
----@class df.scholar_knowledgest.T_knowledge_goal: DFBitfield
----@field _enum identity.scholar_knowledgest.knowledge_goal
----@field unk0 boolean bay12: unknown
----@field [0] boolean bay12: unknown
+---@class (exact) df.scholar_knowledgest.T_knowledge_goal: DFStruct
+---@field _type identity.scholar_knowledgest.knowledge_goal
+---@field philosophy df.knowledge_scholar_flags_0
+---@field philosophy2 df.knowledge_scholar_flags_1
+---@field math df.knowledge_scholar_flags_2
+---@field math2 df.knowledge_scholar_flags_3
+---@field history df.knowledge_scholar_flags_4
+---@field astronomy df.knowledge_scholar_flags_5
+---@field naturalist df.knowledge_scholar_flags_6
+---@field chemistry df.knowledge_scholar_flags_7
+---@field geography df.knowledge_scholar_flags_8
+---@field medicine df.knowledge_scholar_flags_9
+---@field medicine2 df.knowledge_scholar_flags_10
+---@field medicine3 df.knowledge_scholar_flags_11
+---@field engineering df.knowledge_scholar_flags_12
+---@field engineering2 df.knowledge_scholar_flags_13
 
----@class identity.scholar_knowledgest.knowledge_goal: DFBitfieldType
----@field unk0 0 bay12: unknown
----@field [0] "unk0" bay12: unknown
+---@class identity.scholar_knowledgest.knowledge_goal: DFCompoundType
+---@field _kind 'struct-type'
 df.scholar_knowledgest.T_knowledge_goal = {}
+
+---@return df.scholar_knowledgest.T_knowledge_goal
+function df.scholar_knowledgest.T_knowledge_goal:new() end
 
 ---@class (exact) df.site_reputation_report: DFStruct
 ---@field _type identity.site_reputation_report
@@ -801,6 +819,7 @@ function _site_reputation_info_reports:erase(index) end
 
 ---@class (exact) df.hf_religious_datast: DFStruct
 ---@field _type identity.hf_religious_datast
+---@field belief_system_id DFNumberVector
 
 ---@class identity.hf_religious_datast: DFCompoundType
 ---@field _kind 'struct-type'
@@ -811,19 +830,19 @@ function df.hf_religious_datast:new() end
 
 ---@class (exact) df.knowledge_profilest: DFStruct
 ---@field _type identity.knowledge_profilest
----@field known_secrets _knowledge_profilest_known_secrets bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
+---@field known_secrets _knowledge_profilest_known_secrets Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
 ---@field next_intervention_resistance_year number All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
----@field known_written_contents DFNumberVector bay12: read_written_content_id; ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
----@field known_identities DFNumberVector bay12: identity_known_id; identity ID of identities known to the historical figure, such as demon true names
----@field known_witness_reports _knowledge_profilest_known_witness_reports bay12: witness_incident
----@field known_events _knowledge_profilest_known_events
----@field heard_of_guide_hfid DFNumberVector
----@field heard_of_stid DFNumberVector
+---@field known_written_contents DFNumberVector binary; ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
+---@field known_identities DFNumberVector binary; identity ID of identities known to the historical figure, such as demon true names
+---@field known_witness_reports _knowledge_profilest_known_witness_reports
+---@field rumor_info df.rumor_infost
+---@field heard_of_guide_hfid DFNumberVector binary
+---@field heard_of_stid DFNumberVector binary
 ---@field opinion_info df.opinion_infost
 ---@field creature_knowledge _knowledge_profilest_creature_knowledge
----@field known_poetic_forms DFNumberVector bay12: poetic_form_known_id
----@field known_musical_forms DFNumberVector bay12: musical_form_known_id
----@field known_dance_forms DFNumberVector bay12: dance_form_known_id
+---@field known_poetic_forms DFNumberVector binary
+---@field known_musical_forms DFNumberVector binary
+---@field known_dance_forms DFNumberVector binary
 ---@field knowledge df.scholar_knowledgest
 ---@field belief_systems df.hf_religious_datast
 ---@field known_locations df.site_reputation_info
@@ -867,22 +886,6 @@ function _knowledge_profilest_known_witness_reports:insert(index, item) end
 
 ---@param index integer
 function _knowledge_profilest_known_witness_reports:erase(index) end
-
----@class _knowledge_profilest_known_events: DFContainer
----@field [integer] df.entity_event
-local _knowledge_profilest_known_events
-
----@nodiscard
----@param index integer
----@return DFPointer<df.entity_event>
-function _knowledge_profilest_known_events:_field(index) end
-
----@param index '#'|integer
----@param item df.entity_event
-function _knowledge_profilest_known_events:insert(index, item) end
-
----@param index integer
-function _knowledge_profilest_known_events:erase(index) end
 
 ---@class _knowledge_profilest_creature_knowledge: DFContainer
 ---@field [integer] df.creature_knowledgest
@@ -965,14 +968,14 @@ function _experiment_profilest_experiment:erase(index) end
 ---@field remove_caste_flag df.cie_add_tag_mask1
 ---@field add_property df.cie_add_tag_mask2
 ---@field remove_property df.cie_add_tag_mask2
----@field use_display_name number
+---@field use_display_name integer
 ---@field name string
 ---@field name_plural string
 ---@field name_adjective string
 ---@field race number References: `df.creature_raw`
 ---@field caste number References: `df.caste_raw`
----@field body_transformation_effects DFNumberVector forced periodic transformations
----@field voluntary_body_transformation_effects DFNumberVector
+---@field body_transformation_effects DFNumberVector binary
+---@field voluntary_body_transformation_effects DFNumberVector binary
 ---@field body_mat_interaction_effects DFNumberVector
 ---@field original_histfig_id number ID of the historical figure who was reanimated to produce undead historical figure<br>References: `df.historical_figure`
 ---@field original_race number race of the historical figure who was reanimated to produce undead historical figure<br>References: `df.creature_raw`
@@ -1079,6 +1082,7 @@ function _hf_building_usage_profilest_usage:insert(index, item) end
 function _hf_building_usage_profilest_usage:erase(index) end
 
 ---@alias df.inventory_profile_skill_type
+---| -1 # NONE
 ---| 0 # AXE
 ---| 1 # SWORD
 ---| 2 # DAGGER
@@ -1094,8 +1098,10 @@ function _hf_building_usage_profilest_usage:erase(index) end
 ---| 12 # ARMOR
 
 ---@class identity.inventory_profile_skill_type: DFEnumType
----@field AXE 0 bay12: InvPSkillType
----@field [0] "AXE" bay12: InvPSkillType
+---@field NONE -1 bay12: InvPSkillType
+---@field [-1] "NONE" bay12: InvPSkillType
+---@field AXE 0
+---@field [0] "AXE"
 ---@field SWORD 1
 ---@field [1] "SWORD"
 ---@field DAGGER 2
@@ -1204,8 +1210,8 @@ df.relationship_profile_hf_flag = {}
 ---@field _type identity.relationship_profile_hf_visualst
 ---@field histfig_id number References: `df.historical_figure`
 ---@field flags df.relationship_profile_hf_flag
----@field known_associated_identity_id DFNumberVector Involves adventurer knowing name?
----@field attitude _relationship_profile_hf_visualst_attitude Probably ordered
+---@field known_associated_identity_id DFNumberVector binary; Involves adventurer knowing name?
+---@field attitude _relationship_profile_hf_visualst_attitude binary
 ---@field counter DFNumberVector One element for each 'attitude' element. Guess 0 - 100
 ---@field rank df.vague_relationship_type
 ---@field core df.core_hf_relationshipst
@@ -1221,7 +1227,7 @@ df.relationship_profile_hf_flag = {}
 ---@field transient_agitation number
 ---@field transient_failed_persuade_attempts number
 ---@field transient_failed_intimidate_attempts number
----@field first_year number transient_last_reset
+---@field first_year number
 ---@field first_year_tick number
 
 ---@class identity.relationship_profile_hf_visualst: DFCompoundType
@@ -1250,7 +1256,7 @@ function _relationship_profile_hf_visualst_attitude:erase(index) end
 ---@class (exact) df.relationship_profile_hf_historicalst: DFStruct
 ---@field _type identity.relationship_profile_hf_historicalst
 ---@field histfig_id number References: `df.historical_figure`
----@field known_associated_identity_id DFNumberVector
+---@field known_associated_identity_id DFNumberVector binary
 ---@field attitude _relationship_profile_hf_historicalst_attitude
 ---@field counter DFNumberVector One element for each 'attitude' element
 ---@field core df.core_hf_relationshipst
@@ -1371,8 +1377,8 @@ function df.relationship_profile_artifactst:new() end
 ---@field [8] "Usable_Thief"
 ---@field Potential_Employer 9
 ---@field [9] "Potential_Employer"
----@field Indirect_Director 10 Plot Thief
----@field [10] "Indirect_Director" Plot Thief
+---@field Indirect_Director 10
+---@field [10] "Indirect_Director"
 ---@field Corrupt_Position_Holder 11
 ---@field [11] "Corrupt_Position_Holder"
 ---@field Delivery_Target 12
@@ -1381,8 +1387,8 @@ function df.relationship_profile_artifactst:new() end
 ---@field [13] "Handler"
 ---@field Usable_Assassin 14
 ---@field [14] "Usable_Assassin"
----@field Director 15 Plot Assassin
----@field [15] "Director" Plot Assassin
+---@field Director 15
+---@field [15] "Director"
 ---@field Enemy 16
 ---@field [16] "Enemy"
 ---@field Usable_Snatcher 17
@@ -1753,7 +1759,7 @@ function df.task_delegate_plotst:new() end
 ---@field _type identity.taskst
 ---@field id number
 ---@field type df.task_type
----@field flags df.taskst.T_flags
+---@field flags integer
 ---@field data df.taskst.T_data
 
 ---@class identity.taskst: DFCompoundType
@@ -1763,16 +1769,7 @@ df.taskst = {}
 ---@return df.taskst
 function df.taskst:new() end
 
----@class df.taskst.T_flags: DFBitfield
----@field _enum identity.taskst.flags
----@field unk0 boolean bay12: unknown flags
----@field [0] boolean bay12: unknown flags
-
----@class identity.taskst.flags: DFBitfieldType
----@field unk0 0 bay12: unknown flags
----@field [0] "unk0" bay12: unknown flags
-df.taskst.T_flags = {}
-
+-- none used yet?
 ---@class (exact) df.taskst.T_data: DFStruct
 ---@field _type identity.taskst.data
 ---@field hire_plot_actor df.task_hire_plot_actorst
@@ -1792,7 +1789,7 @@ function df.taskst.T_data:new() end
 ---@field potential_corrupt_reason _intrigue_perspectivest_potential_corrupt_reason
 ---@field potential_corrupt_target DFNumberVector
 ---@field potential_corrupt_circumstance _intrigue_perspectivest_potential_corrupt_circumstance
----@field potential_corrupt_circumstance_target DFNumberVector
+---@field potential_corrupt_circumstance_target _intrigue_perspectivest_potential_corrupt_circumstance_target
 ---@field plots _intrigue_perspectivest_plots
 ---@field next_plot_id number
 ---@field revealed_agreements _intrigue_perspectivest_revealed_agreements
@@ -1845,6 +1842,22 @@ function _intrigue_perspectivest_potential_corrupt_circumstance:insert(index, it
 
 ---@param index integer
 function _intrigue_perspectivest_potential_corrupt_circumstance:erase(index) end
+
+---@class _intrigue_perspectivest_potential_corrupt_circumstance_target: DFContainer
+---@field [integer] df.circumstance_id
+local _intrigue_perspectivest_potential_corrupt_circumstance_target
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.circumstance_id>
+function _intrigue_perspectivest_potential_corrupt_circumstance_target:_field(index) end
+
+---@param index '#'|integer
+---@param item df.circumstance_id
+function _intrigue_perspectivest_potential_corrupt_circumstance_target:insert(index, item) end
+
+---@param index integer
+function _intrigue_perspectivest_potential_corrupt_circumstance_target:erase(index) end
 
 ---@class _intrigue_perspectivest_plots: DFContainer
 ---@field [integer] df.intrigue_plotst
@@ -2046,7 +2059,7 @@ function _historical_figure_relationships_artifact_claims:erase(index) end
 ---@field whereabouts df.state_profilest
 ---@field kills df.historical_kills
 ---@field wounds df.body_profilest
----@field known_info df.knowledge_profilest knowledge_profile
+---@field known_info df.knowledge_profilest
 ---@field curse df.interaction_profilest
 ---@field books df.inventory_profilest
 ---@field reputation df.reputation_profilest
@@ -2069,12 +2082,12 @@ local histfig_entity_link
 ---@return df.histfig_entity_link_type
 function histfig_entity_link:getType() end
 
----@param file df.file_compressorst
-function histfig_entity_link:write_file(file) end
+---@param filecomp df.file_compressorst
+function histfig_entity_link:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function histfig_entity_link:read_file(file, loadversion) end
+function histfig_entity_link:read_file(filecomp, loadversion) end
 
 ---@return number
 function histfig_entity_link:getSquadId() end
@@ -2094,9 +2107,9 @@ function histfig_entity_link:getPositionStartYear() end
 ---@return number
 function histfig_entity_link:getPositionEndYear() end
 
----@param anon_0 lightuserdata
----@param indent number
-function histfig_entity_link:generate_xml(anon_0, indent) end
+---@param fseed lightuserdata
+---@param tabn number
+function histfig_entity_link:generate_xml(fseed, tabn) end
 
 
 ---@class identity.histfig_entity_link: DFCompoundType
@@ -2305,16 +2318,16 @@ local histfig_site_link
 ---@return df.histfig_site_link_type
 function histfig_site_link:getType() end
 
----@param file df.file_compressorst
-function histfig_site_link:write_file(file) end
+---@param filecomp df.file_compressorst
+function histfig_site_link:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function histfig_site_link:read_file(file, loadversion) end
+function histfig_site_link:read_file(filecomp, loadversion) end
 
----@param anon_0 lightuserdata
----@param indent number
-function histfig_site_link:generate_xml(anon_0, indent) end
+---@param fseed lightuserdata
+---@param tabn number
+function histfig_site_link:generate_xml(fseed, tabn) end
 
 
 ---@class identity.histfig_site_link: DFCompoundType
@@ -2435,16 +2448,16 @@ local histfig_hf_link
 ---@return df.histfig_hf_link_type
 function histfig_hf_link:getType() end
 
----@param file df.file_compressorst
-function histfig_hf_link:write_file(file) end
+---@param filecomp df.file_compressorst
+function histfig_hf_link:write_file(filecomp) end
 
----@param file df.file_compressorst
+---@param filecomp df.file_compressorst
 ---@param loadversion df.save_version
-function histfig_hf_link:read_file(file, loadversion) end
+function histfig_hf_link:read_file(filecomp, loadversion) end
 
----@param anon_0 lightuserdata
----@param indent number
-function histfig_hf_link:generate_xml(anon_0, indent) end
+---@param fseed lightuserdata
+---@param tabn number
+function histfig_hf_link:generate_xml(fseed, tabn) end
 
 
 ---@class identity.histfig_hf_link: DFCompoundType
@@ -2711,7 +2724,7 @@ df.histfig_temp_flag = {}
 ---@field entity_links _historical_figure_entity_links
 ---@field site_links _historical_figure_site_links
 ---@field histfig_links _historical_figure_histfig_links
----@field info df.historical_figure_info bay12: hf_profilest profile
+---@field info df.historical_figure_info
 ---@field vague_relationships df.relationship_quick_infost Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@field worldgen_site df.world_site
 ---@field worldgen_region df.world_region

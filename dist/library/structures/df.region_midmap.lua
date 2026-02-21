@@ -144,7 +144,7 @@ df.midmap_square_flag = {}
 ---@field _type identity.world_region_details
 ---@field biome number[][] biome field reference:<br>789<br>456<br>123<br>as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field elevation number[][]
----@field seed integer[][] looks random
+---@field seed integer[][]
 ---@field edges df.world_region_details.T_edges
 ---@field pos df.coord2d
 ---@field ocean_beach_comp df.ocean_beach_compst
@@ -219,7 +219,7 @@ function df.world_region_details.T_edges:new() end
 -- Rivers crossing embark tile edges
 ---@class (exact) df.world_region_details.T_rivers_vertical: DFStruct
 ---@field _type identity.world_region_details.rivers_vertical
----@field x_min number[][]
+---@field x_min number[][] not a compound
 ---@field x_max number[][]
 ---@field active number[][]
 ---@field elevation number[][]
@@ -233,7 +233,7 @@ function df.world_region_details.T_rivers_vertical:new() end
 
 ---@class (exact) df.world_region_details.T_rivers_horizontal: DFStruct
 ---@field _type identity.world_region_details.rivers_horizontal
----@field y_min number[][]
+---@field y_min number[][] not a compound
 ---@field y_max number[][]
 ---@field active number[][]
 ---@field elevation number[][]
