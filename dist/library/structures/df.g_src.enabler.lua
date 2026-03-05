@@ -444,8 +444,8 @@ function _enabler_async_frombox_vals:erase(index) end
 ---@field fps number
 ---@field x number
 ---@field y number
----@field text string
----@field caption string
+---@field text df.static-wstring
+---@field caption df.static-wstring
 ---@field type integer
 
 ---@class identity.enabler.async_frombox.vals: DFCompoundType
