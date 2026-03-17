@@ -4,11 +4,12 @@
 ---@class dfhack.textures
 dfhack.textures = {}
 
+---@param file unknown
 ---@param tile_px_w integer
 ---@param tile_px_h integer
 ---@param reserved boolean|nil
----@return unknown
-function dfhack.textures.loadTileset(tile_px_w, tile_px_h, reserved) end
+---@return table<integer, unknown>
+function dfhack.textures.loadTileset(file, tile_px_w, tile_px_h, reserved) end
 
 ---@param handle unknown
 ---@return number
