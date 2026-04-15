@@ -58,6 +58,8 @@
 ---@field standing_orders_gather_animals integer
 ---@field standing_orders_gather_furniture integer
 ---@field standing_orders_farmer_harvest integer
+---@field standing_orders_ignore_damp_stone integer
+---@field standing_orders_ignore_warm_stone integer
 ---@field standing_orders_auto_loom integer
 ---@field standing_orders_auto_collect_webs integer
 ---@field standing_orders_zoneonly_drink integer
@@ -90,6 +92,12 @@
 ---@field standing_orders_forbid_rearming_traps integer
 ---@field standing_orders_forbid_cages_from_sprung_traps integer
 ---@field standing_orders_forbid_toppled_building_items integer
+---@field standing_orders_petition_resident_monster_hunter integer
+---@field standing_orders_petition_resident_performer integer
+---@field standing_orders_petition_resident_mercenary integer
+---@field standing_orders_petition_resident_scholar integer
+---@field standing_orders_petition_resident_sanctuary integer
+---@field standing_orders_petition_citizenship integer
 ---@field created_item_type df.item_type Skipped: index2_*
 ---@field created_item_subtype number
 ---@field created_item_mattype number

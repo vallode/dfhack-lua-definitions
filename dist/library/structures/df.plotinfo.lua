@@ -1898,6 +1898,9 @@ df.plotinfo_flag = {}
 ---@field follow_item number References: `df.item`
 ---@field selected_farm_crops DFNumberVector valid for the currently queried farm plot
 ---@field available_seeds _plotinfost_available_seeds
+---@field clothing_size_race DFNumberVector
+---@field clothing_size_weight DFNumberVector
+---@field clothing_size_sum number
 
 ---@class identity.plotinfost: DFCompoundType
 ---@field _kind 'struct-type'
