@@ -1366,7 +1366,7 @@ function df.adventure_movement_item_interact_guidest:new() end
 ---@class (exact) df.adventure_movement_movest: DFStruct, df.adventure_movement_optionst
 ---@field _type identity.adventure_movement_movest
 ---@field override_permit df.pathfinding_flags
----@field aim_attack_flag integer which flags?
+---@field aim_attack_flag df.aim_attack_flag
 
 ---@class identity.adventure_movement_movest: DFCompoundType
 ---@field _kind 'class-type'
@@ -1466,7 +1466,7 @@ function df.adventure_movement_stop_lead_animalst:new() end
 ---@class (exact) df.adventure_movement_mountst: DFStruct, df.adventure_movement_optionst
 ---@field _type identity.adventure_movement_mountst
 ---@field animal df.unit
----@field riderposition number
+---@field riderposition df.rider_positions_type
 
 ---@class identity.adventure_movement_mountst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1690,7 +1690,7 @@ df.ac_edit_zone_flag = {}
 ---@field building_subtype number
 ---@field building_subcat1 number
 ---@field building_subcat2 number
----@field building_jobitemflag integer
+---@field building_jobitemflag df.job_material_category
 ---@field selected_build_phase number
 ---@field mode df.adventure_construction_mode_type
 ---@field material_mode df.adventure_construction_mode_type
@@ -1718,11 +1718,11 @@ df.ac_edit_zone_flag = {}
 ---@field selected_craft_guild number
 ---@field material DFNumberVector
 ---@field matgloss DFNumberVector
----@field mat_jobitemflag DFIntegerVector
+---@field mat_jobitemflag _adventure_constructionst_mat_jobitemflag
 ---@field material_count DFNumberVector
 ---@field material_master DFNumberVector
 ---@field matgloss_master DFNumberVector
----@field mat_jobitemflag_master DFIntegerVector
+---@field mat_jobitemflag_master _adventure_constructionst_mat_jobitemflag_master
 ---@field material_count_master DFNumberVector
 ---@field material_select number
 ---@field material_filter string
@@ -1738,7 +1738,7 @@ df.ac_edit_zone_flag = {}
 ---@field start_menu_used_mat_item_tool_use DFNumberVector
 ---@field start_menu_used_material DFNumberVector
 ---@field start_menu_used_matgloss DFNumberVector
----@field start_menu_used_mat_job_item_flag DFIntegerVector
+---@field start_menu_used_mat_job_item_flag _adventure_constructionst_start_menu_used_mat_job_item_flag
 ---@field start_menu_used_mat_state _adventure_constructionst_start_menu_used_mat_state
 ---@field start_menu_used_mat_count DFNumberVector
 ---@field start_menu_have_mat_count DFNumberVector
@@ -1850,6 +1850,38 @@ function _adventure_constructionst_valid_craft_guild_type:insert(index, item) en
 ---@param index integer
 function _adventure_constructionst_valid_craft_guild_type:erase(index) end
 
+---@class _adventure_constructionst_mat_jobitemflag: DFContainer
+---@field [integer] df.job_material_category
+local _adventure_constructionst_mat_jobitemflag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_material_category>
+function _adventure_constructionst_mat_jobitemflag:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_material_category
+function _adventure_constructionst_mat_jobitemflag:insert(index, item) end
+
+---@param index integer
+function _adventure_constructionst_mat_jobitemflag:erase(index) end
+
+---@class _adventure_constructionst_mat_jobitemflag_master: DFContainer
+---@field [integer] df.job_material_category
+local _adventure_constructionst_mat_jobitemflag_master
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_material_category>
+function _adventure_constructionst_mat_jobitemflag_master:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_material_category
+function _adventure_constructionst_mat_jobitemflag_master:insert(index, item) end
+
+---@param index integer
+function _adventure_constructionst_mat_jobitemflag_master:erase(index) end
+
 ---@class _adventure_constructionst_start_menu_worker: DFContainer
 ---@field [integer] df.unit
 local _adventure_constructionst_start_menu_worker
@@ -1897,6 +1929,22 @@ function _adventure_constructionst_start_menu_will_work:insert(index, item) end
 
 ---@param index integer
 function _adventure_constructionst_start_menu_will_work:erase(index) end
+
+---@class _adventure_constructionst_start_menu_used_mat_job_item_flag: DFContainer
+---@field [integer] df.job_material_category
+local _adventure_constructionst_start_menu_used_mat_job_item_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.job_material_category>
+function _adventure_constructionst_start_menu_used_mat_job_item_flag:_field(index) end
+
+---@param index '#'|integer
+---@param item df.job_material_category
+function _adventure_constructionst_start_menu_used_mat_job_item_flag:insert(index, item) end
+
+---@param index integer
+function _adventure_constructionst_start_menu_used_mat_job_item_flag:erase(index) end
 
 ---@class _adventure_constructionst_start_menu_used_mat_state: DFContainer
 ---@field [integer] df.matter_state

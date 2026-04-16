@@ -1851,11 +1851,11 @@ df.personality_flag = {}
 ---@field dreams _unit_personality_dreams
 ---@field next_dream_id number
 ---@field preferences _unit_personality_preferences
----@field traits DFEnumVector<df.personality_facet_type, integer>
+---@field traits DFEnumVector<df.personality_facet_type, number>
 ---@field civ_id number References: `df.historical_entity`
 ---@field cultural_identity number References: `df.cultural_identity`
 ---@field mannerism _unit_personality_mannerism
----@field habit DFNumberVector binary
+---@field habit _unit_personality_habit binary
 ---@field stress number
 ---@field time_without_distress number range 0-806400, higher values cause stress to decrease quicker
 ---@field time_without_eustress number range 0-806400, higher values cause stress to increase quicker
@@ -1979,6 +1979,22 @@ function _unit_personality_mannerism:insert(index, item) end
 
 ---@param index integer
 function _unit_personality_mannerism:erase(index) end
+
+---@class _unit_personality_habit: DFContainer
+---@field [integer] df.habit_type
+local _unit_personality_habit
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.habit_type>
+function _unit_personality_habit:_field(index) end
+
+---@param index '#'|integer
+---@param item df.habit_type
+function _unit_personality_habit:insert(index, item) end
+
+---@param index integer
+function _unit_personality_habit:erase(index) end
 
 ---@class _unit_personality_needs: DFContainer
 ---@field [integer] df.personality_needst

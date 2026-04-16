@@ -609,7 +609,7 @@ df.combat_animation_ram_direction_type = {}
 -- Unused: PCGLayeringModifierType
 -- Unused: UnitStatusType
 -- Unused: SideIndicatorType
--- Unused: TreeWoodTileType
+-- Skipped: TreeWoodTileType
 ---@alias df.texture_type
 ---| -1 # NONE
 ---| 0 # MOUSE
@@ -634,7 +634,7 @@ df.combat_animation_ram_direction_type = {}
 -- Unused: PCGLayeringModifierType
 -- Unused: UnitStatusType
 -- Unused: SideIndicatorType
--- Unused: TreeWoodTileType
+-- Skipped: TreeWoodTileType
 ---@class identity.texture_type: DFEnumType
 ---@field NONE -1 bay12: Texture, no base type
 ---@field [-1] "NONE" bay12: Texture, no base type
@@ -1235,8 +1235,8 @@ df.override_tile_type = {}
 ---@field frame_display_sx number
 ---@field frame_display_dy number
 ---@field force_full_display_count number
----@field do_clean_tile_cache number true by main, false by graphics
----@field do_post_init_texture_clear number true by main, false by graphics
+---@field do_clean_tile_cache boolean true by main, false by graphics
+---@field do_post_init_texture_clear boolean true by main, false by graphics
 ---@field original_rect number
 ---@field dimx number
 ---@field dimy number

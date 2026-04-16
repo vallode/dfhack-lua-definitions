@@ -1570,8 +1570,8 @@ function _world_area_grasses_layer_grasses:erase(index) end
 ---@class (exact) df.world.T_flow_engine: DFStruct
 ---@field _type identity.world.flow_engine
 ---@field rnd_16 number not a compound
----@field rnd_256 number flow_index
----@field rnd_pos number flow_index_count
+---@field rnd_256 number
+---@field rnd_pos number
 ---@field rnd_x number[]
 ---@field rnd_y number[]
 ---@field block_idx number

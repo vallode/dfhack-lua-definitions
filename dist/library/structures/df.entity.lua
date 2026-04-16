@@ -91,7 +91,7 @@ df.evidence_hf_file_temp_flag = {}
 ---@field _type identity.evidence_hf_filest
 ---@field hfid number References: `df.historical_figure`
 ---@field flags df.evidence_hf_file_flag
----@field evidence DFNumberVector
+---@field evidence _evidence_hf_filest_evidence
 ---@field agreement DFNumberVector
 ---@field evidence_flag _evidence_hf_filest_evidence_flag
 ---@field wanted_crime _evidence_hf_filest_wanted_crime
@@ -105,6 +105,22 @@ df.evidence_hf_filest = {}
 
 ---@return df.evidence_hf_filest
 function df.evidence_hf_filest:new() end
+
+---@class _evidence_hf_filest_evidence: DFContainer
+---@field [integer] df.evidence_type
+local _evidence_hf_filest_evidence
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.evidence_type>
+function _evidence_hf_filest_evidence:_field(index) end
+
+---@param index '#'|integer
+---@param item df.evidence_type
+function _evidence_hf_filest_evidence:insert(index, item) end
+
+---@param index integer
+function _evidence_hf_filest_evidence:erase(index) end
 
 ---@class _evidence_hf_filest_evidence_flag: DFContainer
 ---@field [integer] df.evidence_flag
@@ -1346,12 +1362,12 @@ function df.entity_animal_raw:new() end
 ---@field item_improvement_modifier DFEnumVector<df.improvement_type, number>
 ---@field friendly_color number[]
 ---@field default_site_type df.world_site_type not an array
----@field likes_site DFEnumVector<df.world_site_type, number>
----@field tolerates_site DFEnumVector<df.world_site_type, number>
+---@field likes_site DFEnumVector<df.world_site_type, boolean>
+---@field tolerates_site DFEnumVector<df.world_site_type, boolean>
 ---@field biome_support DFEnumVector<df.biome_type, number>
----@field start_biome DFEnumVector<df.biome_type, number>
----@field settlement_biome DFEnumVector<df.biome_type, number>
----@field active_season DFEnumVector<df.season, number>
+---@field start_biome DFEnumVector<df.biome_type, boolean>
+---@field settlement_biome DFEnumVector<df.biome_type, boolean>
+---@field active_season DFEnumVector<df.season, boolean>
 ---@field progress_trigger df.entity_raw.T_progress_trigger
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
@@ -1505,7 +1521,7 @@ function _entity_raw_religion_sphere:erase(index) end
 ---@class (exact) df.entity_raw.T_jobs: DFStruct
 ---@field _type identity.entity_raw.jobs
 ---@field permitted_job DFEnumVector<df.profession, boolean> not a compound
----@field permitted_labor DFEnumVector<df.unit_labor, boolean>
+---@field permitted_labor DFEnumVector<df.unit_labor, number>
 ---@field world_construction DFEnumVector<df.world_construction_type, boolean>
 
 ---@class identity.entity_raw.jobs: DFCompoundType
@@ -1846,7 +1862,21 @@ function _entity_site_link_ab_profile:insert(index, item) end
 function _entity_site_link_ab_profile:erase(index) end
 
 -- Unused: EquipmentRole
--- Unused: EntityArtImageType
+---@alias df.entity_art_image_type
+---| -1 # NONE
+---| 0 # MAIN_SYMBOL
+---| 1 # COMMISSIONED
+
+-- Unused: EquipmentRole
+---@class identity.entity_art_image_type: DFEnumType
+---@field NONE -1 bay12: EntityArtImageType, no base type but only used as int16
+---@field [-1] "NONE" bay12: EntityArtImageType, no base type but only used as int16
+---@field MAIN_SYMBOL 0
+---@field [0] "MAIN_SYMBOL"
+---@field COMMISSIONED 1
+---@field [1] "COMMISSIONED"
+df.entity_art_image_type = {}
+
 ---@alias df.entity_uniform_type
 ---| -1 # None
 ---| 0 # Guard
@@ -1854,8 +1884,6 @@ function _entity_site_link_ab_profile:erase(index) end
 ---| 2 # Priest
 ---| 3 # Soldier
 
--- Unused: EquipmentRole
--- Unused: EntityArtImageType
 ---@class identity.entity_uniform_type: DFEnumType
 ---@field None -1 bay12: EntityUniformType
 ---@field [-1] "None" bay12: EntityUniformType
@@ -3040,8 +3068,8 @@ df.entity_flag = {}
 ---| 10 # Guild
 
 ---@class identity.historical_entity_type: DFEnumType
----@field NONE -1 bay12: EntityType
----@field [-1] "NONE" bay12: EntityType
+---@field NONE -1 bay12: EntityType; no base type, but usually int16
+---@field [-1] "NONE" bay12: EntityType; no base type, but usually int16
 ---@field Civilization 0
 ---@field [0] "Civilization"
 ---@field SiteGovernment 1
@@ -3163,8 +3191,8 @@ df.historical_entity_type = {}
 ---@field army_reeling_defense number 0
 ---@field attacked_site_id DFNumberVector used during world gen
 ---@field attacked_site_timer DFNumberVector used during world gen
----@field did_wg_variable_position number
----@field did_wg_variable_market_position number
+---@field did_wg_variable_position integer
+---@field did_wg_variable_market_position integer
 ---@field dig_caution_end_year number
 ---@field total_pop number
 ---@field eating_pop_carn number
@@ -3184,7 +3212,7 @@ df.historical_entity_type = {}
 ---@field world_gen_entity_debt _historical_entity_world_gen_entity_debt
 ---@field account number
 ---@field burial_request _historical_entity_burial_request
----@field current_wgwg DFPointer<integer>
+---@field current_wgwg df.world_gen_wandering_groupst
 ---@field total_outcast_strength number
 ---@field temporary_count number
 ---@field pool_id integer protected --
@@ -3298,9 +3326,9 @@ function _historical_entity_site_links:erase(index) end
 ---@field max_temperature number
 ---@field ethic DFEnumVector<df.ethic_type, df.ethic_response>
 ---@field values DFEnumVector<df.value_type, number>
----@field scholar_flag integer SAVE_VALUENUM
----@field permitted_skill DFEnumVector<df.job_skill, boolean> likely ENTITY_SCHOLAR_FLAG_*
----@field art_image_types DFNumberVector 0 = civilization symbol, 1 = commissioned
+---@field scholar_flag df.entity_scholar_flag SAVE_VALUENUM
+---@field permitted_skill DFEnumVector<df.job_skill, boolean>
+---@field art_image_types _historical_entity_resources_art_image_types
 ---@field art_image_ids DFNumberVector
 ---@field art_image_subids DFNumberVector
 ---@field art_image_char DFIntegerVector
@@ -3507,6 +3535,22 @@ function _historical_entity_resources_traded:insert(index, item) end
 
 ---@param index integer
 function _historical_entity_resources_traded:erase(index) end
+
+---@class _historical_entity_resources_art_image_types: DFContainer
+---@field [integer] df.entity_art_image_type
+local _historical_entity_resources_art_image_types
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.entity_art_image_type>
+function _historical_entity_resources_art_image_types:_field(index) end
+
+---@param index '#'|integer
+---@param item df.entity_art_image_type
+function _historical_entity_resources_art_image_types:insert(index, item) end
+
+---@param index integer
+function _historical_entity_resources_art_image_types:erase(index) end
 
 ---@class _historical_entity_resources_foreground_color_curses: DFContainer
 ---@field [integer] df.curses_color

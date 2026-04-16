@@ -533,7 +533,7 @@ function _dance_form_move_location:erase(index) end
 ---@field partner_intent df.dance_form_partner_intent
 ---@field partner_cue_frequency df.dance_form_partner_cue_frequency
 ---@field partner_changes _dance_form_section_partner_changes
----@field dance_flag integer
+---@field dance_flag df.dance_flag
 ---@field acts_out_event number References: `df.history_event`
 ---@field acts_out_hf_story number References: `df.historical_figure`
 ---@field imitate_animal_movement number References: `df.creature_raw`

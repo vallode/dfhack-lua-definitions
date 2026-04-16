@@ -2485,12 +2485,12 @@ function _item_body_component_body_wounds:erase(index) end
 ---@field _type identity.item_body_component.body.components
 ---@field body_part_status _item_body_component_body_components_body_part_status not a compound
 ---@field numbered_masks DFIntegerVector 1 bit per instance of a numbered body part
----@field nonsolid_remaining DFIntegerVector 0-100%
+---@field nonsolid_remaining DFNumberVector 0-100%
 ---@field layer_status _item_body_component_body_components_layer_status
----@field layer_wound_area DFIntegerVector
----@field layer_cut_fraction DFIntegerVector Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
----@field layer_dent_fraction DFIntegerVector 0-10000
----@field layer_effect_fraction DFIntegerVector 0-1000000000
+---@field layer_wound_area DFNumberVector
+---@field layer_cut_fraction DFNumberVector Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
+---@field layer_dent_fraction DFNumberVector 0-10000
+---@field layer_effect_fraction DFNumberVector 0-1000000000
 
 ---@class identity.item_body_component.body.components: DFCompoundType
 ---@field _kind 'struct-type'

@@ -1,24 +1,6 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@class df.item_statue_graphics_type: DFBitfield
----@field _enum identity.item_statue_graphics_type
----@field overall boolean bay12: ITEM_STATUE_GRAPHICS_TYPE_*
----@field [0] boolean bay12: ITEM_STATUE_GRAPHICS_TYPE_*
----@field index_1 boolean
----@field [4] boolean
----@field index_2 boolean
----@field [17] boolean
-
----@class identity.item_statue_graphics_type: DFBitfieldType
----@field overall 0 bay12: ITEM_STATUE_GRAPHICS_TYPE_*
----@field [0] "overall" bay12: ITEM_STATUE_GRAPHICS_TYPE_*
----@field index_1 4
----@field [4] "index_1"
----@field index_2 17
----@field [17] "index_2"
-df.item_statue_graphics_type = {}
-
 ---@alias df.item_statue_graphics_type_overall
 ---| 0 # SHAPE
 ---| 1 # ITEM
@@ -79,32 +61,45 @@ df.statue_generic_event_type = {}
 
 ---@class df.item_statue_graphics_flag: DFBitfield
 ---@field _enum identity.item_statue_graphics_flag
----@field material boolean bay12: ITEM_STATUE_GRAPHICS_FLAG_*
----@field [0] boolean bay12: ITEM_STATUE_GRAPHICS_FLAG_*
+---@field overall boolean bay12: ITEM_STATUE_GRAPHICS_TYPE_* + ITEM_STATUE_GRAPHICS_FLAG_*
+---@field [0] boolean bay12: ITEM_STATUE_GRAPHICS_TYPE_* + ITEM_STATUE_GRAPHICS_FLAG_*
+---@field index_1 boolean
+---@field [4] boolean
+---@field index_2 boolean
+---@field [17] boolean
+---@field [31] boolean unused
+---@field material boolean
+---@field [32] boolean
 ---@field material_color_index boolean
----@field [2] boolean
+---@field [34] boolean
 ---@field planned boolean
----@field [10] boolean
+---@field [42] boolean
 ---@field is_item boolean
----@field [11] boolean
+---@field [43] boolean
 ---@field artifact_index boolean
----@field [12] boolean
+---@field [44] boolean
 ---@field quality boolean
----@field [20] boolean
+---@field [52] boolean
 
 ---@class identity.item_statue_graphics_flag: DFBitfieldType
----@field material 0 bay12: ITEM_STATUE_GRAPHICS_FLAG_*
----@field [0] "material" bay12: ITEM_STATUE_GRAPHICS_FLAG_*
----@field material_color_index 2
----@field [2] "material_color_index"
----@field planned 10
----@field [10] "planned"
----@field is_item 11
----@field [11] "is_item"
----@field artifact_index 12
----@field [12] "artifact_index"
----@field quality 20
----@field [20] "quality"
+---@field overall 0 bay12: ITEM_STATUE_GRAPHICS_TYPE_* + ITEM_STATUE_GRAPHICS_FLAG_*
+---@field [0] "overall" bay12: ITEM_STATUE_GRAPHICS_TYPE_* + ITEM_STATUE_GRAPHICS_FLAG_*
+---@field index_1 4
+---@field [4] "index_1"
+---@field index_2 17
+---@field [17] "index_2"
+---@field material 32
+---@field [32] "material"
+---@field material_color_index 34
+---@field [34] "material_color_index"
+---@field planned 42
+---@field [42] "planned"
+---@field is_item 43
+---@field [43] "is_item"
+---@field artifact_index 44
+---@field [44] "artifact_index"
+---@field quality 52
+---@field [52] "quality"
 df.item_statue_graphics_flag = {}
 
 ---@alias df.item_statue_graphics_flag_material

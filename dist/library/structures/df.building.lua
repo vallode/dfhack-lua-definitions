@@ -2462,7 +2462,7 @@ function df.building_cabinetst:new() end
 
 ---@class (exact) df.building_weaponrackst: DFStruct, df.building_actual
 ---@field _type identity.building_weaponrackst
----@field rack_flags number
+---@field rack_flags integer
 ---@field specific_squad number References: `df.squad`
 
 ---@class identity.building_weaponrackst: DFCompoundType
@@ -4014,7 +4014,7 @@ df.construction_type = {}
 
 ---@class (exact) df.building_constructionst: DFStruct, df.building_actual
 ---@field _type identity.building_constructionst
----@field type df.construction_type
+---@field type df.construction_type saved as int16
 
 ---@class identity.building_constructionst: DFCompoundType
 ---@field _kind 'class-type'
@@ -8201,14 +8201,15 @@ df.build_req_mode = {}
 ---| 10 # WATER
 ---| 11 # MAGMA
 ---| 12 # BUILDING_PRESENT
----| 13 # CLOSE_TO_EDGE
----| 14 # INSIDE
----| 15 # NEED_OPEN_AIR
----| 16 # SURROUNDED_BY_AIR
----| 17 # TOO_HIGH
----| 18 # CONSTRUCTION_PRESENT
----| 19 # NEEDS_SOIL_OR_MUD
----| 20 # NEED_SOIL
+---| 13 # OUTSIDE
+---| 14 # CLOSE_TO_EDGE
+---| 15 # INSIDE
+---| 16 # NEED_OPEN_AIR
+---| 17 # SURROUNDED_BY_AIR
+---| 18 # TOO_HIGH
+---| 19 # CONSTRUCTION_PRESENT
+---| 20 # NEEDS_SOIL_OR_MUD
+---| 21 # NEED_SOIL
 
 ---@class identity.build_square_type: DFEnumType
 ---@field FINE 0 bay12: BuildSquare
@@ -8237,22 +8238,24 @@ df.build_req_mode = {}
 ---@field [11] "MAGMA"
 ---@field BUILDING_PRESENT 12
 ---@field [12] "BUILDING_PRESENT"
----@field CLOSE_TO_EDGE 13
----@field [13] "CLOSE_TO_EDGE"
----@field INSIDE 14
----@field [14] "INSIDE"
----@field NEED_OPEN_AIR 15
----@field [15] "NEED_OPEN_AIR"
----@field SURROUNDED_BY_AIR 16
----@field [16] "SURROUNDED_BY_AIR"
----@field TOO_HIGH 17
----@field [17] "TOO_HIGH"
----@field CONSTRUCTION_PRESENT 18
----@field [18] "CONSTRUCTION_PRESENT"
----@field NEEDS_SOIL_OR_MUD 19
----@field [19] "NEEDS_SOIL_OR_MUD"
----@field NEED_SOIL 20
----@field [20] "NEED_SOIL"
+---@field OUTSIDE 13
+---@field [13] "OUTSIDE"
+---@field CLOSE_TO_EDGE 14
+---@field [14] "CLOSE_TO_EDGE"
+---@field INSIDE 15
+---@field [15] "INSIDE"
+---@field NEED_OPEN_AIR 16
+---@field [16] "NEED_OPEN_AIR"
+---@field SURROUNDED_BY_AIR 17
+---@field [17] "SURROUNDED_BY_AIR"
+---@field TOO_HIGH 18
+---@field [18] "TOO_HIGH"
+---@field CONSTRUCTION_PRESENT 19
+---@field [19] "CONSTRUCTION_PRESENT"
+---@field NEEDS_SOIL_OR_MUD 20
+---@field [20] "NEEDS_SOIL_OR_MUD"
+---@field NEED_SOIL 21
+---@field [21] "NEED_SOIL"
 df.build_square_type = {}
 
 ---@alias df.build_req_choice_type

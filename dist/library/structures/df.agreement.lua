@@ -246,7 +246,7 @@ function df.agreement_details_data_plot_conviction:new() end
 ---@field actor_index number References: `df.agreement_party`
 ---@field influencer_index number References: `df.agreement_party`
 ---@field target number References: `df.historical_entity`
----@field flags integer
+---@field flags df.intrigue_plot_infiltrate_society_flag
 
 ---@class identity.agreement_details_data_plot_infiltration_coup: DFCompoundType
 ---@field _kind 'struct-type'

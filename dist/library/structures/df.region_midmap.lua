@@ -95,7 +95,7 @@ df.feature_square_flag_layer_type = {}
 ---@field liquid_upper_filled_z number
 ---@field openness number
 ---@field passage_density number
----@field vertical_connection number[]
+---@field vertical_connection df.layer_connection_type[]
 ---@field top_layer_idx df.layer_type topmost cave layer the feature reaches
 
 ---@class identity.world_region_feature: DFCompoundType

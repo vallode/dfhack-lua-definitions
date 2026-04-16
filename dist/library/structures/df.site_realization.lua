@@ -1828,7 +1828,7 @@ df.site_realization_flag = {}
 ---@field num_areas number
 ---@field mini_flags df.site_realization_feature_flag[][]
 ---@field mini_tiles integer[][]
----@field mini_colors number[][]
+---@field mini_colors integer[][]
 ---@field map_tile_g df.site_graphics_tile_type[][]
 ---@field map_tile_g_sc1 number[][]
 ---@field map_tile_g_sc2 number[][]

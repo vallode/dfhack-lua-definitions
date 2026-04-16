@@ -6126,14 +6126,14 @@ df.dungeon_control_state = {}
 ---@field uwss_flash_color_f number
 ---@field uwss_flash_color_b number
 ---@field uwss_flash_color_br number
----@field uwss_alt_period integer
----@field uwss_alt_on_period integer
+---@field uwss_alt_period number
+---@field uwss_alt_on_period number
 ---@field uwss_body_modifier DFNumberVector
 ---@field uwss_bp_modifer DFNumberVector guess!
----@field uwss_speed_add integer
----@field uwss_speed_perc integer
+---@field uwss_speed_add number
+---@field uwss_speed_perc number
 ---@field uwss_att_change df.curse_attr_change
----@field uwss_skill_role_adjust integer
+---@field uwss_skill_role_adjust number
 ---@field uwss_erratic_level number
 ---@field usable_interaction df.unit_usable_interactionst
 ---@field counters2 df.unit.T_counters2
@@ -6366,8 +6366,8 @@ function df.unit.T_job:new() end
 ---@field weapon_bp number
 ---@field physical_attrs DFEnumVector<df.physical_attribute_type, df.unit_attribute>
 ---@field size_info df.unit.T_body.T_size_info
----@field blood_max integer
----@field blood_count integer
+---@field blood_max number
+---@field blood_count number
 ---@field infection_level number GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
 ---@field spatters _unit_body_spatters
 
@@ -6383,12 +6383,12 @@ function df.unit.T_body:new() end
 ---@field _type identity.unit.body.components
 ---@field body_part_status _unit_body_components_body_part_status not a compound
 ---@field numbered_masks DFIntegerVector 1 bit per instance of a numbered body part
----@field nonsolid_remaining DFIntegerVector 0-100%
+---@field nonsolid_remaining DFNumberVector 0-100%
 ---@field layer_status _unit_body_components_layer_status
----@field layer_wound_area DFIntegerVector
----@field layer_cut_fraction DFIntegerVector Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
----@field layer_dent_fraction DFIntegerVector 0-10000
----@field layer_effect_fraction DFIntegerVector 0-1000000000
+---@field layer_wound_area DFNumberVector
+---@field layer_cut_fraction DFNumberVector Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
+---@field layer_dent_fraction DFNumberVector 0-10000
+---@field layer_effect_fraction DFNumberVector 0-1000000000
 
 ---@class identity.unit.body.components: DFCompoundType
 ---@field _kind 'struct-type'
@@ -6544,9 +6544,9 @@ function _unit_actions:erase(index) end
 ---@field guts_trail2 df.coord
 ---@field soldier_mood_countdown number plus a random amount
 ---@field soldier_mood df.soldier_mood_type
----@field pain integer
----@field nausea integer
----@field dizziness integer
+---@field pain number
+---@field nausea number
+---@field dizziness number
 
 ---@class identity.unit.counters: DFCompoundType
 ---@field _kind 'struct-type'
@@ -6557,17 +6557,17 @@ function df.unit.T_counters:new() end
 
 ---@class (exact) df.unit.T_counters2: DFStruct
 ---@field _type identity.unit.counters2
----@field paralysis integer not a compound
----@field numbness integer
----@field fever integer
----@field exhaustion integer
----@field hunger_timer integer
----@field thirst_timer integer
----@field sleepiness_timer integer
----@field stomach_content integer
----@field stomach_food integer
----@field vomit_timeout integer blocks nausea causing vomit
----@field stored_fat integer hunger leads to death only when 0
+---@field paralysis number not a compound
+---@field numbness number
+---@field fever number
+---@field exhaustion number
+---@field hunger_timer number
+---@field thirst_timer number
+---@field sleepiness_timer number
+---@field stomach_content number
+---@field stomach_food number
+---@field vomit_timeout number blocks nausea causing vomit
+---@field stored_fat number hunger leads to death only when 0
 
 ---@class identity.unit.counters2: DFCompoundType
 ---@field _kind 'struct-type'
@@ -6783,7 +6783,7 @@ function _unit_status_commands:erase(index) end
 ---@field body_part_temperature _unit_status2_body_part_temperature
 ---@field add_path_flags df.pathfinding_flags pathing flags to OR, set to None after move
 ---@field liquid_type df.tile_designation
----@field liquid_depth integer
+---@field liquid_depth number
 ---@field histeventcol_id number linked to an active invasion or kidnapping<br>References: `df.history_event_collection`
 
 ---@class identity.unit.status2: DFCompoundType

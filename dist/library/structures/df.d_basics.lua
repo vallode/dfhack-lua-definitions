@@ -12904,8 +12904,8 @@ df.article_type = {}
 -- Unused: CanEatValue
 -- Unused: SafeTemperatureValue
 ---@class identity.inclusion_type: DFEnumType
----@field NONE -1 bay12: InclusionType, no base type
----@field [-1] "NONE" bay12: InclusionType, no base type
+---@field NONE -1 bay12: InclusionType
+---@field [-1] "NONE" bay12: InclusionType
 ---@field TOTAL 0
 ---@field [0] "TOTAL"
 ---@field VEIN 1
@@ -13035,7 +13035,7 @@ df.environment_type = {}
 ---@class (exact) df.temperaturest: DFStruct
 ---@field _type identity.temperaturest
 ---@field whole integer seems like a convenient name
----@field fraction number
+---@field fraction integer
 
 ---@class identity.temperaturest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -19725,8 +19725,8 @@ df.context_flag = {}
 ---@class (exact) df.history_event_context: DFStruct
 ---@field _type identity.history_event_context
 ---@field flags df.context_flag
----@field interrogator_relationships df.historical_figure_relationships
----@field interrogation df.interrogation_report evidence_repositoryst
+---@field interrogator_relationships df.evidence_repositoryst
+---@field interrogation df.interrogation_report
 ---@field artifact_id number References: `df.artifact_record`
 ---@field entity_id number References: `df.historical_entity`
 ---@field histfig_id number References: `df.historical_figure`

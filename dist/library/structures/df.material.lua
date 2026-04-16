@@ -1896,10 +1896,10 @@ function df.creature_interaction_effect_sense_creature_classst:new() end
 ---@field caste_str string
 ---@field race DFNumberVector
 ---@field caste DFNumberVector
----@field required_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags
----@field forbidden_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags
----@field required_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags
----@field forbidden_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags
+---@field required_creature_flags _creature_interaction_effect_body_transformationst_required_creature_flags
+---@field forbidden_creature_flags _creature_interaction_effect_body_transformationst_forbidden_creature_flags
+---@field required_caste_flags _creature_interaction_effect_body_transformationst_required_caste_flags
+---@field forbidden_caste_flags _creature_interaction_effect_body_transformationst_forbidden_caste_flags
 ---@field minimum_effortless_gait_speed number
 ---@field maximum_effortless_gait_speed number
 
@@ -1909,6 +1909,70 @@ df.creature_interaction_effect_body_transformationst = {}
 
 ---@return df.creature_interaction_effect_body_transformationst
 function df.creature_interaction_effect_body_transformationst:new() end
+
+---@class _creature_interaction_effect_body_transformationst_required_creature_flags: DFContainer
+---@field [integer] df.creature_raw_flags
+local _creature_interaction_effect_body_transformationst_required_creature_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_raw_flags>
+function _creature_interaction_effect_body_transformationst_required_creature_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_raw_flags
+function _creature_interaction_effect_body_transformationst_required_creature_flags:insert(index, item) end
+
+---@param index integer
+function _creature_interaction_effect_body_transformationst_required_creature_flags:erase(index) end
+
+---@class _creature_interaction_effect_body_transformationst_forbidden_creature_flags: DFContainer
+---@field [integer] df.creature_raw_flags
+local _creature_interaction_effect_body_transformationst_forbidden_creature_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_raw_flags>
+function _creature_interaction_effect_body_transformationst_forbidden_creature_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_raw_flags
+function _creature_interaction_effect_body_transformationst_forbidden_creature_flags:insert(index, item) end
+
+---@param index integer
+function _creature_interaction_effect_body_transformationst_forbidden_creature_flags:erase(index) end
+
+---@class _creature_interaction_effect_body_transformationst_required_caste_flags: DFContainer
+---@field [integer] df.caste_raw_flags
+local _creature_interaction_effect_body_transformationst_required_caste_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.caste_raw_flags>
+function _creature_interaction_effect_body_transformationst_required_caste_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.caste_raw_flags
+function _creature_interaction_effect_body_transformationst_required_caste_flags:insert(index, item) end
+
+---@param index integer
+function _creature_interaction_effect_body_transformationst_required_caste_flags:erase(index) end
+
+---@class _creature_interaction_effect_body_transformationst_forbidden_caste_flags: DFContainer
+---@field [integer] df.caste_raw_flags
+local _creature_interaction_effect_body_transformationst_forbidden_caste_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.caste_raw_flags>
+function _creature_interaction_effect_body_transformationst_forbidden_caste_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.caste_raw_flags
+function _creature_interaction_effect_body_transformationst_forbidden_caste_flags:insert(index, item) end
+
+---@param index integer
+function _creature_interaction_effect_body_transformationst_forbidden_caste_flags:erase(index) end
 
 ---@class (exact) df.syndrome: DFStruct
 ---@field _type identity.syndrome

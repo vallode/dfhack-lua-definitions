@@ -464,7 +464,7 @@ function _creature_variation_handlerst_all:erase(index) end
 ---@field tissue_token DFStringVector
 ---@field bp_layers_thickness DFNumberVector
 ---@field bp_layers_selection _body_detail_plan_bp_layers_selection
----@field bp_layers_tissue DFNumberVector
+---@field bp_layers_tissue _body_detail_plan_bp_layers_tissue
 ---@field bp_layers_criteria DFStringVector
 ---@field bp_layers_position _body_detail_plan_bp_layers_position
 ---@field bp_layers_over_under DFNumberVector
@@ -473,10 +473,10 @@ function _creature_variation_handlerst_all:erase(index) end
 ---@field bp_relsize_value DFNumberVector
 ---@field bp_position_selection _body_detail_plan_bp_position_selection
 ---@field bp_position_criteria DFStringVector
----@field bp_position_value DFNumberVector
+---@field bp_position_value _body_detail_plan_bp_position_value
 ---@field bp_relation_selection_1 _body_detail_plan_bp_relation_selection_1
 ---@field bp_relation_criteria_1 DFStringVector
----@field bp_relation_value_1 DFNumberVector
+---@field bp_relation_value_1 _body_detail_plan_bp_relation_value_1
 ---@field bp_relation_selection_2 _body_detail_plan_bp_relation_selection_2
 ---@field bp_relation_criteria_2 DFStringVector
 ---@field bp_relation_extent DFNumberVector
@@ -529,6 +529,22 @@ function _body_detail_plan_bp_layers_selection:insert(index, item) end
 ---@param index integer
 function _body_detail_plan_bp_layers_selection:erase(index) end
 
+---@class _body_detail_plan_bp_layers_tissue: DFContainer
+---@field [integer] df.creature_interaction_effect_target_mode
+local _body_detail_plan_bp_layers_tissue
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_interaction_effect_target_mode>
+function _body_detail_plan_bp_layers_tissue:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_interaction_effect_target_mode
+function _body_detail_plan_bp_layers_tissue:insert(index, item) end
+
+---@param index integer
+function _body_detail_plan_bp_layers_tissue:erase(index) end
+
 ---@class _body_detail_plan_bp_layers_position: DFContainer
 ---@field [integer] df.body_part_relation_type
 local _body_detail_plan_bp_layers_position
@@ -577,6 +593,22 @@ function _body_detail_plan_bp_position_selection:insert(index, item) end
 ---@param index integer
 function _body_detail_plan_bp_position_selection:erase(index) end
 
+---@class _body_detail_plan_bp_position_value: DFContainer
+---@field [integer] df.body_part_position_type
+local _body_detail_plan_bp_position_value
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.body_part_position_type>
+function _body_detail_plan_bp_position_value:_field(index) end
+
+---@param index '#'|integer
+---@param item df.body_part_position_type
+function _body_detail_plan_bp_position_value:insert(index, item) end
+
+---@param index integer
+function _body_detail_plan_bp_position_value:erase(index) end
+
 ---@class _body_detail_plan_bp_relation_selection_1: DFContainer
 ---@field [integer] df.creature_interaction_effect_target_mode
 local _body_detail_plan_bp_relation_selection_1
@@ -592,6 +624,22 @@ function _body_detail_plan_bp_relation_selection_1:insert(index, item) end
 
 ---@param index integer
 function _body_detail_plan_bp_relation_selection_1:erase(index) end
+
+---@class _body_detail_plan_bp_relation_value_1: DFContainer
+---@field [integer] df.body_part_relation_type
+local _body_detail_plan_bp_relation_value_1
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.body_part_relation_type>
+function _body_detail_plan_bp_relation_value_1:_field(index) end
+
+---@param index '#'|integer
+---@param item df.body_part_relation_type
+function _body_detail_plan_bp_relation_value_1:insert(index, item) end
+
+---@param index integer
+function _body_detail_plan_bp_relation_value_1:erase(index) end
 
 ---@class _body_detail_plan_bp_relation_selection_2: DFContainer
 ---@field [integer] df.creature_interaction_effect_target_mode
@@ -1344,6 +1392,7 @@ df.cgl_item_flag = {}
 ---@field _type identity.cgl_itemst
 ---@field check_caste DFNumberVector
 ---@field check_bp DFNumberVector
+---@field item_type df.item_type
 ---@field item_subtype DFNumberVector
 ---@field flags df.cgl_item_flag
 ---@field min_qual number

@@ -38,9 +38,9 @@ df.world_population_type = {}
 ---@field type df.world_population_type
 ---@field race number not actually a union, just race<br>References: `df.creature_raw`
 ---@field plant number References: `df.plant_raw`
----@field count_min number
----@field count_max number
----@field temp_num number
+---@field count_min integer
+---@field count_max integer
+---@field temp_num integer
 ---@field owner number References: `df.historical_entity`
 ---@field breed number References: `df.breed`
 ---@field production_zone number

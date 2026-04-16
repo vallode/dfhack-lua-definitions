@@ -42,7 +42,7 @@ function df.building_def_item:new() end
 ---@field tile_block integer[][]
 ---@field graphics_normal number[][][]
 ---@field graphics_overlay number[][][]
----@field build_key number
+---@field build_key df.interface_key
 ---@field needs_magma boolean
 ---@field build_items _building_def_build_items
 ---@field dim_x number

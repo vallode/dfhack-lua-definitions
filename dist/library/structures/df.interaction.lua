@@ -410,9 +410,9 @@ function interaction_target:finalize(interaction_index) end
 function interaction_target:affects_body_component(ic, it) end
 
 ---@param un df.unit
----@param iut df.interaction
+---@param it df.interaction
 ---@return boolean
-function interaction_target:affects_unit(un, iut) end
+function interaction_target:affects_unit(un, it) end
 
 ---@param hf df.historical_figure
 ---@param it df.interaction
@@ -771,10 +771,10 @@ df.interaction_effect_summon_unit_flag = {}
 ---@field caste_str string CREATURE
 ---@field races DFNumberVector
 ---@field castes DFNumberVector
----@field required_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
----@field forbidden_creature_flags DFNumberVector contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
----@field required_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
----@field forbidden_caste_flags DFNumberVector contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
+---@field required_creature_flags _interaction_effect_summon_unitst_required_creature_flags IE_CREATURE_FLAG
+---@field forbidden_creature_flags _interaction_effect_summon_unitst_forbidden_creature_flags IE_FORBIDDEN_CREATURE_FLAG
+---@field required_caste_flags _interaction_effect_summon_unitst_required_caste_flags IE_CREATURE_CASTE_FLAG
+---@field forbidden_caste_flags _interaction_effect_summon_unitst_forbidden_caste_flags IE_FORBIDDEN_CREATURE_CASTE_FLAG
 ---@field min_gait_speed number
 ---@field max_gait_speed number
 ---@field time_range_min number IE_TIME_RANGE
@@ -786,6 +786,70 @@ df.interaction_effect_summon_unitst = {}
 
 ---@return df.interaction_effect_summon_unitst
 function df.interaction_effect_summon_unitst:new() end
+
+---@class _interaction_effect_summon_unitst_required_creature_flags: DFContainer
+---@field [integer] df.creature_raw_flags
+local _interaction_effect_summon_unitst_required_creature_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_raw_flags>
+function _interaction_effect_summon_unitst_required_creature_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_raw_flags
+function _interaction_effect_summon_unitst_required_creature_flags:insert(index, item) end
+
+---@param index integer
+function _interaction_effect_summon_unitst_required_creature_flags:erase(index) end
+
+---@class _interaction_effect_summon_unitst_forbidden_creature_flags: DFContainer
+---@field [integer] df.creature_raw_flags
+local _interaction_effect_summon_unitst_forbidden_creature_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.creature_raw_flags>
+function _interaction_effect_summon_unitst_forbidden_creature_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.creature_raw_flags
+function _interaction_effect_summon_unitst_forbidden_creature_flags:insert(index, item) end
+
+---@param index integer
+function _interaction_effect_summon_unitst_forbidden_creature_flags:erase(index) end
+
+---@class _interaction_effect_summon_unitst_required_caste_flags: DFContainer
+---@field [integer] df.caste_raw_flags
+local _interaction_effect_summon_unitst_required_caste_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.caste_raw_flags>
+function _interaction_effect_summon_unitst_required_caste_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.caste_raw_flags
+function _interaction_effect_summon_unitst_required_caste_flags:insert(index, item) end
+
+---@param index integer
+function _interaction_effect_summon_unitst_required_caste_flags:erase(index) end
+
+---@class _interaction_effect_summon_unitst_forbidden_caste_flags: DFContainer
+---@field [integer] df.caste_raw_flags
+local _interaction_effect_summon_unitst_forbidden_caste_flags
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.caste_raw_flags>
+function _interaction_effect_summon_unitst_forbidden_caste_flags:_field(index) end
+
+---@param index '#'|integer
+---@param item df.caste_raw_flags
+function _interaction_effect_summon_unitst_forbidden_caste_flags:insert(index, item) end
+
+---@param index integer
+function _interaction_effect_summon_unitst_forbidden_caste_flags:erase(index) end
 
 ---@class (exact) df.interaction_effect_propel_unitst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_propel_unitst
@@ -827,8 +891,8 @@ function df.interaction_effect_cleanst:new() end
 ---@class (exact) df.interaction_effect_change_weatherst: DFStruct, df.interaction_effect
 ---@field _type identity.interaction_effect_change_weatherst
 ---@field spec_flags integer
----@field add_weather_flag number
----@field remove_weather_flag number
+---@field add_weather_flag df.region_weather_bits
+---@field remove_weather_flag df.region_weather_bits
 
 ---@class identity.interaction_effect_change_weatherst: DFCompoundType
 ---@field _kind 'class-type'

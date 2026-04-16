@@ -1093,10 +1093,10 @@ function df.entity_territoryst:new() end
 ---@field line_br integer[]
 ---@field line_num number
 ---@field marker_xy df.rpd_indicator_datast.T_marker_xy[]
----@field marker_char number[]
----@field marker_f number[]
----@field marker_b number[]
----@field marker_br number[]
+---@field marker_char integer[]
+---@field marker_f integer[]
+---@field marker_b integer[]
+---@field marker_br integer[]
 ---@field marker_num number
 
 ---@class identity.rpd_indicator_datast: DFCompoundType
@@ -1323,7 +1323,7 @@ function _world_gen_wandering_groupst_rpop:erase(index) end
 -- Unused: REGION_WALK_*
 ---@class (exact) df.embark_note: DFStruct
 ---@field _type identity.embark_note
----@field tile number
+---@field tile integer
 ---@field fg_color number
 ---@field bg_color number
 ---@field name string
@@ -1829,7 +1829,7 @@ function _world_data_world_gen_wandering_group:erase(index) end
 ---@field geo_layers df.world_geo_layer[]
 ---@field placement_freq number[]
 ---@field placement_parent number[]
----@field have_logged_parameters number
+---@field have_logged_parameters boolean
 ---@field finalized_civ_mats number
 ---@field finalized_art number
 ---@field finalized_uniforms number
@@ -1842,7 +1842,7 @@ function _world_data_world_gen_wandering_group:erase(index) end
 ---@field riverstart df.coord2d_path
 ---@field rivers_total number
 ---@field rivers_cur number
----@field last_used_valid number
+---@field last_used_valid boolean
 ---@field last_param_set string
 ---@field last_seed string
 ---@field last_history_seed string

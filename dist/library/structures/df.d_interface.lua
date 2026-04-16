@@ -1686,10 +1686,10 @@ df.stock_pile_pointer_type = {}
 ---@field abd df.building_stockpilest
 ---@field sp df.stockpile_settings
 ---@field cur_main_mode df.stockpile_list
----@field cur_main_mode_flag integer
+---@field cur_main_mode_flag df.stockpile_group_set
 ---@field cur_sub_mode df.stockpile_list
 ---@field main_mode _custom_stockpile_interfacest_main_mode
----@field main_mode_flag DFIntegerVector
+---@field main_mode_flag _custom_stockpile_interfacest_main_mode_flag
 ---@field sub_mode _custom_stockpile_interfacest_sub_mode
 ---@field sub_mode_ptr_type _custom_stockpile_interfacest_sub_mode_ptr_type
 ---@field sub_mode_ptr DFNumberVector
@@ -1719,6 +1719,22 @@ function _custom_stockpile_interfacest_main_mode:insert(index, item) end
 
 ---@param index integer
 function _custom_stockpile_interfacest_main_mode:erase(index) end
+
+---@class _custom_stockpile_interfacest_main_mode_flag: DFContainer
+---@field [integer] df.stockpile_group_set
+local _custom_stockpile_interfacest_main_mode_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.stockpile_group_set>
+function _custom_stockpile_interfacest_main_mode_flag:_field(index) end
+
+---@param index '#'|integer
+---@param item df.stockpile_group_set
+function _custom_stockpile_interfacest_main_mode_flag:insert(index, item) end
+
+---@param index integer
+function _custom_stockpile_interfacest_main_mode_flag:erase(index) end
 
 ---@class _custom_stockpile_interfacest_sub_mode: DFContainer
 ---@field [integer] df.stockpile_list
@@ -2778,8 +2794,8 @@ df.name_creator_context_type = {}
 ---@field namer df.historical_entity
 ---@field name df.language_name
 ---@field name_type df.language_name_type
----@field cur_name_place number
----@field cur_word_place number
+---@field cur_name_place df.language_name_component
+---@field cur_word_place df.language_word_table_index
 ---@field word_sel df.language_word_table
 ---@field word_index DFNumberVector
 ---@field word_index_asp _name_creator_interfacest_word_index_asp
@@ -4115,7 +4131,7 @@ df.view_sheet_type = {}
 ---@field ep_vect_spouse _view_sheets_interfacest_ep_vect_spouse
 ---@field unmet_need_type DFEnumVector<df.need_type, number>
 ---@field unmet_need_spec_id DFEnumVector<df.need_type, number>
----@field unmet_need_se DFEnumVector<df.need_type, number>
+---@field unmet_need_sev DFEnumVector<df.need_type, number>
 ---@field unmet_need_num number
 ---@field raw_thought_str DFStringVector
 ---@field thought_box _view_sheets_interfacest_thought_box
@@ -7086,20 +7102,36 @@ function _main_interface_settings_tab:insert(index, item) end
 function _main_interface_settings_tab:erase(index) end
 
 ---@class _main_interface_settings_member: DFContainer
----@field [integer] df.world_gen_param_basest
+---@field [integer] df.world_gen_param_valuest
 local _main_interface_settings_member
 
 ---@nodiscard
 ---@param index integer
----@return DFPointer<df.world_gen_param_basest>
+---@return DFPointer<df.world_gen_param_valuest>
 function _main_interface_settings_member:_field(index) end
 
 ---@param index '#'|integer
----@param item df.world_gen_param_basest
+---@param item df.world_gen_param_valuest
 function _main_interface_settings_member:insert(index, item) end
 
 ---@param index integer
 function _main_interface_settings_member:erase(index) end
+
+---@class _main_interface_settings_member_world_gen_param_valuest: DFContainer
+---@field [integer] df.world_gen_param_valuest
+local _main_interface_settings_member_world_gen_param_valuest
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.world_gen_param_valuest>
+function _main_interface_settings_member_world_gen_param_valuest:_field(index) end
+
+---@param index '#'|integer
+---@param item df.world_gen_param_valuest
+function _main_interface_settings_member_world_gen_param_valuest:insert(index, item) end
+
+---@param index integer
+function _main_interface_settings_member_world_gen_param_valuest:erase(index) end
 
 ---@class _main_interface_settings_keybinding_category: DFContainer
 ---@field [integer] df.keybinding_category_type
@@ -8126,8 +8158,8 @@ df.main_bottom_mode_type = {}
 ---| 612 # TRACK_TOGGLE
 ---| 613 # ADVENTURE_MOVE_DOWN_RAMP_N
 ---| 614 # ADVENTURE_MOVE_DOWN_RAMP_S
----| 615 # ADVENTURE_MOVE_DOWN_RAMP_E
----| 616 # ADVENTURE_MOVE_DOWN_RAMP_W
+---| 615 # ADVENTURE_MOVE_DOWN_RAMP_W
+---| 616 # ADVENTURE_MOVE_DOWN_RAMP_E
 ---| 617 # ADVENTURE_MOVE_DOWN_RAMP_NW
 ---| 618 # ADVENTURE_MOVE_DOWN_RAMP_NE
 ---| 619 # ADVENTURE_MOVE_DOWN_RAMP_SW
@@ -9368,10 +9400,10 @@ df.main_bottom_mode_type = {}
 ---@field [613] "ADVENTURE_MOVE_DOWN_RAMP_N"
 ---@field ADVENTURE_MOVE_DOWN_RAMP_S 614
 ---@field [614] "ADVENTURE_MOVE_DOWN_RAMP_S"
----@field ADVENTURE_MOVE_DOWN_RAMP_E 615
----@field [615] "ADVENTURE_MOVE_DOWN_RAMP_E"
----@field ADVENTURE_MOVE_DOWN_RAMP_W 616
----@field [616] "ADVENTURE_MOVE_DOWN_RAMP_W"
+---@field ADVENTURE_MOVE_DOWN_RAMP_W 615
+---@field [615] "ADVENTURE_MOVE_DOWN_RAMP_W"
+---@field ADVENTURE_MOVE_DOWN_RAMP_E 616
+---@field [616] "ADVENTURE_MOVE_DOWN_RAMP_E"
 ---@field ADVENTURE_MOVE_DOWN_RAMP_NW 617
 ---@field [617] "ADVENTURE_MOVE_DOWN_RAMP_NW"
 ---@field ADVENTURE_MOVE_DOWN_RAMP_NE 618
@@ -10008,8 +10040,8 @@ df.main_hover_instruction._attr_entry_type._fields = {}
 ---@field TRACK_TOGGLE { caption: "" }
 ---@field ADVENTURE_MOVE_DOWN_RAMP_N { caption: "" }
 ---@field ADVENTURE_MOVE_DOWN_RAMP_S { caption: "" }
----@field ADVENTURE_MOVE_DOWN_RAMP_E { caption: "" }
 ---@field ADVENTURE_MOVE_DOWN_RAMP_W { caption: "" }
+---@field ADVENTURE_MOVE_DOWN_RAMP_E { caption: "" }
 ---@field ADVENTURE_MOVE_DOWN_RAMP_NW { caption: "" }
 ---@field ADVENTURE_MOVE_DOWN_RAMP_NE { caption: "" }
 ---@field ADVENTURE_MOVE_DOWN_RAMP_SW { caption: "" }
@@ -11308,7 +11340,7 @@ df.adventure_interface_attack_mode_type = {}
 ---@field scroll_position_wrestle number
 ---@field scrolling_wrestle boolean
 ---@field selected_bp number
----@field scrselected_item_idoll_position_wrestle number
+---@field selected_item_id number
 ---@field cl_type _adventure_interface_attackst_cl_type
 ---@field cl_index DFNumberVector
 ---@field combat_list df.combat_listst
@@ -12052,7 +12084,7 @@ function df.character_archetypest:new() end
 ---@field skill_picks_left number rather than the matching typedef
 ---@field phys_att_range_val DFEnumVector<df.physical_attribute_type, df.adventurer_attribute_level>
 ---@field ment_att_range_val DFEnumVector<df.mental_attribute_type, df.adventurer_attribute_level>
----@field difficulty df.setup_character_info.T_difficulty chosen_destiny
+---@field difficulty df.setup_character_info.T_difficulty
 ---@field start_site_id number References: `df.world_site`
 ---@field background_start_squad_epp_id number
 ---@field background_unit df.profession
@@ -12150,13 +12182,11 @@ df.setup_character_info = {}
 ---@return df.setup_character_info
 function df.setup_character_info:new() end
 
--- chosen_destiny
 ---@alias df.setup_character_info.T_difficulty
 ---| 0 # Peasant
 ---| 1 # Hero
 ---| 2 # Demigod
 
--- chosen_destiny
 ---@class identity.setup_character_info.difficulty: DFEnumType
 ---@field Peasant 0
 ---@field [0] "Peasant"
@@ -13493,12 +13523,33 @@ function _viewscreen_legendsst_page:erase(index) end
 ---@field [7] "Quit"
 df.main_choice_type = {}
 
--- Unused: TitleModeType
+---@alias df.title_mode_type
+---| -1 # NONE
+---| 0 # MAIN_MENU
+---| 1 # CONTINUE_INACTIVE
+---| 2 # CONTINUE_ACTIVE_WORLD
+---| 3 # CONTINUE_ACTIVE
+---| 4 # ABOUT
+
+---@class identity.title_mode_type: DFEnumType
+---@field NONE -1 bay12: TitleModeType
+---@field [-1] "NONE" bay12: TitleModeType
+---@field MAIN_MENU 0
+---@field [0] "MAIN_MENU"
+---@field CONTINUE_INACTIVE 1
+---@field [1] "CONTINUE_INACTIVE"
+---@field CONTINUE_ACTIVE_WORLD 2
+---@field [2] "CONTINUE_ACTIVE_WORLD"
+---@field CONTINUE_ACTIVE 3
+---@field [3] "CONTINUE_ACTIVE"
+---@field ABOUT 4
+---@field [4] "ABOUT"
+df.title_mode_type = {}
+
 ---@alias df.save_game_sort_type
 ---| 0 # Name
 ---| 1 # Folder
 
--- Unused: TitleModeType
 ---@class identity.save_game_sort_type: DFEnumType
 ---@field Name 0 bay12: SaveGameSort
 ---@field [0] "Name" bay12: SaveGameSort
@@ -13511,7 +13562,7 @@ df.save_game_sort_type = {}
 ---@field str_histories string
 ---@field str string
 ---@field clean_first boolean
----@field mode number
+---@field mode df.title_mode_type
 ---@field selected number
 ---@field selected_r number
 ---@field game_start_proceed number
@@ -13751,7 +13802,7 @@ function df.viewscreen_game_cleanerst:new() end
 ---@field unit_labors_sidemenu _viewscreen_dwarfmodest_unit_labors_sidemenu index list +3 (green/clear/crystal glass)
 ---@field unit_labors_sidemenu_uplevel _viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel
 ---@field unit_labors_sidemenu_uplevel_idx number
----@field sideSubmenu number
+---@field sideSubmenu boolean
 ---@field keyRepeat number determine if ESC is Done or Back
 ---@field trained_animals _viewscreen_dwarfmodest_trained_animals
 ---@field trained_animal_idx number
@@ -14937,8 +14988,26 @@ df.world_view_mode_type = {}
 -- Unused: CIVLIST_SQUAD_FLAG_*
 -- Unused: CIVLIST_MESSENGER_FLAG_*
 -- Unused: viewscreen_civlistst
--- Unused: CIVLIST_SQUAD_FLAG_* (again)
--- Unused: CIVLIST_MESSENGER_FLAG_* (again)
+---@class df.civlist_squad_flag: DFBitfield
+---@field _enum identity.civlist_squad_flag
+---@field LOCKED_IN boolean bay12: CIVLIST_SQUAD_FLAG_*
+---@field [0] boolean bay12: CIVLIST_SQUAD_FLAG_*
+
+---@class identity.civlist_squad_flag: DFBitfieldType
+---@field LOCKED_IN 0 bay12: CIVLIST_SQUAD_FLAG_*
+---@field [0] "LOCKED_IN" bay12: CIVLIST_SQUAD_FLAG_*
+df.civlist_squad_flag = {}
+
+---@class df.civlist_messenger_flag: DFBitfield
+---@field _enum identity.civlist_messenger_flag
+---@field LOCKED_IN boolean bay12: CIVLIST_MESSENGER_FLAG_*
+---@field [0] boolean bay12: CIVLIST_MESSENGER_FLAG_*
+
+---@class identity.civlist_messenger_flag: DFBitfieldType
+---@field LOCKED_IN 0 bay12: CIVLIST_MESSENGER_FLAG_*
+---@field [0] "LOCKED_IN" bay12: CIVLIST_MESSENGER_FLAG_*
+df.civlist_messenger_flag = {}
+
 ---@class (exact) df.viewscreen_worldst: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_worldst
 ---@field region_cent_x number
@@ -14972,10 +15041,10 @@ df.world_view_mode_type = {}
 ---@field scrolling_ac boolean
 ---@field scroll_position_ac number
 ---@field squad _viewscreen_worldst_squad
----@field squad_flag DFIntegerVector
+---@field squad_flag _viewscreen_worldst_squad_flag
 ---@field messenger_epp _viewscreen_worldst_messenger_epp
 ---@field messenger_ent _viewscreen_worldst_messenger_ent
----@field messenger_flag DFIntegerVector
+---@field messenger_flag _viewscreen_worldst_messenger_flag
 ---@field scroll_position_squad number
 ---@field scrolling_squad boolean
 ---@field scroll_position_messenger number
@@ -15165,6 +15234,22 @@ function _viewscreen_worldst_squad:insert(index, item) end
 ---@param index integer
 function _viewscreen_worldst_squad:erase(index) end
 
+---@class _viewscreen_worldst_squad_flag: DFContainer
+---@field [integer] df.civlist_squad_flag
+local _viewscreen_worldst_squad_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.civlist_squad_flag>
+function _viewscreen_worldst_squad_flag:_field(index) end
+
+---@param index '#'|integer
+---@param item df.civlist_squad_flag
+function _viewscreen_worldst_squad_flag:insert(index, item) end
+
+---@param index integer
+function _viewscreen_worldst_squad_flag:erase(index) end
+
 ---@class _viewscreen_worldst_messenger_epp: DFContainer
 ---@field [integer] df.entity_position_assignment
 local _viewscreen_worldst_messenger_epp
@@ -15196,6 +15281,22 @@ function _viewscreen_worldst_messenger_ent:insert(index, item) end
 
 ---@param index integer
 function _viewscreen_worldst_messenger_ent:erase(index) end
+
+---@class _viewscreen_worldst_messenger_flag: DFContainer
+---@field [integer] df.civlist_messenger_flag
+local _viewscreen_worldst_messenger_flag
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.civlist_messenger_flag>
+function _viewscreen_worldst_messenger_flag:_field(index) end
+
+---@param index '#'|integer
+---@param item df.civlist_messenger_flag
+function _viewscreen_worldst_messenger_flag:insert(index, item) end
+
+---@param index integer
+function _viewscreen_worldst_messenger_flag:erase(index) end
 
 ---@class _viewscreen_worldst_request_nem: DFContainer
 ---@field [integer] df.nemesis_record

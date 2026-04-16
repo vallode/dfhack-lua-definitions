@@ -517,8 +517,8 @@ df.viewport_spatter_flag = {}
 
 ---@class (exact) df.spatter_graphics_infost: DFStruct
 ---@field _type identity.spatter_graphics_infost
----@field flags df.viewport_spatter_flag
----@field texpos number
+---@field flags number
+---@field texpos number cannot use bitfield here, since it ignores base-type
 
 ---@class identity.spatter_graphics_infost: DFCompoundType
 ---@field _kind 'struct-type'

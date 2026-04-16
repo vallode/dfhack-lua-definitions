@@ -72,8 +72,8 @@
 ---@field [13] "I_AM_LCU_AND_YOU_ARE_LED"
 ---@field SOMEBODY_IS_CRAZE 14
 ---@field [14] "SOMEBODY_IS_CRAZE"
----@field NOT_LIVING_IS_FINE 15 ,
----@field [15] "NOT_LIVING_IS_FINE" ,
+---@field NOT_LIVING_IS_FINE 15
+---@field [15] "NOT_LIVING_IS_FINE"
 ---@field LIVING_MUST_BE_KILLED 16
 ---@field [16] "LIVING_MUST_BE_KILLED"
 ---@field EVIL_DEAD 17

@@ -2730,7 +2730,7 @@ df.histfig_temp_flag = {}
 ---@field worldgen_region df.world_region
 ---@field worldgen_layer df.world_underground_region
 ---@field worldgen_genetics df.unit_genes
----@field worldgen_relationships DFPointer<integer>
+---@field worldgen_relationships df.wg_relationship_quick_infost
 ---@field temp_var number
 ---@field temp_flag df.histfig_temp_flag
 ---@field gen_material_skill_ip_sum number
