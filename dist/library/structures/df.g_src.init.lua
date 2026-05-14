@@ -137,6 +137,7 @@ function _init_display_flag:erase(index) end
 ---| 0 # SOUND_OFF
 ---| 1 # PORTABLE_MODE
 ---| 2 # COMPRESS_SAVES
+---| 3 # DISPLAY_ALL_ERRORLOGS
 
 ---@class identity.init_media_flags: DFEnumType
 ---@field SOUND_OFF 0 bay12: InitMediaFlag
@@ -145,6 +146,8 @@ function _init_display_flag:erase(index) end
 ---@field [1] "PORTABLE_MODE"
 ---@field COMPRESS_SAVES 2
 ---@field [2] "COMPRESS_SAVES"
+---@field DISPLAY_ALL_ERRORLOGS 3
+---@field [3] "DISPLAY_ALL_ERRORLOGS"
 df.init_media_flags = {}
 
 ---@class (exact) df.init_media: DFStruct

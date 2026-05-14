@@ -3468,6 +3468,8 @@ df.unit_flags3 = {}
 ---@field [17] boolean
 ---@field carrying_somebody boolean
 ---@field [18] boolean
+---@field has_announced_stuck boolean
+---@field [19] boolean
 
 ---@class identity.unit_flags4: DFBitfieldType
 ---@field lazy_goblet_check 0 bay12: UNITFLAG4_*
@@ -3508,6 +3510,8 @@ df.unit_flags3 = {}
 ---@field [17] "did_dungeon_move_unit"
 ---@field carrying_somebody 18
 ---@field [18] "carrying_somebody"
+---@field has_announced_stuck 19
+---@field [19] "has_announced_stuck"
 df.unit_flags4 = {}
 
 ---@alias df.unitpref_type
@@ -5549,6 +5553,7 @@ df.unit_active_animation_flags = {}
 ---@field undead_name string display name of reanimated creatures
 ---@field initial_good_head_count number
 ---@field initial_good_grasp_count number
+---@field disturbed_timer number
 
 ---@class identity.unit_active_animationst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -6005,6 +6010,8 @@ df.glowtile_type = {}
 ---@class (exact) df.unit_cache_vars: DFStruct
 ---@field _type identity.unit_cache_vars
 ---@field cached_glowtile_type df.glowtile_type
+---@field path_cooldown number
+---@field next_path_cooldown number
 
 ---@class identity.unit_cache_vars: DFCompoundType
 ---@field _kind 'struct-type'

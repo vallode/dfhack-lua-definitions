@@ -1,6 +1,86 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias df.negotiation_result_difficulty_modifier_type
+---| -1 # NONE
+---| 0 # INVASION_DEATHS
+---| 1 # TARGET_LARGER_CIV
+---| 2 # TARGET_SMALLER_CIV
+
+---@class identity.negotiation_result_difficulty_modifier_type: DFEnumType
+---@field NONE -1 bay12: NegotiationResultDifficultyModifierType
+---@field [-1] "NONE" bay12: NegotiationResultDifficultyModifierType
+---@field INVASION_DEATHS 0
+---@field [0] "INVASION_DEATHS"
+---@field TARGET_LARGER_CIV 1
+---@field [1] "TARGET_LARGER_CIV"
+---@field TARGET_SMALLER_CIV 2
+---@field [2] "TARGET_SMALLER_CIV"
+df.negotiation_result_difficulty_modifier_type = {}
+
+---@alias df.negotiation_result_type
+---| -1 # NONE
+---| 0 # SUCCESS
+---| 1 # FAILURE
+---| 2 # MUST_LIFT_CURRENT_SIEGE
+
+---@class identity.negotiation_result_type: DFEnumType
+---@field NONE -1 bay12: NegotiationResultType
+---@field [-1] "NONE" bay12: NegotiationResultType
+---@field SUCCESS 0
+---@field [0] "SUCCESS"
+---@field FAILURE 1
+---@field [1] "FAILURE"
+---@field MUST_LIFT_CURRENT_SIEGE 2
+---@field [2] "MUST_LIFT_CURRENT_SIEGE"
+df.negotiation_result_type = {}
+
+---@class (exact) df.negotiation_resultst: DFStruct
+---@field _type identity.negotiation_resultst
+---@field initiator_hfid number References: `df.historical_figure`
+---@field initiator_enid number References: `df.historical_entity`
+---@field target_hfid number References: `df.historical_figure`
+---@field target_enid number References: `df.historical_entity`
+---@field target_ep_id number
+---@field target_ep_enid number
+---@field topic df.meeting_topic
+---@field result df.negotiation_result_type
+---@field result_id number
+---@field result_magnitude number
+---@field initiator_negotiation_roll number
+---@field initiator_persuasion_roll number
+---@field initiator_extra_skill number
+---@field initiator_extra_skill_roll number
+---@field target_negotiation_roll number
+---@field target_judgment_roll number
+---@field target_extra_skill number
+---@field target_extra_skill_roll number
+---@field difficulty_modifier _negotiation_resultst_difficulty_modifier
+---@field difficulty_modifier_value DFNumberVector
+
+---@class identity.negotiation_resultst: DFCompoundType
+---@field _kind 'struct-type'
+df.negotiation_resultst = {}
+
+---@return df.negotiation_resultst
+function df.negotiation_resultst:new() end
+
+---@class _negotiation_resultst_difficulty_modifier: DFContainer
+---@field [integer] df.negotiation_result_difficulty_modifier_type
+local _negotiation_resultst_difficulty_modifier
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.negotiation_result_difficulty_modifier_type>
+function _negotiation_resultst_difficulty_modifier:_field(index) end
+
+---@param index '#'|integer
+---@param item df.negotiation_result_difficulty_modifier_type
+function _negotiation_resultst_difficulty_modifier:insert(index, item) end
+
+---@param index integer
+function _negotiation_resultst_difficulty_modifier:erase(index) end
+
 ---@class df.intrigue_corruption_result_flag: DFBitfield
 ---@field _enum identity.intrigue_corruption_result_flag
 ---@field succeeded boolean bay12: INTRIGUE_CORRUPTION_RESULT_FLAG_*
@@ -214,6 +294,7 @@ function df.relationship_event:new() end
 ---@class (exact) df.intrigue: DFStruct
 ---@field _type identity.intrigue
 ---@field event_id number NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship<br>References: `df.history_event`
+---@field negotiation_result df.negotiation_resultst
 ---@field corruption df.intrigue_corruption Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
 ---@field reason df.intrigue.T_reason
 ---@field circumstance df.intrigue.T_circumstance

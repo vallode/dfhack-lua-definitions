@@ -14951,6 +14951,10 @@ function _viewscreen_setupadventurest_csheet:erase(index) end
 df.justice_screen_interrogation_list_flag = {}
 
 -- Unused: viewscreen_workquota_detailsst
+-- Unused: CivlistModeType
+-- Unused: CIVLIST_SQUAD_FLAG_*
+-- Unused: CIVLIST_MESSENGER_FLAG_*
+-- Unused: viewscreen_civlistst
 ---@alias df.world_view_mode_type
 ---| -1 # NONE
 ---| 0 # NORMAL
@@ -14961,8 +14965,13 @@ df.justice_screen_interrogation_list_flag = {}
 ---| 5 # REPORTS
 ---| 6 # CITIZENS
 ---| 7 # ARTIFACTS
+---| 8 # NEW_MISSION
 
 -- Unused: viewscreen_workquota_detailsst
+-- Unused: CivlistModeType
+-- Unused: CIVLIST_SQUAD_FLAG_*
+-- Unused: CIVLIST_MESSENGER_FLAG_*
+-- Unused: viewscreen_civlistst
 ---@class identity.world_view_mode_type: DFEnumType
 ---@field NONE -1 bay12: WorldViewModeType
 ---@field [-1] "NONE" bay12: WorldViewModeType
@@ -14982,12 +14991,10 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field [6] "CITIZENS"
 ---@field ARTIFACTS 7
 ---@field [7] "ARTIFACTS"
+---@field NEW_MISSION 8
+---@field [8] "NEW_MISSION"
 df.world_view_mode_type = {}
 
--- Unused: CivlistModeType
--- Unused: CIVLIST_SQUAD_FLAG_*
--- Unused: CIVLIST_MESSENGER_FLAG_*
--- Unused: viewscreen_civlistst
 ---@class df.civlist_squad_flag: DFBitfield
 ---@field _enum identity.civlist_squad_flag
 ---@field LOCKED_IN boolean bay12: CIVLIST_SQUAD_FLAG_*
@@ -15008,6 +15015,77 @@ df.civlist_squad_flag = {}
 ---@field [0] "LOCKED_IN" bay12: CIVLIST_MESSENGER_FLAG_*
 df.civlist_messenger_flag = {}
 
+---@alias df.world_new_mission_type
+---| -1 # NONE
+---| 0 # OKAY
+---| 1 # NOT_DISPLAYED
+---| 2 # OWN_SITE
+---| 3 # OWN_CIV
+---| 4 # NOT_UNDER_YOUR_CONTROL
+---| 5 # NO_CIV
+---| 6 # NO_REQUESTABLE_WORKERS
+---| 7 # INACCESSIBLE
+---| 8 # NO_MILITARY_GOALS_HF
+---| 9 # NO_MEET_WORKERS_HF
+---| 10 # NOT_IN_CONTACT
+---| 11 # ALREADY_IN_CONTACT
+---| 12 # ALREADY_AT_WAR
+---| 13 # ALREADY_HAVE_PEACE
+---| 14 # ALREADY_HAVE_ALLIANCE
+---| 15 # AT_WAR
+---| 16 # CANNOT_COMMUNICATE
+---| 17 # HOSTILE_ENTITY
+---| 18 # NOT_TRADING
+---| 19 # ALREADY_TRADING
+---| 20 # NO_CIVILIZATION_MILITARY_GOALS_HF
+
+---@class identity.world_new_mission_type: DFEnumType
+---@field NONE -1 bay12: WorldNewMissionType
+---@field [-1] "NONE" bay12: WorldNewMissionType
+---@field OKAY 0
+---@field [0] "OKAY"
+---@field NOT_DISPLAYED 1
+---@field [1] "NOT_DISPLAYED"
+---@field OWN_SITE 2
+---@field [2] "OWN_SITE"
+---@field OWN_CIV 3
+---@field [3] "OWN_CIV"
+---@field NOT_UNDER_YOUR_CONTROL 4
+---@field [4] "NOT_UNDER_YOUR_CONTROL"
+---@field NO_CIV 5
+---@field [5] "NO_CIV"
+---@field NO_REQUESTABLE_WORKERS 6
+---@field [6] "NO_REQUESTABLE_WORKERS"
+---@field INACCESSIBLE 7
+---@field [7] "INACCESSIBLE"
+---@field NO_MILITARY_GOALS_HF 8
+---@field [8] "NO_MILITARY_GOALS_HF"
+---@field NO_MEET_WORKERS_HF 9
+---@field [9] "NO_MEET_WORKERS_HF"
+---@field NOT_IN_CONTACT 10
+---@field [10] "NOT_IN_CONTACT"
+---@field ALREADY_IN_CONTACT 11
+---@field [11] "ALREADY_IN_CONTACT"
+---@field ALREADY_AT_WAR 12
+---@field [12] "ALREADY_AT_WAR"
+---@field ALREADY_HAVE_PEACE 13
+---@field [13] "ALREADY_HAVE_PEACE"
+---@field ALREADY_HAVE_ALLIANCE 14
+---@field [14] "ALREADY_HAVE_ALLIANCE"
+---@field AT_WAR 15
+---@field [15] "AT_WAR"
+---@field CANNOT_COMMUNICATE 16
+---@field [16] "CANNOT_COMMUNICATE"
+---@field HOSTILE_ENTITY 17
+---@field [17] "HOSTILE_ENTITY"
+---@field NOT_TRADING 18
+---@field [18] "NOT_TRADING"
+---@field ALREADY_TRADING 19
+---@field [19] "ALREADY_TRADING"
+---@field NO_CIVILIZATION_MILITARY_GOALS_HF 20
+---@field [20] "NO_CIVILIZATION_MILITARY_GOALS_HF"
+df.world_new_mission_type = {}
+
 ---@class (exact) df.viewscreen_worldst: DFStruct, df.viewscreen
 ---@field _type identity.viewscreen_worldst
 ---@field region_cent_x number
@@ -15018,6 +15096,7 @@ df.civlist_messenger_flag = {}
 ---@field mouse_anchor_pmx number
 ---@field mouse_anchor_pmy number
 ---@field view_mode df.world_view_mode_type
+---@field civ_level_military_goals_hf df.historical_figure
 ---@field military_goals_hf df.historical_figure
 ---@field meet_workers_hf df.historical_figure
 ---@field focus_ax number
@@ -15040,6 +15119,7 @@ df.civlist_messenger_flag = {}
 ---@field selected_ac number
 ---@field scrolling_ac boolean
 ---@field scroll_position_ac number
+---@field new_mission DFEnumVector<df.army_controller_goal_type, df.world_new_mission_type>
 ---@field squad _viewscreen_worldst_squad
 ---@field squad_flag _viewscreen_worldst_squad_flag
 ---@field messenger_epp _viewscreen_worldst_messenger_epp
@@ -15052,6 +15132,7 @@ df.civlist_messenger_flag = {}
 ---@field request_nem _viewscreen_worldst_request_nem
 ---@field scroll_position_request_nem number
 ---@field scrolling_request_nem boolean
+---@field diplomacy_topic DFEnumVector<df.meeting_topic, df.world_new_mission_type>
 ---@field rumor_master _viewscreen_worldst_rumor_master
 ---@field rumor_rpd df.region_print_datast
 ---@field rumor_rpd_indicator_data df.rpd_indicator_datast

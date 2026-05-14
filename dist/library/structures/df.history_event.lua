@@ -1365,6 +1365,8 @@ function df.history_event_hist_figure_travelst:new() end
 ---| 4 # purchase_exceptional_equipment
 ---| 5 # purchase_masterwork_equipment
 ---| 6 # performed_horrible_experiments
+---| 7 # diplomacy_failed_entity_not_at_location
+---| 8 # diplomacy_failed_entity_no_hf_at_location
 
 ---@class identity.simple_action_type: DFEnumType
 ---@field NONE -1 bay12: HistoryEventHistFigureSimpleActionType
@@ -1383,12 +1385,17 @@ function df.history_event_hist_figure_travelst:new() end
 ---@field [5] "purchase_masterwork_equipment"
 ---@field performed_horrible_experiments 6
 ---@field [6] "performed_horrible_experiments"
+---@field diplomacy_failed_entity_not_at_location 7
+---@field [7] "diplomacy_failed_entity_not_at_location"
+---@field diplomacy_failed_entity_no_hf_at_location 8
+---@field [8] "diplomacy_failed_entity_no_hf_at_location"
 df.simple_action_type = {}
 
 ---@class (exact) df.history_event_hist_figure_simple_actionst: DFStruct, df.history_event
 ---@field _type identity.history_event_hist_figure_simple_actionst
 ---@field group_hfs DFNumberVector binary
 ---@field type df.simple_action_type
+---@field entity number References: `df.historical_entity`
 ---@field site number References: `df.world_site`
 ---@field structure number References: `df.abstract_building`
 ---@field region number References: `df.world_region`
@@ -2189,7 +2196,7 @@ function df.history_event_agreements_voidedst:new() end
 ---| 1 # hardship
 ---| 2 # seized
 ---| 3 # offended
----| 4 # missing_goods
+---| 4 # unused_01_05
 ---| 5 # tribute
 
 ---@class identity.history_event_merchant_flags: DFEnumType
@@ -2201,8 +2208,8 @@ function df.history_event_agreements_voidedst:new() end
 ---@field [2] "seized"
 ---@field offended 3
 ---@field [3] "offended"
----@field missing_goods 4
----@field [4] "missing_goods"
+---@field unused_01_05 4 formerly LOSTVALUE
+---@field [4] "unused_01_05" formerly LOSTVALUE
 ---@field tribute 5
 ---@field [5] "tribute"
 df.history_event_merchant_flags = {}
@@ -2213,6 +2220,8 @@ df.history_event_merchant_flags = {}
 ---@field destination number site government<br>References: `df.historical_entity`
 ---@field site number References: `df.world_site`
 ---@field flags2 _history_event_merchantst_flags2
+---@field goods_value_initial number
+---@field goods_value_end number
 
 ---@class identity.history_event_merchantst: DFCompoundType
 ---@field _kind 'class-type'

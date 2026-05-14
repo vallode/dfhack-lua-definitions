@@ -147,6 +147,7 @@ function _mission_report_campaigns:erase(index) end
 ---| 22 # ABDUCT_HF
 ---| 23 # SABOTAGE_ENTITY
 ---| 24 # INFILTRATE_SOCIETY
+---| 25 # DIPLOMACY
 
 ---@class identity.army_controller_goal_type: DFEnumType
 ---@field NONE -1 bay12: ArmyControllerGoalType
@@ -201,6 +202,8 @@ function _mission_report_campaigns:erase(index) end
 ---@field [23] "SABOTAGE_ENTITY"
 ---@field INFILTRATE_SOCIETY 24
 ---@field [24] "INFILTRATE_SOCIETY"
+---@field DIPLOMACY 25
+---@field [25] "DIPLOMACY"
 df.army_controller_goal_type = {}
 
 ---@alias df.invasion_intent_type
@@ -512,6 +515,104 @@ df.army_controller_goal_make_requestst = {}
 
 ---@return df.army_controller_goal_make_requestst
 function df.army_controller_goal_make_requestst:new() end
+
+---@alias df.meeting_topic
+---| 0 # DiscussCurrent
+---| 1 # RequestPeace
+---| 2 # TreeQuota
+---| 3 # BecomeLandHolder
+---| 4 # PromoteLandHolder
+---| 5 # ExportAgreement
+---| 6 # ImportAgreement
+---| 7 # PleasantPlace
+---| 8 # WorldStatus
+---| 9 # TributeAgreement
+---| 10 # DemandSurrender
+---| 11 # InduceWar
+---| 12 # InducePeace
+---| 13 # DeclareWar
+---| 14 # SeekAlliance
+---| 15 # OpenTrade
+---| 16 # ImproveTrade
+
+---@class identity.meeting_topic: DFEnumType
+---@field DiscussCurrent 0 bay12: DiplomacyTopicType
+---@field [0] "DiscussCurrent" bay12: DiplomacyTopicType
+---@field RequestPeace 1
+---@field [1] "RequestPeace"
+---@field TreeQuota 2
+---@field [2] "TreeQuota"
+---@field BecomeLandHolder 3
+---@field [3] "BecomeLandHolder"
+---@field PromoteLandHolder 4
+---@field [4] "PromoteLandHolder"
+---@field ExportAgreement 5
+---@field [5] "ExportAgreement"
+---@field ImportAgreement 6
+---@field [6] "ImportAgreement"
+---@field PleasantPlace 7
+---@field [7] "PleasantPlace"
+---@field WorldStatus 8
+---@field [8] "WorldStatus"
+---@field TributeAgreement 9
+---@field [9] "TributeAgreement"
+---@field DemandSurrender 10
+---@field [10] "DemandSurrender"
+---@field InduceWar 11
+---@field [11] "InduceWar"
+---@field InducePeace 12
+---@field [12] "InducePeace"
+---@field DeclareWar 13
+---@field [13] "DeclareWar"
+---@field SeekAlliance 14
+---@field [14] "SeekAlliance"
+---@field OpenTrade 15
+---@field [15] "OpenTrade"
+---@field ImproveTrade 16
+---@field [16] "ImproveTrade"
+df.meeting_topic = {}
+
+---@class df.ac_goal_diplomacy_flag: DFBitfield
+---@field _enum identity.ac_goal_diplomacy_flag
+---@field RETURNING_HOME boolean bay12: AC_GOAL_DIPLOMACY_FLAG_*
+---@field [0] boolean bay12: AC_GOAL_DIPLOMACY_FLAG_*
+
+---@class identity.ac_goal_diplomacy_flag: DFBitfieldType
+---@field RETURNING_HOME 0 bay12: AC_GOAL_DIPLOMACY_FLAG_*
+---@field [0] "RETURNING_HOME" bay12: AC_GOAL_DIPLOMACY_FLAG_*
+df.ac_goal_diplomacy_flag = {}
+
+---@class (exact) df.ac_goal_diplomacyst: DFStruct
+---@field _type identity.ac_goal_diplomacyst
+---@field topic _ac_goal_diplomacyst_topic
+---@field topic_id1 DFNumberVector
+---@field topic_id2 DFNumberVector
+---@field flag df.ac_goal_diplomacy_flag
+---@field source_abs_smm_x number
+---@field source_abs_smm_y number
+
+---@class identity.ac_goal_diplomacyst: DFCompoundType
+---@field _kind 'struct-type'
+df.ac_goal_diplomacyst = {}
+
+---@return df.ac_goal_diplomacyst
+function df.ac_goal_diplomacyst:new() end
+
+---@class _ac_goal_diplomacyst_topic: DFContainer
+---@field [integer] df.meeting_topic
+local _ac_goal_diplomacyst_topic
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.meeting_topic>
+function _ac_goal_diplomacyst_topic:_field(index) end
+
+---@param index '#'|integer
+---@param item df.meeting_topic
+function _ac_goal_diplomacyst_topic:insert(index, item) end
+
+---@param index integer
+function _ac_goal_diplomacyst_topic:erase(index) end
 
 ---@class df.ac_goal_hunting_flag: DFBitfield
 ---@field _enum identity.ac_goal_hunting_flag
@@ -1090,6 +1191,7 @@ function _army_controller_section_role:erase(index) end
 ---@field goal_abduct_hf df.army_controller_goal_abduct_hfst
 ---@field goal_sabotage_entity df.army_controller_goal_sabotage_entityst
 ---@field goal_infiltrate_society df.army_controller_goal_infiltrate_societyst
+---@field goal_diplomacy df.ac_goal_diplomacyst
 
 ---@class identity.army_controller.data: DFCompoundType
 ---@field _kind 'struct-type'

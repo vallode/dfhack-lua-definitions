@@ -62,6 +62,8 @@ function df.announcement_infost:new() end
 ---@field [1] boolean units.active[0]
 ---@field announcement boolean
 ---@field [2] boolean
+---@field high_prio_removal boolean
+---@field [3] boolean
 
 ---@class identity.announcement_flag: DFBitfieldType
 ---@field continuation 0 bay12: ANNOUNCEMENTFLAG_*
@@ -70,6 +72,8 @@ function df.announcement_infost:new() end
 ---@field [1] "unconscious" units.active[0]
 ---@field announcement 2
 ---@field [2] "announcement"
+---@field high_prio_removal 3
+---@field [3] "high_prio_removal"
 df.announcement_flag = {}
 
 ---@class (exact) df.report: DFStruct
@@ -91,6 +95,7 @@ df.announcement_flag = {}
 ---@field activity_id number References: `df.activity_entry`
 ---@field activity_event_id number References: `df.activity_event`
 ---@field speaker_id number unit speaking the conversation<br>References: `df.unit`
+---@field pool_id integer
 
 ---@class identity.report: DFCompoundType
 ---@field _kind 'struct-type'

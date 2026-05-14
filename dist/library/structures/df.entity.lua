@@ -2995,6 +2995,8 @@ df.entity_scholar_flag = {}
 ---@field [25] boolean
 ---@field might_have_interaction_region_pops boolean
 ---@field [26] boolean
+---@field ignore_progress_triggers boolean
+---@field [27] boolean
 
 ---@class identity.entity_flag: DFBitfieldType
 ---@field neighbor 0 bay12: ENTITYFLAG_*
@@ -3051,6 +3053,8 @@ df.entity_scholar_flag = {}
 ---@field [25] "religious_devotion"
 ---@field might_have_interaction_region_pops 26
 ---@field [26] "might_have_interaction_region_pops"
+---@field ignore_progress_triggers 27
+---@field [27] "ignore_progress_triggers"
 df.entity_flag = {}
 
 ---@alias df.historical_entity_type

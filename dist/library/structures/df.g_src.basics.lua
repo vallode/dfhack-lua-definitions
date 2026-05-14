@@ -416,8 +416,8 @@ df.game_type = {}
 ---| 349 # PUT_ON_ITEM
 ---| 350 # TAKE_OFF_ITEM
 ---| 351 # DEITY_PRONOUNCEMENT
----| 352 # UNUSED_47
----| 353 # UNUSED_48
+---| 352 # CREATURE_STUCK
+---| 353 # CITIZEN_STUCK
 ---| 354 # UNUSED_49
 ---| 355 # UNUSED_50
 
@@ -1128,10 +1128,10 @@ df.game_type = {}
 ---@field [350] "TAKE_OFF_ITEM"
 ---@field DEITY_PRONOUNCEMENT 351
 ---@field [351] "DEITY_PRONOUNCEMENT"
----@field UNUSED_47 352
----@field [352] "UNUSED_47"
----@field UNUSED_48 353
----@field [353] "UNUSED_48"
+---@field CREATURE_STUCK 352
+---@field [352] "CREATURE_STUCK"
+---@field CITIZEN_STUCK 353
+---@field [353] "CITIZEN_STUCK"
 ---@field UNUSED_49 354
 ---@field [354] "UNUSED_49"
 ---@field UNUSED_50 355
@@ -1500,8 +1500,8 @@ df.announcement_type._attr_entry_type._fields = {}
 ---@field PUT_ON_ITEM { alert_type: "GENERAL" }
 ---@field TAKE_OFF_ITEM { alert_type: "GENERAL" }
 ---@field DEITY_PRONOUNCEMENT { alert_type: "GENERAL" }
----@field UNUSED_47 { alert_type: "GENERAL" }
----@field UNUSED_48 { alert_type: "GENERAL" }
+---@field CREATURE_STUCK { alert_type: "GENERAL" }
+---@field CITIZEN_STUCK { alert_type: "GENERAL" }
 ---@field UNUSED_49 { alert_type: "GENERAL" }
 ---@field UNUSED_50 { alert_type: "GENERAL" }
 df.announcement_type.attrs = {}
