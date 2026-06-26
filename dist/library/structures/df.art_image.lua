@@ -146,7 +146,7 @@ function art_image_property:read_file(filecomp, loadversion) end
 ---@return df.art_image_property_type
 function art_image_property:getType() end
 
----@return df.art_image_element
+---@return df.art_image_property
 function art_image_property:clone() end
 
 ---@param str string

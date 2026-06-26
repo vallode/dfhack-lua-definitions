@@ -1477,6 +1477,8 @@ df.creature_graphics_layer_flag = {}
 ---@field use_standard_nex_body_palette_row number
 ---@field use_standard_beast_palette_row number
 ---@field use_color_palette_token string
+---@field offset_x number
+---@field offset_y number
 
 ---@class identity.creature_graphics_layerst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -1572,6 +1574,8 @@ df.creature_graphics_layer_set_flag = {}
 ---@field next_layer_group number
 ---@field flags df.creature_graphics_layer_set_flag
 ---@field lg_bp_condition _creature_graphics_layer_setst_lg_bp_condition
+---@field layer_set_template_token string
+---@field template_arg DFStringVector
 
 ---@class identity.creature_graphics_layer_setst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -2978,6 +2982,7 @@ function _caste_raw_material_force_adjust:erase(index) end
 ---| 116 # HAS_ANY_SLOW_LEARNER
 ---| 117 # HAS_ANY_NIGHT_CREATURE_NIGHTMARE
 ---| 118 # HAS_ANY_NIGHT_CREATURE_EXPERIMENTER
+---| 119 # HAS_REAL_WORLD_EXTINCT
 
 -- The comments indicate the creature raw tags whose presence/absence are
 -- correlated with the flags. Tags with parameters, like those indicating
@@ -3221,6 +3226,8 @@ function _caste_raw_material_force_adjust:erase(index) end
 ---@field [117] "HAS_ANY_NIGHT_CREATURE_NIGHTMARE"
 ---@field HAS_ANY_NIGHT_CREATURE_EXPERIMENTER 118
 ---@field [118] "HAS_ANY_NIGHT_CREATURE_EXPERIMENTER"
+---@field HAS_REAL_WORLD_EXTINCT 119
+---@field [119] "HAS_REAL_WORLD_EXTINCT"
 df.creature_raw_flags = {}
 
 -- Unused: CreatureDefStrings

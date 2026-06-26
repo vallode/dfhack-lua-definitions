@@ -164,7 +164,7 @@ function df.item_or_unit:new() end
 ---@field close_callback _widget_unit_list_close_callback
 ---@field options _widget_unit_list_options
 ---@field entry_list _widget_unit_list_entry_list
----@field selected _widget_unit_list_selected std::unordered_set<void *>
+---@field selected _widget_unit_list_selected
 ---@field job_sort_str _widget_unit_list_job_sort_str
 ---@field cursor_idx number
 ---@field is_selected _widget_unit_list_is_selected std::function<bool(item_or_unit)>

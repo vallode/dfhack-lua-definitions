@@ -176,7 +176,7 @@ function df.music_datast:new() end
 ---@field ambience_last_sound number
 ---@field next_song_id number
 ---@field next_sound_id number
----@field loaded_music DFStringVector unordered_map<std::string, music_datast>
+---@field loaded_music DFStringVector
 ---@field music_by_id DFNumberVector
 ---@field loaded_sounds DFStringVector
 ---@field loading_files _musicsoundst_loading_files std::future<loading_music_filest>

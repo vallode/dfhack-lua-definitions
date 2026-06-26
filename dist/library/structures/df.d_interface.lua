@@ -12996,6 +12996,7 @@ df.new_region_raw_load_stage_type = {}
 ---@field simple_site_cap number
 ---@field simple_beast number
 ---@field simple_savagery number
+---@field simple_real_world_extinct number
 ---@field simple_minerals number
 ---@field abort_world_gen_dialogue number
 ---@field reject_dialogue number

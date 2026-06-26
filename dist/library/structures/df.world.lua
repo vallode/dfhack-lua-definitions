@@ -241,6 +241,7 @@ function _fake_world_infost_language:erase(index) end
 ---@field mod_folder_paths _region_object_datast_mod_folder_paths
 ---@field mod_names DFStringVector
 ---@field mod_display_versions DFStringVector
+---@field param_real_world_extinct number
 
 ---@class identity.region_object_datast: DFCompoundType
 ---@field _kind 'struct-type'

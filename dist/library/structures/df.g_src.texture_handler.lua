@@ -68,10 +68,23 @@ df.tile_pagest = {}
 ---@return df.tile_pagest
 function df.tile_pagest:new() end
 
+---@class (exact) df.layer_set_templatest: DFStruct
+---@field _type identity.layer_set_templatest
+---@field token string
+---@field lines DFStringVector
+
+---@class identity.layer_set_templatest: DFCompoundType
+---@field _kind 'struct-type'
+df.layer_set_templatest = {}
+
+---@return df.layer_set_templatest
+function df.layer_set_templatest:new() end
+
 ---@class (exact) df.texture_handlerst: DFStruct
 ---@field _type identity.texture_handlerst
 ---@field page _texture_handlerst_page
 ---@field palette _texture_handlerst_palette
+---@field layer_set_template _texture_handlerst_layer_set_template
 
 ---@class identity.texture_handlerst: DFCompoundType
 ---@field _kind 'struct-type'
@@ -111,4 +124,20 @@ function _texture_handlerst_palette:insert(index, item) end
 
 ---@param index integer
 function _texture_handlerst_palette:erase(index) end
+
+---@class _texture_handlerst_layer_set_template: DFContainer
+---@field [integer] df.layer_set_templatest
+local _texture_handlerst_layer_set_template
+
+---@nodiscard
+---@param index integer
+---@return DFPointer<df.layer_set_templatest>
+function _texture_handlerst_layer_set_template:_field(index) end
+
+---@param index '#'|integer
+---@param item df.layer_set_templatest
+function _texture_handlerst_layer_set_template:insert(index, item) end
+
+---@param index integer
+function _texture_handlerst_layer_set_template:erase(index) end
 

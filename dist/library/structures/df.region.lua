@@ -209,6 +209,7 @@ function df.worldgen_parms_ps:new() end
 ---@field all_caves_visible number
 ---@field show_embark_tunnel number
 ---@field pole number
+---@field real_world_extinct number
 ---@field immune_to_resize boolean
 
 ---@class identity.worldgen_parms: DFCompoundType
