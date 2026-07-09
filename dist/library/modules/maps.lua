@@ -143,3 +143,6 @@ function dfhack.maps.canWalkBetween(pos1, pos2) end
 ---@return df.flow_info
 function dfhack.maps.spawnFlow(pos, type, mat_type, mat_index, density) end
 
+---@param new_height number
+function dfhack.maps.addBlockColumns(new_height) end
+
