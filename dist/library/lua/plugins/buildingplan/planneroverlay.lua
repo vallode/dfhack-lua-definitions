@@ -9,7 +9,7 @@ local planneroverlay
 
 require('dfhack.buildings')
 
-config = config or json.open('dfhack-config/buildingplan.json')
+config = config or json.open(dfhack.getConfigPath() .. '/buildingplan.json')
 
 reset_counts_flag = false
 editing_filters_flag = false
@@ -99,6 +99,8 @@ function PlannerOverlay:reset() end
 function PlannerOverlay:set_filter(idx) end
 
 function PlannerOverlay:clear_filter(idx) end
+
+function PlannerOverlay:queue_order(idx) end
 
 function PlannerOverlay:save_placement() end
 
