@@ -2,8 +2,8 @@
 ---@meta
 
 
-function ConfigureButton:preinit(init_table) end
-
 function ConfigureButton:init() end
+
+function ConfigureButton:postinit() end
 
 return ConfigureButton
