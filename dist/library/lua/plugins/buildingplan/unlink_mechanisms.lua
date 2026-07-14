@@ -22,6 +22,12 @@ function MechLinkOverlay:get_button(n, ensure) end
 
 function MechLinkOverlay:activate_button(n) end
 
+function MechLinkOverlay:get_pull_button(n, ensure) end
+
+function MechLinkOverlay:pull_target(n) end
+
+function MechLinkOverlay:activate_pull(n) end
+
 function MechLinkOverlay:ask_unlink_all() end
 
 function MechLinkOverlay:update_buttons() end
