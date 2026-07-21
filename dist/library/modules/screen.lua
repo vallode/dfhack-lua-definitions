@@ -35,6 +35,16 @@ function dfhack.screen.readTile(x, y, map) end
 
 ---@param x integer
 ---@param y integer
+---@return unknown
+function dfhack.screen.paintMapPortTile(x, y) end
+
+---@param x integer
+---@param y integer
+---@return unknown
+function dfhack.screen.readMapPortTile(x, y) end
+
+---@param x integer
+---@param y integer
 ---@param text string
 ---@param map boolean|nil
 ---@return unknown
