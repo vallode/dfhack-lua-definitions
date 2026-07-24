@@ -7,8 +7,9 @@ local materials
 
 ARROW = string.char(26)
 
-CREATURE_BASE = 19
-PLANT_BASE = 419
+-- For backwards compatibility with older scripts
+CREATURE_BASE = df.builtin_mats.CREATURE_1
+PLANT_BASE = df.builtin_mats.PLANT_1
 
 local MaterialDialog
 
