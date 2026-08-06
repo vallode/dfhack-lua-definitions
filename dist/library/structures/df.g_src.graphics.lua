@@ -12,6 +12,8 @@ df.palettest = {}
 ---@return df.palettest
 function df.palettest:new() end
 
+-- Unused: ProceduralItemTextureType
+-- Unused: TextureBodypartSkinSurfaceType
 ---@alias df.sphere_type
 ---| -1 # NONE
 ---| 0 # AGRICULTURE
@@ -145,6 +147,8 @@ function df.palettest:new() end
 ---| 128 # WRITING
 ---| 129 # YOUTH
 
+-- Unused: ProceduralItemTextureType
+-- Unused: TextureBodypartSkinSurfaceType
 ---@class identity.sphere_type: DFEnumType
 ---@field NONE -1 bay12: SphereType
 ---@field [-1] "NONE" bay12: SphereType

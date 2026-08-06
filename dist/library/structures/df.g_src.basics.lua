@@ -418,7 +418,7 @@ df.game_type = {}
 ---| 351 # DEITY_PRONOUNCEMENT
 ---| 352 # CREATURE_STUCK
 ---| 353 # CITIZEN_STUCK
----| 354 # UNUSED_49
+---| 354 # BARTENDER_SLACKING
 ---| 355 # UNUSED_50
 
 ---@class identity.announcement_type: DFEnumType
@@ -1132,8 +1132,8 @@ df.game_type = {}
 ---@field [352] "CREATURE_STUCK"
 ---@field CITIZEN_STUCK 353
 ---@field [353] "CITIZEN_STUCK"
----@field UNUSED_49 354
----@field [354] "UNUSED_49"
+---@field BARTENDER_SLACKING 354
+---@field [354] "BARTENDER_SLACKING"
 ---@field UNUSED_50 355
 ---@field [355] "UNUSED_50"
 df.announcement_type = {}
@@ -1502,7 +1502,7 @@ df.announcement_type._attr_entry_type._fields = {}
 ---@field DEITY_PRONOUNCEMENT { alert_type: "GENERAL" }
 ---@field CREATURE_STUCK { alert_type: "GENERAL" }
 ---@field CITIZEN_STUCK { alert_type: "GENERAL" }
----@field UNUSED_49 { alert_type: "GENERAL" }
+---@field BARTENDER_SLACKING { alert_type: "GENERAL" }
 ---@field UNUSED_50 { alert_type: "GENERAL" }
 df.announcement_type.attrs = {}
 

@@ -580,8 +580,13 @@ function interface_button:get_objection_string() end
 ---@return string
 function interface_button:get_info_string() end
 
+function interface_button:set_info_string_color() end
+
 ---@return number
 function interface_button:get_swatch_color() end
+
+---@return number
+function interface_button:get_list_priority() end
 
 
 ---@class identity.interface_button: DFCompoundType
@@ -660,6 +665,7 @@ function df.interface_button_building_category_selectorst:new() end
 ---@field art_specifier_id2 number union: mix_dye_source_color_index2, dye_object_source_color_index
 ---@field objection string
 ---@field info string
+---@field list_priority number
 
 ---@class identity.interface_button_building_new_jobst: DFCompoundType
 ---@field _kind 'class-type'
@@ -7473,6 +7479,12 @@ function _squads_interfacest_squad_selected:erase(index) end
 ---@field scrolling boolean
 ---@field entering_index number
 ---@field entering_name boolean
+---@field confirming_slot number
+---@field confirming_recenter_overwrite boolean
+---@field confirming_recenter_overwrite_mx number
+---@field confirming_recenter_overwrite_my number
+---@field confirming_recenter_overwrite_mz number
+---@field confirming_deletion boolean
 
 ---@class identity.hotkeys_interfacest: DFCompoundType
 ---@field _kind 'struct-type'
@@ -13550,12 +13562,15 @@ df.title_mode_type = {}
 ---@alias df.save_game_sort_type
 ---| 0 # Name
 ---| 1 # Folder
+---| 2 # Recency
 
 ---@class identity.save_game_sort_type: DFEnumType
 ---@field Name 0 bay12: SaveGameSort
 ---@field [0] "Name" bay12: SaveGameSort
 ---@field Folder 1
 ---@field [1] "Folder"
+---@field Recency 2
+---@field [2] "Recency"
 df.save_game_sort_type = {}
 
 ---@class (exact) df.viewscreen_titlest: DFStruct, df.viewscreen

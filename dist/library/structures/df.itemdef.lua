@@ -1,6 +1,158 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
+---@alias df.procedural_item_graphics_type
+---| 1 # NONE
+---| 2 # ARMOR_BREASTPLATE
+---| 3 # ARMOR_COAT
+---| 4 # ARMOR_SHIRT
+---| 5 # ARMOR_CLOAK
+---| 6 # ARMOR_TUNIC
+---| 7 # ARMOR_TOGA
+---| 8 # ARMOR_CAPE
+---| 9 # ARMOR_VEST
+---| 10 # ARMOR_DRESS
+---| 11 # ARMOR_ROBE
+---| 12 # PANTS_GREAVES
+---| 13 # PANTS_SKIRT
+---| 14 # HELM_HELM
+---| 15 # HELM_CAP
+---| 16 # HELM_HOOD
+---| 17 # HELM_TURBAN
+---| 18 # HELM_MASK
+---| 19 # HELM_VEIL_HEAD
+---| 20 # HELM_VEIL_FACE
+---| 21 # HELM_HEADSCARF
+---| 22 # GLOVES_GAUNTLET
+---| 23 # GLOVES_GLOVE
+---| 24 # GLOVES_MITTEN
+---| 25 # SHOES_BOOT_HIGH
+---| 26 # SHOES_BOOT_LOW
+---| 27 # SHOES_SHOE
+---| 28 # SHOES_SANDAL
+---| 29 # SHOES_CHAUSSE
+---| 30 # SHOES_SOCK
+---| 31 # WEAPON_SWORD
+---| 32 # WEAPON_PIKE
+---| 33 # WEAPON_WHIP
+---| 34 # WEAPON_SCOURGE
+---| 35 # WEAPON_BOW
+---| 36 # WEAPON_CROSSBOW
+---| 37 # WEAPON_BLOWGUN
+---| 38 # WEAPON_BATTLE_AXE
+---| 39 # WEAPON_HALBERD
+---| 40 # WEAPON_GREAT_AXE
+---| 41 # WEAPON_DAGGER
+---| 42 # WEAPON_MACE
+---| 43 # WEAPON_WAR_HAMMER
+---| 44 # WEAPON_MAUL
+---| 45 # WEAPON_SPEAR
+---| 46 # AMMO_ARROW
+---| 47 # AMMO_BOLT
+---| 48 # AMMO_BLOWDART
+---| 49 # SHIELD_SHIELD
+
+---@class identity.procedural_item_graphics_type: DFEnumType
+---@field NONE 1 bay12: ProceduralItemGraphicsType
+---@field [1] "NONE" bay12: ProceduralItemGraphicsType
+---@field ARMOR_BREASTPLATE 2
+---@field [2] "ARMOR_BREASTPLATE"
+---@field ARMOR_COAT 3
+---@field [3] "ARMOR_COAT"
+---@field ARMOR_SHIRT 4
+---@field [4] "ARMOR_SHIRT"
+---@field ARMOR_CLOAK 5
+---@field [5] "ARMOR_CLOAK"
+---@field ARMOR_TUNIC 6
+---@field [6] "ARMOR_TUNIC"
+---@field ARMOR_TOGA 7
+---@field [7] "ARMOR_TOGA"
+---@field ARMOR_CAPE 8
+---@field [8] "ARMOR_CAPE"
+---@field ARMOR_VEST 9
+---@field [9] "ARMOR_VEST"
+---@field ARMOR_DRESS 10
+---@field [10] "ARMOR_DRESS"
+---@field ARMOR_ROBE 11
+---@field [11] "ARMOR_ROBE"
+---@field PANTS_GREAVES 12
+---@field [12] "PANTS_GREAVES"
+---@field PANTS_SKIRT 13
+---@field [13] "PANTS_SKIRT"
+---@field HELM_HELM 14
+---@field [14] "HELM_HELM"
+---@field HELM_CAP 15
+---@field [15] "HELM_CAP"
+---@field HELM_HOOD 16
+---@field [16] "HELM_HOOD"
+---@field HELM_TURBAN 17
+---@field [17] "HELM_TURBAN"
+---@field HELM_MASK 18
+---@field [18] "HELM_MASK"
+---@field HELM_VEIL_HEAD 19
+---@field [19] "HELM_VEIL_HEAD"
+---@field HELM_VEIL_FACE 20
+---@field [20] "HELM_VEIL_FACE"
+---@field HELM_HEADSCARF 21
+---@field [21] "HELM_HEADSCARF"
+---@field GLOVES_GAUNTLET 22
+---@field [22] "GLOVES_GAUNTLET"
+---@field GLOVES_GLOVE 23
+---@field [23] "GLOVES_GLOVE"
+---@field GLOVES_MITTEN 24
+---@field [24] "GLOVES_MITTEN"
+---@field SHOES_BOOT_HIGH 25
+---@field [25] "SHOES_BOOT_HIGH"
+---@field SHOES_BOOT_LOW 26
+---@field [26] "SHOES_BOOT_LOW"
+---@field SHOES_SHOE 27
+---@field [27] "SHOES_SHOE"
+---@field SHOES_SANDAL 28
+---@field [28] "SHOES_SANDAL"
+---@field SHOES_CHAUSSE 29
+---@field [29] "SHOES_CHAUSSE"
+---@field SHOES_SOCK 30
+---@field [30] "SHOES_SOCK"
+---@field WEAPON_SWORD 31
+---@field [31] "WEAPON_SWORD"
+---@field WEAPON_PIKE 32
+---@field [32] "WEAPON_PIKE"
+---@field WEAPON_WHIP 33
+---@field [33] "WEAPON_WHIP"
+---@field WEAPON_SCOURGE 34
+---@field [34] "WEAPON_SCOURGE"
+---@field WEAPON_BOW 35
+---@field [35] "WEAPON_BOW"
+---@field WEAPON_CROSSBOW 36
+---@field [36] "WEAPON_CROSSBOW"
+---@field WEAPON_BLOWGUN 37
+---@field [37] "WEAPON_BLOWGUN"
+---@field WEAPON_BATTLE_AXE 38
+---@field [38] "WEAPON_BATTLE_AXE"
+---@field WEAPON_HALBERD 39
+---@field [39] "WEAPON_HALBERD"
+---@field WEAPON_GREAT_AXE 40
+---@field [40] "WEAPON_GREAT_AXE"
+---@field WEAPON_DAGGER 41
+---@field [41] "WEAPON_DAGGER"
+---@field WEAPON_MACE 42
+---@field [42] "WEAPON_MACE"
+---@field WEAPON_WAR_HAMMER 43
+---@field [43] "WEAPON_WAR_HAMMER"
+---@field WEAPON_MAUL 44
+---@field [44] "WEAPON_MAUL"
+---@field WEAPON_SPEAR 45
+---@field [45] "WEAPON_SPEAR"
+---@field AMMO_ARROW 46
+---@field [46] "AMMO_ARROW"
+---@field AMMO_BOLT 47
+---@field [47] "AMMO_BOLT"
+---@field AMMO_BLOWDART 48
+---@field [48] "AMMO_BLOWDART"
+---@field SHIELD_SHIELD 49
+---@field [49] "SHIELD_SHIELD"
+df.procedural_item_graphics_type = {}
+
 ---@alias df.item_statue_graphics_type_overall
 ---| 0 # SHAPE
 ---| 1 # ITEM
@@ -464,6 +616,7 @@ df.weapon_load_type = {}
 ---@field texpos_weapon_trap number
 ---@field texpos_upright number[][]
 ---@field graphics_info _itemdef_weaponst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_weaponst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1752,6 +1905,7 @@ df.armor_flags = {}
 ---@field flags _itemdef_armorst_flags
 ---@field texpos_item number
 ---@field graphics_info _itemdef_armorst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_armorst: DFCompoundType
 ---@field _kind 'class-type'
@@ -1895,6 +2049,7 @@ df.ammo_flags = {}
 ---@field texpos_wood_sw number
 ---@field texpos_wood_se number
 ---@field graphics_info _itemdef_ammost_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_ammost: DFCompoundType
 ---@field _kind 'class-type'
@@ -2125,6 +2280,7 @@ df.gloves_flags = {}
 ---@field props df.armor_properties
 ---@field texpos_item number
 ---@field graphics_info _itemdef_glovesst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_glovesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2223,6 +2379,7 @@ df.shoes_flags = {}
 ---@field texpos_item number
 ---@field texpos_item_metal number
 ---@field graphics_info _itemdef_shoesst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_shoesst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2312,6 +2469,7 @@ function df.item_shield_graphics_infost:new() end
 ---@field texpos_item number
 ---@field texpos_item_wooden number
 ---@field graphics_info _itemdef_shieldst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_shieldst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2387,6 +2545,7 @@ df.helm_flags = {}
 ---@field props df.armor_properties
 ---@field texpos_item number
 ---@field graphics_info _itemdef_helmst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_helmst: DFCompoundType
 ---@field _kind 'class-type'
@@ -2481,6 +2640,7 @@ df.pants_flags = {}
 ---@field props df.armor_properties
 ---@field texpos_item number
 ---@field graphics_info _itemdef_pantsst_graphics_info
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.itemdef_pantsst: DFCompoundType
 ---@field _kind 'class-type'

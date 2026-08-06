@@ -409,6 +409,9 @@ function creature_interaction_effect:clone() end
 function creature_interaction_effect:doAction(un, as, cis, adjusted_level, bp, tl, uw) end
 
 ---@return boolean
+function creature_interaction_effect:expected_to_be_bad() end
+
+---@return boolean
 function creature_interaction_effect:isUntargeted() end
 
 ---@return DFPointer<integer>

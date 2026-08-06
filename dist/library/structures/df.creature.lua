@@ -1399,6 +1399,7 @@ df.cgl_item_flag = {}
 ---@field max_qual number
 ---@field min_dam_level number
 ---@field max_dam_level number
+---@field procedural_item_graphics df.procedural_item_graphics_type
 
 ---@class identity.cgl_itemst: DFCompoundType
 ---@field _kind 'struct-type'

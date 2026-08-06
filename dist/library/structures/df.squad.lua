@@ -25,6 +25,7 @@
 ---| 19 # no_item
 ---| 20 # cannot_leave_site
 ---| 21 # location_no_longer_in_zone
+---| 22 # wrong_worker
 
 ---@class identity.squad_order_cannot_reason: DFEnumType
 ---@field NONE -1 bay12: CanFollowOrderType
@@ -73,6 +74,8 @@
 ---@field [20] "cannot_leave_site"
 ---@field location_no_longer_in_zone 21
 ---@field [21] "location_no_longer_in_zone"
+---@field wrong_worker 22
+---@field [22] "wrong_worker"
 df.squad_order_cannot_reason = {}
 
 -- Unused: squad_duty_order_specifierst

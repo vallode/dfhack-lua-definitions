@@ -2158,6 +2158,10 @@ function item:isStrappable() end
 ---@return boolean
 function item:hasWriting() end
 
+---@param pig df.procedural_item_graphics_type
+---@return boolean
+function item:has_procedural_item_graphics(pig) end
+
 
 ---@class identity.item: DFCompoundType
 ---@field _kind 'class-type'

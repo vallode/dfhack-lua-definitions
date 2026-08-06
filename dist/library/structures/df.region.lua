@@ -905,6 +905,7 @@ function df.world_landmass.get_vector() end
 ---@field filename_noext string
 ---@field full_path df.stl-fs-path
 ---@field is_portable boolean
+---@field timestamp df.stl-fs-filetime
 
 ---@class identity.region_headerst: DFCompoundType
 ---@field _kind 'struct-type'
