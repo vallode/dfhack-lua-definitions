@@ -763,6 +763,54 @@ function df.graphic_map_portst:new() end
 -- Skipped: VIEWPORT_FLOOR_FLAG_*
 -- Unused: VIEWPORT_WALL_FLAG_*
 -- Unused: GraphicsRampType
+---@alias df.viewport_spatter_flag_fire
+---| 1 # FRAME_1
+---| 2 # FRAME_2
+---| 3 # FRAME_4
+---| 4 # FRAME_3
+
+-- Unused: EdgingType
+-- Skipped: VIEWPORT_FLOOR_FLAG_*
+-- Unused: VIEWPORT_WALL_FLAG_*
+-- Unused: GraphicsRampType
+---@class identity.viewport_spatter_flag_fire: DFEnumType
+---@field FRAME_1 1 bay12: VIEWPORT_FLAG_SPATTER_FIRE_*
+---@field [1] "FRAME_1" bay12: VIEWPORT_FLAG_SPATTER_FIRE_*
+---@field FRAME_2 2
+---@field [2] "FRAME_2"
+---@field FRAME_4 3 not a typo
+---@field [3] "FRAME_4" not a typo
+---@field FRAME_3 4 not a typo
+---@field [4] "FRAME_3" not a typo
+df.viewport_spatter_flag_fire = {}
+
+---@class df.viewport_spatter_flag: DFBitfield
+---@field _enum identity.viewport_spatter_flag
+---@field shape_type boolean bay12: VIEWPORT_SPATTER_FLAG_*
+---@field [0] boolean bay12: VIEWPORT_SPATTER_FLAG_*
+---@field material_type boolean
+---@field [6] boolean
+---@field color_index_bits boolean
+---@field [11] boolean
+---@field [19] boolean unused
+---@field fire_frame_type boolean
+---@field [28] boolean
+---@field accepts_spatter boolean
+---@field [31] boolean
+
+---@class identity.viewport_spatter_flag: DFBitfieldType
+---@field shape_type 0 bay12: VIEWPORT_SPATTER_FLAG_*
+---@field [0] "shape_type" bay12: VIEWPORT_SPATTER_FLAG_*
+---@field material_type 6
+---@field [6] "material_type"
+---@field color_index_bits 11
+---@field [11] "color_index_bits"
+---@field fire_frame_type 28
+---@field [28] "fire_frame_type"
+---@field accepts_spatter 31
+---@field [31] "accepts_spatter"
+df.viewport_spatter_flag = {}
+
 -- Skipped: VIEWPORT_RAMP_FLAG_*
 -- Skipped: VIEWPORT_SHADOW_FLAG_*
 ---@class df.graphic_viewport_flag: DFBitfield
@@ -792,7 +840,7 @@ df.graphic_viewport_flag = {}
 ---@field screentexpos_floor_flag integer
 ---@field screentexpos_background_two number VIEWPORT_FLOOR_FLAG_*
 ---@field screentexpos_liquid_flag integer
----@field screentexpos_spatter_flag integer VIEWPORT_LIQUID_FLAG_*
+---@field screentexpos_spatter_flag df.viewport_spatter_flag VIEWPORT_LIQUID_FLAG_*
 ---@field screentexpos_spatter number VIEWPORT_SPATTER_FLAG_*
 ---@field screentexpos_ramp_flag integer
 ---@field screentexpos_shadow_flag integer VIEWPORT_RAMP_FLAG_*

@@ -505,16 +505,6 @@ df.ramp_graphics_infost = {}
 ---@return df.ramp_graphics_infost
 function df.ramp_graphics_infost:new() end
 
----@class df.viewport_spatter_flag: DFBitfield
----@field _enum identity.viewport_spatter_flag
----@field todo boolean TODO: defined in g_src/graphics.h
----@field [0] boolean TODO: defined in g_src/graphics.h
-
----@class identity.viewport_spatter_flag: DFBitfieldType
----@field todo 0 TODO: defined in g_src/graphics.h
----@field [0] "todo" TODO: defined in g_src/graphics.h
-df.viewport_spatter_flag = {}
-
 ---@class (exact) df.spatter_graphics_infost: DFStruct
 ---@field _type identity.spatter_graphics_infost
 ---@field flags number
