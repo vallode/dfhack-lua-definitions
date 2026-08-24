@@ -156,7 +156,7 @@ function projectile:checkImpact(goingoutofbounds) end
 function projectile:checkMovement() end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function projectile:read_file(filecomp, loadversion) end
 
 ---@param filecomp df.file_compressorst

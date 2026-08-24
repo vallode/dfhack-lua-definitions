@@ -114,7 +114,7 @@ function block_square_event:getType() end
 function block_square_event:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function block_square_event:read_file(filecomp, loadversion) end
 
 ---@return boolean
@@ -556,7 +556,7 @@ local cave_column
 function cave_column:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function cave_column:read_file(filecomp, loadversion) end
 
 
@@ -603,7 +603,7 @@ local cave_column_rectangle
 function cave_column_rectangle:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function cave_column_rectangle:read_file(filecomp, loadversion) end
 
 

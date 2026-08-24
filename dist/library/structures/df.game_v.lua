@@ -6,9 +6,9 @@
 ---@field musicsound df.musicsoundst
 ---@field adv_music_state df.adv_music_statest
 ---@field gview df.interfacest
----@field version df.save_version
----@field min_load_version df.save_version
----@field movie_version df.cmv_version
+---@field version number
+---@field min_load_version number
+---@field movie_version number
 ---@field flows df.flow_info
 ---@field timed_events df.timed_event
 ---@field jobvalue DFEnumVector<df.job_type, number>

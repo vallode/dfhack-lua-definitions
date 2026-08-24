@@ -573,7 +573,7 @@ function history_event:generate_xml(fseed, tabn) end
 function history_event:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function history_event:read_file(filecomp, loadversion) end
 
 function history_event:add_to_classes() end

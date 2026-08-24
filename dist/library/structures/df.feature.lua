@@ -130,7 +130,7 @@ function feature_alteration:getType() end
 function feature_alteration:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function feature_alteration:read_file(filecomp, loadversion) end
 
 
@@ -181,7 +181,7 @@ function feature:getType() end
 function feature:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function feature:read_file(filecomp, loadversion) end
 
 ---@param shiftx number
@@ -363,7 +363,7 @@ function feature_init:getType() end
 function feature_init:write_file(filecomp, active_game) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 ---@param active_game boolean
 function feature_init:read_file(filecomp, loadversion, active_game) end
 

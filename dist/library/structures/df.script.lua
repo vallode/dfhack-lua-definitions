@@ -27,7 +27,7 @@ function active_script_varst:removeUnit(ref) end
 function active_script_varst:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function active_script_varst:read_file(filecomp, loadversion) end
 
 

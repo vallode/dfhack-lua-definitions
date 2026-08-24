@@ -61,7 +61,7 @@ function interaction_source:getType() end
 function interaction_source:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function interaction_source:read_file(filecomp, loadversion) end
 
 ---@param token string
@@ -390,7 +390,7 @@ function interaction_target:getType() end
 function interaction_target:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function interaction_target:read_file(filecomp, loadversion) end
 
 ---@param token string
@@ -609,7 +609,7 @@ function interaction_effect:getType() end
 function interaction_effect:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function interaction_effect:read_file(filecomp, loadversion) end
 
 ---@param un df.unit

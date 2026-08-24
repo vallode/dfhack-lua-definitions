@@ -106,7 +106,7 @@ function squad_order:clone() end
 function squad_order:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function squad_order:read_file(filecomp, loadversion) end
 
 ---@return df.squad_order_type

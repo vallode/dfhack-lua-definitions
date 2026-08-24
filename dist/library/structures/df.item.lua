@@ -751,7 +751,7 @@ function itemimprovement:clone() end
 function itemimprovement:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function itemimprovement:read_file(filecomp, loadversion) end
 
 ---@return df.improvement_type
@@ -1782,7 +1782,7 @@ function item:contaminateWound(un, wnd, div, wbp) end
 function item:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function item:read_file(filecomp, loadversion) end
 
 ---@return DFPointer<integer>

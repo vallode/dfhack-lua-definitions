@@ -33,7 +33,7 @@ function creation_zone_pwg_alterationst:getType() end
 function creation_zone_pwg_alterationst:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function creation_zone_pwg_alterationst:read_file(filecomp, loadversion) end
 
 ---@param map DFPointer<integer> map_generatorst

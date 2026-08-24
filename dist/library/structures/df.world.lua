@@ -1315,7 +1315,7 @@ df.world_flags = {}
 ---@field flow_engine df.world.T_flow_engine
 ---@field building_uses df.building_use_controllerst
 ---@field flags _world_flags
----@field original_save_version df.save_version DF version on which the world was first created
+---@field original_save_version number DF version on which the world was first created
 ---@field worldgen df.world.T_worldgen
 ---@field history_rng df.hash_rngst
 ---@field history df.world_history

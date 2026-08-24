@@ -322,7 +322,7 @@ function abstract_building:getContents() end
 function abstract_building:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function abstract_building:read_file(filecomp, loadversion) end
 
 ---@return number

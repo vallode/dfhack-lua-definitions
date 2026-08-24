@@ -248,7 +248,7 @@ function activity_event:getType() end
 function activity_event:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function activity_event:read_file(filecomp, loadversion) end
 
 ---@return boolean
@@ -1664,7 +1664,7 @@ local performance_play_orderst
 function performance_play_orderst:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function performance_play_orderst:read_file(filecomp, loadversion) end
 
 

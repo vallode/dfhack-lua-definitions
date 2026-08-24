@@ -139,7 +139,7 @@ function flow_guide:shiftCoords(shiftx, shifty, shiftz) end
 function flow_guide:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function flow_guide:read_file(filecomp, loadversion) end
 
 ---@param ef df.flow_info

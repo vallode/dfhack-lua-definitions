@@ -2086,7 +2086,7 @@ function histfig_entity_link:getType() end
 function histfig_entity_link:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function histfig_entity_link:read_file(filecomp, loadversion) end
 
 ---@return number
@@ -2322,7 +2322,7 @@ function histfig_site_link:getType() end
 function histfig_site_link:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function histfig_site_link:read_file(filecomp, loadversion) end
 
 ---@param fseed lightuserdata
@@ -2452,7 +2452,7 @@ function histfig_hf_link:getType() end
 function histfig_hf_link:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function histfig_hf_link:read_file(filecomp, loadversion) end
 
 ---@param fseed lightuserdata

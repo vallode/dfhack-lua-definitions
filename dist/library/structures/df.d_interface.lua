@@ -14041,7 +14041,7 @@ df.adopt_region_stage_type = {}
 ---@field _type identity.viewscreen_adopt_regionst
 ---@field compressor df.file_compressorst
 ---@field cur_step df.adopt_region_stage_type
----@field save_version df.save_version
+---@field save_version number
 ---@field cur_save df.region_headerst
 ---@field rod df.region_object_datast
 ---@field progress number 0..35

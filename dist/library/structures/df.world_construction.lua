@@ -38,7 +38,7 @@ function world_construction_square:getType() end
 function world_construction_square:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function world_construction_square:read_file(filecomp, loadversion) end
 
 
@@ -146,7 +146,7 @@ function world_construction:getName() end
 function world_construction:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function world_construction:read_file(filecomp, loadversion) end
 
 

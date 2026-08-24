@@ -10,7 +10,7 @@ local art_image_element
 function art_image_element:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function art_image_element:read_file(filecomp, loadversion) end
 
 ---@return df.art_image_element_type
@@ -140,7 +140,7 @@ local art_image_property
 function art_image_property:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function art_image_property:read_file(filecomp, loadversion) end
 
 ---@return df.art_image_property_type

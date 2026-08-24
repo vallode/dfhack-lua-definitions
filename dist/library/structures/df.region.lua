@@ -1425,7 +1425,7 @@ function region_block_eventst:getType() end
 function region_block_eventst:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function region_block_eventst:read_file(filecomp, loadversion) end
 
 ---@return boolean

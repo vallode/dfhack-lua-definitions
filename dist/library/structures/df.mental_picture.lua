@@ -30,7 +30,7 @@ function mental_picture_elementst:getType() end
 function mental_picture_elementst:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function mental_picture_elementst:read_file(filecomp, loadversion) end
 
 
@@ -121,7 +121,7 @@ function mental_picture_propertyst:getType() end
 function mental_picture_propertyst:write_file(filecomp) end
 
 ---@param filecomp df.file_compressorst
----@param loadversion df.save_version
+---@param loadversion number
 function mental_picture_propertyst:read_file(filecomp, loadversion) end
 
 
