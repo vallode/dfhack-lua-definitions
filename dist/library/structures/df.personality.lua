@@ -1712,8 +1712,35 @@ df.personality_needst = {}
 ---@return df.personality_needst
 function df.personality_needst:new() end
 
--- Unused: CIRCUMSTANCE_FLAG_*
--- Unused: circumstancest
+---@class df.circumstance_flag: DFBitfield
+---@field _enum identity.circumstance_flag
+---@field HAPPENED_IN_PAST boolean bay12: CIRCUMSTANCE_FLAG_*
+---@field [0] boolean bay12: CIRCUMSTANCE_FLAG_*
+
+---@class identity.circumstance_flag: DFBitfieldType
+---@field HAPPENED_IN_PAST 0 bay12: CIRCUMSTANCE_FLAG_*
+---@field [0] "HAPPENED_IN_PAST" bay12: CIRCUMSTANCE_FLAG_*
+df.circumstance_flag = {}
+
+-- not used by DFHack, included for disassembly
+---@class (exact) df.circumstancest: DFStruct
+---@field _type identity.circumstancest
+---@field type df.unit_thought_type
+---@field id number
+---@field value number
+---@field simple_care_eval number
+---@field flag df.circumstance_flag
+---@field ptr DFPointer<integer> unioned with incidentst *in_ptr
+---@field soul df.unit_soul
+---@field experiencer_hf df.historical_figure
+
+---@class identity.circumstancest: DFCompoundType
+---@field _kind 'struct-type'
+df.circumstancest = {}
+
+---@return df.circumstancest
+function df.circumstancest:new() end
+
 ---@class (exact) df.soul_personality_changest: DFStruct
 ---@field _type identity.soul_personality_changest
 ---@field traits DFEnumVector<df.personality_facet_type, number>

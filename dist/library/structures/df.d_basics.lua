@@ -3849,7 +3849,6 @@ df.unit_action_type._attr_entry_type = {}
 df.unit_action_type._attr_entry_type._fields = {}
 
 ---@class unit_action_type_attrs
----@field None { tag: "raw_data" }
 ---@field Move { tag: "move", group: "All" }
 ---@field Attack { tag: "attack", group: "All" }
 ---@field Jump { tag: "jump", group: "All" }

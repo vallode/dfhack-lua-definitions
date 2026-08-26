@@ -2721,7 +2721,6 @@ function df.unit_action:new() end
 
 ---@class (exact) df.unit_action.T_data: DFStruct
 ---@field _type identity.unit_action.data
----@field raw_data number[]
 ---@field move df.unit_action_data_move
 ---@field job df.unit_action_data_job
 ---@field jobrecover df.unit_action_data_job_recover
