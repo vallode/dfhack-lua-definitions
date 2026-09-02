@@ -41,6 +41,10 @@ function dfhack.maps.getTileType(x, y, z) end
 ---@return df.region_map_entry
 function dfhack.maps.getRegionBiome(rgn_pos) end
 
+---@param pos df.coord
+---@return df.weather_type
+function dfhack.maps.getCurrentWeather(pos) end
+
 ---@param x number
 ---@param y number
 ---@param z number

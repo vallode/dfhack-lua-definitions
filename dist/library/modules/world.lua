@@ -22,7 +22,7 @@ function dfhack.world.ReadCurrentMonth() end
 ---@return integer
 function dfhack.world.ReadCurrentDay() end
 
----@return integer
+---@return df.weather_type
 function dfhack.world.ReadCurrentWeather() end
 
 ---@param weather integer
