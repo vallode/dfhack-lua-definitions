@@ -64,6 +64,10 @@ function dfhack.units.getProfessionName(hf, ignore_noble, plural, land_title) en
 ---@return number
 function dfhack.units.getFocusPenalty(unit, need_types) end
 
+---@param u df.unit
+---@return integer
+function dfhack.units.getBreathingState(u) end
+
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isActive(unit) end
@@ -270,6 +274,10 @@ function dfhack.units.isOpposedToLife(unit) end
 ---@param unit df.unit
 ---@return boolean
 function dfhack.units.isBloodsucker(unit) end
+
+---@param unit df.unit
+---@return boolean
+function dfhack.units.breathes(unit) end
 
 ---@param unit df.unit
 ---@return boolean
