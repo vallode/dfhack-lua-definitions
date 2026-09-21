@@ -8,4 +8,10 @@ local quickfix
 -- called from onLoad.default.init
 function quickfix.set_entity_race_references() end
 
+-- on reclaimed fortresses DF fails to assign plotinfo.site_id until the
+-- first save, breaking anything that needs the site id; fortress_site is
+-- set at embark, so restore the invariant from it
+-- called from onMapLoad.default.init
+function quickfix.repair_site_id() end
+
 return quickfix

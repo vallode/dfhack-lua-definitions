@@ -22,6 +22,13 @@ function buildingplan.parse_commandline(...) end
 
 function buildingplan.is_suspendmanager_enabled() end
 
+-- The flag lives on the job, which exists as soon as the building is
+-- designated, so it can be set before the job is unsuspended and it persists
+-- with the save like any other job flag.
+function buildingplan.setDoNow(bld, val) end
+
+function buildingplan.getDoNow(bld) end
+
 function buildingplan.get_num_filters(btype, subtype, custom) end
 
 function buildingplan.get_job_item(btype, subtype, custom, index) end
