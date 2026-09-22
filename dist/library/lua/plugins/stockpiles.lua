@@ -5,6 +5,7 @@
 ---@field ConfigModal stockpiles.ConfigModal
 ---@field MinimizeButton stockpiles.MinimizeButton
 ---@field StockpilesOverlay stockpiles.StockpilesOverlay
+---@field HaulingOverlay stockpiles.HaulingOverlay
 local stockpiles
 
 --------------------
@@ -61,6 +62,14 @@ function StockpilesOverlay:toggleMinimized() end
 
 function StockpilesOverlay:onInput(keys) end
 
-OVERLAY_WIDGETS = {overlay=StockpilesOverlay}
+--------------------
+-- HaulingOverlay
+--------------------
+
+local HaulingOverlay
+
+function HaulingOverlay:init() end
+
+OVERLAY_WIDGETS = {overlay=StockpilesOverlay, hauling=HaulingOverlay}
 
 return stockpiles

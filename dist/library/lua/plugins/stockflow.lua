@@ -2,6 +2,7 @@
 ---@meta plugins.stockflow
 
 ---@class stockflow
+---@field StockflowOverlay stockflow.StockflowOverlay
 local stockflow
 
 reaction_list = reaction_list or {}
@@ -20,12 +21,6 @@ triggers = {
     {name = "Never"},
 }
 
-entry_ints = {
-    stockpile_id = 1,
-    order_number = 2,
-    trigger_number = 3,
-}
-
 FirstRow = 3
 CenterCol = 38
 ExtraLines = 9
@@ -38,16 +33,16 @@ function stockflow.initialize_world() end
 -- Called when a world is loaded, or when the plugin is disabled.
 function stockflow.clear_caches() end
 
-function stockflow.trigger_name(cache) end
+function stockflow.trigger_name(spec) end
 
 function stockflow.list_orders() end
 
--- Save the stockpile jobs for later creation.
--- Called when the bookkeeper starts updating stockpile records.
+-- Gather the stockpile jobs for later creation.
+-- Called at the start of each periodic update.
 function stockflow.start_bookkeeping() end
 
--- Insert any saved jobs.
--- Called when the bookkeeper finishes updating stockpile records.
+-- Insert the gathered jobs.
+-- Called at the end of each periodic update.
 function stockflow.finish_bookkeeping() end
 
 function stockflow.stockpile_settings(sp) end
@@ -105,5 +100,15 @@ function stockflow.check_stockpiles(verbose) end
 function stockflow.check_pile(sp, verbose) end
 
 function stockflow.matches_stockpile(item, settings) end
+
+--------------------
+-- Overlay
+--------------------
+
+local StockflowOverlay
+
+function StockflowOverlay:init() end
+
+OVERLAY_WIDGETS = {stockflow=StockflowOverlay}
 
 return stockflow

@@ -96,6 +96,10 @@ function dfhack.maps.addMaterialSpatter(pos, mat, matg, state, amount) end
 ---@return number
 function dfhack.maps.addItemSpatter(pos, i_type, i_subtype, i_subcat1, i_subcat2, print_variant, amount) end
 
+---@param actions unknown
+---@return unknown
+function dfhack.maps.forEachTile(actions) end
+
 ---@param bm df.tile_bitmask
 ---@return boolean
 function dfhack.maps.hasTileAssignment(bm) end
