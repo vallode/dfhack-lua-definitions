@@ -3944,7 +3944,7 @@ function _abstractitemlistst_expanded:insert(index, item) end
 function _abstractitemlistst_expanded:erase(index) end
 
 -- Unused: ItemSaveCompat
--- Helper type for item_handlerst
+-- Helper type for item_handlerst, not actually from bay12
 ---@alias df.items_other_id
 ---| -1 # ANY
 ---| 0 # IN_PLAY
@@ -4084,7 +4084,7 @@ function _abstractitemlistst_expanded:erase(index) end
 ---| 134 # ANY_MELT_DESIGNATED
 
 -- Unused: ItemSaveCompat
--- Helper type for item_handlerst
+-- Helper type for item_handlerst, not actually from bay12
 ---@class identity.items_other_id: DFEnumType
 ---@field ANY -1
 ---@field [-1] "ANY"
@@ -4393,7 +4393,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field BOULDER { item: "BOULDER" }
 ---@field ROCK { item: "ROCK" }
 ---@field ANY_REFUSE { item: "NONE", generic_item: "CORPSE" }
----@field ANY_GOOD_FOOD { item: "NONE", generic_item: "BOX" }
+---@field ANY_GOOD_FOOD { item: "NONE", generic_item: "BAG" }
 ---@field ANY_AUTO_CLEAN { item: "NONE", generic_item: "DRINK" }
 ---@field ANY_EXTRACTABLE { item: "NONE", generic_item: "CAGE" }
 ---@field ANY_BUTCHERABLE { item: "NONE", generic_item: "CAGE" }
@@ -4402,7 +4402,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANY_EDIBLE_RAW { item: "NONE" }
 ---@field ANY_EDIBLE_CARNIVORE { item: "NONE" }
 ---@field ANY_EDIBLE_BONECARN { item: "NONE" }
----@field ANY_EDIBLE_VERMIN { item: "NONE" }
+---@field ANY_EDIBLE_VERMIN { item: "NONE", generic_item: "SEEDS" }
 ---@field ANY_EDIBLE_VERMIN_BOX { item: "NONE", generic_item: "BARREL" }
 ---@field ANY_CAN_ROT { item: "NONE", generic_item: "CORPSE" }
 ---@field ANY_MURDERED { item: "NONE", generic_item: "CORPSE" }
@@ -4457,7 +4457,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field LIQUID_MISC { item: "LIQUID_MISC" }
 ---@field POWDER_MISC { item: "POWDER_MISC" }
 ---@field ANY_COOKABLE { item: "NONE", generic_item: "FLASK" }
----@field ANY_GLASSABLE { item: "NONE", generic_item: "BOX" }
+---@field ANY_GLASSABLE { item: "NONE", generic_item: "BAG" }
 ---@field VERMIN { item: "NONE", generic_item: "VERMIN" }
 ---@field PET { item: "NONE", generic_item: "PET" }
 ---@field ANY_CRITTER { item: "NONE", generic_item: "VERMIN" }
@@ -4508,7 +4508,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field ANY_MELT_DESIGNATED { item: "NONE" }
 df.items_other_id.attrs = {}
 
--- Helper type for item_handlerst
+-- Helper type for item_handlerst, not actually from bay12
 ---@class (exact) df.items_other: DFStruct
 ---@field _type identity.items_other
 ---@field IN_PLAY _items_other_IN_PLAY
