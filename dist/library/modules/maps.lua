@@ -2,6 +2,9 @@
 ---@meta
 
 ---@class dfhack.maps
+---@field getTileBlockCoord function
+---@field getBlockOrigin function
+---@field getTileBlockOffset function
 ---@field getTileFlags function
 ---@field getTileBiomeRgn function
 ---@field getBiomeType function
