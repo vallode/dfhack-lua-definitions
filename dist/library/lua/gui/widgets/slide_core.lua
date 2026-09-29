@@ -3,31 +3,33 @@
 
 
 --------------------------------
--- slide_core
+-- _SliderCore
 --------------------------------
 
----@class widgets.slide_core.attrs: widgets.Widget.attrs
+---@class widgets._SliderCore.attrs: widgets.Widget.attrs
 ---@field num_stops integer
 ---@field is_single boolean
 ---@field w integer
 
----@class widgets.slide_core.attrs.partial: widgets.slide_core.attrs
+---@class widgets._SliderCore.attrs.partial: widgets._SliderCore.attrs
 
----@class widgets.slide_core.initTable: widgets.slide_core.attrs
+---@class widgets._SliderCore.initTable: widgets._SliderCore.attrs
 ---@field num_stops integer
 
----@class widgets.slide_core: widgets.Widget, widgets.slide_core.attrs
+---@class widgets._SliderCore: widgets.Widget, widgets._SliderCore.attrs
 ---@field super widgets.Widget
----@field ATTRS widgets.slide_core.attrs|fun(attributes: widgets.slide_core.attrs.partial)
----@overload fun(init_table: widgets.slide_core.initTable): self
-local slide_core
+---@field ATTRS widgets._SliderCore.attrs|fun(attributes: widgets._SliderCore.attrs.partial)
+---@overload fun(init_table: widgets._SliderCore.initTable): self
+local _SliderCore
 
-function slide_core:preinit(init_table) end
+function _SliderCore:preinit(init_table) end
 
-function slide_core:init() end
+function _SliderCore:init() end
 
-function slide_core:get_min_stops() end
+function _SliderCore:get_min_stops() end
 
-function slide_core:onRenderBody(dc, rect) end
+function _SliderCore:clamp_idx(idx) end
 
-return slide_core
+function _SliderCore:onRenderBody(dc, rect) end
+
+return _SliderCore

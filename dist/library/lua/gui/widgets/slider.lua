@@ -16,8 +16,8 @@
 ---@class widgets.Slider.initTable: widgets.Slider.attrs
 ---@field num_stops integer
 
----@class widgets.Slider: widgets.Widget, widgets.Slider.attrs
----@field super widgets.Widget
+---@class widgets.Slider: widgets._SliderCore, widgets.Slider.attrs
+---@field super widgets._SliderCore
 ---@field ATTRS widgets.Slider.attrs|fun(attributes: widgets.Slider.attrs.partial)
 ---@overload fun(init_table: widgets.Slider.initTable): self
 local Slider

@@ -18,8 +18,8 @@
 ---@class widgets.RangeSlider.initTable: widgets.RangeSlider.attrs
 ---@field num_stops integer
 
----@class widgets.RangeSlider: widgets.Widget, widgets.RangeSlider.attrs
----@field super widgets.Widget
+---@class widgets.RangeSlider: widgets._SliderCore, widgets.RangeSlider.attrs
+---@field super widgets._SliderCore
 ---@field ATTRS widgets.RangeSlider.attrs|fun(attributes: widgets.RangeSlider.attrs.partial)
 ---@overload fun(init_table: widgets.RangeSlider.initTable): self
 local RangeSlider
