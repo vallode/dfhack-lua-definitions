@@ -163,6 +163,7 @@ function df.music_datast:new() end
 ---@field total_plays number[]
 ---@field play_history number[]
 ---@field neutral_card_history number[]
+---@field environment_active df.dfaudio_environment_state
 ---@field ambience_active number
 ---@field ambience_fading number
 ---@field ambience_active_channel number

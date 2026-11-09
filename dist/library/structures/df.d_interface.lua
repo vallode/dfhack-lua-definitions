@@ -41,6 +41,9 @@ function world_gen_param_basest:decrease() end
 
 function world_gen_param_basest:increase() end
 
+---@return boolean
+function world_gen_param_basest:is_on() end
+
 
 ---@class identity.world_gen_param_basest: DFCompoundType
 ---@field _kind 'class-type'

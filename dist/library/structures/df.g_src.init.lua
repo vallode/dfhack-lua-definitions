@@ -157,10 +157,12 @@ df.init_media_flags = {}
 ---@field volume_music_fort number
 ---@field volume_ambience_fort number
 ---@field volume_sfx_fort number
+---@field volume_ui_fort number
 ---@field time_between_songs_fort number
 ---@field volume_music_adv number
 ---@field volume_ambience_adv number
 ---@field volume_sfx_adv number
+---@field volume_ui_adv number
 ---@field title_music_str string
 
 ---@class identity.init_media: DFCompoundType
